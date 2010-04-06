@@ -26,6 +26,8 @@ While it is not absolutely necessary, you might want to enable the Fedora 12 'Up
 
 none, and choose "Customize now"...
 
+[![](http://www.qubes-os.org/files/screenshots/release-1-alpha-1/installation-software-selection.png "http://www.qubes-os.org/files/screenshots/release-1-alpha-1/installation-software-selection.png")](http://www.qubes-os.org/files/screenshots/release-1-alpha-1/installation-software-selection.png)
+
 1.  ...in the next screen choose only the following groups of packages:
 
 (i.e. uncheck all the other groups)
