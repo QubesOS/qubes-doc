@@ -24,7 +24,7 @@ git clone git://qubes-os.org/mainstream/<repo_name>.git <repo_name>
 e.g.:
 
 ``` {.wiki}
-git clone git://qubes-os.org/mainstream/core.git core.git
+git clone git://qubes-os.org/mainstream/core.git core
 ```
 
 Currently the preferred way of contributing to the project is by sending a patch via the project's mailing list (`git format-patch`).
