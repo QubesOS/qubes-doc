@@ -90,7 +90,10 @@ NOTE: Before rebooting you might consider changing the `timeout=` line in your `
 
 If you can't get your X Window System working at this time, it suggests your graphics card driver is incompatible with Xen, which is a polite way of saying that the driver is most likely broken, as any decently written driver should be Xen compatible (when used in Dom0). The Xen mailing list might be a proper place to report the problem, but we would also be interested in learning about ~~broken~~ Xen-incompatible cards, so please also copy your report to the Qubes mailing list.
 
-NOTE: If you have an NVidia graphics card, read the [NVidia Troubleshooting Guide](/wiki/NvidiaTroubleshooting)
+NOTE:
+
+-   If you have an NVidia graphics card, read the [NVidia Troubleshooting Guide](/wiki/NvidiaTroubleshooting)
+-   If you have ATI/Radeon you might want to check this [​thread](http://groups.google.com/group/qubes-devel/browse_thread/thread/d63f673d6286387e#) at qubes-devel.
 
 III. Installing Qubes
 ---------------------
