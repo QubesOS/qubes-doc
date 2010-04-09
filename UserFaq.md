@@ -20,3 +20,7 @@ Yes. Xen doesn't use VT-x (not AMD-v) for PV guests virtualization (it uses ring
 Yes you can. You can even run a netvm but, of course, you will not benefit from DMA protection for driver domains. So, on a system without VT-d, everything should work the same, but there is no real security benefit of having a separate netvm, as the attacker can always use a simple DMA attack to go from netvm to Dom0.
 
 The above is in theory -- in practice, if you have a broken network card driver and try to run it in a netvm on a system without VT-d, it might crash your system. This might happen e.g. if the driver is not properly using DMA-API.
+
+### Q: Can I install Qubes in a Virtual Machine, e.g. on VMWare?
+
+Most likely no. You should install it on bare-metal. Hey, it uses its own bare-metal hypervisor, after all...
