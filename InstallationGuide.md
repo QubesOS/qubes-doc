@@ -7,6 +7,8 @@ permalink: /wiki/InstallationGuide/
 Installation Guide (for Release 1 Alpha 1)
 ==========================================
 
+**NOTE:** You can only install Qubes on a **64-bit** CPU! (most recent laptops have 64-bit CPUs)
+
 **NOTE:** Do not try to install Qubes in a VM, e.g. VMWare. Qubes has its own bare-metal hypervisor, and, as the name suggests, it should be installed on a bare-metal, not in some VM. Even if you somehow succeed installing it inside some other VMM system, you will likely get horrible performance and perhaps even some strange crashes, caused by the outer VMM, that is obviously not prepared for running a nested hypervisor in its VMs.
 
 At this stage we don't have a standalone automatic installer, so the installation process is currently a bit complicated and requires some knowledge of Linux. The installation consists of a few stages that are described in detail below...
