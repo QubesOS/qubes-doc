@@ -90,7 +90,7 @@ yum install kernel-qubes-dom0
 
 System still works fine.
 
-NOTE: Before rebooting you might consider changing the `timeout=` line in your `/boot/grub.conf` file to something like `3` to give you some time to choose a filesafe boot in GRUB menu in case your normal boot would not work.
+NOTE: Before rebooting you might consider changing the `timeout=` line in your `/boot/grub/grub.conf` file to something like `3` to give you some time to choose a filesafe boot in GRUB menu in case your normal boot would not work.
 
 If you can't get your X Window System working at this time, it suggests your graphics card driver is incompatible with Xen, which is a polite way of saying that the driver is most likely broken, as any decently written driver should be Xen compatible (when used in Dom0). The Xen mailing list might be a proper place to report the problem, but we would also be interested in learning about ~~broken~~ Xen-incompatible cards, so please also copy your report to the Qubes mailing list.
 
@@ -178,7 +178,7 @@ V. Switching to NetVM
     /etc/init.d/qubes_netvm start
     ```
 
-1.  Add `iommu=pv` option to Xen boot argument by editing the `/boot/grub.conf` file. Reboot.
+1.  Add `iommu=pv` option to Xen boot argument by editing the `/boot/grub/grub.conf` file. Reboot.
 
 1.  Verify that Xen uses IOMMU/VT-d indeed by looking into `xm dmesg` output
 
