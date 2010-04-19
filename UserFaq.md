@@ -32,3 +32,23 @@ As currently Qubes do not have its own installer, we need to rely on some other 
 ### Q: Do you plan to "port" Qubes to other Linux distros?
 
 Absolutely no. The plan for the near future (see the [Roadmap](https://www.qubes-os.org/trac/roadmap)) is to create a custom (and very simple to use) Qubes installer that would automatically take care about installing the minimal Dom0 system, all the Qubes packages in Dom0, and also the Qubes template and service VMs images. In other words Qubes will evolve into a true standalone system, not based on any specific Linux distribution (well, we still will probably use Fedora RPMs for most of the packages and probably the Anaconda installer, but this will be hidden from the user).
+
+### Q: What is the recommended way update the template VM?
+
+Shutdown all the running AppVMs that are based on this template (normally all your AppVMs are based on the same template):
+
+``` {.wiki}
+qvm-run --shutdown --wait --all --exclude netvm
+```
+
+(In the comming weeks we will provide a graphical VM manager where you will be able to do the above with just one or two mouse clicks :)
+
+Next, start either console, e.g. Konsole, or KPackageKit application in your Template VM (normally it's called "linux-x64"), using the KDE menu, and proceed with the updates. If you use console then you will want to use yum (you must switch to root), e.g.:
+
+``` {.wiki}
+yum update
+```
+
+If you chose KPackageKit, then you should be able to update using just your mouse.
+
+Once the Template VM got update, shut it down, and then any AppVM you start will already be using update software.
