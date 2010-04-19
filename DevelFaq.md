@@ -19,3 +19,6 @@ There are very few things that are KDE-specific and thus it should not be a big 
 
 -   We're planning to patch the KDE's Window Manager (KWin) to draw window decorations in the color of the specific AppVM's label. Currently we draw frames in the [AppViewers?](/wiki/AppViewers), but it would be a better user experience to also see the title bars having the color of the VM's label. Most likely this should also be possible to be done on GNOME's Window Manager too, but as we have very litmited resources, we are forced to pick only one Window Manager, and we decided to pick KDE (just because we like it). If somebody were willing to send the code for GNOME, we would be more that happy to incorporate it into mainstream repo.
 
+### Q: What is the recommended build environment?
+
+Fedora 12 Linux, 64-bit, with most of the regular development packages installed.
