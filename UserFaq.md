@@ -52,3 +52,9 @@ yum update
 If you chose KPackageKit, then you should be able to update using just your mouse.
 
 Once the Template VM got update, shut it down, and then any AppVM you start will already be using update software.
+
+### Q: What is the root and user password for TemplateVM/AppVM?
+
+-   ```user/userpass```
+-   ```root/rootpass```
+
