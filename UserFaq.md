@@ -24,3 +24,11 @@ The above is in theory -- in practice, if you have a broken network card driver 
 ### Q: Can I install Qubes in a Virtual Machine, e.g. on VMWare?
 
 Most likely no. You should install it on bare-metal. Hey, it uses its own bare-metal hypervisor, after all...
+
+### Q: Why is Fedora 12 "strongly" recommended as dom0?
+
+As currently Qubes do not have its own installer, we need to rely on some other Linux distribution to bring all the software needed in Dom0. We made a more-or-less arbitrary decision to choose Fedora 12 as a base for our Dom0 and we have prepared all the RPMs and tested them with the assumption that the user has installed Dom0 based on F12 according to the specific instructions we gave in the [Installation Guide](/wiki/InstallationGuide). Qubes would most likely run on other RPM-based Linux distributions, although we have never tested it, and we'd rather focus our resources on implementing other Qubes features, than on testing other distros for Dom0 support. Especially that we plan to write custom installer for Qubes anyway -- see the next question.
+
+### Q: Do you plan to "port" Qubes to other Linux distros?
+
+Absolutely no. The plan for the near future (see the [Roadmap](https://www.qubes-os.org/trac/roadmap)) is to create a custom (and very simple to use) Qubes installer that would automatically take care about installing the minimal Dom0 system, all the Qubes packages in Dom0, and also the Qubes template and service VMs images. In other words Qubes will evolve into a true standalone system, not based on any specific Linux distribution (well, we still will probably use Fedora RPMs for most of the packages and probably the Anaconda installer, but this will be hidden from the user).
