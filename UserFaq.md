@@ -58,3 +58,4 @@ Once the Template VM got update, shut it down, and then any AppVM you start will
 -   ```user/userpass```
 -   ```root/rootpass```
 
+**NOTE:** This will be changed in the next Alpha (see the ticket:24)
