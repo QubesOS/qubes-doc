@@ -22,3 +22,7 @@ There are very few things that are KDE-specific and thus it should not be a big 
 ### Q: What is the recommended build environment?
 
 Fedora 12 Linux, 64-bit, with most of the regular development packages installed.
+
+### Q: How to build Qubes from sources?
+
+See [​this message](https://groups.google.com/group/qubes-devel/browse_thread/thread/710f725713cc7e8a#).
