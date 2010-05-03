@@ -73,3 +73,9 @@ No. In order to really built a secure OS, we need to control the whole system, e
 ### Q: But wouldn't it be cool to use some hardened distro as Dom0?
 
 The main idea behind Qubes architecture is to have Dom0 isolated from the outside world, so there is little point in further hardening it via e.g. grsecurity, etc.
+
+### Q: Perhaps it would make sense then to have a template VM based on some hardened distro?
+
+Yup, that would make sense indeed. Feel free to build one -- you can use the template\_builder:
+
+[​http://qubes-os.org/gitweb/?p=mainstream/template-builder.git;a=tree](http://qubes-os.org/gitweb/?p=mainstream/template-builder.git;a=tree)
