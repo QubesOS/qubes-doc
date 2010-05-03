@@ -65,3 +65,11 @@ Once the Template VM got update, shut it down, and then any AppVM you start will
 No, Qubes does not pretend to be a multi-user system. Qubes assumes that the user that controls Dom0, controls the whole system. It will be very difficult to **securely** implement multi-user support -- see this message:
 
 [​https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06](https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06)
+
+### Q: Do you plan to distribute Qubes as an "addon" to other Linux distros?
+
+No. In order to really built a secure OS, we need to control the whole system, e.g. what packages are installed in Dom0, how is network configured there (i.e. that there will be \*no\* networking there), etc. The best way to achieve this is to have a standalone OS (or distro as you call it), not an add-on to some other distro.
+
+### Q: But wouldn't it be cool to use some hardened distro as Dom0?
+
+The main idea behind Qubes architecture is to have Dom0 isolated from the outside world, so there is little point in further hardening it via e.g. grsecurity, etc.
