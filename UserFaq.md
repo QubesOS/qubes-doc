@@ -59,3 +59,9 @@ Once the Template VM got update, shut it down, and then any AppVM you start will
 -   ```root/rootpass```
 
 **NOTE:** This will be changed in the next Alpha (see the ticket:24)
+
+### Q: Is Qubes a multi-user system?
+
+No, Qubes does not pretend to be a multi-user system. Qubes assumes that the user that controls Dom0, controls the whole system. It will be very difficult to **securely** implement multi-user support -- see this message:
+
+[​https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06](https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06)
