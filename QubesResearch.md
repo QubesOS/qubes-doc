@@ -9,8 +9,8 @@ Here are some links to various papers/research projects that somehow relate to Q
 ### Attacks on Intel TXT
 
 -   [​Attacking Intel® Trusted Execution Technology](http://invisiblethingslab.com/resources/bh09dc/Attacking%20Intel%20TXT%20-%20paper.pdf) by Rafal Wojtczuk, Joanna Rutkowska
+-   [​ACPI: Design Principles and Concerns](http://www.ssi.gouv.fr/IMG/pdf/article_acpi.pdf) by Loic Duflot, Olivier Levillain, and Benjamin Morin
 -   [​Another Way to Circumvent Intel® Trusted Execution Technology](http://invisiblethingslab.com/resources/misc09/Another%20TXT%20Attack.pdf) by Rafal Wojtczuk, Joanna Rutkowska, Alex Tereshkin
--   Loic paper on ACPI-based rootkits and TXT attacking (anybody got a link?)
 
 ### Software attacks coming through devices
 
