@@ -21,6 +21,12 @@ Yes you can. You can even run a netvm but, of course, you will not benefit from 
 
 The above is in theory -- in practice, if you have a broken network card driver and try to run it in a netvm on a system without VT-d, it might crash your system. This might happen e.g. if the driver is not properly using DMA-API.
 
+### Q: Can I use AMD-v instead of VT-x?
+
+See this message:
+
+[​http://groups.google.com/group/qubes-devel/msg/6412170cfbcb4cc5](http://groups.google.com/group/qubes-devel/msg/6412170cfbcb4cc5)
+
 ### Q: Can I install Qubes in a Virtual Machine, e.g. on VMWare?
 
 Most likely no. You should install it on bare-metal. Hey, it uses its own bare-metal hypervisor, after all...
