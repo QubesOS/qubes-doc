@@ -20,5 +20,6 @@ Here are some links to various papers/research projects that somehow relate to Q
 
 ### Application-level security
 
--   Link to Matt's upcoming thesis on virtics [coming soon]
+-   [​Virtics: A System for Privilege Separation of Legacy Desktop Applications](http://radlab.cs.berkeley.edu/wiki/Virtics) by Matt Piotrowski
+    (We plan to implement some ideas from Matt's thesis in Qubes very soon -- stay tuned for details)
 
