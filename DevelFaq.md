@@ -13,11 +13,15 @@ Often it is more difficult to exploit a bug on the x64 Linux than it is on x86 L
 
 ### Q: Why do you use KDE in Dom0? What is the roadmap for Gnome support?
 
-There are very few things that are KDE-specific and thus it should not be a big problem to port add Gnome support to Qubes (in Dom0 of course). Those KDE-specific things are:
+There a few things that are KDE-specific, but generally it should not be a big problem to also add Gnome support to Qubes (in Dom0 of course). Those KDE-specific things are:
 
 -   Qubes requires KDM (KDE Login Manager), rather than GDM, for the very simple reason that GDM doesn't obey standards and start ```/usr/bin/Xorg``` instead of ```/usr/bin/X```. This is important for Qubes, because we need to load a special "X wrapper" (to make it possible to use Linux usermode shared memory to access Xen shared memory pages in our App Viewers -- see the sources [​here](http://qubes-os.org/gitweb/?p=mainstream/gui.git;a=tree;f=shmoverride;h=75133ddcdad0c6a59e630f005569bb8c758b67c5;hb=HEAD)). So, Qubes makes the ```/usr/bin/X``` to be a symlink to the Qubes X Wrapper, which, in turn, executes the ```/usr/bin/Xorg```. This works well with KDM (and would probably also work with other X login managers), but not with GDM. If somebody succeeded in makeing GDM to execute ```/usr/bin/X``` instead of ```/usr/bin/Xorg```, we would love to hear about it!
 
--   We're planning to patch the KDE's Window Manager (KWin) to draw window decorations in the color of the specific AppVM's label. Currently we draw frames in the [AppViewers?](/wiki/AppViewers), but it would be a better user experience to also see the title bars having the color of the VM's label. Most likely this should also be possible to be done on GNOME's Window Manager too, but as we have very litmited resources, we are forced to pick only one Window Manager, and we decided to pick KDE (just because we like it). If somebody were willing to send the code for GNOME, we would be more that happy to incorporate it into mainstream repo.
+-   We maintain a special [repository](/wiki/KdeDom0) for building packages specifically for Qubes Dom0.
+
+-   We've patched the KDE's Window Manager (specifically [​one of the decoration plugins](https://qubes-os.org/gitweb/?p=mainstream/kde-dom0.git;a=commit;h=e1a530d8188a47921da35beff03998eb3fce8e2c)) to draw window decorations in the color of the specific AppVM's label.
+
+If you're interested in porting GNOME for Qubes Dom0 use, let us know -- we will most likely welcome patches in this area.
 
 ### Q: What is the recommended build environment?
 
