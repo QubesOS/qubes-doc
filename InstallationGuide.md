@@ -18,6 +18,8 @@ I. Installing Fedora 13 Linux
 
 **NOTE:** If you're migrating from Qubes Alpha 1, and want to preserve your AppVMs (specifically your data), you should use ```qvm-backup``` tool to make a backup (Qubes Alpha 2 will let you automatically restore it later).
 
+**NOTE:** Do not try to install Qubes Alpha 2 on top of an already installed Qubes Alpha 1 -- you should reinstall everything from scratch!
+
 First we need to install a minimal Linux distribution that would later become our Dom0 system. We strongly recommend choosing a **64-bit Fedora 13 distribution**.
 
 1.  Download the 64-bit version of Fedora 13 installation DVD ISO:
@@ -75,7 +77,7 @@ rpm --import qubes-release-1-signing-key.asc
 
     ``` {.wiki}
     wget http://qubes-os.org/yum/qubes-r1-dom0.repo
-    mv qubes.repo /etc/yum.repos.d/
+    mv qubes-r1-dom0.repo /etc/yum.repos.d/
     ```
 
 III. Installing Qubes KDE packages for Dom0
