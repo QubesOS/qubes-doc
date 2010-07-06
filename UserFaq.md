@@ -61,10 +61,13 @@ Once the Template VM got update, shut it down, and then any AppVM you start will
 
 ### Q: What is the root and user password for TemplateVM/AppVM?
 
--   ```user/userpass```
--   ```root/rootpass```
+There is none, really! If you need to run something as root in one of your VMs, then you should use the qvm-run command:
 
-**NOTE:** This will be changed in the next Alpha (see the ticket:24)
+``` {.wiki}
+qvm-run <vmname> -u root <cmd>
+```
+
+where cmd can be e.g. ```konsole```.
 
 ### Q: Is Qubes a multi-user system?
 
