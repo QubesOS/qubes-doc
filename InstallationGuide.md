@@ -232,8 +232,7 @@ This should be appended the ```kernel``` line in ```grub.conf```. This will disa
 
 1.  If you have Intel HD graphics card on Core i5/i7 processor, do **not** enable desktop effects (or at least do not choose OpenGL engine). There is a known problem with those cards drivers that causes X to crash every few minutes, when OpenGL is used. This happens on standard Fedora installation, even without Xen and without Qubes.
 
-1.  The clock in AppVMs is not properly updated after resume from S3 sleep, if you don't use NTP in the VMs.
+1.  The clock in AppVMs is not properly updated after resume from S3 sleep. The temporary workaround is to use NTP for clock syncing in each AppVM.
 
-1.  Sometimes an AppVM might lock up after a resume from S3 sleep.
+1.  On processors with Hyper-Threading support, such as Intel Core i5/i7 (but not Core 2 Duo), the AppVM might lock up after a resume from S3 sleep. A temporary work around for this is to disable [HyperThreading?](/wiki/HyperThreading) in BIOS.
 
-**Generally, please consider the suspend/resume to be highly experimental currently, and always save your work before suspending your system too S3 sleep'''**
