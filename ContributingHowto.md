@@ -11,11 +11,10 @@ Ok, so you think Qubes Project is cool and you would like to contribute? You are
 
 First you should decide what you are interested in (and good in). The Qubes project would welcome contributions in various areas:
 
--   testing and bug reporting
--   New Xen Dom0 kernel packaging and testing
--   Packaging of other system components in a Qubes-customized way (e.g. KDE for Dom0) as a preparation for our own installer
+-   Testing and bug reporting
 -   Code audit (e.g. gui-daemon)
 -   New features
+-   Artwork (plymouth themes, KDM themes, installer themes, wallpapers, etc)
 
 Perhaps the best starting point is to have a look at the [Open Tickets by Milestone page](https://www.qubes-os.org/trac/report/3) to see what are the most urgent tasks to do.
 
