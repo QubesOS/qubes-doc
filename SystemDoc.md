@@ -21,3 +21,8 @@ Building Qubes Packages from Sources
 
 -   [KDE Dom0 packages for Qubes](/wiki/KdeDom0)
 
+Selected Subsystems Documentation
+---------------------------------
+
+-   [File exchange daemon (used by DisposableVMs)](/wiki/Qfileexchgd)
+
