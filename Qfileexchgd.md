@@ -19,8 +19,8 @@ Overview
 
 *qfilexchgd* is event driven. The sources of events are:
 
--   trigger of xenstore watch for the changes in /local/domain xenstore hierarchy - to detect start/stop of VMs, and maintain vmname-\>vm\_xid dictionary
--   triger of xenstore watch for a change in /local/domain/domid/device/qpen key - VMs write to this key to request service from *qfilexchgd*
+-   trigger of xenstore watch for the changes in `/local/domain` xenstore hierarchy - to detect start/stop of VMs, and maintain vmname-\>vm\_xid dictionary
+-   trigger of xenstore watch for a change in `/local/domain/domid/device/qpen` key - VMs write to this key to request service from *qfilexchgd*
 
 Copying files between AppVMs
 ----------------------------
