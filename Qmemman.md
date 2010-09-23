@@ -21,10 +21,10 @@ Therefore, in Qubes another solution is used. There is the *qmemman* dom0 daemon
 
 Similarly, when there is need for Xen free memory (for instance, in order to create a new VM), traditionally the memory is obtained from dom0 only. When *qmemman* is running, it offers interface to obtain memory from all domains.
 
-To sum up, pros and cons. Pros:
+To sum up, *qmemman* pros and cons. Pros:
 
 -   provides automatic balancing of memory across participating PV and HVM domains, based on their memory demand
--   works well in practise, particularly with less than 1% CPU consumption in the idle case
+-   works well in practice, with less than 1% CPU consumption in the idle case
 -   simple, concise implementation
 
 Cons:
@@ -38,7 +38,7 @@ Interface
 
 *qmemman* listens for the following events:
 
--   writes to `/local/domain/domid/memory/meminfo` xenstore keys by *meminfo-writer* process in VM. The content of this key is taken from the VM's `/proc/meminfo` pseudofile ; *meminfo-writer* just strips some unused lines from it. Note that *meminfo-writer* writes its xenstore key only if the VM memory usage has changed significantly enough since the last update (by default 30MB)
+-   writes to `/local/domain/domid/memory/meminfo` xenstore keys by *meminfo-writer* process in VM. The content of this key is taken from the VM's `/proc/meminfo` pseudofile ; *meminfo-writer* just strips some unused lines from it. Note that *meminfo-writer* writes its xenstore key only if the VM memory usage has changed significantly enough since the last update (by default 30MB), to prevent flooding with almost identical data
 -   commands issued over Unix socket `/var/run/qubes/qmemman.sock`. Currently, the only command recognized is to free the specified amount of memory. The QMemmanClient class implements the protocol.
 -   if the `/var/run/qubes/do-not-membalance` file exists, *qmemman* suspends memory balancing. It is primarily used when allocating memory for a to-be-created domain, to prevent using up the free Xen memory by the balancing algorithm before the domain creation is completed.
 
@@ -56,9 +56,9 @@ Whenever *meminfo-writer* running in domain A provides new data on memory usage 
     1.  for all domains whose `prefmem` is less than actual memory, shrink them to their `prefmem`
     2.  redistribute memory reclaimed in the previous step between the rest of domains, proportionally to their `prefmem`
 
-The memory redistribution is actually executed only if one of the below conditions hold:
+In order to avoid too frequent memory redistribution, it is actually executed only if one of the below conditions hold:
 
--   the sum of memory changes for all domains is more than MIN\_TOTAL\_MEMORY\_TRANSFER (150MB)
+-   the sum of memory size changes for all domains is more than MIN\_TOTAL\_MEMORY\_TRANSFER (150MB)
 -   one of the domains is below its `prefmem`, and more than MIN\_MEM\_CHANGE\_WHEN\_UNDER\_PREF (15MB) would be added to it
 
 Additionally, the balance algorithm is tuned so that XEN\_FREE\_MEM\_LEFT (50MB) is always left as Xen free memory, to make coherent memory allocations in driver domains work.
