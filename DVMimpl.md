@@ -28,12 +28,12 @@ Preparing a savefile is done by */usr/lib/qubes/qubes\_prepare\_saved\_domain.sh
 8.  the domain is saved via *xm save*
 9.  the COW files for root fs and swap are packed to `saved_cows.tar` archive
 
-*qubes\_prepare\_saved\_domain.sh* script is somehow lowlevel. It is usually called by *qvm-create-default-dvm* script, that takes care of creating a special AppVM (named template\_name-dvm) to be passed to *qubes\_prepare\_saved\_domain.sh*, as well as copying the savefile to /dev/shm (the latter action is not made if the `/var/lib/qubes/dvmdata/dont_use_shm` file exists).
+*qubes\_prepare\_saved\_domain.sh* script is somehow lowlevel. It is usually called by *qvm-create-default-dvm* script, that takes care of creating a special AppVM (named template\_name-dvm) to be passed to *qubes\_prepare\_saved\_domain.sh*, as well as copying the savefile to /dev/shm (the latter action is not done if the `/var/lib/qubes/dvmdata/dont_use_shm` file exists).
 
 Restoring a DisposableVM from the savefile
 ------------------------------------------
 
-When *qfilexchgd* daemon, described [here](/wiki/Qfileexchgd), sees a request to create a DVM, it executes */usr/lib/qubes/qubes\_restore* script. It is crucial that this script executes quickly, to make DisposableVM creation overhead bareable for the user. Its main steps are:
+When *qfilexchgd* daemon, described [here](/wiki/Qfileexchgd), sees a request to create a DVM, it executes */usr/lib/qubes/qubes\_restore* script. It is crucial that this script executes quickly, to make DisposableVM creation overhead bearable for the user. Its main steps are:
 
 1.  modify the savefile so that the VM name, VM UUID, MAC address and IP address are unique
 2.  restore the COW files from the `saved_cows.tar`
