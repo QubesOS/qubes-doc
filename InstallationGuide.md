@@ -215,8 +215,8 @@ NOTE: Xen can use IOMMU/VT-d only if you have hardware with IOMMU/VT-d support a
 
 Read more about Qubes networking [here](/wiki/QubesNet).
 
-VIII. Known Issues and Workarounds
-----------------------------------
+VIII. Known Issues and Workarounds for Qubes Alpha 3
+----------------------------------------------------
 
 1.  If you use full disk encryption via LUKS (default if you chose "Encrypt disk" in Fedora installer), and if you have a Core i5/i7 processor that supports the new AESNI instruction, you should pass the following argument to your kernel (by editing your ```/boot/grub/grub.conf``` file):
 
@@ -234,9 +234,5 @@ This should be appended the ```kernel``` line in ```grub.conf```. This will disa
 
 1.  If you have Nvidia graphics card, you can experience strange icon distortions after resume from suspend. Hopefully some new xorg driver will resolve this issue.
 
-1.  If you have Intel HD graphics card on Core i5/i7 processor, do **not** enable desktop effects (or at least do not choose OpenGL engine). There is a known problem with those cards drivers that causes X to crash every few minutes, when OpenGL is used. This happens on standard Fedora installation, even without Xen and without Qubes.
-
-1.  The clock in AppVMs is not properly updated after resume from S3 sleep. The temporary workaround is to use NTP for clock syncing in each AppVM.
-
-1.  On processors with Hyper-Threading support, such as Intel Core i5/i7 (but not Core 2 Duo), the AppVM might lock up after a resume from S3 sleep. A temporary work around for this is to disable [HyperThreading?](/wiki/HyperThreading) in BIOS.
+1.  If you have Intel HD graphics card on Core i5/i7 processor, do **not** enable desktop effects right after installation (or at least do not choose OpenGL engine). There is a known problem with those cards drivers that causes the original X shipped with F13 to crash every few minutes, when OpenGL is used. This happens on standard Fedora installation, even without Xen and without Qubes. This problem vanishes when one upgrades to xorg-x11-server 1.8.2, OpenGL and composition works flawlessy then.
 
