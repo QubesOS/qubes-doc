@@ -88,3 +88,7 @@ The main idea behind Qubes architecture is to have Dom0 isolated from the outsid
 Yup, that would make sense indeed. Feel free to build one -- you can use the template\_builder:
 
 [​http://qubes-os.org/gitweb/?p=mainstream/template-builder.git;a=tree](http://qubes-os.org/gitweb/?p=mainstream/template-builder.git;a=tree)
+
+### Q: Sometimes it takes a long time for Qubes to boot, why?
+
+This is likely because Qubes re-creates a Disposable VM savefile -- an image used for super quick starting of Disposable VMs. Normally this happens when you update your default template, and takes about 2 minutes. You can hit ESC during boot to see the progress information.
