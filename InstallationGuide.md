@@ -190,10 +190,8 @@ There are much more `qvm-*` tools in the `/usr/bin` -- most of them should be se
 
 Try running some applications, e.g. Firefox from the random machine. When you run an application for the first time, and the corresponding AppVM has not yet been started, it might take some time (15-30 seconds) for it to start. Subsequent apps from the same AppVM will be starting much faster.
 
-VII. ~~Switching to NetVM~~
----------------------------
-
-This is temporarily unsupported for Alpha2. We're working on the solution.
+VII. Switching to NetVM
+-----------------------
 
 1.  First shut down all the VMs in the system, e.g.:
 
@@ -214,6 +212,8 @@ This is temporarily unsupported for Alpha2. We're working on the solution.
 1.  Verify that Xen uses IOMMU/VT-d indeed by looking into `xm dmesg` output
 
 NOTE: Xen can use IOMMU/VT-d only if you have hardware with IOMMU/VT-d support and a non-broken BIOS that also supports VT-d (specifically BIOS should expose a correct ACPI DMAR table)
+
+Read more about Qubes networking [here](/wiki/QubesNet).
 
 VIII. Known Issues and Workarounds
 ----------------------------------
