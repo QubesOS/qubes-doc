@@ -156,6 +156,14 @@ yum install qubes-template-linux-x64
 
 This will probably take some time...
 
+1.  Create the default DisposableVM savefile. It is the saved VM image that is used to quickly bring up a DisposableVM. As user in *qubes* group execute
+
+    ``` {.wiki}
+    qvm-create-default-dvm --default-template --default-script
+    ```
+
+This should take about 150 seconds.
+
 1.  Now, lets create some AppVMs to see if this all works...
 
 **NOTE:** If you're migrating from a previous system (e.g. Alpha 1), and want to restore your previous AppVMs from a backup, use the [qvm-backup-restore](/wiki/BackupRestore) tool.
