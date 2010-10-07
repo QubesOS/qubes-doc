@@ -16,7 +16,7 @@ At this stage we don't have a standalone automatic installer, so the installatio
 I. Installing Fedora 13 Linux
 -----------------------------
 
-**NOTE:** If you're migrating from **Qubes Alpha 1**, and want to preserve your AppVMs (specifically your data), you should use ```qvm-backup``` tool to make a backup (Qubes Alpha 2 will let you automatically restore it later).
+**NOTE:** If you're migrating from **Qubes Alpha 1**, and want to preserve your AppVMs (specifically your data), you should use ```qvm-backup``` tool to make a backup (Qubes Alpha 3 will let you automatically restore it later).
 
 **NOTE:** Do not try to install Qubes Alpha 3 on top of an already installed **Qubes Alpha 1** -- you should reinstall everything from scratch!
 
@@ -98,7 +98,7 @@ III. Installing Qubes KDE packages for Dom0
     yum install knetworkmanager
     ```
 
-The last package (*knetworkmanager*) is needed only if one intends to use networking in Dom0, rather than in NetVM. However, as we're currently having problems with the NetVM working with our new Dom0 kernel in Alpha 2, we have decided to temporary withhold the release of a new NetVM package for Alpha 2, and so you must currently use networking in Dom0, and it's recommended to install this package. Rest assured, we will be working on getting NetVM back in the next version.
+The last package (*knetworkmanager*) is needed only if one intends to use networking in Dom0, rather than in NetVM.
 
 1.  Via the KDE "Start Menu", go to: Computer/System Settings/Appearance/Windows, and then choose **Plastik for Qubes** Window decoration plugin.
 
