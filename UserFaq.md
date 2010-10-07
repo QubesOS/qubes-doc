@@ -13,7 +13,7 @@ Qubes User's FAQ
 
 ### Q: Can I install Qubes on a system without VT-x?
 
-Yes. Xen doesn't use VT-x (not AMD-v) for PV guests virtualization (it uses ring0/3 separation instead). But, of course, without VT-x, you will also not have VT-d -- see the next question.
+Yes. Xen doesn't use VT-x (nor AMD-v) for PV guests virtualization (it uses ring0/3 separation instead). But, of course, without VT-x, you will also not have VT-d -- see the next question.
 
 ### Q: Can I install Qubes on a system without VT-d?
 
