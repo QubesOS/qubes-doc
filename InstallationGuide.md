@@ -20,7 +20,9 @@ I. Installing Fedora 13 Linux
 
 **NOTE:** Do not try to install Qubes Alpha 3 on top of an already installed **Qubes Alpha 1** -- you should reinstall everything from scratch!
 
-**NOTE:** ~~If you're migrating from **Qubes Alpha 2**, however, then ```yum update``` executed in Dom0 konsole should do the work, and you could skip this guide.~~ Some people reported problems when upgrading from Alpha 2 to Alpha 3, so it seems like it might better to reinstall from scratch in that case too. First we need to install a minimal Linux distribution that would later become our Dom0 system. We strongly recommend choosing a **64-bit Fedora 13 distribution**.
+**NOTE:** ~~If you're migrating from **Qubes Alpha 2**, however, then ```yum update``` executed in Dom0 konsole should do the work, and you could skip this guide.~~ Some people reported problems when upgrading from Alpha 2 to Alpha 3, so it seems like it might better to reinstall from scratch in that case too.
+
+First we need to install a minimal Linux distribution that would later become our Dom0 system. We strongly recommend choosing a **64-bit Fedora 13 distribution**.
 
 1.  Download the 64-bit version of Fedora 13 installation DVD ISO:
 
