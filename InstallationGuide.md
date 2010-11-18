@@ -125,7 +125,8 @@ V. Installing Qubes
 1.  Install the Qubes Dom0 packages:
 
     ``` {.wiki}
-    yum install qubes-core-dom0 qubes-gui-dom0
+    yum install qubes-core-dom0
+    yum install qubes-gui-dom0
     yum install qubes-manager
     ```
 
