@@ -23,7 +23,7 @@ This assumes that your stick is seen by Dom0 kernel as **/dev/sdb** and you're m
 1.  Back to Dom0 konsole -- in order to unmount the stick do the following:
 
 ``` {.wiki}
-xm block-detach random /dev/xvdi
+xm block-detach <vmname> /dev/xvdi
 ```
 
 1.  You can remove the device.
