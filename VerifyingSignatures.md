@@ -74,29 +74,10 @@ The developer keys are set to be valid for 1 year only, while the Qubes Master S
 Verifying Qubes code
 --------------------
 
-To verify signed git tag, you can use:
+Developers who fetch code from our Git server should always verify tags on the latest commit. Any commits that are not followed by a signed tag should not be trusted!
+
+To verify a signature on a git tag, you can use:
 
 ``` {.wiki}
 $ git tag -v <tag name>
-```
-
-You can also set git alias to automatically pull latest tag and verify its signature:
-
-``` {.wiki}
-$ git config --global alias.vpull '!f() { tag=`git ls-remote $@ |tail -2 |head -1 |cut -d/ -f 3-`; git pull $@ tag $tag; git tag -v $tag; }; f'
-```
-
-then use:
-
-``` {.wiki}
-$ git vpull git://git.qubes-os.org/mainstream/core.git
-Already up-to-date.
-object 80826329a71c693fcd08544458b9d6219ca5b28c
-type commit
-tag v1.3.16-dom0
-tagger Joanna Rutkowska <joanna@invisiblethingslab.com> 1290384222 +0100
-
-v1.3.16-dom0
-gpg: Signature made Mon 22 Nov 2010 01:03:50 CET using RSA key ID C37BB66B
-gpg: Good signature from "Joanna Rutkowska (Qubes OS signing key) <joanna@invisiblethingslab.com>"
 ```
