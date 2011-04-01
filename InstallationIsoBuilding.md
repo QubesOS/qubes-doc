@@ -26,10 +26,11 @@ Packages will be in `rpm/noarch` and `rpm/x86_64`.
 Install Revisor
 ---------------
 
-Next install the freshly built revisor:
+Next install the freshly built revisor and anaconda:
 
 ``` {.wiki}
 yum install rpm/noarch/revisor*.rpm
+yum install rpm/x86_64/anaconda*.rpm
 ```
 
 Prepare configuration files
