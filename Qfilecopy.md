@@ -23,6 +23,8 @@ The current solution is based on the "qrexec" mechanism. Dom0 can call *qrexec\_
 
 In order to support qrexec, there are two permanent processes: *qrexec-daemon* in dom0 and *qrexec-agent* in VM, connected over vchan. These processes are started when a domain is created. All data exchanged by pairs of processes created by *qrexec\_client DestVM command\_in\_vm* pass via the vchan connecting qrexec-daemon and qrexec-agent.
 
+The *qvm-run* tool has been adapted to use qrexec functionality. See *qvm-run --help* for syntax.
+
 Notably, qrexec-agent possess ability to signal its qrexec-daemon peer to execute a predefined command. This way, VM-side code can initiate setup of *vm process \<-\> vchan \<-\> dom0 process* structure. As the range of dom0 commands will be predefined, there is no "arbitrary code execution" vulnerability here.
 
 In Qubes Beta1, we have reimplemented interVM file copy using qrexec, which addresses the abovementioned disadvantages.
