@@ -46,6 +46,8 @@ Now, *qubes\_guid* has to tell dom0 Xorg server about the location of the buffer
 -   when Xorg tries to attach the segment (via glibc *shmat*) *shmoverride.so* intercepts this call and instead maps AppVM memory via *xc\_map\_foreign\_range*
 -   since then, we can use MIT-SHM functions, e.g. *XShmPutImage* to draw onto a dom0 window. *XShmPutImage* will paint with DRAM speed; actually, many drivers use DMA for this.
 
+The important detail is that *xc\_map\_foreign\_range* verifies that a given mfn range actually belongs to a given domain id (and the latter is provided by trusted *qubes\_guid*). Therefore, rogue AppVM cannot gain anything by passing crafted mnfs in the {{{MFNDUMP}} message.
+
 To sum up, this solution has the following benefits:
 
 -   window updates at DRAM speed
@@ -90,6 +92,8 @@ AppVM -\> dom0 messages
 -----------------------
 
 Proper handling of the below messages is security-critical. Observe that beside two messages (`CLIPBOARD` and `MFNDUMP`) the rest have fixed size, so the parsing code can be small.
+
+The *override\_redirect* window attribute is explained at [​Override Redirect Flag](http://tronche.com/gui/x/xlib/window/attributes/override-redirect.html). The *transient\_for* attribute is explained at [​Transient\_for attribute](http://tronche.com/gui/x/icccm/sec-4.html#WM_TRANSIENT_FOR).
 
 Each message starts with the following header
 
@@ -136,7 +140,7 @@ The header is followed by message-specific data.
  ` uint32_t domid; ` 
  ` uint32_t mfns[0]; ` 
  ` }; `|Retrieve the array of mfns that constitute the composition buffer of a remote window. 
- The "num\_mfn" 32bit integers follow the shm\_cmd structure.|
+ The "num\_mfn" 32bit integers follow the shm\_cmd structure; "off" is the offset of the composite buffer start in the first frame; "shmid" and "domid" parameters are just placeholders (to be filled by *qubes\_guid*), so that we can use the same structure when talking to *shmoverride.so*|
 |MSG\_SHMIMAGE|` struct msg_shmimage { ` 
  `    uint32_t x; ` 
  `    uint32_t y;` 
