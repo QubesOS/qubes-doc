@@ -9,6 +9,8 @@ Nvidia proprietary driver installation
 
 The NVIDIA proprietary driver works **much** more stable than nouveau, so it's good idea to install it. But this is somehow complicated: First - download it from nvidia.com site. Here "NVIDIA-Linux-x86\_64-260.19.44.run" is used. Copy it to dom0. Every next step is done in dom0.
 
+See [this page](/wiki/CopyToDomZero) for instruction on how to transfer files to Dom0 (where there is normallyno networking).
+
 Userspace components
 --------------------
 
