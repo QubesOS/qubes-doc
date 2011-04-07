@@ -37,7 +37,7 @@ Window content updates implementation
 Typical remote desktop applications, like *vnc*, pass the information on all changed window content in-band (say, over tcp). As the channel has limited throughput, this impacts video performance. In case of Qubes, *qubes\_gui* does not transfer all changed pixels via vchan. Instead, for each window, upon its creation or size change, *qubes\_gui*
 
 -   asks *qubes\_drv* driver for the list of physical memory frames that hold the composition buffer of a window
--   pass this information via {{{MFNDUMP}} message to *qubes\_guid* in dom0
+-   pass this information via `MFNDUMP` message to *qubes\_guid* in dom0
 
 Now, *qubes\_guid* has to tell dom0 Xorg server about the location of the buffer. There is no supported way (e.g. Xorg extension) to do this zero-copy style. The following method is used in Qubes:
 
