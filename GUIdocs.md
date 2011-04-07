@@ -46,7 +46,7 @@ Now, *qubes\_guid* has to tell dom0 Xorg server about the location of the buffer
 -   when Xorg tries to attach the segment (via glibc *shmat*) *shmoverride.so* intercepts this call and instead maps AppVM memory via *xc\_map\_foreign\_range*
 -   since then, we can use MIT-SHM functions, e.g. *XShmPutImage* to draw onto a dom0 window. *XShmPutImage* will paint with DRAM speed; actually, many drivers use DMA for this.
 
-The important detail is that *xc\_map\_foreign\_range* verifies that a given mfn range actually belongs to a given domain id (and the latter is provided by trusted *qubes\_guid*). Therefore, rogue AppVM cannot gain anything by passing crafted mnfs in the {{{MFNDUMP}} message.
+The important detail is that *xc\_map\_foreign\_range* verifies that a given mfn range actually belongs to a given domain id (and the latter is provided by trusted *qubes\_guid*). Therefore, rogue AppVM cannot gain anything by passing crafted mnfs in the `MFNDUMP` message.
 
 To sum up, this solution has the following benefits:
 
