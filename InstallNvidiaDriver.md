@@ -11,6 +11,8 @@ The NVIDIA proprietary driver works **much** more stable than nouveau, so it's g
 
 See [this page](/wiki/CopyToDomZero) for instruction on how to transfer files to Dom0 (where there is normallyno networking).
 
+**WARNING**: Nvidia doesn't sign their files. To make it worse, you are forced to download them over a plaintext connection. This means there are virtually dozens of possibilities for somebody to modify this file and provide you with a malicious/backdoored file. You should realize that installing untrusted files into your Dom0 is really a bad idea. Perhaps it might be a better idea to just get a new laptop with integrated Intel GPU? You have been warned, anyway.
+
 Userspace components
 --------------------
 
