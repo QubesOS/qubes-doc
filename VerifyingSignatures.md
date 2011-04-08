@@ -57,9 +57,9 @@ and then: trust, 5, y, q
 Now you can easily download any of the developer or release keys that happen to be used to sign particular rpm, tgz, or git tags. E.g.:
 
 ``` {.wiki}
-$ gpg --keyserver pgp.mit.edu --recv 1403BEDE
-gpg: requesting key 1403BEDE from hkp server pgp.mit.edu
-gpg: key 1403BEDE: public key "Qubes OS Release 1 Signing Key" imported
+$ gpg --recv-keys AC1BF9B3
+gpg: requesting key AC1BF9B3 from hkp server keys.gnupg.net
+gpg: key AC1BF9B3: public key "Qubes OS Release 1 Signing Key" imported
 gpg: no ultimately trusted keys found
 gpg: Total number processed: 1
 gpg:               imported: 1  (RSA: 1)
@@ -67,7 +67,7 @@ gpg:               imported: 1  (RSA: 1)
 
 You can also download all the currently used developer's keys (and also a copy of the Master Key) in the keys directory on our server:
 
-[​http://qubes-os.org/keys/](http://qubes-os.org/keys/)
+[​http://keys.qubes-os.org/keys/](http://keys.qubes-os.org/keys/)
 
 The developer keys are set to be valid for 1 year only, while the Qubes Master Singing Key has no expiration date. This key has been generated and is kept only within a special 'vault' machine that has no networking, and the private portion (hopefully) is never to leave this isolated machine.
 
