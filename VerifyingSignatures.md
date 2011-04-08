@@ -32,7 +32,7 @@ Every file published by the Qubes Project (rpm, tgz, git repositories) is digita
 The public portion of the Master Key can be download from a keyserver, e.g.:
 
 ``` {.wiki}
-gpg --keyserver pgp.mit.edu --recv 0x36879494
+gpg --recv 0x36879494
 ```
 
 (You can use other key server than `pgp.mit.edu`, which is just an example)
