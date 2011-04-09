@@ -98,6 +98,7 @@ Known Issues
 -   KDE taskbar might look ugly. This problem can be easily solved by turning composition on (it's called "Desktop Effects", and can be found in System [Settings/Desktop?](/wiki/Settings/Desktop) tab).
 -   Currently there is no support for delegating single USB devices to NetVMs, which likely mean that you will not be able to use your 3G modem. The only option is to delegate the whole USB controller to a NetVM, which, however, might not always be desirable, because of the other devices that are connected to this USB controller.
 -   KDE might break after resume from suspend-to-RAM -- this is a KDE-specific bug and applies to some GPUs only. The solution is to switch off composition (normally Alt-Shift-F12) before putting the computer into sleep.
+-   It might take up to 1 minute after you log in for the NetVM's network icon to appear in the tray -- be patient!
 
 Getting Help
 ------------
