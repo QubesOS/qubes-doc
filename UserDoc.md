@@ -4,18 +4,16 @@ title: UserDoc
 permalink: /wiki/UserDoc/
 ---
 
-Qubes User Documentation
-========================
+Qubes User Manual
+=================
 
-[Right now this is just a list of topics to describe in the future]
-
+-   Getting started
+-   Copy and paste between domains (AppVMs)
+-   Copying files between domains (AppVMs)
+-   Using Disposable VMs
+-   Using Qubes firewall
 -   [How to mount USB stick to an AppVM?](/wiki/StickMounting)
 -   [Backup/Restore/Migration](/wiki/BackupRestore)
--   How many and what AppVMs do I need?
--   Copy and paste between AppVMs
--   File sharing between AppVMs
--   Network isolated AppVMs
--   Disposable AppVMs
 -   [How to install Nvidia driver in dom0](/wiki/InstallNvidiaDriver)
 -   [How to copy files to Dom0?](/wiki/CopyToDomZero)
 
