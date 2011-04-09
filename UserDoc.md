@@ -4,7 +4,7 @@ title: UserDoc
 permalink: /wiki/UserDoc/
 ---
 
-Qubes User Manual
+Qubes User Guides
 =================
 
 -   Getting started
