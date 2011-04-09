@@ -31,29 +31,45 @@ If you don't meet the additional criteria, you can still install and use Qubes. 
 Download installer ISO
 ----------------------
 
-You can download the ISO from here:
+You can download the ISO and the digital signature for the ISO from here:
 
 -   TODO (ISO link)
-
-Never trust files that you download from the internet, especially over plaintext connection! You are encouraged to also download and verify the signature file:
-
 -   TODO (ISO sig link)
 
-See this [page](/wiki/VerifyingSignatures) for more info about how to download and verify our GPG keys.
+See this [page](/wiki/VerifyingSignatures) for more info about how to download and verify our GPG keys. Then, verify the downloaded ISO:
 
-Once you verify this is an authentic ISO, you should burn it on a DVD. For instructions on how to "burn" it on a USB stick, see [this page](/wiki/UsbInstallation).
+``` {.wiki}
+gpg -v ISO.asc
+```
+
+Once you verify this is an authentic ISO, you should burn it on a DVD. For instructions on how to "burn" it on a USB stick, see [this page](/wiki/UsbInstallation). Before proceeding with the installation, you should first read the *Known Issues paragraph*, below.
 
 Migrating from Qubes Alpha 3
 ----------------------------
 
-TODO
+If you have Qubes Alpha 3 currently installed you must reinstall from scratch, as we offer no direct upgrade option in the installer. However, we do offer tools for smooth migration of your AppVMs. In order to do that, please backup your AppVMs using the ```qvm-backup``` tool [BackupRestore: as usual] (under Qubes Alpha 3). Then, after you install Qubes Beta 1, you will need to restore them using a special argument that would tell the restore tool to replace the old template name, used on Alpha 3, with the new one that we use on Qubes Beta 1:
+
+``` {.wiki}
+qvm-backup-restore /mnt/backup/<backup_dir> --replace-template=linux-x64:fedora-14-x64
+```
+
+As you can see we decided to name our default template in Beta 1 in a bit more descriptive way (*fedora-14-x64*), mostly because we might be providing more templates in the future (e.g. based on other Linux distros).
 
 Known Issues
 ------------
 
-TODO
+-   NVIDIA GPU will likely cause problems, especially if you use suspend-to-RAM. This mostly results from the general poor support for NVIDIA GPUs under Linux, which in turn is caused by the lack of open documentation for those GPUs. You might try to use the NVIDIA's proprietary driver (see the instructions [here](/wiki/InstallNvidiaDriver)), which apparently helps a lot.
+-   If you have Sony Vaio Z, you will need some tinkering before you would be able to fully use this machine with Qubes (and generally with non-Windows systems). See this [page](/wiki/SonyVaioTinkering) for instructions.
+-   KDE taskbar might look ugly. This problem can be easily solved by turning composition on (it's called "Desktop Effects", and can be found in System [Settings/Desktop?](/wiki/Settings/Desktop) tab).
+-   Currently there is no support for delegating single USB devices to NetVMs, which likely mean that you will not be able to use your 3G modem. The only option is to delegate the whole USB controller to a NetVM, which, however, might not always be desirable, because of the other devices that are connected to this USB controller.
+-   KDE might break after resume from suspend-to-RAM -- this is a KDE-specific bug and applies to some GPUs only. The solution is to switch off composition (normally Alt-Shift-F12) before putting the computer into sleep.
 
 Getting Help
 ------------
 
-TODO
+-   User manuals are [here](/wiki/UserDoc)
+-   Developers documentation (normally not needed by users) is [here](/wiki/SystemDoc)
+-   If you don't find answer in the sources given above, write to the *qubes-devel* mailing list:
+    -   [​http://groups.google.com/group/qubes-devel](http://groups.google.com/group/qubes-devel)
+    -   ```qubes-devel@googlegroups.com```
+
