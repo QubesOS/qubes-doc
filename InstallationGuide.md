@@ -9,8 +9,6 @@ Installation Guide (for Qubes Beta 1)
 
 **Qubes Beta 1 is scheduled to be released on April 12th, stay tuned!**
 
-Our servers longer support installation of Alpha 3.
-
 **The instructions below are just a draft -- do not try to follow them now!**
 
 Hardware Requirements
