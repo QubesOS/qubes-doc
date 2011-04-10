@@ -22,6 +22,8 @@ Qubes also supports secure file coping between domains. In order to copy file(s)
 On inter-domain file copy security
 ----------------------------------
 
--   Usual warning
--   How Qubes is better than air-gapped systems
+The scheme is *secure* because it doesn't allow other domains to steal the files that are being copying, and also doesn't allow the source domain to overwrite arbitrary file on the destination domain. Also, Qubes file copy scheme doesn't use any sort of virtual block devices for file copy -- instead we use Xen shared memory, which eliminates lots of processing of untrusted data. For example, the receiving domain is *not* forced to parse untrusted partitions or file systems. In this respect our files copy mechanism provides even more security than file copy between two physically separated (air-gapped) machines!
 
+However, one should keep in mind that performing a data transfer from *less trusted* to *more trusted* domain can always be potentially insecure, because the data that we insert might potentially try to exploit some hypothetical bug in the destination VM (e.g. a seemingly innocent JPEG that we copy from untrusted domain, might turned out to be specially craft exploit for some hypothetical bug in JPEG parsing application in the destination domain). This is a general problem and applies to any data transfer between *less trusted to more trusted* domain. It even applies to the scenario of copying files between air-gapped machines. So, you should always copy data only from *more trusted* to *less trusted* domains.
+
+See also [​this article](http://theinvisiblethings.blogspot.com/2011/03/partitioning-my-digital-life-into.html) for more information on this topic, and some ideas of how we might solve this problem in some future version of Qubes.
