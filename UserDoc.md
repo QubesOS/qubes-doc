@@ -10,8 +10,8 @@ Qubes User Guides
 -   [Getting started](/wiki/GettingStarted)
 -   [Copy and paste between domains](/wiki/CopyPaste)
 -   [Copying files between domains](/wiki/CopyingFiles)
--   [SoftwareUpdateVM Updating and adding new software to domains]
--   [SoftwareUpdateDom0 Updating software in Dom0]
+-   [Updating and adding new software to domains](/wiki/SoftwareUpdateVM)
+-   [Updating software in Dom0](/wiki/SoftwareUpdateDom0)
 -   [Backup/Restore/Migration](/wiki/BackupRestore)
 
 Advanced topics:
