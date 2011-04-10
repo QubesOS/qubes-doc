@@ -50,7 +50,7 @@ The installer loads Xen right at the beginning, so chances are high that if you 
 Migrating from Qubes Alpha 3
 ----------------------------
 
-If you have Qubes Alpha 3 currently installed on your system, you must reinstall from scratch, as we offer no direct upgrade option in the installer. However, we do offer tools for smooth migration of your AppVMs. In order to do that, please backup your AppVMs using the ```qvm-backup``` tool [BackupRestore: as usual] (under Qubes Alpha 3). Then, after you install Qubes Beta 1, you will need to restore them using a special argument that would tell the restore tool to replace the old template name, used on Alpha 3, with the new one that we use on Qubes Beta 1:
+If you have Qubes Alpha 3 currently installed on your system, you must reinstall from scratch, as we offer no direct upgrade option in the installer. However, we do offer tools for smooth migration of your AppVMs. In order to do that, please backup your AppVMs using the ```qvm-backup``` tool [as usual](/wiki/BackupRestore) (under Qubes Alpha 3). Then, after you install Qubes Beta 1, you will need to restore them using a special argument that would tell the restore tool to replace the old template name, used on Alpha 3, with the new one that we use on Qubes Beta 1:
 
 ``` {.wiki}
 qvm-backup-restore /mnt/backup/<backup_dir> --replace-template=linux-x64:fedora-14-x64
