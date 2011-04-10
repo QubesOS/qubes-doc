@@ -7,7 +7,7 @@ permalink: /wiki/InstallationGuide/
 Installation Guide (for Qubes Beta 1)
 =====================================
 
-**Qubes Beta 1 is scheduled to be released on April 12th! Stay tuned!**
+**Qubes Beta 1 is scheduled to be released on April 12th, stay tuned!**
 
 Our servers longer support installation of Alpha 3.
 
