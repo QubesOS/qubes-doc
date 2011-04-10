@@ -21,6 +21,7 @@ Minimum:
 -   4GB of RAM
 -   64-bit Intel or AMD processor (x86\_64 aka x64 aka AMD64)
 -   Intel GPU strongly preferred (if you have Nvidia GPU, prepare for some [troubleshooting](/wiki/InstallNvidiaDriver); we haven't tested ATI hardware)
+-   10GB of disk (Note that **it is possible to install Qubes on an external USB disk**, so that you can try it without sacrificing your current system. Mind, however that USB disks are usually SLOW!)
 
 Additional requirements:
 
