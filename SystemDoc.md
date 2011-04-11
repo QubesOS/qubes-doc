@@ -21,6 +21,8 @@ System Documentation for Developers
 
 -   [​Article about disposable VMs](http://theinvisiblethings.blogspot.com/2010/06/disposable-vms.html)
 
+-   [Implementation of template sharing and updating](/wiki/TemplateImplementation)
+
 Build instructions:
 
 -   Building Qubes core and gui packages: see this [​message](https://groups.google.com/group/qubes-devel/browse_thread/thread/710f725713cc7e8a#)
