@@ -110,6 +110,15 @@ Known Issues
 
 -   Under some circumstances, when you choose "Use All Space" during installation, the installer will not replace your boot partition but will create another one.
 
+-   It might take up to 1 minute for some apps to start from a newly created AppVM. This happens only for the first time.
+
+-   Installer doesn't enable ```qubes_setupdvm``` service by default, which prevents Disposable VMs from working correctly. You should enable it manually from the console in Dom0:
+
+    ``` {.wiki}
+    sudo bash
+    chkconfig qubes_setupdvm on
+    ```
+
 Getting Help
 ------------
 
