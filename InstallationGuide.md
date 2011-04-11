@@ -109,8 +109,10 @@ Known Issues
 Getting Help
 ------------
 
--   User manuals are [here](/wiki/UserDoc)
+-   **User manuals are [here](/wiki/UserDoc).** (Strongly recommended!)
+
 -   Developers documentation (normally not needed by users) is [here](/wiki/SystemDoc)
+
 -   If you don't find answer in the sources given above, write to the *qubes-devel* mailing list:
     -   [​http://groups.google.com/group/qubes-devel](http://groups.google.com/group/qubes-devel)
     -   ```qubes-devel@googlegroups.com```
