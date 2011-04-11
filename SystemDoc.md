@@ -7,37 +7,25 @@ permalink: /wiki/SystemDoc/
 System Documentation for Developers
 ===================================
 
-The System Architecture Specification
--------------------------------------
+-   Qubes OS Architecture v0.3 [​(pdf)](http://www.qubes-os.org/files/doc/arch-spec-0.3.pdf)
 
--   Qubes OS Architecture v0.3 [​(pdf)](http://www.qubes-os.org/files/doc/arch-spec-0.3.pdf) [​(sig)](http://www.qubes-os.org/files/doc/arch-spec-0.3.pdf.sig)
+-   [Qubes GUI virtualization protocol](/wiki/GUIdocs)
 
--   [​Disposable VMs](http://theinvisiblethings.blogspot.com/2010/06/disposable-vms.html)
+-   [Networking in Qubes](/wiki/QubesNet)
 
-Building Qubes Packages from Sources
-------------------------------------
+-   [Inter-domain file coping](/wiki/Qfilecopy)
+
+-   [Dynamic memory management in Qubes](/wiki/Qmemman)
+
+-   [Implementation of DisposableVMs](/wiki/DVMimpl)
+
+-   [​Article about disposable VMs](http://theinvisiblethings.blogspot.com/2010/06/disposable-vms.html)
+
+Build instructions:
 
 -   Building Qubes core and gui packages: see this [​message](https://groups.google.com/group/qubes-devel/browse_thread/thread/710f725713cc7e8a#)
 
 -   [KDE Dom0 packages for Qubes](/wiki/KdeDom0)
 
-Release related documentation
------------------------------
-
 -   [How to build Qubes installation ISO](/wiki/InstallationIsoBuilding)
-
-Selected Subsystems Documentation
----------------------------------
-
--   [Implementation of DisposableVMs](/wiki/DVMimpl)
-
--   [File exchange daemon (used by DisposableVMs) (note that at Beta1, this is obsolete, see InterVM file copy)](/wiki/Qfileexchgd)
-
--   [VM Memory management daemon](/wiki/Qmemman)
-
--   [VM networking in Qubes](/wiki/QubesNet)
-
--   [InterVM file copy (used by DisposableVMs)](/wiki/Qfilecopy)
-
--   [Qubes GUI protocol](/wiki/GUIdocs)
 
