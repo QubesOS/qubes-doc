@@ -37,14 +37,14 @@ When TemplateVM is stopped, the xen script removes root-cow.img and creates a ne
 Snapshot device in AppVM
 ------------------------
 
-Root device is exposed to AppVM in read-only mode. The only place where AppVM can write something is:
+Root device is exposed to AppVM in read-only mode. AppVM can write only in:
 
--   private.img - persistent storage (mounted in /rw) used for /home, /usr/local and maybe more in future versions
--   volatile.img - temporary storage, which is discarded after AppVM restart
+-   private.img - persistent storage (mounted in /rw) used for /home, /usr/local - in future versions, its use may be extended
+-   volatile.img - temporary storage, which is discarded after an AppVM restart
 
-The volatile.img is divided into two partitions:
+volatile.img is divided into two partitions:
 
 1.  changes to root device
 2.  swap partition
 
-Inside of AppVM, root device is wrapped by snapshot with first partition of volatile.img. Thanks to this AppVM can write anything to its filesystem (but this changes will be discarded after restart).
+Inside of an AppVM, the root device is wrapped by the snapshot in the first partition of volatile.img. Therefore, the AppVM can write anything to its filesystem - however, such changes will be discarded after a restart.
