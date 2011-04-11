@@ -18,6 +18,8 @@ Qubes User Guides
 Advanced topics:
 
 -   Using Qubes firewall
+-   Creating custom NetVMs
+-   Creating custom ProxyVMs
 -   [How to mount USB stick to an AppVM?](/wiki/StickMounting)
 -   [How to copy files to Dom0?](/wiki/CopyToDomZero)
 
