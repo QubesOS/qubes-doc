@@ -104,7 +104,7 @@ Known Issues
 
 -   It might take up to 1 minute after you log in for the NetVM's network icon to appear in the tray -- be patient!
 
--   Virtualized try icons might look incorrectly directly for some apps. This problem seems to vanish whenever the app refreshes the icon.
+-   Virtualized tray icons might look incorrectly directly for some apps. This problem seems to vanish whenever the app refreshes the icon.
 
 -   If using a wired connection in netvm, it might not come up properly after suspend/resume. One may need to manually do ` ifconfig eth0 down; ifconfig eth0 up` in netvm after resume.
 
