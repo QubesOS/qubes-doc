@@ -19,7 +19,7 @@ Userspace components
 Install libraries, Xorg driver, configuration utilities. This can by done by nvidia-installer:
 
 ``` {.wiki}
-./NVIDIA-Linux-x86_64-260.19.44.run --ui=none --no-x-check --keep --no-nouveau-check
+./NVIDIA-Linux-x86_64-260.19.44.run --ui=none --no-x-check --keep --no-nouveau-check --no-kernel-module
 ```
 
 Kernel module
