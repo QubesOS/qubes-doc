@@ -96,7 +96,7 @@ Known Issues
 
 -   If you have Sony Vaio Z, you will need some tinkering before you would be able to fully use this machine with Qubes (and generally with non-Windows systems). See this [page](/wiki/SonyVaioTinkering) for instructions.
 
--   KDE taskbar might look ugly. This problem can be easily solved by turning composition on (it's called "Desktop Effects", and can be found in System [Settings/Desktop?](/wiki/Settings/Desktop) tab).
+-   KDE taskbar might look ugly. This problem can be easily solved by turning composition on (it's called "Desktop Effects", and can be found in System Settings/Desktop tab).
 
 -   Currently there is no support for delegating single USB devices to NetVMs, which likely mean that you will not be able to use your 3G modem. The only option is to delegate the whole USB controller to a NetVM, which, however, might not always be desirable, because of the other devices that are connected to this USB controller.
 
