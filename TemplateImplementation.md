@@ -7,12 +7,12 @@ permalink: /wiki/TemplateImplementation/
 Qubes TemplateVM implementation
 ===============================
 
-TemplateVM has shared root.img across all AppVMs based on it. This mechanism has some advantages over simple common device connected to multiple VMs:
+TemplateVM has a shared root.img across all AppVMs that are based on it. This mechanism has some advantages over a simple common device connected to multiple VMs:
 
--   root.img can be modified while there are running AppVMs, without corrupting filesystem
--   multiple AppVMs can be running, using different versions of root.img (from different point in time)
+-   root.img can be modified while there are AppVMs running - without corrupting the filesystem
+-   multiple AppVMs that are using different versions of root.img (from various points in time) can be running concurrently
 
-There is two layer of device-mapper snapshot device. The first one in dom0 to enable modify of root.img without stopping AppVMs. The second one in AppVM to enable modifications of its filesystem, which will be discarded after AppVM restart.
+There are two layers of the device-mapper snapshot device; the first one enables modifying root.img without stopping the AppVMs and the second one, which is contained in the AppVM, enables modifying its filesystem. These modifications will be discarded after a restart of the AppVM.
 
 Snapshot device in Dom0
 -----------------------
@@ -20,19 +20,19 @@ Snapshot device in Dom0
 This device consists of:
 
 -   root.img - real template filesystem
--   root-cow.img - differences between device seen by AppVM and current root.img
+-   root-cow.img - differences between the device as seen by AppVM and the current root.img
 
-This is achieved by creating device-mapper snapshots for each version of root.img. When AppVM is started, xen hotplug scripts (/etc/xen/scripts/block-snapshot) reads inode number of root.img and root-cow.img and uses this numbers for snapshot device name. When device with same name exists - new AppVM will use it, so AppVMs based on the same version of root.img will use common device. Of course device-mapper cannot use files directly - it must be connected through /dev/loop\*. The same mechanism detects if there is loop device connected with some file (by device+inode number) already, or creating new loop device is needed.
+The above is achieved through creating device-mapper snapshots for each version of root.img. When an AppVM is started, a xen hotplug script (/etc/xen/scripts/block-snapshot) reads the inode numbers of root.img and root-cow.img; these numbers are used as the snapshot device's name. When a device with the same name exists the new AppVM will use it - therefore, AppVMs based on the same version of root.img will use the same device. Of course, the device-mapper cannot use the files directly - it must be connected through /dev/loop\*. The same mechanism detects if there is a loop device associated with a file determined by the device and inode numbers - or if creating a new loop device is necessary.
 
-When AppVM is stopped, xen hotplug script checks if this device is still used, and if not - removes snapshot and frees loop devices.
+When an AppVM is stopped the xen hotplug script checks whether the device is still in use - if it is not, the script removes the snapshot and frees the loop device.
 
 ### Changes to template filesystem
 
-To take advantages of snapshot device, every change in root.img must save original version of modified block in root-cow.img. This is achieved by snapshot-origin device.
+In order for the full potential of the snapshot device to be realized, every change in root.img must save the original version of the modified block in root-cow.img. This is achieved by a snapshot-origin device.
 
-When TemplateVM is started - it got snapshot-origin device connected as root device (in read-write mode). So every change to this device is immediately saved in root.img, but is not visible to AppVM, which uses snapshot.
+When TemplateVM is started, it receives the snapshot-origin device connected as a root device (in read-write mode). Therefore, every change to this device is immediately saved in root.img - but remains invisible to the AppVM, which uses the snapshot.
 
-When TemplateVM is stopped, xen scripts removes root-cow.img and creates new one (by qvm-template-commit tool). Because of loop devices which uses concrete file on disk (by inode, not name), snapshot device will not be touched. And Linux kernel frees old root-cow.img files as soon as it will not be used by any snapshot device (precisely loop devices). The new root-cow.img file will got new inode number, so new AppVMs will got new snapshot device (with different name).
+When TemplateVM is stopped, the xen script removes root-cow.img and creates a new one (using the qvm-template-commit tool). The snapshot device will remain untouched due to the loop device, which uses an actual file on the disk (by inode, not by name). Linux kernel frees the old root-cow.img files as soon as they are unused by all snapshot devices (to be exact, loop devices). The new root-cow.img file will get a new inode number, and so new AppVMs will get new snapshot devices (with different names).
 
 Snapshot device in AppVM
 ------------------------
