@@ -108,6 +108,8 @@ Known Issues
 
 -   If using a wired connection in netvm, it might not come up properly after suspend/resume. One may need to manually do ` ifconfig eth0 down; ifconfig eth0 up` in netvm after resume.
 
+-   Under some circumstances, when you choose "Use All Space" during installation, the installer will not replace your boot partition but will create another one.
+
 Getting Help
 ------------
 
