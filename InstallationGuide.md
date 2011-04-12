@@ -56,37 +56,6 @@ qvm-backup-restore /mnt/backup/<backup_dir> --replace-template=linux-x64:fedora-
 
 As you can see we decided to name our default template in Beta 1 in a bit more descriptive way (*fedora-14-x64*), mostly because we might be providing more templates in the future (e.g. based on other Linux distros).
 
-Enable VT-d/IOMMU
------------------
-
-In order to take advantage of NetVM isolation you should enable VT-d/IOMMU (if your system supports it). To do that you should add ```iommu=1``` boot option to Xen by editing your ```grub.conf``` file. This can be done in the following way:
-
-1.  Open konsole in Dom0 (Start-\>Applications-\>System Tools-\>Terminal)
-2.  Working now under console, switch to root first:
-
-    ``` {.wiki}
-    sudo bash
-    ```
-
-3.  Use your favourite editor such as vi or joe to open the /boot/grub/grub.conf and add **```iommu=1```** just after the ```/xen.gz``` string as shown in the example below (some fragments of the file omitted for clarity):
-
-    ``` {.wiki}
-    title Qubes (2.6.34.1-14.xenlinux.qubes.x86_64)
-        root (hd0,0)
-        kernel /xen.gz iommu=1
-        module /vmlinuz-2.6.34.1-14.xenlinux.qubes.x86_64 (...)
-        module /initramfs-2.6.34.1-14.xenlinux.qubes.x86_64.img
-    ```
-
-You should now reboot your system and examine Xen logs to see if VT-d has indeed been enabled (Xen can fail to enable VT-d on your system for various of reasons, lack of proper BIOS support being the most common one). To do that just grep the Xen system log for iommu and vtd strings (you need to open konsole in Dom0 again):
-
-``` {.wiki}
-xm dmesg | grep -i iommu
-xm dmesg | grep -i vtd
-```
-
-Yes, we will make this procedure more user friendly in the next Beta :)
-
 Known Issues
 ------------
 
@@ -128,3 +97,33 @@ Getting Help
     -   [​http://groups.google.com/group/qubes-devel](http://groups.google.com/group/qubes-devel)
     -   ```qubes-devel@googlegroups.com```
 
+Enabling VT-d/IOMMU protection
+------------------------------
+
+In order to take advantage of NetVM isolation you should enable VT-d/IOMMU (if your system supports it) after you complete the installation. To do that you should add ```iommu=1``` boot option to Xen by editing your ```grub.conf``` file. This can be done in the following way:
+
+1.  Open konsole in Dom0 (Start-\>Applications-\>System Tools-\>Terminal)
+2.  Working now under console, switch to root first:
+
+    ``` {.wiki}
+    sudo bash
+    ```
+
+3.  Use your favourite editor such as vi or joe to open the /boot/grub/grub.conf and add **```iommu=1```** just after the ```/xen.gz``` string as shown in the example below (some fragments of the file omitted for clarity):
+
+    ``` {.wiki}
+    title Qubes (2.6.34.1-14.xenlinux.qubes.x86_64)
+        root (hd0,0)
+        kernel /xen.gz iommu=1
+        module /vmlinuz-2.6.34.1-14.xenlinux.qubes.x86_64 (...)
+        module /initramfs-2.6.34.1-14.xenlinux.qubes.x86_64.img
+    ```
+
+You should now reboot your system and examine Xen logs to see if VT-d has indeed been enabled (Xen can fail to enable VT-d on your system for various of reasons, lack of proper BIOS support being the most common one). To do that just grep the Xen system log for iommu and vtd strings (you need to open konsole in Dom0 again):
+
+``` {.wiki}
+xm dmesg | grep -i iommu
+xm dmesg | grep -i vtd
+```
+
+Yes, we will make this procedure more user friendly in the next Beta :)
