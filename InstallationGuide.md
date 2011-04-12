@@ -7,10 +7,6 @@ permalink: /wiki/InstallationGuide/
 Installation Guide (for Qubes Beta 1)
 =====================================
 
-**Qubes Beta 1 is scheduled to be released on April 12th, stay tuned!**
-
-**The instructions below are just a draft -- do not try to follow them now!**
-
 Hardware Requirements
 ---------------------
 
@@ -27,18 +23,20 @@ Additional requirements:
 
 If you don't meet the additional criteria, you can still install and use Qubes. It still offers significant security improvement over traditional OSes, because things such as GUI isolation, or kernel protection do not require special hardware.
 
+**Note:** We don't recommend installing Qubes in a virtual machine!
+
 Download installer ISO
 ----------------------
 
 You can download the ISO and the digital signature for the ISO from here:
 
--   TODO (ISO link)
--   TODO (ISO sig link)
+-   [​http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta1-x86\_64-DVD.iso](http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta1-x86_64-DVD.iso)
+-   [​http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta1-x86\_64-DVD.iso.asc](http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta1-x86_64-DVD.iso.asc)
 
 See this [page](/wiki/VerifyingSignatures) for more info about how to download and verify our GPG keys. Then, verify the downloaded ISO:
 
 ``` {.wiki}
-gpg -v ISO.asc
+gpg -v <iso>.asc
 ```
 
 Once you verify this is an authentic ISO, you should burn it on a DVD. For instructions on how to "burn" it on a USB stick, see [this page](/wiki/UsbInstallation). Before proceeding with the installation, you are encouraged to first read all the information on this page, especially the *Known Issues* paragraph.
