@@ -17,7 +17,7 @@ Qubes User Guides
 
 Advanced topics:
 
--   Using Qubes firewall
+-   [Using Qubes firewall](/wiki/QubesFirewall)
 -   Creating custom NetVMs
 -   Creating custom ProxyVMs
 -   [How to mount USB stick to an AppVM?](/wiki/StickMounting)
