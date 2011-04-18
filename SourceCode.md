@@ -13,12 +13,12 @@ All the Qubes code is kept in GIT repositories. We divided the project into seve
 -   `gui.git` -- GUI virtualization, both Dom0 and VM side.
 -   `template-builder.git` - scripts and other files used to create Qubes templates and NetVM images.
 
-You can browse the repositories [​on line via GitWeb](http://qubes-os.org/gitweb/). The Qubes official repositories are in the `mainstream` directory.
+You can browse the repositories [​on line via GitWeb](http://git.qubes-os.org/gitweb/). The Qubes official repositories are in the `mainstream` directory.
 
 To clone a repository:
 
 ``` {.wiki}
-git clone git://qubes-os.org/mainstream/<repo_name>.git <repo_name>
+git clone git://git.qubes-os.org/mainstream/<repo_name>.git <repo_name>
 ```
 
 e.g.:
