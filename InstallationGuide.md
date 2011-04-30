@@ -86,6 +86,8 @@ Known Issues
     chkconfig qubes_setupdvm on
     ```
 
+-   Installer might not support some USB keyboards (\#230). This seems to include all the Mac Book keyboards (most PC laptops have PS2 keyboards and are not affected).
+
 Getting Help
 ------------
 
