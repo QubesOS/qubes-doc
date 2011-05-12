@@ -56,6 +56,14 @@ qvm-backup-restore /mnt/backup/<backup_dir> --replace-template=linux-x64:fedora-
 
 As you can see we decided to name our default template in Beta 1 in a bit more descriptive way (*fedora-14-x64*), mostly because we might be providing more templates in the future (e.g. based on other Linux distros).
 
+Installing Updates
+------------------
+
+Currently the user must start the update process manually (in future versions we will make this automatic).
+
+-   For installing updates for Dom0 -- see instructions [here](/wiki/SoftwareUpdateDom0).
+-   For installing updates for you domains (VMs) -- see instructions [here](/wiki/SoftwareUpdateVM).
+
 Known Issues
 ------------
 
