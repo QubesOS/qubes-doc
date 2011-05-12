@@ -79,10 +79,6 @@ Known Issues
 
 -   It might take up to 1 minute after you log in for the NetVM's network icon to appear in the tray -- be patient!
 
--   Virtualized tray icons might look incorrectly directly for some apps. This problem seems to vanish whenever the app refreshes the icon.
-
--   If using a wired connection in netvm, it might not come up properly after suspend/resume. One may need to manually do ` ifconfig eth0 down; ifconfig eth0 up` in netvm after resume.
-
 -   Under some circumstances, when you choose "Use All Space" during installation, the installer will not replace your boot partition but will create another one.
 
 -   It might take up to 1 minute for some apps to start from a newly created AppVM. This happens only for the first time.
@@ -95,6 +91,10 @@ Known Issues
     ```
 
 -   Installer might not support some USB keyboards (\#230). This seems to include all the Mac Book keyboards (most PC laptops have PS2 keyboards and are not affected).
+
+-   ~~Virtualized tray icons might look incorrectly directly for some apps. This problem seems to vanish whenever the app refreshes the icon.~~ (Solved after updating to qubes-gui-dom0 1.2.11)
+
+-   ~~If using a wired connection in netvm, it might not come up properly after suspend/resume. One may need to manually do ` ifconfig eth0 down; ifconfig eth0 up` in netvm after resume.~~ (Solved after updating to qubes-core-dom0 1.5.26)
 
 Getting Help
 ------------
