@@ -33,7 +33,9 @@ $ sudo bash
 
 Note that by default there is only one repository enabled: ```qubes-dom0-current```.
 
-When finished, detach Dom0 from the network:
+We strongly recommend to **reboot your system** after Dom0 update.
+
+Alternatively, if you don't want to reboot for some reason, you should not forget about detaching Dom0 from the network:
 
 ``` {.wiki}
 # qvm-dom0-networking down
