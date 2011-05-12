@@ -31,7 +31,7 @@ $ sudo bash
 # yum update
 ```
 
-Note that by default there is only one repository enabled: this is qubes-dom0-current.you
+Note that by default there is only one repository enabled: ```qubes-dom0-current```.
 
 When finished, detach Dom0 from the network:
 
