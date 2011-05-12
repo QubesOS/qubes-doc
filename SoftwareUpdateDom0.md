@@ -27,7 +27,7 @@ First, start the console in Dom0, and switch to root. Then attach Dom0 to the ne
 
 ``` {.wiki}
 $ sudo bash
-# qvm-dom0-networking up
+# qvm-dom0-network-via-netvm up
 # yum update
 ```
 
@@ -38,7 +38,7 @@ We strongly recommend to **reboot your system** after Dom0 update.
 Alternatively, if you don't want to reboot for some reason, you should not forget about detaching Dom0 from the network:
 
 ``` {.wiki}
-# qvm-dom0-networking down
+# qvm-dom0-network-via-netvm down
 ```
 
 In the future we will modify this update procedure so that it won't require attaching networking to Dom0. Most likely we will use a moderately-trusted system service VM to perform the download of the update rpm via network, and later copy this file to Dom0 using our secure file copy mechanism. Dom0 will then verify the signature on the RPM, and assuming it was ok, will install the rpm.
