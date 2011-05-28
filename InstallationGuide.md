@@ -96,6 +96,8 @@ Known Issues
 
 -   ~~If using a wired connection in netvm, it might not come up properly after suspend/resume. One may need to manually do ` ifconfig eth0 down; ifconfig eth0 up` in netvm after resume.~~ (Solved after updating to qubes-core-dom0 1.5.26)
 
+-   ~~An inter-domain file copy operation might corrupt your files!~~ (Solved after updating to qubes-core-vm 1.5.28, see also [​this post for details](https://groups.google.com/group/qubes-devel/browse_thread/thread/ee627f9c0ecb4ec0))
+
 Getting Help
 ------------
 
