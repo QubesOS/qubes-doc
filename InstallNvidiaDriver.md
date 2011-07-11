@@ -7,9 +7,41 @@ permalink: /wiki/InstallNvidiaDriver/
 Nvidia proprietary driver installation
 ======================================
 
-The NVIDIA proprietary driver works **much** more stable than nouveau, so it's good idea to install it. But this is somehow complicated: First - download it from nvidia.com site. Here "NVIDIA-Linux-x86\_64-260.19.44.run" is used. Copy it to dom0. Every next step is done in dom0.
+The NVIDIA proprietary driver works **much** more stable than nouveau, so it's good idea to install it.
 
-See [this page](/wiki/CopyToDomZero) for instruction on how to transfer files to Dom0 (where there is normallyno networking).
+[RpmForge?](/wiki/RpmForge) packages
+====================================
+
+There are rpm packages with all necessary software on rpmforge. The only package you have to compile is kernel module (but there is ready src.rpm package).
+
+Download pacakages
+------------------
+
+You will need any Fedora 13 system to download and build packages. You can use Qubes Dom0 for it, but it isn't necessary. To download packages from rpmforge - add this repository to your yum configuration (instructions are on their website). After then download packages using yumdownloader:
+
+``` {.wiki}
+yumdownloader --resolve xorg-x11-drv-nvidia livna-config-display
+yumdownloader --source nvidia-kmod
+```
+
+Build kernel package
+--------------------
+
+You will need at least rpmbuild tool, and then you can use it to build package:
+
+``` {.wiki}
+yum install rpm-build
+rpmbuild --rebuild nvidia-kmod-260.19.36-1.fc13.3.src.rpm
+```
+
+Most likely it will complain about missing dependencies - install it and rerun rpmbuid. If everything went right, you have now complete packages with nvidia drivers for Qubes system. Transfer them to dom0 (eg using USB stick), install and reboot the system.
+
+Manual installation
+===================
+
+But this is somehow complicated: First - download it from nvidia.com site. Here "NVIDIA-Linux-x86\_64-260.19.44.run" is used. Copy it to dom0. Every next step is done in dom0.
+
+See [this page](/wiki/CopyToDomZero) for instruction on how to transfer files to Dom0 (where there is normally no networking).
 
 **WARNING**: Nvidia doesn't sign their files. To make it worse, you are forced to download them over a plaintext connection. This means there are virtually dozens of possibilities for somebody to modify this file and provide you with a malicious/backdoored file. You should realize that installing untrusted files into your Dom0 is really a bad idea. Perhaps it might be a better idea to just get a new laptop with integrated Intel GPU? You have been warned, anyway.
 
