@@ -38,7 +38,7 @@ Thanks to the framework, RPC programs are very simple - both rpc client and serv
 Qubes RPC administration
 ------------------------
 
-In dom0, there is a bunch of files in */etc/qubes\_rpc/policy* directory, whose names describe the available rpc actions; their content is the rpc access database. Currently defined actions are:
+In dom0, there is a bunch of files in */etc/qubes\_rpc/policy* directory, whose names describe the available rpc actions; their content is the rpc access policy database. Currently defined actions are:
 
 -   qubes.Filecopy
 -   qubes.OpenInVM
@@ -50,7 +50,7 @@ These files contain lines with the following format:
 
 srcvm destvm (allow|deny|ask)[,user=user\_to\_run\_as][,target=VM\_to\_redirect\_to]
 
-You can specify srcvm and destvm by name, or by one of "\$anyvm", "\$dispvm", "dom0" reserved keywords. Whenever a rpc request for action X is received, the first line in /etc/qubes\_rpc/policy/X that match srcvm/destvm is consulted to determine whether to allow rpc, what user account the program should run in target VM under, and what VM to redirect the execution to.
+You can specify srcvm and destvm by name, or by one of "\$anyvm", "\$dispvm", "dom0" reserved keywords (note string "dom0" does not match the \$anyvm pattern; all other names do). Whenever a rpc request for action X is received, the first line in /etc/qubes\_rpc/policy/X that match srcvm/destvm is consulted to determine whether to allow rpc, what user account the program should run in target VM under, and what VM to redirect the execution to. If the policy file does not exits, user is prompted to create one; if still there is no policy file after prompting, the action is denied.
 
 On target VM, the */etc/qubes\_rpc/RPC\_ACTION\_NAME* must exist, containing the file name of the program that will be invoked.
 
@@ -83,7 +83,7 @@ We will show the necessary files to create rpc call that adds two integers on th
 -   policy file in dom0 (*/etc/qubes\_rpc/policy/test.Add* )
 
     ``` {.wiki}
-    anyvm anyvm ask
+    $anyvm $anyvm ask
     ```
 
 -   server path definition ( */etc/qubes\_rpc/test.Add*)
@@ -106,6 +106,7 @@ Qubes RPC internals
 When an user in VM executes the */usr/lib/qubes/qrexec\_client\_vm* utility, the following steps are taken:
 
 -   *qrexec\_client\_vm* connects to *qrexec\_agent's* */var/run/qubes/qrexec\_agent\_fdpass* unix socket 3 times. Reads 4 bytes from each of them, which is the fd number of the accepted socket in agent. These 3 integers, in text, concatenated, form "connection identifier" (CID)
+-   *qrexec\_client\_vm* executes the rpc client, passing the above mentioned unix sockets as process stdin/stdout, and optionally stderr (if the PASS\_LOCAL\_STDERR env variable is set)
 -   *qrexec\_client\_vm* writes to */var/run/qubes/qrexec\_agent* fifo a blob, consisting of target vmname, rpc action, and CID
 -   *qrexec\_agent* passes the blob to *qrexec\_daemon*, via MSG\_AGENT\_TO\_SERVER\_TRIGGER\_CONNECT\_EXISTING message over vchan
 -   *qrexec\_daemon* executes *qrexec\_policy*, passing target vmname, rpc action, and CID as cmdline arguments
