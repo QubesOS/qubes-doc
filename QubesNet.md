@@ -47,3 +47,8 @@ Note that in order to isolate `netvm` properly, the platform must support VTd an
 When using `netvm`, there is no network connectivity in dom0. This is the desired configuration - it eliminates all network-bourne attacks. Observe that dom0 is meant to be used for administrative tasks only, and (with one exception) they do not need network. Anything not related to system administration should be done in one of AppVMs.
 
 The above-mentioned exception is the system packages upgrade. Again, one must not install random applications in dom0, but there is a need to e.g. upgrade existing packages. While one may argue that the new packages could be downloaded on a separate machine and copied to dom0 via a pendrive, this solution has its own problems. Therefore, the advised method to temporarily grant network connectivity to dom0 is to use *qvm-dom0-network-via-netvm up* command. It will pause all running VMs (so that they can do no harm to dom0) and connect dom0 to netvm network just like another AppVM. Having completed package upgrade, execute *qvm-dom0-network-via-netvm down* to revert to the normal state.
+
+Firewall and Proxy VMs
+----------------------
+
+TODO
