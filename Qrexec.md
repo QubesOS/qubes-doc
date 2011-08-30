@@ -106,11 +106,13 @@ Qubes RPC internals
 When an user in VM executes the */usr/lib/qubes/qrexec\_client\_vm* utility, the following steps are taken:
 
 -   *qrexec\_client\_vm* connects to *qrexec\_agent's* */var/run/qubes/qrexec\_agent\_fdpass* unix socket 3 times. Reads 4 bytes from each of them, which is the fd number of the accepted socket in agent. These 3 integers, in text, concatenated, form "connection identifier" (CID)
--   *qrexec\_client\_vm* executes the rpc client, passing the above mentioned unix sockets as process stdin/stdout, and optionally stderr (if the PASS\_LOCAL\_STDERR env variable is set)
 -   *qrexec\_client\_vm* writes to */var/run/qubes/qrexec\_agent* fifo a blob, consisting of target vmname, rpc action, and CID
+-   *qrexec\_client\_vm* executes the rpc client, passing the above mentioned unix sockets as process stdin/stdout, and optionally stderr (if the PASS\_LOCAL\_STDERR env variable is set)
 -   *qrexec\_agent* passes the blob to *qrexec\_daemon*, via MSG\_AGENT\_TO\_SERVER\_TRIGGER\_CONNECT\_EXISTING message over vchan
--   *qrexec\_daemon* executes *qrexec\_policy*, passing target vmname, rpc action, and CID as cmdline arguments
--   *qrexec\_policy* evaluates the policy file. If successful, creates a pair of *qrexec\_client* processes, whose stdin/stdout are cross-connencted. The first *qrexec\_client* connects to the src VM, using the *-c CID* parameter, which results in not creating a new process, but connecting to the existing process file descriptors (these are the fds of unix socket created in step 1). The second *qrexec\_client* connects to the target VM, and executes *qubes\_rpc\_multiplexer* command there with the rpc action as the cmdline argument. Finally, *qubes\_rpc\_multiplexer* executes the correct rpc server on the target.
+-   *qrexec\_daemon* executes *qrexec\_policy*, passing source vmname, target vmname, rpc action, and CID as cmdline arguments
+-   *qrexec\_policy* evaluates the policy file. If successful, creates a pair of *qrexec\_client* processes, whose stdin/stdout are cross-connencted.
+    -   The first *qrexec\_client* connects to the src VM, using the *-c CID* parameter, which results in not creating a new process, but connecting to the existing process file descriptors (these are the fds of unix socket created in step 1).
+    -   The second *qrexec\_client* connects to the target VM, and executes *qubes\_rpc\_multiplexer* command there with the rpc action as the cmdline argument. Finally, *qubes\_rpc\_multiplexer* executes the correct rpc server on the target.
 -   In the above step, if the target VM is *\$dispvm*, the dispvm is created via the *qfile-daemon-dvm* program. The latter waits for the *qrexec\_client* process to exit, and then destroys the dispvm.
 
-
+[![qubes\_rpc.png](/chrome/site/../../../site/qubes_rpc.png "qubes_rpc.png")](/chrome/site/../../../site/qubes_rpc.png)
