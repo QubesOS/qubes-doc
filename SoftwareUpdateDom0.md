@@ -18,8 +18,13 @@ However, we anticipate some other situations when updating Dom0 software might b
 -   Correcting non-security related bugs (e.g. new buttons for qubes manager)
 -   Adding new features (e.g. GUI backup tool)
 
-How to do that?
----------------
+How to do that? (in Beta 2)
+---------------------------
+
+TODO
+
+How to do that? (in Beta 1)
+---------------------------
 
 Currently Dom0 update procedure requires command line -- in the future we will make it available from the GUI manager.
 
