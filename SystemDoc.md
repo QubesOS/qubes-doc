@@ -25,6 +25,8 @@ System Documentation for Developers
 
 -   [Implementation of template sharing and updating](/wiki/TemplateImplementation)
 
+-   [Dom0 secure update mechanism](/wiki/Dom0SecureUpdate%3A)
+
 Build instructions:
 
 -   Building Qubes core and gui packages: see this [​message](https://groups.google.com/group/qubes-devel/browse_thread/thread/710f725713cc7e8a#)
