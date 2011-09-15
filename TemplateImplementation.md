@@ -66,7 +66,23 @@ In order for the full potential of the snapshot device to be realized, every cha
 
 When TemplateVM is started, it receives the snapshot-origin device connected as a root device (in read-write mode). Therefore, every change to this device is immediately saved in root.img - but remains invisible to the AppVM, which uses the snapshot.
 
-When TemplateVM is stopped, the xen script removes root-cow.img and creates a new one (using the qvm-template-commit tool). The snapshot device will remain untouched due to the loop device, which uses an actual file on the disk (by inode, not by name). Linux kernel frees the old root-cow.img files as soon as they are unused by all snapshot devices (to be exact, loop devices). The new root-cow.img file will get a new inode number, and so new AppVMs will get new snapshot devices (with different names).
+When TemplateVM is stopped, the xen script moves root-cow.img to root-cow.img.old and creates a new one (using the qvm-template-commit tool). The snapshot device will remain untouched due to the loop device, which uses an actual file on the disk (by inode, not by name). Linux kernel frees the old root-cow.img files as soon as they are unused by all snapshot devices (to be exact, loop devices). The new root-cow.img file will get a new inode number, and so new AppVMs will get new snapshot devices (with different names).
+
+### Rollback template changes
+
+There is possibility to rollback last template changes. Saved root-cow.img.old contains all changes made during last TemplateVM run. Rolling back changes is done by reverting this "binary patch".
+
+This is done using snapshot-merge device-mapper target (available from 2.6.34 kernel). It requires that no other snapshot device uses underlying block devices (root.img, root-cow.img via loop device). Because of this all AppVMs based on this template must be halted during this operation.
+
+Steps performed by **qvm-revert-template-changes**:
+
+1.  Ensure that no other VMs uses this template.
+2.  Prepare snapshot device with ***root-cow.img.old*** instead of *root-cow.img* (*/etc/xen/scripts/block-snapshot prepare*).
+3.  Replace *snapshot* device-mapper target with *snapshot-merge*, other parameters (chunk size etc) remains untouched. Now kernel starts merging changes stored in *root-cow.img.old* into *root.img*, but d-m device can be used normally.
+4.  Waits for merge completed: *dmsetup status* shows used snapshot blocks - it should be equal to metadata size when completed.
+5.  Replace *snapshot-merge* d-m target back to *snapshot*.
+6.  Cleanup snapshot device (in nobody uses it it the moment).
+7.  Move *root-cow.img.old* to *root-cow.img* (overriding existing file).
 
 Snapshot device in AppVM
 ------------------------
