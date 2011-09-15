@@ -98,3 +98,10 @@ volatile.img is divided into two partitions:
 2.  swap partition
 
 Inside of an AppVM, the root device is wrapped by the snapshot in the first partition of volatile.img. Therefore, the AppVM can write anything to its filesystem - however, such changes will be discarded after a restart.
+
+StandaloneVM
+------------
+
+Standalone VM enables user to modify root filesystem persistently. It can be created using *--standalone* switch to *qvm-create*.
+
+It is implemented just like TemplateVM (has own root.img connected as R/W device), but no other VMs can be based on it.
