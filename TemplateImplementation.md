@@ -12,7 +12,7 @@ TemplateVM has a shared root.img across all AppVMs that are based on it. This me
 -   root.img can be modified while there are AppVMs running - without corrupting the filesystem
 -   multiple AppVMs that are using different versions of root.img (from various points in time) can be running concurrently
 
-There are two layers of the device-mapper snapshot device; the first one enables modifying root.img without stopping the AppVMs and the second one, which is contained in the AppVM, enables modifying its filesystem. These modifications will be discarded after a restart of the AppVM.
+There are two layers of the device-mapper snapshot device; the first one enables modifying root.img without stopping the AppVMs and the second one, which is contained in the AppVM, enables temporal modifications to its filesystem. These modifications will be discarded after a restart of the AppVM.
 
 [![TemplateSharing2.png](/chrome/site/../../../site/TemplateSharing2.png "TemplateSharing2.png")](/chrome/site/../../../site/TemplateSharing2.png)
 
