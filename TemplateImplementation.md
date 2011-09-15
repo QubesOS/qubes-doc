@@ -4,6 +4,38 @@ title: TemplateImplementation
 permalink: /wiki/TemplateImplementation/
 ---
 
+Overview of VM block devices
+============================
+
+Every VM has 4 block devices connected:
+
+-   **xvda** - base root device (/) - details described below
+-   **xvdb** - private.img - place where VM always can write.
+-   **xvdc** - volatile.img, discarded at each VM restart - here is placed swap and temporal "/" modifications (see below)
+-   **xvdd** - modules.img - kernel modules and firmware
+
+private.img (xvdb)
+------------------
+
+This is mounted as /rw and here is placed all VM private data. This includes:
+
+-   */home* - which is symlink to /rw/home
+-   */usr/local* - which is symlink to /rw/usrlocal
+-   some config files (/rw/config) called by qubes core scripts (ex /rw/config/rc.local)
+
+modules.img (xvdd)
+------------------
+
+As kernel is chosen in dom0, not VM there must be some way to provide matching kernel modules to VM OS. Qubes kernel dir consists of 3 files:
+
+-   *vmlinuz* - actual kernel
+-   *initramfs* - initial ramdisk containing script to setup snapshot devices (see below) and mount /lib/modules
+-   *modules.img* - filesystem image of /lib/modules with matching kernel modules and firmware (/lib/firmware/updates is symlinked to /lib/modules/firmware)
+
+Normally kernel "package" is common for many VMs (can be set using qvm-prefs). One of them can be set as default (qvm-set-default-kernel) to simplify kernel updates (by default all VMs uses default kernel). All installed kernels are placed in /var/lib/qubes/vm-kernels as separate subdirs. In this case, modules.img is attached to VM as R/O device.
+
+There is special case when VM can have custom kernel - when it is updateable (StandaloneVM or TemplateVM) and kernel is set to "none" (by qvm-prefs). In this case VM uses kernel from "kernels" VM subdir and modules.img is attached as R/W device. FIXME: "none" should be renamed to "custom".
+
 Qubes TemplateVM implementation
 ===============================
 
