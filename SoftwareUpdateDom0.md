@@ -21,7 +21,21 @@ However, we anticipate some other situations when updating Dom0 software might b
 How to do that? (in Beta 2)
 ---------------------------
 
-TODO
+Start a console in Dom0 and then run one of the following command:
+
+1) To check and install updates for Dom0 software:
+
+``` {.wiki}
+$ sudo qvm-dom0-updates
+```
+
+2) To install additional packages in Dom0 (usually not recommended):
+
+``` {.wiki}
+$ sudo qvm-dom0-updates anti-evil-maid
+```
+
+You can also pass --enablerepo= option in order to enable optional repositories (see yum configuration in Dom0). This is only for advanced users who really understand what they are doing.
 
 How to do that? (in Beta 1)
 ---------------------------
