@@ -23,9 +23,11 @@ Trusted non-Qubes-specific components
 -   Xen hypervisor
 -   xenstore
 -   network PV frontends (exposed to potentially compromised netvm) and backends
+-   VMs networking stack. Note that in order to take control over VM without its cooperation (e.g. enticing user to visit a malicious web page) the attacker would have to compromise two firewalls first. Also, dom0 has no network connectivity, thus it is not exposed.
 -   block backend implemented in dom0 kernel
 -   integrity of Fedora packages (meaning, they are not trojaned)
 -   rpm and yum (both in dom0 and in VMs) must correctly verify signatures of the packages
+-   terminal emulators and file editors used in dom0 to view VM-influenced logs (although somehow exotic, in the past there were vulnerabilities in terminal emulators allowing for arbitrary code execution by just displaying malicious content on the terminal).
 
 At the current project stage, we cannot afford to spend time to improve them - all we can do is to limit the number and extent of these components.
 
