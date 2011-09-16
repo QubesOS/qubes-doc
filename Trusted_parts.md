@@ -25,6 +25,7 @@ Trusted non-Qubes-specific components
 -   network PV frontends (exposed to potentially compromised netvm) and backends
 -   block backend implemented in dom0 kernel
 -   integrity of Fedora packages (meaning, they are not trojaned)
+-   rpm and yum in dom0 must correctly verify signatures of the packages
 
 At the current project stage, we cannot afford to spend time to improve them - all we can do is to limit the number and extent of these components.
 
