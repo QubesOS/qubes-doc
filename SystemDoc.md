@@ -9,6 +9,8 @@ System Documentation for Developers
 
 -   Qubes OS Architecture v0.3 [​(pdf)](http://www.qubes-os.org/files/doc/arch-spec-0.3.pdf)
 
+-   [Trusted system components](/wiki/Trusted_parts)
+
 -   [Qubes GUI virtualization protocol](/wiki/GUIdocs)
 
 -   [Networking in Qubes](/wiki/QubesNet)
