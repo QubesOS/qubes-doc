@@ -4,44 +4,50 @@ title: Trusted_parts
 permalink: /wiki/Trusted_parts/
 ---
 
-Security-critical elements of Qubes OS
-======================================
+Security-Critical Code in Qubes OS
+==================================
 
-Summary
--------
+Below is a list of security-critical (AKA trusted) code in Qubes OS. A successful attack against any of those might allow to compromise the Qubes OS security. This code can be thought of as of a Trusted Computing Base (TCB) of Qubes OS. The goal of the project has been to minimize the amount of this trusted code to an absolute minimum. The size of the current TCB is of an order of hundreds thousands of lines of C code, which is several orders of magnitude less than in other OSes, such as Windows, Linux or Mac, where it is of orders of tens of millions of lines of C code.
 
-As stated in the architecture document, the threat model for Qubes include:
+For more information about the security goals of Qubes OS, see [this page](/wiki/SecurityGoals).
 
--   a compromised VM
--   compromised Internet connectivity (e.g. rogue ISP)
+Security-Critical Qubes-Specific Components
+-------------------------------------------
 
-Qubes's goal is to contain an attacker within an already compromised VM. There are a number of system components that are exposed to interaction with untrusted entities, and their compromise is fatal to Qubes security.
+Below is a code produced by the Qubes project that is security-critical.
 
-Trusted non-Qubes-specific components
--------------------------------------
+-   Dom0-side of the libvchan library
+-   Dom0-side of the GUI virtualization code (*qubes-guid*)
+-   Dom0-side of the sound virtualization code (*pacat-simple-vchan*)
+-   Dom0-side in qrexec-related code (*qrexec\_daemon*)
+-   VM memory manager (*qmemman*) that runs in Dom0
+-   select Qubes RPC servers that run in Dom0: qubes.[ReceiveUpdates?](/wiki/ReceiveUpdates) and qubes.[SyncAppMenus?](/wiki/SyncAppMenus)
+-   The qubes.Filecopy RPC server that runs in a VM -- this one is critical because it might allow one VM to compromise another one if user allows file copy operation to be performed between them
+
+Security-Critical 3rd-Party Components
+--------------------------------------
+
+These are the components that we haven't written or designed ourselves, yet we still rely on them. At the current project stage, we cannot afford to spend time to thoroughly review and audit them, so we just more or less "blindly" trust they are secure.
 
 -   Xen hypervisor
--   xenstore
--   network PV frontends (exposed to potentially compromised netvm) and backends
--   VMs networking stack. Some notes:
-    1.  Only NetVM uses real hardware drivers; the rest use just the simple and small PV frontend. Thus, attacker would need a code execution bug in core TCP/IP to reach AppVM.
-    2.  In order to take control via network over AppVM without its cooperation (e.g. enticing user to visit a malicious web page) the attacker would have to compromise two firewalls first.
-    3.  Dom0 has no network connectivity, thus it is not exposed.
--   block backend implemented in dom0 kernel
--   integrity of Fedora packages (meaning, they are not trojaned)
--   rpm and yum (both in dom0 and in VMs) must correctly verify signatures of the packages
--   terminal emulators and file editors used in dom0 to view VM-influenced logs (although somehow exotic, in the past there were vulnerabilities in terminal emulators allowing for arbitrary code execution by just displaying malicious content on the terminal).
+-   The Xen's xenstore backend running in Dom0
+-   The Xen's block backend running in Dom0 kernel
+-   The rpm program used in Dom0 for verifying Dom0 updates' signatures
+-   Somehow optional: log viewing software in dom0 that parses VM-influenced logs
 
-At the current project stage, we cannot afford to spend time to improve them - all we can do is to limit the number and extent of these components.
+Additionally when we consider attacks that originate through a compromised network domain and target the VMs connected to it. Those attacks do not apply to domains connected to other network domains (Qubes allows more than one network domains), or those with networking disabled (Dom0 is not connected to any network by default).
 
-Trusted Qubes-specific components
----------------------------------
+-   Xen network PV frontends
+-   VM's core networking stacks (core TCP/IP code)
 
--   dom0-side libvchan library
--   GUI virtualization code in dom0 (*qubes-guid*)
--   sound virtualization code in dom0 (*pacat-simple-vchan*); note at the current state, it parses no data from VM (just passes raw audio frames to pulseaudio), so it should be safe
--   VM memory manager (*qmemman*)
--   qrexec-related code in dom0 (*qrexec\_daemon*)
--   some Qubes rpc servers. The servers implementing qubes.Filecopy, qubes.[ReceiveUpdates?](/wiki/ReceiveUpdates) and qubes.[SyncAppMenus?](/wiki/SyncAppMenus) must be bullet-proof. In case of qubes.OpenInVM and qubes.VMShell, their incarnation require explicit consent from the user, and such consent basically grants control over the target VM to the source VM, thus they are not critical.
+Buggy Code vs. Back-doored Code Distinction
+-------------------------------------------
 
-It is the priority of the project to design the system so that the amount of this code is as limited as possible, and to code them securely.
+There is an important distinction between the buggy code and maliciously trojaned code. We could have the most secure architecture and the most bulletproof TCB that perfectly isolates all domains from each other, but it still would be pretty useless if all the code used within domains, e.g. the actual email clients, word processors, etc, was somehow trojaned. In that case only network-isolated domains could be somehow trusted, while all others could be not.
+
+The above means that we must trust at least some of the vendors (not all, of course, but at least those few that provide the apps that we use in the most critical domains). In practice in Qubes OS we trust the software provided by Fedora project. This software is signed by Fedora distribution keys and so it is also critical that the tools used in domains for software updates (yum and rpm) be trusted.
+
+Cooperative Covert Channels Between Domains
+-------------------------------------------
+
+Qubes does not attempt to eliminate all possible *cooperative* covert channels between domains, i.e. such channels that could be established between two *compromised* domains. We don't believe this is possible to achieve on x86 hardware, and we also doubt it makes any sense in practice for most users -- after all if the two domains are compromised, then it's already (almost) all lost anyway.
