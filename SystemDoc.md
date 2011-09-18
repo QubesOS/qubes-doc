@@ -27,7 +27,7 @@ System Documentation for Developers
 
 -   [Implementation of template sharing and updating](/wiki/TemplateImplementation)
 
--   [Dom0 secure update mechanism](/wiki/Dom0SecureUpdate%3A)
+-   [Dom0 secure update mechanism](/wiki/Dom0SecureUpdates)
 
 Build instructions:
 
