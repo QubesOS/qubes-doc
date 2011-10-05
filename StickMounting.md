@@ -11,7 +11,7 @@ This requires qubes-core-appvm-1.0.1 of higher.
 1.  In Dom0 konsole (running as normal user) do:
 
 ``` {.wiki}
-xl block-attach <vmname> phy:/dev/sdb1 /dev/xvdi w
+xl block-attach <vmname> phy:/dev/sdb1 xvdi w
 ```
 
 This assumes that your stick is seen by Dom0 kernel as **/dev/sdb** and you're mounting its first partition, so **/dev/sdb1** (the usual case).
@@ -23,7 +23,7 @@ This assumes that your stick is seen by Dom0 kernel as **/dev/sdb** and you're m
 1.  Back to Dom0 konsole -- in order to unmount the stick do the following:
 
 ``` {.wiki}
-xl block-detach <vmname> /dev/xvdi
+xl block-detach <vmname> xvdi
 ```
 
 1.  You can remove the device.
