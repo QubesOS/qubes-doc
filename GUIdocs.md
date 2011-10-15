@@ -203,7 +203,15 @@ The header is followed by message-specific data.
  ` uint32_t override_redirect; ` 
  ` }; `|Map a window with given parameters|
 |MSG\_CLOSE|None|send wmDeleteMessage to the window|
-|MSG\_CROSSING|Obsolete|Obsolete, unused|
+|MSG\_CROSSING|` struct msg_crossing { ` 
+ ` uint32_t type; ` 
+ ` uint32_t x; ` 
+ ` uint32_t y; ` 
+ ` uint32_t state; ` 
+ ` uint32_t mode; ` 
+ ` uint32_t detail; ` 
+ ` uint32_t focus; ` 
+ ` }; `|Notify window about enter/leave event|
 |MSG\_FOCUS|` struct msg_focus {  ` 
  ` uint32_t type;  ` 
  ` uint32_t mode;  ` 
