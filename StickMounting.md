@@ -16,6 +16,8 @@ xl block-attach <vmname> phy:/dev/sdb1 xvdi w
 
 This assumes that your stick is seen by Dom0 kernel as **/dev/sdb** and you're mounting its first partition, so **/dev/sdb1** (the usual case); "w" means read/write, if you not want that, use "r" for read only.
 
+This will attach the device as "/dev/xvdi" in VM. You can also choose different name (eg. xvdj) to connect multiple devices, but the others (not xvdi) will require mounting from cmdline in VM...
+
 1.  Open Nautilus file manager in the AppVM. Your stick should be visible in the "Places" panel on the left. Just click on the device.
 
 1.  When you finish using your USB stick, right-click its icon in Dolphin and chose "Safely Remove \<Your stick name\>".
