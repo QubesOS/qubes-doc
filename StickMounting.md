@@ -14,7 +14,7 @@ This requires qubes-core-appvm-1.0.1 of higher.
 xl block-attach <vmname> phy:/dev/sdb1 xvdi w
 ```
 
-This assumes that your stick is seen by Dom0 kernel as **/dev/sdb** and you're mounting its first partition, so **/dev/sdb1** (the usual case).
+This assumes that your stick is seen by Dom0 kernel as **/dev/sdb** and you're mounting its first partition, so **/dev/sdb1** (the usual case); "w" means read/write, if you not want that, use "r" for read only.
 
 1.  Open Nautilus file manager in the AppVM. Your stick should be visible in the "Places" panel on the left. Just click on the device.
 
