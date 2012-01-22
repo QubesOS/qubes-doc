@@ -23,3 +23,8 @@ Here are some links to various papers/research projects that somehow relate to Q
 -   [​Virtics: A System for Privilege Separation of Legacy Desktop Applications](http://radlab.cs.berkeley.edu/wiki/Virtics) by Matt Piotrowski
     (We plan to implement some ideas from Matt's thesis in Qubes very soon -- stay tuned for details)
 
+### VMM/Xen disagregation
+
+-   [[​http://tjd.phlegethon.org/words/sosp11-xoar.pdf](http://tjd.phlegethon.org/words/sosp11-xoar.pdf) "Breaking Up is Hard to Do: Security and Functionality in a Commodity Hypervisor] by Patrick Colp at el.
+     (Also see [​this thread on xen-devel](http://www.gossamer-threads.com/lists/xen/devel/230011))
+
