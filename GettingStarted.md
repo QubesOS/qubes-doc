@@ -26,6 +26,11 @@ Each domain, apart form having a distinct name, is also assigned a **label**, wh
 
 There is, however, one special domain that is called *Dom0* which is where the Desktop Manager (currently KDE) runs, and this is where you log into. This domain doesn't have any networking connectivity and is essentially only dedicated for running the Window and Desktop Manager, nothing else.
 
+Qubes Manager and command line tools
+------------------------------------
+
+TODO
+
 Starting apps in domains
 ------------------------
 
