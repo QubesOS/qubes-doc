@@ -11,12 +11,14 @@ Here are some links to various papers/research projects that somehow relate to Q
 -   [​Attacking Intel® Trusted Execution Technology](http://invisiblethingslab.com/resources/bh09dc/Attacking%20Intel%20TXT%20-%20paper.pdf) by Rafal Wojtczuk, Joanna Rutkowska
 -   [​ACPI: Design Principles and Concerns](http://www.ssi.gouv.fr/IMG/pdf/article_acpi.pdf) by Loic Duflot, Olivier Levillain, and Benjamin Morin
 -   [​Another Way to Circumvent Intel® Trusted Execution Technology](http://invisiblethingslab.com/resources/misc09/Another%20TXT%20Attack.pdf) by Rafal Wojtczuk, Joanna Rutkowska, Alex Tereshkin
+-   [​Attacking Intel TXT® via SINIT code execution hijacking](http://www.invisiblethingslab.com/resources/2011/Attacking_Intel_TXT_via_SINIT_hijacking.pdf) by Rafal Wojtczuk and Joanna Rutkowska
 
 ### Software attacks coming through devices
 
 -   [​Can you still trust your network card?](http://www.ssi.gouv.fr/IMG/pdf/csw-trustnetworkcard.pdf) by Loïc Duflot, Yves-Alexis Perez and others
 -   [​Remotely Attacking Network Cards (or why we do need VT-d and TXT)](http://theinvisiblethings.blogspot.com/2010/04/remotely-attacking-network-cards-or-why.html) by Joanna Rutkowska
 -   [​On Formally Verified Microkernels (and on attacking them)](http://theinvisiblethings.blogspot.com/2010/05/on-formally-verified-microkernels-and.html) by Joanna Rutkowska
+-   [​Following the White Rabbit: Software Attacks against Intel® VT-d](http://www.invisiblethingslab.com/resources/2011/Software%20Attacks%20on%20Intel%20VT-d.pdf) by Rafal Wojtczuk and Joanna Rutkowska
 
 ### Application-level security
 
