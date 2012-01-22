@@ -23,6 +23,11 @@ Advanced topics:
 -   [How to mount USB stick to an AppVM?](/wiki/StickMounting)
 -   [How to copy files to Dom0?](/wiki/CopyToDomZero)
 
+Command-line tools reference:
+
+-   Dom0 tools
+-   VM tools
+
 Optional topics:
 
 -   [How to install Nvidia driver in dom0](/wiki/InstallNvidiaDriver)
