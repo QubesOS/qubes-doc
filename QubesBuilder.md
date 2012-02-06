@@ -24,7 +24,7 @@ sudo yum install git createrepo rpm-build make
 
 The build system creates build environments in chroots and so no other packages are needed on the host. All files created by the build system are contained within the qubes-builder directory. The full build requires some 25GB of free space, so keep that in mind when deciding where to place this directory.
 
-The build system is configured via builder.conf file -- one should copy the attached builder.conf.template, and modify it as needed, e.g.:
+The build system is configured via builder.conf file -- one should copy the attached builder.conf.default, and modify it as needed, e.g.:
 
 ``` {.wiki}
 cp builder.conf.default builder.conf 
