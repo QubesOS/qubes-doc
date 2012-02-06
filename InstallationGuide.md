@@ -4,7 +4,7 @@ title: InstallationGuide
 permalink: /wiki/InstallationGuide/
 ---
 
-Installation Guide (for Qubes Beta 2)
+Installation Guide (for Qubes Beta 3)
 =====================================
 
 Hardware Requirements
@@ -15,8 +15,8 @@ Minimum:
 -   4GB of RAM
 -   64-bit Intel or AMD processor (x86\_64 aka x64 aka AMD64)
 -   Intel GPU strongly preferred (if you have Nvidia GPU, prepare for some [troubleshooting](/wiki/InstallNvidiaDriver); we haven't tested ATI hardware)
--   10GB of disk (Note that **it is possible to install Qubes on an external USB disk**, so that you can try it without sacrificing your current system. Mind, however, that USB disks are usually SLOW!)
--   Fat SSD disk strongly recommended
+-   20GB of disk (Note that **it is possible to install Qubes on an external USB disk**, so that you can try it without sacrificing your current system. Mind, however, that USB disks are usually SLOW!)
+-   Fast SSD disk strongly recommended
 
 Additional requirements:
 
@@ -31,8 +31,8 @@ Download installer ISO
 
 You can download the ISO and the digital signature for the ISO from here:
 
--   [​http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta2-x86\_64-DVD.iso](http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta2-x86_64-DVD.iso)
--   [​http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta2-x86\_64-DVD.iso.asc](http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta2-x86_64-DVD.iso.asc)
+-   [​http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta3-x86\_64-DVD.iso](http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta3-x86_64-DVD.iso)
+-   [​http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta3-x86\_64-DVD.iso.asc](http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta3-x86_64-DVD.iso.asc)
 
 See this [page](/wiki/VerifyingSignatures) for more info about how to download and verify our GPG keys. Then, verify the downloaded ISO:
 
@@ -49,10 +49,14 @@ Then, when finally ready, boot your system from the installer DVD and follow the
 
 The installer loads Xen right at the beginning, so chances are high that if you can see the installer's graphical screen, Qubes will work on your system :)
 
-Migrating from Qubes Beta 1
+Migrating from Qubes Beta 2
 ---------------------------
 
-If you have Qubes Beta 1 currently installed on your system, you must reinstall from scratch, as we offer no direct upgrade option in the installer (sorry). However, we do offer tools for smooth migration of your AppVMs. In order to do that, please backup your AppVMs using the ```qvm-backup``` tool [as usual](/wiki/BackupRestore). Then, after you install Qubes Beta 2, you can restore them using ```qvm-backup-restore``` tool that.
+If you have Qubes Beta 2 currently installed on your system, you must reinstall from scratch, as we offer no direct upgrade option in the installer (sorry). However, we do offer tools for smooth migration of your AppVMs. In order to do that, please backup your AppVMs using the ```qvm-backup``` tool [as usual](/wiki/BackupRestore). Then, after you install Qubes Beta 3, you can restore them using ```qvm-backup-restore``` tool that. Because we have changed the default template in Beta 3, you should tell qvm-back-restore about that by passing ```--replace-template``` option:
+
+``` {.wiki}
+qvm-backup-restore <backup_dir> --replace-template=fedora-14-x64:fedora-15-x64
+```
 
 Installing Updates
 ------------------
@@ -68,8 +72,6 @@ Known Issues
 -   NVIDIA GPU will likely cause problems, especially if you use suspend-to-RAM. This mostly results from the general poor support for NVIDIA GPUs under Linux, which in turn is caused by the lack of open documentation for those GPUs. You might try to use the NVIDIA's proprietary driver (see the instructions [here](/wiki/InstallNvidiaDriver)), which apparently helps a lot.
 
 -   If you have Sony Vaio Z, you will need some tinkering before you would be able to fully use this machine with Qubes (and generally with non-Windows systems). See this [page](/wiki/SonyVaioTinkering) for instructions.
-
--   KDE taskbar might look ugly. This problem can be easily solved by turning composition on (it's called "Desktop Effects", and can be found in System Settings/Desktop tab).
 
 -   Installer might not support some USB keyboards (\#230). This seems to include all the Mac Book keyboards (most PC laptops have PS2 keyboards and are not affected).
 
