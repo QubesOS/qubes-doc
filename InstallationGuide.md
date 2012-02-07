@@ -34,6 +34,10 @@ You can download the ISO and the digital signature for the ISO from here:
 -   [​http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta3-x86\_64-DVD.iso](http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta3-x86_64-DVD.iso)
 -   [​http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta3-x86\_64-DVD.iso.asc](http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta3-x86_64-DVD.iso.asc)
 
+or you might try to download the ISO via bit torrent:
+
+-   [​http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta3-x86\_64-DVD.iso?torrent](http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta3-x86_64-DVD.iso?torrent)
+
 See this [page](/wiki/VerifyingSignatures) for more info about how to download and verify our GPG keys. Then, verify the downloaded ISO:
 
 ``` {.wiki}
