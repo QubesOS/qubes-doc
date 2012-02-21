@@ -18,6 +18,12 @@ In order to assign a USB disk to a VM, follow these steps:
 
 > This will list available block devices connected to any USB controller in your system, no matter in which VM this controller is hosted. The name of the VM hosting the USB controller is displayed before the colon in the device name. The string after the colon is the name of the device used within the VM.
 
+> NOTE: If your device is not listed here, you can refresh the list calling (from VM to which device is connected):
+>
+> ``` {.wiki}
+> sudo udevadm trigger
+> ```
+
 1.  Connect the device, e.g.:
 
     ``` {.wiki}
