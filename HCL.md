@@ -34,6 +34,8 @@ Specific systems tested by Qubes core developers
 
 -   Lenovo Thinkpad T420 w/ Intel graphics
 -   Lenovo Thinkpad T420s w/ Intel graphics (requires 2.3.7 kernel to handle the panel screen correctly)
+-   Lenovo Thinkpad T61 w/ Nvidia graphics (Quadro NVS 140M) - works well (using xenlinux 2.6.38 kernel), better stability with [nvidia binary drivers](/wiki/InstallNvidiaDriver) - especially when using external monitor
+-   Samsung X460 - works well on both xenlinux 2.6.38 and pvops 3.2.7 kernel; after resume ethernet driver (sky2) need to be reloaded in netvm to start working again
 
 -   Sony Vaio Z 12 -- works well, but some [tinkering required](/wiki/SonyVaioTinkering)
 
