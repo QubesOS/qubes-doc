@@ -10,21 +10,7 @@ Installation Guide (for Qubes Beta 3)
 Hardware Requirements
 ---------------------
 
-Minimum:
-
--   4GB of RAM
--   64-bit Intel or AMD processor (x86\_64 aka x64 aka AMD64)
--   Intel GPU strongly preferred (if you have Nvidia GPU, prepare for some [troubleshooting](/wiki/InstallNvidiaDriver); we haven't tested ATI hardware)
--   20GB of disk (Note that **it is possible to install Qubes on an external USB disk**, so that you can try it without sacrificing your current system. Mind, however, that USB disks are usually SLOW!)
--   Fast SSD disk strongly recommended
-
-Additional requirements:
-
--   Intel VT-d or AMD IOMMU technology (this is needed for effective isolation of your network VMs)
-
-If you don't meet the additional criteria, you can still install and use Qubes. It still offers significant security improvement over traditional OSes, because things such as GUI isolation, or kernel protection do not require special hardware.
-
-**Note:** We don't recommend installing Qubes in a virtual machine! **Note:** There is a problem with supporting keyboard and mouse on Mac, and so Mac hardware is currently unsupported (patches welcomed!)
+Please see the [Hardware Compatibility List](/wiki/HCL) page for more information on required and recommended hardware.
 
 Download installer ISO
 ----------------------
