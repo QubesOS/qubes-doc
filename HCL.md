@@ -43,6 +43,6 @@ Specific systems tested by Qubes core developers
 Specific systems tested by the Qubes community
 ----------------------------------------------
 
--   Fujitsu S751 seems to work well, but no VT-d support! Reported by [​Zrubecz Laszlo](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ).
+-   Fujitsu S751 seems to work well, but requires BIOS update to get VT-d working. Reported by [​Zrubecz Laszlo](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ).
 -   Sony Vaio Z2 (2011 edition) works fine but requires some BIOS mod to enable VT-d. Reported by [​Danny Fullerton](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J).
 
