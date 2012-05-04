@@ -27,7 +27,9 @@ Additional requirements:
 
 If you don't meet the additional criteria, you can still install and use Qubes. It still offers significant security improvement over traditional OSes, because things such as GUI isolation, or kernel protection do not require special hardware.
 
-**Note:** We don't recommend installing Qubes in a virtual machine! **Note:** There is a problem with supporting keyboard and mouse on Mac, and so Mac hardware is currently unsupported (patches welcomed!)
+**Note:** We don't recommend installing Qubes in a virtual machine!
+
+**Note:** There is a problem with supporting keyboard and mouse on Mac, and so Mac hardware is currently unsupported (patches welcomed!)
 
 Specific systems tested by Qubes core developers
 ------------------------------------------------
