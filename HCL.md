@@ -38,9 +38,11 @@ Specific systems tested by Qubes core developers
 
 -   Samsung X460 - works well on both xenlinux 2.6.38 and pvops 3.2.7 kernel; after resume ethernet driver (sky2) need to be reloaded in netvm to start working again. Even though the chipset suppors VT-d, the BIOS is broken, and so the VT-d is not picked up by Xen, so it effectively doesn't work.
 
--   Sony Vaio Z 12 -- works well, but some [tinkering required](/wiki/SonyVaioTinkering)
+-   Sony Vaio Z 12 (2010 edition) -- works well, but some [tinkering required](/wiki/SonyVaioTinkering)
 
 Specific systems tested by the Qubes community
 ----------------------------------------------
 
-TODO
+-   Fujitsu S751 seems to work well, but no VT-d support! Reported by [​Zrubecz Laszlo](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ).
+-   Sony Vaio Z2 (2011 edition) works fine but requires some BIOS mod to enable VT-d. Reported by [​Danny Fullerton](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J).
+
