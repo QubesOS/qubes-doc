@@ -6,7 +6,6 @@ permalink: /wiki/DomZeroTools/
 
 QVM-tools:
 
--   [qvm-ls?](/wiki/QvmLs)
 -   [qubes-dom0-network-via-netvm](/wiki/Dom0Tools/QubesDom0NetworkViaNetvm)
 -   [qubes-dom0-update](/wiki/Dom0Tools/QubesDom0Update)
 -   [qubes-prefs](/wiki/Dom0Tools/QubesPrefs)
@@ -20,6 +19,7 @@ QVM-tools:
 -   [qvm-create](/wiki/Dom0Tools/QvmCreate)
 -   [qvm-firewall](/wiki/Dom0Tools/QvmFirewall)
 -   [qvm-grow-private](/wiki/Dom0Tools/QvmGrowPrivate)
+-   [qvm-ls](/wiki/Dom0Tools/QvmLs)
 -   [qvm-kill](/wiki/Dom0Tools/QvmKill)
 -   [qvm-pci](/wiki/Dom0Tools/QvmPci)
 -   [qvm-prefs](/wiki/Dom0Tools/QvmPrefs)
