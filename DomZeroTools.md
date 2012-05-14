@@ -7,27 +7,27 @@ permalink: /wiki/DomZeroTools/
 QVM-tools:
 
 -   [qvm-ls?](/wiki/QvmLs)
--   [Dom0Tools/QubesDom0Network-via-netvm qubes-dom0-network-via-netvm]
--   [Dom0Tools/QubesDom0Update qubes-dom0-update]
--   [Dom0Tools/QubesPrefs qubes-prefs]
--   [Dom0Tools/QvmAddAppvm qvm-add-appvm]
--   [Dom0Tools/QvmAddTemplate qvm-add-template]
--   [Dom0Tools/QvmBackupRestore qvm-backup-restore]
--   [Dom0Tools/QvmBackup qvm-backup]
--   [Dom0Tools/QvmBlock qvm-block]
--   [Dom0Tools/QvmClone qvm-clone]
--   [Dom0Tools/QvmCreateDefaultDvm qvm-create-default-dvm]
--   [Dom0Tools/QvmCreate qvm-create]
--   [Dom0Tools/QvmFirewall qvm-firewall]
--   [Dom0Tools/QvmGrowPrivate qvm-grow-private]
--   [Dom0Tools/QvmKill qvm-kill]
--   [Dom0Tools/QvmPci qvm-pci]
--   [Dom0Tools/QvmPrefs qvm-prefs]
--   [Dom0Tools/QvmRemove qvm-remove]
--   [Dom0Tools/QvmRevertTemplateChanges qvm-revert-template-changes]
--   [Dom0Tools/QvmRun qvm-run]
--   [Dom0Tools/QvmShutdown qvm-shutdown]
--   [Dom0Tools/QvmStart qvm-start]
--   [Dom0Tools/QvmSyncAppmenus qvm-sync-appmenus]
--   [Dom0Tools/QvmTemplateCommit qvm-template-commit]
+-   [qubes-dom0-network-via-netvm](/wiki/Dom0Tools/QubesDom0NetworkViaNetvm)
+-   [qubes-dom0-update](/wiki/Dom0Tools/QubesDom0Update)
+-   [qubes-prefs](/wiki/Dom0Tools/QubesPrefs)
+-   [qvm-add-appvm](/wiki/Dom0Tools/QvmAddAppvm)
+-   [qvm-add-template](/wiki/Dom0Tools/QvmAddTemplate)
+-   [qvm-backup-restore](/wiki/Dom0Tools/QvmBackupRestore)
+-   [qvm-backup](/wiki/Dom0Tools/QvmBackup)
+-   [qvm-block](/wiki/Dom0Tools/QvmBlock)
+-   [qvm-clone](/wiki/Dom0Tools/QvmClone)
+-   [qvm-create-default-dvm](/wiki/Dom0Tools/QvmCreateDefaultDvm)
+-   [qvm-create](/wiki/Dom0Tools/QvmCreate)
+-   [qvm-firewall](/wiki/Dom0Tools/QvmFirewall)
+-   [qvm-grow-private](/wiki/Dom0Tools/QvmGrowPrivate)
+-   [qvm-kill](/wiki/Dom0Tools/QvmKill)
+-   [qvm-pci](/wiki/Dom0Tools/QvmPci)
+-   [qvm-prefs](/wiki/Dom0Tools/QvmPrefs)
+-   [qvm-remove](/wiki/Dom0Tools/QvmRemove)
+-   [qvm-revert-template-changes](/wiki/Dom0Tools/QvmRevertTemplateChanges)
+-   [qvm-run](/wiki/Dom0Tools/QvmRun)
+-   [qvm-shutdown](/wiki/Dom0Tools/QvmShutdown)
+-   [qvm-start](/wiki/Dom0Tools/QvmStart)
+-   [qvm-sync-appmenus](/wiki/Dom0Tools/QvmSyncAppmenus)
+-   [qvm-template-commit](/wiki/Dom0Tools/QvmTemplateCommit)
 
