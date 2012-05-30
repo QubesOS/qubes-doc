@@ -37,6 +37,22 @@ $ sudo qvm-dom0-updates anti-evil-maid
 
 You can also pass --enablerepo= option in order to enable optional repositories (see yum configuration in Dom0). This is only for advanced users who really understand what they are doing.
 
+### How to downgrade specific package?
+
+1.  Download older version of package:
+
+    ``` {.wiki}
+    sudo qubes-dom0-update package-version
+    ```
+
+    Yum will say that there is no update, but package will be downloaded to dom0.
+
+2.  Downgrade packge:
+
+    ``` {.wiki}
+    sudo yum downgrade package-version
+    ```
+
 How to do that? (in Beta 1)
 ---------------------------
 
