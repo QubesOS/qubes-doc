@@ -17,3 +17,6 @@ Qubes Security Bulletins
 
 2012
 ----
+
+-   [​Qubes Security Bulletin \#1](https://groups.google.com/d/topic/qubes-devel/JIpZoQUP6dQ/discussion)
+
