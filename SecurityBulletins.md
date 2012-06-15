@@ -10,6 +10,8 @@ Qubes Security Bulletins
 2010
 ----
 
+-   None
+
 2011
 ----
 
@@ -18,5 +20,5 @@ Qubes Security Bulletins
 2012
 ----
 
--   [​Qubes Security Bulletin \#2](https://groups.google.com/d/topic/qubes-devel/JIpZoQUP6dQ/discussion)
+-   [​Qubes Security Bulletin \#2](https://groups.google.com/d/msg/qubes-devel/JIpZoQUP6dQ/g6TvtpUHzBQJ)
 
