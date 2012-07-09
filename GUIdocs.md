@@ -151,6 +151,17 @@ The header is followed by message-specific data.
  ` char data[128]; ` 
  ` } ; `|Set the window name; only printable characters are allowed|
 |MSG\_DOCK|None|Dock the window in the tray|
+|MSG\_WINDOW\_HINTS|` struct msg_window_hints { ` 
+ `    uint32_t flags; ` 
+ `    uint32_t min_width; ` 
+ `    uint32_t min_height; ` 
+ `    uint32_t max_width; ` 
+ `    uint32_t max_height; ` 
+ `    uint32_t width_inc; ` 
+ `    uint32_t height_inc; ` 
+ `    uint32_t base_width; ` 
+ `    uint32_t base_height; ` 
+ ` }; `|Size hints for window manager|
 
 Dom0 -\> AppVM messages
 -----------------------
