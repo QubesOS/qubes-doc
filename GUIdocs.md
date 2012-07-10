@@ -95,6 +95,8 @@ Proper handling of the below messages is security-critical. Observe that beside 
 
 The *override\_redirect* window attribute is explained at [​Override Redirect Flag](http://tronche.com/gui/x/xlib/window/attributes/override-redirect.html). The *transient\_for* attribute is explained at [​Transient\_for attribute](http://tronche.com/gui/x/icccm/sec-4.html#WM_TRANSIENT_FOR).
 
+Window manager hints and flags are described at [​http://standards.freedesktop.org/wm-spec/latest/](http://standards.freedesktop.org/wm-spec/latest/), especially part about `_NET_WM_STATE`.
+
 Each message starts with the following header
 
 ``` {.wiki}
@@ -162,6 +164,10 @@ The header is followed by message-specific data.
  `    uint32_t base_width; ` 
  `    uint32_t base_height; ` 
  ` }; `|Size hints for window manager|
+|MSG\_WINDOW\_FLAGS|` struct msg_window_flags { ` 
+ `     uint32_t flags_set; ` 
+ `    uint32_t flags_unset;` 
+ ` }; `|Change window state request; fields contains bitmask which flags request to be set and which unset|
 
 Dom0 -\> AppVM messages
 -----------------------
@@ -232,5 +238,9 @@ The header is followed by message-specific data.
 |MSG\_CLIPBOARD\_DATA|amorphic blob|Insert the received data into local clipboard|
 |MSG\_EXECUTE|Obsolete|Obsolete, unused|
 |MSG\_KEYMAP\_NOTIFY|` unsigned char remote_keys[32]; `|Synchronize the keyboard state (key pressed/depressed) with dom0|
+|MSG\_WINDOW\_FLAGS|` struct msg_window_flags { ` 
+ `     uint32_t flags_set; ` 
+ `    uint32_t flags_unset;` 
+ ` }; `|Window state change confirmation|
 
 
