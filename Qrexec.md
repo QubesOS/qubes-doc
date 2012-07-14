@@ -58,7 +58,7 @@ On src VM, one should invoke the client via
 
 */usr/lib/qubes/qrexec\_client\_vm target\_vm\_name RPC\_ACTION\_NAME rpc\_client\_path client arguments*
 
-Note that only stdin/stdout is passed between rpc server and client - notably, the server cmdline argument list is fixed (it contains one argument, source VM name). By default, stderr of client and server is logged to respective /var/log/qubes/qrexec.XID files.
+Note that only stdin/stdout is passed between rpc server and client - notably, the no cmdline argument are passed. Source VM name is given by QREXEC\_REMOTE\_DOMAIN environment variable. By default, stderr of client and server is logged to respective /var/log/qubes/qrexec.XID files.
 
 Be very careful when coding and adding a new rpc service. Unless the offered functionality equals full control over the target (it is the case with e.g. qubes.VMShell action), any vulnerability in a rpc server can be fatal to qubes security. On the other hand, this mechanism allows to delegate processing of untrusted input to less privileged (or throwaway) AppVMs, thus wise usage of it increases security.
 
