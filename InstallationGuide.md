@@ -54,7 +54,11 @@ The installer loads Xen right at the beginning, so chances are high that if you 
 Migrating from Qubes Beta 3
 ---------------------------
 
-If you have Qubes Beta 3 currently installed on your system, you must reinstall from scratch, as we offer no direct upgrade option in the installer (sorry). However, we do offer tools for smooth migration of your AppVMs. In order to do that, please backup your AppVMs using the ```qvm-backup``` tool [as usual](/wiki/BackupRestore). Then, after you install Qubes 1.0 rc1, you can restore them using ```qvm-backup-restore``` tool. You can also use a "Restore from backup" button from the Qubes Manager.
+If you have Qubes Beta 3 currently installed on your system, you must reinstall from scratch, as we offer no direct upgrade option in the installer (sorry). However, we do offer tools for smooth migration of your AppVMs. In order to do that, please backup your AppVMs using the ```qvm-backup``` tool [as usual](/wiki/BackupRestore). Then, after you install Qubes 1.0 rc1, you can restore them using ```qvm-backup-restore``` tool. However, because we have changed the default template in RC1, you should tell qvm-back-restore about that by passing ```--replace-template``` option:
+
+``` {.wiki}
+qvm-backup-restore <backup_dir> --replace-template=fedora-15-x64:fedora-17-x64 
+```
 
 Installing Updates
 ------------------
