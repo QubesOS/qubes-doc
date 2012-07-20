@@ -4,8 +4,10 @@ title: InstallationGuide
 permalink: /wiki/InstallationGuide/
 ---
 
-Installation Guide (for Qubes Beta 3)
-=====================================
+Installation Guide (for Qubes 1.0 rc1)
+======================================
+
+**Qubes 1.0 rc1 is scheduled to be released in the coming days. Stay tuned'''**
 
 Hardware Requirements
 ---------------------
@@ -17,12 +19,12 @@ Download installer ISO
 
 You can download the ISO and the digital signature for the ISO from here:
 
--   [​http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta3-x86\_64-DVD.iso](http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta3-x86_64-DVD.iso)
--   [​http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta3-x86\_64-DVD.iso.asc](http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta3-x86_64-DVD.iso.asc)
+-   FIXME (Coming soon!)
+-   FIXME (Coming soon!)
 
-or you might try to download the ISO via bit torrent:
+... or you might try to download the ISO via bit torrent:
 
--   [​http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta3-x86\_64-DVD.iso?torrent](http://s3-eu-west-1.amazonaws.com/qubes-os/iso/Qubes-R1-Beta3-x86_64-DVD.iso?torrent)
+-   FIXME
 
 See this [page](/wiki/VerifyingSignatures) for more info about how to download and verify our GPG keys. Then, verify the downloaded ISO:
 
@@ -33,25 +35,31 @@ gpg -v <iso>.asc
 Burning the ISO onto a DVD or USB stick
 ---------------------------------------
 
-Once you verify this is an authentic ISO, you should burn it on a DVD. For instructions on how to "burn" it on a USB stick, see [this page](/wiki/UsbInstallation). Before proceeding with the installation, you are encouraged to first read all the information on this page, especially the *Known Issues* paragraph.
+Once you verify this is an authentic ISO, you should burn it on a DVD.
+
+If you prefer to use USB as a source for installation, then you just need to copy the ISO onto the USB device, e.g. using dd:
+
+``` {.wiki}
+dd if=Qubes-R1-rc1-x86_64-DVD.iso of=/dev/sdX
+```
+
+**Be sure to use a correct device as the target in the dd command above (instead of sdX)'''**
+
+Before proceeding with the installation, you are encouraged to first read all the information on this page, especially the *Known Issues* paragraph.
 
 Then, when finally ready, boot your system from the installer DVD and follow the instructions on screen. The installer is very simple and asks very few questions -- it's actually easier to install Qubes right now than most other Linux distributions!
 
 The installer loads Xen right at the beginning, so chances are high that if you can see the installer's graphical screen, Qubes will work on your system :)
 
-Migrating from Qubes Beta 2
+Migrating from Qubes Beta 3
 ---------------------------
 
-If you have Qubes Beta 2 currently installed on your system, you must reinstall from scratch, as we offer no direct upgrade option in the installer (sorry). However, we do offer tools for smooth migration of your AppVMs. In order to do that, please backup your AppVMs using the ```qvm-backup``` tool [as usual](/wiki/BackupRestore). Then, after you install Qubes Beta 3, you can restore them using ```qvm-backup-restore``` tool that. Because we have changed the default template in Beta 3, you should tell qvm-back-restore about that by passing ```--replace-template``` option:
-
-``` {.wiki}
-qvm-backup-restore <backup_dir> --replace-template=fedora-14-x64:fedora-15-x64
-```
+If you have Qubes Beta 3 currently installed on your system, you must reinstall from scratch, as we offer no direct upgrade option in the installer (sorry). However, we do offer tools for smooth migration of your AppVMs. In order to do that, please backup your AppVMs using the ```qvm-backup``` tool [as usual](/wiki/BackupRestore). Then, after you install Qubes 1.0 rc1, you can restore them using ```qvm-backup-restore``` tool. You can also use a "Restore from backup" button from the Qubes Manager.
 
 Installing Updates
 ------------------
 
-Currently the user must start the update process manually (in future versions we will make this automatic).
+Installing updates is very easy and can be done using the "Update" button in the Qubes Manager. Alternatively it can also be done from command prompt -- see the following for more details:
 
 -   For installing updates for Dom0 -- see instructions [here](/wiki/SoftwareUpdateDom0).
 -   For installing updates for you domains (VMs) -- see instructions [here](/wiki/SoftwareUpdateVM).
@@ -60,8 +68,6 @@ Known Issues
 ------------
 
 -   NVIDIA GPU will likely cause problems, especially if you use suspend-to-RAM. This mostly results from the general poor support for NVIDIA GPUs under Linux, which in turn is caused by the lack of open documentation for those GPUs. You might try to use the NVIDIA's proprietary driver (see the instructions [here](/wiki/InstallNvidiaDriver)), which apparently helps a lot.
-
--   If you have Sony Vaio Z, you will need some tinkering before you would be able to fully use this machine with Qubes (and generally with non-Windows systems). See this [page](/wiki/SonyVaioTinkering) for instructions.
 
 -   Installer might not support some USB keyboards (\#230). This seems to include all the Mac Book keyboards (most PC laptops have PS2 keyboards and are not affected).
 
