@@ -19,12 +19,12 @@ Download installer ISO
 
 You can download the ISO and the digital signature for the ISO from here:
 
--   FIXME (Coming soon!)
--   FIXME (Coming soon!)
+-   [​http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-rc1-x86\_64-DVD.iso](http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-rc1-x86_64-DVD.iso)
+-   [​http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-rc1-x86\_64-DVD.iso.asc](http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-rc1-x86_64-DVD.iso.asc)
 
 ... or you might try to download the ISO via bit torrent:
 
--   FIXME
+-   [​http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-rc1-x86\_64-DVD.iso?torrent](http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-rc1-x86_64-DVD.iso?torrent)
 
 See this [page](/wiki/VerifyingSignatures) for more info about how to download and verify our GPG keys. Then, verify the downloaded ISO:
 
