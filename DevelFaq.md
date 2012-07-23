@@ -25,11 +25,11 @@ If you're interested in porting GNOME for Qubes Dom0 use, let us know -- we will
 
 ### Q: What is the recommended build environment?
 
-Fedora 12 Linux, 64-bit, with most of the regular development packages installed.
+Any rpm-based, 64-bit. Preferred Fedora.
 
 ### Q: How to build Qubes from sources?
 
-See [​this message](https://groups.google.com/group/qubes-devel/browse_thread/thread/710f725713cc7e8a#).
+See [the instruction](/wiki/QubesBuilder)
 
 ### Q: How do I submit a patch?
 
