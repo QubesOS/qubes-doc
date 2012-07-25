@@ -7,6 +7,8 @@ permalink: /wiki/InstallNvidiaDriver/
 Nvidia proprietary driver installation
 ======================================
 
+**This is outdated since Qubes 1.0-rc1 as nvidia binary driver isn't compatible with vanilla kernel under Xen.**
+
 The NVIDIA proprietary driver works **much** more stable than nouveau, so it's good idea to install it.
 
 [RpmFusion?](/wiki/RpmFusion) packages
