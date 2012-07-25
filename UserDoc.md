@@ -24,6 +24,7 @@ Advanced topics:
 -   Creating custom NetVMs
 -   Creating custom ProxyVMs
 -   [How to copy files to Dom0?](/wiki/CopyToDomZero)
+-   [​Extend root.img size](https://groups.google.com/group/qubes-devel/msg/9d1ac581236ca9b4)
 
 Command-line tools reference:
 
