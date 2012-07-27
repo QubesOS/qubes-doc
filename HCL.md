@@ -49,4 +49,6 @@ Specific systems tested by the Qubes community
 -   Sony Vaio Z2 (2011 edition) works fine but requires some BIOS mod to enable VT-d. Reported by [​Danny Fullerton](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J).
 -   Lenovo Thinkpad W510 with core I7 Q820, with proprietary Nvidia driver works fine. Reported by [​Sebastian Hültenschmidt](https://groups.google.com/forum/#!msg/qubes-devel/TgDWwBs36yA/IUFZPHs716cJ).
 -   Lenovo x220 8GB RAM, Intel graphics (core i5), VT-d is working. Reported by [​Stefan Boresch](https://groups.google.com/group/qubes-devel/msg/f41578eef913446a)
+-   Dell Latitude E6520 with i7-2760QM CPU. VT-d works fine. nVidia graphics not working, but integrated Intel does. Reported by [​Steven Collins](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
+-   Dell [PowerEdge?](/wiki/PowerEdge) T110 II, onboard Matrox graphics (Intel Xeon E3-1230), VT-d is working. Reported by [​Geoff](https://groups.google.com/group/qubes-devel/msg/8a894915909eeaee)
 
