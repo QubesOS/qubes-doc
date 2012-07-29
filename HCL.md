@@ -51,4 +51,5 @@ Specific systems tested by the Qubes community
 -   Lenovo x220 8GB RAM, Intel graphics (core i5), VT-d is working. Reported by [​Stefan Boresch](https://groups.google.com/group/qubes-devel/msg/f41578eef913446a)
 -   Dell Latitude E6520 with i7-2760QM CPU. VT-d works fine. nVidia graphics not working, but integrated Intel does. Reported by [​Steven Collins](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
 -   Dell [PowerEdge?](/wiki/PowerEdge) T110 II, onboard Matrox graphics (Intel Xeon E3-1230), VT-d is working. Reported by [​Geoff](https://groups.google.com/group/qubes-devel/msg/8a894915909eeaee)
+-   Toshiba Tecra S11. Requires [​some tinkering](https://groups.google.com/group/qubes-devel/browse_thread/thread/fdec0ec165a87726) to enable 3G modem. Reported by Jan Beerden
 
