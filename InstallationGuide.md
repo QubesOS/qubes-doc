@@ -7,8 +7,6 @@ permalink: /wiki/InstallationGuide/
 Installation Guide (for Qubes 1.0 rc1)
 ======================================
 
-**Qubes 1.0 rc1 is scheduled to be released in the coming days. Stay tuned'''**
-
 Hardware Requirements
 ---------------------
 
@@ -18,6 +16,8 @@ Download installer ISO
 ----------------------
 
 You can download the ISO and the digital signature for the ISO from here:
+
+**Note:** Be sure that you use a modern, non-handicapped browser to access the links below (e.g. disable the NoScript and the likes extensions that try to turn your Web Browser essentially into the 90's Mosaic).
 
 -   [​http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-rc1-x86\_64-DVD.iso](http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-rc1-x86_64-DVD.iso)
 -   [​http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-rc1-x86\_64-DVD.iso.asc](http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-rc1-x86_64-DVD.iso.asc)
