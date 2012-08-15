@@ -84,3 +84,78 @@ make gui
 ```
 
 Full list you can get from make help.
+
+Making customized build
+-----------------------
+
+You can use above tool to build Qubes with some components modified. Described here procedure will build Qubes with:
+
+-   non-default kernel
+-   newer Intel display driver
+
+The instruction:
+
+1.  Download qubes-builder as described above
+2.  Edit builder.conf (still the same as above), some useful additions:
+    -   As time of writing this, the default is fc15, but latest supported is fc17, so switch to newer one
+
+        ``` {.wiki}
+        DISTS_VM="fc17"
+        ```
+
+    -   You can also set GIT\_SUBDIR="marmarek" to use my repo instead of "mainstream" - it contains newer (but less tested) versions
+
+1.  Download unmodified sources
+
+    ``` {.wiki}
+    make get-sources
+    ```
+
+1.  Make your modifications here
+
+-   The kernel
+
+    ``` {.wiki}
+    cd qubes-src/kernel
+    git fetch git://git.qubes-os.org/marmarek/kernel.git devel-3.4:devel-3.4
+    git checkout devel-3.4
+    # need to download sources again, as the first time the default (older) kernel source was downloaded
+    # note that this is run from kernel subdir, not main qubes-builder directory
+    make BUILD_FLAVOR=pvops get-sources
+
+    cd ../../
+    ```
+
+-   Xorg driver
+
+    ``` {.wiki}
+    cd qubes-src/dom0-updates
+    rm xorg-x11-driver-intel*fc15.src.rpm
+    yumdownloader --releasever=17 --source xorg-x11-driver-intel
+
+    cd ../../
+    ```
+
+> If you want to install any other package in newer version than in fc13 (on which dom0 is based), you can place it here. Remember to update also Makefile to include its build and add its build requires to *build-pkgs-dom0-updates.list* in qubes-builder dir.
+
+1.  Build the Qubes
+     `make qubes` actually is just meta target which build all required components in correct order
+
+    ``` {.wiki}
+    grep ^qubes: Makefile
+    qubes: get-sources xen core kernel gui addons docs template kde-dom0 installer qubes-manager dom0-updates sign-all
+    ```
+
+> `get-sources` is already done, so continue with the next one. You can skip `sign-all` if you've disabled signing
+>
+> ``` {.wiki}
+> make xen core kernel gui addons docs template kde-dom0 installer qubes-manager dom0-updates
+> ```
+
+1.  build iso installation image
+
+    ``` {.wiki}
+    make iso
+    ```
+
+
