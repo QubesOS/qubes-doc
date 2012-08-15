@@ -35,8 +35,8 @@ Specific systems tested by Qubes core developers
 ------------------------------------------------
 
 -   Lenovo Thinkpad T420 w/ Intel graphics
--   Lenovo Thinkpad T420s w/ Intel graphics (requires 2.3.7 kernel to handle the panel screen correctly)
--   Lenovo Thinkpad T61 w/ Nvidia graphics (Quadro NVS 140M) - works well (using xenlinux 2.6.38 kernel), better stability with [nvidia binary drivers](/wiki/InstallNvidiaDriver) - especially when using external monitor. This system doesn't support VT-d!
+-   Lenovo Thinkpad T420s w/ Intel graphics (requires 3.2.7 kernel to handle the panel screen correctly)
+-   Lenovo Thinkpad T61 w/ Nvidia graphics (Quadro NVS 140M) - works well. This system doesn't support VT-d!
 
 -   Samsung X460 - works well on both xenlinux 2.6.38 and pvops 3.2.7 kernel; after resume ethernet driver (sky2) need to be reloaded in netvm to start working again. Even though the chipset suppors VT-d, the BIOS is broken, and so the VT-d is not picked up by Xen, so it effectively doesn't work.
 
@@ -48,7 +48,7 @@ Specific systems tested by the Qubes community
 -   Fujitsu S751 seems to work well, but requires BIOS update to get VT-d working. Reported by [​Zrubecz Laszlo](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ).
 -   Sony Vaio Z2 (2011 edition) works fine but requires some BIOS mod to enable VT-d. Reported by [​Danny Fullerton](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J).
 -   Lenovo Thinkpad W510 with core I7 Q820, with proprietary Nvidia driver works fine. Reported by [​Sebastian Hültenschmidt](https://groups.google.com/forum/#!msg/qubes-devel/TgDWwBs36yA/IUFZPHs716cJ).
--   Lenovo x220 8GB RAM, Intel graphics (core i5), VT-d is working. Reported by [​Stefan Boresch](https://groups.google.com/group/qubes-devel/msg/f41578eef913446a)
+-   Lenovo Thinkpad x220 8GB RAM, Intel graphics (core i5), VT-d is working. Reported by [​Stefan Boresch](https://groups.google.com/group/qubes-devel/msg/f41578eef913446a)
 -   Dell Latitude E6520 with i7-2760QM CPU. VT-d works fine. nVidia graphics not working, but integrated Intel does. Reported by [​Steven Collins](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
 -   Dell [PowerEdge?](/wiki/PowerEdge) T110 II, onboard Matrox graphics (Intel Xeon E3-1230), VT-d is working. Reported by [​Geoff](https://groups.google.com/group/qubes-devel/msg/8a894915909eeaee)
 -   Toshiba Tecra S11. Requires [​some tinkering](https://groups.google.com/group/qubes-devel/browse_thread/thread/fdec0ec165a87726) to enable 3G modem. Reported by Jan Beerden
