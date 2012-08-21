@@ -31,6 +31,9 @@ cp builder.conf.default builder.conf
 # edit the builder.conf file and set the following variables: 
 # (make sure to leave no spaces around '=' sign!) 
 # NO_SIGN="1"
+
+# As time of writing this, the default is fc15, but latest supported is fc17, so switch to newer one
+DISTS_VM="fc17"
 ```
 
 One additional useful requirement is that 'sudo root' work without any prompt, which is default on most distros (e.g. 'sudo bash' brings you the root shell without asking for any password). This is important as the builder needs to switch to root and then back to user several times during the build process.
@@ -88,12 +91,9 @@ Full list you can get from make help.
 Making customized build
 -----------------------
 
-You can use above tool to build Qubes with some components modified. Described here procedure will build Qubes with:
+### Manual source modification
 
--   non-default kernel
--   newer Intel display driver
-
-The instruction:
+If you want to somehow modify sources, you can also do it, here are some basic steps:
 
 1.  Download qubes-builder as described above
 2.  Edit builder.conf (still the same as above), some useful additions:
@@ -111,32 +111,7 @@ The instruction:
     make get-sources
     ```
 
-1.  Make your modifications here
-
--   The kernel
-
-    ``` {.wiki}
-    cd qubes-src/kernel
-    git fetch git://git.qubes-os.org/marmarek/kernel.git devel-3.4:devel-3.4
-    git checkout devel-3.4
-    # need to download sources again, as the first time the default (older) kernel source was downloaded
-    # note that this is run from kernel subdir, not main qubes-builder directory
-    make BUILD_FLAVOR=pvops get-sources
-
-    cd ../../
-    ```
-
--   Xorg driver
-
-    ``` {.wiki}
-    cd qubes-src/dom0-updates
-    rm xorg-x11-driver-intel*fc15.src.rpm
-    yumdownloader --releasever=17 --source xorg-x11-driver-intel
-
-    cd ../../
-    ```
-
-> If you want to install any other package in newer version than in fc13 (on which dom0 is based), you can place it here. Remember to update also Makefile to include its build and add its build requires to *build-pkgs-dom0-updates.list* in qubes-builder dir.
+1.  **Make your modifications here**
 
 1.  Build the Qubes
      `make qubes` actually is just meta target which build all required components in correct order
@@ -158,4 +133,27 @@ The instruction:
     make iso
     ```
 
+### Non-default git branches
 
+You can use above tool to build Qubes with some components modified. Besides manual source modification, it is possible to use non-default git repositories, or just another branches. For example to try (**unofficial, not supported**) configuration with newer kernel and xorg server, you can add to builder.conf:
+
+``` {.wiki}
+GIT_SUBDIR="marmarek"
+BRANCH_kernel=devel-3.4
+BRANCH_dom0_updates=devel/xserver-1.12
+
+# NO_SIGN=1 can also be useful
+```
+
+before doing "make qubes". If you built anything before this modification, you should remove qubes-src directory first to fetch the sources again (this will also remove packages compiled before). Above devel/xserver-1.12 branch require some modification of Makefile in qubes-builder. Find dom0-updates target and replace it with:
+
+``` {.wiki}
+dom0-updates:
+        MAKE_TARGET="stage0" ./build.sh $(DIST_DOM0) dom0-updates
+        MAKE_TARGET="stage1" ./build.sh $(DIST_DOM0) dom0-updates
+        MAKE_TARGET="stage2" ./build.sh $(DIST_DOM0) dom0-updates
+        MAKE_TARGET="stage3" ./build.sh $(DIST_DOM0) dom0-updates
+        MAKE_TARGET="stage4" ./build.sh $(DIST_DOM0) dom0-updates
+```
+
+Then you can build qubes as usual.
