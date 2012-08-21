@@ -95,7 +95,7 @@ Making customized build
 
 If you want to somehow modify sources, you can also do it, here are some basic steps:
 
-1.  Download qubes-builder as described above
+1.  Download qubes-builder as described above (if you want to use marmarek's branches, you should also download qubes-builder from his repo - replace 'joanna' with 'marmarek' in above git clone command)
 2.  Edit builder.conf (still the same as above), some useful additions:
     -   As time of writing this, the default is fc15, but latest supported is fc17, so switch to newer one
 
