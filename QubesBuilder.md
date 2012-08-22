@@ -157,3 +157,15 @@ dom0-updates:
 ```
 
 Then you can build qubes as usual.
+
+There is one issue with above experimental version: new Xorg server have different cmdline options, so after installation one config file must be edited to reflect this change. At first system startup hit ESC while progress bar is displayed - to switch to detailed boot view. After you set up user account etc, you must fix KDM config file.
+
+1.  Switch to tty2 (Alt-F2)
+2.  Login as just created user
+3.  Switch to root (sudo -s)
+4.  Edit /etc/kde/kdm/kdmrc
+    -   locate "[ServerArgsLocal?](/wiki/ServerArgsLocal)=-nr -nolisten tcp" line
+    -   remove "-nr" from it
+
+5.  Restart login manager (now it will start and allow you to login graphically): initctl restart prefdm
+
