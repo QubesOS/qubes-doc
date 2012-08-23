@@ -31,8 +31,8 @@ If you don't meet the additional criteria, you can still install and use Qubes. 
 
 **Note:** There is a problem with supporting keyboard and mouse on Mac, and so Mac hardware is currently unsupported (patches welcomed!)
 
-Specific systems tested by Qubes core developers
-------------------------------------------------
+Specific systems known to work tested by Qubes core developers
+--------------------------------------------------------------
 
 -   Lenovo Thinkpad T420 w/ Intel graphics
 -   Lenovo Thinkpad T420s w/ Intel graphics (requires 3.2.7 kernel to handle the panel screen correctly)
@@ -42,8 +42,8 @@ Specific systems tested by Qubes core developers
 
 -   Sony Vaio Z 12 (2010 edition) -- works well, but some [tinkering required](/wiki/SonyVaioTinkering)
 
-Specific systems tested by the Qubes community
-----------------------------------------------
+Specific systems known to work tested by the Qubes community
+------------------------------------------------------------
 
 -   Fujitsu S751 seems to work well, but requires BIOS update to get VT-d working. Reported by [​Zrubecz Laszlo](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ).
 -   Sony Vaio Z2 (2011 edition) works fine but requires some BIOS mod to enable VT-d. Reported by [​Danny Fullerton](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J).
@@ -53,4 +53,9 @@ Specific systems tested by the Qubes community
 -   Dell [PowerEdge?](/wiki/PowerEdge) T110 II, onboard Matrox graphics (Intel Xeon E3-1230), VT-d is working. Reported by [​Geoff](https://groups.google.com/group/qubes-devel/msg/8a894915909eeaee)
 -   Toshiba Tecra S11. Requires [​some tinkering](https://groups.google.com/group/qubes-devel/browse_thread/thread/fdec0ec165a87726) to enable 3G modem. Reported by Jan Beerden
 -   Toshiba M780 S7240, requires latest BIOS to have VT-d working, [​some problems](https://groups.google.com/group/qubes-devel/browse_thread/thread/2b89d2dc5f999ab7) with card reader. Reported by [​Franz](https://groups.google.com/group/qubes-devel/browse_thread/thread/66e97c990a08d8e2)
+
+Specific systems known to not work well with Qubes
+--------------------------------------------------
+
+-   All systems based on Ivy Bridge processors with the Intel integrated GPU used as the primary display. Currently our Xorg drivers in Dom0 do not support the latest Intel integrated GPUs from Ivy Bridge line. For instructions on possible workarounds see [​this message](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/GMTjUM2J6QEJ).
 
