@@ -45,7 +45,7 @@ pub   4096R/36879494 2010-04-01
 uid   Qubes Master Signing Key
 ```
 
-There should also be a copy of this key at the project's main website, as well as in the archives of the projects mailing list.
+There should also be a copy of this key at the project's main website, as well as in the [​archives of the projects mailing list](https://groups.google.com/forum/#!msg/qubes-devel/RqR9WPxICwg/kaQwknZPDHkJ).
 
 Once you download and verified the fingerprint of the Master Signing Key, you should import this key and set its trust level to 'ultimate' (oh, well), so that it could be used to automatically verify all the developer's keys:
 
