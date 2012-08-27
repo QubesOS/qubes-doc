@@ -27,8 +27,10 @@ In order to assign a USB disk to a VM, follow these steps:
 1.  Connect the device, e.g.:
 
     ``` {.wiki}
-    qvm-block -a dom0:sda personal
+    qvm-block -a personal dom0:sda
     ```
+
+    NOTE: We have changed order of parameters in 1.0-rc1
 
 > This will attach the device as "/dev/xvdi" in VM.
 
