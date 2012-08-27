@@ -58,4 +58,5 @@ Specific systems known to not work well with Qubes
 --------------------------------------------------
 
 -   All systems based on Ivy Bridge processors with the Intel integrated GPU used as the primary display. Currently our Xorg drivers in Dom0 do not support the latest Intel integrated GPUs from Ivy Bridge line. For instructions on possible workarounds see [​this message](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/GMTjUM2J6QEJ).
+    -   Specific system in above category: Lenovo x230 reported by [​Chris](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ) - with detailed list of working and not working components
 
