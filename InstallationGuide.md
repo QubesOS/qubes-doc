@@ -4,8 +4,8 @@ title: InstallationGuide
 permalink: /wiki/InstallationGuide/
 ---
 
-Installation Guide (for Qubes 1.0 rc1)
-======================================
+Installation Guide (for Qubes 1.0)
+==================================
 
 Hardware Requirements
 ---------------------
@@ -19,12 +19,12 @@ You can download the ISO and the digital signature for the ISO from here:
 
 **Note:** Be sure that you use a modern, non-handicapped browser to access the links below (e.g. disable the NoScript and the likes extensions that try to turn your Web Browser essentially into the 90's Mosaic).
 
--   [​http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-rc1-x86\_64-DVD.iso](http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-rc1-x86_64-DVD.iso)
--   [​http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-rc1-x86\_64-DVD.iso.asc](http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-rc1-x86_64-DVD.iso.asc)
+-   [​http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-x86\_64-DVD.iso](http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-x86_64-DVD.iso)
+-   [​http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-x86\_64-DVD.iso.asc](http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-x86_64-DVD.iso.asc)
 
 ... or you might try to download the ISO via bit torrent:
 
--   [​http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-rc1-x86\_64-DVD.iso?torrent](http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-rc1-x86_64-DVD.iso?torrent)
+-   [​http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-x86\_64-DVD.iso?torrent](http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-x86_64-DVD.iso?torrent)
 
 See this [page](/wiki/VerifyingSignatures) for more info about how to download and verify our GPG keys. Then, verify the downloaded ISO:
 
@@ -50,6 +50,11 @@ Before proceeding with the installation, you are encouraged to first read all th
 Then, when finally ready, boot your system from the installer DVD and follow the instructions on screen. The installer is very simple and asks very few questions -- it's actually easier to install Qubes right now than most other Linux distributions!
 
 The installer loads Xen right at the beginning, so chances are high that if you can see the installer's graphical screen, Qubes will work on your system :)
+
+Upgrading from Qubes 1.0-rc1
+----------------------------
+
+If you're already running Qubes 1.0-rc1, you don't need to reinstall, it's just enough to update the packages in your Dom0 and the template VM(s). The easiest way for doing this is to click on the Update Button in the Qubes Manger -- one click when you selected Dom0, and one click for each of your template VM (by default there is just one template).
 
 Migrating from Qubes Beta 3
 ---------------------------
