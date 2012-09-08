@@ -15,18 +15,15 @@ Please see the [Hardware Compatibility List](/wiki/HCL) page for more informatio
 Download installer ISO
 ----------------------
 
-You can download the ISO and the digital signature for the ISO from here:
+You can download the ISO and the digital signature from the SF.net:
 
-**Note:** Be sure that you use a modern, non-handicapped browser to access the links below (e.g. disable the NoScript and the likes extensions that try to turn your Web Browser essentially into the 90's Mosaic).
+-   [​https://sourceforge.net/projects/qubesos/files/](https://sourceforge.net/projects/qubesos/files/)
 
--   [​http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-x86\_64-DVD.iso](http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-x86_64-DVD.iso)
--   [​http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-x86\_64-DVD.iso.asc](http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-x86_64-DVD.iso.asc)
+... or you might try one of the following mirrors:
 
-... or you might try to download the ISO via bit torrent:
+-   [​http://ftp.fsn.hu/pub/linux/distributions/qubes/](http://ftp.fsn.hu/pub/linux/distributions/qubes/)
 
--   [​http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-x86\_64-DVD.iso?torrent](http://qubes-os.s3.amazonaws.com/iso/Qubes-R1-x86_64-DVD.iso?torrent)
-
-See this [page](/wiki/VerifyingSignatures) for more info about how to download and verify our GPG keys. Then, verify the downloaded ISO:
+Remember, we have absolutely no control over those servers, and so you should be assuming that they might be compromised, or just be serving a compromised ISOs because their operators decided so for whatever reason. Always verify the digital signature on the downloaded ISO. See this [page](/wiki/VerifyingSignatures) for more info about how to download and verify our GPG keys, and then verify the downloaded ISO:
 
 ``` {.wiki}
 gpg -v <iso>.asc
@@ -40,7 +37,7 @@ Once you verify this is an authentic ISO, you should burn it on a DVD.
 If you prefer to use USB as a source for installation, then you just need to copy the ISO onto the USB device, e.g. using dd:
 
 ``` {.wiki}
-dd if=Qubes-R1-rc1-x86_64-DVD.iso of=/dev/sdX
+dd if=Qubes-R1-x86_64-DVD.iso of=/dev/sdX
 ```
 
 **Be sure to use a correct device as the target in the dd command above (instead of sdX)'''**
