@@ -86,6 +86,7 @@ Known Issues
 
     ``` {.wiki}
     qvm-prefs -s fedora-17-x64-dvm maxmem 3072
+    qvm-create-default-dvm --default-template --default-script
     ```
 
 -   On some systems the KDE Window Manager might freeze upon resuming from S3 sleep when compositing is enabled (and the only method to log in to the system if this happens is to switch to a text console, enter your user's password, kill the kwin process, go back to the Xorg console, log in, and start a new instance of kwin using Konsole application :) If you experience such problems, make sure to disable compositing before putting the system into sleep by pressing Alt-Ctrl-F12 (and then enabling it back once you log in after resume) -- this way you should never see this problem again.
