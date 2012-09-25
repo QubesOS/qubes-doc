@@ -21,7 +21,7 @@ In order to assign a USB disk to a VM, follow these steps:
 > NOTE: If your device is not listed here, you can refresh the list calling (from VM to which device is connected):
 >
 > ``` {.wiki}
-> sudo udevadm trigger
+> sudo udevadm trigger --action=change
 > ```
 
 1.  Connect the device, e.g.:
