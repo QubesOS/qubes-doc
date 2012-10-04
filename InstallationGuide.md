@@ -24,7 +24,7 @@ You can download the ISO and the digital signature from the SF.net:
 ... or you might try one of the following mirrors:
 
 -   [​http://ftp.fsn.hu/pub/linux/distributions/qubes/](http://ftp.fsn.hu/pub/linux/distributions/qubes/)
--   [​http://linuxtracker.org/index.php?page=torrent-details&id=3bdf893771d63bdbe3d83f31e064360ee10f30ec](http://linuxtracker.org/index.php?page=torrent-details&id=3bdf893771d63bdbe3d83f31e064360ee10f30ec) (torrent)
+-   ~~[​http://linuxtracker.org/index.php?page=torrent-details&id=3bdf893771d63bdbe3d83f31e064360ee10f30ec](http://linuxtracker.org/index.php?page=torrent-details&id=3bdf893771d63bdbe3d83f31e064360ee10f30ec) (torrent)~~ linuxtracker.org have some problems (php errors instead of page, tracker is down)
 
 Remember, we have absolutely no control over those servers, and so you should be assuming that they might be compromised, or just be serving a compromised ISOs because their operators decided so for whatever reason. Always verify the digital signature on the downloaded ISO. See this [page](/wiki/VerifyingSignatures) for more info about how to download and verify our GPG keys, and then verify the downloaded ISO:
 
