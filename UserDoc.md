@@ -38,4 +38,6 @@ Optional topics:
 -   [How to install Nvidia driver in dom0](/wiki/InstallNvidiaDriver)
 -   [Getting Sony Vaio Z laptop to work with Qubes](/wiki/SonyVaioTinkering)
 -   [​How to get composition working on ATI GPUs](https://groups.google.com/group/qubes-devel/browse_thread/thread/5a0dfc38fd1cc16a)
+-   [​How to make proxy for individual tcp connection from networkless VM](https://groups.google.com/group/qubes-devel/msg/4ca950ab6d7cd11a)
+-   [​How to run TorBrowser using external tor proxy (from TorVM)](https://groups.google.com/group/qubes-devel/msg/34f67194d3422bfa)
 
