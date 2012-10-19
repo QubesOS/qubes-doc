@@ -135,6 +135,8 @@ If you want to somehow modify sources, you can also do it, here are some basic s
 
 ### Non-default git branches
 
+**Below example values (especially branch names) are outdated, but config options and steps are still valid**
+
 You can use above tool to build Qubes with some components modified. Besides manual source modification, it is possible to use non-default git repositories, or just another branches. For example to try (**unofficial, not supported**) configuration with newer kernel and xorg server, you can add to builder.conf:
 
 ``` {.wiki}
