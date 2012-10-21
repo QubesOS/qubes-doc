@@ -55,6 +55,7 @@ Specific systems known to work tested by the Qubes community
 -   Toshiba Tecra S11. Requires [​some tinkering](https://groups.google.com/group/qubes-devel/browse_thread/thread/fdec0ec165a87726) to enable 3G modem. Reported by Jan Beerden
 -   Toshiba M780 S7240, requires latest BIOS to have VT-d working, [​some problems](https://groups.google.com/group/qubes-devel/browse_thread/thread/2b89d2dc5f999ab7) with card reader. Reported by [​Franz](https://groups.google.com/group/qubes-devel/browse_thread/thread/66e97c990a08d8e2)
 -   Dell Precision M4600 Intel Core i7-2860QM, 16GB ram, NVIDIA Quadro 1000M, EMEA Intel Pro Wireless 6300. Reported by [​nqe](https://groups.google.com/group/qubes-devel/browse_thread/thread/ddf35d12a35f96a3)
+-   Tecra A11-15X: RAM 8GB CPU I7 M620 2.67 ghz. Reported by [​PirBoazo](https://groups.google.com/group/qubes-devel/browse_thread/thread/c0d5f6a33d672b62)
 
 Specific systems known to not work well with Qubes
 --------------------------------------------------
