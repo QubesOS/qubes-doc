@@ -9,7 +9,7 @@ Development Workflow
 
 A workflow for developing Qubes OS+
 
-First things first, setup [Builder?](/wiki/Qubes). This guide assumes you're using qubes-builder to build Qubes.
+First things first, setup [QubesBuilder](/wiki/QubesBuilder). This guide assumes you're using qubes-builder to build Qubes.
 
 Repositories and Committing Code
 --------------------------------
