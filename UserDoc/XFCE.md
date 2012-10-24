@@ -59,6 +59,6 @@ Things needs/recommended to be done:
         </Menu>
         ```
 
-    2.  add it to the pannel: right click on panel, "add new items", select "XFCE menu", choose custom menu file - just created one
+    2.  add it to the panel: right click on panel, "add new items", select "XFCE menu", choose custom menu file - just created one
 
 
