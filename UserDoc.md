@@ -27,6 +27,7 @@ Advanced topics:
 -   [​Extend root.img size](https://groups.google.com/group/qubes-devel/msg/9d1ac581236ca9b4)
 -   Installing [Anti Evil Maid](/wiki/AntiEvilMaid)
 -   [Tor proxy VM](/wiki/UserDoc/TorVM) documentation
+-   [XFCE](/wiki/UserDoc/XFCE) installation in dom0
 
 Command-line tools reference:
 
