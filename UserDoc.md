@@ -41,5 +41,5 @@ Optional topics:
 -   [​How to get composition working on ATI GPUs](https://groups.google.com/group/qubes-devel/browse_thread/thread/5a0dfc38fd1cc16a)
 -   [​How to make proxy for individual tcp connection from networkless VM](https://groups.google.com/group/qubes-devel/msg/4ca950ab6d7cd11a)
 -   [​How to run TorBrowser using external tor proxy (from TorVM)](https://groups.google.com/group/qubes-devel/msg/34f67194d3422bfa)
--   [​Creating NetBSD VM](https://groups.google.com/group/qubes-devel/browse_thread/thread/9df22b8a0719d047)
+-   [​Creating NetBSD VM](https://groups.google.com/group/qubes-devel/msg/4015c8900a813985)
 
