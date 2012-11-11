@@ -42,4 +42,5 @@ Optional topics:
 -   [​How to make proxy for individual tcp connection from networkless VM](https://groups.google.com/group/qubes-devel/msg/4ca950ab6d7cd11a)
 -   [​How to run TorBrowser using external tor proxy (from TorVM)](https://groups.google.com/group/qubes-devel/msg/34f67194d3422bfa)
 -   [​Creating NetBSD VM](https://groups.google.com/group/qubes-devel/msg/4015c8900a813985)
+-   [​Booting with GRUB2 and GPT](https://groups.google.com/group/qubes-devel/browse_thread/thread/e4ac093cabd37d2b/d5090c20d92c4128#d5090c20d92c4128)
 
