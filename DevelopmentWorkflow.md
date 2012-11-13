@@ -29,6 +29,13 @@ You can then proceed to easily develop in your own branches, pull in new commits
 
 When you are ready to submit your changes to Qubes to be merged, push your changes, then create a signed git tag (using `git tag -s`). Finally, send a letter to the Qubes listserv describing the changes and including the link to your repository. Don't forget to include your public PGP key you use to sign your tags.
 
+### Useful [QubesBuilder](/wiki/QubesBuilder) commands
+
+1.  *make check* - will check if all the code was commited into repository and if all repository are tagged with signed tag.
+2.  *make show-vtags* - show version of each component (based on git tags) - mostly useful just before building ISO. **Note:** this will not show version for components containing changes since last version tag
+3.  *make push* - push change from **all** repositories to git server. You must set proper remotes (see above) for all repositories first.
+4.  *make prepare-merge* - fetch changes from remote repositories (can be specified on commandline via GIT\_SUBDIR or GIT\_REMOTE vars), (optionally) verify tags and show the changes. This do not merge the changes - there are left for review as FETCH\_HEAD ref. You can merge them using "git merge FETCH\_HEAD" (in each repo directory).
+
 Copying Code to dom0
 --------------------
 
