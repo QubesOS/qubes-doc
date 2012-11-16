@@ -11,7 +11,7 @@ Qubes implements Security by Isolation approach. To do this, Qubes utilizes virt
 
 Qubes lets the user define many security domains implemented as lightweight Virtual Machines (VMs), or “AppVMs”. E.g. user can have “personal”, “work”, “shopping”, “bank”, and “random” AppVMs and can use the applications from within those VMs just like if they were executing on the local machine, but at the same time they are well isolated from each other. Qubes supports secure copy-and-paste and file sharing between the AppVMs, of course.
 
-[![](http://www.qubes-os.org/Architecture_files/droppedImage.png "http://www.qubes-os.org/Architecture_files/droppedImage.png")](http://www.qubes-os.org/Architecture_files/droppedImage.png)
+[![](http://files.qubes-os.org/Architecture_files/droppedImage.png "http://files.qubes-os.org/Architecture_files/droppedImage.png")](http://files.qubes-os.org/Architecture_files/droppedImage.png)
 
 Key Architecture features
 -------------------------
