@@ -7,7 +7,7 @@ permalink: /wiki/QubesLists/
 Qubes Mailing Lists
 ===================
 
-*Note: Please send all the questions regarding Qubes to the mailing list (see below)*
+Please send all the questions regarding Qubes to the mailing list:
 
 -   The group's email address: `qubes-devel@googlegroups.com`
 -   The Web interface: [​http://groups.google.com/group/qubes-devel](http://groups.google.com/group/qubes-devel)
