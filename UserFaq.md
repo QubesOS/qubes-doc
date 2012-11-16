@@ -7,90 +7,110 @@ permalink: /wiki/UserFaq/
 Qubes User's FAQ
 ================
 
-### Q: How much memory is recommended for Qubes?
+1.  [General Questions](#GeneralQuestions)
+    1.  [Isn’t Qubes just another Linux distribution after all?](#IsntQubesjustanotherLinuxdistributionafterall)
+    2.  [How is Qubes different from other security solutions?](#HowisQubesdifferentfromothersecuritysolutions)
+    3.  [What is the main concept behind Qubes?](#WhatisthemainconceptbehindQubes)
+    4.  [What about other approaches to security?](#Whataboutotherapproachestosecurity)
+    5.  [But what about safe languages and formally verified microkernels?](#Butwhataboutsafelanguagesandformallyverifiedmicrokernels)
+    6.  [Why Qubes uses virtualization?](#WhyQubesusesvirtualization)
+    7.  [Does Qubes run every app in a separate VM?](#DoesQubesruneveryappinaseparateVM)
+    8.  [Why Qubes uses Xen, and not e.g. KVM or some other hypervisor?](#WhyQubesusesXenandnote.g.KVMorsomeotherhypervisor)
+    9.  [What is so special about Qubes GUI virtualization?](#WhatissospecialaboutQubesGUIvirtualization)
+    10. [Can I watch movies in AppVMs, e.g. YouTube? movies?](#CanIwatchmoviesinAppVMse.g.YouTubemovies)
+    11. [How about running applications like games that required 3D support?](#Howaboutrunningapplicationslikegamesthatrequired3Dsupport)
+    12. [Is Qubes a multi-user system?](#IsQubesamulti-usersystem)
 
-4 GB at least. Sure, you can try it on a system with 2GB, but don't expect to be able to run more than 3 AppVMs at the same time.
+2.  [Installation/hardware compatibility](#Installationhardwarecompatibility)
+    1.  [How much disk space do I need for each AppVM?](#HowmuchdiskspacedoIneedforeachAppVM)
+    2.  [How much memory is recommended for Qubes?](#HowmuchmemoryisrecommendedforQubes)
+    3.  [Can I install Qubes on a system without VT-x?](#CanIinstallQubesonasystemwithoutVT-x)
+    4.  [Can I install Qubes on a system without VT-d?](#CanIinstallQubesonasystemwithoutVT-d)
+    5.  [Can I use AMD-v instead of VT-x?](#CanIuseAMD-vinsteadofVT-x)
+    6.  [Can I install Qubes in a Virtual Machine, e.g. on VMWare?](#CanIinstallQubesinaVirtualMachinee.g.onVMWare)
 
-### Q: Can I install Qubes on a system without VT-x?
+General Questions
+-----------------
 
-Yes. Xen doesn't use VT-x (nor AMD-v) for PV guests virtualization (it uses ring0/3 separation instead). But, of course, without VT-x, you will also not have VT-d -- see the next question.
+### Isn’t Qubes just another Linux distribution after all?
 
-### Q: Can I install Qubes on a system without VT-d?
+Well, if you really want to call it a distribution, then we’re more of a “Xen distribution”, rather then a Linux one. But Qubes is much more than just Xen packaging -- it has its own VM management infrastructure, with support for template VMs, centralized VM updating, etc, and also its very unique GUI virtualization infrastructure.
 
-Yes you can. You can even run a netvm but, of course, you will not benefit from DMA protection for driver domains. So, on a system without VT-d, everything should work the same, but there is no real security benefit of having a separate netvm, as the attacker can always use a simple DMA attack to go from netvm to Dom0.
+### How is Qubes different from other security solutions?
 
-**But still, all the other Qubes security mechanisms, such as AppVM separation, work as usual, and you still end up with a significantly secure OS, much more secure then Windows, Mac, or Linux, even if you don't have VT-d'''**
+Please see [​this article](http://theinvisiblethings.blogspot.com/2012/09/how-is-qubes-os-different-from.html) for a more thorough discussion discussion.
 
-The above is in theory -- in practice, if you have a broken network card driver and try to run it in a netvm on a system without VT-d, it might crash your system. This might happen e.g. if the driver is not properly using DMA-API.
+### What is the main concept behind Qubes?
 
-### Q: Can I use AMD-v instead of VT-x?
+To build security on the “Security by Isolation” principle.
 
-See this message:
+### What about other approaches to security?
 
-[​http://groups.google.com/group/qubes-devel/msg/6412170cfbcb4cc5](http://groups.google.com/group/qubes-devel/msg/6412170cfbcb4cc5)
+The other two popular [​approaches](http://theinvisiblethings.blogspot.com/2008/09/three-approaches-to-computer-security.html) are: “Security by Correctness”, and “Security by Obscurity”. We don’t believe any of those two can bring reasonable security today and in the foreseeable future.
 
-### Q: Can I install Qubes in a Virtual Machine, e.g. on VMWare?
+### But what about safe languages and formally verified microkernels?
 
-Most likely no. You should install it on bare-metal. Hey, it uses its own bare-metal hypervisor, after all...
+In short: these are non-realistic solutions today. We discuss this more in-depth in our [​Architecture Specification document](http://qubes-os.org/files/doc/arch-spec-0.3.pdf).
 
-### Q: Why is Fedora 12 "strongly" recommended as dom0?
+### Why Qubes uses virtualization?
 
-As currently Qubes do not have its own installer, we need to rely on some other Linux distribution to bring all the software needed in Dom0. We made a more-or-less arbitrary decision to choose Fedora 12 as a base for our Dom0 and we have prepared all the RPMs and tested them with the assumption that the user has installed Dom0 based on F12 according to the specific instructions we gave in the [Installation Guide](/wiki/InstallationGuide). Qubes would most likely run on other RPM-based Linux distributions, although we have never tested it, and we'd rather focus our resources on implementing other Qubes features, than on testing other distros for Dom0 support. Especially that we plan to write custom installer for Qubes anyway -- see the next question.
+We believe that today this is the only practically viable approach to implement strong isolation, and, at the same time, provide compatibility with existing applications and drivers.
 
-### Q: Do you plan to "port" Qubes to other Linux distros?
+### Does Qubes run every app in a separate VM?
 
-Absolutely no. The plan for the near future (see the [Roadmap](https://www.qubes-os.org/trac/roadmap)) is to create a custom (and very simple to use) Qubes installer that would automatically take care about installing the minimal Dom0 system, all the Qubes packages in Dom0, and also the Qubes template and service VMs images. In other words Qubes will evolve into a true standalone system, not based on any specific Linux distribution (well, we still will probably use Fedora RPMs for most of the packages and probably the Anaconda installer, but this will be hidden from the user).
+No! This would not make much sense. Qubes uses lightweight VMs to create security domains, such as e.g. ‘work’, ‘personal’, ‘banking’, etc. Typical user would likely need around 5 domains. Very paranoid users, who are high-profile targets. might use around a dozen or more domains.
 
-### Q: What is the recommended way update the template VM?
+### Why Qubes uses Xen, and not e.g. KVM or some other hypervisor?
 
-Shutdown all the running AppVMs that are based on this template (normally all your AppVMs are based on the same template):
+In short: we believe the Xen architecture allows to create more secure systems, i.e. with much smaller TCB, which translates to smaller attack surface. We discuss this much more in-depth in our [​Architecture Specification document](http://qubes-os.org/files/doc/arch-spec-0.3.pdf).
 
-``` {.wiki}
-qvm-run --shutdown --wait --all --exclude netvm
-```
+### What is so special about Qubes GUI virtualization?
 
-(In the comming weeks we will provide a graphical VM manager where you will be able to do the above with just one or two mouse clicks :)
+We have designed the GUI virtualization subsystem with two primary goals: security and performance. Our GUI infrastructure introduces only about 2,500 lines of C code (LOC) into the privileged domain (Dom0), which is very little, and thus leaves not much space for bugs and potential attacks. At the same time, due to smart use of Xen shared memory our GUI implementation is very efficient, so most virtualized applications really feel like if they were executed natively.
 
-Next, start either console, e.g. Konsole, or KPackageKit application in your Template VM (normally it's called "linux-x64"), using the KDE menu, and proceed with the updates. If you use console then you will want to use yum (you must switch to root), e.g.:
+### Can I watch movies in AppVMs, e.g. [YouTube?](/wiki/YouTube) movies?
 
-``` {.wiki}
-yum update
-```
+Absolutely.
 
-If you chose KPackageKit, then you should be able to update using just your mouse.
+### How about running applications like games that required 3D support?
 
-Once the Template VM got update, shut it down, and then any AppVM you start will already be using update software.
+Those won’t fly. We do not provide OpenGL virtualization for AppVMs. This is mostly a security decision, as implementing such feature would most likely introduce lots of complexity to the GUI virtualization infrastructure. However, Qubes allows for use of accelerated graphics (OpenGL) in Dom0’s Window Manager, so all the fancy desktop effects should still work under Qubes.
 
-### Q: What is the root and user password for TemplateVM/AppVM?
-
-There is none, really! If you need to run something as root in one of your VMs, then you should use the qvm-run command:
-
-``` {.wiki}
-qvm-run <vmname> -u root <cmd>
-```
-
-where cmd can be e.g. ```konsole```.
-
-### Q: Is Qubes a multi-user system?
+### Is Qubes a multi-user system?
 
 No, Qubes does not pretend to be a multi-user system. Qubes assumes that the user that controls Dom0, controls the whole system. It will be very difficult to **securely** implement multi-user support -- see this message:
 
 [​https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06](https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06)
 
-### Q: Do you plan to distribute Qubes as an "addon" to other Linux distros?
+Installation/hardware compatibility
+-----------------------------------
 
-No. In order to really built a secure OS, we need to control the whole system, e.g. what packages are installed in Dom0, how is network configured there (i.e. that there will be \*no\* networking there), etc. The best way to achieve this is to have a standalone OS (or distro as you call it), not an add-on to some other distro.
+### How much disk space do I need for each AppVM?
 
-### Q: But wouldn't it be cool to use some hardened distro as Dom0?
+Every AppVM is created from a so called TemplateVM and they share the root filesystem with the template (in a read-only manner). This means each AppVM needs only disk space for its own private data. This also means that it is possible to update the software for all the AppVMs by just running the update process in the TemplateVM once (one needs to stop all the AppVMs for this, of course).
 
-The main idea behind Qubes architecture is to have Dom0 isolated from the outside world, so there is little point in further hardening it via e.g. grsecurity, etc.
+### How much memory is recommended for Qubes?
 
-### Q: Perhaps it would make sense then to have a template VM based on some hardened distro?
+4 GB at least. Sure, you can try it on a system with 2GB, but don't expect to be able to run more than 3 AppVMs at the same time...
 
-Yup, that would make sense indeed. Feel free to build one -- you can use the template\_builder:
+### Can I install Qubes on a system without VT-x?
 
-[​http://qubes-os.org/gitweb/?p=mainstream/template-builder.git;a=tree](http://qubes-os.org/gitweb/?p=mainstream/template-builder.git;a=tree)
+Yes. Xen doesn't use VT-x (nor AMD-v) for PV guests virtualization (it uses ring0/3 separation instead). But, of course, without VT-x, you will also not have VT-d -- see the next question.
 
-### Q: Sometimes it takes a long time for Qubes to boot, why?
+Also, without VT-x you won't be able to use fully virtualized VMs (e.g. Windows-based AppVMs) that are to be introduced in Qubes 2.
 
-This is likely because Qubes re-creates a Disposable VM savefile -- an image used for super quick starting of Disposable VMs. Normally this happens when you update your default template, and takes about 2 minutes. You can hit ESC during boot to see the progress information.
+### Can I install Qubes on a system without VT-d?
+
+Yes you can. You can even run a netvm but, of course, you will not benefit from DMA protection for driver domains. So, on a system without VT-d, everything should work the same, but there is no real security benefit of having a separate netvm, as the attacker can always use a simple DMA attack to go from netvm to Dom0.
+
+**But still, all the other Qubes security mechanisms, such as AppVM separation, work as usual, and you still end up with a significantly secure OS, much more secure then Windows, Mac, or Linux, even if you don't have VT-d'''**
+
+### Can I use AMD-v instead of VT-x?
+
+See [[​http://groups.google.com/group/qubes-devel/msg/6412170cfbcb4cc5](http://groups.google.com/group/qubes-devel/msg/6412170cfbcb4cc5)
+
+> this message].
+
+### Can I install Qubes in a Virtual Machine, e.g. on VMWare?
+
+Most likely no. You should install it on bare-metal. Hey, it uses its own bare-metal hypervisor, after all...
