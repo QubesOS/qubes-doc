@@ -33,7 +33,7 @@ Qubes lets you update all the software in all the domains all at once, in a cent
 
 Qubes supports secure copy-and-paste operations between AppVMs. Only the user can initiate a copy and paste operation using a special key combination (Ctrl-Shift-C/V). Other AppVMs have no access to the clipboard buffer, so they cannot steal data from the clipboard. Only the user decides which AppVM should be given access to the clipboard (this is done by selecting the destination AppVM’s window and pressing Ctrl-Shift-V combination):
 
-[![](http://files.qubes-os.org/Screenshots_files/copy-paste-1.png "http://files.qubes-os.org/Screenshots_files/copy-paste-1.png")](http://files.qubes-os.org/Screenshots_files/copy-paste-1.png) [![](http://www.qubes-os.org/Screenshots_files/copy-paste-2.png "http://www.qubes-os.org/Screenshots_files/copy-paste-2.png")](http://www.qubes-os.org/Screenshots_files/copy-paste-2.png)
+[![](http://files.qubes-os.org/Screenshots_files/copy-paste-1.png "http://files.qubes-os.org/Screenshots_files/copy-paste-1.png")](http://files.qubes-os.org/Screenshots_files/copy-paste-1.png) [![](http://files.qubes-os.org/Screenshots_files/copy-paste-2.png "http://files.qubes-os.org/Screenshots_files/copy-paste-2.png")](http://files.qubes-os.org/Screenshots_files/copy-paste-2.png)
 
 Qubes also supports secure file copying between AppVMs:
 
