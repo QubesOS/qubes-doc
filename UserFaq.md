@@ -107,9 +107,7 @@ Yes you can. You can even run a netvm but, of course, you will not benefit from 
 
 ### Can I use AMD-v instead of VT-x?
 
-See [[​http://groups.google.com/group/qubes-devel/msg/6412170cfbcb4cc5](http://groups.google.com/group/qubes-devel/msg/6412170cfbcb4cc5)
-
-> this message].
+See [​this message](http://groups.google.com/group/qubes-devel/msg/6412170cfbcb4cc5).
 
 ### Can I install Qubes in a Virtual Machine, e.g. on VMWare?
 
