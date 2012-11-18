@@ -13,6 +13,8 @@ Qubes lets the user define many security domains implemented as lightweight Virt
 
 [![](http://files.qubes-os.org/Architecture_files/droppedImage.png "http://files.qubes-os.org/Architecture_files/droppedImage.png")](http://files.qubes-os.org/Architecture_files/droppedImage.png)
 
+(Note: In the diagram above, the "Storage Domain" is actually a USB Domain)
+
 Key Architecture features
 -------------------------
 
