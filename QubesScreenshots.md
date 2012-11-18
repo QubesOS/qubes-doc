@@ -15,6 +15,10 @@ In this example, the word processor runs in the “work” domain, which has bee
 
 [![](http://files.qubes-os.org/Screenshots_files/snapshot13.png "http://files.qubes-os.org/Screenshots_files/snapshot13.png")](http://files.qubes-os.org/Screenshots_files/snapshot13.png)
 
+And here's just another example (click to zoom):
+
+[![](http://2.bp.blogspot.com/-zJFn81JdryI/UAqu7H9KSHI/AAAAAAAAAJ0/q_vVqkoEDTY/s1600/snapshot9.png "http://2.bp.blogspot.com/-zJFn81JdryI/UAqu7H9KSHI/AAAAAAAAAJ0/q_vVqkoEDTY/s1600/snapshot9.png")](http://2.bp.blogspot.com/-zJFn81JdryI/UAqu7H9KSHI/AAAAAAAAAJ0/q_vVqkoEDTY/s1600/snapshot9.png)
+
 It is always clearly visible to which domain a given window belongs. Here it’s immediately clear that the passphrase-prompting window belongs to some domain with “green” label. Then, when we look at the titlebar, we see “[work]”, which is the name of the actual domain. Theoretically, the untrusted application (here, the “red” Firefox) beneath the prompt window could draw a similarly looking window within its contents. In practice this would be very hard, because it doesn’t know e.g. the exact decoration style that is in use. However, if that is a concern, the user can simply try to move the more trusted window onto some empty space on the desktop, i.e. so that no other window was present beneath it. Or, better yet use the Expose-like effect (available via a hot-key). A malicious application from untrusted domain cannot spoof the whole desktop, because the trusted Window Manager will never let any domain to “own” the whole screen -- its titlebar will always be visible:
 
 [![](http://files.qubes-os.org/Screenshots_files/password-prompt.png "http://files.qubes-os.org/Screenshots_files/password-prompt.png")](http://files.qubes-os.org/Screenshots_files/password-prompt.png)
