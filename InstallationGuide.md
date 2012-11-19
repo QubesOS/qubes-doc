@@ -4,8 +4,17 @@ title: InstallationGuide
 permalink: /wiki/InstallationGuide/
 ---
 
-Installation Guide (for Qubes 1.0)
-==================================
+Installation Guide (for Qubes Release 1)
+========================================
+
+1.  [Hardware Requirements](#HardwareRequirements)
+2.  [Download installer ISO](#DownloadinstallerISO)
+3.  [Burning the ISO onto a DVD or USB stick](#BurningtheISOontoaDVDorUSBstick)
+4.  [Upgrading from Qubes 1.0-rc1](#UpgradingfromQubes1.0-rc1)
+5.  [Migrating from Qubes Beta 3](#MigratingfromQubesBeta3)
+6.  [Installing Updates](#InstallingUpdates)
+7.  [Known Issues](#KnownIssues)
+8.  [Getting Help](#GettingHelp)
 
 Hardware Requirements
 ---------------------
@@ -17,16 +26,7 @@ Note: We don't recommend installing Qubes in a virtual machine! It will likely n
 Download installer ISO
 ----------------------
 
-You can download the ISO and the digital signature from the SF.net:
-
--   [​https://sourceforge.net/projects/qubesos/files/](https://sourceforge.net/projects/qubesos/files/)
-
-... or you might try one of the following mirrors:
-
--   [​http://ftp.fsn.hu/pub/linux/distributions/qubes/](http://ftp.fsn.hu/pub/linux/distributions/qubes/)
--   [​http://linuxtracker.org/index.php?page=torrent-details&id=3bdf893771d63bdbe3d83f31e064360ee10f30ec](http://linuxtracker.org/index.php?page=torrent-details&id=3bdf893771d63bdbe3d83f31e064360ee10f30ec) (torrent)
-
-Remember, we have absolutely no control over those servers, and so you should be assuming that they might be compromised, or just be serving a compromised ISOs because their operators decided so for whatever reason. Always verify the digital signature on the downloaded ISO. See this [page](/wiki/VerifyingSignatures) for more info about how to download and verify our GPG keys, and then verify the downloaded ISO:
+See [this page](/wiki/QubesDownloads) for ISO downloads. Remember, we have absolutely no control over those servers, and so you should be assuming that they might be compromised, or just be serving a compromised ISOs because their operators decided so for whatever reason. Always verify the digital signature on the downloaded ISO. See this [page](/wiki/VerifyingSignatures) for more info about how to download and verify our GPG keys, and then verify the downloaded ISO:
 
 ``` {.wiki}
 gpg -v <iso>.asc
