@@ -59,7 +59,7 @@ If you're already running Qubes 1.0-rc1, you don't need to reinstall, it's just 
 Migrating from Qubes Beta 3
 ---------------------------
 
-If you have Qubes Beta 3 currently installed on your system, you must reinstall from scratch, as we offer no direct upgrade option in the installer (sorry). However, we do offer tools for smooth migration of your AppVMs. In order to do that, please backup your AppVMs using the ```qvm-backup``` tool [as usual](/wiki/BackupRestore). Then, after you install Qubes 1.0 rc1, you can restore them using ```qvm-backup-restore``` tool. However, because we have changed the default template in RC1, you should tell qvm-back-restore about that by passing ```--replace-template``` option:
+If you have Qubes Beta 3 currently installed on your system, you must reinstall from scratch, as we offer no direct upgrade option in the installer (sorry). However, we do offer tools for smooth migration of your AppVMs. In order to do that, please backup your AppVMs using the `qvm-backup` tool [as usual](/wiki/BackupRestore). Then, after you install Qubes 1.0 rc1, you can restore them using `qvm-backup-restore` tool. However, because we have changed the default template in RC1, you should tell qvm-back-restore about that by passing `--replace-template` option:
 
 ``` {.wiki}
 qvm-backup-restore <backup_dir> --replace-template=fedora-15-x64:fedora-17-x64 
@@ -80,7 +80,7 @@ Known Issues
 
 -   If you don't enable Composition (System Setting -\> Desktop -\> Enable desktop effects), which you really should do, then the KDE task bar might get somehow ugly (e.g. half of it might be black). This is some KDE bug that we don't plan to fix.
 
--   Some keyboard layout set by KDE System Settings can cause [​keyboard not working at all](https://groups.google.com/group/qubes-devel/browse_thread/thread/77d076b65dda7226). If you hit this issue, you can switch to console (by console login option) and manually edit ``/etc/X11/xorg.conf.d/00-system-setup-keyboard.conf`` (and ``/etc/sysconfig/keyboard``) and place correct keyboard layout settings (details in linked thread). You can check if specific keyboard layout settings are proper using ``setxkbmap`` tool.
+-   Some keyboard layout set by KDE System Settings can cause [​keyboard not working at all](https://groups.google.com/group/qubes-devel/browse_thread/thread/77d076b65dda7226). If you hit this issue, you can switch to console (by console login option) and manually edit `/etc/X11/xorg.conf.d/00-system-setup-keyboard.conf` (and `/etc/sysconfig/keyboard`) and place correct keyboard layout settings (details in linked thread). You can check if specific keyboard layout settings are proper using `setxkbmap` tool.
 
 -   On systems with more than 8GB of RAM there is problem with Disposable VM. To fix it, limit maximum memory allocation for DispVM to 3GB
 
@@ -100,5 +100,5 @@ Getting Help
 
 -   If you don't find answer in the sources given above, write to the *qubes-devel* mailing list:
     -   [​http://groups.google.com/group/qubes-devel](http://groups.google.com/group/qubes-devel)
-    -   ```qubes-devel@googlegroups.com```
+    -   `qubes-devel@googlegroups.com`
 
