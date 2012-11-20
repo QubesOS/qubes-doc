@@ -19,7 +19,7 @@ It is possible to change application settings for each new DispVM. This can be d
 3.  Create empty /home/user/.qubes-dispvm-customized file:
 
     ``` {.wiki}
-    touch /home/user/.qubes-dispvm-customized file
+    touch /home/user/.qubes-dispvm-customized
     ```
 
 4.  Shutdown the VM (either by poweroff from VM terminal, or qvm-shutdown from dom0 terminal).
