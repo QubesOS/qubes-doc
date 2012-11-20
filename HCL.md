@@ -42,6 +42,8 @@ Specific systems known to work tested by Qubes core developers
 
 -   Sony Vaio Z 12 (2010 edition) -- works well, but some [tinkering required](/wiki/SonyVaioTinkering)
 
+-   Dell Latitude E6420 w/ Intel graphics (Sandy Bridge), i5-2520M CPU - works well on 3.4.18 (haven't tested default 3.2.30 kernel)
+
 Specific systems known to work tested by the Qubes community
 ------------------------------------------------------------
 
