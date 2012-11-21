@@ -73,6 +73,8 @@ Now change the configuration. For example, in kernel-3.4.18/linux-3.4.18:
 make menuconfig
 ```
 
+Copy the modified config back into the kernel tree:
+
 ``` {.wiki}
 cp .config ../../../config-pvops
 ```
