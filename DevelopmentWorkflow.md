@@ -21,8 +21,8 @@ The best way to write and contribute code is to create a git repo somewhere (e.g
 **Example:**
 
 ``` {.wiki}
-$ cd qubes-builder/qubes-src/qubesmanager
-$ git remote add abel git@github.com:abeluck/qubes-core.git
+$ cd qubes-builder/qubes-src/qubes-manager
+$ git remote add abel git@github.com:abeluck/qubes-manager.git
 ```
 
 You can then proceed to easily develop in your own branches, pull in new commits from the dev branches, merge them, and eventually push to your own repo on github.
