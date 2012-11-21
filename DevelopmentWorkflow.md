@@ -29,6 +29,101 @@ You can then proceed to easily develop in your own branches, pull in new commits
 
 When you are ready to submit your changes to Qubes to be merged, push your changes, then create a signed git tag (using `git tag -s`). Finally, send a letter to the Qubes listserv describing the changes and including the link to your repository. Don't forget to include your public PGP key you use to sign your tags.
 
+### Kernel-specific notes
+
+#### Prepare fresh version of kernel sources, with Qubes-specific patches applied
+
+In qubes-builder/qubes-src/kernel:
+
+``` {.wiki}
+make prep
+```
+
+The resulting tree will be in kernel-\<VERSION\>/linux-\<VERSION\>:
+
+``` {.wiki}
+ls -ltrd kernel*/linux*
+```
+
+``` {.wiki}
+drwxr-xr-x 23 user user 4096 Nov  5 09:50 kernel-3.4.18/linux-3.4.18
+drwxr-xr-x  6 user user 4096 Nov 21 20:48 kernel-3.4.18/linux-obj
+```
+
+#### Go to the kernel tree and update the version
+
+In qubes-builder/qubes-src/kernel:
+
+``` {.wiki}
+cd kernel-3.4.18/linux-3.4.18
+```
+
+#### Changing the config ===
+
+In kernel-3.4.18/linux-3.4.18:
+
+``` {.wiki}
+cp ../../config-pvops .config
+make oldconfig
+```
+
+Now change the configuration. For example, in kernel-3.4.18/linux-3.4.18:
+
+``` {.wiki}
+make menuconfig
+```
+
+``` {.wiki}
+cp .config ../../../config-pvops
+```
+
+#### Patching the code
+
+TODO: describe the workflow for patching the code, below are some random notes, not working well
+
+``` {.wiki}
+ln -s ../../patches.xen
+export QUILT_PATCHES=patches.xen
+export QUILT_REFRESH_ARGS="-p ab --no-timestamps --no-index"
+export QUILT_SERIES=../../series-pvops.conf
+
+quilt new patches.xen/pvops-3.4-0101-usb-xen-pvusb-driver-bugfix.patch
+quilt add drivers/usb/host/Kconfig drivers/usb/host/Makefile \
+        drivers/usb/host/xen-usbback/* drivers/usb/host/xen-usbfront.c \
+        include/xen/interface/io/usbif.h
+
+*edit something*
+
+quilt refresh
+cd ../..
+vi series-pvops.conf
+```
+
+#### Building RPMS
+
+TODO: Is this step generic for all subsystems?
+
+Now it is a good moment to make sure you have changed kernel release name in rel-pvops file. For example, if you change it to '1debug201211116c' the resulting RPMs will be named 'kernel-3.4.18-1debug20121116c.pvops.qubes.x86\_64.rpm'. This will help distinguish between different versions of the same package.
+
+You might want to take a moment here to review (git diff, git status), commit your changes locally.
+
+To actually build RPMS, in qubes-src/kernel:
+
+``` {.wiki}
+make rpms
+```
+
+RPMS will appear in qubes-src/kernel/rpm/x86\_64:
+
+``` {.wiki}
+-rw-rw-r-- 1 user user 42996126 Nov 17 04:08 kernel-3.4.18-1debug20121116c.pvops.qubes.x86_64.rpm
+-rw-rw-r-- 1 user user 43001450 Nov 17 05:36 kernel-3.4.18-1debug20121117a.pvops.qubes.x86_64.rpm
+-rw-rw-r-- 1 user user  8940138 Nov 17 04:08 kernel-devel-3.4.18-1debug20121116c.pvops.qubes.x86_64.rpm
+-rw-rw-r-- 1 user user  8937818 Nov 17 05:36 kernel-devel-3.4.18-1debug20121117a.pvops.qubes.x86_64.rpm
+-rw-rw-r-- 1 user user 54490741 Nov 17 04:08 kernel-qubes-vm-3.4.18-1debug20121116c.pvops.qubes.x86_64.rpm
+-rw-rw-r-- 1 user user 54502117 Nov 17 05:37 kernel-qubes-vm-3.4.18-1debug20121117a.pvops.qubes.x86_64.rpm
+```
+
 ### Useful [QubesBuilder](/wiki/QubesBuilder) commands
 
 1.  *make check* - will check if all the code was commited into repository and if all repository are tagged with signed tag.
