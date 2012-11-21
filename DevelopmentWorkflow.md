@@ -58,7 +58,7 @@ In qubes-builder/qubes-src/kernel:
 cd kernel-3.4.18/linux-3.4.18
 ```
 
-#### Changing the config ===
+#### Changing the config
 
 In kernel-3.4.18/linux-3.4.18:
 
