@@ -23,7 +23,7 @@ If you have proceeded with the default installation options, Qubes has already p
 
 Each domain, apart from having a distinct name, is also assigned a **label**, which basically is one of the several per-defined colors. These colors, which are used for drawing window decorations by the trusted Window Manager (color frames), are supposed to be user friendly, easy noticeable, indicators of how trusted a given window is. It's totally up to the user how he or she interprets these colors. For me, it has been somehow obvious to associate the red color with something that is untrusted and dangerous (the “red light” -- stop! danger!), green with something that is safe and trusted, while yellow and orange with something in the middle. I have also extended this scheme, to also include blue, and black, which I interpret as indicating progressively more trusted domains than green, with black being something ultimately trusted.
 
-\<screenshot of a window with decoration\>
+[![No image "snapshot12.png" attached to GettingStarted](/chrome/common/attachment.png "No image "snapshot12.png" attached to GettingStarted")](/attachment/wiki/GettingStarted/snapshot12.png)
 
 There is, however, one special domain that is called *Dom0* which is where the Desktop Manager (currently KDE) runs, and this is where you log into. This domain doesn't have any networking connectivity and is essentially only dedicated for running the Window and Desktop Manager, nothing else. Specifically all the user applications run in AppVMs, never in Dom0.
 
