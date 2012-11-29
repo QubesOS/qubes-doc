@@ -25,6 +25,33 @@ Install/update software as usual (e.g. using yum, or the dedicated GUI applicati
 
 You will see now that all the AppVMs based on this template (by default all your VMs) will be marked as "outdated" in the manager. This is because their fielsystem has not been yet updated -- in order to do that, you must restart each VM. You don't need to restart all of them at the same time -- e.g. if you just need the newly installed software to be available in your 'personal' domain, then restart only this VM. You will restart others whenever this will be convenient to you.
 
+Notes on trusting your Template VM(s)
+-------------------------------------
+
+As the template VM is used for creating filesystems for other AppVMs, where you actually do the work, it means that the template VM is as trusted as the most trusted AppVM based on this template. In other words, if your template VM gets compromised, e.g. because you installed a application, whose *installer's scripts* were malicious, then *all* your AppVMs (based on this template) will inherit this compromise.
+
+There are several ways to deal wit this problem:
+
+-   Only install packages from trusted sources -- e.g. from the pre-configured Fedora repositories. All those packages are signed by Fedora, and as we expect that at least the package's installation scripts are not malicious. This is enforced by default, by not allowing any networking connectivity in the default template VM, except for access to the Fedora repos.
+
+-   Use *standalone VMs* (see below) for installation of untrusted software packages.
+
+-   Use multiple templates (see below) for different classes of domains, e.g. a less trusted template, used for creation of less trusted AppVMs, would get various packages from somehow less trusted vendors, while the template used for more trusted AppVMs will only get packages from the standard Fedora repos.
+
+Some popular questions:
+
+-   So, why should we actually trust Fedora repos -- it also contains large amount of 3rd party software that might buggy, right?
+
+As long as template's compromise is considered, it doesn't really matter whether /usr/bin/firefox is buggy and can be exploited, or not. What matters is whether its *installation* scripts (such as %post in the rpm.spec) are benign or not. Template VM should be used only for installation of packages, and nothing more, so it should never get a chance to actually run the /usr/bin/firefox and got infected from it, in case it was compromised. Also, some of your more trusted AppVMs, would have networking restrictions enforced by the [firewall VM](/wiki/QubesFirewall), and again they should not fear this proverbial /usr/bin/firefox being potentially buggy and easy to compromise.
+
+-   But why trusting Fedora?
+
+Because we chose to use Fedora as a vendor for the Qubes OS foundation (e.g. for Dom0 packages and for AppVM packages). We also chose to trust several other vendors, such as Xen.org, kernel.org, and a few others whose software we use in Dom0. We had to trust *somebody* as we are unable to write all the software from scratch ourselves. But there is a big difference in trusting all Fedora packages to be non-malicious (in terms of installation scripts) vs. trusting all those packages are non-buggy and non-epxloitable. We certainly do not assume the latter.
+
+-   So, are the template VMs as trusted as Dom0?
+
+Not quite. Dom0 compromise is absolutely fatal and it is a Game Over. However, a compromise of a template affects only a subset of all your AppVMs (in case you use more than one template, or also some standalone VMs). Also, if your AppVMs are network disconnected, eve though their filesystem might got compromise due to the corresponding template compromise, it still would be difficult for the attacker to actually send out the data stolen in the AppVM. Not impossible (due to existence of cover channels between VMs on x86 architecture), but difficult and slow.
+
 Standalone VMs
 --------------
 
