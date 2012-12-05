@@ -34,3 +34,18 @@ qvm-start win7 --cdrom=/usr/local/iso/win7_en.iso
 Now, the VM will start booting from the attached CDROM device, which in the example above just happens to be the Windows 7 installation disk. Depending on the OS that is being installed in the VM, one might be required to start the VM several times (as is the case e.g. with Windows 7 installation), because whenever the installer wants to "reboot the system", it actually shutdowns the VM (and Qubes won't automatically start it), so several invocations of qvm-start command (as shown above) might be needed.
 
 \<screenshot\>
+
+Using Installation ISOs located in other VMs
+--------------------------------------------
+
+TODO
+
+Cloning HVM domains
+-------------------
+
+TODO
+
+Installing Qubes support tools in Windows 7 VMs
+-----------------------------------------------
+
+TODO
