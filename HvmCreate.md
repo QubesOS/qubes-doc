@@ -40,6 +40,11 @@ Using Installation ISOs located in other VMs
 
 TODO
 
+Setting up networking for HVM domains
+-------------------------------------
+
+TODO
+
 Cloning HVM domains
 -------------------
 
