@@ -47,3 +47,25 @@ By default, in Qubes R1, there is only one Template VM, however users are free t
 
 1.  Shut down the VM.
 
+Upgrade Dom0
+------------
+
+Be sure to do steps described in this section after *all* your template and standalone VMs got updated as described in the section above.
+
+1.  Open terminal in Dom0. E.g. Start-\>System Settings-\>Konsole.
+2.  Upgrade the `qubes-release` package to the latest version which brings in new repo definitions and R2 signing keys:
+
+    ``` {.wiki}
+    sudo qubes-dom0-update qubes-release
+    ```
+
+    This should install `qubes-release-1-6` in your Dom0.
+
+3.  Install R2 packages:
+
+    ``` {.wiki}
+    sudo qubes-dom0-update --releasever=2
+    ```
+
+4.  Reboot your system. Please note that if you use Anti Evil Maid, then it won't be able to unseal the passphrase this time, because the Xen, kernel, and initramfs binaries have changed. Once the system boots up again, you could reseal your Anti Evil Maid's passphrase to the new configuration. Please consult Anti Evil Maid documentation for explanation on how to do that.
+
