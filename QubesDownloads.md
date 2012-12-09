@@ -15,7 +15,7 @@ Qubes Release 2
 -   Qubes R2 Beta 1 coming soon...
 
 -   [Hardware Compatibility List?](/wiki/HCLR2)
--   [ISO Download and Installation Guide](/wiki/InstallationGuideR2)
+-   [Installation Guide](/wiki/InstallationGuideR2)
 
 Qubes Release 1
 ---------------
@@ -24,7 +24,7 @@ Qubes Release 1
 -   [​Digital Signature](http://sourceforge.net/projects/qubesos/files/Qubes-R1-x86_64-DVD.iso.asc/download) (via sourceforge.net)
 
 -   [Hardware Compatibility List](/wiki/HCL)
--   [ISO Download and Installation Guide](/wiki/InstallationGuide)
+-   [Installation Guide](/wiki/InstallationGuide)
 
 Mirrors
 -------
