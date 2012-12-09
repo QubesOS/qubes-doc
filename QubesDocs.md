@@ -11,8 +11,8 @@ For Users
 ---------
 
 -   [Installation guides](/wiki/QubesDownloads)
--   [User's Guide](/wiki/UserDoc)
--   [FAQ](/wiki/UserFaq)
+-   [User guide](/wiki/UserDoc)
+-   [User FAQ](/wiki/UserFaq)
 
 For Developers
 --------------
