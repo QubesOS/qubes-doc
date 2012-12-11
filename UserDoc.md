@@ -34,8 +34,8 @@ Advanced topics:
 
 Command-line tools reference (Qubes R2):
 
--   [DomZeroToolsR2 Dom0 tools]
--   [VmToolsR2 VM tools]
+-   [Dom0 tools?](/wiki/DomZeroToolsR2)
+-   [VM tools?](/wiki/VmToolsR2)
 
 Command-line tools reference (Qubes R1):
 
