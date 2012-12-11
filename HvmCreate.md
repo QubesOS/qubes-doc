@@ -54,3 +54,11 @@ Installing Qubes support tools in Windows 7 VMs
 -----------------------------------------------
 
 TODO
+
+Assigning PCI devices to HVM domains
+------------------------------------
+
+TODO
+
+-   Manually disable/enable on resume from S3
+
