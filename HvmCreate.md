@@ -232,9 +232,46 @@ Additionally, once should inform Qubes that tools have been installed in this VM
 qvm-prefs lab-win7 -s qrexec_installed true
 ```
 
-Please verify that the flag has indeed been set by running `qvm-prefs` command again for this VM.
+Also, by default Qubes assumes that the default user in the Windows VM is named `user` -- if one has chosen a different user during Windows installation, Qubes should be informed about this by setting the `default_user` property for the VM, e.g.:
 
-**Note:** In the future we will likely make this action automatic, as we realize this is a bit cumbersome... Oh, well, this is still Beta, right? ;)
+``` {.wiki}
+qvm-prefs lab-win7 -s default_user joanna
+```
+
+If everything went fine (please remember about the need to reboot the Windows VM after installation of the tools), one can run some simple tests to see if qrexec service runs fine with this VM, e.g.:
+
+``` {.wiki}
+qvm-run lab-win7 calc
+```
+
+... or something more fancy (a "networkless" telnet to Windows ;):
+
+``` {.wiki}
+[joanna@dom0 ~]$ qvm-run lab-win7 -p cmd.exe
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Windows\system32>dir c:\
+dir c:\
+ Volume in drive C has no label.
+ Volume Serial Number is 64FB-0198
+
+ Directory of c:\
+
+08/26/2012  12:06 PM    <DIR>          DRIVERS
+12/12/2012  03:36 PM    <DIR>          Program Files
+10/25/2012  12:12 PM    <DIR>          Program Files (x86)
+03/22/2012  02:50 PM    <DIR>          SWTOOLS
+03/02/2012  12:22 AM    <DIR>          Users
+12/12/2012  03:40 PM    <DIR>          Windows
+               0 File(s)              0 bytes
+               6 Dir(s)   1,432,260,608 bytes free
+
+C:\Windows\system32>exit
+exit
+```
+
+Another things to check are if clipboard copy/paste and file copy works fine with this VM.
 
 Assigning PCI devices to HVM domains
 ------------------------------------
