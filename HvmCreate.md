@@ -62,7 +62,19 @@ qvm-start ubuntu --cdrom=work-web:/home/user/Downloads/ubuntu-12.10-desktop-i386
 Setting up networking for HVM domains
 -------------------------------------
 
-TODO
+Just like standard (paravirtualized) AppVMs, the HVM domains got fixed IP addresses centrally assigned by Qubes. Normally Qubes agent scripts, running within each AppVM, are responsible for setting up networking within the VM according the configuration created by Qubes. Such centrally managed networking infrastructure allows for [​advanced networking configuration](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html).
+
+However, a generic HVM domain, e.g. a standard Windows or Ubuntu installation, has (at least initially) no Qubes agent scripts running inside it, and thus requires manual networking configuration, so that it match the values assigned by Qubes for this domain.
+
+In order to do that one should first find out the IP/netmask/gateway assigned to the particular VM by Qubes. This can be seen e.g. in the Qubes Manager in the VM's properties:
+
+\<snapshot\>
+
+Alternatively, one can use `qvm-ls -n` command to obtain the same information.
+
+Now, one should configure the networking within the HVM according to those settings (IP/netmask/gateway). Only IPv4 networking is currently supported in Qubes.
+
+**Note:** If one plans on installing Qubes Tools for Windows guests (see below) it is 'not' necessary to configure networking manually as described in this section, because the tools will take care of setting the networking automatically for such Windows domains.
 
 Cloning HVM domains
 -------------------
