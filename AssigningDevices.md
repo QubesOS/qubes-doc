@@ -24,7 +24,15 @@ qvm-pci -a personal 00:1a.0
 
 Note that one can only assign full PCI or PCI Express devices. This means one cannot assign single USB devices -- only the whole USB controller with whatever USB devices connected to it. This limit is imposed by PC and VT-d architecture.
 
-### Possible issues
+Using Qubes Manager
+-------------------
+
+TODO
+
+\<screenshot\>
+
+Possible issues
+---------------
 
 VM with PCI device in Qubes have allocated small buffer for DMA operations (called swiotlb). By default it is 2MB, but some devices needs a larger space. To change this allocation, edit VM kernel parameters (this is expressed in 512B chunks):
 
