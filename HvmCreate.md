@@ -216,6 +216,26 @@ Now, in order to install the tools in a Windows VM one should start the VM with 
 qvm-start lab-win7 --cdrom=/usr/lib/qubes/qubes-windows-tools-201211301354.iso
 ```
 
+Once the Windows VM boots, a CDROM should appear in the 'My Computer' menu (typically as `D:`) with a setup program in its main directory:
+
+\<screeenshot\>
+
+Before proceeding with the installation we need to disable Windows mechanism that allows only signed drivers to be installed, because currently the drivers we provide as part of the Windows Support Tools are not digitally signed with a publicly recognizable certificate. How to do that is explained in the `README` file also located on the installation CDROM. In the future this step will not be necessary anymore, because we will sign our drivers with a publicly verifiable certificate. However, it should be noted that even now, the fact that those drivers are not digitally signed, this doesn't affect security of the Windows VM in 'any' way. This is because the actual installation ISO (the `qubes-windows-tools-*.iso` file) is distributed as a signed RPM package and its signature is verified by the `qubes-dom0-update` utility once it's being installed in Dom0. The only downside of those drivers not being signed is the inconvenience to the user that he or she must disable the signature enforcement policy before installing the tools, and also to accept a few scary looking warning windows during the installation process, as shown below.
+
+\<screenshot\>
+
+After successful installation, the Windows VM must be shut down.
+
+Additionally, once should inform Qubes that tools have been installed in this VM by setting the `qrexec_installed` flag in the VM's properties -- this can be done using the `qvm-prefs` command in Dom0, e.g.:
+
+``` {.wiki}
+qvm-prefs lab-win7 -s qrexec_installed true
+```
+
+Please verify that the flag has indeed been set by running `qvm-prefs` command again for this VM.
+
+**Note:** In the future we will likely make this action automatic, as we realize this is a bit cumbersome... Oh, well, this is still Beta, right? ;)
+
 Assigning PCI devices to HVM domains
 ------------------------------------
 
