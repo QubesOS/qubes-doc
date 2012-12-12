@@ -79,7 +79,106 @@ Now, one should configure the networking within the HVM according to those setti
 Cloning HVM domains
 -------------------
 
-TODO
+Just like normal AppVMs, the HVM domains can also be cloned, either using a command-line `qvm-clone` command, or via manager's 'Clone VM' option in the right-click menu.
+
+The cloned VM will get identical root and private image, and essentially will be identical to the original VM, except that it will get a different MAC address for the networking interface:
+
+``` {.wiki}
+[joanna@dom0 ~]$ qvm-prefs win7
+name              : win7
+label             : green
+type              : HVM
+netvm             : firewallvm
+updateable?       : True
+installed by RPM? : False
+include in backups: False
+dir               : /var/lib/qubes/appvms/win7
+config            : /var/lib/qubes/appvms/win7/win7.conf
+pcidevs           : []
+root img          : /var/lib/qubes/appvms/win7/root.img
+private img       : /var/lib/qubes/appvms/win7/private.img
+vcpus             : 4
+memory            : 512
+maxmem            : 512
+MAC               : 00:16:3E:5E:6C:05 (auto)
+debug             : off
+default user      : user
+qrexec_installed  : False
+qrexec timeout    : 60
+drive             : None
+timezone          : localtime
+
+[joanna@dom0 ~]$ qvm-clone win7 win7-copy
+
+/.../
+
+[joanna@dom0 ~]$ qvm-prefs win7-copy
+name              : win7-copy
+label             : green
+type              : HVM
+netvm             : firewallvm
+updateable?       : True
+installed by RPM? : False
+include in backups: False
+dir               : /var/lib/qubes/appvms/win7-copy
+config            : /var/lib/qubes/appvms/win7-copy/win7-copy.conf
+pcidevs           : []
+root img          : /var/lib/qubes/appvms/win7-copy/root.img
+private img       : /var/lib/qubes/appvms/win7-copy/private.img
+vcpus             : 4
+memory            : 512
+maxmem            : 512
+MAC               : 00:16:3E:5E:6C:01 (auto)
+debug             : off
+default user      : user
+qrexec_installed  : False
+qrexec timeout    : 60
+drive             : None
+timezone          : localtime
+```
+
+Note how the MAC addresses differ between those two, otherwise identical VMs. Of course, the IP addresses, assigned by Qubes, will also be different, to allow networking to function properly:
+
+``` {.wiki}
+[joanna@dom0 ~]$ qvm-ls -n
+/.../
+         win7-copy |    |  Halted |   Yes |       | *firewallvm |  green |  10.137.2.3 |        n/a |  10.137.2.1 |
+              win7 |    |  Halted |   Yes |       | *firewallvm |  green |  10.137.2.7 |        n/a |  10.137.2.1 |
+/.../
+```
+
+If, for any reason, one would like to make sure that the two VMs have the same MAC address, one can use qvm-prefs to set a fixed MAC address for the VM:
+
+``` {.wiki}
+[joanna@dom0 ~]$ qvm-prefs win7-copy -s mac 00:16:3E:5E:6C:05
+[joanna@dom0 ~]$ qvm-prefs win7-copy
+name              : win7-copy
+label             : green
+type              : HVM
+netvm             : firewallvm
+updateable?       : True
+installed by RPM? : False
+include in backups: False
+dir               : /var/lib/qubes/appvms/win7-copy
+config            : /var/lib/qubes/appvms/win7-copy/win7-copy.conf
+pcidevs           : []
+root img          : /var/lib/qubes/appvms/win7-copy/root.img
+private img       : /var/lib/qubes/appvms/win7-copy/private.img
+vcpus             : 4
+memory            : 512
+maxmem            : 512
+MAC               : 00:16:3E:5E:6C:05
+debug             : off
+default user      : user
+qrexec_installed  : False
+qrexec timeout    : 60
+drive             : None
+timezone          : localtime
+```
+
+Please note that as of now Qubes does not support shared templates for HVM domains. This means that HVM domains cloned this way will have two separate copies of the whole filesystems. This has consequences in taking much more disk space compared to standard AppVMs that share the root fs with the Template VM. Another consequence is that it's probably not legal to clone a proprietary OS, such as Windows this way, unless your license specifically allows for that (even though Windows Activation won't complain when one sets identical MAC address for the cloned VMs, it's doubtful practice at best).
+
+In the near future we plan on introducing shared template also for HVM domains, hopefully solving the problems described above.
 
 Installing Qubes support tools in Windows 7 VMs
 -----------------------------------------------
