@@ -39,7 +39,7 @@ qvm-start win7 --cdrom=/dev/cdrom
 
 Now, the VM will start booting from the attached CDROM device, which in the example above just happens to be the Windows 7 installation disk. Depending on the OS that is being installed in the VM, one might be required to start the VM several times (as is the case e.g. with Windows 7 installation), because whenever the installer wants to "reboot the system", it actually shutdowns the VM (and Qubes won't automatically start it), so several invocations of qvm-start command (as shown above) might be needed.
 
-\<screenshot\>
+[![No image "r2b1-win7-installing.png" attached to HvmCreate](/chrome/common/attachment.png "No image "r2b1-win7-installing.png" attached to HvmCreate")](/attachment/wiki/HvmCreate/r2b1-win7-installing.png)
 
 Using Installation ISOs located in other VMs
 --------------------------------------------
@@ -57,7 +57,7 @@ qvm-create --hvm ubuntu --label red
 qvm-start ubuntu --cdrom=work-web:/home/user/Downloads/ubuntu-12.10-desktop-i386.iso
 ```
 
-\<screenshot\>
+[![No image "r2b1-installing-ubuntu-1.png" attached to HvmCreate](/chrome/common/attachment.png "No image "r2b1-installing-ubuntu-1.png" attached to HvmCreate")](/attachment/wiki/HvmCreate/r2b1-installing-ubuntu-1.png)
 
 Setting up networking for HVM domains
 -------------------------------------
