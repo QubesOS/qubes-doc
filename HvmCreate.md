@@ -183,7 +183,38 @@ In the near future we plan on introducing shared template also for HVM domains, 
 Installing Qubes support tools in Windows 7 VMs
 -----------------------------------------------
 
-TODO
+Qubes support tools for Windows VMs is a set of programs and drivers that provide integration of Windows VMs with the rest of the Qubes system. Currently the following features become available for Windows VMs after installation of those tools:
+
+-   Support for [secure clipboard copy/paste](/wiki/CopyPaste) between the Windows VM and other AppVMs
+-   Support for [secure file exchange](/wiki/CopyingFiles) between the Windows VM and other AppVMs
+-   Support for qvm-run and generic qrexec for the Windows VM (e.g. ability to run custom service within/from the Windows VM)
+-   Xen PV drivers for Windows that increase performance compared to qemu emulated devices
+
+Features that are currently not supported, but are planned for future releases (as soon as R2 Beta 2):
+
+-   Video driver for Windows allowing custom resolutions (arbitrary HVM window resizing) and VM's mouse cursor hiding
+-   Seamless app window mode, in which application windows are extracted and composed onto a common desktop just like it's currently done for Linux AppVMs. Currently Windows HVMs run in a window that contains the whole desktop of the VM.
+
+Qubes Windows Support Tools are not open source and are distributed under a commercial license and their source code is not publicly available.
+
+Because the Windows Support Tools are not licensed under a GPL license they are not distributed with Qubes installation ISO. Instead, one can download them when needed using the standard Qubes command for installing software in Dom0:
+
+``` {.wiki}
+sudo qubes-dom0-update qubes-windows-tools
+```
+
+This should install `qubes-windows-tools-*.rpm` in your system, a package that brings an ISO with Windows Support Tools:
+
+``` {.wiki}
+[joanna@dom0 ~]$ rpm -ql qubes-windows-tools-1-201211301354.noarch
+/usr/lib/qubes/qubes-windows-tools-201211301354.iso
+```
+
+Now, in order to install the tools in a Windows VM one should start the VM with the ISO attached:
+
+``` {.wiki}
+qvm-start lab-win7 --cdrom=/usr/lib/qubes/qubes-windows-tools-201211301354.iso
+```
 
 Assigning PCI devices to HVM domains
 ------------------------------------
