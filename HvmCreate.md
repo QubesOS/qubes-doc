@@ -70,7 +70,7 @@ Even though we do have a small DHCP server (that runs inside HVM untrusted stub 
 
 In order to manually configure networking in a VM, one should first find out the IP/netmask/gateway assigned to the particular VM by Qubes. This can be seen e.g. in the Qubes Manager in the VM's properties:
 
-\<snapshot\>
+[![No image "r2b1-manager-networking-config.png" attached to HvmCreate](/chrome/common/attachment.png "No image "r2b1-manager-networking-config.png" attached to HvmCreate")](/attachment/wiki/HvmCreate/r2b1-manager-networking-config.png)
 
 Alternatively, one can use `qvm-ls -n` command to obtain the same information.
 
