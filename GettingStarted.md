@@ -34,7 +34,7 @@ All aspects of the Qubes system can be controlled using the command line tools r
 
 Various command-line tools are described as part of this user's guide, and the whole reference can be found [here](/wiki/DomZeroTools).
 
-\<snapshot\>
+[![No image "r2b1-dom0-konsole.png" attached to GettingStarted](/chrome/common/attachment.png "No image "r2b1-dom0-konsole.png" attached to GettingStarted")](/attachment/wiki/GettingStarted/r2b1-dom0-konsole.png)
 
 Alternatively one can use a rather intuitive GUI tool called Qubes Manager. It supports most of the functionality that command line tools provide. Qubes Manager window can be opened by either clicking on the "Qubes" icon in the tray (right bottom corner of the screen), or by choosing Start-\>System Tools-\>Qubes Manager from the "Start menu".
 
