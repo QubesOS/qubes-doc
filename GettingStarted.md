@@ -30,7 +30,7 @@ There is, however, one special domain that is called *Dom0* which is where the D
 Qubes Manager and command line tools
 ------------------------------------
 
-TODO
+[![No image "r2b1-qubes-manager-2.png" attached to GettingStarted](/chrome/common/attachment.png "No image "r2b1-qubes-manager-2.png" attached to GettingStarted")](/attachment/wiki/GettingStarted/r2b1-qubes-manager-2.png)
 
 Starting apps in domains
 ------------------------
@@ -39,7 +39,7 @@ There are two way to start an app: using the short-cut icons from the Desktop Ma
 
 You can start apps directly from the KDE menu. Each domain has its own menu directory called *Domain: \<name\>*, that is reachable via Start-\>Applications menu. When you enter into this directory, you can select a specific application that you would like to start:
 
-\<screenshot of apps menu\>
+[![No image "r2b1-appsmenu-1.png" attached to GettingStarted](/chrome/common/attachment.png "No image "r2b1-appsmenu-1.png" attached to GettingStarted")](/attachment/wiki/GettingStarted/r2b1-appsmenu-1.png) [![No image "r2b1-appsmenu-3.png" attached to GettingStarted](/chrome/common/attachment.png "No image "r2b1-appsmenu-3.png" attached to GettingStarted")](/attachment/wiki/GettingStarted/r2b1-appsmenu-3.png)
 
 Note that the menus contain only a few short-cuts, if you would like to be able to start more apps via menu (e.g. if you install new app), you would need to add more short-cuts manually. In order to do that you should righ-click on the "Start" button and choose "Menu Editor". Then choose the domain directory where you want the menu to appear, choose "New Item", enter its name as '\<domain name\>: \<app name\>' and provide command line for starting the app (see below). Then choose "Save" and wait some 15 sec for the changes to propagate to the KDE menu.
 
