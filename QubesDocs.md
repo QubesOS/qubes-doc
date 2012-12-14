@@ -10,8 +10,8 @@ Qubes Documentation
 For Users
 ---------
 
+-   **[User guides](/wiki/UserDoc)** \<--- You probably want to start here!
 -   [Installation guides](/wiki/QubesDownloads)
--   [User guide](/wiki/UserDoc)
 -   [User FAQ](/wiki/UserFaq)
 
 For Developers
