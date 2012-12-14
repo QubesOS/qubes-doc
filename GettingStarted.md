@@ -63,19 +63,18 @@ e.g.:
 qvm-run -a red firefox
 ```
 
-Adding/Removing domains
------------------------
+Adding/Removing/Lising domains
+------------------------------
 
-You can easily add/remove domains by clicking buttons in the Qubes Manager (you can find it in the tray -- it's the colourful icon with three little cubes: red, green and blue).
+You can easily add/remove domains by clicking buttons in the Qubes Manager.
 
-\<screenshot of creating a domain\>
+You can also create/remove/list domains from command line (console under Dom0) using the following tools:
 
-You can also create/remove domains from command line (console under Dom0) using the following tools:
+-   `qvm-create`
+-   `qvm-remove`
+-   `qvm-ls`
 
--   ```qvm-create```
--   ```qvm-remove```
-
-The ```qvm-create``` is more powerful way of creating domains than the "Add" button in the manager, because it allows you to pass a few special options that allow to create special types of domains, such as **Standalone VM** (that is not based on a Template) or **NetVMs** or **ProxyVMs** -- you can read more on this in other chapters of this guide.
+The `qvm-create` is a more powerful way of creating domains than the "Add" button in the Qubes Manager, because it allows you to pass a few special options that allow to create special types of domains, such as e.g. a **Standalone VM** (that is not based on a Template) or **NetVMs** or **ProxyVMs** -- you can read more on this in other chapters of this guide.
 
 How many domains do I need?
 ---------------------------
