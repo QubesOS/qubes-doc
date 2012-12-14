@@ -30,6 +30,14 @@ There is, however, one special domain that is called *Dom0* which is where the D
 Qubes Manager and command line tools
 ------------------------------------
 
+All aspects of the Qubes system can be controlled using the command line tools run under a Dom0 console. To open a console window in Dom0, one can e.g. choose Start-\>System Tools-\>Konsole, or alternatively press Alt-F2 and type in `konsole`.
+
+Various command-line tools are described as part of this user's guide, and the whole reference can be found [here](/wiki/DomZeroTools).
+
+\<snapshot\>
+
+Alternatively one can use a rather intuitive GUI tool called Qubes Manager. It supports most of the functionality that command line tools provide. Qubes Manager window can be opened by either clicking on the "Qubes" icon in the tray (right bottom corner of the screen), or by choosing Start-\>System Tools-\>Qubes Manager from the "Start menu".
+
 [![No image "r2b1-qubes-manager-2.png" attached to GettingStarted](/chrome/common/attachment.png "No image "r2b1-qubes-manager-2.png" attached to GettingStarted")](/attachment/wiki/GettingStarted/r2b1-qubes-manager-2.png)
 
 Starting apps in domains
