@@ -4,8 +4,8 @@ title: HCL
 permalink: /wiki/HCL/
 ---
 
-Hardware Compatibility List for Qubes OS
-========================================
+Hardware Compatibility List for Qubes OS R1
+===========================================
 
 The following is a list of systems that have been tested and seem to work fine with Qubes OS (or mostly fine). Unless otherwise noted, all the systems have support for Intel VT-d, which is needed to properly secure driver domains in Qubes OS (netvm, usbvm, etc). Systems without VT-d are still usable, but you don't get an extra protection from driver domain separation (you still get lots of security benefit from AppVM separation though).
 
