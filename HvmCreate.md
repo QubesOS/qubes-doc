@@ -66,7 +66,9 @@ Just like standard (paravirtualized) AppVMs, the HVM domains got fixed IP addres
 
 However, a generic HVM domain, e.g. a standard Windows or Ubuntu installation, has (at least initially) no Qubes agent scripts running inside it, and thus requires manual networking configuration, so that it match the values assigned by Qubes for this domain.
 
-In order to do that one should first find out the IP/netmask/gateway assigned to the particular VM by Qubes. This can be seen e.g. in the Qubes Manager in the VM's properties:
+Even though we do have a small DHCP server (that runs inside HVM untrusted stub domain) to make the manual network configuration not necessary for many VMs, this won't work for most modern Linux distributions which contain Xen networking PV drivers built in (but not Qubes tools) and which bypass the stub-domain networking (their net frontends connect directly to the net backend in the netvm), and so our DHCP server is not useful.
+
+In order to manually configure networking in a VM, one should first find out the IP/netmask/gateway assigned to the particular VM by Qubes. This can be seen e.g. in the Qubes Manager in the VM's properties:
 
 \<snapshot\>
 
