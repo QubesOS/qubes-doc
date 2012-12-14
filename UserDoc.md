@@ -32,12 +32,7 @@ Advanced topics:
 -   [XFCE](/wiki/UserDoc/XFCE) installation in dom0
 -   [DispVM Customization](/wiki/UserDoc/DispVMCustomization)
 
-Command-line tools reference (Qubes R2):
-
--   [Dom0 tools?](/wiki/DomZeroToolsR2)
--   [VM tools?](/wiki/VmToolsR2)
-
-Command-line tools reference (Qubes R1):
+Command-line tools reference:
 
 -   [Dom0 tools](/wiki/DomZeroTools)
 -   [VM tools](/wiki/VmTools)
