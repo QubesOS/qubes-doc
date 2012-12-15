@@ -79,6 +79,8 @@ Known Issues
     qvm-create-default-dvm --default-template --default-script
     ```
 
+-   Qubes installer/system won't boot from a USB3-attached disks due to missing modules in initramfs (\#691). Please use USB2 port/device instead for now.
+
 Getting Help
 ------------
 
