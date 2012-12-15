@@ -69,7 +69,7 @@ You can also download all the currently used developer's keys (and also a copy o
 
 [​http://keys.qubes-os.org/keys/](http://keys.qubes-os.org/keys/)
 
-The developer keys are set to be valid for 1 year only, while the Qubes Master Singing Key has no expiration date. This key has been generated and is kept only within a special 'vault' machine that has no networking, and the private portion (hopefully) is never to leave this isolated machine.
+The developer keys are set to be valid for 1 year only, while the Qubes Master Signing Key has no expiration date. This key has been generated and is kept only within a special 'vault' machine that has no networking, and the private portion (hopefully) is never to leave this isolated machine.
 
 Verifying Qubes code
 --------------------
