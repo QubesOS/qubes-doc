@@ -81,6 +81,8 @@ Known Issues
 
 -   Qubes installer/system won't boot from a USB3-attached disks due to missing modules in initramfs (\#691). Please use USB2 port/device instead for now.
 
+-   Systems with AMD graphics needs additional firmware (missing in default installation), details [​here](http://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76).
+
 Getting Help
 ------------
 
