@@ -23,8 +23,7 @@ Qubes User Guides
 
 Advanced topics:
 
--   Creating custom NetVMs
--   Creating custom ProxyVMs
+-   Creating custom NetVMs and ProxyVMs -- see [​this article](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html)
 -   Remotely executing programs in VMs (qvm-run and qrexec)
 -   [How to copy files to Dom0?](/wiki/CopyToDomZero)
 -   [​Extend root.img size](https://groups.google.com/group/qubes-devel/msg/9d1ac581236ca9b4)
