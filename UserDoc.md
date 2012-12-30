@@ -19,6 +19,7 @@ Qubes User Guides
 -   [Key generation inside Qubes VMs?](/wiki/KeyGen)
 -   [How to assign PCI devices to a VM?](/wiki/AssigningDevices)
 -   [Qubes Backup/Restore/Migration](/wiki/BackupRestore)
+-   [Central policies for inter-VM services?](/wiki/QubesPolicies)
 
 Advanced topics:
 
