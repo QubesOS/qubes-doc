@@ -18,6 +18,8 @@ Note that the global clipboard will be cleared after step \#3, to prevent accide
 
 This 4-step process might look complex, but after some little practice it really is very easy and fast. At the same time it provides the user with full control over who has access to the clipboard.
 
+Note that only simple plain text copy/paste is supported between AppVMs. This is discussed in a bit more detail in [​this message](https://groups.google.com/group/qubes-devel/msg/57fe6695eb8ec8cd).
+
 On Copy/Paste Security
 ----------------------
 
