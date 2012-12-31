@@ -7,7 +7,7 @@ permalink: /wiki/SystemDoc/
 System Documentation for Developers
 ===================================
 
--   Qubes OS Architecture v0.3 [​(pdf)](http://www.qubes-os.org/files/doc/arch-spec-0.3.pdf) (A bit outdated, but it was the original document that started this all...)
+-   Qubes OS Architecture v0.3 [​(pdf)](http://files.qubes-os.org/files/doc/arch-spec-0.3.pdf) (A bit outdated, but it was the original document that started this all...)
 -   [Security-critical elements of Qubes OS](/wiki/SecurityCriticalCode)
 -   [Qubes GUI virtualization protocol](/wiki/GUIdocs)
 -   [Networking in Qubes](/wiki/QubesNet)
