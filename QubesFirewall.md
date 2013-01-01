@@ -22,7 +22,7 @@ How to edit rules
 
 In order to edit rules for a given domain, select this domain in the Qubes Manager and press the "firewall" button:
 
-[Screenshot]
+[![No image "r2b1-manager-firewall.png" attached to QubesFirewall](/chrome/common/attachment.png "No image "r2b1-manager-firewall.png" attached to QubesFirewall")](/attachment/wiki/QubesFirewall/r2b1-manager-firewall.png)
 
 Note that if you specify a rule by DNS name it will be resolved to IP(s) *at the moment of applying the rules*, and not on the fly for each new connection. This means it will not work for serves using load balancing. More on this in the message quoted below.
 
