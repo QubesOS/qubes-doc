@@ -45,12 +45,21 @@ VT-d
 
 PCI
 
-Fujitsu S751 [BR] (i5-2520M; HD3000; QM67; BIOS: 1.18)
+<table>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<tbody>
+<tr class="odd">
+<td align="left"><p>Fujitsu S751 [BR] (i5-2520M; HD3000; QM67; BIOS: 1.18)</p></td>
+<td align="left">OK</td>
+<td align="left">OK</td>
+<td align="left">OK</td>
+<td align="left">OK</td>
+</tr>
+</tbody>
+</table>
 
-OK
 
-OK
-
-OK
-
-OK
