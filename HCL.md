@@ -61,7 +61,8 @@ PCI
 
 USB
 
-> Fujitsu S751 (i5-2520M; HD3000; QM67; BIOS: 1.18)
+> Fujitsu S751
+>  (i5-2520M; HD3000; QM67; BIOS: 1.18)
 
 OK
 
