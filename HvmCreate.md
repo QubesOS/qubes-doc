@@ -57,6 +57,8 @@ qvm-create --hvm ubuntu --label red
 qvm-start ubuntu --cdrom=work-web:/home/user/Downloads/ubuntu-12.10-desktop-i386.iso
 ```
 
+Of course the AppVM where the ISO is kept must also be running for this to work (this VM is now serving the ISO and acting as a disk backend).
+
 [![No image "r2b1-installing-ubuntu-1.png" attached to HvmCreate](/chrome/common/attachment.png "No image "r2b1-installing-ubuntu-1.png" attached to HvmCreate")](/attachment/wiki/HvmCreate/r2b1-installing-ubuntu-1.png)
 
 Setting up networking for HVM domains
