@@ -32,8 +32,8 @@ If you don't meet the additional criteria, you can still install and use Qubes. 
 
 **Note:** There is a problem with supporting keyboard and mouse on Mac, and so Mac hardware is currently unsupported (patches welcomed!)
 
-Specific systems Hardware Compatibility List
---------------------------------------------
+Hardware Compatibility List
+---------------------------
 
 Device
 
@@ -61,8 +61,7 @@ PCI
 
 USB
 
-> Fujitsu S751
->  (i5-2520M; HD3000; QM67; BIOS: 1.18)
+Lenovo Thinkpad T420
 
 OK
 
@@ -82,4 +81,117 @@ OK
 
 OK
 
-not tested
+OK
+
+Lenovo Thinkpad T420s
+
+3.2.7+
+
+OK
+
+OK
+
+OK
+
+OK
+
+OK
+
+OK
+
+OK
+
+OK
+
+OK
+
+Lenovo Thinkpad T61
+ (Nvidia Quadro NVS 140M)
+
+OK
+
+OK
+
+X
+
+OK
+
+OK
+
+OK
+
+OK
+
+X
+
+OK
+
+OK
+
+Samsung X460
+
+OK
+
+OK
+
+X
+
+OK
+
+OK
+
+OK
+
+OK
+
+X
+
+OK
+
+OK
+
+Sony Vaio Z 12
+ (2010 edition)
+
+OK
+
+[OK](https://qubes-os.org/trac/wiki/SonyVaioTinkering)
+
+OK
+
+OK
+
+OK
+
+[OK](https://qubes-os.org/trac/wiki/SonyVaioTinkering)
+
+OK
+
+OK
+
+OK
+
+OK
+
+Dell Latitude E6420
+ (Intel HD graphics; Sandy Bridge; i5-2520M)
+
+3.4.18+
+
+OK
+
+OK
+
+OK
+
+3.4.18+
+
+OK
+
+OK
+
+OK
+
+OK
+
+OK
