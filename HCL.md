@@ -217,7 +217,7 @@ OK
 
 OK
 
-not tested
+?
 
 Sony Vaio Z2
  (2011 edition)
@@ -288,6 +288,28 @@ OK
 
 ?
 
+Lenovo Thinkpad x230
+
+[Custom](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ)
+
+[Custom](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ)
+
+OK
+
+OK
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
 Dell Latitude 5520
 
 OK
@@ -334,6 +356,97 @@ OK
 
 Dell PowerEdge T110 II
  (onboard Matrox; Xeon E3-1230)
+
+OK
+
+OK
+
+OK
+
+OK
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+Dell Precision M4600
+ (i7-2860QM; NVIDIA Quadro 1000M)
+
+OK
+
+OK
+
+OK
+
+OK
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+Toshiba Tecra S11
+
+[OK](https://groups.google.com/group/qubes-devel/browse_thread/thread/fdec0ec165a87726)
+
+OK
+
+OK
+
+OK
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+Toshiba Tecra A11-15X
+ (i7-M620)
+
+OK
+
+OK
+
+OK
+
+OK
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+Toshiba M780 S7240
+ (BIOS latest)
 
 OK
 
