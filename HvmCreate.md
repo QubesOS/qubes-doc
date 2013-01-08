@@ -285,3 +285,11 @@ HVM domains (including Windows VMs) can be [assigned PCI devices](/wiki/Assignin
 Once problem, however, at the moment, is that after the whole system gets suspend into S3 sleep, and subsequently resumed, such attached devices stop working and should be restarted within the VM. Under Windows this can be achieved by opening the Device Manager, selecting the actual device, such as a USB controller, and then first 'Disabling', and then 'Enabling' the device again. This is illustrated on the screenshot below:
 
 [![No image "r2b1-win7-usb-disable.png" attached to HvmCreate](/chrome/common/attachment.png "No image "r2b1-win7-usb-disable.png" attached to HvmCreate")](/attachment/wiki/HvmCreate/r2b1-win7-usb-disable.png)
+
+Further reading
+---------------
+
+Other documents related to HVM:
+
+-   [LinuxHVMTips](/wiki/LinuxHVMTips)
+
