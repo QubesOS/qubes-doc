@@ -279,6 +279,8 @@ Another things to check are if clipboard copy/paste and file copy works fine wit
 
 And the screenshot below illustrates the Send To entries in a Windows VM that can be used to copy/send files to other Qubes domains:
 
+[![No image "win7-sendto-another-vm.png" attached to HvmCreate](/chrome/common/attachment.png "No image "win7-sendto-another-vm.png" attached to HvmCreate")](/attachment/wiki/HvmCreate/win7-sendto-another-vm.png)
+
 Assigning PCI devices to HVM domains
 ------------------------------------
 
