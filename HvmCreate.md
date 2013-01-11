@@ -277,6 +277,8 @@ exit
 
 Another things to check are if clipboard copy/paste and file copy works fine with this VM.
 
+And the screenshot below illustrates the Send To entries in a Windows VM that can be used to copy/send files to other Qubes domains:
+
 Assigning PCI devices to HVM domains
 ------------------------------------
 
