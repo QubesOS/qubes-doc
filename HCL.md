@@ -39,27 +39,25 @@ Device
 
 Qubes R1
 
-Qubes R2
+Qubes R2 Beta1
 
-Kernel
-
-Xorg
+Standard feautures
 
 VT-d
 
-PCI
+TPM
 
-Kernel
+Remarks
 
-Xorg
+Standard features
 
 VT-x
 
 VT-d
 
-PCI
+TPM
 
-USB
+Remarks
 
 Lenovo Thinkpad T420
 
@@ -67,7 +65,7 @@ OK
 
 OK
 
-OK
+?
 
 OK
 
@@ -75,17 +73,15 @@ OK
 
 OK
 
-OK
-
-OK
-
-OK
-
-OK
+?
 
 Lenovo Thinkpad T420s
 
-3.2.7+
+OK
+
+OK
+
+?
 
 OK
 
@@ -93,30 +89,16 @@ OK
 
 OK
 
-OK
-
-OK
-
-OK
-
-OK
-
-OK
-
-OK
+?
 
 Lenovo Thinkpad T61
  (Nvidia Quadro NVS 140M)
 
 OK
 
-OK
-
 X
 
-OK
-
-OK
+?
 
 OK
 
@@ -124,21 +106,15 @@ OK
 
 X
 
-OK
-
-OK
+?
 
 Samsung X460
 
 OK
 
-OK
-
 X
 
-OK
-
-OK
+?
 
 OK
 
@@ -146,16 +122,18 @@ OK
 
 X
 
-OK
-
-OK
+?
 
 Sony Vaio Z 12
  (2010 edition)
 
 OK
 
-[OK](https://qubes-os.org/trac/wiki/SonyVaioTinkering)
+OK
+
+?
+
+[link](https://qubes-os.org/trac/wiki/SonyVaioTinkering)
 
 OK
 
@@ -163,20 +141,20 @@ OK
 
 OK
 
-[OK](https://qubes-os.org/trac/wiki/SonyVaioTinkering)
+?
 
-OK
-
-OK
-
-OK
-
-OK
+[link](https://qubes-os.org/trac/wiki/SonyVaioTinkering)
 
 Dell Latitude E6420
  (Intel HD graphics; Sandy Bridge; i5-2520M)
 
-3.4.18+
+OK
+
+OK
+
+?
+
+needs kernel 3.4.17+
 
 OK
 
@@ -184,17 +162,9 @@ OK
 
 OK
 
-3.4.18+
+?
 
-OK
-
-OK
-
-OK
-
-OK
-
-OK
+needs kernel 3.4.17+
 
 Fujitsu S751
  (HD3000; QM67; i5-2520M; BIOS 1.18)
@@ -203,13 +173,7 @@ OK
 
 OK
 
-OK
-
-OK
-
-OK
-
-OK
+?
 
 OK
 
@@ -226,13 +190,9 @@ OK
 
 OK
 
-[OK](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J)
-
-OK
-
 ?
 
-?
+[link](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J)
 
 ?
 
@@ -247,15 +207,11 @@ Lenovo Thinkpad W510
 
 OK
 
-[OK](https://groups.google.com/forum/#!msg/qubes-devel/TgDWwBs36yA/IUFZPHs716cJ)
-
-OK
-
 OK
 
 ?
 
-?
+[link](https://groups.google.com/forum/#!msg/qubes-devel/TgDWwBs36yA/IUFZPHs716cJ)
 
 ?
 
@@ -272,12 +228,6 @@ OK
 
 OK
 
-OK
-
-OK
-
-?
-
 ?
 
 ?
@@ -290,17 +240,13 @@ OK
 
 Lenovo Thinkpad x230
 
-[Custom](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ)
-
-[Custom](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ)
+\*
 
 OK
 
 OK
 
-?
-
-?
+[link](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ)
 
 ?
 
@@ -316,13 +262,9 @@ OK
 
 OK
 
-OK
-
-[OK](https://groups.google.com/group/qubes-devel/msg/7418e7084c2de99f?hl=en)
-
 ?
 
-?
+[link](https://groups.google.com/group/qubes-devel/msg/7418e7084c2de99f?hl=en)
 
 ?
 
@@ -336,15 +278,11 @@ Dell Latitude E6520
 
 OK
 
-[OK](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
-
-OK
-
 OK
 
 ?
 
-?
+[link](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
 
 ?
 
@@ -360,12 +298,6 @@ Dell PowerEdge T110 II
 OK
 
 OK
-
-OK
-
-OK
-
-?
 
 ?
 
@@ -384,12 +316,6 @@ OK
 
 OK
 
-OK
-
-OK
-
-?
-
 ?
 
 ?
@@ -402,17 +328,13 @@ OK
 
 Toshiba Tecra S11
 
-[OK](https://groups.google.com/group/qubes-devel/browse_thread/thread/fdec0ec165a87726)
-
-OK
-
 OK
 
 OK
 
 ?
 
-?
+[link](https://groups.google.com/group/qubes-devel/browse_thread/thread/fdec0ec165a87726)
 
 ?
 
@@ -428,12 +350,6 @@ Toshiba Tecra A11-15X
 OK
 
 OK
-
-OK
-
-OK
-
-?
 
 ?
 
@@ -451,12 +367,6 @@ Toshiba M780 S7240
 OK
 
 OK
-
-OK
-
-OK
-
-?
 
 ?
 
