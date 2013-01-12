@@ -133,7 +133,7 @@ OK
 
 ?
 
-[link](https://qubes-os.org/trac/wiki/SonyVaioTinkering)
+[link](/trac/wiki/SonyVaioTinkering)
 
 OK
 
@@ -143,7 +143,7 @@ OK
 
 ?
 
-[link](https://qubes-os.org/trac/wiki/SonyVaioTinkering)
+[link](/trac/wiki/SonyVaioTinkering)
 
 Dell Latitude E6420
  (Intel HD graphics; Sandy Bridge; i5-2520M)
