@@ -77,6 +77,8 @@ OK
 
 ?
 
+Qubes core developers
+
 Lenovo Thinkpad T420s
 
 OK
@@ -92,6 +94,8 @@ OK
 OK
 
 ?
+
+Qubes core developers
 
 Lenovo Thinkpad T61
  (Nvidia Quadro NVS 140M)
@@ -110,6 +114,8 @@ X
 
 ?
 
+Qubes core developers
+
 Samsung X460
 
 OK
@@ -125,6 +131,8 @@ OK
 X
 
 ?
+
+Qubes core developers
 
 Sony Vaio Z 12
  (2010 edition)
@@ -147,6 +155,8 @@ OK
 
 [link](/trac/wiki/SonyVaioTinkering)
 
+Qubes core developers
+
 Dell Latitude E6420
  (Intel HD graphics; Sandy Bridge; i5-2520M)
 
@@ -168,6 +178,8 @@ OK
 
 needs kernel 3.4.17+
 
+Qubes core developers
+
 Fujitsu S751
  (HD3000; QM67; i5-2520M; BIOS 1.18)
 
@@ -184,6 +196,8 @@ OK
 OK
 
 ?
+
+[​Laszlo Zrubecz](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
 
 Sony Vaio Z2
  (2011 edition)
@@ -204,6 +218,8 @@ OK
 
 ?
 
+[​Danny Fullerton](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J)
+
 Lenovo Thinkpad W510
  (nVidia; i7-Q820)
 
@@ -223,6 +239,8 @@ OK
 
 ?
 
+[​Sebastian Hültenschmidt](https://groups.google.com/forum/#!msg/qubes-devel/TgDWwBs36yA/IUFZPHs716cJ)
+
 Lenovo Thinkpad x220
  (HD?000; i5-?)
 
@@ -239,6 +257,8 @@ OK
 ?
 
 ?
+
+[​Stefan Boresch](https://groups.google.com/group/qubes-devel/msg/f41578eef913446a)
 
 Lenovo Thinkpad x230
 
@@ -258,6 +278,8 @@ OK
 
 ?
 
+[​Chris](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ)
+
 Dell Latitude 5520
 
 OK
@@ -275,6 +297,8 @@ OK
 ?
 
 ?
+
+[​Erik Edin](https://groups.google.com/group/qubes-devel/msg/7418e7084c2de99f?hl=en)
 
 Dell Latitude E6520
 
@@ -294,6 +318,8 @@ OK
 
 ?
 
+[​Steven Collins](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
+
 Dell PowerEdge T110 II
  (onboard Matrox; Xeon E3-1230)
 
@@ -311,6 +337,8 @@ OK
 
 ?
 
+[​Geoff](https://groups.google.com/group/qubes-devel/msg/8a894915909eeaee)
+
 Dell Precision M4600
  (i7-2860QM; NVIDIA Quadro 1000M)
 
@@ -327,6 +355,8 @@ OK
 ?
 
 ?
+
+[​nqe](https://groups.google.com/group/qubes-devel/browse_thread/thread/ddf35d12a35f96a3)
 
 Toshiba Tecra S11
 
@@ -346,6 +376,8 @@ OK
 
 ?
 
+[​Jan Beerden](https://groups.google.com/group/qubes-devel/browse_thread/thread/fdec0ec165a87726)
+
 Toshiba Tecra A11-15X
  (i7-M620)
 
@@ -363,6 +395,8 @@ OK
 
 ?
 
+[​PirBoazo](https://groups.google.com/group/qubes-devel/browse_thread/thread/c0d5f6a33d672b62)
+
 Toshiba M780 S7240
  (BIOS latest)
 
@@ -379,3 +413,5 @@ OK
 ?
 
 ?
+
+[​Franz](https://groups.google.com/group/qubes-devel/browse_thread/thread/66e97c990a08d8e2)
