@@ -244,7 +244,7 @@ Lenovo Thinkpad x230
 
 OK
 
-OK
+?
 
 [link](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ)
 
