@@ -257,7 +257,7 @@ OK
 
 ?
 
-[​George Walker](https://groups.google.com/forum/clear.cache.gif)
+[​George Walker](https://groups.google.com/d/topic/qubes-devel/4IrF1A6sa3U/discussion)
 
 Lenovo Thinkpad x220
  (HD?000; i5-?)
