@@ -197,7 +197,7 @@ OK
 
 ?
 
-[​Laszlo Zrubecz](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
+[​Zrubi](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
 
 Sony Vaio Z2
  (2011 edition)
