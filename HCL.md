@@ -415,3 +415,16 @@ OK
 ?
 
 [​Franz](https://groups.google.com/group/qubes-devel/browse_thread/thread/66e97c990a08d8e2)
+
+Submitting new results
+----------------------
+
+If you want to submit any new results please send a mail to [​the mailing list](http://qubes-os.org/trac/wiki/QubesLists) with the following details included:
+
+-   Subject: HCL - \<your machine model name\>
+-   VGA
+-   CPU
+-   Chipset
+-   BIOS version
+
+And of course include any information about the mentioned Qubes features.
