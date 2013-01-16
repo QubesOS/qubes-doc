@@ -237,7 +237,7 @@ The header is followed by message-specific data.
 |MSG\_CLIPBOARD\_REQ|None|Retrieve the local clipboard, pass contents to gui-daemon|
 |MSG\_CLIPBOARD\_DATA|amorphic blob|Insert the received data into local clipboard|
 |MSG\_EXECUTE|Obsolete|Obsolete, unused|
-|MSG\_KEYMAP\_NOTIFY|` unsigned char remote_keys[32]; `|Synchronize the keyboard state (key pressed/depressed) with dom0|
+|MSG\_KEYMAP\_NOTIFY|` unsigned char remote_keys[32]; `|Synchronize the keyboard state (key pressed/released) with dom0|
 |MSG\_WINDOW\_FLAGS|` struct msg_window_flags { ` 
  `     uint32_t flags_set; ` 
  `    uint32_t flags_unset;` 
