@@ -199,6 +199,29 @@ OK
 
 [​Zrubi](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
 
+Samsung Series 7 Chronos NP700Z5C
+ (nVidia Optimus; i7-3635QM; BIOS P04ABJ)
+
+OK
+
+OK
+
+?
+
+[​read more](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
+
+OK
+
+OK
+
+OK
+
+?
+
+[​read more](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
+
+[​Outback Dingo](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
+
 Sony Vaio Z2
  (2011 edition)
 
