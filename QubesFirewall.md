@@ -55,4 +55,112 @@ In order to allow networking between AppVM A and B follow those steps:
 Port forwarding to an AppVM from the outside world
 --------------------------------------------------
 
-TODO
+In order to allow a service present in an AppVM to be exposed to the outside world in the default setup (where the AppVM has the FirewallVM as network VM, which in turn has the NetVM as network VM) the following needs to be done:
+
+-   In the NetVM, allow packets to be routed from the outside world to the FirewallVM and allow packets through the NetVM firewall
+-   In the FirewallVM, allow packets to be routed from the NetVM to the AppVM and allow packets through the FirewallVM firewall
+-   In the AppVM, allow packets into the AppVM firewall to reach the service
+
+As an example we can take the use case of a web server listenning on port 443 that we want to expose on our physical interface eth0, but only to our local network 192.168.0.0/24.
+
+**1. Allow packets to be routed from the outside world for the exposed service to the FirewallVM**
+
+In System Tools (Dom0) / Terminal, take note of the firewallVM IPAddress to which packet will be routed using ` qvm-ls -n `
+
+In NetVM terminal, take note of the interface name and IPAddress on which you want to expose your service (i.e. eth0, 192.168.0.10) using ` ifconfig | grep -i cast `
+
+> Note: The vifx.0 interface is the one connected to your firewallVM so it is not an outside world interface...
+
+Still in NetVM terminal, code the appropriate natting firewall rule to intercept traffic on the inbound interface for the service and nat the destination IP address to the one of the firewallVM for the traffic to be routed there:
+
+``` {.wiki}
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 192.168.0.10 -j DNAT --to-destination 10.137.1.x
+```
+
+Code the appropriate new filtering firewall rule to allow new connections for the service:
+
+``` {.wiki}
+iptables -I FORWARD 2 -i eth0 -d 10.137.1.x -p tcp --dport 443 -m state --state NEW -j ACCEPT
+```
+
+Note: If you want to expose the service on multiple interfaces, repeat the steps described in part 1 for each interface.
+
+That's it for the netVM. You can verify you are cutting through the netVM by looking at the counters for your firewall rules:
+
+` iptables -t nat -L -v -n `
+
+` iptables -L -v -n `
+
+... issue some test packets trying to connect... Obviously we have not reached the service yet but the counters should increase.
+
+In order to ensure your set-up survive a reboot we need in the NetVM to:
+
+Store these commands in ` /rw/config/rc.local `:
+
+``` {.wiki}
+sudo nano /rw/config/rc.local
+```
+
+``` {.wiki}
+#!/bin/sh
+
+/sbin/iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 192.168.0.10 -j DNAT --to-destination 10.137.1.x
+
+/sbin/iptables -I FORWARD 2 -s 192.168.0.0/24 -d 10.137.1.x -p tcp --dport 443 -m state --state NEW -j ACCEPT
+```
+
+Make this file executable:
+
+``` {.wiki}
+sudo chmod +x /rw/config/rc.local 
+```
+
+**2. Allow packets to be routed from the netVM to the appVM**
+
+In System Tools (Dom0) / Terminal, take note of the appVM (on which the service is exposed) IPAddress using the command ` qvm-ls -n `
+
+In FirewallVM Terminal, take note of the IPAddress for interface eth0 using the command {{{ ifconfig | grep -i cast }}}
+
+Still in FirewallVM terminal, code the appropriate natting firewall rule to intercept traffic on the inbound interface for the service and nat the destination IP address to the one of the AppVM for the traffic to be routed there:
+
+``` {.wiki}
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 10.137.1.x -j DNAT --to-destination 10.137.2.y
+```
+
+Code the appropriate new filtering firewall rule to allow new connections for the service:
+
+``` {.wiki}
+iptables -I FORWARD 2 -i eth0 -s 192.168.0.0/24 -d 10.137.2.y -p tcp --dport 443 -m state --state NEW -j ACCEPT
+```
+
+> Note: If you do not wish to limit the IP addresses connecting to the service, remove the ` -s 192.168.0.1/24 `
+
+FirewallVM is now done. You can verify you are cutting through it in the same way as above.
+
+This time in order to ensure your set-up survive a reboot we need in the firewallVM to:
+
+Store these commands in ` /rw/config/qubes_firewall_user_script `:
+
+``` {.wiki}
+#!/bin/sh
+
+/sbin/iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 10.137.1.x -j DNAT --to-destination 10.137.2.y
+
+/sbin/iptables -I FORWARD 4 -i eth0 -s 192.168.0.0/24 -d 10.137.2.y -p tcp --dport 443 -m state --state NEW -j ACCEPT
+```
+
+And again make this file executable:
+
+``` {.wiki}
+sudo chmod +x /rw/config/qubes_firewall_user_script
+```
+
+**3. Allow packets into the AppVM to reach the service**
+
+Here no routing is required, only filtering. Proceed in the same way as above but store the filtering rule in the `/rw/config/rc.local` script.
+
+``` {.wiki}
+/sbin/iptables -I INPUT 5 -p tcp --dport 443 -m state --state NEW -j ACCEPT
+```
+
+This time testing should allow connectivity to the service.
