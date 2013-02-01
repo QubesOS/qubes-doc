@@ -35,28 +35,145 @@ Now install the package you built and mount /proc/xen. Verify that xenstore-read
 
 ### Qubes-OS core agents (qrexec...)
 
+[​https://aur.archlinux.org/packages/qu/qubes-vm-core/PKGBUILD](https://aur.archlinux.org/packages/qu/qubes-vm-core/PKGBUILD)
+
 ### Qubes-OS kernel modules
 
+[​https://aur.archlinux.org/packages/qu/qubes-vm-kernel-modules/PKGBUILD](https://aur.archlinux.org/packages/qu/qubes-vm-kernel-modules/PKGBUILD)
+
 ### Qubes-OS gui agents
+
+[​https://aur.archlinux.org/packages/qu/qubes-vm-gui/PKGBUILD](https://aur.archlinux.org/packages/qu/qubes-vm-gui/PKGBUILD)
 
 Creating a template builder
 ---------------------------
 
-### 01\_prepare
+### 00\_prepare.sh
 
-### 02\_install\_core
+``` {.wiki}
+#!/bin/sh
 
-### 03\_install\_groups
+echo "Downloading Archlinux dvd..."
+wget -O "archlinux.iso" "http://mir.archlinux.fr/iso/latest/arch/x86_64/root-image.fs.sfs" --continue
 
-### 05\_install\_qubes
+echo "Extracting squash filesystem from DVD..."
+mkdir archlinux_dvd
+sudo mount -o loop archlinux.iso archlinux_dvd
+cp archlinux_dvd/root-image.fs .
+sudo umount archlinux_dvd
+```
 
-### 09\_cleanup
+### 01\_install\_core.sh
+
+``` {.wiki}
+#!/bin/sh
+
+echo "Mounting archlinux install system into archlinux_dvd..."
+sudo mount root-image.fs archlinux_dvd
+
+echo "Creating chroot bootstrap environment"
+
+sudo mount --bind $INSTALLDIR archlinux_dvd/mnt
+sudo cp /etc/resolv.conf archlinux_dvd/etc
+
+echo "-> Initializing pacman keychain"
+sudo ./archlinux_dvd/usr/bin/arch-chroot archlinux_dvd/ pacman-key --init
+sudo ./archlinux_dvd/usr/bin/arch-chroot archlinux_dvd/ pacman-key --populate
+
+echo "-> Installing core pacman packages..."
+sudo ./archlinux_dvd/usr/bin/arch-chroot archlinux_dvd/ sh -c 'pacstrap /mnt base'
+
+echo "-> Cleaning up bootstrap environment"
+sudo umount archlinux_dvd/mnt
+
+sudo umount archlinux_dvd
+
+cp scripts_"${DIST}"/resolv.conf $INSTALLDIR/etc
+```
+
+### 02\_install\_groups.sh
+
+``` {.wiki}
+echo "Mounting archlinux install system into archlinux_dvd..."
+sudo mount root-image.fs archlinux_dvd
+
+echo "-> Installing archlinux package groups..."
+echo "-> Selected packages:"
+echo "$PKGGROUPS"
+sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR pacman --needed --noconfirm -S $PKGGROUPS
+
+sudo umount archlinux_dvd
+```
+
+### 04\_install\_qubes.sh
+
+``` {.wiki}
+#!/bin/sh
+
+echo "Mounting archlinux install system into archlinux_dvd..."
+sudo mount root-image.fs archlinux_dvd
+
+echo $INSTALLDIR
+
+echo "--> Installing yaourt..."
+sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR sh -c 'cd tmp && wget https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz && tar xzvf package-query.tar.gz && cd package-query && makepkg --asroot && pacman --noconfirm -U package-query-*.pkg.tar.xz'
+sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR sh -c 'cd tmp && wget https://aur.archlinux.org/packages/ya/yaourt/yaourt.tar.gz && tar xzvf yaourt.tar.gz && cd yaourt && makepkg --asroot && pacman --noconfirm -U yaourt-*.pkg.tar.xz'
+
+echo "--> Preparing build environment inside the chroot..."
+# Notes for qubes-vm-xen
+# Note: we need more ram for /tmp (at least 700M of disk space for compiling XEN because of the sources...)
+sudo sed 's:-t tmpfs -o mode=1777,strictatime,nodev,:-t tmpfs -o size=700M,mode=1777,strictatime,nodev,:' -i ./archlinux_dvd/usr/bin/arch-chroot
+
+# Note: Enable x86 repos
+su -c "echo '[multilib]' >> $INSTALLDIR/etc/pacman.conf"
+su -c "echo 'SigLevel = PackageRequired' >> $INSTALLDIR/etc/pacman.conf"
+su -c "echo 'Include = /etc/pacman.d/mirrorlist' >> $INSTALLDIR/etc/pacman.conf"
+sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR sh -c "pacman -Sy"
+
+echo "--> Compiling and installing qubes-packages..."
+sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR sh -c "yaourt --noconfirm -S qubes-vm-xen"
+sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR sh -c "yaourt --noconfirm -S qubes-vm-core"
+sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR sh -c "yaourt --noconfirm -S qubes-vm-gui"
+
+sudo umount archlinux_dvd
+```
+
+### 09\_cleanup.sh
+
+``` {.wiki}
+#!/bin/sh
+
+echo "Mounting archlinux install system into archlinux_dvd..."
+sudo mount root-image.fs archlinux_dvd
+
+echo "--> Starting cleanup actions"
+# Remove unused packages and their dependencies (make dependencies)
+cleanuppkgs=`sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR pacman -Qdt | cut -d " " -f 1`
+sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR pacman --noconfirm -Rsc $cleanuppkgs
+
+# Remove yaourt dependencies
+sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR pacman --noconfirm -Rsc binutils yajl gcc make
+
+# Clean pacman cache
+sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR pacman --noconfirm -Scc
+
+sudo umount archlinux_dvd
+```
 
 Building a template
 -------------------
+
+``` {.wiki}
+export DIST=archlinux
+make rpms
+```
 
 Testing a template
 ------------------
 
 Extracting a kernel
 -------------------
+
+### Qubes boot scripts (dracut/initramfs)
+
+### Modules image
