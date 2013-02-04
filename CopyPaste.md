@@ -10,7 +10,7 @@ Copy and Paste between domains
 Qubes fully supports secure copy and paste operation between domains. In order to copy a clipboard from domain A to domain B, follow those steps:
 
 1.  Click on the application window in the domain A where you have selected text for copying. Then use the *app-specific* hot-key (or menu option) to copy this into domain's local clipboard (in other words: do the copy operation as usual, in most cases by pressing Ctrl-C).
-2.  Then (when the app in domain A is still in focus) press Ctrl-Shit-C magic hot-key. This will tell Qubes that we want to select this domain's clipboard for *global copy* between domains.
+2.  Then (when the app in domain A is still in focus) press Ctrl-Shift-C magic hot-key. This will tell Qubes that we want to select this domain's clipboard for *global copy* between domains.
 3.  Now select the destination app, running in domain B, and press Ctrl-Shift-V, another magic hot-key that will tell Qubes to make the clipboard marked in the previous step available to apps running in domain B. This step is necessary because it ensures that only domain B will get access to the clipboard copied from domain A, and not any other domain that might be running in the system.
 4.  Now, in the destination app use the app-specific key combination (usually Ctrl-V) for pasting the clipboard.
 
