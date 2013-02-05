@@ -243,6 +243,25 @@ OK
 
 [​Danny Fullerton](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J)
 
+Lenovo T430
+ (i5-3320)
+
+?
+
+?
+
+?
+
+OK
+
+OK
+
+OK
+
+?
+
+[​Tunguuz](https://groups.google.com/d/msg/qubes-devel/S_VG_jgtpBo/VngCPK2W5FcJ)
+
 Lenovo Thinkpad W510
  (nVidia; i7-Q820)
 
