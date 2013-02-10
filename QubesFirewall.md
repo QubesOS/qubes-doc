@@ -115,11 +115,11 @@ Make this file executable:
 sudo chmod +x /rw/config/rc.local 
 ```
 
-**2. Allow packets to be routed from the netVM to the appVM**
+**2. Allow packets to be routed from the firewallVM to the appVM**
 
 In System Tools (Dom0) / Terminal, take note of the appVM (on which the service is exposed) IPAddress using the command ` qvm-ls -n `
 
-In FirewallVM Terminal, take note of the IPAddress for interface eth0 using the command {{{ ifconfig | grep -i cast }}}
+In FirewallVM Terminal, take note of the IPAddress for interface eth0 using the command ` ifconfig | grep -i cast `
 
 Still in FirewallVM terminal, code the appropriate natting firewall rule to intercept traffic on the inbound interface for the service and nat the destination IP address to the one of the AppVM for the traffic to be routed there:
 
