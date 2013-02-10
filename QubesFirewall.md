@@ -160,6 +160,8 @@ sudo chmod +x /rw/config/qubes_firewall_user_script
 Here no routing is required, only filtering. Proceed in the same way as above but store the filtering rule in the `/rw/config/rc.local` script.
 
 ``` {.wiki}
+#!/bin/sh
+
 /sbin/iptables -I INPUT 5 -p tcp --dport 443 -m state --state NEW -j ACCEPT
 ```
 
