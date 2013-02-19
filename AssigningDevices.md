@@ -31,6 +31,39 @@ TODO
 
 \<screenshot\>
 
+Finding right USB controller
+----------------------------
+
+If you want assign certain USB device to VM (by attaching whole USB controller), you need to figure out which PCI device is the right controller. First check to which USB bus device is connected:
+
+``` {.wiki}
+lsusb
+```
+
+For example I want assign broadband modem to netvm. In lsusb output it can be something like (in this case device isn't fully identified):
+
+``` {.wiki}
+Bus 003 Device 003: ID 413c:818d Dell Computer Corp.
+```
+
+The device is connected to USB bus 3. Then check which other devices are connected to the same bus - all of them will be assigned to the same VM. Now is the time to find right USB controller:
+
+``` {.wiki}
+readlink /sys/bus/usb/devices/usb3
+```
+
+This should output something like:
+
+``` {.wiki}
+../../../devices/pci-0/pci0000:00/0000:00:1a.0/usb3
+```
+
+Now you see BDF address in the path (right before final usb3). Strip leading "0000:" and pass the rest to qvm-pci tool:
+
+``` {.wiki}
+qvm-pci -a netvm 00:1a.0
+```
+
 Possible issues
 ---------------
 
