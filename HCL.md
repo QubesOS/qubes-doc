@@ -180,6 +180,84 @@ needs kernel 3.4.17+
 
 Qubes core developers
 
+Dell Latitude 5520
+
+OK
+
+OK
+
+?
+
+[​read more](https://groups.google.com/group/qubes-devel/msg/7418e7084c2de99f?hl=en)
+
+?
+
+?
+
+?
+
+?
+
+[​Erik Edin](https://groups.google.com/group/qubes-devel/msg/7418e7084c2de99f?hl=en)
+
+Dell Latitude E6520
+
+OK
+
+OK
+
+?
+
+[​read more](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
+
+?
+
+?
+
+?
+
+?
+
+[​Steven Collins](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
+
+Dell PowerEdge T110 II
+ (onboard Matrox; Xeon E3-1230)
+
+OK
+
+OK
+
+?
+
+?
+
+?
+
+?
+
+?
+
+[​Geoff](https://groups.google.com/group/qubes-devel/msg/8a894915909eeaee)
+
+Dell Precision M4600
+ (i7-2860QM; NVIDIA Quadro 1000M)
+
+OK
+
+OK
+
+?
+
+?
+
+?
+
+?
+
+?
+
+[​nqe](https://groups.google.com/group/qubes-devel/browse_thread/thread/ddf35d12a35f96a3)
+
 Fujitsu S751
  (HD3000; QM67; i5-2520M; BIOS 1.18)
 
@@ -199,39 +277,8 @@ OK
 
 [​Zrubi](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
 
-Samsung Series 7 Chronos NP700Z5C
- (nVidia Optimus; i7-3635QM; BIOS P04ABJ)
-
-OK
-
-OK
-
-?
-
-[​read more](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
-
-OK
-
-OK
-
-OK
-
-?
-
-[​read more](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
-
-[​Outback Dingo](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
-
-Sony Vaio Z2
- (2011 edition)
-
-OK
-
-OK
-
-?
-
-[​read more](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J)
+HP Pavilion Sleekbook 14-B030TU
+ (i5-3317U; BIOS F.06)
 
 ?
 
@@ -239,9 +286,17 @@ OK
 
 ?
 
+OK
+
+OK
+
 ?
 
-[​Danny Fullerton](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J)
+?
+
+[​read more](https://groups.google.com/d/msg/qubes-devel/ZC_SQJhXVOM/4aLjEc7GIsUJ)
+
+[​Stephen Boyd](https://groups.google.com/d/msg/qubes-devel/ZC_SQJhXVOM/4aLjEc7GIsUJ)
 
 Lenovo T430
  (i5-3320)
@@ -340,105 +395,6 @@ OK
 
 [​Chris](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ)
 
-HP Pavilion Sleekbook 14-B030TU
- (i5-3317U; BIOS F.06)
-
-?
-
-?
-
-?
-
-OK
-
-OK
-
-?
-
-?
-
-[​read more](https://groups.google.com/d/msg/qubes-devel/ZC_SQJhXVOM/4aLjEc7GIsUJ)
-
-[​Stephen Boyd](https://groups.google.com/d/msg/qubes-devel/ZC_SQJhXVOM/4aLjEc7GIsUJ)
-
-Dell Latitude 5520
-
-OK
-
-OK
-
-?
-
-[​read more](https://groups.google.com/group/qubes-devel/msg/7418e7084c2de99f?hl=en)
-
-?
-
-?
-
-?
-
-?
-
-[​Erik Edin](https://groups.google.com/group/qubes-devel/msg/7418e7084c2de99f?hl=en)
-
-Dell Latitude E6520
-
-OK
-
-OK
-
-?
-
-[​read more](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
-
-?
-
-?
-
-?
-
-?
-
-[​Steven Collins](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
-
-Dell PowerEdge T110 II
- (onboard Matrox; Xeon E3-1230)
-
-OK
-
-OK
-
-?
-
-?
-
-?
-
-?
-
-?
-
-[​Geoff](https://groups.google.com/group/qubes-devel/msg/8a894915909eeaee)
-
-Dell Precision M4600
- (i7-2860QM; NVIDIA Quadro 1000M)
-
-OK
-
-OK
-
-?
-
-?
-
-?
-
-?
-
-?
-
-[​nqe](https://groups.google.com/group/qubes-devel/browse_thread/thread/ddf35d12a35f96a3)
-
 Toshiba Tecra S11
 
 OK
@@ -496,6 +452,50 @@ OK
 ?
 
 [​Franz](https://groups.google.com/group/qubes-devel/browse_thread/thread/66e97c990a08d8e2)
+
+Samsung Series 7 Chronos NP700Z5C
+ (nVidia Optimus; i7-3635QM; BIOS P04ABJ)
+
+OK
+
+OK
+
+?
+
+[​read more](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
+
+OK
+
+OK
+
+OK
+
+?
+
+[​read more](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
+
+[​Outback Dingo](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
+
+Sony Vaio Z2
+ (2011 edition)
+
+OK
+
+OK
+
+?
+
+[​read more](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J)
+
+?
+
+?
+
+?
+
+?
+
+[​Danny Fullerton](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J)
 
 Submitting new results
 ----------------------
