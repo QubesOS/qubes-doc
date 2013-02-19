@@ -340,6 +340,27 @@ OK
 
 [​Chris](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ)
 
+HP Pavilion Sleekbook 14-B030TU
+ (i5-3317U; BIOS F.06)
+
+?
+
+?
+
+?
+
+OK
+
+OK
+
+?
+
+?
+
+[​read more](https://groups.google.com/d/msg/qubes-devel/ZC_SQJhXVOM/4aLjEc7GIsUJ)
+
+[​Stephen Boyd](https://groups.google.com/d/msg/qubes-devel/ZC_SQJhXVOM/4aLjEc7GIsUJ)
+
 Dell Latitude 5520
 
 OK
