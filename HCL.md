@@ -278,6 +278,27 @@ OK
 
 [​nqe](https://groups.google.com/group/qubes-devel/browse_thread/thread/ddf35d12a35f96a3)
 
+Dell XPS 13
+ (i5; intel HD; sandy bridge; BIOS A03)
+
+OK
+
+?
+
+?
+
+OK
+
+?
+
+?
+
+?
+
+[​read more](https://groups.google.com/d/msg/qubes-devel/7JumqdldVJM/n9TiDVxc2jkJ)
+
+[​j](https://groups.google.com/d/msg/qubes-devel/7JumqdldVJM/n9TiDVxc2jkJ)
+
 Fujitsu S751
  (HD3000; QM67; i5-2520M; BIOS 1.18)
 
