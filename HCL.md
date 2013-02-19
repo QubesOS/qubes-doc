@@ -180,6 +180,26 @@ needs kernel 3.4.17+
 
 Qubes core developers
 
+ASUS UX-31
+
+\*
+
+?
+
+?
+
+\*
+
+?
+
+?
+
+?
+
+[​read more](https://groups.google.com/d/topic/qubes-devel/6I07Bbzn5M4/discussion)
+
+[​Stephen Boyd](https://groups.google.com/d/topic/qubes-devel/6I07Bbzn5M4/discussion)
+
 Dell Latitude 5520
 
 OK
