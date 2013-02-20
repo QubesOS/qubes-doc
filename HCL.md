@@ -35,13 +35,13 @@ If you don't meet the additional criteria, you can still install and use Qubes. 
 Hardware Compatibility List
 ---------------------------
 
-Device
+**Device**
 
-Qubes R1
+**Qubes R1**
 
 Qubes R2 Beta1
 
-Reported by
+**Reported by**
 
 Standard feautures
 
@@ -331,11 +331,11 @@ OK
 
 OK
 
-?
+OK
 
 ?
 
-[​read more](https://groups.google.com/d/msg/qubes-devel/ZC_SQJhXVOM/4aLjEc7GIsUJ)
+[​read more](https://groups.google.com/d/topic/qubes-devel/ZC_SQJhXVOM/discussion)
 
 [​Stephen Boyd](https://groups.google.com/d/msg/qubes-devel/ZC_SQJhXVOM/4aLjEc7GIsUJ)
 
