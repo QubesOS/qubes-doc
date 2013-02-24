@@ -15,7 +15,7 @@ Qubes Release 2
 -   [​Qubes-R2-Beta1-x86\_64-DVD.iso](http://sourceforge.net/projects/qubesos/files/Qubes-R2-Beta1-x86_64-DVD.iso/download) (via sourceforge.net)
 -   [​Digital Signature](http://sourceforge.net/projects/qubesos/files/Qubes-R2-Beta1-x86_64-DVD.iso.asc/download) (via sourceforge.net)
 
--   **[Installation Guide](/wiki/InstallationGuideR2)** \<--- You probably want to read this!
+-   **[Installation Guide](/wiki/InstallationGuideR2B1)** \<--- You probably want to read this!
 -   [Hardware Compatibility List](/wiki/HCL)
 -   [Upgrading from Qubes R1 to Qubes R2?](/wiki/UpgradeToR2)
 
