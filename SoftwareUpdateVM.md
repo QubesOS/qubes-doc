@@ -14,25 +14,27 @@ Most of the AppVMs (domains) are based on a *template VM*, which means that thei
 
 In addition to saving on the disk space, and reducing domain creation time, another advantage of such scheme is the possibility for centralized software update. It's just enough to do the update in the template VM, and then all the AppVMs based on this template get updates automatically after they are restarted.
 
-The default template is called **fedora-14-x64** in Qubes R1 and **fedora-17-x64** in Qubes R2 Beta1.
+The default template is called **fedora-14-x64** in Qubes R1 and **fedora-18-x64** in Qubes R2 Beta2.
 
 Installing (or updating) software in the template VM
 ----------------------------------------------------
 
-In order to permanently install new software, you should start the template VM and then start either console or dedicated software management application, such as gpk-application (Start-\>Applications-\>Template: fedora-14-x64-\>[Add/Remove?](/wiki/Add/Remove) software".
+In order to permanently install new software, you should:
 
-Install/update software as usual (e.g. using yum, or the dedicated GUI application). Then, shutdown the template VM.
+-   Start the template VM and then start either console (e.g. `gnome-terminal`) or dedicated software management application, such as `gpk-application` (*Start-\>Applications-\>Template: fedora-XX-x64-\>Add/Remove software*),
 
-You will see now that all the AppVMs based on this template (by default all your VMs) will be marked as "outdated" in the manager. This is because their fielsystem has not been yet updated -- in order to do that, you must restart each VM. You don't need to restart all of them at the same time -- e.g. if you just need the newly installed software to be available in your 'personal' domain, then restart only this VM. You will restart others whenever this will be convenient to you.
+-   Install/update software as usual (e.g. using yum, or the dedicated GUI application). Then, shutdown the template VM,
+
+-   You will see now that all the AppVMs based on this template (by default all your VMs) will be marked as "outdated" in the manager. This is because their fielsystems have not been yet updated -- in order to do that, you must restart each VM. You don't need to restart all of them at the same time -- e.g. if you just need the newly installed software to be available in your 'personal' domain, then restart only this VM. You will restart others whenever this will be convenient to you.
 
 Notes on trusting your Template VM(s)
 -------------------------------------
 
-As the template VM is used for creating filesystems for other AppVMs, where you actually do the work, it means that the template VM is as trusted as the most trusted AppVM based on this template. In other words, if your template VM gets compromised, e.g. because you installed a application, whose *installer's scripts* were malicious, then *all* your AppVMs (based on this template) will inherit this compromise.
+As the template VM is used for creating filesystems for other AppVMs, where you actually do the work, it means that the template VM is as trusted as the most trusted AppVM based on this template. In other words, if your template VM gets compromised, e.g. because you installed an application, whose *installer's scripts* were malicious, then *all* your AppVMs (based on this template) will inherit this compromise.
 
-There are several ways to deal wit this problem:
+There are several ways to deal with this problem:
 
--   Only install packages from trusted sources -- e.g. from the pre-configured Fedora repositories. All those packages are signed by Fedora, and as we expect that at least the package's installation scripts are not malicious. This is enforced by default, by not allowing any networking connectivity in the default template VM, except for access to the Fedora repos.
+-   Only install packages from trusted sources -- e.g. from the pre-configured Fedora repositories. All those packages are signed by Fedora, and as we expect that at least the package's installation scripts are not malicious. This is enforced by default (at the [firewall VM level](/wiki/QubesFirewall)), by not allowing any networking connectivity in the default template VM, except for access to the Fedora repos.
 
 -   Use *standalone VMs* (see below) for installation of untrusted software packages.
 
@@ -50,7 +52,7 @@ Because we chose to use Fedora as a vendor for the Qubes OS foundation (e.g. for
 
 -   So, are the template VMs as trusted as Dom0?
 
-Not quite. Dom0 compromise is absolutely fatal and it is a Game Over. However, a compromise of a template affects only a subset of all your AppVMs (in case you use more than one template, or also some standalone VMs). Also, if your AppVMs are network disconnected, eve though their filesystem might got compromise due to the corresponding template compromise, it still would be difficult for the attacker to actually send out the data stolen in the AppVM. Not impossible (due to existence of cover channels between VMs on x86 architecture), but difficult and slow.
+Not quite. Dom0 compromise is absolutely fatal, and it leads to Game Over (TM). However, a compromise of a template affects only a subset of all your AppVMs (in case you use more than one template, or also some standalone VMs). Also, if your AppVMs are network disconnected, even though their filesystems might got compromised due to the corresponding template compromise, it still would be difficult for the attacker to actually leak out the data stolen in an AppVM. Not impossible (due to existence of cover channels between VMs on x86 architecture), but difficult and slow.
 
 Standalone VMs
 --------------
@@ -60,20 +62,23 @@ Standalone VMs have their own copy of the whole filesystem, and thus can be upda
 Sometime it might be convenient to have a VM that has its own filesystem, where you can directly introduce changes, without the need to start/stop the template VM. Such situations include e.g.:
 
 -   VMs used for development (devel environments requires a lot of \*-devel packages and specific devel tools)
--   VMs used for installing untrusted packages. Normally you install digitally signed software from Red [Hat/Fedora?](/wiki/Hat/Fedora) repositories, and it's reasonable that such software has non malicious *installation* scripts (rpm pre/post scripts). However, when you would like to install some packages form less trusted sources, or unsigned, then using a dedicated (untrusted) standalone VM might be a better way.
 
-In order to create a standalone VM you must currently use command line (from console in Dom0):
+-   VMs used for installing untrusted packages. Normally you install digitally signed software from Red Hat/Fedora repositories, and it's reasonable that such software has non malicious *installation* scripts (rpm pre/post scripts). However, when you would like to install some packages form less trusted sources, or unsigned, then using a dedicated (untrusted) standalone VM might be a better way.
+
+In order to create a standalone VM you can use a command line like this (from console in Dom0):
 
 ``` {.wiki}
 qvm-create <vmname> --standalone --label <label>
 ```
 
+... or click appropriate options in the Qubes Manager's Create VM window.
+
 Using more than one template
 ----------------------------
 
-It's also possible to have more than one template VM in the system. E.g. one could clone the default template using the ```qvm-clone-template``` command in Dom0. This allows to have a customized template, e.g. with devel packages, or less trusted apps, shared by some subset of domains.
+It's also possible to have more than one template VM in the system. E.g. one could clone the default template using the `qvm-clone-template` command in Dom0. This allows to have a customized template, e.g. with devel packages, or less trusted apps, shared by some subset of domains.
 
-When you create a new domain you can choose which template this VM should be based on. If you use command line, you should use the ```--template`\` switch:
+When you create a new domain you can choose which template this VM should be based on. If you use command line, you should use the `--template` switch:
 
 ``` {.wiki}
 qvm-create <vmname> --template <templatename> --label <label>
