@@ -13,8 +13,8 @@ Qubes Downloads
 Qubes Release 2
 ---------------
 
--   [Qubes-R2-Beta2-x86\_64-DVD.iso] (Coming soon!)
--   [Digital Signature] (Coming soon!)
+-   [​Qubes-R2-Beta2-x86\_64-DVD.iso](http://sourceforge.net/projects/qubesos/files/Qubes-R2-Beta2-x86_64-DVD.iso/download) (via sourceforge.net)
+-   [​Digital Signature](http://sourceforge.net/projects/qubesos/files/Qubes-R2-Beta2-x86_64-DVD.iso.asc/download) (via sourceforge.net)
 
 -   **[Installation Guide for R2 Beta 2](/wiki/InstallationGuideR2B2)**
 -   [Upgrading to Qubes R2 Beta 2](/wiki/UpgradeToR2B2)
