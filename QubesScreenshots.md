@@ -59,9 +59,21 @@ Qubes supports secure copy-and-paste operations between AppVMs. Only the user ca
 
 * * * * *
 
-[![](http://files.qubes-os.org/Screenshots_files/snapshot21.png "http://files.qubes-os.org/Screenshots_files/snapshot21.png")](http://files.qubes-os.org/Screenshots_files/snapshot21.png)
+[![No image "r2b2-copy-to-other-appvm-1.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "r2b2-copy-to-other-appvm-1.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/r2b2-copy-to-other-appvm-1.png) [![No image "r2b2-copy-to-other-appvm-3.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "r2b2-copy-to-other-appvm-3.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/r2b2-copy-to-other-appvm-3.png)
 
 Qubes also supports secure file copying between AppVMs.
+
+* * * * *
+
+[![No image "r2b2-open-in-dispvm-1.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "r2b2-open-in-dispvm-1.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/r2b2-open-in-dispvm-1.png) [![No image "r2b2-open-in-dispvm-3.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "r2b2-open-in-dispvm-3.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/r2b2-open-in-dispvm-3.png)
+
+Qubes unique Disposable VMs allow to open any file in a disposable VM in a matter of seconds! The file can be edited in the disposable VM, and later any changes are projected back onto the original file. Currently there is no way to mark files to be automatically open'able in a disposable VMs (one need to right click on a file and choose Open in Disposable VM" option), but this is planned for R2 Beta 3 release.
+
+* * * * *
+
+[![No image "r2b2-convert-to-trusted-pdf-3.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "r2b2-convert-to-trusted-pdf-3.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/r2b2-convert-to-trusted-pdf-3.png) [![No image "r2b2-converting-pdf-2.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "r2b2-converting-pdf-2.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/r2b2-converting-pdf-2.png)
+
+Qubes provides advanced infrastructure for programming inter-VM services, such as e.g. a PDF converter for untrusted files (described in [​this article](http://theinvisiblethings.blogspot.com/2013/02/converting-untrusted-pdfs-into-trusted.html)).
 
 * * * * *
 
