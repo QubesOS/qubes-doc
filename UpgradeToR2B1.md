@@ -4,10 +4,12 @@ title: UpgradeToR2B1
 permalink: /wiki/UpgradeToR2B1/
 ---
 
-Upgrading Qubes R1 to R2 (beta)
+Upgrading Qubes R1 to R2 Beta 1
 ===============================
 
-**Note: Qubes R2 Beta has not been release yet, DO NOT follow those instructions before R2 Beta is released**
+**Note: Qubes R2 Beta 1 is no longer supported! Please install or upgrade to a newer Qubes R2.**
+
+**Note: This page is kept for historical reasons only! Do not follow the instructions below'''**
 
 Existing users of Qubes R1 (but not R1 betas!) can upgrade their systems to the latest R2 beta release by following the procedure below. As usual, it is advisable to backup the system before proceeding with the upgrade
 
