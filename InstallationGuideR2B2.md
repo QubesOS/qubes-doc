@@ -39,7 +39,7 @@ Once you verify this is an authentic ISO, you should burn it on a DVD.
 If you prefer to use USB as a source for installation, then you just need to copy the ISO onto the USB device, e.g. using dd:
 
 ``` {.wiki}
-dd if=Qubes-R2-Beta-2-x86_64-DVD.iso of=/dev/sdX
+dd if=Qubes-R2-Beta2-x86_64-DVD.iso of=/dev/sdX
 ```
 
 **Be sure to use a correct device as the target in the dd command above (instead of sdX)**
