@@ -19,13 +19,15 @@ In this example, the word processor runs in the “work” domain, which has bee
 
 * * * * *
 
-And here's just a few more examples:
+[![No image "r2b1-two-win-vms-3.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "r2b1-two-win-vms-3.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/r2b1-two-win-vms-3.png)
 
-[![](http://2.bp.blogspot.com/-zJFn81JdryI/UAqu7H9KSHI/AAAAAAAAAJ0/q_vVqkoEDTY/s1600/snapshot9.png "http://2.bp.blogspot.com/-zJFn81JdryI/UAqu7H9KSHI/AAAAAAAAAJ0/q_vVqkoEDTY/s1600/snapshot9.png")](http://2.bp.blogspot.com/-zJFn81JdryI/UAqu7H9KSHI/AAAAAAAAAJ0/q_vVqkoEDTY/s1600/snapshot9.png)
+Qubes Release 2 can also run Windows domains. Although, at this moment there is no seamless GUI virtualization for Windows domains, i.e. all the Windows VM's applications are displayed within one window. Other Qubes features, such as secure inter-vm clipboard, secure file copy, and qrexec in general, all work fine with Windows domains via our (proprietary) Qubes Windows Tools that must be installed within Windows VM). In R2 Beta 3 we plan to also introduce seamless GUI mode for Windows VMs (that we already use for our Linux domains since day one).
+
+* * * * *
 
 [![No image "r2b2-xfce4-programmers-desktop-2.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "r2b2-xfce4-programmers-desktop-2.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/r2b2-xfce4-programmers-desktop-2.png)
 
-On the last screenshot we can see Xfce4.10 Window Manager running in Dom0 (instead of KDE as on previous screens) -- we support customized Xfce4 in Qubes Dom0 since R2 Beta 2!
+Here we see Xfce4.10 Window Manager running in Dom0 (instead of KDE as on previous screens) -- we support customized Xfce4 in Qubes Dom0 since R2 Beta 2!
 
 * * * * *
 
@@ -88,3 +90,5 @@ And some more screenshots:
 [![No image "r2b2-xfce4-start-menu-3.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "r2b2-xfce4-start-menu-3.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/r2b2-xfce4-start-menu-3.png)
 
 [![No image "r2b2-kde-red-and-green-terminals.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "r2b2-kde-red-and-green-terminals.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/r2b2-kde-red-and-green-terminals.png)
+
+[![No image "r2b2-windows-hvm-power-point.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "r2b2-windows-hvm-power-point.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/r2b2-windows-hvm-power-point.png)
