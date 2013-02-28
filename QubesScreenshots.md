@@ -77,7 +77,7 @@ Qubes provides advanced infrastructure for programming inter-VM services, such a
 
 * * * * *
 
-[![](http://files.qubes-os.org/Screenshots_files/snapshot25.png "http://files.qubes-os.org/Screenshots_files/snapshot25.png")](http://files.qubes-os.org/Screenshots_files/snapshot25.png)
+[![No image "r2b1-manager-firewall.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "r2b1-manager-firewall.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/r2b1-manager-firewall.png)
 
 Qubes provides a dedicated firewall that itself runs in an isolated FirewallVM.
 
