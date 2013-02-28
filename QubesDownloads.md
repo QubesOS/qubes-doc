@@ -31,7 +31,7 @@ Qubes Release 1
 -   [​Qubes-R1-x86\_64-DVD.iso](http://sourceforge.net/projects/qubesos/files/Qubes-R1-x86_64-DVD.iso/download) (via sourceforge.net)
 -   [​Digital Signature](http://sourceforge.net/projects/qubesos/files/Qubes-R1-x86_64-DVD.iso.asc/download) (via sourceforge.net)
 
--   **[Installation Guide](/wiki/InstallationGuide)** \<--- You probably want to read this!
+-   **[Installation Guide](/wiki/InstallationGuide)**
 
 Mirrors
 -------
