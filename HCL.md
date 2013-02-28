@@ -39,7 +39,7 @@ Hardware Compatibility List
 
 **Qubes R1**
 
-Qubes R2 Beta1
+Qubes R2 Beta2
 
 **Reported by**
 
@@ -69,17 +69,10 @@ OK
 
 OK
 
-OK
-
-OK
-
-OK
-
-OK
-
 Qubes core developers
 
 Lenovo Thinkpad T420s
+ (Intel HD graphics; Sandy Bridge; i5-2520M)
 
 OK
 
@@ -94,6 +87,8 @@ OK
 OK
 
 OK
+
+Requires kernel 3.2.30 to support S3 sleep (the default kernel S3 sleep causes system reboot)
 
 Qubes core developers
 
@@ -106,25 +101,9 @@ X
 
 ?
 
-OK
-
-OK
-
-X
-
-?
-
 Qubes core developers
 
 Samsung X460
-
-OK
-
-X
-
-?
-
-OK
 
 OK
 
@@ -168,16 +147,6 @@ OK
 
 needs kernel 3.4.17+
 
-OK
-
-OK
-
-OK
-
-?
-
-needs kernel 3.4.17+
-
 Qubes core developers
 
 ASUS UX-31
@@ -187,16 +156,6 @@ ASUS UX-31
 ?
 
 ?
-
-\*
-
-?
-
-?
-
-?
-
-[​read more](https://groups.google.com/d/topic/qubes-devel/6I07Bbzn5M4/discussion)
 
 [​Stephen Boyd](https://groups.google.com/d/topic/qubes-devel/6I07Bbzn5M4/discussion)
 
@@ -210,14 +169,6 @@ OK
 
 [​read more](https://groups.google.com/group/qubes-devel/msg/7418e7084c2de99f?hl=en)
 
-?
-
-?
-
-?
-
-?
-
 [​Erik Edin](https://groups.google.com/group/qubes-devel/msg/7418e7084c2de99f?hl=en)
 
 Dell Latitude E6520
@@ -230,14 +181,6 @@ OK
 
 [​read more](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
 
-?
-
-?
-
-?
-
-?
-
 [​Steven Collins](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
 
 Dell PowerEdge T110 II
@@ -246,14 +189,6 @@ Dell PowerEdge T110 II
 OK
 
 OK
-
-?
-
-?
-
-?
-
-?
 
 ?
 
@@ -268,14 +203,6 @@ OK
 
 ?
 
-?
-
-?
-
-?
-
-?
-
 [​nqe](https://groups.google.com/group/qubes-devel/browse_thread/thread/ddf35d12a35f96a3)
 
 Dell XPS 13
@@ -286,16 +213,6 @@ OK
 ?
 
 ?
-
-OK
-
-?
-
-?
-
-?
-
-[​read more](https://groups.google.com/d/msg/qubes-devel/7JumqdldVJM/n9TiDVxc2jkJ)
 
 [​j](https://groups.google.com/d/msg/qubes-devel/7JumqdldVJM/n9TiDVxc2jkJ)
 
@@ -308,76 +225,7 @@ OK
 
 ?
 
-OK
-
-OK
-
-OK
-
-?
-
 [​Zrubi](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
-
-HP Pavilion Sleekbook 14-B030TU
- (i5-3317U; BIOS F.06)
-
-?
-
-?
-
-?
-
-OK
-
-OK
-
-OK
-
-?
-
-[​read more](https://groups.google.com/d/topic/qubes-devel/ZC_SQJhXVOM/discussion)
-
-[​Stephen Boyd](https://groups.google.com/d/msg/qubes-devel/ZC_SQJhXVOM/4aLjEc7GIsUJ)
-
-Lenovo Thinkpad T430
- (i5-3320)
-
-?
-
-?
-
-?
-
-OK
-
-OK
-
-OK
-
-?
-
-[​Tunguuz](https://groups.google.com/d/msg/qubes-devel/S_VG_jgtpBo/VngCPK2W5FcJ)
-
-Lenovo Thinkpad T430s
- (i5-3320M; HD4000; QM77; BIOS 2.05)
-
-?
-
-?
-
-?
-
-OK
-
-OK
-
-OK
-
-?
-
-[​read more](https://groups.google.com/d/topic/qubes-devel/Z9seyOT46Ro/discussion)
-
-[​cprise](https://groups.google.com/d/msg/qubes-devel/Z9seyOT46Ro/wX6tsrxE84sJ)
 
 Lenovo Thinkpad W510
  (nVidia; i7-Q820)
@@ -390,33 +238,7 @@ OK
 
 [​read more](https://groups.google.com/forum/#!msg/qubes-devel/TgDWwBs36yA/IUFZPHs716cJ)
 
-?
-
-?
-
-?
-
-?
-
 [​Sebastian Hültenschmidt](https://groups.google.com/forum/#!msg/qubes-devel/TgDWwBs36yA/IUFZPHs716cJ)
-
-Lenovo Thinkpad X61t
-
-?
-
-?
-
-?
-
-OK
-
-?
-
-?
-
-?
-
-[​George Walker](https://groups.google.com/d/msg/qubes-devel/4IrF1A6sa3U/QIQe-dNc4tEJ)
 
 Lenovo Thinkpad x220
  (HD?000; i5-?)
@@ -424,14 +246,6 @@ Lenovo Thinkpad x220
 OK
 
 OK
-
-?
-
-?
-
-?
-
-?
 
 ?
 
@@ -447,14 +261,6 @@ OK
 
 [​read more](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ)
 
-?
-
-?
-
-?
-
-?
-
 [​Chris](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ)
 
 Toshiba Tecra S11
@@ -467,14 +273,6 @@ OK
 
 [​read more](https://groups.google.com/group/qubes-devel/browse_thread/thread/fdec0ec165a87726)
 
-?
-
-?
-
-?
-
-?
-
 [​Jan Beerden](https://groups.google.com/group/qubes-devel/browse_thread/thread/fdec0ec165a87726)
 
 Toshiba Tecra A11-15X
@@ -483,14 +281,6 @@ Toshiba Tecra A11-15X
 OK
 
 OK
-
-?
-
-?
-
-?
-
-?
 
 ?
 
@@ -505,28 +295,10 @@ OK
 
 ?
 
-?
-
-?
-
-?
-
-?
-
 [​Franz](https://groups.google.com/group/qubes-devel/browse_thread/thread/66e97c990a08d8e2)
 
 Samsung Series 7 Chronos NP700Z5C
  (nVidia Optimus; i7-3635QM; BIOS P04ABJ)
-
-OK
-
-OK
-
-?
-
-[​read more](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
-
-OK
 
 OK
 
@@ -548,14 +320,6 @@ OK
 ?
 
 [​read more](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J)
-
-?
-
-?
-
-?
-
-?
 
 [​Danny Fullerton](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J)
 
