@@ -156,6 +156,8 @@ OK
 
 OK
 
+Suspend doesn't work on 3.7.6 kernel, but work on 3.7.4
+
 Qubes core developers
 
 ASUS UX-31
