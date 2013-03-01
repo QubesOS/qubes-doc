@@ -7,8 +7,6 @@ permalink: /wiki/UpgradeToR2B2/
 Upgrading Qubes R1 to R2 (beta2)
 ================================
 
-**Note: Qubes R2 Beta2 has not been release yet, DO NOT follow those instructions before R2 Beta2 is released**
-
 Existing users of Qubes R1 (but not R1 betas!) can upgrade their systems to the latest R2 beta release by following the procedure below. As usual, it is advisable to backup the system before proceeding with the upgrade. While it is possible to upgrade the system **it is strongly recommended to reinstall it**. You will preserve all your data and settings thanks to [backup and restore tools](/wiki/BackupRestore).
 
 Upgrade all Template and Standalone VM(s)
@@ -81,7 +79,7 @@ Be sure to do steps described in this section after *all* your template and stan
 3.  Install R2 upgrade package:
 
     ``` {.wiki}
-    sudo qubes-dom0-update qubes-dist-upgrade
+    sudo qubes-dom0-update --releasever=1 qubes-dist-upgrade
     ```
 
 4.  Start upgrade process:
@@ -98,7 +96,7 @@ Be sure to do steps described in this section after *all* your template and stan
     sudo qubes-dist-upgrade
     ```
 
-    again. This will start second stage of upgrade, here most packages will be upgraded, so this will take a while. Some KDE components can become unresponsive (like tray icons or taskbar) and windows border can disappear. Don't panic, this is normal part of upgrade process.
+    again. This will start second stage of upgrade, here most packages will be upgraded, so this will take a while.
 
 8.  You will be prompted to install new bootloader. If you haven't changed anything in this matter from initial installation, just accept the default.
 9.  Reboot your system. System shutdown may hung because some running system components no longer match that installed on disk; just wait a few minutes and hard reset the system in such case.
