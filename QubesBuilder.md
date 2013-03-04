@@ -34,10 +34,12 @@ cp builder.conf.default builder.conf
 # (make sure to leave no spaces around '=' sign!) 
 # NO_SIGN="1"
 
-# As time of writing this, the default for Qubes 1 VMs is fc15, but latest supported is fc17, so switch to newer one
+# As time of writing this, the default for Qubes 1 VMs is fc15,
+# but latest supported is fc17, so switch to newer one
 DISTS_VM="fc17"
 
-# As time of writing this, the default for Qubes 2 Dom0 is fc18 and VMs is fc18 so if you want to build Qubes 2
+# As time of writing this, the default for Qubes 2 Dom0 is fc18
+# and VMs is fc18 so if you want to build Qubes 2
 DIST_DOM0="fc18"
 DIST_VM="fc18"
 ```
