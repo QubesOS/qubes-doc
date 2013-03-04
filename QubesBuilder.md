@@ -15,11 +15,13 @@ In order to use it one should use an rpm-based distro, like Fedora :) and should
 -   createrepo
 -   rpm-build
 -   make
+-   wget
+-   rpmdevtools
 
 Unusually one can install those packages by just issuing:
 
 ``` {.wiki}
-sudo yum install git createrepo rpm-build make wget
+sudo yum install git createrepo rpm-build make wget rpmdevtools
 ```
 
 The build system creates build environments in chroots and so no other packages are needed on the host. All files created by the build system are contained within the qubes-builder directory. The full build requires some 25GB of free space, so keep that in mind when deciding where to place this directory.
@@ -32,8 +34,12 @@ cp builder.conf.default builder.conf
 # (make sure to leave no spaces around '=' sign!) 
 # NO_SIGN="1"
 
-# As time of writing this, the default is fc15, but latest supported is fc17, so switch to newer one
+# As time of writing this, the default for Qubes 1 VMs is fc15, but latest supported is fc17, so switch to newer one
 DISTS_VM="fc17"
+
+# As time of writing this, the default for Qubes 2 Dom0 is fc18 and VMs is fc18 so if you want to build Qubes 2
+DIST_DOM0="fc18"
+DIST_VM="fc18"
 ```
 
 One additional useful requirement is that 'sudo root' work without any prompt, which is default on most distros (e.g. 'sudo bash' brings you the root shell without asking for any password). This is important as the builder needs to switch to root and then back to user several times during the build process.
