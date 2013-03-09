@@ -225,6 +225,16 @@ OK
 
 ?
 
+OK
+
+?
+
+?
+
+?
+
+[​read more](https://groups.google.com/d/msg/qubes-devel/jamRkZJDC0g/KTniY0Y3dioJ)
+
 [​j](https://groups.google.com/d/msg/qubes-devel/7JumqdldVJM/n9TiDVxc2jkJ)
 
 Fujitsu S751
@@ -236,7 +246,36 @@ OK
 
 ?
 
+OK
+
+OK
+
+OK
+
+?
+
+needs kernel downgrade to 3.7.4
+
 [​Zrubi](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
+
+HP Pavilion Sleekbook 14-B030TU
+ (Ivy Bridge; Intel HD Graphich; i5-3317; BIOS F.06)
+
+?
+
+?
+
+?
+
+OK
+
+OK
+
+OK
+
+?
+
+[Stephen Boyd](https://groups.google.com/d/msg/qubes-devel/ZC_SQJhXVOM/4aLjEc7GIsUJ)
 
 Lenovo Thinkpad W510
  (nVidia; i7-Q820)
