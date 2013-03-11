@@ -48,6 +48,17 @@ Starting an arbitrary application in a disposable VM via command line (from Dom0
 
 In fact the Disposable VM appmenu used for starting Firefox contains a very similar command to the above. Please note, however, that it generally makes little sense to start any other application other than a Web Browser this way...
 
+Starting an arbitrary program in a Disposable VM from an AppVM
+--------------------------------------------------------------
+
+Sometimes it might be useful to start an arbitrary program, such as e.g. terminal in an Disposable VM from an AppVM. This could be simply done this way:
+
+``` {.wiki}
+[user@vault ~]$ qvm-run '$dispvm' gnome-terminal
+```
+
+Note the above command is issued in an AppVM, not in Dom0. The created Disposable VM can be normally accessed via other tools, such as e.g. `qvm-copy-to-vm`, using its 'dispX' name, as shown by the Qubes Manager or `qvm-ls` tools. The created Disposable VM will inherit firewall settings of the ancestor VM, which is useful in some cases (e.g. when the original AppVM had networking cut off).
+
 Using a non-default template as a basis for Disposable VM
 ---------------------------------------------------------
 
