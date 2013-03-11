@@ -160,6 +160,27 @@ Suspend doesn't work on 3.7.6 kernel, but work on 3.7.4
 
 Qubes core developers
 
+Apple MacBookPro
+ (i7 M620)
+
+?
+
+?
+
+?
+
+X
+
+OK
+
+X
+
+?
+
+[​read more](https://groups.google.com/d/topic/qubes-devel/hag-MQDH_Vs/discussion)
+
+[​Alex Dubois](https://groups.google.com/d/msg/qubes-devel/hag-MQDH_Vs/pmJ7TIWUWAsJ)
+
 ASUS UX-31
 
 \*
@@ -373,15 +394,30 @@ OK
 
 [​Danny Fullerton](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J)
 
+GA-fxa990-ud3 (rev 3.0)
+ (AMD FX-8350; GTX 470)
+
+?
+
+?
+
+?
+
+OK
+
+OK
+
+X
+
+?
+
+[m astroj](https://groups.google.com/d/msg/qubes-devel/oox94EsIduQ/7w4xUoK5pxwJ)
+
 Submitting new results
 ----------------------
 
-If you want to submit any new results please send a mail to [​the mailing list](http://qubes-os.org/trac/wiki/QubesLists) with the following details included:
+If you want to submit any new data please run 'qubes-hcl-report' script (in dom0) and send the results to [​the mailing list](http://qubes-os.org/trac/wiki/QubesLists) with the following details included:
 
 -   Subject: HCL - \<your machine model name\>
--   VGA
--   CPU
--   Chipset
--   BIOS version
 
-And of course include any information about the mentioned Qubes features.
+And of course include any useful information about the mentioned Qubes features.
