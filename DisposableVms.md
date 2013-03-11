@@ -43,7 +43,7 @@ Starting an arbitrary application in a disposable VM via command line (from Dom0
 **Note:** Normally there should be no need for doing this -- this is just for Qubes hackers ;)
 
 ``` {.wiki}
-[joanna@dom0 applications]$ echo gnome-terminal | /usr/lib/qubes/qfile-daemon-dvm qubes.VMShell dom0 DEFAULT red
+[joanna@dom0 ~]$ echo gnome-terminal | /usr/lib/qubes/qfile-daemon-dvm qubes.VMShell dom0 DEFAULT red
 ```
 
 In fact the Disposable VM appmenu used for starting Firefox contains a very similar command to the above. Please note, however, that it generally makes little sense to start any other application other than a Web Browser this way...
