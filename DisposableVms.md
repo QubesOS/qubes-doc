@@ -71,3 +71,13 @@ In order to regenerate Disposable VM "snapshot" (called 'savefile' on Qubes) one
 ```
 
 This would create a new Disposable VM savefile based on the custom template. Now, whenever one opens a file (from any AppVM) in a Disposable VM, a Disposable VM based on this template will be used.
+
+One can easily verify if the new Disposable VM template is indeed based on a custom template (in the example below the template called "f17-yellow" was used as a basis for the Disposable VM):
+
+``` {.wiki}
+[joanna@dom0 ~]$ ll /var/lib/qubes/dvmdata/
+total 0
+lrwxrwxrwx 1 joanna joanna 45 Mar 11 13:59 default_dvm.conf -> /var/lib/qubes/appvms/f17-yellow-dvm/dvm.conf
+lrwxrwxrwx 1 joanna joanna 49 Mar 11 13:59 default_savefile -> /var/lib/qubes/appvms/f17-yellow-dvm/dvm-savefile
+lrwxrwxrwx 1 joanna joanna 47 Mar 11 13:59 savefile_root -> /var/lib/qubes/vm-templates/f17-yellow/root.img
+```
