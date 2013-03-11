@@ -47,3 +47,16 @@ Starting an arbitrary application in a disposable VM via command line (from Dom0
 ```
 
 In fact the Disposable VM appmenu used for starting Firefox contains a very similar command to the above. Please note, however, that it generally makes little sense to start any other application other than a Web Browser this way...
+
+Using a non-default template as a basis for Disposable VM
+---------------------------------------------------------
+
+In some situations it might be beneficial to use a non-default template as a basis for Disposable VM. One example is to use a less-trusted template with some less trusted, 3rd party, often unsigned, applications installed, such as e.g. 3rd part printer drivers.
+
+In order to regenerate Disposable VM "snapshot" (called 'savefile' on Qubes) one can conveniently use the following command in Dom0:
+
+``` {.wiki}
+[joanna@dom0 ~]$ qvm-create-default-dvm <custom-template-name>
+```
+
+This would create a new Disposable VM savefile based on the custom template. Now, whenever one opens a file (from any AppVM) in a Disposable VM, a Disposable VM based on this template will be used.
