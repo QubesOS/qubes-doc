@@ -7,26 +7,10 @@ permalink: /wiki/UsbInstallation/
 How to create a bootable USB stick from Qubes ISO
 =================================================
 
--   download the qubes-usb-installer archive and its signature:
-    -   [​http://www.qubes-os.org/files/misc/qubes-usb-installer-1.2.tgz](http://www.qubes-os.org/files/misc/qubes-usb-installer-1.2.tgz)
-    -   [​http://www.qubes-os.org/files/misc/qubes-usb-installer-1.2.tgz.asc](http://www.qubes-os.org/files/misc/qubes-usb-installer-1.2.tgz.asc)
+Qubes ISO image is already prepared to boot from USB disk, you just need to copy the ISO onto the USB device, e.g. using dd:
 
--   verify the archive signature the same way you have verified iso integrity:
+``` {.wiki}
+dd if=Qubes-R2-Beta2-x86_64-DVD.iso of=/dev/sdX
+```
 
-    ``` {.wiki}
-    gpg -v <file>.asc
-    ```
-
--   Unpack the archive (e.g. in your home directory):
-
-    ``` {.wiki}
-    tar -zxvf qubes-usb-installer-1.2.tgz
-    ```
-
--   "Burn" the Qubes ISO onto the USB stick:
-
-    ``` {.wiki}
-    ./qubes-usb-installer-1.2/qubes-usb-installer path_to_qubes_iso /dev/sdX
-    ```
-
-... where ```/dev/sdX``` is your USB stick. Note that all contents of the ```/dev/sdX``` device will be destroyed - be careful to pass the correct device name there (e.g. not your harddrive).
+**Be sure to use a correct device as the target in the dd command above (instead of sdX)**
