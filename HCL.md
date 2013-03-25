@@ -280,7 +280,7 @@ needs kernel downgrade to 3.7.4
 [​Zrubi](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
 
 HP Pavilion Sleekbook 14-B030TU
- (Ivy Bridge; Intel HD Graphich; i5-3317; BIOS F.06)
+ (Ivy Bridge; Intel HD Graphics; i5-3317; BIOS F.06)
 
 ?
 
@@ -299,7 +299,7 @@ OK
 [Stephen Boyd](https://groups.google.com/d/msg/qubes-devel/ZC_SQJhXVOM/4aLjEc7GIsUJ)
 
 Lenovo Thinkpad T430
- (Ivy Bridge; HD Graphich; i5-3360M; BIOS: 2.51)
+ (Ivy Bridge; HD Graphics; i5-3360M; BIOS: 2.51)
 
 ?
 
