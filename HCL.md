@@ -298,6 +298,25 @@ OK
 
 [Stephen Boyd](https://groups.google.com/d/msg/qubes-devel/ZC_SQJhXVOM/4aLjEc7GIsUJ)
 
+Lenovo Thinkpad T430
+ (Ivy Bridge; HD Graphich; i5-3360M; BIOS: 2.51)
+
+?
+
+?
+
+?
+
+OK
+
+OK
+
+OK
+
+?
+
+[Alex Dubois](https://groups.google.com/d/msg/qubes-devel/LSVluAZ9Udo/Fl3jmt4tWssJ)
+
 Lenovo Thinkpad W510
  (nVidia; i7-Q820)
 
@@ -378,6 +397,14 @@ OK
 ?
 
 [​read more](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
+
+OK
+
+OK
+
+X
+
+?
 
 [​Outback Dingo](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
 
