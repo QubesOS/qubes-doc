@@ -315,6 +315,8 @@ OK
 
 ?
 
+[​read more](https://groups.google.com/d/topic/qubes-devel/LSVluAZ9Udo/discussion)
+
 [Alex Dubois](https://groups.google.com/d/msg/qubes-devel/LSVluAZ9Udo/Fl3jmt4tWssJ)
 
 Lenovo Thinkpad W510
