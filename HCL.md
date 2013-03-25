@@ -408,6 +408,8 @@ X
 
 ?
 
+[​read more](https://groups.google.com/d/topic/qubes-devel/Wu1mn9f1qgM/discussion)
+
 [​Outback Dingo](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
 
 Sony Vaio Z2
