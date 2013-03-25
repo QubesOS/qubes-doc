@@ -442,6 +442,27 @@ X
 
 [m astroj](https://groups.google.com/d/msg/qubes-devel/oox94EsIduQ/7w4xUoK5pxwJ)
 
+MSI Big Bang
+ (i7-950; Radeon HD 6770)
+
+?
+
+?
+
+?
+
+OK
+
+?
+
+?
+
+?
+
+[read more](https://groups.google.com/d/topic/qubes-devel/TxzaoodB02o/discussion)
+
+[Andrew Sorensen](https://groups.google.com/d/msg/qubes-devel/TxzaoodB02o/NxVHjaPoRYoJ)
+
 Submitting new results
 ----------------------
 
