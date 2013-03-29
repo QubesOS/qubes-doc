@@ -21,6 +21,7 @@ Qubes User Guides
 -   [Qubes Backup/Restore/Migration](/wiki/BackupRestore)
 -   [Central policies for inter-VM services?](/wiki/QubesPolicies)
 -   [Configuring a network printer](/wiki/NetworkPrinter)
+-   [Resizing AppVMs and HVMs virtual disks](/wiki/ResizeDiskImage)
 
 Advanced topics:
 
