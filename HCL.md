@@ -163,6 +163,24 @@ ASUS UX-31
 
 [​Stephen Boyd](https://groups.google.com/d/topic/qubes-devel/6I07Bbzn5M4/discussion)
 
+ASUS X55A
+
+X
+
+X
+
+[​read more](https://groups.google.com/d/topic/qubes-devel/2csjvHia9Rw/discussion)
+
+X
+
+X
+
+X
+
+[​read more](https://groups.google.com/d/topic/qubes-devel/2csjvHia9Rw/discussion)
+
+[​Zrubi](https://groups.google.com/d/msg/qubes-devel/2csjvHia9Rw/NRsqR0g6wIMJ)
+
 Dell Latitude 5520
 
 OK
