@@ -390,6 +390,21 @@ OK
 
 [​Danny Fullerton](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J)
 
+Dell Precision T3400 Workstation
+ (NVIDIA Quadro NVS 290; Intel Q6600; BIOS: A09)
+
+?
+
+?
+
+OK
+
+OK
+
+X
+
+[Andrew Sorensen](https://groups.google.com/d/msg/qubes-devel/D16dM3rg8Iw/zOEZmjTJkRIJ)
+
 GA-fxa990-ud3 (rev 3.0)
  (AMD FX-8350; GTX 470)
 
