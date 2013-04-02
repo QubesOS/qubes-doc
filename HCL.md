@@ -267,6 +267,23 @@ OK
 
 [Alex Dubois](https://groups.google.com/d/msg/qubes-devel/LSVluAZ9Udo/Fl3jmt4tWssJ)
 
+Lenovo Thinkpad T430U
+ (Ivy Bridge; HD Graphics +GT 620M; i7-3517M; BIOS: 2.08)
+
+?
+
+?
+
+OK
+
+OK
+
+OK
+
+[​read more](https://groups.google.com/d/topic/qubes-devel/Z9M_k3i6dxU/discussion)
+
+[tigerbeard](https://groups.google.com/d/msg/qubes-devel/Z9M_k3i6dxU/09CqBppyMnsJ)
+
 Lenovo Thinkpad W510
  (nVidia; i7-Q820)
 
