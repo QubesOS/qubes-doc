@@ -268,6 +268,21 @@ OK
 
 [Stephen Boyd](https://groups.google.com/d/msg/qubes-devel/ZC_SQJhXVOM/4aLjEc7GIsUJ)
 
+Lenovo Thinkpad Edge E130
+ (Ivy Bridge; HD Graphics i3-3217U; BIOS: 2.05)
+
+?
+
+?
+
+OK
+
+OK
+
+OK
+
+[Danny Cautaert](https://groups.google.com/d/msg/qubes-devel/kGnZKZ9ILKA/2vpzltNW3K4J)
+
 Lenovo Thinkpad T430
  (Ivy Bridge; HD Graphics; i5-3360M; BIOS: 2.51)
 
