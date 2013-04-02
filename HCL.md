@@ -47,8 +47,6 @@ Standard feautures
 
 VT-d
 
-AEM
-
 Remarks
 
 Standard features
@@ -58,13 +56,9 @@ VT-x
 
 VT-d
 
-AEM
-
 Remarks
 
 Lenovo Thinkpad T420
-
-OK
 
 OK
 
@@ -74,10 +68,6 @@ Qubes core developers
 
 Lenovo Thinkpad T420s
  (Intel HD graphics; Sandy Bridge; i5-2520M)
-
-OK
-
-OK
 
 OK
 
@@ -100,8 +90,6 @@ OK
 
 X
 
-?
-
 Qubes core developers
 
 Samsung X460
@@ -109,8 +97,6 @@ Samsung X460
 OK
 
 X
-
-?
 
 Qubes core developers
 
@@ -121,8 +107,6 @@ OK
 
 OK
 
-?
-
 [read more](/trac/wiki/SonyVaioTinkering)
 
 OK
@@ -130,8 +114,6 @@ OK
 OK
 
 OK
-
-?
 
 [read more](/trac/wiki/SonyVaioTinkering)
 
@@ -144,11 +126,7 @@ OK
 
 OK
 
-?
-
 needs kernel 3.4.17+
-
-OK
 
 OK
 
@@ -167,15 +145,11 @@ Apple MacBookPro
 
 ?
 
-?
-
 X
 
 OK
 
 X
-
-?
 
 [​read more](https://groups.google.com/d/topic/qubes-devel/hag-MQDH_Vs/discussion)
 
@@ -187,8 +161,6 @@ ASUS UX-31
 
 ?
 
-?
-
 [​Stephen Boyd](https://groups.google.com/d/topic/qubes-devel/6I07Bbzn5M4/discussion)
 
 Dell Latitude 5520
@@ -196,8 +168,6 @@ Dell Latitude 5520
 OK
 
 OK
-
-?
 
 [​read more](https://groups.google.com/group/qubes-devel/msg/7418e7084c2de99f?hl=en)
 
@@ -208,8 +178,6 @@ Dell Latitude E6520
 OK
 
 OK
-
-?
 
 [​read more](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
 
@@ -222,8 +190,6 @@ OK
 
 OK
 
-?
-
 [​Geoff](https://groups.google.com/group/qubes-devel/msg/8a894915909eeaee)
 
 Dell Precision M4600
@@ -232,8 +198,6 @@ Dell Precision M4600
 OK
 
 OK
-
-?
 
 [​nqe](https://groups.google.com/group/qubes-devel/browse_thread/thread/ddf35d12a35f96a3)
 
@@ -244,11 +208,7 @@ OK
 
 ?
 
-?
-
 OK
-
-?
 
 ?
 
@@ -265,15 +225,11 @@ OK
 
 OK
 
-?
-
 OK
 
 OK
 
 OK
-
-?
 
 needs kernel downgrade to 3.7.4
 
@@ -286,15 +242,11 @@ HP Pavilion Sleekbook 14-B030TU
 
 ?
 
-?
-
 OK
 
 OK
 
 OK
-
-?
 
 [Stephen Boyd](https://groups.google.com/d/msg/qubes-devel/ZC_SQJhXVOM/4aLjEc7GIsUJ)
 
@@ -305,15 +257,11 @@ Lenovo Thinkpad T430
 
 ?
 
-?
-
 OK
 
 OK
 
 OK
-
-?
 
 [​read more](https://groups.google.com/d/topic/qubes-devel/LSVluAZ9Udo/discussion)
 
@@ -326,8 +274,6 @@ OK
 
 OK
 
-?
-
 [​read more](https://groups.google.com/forum/#!msg/qubes-devel/TgDWwBs36yA/IUFZPHs716cJ)
 
 [​Sebastian Hültenschmidt](https://groups.google.com/forum/#!msg/qubes-devel/TgDWwBs36yA/IUFZPHs716cJ)
@@ -339,8 +285,6 @@ OK
 
 OK
 
-?
-
 [​Stefan Boresch](https://groups.google.com/group/qubes-devel/msg/f41578eef913446a)
 
 Lenovo Thinkpad x230
@@ -348,8 +292,6 @@ Lenovo Thinkpad x230
 \*
 
 OK
-
-?
 
 [​read more](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ)
 
@@ -360,8 +302,6 @@ Toshiba Tecra S11
 OK
 
 OK
-
-?
 
 [​read more](https://groups.google.com/group/qubes-devel/browse_thread/thread/fdec0ec165a87726)
 
@@ -374,8 +314,6 @@ OK
 
 OK
 
-?
-
 [​PirBoazo](https://groups.google.com/group/qubes-devel/browse_thread/thread/c0d5f6a33d672b62)
 
 Toshiba M780 S7240
@@ -384,8 +322,6 @@ Toshiba M780 S7240
 OK
 
 OK
-
-?
 
 [​Franz](https://groups.google.com/group/qubes-devel/browse_thread/thread/66e97c990a08d8e2)
 
@@ -396,8 +332,6 @@ OK
 
 ?
 
-?
-
 [​read more](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
 
 OK
@@ -405,8 +339,6 @@ OK
 OK
 
 X
-
-?
 
 [​read more](https://groups.google.com/d/topic/qubes-devel/Wu1mn9f1qgM/discussion)
 
@@ -419,8 +351,6 @@ OK
 
 OK
 
-?
-
 [​read more](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J)
 
 [​Danny Fullerton](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J)
@@ -432,15 +362,11 @@ GA-fxa990-ud3 (rev 3.0)
 
 ?
 
-?
-
 OK
 
 OK
 
 X
-
-?
 
 [m astroj](https://groups.google.com/d/msg/qubes-devel/oox94EsIduQ/7w4xUoK5pxwJ)
 
@@ -451,11 +377,7 @@ MSI Big Bang
 
 ?
 
-?
-
 OK
-
-?
 
 ?
 
