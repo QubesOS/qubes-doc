@@ -27,7 +27,7 @@ Please consult the basic documentation before posting to the list:
 -   [Qubes User's FAQ](/wiki/UserFaq)
 -   [Qubes User Guides](/wiki/UserDoc) \<-- for question on how to use Qubes OS
 
-### Posting, Subscribing, etc
+Posting, Subscribing, etc:
 
 -   To post a message to the list, just send an email to (you don't need to be subscribed): `qubes-users@googlegroups.com`
 -   To subscribe to the list, send an empty mail to (you don't need a gmail account for that!): `qubes-users+subscribe@googlegroups.com`
@@ -47,7 +47,7 @@ This list is mainly for people interested in contributing to Qubes OS, or just w
 
 You need to be subscribed in order to post to this list.
 
-### Posting, Subscribing, etc
+Posting, Subscribing, etc:
 
 -   To post a message to the list, send an email to (you need to be subscribed first!): `qubes-devel@googlegroups.com`
 -   To subscribe to the list, send an empty mail to (you don't need a gmail account for that!): `qubes-devel+subscribe@googlegroups.com`
