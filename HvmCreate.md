@@ -275,7 +275,7 @@ C:\Windows\system32>exit
 exit
 ```
 
-Another things to check are if clipboard copy/paste and file copy works fine with this VM.
+Another things to check are if clipboard copy/paste and file copy works fine with this VM. If it doesn't, then perhaps one more VM reboot is necessary (seriously, hey this is Windows!).
 
 And the screenshot below illustrates the Send To entries in a Windows VM that can be used to copy/send files to other Qubes domains:
 
