@@ -7,7 +7,7 @@ permalink: /wiki/QubesLists/
 Qubes Mailing Lists
 ===================
 
-Please send all the questions regarding Qubes to one of the following mailing lists:
+Please send all the questions regarding Qubes to one of the following mailing lists. Please do **not** send questions to individual Qubes developers. By sending a message to list, you not only give other a chance to help you, but you also might help others by making the discussion public.
 
 The `qubes-users` mailing list
 ------------------------------
@@ -54,7 +54,14 @@ You need to be subscribed in order to post to this list.
 -   To unsubscribe, send an empty mail to `qubes-devel+unsubscribe@googlegroups.com`
 -   The Web interface of the list: [​http://groups.google.com/group/qubes-devel](http://groups.google.com/group/qubes-devel)
 
-General hints and guidlines regarding posting to the lists
-----------------------------------------------------------
+General hints and guidelines regarding posting to the lists
+-----------------------------------------------------------
 
-TODO
+-   Use an informative and precise subject in your message. This will allow others to easily find your thread in the future and use it as a reference. Example of a bad subject: "Help! Qubes problems!". Example of a good subject: "R2B2 Installation problem: Apple keyboard not working in installer".
+
+-   Be precise and concrete. Do not write an essay, only the essential informations that are needed. Qubes developers are Very Busy People (VBP) and we'd really better spend our time on improving Qubes, rather than reading essays!
+
+-   Do not sorry about your English. Really, nobody gives a damn, whether you're sorry, or not, that your English sucks. If we can't understand you, we will ask (or ignore your message if it's a total mess ;) And, if you really are so ashamed of your written English, then... just learn it, instead of sorry everybody.
+
+-   While we're generally open to hear suggestions of new features, please note that we already have a pretty well defined Roadmap, and it's rather unlikely we will change our schedule in order to accommodate your request. Much more preferred way to get new features into Qubes, those requested by users, is to... contribute code to Qubes that implements them, which we will happily accept, provided it meets our standards. It's always good to first discuss such ideas on the qubes-devel list, before starting the work though.
+
