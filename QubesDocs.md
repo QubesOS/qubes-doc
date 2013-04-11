@@ -23,6 +23,7 @@ For Developers
 -   [Developer's FAQ](/wiki/DevelFaq)
 
 -   [How can I contribute to the Qubes Project?](/wiki/ContributingHowto)
+-   [Qubes Coding Guidelines](/wiki/CodingStyle)
 -   [Books for Developers](/wiki/DevelBooks)
 -   [Research papers related to Qubes](/wiki/QubesResearch)
 
