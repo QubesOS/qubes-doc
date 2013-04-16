@@ -55,19 +55,19 @@ General programming style guidelines
 
 -   Do **not** use comments to disable code fragments. In a production code there should really be no commented or disabled code fragments. If you really, really have a good reason to retain some fragment of unused code, use \#if or \#ifdef to disable it, e.g.:
 
-\#if 0
-
-> (...) *Some unused code here*
-
-\#endif
+    ``` {.wiki}
+    #if 0
+        (...)   // Some unused code here
+    #endif
+    ```
 
 ... and preferably use some descriptive macro instead of just `0`, e.g.:
 
-\#if USE\_OLD\_WINDOW\_TRAVERSING
-
-> (...) *Some unused code here*
-
-\#endif
+``` {.wiki}
+#if USE_OLD_WINDOW_TRAVERSING
+    (...)   // Some unused code here
+#endif
+```
 
 Not sure how to do similar thing in Python... Anyone?
 
@@ -81,14 +81,10 @@ Source Code management (Git) guidelines
 -   Before you start using git, make sure you understand that git is a decentralized Source Code Management system, and that it doesn't behave like traditional, centralized source code management systems, such as SVN. Here's a good [​introductory book on git](http://git-scm.com/book). Read it.
 
 -   Qubes code is divided into many git repositories. There are several reasons for that:
-
-> **This creates natural boundaries between different code blocks, enforcing proper interfaces, and easing independent development to be conducted on various code parts at the same time, without the fear of running into conflicts.**
-
-> **By maintaining relatively small git repositories, it is easy for new developers to understand the code and contribute new patches, without the need to understand all the other code.**
-
-> **Code repositories represent also licensing boundaries. So, e.g. because `core-agent-linux` and `core-agent-windows` are maintained in two different repositories, it is possible to have the latter under a proprietary, non-GPL license, while keeping the former fully open source.**
-
-> **We have drastically changes the layout and naming of the code repositories shortly after Qubes OS R2 Beta 2 release. For details on the current code layout, please read [​this article](http://theinvisiblethings.blogspot.com/2013/03/introducing-qubes-odyssey-framework.html).**
+    -   This creates natural boundaries between different code blocks, enforcing proper interfaces, and easing independent development to be conducted on various code parts at the same time, without the fear of running into conflicts.
+    -   By maintaining relatively small git repositories, it is easy for new developers to understand the code and contribute new patches, without the need to understand all the other code.
+    -   Code repositories represent also licensing boundaries. So, e.g. because `core-agent-linux` and `core-agent-windows` are maintained in two different repositories, it is possible to have the latter under a proprietary, non-GPL license, while keeping the former fully open source.
+    -   We have drastically changes the layout and naming of the code repositories shortly after Qubes OS R2 Beta 2 release. For details on the current code layout, please read [​this article](http://theinvisiblethings.blogspot.com/2013/03/introducing-qubes-odyssey-framework.html).
 
 Security coding guidelines
 --------------------------
