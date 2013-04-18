@@ -122,8 +122,20 @@ Security coding guidelines
 
 -   As a general rule: **untrusted input** is our \#1 enemy!
 -   Any input that comes from untrusted, or less trusted, or just differently-trusted, entity should always be considered as malicious and should always be sanitized and verified. So, if your software runs in Dom0 and processes some input from any of the VMs, this input should be considered to be malicious. Even if your software runs in a VM, and processes input from some other VM, you should also assume that the input is malicious and verify it.
+-   Use `untrusted_` prefix for all variables that hold values read from untrusted party and which have not yet been verified to be decent, e.g.:
 
-To Be Continued.
+    ``` {.wiki}
+       read_struct(untrusted_conf);
+       /* sanitize start */
+       if (untrusted_conf.width > MAX_WINDOW_WIDTH)
+           untrusted_conf.width = MAX_WINDOW_WIDTH;
+       if (untrusted_conf.height > MAX_WINDOW_HEIGHT)
+           untrusted_conf.height = MAX_WINDOW_HEIGHT;
+       width = untrusted_conf.width;
+       height = untrusted_conf.height;
+    ```
+
+-   Use another variables, without the `untrusted_` prefix to hold the sanitized values, as seen above.
 
 Python-specific guidelines
 --------------------------
