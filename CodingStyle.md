@@ -131,14 +131,18 @@ Security coding guidelines
 Python-specific guidelines
 --------------------------
 
-TODO
+-   Please follow the guidlines [​here](http://www.python.org/dev/peps/pep-0008/), unless they were in conflict with what is written on this page.
 
-C-specific guidelines
----------------------
+C and C++ specific guidelines
+-----------------------------
 
-TODO
+-   Do not place code in `*.h` files.
+-   Use `const` whenever possible, e.g. in function arguments passed via pointers.
+-   Do not mix procedural and objective code together -- if you write in C++, use classes and objects.
+-   Think about classes hierarchy, before start implementing specific methods.
 
-C++-specific guideline
-----------------------
+Bash-specific guidelines
+------------------------
 
-TODO
+-   Avoid writing scripts in bash whenever possible. Use python instead. Bash-scripts are Unix-specific and will not work under Windows VMs, or in Windows admin domain, or Windows gui domain.
+
