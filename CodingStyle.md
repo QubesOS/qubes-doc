@@ -102,6 +102,8 @@ General programming style guidelines
 
 > But generally, there is little excuse to keep old, unused code fragments in the code. One should really use the functionality provided by the source code management system, such as git, instead. E.g. create a special branch for storing the old, unused code -- this way you will always be able to merge this code into upstream in the future.
 
+-   Do not hardcode values in the code! The only three numbers that are an exception here and for which it is acceptable to hardcode them are: `0`, `1` and `-1`, and frankly the last two are still controversial...
+
 Source Code management (Git) guidelines
 ---------------------------------------
 
