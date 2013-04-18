@@ -68,6 +68,9 @@ File naming conventions
 General programming style guidelines
 ------------------------------------
 
+-   Do not try to impress wit your coding kung-fu, do not use tricks to save 2 lines of code, always prefer readability over trickiness!
+-   Make sure your code compiles and builds without warnings.
+-   Always first first about interfaces (e.g. function arguments, or class methods) and data structures before you start writing the actual code.
 -   Use comments to explain non-trivial code fragments, or expected behavior of more complex functions, if it is not clear from their name.
 -   Do **not** use comments for code fragments where it is immediately clear what the code does. E.g. avoid constructs like this:
 
@@ -76,7 +79,7 @@ General programming style guidelines
     int get_window_id (...) {
         (...)
         return id;
-        }
+    }
     ```
 
 -   Do **not** use comments to disable code fragments. In a production code there should really be no commented or disabled code fragments. If you really, really have a good reason to retain some fragment of unused code, use \#if or \#ifdef to disable it, e.g.:
@@ -87,17 +90,17 @@ General programming style guidelines
     #endif
     ```
 
-... and preferably use some descriptive macro instead of just `0`, e.g.:
+    ... and preferably use some descriptive macro instead of just `0`, e.g.:
 
-``` {.wiki}
-#if USE_OLD_WINDOW_TRAVERSING
-    (...)   // Some unused code here
-#endif
-```
+    ``` {.wiki}
+    #if USE_OLD_WINDOW_TRAVERSING
+        (...)   // Some unused code here
+    #endif
+    ```
 
-Not sure how to do similar thing in Python... Anyone?
+    Not sure how to do similar thing in Python... Anyone?
 
-But generally, there is little excuse to keep old, unused code fragments in the code. One should really use the functionality provided by the source code management system, such as git, instead. E.g. create a special branch for storing the old, unused code -- this way you will always be able to merge this code into upstream in the future.
+> But generally, there is little excuse to keep old, unused code fragments in the code. One should really use the functionality provided by the source code management system, such as git, instead. E.g. create a special branch for storing the old, unused code -- this way you will always be able to merge this code into upstream in the future.
 
 Source Code management (Git) guidelines
 ---------------------------------------
