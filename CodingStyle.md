@@ -26,7 +26,13 @@ General typographic conventions
 
 -   **Maintain max. line length of 80 characters**. Even though today's monitors often are very wide and it's often not a problem to have 120 characters displayed in an editor, still maintaining shorter line lengths improves readability. It also allows to have two parallel windows open, side by side, each with different parts of the source code.
 
--   Class, functions, variables, and arguments naming convention -- let's keep that simple: **`ClassName` -- for all class names,** `some_variable`, `some_function`, `some_argument` -- for everything else (including instances of classes, AKA objects).
+-   Class, functions, variables, and arguments naming convention for any OS other than Windows:
+    -   `ClassName`
+    -   `some_variable`, `some_function`, `some_argument`
+
+-   Class, functions, variables, and arguments naming convention for **Windows OS** -- exceptionally to preserve Windows conventions please use the following:
+    -   `ClassName`, `FunctionName`
+    -   `pszArgumentOne`, `hPipe` -- use hungerian notation for argument and variables
 
 -   Horizontal spacing -- maintain at least decent amount of horizontal spacing, such as e.g. add obligatory space after `if` or before `{` in C, and similar in other languages. Whether to also use spaces within expressions, such as (x\*2+5) vs. (x \* 2 + 5) is left to the developer's judgment.
 
