@@ -40,6 +40,17 @@ General typographic conventions
 
 -   **Use descriptive names for variables and functions**! Really, these days, when most editors have auto-completion feature, there is no excuse for using short variable names.
 
+-   Comments should be indent together with the code, e.g. like this:
+
+    ``` {.wiki}
+    for (...) {
+        // The following code finds PGP private key matching the given public key in O(1)
+        while (key_found) {
+            (...)
+        }
+    }
+    ```
+
 File naming conventions
 -----------------------
 
