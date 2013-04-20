@@ -34,7 +34,7 @@ General typographic conventions
     -   `ClassName`, `FunctionName`
     -   `pszArgumentOne`, `hPipe` -- use hungerian notation for argument and variables
 
--   Horizontal spacing -- maintain at least decent amount of horizontal spacing, such as e.g. add obligatory space after `if` or before `{` in C, and similar in other languages. Whether to also use spaces within expressions, such as (x\*2+5) vs. (x \* 2 + 5) is left to the developer's judgment.
+-   Horizontal spacing -- maintain at least decent amount of horizontal spacing, such as e.g. add obligatory space after `if` or before `{` in C, and similar in other languages. Whether to also use spaces within expressions, such as (x\*2+5) vs. (x \* 2 + 5) is left to the developer's judgment. Do not put spaces immediately after and before the brackets in expressions, so avoid constructs like this: `if ( condition )` and use `if (condition)` instead.
 
 -   **Use single new lines** ('\\n' aka LF) in any non-Windows source code. On Windows, exceptionally, use the CRLF line endings -- this will allow the source code to be easily view-able in various Windows-based programs.
 
