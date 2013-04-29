@@ -76,6 +76,11 @@ Absolutely.
 
 Those won’t fly. We do not provide OpenGL virtualization for AppVMs. This is mostly a security decision, as implementing such feature would most likely introduce lots of complexity to the GUI virtualization infrastructure. However, Qubes allows for use of accelerated graphics (OpenGL) in Dom0’s Window Manager, so all the fancy desktop effects should still work under Qubes.
 
+You can read more discussions about potential GPU passthorugh on [Xen/Qubes?](/wiki/Xen/Qubes) and other disucssions on the topic on the following threads from qubes-devel:
+
+-   [​GPU passing to HVM](https://groups.google.com/group/qubes-devel/browse_frm/thread/31f1f2da39978573?scoring=d&q=GPU&)
+-   [​Clarifications on GPU security](https://groups.google.com/group/qubes-devel/browse_frm/thread/31e2d8a47c8b4474?scoring=d&q=GPU&)
+
 ### Is Qubes a multi-user system?
 
 No, Qubes does not pretend to be a multi-user system. Qubes assumes that the user that controls Dom0, controls the whole system. It will be very difficult to **securely** implement multi-user support -- see this message:
