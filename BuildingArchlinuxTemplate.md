@@ -68,6 +68,21 @@ A better fix is planned for the next python release (the bug is considered relea
 
 [1] [​http://bugs.python.org/issue17547](http://bugs.python.org/issue17547)
 
+The boot process fails without visible errors in the logs, but spawn a recovery shell
+-------------------------------------------------------------------------------------
+
+The problem is a new conflict between systemd and the old sysvinit style. To fix this, you can change the master xen template in dom0 to remove sysvinit remains: Edit /usr/share/qubes/vm-template.conf, and change the variable 'extra' that contains the kernel variables: from:
+
+``` {.wiki}
+extra="ro nomodeset 3 console=hvc0 rd_NO_PLYMOUTH {kernelopts}"
+```
+
+to:
+
+``` {.wiki}
+extra="ro nomodeset console=hvc0 rd_NO_PLYMOUTH {kernelopts}"
+```
+
 Qubes-OS is now using different xenstore variable names, which makes to archlinux VM failing to boot
 ----------------------------------------------------------------------------------------------------
 
