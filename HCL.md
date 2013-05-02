@@ -191,6 +191,17 @@ OK
 
 [​Erik Edin](https://groups.google.com/group/qubes-devel/msg/7418e7084c2de99f?hl=en)
 
+Dell Latitude E6320
+ (Intel HD graphics; Sandy Bridge; i5-2540M; BIOS: A06)
+
+OK
+
+OK
+
+OK
+
+[Alex​](https://groups.google.com/d/msg/qubes-users/F-jVh62ANak/s57rqUWTY7kJ)
+
 Dell Latitude E6520
 
 OK
