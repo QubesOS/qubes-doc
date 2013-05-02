@@ -416,6 +416,15 @@ OK
 
 [​Danny Fullerton](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J)
 
+Zareason Ultra Lap 420
+ (Ivy Bridge; HD Graphics; i5-3317U)
+
+OK
+
+OK
+
+[​Ant](https://groups.google.com/d/msg/qubes-users/uKI-VBtKWxg/uKjsdGNSpSQJ)
+
 Dell Precision T3400 Workstation
  (NVIDIA Quadro NVS 290; Intel Q6600; BIOS: A09)
 
