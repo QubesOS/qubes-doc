@@ -27,6 +27,8 @@ The scheme is *secure* because it doesn't allow other VMs to steal the content o
 
 See also [​this article](http://theinvisiblethings.blogspot.com/2011/03/partitioning-my-digital-life-into.html) for more information on this topic, and some ideas of how we might solve this problem in some future version of Qubes.
 
+And [​this message](https://groups.google.com/group/qubes-devel/msg/48b4b532cee06e01) from qubes-devel.
+
 Clipboard automatic policy enforcement
 --------------------------------------
 
