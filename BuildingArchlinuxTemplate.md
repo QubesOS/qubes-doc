@@ -71,7 +71,7 @@ A better fix is planned for the next python release (the bug is considered relea
 The boot process fails without visible errors in the logs, but spawn a recovery shell
 -------------------------------------------------------------------------------------
 
-The problem is a new conflict between systemd and the old sysvinit style. To fix this, you can change the master xen template in dom0 to remove sysvinit remains: Edit /usr/share/qubes/vm-template.conf, and change the variable 'extra' that contains the kernel variables: from:
+The problem is a new conflict between systemd and the old sysvinit style. To fix this, you can change the master xen template in dom0 to remove sysvinit remains: Edit **INSIDE DOM0** /usr/share/qubes/vm-template.conf, and change the variable 'extra' that contains the kernel variables: from:
 
 ``` {.wiki}
 extra="ro nomodeset 3 console=hvc0 rd_NO_PLYMOUTH {kernelopts}"
@@ -152,6 +152,15 @@ to
 
 DispVM, Yum proxy and most Qubes addons (thunderbird ...) have not been tested at all.
 --------------------------------------------------------------------------------------
+
+Installing the template in dom0 fails because of a missing dependency (qubes-core-dom0-linux)
+---------------------------------------------------------------------------------------------
+
+Again you built a template based on a recent Qubes API which has not been released yet. So skip the dependency for now:
+
+``` {.wiki}
+sudo rpm -U --nodeps yourpackage.rpm
+```
 
 chroot-archlinux/dev/pts has not been unmounted
 -----------------------------------------------
