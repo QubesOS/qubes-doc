@@ -11,11 +11,121 @@ If you don't like using Fedora because of specific administration or package man
 
 This article shows how to build a template for a different OS, taking [ArchLinux?](/wiki/ArchLinux) as an example.
 
-Starting with HVM
------------------
+Qubes builder scripts
+=====================
 
-If no Qubes packages are available for your selected OS. You should start to install an HVM with your OS. Your goals will be:
+You can start creating Qubes builder scripts for your new OS. Just note that it will probably make your testing process harder than trying to build the package directly in an HVM on which you already installed this new OS.
 
+chroot initialization
+---------------------
+
+You need to install your OS inside a chroot that will be used to build all the required qubes agents of tools.
+
+The scripts you will be interested in will be inside the qubes-src/linux-template-builder project:
+
+``` {.wiki}
+scripts_fedora
+scripts_archlinux
+scripts_yourOSname
+```
+
+### 00\_prepare.sh
+
+The goal of the first script 00\_prepare.sh is to download and verify the signature of the installation cd and tools. You can use the \$CACHEDIR directory variable to store files that could be reused (such as downloaded scripts or iso files)
+
+### 01\_install\_core.sh
+
+The goal of this script is to install a base environment of your target OS inside the \$INSTALLDIR directory variable. Generally you need to bootstrap/install your package manager inside the \$INSTALLDIR directory and install the base packages.
+
+### Testing the installation process
+
+Edit the builder.conf file to change the variable DISTS\_VM to your OS name (DISTS\_VM=your\_os\_name). The try to make the template to check that at least these to first scripts are working correctly:
+
+``` {.wiki}
+make linux-template-builder
+```
+
+Qubes builder Makefiles
+-----------------------
+
+Now you need to create Makefiles specific to your OS. You will find the required scripts directly inside qubes-builder:
+
+``` {.wiki}
+prepare-chroot-yourOSname
+Makefile.yourOSname
+```
+
+### prepare-chroot-yourOSname
+
+The goal of this file is to prepare a development environment of your target OS inside a chroot. You will reuse there the 00\_prepare.sh and 01\_install\_core.sh scripts. Additionally, the following things will be necessary to use to chroot environment:
+
+-   the \$1 variable will contain the installation directory (INSTALLDIR should contain the same value than \$1 when you run 00\_prepare or 01\_install\_core)
+-   after your base system is installed, you should install development tools and libraries (gcc, make, ...)
+-   create a user called 'user' inside your chroot, and give him enought right to run the command sudo without any password
+-   register all the repository that could be necessary and synchronize the package database
+-   register a custom repository that will be used to store qubes packages
+
+### Makefile.yourOSname
+
+This file will be used to define the action required when installing a package. The most important one are:
+
+-   dist-prepare-chroot: that's where you will call prepare-chroot-yourOSname if the chroot has not been initialized
+-   dist-package: that's where you will chroot the development environment and run the command used to build a package.
+-   dist-build-dep: that's where you will create the custom repository for your target OS based on already compiled packages.
+
+These additional target need to exist once you created your first packages:
+
+-   dist-copy-out: that's where you will retrieve the package you just built and put it with all the other package you prepared.
+-   update-repo: that's where you will retrieve the package that have been built and that need to be installed inside the template
+
+### Testing the development chroot
+
+You will be able to test these script when making the first qubes packages. Don't forget that the first things that run when running 'make somcomponent-vm' will be these two scripts, and that you will need to debug it at this point.
+
+Qubes packages
+--------------
+
+### vmm-xen-vm
+
+### core-vchan-xen-vm
+
+### linux-utils-vm
+
+### core-agent-linux-vm
+
+### gui-common-vm
+
+### gui-agent-linux-vm
+
+Additional Installation scripts
+-------------------------------
+
+Again you need to work on scripts inside the qubes-src/linux-template-builder project:
+
+``` {.wiki}
+scripts_fedora
+scripts_archlinux
+scripts_yourOSname
+```
+
+### 02\_install\_groups.sh
+
+The goal of this script is to install all the package that you want to use in your template (eg: firefox, thunderbird, a file manager, Xorg...)
+
+### 04\_install\_qubes.sh
+
+The goal of this script is to install in your template all the packages you built previously. Also you need to edit the fstab file of your template to mount qubes virtual hard drives.
+
+### 09\_cleanup.sh
+
+This script is use to finalize and to remove unnecessary things from your template, such as cached packages, unused development packages ...
+
+Starting with an HVM
+====================
+
+If no Qubes packages are available for your selected OS. You could start to install an HVM with your OS. Your goals will be:
+
+-   to identify how to install the OS using command lines
 -   to create required Qubes packages
 -   to identify potential issue making all Qubes agents and scripts working correctly.
 
@@ -44,136 +154,3 @@ Now install the package you built and mount /proc/xen. Verify that xenstore-read
 ### Qubes-OS gui agents
 
 [​https://aur.archlinux.org/packages/qu/qubes-vm-gui/PKGBUILD](https://aur.archlinux.org/packages/qu/qubes-vm-gui/PKGBUILD)
-
-Creating a template builder
----------------------------
-
-### 00\_prepare.sh
-
-``` {.wiki}
-#!/bin/sh
-
-echo "Downloading Archlinux dvd..."
-wget -O "archlinux.iso" "http://mir.archlinux.fr/iso/latest/arch/x86_64/root-image.fs.sfs" --continue
-
-echo "Extracting squash filesystem from DVD..."
-mkdir archlinux_dvd
-sudo mount -o loop archlinux.iso archlinux_dvd
-cp archlinux_dvd/root-image.fs .
-sudo umount archlinux_dvd
-```
-
-### 01\_install\_core.sh
-
-``` {.wiki}
-#!/bin/sh
-
-echo "Mounting archlinux install system into archlinux_dvd..."
-sudo mount root-image.fs archlinux_dvd
-
-echo "Creating chroot bootstrap environment"
-
-sudo mount --bind $INSTALLDIR archlinux_dvd/mnt
-sudo cp /etc/resolv.conf archlinux_dvd/etc
-
-echo "-> Initializing pacman keychain"
-sudo ./archlinux_dvd/usr/bin/arch-chroot archlinux_dvd/ pacman-key --init
-sudo ./archlinux_dvd/usr/bin/arch-chroot archlinux_dvd/ pacman-key --populate
-
-echo "-> Installing core pacman packages..."
-sudo ./archlinux_dvd/usr/bin/arch-chroot archlinux_dvd/ sh -c 'pacstrap /mnt base'
-
-echo "-> Cleaning up bootstrap environment"
-sudo umount archlinux_dvd/mnt
-
-sudo umount archlinux_dvd
-
-cp scripts_"${DIST}"/resolv.conf $INSTALLDIR/etc
-```
-
-### 02\_install\_groups.sh
-
-``` {.wiki}
-echo "Mounting archlinux install system into archlinux_dvd..."
-sudo mount root-image.fs archlinux_dvd
-
-echo "-> Installing archlinux package groups..."
-echo "-> Selected packages:"
-echo "$PKGGROUPS"
-sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR pacman --needed --noconfirm -S $PKGGROUPS
-
-sudo umount archlinux_dvd
-```
-
-### 04\_install\_qubes.sh
-
-``` {.wiki}
-#!/bin/sh
-
-echo "Mounting archlinux install system into archlinux_dvd..."
-sudo mount root-image.fs archlinux_dvd
-
-echo $INSTALLDIR
-
-echo "--> Installing yaourt..."
-sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR sh -c 'cd tmp && wget https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz && tar xzvf package-query.tar.gz && cd package-query && makepkg --asroot && pacman --noconfirm -U package-query-*.pkg.tar.xz'
-sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR sh -c 'cd tmp && wget https://aur.archlinux.org/packages/ya/yaourt/yaourt.tar.gz && tar xzvf yaourt.tar.gz && cd yaourt && makepkg --asroot && pacman --noconfirm -U yaourt-*.pkg.tar.xz'
-
-echo "--> Preparing build environment inside the chroot..."
-# Notes for qubes-vm-xen
-# Note: we need more ram for /tmp (at least 700M of disk space for compiling XEN because of the sources...)
-sudo sed 's:-t tmpfs -o mode=1777,strictatime,nodev,:-t tmpfs -o size=700M,mode=1777,strictatime,nodev,:' -i ./archlinux_dvd/usr/bin/arch-chroot
-
-# Note: Enable x86 repos
-su -c "echo '[multilib]' >> $INSTALLDIR/etc/pacman.conf"
-su -c "echo 'SigLevel = PackageRequired' >> $INSTALLDIR/etc/pacman.conf"
-su -c "echo 'Include = /etc/pacman.d/mirrorlist' >> $INSTALLDIR/etc/pacman.conf"
-sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR sh -c "pacman -Sy"
-
-echo "--> Compiling and installing qubes-packages..."
-sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR sh -c "yaourt --noconfirm -S qubes-vm-xen"
-sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR sh -c "yaourt --noconfirm -S qubes-vm-core"
-sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR sh -c "yaourt --noconfirm -S qubes-vm-gui"
-
-sudo umount archlinux_dvd
-```
-
-### 09\_cleanup.sh
-
-``` {.wiki}
-#!/bin/sh
-
-echo "Mounting archlinux install system into archlinux_dvd..."
-sudo mount root-image.fs archlinux_dvd
-
-echo "--> Starting cleanup actions"
-# Remove unused packages and their dependencies (make dependencies)
-cleanuppkgs=`sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR pacman -Qdt | cut -d " " -f 1`
-sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR pacman --noconfirm -Rsc $cleanuppkgs
-
-# Remove yaourt dependencies
-sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR pacman --noconfirm -Rsc binutils yajl gcc make
-
-# Clean pacman cache
-sudo ./archlinux_dvd/usr/bin/arch-chroot $INSTALLDIR pacman --noconfirm -Scc
-
-sudo umount archlinux_dvd
-```
-
-Building a template
--------------------
-
-``` {.wiki}
-export DIST=archlinux
-make rpms
-```
-
-Testing a template
-------------------
-
-Extracting a kernel
--------------------
-
-### Qubes boot scripts (dracut/initramfs)
-
-### Modules image
