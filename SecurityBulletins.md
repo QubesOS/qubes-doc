@@ -25,3 +25,8 @@ Qubes Security Bulletins
 -   [​Qubes Security Bulletin \#4](https://groups.google.com/group/qubes-devel/msg/28ecafd3c73ec1b0)
 -   [​Qubes Security Bulletin \#5](https://groups.google.com/group/qubes-devel/msg/add1e480d8642755)
 
+2013
+----
+
+-   [​Qubes Security Bulletin \#6](https://groups.google.com/group/qubes-devel/msg/9e2fb148f140e09a)
+
