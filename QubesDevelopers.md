@@ -32,5 +32,5 @@ Contributors to the open source code
 Proprietary code developers
 ---------------------------
 
--   Alexander Tereshkin `alex.tereshkin at gmail.com` - core windows (Qubes Windows Tools)
+-   Alexander Tereshkin `alex at invisiblethingslab dot com` - core windows (Qubes Windows Tools)
 
