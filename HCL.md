@@ -200,6 +200,8 @@ OK
 
 OK
 
+[​read more](https://groups.google.com/d/topic/qubes-users/FyA7_Kzw1WA/discussion)
+
 [Alex​](https://groups.google.com/d/msg/qubes-users/F-jVh62ANak/s57rqUWTY7kJ)
 
 Dell Latitude E6520
