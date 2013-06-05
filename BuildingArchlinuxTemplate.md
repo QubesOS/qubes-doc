@@ -74,8 +74,8 @@ You will also need to download the signature matching this ISO version inside qu
 wget http://mir.archlinux.fr/iso/2013.06.01/archlinux-2013.06.01-dual.iso.sig
 ```
 
-xen-vmm-vm fail to build with a PARSETUPLE related error:
----------------------------------------------------------
+xen-vmm-vm fail to build with a PARSETUPLE related error (FIXED):
+-----------------------------------------------------------------
 
 Commenting out "\#define HAVE\_ATTRIBUTE\_FORMAT\_PARSETUPLE" from chroot\_archlinux/usr/include/python2.7/pyconfig.h fixes the problem, but it isn't the right solution [1]...
 
