@@ -155,6 +155,23 @@ X
 
 [​Alex Dubois](https://groups.google.com/d/msg/qubes-devel/hag-MQDH_Vs/pmJ7TIWUWAsJ)
 
+Apple MacBookPro
+ (Intel HD Graphics, Ivy Bridge, i5-3210M)
+
+?
+
+?
+
+X
+
+OK
+
+OK
+
+[​read more](https://groups.google.com/d/topic/qubes-users/ZbjrseLxuPQ/discussion)
+
+[​ph145h](https://groups.google.com/d/msg/qubes-users/ZbjrseLxuPQ/5Jx5DvpnwMMJ)
+
 ASUS UX-31
 
 \*
