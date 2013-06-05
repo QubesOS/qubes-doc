@@ -59,6 +59,15 @@ You can now find your template in qubes-src/linux-template-builder/rpm/noarch. I
 Known problems during building or when running the VM
 =====================================================
 
+Can't open file archlinux-2013.02.01-dual.iso
+---------------------------------------------
+
+Archlinux ISO files are sometimes removed from mirrors. Check the last version available on the archlinux mirror (eg: [​http://mir.archlinux.fr/iso/](http://mir.archlinux.fr/iso/)), and update qubes-src/linux-template-builder/scripts\_archlinux/00\_prepare.sh accordingly:
+
+``` {.wiki}
+ISO_VERSION=2013.06.01
+```
+
 xen-vmm-vm fail to build with a PARSETUPLE related error:
 ---------------------------------------------------------
 
