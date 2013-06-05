@@ -68,6 +68,12 @@ Archlinux ISO files are sometimes removed from mirrors. Check the last version a
 ISO_VERSION=2013.06.01
 ```
 
+You will also need to download the signature matching this ISO version inside qubes-src/linux-template-builder/scripts\_archlinux/:
+
+``` {.wiki}
+wget http://mir.archlinux.fr/iso/2013.06.01/archlinux-2013.06.01-dual.iso.sig
+```
+
 xen-vmm-vm fail to build with a PARSETUPLE related error:
 ---------------------------------------------------------
 
