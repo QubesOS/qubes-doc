@@ -507,8 +507,12 @@ OK
 Submitting new results
 ----------------------
 
-If you want to submit any new data please run 'qubes-hcl-report' script (in dom0) and send the results to [​the mailing list](http://qubes-os.org/trac/wiki/QubesLists) with the following details included:
+If you want to submit any new data please run 'qubes-hcl-report' script (in dom0) and send the results ('HCL Info' - contets of the .txt file) to [​the mailing list](http://qubes-os.org/trac/wiki/QubesLists) with the following details included:
 
 -   Subject: HCL - \<your machine model name\>
 
 And of course include any useful information about the mentioned Qubes features.
+
+If you have problems with your hardware, please send the 'HCL Support Files' as well (the .cpio.gz file)
+
+**Note:** The HCL Support Files may contains many details about your hardware - including serial numbers.
