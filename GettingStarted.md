@@ -84,3 +84,38 @@ So, how many and what domains do I need? That's a great question, but there is n
 For start it's reasonable to try the three domains created automatically by the installer (work, personal, red). Then, when you start feeling that some things/activities just don't fit, you can easily create a new domain for them. You will be able to easily copy files to the newly created domains, as it is covered in one of the [next chapters](/wiki/CopyingFiles) of this guide.
 
 For more paranoid people, it might be worth checking [​this article](http://theinvisiblethings.blogspot.com/2011/03/partitioning-my-digital-life-into.html) that describes how one of the Qubes authors partitions her digital life into security domains.
+
+Allowing domains to enter Full Screen mode
+------------------------------------------
+
+By default Qubes doesn't allow the applications windows to maximize themselves and to occupy the whole screen. This is a security precaution, because we want that the user could always identify which domain is displaying a given window (so, we want the colourful label and domain name to be always visible). Also we want to avoid a situation when one domain enters full screen mode and since now on it starts to emulate the whole Qubes system.
+
+However, if user makes use of some Expose-like desktop switcher, such as the "Desktop Grid" effect that is enabled by the default under KDE and which is activated by Ctrl-F8 by default, then we can safely allow domains to enter full screen mode, as we have assurance that we can always "preempt" them by hitting the magic key combination (e.g. Ctrl-F8), which will be consumed by the Trusted Window Manager and not passed down to the AppVM that handles the full screen. This means the AppVM has no way of further "faking" the full screen view of the system and can easily be identified as "just one of the apps". Theoretically this could also be achieved even with the primitive Alt-Tab like switching, something that should be available on simpler Window Managers too (such as Xfce4 that we also support as an alternative Dom0 Desktop Environment), but might be less obvious to the user.
+
+So, in order to allow domains to enter full screen mode one should edit the `/etc/qubes/guid.conf` file in Dom0.
+
+E.g. to allow all domains to enter full screen mode, set `allow_fullscreen` flag to `true` in the `global` section:
+
+``` {.wiki}
+global: {
+  # default values
+  allow_fullscreen = false;
+  #allow_utf8_titles = false;
+  #secure_copy_sequence = "Ctrl-Shift-c";
+  #secure_paste_sequence = "Ctrl-Shift-v";
+  #windows_count_limit = 500;
+};
+```
+
+To allow only select AppVMs to enter full screen mode, create a per-VM section, and set `allow_fullscreen` flag there to `true`:
+
+``` {.wiki}
+VM: {
+  work: {
+   allow_fullscreen = true;
+  };
+
+};
+```
+
+In order for the changes to take effect, restart the AppVM(s).
