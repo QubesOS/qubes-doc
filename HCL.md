@@ -198,6 +198,19 @@ X
 
 [​Zrubi](https://groups.google.com/d/msg/qubes-devel/2csjvHia9Rw/NRsqR0g6wIMJ)
 
+Dell Latitude E4300
+ (Intel GMA 4500M; Mobile 4 Series Chipset; Core2 Duo P9600)
+
+X
+
+OK
+
+OK
+
+[​read more](https://groups.google.com/d/topic/qubes-devel/LNJqSbH0cOQ/discussion)
+
+[​Pablo Costa](https://groups.google.com/d/msg/qubes-devel/LNJqSbH0cOQ/VC9EwEDrXMQJ)
+
 Dell Latitude 5520
 
 OK
