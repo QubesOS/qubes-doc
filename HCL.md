@@ -515,4 +515,4 @@ And of course include any useful information about the mentioned Qubes features.
 
 If you have problems with your hardware, please send the 'HCL Support Files' as well (the .cpio.gz file)
 
-**Note:** The HCL Support Files may contains many details about your hardware - including serial numbers.
+**Note:** The 'HCL Support Files' are contains many details about your hardware - including serial numbers.
