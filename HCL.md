@@ -507,7 +507,7 @@ OK
 Submitting new results
 ----------------------
 
-If you want to submit any new data please run 'qubes-hcl-report' script (in dom0) and send the results ('HCL Info' - contets of the .txt file) to [​the mailing list](http://qubes-os.org/trac/wiki/QubesLists) with the following details included:
+If you want to submit any new data please run 'qubes-hcl-report' script (in dom0) and send the results ('HCL Info' - contets of the .txt file) to [the mailing list](/wiki/QubesLists) with the following details included:
 
 -   Subject: HCL - \<your machine model name\>
 
