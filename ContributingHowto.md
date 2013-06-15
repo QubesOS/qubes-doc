@@ -11,7 +11,7 @@ Ok, so you think Qubes Project is cool and you would like to contribute? You are
 
 First you should decide what you are interested in (and good in). The Qubes project would welcome contributions in various areas:
 
--   [Testing and bug reporting](/wiki/BugReportingGuide)
+-   Testing and [bug reporting](/wiki/BugReportingGuide)
 -   Code audit (e.g. gui-daemon)
 -   New features
 -   Artwork (plymouth themes, KDM themes, installer themes, wallpapers, etc)
