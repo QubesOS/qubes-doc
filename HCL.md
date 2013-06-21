@@ -515,6 +515,23 @@ OK
 
 [Andrew Sorensen](https://groups.google.com/d/msg/qubes-devel/TxzaoodB02o/NxVHjaPoRYoJ)
 
+Supermicro X10SAE
+ (Haswell; Radeon HD 5700; Xeon E3-1245; BIOS: 1.0)
+
+?
+
+?
+
+OK
+
+OK
+
+X
+
+[read more](https://groups.google.com/d/topic/qubes-users/V9BLpdf4xCs/discussion)
+
+[Qubes Fan](https://groups.google.com/d/msg/qubes-users/V9BLpdf4xCs/v4XcOjLT6uUJ)
+
 Submitting new results
 ----------------------
 
