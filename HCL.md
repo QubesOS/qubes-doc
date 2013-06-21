@@ -234,6 +234,17 @@ OK
 
 [Alex​](https://groups.google.com/d/msg/qubes-users/F-jVh62ANak/s57rqUWTY7kJ)
 
+Dell Latitude E6430
+ (Intel HD graphics; Ivy Bridge; i5-3340M, BIOS: A11)
+
+OK
+
+OK
+
+OK
+
+[​Zrubi](https://groups.google.com/d/msg/qubes-users/pAVGe04ZC48/AJwY6yd7LeIJ)
+
 Dell Latitude E6520
 
 OK
