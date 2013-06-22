@@ -518,9 +518,11 @@ OK
 Supermicro X10SAE
  (Haswell; Radeon HD 5700; Xeon E3-1245; BIOS: 1.0)
 
-?
+X
 
-?
+X
+
+[read more](https://groups.google.com/d/topic/qubes-users/V9BLpdf4xCs/discussion)
 
 OK
 
