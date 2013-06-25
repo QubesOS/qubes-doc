@@ -468,6 +468,19 @@ OK
 
 [​Ant](https://groups.google.com/d/msg/qubes-users/uKI-VBtKWxg/uKjsdGNSpSQJ)
 
+ASRock Z77 Pro4
+ (Ivy Bridge; Xeon E3-1200 Graphics; i7-3770; BIOS: P1.40)
+
+OK
+
+OK
+
+OK
+
+[read more](https://groups.google.com/d/topic/qubes-users/lycnE-LcJBo/discussion)
+
+[gorka](https://groups.google.com/d/msg/qubes-users/lycnE-LcJBo/0u10xl7AMrIJ)
+
 Dell Precision T3400 Workstation
  (NVIDIA Quadro NVS 290; Intel Q6600; BIOS: A09)
 
