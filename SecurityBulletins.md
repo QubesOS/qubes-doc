@@ -29,5 +29,6 @@ Qubes Security Bulletins
 ----
 
 -   [​Qubes Security Bulletin \#6](https://groups.google.com/group/qubes-devel/msg/9e2fb148f140e09a)
--   [​Qubes Security Bulletin \#7](https://groups.google.com/forum/#!msg/qubes-devel/KqZdbcgkTGU/YaTwNcQhcrgJ)
+-   [​Qubes Security Bulletin \#7](https://groups.google.com/d/msg/qubes-devel/KqZdbcgkTGU/YaTwNcQhcrgJ)
+-   [​Qubes Security Bulletin \#8](https://groups.google.com/d/msg/qubes-devel/xj9KAW5inQc/YOrhOAQ7HU0J)
 
