@@ -392,6 +392,7 @@ OK
 [​Stefan Boresch](https://groups.google.com/group/qubes-devel/msg/f41578eef913446a)
 
 Lenovo Thinkpad x230
+ (Ivy Bridge; HD Graphics; i5-3320M; BIOS:2.51)
 
 \*
 
@@ -399,7 +400,16 @@ OK
 
 [​read more](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ)
 
+\*
+
+OK
+
+OK
+
+[​read more](https://groups.google.com/d/topic/qubes-users/hf0vkL3TE7k/discussion)
+
 [​Chris](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ)
+ [​mgflax](https://groups.google.com/d/msg/qubes-users/hf0vkL3TE7k/VOtrW3wEbtMJ)
 
 Toshiba Tecra S11
 
