@@ -135,13 +135,13 @@ sudo sed 's:qubes-netvm-gateway:qubes_netvm_gateway:g' -i /usr/lib/qubes/setup-i
 sudo sed 's:qubes-netvm-netmask:qubes_netvm_netmask:g' -i /usr/lib/qubes/setup-ip
 sudo sed 's:qubes-netvm-secondary-dns:qubes_netvm_secondary_dns:g' -i /usr/lib/qubes/setup-ip
 
-sudo sed 's:qubes-iptables-domainrules:qubes_iptables_domainrules:g' -i /usr/sbin/qubes-firewall
-sudo sed 's:qubes-iptables-header:qubes_iptables_header:g' -i /usr/sbin/qubes-firewall
-sudo sed 's:qubes-iptables-error:qubes_iptables_error:g' -i /usr/sbin/qubes-firewall
-sudo sed 's:qubes-iptables:qubes_iptables:g' -i /usr/sbin/qubes-firewall
+sudo sed 's:qubes-iptables-domainrules:qubes_iptables_domainrules:g' -i /usr/bin/qubes-firewall
+sudo sed 's:qubes-iptables-header:qubes_iptables_header:g' -i /usr/bin/qubes-firewall
+sudo sed 's:qubes-iptables-error:qubes_iptables_error:g' -i /usr/bin/qubes-firewall
+sudo sed 's:qubes-iptables:qubes_iptables:g' -i /usr/bin/qubes-firewall
 
-sudo sed 's:qubes-netvm-domid:qubes_netvm_domid:g' -i /usr/sbin/qubes-netwatcher
-sudo sed 's:qubes-netvm-external-ip:qubes_netvm_external_ip:g' -i /usr/sbin/qubes-netwatcher
+sudo sed 's:qubes-netvm-domid:qubes_netvm_domid:g' -i /usr/bin/qubes-netwatcher
+sudo sed 's:qubes-netvm-external-ip:qubes_netvm_external_ip:g' -i /usr/bin/qubes-netwatcher
 ```
 
 Do not forgot to:
