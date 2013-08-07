@@ -181,3 +181,27 @@ chroot-archlinux/dev/pts has not been unmounted
 -----------------------------------------------
 
 This is a known problem when there are errors during building. Just unmount what you can (or reboot your vm if you are too lazy :) )
+
+Error when building the gui-agent-linux
+---------------------------------------
+
+``` {.wiki}
+module-vchan-sink.c:62:34: fatal error: pulsecore/core-error.h: No such file or directory
+ #include <pulsecore/core-error.h>
+```
+
+This error is because Archlinux update package too quickly. Probably, a new version of pulseaudio has been released, but the qubes team has not imported the new development headers yet.
+
+You can create fake new headers just by copying the old headers:
+
+``` {.wiki}
+cd qubes-builder/qubes-src/gui-agent-linux/pulse
+ls
+cp -r pulsecore-#lastversion pulsecore-#archlinuxversion
+```
+
+You can check the current archlinux pulseaudio version like this:
+
+``` {.wiki}
+sudo chroot chroot-archlinux/ pacman -Qi pulseaudio
+```
