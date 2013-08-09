@@ -79,5 +79,64 @@ Now you need to restart the NetVM and FirewallVM or only iptables in both VMs if
 # systemctl restart iptables
 ```
 
-Create the Bridge VM inside the current NetVM
----------------------------------------------
+Create a Bridge inside the NetVM
+--------------------------------
+
+A bridge can be created inside the standard network manager (the network icon in the taskbar).
+
+This requires:
+
+-   creating a bridge that will be your main IP (ex: setup the bridge with DHCP)
+-   attach eth0 to your bridge
+
+Note: A wireless interface cannot be bridged.
+
+The bridge edition GUI is somehow buggy as it does not remember all the parameter you setup. You can fix it by editing manually the files in /etc/NetworkManager/system-connections/. Here is one example for these files:
+
+-   Bridge-DHCP
+
+    ``` {.wiki}
+    [connection]
+    id=Bridge-DHCP
+    uuid=fd68198b-313a-47cb-9155-52e95cdc67f3
+    type=bridge
+    autoconnect=false
+    timestamp=1363938302
+
+    [ipv6]
+    method=auto
+
+    [ipv4]
+    method=auto
+
+    [bridge]
+    interface-name=bridge0
+    stp=false
+    ```
+
+Note: Do not forget to put stp=false if you bridge only eth0 because sending BPDUs could make your admins angry :)
+
+-   bridge0-eth0
+
+    ``` {.wiki}
+    [802-3-ethernet]
+    duplex=full
+    mac-address=88:AE:1D:AE:30:31
+
+    [connection]
+    id=bridge0-eth0
+    uuid=38320e5b-226c-409e-9fd6-0fbf4d0460a0
+    type=802-3-ethernet
+    autoconnect=false
+    timestamp=1363601650
+    master=fd68198b-313a-47cb-9155-52e95cdc67f3
+    slave-type=bridge
+    ```
+
+If you do not manager to start your bridge, you can start it manually from a NetVM terminal:
+
+``` {.wiki}
+$ nmcli con up id bridge0-eth0
+```
+
+Now that the bridge is ready, the bridged AppVM can be started...
