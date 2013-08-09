@@ -16,7 +16,7 @@ The Qubes developpement team does not support bridging the network interfaces fo
 
 Now if you really want to work with OSI layer2 / layer 3 tools, that you don't have a secondary network card, or that you want to completely expose services of a given AppVM (at your own risk), a bridged setup may help you.
 
-Qubes manager patch (Qubes R2B3)
+Qubes manager patch (Qubes R2B2)
 --------------------------------
 
 The following patches can be applied to the Qubes Manager GUI in order to add an option to easily bridge a VM. Use it at your own risk. If the patch breaks the Qubes Manager, you can try to restore the qubes packages:
@@ -40,7 +40,7 @@ Finally restart the qubes manager GUI.
 
 A new option is now available in the AppVM Settings to enable set the NetVM in bridge mode. For a bridged AppVM, you should the select a netvm instead of a firewall vm, enabled the Bridge option and restart your AppVM.
 
-NetVM patch (Qubes R2B3)
+NetVM patch (Qubes R2B2)
 ------------------------
 
 You need to modify manually the NetVM iptable script inside the NetVM. The reason is that by default the NetVM only accept traffic coming from network interfaces called vif\* (in our case, we will use an additional interface called bridge0. The second reason is that all trafic is NATed by default. In our case, we want to forward traffic from the bridge interface without modifying it, while NATing traffic coming from vif\* interfaces.
