@@ -51,4 +51,5 @@ Optional topics:
 -   [​Booting with GRUB2 and GPT](https://groups.google.com/group/qubes-devel/browse_thread/thread/e4ac093cabd37d2b/d5090c20d92c4128#d5090c20d92c4128)
 -   [​HTTP filtering proxy in Qubes firewall VM](https://groups.google.com/group/qubes-devel/browse_thread/thread/5252bc3f6ed4b43e/d881deb5afaa2a6c#39c95d63fccca12b)
 -   [​Solving problems with Macbook Air 2012](https://groups.google.com/group/qubes-devel/browse_thread/thread/b8b0d819d2a4fc39/d50a72449107ab21#8a9268c09d105e69)
+-   [Adding Bridge Support to the NetVM (EXPERIMENTAL)](/wiki/NetworkBridgeSupport)
 
