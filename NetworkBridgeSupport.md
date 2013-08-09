@@ -72,3 +72,12 @@ Modify manually the Template you use for your NetVM (not the NetVM itself). This
     ```
 
 Ensure that the IP addresses used by default in qubes are in the form 10.137.1.\* or 10.137.2.\* by running ifconfig. Of course, this setup won't work with IPv6.
+
+Now you need to restart the NetVM and FirewallVM or only iptables in both VMs if you prefer:
+
+``` {.wiki}
+# systemctl restart iptables
+```
+
+Create the Bridge VM inside the current NetVM
+---------------------------------------------
