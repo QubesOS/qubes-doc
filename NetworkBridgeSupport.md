@@ -26,3 +26,18 @@ The following patches can be applied to the Qubes Manager GUI in order to add an
 # yum reinstall qubes-core-dom0
 # yum reinstall qubes-manager
 ```
+
+First, retrieve the attachment of this Wifi article in dom0. Then apply the three patches the following way:
+
+``` {.wiki}
+# patch /usr/lib64/python2.7/site-package/qubes/qubes.py < qubes.py-bridge.diff
+# patch /usr/lib64/python2.7/site-package/qubesmanager/settings.py < settings.py-bridge.diff
+# patch /usr/lib64/python2.7/site-package/qubesmanager/ui_settingsdlg.py < ui_settingsdlg.py-bridge.diff
+```
+
+Finally restart the qubes manager GUI.
+
+A new option is now available in the AppVM Settings to enable set the NetVM in bridge mode. For a bridged AppVM, you should the select a netvm instead of a firewall vm, enabled the Bridge option and restart your AppVM.
+
+NetVM patch (Qubes R2B3)
+------------------------
