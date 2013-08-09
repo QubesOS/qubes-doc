@@ -27,9 +27,10 @@ The following patches can be applied to the Qubes Manager GUI in order to add an
 # yum reinstall qubes-manager
 ```
 
-First, retrieve the attachment of this Wifi article in dom0. Then apply the three patches the following way:
+First, retrieve the attachment of this Wifi article in dom0. Then apply the three patches the following way after installing the patch tool :
 
 ``` {.wiki}
+# qubes-dom0-update patch
 # patch /usr/lib64/python2.7/site-package/qubes/qubes.py < qubes.py-bridge.diff
 # patch /usr/lib64/python2.7/site-package/qubesmanager/settings.py < settings.py-bridge.diff
 # patch /usr/lib64/python2.7/site-package/qubesmanager/ui_settingsdlg.py < ui_settingsdlg.py-bridge.diff
@@ -41,3 +42,33 @@ A new option is now available in the AppVM Settings to enable set the NetVM in b
 
 NetVM patch (Qubes R2B3)
 ------------------------
+
+You need to modify manually the NetVM iptable script inside the NetVM. The reason is that by default the NetVM only accept traffic coming from network interfaces called vif\* (in our case, we will use an additional interface called bridge0. The second reason is that all trafic is NATed by default. In our case, we want to forward traffic from the bridge interface without modifying it, while NATing traffic coming from vif\* interfaces.
+
+Modify manually the Template you use for your NetVM (not the NetVM itself). This is by default fedora-x86\_64. Edit the file /etc/sysconfig/iptables. You need to modify two parts of the file.
+
+-   Starting from the line -A POSTROUTING -j MASQUERADE that you need to comment :
+
+    ``` {.wiki}
+    # Bridge support
+    # Comment the following line
+    #-A POSTROUTING -j MASQUERADE
+    # Ensure packets coming from firewallVMs or AppVMs use NAT
+    -A POSTROUTING -m iprange --src-range 10.137.1.0-10.137.2.255 -j MASQUERADE
+    # Allow redirection of bridge packets (optional as POSTROUTING default is ACCEPT)
+    #-A POSTROUTING -o bridge+ -j ACCEPT
+    # End Bridge support
+    ```
+
+-   Starting from the line -A FORWARD -i vif+ -j ACCEPT:
+
+    ``` {.wiki}
+    -A FORWARD -i vif+ -o vif+ -j DROP
+    -A FORWARD -i vif+ -j ACCEPT
+    # Bridge Support
+    -A FORWARD -i bridge+ -j ACCEPT
+    # End Bridge Support
+    -A FORWARD -j DROP
+    ```
+
+Ensure that the IP addresses used by default in qubes are in the form 10.137.1.\* or 10.137.2.\* by running ifconfig. Of course, this setup won't work with IPv6.
