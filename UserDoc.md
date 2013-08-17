@@ -34,6 +34,7 @@ Advanced topics:
 -   [XFCE](/wiki/UserDoc/XFCE) installation in dom0
 -   [DispVM Customization](/wiki/UserDoc/DispVMCustomization)
 -   [Tips for using Linux in HVM](/wiki/LinuxHVMTips)
+-   [Enabling Fullscreen mode for AppVMs](/wiki/FullScreenMode)
 
 Command-line tools reference:
 
