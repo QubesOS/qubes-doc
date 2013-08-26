@@ -13,7 +13,7 @@ The Qubes project is now accepting donations in Bitcoins. You can use the follow
 14zockMSKKp5MK6X2cHJ3mQwm9MwYsJ39j
 ```
 
-This address can also be found in a message posted to Qubes mailing list, which can be viewed via Google Groups Web interface over SSL [​here](http://), for double verification. For additional verification, you can verify the digital signature on the message, which should come from Joanna Rutkowska.
+This address can also be found in a message posted to Qubes mailing list, which can be viewed via Google Groups Web interface over SSL [​here](https://groups.google.com/d/msg/qubes-devel/u3wAzm1dB5Y/s5CiUGDebL4J), for double verification. For additional verification, you can verify the digital signature on the message, which should come from Joanna Rutkowska.
 
 FAQ
 ---
