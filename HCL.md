@@ -33,6 +33,7 @@ Note also that:
 -   You *can* install Qubes onto a USB pendrive or external disk. A fast USB3 pendrive is recommended for this (be sure it is at least 32GB in size), and Qubes works very nice out of it. Just plug in your pendrive before booting into installer, and choose it as a target installation disk. It works nicely, and you can later just plug it to some other computer to boot Qubes elsewhere.
 -   We don't recommend installing Qubes in a virtual machine!
 -   There is a problem with supporting keyboard and mouse on Mac, and so Mac hardware is currently unsupported (patches welcomed!)
+-   How to find a VT-d capable notebook -- see [​here](https://groups.google.com/d/msg/qubes-users/Sz0Nuhi4N0o/ZtpJdoc0OY8J).
 
 Hardware Compatibility List
 ---------------------------
