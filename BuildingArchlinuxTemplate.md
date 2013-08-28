@@ -143,6 +143,9 @@ sudo sed 's:qubes-iptables:qubes_iptables:g' -i /usr/bin/qubes-firewall
 sudo sed 's:qubes-netvm-domid:qubes_netvm_domid:g' -i /usr/bin/qubes-netwatcher
 sudo sed 's:qubes-netvm-external-ip:qubes_netvm_external_ip:g' -i /usr/bin/qubes-netwatcher
 sudo sed 's:qubes-vm-updateable:qubes_vm_updateable:g' -i /usr/lib/qubes/qubes_trigger_sync_appmenus.sh
+
+sudo sed 's:qubes-vm-type:qubes_vm_type:g' -i /usr/bin/qubes-session
+sudo sed 's:qubes-vm-updateable:qubes_vm_updateable:g' -i /usr/bin/qubes-session
 ```
 
 Do not forgot to:
