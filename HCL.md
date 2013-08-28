@@ -17,7 +17,7 @@ Minimum:
 -   4GB of RAM
 -   64-bit Intel or AMD processor (x86\_64 aka x64 aka AMD64)
 -   Intel GPU strongly preferred (if you have Nvidia GPU, prepare for some [troubleshooting](/wiki/InstallNvidiaDriver); we haven't tested ATI hardware)
--   At least 20GB of disk (Note that **it is possible to install Qubes on an external USB disk**, so that you can try it without sacrificing your current system. Mind, however, that USB disks are usually SLOW!)
+-   At least 32GB of disk
 -   Fast SSD disk strongly recommended
 
 Additional requirements:
@@ -28,9 +28,11 @@ Additional requirements:
 
 If you don't meet the additional criteria, you can still install and use Qubes. It still offers significant security improvement over traditional OSes, because things such as GUI isolation, or kernel protection do not require special hardware.
 
-**Note:** We don't recommend installing Qubes in a virtual machine!
+Note also that:
 
-**Note:** There is a problem with supporting keyboard and mouse on Mac, and so Mac hardware is currently unsupported (patches welcomed!)
+-   You *can* install Qubes onto a USB pendrive or external disk. A fast USB3 pendrive is recommended for this (be sure it is at least 32GB in size), and Qubes works very nice out of it. Just plug in your pendrive before booting into installer, and choose it as a target installation disk. It works nicely, and you can later just plug it to some other computer to boot Qubes elsewhere.
+-   We don't recommend installing Qubes in a virtual machine!
+-   There is a problem with supporting keyboard and mouse on Mac, and so Mac hardware is currently unsupported (patches welcomed!)
 
 Hardware Compatibility List
 ---------------------------
