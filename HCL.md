@@ -293,6 +293,19 @@ OK
 
 [​j](https://groups.google.com/d/msg/qubes-devel/7JumqdldVJM/n9TiDVxc2jkJ)
 
+Dell XPS 13 (L322X)
+ (i7-3537U; intel HD; Ivy Bridge; BIOS A09)
+
+\*
+
+OK
+
+X
+
+[​read more](https://groups.google.com/d/topic/qubes-users/21kqNBzJLPw/discussion)
+
+[​Brian J Smith-Sweeney](https://groups.google.com/d/msg/qubes-users/21kqNBzJLPw/e74SMRweTMsJ)
+
 Fujitsu S751
  (HD3000; QM67; i5-2520M; BIOS 1.18)
 
