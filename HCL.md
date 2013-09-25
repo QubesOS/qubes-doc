@@ -7,8 +7,6 @@ permalink: /wiki/HCL/
 Hardware Compatibility List for Qubes OS
 ========================================
 
-The following is a list of systems that have been tested and seem to work fine with Qubes OS
-
 General system requirements
 ---------------------------
 
