@@ -35,8 +35,6 @@ The public portion of the Master Key can be downloaded from a keyserver, e.g.:
 gpg --recv-keys 0x36879494
 ```
 
-(You can use other key server than `pgp.mit.edu`, which is just an example)
-
 For additional security we also publish the the Master Key's fingerprint here in this document:
 
 ``` {.wiki}
