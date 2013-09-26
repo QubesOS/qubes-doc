@@ -7,31 +7,32 @@ permalink: /wiki/HCL/
 Hardware Compatibility List for Qubes OS
 ========================================
 
-General system requirements
+General System Requirements
 ---------------------------
 
 Minimum:
 
--   4GB of RAM
 -   64-bit Intel or AMD processor (x86\_64 aka x64 aka AMD64)
--   Intel GPU strongly preferred (if you have Nvidia GPU, prepare for some [troubleshooting](/wiki/InstallNvidiaDriver); we haven't tested ATI hardware)
--   At least 32GB of disk
--   Fast SSD disk strongly recommended
+-   4 GB RAM
+-   32 GB disk space
 
-Additional requirements:
+Recommended:
 
--   Intel VT-x or AMD-v technology (this is needed to run HVM domains only, such as Windows-based AppVMs)
--   Intel VT-d or AMD IOMMU technology (this is needed for effective isolation of your network VMs)
--   TPM with proper BIOS support if you want to use option [​Anti Evil Maid](http://theinvisiblethings.blogspot.com/2011/09/anti-evil-maid.html)
+-   Fast SSD (strongly recommended)
+-   Intel GPU (strongly preferred)
+    -   Nvidia GPUs may require significant [troubleshooting](/wiki/InstallNvidiaDriver).
+    -   ATI GPUs have not been formally tested (but see the [Hardware Compatibility List](/wiki/HCL#HardwareCompatibilityList) below).
+-   Intel VT-x or AMD-v technology (required for running HVM domains, such as Windows-based AppVMs)
+-   Intel VT-d or AMD IOMMU technology (required for effective isolation of network VMs)
+-   TPM with proper BIOS support (required for [​Anti Evil Maid](http://theinvisiblethings.blogspot.com/2011/09/anti-evil-maid.html))
 
-If you don't meet the additional criteria, you can still install and use Qubes. It still offers significant security improvement over traditional OSes, because things such as GUI isolation, or kernel protection do not require special hardware.
+Please note:
 
-Note also that:
-
--   You *can* install Qubes onto a USB pendrive or external disk. A fast USB3 pendrive is recommended for this (be sure it is at least 32GB in size), and Qubes works very nice out of it. Just plug in your pendrive before booting into installer, and choose it as a target installation disk. It works nicely, and you can later just plug it to some other computer to boot Qubes elsewhere.
--   We don't recommend installing Qubes in a virtual machine!
--   There is a problem with supporting keyboard and mouse on Mac, and so Mac hardware is currently unsupported (patches welcomed!)
--   How to find a VT-d capable notebook -- see [​here](https://groups.google.com/d/msg/qubes-users/Sz0Nuhi4N0o/ZtpJdoc0OY8J).
+-   Qubes **can** be installed on systems which do not meet the recommended requirements. Such systems will still offer significant security improvements over traditional operating systems, since things like GUI isolation and kernel protection do not require special hardware.
+-   Qubes **can** be installed on a USB flash drive or external disk, and testing has shown that this works very well. A fast USB 3.0 flash drive is recommended for this. (As a reminder, its capacity must be at least 32 GB.) Simply plug the flash drive into the computer before booting into the Qubes installer, choose the flash drive as the target installation disk, and proceed with the installation normally. After Qubes has been installed on the flash drive, it can then be plugged into other computers in order to boot from Qubes. In addition to the convenience of having a portable copy of Qubes, this allows users to test for hardware compatibility on multiple machines (e.g., at a brick-and-mortar computer store) before deciding on which computer to purchase. (For more on hardware compatibility testing, see below.)
+-   Installing Qubes in a virtual machine is not recommended, as it uses its own bare-metal hypervisor (Xen).
+-   Macintosh PCs are not currently supported due to keyboard and mouse problems. (Patches welcome!)
+-   [​Advice on finding a VT-d capable notebook](https://groups.google.com/d/msg/qubes-users/Sz0Nuhi4N0o/ZtpJdoc0OY8J).
 
 Hardware Compatibility List
 ---------------------------
@@ -571,15 +572,11 @@ X
 
 [Qubes Fan](https://groups.google.com/d/msg/qubes-users/V9BLpdf4xCs/v4XcOjLT6uUJ)
 
-Submitting new results
-----------------------
+Generating and Submitting New Reports
+-------------------------------------
 
-If you want to submit any new data please run 'qubes-hcl-report' script (in dom0) and send the results ('HCL Info' - contets of the .txt file) to [the mailing list](/wiki/QubesLists) with the following details included:
+In order to generate an HCL report in Qubes, simply open a terminal in dom0 and run `qubes-hcl-report <vm-name>`, where `<vm-name>` is the name of the VM to which the generated HCL files will be saved. (Note: If you are working with a new Qubes installation, you may need to update your system in order to download this script.)
 
--   Subject: HCL - \<your machine model name\>
+Users are encouraged to submit their HCL reports for the benefit of further Qubes development and other users. If you would like to submit your HCL report, please send the **HCL Info** `.txt` file to `qubes-users@googlegroups.com` (see [here](/wiki/QubesLists) information about the mailing lists) with the subject `HCL - <your machine model name>`. Please feel free to include any useful information about any Qubes features you may have tested, as well as general machine compatibility (video, networking, sleep, etc.). If you have problems with your hardware, please send the **HCL Support Files** `.cpio.gz` file as well.
 
-And of course include any useful information about the mentioned Qubes features.
-
-If you have problems with your hardware, please send the 'HCL Support Files' as well (the .cpio.gz file)
-
-**Note:** The 'HCL Support Files' are contains many details about your hardware - including serial numbers.
+**Please note:** The **HCL Support Files** may contain numerous hardware details, including serial numbers. If, for privacy or security reasons, you do not wish to make this information public, please **do not** send them to the public mailing list.
