@@ -76,7 +76,7 @@ Absolutely.
 
 Those won’t fly. We do not provide OpenGL virtualization for AppVMs. This is mostly a security decision, as implementing such a feature would most likely introduce a great deal of complexity into the GUI virtualization infrastructure. However, Qubes does allow for the use of accelerated graphics (OpenGL) in Dom0’s Window Manager, so all the fancy desktop effects should still work.
 
-For further discussion about the potential for GPU passthorugh on [Xen/Qubes?](/wiki/Xen/Qubes), please see the following threads:
+For further discussion about the potential for GPU passthorugh on Xen/Qubes, please see the following threads:
 
 -   [​GPU passing to HVM](https://groups.google.com/group/qubes-devel/browse_frm/thread/31f1f2da39978573?scoring=d&q=GPU&)
 -   [​Clarifications on GPU security](https://groups.google.com/group/qubes-devel/browse_frm/thread/31e2d8a47c8b4474?scoring=d&q=GPU&)
