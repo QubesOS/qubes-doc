@@ -7,61 +7,71 @@ permalink: /wiki/QubesLists/
 Qubes Mailing Lists
 ===================
 
-Please send all the questions regarding Qubes to one of the following mailing lists. Please do **not** send questions to individual Qubes developers. By sending a message to list, you not only give other a chance to help you, but you also might help others by making the discussion public.
+Please send all the questions regarding Qubes to one of the following mailing lists. **Please do not send questions to individual Qubes developers.** By sending a message to the appropriate mailing list, you are not only giving others a chance to help you, but you may also be helping others by starting a public discussion about a shared problem or interest.
 
-The `qubes-users` mailing list
+The `qubes-users` Mailing List
 ------------------------------
 
-This list is for helping users solve various daily problems with Qubes OS. Example of topics or questions suitable for this list:
+### How to Use This List
 
--   Installation problems
--   Hardware compatibility problems
--   How do I do...?
--   HCL reports
+This list is for helping users solve various daily problems with Qubes OS. Examples of topics or questions suitable for this list include:
 
-You don't need to subscribe to post to this list. However, subscribing might still be a good idea, because: 1) you make sure your message will not be eaten by the Google Groups spam filter, and 2) you will get other messages direct to the list.
+-   [HCL reports](/wiki/HCL#GeneratingandSubmittingNewReports).
+-   Installation problems.
+-   Hardware compatibility problems.
+-   How do I...?
 
-Please consult the basic documentation before posting to the list:
+### Read These First
 
--   [Installation guides and HCL](/wiki/QubesDownloads) \<-- for problems related to Qubes OS installation
--   [Qubes User's FAQ](/wiki/UserFaq)
--   [Qubes User Guides](/wiki/UserDoc) \<-- for question on how to use Qubes OS
+Please try searching both the Qubes website and the archives of the mailing lists before sending a question. In addition, please make sure that you have read and understood the following basic documentation prior to posting to the list:
 
-Posting, Subscribing, etc:
+-   [Installation guides, System Requirements, and HCL](/wiki/QubesDownloads) \<-- for problems related to Qubes OS installation
+-   [Qubes User FAQ](/wiki/UserFaq)
+-   [Qubes User Guides](/wiki/UserDoc) \<-- for questions about how to use Qubes OS
 
--   To post a message to the list, just send an email to (you don't need to be subscribed): `qubes-users@googlegroups.com`
--   To subscribe to the list, send an empty mail to (you don't need a gmail account for that!): `qubes-users+subscribe@googlegroups.com`
--   To unsubscribe, send an empty mail to `qubes-users+unsubscribe@googlegroups.com`
--   The Web interface of the list: [​http://groups.google.com/group/qubes-users](http://groups.google.com/group/qubes-users)
+### How to Subscribe and Post
+
+You don't have to subscribe in order to post to this list. However, subscribing might nonetheless be desirable, as it ensures that your messages will not be eaten by the Google Groups spam filter and allows you to receive messages which were sent directly to the list.
+
+-   To subscribe to the list, send a blank mail to `qubes-users+subscribe@googlegroups.com`. (Note: A Gmail account is not required. Any email address should work.)
+-   To post a message to the list, address your email to `qubes-users@googlegroups.com`. (Note: You don't have to be subscribed in order to post.)
+-   To unsubscribe, send a blank email to `qubes-users+unsubscribe@googlegroups.com`.
+-   This list has a Google Groups web interface: [​https://groups.google.com/group/qubes-users](https://groups.google.com/group/qubes-users)
+    -   Some users prefer to interact with the mailing list through the Google Groups web interface. This has the advantage that it allows you to search and reply to messages which were sent prior to your subscription to the list. However, a Google account is required in order to post through this interface.
 
 The `qubes-devel` mailing list
 ------------------------------
 
-This list is mainly for people interested in contributing to Qubes OS, or just willing to learn more about its architecture and implementation. Example of topics and questions suitable for this list:
+### How to Use This List
 
--   Questions about why we made certain architecture or implementation decisions to implement XYZ this way and not the other way?
--   Questions about code layout and where is code for certain functionality
--   "I would like to implement feature XYZ...." -- discussions about proposed new features, patches, etc.
--   Contributed code and patches
--   Some more or less generic security discussions, somehow relating to Qubes OS
+This list is primarily intended for people who are interested in contributing to Qubes OS or who are willing to learn more about its architecture and implementation. Examples of topics and questions suitable for this list include:
 
-You need to be subscribed in order to post to this list.
+-   Questions about why we made certain architecture or implementation decisions. ("Why did you implement XYZ this way and not the other way?")
+-   Questions about code layout and where is code for certain functionality.
+-   Discussions about proposed new features, patches, etc. ("I would like to implement feature XYZ.")
+-   Contributed code and patches.
+-   Security discussions which are relevant to Qubes in some way.
 
-Posting, Subscribing, etc:
+### How to Subscribe and Post
 
--   To post a message to the list, send an email to (you need to be subscribed first!): `qubes-devel@googlegroups.com`
--   To subscribe to the list, send an empty mail to (you don't need a gmail account for that!): `qubes-devel+subscribe@googlegroups.com`
--   To unsubscribe, send an empty mail to `qubes-devel+unsubscribe@googlegroups.com`
--   The Web interface of the list: [​http://groups.google.com/group/qubes-devel](http://groups.google.com/group/qubes-devel)
+You must be subscribed in order to post to this list.
 
-General hints and guidelines regarding posting to the lists
------------------------------------------------------------
+-   To subscribe to the list, send a blank mail to `qubes-devel+subscribe@googlegroups.com`. (Note: A Gmail account is not required. Any email address should work.)
+-   To post a message to the list, address your email to `qubes-devel@googlegroups.com`. (Note: You must be subscribed in order to post. If your post does not appear, please allow time for moderation to occur.)
+-   To unsubscribe, send a blank email to `qubes-devel+unsubscribe@googlegroups.com`.
+-   This list has a Google Groups web interface: [​https://groups.google.com/group/qubes-devel](https://groups.google.com/group/qubes-devel)
+    -   Some users prefer to interact with the mailing list through the Google Groups web interface. This has the advantage that it allows you to search and reply to messages which were sent prior to your subscription to the list. However, a Google account is required in order to post through this interface.
 
--   Use an informative and precise subject in your message. This will allow others to easily find your thread in the future and use it as a reference. Example of a bad subject: "Help! Qubes problems!". Example of a good subject: "R2B2 Installation problem: Apple keyboard not working in installer".
+General Posting Advice
+----------------------
 
--   Be precise and concrete. Do not write an essay, only the essential informations that are needed. Qubes developers are Very Busy People (VBP) and we'd really better spend our time on improving Qubes, rather than reading essays!
+-   Include a precise and informative subject line. This will allow others to easily find your thread in the future and use it as a reference.
+    -   Example of a bad subject: "Help! Qubes problems!"
+    -   Example of a good subject: "R2B2 Installation problem: Apple keyboard not working in installer."
 
--   Do not sorry about your English. Really, nobody gives a damn, whether you're sorry, or not, that your English sucks. If we can't understand you, we will ask (or ignore your message if it's a total mess ;) And, if you really are so ashamed of your written English, then... just learn it, instead of sorry everybody.
+-   Be concise. Do not write an essay. Include only the essential information. Qubes developers are Very Busy People (VBP), and we'd really rather spend our time improving Qubes than reading essays!
 
--   While we're generally open to hear suggestions of new features, please note that we already have a pretty well defined Roadmap, and it's rather unlikely we will change our schedule in order to accommodate your request. Much more preferred way to get new features into Qubes, those requested by users, is to... contribute code to Qubes that implements them, which we will happily accept, provided it meets our standards. It's always good to first discuss such ideas on the qubes-devel list, before starting the work though.
+-   Do not apologize for your English. This is a waste of everyone's time, including your own. If we can't understand you, we will ask you to clarify (or ignore your message if it's a total mess ;).
+
+-   While we're generally open to hearing suggestions for new features, please note that we already have a pretty well defined [roadmap](/trac/roadmap), and it's rather unlikely that we will change our schedule in order to accommodate your request. If there's a particular feature you'd like to see in Qubes, a much more effective way to make it happen is to... contribute code to Qubes which implements it! We happily accept such contributions, provided they meet our standards. Please note, however, that it's always a good idea to field a discussion of your idea on the qubes-devel list before putting in a lot of hard work on something that we may not be able or willing to accept.
 
