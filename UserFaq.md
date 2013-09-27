@@ -17,7 +17,7 @@ Qubes User's FAQ
     7.  [Does Qubes run every app in a separate VM?](#DoesQubesruneveryappinaseparateVM)
     8.  [Why does Qubes use Xen instead of KVM or some other hypervisor?](#WhydoesQubesuseXeninsteadofKVMorsomeotherhypervisor)
     9.  [What's so special about Qubes' GUI virtualization?](#WhatssospecialaboutQubesGUIvirtualization)
-    10. [Can I watch YouTube? videos in AppVMs?](#CanIwatchYouTubevideosinAppVMs)
+    10. [Can I watch YouTube videos in AppVMs?](#CanIwatchYouTubevideosinAppVMs)
     11. [Can I run applications, like games, which require 3D support?](#CanIrunapplicationslikegameswhichrequire3Dsupport)
     12. [Is Qubes a multi-user system?](#IsQubesamulti-usersystem)
 
@@ -68,7 +68,7 @@ In short: we believe the Xen architecture allows for the creation of more secure
 
 We have designed the GUI virtualization subsystem with two primary goals: security and performance. Our GUI infrastructure introduces only about 2,500 lines of C code (LOC) into the privileged domain (Dom0), which is very little, and thus leaves little space for bugs and potential attacks. At the same time, due to the smart use of Xen shared memory, our GUI implementation is very efficient, so most virtualized applications really feel as if they were executed natively.
 
-### Can I watch [YouTube?](/wiki/YouTube) videos in AppVMs?
+### Can I watch YouTube videos in AppVMs?
 
 Absolutely.
 
