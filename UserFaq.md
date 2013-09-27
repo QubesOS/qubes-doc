@@ -4,7 +4,7 @@ title: UserFaq
 permalink: /wiki/UserFaq/
 ---
 
-Qubes User's FAQ
+Qubes Users' FAQ
 ================
 
 1.  [General Questions](#GeneralQuestions)
