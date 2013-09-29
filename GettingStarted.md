@@ -26,12 +26,12 @@ Each domain, apart from having a distinct name, is also assigned a **label**, wh
 
 [![No image "snapshot12.png" attached to GettingStarted](/chrome/common/attachment.png "No image "snapshot12.png" attached to GettingStarted")](/attachment/wiki/GettingStarted/snapshot12.png)
 
-In addition to AppVMs and TemplateVMs, there's one special domain called "Dom0," which is where the Desktop Manager runs. This is where you log in to the system. Dom0 is more trusted than any other domain (including TemplateVMs and black-labeled domains). If Dom0 were ever compromised, it would be Game Over<sup>TM</sup>. (The entire system would effectively be compromised.) Due to its overarching importance, Dom0 has no network connectivity and is used only for running the Window and Desktop Managers. Dom0 shouldn't be used for anything else. In particular, you should *never* run user applications in Dom0. (That's what your AppVMs are for!)
+In addition to AppVMs and TemplateVMs, there's one special domain called "dom0," which is where the Desktop Manager runs. This is where you log in to the system. Dom0 is more trusted than any other domain (including TemplateVMs and black-labeled domains). If dom0 were ever compromised, it would be Game Over<sup>TM</sup>. (The entire system would effectively be compromised.) Due to its overarching importance, dom0 has no network connectivity and is used only for running the Window and Desktop Managers. Dom0 shouldn't be used for anything else. In particular, you should *never* run user applications in dom0. (That's what your AppVMs are for!)
 
 Qubes VM Manager and Command Line Tools
 ---------------------------------------
 
-All aspects of the Qubes system can be controlled using command line tools run under a Dom0 console. To open a console window in Dom0, either go to Start-\>System Tools-\>Konsole or press Alt-F2 and type `konsole`.
+All aspects of the Qubes system can be controlled using command line tools run under a dom0 console. To open a console window in dom0, either go to Start-\>System Tools-\>Konsole or press Alt-F2 and type `konsole`.
 
 Various command line tools are described as part of this guide, and the whole reference can be found [here](/wiki/DomZeroTools).
 
@@ -44,7 +44,7 @@ Alternatively, you can use a rather intuitive GUI tool called **Qubes VM Manager
 Starting Apps in Domains
 ------------------------
 
-Apps can be started either by using the shortcuts in the Desktop Manager's menu or by using the command line (i.e., a console running in Dom0).
+Apps can be started either by using the shortcuts in the Desktop Manager's menu or by using the command line (i.e., a console running in dom0).
 
 You can start apps directly from the start menu. Each domain has its own menu directory under the scheme **Domain: \<name\>**. After navigating into one of these directories, simply click on the application you'd like to start:
 
@@ -52,7 +52,7 @@ You can start apps directly from the start menu. Each domain has its own menu di
 
 By default, each domain's menu contains only a few shortcuts. If you'd like to add more, simply click **Add more shortcuts...**, select the desired applictions, and click **OK**. You can also add shortcuts manually. (This is sometimes necessary if the desired application doesn't show up in the Qubes VM Manager window.) To do this in KDE, right-click on the **Start** button and click **Menu Editor**. Click the domain directory in which you'd like the menu to appear, click **New Item**, enter its name as **\<domain name\>: \<app name\>**, and provide the command for starting the app (see below). Then click **Save** and wait approximately 15 seconds for the changes to propagate to the KDE menu.
 
-To start apps from the console in Dom0, type:
+To start apps from the console in dom0, type:
 
 ``` {.wiki}
 qvm-run -a <domain> "<app name> [arguments]"
@@ -69,7 +69,7 @@ Adding, Removing, and Listing Domains
 
 Domains can easily be added and removed by clicking on the **Add** and **Remove** buttons in the Qubes VM Manager.
 
-Domains can also be added, removed, and listed from command line (i.e., a console running in Dom0) using the following tools:
+Domains can also be added, removed, and listed from command line (i.e., a console running in dom0) using the following tools:
 
 -   `qvm-create`
 -   `qvm-remove`
@@ -87,11 +87,11 @@ More paranoid people might find it worthwhile to read [​this article](http://t
 Full Screen Domains
 -------------------
 
-By default, Qubes doesn't allow any application window to occupy the entire screen such that its window name (which includes the name of the domain to which it belongs) and colored window border are no longer visible. This is a security precaution designed to prevent a situation in which an application which has been allowed to enter full screen mode begins to emulate the entire Qubes system. We want it to be the case that the user is always able to identify which domain is displaying any given window. Otherwise, a compromised domain which is able to occupy the entire screen could trick the user into thinking that she is interacting with a variety of different domains (including Dom0), when in fact she is interacting with only a single, compromised domain pretending to be the whole system.
+By default, Qubes doesn't allow any application window to occupy the entire screen such that its window name (which includes the name of the domain to which it belongs) and colored window border are no longer visible. This is a security precaution designed to prevent a situation in which an application which has been allowed to enter full screen mode begins to emulate the entire Qubes system. We want it to be the case that the user is always able to identify which domain is displaying any given window. Otherwise, a compromised domain which is able to occupy the entire screen could trick the user into thinking that she is interacting with a variety of different domains (including dom0), when in fact she is interacting with only a single, compromised domain pretending to be the whole system.
 
-However, if the user makes use of an "expose-like" desktop switcher, such as the "Desktop Grid" effect that is enabled by default under KDE (default activation command: Ctrl-F8), then we can safely allow domains to enter full screen mode, as we have assurance that we can always "preempt" them by hitting the magic key combination (e.g., Ctrl-F8), which will be consumed by the trusted window manager and not passed down to the fullscreen AppVM. This means that the AppVM has no way of effectively "faking" the fullscreen view of the system, as the user can easily identify it as "just another AppVM." Theoretically, this could be achieved even with primitive Alt-Tab like switching, which should be available on simpler Window Managers (such as Xfce4, which we also support as an alternative Dom0 Desktop Environment), but this might be less obvious to the user.
+However, if the user makes use of an "expose-like" desktop switcher, such as the "Desktop Grid" effect that is enabled by default under KDE (default activation command: Ctrl-F8), then we can safely allow domains to enter full screen mode, as we have assurance that we can always "preempt" them by hitting the magic key combination (e.g., Ctrl-F8), which will be consumed by the trusted window manager and not passed down to the fullscreen AppVM. This means that the AppVM has no way of effectively "faking" the fullscreen view of the system, as the user can easily identify it as "just another AppVM." Theoretically, this could be achieved even with primitive Alt-Tab like switching, which should be available on simpler Window Managers (such as Xfce4, which we also support as an alternative dom0 Desktop Environment), but this might be less obvious to the user.
 
-To allow domains to enter full screen mode, one should edit the `/etc/qubes/guid.conf` file in Dom0.
+To allow domains to enter full screen mode, one should edit the `/etc/qubes/guid.conf` file in dom0.
 
 E.g. to allow all domains to enter full screen mode, set `allow_fullscreen` flag to `true` in the `global` section:
 
