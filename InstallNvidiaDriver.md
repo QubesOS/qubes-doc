@@ -7,10 +7,6 @@ permalink: /wiki/InstallNvidiaDriver/
 Nvidia proprietary driver installation
 ======================================
 
-**This is outdated since Qubes 1.0-rc1 as nvidia binary driver isn't compatible with vanilla kernel under Xen.**
-
-The NVIDIA proprietary driver works **much** more stable than nouveau, so it's good idea to install it.
-
 [RpmFusion?](/wiki/RpmFusion) packages
 ======================================
 
@@ -19,24 +15,38 @@ There are rpm packages with all necessary software on rpmfusion. The only packag
 Download pacakages
 ------------------
 
-You will need any Fedora 13 system to download and build packages. You can use Qubes Dom0 for it, but it isn't necessary. To download packages from rpmfusion - add this repository to your yum configuration (instructions are on their website). After then download packages using yumdownloader:
+You will need any Fedora 18 system to download and build packages. You can use Qubes AppVM for it, but it isn't necessary. To download packages from rpmfusion - add this repository to your yum configuration (instructions are on their website). After then download packages using yumdownloader:
 
 ``` {.wiki}
-yumdownloader --resolve xorg-x11-drv-nvidia livna-config-display
+yumdownloader --resolve xorg-x11-drv-nvidia
 yumdownloader --source nvidia-kmod
 ```
 
 Build kernel package
 --------------------
 
-You will need at least rpmbuild tool, and then you can use it to build package:
+You will need at least kernel-devel (matching your Qubes dom0 kernel), rpmbuild tool and kmodtool, and then you can use it to build package:
 
 ``` {.wiki}
-yum install rpm-build
-rpmbuild --rebuild nvidia-kmod-260.19.36-1.fc13.3.src.rpm
+yum install kernel-devel rpm-build kmodtool
+rpmbuild --nodeps -D "kernels `uname -r`" --rebuild nvidia-kmod-260.19.36-1.fc13.3.src.rpm
 ```
 
-Most likely it will complain about missing dependencies - install it and rerun rpmbuid. If everything went right, you have now complete packages with nvidia drivers for Qubes system. Transfer them to dom0 (eg using USB stick), install and reboot the system.
+In above command replace `uname -r` with kernel version from your Qubes dom0. If everything went right, you have now complete packages with nvidia drivers for Qubes system. Transfer them to dom0 (eg using USB stick) and install (using standard "yum install /path/to/file"). Then you need to disable nouveau (normally it is done by install scripts from nvidia package, but unfortunately it isn't compatible with Qubes...):
+
+1.  Edit /etc/default/grub:
+
+    ``` {.wiki}
+    GRUB_CMDLINE_LINUX="quiet rhgb nouveau.modeset=0 rd.driver.blacklist=nouveau video=vesa:off"
+    ```
+
+2.  Regenerate grub configuration:
+
+    ``` {.wiki}
+    grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```
+
+Then reboot.
 
 Manual installation
 ===================
