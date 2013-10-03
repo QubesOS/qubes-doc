@@ -35,6 +35,7 @@ Advanced topics:
 -   [DispVM Customization](/wiki/UserDoc/DispVMCustomization)
 -   [Tips for using Linux in HVM](/wiki/LinuxHVMTips)
 -   [Enabling Fullscreen mode for AppVMs](/wiki/FullScreenMode)
+-   [OpenPGP in Qubes?](/wiki/Using)
 
 Command-line tools reference:
 
