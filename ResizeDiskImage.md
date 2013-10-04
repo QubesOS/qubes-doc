@@ -20,19 +20,29 @@ qvm-grow-private <vm-name> <size>
 
 ### HVM disk image
 
-A disk image for a HVM for can be grown using following command:
+In this example we will grow the disk image of an HVM to 30GB.
+
+First, stop/shutdown the HVM.
+
+Then, from a Dom0 terminal (in KDE: System Tools -\> Terminal Emulator) do the following:
 
 ``` {.wiki}
-truncate -s <size> root.img
+cd /var/lib/qubes/appvms/<yourHVM>/
+ls -lh root.img  (<--verify current size of disk image)
+truncate -s 30GB root.img
+ls -lh root.img  (<--verify new size of disk image)
 ```
 
-The root.img is found in /var/lib/qubes/appvm/hvmname.
+The partition table and file-system must be adjusted after this change:
 
-Be aware, that the HVM should be stopped during this operation. The partition table and file-system must be adjusted after this change.
+#### Windows 7
 
-#### Windows
+1.  Click Start
+2.  type "diskmgmt.msc" - this takes you to Disk Management
+3.  Right-click on your existing volume, select "Extend Volume..."
+4.  Click through the wizard.
 
-Go to Storage management and click on "Extend Volume"
+No reboot required.
 
 #### FreeBSD
 
