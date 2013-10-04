@@ -12,7 +12,7 @@ One of the main advantages of Qubes is that it allows the user to isolate sensit
 Basic Instructions
 ------------------
 
-The basic procedure is to create a master keypair and any number of signing/encryption subkeys in your ultimately trusted "vault" domain. The secret portion of the master keypair should never leave your vault. The public portion of the master key, along with the subkeys, can then be [copied](/wiki/VmTools/QvmCopyToVm) to any number of less trusted domains, e.g. "work," where they will be used normally. If your work domain is ever compromised (and your subkeys along with it), your master key will still be safe, and you can issue new subkeys. For detailed instructions, see the tutorials and discussions below.
+The basic procedure is to create a master keypair and any number of signing/encryption subkeys in your ultimately trusted "vault" domain. The secret portion of the master keypair should never leave your vault. The public portion of the master key, along with the subkeys, can then be [copied](/wiki/VmTools/QvmCopyToVm) to any number of less trusted domains, e.g. "work," where they will be used normally. If your work domain is ever compromised (and your subkeys along with it), your master key will still be safe, and you can issue new subkeys. For detailed instructions, see the [tutorials and discussions](/wiki/UserDoc/OpenPGP#TutorialsandDiscussions) below.
 
 Security Recommendations
 ------------------------
