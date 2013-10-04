@@ -41,5 +41,4 @@ Tutorials and Discussions
 -   [​"GPG Offline Master Key w/ smartcard" maintained by Abel Luck](https://gist.github.com/abeluck/3383449)
     -   Author's note: "It is not Qubes OS specific, and in fact assumes you want to use a smartcard, which might not be the case, so skip those bits. Also, use your vault vm instead of booting into an offline livecd as described."
 -   [​"Using GnuPG with QubesOS" by Alex](https://apapadop.wordpress.com/2013/08/21/using-gnupg-with-qubesos/)
-    -   **Caution:** This tutorial currently performs the initial key creation outside the vault, which is not recommended. (See [​author's email](https://groups.google.com/d/msg/qubes-users/Kwfuern-R2U/x88pXDRQo0sJ).)
 
