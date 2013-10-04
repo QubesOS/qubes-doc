@@ -29,6 +29,9 @@ Qubes Users' FAQ
     5.  [Can I use AMD-v instead of VT-x?](#CanIuseAMD-vinsteadofVT-x)
     6.  [Can I install Qubes in a virtual machine (e.g., on VMWare)?](#CanIinstallQubesinavirtualmachinee.g.onVMWare)
 
+3.  [Common Problems](#CommonProblems)
+    1.  [My AppVMs lost Internet access after a TemplateVM update. What should I do?](#MyAppVMslostInternetaccessafteraTemplateVMupdate.WhatshouldIdo)
+
 General Questions
 -----------------
 
@@ -113,3 +116,10 @@ See [​this message](http://groups.google.com/group/qubes-devel/msg/6412170cfbc
 ### Can I install Qubes in a virtual machine (e.g., on VMWare)?
 
 Some users have been able to do this, but it is neither recommended nor supported. Qubes should be installed bare-metal. (After all, it uses its own bare-metal hypervisor!)
+
+Common Problems
+---------------
+
+### My AppVMs lost Internet access after a TemplateVM update. What should I do?
+
+Run `systemctl enable NetworkManager-dispatcher.service` in the TemplateVM upon which your NetVM is based. You may have to reboot afterward for the change to take effect. (Note: This is an upstream problem. See [​here](https://bugzilla.redhat.com/show_bug.cgi?id=974811). For details, see the qubes-users mailing list threads [​here](https://groups.google.com/d/topic/qubes-users/xPLGsAJiDW4/discussion) and [​here](https://groups.google.com/d/topic/qubes-users/uN9G8hjKrGI/discussion).)
