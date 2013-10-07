@@ -9,10 +9,10 @@ Customization of Disposable VM
 
 It is possible to change application settings for each new DispVM. This can be done by customizin DispVM template:
 
-1.  Start terminal in 'fedora-17-x64-dvm' VM (via command line, it is not listed in Qubes Manager nor system menu):
+1.  Start terminal in 'fedora-18-x64-dvm' VM (via command line, it is not listed in Qubes Manager nor system menu):
 
     ``` {.wiki}
-    qvm-run -a fedora-17-x64-dvm gnome-terminal
+    qvm-run -a fedora-18-x64-dvm gnome-terminal
     ```
 
 2.  Change application settings (eg you can start firefox and change default search engine, install some plugins etc).
