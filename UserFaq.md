@@ -31,6 +31,8 @@ Qubes Users' FAQ
 
 3.  [Common Problems](#CommonProblems)
     1.  [My AppVMs lost Internet access after a TemplateVM update. What should I do?](#MyAppVMslostInternetaccessafteraTemplateVMupdate.WhatshouldIdo)
+    2.  [My keyboard layout settings are not behaving correctly. What should I do?](#Mykeyboardlayoutsettingsarenotbehavingcorrectly.WhatshouldIdo)
+    3.  [My dom0 and/or TemplateVM update stalls when attempting to update via …](#Mydom0andorTemplateVMupdatestallswhenattemptingtoupdateviatheGUItool.WhatshouldIdo)
 
 General Questions
 -----------------
@@ -123,3 +125,15 @@ Common Problems
 ### My AppVMs lost Internet access after a TemplateVM update. What should I do?
 
 Run `systemctl enable NetworkManager-dispatcher.service` in the TemplateVM upon which your NetVM is based. You may have to reboot afterward for the change to take effect. (Note: This is an upstream problem. See [​here](https://bugzilla.redhat.com/show_bug.cgi?id=974811). For details, see the qubes-users mailing list threads [​here](https://groups.google.com/d/topic/qubes-users/xPLGsAJiDW4/discussion) and [​here](https://groups.google.com/d/topic/qubes-users/uN9G8hjKrGI/discussion).)
+
+### My keyboard layout settings are not behaving correctly. What should I do?
+
+Please read [​this disccusion](https://groups.google.com/d/topic/qubes-devel/d8ZQ_62asKI/discussion).
+
+### My dom0 and/or TemplateVM update stalls when attempting to update via the GUI tool. What should I do?
+
+This can usually be fixed by updating via the command line.
+
+In dom0, open a terminal and run `sudo qubes-dom0-update`.
+
+In your TemplateVMs, open a terminal and run `sudo yum upgrade`.
