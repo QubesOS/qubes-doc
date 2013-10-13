@@ -542,6 +542,19 @@ X
 
 [Qubes Fan](https://groups.google.com/d/msg/qubes-users/V9BLpdf4xCs/v4XcOjLT6uUJ)
 
+Lenovo Thinkpad T430s
+ (i5-3320M)
+
+OK
+
+OK
+
+OK
+
+[read more](https://groups.google.com/d/topic/qubes-users/V4PQYEBuoSg/discussion)
+
+[cprise](https://groups.google.com/d/msg/qubes-users/V4PQYEBuoSg/udLCHyR6RUUJ)
+
 Generating and Submitting New Reports
 -------------------------------------
 
