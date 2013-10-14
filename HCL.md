@@ -496,7 +496,7 @@ OK
 
 [​Ant](https://groups.google.com/d/msg/qubes-users/uKI-VBtKWxg/uKjsdGNSpSQJ)
 
-**User Reported Desktops and Custom Built Machines**
+**User Reported Desktops and Workstations**
 
 ASRock Z77 Pro4
  (Ivy Bridge; Xeon E3-1200 Graphics; i7-3770; BIOS: P1.40)
