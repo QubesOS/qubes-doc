@@ -350,6 +350,19 @@ OK
 
 [Alex Dubois](https://groups.google.com/d/msg/qubes-devel/LSVluAZ9Udo/Fl3jmt4tWssJ)
 
+Lenovo Thinkpad T430s
+ (i5-3320M)
+
+OK
+
+OK
+
+OK
+
+[read more](https://groups.google.com/d/topic/qubes-users/V4PQYEBuoSg/discussion)
+
+[cprise](https://groups.google.com/d/msg/qubes-users/V4PQYEBuoSg/udLCHyR6RUUJ)
+
 Lenovo Thinkpad T430U
  (Ivy Bridge; HD Graphics +GT 620M; i7-3517M; BIOS: 2.08)
 
@@ -377,6 +390,19 @@ OK
 [​read more](https://groups.google.com/forum/#!msg/qubes-devel/TgDWwBs36yA/IUFZPHs716cJ)
 
 [​Sebastian Hültenschmidt](https://groups.google.com/forum/#!msg/qubes-devel/TgDWwBs36yA/IUFZPHs716cJ)
+
+Lenovo Thinkpad X1 Carbon (LENOVO 3444CTO)
+ (i5-3427U)
+
+OK
+
+OK
+
+OK
+
+[read more](https://groups.google.com/d/topic/qubes-users/UCuF41rq758/discussion)
+
+[Ulrich Pfeifer](https://groups.google.com/d/msg/qubes-users/UCuF41rq758/BRhc7lTecsMJ)
 
 Lenovo Thinkpad x220
  (HD?000; i5-?)
@@ -554,32 +580,6 @@ X
 [read more](https://groups.google.com/d/topic/qubes-users/V9BLpdf4xCs/discussion)
 
 [Qubes Fan](https://groups.google.com/d/msg/qubes-users/V9BLpdf4xCs/v4XcOjLT6uUJ)
-
-Lenovo Thinkpad T430s
- (i5-3320M)
-
-OK
-
-OK
-
-OK
-
-[read more](https://groups.google.com/d/topic/qubes-users/V4PQYEBuoSg/discussion)
-
-[cprise](https://groups.google.com/d/msg/qubes-users/V4PQYEBuoSg/udLCHyR6RUUJ)
-
-Lenovo X1 Carbon (LENOVO 3444CTO)
- (i5-3427U)
-
-OK
-
-OK
-
-OK
-
-[read more](https://groups.google.com/d/topic/qubes-users/UCuF41rq758/discussion)
-
-[Ulrich Pfeifer](https://groups.google.com/d/msg/qubes-users/UCuF41rq758/BRhc7lTecsMJ)
 
 Generating and Submitting New Reports
 -------------------------------------
