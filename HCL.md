@@ -555,6 +555,19 @@ OK
 
 [cprise](https://groups.google.com/d/msg/qubes-users/V4PQYEBuoSg/udLCHyR6RUUJ)
 
+Lenovo X1 Carbon (LENOVO 3444CTO)
+ (i5-3427U)
+
+OK
+
+OK
+
+OK
+
+[read more](https://groups.google.com/d/topic/qubes-users/UCuF41rq758/discussion)
+
+[Ulrich Pfeifer](https://groups.google.com/d/msg/qubes-users/UCuF41rq758/BRhc7lTecsMJ)
+
 Generating and Submitting New Reports
 -------------------------------------
 
