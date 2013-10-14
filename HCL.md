@@ -9,10 +9,10 @@ Hardware Compatibility List (HCL) for All Qubes OS Releases
 
 **Legend**
 
--   Green: The reporter has clearly stated that **all** components and features are working correctly.
--   White: The reporter has sent an HCL Info output which indicates everything is OK without any comments.
--   Yellow: Some non-required feature is missing (e.g., VT-d), or manual tweaking is required in order to get some components to work.
--   Red: Some primary feature is not working. These are usually machines with poor or nonexistent Linux support in general.
+-   **Green**: The reporter has clearly stated that **all** components and features are working correctly.
+-   **White**: The reporter has sent an HCL Info output which indicates everything is OK without any comments.
+-   **Yellow**: Some non-required feature is missing (e.g., VT-d), or manual tweaking is required in order to get some components to work.
+-   **Red**: Some primary feature is not working. These are usually machines with poor or nonexistent Linux support in general.
 
 **Device**
 
@@ -397,10 +397,6 @@ Lenovo Thinkpad X1 Carbon (LENOVO 3444CTO)
 OK
 
 OK
-
-OK
-
-[read more](https://groups.google.com/d/topic/qubes-users/UCuF41rq758/discussion)
 
 [Ulrich Pfeifer](https://groups.google.com/d/msg/qubes-users/UCuF41rq758/BRhc7lTecsMJ)
 
