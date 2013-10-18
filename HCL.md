@@ -13,6 +13,10 @@ Hardware Compatibility List (HCL) for All Qubes OS Releases
 -   **White**: The reporter has sent an HCL Info output which indicates everything is OK without any comments.
 -   **Yellow**: Some non-required feature is missing (e.g., VT-d), or manual tweaking is required in order to get some components to work.
 -   **Red**: Some primary feature is not working. These are usually machines with poor or nonexistent Linux support in general.
+-   **OK**: The feature is working correctly.
+-   **X**: The feature does not work or is not present.
+-   An asterisk (\*) indicates that some kind of tweaking is needed.
+-   A blank cell indicates that we lack information about a feature.
 
 **Device**
 
@@ -124,10 +128,6 @@ Qubes core developers
 Apple MacBookPro
  (i7 M620)
 
-?
-
-?
-
 X
 
 OK
@@ -140,10 +140,6 @@ X
 
 Apple MacBookPro
  (Intel HD Graphics, Ivy Bridge, i5-3210M)
-
-?
-
-?
 
 X
 
@@ -158,8 +154,6 @@ OK
 ASUS UX-31
 
 \*
-
-?
 
 [​Stephen Boyd](https://groups.google.com/d/topic/qubes-devel/6I07Bbzn5M4/discussion)
 
@@ -261,13 +255,7 @@ Dell XPS 13
 
 OK
 
-?
-
 OK
-
-?
-
-?
 
 [​read more](https://groups.google.com/d/msg/qubes-devel/jamRkZJDC0g/KTniY0Y3dioJ)
 
@@ -306,10 +294,6 @@ needs kernel downgrade to 3.7.4
 HP Pavilion Sleekbook 14-B030TU
  (Ivy Bridge; Intel HD Graphics; i5-3317; BIOS F.06)
 
-?
-
-?
-
 OK
 
 OK
@@ -321,10 +305,6 @@ OK
 Lenovo Thinkpad Edge E130
  (Ivy Bridge; HD Graphics i3-3217U; BIOS: 2.05)
 
-?
-
-?
-
 OK
 
 OK
@@ -335,10 +315,6 @@ OK
 
 Lenovo Thinkpad T430
  (Ivy Bridge; HD Graphics; i5-3360M; BIOS: 2.51)
-
-?
-
-?
 
 OK
 
@@ -365,10 +341,6 @@ OK
 
 Lenovo Thinkpad T430U
  (Ivy Bridge; HD Graphics +GT 620M; i7-3517M; BIOS: 2.08)
-
-?
-
-?
 
 OK
 
@@ -462,8 +434,6 @@ Samsung Series 7 Chronos NP700Z5C
 
 OK
 
-?
-
 [​read more](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
 
 OK
@@ -514,10 +484,6 @@ OK
 Dell Precision T3400 Workstation
  (NVIDIA Quadro NVS 290; Intel Q6600; BIOS: A09)
 
-?
-
-?
-
 OK
 
 OK
@@ -528,10 +494,6 @@ X
 
 GA-fxa990-ud3 (rev 3.0)
  (AMD FX-8350; GTX 470)
-
-?
-
-?
 
 OK
 
@@ -544,15 +506,7 @@ X
 MSI Big Bang
  (i7-950; Radeon HD 6770)
 
-?
-
-?
-
 OK
-
-?
-
-?
 
 [read more](https://groups.google.com/d/topic/qubes-devel/TxzaoodB02o/discussion)
 
