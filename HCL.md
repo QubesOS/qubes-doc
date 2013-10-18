@@ -481,6 +481,19 @@ OK
 
 [gorka](https://groups.google.com/d/msg/qubes-users/lycnE-LcJBo/0u10xl7AMrIJ)
 
+Dell Inspiron 660
+ (Xeon E3-1200 Graphics; i5-3330; BIOS: A09)
+
+OK
+
+OK
+
+OK
+
+[read more](https://groups.google.com/d/topic/qubes-users/Nq7T0l4A2b0/discussion)
+
+[KR](https://groups.google.com/d/msg/qubes-users/Nq7T0l4A2b0/IP_pwZMn9LYJ)
+
 Dell Precision T3400 Workstation
  (NVIDIA Quadro NVS 290; Intel Q6600; BIOS: A09)
 
