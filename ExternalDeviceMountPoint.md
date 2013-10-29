@@ -9,3 +9,5 @@ All external storage devices connected to an AppVM using the Fedora template can
 ``` {.wiki}
 /run/media/user/
 ```
+
+...of that AppVM's filesystem.
