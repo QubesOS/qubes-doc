@@ -25,8 +25,8 @@ Steps to create a fully encrypted LUKS volume on the external USB hard drive /de
 ``` {.wiki}
 $ sudo wipefs -a /dev/sdb
 $ sudo cryptsetup luksFormat /dev/sdb
-$ sudo blkid /dev/sdb
-$ sudo cryptsetup open --type luks UUID=the-long-UUID-you-just-got-from-blkid backup
+$ sudo blkid /dev/sdb (this is your device UUID)
+$ sudo cryptsetup open --type luks UUID=the-long-UUID-of-your-DEVICE backup
 $ sudo mkfs.ext4 -m 0 /dev/mapper/backup
 ```
 
@@ -34,10 +34,10 @@ $ sudo mkfs.ext4 -m 0 /dev/mapper/backup
 
 ``` {.wiki}
 $ sudo mkdir /backup
-$ sudo blkid /dev/mapper/backup
+$ sudo blkid /dev/mapper/backup (this is your volume UUID)
 $ sudo vi /etc/fstab
 (add a line similar to this:
-UUID=the-SECOND-long-UUID-you-just-got-for-the-mapper-device /mnt/backup ext4 defaults 1 2
+UUID=the-long-UUID-of-your-VOLUME /mnt/backup ext4 defaults 1 2
 )
 $ sudo mount /mnt/backup
 ```
@@ -62,9 +62,12 @@ $ sudo cryptsetup close backup
 Restoring VMs from a backup
 ---------------------------
 
-1.  Mount the media with your backups
+1.  Mount the medium containing your VM backups
+
+(It is advisable to script this to ensure the right UUID is always attached to the right volume)
 
 ``` {.wiki}
+$ sudo cryptsetup open --type luks UUID=the-long-UUID-of-your-DEVICE backup
 $ sudo mount /mnt/backup
 ```
 
@@ -77,3 +80,10 @@ $ sudo qvm-backup-restore /mnt/backup/<specific_backup_dir>
 The `qvm-backup-restore` tool will restore all the VMs (and any backed up custom template VMs), update the Qubes database and add appmenus for the restored VMs. Your existing VMs will not be removed.
 
 If there is a name conflict, i.e. you try restoring a VM with the same name as a VM already on the host, `qvm-backup-restore` will refuse to continue and will ask you to remove (or rename) the conflicting VM from the host first.
+
+1.  Unmount your backup medium
+
+``` {.wiki}
+$ sudo umount /mnt/backup
+$ sudo cryptsetup close backup
+```
