@@ -33,13 +33,8 @@ $ sudo mkfs.ext4 -m 0 /dev/mapper/backup
 1.  Mount the encrypted medium on which the backup will be stored
 
 ``` {.wiki}
-$ sudo mkdir /backup
-$ sudo blkid /dev/mapper/backup (this is your volume UUID)
-$ sudo vi /etc/fstab
-(add a line similar to this:
-UUID=the-long-UUID-of-your-VOLUME /mnt/backup ext4 defaults 1 2
-)
-$ sudo mount /mnt/backup
+$ sudo mkdir /mnt/backup
+$ sudo mount /dev/mapper/backup /mnt/backup
 ```
 
 Now anything we store in /mnt/backup is stored on the encrypted LUKS volume of our external USB drive.
@@ -68,7 +63,7 @@ Restoring VMs from a backup
 
 ``` {.wiki}
 $ sudo cryptsetup open --type luks UUID=the-long-UUID-of-your-DEVICE backup
-$ sudo mount /mnt/backup
+$ sudo mount /dev/mapper/backup /mnt/backup
 ```
 
 1.  Restore VMs
