@@ -9,14 +9,41 @@ Hardware Compatibility List (HCL) for All Qubes OS Releases
 
 **Legend**
 
--   **Green**: The reporter has clearly stated that **all** components and features are working correctly.
--   **White**: The reporter has sent an HCL Info output which indicates everything is OK without any comments.
--   **Yellow**: Some non-required feature is missing (e.g., VT-d), or manual tweaking is required in order to get some components to work.
--   **Red**: Some primary feature is not working. These are usually machines with poor or nonexistent Linux support in general.
--   **OK**: The feature is working correctly.
--   **X**: The feature does not work or is not present.
--   An asterisk (\*) indicates that some kind of tweaking is needed.
--   A blank cell indicates that we lack information about a feature.
+**Background colors**
+
+Green
+
+The reporter has clearly stated that **all** components and features are working correctly.
+
+White
+
+The reporter has sent an HCL Info output which indicates everything is OK without any comments.
+
+Yellow
+
+Some non-required feature is missing (e.g., VT-d), or manual tweaking is required in order to get some components to work.
+
+Red
+
+Some primary feature is not working. These are usually machines with poor or nonexistent Linux support in general.
+
+**Marks**
+
+OK
+
+The feature is working correctly.
+
+X
+
+The feature does not work or is not present.
+
+\*
+
+An asterisk (\*) indicates that some kind of tweaking is needed.
+
+ 
+
+A blank cell indicates that we lack information about a feature.
 
 **Device**
 
