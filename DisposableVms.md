@@ -4,8 +4,8 @@ title: DisposableVms
 permalink: /wiki/DisposableVms/
 ---
 
-Using Disposable VMs
-====================
+Disposable VMs (DispVMs)
+========================
 
 Background
 ----------
@@ -81,3 +81,8 @@ lrwxrwxrwx 1 joanna joanna 45 Mar 11 13:59 default_dvm.conf -> /var/lib/qubes/ap
 lrwxrwxrwx 1 joanna joanna 49 Mar 11 13:59 default_savefile -> /var/lib/qubes/appvms/f17-yellow-dvm/dvm-savefile
 lrwxrwxrwx 1 joanna joanna 47 Mar 11 13:59 savefile_root -> /var/lib/qubes/vm-templates/f17-yellow/root.img
 ```
+
+Disposable VMs and Local Forensics
+----------------------------------
+
+At this time, DispVMs should not be relied upon to circumvent local forensics, as they do not run entirely in RAM. For details, see [​this thread](https://groups.google.com/d/topic/qubes-devel/QwL5PjqPs-4/discussion).
