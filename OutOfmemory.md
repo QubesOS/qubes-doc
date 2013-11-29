@@ -21,7 +21,7 @@ qvm-start <VMname>
 sudo xl console <VMname>
 ```
 
-If this does not work, check the size of /var/lib/qubes/qubes.xml. If it is zero, you'll need to use one of the file backup (stored in /var/lib/qubes/backup), hopefully you have the current data there. Find the most recent one and place in /var/lib/qubes/qubes.xml instead of empty file.
+If this does not work, check the size of /var/lib/qubes/qubes.xml. If it is zero, you'll need to use one of the file backup (stored in /var/lib/qubes/backup), hopefully you have the current data there. Find the most recent one and place in /var/lib/qubes/qubes.xml instead of the empty file.
 
 In any case you'll need some disk space to start the VM. Check "df" output if you have some. If not, some hints how to free some disk space:
 
@@ -31,7 +31,7 @@ In any case you'll need some disk space to start the VM. Check "df" output if yo
 sudo yum clean all
 ```
 
-1.  Delete .img files of a less important VM (that will be lost), that can be found in
+1.  Delete .img files of a less important VM, that can be found in
 
 /var/lib/qubes/appvms/. Then, when the system is working again, cleanup the rest with:
 
@@ -39,9 +39,13 @@ sudo yum clean all
 qvm-remove <VMname>
 ```
 
+With this method you lose one VM data, but it'll more securely work.
+
 1.  Decrease filesystem safety margin (5% by default):
 
-sudo tune2fs -m 4 /dev/mapper/vg\_dom0-lv\_root
+``` {.wiki}
+sudo tune2fs -m 4 /dev/mapper/vg_dom0-lv_root
+```
 
 1.  Remove some unneeded files in dom0 home (if you have one, most likely no).
 
