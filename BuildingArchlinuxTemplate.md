@@ -210,7 +210,7 @@ You can check the current archlinux pulseaudio version like this:
 sudo chroot chroot-archlinux/ pacman -Qi pulseaudio
 ```
 
-The sound does not work in VMs and there are messages related to pulse segfault in glibc when running dmesg
------------------------------------------------------------------------------------------------------------
+The sound does not work in AppVMs and there are messages related to pulse segfault in glibc when running dmesg
+--------------------------------------------------------------------------------------------------------------
 
 This is apparently a bug in Archlinux pulseaudio package 4.0-6. The packages pulseaudio-4.0-2 and libpulse-4.0-2 are known to work and can be downloaded and reinstalled manually.
