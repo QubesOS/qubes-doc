@@ -16,4 +16,4 @@ df
 
 in dom0 terminal.
 
-follows ...
+A system in out of memory condition should be able to boot, but may be unable to load a desktop manager. In this case it is possible to login to dom0 terminal with Alt + Ctrl + F2. To recover disk space
