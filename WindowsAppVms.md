@@ -50,7 +50,29 @@ qvm-prefs <your-appvm-name>
 Using Windows AppVMs in seamless mode (Qubes R2 Beta 3 and later)
 -----------------------------------------------------------------
 
-TODO
+Once you start a Windows-based AppVM with Qubes Tools installed, you can easily start individual applications from the VM (note the `-a` switch used here, which will auto-start the VM if it is not running):
+
+``` {.wiki}
+qvm-run -a my-win7-appvm explorer.exe
+```
+
+\<SCREEN\>
+
+Also, the inter-VM services work as usual -- e.g. to request opening a document or URL in the Windows AppVM from another VM:
+
+``` {.wiki}
+[user@work ~]$ qvm-open-in-vm work-win7 roadmap.pptx
+```
+
+``` {.wiki}
+[user@work ~]$ qvm-open-in-vm work-win7 http://www.invisiblethingslab.com
+```
+
+... just like in case of Linux AppVMs. Of course all those operations are governed by central policy engine running in Dom0 -- if the policy
+
+Inter-VM file copy and clipboard works for Windows AppVMs the same way as for Linux AppVM (except that we don't provide a command line wrapper, `qvm-copy-to-vm` in Windows VMs) -- to copy files from Windows AppVMs just right-click on the file in Explorer, and choose: Send To-\> Other AppVM.
+
+\<SCREEN\>
 
 Forcing Windows AppVM into full desktop mode
 --------------------------------------------
