@@ -4,5 +4,5 @@ title: TroubleShooting
 permalink: /wiki/TroubleShooting/
 ---
 
--   [Out of memory error](/wiki/OutOfmemory)
+-   [Home directory is out of disk space error](/wiki/OutOfmemory)
 
