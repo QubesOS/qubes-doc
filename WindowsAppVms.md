@@ -88,9 +88,19 @@ Qubes allows HVM VMs to share a common root filesystem from a select Template VM
 qvm-create --hvm-template win7-x64-template -l green
 ```
 
-... and install Windows OS (or other OS) into this template the same way as you would install it into a normal HVM -- please see [this page](/wiki/HvmCreate) instructions. However, it would make lots of sense to store the `C:\Users` directory on the 2nd disk which is automatically exposed by Qubes to all HVMs. This 2nd disk is backed by the `private.img` file in the AppVMs' and is not reset upon AppVMs reboot, so the user's directories and profiles would survive the AppVMs reboot, unlike the "root" filesystem which will be reverted to the "golden image" from the Template VM automatically.
+... and install Windows OS (or other OS) into this template the same way as you would install it into a normal HVM -- please see [this page](/wiki/HvmCreate) instructions. However, it would make lots of sense to store the `C:\Users` directory on the 2nd disk which is automatically exposed by Qubes to all HVMs. Please consult your OS documentation on how to move the user's directories to a 2nd disk -- there are at least three ways of how to achieve that on Windows OS:
 
-For this reason it also makes sense to disable update for all the Windows-based AppVMs -- of course this should be done in the Template VM, not in individual AppVMs, because the system-wide setting are stored in the root filesystem (which holds the system-wide registry hives).
+-   By choosing special options during installation
+-   By creating links of C:\\Users to the 2nd disk
+-   By modifying registry entries which define where the user profiles are stored.
+
+Please note that the 2nd disk is not formatted and so this should be done within the OS. The screenshots below show how to do this on Windows 7:
+
+[![No image "windows-private-disk-formatting-2.png" attached to WindowsAppVms](/chrome/common/attachment.png "No image "windows-private-disk-formatting-2.png" attached to WindowsAppVms")](/attachment/wiki/WindowsAppVms/windows-private-disk-formatting-2.png) [![No image "windows-private-disk-formatting-3.png" attached to WindowsAppVms](/chrome/common/attachment.png "No image "windows-private-disk-formatting-3.png" attached to WindowsAppVms")](/attachment/wiki/WindowsAppVms/windows-private-disk-formatting-3.png)
+
+This 2nd disk is backed by the `private.img` file in the AppVMs' and is not reset upon AppVMs reboot, so the user's directories and profiles would survive the AppVMs reboot, unlike the "root" filesystem which will be reverted to the "golden image" from the Template VM automatically.
+
+For this reason it also makes sense to disable Automatic Updates for all the Windows-based AppVMs -- of course this should be done in the Template VM, not in individual AppVMs, because the system-wide setting are stored in the root filesystem (which holds the system-wide registry hives).
 
 Once the template has been created and installed it is easy to create AppVMs based on:
 
