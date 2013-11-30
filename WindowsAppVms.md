@@ -56,7 +56,7 @@ Once you start a Windows-based AppVM with Qubes Tools installed, you can easily 
 qvm-run -a my-win7-appvm explorer.exe
 ```
 
-\<SCREEN\>
+[![No image "windows-seamless-4.png" attached to WindowsAppVms](/chrome/common/attachment.png "No image "windows-seamless-4.png" attached to WindowsAppVms")](/attachment/wiki/WindowsAppVms/windows-seamless-4.png) [![No image "windows-seamless-1.png" attached to WindowsAppVms](/chrome/common/attachment.png "No image "windows-seamless-1.png" attached to WindowsAppVms")](/attachment/wiki/WindowsAppVms/windows-seamless-1.png)
 
 Also, the inter-VM services work as usual -- e.g. to request opening a document or URL in the Windows AppVM from another VM:
 
@@ -72,7 +72,7 @@ Also, the inter-VM services work as usual -- e.g. to request opening a document 
 
 Inter-VM file copy and clipboard works for Windows AppVMs the same way as for Linux AppVM (except that we don't provide a command line wrapper, `qvm-copy-to-vm` in Windows VMs) -- to copy files from Windows AppVMs just right-click on the file in Explorer, and choose: Send To-\> Other AppVM.
 
-\<SCREEN\>
+[![No image "windows-seamless-7.png" attached to WindowsAppVms](/chrome/common/attachment.png "No image "windows-seamless-7.png" attached to WindowsAppVms")](/attachment/wiki/WindowsAppVms/windows-seamless-7.png)
 
 Forcing Windows AppVM into full desktop mode
 --------------------------------------------
