@@ -184,8 +184,10 @@ Please note that as of now Qubes does not support shared templates for HVM domai
 
 In the near future we plan on introducing shared template also for HVM domains, hopefully solving the problems described above.
 
-Installing Qubes support tools in Windows 7 VMs
------------------------------------------------
+~~Installing Qubes support tools in Windows 7 VMs~~ (only for R2 Beta 2)
+------------------------------------------------------------------------
+
+Note: the R2 Beta 3 (which is coming soon) has automated most of the actions described below -- please see [this page instead](/wiki/WindowsAppVms).
 
 Qubes support tools for Windows VMs is a set of programs and drivers that provide integration of Windows VMs with the rest of the Qubes system. Currently the following features become available for Windows VMs after installation of those tools:
 
