@@ -82,4 +82,18 @@ TODO
 Using template-based Windows AppVMs (Qubes R2 Beta 3 and later)
 ---------------------------------------------------------------
 
-TODO
+Qubes allows HVM VMs to share a common root filesystem from a select Template VM, just like it is done for Linux AppVMs. This mode is not limited to Windows AppVMs, and can be used for any HVM (e.g. FreeBSD running in a HVM). In order to create a HVM TemplateVM one can use the following command:
+
+``` {.wiki}
+qvm-create --hvm-template win7-x64-template -l green
+```
+
+... and install Windows OS (or other OS) into this template the same way as you would install it into a normal HVM -- please see [this page](/wiki/HvmCreate) instructions. However, it would make lots of sense to store the `C:\Users` directory on the 2nd disk which is automatically exposed by Qubes to all HVMs. This 2nd disk is backed by the `private.img` file in the AppVMs' and is not reset upon AppVMs reboot, so the user's directories and profiles would survive the AppVMs reboot, unlike the "root" filesystem which will be reverted to the "golden image" from the Template VM automatically.
+
+For this reason it also makes sense to disable update for all the Windows-based AppVMs -- of course this should be done in the Template VM, not in individual AppVMs, because the system-wide setting are stored in the root filesystem (which holds the system-wide registry hives).
+
+Once the template has been created and installed it is easy to create AppVMs based on:
+
+``` {.wiki}
+qvm-create --hvm <new windows appvm name> --template <name of template vm> --label <label color>
+```
