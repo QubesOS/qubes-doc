@@ -85,3 +85,10 @@ When you create a new domain you can choose which template this VM should be bas
 ``` {.wiki}
 qvm-create <vmname> --template <templatename> --label <label>
 ```
+
+Temporarily allowing networking for software installation
+---------------------------------------------------------
+
+Some applications cannot be installed using the standard yum repositories, and need to be manually downloaded and installed. These applications are less secure. So it is recommended to install them only in a Standalone VM.
+
+When the installation requires internet connection to access repositories, it will not complete because Standalone VM firewall rules only allow connection to standard yum repositories. So it is necessary to modify firewall rules to allow internet access. Of course, as soon as software installation is completed, firewall rules should be returned to the default state.
