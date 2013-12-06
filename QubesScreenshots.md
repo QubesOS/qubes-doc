@@ -19,9 +19,15 @@ In this example, the word processor runs in the “work” domain, which has bee
 
 * * * * *
 
-[![No image "r2b1-two-win-vms-3.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "r2b1-two-win-vms-3.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/r2b1-two-win-vms-3.png)
+[![No image "r2b3-windows-seamless-1.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "r2b3-windows-seamless-1.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/r2b3-windows-seamless-1.png)
 
-Qubes Release 2 can also run Windows domains, though, at the moment, there is no seamless GUI virtualization for Windows domains. (I.e., all the Windows VM's applications are displayed within one window.) Other Qubes features, such as the secure inter-VM clipboard, secure file copy, and qrexec in general, all work fine with Windows domains via our (proprietary) Qubes Windows Tools, which must be installed within Windows VMs). In R2 Beta 3, we plan to also introduce seamless GUI mode for Windows VMs. (Linux domains have had seamless GUI integration since day one.)
+Qubes Release 2 can also run Windows AppVMs in seamless mode, integrated onto the common Qubes trusted desktop, just like Linux AppVMs! The seamless GUI integration has been introduced in Qubes R2 Beta 3. This requires our dedicated Qubes Windows Support Tools to be installed in the Windows VMs first. The Qubes Windows Tools are proprietary but we distribute the binaries for free with current Qubes OS releases.
+
+* * * * *
+
+[![No image "r2b3-windows-seamless-filecopy.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "r2b3-windows-seamless-filecopy.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/r2b3-windows-seamless-filecopy.png)
+
+Windows AppVMs are fully integrated with the rest of the Qubes OS system, which includes things such as secure, policy governed, inter-VM file copy, clipboard, and generally whole our elastic qrexec infrastructure for secure inter-VM RPC! Starting with Qubes R2 Beta 3 we also support HVM-based templates allowing to instantly create many Windows AppVMs with shared "root filesystem" from the Template VM (but one should ensure their license allows for such instantiation of the OS in the template). Just like with Linux AppVMs!
 
 * * * * *
 
@@ -91,4 +97,4 @@ And some more screenshots:
 
 [![No image "r2b2-kde-red-and-green-terminals.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "r2b2-kde-red-and-green-terminals.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/r2b2-kde-red-and-green-terminals.png)
 
-[![No image "r2b2-windows-hvm-power-point.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "r2b2-windows-hvm-power-point.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/r2b2-windows-hvm-power-point.png)
+[![No image "r2b3-windows-seamless-2.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "r2b3-windows-seamless-2.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/r2b3-windows-seamless-2.png)
