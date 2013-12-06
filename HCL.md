@@ -318,6 +318,32 @@ needs kernel downgrade to 3.7.4
 
 [​Zrubi](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
 
+HP EliteBook 8540p
+ (Arrandale; NVIDIA GT216; i5-2540M; BIOS:F.0C)
+
+OK
+
+OK
+
+OK
+
+[​read more](https://groups.google.com/d/topic/qubes-users/o_FTsPW6GD8/discussion)
+
+[Olivier Médoc](https://groups.google.com/d/msg/qubes-users/o_FTsPW6GD8/bjAD-CSpRKsJ)
+
+HP EliteBook 8560p
+ (Sandy Bridge; ATI Caicos; i5-2540M; BIOS: F.08)
+
+\*
+
+OK
+
+OK
+
+[​read more](https://groups.google.com/d/topic/qubes-users/o_FTsPW6GD8/discussion)
+
+[Olivier Médoc](https://groups.google.com/d/msg/qubes-users/o_FTsPW6GD8/bjAD-CSpRKsJ)
+
 HP Pavilion Sleekbook 14-B030TU
  (Ivy Bridge; Intel HD Graphics; i5-3317; BIOS F.06)
 
