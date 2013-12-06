@@ -400,13 +400,22 @@ OK
 [Ulrich Pfeifer](https://groups.google.com/d/msg/qubes-users/UCuF41rq758/BRhc7lTecsMJ)
 
 Lenovo Thinkpad x220
- (HD?000; i5-?)
+ (Sandy Bridge; HD Graphics; i5-2520M; BIOS: 1.39)
 
 OK
 
 OK
+
+OK
+
+OK
+
+OK
+
+[​read more](https://groups.google.com/d/topic/qubes-users/-b8b9fpo0UU/discussion)
 
 [​Stefan Boresch](https://groups.google.com/group/qubes-devel/msg/f41578eef913446a)
+ [​Matt Tracy](https://groups.google.com/d/msg/qubes-users/-b8b9fpo0UU/RFh6HiWqt5oJ)
 
 Lenovo Thinkpad x230
  (Ivy Bridge; HD Graphics; i5-3320M; BIOS:2.51)
