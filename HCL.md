@@ -7,6 +7,8 @@ permalink: /wiki/HCL/
 Hardware Compatibility List (HCL) for All Qubes OS Releases
 ===========================================================
 
+**Note:** The HCL is a compilation of reports generated and submitted by users. Except in the case of developer-reported entries, the Qubes team has not independently verified the accuracy of these reports. If using the list to make a purchasing decision, we recommend that you first test the hardware yourself, if possible.
+
 **Legend**
 
 **Background colors**
