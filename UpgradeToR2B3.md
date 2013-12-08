@@ -12,7 +12,7 @@ Existing users of Qubes R2 beta2 can upgrade their systems to the latest R2 beta
 Upgrade all Template and Standalone VM(s)
 -----------------------------------------
 
-By default, in Qubes R2, there is only one Template VM, however users are free to create more Template VMs for special purposes, as well as Standalone VMs. More information on using multiple Template VMs, as well as Standalone VMs, can be found [SoftwareUpdateVM here]. The steps described in this section should be repeated in *all* user's Template and Standalone VMs.
+By default, in Qubes R2, there is only one Template VM, however users are free to create more Template VMs for special purposes, as well as Standalone VMs. More information on using multiple Template VMs, as well as Standalone VMs, can be found [here](/wiki/SoftwareUpdateVM). The steps described in this section should be repeated in *all* user's Template and Standalone VMs.
 
 It is critical to complete this step **before** proceeding to dom0 upgrade. Otherwise you will most likely ends with unusable system.
 
