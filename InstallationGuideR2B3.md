@@ -67,7 +67,11 @@ Installing updates is very easy and can be done using the "Update" button in the
 Troubleshooting problems with the installer
 -------------------------------------------
 
-TODO
+If the installer fails for some reason, typically because of the graphics card not being correctly supported, it is possible to try booting the installer with a different kernel -- to do that, choose Troubleshooting menu in the Installer Welcome screen, and later choose an option to proceed with a different kernel:
+
+[SCREEN]
+
+The installer ships with 3 different kernels (3.11, 3.9 and 3.7) and those same kernels are also installed so it is later always possible to boot the Qubes OS using the select Dom0 kernel via simply selecting proper GRUB entry.
 
 Known Issues
 ------------
