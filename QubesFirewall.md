@@ -96,7 +96,7 @@ iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 192.168.0.10 -j DNAT
 Code the appropriate new filtering firewall rule to allow new connections for the service:
 
 ``` {.wiki}
-iptables -I FORWARD 2 -i eth0 -d 10.137.1.x -p tcp --dport 443 -m state --state NEW -j ACCEPT
+iptables -I FORWARD 2 -i eth0 -d 10.137.1.x -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
 ```
 
 Note: If you want to expose the service on multiple interfaces, repeat the steps described in part 1 for each interface.
@@ -122,7 +122,7 @@ sudo nano /rw/config/rc.local
 
 /sbin/iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 192.168.0.10 -j DNAT --to-destination 10.137.1.x
 
-/sbin/iptables -I FORWARD 2 -s 192.168.0.0/24 -d 10.137.1.x -p tcp --dport 443 -m state --state NEW -j ACCEPT
+/sbin/iptables -I FORWARD 2 -s 192.168.0.0/24 -d 10.137.1.x -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
 ```
 
 Make this file executable:
@@ -146,7 +146,7 @@ iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 10.137.1.x -j DNAT -
 Code the appropriate new filtering firewall rule to allow new connections for the service:
 
 ``` {.wiki}
-iptables -I FORWARD 2 -i eth0 -s 192.168.0.0/24 -d 10.137.2.y -p tcp --dport 443 -m state --state NEW -j ACCEPT
+iptables -I FORWARD 2 -i eth0 -s 192.168.0.0/24 -d 10.137.2.y -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
 ```
 
 > Note: If you do not wish to limit the IP addresses connecting to the service, remove the ` -s 192.168.0.1/24 `
@@ -162,7 +162,7 @@ Store these commands in ` /rw/config/qubes_firewall_user_script `:
 
 /sbin/iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 10.137.1.x -j DNAT --to-destination 10.137.2.y
 
-/sbin/iptables -I FORWARD 4 -i eth0 -s 192.168.0.0/24 -d 10.137.2.y -p tcp --dport 443 -m state --state NEW -j ACCEPT
+/sbin/iptables -I FORWARD 4 -i eth0 -s 192.168.0.0/24 -d 10.137.2.y -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
 ```
 
 And again make this file executable:
@@ -178,7 +178,7 @@ Here no routing is required, only filtering. Proceed in the same way as above bu
 ``` {.wiki}
 #!/bin/sh
 
-/sbin/iptables -I INPUT 5 -p tcp --dport 443 -m state --state NEW -j ACCEPT
+/sbin/iptables -I INPUT 5 -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
 ```
 
 This time testing should allow connectivity to the service.
