@@ -65,6 +65,8 @@ Note: if the user has custom Template VMs (i.e. other than the default template,
 Installing Updates
 ------------------
 
+NOTE: Updates has been released after R2B3 ISO has been built -- it is recommended to install Dom0 updates shortly after installation to resolve some of the issues mentioned in the section below (Known Issues).
+
 Installing updates is very easy and can be done using the "Update" button in the Qubes Manager. Alternatively it can also be done from command prompt -- see the following for more details:
 
 -   For installing updates for Dom0 -- see instructions [here](/wiki/SoftwareUpdateDom0).
@@ -89,6 +91,10 @@ Known Issues
 -   When restoring service VMs from a backup (such as custom netvms, firewallvms, etc) their icons might not be preserved in the "Start Menu".
 
 -   If you're GPU is not correctly supported by the Dom0 kernel (e.g. the 3D desktop effects do not run smoothly) then you might experience "heaviness" with Windows 7-based AppVMs. In that case, please solve the problem with your GPU support in Dom0 in the first place (by using a different kernel), or install Qubes OS on a different system.
+
+-   For HVMs without Qubes Tools installed the GUI window will not be shown unless 'debug' flag is enabled for the VM. This has been fixed in `qubes-core-dom0` package \>= 2.1.35 -- please ensure you install updates after installation to resolve this issue.
+
+-   Clocks might not get syncs in the VMs for up to several minutes after resume from sleep. This has been fixed in `qubes-core-dom0-linux` package \>= 2.0.4 -- please ensure you install updates after installation to resolve this issue.
 
 Getting Help
 ------------
