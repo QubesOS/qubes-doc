@@ -56,7 +56,11 @@ The installer loads Xen right at the beginning, so chances are high that if you 
 Upgrading from Qubes R1 or R2 Beta 2
 ------------------------------------
 
-TODO
+The easiest and safest way to upgrade to Qubes R2B3 is to install it from scratch and use [qubes backup and restore tools](/wiki/BackupRestore) for migrating of all of the user VMs.
+
+Users can also try a manual upgrade procedure that has been described [here](/wiki/UpgradeToR2B3).
+
+Note: if the user has custom Template VMs (i.e. other than the default template, e.g. created from it by cloning), or Standalone VMs, then the user should perform manual upgrade from R2B2 to R2B3, as described under the link given above.
 
 Installing Updates
 ------------------
