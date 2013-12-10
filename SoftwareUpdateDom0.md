@@ -18,8 +18,8 @@ However, we anticipate some other situations when updating Dom0 software might b
 -   Correcting non-security related bugs (e.g. new buttons for qubes manager)
 -   Adding new features (e.g. GUI backup tool)
 
-How to do that? (in R1 Beta 2 and later)
-----------------------------------------
+How to do that?
+---------------
 
 Start a console in Dom0 and then run one of the following command:
 
@@ -53,27 +53,4 @@ You can also pass --enablerepo= option in order to enable optional repositories 
     sudo yum downgrade package-version
     ```
 
-How to do that? (in R1 Beta 1)
-------------------------------
 
-Currently Dom0 update procedure requires command line -- in the future we will make it available from the GUI manager.
-
-First, start the console in Dom0, and switch to root. Then attach Dom0 to the netvm, and run yum update:
-
-``` {.wiki}
-$ sudo bash
-# qvm-dom0-network-via-netvm up
-# yum update
-```
-
-Note that by default there is only one repository enabled: ```qubes-dom0-current```.
-
-We strongly recommend to **reboot your system** after Dom0 update.
-
-Alternatively, if you don't want to reboot for some reason, you should not forget about detaching Dom0 from the network:
-
-``` {.wiki}
-# qvm-dom0-network-via-netvm down
-```
-
-In the future we will modify this update procedure so that it won't require attaching networking to Dom0. Most likely we will use a moderately-trusted system service VM to perform the download of the update rpm via network, and later copy this file to Dom0 using our secure file copy mechanism. Dom0 will then verify the signature on the RPM, and assuming it was ok, will install the rpm.
