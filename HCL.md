@@ -13,6 +13,10 @@ Hardware Compatibility List (HCL) for All Qubes OS Releases
 
 **Background colors**
 
+White
+
+We have not received any report jet
+
 Green
 
 The reporter has sent an HCL Info output which indicates everything is OK.
@@ -110,6 +114,12 @@ Qubes core developers
 
 Sony Vaio Z 12
  (2010 edition)
+
+OK
+
+OK
+
+[read more](/trac/wiki/SonyVaioTinkering)
 
 OK
 
