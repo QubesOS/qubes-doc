@@ -37,6 +37,7 @@ Advanced topics:
 -   [Tips for using Linux in HVM](/wiki/LinuxHVMTips)
 -   [Enabling Fullscreen mode for AppVMs](/wiki/FullScreenMode)
 -   [Using OpenPGP in Qubes](/wiki/UserDoc/OpenPGP)
+-   Installing [ZFS](/wiki/ZFS) in Qubes
 
 Command-line tools reference:
 
