@@ -43,7 +43,13 @@ If you prefer to use USB as a source for installation, then you just need to cop
 dd if=Qubes-R2-Beta3-x86_64-DVD.iso of=/dev/sdX
 ```
 
-**Be sure to use a correct device as the target in the dd command above (instead of sdX)**
+On windows you can use [​this](http://www.chrysocome.net/dd) tool. Example command would be (as Administrator):
+
+``` {.wiki}
+dd if=Qubes-R2-Beta3-x86_64-DVD.iso of=\\?\Device\Harddisk1\Partition0 bs=1M --size --progress
+```
+
+**Be sure to use a correct device as the target in the dd command above (instead of sdX or Harddisk1)**
 
 Before proceeding with the installation, you are encouraged to first read all the information on this page, especially the *Known Issues* paragraph.
 
