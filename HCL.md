@@ -57,7 +57,7 @@ A blank cell indicates that we lack information about a feature.
 
 **Reported by**
 
-Standard feautures
+Standard features
 
 VT-d
 
