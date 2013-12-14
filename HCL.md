@@ -224,6 +224,17 @@ OK
 
 [​Nukama](https://groups.google.com/d/msg/qubes-users/YcqMDcVYQh8/pk0B_9RfGQMJ)
 
+HP Compaq dc7900 Convertible Minitower
+ (Q45/Q43; E8400; BIOS 1.16)
+
+3.9.2-2
+
+OK
+
+OK
+
+[​Nukama](https://groups.google.com/d/msg/qubes-users/RYzkSFoMsxQ/ukXhBW4ybqQJ)
+
 R2 Beta2
 ========
 
