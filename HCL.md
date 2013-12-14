@@ -211,6 +211,19 @@ OK
 
 [​Zrubi](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
 
+**User Reported Desktops and Workstations**
+
+Lenovo ThinkCentre M71e
+ (HD Graphics 2000; H61; G620; BIOS 9QKT29AUS)
+
+3.11.1-2, 3.9.2-2, 3.7.4-5
+
+X
+
+OK
+
+[​Nukama](https://groups.google.com/d/msg/qubes-users/YcqMDcVYQh8/pk0B_9RfGQMJ)
+
 R2 Beta2
 ========
 
