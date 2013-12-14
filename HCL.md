@@ -218,9 +218,9 @@ Lenovo ThinkCentre M71e
 
 3.11.1-2, 3.9.2-2, 3.7.4-5
 
-X
-
 OK
+
+X
 
 [​Nukama](https://groups.google.com/d/msg/qubes-users/YcqMDcVYQh8/pk0B_9RfGQMJ)
 
