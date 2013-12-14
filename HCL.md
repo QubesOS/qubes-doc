@@ -64,6 +64,7 @@ VT-d
 Remarks
 
 Standard features
+(kernel)
 
 VT-x
 (HVM)
@@ -234,6 +235,17 @@ OK
 [​read more](https://groups.google.com/group/qubes-devel/msg/7418e7084c2de99f?hl=en)
 
 [​Erik Edin](https://groups.google.com/group/qubes-devel/msg/7418e7084c2de99f?hl=en)
+
+Dell Latitude E6430
+ (Intel HD graphics; Ivy Bridge; i5-3340M, BIOS: A11)
+
+3.7.4
+
+OK
+
+OK
+
+[​Zrubi](https://groups.google.com/d/msg/qubes-users/pAVGe04ZC48/AJwY6yd7LeIJ)
 
 Dell Latitude E6520
 
