@@ -122,7 +122,7 @@ OK
 
 OK
 
-[read more](/trac/wiki/SonyVaioTinkering)
+[​read more](/trac/wiki/SonyVaioTinkering)
 
 Qubes core developers
 
@@ -863,3 +863,180 @@ X
 [read more](https://groups.google.com/d/topic/qubes-users/V9BLpdf4xCs/discussion)
 
 [Qubes Fan](https://groups.google.com/d/msg/qubes-users/V9BLpdf4xCs/v4XcOjLT6uUJ)
+
+Qubes R2 Beta1
+==============
+
+Device
+
+Standard features
+
+VT-x
+(HVM)
+
+VT-d
+
+Remarks
+
+Reported by
+
+**Developer Reported Machines**
+
+Lenovo Thinkpad T420
+
+OK
+
+OK
+
+OK
+
+AEM works
+
+Qubes core developers
+
+Lenovo Thinkpad T420s
+
+OK
+
+OK
+
+OK
+
+AEM works
+
+Qubes core developers
+
+Lenovo Thinkpad T61
+ (Nvidia Quadro NVS 140M)
+
+OK
+
+OK
+
+X
+
+Qubes core developers
+
+Samsung X460
+
+OK
+
+OK
+
+X
+
+Qubes core developers
+
+Sony Vaio Z 12
+ (2010 edition)
+
+OK
+
+OK
+
+OK
+
+[​read more](/trac/wiki/SonyVaioTinkering)
+
+Qubes core developers
+
+Dell Latitude E6420
+ (Intel HD graphics; Sandy Bridge; i5-2520M)
+
+OK
+
+OK
+
+OK
+
+needs kernel 3.4.17+
+
+Qubes core developers
+
+**User Reported Machines**
+
+ASUS UX-31
+
+\*
+
+[​read more](https://groups.google.com/d/topic/qubes-devel/6I07Bbzn5M4/discussion)
+
+[​Stephen Boyd](https://groups.google.com/d/topic/qubes-devel/6I07Bbzn5M4/discussion)
+
+Dell XPS 13
+ (i5; intel HD; sandy bridge; BIOS A03)
+
+OK
+
+[​read more](https://groups.google.com/d/msg/qubes-devel/7JumqdldVJM/n9TiDVxc2jkJ)
+
+[​j](https://groups.google.com/d/msg/qubes-devel/7JumqdldVJM/n9TiDVxc2jkJ)
+
+Fujitsu S751
+ (HD3000; QM67; i5-2520M; BIOS 1.18)
+
+OK
+
+OK
+
+OK
+
+[​Zrubi](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
+
+HP Pavilion Sleekbook 14-B030TU
+ (i5-3317U; BIOS F.06)
+
+OK
+
+OK
+
+OK
+
+[​read more](https://groups.google.com/d/topic/qubes-devel/ZC_SQJhXVOM/discussion)
+
+[​Stephen Boyd](https://groups.google.com/d/msg/qubes-devel/ZC_SQJhXVOM/4aLjEc7GIsUJ)
+
+Lenovo Thinkpad T430
+ (i5-3320)
+
+OK
+
+OK
+
+OK
+
+[​Tunguuz](https://groups.google.com/d/msg/qubes-devel/S_VG_jgtpBo/VngCPK2W5FcJ)
+
+Lenovo Thinkpad T430s
+ (i5-3320M; HD4000; QM77; BIOS 2.05)
+
+OK
+
+OK
+
+OK
+
+[​read more](https://groups.google.com/d/topic/qubes-devel/Z9seyOT46Ro/discussion)
+
+[​cprise](https://groups.google.com/d/msg/qubes-devel/Z9seyOT46Ro/wX6tsrxE84sJ)
+
+Lenovo Thinkpad X61t
+
+OK
+
+[​George Walker](https://groups.google.com/d/msg/qubes-devel/4IrF1A6sa3U/QIQe-dNc4tEJ)
+
+Samsung Series 7 Chronos NP700Z5C
+ (nVidia Optimus; i7-3635QM; BIOS P04ABJ)
+
+OK
+
+OK
+
+OK
+
+[​read more](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
+
+[​Outback Dingo](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
+
+
