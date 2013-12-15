@@ -129,6 +129,10 @@ Yes
 
 Yes
 
+Yes
+
+Yes
+
 No
 
 [marmarek (Qubes core developer)](https://groups.google.com/d/msg/qubes-devel/S-leNH8AYsU/WL_XdNAhBkQJ)
@@ -148,6 +152,10 @@ Qubes core developers
 
 Dell Latitude E6420
  (i5-2520M; Sandy Bridge; Intel HD graphics; BIOS A17)
+
+Yes
+
+Yes
 
 Yes
 
