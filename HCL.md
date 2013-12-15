@@ -48,11 +48,11 @@ Some primary feature is not working. These are usually machines with poor or non
 
 **Marks**
 
-OK
+Yes,OK
 
 The feature is working correctly.
 
-X
+No,X
 
 The feature does not work or is not present.
 
@@ -72,8 +72,16 @@ Qubes R2 Beta3
 
 Device
 
-Standard features
-(kernel)
+Usable
+
+Kernel
+3.11
+
+Kernel
+3.9
+
+Kernel
+3.7
 
 VT-x
 (HVM)
@@ -84,160 +92,198 @@ Remarks
 
 Reported by
 
-**Developer Reported Machines**
+**Laptop Devices**
 
 Lenovo Thinkpad T420s
- (Intel HD graphics; Sandy Bridge; i5-2520M)
+ (i5-2520M; Sandy Bridge; Intel HD graphics)
 
-OK
+Yes
 
-OK
+Yes
 
-OK
+Yes
+
+Yes
 
 Qubes core developers
 
 Lenovo Thinkpad T61
  (Nvidia Quadro NVS 140M)
 
-OK
+Yes
 
-OK
+Yes
 
-X
+Yes
+
+No
 
 Qubes core developers
 
 Samsung X460
+ (P8600; PM45; GeForce 9200M GS; BIOS 06LY.M038.20091110.JIP)
 
-OK
+Yes
 
-OK
+Yes
 
-X
+Yes
 
-Qubes core developers
+No
+
+[marmarek (Qubes core developer)](https://groups.google.com/d/msg/qubes-devel/S-leNH8AYsU/WL_XdNAhBkQJ)
 
 Sony Vaio Z 12
  (2010 edition)
 
-OK
+Yes
 
-OK
+Yes
+
+Yes
 
 [​read more](/trac/wiki/SonyVaioTinkering)
 
 Qubes core developers
 
 Dell Latitude E6420
- (Intel HD graphics; Sandy Bridge; i5-2520M)
+ (i5-2520M; Sandy Bridge; Intel HD graphics; BIOS A17)
 
-OK
+Yes
 
-OK
+Yes
 
-OK
+Yes
 
-Qubes core developers
+Yes
 
-**User Reported Laptops**
+[marmarek (Qubes core developer)](https://groups.google.com/d/msg/qubes-devel/S-leNH8AYsU/WL_XdNAhBkQJ)
 
 Apple MacBookPro
- (i7 M620)
+ (i7 M620; GeForce GT 330M)
 
-X
+Yes
 
-OK
+No
 
-X
-
-[​read more](https://groups.google.com/d/topic/qubes-devel/hag-MQDH_Vs/discussion)
+No Network, Chipset doesn't support VT-d! [​read more](https://groups.google.com/d/topic/qubes-devel/hag-MQDH_Vs/discussion)
 
 [​Alex Dubois](https://groups.google.com/d/msg/qubes-devel/hag-MQDH_Vs/pmJ7TIWUWAsJ)
 
 Apple MacBookPro
- (Intel HD Graphics, Ivy Bridge, i5-3210M)
+ (i5-3210M; Ivy Bridge; HD Graphics 4000)
 
-X
+Yes
 
-OK
+Yes
 
-OK
-
-[​read more](https://groups.google.com/d/topic/qubes-users/ZbjrseLxuPQ/discussion)
+No CPU VT-d support!? [​read more](https://groups.google.com/d/topic/qubes-users/ZbjrseLxuPQ/discussion)
 
 [​ph145h](https://groups.google.com/d/msg/qubes-users/ZbjrseLxuPQ/5Jx5DvpnwMMJ)
 
 ASUS X55A
 
-X
+No
 
-X
-
-X
+No
 
 [​read more](https://groups.google.com/d/topic/qubes-devel/2csjvHia9Rw/discussion)
 
 [​Zrubi](https://groups.google.com/d/msg/qubes-devel/2csjvHia9Rw/NRsqR0g6wIMJ)
 
 Dell Latitude E4300
- (Intel GMA 4500M; Mobile 4 Series Chipset; Core2 Duo P9600)
+ (P9600; GM45; GMA 4500MHD)
 
-X
+Yes
 
-OK
-
-OK
+Yes
 
 [​read more](https://groups.google.com/d/topic/qubes-devel/LNJqSbH0cOQ/discussion)
 
 [​Pablo Costa](https://groups.google.com/d/msg/qubes-devel/LNJqSbH0cOQ/VC9EwEDrXMQJ)
 
 Dell Latitude E6430
- (Intel HD graphics; Ivy Bridge; i5-3340M, BIOS: A11)
+ (i5-3340M; Ivy Bridge; Intel HD graphics; BIOS A11)
 
-3.7.4
+Yes
 
-OK
+Yes
 
-OK
+Yes
+
+Yes
 
 [​Zrubi](https://groups.google.com/d/msg/qubes-users/pAVGe04ZC48/AJwY6yd7LeIJ)
 
 Fujitsu S751
- (HD3000; QM67; i5-2520M; BIOS 1.18)
+ (i5-2520M; QM67; HD3000; BIOS 1.18)
 
-3.7.4
+Yes
 
-OK
+Yes
 
-OK
+Yes
+
+Yes
 
 [​Zrubi](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
 
-**User Reported Desktops and Workstations**
-
-Lenovo ThinkCentre M71e
- (HD Graphics 2000; H61; G620; BIOS 9QKT29AUS)
-
-3.11.1-2, 3.9.2-2, 3.7.4-5
-
-OK
-
-X
-
-[​Nukama](https://groups.google.com/d/msg/qubes-users/YcqMDcVYQh8/pk0B_9RfGQMJ)
+**Desktop, Workstation and Server**
 
 HP Compaq dc7900 Convertible Minitower
- (Q45/Q43; E8400; BIOS 1.16)
+ (E8400; Q45/Q43; BIOS 1.16)
 
-3.9.2-2
+\*
 
-OK
+No
 
-OK
+Yes
+
+No
+
+Yes
+
+Yes
+
+Problem with graphics on 3.11,3.7, only 2GB RAM.
 
 [​Nukama](https://groups.google.com/d/msg/qubes-users/RYzkSFoMsxQ/ukXhBW4ybqQJ)
+
+HP ProLiant DL360 G5
+ (E5440; 5000P; ATI ES1000; BIOS P58)
+
+Yes
+
+Yes
+
+Yes
+
+No
+
+Yes
+
+No
+
+Some video glitches, no audio hardware.
+
+[​Nukama](https://groups.google.com/d/msg/qubes-users/1CyVEStoVCI/RTRw8-aalsUJ)
+
+Lenovo ThinkCentre M71e
+ (G620; H61; HD Graphics 2000; BIOS 9QKT29AUS)
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+No
+
+[​Nukama](https://groups.google.com/d/msg/qubes-users/YcqMDcVYQh8/pk0B_9RfGQMJ)
 
 Latest Stable Release
 ---------------------
