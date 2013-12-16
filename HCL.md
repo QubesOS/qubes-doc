@@ -293,6 +293,49 @@ No
 
 [​Nukama](https://groups.google.com/d/msg/qubes-users/YcqMDcVYQh8/pk0B_9RfGQMJ)
 
+**Motherboards**
+
+BioStar A880GZ
+ (AM3+; 880G/SB850)
+
+\*
+
+\*
+
+Yes
+
+Yes
+
+[\#762](/trac/ticket/762)
+
+[​clewis](https://groups.google.com/d/msg/qubes-users/YcqMDcVYQh8/pk0B_9RfGQMJ)
+
+Biostar TA790GX A3+
+ (AM3; 790GX/SB750; BIOS 78DAA420)
+
+\*
+
+\*
+
+Yes
+
+Yes
+
+Yes
+
+No
+
+[\#762](/trac/ticket/762)
+
+Gigabyte GA-X79S-UP5 Wi-Fi
+ (2011; C606; BIOS 1.0)
+
+Yes
+
+Yes
+
+VT-d option in BIOS according to [manual](http://download.gigabyte.eu/FileList/Manual/mb-manual_ga-x79s-up5_e.pdf)
+
 Latest Stable Release
 ---------------------
 
