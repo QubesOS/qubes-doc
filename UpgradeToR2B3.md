@@ -4,10 +4,14 @@ title: UpgradeToR2B3
 permalink: /wiki/UpgradeToR2B3/
 ---
 
-Upgrading Qubes R2 beta2 to R2 beta3
-====================================
+Upgrading Qubes R2 Beta 2 to R2 Beta 3
+======================================
 
-Existing users of Qubes R2 beta2 can upgrade their systems to the latest R2 beta release by following the procedure below. As usual, it is advisable to backup the system before proceeding with the upgrade. While it is possible to upgrade the system **it is strongly recommended to reinstall it**. You will preserve all your data and settings thanks to [backup and restore tools](/wiki/BackupRestore).
+Current Qubes R2 Beta 2 (R2B2) systems can be upgraded in-place to the latest R2 Beta 3 (R2B3) release by following the procedure below. However, upgrading in-place is riskier than performing a clean installation, since there are more things which can go wrong. For this reason, **we strongly recommended that users perform a [clean installation](/wiki/InstallationGuideR2B3) of Qubes R2 Beta 3**.
+
+**Before attempting either an in-place upgrade or a clean installation, we strongly recommend that users back up the system by using the built-in [backup tool](/wiki/BackupRestore).**
+
+Experienced users may be comfortable accepting the risks of upgrading in-place. Such users may wish to first attempt an in-place upgrade. If nothing goes wrong, then some time and effort will have been saved. If something does go wrong, then the user can simply perform a clean installation, and no significant loss will have occurred (as long as the user [backed up](/wiki/BackupRestore) correctly!).
 
 Upgrade all Template and Standalone VM(s)
 -----------------------------------------
