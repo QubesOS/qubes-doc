@@ -32,6 +32,7 @@ This list is for helping users solve various daily problems with Qubes OS. Examp
 -   [HCL reports](/wiki/HCL#GeneratingandSubmittingNewReports).
 -   Installation problems.
 -   Hardware compatibility problems.
+-   Bug reports.
 -   How do I...?
 
 ### Read These First
