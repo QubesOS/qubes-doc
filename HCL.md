@@ -72,7 +72,7 @@ Qubes R2 Beta3
 
 Device
 
-Usable
+Runs out of the box
 
 Kernel
 3.11
@@ -213,7 +213,7 @@ Yes
 Dell Latitude E6430
  (i5-3340M; Ivy Bridge; Intel HD graphics; BIOS A11)
 
-Yes
+\*
 
 Yes
 
@@ -226,7 +226,7 @@ Yes
 Fujitsu S751
  (i5-2520M; QM67; HD3000; BIOS 1.18)
 
-Yes
+\*
 
 Yes
 
@@ -295,7 +295,7 @@ No
 
 **Motherboards**
 
-BioStar A880GZ
+Biostar A880GZ
  (AM3+; 880G/SB850)
 
 \*
