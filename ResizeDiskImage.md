@@ -20,6 +20,14 @@ To grow the private disk image of a AppVM beyond this limit [qubes-grow-private]
 qvm-grow-private <vm-name> <size>
 ```
 
+Note: Size is the target size (i.e. 4096MB or 16GB, ...), not the size to add to the existing disk.
+
+Note2: If once the VM is started, the disk is has not been increased, you can issue in the VM's terminal:
+
+``` {.wiki}
+sudo resize2fs /dev/xvdb
+```
+
 ### HVM disk image
 
 In this example we will grow the disk image of an HVM to 30GB.
