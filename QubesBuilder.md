@@ -74,6 +74,10 @@ cp builder.conf.default builder.conf
 # (make sure to leave no spaces around '=' sign!) 
 # NO_SIGN="1"
 
+# Download all components:
+
+make get-sources
+
 # And now to build all Qubes rpms (this will take a few hours): 
 
 make qubes 
