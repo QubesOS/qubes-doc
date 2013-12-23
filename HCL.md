@@ -236,6 +236,19 @@ Yes
 
 [​Zrubi](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
 
+Lenovo ThinkPad X220 (4290-W3W)
+ (i5-2520M; QM67; HD3000; BIOS 1.39)
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+[​Matt Tracy](https://groups.google.com/d/msg/qubes-users/5tNavg4MhT4/dFXsYHXOgu4J)
+
 **Desktop, Workstation and Server**
 
 HP Compaq dc7900 Convertible Minitower
