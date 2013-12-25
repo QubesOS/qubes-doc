@@ -236,6 +236,19 @@ Yes
 
 [​Zrubi](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
 
+Lenovo Thinkpad T430s (2352CTO)
+ (i5-3320M; Ivy Bridge; Intel HD graphics; BIOS 2.05)
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+[​cprise](https://groups.google.com/d/msg/qubes-users/Ll_pPP7glwI/jtRbKtQO_rMJ)
+
 Lenovo ThinkPad X220 (4290-W3W)
  (i5-2520M; QM67; HD3000; BIOS 1.39)
 
