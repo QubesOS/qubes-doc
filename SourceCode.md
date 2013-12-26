@@ -7,24 +7,25 @@ permalink: /wiki/SourceCode/
 Qubes Source Code Repositories
 ==============================
 
-All the Qubes code is kept in GIT repositories. We divided the project into several components, each of which has its own separate repository:
+All the Qubes code is kept in GIT repositories. We divided the project into several components, each of which has its own separate repository, some of them:
 
--   `core.git` -- the core Qubes infrastructure responsible for VM management, VM temaplates, fs sharing, etc.
--   `gui.git` -- GUI virtualization, both Dom0 and VM side.
--   `template-builder.git` - scripts and other files used to create Qubes templates and NetVM images.
+-   `core-admin.git` -- the core Qubes infrastructure responsible for VM management, VM temaplates, fs sharing, etc.
+-   `gui-daemon.git` -- GUI virtualization, Dom0 side.
+-   `gui-agent-linux.git` -- GUI virtualization, Linux VM side.
+-   `linux-template-builder.git` - scripts and other files used to create Qubes templates images.
 
-You can browse the repositories [​on line via GitWeb](http://git.qubes-os.org/gitweb/). The Qubes official repositories are in the `mainstream` directory.
+You can browse the repositories [​on line via GitWeb](http://git.qubes-os.org/gitweb/). The Qubes official repositories are in the `mainstream-rX` directory, where X is release number (1, 2, etc).
 
 To clone a repository:
 
 ``` {.wiki}
-git clone git://git.qubes-os.org/mainstream/<repo_name>.git <repo_name>
+git clone git://git.qubes-os.org/mainstream-r2/<repo_name>.git <repo_name>
 ```
 
 e.g.:
 
 ``` {.wiki}
-git clone git://git.qubes-os.org/mainstream/core.git core
+git clone git://git.qubes-os.org/mainstream-r2/core-admin.git core-admin
 ```
 
 Currently the preferred way of contributing to the project is by sending a patch via the project's mailing list (`git format-patch`).
