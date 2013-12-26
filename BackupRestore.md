@@ -56,7 +56,7 @@ Restoring from a Backup
 
 > You must also specify the directory in which the backup resides. If you followed the instructions in the previous section, "Creating a Backup," then your backup is most likely in the location you chose as the destination in step 3. For example, if you had chosen the `~/backups` directory of an AppVM as your destination in step 3, you would now select the same AppVM and again type `backups` into the **Backup directory** field.
 
-> **Note:** After you have typed the directory location of the backup in the **Backup directory** field, click the elipsis button (...) to the right of the field.
+> **Note:** After you have typed the directory location of the backup in the **Backup directory** field, click the ellipsis button `...` to the right of the field.
 
 1.  There are three options you may select when restoring from a backup:
     1.  **ignore missing**: If any of the AppVMs in your backup depended upon a NetVM, ProxyVM, or TemplateVM which is not present in (i.e., "missing from") the current system, checking this box will ignore the fact that they are missing and restore the AppVMs anyway.
