@@ -34,7 +34,7 @@ Creating a Backup
 -   If you wish to send your backup to a [USB mass storage device](/wiki/StickMounting), select the device in the dropdown box next to **Device**.
 -   If you wish to send your backup to a (currently running) AppVM, select the AppVM in the dropdown box next to **Target AppVM**.
 
-> You must also specify a directory (or command) on the device or in the AppVM as a destination for your backup. For example, if you wish to send your backup to the `~/backups` folder in the target AppVM, you would simply type `backups` in this field. This destination directory must already exist. If it does not exist, you must create it manually prior to backing up.
+> You must also specify a directory on the device or in the AppVM (or a command to be executed in the AppVM) as a destination for your backup. For example, if you wish to send your backup to the `~/backups` folder in the target AppVM, you would simply type `backups` in this field. This destination directory must already exist. If it does not exist, you must create it manually prior to backing up.
 
 > At this point, you must also choose whether to encrypt your backup by checking or unchecking the **Encrypt backup** box.
 
