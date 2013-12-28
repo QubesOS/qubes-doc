@@ -34,11 +34,11 @@ Creating a Backup
 -   If you wish to send your backup to a [USB mass storage device](/wiki/StickMounting), select the device in the dropdown box next to **Device**.
 -   If you wish to send your backup to a (currently running) AppVM, select the AppVM in the dropdown box next to **Target AppVM**.
 
-> You must also specify a directory on the device or in the AppVM as a destination for your backup. For example, if you wish to send your backup to a the `~/backups` folder in the target AppVM, you would simply type `backups` in this field. This destination directory must already exist. If it does not exist, you must create it manually prior to backing up.
+> You must also specify a directory (or command) on the device or in the AppVM as a destination for your backup. For example, if you wish to send your backup to the `~/backups` folder in the target AppVM, you would simply type `backups` in this field. This destination directory must already exist. If it does not exist, you must create it manually prior to backing up.
 
 > At this point, you must also choose whether to encrypt your backup by checking or unchecking the **Encrypt backup** box.
 
-> **Note:** It is strongly recommended that you encrypt all backups which will be sent to untrusted destinations!
+> **Note:** It is strongly recommended that you opt to encrypt all backups which will be sent to untrusted destinations!
 
 > **Note:** The supplied passphrase is used for **both** encryption/decryption and integrity verification. If you decide not to encrypt your backup (by unchecking the **Encrypt backup** box), the passphrase you supply will be used **only** for integrity verification. If you supply a passphrase but do not check the **Encrypt backup** box, your backup will **not** be encrypted!
 
@@ -52,9 +52,9 @@ Restoring from a Backup
 1.  Select the source location of the backup to be restored:
 
 -   If your backup is located on a [USB mass storage device](/wiki/StickMounting), select the device in the dropdown box next to **Device**.
--   If your backup is located on a (currently running) AppVM, select the AppVM in the dropdown box next to **AppVM**.
+-   If your backup is located in a (currently running) AppVM, select the AppVM in the dropdown box next to **AppVM**.
 
-> You must also specify the directory in which the backup resides. If you followed the instructions in the previous section, "Creating a Backup," then your backup is most likely in the location you chose as the destination in step 3. For example, if you had chosen the `~/backups` directory of an AppVM as your destination in step 3, you would now select the same AppVM and again type `backups` into the **Backup directory** field.
+> You must also specify the directory in which the backup resides (or a command to be executed in an AppVM). If you followed the instructions in the previous section, "Creating a Backup," then your backup is most likely in the location you chose as the destination in step 3. For example, if you had chosen the `~/backups` directory of an AppVM as your destination in step 3, you would now select the same AppVM and again type `backups` into the **Backup directory** field.
 
 > **Note:** After you have typed the directory location of the backup in the **Backup directory** field, click the ellipsis button `...` to the right of the field.
 
