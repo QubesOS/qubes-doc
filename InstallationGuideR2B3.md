@@ -102,6 +102,8 @@ Known Issues
 
 -   Clocks might not get syncs in the VMs for up to several minutes after resume from sleep. This has been fixed in `qubes-core-dom0-linux` package \>= 2.0.4 -- please ensure you install updates after installation to resolve this issue.
 
+-   Gnome terminal window sometimes shrinks to minimal size (especially when opening new tab). The workaround is to disable its menubar and scrollbar.
+
 Getting Help
 ------------
 
