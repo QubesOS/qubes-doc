@@ -94,79 +94,6 @@ Reported by
 
 **Laptop Devices**
 
-Lenovo Thinkpad T420s
- (i5-2520M; Sandy Bridge; Intel HD graphics)
-
-Yes
-
-Yes
-
-Yes
-
-Yes
-
-Qubes core developers
-
-Lenovo Thinkpad T61
- (Nvidia Quadro NVS 140M)
-
-Yes
-
-Yes
-
-Yes
-
-No
-
-Qubes core developers
-
-Samsung X460
- (P8600; PM45; GeForce 9200M GS; BIOS 06LY.M038.20091110.JIP)
-
-Yes
-
-Yes
-
-Yes
-
-Yes
-
-Yes
-
-No
-
-[marmarek (Qubes core developer)](https://groups.google.com/d/msg/qubes-devel/S-leNH8AYsU/WL_XdNAhBkQJ)
-
-Sony Vaio Z 12
- (2010 edition)
-
-Yes
-
-Yes
-
-Yes
-
-[​read more](/trac/wiki/SonyVaioTinkering)
-
-Qubes core developers
-
-Dell Latitude E6420
- (i5-2520M; Sandy Bridge; Intel HD graphics; BIOS A17)
-
-Yes
-
-Yes
-
-Yes
-
-Yes
-
-Yes
-
-Yes
-
-[marmarek (Qubes core developer)](https://groups.google.com/d/msg/qubes-devel/S-leNH8AYsU/WL_XdNAhBkQJ)
-
 Apple MacBookPro
  (i7 M620; GeForce GT 330M)
 
@@ -199,6 +126,25 @@ No
 
 [​Zrubi](https://groups.google.com/d/msg/qubes-devel/2csjvHia9Rw/NRsqR0g6wIMJ)
 
+Clevo P150EM (Sager NP9150)
+ (i7-3720QM; HD4000; BIOS 4.6.5)
+
+\*
+
+\*
+
+Yes
+
+\*
+
+Yes
+
+Yes
+
+Most features work on 3.7 and 3.11, but for best results use 3.9.
+
+[​AndrewX192](https://groups.google.com/d/msg/qubes-users/Ol6v6xSla4Y/vFgIHeObF-8J)
+
 Dell Latitude E4300
  (P9600; GM45; GMA 4500MHD)
 
@@ -209,6 +155,23 @@ Yes
 [​read more](https://groups.google.com/d/topic/qubes-devel/LNJqSbH0cOQ/discussion)
 
 [​Pablo Costa](https://groups.google.com/d/msg/qubes-devel/LNJqSbH0cOQ/VC9EwEDrXMQJ)
+
+Dell Latitude E6420
+ (i5-2520M; Sandy Bridge; Intel HD graphics; BIOS A17)
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+[marmarek (Qubes core developer)](https://groups.google.com/d/msg/qubes-devel/S-leNH8AYsU/WL_XdNAhBkQJ)
 
 Dell Latitude E6430
  (i5-3340M; Ivy Bridge; Intel HD graphics; BIOS A11)
@@ -236,6 +199,32 @@ Yes
 
 [​Zrubi](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
 
+Lenovo Thinkpad T61
+ (Nvidia Quadro NVS 140M)
+
+Yes
+
+Yes
+
+Yes
+
+No
+
+Qubes core developers
+
+Lenovo Thinkpad T420s
+ (i5-2520M; Sandy Bridge; Intel HD graphics)
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+Qubes core developers
+
 Lenovo Thinkpad T430s (2352CTO)
  (i5-3320M; Ivy Bridge; Intel HD graphics; BIOS 2.05)
 
@@ -262,8 +251,8 @@ Yes
 
 [​Matt Tracy](https://groups.google.com/d/msg/qubes-users/5tNavg4MhT4/dFXsYHXOgu4J)
 
-Clevo P150EM (Sager NP9150)
- (i7-3720QM; HD4000; BIOS 4.6.5)
+Samsung X460
+ (P8600; PM45; GeForce 9200M GS; BIOS 06LY.M038.20091110.JIP)
 
 Yes
 
@@ -271,9 +260,26 @@ Yes
 
 Yes
 
-Most features work on 3.7 and 3.11, but for best results use 3.9.
+Yes
 
-[​AndrewX192](https://groups.google.com/forum/#!topicsearchin/qubes-users/Clevo|sort:date|spell:true/qubes-users/Ol6v6xSla4Y)
+Yes
+
+No
+
+[marmarek (Qubes core developer)](https://groups.google.com/d/msg/qubes-devel/S-leNH8AYsU/WL_XdNAhBkQJ)
+
+Sony Vaio Z 12
+ (2010 edition)
+
+\*
+
+Yes
+
+Yes
+
+[​read more](/trac/wiki/SonyVaioTinkering)
+
+Qubes core developers
 
 **Desktop, Workstation and Server**
 
