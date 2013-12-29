@@ -262,6 +262,19 @@ Yes
 
 [​Matt Tracy](https://groups.google.com/d/msg/qubes-users/5tNavg4MhT4/dFXsYHXOgu4J)
 
+Clevo P150EM (Sager NP9150)
+ (i7-3720QM; HD4000; BIOS 4.6.5)
+
+Yes
+
+Yes
+
+Yes
+
+Most features work on 3.7 and 3.11, but for best results use 3.9.
+
+[​AndrewX192](https://groups.google.com/forum/#!topicsearchin/qubes-users/Clevo|sort:date|spell:true/qubes-users/Ol6v6xSla4Y)
+
 **Desktop, Workstation and Server**
 
 HP Compaq dc7900 Convertible Minitower
