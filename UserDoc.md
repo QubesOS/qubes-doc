@@ -7,46 +7,49 @@ permalink: /wiki/UserDoc/
 Qubes User Guides
 =================
 
--   [Getting started](/wiki/GettingStarted)
--   [Creating and using HVM and Windows domains (Qubes R2 only)](/wiki/HvmCreate)
--   [Installing and using Windows-based AppVMs (Qubes R2 Beta 3 and later)](/wiki/WindowsAppVms)
--   [Copy and paste between domains](/wiki/CopyPaste)
--   [Copying files between domains](/wiki/CopyingFiles)
--   [Updating and adding new software to AppVMs](/wiki/SoftwareUpdateVM)
--   [Updating software in Dom0](/wiki/SoftwareUpdateDom0)
--   [Using Disposable VMs](/wiki/DisposableVms)
--   [Understanding Qubes firewall](/wiki/QubesFirewall)
--   [How to mount USB stick to an AppVM?](/wiki/StickMounting)
--   [Key generation inside Qubes VMs?](/wiki/KeyGen)
--   [How to assign PCI devices to a VM?](/wiki/AssigningDevices)
+Standard Topics
+---------------
+
+-   [Getting Started](/wiki/GettingStarted)
+-   [Creating and Using HVM and Windows Domains (Qubes R2 Only)](/wiki/HvmCreate)
+-   [Installing and Using Windows-based AppVMs (Qubes R2 Beta 3 and Later)](/wiki/WindowsAppVms)
+-   [Copying and Pasting Between Domains](/wiki/CopyPaste)
+-   [Copying Files Between Domains](/wiki/CopyingFiles)
+-   [Updating and Adding New Software to AppVMs](/wiki/SoftwareUpdateVM)
+-   [Updating Software in dom0](/wiki/SoftwareUpdateDom0)
+-   [Disposable VMs](/wiki/DisposableVms)
+-   [Understanding Qubes Firewall](/wiki/QubesFirewall)
+-   [How to Mount USB Sticks to AppVMs](/wiki/StickMounting)
+-   [Assigning PCI Devices to AppVMs](/wiki/AssigningDevices)
 -   [Qubes Backup, Restoration, and Migration](/wiki/BackupRestore)
--   [Central policies for inter-VM services?](/wiki/QubesPolicies)
--   [Configuring a network printer](/wiki/NetworkPrinter)
--   [Resizing AppVMs and HVMs virtual disks](/wiki/ResizeDiskImage)
+-   [Configuring a Network Printer](/wiki/NetworkPrinter)
+-   [Resizing AppVM and HVM Disk Images](/wiki/ResizeDiskImage)
 
-Advanced topics:
+Advanced Topics
+---------------
 
--   Creating custom NetVMs and ProxyVMs -- see [​this article](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html)
--   Remotely executing programs in VMs (qvm-run and qrexec)
--   [How to copy files to Dom0?](/wiki/CopyToDomZero)
--   [​Extend root.img size](https://groups.google.com/group/qubes-devel/msg/9d1ac581236ca9b4)
--   Installing [Anti Evil Maid](/wiki/AntiEvilMaid)
--   [Tor proxy VM](/wiki/UserDoc/TorVM) documentation
--   [XFCE](/wiki/UserDoc/XFCE) installation in dom0
+-   [​Creating Custom NetVMs and ProxyVMs](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html)
+-   [How to Copy Files to dom0](/wiki/CopyToDomZero)
+-   [​Extending root.img Size](https://groups.google.com/group/qubes-devel/msg/9d1ac581236ca9b4)
+-   [Installing Anti Evil Maid](/wiki/AntiEvilMaid)
+-   [How to Install a Transparent Tor ProxyVM](/wiki/UserDoc/TorVM)
+-   [XFCE Installation in dom0](/wiki/UserDoc/XFCE)
 -   [DispVM Customization](/wiki/UserDoc/DispVMCustomization)
--   [Tips for using Linux in HVM](/wiki/LinuxHVMTips)
--   [Enabling Fullscreen mode for AppVMs](/wiki/FullScreenMode)
+-   [Tips for Using Linux in an HVM](/wiki/LinuxHVMTips)
+-   [Enabling Fullscreen Mode for AppVMs](/wiki/FullScreenMode)
 -   [Using OpenPGP in Qubes](/wiki/UserDoc/OpenPGP)
--   Installing [ZFS](/wiki/ZFS) in Qubes
+-   [Installing ZFS in Qubes](/wiki/ZFS)
 
-Command-line tools reference:
+Command-Line Tool References
+----------------------------
 
--   [Dom0 tools](/wiki/DomZeroTools)
--   [VM tools](/wiki/VmTools)
+-   [Dom0 Tools](/wiki/DomZeroTools)
+-   [VM Tools](/wiki/VmTools)
 
-Optional topics:
+Additional Topics
+-----------------
 
--   [How to install Nvidia driver in dom0](/wiki/InstallNvidiaDriver)
+-   [How to install an Nvidia driver in dom0](/wiki/InstallNvidiaDriver)
 -   [Getting Sony Vaio Z laptop to work with Qubes](/wiki/SonyVaioTinkering)
 -   [​Installing on system with new AMD GPU (missing firmware problem)](https://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76)
 -   [​How to make proxy for individual tcp connection from networkless VM](https://groups.google.com/group/qubes-devel/msg/4ca950ab6d7cd11a)
