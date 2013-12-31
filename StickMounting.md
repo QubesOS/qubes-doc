@@ -4,46 +4,52 @@ title: StickMounting
 permalink: /wiki/StickMounting/
 ---
 
-In Qubes Beta 3 a new tool, ```qvm-block``` has been introduced that makes mounting USB devices to any user AppVM very easy, no matter which actual VM is handling the USB controller (those can be assigned using the [qvm-pci command](/wiki/AssigningDevices)).
+How to Mount USB Sticks to AppVMs
+=================================
 
-In order to assign a USB disk to a VM, follow these steps:
+(**Note:** In the present context, the term "USB stick" denotes any [​USB mass storage device](https://en.wikipedia.org/wiki/USB_mass_storage_device_class). In addition to smaller flash memory sticks, this includes things like USB external hard drives.)
+
+Qubes supports the ability to mount a USB stick to any AppVM easily, no matter which VM actually handles the USB controller. (The USB controller may be assigned on the **Devices** tab of an AppVM's settings page in Qubes VM Manager or by using the [qvm-pci command](/wiki/AssigningDevices).)
+
+As of Qubes R2 Beta 3, USB stick mounting has been integrated into the Qubes VM Manger GUI. Simply insert your USB stick, right-click the desired AppVM in the Qubes VM Manager list, click **Attach/detach block devices**, and select your desired action and device.
+
+A command-line tool, `qvm-block`, is also available. This tool can be used to assign a USB stick to an AppVM as follows:
 
 1.  Insert your USB stick.
 
-1.  In Dom0 konsole (running as normal user) do:
+1.  In a dom0 console (running as normal user), list all available block devices:
 
     ``` {.wiki}
     qvm-block -l
     ```
 
-> This will list available block devices connected to any USB controller in your system, no matter in which VM this controller is hosted. The name of the VM hosting the USB controller is displayed before the colon in the device name. The string after the colon is the name of the device used within the VM.
+> This will list all available block devices connected to any USB controller in your system, no matter in which VM hosts the controller. The name of the VM hosting the USB controller is displayed before the colon in the device name. The string after the colon is the name of the device used within the VM.
 
-> NOTE: If your device is not listed here, you can refresh the list calling (from VM to which device is connected):
+> **Note:** If your device is not listed here, you may refresh the list by calling (from the VM to which device is connected):
 >
 > ``` {.wiki}
 > sudo udevadm trigger --action=change
 > ```
 
-1.  Connect the device, e.g.:
+1.  Connect the device to an AppVM:
 
     ``` {.wiki}
     qvm-block -a personal dom0:sda
     ```
 
-    NOTE: We have changed order of parameters in 1.0-rc1
+    **Note:** The order of these parameters was changed in Qubes 1.0-rc1.
 
-> This will attach the device as "/dev/xvdi" in VM.
+> This will attach the device as "/dev/xvdi" in the AppVM.
 
-1.  Open Nautilus file manager in the AppVM. Your stick should be visible in the "Places" panel on the left. Just click on the device.
+1.  The USB stick is now attached to the AppVM. If using a default AppVM, you may open Nautilus file manager in the AppVM, and your stick should be visible in the **Devices** panel on the left.
 
-1.  When you finish using your USB stick, right-click its icon in Dolphin and chose "Safely Remove \<Your stick name\>".
+1.  When you finish using your USB stick, click the eject button or right-click and select **Unmount**.
 
-1.  Back to Dom0 konsole -- in order to unmount the stick do the following:
+1.  In a dom0 console, unmount the stick:
 
 ``` {.wiki}
 qvm-block -d <device> <vmname>
 ```
 
-1.  You can remove the device.
+1.  You may now remove the device.
 
-> In the next release this will get integrated into the Qubes GUI manager...
