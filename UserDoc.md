@@ -13,6 +13,7 @@ Standard Topics
 -   [Getting Started](/wiki/GettingStarted)
 -   [Creating and Using HVM and Windows Domains (Qubes R2 Only)](/wiki/HvmCreate)
 -   [Installing and Using Windows-based AppVMs (Qubes R2 Beta 3 and Later)](/wiki/WindowsAppVms)
+-   [Security Guidelines](/wiki/SecurityGuidelines)
 -   [Copying and Pasting Between Domains](/wiki/CopyPaste)
 -   [Copying Files Between Domains](/wiki/CopyingFiles)
 -   [Updating and Adding New Software to AppVMs](/wiki/SoftwareUpdateVM)
