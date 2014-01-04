@@ -9,16 +9,20 @@ Qubes Mailing Lists
 
 Please send all the questions regarding Qubes to one of the following mailing lists. **Please do not send questions to individual Qubes developers.** By sending a message to the appropriate mailing list, you are not only giving others a chance to help you, but you may also be helping others by starting a public discussion about a shared problem or interest.
 
-General Posting Advice
-----------------------
+Mailing List Rules
+------------------
+
+-   Send your message to the correct list. Read the sections below to determine which list is correct for your message.
+
+-   Do not [​top-post](https://en.wikipedia.org/wiki/Posting_style).
 
 -   Include a precise and informative subject line. This will allow others to easily find your thread in the future and use it as a reference.
-    -   Example of a bad subject: "Help! Qubes problems!"
-    -   Example of a good subject: "R2B2 Installation problem: Apple keyboard not working in installer."
+    -   Bad: "Help! Qubes problems!"
+    -   Good: "R2B2 Installation problem: Apple keyboard not working in installer."
 
--   Be concise. Do not write an essay. Include only the essential information. Please think how many messages come to the list every day and whether people will want to read through your lengthy message (hint: they won't!)
+-   Be concise. Do not write an essay. Include only essential information. Please think about how many messages come to the list every day and whether people will want to read through your lengthy message (hint: they won't!).
 
--   Do not apologize for your English. This is a waste of everyone's time, including your own. If we can't understand you, we will ask you to clarify (or ignore your message if it's a total mess ;).
+-   Do not apologize for your poor English. This is a waste of everyone's time, including your own. If we can't understand you, we will ask you to clarify (or ignore your message if it's a total mess ;).
 
 -   While we're generally open to hearing suggestions for new features, please note that we already have a pretty well defined [roadmap](/trac/roadmap), and it's rather unlikely that we will change our schedule in order to accommodate your request. If there's a particular feature you'd like to see in Qubes, a much more effective way to make it happen is to... contribute code to Qubes which implements it! We happily accept such contributions, provided they meet our standards. Please note, however, that it's always a good idea to field a discussion of your idea on the qubes-devel list before putting in a lot of hard work on something that we may not be able or willing to accept.
 
