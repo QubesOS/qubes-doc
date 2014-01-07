@@ -63,7 +63,7 @@ sudo yum update
 
 or use the equivalent items in Qubes Manager, which displays an icon when an update is available.
 
-**6.** When you receive or download any file from an **untrusted source**, do not browse to it with a file manager which has preview enabled. **To disable preview in Nautilus**: Gear (up-right-icon) -\> Preferences -\> Preview (tab) -\> Show thumbnails: Never.
+**6.** When you receive or download any file from an **untrusted source**, do not browse to it with a file manager which has preview enabled. **To disable preview in Nautilus**: Gear (up-right-icon) -\> Preferences -\> Preview (tab) -\> Show thumbnails: Never. Note that this change can be made in a TemplateVM (including the [DispVM template](/wiki/UserDoc/DispVMCustomization)) so that future AppVMs created from this TemplateVM will inherit this feature.
 
 Also, **do not open it in trusted VMs**. Rather open it in a **disposable VM** right-clicking on it. You may even modify it within the disposable VM and then [​copy it to other VM](https://qubes-os.org/trac/wiki/CopyingFiles).
 
