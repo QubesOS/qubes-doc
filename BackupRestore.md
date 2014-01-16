@@ -34,7 +34,9 @@ Creating a Backup
 -   If you wish to send your backup to a [USB mass storage device](/wiki/StickMounting), select the device in the dropdown box next to **Device**.
 -   If you wish to send your backup to a (currently running) AppVM, select the AppVM in the dropdown box next to **Target AppVM**.
 
-> You must also specify a directory on the device or in the AppVM (or a command to be executed in the AppVM) as a destination for your backup. For example, if you wish to send your backup to the `~/backups` folder in the target AppVM, you would simply type `backups` in this field. This destination directory must already exist. If it does not exist, you must create it manually prior to backing up.
+> You must also specify a directory on the device or in the AppVM, or a command to be executed in the AppVM as a destination for your backup. For example, if you wish to send your backup to the `~/backups` folder in the target AppVM, you would simply type `backups` in this field. This destination directory must already exist. If it does not exist, you must create it manually prior to backing up.
+
+> By specifying the appropriate directory as the destination in an AppVM, it is possible to send the backup directly to, e.g., a USB mass storage device attached to the AppVM. Likewise, it is possible to enter any command as a backup target by specifying the command as the destination in the AppVM. This can be used to send your backup directly to, e.g., a remote server using SSH.
 
 > At this point, you must also choose whether to encrypt your backup by checking or unchecking the **Encrypt backup** box.
 
@@ -122,7 +124,7 @@ The Qubes backup system was been designed with emergency disaster recovery in mi
 > done
 > ```
 
-> **Note:** If your backup was encrypted with a cipher other than `aes-256-cbc`, you must replace it with the correct cipher command. Available ciphers commands can be found with `openssl --help`.
+> **Note:** If your backup was encrypted with a cipher algorithm other than `aes-256-cbc`, you must replace it with the correct cipher command. Available ciphers algorithms can be found with `openssl list-cipher-algorithms`.
 
 1.  Untar the decrypted `private.img` file.
 
