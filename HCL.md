@@ -106,7 +106,7 @@ No Network, Chipset doesn't support VT-d! [​read more](https://groups.google.c
 [​Alex Dubois](https://groups.google.com/d/msg/qubes-devel/hag-MQDH_Vs/pmJ7TIWUWAsJ)
 
 Apple MacBookPro
- (i5-3210M; Ivy Bridge; HD Graphics 4000)
+ (i5-3210M; Ivy Bridge; HD4000)
 
 Yes
 
@@ -125,6 +125,21 @@ No
 [​read more](https://groups.google.com/d/topic/qubes-devel/2csjvHia9Rw/discussion)
 
 [​Zrubi](https://groups.google.com/d/msg/qubes-devel/2csjvHia9Rw/NRsqR0g6wIMJ)
+
+ASUS Zenbook UX31A
+ (i7-3517U; Ivy Bridge; HD4000; BIOS UX31A.212)
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+Backlight keyboard keys not working. Only 4GB ram, but works.
+
+[jeff](https://groups.google.com/d/msg/qubes-users/jlvKvKtEiWk/axMMx8St8xIJ)
 
 Clevo P150EM (Sager NP9150)
  (i7-3720QM; HD4000; BIOS 4.6.5)
@@ -238,6 +253,23 @@ Yes
 
 [​cprise](https://groups.google.com/d/msg/qubes-users/Ll_pPP7glwI/jtRbKtQO_rMJ)
 
+Lenovo Thinkpad T510
+ (i5-520M; Arrandale; Intel HD Graphics; BIOS 6MET92WW 1.52)
+
+\*
+
+No
+
+Yes
+
+No
+
+Yes
+
+Yes
+
+[​pete](https://groups.google.com/d/msg/qubes-users/UP9BK_yn-Pk/DR6PBVF4GlgJ)
+
 Lenovo ThinkPad X220 (4290-W3W)
  (i5-2520M; QM67; HD3000; BIOS 1.39)
 
@@ -250,6 +282,19 @@ Yes
 Yes
 
 [​Matt Tracy](https://groups.google.com/d/msg/qubes-users/5tNavg4MhT4/dFXsYHXOgu4J)
+
+Samsung NP300E7A
+ (i3-2330M; HM65; HD3000)
+
+Yes
+
+Yes
+
+Yes
+
+No
+
+[​Marc](https://groups.google.com/d/msg/qubes-users/dzYwiYzvWYM/iOyq3V2y5L4J)
 
 Samsung X460
  (P8600; PM45; GeForce 9200M GS; BIOS 06LY.M038.20091110.JIP)
@@ -267,6 +312,21 @@ Yes
 No
 
 [marmarek (Qubes core developer)](https://groups.google.com/d/msg/qubes-devel/S-leNH8AYsU/WL_XdNAhBkQJ)
+
+Sony VAIO series Z2 - VPCZ2190S
+ (i5-2540M; Sandy Bridge; HD3000; BIOS R0170H5)
+
+Yes
+
+Yes
+
+Yes
+
+\*
+
+BIOS has to be patched to activate VT-d, external Radeon HD 6700M
+
+[​Danny Fullerton](https://groups.google.com/d/msg/qubes-users/8urk8ZNeblg/jCD2iQyQQZwJ)
 
 Sony Vaio Z 12
  (2010 edition)
@@ -322,7 +382,7 @@ Some video glitches, no audio hardware.
 [​Nukama](https://groups.google.com/d/msg/qubes-users/1CyVEStoVCI/RTRw8-aalsUJ)
 
 Lenovo ThinkCentre M71e
- (G620; H61; HD Graphics 2000; BIOS 9QKT29AUS)
+ (G620; H61; HD2000; BIOS 9QKT29AUS)
 
 Yes
 
@@ -339,6 +399,21 @@ No
 [​Nukama](https://groups.google.com/d/msg/qubes-users/YcqMDcVYQh8/pk0B_9RfGQMJ)
 
 **Motherboards**
+
+ASRock Q87M Vpro
+ (LGA1150; Q87; BIOS P1.50)
+
+\*
+
+Yes
+
+Yes
+
+Yes
+
+Problems with Power Saving, Audio and USB3
+
+[​suricabile](https://groups.google.com/d/msg/qubes-users/oExJBIDsAwQ/lwAzNNe7OcYJ)
 
 Biostar A880GZ
  (AM3+; 880G/SB850)
@@ -373,7 +448,7 @@ No
 [\#762](/trac/ticket/762)
 
 Gigabyte GA-X79S-UP5 Wi-Fi
- (2011; C606; BIOS 1.0)
+ (LGA2011; C606; BIOS 1.0)
 
 Yes
 
