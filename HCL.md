@@ -161,13 +161,21 @@ Most features work on 3.7 and 3.11, but for best results use 3.9.
 [​AndrewX192](https://groups.google.com/d/msg/qubes-users/Ol6v6xSla4Y/vFgIHeObF-8J)
 
 Dell Latitude E4300
- (P9600; GM45; GMA 4500MHD)
+ (P9600; GM45; GMA 4500MHD, BIOS A24)
+
+\*
+
+No
+
+Yes
+
+No
 
 Yes
 
 Yes
 
-[​read more](https://groups.google.com/d/topic/qubes-devel/LNJqSbH0cOQ/discussion)
+Runs only with kernel 3.9 [​read more](https://groups.google.com/d/topic/qubes-devel/LNJqSbH0cOQ/discussion)
 
 [​Pablo Costa](https://groups.google.com/d/msg/qubes-devel/LNJqSbH0cOQ/VC9EwEDrXMQJ)
 
