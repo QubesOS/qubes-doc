@@ -26,6 +26,16 @@ Get all required sources
 make get-sources
 ```
 
+Note that make get-sources sometimes fails because it didn't download packages that are not used by archlinux such as xfce or kde packages.
+
+You can ignore the repositories that are failing by adding the following line to your builder.conf:
+
+``` {.wiki}
+COMPONENTS:=$(filter-out desktop-linux-kde desktop-linux-xfce,$(COMPONENTS))
+```
+
+Just don't forget that you need to comment this line again if you want to build the whole Qubes-OS install CD.
+
 Make all required qubes components
 ----------------------------------
 
@@ -73,6 +83,61 @@ You will also need to download the signature matching this ISO version inside qu
 ``` {.wiki}
 wget http://mir.archlinux.fr/iso/2013.06.01/archlinux-2013.06.01-dual.iso.sig
 ```
+
+The nm-applet (network manager icon) fails to start when archlinux is defined as a template-vm:
+-----------------------------------------------------------------------------------------------
+
+In fact /etc/dbus-1/system.d/org.freedesktop.[NetworkManager?](/wiki/NetworkManager).conf does not allow a standard user to run network manager clients. To allow this, one need to change inside \<policy context="default"\>:
+
+``` {.wiki}
+<deny send_destination="org.freedesktop.NetworkManager"/>
+```
+
+to
+
+``` {.wiki}
+<allow send_destination="org.freedesktop.NetworkManager"/>
+```
+
+DispVM, Yum proxy and most Qubes addons (thunderbird ...) have not been tested at all.
+--------------------------------------------------------------------------------------
+
+The sound does not work in AppVMs and there are messages related to pulse segfault in glibc when running dmesg (FIXED)
+----------------------------------------------------------------------------------------------------------------------
+
+This is apparently a bug in Archlinux between glibc and pulseaudio package 4.0-6. The packages pulseaudio-4.0-2 and libpulse-4.0-2 are known to work and can be downloaded and reinstalled manually.
+
+Error when building the gui-agent-linux with pulsecore error
+------------------------------------------------------------
+
+``` {.wiki}
+module-vchan-sink.c:62:34: fatal error: pulsecore/core-error.h: No such file or directory
+ #include <pulsecore/core-error.h>
+```
+
+This error is because Archlinux update package too quickly. Probably, a new version of pulseaudio has been released, but the qubes team has not imported the new development headers yet.
+
+You can create fake new headers just by copying the old headers:
+
+``` {.wiki}
+cd qubes-builder/qubes-src/gui-agent-linux/pulse
+ls
+cp -r pulsecore-#lastversion pulsecore-#archlinuxversion
+```
+
+You can check the current archlinux pulseaudio version like this:
+
+``` {.wiki}
+sudo chroot chroot-archlinux/ pacman -Qi pulseaudio
+```
+
+chroot-archlinux/dev/pts has not been unmounted
+-----------------------------------------------
+
+This is a known problem when there are errors during building. Check what is mounted using the command mount (with no parameters). Just unmount what you can (or reboot your vm if you are too lazy :) )
+
+Known problems in Qubes R2-B2
+=============================
 
 xen-vmm-vm fail to build with a PARSETUPLE related error (FIXED):
 -----------------------------------------------------------------
@@ -154,24 +219,6 @@ Do not forgot to:
 umount /mnt/vm
 ```
 
-The nm-applet (network manager icon) fails to start when archlinux is defined as a template-vm:
------------------------------------------------------------------------------------------------
-
-In fact /etc/dbus-1/system.d/org.freedesktop.[NetworkManager?](/wiki/NetworkManager).conf does not allow a standard user to run network manager clients. To allow this, one need to change inside \<policy context="default"\>:
-
-``` {.wiki}
-<deny send_destination="org.freedesktop.NetworkManager"/>
-```
-
-to
-
-``` {.wiki}
-<allow send_destination="org.freedesktop.NetworkManager"/>
-```
-
-DispVM, Yum proxy and most Qubes addons (thunderbird ...) have not been tested at all.
---------------------------------------------------------------------------------------
-
 Installing the template in dom0 fails because of a missing dependency (qubes-core-dom0-linux)
 ---------------------------------------------------------------------------------------------
 
@@ -180,37 +227,3 @@ Again you built a template based on a recent Qubes API which has not been releas
 ``` {.wiki}
 sudo rpm -U --nodeps yourpackage.rpm
 ```
-
-chroot-archlinux/dev/pts has not been unmounted
------------------------------------------------
-
-This is a known problem when there are errors during building. Just unmount what you can (or reboot your vm if you are too lazy :) )
-
-Error when building the gui-agent-linux
----------------------------------------
-
-``` {.wiki}
-module-vchan-sink.c:62:34: fatal error: pulsecore/core-error.h: No such file or directory
- #include <pulsecore/core-error.h>
-```
-
-This error is because Archlinux update package too quickly. Probably, a new version of pulseaudio has been released, but the qubes team has not imported the new development headers yet.
-
-You can create fake new headers just by copying the old headers:
-
-``` {.wiki}
-cd qubes-builder/qubes-src/gui-agent-linux/pulse
-ls
-cp -r pulsecore-#lastversion pulsecore-#archlinuxversion
-```
-
-You can check the current archlinux pulseaudio version like this:
-
-``` {.wiki}
-sudo chroot chroot-archlinux/ pacman -Qi pulseaudio
-```
-
-The sound does not work in AppVMs and there are messages related to pulse segfault in glibc when running dmesg
---------------------------------------------------------------------------------------------------------------
-
-This is apparently a bug in Archlinux pulseaudio package 4.0-6. The packages pulseaudio-4.0-2 and libpulse-4.0-2 are known to work and can be downloaded and reinstalled manually.
