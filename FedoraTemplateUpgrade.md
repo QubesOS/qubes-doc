@@ -42,3 +42,25 @@ sudo yum --releasever=20 --setopt=cachedir=/mnt/removable distro-sync
 ```
 
 After upgrade is finished, you can remove /var/tmp/template-upgrade-cache.img file.
+
+Compacting templates root.img
+=============================
+
+fstrim, nor "discard" mount option do not work on template root fs, so when some file is removed in the template, space isn't freed in dom0. This means that template will use about twice a space that is really need after upgrade.
+
+You can compact root.img in the "old way": Start the template, fill all the free space with zeros, for example with:
+
+``` {.wiki}
+dd if=/dev/zero of=/var/tmp/zero
+(wait for "No space left on device" error)
+rm -f /var/tmp/zero
+```
+
+Then shutdown template and all VMs based on it. Go into template directory in dom0 (/var/lib/qubes/vm-templates/fedora-20-x64 or so) and issue:
+
+``` {.wiki}
+cp --sparse=always root.img root.img.new
+mv root.img.new root.img
+```
+
+Done.
