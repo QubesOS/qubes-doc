@@ -455,6 +455,19 @@ No
 
 [\#762](/trac/ticket/762)
 
+EVGA\_E685
+ (LGA1150; Z68; BIOS 4.6.4)
+
+\*
+
+Yes
+
+Yes
+
+Problems with Audio
+
+[​jeff](https://groups.google.com/d/msg/qubes-users/wSCL-4VL2Ew/cU8-2qyT008J)
+
 Gigabyte GA-X79S-UP5 Wi-Fi
  (LGA2011; C606; BIOS 1.0)
 
