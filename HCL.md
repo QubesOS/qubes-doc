@@ -235,6 +235,21 @@ No
 
 Qubes core developers
 
+Lenovo Thinkpad T410
+ (i7-620M; Arrandale; HD graphics, BIOS 6IET74WW (1.34 ))
+
+\*
+
+No
+
+Yes
+
+Yes
+
+Yes
+
+[​Vincent Penquerc'h](https://groups.google.com/d/msg/qubes-users/WsHQ_GqXdT4/63xtC0iqXXEJ)
+
 Lenovo Thinkpad T420s
  (i5-2520M; Sandy Bridge; Intel HD graphics)
 
