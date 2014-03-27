@@ -306,6 +306,49 @@ Yes
 
 [​Matt Tracy](https://groups.google.com/d/msg/qubes-users/5tNavg4MhT4/dFXsYHXOgu4J)
 
+Lenovo X1 Carbon Gen 2
+ (i5-4300U; Haswell-ULT; HD4000; BIOS 1.07)
+
+Yes
+
+Yes
+
+No
+
+No
+
+needs iwl7260-firmware in netvm
+
+[​Patrick Schless](https://groups.google.com/d/msg/qubes-users/cu_mJa4iDHk/v1FdT3ZGofEJ)
+
+Lenovo X1 Carbon Gen 2
+ (i7-4600U; Haswell-ULT; HD4000; BIOS 1.11)
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+needs iwl7260-firmware in netvm
+
+[​Jean-François Rioux](https://groups.google.com/d/msg/qubes-users/cu_mJa4iDHk/v1FdT3ZGofEJ)
+
+MSI GX660
+ (i5-460M; PM55; Radeon HD5870; BIOS E16F1IMS VER1.0L)
+
+Yes
+
+Yes
+
+Yes
+
+No
+
+[​Avant Garden](https://groups.google.com/d/msg/qubes-users/UrWYjkHwon8/TPE0XSBiPDQJ)
+
 Samsung NP300E7A
  (i3-2330M; HM65; HD3000)
 
