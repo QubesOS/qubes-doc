@@ -16,7 +16,7 @@ Commands to run in dom0 console (you can do the same from Qubes Manager):
 
 ``` {.wiki}
 qvm-clone fedora-18-x64 fedora-20-x64
-qvm-run -a fedora-20-x64
+qvm-run -a fedora-20-x64 gnome-terminal
 ```
 
 Commands to run in new fedora-20-x64 template:
