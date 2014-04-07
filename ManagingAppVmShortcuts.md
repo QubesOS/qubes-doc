@@ -9,11 +9,15 @@ Managing shortcuts to applications in AppVms
 
 For ease of use Qubes aggregates shortcuts to applications that are installed in AppVms and shows them in one "start menu" in dom0. Clicking on such shortcut runs the assigned application in its AppVm.
 
+[![No image "dom0-menu.png" attached to ManagingAppVmShortcuts](/chrome/common/attachment.png "No image "dom0-menu.png" attached to ManagingAppVmShortcuts")](/attachment/wiki/ManagingAppVmShortcuts/dom0-menu.png)
+
 To make newly installed applications show up in the menu, use the **qvm-sync-appmenus** command:
 
 `qvm-sync-appmenus vmname`
 
 After that, select the *Add more shortcuts* entry in VM's submenu to customize which applications are shown:
+
+[![No image "dom0-appmenu-select.png" attached to ManagingAppVmShortcuts](/chrome/common/attachment.png "No image "dom0-appmenu-select.png" attached to ManagingAppVmShortcuts")](/attachment/wiki/ManagingAppVmShortcuts/dom0-appmenu-select.png)
 
 The above image shows that Windows HVMs are also supported (provided that Qubes Tools are installed).
 
