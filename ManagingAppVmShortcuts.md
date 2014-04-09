@@ -11,7 +11,7 @@ For ease of use Qubes aggregates shortcuts to applications that are installed in
 
 [![No image "dom0-menu.png" attached to ManagingAppVmShortcuts](/chrome/common/attachment.png "No image "dom0-menu.png" attached to ManagingAppVmShortcuts")](/attachment/wiki/ManagingAppVmShortcuts/dom0-menu.png)
 
-To make newly installed applications show up in the menu, use the **qvm-sync-appmenus** command:
+To make newly installed applications show up in the menu, use the **qvm-sync-appmenus** command (Linux VMs does this automatically):
 
 `qvm-sync-appmenus vmname`
 
@@ -24,10 +24,10 @@ The above image shows that Windows HVMs are also supported (provided that Qubes 
 Behind the scenes
 -----------------
 
-List of installed applications for each AppVM is stored in `/var/lib/qubes/appvms/vmname/apps.templates`. Each menu entry is a file that follows the [​.desktop file format](http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html) with some wildcards (*%VMNAME%*, *%VMDIR%*). Applications selected to appear in the menu are stored in `/var/lib/qubes/appvms/vmname/apps`.
+List of installed applications for each AppVM is stored in its template's `/var/lib/qubes/vm-templates/templatename/apps.templates` (or in case of StandaloneVM: `/var/lib/qubes/appvms/vmname/apps.templates`). Each menu entry is a file that follows the [​.desktop file format](http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html) with some wildcards (*%VMNAME%*, *%VMDIR%*). Applications selected to appear in the menu are stored in `/var/lib/qubes/appvms/vmname/apps`.
 
-Actual command lines for the menu shortcuts involve `qvm-run` command which starts a process in another domain. Example: `qvm-run -q --tray -a w7s 'cmd.exe /c "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Accessories\\Calculator.lnk"'`
+Actual command lines for the menu shortcuts involve `qvm-run` command which starts a process in another domain. Example: `qvm-run -q --tray -a w7s 'cmd.exe /c "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Accessories\\Calculator.lnk"'` or `qvm-run -q --tray -a untrusted 'firefox %u'`
 
-`qvm-sync-appmenus` works by invoking *GetAppMenus* [Qubes service](/wiki/Qrexec) in the target domain. This service enumerates installed applications and sends formatted info back to the dom0 script which creates .desktop files in the AppVM directory.
+`qvm-sync-appmenus` works by invoking *GetAppMenus* [Qubes service](/wiki/Qrexec) in the target domain. This service enumerates installed applications and sends formatted info back to the dom0 script (`/usr/libexec/qubes-appmenus/qubes-receive-appmenus`) which creates .desktop files in the AppVM/TemplateVM directory.
 
 For Linux VMs the service script is in `/etc/qubes-rpc/qubes.GetAppMenus`. In Windows it's a PowerShell script located in `c:\Program Files\Invisible Things Lab\Qubes OS Windows Tools\qubes-rpc-services\get-appmenus.ps1` by default.
