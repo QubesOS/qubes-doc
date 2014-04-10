@@ -33,7 +33,7 @@ Note that dom0 in R2rc1 is based on Fedora 20, in contrast to Fedora 18 in previ
     sudo qubes-dom0-update qubes-release
     ```
 
-    This should install `qubes-release-2-5` in your Dom0.
+    This should install `qubes-release-2-6` in your Dom0.
 
 3.  Upgrade dom0 to R2 rc1:
 
