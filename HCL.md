@@ -276,6 +276,21 @@ Yes
 
 [​cprise](https://groups.google.com/d/msg/qubes-users/Ll_pPP7glwI/jtRbKtQO_rMJ)
 
+Lenovo Thinkpad T500
+ (P8400; GM45; GMA 4500MHD; BIOS 6FET92WW 3.22)
+
+Yes
+
+Yes
+
+Yes
+
+\*
+
+activated VT-d BIOS option not recognized in Qubes
+
+[​Jens Porup](https://groups.google.com/d/msg/qubes-users/EoG4VffajRw/-oeSfNCA-KIJ)
+
 Lenovo Thinkpad T510
  (i5-520M; Arrandale; Intel HD Graphics; BIOS 6MET92WW 1.52)
 
