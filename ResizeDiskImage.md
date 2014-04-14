@@ -28,6 +28,52 @@ Note2: If once the VM is started, the disk is has not been increased, you can is
 sudo resize2fs /dev/xvdb
 ```
 
+### Shrinking private disk image (Linux VM)
+
+**This operation is dangerous and this is why it isn't available in standard Qubes tools. If you have enough disk space, it is safer to create new VM with smaller disk and move the data.**
+
+The basic idea is to:
+
+1.  Shrink filesystem on the private disk image.
+2.  Then shrink the image.
+
+Ext4 does not support online shrinking, so can't be done as convenient as image grown. Note that we don't want to touch the VM filesystem directly in dom0 for security reasons. First you need to start VM without `/rw` mounted. One of the possibility is to interrupt its normal startup by adding `rd.break` kernel option:
+
+``` {.wiki}
+qvm-prefs -s <vm-name> kernelopts rd.break
+qvm-start --no-guid <vm-name>
+```
+
+And wait for qrexec connect timeout (or simply press Ctrl-C). Then you can connect to VM console and shrink the filesystem:
+
+``` {.wiki}
+sudo xl console <vm-name>
+# you should get dracut emergency shell here
+mount --bind /dev /sysroot/dev
+chroot /sysroot
+mount /proc
+e2fsck -f /dev/xvdb
+resize2fs /dev/xvdb <new-desired-size>
+umount /proc
+exit
+umount /sysroot/dev
+poweroff
+```
+
+Now you can resize the image:
+
+``` {.wiki}
+truncate -s <new-desired-size> /var/lib/qubes/appvms/<vm-name>/private.img
+```
+
+**It is critical to use the same (or bigger for some safety margin) size in truncate call compared to resize2fs call. Otherwise you will loose your data!** Then reset kernel options back to default:
+
+``` {.wiki}
+qvm-prefs -s <vm-name> kernelopts default
+```
+
+Done.
+
 ### HVM disk image
 
 In this example we will grow the disk image of an HVM to 30GB.
