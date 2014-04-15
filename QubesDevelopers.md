@@ -35,3 +35,8 @@ Proprietary code developers
 -   Alexander Tereshkin `alex at invisiblethingslab dot com` - core windows (Qubes Windows Tools)
 -   Rafał Wojdyła `omeg at invisiblethingslab dot com` - currently main developer for Qubes Windows Tools (core, gui agent)
 
+Wiki/documentation editors
+--------------------------
+
+-   TODO
+
