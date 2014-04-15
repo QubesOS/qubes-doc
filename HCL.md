@@ -276,6 +276,21 @@ Yes
 
 [​cprise](https://groups.google.com/d/msg/qubes-users/Ll_pPP7glwI/jtRbKtQO_rMJ)
 
+Lenovo Thinkpad T440p
+ (i7-4800MQ; Haswell; Intel HD graphics; BIOS 2.21)
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+802.11 ac doesn't work with Fedora 18, but with Fedora 20
+
+[​7v5w7go9ub0o](https://groups.google.com/d/msg/qubes-users/r6kC4YHgDjM/yJXpvIdoWkUJ)
+
 Lenovo Thinkpad T500
  (P8400; GM45; GMA 4500MHD; BIOS 6FET92WW 3.22)
 
