@@ -4,9 +4,6 @@ title: UpgradeToR2rc1
 permalink: /wiki/UpgradeToR2rc1/
 ---
 
-**DRAFT**
-=========
-
 Upgrading Qubes R2 Beta 3 to R2 rc1
 ===================================
 
@@ -37,6 +34,12 @@ Note that dom0 in R2rc1 is based on Fedora 20, in contrast to Fedora 18 in previ
     ``` {.wiki}
     sudo qubes-dom0-update
     ```
+
+**NOTE to qubes-testers**: for the time being please use the current-testing repo for this step:
+
+``` {.wiki}
+sudo qubes-dom0-update --enablerepo=qubes-dom0-r2b3-current-testing
+```
 
 After this step you should have `qubes-release-2-5` in your Dom0. Important: if you happen to have `qubes-release-2-6*` then you should downgrade to `qubes-release-2-5`! The `qubes-release-2-6*` packages have been uploaded to the testing repos and were kept there for a few hours, until we realized they bring incorrect repo definitions and so we removed them and also have changed the update procedure a bit (simplifying it).
 
