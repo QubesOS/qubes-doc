@@ -39,4 +39,5 @@ Wiki/documentation editors
 --------------------------
 
 -   Hakisho Nukama `nukama at gmail dot com` - various wiki contributions (ZFS, HCL)
+-   Axon `axon at openmailbox dot org` - various wiki edits
 
