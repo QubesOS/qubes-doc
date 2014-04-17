@@ -26,7 +26,6 @@ For Developers
 -   [How can I contribute to the Qubes project?](/wiki/ContributingHowto)
 -   [Source Code](/wiki/SourceCode)
 -   [Coding Guidelines](/wiki/CodingStyle)
--   [Idea Incubator?](/wiki/IdeasIncubator)
 -   [Books for Developers](/wiki/DevelBooks)
 -   [Research Papers](/wiki/QubesResearch)
 
