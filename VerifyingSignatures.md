@@ -69,6 +69,26 @@ You can also download all the currently used developers' keys (and also a copy o
 
 The developer keys are set to be valid for 1 year only, while the Qubes Master Signing Key has no expiration date. This latter key was generated and is kept only within a dedicated, air-gapped "vault" machine, and the private portion will (hopefully) never leave this isolated machine.
 
+You can now verify the ISO matches its signature:
+
+``` {.wiki}
+$ gpg --verify Qubes-R2-rc1-x86_64-DVD.iso{.asc,}
+gpg: Signature made Sun 20 Apr 2014 10:06:13 BST using RSA key ID 0A40E458
+gpg: Good signature from "Qubes OS Release 2 Signing Key"
+```
+
+The key used to sign this ISO should be signed by the Qubes master key:
+
+``` {.wiki}
+$ gpg --list-sig 0A40E458
+pub   4096R/0A40E458 2012-11-15
+uid                  Qubes OS Release 2 Signing Key
+sig          26CA2CD7 2013-02-26  [User ID not found]
+sig          C55BCFE3 2014-02-20  [User ID not found]
+sig          36879494 2012-11-15  Qubes Master Signing Key
+sig 3        0A40E458 2012-11-15  Qubes OS Release 2 Signing Key
+```
+
 Having problems verifying the ISO? See this thread:
 
 [​https://groups.google.com/group/qubes-devel/browse\_thread/thread/4bdec1cd19509b38/9f8e219c41e1b232](https://groups.google.com/group/qubes-devel/browse_thread/thread/4bdec1cd19509b38/9f8e219c41e1b232)
