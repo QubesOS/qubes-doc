@@ -18,7 +18,7 @@ Digital signatures **cannot** prove any other property, e.g., that the signed fi
 
 The point is, of course, that people must choose who they will trust (e.g., Linus Torvalds, Microsoft, the Qubes Project, etc.) and assume that if a given file was signed by a trusted party, then it should not be malicious or buggy in some horrible way. But the decision of whether to trust any given party is beyond the scope of digital signatures. It's more of a sociological and political decision.
 
-Once we make the decision to trust certain parties, digital signatures are useful, because they make it possible for us to limit our trust only to those few parties we choose and not to worry about all the "Bad Things That Can Happen In The Middle" between us and the them, e.g., server compromises (qubes-os.org will surely be compromised one day), dishonest IT stuff at the hosting company, dishonest stuff at the ISPs, Wi-Fi attacks, etc.
+Once we make the decision to trust certain parties, digital signatures are useful, because they make it possible for us to limit our trust only to those few parties we choose and not to worry about all the "Bad Things That Can Happen In The Middle" between us and them, e.g., server compromises (qubes-os.org will surely be compromised one day), dishonest IT staff at the hosting company, dishonest staff at the ISPs, Wi-Fi attacks, etc.
 
 By verifying all the files we download which purport to be authored by a party we've chosen to trust, we eliminate concerns about the bad things discussed above, since we can easily detect whether any files have been tampered with (and subsequently choose to refrain from executing, installing, or opening them).
 
