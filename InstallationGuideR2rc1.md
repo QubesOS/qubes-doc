@@ -83,7 +83,7 @@ Known Issues
 
 -   Some icons in the Qubes Manager application might not be drawn correctly when using the Xfce4 environment in Dom0. If this bothers you, please use the KDE environment instead.
 
--   If you're GPU is not correctly supported by the Dom0 kernel (e.g. the 3D desktop effects do not run smoothly) then you might experience "heaviness" with Windows 7-based AppVMs. In that case, please solve the problem with your GPU support in Dom0 in the first place (by using a different kernel), or install Qubes OS on a different system.
+-   If your GPU is not correctly supported by the Dom0 kernel (e.g. the 3D desktop effects do not run smoothly) then you might experience "heaviness" with Windows 7-based AppVMs. In that case, please solve the problem with your GPU support in Dom0 in the first place (by using a different kernel), or install Qubes OS on a different system.
 
 -   HVMs with Qubes Tools installed will not have access to the network if firewallvm uses 3.12 kernel (the default). The workaround is to use older (3.11) kernel for firewallvm. You need to [​install kernel-qubes-vm-3.11.10 package](http://wiki.qubes-os.org/trac/wiki/SoftwareUpdateDom0#Howtodowngradeaspecificpackage), then ensure that it is used for firewallvm (for example using Qubes Manager - advanced tab of VM settings).
 
