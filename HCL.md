@@ -98,7 +98,7 @@ Yes
 
 Yes
 
-[​Zrubi]()
+[​Zrubi](https://groups.google.com/d/topic/qubes-users/sfV4-pMWrBY/discussion)
 
 Lenovo T510 (4384-WGZ)
  (i5-M520; Arrandale; Intel HD graphics; BIOS 1.52)
