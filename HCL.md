@@ -98,6 +98,8 @@ Yes
 
 Yes
 
+The optional nVidia Optimus VGA is still not working.
+
 [​Zrubi](https://groups.google.com/d/topic/qubes-users/sfV4-pMWrBY/discussion)
 
 Lenovo T510 (4384-WGZ)
