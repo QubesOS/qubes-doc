@@ -654,7 +654,7 @@ R1
 
 [​Sebastian Hültenschmidt](https://groups.google.com/forum/#!msg/qubes-devel/TgDWwBs36yA/IUFZPHs716cJ)
 
-Lenovo Thinkpad X1 Carbon (LENOVO 3444CTO)
+Lenovo Thinkpad X1 Carbon (3444CTO)
  (i5-3427U)
 
 Yes
@@ -670,7 +670,7 @@ Lenovo X1 Carbon Gen 2
 
 No
 
-Nos
+No
 
 1.07
 
@@ -907,7 +907,7 @@ R1
 [​Jan Beerden](https://groups.google.com/group/qubes-devel/browse_thread/thread/fdec0ec165a87726)
 
 Zareason Ultra Lap 420
- (Ivy Bridge, HD Graphics, i5-3317U)
+ (i5-3317U, Ivy Bridge, HD Graphics)
 
 Yes
 
@@ -970,6 +970,14 @@ R2B3
 3.9.2-2
 
 Problem with graphics on 3.11,3.7, only 2GB RAM.
+
+[​Nukama](https://groups.google.com/d/msg/qubes-users/RYzkSFoMsxQ/ukXhBW4ybqQJ)
+
+R2RC1
+
+3.9
+
+Problem with graphics on 3,12,3.11,3.7, only 2GB RAM stock.
 
 [​Nukama](https://groups.google.com/d/msg/qubes-users/RYzkSFoMsxQ/ukXhBW4ybqQJ)
 
@@ -1064,6 +1072,14 @@ R2B3
 3.9.2-2
 
 [\#762](/trac/ticket/762)
+
+[​Nukama](https://groups.google.com/d/msg/qubes-users/DTot3wX1-nQ/229c20xWrdQJ)
+
+R2RC1
+
+3.12.14-4
+
+USB-Devices are working in 3.12 installer and luks prompt again.
 
 [​Nukama](https://groups.google.com/d/msg/qubes-users/DTot3wX1-nQ/229c20xWrdQJ)
 
