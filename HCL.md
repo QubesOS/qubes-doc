@@ -1100,6 +1100,27 @@ Problems with Audio
 
 [​jeff](https://groups.google.com/d/msg/qubes-users/wSCL-4VL2Ew/cU8-2qyT008J)
 
+Gigabyte GA-870A-UD3
+ (Phenom II X4 955, 870/SB850, GTX 460)
+
+Yes
+
+No
+
+F5a
+
+R2B2
+
+3.11.1-2
+
+[Fabian Lichte](https://groups.google.com/d/msg/qubes-users/S4Ju0zDM2mI/Q4GZ4S2txdMJ)
+
+R2RC1
+
+3.12.14-4
+
+[Fabian Lichte](https://groups.google.com/d/msg/qubes-users/S4Ju0zDM2mI/Q4GZ4S2txdMJ)
+
 Gigabyte GA-FXA990-UD3 (rev 3.0)
  (AMD FX-8350, GTX 470)
 
