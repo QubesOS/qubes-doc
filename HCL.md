@@ -116,15 +116,6 @@ No Network, Chipset doesn't support VT-d! [​read more](https://groups.google.c
 
 [​Alex Dubois](https://groups.google.com/d/msg/qubes-devel/hag-MQDH_Vs/pmJ7TIWUWAsJ)
 
-ASUS UX-31
- ()
-
-R2B1
-
-[​read more](https://groups.google.com/d/topic/qubes-devel/6I07Bbzn5M4/discussion)
-
-[​Stephen Boyd](https://groups.google.com/d/topic/qubes-devel/6I07Bbzn5M4/discussion)
-
 ASUS X55A
  ()
 
@@ -137,6 +128,36 @@ R2B2
 [​read more](https://groups.google.com/d/topic/qubes-devel/2csjvHia9Rw/discussion)
 
 [​Zrubi](https://groups.google.com/d/msg/qubes-devel/2csjvHia9Rw/NRsqR0g6wIMJ)
+
+ASUS Zenbook UX-31
+ (i5-2557M, HD 3000)
+
+Yes
+
+Yes
+
+R2B2
+
+[​read more](https://groups.google.com/d/topic/qubes-devel/6I07Bbzn5M4/discussion)
+
+[​Stephen Boyd](https://groups.google.com/d/topic/qubes-devel/6I07Bbzn5M4/discussion)
+
+ASUS Zenbook UX31A
+ (i5-3317U, Ivy Bridge, HD4000)
+
+Yes
+
+Yes
+
+UX31A.212
+
+R2RC1
+
+3.12.14-4
+
+USB Ethernet dongle not working.
+
+[Darren Thurston](https://groups.google.com/d/msg/qubes-users/WFukA9TlQog/fua6-o89AEoJ)
 
 ASUS Zenbook UX31A
  (i7-3517U, Ivy Bridge, HD4000)
