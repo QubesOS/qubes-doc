@@ -42,11 +42,11 @@ Replace
 
 with
 
-    def foo(self, *args):
-        profile.runctx('self.real_foo(*args)', globals(), locals(),
+    def foo(self, *args, **kwargs):
+        profile.runctx('self.real_foo(*args, **kwargs)', globals(), locals(),
             time.strftime('/home/user/profiling/foo-%Y%m%d-%H%M%S.pstats'))
 
-    def real_foo(self, a, b, c):
+    def real_foo(self, bar):
         # function content
 
 ### Run application
