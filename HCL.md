@@ -735,6 +735,21 @@ R2B1
 
 [​George Walker](https://groups.google.com/d/msg/qubes-devel/4IrF1A6sa3U/QIQe-dNc4tEJ)
 
+Lenovo Thinkpad X201
+ (i5-520M, HD3000)
+
+Yes
+
+Yes
+
+R2RC1
+
+3.9.2-2
+
+X problem with activated VT-d on all other kernel versions
+
+[​Joonas Lehtonen](https://groups.google.com/d/msg/qubes-users/z5BEjSuR7VE/CD2JMeAhDaoJ)
+
 Lenovo Thinkpad X220 (4290-W3W)
  (i5-2520M, QM67, HD3000)
 
