@@ -592,6 +592,14 @@ R2B3
 
 [​cprise](https://groups.google.com/d/msg/qubes-users/Ll_pPP7glwI/jtRbKtQO_rMJ)
 
+2.58
+
+R2RC1
+
+3.12.14-4
+
+[​cprise](https://groups.google.com/d/msg/qubes-users/452tkVCzvOw/_dQ8DXaDzp0J)
+
 Lenovo Thinkpad T430u
  (i7-3517M, Ivy Bridge, HD Graphics + GT 620M)
 
