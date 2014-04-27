@@ -78,7 +78,7 @@ qvm-create <vmname> --standalone --label <label>
 Using more than one template
 ----------------------------
 
-It's also possible to have more than one template VM in the system. E.g. one could clone the default template using the `qvm-clone-template` command in Dom0. This allows to have a customized template, e.g. with devel packages, or less trusted apps, shared by some subset of domains.
+It's also possible to have more than one template VM in the system. E.g. one could clone the default template using the `qvm-clone` command in Dom0. This allows to have a customized template, e.g. with devel packages, or less trusted apps, shared by some subset of domains.
 
 When you create a new domain you can choose which template this VM should be based on. If you use command line, you should use the `--template` switch:
 
