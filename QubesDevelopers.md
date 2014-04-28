@@ -29,6 +29,7 @@ Contributors to the open source code
 -   Radoslaw Szkodzinski `astralstorm at gmail.com` - minor gui build fixes
 -   Zrubecz Laszlo `mail at zrubi.hu` -- HCL wiki page maintenance, HCL scripts
 -   Vincent Penquerc'h `vincent.penquerch@collabora.co.uk` -- code review, misc fixes
+-   Wojciech Porczyk `wojciech@porczyk.eu` -- minor gui and core fixes
 
 Proprietary code developers
 ---------------------------
