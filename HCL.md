@@ -82,7 +82,7 @@ Further information field. Qubes, dom0 and this field is coloured in conjunction
 
 Reported by
 
-Name linked to report in qubes-users (https://groups.google.com/d/msg/qubes-devel/\${ID}).
+Name linked to report in [qubes-users.](https://groups.google.com/forum/#!forum/qubes-users)
 
 **Note:**
  The HCL is a compilation of reports generated and submitted by users. Except in the case of developer-reported entries, the Qubes team has not independently verified the accuracy of these reports.
