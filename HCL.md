@@ -1107,6 +1107,23 @@ R2B3
 
 **Motherboards**
 
+ASRock G31M-GS
+ (LGA775, G31, GMA3100)
+
+Yes
+
+No
+
+P1.90
+
+R2rc1
+
+3.12.14-4
+
+using Q6600 and GeForce 8600 GT
+
+[​fb900c26](https://groups.google.com/d/msg/qubes-users/jxVnfMnU4s4/5t_lbe3oA7IJ)
+
 ASRock Q87M Vpro
  (LGA1150, Q87)
 
