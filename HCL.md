@@ -478,7 +478,24 @@ R2B3
 
 [​Qubes core developers]()
 
-Lenovo Thinkpad T410
+Lenovo Thinkpad T410 (2522AC1)
+ (i5-520M, Arrandale, HD graphics)
+
+Yes
+
+Yes
+
+1.32
+
+R2RC1
+
+3.12.14-4
+
+AEM works
+
+[​Vincent Penquerc'h](https://groups.google.com/d/msg/qubes-users/68PRfx5FteY/H6rvQ6ojEysJ)
+
+Lenovo Thinkpad T410 (2516CTO)
  (i7-620M, Arrandale, HD graphics)
 
 Yes
