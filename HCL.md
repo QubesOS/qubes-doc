@@ -218,6 +218,23 @@ Most features work on 3.7 and 3.11, but for best results use 3.9.
 
 [​AndrewX192](https://groups.google.com/d/msg/qubes-users/Ol6v6xSla4Y/vFgIHeObF-8J)
 
+Clevo P151HM1
+ (i7-2720QM, Sandy Bridge, GeForce GTX 460M)
+
+Yes
+
+Yes
+
+No
+
+4.6.4
+
+R2rc1
+
+3.12.14-4
+
+[​David Kennedy](https://groups.google.com/d/msg/qubes-users/a5dspO8wRCU/RC12tcxtaCcJ)
+
 Dell Latitude E4300
  (P9600, GMA 4500MHD, Mobile 4 Series Chipset)
 
@@ -1048,6 +1065,25 @@ R2B2
 
 [Andrew Sorensen](https://groups.google.com/d/msg/qubes-devel/D16dM3rg8Iw/zOEZmjTJkRIJ)
 
+HP Compaq dc7800 SFF
+ (E8400, Q35)
+
+Yes
+
+\*
+
+\*
+
+1.32
+
+R2B3
+
+3.9.2-2
+
+IGP won't work with activated VT-d (3.12,3.11,3.7), [​3,9 works](https://groups.google.com/d/msg/qubes-users/QmshQ6aHsCM/LTyn6mL0kFkJ), TPM not tested.
+
+[​Rob Townley](https://groups.google.com/d/msg/qubes-users/QmshQ6aHsCM/nJv69i3jbWYJ)
+
 HP Compaq dc7900 Convertible Minitower
  (E8400, Q45/Q43)
 
@@ -1155,6 +1191,23 @@ R2B2
 [read more](https://groups.google.com/d/topic/qubes-users/lycnE-LcJBo/discussion)
 
 [gorka](https://groups.google.com/d/msg/qubes-users/lycnE-LcJBo/0u10xl7AMrIJ)
+
+Asus M4A89GTD USB3/PRO
+ ()
+
+Yes
+
+No
+
+No
+
+3029
+
+R2rc1
+
+with Phenom II X4 965 and Radeon HD 5750
+
+[David Kennedy](https://groups.google.com/d/msg/qubes-users/6UPz3B0hg_U/bNcRAMiYJekJ)
 
 Biostar A880GZ
  (AM3+, 880G/SB850)
