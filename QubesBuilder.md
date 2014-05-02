@@ -183,14 +183,14 @@ There is one issue with above experimental version: new Xorg server have differe
 Code verification keys management
 =================================
 
-[QubesBuilder](/wiki/QubesBuilder) by default verify signed tags on every downloaded code. Public keys used for that are stored in `keyrings/git`. By default Qubes developers keys are imported automatically, but if you need some additional keys (for example your own), you can add it using:
+[QubesBuilder](/wiki/QubesBuilder) by default verifies signed tags on every downloaded code. Public keys used for that are stored in `keyrings/git`. By default Qubes developers' keys are imported automatically, but if you need some additional keys (for example your own), you can add them using:
 
 ``` {.wiki}
 GNUPGHOME=$PWD/keyrings/git gpg --import /path/to/key.asc
 GNUPGHOME=$PWD/keyrings/git gpg --edit-key ID_OF_JUST_IMPORTED_KEY
-# here use "trust" command to set key fully or ultimately trusted - only those keys are accepted by QubesBulder
+# here use "trust" command to set key fully or ultimately trusted - only those keys are accepted by QubesBuilder
 ```
 
-All Qubes developers keys are signed by Qubes Master Signing Key (which is set as ultimately trusted key), so are trusted automatically.
+All Qubes developers' keys are signed by the Qubes Master Signing Key (which is set as ultimately trusted key), so are trusted automatically.
 
-If you are the owner of Master key and want to revoke such signature, use `revsig` gpg key edit command and update the key in qubes-developers-keys.asc - now the key will be no longer trusted (unless manually set such).
+If you are the owner of Master key and want to revoke such signature, use the `revsig` gpg key edit command and update the key in qubes-developers-keys.asc - now the key will be no longer trusted (unless manually set as such).
