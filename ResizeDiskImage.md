@@ -74,6 +74,20 @@ qvm-prefs -s <vm-name> kernelopts default
 
 Done.
 
+### Template disk image
+
+If you want install a lot of software in your TemplateVM, you may need to increase the amount of disk space your TemplateVM can use.
+
+1.  Make sure that all the VMs based on this template are shut off (including netvms etc).
+2.  Sanity check: verify that none of loop device are pointing at this template root.img: `sudo losetup -a`
+3.  Resize root.img file using `truncate -s <desired size>` (root.img path you can obtain from qvm-prefs).
+4.  If any netvm/proxyvm used by this template is based on it, set template netvm to none.
+5.  Start the template.
+6.  Now you can execute `sudo resize2fs /dev/mapper/dmroot` in the template.
+7.  Verify available space in the template.
+8.  Shutdown the template.
+9.  Restore original netvm setting (if changed), check firewall settings (setting netvm to none causes firewall reset to "block all")
+
 ### HVM disk image
 
 In this example we will grow the disk image of an HVM to 30GB.
