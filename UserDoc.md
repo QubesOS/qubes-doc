@@ -36,7 +36,7 @@ Advanced Topics
 -   [Installing Anti Evil Maid](/wiki/AntiEvilMaid)
 -   [How to Install a Transparent Tor ProxyVM](/wiki/UserDoc/TorVM)
 -   [XFCE Installation in dom0](/wiki/UserDoc/XFCE)
--   [VM customization?](/wiki/UserDoc/VMConfigFiles)
+-   [Configuration files](/wiki/UserDoc/ConfigFiles)
 -   [DispVM Customization](/wiki/UserDoc/DispVMCustomization)
 -   [Tips for Using Linux in an HVM](/wiki/LinuxHVMTips)
 -   [Enabling Fullscreen Mode for AppVMs](/wiki/FullScreenMode)
