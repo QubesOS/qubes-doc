@@ -1141,6 +1141,25 @@ R2B3
 
 [​Nukama](https://groups.google.com/d/msg/qubes-users/YcqMDcVYQh8/pk0B_9RfGQMJ)
 
+Lenovo ThinkStation S30 4352G1G
+ (E5-1620 v2, Ivytown, Radeon HD 6950)
+
+A2KT44AUS
+
+Yes
+
+Yes
+
+\*
+
+R2rc1
+
+3.12.14-4
+
+Issue with sound, network and marvel raid. AEM untested.
+
+[​Hans Walter](https://groups.google.com/d/msg/qubes-users/EDxALP9GNFo/gAH7nZXd0CkJ)
+
 **Motherboards**
 
 ASRock G31M-GS
