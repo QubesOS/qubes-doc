@@ -714,7 +714,7 @@ activated VT-d BIOS option not recognized in Qubes
 
 [​Jens Porup](https://groups.google.com/d/msg/qubes-users/EoG4VffajRw/-oeSfNCA-KIJ)
 
-Lenovo T510 (4384-WGZ)
+Lenovo Thinkpad T510 (4384-WGZ)
  (i5-520M, Arrandale, Intel HD graphics)
 
 1.52
@@ -747,6 +747,23 @@ R1
 [​read more](https://groups.google.com/forum/#!msg/qubes-devel/TgDWwBs36yA/IUFZPHs716cJ)
 
 [​Sebastian Hültenschmidt](https://groups.google.com/forum/#!msg/qubes-devel/TgDWwBs36yA/IUFZPHs716cJ)
+
+Lenovo Thinkpad W530 (24385JU)
+ (i7-3740QM, nVidia Optimus)
+
+2.53
+
+Yes
+
+Yes
+
+R2rc1
+
+3.12.18-1
+
+display issues[​read more](https://groups.google.com/d/msg/qubes-users/ReLqPcsvDwk/WbJdDUBqgTsJ)
+
+[​Lab Man](https://groups.google.com/d/msg/qubes-users/ReLqPcsvDwk/WbJdDUBqgTsJ)
 
 Lenovo Thinkpad X1 Carbon (3444CTO)
  (i5-3427U)
@@ -860,6 +877,23 @@ R2B2
 [​read more](https://groups.google.com/d/topic/qubes-users/hf0vkL3TE7k/discussion)
 
 [​mgflax](https://groups.google.com/d/msg/qubes-users/hf0vkL3TE7k/VOtrW3wEbtMJ)
+
+Lenovo Thinkpad X230 (2306CTO)
+ (i7-3520M, Ivy Bridge, HD Graphics)
+
+2.54
+
+Yes
+
+Yes
+
+R2rc1
+
+3.12.14-4
+
+[​read more](https://groups.google.com/d/msg/qubes-users/NXIL5rEh65o/rCBf1PYr2jsJ)
+
+[​Franz Felix](https://groups.google.com/d/msg/qubes-users/NXIL5rEh65o/rCBf1PYr2jsJ)
 
 Samsung NP300E7A
  (i3-2330M, HM65, HD3000)
