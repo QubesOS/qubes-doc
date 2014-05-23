@@ -32,9 +32,17 @@ Using a ProxyVM to set up a VPN clinet will gives you the ability to:
 To setup a ProxyVM as a VPN gateway you should:
 
 -   create a new VM and check the ProxyVM radiobutton
+
+[![No image "Settings-NetVM.png" attached to VPN](/chrome/common/attachment.png "No image "Settings-NetVM.png" attached to VPN")](/attachment/wiki/VPN/Settings-NetVM.png)
+
 -   add the network-manager service to this new VM
--   strart the new ProxyVM and set up Your VPN as described in the Network Manager documentation linked above.
--   connect your AppVMs to use the VPN service.
+
+[![No image "Settings-services.png" attached to VPN](/chrome/common/attachment.png "No image "Settings-services.png" attached to VPN")](/attachment/wiki/VPN/Settings-services.png)
+
+-   set up Your VPN as described in the Network Manager documentation linked above.
+-   connect your AppVMs to use the new VM as a NetVM.
+
+[![No image "Settings-NetVM.png" attached to VPN](/chrome/common/attachment.png "No image "Settings-NetVM.png" attached to VPN")](/attachment/wiki/VPN/Settings-NetVM.png)
 
 ### AppVM
 
