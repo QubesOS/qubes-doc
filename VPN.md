@@ -18,6 +18,10 @@ The simplest case if you set up a VPN connection using the Network Manager insid
 -   You have to place (and probably save) Your VPN credentials inside the NetVM wich is directly connected to the outside world
 -   All your AppVMs wich are connected to the NetVM will be connected to the VPN (by default)
 
+### AppVM
+
+While the Network Manager is not started here (for a good reason) You can configure any kind of VPN client in your AppVM as well, however it is only suggested if you have to use a special VPN client.
+
 ### ProxyVM
 
 One of the best thing in Qubes that you can use a special type of VMs called ProxyVM (or FirewallVM). The special thing is that your AppVMs see this as a NetVM, and the NetVMs see it as an AppVM. Because of that You can place a ProxyVM between your AppVMs and Your NetVM. This is how the default firewall VM is working.
@@ -43,7 +47,3 @@ Using a ProxyVM to set up a VPN client will gives you the ability to:
 1.  connect your AppVMs to use the new VM as a NetVM.
 
 [![No image "Settings-NetVM.png" attached to VPN](/chrome/common/attachment.png "No image "Settings-NetVM.png" attached to VPN")](/attachment/wiki/VPN/Settings-NetVM.png)
-
-### AppVM
-
-While the Network Manager is not started here (for a good reason) You can configure any kind of VPN client in your AppVM as well, however it is only suggested if you have to use a special VPN client.
