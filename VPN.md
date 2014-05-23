@@ -20,18 +20,18 @@ The simplest case if you set up a VPN connection using the Network Manager insid
 
 ### ProxyVM
 
-One of the best thing in Qubes that you can use a specian type of VMs called ProxyVM (or FirewallVM). The special thing is that your AppVMs see this as a NetVM, and the NetVMs see it as an AppVM. Because of that You can place a ProxyVM between your AppVMs and Your NetVM. This is how the default firewall VM is working.
+One of the best thing in Qubes that you can use a special type of VMs called ProxyVM (or FirewallVM). The special thing is that your AppVMs see this as a NetVM, and the NetVMs see it as an AppVM. Because of that You can place a ProxyVM between your AppVMs and Your NetVM. This is how the default firewall VM is working.
 
-Using a ProxyVM to set up a VPN clinet will gives you the ability to:
+Using a ProxyVM to set up a VPN client will gives you the ability to:
 
 -   Separate your VPN credentials from Your AppVM data.
--   You can easily controll wich of your AppVMs are connected to your VPN by simply set it as a NetVM of the desired AppVM.
+-   You can easily control which of your AppVMs are connected to your VPN by simply set it as a NetVM of the desired AppVM.
 
 **To setup a ProxyVM as a VPN gateway you should:**
 
-1.  create a new VM and check the ProxyVM radiobutton
+1.  create a new VM and check the ProxyVM radio button
 
-[![No image "Settings-NetVM.png" attached to VPN](/chrome/common/attachment.png "No image "Settings-NetVM.png" attached to VPN")](/attachment/wiki/VPN/Settings-NetVM.png)
+[![No image "Create\_New\_VM.png" attached to VPN](/chrome/common/attachment.png "No image "Create_New_VM.png" attached to VPN")](/attachment/wiki/VPN/Create_New_VM.png)
 
 1.  add the network-manager service to this new VM
 
@@ -45,4 +45,4 @@ Using a ProxyVM to set up a VPN clinet will gives you the ability to:
 
 ### AppVM
 
-While the Network Manager is not started here (for a good reason) You can configure any kind of VPN client in your AppVM as well, however it is only suggested if you have to use a special VPN clinet.
+While the Network Manager is not started here (for a good reason) You can configure any kind of VPN client in your AppVM as well, however it is only suggested if you have to use a special VPN client.
