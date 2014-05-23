@@ -7,8 +7,6 @@ permalink: /wiki/VPN/
 VPN connections in Qubes
 ------------------------
 
-Using Qubes there are several possibilities to set up a VPN connection:
-
 The simplest case if you set up a VPN connection using the Network Manager inside one of your VMs. Setting up such a connection is really not Qubes specific and it is documented in Your Operating system documentation.
 
 If you using the Qubes default OS (Fedora): [​Establishing a VPN Connection](http://docs.fedoraproject.org/en-US/Fedora/18/html/System_Administrators_Guide/sec-Establishing_a_VPN_Connection.html)
@@ -31,7 +29,7 @@ Using a ProxyVM to set up a VPN clinet will gives you the ability to:
 -   Separate your VPN credentials from Your AppVM data.
 -   You can easily controll wich of your AppVMs are connected to your VPN by simply set it as a NetVM of the desired AppVM.
 
-To setup a ProxyVM for such task you have to:
+To setup a ProxyVM as a VPN gateway you should:
 
 -   create a new VM and check the ProxyVM radiobutton
 -   add the network-manager service to this new VM
