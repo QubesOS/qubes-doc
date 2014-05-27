@@ -29,6 +29,23 @@ See also [​this article](http://theinvisiblethings.blogspot.com/2011/03/partit
 
 And [​this message](https://groups.google.com/group/qubes-devel/msg/48b4b532cee06e01) from qubes-devel.
 
+Copy/Paste between dom0 and other domains
+-----------------------------------------
+
+Copy/Paste between dom0 and other domains is intentionally prohibited by default. There should normally be no reason for any data exchange between dom0 and other VMs (except for the reporting of error logs). In order to easily copy/paste the contents of logs from dom0 to the inter-VM clipboard:
+
+1.  Right-click on the desired VM in the Qubes VM Manager.
+2.  Click "Logs."
+3.  Click on the desired log.
+4.  Click "Copy to Qubes clipboard."
+
+You may now paste the log contents to any VM as you normally would (i.e., Ctrl-Shift-V, then Ctrl-V).
+
+For data other than logs, there are two options:
+
+1.  [Copy it as a file.](/wiki/CopyToDomZero)
+2.  Paste the data to `/var/run/qubes/qubes-clipboard.bin`, then write "dom0" to `/var/run/qubes/qubes-clipboard.bin.source`. Then use Ctrl-Shift-V to paste the data to the desired VM.
+
 Clipboard automatic policy enforcement
 --------------------------------------
 
