@@ -117,3 +117,5 @@ controller in the "Available" list. Move it to the "Selected" list.
     ```
 
 This will cause your new **USBVM** to automatically start when the system starts up. So that in case you forgot to start it and then accidentally plugged a USB stick (or your colleague at work did it while you were at lunch), **it won't compromise the Dom0**.
+
+**10.** Do not use any file managers in dom0. Some file managers (such as the Thunar File Manager, which is pre-installed by default in the KDE version of dom0) list loop devices used by running VMs. When one of these devices is selected in the file manager, the loop device is mounted to dom0, effectively transferring the contents of the home directory of an untrusted AppVM to dom0. See: [​this email](https://groups.google.com/d/msg/qubes-users/_tkjmBa9m9w/9BbKh94PVtcJ).
