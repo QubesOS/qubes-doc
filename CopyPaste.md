@@ -49,7 +49,18 @@ For data other than logs, there are two options:
 Clipboard automatic policy enforcement
 --------------------------------------
 
-TODO
+The Qubes clipboard policy is configurable in:
+
+``` {.wiki}
+/etc/qubes-rpc/policy/qubes.ClipboardPaste
+```
+
+You may wish to configure this policy in order to prevent user error. For example, if you are certain that you never wish to paste *into* your "vault" AppVM, then you might edit the policy as follows:
+
+``` {.wiki}
+$anyvm  vault   deny
+$anyvm  $anyvm  ask
+```
 
 Shortcut Configuration
 ----------------------
