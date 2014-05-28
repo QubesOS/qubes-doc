@@ -54,7 +54,7 @@ These files contain lines with the following format:
 
 srcvm destvm (allow|deny|ask)[,user=user\_to\_run\_as][,target=VM\_to\_redirect\_to]
 
-You can specify srcvm and destvm by name, or by one of "\$anyvm", "\$dispvm", "dom0" reserved keywords (note string "dom0" does not match the \$anyvm pattern; all other names do). Whenever a rpc request for action X is received, the first line in /etc/qubes-rpc/policy/X that match srcvm/destvm is consulted to determine whether to allow rpc, what user account the program should run in target VM under, and what VM to redirect the execution to. If the policy file does not exits, user is prompted to create one; if still there is no policy file after prompting, the action is denied.
+You can specify srcvm and destvm by name, or by one of "\$anyvm", "\$dispvm", "dom0" reserved keywords (note string "dom0" does not match the \$anyvm pattern; all other names do). Only "\$anyvm" keyword makes sense in srcvm field (service calls from dom0 are currently always allowed, "\$dispvm" means "new VM created for this particular request" - so it is never a source of request). Currently there is no way to specify source VM by type. Whenever a rpc request for action X is received, the first line in /etc/qubes-rpc/policy/X that match srcvm/destvm is consulted to determine whether to allow rpc, what user account the program should run in target VM under, and what VM to redirect the execution to. If the policy file does not exits, user is prompted to create one; if still there is no policy file after prompting, the action is denied.
 
 On target VM, the */etc/qubes-rpc/RPC\_ACTION\_NAME* must exist, containing the file name of the program that will be invoked.
 
