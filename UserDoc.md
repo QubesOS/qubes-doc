@@ -31,6 +31,7 @@ Advanced Topics
 ---------------
 
 -   [​Creating Custom NetVMs and ProxyVMs](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html)
+-   [How to set up a ProxyVM as a VPN Gateway](/wiki/VPN)
 -   [How to Copy Files to dom0](/wiki/CopyToDomZero)
 -   [​Extending root.img Size](https://groups.google.com/group/qubes-devel/msg/9d1ac581236ca9b4)
 -   [Installing Anti Evil Maid](/wiki/AntiEvilMaid)
