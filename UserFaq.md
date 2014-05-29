@@ -34,6 +34,7 @@ Qubes Users' FAQ
     2.  [My keyboard layout settings are not behaving correctly. What should I do?](#Mykeyboardlayoutsettingsarenotbehavingcorrectly.WhatshouldIdo)
     3.  [My dom0 and/or TemplateVM update stalls when attempting to update via …](#Mydom0andorTemplateVMupdatestallswhenattemptingtoupdateviatheGUItool.WhatshouldIdo)
     4.  [How do I run a Windows HVM in non-seamless mode (i.e., as a single window)?](#HowdoIrunaWindowsHVMinnon-seamlessmodei.e.asasinglewindow)
+    5.  [I assigned a PCI device to an AppVM, then unassigned it/shut down the …](#IassignedaPCIdevicetoanAppVMthenunassigneditshutdowntheAppVM.Whyisntthedeviceavailableindom0)
 
 General Questions
 -----------------
@@ -142,3 +143,21 @@ In your TemplateVMs, open a terminal and run `sudo yum upgrade`.
 ### How do I run a Windows HVM in non-seamless mode (i.e., as a single window)?
 
 Enable "debug mode" in the AppVM's settings, either by checking the box labelled "Run in debug mode" in the Qubes VM Manager AppVM settings menu or by running the [qvm-prefs command](/wiki/Dom0Tools/QvmPrefs).)
+
+### I assigned a PCI device to an AppVM, then unassigned it/shut down the AppVM. Why isn't the device available in dom0?
+
+This is an intended feature. A device which was previously assigned to a less trusted AppVM could attack dom0 if it were automatically reassigned there. In order to re-enable the device in dom0, either:
+
+1.  Reboot the physical machine.
+
+or
+
+1.  Go to the sysfs (`/sys/bus/pci`), find the right device, detach it from the pciback driver and attach back to the `ehci-pci`/`ehci-hcd` (`ehci-pci` on newer kernels). Assume that `00:1c.2` is your device:
+
+    ``` {.wiki}
+    cd /sys/bus/pci/devices/0000:00:1c.2
+    echo 0000:00:1c.2 > driver/unbind
+    echo 0000:00:1c.2 > ../../drivers/ehci-pci/bind
+    ```
+
+
