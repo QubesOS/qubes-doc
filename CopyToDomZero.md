@@ -15,8 +15,19 @@ For this reason we intentionally do not provide a convenient tool for copying fi
 qvm-run --pass-io <src_domain> 'cat /path/to/file_in_src_domain' > /path/to/file_name_in_dom0
 ```
 
-BTW, you can use the same method to copy files from Dom0 to VMs, e.g. logs (although in Qubes 1.0 this won't be needed, as we will provide a convenient one-click solution for copying logs to Qubes global clipboard):
+BTW, you can use the same method to copy files from Dom0 to VMs:
 
 ``` {.wiki}
 cat /path/to/file_in_dom0 | qvm-run --pass-io <dst_domain> 'cat > /path/to/file_name_in_appvm'
 ```
+
+### Copying logs from dom0
+
+In order to easily copy/paste the contents of logs from dom0 to the inter-VM clipboard:
+
+1.  Right-click on the desired VM in the Qubes VM Manager.
+2.  Click "Logs."
+3.  Click on the desired log.
+4.  Click "Copy to Qubes clipboard."
+
+You may now paste the log contents to any VM as you normally would (i.e., Ctrl-Shift-V, then Ctrl-V).
