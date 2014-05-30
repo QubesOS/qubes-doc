@@ -29,6 +29,14 @@ Please refer to [this page](/wiki/HvmCreate) for instructions on how to install 
 Installing Qubes support tools in Windows 7 VMs
 -----------------------------------------------
 
+First, make sure that `qubes-windows-tools` is installed in your system:
+
+``` {.wiki}
+sudo qubes-dom0-update qubes-windows-tools
+```
+
+This package brings the ISO with Qubes Windows Tools that is passed to the VM when `--install-windows-tools` is specified for the `qvm-start` command. Please note that even though the Qubes Windows Tools are proprietary, none of this software ever runs in Dom0 or any other part of the system except for the Windows AppVM in which it is to be installed.
+
 To install the Qubes Windows support tools in a Windows VM one should start the VM passing the additional option `--install-windows-tools`:
 
 ``` {.wiki}
