@@ -895,6 +895,21 @@ R2rc1
 
 [​Franz Felix](https://groups.google.com/d/msg/qubes-users/NXIL5rEh65o/rCBf1PYr2jsJ)
 
+MSI GX660
+ (i5-460M, PM55, Radeon HD5870)
+
+1.0L
+
+Yes
+
+No
+
+R2B3
+
+3.11.1-2
+
+[​Avant Garden](https://groups.google.com/d/msg/qubes-users/UrWYjkHwon8/TPE0XSBiPDQJ)
+
 Samsung NP300E7A
  (i3-2330M, HM65, HD3000)
 
@@ -1339,11 +1354,17 @@ R2rc1
 Gigabyte GA-FXA990-UD3 (rev 3.0)
  (AMD FX-8350, GTX 470)
 
+FB
+
 Yes
 
-No
+\*
+
+\*
 
 R2B2
+
+IOMMU not tested with Qubes, working on other platforms [read more](https://groups.google.com/d/msg/qubes-devel/qXct-TU4tKs/_JEtbQCyHl8J), TPM header
 
 [m astroj](https://groups.google.com/d/msg/qubes-devel/oox94EsIduQ/7w4xUoK5pxwJ)
 
@@ -1354,9 +1375,11 @@ Gigabyte GA-X79S-UP5 Wi-Fi
 
 Yes
 
-Yes
+\*
 
-VT-d option in BIOS according to [manual](http://download.gigabyte.eu/FileList/Manual/mb-manual_ga-x79s-up5_e.pdf)
+\*
+
+IOMMU not tested with Qubes, VT-d option in BIOS according to [manual](http://download.gigabyte.eu/FileList/Manual/mb-manual_ga-x79s-up5_e.pdf), TPM header
 
 MSI Big Bang
  (i7-950, Radeon HD 6770)
@@ -1367,21 +1390,6 @@ R2B2
 
 [Andrew Sorensen](https://groups.google.com/d/msg/qubes-devel/TxzaoodB02o/NxVHjaPoRYoJ)
 
-MSI GX660
- (i5-460M, PM55, Radeon HD5870)
-
-1.0L
-
-Yes
-
-No
-
-R2B3
-
-3.11.1-2
-
-[​Avant Garden](https://groups.google.com/d/msg/qubes-users/UrWYjkHwon8/TPE0XSBiPDQJ)
-
 Supermicro X10SAE
  (Xeon E3-1245, Haswell)
 
@@ -1391,7 +1399,11 @@ Yes
 
 Yes
 
+\*
+
 R1
+
+TPM header
 
 [​Qubes Fan](https://groups.google.com/d/msg/qubes-users/V9BLpdf4xCs/v4XcOjLT6uUJ)
 
