@@ -235,6 +235,21 @@ R2rc1
 
 [​David Kennedy](https://groups.google.com/d/msg/qubes-users/a5dspO8wRCU/RC12tcxtaCcJ)
 
+Clevo W150ER
+ (i7-3612QM, Ivy Bridge, Geforce GT 650M)
+
+4.6.5
+
+Yes
+
+No
+
+R2rc1
+
+3.12.14-4
+
+[​chymian](https://groups.google.com/d/msg/qubes-users/YOE2ds6RVWc/n24INxfu11gJ)
+
 Dell Latitude E4300
  (P9600, GMA 4500MHD, Mobile 4 Series Chipset)
 
