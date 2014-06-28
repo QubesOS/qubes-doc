@@ -501,6 +501,25 @@ R2B2
 
 [Stephen Boyd](https://groups.google.com/d/msg/qubes-devel/ZC_SQJhXVOM/4aLjEc7GIsUJ)
 
+Lenovo IdeaPad Z500 Touch (20221)
+ (i5-3230M, Ivy Bridge, HD Graphics)
+
+1.21
+
+Yes
+
+No
+
+\# best achievable QSL - (Qubes Security Level) --\>
+
+R2
+
+3.12.18-1
+
+Touchpad doesn't work during installer
+
+[Rowan Crane](https://groups.google.com/d/msg/qubes-users/6U_Qm3-Edg0/Aioi8lSBR3wJ)
+
 Lenovo Thinkpad Edge E130
  (i3-3217U, Ivy Bridge, HD Graphics)
 
