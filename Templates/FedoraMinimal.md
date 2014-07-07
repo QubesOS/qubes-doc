@@ -29,7 +29,7 @@ It is a good idea to clone the original template, and make any changes in the ne
 [user@dom0 ~]$ qvm-clone fedora-20-x64-minimal <your new template name>
 ```
 
-The sudo package is also missing from this template, but easy to install:
+Not even the sudo package is installed by default, so lets install it:
 
 ``` {.wiki}
 [user@F20-Minimal ~]$ su - 
