@@ -29,6 +29,13 @@ It is a good idea to clone the original template, and make any changes in the ne
 [user@dom0 ~]$ qvm-clone fedora-20-x64-minimal <your new template name>
 ```
 
+The sudo package is also missing from this template, but easy to install:
+
+``` {.wiki}
+[user@F20-Minimal ~]$ su - 
+[user@F20-Minimal ~]$ yum install sudo
+```
+
 ### NetVM
 
 If You want to use this template to for standard NetVMs You should install some more packeges:
