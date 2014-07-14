@@ -37,7 +37,7 @@ Here we see Xfce4.10 Window Manager running in Dom0 (instead of KDE as on previo
 
 * * * * *
 
-[![](http://files.qubes-os.org/Screenshots_files/password-prompt.png "http://files.qubes-os.org/Screenshots_files/password-prompt.png")](http://files.qubes-os.org/Screenshots_files/password-prompt.png)
+[![No image "password-prompt.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "password-prompt.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/password-prompt.png)
 
 It is always clearly visible to which domain a given window belongs. Here it’s immediately clear that the passphrase-prompting window belongs to some domain with the “green” label. When we look at the titlebar, we see “[work]”, which is the name of the actual domain. Theoretically, the untrusted application (here, the “red” Firefox) beneath the prompt window could draw a similar looking window within its contents. In practice, this would be very hard, because it doesn’t know, e.g., the exact decoration style that is in use. However, if this is a concern, the user can simply try to move the more trusted window onto some empty space on the desktop such that no other window is present beneath it. Or, better yet, use the Expose-like effect (available via a hot-key). A malicious application from an untrusted domain cannot spoof the whole desktop because the trusted Window Manager will never let any domain “own” the whole screen. Its titlebar will always be visible.
 
@@ -61,7 +61,7 @@ Qubes lets you update all the software in all the domains all at once, in a cent
 
 * * * * *
 
-[![](http://files.qubes-os.org/Screenshots_files/copy-paste-1.png "http://files.qubes-os.org/Screenshots_files/copy-paste-1.png")](http://files.qubes-os.org/Screenshots_files/copy-paste-1.png) [![](http://files.qubes-os.org/Screenshots_files/copy-paste-2.png "http://files.qubes-os.org/Screenshots_files/copy-paste-2.png")](http://files.qubes-os.org/Screenshots_files/copy-paste-2.png)
+[![No image "copy-paste-1.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "copy-paste-1.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/copy-paste-1.png) [![No image "copy-paste-2.png" attached to QubesScreenshots](/chrome/common/attachment.png "No image "copy-paste-2.png" attached to QubesScreenshots")](/attachment/wiki/QubesScreenshots/copy-paste-2.png)
 
 Qubes supports secure copy-and-paste operations between AppVMs. Only the user can initiate a copy or paste operation using a special key combination (Ctrl-Shift-C/V). Other AppVMs have no access to the clipboard buffer, so they cannot steal data from the clipboard. Only the user decides which AppVM should be given access to the clipboard. (This is done by selecting the destination AppVM’s window and pressing the Ctrl-Shift-V combination.)
 
