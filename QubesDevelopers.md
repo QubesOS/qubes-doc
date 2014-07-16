@@ -27,7 +27,7 @@ Contributors to the open source code
 -   Olivier Médoc `o_medoc at yahoo.fr` - core and gui fixes, template builder generalization (Arch Linux support)
 -   Timo Juhani Lindfors `timo.lindfors at iki.fi` - minor core cleanups
 -   Radoslaw Szkodzinski `astralstorm at gmail.com` - minor gui build fixes
--   Zrubecz Laszlo `mail at zrubi.hu` -- HCL wiki page maintenance, HCL scripts
+-   László Zrubecz `mail at zrubi.hu` -- HCL wiki page maintenance, HCL scripts
 -   Vincent Penquerc'h `vincent.penquerch@collabora.co.uk` -- code review, misc fixes
 -   Wojciech Porczyk `wojciech@porczyk.eu` -- minor gui and core fixes
 
