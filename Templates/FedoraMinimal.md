@@ -41,7 +41,7 @@ Not even the sudo package is installed by default, so lets install it:
 If You want to use this template to for standard NetVMs You should install some more packeges:
 
 ``` {.wiki}
-[user@F20-Minimal ~]$ sudo yum install NetworkManager network-manager-applet  wireless-tools dbus-x11 dejavu-sans-fonts
+[user@F20-Minimal ~]$ sudo yum install NetworkManager network-manager-applet  wireless-tools dbus-x11 dejavu-sans-fonts tar tinyproxy
 ```
 
 And maybe some more optional but useful packages as well:
