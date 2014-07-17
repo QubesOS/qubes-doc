@@ -58,7 +58,7 @@ Reported BIOS version
 
 [HVM](https://en.wikipedia.org/wiki/Hardware_virtual_machine)
 
-[Intel VT-x](https://en.wikipedia.org/wiki/Intel_VT-x#Intel-VT-x) or [AMD-v](https://en.wikipedia.org/wiki/AMD-V#AMD_virtualization_.28AMD-V.29) technology (required for running HVM domains, such as [Windows-based AppVMs](https://www.qubes-os.org/trac/wiki/WindowsAppVms))
+[Intel VT-x](https://en.wikipedia.org/wiki/Intel_VT-x#Intel-VT-x) or [AMD-v](https://en.wikipedia.org/wiki/AMD-V#AMD_virtualization_.28AMD-V.29) technology (required for running HVM domains, such as [Windows-based AppVMs](https://wiki.qubes-os.org/trac/wiki/WindowsAppVms))
 
 [IOMMU](https://en.wikipedia.org/wiki/IOMMU)
 
@@ -66,7 +66,7 @@ Intel VT-d or AMD IOMMU technology (required for effective isolation of network 
 
 [TPM](https://en.wikipedia.org/wiki/Trusted_Platform_Module)
 
-TPM with proper BIOS support (required for [Anti Evil Maid](https://www.qubes-os.org/trac/wiki/AntiEvilMaid))
+TPM with proper BIOS support (required for [Anti Evil Maid](https://wiki.qubes-os.org/trac/wiki/AntiEvilMaid))
 
 Qubes version
 
@@ -509,8 +509,6 @@ Lenovo IdeaPad Z500 Touch (20221)
 Yes
 
 No
-
-\# best achievable QSL - (Qubes Security Level) --\>
 
 R2
 
