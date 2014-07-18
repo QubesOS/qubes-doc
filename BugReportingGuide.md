@@ -15,7 +15,7 @@ So if you have not allowed to file new tickets You should follow these guide lin
 
 1.  Search the issue tracker to see if your issue is already there - if so please cite the issue \# in any comments you post.
     -   [Simple search](/search)
-    -   [​Advanced search](https://qubes-os.org/trac/query)
+    -   [​Advanced search](https://wiki.qubes-os.org/query?status=accepted&status=assigned&status=new&status=reopened&order=priority)
 
 1.  Search the [mailing lists](/wiki/QubesLists) to see if your issue is already discussed - if so, add your comments to the existing thread.
 
