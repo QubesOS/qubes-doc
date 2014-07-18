@@ -12,6 +12,7 @@ Architects & Core Developers
 
 -   Joanna Rutkowska `joanna at invisiblethingslab dot com` - architecture & project management, original core, occasional addons
 -   Marek Marczykowski `marmarek at invisiblethingslab dot com` - everything [Xen/Linux?](/wiki/Xen/Linux) related :)
+-   Wojciech Porczyk `wojciech@porczyk.eu` -- various Linux-related things
 
 Contributors to the open source code
 ------------------------------------
@@ -29,7 +30,6 @@ Contributors to the open source code
 -   Radoslaw Szkodzinski `astralstorm at gmail.com` - minor gui build fixes
 -   László Zrubecz `mail at zrubi.hu` -- HCL wiki page maintenance, HCL scripts
 -   Vincent Penquerc'h `vincent.penquerch@collabora.co.uk` -- code review, misc fixes
--   Wojciech Porczyk `wojciech@porczyk.eu` -- minor gui and core fixes
 
 Proprietary code developers
 ---------------------------
