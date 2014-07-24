@@ -33,8 +33,48 @@ With Qubes Split GPG this problem is drastically minimized, because each time th
 Configuring and using Split GPG
 -------------------------------
 
-### Setting up the *vault* AppVM (Split GPG backend)
+Start with creating a dedicated AppVM for storing your keys (the GPG backend domain). It is recommended that this domain be network disconnected (set its netvm to `none`) and only used for this one purpose. In later examples this AppVM is named `work-gpg`, but of course it might have any other name.
 
-### Setting up the client AppVM to use split GPG backend from *vault* AppVM
+### Setting up the GPG backend domain
+
+Make sure the gpg is installed there and there are some private keys in the keyring, e.g.:
+
+``` {.wiki}
+[user@work-gpg ~]$ gpg -K
+/home/user/.gnupg/secring.gpg
+-----------------------------
+sec   4096R/3F48CB21 2012-11-15
+uid                  Qubes OS Security Team <security@qubes-os.org>
+ssb   4096R/30498E2A 2012-11-15
+(...)
+```
+
+This is pretty much all that is required. However one might also want to modify the default timeout which tells the backend for how long the user's approval for key access should be valid (default 5 minutes). This is adjustable via `QUBES_GPG_AUTOACCEPT` variable. One can override it e.g. in `~/.bash_profile`:
+
+``` {.wiki}
+[user@work-gpg ~]$ echo "export QUBES_GPG_AUTOACCEPT=86400" >> ~/.bash_profile
+```
+
+### Configuring the client apps to use split GPG backend
+
+Normally it should be enough to set the `QUBES_GPG_DOMAIN` to the GPG backend domain name and use `qubes-gpg-client` in place of `gpg`, e.g.:
+
+``` {.wiki}
+[user@work ~]$ export QUBES_GPG_DOMAIN=work-gpg
+[user@work ~]$ qubes-gpg-client -K
+/home/user/.gnupg/secring.gpg
+-----------------------------
+sec   4096R/3F48CB21 2012-11-15
+uid                  Qubes OS Security Team <security@qubes-os.org>
+ssb   4096R/30498E2A 2012-11-15
+(...)
+
+[user@work ~]$ qubes-gpg-client secret_message.txt.asc 
+(...)
+```
+
+However, when using Thunderbird with Enigmail extension it is not enough, because Thunderbird doesn't preserve the environment variables. Instead it is recommended to create a short script e.g. in the user home directory: ... and then point Enigmail to use this script instead of the standard GnuPG binary:
+
+[![No image "tb-enigmail-split-gpg-settings.png" attached to UserDoc/SplitGpg](/chrome/common/attachment.png "No image "tb-enigmail-split-gpg-settings.png" attached to UserDoc/SplitGpg")](/attachment/wiki/UserDoc/SplitGpg/tb-enigmail-split-gpg-settings.png)
 
 ### Importing public keys
