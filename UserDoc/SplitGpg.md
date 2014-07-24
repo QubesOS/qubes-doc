@@ -86,3 +86,12 @@ exec qubes-gpg-client "$@"
 [![No image "tb-enigmail-split-gpg-settings.png" attached to UserDoc/SplitGpg](/chrome/common/attachment.png "No image "tb-enigmail-split-gpg-settings.png" attached to UserDoc/SplitGpg")](/attachment/wiki/UserDoc/SplitGpg/tb-enigmail-split-gpg-settings.png)
 
 ### Importing public keys
+
+Use `qubes-gpg-import-key` in the client AppVM to import the key into the GPG backend VM. Of course a (safe, unspoofable) user consent dialog box is displayed to accept this.
+
+``` {.wiki}
+[user@work ~]$ export QUBES_GPG_DOMAIN=work-gpg
+[user@work ~]$ qubes-gpg-import-key ~/Downloads/marmarek.asc
+```
+
+[![No image "tb-enigmail-split-gpg-5.png" attached to UserDoc/SplitGpg](/chrome/common/attachment.png "No image "tb-enigmail-split-gpg-5.png" attached to UserDoc/SplitGpg")](/attachment/wiki/UserDoc/SplitGpg/tb-enigmail-split-gpg-5.png)
