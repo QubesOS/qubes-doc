@@ -73,7 +73,15 @@ ssb   4096R/30498E2A 2012-11-15
 (...)
 ```
 
-However, when using Thunderbird with Enigmail extension it is not enough, because Thunderbird doesn't preserve the environment variables. Instead it is recommended to create a short script e.g. in the user home directory: ... and then point Enigmail to use this script instead of the standard GnuPG binary:
+However, when using Thunderbird with Enigmail extension it is not enough, because Thunderbird doesn't preserve the environment variables. Instead it is recommended to create a short script e.g. in the user home directory (name it e.g. `.qubes_gpg.sh` and make it executable):
+
+``` {.wiki}
+#!/bin/bash
+export QUBES_GPG_DOMAIN=work-gpg
+exec qubes-gpg-client "$@"
+```
+
+... and then point Enigmail to use this script instead of the standard GnuPG binary:
 
 [![No image "tb-enigmail-split-gpg-settings.png" attached to UserDoc/SplitGpg](/chrome/common/attachment.png "No image "tb-enigmail-split-gpg-settings.png" attached to UserDoc/SplitGpg")](/attachment/wiki/UserDoc/SplitGpg/tb-enigmail-split-gpg-settings.png)
 
