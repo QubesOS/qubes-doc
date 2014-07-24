@@ -94,4 +94,4 @@ Use `qubes-gpg-import-key` in the client AppVM to import the key into the GPG ba
 [user@work ~]$ qubes-gpg-import-key ~/Downloads/marmarek.asc
 ```
 
-[![No image "tb-enigmail-split-gpg-5.png" attached to UserDoc/SplitGpg](/chrome/common/attachment.png "No image "tb-enigmail-split-gpg-5.png" attached to UserDoc/SplitGpg")](/attachment/wiki/UserDoc/SplitGpg/tb-enigmail-split-gpg-5.png)
+[![No image "r2-split-gpg-5.png" attached to UserDoc/SplitGpg](/chrome/common/attachment.png "No image "r2-split-gpg-5.png" attached to UserDoc/SplitGpg")](/attachment/wiki/UserDoc/SplitGpg/r2-split-gpg-5.png)
