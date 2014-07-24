@@ -61,6 +61,7 @@ Normally it should be enough to set the `QUBES_GPG_DOMAIN` to the GPG backend do
 
 ``` {.wiki}
 [user@work ~]$ export QUBES_GPG_DOMAIN=work-gpg
+[user@work ~]$ gpg -K
 [user@work ~]$ qubes-gpg-client -K
 /home/user/.gnupg/secring.gpg
 -----------------------------
@@ -72,6 +73,8 @@ ssb   4096R/30498E2A 2012-11-15
 [user@work ~]$ qubes-gpg-client secret_message.txt.asc 
 (...)
 ```
+
+Note that running normal `gpg -K` in the demo above shows no private keys stored in this AppVM.
 
 However, when using Thunderbird with Enigmail extension it is not enough, because Thunderbird doesn't preserve the environment variables. Instead it is recommended to create a short script e.g. in the user home directory (name it e.g. `.qubes_gpg.sh` and make it executable):
 
