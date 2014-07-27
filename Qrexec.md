@@ -121,4 +121,4 @@ When an user in VM executes the */usr/lib/qubes/qrexec-client-vm* utility, the f
     -   The second *qrexec-client* connects to the target VM, and executes *qubes-rpc-multiplexer* command there with the rpc action as the cmdline argument. Finally, *qubes-rpc-multiplexer* executes the correct rpc server on the target.
 -   In the above step, if the target VM is *\$dispvm*, the dispvm is created via the *qfile-daemon-dvm* program. The latter waits for the *qrexec-client* process to exit, and then destroys the dispvm.
 
-[![qubes\_rpc.png](/chrome/site/../../../site/qubes_rpc.png "qubes_rpc.png")](/chrome/site/../../../site/qubes_rpc.png)
+[![No image "qubes\_rpc.png" attached to Qrexec](/chrome/common/attachment.png "No image "qubes_rpc.png" attached to Qrexec")](/attachment/wiki/Qrexec/qubes_rpc.png)
