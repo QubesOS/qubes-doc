@@ -54,7 +54,7 @@ To sum up, this solution has the following benefits:
 -   no changes to Xorg code
 -   minimal size of the supporting code
 
-[![gui.png](/chrome/site/../../../site/gui.png "gui.png")](/chrome/site/../../../site/gui.png)
+[![No image "gui.png" attached to GUIdocs](/chrome/common/attachment.png "No image "gui.png" attached to GUIdocs")](/attachment/wiki/GUIdocs/gui.png)
 
 Security markers on dom0 windows
 --------------------------------
