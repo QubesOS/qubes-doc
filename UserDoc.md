@@ -49,6 +49,7 @@ Advanced Topics
 -   [Understanding and Preventing Data Leaks](/wiki/DataLeaks)
 
 -   [Templates: Fedora - minimal](/wiki/Templates/FedoraMinimal)
+-   [Templates: Debian](/wiki/Templates/Debian)
 
 Command-Line Tool References
 ----------------------------
