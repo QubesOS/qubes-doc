@@ -50,7 +50,7 @@ And maybe some more optional but useful packages as well:
 [user@F20-Minimal ~]$ sudo yum install pciutils vim-minimal less tcpdump
 ```
 
-If Your network device needs some firmware then you should also install the correspondong packages as well. The `lspci; yum search firmware` command will help to choose the right one :)
+If Your network device needs some firmware then you should also install the corresponding packages as well. The `lspci; yum search firmware` command will help to choose the right one :)
 
 ### ProxyVM
 
