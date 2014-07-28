@@ -47,11 +47,25 @@ If You want to use this template to for standard NetVMs You should install some 
 And maybe some more optional but useful packages as well:
 
 ``` {.wiki}
-[user@F20-Minimal ~]$ sudo yum install pci-tools vim-minimal less tcpdump
+[user@F20-Minimal ~]$ sudo yum install pciutils vim-minimal less tcpdump
 ```
 
 If Your network device needs some firmware then you should also install the correspondong packages as well. The `lspci; yum search firmware` command will help to choose the right one :)
 
 ### ProxyVM
 
-FIXME
+If You want to use this template as a ProxyVM You may want to install evem more packages
+
+#### Firewall
+
+This template is reqady to use for a standard firewall VM.
+
+#### VPN
+
+The needed packkages are depend on the VPN technology. `yum search "NetworkManager VPN plugin"` command may help you to choose the right one.
+
+[More details about setting up a VPN Gateway](/wiki/VPN#ProxyVM)
+
+#### TOR
+
+[UserDoc/TorVM](/wiki/UserDoc/TorVM)
