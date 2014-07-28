@@ -51,7 +51,7 @@ If You want to use this template to for standard NetVMs You should install some 
 And maybe some more optional but useful packages as well:
 
 ``` {.wiki}
-[user@F20-Minimal ~]$ sudo yum install pciutils vim-minimal less tcpdump
+[user@F20-Minimal ~]$ sudo yum install pciutils vim-minimal less tcpdump telnet
 ```
 
 If Your network device needs some firmware then you should also install the corresponding packages as well. The `lspci; yum search firmware` command will help to choose the right one :)
