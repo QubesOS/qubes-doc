@@ -29,14 +29,18 @@ It is a good idea to clone the original template, and make any changes in the ne
 [user@dom0 ~]$ qvm-clone fedora-20-x64-minimal <your new template name>
 ```
 
-Not even the sudo package is installed by default, so lets install it:
+The sudo package is not installed by default, so lets install it:
 
 ``` {.wiki}
 [user@F20-Minimal ~]$ su - 
 [user@F20-Minimal ~]$ yum install sudo
 ```
 
-### NetVM
+The rsyslog logging service is not installed by default. All logging is now being handled by the systemd journal. Users requiring the rsyslog service should install it manually.
+
+To access the journald log, use the following command: `journalctl`
+
+### as a NetVM
 
 If You want to use this template to for standard NetVMs You should install some more packeges:
 
@@ -52,7 +56,7 @@ And maybe some more optional but useful packages as well:
 
 If Your network device needs some firmware then you should also install the corresponding packages as well. The `lspci; yum search firmware` command will help to choose the right one :)
 
-### ProxyVM
+### as a ProxyVM
 
 If You want to use this template as a ProxyVM You may want to install evem more packages
 
