@@ -76,6 +76,8 @@ ssb   4096R/30498E2A 2012-11-15
 
 Note that running normal `gpg -K` in the demo above shows no private keys stored in this AppVM.
 
+### Configuring [Thunderbird/Enigmail?](/wiki/UserDoc/Thunderbird/Enigmail) for use with Split GPG
+
 However, when using Thunderbird with Enigmail extension it is not enough, because Thunderbird doesn't preserve the environment variables. Instead it is recommended to use a simple script provided by `/usr/bin/qubes-gpg-client-wrapper` file by pointing Enigmail to use this script instead of the standard GnuPG binary:
 
 [![No image "tb-enigmail-split-gpg-settings-2.png" attached to UserDoc/SplitGpg](/chrome/common/attachment.png "No image "tb-enigmail-split-gpg-settings-2.png" attached to UserDoc/SplitGpg")](/attachment/wiki/UserDoc/SplitGpg/tb-enigmail-split-gpg-settings-2.png)
@@ -86,6 +88,8 @@ The script also sets the QUBES\_GPG\_DOMAIN variable automatically based on the 
 [user@work ~]$ sudo bash
 [user@work ~]$ echo "work-gpg" > /rw/config/gpg-split-domain
 ```
+
+*NOTE*: A recent engimail update, version `thunderbird-enigmail-1.7-1`, introduced changes in how Enigmail expects to execute GPG binary and so requires an updated split-gpg package with version \>= `qubes-gpg-split-2.0.7-1`. As of 30/07/2014 this package is available in the current-testing repo.
 
 ### Importing public keys
 
