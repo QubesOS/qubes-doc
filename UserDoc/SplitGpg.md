@@ -83,6 +83,7 @@ However, when using Thunderbird with Enigmail extension it is not enough, becaus
 The script also sets the QUBES\_GPG\_DOMAIN variable automatically based on the content of the file `/rw/config/gpg-split-domain`, which should be set to the name of the GPG backend VM. This file survives the AppVM reboot, of course.
 
 ``` {.wiki}
+sudo bash
 echo "work-gpg" > /rw/config/gpg-split-domain
 ```
 
