@@ -12,7 +12,7 @@ It is possible to change the settings of each new Disposable VM (DispVM). This c
 1.  Start a terminal in the `fedora-20-x64-dvm` TemplateVM by running the following command in a dom0 terminal. (By default, this TemplateVM is not shown in Qubes VM Manager. However, it can be shown by selecting "Show/Hide internal VMs.")
 
     ``` {.wiki}
-    qvm-run -a fedora-20-x64-dvm gnome-terminal
+    [user@dom0 ~]$ qvm-run -a fedora-20-x64-dvm gnome-terminal
     ```
 
 2.  Change the VM's settings and/or applications, as desired. Note that currently Qubes supports exactly one DispVM template, so any changes you make here will affect all DispVMs. Some examples of changes you may want to make include:
@@ -23,14 +23,14 @@ It is possible to change the settings of each new Disposable VM (DispVM). This c
 3.  Create an empty `/home/user/.qubes-dispvm-customized` file:
 
     ``` {.wiki}
-    touch /home/user/.qubes-dispvm-customized
+    [user@fedora-20-x64-dvm ~]$ touch /home/user/.qubes-dispvm-customized
     ```
 
 4.  Shutdown the VM (either by `poweroff` from VM terminal, or `qvm-shutdown` from dom0 terminal).
 5.  Regenerate the DispVM template:
 
     ``` {.wiki}
-    qvm-create-default-dvm --default-template --default-script
+    [user@dom0 ~]$ qvm-create-default-dvm --default-template --default-script
     ```
 
 **Note:** All of the above requires at least qubes-core-vm \>= 2.1.2 installed in template.
