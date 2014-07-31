@@ -89,7 +89,7 @@ The script also sets the QUBES\_GPG\_DOMAIN variable automatically based on the 
 [user@work ~]$ echo "work-gpg" > /rw/config/gpg-split-domain
 ```
 
-*NOTE*: A recent engimail update, version `thunderbird-enigmail-1.7-1`, introduced changes in how Enigmail expects to execute GPG binary and so requires an updated split-gpg package with version \>= `qubes-gpg-split-2.0.7-1`. As of 30/07/2014 this package is available in the current-testing repo.
+*NOTE*: A recent engimail update, version `thunderbird-enigmail-1.7-1`, introduced changes in how Enigmail expects to execute GPG binary and so requires an updated split-gpg package with version \>= `qubes-gpg-split-2.0.7-1`. Please make sure you have all the latest qubes packages installed in your template.
 
 ### Importing public keys
 
