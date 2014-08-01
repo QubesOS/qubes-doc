@@ -44,7 +44,7 @@ Debug and Verbose levels can generate large volume of logs and are intended for 
 
 To override global settings for a specific component, create a new key under the root key mentioned above and name it as the executable name, without `.exe` extension. For example, to change qrexec-agent's log level to Debug, set it like this:
 
-(image)
+[![No image "qtw-log-level.png" attached to WindowsTools](/chrome/common/attachment.png "No image "qtw-log-level.png" attached to WindowsTools")](/attachment/wiki/WindowsTools/qtw-log-level.png)
 
 Component-specific settings currently available:
 
