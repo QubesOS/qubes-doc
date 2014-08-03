@@ -26,7 +26,7 @@ With Qubes Split GPG this problem is drastically minimized, because each time th
 
 ### Current limitations
 
--   Current implementation requires importing of public keys to the vault domain. This opens up an avenue to attack the gpg running in the backend domain via a hypothetical bug in public key importing code. See ticket \#474 for more details and plans how to get around this problem, as well as the section on using split GPG with subkeys below.
+-   Current implementation requires importing of public keys to the vault domain. This opens up an avenue to attack the gpg running in the backend domain via a hypothetical bug in public key importing code. See ticket \#474 for more details and plans how to get around this problem, as well as the section on [using split GPG with subkeys](/wiki/UserDoc/SplitGpg#Advanced:UsingSplitGPGwithSubkeys) below.
 
 -   It doesn't solve the problem of allowing the user to know what is to be signed before the operation gets approved. Perhaps the GPG backend domain could start a Disposable VM and have the to-be-signed document displayed there? To Be Determined.
 
