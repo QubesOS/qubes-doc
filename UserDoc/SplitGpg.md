@@ -130,18 +130,16 @@ vault
 This is a network-isolated VM. The initial master keypair and subkeys are generated in this VM. The master secret key *never* leaves this VM under *any* circumstances. No files or text is *ever* copied or transferred into this VM under *any* circumstances.
 
 work-gpg  
-This is a network-isolated VM. This VM is used *only* as the GPG backend for work-email. The secret subkeys (but *not* the master secret key) are copied from the vault VM to this VM. Files from less trusted VMs are *never* copied or transferred into this VM under *any* circumstances.
+This is a network-isolated VM. This VM is used *only* as the GPG backend for work-email. The secret subkeys (but *not* the master secret key) are [copied](/wiki/CopyingFiles) from the vault VM to this VM. Files from less trusted VMs are *never* copied or transferred into this VM under *any* circumstances.
 
 work-email  
 This VM has access to the mail server. It accesses the work-gpg VM via the split GPG protocol. The public key may be stored in this VM so that it can be attached to emails and for other such purposes.
 
 ### Security Benefits
 
-In the standard split GPG setup, there are at least two ways in which the work-gpg VM might be compromised:
+In the standard split GPG setup, there are at least two ways in which the work-gpg VM might be compromised. First, an attacker who is capable of exploiting a hypothetical bug in work-email's [​MUA](https://en.wikipedia.org/wiki/Mail_user_agent) could send a malformed request which exploits a hypothetical bug in the GPG backend (running in the work-gpg VM), giving the attacker control of the work-gpg VM. Second, a malicious public key file which is imported to the work-gpg VM might exploit a hypothetical bug in the GPG backend which is running there, giving the attacker control of work-gpg. In either case, such an attacker might then be able to leak both the master secret key and its passphrase (which is regularly input in the work-gpg VM and is therefore easily obtained by the attacker) back to work-email or to another VM (e.g., the netvm) via the split GPG protocol or other [covert channels](/wiki/DataLeaks).
 
-First, an attacker who is capable of exploiting a hypothetical bug in work-email's [​MUA](https://en.wikipedia.org/wiki/Mail_user_agent) could send a malformed request which exploits a hypothetical bug in the GPG backend (running in the work-gpg VM), giving the attacker control of the work-gpg VM. Second, a malicious public key file which is imported to the work-gpg VM might exploit a hypothetical bug in the GPG backend which is running there, giving the attacker control of work-gpg. In either case, such an attacker might then be able to leak the master secret key back to work-email or to another VM (e.g., the netvm) via the split GPG protocol or other covert channels.
-
-In the alternative setup described in this section (i.e., the subkey setup), even an attacker who manages to gain control of the work-gpg VM will not be able to obtain the user's master secret key without a general Xen VM escape exploit, since the master secret key is not present in the work-gpg VM. Rather, the master secret key remains in the vault VM (which, in the absence of a general Xen VM escape exploit, is assumed not to be compromised, since nothing is ever copied or transferred into it).
+In the alternative setup described in this section (i.e., the subkey setup), even an attacker who manages to gain control of the work-gpg VM will not be able to obtain the user's master secret key without a general Xen VM escape exploit, since the master secret key is not present in the work-gpg VM. Rather, the master secret key remains in the vault VM (which, in the absence of a general Xen VM escape exploit, is assumed not to be compromised, since nothing is ever copied or transferred into it). The attacker might be able to leak the secret subkeys from the work-gpg VM in the manner described above, but even if the attacker is successful, the master secret key can simply be used to revoke the compromised subkeys and to issue new subkeys in their place.
 
 ### Subkey Tutorials and Discussions
 
