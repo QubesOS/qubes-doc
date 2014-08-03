@@ -105,7 +105,7 @@ Use `qubes-gpg-import-key` in the client AppVM to import the key into the GPG ba
 Advanced: Using Split GPG with Subkeys
 --------------------------------------
 
-Users with particularly high security requirements may wish to use split GPG with [​subkeys](https://wiki.debian.org/Subkeys). However, this setup comes at a significant cost: It will be impossible to sign other people's keys without breaking this security model. Nonetheless, if signing others' keys is not required, then split GPG with subkeys offers unparalleled security for one's master secret key.
+Users with particularly high security requirements may wish to use split GPG with [​subkeys](https://wiki.debian.org/Subkeys). However, this setup comes at a significant cost: It will be impossible to sign other people's keys with the master secret key without breaking this security model. Nonetheless, if signing others' keys is not required, then split GPG with subkeys offers unparalleled security for one's master secret key.
 
 ### Setup Description
 
