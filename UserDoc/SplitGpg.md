@@ -26,7 +26,7 @@ With Qubes Split GPG this problem is drastically minimized, because each time th
 
 ### Current limitations
 
--   Current implementation requires importing of public keys to the vault domain. This opens up an avenue to attack the gpg running in the backend domain via a hypothetical bug in public key importing code. See this ticker \#474 for more details and plans how to get around this problem.
+-   Current implementation requires importing of public keys to the vault domain. This opens up an avenue to attack the gpg running in the backend domain via a hypothetical bug in public key importing code. See ticket \#474 for more details and plans how to get around this problem, as well as the section on using split GPG with subkeys below.
 
 -   It doesn't solve the problem of allowing the user to know what is to be signed before the operation gets approved. Perhaps the GPG backend domain could start a Disposable VM and have the to-be-signed document displayed there? To Be Determined.
 
@@ -101,3 +101,54 @@ Use `qubes-gpg-import-key` in the client AppVM to import the key into the GPG ba
 ```
 
 [![No image "r2-split-gpg-5.png" attached to UserDoc/SplitGpg](/chrome/common/attachment.png "No image "r2-split-gpg-5.png" attached to UserDoc/SplitGpg")](/attachment/wiki/UserDoc/SplitGpg/r2-split-gpg-5.png)
+
+Advanced: Using Split GPG with Subkeys
+--------------------------------------
+
+Users with particularly high security requirements may wish to use split GPG with [​subkeys](https://wiki.debian.org/Subkeys). However, this setup comes at a significant cost: It will be impossible to sign other people's keys without breaking this security model. Nonetheless, if signing others' keys is not required, then split GPG with subkeys offers unparalleled security for one's master secret key.
+
+### Setup Description
+
+In this example, the following keys are stored in the following locations:
+
+||
+|**PGP Key(s)**|**VM Name**|
+|master secret key|vault|
+|secret subkeys|work-gpg|
+|public key|work-email|
+
+master secret key (sec)  
+It is recommended that this key be created as a **certify-only (C)** key, i.e., a key which is capable only of signing other keys. This key may be created *without* an expiration date. This is for two reasons. First, the master secret key is never to leave the vault VM, so it is extremely unlikely ever to be obtained by an adversary (see below). Second, an adversary who *does* manage to obtain the master secret key either possesses the passphrase to unlock the key, or he does not. If he does, then he can simply use the passphrase in order to legally extend the expiration date of the key (or remove it entirely). If he does not, then he cannot use the key. In either case, an expiration date provides no additional benefit. It is, however, recommended that a **revocation certificate** be created so that the master keypair may be revoked in the (exceedingly unlikely) event that an adversary obtains both the master secret key *and* the passphrase. It is recommended that the master secret key passphrase only ever be input in the vault VM. (Subkeys should use a different passphrase; see below).
+
+secret subkeys (ssb)  
+It is recommended that two subkeys be created: one for **signing (S)**, and one for **encryption (E)**. It is further recommended that a *different* passphrase be used for these subkeys than for the master secret key. Finally, it is recommended that each of these subkeys be created with a reasonable expiration date (e.g., one year), and that a *new* set of subkeys be created whenever the existing set expires, rather than the expiration date of the existing keys being extended. This is because an adversary who obtains any existing encryption subkey (for example) will be able to use it in order to decrypt all emails (for example) which were encrypted with that subkey. If the same subkey were to continue to be used--and its expiration date continually extended--only that one key would need to be stolen (e.g., as a result of the work-gpg VM being compromised; see below) in order to decrypt *all* of the user's emails. If, on the other hand, each encryption subkey is used for at most approximately one year, then an adversary who obtains the secret subkey will be capable of decrypting at most approximately one year's worth of emails.
+
+public key (pub)  
+This is the complement of the master secret key. It should be uploaded to keyservers and may be signed by others.
+
+vault  
+This is a network-isolated VM. The initial master keypair and subkeys are generated in this VM. The master secret key *never* leaves this VM under *any* circumstances. No files or text is *ever* copied or transferred into this VM under *any* circumstances.
+
+work-gpg  
+This is a network-isolated VM. This VM is used *only* as the GPG backend for work-email. The secret subkeys (but *not* the master secret key) are copied from the vault VM to this VM. Files from less trusted VMs are *never* copied or transferred into this VM under *any* circumstances.
+
+work-email  
+This VM has access to the mail server. It accesses the work-gpg VM via the split GPG protocol. The public key may be stored in this VM so that it can be attached to emails and for other such purposes.
+
+### Security Benefits
+
+In the standard split GPG setup, there are at least two ways in which the work-gpg VM might be compromised:
+
+First, an attacker who is capable of exploiting a hypothetical bug in work-email's [​MUA](https://en.wikipedia.org/wiki/Mail_user_agent) could send a malformed request which exploits a hypothetical bug in the GPG backend (running in the work-gpg VM), giving the attacker control of the work-gpg VM. Second, a malicious public key file which is imported to the work-gpg VM might exploit a hypothetical bug in the GPG backend which is running there, giving the attacker control of work-gpg. In either case, such an attacker might then be able to leak the master secret key back to work-email or to another VM (e.g., the netvm) via the split GPG protocol or other covert channels.
+
+In the alternative setup described in this section (i.e., the subkey setup), even an attacker who manages to gain control of the work-gpg VM will not be able to obtain the user's master secret key without a general Xen VM escape exploit, since the master secret key is not present in the work-gpg VM. Rather, the master secret key remains in the vault VM (which, in the absence of a general Xen VM escape exploit, is assumed not to be compromised, since nothing is ever copied or transferred into it).
+
+### Subkey Tutorials and Discussions
+
+(Note: Although the tutorials below were not written with Qubes Split GPG in mind, they can be adapted with a few commonsense adjustments. As always, exercise caution and use your good judgment.)
+
+-   [​"OpenPGP in Qubes OS" on the qubes-users mailing list](https://groups.google.com/d/topic/qubes-users/Kwfuern-R2U/discussion)
+-   [​"Creating the Perfect GPG Keypair" by Alex Cabal](https://alexcabal.com/creating-the-perfect-gpg-keypair/)
+-   [​"GPG Offline Master Key w/ smartcard" maintained by Abel Luck](https://gist.github.com/abeluck/3383449)
+-   [​"Using GnuPG with QubesOS" by Alex](https://apapadop.wordpress.com/2013/08/21/using-gnupg-with-qubesos/)
+
