@@ -4,6 +4,8 @@ title: OpenPGP
 permalink: /wiki/UserDoc/OpenPGP/
 ---
 
+**Note 2014-08-03: This page is deprecated by [SplitGpg](/wiki/UserDoc/SplitGpg). The content of this page has been integrated into that page.**
+
 Using OpenPGP in Qubes
 ======================
 
