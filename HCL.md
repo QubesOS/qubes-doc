@@ -927,6 +927,21 @@ R2rc1
 
 [​Franz Felix](https://groups.google.com/d/msg/qubes-users/NXIL5rEh65o/rCBf1PYr2jsJ)
 
+MSI GS60
+ (i7-4700HQ, Haswell, IGP)
+
+E16H2IMS.103
+
+Yes
+
+Yes
+
+R2rc1
+
+3.12.18-1
+
+[​Rudd-O](https://groups.google.com/d/msg/qubes-users/Sz0Nuhi4N0o/jIjFnf2XCKUJ)
+
 MSI GX660
  (i5-460M, PM55, Radeon HD5870)
 
