@@ -50,8 +50,8 @@ Component-specific settings currently available:
 
 |**Component**|**Setting**|**Type**|**Description**|**Default value**|
 |:------------|:----------|:-------|:--------------|:----------------|
-|wga|UseDirtyBits|DWORD|Enable experimental feature of the gui agent/qvideo driver: use page table dirty bits to determine changed display regions. This can improve performance but may impact display responsiveness (some changes may not be detected resulting in "stale" image). Gui agent is currently undergoing a significant architectural change and this setting may be removed/not needed in the future.|0|
-|wga|DisableCursor|DWORD|Disable cursor in the VM. Useful for integration with Qubes desktop so you don't see two cursors. Can be disabled if you plan to use the VM through a remote desktop connection of some sort.|1|
+|wga|UseDirtyBits|DWORD|Enable experimental feature of the gui agent/qvideo driver: use page table dirty bits to determine changed display regions. This can improve performance but may impact display responsiveness (some changes may not be detected resulting in "stale" image). Needs VM restart to apply change. Gui agent is currently undergoing a significant architectural change and this setting may be removed/not needed in the future.|0|
+|wga|DisableCursor|DWORD|Disable cursor in the VM. Useful for integration with Qubes desktop so you don't see two cursors. Can be disabled if you plan to use the VM through a remote desktop connection of some sort. Needs gui agent restart to apply change (locking OS/logoff should be enough since wga is restarted on desktop change).|1|
 
 Troubleshooting
 ---------------
