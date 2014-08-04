@@ -23,7 +23,7 @@ It's probably a good idea to install a VNC server in the VM before installing QT
 Configuration
 -------------
 
-Starting from version 2.2.\* various aspects of Qubes Tools for Windows (QTW for short) can be configured through registry. Main configuration key is located in `HKEY_LOCAL_MACHINE\SOFTWARE\Invisible Things Lab\Qubes Tools`. Configuration values set on this level are global to all QTW components. It's possible to override global values with component-specific keys, this is useful mainly for setting log verbosity for troubleshooting. Possible configuration values are:
+Starting from version 2.2.\* various aspects of Qubes Tools for Windows can be configured through registry. Main configuration key is located in `HKEY_LOCAL_MACHINE\SOFTWARE\Invisible Things Lab\Qubes Tools`. Configuration values set on this level are global to all QTW components. It's possible to override global values with component-specific keys, this is useful mainly for setting log verbosity for troubleshooting. Possible configuration values are:
 
 |**Name**|**Type**|**Description**|**Default value**|
 |:-------|:-------|:--------------|:----------------|
@@ -51,6 +51,7 @@ Component-specific settings currently available:
 |**Component**|**Setting**|**Type**|**Description**|**Default value**|
 |:------------|:----------|:-------|:--------------|:----------------|
 |wga|UseDirtyBits|DWORD|Enable experimental feature of the gui agent/qvideo driver: use page table dirty bits to determine changed display regions. This can improve performance but may impact display responsiveness (some changes may not be detected resulting in "stale" image). Gui agent is currently undergoing a significant architectural change and this setting may be removed/not needed in the future.|0|
+|wga|DisableCursor|DWORD|Disable cursor in the VM. Useful for integration with Qubes desktop so you don't see two cursors. Can be disabled if you plan to use the VM through a remote desktop connection of some sort.|1|
 
 Troubleshooting
 ---------------
