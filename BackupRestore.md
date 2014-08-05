@@ -76,7 +76,7 @@ Restoring from a Backup
 Emergency Backup Recovery without Qubes
 ---------------------------------------
 
-The Qubes backup system was been designed with emergency disaster recovery in mind. No special Qubes-specific tools are required to access data backed up by Qubes. In the event a Qubes system is unavailable, you can access your data on any GNU/Linux system with the following procedure.
+The Qubes backup system has been designed with emergency disaster recovery in mind. No special Qubes-specific tools are required to access data backed up by Qubes. In the event a Qubes system is unavailable, you can access your data on any GNU/Linux system with the following procedure.
 
 1.  Untar the main backup file.
 
