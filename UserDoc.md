@@ -68,6 +68,7 @@ Qubes User Documentation
     9.  Advanced Topics
         1.  [Configuration files](/wiki/UserDoc/ConfigFiles)
         2.  [Qubes service framework](/wiki/QubesService)
+        3.  [Note regarding password-less root access in VM](/wiki/VMSudo)
 
 4.  **Hardware**
     1.  [How to Mount USB Sticks to AppVMs](/wiki/StickMounting)
