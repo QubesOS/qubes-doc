@@ -34,3 +34,14 @@ Keys exposed by dom0 to VM (only Qubes specific included):
 -   `qubes-netvm-network` - network address (only when VM serves as network backend - ProxyVM and NetVM); can be also calculated from qubes-netvm-gateway and qubes-netvm-netmask
 -   `qubes-netvm-secondary-dns` - same as `qubes-secondary-dns` in connected VMs (only when VM serves as network backend - ProxyVM and NetVM); traffic sent to this IP on port 53 should be redirected to secondary DNS server
 
+Keys set by VM for passing info to dom0:
+
+-   `memory/meminfo` - used memory (updated by qubes-meminfo-writer), input information for qmemman; Format: 6 lines (EOL encoded as `\n`), each in format "FIELD: VALUE kB"; fields: `MemTotal`, `MemFree`, `Buffers`, `Cached`, `SwapTotal`, `SwapFree`; meaning the same as in `/proc/meminfo` in Linux
+-   `qubes-block-devices` - list of block devices exposed by this VM, each device (subdirectory) should be named in a way that VM can attach the device based on it. Each should contain those entries:
+    -   `desc` - device description (ASCII text)
+    -   `size` - device size in bytes
+    -   `mode` - default connection mode; `r` for read-only, `w` for read-write
+-   `qubes-usb-devices` - list of USB devices exposed by this VM, each device (subdirectory) should contain:
+    -   `desc` - device description (ASCII text)
+    -   `usb-ver` - USB version (1, 2 or 3)
+
