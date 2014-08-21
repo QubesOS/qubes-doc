@@ -250,6 +250,23 @@ R2rc1
 
 [​chymian](https://groups.google.com/d/msg/qubes-users/YOE2ds6RVWc/n24INxfu11gJ)
 
+Dell Inspiron 3521
+ (i3-3217U, HM76, HD Graphics)
+
+A12
+
+Yes
+
+No
+
+R2rc1
+
+3.12.14-4
+
+[​NetVM hangs computer](https://groups.google.com/d/msg/qubes-users/SgUAMvUizp0/WND6yZtYP5cJ)
+
+[​Nikita Mikhailov](https://groups.google.com/d/msg/qubes-users/SgUAMvUizp0/WND6yZtYP5cJ)
+
 Dell Latitude E4300
  (P9600, GMA 4500MHD, Mobile 4 Series Chipset)
 
@@ -482,6 +499,19 @@ R2B2
 
 [Olivier Médoc](https://groups.google.com/d/msg/qubes-users/o_FTsPW6GD8/bjAD-CSpRKsJ)
 
+HP EliteBook Folio 9470m
+ (i5-3437U, Ivy Bridge, HD graphics)
+
+68IBD Ver. F.47
+
+R2
+
+3.12.23-1
+
+no access to BIOS on this machine
+
+[Paolo Righi](https://groups.google.com/d/msg/qubes-users/iup1MmBFx8Q/hCCAOVwrB2kJ)
+
 HP Pavilion Sleekbook 14-B030TU
  (i5-3317U, Ivy Bridge, Intel HD Graphics)
 
@@ -530,6 +560,19 @@ Yes
 R2B2
 
 [Danny Cautaert](https://groups.google.com/d/msg/qubes-devel/kGnZKZ9ILKA/2vpzltNW3K4J)
+
+Lenovo Thinkpad T60
+ (T7600, GMA 950)
+
+Yes
+
+No
+
+R2rc2
+
+Does not install
+
+[saltykremlin](https://groups.google.com/d/msg/qubes-users/cpIE1ybuwoA/HDriMPH0vGcJ)
 
 Lenovo Thinkpad T61
  (Nvidia Quadro NVS 140M)
@@ -926,6 +969,23 @@ R2rc1
 [​read more](https://groups.google.com/d/msg/qubes-users/NXIL5rEh65o/rCBf1PYr2jsJ)
 
 [​Franz Felix](https://groups.google.com/d/msg/qubes-users/NXIL5rEh65o/rCBf1PYr2jsJ)
+
+MSI GP60-2PE
+ (i5-4200H, Haswell, \_HD Graphics)
+
+E16GHIMS.109
+
+Yes
+
+Yes
+
+R2rc2
+
+3.12.23-1
+
+speep doesn't work
+
+[Fabian Wloch](https://groups.google.com/d/msg/qubes-users/X0KB-euVJgc/1Aqcb_aNtB0J)
 
 MSI GS60
  (i7-4700HQ, Haswell, IGP)
