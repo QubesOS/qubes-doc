@@ -469,8 +469,25 @@ R2B3
 
 [​Zrubi](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
 
-Hewlett-Packard HP EliteBook 820 G1
- (CPU, Haswell, Intel HD Graphics)
+HP EliteBook 2170p
+ (i5-3317U, Ivy, Intel HD Graphics)
+
+68IMT Ver. F.42
+
+Yes
+
+Yes
+
+R2rc2
+
+3.12.23-1
+
+[​read more](https://groups.google.com/d/topic/qubes-users/q5M9KbPatEA/discussion)
+
+[Dimiter Georgiev](https://groups.google.com/d/msg/qubes-users/q5M9KbPatEA/fXIZ-yvJVA8J)
+
+HP EliteBook 820 G1
+ (i5-4300U, Haswell, Intel HD Graphics)
 
 L71 Ver. 01.11
 
