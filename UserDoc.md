@@ -60,7 +60,8 @@ Qubes User Documentation
         2.  [Tips for Using Linux in an HVM](/wiki/LinuxHVMTips)
         3.  [Creating and Using HVM and Windows Domains (Qubes R2 Only)](/wiki/HvmCreate)
         4.  External Links
-            1.  [​Creating NetBSD VM](https://groups.google.com/group/qubes-devel/msg/4015c8900a813985)
+            1.  [​Creating Whonix HVMs in Qubes](https://www.whonix.org/wiki/Qubes)
+            2.  [​Creating NetBSD VM](https://groups.google.com/group/qubes-devel/msg/4015c8900a813985)
 
     8.  **Windows VMs**
         1.  [Installing and Using Windows-based AppVMs (Qubes R2 Beta 3 and Later)](/wiki/WindowsAppVms)
