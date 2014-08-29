@@ -469,6 +469,23 @@ R2B3
 
 [​Zrubi](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
 
+Hewlett-Packard HP EliteBook 820 G1
+ (CPU, Haswell, Intel HD Graphics)
+
+L71 Ver. 01.11
+
+Yes
+
+Yes
+
+R2rc2
+
+3.12.23-1
+
+[​read more](https://groups.google.com/d/topic/qubes-users/8s98SegfdbI/discussion)
+
+[Mihai Genescu](https://groups.google.com/d/msg/qubes-users/8s98SegfdbI/pIOWgeJSuSAJ)
+
 HP EliteBook 8540p
  (i5-2540M, Arrandale, NVIDIA GT216)
 
