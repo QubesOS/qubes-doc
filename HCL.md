@@ -86,7 +86,13 @@ Name linked to report in [qubes-users.](https://groups.google.com/forum/#!forum/
 
 **Note:**
  The HCL is a compilation of reports generated and submitted by users. Except in the case of developer-reported entries, the Qubes team has not independently verified the accuracy of these reports.
- If using the list to make a purchasing decision, we recommend that you first test the hardware yourself, if possible.
+ If using the list to make a purchasing decision, we recommend that you first consult the datasheets (CPU, chipset, motherboard) for particular support of:
+
+-   HVM ("AMD virtualization (AMD-V)", "Intel virtualization (VT-x)", "VIA virtualization (VIA VT)")
+-   IOMMU ("AMD I/O Virtualization Technology (AMD-Vi)", "Intel Virtualization Technology for Directed I/O (VT-d)")
+-   TPM ("Trusted Plaform Module (TPM)" connected to a "20-pin TPM header" on motherboards.)
+
+and test the hardware yourself, if possible.
  Try to shop for hardware with best achievable Qubes security level (green columns in HVM, IOMMU, TPM) and general machine compatibility (green columns in Qubes version, dom0 kernel, remarks).
 
 Reports
@@ -140,6 +146,23 @@ R2B2
 No Network, Chipset doesn't support VT-d! [​read more](https://groups.google.com/d/topic/qubes-devel/hag-MQDH_Vs/discussion) [​read more](https://groups.google.com/d/topic/qubes-devel/hag-MQDH_Vs/discussion)
 
 [​Alex Dubois](https://groups.google.com/d/msg/qubes-devel/hag-MQDH_Vs/pmJ7TIWUWAsJ)
+
+Asus N56VZ
+ (CPU, HM67 Express, HD Graphics)
+
+N56VZ.216
+
+Yes
+
+No
+
+R2rc2
+
+3.12.23-1
+
+Chipset does not support VT-d
+
+[Oleg Artemiev](https://groups.google.com/d/msg/qubes-users/KOBFFMJrvRw/JUB-TAoGwr8J)
 
 ASUS X55A
  ()
@@ -564,6 +587,19 @@ R2B1
 R2B2
 
 [Stephen Boyd](https://groups.google.com/d/msg/qubes-devel/ZC_SQJhXVOM/4aLjEc7GIsUJ)
+
+Lenovo IdeaPad Y580
+ (unknown, HM76 Express, HD Graphics)
+
+No
+
+R2rc2
+
+3.12.23-1
+
+Not able to install, HM76 Express Chipset does \*not\* support VT-d
+
+[johny jj2](https://groups.google.com/d/msg/qubes-users/l542hyu8gqk/IjTjjcfGvKsJ)
 
 Lenovo IdeaPad Z500 Touch (20221)
  (i5-3230M, Ivy Bridge, HD Graphics)
