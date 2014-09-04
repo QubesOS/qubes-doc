@@ -22,7 +22,7 @@ Qubes User Documentation
         2.  [XFCE Installation in dom0](/wiki/UserDoc/XFCE)
         3.  [Installing ZFS in Qubes](/wiki/ZFS)
 
-3.  **[DomUs?](/wiki/DomUs)**
+3.  **DomUs**
     1.  [DomU Command-Line Tools](/wiki/VmTools)
     2.  **Intra-VM Actions**
         1.  [Enabling Fullscreen Mode](/wiki/FullScreenMode)
