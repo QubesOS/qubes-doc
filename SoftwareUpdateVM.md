@@ -91,6 +91,35 @@ Temporarily allowing networking for software installation
 
 Some 3rd party applications cannot be installed using the standard yum repositories, and need to be manually downloaded and installed. When the installation requires internet connection to access 3rd party repositories, it will naturally fail when run in a Template VM because the default firewall rules for templates only allow connections to standard yum repositories. So it is necessary to modify firewall rules to allow less restrictive internet access for the time of the installation, if one really wants to install those applications into a template. As soon as software installation is completed, firewall rules should be returned back to the default state. The user should decided by themselves whether such 3rd party applications should be equally trusted as the ones that come from the standard Fedora signed repositories and whether their installation will not compromise the default Template VM, and potentially consider installing them into a separate template or a standalone VM (in which case the problem of limited networking access doesn't apply by default), as described above.
 
+Updates proxy
+-------------
+
+Updates proxy is a service which filter http access to allow access to only something that looks like yum repository (or apt repository in the future - \#887). This is meant to mitigate user errors (like using browser in the template VM), rather than some real isolation. It is done with http proxy instead of simple firewall rules because it is hard to list all the repository mirrors (and keep that list up to date). The proxy is used only to filter the traffic, not to cache anything.
+
+The proxy is running in selected VMs (by default all the NetVMs (1)) and intercept traffic directed to 10.137.255.254:8082. Thanks to such configuration all the VMs can use the same proxy address, and if there is a proxy on network path, it will handle the traffic (of course when firewall rules allows that). If the VM is configured to have access to the updates proxy (2), the startup scripts will automatically configure yum to really use the proxy (3). Also access to updates proxy is independent of any other firewall settings (VM will have access to updates proxy, even if policy is set to block all the traffic).
+
+(1) Services tab -\> "qubes-yum-proxy" entry; check qvm-service manual for details
+
+(2) Firewall tab -\> Allow connections to Updates Proxy; this setting works immediately (once OK is clicked)
+
+(3) Services tab -\> "yum-proxy-setup" entry; this setting works at next VM startup
+
+### Technical details
+
+1.  Updates proxy: It is running as "qubes-yum-proxy" service. Startup script of this service setup firewall rule to intercept proxy traffic:
+
+    ``` {.wiki}
+    iptables -t nat -A PR-QBS-SERVICES -d 10.137.255.254/32 -i vif+ -p tcp -m tcp --dport 8082 -j REDIRECT
+    ```
+
+1.  VM using the proxy service Startup script (qubes-misc-post service) configure yum using /etc/yum.conf.d/qubes-proxy.conf file. It can either contain
+
+    ``` {.wiki}
+    proxy=http://10.137.255.254:8082/
+    ```
+
+    line, or be empty. Note that this file is specifically included from main yum.conf, yum does not support real conf.d configuration style...
+
 Note on treating AppVM's root filesystem non-persistency as a security feature
 ------------------------------------------------------------------------------
 
