@@ -71,6 +71,6 @@ If a specific component is malfunctioning, you can increase it's log verbosity a
 |wga|Gui agent.|
 |QTWHelper|Service that monitors session/desktop changes (logon/logoff/locking/UAC...) and simulates SAS sequence (ctrl-alt-del).|
 |prepare-volume|Utility that initializes and formats the disk backed by `private.img` file. It's registered to run on next system boot during QTW setup, if that feature is selected (it can't run *during* the setup because Xen block device drivers are not yet active). It in turn registers move-profiles (see below) to run at early boot.|
-|move-profiles|Utility that moves user profiles directory to the private disk. It's registered as an early boot native executable (similar to chkdsk) so it can run before any profile files are opened by some other process. Its log is in a fixed location: c:\\move-profiles.log (it can't use our common logger library so none of the log settings apply).|
+|move-profiles|Utility that moves user profiles directory to the private disk. It's registered as an early boot native executable (similar to chkdsk) so it can run before any profile files are opened by some other process. Its log is in a fixed location: `c:\move-profiles.log` (it can't use our common logger library so none of the log settings apply).|
 
 
