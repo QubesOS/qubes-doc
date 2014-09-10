@@ -10,11 +10,11 @@ Qubes Tools for Windows: advanced settings and troubleshooting
 Installable components
 ----------------------
 
-Qubes Tools for Windows (QTW for short) contain several components than can be disabled during installation:
+Qubes Tools for Windows (QTW for short) contain several components than can be enabled or disabled during installation:
 
 -   Xen GPL PV drivers (required): drivers for the hardware exposed by Xen.
 -   Core Windows Agent: qrexec agent and services. Needed for proper integration with Qubes.
--   Move user profiles: User profiles directory (c:\\users) will be moved into the private disk backed by private.img. This disk will be initialized/formatted automatically if needed. This feature is useful for Windows-based HVM templates, so child AppVMs can have their separate user profiles.
+-   Move user profiles: User profiles directory (c:\\Users) will be moved into the private disk backed by private.img. This disk will be initialized/formatted automatically if needed. This feature is useful for Windows-based HVM templates, so child AppVMs can have their separate user profiles.
 -   GUI Windows Agent: video driver and gui agent that enable seamless showing of Windows applications on the secure Qubes desktop.
 -   Disable UAC: disables User Account Control prompts. *Is this still needed/wanted? Gui agent can handle UAC prompts now.*
 
@@ -70,7 +70,7 @@ If a specific component is malfunctioning, you can increase it's log verbosity a
 |qrexec-client-vm|Used for communications by the qrexec protocol.|
 |wga|Gui agent.|
 |QTWHelper|Service that monitors session/desktop changes (logon/logoff/locking/UAC...) and simulates SAS sequence (ctrl-alt-del).|
-|move-profiles|Utility that moves user profiles directory to the private disk. It's registered as a group policy machine startup script so that it runs before a user can log in. If something goes wrong during the process it tries to restore everything to original state. At log level 4 it logs every file operation.|
-|register-startup-script|Registers move-profiles as a startup script during installation (if enabled).|
+|prepare-volume|Utility that initializes and formats the disk backed by `private.img` file. It's registered to run on next system boot during QTW setup, if that feature is selected (it can't run *during* the setup because Xen block device drivers are not yet active). It in turn registers move-profiles (see below) to run at early boot.|
+|move-profiles|Utility that moves user profiles directory to the private disk. It's registered as an early boot native executable (similar to chkdsk) so it can run before any profile files are opened by some other process. Its log is in a fixed location: c:\\move-profiles.log (it can't use our common logger library so none of the log settings apply).|
 
 
