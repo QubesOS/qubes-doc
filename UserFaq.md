@@ -90,7 +90,7 @@ For further discussion about the potential for GPU passthorugh on Xen/Qubes, ple
 
 ### Is Qubes a multi-user system?
 
-No. Qubes does not pretend to be a multi-user system. Qubes assumes that the user who controls Dom0 controls the whole system. It would be very difficult to **securely** implement multi-user support. See [​here](https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06) for details.]
+No. Qubes does not pretend to be a multi-user system. Qubes assumes that the user who controls Dom0 controls the whole system. It would be very difficult to **securely** implement multi-user support. See [​here](https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06) for details.
 
 Installation & Hardware Compatibility
 -------------------------------------
