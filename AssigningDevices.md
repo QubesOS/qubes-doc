@@ -70,6 +70,8 @@ qvm-pci -a netvm 00:1a.0
 Possible issues
 ---------------
 
+### DMA buffer size
+
 VMs with assigned PCI devices in Qubes have allocated a small buffer for DMA operations (called swiotlb). By default it is 2MB, but some devices need a larger buffer. To change this allocation, edit VM's kernel parameters (this is expressed in 512B chunks):
 
 ``` {.wiki}
@@ -79,6 +81,28 @@ kernelopts       : iommu=soft swiotlb=2048 (default)
 ```
 
 This is [​known to be needed](https://groups.google.com/group/qubes-devel/browse_thread/thread/631c4a3a9d1186e3) for Realtek RTL8111DL Gigabit Ethernet Controller.
+
+### PCI passthrough issues
+
+Sometimes PCI arbitrator is too strict. There is a way to enable permissive mode for it. Create `/etc/systemd/system/qubes-pre-netvm.service`:
+
+``` {.wiki}
+[Unit]
+Description=Netvm fixup
+Before=qubes-netvm.service
+
+[Service]
+ExecStart=/bin/sh -c 'echo 0000:04:00.0 > /sys/bus/pci/drivers/pciback/permissive'
+Type=oneshot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Then enable it with `systemctl enable qubes-pre-netvm.service`
+
+See also: [​https://groups.google.com/forum/\#!topic/qubes-users/Fs94QAc3vQI](https://groups.google.com/forum/#!topic/qubes-users/Fs94QAc3vQI), [​http://wiki.xen.org/wiki/Xen\_PCI\_Passthrough](http://wiki.xen.org/wiki/Xen_PCI_Passthrough)
 
 Bringing PCI device back to dom0
 --------------------------------
