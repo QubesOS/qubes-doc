@@ -1507,6 +1507,25 @@ Problems with Audio
 
 [​jeff](https://groups.google.com/d/msg/qubes-users/wSCL-4VL2Ew/cU8-2qyT008J)
 
+GIGABYTE GA-6PXSV4
+ (Xeon E5, C604, Aspeed AST2300)
+
+R17
+
+Yes
+
+Yes
+
+\*
+
+R2
+
+3.12.23-1
+
+TPM header available
+
+[Nukama](https://groups.google.com/d/msg/qubes-users/yveUu94j26U/40sJaykesaEJ)
+
 Gigabyte GA-870A-UD3
  (Phenom II X4 955, 870/SB850, GTX 460)
 
