@@ -66,6 +66,18 @@ Note that only stdin/stdout is passed between rpc server and client - notably, t
 
 Be very careful when coding and adding a new rpc service. Unless the offered functionality equals full control over the target (it is the case with e.g. qubes.VMShell action), any vulnerability in a rpc server can be fatal to qubes security. On the other hand, this mechanism allows to delegate processing of untrusted input to less privileged (or throwaway) AppVMs, thus wise usage of it increases security.
 
+### Revoking "Yes to All" authorization
+
+Qubes RPC policy supports "ask" action. This will prompt the user whether given RPC call should be allowed. That prompt window has also "Yes to All" option, which will allow the action and add new entry to the policy file, which will unconditionally allow further calls for given service-srcVM-dstVM tuple.
+
+In order to remove such authorization, issue this command from a Dom0 terminal (for qubes.Filecopy service):
+
+``` {.wiki}
+sudo nano /etc/qubes-rpc/policy/qubes.Filecopy
+```
+
+and then remove the first line/s (before the first \#\# comment) which are the "Yes to All" results.
+
 ### Qubes RPC example
 
 We will show the necessary files to create rpc call that adds two integers on the target and returns back the result to the invoker.
