@@ -1040,8 +1040,25 @@ R2rc1
 
 [​Franz Felix](https://groups.google.com/d/msg/qubes-users/NXIL5rEh65o/rCBf1PYr2jsJ)
 
+Lenovo Yoga 2
+ (i3-4010U, Haswell, HD Graphics)
+
+96CN23WW(V1.09)
+
+Yes
+
+Yes
+
+R2
+
+3.12.23-1
+
+required patching for working wifi
+
+[Vadim](https://groups.google.com/d/msg/qubes-users/3WdYjv4QHIc/YIWiyoWDFBkJ)
+
 MSI GP60-2PE
- (i5-4200H, Haswell, \_HD Graphics)
+ (i5-4200H, Haswell, HD Graphics)
 
 E16GHIMS.109
 
