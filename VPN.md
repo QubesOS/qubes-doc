@@ -24,6 +24,8 @@ While the Network Manager is not started here (for a good reason) You can config
 
 ### ProxyVM
 
+**WARNING:** *Currently the [NetworkManager?](/wiki/NetworkManager) not working in a ProxyVM as expected. Actually it will mess up the routing table and because of that your packets may not be routed to the VPN tunnel. - This surely occures if your VPN wanna to be the default gateway.*
+
 One of the best thing in Qubes that you can use a special type of VMs called ProxyVM (or FirewallVM). The special thing is that your AppVMs see this as a NetVM, and the NetVMs see it as an AppVM. Because of that You can place a ProxyVM between your AppVMs and Your NetVM. This is how the default firewall VM is working.
 
 Using a ProxyVM to set up a VPN client will gives you the ability to:
