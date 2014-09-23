@@ -147,23 +147,6 @@ No Network, Chipset doesn't support VT-d! [​read more](https://groups.google.c
 
 [​Alex Dubois](https://groups.google.com/d/msg/qubes-devel/hag-MQDH_Vs/pmJ7TIWUWAsJ)
 
-Apple Mac mini (late 2012)
- (i7-3615QM, Ivy Bridge, HD Graphics)
-
-MM61.88Z.0106.B03.1211161202
-
-Yes
-
-Yes
-
-R2
-
-3.12.23-1
-
-Qubes installation does not work, but running an installed system with some tweaks does.
-
-[Miłosław Smyk](https://groups.google.com/d/msg/qubes-users/sA2JuEEQbdg/kpvaVuMCiFQJ)
-
 Asus N56VZ
  (CPU, HM67 Express, HD Graphics)
 
@@ -1287,6 +1270,23 @@ R2B2
 [​Ant](https://groups.google.com/d/msg/qubes-users/uKI-VBtKWxg/uKjsdGNSpSQJ)
 
 **Desktop, Workstation and Server**
+
+Apple Mac mini (late 2012)
+ (i7-3615QM, Ivy Bridge, HD Graphics)
+
+MM61.88Z.0106.B03.1211161202
+
+Yes
+
+Yes
+
+R2
+
+3.12.23-1
+
+Qubes installation does not work, but running an installed system with some tweaks does.
+
+[Miłosław Smyk](https://groups.google.com/d/msg/qubes-users/sA2JuEEQbdg/kpvaVuMCiFQJ)
 
 Dell Inspiron 660
  (i5-3330, Xeon E3-1200 Graphics)
