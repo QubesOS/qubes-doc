@@ -7,17 +7,34 @@ permalink: /wiki/HCL/
 Hardware Compatibility List (HCL) for All Qubes OS Releases
 ===========================================================
 
-This list contains information about the latest stable release (**R1**) and the latest development release (**R2rc1**). You can also find information about the previous releases (**R2B{1,2,3}**) here.
+The HCL is a compilation of reports generated and submitted by users across various Qubes versions.
+ **Note:**
+ Except in the case of developer-reported entries, the Qubes team has not independently verified the accuracy of these reports.
+ Please first consult the data sheets (CPU, chipset, motherboard) prior to buying new hardware for Qubes.
+ Meet the [SystemRequirements](/wiki/SystemRequirements) and search particular for support of:
+
+-   HVM ("AMD virtualization (AMD-V)", "Intel virtualization (VT-x)", "VIA virtualization (VIA VT)")
+-   IOMMU ("AMD I/O Virtualization Technology (AMD-Vi)", "Intel Virtualization Technology for Directed I/O (VT-d)")
+-   TPM ("Trusted Platform Module (TPM)" connected to a "20-pin TPM header" on motherboards.)
+
+Test the hardware yourself, if possible.
+ If using the list to make a purchasing decision, we recommend that you choose hardware with:
+
+-   the best achievable Qubes security level (green columns in HVM, IOMMU, TPM)
+-   and general machine compatibility (green columns in Qubes version, dom0 kernel, remarks).
 
 Generating and Submitting New Reports
 -------------------------------------
 
-In order to generate an HCL report in Qubes, simply open a terminal in dom0 (KDE: start-menu -\> System Tools -\> Konsole or Terminal Emulator) and run `qubes-hcl-report <vm-name>`, where `<vm-name>` is the name of the VM to which the generated HCL files will be saved.
+In order to generate a HCL report in Qubes, simply open a terminal in dom0 (KDE: start-menu -\> System Tools -\> Konsole or Terminal Emulator)
+ and run `qubes-hcl-report <vm-name>`, where `<vm-name>` is the name of the VM to which the generated HCL files will be saved.
  (Note: If you are working with a new Qubes installation, you may need to update your system in order to download this script.)
 
-Users are encouraged to submit their HCL reports for the benefit of further Qubes development and other users. If you would like to submit your HCL report, please send the **HCL Info** `.txt` file to `qubes-users@googlegroups.com` (see [here](/wiki/QubesLists) information about the mailing lists) with the subject `HCL - <your machine model name>`.
+You are encouraged to submit your HCL report for the benefit of further Qubes development and other users.
+ If you would like to submit your HCL report, please send the **HCL Info** `.txt` file to [\`qubes-users@googlegroups.com\`](/wiki/QubesLists) with the subject `HCL - <your machine model name>`.
  Please include any useful information about any Qubes features you may have tested (see the legend below), as well as general machine compatibility (video, networking, sleep, etc.).
- If you have problems with your hardware, please send the **HCL Support Files** `.cpio.gz` file as well. And try a different kernel in the [Troubleshooting menu](/wiki/InstallationGuideR2rc1#Troubleshooting%20problems%20with%20the%20installer).
+ If you have problems with your hardware try a different kernel in the [Troubleshooting menu](/wiki/InstallationGuideR2rc1#Troubleshooting%20problems%20with%20the%20installer).
+ Please consider sending the **HCL Support Files** `.cpio.gz` file as well.
 
 **Please note:**
  The **HCL Support Files** may contain numerous hardware details, including serial numbers. If, for privacy or security reasons, you do not wish to make this information public, please **do not** send the `.cpio.gz` file to the public mailing list.
@@ -83,17 +100,6 @@ Further information field. Qubes, dom0 and this field is coloured in conjunction
 Reported by
 
 Name linked to report in [qubes-users.](https://groups.google.com/forum/#!forum/qubes-users)
-
-**Note:**
- The HCL is a compilation of reports generated and submitted by users. Except in the case of developer-reported entries, the Qubes team has not independently verified the accuracy of these reports.
- If using the list to make a purchasing decision, we recommend that you first consult the datasheets (CPU, chipset, motherboard) for particular support of:
-
--   HVM ("AMD virtualization (AMD-V)", "Intel virtualization (VT-x)", "VIA virtualization (VIA VT)")
--   IOMMU ("AMD I/O Virtualization Technology (AMD-Vi)", "Intel Virtualization Technology for Directed I/O (VT-d)")
--   TPM ("Trusted Plaform Module (TPM)" connected to a "20-pin TPM header" on motherboards.)
-
-and test the hardware yourself, if possible.
- Try to shop for hardware with best achievable Qubes security level (green columns in HVM, IOMMU, TPM) and general machine compatibility (green columns in Qubes version, dom0 kernel, remarks).
 
 Reports
 -------
@@ -1274,7 +1280,7 @@ R2B2
 Apple Mac mini (late 2012)
  (i7-3615QM, Ivy Bridge, HD Graphics)
 
-MM61.88Z.0106.B03.1211161202
+MM61.88Z.0106. B03.1211161202
 
 Yes
 
@@ -1353,6 +1359,8 @@ Yes
 
 Yes
 
+\*
+
 R2B3
 
 3.9.2-2
@@ -1365,7 +1373,7 @@ R2rc1
 
 3.9
 
-Problem with graphics on 3,12,3.11,3.7, only 2GB RAM stock.
+Problem with graphics on 3,12,3.11,3.7, only 2GB RAM stock, TPM not tested
 
 [​Nukama](https://groups.google.com/d/msg/qubes-users/RYzkSFoMsxQ/ukXhBW4ybqQJ)
 
@@ -1431,6 +1439,8 @@ Yes
 
 No
 
+No
+
 R2rc1
 
 3.12.14-4
@@ -1448,11 +1458,13 @@ Yes
 
 Yes
 
+\*
+
 R2B3
 
 3.11.1-2
 
-Problems with Power Saving, Audio and USB3
+Problems with Power Saving, Audio and USB3, TPM not tested
 
 [​suricabile](https://groups.google.com/d/msg/qubes-users/oExJBIDsAwQ/lwAzNNe7OcYJ)
 
@@ -1464,6 +1476,8 @@ P1.40
 Yes
 
 Yes
+
+No
 
 R2B2
 
@@ -1497,16 +1511,20 @@ Yes
 
 Yes
 
-\# best achievable QSL - (Qubes Security Level) --\>
+\*
 
 R2
 
 3.12.23-1
 
+TPM header available
+
 [M Astroj](https://groups.google.com/d/msg/qubes-users/DYDXbVI_x80/CGoHOQobdWwJ)
 
 Biostar A880GZ
  (AM3+, 880G/SB850)
+
+No
 
 R2B3
 
@@ -1522,6 +1540,8 @@ Biostar TA790GX A3+
 78DAA420
 
 Yes
+
+No
 
 No
 
@@ -1541,12 +1561,14 @@ USB-Devices are working in 3.12 installer and luks prompt again.
 
 [​Nukama](https://groups.google.com/d/msg/qubes-users/DTot3wX1-nQ/229c20xWrdQJ)
 
-EVGA\_E685
+EVGA Z68
  (LGA1150, Z68)
 
 4.6.4
 
 Yes
+
+No
 
 No
 
@@ -1583,6 +1605,8 @@ Gigabyte GA-870A-UD3
 F5a
 
 Yes
+
+No
 
 No
 
