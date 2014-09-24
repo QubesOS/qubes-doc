@@ -147,7 +147,7 @@ No Network, Chipset doesn't support VT-d! [​read more](https://groups.google.c
 
 [​Alex Dubois](https://groups.google.com/d/msg/qubes-devel/hag-MQDH_Vs/pmJ7TIWUWAsJ)
 
-Asus N56VZ
+ASUS N56VZ
  (CPU, HM67 Express, HD Graphics)
 
 N56VZ.216
@@ -1471,7 +1471,7 @@ R2B2
 
 [gorka](https://groups.google.com/d/msg/qubes-users/lycnE-LcJBo/0u10xl7AMrIJ)
 
-Asus M4A89GTD USB3/PRO
+ASUS M4A89GTD USB3/PRO
  ()
 
 3029
@@ -1487,6 +1487,23 @@ R2rc1
 with Phenom II X4 965 and Radeon HD 5750
 
 [David Kennedy](https://groups.google.com/d/msg/qubes-users/6UPz3B0hg_U/bNcRAMiYJekJ)
+
+ASUS SABERTOOTH 990FX R2.0
+ (FX-8350, 990FX, GeForce GTX 470)
+
+2301
+
+Yes
+
+Yes
+
+\# best achievable QSL - (Qubes Security Level) --\>
+
+R2
+
+3.12.23-1
+
+[M Astroj](https://groups.google.com/d/msg/qubes-users/DYDXbVI_x80/CGoHOQobdWwJ)
 
 Biostar A880GZ
  (AM3+, 880G/SB850)
