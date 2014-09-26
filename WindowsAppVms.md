@@ -17,7 +17,7 @@ Qubes support tools for Windows is a set of programs and drivers that provide in
 -   Support for qvm-run and generic qrexec for the Windows VM (e.g. ability to run custom service within/from the Windows VM)
 -   Xen PV drivers for Windows that increase performance compared to qemu emulated devices
 
-Qubes Windows Support Tools are not open source and are distributed under a commercial license and their source code is not publicly available.
+Qubes Windows Support Tools are not open source and are distributed under a commercial license and their source code is not publicly available. Current status is: **Beta**.
 
 NOTE: Currently only 64-bit versions of Windows 7 are support by Qubes Windows Tools.
 
