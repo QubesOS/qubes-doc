@@ -83,6 +83,14 @@ Known Issues
 
 -   If your GPU is not correctly supported by the Dom0 kernel (e.g. the 3D desktop effects do not run smoothly) then you might experience "heaviness" with Windows 7-based AppVMs. In that case, please solve the problem with your GPU support in Dom0 in the first place (by using a different kernel), or install Qubes OS on a different system.
 
+-   Under some circumstances, Qubes backup can create broken backup, without any visible message (\#902). It is advisable to verify a backup to spot the problem. If you encounter this problem, backup VM directory manually.
+
+-   System shutdown sometimes is very slow (\#903). To mitigate the problem, shutdown all the VMs first.
+
+-   For other known issues take a look at [​our trac tickets](https://wiki.qubes-os.org/query?status=accepted&status=assigned&status=new&status=reopened&type=defect&milestone=Release+2.1+(post+R2)&col=id&col=summary&col=status&col=type&col=priority&col=milestone&col=component&order=priority)
+
+It is advised to install updates just after system installation to apply bug fixes for (some of) the above problems.
+
 Getting Help
 ------------
 
