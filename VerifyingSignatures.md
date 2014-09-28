@@ -10,7 +10,7 @@ On Digital Signatures and Key Verification
 What Digital Signatures Can and Cannot Prove
 --------------------------------------------
 
-Most people--even programmers--”are confused about the basic concepts underlying digital signatures. Therefore, most people should read this section, even if it looks trivial at first sight.
+Most people – even programmers – are confused about the basic concepts underlying digital signatures. Therefore, most people should read this section, even if it looks trivial at first sight.
 
 Digital signatures can prove both **authenticity** and **integrity** to a reasonable degree of certainty. **Authenticity** ensures that a given file was indeed created by the person who signed it (i.e., that it was not forged by a third party). **Integrity** ensures that the contents of the file have not been tampered with (i.e., that a third party has not undetectably altered its contents *en route*).
 
@@ -27,15 +27,21 @@ However, for digital signatures to make any sense, we must ensure that the publi
 Importing Qubes Signing Keys
 ----------------------------
 
-Every file published by the Qubes Project (rpm, tgz, git repositories) is digitally signed by one of the developer or release keys. Each such key is signed by the Qubes Master Signing Key (`0x36879494`).
+Every file published by the Qubes Project (ISO, RPM, TGZ files and git repositories) is digitally signed by one of the developer or release signing keys. Each such key is signed by the Qubes Master Signing Key ([​\`0x36879494\`](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc)).
 
-The public portion of the Master Key can be downloaded from a keyserver, e.g.:
+The public portion of the Qubes Master Signing Key can be imported directly from a keyserver,
 
 ``` {.wiki}
 gpg --recv-keys 0x36879494
 ```
 
-For additional security we also publish the the Master Key's fingerprint here in this document:
+or downloaded [​here](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc) and imported with gpg.
+
+``` {.wiki}
+$ gpg --import ./qubes-master-signing-key.asc 
+```
+
+For additional security we also publish the fingerprint of the Qubes Master Signing Key ([​\`0x36879494\`](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc)) here in this document:
 
 ``` {.wiki}
 pub   4096R/36879494 2010-04-01
@@ -45,51 +51,59 @@ uid   Qubes Master Signing Key
 
 There should also be a copy of this key at the project's main website, as well as in the archives of the project's [​developer](https://groups.google.com/forum/#!msg/qubes-devel/RqR9WPxICwg/kaQwknZPDHkJ) and [​user](https://groups.google.com/d/msg/qubes-users/CLnB5uFu_YQ/ZjObBpz0S9UJ) mailing lists.
 
-Once you have downloaded and verified the fingerprint of the Master Signing Key, you should import this key and set its trust level to "ultimate" (oh, well), so that it can be used to automatically verify all the developers' keys:
+Once you have obtained the Qubes Master Signing Key ([​\`0x36879494\`](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc)), you should verify the fingerprint of this key very carefully. Then set its trust level to "ultimate" (oh, well), so that it can be used to automatically verify all the keys signed by the Qubes Master Signing Key:
 
 ``` {.wiki}
 gpg --edit-key 0x36879494
-and then: trust, 5, y, q
+and then: fpr, trust, 5, y, q
 ```
 
-Now you can easily download any of the developer or release keys that happen to be used to sign particular rpm, tgz, or git tags. E.g.:
+Now you can easily download any of the developer or release signing keys that happen to be used to sign particular ISO, RPM, TGZ files or git tags.
+
+For example: Qubes OS Release 2 Signing Key ([​\`0x0A40E458\`](https://keys.qubes-os.org/keys/qubes-release-2-signing-key.asc)) is used for all Release 2 ISO images.
 
 ``` {.wiki}
-$ gpg --recv-keys AC1BF9B3
-gpg: requesting key AC1BF9B3 from hkp server keys.gnupg.net
-gpg: key AC1BF9B3: public key "Qubes OS Release 1 Signing Key" imported
-gpg: no ultimately trusted keys found
+$ gpg --recv-keys 0x0A40E458
+gpg: requesting key 0A40E458 from hkp server keys.gnupg.net
+gpg: key 0A40E458: public key "Qubes OS Release 2 Signing Key" imported
+gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
+gpg: depth: 0  valid:   1  signed:   1  trust: 0-, 0q, 0n, 0m, 0f, 1u
+gpg: depth: 1  valid:   1  signed:   0  trust: 1-, 0q, 0n, 0m, 0f, 0u
 gpg: Total number processed: 1
 gpg:               imported: 1  (RSA: 1)
 ```
 
-You can also download all the currently used developers' keys (and also a copy of the Master Key) in the keys directory on our server:
+You can also download all the currently used developers' signing keys and current and older release signing keys (and also a copy of the Qubes Master Signing Key) in the keys directory on our server:
 
-[​http://keys.qubes-os.org/keys/](http://keys.qubes-os.org/keys/)
+[​https://keys.qubes-os.org/keys/](https://keys.qubes-os.org/keys/)
 
-The developer keys are set to be valid for 1 year only, while the Qubes Master Signing Key has no expiration date. This latter key was generated and is kept only within a dedicated, air-gapped "vault" machine, and the private portion will (hopefully) never leave this isolated machine.
+The developer signing keys are set to be valid for 1 year only, while the Qubes Master Signing Key ([​\`0x36879494\`](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc)) has no expiration date. This latter key was generated and is kept only within a dedicated, air-gapped "vault" machine, and the private portion will (hopefully) never leave this isolated machine.
 
-You can now verify the ISO matches its signature:
+You can now verify the ISO image (Qubes-R2-x86\_64-DVD.iso) matches its signature (Qubes-R2-x86\_64-DVD.iso.asc):
 
 ``` {.wiki}
-$ gpg --verify Qubes-R2-rc1-x86_64-DVD.iso{.asc,}
-gpg: Signature made Sun 20 Apr 2014 10:06:13 BST using RSA key ID 0A40E458
+$ gpg --verify Qubes-R2-x86_64-DVD.iso.asc
+or
+$ gpg -v Qubes-R2-x86_64-DVD.iso.asc
+gpg: armor header: Version: GnuPG v1
+gpg: assuming signed data in `Qubes-R2-x86_64-DVD.iso'
+gpg: Signature made Tue Sep 23 08:38:40 2014 UTC using RSA key ID 0A40E458
+gpg: using PGP trust model
 gpg: Good signature from "Qubes OS Release 2 Signing Key"
+gpg: binary signature, digest algorithm SHA1
 ```
 
-The key used to sign this ISO should be signed by the Qubes master key:
+The Release 2 Signing Key ([​\`0x0A40E458\`](https://keys.qubes-os.org/keys/qubes-release-2-signing-key.asc)) used to sign this ISO image should be signed by the Qubes Master Signing Key ([​\`0x36879494\`](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc)):
 
 ``` {.wiki}
 $ gpg --list-sig 0A40E458
 pub   4096R/0A40E458 2012-11-15
 uid                  Qubes OS Release 2 Signing Key
-sig          26CA2CD7 2013-02-26  [User ID not found]
-sig          C55BCFE3 2014-02-20  [User ID not found]
 sig          36879494 2012-11-15  Qubes Master Signing Key
 sig 3        0A40E458 2012-11-15  Qubes OS Release 2 Signing Key
 ```
 
-Having problems verifying the ISO? See this thread:
+Having problems verifying the ISO images? Make sure you have the corresponding release signing key and see this thread:
 
 [​https://groups.google.com/group/qubes-devel/browse\_thread/thread/4bdec1cd19509b38/9f8e219c41e1b232](https://groups.google.com/group/qubes-devel/browse_thread/thread/4bdec1cd19509b38/9f8e219c41e1b232)
 
