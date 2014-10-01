@@ -38,4 +38,5 @@ Qubes Security Bulletins
 -   [​Qubes Security Bulletin \#9](https://groups.google.com/d/msg/qubes-devel/XgTo6L8-5XA/JLOadvBqnqMJ) (Qubes qvm-open-in-[d]vm environment inter-VM leak)
 -   [​Qubes Security Bulletin \#10](https://groups.google.com/d/msg/qubes-devel/VO1URqYWbok/8vp-VnE7iXEJ) (Qubes pulseaudio & vchan bugs, Xen XSA 87)
 -   [​Qubes Security Bulletin \#11](https://groups.google.com/d/msg/qubes-devel/QHXI0qXAPhk/gSF7m4KD37QJ) (Qubes clipboard inter-VM leak)
+-   [​Qubes Security Bulletin \#12](https://groups.google.com/d/msg/qubes-devel/HgQ_aWt-EBU/8VWzu2IrQdQJ) (Memory leak in Xen hypervisor via RDMSR emulation bug (XSA 108))
 
