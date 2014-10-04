@@ -11,10 +11,10 @@ System Documentation for Developers
     1.  Qubes OS Architecture v0.3 [​(pdf)](http://files.qubes-os.org/files/doc/arch-spec-0.3.pdf) (The original 2009 document that started this all...)
     2.  [Security-critical elements of Qubes OS](/wiki/SecurityCriticalCode)
     3.  Qubes RPC framework (qrexec):
-        1.  [In Qubes R1 and R2](/wiki/Qrexec)
-        2.  [In Qubes R3/Odyssey](/wiki/Qrexec3)
-        3.  [Qrexec v3 protocol details (R3/Odyssey)?](/wiki/QrexecProtocol)
-        4.  Tutorial on writing Qrexec Inter-VM service in Qubes OS [​blog post](http://theinvisiblethings.blogspot.com/2013/02/converting-untrusted-pdfs-into-trusted.html)
+        1.  [The Qubes RPC/Service API](/wiki/Qrexec)
+        2.  Example for writing a qrexec service in Qubes OS [​blog post](http://theinvisiblethings.blogspot.com/2013/02/converting-untrusted-pdfs-into-trusted.html)
+        3.  [qrexec implementation in Qubes R2](/wiki/Qrexec2Implementation)
+        4.  [qrexec implementation in Qubes R3/Odyssey](/wiki/Qrexec3Implementation)
 
     4.  [Qubes GUI virtualization protocol](/wiki/GUIdocs)
     5.  [Networking in Qubes](/wiki/QubesNet)
