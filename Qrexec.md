@@ -146,6 +146,8 @@ and we should get "3" as answer, provided dom0 policy allows the call to pass th
 More high-level RPCs?
 ---------------------
 
+As previously noted, Qubes aims to provide mechanisms that are very simple and thus with very small attack surface. This is the reason why the inter-VM RPC framework is very primitive and doesn't include any serialization or other function arguments passing, etc. We should remember, however, that users/app developers are always free to run more high-level RPC protocols on top of qrexec. Care should be taken, however, to consider potential attack surfaces that are exposed to untrusted or less trusted VMs in that case.
+
 Qubes RPC internals
 -------------------
 
