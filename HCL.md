@@ -1046,6 +1046,23 @@ R2rc1
 
 [​Franz Felix](https://groups.google.com/d/msg/qubes-users/NXIL5rEh65o/rCBf1PYr2jsJ)
 
+LENOVO Thinkpad Yoga
+ (i5-4200U, Haswell, embedded VGA)
+
+GQET35WW (1.15 )
+
+Yes
+
+No
+
+R2
+
+3.12.23-1
+
+touchscreen not working
+
+[Gábor Dolhai](https://groups.google.com/d/msg/qubes-devel/kTRBgRc7jyY/aBp61c6iYL4J)
+
 Lenovo Yoga 2
  (i3-4010U, Haswell, HD Graphics)
 
@@ -1330,6 +1347,21 @@ No
 R2B2
 
 [Andrew Sorensen](https://groups.google.com/d/msg/qubes-devel/D16dM3rg8Iw/zOEZmjTJkRIJ)
+
+GIGABYTE BRIX Pro / Ultra Compact PC (M4HM85P-00)
+ (i5-4570R, HM87, Iris Pro 5200)
+
+F2
+
+Yes
+
+Yes
+
+R2
+
+3.12.23-1
+
+[Bjarne Thomsen](https://groups.google.com/d/msg/qubes-users/uvBcfCB8dxk/ZX-tV3y2tXEJ)
 
 HP Compaq dc7800 SFF
  (E8400, Q35)
