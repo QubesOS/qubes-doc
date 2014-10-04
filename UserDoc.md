@@ -17,7 +17,8 @@ Qubes User Documentation
     2.  [Updating Software in dom0](/wiki/SoftwareUpdateDom0)
     3.  [Copying Files to and from dom0](/wiki/CopyToDomZero)
     4.  [Backup, Restoration, and Migration](/wiki/BackupRestore)
-    5.  Advanced Topics
+    5.  [Qubes Policy for InterVM Services?](/wiki/QrexecPolicy)
+    6.  Advanced Topics
         1.  [Installing Anti Evil Maid](/wiki/AntiEvilMaid)
         2.  [XFCE Installation in dom0](/wiki/UserDoc/XFCE)
         3.  [Installing ZFS in Qubes](/wiki/ZFS)
