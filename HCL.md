@@ -848,6 +848,25 @@ R2B3
 
 [​7v5w7go9ub0o](https://groups.google.com/d/msg/qubes-users/r6kC4YHgDjM/yJXpvIdoWkUJ)
 
+LENOVO Thinkpad T440p (20AN00C1MD)
+ (i7-4710MQ, QM87, GeForce GT 730M)
+
+GLET70WW (2.24 )
+
+Yes
+
+No
+
+\*
+
+R2
+
+3.12.23-1
+
+TPM untested, a i5-4300M, i5-4330M, i7-4600M, i7-4800MQ or i7-4900MQ CPU could support VT-d
+
+[Bjarne Thomsen](https://groups.google.com/d/msg/qubes-users/izj-g0HNA_4/HCrOjLk9Pm4J)
+
 Lenovo Thinkpad T500
  (P8400, GM45, GMA 4500MHD)
 
