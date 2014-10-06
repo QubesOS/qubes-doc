@@ -26,15 +26,21 @@ Linux VMs implementation
 Players:
 
 -   `/usr/lib/qubes/qrexec-agent` \<- started by VM bootup scripts, a daemon.
--   `/usr/lib/qubes/qubes-rpc-multiplexer` \<- executes the actual service program, as specified in VM's `/etc/qubes-rpc/qubes.XYZ`
--   `/usr/lib/qubes/qrexec-client-vm` \<- raw command line tool that talks to the agent
+-   `/usr/lib/qubes/qubes-rpc-multiplexer` \<- executes the actual service program, as specified in VM's `/etc/qubes-rpc/qubes.XYZ`.
+-   `/usr/lib/qubes/qrexec-client-vm` \<- raw command line tool that talks to the agent.
 
 Note: neither of the above tools are designed to be used by users. `qrexec-client-vm` is designed to be wrapped up by Qubes apps.
 
 Windows VMs implemention
 ------------------------
 
-TODO
+%QUBES\_DIR% is the installation path (`c:\Program Files\Invisible Things Lab\Qubes OS Windows Tools` by default).
+
+-   `%QUBES_DIR%\bin\qrexec-agent.exe` \<- runs as a system service. Responsible both for raw command execution and interpreting RPC service requests.
+-   `%QUBES_DIR%\qubes-rpc` \<- directory with `qubes.XYZ` files that contain commands for executing RPC services. Binaries for the services are contained in `%QUBES_DIR%\qubes-rpc-services`.
+-   `%QUBES_DIR%\bin\qrexec-client-vm` \<- raw command line tool that talks to the agent.
+
+Note: neither of the above tools are designed to be used by users. `qrexec-client-vm` is designed to be wrapped up by Qubes apps.
 
 All the pieces together at work
 -------------------------------
