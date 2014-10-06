@@ -73,7 +73,7 @@ struct msg_header {
 };
 ```
 
-When two peers **in different domains** establish connection, the server sends `MSG_HELLO` followed by `peer_info` struct:
+When two peers establish connection, the server sends `MSG_HELLO` followed by `peer_info` struct:
 
 ``` {.wiki}
 struct peer_info {
@@ -81,7 +81,7 @@ struct peer_info {
 };
 ```
 
-The client then should reply with its own `MSG_HELLO` and `peer_info`. If protocol versions don't match, the connection is closed. TODO: fallback for backwards compatibility.
+The client then should reply with its own `MSG_HELLO` and `peer_info`. If protocol versions don't match, the connection is closed. TODO: fallback for backwards compatibility, don't do handshake in the same domain?.
 
 Details of all possible use cases and the messages involved are described below.
 
