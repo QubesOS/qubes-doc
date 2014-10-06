@@ -30,6 +30,8 @@ With Qubes Split GPG this problem is drastically minimized, because each time th
 
 -   It doesn't solve the problem of allowing the user to know what is to be signed before the operation gets approved. Perhaps the GPG backend domain could start a Disposable VM and have the to-be-signed document displayed there? To Be Determined.
 
+-   Verifying detached signatures does not work (see \#900). You have to have public keys in AppVM and some means to use different command to verify them. Both git and Enigmail does not allow that and you have to choose between [SplitGpg](/wiki/UserDoc/SplitGpg) and PGP/MIME.
+
 Configuring and using Split GPG
 -------------------------------
 
