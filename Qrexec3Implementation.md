@@ -4,10 +4,10 @@ title: Qrexec3Implementation
 permalink: /wiki/Qrexec3Implementation/
 ---
 
-Implementation of qrexec in Qubes R2
+Implementation of qrexec in Qubes R3
 ====================================
 
-This page describes implementation of the [qrexec framework](/wiki/Qrexec) in Qubes OS R2.
+This page describes implementation of the [qrexec framework](/wiki/Qrexec) in Qubes OS R3.
 
 Qrexec framework consists of a number of processes communicating with each other using common IPC protocol (described in detail below). Components residing in the same domain use pipes as the underlying transport medium, while components in separate domains use vchan link.
 
