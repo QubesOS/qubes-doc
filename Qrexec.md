@@ -91,6 +91,11 @@ By default, stderr of client and server is logged to respective `/var/log/qubes/
 
 Be very careful when coding and adding a new RPC service! Any vulnerability in a RPC server can be fatal to security of the target VM!
 
+Requesting VM-VM (and VM-Dom0) services execution (without cmdline helper)
+--------------------------------------------------------------------------
+
+Connect directly to `/var/run/qubes/qrexec-agent-fdpass` socket as described [​here](https://wiki.qubes-os.org/wiki/Qrexec2Implementation#Allthepiecestogetheratwork).
+
 ### Revoking "Yes to All" authorization
 
 Qubes RPC policy supports the "ask" action. This will prompt the user whether a given RPC call should be allowed. That prompt window has an option to click "Yes to All", which allows the action and adds a new entry to the policy file, which will unconditionally allow further calls for given service-srcVM-dstVM tuple.
