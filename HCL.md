@@ -1460,6 +1460,21 @@ R2B3
 
 [​Nukama](https://groups.google.com/d/msg/qubes-users/YcqMDcVYQh8/pk0B_9RfGQMJ)
 
+Lenovo ThinkCentre M93p
+ (i7-4770, Haswell, GeForce GT 720)
+
+FBKT75AUS
+
+Yes
+
+Yes
+
+R2
+
+3.12.23-1
+
+[dispose256](https://groups.google.com/d/msg/qubes-users/MaJ9s7USf2s/2zgVX5SJTUkJ)
+
 Lenovo ThinkStation S30 4352G1G
  (E5-1620 v2, Ivytown, Radeon HD 6950)
 
