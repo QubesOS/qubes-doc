@@ -15,7 +15,7 @@ Qubes audio virtualization protocol does not implement latency reporting for sec
 Implementing external audio devices
 -----------------------------------
 
-First you need to identify an user VM dedicated to audio and [​assign a device](https://wiki.qubes-os.org/wiki/AssigningDevices) to it. In the most common case the assigned device is the USB controller to which the USB audio card will be connected.
+First you need to identify an user VM dedicated to audio and [​assign a device](https://wiki.qubes-os.org/wiki/AssigningDevices) to it. In the most common case the assigned device is the USB controller to which your USB audio card will be connected.
 
 ### Fedora VMs
 
@@ -25,7 +25,7 @@ In a terminal of the template from which you user VM depends, install pavucontro
 sudo yum install pavucontrol
 ```
 
-Close the template and start or restart your user VM, insert your external audio, open a terminal and prepare pulseaudio to use it with:
+Close the template and start or restart your user VM, insert your external audio device, open a terminal and prepare pulseaudio to use it with:
 
 ``` {.wiki}
 sudo chmod a+rw /dev/snd/*
@@ -36,7 +36,7 @@ Start the audio application that is going to use the external audio device.
 
 Launch pavucontrol, for example using "run command in VM" of Qubes Manager and select you external audio card in pavucontrol. You need to do that only the first time you use a new external audio device, then pulse audio will remember you selection.
 
-If you detach your external audio device, then want to insert it again, or change it with another one, you need to repeat the previous commands in terminal, adding an other lite at the beginning:
+If you detach your external audio device, then want to insert it again, or change it with another one, you need to repeat the previous commands in terminal, adding an other line at the beginning:
 
 ``` {.wiki}
 pactl unload-module module-udev-detect
