@@ -10,7 +10,7 @@ Using External Audio Devices
 Why you want to use external audio devices
 ------------------------------------------
 
-Qubes audio virtualization protocol does not implement latency reporting for security reasons, keeping the protocol as simple as possible. Also, in a compromise between low latency and low CPU usage, latency may be around 200 ms. So applications demanding higher audio quality need a better environment. But Qubes flexibility fully allows that using external audio devices. These are mostly USB audio cards, but firewire devices also might be used.
+Qubes audio virtualization protocol does not implement latency reporting for security reasons, keeping the protocol as simple as possible. Also, in a compromise between low latency and low CPU usage, latency may be around 200 ms. So applications demanding higher audio quality (even Skype) need a better environment. But Qubes flexibility fully allows that using external audio devices. These are mostly USB audio cards, but firewire devices also might be used.
 
 Implementing external audio devices
 -----------------------------------
