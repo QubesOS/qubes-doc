@@ -35,3 +35,11 @@ pactl load-module module-udev-detect
 Start the audio application that is going to use the external audio device.
 
 Launch pavucontrol, for example using "run command in VM" of Qubes Manager and select you external audio card in pavucontrol. You need to do that only the first time you use a new external audio device, then pulse audio will remember you selection.
+
+If you detach your external audio device, then want to insert it again, or change it with another one, you need to repeat the previous commands in terminal, adding an other lite at the beginning:
+
+``` {.wiki}
+pactl unload-module module-udev-detect
+sudo chmod a+rw /dev/snd/*
+pactl load-module module-udev-detect
+```
