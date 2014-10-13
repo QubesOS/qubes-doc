@@ -80,11 +80,12 @@ Qubes User Documentation
     3.  [Assigning PCI Devices to AppVMs](/wiki/AssigningDevices)
     4.  [Enabling TRIM for SSD disks](/wiki/DiskTRIM)
     5.  [Configuring a Network Printer](/wiki/NetworkPrinter)
-    6.  Vendor-specific
+    6.  [Using External Audio Devices](/wiki/ExternalAudio)
+    7.  Vendor-specific
         1.  [How to install an Nvidia driver in dom0](/wiki/InstallNvidiaDriver)
         2.  [Getting Sony Vaio Z laptop to work with Qubes](/wiki/SonyVaioTinkering)
 
-    7.  External Links
+    8.  External Links
         1.  [​Installing on system with new AMD GPU (missing firmware problem)](https://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76)
         2.  [​Solving problems with Macbook Air 2012](https://groups.google.com/group/qubes-devel/browse_thread/thread/b8b0d819d2a4fc39/d50a72449107ab21#8a9268c09d105e69)
         3.  [​Booting with GRUB2 and GPT](https://groups.google.com/group/qubes-devel/browse_thread/thread/e4ac093cabd37d2b/d5090c20d92c4128#d5090c20d92c4128)
