@@ -13,6 +13,7 @@ Minimum
 -   64-bit Intel or AMD processor (x86\_64 aka x64 aka AMD64)
 -   4 GB RAM
 -   32 GB disk space
+-   legacy boot mode (UEFI not supported yet - \#794)
 
 Recommended
 -----------
