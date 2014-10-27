@@ -422,6 +422,25 @@ R1
 
 [​Steven Collins](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
 
+Dell Latitude E7440
+ (i7-4600U, Haswell, embedded VGA)
+
+A09
+
+Yes
+
+Yes
+
+\*
+
+R2
+
+3.12.23-1
+
+TPM present, AEM untested
+
+[Bjarne Thomsen](https://groups.google.com/d/msg/qubes-users/IwQuI3J1HAY/1HDs-IzRIlsJ)
+
 Dell Precision M4600
  (i7-2860QM, NVIDIA Quadro 1000M)
 
@@ -848,7 +867,7 @@ R2B3
 
 [​7v5w7go9ub0o](https://groups.google.com/d/msg/qubes-users/r6kC4YHgDjM/yJXpvIdoWkUJ)
 
-LENOVO Thinkpad T440p (20AN00C1MD)
+Lenovo Thinkpad T440p (20AN00C1MD)
  (i7-4710MQ, QM87, GeForce GT 730M)
 
 GLET70WW (2.24 )
@@ -987,6 +1006,25 @@ R2B1
 
 [​George Walker](https://groups.google.com/d/msg/qubes-devel/4IrF1A6sa3U/QIQe-dNc4tEJ)
 
+Lenovo Thinkpad X121e
+ (i3-2367M, Sandy Bridge, HD 3000)
+
+8QET56WW (1.17 )
+
+Yes
+
+No
+
+\*
+
+R2
+
+3.12.23-1
+
+TPM present, AEM untested
+
+[Rowan Crane](https://groups.google.com/d/msg/qubes-users/NnUzPPY8yTo/Swe2IvsjLi4J)
+
 Lenovo Thinkpad X201
  (i5-520M, HD3000)
 
@@ -1065,7 +1103,7 @@ R2rc1
 
 [​Franz Felix](https://groups.google.com/d/msg/qubes-users/NXIL5rEh65o/rCBf1PYr2jsJ)
 
-LENOVO Thinkpad Yoga
+Lenovo Thinkpad Yoga
  (i5-4200U, Haswell, embedded VGA)
 
 GQET35WW (1.15 )
