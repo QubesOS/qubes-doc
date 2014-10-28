@@ -389,23 +389,11 @@ Yes
 
 Yes
 
-R2B2
+R2
 
-3.7.4
+3.12.23-1
 
-[​Zrubi](https://groups.google.com/d/msg/qubes-users/pAVGe04ZC48/AJwY6yd7LeIJ)
-
-R2B3
-
-3.7.4
-
-[​Zrubi](https://groups.google.com/d/msg/qubes-users/pAVGe04ZC48/AJwY6yd7LeIJ)
-
-R2rc1
-
-3.12.14
-
-The optional nVidia Optimus VGA is still not working.
+The optional nVidia Optimus VGA is (still) not working.
 
 [​Zrubi](https://groups.google.com/d/msg/qubes-users/sfV4-pMWrBY/qiHlnnza9a0J)
 
