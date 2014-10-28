@@ -517,6 +517,23 @@ R2B3
 
 [​Zrubi](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
 
+HP Chromebook
+ (Celeron 2955U, Haswell, Intel HD Graphics)
+
+Yes
+
+No
+
+No
+
+R2
+
+3.12.23-1
+
+[​read more](https://groups.google.com/d/topic/qubes-users/oWLkwl8vY0A/discussion)
+
+[Andrew B](https://groups.google.com/d/msg/qubes-users/oWLkwl8vY0A/QaHRacZgM70J)
+
 HP EliteBook 2170p
  (i5-3317U, Ivy, Intel HD Graphics)
 
