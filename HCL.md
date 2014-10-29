@@ -503,7 +503,7 @@ R2B3
 
 [​Zrubi](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
 
-HP Chromebook
+HP Chromebook 14
  (Celeron 2955U, Haswell, Intel HD Graphics)
 
 Yes
@@ -879,13 +879,13 @@ Yes
 
 No
 
-\*
+Yes
 
 R2
 
 3.12.23-1
 
-TPM untested, a i5-4300M, i5-4330M, i7-4600M, i7-4800MQ or i7-4900MQ CPU could support VT-d
+a i5-4300M, i5-4330M, i7-4600M, i7-4800MQ or i7-4900MQ CPU could support VT-d
 
 [Bjarne Thomsen](https://groups.google.com/d/msg/qubes-users/izj-g0HNA_4/HCrOjLk9Pm4J)
 
