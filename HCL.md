@@ -520,23 +520,6 @@ R2
 
 [Andrew B](https://groups.google.com/d/msg/qubes-users/oWLkwl8vY0A/QaHRacZgM70J)
 
-HP EliteBook 2170p
- (i5-3317U, Ivy, Intel HD Graphics)
-
-68IMT Ver. F.42
-
-Yes
-
-Yes
-
-R2rc2
-
-3.12.23-1
-
-[​read more](https://groups.google.com/d/topic/qubes-users/q5M9KbPatEA/discussion)
-
-[Dimiter Georgiev](https://groups.google.com/d/msg/qubes-users/q5M9KbPatEA/fXIZ-yvJVA8J)
-
 HP EliteBook 820 G1
  (i5-4300U, Haswell, Intel HD Graphics)
 
@@ -553,6 +536,40 @@ R2rc2
 [​read more](https://groups.google.com/d/topic/qubes-users/8s98SegfdbI/discussion)
 
 [Mihai Genescu](https://groups.google.com/d/msg/qubes-users/8s98SegfdbI/pIOWgeJSuSAJ)
+
+HP EliteBook 850 G1
+ (i7-4600U, Haswell, Intel HD Graphics + Radeon HD 8730M)
+
+L71 Ver. 01.20
+
+Yes
+
+Yes
+
+R2
+
+3.17.1-1
+
+[​read more](https://groups.google.com/d/topic/qubes-users/Bfikyrwhoc8/discussion)
+
+[Olivier Médoc](https://groups.google.com/d/msg/qubes-users/Bfikyrwhoc8/q-zhFrA0SK4J)
+
+HP EliteBook 2170p
+ (i5-3317U, Ivy, Intel HD Graphics)
+
+68IMT Ver. F.42
+
+Yes
+
+Yes
+
+R2rc2
+
+3.12.23-1
+
+[​read more](https://groups.google.com/d/topic/qubes-users/q5M9KbPatEA/discussion)
+
+[Dimiter Georgiev](https://groups.google.com/d/msg/qubes-users/q5M9KbPatEA/fXIZ-yvJVA8J)
 
 HP EliteBook 8540p
  (i5-2540M, Arrandale, NVIDIA GT216)
