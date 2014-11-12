@@ -75,7 +75,7 @@ Qubes User Documentation
         3.  [Note regarding password-less root access in VM](/wiki/VMSudo)
 
 4.  **Applications**
-    1.  [Languages]
+    1.  [Languages](/wiki/LanguageLocalization)
 
 5.  **Hardware**
     1.  [How to Mount USB Sticks to AppVMs](/wiki/StickMounting)
