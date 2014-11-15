@@ -18,6 +18,8 @@ The default template is called **fedora-14-x64** in Qubes R1 and **fedora-20-x64
 
 The side effect of this mechanism is, of course, that if you install any software in your AppVM, more specifically in any directory other than `/home` or `/usr/local` then it will disappear after the AppVM reboot (as the root filesystem for this AppVM will again be "taken" from the Template VM). **This means one normally install software in the Template VM, not in AppVMs.**
 
+Unlike VM private filesystems, the template VM root filesystem does not support discard, so deleting files does not free the space in dom0. See [these instructions](/wiki/FedoraTemplateUpgrade#Compactingtemplatesroot.img) to recover space in dom0.
+
 Installing (or updating) software in the template VM
 ----------------------------------------------------
 
