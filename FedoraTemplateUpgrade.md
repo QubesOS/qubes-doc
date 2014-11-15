@@ -48,7 +48,7 @@ Compacting templates root.img
 
 fstrim, nor "discard" mount option do not work on template root fs, so when some file is removed in the template, space isn't freed in dom0. This means that template will use about twice a space that is really need after upgrade.
 
-You can compact root.img in the "old way": Start the template, fill all the free space with zeros, for example with:
+You can compact root.img in the "old way", you'll need about 15GB (template's max size + really used space there) in dom0 for this operation: Start the template, fill all the free space with zeros, for example with:
 
 ``` {.wiki}
 dd if=/dev/zero of=/var/tmp/zero
