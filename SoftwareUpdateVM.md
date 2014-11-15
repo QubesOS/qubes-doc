@@ -14,7 +14,7 @@ Most of the AppVMs (domains) are based on a *template VM*, which means that thei
 
 In addition to saving on the disk space, and reducing domain creation time, another advantage of such scheme is the possibility for centralized software update. It's just enough to do the update in the template VM, and then all the AppVMs based on this template get updates automatically after they are restarted.
 
-The default template is called **fedora-14-x64** in Qubes R1 and **fedora-18-x64** in Qubes R2 Beta2.
+The default template is called **fedora-14-x64** in Qubes R1 and **fedora-20-x64** in Qubes R2.
 
 The side effect of this mechanism is, of course, that if you install any software in your AppVM, more specifically in any directory other than `/home` or `/usr/local` then it will disappear after the AppVM reboot (as the root filesystem for this AppVM will again be "taken" from the Template VM). **This means one normally install software in the Template VM, not in AppVMs.**
 
