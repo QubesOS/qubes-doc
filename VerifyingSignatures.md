@@ -29,16 +29,22 @@ Importing Qubes Signing Keys
 
 Every file published by the Qubes Project (ISO, RPM, TGZ files and git repositories) is digitally signed by one of the developer or release signing keys. Each such key is signed by the Qubes Master Signing Key ([​\`0x36879494\`](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc)).
 
-The public portion of the Qubes Master Signing Key can be imported directly from a keyserver,
+The public portion of the Qubes Master Signing Key can be imported directly from a [​ keyserver](https://en.wikipedia.org/wiki/Key_server_%28cryptographic%29#Keyserver_examples) (specified on first use with --keyserver URI, keyserver saved in \~/.gnupg/gpg.conf),
 
 ``` {.wiki}
 gpg --recv-keys 0x36879494
 ```
 
-or downloaded [​here](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc) and imported with gpg.
+or downloaded [​here](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc) and imported with gpg,
 
 ``` {.wiki}
 $ gpg --import ./qubes-master-signing-key.asc 
+```
+
+or fetched directly with gpg.
+
+``` {.wiki}
+$ gpg --fetch-keys https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
 ```
 
 For additional security we also publish the fingerprint of the Qubes Master Signing Key ([​\`0x36879494\`](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc)) here in this document:
