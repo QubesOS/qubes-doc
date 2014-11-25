@@ -28,7 +28,7 @@ Qubes Users' FAQ
     4.  [Can I install Qubes on a system without VT-d?](#CanIinstallQubesonasystemwithoutVT-d)
     5.  [Can I use AMD-v instead of VT-x?](#CanIuseAMD-vinsteadofVT-x)
     6.  [Can I install Qubes in a virtual machine (e.g., on VMWare)?](#CanIinstallQubesinavirtualmachinee.g.onVMWare)
-    7.  [Why does my network adapter not work (wired, wireless)?](#Whydoesmynetworkadapternotworkwiredwireless)
+    7.  [Why does my network adapter not work?](#Whydoesmynetworkadapternotwork)
 
 3.  [Common Problems](#CommonProblems)
     1.  [My AppVMs lost Internet access after a TemplateVM update. What should I do?](#MyAppVMslostInternetaccessafteraTemplateVMupdate.WhatshouldIdo)
@@ -122,9 +122,9 @@ See [​this message](http://groups.google.com/group/qubes-devel/msg/6412170cfbc
 
 Some users have been able to do this, but it is neither recommended nor supported. Qubes should be installed bare-metal. (After all, it uses its own bare-metal hypervisor!)
 
-### Why does my network adapter not work (wired, wireless)?
+### Why does my network adapter not work?
 
-You may have an adapter, that is not compatible with open-source drivers shipped by Qubes. There may be a binary blob, which provides drivers in the linux-firmware package.
+You may have an adapter (wired, wireless), that is not compatible with open-source drivers shipped by Qubes. There may be a binary blob, which provides drivers in the linux-firmware package.
 
 Open a terminal and run `sudo yum install linux-firmware` in the TemplateVM upon which your NetVM is based. You have to restart the NetVM after the TemplateVM has been shut down.
 
