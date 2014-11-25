@@ -20,3 +20,7 @@ The following software is licensed under a proprietary license:
 
 -   Qubes Windows Support Tools
 
+Note on rights to double-licensing of the Qubes code
+----------------------------------------------------
+
+Invisible Things Lab (ITL), who has funded and run the Qubes project since the beginning, and who has contributed majority of Qubes-specific code (specifically: `core-*`, `gui-*`, and `qubes-*` repositories) would like to have a right to redistribute parts of this code under proprietary licenses. This is especially important for Qubes R3 and later, where the new architecture allows the creation of many editions of Qubes, using different hypervisors, some of which might not be open source. That's why we ask every developer who contributes code to Qubes project to grant ITL permission to reuse the code under a different license, and to express this consent by including the [​standard signed-off line](http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/Documentation/SubmittingPatches?id=HEAD#n358) in the commit.
