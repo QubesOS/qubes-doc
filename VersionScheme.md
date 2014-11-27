@@ -19,11 +19,11 @@ We intend to make it easy to make a remix of qubes, targetting another hyperviso
 Release version
 ---------------
 
-Qubes OS as a whole is released from time to time. Version scheme for all releases is modelled after Linux kernel version numbers. When announcing new release, we decide on the major version (like `3`) and release `3-rc1`. When we feel that enough progress has been made, we put `3-rc2` and so on. All these versions are considered unstable and not ready for production. You may ask for support on mailing lists (specifically **qubes-devel**), but it is not guaranteed (you may for example get answer „update to newer `-rc`”). Public ISO image may or may not be available.
+Qubes OS as a whole is released from time to time. Version scheme for all releases is modelled after Linux kernel version numbers. When announcing new release, we decide on the major.minor version (like `3.0`) and release `3.0-rc1`. When we feel that enough progress has been made, we put `3.0-rc2` and so on. All these versions are considered unstable and not ready for production. You may ask for support on mailing lists (specifically **qubes-devel**), but it is not guaranteed (you may for example get answer „update to newer `-rc`”). Public ISO image may or may not be available.
 
-When enough development has been made, we announce `3.0` (without `-rc`). This version is considered stable and we support it for some period. Core components are branched at this moment and bugfixes are backported from master branch. Questions about stable release should be directed to the **qubes-users** mailing list. No major features and interface incompatibilities are to be included in this release. We release improved (and fixed) versions as `3.1`, `3.2` and so on.
+When enough development has been made, we announce the first stable version, like e.g. `3.0.0` (i.e. without `-rc`). This version is considered stable and we support it for some period. Core components are branched at this moment and bugfixes are backported from master branch. Questions about stable release should be directed to the **qubes-users** mailing list. No major features and interface incompatibilities are to be included in this release. We release bugfixes as `3.0.1`, `3.0.2` and so on, while new features come into the next release e.g. `3.1-rcX`.
 
-Tickets in the tracker are sorted out by release (trac calls this „milestone”).
+Tickets in the tracker are sorted out by release major.minor, such as `3.0`, `3.1` (trac calls this „milestone”).
 
 Component version
 -----------------
