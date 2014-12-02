@@ -472,6 +472,25 @@ R2B2
 
 [​Brian J Smith-Sweeney](https://groups.google.com/d/msg/qubes-users/21kqNBzJLPw/e74SMRweTMsJ)
 
+Dell XPS 17 L701X
+ (i5-480M, Arrandale, NVIDIA GT 435M)
+
+A10
+
+Yes
+
+No
+
+\# best achievable QSL - (Qubes Security Level) --\>
+
+R2
+
+3.12.23-1
+
+wired network adapter not assigned to netvm by default?
+
+[Mike Grobstein](https://groups.google.com/d/msg/qubes-users/o5rew2izuQc/b9nHv-8cNXQJ)
+
 Fujitsu S751
  (i5-2520M, QM67, HD3000)
 
