@@ -839,6 +839,23 @@ R2B2
 
 [Alex Dubois](https://groups.google.com/d/msg/qubes-devel/LSVluAZ9Udo/Fl3jmt4tWssJ)
 
+Lenovo Thinkpad T430 (2349NL5)
+ (i5-3320M, QM77, HD Graphics)
+
+Yes
+
+Yes
+
+Yes
+
+R2
+
+3.12.23-1
+
+If VT-d is not working, disable it, save, reboot, shutdown, enable it, save, reboot
+
+[Ethan Lewis](https://groups.google.com/d/msg/qubes-users/suzkdQ0pnX0/qYtGzY6KHvEJ)
+
 Lenovo Thinkpad T430s
  (i5-3320M, QM77, HD4000)
 
