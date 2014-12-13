@@ -1192,6 +1192,23 @@ touchscreen not working
 
 [Gábor Dolhai](https://groups.google.com/d/msg/qubes-devel/kTRBgRc7jyY/aBp61c6iYL4J)
 
+Lenovo Thinkpad Yoga S1
+ (i7-4600U)
+
+BOET20WW
+
+Yes
+
+Yes
+
+R2
+
+3.12.23-1
+
+[read more](https://groups.google.com/d/msg/qubes-users/HErPNxdpfGY/ZNcUubPBAwUJ)
+
+[fowlslegs](https://groups.google.com/d/msg/qubes-users/HErPNxdpfGY/ZNcUubPBAwUJ)
+
 Lenovo Yoga 2
  (i3-4010U, Haswell, HD Graphics)
 
