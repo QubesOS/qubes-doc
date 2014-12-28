@@ -472,6 +472,23 @@ R2B2
 
 [​Brian J Smith-Sweeney](https://groups.google.com/d/msg/qubes-users/21kqNBzJLPw/e74SMRweTMsJ)
 
+Dell XPS 15 (9530)
+ (i7-4702HQ, Haswell, embedded VGA)
+
+A04
+
+Yes
+
+Yes
+
+R2
+
+3.12.23-1
+
+problem booting from external drive
+
+[Subjunctive Post](https://groups.google.com/d/msg/qubes-users/__kXMAH00cQ/LyU0xL4GQbQJ)
+
 Dell XPS 17 L701X
  (i5-480M, Arrandale, NVIDIA GT 435M)
 
@@ -1490,6 +1507,21 @@ R2B2
 
 [KR](https://groups.google.com/d/msg/qubes-users/Nq7T0l4A2b0/IP_pwZMn9LYJ)
 
+Dell Inspiron 3847
+ (i7-4790, Haswell, HD Graphics)
+
+A05
+
+Yes
+
+Yes
+
+R2
+
+3.12.23-1
+
+[​Nate Bedrossian](https://groups.google.com/d/msg/qubes-users/JQ-EQfuQIXA/Xg1uEMJyplcJ)
+
 Dell PowerEdge T110 II
  (Xeon E3-1230, onboard Matrox)
 
@@ -1730,6 +1762,23 @@ R2rc1
 with Phenom II X4 965 and Radeon HD 5750
 
 [David Kennedy](https://groups.google.com/d/msg/qubes-users/6UPz3B0hg_U/bNcRAMiYJekJ)
+
+ASUS P5GC-MX/1333
+ (E8400, 945GC, embedded VGA)
+
+0413
+
+Yes
+
+No
+
+R2
+
+3.12.23-1
+
+does boot and generates hcl-report
+
+[Motiv8](https://groups.google.com/d/msg/qubes-users/dRyb4FQJ_Go/EM-NVcVGI9EJ)
 
 ASUS SABERTOOTH 990FX R2.0
  (FX-8350, 990FX, GeForce GTX 470)
