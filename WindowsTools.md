@@ -20,6 +20,13 @@ Qubes Tools for Windows (QTW for short) contain several components than can be e
 
 It's probably a good idea to install a VNC server in the VM before installing QTW. If something goes very wrong with the Qubes gui agent, a VNC server should still allow access to the OS.
 
+Verbose installation
+--------------------
+
+If the install process fails you can retry it using the command line below to get a detailed installation log (and send that to us):
+
+`msiexec /i path-to-qubes-tools.msi /lv path-to-log-file.txt`
+
 Configuration
 -------------
 
@@ -74,6 +81,9 @@ If a specific component is malfunctioning, you can increase it's log verbosity a
 |QTWHelper|Service that monitors session/desktop changes (logon/logoff/locking/UAC...) and simulates SAS sequence (ctrl-alt-del).|
 |prepare-volume|Utility that initializes and formats the disk backed by `private.img` file. It's registered to run on next system boot during QTW setup, if that feature is selected (it can't run *during* the setup because Xen block device drivers are not yet active). It in turn registers move-profiles (see below) to run at early boot.|
 |move-profiles|Utility that moves user profiles directory to the private disk. It's registered as an early boot native executable (similar to chkdsk) so it can run before any profile files are opened by some other process. Its log is in a fixed location: `c:\move-profiles.log` (it can't use our common logger library so none of the log settings apply).|
+
+Updates
+-------
 
 When we publish new QTW version (which is announced on `qubes-users` Google Group) it's usually pushed to the `current-testing` repository first. To use versions from current-testing, run this in dom0:
 
