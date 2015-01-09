@@ -98,19 +98,12 @@ Qubes allows HVM VMs to share a common root filesystem from a select Template VM
 qvm-create --hvm-template win7-x64-template -l green
 ```
 
-... and install Windows OS (or other OS) into this template the same way as you would install it into a normal HVM -- please see [this page](/wiki/HvmCreate) instructions. However, it would make lots of sense to store the `C:\Users` directory on the 2nd disk which is automatically exposed by Qubes to all HVMs. Please consult your OS documentation on how to move the user's directories to a 2nd disk -- there are at least three ways of how to achieve that on Windows OS:
+... and install Windows OS (or other OS) into this template the same way as you would install it into a normal HVM -- please see [this page](/wiki/HvmCreate) instructions. However, it would make lots of sense to store the `C:\Users` directory on the 2nd disk which is automatically exposed by Qubes to all HVMs. This 2nd disk is backed by the `private.img` file in the AppVMs' and is not reset upon AppVMs reboot, so the user's directories and profiles would survive the AppVMs reboot, unlike the "root" filesystem which will be reverted to the "golden image" from the Template VM automatically. To facilitate such separation of user profiles, Qubes Windows Tools provide an option to automatically move `C:\Users` directory to the 2nd disk backed by `private.img`. It's a selectable feature of the installer, enabled by default. If that feature is selected during installation, completion of the process requires two reboots:
 
--   By choosing special options during installation
--   By creating links of C:\\Users to the 2nd disk
--   By modifying registry entries which define where the user profiles are stored.
+-   The private disk is initialized and formatted on the first reboot after tools installation. It can't be done **during** the installation because Xen mass storage drivers are not yet active.
+-   User profiles are moved to the private disk on the next reboot after the private disk is initialized. Reboot is required because the "mover utility" runs very early in the boot process so OS can't yet lock any files in there. This can take some time depending on the profiles' size and because the GUI agent is not yet active dom0/Qubes Manager may complain that the AppVM failed to boot. That's a false alarm (you can increase AppVM's default boot timeout using `qvm-prefs`), the VM should appear "green" in Qubes Manager shortly after.
 
-Please note that the 2nd disk is not formatted and so this should be done within the OS. The screenshots below show how to do this on Windows 7:
-
-[![No image "windows-private-disk-formatting-2.png" attached to WindowsAppVms](/chrome/common/attachment.png "No image "windows-private-disk-formatting-2.png" attached to WindowsAppVms")](/attachment/wiki/WindowsAppVms/windows-private-disk-formatting-2.png) [![No image "windows-private-disk-formatting-3.png" attached to WindowsAppVms](/chrome/common/attachment.png "No image "windows-private-disk-formatting-3.png" attached to WindowsAppVms")](/attachment/wiki/WindowsAppVms/windows-private-disk-formatting-3.png)
-
-This 2nd disk is backed by the `private.img` file in the AppVMs' and is not reset upon AppVMs reboot, so the user's directories and profiles would survive the AppVMs reboot, unlike the "root" filesystem which will be reverted to the "golden image" from the Template VM automatically.
-
-For this reason it also makes sense to disable Automatic Updates for all the Windows-based AppVMs -- of course this should be done in the Template VM, not in individual AppVMs, because the system-wide setting are stored in the root filesystem (which holds the system-wide registry hives).
+It also makes sense to disable Automatic Updates for all the Windows-based AppVMs -- of course this should be done in the Template VM, not in individual AppVMs, because the system-wide setting are stored in the root filesystem (which holds the system-wide registry hives).
 
 Once the template has been created and installed it is easy to create AppVMs based on:
 
