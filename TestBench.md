@@ -89,13 +89,13 @@ Then connect to your testbench and paste newly generated `id_ecdsa` to `.ssh/aut
 
 This step is optional, but very helpful. Put these scripts somewhere in your `${PATH}`, like `/usr/local/bin`.
 
-`qtb-installrpm`:
+`qtb-runtests`:
 
     #!/bin/sh
 
     ssh testbench python -m qubes.tests.run
 
-`qtb-runtests`:
+`qtb-installrpm`:
 
     #!/bin/sh
 
