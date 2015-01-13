@@ -78,11 +78,14 @@ Emergency Backup Recovery without Qubes
 
 The Qubes backup system has been designed with emergency disaster recovery in mind. No special Qubes-specific tools are required to access data backed up by Qubes. In the event a Qubes system is unavailable, you can access your data on any GNU/Linux system with the following procedure.
 
+> **Note:** In the following example, the backup file is assumed to be both encrypted and compressed.
+
 1.  Untar the main backup file.
 
     ``` {.wiki}
-    [user@restore ~]$ cd backups
-    [user@restore backups]$ tar -i -xvf qubes-backup-2013-12-26-123456
+    [user@restore ~]$ tar -i -xvf qubes-backup-2013-12-26-123456
+    backup-header
+    backup-header.hmac
     qubes.xml.000
     qubes.xml.000.hmac
     vm1/private.img.000
@@ -100,18 +103,20 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 1.  Verify the integrity of the `private.img` file which houses your data.
 
     ``` {.wiki}
-    [user@restore backups]$ openssl dgst -hmac "your_passphrase" vm1/private.img.000
-    HMAC-SHA1(vm1/private.img.000)= 0d5855222a697d0568cf97792318fe53fe963a05
-    [user@restore backups]$ cat vm1/private.img.000.hmac 
-    (stdin)= 0d5855222a697d0568cf97792318fe53fe963a05
+    [user@restore ~]$ cd vm1/
+    [user@restore vm1]$ openssl dgst -sha512 -hmac "your_passphrase" private.img.000
+    HMAC-SHA512(private.img.000)= cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
+    [user@restore vm1]$ cat private.img.000.hmac 
+    (stdin)= cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
     ```
 
 > **Note:** The hash values should match. If they do not match, then the backup file may have been tampered with, or there may have been a storage error.
 
+> **Note:** If your backup was hashed with a message digest algorithm other than `sha512`, you must substitute the correct message digest command. A complete list of supported message digest algorithms can be found with `openssl list-message-digest-algorithms`.
+
 1.  Decrypt the `private.img` file.
 
     ``` {.wiki}
-    [user@restore ~]$ cd vm1
     [user@restore vm1]$ openssl enc -d -pass pass:your_passphrase -aes-256-cbc -in private.img.000 -out private.img.dec.000
     ```
 
@@ -124,9 +129,18 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 > done
 > ```
 
-> **Note:** If your backup was encrypted with a cipher algorithm other than `aes-256-cbc`, you must replace it with the correct cipher command. Available ciphers algorithms can be found with `openssl list-cipher-algorithms`.
+> **Note:** If your backup was encrypted with a cipher algorithm other than `aes-256-cbc`, you must substitute the correct cipher command. A complete list of supported cipher algorithms can be found with `openssl list-cipher-algorithms`.
 
-1.  Untar the decrypted `private.img` file.
+1.  Decompress the decrypted `private.img` file.
+
+    ``` {.wiki}
+    [user@restore vm1]$ zforce private.img.dec.*
+    [user@restore vm1]$ gunzip private.img.dec.000.gz
+    ```
+
+> **Note:** If your backup was compressed with a program other than `gzip`, you must substitute the correct compression program.
+
+1.  Untar the decrypted and decompressed `private.img` file.
 
     ``` {.wiki}
     [user@restore vm1]$ tar -M -xvf private.img.dec.000
@@ -150,13 +164,17 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 1.  Mount the private.img file and access your data.
 
     ``` {.wiki}
-    [user@restore vm1]$ cd vm1
-    [user@restore vm1]$ sudo mkdir /mnt/recovered-image
-    [user@restore vm1]$ sudo mount -o loop private.img /mnt/recovered-image
-    [user@restore vm1]$ cd
-    [user@restore ~]$ cat /mnt/recovered-image/home/user/recovered-data.txt
-    This data has been recovered successfully!
+    [user@restore vm1]$ sudo mkdir /mnt/img
+    [user@restore vm1]$ sudo mount -o loop vm1/private.img /mnt/img/
+    [user@restore vm1]$ cat /mnt/img/home/user/your_data.txt
+    This data has been successfully recovered!
     ```
+
+> **Note:** You may wish to store a plain text copy of these instructions with your Qubes backups in the event that you fail to recall the above procedure while this web page is inaccessible. You may download a plain text copy of this page by clicking the `Plain Text` link at the bottom of this page (as with every page on this wiki). In addition, the whole wiki is synced hourly with a public Git repo at:
+>
+> ``` {.wiki}
+> git://gitorious.org/qubes-os/wiki.git
+> ```
 
 Migrating Between Two Physical Machines
 ---------------------------------------
