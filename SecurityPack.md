@@ -29,7 +29,7 @@ The QSP is located here:
 History and Rationale
 ---------------------
 
-On 2013-01-05, Joanna Rutkowska announced the QSP and explained its rationale in an [​email](https://groups.google.com/d/msg/qubes-devel/twkOEaMLtNI/lZyGx6_jFCEJ) to the qubes-devel list:
+On 2013-01-05, Joanna Rutkowska announced the QSP and explained its rationale in an [​email](https://groups.google.com/d/msg/qubes-devel/twkOEaMLtNI/lZyGx6_jFCEJ) to the Qubes mailing lists:
 
 ``` {.wiki}
 Hello,
