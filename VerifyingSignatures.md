@@ -123,9 +123,7 @@ The developer signing keys are set to be valid for 1 year only, while the Qubes 
 You can now verify the ISO image (Qubes-R2-x86\_64-DVD.iso) matches its signature (Qubes-R2-x86\_64-DVD.iso.asc):
 
 ``` {.wiki}
-$ gpg --verify Qubes-R2-x86_64-DVD.iso.asc
-or
-$ gpg -v Qubes-R2-x86_64-DVD.iso.asc
+$ gpg -v --verify Qubes-R2-x86_64-DVD.iso.asc
 gpg: armor header: Version: GnuPG v1
 gpg: assuming signed data in `Qubes-R2-x86_64-DVD.iso'
 gpg: Signature made Tue Sep 23 08:38:40 2014 UTC using RSA key ID 0A40E458
