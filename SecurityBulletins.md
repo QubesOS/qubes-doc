@@ -7,6 +7,8 @@ permalink: /wiki/SecurityBulletins/
 Qubes Security Bulletins
 ========================
 
+Qubes Security Bulletins are published through the [Qubes Security Pack](/wiki/SecurityPack).
+
 2010
 ----
 
