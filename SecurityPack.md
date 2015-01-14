@@ -221,10 +221,10 @@ The following example demonstrates one method of obtaining the QSP, verifying it
     ``` {.wiki}
     [user@qubes ~]$ cd qubes-secpack/canaries/                                     
     [user@qubes canaries]$ gpg --verify canary-001-2015.txt.sig.joanna canary-001-2015.txt
-    gpg: Signature made Mon Jan  5 12:21:40 2015 PST using RSA key ID 92C7B3DC
+    gpg: Signature made Mon Jan  5 20:21:40 2015 UTC using RSA key ID 92C7B3DC
     gpg: Good signature from "Joanna Rutkowska (Qubes Security Pack Signing Key) <joanna@invisiblethingslab.com>"
     [user@qubes canaries]$ gpg --verify canary-001-2015.txt.sig.marmarek canary-001-2015.txt
-    gpg: Signature made Mon Jan  5 12:13:37 2015 PST using RSA key ID 1830E06A
+    gpg: Signature made Mon Jan  5 20:13:37 2015 UTC using RSA key ID 1830E06A
     gpg: Good signature from "Marek Marczykowski-G�recki (Qubes security pack) <marmarek@invisiblethingslab.com>"
     [user@qubes canaries]$ cat canary-001-2015.txt
 
@@ -239,10 +239,10 @@ The following example demonstrates one method of obtaining the QSP, verifying it
     ``` {.wiki}
     [user@qubes canaries]$ cd ../QSBs/
     [user@qubes QSBs]$ gpg --verify qsb-013-2015.txt.sig.joanna qsb-013-2015.txt
-    gpg: Signature made Mon Jan  5 13:22:14 2015 PST using RSA key ID 92C7B3DC
+    gpg: Signature made Mon Jan  5 21:22:14 2015 UTC using RSA key ID 92C7B3DC
     gpg: Good signature from "Joanna Rutkowska (Qubes Security Pack Signing Key) <joanna@invisiblethingslab.com>"
     [user@qubes QSBs]$ gpg --verify qsb-013-2015.txt.sig.marmarek qsb-013-2015.txt
-    gpg: Signature made Mon Jan  5 13:38:11 2015 PST using RSA key ID 1830E06A
+    gpg: Signature made Mon Jan  5 21:38:11 2015 UTC using RSA key ID 1830E06A
     gpg: Good signature from "Marek Marczykowski-G�recki (Qubes security pack) <marmarek@invisiblethingslab.com>"
     [user@qubes QSBs]$ cat qsb-013-2015.txt
 
