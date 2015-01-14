@@ -57,11 +57,48 @@ uid   Qubes Master Signing Key
 
 There should also be a copy of this key at the project's main website, in the [Qubes Security Pack](/wiki/SecurityPack), and in the archives of the project's [​developer](https://groups.google.com/forum/#!msg/qubes-devel/RqR9WPxICwg/kaQwknZPDHkJ) and [​user](https://groups.google.com/d/msg/qubes-users/CLnB5uFu_YQ/ZjObBpz0S9UJ) mailing lists.
 
-Once you have obtained the Qubes Master Signing Key ([​\`0x36879494\`](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc)), you should verify the fingerprint of this key very carefully. Then set its trust level to "ultimate" (oh, well), so that it can be used to automatically verify all the keys signed by the Qubes Master Signing Key:
+Once you have obtained the Qubes Master Signing Key ([​\`0x36879494\`](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc)), you should verify the fingerprint of this key very carefully by obtaining copies of the fingerprint from trustworthy independent sources and comparing them to the downloaded key's fingerprint to ensure they match. Then set its trust level to "ultimate" (oh, well), so that it can be used to automatically verify all the keys signed by the Qubes Master Signing Key:
 
 ``` {.wiki}
-gpg --edit-key 0x36879494
-and then: fpr, trust, 5, y, q
+$ gpg --edit-key 0x36879494
+gpg (GnuPG) 1.4.18; Copyright (C) 2014 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+
+pub  4096R/36879494  created: 2010-04-01  expires: never       usage: SC  
+                     trust: unknown       validity: unknown
+[ unknown] (1). Qubes Master Signing Key
+
+gpg> fpr
+pub   4096R/36879494 2010-04-01 Qubes Master Signing Key
+ Primary key fingerprint: 427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
+
+gpg> trust
+pub  4096R/36879494  created: 2010-04-01  expires: never       usage: SC  
+                     trust: unknown       validity: unknown
+[ unknown] (1). Qubes Master Signing Key
+
+Please decide how far you trust this user to correctly verify other users' keys
+(by looking at passports, checking fingerprints from different sources, etc.)
+
+  1 = I don't know or won't say
+  2 = I do NOT trust
+  3 = I trust marginally
+  4 = I trust fully
+  5 = I trust ultimately
+  m = back to the main menu
+
+Your decision? 5
+Do you really want to set this key to ultimate trust? (y/N) y
+
+pub  4096R/36879494  created: 2010-04-01  expires: never       usage: SC  
+                     trust: ultimate      validity: unknown
+[ unknown] (1). Qubes Master Signing Key
+Please note that the shown key validity is not necessarily correct
+unless you restart the program.
+
+gpg> q
 ```
 
 Now you can easily download any of the developer or release signing keys that happen to be used to sign particular ISO, RPM, TGZ files or git tags.
