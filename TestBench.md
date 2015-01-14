@@ -83,7 +83,7 @@ Host testbench
     HostName 192.168.123.45
 ```
 
-Then connect to your testbench and paste newly generated `id_ecdsa` to `.ssh/authorized_keys` on testbench so you can log in without entering password every time.
+Then connect to your testbench and paste newly generated `id_ecdsa.pub` to `.ssh/authorized_keys` on testbench so you can log in without entering password every time.
 
 ### Scripting
 
