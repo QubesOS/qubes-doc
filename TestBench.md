@@ -95,17 +95,26 @@ This step is optional, but very helpful. Put these scripts somewhere in your `${
 
     ssh testbench python -m qubes.tests.run
 
-`qtb-installrpm`:
+`qtb-install`:
 
     #!/bin/sh
 
-    if [ $# -ne 1 ]; then
-            echo "usage: $(basename $0) <rpmfile>"
+    TMPDIR=/tmp/qtb-rpms
+
+    if [ $# -eq 0 ]; then
+            echo "usage: $(basename $0) <rpmfile> ..."
             exit 2
     fi
 
-    scp ${1} testbench:/tmp/
-    ssh testbench sudo rpm -i --replacepkgs --replacefiles /tmp/"$(basename ${1})"
+    set -e
+
+    ssh testbench mkdir -p "${TMPDIR}"
+    scp "${@}" testbench:"${TMPDIR}"
+
+    while [ $# -gt 0 ]; do
+            ssh testbench sudo rpm -i --replacepkgs --replacefiles "${TMPDIR}/$(basename ${1})"
+            shift
+    done
 
 `qtb-iterate`:
 
@@ -121,7 +130,7 @@ This step is optional, but very helpful. Put these scripts somewhere in your `${
     #make COMPONENTS=core-admin get-sources
 
     make core-admin
-    qtb-install qubes-src/core-admin/rpm/x86_64/qubes-core-dom0-2.1.64-1.fc20.x86_64.rpm
+    qtb-install qubes-src/core-admin/rpm/x86_64/qubes-core-dom0-*.rpm
     qtb-runtests
 
 ### Hooking git
