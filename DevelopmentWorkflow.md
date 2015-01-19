@@ -140,6 +140,8 @@ When developing it is convenient to be able to rapidly test changes. Assuming yo
 
 Here are some handy scripts Marek has shared to facilitate this.
 
+You may also like to run your [test environment on separate machine](/wiki/TestBench).
+
 ### Syncing dom0 files
 
 TODO: edit this script to be more generic
