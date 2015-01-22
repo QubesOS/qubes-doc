@@ -47,4 +47,5 @@ Qubes Security Bulletins are published through the [Qubes Security Pack](/wiki/S
 
 -   [​Qubes Security Bulletin \#13](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-013-2015.txt) (Qubes Clipboard Timing Attacks and Qubes Core Python API Inconsistency)
 -   [​Qubes Security Bulletin \#14](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-014-2015.txt) (Race condition in Qubes Inter-VM File-Copy Mechanism)
+-   [​Qubes Security Bulletin \#15](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-015-2015.txt) (Critical Xen Hypervisor Vulnerability (XSA 109))
 
