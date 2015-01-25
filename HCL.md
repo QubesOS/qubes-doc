@@ -1290,6 +1290,28 @@ R2B3
 
 [​Avant Garden](https://groups.google.com/d/msg/qubes-users/UrWYjkHwon8/TPE0XSBiPDQJ)
 
+Purism Librem 15
+ (i7-4712MQ, HM87, NVIDIA GT840M)
+
+Yes
+
+No
+
+[​read more](https://groups.google.com/d/msg/qubes-users/WX1IXBFkUwk/M-Xg1e3kieMJ)
+
+[Todd Weaver](https://www.crowdsupply.com/purism/librem-laptop)
+
+Purism Librem 15
+ (i7-4770HQ, HM87, Iris Pro 5200)
+
+Yes
+
+Yes
+
+[​read more](https://groups.google.com/d/msg/qubes-users/WX1IXBFkUwk/M-Xg1e3kieMJ)
+
+[Todd Weaver](https://www.crowdsupply.com/purism/librem-laptop)
+
 Samsung NP300E7A
  (i3-2330M, HM65, HD3000)
 
