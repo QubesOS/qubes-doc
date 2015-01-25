@@ -181,6 +181,23 @@ R2B2
 
 [​Zrubi](https://groups.google.com/d/msg/qubes-devel/2csjvHia9Rw/NRsqR0g6wIMJ)
 
+ASUS X750JA
+ (i7-4700HQ, HM86, HD Graphics 4600)
+
+X750JB.208
+
+Yes
+
+Yes
+
+R2
+
+3.12.23-1
+
+Enable legacy CSM and disable secure boot in BIOS
+
+[HawKing](https://groups.google.com/d/msg/qubes-users/SPpxgzFoAdI/Hg2ui1WYhFMJ)
+
 ASUS Zenbook UX-31
  (i5-2557M, HD 3000)
 
