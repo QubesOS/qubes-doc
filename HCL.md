@@ -506,6 +506,23 @@ problem booting from external drive
 
 [Subjunctive Post](https://groups.google.com/d/msg/qubes-users/__kXMAH00cQ/LyU0xL4GQbQJ)
 
+Dell XPS 15 L521X
+ (i7-3632QM, HM77, embedded VGA+GeForce GT 640M)
+
+A16
+
+Yes
+
+Yes
+
+R2
+
+3.12.23-1
+
+Does not visually ask for the password when opted to encrypt the target disk for installation.
+
+[Marc de Bruin](https://groups.google.com/d/msg/qubes-users/yDSROimihuY/lsnCcK07huEJ)
+
 Dell XPS 17 L701X
  (i5-480M, Arrandale, NVIDIA GT 435M)
 
