@@ -8,13 +8,13 @@ VMs have already TRIM enabled by default, but dom0 doesn't. There are some secur
 
 To enable TRIM in dom0 you need:
 
-1.  Get your root device UUID:
+1.  Get your LUKS device UUID:
 
     ``` {.wiki}
-    blkid /dev/mapper/*root
+    ls /dev/mapper/luks-*
     ```
 
-2.  Add entry to `/etc/crypttab` (replace \<UUID\> with the device UUID):
+2.  Add entry to `/etc/crypttab` (replace luks-\<UUID\> with the device name and the \<UUID\> with UUID alone):
 
     ``` {.wiki}
     luks-<UUID> UUID=<UUID> none allow-discards
