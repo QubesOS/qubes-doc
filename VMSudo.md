@@ -79,11 +79,22 @@ Below is a complete list of configuration made according to the above statement,
     polkit.addRule(function(action,subject) { return polkit.Result.YES; });
     ```
 
-    -   NetworkManager configuration from normal user (nm-applet)
-    -   updates installation (gpk-update-viewer)
-    -   user can use pkexec just like sudo Note: above is needed mostly because Qubes user GUI session isn't treated by [PolicyKit?](/wiki/PolicyKit)/logind as "local" session because of the way in which X server and session is started. Perhaps we will address this issue in the future, but this is really low priority. Patches welcomed anyway.
+and /etc/polkit-1/localauthority/50-local.d/qubes-allow-all.pkla:
 
-3.  Empty root password
+``` {.wiki}
+[Qubes allow all]
+Identity=*
+Action=*
+ResultAny=yes
+ResultInactive=yes
+ResultActive=yes
+```
+
+-   NetworkManager configuration from normal user (nm-applet)
+-   updates installation (gpk-update-viewer)
+-   user can use pkexec just like sudo Note: above is needed mostly because Qubes user GUI session isn't treated by [PolicyKit?](/wiki/PolicyKit)/logind as "local" session because of the way in which X server and session is started. Perhaps we will address this issue in the future, but this is really low priority. Patches welcomed anyway.
+
+1.  Empty root password
     -   used for access to 'root' account from text console (xl console) - the only way to access the VM when GUI isn't working
     -   can be used for easy 'su -' from user to root
 
