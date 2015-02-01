@@ -58,8 +58,6 @@ user ALL=(ALL) NOPASSWD: ALL
 # joanna.
 ```
 
-While ITL still supports above statement, some Qubes users want to enable user/root isolation in VM anyway. We do not support it in any our package, but of course nothing can stop the user from making some modifications in own system.
-
 Below is a complete list of configuration made according to the above statement, with (not necessary complete) list of mechanisms depending on each of them:
 
 1.  sudo (/etc/sudoers.d/qubes):
@@ -98,7 +96,41 @@ Below is a complete list of configuration made according to the above statement,
     -   used for access to 'root' account from text console (xl console) - the only way to access the VM when GUI isn't working
     -   can be used for easy 'su -' from user to root
 
-Dom0 password-less sudo
------------------------
+Replacing password-less root access with Dom0 user prompt
+---------------------------------------------------------
+
+While ITL still supports the statement above, some Qubes users may want to enable user/root isolation in VMs anyway. We do not support it in any of our packages, but of course nothing can stop the user from making some modifications his or her own system. A list of steps to do so is provided here without guarantee of completeness (read: **do not rely on this for extra security**):
+
+1.  Adding Dom0 "VMAuth" service:
+
+    ``` {.wiki}
+    [root@dom0 /]# echo -n "/usr/bin/echo 1" >/etc/qubes-rpc/qubes.VMAuth
+    [root@dom0 /]# echo -n "$anyvm dom0 ask" >/etc/qubes-rpc/policy/qubes.VMAuth
+    ```
+
+    (Note: any VMs you would like still to have password-less root access (e.g. TemplateVMs) can be specified in the second file with "\<vmname\> dom0 allow")
+
+2.  Configuring TemplateVM to prompt Dom0 for any authorization request:
+    -   In /etc/pam.d/system-auth, replace all lines beginning with "auth" with one line:
+
+        ``` {.wiki}
+        auth       [success=done default=die]  pam_exec.so seteuid /usr/lib/qubes/qrexec-client-vm dom0 qubes.VMAuth /usr/bin/grep -q ^1$
+        ```
+
+    -   Require authentication for sudo. Replace the first line of /etc/sudoers.d/qubes with:
+
+        ``` {.wiki}
+        user ALL=(ALL) ALL
+        ```
+
+    -   Disable [PolKit?](/wiki/PolKit)'s default-allow behavior:
+
+        ``` {.wiki}
+        [root@fedora-20-x64]# rm /etc/polkit-1/rules.d/00-qubes-allow-all.rules
+        [root@fedora-20-x64]# rm /etc/polkit-1/localauthority/50-local.d/qubes-allow-all.pkla
+        ```
+
+Dom0 password-less root access
+------------------------------
 
 There is also password-less user-\>root access in dom0. As stated in comment in sudo configuration there (different one than VMs one), there is really no point in user/root isolation, because all the user data (and VM management interface) is already accessible from dom0 user level, so there is nothing more to get from dom0 root account.
