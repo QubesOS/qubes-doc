@@ -752,6 +752,17 @@ R2B2
 
 [Stephen Boyd](https://groups.google.com/d/msg/qubes-devel/ZC_SQJhXVOM/4aLjEc7GIsUJ)
 
+Lenovo IdeaPad Y500
+ (i5-3230M, unknown, GT650M-SLI)
+
+No
+
+R2
+
+Not able to install
+
+[Christoph Wendler](https://groups.google.com/d/msg/qubes-users/k9hX_QIut2s/DMkWQp7b1_AJ)
+
 Lenovo IdeaPad Y580
  (unknown, HM76 Express, HD Graphics)
 
