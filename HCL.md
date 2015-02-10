@@ -675,6 +675,21 @@ R2rc2
 
 [Dimiter Georgiev](https://groups.google.com/d/msg/qubes-users/q5M9KbPatEA/fXIZ-yvJVA8J)
 
+HP EliteBook 8460p
+ (i5-2520M, Sandy Bridge, HD Graphics)
+
+68SCF Ver. F.08
+
+Yes
+
+Yes
+
+R2
+
+3.12.23-1
+
+[Shane Layton](https://groups.google.com/d/msg/qubes-users/Fs6wwffU8oI/S5id3KxxUpwJ)
+
 HP EliteBook 8540p
  (i5-2540M, Arrandale, NVIDIA GT216)
 
