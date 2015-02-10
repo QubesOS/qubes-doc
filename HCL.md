@@ -1666,6 +1666,23 @@ R2
 
 [​Nate Bedrossian](https://groups.google.com/d/msg/qubes-users/JQ-EQfuQIXA/Xg1uEMJyplcJ)
 
+Dell Optiplex 780
+ (Q6600, Q45, HD Graphics)
+
+\*
+
+\*
+
+\*
+
+R2
+
+3.12.23-1
+
+Qubes installation does not work. VT-x/VT-d/TPM present-untested
+
+[hsgqq7h02](https://groups.google.com/d/msg/qubes-users/xjwpuPKcxIE/aprxY8YLQSIJ)
+
 Dell PowerEdge T110 II
  (Xeon E3-1230, onboard Matrox)
 
