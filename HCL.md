@@ -1159,7 +1159,7 @@ R2B2
 
 [Ulrich Pfeifer](https://groups.google.com/d/msg/qubes-users/UCuF41rq758/BRhc7lTecsMJ)
 
-Lenovo X1 Carbon Gen 2
+Lenovo Thinkpad X1 Carbon Gen 2
  (i5-4300U, Haswell-ULT, HD4000)
 
 1.07
@@ -1176,7 +1176,7 @@ needs iwl7260-firmware in netvm
 
 [​Patrick Schless](https://groups.google.com/d/msg/qubes-users/cu_mJa4iDHk/v1FdT3ZGofEJ)
 
-Lenovo X1 Carbon Gen 2
+Lenovo Thinkpad X1 Carbon Gen 2
  (i7-4600U, Haswell-ULT, HD4000)
 
 1.11
@@ -1192,6 +1192,25 @@ R2B3
 needs iwl7260-firmware in netvm
 
 [​Jean-François Rioux](https://groups.google.com/d/msg/qubes-users/cu_mJa4iDHk/v1FdT3ZGofEJ)
+
+Lenovo Thinkpad X1 Carbon (20BSCTO1WW)
+ (i5-5200U, Broadwell-U, HD5500)
+
+N14ET25W (1.03 )
+
+Yes
+
+Yes
+
+\*
+
+R2
+
+3.18.5-101
+
+graphics not supported with R2 kernel, install with kickstart file and use 3.18 kernel, TPM present-untested
+
+[george](https://groups.google.com/d/msg/qubes-users/-9qRHSkwfy8/CCx08nnTVEAJ)
 
 Lenovo Thinkpad X61t
  ()
