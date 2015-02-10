@@ -1073,6 +1073,21 @@ display issues[​read more](https://groups.google.com/d/msg/qubes-users/ReLqPcs
 
 [​Lab Man](https://groups.google.com/d/msg/qubes-users/ReLqPcsvDwk/WbJdDUBqgTsJ)
 
+Lenovo ThinkPad X1 Carbon (3444AZU)
+ (i5-3317U, Ivy Bridge, HD4000)
+
+G6ET93WW (2.53 )
+
+Yes
+
+Yes
+
+R2
+
+3.12.23-1
+
+[Dave C](https://groups.google.com/d/msg/qubes-users/sWPBlejozwU/w1Z3YT3kM7oJ)
+
 Lenovo Thinkpad X1 Carbon (3444CTO)
  (i5-3427U)
 
