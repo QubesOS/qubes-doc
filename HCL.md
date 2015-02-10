@@ -1623,6 +1623,19 @@ Qubes installation does not work, but running an installed system with some twea
 
 [Miłosław Smyk](https://groups.google.com/d/msg/qubes-users/sA2JuEEQbdg/kpvaVuMCiFQJ)
 
+ASUS ROG CG8565
+ (unknown, Z68, HD Graphics+GTX590/GTX560Ti)
+
+No
+
+R2
+
+3.12.23-1
+
+Qubes installation does not work.
+
+[c.hellbom](https://groups.google.com/d/msg/qubes-users/sNdZLeeRei4/OFFNTCQ8gz8J)
+
 Dell Inspiron 660
  (i5-3330, Xeon E3-1200 Graphics)
 
