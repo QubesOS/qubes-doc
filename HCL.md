@@ -360,6 +360,40 @@ R2B2
 
 [Alex​](https://groups.google.com/d/msg/qubes-users/F-jVh62ANak/s57rqUWTY7kJ)
 
+Dell Latitude E6410
+ (i5-M560, Arrandale, HD Graphics)
+
+A16
+
+Yes
+
+\*
+
+R2
+
+3.12.23-1
+
+Intel graphics unusable with enabled VT-d
+
+[David](https://groups.google.com/d/msg/qubes-users/lgudSW8yQu8/9kc1cD_aungJ)
+
+Dell Latitude E6410
+ (i7-M640, Arrandale, NVS 3100M)
+
+A16
+
+Yes
+
+Yes
+
+R2
+
+3.12.23-1
+
+trusted execution disabled
+
+[Pablo Costa](https://groups.google.com/d/msg/qubes-users/lgudSW8yQu8/pj66q_Z8zTIJ)
+
 Dell Latitude E6420
  (i5-2520M, Sandy Bridge, HD graphics)
 
