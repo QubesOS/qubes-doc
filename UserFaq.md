@@ -16,10 +16,11 @@ Qubes Users' FAQ
     6.  [Why does Qubes use virtualization?](#WhydoesQubesusevirtualization)
     7.  [Does Qubes run every app in a separate VM?](#DoesQubesruneveryappinaseparateVM)
     8.  [Why does Qubes use Xen instead of KVM or some other hypervisor?](#WhydoesQubesuseXeninsteadofKVMorsomeotherhypervisor)
-    9.  [What's so special about Qubes' GUI virtualization?](#WhatssospecialaboutQubesGUIvirtualization)
-    10. [Can I watch YouTube videos in AppVMs?](#CanIwatchYouTubevideosinAppVMs)
-    11. [Can I run applications, like games, which require 3D support?](#CanIrunapplicationslikegameswhichrequire3Dsupport)
-    12. [Is Qubes a multi-user system?](#IsQubesamulti-usersystem)
+    9.  [What about this other/new (micro)kernel/hypervisor?](#Whataboutthisothernewmicrokernelhypervisor)
+    10. [What's so special about Qubes' GUI virtualization?](#WhatssospecialaboutQubesGUIvirtualization)
+    11. [Can I watch YouTube videos in AppVMs?](#CanIwatchYouTubevideosinAppVMs)
+    12. [Can I run applications, like games, which require 3D support?](#CanIrunapplicationslikegameswhichrequire3Dsupport)
+    13. [Is Qubes a multi-user system?](#IsQubesamulti-usersystem)
 
 2.  [Installation & Hardware Compatibility](#InstallationHardwareCompatibility)
     1.  [How much disk space does each AppVM require?](#HowmuchdiskspacedoeseachAppVMrequire)
@@ -71,6 +72,30 @@ No! This would not make much sense. Qubes uses lightweight VMs to create securit
 ### Why does Qubes use Xen instead of KVM or some other hypervisor?
 
 In short: we believe the Xen architecture allows for the creation of more secure systems (i.e. with a much smaller TCB, which translates to a smaller attack surface). We discuss this in much greater depth in our [​Architecture Specification document](http://files.qubes-os.org/files/doc/arch-spec-0.3.pdf).
+
+### What about this other/new (micro)kernel/hypervisor?
+
+Whenever starting a discussion about another (micro)kernel or hypervisor in relation to Qubes, we strongly suggest including answers to the following questions first:
+
+1.  What kinds of containers does it use for isolation? Processes? PV VMs? Fully virtualized VMs (HVMs)? And what underlying h/w technology is used (ring0/3, VT-x)?
+2.  Does it require specially written/built applications (e.g. patched Firefox)?
+3.  Does it require custom drivers, or can it use Linux/Windows ones?
+4.  Does it support VT-d, and does it allow for the creation of untrusted driver domains?
+5.  Does it support S3 sleep?
+6.  Does it work on multiple CPUs/Chipsets?
+7.  What are the performance costs, more or less? (e.g. "XYZ prevents concurrent execution of two domains/processes on shared cores of a single processor", etc.)
+8.  Other special features? E.g. eliminates cooperative covert channels between VMs?
+
+Here are the answers for Xen 4.1 (which we use as of 2014-04-28):
+
+1.  PV and HVM Virtual Machines (ring0/3 for PV domains, VT-x/AMD-v for HVMs).
+2.  Runs unmodified usermode apps (binaries).
+3.  Runs unmodified Linux drivers (dom0 and driver domains). PV VMs require special written pvdrivers.
+4.  Full VT-d support including untrusted driver domains.
+5.  S3 sleep supported well.
+6.  Works on most modern CPUs/Chipsets.
+7.  Biggest performance hit on disk operations (especially in Qubes when complex 2-layer mapping used for Linux AppVMs). No GPU virtualization.
+8.  Mostly Works<sup>TM</sup> :)
 
 ### What's so special about Qubes' GUI virtualization?
 
