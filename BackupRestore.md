@@ -12,7 +12,7 @@ Qubes Backup, Restoration, and Migration
     2.  [Restoring from a Backup](#RestoringfromaBackup)
     3.  [Emergency Backup Recovery without Qubes](#EmergencyBackupRecoverywithoutQubes)
     4.  [Migrating Between Two Physical Machines](#MigratingBetweenTwoPhysicalMachines)
-    5.  [Troubleshooting and Technical Details](#TroubleshootingandTechnicalDetails)
+    5.  [Notes](#Notes)
 
 With Qubes, it's easy to back up and restore your whole system, as well as to migrate between two physical machines.
 
@@ -181,10 +181,9 @@ Migrating Between Two Physical Machines
 
 In order to migrate your Qubes system from one physical machine to another, simply follow the backup procedure on the old machine, [install Qubes](/wiki/QubesDownloads) on the new machine, and follow the restoration procedure on the new machine. All of your settings and data will be preserved!
 
-Troubleshooting and Technical Details
--------------------------------------
-
--   For troubleshooting (especially if you encounter a bug or error message during the backup or restore process), please refer to [​this thread](https://groups.google.com/d/topic/qubes-users/XfyJHSCD4_U/discussion).
+Notes
+-----
 
 -   For the technical details of the backup system, please refer to [​this thread](https://groups.google.com/d/topic/qubes-devel/TQr_QcXIVww/discussion).
+-   If working with symlinks, note the issues described in [​this thread](https://groups.google.com/d/topic/qubes-users/EITd1kBHD30/discussion).
 
