@@ -1,7 +1,7 @@
 ---
 layout: wiki
 title: VmTools
-permalink: /wiki/VmTools/home/
+permalink: /wiki/VmTools/
 ---
 
 VM tools:

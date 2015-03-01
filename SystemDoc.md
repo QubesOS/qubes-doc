@@ -1,7 +1,7 @@
 ---
 layout: wiki
 title: SystemDoc
-permalink: /wiki/SystemDoc/home/
+permalink: /wiki/SystemDoc/
 ---
 
 System Documentation for Developers

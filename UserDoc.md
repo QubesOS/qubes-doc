@@ -1,7 +1,7 @@
 ---
 layout: wiki
 title: UserDoc
-permalink: /wiki/UserDoc/home/
+permalink: /wiki/UserDoc/
 ---
 
 Qubes User Documentation
