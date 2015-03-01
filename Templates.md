@@ -1,7 +1,7 @@
 ---
 layout: wiki
 title: Templates
-permalink: /wiki/Templates/
+permalink: /wiki/Templates/home/
 ---
 
 ITL Supported
