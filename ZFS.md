@@ -179,7 +179,8 @@ Decrypt devices on boot
 Add your devices to /etc/crypttab.
 
 ``` {.wiki}
-<cryptname1> <device1> none|<keyfile1>
+<cryptname1> <device1> <keyfile1>
+<cryptname2> <device2> none
 ```
 
 Specifying a keyfile is especially useful, if ZFS should be ready during boot.
