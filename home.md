@@ -1,7 +1,7 @@
 ---
 layout: wiki
 title: home
-permalink: /wiki/home/
+permalink: /wiki/
 ---
 
 [![No image "qubes-arch-diagram-1.png" attached to QubesArchitecture](/chrome/common/attachment.png "No image "qubes-arch-diagram-1.png" attached to QubesArchitecture")](/wiki/QubesArchitecture)
