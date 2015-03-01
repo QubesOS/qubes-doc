@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: home
+title: WikiStart
 permalink: /wiki/
 ---
 
