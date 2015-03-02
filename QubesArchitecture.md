@@ -11,7 +11,7 @@ Qubes implements a Security by Isolation approach. To do this, Qubes utilizes vi
 
 Qubes lets the user define many security domains, which are implemented as lightweight Virtual Machines (VMs), or “AppVMs.” For example, the user can have “personal,” “work,” “shopping,” “bank,” and “random” AppVMs and can use the applications within those VMs just as if they were executing on the local machine. At the same time, however, these applications are well isolated from each other. Qubes also supports secure copy-and-paste and file sharing between the AppVMs, of course.
 
-![QubesArchitecture](/attachments/wiki/QubesArchitecture/qubes-arch-diagram-1.png)
+[![qubes-arch-diagram-1.png](/attachment/wiki/QubesArchitecture/qubes-arch-diagram-1.png)](/attachments/wiki/QubesArchitecture/qubes-arch-diagram-1.png)
 
 (Note: In the diagram above, "Storage domain" is actually a USB domain.)
 
