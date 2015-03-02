@@ -38,14 +38,14 @@ Using a ProxyVM to set up a VPN client will gives you the ability to:
 1.  check (`rpm -q  qubes-core-vm`) if you have the package **qubes-core-vm** version **2.1.36** (or later)
 2.  create a new VM and check the ProxyVM radio button
 
-[![No image "Create\_New\_VM.png" attached to VPN](/chrome/common/attachment.png "No image "Create_New_VM.png" attached to VPN")](/attachment/wiki/VPN/Create_New_VM.png)
+![Create\_New\_VM.png](/attachment/wiki/VPN/Create_New_VM.png)
 
 1.  add the network-manager service to this new VM
 
-[![No image "Settings-services.png" attached to VPN](/chrome/common/attachment.png "No image "Settings-services.png" attached to VPN")](/attachment/wiki/VPN/Settings-services.png)
+![Settings-services.png](/attachment/wiki/VPN/Settings-services.png)
 
 1.  set up Your VPN as described in the Network Manager documentation linked above.
 
 1.  connect your AppVMs to use the new VM as a NetVM.
 
-[![No image "Settings-NetVM.png" attached to VPN](/chrome/common/attachment.png "No image "Settings-NetVM.png" attached to VPN")](/attachment/wiki/VPN/Settings-NetVM.png)
+[![Settings-NetVM.png](/attachment/wiki/VPN/Settings-NetVM.png)

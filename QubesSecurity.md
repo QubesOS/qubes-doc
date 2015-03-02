@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: QubesSecurity
+title: Security
 permalink: /wiki/QubesSecurity/
 ---
 

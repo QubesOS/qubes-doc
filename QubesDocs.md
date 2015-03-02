@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: QubesDocs
+title: Documentation
 permalink: /wiki/QubesDocs/
 ---
 

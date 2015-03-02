@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: QubesLists
+title: Mailing Lists
 permalink: /wiki/QubesLists/
 ---
 

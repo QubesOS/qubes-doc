@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: QubesDownloads
+title: Downloads
 permalink: /wiki/QubesDownloads/
 ---
 

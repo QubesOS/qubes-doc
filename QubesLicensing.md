@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: QubesLicensing
+title: Licensing
 permalink: /wiki/QubesLicensing/
 ---
 

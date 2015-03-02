@@ -56,7 +56,7 @@ Then, when finally ready, boot your system from the installer DVD and follow the
 
 The installer loads Xen right at the beginning, so chances are high that if you can see the installer's graphical screen, Qubes will work on your system :)
 
-[![No image "qubes-r2-rc2-installer-welcome.png" attached to InstallationGuideR2rc2](/chrome/common/attachment.png "No image "qubes-r2-rc2-installer-welcome.png" attached to InstallationGuideR2rc2")](/attachment/wiki/InstallationGuideR2rc2/qubes-r2-rc2-installer-welcome.png)
+![qubes-r2-rc2-installer-welcome.png](/attachment/wiki/InstallationGuideR2rc2/qubes-r2-rc2-installer-welcome.png)
 
 Upgrading
 ---------
@@ -70,7 +70,7 @@ Troubleshooting problems with the installer
 
 If the installer fails for some reason, typically because of the graphics card not being correctly supported, it is possible to try booting the installer with a different kernel -- to do that, choose Troubleshooting menu in the Installer Welcome screen, and later choose an option to proceed with one of the kernels provided:
 
-[![No image "qubes-r2-rc2-installer-troubleshooting.png" attached to InstallationGuideR2rc2](/chrome/common/attachment.png "No image "qubes-r2-rc2-installer-troubleshooting.png" attached to InstallationGuideR2rc2")](/attachment/wiki/InstallationGuideR2rc2/qubes-r2-rc2-installer-troubleshooting.png)
+![qubes-r2-rc2-installer-troubleshooting.png](/attachment/wiki/InstallationGuideR2rc2/qubes-r2-rc2-installer-troubleshooting.png)
 
 The installer ships with 4 different kernels (3.12, 3.11, 3.9 and 3.7) and all those kernel will be installed (regardless of which is selected to run the installer) so it is later always possible to boot the Qubes OS using any of those kernels.
 

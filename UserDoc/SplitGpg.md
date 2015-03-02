@@ -14,7 +14,7 @@ Split GPG implements a concept similar to having a smart card with your private 
 
 The diagram below presents the big picture of Split GPG architecture.
 
-[![No image "split-gpg-diagram.png" attached to UserDoc/SplitGpg](/chrome/common/attachment.png "No image "split-gpg-diagram.png" attached to UserDoc/SplitGpg")](/attachment/wiki/UserDoc/SplitGpg/split-gpg-diagram.png)
+![split-gpg-diagram.png](/attachment/wiki/UserDoc/SplitGpg/split-gpg-diagram.png)
 
 ### Advantages of Split GPG vs. traditional GPG with a smart card
 
@@ -22,7 +22,7 @@ It is often thought that the use of smart cards for private key storage guarante
 
 With Qubes Split GPG this problem is drastically minimized, because each time the key is to be used the user is asked for consent (with a definable time out, 5 minutes by default), plus is always notified each time the key is used via a tray notification from the domain where GPG backend is running. This way it would be easy to spot unexpected requests to decrypt documents.
 
-[![No image "r2-split-gpg-1.png" attached to UserDoc/SplitGpg](/chrome/common/attachment.png "No image "r2-split-gpg-1.png" attached to UserDoc/SplitGpg")](/attachment/wiki/UserDoc/SplitGpg/r2-split-gpg-1.png) [![No image "r2-split-gpg-3.png" attached to UserDoc/SplitGpg](/chrome/common/attachment.png "No image "r2-split-gpg-3.png" attached to UserDoc/SplitGpg")](/attachment/wiki/UserDoc/SplitGpg/r2-split-gpg-3.png)
+![r2-split-gpg-1.png](/attachment/wiki/UserDoc/SplitGpg/r2-split-gpg-1.png) ![r2-split-gpg-3.png](/attachment/wiki/UserDoc/SplitGpg/r2-split-gpg-3.png)
 
 ### Current limitations
 
@@ -82,7 +82,7 @@ Note that running normal `gpg -K` in the demo above shows no private keys stored
 
 However, when using Thunderbird with Enigmail extension it is not enough, because Thunderbird doesn't preserve the environment variables. Instead it is recommended to use a simple script provided by `/usr/bin/qubes-gpg-client-wrapper` file by pointing Enigmail to use this script instead of the standard GnuPG binary:
 
-[![No image "tb-enigmail-split-gpg-settings-2.png" attached to UserDoc/SplitGpg](/chrome/common/attachment.png "No image "tb-enigmail-split-gpg-settings-2.png" attached to UserDoc/SplitGpg")](/attachment/wiki/UserDoc/SplitGpg/tb-enigmail-split-gpg-settings-2.png)
+![tb-enigmail-split-gpg-settings-2.png](/attachment/wiki/UserDoc/SplitGpg/tb-enigmail-split-gpg-settings-2.png)
 
 The script also sets the QUBES\_GPG\_DOMAIN variable automatically based on the content of the file `/rw/config/gpg-split-domain`, which should be set to the name of the GPG backend VM. This file survives the AppVM reboot, of course.
 
@@ -102,7 +102,7 @@ Use `qubes-gpg-import-key` in the client AppVM to import the key into the GPG ba
 [user@work ~]$ qubes-gpg-import-key ~/Downloads/marmarek.asc
 ```
 
-[![No image "r2-split-gpg-5.png" attached to UserDoc/SplitGpg](/chrome/common/attachment.png "No image "r2-split-gpg-5.png" attached to UserDoc/SplitGpg")](/attachment/wiki/UserDoc/SplitGpg/r2-split-gpg-5.png)
+![r2-split-gpg-5.png](/attachment/wiki/UserDoc/SplitGpg/r2-split-gpg-5.png)
 
 Advanced: Using Split GPG with Subkeys
 --------------------------------------

@@ -89,6 +89,6 @@ Example
 
 This example is from `qubes-manager` (`qubesmanager/main.py`).
 
-[![No image "update\_table-20140424-170010.svg" attached to Profiling](/chrome/common/attachment.png "No image "update_table-20140424-170010.svg" attached to Profiling")](/attachment/wiki/Profiling/update_table-20140424-170010.svg)
+!["update\_table-20140424-170010.svg"](//attachment/wiki/Profiling/update_table-20140424-170010.svg)
 
 It is apparent than problem is around `get_disk_usage` which calls something via `subprocess.call`. It does it 15 times, probably once per VM.

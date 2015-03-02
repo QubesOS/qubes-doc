@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: QubesContacts
+title: Contacts
 permalink: /wiki/QubesContacts/
 ---
 

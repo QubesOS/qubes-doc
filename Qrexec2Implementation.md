@@ -49,7 +49,7 @@ Note: this section is not needed to use qrexec for writing Qubes apps. Also note
 
 The VM-VM channels in Qubes R2 are made via "gluing" two VM-Dom0 and Dom0-VM vchan connections:
 
-[![No image "qrexec2-internals.png" attached to Qrexec2Implementation](/chrome/common/attachment.png "No image "qrexec2-internals.png" attached to Qrexec2Implementation")](/attachment/wiki/Qrexec2Implementation/qrexec2-internals.png)
+![qrexec2-internals.png](/attachment/wiki/Qrexec2Implementation/qrexec2-internals.png)
 
 Note: Dom0 never examines the actual data flowing in neither of the two vchan connections.
 

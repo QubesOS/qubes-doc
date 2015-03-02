@@ -47,7 +47,7 @@ Once the Windows VM boots, a CDROM should appear in the 'My Computer' menu (typi
 
 Before proceeding with the installation we need to disable Windows mechanism that allows only signed drivers to be installed, because currently (beta releases) the drivers we provide as part of the Windows Support Tools are not digitally signed with a publicly recognizable certificate. How to do that is explained in the `README` file also located on the installation CDROM. In the future this step will not be necessary anymore, because we will sign our drivers with a publicly verifiable certificate. However, it should be noted that even now, the fact that those drivers are not digitally signed, this doesn't affect security of the Windows VM in 'any' way. This is because the actual installation ISO (the `qubes-windows-tools-*.iso` file) is distributed as a signed RPM package and its signature is verified by the `qubes-dom0-update` utility once it's being installed in Dom0. The only downside of those drivers not being signed is the inconvenience to the user that he or she must disable the signature enforcement policy before installing the tools, and also to accept a few scary looking warning windows during the installation process, as shown below.
 
-[![No image "r2b1-win7-installing-qubes-tools-5.png" attached to HvmCreate](/chrome/common/attachment.png "No image "r2b1-win7-installing-qubes-tools-5.png" attached to HvmCreate")](/attachment/wiki/HvmCreate/r2b1-win7-installing-qubes-tools-5.png)
+![r2b1-win7-installing-qubes-tools-5.png](/attachment/wiki/HvmCreate/r2b1-win7-installing-qubes-tools-5.png)
 
 After successful installation, the Windows VM must be shut down and started again.
 
@@ -66,7 +66,7 @@ Once you start a Windows-based AppVM with Qubes Tools installed, you can easily 
 qvm-run -a my-win7-appvm explorer.exe
 ```
 
-[![No image "windows-seamless-4.png" attached to WindowsAppVms](/chrome/common/attachment.png "No image "windows-seamless-4.png" attached to WindowsAppVms")](/attachment/wiki/WindowsAppVms/windows-seamless-4.png) [![No image "windows-seamless-1.png" attached to WindowsAppVms](/chrome/common/attachment.png "No image "windows-seamless-1.png" attached to WindowsAppVms")](/attachment/wiki/WindowsAppVms/windows-seamless-1.png)
+![windows-seamless-4.png](/attachment/wiki/WindowsAppVms/windows-seamless-4.png) ![windows-seamless-1.png](/attachment/wiki/WindowsAppVms/windows-seamless-1.png)
 
 Also, the inter-VM services work as usual -- e.g. to request opening a document or URL in the Windows AppVM from another VM:
 
@@ -82,7 +82,7 @@ Also, the inter-VM services work as usual -- e.g. to request opening a document 
 
 Inter-VM file copy and clipboard works for Windows AppVMs the same way as for Linux AppVM (except that we don't provide a command line wrapper, `qvm-copy-to-vm` in Windows VMs) -- to copy files from Windows AppVMs just right-click on the file in Explorer, and choose: Send To-\> Other AppVM.
 
-[![No image "windows-seamless-7.png" attached to WindowsAppVms](/chrome/common/attachment.png "No image "windows-seamless-7.png" attached to WindowsAppVms")](/attachment/wiki/WindowsAppVms/windows-seamless-7.png)
+![windows-seamless-7.png](/attachment/wiki/WindowsAppVms/windows-seamless-7.png)
 
 Forcing Windows AppVM into full desktop mode
 --------------------------------------------

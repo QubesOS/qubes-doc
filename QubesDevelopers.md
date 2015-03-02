@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: QubesDevelopers
+title: Developers
 permalink: /wiki/QubesDevelopers/
 ---
 

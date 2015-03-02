@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: UserDoc
+title: User Documentation
 permalink: /wiki/UserDoc/
 ---
 

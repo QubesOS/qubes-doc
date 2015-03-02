@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: SystemDoc
+title: System Documentation
 permalink: /wiki/SystemDoc/
 ---
 

@@ -39,7 +39,7 @@ qvm-start win7 --cdrom=/dev/cdrom
 
 Now, the VM will start booting from the attached CDROM device, which in the example above just happens to be the Windows 7 installation disk. Depending on the OS that is being installed in the VM, one might be required to start the VM several times (as is the case e.g. with Windows 7 installation), because whenever the installer wants to "reboot the system", it actually shutdowns the VM (and Qubes won't automatically start it), so several invocations of qvm-start command (as shown above) might be needed.
 
-[![No image "r2b1-win7-installing.png" attached to HvmCreate](/chrome/common/attachment.png "No image "r2b1-win7-installing.png" attached to HvmCreate")](/attachment/wiki/HvmCreate/r2b1-win7-installing.png)
+![r2b1-win7-installing.png](attachment/wiki/HvmCreate/r2b1-win7-installing.png)
 
 Using Installation ISOs located in other VMs
 --------------------------------------------
@@ -59,7 +59,7 @@ qvm-start ubuntu --cdrom=work-web:/home/user/Downloads/ubuntu-12.10-desktop-i386
 
 Of course the AppVM where the ISO is kept must also be running for this to work (this VM is now serving the ISO and acting as a disk backend).
 
-[![No image "r2b1-installing-ubuntu-1.png" attached to HvmCreate](/chrome/common/attachment.png "No image "r2b1-installing-ubuntu-1.png" attached to HvmCreate")](/attachment/wiki/HvmCreate/r2b1-installing-ubuntu-1.png)
+![r2b1-installing-ubuntu-1.png](/attachment/wiki/HvmCreate/r2b1-installing-ubuntu-1.png)
 
 Setting up networking for HVM domains
 -------------------------------------
@@ -72,7 +72,7 @@ Even though we do have a small DHCP server (that runs inside HVM untrusted stub 
 
 In order to manually configure networking in a VM, one should first find out the IP/netmask/gateway assigned to the particular VM by Qubes. This can be seen e.g. in the Qubes Manager in the VM's properties:
 
-[![No image "r2b1-manager-networking-config.png" attached to HvmCreate](/chrome/common/attachment.png "No image "r2b1-manager-networking-config.png" attached to HvmCreate")](/attachment/wiki/HvmCreate/r2b1-manager-networking-config.png)
+![r2b1-manager-networking-config.png](/attachment/wiki/HvmCreate/r2b1-manager-networking-config.png)
 
 Alternatively, one can use `qvm-ls -n` command to obtain the same information.
 
@@ -229,11 +229,11 @@ qvm-start lab-win7 --cdrom=/usr/lib/qubes/qubes-windows-tools-201211301354.iso
 
 Once the Windows VM boots, a CDROM should appear in the 'My Computer' menu (typically as `D:`) with a setup program in its main directory:
 
-[![No image "r2b1-win7-installing-qubes-tools-1.png" attached to HvmCreate](/chrome/common/attachment.png "No image "r2b1-win7-installing-qubes-tools-1.png" attached to HvmCreate")](/attachment/wiki/HvmCreate/r2b1-win7-installing-qubes-tools-1.png)
+![r2b1-win7-installing-qubes-tools-1.png](/attachment/wiki/HvmCreate/r2b1-win7-installing-qubes-tools-1.png)
 
 Before proceeding with the installation we need to disable Windows mechanism that allows only signed drivers to be installed, because currently the drivers we provide as part of the Windows Support Tools are not digitally signed with a publicly recognizable certificate. How to do that is explained in the `README` file also located on the installation CDROM. In the future this step will not be necessary anymore, because we will sign our drivers with a publicly verifiable certificate. However, it should be noted that even now, the fact that those drivers are not digitally signed, this doesn't affect security of the Windows VM in 'any' way. This is because the actual installation ISO (the `qubes-windows-tools-*.iso` file) is distributed as a signed RPM package and its signature is verified by the `qubes-dom0-update` utility once it's being installed in Dom0. The only downside of those drivers not being signed is the inconvenience to the user that he or she must disable the signature enforcement policy before installing the tools, and also to accept a few scary looking warning windows during the installation process, as shown below.
 
-[![No image "r2b1-win7-installing-qubes-tools-2.png" attached to HvmCreate](/chrome/common/attachment.png "No image "r2b1-win7-installing-qubes-tools-2.png" attached to HvmCreate")](/attachment/wiki/HvmCreate/r2b1-win7-installing-qubes-tools-2.png) [![No image "r2b1-win7-installing-qubes-tools-4.png" attached to HvmCreate](/chrome/common/attachment.png "No image "r2b1-win7-installing-qubes-tools-4.png" attached to HvmCreate")](/attachment/wiki/HvmCreate/r2b1-win7-installing-qubes-tools-4.png) [![No image "r2b1-win7-installing-qubes-tools-5.png" attached to HvmCreate](/chrome/common/attachment.png "No image "r2b1-win7-installing-qubes-tools-5.png" attached to HvmCreate")](/attachment/wiki/HvmCreate/r2b1-win7-installing-qubes-tools-5.png)
+![r2b1-win7-installing-qubes-tools-2.png](attachment/wiki/HvmCreate/r2b1-win7-installing-qubes-tools-2.png) ![r2b1-win7-installing-qubes-tools-4.png](attachment/wiki/HvmCreate/r2b1-win7-installing-qubes-tools-4.png) ![r2b1-win7-installing-qubes-tools-5.png](/attachment/wiki/HvmCreate/r2b1-win7-installing-qubes-tools-5.png)
 
 After successful installation, the Windows VM must be shut down.
 
@@ -286,7 +286,7 @@ Another things to check are if clipboard copy/paste and file copy works fine wit
 
 And the screenshot below illustrates the Send To entries in a Windows VM that can be used to copy/send files to other Qubes domains:
 
-[![No image "win7-sendto-another-vm.png" attached to HvmCreate](/chrome/common/attachment.png "No image "win7-sendto-another-vm.png" attached to HvmCreate")](/attachment/wiki/HvmCreate/win7-sendto-another-vm.png)
+![win7-sendto-another-vm.png](/attachment/wiki/HvmCreate/win7-sendto-another-vm.png)
 
 Assigning PCI devices to HVM domains
 ------------------------------------
@@ -295,7 +295,7 @@ HVM domains (including Windows VMs) can be [assigned PCI devices](/wiki/Assignin
 
 Once problem, however, at the moment, is that after the whole system gets suspend into S3 sleep, and subsequently resumed, such attached devices stop working and should be restarted within the VM. Under Windows this can be achieved by opening the Device Manager, selecting the actual device, such as a USB controller, and then first 'Disabling', and then 'Enabling' the device again. This is illustrated on the screenshot below:
 
-[![No image "r2b1-win7-usb-disable.png" attached to HvmCreate](/chrome/common/attachment.png "No image "r2b1-win7-usb-disable.png" attached to HvmCreate")](/attachment/wiki/HvmCreate/r2b1-win7-usb-disable.png)
+![r2b1-win7-usb-disable.png](/attachment/wiki/HvmCreate/r2b1-win7-usb-disable.png)
 
 Further reading
 ---------------
