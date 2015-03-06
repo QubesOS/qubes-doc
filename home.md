@@ -2,6 +2,9 @@
 layout: wiki
 title: home
 permalink: /wiki/
+redirect_from: 
+- "/wiki/WikiStart/"
+- "/trac/"
 ---
 
 Welcome to the Qubes OS Project
