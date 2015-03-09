@@ -1,0 +1,26 @@
+---
+layout: page
+permalink: "/hcl/"
+title: "Hardware Compatibility List"
+model: all
+---
+
+<table>
+        <tr class=grid">
+            <td>Model</td>
+            <td>BIOS</td>
+            <td>HVM</td>
+            <td>IOMMU</td>
+            <td>TPM</td>
+            <td>Qubes</td>
+            <td>Xen</td>
+            <td>Kernel</td>
+            <td>Remark</td>
+            <td>Credit</td>
+        </tr>
+{% for device in site.hcl %}
+  {% include hcl-device.html %}
+{% endfor %}
+</table>
+
+
