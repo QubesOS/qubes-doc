@@ -5,6 +5,7 @@ permalink: /wiki/
 redirect_from: 
 - "/wiki/WikiStart/"
 - "/trac/"
+- "/trac/WikiStart"
 ---
 
 Welcome to the Qubes OS Project
