@@ -5,8 +5,10 @@ title: "Hardware Compatibility List"
 model: all
 ---
 
-<table>
-        <tr class=grid">
+<table align="center" class="grid">
+<tr class="span">
+  <td class="span">Laptop devices</td>
+        <tr class="span">
             <td>Model</td>
             <td>BIOS</td>
             <td>HVM</td>
@@ -18,9 +20,47 @@ model: all
             <td>Remark</td>
             <td>Credit</td>
         </tr>
-{% for device in site.hcl %}
+</tr>
+{% for device in site.hcl %}{% if device.type == 'laptop' %}
   {% include hcl-device.html %}
-{% endfor %}
+{% endif  %}{% endfor %}
+
+<tr class="span">
+  <td class="span">Desktop, Workstation and Server</td>
+        <tr class="span">
+            <td>Model</td>
+            <td>BIOS</td>
+            <td>HVM</td>
+            <td>IOMMU</td>
+            <td>TPM</td>
+            <td>Qubes</td>
+            <td>Xen</td>
+            <td>Kernel</td>
+            <td>Remark</td>
+            <td>Credit</td>
+        </tr>
+</tr>
+{% for device in site.hcl %}{% if device.type == 'desktop' or device.type == 'workstation' or device.type == 'server' %}
+  {% include hcl-device.html %}
+{% endif  %}{% endfor %}
+
+<tr class="span">
+  <td class="span">Motherboard</td>
+        <tr class="span">
+            <td>Model</td>
+            <td>BIOS</td>
+            <td>HVM</td>
+            <td>IOMMU</td>
+            <td>TPM</td>
+            <td>Qubes</td>
+            <td>Xen</td>
+            <td>Kernel</td>
+            <td>Remark</td>
+            <td>Credit</td>
+        </tr>
+</tr>
+{% for device in site.hcl %}{% if device.type == 'motherboard' %}
+  {% include hcl-device.html %}
+{% endif  %}{% endfor %}
+
 </table>
-
-
