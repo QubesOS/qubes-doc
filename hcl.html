@@ -5,62 +5,146 @@ title: "Hardware Compatibility List"
 model: all
 ---
 
-<table align="center" class="grid">
-<tr class="span">
-  <td class="span">Laptop devices</td>
-        <tr class="span">
-            <td>Model</td>
-            <td>BIOS</td>
-            <td>HVM</td>
-            <td>IOMMU</td>
-            <td>TPM</td>
-            <td>Qubes</td>
-            <td>Xen</td>
-            <td>Kernel</td>
-            <td>Remark</td>
-            <td>Credit</td>
-        </tr>
+<table>
+<tr align='center'>
+<th colspan=2 align='center'><b>Legend</b></th>
 </tr>
+
+<tr>
+ <th align='center'><b>Marks and background colour</b></th>
+</tr>
+
+<tr>
+ <td align='center' style="background: green">yes</td>
+ <td>Working correctly.</td>
+</tr>
+
+<tr>
+ <td align='center' style="background: red">no</td>
+ <td>Does not work or is not present.</td>
+</tr>
+
+<tr>
+ <td align='center' style="background: yellow">partial</td>
+ <td>Indicates that some kind of tweaking is needed, see remarks for further information.</td>
+</tr>
+
+<tr>
+ <td align='center' style="background: blue"></td>
+ <td>A blank cell indicates that we lack information about it.</td>
+</tr>
+
+<tr>
+ <th align='center'><b>Columns</b></th>
+</tr>
+
+<tr>
+ <td align='center'>Model</td>
+ <td>Manufacturer and Devicename <br>(Socket/CPU, Chipset/Southbridge, Graphics)</td>
+</tr>
+
+<tr>
+ <td align='center'>BIOS</td>
+ <td>Reported BIOS version</td>
+</tr>
+
+<tr>
+ <td align='center'><a class='ext-link' href='https://en.wikipedia.org/wiki/Hardware_virtual_machine'>HVM</a></td>
+ <td><a class='ext-link' href='https://en.wikipedia.org/wiki/Intel_VT-x#Intel-VT-x'>Intel VT-x</a> or <a class='ext-link' href='https://en.wikipedia.org/wiki/AMD-V#AMD_virtualization_.28AMD-V.29'>AMD-v</a> technology (required for running HVM domains, such as <a class='ext-link' href='https://wiki.qubes-os.org/trac/wiki/WindowsAppVms'>Windows-based AppVMs</a>) </td>
+</tr>
+
+<tr>
+ <td align='center'><a class='ext-link' href='https://en.wikipedia.org/wiki/IOMMU'>IOMMU</a></td>
+ <td>Intel VT-d or AMD IOMMU technology (required for effective isolation of network VMs and <a class='ext-link' href='http://wiki.xen.org/wiki/Xen_PCI_Passthrough'>PCI passthrough</a>) </td>
+</tr>
+
+<tr>
+ <td align='center'><a class='ext-link' href='https://en.wikipedia.org/wiki/Trusted_Platform_Module'>TPM</a></td>
+ <td>TPM with proper BIOS support (required for <a class='ext-link' href='https://wiki.qubes-os.org/trac/wiki/AntiEvilMaid'>Anti Evil Maid</a>) </td>
+</tr>
+
+<!-- TBD
+<tr>
+ <td align='center'>Qubes security level</td>
+ <td>Best reachable <a class='ext-link' href='https://wiki.qubes-os.org/trac/ticket/6'>qubes_security_level</a> for this device, dependent on VT-d, TPM and other factors.</td>
+</tr>
+-->
+
+<tr>
+ <td align='center'>Qubes</td>
+ <td>Reported Qubes version (R=Release, rc=release candidate, B=Beta, i.e.: R1, R2B1, R2rc1)</td>
+</tr>
+
+<tr>
+ <td align='center'><a class='ext-link' href='https://en.wikipedia.org/wiki/Linux_kernel#Maintenance'>Kernel</a></td>
+ <td>Reported <a class='ext-link' href='https://en.wikipedia.org/wiki/Dom0'>dom0</a> kernel version (numbers in uname -r), can be selected during installation and boot in Troubleshooting menu.</td>
+</tr>
+
+<tr>
+ <td align='center'>Remark</td>
+ <td>Further information field. Qubes, Kernel and this field is coloured in conjunction to reflect general machine compatibility.</td>
+</tr>
+
+<tr>
+ <td align='center'>Credit</td>
+ <td>Name linked to report in <a class='ext-link' href='https://groups.google.com/forum/#!forum/qubes-users'>qubes-users.</td>
+</tr>
+</table>
+<br>
+
+<table align="center" style="table-layout:fixed;">
+  <tr>
+    <caption><h2>Laptop devices</h2></caption>
+    <th style="width=23%">Model</th>
+    <th style="width=32px">BIOS</th>
+    <th style="width=32px">HVM</th>
+    <th style="width=32px">IOMMU</th>
+    <th style="width=32px">TPM</th>
+    <th style="width=42px">Qubes</th>
+    <th style="width=42px">Xen</th>
+    <th style="width=42px">Kernel</th>
+    <th>Remark</th>
+    <th style="width=20%">Credit</th>
+  </tr>
 {% for device in site.hcl %}{% if device.type == 'laptop' %}
   {% include hcl-device.html %}
 {% endif  %}{% endfor %}
+</table>
 
-<tr class="span">
-  <td class="span">Desktop, Workstation and Server</td>
-        <tr class="span">
-            <td>Model</td>
-            <td>BIOS</td>
-            <td>HVM</td>
-            <td>IOMMU</td>
-            <td>TPM</td>
-            <td>Qubes</td>
-            <td>Xen</td>
-            <td>Kernel</td>
-            <td>Remark</td>
-            <td>Credit</td>
-        </tr>
-</tr>
+<table align="center" style="table-layout:fixed;">
+  <tr>
+    <caption><h2>Desktop, Workstation and Server</h2></caption>
+    <th style="width=23%">Model</th>
+    <th style="width=32px">BIOS</th>
+    <th style="width=32px">HVM</th>
+    <th style="width=32px">IOMMU</th>
+    <th style="width=32px">TPM</th>
+    <th style="width=42px">Qubes</th>
+    <th style="width=42px">Xen</th>
+    <th style="width=42px">Kernel</th>
+    <th>Remark</th>
+    <th style="width=20%">Credit</th>
+  </tr>
 {% for device in site.hcl %}{% if device.type == 'desktop' or device.type == 'workstation' or device.type == 'server' %}
   {% include hcl-device.html %}
 {% endif  %}{% endfor %}
+</table>
 
-<tr class="span">
-  <td class="span">Motherboard</td>
-        <tr class="span">
-            <td>Model</td>
-            <td>BIOS</td>
-            <td>HVM</td>
-            <td>IOMMU</td>
-            <td>TPM</td>
-            <td>Qubes</td>
-            <td>Xen</td>
-            <td>Kernel</td>
-            <td>Remark</td>
-            <td>Credit</td>
-        </tr>
-</tr>
+<table align="center" style="table-layout:fixed;">
+  <tr>
+    <caption><h2>Motherboards</h2></caption>
+    <th style="width=23%">Model</th>
+    <th style="width=32px">BIOS</th>
+    <th style="width=32px">HVM</th>
+    <th style="width=32px">IOMMU</th>
+    <th style="width=32px">TPM</th>
+    <th style="width=42px">Qubes</th>
+    <th style="width=42px">Xen</th>
+    <th style="width=42px">Kernel</th>
+    <th>Remark</th>
+    <th style="width=20%">Credit</th>
+  </tr>
 {% for device in site.hcl %}{% if device.type == 'motherboard' %}
   {% include hcl-device.html %}
 {% endif  %}{% endfor %}
-
 </table>
