@@ -1,11 +1,22 @@
 ---
-layout: page
+layout: null
 permalink: "/hcl/"
 title: "Hardware Compatibility List"
 model: all
 ---
+<!DOCTYPE html>
+<html>
 
-<table>
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+
+
+    <h2 align="center">{{ page.title }}</h2>
+
+<table align="center">
 <tr align='center'>
 <th colspan=2 align='center'><b>Legend</b></th>
 </tr>
@@ -92,11 +103,11 @@ model: all
 </table>
 <br>
 
-<table align="center" style="table-layout:fixed;">
+<table align="center" style="width: 95%">
+  <td colspan="10" align="center"><br><h2>Laptop devices</h2></td>
   <tr>
-    <caption><h2>Laptop devices</h2></caption>
     <th style="width=23%">Model</th>
-    <th style="width=32px">BIOS</th>
+    <th style="width=42px">BIOS</th>
     <th style="width=32px">HVM</th>
     <th style="width=32px">IOMMU</th>
     <th style="width=32px">TPM</th>
@@ -109,13 +120,11 @@ model: all
 {% for device in site.hcl %}{% if device.type == 'laptop' %}
   {% include hcl-device.html %}
 {% endif  %}{% endfor %}
-</table>
 
-<table align="center" style="table-layout:fixed;">
+  <td colspan="10" align="center"><br><h2>Desktop, Workstation and Server</h2></td>
   <tr>
-    <caption><h2>Desktop, Workstation and Server</h2></caption>
     <th style="width=23%">Model</th>
-    <th style="width=32px">BIOS</th>
+    <th style="width=42px">BIOS</th>
     <th style="width=32px">HVM</th>
     <th style="width=32px">IOMMU</th>
     <th style="width=32px">TPM</th>
@@ -128,13 +137,11 @@ model: all
 {% for device in site.hcl %}{% if device.type == 'desktop' or device.type == 'workstation' or device.type == 'server' %}
   {% include hcl-device.html %}
 {% endif  %}{% endfor %}
-</table>
 
-<table align="center" style="table-layout:fixed;">
+  <td colspan="10" align="center"><br><h2>Motherboards</h2></td>
   <tr>
-    <caption><h2>Motherboards</h2></caption>
     <th style="width=23%">Model</th>
-    <th style="width=32px">BIOS</th>
+    <th style="width=42px">BIOS</th>
     <th style="width=32px">HVM</th>
     <th style="width=32px">IOMMU</th>
     <th style="width=32px">TPM</th>
@@ -148,3 +155,9 @@ model: all
   {% include hcl-device.html %}
 {% endif  %}{% endfor %}
 </table>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>
