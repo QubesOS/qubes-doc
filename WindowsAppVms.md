@@ -82,12 +82,14 @@ Also, the inter-VM services work as usual -- e.g. to request opening a document 
 
 Inter-VM file copy and clipboard works for Windows AppVMs the same way as for Linux AppVM (except that we don't provide a command line wrapper, `qvm-copy-to-vm` in Windows VMs) -- to copy files from Windows AppVMs just right-click on the file in Explorer, and choose: Send To-\> Other AppVM.
 
+To simulate CTRL-ALT-DELETE in the HVM (SAS, Secure Attention Sequence), press Ctrl-Alt-Home while having any window of this VM in the foreground.
+
 ![windows-seamless-7.png](/attachment/wiki/WindowsAppVms/windows-seamless-7.png)
 
 Forcing Windows AppVM into full desktop mode
 --------------------------------------------
 
-TODO
+You can switch between seamless and "full desktop" mode for Windows HVMs in their settings in Qubes Manager.
 
 Using template-based Windows AppVMs (Qubes R2 Beta 3 and later)
 ---------------------------------------------------------------
