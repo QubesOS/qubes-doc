@@ -7,6 +7,8 @@ permalink: /wiki/WindowsTools/
 Qubes Tools for Windows: advanced settings and troubleshooting
 ==============================================================
 
+''Only 64-bit Windows 7 (any edition) is supported currently. Windows 8+ support is under development.''
+
 Installable components
 ----------------------
 
