@@ -2,11 +2,10 @@
 layout: doc
 title: WikiStart
 permalink: /
-redirect_from: \
-  /wiki/
-  /wiki/WikiStart/
-  /trac/
-  /trac/WikiStart/
+redirect_from: 
+- "/wiki/WikiStart/"
+- "/trac/"
+- "/trac/WikiStart/"
 ---
 
 Welcome to the Qubes OS Project
