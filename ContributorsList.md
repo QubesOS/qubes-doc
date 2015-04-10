@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: ContributorsList
-permalink: /wiki/ContributorsList/
+permalink: /doc/ContributorsList/
+redirect_from: /wiki/ContributorsList/
 ---
 
 List of Qubes developers

@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: TestPage
-permalink: /wiki/TestPage/
+permalink: /doc/TestPage/
+redirect_from: /wiki/TestPage/
 ---
 
 This is a test.

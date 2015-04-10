@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: SecurityPack
-permalink: /wiki/SecurityPack/
+permalink: /doc/SecurityPack/
+redirect_from: /wiki/SecurityPack/
 ---
 
 Qubes Security Pack
@@ -31,7 +32,7 @@ History and Rationale
 
 On 2013-01-05, Joanna Rutkowska announced the QSP and explained its rationale in an [​email](https://groups.google.com/d/msg/qubes-devel/twkOEaMLtNI/lZyGx6_jFCEJ) to the Qubes mailing lists:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 Hello,
 
 A new Qubes Security Bulletin has been just released and is available here:
@@ -117,7 +118,7 @@ Qubes binaries :/
 
 [3] Deterministic builds are required because it's the only way we can
 implement multiple signature scheme for distributed binaries.
-```
+{% endhighlight %}
 
 How to Obtain, Verify, and Read
 -------------------------------
@@ -126,7 +127,7 @@ The following example demonstrates one method of obtaining the QSP, verifying it
 
 1.  Clone the QSP repo.
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     [user@qubes ~]$ git clone https://github.com/QubesOS/qubes-secpack.git
     Cloning into 'qubes-secpack'...
     remote: Counting objects: 195, done.
@@ -134,11 +135,11 @@ The following example demonstrates one method of obtaining the QSP, verifying it
     Receiving objects: 100% (195/195), 130.94 KiB | 207.00 KiB/s, done.
     Resolving deltas: 100% (47/47), done.
     Checking connectivity... done.
-    ```
+    {% endhighlight %}
 
 2.  Import the included PGP keys.
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     [user@qubes ~]$ gpg --import qubes-secpack/keys/*/*
     gpg: directory `/home/user/.gnupg' created
     gpg: new configuration file `/home/user/.gnupg/gpg.conf' created
@@ -166,11 +167,11 @@ The following example demonstrates one method of obtaining the QSP, verifying it
     gpg: Total number processed: 17
     gpg:               imported: 17  (RSA: 17)
     gpg: no ultimately trusted keys found
-    ```
+    {% endhighlight %}
 
 3.  Verify and trust the Qubes Master Signing Key.
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     [user@qubes ~]$ gpg --edit-key 36879494
     gpg (GnuPG) 1.4.18; Copyright (C) 2014 Free Software Foundation, Inc.
     This is free software: you are free to change and redistribute it.
@@ -210,7 +211,7 @@ The following example demonstrates one method of obtaining the QSP, verifying it
     unless you restart the program.
 
     gpg> q
-    ```
+    {% endhighlight %}
 
 > **Important!**
 
@@ -218,7 +219,7 @@ The following example demonstrates one method of obtaining the QSP, verifying it
 
 1.  Verify and read the canaries.
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     [user@qubes ~]$ cd qubes-secpack/canaries/                                     
     [user@qubes canaries]$ gpg --verify canary-001-2015.txt.sig.joanna canary-001-2015.txt
     gpg: Signature made Mon Jan  5 20:21:40 2015 UTC using RSA key ID 92C7B3DC
@@ -232,11 +233,11 @@ The following example demonstrates one method of obtaining the QSP, verifying it
                         ---===[ Qubes Canary #1 ]===---
 
                                      [...]
-    ```
+    {% endhighlight %}
 
 2.  Verify and read the QSBs.
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     [user@qubes canaries]$ cd ../QSBs/
     [user@qubes QSBs]$ gpg --verify qsb-013-2015.txt.sig.joanna qsb-013-2015.txt
     gpg: Signature made Mon Jan  5 21:22:14 2015 UTC using RSA key ID 92C7B3DC
@@ -250,6 +251,6 @@ The following example demonstrates one method of obtaining the QSP, verifying it
                  ---===[ Qubes Security Bulletin #13 ]===---
 
                                     [...]
-    ```
+    {% endhighlight %}
 
 

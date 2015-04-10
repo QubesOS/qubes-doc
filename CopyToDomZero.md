@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: CopyToDomZero
-permalink: /wiki/CopyToDomZero/
+permalink: /doc/CopyToDomZero/
+redirect_from: /wiki/CopyToDomZero/
 ---
 
 Copying files to between VMs and Dom0
@@ -11,15 +12,15 @@ First, there should normally be few reasons for the user to want to copy files f
 
 For this reason we intentionally do not provide a convenient tool for copying files between VMs and Dom0 (while we provide a tool for copying files between VMs). However, if you're determined to copy some files to Dom0 anyway, you can use the following method (run this command from Dom0's console):
 
-``` {.wiki}
+{% highlight trac-wiki %}
 qvm-run --pass-io <src_domain> 'cat /path/to/file_in_src_domain' > /path/to/file_name_in_dom0
-```
+{% endhighlight %}
 
 BTW, you can use the same method to copy files from Dom0 to VMs:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 cat /path/to/file_in_dom0 | qvm-run --pass-io <dst_domain> 'cat > /path/to/file_name_in_appvm'
-```
+{% endhighlight %}
 
 ### Copying logs from dom0
 

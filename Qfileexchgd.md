@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: Qfileexchgd
-permalink: /wiki/Qfileexchgd/
+permalink: /doc/Qfileexchgd/
+redirect_from: /wiki/Qfileexchgd/
 ---
 
 **This mechanism is obsolete as of Qubes Beta 1!**

@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: Postfix
-permalink: /wiki/Postfix/
+permalink: /doc/Postfix/
+redirect_from: /wiki/Postfix/
 ---
 
 Postfix
@@ -21,9 +22,9 @@ Configuration
 
 In TemplateVM open `/etc/aliases` and add line:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 root: user
-```
+{% endhighlight %}
 
 and run `newaliases`.
 
@@ -35,7 +36,7 @@ Now shutdown TemplateVM, start AppVM. Create directory `/usr/local/etc/postfix` 
 
 Postfix keeps its lookup tables in bdb hash databases. They need to be compiled from source files. Postfix admins like to keep track of them by means of `/usr/local/etc/postfix/Makefile`:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 all: $(addsuffix .db,$(shell sed -n -e '/^[^#].*hash:\/etc\/postfix/s:.*/::p' main.cf))
     newaliases
 clean:
@@ -44,13 +45,13 @@ clean:
 
 %.db: %
     /usr/sbin/postmap hash:$<
-```
+{% endhighlight %}
 
 ### Postfix main configuration
 
 `/usr/local/etc/postfix/main.cf` (`/etc/postfix` is intentional, don't correct it):
 
-``` {.wiki}
+{% highlight trac-wiki %}
 mydestination = $myhostname, $myhostname.$mydomain, $myhostname.localdomain, localhost, localhost.$mydomain, localhost.localdomain, $mydomain, localdomain
 mynetworks_style = host
 
@@ -83,36 +84,36 @@ sendmail_path = /usr/sbin/sendmail
 newaliases_path = /usr/bin/newaliases
 mailq_path = /usr/bin/mailq
 alias_maps = hash:/etc/aliases
-```
+{% endhighlight %}
 
 ### Lookup tables
 
 `/usr/local/etc/postfix/generic` (put there your primary address):
 
-``` {.wiki}
+{% highlight trac-wiki %}
 @localhost your.mail@example.com
-```
+{% endhighlight %}
 
 `/usr/local/etc/postfix/sender_relay`. This is important file. Put there all your SMTP servers. Pay attention to port (smtp/submission). Square brackets have their special meaning, they are almost certainly needed. For more info consult Postfix manual.
 
-``` {.wiki}
+{% highlight trac-wiki %}
 your.mail@exmaple.com         [mail.example.com]:submission
 your.other@mail.com         [smtp.mail.com]:smtp
-```
+{% endhighlight %}
 
 `/usr/local/etc/postfix/saslpass`. Here you put passwords to abovementioned servers. It depends on provider if you need to put whole email as username or just the part before `@`.
 
-``` {.wiki}
+{% highlight trac-wiki %}
 [mail.example.com]:submission     your.mail:y0urP4ssw0rd
 [smtp.mail.com]:smtp            your.other@mail.com:supers3cret
-```
+{% endhighlight %}
 
 `/usr/local/etc/postfix/sender_access`. I use it to nullroute known spam domains. If you do not need it, comment respective line in `main.cf`.
 
-``` {.wiki}
+{% highlight trac-wiki %}
 spamdomain1.com       DISCARD
 spamdomain2.com     DISCARD
-```
+{% endhighlight %}
 
 Now run `make` in `/usr/local/etc/postfix`. It will hopefully compile four abovementioned lookup tables (`generic.db`, `sender_relay.db`, `saslpass.db` and `sender_access`).
 
@@ -120,7 +121,7 @@ Now run `make` in `/usr/local/etc/postfix`. It will hopefully compile four above
 
 Don't start postfix or fetchmail yet, first create `/home/user/.procmailrc`:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 MAILDIR = "${HOME}/.maildir"
 ORGMAIL = "${MAILDIR}/"
 DEFAULT = "${MAILDIR}/"
@@ -132,18 +133,18 @@ list/qubes-users/
 :0
 * ^List-Id:.*qubes-devel\.googlegroups\.com
 list/qubes-devel/
-```
+{% endhighlight %}
 
 Run
 ---
 
 Open `/rw/config/rc.local` and add those two lines (before fetchmail lines, if you have them):
 
-``` {.wiki}
+{% highlight trac-wiki %}
 #!/bin/sh
 
 mount --bind /usr/local/etc/postfix /etc/postfix
 systemctl --no-block start postfix
-```
+{% endhighlight %}
 
 Reboot your AppVM and you are done.

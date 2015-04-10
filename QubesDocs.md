@@ -1,7 +1,10 @@
 ---
-layout: wiki
-title: Documentation
-permalink: /wiki/QubesDocs/
+layout: doc
+title: QubesDocs
+permalink: /doc/
+redirect_from: \
+  /doc/QubesDocs/
+  /wiki/QubesDocs/
 ---
 
 Qubes Documentation

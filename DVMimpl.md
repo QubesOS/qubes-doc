@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: DVMimpl
-permalink: /wiki/DVMimpl/
+permalink: /doc/DVMimpl/
+redirect_from: /wiki/DVMimpl/
 ---
 
 DisposableVM implementation in Qubes

@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: InstallNvidiaDriver
-permalink: /wiki/InstallNvidiaDriver/
+permalink: /doc/InstallNvidiaDriver/
+redirect_from: /wiki/InstallNvidiaDriver/
 ---
 
 Nvidia proprietary driver installation
@@ -17,34 +18,34 @@ Download pacakages
 
 You will need any Fedora 18 system to download and build packages. You can use Qubes AppVM for it, but it isn't necessary. To download packages from rpmfusion - add this repository to your yum configuration (instructions are on their website). After then download packages using yumdownloader:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 yumdownloader --resolve xorg-x11-drv-nvidia
 yumdownloader --source nvidia-kmod
-```
+{% endhighlight %}
 
 Build kernel package
 --------------------
 
 You will need at least kernel-devel (matching your Qubes dom0 kernel), rpmbuild tool and kmodtool, and then you can use it to build package:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 yum install kernel-devel rpm-build kmodtool
 rpmbuild --nodeps -D "kernels `uname -r`" --rebuild nvidia-kmod-260.19.36-1.fc13.3.src.rpm
-```
+{% endhighlight %}
 
 In above command replace `uname -r` with kernel version from your Qubes dom0. If everything went right, you have now complete packages with nvidia drivers for Qubes system. Transfer them to dom0 (eg using USB stick) and install (using standard "yum install /path/to/file"). Then you need to disable nouveau (normally it is done by install scripts from nvidia package, but unfortunately it isn't compatible with Qubes...):
 
 1.  Edit /etc/default/grub:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     GRUB_CMDLINE_LINUX="quiet rhgb nouveau.modeset=0 rd.driver.blacklist=nouveau video=vesa:off"
-    ```
+    {% endhighlight %}
 
 2.  Regenerate grub configuration:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     grub2-mkconfig -o /boot/grub2/grub.cfg
-    ```
+    {% endhighlight %}
 
 Then reboot.
 
@@ -62,9 +63,9 @@ Userspace components
 
 Install libraries, Xorg driver, configuration utilities. This can by done by nvidia-installer:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 ./NVIDIA-Linux-x86_64-260.19.44.run --ui=none --no-x-check --keep --no-nouveau-check --no-kernel-module
-```
+{% endhighlight %}
 
 Kernel module
 -------------
@@ -83,19 +84,19 @@ This installation must be done manually, because nvidia-installer refused to ins
 
 If it is not true - correct it manually. To build kernel module, enter *NVIDIA-Linux-x86\_64-260.19.44/kernel* directory and execute:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 make
 IGNORE_XEN_PRESENCE=1 CC="gcc -DNV_VMAP_4_PRESENT -DNV_SIGNAL_STRUCT_RLIM" make -f Makefile.kbuild
 mv /lib/modules/2.6.34.1-12.xenlinux.qubes.x86_64/kernel/drivers/video/nvidia.ko /lib/modules/2.6.34.1-12.xenlinux.qubes.x86_64/extra/
-```
+{% endhighlight %}
 
 Ignore error while inserting nvidia.ko (at the end of make phase). Now you should disable nouveau:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 cat /etc/modprobe.d/nouveau-disable.conf
 # blacklist isn't enough...
 install nouveau /bin/true
-```
+{% endhighlight %}
 
 Add *rdblacklist=nouveau* option to /boot/grub/menu.lst (at the end of line containing *vmlinuz*).
 
@@ -104,10 +105,10 @@ Configure Xorg
 
 After all, you should configure Xorg to use nvidia driver. You can use *nvidia-xconfig* or do it manually:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 X -configure
 mv /root/xorg.conf.new /etc/X11/xorg.conf
 # replace Driver in Device section by "nvidia"
-```
+{% endhighlight %}
 
 Now you should reboot the system.

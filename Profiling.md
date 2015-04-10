@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: Profiling
-permalink: /wiki/Profiling/
+permalink: /doc/Profiling/
+redirect_from: /wiki/Profiling/
 ---
 
 Profiling
@@ -14,17 +15,17 @@ For the purpose of this document, `qubes-dev` is name of the domain used for pos
 Requirements
 ------------
 
-``` {.wiki}
+{% highlight trac-wiki %}
 yum install gprof2dot graphviz
 git clone http://git.woju.eu/qubes/profiling.git
-```
+{% endhighlight %}
 
 If you profile something on dom0, move `Upload.sh` from repository to dom0:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 mkdir -p ~/profiling
 qvm-run -p qubes-dev 'cat ~/profiling/Upload.sh' > ~/profiling/Upload.sh
-```
+{% endhighlight %}
 
 -   WARNING: this will obviously be running third party code which is not signed by ITL nor Fedora. You have been warned.
 
@@ -61,28 +62,28 @@ Remember to revert your changes to application afterwards.
 
 If you are in dom0:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 cd ~/profiling
 ./Upload.sh
-```
+{% endhighlight %}
 
 ### Analyse
 
-``` {.wiki}
+{% highlight trac-wiki %}
 make
-```
+{% endhighlight %}
 
 For every `${basename}.pstats` this will produce `${basename}.txt` and `${basename}.svg`. SVG contains call graph. Text file contains list of all functions sorted by cumulative execution time. You may also try `make all-png`.
 
-``` {.wiki}
+{% highlight trac-wiki %}
 make index.html
-```
+{% endhighlight %}
 
 This creates `index.html` with all SVG graphics linked to TXT files. Ready for upload.
 
-``` {.wiki}
+{% highlight trac-wiki %}
 make REMOTE=example.com:public_html/qubes/profiling/ upload
-```
+{% endhighlight %}
 
 Example
 -------

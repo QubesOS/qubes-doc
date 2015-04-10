@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: AntiEvilMaid
-permalink: /wiki/AntiEvilMaid/
+permalink: /doc/AntiEvilMaid/
+redirect_from: /wiki/AntiEvilMaid/
 ---
 
 Installing and Using Anti Evil Maid (AEM) with Qubes OS
@@ -17,9 +18,9 @@ Installing
 
 In Dom0 install anti-evil-maid:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 sudo qubes-dom0-update anti-evil-maid
-```
+{% endhighlight %}
 
 More information regarding configuration in the [​README](http://git.qubes-os.org/?p=joanna/antievilmaid.git;a=blob_plain;f=README;hb=HEAD) file.
 

@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: SoftwareUpdateVM
-permalink: /wiki/SoftwareUpdateVM/
+permalink: /doc/SoftwareUpdateVM/
+redirect_from: /wiki/SoftwareUpdateVM/
 ---
 
 Installing and updating software in VMs
@@ -71,9 +72,9 @@ Sometime it might be convenient to have a VM that has its own filesystem, where 
 
 In order to create a standalone VM you can use a command line like this (from console in Dom0):
 
-``` {.wiki}
+{% highlight trac-wiki %}
 qvm-create <vmname> --standalone --label <label>
-```
+{% endhighlight %}
 
 ... or click appropriate options in the Qubes Manager's Create VM window.
 
@@ -84,9 +85,9 @@ It's also possible to have more than one template VM in the system. E.g. one cou
 
 When you create a new domain you can choose which template this VM should be based on. If you use command line, you should use the `--template` switch:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 qvm-create <vmname> --template <templatename> --label <label>
-```
+{% endhighlight %}
 
 Temporarily allowing networking for software installation
 ---------------------------------------------------------
@@ -110,15 +111,15 @@ The proxy is running in selected VMs (by default all the NetVMs (1)) and interce
 
 1.  Updates proxy: It is running as "qubes-yum-proxy" service. Startup script of this service setup firewall rule to intercept proxy traffic:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     iptables -t nat -A PR-QBS-SERVICES -d 10.137.255.254/32 -i vif+ -p tcp -m tcp --dport 8082 -j REDIRECT
-    ```
+    {% endhighlight %}
 
 1.  VM using the proxy service Startup script (qubes-misc-post service) configure yum using /etc/yum.conf.d/qubes-proxy.conf file. It can either contain
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     proxy=http://10.137.255.254:8082/
-    ```
+    {% endhighlight %}
 
     line, or be empty. Note that this file is specifically included from main yum.conf, yum does not support real conf.d configuration style...
 

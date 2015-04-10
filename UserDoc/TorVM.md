@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: TorVM
-permalink: /wiki/UserDoc/TorVM/
+permalink: /doc/UserDoc/TorVM/
+redirect_from: /wiki/UserDoc/TorVM/
 ---
 
 **TEXTError: Failed to load processor -1-1STARTcode-1-1TEXTMarkdown-1-1ENDcode-1-1TEXT-1-1**

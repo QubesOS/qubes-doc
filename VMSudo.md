@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: VMSudo
-permalink: /wiki/VMSudo/
+permalink: /doc/VMSudo/
+redirect_from: /wiki/VMSudo/
 ---
 
 Password-less root access in VM
@@ -9,7 +10,7 @@ Password-less root access in VM
 
 Background ([​/etc/sudoers.d/qubes](http://git.qubes-os.org/?p=qubes-r2/core-agent-linux.git;a=blob;f=misc/qubes.sudoers;hb=HEAD) in VM):
 
-``` {.wiki}
+{% highlight trac-wiki %}
 user ALL=(ALL) NOPASSWD: ALL
 
 # WTF?! Have you lost your mind?!
@@ -56,37 +57,37 @@ user ALL=(ALL) NOPASSWD: ALL
 # be seen by the xinput program...)
 #
 # joanna.
-```
+{% endhighlight %}
 
 Below is a complete list of configuration made according to the above statement, with (not necessary complete) list of mechanisms depending on each of them:
 
 1.  sudo (/etc/sudoers.d/qubes):
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     user ALL=(ALL) NOPASSWD: ALL
     (...)
-    ```
+    {% endhighlight %}
 
     -   easy user-\>root access (main option for the user)
     -   qvm-usb (not really working, as of R2)
 
 2.  PolicyKit (/etc/polkit-1/rules.d/00-qubes-allow-all.rules):
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     //allow any action, detailed reasoning in sudoers.d/qubes
     polkit.addRule(function(action,subject) { return polkit.Result.YES; });
-    ```
+    {% endhighlight %}
 
     and /etc/polkit-1/localauthority/50-local.d/qubes-allow-all.pkla:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     [Qubes allow all]
     Identity=*
     Action=*
     ResultAny=yes
     ResultInactive=yes
     ResultActive=yes
-    ```
+    {% endhighlight %}
 
     -   NetworkManager configuration from normal user (nm-applet)
     -   updates installation (gpk-update-viewer)
@@ -103,32 +104,32 @@ While ITL still supports the statement above, some Qubes users may want to enabl
 
 1.  Adding Dom0 "VMAuth" service:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     [root@dom0 /]# echo -n "/usr/bin/echo 1" >/etc/qubes-rpc/qubes.VMAuth
     [root@dom0 /]# echo -n "$anyvm dom0 ask" >/etc/qubes-rpc/policy/qubes.VMAuth
-    ```
+    {% endhighlight %}
 
     (Note: any VMs you would like still to have password-less root access (e.g. TemplateVMs) can be specified in the second file with "\<vmname\> dom0 allow")
 
 2.  Configuring TemplateVM to prompt Dom0 for any authorization request:
     -   In /etc/pam.d/system-auth, replace all lines beginning with "auth" with one line:
 
-        ``` {.wiki}
+        {% highlight trac-wiki %}
         auth       [success=done default=die]  pam_exec.so seteuid /usr/lib/qubes/qrexec-client-vm dom0 qubes.VMAuth /usr/bin/grep -q ^1$
-        ```
+        {% endhighlight %}
 
     -   Require authentication for sudo. Replace the first line of /etc/sudoers.d/qubes with:
 
-        ``` {.wiki}
+        {% highlight trac-wiki %}
         user ALL=(ALL) ALL
-        ```
+        {% endhighlight %}
 
     -   Disable [PolKit?](/wiki/PolKit)'s default-allow behavior:
 
-        ``` {.wiki}
+        {% highlight trac-wiki %}
         [root@fedora-20-x64]# rm /etc/polkit-1/rules.d/00-qubes-allow-all.rules
         [root@fedora-20-x64]# rm /etc/polkit-1/localauthority/50-local.d/qubes-allow-all.pkla
-        ```
+        {% endhighlight %}
 
 Dom0 password-less root access
 ------------------------------

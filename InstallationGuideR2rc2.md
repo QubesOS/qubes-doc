@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: InstallationGuideR2rc2
-permalink: /wiki/InstallationGuideR2rc2/
+permalink: /doc/InstallationGuideR2rc2/
+redirect_from: /wiki/InstallationGuideR2rc2/
 ---
 
 Installation Guide for Qubes Release 2 rc2
@@ -27,9 +28,9 @@ Download installer ISO
 
 See [this page](/wiki/QubesDownloads) for ISO downloads. Remember, we have absolutely no control over those servers, and so you should be assuming that they might be compromised, or just be serving a compromised ISOs because their operators decided so, for whatever reason. Always verify the digital signature on the downloaded ISO. See this [page](/wiki/VerifyingSignatures) for more info about how to download and verify our GPG keys, and then verify the downloaded ISO:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 gpg -v Qubes-R2-rc2-x86_64-DVD.iso.asc
-```
+{% endhighlight %}
 
 Burning the ISO onto a DVD or USB stick
 ---------------------------------------
@@ -38,15 +39,15 @@ Once you verify this is an authentic ISO, you should burn it on a DVD.
 
 If you prefer to use USB as a source for installation, then you just need to copy the ISO onto the USB device, e.g. using dd:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 dd if=Qubes-R2-rc2-x86_64-DVD.iso of=/dev/sdX
-```
+{% endhighlight %}
 
 On windows you can use [​this](http://www.chrysocome.net/dd) tool. Example command would be (as Administrator):
 
-``` {.wiki}
+{% highlight trac-wiki %}
 dd if=Qubes-R2-rc2-x86_64-DVD.iso of=\\?\Device\Harddisk1\Partition0 bs=1M --size --progress
-```
+{% endhighlight %}
 
 **Be sure to use a correct device as the target in the dd command above (instead of sdX or Harddisk1)**
 

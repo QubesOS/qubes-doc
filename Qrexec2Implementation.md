@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: Qrexec2Implementation
-permalink: /wiki/Qrexec2Implementation/
+permalink: /doc/Qrexec2Implementation/
+redirect_from: /wiki/Qrexec2Implementation/
 ---
 
 Implementation of qrexec in Qubes R2

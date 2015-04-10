@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: ExternalAudio
-permalink: /wiki/ExternalAudio/
+permalink: /doc/ExternalAudio/
+redirect_from: /wiki/ExternalAudio/
 ---
 
 Using External Audio Devices
@@ -21,16 +22,16 @@ First you need to identify an user VM dedicated to audio and [​assign a device
 
 In a terminal of the template from which you user VM depends, install pavucontrol with:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 sudo yum install pavucontrol
-```
+{% endhighlight %}
 
 Close the template and start or restart your user VM, insert your external audio device, open a terminal and prepare pulseaudio to use it with:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 sudo chmod a+rw /dev/snd/*
 pactl load-module module-udev-detect
-```
+{% endhighlight %}
 
 Start the audio application that is going to use the external audio device.
 
@@ -38,8 +39,8 @@ Launch pavucontrol, for example using "run command in VM" of Qubes Manager and s
 
 If you detach your external audio device, then want to insert it again, or change it with another one, you need to repeat the previous commands in terminal, adding an other line at the beginning:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 pactl unload-module module-udev-detect
 sudo chmod a+rw /dev/snd/*
 pactl load-module module-udev-detect
-```
+{% endhighlight %}

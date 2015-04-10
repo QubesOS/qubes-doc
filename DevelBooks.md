@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: DevelBooks
-permalink: /wiki/DevelBooks/
+permalink: /doc/DevelBooks/
+redirect_from: /wiki/DevelBooks/
 ---
 
 Below is a list of various books that might be useful in learning some basics needed for Qubes development.

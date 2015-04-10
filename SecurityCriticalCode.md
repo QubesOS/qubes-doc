@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: SecurityCriticalCode
-permalink: /wiki/SecurityCriticalCode/
+permalink: /doc/SecurityCriticalCode/
+redirect_from: /wiki/SecurityCriticalCode/
 ---
 
 Security-Critical Code in Qubes OS

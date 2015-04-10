@@ -1,7 +1,8 @@
 ---
-layout: wiki
-title: Screenshots
-permalink: /wiki/QubesScreenshots/
+layout: doc
+title: QubesScreenshots
+permalink: /doc/QubesScreenshots/
+redirect_from: /wiki/QubesScreenshots/
 ---
 
 Select Qubes OS Screenshots

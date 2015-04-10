@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: DisposableVms
-permalink: /wiki/DisposableVms/
+permalink: /doc/DisposableVms/
+redirect_from: /wiki/DisposableVms/
 ---
 
 Disposable VMs (DispVMs)
@@ -31,9 +32,9 @@ Opening a file in a Disposable VM via command line (from AppVM)
 
 Use the `qvm-open-in-dvm` command line (from your AppVM), e.g.:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 [user@work-pub ~]$ qvm-open-in-dvm Downloads/apple-sandbox.pdf
-```
+{% endhighlight %}
 
 The qvm-open-in-dvm will not exit until you close the application in the Disposable VM.
 
@@ -42,9 +43,9 @@ Starting an arbitrary application in a disposable VM via command line (from Dom0
 
 **Note:** Normally there should be no need for doing this -- this is just for Qubes hackers ;)
 
-``` {.wiki}
+{% highlight trac-wiki %}
 [joanna@dom0 ~]$ echo gnome-terminal | /usr/lib/qubes/qfile-daemon-dvm qubes.VMShell dom0 DEFAULT red
-```
+{% endhighlight %}
 
 In fact the Disposable VM appmenu used for starting Firefox contains a very similar command to the above. Please note, however, that it generally makes little sense to start any other application other than a Web Browser this way...
 
@@ -53,9 +54,9 @@ Starting an arbitrary program in a Disposable VM from an AppVM
 
 Sometimes it might be useful to start an arbitrary program, such as e.g. terminal in an Disposable VM from an AppVM. This could be simply done this way:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 [user@vault ~]$ qvm-run '$dispvm' gnome-terminal
-```
+{% endhighlight %}
 
 Note the above command is issued in an AppVM, not in Dom0. The created Disposable VM can be normally accessed via other tools, such as e.g. `qvm-copy-to-vm`, using its 'dispX' name, as shown by the Qubes Manager or `qvm-ls` tools. The created Disposable VM will inherit firewall settings of the ancestor VM, which is useful in some cases (e.g. when the original AppVM had networking cut off).
 
@@ -66,21 +67,21 @@ In some situations it might be beneficial to use a non-default template as a bas
 
 In order to regenerate Disposable VM "snapshot" (called 'savefile' on Qubes) one can conveniently use the following command in Dom0:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 [joanna@dom0 ~]$ qvm-create-default-dvm <custom-template-name>
-```
+{% endhighlight %}
 
 This would create a new Disposable VM savefile based on the custom template. Now, whenever one opens a file (from any AppVM) in a Disposable VM, a Disposable VM based on this template will be used.
 
 One can easily verify if the new Disposable VM template is indeed based on a custom template (in the example below the template called "f17-yellow" was used as a basis for the Disposable VM):
 
-``` {.wiki}
+{% highlight trac-wiki %}
 [joanna@dom0 ~]$ ll /var/lib/qubes/dvmdata/
 total 0
 lrwxrwxrwx 1 joanna joanna 45 Mar 11 13:59 default_dvm.conf -> /var/lib/qubes/appvms/f17-yellow-dvm/dvm.conf
 lrwxrwxrwx 1 joanna joanna 49 Mar 11 13:59 default_savefile -> /var/lib/qubes/appvms/f17-yellow-dvm/dvm-savefile
 lrwxrwxrwx 1 joanna joanna 47 Mar 11 13:59 savefile_root -> /var/lib/qubes/vm-templates/f17-yellow/root.img
-```
+{% endhighlight %}
 
 Disposable VMs and Local Forensics
 ----------------------------------

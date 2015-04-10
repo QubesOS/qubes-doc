@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: Mutt
-permalink: /wiki/Mutt/
+permalink: /doc/Mutt/
+redirect_from: /wiki/Mutt/
 ---
 
 Mutt
@@ -25,7 +26,7 @@ Mutt generally works out of the box. This configuration guide discusses only Qub
 
 First, paste this to `/etc/Muttrc.local` in TemplateVM:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 # specify your key or override in ~/.mutt/muttrc in AppVM
 set pgp_sign_as="0xDEADBEEF"
 
@@ -93,11 +94,11 @@ send-hook "~A" set pgp_autoinline=no crypt_autoencrypt=no
 send-hook "~t @invisiblethingslab\.com" set crypt_autoencrypt=yes
 
 # vim:ft=muttrc
-```
+{% endhighlight %}
 
 Then shutdown your TemplateVM. Next open your AppVM, create file `/home/user/.mutt/muttrc` and adjust for your needs:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 #
 # accounts
 #
@@ -122,11 +123,11 @@ subscribe (qubes-(users|devel)|othergroup)@googlegroups\.com
 fcc-save-hook qubes-users@googlegroups\.com =list/qubes-users/
 fcc-save-hook qubes-devel@googlegroups\.com =list/qubes-devel/
 fcc-save-hook othergroup@googlegroups\.com =list/othergroup/
-```
+{% endhighlight %}
 
 You may also create `/home/user/.signature`:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 regards,
 Wojciech Porczyk
-```
+{% endhighlight %}

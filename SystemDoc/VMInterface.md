@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: VMInterface
-permalink: /wiki/SystemDoc/VMInterface/
+permalink: /doc/SystemDoc/VMInterface/
+redirect_from: /wiki/SystemDoc/VMInterface/
 ---
 
 VM Configuration Interface

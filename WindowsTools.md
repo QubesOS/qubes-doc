@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: WindowsTools
-permalink: /wiki/WindowsTools/
+permalink: /doc/WindowsTools/
+redirect_from: /wiki/WindowsTools/
 ---
 
 Qubes Tools for Windows: advanced settings and troubleshooting

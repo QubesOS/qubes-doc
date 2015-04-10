@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: QubesResearch
-permalink: /wiki/QubesResearch/
+permalink: /doc/QubesResearch/
+redirect_from: /wiki/QubesResearch/
 ---
 
 Here are some links to various papers/research projects that somehow relate to Qubes.

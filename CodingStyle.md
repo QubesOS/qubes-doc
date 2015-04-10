@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: CodingStyle
-permalink: /wiki/CodingStyle/
+permalink: /doc/CodingStyle/
+redirect_from: /wiki/CodingStyle/
 ---
 
 Coding Guidelines for Qubes Developers
@@ -44,14 +45,14 @@ General typographic conventions
 
 -   Comments should be indent together with the code, e.g. like this:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     for (...) {
         // The following code finds PGP private key matching the given public key in O(1)
         while (key_found) {
             (...)
         }
     }
-    ```
+    {% endhighlight %}
 
 File naming conventions
 -----------------------
@@ -84,29 +85,29 @@ General programming style guidelines
 -   Use comments to explain non-trivial code fragments, or expected behavior of more complex functions, if it is not clear from their name.
 -   Do **not** use comments for code fragments where it is immediately clear what the code does. E.g. avoid constructs like this:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     // Return window id
     int get_window_id (...) {
         (...)
         return id;
     }
-    ```
+    {% endhighlight %}
 
 -   Do **not** use comments to disable code fragments. In a production code there should really be no commented or disabled code fragments. If you really, really have a good reason to retain some fragment of unused code, use \#if or \#ifdef to disable it, e.g.:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     #if 0
         (...)   // Some unused code here
     #endif
-    ```
+    {% endhighlight %}
 
     ... and preferably use some descriptive macro instead of just `0`, e.g.:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     #if USE_OLD_WINDOW_TRAVERSING
         (...)   // Some unused code here
     #endif
-    ```
+    {% endhighlight %}
 
     Not sure how to do similar thing in Python... Anyone?
 
@@ -134,7 +135,7 @@ Security coding guidelines
 -   Any input that comes from untrusted, or less trusted, or just differently-trusted, entity should always be considered as malicious and should always be sanitized and verified. So, if your software runs in Dom0 and processes some input from any of the VMs, this input should be considered to be malicious. Even if your software runs in a VM, and processes input from some other VM, you should also assume that the input is malicious and verify it.
 -   Use `untrusted_` prefix for all variables that hold values read from untrusted party and which have not yet been verified to be decent, e.g.:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
        read_struct(untrusted_conf);
        /* sanitize start */
        if (untrusted_conf.width > MAX_WINDOW_WIDTH)
@@ -143,7 +144,7 @@ Security coding guidelines
            untrusted_conf.height = MAX_WINDOW_HEIGHT;
        width = untrusted_conf.width;
        height = untrusted_conf.height;
-    ```
+    {% endhighlight %}
 
 -   Use another variables, without the `untrusted_` prefix to hold the sanitized values, as seen above.
 

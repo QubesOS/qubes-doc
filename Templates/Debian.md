@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: Debian
-permalink: /wiki/Templates/Debian/
+permalink: /doc/Templates/Debian/
+redirect_from: /wiki/Templates/Debian/
 ---
 
 Debian template
@@ -14,9 +15,9 @@ Install
 
 It can be installed via the following command:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-debian-8-x64
-```
+{% endhighlight %}
 
 Known issues
 ------------

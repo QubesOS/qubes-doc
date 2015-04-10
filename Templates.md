@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: Templates
-permalink: /wiki/Templates/
+permalink: /doc/Templates/
+redirect_from: /wiki/Templates/
 ---
 
 ITL Supported

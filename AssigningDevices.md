@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: AssigningDevices
-permalink: /wiki/AssigningDevices/
+permalink: /doc/AssigningDevices/
+redirect_from: /wiki/AssigningDevices/
 ---
 
 Assigning Devices to VMs
@@ -9,21 +10,21 @@ Assigning Devices to VMs
 
 In order to assign a whole PCI(e) device to a VM, one should use `qvm-pci` tool. E.g.
 
-``` {.wiki}
+{% highlight trac-wiki %}
 lspci
-```
+{% endhighlight %}
 
 Find the BDF address of the device you want to assign, and then:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 qvm-pci -a <vmname> <bdf>
-```
+{% endhighlight %}
 
 E.g. assuming 00:1a.0 is a BDF of the device I want to assign to the "personal" domain:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 qvm-pci -a personal 00:1a.0
-```
+{% endhighlight %}
 
 Note that one can only assign full PCI or PCI Express devices. This means one cannot assign single USB devices -- only the whole USB controller with whatever USB devices connected to it. This limit is imposed by PC and VT-d architecture.
 
@@ -39,33 +40,33 @@ Finding the right USB controller
 
 If you want assign certain USB device to a VM (by attaching a whole USB controller), you need to figure out which PCI device is the right controller. First check to which USB bus the device is connected:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 lsusb
-```
+{% endhighlight %}
 
 For example I want assign a broadband modem to the netvm. In lsusb output it can be listed as something like this (in this case device isn't fully identified):
 
-``` {.wiki}
+{% highlight trac-wiki %}
 Bus 003 Device 003: ID 413c:818d Dell Computer Corp.
-```
+{% endhighlight %}
 
 The device is connected to the USB bus \#3. Then check which other devices are connected to the same bus - all of them will be assigned to the same VM. Now is the time to find right USB controller:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 readlink /sys/bus/usb/devices/usb3
-```
+{% endhighlight %}
 
 This should output something like:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 ../../../devices/pci-0/pci0000:00/0000:00:1a.0/usb3
-```
+{% endhighlight %}
 
 Now you see BDF address in the path (right before final usb3). Strip leading "0000:" and pass the rest to qvm-pci tool:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 qvm-pci -a netvm 00:1a.0
-```
+{% endhighlight %}
 
 Possible issues
 ---------------
@@ -74,11 +75,11 @@ Possible issues
 
 VMs with assigned PCI devices in Qubes have allocated a small buffer for DMA operations (called swiotlb). By default it is 2MB, but some devices need a larger buffer. To change this allocation, edit VM's kernel parameters (this is expressed in 512B chunks):
 
-``` {.wiki}
+{% highlight trac-wiki %}
 # qvm-prefs netvm |grep kernelopts
 kernelopts       : iommu=soft swiotlb=2048 (default)
 # qvm-prefs -s netvm kernelopts "iommu=soft swiotlb=4096"
-```
+{% endhighlight %}
 
 This is [​known to be needed](https://groups.google.com/group/qubes-devel/browse_thread/thread/631c4a3a9d1186e3) for Realtek RTL8111DL Gigabit Ethernet Controller.
 
@@ -86,7 +87,7 @@ This is [​known to be needed](https://groups.google.com/group/qubes-devel/brow
 
 Sometimes PCI arbitrator is too strict. There is a way to enable permissive mode for it. Create `/etc/systemd/system/qubes-pre-netvm.service`:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 [Unit]
 Description=Netvm fixup
 Before=qubes-netvm.service
@@ -98,7 +99,7 @@ RemainAfterExit=yes
 
 [Install]
 WantedBy=multi-user.target
-```
+{% endhighlight %}
 
 Then enable it with `systemctl enable qubes-pre-netvm.service`
 
@@ -117,11 +118,11 @@ or
 
 1.  Go to the sysfs (`/sys/bus/pci`), find the right device, detach it from the pciback driver and attach back to the original driver. Replace `<BDF>` with your device, for example `00:1c.2`:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     echo 0000:<BDF> > /sys/bus/pci/drivers/pciback/unbind
     MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
     MOD=`modprobe -R $MODALIAS | head -n 1`
     echo <BDF> > /sys/bus/pci/drivers/$MOD/bind 
-    ```
+    {% endhighlight %}
 
 

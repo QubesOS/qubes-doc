@@ -1,7 +1,8 @@
 ---
-layout: wiki
-title: Developers
-permalink: /wiki/QubesDevelopers/
+layout: doc
+title: QubesDevelopers
+permalink: /doc/QubesDevelopers/
+redirect_from: /wiki/QubesDevelopers/
 ---
 
 Qubes Developers

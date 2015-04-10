@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: HCL-R2B2
-permalink: /wiki/HCL-R2B2/
+permalink: /doc/HCL-R2B2/
+redirect_from: /wiki/HCL-R2B2/
 ---
 
 Hardware Compatibility List (HCL) for R2B2 Qubes OS Release

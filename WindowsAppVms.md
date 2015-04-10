@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: WindowsAppVms
-permalink: /wiki/WindowsAppVms/
+permalink: /doc/WindowsAppVms/
+redirect_from: /wiki/WindowsAppVms/
 ---
 
 Installing and using Windows-based AppVMs
@@ -31,17 +32,17 @@ Installing Qubes support tools in Windows 7 VMs
 
 First, make sure that `qubes-windows-tools` is installed in your system:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 sudo qubes-dom0-update qubes-windows-tools
-```
+{% endhighlight %}
 
 This package brings the ISO with Qubes Windows Tools that is passed to the VM when `--install-windows-tools` is specified for the `qvm-start` command. Please note that even though the Qubes Windows Tools are proprietary, none of this software ever runs in Dom0 or any other part of the system except for the Windows AppVM in which it is to be installed.
 
 To install the Qubes Windows support tools in a Windows VM one should start the VM passing the additional option `--install-windows-tools`:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 qvm-start lab-win7 --install-windows-tools
-```
+{% endhighlight %}
 
 Once the Windows VM boots, a CDROM should appear in the 'My Computer' menu (typically as `D:`) with a setup program in its main directory.
 
@@ -53,30 +54,30 @@ After successful installation, the Windows VM must be shut down and started agai
 
 Qubes (R2 Beta 3 and later releases) will automatically detect the tools has been installed in the VM and will set appropriate properties for the VM, such as `qrexec_installed`, `guiagent_installed`, and `default_user`. This can be verified (but is not required) using qvm-prefs command:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 qvm-prefs <your-appvm-name>
-```
+{% endhighlight %}
 
 Using Windows AppVMs in seamless mode (Qubes R2 Beta 3 and later)
 -----------------------------------------------------------------
 
 Once you start a Windows-based AppVM with Qubes Tools installed, you can easily start individual applications from the VM (note the `-a` switch used here, which will auto-start the VM if it is not running):
 
-``` {.wiki}
+{% highlight trac-wiki %}
 qvm-run -a my-win7-appvm explorer.exe
-```
+{% endhighlight %}
 
 ![windows-seamless-4.png](/attachment/wiki/WindowsAppVms/windows-seamless-4.png) ![windows-seamless-1.png](/attachment/wiki/WindowsAppVms/windows-seamless-1.png)
 
 Also, the inter-VM services work as usual -- e.g. to request opening a document or URL in the Windows AppVM from another VM:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 [user@work ~]$ qvm-open-in-vm work-win7 roadmap.pptx
-```
+{% endhighlight %}
 
-``` {.wiki}
+{% highlight trac-wiki %}
 [user@work ~]$ qvm-open-in-vm work-win7 http://www.invisiblethingslab.com
-```
+{% endhighlight %}
 
 ... just like in case of Linux AppVMs. Of course all those operations are governed by central policy engine running in Dom0 -- if the policy
 
@@ -96,9 +97,9 @@ Using template-based Windows AppVMs (Qubes R2 Beta 3 and later)
 
 Qubes allows HVM VMs to share a common root filesystem from a select Template VM, just like it is done for Linux AppVMs. This mode is not limited to Windows AppVMs, and can be used for any HVM (e.g. FreeBSD running in a HVM). In order to create a HVM TemplateVM one can use the following command:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 qvm-create --hvm-template win7-x64-template -l green
-```
+{% endhighlight %}
 
 ... and install Windows OS (or other OS) into this template the same way as you would install it into a normal HVM -- please see [this page](/wiki/HvmCreate) instructions. However, it would make lots of sense to store the `C:\Users` directory on the 2nd disk which is automatically exposed by Qubes to all HVMs. This 2nd disk is backed by the `private.img` file in the AppVMs' and is not reset upon AppVMs reboot, so the user's directories and profiles would survive the AppVMs reboot, unlike the "root" filesystem which will be reverted to the "golden image" from the Template VM automatically. To facilitate such separation of user profiles, Qubes Windows Tools provide an option to automatically move `C:\Users` directory to the 2nd disk backed by `private.img`. It's a selectable feature of the installer, enabled by default. If that feature is selected during installation, completion of the process requires two reboots:
 
@@ -109,6 +110,6 @@ It also makes sense to disable Automatic Updates for all the Windows-based AppVM
 
 Once the template has been created and installed it is easy to create AppVMs based on:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 qvm-create --hvm <new windows appvm name> --template <name of template vm> --label <label color>
-```
+{% endhighlight %}

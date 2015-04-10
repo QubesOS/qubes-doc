@@ -1,7 +1,8 @@
 ---
-layout: wiki
-title: Contacts
-permalink: /wiki/QubesContacts/
+layout: doc
+title: QubesContacts
+permalink: /doc/QubesContacts/
+redirect_from: /wiki/QubesContacts/
 ---
 
 Contacting the Qubes OS Team

@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: LinuxHVMTips
-permalink: /wiki/LinuxHVMTips/
+permalink: /doc/LinuxHVMTips/
+redirect_from: /wiki/LinuxHVMTips/
 ---
 
 Tips for Linux in HVM domain
@@ -19,24 +20,24 @@ To achieve it (all commands run as root):
 
 1.  Generate XOrg configuratio (if you don't have it):
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     X -configure :1 && mv ~/xorg.conf.new /etc/X11/xorg.conf
-    ```
+    {% endhighlight %}
 
 2.  Add [HorizSync?](/wiki/HorizSync) line to Monitor section, it should look something like:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     Section "Monitor"
             Identifier   "Monitor0"
             VendorName   "Monitor Vendor"
             ModelName    "Monitor Model"
             HorizSync    30.0 - 60.0
     EndSection
-    ```
+    {% endhighlight %}
 
 3.  Change driver to "vesa" in Device section:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     Section "Device"
             # (...)
             Identifier  "Card0"
@@ -45,7 +46,7 @@ To achieve it (all commands run as root):
             BoardName   "Unknown Board"
             BusID       "PCI:0:2:0"
     EndSection
-    ```
+    {% endhighlight %}
 
 Now you should get at least 1280x1024 and be able to choose other modes.
 

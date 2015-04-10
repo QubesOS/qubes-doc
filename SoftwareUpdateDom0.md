@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: SoftwareUpdateDom0
-permalink: /wiki/SoftwareUpdateDom0/
+permalink: /doc/SoftwareUpdateDom0/
+redirect_from: /wiki/SoftwareUpdateDom0/
 ---
 
 Updating software in dom0
@@ -34,15 +35,15 @@ Of course, command line tools are still available for accomplishing various upda
 
 1.  To check and install updates for dom0 software:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     $ sudo qubes-dom0-update
-    ```
+    {% endhighlight %}
 
 1.  To install additional packages in dom0 (usually not recommended):
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     $ sudo qubes-dom0-update anti-evil-maid
-    ```
+    {% endhighlight %}
 
     You may also pass the `--enablerepo=` option in order to enable optional repositories (see yum configuration in dom0). However, this is only for advanced users who really understand what they are doing.
 
@@ -50,16 +51,16 @@ Of course, command line tools are still available for accomplishing various upda
 
 1.  Download an older version of the package:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     sudo qubes-dom0-update package-version
-    ```
+    {% endhighlight %}
 
     Yum will say that there is no update, but the package will nonetheless be downloaded to dom0.
 
 1.  Downgrade the packge:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     sudo yum downgrade package-version
-    ```
+    {% endhighlight %}
 
 

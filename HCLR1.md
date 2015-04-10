@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: HCLR1
-permalink: /wiki/HCLR1/
+permalink: /doc/HCLR1/
+redirect_from: /wiki/HCLR1/
 ---
 
 Hardware Compatibility List for Qubes OS R1

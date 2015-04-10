@@ -1,7 +1,8 @@
 ---
-layout: wiki
-title: System Documentation
-permalink: /wiki/SystemDoc/
+layout: doc
+title: SystemDoc
+permalink: /doc/SystemDoc/
+redirect_from: /wiki/SystemDoc/
 ---
 
 System Documentation for Developers

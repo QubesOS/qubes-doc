@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: amChartTest
-permalink: /wiki/amChartTest/
+permalink: /doc/amChartTest/
+redirect_from: /wiki/amChartTest/
 ---
 
 

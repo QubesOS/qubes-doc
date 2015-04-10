@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: Donations
-permalink: /wiki/Donations/
+permalink: /doc/Donations/
+redirect_from: /wiki/Donations/
 ---
 
 Donating to the Qubes Project
@@ -9,9 +10,9 @@ Donating to the Qubes Project
 
 The Qubes project is now accepting donations in Bitcoins. You can use the following address to send Bitcoins to the project (but you might want to read the short FAQ below first):
 
-``` {.wiki}
+{% highlight trac-wiki %}
 14zockMSKKp5MK6X2cHJ3mQwm9MwYsJ39j
-```
+{% endhighlight %}
 
 This address can also be found in a message posted to Qubes mailing list, which can be viewed via Google Groups Web interface over SSL [​here](https://groups.google.com/d/msg/qubes-devel/u3wAzm1dB5Y/s5CiUGDebL4J), for double verification. For additional verification, you can verify the digital signature on the message, which should come from Joanna Rutkowska.
 

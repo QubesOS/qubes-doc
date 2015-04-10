@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: SourceCode
-permalink: /wiki/SourceCode/
+permalink: /doc/SourceCode/
+redirect_from: /wiki/SourceCode/
 ---
 
 Qubes Source Code Repositories
@@ -18,14 +19,14 @@ You can browse the repositories [​on line via GitWeb](http://git.qubes-os.org/
 
 To clone a repository:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 git clone git://git.qubes-os.org/qubes-r2/<repo_name>.git <repo_name>
-```
+{% endhighlight %}
 
 e.g.:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 git clone git://git.qubes-os.org/qubes-r2/core-admin.git core-admin
-```
+{% endhighlight %}
 
 Currently the preferred way of contributing to the project is by [sending a patch](/wiki/DevelFaq#Q:HowdoIsubmitapatch) via the project's mailing list (`git format-patch`).

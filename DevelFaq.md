@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: DevelFaq
-permalink: /wiki/DevelFaq/
+permalink: /doc/DevelFaq/
+redirect_from: /wiki/DevelFaq/
 ---
 
 Qubes Developers FAQ

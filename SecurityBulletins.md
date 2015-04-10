@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: SecurityBulletins
-permalink: /wiki/SecurityBulletins/
+permalink: /doc/SecurityBulletins/
+redirect_from: /wiki/SecurityBulletins/
 ---
 
 Qubes Security Bulletins

@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: InstallationGuideR2B1
-permalink: /wiki/InstallationGuideR2B1/
+permalink: /doc/InstallationGuideR2B1/
+redirect_from: /wiki/InstallationGuideR2B1/
 ---
 
 Installation Guide (for Qubes Release 2 Beta 1)
@@ -27,9 +28,9 @@ Download installer ISO
 
 See [this page](/wiki/QubesDownloads) for ISO downloads. Remember, we have absolutely no control over those servers, and so you should be assuming that they might be compromised, or just be serving a compromised ISOs because their operators decided so, for whatever reason. Always verify the digital signature on the downloaded ISO. See this [page](/wiki/VerifyingSignatures) for more info about how to download and verify our GPG keys, and then verify the downloaded ISO:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 gpg -v <iso>.asc
-```
+{% endhighlight %}
 
 Burning the ISO onto a DVD or USB stick
 ---------------------------------------
@@ -38,9 +39,9 @@ Once you verify this is an authentic ISO, you should burn it on a DVD.
 
 If you prefer to use USB as a source for installation, then you just need to copy the ISO onto the USB device, e.g. using dd:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 dd if=Qubes-R2-Beta-1-x86_64-DVD.iso of=/dev/sdX
-```
+{% endhighlight %}
 
 **Be sure to use a correct device as the target in the dd command above (instead of sdX)'''**
 
@@ -74,10 +75,10 @@ Known Issues
 
 -   On systems with more than 8GB of RAM there is problem with Disposable VM. To fix it, limit maximum memory allocation for DispVM to 3GB
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     qvm-prefs -s fedora-17-x64-dvm maxmem 3072
     qvm-create-default-dvm --default-template --default-script
-    ```
+    {% endhighlight %}
 
 -   Qubes installer/system won't boot from a USB3-attached disks due to missing modules in initramfs (\#691). Please use USB2 port/device instead for now.
 

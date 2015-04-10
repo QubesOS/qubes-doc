@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: Dom0SecureUpdates
-permalink: /wiki/Dom0SecureUpdates/
+permalink: /doc/Dom0SecureUpdates/
+redirect_from: /wiki/Dom0SecureUpdates/
 ---
 
 Qubes Dom0 secure update procedure

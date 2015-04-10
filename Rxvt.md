@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: Rxvt
-permalink: /wiki/Rxvt/
+permalink: /doc/Rxvt/
+redirect_from: /wiki/Rxvt/
 ---
 
 Rxvt
@@ -19,7 +20,7 @@ Xresources
 
 In TemplateVM create file `/etc/X11/Xresources.urxvt` and paste config below. `!`-lines are comments and may be left out. `#`-lines are directives to CPP (C preprocessor) and are neccessary. This shouldn't go to `/etc/X11/Xresources`, because that file is not preprocessed by default.
 
-``` {.wiki}
+{% highlight trac-wiki %}
 ! CGA colour palette
 
 !*color0:                       #000000
@@ -122,15 +123,15 @@ URxvt.insecure:                 False
 
 ! some termcap-aware software sometimes throw '$TERM too long'
 !URxvt.termName:                rxvt-256color
-```
+{% endhighlight %}
 
 Then create script to automatically merge those to xrdb. File `/etc/X11/xinit/xinitrc.d/urxvt.sh`:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 #!/bin/sh
 
 [ -r /etc/X11/Xresources.urxvt ] && xrdb -merge /etc/X11/Xresources.urxvt
-```
+{% endhighlight %}
 
 Shortcuts
 ---------

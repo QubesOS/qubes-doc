@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: SimpleIntro
-permalink: /wiki/SimpleIntro/
+permalink: /doc/SimpleIntro/
+redirect_from: /wiki/SimpleIntro/
 ---
 
 A Simple Introduction to Qubes

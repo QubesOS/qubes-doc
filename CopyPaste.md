@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: CopyPaste
-permalink: /wiki/CopyPaste/
+permalink: /doc/CopyPaste/
+redirect_from: /wiki/CopyPaste/
 ---
 
 Copy and Paste between domains
@@ -51,22 +52,22 @@ Clipboard automatic policy enforcement
 
 The Qubes clipboard policy is configurable in:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 /etc/qubes-rpc/policy/qubes.ClipboardPaste
-```
+{% endhighlight %}
 
 You may wish to configure this policy in order to prevent user error. For example, if you are certain that you never wish to paste *into* your "vault" AppVM (and it is highly recommended that you do not), then you should edit the policy as follows:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 $anyvm  vault   deny
 $anyvm  $anyvm  ask
-```
+{% endhighlight %}
 
 Shortcut Configuration
 ----------------------
 
 The copy/paste shortcuts are configurable in:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 /etc/qubes/guid.conf
-```
+{% endhighlight %}

@@ -1,11 +1,12 @@
 ---
-layout: wiki
-title: home
-permalink: /wiki/
-redirect_from: 
-- "/wiki/WikiStart/"
-- "/trac/"
-- "/trac/WikiStart"
+layout: doc
+title: WikiStart
+permalink: /
+redirect_from: \
+  /wiki/
+  /wiki/WikiStart/
+  /trac/
+  /trac/WikiStart/
 ---
 
 Welcome to the Qubes OS Project

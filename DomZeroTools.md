@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: DomZeroTools
-permalink: /wiki/DomZeroTools/
+permalink: /doc/DomZeroTools/
+redirect_from: /wiki/DomZeroTools/
 ---
 
 QVM-tools:

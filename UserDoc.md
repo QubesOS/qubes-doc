@@ -1,7 +1,8 @@
 ---
-layout: wiki
-title: User Documentation
-permalink: /wiki/UserDoc/
+layout: doc
+title: UserDoc
+permalink: /doc/UserDoc/
+redirect_from: /wiki/UserDoc/
 ---
 
 Qubes User Documentation

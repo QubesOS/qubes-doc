@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: NetworkPrinter
-permalink: /wiki/NetworkPrinter/
+permalink: /doc/NetworkPrinter/
+redirect_from: /wiki/NetworkPrinter/
 ---
 
 Configuring a network printer for Qubes AppVMs

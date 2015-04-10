@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: SecurityPage
-permalink: /wiki/SecurityPage/
+permalink: /doc/SecurityPage/
+redirect_from: /wiki/SecurityPage/
 ---
 
 Reporting Security Issues in Qubes OS
@@ -18,9 +19,9 @@ Qubes Security Team
 
 The Qubes Security Team can be contacted via email using the following address:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 security at qubes-os dot org
-```
+{% endhighlight %}
 
 Qubes Security Team GPG Key
 ---------------------------

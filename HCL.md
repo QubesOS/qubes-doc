@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: HCL
-permalink: /wiki/HCL/
+permalink: /doc/HCL/
+redirect_from: /wiki/HCL/
 ---
 
 Hardware Compatibility List (HCL) for All Qubes OS Releases

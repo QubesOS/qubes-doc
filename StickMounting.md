@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: StickMounting
-permalink: /wiki/StickMounting/
+permalink: /doc/StickMounting/
+redirect_from: /wiki/StickMounting/
 ---
 
 How to Mount USB Sticks to AppVMs
@@ -19,23 +20,23 @@ A command-line tool, `qvm-block`, is also available. This tool can be used to as
 
 1.  In a dom0 console (running as normal user), list all available block devices:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     qvm-block -l
-    ```
+    {% endhighlight %}
 
 > This will list all available block devices connected to any USB controller in your system, no matter in which VM hosts the controller. The name of the VM hosting the USB controller is displayed before the colon in the device name. The string after the colon is the name of the device used within the VM.
 
 > **Note:** If your device is not listed here, you may refresh the list by calling (from the VM to which device is connected):
 >
-> ``` {.wiki}
+> {% highlight trac-wiki %}
 > sudo udevadm trigger --action=change
-> ```
+> {% endhighlight %}
 
 1.  Connect the device to an AppVM:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     qvm-block -a personal dom0:sda
-    ```
+    {% endhighlight %}
 
     **Note:** The order of these parameters was changed in Qubes 1.0-rc1.
 
@@ -47,9 +48,9 @@ A command-line tool, `qvm-block`, is also available. This tool can be used to as
 
 1.  In a dom0 console, unmount the stick:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 qvm-block -d <device> <vmname>
-```
+{% endhighlight %}
 
 1.  You may now remove the device.
 

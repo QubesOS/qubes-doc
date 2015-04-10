@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: CopyingFiles
-permalink: /wiki/CopyingFiles/
+permalink: /doc/CopyingFiles/
+redirect_from: /wiki/CopyingFiles/
 ---
 
 Copying files between domains

@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: Glossary
-permalink: /wiki/Glossary/
+permalink: /doc/Glossary/
+redirect_from: /wiki/Glossary/
 ---
 
 Glossary of Qubes Terminology

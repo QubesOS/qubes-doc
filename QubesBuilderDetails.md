@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: QubesBuilderDetails
-permalink: /wiki/QubesBuilderDetails/
+permalink: /doc/QubesBuilderDetails/
+redirect_from: /wiki/QubesBuilderDetails/
 ---
 
 [QubesBuilder](/wiki/QubesBuilder) "API"

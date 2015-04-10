@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: TestTest
-permalink: /wiki/TestTest/
+permalink: /doc/TestTest/
+redirect_from: /wiki/TestTest/
 ---
 
 This is a test page

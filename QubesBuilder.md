@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: QubesBuilder
-permalink: /wiki/QubesBuilder/
+permalink: /doc/QubesBuilder/
+redirect_from: /wiki/QubesBuilder/
 ---
 
 Building Qubes from scratch
@@ -21,15 +22,15 @@ In order to use it one should use an rpm-based distro, like Fedora :) and should
 
 Unusually one can install those packages by just issuing:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 sudo yum install git createrepo rpm-build make wget rpmdevtools pandoc
-```
+{% endhighlight %}
 
 The build system creates build environments in chroots and so no other packages are needed on the host. All files created by the build system are contained within the qubes-builder directory. The full build requires some 25GB of free space, so keep that in mind when deciding where to place this directory.
 
 The build system is configured via builder.conf file -- one should copy the attached builder.conf.default, and modify it as needed, e.g.:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 cp builder.conf.default builder.conf 
 # edit the builder.conf file and set the following variables: 
 # (make sure to leave no spaces around '=' sign!) 
@@ -39,23 +40,23 @@ NO_SIGN=1
 # and VMs is fc18 so if you want to build Qubes 2
 DIST_DOM0=fc18
 DISTS_VM=fc18
-```
+{% endhighlight %}
 
 One additional useful requirement is that 'sudo root' work without any prompt, which is default on most distros (e.g. 'sudo bash' brings you the root shell without asking for any password). This is important as the builder needs to switch to root and then back to user several times during the build process.
 
 Additionally, if building with signing enabled (so NO\_SIGN is not set), one must adjust \~/.rpmmacro file so that it point to the GPG key used for package signing, e.g.:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 %_signature gpg
 %_gpg_path /home/user/.gnupg
 %_gpg_name AC1BF9B3  # <-- Key ID used for signing
-```
+{% endhighlight %}
 
 It is also recommended to use an empty passphrase for the private key used for signing. Contrary to a popular belief, this doesn't affect your key or sources security -- if somebody compromised your system, then the game is over, whether you use additional passphrase for the key or not.
 
 So, to build Qubes one would do:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 # Import the Qubes master key 
 gpg --recv-keys 0x36879494 
 
@@ -85,15 +86,15 @@ make qubes
 # ... and then to build the ISO 
 
 make iso 
-```
+{% endhighlight %}
 
 And this should produce a shiny new ISO.
 
 You can also build selected component separately. Eg. to compile only gui virtualization agent/daemon:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 make gui-daemon
-```
+{% endhighlight %}
 
 Full list you can get from make help. For advanced use and preparing sources for use with [QubesBuilder](/wiki/QubesBuilder) take a look at [QubesBuilderDetails](/wiki/QubesBuilderDetails) page.
 
@@ -108,39 +109,39 @@ If you want to somehow modify sources, you can also do it, here are some basic s
 2.  Edit builder.conf (still the same as above), some useful additions:
     -   As time of writing this, the default is fc15, but latest supported is fc17, so switch to newer one
 
-        ``` {.wiki}
+        {% highlight trac-wiki %}
         DISTS_VM="fc17"
-        ```
+        {% endhighlight %}
 
     -   You can also set GIT\_SUBDIR="marmarek" to use my repo instead of "mainstream" - it contains newer (but less tested) versions
 
 1.  Download unmodified sources
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     make get-sources
-    ```
+    {% endhighlight %}
 
 1.  **Make your modifications here**
 
 1.  Build the Qubes
      `make qubes` actually is just meta target which build all required components in correct order
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     grep ^qubes: Makefile
     qubes: get-sources xen core kernel gui addons docs template kde-dom0 installer qubes-manager dom0-updates sign-all
-    ```
+    {% endhighlight %}
 
 > `get-sources` is already done, so continue with the next one. You can skip `sign-all` if you've disabled signing
 >
-> ``` {.wiki}
+> {% highlight trac-wiki %}
 > make xen core kernel gui addons docs template kde-dom0 installer qubes-manager dom0-updates
-> ```
+> {% endhighlight %}
 
 1.  build iso installation image
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     make iso
-    ```
+    {% endhighlight %}
 
 ### Non-default git branches
 
@@ -148,24 +149,24 @@ If you want to somehow modify sources, you can also do it, here are some basic s
 
 You can use above tool to build Qubes with some components modified. Besides manual source modification, it is possible to use non-default git repositories, or just another branches. For example to try (**unofficial, not supported**) configuration with newer kernel and xorg server, you can add to builder.conf:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 GIT_SUBDIR="marmarek"
 BRANCH_kernel=devel-3.4
 BRANCH_dom0_updates=devel/xserver-1.12
 
 # NO_SIGN=1 can also be useful
-```
+{% endhighlight %}
 
 before doing "make qubes". If you built anything before this modification, you should remove qubes-src directory first to fetch the sources again (this will also remove packages compiled before). Above devel/xserver-1.12 branch require some modification of Makefile in qubes-builder. Find dom0-updates target and replace it with:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 dom0-updates:
         MAKE_TARGET="stage0" ./build.sh $(DIST_DOM0) dom0-updates
         MAKE_TARGET="stage1" ./build.sh $(DIST_DOM0) dom0-updates
         MAKE_TARGET="stage2" ./build.sh $(DIST_DOM0) dom0-updates
         MAKE_TARGET="stage3" ./build.sh $(DIST_DOM0) dom0-updates
         MAKE_TARGET="stage4" ./build.sh $(DIST_DOM0) dom0-updates
-```
+{% endhighlight %}
 
 Then you can build qubes as usual.
 
@@ -185,11 +186,11 @@ Code verification keys management
 
 [QubesBuilder](/wiki/QubesBuilder) by default verifies signed tags on every downloaded code. Public keys used for that are stored in `keyrings/git`. By default Qubes developers' keys are imported automatically, but if you need some additional keys (for example your own), you can add them using:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 GNUPGHOME=$PWD/keyrings/git gpg --import /path/to/key.asc
 GNUPGHOME=$PWD/keyrings/git gpg --edit-key ID_OF_JUST_IMPORTED_KEY
 # here use "trust" command to set key fully or ultimately trusted - only those keys are accepted by QubesBuilder
-```
+{% endhighlight %}
 
 All Qubes developers' keys are signed by the Qubes Master Signing Key (which is set as ultimately trusted key), so are trusted automatically.
 

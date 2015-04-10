@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: BuildingNonFedoraTemplate
-permalink: /wiki/BuildingNonFedoraTemplate/
+permalink: /doc/BuildingNonFedoraTemplate/
+redirect_from: /wiki/BuildingNonFedoraTemplate/
 ---
 
 Building a TemplateVM for [ArchLinux?](/wiki/ArchLinux) (or another non fedora OS)
@@ -23,11 +24,11 @@ You need to install your OS inside a chroot that will be used to build all the r
 
 The scripts you will be interested in will be inside the qubes-src/linux-template-builder project:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 scripts_fedora
 scripts_archlinux
 scripts_yourOSname
-```
+{% endhighlight %}
 
 ### 00\_prepare.sh
 
@@ -41,19 +42,19 @@ The goal of this script is to install a base environment of your target OS insid
 
 Edit the builder.conf file to change the variable DISTS\_VM to your OS name (DISTS\_VM=your\_os\_name). The try to make the template to check that at least these to first scripts are working correctly:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 make linux-template-builder
-```
+{% endhighlight %}
 
 Qubes builder Makefiles
 -----------------------
 
 Now you need to create Makefiles specific to your OS. You will find the required scripts directly inside qubes-builder:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 prepare-chroot-yourOSname
 Makefile.yourOSname
-```
+{% endhighlight %}
 
 ### prepare-chroot-yourOSname
 
@@ -102,11 +103,11 @@ Additional Installation scripts
 
 Again you need to work on scripts inside the qubes-src/linux-template-builder project:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 scripts_fedora
 scripts_archlinux
 scripts_yourOSname
-```
+{% endhighlight %}
 
 ### 02\_install\_groups.sh
 

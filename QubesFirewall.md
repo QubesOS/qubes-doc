@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: QubesFirewall
-permalink: /wiki/QubesFirewall/
+permalink: /doc/QubesFirewall/
+redirect_from: /wiki/QubesFirewall/
 ---
 
 Understanding Qubes networking and firewall
@@ -33,15 +34,15 @@ Reconnecting AppVMs after a NetVM reboot
 
 Normally Qubes doesn't let the user to stop a NetVM if there are other AppVMs running which use it as their own NetVM. But in case the NetVM stops for whatever reason (e.g. it crashes, or the user forces its shutdown via qvm-kill via terminal in the netvm), then there is an easy way to restore the connection to the netvm by issuing:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 qvm-prefs <appvm> -s netvm <netvm>
-```
+{% endhighlight %}
 
 Normally AppVMs do not connect directly to the actual NetVM which has networking devices, but rather to the default FirewallVM first, and in most cases it would be the NetVM that would crash, e.g. in response to S3 sleep/restore or other issues with [WiFi?](/wiki/WiFi) drivers. In that case it is necessary to just issue the above command once, for the FirewallVM (this assumes default VM-nameing used by the default Qubes installation):
 
-``` {.wiki}
+{% highlight trac-wiki %}
 qvm-prefs firewallvm -s netvm netvm
-```
+{% endhighlight %}
 
 Enabling networking between two AppVMs
 --------------------------------------
@@ -55,18 +56,18 @@ In order to allow networking between AppVM A and B follow those steps:
 -   Start both AppVMs, and also open a terminal in the firewall VM
 -   In the firewall VM's terminal enter the following iptables rule:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     sudo iptables -I FORWARD 2 -s <IP address of A> -d <IP address of B> -j ACCEPT
-    ```
+    {% endhighlight %}
 
 -   Now you should be able to reach the AppVM B from A -- test it using e.g. ping issues from AppVM A. Note however, that this doesn't allow you to reach A from B -- for this you would need another rule, with A and B addresses swapped.
 -   If everything works as expected, then the above iptables rule(s) should be written into firewall VM's `qubes_firewall_user_script` script which is run on every firewall update. This is necessary, because Qubes orders every firewall VM to update all the rules whenever new VM is started in the system. If we didn't enter our rules into this "hook" script, then shortly our custom rules would disappear and inter-VM networking would stop working. Here's an example how to update the script (note that, by default, there is no script file present, so we likely will be creating it, unless we had some other custom rules defines earlier in this firewallvm):
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     [user@firewallvm ~]$ sudo bash
     [root@firewallvm user]# echo "iptables -I FORWARD 2 -s 10.137.2.25 -d 10.137.2.6 -j ACCEPT" >> /rw/config/qubes_firewall_user_script
     [root@firewallvm user]# chmod +x /rw/config/qubes_firewall_user_script
-    ```
+    {% endhighlight %}
 
 Port forwarding to an AppVM from the outside world
 --------------------------------------------------
@@ -89,15 +90,15 @@ In NetVM terminal, take note of the interface name and IPAddress on which you wa
 
 Still in NetVM terminal, code the appropriate natting firewall rule to intercept traffic on the inbound interface for the service and nat the destination IP address to the one of the firewallVM for the traffic to be routed there:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 192.168.0.10 -j DNAT --to-destination 10.137.1.x
-```
+{% endhighlight %}
 
 Code the appropriate new filtering firewall rule to allow new connections for the service:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 iptables -I FORWARD 2 -i eth0 -d 10.137.1.x -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
-```
+{% endhighlight %}
 
 Note: If you want to expose the service on multiple interfaces, repeat the steps described in part 1 for each interface.
 
@@ -113,23 +114,23 @@ In order to ensure your set-up survive a reboot we need in the NetVM to:
 
 Store these commands in ` /rw/config/rc.local `:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 sudo nano /rw/config/rc.local
-```
+{% endhighlight %}
 
-``` {.wiki}
+{% highlight trac-wiki %}
 #!/bin/sh
 
 /sbin/iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 192.168.0.10 -j DNAT --to-destination 10.137.1.x
 
 /sbin/iptables -I FORWARD 2 -s 192.168.0.0/24 -d 10.137.1.x -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
-```
+{% endhighlight %}
 
 Make this file executable:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 sudo chmod +x /rw/config/rc.local 
-```
+{% endhighlight %}
 
 **2. Allow packets to be routed from the firewallVM to the appVM**
 
@@ -139,15 +140,15 @@ In FirewallVM Terminal, take note of the IPAddress for interface eth0 using the 
 
 Still in FirewallVM terminal, code the appropriate natting firewall rule to intercept traffic on the inbound interface for the service and nat the destination IP address to the one of the AppVM for the traffic to be routed there:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 10.137.1.x -j DNAT --to-destination 10.137.2.y
-```
+{% endhighlight %}
 
 Code the appropriate new filtering firewall rule to allow new connections for the service:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 iptables -I FORWARD 2 -i eth0 -s 192.168.0.0/24 -d 10.137.2.y -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
-```
+{% endhighlight %}
 
 > Note: If you do not wish to limit the IP addresses connecting to the service, remove the ` -s 192.168.0.1/24 `
 
@@ -157,28 +158,28 @@ This time in order to ensure your set-up survive a reboot we need in the firewal
 
 Store these commands in ` /rw/config/qubes_firewall_user_script `:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 #!/bin/sh
 
 /sbin/iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 10.137.1.x -j DNAT --to-destination 10.137.2.y
 
 /sbin/iptables -I FORWARD 4 -i eth0 -s 192.168.0.0/24 -d 10.137.2.y -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
-```
+{% endhighlight %}
 
 And again make this file executable:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 sudo chmod +x /rw/config/qubes_firewall_user_script
-```
+{% endhighlight %}
 
 **3. Allow packets into the AppVM to reach the service**
 
 Here no routing is required, only filtering. Proceed in the same way as above but store the filtering rule in the `/rw/config/rc.local` script.
 
-``` {.wiki}
+{% highlight trac-wiki %}
 #!/bin/sh
 
 /sbin/iptables -I INPUT 5 -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
-```
+{% endhighlight %}
 
 This time testing should allow connectivity to the service.

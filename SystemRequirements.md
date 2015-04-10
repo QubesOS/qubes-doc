@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: SystemRequirements
-permalink: /wiki/SystemRequirements/
+permalink: /doc/SystemRequirements/
+redirect_from: /wiki/SystemRequirements/
 ---
 
 System Requirements

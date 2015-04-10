@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: UserFaq
-permalink: /wiki/UserFaq/
+permalink: /doc/UserFaq/
+redirect_from: /wiki/UserFaq/
 ---
 
 Qubes Users' FAQ
@@ -186,11 +187,11 @@ or
 
 1.  Go to the sysfs (`/sys/bus/pci`), find the right device, detach it from the pciback driver and attach back to the original driver. Replace `<BDF>` with your device, for example `00:1c.2`:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     echo 0000:<BDF> > /sys/bus/pci/drivers/pciback/unbind
     MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
     MOD=`modprobe -R $MODALIAS | head -n 1`
     echo <BDF> > /sys/bus/pci/drivers/$MOD/bind 
-    ```
+    {% endhighlight %}
 
 

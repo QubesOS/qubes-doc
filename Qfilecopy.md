@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: Qfilecopy
-permalink: /wiki/Qfilecopy/
+permalink: /doc/Qfilecopy/
+redirect_from: /wiki/Qfilecopy/
 ---
 
 InterVM file copy design

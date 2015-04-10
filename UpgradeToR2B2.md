@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: UpgradeToR2B2
-permalink: /wiki/UpgradeToR2B2/
+permalink: /doc/UpgradeToR2B2/
+redirect_from: /wiki/UpgradeToR2B2/
 ---
 
 Upgrading Qubes R1 to R2 (beta2)
@@ -19,26 +20,26 @@ By default, in Qubes R1, there is only one Template VM, however users are free t
 1.  Open terminal in the template VM (or standalone VM). E.g. use the Qubes Manager's right-click menu and choose Run Command in VM and type `gnome-terminal` there.
 2.  Install `qubes-upgrade-vm` package (this package brings in R2 repo definitions and R2 keys)
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     sudo yum install qubes-upgrade-vm
-    ```
+    {% endhighlight %}
 
 3.  Proceed with normal update in the template (this should bring in also the R2 packages for the VMs):
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     sudo yum update
-    ```
+    {% endhighlight %}
 
     The installer (yum) will prompt to accept the new Qubes R2 signing key:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     Importing GPG key 0x0A40E458:
      Userid     : "Qubes OS Release 2 Signing Key"
      Fingerprint: 3f01 def4 9719 158e f862 66f8 0c73 b9d4 0a40 e458
      Package    : qubes-upgrade-vm-1.0-1.fc17.x86_64 (@qubes-vm-current)
      From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-upgrade-qubes-2-primary
     Is this ok [y/N]:
-    ```
+    {% endhighlight %}
 
     If you see (as is the case on the "screenshot" above) that the new key was imported from a local filesystem (`/etc/pki/rpm-gpg/...`) you can safely accept the key, without checking its fingerprint. This is because there were only two ways for such a key to make it to your Template VM's filesystem:
 
@@ -52,13 +53,13 @@ Installing new template
 
 Qubes R2 Beta2 brings new fedora-18-x64 template (based on Fedora 18). You can install it from Qubes installation DVD. Insert installation DVD into your drive and issue following commmands:
 
-``` {.wiki}
+{% highlight trac-wiki %}
 $ sudo -s
 # mkdir -p /mnt/cdrom
 # mount /dev/cdrom /mnt/cdrom # you can also use ISO image instead of /dev/cdrom; then add -o loop option
 # yum install /mnt/cdrom/Packages/q/qubes-template-fedora-18-x64*rpm
 # umount /mnt/cdrom
-```
+{% endhighlight %}
 
 If you already have fedora-17-x64, you can also upgrade it to fedora-18-x64 following [​standard Fedora upgrade procedure](http://fedoraproject.org/wiki/Upgrading_Fedora_using_yum) (only "yum" method will work in Qubes VM).
 
@@ -70,31 +71,31 @@ Be sure to do steps described in this section after *all* your template and stan
 1.  Open terminal in Dom0. E.g. Start-\>System Settings-\>Konsole.
 2.  Upgrade the `qubes-release` package to the latest version which brings in new repo definitions and R2 signing keys:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     sudo qubes-dom0-update qubes-release
-    ```
+    {% endhighlight %}
 
     This should install `qubes-release-1-6` in your Dom0.
 
 3.  Install R2 upgrade package:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     sudo qubes-dom0-update --releasever=1 qubes-dist-upgrade
-    ```
+    {% endhighlight %}
 
 4.  Start upgrade process:
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     sudo qubes-dist-upgrade
-    ```
+    {% endhighlight %}
 
 5.  Follow instructions on screen, first stage of upgrade should end up with reboot request.
 6.  Reboot your system, ensure that you choose "Qubes Upgrade" boot option.
 7.  When system starts up, login and start start
 
-    ``` {.wiki}
+    {% highlight trac-wiki %}
     sudo qubes-dist-upgrade
-    ```
+    {% endhighlight %}
 
     again. This will start second stage of upgrade, here most packages will be upgraded, so this will take a while.
 

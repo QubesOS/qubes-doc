@@ -1,7 +1,8 @@
 ---
-layout: wiki
+layout: doc
 title: Propaganda
-permalink: /wiki/Propaganda/
+permalink: /doc/Propaganda/
+redirect_from: /wiki/Propaganda/
 ---
 
 Qubes Propaganda Page

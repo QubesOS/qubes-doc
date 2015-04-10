@@ -1,7 +1,8 @@
 ---
-layout: wiki
-title: Security
-permalink: /wiki/QubesSecurity/
+layout: doc
+title: QubesSecurity
+permalink: /doc/QubesSecurity/
+redirect_from: /wiki/QubesSecurity/
 ---
 
 Qubes Security
