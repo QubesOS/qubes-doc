@@ -3,6 +3,7 @@ layout: doc
 title: WikiStart
 permalink: /
 redirect_from: 
+- "/wiki/"
 - "/wiki/WikiStart/"
 - "/trac/"
 - "/trac/WikiStart/"
