@@ -11,6 +11,7 @@ Qubes Downloads
 -   [System Requirements](/wiki/SystemRequirements)
 -   [Hardware Compatibility List](/wiki/HCL)
 -   [On Digital Signatures and How to Verify Qubes Downloads](/wiki/VerifyingSignatures)
+-   [Licensing](/wiki/QubesLicensing)
 
 Qubes Release 2
 ---------------

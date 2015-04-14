@@ -20,6 +20,7 @@ For Users
 -   [On Digital Signatures and How to Verify Qubes Downloads](/wiki/VerifyingSignatures/)
 -   [Installation Guides](/wiki/QubesDownloads/)
 -   [Troubleshooting](/wiki/TroubleShooting/)
+-   [Security](/wiki/QubesSecurity/)
 
 For Developers
 --------------
@@ -31,4 +32,6 @@ For Developers
 -   [Coding Guidelines](/wiki/CodingStyle/)
 -   [Books for Developers](/wiki/DevelBooks/)
 -   [Research Papers](/wiki/QubesResearch/)
+-   [Architecture](/wiki/QubesArchitecture/)
+-   [Licensing](/wiki/QubesLicensing/)
 
