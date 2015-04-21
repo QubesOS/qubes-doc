@@ -30,7 +30,7 @@ Note we do *not* relay above on the security of our server (keys.qubes-os.org) n
 Now lets bootstrap the builder. Unfortunately the builder cannot verify itself (the classic Chicken and Egg problem), so we need to verify the signature manually:
 
 {% highlight trac-wiki %}
-$ git clone git://git.qubes-os.org/qubes-r3/qubes-builder.git
+$ git clone git://github.com/QubesOS/qubes-builder.git
 $ cd qubes-builder
 $ git describe --exact-match HEAD
 <some tag>
