@@ -14,7 +14,7 @@ The Qubes specific part is choose the right VM for the VPN client:
 
 ### NetVM
 
-The simplest case if you set up a VPN connection using the Network Manager inside your NetVM. Because the [NetworkManager?](/doc/NetworkManager/) already started you are ready to set up your VPN connection. However this has some disadvantages:
+The simplest case if you set up a VPN connection using the Network Manager inside your NetVM. Because the NetworkManager already started you are ready to set up your VPN connection. However this has some disadvantages:
 
 -   You have to place (and probably save) Your VPN credentials inside the NetVM wich is directly connected to the outside world
 -   All your AppVMs wich are connected to the NetVM will be connected to the VPN (by default)
@@ -25,7 +25,7 @@ While the Network Manager is not started here (for a good reason) You can config
 
 ### ProxyVM
 
-**WARNING:** *Currently the [NetworkManager?](/doc/NetworkManager/) is not working in ProxyVMs as expected. Actually it will mess up the routing table and because of that your packets may not be routed to the VPN tunnel. - This surely occurs if your VPN wants to be the default gateway.*
+**WARNING:** *Currently the NetworkManager is not working in ProxyVMs as expected. Actually it will mess up the routing table and because of that your packets may not be routed to the VPN tunnel. - This surely occurs if your VPN wants to be the default gateway.*
 
 One of the best thing in Qubes that you can use a special type of VMs called ProxyVM (or FirewallVM). The special thing is that your AppVMs see this as a NetVM, and the NetVMs see it as an AppVM. Because of that You can place a ProxyVM between your AppVMs and Your NetVM. This is how the default firewall VM is working.
 

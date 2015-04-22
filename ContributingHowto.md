@@ -17,7 +17,7 @@ First you should decide what you are interested in (and good in). The Qubes proj
 -   New features
 -   Artwork (plymouth themes, KDM themes, installer themes, wallpapers, etc)
 
-Perhaps the best starting point is to have a look at the [Open Issues on GitHub](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen) to see what are the most urgent tasks to do.
+Perhaps the best starting point is to have a look at the [issues](https://github.com/QubesOS/qubes-issues/issues) to see what are the most urgent tasks to do.
 
 Before you engage in some longer activity, e.g. implementing a new feature, it's always good to contact us first (preferably via the [qubes-devel](/doc/QubesLists/) list), to avoid a situation when two or more independent people would work on the same feature at the same time, doubling each others work. When you contact us and devote to a particular task, we will create a ticket for this task with info who is working on this feature and what is the expected date of some early code to be posted.
 

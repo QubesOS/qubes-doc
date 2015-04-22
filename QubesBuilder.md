@@ -64,7 +64,7 @@ gpg --recv-keys 0x36879494
 
 # Verify its fingerprint, set as 'trusted'. 
 # This is described here: 
-# https://wiki.qubes-os.org/trac/wiki/VerifyingSignatures 
+# https://www.qubes-os.org/doc/VerifyingSignatures
 
 wget http://keys.qubes-os.org/keys/qubes-developers-keys.asc 
 gpg --import qubes-developers-keys.asc 

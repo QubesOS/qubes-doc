@@ -124,7 +124,7 @@ Details of all possible use cases and the messages involved are described below.
 -   `MSG_DATA_STDOUT` or `MSG_DATA_STDIN` with data `len` field set to 0 in `msg_header` is an EOF marker. Peer receiving such message should close the associated input/output pipe.
 -   When `some_command` terminates, **domX**'s `qrexec-agent` sends `MSG_DATA_EXIT_CODE` header to `qrexec-client` followed by the exit code (**int**). `qrexec-agent` then disconnects from the data vchan.
 
-### domY: invoke execution of qubes service qubes.[SomeRpc?](/doc/SomeRpc/) in domX and pass stdin/stdout
+### domY: invoke execution of qubes service qubes.SomeRpc in domX and pass stdin/stdout
 
 -   **domY**: `qrexec-client-vm` is invoked as follows:
 

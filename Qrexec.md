@@ -55,13 +55,13 @@ In dom0, there is a bunch of files in `/etc/qubes-rpc/policy/` directory, whose 
 
 -   qubes.Filecopy
 -   qubes.OpenInVM
--   qubes.[ReceiveUpdates?](/doc/ReceiveUpdates/)
--   qubes.[SyncAppMenus?](/doc/SyncAppMenus/)
+-   qubes.ReceiveUpdates
+-   qubes.SyncAppMenus
 -   qubes.VMShell
--   qubes.[ClipboardPaste?](/doc/ClipboardPaste/)
+-   qubes.ClipboardPaste
 -   qubes.Gpg
--   qubes.[NotifyUpdates?](/doc/NotifyUpdates/)
--   qubes.[PdfConvert?](/doc/PdfConvert/)
+-   qubes.NotifyUpdates
+-   qubes.PdfConvert
 
 These files contain lines with the following format:
 
@@ -95,7 +95,7 @@ Be very careful when coding and adding a new RPC service! Any vulnerability in a
 Requesting VM-VM (and VM-Dom0) services execution (without cmdline helper)
 --------------------------------------------------------------------------
 
-Connect directly to `/var/run/qubes/qrexec-agent-fdpass` socket as described [here](https://wiki.qubes-os.org/wiki/Qrexec2Implementation#Allthepiecestogetheratwork).
+Connect directly to `/var/run/qubes/qrexec-agent-fdpass` socket as described [here](/doc/Qrexec2Implementation#Allthepiecestogetheratwork).
 
 ### Revoking "Yes to All" authorization
 

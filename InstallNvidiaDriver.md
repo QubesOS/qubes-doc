@@ -8,8 +8,8 @@ redirect_from: /wiki/InstallNvidiaDriver/
 Nvidia proprietary driver installation
 ======================================
 
-[RpmFusion?](/doc/RpmFusion/) packages
-======================================
+RpmFusion packages
+==================
 
 There are rpm packages with all necessary software on rpmfusion. The only package you have to compile is kernel module (but there is ready src.rpm package).
 

@@ -47,13 +47,13 @@ In dom0, there is a bunch of files in */etc/qubes-rpc/policy* directory, whose n
 
 -   qubes.Filecopy
 -   qubes.OpenInVM
--   qubes.[ReceiveUpdates?](/doc/ReceiveUpdates/)
--   qubes.[SyncAppMenus?](/doc/SyncAppMenus/)
+-   qubes.ReceiveUpdates
+-   qubes.SyncAppMenus
 -   qubes.VMShell
--   qubes.[ClipboardPaste?](/doc/ClipboardPaste/)
+-   qubes.ClipboardPaste
 -   qubes.Gpg
--   qubes.[NotifyUpdates?](/doc/NotifyUpdates/)
--   qubes.[PdfConvert?](/doc/PdfConvert/)
+-   qubes.NotifyUpdates
+-   qubes.PdfConvert
 
 These files contain lines with the following format:
 

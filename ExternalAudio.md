@@ -16,7 +16,7 @@ Qubes audio virtualization protocol does not implement latency reporting for sec
 Implementing external audio devices
 -----------------------------------
 
-First you need to identify an user VM dedicated to audio and [assign a device](https://wiki.qubes-os.org/wiki/AssigningDevices) to it. In the most common case the assigned device is the USB controller to which your USB audio card will be connected.
+First you need to identify an user VM dedicated to audio and [assign a device](/doc/AssigningDevices) to it. In the most common case the assigned device is the USB controller to which your USB audio card will be connected.
 
 ### Fedora VMs
 

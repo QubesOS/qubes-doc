@@ -108,7 +108,7 @@ joanna.
 
 --
 The Qubes Security Team
-http://wiki.qubes-os.org/trac/wiki/SecurityPage
+https://www.qubes-os.org/doc/SecurityPage
 
 
 [1] http://en.wikipedia.org/wiki/Warrant_canary

@@ -27,7 +27,7 @@ Installation
 Configuration
 -------------
 
-Mutt generally works out of the box. This configuration guide discusses only Qubes-specific setup. In this example we will have one TemplateVM and several AppVMs. It also takes advantage of [SplitGPG?](/doc/SplitGPG/), which is assumed to be already working.
+Mutt generally works out of the box. This configuration guide discusses only Qubes-specific setup. In this example we will have one TemplateVM and several AppVMs. It also takes advantage of [SplitGPG](/doc/UserDoc/SplitGpg/), which is assumed to be already working.
 
 **NOTE:** this requires `qubes-gpg-split >= 2.0.9`. 2.0.8 and earlier contains bug which causes this setup to hang in specific situations and does not allow to list keys.
 

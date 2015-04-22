@@ -38,7 +38,7 @@ Normally Qubes doesn't let the user to stop a NetVM if there are other AppVMs ru
 qvm-prefs <appvm> -s netvm <netvm>
 {% endhighlight %}
 
-Normally AppVMs do not connect directly to the actual NetVM which has networking devices, but rather to the default FirewallVM first, and in most cases it would be the NetVM that would crash, e.g. in response to S3 sleep/restore or other issues with [WiFi?](/doc/WiFi/) drivers. In that case it is necessary to just issue the above command once, for the FirewallVM (this assumes default VM-nameing used by the default Qubes installation):
+Normally AppVMs do not connect directly to the actual NetVM which has networking devices, but rather to the default FirewallVM first, and in most cases it would be the NetVM that would crash, e.g. in response to S3 sleep/restore or other issues with WiFi drivers. In that case it is necessary to just issue the above command once, for the FirewallVM (this assumes default VM-nameing used by the default Qubes installation):
 
 {% highlight trac-wiki %}
 qvm-prefs firewallvm -s netvm netvm

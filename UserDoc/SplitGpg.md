@@ -79,7 +79,7 @@ ssb   4096R/30498E2A 2012-11-15
 
 Note that running normal `gpg -K` in the demo above shows no private keys stored in this AppVM.
 
-### Configuring [Thunderbird/Enigmail?](/wiki/UserDoc/Thunderbird/Enigmail) for use with Split GPG
+### Configuring Thunderbird/Enigmail for use with Split GPG
 
 However, when using Thunderbird with Enigmail extension it is not enough, because Thunderbird doesn't preserve the environment variables. Instead it is recommended to use a simple script provided by `/usr/bin/qubes-gpg-client-wrapper` file by pointing Enigmail to use this script instead of the standard GnuPG binary:
 

@@ -5,12 +5,12 @@ permalink: /doc/BuildingNonFedoraTemplate/
 redirect_from: /wiki/BuildingNonFedoraTemplate/
 ---
 
-Building a TemplateVM for [ArchLinux?](/doc/ArchLinux/) (or another non fedora OS)
-==================================================================================
+Building a TemplateVM for ArchLinux (or another non fedora OS)
+==============================================================
 
 If you don't like using Fedora because of specific administration or package management / building needs, you could build a VM Template for your Distribution of choice.
 
-This article shows how to build a template for a different OS, taking [ArchLinux?](/doc/ArchLinux/) as an example.
+This article shows how to build a template for a different OS, taking ArchLinux as an example.
 
 Qubes builder scripts
 =====================

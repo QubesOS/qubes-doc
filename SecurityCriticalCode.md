@@ -22,7 +22,7 @@ Below is a code produced by the Qubes project that is security-critical.
 -   Dom0-side of the sound virtualization code (*pacat-simple-vchan*)
 -   Dom0-side in qrexec-related code (*qrexec\_daemon*)
 -   VM memory manager (*qmemman*) that runs in Dom0
--   select Qubes RPC servers that run in Dom0: qubes.[ReceiveUpdates?](/doc/ReceiveUpdates/) and qubes.[SyncAppMenus?](/doc/SyncAppMenus/)
+-   select Qubes RPC servers that run in Dom0: qubes.ReceiveUpdates and qubes.SyncAppMenus
 -   The qubes.Filecopy RPC server that runs in a VM -- this one is critical because it might allow one VM to compromise another one if user allows file copy operation to be performed between them
 
 Security-Critical 3rd-Party Components
