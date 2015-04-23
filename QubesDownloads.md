@@ -13,6 +13,15 @@ Qubes Downloads
 -   [On Digital Signatures and How to Verify Qubes Downloads](/wiki/VerifyingSignatures)
 -   [Licensing](/wiki/QubesLicensing)
 
+Qubes Release 3.0
+---------------
+
+-   [Qubes-R3.0-rc1-x86\_64-DVD.iso](http://sourceforge.net/projects/qubesos/files/Qubes-R3.0-rc1-x86_64-DVD.iso/download) (via sourceforge.net)
+-   [Digital Signature](http://sourceforge.net/projects/qubesos/files/Qubes-R3.0-rc1-x86_64-DVD.iso.asc/download) (via sourceforge.net)
+
+-   **[Installation Guide for Qubes R3.0 rc1](/doc/InstallationGuideR3.0rc1/)**
+-   [Upgrading to Qubes R3.0 rc1](/doc/InstallationGuideR3.0rc1/#upgrading)
+
 Qubes Release 2
 ---------------
 
