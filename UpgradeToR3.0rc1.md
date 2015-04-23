@@ -7,6 +7,8 @@ permalink: /doc/UpgradeToR3.0rc1/
 Upgrading Qubes R2 to R3.0-rc1
 ======================================
 
+**This instruction is highly experimental, the official way to upgrade from R2 is to backup the data and reinstall the system. Use at your own risk!**
+
 Current Qubes R3.0-rc1 (R3.0rc1) systems can be upgraded in-place to the latest R3.0 release candidate by following the procedure below. However, upgrading in-place is riskier than performing a clean installation, since there are more things which can go wrong. For this reason, **we strongly recommended that users perform a [clean installation](/doc/InstallationGuideR3.0rc1/) of Qubes R3.0 rc1**.
 
 **Before attempting either an in-place upgrade or a clean installation, we strongly recommend that users back up the system by using the built-in [backup tool](/doc/BackupRestore/).**
