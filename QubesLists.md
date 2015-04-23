@@ -34,7 +34,7 @@ The `qubes-users` Mailing List
 
 This list is for helping users solve various daily problems with Qubes OS. Examples of topics or questions suitable for this list include:
 
--   [HCL reports](/wiki/HCL#GeneratingandSubmittingNewReports).
+-   [HCL reports](/hcl/#GeneratingandSubmittingNewReports).
 -   Installation problems.
 -   Hardware compatibility problems.
 -   Bug reports.

@@ -20,7 +20,7 @@ Installation Guide (for Qubes Release 1)
 Hardware Requirements
 ---------------------
 
-Please see the [Hardware Compatibility List](/wiki/HCL) page for more information on required and recommended hardware.
+Please see the [Hardware Compatibility List](/hcl/) page for more information on required and recommended hardware.
 
 Note: We don't recommend installing Qubes in a virtual machine! It will likely not work. Don't send emails asking about it.
 

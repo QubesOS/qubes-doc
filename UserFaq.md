@@ -122,7 +122,7 @@ No. Qubes does not pretend to be a multi-user system. Qubes assumes that the use
 Installation & Hardware Compatibility
 -------------------------------------
 
-(See also: [System Requirements](/wiki/SystemRequirements) and [Hardware Compatibility List](/wiki/HCL).)
+(See also: [System Requirements](/wiki/SystemRequirements) and [Hardware Compatibility List](/hcl/).)
 
 ### How much disk space does each AppVM require?
 

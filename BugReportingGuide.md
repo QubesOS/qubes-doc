@@ -23,7 +23,7 @@ So if you have not allowed to file new tickets You should follow these guide lin
 1.  If your problem seems to be a new one, report it:
     -   as a mail, with a clear specific subject like "bug report: \<specific description\>"
     -   include steps to reproduce the problem if possible, and relevant log files (if you know)
-    -   if its a hardware related issue include your [HCL](/wiki/HCL) Support files as well.
+    -   if its a hardware related issue include your [HCL](/hcl/) Support files as well.
 
 1.  Qubes [developers](/wiki/QubesDevelopers) may ask you additional questions - please do follow up.
 
