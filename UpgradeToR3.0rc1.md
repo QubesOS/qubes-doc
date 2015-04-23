@@ -83,6 +83,7 @@ Be sure to do steps described in this section after *all* your template and stan
 Please note that if you use Anti Evil Maid, then it won't be able to unseal the passphrase this time, because the Xen, kernel, and initramfs binaries have changed. Once the system boots up again, you could reseal your Anti Evil Maid's passphrase to the new configuration. Please consult Anti Evil Maid documentation for explanation on how to do that.
 
 Now, when you have dom0 upgraded, you can install new templates from Qubes R3.0 repositories. Especially Fedora 21 - default Qubes R3.0 template:
+
     sudo qubes-dom0-update qubes-template-fedora-21
 
 Upgrading template on already upgraded dom0
@@ -98,6 +99,7 @@ When you start R2 template/standalone VM on R3.0, there will be some limitations
 Because of above limitations, you will need to configure some of those manually. The instruction assumes the VM name is `custom-template`, but the same instructions can be applied to a standalone VM.
 
 1.Check the VM network parameters, you will need them later:
+
 ```
 [user@dom0 ~]$ qvm-ls -n custom-template
 -------------------+----+--------+-------+------+-------------+-------+-------------+---------+-------------+
@@ -106,7 +108,9 @@ Because of above limitations, you will need to configure some of those manually.
  [custom-template] |    | Halted |   Yes |  Tpl | *firewallvm | black | 10.137.1.53 |     n/a |  10.137.1.1 |
 
 ```
+
 2.Start the VM from command line:
+
 ```
 [user@dom0 ~]$ qvm-start custom-template
 --> Loading the VM (type = TemplateVM)...
@@ -118,6 +122,7 @@ Because of above limitations, you will need to configure some of those manually.
 Waiting for VM's qrexec agent.............................................................Cannot connect to 'custom-template' qrexec agent for 60 seconds, giving up
 ERROR: Cannot execute qrexec-daemon!
 ```
+
 You can interrupt with Ctrl-C that qrexec waiting process.
 
 3.Access VM console:
