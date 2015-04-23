@@ -47,7 +47,7 @@ Qubes User Documentation
             3.  [​How to make proxy for individual tcp connection from networkless VM](https://groups.google.com/group/qubes-devel/msg/4ca950ab6d7cd11a)
             4.  [​HTTP filtering proxy in Qubes firewall VM](https://groups.google.com/group/qubes-devel/browse_thread/thread/5252bc3f6ed4b43e/d881deb5afaa2a6c#39c95d63fccca12b)
 
-    5.  **TemplateVMs**
+    5.  **[TemplateVMs](/doc/Templates/)**
         1.  [Updating and Installing Software in VMs](/wiki/SoftwareUpdateVM/)
         2.  [Templates: Fedora - minimal](/wiki/Templates/FedoraMinimal/)
         3.  [Templates: Debian](/wiki/Templates/Debian/)
