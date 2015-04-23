@@ -100,28 +100,24 @@ Because of above limitations, you will need to configure some of those manually.
 
 1.Check the VM network parameters, you will need them later:
 
-```
-[user@dom0 ~]$ qvm-ls -n custom-template
--------------------+----+--------+-------+------+-------------+-------+-------------+---------+-------------+
-              name | on |  state | updbl | type |       netvm | label |          ip | ip back | gateway/DNS |
--------------------+----+--------+-------+------+-------------+-------+-------------+---------+-------------+
- [custom-template] |    | Halted |   Yes |  Tpl | *firewallvm | black | 10.137.1.53 |     n/a |  10.137.1.1 |
+    [user@dom0 ~]$ qvm-ls -n custom-template
+    -------------------+----+--------+-------+------+-------------+-------+-------------+---------+-------------+
+                  name | on |  state | updbl | type |       netvm | label |          ip | ip back | gateway/DNS |
+    -------------------+----+--------+-------+------+-------------+-------+-------------+---------+-------------+
+     [custom-template] |    | Halted |   Yes |  Tpl | *firewallvm | black | 10.137.1.53 |     n/a |  10.137.1.1 |
 
-```
 
 2.Start the VM from command line:
 
-```
-[user@dom0 ~]$ qvm-start custom-template
---> Loading the VM (type = TemplateVM)...
---> Starting Qubes DB...
---> Setting Qubes DB info for the VM...
---> Updating firewall rules...
---> Starting the VM...
---> Starting the qrexec daemon...
-Waiting for VM's qrexec agent.............................................................Cannot connect to 'custom-template' qrexec agent for 60 seconds, giving up
-ERROR: Cannot execute qrexec-daemon!
-```
+    [user@dom0 ~]$ qvm-start custom-template
+    --> Loading the VM (type = TemplateVM)...
+    --> Starting Qubes DB...
+    --> Setting Qubes DB info for the VM...
+    --> Updating firewall rules...
+    --> Starting the VM...
+    --> Starting the qrexec daemon...
+    Waiting for VM's qrexec agent.............................................................Cannot connect to 'custom-template' qrexec agent for 60 seconds, giving up
+    ERROR: Cannot execute qrexec-daemon!
 
 You can interrupt with Ctrl-C that qrexec waiting process.
 
