@@ -51,8 +51,11 @@ It is critical to complete this step **before** proceeding to dom0 upgrade. Othe
         sudo apt-get update
         sudo apt-get dist-upgrade
 
-    There will be some error messages during the process, but our tests 
-    Update of `qubesdb-vm` package will lo (after 3min timeout), but you can ignore this problem for now. After completing
+    There will be some error messages during the process, but our tests does
+    not revealed any negative consequences.
+    Update of `qubesdb-vm` package will restart the service, which will fail
+    (after 3min timeout), but you can ignore this problem for now. After
+    completing the whole upgrade the service will be properly restarted.
 
 4.  Shutdown the template VM.
 
