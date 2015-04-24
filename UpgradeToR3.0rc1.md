@@ -76,7 +76,11 @@ Be sure to do steps described in this section after *all* your template and stan
 
 4.  If above step completed successfully you should have `qubes-core-dom0` at least 3.0.8. If not, repeat above step with additional `--clean` option.
 
-5.  Reboot the system.
+5.  Enable Xen services:
+        
+        sudo systemctl enable xenconsoled.service xenstored.service
+
+6.  Reboot the system.
     
     It may happen that the system hang during the reboot. Hard reset the system in such case, all the filesystems are unmounted at this stage.
 
