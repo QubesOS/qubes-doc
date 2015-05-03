@@ -10,22 +10,69 @@ Bug Reporting Guide
 
 One of the most important contribution task is reporting the bugs you have found.
 
-All bugs and suggestions should be reported to one of our [mailing list](/wiki/QubesLists). We decided that at this stage access to the wiki and the [ticketing system](/report/3) should be limited and per-invitation only, and generally granted to those people who actually can first demonstrate that they are capable of contributing something useful to the project. Our main goal is to build a quality product, and this has a priority over building "a large community".
+Asking a Question
+-----------------
 
-So if you have not allowed to file new tickets You should follow these guide lines:
+Before you ask, do some searching and reading. Check [the
+docs](https://www.qubes-os.org/doc/), Google, GitHub, and StackOverflow. If
+your question is something that has been answered many times before, the
+project maintainers might be tired of repeating themselves.
 
-1.  Search the issue tracker to see if your issue is already there - if so please cite the issue \# in any comments you post.
-    -   [Simple search](/search)
-    -   [​Advanced search](https://wiki.qubes-os.org/query?status=accepted&status=assigned&status=new&status=reopened&order=priority)
+Whenever possible, ask your question on the Qubes mailing list which is
+located [here](https://groups.google.com/forum/#!forum/qubes-users). This
+allows anyone to answer and makes the answer available for the next person
+with the same question.
 
-1.  Search the [mailing lists](/wiki/QubesLists) to see if your issue is already discussed - if so, add your comments to the existing thread.
+Submitting a Bug Report (or "Issue")
+------------------------------------
 
-1.  If your problem seems to be a new one, report it:
-    -   as a mail, with a clear specific subject like "bug report: \<specific description\>"
-    -   include steps to reproduce the problem if possible, and relevant log files (if you know)
-    -   if its a hardware related issue include your [HCL](/hcl/) Support files as well.
+In GitHub, "Bug Reports" are called "Issues."
 
-1.  Qubes [developers](/wiki/QubesDevelopers) may ask you additional questions - please do follow up.
+Issues can be submitted to the Qubes project located at
+[https://github.com/QubesOS/qubes-issues](https://github.com/QubesOS/qubes-issues).
 
-1.  If the issue can be validated as a definite bug then they enters it into the [issue tracker](/report/3).
+### Has This Been Asked Before?
 
+Before you submit a bug report, you should search existing issues. Be sure
+to check both currently open issues, as well as issues that are already
+closed. If you find an issue that seems to be similar to yours, read
+through it.
+
+If this issue is the same as yours, you can comment with additional
+information to help the maintainer debug it. Adding a comment will
+subscribe you to email notifications, which can be helpful in getting
+important updates regarding the issue. If you don't have anything to add
+but still want to receive email updates, you can click the "watch" button
+at the bottom of the comments.
+
+### Nope, Hasn't Been Asked Before
+
+If you can't find anything in the existing issues, don't be shy about
+filing a new one.
+
+You should be sure to include the version the project, as well as versions
+of related software. For example, be sure to include the Qubes release
+version (R2, R3) and specific version numbers of package causing problems
+(if known)
+If your issue is related to hardware, provide as many details as possible
+about the hardware, which could include using commandline tools such as
+lspci.
+
+Project maintainers really appreciate thorough explanations. It usually
+helps them address the problem more quickly, so everyone wins!
+
+Improving the Code
+------------------
+
+The best way is to "Fork" the repo on GitHub. This will create a copy of
+the repo on your GitHub account.
+
+Before you set out to improve the code, you should have a focused idea in
+mind of what you want to do.
+
+Each commit should do one thing, and each PR should be one specific
+improvement. Each PR needs to be signed.
+
+* [How can I contribute to the Qubes Project?](https://www.qubes-os.org/doc/ContributingHowto/)
+* [Developer Documentation](https://www.qubes-os.org/doc/)
+* [Package Release Workflow](https://github.com/QubesOS/qubes-builder/blob/master/doc/ReleaseManagerWorkflow.md)
