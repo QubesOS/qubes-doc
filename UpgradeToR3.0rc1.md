@@ -20,7 +20,7 @@ Upgrade all Template and Standalone VM(s)
 
 By default, in Qubes R2, there is only one Template VM, however users are free to create more Template VMs for special purposes, as well as Standalone VMs. More information on using multiple Template VMs, as well as Standalone VMs, can be found [here](/doc/SoftwareUpdateVM/). The steps described in this section should be repeated in **all** user's Template and Standalone VMs.
 
-It is critical to complete this step **before** proceeding to dom0 upgrade. Otherwise you will most likely ends with unusable system.
+It is critical to complete this step **before** proceeding to dom0 upgrade. Otherwise you will most likely end with unusable system.
 
 ### Upgrade Fedora template:
 
@@ -62,7 +62,7 @@ It is critical to complete this step **before** proceeding to dom0 upgrade. Othe
 Upgrading dom0
 --------------
 
-Be sure to do steps described in this section after *all* your template and standalone VMs got updated as described in the section above. Also make sure you haven't shutdown any of: netvm, firewallvm, fedora-18-x64 (or to be more precise: template which your netvm and firewallvm is based on).
+Be sure to do steps described in this section after *all* your template and standalone VMs got updated as described in the section above. Also make sure you haven't shutdown any of: netvm, firewallvm - you will not be able to start them again.
 
 1.  Open terminal in Dom0. E.g. Start-\>System Settings-\>Konsole.
 2.  Upgrade the `qubes-release` package to the latest version which brings in new repo definitions and R2 signing keys:
