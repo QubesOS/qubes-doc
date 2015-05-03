@@ -32,6 +32,7 @@ System Documentation for Developers
 3.  Debugging:
     1.  [Profiling python code](/wiki/Profiling)
     2.  [Test environment in separate machine for automatic tests](/wiki/TestBench)
+    3.  [Automated tests](/doc/AutomatedTests/)
     3.  [VM-dom0 internal configuration interface](/wiki/SystemDoc/VMInterface)
     4.  [Debugging Windows VMs](/wiki/WindowsDebugging)
 
