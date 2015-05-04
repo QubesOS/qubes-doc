@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: WikiStart
+title: Qubes OS Project
 permalink: /
 redirect_from: 
 - "/wiki/"
