@@ -5,4 +5,28 @@ permalink: /doc/VmTools/QvmOpenInVm/
 redirect_from: /wiki/VmTools/QvmOpenInVm/
 ---
 
-[Include(http://git.qubes-os.org/?p=marmarek/core-agent-linux.git;a=blob\_plain;f=doc/vm-tools/qvm-open-in-vm.rst;hb=master, text/x-rst)?](/wiki/VmTools/Include(http%3A/git.qubes-os.org?p=marmarek/core-agent-linux.git;a=blob_plain;f=doc/vm-tools/qvm-open-in-vm.rst;hb=master,%20text/x-rst))
+qvm-open-in-vm
+==============
+
+NAME
+----
+
+qvm-open-in-vm - open a specified file in other VM
+
+Date  
+2012-05-30
+
+SYNOPSIS
+--------
+
+qvm-open-in-vm vmname filename
+
+OPTIONS
+-------
+
+AUTHORS
+-------
+
+Joanna Rutkowska \<joanna at invisiblethingslab dot com\>
+Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>
+Marek Marczykowski \<marmarek at invisiblethingslab dot com\>

@@ -5,4 +5,34 @@ permalink: /doc/Dom0Tools/QvmSyncAppmenus/
 redirect_from: /wiki/Dom0Tools/QvmSyncAppmenus/
 ---
 
-[Include(http://git.qubes-os.org/?p=marmarek/core-admin-linux.git;a=blob\_plain;f=doc/tools/qvm-sync-appmenus.rst;hb=master, text/x-rst)?](/wiki/Dom0Tools/Include(http%3A/git.qubes-os.org?p=marmarek/core-admin-linux.git;a=blob_plain;f=doc/tools/qvm-sync-appmenus.rst;hb=master,%20text/x-rst))
+qvm-sync-appmenus
+=================
+
+NAME
+----
+
+qvm-sync-appmenus - updates desktop file templates for given StandaloneVM or TemplateVM
+
+Date  
+2012-04-11
+
+SYNOPSIS
+--------
+
+qvm-sync-appmenus [options] \<vm-name\>
+
+OPTIONS
+-------
+
+-h, --help  
+Show this help message and exit
+
+-v, --verbose  
+Run in verbose mode
+
+AUTHORS
+-------
+
+Joanna Rutkowska \<joanna at invisiblethingslab dot com\>
+Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>
+Marek Marczykowski \<marmarek at invisiblethingslab dot com\>

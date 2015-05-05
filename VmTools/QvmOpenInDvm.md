@@ -5,4 +5,28 @@ permalink: /doc/VmTools/QvmOpenInDvm/
 redirect_from: /wiki/VmTools/QvmOpenInDvm/
 ---
 
-[Include(http://git.qubes-os.org/?p=marmarek/core-agent-linux.git;a=blob\_plain;f=doc/vm-tools/qvm-open-in-dvm.rst;hb=master, text/x-rst)?](/wiki/VmTools/Include(http%3A/git.qubes-os.org?p=marmarek/core-agent-linux.git;a=blob_plain;f=doc/vm-tools/qvm-open-in-dvm.rst;hb=master,%20text/x-rst))
+qvm-open-in-dvm
+===============
+
+NAME
+----
+
+qvm-open-in-dvm - open a specified file in disposable VM
+
+Date  
+2012-05-30
+
+SYNOPSIS
+--------
+
+qvm-open-in-dvm filename
+
+OPTIONS
+-------
+
+AUTHORS
+-------
+
+Joanna Rutkowska \<joanna at invisiblethingslab dot com\>
+Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>
+Marek Marczykowski \<marmarek at invisiblethingslab dot com\>

@@ -7,7 +7,6 @@ redirect_from: /wiki/DomZeroTools/
 
 QVM-tools:
 
--   [qubes-dom0-network-via-netvm](/wiki/Dom0Tools/QubesDom0NetworkViaNetvm)
 -   [qubes-dom0-update](/wiki/Dom0Tools/QubesDom0Update)
 -   [qubes-prefs](/wiki/Dom0Tools/QubesPrefs)
 -   [qvm-add-appvm](/wiki/Dom0Tools/QvmAddAppvm)
