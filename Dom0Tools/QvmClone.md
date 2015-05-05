@@ -5,4 +5,37 @@ permalink: /doc/Dom0Tools/QvmClone/
 redirect_from: /wiki/Dom0Tools/QvmClone/
 ---
 
-[Include(http://git.qubes-os.org/?p=marmarek/core-admin.git;a=blob\_plain;f=doc/qvm-tools/qvm-clone.rst;hb=master, text/x-rst)?](/wiki/Dom0Tools/Include(http%3A/git.qubes-os.org?p=marmarek/core-admin.git;a=blob_plain;f=doc/qvm-tools/qvm-clone.rst;hb=master,%20text/x-rst))
+qvm-clone
+=========
+
+NAME
+----
+
+qvm-clone - clones an existing VM by copying all its disk files
+
+Date  
+2012-04-10
+
+SYNOPSIS
+--------
+
+qvm-clone [options] \<src-name\> \<new-name\>
+
+OPTIONS
+-------
+
+-h, --help  
+Show this help message and exit
+
+-q, --quiet  
+Be quiet
+
+-p DIR\_PATH, --path=DIR\_PATH  
+Specify path to the template directory
+
+AUTHORS
+-------
+
+Joanna Rutkowska \<joanna at invisiblethingslab dot com\>
+Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>
+Marek Marczykowski \<marmarek at invisiblethingslab dot com\>

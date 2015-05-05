@@ -5,4 +5,31 @@ permalink: /doc/Dom0Tools/QvmTemplateCommit/
 redirect_from: /wiki/Dom0Tools/QvmTemplateCommit/
 ---
 
-[Include(http://git.qubes-os.org/?p=marmarek/core-admin.git;a=blob\_plain;f=doc/qvm-tools/qvm-template-commit.rst;hb=master, text/x-rst)?](/wiki/Dom0Tools/Include(http%3A/git.qubes-os.org?p=marmarek/core-admin.git;a=blob_plain;f=doc/qvm-tools/qvm-template-commit.rst;hb=master,%20text/x-rst))
+qvm-template-commit
+===================
+
+NAME
+----
+
+qvm-template-commit
+
+Date  
+2012-04-11
+
+SYNOPSIS
+--------
+
+qvm-template-commit [options] \<vm-name\>
+
+OPTIONS
+-------
+
+-h, --help  
+Show this help message and exit
+
+AUTHORS
+-------
+
+Joanna Rutkowska \<joanna at invisiblethingslab dot com\>
+Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>
+Marek Marczykowski \<marmarek at invisiblethingslab dot com\>

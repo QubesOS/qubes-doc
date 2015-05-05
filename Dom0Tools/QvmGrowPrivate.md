@@ -5,4 +5,31 @@ permalink: /doc/Dom0Tools/QvmGrowPrivate/
 redirect_from: /wiki/Dom0Tools/QvmGrowPrivate/
 ---
 
-[Include(http://git.qubes-os.org/?p=marmarek/core-admin.git;a=blob\_plain;f=doc/qvm-tools/qvm-grow-private.rst;hb=master, text/x-rst)?](/wiki/Dom0Tools/Include(http%3A/git.qubes-os.org?p=marmarek/core-admin.git;a=blob_plain;f=doc/qvm-tools/qvm-grow-private.rst;hb=master,%20text/x-rst))
+qvm-grow-private
+================
+
+NAME
+----
+
+qvm-grow-private - increase private storage capacity of a specified VM
+
+Date  
+2012-04-10
+
+SYNOPSIS
+--------
+
+qvm-grow-private \<vm-name\> \<size\>
+
+OPTIONS
+-------
+
+-h, --help  
+Show this help message and exit
+
+AUTHORS
+-------
+
+Joanna Rutkowska \<joanna at invisiblethingslab dot com\>
+Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>
+Marek Marczykowski \<marmarek at invisiblethingslab dot com\>

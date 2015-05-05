@@ -5,4 +5,34 @@ permalink: /doc/Dom0Tools/QvmBackup/
 redirect_from: /wiki/Dom0Tools/QvmBackup/
 ---
 
-[Include(http://git.qubes-os.org/?p=marmarek/core-admin.git;a=blob\_plain;f=doc/qvm-tools/qvm-backup.rst;hb=master, text/x-rst)?](/wiki/Dom0Tools/Include(http%3A/git.qubes-os.org?p=marmarek/core-admin.git;a=blob_plain;f=doc/qvm-tools/qvm-backup.rst;hb=master,%20text/x-rst))
+qvm-backup
+==========
+
+NAME
+----
+
+qvm-backup
+
+Date  
+2012-04-10
+
+SYNOPSIS
+--------
+
+qvm-backup [options] \<backup-dir-path\>
+
+OPTIONS
+-------
+
+-h, --help  
+Show this help message and exit
+
+-x EXCLUDE\_LIST, --exclude=EXCLUDE\_LIST  
+Exclude the specified VM from backup (might be repeated)
+
+AUTHORS
+-------
+
+Joanna Rutkowska \<joanna at invisiblethingslab dot com\>
+Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>
+Marek Marczykowski \<marmarek at invisiblethingslab dot com\>
