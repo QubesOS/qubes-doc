@@ -10,7 +10,14 @@ Mutt
 
 Mutt is a fast, standards-compliant, efficient MUA (Mail User Agent). In some areas it works better than Thunderbird+Enigmail, and is certainly faster and more responsive.
 
-Mutt lacks true MTA (Message Transfer Agent aka "SMTP client") and MRA (Mail Retrieval Agent aka "IMAP/POP3 client"), thus there are some provisions built-in. In principle it is only mail reader and composer. You may install true MTA such as [Postfix](/wiki/Postfix) or Exim and MRA such as [Fetchmail](/wiki/Fetchmail).
+Mutt lacks true MTA (Message Transfer Agent aka "SMTP client") and MRA (Mail
+Retrieval Agent aka "IMAP/POP3 client"), thus there are some provisions
+built-in. In principle it is only mail reader and composer. You may install
+true MTA such as [Postfix](/wiki/Postfix) or Exim and MRA such as
+[Fetchmail](/wiki/Fetchmail). Alternativelly you can synchronize your mailbox
+using [OfflineIMAP](https://github.com/OfflineIMAP/offlineimap) and just stick
+to integrated SMTP support. You can even use itegrated IMAP client, but it is
+not very convenient.
 
 Installation
 ------------
