@@ -19,7 +19,7 @@ First you should decide what you are interested in (and good in). The Qubes proj
 
 Perhaps the best starting point is to have a look at the [Open Issues on GitHub](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen) to see what are the most urgent tasks to do.
 
-Before you engage in some longer activity, e.g. implementing a new feature, it's always good to contact us first (preferably via the [qubes-devel](/wiki/QubesLists) list), to avoid a situation when two or more independent people would work on the same feature at the same time, doubling each others work. When you contact us and devote to a particular task, we will create a ticket for this task with info who is working on this feature and what is the expected date of some early code to be posted.
+Before you engage in some longer activity, e.g. implementing a new feature, it's always good to contact us first (preferably via the [qubes-devel](/doc/QubesLists/) list), to avoid a situation when two or more independent people would work on the same feature at the same time, doubling each others work. When you contact us and devote to a particular task, we will create a ticket for this task with info who is working on this feature and what is the expected date of some early code to be posted.
 
 You can also contribute in other areas than coding and testing, e.g. by providing mirrors for Qubes rpm repositories, providing feedback about what features you would like to have in Qubes, or perhaps even preparing some cool You Tube videos that would demonstrate some Qubes' features. You are always encouraged to discuss your ideas on qubes-devel.
 

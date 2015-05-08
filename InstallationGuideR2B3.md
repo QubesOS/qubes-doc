@@ -27,7 +27,7 @@ Note: We don't recommend installing Qubes in a virtual machine! It will likely n
 Download installer ISO
 ----------------------
 
-See [this page](/wiki/QubesDownloads) for ISO downloads. Remember, we have absolutely no control over those servers, and so you should be assuming that they might be compromised, or just be serving a compromised ISOs because their operators decided so, for whatever reason. Always verify the digital signature on the downloaded ISO. See this [page](/wiki/VerifyingSignatures) for more info about how to download and verify our GPG keys, and then verify the downloaded ISO:
+See [this page](/doc/QubesDownloads/) for ISO downloads. Remember, we have absolutely no control over those servers, and so you should be assuming that they might be compromised, or just be serving a compromised ISOs because their operators decided so, for whatever reason. Always verify the digital signature on the downloaded ISO. See this [page](/doc/VerifyingSignatures/) for more info about how to download and verify our GPG keys, and then verify the downloaded ISO:
 
 {% highlight trac-wiki %}
 gpg -v <iso>.asc
@@ -63,9 +63,9 @@ The installer loads Xen right at the beginning, so chances are high that if you 
 Upgrading from Qubes R1 or R2 Beta 2
 ------------------------------------
 
-The easiest and safest way to upgrade to Qubes R2B3 is to install it from scratch and use [qubes backup and restore tools](/wiki/BackupRestore) for migrating of all of the user VMs.
+The easiest and safest way to upgrade to Qubes R2B3 is to install it from scratch and use [qubes backup and restore tools](/doc/BackupRestore/) for migrating of all of the user VMs.
 
-Users can also try a manual upgrade procedure that has been described [here](/wiki/UpgradeToR2B3).
+Users can also try a manual upgrade procedure that has been described [here](/doc/UpgradeToR2B3/).
 
 Note: if the user has custom Template VMs (i.e. other than the default template, e.g. created from it by cloning), or Standalone VMs, then the user should perform manual upgrade from R2B2 to R2B3, as described under the link given above.
 
@@ -76,8 +76,8 @@ NOTE: Updates has been released after R2B3 ISO has been built -- it is recommend
 
 Installing updates is very easy and can be done using the "Update" button in the Qubes Manager. Alternatively it can also be done from command prompt -- see the following for more details:
 
--   For installing updates for Dom0 -- see instructions [here](/wiki/SoftwareUpdateDom0).
--   For installing updates for you domains (VMs) -- see instructions [here](/wiki/SoftwareUpdateVM).
+-   For installing updates for Dom0 -- see instructions [here](/doc/SoftwareUpdateDom0/).
+-   For installing updates for you domains (VMs) -- see instructions [here](/doc/SoftwareUpdateVM/).
 
 Troubleshooting problems with the installer
 -------------------------------------------
@@ -108,9 +108,9 @@ Known Issues
 Getting Help
 ------------
 
--   **User manuals are [here](/wiki/UserDoc).** (Strongly recommended!)
+-   **User manuals are [here](/doc/UserDoc/).** (Strongly recommended!)
 
--   Developers documentation (normally not needed by users) is [here](/wiki/SystemDoc)
+-   Developers documentation (normally not needed by users) is [here](/doc/SystemDoc/)
 
 -   If you don't find answer in the sources given above, write to the *qubes-users* mailing list (you don't need to be subscribed to the list, just send email to the address given below):
     -   [http://groups.google.com/group/qubes-users](http://groups.google.com/group/qubes-users)

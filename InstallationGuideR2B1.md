@@ -26,7 +26,7 @@ Note: We don't recommend installing Qubes in a virtual machine! It will likely n
 Download installer ISO
 ----------------------
 
-See [this page](/wiki/QubesDownloads) for ISO downloads. Remember, we have absolutely no control over those servers, and so you should be assuming that they might be compromised, or just be serving a compromised ISOs because their operators decided so, for whatever reason. Always verify the digital signature on the downloaded ISO. See this [page](/wiki/VerifyingSignatures) for more info about how to download and verify our GPG keys, and then verify the downloaded ISO:
+See [this page](/doc/QubesDownloads/) for ISO downloads. Remember, we have absolutely no control over those servers, and so you should be assuming that they might be compromised, or just be serving a compromised ISOs because their operators decided so, for whatever reason. Always verify the digital signature on the downloaded ISO. See this [page](/doc/VerifyingSignatures/) for more info about how to download and verify our GPG keys, and then verify the downloaded ISO:
 
 {% highlight trac-wiki %}
 gpg -v <iso>.asc
@@ -54,15 +54,15 @@ The installer loads Xen right at the beginning, so chances are high that if you 
 Upgrading from Qubes R1
 -----------------------
 
-If you're already running Qubes Release 1, you don't need to reinstall, it's just enough to update the packages in your Dom0 and the template VM(s). This procedure is described [here?](/wiki/UpgradeToR2).
+If you're already running Qubes Release 1, you don't need to reinstall, it's just enough to update the packages in your Dom0 and the template VM(s). This procedure is described [here?](/doc/UpgradeToR2/).
 
 Installing Updates
 ------------------
 
 Installing updates is very easy and can be done using the "Update" button in the Qubes Manager. Alternatively it can also be done from command prompt -- see the following for more details:
 
--   For installing updates for Dom0 -- see instructions [here](/wiki/SoftwareUpdateDom0).
--   For installing updates for you domains (VMs) -- see instructions [here](/wiki/SoftwareUpdateVM).
+-   For installing updates for Dom0 -- see instructions [here](/doc/SoftwareUpdateDom0/).
+-   For installing updates for you domains (VMs) -- see instructions [here](/doc/SoftwareUpdateVM/).
 
 Known Issues
 ------------
@@ -87,9 +87,9 @@ Known Issues
 Getting Help
 ------------
 
--   **User manuals are [here](/wiki/UserDoc).** (Strongly recommended!)
+-   **User manuals are [here](/doc/UserDoc/).** (Strongly recommended!)
 
--   Developers documentation (normally not needed by users) is [here](/wiki/SystemDoc)
+-   Developers documentation (normally not needed by users) is [here](/doc/SystemDoc/)
 
 -   If you don't find answer in the sources given above, write to the *qubes-devel* mailing list (you don't need to be subscribed to the list, just send email to the address given below):
     -   [http://groups.google.com/group/qubes-devel](http://groups.google.com/group/qubes-devel)

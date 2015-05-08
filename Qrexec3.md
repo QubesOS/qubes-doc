@@ -47,13 +47,13 @@ In dom0, there is a bunch of files in */etc/qubes-rpc/policy* directory, whose n
 
 -   qubes.Filecopy
 -   qubes.OpenInVM
--   qubes.[ReceiveUpdates?](/wiki/ReceiveUpdates)
--   qubes.[SyncAppMenus?](/wiki/SyncAppMenus)
+-   qubes.[ReceiveUpdates?](/doc/ReceiveUpdates/)
+-   qubes.[SyncAppMenus?](/doc/SyncAppMenus/)
 -   qubes.VMShell
--   qubes.[ClipboardPaste?](/wiki/ClipboardPaste)
+-   qubes.[ClipboardPaste?](/doc/ClipboardPaste/)
 -   qubes.Gpg
--   qubes.[NotifyUpdates?](/wiki/NotifyUpdates)
--   qubes.[PdfConvert?](/wiki/PdfConvert)
+-   qubes.[NotifyUpdates?](/doc/NotifyUpdates/)
+-   qubes.[PdfConvert?](/doc/PdfConvert/)
 
 These files contain lines with the following format:
 
@@ -124,4 +124,4 @@ and we should get "3" as answer, after dom0 allows it.
 Qubes RPC internals
 -------------------
 
-See [QrexecProtocol?](/wiki/QrexecProtocol).
+See [QrexecProtocol?](/doc/QrexecProtocol/).

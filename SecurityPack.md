@@ -18,7 +18,7 @@ Introduction
 
 The **Qubes Security Pack (QSP)** is a Git repository which contains:
 
--   [All Qubes Security Bulletins (QSBs)](/wiki/SecurityBulletins)
+-   [All Qubes Security Bulletins (QSBs)](/doc/SecurityBulletins/)
 -   [All PGP keys](https://keys.qubes-os.org/keys/)
 -   [Warrant canaries](https://en.wikipedia.org/wiki/Warrant_canary)
 -   Other security-related information and announcements (such as key revocations)
@@ -215,7 +215,7 @@ The following example demonstrates one method of obtaining the QSP, verifying it
 
 > **Important!**
 
-> In order to verify the authenticity of the Qubes Master Signing Key prior to trusting it, you should obtain the Qubes Master Signing Key fingerprint from a trustworthy source (ideally, multiple sources) *other than* this website and visually compare it (them) to the fingerprint displayed in the preceding step, ensuring they match. You can read more about digital signatures and key verification [here](/wiki/VerifyingSignatures).
+> In order to verify the authenticity of the Qubes Master Signing Key prior to trusting it, you should obtain the Qubes Master Signing Key fingerprint from a trustworthy source (ideally, multiple sources) *other than* this website and visually compare it (them) to the fingerprint displayed in the preceding step, ensuring they match. You can read more about digital signatures and key verification [here](/doc/VerifyingSignatures/).
 
 1.  Verify and read the canaries.
 

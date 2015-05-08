@@ -10,7 +10,7 @@ Security-Critical Code in Qubes OS
 
 Below is a list of security-critical (AKA trusted) code in Qubes OS. A successful attack against any of those might allow to compromise the Qubes OS security. This code can be thought of as of a Trusted Computing Base (TCB) of Qubes OS. The goal of the project has been to minimize the amount of this trusted code to an absolute minimum. The size of the current TCB is of an order of hundreds thousands of lines of C code, which is several orders of magnitude less than in other OSes, such as Windows, Linux or Mac, where it is of orders of tens of millions of lines of C code.
 
-For more information about the security goals of Qubes OS, see [this page](/wiki/SecurityGoals).
+For more information about the security goals of Qubes OS, see [this page](/doc/SecurityGoals/).
 
 Security-Critical Qubes-Specific Components
 -------------------------------------------
@@ -22,7 +22,7 @@ Below is a code produced by the Qubes project that is security-critical.
 -   Dom0-side of the sound virtualization code (*pacat-simple-vchan*)
 -   Dom0-side in qrexec-related code (*qrexec\_daemon*)
 -   VM memory manager (*qmemman*) that runs in Dom0
--   select Qubes RPC servers that run in Dom0: qubes.[ReceiveUpdates?](/wiki/ReceiveUpdates) and qubes.[SyncAppMenus?](/wiki/SyncAppMenus)
+-   select Qubes RPC servers that run in Dom0: qubes.[ReceiveUpdates?](/doc/ReceiveUpdates/) and qubes.[SyncAppMenus?](/doc/SyncAppMenus/)
 -   The qubes.Filecopy RPC server that runs in a VM -- this one is critical because it might allow one VM to compromise another one if user allows file copy operation to be performed between them
 
 Security-Critical 3rd-Party Components

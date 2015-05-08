@@ -20,12 +20,12 @@ Security Guidelines
     9.  [Creating and Using a USBVM](#CreatingandUsingaUSBVM)
     10. [Dom0 Precautions](#Dom0Precautions)
 
-The [Qubes introduction](http://theinvisiblethings.blogspot.com/2012/09/introducing-qubes-10.html) makes clear that without some active and responsible participation of the user, no real security is possible. So, for example, Qubes does not automagically make your Firefox (or any other app) running in one of the AppVMs suddenly more secure. It is just as [secure (or insecure)](https://en.wikipedia.org/wiki/Computer_insecurity) as on a normal Linux or Windows OS. But what drastically changes is the context in which your applications are used. [This context](/wiki/QubesArchitecture) is a [responsibility of the user](/wiki/SecurityGoals). But participation requires knowledge. So it is worth stressing some basic items:
+The [Qubes introduction](http://theinvisiblethings.blogspot.com/2012/09/introducing-qubes-10.html) makes clear that without some active and responsible participation of the user, no real security is possible. So, for example, Qubes does not automagically make your Firefox (or any other app) running in one of the AppVMs suddenly more secure. It is just as [secure (or insecure)](https://en.wikipedia.org/wiki/Computer_insecurity) as on a normal Linux or Windows OS. But what drastically changes is the context in which your applications are used. [This context](/doc/QubesArchitecture/) is a [responsibility of the user](/doc/SecurityGoals/). But participation requires knowledge. So it is worth stressing some basic items:
 
 Download Verification
 ---------------------
 
-**Verify the authenticity and integrity of your downloads, [particularly Qubes iso](/wiki/VerifyingSignatures).**
+**Verify the authenticity and integrity of your downloads, [particularly Qubes iso](/doc/VerifyingSignatures/).**
 
 Standard program installation
 
@@ -94,21 +94,21 @@ or use the equivalent items in Qubes Manager, which displays an icon when an upd
 Handling Untrusted Files
 ------------------------
 
-When you receive or download any file from an **untrusted source**, do not browse to it with a file manager which has preview enabled. **To disable preview in Nautilus**: Gear (up-right-icon) -\> Preferences -\> Preview (tab) -\> Show thumbnails: Never. Note that this change can be made in a TemplateVM (including the [DispVM template](/wiki/UserDoc/DispVMCustomization)) so that future AppVMs created from this TemplateVM will inherit this feature.
+When you receive or download any file from an **untrusted source**, do not browse to it with a file manager which has preview enabled. **To disable preview in Nautilus**: Gear (up-right-icon) -\> Preferences -\> Preview (tab) -\> Show thumbnails: Never. Note that this change can be made in a TemplateVM (including the [DispVM template](/doc/UserDoc/DispVMCustomization/)) so that future AppVMs created from this TemplateVM will inherit this feature.
 
-Also, **do not open it in trusted VMs**. Rather open it in a **disposable VM** right-clicking on it. You may even modify it within the disposable VM and then [copy it to other VM](/wiki/CopyingFiles).
+Also, **do not open it in trusted VMs**. Rather open it in a **disposable VM** right-clicking on it. You may even modify it within the disposable VM and then [copy it to other VM](/doc/CopyingFiles/).
 
 Alternatively PDFs may be converted to **trusted PDF** right clicking on them. This converts text to graphic form, so size will increase.
 
 Anti Evil Maid
 --------------
 
-If there is a risk that somebody may **physically attack** your computer when you leave it powered down, or if you use Qubes in **dual boot mode**, then you may want to [install AEM](/wiki/AntiEvilMaid) (Anti Evil Maid). AEM will inform you of any unauthorized modifications to your BIOS or boot partition. If AEM alerts you of an attack it is really bad news because **there is no true fix**. If you are really serious about security you have to buy a new laptop and install Qubes from a trusted ISO. So buying a used laptop is not an option for a security focused one.
+If there is a risk that somebody may **physically attack** your computer when you leave it powered down, or if you use Qubes in **dual boot mode**, then you may want to [install AEM](/doc/AntiEvilMaid/) (Anti Evil Maid). AEM will inform you of any unauthorized modifications to your BIOS or boot partition. If AEM alerts you of an attack it is really bad news because **there is no true fix**. If you are really serious about security you have to buy a new laptop and install Qubes from a trusted ISO. So buying a used laptop is not an option for a security focused one.
 
 Reassigning USB Controllers
 ---------------------------
 
-Before you [assign a USB controller to a VM](/wiki/AssigningDevices) check if any **input devices** are included in that controller.
+Before you [assign a USB controller to a VM](/doc/AssigningDevices/) check if any **input devices** are included in that controller.
 
 Assigning USB keyboard will **deprive Dom0 VM of a keyboard**. Since a USB controller assignment survives reboot, you may find yourself **unable to access your system**. Most non-Apple laptops have a PS/2 input for keyboard and mouse, so this problem does not exist.
 
@@ -131,7 +131,7 @@ To avoid this risk it is possible to prepare and utilize a **USBVM**. However th
 
 Also avoid it if you do not have a **USB controller free of input devices** or programmable devices. However, as already noted most laptops use PS-2 for keyboards and touchpad devices which do not cause problems.
 
-An **USBVM** operates like a dedicated temporary parking area, used just to prevent any contact between dom0 and the USB drive. Then, every time you connect an **untrusted USB external drive** to a USB port managed by that USB controller, you need to attach it to the VM that needs it, using qubes manager or [terminal](/wiki/StickMounting). Again, this **works only for disk-like USB devices**. Other devices cannot be currently virtualized. So once you assign their controller to your **USBVM** they'll be no more available.
+An **USBVM** operates like a dedicated temporary parking area, used just to prevent any contact between dom0 and the USB drive. Then, every time you connect an **untrusted USB external drive** to a USB port managed by that USB controller, you need to attach it to the VM that needs it, using qubes manager or [terminal](/doc/StickMounting/). Again, this **works only for disk-like USB devices**. Other devices cannot be currently virtualized. So once you assign their controller to your **USBVM** they'll be no more available.
 
 **The process for creating a USBVM** is:
 
@@ -151,7 +151,7 @@ This will cause your new **USBVM** to automatically start when the system starts
 Dom0 Precautions
 ----------------
 
-As explained [here](/wiki/GettingStarted#AppVMsDomainsandTemplateVMs), dom0 should not be used for any user operations. There are several reasons for this:
+As explained [here](/doc/GettingStarted/#AppVMsDomainsandTemplateVMs), dom0 should not be used for any user operations. There are several reasons for this:
 
 1.  Secure isolation among domUs (i.e., AppVMs, StandaloneVMs, HVMs, etc.) is the *raison d'être* of Qubes. This is the primary reason that we recommend the delegation of all user activities to some number of AppVMs. In the event that any given VM is compromised, only that particular VM is compromised. (TemplateVMs are the exception to this. If a TemplateVM were compromised, then every AppVM based on it might also be compromised. Even in this case, however, the entire system would not necessarily have been compromised, since StandaloneVM(s), HVM(s), and/or multiple TemplateVMs might be in use.) By contrast, if dom0 were ever compromised, the entire system would thereby be compromised.
 2.  Due to the absence of convenience mechanisms in dom0 such as the inter-VM clipboard and inter-VM file copying, it is significantly less convenient to attempt to use dom0 for user operations (e.g., password management) in conjunction with AppVMs than it is to use another dedicated AppVM (e.g., a "vault" VM).

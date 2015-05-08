@@ -33,4 +33,4 @@ git clone git://github.com/QubesOS/core-admin.git core-admin
 
 If you want to contribute to the project, there are two preferred ways:
 1. Use github [fork & pull requests](https://guides.github.com/activities/forking/)
-2. [sending a patch](/wiki/DevelFaq#Q:HowdoIsubmitapatch) via the project's mailing list (`git format-patch`).
+2. [sending a patch](/doc/DevelFaq/#Q:HowdoIsubmitapatch) via the project's mailing list (`git format-patch`).

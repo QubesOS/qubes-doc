@@ -26,7 +26,7 @@ Note: We don't recommend installing Qubes in a virtual machine! It will likely n
 Download installer ISO
 ----------------------
 
-See [this page](/wiki/QubesDownloads) for ISO downloads. Remember, we have absolutely no control over those servers, and so you should be assuming that they might be compromised, or just be serving a compromised ISOs because their operators decided so, for whatever reason. Always verify the digital signature on the downloaded ISO. See this [page](/wiki/VerifyingSignatures) for more info about how to download and verify our GPG keys, and then verify the downloaded ISO:
+See [this page](/doc/QubesDownloads/) for ISO downloads. Remember, we have absolutely no control over those servers, and so you should be assuming that they might be compromised, or just be serving a compromised ISOs because their operators decided so, for whatever reason. Always verify the digital signature on the downloaded ISO. See this [page](/doc/VerifyingSignatures/) for more info about how to download and verify our GPG keys, and then verify the downloaded ISO:
 
 {% highlight trac-wiki %}
 gpg -v Qubes-R2-x86_64-DVD.iso.asc
@@ -62,9 +62,9 @@ The installer loads Xen right at the beginning, so chances are high that if you 
 Upgrading
 ---------
 
-Upgrading from Qubes R2 rc1 should be a simple matter of installing updates for [dom0](/wiki/SoftwareUpdateDom0) and [VMs](/wiki/SoftwareUpdateVM).
+Upgrading from Qubes R2 rc1 should be a simple matter of installing updates for [dom0](/doc/SoftwareUpdateDom0/) and [VMs](/doc/SoftwareUpdateVM/).
 
-Users of R2 beta 3 should follow instructions on how to upgrade to Qubes R2 rc1 [here](/wiki/UpgradeToR2rc1).
+Users of R2 beta 3 should follow instructions on how to upgrade to Qubes R2 rc1 [here](/doc/UpgradeToR2rc1/).
 
 Troubleshooting problems with the installer
 -------------------------------------------
@@ -95,9 +95,9 @@ It is advised to install updates just after system installation to apply bug fix
 Getting Help
 ------------
 
--   **User manuals are [here](/wiki/UserDoc).** (Strongly recommended!)
+-   **User manuals are [here](/doc/UserDoc/).** (Strongly recommended!)
 
--   Developers documentation (normally not needed by users) is [here](/wiki/SystemDoc)
+-   Developers documentation (normally not needed by users) is [here](/doc/SystemDoc/)
 
 -   If you don't find answer in the sources given above, write to the *qubes-users* mailing list (you don't need to be subscribed to the list, just send email to the address given below):
     -   [https://groups.google.com/group/qubes-users](https://groups.google.com/group/qubes-users)

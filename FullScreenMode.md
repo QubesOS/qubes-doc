@@ -11,7 +11,7 @@ Enabling Full Screen Mode for select VMs
 What is full screen mode?
 -------------------------
 
-Normally Qubes GUI virtualization daemon restricts the VM from "owning" the full screen, ensuring that there are always clearly marked decorations drawn by the trusted Window Manager around each of the VMs window. This allows the user to easily realize to which domain a specific window belongs. See the [screenshots](/wiki/QubesScreenshots) for better understanding.
+Normally Qubes GUI virtualization daemon restricts the VM from "owning" the full screen, ensuring that there are always clearly marked decorations drawn by the trusted Window Manager around each of the VMs window. This allows the user to easily realize to which domain a specific window belongs. See the [screenshots](/doc/QubesScreenshots/) for better understanding.
 
 Why is full screen mode potentially dangerous?
 ----------------------------------------------

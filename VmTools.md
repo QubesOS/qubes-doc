@@ -7,8 +7,8 @@ redirect_from: /wiki/VmTools/
 
 VM tools:
 
--   [qvm-copy-to-vm](/wiki/VmTools/QvmCopyToVm)
--   [qvm-open-in-dvm](/wiki/VmTools/QvmOpenInDvm)
--   [qvm-open-in-vm](/wiki/VmTools/QvmOpenInVm)
--   [qvm-run](/wiki/VmTools/QvmRun)
+-   [qvm-copy-to-vm](/doc/VmTools/QvmCopyToVm/)
+-   [qvm-open-in-dvm](/doc/VmTools/QvmOpenInDvm/)
+-   [qvm-open-in-vm](/doc/VmTools/QvmOpenInVm/)
+-   [qvm-run](/doc/VmTools/QvmRun/)
 

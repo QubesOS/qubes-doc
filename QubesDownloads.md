@@ -8,10 +8,10 @@ redirect_from: /wiki/QubesDownloads/
 Qubes Downloads
 ===============
 
--   [System Requirements](/wiki/SystemRequirements)
+-   [System Requirements](/doc/SystemRequirements/)
 -   [Hardware Compatibility List](/hcl/)
--   [On Digital Signatures and How to Verify Qubes Downloads](/wiki/VerifyingSignatures)
--   [Licensing](/wiki/QubesLicensing)
+-   [On Digital Signatures and How to Verify Qubes Downloads](/doc/VerifyingSignatures/)
+-   [Licensing](/doc/QubesLicensing/)
 
 Qubes Release 3.0
 ---------------
@@ -28,14 +28,14 @@ Qubes Release 2
 -   [Qubes-R2-x86\_64-DVD.iso](http://sourceforge.net/projects/qubesos/files/Qubes-R2-x86_64-DVD.iso/download) (via sourceforge.net)
 -   [Digital Signature](http://sourceforge.net/projects/qubesos/files/Qubes-R2-x86_64-DVD.iso.asc/download) (via sourceforge.net)
 
--   **[Installation Guide for Qubes R2](/wiki/InstallationGuideR2)**
--   [Upgrading to Qubes R2](/wiki/InstallationGuideR2#Upgrading)
+-   **[Installation Guide for Qubes R2](/doc/InstallationGuideR2/)**
+-   [Upgrading to Qubes R2](/doc/InstallationGuideR2/#Upgrading)
 
 -   [Qubes-R2-rc2-x86\_64-DVD.iso](http://sourceforge.net/projects/qubesos/files/Qubes-R2-rc2-x86_64-DVD.iso/download) (via sourceforge.net)
 -   [Digital Signature](http://sourceforge.net/projects/qubesos/files/Qubes-R2-rc2-x86_64-DVD.iso.asc/download) (via sourceforge.net)
 
--   **[Installation Guide for Qubes R2 rc2](/wiki/InstallationGuideR2rc2)**
--   [Upgrading to Qubes R2 rc2](/wiki/InstallationGuideR2rc2#Upgrading)
+-   **[Installation Guide for Qubes R2 rc2](/doc/InstallationGuideR2rc2/)**
+-   [Upgrading to Qubes R2 rc2](/doc/InstallationGuideR2rc2/#Upgrading)
 
 Qubes Release 1
 ---------------
@@ -45,7 +45,7 @@ Qubes Release 1
 -   [Qubes-R1-x86\_64-DVD.iso](http://sourceforge.net/projects/qubesos/files/Qubes-R1-x86_64-DVD.iso/download) (via sourceforge.net)
 -   [Digital Signature](http://sourceforge.net/projects/qubesos/files/Qubes-R1-x86_64-DVD.iso.asc/download) (via sourceforge.net)
 
--   **[Installation Guide](/wiki/InstallationGuide)**
+-   **[Installation Guide](/doc/InstallationGuide/)**
 
 Mirrors
 -------

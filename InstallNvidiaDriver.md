@@ -8,7 +8,7 @@ redirect_from: /wiki/InstallNvidiaDriver/
 Nvidia proprietary driver installation
 ======================================
 
-[RpmFusion?](/wiki/RpmFusion) packages
+[RpmFusion?](/doc/RpmFusion/) packages
 ======================================
 
 There are rpm packages with all necessary software on rpmfusion. The only package you have to compile is kernel module (but there is ready src.rpm package).
@@ -54,7 +54,7 @@ Manual installation
 
 But this is somehow complicated: First - download it from nvidia.com site. Here "NVIDIA-Linux-x86\_64-260.19.44.run" is used. Copy it to dom0. Every next step is done in dom0.
 
-See [this page](/wiki/CopyToDomZero) for instruction on how to transfer files to Dom0 (where there is normally no networking).
+See [this page](/doc/CopyToDomZero/) for instruction on how to transfer files to Dom0 (where there is normally no networking).
 
 **WARNING**: Nvidia doesn't sign their files. To make it worse, you are forced to download them over a plaintext connection. This means there are virtually dozens of possibilities for somebody to modify this file and provide you with a malicious/backdoored file. You should realize that installing untrusted files into your Dom0 is really a bad idea. Perhaps it might be a better idea to just get a new laptop with integrated Intel GPU? You have been warned, anyway.
 

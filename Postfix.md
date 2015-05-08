@@ -8,7 +8,7 @@ redirect_from: /wiki/Postfix/
 Postfix
 =======
 
-Postfix is full featured MTA (Message Transfer Agent). Here we will configure it in smarthost mode as part of common [Mutt](/wiki/Mutt)+Postfix+[Fetchmail](/wiki/Fetchmail) stack.
+Postfix is full featured MTA (Message Transfer Agent). Here we will configure it in smarthost mode as part of common [Mutt](/doc/Mutt/)+Postfix+[Fetchmail](/doc/Fetchmail/) stack.
 
 Installation
 ------------

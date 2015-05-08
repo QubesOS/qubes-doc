@@ -88,7 +88,7 @@ wget http://mir.archlinux.fr/iso/2013.06.01/archlinux-2013.06.01-dual.iso.sig
 The nm-applet (network manager icon) fails to start when archlinux is defined as a template-vm:
 -----------------------------------------------------------------------------------------------
 
-In fact /etc/dbus-1/system.d/org.freedesktop.[NetworkManager?](/wiki/NetworkManager).conf does not allow a standard user to run network manager clients. To allow this, one need to change inside \<policy context="default"\>:
+In fact /etc/dbus-1/system.d/org.freedesktop.[NetworkManager?](/doc/NetworkManager/).conf does not allow a standard user to run network manager clients. To allow this, one need to change inside \<policy context="default"\>:
 
 {% highlight trac-wiki %}
 <deny send_destination="org.freedesktop.NetworkManager"/>

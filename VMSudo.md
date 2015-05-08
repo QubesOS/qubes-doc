@@ -91,7 +91,7 @@ Below is a complete list of configuration made according to the above statement,
 
     -   NetworkManager configuration from normal user (nm-applet)
     -   updates installation (gpk-update-viewer)
-    -   user can use pkexec just like sudo Note: above is needed mostly because Qubes user GUI session isn't treated by [PolicyKit?](/wiki/PolicyKit)/logind as "local" session because of the way in which X server and session is started. Perhaps we will address this issue in the future, but this is really low priority. Patches welcomed anyway.
+    -   user can use pkexec just like sudo Note: above is needed mostly because Qubes user GUI session isn't treated by [PolicyKit?](/doc/PolicyKit/)/logind as "local" session because of the way in which X server and session is started. Perhaps we will address this issue in the future, but this is really low priority. Patches welcomed anyway.
 
 3.  Empty root password
     -   used for access to 'root' account from text console (xl console) - the only way to access the VM when GUI isn't working
@@ -124,7 +124,7 @@ While ITL still supports the statement above, some Qubes users may want to enabl
         user ALL=(ALL) ALL
         {% endhighlight %}
 
-    -   Disable [PolKit?](/wiki/PolKit)'s default-allow behavior:
+    -   Disable [PolKit?](/doc/PolKit/)'s default-allow behavior:
 
         {% highlight trac-wiki %}
         [root@fedora-20-x64]# rm /etc/polkit-1/rules.d/00-qubes-allow-all.rules

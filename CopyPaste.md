@@ -44,7 +44,7 @@ You may now paste the log contents to any VM as you normally would (i.e., Ctrl-S
 
 For data other than logs, there are two options:
 
-1.  [Copy it as a file.](/wiki/CopyToDomZero)
+1.  [Copy it as a file.](/doc/CopyToDomZero/)
 2.  Paste the data to `/var/run/qubes/qubes-clipboard.bin`, then write "dom0" to `/var/run/qubes/qubes-clipboard.bin.source`. Then use Ctrl-Shift-V to paste the data to the desired VM.
 
 Clipboard automatic policy enforcement

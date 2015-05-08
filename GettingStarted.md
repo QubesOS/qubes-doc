@@ -8,7 +8,7 @@ redirect_from: /wiki/GettingStarted/
 Getting Started with Qubes OS
 =============================
 
-Note: This guide assumes that you've just installed Qubes for the first time. The installation guide for your Qubes release can be found on the [Downloads](/wiki/QubesDownloads) page.
+Note: This guide assumes that you've just installed Qubes for the first time. The installation guide for your Qubes release can be found on the [Downloads](/doc/QubesDownloads/) page.
 
 Now that you've installed Qubes, let's cover some basic concepts.
 
@@ -27,14 +27,14 @@ Each domain, apart from having a distinct name, is also assigned a **label**, wh
 
 ![snapshot12.png](/attachment/wiki/GettingStarted/snapshot12.png)
 
-In addition to AppVMs and TemplateVMs, there's one special domain called "dom0," which is where the Desktop Manager runs. This is where you log in to the system. Dom0 is more trusted than any other domain (including TemplateVMs and black-labeled domains). If dom0 were ever compromised, it would be Game Over<sup>TM</sup>. (The entire system would effectively be compromised.) Due to its overarching importance, dom0 has no network connectivity and is used only for running the Window and Desktop Managers. Dom0 shouldn't be used for anything else. In particular, [you should never run user applications in dom0](/wiki/SecurityGuidelines#Dom0Precautions). (That's what your AppVMs are for!)
+In addition to AppVMs and TemplateVMs, there's one special domain called "dom0," which is where the Desktop Manager runs. This is where you log in to the system. Dom0 is more trusted than any other domain (including TemplateVMs and black-labeled domains). If dom0 were ever compromised, it would be Game Over<sup>TM</sup>. (The entire system would effectively be compromised.) Due to its overarching importance, dom0 has no network connectivity and is used only for running the Window and Desktop Managers. Dom0 shouldn't be used for anything else. In particular, [you should never run user applications in dom0](/doc/SecurityGuidelines/#Dom0Precautions). (That's what your AppVMs are for!)
 
 Qubes VM Manager and Command Line Tools
 ---------------------------------------
 
 All aspects of the Qubes system can be controlled using command line tools run under a dom0 console. To open a console window in dom0, either go to Start-\>System Tools-\>Konsole or press Alt-F2 and type `konsole`.
 
-Various command line tools are described as part of this guide, and the whole reference can be found [here](/wiki/DomZeroTools).
+Various command line tools are described as part of this guide, and the whole reference can be found [here](/doc/DomZeroTools/).
 
 ![r2b1-dom0-konsole.png](/attachment/wiki/GettingStarted/r2b1-dom0-konsole.png)
 
@@ -81,7 +81,7 @@ How Many Domains Do I Need?
 
 That's a great question, but there's no one-size-fits-all answer. It depends on the structure of your digital life, and this is at least a little different for everyone. If you plan on using your system for work, then it also depends on what kind of job you do.
 
-It's a good idea to start out with the three domains created automatically by the installer: work, personal, and untrusted. Then, if and when you start to feel that some activity just doesn't fit into any of your existing domains, you can easily create a new domain for it. You'll also be able to easily copy any files you need to the newly created domain, as explained [here](/wiki/CopyingFiles).
+It's a good idea to start out with the three domains created automatically by the installer: work, personal, and untrusted. Then, if and when you start to feel that some activity just doesn't fit into any of your existing domains, you can easily create a new domain for it. You'll also be able to easily copy any files you need to the newly created domain, as explained [here](/doc/CopyingFiles/).
 
 More paranoid people might find it worthwhile to read [this article](http://theinvisiblethings.blogspot.com/2011/03/partitioning-my-digital-life-into.html), which describes how one of the Qubes authors partitions her digital life into security domains.
 
@@ -122,4 +122,4 @@ In order for the changes to take effect, restart the AppVM(s).
 
 * * * * *
 
-Now that you're familiar with the basics, feel free to have a look at other [Qubes User Guides](/wiki/UserDoc).
+Now that you're familiar with the basics, feel free to have a look at other [Qubes User Guides](/doc/UserDoc/).

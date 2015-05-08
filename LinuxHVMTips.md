@@ -24,7 +24,7 @@ To achieve it (all commands run as root):
     X -configure :1 && mv ~/xorg.conf.new /etc/X11/xorg.conf
     {% endhighlight %}
 
-2.  Add [HorizSync?](/wiki/HorizSync) line to Monitor section, it should look something like:
+2.  Add [HorizSync?](/doc/HorizSync/) line to Monitor section, it should look something like:
 
     {% highlight trac-wiki %}
     Section "Monitor"

@@ -55,13 +55,13 @@ In dom0, there is a bunch of files in `/etc/qubes-rpc/policy/` directory, whose 
 
 -   qubes.Filecopy
 -   qubes.OpenInVM
--   qubes.[ReceiveUpdates?](/wiki/ReceiveUpdates)
--   qubes.[SyncAppMenus?](/wiki/SyncAppMenus)
+-   qubes.[ReceiveUpdates?](/doc/ReceiveUpdates/)
+-   qubes.[SyncAppMenus?](/doc/SyncAppMenus/)
 -   qubes.VMShell
--   qubes.[ClipboardPaste?](/wiki/ClipboardPaste)
+-   qubes.[ClipboardPaste?](/doc/ClipboardPaste/)
 -   qubes.Gpg
--   qubes.[NotifyUpdates?](/wiki/NotifyUpdates)
--   qubes.[PdfConvert?](/wiki/PdfConvert)
+-   qubes.[NotifyUpdates?](/doc/NotifyUpdates/)
+-   qubes.[PdfConvert?](/doc/PdfConvert/)
 
 These files contain lines with the following format:
 
@@ -157,4 +157,4 @@ As previously noted, Qubes aims to provide mechanisms that are very simple and t
 Qubes RPC internals
 -------------------
 
-The internal implementation of qrexec in Qubes R2 is described [here](/wiki/Qrexec2Implementation), and in Qubes R3 [here](/wiki/Qrexec3Implementation).
+The internal implementation of qrexec in Qubes R2 is described [here](/doc/Qrexec2Implementation/), and in Qubes R3 [here](/doc/Qrexec3Implementation/).

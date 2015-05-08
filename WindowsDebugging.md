@@ -44,7 +44,7 @@ Things get complicated if you need to perform kernel debugging or troubleshoot p
 -   On the *host* system, install [WinDbg](http://msdn.microsoft.com/en-us/library/windows/hardware/ff551063(v=vs.85).aspx) and start the kernel debug (Ctrl-K), choose **com1** as the debug port.
 -   Reboot the *target* VM.
 -   Run the above shell script in dom0.
--   If everything is fine you should see the proper kernel debugging output in [WinDbg?](/wiki/WinDbg). However, if you see something like that:
+-   If everything is fine you should see the proper kernel debugging output in [WinDbg?](/doc/WinDbg/). However, if you see something like that:
 
     {% highlight trac-wiki %}
     Opened \\.\com1

@@ -8,7 +8,7 @@ redirect_from: /wiki/Fetchmail/
 Fetchmail
 =========
 
-Fetchmail is standalone MRA (Mail Retrieval Agent) aka "IMAP/POP3 client". Its sole purpose is to fetch your messages and store it locally or feed to local MTA (Message Transfer Agent). It cannot "read" messages — for that use MUA like Thunderbird or [Mutt](/wiki/Mutt).
+Fetchmail is standalone MRA (Mail Retrieval Agent) aka "IMAP/POP3 client". Its sole purpose is to fetch your messages and store it locally or feed to local MTA (Message Transfer Agent). It cannot "read" messages — for that use MUA like Thunderbird or [Mutt](/doc/Mutt/).
 
 Installation
 ------------
@@ -20,7 +20,7 @@ Configuration
 
 Assuming you have more than one account (safe assumption these days), you need to spawn multiple fetchmail instances, one for each IMAP/POP3 server (though one instance can watch over several accounts on one server). The easiest way is to create template systemd unit and start it several times. Fedora does not supply any, so we have to write one anyway.
 
-**NOTE:** this assumes you use [Postfix](/wiki/Postfix) as your local MTA.
+**NOTE:** this assumes you use [Postfix](/doc/Postfix/) as your local MTA.
 
 In TemplateVM create `/etc/systemd/system/fetchmail@.service`:
 

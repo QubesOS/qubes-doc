@@ -17,7 +17,7 @@ Minimum:
 
 -   4GB of RAM
 -   64-bit Intel or AMD processor (x86\_64 aka x64 aka AMD64)
--   Intel GPU strongly preferred (if you have Nvidia GPU, prepare for some [troubleshooting](/wiki/InstallNvidiaDriver); we haven't tested ATI hardware)
+-   Intel GPU strongly preferred (if you have Nvidia GPU, prepare for some [troubleshooting](/doc/InstallNvidiaDriver/); we haven't tested ATI hardware)
 -   At least 20GB of disk (Note that **it is possible to install Qubes on an external USB disk**, so that you can try it without sacrificing your current system. Mind, however, that USB disks are usually SLOW!)
 -   Fast SSD disk strongly recommended
 
@@ -41,7 +41,7 @@ Specific systems known to work tested by Qubes core developers
 
 -   Samsung X460 - works well on both xenlinux 2.6.38 and pvops 3.2.7 kernel; after resume ethernet driver (sky2) need to be reloaded in netvm to start working again. Even though the chipset suppors VT-d, the BIOS is broken, and so the VT-d is not picked up by Xen, so it effectively doesn't work.
 
--   Sony Vaio Z 12 (2010 edition) -- works well, but some [tinkering required](/wiki/SonyVaioTinkering)
+-   Sony Vaio Z 12 (2010 edition) -- works well, but some [tinkering required](/doc/SonyVaioTinkering/)
 
 -   Dell Latitude E6420 w/ Intel graphics (Sandy Bridge), i5-2520M CPU - works well on 3.4.18 (haven't tested default 3.2.30 kernel)
 
@@ -54,7 +54,7 @@ Specific systems known to work tested by the Qubes community
 -   Lenovo Thinkpad x220 8GB RAM, Intel graphics (core i5), VT-d is working. Reported by [Stefan Boresch](https://groups.google.com/group/qubes-devel/msg/f41578eef913446a)
 -   Dell Latitude 5520, requires some minor fixes for networking to work. Reported by [Erik Edin](https://groups.google.com/group/qubes-devel/msg/7418e7084c2de99f?hl=en).
 -   Dell Latitude E6520 with i7-2760QM CPU. VT-d works fine. nVidia graphics not working, but integrated Intel does. Reported by [Steven Collins](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
--   Dell [PowerEdge?](/wiki/PowerEdge) T110 II, onboard Matrox graphics (Intel Xeon E3-1230), VT-d is working. Reported by [Geoff](https://groups.google.com/group/qubes-devel/msg/8a894915909eeaee)
+-   Dell [PowerEdge?](/doc/PowerEdge/) T110 II, onboard Matrox graphics (Intel Xeon E3-1230), VT-d is working. Reported by [Geoff](https://groups.google.com/group/qubes-devel/msg/8a894915909eeaee)
 -   Toshiba Tecra S11. Requires [some tinkering](https://groups.google.com/group/qubes-devel/browse_thread/thread/fdec0ec165a87726) to enable 3G modem. Reported by Jan Beerden
 -   Toshiba M780 S7240, requires latest BIOS to have VT-d working, [some problems](https://groups.google.com/group/qubes-devel/browse_thread/thread/2b89d2dc5f999ab7) with card reader. Reported by [Franz](https://groups.google.com/group/qubes-devel/browse_thread/thread/66e97c990a08d8e2)
 -   Dell Precision M4600 Intel Core i7-2860QM, 16GB ram, NVIDIA Quadro 1000M, EMEA Intel Pro Wireless 6300. Reported by [nqe](https://groups.google.com/group/qubes-devel/browse_thread/thread/ddf35d12a35f96a3)

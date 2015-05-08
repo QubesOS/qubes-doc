@@ -27,7 +27,7 @@ Note: We don't recommend installing Qubes in a virtual machine! It will likely n
 Download installer ISO
 ----------------------
 
-See [this page](/wiki/QubesDownloads) for ISO downloads. Remember, we have absolutely no control over those servers, and so you should be assuming that they might be compromised, or just be serving a compromised ISOs because their operators decided so for whatever reason. Always verify the digital signature on the downloaded ISO. See this [page](/wiki/VerifyingSignatures) for more info about how to download and verify our GPG keys, and then verify the downloaded ISO:
+See [this page](/doc/QubesDownloads/) for ISO downloads. Remember, we have absolutely no control over those servers, and so you should be assuming that they might be compromised, or just be serving a compromised ISOs because their operators decided so for whatever reason. Always verify the digital signature on the downloaded ISO. See this [page](/doc/VerifyingSignatures/) for more info about how to download and verify our GPG keys, and then verify the downloaded ISO:
 
 {% highlight trac-wiki %}
 gpg -v <iso>.asc
@@ -60,7 +60,7 @@ If you're already running Qubes 1.0-rc1, you don't need to reinstall, it's just 
 Migrating from Qubes Beta 3
 ---------------------------
 
-If you have Qubes Beta 3 currently installed on your system, you must reinstall from scratch, as we offer no direct upgrade option in the installer (sorry). However, we do offer tools for smooth migration of your AppVMs. In order to do that, please backup your AppVMs using the `qvm-backup` tool [as usual](/wiki/BackupRestore). Then, after you install Qubes 1.0 rc1, you can restore them using `qvm-backup-restore` tool. However, because we have changed the default template in RC1, you should tell qvm-back-restore about that by passing `--replace-template` option:
+If you have Qubes Beta 3 currently installed on your system, you must reinstall from scratch, as we offer no direct upgrade option in the installer (sorry). However, we do offer tools for smooth migration of your AppVMs. In order to do that, please backup your AppVMs using the `qvm-backup` tool [as usual](/doc/BackupRestore/). Then, after you install Qubes 1.0 rc1, you can restore them using `qvm-backup-restore` tool. However, because we have changed the default template in RC1, you should tell qvm-back-restore about that by passing `--replace-template` option:
 
 {% highlight trac-wiki %}
 qvm-backup-restore <backup_dir> --replace-template=fedora-15-x64:fedora-17-x64 
@@ -71,8 +71,8 @@ Installing Updates
 
 Installing updates is very easy and can be done using the "Update" button in the Qubes Manager. Alternatively it can also be done from command prompt -- see the following for more details:
 
--   For installing updates for Dom0 -- see instructions [here](/wiki/SoftwareUpdateDom0).
--   For installing updates for you domains (VMs) -- see instructions [here](/wiki/SoftwareUpdateVM).
+-   For installing updates for Dom0 -- see instructions [here](/doc/SoftwareUpdateDom0/).
+-   For installing updates for you domains (VMs) -- see instructions [here](/doc/SoftwareUpdateVM/).
 
 Known Issues
 ------------
@@ -95,9 +95,9 @@ Known Issues
 Getting Help
 ------------
 
--   **User manuals are [here](/wiki/UserDoc).** (Strongly recommended!)
+-   **User manuals are [here](/doc/UserDoc/).** (Strongly recommended!)
 
--   Developers documentation (normally not needed by users) is [here](/wiki/SystemDoc)
+-   Developers documentation (normally not needed by users) is [here](/doc/SystemDoc/)
 
 -   If you don't find answer in the sources given above, write to the *qubes-devel* mailing list:
     -   [http://groups.google.com/group/qubes-devel](http://groups.google.com/group/qubes-devel)

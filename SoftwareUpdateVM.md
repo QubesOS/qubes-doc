@@ -19,7 +19,7 @@ The default template is called **fedora-14-x64** in Qubes R1 and **fedora-20-x64
 
 The side effect of this mechanism is, of course, that if you install any software in your AppVM, more specifically in any directory other than `/home` or `/usr/local` then it will disappear after the AppVM reboot (as the root filesystem for this AppVM will again be "taken" from the Template VM). **This means one normally install software in the Template VM, not in AppVMs.**
 
-Unlike VM private filesystems, the template VM root filesystem does not support discard, so deleting files does not free the space in dom0. See [these instructions](/wiki/FedoraTemplateUpgrade#Compactingtemplatesroot.img) to recover space in dom0.
+Unlike VM private filesystems, the template VM root filesystem does not support discard, so deleting files does not free the space in dom0. See [these instructions](/doc/FedoraTemplateUpgrade/#Compactingtemplatesroot.img) to recover space in dom0.
 
 Installing (or updating) software in the template VM
 ----------------------------------------------------
@@ -39,7 +39,7 @@ As the template VM is used for creating filesystems for other AppVMs, where you 
 
 There are several ways to deal with this problem:
 
--   Only install packages from trusted sources -- e.g. from the pre-configured Fedora repositories. All those packages are signed by Fedora, and as we expect that at least the package's installation scripts are not malicious. This is enforced by default (at the [firewall VM level](/wiki/QubesFirewall)), by not allowing any networking connectivity in the default template VM, except for access to the Fedora repos.
+-   Only install packages from trusted sources -- e.g. from the pre-configured Fedora repositories. All those packages are signed by Fedora, and as we expect that at least the package's installation scripts are not malicious. This is enforced by default (at the [firewall VM level](/doc/QubesFirewall/)), by not allowing any networking connectivity in the default template VM, except for access to the Fedora repos.
 
 -   Use *standalone VMs* (see below) for installation of untrusted software packages.
 
@@ -49,7 +49,7 @@ Some popular questions:
 
 -   So, why should we actually trust Fedora repos -- it also contains large amount of 3rd party software that might buggy, right?
 
-As long as template's compromise is considered, it doesn't really matter whether /usr/bin/firefox is buggy and can be exploited, or not. What matters is whether its *installation* scripts (such as %post in the rpm.spec) are benign or not. Template VM should be used only for installation of packages, and nothing more, so it should never get a chance to actually run the /usr/bin/firefox and got infected from it, in case it was compromised. Also, some of your more trusted AppVMs, would have networking restrictions enforced by the [firewall VM](/wiki/QubesFirewall), and again they should not fear this proverbial /usr/bin/firefox being potentially buggy and easy to compromise.
+As long as template's compromise is considered, it doesn't really matter whether /usr/bin/firefox is buggy and can be exploited, or not. What matters is whether its *installation* scripts (such as %post in the rpm.spec) are benign or not. Template VM should be used only for installation of packages, and nothing more, so it should never get a chance to actually run the /usr/bin/firefox and got infected from it, in case it was compromised. Also, some of your more trusted AppVMs, would have networking restrictions enforced by the [firewall VM](/doc/QubesFirewall/), and again they should not fear this proverbial /usr/bin/firefox being potentially buggy and easy to compromise.
 
 -   But why trusting Fedora?
 

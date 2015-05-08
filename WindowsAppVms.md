@@ -13,8 +13,8 @@ Qubes provides special support for running Windows-based AppVMs. This requires t
 Qubes support tools for Windows is a set of programs and drivers that provide integration of Windows AppVMs with the rest of the Qubes system. Currently the following features are available for Windows VMs after installation of those tools:
 
 -   Seamless GUI mode that integrates apps windows onto the common Qubes trusted desktop (available on Qubes R2 Beta 3 and later)
--   Support for [secure clipboard copy/paste](/wiki/CopyPaste) between the Windows VM and other AppVMs
--   Support for [secure file exchange](/wiki/CopyingFiles) between the Windows VM and other AppVMs
+-   Support for [secure clipboard copy/paste](/doc/CopyPaste/) between the Windows VM and other AppVMs
+-   Support for [secure file exchange](/doc/CopyingFiles/) between the Windows VM and other AppVMs
 -   Support for qvm-run and generic qrexec for the Windows VM (e.g. ability to run custom service within/from the Windows VM)
 -   Xen PV drivers for Windows that increase performance compared to qemu emulated devices
 
@@ -25,7 +25,7 @@ NOTE: Currently only 64-bit versions of Windows 7 are support by Qubes Windows T
 Installing Windows OS in a Qubes VM
 -----------------------------------
 
-Please refer to [this page](/wiki/HvmCreate) for instructions on how to install Windows in a Qubes VM.
+Please refer to [this page](/doc/HvmCreate/) for instructions on how to install Windows in a Qubes VM.
 
 Installing Qubes support tools in Windows 7 VMs
 -----------------------------------------------
@@ -101,7 +101,7 @@ Qubes allows HVM VMs to share a common root filesystem from a select Template VM
 qvm-create --hvm-template win7-x64-template -l green
 {% endhighlight %}
 
-... and install Windows OS (or other OS) into this template the same way as you would install it into a normal HVM -- please see [this page](/wiki/HvmCreate) instructions. However, it would make lots of sense to store the `C:\Users` directory on the 2nd disk which is automatically exposed by Qubes to all HVMs. This 2nd disk is backed by the `private.img` file in the AppVMs' and is not reset upon AppVMs reboot, so the user's directories and profiles would survive the AppVMs reboot, unlike the "root" filesystem which will be reverted to the "golden image" from the Template VM automatically. To facilitate such separation of user profiles, Qubes Windows Tools provide an option to automatically move `C:\Users` directory to the 2nd disk backed by `private.img`. It's a selectable feature of the installer, enabled by default. If that feature is selected during installation, completion of the process requires two reboots:
+... and install Windows OS (or other OS) into this template the same way as you would install it into a normal HVM -- please see [this page](/doc/HvmCreate/) instructions. However, it would make lots of sense to store the `C:\Users` directory on the 2nd disk which is automatically exposed by Qubes to all HVMs. This 2nd disk is backed by the `private.img` file in the AppVMs' and is not reset upon AppVMs reboot, so the user's directories and profiles would survive the AppVMs reboot, unlike the "root" filesystem which will be reverted to the "golden image" from the Template VM automatically. To facilitate such separation of user profiles, Qubes Windows Tools provide an option to automatically move `C:\Users` directory to the 2nd disk backed by `private.img`. It's a selectable feature of the installer, enabled by default. If that feature is selected during installation, completion of the process requires two reboots:
 
 -   The private disk is initialized and formatted on the first reboot after tools installation. It can't be done **during** the installation because Xen mass storage drivers are not yet active.
 -   User profiles are moved to the private disk on the next reboot after the private disk is initialized. Reboot is required because the "mover utility" runs very early in the boot process so OS can't yet lock any files in there. This can take some time depending on the profiles' size and because the GUI agent is not yet active dom0/Qubes Manager may complain that the AppVM failed to boot. That's a false alarm (you can increase AppVM's default boot timeout using `qvm-prefs`), the VM should appear "green" in Qubes Manager shortly after.

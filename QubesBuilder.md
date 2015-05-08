@@ -97,9 +97,9 @@ You can also build selected component separately. Eg. to compile only gui virtua
     make gui-daemon
 
 Full list you can get from make help. For advanced use and preparing sources
-for use with [QubesBuilder](/wiki/QubesBuilder) take a look at [doc directory
+for use with [QubesBuilder](/doc/QubesBuilder/) take a look at [doc directory
 in QubesBuilder](https://github.com/marmarek/qubes-builder/tree/master/doc) or 
-[QubesBuilderDetails](/wiki/QubesBuilderDetails) page.
+[QubesBuilderDetails](/doc/QubesBuilderDetails/) page.
 
 Making customized build
 -----------------------
@@ -137,7 +137,7 @@ If you want to somehow modify sources, you can also do it, here are some basic s
 Code verification keys management
 =================================
 
-[QubesBuilder](/wiki/QubesBuilder) by default verifies signed tags on every downloaded code. Public keys used for that are stored in `keyrings/git`. By default Qubes developers' keys are imported automatically, but if you need some additional keys (for example your own), you can add them using:
+[QubesBuilder](/doc/QubesBuilder/) by default verifies signed tags on every downloaded code. Public keys used for that are stored in `keyrings/git`. By default Qubes developers' keys are imported automatically, but if you need some additional keys (for example your own), you can add them using:
 
 {% highlight trac-wiki %}
 GNUPGHOME=$PWD/keyrings/git gpg --import /path/to/key.asc

@@ -13,25 +13,25 @@ Qubes Documentation
 For Users
 ---------
 
--   [User Documentation](/wiki/UserDoc/)
--   [Users' FAQ](/wiki/UserFaq/)
--   [System Requirements](/wiki/SystemRequirements/)
+-   [User Documentation](/doc/UserDoc/)
+-   [Users' FAQ](/doc/UserFaq/)
+-   [System Requirements](/doc/SystemRequirements/)
 -   [Hardware Compatibility List](/hcl//)
--   [On Digital Signatures and How to Verify Qubes Downloads](/wiki/VerifyingSignatures/)
--   [Installation Guides](/wiki/QubesDownloads/)
--   [Troubleshooting](/wiki/TroubleShooting/)
--   [Security](/wiki/QubesSecurity/)
+-   [On Digital Signatures and How to Verify Qubes Downloads](/doc/VerifyingSignatures/)
+-   [Installation Guides](/doc/QubesDownloads/)
+-   [Troubleshooting](/doc/TroubleShooting/)
+-   [Security](/doc/QubesSecurity/)
 
 For Developers
 --------------
 
--   [Developer Documentation](/wiki/SystemDoc/)
--   [Developers' FAQ](/wiki/DevelFaq/)
--   [How can I contribute to the Qubes project?](/wiki/ContributingHowto/)
--   [Source Code](/wiki/SourceCode/)
--   [Coding Guidelines](/wiki/CodingStyle/)
--   [Books for Developers](/wiki/DevelBooks/)
--   [Research Papers](/wiki/QubesResearch/)
--   [Architecture](/wiki/QubesArchitecture/)
--   [Licensing](/wiki/QubesLicensing/)
+-   [Developer Documentation](/doc/SystemDoc/)
+-   [Developers' FAQ](/doc/DevelFaq/)
+-   [How can I contribute to the Qubes project?](/doc/ContributingHowto/)
+-   [Source Code](/doc/SourceCode/)
+-   [Coding Guidelines](/doc/CodingStyle/)
+-   [Books for Developers](/doc/DevelBooks/)
+-   [Research Papers](/doc/QubesResearch/)
+-   [Architecture](/doc/QubesArchitecture/)
+-   [Licensing](/doc/QubesLicensing/)
 
