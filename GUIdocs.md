@@ -94,9 +94,9 @@ AppVM -\> dom0 messages
 
 Proper handling of the below messages is security-critical. Observe that beside two messages (`CLIPBOARD` and `MFNDUMP`) the rest have fixed size, so the parsing code can be small.
 
-The *override\_redirect* window attribute is explained at [​Override Redirect Flag](http://tronche.com/gui/x/xlib/window/attributes/override-redirect.html). The *transient\_for* attribute is explained at [​Transient\_for attribute](http://tronche.com/gui/x/icccm/sec-4.html#WM_TRANSIENT_FOR).
+The *override\_redirect* window attribute is explained at [Override Redirect Flag](http://tronche.com/gui/x/xlib/window/attributes/override-redirect.html). The *transient\_for* attribute is explained at [Transient\_for attribute](http://tronche.com/gui/x/icccm/sec-4.html#WM_TRANSIENT_FOR).
 
-Window manager hints and flags are described at [​http://standards.freedesktop.org/wm-spec/latest/](http://standards.freedesktop.org/wm-spec/latest/), especially part about `_NET_WM_STATE`.
+Window manager hints and flags are described at [http://standards.freedesktop.org/wm-spec/latest/](http://standards.freedesktop.org/wm-spec/latest/), especially part about `_NET_WM_STATE`.
 
 Each message starts with the following header
 

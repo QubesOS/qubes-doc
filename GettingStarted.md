@@ -83,7 +83,7 @@ That's a great question, but there's no one-size-fits-all answer. It depends on 
 
 It's a good idea to start out with the three domains created automatically by the installer: work, personal, and untrusted. Then, if and when you start to feel that some activity just doesn't fit into any of your existing domains, you can easily create a new domain for it. You'll also be able to easily copy any files you need to the newly created domain, as explained [here](/wiki/CopyingFiles).
 
-More paranoid people might find it worthwhile to read [​this article](http://theinvisiblethings.blogspot.com/2011/03/partitioning-my-digital-life-into.html), which describes how one of the Qubes authors partitions her digital life into security domains.
+More paranoid people might find it worthwhile to read [this article](http://theinvisiblethings.blogspot.com/2011/03/partitioning-my-digital-life-into.html), which describes how one of the Qubes authors partitions her digital life into security domains.
 
 Full Screen Domains
 -------------------

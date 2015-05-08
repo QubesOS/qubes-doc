@@ -8,7 +8,7 @@ redirect_from: /wiki/VPN/
 How To make a VPN Gateway in Qubes
 ----------------------------------
 
-The simplest case if you set up a VPN connection using the Network Manager inside one of your VMs. Setting up such a connection is really not Qubes specific and it is documented in Your Operating system documentation. If you using the Qubes default Guest OS (Fedora): [​Establishing a VPN Connection](http://docs.fedoraproject.org/en-US/Fedora/18/html/System_Administrators_Guide/sec-Establishing_a_VPN_Connection.html)
+The simplest case if you set up a VPN connection using the Network Manager inside one of your VMs. Setting up such a connection is really not Qubes specific and it is documented in Your Operating system documentation. If you using the Qubes default Guest OS (Fedora): [Establishing a VPN Connection](http://docs.fedoraproject.org/en-US/Fedora/18/html/System_Administrators_Guide/sec-Establishing_a_VPN_Connection.html)
 
 The Qubes specific part is choose the right VM for the VPN client:
 

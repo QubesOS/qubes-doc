@@ -73,7 +73,7 @@ Known problems during building or when running the VM
 Can't open file archlinux-2013.02.01-dual.iso
 ---------------------------------------------
 
-Archlinux ISO files are sometimes removed from mirrors. Check the last version available on the archlinux mirror (eg: [​http://mir.archlinux.fr/iso/](http://mir.archlinux.fr/iso/)), and update qubes-src/linux-template-builder/scripts\_archlinux/00\_prepare.sh accordingly:
+Archlinux ISO files are sometimes removed from mirrors. Check the last version available on the archlinux mirror (eg: [http://mir.archlinux.fr/iso/](http://mir.archlinux.fr/iso/)), and update qubes-src/linux-template-builder/scripts\_archlinux/00\_prepare.sh accordingly:
 
 {% highlight trac-wiki %}
 ISO_VERSION=2013.06.01
@@ -147,7 +147,7 @@ Commenting out "\#define HAVE\_ATTRIBUTE\_FORMAT\_PARSETUPLE" from chroot\_archl
 
 A better fix is planned for the next python release (the bug is considered release blocking), and will be updated in archlinux chroot as soon as available.
 
-[1] [​http://bugs.python.org/issue17547](http://bugs.python.org/issue17547)
+[1] [http://bugs.python.org/issue17547](http://bugs.python.org/issue17547)
 
 The boot process fails without visible errors in the logs, but spawn a recovery shell
 -------------------------------------------------------------------------------------

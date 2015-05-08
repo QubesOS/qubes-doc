@@ -19,7 +19,7 @@ For example, suppose you have an `email` AppVM. You have set the firewall rules 
 
 Note that physically air-gapped machines are not necessarily immune to this problem. Covert channels can potentially take many forms (e.g., sneakernet thumb drive, bluetooth, or even microphone and speakers).
 
-For a further discussion of covert channels, see [​this thread](https://groups.google.com/d/topic/qubes-users/AqZV65yZLuU/discussion) and ticket 817.
+For a further discussion of covert channels, see [this thread](https://groups.google.com/d/topic/qubes-users/AqZV65yZLuU/discussion) and ticket 817.
 
 Types of Data Leaks
 -------------------
@@ -34,4 +34,4 @@ In order to understand and attmept to prevent data leaks in Qubes, we must disti
 
 Both Qubes firewall and an empty NetVM (i.e., setting the NetVM of an AppVM to "none") can fully protect against leaks of type 3. However, neither Qubes firewall nor an empty NetVM are guaranteed to protect against leaks of types 1 and 2. It is likely that the only way to fully protect against leaks of type 1 and 2 is to either pause or shut down all other VMs while performing sensitive operations in the target VM(s) (such as key generation).
 
-For further discussion, see [​this thread](https://groups.google.com/d/topic/qubes-users/t0cmNfuVduw/discussion).
+For further discussion, see [this thread](https://groups.google.com/d/topic/qubes-users/t0cmNfuVduw/discussion).

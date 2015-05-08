@@ -35,6 +35,6 @@ The scheme is *secure* because it doesn't allow other domains to steal the files
 
 However, one should keep in mind that performing a data transfer from *less trusted* to *more trusted* domain can always be potentially insecure, because the data that we insert might potentially try to exploit some hypothetical bug in the destination VM (e.g. a seemingly innocent JPEG that we copy from untrusted domain, might turned out to be specially craft exploit for some hypothetical bug in JPEG parsing application in the destination domain). This is a general problem and applies to any data transfer between *less trusted to more trusted* domain. It even applies to the scenario of copying files between air-gapped machines. So, you should always copy data only from *more trusted* to *less trusted* domains.
 
-See also [​this article](http://theinvisiblethings.blogspot.com/2011/03/partitioning-my-digital-life-into.html) for more information on this topic, and some ideas of how we might solve this problem in some future version of Qubes.
+See also [this article](http://theinvisiblethings.blogspot.com/2011/03/partitioning-my-digital-life-into.html) for more information on this topic, and some ideas of how we might solve this problem in some future version of Qubes.
 
 You may also want to read how to [revoke "Yes to All" authorization](/wiki/Qrexec#RevokingYestoAllauthorization)

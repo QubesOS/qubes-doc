@@ -13,7 +13,7 @@ Rationale
 
 Traditionally, Xen VMs are assigned a fixed amount of memory. It is not the optimal solution, as some VMs may require more memory than assigned initially, while others underutilize memory. Thus, there is a need for solution capable of shifting free memory from VM to another VM.
 
-The [​tmem](http://oss.oracle.com/projects/tmem/) project provides a "pseudo-RAM" that is assigned on per-need basis. However this solution has some disadvantages:
+The [tmem](http://oss.oracle.com/projects/tmem/) project provides a "pseudo-RAM" that is assigned on per-need basis. However this solution has some disadvantages:
 
 -   It does not provide real RAM, just an interface to copy memory to/from fast, RAM-based storage. It is perfect for swap, good for file cache, but not ideal for many tasks.
 -   It is deeply integrated with the Linux kernel. When Qubes will support Windows guests natively, we would have to port *tmem* to Windows, which may be challenging.

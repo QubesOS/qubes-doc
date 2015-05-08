@@ -18,7 +18,7 @@ Install ZFS in Dom0
 Install DKMS style packages for Fedora <sup>(defunct\\ in\\ 0.6.2\\ due\\ to\\ spl/issues/284)</sup>
 ----------------------------------------------------------------------------------------------------
 
-Fetch and install repository for DKMS style packages for your Dom0 Fedora version [​http://zfsonlinux.org/fedora.html](http://zfsonlinux.org/fedora.html):
+Fetch and install repository for DKMS style packages for your Dom0 Fedora version [http://zfsonlinux.org/fedora.html](http://zfsonlinux.org/fedora.html):
 
 {% highlight trac-wiki %}
 disp1# wget http://archive.zfsonlinux.org/fedora/zfs-release-1-1$(rpm -E %dist).noarch.rpm
@@ -32,7 +32,7 @@ dom0# sudo qubes-dom0-update zfs
 Install DKMS style packages from git-repository
 -----------------------------------------------
 
-Build and install your DKMS or KMOD packages as described in [​http://zfsonlinux.org/generic-rpm.html](http://zfsonlinux.org/generic-rpm.html).
+Build and install your DKMS or KMOD packages as described in [http://zfsonlinux.org/generic-rpm.html](http://zfsonlinux.org/generic-rpm.html).
 
 ### Prerequisites steps in AppVM <sup>(i.e.\\ disp1)</sup>
 
@@ -44,7 +44,7 @@ git clone https://github.com/zfsonlinux/spl.git
 git clone https://github.com/zfsonlinux/zfs.git
 {% endhighlight %}
 
-Revert changes in SPL repository due to this bug: [​https://github.com/zfsonlinux/spl/issues/284](https://github.com/zfsonlinux/spl/issues/284)
+Revert changes in SPL repository due to this bug: [https://github.com/zfsonlinux/spl/issues/284](https://github.com/zfsonlinux/spl/issues/284)
 
 {% highlight trac-wiki %}
 cd ~/repositories/spl
@@ -189,6 +189,6 @@ Specifying a keyfile is especially useful, if ZFS should be ready during boot.
 Further Reading
 ---------------
 
--   [​http://www.open-zfs.org](http://www.open-zfs.org)
--   [​http://zfsonlinux.org](http://zfsonlinux.org)
+-   [http://www.open-zfs.org](http://www.open-zfs.org)
+-   [http://zfsonlinux.org](http://zfsonlinux.org)
 

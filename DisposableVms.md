@@ -11,7 +11,7 @@ Disposable VMs (DispVMs)
 Background
 ----------
 
-See [​this article](http://theinvisiblethings.blogspot.com/2010/06/disposable-vms.html) for a background on why would one want to use a Disposable VM and what it is.
+See [this article](http://theinvisiblethings.blogspot.com/2010/06/disposable-vms.html) for a background on why would one want to use a Disposable VM and what it is.
 
 Opening a file in a Disposable VM (via GUI)
 -------------------------------------------
@@ -86,4 +86,4 @@ lrwxrwxrwx 1 joanna joanna 47 Mar 11 13:59 savefile_root -> /var/lib/qubes/vm-te
 Disposable VMs and Local Forensics
 ----------------------------------
 
-At this time, DispVMs should not be relied upon to circumvent local forensics, as they do not run entirely in RAM. For details, see [​this thread](https://groups.google.com/d/topic/qubes-devel/QwL5PjqPs-4/discussion).
+At this time, DispVMs should not be relied upon to circumvent local forensics, as they do not run entirely in RAM. For details, see [this thread](https://groups.google.com/d/topic/qubes-devel/QwL5PjqPs-4/discussion).

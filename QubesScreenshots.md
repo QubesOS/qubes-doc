@@ -82,7 +82,7 @@ Qubes' unique Disposable VMs (DispVMs) allow the user to open any file in a disp
 
 [![r2b2-convert-to-trusted-pdf-3.png](/attachment/wiki/QubesScreenshots/r2b2-convert-to-trusted-pdf-3.png)](/attachment/wiki/QubesScreenshots/r2b2-convert-to-trusted-pdf-3.png) [![r2b2-converting-pdf-2.png](/attachment/wiki/QubesScreenshots/r2b2-converting-pdf-2.png)](/attachment/wiki/QubesScreenshots/r2b2-converting-pdf-2.png)
 
-Qubes provides an advanced infrastructure for programming inter-VM services, such as a PDF converter for untrusted files (which is described in [​this article](http://theinvisiblethings.blogspot.com/2013/02/converting-untrusted-pdfs-into-trusted.html)).
+Qubes provides an advanced infrastructure for programming inter-VM services, such as a PDF converter for untrusted files (which is described in [this article](http://theinvisiblethings.blogspot.com/2013/02/converting-untrusted-pdfs-into-trusted.html)).
 
 * * * * *
 

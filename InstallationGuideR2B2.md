@@ -83,7 +83,7 @@ Getting Help
 -   Developers documentation (normally not needed by users) is [here](/wiki/SystemDoc)
 
 -   If you don't find answer in the sources given above, write to the *qubes-devel* mailing list (you don't need to be subscribed to the list, just send email to the address given below):
-    -   [​http://groups.google.com/group/qubes-devel](http://groups.google.com/group/qubes-devel)
+    -   [http://groups.google.com/group/qubes-devel](http://groups.google.com/group/qubes-devel)
     -   `qubes-devel@googlegroups.com`
 
 -   Please do not write email to individual developers (Marek, Joanna, etc) asking questions about installation or other problems. Please send all such questions to the mailing list.

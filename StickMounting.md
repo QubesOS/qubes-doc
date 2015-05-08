@@ -8,7 +8,7 @@ redirect_from: /wiki/StickMounting/
 How to Mount USB Sticks to AppVMs
 =================================
 
-(**Note:** In the present context, the term "USB stick" denotes any [​USB mass storage device](https://en.wikipedia.org/wiki/USB_mass_storage_device_class). In addition to smaller flash memory sticks, this includes things like USB external hard drives.)
+(**Note:** In the present context, the term "USB stick" denotes any [USB mass storage device](https://en.wikipedia.org/wiki/USB_mass_storage_device_class). In addition to smaller flash memory sticks, this includes things like USB external hard drives.)
 
 Qubes supports the ability to mount a USB stick to any AppVM easily, no matter which VM actually handles the USB controller. (The USB controller may be assigned on the **Devices** tab of an AppVM's settings page in Qubes VM Manager or by using the [qvm-pci command](/wiki/AssigningDevices).)
 

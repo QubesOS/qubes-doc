@@ -81,7 +81,7 @@ kernelopts       : iommu=soft swiotlb=2048 (default)
 # qvm-prefs -s netvm kernelopts "iommu=soft swiotlb=4096"
 {% endhighlight %}
 
-This is [​known to be needed](https://groups.google.com/group/qubes-devel/browse_thread/thread/631c4a3a9d1186e3) for Realtek RTL8111DL Gigabit Ethernet Controller.
+This is [known to be needed](https://groups.google.com/group/qubes-devel/browse_thread/thread/631c4a3a9d1186e3) for Realtek RTL8111DL Gigabit Ethernet Controller.
 
 ### PCI passthrough issues
 
@@ -103,9 +103,9 @@ WantedBy=multi-user.target
 
 Then enable it with `systemctl enable qubes-pre-netvm.service`
 
-See also: [​https://groups.google.com/forum/\#!topic/qubes-users/Fs94QAc3vQI](https://groups.google.com/forum/#!topic/qubes-users/Fs94QAc3vQI), [​http://wiki.xen.org/wiki/Xen\_PCI\_Passthrough](http://wiki.xen.org/wiki/Xen_PCI_Passthrough)
+See also: [https://groups.google.com/forum/\#!topic/qubes-users/Fs94QAc3vQI](https://groups.google.com/forum/#!topic/qubes-users/Fs94QAc3vQI), [http://wiki.xen.org/wiki/Xen\_PCI\_Passthrough](http://wiki.xen.org/wiki/Xen_PCI_Passthrough)
 
-**NOTE:** By setting the permissive flag for the PCI device, you're potentially weakening the device isolation, especially if your system is not equipped with VT-d Interrupt Remapping unit -- see [​this paper, page 7](http://www.invisiblethingslab.com/resources/2011/Software%20Attacks%20on%20Intel%20VT-d.pdf) for more details.
+**NOTE:** By setting the permissive flag for the PCI device, you're potentially weakening the device isolation, especially if your system is not equipped with VT-d Interrupt Remapping unit -- see [this paper, page 7](http://www.invisiblethingslab.com/resources/2011/Software%20Attacks%20on%20Intel%20VT-d.pdf) for more details.
 
 Bringing PCI device back to dom0
 --------------------------------

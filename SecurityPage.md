@@ -26,7 +26,7 @@ security at qubes-os dot org
 Qubes Security Team GPG Key
 ---------------------------
 
-Please use the [​this GPG key](http://keys.qubes-os.org/keys/qubes-os-security-team-key.asc) for encrypting any emails send to this address. Like all the GPG keys used by the Qubes project, this key is signed with the Qubes Master key. Please see [this page](/wiki/VerifyingSignatures) for more information on how to verify the keys.
+Please use the [this GPG key](http://keys.qubes-os.org/keys/qubes-os-security-team-key.asc) for encrypting any emails send to this address. Like all the GPG keys used by the Qubes project, this key is signed with the Qubes Master key. Please see [this page](/wiki/VerifyingSignatures) for more information on how to verify the keys.
 
 Members of the Security Team
 ----------------------------

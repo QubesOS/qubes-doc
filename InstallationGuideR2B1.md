@@ -71,7 +71,7 @@ Known Issues
 
 -   If you don't enable Composition (System Setting -\> Desktop -\> Enable desktop effects), which you really should do, then the KDE task bar might get somehow ugly (e.g. half of it might be black). This is some KDE bug that we don't plan to fix.
 
--   Some keyboard layout set by KDE System Settings can cause [​keyboard not working at all](https://groups.google.com/group/qubes-devel/browse_thread/thread/77d076b65dda7226). If you hit this issue, you can switch to console (by console login option) and manually edit `/etc/X11/xorg.conf.d/00-system-setup-keyboard.conf` (and `/etc/sysconfig/keyboard`) and place correct keyboard layout settings (details in linked thread). You can check if specific keyboard layout settings are proper using `setxkbmap` tool.
+-   Some keyboard layout set by KDE System Settings can cause [keyboard not working at all](https://groups.google.com/group/qubes-devel/browse_thread/thread/77d076b65dda7226). If you hit this issue, you can switch to console (by console login option) and manually edit `/etc/X11/xorg.conf.d/00-system-setup-keyboard.conf` (and `/etc/sysconfig/keyboard`) and place correct keyboard layout settings (details in linked thread). You can check if specific keyboard layout settings are proper using `setxkbmap` tool.
 
 -   On systems with more than 8GB of RAM there is problem with Disposable VM. To fix it, limit maximum memory allocation for DispVM to 3GB
 
@@ -82,7 +82,7 @@ Known Issues
 
 -   Qubes installer/system won't boot from a USB3-attached disks due to missing modules in initramfs (\#691). Please use USB2 port/device instead for now.
 
--   Systems with AMD graphics needs additional firmware (missing in default installation), details [​here](http://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76).
+-   Systems with AMD graphics needs additional firmware (missing in default installation), details [here](http://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76).
 
 Getting Help
 ------------
@@ -92,7 +92,7 @@ Getting Help
 -   Developers documentation (normally not needed by users) is [here](/wiki/SystemDoc)
 
 -   If you don't find answer in the sources given above, write to the *qubes-devel* mailing list (you don't need to be subscribed to the list, just send email to the address given below):
-    -   [​http://groups.google.com/group/qubes-devel](http://groups.google.com/group/qubes-devel)
+    -   [http://groups.google.com/group/qubes-devel](http://groups.google.com/group/qubes-devel)
     -   `qubes-devel@googlegroups.com`
 
 -   Please do not write email to individual developers (Marek, Joanna, etc) asking questions about installation or other problems. Please send all such questions to the mailing list.

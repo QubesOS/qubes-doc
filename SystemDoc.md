@@ -9,11 +9,11 @@ System Documentation for Developers
 ===================================
 
 1.  Fundamentals:
-    1.  Qubes OS Architecture v0.3 [​(pdf)](http://files.qubes-os.org/files/doc/arch-spec-0.3.pdf) (The original 2009 document that started this all...)
+    1.  Qubes OS Architecture v0.3 [(pdf)](http://files.qubes-os.org/files/doc/arch-spec-0.3.pdf) (The original 2009 document that started this all...)
     2.  [Security-critical elements of Qubes OS](/wiki/SecurityCriticalCode)
     3.  Qubes RPC framework (qrexec):
         1.  [The Qubes RPC/Service API](/wiki/Qrexec)
-        2.  Example for writing a qrexec service in Qubes OS [​blog post](http://theinvisiblethings.blogspot.com/2013/02/converting-untrusted-pdfs-into-trusted.html)
+        2.  Example for writing a qrexec service in Qubes OS [blog post](http://theinvisiblethings.blogspot.com/2013/02/converting-untrusted-pdfs-into-trusted.html)
         3.  [qrexec implementation in Qubes R2](/wiki/Qrexec2Implementation)
         4.  [qrexec implementation in Qubes R3/Odyssey](/wiki/Qrexec3Implementation)
 
@@ -25,7 +25,7 @@ System Documentation for Developers
     1.  [Inter-domain file copying](/wiki/Qfilecopy)
     2.  [Dynamic memory management in Qubes](/wiki/Qmemman)
     3.  [Implementation of DisposableVMs](/wiki/DVMimpl)
-    4.  [​Article about disposable VMs](http://theinvisiblethings.blogspot.com/2010/06/disposable-vms.html)
+    4.  [Article about disposable VMs](http://theinvisiblethings.blogspot.com/2010/06/disposable-vms.html)
     5.  [Dom0 secure update mechanism](/wiki/Dom0SecureUpdates)
     6.  [VM secure update mechanism?](/wiki/VMSecureUpdates)
 

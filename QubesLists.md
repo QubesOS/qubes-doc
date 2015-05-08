@@ -15,7 +15,7 @@ Mailing List Rules
 
 -   Send your message to the correct list. Read the sections below to determine which list is correct for your message.
 
--   Do not [​top-post](https://en.wikipedia.org/wiki/Posting_style).
+-   Do not [top-post](https://en.wikipedia.org/wiki/Posting_style).
 
 -   Include a precise and informative subject line. This will allow others to easily find your thread in the future and use it as a reference.
     -   Bad: "Help! Qubes problems!"
@@ -55,7 +55,7 @@ You don't have to subscribe in order to post to this list. However, subscribing 
 -   To subscribe to the list, send a blank mail to `qubes-users+subscribe@googlegroups.com`. (Note: A Gmail account is not required. Any email address should work.)
 -   To post a message to the list, address your email to `qubes-users@googlegroups.com`. (Note: You don't have to be subscribed in order to post.)
 -   To unsubscribe, send a blank email to `qubes-users+unsubscribe@googlegroups.com`.
--   This list has a Google Groups web interface: [​https://groups.google.com/group/qubes-users](https://groups.google.com/group/qubes-users)
+-   This list has a Google Groups web interface: [https://groups.google.com/group/qubes-users](https://groups.google.com/group/qubes-users)
     -   Some users prefer to interact with the mailing list through the Google Groups web interface. This has the advantage that it allows you to search and reply to messages which were sent prior to your subscription to the list. However, a Google account is required in order to post through this interface.
 
 The `qubes-devel` mailing list
@@ -78,6 +78,6 @@ You must be subscribed in order to post to this list.
 -   To subscribe to the list, send a blank mail to `qubes-devel+subscribe@googlegroups.com`. (Note: A Gmail account is not required. Any email address should work.)
 -   To post a message to the list, address your email to `qubes-devel@googlegroups.com`. (Note: You must be subscribed in order to post. If your post does not appear, please allow time for moderation to occur.)
 -   To unsubscribe, send a blank email to `qubes-devel+unsubscribe@googlegroups.com`.
--   This list has a Google Groups web interface: [​https://groups.google.com/group/qubes-devel](https://groups.google.com/group/qubes-devel)
+-   This list has a Google Groups web interface: [https://groups.google.com/group/qubes-devel](https://groups.google.com/group/qubes-devel)
     -   Some users prefer to interact with the mailing list through the Google Groups web interface. This has the advantage that it allows you to search and reply to messages which were sent prior to your subscription to the list. However, a Google account is required in order to post through this interface.
 

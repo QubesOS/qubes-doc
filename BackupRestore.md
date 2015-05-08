@@ -89,6 +89,6 @@ In order to migrate your Qubes system from one physical machine to another, simp
 Notes
 -----
 
--   For the technical details of the backup system, please refer to [​this thread](https://groups.google.com/d/topic/qubes-devel/TQr_QcXIVww/discussion).
--   If working with symlinks, note the issues described in [​this thread](https://groups.google.com/d/topic/qubes-users/EITd1kBHD30/discussion).
+-   For the technical details of the backup system, please refer to [this thread](https://groups.google.com/d/topic/qubes-devel/TQr_QcXIVww/discussion).
+-   If working with symlinks, note the issues described in [this thread](https://groups.google.com/d/topic/qubes-users/EITd1kBHD30/discussion).
 

@@ -19,18 +19,18 @@ Introduction
 The **Qubes Security Pack (QSP)** is a Git repository which contains:
 
 -   [All Qubes Security Bulletins (QSBs)](/wiki/SecurityBulletins)
--   [​All PGP keys](https://keys.qubes-os.org/keys/)
--   [​Warrant canaries](https://en.wikipedia.org/wiki/Warrant_canary)
+-   [All PGP keys](https://keys.qubes-os.org/keys/)
+-   [Warrant canaries](https://en.wikipedia.org/wiki/Warrant_canary)
 -   Other security-related information and announcements (such as key revocations)
 
 The QSP is located here:
 
-> [​https://github.com/QubesOS/qubes-secpack](https://github.com/QubesOS/qubes-secpack)
+> [https://github.com/QubesOS/qubes-secpack](https://github.com/QubesOS/qubes-secpack)
 
 History and Rationale
 ---------------------
 
-On 2013-01-05, Joanna Rutkowska announced the QSP and explained its rationale in an [​email](https://groups.google.com/d/msg/qubes-devel/twkOEaMLtNI/lZyGx6_jFCEJ) to the Qubes mailing lists:
+On 2013-01-05, Joanna Rutkowska announced the QSP and explained its rationale in an [email](https://groups.google.com/d/msg/qubes-devel/twkOEaMLtNI/lZyGx6_jFCEJ) to the Qubes mailing lists:
 
 {% highlight trac-wiki %}
 Hello,

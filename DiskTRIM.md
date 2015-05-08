@@ -5,7 +5,7 @@ permalink: /doc/DiskTRIM/
 redirect_from: /wiki/DiskTRIM/
 ---
 
-VMs have already TRIM enabled by default, but dom0 doesn't. There are some security implications (read for example [​this article](http://asalor.blogspot.com/2011/08/trim-dm-crypt-problems.html)), but IMO not very serious.
+VMs have already TRIM enabled by default, but dom0 doesn't. There are some security implications (read for example [this article](http://asalor.blogspot.com/2011/08/trim-dm-crypt-problems.html)), but IMO not very serious.
 
 To enable TRIM in dom0 you need:
 
@@ -32,4 +32,4 @@ To enable TRIM in dom0 you need:
 6.  Add "discard" option to `/etc/fstab` for root device
 7.  Reboot the system, verify that allow-discards is really enabled (`dmsetup table`)
 
-There is a [​bug affecting allow-discards option](https://bugzilla.redhat.com/show_bug.cgi?id=890533), once it will be fixed, first two steps will be no longer needed.
+There is a [bug affecting allow-discards option](https://bugzilla.redhat.com/show_bug.cgi?id=890533), once it will be fixed, first two steps will be no longer needed.

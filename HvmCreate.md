@@ -13,7 +13,7 @@ What are HVM domains?
 
 HVM domains (Hardware VM), in contrast to PV domains (Paravirtualized domains), allow to create domains based on any OS, if one only has its installation ISO. E.g. this allows to have Windows-based VMs in Qubes.
 
-Interested readers might want to check [​this article](http://theinvisiblethings.blogspot.com/2012/03/windows-support-coming-to-qubes.html) to learn why it took so long for Qubes OS to support HVM domains (Qubes 1 only supported Linuxed-based PV domains).
+Interested readers might want to check [this article](http://theinvisiblethings.blogspot.com/2012/03/windows-support-coming-to-qubes.html) to learn why it took so long for Qubes OS to support HVM domains (Qubes 1 only supported Linuxed-based PV domains).
 
 Creating an HVM domain
 ----------------------
@@ -65,7 +65,7 @@ Of course the AppVM where the ISO is kept must also be running for this to work 
 Setting up networking for HVM domains
 -------------------------------------
 
-Just like standard (paravirtualized) AppVMs, the HVM domains got fixed IP addresses centrally assigned by Qubes. Normally Qubes agent scripts, running within each AppVM, are responsible for setting up networking within the VM according the configuration created by Qubes. Such centrally managed networking infrastructure allows for [​advanced networking configuration](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html).
+Just like standard (paravirtualized) AppVMs, the HVM domains got fixed IP addresses centrally assigned by Qubes. Normally Qubes agent scripts, running within each AppVM, are responsible for setting up networking within the VM according the configuration created by Qubes. Such centrally managed networking infrastructure allows for [advanced networking configuration](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html).
 
 However, a generic HVM domain, e.g. a standard Windows or Ubuntu installation, has (at least initially) no Qubes agent scripts running inside it, and thus requires manual networking configuration, so that it match the values assigned by Qubes for this domain.
 

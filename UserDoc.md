@@ -42,17 +42,17 @@ Qubes User Documentation
         4.  [How to set up a ProxyVM as a VPN Gateway](/wiki/VPN/)
         5.  [Adding Bridge Support to the NetVM (EXPERIMENTAL)](/wiki/NetworkBridgeSupport/)
         6.  External Links
-            1.  [​Creating Custom NetVMs and ProxyVMs](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html)
-            2.  [​How to run TorBrowser using external tor proxy (from TorVM)](https://groups.google.com/group/qubes-devel/msg/34f67194d3422bfa)
-            3.  [​How to make proxy for individual tcp connection from networkless VM](https://groups.google.com/group/qubes-devel/msg/4ca950ab6d7cd11a)
-            4.  [​HTTP filtering proxy in Qubes firewall VM](https://groups.google.com/group/qubes-devel/browse_thread/thread/5252bc3f6ed4b43e/d881deb5afaa2a6c#39c95d63fccca12b)
+            1.  [Creating Custom NetVMs and ProxyVMs](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html)
+            2.  [How to run TorBrowser using external tor proxy (from TorVM)](https://groups.google.com/group/qubes-devel/msg/34f67194d3422bfa)
+            3.  [How to make proxy for individual tcp connection from networkless VM](https://groups.google.com/group/qubes-devel/msg/4ca950ab6d7cd11a)
+            4.  [HTTP filtering proxy in Qubes firewall VM](https://groups.google.com/group/qubes-devel/browse_thread/thread/5252bc3f6ed4b43e/d881deb5afaa2a6c#39c95d63fccca12b)
 
     5.  **[TemplateVMs](/doc/Templates/)**
         1.  [Updating and Installing Software in VMs](/wiki/SoftwareUpdateVM/)
         2.  [Templates: Fedora - minimal](/wiki/Templates/FedoraMinimal/)
         3.  [Templates: Debian](/wiki/Templates/Debian/)
         4.  External Links
-            1.  [​Extending \`root.img\` Size](https://groups.google.com/group/qubes-devel/msg/9d1ac581236ca9b4)
+            1.  [Extending \`root.img\` Size](https://groups.google.com/group/qubes-devel/msg/9d1ac581236ca9b4)
 
     6.  **DispVMs**
         1.  [Disposable VMs](/wiki/DisposableVms/)
@@ -63,8 +63,8 @@ Qubes User Documentation
         2.  [Tips for Using Linux in an HVM](/wiki/LinuxHVMTips/)
         3.  [Creating and Using HVM and Windows Domains (Qubes R2 Only)](/wiki/HvmCreate/)
         4.  External Links
-            1.  [​Creating Whonix HVMs in Qubes](https://www.whonix.org/wiki/Qubes)
-            2.  [​Creating NetBSD VM](https://groups.google.com/group/qubes-devel/msg/4015c8900a813985)
+            1.  [Creating Whonix HVMs in Qubes](https://www.whonix.org/wiki/Qubes)
+            2.  [Creating NetBSD VM](https://groups.google.com/group/qubes-devel/msg/4015c8900a813985)
 
     8.  **Windows VMs**
         1.  [Installing and Using Windows-based AppVMs (Qubes R2 Beta 3 and Later)](/wiki/WindowsAppVms/)
@@ -90,8 +90,8 @@ Qubes User Documentation
         2.  [Getting Sony Vaio Z laptop to work with Qubes](/wiki/SonyVaioTinkering/)
 
     8.  External Links
-        1.  [​Installing on system with new AMD GPU (missing firmware problem)](https://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76)
-        2.  [​Solving problems with Macbook Air 2012](https://groups.google.com/group/qubes-devel/browse_thread/thread/b8b0d819d2a4fc39/d50a72449107ab21#8a9268c09d105e69)
-        3.  [​Booting with GRUB2 and GPT](https://groups.google.com/group/qubes-devel/browse_thread/thread/e4ac093cabd37d2b/d5090c20d92c4128#d5090c20d92c4128)
+        1.  [Installing on system with new AMD GPU (missing firmware problem)](https://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76)
+        2.  [Solving problems with Macbook Air 2012](https://groups.google.com/group/qubes-devel/browse_thread/thread/b8b0d819d2a4fc39/d50a72449107ab21#8a9268c09d105e69)
+        3.  [Booting with GRUB2 and GPT](https://groups.google.com/group/qubes-devel/browse_thread/thread/e4ac093cabd37d2b/d5090c20d92c4128#d5090c20d92c4128)
 
 

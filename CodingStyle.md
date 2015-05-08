@@ -20,7 +20,7 @@ Maintaining proper coding style is very important for any larger software projec
 
 Often, developers, usually smart developers, neglect the value of proper coding style, thinking that it's most important how their code works, and expecting that if it solves some problem using a nice and neat trick, then it's all that is really required. Such thinking shows, however, immaturity and is a signal that the developer, however bright and smart, might not be a good fit for any larger project. Writing a clever exploit, that is to be used at one Black Hat show is one thing, while writing a useful software that is to be used and maintained for years, is quite a different story. If you want to show off how smart programmer you are, then you should become a researcher and write exploits. If, on the other hand, you want to be part of a team that makes real, useful software, you should ensure your coding style is impeccable. We often, at Qubes project, often took shortcuts, and often wrote nasty code, and this always back fired at us, sometime months, sometime years later, the net result being we had to spend time fixing code, rather than implementing new functionality.
 
-And here's a [​link to the real case](https://groups.google.com/forum/#!msg/qubes-devel/XgTo6L8-5XA/JLOadvBqnqMJ) (one Qubes Security Bulletin) demonstrating how the above described problem lead to a real security bug. Never assume you're smart enough that you can disregard clean and rigorous coding!
+And here's a [link to the real case](https://groups.google.com/forum/#!msg/qubes-devel/XgTo6L8-5XA/JLOadvBqnqMJ) (one Qubes Security Bulletin) demonstrating how the above described problem lead to a real security bug. Never assume you're smart enough that you can disregard clean and rigorous coding!
 
 General typographic conventions
 -------------------------------
@@ -120,13 +120,13 @@ Source Code management (Git) guidelines
 
 -   Use git to maintain all code for Qubes project.
 
--   Before you start using git, make sure you understand that git is a decentralized Source Code Management system, and that it doesn't behave like traditional, centralized source code management systems, such as SVN. Here's a good [​introductory book on git](http://git-scm.com/book). Read it.
+-   Before you start using git, make sure you understand that git is a decentralized Source Code Management system, and that it doesn't behave like traditional, centralized source code management systems, such as SVN. Here's a good [introductory book on git](http://git-scm.com/book). Read it.
 
 -   Qubes code is divided into many git repositories. There are several reasons for that:
     -   This creates natural boundaries between different code blocks, enforcing proper interfaces, and easing independent development to be conducted on various code parts at the same time, without the fear of running into conflicts.
     -   By maintaining relatively small git repositories, it is easy for new developers to understand the code and contribute new patches, without the need to understand all the other code.
     -   Code repositories represent also licensing boundaries. So, e.g. because `core-agent-linux` and `core-agent-windows` are maintained in two different repositories, it is possible to have the latter under a proprietary, non-GPL license, while keeping the former fully open source.
-    -   We have drastically changes the layout and naming of the code repositories shortly after Qubes OS R2 Beta 2 release. For details on the current code layout, please read [​this article](http://theinvisiblethings.blogspot.com/2013/03/introducing-qubes-odyssey-framework.html).
+    -   We have drastically changes the layout and naming of the code repositories shortly after Qubes OS R2 Beta 2 release. For details on the current code layout, please read [this article](http://theinvisiblethings.blogspot.com/2013/03/introducing-qubes-odyssey-framework.html).
 
 Security coding guidelines
 --------------------------
@@ -151,7 +151,7 @@ Security coding guidelines
 Python-specific guidelines
 --------------------------
 
--   Please follow the guidlines [​here](http://www.python.org/dev/peps/pep-0008/), unless they were in conflict with what is written on this page.
+-   Please follow the guidlines [here](http://www.python.org/dev/peps/pep-0008/), unless they were in conflict with what is written on this page.
 
 C and C++ specific guidelines
 -----------------------------

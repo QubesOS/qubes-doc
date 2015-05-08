@@ -8,14 +8,14 @@ redirect_from: /wiki/InstallationIsoBuilding/
 How to build Qubes installation ISO
 ===================================
 
-Qubes uses [FedoraUnity?](/wiki/FedoraUnity) [​Revisor](http://revisor.fedoraunity.org/) to build the installation ISO.
+Qubes uses [FedoraUnity?](/wiki/FedoraUnity) [Revisor](http://revisor.fedoraunity.org/) to build the installation ISO.
 
-You may want to get familiar with [​Revisor documentation](http://revisor.fedoraunity.org/documentation).
+You may want to get familiar with [Revisor documentation](http://revisor.fedoraunity.org/documentation).
 
 Build installer packages
 ------------------------
 
-Get [​Qubes Installer repository](http://git.qubes-os.org/?p=smoku/installer) and build its packages:
+Get [Qubes Installer repository](http://git.qubes-os.org/?p=smoku/installer) and build its packages:
 
 {% highlight trac-wiki %}
 cd installer

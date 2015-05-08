@@ -10,9 +10,9 @@ USB Pass through: USBVM
 
 **WARNING:** This is experimental and very broken.
 
-Source: [​https://groups.google.com/d/msg/qubes-devel/4AKulABh2Jc/\_R7SRSC4peYJ](https://groups.google.com/d/msg/qubes-devel/4AKulABh2Jc/_R7SRSC4peYJ)
+Source: [https://groups.google.com/d/msg/qubes-devel/4AKulABh2Jc/\_R7SRSC4peYJ](https://groups.google.com/d/msg/qubes-devel/4AKulABh2Jc/_R7SRSC4peYJ)
 
-You'll need the patch tagged abb\_e58b432 from [​git://github.com/grwl/qubes-core.git](git://github.com/grwl/qubes-core.git).
+You'll need the patch tagged abb\_e58b432 from [git://github.com/grwl/qubes-core.git](git://github.com/grwl/qubes-core.git).
 
 The rest is in RPMs, yes. I roughly follow this procedure to have pvusb on Qubes 1.0:
 

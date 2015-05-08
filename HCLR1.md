@@ -24,7 +24,7 @@ Minimum:
 Additional requirements:
 
 -   Intel VT-d or AMD IOMMU technology (this is needed for effective isolation of your network VMs)
--   TPM with proper BIOS support if you want to use option [​Anti Evil Maid](http://theinvisiblethings.blogspot.com/2011/09/anti-evil-maid.html)
+-   TPM with proper BIOS support if you want to use option [Anti Evil Maid](http://theinvisiblethings.blogspot.com/2011/09/anti-evil-maid.html)
 
 If you don't meet the additional criteria, you can still install and use Qubes. It still offers significant security improvement over traditional OSes, because things such as GUI isolation, or kernel protection do not require special hardware.
 
@@ -48,21 +48,21 @@ Specific systems known to work tested by Qubes core developers
 Specific systems known to work tested by the Qubes community
 ------------------------------------------------------------
 
--   Fujitsu S751 seems to work well, but requires BIOS update to get VT-d working. Reported by [​Zrubecz Laszlo](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ).
--   Sony Vaio Z2 (2011 edition) works fine but requires some BIOS mod to enable VT-d. Reported by [​Danny Fullerton](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J).
--   Lenovo Thinkpad W510 with core I7 Q820, with proprietary Nvidia driver works fine. Reported by [​Sebastian Hültenschmidt](https://groups.google.com/forum/#!msg/qubes-devel/TgDWwBs36yA/IUFZPHs716cJ).
--   Lenovo Thinkpad x220 8GB RAM, Intel graphics (core i5), VT-d is working. Reported by [​Stefan Boresch](https://groups.google.com/group/qubes-devel/msg/f41578eef913446a)
--   Dell Latitude 5520, requires some minor fixes for networking to work. Reported by [​Erik Edin](https://groups.google.com/group/qubes-devel/msg/7418e7084c2de99f?hl=en).
--   Dell Latitude E6520 with i7-2760QM CPU. VT-d works fine. nVidia graphics not working, but integrated Intel does. Reported by [​Steven Collins](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
--   Dell [PowerEdge?](/wiki/PowerEdge) T110 II, onboard Matrox graphics (Intel Xeon E3-1230), VT-d is working. Reported by [​Geoff](https://groups.google.com/group/qubes-devel/msg/8a894915909eeaee)
--   Toshiba Tecra S11. Requires [​some tinkering](https://groups.google.com/group/qubes-devel/browse_thread/thread/fdec0ec165a87726) to enable 3G modem. Reported by Jan Beerden
--   Toshiba M780 S7240, requires latest BIOS to have VT-d working, [​some problems](https://groups.google.com/group/qubes-devel/browse_thread/thread/2b89d2dc5f999ab7) with card reader. Reported by [​Franz](https://groups.google.com/group/qubes-devel/browse_thread/thread/66e97c990a08d8e2)
--   Dell Precision M4600 Intel Core i7-2860QM, 16GB ram, NVIDIA Quadro 1000M, EMEA Intel Pro Wireless 6300. Reported by [​nqe](https://groups.google.com/group/qubes-devel/browse_thread/thread/ddf35d12a35f96a3)
--   Tecra A11-15X: RAM 8GB CPU I7 M620 2.67 ghz. Reported by [​PirBoazo](https://groups.google.com/group/qubes-devel/browse_thread/thread/c0d5f6a33d672b62)
+-   Fujitsu S751 seems to work well, but requires BIOS update to get VT-d working. Reported by [Zrubecz Laszlo](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ).
+-   Sony Vaio Z2 (2011 edition) works fine but requires some BIOS mod to enable VT-d. Reported by [Danny Fullerton](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J).
+-   Lenovo Thinkpad W510 with core I7 Q820, with proprietary Nvidia driver works fine. Reported by [Sebastian Hültenschmidt](https://groups.google.com/forum/#!msg/qubes-devel/TgDWwBs36yA/IUFZPHs716cJ).
+-   Lenovo Thinkpad x220 8GB RAM, Intel graphics (core i5), VT-d is working. Reported by [Stefan Boresch](https://groups.google.com/group/qubes-devel/msg/f41578eef913446a)
+-   Dell Latitude 5520, requires some minor fixes for networking to work. Reported by [Erik Edin](https://groups.google.com/group/qubes-devel/msg/7418e7084c2de99f?hl=en).
+-   Dell Latitude E6520 with i7-2760QM CPU. VT-d works fine. nVidia graphics not working, but integrated Intel does. Reported by [Steven Collins](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
+-   Dell [PowerEdge?](/wiki/PowerEdge) T110 II, onboard Matrox graphics (Intel Xeon E3-1230), VT-d is working. Reported by [Geoff](https://groups.google.com/group/qubes-devel/msg/8a894915909eeaee)
+-   Toshiba Tecra S11. Requires [some tinkering](https://groups.google.com/group/qubes-devel/browse_thread/thread/fdec0ec165a87726) to enable 3G modem. Reported by Jan Beerden
+-   Toshiba M780 S7240, requires latest BIOS to have VT-d working, [some problems](https://groups.google.com/group/qubes-devel/browse_thread/thread/2b89d2dc5f999ab7) with card reader. Reported by [Franz](https://groups.google.com/group/qubes-devel/browse_thread/thread/66e97c990a08d8e2)
+-   Dell Precision M4600 Intel Core i7-2860QM, 16GB ram, NVIDIA Quadro 1000M, EMEA Intel Pro Wireless 6300. Reported by [nqe](https://groups.google.com/group/qubes-devel/browse_thread/thread/ddf35d12a35f96a3)
+-   Tecra A11-15X: RAM 8GB CPU I7 M620 2.67 ghz. Reported by [PirBoazo](https://groups.google.com/group/qubes-devel/browse_thread/thread/c0d5f6a33d672b62)
 
 Specific systems known to not work well with Qubes
 --------------------------------------------------
 
--   All systems based on Ivy Bridge processors with the Intel integrated GPU used as the primary display. Currently our Xorg drivers in Dom0 do not support the latest Intel integrated GPUs from Ivy Bridge line. For instructions on possible workarounds see [​this message](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/GMTjUM2J6QEJ).
-    -   Specific system in above category: Lenovo x230 reported by [​Chris](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ) - with detailed list of working and not working components
+-   All systems based on Ivy Bridge processors with the Intel integrated GPU used as the primary display. Currently our Xorg drivers in Dom0 do not support the latest Intel integrated GPUs from Ivy Bridge line. For instructions on possible workarounds see [this message](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/GMTjUM2J6QEJ).
+    -   Specific system in above category: Lenovo x230 reported by [Chris](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ) - with detailed list of working and not working components
 

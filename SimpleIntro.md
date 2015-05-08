@@ -35,14 +35,14 @@ In general, Qubes takes an approach called **security by isolation**, which in t
 How does Qubes compare to using a "live CD" OS?
 -----------------------------------------------
 
-Booting your computer from a live CD (or DVD) when you need to perform sensitive activities can certainly be more secure than simply using your main OS, but this method still preserves many of the risks of conventional OSes. For example, popular live OSes (such as [​Tails](https://tails.boum.org/) and other Linux distributions) are still **monolithic** in the sense that all software is still running in the same OS. This means, once again, that if your session is compromised, then all the data and activities performed within that same session are also potentially compromised.
+Booting your computer from a live CD (or DVD) when you need to perform sensitive activities can certainly be more secure than simply using your main OS, but this method still preserves many of the risks of conventional OSes. For example, popular live OSes (such as [Tails](https://tails.boum.org/) and other Linux distributions) are still **monolithic** in the sense that all software is still running in the same OS. This means, once again, that if your session is compromised, then all the data and activities performed within that same session are also potentially compromised.
 
 How does Qubes compare to running VMs in a convential OS?
 ---------------------------------------------------------
 
 Not all virtual machine software is equal when it comes to security. You may have used or heard of VMs in relation to software like VirtualBox or VMware Workstation. These are known as "Type 2" or "hosted" hypervisors. (The **hypervisor** is the software, firmare, or hardware that creates and runs virtual machines.) These programs are popular because they're designed primarily to be easy to use and run under popular OSes like Windows (which is called the **host** OS, since it "hosts" the VMs). However, the fact that Type 2 hypervisors run under the host OS means that they're really only as secure as the host OS itself. If the host OS is ever compromised, then any VMs it hosts are also effectivley compromised.
 
-By contrast, Qubes uses a "Type 1" or "bare metal" hypervisor called [​Xen](http://www.xenproject.org). Instead of running inside an OS, Type 1 hypervisors run directly on the "bare metal" of the hardware. This means that an attacker must be capable of subverting the hypervisor itself in order to compromise the entire system, which is vastly more difficult.
+By contrast, Qubes uses a "Type 1" or "bare metal" hypervisor called [Xen](http://www.xenproject.org). Instead of running inside an OS, Type 1 hypervisors run directly on the "bare metal" of the hardware. This means that an attacker must be capable of subverting the hypervisor itself in order to compromise the entire system, which is vastly more difficult.
 
 Qubes makes it so that multiple VMs running under a Type 1 hypervisor can be securely used as an integrated OS. For example, it puts all of your application windows on the same desktop with special colored borders indicating the trust levels of their respective VMs. It also allows for things like secure copy/paste operations between VMs, securely copying and transferring files between VMs, and secure networking between VMs and the Internet.
 
@@ -63,7 +63,7 @@ Cons:
 -   Physically separate computers running conventional OSes are still independently vulnerable to most conventional attacks due to their monolithic nature.
 -   Malware which can bridge air gaps has existed for several years now and is becoming increasingly common.
 
-(For more on this topic, please see the paper [​Software compartmentalization vs. physical separation](http://www.invisiblethingslab.com/resources/2014/Software_compartmentalization_vs_physical_separation.pdf).)
+(For more on this topic, please see the paper [Software compartmentalization vs. physical separation](http://www.invisiblethingslab.com/resources/2014/Software_compartmentalization_vs_physical_separation.pdf).)
 
 More information
 ----------------

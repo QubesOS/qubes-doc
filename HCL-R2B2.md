@@ -164,9 +164,9 @@ OK
 
 X
 
-[​read more](https://groups.google.com/d/topic/qubes-devel/hag-MQDH_Vs/discussion)
+[read more](https://groups.google.com/d/topic/qubes-devel/hag-MQDH_Vs/discussion)
 
-[​Alex Dubois](https://groups.google.com/d/msg/qubes-devel/hag-MQDH_Vs/pmJ7TIWUWAsJ)
+[Alex Dubois](https://groups.google.com/d/msg/qubes-devel/hag-MQDH_Vs/pmJ7TIWUWAsJ)
 
 Apple MacBookPro
  (Intel HD Graphics, Ivy Bridge, i5-3210M)
@@ -177,15 +177,15 @@ OK
 
 OK
 
-[​read more](https://groups.google.com/d/topic/qubes-users/ZbjrseLxuPQ/discussion)
+[read more](https://groups.google.com/d/topic/qubes-users/ZbjrseLxuPQ/discussion)
 
-[​ph145h](https://groups.google.com/d/msg/qubes-users/ZbjrseLxuPQ/5Jx5DvpnwMMJ)
+[ph145h](https://groups.google.com/d/msg/qubes-users/ZbjrseLxuPQ/5Jx5DvpnwMMJ)
 
 ASUS UX-31
 
 \*
 
-[​Stephen Boyd](https://groups.google.com/d/topic/qubes-devel/6I07Bbzn5M4/discussion)
+[Stephen Boyd](https://groups.google.com/d/topic/qubes-devel/6I07Bbzn5M4/discussion)
 
 ASUS X55A
 
@@ -193,7 +193,7 @@ X
 
 X
 
-[​read more](https://groups.google.com/d/topic/qubes-devel/2csjvHia9Rw/discussion)
+[read more](https://groups.google.com/d/topic/qubes-devel/2csjvHia9Rw/discussion)
 
 X
 
@@ -201,9 +201,9 @@ X
 
 X
 
-[​read more](https://groups.google.com/d/topic/qubes-devel/2csjvHia9Rw/discussion)
+[read more](https://groups.google.com/d/topic/qubes-devel/2csjvHia9Rw/discussion)
 
-[​Zrubi](https://groups.google.com/d/msg/qubes-devel/2csjvHia9Rw/NRsqR0g6wIMJ)
+[Zrubi](https://groups.google.com/d/msg/qubes-devel/2csjvHia9Rw/NRsqR0g6wIMJ)
 
 Dell Latitude E4300
  (Intel GMA 4500M; Mobile 4 Series Chipset; Core2 Duo P9600)
@@ -214,9 +214,9 @@ OK
 
 OK
 
-[​read more](https://groups.google.com/d/topic/qubes-devel/LNJqSbH0cOQ/discussion)
+[read more](https://groups.google.com/d/topic/qubes-devel/LNJqSbH0cOQ/discussion)
 
-[​Pablo Costa](https://groups.google.com/d/msg/qubes-devel/LNJqSbH0cOQ/VC9EwEDrXMQJ)
+[Pablo Costa](https://groups.google.com/d/msg/qubes-devel/LNJqSbH0cOQ/VC9EwEDrXMQJ)
 
 Dell Latitude 5520
 
@@ -224,9 +224,9 @@ OK
 
 OK
 
-[​read more](https://groups.google.com/group/qubes-devel/msg/7418e7084c2de99f?hl=en)
+[read more](https://groups.google.com/group/qubes-devel/msg/7418e7084c2de99f?hl=en)
 
-[​Erik Edin](https://groups.google.com/group/qubes-devel/msg/7418e7084c2de99f?hl=en)
+[Erik Edin](https://groups.google.com/group/qubes-devel/msg/7418e7084c2de99f?hl=en)
 
 Dell Latitude E6320
  (Intel HD graphics; Sandy Bridge; i5-2540M; BIOS: A06)
@@ -237,9 +237,9 @@ OK
 
 OK
 
-[​read more](https://groups.google.com/d/topic/qubes-users/FyA7_Kzw1WA/discussion)
+[read more](https://groups.google.com/d/topic/qubes-users/FyA7_Kzw1WA/discussion)
 
-[Alex​](https://groups.google.com/d/msg/qubes-users/F-jVh62ANak/s57rqUWTY7kJ)
+[Alex](https://groups.google.com/d/msg/qubes-users/F-jVh62ANak/s57rqUWTY7kJ)
 
 Dell Latitude E6430
  (Intel HD graphics; Ivy Bridge; i5-3340M, BIOS: A11)
@@ -250,7 +250,7 @@ OK
 
 OK
 
-[​Zrubi](https://groups.google.com/d/msg/qubes-users/pAVGe04ZC48/AJwY6yd7LeIJ)
+[Zrubi](https://groups.google.com/d/msg/qubes-users/pAVGe04ZC48/AJwY6yd7LeIJ)
 
 Dell Latitude E6520
 
@@ -258,9 +258,9 @@ OK
 
 OK
 
-[​read more](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
+[read more](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
 
-[​Steven Collins](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
+[Steven Collins](https://groups.google.com/group/qubes-devel/msg/340afc6fc2d06d0e)
 
 Dell PowerEdge T110 II
  (onboard Matrox; Xeon E3-1230)
@@ -269,7 +269,7 @@ OK
 
 OK
 
-[​Geoff](https://groups.google.com/group/qubes-devel/msg/8a894915909eeaee)
+[Geoff](https://groups.google.com/group/qubes-devel/msg/8a894915909eeaee)
 
 Dell Precision M4600
  (i7-2860QM; NVIDIA Quadro 1000M)
@@ -278,7 +278,7 @@ OK
 
 OK
 
-[​nqe](https://groups.google.com/group/qubes-devel/browse_thread/thread/ddf35d12a35f96a3)
+[nqe](https://groups.google.com/group/qubes-devel/browse_thread/thread/ddf35d12a35f96a3)
 
 Dell XPS 13
  (i5; intel HD; sandy bridge; BIOS A03)
@@ -287,9 +287,9 @@ OK
 
 OK
 
-[​read more](https://groups.google.com/d/msg/qubes-devel/jamRkZJDC0g/KTniY0Y3dioJ)
+[read more](https://groups.google.com/d/msg/qubes-devel/jamRkZJDC0g/KTniY0Y3dioJ)
 
-[​j](https://groups.google.com/d/msg/qubes-devel/7JumqdldVJM/n9TiDVxc2jkJ)
+[j](https://groups.google.com/d/msg/qubes-devel/7JumqdldVJM/n9TiDVxc2jkJ)
 
 Dell XPS 13 (L322X)
  (i7-3537U; intel HD; Ivy Bridge; BIOS A09)
@@ -300,9 +300,9 @@ OK
 
 X
 
-[​read more](https://groups.google.com/d/topic/qubes-users/21kqNBzJLPw/discussion)
+[read more](https://groups.google.com/d/topic/qubes-users/21kqNBzJLPw/discussion)
 
-[​Brian J Smith-Sweeney](https://groups.google.com/d/msg/qubes-users/21kqNBzJLPw/e74SMRweTMsJ)
+[Brian J Smith-Sweeney](https://groups.google.com/d/msg/qubes-users/21kqNBzJLPw/e74SMRweTMsJ)
 
 Fujitsu S751
  (HD3000; QM67; i5-2520M; BIOS 1.18)
@@ -319,7 +319,7 @@ OK
 
 needs kernel downgrade to 3.7.4
 
-[​Zrubi](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
+[Zrubi](https://groups.google.com/forum/#!msg/qubes-devel/xoyNCigBvFE/ER61L6TbVpwJ)
 
 HP EliteBook 8540p
  (Arrandale; NVIDIA GT216; i5-2540M; BIOS:F.0C)
@@ -330,7 +330,7 @@ OK
 
 OK
 
-[​read more](https://groups.google.com/d/topic/qubes-users/o_FTsPW6GD8/discussion)
+[read more](https://groups.google.com/d/topic/qubes-users/o_FTsPW6GD8/discussion)
 
 [Olivier Médoc](https://groups.google.com/d/msg/qubes-users/o_FTsPW6GD8/bjAD-CSpRKsJ)
 
@@ -343,7 +343,7 @@ OK
 
 OK
 
-[​read more](https://groups.google.com/d/topic/qubes-users/o_FTsPW6GD8/discussion)
+[read more](https://groups.google.com/d/topic/qubes-users/o_FTsPW6GD8/discussion)
 
 [Olivier Médoc](https://groups.google.com/d/msg/qubes-users/o_FTsPW6GD8/bjAD-CSpRKsJ)
 
@@ -378,7 +378,7 @@ OK
 
 OK
 
-[​read more](https://groups.google.com/d/topic/qubes-devel/LSVluAZ9Udo/discussion)
+[read more](https://groups.google.com/d/topic/qubes-devel/LSVluAZ9Udo/discussion)
 
 [Alex Dubois](https://groups.google.com/d/msg/qubes-devel/LSVluAZ9Udo/Fl3jmt4tWssJ)
 
@@ -404,7 +404,7 @@ OK
 
 OK
 
-[​read more](https://groups.google.com/d/topic/qubes-devel/Z9M_k3i6dxU/discussion)
+[read more](https://groups.google.com/d/topic/qubes-devel/Z9M_k3i6dxU/discussion)
 
 [tigerbeard](https://groups.google.com/d/msg/qubes-devel/Z9M_k3i6dxU/09CqBppyMnsJ)
 
@@ -415,9 +415,9 @@ OK
 
 OK
 
-[​read more](https://groups.google.com/forum/#!msg/qubes-devel/TgDWwBs36yA/IUFZPHs716cJ)
+[read more](https://groups.google.com/forum/#!msg/qubes-devel/TgDWwBs36yA/IUFZPHs716cJ)
 
-[​Sebastian Hültenschmidt](https://groups.google.com/forum/#!msg/qubes-devel/TgDWwBs36yA/IUFZPHs716cJ)
+[Sebastian Hültenschmidt](https://groups.google.com/forum/#!msg/qubes-devel/TgDWwBs36yA/IUFZPHs716cJ)
 
 Lenovo Thinkpad X1 Carbon (LENOVO 3444CTO)
  (i5-3427U)
@@ -441,10 +441,10 @@ OK
 
 OK
 
-[​read more](https://groups.google.com/d/topic/qubes-users/-b8b9fpo0UU/discussion)
+[read more](https://groups.google.com/d/topic/qubes-users/-b8b9fpo0UU/discussion)
 
-[​Stefan Boresch](https://groups.google.com/group/qubes-devel/msg/f41578eef913446a)
- [​Matt Tracy](https://groups.google.com/d/msg/qubes-users/-b8b9fpo0UU/RFh6HiWqt5oJ)
+[Stefan Boresch](https://groups.google.com/group/qubes-devel/msg/f41578eef913446a)
+ [Matt Tracy](https://groups.google.com/d/msg/qubes-users/-b8b9fpo0UU/RFh6HiWqt5oJ)
 
 Lenovo Thinkpad x230
  (Ivy Bridge; HD Graphics; i5-3320M; BIOS:2.51)
@@ -453,7 +453,7 @@ Lenovo Thinkpad x230
 
 OK
 
-[​read more](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ)
+[read more](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ)
 
 \*
 
@@ -461,10 +461,10 @@ OK
 
 OK
 
-[​read more](https://groups.google.com/d/topic/qubes-users/hf0vkL3TE7k/discussion)
+[read more](https://groups.google.com/d/topic/qubes-users/hf0vkL3TE7k/discussion)
 
-[​Chris](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ)
- [​mgflax](https://groups.google.com/d/msg/qubes-users/hf0vkL3TE7k/VOtrW3wEbtMJ)
+[Chris](https://groups.google.com/d/msg/qubes-devel/XN6JrEXVOVA/lkxGRA00EqgJ)
+ [mgflax](https://groups.google.com/d/msg/qubes-users/hf0vkL3TE7k/VOtrW3wEbtMJ)
 
 Toshiba Tecra S11
 
@@ -472,9 +472,9 @@ OK
 
 OK
 
-[​read more](https://groups.google.com/group/qubes-devel/browse_thread/thread/fdec0ec165a87726)
+[read more](https://groups.google.com/group/qubes-devel/browse_thread/thread/fdec0ec165a87726)
 
-[​Jan Beerden](https://groups.google.com/group/qubes-devel/browse_thread/thread/fdec0ec165a87726)
+[Jan Beerden](https://groups.google.com/group/qubes-devel/browse_thread/thread/fdec0ec165a87726)
 
 Toshiba Tecra A11-15X
  (i7-M620)
@@ -483,7 +483,7 @@ OK
 
 OK
 
-[​PirBoazo](https://groups.google.com/group/qubes-devel/browse_thread/thread/c0d5f6a33d672b62)
+[PirBoazo](https://groups.google.com/group/qubes-devel/browse_thread/thread/c0d5f6a33d672b62)
 
 Toshiba M780 S7240
  (BIOS latest)
@@ -492,14 +492,14 @@ OK
 
 OK
 
-[​Franz](https://groups.google.com/group/qubes-devel/browse_thread/thread/66e97c990a08d8e2)
+[Franz](https://groups.google.com/group/qubes-devel/browse_thread/thread/66e97c990a08d8e2)
 
 Samsung Series 7 Chronos NP700Z5C
  (nVidia Optimus; i7-3635QM; BIOS P04ABJ)
 
 OK
 
-[​read more](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
+[read more](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
 
 OK
 
@@ -507,9 +507,9 @@ OK
 
 X
 
-[​read more](https://groups.google.com/d/topic/qubes-devel/Wu1mn9f1qgM/discussion)
+[read more](https://groups.google.com/d/topic/qubes-devel/Wu1mn9f1qgM/discussion)
 
-[​Outback Dingo](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
+[Outback Dingo](https://groups.google.com/d/msg/qubes-devel/0xBeX8NZFiU/bUqxGdn6KOMJ)
 
 Sony Vaio Z2
  (2011 edition)
@@ -518,9 +518,9 @@ OK
 
 OK
 
-[​read more](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J)
+[read more](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J)
 
-[​Danny Fullerton](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J)
+[Danny Fullerton](https://groups.google.com/d/msg/qubes-devel/xoyNCigBvFE/fkC6em-Wqd0J)
 
 Zareason Ultra Lap 420
  (Ivy Bridge; HD Graphics; i5-3317U)
@@ -529,7 +529,7 @@ OK
 
 OK
 
-[​Ant](https://groups.google.com/d/msg/qubes-users/uKI-VBtKWxg/uKjsdGNSpSQJ)
+[Ant](https://groups.google.com/d/msg/qubes-users/uKI-VBtKWxg/uKjsdGNSpSQJ)
 
 **User Reported Desktops and Workstations**
 

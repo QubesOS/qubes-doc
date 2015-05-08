@@ -136,7 +136,7 @@ As soon as you manage to make qrexec and qubes-gui-agent working, it should be s
 
 Several XEN libraries are required for Qubes to work correctly. In fact, you need to make xenstore commands working before anything else. For this, Qubes git can be used as several patches have been selected by Qubes developpers that could impact the activity inside a VM. Start be retrieving a recent git and identify how you can build a package from it: `git clone git://git.qubes-os.org/marmarek/xen`
 
-Find the .spec file in the git repository (this is the file being used to build rpm packages), and try to adapt it to your OS in order to build a package similar to the target 'xen-vm'. For example, a PKGBUILD has been created for [ArchLinux?](/wiki/ArchLinux) and can be found on [​http://aur.archlinux.org/packages/qu/qubes-vm-xen/PKGBUILD](http://aur.archlinux.org/packages/qu/qubes-vm-xen/PKGBUILD).
+Find the .spec file in the git repository (this is the file being used to build rpm packages), and try to adapt it to your OS in order to build a package similar to the target 'xen-vm'. For example, a PKGBUILD has been created for [ArchLinux?](/wiki/ArchLinux) and can be found on [http://aur.archlinux.org/packages/qu/qubes-vm-xen/PKGBUILD](http://aur.archlinux.org/packages/qu/qubes-vm-xen/PKGBUILD).
 
 Don't be afraid with the complexity of the PKGBUILD, most of the code is almost a copy/paste of required sources and patches found in the .spec file provided in the git repository.
 
@@ -146,12 +146,12 @@ Now install the package you built and mount /proc/xen. Verify that xenstore-read
 
 ### Qubes-OS core agents (qrexec...)
 
-[​https://aur.archlinux.org/packages/qu/qubes-vm-core/PKGBUILD](https://aur.archlinux.org/packages/qu/qubes-vm-core/PKGBUILD)
+[https://aur.archlinux.org/packages/qu/qubes-vm-core/PKGBUILD](https://aur.archlinux.org/packages/qu/qubes-vm-core/PKGBUILD)
 
 ### Qubes-OS kernel modules
 
-[​https://aur.archlinux.org/packages/qu/qubes-vm-kernel-modules/PKGBUILD](https://aur.archlinux.org/packages/qu/qubes-vm-kernel-modules/PKGBUILD)
+[https://aur.archlinux.org/packages/qu/qubes-vm-kernel-modules/PKGBUILD](https://aur.archlinux.org/packages/qu/qubes-vm-kernel-modules/PKGBUILD)
 
 ### Qubes-OS gui agents
 
-[​https://aur.archlinux.org/packages/qu/qubes-vm-gui/PKGBUILD](https://aur.archlinux.org/packages/qu/qubes-vm-gui/PKGBUILD)
+[https://aur.archlinux.org/packages/qu/qubes-vm-gui/PKGBUILD](https://aur.archlinux.org/packages/qu/qubes-vm-gui/PKGBUILD)

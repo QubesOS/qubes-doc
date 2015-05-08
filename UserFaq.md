@@ -48,7 +48,7 @@ If you really want to call it a distribution, then it's more of a "Xen distribut
 
 ### How is Qubes different from other security solutions?
 
-Please see [​this article](http://theinvisiblethings.blogspot.com/2012/09/how-is-qubes-os-different-from.html) for a thorough discussion.
+Please see [this article](http://theinvisiblethings.blogspot.com/2012/09/how-is-qubes-os-different-from.html) for a thorough discussion.
 
 ### What is the main concept behind Qubes?
 
@@ -56,11 +56,11 @@ To build security on the “Security by Isolation” principle.
 
 ### What about other approaches to security?
 
-The other two popular [​approaches](http://theinvisiblethings.blogspot.com/2008/09/three-approaches-to-computer-security.html) are “Security by Correctness” and “Security by Obscurity.” We don't believe either of these approaches are capable of providing reasonable security today, nor do we believe that they will be capable of doing so in the foreseeable future.
+The other two popular [approaches](http://theinvisiblethings.blogspot.com/2008/09/three-approaches-to-computer-security.html) are “Security by Correctness” and “Security by Obscurity.” We don't believe either of these approaches are capable of providing reasonable security today, nor do we believe that they will be capable of doing so in the foreseeable future.
 
 ### What about safe languages and formally verified microkernels?
 
-In short: these are non-realistic solutions today. We discuss this in further depth in our [​Architecture Specification document](http://files.qubes-os.org/files/doc/arch-spec-0.3.pdf).
+In short: these are non-realistic solutions today. We discuss this in further depth in our [Architecture Specification document](http://files.qubes-os.org/files/doc/arch-spec-0.3.pdf).
 
 ### Why does Qubes use virtualization?
 
@@ -72,7 +72,7 @@ No! This would not make much sense. Qubes uses lightweight VMs to create securit
 
 ### Why does Qubes use Xen instead of KVM or some other hypervisor?
 
-In short: we believe the Xen architecture allows for the creation of more secure systems (i.e. with a much smaller TCB, which translates to a smaller attack surface). We discuss this in much greater depth in our [​Architecture Specification document](http://files.qubes-os.org/files/doc/arch-spec-0.3.pdf).
+In short: we believe the Xen architecture allows for the creation of more secure systems (i.e. with a much smaller TCB, which translates to a smaller attack surface). We discuss this in much greater depth in our [Architecture Specification document](http://files.qubes-os.org/files/doc/arch-spec-0.3.pdf).
 
 ### What about this other/new (micro)kernel/hypervisor?
 
@@ -112,12 +112,12 @@ Those won’t fly. We do not provide OpenGL virtualization for AppVMs. This is m
 
 For further discussion about the potential for GPU passthorugh on Xen/Qubes, please see the following threads:
 
--   [​GPU passing to HVM](https://groups.google.com/group/qubes-devel/browse_frm/thread/31f1f2da39978573?scoring=d&q=GPU&)
--   [​Clarifications on GPU security](https://groups.google.com/group/qubes-devel/browse_frm/thread/31e2d8a47c8b4474?scoring=d&q=GPU&)
+-   [GPU passing to HVM](https://groups.google.com/group/qubes-devel/browse_frm/thread/31f1f2da39978573?scoring=d&q=GPU&)
+-   [Clarifications on GPU security](https://groups.google.com/group/qubes-devel/browse_frm/thread/31e2d8a47c8b4474?scoring=d&q=GPU&)
 
 ### Is Qubes a multi-user system?
 
-No. Qubes does not pretend to be a multi-user system. Qubes assumes that the user who controls Dom0 controls the whole system. It would be very difficult to **securely** implement multi-user support. See [​here](https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06) for details.
+No. Qubes does not pretend to be a multi-user system. Qubes assumes that the user who controls Dom0 controls the whole system. It would be very difficult to **securely** implement multi-user support. See [here](https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06) for details.
 
 Installation & Hardware Compatibility
 -------------------------------------
@@ -142,7 +142,7 @@ Yes. You can even run a NetVM, but you will not benefit from DMA protection for 
 
 ### Can I use AMD-v instead of VT-x?
 
-See [​this message](http://groups.google.com/group/qubes-devel/msg/6412170cfbcb4cc5).
+See [this message](http://groups.google.com/group/qubes-devel/msg/6412170cfbcb4cc5).
 
 ### Can I install Qubes in a virtual machine (e.g., on VMWare)?
 
@@ -159,11 +159,11 @@ Common Problems
 
 ### My AppVMs lost Internet access after a TemplateVM update. What should I do?
 
-Run `systemctl enable NetworkManager-dispatcher.service` in the TemplateVM upon which your NetVM is based. You may have to reboot afterward for the change to take effect. (Note: This is an upstream problem. See [​here](https://bugzilla.redhat.com/show_bug.cgi?id=974811). For details, see the qubes-users mailing list threads [​here](https://groups.google.com/d/topic/qubes-users/xPLGsAJiDW4/discussion) and [​here](https://groups.google.com/d/topic/qubes-users/uN9G8hjKrGI/discussion).)
+Run `systemctl enable NetworkManager-dispatcher.service` in the TemplateVM upon which your NetVM is based. You may have to reboot afterward for the change to take effect. (Note: This is an upstream problem. See [here](https://bugzilla.redhat.com/show_bug.cgi?id=974811). For details, see the qubes-users mailing list threads [here](https://groups.google.com/d/topic/qubes-users/xPLGsAJiDW4/discussion) and [here](https://groups.google.com/d/topic/qubes-users/uN9G8hjKrGI/discussion).)
 
 ### My keyboard layout settings are not behaving correctly. What should I do?
 
-Please read [​this disccusion](https://groups.google.com/d/topic/qubes-devel/d8ZQ_62asKI/discussion).
+Please read [this disccusion](https://groups.google.com/d/topic/qubes-devel/d8ZQ_62asKI/discussion).
 
 ### My dom0 and/or TemplateVM update stalls when attempting to update via the GUI tool. What should I do?
 

@@ -14,5 +14,5 @@ Qubes Security
 -   [Qubes Security Goals](/wiki/SecurityGoals)
 -   [On digital signatures and how to verify Qubes keys and downloads](/wiki/VerifyingSignatures)
 
--   [​Qubes Keys](http://keys.qubes-os.org/keys/)
+-   [Qubes Keys](http://keys.qubes-os.org/keys/)
 

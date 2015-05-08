@@ -28,7 +28,7 @@ Enabling full screen mode for select VMs
 
 If you want to enable full screen mode for select VMs, you can do that by creating the following entry in the /etc/qubes/guid.conf file in Dom0:
 
-**Note:** There should be only one `VM: {}` block in the file (or you will [​get into problems](https://groups.google.com/d/msg/qubes-users/-Yf9yNvTsVI/xXsEm8y2lrYJ))
+**Note:** There should be only one `VM: {}` block in the file (or you will [get into problems](https://groups.google.com/d/msg/qubes-users/-Yf9yNvTsVI/xXsEm8y2lrYJ))
 
 {% highlight trac-wiki %}
 VM: {

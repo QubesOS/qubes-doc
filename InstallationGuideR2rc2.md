@@ -43,7 +43,7 @@ If you prefer to use USB as a source for installation, then you just need to cop
 dd if=Qubes-R2-rc2-x86_64-DVD.iso of=/dev/sdX
 {% endhighlight %}
 
-On windows you can use [​this](http://www.chrysocome.net/dd) tool. Example command would be (as Administrator):
+On windows you can use [this](http://www.chrysocome.net/dd) tool. Example command would be (as Administrator):
 
 {% highlight trac-wiki %}
 dd if=Qubes-R2-rc2-x86_64-DVD.iso of=\\?\Device\Harddisk1\Partition0 bs=1M --size --progress
@@ -92,7 +92,7 @@ Getting Help
 -   Developers documentation (normally not needed by users) is [here](/wiki/SystemDoc)
 
 -   If you don't find answer in the sources given above, write to the *qubes-users* mailing list (you don't need to be subscribed to the list, just send email to the address given below):
-    -   [​https://groups.google.com/group/qubes-users](https://groups.google.com/group/qubes-users)
+    -   [https://groups.google.com/group/qubes-users](https://groups.google.com/group/qubes-users)
     -   `qubes-users@googlegroups.com`
 
 -   Please do not write email to individual developers (Marek, Joanna, etc) asking questions about installation or other problems. Please send all such questions to the mailing list.

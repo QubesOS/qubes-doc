@@ -40,4 +40,4 @@ We mark each component version in the repository by tag containing `v<version>`.
 
 At the release of some release we create branches named like `release2`. Only bugfixes and compatible improvements are backported to these branches. These branches should compile. All new development is done in `master` branch. This branch is totally unsupported and may not even compile depending on maintainer of repository.
 
-All version and release tags should be made and signed by someone from ITL staff. Public keys are included in `qubes-builder` and available at [​http://keys.qubes-os.org/keys/](http://keys.qubes-os.org/keys/).
+All version and release tags should be made and signed by someone from ITL staff. Public keys are included in `qubes-builder` and available at [http://keys.qubes-os.org/keys/](http://keys.qubes-os.org/keys/).

@@ -53,4 +53,4 @@ Now you should get at least 1280x1024 and be able to choose other modes.
 Qubes agents
 ------------
 
-Linux Qubes agents are written with PV domain in mind, but it looks to be possible to run them also in HVM domain. However some work is required to achieve it. Check [​this thread](https://groups.google.com/group/qubes-devel/browse_thread/thread/081df4a43e49e7a5).
+Linux Qubes agents are written with PV domain in mind, but it looks to be possible to run them also in HVM domain. However some work is required to achieve it. Check [this thread](https://groups.google.com/group/qubes-devel/browse_thread/thread/081df4a43e49e7a5).

@@ -14,9 +14,9 @@ The Qubes project is now accepting donations in Bitcoins. You can use the follow
 14zockMSKKp5MK6X2cHJ3mQwm9MwYsJ39j
 {% endhighlight %}
 
-This address can also be found in a message posted to Qubes mailing list, which can be viewed via Google Groups Web interface over SSL [​here](https://groups.google.com/d/msg/qubes-devel/u3wAzm1dB5Y/s5CiUGDebL4J), for double verification. For additional verification, you can verify the digital signature on the message, which should come from Joanna Rutkowska.
+This address can also be found in a message posted to Qubes mailing list, which can be viewed via Google Groups Web interface over SSL [here](https://groups.google.com/d/msg/qubes-devel/u3wAzm1dB5Y/s5CiUGDebL4J), for double verification. For additional verification, you can verify the digital signature on the message, which should come from Joanna Rutkowska.
 
-You can check how much others have donated already (over the entire time) via [​blockexplorer](https://blockexplorer.com/address/14zockMSKKp5MK6X2cHJ3mQwm9MwYsJ39j) and [​blockchain](https://blockchain.info/address/14zockMSKKp5MK6X2cHJ3mQwm9MwYsJ39j).
+You can check how much others have donated already (over the entire time) via [blockexplorer](https://blockexplorer.com/address/14zockMSKKp5MK6X2cHJ3mQwm9MwYsJ39j) and [blockchain](https://blockchain.info/address/14zockMSKKp5MK6X2cHJ3mQwm9MwYsJ39j).
 
 FAQ
 ---

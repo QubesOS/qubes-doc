@@ -8,7 +8,7 @@ redirect_from: /wiki/VMSudo/
 Password-less root access in VM
 ===============================
 
-Background ([​/etc/sudoers.d/qubes](http://git.qubes-os.org/?p=qubes-r2/core-agent-linux.git;a=blob;f=misc/qubes.sudoers;hb=HEAD) in VM):
+Background ([/etc/sudoers.d/qubes](http://git.qubes-os.org/?p=qubes-r2/core-agent-linux.git;a=blob;f=misc/qubes.sudoers;hb=HEAD) in VM):
 
 {% highlight trac-wiki %}
 user ALL=(ALL) NOPASSWD: ALL

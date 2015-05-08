@@ -19,16 +19,16 @@ Note that the global clipboard will be cleared after step \#3, to prevent accide
 
 This 4-step process might look complex, but after some little practice it really is very easy and fast. At the same time it provides the user with full control over who has access to the clipboard.
 
-Note that only simple plain text copy/paste is supported between AppVMs. This is discussed in a bit more detail in [​this message](https://groups.google.com/group/qubes-devel/msg/57fe6695eb8ec8cd).
+Note that only simple plain text copy/paste is supported between AppVMs. This is discussed in a bit more detail in [this message](https://groups.google.com/group/qubes-devel/msg/57fe6695eb8ec8cd).
 
 On Copy/Paste Security
 ----------------------
 
 The scheme is *secure* because it doesn't allow other VMs to steal the content of the clipboard. However, one should keep in mind that performing a copy and paste operation from *less trusted* to *more trusted* domain can always be potentially insecure, because the data that we insert might potentially try to exploit some hypothetical bug in the destination VM (e.g. the seemingly innocent link that we copy from untrusted domain, might turn out to be, in fact, a large buffer of junk that, when pasted into the destination VM's word processor could exploit a hypothetical bug in the undo buffer). This is a general problem and applies to any data transfer between *less trusted to more trusted* domain. It even applies to copying files between physically separate machines (air-gapped) systems. So, you should always copy clipboard and data only from *more trusted* to *less trusted* domains.
 
-See also [​this article](http://theinvisiblethings.blogspot.com/2011/03/partitioning-my-digital-life-into.html) for more information on this topic, and some ideas of how we might solve this problem in some future version of Qubes.
+See also [this article](http://theinvisiblethings.blogspot.com/2011/03/partitioning-my-digital-life-into.html) for more information on this topic, and some ideas of how we might solve this problem in some future version of Qubes.
 
-And [​this message](https://groups.google.com/group/qubes-devel/msg/48b4b532cee06e01) from qubes-devel.
+And [this message](https://groups.google.com/group/qubes-devel/msg/48b4b532cee06e01) from qubes-devel.
 
 Copy/Paste between dom0 and other domains
 -----------------------------------------

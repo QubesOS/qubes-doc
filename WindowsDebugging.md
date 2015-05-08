@@ -12,12 +12,12 @@ Debugging Windows code can be tricky in a virtualized environment. The guide bel
 
 User-mode debugging is usually straightforward if it can be done on one machine. Just duplicate your normal debugging environment in the VM.
 
-Things get complicated if you need to perform kernel debugging or troubleshoot problems that only manifest on system boot, user logoff or similar. For that you need two Windows VMs: the *host* and the *target*. The *host* will contain [​WinDbg](http://msdn.microsoft.com/en-us/library/windows/hardware/ff551063(v=vs.85).aspx) installation, your source code and private symbols. The *target* will run the code being debugged. Both will be linked by virtual serial ports.
+Things get complicated if you need to perform kernel debugging or troubleshoot problems that only manifest on system boot, user logoff or similar. For that you need two Windows VMs: the *host* and the *target*. The *host* will contain [WinDbg](http://msdn.microsoft.com/en-us/library/windows/hardware/ff551063(v=vs.85).aspx) installation, your source code and private symbols. The *target* will run the code being debugged. Both will be linked by virtual serial ports.
 
 -   First, you need to prepare separate copies of both *target* and *host* VM configuration files with some changes. Copy the files from **/var/lib/qubes/appvms/vmname/vmname.conf** to some convenient location, let's call them **host.conf** and **target.conf**.
 -   In both copied files add the following line at the end: `serial = 'pty'`. This will make Xen connect VM's serial ports to dom0's ptys.
 -   From now on you need to start both VMs like this: `qvm-start --custom-config=/your/edited/host.conf host`
--   To connect both VM serial ports together you will either need [​socat](http://www.dest-unreach.org/socat/) or a custom utility described later.
+-   To connect both VM serial ports together you will either need [socat](http://www.dest-unreach.org/socat/) or a custom utility described later.
 -   To determine which dom0 pty corresponds to VM's serial port you need to read xenstore, example script below:
 
         #!/bin/sh
@@ -28,7 +28,7 @@ Things get complicated if you need to perform kernel debugging or troubleshoot p
 
     Pass it a running VM name and it will output the corresponding pty name.
 
--   To connect both ptys you can use [​socat](http://www.dest-unreach.org/socat/) like that:
+-   To connect both ptys you can use [socat](http://www.dest-unreach.org/socat/) like that:
 
         #!/bin/sh
 
@@ -41,7 +41,7 @@ Things get complicated if you need to perform kernel debugging or troubleshoot p
     ...but there is a catch. Xen seems to process the traffic that goes through serial ports and changes all **0x0a** bytes into **0x0d, 0x0a** pairs (newline conversion). I didn't find a way to turn that off (setting ptys to raw mode didn't change anything) and it's not mentioned anywhere on the Internet, so maybe it's something on my system. If the above script works for you then you don't need anything more in dom0.
 
 -   On the *target* system, run `bcdedit /set debug on` on the console to turn on kernel debugging. It defaults to the first serial port.
--   On the *host* system, install [​WinDbg](http://msdn.microsoft.com/en-us/library/windows/hardware/ff551063(v=vs.85).aspx) and start the kernel debug (Ctrl-K), choose **com1** as the debug port.
+-   On the *host* system, install [WinDbg](http://msdn.microsoft.com/en-us/library/windows/hardware/ff551063(v=vs.85).aspx) and start the kernel debug (Ctrl-K), choose **com1** as the debug port.
 -   Reboot the *target* VM.
 -   Run the above shell script in dom0.
 -   If everything is fine you should see the proper kernel debugging output in [WinDbg?](/wiki/WinDbg). However, if you see something like that:
