@@ -54,6 +54,10 @@ set pgp_clearsign_command="qubes-gpg-client-wrapper --batch --armor --textmode -
 # default (as specified in RFC4880). This is needed to workaround bug in
 # Enigmail, which ignores RFC and without this header Thunderbird interprets
 # plaintext as us-ascii. See http://sourceforge.net/p/enigmail/bugs/38/.
+
+### also note you must specify absolute path of pgpewrap when using debian
+### e.g. /usr/lib/mutt/pgpewrap
+
 set pgp_encrypt_only_command="pgpewrap qubes-gpg-client-wrapper --batch --textmode --armor --always-trust %?a?--encrypt-to %a? --encrypt -- -r %r -- %f | sed -e '2iCharset: UTF-8'"
 set pgp_encrypt_sign_command="pgpewrap qubes-gpg-client-wrapper --batch --textmode --armor --always-trust %?a?--encrypt-to %a? --encrypt --sign %?a?-u %a? -- -r %r -- %f | sed -e '2iCharset: UTF-8'"
 
@@ -138,3 +142,75 @@ You may also create `/home/user/.signature`:
 regards,
 Wojciech Porczyk
 {% endhighlight %}
+
+Some additional useful settings
+-------------------------------
+
+In `muttrc`:
+
+    ###qubes integration stuff
+
+    #open links in a dispvm using urlview
+    #see below for sample .urlview
+    macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+
+    #override default mailcap MIME settings with qvm-open-in-dvm calls
+    #see sample .mailcap below
+    set mailcap_path=~/.mailcap
+
+    bind attach <return>    view-mailcap
+
+Debian-specific options:
+
+    #use debian mutt-patched package for mailbox sidebar hack
+    set sidebar_width = 30
+    set sidebar_visible = no
+    set sidebar_delim='|'
+
+    #show/hide sidebar
+    macro index S '<enter-command>toggle sidebar_visible<enter>'
+    macro pager S '<enter-command>toggle sidebar_visible<enter>'
+
+    #navigate the sidebar folders
+    bind index CP sidebar-prev
+    bind index CN sidebar-next
+    bind index CO sidebar-open
+    bind pager CP sidebar-prev
+    bind pager CN sidebar-next
+
+
+In `.urlview`:
+
+    ### TODO: this doesn't work with encrypted emails --
+    ### urlview can't find the links
+    ###
+    COMMAND qvm-open-in-dvm %s
+
+
+In `.mailcap`:
+    ### TODO: override most/all default mailcap settings to prevent
+    ### opening in muttvm
+    ### is there a way to do this polymorphically? i.e. not
+    ### listing every damn mimetype by hand
+    ###
+    ### also would be convenient to use mailcap's TEST feature to
+    ### show some html in mutt pager (e.g. with w3m, links or html2text),
+    ### else open others in dispvm
+
+    # MS Word documents
+    application/msword; qvm-open-in-dvm %s
+
+    application/vnd.oasis.opendocument.spreadsheet; qvm-open-in-dvm %s
+    application/vnd.oasis.opendocument.text; qvm-open-in-dvm %s
+
+    # Images
+    image/jpg; qvm-open-in-dvm %s
+    image/jpeg; qvm-open-in-dvm %s
+    image/png; qvm-open-in-dvm %s
+    image/gif; qvm-open-in-dvm %s
+
+    # PDFs
+    application/pdf; qvm-open-in-dvm %s
+
+    # HTML
+    text/html; qvm-open-in-dvm %s
