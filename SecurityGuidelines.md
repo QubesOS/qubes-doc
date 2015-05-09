@@ -8,17 +8,17 @@ redirect_from: /wiki/SecurityGuidelines/
 Security Guidelines
 ===================
 
-1.  [Security Guidelines](#SecurityGuidelines)
-    1.  [Download Verification](#DownloadVerification)
-    2.  [Observing Security Contexts](#ObservingSecurityContexts)
-    3.  [Installing Versus Running Programs](#InstallingVersusRunningPrograms)
-    4.  [Enabling and Verifying VT-d/IOMMU](#EnablingandVerifyingVT-dIOMMU)
-    5.  [Updating Software](#UpdatingSoftware)
-    6.  [Handling Untrusted Files](#HandlingUntrustedFiles)
-    7.  [Anti Evil Maid](#AntiEvilMaid)
-    8.  [Reassigning USB Controllers](#ReassigningUSBControllers)
-    9.  [Creating and Using a USBVM](#CreatingandUsingaUSBVM)
-    10. [Dom0 Precautions](#Dom0Precautions)
+1.  [Security Guidelines](#security-guidelines)
+    1.  [Download Verification](#download-verification)
+    2.  [Observing Security Contexts](#observing-security-contexts)
+    3.  [Installing Versus Running Programs](#installing-versus-running-programs)
+    4.  [Enabling and Verifying VT-d/IOMMU](#enabling-and-verifying-vt-diommu)
+    5.  [Updating Software](#updating-software)
+    6.  [Handling Untrusted Files](#handling-untrusted-files)
+    7.  [Anti Evil Maid](#anti-evil-maid)
+    8.  [Reassigning USB Controllers](#reassigning-usb-controllers)
+    9.  [Creating and Using a USBVM](#creating-and-using-a-usbvm)
+    10. [Dom0 Precautions](#dom0-precautions)
 
 The [Qubes introduction](http://theinvisiblethings.blogspot.com/2012/09/introducing-qubes-10.html) makes clear that without some active and responsible participation of the user, no real security is possible. So, for example, Qubes does not automagically make your Firefox (or any other app) running in one of the AppVMs suddenly more secure. It is just as [secure (or insecure)](https://en.wikipedia.org/wiki/Computer_insecurity) as on a normal Linux or Windows OS. But what drastically changes is the context in which your applications are used. [This context](/doc/QubesArchitecture/) is a [responsibility of the user](/doc/SecurityGoals/). But participation requires knowledge. So it is worth stressing some basic items:
 
@@ -151,7 +151,7 @@ This will cause your new **USBVM** to automatically start when the system starts
 Dom0 Precautions
 ----------------
 
-As explained [here](/doc/GettingStarted/#AppVMsDomainsandTemplateVMs), dom0 should not be used for any user operations. There are several reasons for this:
+As explained [here](/doc/GettingStarted/#appvms-domains-and-templatevms), dom0 should not be used for any user operations. There are several reasons for this:
 
 1.  Secure isolation among domUs (i.e., AppVMs, StandaloneVMs, HVMs, etc.) is the *raison d'être* of Qubes. This is the primary reason that we recommend the delegation of all user activities to some number of AppVMs. In the event that any given VM is compromised, only that particular VM is compromised. (TemplateVMs are the exception to this. If a TemplateVM were compromised, then every AppVM based on it might also be compromised. Even in this case, however, the entire system would not necessarily have been compromised, since StandaloneVM(s), HVM(s), and/or multiple TemplateVMs might be in use.) By contrast, if dom0 were ever compromised, the entire system would thereby be compromised.
 2.  Due to the absence of convenience mechanisms in dom0 such as the inter-VM clipboard and inter-VM file copying, it is significantly less convenient to attempt to use dom0 for user operations (e.g., password management) in conjunction with AppVMs than it is to use another dedicated AppVM (e.g., a "vault" VM).

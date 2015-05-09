@@ -8,11 +8,11 @@ redirect_from: /wiki/DevelFaq/
 Qubes Developers FAQ
 ====================
 
-1.  1.  [Q: Why does dom0 need to be 64-bit?](#Q:Whydoesdom0needtobe64-bit)
-    2.  [Q: Why do you use KDE in Dom0? What is the roadmap for Gnome support?](#Q:WhydoyouuseKDEinDom0WhatistheroadmapforGnomesupport)
-    3.  [Q: What is the recommended build environment?](#Q:Whatistherecommendedbuildenvironment)
-    4.  [Q: How to build Qubes from sources?](#Q:HowtobuildQubesfromsources)
-    5.  [Q: How do I submit a patch?](#Q:HowdoIsubmitapatch)
+1.  1.  [Q: Why does dom0 need to be 64-bit?](#q-why-does-dom0-need-to-be-64-bit)
+    2.  [Q: Why do you use KDE in Dom0? What is the roadmap for Gnome support?](#q-why-do-you-use-kde-in-dom0-what-is-the-roadmap-for-gnome-support)
+    3.  [Q: What is the recommended build environment?](#q-what-is-the-recommended-build-environment)
+    4.  [Q: How to build Qubes from sources?](#q-how-to-build-qubes-from-sources)
+    5.  [Q: How do I submit a patch?](#q-how-do-i-submit-a-patch)
 
 ### Q: Why does dom0 need to be 64-bit?
 

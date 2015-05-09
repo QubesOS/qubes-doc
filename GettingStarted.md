@@ -27,7 +27,7 @@ Each domain, apart from having a distinct name, is also assigned a **label**, wh
 
 ![snapshot12.png](/attachment/wiki/GettingStarted/snapshot12.png)
 
-In addition to AppVMs and TemplateVMs, there's one special domain called "dom0," which is where the Desktop Manager runs. This is where you log in to the system. Dom0 is more trusted than any other domain (including TemplateVMs and black-labeled domains). If dom0 were ever compromised, it would be Game Over<sup>TM</sup>. (The entire system would effectively be compromised.) Due to its overarching importance, dom0 has no network connectivity and is used only for running the Window and Desktop Managers. Dom0 shouldn't be used for anything else. In particular, [you should never run user applications in dom0](/doc/SecurityGuidelines/#Dom0Precautions). (That's what your AppVMs are for!)
+In addition to AppVMs and TemplateVMs, there's one special domain called "dom0," which is where the Desktop Manager runs. This is where you log in to the system. Dom0 is more trusted than any other domain (including TemplateVMs and black-labeled domains). If dom0 were ever compromised, it would be Game Over<sup>TM</sup>. (The entire system would effectively be compromised.) Due to its overarching importance, dom0 has no network connectivity and is used only for running the Window and Desktop Managers. Dom0 shouldn't be used for anything else. In particular, [you should never run user applications in dom0](/doc/SecurityGuidelines/#dom0-precautions). (That's what your AppVMs are for!)
 
 Qubes VM Manager and Command Line Tools
 ---------------------------------------
