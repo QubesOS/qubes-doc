@@ -16,7 +16,7 @@ For Users
 -   [User Documentation](/doc/UserDoc/)
 -   [Users' FAQ](/doc/UserFaq/)
 -   [System Requirements](/doc/SystemRequirements/)
--   [Hardware Compatibility List](/hcl//)
+-   [Hardware Compatibility List](/hcl/)
 -   [On Digital Signatures and How to Verify Qubes Downloads](/doc/VerifyingSignatures/)
 -   [Installation Guides](/doc/QubesDownloads/)
 -   [Troubleshooting](/doc/TroubleShooting/)

@@ -11,9 +11,9 @@ Installation Guide for Qubes Release 3.0 rc1
 2.  [Download installer ISO](#download-installer-iso)
 3.  [Burning the ISO onto a DVD or USB stick](#burning-the-iso-onto-a-dvd-or-usb-stick)
 4.  [Upgrading](#upgrading)
-5.  [Troubleshooting problems with the installer](#Troubleshootingproblemswiththeinstaller)
-6.  [Known Issues](#KnownIssues)
-7.  [Getting Help](#GettingHelp)
+5.  [Troubleshooting problems with the installer](#troubleshooting-problems-with-the-installer)
+6.  [Known Issues](#known-issues)
+7.  [Getting Help](#getting-help)
 
 Hardware Requirements
 ---------------------
