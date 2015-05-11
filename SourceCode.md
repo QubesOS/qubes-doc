@@ -28,9 +28,10 @@ git clone git://github.com/QubesOS/<repo_name>.git <repo_name>
 e.g.:
 
 {% highlight trac-wiki %}
-git clone git://github.com/QubesOS/core-admin.git core-admin
+git clone git://github.com/QubesOS/qubes-core-admin.git core-admin
 {% endhighlight %}
 
 If you want to contribute to the project, there are two preferred ways:
+
 1. Use github [fork & pull requests](https://guides.github.com/activities/forking/)
 2. [sending a patch](/doc/DevelFaq/#q-how-do-i-submit-a-patch) via the project's mailing list (`git format-patch`).
