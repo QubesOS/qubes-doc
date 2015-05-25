@@ -23,6 +23,7 @@ Qubes User Documentation
         1.  [Installing Anti Evil Maid](/doc/AntiEvilMaid/)
         2.  [XFCE Installation in dom0](/doc/UserDoc/XFCE/)
         3.  [Installing ZFS in Qubes](/doc/ZFS/)
+        4.  [Configuring YubiKey for user authentication](/doc/YubiKey/)
 
 3.  **DomUs**
     1.  [DomU Command-Line Tools](/doc/VmTools/)
@@ -61,13 +62,13 @@ Qubes User Documentation
     7.  **HVMs**
         1.  [Resizing AppVM and HVM Disk Images](/doc/ResizeDiskImage/)
         2.  [Tips for Using Linux in an HVM](/doc/LinuxHVMTips/)
-        3.  [Creating and Using HVM and Windows Domains (Qubes R2 Only)](/doc/HvmCreate/)
+        3.  [Creating and Using HVM and Windows Domains (Qubes R2+)](/doc/HvmCreate/)
         4.  External Links
             1.  [Creating Whonix HVMs in Qubes](https://www.whonix.org/wiki/Qubes)
             2.  [Creating NetBSD VM](https://groups.google.com/group/qubes-devel/msg/4015c8900a813985)
 
     8.  **Windows VMs**
-        1.  [Installing and Using Windows-based AppVMs (Qubes R2 Beta 3 and Later)](/doc/WindowsAppVms/)
+        1.  [Installing and Using Windows-based AppVMs (Qubes R2 Beta 3 and later)](/doc/WindowsAppVms/)
         2.  [Advanced options and troubleshooting of Qubes Tools for Windows](/doc/WindowsTools/)
 
     9.  Advanced Topics
