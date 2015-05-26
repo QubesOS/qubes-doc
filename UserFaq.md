@@ -22,6 +22,7 @@ Qubes Users' FAQ
     11. [Can I watch YouTube videos in AppVMs?](#can-i-watch-youtube-videos-in-appvms)
     12. [Can I run applications, like games, which require 3D support?](#can-i-run-applications-like-games-which-require-3d-support)
     13. [Is Qubes a multi-user system?](#is-qubes-a-multi-user-system)
+    14. [Why passwordless sudo?](#why-passwordless-sudo)
 
 2.  [Installation & Hardware Compatibility](#installation--hardware-compatibility)
     1.  [How much disk space does each AppVM require?](#how-much-disk-space-does-each-appvm-require)
@@ -118,6 +119,10 @@ For further discussion about the potential for GPU passthorugh on Xen/Qubes, ple
 ### Is Qubes a multi-user system?
 
 No. Qubes does not pretend to be a multi-user system. Qubes assumes that the user who controls Dom0 controls the whole system. It would be very difficult to **securely** implement multi-user support. See [here](https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06) for details.
+
+### Why passwordless sudo?
+
+Please refer to [this page](https://www.qubes-os.org/doc/VMSudo/).
 
 Installation & Hardware Compatibility
 -------------------------------------
