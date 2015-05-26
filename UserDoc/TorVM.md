@@ -136,6 +136,29 @@ behind the TorVM.
 * [Official Tor Usage Warning](https://www.torproject.org/download/download-easy.html.en#warning)
 * [Tor Browser Design](https://www.torproject.org/projects/torbrowser/design/)
 
+## How to use Tor Browser behind TorVM
+
+1. In a clean VM, [download Tor Browser from the Tor Project][tor-browser].
+2. [Verify the PGP signature][tor-verify-sig].
+3. Copy/move the Tor Browser archive into your AnonVM (i.e., the AppVM which has your TorVM as its netvm).
+4. Unpack the Tor Browser archive into your home directory.
+5. In dom0, right click the KDE Application Launcher Menu (AKA "Start Menu") and left click "Edit Applications..."
+6. In the KDE Menu Editor, find your AnonVM's group and create a new item (or make a copy of an existing item).
+7. Edit the following fields on the "General" tab:
+   * Name: `my-new-anonvm: Tor Browser`
+   * Command: `qvm-run -q --tray -a my-new-anonvm 'TOR_SKIP_LAUNCH=1 TOR_SKIP_CONTROLPORTTEST=1 TOR_SOCKS_PORT=9050 TOR_SOCKS_HOST=1.2.3.4 ./tor-browser_en-US/Browser/start-tor-browser'`
+     * Replace `my-new-anonvm` with the name of your AnonVM.
+     * Replace `1.2.3.4` with your TorVM's internal Qubes IP address, which can be viewed in Qubes VM Manager by clicking "View" --> "IP" or by running `qvm-ls -n` in dom0.
+     * Replace `en-US` with your locale ID, if different.
+8. Click "Save" in the KDE Menu Editor.
+
+Tor Browser should now work correctly in your AnonVM when launched via the shortcut you just created.
+
+**Note:** If you want to use Tor Browser in a [DispVM][dispvm], the steps are the same as above, except you should copy the Tor Browser directory into your DVM template, [regenerate the DVM template][dispvm-customization], then use the following command in your KDE menu entry:
+
+`sh -c 'echo TOR_SKIP_LAUNCH=1 TOR_SKIP_CONTROLPORTTEST=1 TOR_SOCKS_PORT=9050 TOR_SOCKS_HOST=1.2.3.4 ./tor-browser_en-US/Browser/start-tor-browser | /usr/lib/qubes/qfile-daemon-dvm qubes.VMShell dom0 DEFAULT red'`
+
+(Replace `1.2.3.4` and `en-US` as indicated above.)
 
 ## Performance
 
@@ -244,4 +267,7 @@ transparent torified solutions. Notably the following:
 [tor-threats]: https://www.torproject.org/projects/torbrowser/design/#adversary
 [qubes-net]: http://wiki.qubes-os.org/trac/wiki/QubesNet
 [dns]: https://tails.boum.org/todo/support_arbitrary_dns_queries/
-
+[tor-browser]: https://www.torproject.org/download/download-easy.html
+[tor-verify-sig]: https://www.torproject.org/docs/verifying-signatures.html
+[dispvm]: https://www.qubes-os.org/doc/DisposableVms/
+[dispvm-customization]: https://www.qubes-os.org/doc/UserDoc/DispVMCustomization/
