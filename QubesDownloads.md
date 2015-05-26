@@ -11,6 +11,7 @@ Qubes Downloads
 -   [System Requirements](/doc/SystemRequirements/)
 -   [Hardware Compatibility List](/hcl/)
 -   [On Digital Signatures and How to Verify Qubes Downloads](/doc/VerifyingSignatures/)
+-   [Installation Security Considerations](/doc/InstallSecurity/)
 -   [Licensing](/doc/QubesLicensing/)
 
 Qubes Release 3.0
