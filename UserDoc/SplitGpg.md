@@ -94,6 +94,15 @@ The script also sets the QUBES\_GPG\_DOMAIN variable automatically based on the 
 
 *NOTE*: A recent engimail update, version `thunderbird-enigmail-1.7-1`, introduced changes in how Enigmail expects to execute GPG binary and so requires an updated split-gpg package with version \>= `qubes-gpg-split-2.0.7-1`. Please make sure you have all the latest qubes packages installed in your template.
 
+### How to use `gpg2` instead of `gpg`
+
+In your GPG backend domain's TemplateVM:
+
+1. `sudo vim /etc/qubes-rpc/qubes.Gpg`
+2. Change `/usr/bin/gpg` to `/usr/bin/gpg2`.
+3. Ensure that your key has a **blank passphrase**. If not, you will encounter an error.
+4. Shut down the TemplateVM and restart the GPG backend domain.
+
 ### Importing public keys
 
 Use `qubes-gpg-import-key` in the client AppVM to import the key into the GPG backend VM. Of course a (safe, unspoofable) user consent dialog box is displayed to accept this.
