@@ -24,6 +24,8 @@ Qubes User Documentation
         2.  [XFCE Installation in dom0](/doc/UserDoc/XFCE/)
         3.  [Installing ZFS in Qubes](/doc/ZFS/)
         4.  [Configuring YubiKey for user authentication](/doc/YubiKey/)
+    7.  External Links
+        1.  [Customizing the GUI experience with KDE](https://groups.google.com/d/topic/qubes-users/KhfzF19NG1s/discussion)
 
 3.  **DomUs**
     1.  [DomU Command-Line Tools](/doc/VmTools/)
