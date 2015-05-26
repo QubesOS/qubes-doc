@@ -23,6 +23,7 @@ Qubes Users' FAQ
     12. [Can I run applications, like games, which require 3D support?](#can-i-run-applications-like-games-which-require-3d-support)
     13. [Is Qubes a multi-user system?](#is-qubes-a-multi-user-system)
     14. [Why passwordless sudo?](#why-passwordless-sudo)
+    15. [How should I report documentation issues?](#how-should-i-report-documentation-issues)
 
 2.  [Installation & Hardware Compatibility](#installation--hardware-compatibility)
     1.  [How much disk space does each AppVM require?](#how-much-disk-space-does-each-appvm-require)
@@ -123,6 +124,10 @@ No. Qubes does not pretend to be a multi-user system. Qubes assumes that the use
 ### Why passwordless sudo?
 
 Please refer to [this page](https://www.qubes-os.org/doc/VMSudo/).
+
+### How should I report documentation issues?
+
+Create an issue in [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) with the `wiki` label, but **please make sure your issue does not already exist**. Documentation-related issues which have been created in `qubes-issues` are significantly more likely to be addressed than those sent in emails to the mailing lists.
 
 Installation & Hardware Compatibility
 -------------------------------------
