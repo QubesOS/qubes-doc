@@ -127,7 +127,7 @@ Please refer to [this page](https://www.qubes-os.org/doc/VMSudo/).
 
 ### How should I report documentation issues?
 
-Create an issue in [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) with the `wiki` label, but **please make sure your issue does not already exist**. Documentation-related issues which have been created in `qubes-issues` are significantly more likely to be addressed than those sent in emails to the mailing lists.
+Create an issue in [qubes-issues](https://github.com/QubesOS/qubes-issues/issues), but **please make sure your issue does not already exist**. Documentation-related issues will be assigned the `doc` label. Issues which have been created in `qubes-issues` are significantly more likely to be addressed than those sent in emails to the mailing lists.
 
 Installation & Hardware Compatibility
 -------------------------------------
