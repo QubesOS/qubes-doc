@@ -28,6 +28,8 @@ All non-DNS UDP and IPv6 traffic is silently dropped.
 
 See [this article](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html) for a description of the concept, architecture, and the original implementation.
 
+If you are interested TorVM, you may find the [Whonix](https://www.qubes-os.org/doc/Templates/Whonix/) templates in Qubes a more usable and robust solution for torifying traffic.
+
 ## Warning + Disclaimer
 
 1. Qubes TorVM is produced independently from the Tor(R) anonymity software and
@@ -48,7 +50,7 @@ Installation
 
 0. *(Optional)* If you want to use a separate vm template for your TorVM
 
-        qvm-clone fedora-20-x64 fedora-20-x64-net
+        qvm-clone fedora-21 fedora-21-tor
 
 1. In dom0, create a proxy vm and disable unnecessary services and enable qubes-tor
 
@@ -59,9 +61,9 @@ Installation
         qvm-service torvm -e qubes-tor
           
         # if you  created a new template in the previous step
-        qvm-prefs torvm -s template fedora-20-x64-net
+        qvm-prefs torvm -s template fedora-21-tor
 
-2. From your template vm, install the torproject Fedora repo
+2. From your TemplateVM, install the torproject Fedora repo
 
         sudo yum install qubes-tor-repo
 
@@ -69,21 +71,18 @@ Installation
 
         sudo yum install qubes-tor
 
-5. Configure an AppVM to use TorVM as its netvm (example a vm named anon-web)
+5. Configure an AppVM to use TorVM as its NetVM (for example a vm named anon-web)
 
-        qvm-prefs -s anon-web netvm torvm
-	... repeat for other appvms ...
+        qvm-prefs -s anon-web sys-net torvm
+        ... repeat for any other AppVMs you want torified...
 
-6. Shutdown templateVM.
-7. Set prefs of torvm to use your default netvm or firewallvm as its NetVM
-8. Start the TorVM and any AppVM you have configured
-9. Execute in TorVM (will be not necessary in R2 Beta3):
+6. Shutdown the TemplateVM.
+7. Set the prefs of your TorVM to use the default sys-net or sys-firewall as its NetVM
 
-        sudo mkdir /rw/usrlocal/etc/qubes-tor
-        sudo touch /rw/usrlocal/etc/qubes-tor/torrc
-        sudo service qubes-tor restart
+        qvm-prefs -s torvm netvm sys-net
 
-10. From the AppVM, verify torified connectivity
+8. Start the TorVM and any AppVM you have configured to be route through the TorVM
+9. From the AppVMs, verify torified connectivity
 
         curl https://check.torproject.org
 
@@ -258,14 +257,14 @@ Acknowledgements
 Qubes TorVM is inspired by much of the previous work done in this area of
 transparent torified solutions. Notably the following:
 
-* [adrelanos](mailto:adrelanos@riseup.net) for his work on [aos/Whonix](https://sourceforge.net/p/whonix/wiki/Security/)
+* [adrelanos](mailto:adrelanos@riseup.net) for his work on [aos/Whonix](https://www.whonix.org)
 * The [Tor Project wiki](https://trac.torproject.org/projects/tor/wiki/doc/TorifyHOWTO)
 * And the many people who contributed to discussions on [tor-talk](https://lists.torproject.org/pipermail/tor-talk/)
 
 [stream-isolation]: https://gitweb.torproject.org/torspec.git/blob/HEAD:/proposals/171-separate-streams.txt
 [stream-isolation-explained]: https://lists.torproject.org/pipermail/tor-talk/2012-May/024403.html
 [tor-threats]: https://www.torproject.org/projects/torbrowser/design/#adversary
-[qubes-net]: http://wiki.qubes-os.org/trac/wiki/QubesNet
+[qubes-net]: https://www.qubes-os.org/doc/QubesNet/
 [dns]: https://tails.boum.org/todo/support_arbitrary_dns_queries/
 [tor-browser]: https://www.torproject.org/download/download-easy.html
 [tor-verify-sig]: https://www.torproject.org/docs/verifying-signatures.html
