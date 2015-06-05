@@ -9,6 +9,7 @@ Qubes Downloads
 ===============
 
 -   [System Requirements](/doc/SystemRequirements/)
+-   [Version Scheme] (/doc/VersionScheme/)
 -   [Hardware Compatibility List](/hcl/)
 -   [On Digital Signatures and How to Verify Qubes Downloads](/doc/VerifyingSignatures/)
 -   [Installation Security Considerations](/doc/InstallSecurity/)
