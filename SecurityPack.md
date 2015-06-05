@@ -123,91 +123,85 @@ its contents, and reading them.
 
  1. Clone the QSP repo.
 
-    ```
-    [user@qubes ~]$ git clone https://github.com/QubesOS/qubes-secpack.git
-    Cloning into 'qubes-secpack'...
-    remote: Counting objects: 195, done.
-    remote: Total 195 (delta 0), reused 0 (delta 0)
-    Receiving objects: 100% (195/195), 130.94 KiB | 207.00 KiB/s, done.
-    Resolving deltas: 100% (47/47), done.
-    Checking connectivity... done.
-    ```
+        [user@qubes ~]$ git clone https://github.com/QubesOS/qubes-secpack.git
+        Cloning into 'qubes-secpack'...
+        remote: Counting objects: 195, done.
+        remote: Total 195 (delta 0), reused 0 (delta 0)
+        Receiving objects: 100% (195/195), 130.94 KiB | 207.00 KiB/s, done.
+        Resolving deltas: 100% (47/47), done.
+        Checking connectivity... done.
 
  2. Import the included PGP keys.
 
-    ```
-    [user@qubes ~]$ gpg --import qubes-secpack/keys/*/*
-    gpg: directory `/home/user/.gnupg' created
-    gpg: new configuration file `/home/user/.gnupg/gpg.conf' created
-    gpg: WARNING: options in `/home/user/.gnupg/gpg.conf' are not yet active during this run
-    gpg: keyring `/home/user/.gnupg/secring.gpg' created
-    gpg: keyring `/home/user/.gnupg/pubring.gpg' created
-    gpg: /home/user/.gnupg/trustdb.gpg: trustdb created
-    gpg: key C37BB66B: public key "Joanna Rutkowska (Qubes OS signing key) <joanna@invisiblethingslab.com>" imported
-    gpg: key 1E30A75D: public key "Joanna Rutkowska (Qubes OS signing key) <joanna@invisiblethingslab.com>" imported
-    gpg: key 74EADABC: public key "Joanna Rutkowska (Qubes OS signing key) <joanna@invisiblethingslab.com>" imported
-    gpg: key 65EF29CA: public key "Joanna Rutkowska (Qubes OS Signing Key) <joanna@invisiblethingslab.com>" imported
-    gpg: key 34898310: public key "Joanna Rutkowska (Qubes OS Signing Key) <joanna@invisiblethingslab.com>" imported
-    gpg: key B298547C: public key "Marek Marczykowski (Qubes OS signing key) <marmarek@mimuw.edu.pl>" imported
-    gpg: key AB5EEF90: public key "Marek Marczykowski (Qubes OS signing key) <marmarek@invisiblethingslab.com>" imported
-    gpg: key A603BCB6: public key "Marek Marczykowski (Qubes OS signing key) <marmarek@invisiblethingslab.com>" imported
-    gpg: key 42CFA724: public key "Marek Marczykowski-G�recki (Qubes OS signing key) <marmarek@invisiblethingslab.com>" imported
-    gpg: key 15CE40BF: public key "Wojciech Zygmunt Porczyk (Qubes OS signing key) <woju@invisiblethingslab.com>" imported
-    gpg: key 36879494: public key "Qubes Master Signing Key" imported
-    gpg: key 211093A7: public key "Qubes OS Release 1 Signing Key" imported
-    gpg: key 0A40E458: public key "Qubes OS Release 2 Signing Key" imported
-    gpg: key 03FA5082: public key "Qubes OS Release 3 Signing Key" imported
-    gpg: key 92C7B3DC: public key "Joanna Rutkowska (Qubes Security Pack Signing Key) <joanna@invisiblethingslab.com>" imported
-    gpg: key 1830E06A: public key "Marek Marczykowski-G�recki (Qubes security pack) <marmarek@invisiblethingslab.com>" imported
-    gpg: key 3F48CB21: public key "Qubes OS Security Team <security@qubes-os.org>" imported
-    gpg: Total number processed: 17
-    gpg:               imported: 17  (RSA: 17)
-    gpg: no ultimately trusted keys found
-    ```
+        [user@qubes ~]$ gpg --import qubes-secpack/keys/*/*
+        gpg: directory `/home/user/.gnupg' created
+        gpg: new configuration file `/home/user/.gnupg/gpg.conf' created
+        gpg: WARNING: options in `/home/user/.gnupg/gpg.conf' are not yet active during this run
+        gpg: keyring `/home/user/.gnupg/secring.gpg' created
+        gpg: keyring `/home/user/.gnupg/pubring.gpg' created
+        gpg: /home/user/.gnupg/trustdb.gpg: trustdb created
+        gpg: key C37BB66B: public key "Joanna Rutkowska (Qubes OS signing key) <joanna@invisiblethingslab.com>" imported
+        gpg: key 1E30A75D: public key "Joanna Rutkowska (Qubes OS signing key) <joanna@invisiblethingslab.com>" imported
+        gpg: key 74EADABC: public key "Joanna Rutkowska (Qubes OS signing key) <joanna@invisiblethingslab.com>" imported
+        gpg: key 65EF29CA: public key "Joanna Rutkowska (Qubes OS Signing Key) <joanna@invisiblethingslab.com>" imported
+        gpg: key 34898310: public key "Joanna Rutkowska (Qubes OS Signing Key) <joanna@invisiblethingslab.com>" imported
+        gpg: key B298547C: public key "Marek Marczykowski (Qubes OS signing key) <marmarek@mimuw.edu.pl>" imported
+        gpg: key AB5EEF90: public key "Marek Marczykowski (Qubes OS signing key) <marmarek@invisiblethingslab.com>" imported
+        gpg: key A603BCB6: public key "Marek Marczykowski (Qubes OS signing key) <marmarek@invisiblethingslab.com>" imported
+        gpg: key 42CFA724: public key "Marek Marczykowski-G�recki (Qubes OS signing key) <marmarek@invisiblethingslab.com>" imported
+        gpg: key 15CE40BF: public key "Wojciech Zygmunt Porczyk (Qubes OS signing key) <woju@invisiblethingslab.com>" imported
+        gpg: key 36879494: public key "Qubes Master Signing Key" imported
+        gpg: key 211093A7: public key "Qubes OS Release 1 Signing Key" imported
+        gpg: key 0A40E458: public key "Qubes OS Release 2 Signing Key" imported
+        gpg: key 03FA5082: public key "Qubes OS Release 3 Signing Key" imported
+        gpg: key 92C7B3DC: public key "Joanna Rutkowska (Qubes Security Pack Signing Key) <joanna@invisiblethingslab.com>" imported
+        gpg: key 1830E06A: public key "Marek Marczykowski-G�recki (Qubes security pack) <marmarek@invisiblethingslab.com>" imported
+        gpg: key 3F48CB21: public key "Qubes OS Security Team <security@qubes-os.org>" imported
+        gpg: Total number processed: 17
+        gpg:               imported: 17  (RSA: 17)
+        gpg: no ultimately trusted keys found
 
-3.  Verify and trust the Qubes Master Signing Key.
+ 3.  Verify and trust the Qubes Master Signing Key.
 
-    ```
-    [user@qubes ~]$ gpg --edit-key 36879494
-    gpg (GnuPG) 1.4.18; Copyright (C) 2014 Free Software Foundation, Inc.
-    This is free software: you are free to change and redistribute it.
-    There is NO WARRANTY, to the extent permitted by law.
-
-
-    pub  4096R/36879494  created: 2010-04-01  expires: never       usage: SC  
-                         trust: unknown       validity: unknown
-    [ unknown] (1). Qubes Master Signing Key
-
-    gpg> fpr
-    pub   4096R/36879494 2010-04-01 Qubes Master Signing Key
-     Primary key fingerprint: 427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
-
-    gpg> trust
-    pub  4096R/36879494  created: 2010-04-01  expires: never       usage: SC  
-                         trust: unknown       validity: unknown
-    [ unknown] (1). Qubes Master Signing Key
-
-    Please decide how far you trust this user to correctly verify other users' keys
-    (by looking at passports, checking fingerprints from different sources, etc.)
-
-      1 = I don't know or won't say
-      2 = I do NOT trust
-      3 = I trust marginally
-      4 = I trust fully
-      5 = I trust ultimately
-      m = back to the main menu
-
-    Your decision? 5
-    Do you really want to set this key to ultimate trust? (y/N) y
-
-    pub  4096R/36879494  created: 2010-04-01  expires: never       usage: SC  
-                         trust: ultimate      validity: unknown
-    [ unknown] (1). Qubes Master Signing Key
-    Please note that the shown key validity is not necessarily correct
-    unless you restart the program.
-
-    gpg> q
-    ```
+        [user@qubes ~]$ gpg --edit-key 36879494
+        gpg (GnuPG) 1.4.18; Copyright (C) 2014 Free Software Foundation, Inc.
+        This is free software: you are free to change and redistribute it.
+        There is NO WARRANTY, to the extent permitted by law.
+        
+        
+        pub  4096R/36879494  created: 2010-04-01  expires: never       usage: SC  
+                             trust: unknown       validity: unknown
+        [ unknown] (1). Qubes Master Signing Key
+        
+        gpg> fpr
+        pub   4096R/36879494 2010-04-01 Qubes Master Signing Key
+         Primary key fingerprint: 427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
+        
+        gpg> trust
+        pub  4096R/36879494  created: 2010-04-01  expires: never       usage: SC  
+                             trust: unknown       validity: unknown
+        [ unknown] (1). Qubes Master Signing Key
+        
+        Please decide how far you trust this user to correctly verify other users' keys
+        (by looking at passports, checking fingerprints from different sources, etc.)
+        
+          1 = I don't know or won't say
+          2 = I do NOT trust
+          3 = I trust marginally
+          4 = I trust fully
+          5 = I trust ultimately
+          m = back to the main menu
+        
+        Your decision? 5
+        Do you really want to set this key to ultimate trust? (y/N) y
+        
+        pub  4096R/36879494  created: 2010-04-01  expires: never       usage: SC  
+                             trust: ultimate      validity: unknown
+        [ unknown] (1). Qubes Master Signing Key
+        Please note that the shown key validity is not necessarily correct
+        unless you restart the program.
+        
+        gpg> q
 
     **Important!**
 
@@ -220,36 +214,32 @@ its contents, and reading them.
 
  4. Verify and read the canaries.
 
-    ```
-    [user@qubes ~]$ cd qubes-secpack/canaries/                                     
-    [user@qubes canaries]$ gpg --verify canary-001-2015.txt.sig.joanna canary-001-2015.txt
-    gpg: Signature made Mon Jan  5 20:21:40 2015 UTC using RSA key ID 92C7B3DC
-    gpg: Good signature from "Joanna Rutkowska (Qubes Security Pack Signing Key) <joanna@invisiblethingslab.com>"
-    [user@qubes canaries]$ gpg --verify canary-001-2015.txt.sig.marmarek canary-001-2015.txt
-    gpg: Signature made Mon Jan  5 20:13:37 2015 UTC using RSA key ID 1830E06A
-    gpg: Good signature from "Marek Marczykowski-G�recki (Qubes security pack) <marmarek@invisiblethingslab.com>"
-    [user@qubes canaries]$ cat canary-001-2015.txt
-
-
-                        ---===[ Qubes Canary #1 ]===---
-
-                                     [...]
-    ```
+        [user@qubes ~]$ cd qubes-secpack/canaries/                                     
+        [user@qubes canaries]$ gpg --verify canary-001-2015.txt.sig.joanna canary-001-2015.txt
+        gpg: Signature made Mon Jan  5 20:21:40 2015 UTC using RSA key ID 92C7B3DC
+        gpg: Good signature from "Joanna Rutkowska (Qubes Security Pack Signing Key) <joanna@invisiblethingslab.com>"
+        [user@qubes canaries]$ gpg --verify canary-001-2015.txt.sig.marmarek canary-001-2015.txt
+        gpg: Signature made Mon Jan  5 20:13:37 2015 UTC using RSA key ID 1830E06A
+        gpg: Good signature from "Marek Marczykowski-G�recki (Qubes security pack) <marmarek@invisiblethingslab.com>"
+        [user@qubes canaries]$ cat canary-001-2015.txt
+        
+        
+                            ---===[ Qubes Canary #1 ]===---
+        
+                                         [...]
 
  5. Verify and read the QSBs.
 
-    ```
-    [user@qubes canaries]$ cd ../QSBs/
-    [user@qubes QSBs]$ gpg --verify qsb-013-2015.txt.sig.joanna qsb-013-2015.txt
-    gpg: Signature made Mon Jan  5 21:22:14 2015 UTC using RSA key ID 92C7B3DC
-    gpg: Good signature from "Joanna Rutkowska (Qubes Security Pack Signing Key) <joanna@invisiblethingslab.com>"
-    [user@qubes QSBs]$ gpg --verify qsb-013-2015.txt.sig.marmarek qsb-013-2015.txt
-    gpg: Signature made Mon Jan  5 21:38:11 2015 UTC using RSA key ID 1830E06A
-    gpg: Good signature from "Marek Marczykowski-G�recki (Qubes security pack) <marmarek@invisiblethingslab.com>"
-    [user@qubes QSBs]$ cat qsb-013-2015.txt
-
-
-                 ---===[ Qubes Security Bulletin #13 ]===---
-
-                                    [...]
-    ```
+        [user@qubes canaries]$ cd ../QSBs/
+        [user@qubes QSBs]$ gpg --verify qsb-013-2015.txt.sig.joanna qsb-013-2015.txt
+        gpg: Signature made Mon Jan  5 21:22:14 2015 UTC using RSA key ID 92C7B3DC
+        gpg: Good signature from "Joanna Rutkowska (Qubes Security Pack Signing Key) <joanna@invisiblethingslab.com>"
+        [user@qubes QSBs]$ gpg --verify qsb-013-2015.txt.sig.marmarek qsb-013-2015.txt
+        gpg: Signature made Mon Jan  5 21:38:11 2015 UTC using RSA key ID 1830E06A
+        gpg: Good signature from "Marek Marczykowski-G�recki (Qubes security pack) <marmarek@invisiblethingslab.com>"
+        [user@qubes QSBs]$ cat qsb-013-2015.txt
+        
+        
+                     ---===[ Qubes Security Bulletin #13 ]===---
+        
+                                        [...]
