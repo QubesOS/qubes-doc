@@ -161,7 +161,7 @@ its contents, and reading them.
         gpg:               imported: 17  (RSA: 17)
         gpg: no ultimately trusted keys found
 
- 3.  Verify and trust the Qubes Master Signing Key.
+ 3. Verify and trust the Qubes Master Signing Key.
 
         [user@qubes ~]$ gpg --edit-key 36879494
         gpg (GnuPG) 1.4.18; Copyright (C) 2014 Free Software Foundation, Inc.
@@ -202,7 +202,7 @@ its contents, and reading them.
         unless you restart the program.
                                                                                
         gpg> q
-   
+
     **Important!**
    
     In order to verify the authenticity of the Qubes Master Signing Key prior to
