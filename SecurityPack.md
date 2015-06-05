@@ -202,9 +202,9 @@ its contents, and reading them.
         unless you restart the program.
                                                                                
         gpg> q
-
+   
     **Important!**
-
+   
     In order to verify the authenticity of the Qubes Master Signing Key prior to
     trusting it, you should obtain the Qubes Master Signing Key fingerprint from
     a trustworthy source (ideally, multiple sources) *other than* this website
