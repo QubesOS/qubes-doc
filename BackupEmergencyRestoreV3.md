@@ -11,7 +11,7 @@ This page describes how to perform an emergency restore of a backup created on Q
 
 The Qubes backup system has been designed with emergency disaster recovery in mind. No special Qubes-specific tools are required to access data backed up by Qubes. In the event a Qubes system is unavailable, you can access your data on any GNU/Linux system with the following procedure.
 
-**Note:** In the following example, the backup file is assumed to be both encrypted and compressed.
+**Note:** In the following example, the backup file is both *encrypted* and *compressed*.
 
  1. Untar the main backup file.
 
@@ -68,7 +68,7 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 
  5. Decrypt the `private.img` file.
 
-        cat private.img.??? | openssl enc -d -pass pass:your_passphrase -aes-256-cbc -out private.img.dec
+        [user@restore vm1]$ cat private.img.??? | openssl enc -d -pass pass:your_passphrase -aes-256-cbc -out private.img.dec
 
     **Note:** If your backup was encrypted with a cipher algorithm other than `aes-256-cbc`, you must substitute the correct cipher command. This information is contained in the `backup-header` file (see step 3). A complete list of supported cipher algorithms can be found with `openssl list-cipher-algorithms`.
 
@@ -91,6 +91,8 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
         [user@restore vm1]$ sudo mount -o loop vm1/private.img /mnt/img/
         [user@restore vm1]$ cat /mnt/img/home/user/your_data.txt
         This data has been successfully recovered!
+
+ 9. Success! If you wish to recover data from more than one VM in your backup, simply repeat steps 4--8 for each additional VM.
 
     **Note:** You may wish to store a copy of these instructions with your Qubes backups in the event that you fail to recall the above procedure while this web page is inaccessible. All Qubes documentation, including this page, is available in plain text format in the following Git repository:
 
