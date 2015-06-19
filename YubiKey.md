@@ -63,7 +63,7 @@ To use this mode you need:
 
        challenge=`head -c64 /dev/urandom | xxd -c 64 -ps`
        # You may need to adjust slot number and USB VM name here
-       response=`qvm-run --nogui -p sys-usb "ykchalresp -2 -x $challenge"`
+       response=`qvm-run -u root --nogui -p sys-usb "ykchalresp -2 -x $challenge"`
 
        correct_response=`echo $challenge | xxd -r -ps | openssl dgst -sha1 -macopt hexkey:$key -mac HMAC -r | cut -f1 -d ' '`
 
