@@ -53,10 +53,11 @@ Qubes User Documentation
 
     5.  **[TemplateVMs](/doc/Templates/)**
         1.  [Updating and Installing Software in VMs](/doc/SoftwareUpdateVM/)
-        2.  [Upgrading the Fedora Template](/doc/FedoraTemplateUpgrade/)
-        3.  [Templates: Fedora - minimal](/doc/Templates/FedoraMinimal/)
-        4.  [Templates: Debian](/doc/Templates/Debian/)
-        5.  External Links
+        2.  [Upgrading the Fedora 18 Template](/doc/FedoraTemplateUpgrade18/)
+        3.  [Upgrading the Fedora 20 Template](/doc/FedoraTemplateUpgrade20/)
+        4.  [Templates: Fedora - minimal](/doc/Templates/FedoraMinimal/)
+        5.  [Templates: Debian](/doc/Templates/Debian/)
+        6.  External Links
             1.  [Extending \`root.img\` Size](https://groups.google.com/group/qubes-devel/msg/9d1ac581236ca9b4)
 
     6.  **DispVMs**
