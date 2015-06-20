@@ -8,6 +8,8 @@ redirect_from: /wiki/FedoraTemplateUpgrade/
 Upgrade of Fedora template
 ==========================
 
+(**Note:** There is a [newer version of this page for upgrading from Fedora 20 to Fedora 21](/doc/FedoraTemplateUpgrade20/).)
+
 This instruction in simplified version of [official Fedora instruction](https://fedoraproject.org/wiki/Upgrading_Fedora_using_yum). Note that only "yum" method will work in Qubes template VM (if you are curious why: mostly because template VM does not have own bootloader).
 
 Upgrading Fedora 18 to Fedora 20
