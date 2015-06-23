@@ -13,8 +13,8 @@ RpmFusion packages
 
 There are rpm packages with all necessary software on rpmfusion. The only package you have to compile is kernel module (but there is ready src.rpm package).
 
-Download pacakages
-------------------
+Download packages
+-----------------
 
 You will need any Fedora 18 system to download and build packages. You can use Qubes AppVM for it, but it isn't necessary. To download packages from rpmfusion - add this repository to your yum configuration (instructions are on their website). After then download packages using yumdownloader:
 
