@@ -17,61 +17,114 @@ template based on the standard Fedora 20 template.
 
  1. Clone the existing template and start a terminal in the new template.
 
-        [user@dom0 ~] qvm-clone fedora-20-x64 fedora-21
-        [user@dom0 ~] qvm-run -a fedora-21 gnome-terminal
+        [user@dom0 ~]$ qvm-clone fedora-20-x64 fedora-21
+        [user@dom0 ~]$ qvm-run -a fedora-21 gnome-terminal
 
  2. Attempt the upgrade process in the new template.
 
-        [user@fedora-21 ~] sudo yum erase nautilus-actions libcacard
-        [user@fedora-21 ~] sudo yum clean all
-        [user@fedora-21 ~] sudo yum --releasever=21 distro-sync
-        [user@fedora-21 ~] sudo cp /usr/lib/qubes/init/ip* /etc/sysconfig/
-        [user@fedora-21 ~] poweroff 
+        [user@fedora-21 ~]$ sudo yum erase nautilus-actions libcacard
+        [user@fedora-21 ~]$ sudo yum clean all
+        [user@fedora-21 ~]$ sudo yum --releasever=21 distro-sync
+        [user@fedora-21 ~]$ sudo cp /usr/lib/qubes/init/ip* /etc/sysconfig/
 
-    If you encounter no errors, proceed to step 5.
+    (Poweroff via Qubes VM Manager. May need to be killed.)
+
+    If you encounter no errors, proceed to step 6.
 
  3. If `yum` reports that you do not have enough free disk space to proceed with
     the upgrade process, create an empty file in dom0 to use as a cache and
     attach it to the template as a virtual disk.
 
-        [user@dom0 ~] truncate -s 5GB /var/tmp/template-upgrade-cache.img
-        [user@dom0 ~] qvm-block -A fedora-21 dom0:/var/tmp/template-upgrade-cache.img
+        [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
+        [user@dom0 ~]$ qvm-block -A fedora-21 dom0:/var/tmp/template-upgrade-cache.img
 
     Then reattempt the upgrade process, but this time using the virtual disk as
     a cache.
 
-        [user@fedora-21 ~] sudo mkfs.ext4 /dev/xvdi
-        [user@fedora-21 ~] sudo mount /dev/xvdi /mnt/removable
-        [user@fedora-21 ~] sudo yum erase nautilus-actions libcacard
-        [user@fedora-21 ~] sudo yum clean all
-        [user@fedora-21 ~] sudo yum --releasever=21 --setopt=cachedir=/mnt/removable distro-sync
-        [user@fedora-21 ~] sudo cp /usr/lib/qubes/init/ip* /etc/sysconfig/
-        [user@fedora-21 ~] poweroff 
+        [user@fedora-21 ~]$ sudo mkfs.ext4 /dev/xvdi
+        [user@fedora-21 ~]$ sudo mount /dev/xvdi /mnt/removable
+        [user@fedora-21 ~]$ sudo yum erase nautilus-actions libcacard
+        [user@fedora-21 ~]$ sudo yum clean all
+        [user@fedora-21 ~]$ sudo yum --releasever=21 --setopt=cachedir=/mnt/removable distro-sync
+        [user@fedora-21 ~]$ sudo cp /usr/lib/qubes/init/ip* /etc/sysconfig/
+
+    (Poweroff via Qubes VM Manager. May need to be killed.)
 
  4. If `yum` complains that there is not enough free space in `/usr/lib/modules`,
     do this before reattempting the upgrade:
 
-        [user@fedora-21 ~] sudo mkdir /mnt/removable/modules 
-        [user@fedora-21 ~] sudo cp -rp /usr/lib/modules /mnt/removable/modules
-        [user@fedora-21 ~] sudo mount --bind /mnt/removable/modules /usr/lib/modules
+        [user@fedora-21 ~]$ sudo mkdir /mnt/removable/modules 
+        [user@fedora-21 ~]$ sudo cp -rp /usr/lib/modules /mnt/removable/modules
+        [user@fedora-21 ~]$ sudo mount --bind /mnt/removable/modules /usr/lib/modules
 
  5. After the upgrade process is finished, remove the cache file you created.
 
-        [user@dom0 ~] rm /var/tmp/template-upgrade-cache.img
+        [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
 
  6. Ensure your new template is fully updated.
 
-        [user@dom0 ~] qvm-run -a fedora-21 gnome-terminal
-        [user@fedora-21 ~] sudo yum update 
+        [user@dom0 ~]$ qvm-run -a fedora-21 gnome-terminal
+        [user@fedora-21 ~]$ sudo yum -y update 
+
+
+Summary of Full Procedure (Full)
+--------------------------------
+
+        [user@dom0 ~]$ qvm-clone fedora-20-x64 fedora-21
+        [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
+        [user@dom0 ~]$ qvm-run -a fedora-21 gnome-terminal
+        [user@dom0 ~]$ qvm-block -A fedora-21 dom0:/var/tmp/template-upgrade-cache.img
+        [user@fedora-21 ~]$ sudo mkfs.ext4 /dev/xvdi
+        [user@fedora-21 ~]$ sudo mount /dev/xvdi /mnt/removable
+        [user@fedora-21 ~]$ sudo mkdir /mnt/removable/modules 
+        [user@fedora-21 ~]$ sudo cp -rp /usr/lib/modules /mnt/removable/modules
+        [user@fedora-21 ~]$ sudo mount --bind /mnt/removable/modules /usr/lib/modules
+        [user@fedora-21 ~]$ sudo yum erase nautilus-actions libcacard
+        [user@fedora-21 ~]$ sudo yum clean all
+        [user@fedora-21 ~]$ sudo yum --releasever=21 --setopt=cachedir=/mnt/removable distro-sync
+        [user@fedora-21 ~]$ sudo cp /usr/lib/qubes/init/ip* /etc/sysconfig/
+
+    (Poweroff via Qubes VM Manager. May need to be killed.)
+
+        [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
+        [user@dom0 ~]$ qvm-run -a fedora-21 gnome-terminal
+        [user@fedora-21 ~]$ sudo yum -y update 
+
 
 Upgrading the Minimal Fedora 20 Template to Fedora 21
 -----------------------------------------------------
 
 The procedure for upgrading the minimal template (or any template based on the
 minimal template) is the same as the procedure for the standard template above,
-**except with the following command ommitted**:
+**with the following exceptions**:
 
-        [user@fedora-21-minimal ~] sudo yum erase nautilus-actions libcacard
+ 1. `gnome-terminal` is not installed by default. Unless you installed it (or
+    another terminal emulator), use `xterm`.
+ 2. `nautilus-actions` and `libcacard` are not installed by default, so do not
+    try to erase them (unless you installed them).
+ 3. `sudo` is not installed by default, so use `su` unless you've installed the
+    former.
+
+
+Summary of Full Procedure (Minimal)
+-----------------------------------
+
+        [user@dom0 ~]$ qvm-clone fedora-20-x64-minimal fedora-21-minimal
+        [user@dom0 ~]$ qvm-run -a fedora-21-minimal xterm
+        [user@fedora-21-minimal ~]$ su -
+        [root@fedora-21-minimal ~]# yum clean all
+        [user@fedora-21-minimal ~]# yum --releasever=21 distro-sync
+        [user@fedora-21-minimal ~]# cp /usr/lib/qubes/init/ip* /etc/sysconfig/
+
+    (Poweroff via Qubes VM Manager. May need to be killed.)
+
+        [user@dom0 ~]$ qvm-run -a fedora-21-minimal xterm
+        [user@fedora-21-minimal ~]$ su -
+        [root@fedora-21-minimal ~]# yum -y update 
+
+(If you encounter insufficient space issues, you may need to use the methods
+described for the standard template above.)
+
 
 Compacting the Upgraded Template
 ================================
@@ -104,3 +157,30 @@ TemplateVM's max size + the actually used space there) free space in dom0.
         [user@dom0 ~] cd /var/lib/qubes/vm-templates/fedora-21
         [user@dom0 ~] cp --sparse=always root.img root.img.new
         [user@dom0 ~] mv root.img.new root.img
+
+
+Known Issues
+============
+
+You may encounter the following `yum` error:
+
+    At least X MB more space needed on the / filesystem.
+
+In this case, you have a few options:
+
+ 1. Delete files in order to free up space. One way to do this is by
+    uninstalling packages (and then reinstalling them again after you finish
+    the upgrade process, if desired).
+ 2. Increase the `root.img` size. It should be easy to extend the
+    `qvm-grow-root` tool in order to support PV (and not only HVM) VMs.
+    However, someone would need to do this (patches welcome).
+ 3. Do the upgrade in parts, e.g., by using package groups. (First upgrade
+    `@core` packages, then the rest.)
+ 4. Do not perform an in-place upgrade. Instead, simply download and install a
+    new template package, then redo all desired template modifications.
+
+Here are some useful messages from the mailing list in regard to the last
+option:
+
+ * [Marek](https://groups.google.com/d/msg/qubes-users/mCXkxlACILQ/dS1jbLRP9n8J)
+ * [Jason M](https://groups.google.com/d/msg/qubes-users/mCXkxlACILQ/5PxDfI-RKAsJ)
