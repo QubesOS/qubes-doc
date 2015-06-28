@@ -107,6 +107,10 @@ template based on the standard Fedora 20 template.
 
         [user@dom0 ~]$ qvm-trim-template fedora-21
 
+ 9. (Optional) Remove the old default template.
+
+        [user@dom0 ~]$ sudo yum remove qubes-template-fedora-20-x64
+
 
 Summary: Upgrading the Minimal Fedora 20 Template to Fedora 21
 --------------------------------------------------------------
