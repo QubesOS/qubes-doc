@@ -133,3 +133,12 @@ However, one should be careful with treating this property as a reliable way to 
 One advantage of the non-persistent rootfs though, is that the malware is still inactive before the user's filesystem gets mounted and "processed" by system/applications, which might theoretically allow for some scanning programs (or a skilled user) to reliably scan for signs of infections of the AppVM. But, of course, the problem of finding malware hooks in general is hard, so this would work likely only for some special cases (e.g. an AppVM which doesn't use Firefox, as otherwise it would be hard to scan the Firefox profile directory reliably to find malware hooks there). Also note that the user filesystem's metadata might got maliciously modified by malware in order to exploit a hypothetical bug in the AppVM kernel whenever it mounts the malformed filesystem. However, these exploits will automatically stop working (and so the infection might be cleared automatically) after the hypothetical bug got patched and the update applied (via template update), which is an exceptional feature of Qubes OS.
 
 Also note that Disposable VMs do not have persistent user filesystem, and so they start up completely "clean" every time. Note the word "clean" means in this context: the same as their template filesystem, of course.
+
+RPMFusion for a Fedora TemplateVM
+---------------------------------
+
+If you would like to enable the [RPM Fusion](http://rpmfusion.org/) repository...
+
+dom0 Start Menu -> Template:Fedora 21 -> Package Sources -> Enable RPMFusion
+
+This already covers RPMFusion yum signing keys.
