@@ -26,6 +26,9 @@ Template Virtual Machine. Any standalone VM which supplies its root filesystem t
 **Standalone(VM)**  
 Standalone (Virtual Machine). In general terms, a VM is described as **standalone** if and only if it does not depend on any other VM for its root filesystem. (In other words, a VM is standalone if and only if it is not an AppVM.) More specifically, a **StandaloneVM** is a type of VM in Qubes which is created by cloning a TemplateVM. Unlike TemplateVMs, however, StandaloneVMs cannot supply their root filesystems to other VMs. (Therefore, while a TemplateVM is a standalone VM, it is not a StandaloneVM.)
 
+**Template-BasedVM**
+Opposite of a Standalone(VM). A VM, that depends on another TemplateVM for its root filesystem.
+
 **NetVM**  
 Network Virtual Machine. A type of VM which connects directly to a network and provides access to that network to other VMs which connect to the NetVM. A NetVM called `netvm` is created by default in most Qubes installations.
 
