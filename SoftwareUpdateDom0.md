@@ -63,4 +63,18 @@ Of course, command line tools are still available for accomplishing various upda
     sudo yum downgrade package-version
     {% endhighlight %}
 
+### Kernel Upgrade ###
 
+Install newer kernel. The following example installs kernel 3.19 and was tested on Qubes R3 RC1.
+
+    {% highlight trac-wiki %}
+    sudo qubes-dom0-update kernel-3.19*
+    {% endhighlight %}
+
+Rebuild grub config.
+
+    {% highlight trac-wiki %}
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    {% endhighlight %}
+
+Reboot required.
