@@ -74,7 +74,8 @@ Qubes User Documentation
 
     8.  **Windows VMs**
         1.  [Installing and Using Windows-based AppVMs (Qubes R2 Beta 3 and later)](/doc/WindowsAppVms/)
-        2.  [Advanced options and troubleshooting of Qubes Tools for Windows](/doc/WindowsTools/)
+        2.  [Advanced options and troubleshooting of Qubes Tools for Windows (R3)](/doc/WindowsTools3/)
+        3.  [Advanced options and troubleshooting of Qubes Tools for Windows (R2)](/doc/WindowsTools2/)
 
     9.  Advanced Topics
         1.  [Configuration files](/doc/UserDoc/ConfigFiles/)
