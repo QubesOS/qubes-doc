@@ -46,7 +46,7 @@ To access the journald log, use the following command: `journalctl`
 If You want to use this template to for standard NetVMs You should install some more packeges:
 
 {% highlight trac-wiki %}
-[user@F21-Minimal ~]$ sudo yum install NetworkManager network-manager-applet  wireless-tools dbus-x11 dejavu-sans-fonts tar tinyproxy
+[user@F21-Minimal ~]$ sudo yum install NetworkManager NetworkManager-wifi network-manager-applet  wireless-tools dbus-x11 dejavu-sans-fonts tar tinyproxy
 {% endhighlight %}
 
 And maybe some more optional but useful packages as well:
@@ -63,7 +63,7 @@ If You want to use this template as a ProxyVM You may want to install evem more 
 
 #### Firewall
 
-This template is ready to use for a standard firewall VM. However, using the default minimal template with the default firewall and default update settings will result in an error when attempting to update dom0 (`qubes-dom0-update`), since this process requires `tar`, which is not present by default in the minimal template.
+This template is ready to use for a standard firewall VM.
 
 #### VPN
 
