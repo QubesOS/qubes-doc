@@ -18,7 +18,7 @@ Install
 It can be installed via the following command:
 
 {% highlight trac-wiki %}
-[user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-20-x64-minimal
+[user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-21-minimal
 {% endhighlight %}
 
 Usage
@@ -27,14 +27,14 @@ Usage
 It is a good idea to clone the original template, and make any changes in the new clone instead:
 
 {% highlight trac-wiki %}
-[user@dom0 ~]$ qvm-clone fedora-20-x64-minimal <your new template name>
+[user@dom0 ~]$ qvm-clone fedora-21-minimal <your new template name>
 {% endhighlight %}
 
 The sudo package is not installed by default, so lets install it:
 
 {% highlight trac-wiki %}
-[user@F20-Minimal ~]$ su - 
-[user@F20-Minimal ~]$ yum install sudo
+[user@F21-Minimal ~]$ su - 
+[user@F21-Minimal ~]$ yum install sudo
 {% endhighlight %}
 
 The rsyslog logging service is not installed by default. All logging is now being handled by the systemd journal. Users requiring the rsyslog service should install it manually.
@@ -46,13 +46,13 @@ To access the journald log, use the following command: `journalctl`
 If You want to use this template to for standard NetVMs You should install some more packeges:
 
 {% highlight trac-wiki %}
-[user@F20-Minimal ~]$ sudo yum install NetworkManager network-manager-applet  wireless-tools dbus-x11 dejavu-sans-fonts tar tinyproxy
+[user@F21-Minimal ~]$ sudo yum install NetworkManager network-manager-applet  wireless-tools dbus-x11 dejavu-sans-fonts tar tinyproxy
 {% endhighlight %}
 
 And maybe some more optional but useful packages as well:
 
 {% highlight trac-wiki %}
-[user@F20-Minimal ~]$ sudo yum install pciutils vim-minimal less tcpdump telnet psmisc nmap nmap-ncat gnome-keyring
+[user@F21-Minimal ~]$ sudo yum install pciutils vim-minimal less tcpdump telnet psmisc nmap nmap-ncat gnome-keyring
 {% endhighlight %}
 
 If Your network device needs some firmware then you should also install the corresponding packages as well. The `lspci; yum search firmware` command will help to choose the right one :)
