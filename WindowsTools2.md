@@ -22,7 +22,7 @@ Qubes Tools for Windows (QTW for short) contain several components than can be e
 -   GUI Windows Agent: video driver and gui agent that enable seamless showing of Windows applications on the secure Qubes desktop.
 -   Disable UAC: disables User Account Control prompts. *Is this still needed/wanted? Gui agent can handle UAC prompts now.*
 
-It's probably a good idea to install a VNC server in the VM before installing QTW. If something goes very wrong with the Qubes gui agent, a VNC server should still allow access to the OS.
+**In testing VMs only** it's probably a good idea to install a VNC server before installing QTW. If something goes very wrong with the Qubes gui agent, a VNC server should still allow access to the OS.
 
 Verbose installation
 --------------------
