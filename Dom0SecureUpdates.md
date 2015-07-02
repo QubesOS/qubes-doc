@@ -29,7 +29,7 @@ Secure update mechanism we use in Qubes (starting from Beta 2
 
 Keeping Dom0 not connected to any network makes it hard, however, to provide updates for software in Dom0. For this reason we have come up with the following mechanism for Dom0 updates, which minimizes the amount of untrusted input processed by Dom0 software:
 
-The update process is initiated by [qvm-dom0-update script](http://git.qubes-os.org/?p=joanna/core.git;a=blob;f=dom0/qvm-tools/qvm-dom0-update;h=d6ac222fdc3850a0f1269df27746c9ed6e84c8a9;hb=HEAD), running in Dom0.
+The update process is initiated by [qubes-dom0-update](https://github.com/abeluck/qubes-core/blob/master/dom0/qvm-tools/qubes-dom0-update), running in Dom0.
 
 Updates (\*.rpm files) are checked and downloaded by UpdateVM, which by default is the same as the firewall VM, but can be configured to be any other, network-connected VM. This is done by [qubes\_download\_dom0\_updates.sh script](http://git.qubes-os.org/?p=joanna/core.git;a=blob;f=common/qubes_download_dom0_updates.sh;h=dfc46123e9c0904d019d3f05008bc3adca21921d;hb=HEAD) (this script is executed using qrexec by the previously mentioned qvm-dom0-update). Note that we assume that this script might get compromised and might download a maliciously compromised downloads -- this is not a problem as Dom0 verifies digital signatures on updates later. The downloaded rpm files are placed in a ```/var/lib/qubes/dom0-updates``` directory on UpdateVM filesystem (again, they might get compromised while being kept there, still this isn't a problem). This directory is passed to yum using the ```--installroot=``` option.
 
