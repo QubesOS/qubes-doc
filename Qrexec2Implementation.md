@@ -19,7 +19,7 @@ Players:
 -   `/usr/lib/qubes/qrexec-policy` \<- internal program used to evaluate the policy file and making the 2nd half of the connection.
 -   `/usr/lib/qubes/qrexec-client` \<- raw command line tool that talks to the daemon via unix socket (`/var/run/qubes/qrexec.XID`)
 
-Note: neither of the above tools are designed to be used by users.
+Note: none of the above tools are designed to be used by users.
 
 Linux VMs implementation
 ------------------------
@@ -30,7 +30,7 @@ Players:
 -   `/usr/lib/qubes/qubes-rpc-multiplexer` \<- executes the actual service program, as specified in VM's `/etc/qubes-rpc/qubes.XYZ`.
 -   `/usr/lib/qubes/qrexec-client-vm` \<- raw command line tool that talks to the agent.
 
-Note: neither of the above tools are designed to be used by users. `qrexec-client-vm` is designed to be wrapped up by Qubes apps.
+Note: none of the above tools are designed to be used by users. `qrexec-client-vm` is designed to be wrapped up by Qubes apps.
 
 Windows VMs implemention
 ------------------------
@@ -64,7 +64,7 @@ When a user in a source VM executes `qrexec-client-vm` utility, the following st
 -   `qrexec-policy` evaluates the policy file. If successful, creates a pair of `qrexec-client` processes, whose stdin/stdout are cross-connencted.
     -   The first `qrexec-client` connects to the src VM, using the `-c ClientID` parameter, which results in not creating a new process, but connecting to the existing process file descriptors (these are the fds of unix socket created in step 1).
     -   The second `qrexec-client` connects to the target VM, and executes `qubes-rpc-multiplexer` command there with the rpc action as the cmdline argument. Finally, `qubes-rpc-multiplexer` executes the correct rpc server on the target.
--   In the above step, if the target VM is `$dispvm`, the dispvm is created via the `qfile-daemon-dvm` program. The latter waits for the `qrexec-client` process to exit, and then destroys the dispvm.
+-   In the above step, if the target VM is `$dispvm`, the DispVM is created via the `qfile-daemon-dvm` program. The latter waits for the `qrexec-client` process to exit, and then destroys the DispVM.
 
 Protocol description ("wire-level" spec)
 ----------------------------------------
