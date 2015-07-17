@@ -2,7 +2,9 @@
 layout: doc
 title: SecurityBulletins
 permalink: /doc/SecurityBulletins/
-redirect_from: /wiki/SecurityBulletins/
+redirect_from: 
+- /wiki/SecurityBulletins/
+- /trac/wiki/SecurityBulletins/
 ---
 
 Qubes Security Bulletins
