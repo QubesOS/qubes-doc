@@ -40,13 +40,13 @@ See [the instruction](/doc/QubesBuilder/)
 
 ### Q: How do I submit a patch?
 
-1.  Make all the changes in your working directory, i.e. edit files, move them around (you can use 'git mv' for this), etc.
+1.  Make all the changes in your working directory, i.e. edit files, move them around (you can use `git mv` for this), etc.
 
 1.  Add the changes and commit them (git add, git commit). Never mix different changes into one commit! Write a good description of the commit. The first line should contain a short summary, and then, if you feel like more explanations are needed, enter an empty new line, and then start the long, detailed description (optional).
 
 1.  Test your changes NOW: check if RPMs build fine, etc.
 
-1.  Create the patch using 'git format-patch'. This has an advantage over 'git diff', because the former will also include your commit message, your name and email, so that \*your\* name will be used as a commit's author.
+1.  Create the patch using `git format-patch`. This has an advantage over `git diff`, because the former will also include your commit message, your name and email, so that \*your\* name will be used as a commit's author.
 
 1.  Send your patch to qubes-devel. Start the message subject with the '[PATCH]' string.
 

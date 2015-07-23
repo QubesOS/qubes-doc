@@ -18,7 +18,7 @@ Guidelines for Documentation Contributors
    * In the event that a user is required to read the Markdown
    source directly, this will make it easier to follow, e.g., numbered steps in
    a set of instructions.
- * Use hanging indentations  
+ * Use hanging indentations
    where appropriate.
- * Use `[reference-style][ref]` links.  
+ * Use `[reference-style][ref]` links.
    `[ref]: http://daringfireball.net/projects/markdown/syntax#link`

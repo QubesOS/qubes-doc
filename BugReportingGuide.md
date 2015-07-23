@@ -26,7 +26,7 @@ with the same question.
 Submitting a Bug Report (or "Issue")
 ------------------------------------
 
-In GitHub, "Bug Reports" are called "Issues."
+On GitHub, "Bug Reports" are called "Issues."
 
 Issues can be submitted to the Qubes project located at
 [https://github.com/QubesOS/qubes-issues](https://github.com/QubesOS/qubes-issues).
@@ -53,10 +53,10 @@ filing a new one.
 You should be sure to include the version the project, as well as versions
 of related software. For example, be sure to include the Qubes release
 version (R2, R3) and specific version numbers of package causing problems
-(if known)
+(if known).
 If your issue is related to hardware, provide as many details as possible
 about the hardware, which could include using commandline tools such as
-lspci.
+`lspci`.
 
 Project maintainers really appreciate thorough explanations. It usually
 helps them address the problem more quickly, so everyone wins!
