@@ -50,7 +50,7 @@ A command-line tool, `qvm-block`, is also available. This tool can be used to as
 
 1.  When you finish using your USB stick, click the eject button or right-click and select **Unmount**.
 
-1.  In a dom0 console, unmount the stick:
+1.  In a dom0 console, detach the stick:
 
     {% highlight trac-wiki %}
     qvm-block -d <device> <vmname>
@@ -58,3 +58,6 @@ A command-line tool, `qvm-block`, is also available. This tool can be used to as
 
 1.  You may now remove the device.
 
+**Warning: Do not remove the device before detatching it from the VM!** Otherwise you
+will not be able to attach it anywhere later. See [this
+ticket](https://github.com/QubesOS/qubes-issues/issues/1082) for details.
