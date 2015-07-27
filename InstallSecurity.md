@@ -61,7 +61,7 @@ Cons:
    1. Use a USB optical drive.
    2. Attach a SATA optical drive to a secondary SATA controller, then assign
       this secondary SATA controller to an AppVM.
-   3. Use a SATA optical drive attached to dom0.  
+   3. Use a SATA optical drive attached to dom0.
       (Option 3 violates the Qubes security model since it entails transferring
       an untrusted ISO to dom0 in order to burn it to disc, which leaves only
       the other two options.)
