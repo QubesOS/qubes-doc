@@ -23,13 +23,13 @@ FAQ
 
 ### How are you going to spend the donated Bitcoins?
 
-Our primary intention is to fund development of additional Qubes features, such as Split GPG (\#474), Qubes MIME handlers, USB PV backend, IPv6 routing between VMs, etc. Those additional features, although often very cool and appealing, are often being postponed because we need to focus on the more mainstream features, including the commercial branches for our paying customers.
+Our primary intention is to fund development of additional Qubes features, such as [Split GPG](https://github.com/QubesOS/qubes-issues/issues/474), Qubes MIME handlers, USB PV backend, IPv6 routing between VMs, etc. Those additional features, although often very cool and appealing, are often being postponed because we need to focus on the more mainstream features, including the commercial branches for our paying customers.
 
 But we cannot promise we won't spend your donated Bitcoins in some other way. Frankly, I (JR) don't believe that the income from public donations could sustain ITL in operation for even a month. If, however, ITL were in financial trouble, we would use those donations in an attempt to extend our agony ;) Generally, our goal is to make Qubes/ITL survive -- even if that means we must spend your donated Bitcoins on things other than cool open-source features. Hopefully though, this will not be necessary.
 
 ### I have donated X number of Bitcoins. Can I request that a special feature be implemented?
 
-The simple answer is: No. If everybody were to decide, then nothing would get implemented. However, if you make a substantial donation (e.g., an amount which you believe could be used to pay for several months of a developer's work), then please contact us in person or via the mailing list. You can attach a digitally signed message using the Bitcoin address you used to donate in order to prove that who made a particular donation. In that case, we will listen carefully and, in the worst case, explain to you why we can't or don't want to implement your requested feature.
+The simple answer is: No. If everybody were to decide, then nothing would get implemented. However, if you make a substantial donation (e.g., an amount which you believe could be used to pay for several months of a developer's work), then please contact us in person or via the mailing list. You can attach a digitally signed message using the Bitcoin address you used to donate in order to prove that you made a particular donation. In that case, we will listen carefully and, in the worst case, explain to you why we can't or don't want to implement your requested feature.
 
 ### Who actually owns the above Bitcoin address?
 
@@ -41,7 +41,7 @@ All Qubes developers are paid good salaries, and presently ITL is doing pretty w
 
 1.  Nobody forces or specifically asks you to donate. Qubes will (probably) survive without any donations.
 2.  The main reason to donate is to encourage the creation of additional features, i.e., to make Qubes OS more secure and/or easier to use. This should benefit most Qubes users.
-3.  Another reason to donate is to say "Thank you," as we're releasing Qubes under GPL (excluding the Windows support) and generally trying to make the world a better place. (Oh, right, I had to made this plug somewhere here;)
+3.  Another reason to donate is to say "Thank you," as we're releasing Qubes under GPL (excluding the Windows support) and generally trying to make the world a better place. (Oh, right, I had to make this plug somewhere here;)
 
 ### Are you going to provide a financial report on how you spend our donated Bitcoins?
 

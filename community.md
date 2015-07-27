@@ -12,12 +12,12 @@ Add **Qubes OS** to refine your query, you might find just what you need.
 
 ## [QubesOS Mailing Lists]({{ site.url }}{{ site.baseurl }}/doc/QubesLists/)
 
--   Please send all the questions regarding Qubes OS to one of [these]({{ site.url }}{{ site.baseurl }}/doc/QubesLists/) mailing lists. 
+-   Please send all the questions regarding Qubes OS to one of [these]({{ site.url }}{{ site.baseurl }}/doc/QubesLists/) mailing lists.
 -   To subscribe to the user list, send a blank mail to `qubes-users+subscribe@googlegroups.com`.
--   By sending a message to the appropriate mailing list, you are not only giving others a chance to help you, 
+-   By sending a message to the appropriate mailing list, you are not only giving others a chance to help you,
 but you may also be helping others by starting a public discussion about a shared problem or interest.
--   **Please do not send questions to individual Qubes developers.** 
--   **Please do not [top-post](https://en.wikipedia.org/wiki/Posting_style), use inline replying or bottom-posting instead.** 
+-   **Please do not send questions to individual Qubes developers.**
+-   **Please do not [top-post](https://en.wikipedia.org/wiki/Posting_style), use inline replying or bottom-posting instead.**
 
 ## [QubesOS/qubes-doc]({{ site.url }}{{ site.baseurl }}/doc/UserFaq/#qubes-users-faq)
 

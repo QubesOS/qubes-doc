@@ -2,7 +2,7 @@
 layout: doc
 title: SecurityCriticalCode
 permalink: /doc/SecurityCriticalCode/
-redirect_from: 
+redirect_from:
 - /wiki/SecurityCriticalCode/
 - /trac/wiki/SecurityCriticalCode/
 ---
