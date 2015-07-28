@@ -31,7 +31,10 @@ If the install process fails you can retry it using the command line below to ge
 
 `msiexec /i path-to-qubes-tools.msi /lv path-to-log-file.txt`
 
-Uninstalling QTW 2.x is **not recommended**. It will most likely make the OS non-bootable because drivers for Xen storage devices will be uninstalled.
+Uninstalling
+------------
+
+See [this page](/doc/UninstallingWindowsTools2/).
 
 Configuration
 -------------
