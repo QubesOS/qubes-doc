@@ -51,10 +51,60 @@ Qubes RPC
 
 Services called by dom0 to provide some VM configuration:
 
--   qubes.SetMonitorLayout - provide list of monitors, one in a line, each line contains four numbers: width height X Y
--   qubes.WaitForSession - called to wait for full VM startup
--   qubes.GetAppmenus - receive appmenus from given VM (template); TODO: describe format here
--   qubes.GetImageRGBA - receive image/application icon: TODO: describe format and parameters here
+-   `qubes.SetMonitorLayout` - provide list of monitors, one in a line, each line contains four numbers: `width height X Y`
+-   `qubes.WaitForSession` - called to wait for full VM startup
+-   `qubes.GetAppmenus` - receive appmenus from given VM (template); TODO: describe format here
+-   `qubes.GetImageRGBA` - receive image/application icon: TODO: describe format and parameters here
+-   `qubes.SetDateTime` - set VM time, called periodically by dom0 (can be
+    triggered manually from dom0 by calling `qvm-sync-clock`). The service
+    receives one line at stdin - time in format of `date -u -Iseconds`, for
+    example `2015-07-31T16:10:43+0000`.
+-   `qubes.SetGuiMode` - called in HVM to switch between fullscreen and seamless
+    GUI mode. The service receives a single word on stdin - either `FULLSCREEN`
+    or `SEAMLESS`
+
+
+Other Qrexec services installed by default:
+
+- `qubes.Backup` - store Qubes backup. The service receives location chosen by
+  the user (one line, terminated by '\n'), the backup archive ([description of
+  backup format](/doc/BackupEmergencyRestoreV2/))
+- `qubes.DetachPciDevice` - service called in reaction to `qvm-pci -d` call on
+  running VM. The service receives one word - BDF of device to detach. When the
+  service call ends, the device will be detached
+- `qubes.Filecopy` - receive some files from other VM. Files sent in [qfile format](/doc/Qfilecopy/)
+- `qubes.OpenInVM` - open a file in called VM. Service receives a single file on stdin (in
+  [qfile format](/doc/Qfilecopy/). After a file viewer/editor is terminated, if
+  the file was modified, can be sent back (just raw content, without any
+  headers); otherwise service should just terminate without sending anything.
+  This service is used by both `qvm-open-in-vm` and `qvm-open-in-dvm` tools. When
+  called in DispVM, service termination will trigger DispVM cleanup.
+- `qubes.Restore` - retrieve Qubes backup. The service receives backup location
+  entered by the user (one line, terminated by '\n'), then should output backup
+  archive in [qfile format](/doc/Qfilecopy/) (core-agent-linux component contains
+  `tar2qfile` utility to do the conversion
+- `qubes.SelectDirectory`, `qubes.SelectFile` - services which should show
+  file/directory selection dialog and return (to stdout) a single line
+  containing selected path, or nothing in case of cancellation
+- `qubes.SuspendPre` - service called in every VM with PCI device attached just
+  before system suspend
+- `qubes.SuspendPost` - service called in every VM with PCI device attached just
+  after system resume
+- `qubes.SyncNtpClock` - service called to trigger network time synchronization.
+  Service should synchronize local VM time and terminate when done.
+- `qubes.VMShell` - call any command in the VM; the command(s) is passed one per line
+
+Currently Qubes still calls few tools in VM directly, not using service
+abstraction. This will change in the future. Those tools are:
+
+- `/usr/lib/qubes/qubes-download-dom0-updates.sh` - script to download updates (or new packages to be installed) for dom0 (`qubes-dom0-update` tool)
+- `date -u -Iseconds` - called directly to retrieve time after calling `qubes.SyncNtpClock` service (`qvm-sync-clock` tool)
+- `nm-online -x` - called before `qubes.SyncNtpClock` service call by `qvm-sync-clock` tool
+- `resize2fs` - called to resize filesystem on /rw partition by `qvm-grow-private` tool
+- `gpk-update-viewer` - called by Qubes Manager to display available updates in a TemplateVM
+- `systemctl start qubes-update-check.timer` (and similarly stop) - called when enabling/disabling updates checking in given VM (`qubes-update-check` [qvm-service](/doc/QubesService/))
+
+Additionally automatic tests extensively calls various commands directly in VMs. We do not plan to change that.
 
 GUI protocol
 ------------
