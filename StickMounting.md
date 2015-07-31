@@ -20,9 +20,7 @@ The command-line tool you may use to mount whole USB sticks or their partitions 
 
 1.  In a dom0 console (running as normal user), list all available block devices:
 
-    {% highlight trac-wiki %}
-    qvm-block -l
-    {% endhighlight %}
+        qvm-block -l
 
     This will list all available block devices connected to any USB controller
     in your system, no matter in which VM hosts the controller. The name of the
@@ -32,20 +30,16 @@ The command-line tool you may use to mount whole USB sticks or their partitions 
 
     **Note:** If your device is not listed here, you may refresh the list by calling (from the VM to which device is connected):
 
-    {% highlight trac-wiki %}
-    sudo udevadm trigger --action=change
-    {% endhighlight %}
+        sudo udevadm trigger --action=change
 
 
 1.  Assuming our USB stick is sdb, we attach the device to an AppVM like so:
 
-    {% highlight trac-wiki %}
-    qvm-block -a personal dom0:sdb
-    {% endhighlight %}
+       qvm-block -a personal dom0:sdb
+   
+    This will attach the device as "/dev/xvdi", if not already taken by another attached device, in the AppVM. You may also mount one partition at a time by using the same command with the partition number after sdb.
 
-This will attach the device as "/dev/xvdi", if not already taken by another attached device, in the AppVM. You may also mount one partition at a time by using the same command with the partition number after sdb.
-
-**Warning: when working with single partitions, it is possible to assign the same partition to multiple VMs.** For example, you could attach sdb1 to VM1 and then sdb to VM2. It is up to the user not to make this mistake. Xen block device framework currently does not provide an easy way around this. Point 2 of [this ticket comment](https://github.com/QubesOS/qubes-issues/issues/1072#issuecomment-124119309) gives details on this.
+    **Warning: when working with single partitions, it is possible to assign the same partition to multiple VMs.** For example, you could attach sdb1 to VM1 and then sdb to VM2. It is up to the user not to make this mistake. Xen block device framework currently does not provide an easy way around this. Point 2 of [this ticket comment](https://github.com/QubesOS/qubes-issues/issues/1072#issuecomment-124119309) gives details on this.
 
 1.  The USB stick is now attached to the AppVM. If using a default AppVM, you may open Nautilus file manager in the AppVM, and your stick should be visible in the **Devices** panel on the left.
 
@@ -53,9 +47,7 @@ This will attach the device as "/dev/xvdi", if not already taken by another atta
 
 1.  In a dom0 console, detach the stick:
 
-    {% highlight trac-wiki %}
-    qvm-block -d <device> <vmname>
-    {% endhighlight %}
+        qvm-block -d <device> <vmname>
 
 1.  You may now remove the device.
 
@@ -82,16 +74,16 @@ this steps:
    It is important to use the same "frontend" device name (by default `xvdi`) -
    you can get it from `qvm-block` listing:
 
-    [user@dom0 ~]$ qvm-block
-    sys-usb:sda DataTraveler_2.0 () 246 MiB (attached to 'testvm' as 'xvdi')
-    [user@dom0 ~]$ xl block-attach testvm phy:/dev/sda backend=sys-usb xvdi
+       [user@dom0 ~]$ qvm-block
+       sys-usb:sda DataTraveler_2.0 () 246 MiB (attached to 'testvm' as 'xvdi')
+       [user@dom0 ~]$ xl block-attach testvm phy:/dev/sda backend=sys-usb xvdi
 
    In above example all `xl block-attach` parameters can be deducted from
    `qvm-block` output. In order:
 
-       * `testvm` - name of target VM to which device was attached - listed in brackets by `qvm-block` command
-       * `phy:/dev/sda` - physical path at which device appears in source VM (just after source VM name in `qvm-block` output) 
-       * `backend=sys-usb` - name of source VM, can be omitted in case of dom0
-       * `xvdi` - "frontend" device name (listed at the end of line in `qvm-block` output
+   * `testvm` - name of target VM to which device was attached - listed in brackets by `qvm-block` command
+   * `phy:/dev/sda` - physical path at which device appears in source VM (just after source VM name in `qvm-block` output) 
+   * `backend=sys-usb` - name of source VM, can be omitted in case of dom0
+   * `xvdi` - "frontend" device name (listed at the end of line in `qvm-block` output
 
 3. Now properly detach the device, either using Qubes Manager, or `qvm-block -d` command.
