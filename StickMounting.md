@@ -62,3 +62,36 @@ This will attach the device as "/dev/xvdi", if not already taken by another atta
 **Warning: Do not remove the device before detatching it from the VM!** Otherwise you
 will not be able to attach it anywhere later. See [this
 ticket](https://github.com/QubesOS/qubes-issues/issues/1082) for details.
+
+
+What if I removed the device before detaching it from the VM?
+------------------------------------------------------------
+
+Currently (until [this
+ticket](https://github.com/QubesOS/qubes-issues/issues/1082) got implemented),
+if you remove the device before detaching it from the VM, Qubes (more precisely
+- libvirtd) will think that the device is still attached to the VM and will not
+allow attaching further devices under the same name. The easiest way to recover
+from such situation is to reboot the VM to which device was attached. But if
+this isn't an option, you can manually recover from the situation by following
+this steps:
+
+1. Physically connect the device back. You can use any device as long as it
+   will be detected under the same name (for example `sdb`).
+2. Attach the device manually to the same VM using `xl block-attach` command.
+   It is important to use the same "frontend" device name (by default `xvdi`) -
+   you can get it from `qvm-block` listing:
+
+    [user@dom0 ~]$ qvm-block
+    sys-usb:sda DataTraveler_2.0 () 246 MiB (attached to 'testvm' as 'xvdi')
+    [user@dom0 ~]$ xl block-attach testvm phy:/dev/sda backend=sys-usb xvdi
+
+   In above example all `xl block-attach` parameters can be deducted from
+   `qvm-block` output. In order:
+
+       * `testvm` - name of target VM to which device was attached - listed in brackets by `qvm-block` command
+       * `phy:/dev/sda` - physical path at which device appears in source VM (just after source VM name in `qvm-block` output) 
+       * `backend=sys-usb` - name of source VM, can be omitted in case of dom0
+       * `xvdi` - "frontend" device name (listed at the end of line in `qvm-block` output
+
+3. Now properly detach the device, either using Qubes Manager, or `qvm-block -d` command.
