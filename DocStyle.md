@@ -22,3 +22,21 @@ Guidelines for Documentation Contributors
    where appropriate.
  * Use `[reference-style][ref]` links.
    `[ref]: http://daringfireball.net/projects/markdown/syntax#link`
+
+
+Sending documentation updates
+-----------------------------
+
+Main documentation repository is [qubes-doc] on [QubesOS] github account. If
+you want to add something there, clone that repository commit the changes and
+send us patches using either [github pull requests][github-forking] or [plain
+email sent to qubes-devel mailing list][patch].
+
+If you have a github account (its free!), you can simply browse [qubes-doc]
+repository and edit the files there! Github interface will automatically guide
+you through [fork & pull request creation process][github-forking].
+
+[qubes-doc]: https://github.com/QubesOS/qubes-doc
+[QubesOS]: https://github.com/QubesOS/
+[github-forking]: https://guides.github.com/activities/forking/
+[patch]: /doc/SourceCode/#sending-a-patch

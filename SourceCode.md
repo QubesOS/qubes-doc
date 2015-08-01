@@ -31,18 +31,15 @@ e.g.:
 git clone git://github.com/QubesOS/qubes-core-admin.git core-admin
 {% endhighlight %}
 
-If you want to contribute to the project, there are two preferred ways:
-
-1.  Use github [fork & pull requests](https://guides.github.com/activities/forking/)
-2.  [sending a patch](/doc/DevelFaq/#q-how-do-i-submit-a-patch) via the project's mailing list (`git format-patch`).
-
 ## Sending a patch
-1.  Make all the changes in your working directory, i.e. edit files, move them around (you can use 'git mv' for this), etc.
 
-2.  Add the changes and commit them (git add, git commit). Never mix different changes into one commit! Write a good description of the commit. The first line should contain a short summary, and then, if you feel like more explanations are needed, enter an empty new line, and then start the long, detailed description (optional).
+If you want to contribute to the project, there are two ways:
 
-3.  Test your changes NOW: check if RPMs build fine, etc.
+*  **Preferred**: Use github [fork & pull requests](https://guides.github.com/activities/forking/)
+*  Sending a patch via the project's mailing list (`git format-patch`).
 
-4.  Create the patch using 'git format-patch'. This has an advantage over 'git diff', because the former will also include your commit message, your name and email, so that \*your\* name will be used as a commit's author.
-
-5.  Send your patch to qubes-devel. Start the message subject with the '[PATCH]' string.
+    1.  Make all the changes in your working directory, i.e. edit files, move them around (you can use 'git mv' for this), etc.
+    2.  Add the changes and commit them (git add, git commit). Never mix different changes into one commit! Write a good description of the commit. The first line should contain a short summary, and then, if you feel like more explanations are needed, enter an empty new line, and then start the long, detailed description (optional).
+    3.  Test your changes NOW: check if RPMs build fine, etc.
+    4.  Create the patch using 'git format-patch'. This has an advantage over 'git diff', because the former will also include your commit message, your name and email, so that \*your\* name will be used as a commit's author.
+    5.  Send your patch to qubes-devel. Start the message subject with the '[PATCH]' string.
