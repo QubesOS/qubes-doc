@@ -20,6 +20,7 @@ SYNOPSIS
 --------
 
 qvm-prefs -l [options] \<vm-name\>
+qvm-prefs -g [options] \<vm-name\> \<property\>
 qvm-prefs -s [options] \<vm-name\> \<property\> [...]
 
 OPTIONS
@@ -30,6 +31,9 @@ Show this help message and exit
 
 -l, --list  
 List properties of a specified VM
+
+-g, --get  
+Get a single property of a specified VM
 
 -s, --set  
 Set properties of a specified VM
@@ -44,6 +48,11 @@ Control whenever this VM will be included in backups by default (for now works o
 
 pcidevs  
 PCI devices assigned to the VM. Should be edited using qvm-pci tool.
+
+pci\_strictreset  
+Accepted values: `True`, `False`
+
+Control whether prevent assigning to VM a device which does not support any reset method. Generally such devices should not be assigned to any VM, because there will be no way to reset device state after VM shutdown, so the device could attack next VM to which it will be assigned. But in some cases it could make sense - for example when the VM to which it is assigned is trusted one, or is running all the time.
 
 label  
 Accepted values: `red`, `orange`, `yellow`, `green`, `gray`, `blue`, `purple`, `black`
@@ -88,7 +97,7 @@ Number of CPU (cores) available to VM. Some VM types (eg DispVM) will not work p
 kernelopts  
 Accepted values: string, `default`
 
-VM kernel parameters (available only for PV VMs). This can be used to workaround some hardware specific problems (eg for NetVM). Setting to `default` will use some reasonable defaults (currently different for VMs with PCI devices and without). Some helpful options (for debugging purposes): `earlyprintk=xen`, `init=/bin/bash`
+VM kernel parameters (available only for PV VMs). This can be used to workaround some hardware specific problems (eg for NetVM). Setting to `default` will use some reasonable defaults (currently different for VMs with PCI devices and without). For VM without PCI devices `default` option means inherit this value from the VM template (if any). Some helpful options (for debugging purposes): `earlyprintk=xen`, `init=/bin/bash`
 
 name  
 Accepted values: alphanumerical name
