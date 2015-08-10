@@ -21,11 +21,13 @@ In order to use it one should use an rpm-based distro, like Fedora :) and should
 -   wget
 -   rpmdevtools
 -   python-sh
+-   dialog
+-   rpm-sign
 
 Unusually one can install those packages by just issuing:
 
 {% highlight trac-wiki %}
-sudo yum install git createrepo rpm-build make wget rpmdevtools python-sh
+sudo yum install git createrepo rpm-build make wget rpmdevtools python-sh dialog rpm-sign
 {% endhighlight %}
 
 The build system creates build environments in chroots and so no other packages are needed on the host. All files created by the build system are contained within the qubes-builder directory. The full build requires some 25GB of free space, so keep that in mind when deciding where to place this directory.
