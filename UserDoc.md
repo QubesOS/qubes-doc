@@ -96,6 +96,7 @@ Qubes User Documentation
     7.  Vendor-specific
         1.  [How to install an Nvidia driver in dom0](/doc/InstallNvidiaDriver/)
         2.  [Getting Sony Vaio Z laptop to work with Qubes](/doc/SonyVaioTinkering/)
+        3.  [Getting Lenovo 450 to work with Qubes](/doc/Lenovo450Tinkering/)
 
     8.  External Links
         1.  [Installing on system with new AMD GPU (missing firmware problem)](https://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76)
