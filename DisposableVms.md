@@ -1,8 +1,8 @@
 ---
 layout: doc
-title: DisposableVms
+title: DisposableVMs
 permalink: /doc/DisposableVms/
-redirect_from: /wiki/DisposableVms/
+redirect_from: /wiki/DisposableVMs/
 ---
 
 Disposable VMs (DispVMs)
@@ -13,17 +13,23 @@ Background
 
 See [this article](http://theinvisiblethings.blogspot.com/2010/06/disposable-vms.html) for a background on why would one want to use a Disposable VM and what it is.
 
+A DisposableVM is a lightweight VM that can be created quickly and which will disappear when it is finished with. Usually a Disposable VM is created in order to host a single application, like a viewer or an editor. This means that you can safely work with files without risk of compromising any of your VMs. Changes made to a file opened in a disposable VM are passed back to the originating VM. 
+
+By default a Disposable VM will inherit the netVM and firewall settings of the ancestor VM. You can change this behaviour: in the Qubes Manager go to the advanced tab of VM Settings where you can set the default netVM to be used for DisposableVMs created from that VM. 
+
+Once a dispVM has been created it will appear in the Qubes Manager with the name "dispX", and NetVM and firewall rules can be set as for a normal VM.
+
 Opening a file in a Disposable VM (via GUI)
 -------------------------------------------
 
-In some AppVM, right click on the file you wish to open in a Disposable VM (in the Nautilus file manager), then choose Scripts -\> Open in Disposable VM. Wait a few seconds and an default application for this file type should appear displaying the file content. This app is running in a whole new VM -- a disposable VM created for the purpose of view this very file. Once you close the viewing application then whole Disposable VM will get destroyed.
+In some AppVM, right click on the file you wish to open in a Disposable VM (in the Nautilus file manager), then choose "Open in Disposable VM". Wait a few seconds and the default application for this file type should appear displaying the file content. This app is running in a whole new VM -- a disposable VM created for the purpose of viewing or editing this very file. Once you close the viewing application the whole Disposable VM will be destroyed. If you have edited the file and saved the changes the changed file will be saved back to the original VM, overwriting the original.
 
 ![r1-open-in-dispvm-1.png](/attachment/wiki/DisposableVms/r1-open-in-dispvm-1.png) ![r1-open-in-dispvm-2.png](/attachment/wiki/DisposableVms/r1-open-in-dispvm-2.png)
 
 Opening a fresh web browser instance in a new Disposable VM
 -----------------------------------------------------------
 
-Sometimes it is convenient to open a fresh instance of Firefox within a new fresh Disposable VM. This can be easily done by using the Start Menu: just go to Start -\> Disposable VM -\> Firefox and wait a few seconds until a web browser starts. Once you close the viewing application then whole Disposable VM will get destroyed.
+Sometimes it is convenient to open a fresh instance of Firefox within a new fresh Disposable VM. This can be easily done by using the Start Menu: just go to Start -\> System Tools -\> DispVM:Firefox web browser . Wait a few seconds until a web browser starts. Once you close the viewing application the whole Disposable VM will get destroyed.
 
 ![r1-open-in-dispvm-3.png](/attachment/wiki/DisposableVms/r1-open-in-dispvm-3.png)
 
@@ -58,30 +64,15 @@ Sometimes it might be useful to start an arbitrary program, such as e.g. termina
 [user@vault ~]$ qvm-run '$dispvm' xterm
 {% endhighlight %}
 
-Note the above command is issued in an AppVM, not in Dom0. The created Disposable VM can be normally accessed via other tools, such as e.g. `qvm-copy-to-vm`, using its 'dispX' name, as shown by the Qubes Manager or `qvm-ls` tools. The created Disposable VM will inherit firewall settings of the ancestor VM, which is useful in some cases (e.g. when the original AppVM had networking cut off).
+Note the above command is issued in an AppVM, not in Dom0. The created Disposable VM can be normally accessed via other tools, such as e.g. `qvm-copy-to-vm`, using its 'dispX' name, as shown by the Qubes Manager or `qvm-ls` tools. 
 
-Using a non-default template as a basis for Disposable VM
+
+Customizing Disposable VMs
 ---------------------------------------------------------
 
-In some situations it might be beneficial to use a non-default template as a basis for Disposable VM. One example is to use a less-trusted template with some less trusted, 3rd party, often unsigned, applications installed, such as e.g. 3rd part printer drivers.
+You can change the template used to generate the Disposable VM, and change settings used in the Disposable VM savefile. These changes will be reflected in every new Disposable VM.
+Full instructions are [here] (doc/UserDoc/DispVMCustomization/) 
 
-In order to regenerate Disposable VM "snapshot" (called 'savefile' on Qubes) one can conveniently use the following command in Dom0:
-
-{% highlight trac-wiki %}
-[joanna@dom0 ~]$ qvm-create-default-dvm <custom-template-name>
-{% endhighlight %}
-
-This would create a new Disposable VM savefile based on the custom template. Now, whenever one opens a file (from any AppVM) in a Disposable VM, a Disposable VM based on this template will be used.
-
-One can easily verify if the new Disposable VM template is indeed based on a custom template (in the example below the template called "f17-yellow" was used as a basis for the Disposable VM):
-
-{% highlight trac-wiki %}
-[joanna@dom0 ~]$ ll /var/lib/qubes/dvmdata/
-total 0
-lrwxrwxrwx 1 joanna joanna 45 Mar 11 13:59 default_dvm.conf -> /var/lib/qubes/appvms/f17-yellow-dvm/dvm.conf
-lrwxrwxrwx 1 joanna joanna 49 Mar 11 13:59 default_savefile -> /var/lib/qubes/appvms/f17-yellow-dvm/dvm-savefile
-lrwxrwxrwx 1 joanna joanna 47 Mar 11 13:59 savefile_root -> /var/lib/qubes/vm-templates/f17-yellow/root.img
-{% endhighlight %}
 
 Disposable VMs and Local Forensics
 ----------------------------------
