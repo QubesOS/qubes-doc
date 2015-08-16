@@ -94,3 +94,36 @@ For example to run only tests for fedora-21 template, you can use `-l` option, t
     vm_qrexec_gui/TC_20_DispVM_fedora-21/test_020_gui_app
     vm_qrexec_gui/TC_20_DispVM_fedora-21/test_030_edit_file
     [user@dom0 ~]$ python -m qubes.tests.run -v `python -m qubes.tests.run -l | grep fedora-21`
+
+
+## Adding a new test to core-admin
+After you added a new unit test to [core-admin/tests](https://github.com/QubesOS/qubes-core-admin/tree/master/tests) 
+you have to make sure of two things:
+
+1. The test will be added to the RPM file created by [QubesBuilder](/doc/QubesBuilder/) 
+For this you need to edit [core-admin/tests/Makefile](https://github.com/QubesOS/qubes-core-admin/tree/master/tests/Makefile)
+2. The test will be loaded by [core-admin/tests/\_\_init\_\_.py](https://github.com/QubesOS/qubes-core-admin/tree/master/tests/__init__.py)
+
+### Editing the  Makefile
+Add at the bottom of the file the two lines which will copy your test and its
+compiled version to the right directory in the RPM file. I.e. adding `example.py`
+
+    cp example.py $(DESTDIR)$(PYTHON_TESTSPATH)
+    cp example.py[co] $(DESTDIR)$(PYTHON_TESTSPATH)
+
+
+### Editing \_\_init\_\_.py
+Add at the bottom of the file in the method `def load_tests` to the variable
+`modname` your test. I.e adding `example.py`.
+```python
+    for modname in (
+            'qubes.tests.basic',
+            'qubes.tests.dom0_update',
+            'qubes.tests.network',
+            'qubes.tests.vm_qrexec_gui',
+            'qubes.tests.backup',
+            'qubes.tests.backupcompatibility',
+            'qubes.tests.regressions',
+            'qubes.tests.example', # This is our newly added test
+            ):
+```
