@@ -8,7 +8,7 @@ redirect_from: /wiki/Fetchmail/
 Fetchmail
 =========
 
-Fetchmail is standalone MRA (Mail Retrieval Agent) aka "IMAP/POP3 client". Its sole purpose is to fetch your messages and store it locally or feed to local MTA (Message Transfer Agent). It cannot "read" messages — for that use MUA like Thunderbird or [Mutt](/doc/Mutt/).
+Fetchmail is standalone MRA (Mail Retrieval Agent) aka "IMAP/POP3 client". Its sole purpose is to fetch your messages and store it locally or feed to local MTA (Message Transfer Agent). It cannot "read" messages — for that, use a MUA like Thunderbird or [Mutt](/doc/Mutt/).
 
 Installation
 ------------

@@ -12,10 +12,11 @@ A workflow for developing Qubes OS+
 
 First things first, setup [QubesBuilder](/doc/QubesBuilder/). This guide assumes you're using qubes-builder to build Qubes.
 
-Repositories and Committing Code
+Repositories and committing Code
 --------------------------------
 
 Qubes is split into a bunch of git repos. This are all contained in the `qubes-src` directory under qubes-builder.
+FIXME(ypid): Not on github?
 
 The best way to write and contribute code is to create a git repo somewhere (e.g., github) for the repo you are interested in editing (e.g., `qubes-manager`, `core`, etc). To integrate your repo with the rest of Qubes, cd to the repo directory and add your repository as a remote in git
 
@@ -168,7 +169,8 @@ sudo cp qmemman/qmemman*.py $QUBES_PY_DIR/
 sudo cp misc/vm-template-hvm.conf /usr/share/qubes/
 sudo cp misc/qubes-start.desktop /usr/share/qubes/
 sudo cp misc/block-snapshot /etc/xen/scripts/
-sudo cp aux-tools/qubes-dom0-updates.cron /etc/cron.daily/I hope to 
+sudo cp aux-tools/qubes-dom0-updates.cron /etc/cron.daily/
+# FIXME(Abel Luck): I hope to 
 {% endhighlight %}
 
 ### Apply qvm-tools

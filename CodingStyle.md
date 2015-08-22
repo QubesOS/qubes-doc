@@ -2,7 +2,9 @@
 layout: doc
 title: CodingStyle
 permalink: /doc/CodingStyle/
-redirect_from: /wiki/CodingStyle/
+redirect_from:
+- /wiki/CodingStyle/
+- /trac/wiki/CodingStyle/
 ---
 
 Coding Guidelines for Qubes Developers
@@ -18,7 +20,7 @@ Maintaining proper coding style is very important for any larger software projec
 -   It allows others to easily review the code and catch various bugs,
 -   It provides for an aesthetically pleasing experience when one reads the code...
 
-Often, developers, usually smart developers, neglect the value of proper coding style, thinking that it's most important how their code works, and expecting that if it solves some problem using a nice and neat trick, then it's all that is really required. Such thinking shows, however, immaturity and is a signal that the developer, however bright and smart, might not be a good fit for any larger project. Writing a clever exploit, that is to be used at one Black Hat show is one thing, while writing a useful software that is to be used and maintained for years, is quite a different story. If you want to show off how smart programmer you are, then you should become a researcher and write exploits. If, on the other hand, you want to be part of a team that makes real, useful software, you should ensure your coding style is impeccable. We often, at Qubes project, often took shortcuts, and often wrote nasty code, and this always back fired at us, sometime months, sometime years later, the net result being we had to spend time fixing code, rather than implementing new functionality.
+Often, developers, usually smart developers, neglect the value of proper coding style, thinking that it's most important how their code works, and expecting that if it solves some problem using a nice and neat trick, then it's all that is really required. Such thinking shows, however, immaturity and is a signal that the developer, however bright and smart, might not be a good fit for any larger project. Writing a clever exploit, that is to be used at one Black Hat show is one thing, while writing a useful software that is to be used and maintained for years, is quite a different story. If you want to show off what a smart programmer you are, then you should become a researcher and write exploits. If, on the other hand, you want to be part of a team that makes real, useful software, you should ensure your coding style is impeccable. We often, at Qubes project, often took shortcuts, and often wrote nasty code, and this always back fired at us, sometime months, sometime years later, the net result being we had to spend time fixing code, rather than implementing new functionality.
 
 And here's a [link to the real case](https://groups.google.com/forum/#!msg/qubes-devel/XgTo6L8-5XA/JLOadvBqnqMJ) (one Qubes Security Bulletin) demonstrating how the above described problem lead to a real security bug. Never assume you're smart enough that you can disregard clean and rigorous coding!
 
@@ -63,12 +65,12 @@ File naming conventions
 
 -   User commands that operate on particular VMs (also those accessible in VMs): `/usr/bin/qvm-*`
 -   User commands that apply to the whole system (Dom0 only): `/usr/bin/qubes-*`
--   Auxilary executables and scripts in `/usr/libexec/qubes/` (Note: previously we used `/usr/lib/qubes` but decided to change that)
--   Helper, non-exeutable files in `/usr/share/qubes/`
+-   Auxiliary executables and scripts in `/usr/libexec/qubes/` (Note: previously we used `/usr/lib/qubes` but decided to change that)
+-   Helper, non-executable files in `/usr/share/qubes/`
 -   Various config files in `/etc/qubes`
 -   Qubes RPC services in `/etc/qubes-rpc`. Qubes RPC Policy definitions (only in Dom0) in `/etc/qubes-rpc/policy/`
 -   All VM-related configs, images, and other files in `/var/lib/qubes/`
--   System-wide temporary files the reflect the current state of system in `/var/run/qubes`
+-   System-wide temporary files which reflect the current state of system in `/var/run/qubes`
 -   Logs: either log to the system-wide messages, or to `/var/log/qubes/`
 
 **File naming in Windows systems:**
@@ -79,9 +81,9 @@ File naming conventions
 General programming style guidelines
 ------------------------------------
 
--   Do not try to impress wit your coding kung-fu, do not use tricks to save 2 lines of code, always prefer readability over trickiness!
+-   Do not try to impress with your coding kung-fu, do not use tricks to save 2 lines of code, always prefer readability over trickiness!
 -   Make sure your code compiles and builds without warnings.
--   Always first first about interfaces (e.g. function arguments, or class methods) and data structures before you start writing the actual code.
+-   Always think first about interfaces (e.g. function arguments, or class methods) and data structures before you start writing the actual code.
 -   Use comments to explain non-trivial code fragments, or expected behavior of more complex functions, if it is not clear from their name.
 -   Do **not** use comments for code fragments where it is immediately clear what the code does. E.g. avoid constructs like this:
 
@@ -146,12 +148,12 @@ Security coding guidelines
        height = untrusted_conf.height;
     {% endhighlight %}
 
--   Use another variables, without the `untrusted_` prefix to hold the sanitized values, as seen above.
+-   Use another variables, without the `untrusted_` prefix to hold the sanitized values, as shown above.
 
 Python-specific guidelines
 --------------------------
 
--   Please follow the guidlines [here](http://www.python.org/dev/peps/pep-0008/), unless they were in conflict with what is written on this page.
+-   Please follow the guidelines [here](http://www.python.org/dev/peps/pep-0008/), unless they were in conflict with what is written on this page.
 
 C and C++ specific guidelines
 -----------------------------

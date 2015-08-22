@@ -11,7 +11,7 @@ Starting with Qubes R3 we use [python unittest](TODO) to perform automatic
 tests of Qubes OS. Regardless of the name, we use it for both [unit
 tests](https://en.wikipedia.org/wiki/Unit_tests) and [integration
 tests](https://en.wikipedia.org/wiki/Integration_tests). The main purpose is of
-course deliver much more stable releases.
+course to deliver much more stable releases.
 
 Integration tests are written with assumption to be called on dedicated
 hardware. **Do not run those test on machine where you have important data, you

@@ -214,3 +214,8 @@ list which also apply to TemplateVM management and migration in general:
 
  * [Marek](https://groups.google.com/d/msg/qubes-users/mCXkxlACILQ/dS1jbLRP9n8J)
  * [Jason M](https://groups.google.com/d/msg/qubes-users/mCXkxlACILQ/5PxDfI-RKAsJ)
+
+Known issues with Fedora 21
+===========================
+
+* [The "Update VM" command in Qubes Manager does not work](https://github.com/QubesOS/qubes-issues/issues/982).

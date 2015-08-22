@@ -74,7 +74,9 @@ Qubes User Documentation
 
     8.  **Windows VMs**
         1.  [Installing and Using Windows-based AppVMs (Qubes R2 Beta 3 and later)](/doc/WindowsAppVms/)
-        2.  [Advanced options and troubleshooting of Qubes Tools for Windows](/doc/WindowsTools/)
+        2.  [Advanced options and troubleshooting of Qubes Tools for Windows (R3)](/doc/WindowsTools3/)
+        3.  [Advanced options and troubleshooting of Qubes Tools for Windows (R2)](/doc/WindowsTools2/)
+            1.  [Uninstalling Qubes Tools for Windows 2.x](/doc/UninstallingWindowsTools2/)
 
     9.  Advanced Topics
         1.  [Configuration files](/doc/UserDoc/ConfigFiles/)
@@ -94,6 +96,7 @@ Qubes User Documentation
     7.  Vendor-specific
         1.  [How to install an Nvidia driver in dom0](/doc/InstallNvidiaDriver/)
         2.  [Getting Sony Vaio Z laptop to work with Qubes](/doc/SonyVaioTinkering/)
+        3.  [Getting Lenovo 450 to work with Qubes](/doc/Lenovo450Tinkering/)
 
     8.  External Links
         1.  [Installing on system with new AMD GPU (missing firmware problem)](https://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76)

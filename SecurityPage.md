@@ -2,7 +2,9 @@
 layout: doc
 title: SecurityPage
 permalink: /doc/SecurityPage/
-redirect_from: /wiki/SecurityPage/
+redirect_from: 
+- /wiki/SecurityPage/
+- /trac/wiki/SecurityPage/
 ---
 
 Reporting Security Issues in Qubes OS

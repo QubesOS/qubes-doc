@@ -18,25 +18,26 @@ Qubes Downloads
 Qubes Release 3.0
 ---------------
 
--   [Qubes-R3.0-rc1-x86\_64-DVD.iso](http://sourceforge.net/projects/qubesos/files/Qubes-R3.0-rc1-x86_64-DVD.iso/download) (via sourceforge.net)
--   [Digital Signature](http://sourceforge.net/projects/qubesos/files/Qubes-R3.0-rc1-x86_64-DVD.iso.asc/download) (via sourceforge.net)
+-   [Qubes-R3.0-rc2-x86\_64-DVD.iso](https://mirrors.kernel.org/qubes/iso/Qubes-R3.0-rc2-x86_64-DVD.iso) (mirror 1)
+-   [Digital Signature](https://mirrors.kernel.org/qubes/iso/Qubes-R3.0-rc2-x86_64-DVD.iso.asc) (mirror 1)
+-   [Qubes-R3.0-rc2-x86\_64-DVD.iso](https://ftp.qubes-os.org/iso/Qubes-R3.0-rc2-x86_64-DVD.iso) (mirror 2)
+-   [Digital Signature](https://ftp.qubes-os.org/iso/Qubes-R3.0-rc2-x86_64-DVD.iso.asc) (mirror 2)
 
--   **[Installation Guide for Qubes R3.0 rc1](/doc/InstallationGuideR3.0rc1/)**
--   [Upgrading to Qubes R3.0 rc1](/doc/InstallationGuideR3.0rc1/#upgrading)
+-   **[Installation Guide for Qubes R3.0 rc2](/doc/InstallationGuideR3.0rc2/)**
+-   [Upgrading to Qubes R3.0 rc2](/doc/InstallationGuideR3.0rc2/#upgrading)
 
 Qubes Release 2
 ---------------
 
--   [Qubes-R2-x86\_64-DVD.iso](http://sourceforge.net/projects/qubesos/files/Qubes-R2-x86_64-DVD.iso/download) (via sourceforge.net)
--   [Digital Signature](http://sourceforge.net/projects/qubesos/files/Qubes-R2-x86_64-DVD.iso.asc/download) (via sourceforge.net)
+-   [Qubes-R2-x86\_64-DVD.iso](https://mirrors.kernel.org/qubes/iso/Qubes-R2-x86_64-DVD.iso) (mirror 1)
+-   [Digital Signature](https://mirrors.kernel.org/qubes/iso/Qubes-R2-x86_64-DVD.iso.asc) (mirror 1)
+-   [Qubes-R2-x86\_64-DVD.iso](https://ftp.qubes-os.org/iso/Qubes-R2-x86_64-DVD.iso) (mirror 2)
+-   [Digital Signature](https://ftp.qubes-os.org/iso/Qubes-R2-x86_64-DVD.iso.asc) (mirror 2)
 
 -   **[Installation Guide for Qubes R2](/doc/InstallationGuideR2/)**
 -   [Upgrading to Qubes R2](/doc/InstallationGuideR2/#upgrading)
 
--   [Qubes-R2-rc2-x86\_64-DVD.iso](http://sourceforge.net/projects/qubesos/files/Qubes-R2-rc2-x86_64-DVD.iso/download) (via sourceforge.net)
--   [Digital Signature](http://sourceforge.net/projects/qubesos/files/Qubes-R2-rc2-x86_64-DVD.iso.asc/download) (via sourceforge.net)
-
--   **[Installation Guide for Qubes R2 rc2](/doc/InstallationGuideR2rc2/)**
+-   **[Installation Guide for Qubes R2 rc2](/doc/InstallationGuideR2rc2/)** (deprecated)
 -   [Upgrading to Qubes R2 rc2](/doc/InstallationGuideR2rc2/#upgrading)
 
 Qubes Release 1
@@ -44,8 +45,10 @@ Qubes Release 1
 
 (This is mainly for historical reference, we strongly recommend Qubes R2 above)
 
--   [Qubes-R1-x86\_64-DVD.iso](http://sourceforge.net/projects/qubesos/files/Qubes-R1-x86_64-DVD.iso/download) (via sourceforge.net)
--   [Digital Signature](http://sourceforge.net/projects/qubesos/files/Qubes-R1-x86_64-DVD.iso.asc/download) (via sourceforge.net)
+-   [Qubes-R1-x86\_64-DVD.iso](https://mirrors.kernel.org/qubes/iso/Qubes-R1-x86_64-DVD.iso) (mirror 1)
+-   [Digital Signature](https://mirrors.kernel.org/qubes/iso/Qubes-R1-x86_64-DVD.iso.asc) (mirror 1)
+-   [Qubes-R1-x86\_64-DVD.iso](https://ftp.qubes-os.org/iso/Qubes-R1-x86_64-DVD.iso) (mirror 2)
+-   [Digital Signature](https://ftp.qubes-os.org/iso/Qubes-R1-x86_64-DVD.iso.asc) (mirror 2)
 
 -   **[Installation Guide](/doc/InstallationGuide/)**
 
