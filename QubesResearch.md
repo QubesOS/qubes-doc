@@ -23,8 +23,7 @@ Here are some links to various papers/research projects that somehow relate to Q
 
 ### Application-level security
 
--   [Virtics: A System for Privilege Separation of Legacy Desktop Applications](http://bnrg.cs.berkeley.edu/~adj/publications/paper-files/EECS-2010-70.pdf) by Matt Piotrowski
-    (We plan to implement some ideas from Matt's thesis in Qubes very soon -- stay tuned for details)
+-   [Virtics: A System for Privilege Separation of Legacy Desktop Applications](http://www.eecs.berkeley.edu/Pubs/TechRpts/2010/EECS-2010-70.pdf) by Matt Piotrowski
 
 ### VMM/Xen disagregation
 
