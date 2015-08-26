@@ -29,6 +29,8 @@ Qubes is an open-source operating system designed to provide strong security for
 
 Recent News
 -----------
+-   `Aug 10, 2015` Qubes OS 3.0 rc2 LiveUSB (alpha) has been released! [announcement](https://groups.google.com/d/msg/qubes-users/IQdCEpkooto/iyMh3LuzCAAJ)
+-   `Jul 31, 2015` Qubes OS 3.0 rc2 has been released! [announcement](https://groups.google.com/d/msg/qubes-users/jw9CdQepMPE/95HQDF6QBwAJ)
 -   `Apr 23, 2015` Qubes OS 3.0 rc1 has been released! [announcement](http://blog.invisiblethings.org/2015/04/23/qubes-30rc1-and-roadmap.html)
 -   `Nov 20, 2014` [Article about Qubes OS](http://www.wired.com/2014/11/protection-from-hackers/) in Wired
 -   `Oct 19, 2014` LinuxCon EU 2014 slides: [keynote](http://www.invisiblethingslab.com/resources/2014/LinuxCon_2014_Qubes_Keynote.pdf) and [tutorial](http://www.invisiblethingslab.com/resources/2014/LinuxCon_2014_Qubes_Tutorial.pdf)
