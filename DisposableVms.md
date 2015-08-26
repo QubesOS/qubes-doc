@@ -71,7 +71,7 @@ Customizing Disposable VMs
 ---------------------------------------------------------
 
 You can change the template used to generate the Disposable VM, and change settings used in the Disposable VM savefile. These changes will be reflected in every new Disposable VM.
-Full instructions are [here] (doc/UserDoc/DispVMCustomization/) 
+Full instructions are [here](/doc/UserDoc/DispVMCustomization/) 
 
 
 Disposable VMs and Local Forensics
