@@ -26,14 +26,19 @@ Install
 
 It can be installed via the following command:
 
-Debian 7 (wheezy) - stable:
+Debian 7 (wheezy) - old stable:
 
     [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-7
 
-Debian 8 (jessie) - testing:
+Debian 8 (jessie) - stable:
 
     [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-8
+    
+Debian 9 (stretch) - testing:
 
+A prebuilt template is not yet available, but you can build an experimental stretch template from source.
+    
+    
 Known issues
 ------------
 
