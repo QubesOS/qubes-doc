@@ -45,6 +45,42 @@ release e.g. `3.1-rcX`.
 Tickets in the tracker are sorted out by release major.minor, such as `3.0`,
 `3.1` (trac calls this „milestone”).
 
+Release schedule
+----------------
+
+There is no specific schedule for major and minor other that more general
+roadmap. When time comes, Supreme Committee declares feature freeze and tags
+`-rc1` and releases ISO image. From this time on, no new features are accepted.
+Also a strict time schedule kicks in.
+
+Each release candidate period is as follows. For the first two weeks we accept
+and assign bugreports to be fixed before next release candidate. For the next
+two weeks we generally focus on fixing assigned bugreports, so issues discovered
+during this time may be postponed until later RC. Finally after that there is
+one week of current-testing freeze, during which time no new packages are
+released, in hope that they will be installed by wider user base and tested.
+
+The next RC is released five weeks after the former. All packets are published
+in `current` repository and the cycle starts over. There should be no less than
+1 and no more than 3 release candidates before final release.
+
+<table>
+    <thead>
+        <tr><th>stage</th><th>time</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>initial testing</td><td>2 weeks</td></tr>
+        <tr><td>bug fixing</td><td>2 weeks</td></tr>
+        <tr><td>`current-testing` freeze</td><td>1 week</td></tr>
+    </tbody>
+</table>
+
+Starting with second cycle (that is, after `-rc1`) two weeks into the cycle
+(after primary bug-reporting period) the Supreme Committee decides wether there
+should be another RC. If, based on remaining issues, the Committee decides to
+release final, then the Committee agrees upon the release date, which should be
+no later than a week after.
+
 Component version
 -----------------
 
