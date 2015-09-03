@@ -127,9 +127,9 @@ Creating and Using a USBVM
 
 The connection of an **untrusted USB external drive to Dom0** may involve some risk because Dom0 reads **partition tables** automatically, and also because the whole USB stack is put to work **to parse** all the USB device info first, to determine if it is a USB Mass Storage, and to read its config, etc. This happens even if the drive is then assigned and mounted in another VM.
 
-To avoid this risk it is possible to prepare and utilize a **USBVM**. However this is not presently recommended for beginners, as Xen does not yet provide a working PVUSB, and so only USB Mass Storage devices could be passed to individual VMs later (via qvm-block). This involves that a USBVM cannot be preinstalled and the whole thing cannot be automatized. So avoid it if you have doubts.
+To avoid this risk it is possible to prepare and utilize a **USBVM**. However this is not presently recommended for beginners, as Xen does not yet provide a working PVUSB, and so only USB Mass Storage devices can be passed to individual VMs later (via qvm-block). This means that a USBVM cannot be preinstalled and the whole thing cannot be automated. So avoid it if you have doubts.
 
-Also avoid it if you do not have a **USB controller free of input devices** or programmable devices. However, as already noted most laptops use PS-2 for keyboards and touchpad devices which do not cause problems.
+Also avoid it if you do not have a **USB controller free of input devices** or programmable devices, for the reasons above. However, as already noted most laptops use PS-2 for keyboards and touchpad devices which do not cause problems.
 
 An **USBVM** operates like a dedicated temporary parking area, used just to prevent any contact between dom0 and the USB drive. Then, every time you connect an **untrusted USB external drive** to a USB port managed by that USB controller, you need to attach it to the VM that needs it, using qubes manager or [terminal](/doc/StickMounting/). Again, this **works only for disk-like USB devices**. Other devices cannot be currently virtualized. So once you assign their controller to your **USBVM** they'll be no more available.
 
@@ -140,13 +140,16 @@ An **USBVM** operates like a dedicated temporary parking area, used just to prev
 3.  Give it "red" or "orange" or "yellow" label.
 4.  In the AppVM's settings, go to the "devices" tab. Find your USB controller in the "Available" list. Move it to the "Selected" list.
 5.  Click OK. Restart the AppVM. (Restarting may not even be required.)
-6.  **In dom0 terminal**, run
+6.  Set the VM to start automatically at Boot using the VM Manager, (under VM Settings), or **In dom0 terminal**, run
 
     {% highlight trac-wiki %}
     qvm-prefs -s usbvm autostart true
     {% endhighlight %}
 
 This will cause your new **USBVM** to automatically start when the system starts up. So that in case you forgot to start it and then accidentally plugged a USB stick (or your colleague at work did it while you were at lunch), **it won't compromise the Dom0**.
+
+If the USBVM will not start, look at [this faq](../UserFaq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot)
+
 
 Dom0 Precautions
 ----------------
