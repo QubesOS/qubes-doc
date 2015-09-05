@@ -81,6 +81,34 @@ should be another RC. If, based on remaining issues, the Committee decides to
 release final, then the Committee agrees upon the release date, which should be
 no later than a week after.
 
+Bug priorities
+--------------
+
+When deciding whether the current release candidate is the final one, the Committee
+takes bugs priorities into consideration. The meaning of them is as follows:
+
+* `blocker` - when any such bug is present in the current release candidate, it
+can't be considered final release. Bugs with this priority must be fixed before
+the next release candidate, even if that means delaying its release (which
+should be considered only last resort option).
+
+* `critical` - when any such bug is present in the current release candidate, it
+can't be considered final release. But such bugs are not qualified to delay
+next release candidate release.
+
+* `major` - existence of such bugs do not strictly prevent the current release
+candidate be considered final (but of course we should try hard to not have
+them there). Fixing bugs of this priority can be delayed and qualified as
+updates to the final stable release.
+
+* `minor` - existence of such bugs do not prevent the current release candidate
+be considered final. Fixing such bugs can be delayed to the next Qubes OS
+release. Eventually such fixes might be backported as an update to the stable
+release(s).
+
+All above is about bugs, no features should be assigned to the current release
+after first `-rc`. Supreme Committee is free to adjust priorities appropriately.
+
 Component version
 -----------------
 
