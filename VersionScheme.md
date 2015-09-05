@@ -115,4 +115,4 @@ of repository.
 
 All version and release tags should be made and signed by someone from ITL
 staff. Public keys are included in `qubes-builder` and available at
-[http://keys.qubes-os.org/keys/](http://keys.qubes-os.org/keys/).
+[https://keys.qubes-os.org/keys/](https://keys.qubes-os.org/keys/).
