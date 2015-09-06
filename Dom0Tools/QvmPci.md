@@ -19,23 +19,23 @@ Date
 SYNOPSIS
 --------
 
-qvm-pci -l [options] \<vm-name\>
-qvm-pci -a [options] \<vm-name\> \<device\>
-qvm-pci -d [options] \<vm-name\> \<device\>
+    qvm-pci -l [options] <vm-name>
+    qvm-pci -a [options] <vm-name> <device>
+    qvm-pci -d [options] <vm-name> <device>
 
 OPTIONS
 -------
 
--h, --help  
+`-h, --help`  
 Show this help message and exit
 
--l, --list  
+`-l, --list`  
 List VM PCI devices
 
--a, --add  
+`-a, --add`  
 Add a PCI device to specified VM
 
--d, --delete  
+`-d, --delete`  
 Remove a PCI device from specified VM
 
 AUTHORS

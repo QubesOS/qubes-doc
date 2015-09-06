@@ -19,36 +19,36 @@ Date
 SYNOPSIS
 --------
 
-qvm-ls [options] \<vm-name\>
+`qvm-ls [options] <vm-name>`
 
 OPTIONS
 -------
 
--h, --help  
+`-h, --help`  
 Show help message and exit
 
--n, --network  
+`-n, --network`  
 Show network addresses assigned to VMs
 
--c, --cpu  
+`-c, --cpu`  
 Show CPU load
 
--m, --mem  
+`-m, --mem`  
 Show memory usage
 
--d, --disk  
+`-d, --disk`  
 Show VM disk utilization statistics
 
--i, --ids  
-Show Qubes and Xen id
+`-i, --ids`  
+`Show Qubes and Xen id
 
--k, --kernel  
+`-k, --kernel`  
 Show VM kernel options
 
--b, --last-backup  
+`-b, --last-backup`  
 Show date of last VM backup
 
---raw-list  
+`--raw-list`  
 List only VM names one per line
 
 AUTHORS

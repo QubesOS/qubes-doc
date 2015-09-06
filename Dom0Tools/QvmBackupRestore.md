@@ -19,36 +19,36 @@ Date
 SYNOPSIS
 --------
 
-qvm-backup-restore [options] \<backup-dir\>
+`qvm-backup-restore [options] <backup-dir>`
 
 OPTIONS
 -------
 
--h, --help  
+`-h`, `--help` 
 Show this help message and exit
 
---skip-broken  
+`--skip-broken`  
 Do not restore VMs that have missing templates or netvms
 
---ignore-missing  
+`--ignore-missing`  
 Ignore missing templates or netvms, restore VMs anyway
 
---skip-conflicting  
+`--skip-conflicting`  
 Do not restore VMs that are already present on the host
 
---force-root  
+`--force-root`  
 Force to run, even with root privileges
 
---replace-template=REPLACE\_TEMPLATE  
-Restore VMs using another template, syntax: old-template-name:new-template-name (might be repeated)
+`--replace-template=REPLACE_TEMPLATE`  
+Restore VMs using another template, syntax: old-template-name:new-template-name (may be repeated)
 
--x EXCLUDE, --exclude=EXCLUDE  
-Skip restore of specified VM (might be repeated)
+-x EXCLUDE, `--exclude=EXCLUDE`  
+Skip restore of specified VM (may be repeated)
 
---skip-dom0-home  
+`--skip-dom0-home`  
 Do not restore dom0 user home dir
 
---ignore-username-mismatch  
+`--ignore-username-mismatch`  
 Ignore dom0 username mismatch while restoring homedir
 
 AUTHORS

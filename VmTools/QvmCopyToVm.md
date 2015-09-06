@@ -19,12 +19,12 @@ Date
 SYNOPSIS
 --------
 
-qvm-copy-to-vm [--without-progress] dest\_vmname file [file]+
+`qvm-copy-to-vm [--without-progress] dest\_vmname file [file]+`
 
 OPTIONS
 -------
 
---without-progress  
+`--without-progress`
 Don't display progress info
 
 AUTHORS

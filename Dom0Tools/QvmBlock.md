@@ -19,33 +19,33 @@ Date
 SYNOPSIS
 --------
 
-qvm-block -l [options]
-qvm-block -a [options] \<device\> \<vm-name\>
-qvm-block -d [options] \<device\>
-qvm-block -d [options] \<vm-name\>
+    qvm-block -l [options]
+    qvm-block -a [options] <device> <vm-name>
+    qvm-block -d [options] <device>
+    qvm-block -d [options] <vm-name>
 
 OPTIONS
 -------
 
--h, --help  
+`-h, --help`    
 Show this help message and exit
 
--l, --list  
+`-l, --list`    
 List block devices
 
--a, --attach  
+`-a, --attach`   
 Attach block device to specified VM
 
--d, --detach  
+`-d, --detach`    
 Detach block device
 
--f FRONTEND, --frontend=FRONTEND  
+`-f FRONTEND, --frontend=FRONTEND`    
 Specify device name at destination VM [default: xvdi]
 
---ro  
+`--ro`    
 Force read-only mode
 
---no-auto-detach  
+`--no-auto-detach`   
 Fail when device already connected to other VM
 
 AUTHORS

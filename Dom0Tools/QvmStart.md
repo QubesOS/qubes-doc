@@ -19,27 +19,27 @@ Date
 SYNOPSIS
 --------
 
-qvm-start [options] \<vm-name\>
+`qvm-start [options] <vm-name>`
 
 OPTIONS
 -------
 
--h, --help  
+`-h, --help`   
 Show this help message and exit
 
--q, --quiet  
+`-q, --quiet`   
 Be quiet
 
---no-guid  
+`--no-guid`   
 Do not start the GUId (ignored)
 
---console  
+`--console`   
 Attach debugging console to the newly started VM
 
---dvm  
+`--dvm`   
 Do actions necessary when preparing DVM image
 
---custom-config=CUSTOM\_CONFIG  
+`--custom-config=CUSTOM_CONFIG`    
 Use custom Xen config instead of Qubes-generated one
 
 AUTHORS

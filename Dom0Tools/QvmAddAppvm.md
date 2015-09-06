@@ -21,23 +21,23 @@ Date
 SYNOPSIS
 --------
 
-qvm-add-appvm [options] \<appvm-name\> \<vm-template-name\>
+`qvm-add-appvm [options] <appvm-name> <vm-template-name>`
 
 OPTIONS
 -------
 
--h, --help  
+`-h, --help`  
 Show this help message and exit
 
--p DIR\_PATH, --path=DIR\_PATH  
+`-p DIR_PATH, --path=DIR_PATH`  
 Specify path to the template directory
 
--c CONF\_FILE, --conf=CONF\_FILE  
+`-c CONF_FILE, --conf=CONF_FILE`  
 Specify the Xen VM .conf file to use(relative to the template dir path)
 
 AUTHORS
 -------
 
-Joanna Rutkowska \<joanna at invisiblethingslab dot com\>
-Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>
+Joanna Rutkowska \<joanna at invisiblethingslab dot com\>  
+Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>  
 Marek Marczykowski \<marmarek at invisiblethingslab dot com\>

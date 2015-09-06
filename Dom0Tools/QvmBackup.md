@@ -19,20 +19,20 @@ Date
 SYNOPSIS
 --------
 
-qvm-backup [options] \<backup-dir-path\>
+`qvm-backup [options] <backup-dir-path>` 
 
 OPTIONS
 -------
 
--h, --help  
+`-h, --help`  
 Show this help message and exit
 
--x EXCLUDE\_LIST, --exclude=EXCLUDE\_LIST  
-Exclude the specified VM from backup (might be repeated)
+`-x EXCLUDE_LIST, --exclude=EXCLUDE_LIST`  
+Exclude the specified VM from backup (may be repeated)
 
 AUTHORS
 -------
 
-Joanna Rutkowska \<joanna at invisiblethingslab dot com\>
-Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>
+Joanna Rutkowska \<joanna at invisiblethingslab dot com\>  
+Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>  
 Marek Marczykowski \<marmarek at invisiblethingslab dot com\>

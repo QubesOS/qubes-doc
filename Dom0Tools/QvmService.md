@@ -19,31 +19,32 @@ Date
 SYNOPSIS
 --------
 
-qvm-service [-l] \<vmname\>
-qvm-service [-e|-d|-D] \<vmname\> \<service\>
+`qvm-service [-l] <vmname>`
+
+`qvm-service [-e|-d|-D] <vmname> <service>`
 
 OPTIONS
 -------
 
--h, --help  
+`-h, --help`   
 Show this help message and exit
 
--l, --list  
+`-l, --list`  
 List services (default action)
 
--e, --enable  
+`-e, --enable`   
 Enable service
 
--d, --disable  
+`-d, --disable`   
 Disable service
 
--D, --default  
+`-D, --default`  
 Reset service to its default state (remove from the list). Default state means "lets VM choose" and can depend on VM type (NetVM, AppVM etc).
 
 SUPPORTED SERVICES
 ------------------
 
-This list can be incomplete as VM can implement any additional service without knowlege of qubes-core code.
+This list may be incomplete as VM can implement an additional service without knowlege of qubes-core code.
 
 meminfo-writer  
 Default: enabled everywhere excluding NetVM
@@ -95,7 +96,7 @@ Enable NetworkManager. Only VM with direct access to network device needs this s
 ntpd  
 Default: disabled
 
-Enable NTPD service. By default Qubes calls ntpdate every 6 minutes in selected VM (aka ClockVM), then propagate the result using qrexec calls. Enabling ntpd *do not* disable this behaviour.
+Enable NTPD service. By default Qubes calls ntpdate every 6 minutes in selected VM (aka ClockVM), then propagates the result using qrexec calls. Enabling ntpd *does not* disable this behaviour.
 
 qubes-yum-proxy  
 Deprecated name for qubes-updates-proxy.
@@ -111,8 +112,7 @@ Deprecated name for updates-proxy-setup.
 updates-proxy-setup  
 Default: enabled in AppVM (also in templates)
 
-Setup yum at startup to use qubes-yum-proxy service.
-
+Setup yum at startup to use qubes-yum-proxy service.  
 *Note:* this service is automatically enabled when you allow VM to access yum proxy (in firewall settings) and disabled when you deny access to yum proxy.
 
 disable-default-route  

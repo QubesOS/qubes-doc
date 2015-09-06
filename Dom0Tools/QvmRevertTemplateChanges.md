@@ -19,20 +19,20 @@ Date
 SYNOPSIS
 --------
 
-qvm-revert-template-changes [options] \<template-name\>
+`qvm-revert-template-changes [options] <template-name>`
 
 OPTIONS
 -------
 
--h, --help  
+`-h, --help`  
 Show this help message and exit
 
---force  
+`--force`  
 Do not prompt for comfirmation
 
 AUTHORS
 -------
 
-Joanna Rutkowska \<joanna at invisiblethingslab dot com\>
-Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>
+Joanna Rutkowska \<joanna at invisiblethingslab dot com\>  
+Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>  
 Marek Marczykowski \<marmarek at invisiblethingslab dot com\>

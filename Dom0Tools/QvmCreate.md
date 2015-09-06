@@ -19,59 +19,59 @@ Date
 SYNOPSIS
 --------
 
-qvm-create [options] \<vm-name\>
+`qvm-create [options] <vm-name>`
 
 OPTIONS
 -------
 
--h, --help  
+`-h, --help`  
 Show this help message and exit
 
--t TEMPLATE, --template=TEMPLATE  
+`-t TEMPLATE, --template=TEMPLATE`  
 Specify the TemplateVM to use
 
--l LABEL, --label=LABEL  
+`-l LABEL, --label=LABEL`  
 Specify the label to use for the new VM (e.g. red, yellow, green, ...)
 
--p, --proxy  
+`-p, --proxy`  
 Create ProxyVM
 
--n, --net  
+`-n, --net`  
 Create NetVM
 
--H, --hvm  
+`-H, --hvm`  
 Create HVM (standalone, unless --template option used)
 
---hvm-template  
+`--hvm-template`  
 Create HVM template
 
--R ROOT\_MOVE, --root-move-from=ROOT\_MOVE  
+`-R ROOT_MOVE, --root-move-from=ROOT_MOVE`  
 Use provided root.img instead of default/empty one (file will be MOVED)
 
--r ROOT\_COPY, --root-copy-from=ROOT\_COPY  
+`-r ROOT_COPY, --root-copy-from=ROOT_COPY`  
 Use provided root.img instead of default/empty one (file will be COPIED)
 
--s, --standalone  
+`-s, --standalone`  
 Create standalone VM - independent of template
 
--m MEM, --mem=MEM  
+`-m MEM, --mem=MEM`  
 Initial memory size (in MB)
 
--c VCPUS, --vcpus=VCPUS  
+`-c VCPUS, --vcpus=VCPUS`  
 VCPUs count
 
--i, --internal  
+`-i, --internal`  
 Create VM for internal use only (hidden in qubes-manager, no appmenus)
 
---force-root  
+`--force-root`  
 Force to run, even with root privileges
 
--q, --quiet  
+`-q, --quiet`  
 Be quiet
 
 AUTHORS
 -------
 
-Joanna Rutkowska \<joanna at invisiblethingslab dot com\>
-Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>
+Joanna Rutkowska \<joanna at invisiblethingslab dot com\>  
+Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>  
 Marek Marczykowski \<marmarek at invisiblethingslab dot com\>

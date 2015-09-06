@@ -35,17 +35,13 @@ Of course, command line tools are still available for accomplishing various upda
 
 1.  To check and install updates for dom0 software:
 
-    {% highlight trac-wiki %}
-    $ sudo qubes-dom0-update
-    {% endhighlight %}
+`$ sudo qubes-dom0-update`
 
-1.  To install additional packages in dom0 (usually not recommended):
+2.  To install additional packages in dom0 (usually not recommended):
 
-    {% highlight trac-wiki %}
-    $ sudo qubes-dom0-update anti-evil-maid
-    {% endhighlight %}
+`$ sudo qubes-dom0-update anti-evil-maid`
 
-    You may also pass the `--enablerepo=` option in order to enable optional repositories (see yum configuration in dom0). However, this is only for advanced users who really understand what they are doing.
+You may also pass the `--enablerepo=` option in order to enable optional repositories (see yum configuration in dom0). However, this is only for advanced users who really understand what they are doing.
 
 ### How to downgrade a specific package
 

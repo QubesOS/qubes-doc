@@ -19,17 +19,17 @@ Date
 SYNOPSIS
 --------
 
-qvm-grow-private \<vm-name\> \<size\>
+`qvm-grow-private <vm-name> <size>`
 
 OPTIONS
 -------
 
--h, --help  
+`-h, --help`  
 Show this help message and exit
 
 AUTHORS
 -------
 
-Joanna Rutkowska \<joanna at invisiblethingslab dot com\>
-Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>
+Joanna Rutkowska \<joanna at invisiblethingslab dot com\>  
+Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>  
 Marek Marczykowski \<marmarek at invisiblethingslab dot com\>

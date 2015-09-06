@@ -19,51 +19,51 @@ Date
 SYNOPSIS
 --------
 
-qvm-run [options] [\<vm-name\>] [\<cmd\>]
+`qvm-run [options] [<vm-name>] [<cmd>]`
 
 OPTIONS
 -------
 
--h, --help  
+`-h, --help`  
 Show this help message and exit
 
--q, --quiet  
+`-q, --quiet`  
 Be quiet
 
--a, --auto  
+`-a, --auto`  
 Auto start the VM if not running
 
--u USER, --user=USER  
+`-u USER, --user=USER`  
 Run command in a VM as a specified user
 
---tray  
+`--tray`  
 Use tray notifications instead of stdout
 
---all  
+`--all`  
 Run command on all currently running VMs (or all paused, in case of --unpause)
 
---exclude=EXCLUDE\_LIST  
+`--exclude=EXCLUDE_LIST`  
 When --all is used: exclude this VM name (might be repeated)
 
---wait  
+`--wait`  
 Wait for the VM(s) to shutdown
 
---shutdown  
+`--shutdown`  
 (deprecated) Do 'xl shutdown' for the VM(s) (can be combined this with --all and --wait)
 
---pause  
+`--pause`  
 Do 'xl pause' for the VM(s) (can be combined this with --all and --wait)
 
---unpause  
+`--unpause`  
 Do 'xl unpause' for the VM(s) (can be combined this with --all and --wait)
 
--p, --pass-io  
+`-p, --pass-io`  
 Pass stdin/stdout/stderr from remote program
 
---localcmd=LOCALCMD  
+`--localcmd=LOCALCMD`  
 With --pass-io, pass stdin/stdout/stderr to the given program
 
---force  
+`--force`  
 Force operation, even if may damage other VMs (eg. shutdown of NetVM)
 
 AUTHORS

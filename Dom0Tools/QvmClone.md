@@ -19,23 +19,23 @@ Date
 SYNOPSIS
 --------
 
-qvm-clone [options] \<src-name\> \<new-name\>
+`qvm-clone [options] <src-name> <new-name>` 
 
 OPTIONS
 -------
 
--h, --help  
+`-h, --help`  
 Show this help message and exit
 
--q, --quiet  
+`-q, --quiet`  
 Be quiet
 
--p DIR\_PATH, --path=DIR\_PATH  
+`-p DIR_PATH, --path=DIR_PATH`  
 Specify path to the template directory
 
 AUTHORS
 -------
 
-Joanna Rutkowska \<joanna at invisiblethingslab dot com\>
-Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>
+Joanna Rutkowska \<joanna at invisiblethingslab dot com\>  
+Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>  
 Marek Marczykowski \<marmarek at invisiblethingslab dot com\>

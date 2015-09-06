@@ -19,12 +19,12 @@ Date
 SYNOPSIS
 --------
 
-qvm-kill [options] \<vm-name\>
+`qvm-kill [options] <vm-name>`
 
 OPTIONS
 -------
 
--h, --help  
+`-h, --help`   
 Show this help message and exit
 
 AUTHORS

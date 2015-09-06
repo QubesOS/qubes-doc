@@ -19,17 +19,17 @@ Date
 SYNOPSIS
 --------
 
-qvm-template-commit [options] \<vm-name\>
+`qvm-template-commit [options] <vm-name>` 
 
 OPTIONS
 -------
 
--h, --help  
+`-h, --help`   
 Show this help message and exit
 
 AUTHORS
 -------
 
-Joanna Rutkowska \<joanna at invisiblethingslab dot com\>
-Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>
+Joanna Rutkowska \<joanna at invisiblethingslab dot com\>  
+Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>  
 Marek Marczykowski \<marmarek at invisiblethingslab dot com\>

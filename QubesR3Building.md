@@ -25,7 +25,7 @@ $ wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
 $ gpg --import qubes-developers-keys.asc
 {% endhighlight %}
 
-Note we do *not* relay above on the security of our server (keys.qubes-os.org) nor the connection (ssl, cert) -- we only rely on you getting the Qubes Master Signing Key fingerprint *somehow* and ensure they match!
+Note we do *not* rely above on the security of our server (keys.qubes-os.org) nor the connection (ssl, cert) -- we only rely on you getting the Qubes Master Signing Key fingerprint *somehow* and ensure they match!
 
 Now lets bootstrap the builder. Unfortunately the builder cannot verify itself (the classic Chicken and Egg problem), so we need to verify the signature manually:
 

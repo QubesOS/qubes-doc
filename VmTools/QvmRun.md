@@ -19,12 +19,12 @@ Date
 SYNOPSIS
 --------
 
-qvm-run vmname command [aguments]
+`qvm-run vmname command [arguments]`
 
 OPTIONS
 -------
 
---dispvm  
+`--dispvm`  
 Pass this option instead of vmname to start new DisposableVM
 
 AUTHORS

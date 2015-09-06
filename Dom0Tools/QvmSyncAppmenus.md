@@ -19,20 +19,20 @@ Date
 SYNOPSIS
 --------
 
-qvm-sync-appmenus [options] \<vm-name\>
+`qvm-sync-appmenus [options] <vm-name>` 
 
 OPTIONS
 -------
 
--h, --help  
+`-h, --help`  
 Show this help message and exit
 
--v, --verbose  
+`-v, --verbose`  
 Run in verbose mode
 
 AUTHORS
 -------
 
-Joanna Rutkowska \<joanna at invisiblethingslab dot com\>
-Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>
+Joanna Rutkowska \<joanna at invisiblethingslab dot com\>  
+Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>  
 Marek Marczykowski \<marmarek at invisiblethingslab dot com\>
