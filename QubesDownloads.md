@@ -57,7 +57,5 @@ Mirrors
 
 Qubes ISOs are also available from the following mirrors:
 
--   [http://ftp.fsn.hu/pub/linux/distributions/qubes/](http://ftp.fsn.hu/pub/linux/distributions/qubes/)
--   [http://linuxtracker.org/index.php?page=torrent-details&id=3bdf893771d63bdbe3d83f31e064360ee10f30ec](http://linuxtracker.org/index.php?page=torrent-details&id=3bdf893771d63bdbe3d83f31e064360ee10f30ec)
--   [http://burnbit.com/torrent/303367/Qubes\_R2\_rc2\_x86\_64\_DVD\_iso](http://burnbit.com/torrent/303367/Qubes_R2_rc2_x86_64_DVD_iso)
-
+-   [Burnbit torrent](http://burnbit.com/search?q=qubes)
+-   [mirrors.kernel.org](http://mirrors.kernel.org/qubes/iso/)
