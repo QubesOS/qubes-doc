@@ -51,7 +51,7 @@ You can start apps directly from the start menu. Each domain has its own menu di
 
 ![r2b1-appsmenu-1.png](/attachment/wiki/GettingStarted/r2b1-appsmenu-1.png) ![r2b1-appsmenu-3.png](/attachment/wiki/GettingStarted/r2b1-appsmenu-3.png)
 
-By default, each domain's menu contains only a few shortcuts. If you'd like to add more, simply click **Add more shortcuts...**, select the desired applictions, and click **OK**. You can also add shortcuts manually. (This is sometimes necessary if the desired application doesn't show up in the Qubes VM Manager window.) To do this in KDE, right-click on the **Start** button and click **Menu Editor**. Click the domain directory in which you'd like the menu to appear, click **New Item**, enter its name as **\<domain name\>: \<app name\>**, and provide the command for starting the app (see below). Then click **Save** and wait approximately 15 seconds for the changes to propagate to the KDE menu.
+By default, each domain's menu contains only a few shortcuts. If you'd like to add more, simply click **Add more shortcuts...**, select the desired applications, and click **OK**. You can also add shortcuts manually. (This is sometimes necessary if the desired application doesn't show up in the Qubes VM Manager window.) To do this in KDE, right-click on the **Start** button and click **Menu Editor**. Click the domain directory in which you'd like the menu to appear, click **New Item**, enter its name as **\<domain name\>: \<app name\>**, and provide the command for starting the app (see below). Then click **Save** and wait approximately 15 seconds for the changes to propagate to the KDE menu.
 
 To start apps from the console in dom0, type:
 
@@ -62,7 +62,7 @@ qvm-run -a <domain> "<app name> [arguments]"
 e.g.:
 
 {% highlight trac-wiki %}
-qvm-run -a red firefox
+qvm-run -a untrusted firefox
 {% endhighlight %}
 
 Adding, Removing, and Listing Domains
