@@ -19,23 +19,23 @@ Date
 SYNOPSIS
 --------
 
-qvm-prefs -l [options] \<vm-name\>
-qvm-prefs -g [options] \<vm-name\> \<property\>
-qvm-prefs -s [options] \<vm-name\> \<property\> [...]
+    qvm-prefs -l [options] <vm-name>
+    qvm-prefs -g [options] <vm-name> <property>
+    qvm-prefs -s [options] <vm-name> <property> [...]
 
 OPTIONS
 -------
 
--h, --help  
+`-h, --help`  
 Show this help message and exit
 
--l, --list  
+`-l, --list`  
 List properties of a specified VM
 
--g, --get  
+`-g, --get`  
 Get a single property of a specified VM
 
--s, --set  
+`-s, --set`  
 Set properties of a specified VM
 
 PROPERTIES
@@ -107,7 +107,7 @@ Name of the VM. Can be only changed when VM isn't running.
 drive  
 Accepted values: [hd:|cdrom:][backend-vm:]path
 
-Additional drive for the VM (available only for HVMs). This can be used to attach installation image. `path` can be file or physical device (eg. /dev/sr0). The same syntax can be used in qvm-start --drive - to attach drive only temporarily.
+Additional drive for the VM (available only for HVMs). This can be used to attach installation image. `path` can be file or physical device (eg. /dev/sr0). The same syntax can be used in `qvm-start --drive` - to attach drive only temporarily.
 
 mac  
 Accepted values: MAC address, `auto`

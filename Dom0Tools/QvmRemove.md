@@ -19,21 +19,21 @@ Date
 SYNOPSIS
 --------
 
-qvm-remove [options] \<vm-name\>
+`qvm-remove [options] <vm-name>`
 
 OPTIONS
 -------
 
--h, --help  
+`-h, --help`  
 Show this help message and exit
 
--q, --quiet  
+`-q, --quiet`  
 Be quiet
 
---just-db  
+`--just-db`  
 Remove only from the Qubes Xen DB, do not remove any files
 
---force-root  
+`--force-root`  
 Force to run, even with root privileges
 
 AUTHORS

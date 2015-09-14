@@ -18,7 +18,7 @@ Interested readers might want to check [this article](http://theinvisiblethings.
 Creating an HVM domain
 ----------------------
 
-First, lets create a new HVM domain (use the --hvm switch to qvm-create, or choose HVM type in the Qubes Manager VM creation dialog box):
+First, lets create a new HVM domain (use the `--hvm` switch to qvm-create, or choose HVM type in the Qubes Manager VM creation dialog box):
 
 {% highlight trac-wiki %}
 qvm-create win7 --hvm --label green

@@ -19,32 +19,32 @@ Date
 SYNOPSIS
 --------
 
-qvm-shutdown [options] \<vm-name\>
+`qvm-shutdown [options] <vm-name>`
 
 OPTIONS
 -------
 
--h, --help  
+`-h, --help`  
 Show this help message and exit
 
--q, --quiet  
+`-q, --quiet`  
 Be quiet
 
---force  
+`--force`  
 Force operation, even if may damage other VMs (eg. shutdown of NetVM)
 
---wait  
+`--wait`  
 Wait for the VM(s) to shutdown
 
---all  
+`--all`  
 Shutdown all running VMs
 
---exclude=EXCLUDE\_LIST  
-When --all is used: exclude this VM name (might be repeated)
+`--exclude=EXCLUDE_LIST`  
+When `--all` is used: exclude this VM name (may be repeated)
 
 AUTHORS
 -------
 
-Joanna Rutkowska \<joanna at invisiblethingslab dot com\>
-Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>
+Joanna Rutkowska \<joanna at invisiblethingslab dot com\>  
+Rafal Wojtczuk \<rafal at invisiblethingslab dot com\>  
 Marek Marczykowski \<marmarek at invisiblethingslab dot com\>

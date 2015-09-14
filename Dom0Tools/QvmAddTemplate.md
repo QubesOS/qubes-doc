@@ -19,21 +19,21 @@ Date
 SYNOPSIS
 --------
 
-qvm-add-template [options] \<vm-template-name\>
+`qvm-add-template [options] <vm-template-name>` 
 
 OPTIONS
 -------
 
--h, --help  
+`-h, --help`  
 Show this help message and exit
 
--p DIR\_PATH, --path=DIR\_PATH  
+`-p DIR_PATH, --path=DIR_PATH`  
 Specify path to the template directory
 
--c CONF\_FILE, --conf=CONF\_FILE  
+`-c CONF_FILE, --conf=CONF_FILE`  
 Specify the Xen VM .conf file to use(relative to the template dir path)
 
---rpm  
+`--rpm`  
 Template files have been installed by RPM
 
 AUTHORS
