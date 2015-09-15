@@ -50,11 +50,9 @@ If you prefer to use USB as a source for installation, then you just need to cop
 
 Adjust filename to the version you're installing. **Be sure to use a correct device as the target in the dd command above (instead of sdX)'''**
 
-On windows you can use [this](http://www.chrysocome.net/dd) tool. Example command would be (as Administrator):
+On windows you can use [Rufus](http://rufus.akeo.ie/) tool. Be sure to select "DD image" mode (you need to do that **after** selecting Qubes iso image):
 
-    dd if=Qubes-R2-x86_64-DVD.iso of=\\?\Device\Harddisk1\Partition0 bs=1M --size --progress
-
-Adjust filename to the version you're installing. **Be sure to use a correct device as the target in the dd command above (instead of sdX or Harddisk1)**
+<img src="/attachment/wiki/InstallationGuide/rufus-main-boxed.png" height="350">
 
 Before proceeding with the installation, you are encouraged to first read all the information on this page, especially the *Known Issues* paragraph.
 
