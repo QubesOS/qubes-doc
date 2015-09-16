@@ -19,13 +19,13 @@ Qubes Release 3.0
 ---------------
 
 -   [Release notes](/doc/releases/3.0/release-notes/)
--   [Qubes-R3.0-rc2-x86\_64-DVD.iso](https://mirrors.kernel.org/qubes/iso/Qubes-R3.0-rc2-x86_64-DVD.iso) (mirror 1)
--   [Digital Signature](https://mirrors.kernel.org/qubes/iso/Qubes-R3.0-rc2-x86_64-DVD.iso.asc) (mirror 1)
--   [Qubes-R3.0-rc2-x86\_64-DVD.iso](https://ftp.qubes-os.org/iso/Qubes-R3.0-rc2-x86_64-DVD.iso) (mirror 2)
--   [Digital Signature](https://ftp.qubes-os.org/iso/Qubes-R3.0-rc2-x86_64-DVD.iso.asc) (mirror 2)
+<!--- -   [Qubes-R3.0-rc3-x86\_64-DVD.iso](https://mirrors.kernel.org/qubes/iso/Qubes-R3.0-rc3-x86_64-DVD.iso) (mirror 1) --->
+<!--- -   [Digital Signature](https://mirrors.kernel.org/qubes/iso/Qubes-R3.0-rc3-x86_64-DVD.iso.asc) (mirror 1) --->
+-   [Qubes-R3.0-rc3-x86\_64-DVD.iso](https://ftp.qubes-os.org/iso/Qubes-R3.0-rc3-x86_64-DVD.iso) (mirror 2)
+-   [Digital Signature](https://ftp.qubes-os.org/iso/Qubes-R3.0-rc3-x86_64-DVD.iso.asc) (mirror 2)
 
 -   **[Installation Guide](/doc/InstallationGuide/)**
--   [Upgrading to Qubes R3.0 rc2](/doc/releases/3.0/release-notes/#upgrading)
+-   [Upgrading to Qubes R3.0 rc3](/doc/releases/3.0/release-notes/#upgrading)
 
 Qubes Release 2
 ---------------
