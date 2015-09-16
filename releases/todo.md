@@ -12,8 +12,12 @@ Release checklist
 On -rc1
 -------
 * write schedule
+* create package repositories (linux-yum, linux-deb)
+* update repository definition (core-agent-linux, installer-qubes-os/qubes-release)
 * push all packages to `current-testing`
 * draft release notes, one note per feature
+* create upgrade package in previous release branch (r2->r3.0, r3.0->r3.1, etc) - core-agent-linux
+* make sure that keys for the current release are included in previous release's qubes-release package (for upgrade)
 * build ISO and push to mirrors
 
 On subsequent -rc
