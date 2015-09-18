@@ -2,7 +2,7 @@
 layout: doc
 title: Qubes OS Project
 permalink: /
-redirect_from: 
+redirect_from:
 - "/wiki/"
 - "/wiki/WikiStart/"
 - "/trac/"
@@ -29,6 +29,7 @@ Qubes is an open-source operating system designed to provide strong security for
 
 Recent News
 -----------
+-   `Sep 16, 2015` Qubes OS 3.0 rc3 has been released! [announcement](https://groups.google.com/d/msg/qubes-users/v-eTHh3JLo0/AlaBthwhLQAJ)
 -   `Aug 10, 2015` Qubes OS 3.0 rc2 LiveUSB (alpha) has been released! [announcement](https://groups.google.com/d/msg/qubes-users/IQdCEpkooto/iyMh3LuzCAAJ)
 -   `Jul 31, 2015` Qubes OS 3.0 rc2 has been released! [announcement](https://groups.google.com/d/msg/qubes-users/jw9CdQepMPE/95HQDF6QBwAJ)
 -   `Apr 23, 2015` Qubes OS 3.0 rc1 has been released! [announcement](http://blog.invisiblethings.org/2015/04/23/qubes-30rc1-and-roadmap.html)
@@ -46,14 +47,3 @@ Recent News
 -   `Nov 26, 2013` Windows 7 seamless GUI integration coming to Qubes OS! [article](http://blog.invisiblethings.org/2013/11/26/windows-7-seamless-gui-integration.html)
 -   `Jun 21, 2013` Qubes OS R3 Alpha preview: Odyssey HAL in action! [announcement](http://blog.invisiblethings.org/2013/06/21/qubes-os-r3-alpha-preview-odyssey-hal.html)
 -   `Mar 21, 2013` Introducing Qubes Odyssey Framework [article](http://blog.invisiblethings.org/2013/03/21/introducing-qubes-odyssey-framework.html)
-
-
-
-
-
-
-
-
-
-
-
