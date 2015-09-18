@@ -11,7 +11,7 @@ qvm-firewall
 NAME
 ----
 
-qvm-firewall - manage VM's firewall rules
+qvm-firewall
 
 Date  
 2012-04-10
