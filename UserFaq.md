@@ -39,7 +39,8 @@ Qubes Users' FAQ
     2.  [My keyboard layout settings are not behaving correctly. What should I do?](#my-keyboard-layout-settings-are-not-behaving-correctly-what-should-i-do)
     3.  [My dom0 and/or TemplateVM update stalls when attempting to update via …](#my-dom0-andor-templatevm-update-stalls-when-attempting-to-update-via-the-gui-tool-what-should-i-do)
     4.  [How do I run a Windows HVM in non-seamless mode (i.e., as a single window)?](#how-do-i-run-a-windows-hvm-in-non-seamless-mode-ie-as-a-single-window)
-    5.  [I assigned a PCI device to an AppVM, then unassigned it/shut down the …](#i-assigned-a-pci-device-to-an-appvm-then-unassigned-itshut-down-the-appvm-why-isnt-the-device-available-in-dom0)
+    5.  [I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.](#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot)
+    6.  [I assigned a PCI device to an AppVM, then unassigned it/shut down the …](#i-assigned-a-pci-device-to-an-appvm-then-unassigned-itshut-down-the-appvm-why-isnt-the-device-available-in-dom0)
 
 General Questions
 -----------------
@@ -186,6 +187,27 @@ In your TemplateVMs, open a terminal and run `sudo yum upgrade`.
 ### How do I run a Windows HVM in non-seamless mode (i.e., as a single window)?
 
 Enable "debug mode" in the AppVM's settings, either by checking the box labelled "Run in debug mode" in the Qubes VM Manager AppVM settings menu or by running the [qvm-prefs command](/doc/Dom0Tools/QvmPrefs/).)
+
+
+### I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.
+
+
+This is probably because one of the controllers does not support reset. In Qubes R2 any such errors were ignored but in Qubes R3.0 they are not. 
+A device that does not support reset is not safe and generally should not be assigned to a VM.
+
+Most likely the offending controller is a USB3.0 device. You can remove this controller from the usbVM, and see if this allows the VM to boot.
+Alternatively you may be able to disable USB 3.0 in the BIOS.
+
+Another solution would be to set the pci_strictreset option using qvm-prefs in dom0:
+
+`qvm-prefs usbVM -s pci_strictreset false`
+
+This option allows the VM to ignore the error and the VM will start.
+Please review the note on [this page](https://www.qubes-os.org/doc/Dom0Tools/QvmPrefs/) and be aware of the potential risk.
+
+
+
+
 
 ### I assigned a PCI device to an AppVM, then unassigned it/shut down the AppVM. Why isn't the device available in dom0?
 
