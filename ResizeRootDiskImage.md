@@ -5,7 +5,8 @@ permalink: /doc/ResizeRootDiskImage/
 redirect_from: /wiki/ResizeRootDiskImage/
 ---
 
-### Resizing \`root.img\` Size
+Resizing \`root.img\` Size
+--------------------------
 
 The safest way to increase the size of \`root.img\` is to do it for a standalone
 VM (qvm-create --standalone) - which has its own root filesystem
@@ -14,7 +15,7 @@ But it should also work for a normal template (as long as changes in the
 template between reboots didn't exceed 10G).
 
 Replace the size and the path (name) of the template as wished and run your
-modified command: 
+modified command:
 ```
 truncate -s 20G /var/lib/qubes/vm-templates/fedora-21/root.img
 ```
