@@ -10,7 +10,10 @@ Ubuntu template(s)
 
 If you like to use Ubuntu Linux distribution in your AppVMs, you can build and
 install one of available Ubuntu templates. Those template currently are not
-available in ready to use binary packages.
+available in ready to use binary packages, because Canonical does not allow
+to redistribute a modified Ubuntu. The redistribution is not allowed by their
+[Intellectual property rights policy](http://www.ubuntu.com/legal/terms-and-policies/intellectual-property-policy).
+
 
 Install
 -------
@@ -26,4 +29,5 @@ want to build.
 Known issues
 ------------
 
-If you want to help in improving the template, feel free to [contribute](/wiki/ContributingHowto).
+If you want to help in improving the template, feel free to
+[contribute](/wiki/ContributingHowto).

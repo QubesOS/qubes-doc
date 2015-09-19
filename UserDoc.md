@@ -57,8 +57,10 @@ Qubes User Documentation
         3.  [Upgrading the Fedora 20 Template](/doc/FedoraTemplateUpgrade20/)
         4.  [Templates: Fedora - minimal](/doc/Templates/FedoraMinimal/)
         5.  [Templates: Debian](/doc/Templates/Debian/)
-        6.  [Extending \`root.img\` Size](/doc/ResizeRootDiskImage/)
-        
+        6.  [Templates: Archlinux](/doc/Templates/Archlinux/)
+        7.  [Templates: Ubuntu](/doc/Templates/Ubuntu/)
+        8.  [Extending \`root.img\` Size](/doc/ResizeRootDiskImage/)
+
     6.  **DispVMs**
         1.  [Disposable VMs](/doc/DisposableVms/)
         2.  [DispVM Customization](/doc/UserDoc/DispVMCustomization/)
