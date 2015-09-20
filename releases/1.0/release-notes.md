@@ -20,10 +20,10 @@ Known issues
 
 -   On systems with more than 8GB of RAM there is problem with Disposable VM. To fix it, limit maximum memory allocation for DispVM to 3GB
 
-    {% highlight trac-wiki %}
+    ```
     qvm-prefs -s fedora-17-x64-dvm maxmem 3072
     qvm-create-default-dvm --default-template --default-script
-    {% endhighlight %}
+    ```
 
 -   On some systems the KDE Window Manager might freeze upon resuming from S3 sleep when compositing is enabled (and the only method to log in to the system if this happens is to switch to a text console, enter your user's password, kill the kwin process, go back to the Xorg console, log in, and start a new instance of kwin using Konsole application :) If you experience such problems, make sure to disable compositing before putting the system into sleep by pressing Alt-Ctrl-F12 (and then enabling it back once you log in after resume) -- this way you should never see this problem again.
 
@@ -48,7 +48,7 @@ If you're already running Qubes 1.0-rc1, you don't need to reinstall, it's just 
 
 If you have Qubes Beta 3 currently installed on your system, you must reinstall from scratch, as we offer no direct upgrade option in the installer (sorry). However, we do offer tools for smooth migration of your AppVMs. In order to do that, please backup your AppVMs using the `qvm-backup` tool [as usual](/doc/BackupRestore/). Then, after you install Qubes 1.0 rc1, you can restore them using `qvm-backup-restore` tool. However, because we have changed the default template in RC1, you should tell qvm-back-restore about that by passing `--replace-template` option:
 
-{% highlight trac-wiki %}
+```
 qvm-backup-restore <backup_dir> --replace-template=fedora-15-x64:fedora-17-x64 
-{% endhighlight %}
+```
 

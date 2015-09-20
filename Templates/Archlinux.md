@@ -27,7 +27,11 @@ Install
 Currently we do not ship ready to use binary package. It can be compiled using
 [this instructions](/doc/BuildingArchlinuxTemplate/).
 
-Olivier provides binary package build by himself, you can get it [here](https://groups.google.com/d/msgid/qubes-devel/54CE3FB1.3050708%40yahoo.fr).
+Olivier provides binary package build by himself, you can get it for:
+* Qubes R2 [here](https://groups.google.com/d/msgid/qubes-devel/54CE3FB1.3050708%40yahoo.fr).
+* Qubes R3 [here](https://groups.google.com/d/msg/qubes-users/RI3KQVEEc30/h5nsNw_SHTQJ)
+
+
 
 Known issues
 ------------

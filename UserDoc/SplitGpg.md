@@ -42,7 +42,7 @@ Start with creating a dedicated AppVM for storing your keys (the GPG backend dom
 
 Make sure the gpg is installed there and there are some private keys in the keyring, e.g.:
 
-{% highlight trac-wiki %}
+```
 [user@work-gpg ~]$ gpg -K
 /home/user/.gnupg/secring.gpg
 -----------------------------
@@ -50,19 +50,19 @@ sec   4096R/3F48CB21 2012-11-15
 uid                  Qubes OS Security Team <security@qubes-os.org>
 ssb   4096R/30498E2A 2012-11-15
 (...)
-{% endhighlight %}
+```
 
 This is pretty much all that is required. However one might also want to modify the default timeout which tells the backend for how long the user's approval for key access should be valid (default 5 minutes). This is adjustable via `QUBES_GPG_AUTOACCEPT` variable. One can override it e.g. in `~/.bash_profile`:
 
-{% highlight trac-wiki %}
+```
 [user@work-gpg ~]$ echo "export QUBES_GPG_AUTOACCEPT=86400" >> ~/.bash_profile
-{% endhighlight %}
+```
 
 ### Configuring the client apps to use split GPG backend
 
 Normally it should be enough to set the `QUBES_GPG_DOMAIN` to the GPG backend domain name and use `qubes-gpg-client` in place of `gpg`, e.g.:
 
-{% highlight trac-wiki %}
+```
 [user@work ~]$ export QUBES_GPG_DOMAIN=work-gpg
 [user@work ~]$ gpg -K
 [user@work ~]$ qubes-gpg-client -K
@@ -75,7 +75,7 @@ ssb   4096R/30498E2A 2012-11-15
 
 [user@work ~]$ qubes-gpg-client secret_message.txt.asc 
 (...)
-{% endhighlight %}
+```
 
 Note that running normal `gpg -K` in the demo above shows no private keys stored in this AppVM.
 
@@ -87,10 +87,10 @@ However, when using Thunderbird with Enigmail extension it is not enough, becaus
 
 The script also sets the QUBES\_GPG\_DOMAIN variable automatically based on the content of the file `/rw/config/gpg-split-domain`, which should be set to the name of the GPG backend VM. This file survives the AppVM reboot, of course.
 
-{% highlight trac-wiki %}
+```
 [user@work ~]$ sudo bash
 [user@work ~]$ echo "work-gpg" > /rw/config/gpg-split-domain
-{% endhighlight %}
+```
 
 *NOTE*: A recent engimail update, version `thunderbird-enigmail-1.7-1`, introduced changes in how Enigmail expects to execute GPG binary and so requires an updated split-gpg package with version \>= `qubes-gpg-split-2.0.7-1`. Please make sure you have all the latest qubes packages installed in your template.
 
@@ -107,10 +107,10 @@ In your GPG backend domain's TemplateVM:
 
 Use `qubes-gpg-import-key` in the client AppVM to import the key into the GPG backend VM. Of course a (safe, unspoofable) user consent dialog box is displayed to accept this.
 
-{% highlight trac-wiki %}
+```
 [user@work ~]$ export QUBES_GPG_DOMAIN=work-gpg
 [user@work ~]$ qubes-gpg-import-key ~/Downloads/marmarek.asc
-{% endhighlight %}
+```
 
 ![r2-split-gpg-5.png](/attachment/wiki/UserDoc/SplitGpg/r2-split-gpg-5.png)
 

@@ -12,11 +12,11 @@ Those files are placed in /rw, which survives VM restart, so can be used to cust
 
 -   `/rw/config/rc.local` - script run at VM startup. Good place to change some service settings, replace config files with its copy stored in /rw/config etc. Example usage:
 
-    {% highlight trac-wiki %}
+    ```
     # Store bluetooth keys in /rw to keep them across VM restarts
     rm -rf /var/lib/bluetooth 
     ln -s /rw/config/var-lib-bluetooth /var/lib/bluetooth
-    {% endhighlight %}
+    ```
 
 -   `/rw/config/qubes-ip-change-hook` - script run in NetVM after external IP change (or connection to the network)
 -   `/rw/config/qubes-firewall-user-script` - script run in ProxyVM after firewall update. Good place to write own custom firewall rules
@@ -29,7 +29,7 @@ GUI and audio configuration in dom0
 
 GUI configuration file `/etc/qubes/guid.conf` in one of few not managed by qubes-prefs nor Qubes Manager tool. Sample config (included in default installation):
 
-{% highlight trac-wiki %}
+```
 # Sample configuration file for Qubes GUI daemon
 #  For syntax go http://www.hyperrealm.com/libconfig/libconfig_manual.html
 
@@ -53,7 +53,7 @@ VM: {
     #allow_fullscreen = true;
   };
 };
-{% endhighlight %}
+```
 
 Currently supported settings:
 

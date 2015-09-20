@@ -55,15 +55,15 @@ By default, each domain's menu contains only a few shortcuts. If you'd like to a
 
 To start apps from the console in dom0, type:
 
-{% highlight trac-wiki %}
+```
 qvm-run -a <domain> "<app name> [arguments]"
-{% endhighlight %}
+```
 
 e.g.:
 
-{% highlight trac-wiki %}
+```
 qvm-run -a untrusted firefox
-{% endhighlight %}
+```
 
 Adding, Removing, and Listing Domains
 -------------------------------------
@@ -96,7 +96,7 @@ To allow domains to enter full screen mode, one should edit the `/etc/qubes/guid
 
 E.g. to allow all domains to enter full screen mode, set `allow_fullscreen` flag to `true` in the `global` section:
 
-{% highlight trac-wiki %}
+```
 global: {
   # default values
   allow_fullscreen = false;
@@ -105,18 +105,18 @@ global: {
   #secure_paste_sequence = "Ctrl-Shift-v";
   #windows_count_limit = 500;
 };
-{% endhighlight %}
+```
 
 To allow only select AppVMs to enter full screen mode, create a per-VM section, and set `allow_fullscreen` flag there to `true`:
 
-{% highlight trac-wiki %}
+```
 VM: {
   work: {
    allow_fullscreen = true;
   };
 
 };
-{% endhighlight %}
+```
 
 In order for the changes to take effect, restart the AppVM(s).
 

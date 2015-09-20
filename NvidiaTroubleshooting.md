@@ -22,15 +22,15 @@ Assuming your X Window System works fine now when you booted from the "failsafe"
 
 1.  Switch to runlevel 3 (this should kill your X server):
 
-{% highlight trac-wiki %}
+```
 init 3
-{% endhighlight %}
+```
 
 1.  Run X-autoconfiguration:
 
-{% highlight trac-wiki %}
+```
 Xorg -configure
-{% endhighlight %}
+```
 
 This should generate a file `xorg.conf.new` in the `/root` directory.
 
@@ -40,29 +40,29 @@ In most cases you can ignore any warning or error messages displayed by the X se
 
 -   Uncomment the ShadowFB option, so that you should now have something like this:
 
-    {% highlight trac-wiki %}
+    ```
     Option     "ShadowFB"                   # [<bool>]
-    {% endhighlight %}
+    ```
 
 -   Change the driver name to `nouveau` (you will probably have `nv` written there):
 
-    {% highlight trac-wiki %}
+    ```
     Driver      "nouveau"
-    {% endhighlight %}
+    ```
 
 Save the modification, exit the editor.
 
 1.  Move the file to `/etc/X11` and rename it as `xorg.conf`:
 
-{% highlight trac-wiki %}
+```
 mv /root/xorg.conf.new /etc/X11/xorg.conf
-{% endhighlight %}
+```
 
 1.  Verify that X will work with those new settings:
 
-{% highlight trac-wiki %}
+```
 xinit
-{% endhighlight %}
+```
 
 If you see a terminal window in the top left corner, it means you most likely succeeded, even if your keyboard or mouse do not work now (don't worry about them).
 

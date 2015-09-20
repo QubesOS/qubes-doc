@@ -22,7 +22,8 @@ Guidelines for Documentation Contributors
    where appropriate.
  * Use `[reference-style][ref]` links.  
    `[ref]: http://daringfireball.net/projects/markdown/syntax#link`
-
+ * Use underline headings `=====` and `-----` if possible. If this is not
+   possible use the Atx-style headings on the left side, e. g. `### H3`.
 
 Sending documentation updates
 -----------------------------

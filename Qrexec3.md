@@ -87,37 +87,37 @@ We will show the necessary files to create rpc call that adds two integers on th
 
 -   rpc client code (*/usr/bin/our\_test\_add\_client*)
 
-    {% highlight trac-wiki %}
+    ```
     #!/bin/sh
     echo $1 $2    # pass data to rpc server
     exec cat >&$SAVED_FD_1 # print result to the original stdout, not to the other rpc endpoint
-    {% endhighlight %}
+    ```
 
 -   rpc server code (*/usr/bin/our\_test\_add\_server*)
 
-    {% highlight trac-wiki %}
+    ```
     #!/bin/sh
     read arg1 arg2 # read from stdin, which is received from the rpc client
     echo $(($arg1+$arg2)) # print to stdout - so, pass to the rpc client
-    {% endhighlight %}
+    ```
 
 -   policy file in dom0 (*/etc/qubes-rpc/policy/test.Add* )
 
-    {% highlight trac-wiki %}
+    ```
     $anyvm $anyvm ask
-    {% endhighlight %}
+    ```
 
 -   server path definition ( */etc/qubes-rpc/test.Add*)
 
-    {% highlight trac-wiki %}
+    ```
     /usr/bin/our_test_add_server
-    {% endhighlight %}
+    ```
 
 -   invoke rpc via
 
-    {% highlight trac-wiki %}
+    ```
     /usr/lib/qubes/qrexec-client-vm target_vm test.Add /usr/bin/our_test_add_client 1 2
-    {% endhighlight %}
+    ```
 
 and we should get "3" as answer, after dom0 allows it.
 

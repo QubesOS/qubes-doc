@@ -100,7 +100,7 @@ Window manager hints and flags are described at [http://standards.freedesktop.or
 
 Each message starts with the following header
 
-{% highlight trac-wiki %}
+```
 struct msghdr {   
         uint32_t type;
         uint32_t window;
@@ -111,7 +111,7 @@ struct msghdr {
          * whatever it wants! */
         uint32_t untrusted_len;
 };
-{% endhighlight %}
+```
 
 The header is followed by message-specific data.
 
@@ -183,12 +183,12 @@ Proper handling of the below messages is NOT security-critical.
 
 Each message starts with the following header
 
-{% highlight trac-wiki %}
+```
 struct msghdr {   
         uint32_t type;
         uint32_t window;
 };
-{% endhighlight %}
+```
 
 The header is followed by message-specific data.
  ` KEYPRESS, BUTTON, MOTION, FOCUS ` messages pass information extracted from dom0 XEvent; see appropriate event documentation.

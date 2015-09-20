@@ -29,17 +29,17 @@ Download Verification
 
 Standard program installation
 
-{% highlight trac-wiki %}
+```
 sudo yum install <program>
-{% endhighlight %}
+```
 
 on template terminal already accomplishes verification, for fedora and qubes repositories.
 
 If you install new repositories, they might have gpgcheck disabled. [Check the config files](http://docs.fedoraproject.org/en-US/Fedora/12/html/Deployment_Guide/sec-Configuring_Yum_and_Yum_Repositories.html) and be sure to check that
 
-{% highlight trac-wiki %}
+```
 gpgcheck=1
-{% endhighlight %}
+```
 
 Plus, also make sure you **safely import their signing keys**. This may require you check from multiple sources that the signing key is always the same.
 
@@ -66,9 +66,9 @@ Enabling and Verifying VT-d/IOMMU
 
 In **Dom0** terminal, run:
 
-{% highlight trac-wiki %}
+```
 qubes-hcl-report <userVM>
-{% endhighlight %}
+```
 
 where \<userVM\> is the name of the VM within which the report will be written (but the report will also be displayed in the Dom0 terminal). If it displays that VT-d is active, you should be able to assign **PCIe devices to a HVM** and **enjoy DMA protection** for your driver domains, so you successfully passed this step.
 
@@ -79,15 +79,15 @@ Updating Software
 
 To keep your system regularly updated against security related bugs and get new features, run in Dom0:
 
-{% highlight trac-wiki %}
+```
 sudo qubes-dom0-update
-{% endhighlight %}
+```
 
 and run in templates and standalone VM
 
-{% highlight trac-wiki %}
+```
 sudo yum update
-{% endhighlight %}
+```
 
 or use the equivalent items in Qubes Manager, which displays an icon when an update is available.
 
@@ -145,9 +145,9 @@ An **USBVM** operates like a dedicated temporary parking area, used just to prev
 5.  Click OK. Restart the AppVM. (Restarting may not even be required.)
 6.  Set the VM to start automatically at Boot using the VM Manager, (under VM Settings), or **In dom0 terminal**, run
 
-    {% highlight trac-wiki %}
+    ```
     qvm-prefs -s usbvm autostart true
-    {% endhighlight %}
+    ```
 
 This will cause your new **USBVM** to automatically start when the system starts up. So that in case you forgot to start it and then accidentally plugged a USB stick (or your colleague at work did it while you were at lunch), **it won't compromise the Dom0**.
 

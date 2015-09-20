@@ -21,15 +21,15 @@ this `QubesOS` github account.
 
 To clone a repository:
 
-{% highlight trac-wiki %}
+```
 git clone git://github.com/QubesOS/<repo_name>.git <repo_name>
-{% endhighlight %}
+```
 
 e.g.:
 
-{% highlight trac-wiki %}
+```
 git clone git://github.com/QubesOS/qubes-core-admin.git core-admin
-{% endhighlight %}
+```
 
 ## Sending a patch
 

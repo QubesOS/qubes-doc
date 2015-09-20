@@ -11,23 +11,23 @@ To enable TRIM in dom0 you need:
 
 1.  Get your LUKS device UUID:
 
-    {% highlight trac-wiki %}
+    ```
     ls /dev/mapper/luks-*
-    {% endhighlight %}
+    ```
 
 2.  Add entry to `/etc/crypttab` (replace luks-\<UUID\> with the device name and the \<UUID\> with UUID alone):
 
-    {% highlight trac-wiki %}
+    ```
     luks-<UUID> UUID=<UUID> none allow-discards
-    {% endhighlight %}
+    ```
 
 3.  Add `rd.luks.allow-discards=1` to kernel cmdline (`/etc/default/grub`, GRUB\_CMDLINE\_LINUX line)
 4.  Rebuild grub config (`grub2-mkconfig -o /boot/grub2/grub.cfg`)
 5.  Rebuild initrd **in hostonly mode**:
 
-    {% highlight trac-wiki %}
+    ```
     dracut -H -f
-    {% endhighlight %}
+    ```
 
 6.  Add "discard" option to `/etc/fstab` for root device
 7.  Reboot the system, verify that allow-discards is really enabled (`dmsetup table`)

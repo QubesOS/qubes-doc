@@ -30,19 +30,19 @@ If you want to enable full screen mode for select VMs, you can do that by creati
 
 **Note:** There should be only one `VM: {}` block in the file (or you will [get into problems](https://groups.google.com/d/msg/qubes-users/-Yf9yNvTsVI/xXsEm8y2lrYJ))
 
-{% highlight trac-wiki %}
+```
 VM: {
   personal: {
     allow_fullscreen = true;
   };
 };
-{% endhighlight %}
+```
 
 The string 'personal' above is exemplary and should be replaced by the actual name of the VM for which you want to enable this functionality.
 
 One can also enable this functionality for all the VMs globally in the same file, by modifying the 'global' section:
 
-{% highlight trac-wiki %}
+```
 global: {
   # default values
   allow_fullscreen = true;
@@ -51,6 +51,6 @@ global: {
   #secure_paste_sequence = "Ctrl-Shift-v";
   #windows_count_limit = 500;
 };
-{% endhighlight %}
+```
 
 Be sure to restart the VM(s) after modifying this file, for the changes to take effect.
