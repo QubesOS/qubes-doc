@@ -18,9 +18,9 @@ Installing
 
 In Dom0 install anti-evil-maid:
 
-{% highlight trac-wiki %}
+```
 sudo qubes-dom0-update anti-evil-maid
-{% endhighlight %}
+```
 
 More information regarding configuration in the [README](https://github.com/QubesOS/qubes-antievilmaid/blob/master/README) file.
 

@@ -39,12 +39,12 @@ Applying other fixes
 
 There are a few more fixes needed for Sony Vaio Z, and we have prepared a special package that you can install in Dom0 that applies them all. After the installation is complete, open console in Dom0 and do the following:
 
-{% highlight trac-wiki %}
+```
 $ sudo bash
 # qvm-dom0-networking up
 # yum install qubes-core-dom0-vaio-fixes
 # reboot
-{% endhighlight %}
+```
 
 This script takes care about the following:
 

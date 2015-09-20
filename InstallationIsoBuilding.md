@@ -17,10 +17,10 @@ Build installer packages
 
 Get [Qubes Installer repository](http://git.qubes-os.org/?p=smoku/installer) and build its packages:
 
-{% highlight trac-wiki %}
+```
 cd installer
 make rpms
-{% endhighlight %}
+```
 
 Packages will be in `rpm/noarch` and `rpm/x86_64`.
 
@@ -29,10 +29,10 @@ Install Revisor
 
 Next install the freshly built revisor and anaconda:
 
-{% highlight trac-wiki %}
+```
 yum install rpm/noarch/revisor*.rpm
 yum install rpm/x86_64/anaconda*.rpm
-{% endhighlight %}
+```
 
 Review configuration files
 --------------------------
@@ -68,18 +68,18 @@ The ```build/yum/dom0-updates``` is to be used for select rpms that should also 
 
 Update your local repos:
 
-{% highlight trac-wiki %}
+```
 make update-repo
-{% endhighlight %}
+```
 
 Build ISO
 ---------
 
 Now you're finally ready to build the ISO image:
 
-{% highlight trac-wiki %}
+```
 make iso
-{% endhighlight %}
+```
 
 and wait...
 

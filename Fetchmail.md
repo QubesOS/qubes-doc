@@ -24,7 +24,7 @@ Assuming you have more than one account (safe assumption these days), you need t
 
 In TemplateVM create `/etc/systemd/system/fetchmail@.service`:
 
-{% highlight trac-wiki %}
+```
 [Unit]
 Description=Mail Retrieval Agent
 After=network.target
@@ -34,11 +34,11 @@ Requires=postfix.service
 User=user
 ExecStart=/bin/fetchmail -f /usr/local/etc/fetchmail/%I.rc -d 60 -i /usr/local/etc/fetchmail/.%I.fetchids --pidfile /usr/local/etc/fetchmail/.%I.pid
 RestartSec=1
-{% endhighlight %}
+```
 
 Then shutdown TemplateVM, start AppVM and create directory `/usr/local/etc/fetchmail`. In it, create one `.rc` file for each instance of fetchmail, ie. `personal1.rc` and `personal2.rc`. Sample configuration file:
 
-{% highlight trac-wiki %}
+```
 set syslog
 set no bouncemail
 #set daemon 600
@@ -57,13 +57,13 @@ user woju pass supersecret
     idle
 
 # vim: ft=fetchmail
-{% endhighlight %}
+```
 
 Then `chown -R user:user /usr/local/etc/fetchmail` and `chmod 600 /usr/local/etc/fetchmail/*.rc`. **This is important**, fetchmail will refuse to run with wrong permissions on its rc-file.
 
 Next, add this to `/rw/config/rc.local`:
 
-{% highlight trac-wiki %}
+```
 #!/bin/sh
 
 for rc in /usr/local/etc/fetchmail/*.rc; do
@@ -71,6 +71,6 @@ for rc in /usr/local/etc/fetchmail/*.rc; do
         instance=${instance##*/}
         echo systemctl --no-block start fetchmail@${instance}
 done
-{% endhighlight %}
+```
 
 Now reboot your AppVM and you are done.

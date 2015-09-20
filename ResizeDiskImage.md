@@ -17,17 +17,17 @@ There are several disk images which can be easily extended.
 
 To grow the private disk image of a AppVM beyond this limit [qubes-grow-private](/doc/Dom0Tools/QvmGrowPrivate/) can be used:
 
-{% highlight trac-wiki %}
+```
 qvm-grow-private <vm-name> <size>
-{% endhighlight %}
+```
 
 Note: Size is the target size (i.e. 4096MB or 16GB, ...), not the size to add to the existing disk.
 
 Note2: If once the VM is started, the disk is has not been increased, you can issue in the VM's terminal:
 
-{% highlight trac-wiki %}
+```
 sudo resize2fs /dev/xvdb
-{% endhighlight %}
+```
 
 ### Shrinking private disk image (Linux VM)
 
@@ -40,14 +40,14 @@ The basic idea is to:
 
 Ext4 does not support online shrinking, so can't be done as convenient as image grown. Note that we don't want to touch the VM filesystem directly in dom0 for security reasons. First you need to start VM without `/rw` mounted. One of the possibility is to interrupt its normal startup by adding `rd.break` kernel option:
 
-{% highlight trac-wiki %}
+```
 qvm-prefs -s <vm-name> kernelopts rd.break
 qvm-start --no-guid <vm-name>
-{% endhighlight %}
+```
 
 And wait for qrexec connect timeout (or simply press Ctrl-C). Then you can connect to VM console and shrink the filesystem:
 
-{% highlight trac-wiki %}
+```
 sudo xl console <vm-name>
 # you should get dracut emergency shell here
 mount --bind /dev /sysroot/dev
@@ -59,19 +59,19 @@ umount /proc
 exit
 umount /sysroot/dev
 poweroff
-{% endhighlight %}
+```
 
 Now you can resize the image:
 
-{% highlight trac-wiki %}
+```
 truncate -s <new-desired-size> /var/lib/qubes/appvms/<vm-name>/private.img
-{% endhighlight %}
+```
 
 **It is critical to use the same (or bigger for some safety margin) size in truncate call compared to resize2fs call. Otherwise you will loose your data!** Then reset kernel options back to default:
 
-{% highlight trac-wiki %}
+```
 qvm-prefs -s <vm-name> kernelopts default
-{% endhighlight %}
+```
 
 Done.
 
@@ -97,12 +97,12 @@ First, stop/shutdown the HVM.
 
 Then, from a Dom0 terminal (in KDE: System Tools -\> Terminal Emulator) do the following:
 
-{% highlight trac-wiki %}
+```
 cd /var/lib/qubes/appvms/<yourHVM>/
 ls -lh root.img  (<--verify current size of disk image)
 truncate -s 30GB root.img
 ls -lh root.img  (<--verify new size of disk image)
-{% endhighlight %}
+```
 
 The partition table and file-system must be adjusted after this change:
 
@@ -117,9 +117,9 @@ No reboot required.
 
 #### FreeBSD
 
-{% highlight trac-wiki %}
+```
 gpart recover ada0
 sysctl kern.geom.debugflags=0x10
 gpart resize -i index ada0
 zpool online -e poolname ada0
-{% endhighlight %}
+```

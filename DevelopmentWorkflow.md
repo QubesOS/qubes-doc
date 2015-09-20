@@ -22,10 +22,10 @@ The best way to write and contribute code is to create a git repo somewhere (e.g
 
 **Example:**
 
-{% highlight trac-wiki %}
+```
 $ cd qubes-builder/qubes-src/qubes-manager
 $ git remote add abel git@github.com:abeluck/qubes-manager.git
-{% endhighlight %}
+```
 
 You can then proceed to easily develop in your own branches, pull in new commits from the dev branches, merge them, and eventually push to your own repo on github.
 
@@ -37,55 +37,55 @@ When you are ready to submit your changes to Qubes to be merged, push your chang
 
 In qubes-builder/qubes-src/kernel:
 
-{% highlight trac-wiki %}
+```
 make prep
-{% endhighlight %}
+```
 
 The resulting tree will be in kernel-\<VERSION\>/linux-\<VERSION\>:
 
-{% highlight trac-wiki %}
+```
 ls -ltrd kernel*/linux*
-{% endhighlight %}
+```
 
-{% highlight trac-wiki %}
+```
 drwxr-xr-x 23 user user 4096 Nov  5 09:50 kernel-3.4.18/linux-3.4.18
 drwxr-xr-x  6 user user 4096 Nov 21 20:48 kernel-3.4.18/linux-obj
-{% endhighlight %}
+```
 
 #### Go to the kernel tree and update the version
 
 In qubes-builder/qubes-src/kernel:
 
-{% highlight trac-wiki %}
+```
 cd kernel-3.4.18/linux-3.4.18
-{% endhighlight %}
+```
 
 #### Changing the config
 
 In kernel-3.4.18/linux-3.4.18:
 
-{% highlight trac-wiki %}
+```
 cp ../../config-pvops .config
 make oldconfig
-{% endhighlight %}
+```
 
 Now change the configuration. For example, in kernel-3.4.18/linux-3.4.18:
 
-{% highlight trac-wiki %}
+```
 make menuconfig
-{% endhighlight %}
+```
 
 Copy the modified config back into the kernel tree:
 
-{% highlight trac-wiki %}
+```
 cp .config ../../../config-pvops
-{% endhighlight %}
+```
 
 #### Patching the code
 
 TODO: describe the workflow for patching the code, below are some random notes, not working well
 
-{% highlight trac-wiki %}
+```
 ln -s ../../patches.xen
 export QUILT_PATCHES=patches.xen
 export QUILT_REFRESH_ARGS="-p ab --no-timestamps --no-index"
@@ -101,7 +101,7 @@ quilt add drivers/usb/host/Kconfig drivers/usb/host/Makefile \
 quilt refresh
 cd ../..
 vi series-pvops.conf
-{% endhighlight %}
+```
 
 #### Building RPMS
 
@@ -113,20 +113,20 @@ You might want to take a moment here to review (git diff, git status), commit yo
 
 To actually build RPMS, in qubes-src/kernel:
 
-{% highlight trac-wiki %}
+```
 make rpms
-{% endhighlight %}
+```
 
 RPMS will appear in qubes-src/kernel/rpm/x86\_64:
 
-{% highlight trac-wiki %}
+```
 -rw-rw-r-- 1 user user 42996126 Nov 17 04:08 kernel-3.4.18-1debug20121116c.pvops.qubes.x86_64.rpm
 -rw-rw-r-- 1 user user 43001450 Nov 17 05:36 kernel-3.4.18-1debug20121117a.pvops.qubes.x86_64.rpm
 -rw-rw-r-- 1 user user  8940138 Nov 17 04:08 kernel-devel-3.4.18-1debug20121116c.pvops.qubes.x86_64.rpm
 -rw-rw-r-- 1 user user  8937818 Nov 17 05:36 kernel-devel-3.4.18-1debug20121117a.pvops.qubes.x86_64.rpm
 -rw-rw-r-- 1 user user 54490741 Nov 17 04:08 kernel-qubes-vm-3.4.18-1debug20121116c.pvops.qubes.x86_64.rpm
 -rw-rw-r-- 1 user user 54502117 Nov 17 05:37 kernel-qubes-vm-3.4.18-1debug20121117a.pvops.qubes.x86_64.rpm
-{% endhighlight %}
+```
 
 ### Useful [QubesBuilder](/doc/QubesBuilder/) commands
 
@@ -148,7 +148,7 @@ You may also like to run your [test environment on separate machine](/doc/TestBe
 
 TODO: edit this script to be more generic
 
-{% highlight trac-wiki %}
+```
 #!/bin/sh
 
 set -x
@@ -171,24 +171,24 @@ sudo cp misc/qubes-start.desktop /usr/share/qubes/
 sudo cp misc/block-snapshot /etc/xen/scripts/
 sudo cp aux-tools/qubes-dom0-updates.cron /etc/cron.daily/
 # FIXME(Abel Luck): I hope to 
-{% endhighlight %}
+```
 
 ### Apply qvm-tools
 
 TODO: make it more generic
 
-{% highlight trac-wiki %}
+```
 #!/bin/sh
 
 BAK=qvm-tools.bak$$
 mkdir -p $BAK
 cp -a /usr/bin/qvm-* /usr/bin/qubes-* $BAK/
 sudo cp qvm-tools/qvm-* qvm-tools/qubes-* /usr/bin/
-{% endhighlight %}
+```
 
 ### Copy from dom0 to an appvm
 
-{% highlight trac-wiki %}
+```
 #/bin/sh
 #
 # usage ./cp-domain <vm_name> <file_to_copy>
@@ -199,4 +199,4 @@ fname=`basename $file`
 
 qvm-run $domain 'mkdir /home/user/incoming/dom0 -p'
 cat $file| qvm-run --pass-io $domain "cat > /home/user/incoming/dom0/$fname"
-{% endhighlight %}
+```

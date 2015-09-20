@@ -24,21 +24,21 @@ It is critical to complete this step **before** proceeding to dom0 upgrade. Othe
 1.  Open terminal in the template VM (or standalone VM). E.g. use the Qubes Manager's right-click menu and choose Run Command in VM and type `gnome-terminal` there.
 2.  Proceed with normal update in the template:
 
-    {% highlight trac-wiki %}
+    ```
     sudo yum update
-    {% endhighlight %}
+    ```
 
 3.  Ensure that you've got qubes-core-vm package version 2.1.13-3.fc18:
 
-    {% highlight trac-wiki %}
+    ```
     rpm -q qubes-core-vm
-    {% endhighlight %}
+    ```
 
 4.  Update the system to R2 beta3 packages:
 
-    {% highlight trac-wiki %}
+    ```
     sudo yum --enablerepo=qubes-vm-r2b3-current update
-    {% endhighlight %}
+    ```
 
 5.  **Do not** shutdown the VM.
 
@@ -50,24 +50,24 @@ Be sure to do steps described in this section after *all* your template and stan
 1.  Open terminal in Dom0. E.g. Start-\>System Settings-\>Konsole.
 2.  Upgrade the `qubes-release` package to the latest version which brings in new repo definitions and R2 signing keys:
 
-    {% highlight trac-wiki %}
+    ```
     sudo qubes-dom0-update qubes-release
-    {% endhighlight %}
+    ```
 
     This should install `qubes-release-2-3.1` in your Dom0.
 
 3.  Upgrade dom0 to R2 beta3:
 
-    {% highlight trac-wiki %}
+    ```
     sudo qubes-dom0-update --enablerepo=qubes-dom0-r2b3-current
-    {% endhighlight %}
+    ```
 
 4.  If above step completed successfully you should have qubes-core-dom0 at least 2.1.34. If not, repeat above step with additional `--clean` option.
 5.  Now is the time to shutdown all the VMs:
 
-    {% highlight trac-wiki %}
+    ```
     qvm-shutdown --all --wait
-    {% endhighlight %}
+    ```
 
 6.  Reboot the system.
 

@@ -57,9 +57,9 @@ Now configure your DHCP server so your testbench gets static IP and connect your
 
 Install `openssh-server` on your testbench:
 
-{% highlight trac-wiki %}
+```
 yum install openssh-server
-{% endhighlight %}
+```
 
 Ensure that sudo works without password from your user account (it should by default).
 
@@ -70,19 +70,19 @@ Development VM
 
 Arrange firewall so you can reach the testbench from your `qubes-dev` VM. Generate SSH key in `qubes-dev`:
 
-{% highlight trac-wiki %}
+```
 ssh-keygen -t ecdsa -b 521
-{% endhighlight %}
+```
 
 Add the following section in `.ssh/config` in `qubes-dev`:
 
-{% highlight trac-wiki %}
+```
 Host testbench
     # substitute username in testbench
     User user
     # substitute address of your testbench
     HostName 192.168.123.45
-{% endhighlight %}
+```
 
 Then connect to your testbench and paste newly generated `id_ecdsa.pub` to `.ssh/authorized_keys` on testbench so you can log in without entering password every time.
 
