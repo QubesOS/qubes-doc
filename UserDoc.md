@@ -71,6 +71,7 @@ Security Guides
  *  [Understanding Qubes Firewall](/doc/QubesFirewall/)
  *  [Understanding and Preventing Data Leaks](/doc/DataLeaks/)
  *  [Installing Anti Evil Maid](/doc/AntiEvilMaid/)
+ *  [Using Multi-factor Authentication with Qubes](/doc/Multi-factorAuthentication/)
  *  [Using GPG more securely in Qubes: Split GPG](/doc/UserDoc/SplitGpg/)
  *  [Configuring YubiKey for user authentication](/doc/YubiKey/)
  *  [Note regarding password-less root access in VM](/doc/VMSudo/)
