@@ -8,98 +8,112 @@ redirect_from: /wiki/UserDoc/
 Qubes User Documentation
 ========================
 
-1.  **Basic Reading**
-    1.  [Getting Started](/doc/GettingStarted/)
-    2.  [Security Guidelines](/doc/SecurityGuidelines/)
-    3.  [Glossary of Qubes Terminology](/doc/Glossary/)
+The Basics
+----------
+ *  [A Simple Introduction to Qubes](/doc/SimpleIntro/)
+ *  [Getting Started](/doc/GettingStarted/)
+ *  [Further reading: How is Qubes different from...?](http://blog.invisiblethings.org/2012/09/12/how-is-qubes-os-different-from.html)
+ *  [Further reading: Why Qubes is more than a collection of VMs](http://www.invisiblethingslab.com/resources/2014/Software_compartmentalization_vs_physical_separation.pdf)
 
-2.  **Dom0**
-    1.  [Dom0 Command-Line Tools](/doc/DomZeroTools/)
-    2.  [Updating Software in dom0](/doc/SoftwareUpdateDom0/)
-    3.  [Copying Files to and from dom0](/doc/CopyToDomZero/)
-    4.  [Backup, Restoration, and Migration](/doc/BackupRestore/)
-    5.  [Qubes Policy for InterVM Services](/doc/Qrexec/#qubes-services-rpc-policy)
-    6.  Advanced Topics
-        1.  [Installing Anti Evil Maid](/doc/AntiEvilMaid/)
-        2.  [XFCE Installation in dom0](/doc/UserDoc/XFCE/)
-        3.  [Installing ZFS in Qubes](/doc/ZFS/)
-        4.  [Configuring YubiKey for user authentication](/doc/YubiKey/)
-        5.  [Storing AppVMs on Secondary Drives](/doc/SecondaryStorage/)
-    7.  External Links
-        1.  [Customizing the GUI experience with KDE](https://groups.google.com/d/topic/qubes-users/KhfzF19NG1s/discussion)
 
-3.  **DomUs**
-    1.  [DomU Command-Line Tools](/doc/VmTools/)
-    2.  **Intra-VM Actions**
-        1.  [Enabling Fullscreen Mode](/doc/FullScreenMode/)
-        2.  [Managing Application Shortcuts](/doc/ManagingAppVmShortcuts/)
+Choosing Your Hardware
+----------------------
+ *  [System Requirements](/doc/SystemRequirements/)
+ *  [Hardware Compatibility List (HCL)](/hcl)
+ *  Qubes Certified Laptops (coming soon!)
 
-    3.  **Inter-VM Actions**
-        1.  [Copying and Pasting Text Between Domains](/doc/CopyPaste/)
-        2.  [Copying and Moving Files Between Domains](/doc/CopyingFiles/)
-        3.  [Using GPG more securely in Qubes: Split GPG tutorial](/doc/UserDoc/SplitGpg/)
 
-    4.  **NetVMs and ProxyVMs**
-        1.  [Understanding Qubes Firewall](/doc/QubesFirewall/)
-        2.  [Understanding and Preventing Data Leaks](/doc/DataLeaks/)
-        3.  [How to Install a Transparent Tor ProxyVM (TorVM)](/doc/UserDoc/TorVM/)
-        4.  [How to set up a ProxyVM as a VPN Gateway](/doc/VPN/)
-        5.  [Adding Bridge Support to the NetVM (EXPERIMENTAL)](/doc/NetworkBridgeSupport/)
-        6.  External Links
-            1.  [Creating Custom NetVMs and ProxyVMs](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html)
-            2.  [How to run TorBrowser using external tor proxy (from TorVM)](https://groups.google.com/group/qubes-devel/msg/34f67194d3422bfa)
-            3.  [How to make proxy for individual tcp connection from networkless VM](https://groups.google.com/group/qubes-devel/msg/4ca950ab6d7cd11a)
-            4.  [HTTP filtering proxy in Qubes firewall VM](https://groups.google.com/group/qubes-devel/browse_thread/thread/5252bc3f6ed4b43e/d881deb5afaa2a6c#39c95d63fccca12b)
+Installing Qubes
+----------------
+ *  [Use Qubes without installing: Qubes Live USB (alpha)](https://groups.google.com/d/msg/qubes-users/IQdCEpkooto/iyMh3LuzCAAJ)
+ *  [How to Install Qubes](/doc/InstallationGuide/)
+ *  [Qubes Downloads](/doc/Downloads/)
+ *  [Why and How to Verify Signatures](/doc/VerifyingSignatures/)
+ *  [Security Considerations when Installing](/doc/InstallSecurity/)
 
-    5.  **[TemplateVMs](/doc/Templates/)**
-        1.  [Updating and Installing Software in VMs](/doc/SoftwareUpdateVM/)
-        2.  [Upgrading the Fedora 18 Template](/doc/FedoraTemplateUpgrade18/)
-        3.  [Upgrading the Fedora 20 Template](/doc/FedoraTemplateUpgrade20/)
-        4.  [Templates: Fedora - minimal](/doc/Templates/FedoraMinimal/)
-        5.  [Templates: Debian](/doc/Templates/Debian/)
-        6.  [Templates: Archlinux](/doc/Templates/Archlinux/)
-        7.  [Templates: Ubuntu](/doc/Templates/Ubuntu/)
-        8.  [Extending \`root.img\` Size](/doc/ResizeRootDiskImage/)
 
-    6.  **DispVMs**
-        1.  [Disposable VMs](/doc/DisposableVms/)
-        2.  [DispVM Customization](/doc/UserDoc/DispVMCustomization/)
+Common Tasks
+------------
+ *  [Copying and Pasting Text Between Domains](/doc/CopyPaste/)
+ *  [Copying and Moving Files Between Domains](/doc/CopyingFiles/)
+ *  [Copying Files to and from dom0](/doc/CopyToDomZero/)
+ *  [Mounting USB Drives to AppVMs](/doc/StickMounting/)
+ *  [Updating Software in dom0](/doc/SoftwareUpdateDom0/)
+ *  [Updating and Installing Software in VMs](/doc/SoftwareUpdateVM/)
+ *  [Backup, Restoration, and Migration](/doc/BackupRestore/)
+ *  [Disposable VMs](/doc/DisposableVms/)
+ *  [Managing Application Shortcuts](/doc/ManagingAppVmShortcuts/)
+ *  [Enabling Fullscreen Mode](/doc/FullScreenMode/)
 
-    7.  **HVMs**
-        1.  [Resizing AppVM and HVM Disk Images](/doc/ResizeDiskImage/)
-        2.  [Tips for Using Linux in an HVM](/doc/LinuxHVMTips/)
-        3.  [Creating and Using HVM and Windows Domains (Qubes R2+)](/doc/HvmCreate/)
-        4.  External Links
-            1.  [Creating Whonix HVMs in Qubes](https://www.whonix.org/wiki/Qubes)
-            2.  [Creating NetBSD VM](https://groups.google.com/group/qubes-devel/msg/4015c8900a813985)
 
-    8.  **Windows VMs**
-        1.  [Installing and Using Windows-based AppVMs (Qubes R2 Beta 3 and later)](/doc/WindowsAppVms/)
-        2.  [Advanced options and troubleshooting of Qubes Tools for Windows (R3)](/doc/WindowsTools3/)
-        3.  [Advanced options and troubleshooting of Qubes Tools for Windows (R2)](/doc/WindowsTools2/)
-            1.  [Uninstalling Qubes Tools for Windows 2.x](/doc/UninstallingWindowsTools2/)
+Managing Operating Systems within Qubes
+---------------------------------------
+ *  [TemplateVMs](/doc/Templates/)
+ *  [Upgrading the Fedora 18 Template](/doc/FedoraTemplateUpgrade18/)
+ *  [Upgrading the Fedora 20 Template](/doc/FedoraTemplateUpgrade20/)
+ *  [Templates: Fedora - minimal](/doc/Templates/FedoraMinimal/)
+ *  [Templates: Debian](/doc/Templates/Debian/)
+ *  [Templates: Archlinux](/doc/Templates/Archlinux/)
+ *  [Templates: Ubuntu](/doc/Templates/Ubuntu/)
+ *  [Installing and Using Windows-based AppVMs (Qubes R2 Beta 3 and later)](/doc/WindowsAppVms/)
+ *  [Creating and Using HVM and Windows Domains (Qubes R2+)](/doc/HvmCreate/)
+ *  [Advanced options and troubleshooting of Qubes Tools for Windows (R3)](/doc/WindowsTools3/)
+ *  [Advanced options and troubleshooting of Qubes Tools for Windows (R2)](/doc/WindowsTools2/)
+ *  [Uninstalling Qubes Tools for Windows 2.x](/doc/UninstallingWindowsTools2/)
+ *  [Tips for Using Linux in an HVM](/doc/LinuxHVMTips/)
+ *  [Creating Whonix HVMs in Qubes](https://www.whonix.org/wiki/Qubes)
+ *  [Creating NetBSD VM](https://groups.google.com/group/qubes-devel/msg/4015c8900a813985)
 
-    9.  Advanced Topics
-        1.  [Configuration files](/doc/UserDoc/ConfigFiles/)
-        2.  [Qubes service framework](/doc/QubesService/)
-        3.  [Note regarding password-less root access in VM](/doc/VMSudo/)
 
-4.  **Applications**
-    1.  [Languages](/doc/LanguageLocalization/)
+Security Guides
+---------------
+ *  [General Security Guidelines](/doc/SecurityGuidelines/)
+ *  [Understanding Qubes Firewall](/doc/QubesFirewall/)
+ *  [Understanding and Preventing Data Leaks](/doc/DataLeaks/)
+ *  [Installing Anti Evil Maid](/doc/AntiEvilMaid/)
+ *  [Using GPG more securely in Qubes: Split GPG](/doc/UserDoc/SplitGpg/)
+ *  [Configuring YubiKey for user authentication](/doc/YubiKey/)
+ *  [Note regarding password-less root access in VM](/doc/VMSudo/)
 
-5.  **Hardware**
-    1.  [How to Mount USB Sticks to AppVMs](/doc/StickMounting/)
-    2.  [Where are my external storage devices mounted?](/doc/ExternalDeviceMountPoint/)
-    3.  [Assigning PCI Devices to AppVMs](/doc/AssigningDevices/)
-    4.  [Enabling TRIM for SSD disks](/doc/DiskTRIM/)
-    5.  [Configuring a Network Printer](/doc/NetworkPrinter/)
-    6.  [Using External Audio Devices](/doc/ExternalAudio/)
-    7.  Vendor-specific
-        1.  [How to install an Nvidia driver in dom0](/doc/InstallNvidiaDriver/)
-        2.  [Getting Sony Vaio Z laptop to work with Qubes](/doc/SonyVaioTinkering/)
-        3.  [Getting Lenovo 450 to work with Qubes](/doc/Lenovo450Tinkering/)
 
-    8.  External Links
-        1.  [Installing on system with new AMD GPU (missing firmware problem)](https://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76)
-        2.  [Solving problems with Macbook Air 2012](https://groups.google.com/group/qubes-devel/browse_thread/thread/b8b0d819d2a4fc39/d50a72449107ab21#8a9268c09d105e69)
-        3.  [Booting with GRUB2 and GPT](https://groups.google.com/group/qubes-devel/browse_thread/thread/e4ac093cabd37d2b/d5090c20d92c4128#d5090c20d92c4128)
+Configuration Guides
+--------------------
+ *  [Configuration Files](/doc/UserDoc/ConfigFiles/)
+ *  [How to Install a Transparent Tor ProxyVM (TorVM)](/doc/UserDoc/TorVM/)
+ *  [How to set up a ProxyVM as a VPN Gateway](/doc/VPN/)
+ *  [Storing AppVMs on Secondary Drives](/doc/SecondaryStorage/)
+ *  [Where are my external storage devices mounted?](/doc/ExternalDeviceMountPoint/)
+ *  [Resizing AppVM and HVM Disk Images](/doc/ResizeDiskImage/)
+ *  [Extending \`root.img\` Size](/doc/ResizeRootDiskImage/)
+ *  [Installing ZFS in Qubes](/doc/ZFS/)
+ *  [Creating Custom NetVMs and ProxyVMs](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html)
+ *  [How to make proxy for individual tcp connection from networkless VM](https://groups.google.com/group/qubes-devel/msg/4ca950ab6d7cd11a)
+ *  [HTTP filtering proxy in Qubes firewall VM](https://groups.google.com/group/qubes-devel/browse_thread/thread/5252bc3f6ed4b43e/d881deb5afaa2a6c#39c95d63fccca12b)
+ *  [Adding Bridge Support to the NetVM (EXPERIMENTAL)](/doc/NetworkBridgeSupport/)
+ *  [Assigning PCI Devices to AppVMs](/doc/AssigningDevices/)
+ *  [Enabling TRIM for SSD disks](/doc/DiskTRIM/)
+ *  [Configuring a Network Printer](/doc/NetworkPrinter/)
+ *  [Using External Audio Devices](/doc/ExternalAudio/)
+ *  [Booting with GRUB2 and GPT](https://groups.google.com/group/qubes-devel/browse_thread/thread/e4ac093cabd37d2b/d5090c20d92c4128#d5090c20d92c4128)
+ *  [Installing on system with new AMD GPU (missing firmware problem)](https://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76)
+ *  [How to install an Nvidia driver in dom0](/doc/InstallNvidiaDriver/)
+ *  [Solving problems with Macbook Air 2012](https://groups.google.com/group/qubes-devel/browse_thread/thread/b8b0d819d2a4fc39/d50a72449107ab21#8a9268c09d105e69)
+ *  [Getting Sony Vaio Z laptop to work with Qubes](/doc/SonyVaioTinkering/)
+ *  [Getting Lenovo 450 to work with Qubes](/doc/Lenovo450Tinkering/)
+
+
+Customization Guides
+--------------------
+ *  [DispVM Customization](/doc/UserDoc/DispVMCustomization/)
+ *  [XFCE Installation in dom0](/doc/UserDoc/XFCE/)
+ *  [Customizing the GUI experience with KDE](https://groups.google.com/d/topic/qubes-users/KhfzF19NG1s/discussion)
+ *  [Language Localization](/doc/LanguageLocalization/)
+
+
+Reference Pages
+---------------
+ *  [Dom0 Command-Line Tools](/doc/DomZeroTools/)
+ *  [DomU Command-Line Tools](/doc/VmTools/)
+ *  [Glossary of Qubes Terminology](/doc/Glossary/)
+ *  [Qubes Service Framework](/doc/QubesService/)
+ *  [Command Execution in VMs (and Qubes RPC)](/doc/Qrexec/)
