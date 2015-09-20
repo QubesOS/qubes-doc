@@ -54,7 +54,15 @@ Services called by dom0 to provide some VM configuration:
 -   `qubes.SetMonitorLayout` - provide list of monitors, one in a line, each line contains four numbers: `width height X Y`
 -   `qubes.WaitForSession` - called to wait for full VM startup
 -   `qubes.GetAppmenus` - receive appmenus from given VM (template); TODO: describe format here
--   `qubes.GetImageRGBA` - receive image/application icon: TODO: describe format and parameters here
+-   `qubes.GetImageRGBA` - receive image/application icon. Protocol:
+
+     1. Caller sends name of requested icon. This can be one of:
+         * `xdgicon:NAME` - search for NAME in standard icons theme
+         * `-` - get icon data from stdin (the caller), can be prefixed with format name, for example `png:-`
+         * file name
+     2. The service responds with image dimensions: width and height as
+     decimal numbers, separated with space and with EOL marker at the and; then
+     image data in RGBA format (32 bits per pixel)
 -   `qubes.SetDateTime` - set VM time, called periodically by dom0 (can be
     triggered manually from dom0 by calling `qvm-sync-clock`). The service
     receives one line at stdin - time in format of `date -u -Iseconds`, for
@@ -92,6 +100,11 @@ Other Qrexec services installed by default:
   after system resume
 - `qubes.SyncNtpClock` - service called to trigger network time synchronization.
   Service should synchronize local VM time and terminate when done.
+- `qubes.WindowIconUpdater` - service called by VM to send icons of individual
+  windows. The protocol there is simple one direction stream: VM sends window ID
+  followed by icon in `qubes.GetImageRGBA` format, then next window ID etc. VM
+  can send icon for the same window multiple times to replace previous one (for
+  example for animated icons)
 - `qubes.VMShell` - call any command in the VM; the command(s) is passed one per line
 
 Currently Qubes still calls few tools in VM directly, not using service
