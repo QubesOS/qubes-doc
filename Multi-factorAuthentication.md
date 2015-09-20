@@ -62,8 +62,8 @@ Optional Preparation Steps
 --------------------------
 
  1. Start with a minimal template. In this example, we'll use the
-    [minimal Fedora template][FedoraMinimal]. Download it if you haven't already
-    done so:
+    [minimal Fedora template][FedoraMinimal]. Get it if you haven't already done
+    so:
 
         [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-21-minimal
 
@@ -110,10 +110,12 @@ is largely the same.
         [user@mfa ~]$ oathtool --base32 --totp "xd2n mx5t ekg6 h6bi u74d 745k n4m7 zy3x"
         279365
 
-    In this case, the token you would enter is `279365`. (Note that this is a
-    *time*-based one-time password, which means that your VM's clock must be
-    sufficiently accurate in order to generate a valid token and that the token
-    will change after a short period of time.)
+    The output is `279365`. This is what you would enter when prompted for an
+    authenticator code. (Note that this is a *time*-based one-time password,
+    which means that your VM's clock must be sufficiently accurate in order to
+    generate a valid token. Qubes handles VM time syncing automatically, so you
+    normally shouldn't have to worry about this. As usual, the token will change
+    after a short period of time.)
 
  3. To make this easier on ourselves in the future, we can create a simple shell
     script for each service we use (the example here is Google):
@@ -129,10 +131,10 @@ is largely the same.
         [user@mfa ~]$ chmod +x google
 
     Since the secret key stored in our script never changes, we should never
-    have to update this script.
+    have to update this script, but we can easily do so if we ever want to.
 
- 4. Now, whenever a service prompts us for an authenticator code, all we have to
-    do is this:
+ 4. Now, whenever Google prompts us for an authenticator code, all we have to do
+    is this:
     
         [user@mfa ~]$ ./google
         640916
@@ -140,7 +142,8 @@ is largely the same.
     Done!
 
  5. Create similar scripts for other services you use, and enjoy the security
-    and ease of quickly generating TOTP tokens from a Qubes VM command-line:
+    and ease of quickly generating TOTP tokens right from your Qubes VM
+    command-line:
 
         [user@mfa ~]$ ./github
         495272
