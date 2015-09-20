@@ -105,7 +105,9 @@ is largely the same.
     ![Secret Key Example 2](/attachment/wiki/UserDoc/Multi-factorAuthentication/secret-key-example-2.png)
 
  2. In your MFA AppVM, you can now use `oathtool` to generate base32 TOTP
-    authentication tokens just like Google Authenticator would:
+    authentication tokens just like Google Authenticator would. In this example,
+    we'll use the secret key `xd2n mx5t ekg6 h6bi u74d 745k n4m7 zy3x` from the
+    second image above (substitute your own):
 
         [user@mfa ~]$ oathtool --base32 --totp "xd2n mx5t ekg6 h6bi u74d 745k n4m7 zy3x"
         279365
@@ -118,7 +120,9 @@ is largely the same.
     after a short period of time.)
 
  3. To make this easier on ourselves in the future, we can create a simple shell
-    script for each service we use (the example here is Google):
+    script for each service we use. (The example here is Google, using the
+    example key from above. You'll get a different secret key from each service
+    which is unique to you.) Create the script like so:
 
         [user@mfa ~]$ > google
         [user@mfa ~]$ vi google
@@ -130,7 +134,7 @@ is largely the same.
         
         [user@mfa ~]$ chmod +x google
 
-    Since the secret key stored in our script never changes, we should never
+    Since the secret key stored in the script never changes, we should never
     have to update this script, but we can easily do so if we ever want to.
 
  4. Now, whenever Google prompts us for an authenticator code, all we have to do
