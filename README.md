@@ -1,6 +1,6 @@
 Qubes OS Documentation
 ======================
-`https://www.qubes-os.org/doc/`
+https://www.qubes-os.org/doc/
 
 All [Qubes OS Project][qubes] documentation pages are stored as plain text
 files in this dedicated repository. By cloning and regularly pulling from
