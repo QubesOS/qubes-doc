@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: XFCE
-permalink: /doc/UserDoc/XFCE/
-redirect_from: /wiki/UserDoc/XFCE/
+permalink: /doc/XFCE/
+redirect_from: \
+  /doc/UserDoc/XFCE/
+  /wiki/UserDoc/XFCE/
 ---
 
 XFCE installtion in dom0

@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: SplitGpg
-permalink: /doc/UserDoc/SplitGpg/
-redirect_from: /wiki/UserDoc/SplitGpg/
+permalink: /doc/SplitGpg/
+redirect_from: \
+  /doc/UserDoc/SplitGpg/
+  /wiki/UserDoc/SplitGpg/
 ---
 
 Qubes Split GPG
