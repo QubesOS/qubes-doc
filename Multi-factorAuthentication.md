@@ -99,15 +99,15 @@ is largely the same.
     If you are prompted to scan a QR code, instead select the option (if
     available) to view the secret key as text:
 
-    ![Secret Key Example 0](/attachment/wiki/UserDoc/Multi-factorAuthentication/secret-key-example-0.png)
+    ![Secret Key Example 0](/attachment/wiki/Multi-factorAuthentication/secret-key-example-0.png)
 
     You should then see the secret key as text:
 
-    ![Secret Key Example 1](/attachment/wiki/UserDoc/Multi-factorAuthentication/secret-key-example-1.png)
+    ![Secret Key Example 1](/attachment/wiki/Multi-factorAuthentication/secret-key-example-1.png)
 
     Note that the length and format of the secret key may vary by service:
 
-    ![Secret Key Example 2](/attachment/wiki/UserDoc/Multi-factorAuthentication/secret-key-example-2.png)
+    ![Secret Key Example 2](/attachment/wiki/Multi-factorAuthentication/secret-key-example-2.png)
 
  2. In your MFA AppVM, you can now use `oathtool` to generate base32 TOTP
     authentication tokens just like Google Authenticator would. In this example,

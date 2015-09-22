@@ -17,7 +17,7 @@ Split GPG implements a concept similar to having a smart card with your private 
 
 The diagram below presents the big picture of Split GPG architecture.
 
-![split-gpg-diagram.png](/attachment/wiki/UserDoc/SplitGpg/split-gpg-diagram.png)
+![split-gpg-diagram.png](/attachment/wiki/SplitGpg/split-gpg-diagram.png)
 
 ### Advantages of Split GPG vs. traditional GPG with a smart card
 
@@ -25,15 +25,15 @@ It is often thought that the use of smart cards for private key storage guarante
 
 With Qubes Split GPG this problem is drastically minimized, because each time the key is to be used the user is asked for consent (with a definable time out, 5 minutes by default), plus is always notified each time the key is used via a tray notification from the domain where GPG backend is running. This way it would be easy to spot unexpected requests to decrypt documents.
 
-![r2-split-gpg-1.png](/attachment/wiki/UserDoc/SplitGpg/r2-split-gpg-1.png) ![r2-split-gpg-3.png](/attachment/wiki/UserDoc/SplitGpg/r2-split-gpg-3.png)
+![r2-split-gpg-1.png](/attachment/wiki/SplitGpg/r2-split-gpg-1.png) ![r2-split-gpg-3.png](/attachment/wiki/SplitGpg/r2-split-gpg-3.png)
 
 ### Current limitations
 
--   Current implementation requires importing of public keys to the vault domain. This opens up an avenue to attack the gpg running in the backend domain via a hypothetical bug in public key importing code. See ticket \#474 for more details and plans how to get around this problem, as well as the section on [using split GPG with subkeys](/wiki/UserDoc/SplitGpg#Advanced:UsingSplitGPGwithSubkeys) below.
+-   Current implementation requires importing of public keys to the vault domain. This opens up an avenue to attack the gpg running in the backend domain via a hypothetical bug in public key importing code. See ticket \#474 for more details and plans how to get around this problem, as well as the section on [using split GPG with subkeys](/doc/SplitGpg#Advanced:UsingSplitGPGwithSubkeys) below.
 
 -   It doesn't solve the problem of allowing the user to know what is to be signed before the operation gets approved. Perhaps the GPG backend domain could start a Disposable VM and have the to-be-signed document displayed there? To Be Determined.
 
--   Verifying detached signatures does not work (see \#900). You have to have public keys in AppVM and some means to use different command to verify them. Both git and Enigmail does not allow that and you have to choose between [SplitGpg](/wiki/UserDoc/SplitGpg) and PGP/MIME.
+-   Verifying detached signatures does not work (see \#900). You have to have public keys in AppVM and some means to use different command to verify them. Both git and Enigmail does not allow that and you have to choose between Split GPG and PGP/MIME.
 
 Configuring and using Split GPG
 -------------------------------
@@ -85,7 +85,7 @@ Note that running normal `gpg -K` in the demo above shows no private keys stored
 
 However, when using Thunderbird with Enigmail extension it is not enough, because Thunderbird doesn't preserve the environment variables. Instead it is recommended to use a simple script provided by `/usr/bin/qubes-gpg-client-wrapper` file by pointing Enigmail to use this script instead of the standard GnuPG binary:
 
-![tb-enigmail-split-gpg-settings-2.png](/attachment/wiki/UserDoc/SplitGpg/tb-enigmail-split-gpg-settings-2.png)
+![tb-enigmail-split-gpg-settings-2.png](/attachment/wiki/SplitGpg/tb-enigmail-split-gpg-settings-2.png)
 
 The script also sets the QUBES\_GPG\_DOMAIN variable automatically based on the content of the file `/rw/config/gpg-split-domain`, which should be set to the name of the GPG backend VM. This file survives the AppVM reboot, of course.
 
@@ -114,7 +114,7 @@ Use `qubes-gpg-import-key` in the client AppVM to import the key into the GPG ba
 [user@work ~]$ qubes-gpg-import-key ~/Downloads/marmarek.asc
 ```
 
-![r2-split-gpg-5.png](/attachment/wiki/UserDoc/SplitGpg/r2-split-gpg-5.png)
+![r2-split-gpg-5.png](/attachment/wiki/SplitGpg/r2-split-gpg-5.png)
 
 Advanced: Using Split GPG with Subkeys
 --------------------------------------
