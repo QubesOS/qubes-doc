@@ -132,6 +132,62 @@ Having problems verifying the ISO images? Make sure you have the corresponding r
 
 [https://groups.google.com/group/qubes-devel/browse\_thread/thread/4bdec1cd19509b38/9f8e219c41e1b232](https://groups.google.com/group/qubes-devel/browse_thread/thread/4bdec1cd19509b38/9f8e219c41e1b232)
 
+Verifying Digests
+-----------------
+
+Each ISO is accompanied by a plain text file ending in `.DIGESTS`. This file contains the output of running several different crytographic hash functions on the ISO in order to obtain an alphanumeric output known as a "digest." For example, `Qubes-R2-x86_64-DVD.iso` is accompanied by `Qubes-R2-x86_64-DVD.iso.DIGESTS` which has the following content:
+
+    -----BEGIN PGP SIGNED MESSAGE-----
+    Hash: SHA256
+    
+    6f6ff24f2edec3a7607671001e694d8e *Qubes-R2-x86_64-DVD.iso
+    0344e04a98b741c311936f3e2bb67fcebfc2be08 *Qubes-R2-x86_64-DVD.iso
+    1fa056b73d8e2e93acdf3dcaface2515d61335e723d1d7d338241209119c10a3 *Qubes-R2-x86_64-DVD.iso
+    a49ff19c1ad8c51a50198ac51670cf7c71972b437fa59f2e9fc9432cce76f4529f10de1d576ac777cdd49b9325eb2f32347fd13e0f9b04f823a73e84c6ddd772 *Qubes-R2-x86_64-DVD.iso
+    -----BEGIN PGP SIGNATURE-----
+    Version: GnuPG v1
+    
+    iQIcBAEBCAAGBQJVvUfGAAoJEAxzudQKQORYhj0P/1TTtDn0WtlfwvSOQ5m3ybeT
+    CiEv/wWZmZR2hfTOs1chlwt5PZFUCkAk6hbr7+AbJU3HurnmyK97ORtak0WcuBiO
+    3MWKGiDaBGjKfYcv7YZWDcMRCjN69I4gq7lhXB2JC5pSnOkciD8xzSMAnyFz8Dnh
+    sHSGJIrOIeLhj0Jt90NGm2CKeQgKrbCGQWWqn/BRf40GXjkyGDSAj+Bsbnpn3LjE
+    kWOblX631PRi8eclD27/b5hsK/ur7RlpA0KKn7dJoTO2PikEZRoT7QgcIMxYWOja
+    GZhDi/5gWyttVmF1EszkwaYLAH3uqkZbgKHIsLwweTwXYxMqjobQ5dFkm0RCaXXg
+    wf/ayfyAIHCWYK0GvyHyAe7hs30UQ4Ssw0LDnnTsOwJYzxZpZqWhcg89EBMGdNgu
+    5sghcj97VHjDI/zpRyTOAi1+8ZoG1FMsvmnlpghojXPcFGM1nldKs2k1XfGHdVrH
+    ucJfhQilhsGo65EiN+v9VS6tz5dDtX5+NnkkpR5mOx1+xwUf4n+F6cWyIiLKY6Se
+    byIN0dPtErZpq47w6bhLZ3Dd/frReG8Egmr7yLAqGHKmuwvmEUA6w6a2VzWQy5G4
+    Smcj5kPHKWJ9SvAQHc7SoUmYqt2GEAKBi6CYb5Oeknf3vc4QUSPxF8KRiebUhTxc
+    ruycSbLkLklsDjfH0caD
+    =NVWj
+    -----END PGP SIGNATURE-----
+
+Four digests have been computed for this ISO. The hash functions used, in order from top to bottom, are MD5, SHA1, SHA256, and SHA512. One way to verify that the ISO you downloaded matches any of these is by using `openssl` from the command line:
+
+    $ openssl dgst -md5 Qubes-R2-x86_64-DVD.iso
+    MD5(Qubes-R2-x86_64-DVD.iso)= 6f6ff24f2edec3a7607671001e694d8e
+    $ openssl dgst -sha1 Qubes-R2-x86_64-DVD.iso
+    SHA1(Qubes-R2-x86_64-DVD.iso)= 0344e04a98b741c311936f3e2bb67fcebfc2be08
+    $ openssl dgst -sha256 Qubes-R2-x86_64-DVD.iso
+    SHA256(Qubes-R2-x86_64-DVD.iso)= 1fa056b73d8e2e93acdf3dcaface2515d61335e723d1d7d338241209119c10a3
+    $ openssl dgst -sha512 Qubes-R2-x86_64-DVD.iso
+    SHA512(Qubes-R2-x86_64-DVD.iso)= a49ff19c1ad8c51a50198ac51670cf7c71972b437fa59f2e9fc9432cce76f4529f10de1d576ac777cdd49b9325eb2f32347fd13e0f9b04f823a73e84c6ddd772
+
+(Notice that the outputs match the values from the `.DIGESTS` file.)
+
+However, it is possible that an attacker replaced `Qubes-R2-x86_64-DVD.iso` with a malicious ISO, computed the hash values for that ISO, and replaced the values in `Qubes-R2-x86_64-DVD.iso.DIGESTS` with his own set of values. Therefore, ideally, we should also verify the authenticity of the listed hash values. Since `Qubes-R2-x86_64-DVD.iso.DIGESTS` is a clearsigned PGP file, we can use `gpg` to verify it from the command line:
+
+    $ gpg -v --verify Qubes-R2-x86_64-DVD.iso.DIGESTS
+    gpg: armor header: Hash: SHA256
+    gpg: armor header: Version: GnuPG v1
+    gpg: original file name=''
+    gpg: Signature made 2015-08-01T22:27:18 UTC using RSA key ID 0A40E458
+    gpg: using PGP trust model
+    gpg: Good signature from "Qubes OS Release 2 Signing Key"
+    gpg: textmode signature, digest algorithm SHA256
+
+The signature is good. Assuming our copy of the `Qubes OS Release 2 Signing Key` is also authentic (see above), we can be confident that these hash values came from the Qubes devs.
+
 Verifying Qubes Code
 --------------------
 
