@@ -2,9 +2,9 @@
 layout: doc
 title: VMInterface
 permalink: /doc/VMInterface/
-redirect_from: \
-  /doc/SystemDoc/VMInterface/
-  /wiki/SystemDoc/VMInterface/
+redirect_from:
+- "/doc/SystemDoc/VMInterface/"
+- "/wiki/SystemDoc/VMInterface/"
 ---
 
 VM Configuration Interface

@@ -2,9 +2,9 @@
 layout: doc
 title: OpenPGP
 permalink: /doc/OpenPGP/
-redirect_from: \
-  /doc/UserDoc/OpenPGP/
-  /wiki/UserDoc/OpenPGP/
+redirect_from:
+- "/doc/UserDoc/OpenPGP/"
+- "/wiki/UserDoc/OpenPGP/"
 ---
 
 **Note 2014-08-03: This page is deprecated by [SplitGpg](/wiki/UserDoc/SplitGpg). The content of this page has been integrated into that page.**

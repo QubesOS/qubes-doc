@@ -2,9 +2,9 @@
 layout: doc
 title: TorVM
 permalink: /doc/TorVM/
-redirect_from: \
-  /doc/UserDoc/TorVM/
-  /wiki/UserDoc/TorVM/
+redirect_from:
+- "/doc/UserDoc/TorVM/"
+- "/wiki/UserDoc/TorVM/"
 ---
 
 Known issues:

@@ -2,9 +2,9 @@
 layout: doc
 title: SplitGpg
 permalink: /doc/SplitGpg/
-redirect_from: \
-  /doc/UserDoc/SplitGpg/
-  /wiki/UserDoc/SplitGpg/
+redirect_from:
+- "/doc/UserDoc/SplitGpg/"
+- "/wiki/UserDoc/SplitGpg/"
 ---
 
 Qubes Split GPG

@@ -2,9 +2,9 @@
 layout: doc
 title: XFCE
 permalink: /doc/XFCE/
-redirect_from: \
-  /doc/UserDoc/XFCE/
-  /wiki/UserDoc/XFCE/
+redirect_from:
+- "/doc/UserDoc/XFCE/"
+- "/wiki/UserDoc/XFCE/"
 ---
 
 XFCE installtion in dom0

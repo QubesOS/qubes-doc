@@ -2,9 +2,9 @@
 layout: doc
 title: ConfigFiles
 permalink: /doc/ConfigFiles/
-redirect_from: \
-  /doc/UserDoc/ConfigFiles/
-  /wiki/UserDoc/ConfigFiles/
+redirect_from:
+- "/doc/UserDoc/ConfigFiles/"
+- "/wiki/UserDoc/ConfigFiles/"
 ---
 
 Qubes specific VM config files

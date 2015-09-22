@@ -2,9 +2,9 @@
 layout: doc
 title: DispVMCustomization
 permalink: /doc/DispVMCustomization/
-redirect_from: \
-  /doc/UserDoc/DispVMCustomization/
-  /wiki/UserDoc/DispVMCustomization/
+redirect_from:
+- "/doc/UserDoc/DispVMCustomization/"
+- "/wiki/UserDoc/DispVMCustomization/"
 ---
 
 Changing the template used as a basis for Disposable VM
