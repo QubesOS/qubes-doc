@@ -135,7 +135,7 @@ Having problems verifying the ISO images? Make sure you have the corresponding r
 Verifying Digests
 -----------------
 
-Each ISO is accompanied by a plain text file ending in `.DIGESTS`. This file contains the output of running several different crytographic hash functions on the ISO in order to obtain an alphanumeric output known as a "digest." For example, `Qubes-R2-x86_64-DVD.iso` is accompanied by `Qubes-R2-x86_64-DVD.iso.DIGESTS` which has the following content:
+Each ISO is accompanied by a plain text file ending in `.DIGESTS`. This file contains the output of running several different crytographic hash functions on the ISO in order to obtain alphanumeric outputs known as "digests." For example, `Qubes-R2-x86_64-DVD.iso` is accompanied by `Qubes-R2-x86_64-DVD.iso.DIGESTS` which has the following content:
 
     -----BEGIN PGP SIGNED MESSAGE-----
     Hash: SHA256
