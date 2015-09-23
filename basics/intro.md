@@ -72,7 +72,7 @@ More information
 
 This page is just a brief sketch of what Qubes is all about, and many technical details have been omitted here for the sake of presentation.
 
--   If you're a current or potential Qubes user, you may want to check out the [documentation](/doc/UserDoc/) and the [FAQ](/doc/UserFaq/).
+-   If you're a current or potential Qubes user, you may want to check out the [documentation](/doc/) and the [FAQ](/doc/UserFaq/).
 -   If you're a developer, there's dedicated [documentation](/doc/SystemDoc/) and an [FAQ](/doc/DevelFaq/) just for you.
 -   Ready to give Qubes a try? Head on over to the [downloads page](/downloads/).
 -   Once you've installed Qubes, here's a guide on [getting started](/doc/GettingStarted/).
