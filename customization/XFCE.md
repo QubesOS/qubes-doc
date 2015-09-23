@@ -18,15 +18,11 @@ Requirements (as of 10/24/2012):
 
 Installation:
 
-```
-qubes-dom0-update --enablerepo=qubes-dom0-unstable @XFCE
-```
+    qubes-dom0-update --enablerepo=qubes-dom0-unstable @XFCE
 
 Then you need to create /etc/sysconfig/desktop to stay with KDM, as GDM still starts invalid Xorg startup script:
 
-```
-DISPLAYMANAGER=KDE
-```
+    DISPLAYMANAGER=KDE
 
 Reboot the system. At system startup, select "Xfce session" in login screen (menu on the right bottom corner of the screen).
 
@@ -39,7 +35,6 @@ Things needs/recommended to be done:
 -   create own favorites menu (currently standard XFCE menu isn't modified to use per-VM subsections, which makes it very inconvenient):
     1.  create \~/.config/menus/favorites.menu, example content:
 
-        ```
         <!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
           "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
 
@@ -60,8 +55,5 @@ Things needs/recommended to be done:
                 <Filename>untrusted-firefox.desktop</Filename>
             </Include>
         </Menu>
-        ```
 
     2.  add it to the panel: right click on panel, "add new items", select "XFCE menu", choose custom menu file - just created one
-
-

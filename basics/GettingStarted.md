@@ -55,15 +55,11 @@ By default, each domain's menu contains only a few shortcuts. If you'd like to a
 
 To start apps from the console in dom0, type:
 
-```
-qvm-run -a <domain> "<app name> [arguments]"
-```
+    qvm-run -a <domain> "<app name> [arguments]"
 
 e.g.:
 
-```
-qvm-run -a untrusted firefox
-```
+    qvm-run -a untrusted firefox
 
 Adding, Removing, and Listing Domains
 -------------------------------------
@@ -96,27 +92,23 @@ To allow domains to enter full screen mode, one should edit the `/etc/qubes/guid
 
 E.g. to allow all domains to enter full screen mode, set `allow_fullscreen` flag to `true` in the `global` section:
 
-```
-global: {
-  # default values
-  allow_fullscreen = false;
-  #allow_utf8_titles = false;
-  #secure_copy_sequence = "Ctrl-Shift-c";
-  #secure_paste_sequence = "Ctrl-Shift-v";
-  #windows_count_limit = 500;
-};
-```
+    global: {
+      # default values
+      allow_fullscreen = false;
+      #allow_utf8_titles = false;
+      #secure_copy_sequence = "Ctrl-Shift-c";
+      #secure_paste_sequence = "Ctrl-Shift-v";
+      #windows_count_limit = 500;
+    };
 
 To allow only select AppVMs to enter full screen mode, create a per-VM section, and set `allow_fullscreen` flag there to `true`:
 
-```
-VM: {
-  work: {
-   allow_fullscreen = true;
-  };
+    VM: {
+      work: {
+       allow_fullscreen = true;
+      };
 
-};
-```
+    };
 
 In order for the changes to take effect, restart the AppVM(s).
 

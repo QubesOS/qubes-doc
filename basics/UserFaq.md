@@ -192,7 +192,7 @@ Enable "debug mode" in the AppVM's settings, either by checking the box labelled
 ### I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.
 
 
-This is probably because one of the controllers does not support reset. In Qubes R2 any such errors were ignored but in Qubes R3.0 they are not. 
+This is probably because one of the controllers does not support reset. In Qubes R2 any such errors were ignored but in Qubes R3.0 they are not.
 A device that does not support reset is not safe and generally should not be assigned to a VM.
 
 Most likely the offending controller is a USB3.0 device. You can remove this controller from the usbVM, and see if this allows the VM to boot.
@@ -219,11 +219,7 @@ or
 
 1.  Go to the sysfs (`/sys/bus/pci`), find the right device, detach it from the pciback driver and attach back to the original driver. Replace `<BDF>` with your device, for example `00:1c.2`:
 
-    ```
     echo 0000:<BDF> > /sys/bus/pci/drivers/pciback/unbind
     MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
     MOD=`modprobe -R $MODALIAS | head -n 1`
     echo <BDF> > /sys/bus/pci/drivers/$MOD/bind 
-    ```
-
-
