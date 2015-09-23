@@ -33,7 +33,7 @@ System Documentation for Developers
     1.  [Profiling python code](/doc/Profiling/)
     2.  [Test environment in separate machine for automatic tests](/doc/TestBench/)
     3.  [Automated tests](/doc/AutomatedTests/)
-    3.  [VM-dom0 internal configuration interface](/doc/SystemDoc/VMInterface/)
+    3.  [VM-dom0 internal configuration interface](/doc/VMInterface/)
     4.  [Debugging Windows VMs](/doc/WindowsDebugging/)
 
 4.  Building:
