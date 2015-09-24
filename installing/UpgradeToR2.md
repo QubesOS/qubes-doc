@@ -2,8 +2,9 @@
 layout: doc
 title: UpgradeToR2
 permalink: /doc/UpgradeToR2/
-redirect_from: /doc/UpgradeToR2rc1/
-redirect_from: /wiki/UpgradeToR2rc1/
+redirect_from:
+- /doc/UpgradeToR2rc1/
+- /wiki/UpgradeToR2rc1/
 ---
 
 Upgrading Qubes R2 Beta 3 to R2

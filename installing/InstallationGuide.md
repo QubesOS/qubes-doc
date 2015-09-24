@@ -2,15 +2,16 @@
 layout: doc
 title: Installation Guide
 permalink: /doc/InstallationGuide/
-redirect_from: /wiki/InstallationGuide/
-redirect_from: /doc/InstallationGuideR1/
-redirect_from: /doc/InstallationGuideR2B1/
-redirect_from: /doc/InstallationGuideR2B2/
-redirect_from: /doc/InstallationGuideR2B3/
-redirect_from: /doc/InstallationGuideR2rc1/
-redirect_from: /doc/InstallationGuideR2rc2/
-redirect_from: /doc/InstallationGuideR3.0rc1/
-redirect_from: /doc/InstallationGuideR3.0rc2/
+redirect_from:
+- /wiki/InstallationGuide/
+- /doc/InstallationGuideR1/
+- /doc/InstallationGuideR2B1/
+- /doc/InstallationGuideR2B2/
+- /doc/InstallationGuideR2B3/
+- /doc/InstallationGuideR2rc1/
+- /doc/InstallationGuideR2rc2/
+- /doc/InstallationGuideR3.0rc1/
+- /doc/InstallationGuideR3.0rc2/
 ---
 
 Installation Guide
