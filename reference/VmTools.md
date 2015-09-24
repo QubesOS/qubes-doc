@@ -9,8 +9,8 @@ redirect_from:
 
 VM tools:
 
--   [qvm-copy-to-vm](/doc/VmTools/QvmCopyToVm/)
--   [qvm-open-in-dvm](/doc/VmTools/QvmOpenInDvm/)
--   [qvm-open-in-vm](/doc/VmTools/QvmOpenInVm/)
--   [qvm-run](/doc/VmTools/QvmRun/)
+-   [qvm-copy-to-vm](/en/doc/vm-tools/qvm-copy-to-vm/)
+-   [qvm-open-in-dvm](/en/doc/vm-tools/qvm-open-in-dvm/)
+-   [qvm-open-in-vm](/en/doc/vm-tools/qvm-open-in-vm/)
+-   [qvm-run](/en/doc/vm-tools/qvm-run/)
 

@@ -20,7 +20,7 @@ to redistribute a modified Ubuntu. The redistribution is not allowed by their
 Install
 -------
 
-It can built using [Qubes Builder](/doc/QubesBuilder/). You can also access its
+It can built using [Qubes Builder](/en/doc/qubes-builder/). You can also access its
 documentation in the [source code
 repository](https://github.com/QubesOS/qubes-builder/blob/master/README.md).
 

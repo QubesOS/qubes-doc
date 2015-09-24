@@ -11,7 +11,7 @@ redirect_from:
 Qubes Security Bulletins
 ========================
 
-Qubes Security Bulletins are published through the [Qubes Security Pack](/doc/SecurityPack/).
+Qubes Security Bulletins are published through the [Qubes Security Pack](/en/doc/security-pack/).
 
 2010
 ----

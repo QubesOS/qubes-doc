@@ -12,7 +12,7 @@ Development Workflow
 
 A workflow for developing Qubes OS+
 
-First things first, setup [QubesBuilder](/doc/QubesBuilder/). This guide assumes you're using qubes-builder to build Qubes.
+First things first, setup [QubesBuilder](/en/doc/qubes-builder/). This guide assumes you're using qubes-builder to build Qubes.
 
 Repositories and committing Code
 --------------------------------
@@ -130,7 +130,7 @@ RPMS will appear in qubes-src/kernel/rpm/x86\_64:
 -rw-rw-r-- 1 user user 54502117 Nov 17 05:37 kernel-qubes-vm-3.4.18-1debug20121117a.pvops.qubes.x86_64.rpm
 ```
 
-### Useful [QubesBuilder](/doc/QubesBuilder/) commands
+### Useful [QubesBuilder](/en/doc/qubes-builder/) commands
 
 1.  *make check* - will check if all the code was commited into repository and if all repository are tagged with signed tag.
 2.  *make show-vtags* - show version of each component (based on git tags) - mostly useful just before building ISO. **Note:** this will not show version for components containing changes since last version tag
@@ -144,7 +144,7 @@ When developing it is convenient to be able to rapidly test changes. Assuming yo
 
 Here are some handy scripts Marek has shared to facilitate this.
 
-You may also like to run your [test environment on separate machine](/doc/TestBench/).
+You may also like to run your [test environment on separate machine](/en/doc/test-bench/).
 
 ### Syncing dom0 files
 

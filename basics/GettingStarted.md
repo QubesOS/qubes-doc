@@ -36,7 +36,7 @@ Qubes VM Manager and Command Line Tools
 
 All aspects of the Qubes system can be controlled using command line tools run under a dom0 console. To open a console window in dom0, either go to Start-\>System Tools-\>Konsole or press Alt-F2 and type `konsole`.
 
-Various command line tools are described as part of this guide, and the whole reference can be found [here](/doc/DomZeroTools/).
+Various command line tools are described as part of this guide, and the whole reference can be found [here](/en/doc/dom-zero-tools/).
 
 ![r2b1-dom0-konsole.png](/attachment/wiki/GettingStarted/r2b1-dom0-konsole.png)
 
@@ -83,7 +83,7 @@ How Many Domains Do I Need?
 
 That's a great question, but there's no one-size-fits-all answer. It depends on the structure of your digital life, and this is at least a little different for everyone. If you plan on using your system for work, then it also depends on what kind of job you do.
 
-It's a good idea to start out with the three domains created automatically by the installer: work, personal, and untrusted. Then, if and when you start to feel that some activity just doesn't fit into any of your existing domains, you can easily create a new domain for it. You'll also be able to easily copy any files you need to the newly created domain, as explained [here](/doc/CopyingFiles/).
+It's a good idea to start out with the three domains created automatically by the installer: work, personal, and untrusted. Then, if and when you start to feel that some activity just doesn't fit into any of your existing domains, you can easily create a new domain for it. You'll also be able to easily copy any files you need to the newly created domain, as explained [here](/en/doc/copying-files/).
 
 More paranoid people might find it worthwhile to read [this article](http://theinvisiblethings.blogspot.com/2011/03/partitioning-my-digital-life-into.html), which describes how one of the Qubes authors partitions her digital life into security domains.
 
@@ -124,4 +124,4 @@ In order for the changes to take effect, restart the AppVM(s).
 
 * * * * *
 
-Now that you're familiar with the basics, feel free to have a look at other [Qubes User Guides](/doc/UserDoc/).
+Now that you're familiar with the basics, feel free to have a look at other [Qubes User Guides](/en/doc/).

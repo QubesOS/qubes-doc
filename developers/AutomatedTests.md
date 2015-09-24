@@ -101,7 +101,7 @@ For example to run only tests for fedora-21 template, you can use `-l` option, t
 After you added a new unit test to [core-admin/tests](https://github.com/QubesOS/qubes-core-admin/tree/master/tests) 
 you have to make sure of two things:
 
-1. The test will be added to the RPM file created by [QubesBuilder](/doc/QubesBuilder/) 
+1. The test will be added to the RPM file created by [QubesBuilder](/en/doc/qubes-builder/) 
 For this you need to edit [core-admin/tests/Makefile](https://github.com/QubesOS/qubes-core-admin/tree/master/tests/Makefile)
 2. The test will be loaded by [core-admin/tests/\_\_init\_\_.py](https://github.com/QubesOS/qubes-core-admin/tree/master/tests/__init__.py)
 

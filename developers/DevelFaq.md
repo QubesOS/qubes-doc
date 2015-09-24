@@ -26,7 +26,7 @@ There are a few things that are KDE-specific, but generally it should not be a b
 
 -   Qubes requires KDM (KDE Login Manager), rather than GDM, for the very simple reason that GDM doesn't obey standards and start `/usr/bin/Xorg` instead of `/usr/bin/X`. This is important for Qubes, because we need to load a special "X wrapper" (to make it possible to use Linux usermode shared memory to access Xen shared memory pages in our App Viewers -- see the sources [here](https://github.com/QubesOS/qubes-gui-daemon/tree/master/shmoverride)). So, Qubes makes the `/usr/bin/X` to be a symlink to the Qubes X Wrapper, which, in turn, executes the `/usr/bin/Xorg`. This works well with KDM (and would probably also work with other X login managers), but not with GDM. If somebody succeeded in makeing GDM to execute `/usr/bin/X` instead of `/usr/bin/Xorg`, we would love to hear about it!
 
--   We maintain a special [repository](/doc/KdeDom0/) for building packages specifically for Qubes Dom0.
+-   We maintain a special [repository](/en/doc/kde-dom0/) for building packages specifically for Qubes Dom0.
 
 -   We've patched the KDE's Window Manager (specifically [one of the decoration plugins](https://github.com/QubesOS/qubes-desktop-linux-kde/tree/master/plastik-for-qubes)) to draw window decorations in the color of the specific AppVM's label.
 
@@ -38,8 +38,8 @@ Any rpm-based, 64-bit. Preferred Fedora.
 
 ### Q: How to build Qubes from sources?
 
-See [the instruction](/doc/QubesBuilder/)
+See [the instruction](/en/doc/qubes-builder/)
 
 ### Q: How do I submit a patch?
 
-See [Qubes Source Code Repositories](/doc/SourceCode/).
+See [Qubes Source Code Repositories](/en/doc/source-code/).

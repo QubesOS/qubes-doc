@@ -7,7 +7,7 @@ redirect_from:
 - /wiki/QubesService/
 ---
 
-Usage documentation is on [qvm-service manual page](/doc/Dom0Tools/QvmService/). There are also described predefined services.
+Usage documentation is on [qvm-service manual page](/en/doc/dom0-tools/qvm-service/). There are also described predefined services.
 
 Under the hood enabled service in VM is signaled by file in /var/run/qubes-service. This can be used to implement almost enable/disable **per-VM** switch controlled by dom0. Adding support for systemd services is pretty simple:
 

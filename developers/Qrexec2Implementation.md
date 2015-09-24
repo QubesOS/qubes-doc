@@ -10,7 +10,7 @@ redirect_from:
 Implementation of qrexec in Qubes R2
 ====================================
 
-This page describes implementation of the [qrexec framework](/doc/Qrexec/) in Qubes OS R2. Note that the implementation has changed significantly in Qubes R3 (see [Qrexec3Implementation](/doc/Qrexec3Implementation/)), although the user API reminded backwards compatible (i.e. qrexec apps written for Qubes R2 should run without modifications on Qubes R3).
+This page describes implementation of the [qrexec framework](/en/doc/qrexec/) in Qubes OS R2. Note that the implementation has changed significantly in Qubes R3 (see [Qrexec3Implementation](/en/doc/qrexec3-implementation/)), although the user API reminded backwards compatible (i.e. qrexec apps written for Qubes R2 should run without modifications on Qubes R3).
 
 Dom0 tools implementation
 -------------------------

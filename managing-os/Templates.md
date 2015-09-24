@@ -17,7 +17,7 @@ additional software installed by default. This concept is described
 [here](/doc/GettingStarted/#appvms-domains-and-templatevms).
 
 Some templates are available in ready to use binary form, but some of them are
-only as a source code, which can be built using [Qubes Builder](/doc/QubesBuilder/).
+only as a source code, which can be built using [Qubes Builder](/en/doc/qubes-builder/).
 Especially some templates "flavors" are available in source code form only.
 Take a look at [Qubes Builder
 documentation](https://github.com/QubesOS/qubes-builder/blob/master/README.md)
@@ -32,7 +32,7 @@ the source code we publish.
 
 -   Fedora
 -   [Fedora - Minimal](/doc/Templates/FedoraMinimal)
--   [Debian](/doc/Templates/Debian/)
+-   [Debian](/en/doc/templates/debian/)
 
 Community Supported templates
 -----------------------------
@@ -46,7 +46,7 @@ In short - by installing those templates, you trust not only ITL and
 distribution maintainers, but also the template maintainer. It can also happen
 that those templates are somehow less stable, because we do not test them.
 
--   [Whonix](/doc/Templates/Whonix/)
--   [Ubuntu](/doc/Templates/Ubuntu/)
--   [Archlinux](/doc/Templates/Archlinux/)
+-   [Whonix](/en/doc/templates/whonix/)
+-   [Ubuntu](/en/doc/templates/ubuntu/)
+-   [Archlinux](/en/doc/templates/archlinux/)
 

@@ -50,7 +50,7 @@ For additional security we also publish the fingerprint of the Qubes Master Sign
           Key fingerprint = 427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
     uid   Qubes Master Signing Key
 
-There should also be a copy of this key at the project's main website, in the [Qubes Security Pack](/doc/SecurityPack/), and in the archives of the project's [developer](https://groups.google.com/forum/#!msg/qubes-devel/RqR9WPxICwg/kaQwknZPDHkJ) and [user](https://groups.google.com/d/msg/qubes-users/CLnB5uFu_YQ/ZjObBpz0S9UJ) mailing lists.
+There should also be a copy of this key at the project's main website, in the [Qubes Security Pack](/en/doc/security-pack/), and in the archives of the project's [developer](https://groups.google.com/forum/#!msg/qubes-devel/RqR9WPxICwg/kaQwknZPDHkJ) and [user](https://groups.google.com/d/msg/qubes-users/CLnB5uFu_YQ/ZjObBpz0S9UJ) mailing lists.
 
 Once you have obtained the Qubes Master Signing Key ([`0x36879494`](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc)), you should verify the fingerprint of this key very carefully by obtaining copies of the fingerprint from trustworthy independent sources and comparing them to the downloaded key's fingerprint to ensure they match. Then set its trust level to "ultimate" (oh, well), so that it can be used to automatically verify all the keys signed by the Qubes Master Signing Key:
 
@@ -108,7 +108,7 @@ For example: Qubes OS Release 2 Signing Key ([`0x0A40E458`](https://keys.qubes-o
     gpg: Total number processed: 1
     gpg:               imported: 1  (RSA: 1)
 
-You can also download all the currently used developers' signing keys and current and older release signing keys (and also a copy of the Qubes Master Signing Key) from the [keys directory on our server](https://keys.qubes-os.org/keys/) and from the [Qubes Security Pack](/doc/SecurityPack/).
+You can also download all the currently used developers' signing keys and current and older release signing keys (and also a copy of the Qubes Master Signing Key) from the [keys directory on our server](https://keys.qubes-os.org/keys/) and from the [Qubes Security Pack](/en/doc/security-pack/).
 
 The developer signing keys are set to be valid for 1 year only, while the Qubes Master Signing Key ([`0x36879494`](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc)) has no expiration date. This latter key was generated and is kept only within a dedicated, air-gapped "vault" machine, and the private portion will (hopefully) never leave this isolated machine.
 

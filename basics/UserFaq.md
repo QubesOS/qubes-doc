@@ -135,7 +135,7 @@ Create an issue in [qubes-issues](https://github.com/QubesOS/qubes-issues/issues
 Installation & Hardware Compatibility
 -------------------------------------
 
-(See also: [System Requirements](/doc/SystemRequirements/) and [Hardware Compatibility List](/hcl/).)
+(See also: [System Requirements](/en/doc/system-requirements/) and [Hardware Compatibility List](/hcl/).)
 
 ### How much disk space does each AppVM require?
 
@@ -188,7 +188,7 @@ In your TemplateVMs, open a terminal and run `sudo yum upgrade`.
 
 ### How do I run a Windows HVM in non-seamless mode (i.e., as a single window)?
 
-Enable "debug mode" in the AppVM's settings, either by checking the box labelled "Run in debug mode" in the Qubes VM Manager AppVM settings menu or by running the [qvm-prefs command](/doc/Dom0Tools/QvmPrefs/).)
+Enable "debug mode" in the AppVM's settings, either by checking the box labelled "Run in debug mode" in the Qubes VM Manager AppVM settings menu or by running the [qvm-prefs command](/en/doc/dom0-tools/qvm-prefs/).)
 
 
 ### I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.
