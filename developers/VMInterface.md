@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: VMInterface
-permalink: /doc/VMInterface/
+permalink: /en/doc/v-m-interface/
 redirect_from:
+- /doc/VMInterface/
 - "/doc/SystemDoc/VMInterface/"
 - "/wiki/SystemDoc/VMInterface/"
 ---

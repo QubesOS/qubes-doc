@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: DevelopmentWorkflow
-permalink: /doc/DevelopmentWorkflow/
-redirect_from: /wiki/DevelopmentWorkflow/
+permalink: /en/doc/development-workflow/
+redirect_from:
+- /doc/DevelopmentWorkflow/
+- /wiki/DevelopmentWorkflow/
 ---
 
 Development Workflow

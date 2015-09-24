@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: BugReportingGuide
-permalink: /doc/BugReportingGuide/
-redirect_from: /wiki/BugReportingGuide/
+permalink: /en/doc/bug-reporting-guide/
+redirect_from:
+- /doc/BugReportingGuide/
+- /wiki/BugReportingGuide/
 ---
 
 Bug Reporting Guide

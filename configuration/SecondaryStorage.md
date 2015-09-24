@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: SecondaryStorage
-permalink: /doc/SecondaryStorage/
-redirect_from: /wiki/SecondaryStorage/
+permalink: /en/doc/secondary-storage/
+redirect_from:
+- /doc/SecondaryStorage/
+- /wiki/SecondaryStorage/
 ---
 
 Storing AppVMs on Secondary Drives

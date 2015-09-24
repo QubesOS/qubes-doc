@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: QubesR3Building
-permalink: /doc/QubesR3Building/
-redirect_from: /wiki/QubesR3Building/
+permalink: /en/doc/qubes-r3-building/
+redirect_from:
+- /doc/QubesR3Building/
+- /wiki/QubesR3Building/
 ---
 
 Building Qubes OS 3.0 ISO

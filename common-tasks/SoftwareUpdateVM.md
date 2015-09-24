@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: SoftwareUpdateVM
-permalink: /doc/SoftwareUpdateVM/
-redirect_from: /wiki/SoftwareUpdateVM/
+permalink: /en/doc/software-update-v-m/
+redirect_from:
+- /doc/SoftwareUpdateVM/
+- /wiki/SoftwareUpdateVM/
 ---
 
 Installing and updating software in VMs

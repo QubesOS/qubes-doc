@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: VmTools
-permalink: /doc/VmTools/
-redirect_from: /wiki/VmTools/
+permalink: /en/doc/vm-tools/
+redirect_from:
+- /doc/VmTools/
+- /wiki/VmTools/
 ---
 
 VM tools:

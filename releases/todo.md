@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Release checklist
-permalink: /doc/releases/todo/
+permalink: /en/doc/releases/todo/
+redirect_from: /doc/releases/todo/
 ---
 
 Release checklist

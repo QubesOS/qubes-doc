@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: WindowsAppVms
-permalink: /doc/WindowsAppVms/
-redirect_from: /wiki/WindowsAppVms/
+permalink: /en/doc/windows-app-vms/
+redirect_from:
+- /doc/WindowsAppVms/
+- /wiki/WindowsAppVms/
 ---
 
 Installing and using Windows-based AppVMs

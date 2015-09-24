@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: TestPage
-permalink: /doc/TestPage/
-redirect_from: /wiki/TestPage/
+permalink: /en/doc/test-page/
+redirect_from:
+- /doc/TestPage/
+- /wiki/TestPage/
 ---
 
 This is a test.

@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: AntiEvilMaid
-permalink: /doc/AntiEvilMaid/
-redirect_from: /wiki/AntiEvilMaid/
+permalink: /en/doc/anti-evil-maid/
+redirect_from:
+- /doc/AntiEvilMaid/
+- /wiki/AntiEvilMaid/
 ---
 
 Installing and Using Anti Evil Maid (AEM) with Qubes OS

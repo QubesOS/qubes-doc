@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: BackupRestore
-permalink: /doc/BackupRestore/
-redirect_from: /wiki/BackupRestore/
+permalink: /en/doc/backup-restore/
+redirect_from:
+- /doc/BackupRestore/
+- /wiki/BackupRestore/
 ---
 
 Qubes Backup, Restoration, and Migration

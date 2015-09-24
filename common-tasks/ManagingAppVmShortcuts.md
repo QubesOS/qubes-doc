@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: ManagingAppVmShortcuts
-permalink: /doc/ManagingAppVmShortcuts/
-redirect_from: /wiki/ManagingAppVmShortcuts/
+permalink: /en/doc/managing-app-vm-shortcuts/
+redirect_from:
+- /doc/ManagingAppVmShortcuts/
+- /wiki/ManagingAppVmShortcuts/
 ---
 
 Managing shortcuts to applications in AppVMs

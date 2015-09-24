@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: Archlinux template
-permalink: /doc/Templates/Archlinux/
-redirect_from: /wiki/Templates/Archlinux/
+permalink: /en/doc/templates/archlinux/
+redirect_from:
+- /doc/Templates/Archlinux/
+- /wiki/Templates/Archlinux/
 ---
 
 Archlinux template

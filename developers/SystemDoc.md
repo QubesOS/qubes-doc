@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: SystemDoc
-permalink: /doc/SystemDoc/
-redirect_from: /wiki/SystemDoc/
+permalink: /en/doc/system-doc/
+redirect_from:
+- /doc/SystemDoc/
+- /wiki/SystemDoc/
 ---
 
 System Documentation for Developers

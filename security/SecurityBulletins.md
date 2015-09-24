@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: SecurityBulletins
-permalink: /doc/SecurityBulletins/
+permalink: /en/doc/security-bulletins/
 redirect_from: 
+- /doc/SecurityBulletins/
 - /wiki/SecurityBulletins/
 - /trac/wiki/SecurityBulletins/
 ---

@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: TestTest
-permalink: /doc/TestTest/
-redirect_from: /wiki/TestTest/
+permalink: /en/doc/test-test/
+redirect_from:
+- /doc/TestTest/
+- /wiki/TestTest/
 ---
 
 This is a test page

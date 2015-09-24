@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: ResizeDiskImage
-permalink: /doc/ResizeDiskImage/
-redirect_from: /wiki/ResizeDiskImage/
+permalink: /en/doc/resize-disk-image/
+redirect_from:
+- /doc/ResizeDiskImage/
+- /wiki/ResizeDiskImage/
 ---
 
 Resizing Disk Image

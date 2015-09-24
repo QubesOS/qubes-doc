@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Installation Guide
-permalink: /doc/InstallationGuide/
+permalink: /en/doc/installation-guide/
 redirect_from:
+- /doc/InstallationGuide/
 - /wiki/InstallationGuide/
 - /doc/InstallationGuideR1/
 - /doc/InstallationGuideR2B1/

@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: VerifyingSignatures
-permalink: /doc/VerifyingSignatures/
-redirect_from: /wiki/VerifyingSignatures/
+permalink: /en/doc/verifying-signatures/
+redirect_from:
+- /doc/VerifyingSignatures/
+- /wiki/VerifyingSignatures/
 ---
 
 On Digital Signatures and Key Verification

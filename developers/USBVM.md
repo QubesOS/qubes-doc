@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: USBVM
-permalink: /doc/USBVM/
-redirect_from: /wiki/USBVM/
+permalink: /en/doc/u-s-b-v-m/
+redirect_from:
+- /doc/USBVM/
+- /wiki/USBVM/
 ---
 
 USB Pass through: USBVM

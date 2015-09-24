@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: TestBench
-permalink: /doc/TestBench/
-redirect_from: /wiki/TestBench/
+permalink: /en/doc/test-bench/
+redirect_from:
+- /doc/TestBench/
+- /wiki/TestBench/
 ---
 
 Test bench for Dom0

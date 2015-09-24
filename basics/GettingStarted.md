@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: GettingStarted
-permalink: /doc/GettingStarted/
-redirect_from: /wiki/GettingStarted/
+permalink: /en/doc/getting-started/
+redirect_from:
+- /doc/GettingStarted/
+- /wiki/GettingStarted/
 ---
 
 Getting Started with Qubes OS

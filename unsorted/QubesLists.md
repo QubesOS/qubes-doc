@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: QubesLists
-permalink: /doc/QubesLists/
-redirect_from: /wiki/QubesLists/
+permalink: /en/doc/qubes-lists/
+redirect_from:
+- /doc/QubesLists/
+- /wiki/QubesLists/
 ---
 
 Qubes Mailing Lists

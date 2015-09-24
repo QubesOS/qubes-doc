@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: Mutt
-permalink: /doc/Mutt/
-redirect_from: /wiki/Mutt/
+permalink: /en/doc/mutt/
+redirect_from:
+- /doc/Mutt/
+- /wiki/Mutt/
 ---
 
 Mutt

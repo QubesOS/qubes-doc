@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: UserFaq
-permalink: /doc/UserFaq/
-redirect_from: /wiki/UserFaq/
+permalink: /en/doc/user-faq/
+redirect_from:
+- /doc/UserFaq/
+- /wiki/UserFaq/
 ---
 
 Qubes Users' FAQ

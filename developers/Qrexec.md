@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: Qrexec
-permalink: /doc/Qrexec/
-redirect_from: /wiki/Qrexec/
+permalink: /en/doc/qrexec/
+redirect_from:
+- /doc/Qrexec/
+- /wiki/Qrexec/
 ---
 
 Command execution in VM (and Qubes RPC)

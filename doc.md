@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Documentation
-permalink: /doc/
+permalink: /en/doc/
 redirect_from:
+- /doc/
 - "/doc/UserDoc/"
 - "/wiki/UserDoc/"
 - "/doc/QubesDocs/"

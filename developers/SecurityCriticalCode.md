@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: SecurityCriticalCode
-permalink: /doc/SecurityCriticalCode/
+permalink: /en/doc/security-critical-code/
 redirect_from:
+- /doc/SecurityCriticalCode/
 - /wiki/SecurityCriticalCode/
 - /trac/wiki/SecurityCriticalCode/
 ---

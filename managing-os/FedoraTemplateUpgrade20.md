@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: FedoraTemplateUpgrade
-permalink: /doc/FedoraTemplateUpgrade20/
-redirect_from: /wiki/FedoraTemplateUpgrade20/
+permalink: /en/doc/fedora-template-upgrade20/
+redirect_from:
+- /doc/FedoraTemplateUpgrade20/
+- /wiki/FedoraTemplateUpgrade20/
 ---
 
 How to Upgrade Fedora Templates

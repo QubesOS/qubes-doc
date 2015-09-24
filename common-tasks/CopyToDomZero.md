@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: CopyToDomZero
-permalink: /doc/CopyToDomZero/
-redirect_from: /wiki/CopyToDomZero/
+permalink: /en/doc/copy-to-dom-zero/
+redirect_from:
+- /doc/CopyToDomZero/
+- /wiki/CopyToDomZero/
 ---
 
 Copying files to between VMs and Dom0

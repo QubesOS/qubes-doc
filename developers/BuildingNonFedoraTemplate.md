@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: BuildingNonFedoraTemplate
-permalink: /doc/BuildingNonFedoraTemplate/
-redirect_from: /wiki/BuildingNonFedoraTemplate/
+permalink: /en/doc/building-non-fedora-template/
+redirect_from:
+- /doc/BuildingNonFedoraTemplate/
+- /wiki/BuildingNonFedoraTemplate/
 ---
 
 Building a TemplateVM for ArchLinux (or another non fedora OS)

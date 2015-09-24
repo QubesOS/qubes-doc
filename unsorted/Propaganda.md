@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: Propaganda
-permalink: /doc/Propaganda/
-redirect_from: /wiki/Propaganda/
+permalink: /en/doc/propaganda/
+redirect_from:
+- /doc/Propaganda/
+- /wiki/Propaganda/
 ---
 
 Qubes Propaganda Page

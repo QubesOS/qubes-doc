@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: ContributorsList
-permalink: /doc/ContributorsList/
-redirect_from: /wiki/ContributorsList/
+permalink: /en/doc/contributors-list/
+redirect_from:
+- /doc/ContributorsList/
+- /wiki/ContributorsList/
 ---
 
 List of Qubes developers

@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: Ubuntu
-permalink: /doc/Templates/Ubuntu/
-redirect_from: /wiki/Templates/Ubuntu/
+permalink: /en/doc/templates/ubuntu/
+redirect_from:
+- /doc/Templates/Ubuntu/
+- /wiki/Templates/Ubuntu/
 ---
 
 Ubuntu template(s)

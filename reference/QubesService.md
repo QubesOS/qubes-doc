@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: QubesService
-permalink: /doc/QubesService/
-redirect_from: /wiki/QubesService/
+permalink: /en/doc/qubes-service/
+redirect_from:
+- /doc/QubesService/
+- /wiki/QubesService/
 ---
 
 Usage documentation is on [qvm-service manual page](/doc/Dom0Tools/QvmService/). There are also described predefined services.

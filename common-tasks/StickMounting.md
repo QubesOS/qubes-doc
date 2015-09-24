@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: StickMounting
-permalink: /doc/StickMounting/
-redirect_from: /wiki/StickMounting/
+permalink: /en/doc/stick-mounting/
+redirect_from:
+- /doc/StickMounting/
+- /wiki/StickMounting/
 ---
 
 How to Mount USB Sticks to AppVMs

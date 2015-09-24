@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: KdeDom0
-permalink: /doc/KdeDom0/
-redirect_from: /wiki/KdeDom0/
+permalink: /en/doc/kde-dom0/
+redirect_from:
+- /doc/KdeDom0/
+- /wiki/KdeDom0/
 ---
 
 Qubes-customized KDE packages for Dom0

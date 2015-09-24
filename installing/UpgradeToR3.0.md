@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: Upgrade to R3.0
-permalink: /doc/UpgradeToR3.0/
-redirect_from: /doc/UpgradeToR3.0rc1/
+permalink: /en/doc/upgrade-to-r3.0/
+redirect_from:
+- /doc/UpgradeToR3.0/
+- /doc/UpgradeToR3.0rc1/
 ---
 
 Upgrading Qubes R2 to R3.0

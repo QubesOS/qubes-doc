@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: DisposableVMs
-permalink: /doc/DisposableVms/
-redirect_from: /wiki/DisposableVMs/
+permalink: /en/doc/disposable-vms/
+redirect_from:
+- /doc/DisposableVms/
+- /wiki/DisposableVMs/
 ---
 
 Disposable VMs (DispVMs)

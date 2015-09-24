@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: SecurityPage
-permalink: /doc/SecurityPage/
+permalink: /en/doc/security-page/
 redirect_from: 
+- /doc/SecurityPage/
 - /wiki/SecurityPage/
 - /trac/wiki/SecurityPage/
 ---

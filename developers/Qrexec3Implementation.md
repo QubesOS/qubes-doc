@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: Qrexec3Implementation
-permalink: /doc/Qrexec3Implementation/
-redirect_from: /wiki/Qrexec3Implementation/
+permalink: /en/doc/qrexec3-implementation/
+redirect_from:
+- /doc/Qrexec3Implementation/
+- /wiki/Qrexec3Implementation/
 ---
 
 Implementation of qrexec in Qubes R3

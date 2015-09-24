@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: CopyPaste
-permalink: /doc/CopyPaste/
-redirect_from: /wiki/CopyPaste/
+permalink: /en/doc/copy-paste/
+redirect_from:
+- /doc/CopyPaste/
+- /wiki/CopyPaste/
 ---
 
 Copy and Paste between domains

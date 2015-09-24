@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Emergency Backup Recovery - format version 3
-permalink: /doc/BackupEmergencyRestoreV3/
+permalink: /en/doc/backup-emergency-restore-v3/
+redirect_from: /doc/BackupEmergencyRestoreV3/
 ---
 
 Emergency Backup Recovery without Qubes - format version 3

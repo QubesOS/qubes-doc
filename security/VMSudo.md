@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: VMSudo
-permalink: /doc/VMSudo/
-redirect_from: /wiki/VMSudo/
+permalink: /en/doc/v-m-sudo/
+redirect_from:
+- /doc/VMSudo/
+- /wiki/VMSudo/
 ---
 
 Password-less root access in VM

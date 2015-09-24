@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Introduction
-permalink: /intro/
+permalink: /en/intro/
 redirect_from:
+- /intro/
 - "/doc/SimpleIntro/"
 - "/wiki/SimpleIntro/"
 ---

@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: WindowsTools
-permalink: /doc/WindowsTools3/
+permalink: /en/doc/windows-tools3/
 redirect_from:
+- /doc/WindowsTools3/
 - /wiki/WindowsTools/
 - /doc/WindowsTools/
 ---

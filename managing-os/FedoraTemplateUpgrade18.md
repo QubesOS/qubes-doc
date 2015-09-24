@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: FedoraTemplateUpgrade
-permalink: /doc/FedoraTemplateUpgrade18/
-redirect_from: /wiki/FedoraTemplateUpgrade/
+permalink: /en/doc/fedora-template-upgrade18/
+redirect_from:
+- /doc/FedoraTemplateUpgrade18/
+- /wiki/FedoraTemplateUpgrade/
 ---
 
 Upgrade of Fedora template

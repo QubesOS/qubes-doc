@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: HvmCreate
-permalink: /doc/HvmCreate/
-redirect_from: /wiki/HvmCreate/
+permalink: /en/doc/hvm-create/
+redirect_from:
+- /doc/HvmCreate/
+- /wiki/HvmCreate/
 ---
 
 Creating and using HVM (fully virtualized) domains in Qubes 2

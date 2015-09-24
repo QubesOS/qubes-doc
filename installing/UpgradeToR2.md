@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: UpgradeToR2
-permalink: /doc/UpgradeToR2/
+permalink: /en/doc/upgrade-to-r2/
 redirect_from:
+- /doc/UpgradeToR2/
 - /doc/UpgradeToR2rc1/
 - /wiki/UpgradeToR2rc1/
 ---

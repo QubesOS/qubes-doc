@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: DevelFaq
-permalink: /doc/DevelFaq/
-redirect_from: /wiki/DevelFaq/
+permalink: /en/doc/devel-faq/
+redirect_from:
+- /doc/DevelFaq/
+- /wiki/DevelFaq/
 ---
 
 Qubes Developers FAQ

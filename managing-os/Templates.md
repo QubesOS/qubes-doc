@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: Templates
-permalink: /doc/Templates/
-redirect_from: /wiki/Templates/
+permalink: /en/doc/templates/
+redirect_from:
+- /doc/Templates/
+- /wiki/Templates/
 ---
 
 Templates

@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: QubesSecurity
-permalink: /doc/QubesSecurity/
-redirect_from: /wiki/QubesSecurity/
+permalink: /en/doc/qubes-security/
+redirect_from:
+- /doc/QubesSecurity/
+- /wiki/QubesSecurity/
 ---
 
 Qubes Security

@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Qubes R2.0 release notes
-permalink: /doc/releases/2.0/release-notes/
+permalink: /en/doc/releases/2.0/release-notes/
+redirect_from: /doc/releases/2.0/release-notes/
 ---
 
 Qubes R2.0 release notes

@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: SecurityPack
-permalink: /doc/SecurityPack/
-redirect_from: /wiki/SecurityPack/
+permalink: /en/doc/security-pack/
+redirect_from:
+- /doc/SecurityPack/
+- /wiki/SecurityPack/
 ---
 
 Qubes Security Pack

@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Automated tests
-permalink: /doc/AutomatedTests/
+permalink: /en/doc/automated-tests/
+redirect_from: /doc/AutomatedTests/
 ---
 
 Automatic tests

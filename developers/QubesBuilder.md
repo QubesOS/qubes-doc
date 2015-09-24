@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: QubesBuilder
-permalink: /doc/QubesBuilder/
-redirect_from: /wiki/QubesBuilder/
+permalink: /en/doc/qubes-builder/
+redirect_from:
+- /doc/QubesBuilder/
+- /wiki/QubesBuilder/
 ---
 
 Building Qubes from scratch

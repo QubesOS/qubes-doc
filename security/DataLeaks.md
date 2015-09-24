@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: DataLeaks
-permalink: /doc/DataLeaks/
-redirect_from: /wiki/DataLeaks/
+permalink: /en/doc/data-leaks/
+redirect_from:
+- /doc/DataLeaks/
+- /wiki/DataLeaks/
 ---
 
 Understanding and Preventing Data Leaks

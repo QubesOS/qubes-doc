@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: HCL
-permalink: /doc/HCL/
+permalink: /en/doc/h-c-l/
 redirect_from:
+- /doc/HCL/
 - /wiki/HCL/
 - /wiki/HCLR1/
 - /wiki/HCL-R2B2/
