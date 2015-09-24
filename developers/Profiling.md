@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: Profiling
-permalink: /doc/Profiling/
-redirect_from: /wiki/Profiling/
+permalink: /en/doc/profiling/
+redirect_from:
+- /doc/Profiling/
+- /wiki/Profiling/
 ---
 
 Profiling

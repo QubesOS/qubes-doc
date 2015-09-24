@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: WindowsTools2
-permalink: /doc/WindowsTools2/
-redirect_from: /wiki/WindowsTools2/
+permalink: /en/doc/windows-tools2/
+redirect_from:
+- /doc/WindowsTools2/
+- /wiki/WindowsTools2/
 ---
 
 Qubes Tools for Windows: advanced settings and troubleshooting
@@ -34,7 +36,7 @@ If the install process fails you can retry it using the command line below to ge
 Uninstalling
 ------------
 
-See [this page](/doc/UninstallingWindowsTools2/).
+See [this page](/en/doc/uninstalling-windows-tools2/).
 
 Configuration
 -------------

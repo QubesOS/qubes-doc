@@ -1,9 +1,11 @@
 ---
 layout: doc
 title: UpgradeToR2
-permalink: /doc/UpgradeToR2/
-redirect_from: /doc/UpgradeToR2rc1/
-redirect_from: /wiki/UpgradeToR2rc1/
+permalink: /en/doc/upgrade-to-r2/
+redirect_from:
+- /doc/UpgradeToR2/
+- /doc/UpgradeToR2rc1/
+- /wiki/UpgradeToR2rc1/
 ---
 
 Upgrading Qubes R2 Beta 3 to R2
@@ -11,7 +13,7 @@ Upgrading Qubes R2 Beta 3 to R2
 
 Current Qubes R2 Beta 3 (R2B3) systems can be upgraded in-place to the latest R2 (R2) release by following the procedure below.
 
-**Before attempting either an in-place upgrade or a clean installation, we strongly recommend that users back up the system by using the built-in [backup tool](/doc/BackupRestore/).**
+**Before attempting either an in-place upgrade or a clean installation, we strongly recommend that users back up the system by using the built-in [backup tool](/en/doc/backup-restore/).**
 
 Upgrade Template and Standalone VM(s)
 -------------------------------------
@@ -22,7 +24,7 @@ Upgrade Template and Standalone VM(s)
 
 While technically it is possible to use old Fedora 18 template on R2, it is strongly recommended to upgrade all the Template VMs and Standalone VMs, because Fedora 18 no longer receive security updates.
 
-By default, in Qubes R2, there is only one Template VM, however users are free to create more Template VMs for special purposes, as well as Standalone VMs. If more than one template and/or Standalone VMs are used, then it is recommended to upgrade/replace all of them. More information on using multiple Template VMs, as well as Standalone VMs, can be found [here](/doc/SoftwareUpdateVM/).
+By default, in Qubes R2, there is only one Template VM, however users are free to create more Template VMs for special purposes, as well as Standalone VMs. If more than one template and/or Standalone VMs are used, then it is recommended to upgrade/replace all of them. More information on using multiple Template VMs, as well as Standalone VMs, can be found [here](/en/doc/software-update-v-m/).
 
 Upgrading dom0
 --------------

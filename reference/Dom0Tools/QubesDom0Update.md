@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: QubesDom0Update
-permalink: /doc/Dom0Tools/QubesDom0Update/
-redirect_from: /wiki/Dom0Tools/QubesDom0Update/
+permalink: /en/doc/dom0-tools/qubes-dom0-update/
+redirect_from:
+- /doc/Dom0Tools/QubesDom0Update/
+- /wiki/Dom0Tools/QubesDom0Update/
 ---
 
 qubes-dom0-update

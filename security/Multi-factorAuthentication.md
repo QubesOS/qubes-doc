@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Multi-factorAuthentication
-permalink: /doc/Multi-factorAuthentication/
+permalink: /en/doc/multi-factor-authentication/
+redirect_from: /doc/Multi-factorAuthentication/
 ---
 
 Using Multi-factor Authentication with Qubes

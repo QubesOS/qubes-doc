@@ -1,14 +1,16 @@
 ---
 layout: doc
 title: QubesR3Building
-permalink: /doc/QubesR3Building/
-redirect_from: /wiki/QubesR3Building/
+permalink: /en/doc/qubes-r3-building/
+redirect_from:
+- /doc/QubesR3Building/
+- /wiki/QubesR3Building/
 ---
 
 Building Qubes OS 3.0 ISO
 =========================
 
-Ensure your system is rpm-based and that you have necessary dependencies installed (see [QubesBuilder](/doc/QubesBuilder/) for more info):
+Ensure your system is rpm-based and that you have necessary dependencies installed (see [QubesBuilder](/en/doc/qubes-builder/) for more info):
 
 ```
 sudo yum install git createrepo rpm-build make wget rpmdevtools pandoc

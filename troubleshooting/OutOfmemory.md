@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: OutOfmemory
-permalink: /doc/OutOfmemory/
-redirect_from: /wiki/OutOfmemory/
+permalink: /en/doc/out-ofmemory/
+redirect_from:
+- /doc/OutOfmemory/
+- /wiki/OutOfmemory/
 ---
 
 VMs specially templates use disk space. Also default private storage max size is 2 GB, but it is very easy to increase it as required. In case you use all disk space you get the Out of disk space error that may crash your system because also Dom0 does not have enough disk space to work.

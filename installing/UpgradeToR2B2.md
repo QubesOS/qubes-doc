@@ -1,14 +1,16 @@
 ---
 layout: doc
 title: UpgradeToR2B2
-permalink: /doc/UpgradeToR2B2/
-redirect_from: /wiki/UpgradeToR2B2/
+permalink: /en/doc/upgrade-to-r2-b2/
+redirect_from:
+- /doc/UpgradeToR2B2/
+- /wiki/UpgradeToR2B2/
 ---
 
 Upgrading Qubes R1 to R2 (beta2)
 ================================
 
-Existing users of Qubes R1 (but not R1 betas!) can upgrade their systems to the latest R2 beta release by following the procedure below. As usual, it is advisable to backup the system before proceeding with the upgrade. While it is possible to upgrade the system **it is strongly recommended to reinstall it**. You will preserve all your data and settings thanks to [backup and restore tools](/doc/BackupRestore/).
+Existing users of Qubes R1 (but not R1 betas!) can upgrade their systems to the latest R2 beta release by following the procedure below. As usual, it is advisable to backup the system before proceeding with the upgrade. While it is possible to upgrade the system **it is strongly recommended to reinstall it**. You will preserve all your data and settings thanks to [backup and restore tools](/en/doc/backup-restore/).
 
 Upgrade all Template and Standalone VM(s)
 -----------------------------------------

@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: DiskTRIM
-permalink: /doc/DiskTRIM/
-redirect_from: /wiki/DiskTRIM/
+permalink: /en/doc/disk-t-r-i-m/
+redirect_from:
+- /doc/DiskTRIM/
+- /wiki/DiskTRIM/
 ---
 
 VMs have already TRIM enabled by default, but dom0 doesn't. There are some security implications (read for example [this article](http://asalor.blogspot.com/2011/08/trim-dm-crypt-problems.html)), but IMO not very serious.

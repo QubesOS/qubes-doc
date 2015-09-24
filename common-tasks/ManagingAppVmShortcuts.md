@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: ManagingAppVmShortcuts
-permalink: /doc/ManagingAppVmShortcuts/
-redirect_from: /wiki/ManagingAppVmShortcuts/
+permalink: /en/doc/managing-app-vm-shortcuts/
+redirect_from:
+- /doc/ManagingAppVmShortcuts/
+- /wiki/ManagingAppVmShortcuts/
 ---
 
 Managing shortcuts to applications in AppVMs
@@ -29,6 +31,6 @@ List of installed applications for each AppVM is stored in its template's `/var/
 
 Actual command lines for the menu shortcuts involve `qvm-run` command which starts a process in another domain. Example: `qvm-run -q --tray -a w7s 'cmd.exe /c "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Accessories\\Calculator.lnk"'` or `qvm-run -q --tray -a untrusted 'firefox %u'`
 
-`qvm-sync-appmenus` works by invoking *GetAppMenus* [Qubes service](/doc/Qrexec/) in the target domain. This service enumerates installed applications and sends formatted info back to the dom0 script (`/usr/libexec/qubes-appmenus/qubes-receive-appmenus`) which creates .desktop files in the AppVM/TemplateVM directory.
+`qvm-sync-appmenus` works by invoking *GetAppMenus* [Qubes service](/en/doc/qrexec/) in the target domain. This service enumerates installed applications and sends formatted info back to the dom0 script (`/usr/libexec/qubes-appmenus/qubes-receive-appmenus`) which creates .desktop files in the AppVM/TemplateVM directory.
 
 For Linux VMs the service script is in `/etc/qubes-rpc/qubes.GetAppMenus`. In Windows it's a PowerShell script located in `c:\Program Files\Invisible Things Lab\Qubes OS Windows Tools\qubes-rpc-services\get-appmenus.ps1` by default.

@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: QvmService
-permalink: /doc/Dom0Tools/QvmService/
-redirect_from: /wiki/Dom0Tools/QvmService/
+permalink: /en/doc/dom0-tools/qvm-service/
+redirect_from:
+- /doc/Dom0Tools/QvmService/
+- /wiki/Dom0Tools/QvmService/
 ---
 
 qvm-service

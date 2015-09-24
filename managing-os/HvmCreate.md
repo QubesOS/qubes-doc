@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: HvmCreate
-permalink: /doc/HvmCreate/
-redirect_from: /wiki/HvmCreate/
+permalink: /en/doc/hvm-create/
+redirect_from:
+- /doc/HvmCreate/
+- /wiki/HvmCreate/
 ---
 
 Creating and using HVM (fully virtualized) domains in Qubes 2
@@ -193,12 +195,12 @@ In the near future we plan on introducing shared template also for HVM domains, 
 ~~Installing Qubes support tools in Windows 7 VMs~~ (only for R2 Beta 2)
 ------------------------------------------------------------------------
 
-Note: the R2 Beta 3 (which is coming soon) has automated most of the actions described below -- please see [this page instead](/doc/WindowsAppVms/).
+Note: the R2 Beta 3 (which is coming soon) has automated most of the actions described below -- please see [this page instead](/en/doc/windows-app-vms/).
 
 Qubes support tools for Windows VMs is a set of programs and drivers that provide integration of Windows VMs with the rest of the Qubes system. Currently the following features become available for Windows VMs after installation of those tools:
 
--   Support for [secure clipboard copy/paste](/doc/CopyPaste/) between the Windows VM and other AppVMs
--   Support for [secure file exchange](/doc/CopyingFiles/) between the Windows VM and other AppVMs
+-   Support for [secure clipboard copy/paste](/en/doc/copy-paste/) between the Windows VM and other AppVMs
+-   Support for [secure file exchange](/en/doc/copying-files/) between the Windows VM and other AppVMs
 -   Support for qvm-run and generic qrexec for the Windows VM (e.g. ability to run custom service within/from the Windows VM)
 -   Xen PV drivers for Windows that increase performance compared to qemu emulated devices
 
@@ -294,7 +296,7 @@ And the screenshot below illustrates the Send To entries in a Windows VM that ca
 Assigning PCI devices to HVM domains
 ------------------------------------
 
-HVM domains (including Windows VMs) can be [assigned PCI devices](/doc/AssigningDevices/) just like normal AppVMs. E.g. one can assign one of the USB controllers to the Windows VM and should be able to use various devices that require Windows software, such as phones, electronic devices that are configured via FTDI, etc.
+HVM domains (including Windows VMs) can be [assigned PCI devices](/en/doc/assigning-devices/) just like normal AppVMs. E.g. one can assign one of the USB controllers to the Windows VM and should be able to use various devices that require Windows software, such as phones, electronic devices that are configured via FTDI, etc.
 
 Once problem, however, at the moment, is that after the whole system gets suspend into S3 sleep, and subsequently resumed, such attached devices stop working and should be restarted within the VM. Under Windows this can be achieved by opening the Device Manager, selecting the actual device, such as a USB controller, and then first 'Disabling', and then 'Enabling' the device again. This is illustrated on the screenshot below:
 
@@ -305,5 +307,5 @@ Further reading
 
 Other documents related to HVM:
 
--   [LinuxHVMTips](/doc/LinuxHVMTips/)
+-   [LinuxHVMTips](/en/doc/linux-h-v-m-tips/)
 

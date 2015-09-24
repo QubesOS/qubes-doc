@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: QvmOpenInVm
-permalink: /doc/VmTools/QvmOpenInVm/
-redirect_from: /wiki/VmTools/QvmOpenInVm/
+permalink: /en/doc/vm-tools/qvm-open-in-vm/
+redirect_from:
+- /doc/VmTools/QvmOpenInVm/
+- /wiki/VmTools/QvmOpenInVm/
 ---
 
 qvm-open-in-vm

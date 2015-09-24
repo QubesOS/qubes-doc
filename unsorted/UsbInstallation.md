@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: UsbInstallation
-permalink: /doc/UsbInstallation/
-redirect_from: /wiki/UsbInstallation/
+permalink: /en/doc/usb-installation/
+redirect_from:
+- /doc/UsbInstallation/
+- /wiki/UsbInstallation/
 ---
 
 How to create a bootable USB stick from Qubes ISO

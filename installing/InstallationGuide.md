@@ -1,16 +1,18 @@
 ---
 layout: doc
 title: Installation Guide
-permalink: /doc/InstallationGuide/
-redirect_from: /wiki/InstallationGuide/
-redirect_from: /doc/InstallationGuideR1/
-redirect_from: /doc/InstallationGuideR2B1/
-redirect_from: /doc/InstallationGuideR2B2/
-redirect_from: /doc/InstallationGuideR2B3/
-redirect_from: /doc/InstallationGuideR2rc1/
-redirect_from: /doc/InstallationGuideR2rc2/
-redirect_from: /doc/InstallationGuideR3.0rc1/
-redirect_from: /doc/InstallationGuideR3.0rc2/
+permalink: /en/doc/installation-guide/
+redirect_from:
+- /doc/InstallationGuide/
+- /wiki/InstallationGuide/
+- /doc/InstallationGuideR1/
+- /doc/InstallationGuideR2B1/
+- /doc/InstallationGuideR2B2/
+- /doc/InstallationGuideR2B3/
+- /doc/InstallationGuideR2rc1/
+- /doc/InstallationGuideR2rc2/
+- /doc/InstallationGuideR3.0rc1/
+- /doc/InstallationGuideR3.0rc2/
 ---
 
 Installation Guide
@@ -33,7 +35,7 @@ Note: We don't recommend installing Qubes in a virtual machine! It will likely n
 Download installer ISO
 ----------------------
 
-See [this page](/doc/QubesDownloads/) for ISO downloads. Remember, we have absolutely no control over those servers, and so you should be assuming that they might be compromised, or just be serving a compromised ISOs because their operators decided so, for whatever reason. Always verify the digital signature on the downloaded ISO. See this [page](/doc/VerifyingSignatures/) for more info about how to download and verify our GPG keys, and then verify the downloaded ISO:
+See [this page](/doc/QubesDownloads/) for ISO downloads. Remember, we have absolutely no control over those servers, and so you should be assuming that they might be compromised, or just be serving a compromised ISOs because their operators decided so, for whatever reason. Always verify the digital signature on the downloaded ISO. See this [page](/en/doc/verifying-signatures/) for more info about how to download and verify our GPG keys, and then verify the downloaded ISO:
 
     gpg -v Qubes-R2-x86_64-DVD.iso.asc
 
@@ -70,9 +72,9 @@ See [release notes](/doc/releases/) of appropriate version.
 Getting Help
 ------------
 
--   **User manuals are [here](/doc/UserDoc/).** (Strongly recommended!)
+-   **User manuals are [here](/en/doc/).** (Strongly recommended!)
 
--   Developers documentation (normally not needed by users) is [here](/doc/SystemDoc/)
+-   Developers documentation (normally not needed by users) is [here](/en/doc/system-doc/)
 
 -   If you don't find answer in the sources given above, write to the *qubes-users* mailing list (you don't need to be subscribed to the list, just send email to the address given below):
     -   [https://groups.google.com/group/qubes-users](https://groups.google.com/group/qubes-users)

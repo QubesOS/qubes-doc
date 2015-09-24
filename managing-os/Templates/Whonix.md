@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: Whonix template
-permalink: /doc/Templates/Whonix/
-redirect_from: /wiki/Templates/Whonix/
+permalink: /en/doc/templates/whonix/
+redirect_from:
+- /doc/Templates/Whonix/
+- /wiki/Templates/Whonix/
 ---
 
 Whonix template(s)

@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: DispVMCustomization
-permalink: /doc/DispVMCustomization/
+permalink: /en/doc/disp-v-m-customization/
 redirect_from:
+- /doc/DispVMCustomization/
 - "/doc/UserDoc/DispVMCustomization/"
 - "/wiki/UserDoc/DispVMCustomization/"
 ---

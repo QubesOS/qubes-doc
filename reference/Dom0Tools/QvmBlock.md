@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: QvmBlock
-permalink: /doc/Dom0Tools/QvmBlock/
-redirect_from: /wiki/Dom0Tools/QvmBlock/
+permalink: /en/doc/dom0-tools/qvm-block/
+redirect_from:
+- /doc/Dom0Tools/QvmBlock/
+- /wiki/Dom0Tools/QvmBlock/
 ---
 
 qvm-block

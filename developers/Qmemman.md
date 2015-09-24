@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: Qmemman
-permalink: /doc/Qmemman/
-redirect_from: /wiki/Qmemman/
+permalink: /en/doc/qmemman/
+redirect_from:
+- /doc/Qmemman/
+- /wiki/Qmemman/
 ---
 
 qmemman, Qubes memory manager

@@ -1,14 +1,16 @@
 ---
 layout: doc
 title: QubesContacts
-permalink: /doc/QubesContacts/
-redirect_from: /wiki/QubesContacts/
+permalink: /en/doc/qubes-contacts/
+redirect_from:
+- /doc/QubesContacts/
+- /wiki/QubesContacts/
 ---
 
 Contacting the Qubes OS Team
 ============================
 
-**Note:** Please send all the questions regarding Qubes to the [mailing list](/doc/QubesLists/). This way, your questions, as well as answers to those questions, could be also shared with other users.
+**Note:** Please send all the questions regarding Qubes to the [mailing list](/en/doc/qubes-lists/). This way, your questions, as well as answers to those questions, could be also shared with other users.
 
 Press & business contact
 ------------------------

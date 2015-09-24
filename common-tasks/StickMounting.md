@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: StickMounting
-permalink: /doc/StickMounting/
-redirect_from: /wiki/StickMounting/
+permalink: /en/doc/stick-mounting/
+redirect_from:
+- /doc/StickMounting/
+- /wiki/StickMounting/
 ---
 
 How to Mount USB Sticks to AppVMs
@@ -10,7 +12,7 @@ How to Mount USB Sticks to AppVMs
 
 (**Note:** In the present context, the term "USB stick" denotes any [USB mass storage device](https://en.wikipedia.org/wiki/USB_mass_storage_device_class). In addition to smaller flash memory sticks, this includes things like USB external hard drives.)
 
-Qubes supports the ability to attach a USB stick (or just one or more of its partitions) to any AppVM easily, no matter which VM actually handles the USB controller. (The USB controller may be assigned on the **Devices** tab of an AppVM's settings page in Qubes VM Manager or by using the [qvm-pci command](/doc/AssigningDevices/).)
+Qubes supports the ability to attach a USB stick (or just one or more of its partitions) to any AppVM easily, no matter which VM actually handles the USB controller. (The USB controller may be assigned on the **Devices** tab of an AppVM's settings page in Qubes VM Manager or by using the [qvm-pci command](/en/doc/assigning-devices/).)
 
 As of Qubes R2 Beta 3, USB stick mounting has been integrated into the Qubes VM Manager GUI. Simply insert your USB stick, right-click the desired AppVM in the Qubes VM Manager list, click **Attach/detach block devices**, and select your desired action and device. This, however, only works for the whole device. 
 If you would like to attach individual partitions you must use the command-line tool (shown below). The reason for this is that when attaching a single partition, it used to be that Nautilus file manager would not see it and automatically mount it (see [this ticket](https://github.com/QubesOS/qubes-issues/issues/623)). This problem, however, seems to be resolved (see [this issue comment](https://github.com/QubesOS/qubes-issues/issues/1072#issuecomment-124270051)). 

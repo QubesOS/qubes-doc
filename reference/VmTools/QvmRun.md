@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: QvmRun
-permalink: /doc/VmTools/QvmRun/
-redirect_from: /wiki/VmTools/QvmRun/
+permalink: /en/doc/vm-tools/qvm-run/
+redirect_from:
+- /doc/VmTools/QvmRun/
+- /wiki/VmTools/QvmRun/
 ---
 
 qvm-run

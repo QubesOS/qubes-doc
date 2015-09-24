@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: SecurityGoals
-permalink: /doc/SecurityGoals/
-redirect_from: /wiki/SecurityGoals/
+permalink: /en/doc/security-goals/
+redirect_from:
+- /doc/SecurityGoals/
+- /wiki/SecurityGoals/
 ---
 
 Qubes Security Goals
