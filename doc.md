@@ -138,15 +138,14 @@ Reference Pages
 
 For Developers
 --------------
- *  [Developer Documentation](/doc/SystemDoc/)
+ *  [System Documentation](/doc/SystemDoc/)
  *  [Developers' FAQ](/doc/DevelFaq/)
- *  [How can I contribute to the Qubes project?](/doc/ContributingHowto/)
- *  [Bug Reporting Guide](/doc/BugReportingGuide/)
+ *  [How to Contribute to the Qubes OS Project](/doc/contributing/)
+ *  [Bug Reporting Guide](/doc/reporting-bugs/)
  *  [Source Code](/doc/SourceCode/)
  *  [Qubes OS Version Scheme](/doc/VersionScheme/)
  *  [Coding Guidelines](/doc/CodingStyle/)
  *  [Documentation Guidelines](/doc/doc-guidelines/)
  *  [Books for Developers](/doc/DevelBooks/)
  *  [Research Papers](/doc/QubesResearch/)
- *  [Architecture](/doc/QubesArchitecture/)
- *  [Licensing](/doc/QubesLicensing/)
+ *  [Licensing](/doc/license/)

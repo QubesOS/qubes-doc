@@ -1,8 +1,10 @@
 ---
 layout: doc
-title: QubesLicensing
-permalink: /doc/QubesLicensing/
-redirect_from: /wiki/QubesLicensing/
+title: License
+permalink: /doc/license/
+redirect_from:
+- "/doc/QubesLicensing/"
+- "/wiki/QubesLicensing/"
 ---
 
 Qubes OS License
