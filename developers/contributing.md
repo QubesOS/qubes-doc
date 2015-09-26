@@ -1,8 +1,10 @@
 ---
 layout: doc
-title: ContributingHowto
-permalink: /doc/ContributingHowto/
-redirect_from: /wiki/ContributingHowto/
+title: Contributing
+permalink: /doc/contributing/
+redirect_from:
+- "/doc/ContributingHowto/"
+- "/wiki/ContributingHowto/"
 ---
 
 How can I contribute to the Qubes Project?
