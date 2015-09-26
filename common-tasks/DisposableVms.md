@@ -38,9 +38,9 @@ Opening a file in a Disposable VM via command line (from AppVM)
 
 Use the `qvm-open-in-dvm` command line (from your AppVM), e.g.:
 
-```
+~~~
 [user@work-pub ~]$ qvm-open-in-dvm Downloads/apple-sandbox.pdf
-```
+~~~
 
 The qvm-open-in-dvm will not exit until you close the application in the Disposable VM.
 
@@ -49,9 +49,9 @@ Starting an arbitrary application in a disposable VM via command line (from Dom0
 
 **Note:** Normally there should be no need for doing this -- this is just for Qubes hackers ;)
 
-```
+~~~
 [joanna@dom0 ~]$ echo xterm | /usr/lib/qubes/qfile-daemon-dvm qubes.VMShell dom0 DEFAULT red
-```
+~~~
 
 In fact the Disposable VM appmenu used for starting Firefox contains a very similar command to the above. Please note, however, that it generally makes little sense to start any other application other than a Web Browser this way...
 
@@ -60,9 +60,9 @@ Starting an arbitrary program in a Disposable VM from an AppVM
 
 Sometimes it might be useful to start an arbitrary program, such as e.g. terminal in an Disposable VM from an AppVM. This could be simply done this way:
 
-```
+~~~
 [user@vault ~]$ qvm-run '$dispvm' xterm
-```
+~~~
 
 Note the above command is issued in an AppVM, not in Dom0. The created Disposable VM can be normally accessed via other tools, such as e.g. `qvm-copy-to-vm`, using its 'dispX' name, as shown by the Qubes Manager or `qvm-ls` tools. 
 

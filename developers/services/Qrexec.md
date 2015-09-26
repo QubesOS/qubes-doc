@@ -19,9 +19,9 @@ Typically, the first thing that a `qrexec-client` instance does is to send a req
 
 E.g., to start a primitive shell in a VM type the following in Dom0 console:
 
-```
+~~~
 [user@dom0 ~]$ /usr/lib/qubes/qrexec-client -d <vm name> user:bash
-```
+~~~
 
 The string before first semicolon specifies what user to run the command as.
 
@@ -65,9 +65,9 @@ In dom0, there is a bunch of files in `/etc/qubes-rpc/policy/` directory, whose 
 
 These files contain lines with the following format:
 
-```
+~~~
 srcvm destvm (allow|deny|ask)[,user=user_to_run_as][,target=VM_to_redirect_to]
-```
+~~~
 
 You can specify `srcvm` and `destvm` by name, or by one of `$anyvm`, `$dispvm`, `dom0` reserved keywords (note string `dom0` does not match the `$anyvm` pattern; all other names do). Only `$anyvm` keyword makes sense in the `srcvm` field (service calls from dom0 are currently always allowed, `$dispvm` means "new VM created for this particular request" - so it is never a source of request). Currently, there is no way to specify source VM by type, but this is planned for Qubes R3.
 
@@ -80,9 +80,9 @@ Requesting VM-VM (and VM-Dom0) services execution
 
 In a src VM, one should invoke the qrexec client via the following command:
 
-```
+~~~
 /usr/lib/qubes/qrexec-client-vm <target vm name> <service name> <local program path> [local program arguments]`
-```
+~~~
 
 Note that only stdin/stdout is passed between RPC server and client - notably, no cmdline argument are passed.
 
@@ -103,9 +103,9 @@ Qubes RPC policy supports an "ask" action, that will prompt the user whether a g
 
 In order to remove such authorization, issue this command from a Dom0 terminal (example below for qubes.Filecopy service):
 
-```
+~~~
 sudo nano /etc/qubes-rpc/policy/qubes.Filecopy
-```
+~~~
 
 and then remove any line(s) ending in "allow" (before the first \#\# comment) which are the "Yes to All" results.
 
@@ -117,37 +117,37 @@ We will show the necessary files to create a simple RPC call that adds two integ
 
 -   Client code on source VM (`/usr/bin/our_test_add_client`)
 
-```
+~~~
 #!/bin/sh
 echo $1 $2    # pass data to rpc server
 exec cat >&$SAVED_FD_1 # print result to the original stdout, not to the other rpc endpoint
-```
+~~~
 
 -   Server code on target VM (`/usr/bin/our_test_add_server`)
 
-```
+~~~
 #!/bin/sh
 read arg1 arg2 # read from stdin, which is received from the rpc client
 echo $(($arg1+$arg2)) # print to stdout - so, pass to the rpc client
-```
+~~~
 
 -   Policy file in dom0 (`/etc/qubes-rpc/policy/test.Add`)
 
-```
+~~~
 $anyvm $anyvm ask
-```
+~~~
 
 -   Server path definition on target VM (`/etc/qubes-rpc/test.Add`)
 
-```
+~~~
 /usr/bin/our_test_add_server
-```
+~~~
 
 -   To test this service, run the following in the source VM:
 
-```
+~~~
 /usr/lib/qubes/qrexec-client-vm <target VM> test.Add /usr/bin/our_test_add_client 1 2
-```
+~~~
 
 and we should get "3" as answer, provided dom0 policy allows the call to pass through, which would happen after we click "Yes" in the popup that should appear after the invocation of this command. If we changed the policy from "ask" to "allow", then no popup should be presented, and the call will always be allowed.
 

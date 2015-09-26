@@ -22,20 +22,20 @@ Qubes manager patch (Qubes R2B2)
 
 The following patches can be applied to the Qubes Manager GUI in order to add an option to easily bridge a VM. Use it at your own risk. If the patch breaks the Qubes Manager, you can try to restore the qubes packages:
 
-```
+~~~
 # qubes-dom-update qubes-core-dom0 qubes-manager
 # yum reinstall qubes-core-dom0
 # yum reinstall qubes-manager
-```
+~~~
 
 First, retrieve the attachment of this Wifi article in dom0. Then apply the three patches the following way after installing the patch tool :
 
-```
+~~~
 # qubes-dom0-update patch
 # patch /usr/lib64/python2.7/site-package/qubes/qubes.py < qubes.py-bridge.diff
 # patch /usr/lib64/python2.7/site-package/qubesmanager/settings.py < settings.py-bridge.diff
 # patch /usr/lib64/python2.7/site-package/qubesmanager/ui_settingsdlg.py < ui_settingsdlg.py-bridge.diff
-```
+~~~
 
 Finally restart the qubes manager GUI.
 
@@ -50,7 +50,7 @@ Modify manually the Template you use for your NetVM (not the NetVM itself). This
 
 -   Starting from the line -A POSTROUTING -j MASQUERADE that you need to comment :
 
-    ```
+    ~~~
     # Bridge support
     # Comment the following line
     #-A POSTROUTING -j MASQUERADE
@@ -59,26 +59,26 @@ Modify manually the Template you use for your NetVM (not the NetVM itself). This
     # Allow redirection of bridge packets (optional as POSTROUTING default is ACCEPT)
     #-A POSTROUTING -o bridge+ -j ACCEPT
     # End Bridge support
-    ```
+    ~~~
 
 -   Starting from the line -A FORWARD -i vif+ -j ACCEPT:
 
-    ```
+    ~~~
     -A FORWARD -i vif+ -o vif+ -j DROP
     -A FORWARD -i vif+ -j ACCEPT
     # Bridge Support
     -A FORWARD -i bridge+ -j ACCEPT
     # End Bridge Support
     -A FORWARD -j DROP
-    ```
+    ~~~
 
 Ensure that the IP addresses used by default in qubes are in the form 10.137.1.\* or 10.137.2.\* by running ifconfig. Of course, this setup won't work with IPv6.
 
 Now you need to restart the NetVM and FirewallVM or only iptables in both VMs if you prefer:
 
-```
+~~~
 # systemctl restart iptables
-```
+~~~
 
 Create a Bridge inside the NetVM
 --------------------------------
@@ -96,7 +96,7 @@ The bridge edition GUI is somehow buggy as it does not remember all the paramete
 
 -   Bridge-DHCP
 
-    ```
+    ~~~
     [connection]
     id=Bridge-DHCP
     uuid=fd68198b-313a-47cb-9155-52e95cdc67f3
@@ -113,13 +113,13 @@ The bridge edition GUI is somehow buggy as it does not remember all the paramete
     [bridge]
     interface-name=bridge0
     stp=false
-    ```
+    ~~~
 
 Note: Do not forget to put stp=false if you bridge only eth0 because sending BPDUs could make your admins angry :)
 
 -   bridge0-eth0
 
-    ```
+    ~~~
     [802-3-ethernet]
     duplex=full
     mac-address=88:AE:1D:AE:30:31
@@ -132,12 +132,12 @@ Note: Do not forget to put stp=false if you bridge only eth0 because sending BPD
     timestamp=1363601650
     master=fd68198b-313a-47cb-9155-52e95cdc67f3
     slave-type=bridge
-    ```
+    ~~~
 
 If you do not manager to start your bridge, you can start it manually from a NetVM terminal:
 
-```
+~~~
 $ nmcli con up id bridge0-eth0
-```
+~~~
 
 Now that the bridge is ready, the bridged AppVM can be started...

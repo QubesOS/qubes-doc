@@ -20,24 +20,24 @@ To achieve it (all commands run as root):
 
 1.  Generate XOrg configuratio (if you don't have it):
 
-    ```
+    ~~~
     X -configure :1 && mv ~/xorg.conf.new /etc/X11/xorg.conf
-    ```
+    ~~~
 
 2.  Add HorizSync line to Monitor section, it should look something like:
 
-    ```
+    ~~~
     Section "Monitor"
             Identifier   "Monitor0"
             VendorName   "Monitor Vendor"
             ModelName    "Monitor Model"
             HorizSync    30.0 - 60.0
     EndSection
-    ```
+    ~~~
 
 3.  Change driver to "vesa" in Device section:
 
-    ```
+    ~~~
     Section "Device"
             # (...)
             Identifier  "Card0"
@@ -46,7 +46,7 @@ To achieve it (all commands run as root):
             BoardName   "Unknown Board"
             BusID       "PCI:0:2:0"
     EndSection
-    ```
+    ~~~
 
 Now you should get at least 1280x1024 and be able to choose other modes.
 

@@ -46,7 +46,7 @@ Things get complicated if you need to perform kernel debugging or troubleshoot p
 -   Run the above shell script in dom0.
 -   If everything is fine you should see the proper kernel debugging output in WinDbg. However, if you see something like that:
 
-    ```
+    ~~~
     Opened \\.\com1
     Waiting to reconnect...
     Connected to Windows 7 7601 x64 target at (Wed Mar 19 20:35:43.262 2014 (UTC + 1:00)), ptr64 TRUE
@@ -66,7 +66,7 @@ Things get complicated if you need to perform kernel debugging or troubleshoot p
     **************************************************************************
     Unable to read debugger data block header
     **************************************************************************
-    ```
+    ~~~
 
     ...then you're most likely a victim of the CRLF issue mentioned above. To get around it I wrote a small utility that basically does what socat would do and additionally corrects those replaced bytes in the stream. It's not pretty but it works:
 
@@ -193,7 +193,7 @@ Things get complicated if you need to perform kernel debugging or troubleshoot p
 
 > With this everything should be good:
 >
-> ```
+> ~~~
 > Opened \\.\com1
 > Waiting to reconnect...
 > Connected to Windows 7 7601 x64 target at (Wed Mar 19 20:56:31.371 2014 (UTC + 1:00)), ptr64 TRUE
@@ -205,6 +205,6 @@ Things get complicated if you need to perform kernel debugging or troubleshoot p
 > Machine Name:
 > Kernel base = 0xfffff800`0261a000 PsLoadedModuleList = 0xfffff800`0285d6d0
 > System Uptime: not available
-> ```
+> ~~~
 
 Happy debugging!

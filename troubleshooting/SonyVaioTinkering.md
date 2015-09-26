@@ -30,7 +30,7 @@ On a side note, we should notice that allowing anybody to reflash the BIOS is re
 Getting the touchpad working during installation
 ------------------------------------------------
 
-In order to get the touchpad working during installation you should pass the **```i8042.nopnp=1```** option to the kernel before the installer starts.
+In order to get the touchpad working during installation you should pass the **~~~i8042.nopnp=1~~~** option to the kernel before the installer starts.
 
 \<screenshot\>
 
@@ -39,12 +39,12 @@ Applying other fixes
 
 There are a few more fixes needed for Sony Vaio Z, and we have prepared a special package that you can install in Dom0 that applies them all. After the installation is complete, open console in Dom0 and do the following:
 
-```
+~~~
 $ sudo bash
 # qvm-dom0-networking up
 # yum install qubes-core-dom0-vaio-fixes
 # reboot
-```
+~~~
 
 This script takes care about the following:
 

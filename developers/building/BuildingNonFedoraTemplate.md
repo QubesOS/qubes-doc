@@ -24,11 +24,11 @@ You need to install your OS inside a chroot that will be used to build all the r
 
 The scripts you will be interested in will be inside the qubes-src/linux-template-builder project:
 
-```
+~~~
 scripts_fedora
 scripts_archlinux
 scripts_yourOSname
-```
+~~~
 
 ### 00\_prepare.sh
 
@@ -42,19 +42,19 @@ The goal of this script is to install a base environment of your target OS insid
 
 Edit the builder.conf file to change the variable DISTS\_VM to your OS name (DISTS\_VM=your\_os\_name). The try to make the template to check that at least these to first scripts are working correctly:
 
-```
+~~~
 make linux-template-builder
-```
+~~~
 
 Qubes builder Makefiles
 -----------------------
 
 Now you need to create Makefiles specific to your OS. You will find the required scripts directly inside qubes-builder:
 
-```
+~~~
 prepare-chroot-yourOSname
 Makefile.yourOSname
-```
+~~~
 
 ### prepare-chroot-yourOSname
 
@@ -103,11 +103,11 @@ Additional Installation scripts
 
 Again you need to work on scripts inside the qubes-src/linux-template-builder project:
 
-```
+~~~
 scripts_fedora
 scripts_archlinux
 scripts_yourOSname
-```
+~~~
 
 ### 02\_install\_groups.sh
 

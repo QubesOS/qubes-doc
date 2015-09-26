@@ -22,15 +22,15 @@ Assuming your X Window System works fine now when you booted from the "failsafe"
 
 1.  Switch to runlevel 3 (this should kill your X server):
 
-```
+~~~
 init 3
-```
+~~~
 
 1.  Run X-autoconfiguration:
 
-```
+~~~
 Xorg -configure
-```
+~~~
 
 This should generate a file `xorg.conf.new` in the `/root` directory.
 
@@ -40,29 +40,29 @@ In most cases you can ignore any warning or error messages displayed by the X se
 
 -   Uncomment the ShadowFB option, so that you should now have something like this:
 
-    ```
+    ~~~
     Option     "ShadowFB"                   # [<bool>]
-    ```
+    ~~~
 
 -   Change the driver name to `nouveau` (you will probably have `nv` written there):
 
-    ```
+    ~~~
     Driver      "nouveau"
-    ```
+    ~~~
 
 Save the modification, exit the editor.
 
 1.  Move the file to `/etc/X11` and rename it as `xorg.conf`:
 
-```
+~~~
 mv /root/xorg.conf.new /etc/X11/xorg.conf
-```
+~~~
 
 1.  Verify that X will work with those new settings:
 
-```
+~~~
 xinit
-```
+~~~
 
 If you see a terminal window in the top left corner, it means you most likely succeeded, even if your keyboard or mouse do not work now (don't worry about them).
 

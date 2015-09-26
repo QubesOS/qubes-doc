@@ -33,7 +33,7 @@ Mutt generally works out of the box. This configuration guide discusses only Qub
 
 First, paste this to `/etc/Muttrc.local` in TemplateVM:
 
-```
+~~~
 # specify your key or override in ~/.mutt/muttrc in AppVM
 set pgp_sign_as="0xDEADBEEF"
 
@@ -105,11 +105,11 @@ send-hook "~A" set pgp_autoinline=no crypt_autoencrypt=no
 send-hook "~t @invisiblethingslab\.com" set crypt_autoencrypt=yes
 
 # vim:ft=muttrc
-```
+~~~
 
 Then shutdown your TemplateVM. Next open your AppVM, create file `/home/user/.mutt/muttrc` and adjust for your needs:
 
-```
+~~~
 #
 # accounts
 #
@@ -134,14 +134,14 @@ subscribe (qubes-(users|devel)|othergroup)@googlegroups\.com
 fcc-save-hook qubes-users@googlegroups\.com =list/qubes-users/
 fcc-save-hook qubes-devel@googlegroups\.com =list/qubes-devel/
 fcc-save-hook othergroup@googlegroups\.com =list/othergroup/
-```
+~~~
 
 You may also create `/home/user/.signature`:
 
-```
+~~~
 regards,
 Wojciech Porczyk
-```
+~~~
 
 Some additional useful settings
 -------------------------------

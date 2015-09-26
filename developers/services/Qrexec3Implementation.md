@@ -66,21 +66,21 @@ Qrexec protocol details
 
 Qrexec protocol is message-based. All messages share a common header followed by an optional data packet.
 
-```
+~~~
 /* uniform for all peers, data type depends on message type */
 struct msg_header {
    uint32_t type;           /* message type */
    uint32_t len;            /* data length */
 };
-```
+~~~
 
 When two peers establish connection, the server sends `MSG_HELLO` followed by `peer_info` struct:
 
-```
+~~~
 struct peer_info {
    uint32_t version; /* qrexec protocol version */
 };
-```
+~~~
 
 The client then should reply with its own `MSG_HELLO` and `peer_info`. If protocol versions don't match, the connection is closed. TODO: fallback for backwards compatibility, don't do handshake in the same domain?.
 
@@ -101,14 +101,14 @@ Details of all possible use cases and the messages involved are described below.
 -   **dom0**: `qrexec-client` replies with `MSG_HELLO` header followed by `peer_info` to `qrexec-daemon`.
 -   **dom0**: `qrexec-client` sends `MSG_EXEC_CMDLINE` header followed by `exec_params` to `qrexec-daemon`
 
-    ```
+    ~~~
      /* variable size */
      struct exec_params {
         uint32_t connect_domain; /* target domain id */
         uint32_t connect_port;   /* target vchan port for i/o exchange */
         char cmdline[0];         /* command line to execute, size = msg_header.len - sizeof(struct exec_params) */
      };
-    ```
+    ~~~
 
     In this case, `connect_domain` and `connect_port` are set to 0.
 
@@ -133,7 +133,7 @@ Details of all possible use cases and the messages involved are described below.
 -   **domY**: `qrexec-client-vm` connects to `qrexec-agent` (via local socket/named pipe).
 -   **domY**: `qrexec-client-vm` sends `trigger_service_params` data to `qrexec-agent` (without filling the `request_id` field):
 
-    ```
+    ~~~
      struct trigger_service_params {
         char service_name[64];
         char target_domain[32];
@@ -143,7 +143,7 @@ Details of all possible use cases and the messages involved are described below.
      struct service_params {
         char ident[32];
     };
-    ```
+    ~~~
 
 -   **domY**: `qrexec-agent` allocates a locally-unique (for this domain) `request_id` (let's say `13`) and fills it in the `trigger_service_params` struct received from `qrexec-client-vm`.
 -   **domY**: `qrexec-agent` sends `MSG_TRIGGER_SERVICE` header followed by `trigger_service_params` to `qrexec-daemon` in **dom0** via vchan.
@@ -159,14 +159,14 @@ Details of all possible use cases and the messages involved are described below.
 -   **dom0**: `qrexec-client` replies with `MSG_HELLO` header followed by `peer_info` to **domX**'s`qrexec-daemon`.
 -   **dom0**: `qrexec-client` sends `MSG_EXEC_CMDLINE` header followed by `exec_params` to **domX**'s`qrexec-daemon`
 
-    ```
+    ~~~
      /* variable size */
      struct exec_params {
         uint32_t connect_domain; /* target domain id */
         uint32_t connect_port;   /* target vchan port for i/o exchange */
         char cmdline[0];         /* command line to execute, size = msg_header.len - sizeof(struct exec_params) */
      };
-    ```
+    ~~~
 
     In this case, `connect_domain` is set to id of **domY** (from the `-c` parameter) and `connect_port` is set to 0. `cmdline` field contains the RPC to execute, in this case `user:QUBESRPC qubes.SomeRpc domY`.
 

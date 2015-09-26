@@ -21,9 +21,9 @@ Qubes Security Team
 
 The Qubes Security Team can be contacted via email using the following address:
 
-```
+~~~
 security at qubes-os dot org
-```
+~~~
 
 Qubes Security Team GPG Key
 ---------------------------

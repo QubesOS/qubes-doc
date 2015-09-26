@@ -15,17 +15,17 @@ For the purpose of this document, `qubes-dev` is name of the domain used for pos
 Requirements
 ------------
 
-```
+~~~
 yum install gprof2dot graphviz
 git clone http://git.woju.eu/qubes/profiling.git
-```
+~~~
 
 If you profile something on dom0, move `Upload.sh` from repository to dom0:
 
-```
+~~~
 mkdir -p ~/profiling
 qvm-run -p qubes-dev 'cat ~/profiling/Upload.sh' > ~/profiling/Upload.sh
-```
+~~~
 
 -   WARNING: this will obviously be running third party code which is not signed by ITL nor Fedora. You have been warned.
 
@@ -62,28 +62,28 @@ Remember to revert your changes to application afterwards.
 
 If you are in dom0:
 
-```
+~~~
 cd ~/profiling
 ./Upload.sh
-```
+~~~
 
 ### Analyse
 
-```
+~~~
 make
-```
+~~~
 
 For every `${basename}.pstats` this will produce `${basename}.txt` and `${basename}.svg`. SVG contains call graph. Text file contains list of all functions sorted by cumulative execution time. You may also try `make all-png`.
 
-```
+~~~
 make index.html
-```
+~~~
 
 This creates `index.html` with all SVG graphics linked to TXT files. Ready for upload.
 
-```
+~~~
 make REMOTE=example.com:public_html/qubes/profiling/ upload
-```
+~~~
 
 Example
 -------

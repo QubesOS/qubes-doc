@@ -13,9 +13,9 @@ The Qubes kde-dom0 project (see [Source Code](/doc/SourceCode/)) contains the so
 Getting the sources
 -------------------
 
-```
+~~~
 git clone git://qubes-os.org/mainstream/kde-dom0.git kde-dom0
-```
+~~~
 
 Building the packages
 ---------------------
@@ -24,27 +24,27 @@ It's best to use Fedora 12 or 13 as a development system.
 
 First, you should download and verify the original KDE sources (not part of the kde-dom0 repository):
 
-```
+~~~
 make get-sources verify-sources
-```
+~~~
 
 Now, check if you have all the required build dependencies:
 
-```
+~~~
 make prep
-```
+~~~
 
 Install any required packages that `make` might have complained about. Then you're ready to build the rpms (you might want to adjust the release of each rpm package by editing the `rel` variable at the beginning of each `.spec` file):
 
-```
+~~~
 make rpms
-```
+~~~
 
 **Note:** The `kdebase-*` packages build process requires corresponding `kdelibs-devel` package to be installed first. If your build system is based on Fedora 12/13, and if the `kdelibs-devel` package exist in Fedora repo that is based the same KDE software version (e.g. 4.4.3) as the KDE packages you're building (see the `version` file), than you should be able to use the Fedora package:
 
-```
+~~~
 yum install kdelibs-devel-{version}
-```
+~~~
 
 If not, then you should build your `kdelibs-devel` first (`cd kdelibs-devel && make rpms`), then install it on your build system, and then you can build all the rest (`make rpms`).
 

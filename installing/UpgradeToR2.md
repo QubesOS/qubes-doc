@@ -33,9 +33,9 @@ Note that dom0 in R2 is based on Fedora 20, in contrast to Fedora 18 in previous
 
 1.  Install all the updates for Dom0:
 
-    ```
+    ~~~
     sudo qubes-dom0-update
-    ```
+    ~~~
 
 After this step you should have `qubes-release-2-5` in your Dom0. Important: if you happen to have `qubes-release-2-6*` then you should downgrade to `qubes-release-2-5`! The `qubes-release-2-6*` packages have been uploaded to the testing repos and were kept there for a few hours, until we realized they bring incorrect repo definitions and so we removed them and also have changed the update procedure a bit (simplifying it).
 
@@ -43,18 +43,18 @@ After this step you should have `qubes-release-2-5` in your Dom0. Important: if 
 
 Note: be sure that the VM used as a update-downloading-vm (by default its the firewallvm based on the default template) has been updated to the latest qubes packages, specifically `qubes-core-vm-2.1.33` or later. This doesn't imply that the VM must already be upgraded to fc20 -- for Dom0 upgrade we could still use an fc18-based VM (updatevm) it is only important to install the latest Qubes packages there.
 
-```
+~~~
 sudo qubes-dom0-update qubes-dom0-dist-upgrade
 sudo qubes-dom0-update
-```
+~~~
 
 1.  If above step completed successfully you should have `qubes-release-2-9` or later. If not, repeat above step with additional `--clean` option.
 
 4a. If you chose not to upgrade your fc18 templates, but instead to download our new fc20-based template you should now be able to do that by simply typing:
 
-```
+~~~
 sudo qubes-dom0-update qubes-template-fedora-20-x64
-```
+~~~
 
 1.  Reboot the system.
 

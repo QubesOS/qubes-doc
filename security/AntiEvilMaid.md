@@ -18,9 +18,9 @@ Installing
 
 In Dom0 install anti-evil-maid:
 
-```
+~~~
 sudo qubes-dom0-update anti-evil-maid
-```
+~~~
 
 More information regarding configuration in the [README](https://github.com/QubesOS/qubes-antievilmaid/blob/master/README) file.
 

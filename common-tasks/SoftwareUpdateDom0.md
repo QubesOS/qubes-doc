@@ -35,15 +35,15 @@ Of course, command line tools are still available for accomplishing various upda
 
 1.  To check and install updates for dom0 software:
 
-    ```
+    ~~~
     $ sudo qubes-dom0-update
-    ```
+    ~~~
 
 1.  To install additional packages in dom0 (usually not recommended):
 
-    ```
+    ~~~
     $ sudo qubes-dom0-update anti-evil-maid
-    ```
+    ~~~
 
     You may also pass the `--enablerepo=` option in order to enable optional repositories (see yum configuration in dom0). However, this is only for advanced users who really understand what they are doing.
 
@@ -51,30 +51,30 @@ Of course, command line tools are still available for accomplishing various upda
 
 1.  Download an older version of the package:
 
-    ```
+    ~~~
     sudo qubes-dom0-update package-version
-    ```
+    ~~~
 
     Yum will say that there is no update, but the package will nonetheless be downloaded to dom0.
 
 1.  Downgrade the packge:
 
-    ```
+    ~~~
     sudo yum downgrade package-version
-    ```
+    ~~~
 
 ### Kernel Upgrade ###
 
 Install newer kernel. The following example installs kernel 3.19 and was tested on Qubes R3 RC1.
 
-    ```
+    ~~~
     sudo qubes-dom0-update kernel-3.19*
-    ```
+    ~~~
 
 Rebuild grub config.
 
-    ```
+    ~~~
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-    ```
+    ~~~
 
 Reboot required.

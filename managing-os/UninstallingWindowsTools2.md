@@ -61,7 +61,7 @@ The uninstall script
 
 Save it as a .BAT file in the HVM and run in Safe Mode.
 
-```
+~~~
 @echo off
 
 :: This batch file uninstalls Qubes Tools for Windows version 2.x
@@ -120,4 +120,4 @@ FOR /F "delims=. tokens=1" %%I IN ('DIR /B "%SYSTEMROOT%\INF\OEM*.INF"') DO (
 
 echo.
 echo Cleanup finished. Please manually uninstall Qubes Video and Xen devices from the Device Manager.
-```
+~~~

@@ -16,14 +16,14 @@ template between reboots didn't exceed 10G).
 
 Replace the size and the path (name) of the template as wished and run your
 modified command:
-```
+~~~
 truncate -s 20G /var/lib/qubes/vm-templates/fedora-21/root.img
-```
+~~~
 
 Then start your template or standalone VM and run:
-```
+~~~
 sudo resize2fs /dev/mapper/dmroot
-```
+~~~
 
 after that shutdown the template.
 

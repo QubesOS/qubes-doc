@@ -115,7 +115,7 @@ compiled version to the right directory in the RPM file. I.e. adding `example.py
 ### Editing \_\_init\_\_.py
 Add at the bottom of the file in the method `def load_tests` to the variable
 `modname` your test. I.e adding `example.py`.
-```python
+~~~python
     for modname in (
             'qubes.tests.basic',
             'qubes.tests.dom0_update',
@@ -126,4 +126,4 @@ Add at the bottom of the file in the method `def load_tests` to the variable
             'qubes.tests.regressions',
             'qubes.tests.example', # This is our newly added test
             ):
-```
+~~~
