@@ -218,8 +218,8 @@ This is an intended feature. A device which was previously assigned to a less tr
 or
 
 1.  Go to the sysfs (`/sys/bus/pci`), find the right device, detach it from the pciback driver and attach back to the original driver. Replace `<BDF>` with your device, for example `00:1c.2`:
-
-    echo 0000:<BDF> > /sys/bus/pci/drivers/pciback/unbind
-    MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
-    MOD=`modprobe -R $MODALIAS | head -n 1`
-    echo <BDF> > /sys/bus/pci/drivers/$MOD/bind 
+        
+        echo 0000:<BDF> > /sys/bus/pci/drivers/pciback/unbind
+        MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
+        MOD=`modprobe -R $MODALIAS | head -n 1`
+        echo <BDF> > /sys/bus/pci/drivers/$MOD/bind 
