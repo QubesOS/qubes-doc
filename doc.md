@@ -17,6 +17,7 @@ The Basics
  *  [A Simple Introduction to Qubes](/intro/)
  *  [Getting Started](/doc/GettingStarted/)
  *  [Users' FAQ](/doc/UserFaq/)
+ *  [Mailing Lists](/doc/QubesLists/)
  *  [Further reading: How is Qubes different from...?](http://blog.invisiblethings.org/2012/09/12/how-is-qubes-os-different-from.html)
  *  [Further reading: Why Qubes is more than a collection of VMs](http://www.invisiblethingslab.com/resources/2014/Software_compartmentalization_vs_physical_separation.pdf)
 
@@ -93,6 +94,9 @@ Configuration Guides
  *  [Resizing AppVM and HVM Disk Images](/doc/ResizeDiskImage/)
  *  [Extending `root.img` Size](/doc/ResizeRootDiskImage/)
  *  [Installing ZFS in Qubes](/doc/ZFS/)
+ *  [Mutt Guide](/doc/Mutt/)
+ *  [Postfix Guide](/doc/Postfix/)
+ *  [Fetchmail Guide](/doc/Fetchmail/)
  *  [Creating Custom NetVMs and ProxyVMs](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html)
  *  [How to make proxy for individual tcp connection from networkless VM](https://groups.google.com/group/qubes-devel/msg/4ca950ab6d7cd11a)
  *  [HTTP filtering proxy in Qubes firewall VM](https://groups.google.com/group/qubes-devel/browse_thread/thread/5252bc3f6ed4b43e/d881deb5afaa2a6c#39c95d63fccca12b)
@@ -102,6 +106,7 @@ Configuration Guides
  *  [Configuring a Network Printer](/doc/NetworkPrinter/)
  *  [Using External Audio Devices](/doc/ExternalAudio/)
  *  [Booting with GRUB2 and GPT](https://groups.google.com/group/qubes-devel/browse_thread/thread/e4ac093cabd37d2b/d5090c20d92c4128#d5090c20d92c4128)
+ *  [Rxvt Guide](/doc/Rxvt/)
 
 
 Customization Guides
@@ -136,7 +141,9 @@ For Developers
  *  [Developer Documentation](/doc/SystemDoc/)
  *  [Developers' FAQ](/doc/DevelFaq/)
  *  [How can I contribute to the Qubes project?](/doc/ContributingHowto/)
+ *  [Bug Reporting Guide](/doc/BugReportingGuide/)
  *  [Source Code](/doc/SourceCode/)
+ *  [Qubes OS Version Scheme](/doc/VersionScheme/)
  *  [Coding Guidelines](/doc/CodingStyle/)
  *  [Documentation Guidelines](/doc/doc-guidelines/)
  *  [Books for Developers](/doc/DevelBooks/)

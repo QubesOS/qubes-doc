@@ -9,7 +9,9 @@ System Documentation for Developers
 ===================================
 
 1.  Fundamentals:
-    1.  Qubes OS Architecture v0.3 [(pdf)](http://files.qubes-os.org/files/doc/arch-spec-0.3.pdf) (The original 2009 document that started this all...)
+    1.  Qubes OS Architecture
+        1. [Overview](/doc/QubesArchitecture/)
+        2. [Architecture Spec v0.3 [PDF]](http://files.qubes-os.org/files/doc/arch-spec-0.3.pdf) (The original 2009 document that started this all...)
     2.  [Security-critical elements of Qubes OS](/doc/SecurityCriticalCode/)
     3.  Qubes RPC framework (qrexec):
         1.  [The Qubes RPC/Service API](/doc/Qrexec/)
