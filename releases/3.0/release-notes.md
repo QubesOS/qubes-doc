@@ -7,11 +7,12 @@ permalink: /doc/releases/3.0/release-notes/
 Qubes R3.0 release notes
 ========================
 
-*this page is a draft for yet unreleased version*
+This Qubes OS release is dedicated to the memory of Caspar Bowden.
 
 New features since 2.0
 ----------------------
 
+* HAL (Hypervisor Abstraction Layer)
 * Xen 4.4
 * Qrexec 3
 * Debian templates
@@ -46,9 +47,9 @@ See [Installation Guide](/doc/InstallationGuide/).
 Upgrading
 ---------
 
-### From from R3.0rc1
+### From from R3.0 release candidate
 
-If you are using Qubes R3.0rc1, just install system updates, there is no special steps required.
+If you are using Qubes R3.0rc1, R3.0rc2 or R3.0rc3, just install system updates, there is no special steps required.
 
 ### From R2.0 or earlier
 
