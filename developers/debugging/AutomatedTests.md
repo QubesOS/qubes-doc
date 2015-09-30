@@ -7,7 +7,7 @@ permalink: /doc/AutomatedTests/
 Automatic tests
 ===============
 
-Starting with Qubes R3 we use [python unittest](TODO) to perform automatic
+Starting with Qubes R3 we use [python unittest][unittest] to perform automatic
 tests of Qubes OS. Regardless of the name, we use it for both [unit
 tests](https://en.wikipedia.org/wiki/Unit_tests) and [integration
 tests](https://en.wikipedia.org/wiki/Integration_tests). The main purpose is of
@@ -95,6 +95,9 @@ For example to run only tests for fedora-21 template, you can use `-l` option, t
     vm_qrexec_gui/TC_20_DispVM_fedora-21/test_030_edit_file
     [user@dom0 ~]$ python -m qubes.tests.run -v `python -m qubes.tests.run -l | grep fedora-21`
 
+Example test run:
+
+![snapshot-tests2.png](/attachment/wiki/developers/snapshot-tests2.png)
 
 ## Adding a new test to core-admin
 After you added a new unit test to [core-admin/tests](https://github.com/QubesOS/qubes-core-admin/tree/master/tests) 
@@ -127,3 +130,5 @@ Add at the bottom of the file in the method `def load_tests` to the variable
             'qubes.tests.example', # This is our newly added test
             ):
 ```
+
+[unittest]: https://docs.python.org/2/library/unittest.html
