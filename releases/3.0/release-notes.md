@@ -23,7 +23,7 @@ New features since 2.0
 * Build system improvements - especially support for distribution-specific
   plugins (makes supporting multiple distributions much easier) and building
   templates using DispVM.
-* Automated tests - much more test cases
+* Automated tests - makes much easier to find bugs, before its even shipped to users
 
 Known issues
 ------------
@@ -53,7 +53,7 @@ See [Installation Guide](/doc/InstallationGuide/).
 Upgrading
 ---------
 
-### From from R3.0 release candidate
+### From R3.0 release candidate
 
 If you are using Qubes R3.0rc1, R3.0rc2 or R3.0rc3, just install system updates, there is no special steps required.
 
