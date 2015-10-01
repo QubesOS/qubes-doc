@@ -7,16 +7,23 @@ permalink: /doc/releases/3.0/release-notes/
 Qubes R3.0 release notes
 ========================
 
-*this page is a draft for yet unreleased version*
+This Qubes OS release is dedicated to the memory of Caspar Bowden.
 
 New features since 2.0
 ----------------------
 
-* Xen 4.4
-* Qrexec 3
-* Debian templates
+* HAL (Hypervisor Abstraction Layer) - based on libvirt, opens a whole new
+  possibilities of using different hypervisors. Currently Qubes OS uses Xen.
+* Xen 4.4 - many new features, but for us the most important is much more
+  mature libxl toolstack.
+* Qrexec 3 - greatly improved performance by using direct VM-VM connections and
+  bigger buffers.
+* Debian templates gets official support.
 * Whonix templates
-* Build system improvements
+* Build system improvements - especially support for distribution-specific
+  plugins (makes supporting multiple distributions much easier) and building
+  templates using DispVM.
+* Automated tests - makes much easier to find bugs, before its even shipped to users
 
 Known issues
 ------------
@@ -46,9 +53,9 @@ See [Installation Guide](/doc/InstallationGuide/).
 Upgrading
 ---------
 
-### From from R3.0rc1
+### From R3.0 release candidate
 
-If you are using Qubes R3.0rc1, just install system updates, there is no special steps required.
+If you are using Qubes R3.0rc1, R3.0rc2 or R3.0rc3, just install system updates, there is no special steps required.
 
 ### From R2.0 or earlier
 
