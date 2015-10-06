@@ -64,7 +64,7 @@ The next RC is released five weeks after the former. All packets are published
 in `current` repository and the cycle starts over. There should be no less than
 1 and no more than 3 release candidates before final release.
 
-<table>
+<table border>
     <thead>
         <tr><th>stage</th><th>time</th></tr>
     </thead>
@@ -80,6 +80,8 @@ Starting with second cycle (that is, after `-rc1`) two weeks into the cycle
 should be another RC. If, based on remaining issues, the Committee decides to
 release final, then the Committee agrees upon the release date, which should be
 no later than a week after.
+
+!["Release cycle"](/attachment/wiki/VersionScheme/release-cycle.svg)
 
 Bug priorities
 --------------

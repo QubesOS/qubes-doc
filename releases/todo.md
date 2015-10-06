@@ -30,6 +30,7 @@ On final release
 ----------------
 * push packages to `current`
 * finish release notes
+* update InstallationInstructions
 * build ISO and push to mirrors
 * write blog post
 * announce on Twitter
