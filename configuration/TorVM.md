@@ -104,6 +104,10 @@ Installation
 
         [user@torvm] $ sudo service qubes-tor restart
 
+4. The private data directory may need to be created manually:
+
+        [user@torvm] $ sudo mkdir /rw/usrlocal/lib/qubes-tor
+
 Usage
 =====
 
