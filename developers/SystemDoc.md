@@ -11,7 +11,7 @@ System Documentation for Developers
 Fundamentals
 ------------
  * [Qubes OS Architecture Overview](/doc/QubesArchitecture/)
- * [Qubes OS Architecture Spec v0.3 [PDF]](http://files.qubes-os.org/files/doc/arch-spec-0.3.pdf) (The original 2009 document that started this all...)
+ * [Qubes OS Architecture Spec v0.3 [PDF]](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf) (The original 2009 document that started this all...)
  * [Security-critical elements of Qubes OS](/doc/SecurityCriticalCode/)
  * Qubes RPC: [`qrexec` v2](/doc/Qrexec/) ([R2 implementation](/doc/Qrexec2Implementation/))
  * Qubes RPC: [`qrexec` v3](/doc/Qrexec3/) ([R3 implementation](/doc/Qrexec3Implementation/)) (Odyssey)
