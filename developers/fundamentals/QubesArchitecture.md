@@ -29,3 +29,4 @@ Key Architecture features
 -   Qubes GUI provides isolation between apps sharing the same desktop
 -   Secure system boot based (optional)
 
+[Architecture Spec v0.3 [PDF]](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf) (The original 2009 document that started this all...)
