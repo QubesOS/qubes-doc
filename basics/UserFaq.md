@@ -63,7 +63,7 @@ The other two popular [approaches](http://theinvisiblethings.blogspot.com/2008/0
 
 ### What about safe languages and formally verified microkernels?
 
-In short: these are non-realistic solutions today. We discuss this in further depth in our [Architecture Specification document](http://files.qubes-os.org/files/doc/arch-spec-0.3.pdf).
+In short: these are non-realistic solutions today. We discuss this in further depth in our [Architecture Specification document](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf).
 
 ### Why does Qubes use virtualization?
 
@@ -75,7 +75,7 @@ No! This would not make much sense. Qubes uses lightweight VMs to create securit
 
 ### Why does Qubes use Xen instead of KVM or some other hypervisor?
 
-In short: we believe the Xen architecture allows for the creation of more secure systems (i.e. with a much smaller TCB, which translates to a smaller attack surface). We discuss this in much greater depth in our [Architecture Specification document](http://files.qubes-os.org/files/doc/arch-spec-0.3.pdf).
+In short: we believe the Xen architecture allows for the creation of more secure systems (i.e. with a much smaller TCB, which translates to a smaller attack surface). We discuss this in much greater depth in our [Architecture Specification document](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf).
 
 ### What about this other/new (micro)kernel/hypervisor?
 
