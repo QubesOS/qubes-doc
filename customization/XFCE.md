@@ -33,7 +33,7 @@ Things needs/recommended to be done:
 
 -   remove some useless entries from menu and panel, especially file manager, web browser
 -   create own favorites menu (currently standard XFCE menu isn't modified to use per-VM subsections, which makes it very inconvenient):
-    1.  create \~/.config/menus/favorites.menu, example content:
+    1.  create `~/.config/menus/favorites.menu`, example content:
 
         ~~~
         <!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
