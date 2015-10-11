@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: QvmStart
-permalink: /doc/Dom0Tools/QvmStart/
-redirect_from: /wiki/Dom0Tools/QvmStart/
+permalink: /en/doc/dom0-tools/qvm-start/
+redirect_from:
+- /doc/Dom0Tools/QvmStart/
+- /wiki/Dom0Tools/QvmStart/
 ---
 
 qvm-start

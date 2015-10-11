@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: ResizeDiskImage
-permalink: /doc/ResizeDiskImage/
-redirect_from: /wiki/ResizeDiskImage/
+permalink: /en/doc/resize-disk-image/
+redirect_from:
+- /doc/ResizeDiskImage/
+- /wiki/ResizeDiskImage/
 ---
 
 Resizing Disk Image
@@ -15,7 +17,7 @@ There are several disk images which can be easily extended.
 
 1048576 MB is the maximum size which can be assigned to a private storage through qubes-manager.
 
-To grow the private disk image of a AppVM beyond this limit [qubes-grow-private](/doc/Dom0Tools/QvmGrowPrivate/) can be used:
+To grow the private disk image of a AppVM beyond this limit [qubes-grow-private](/en/doc/dom0-tools/qvm-grow-private/) can be used:
 
 ~~~
 qvm-grow-private <vm-name> <size>

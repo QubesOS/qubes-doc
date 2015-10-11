@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: TemplateImplementation
-permalink: /doc/TemplateImplementation/
-redirect_from: /wiki/TemplateImplementation/
+permalink: /en/doc/template-implementation/
+redirect_from:
+- /doc/TemplateImplementation/
+- /wiki/TemplateImplementation/
 ---
 
 Overview of VM block devices

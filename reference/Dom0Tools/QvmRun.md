@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: QvmRun
-permalink: /doc/Dom0Tools/QvmRun/
-redirect_from: /wiki/Dom0Tools/QvmRun/
+permalink: /en/doc/dom0-tools/qvm-run/
+redirect_from:
+- /doc/Dom0Tools/QvmRun/
+- /wiki/Dom0Tools/QvmRun/
 ---
 
 qvm-run

@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Qubes R1.0 release notes
-permalink: /doc/releases/1.0/release-notes/
+permalink: /en/doc/releases/1.0/release-notes/
+redirect_from: /doc/releases/1.0/release-notes/
 ---
 
 Qubes R1.0 release notes
@@ -35,7 +36,7 @@ See [Qubes Downloads](/doc/QubesDownloads/).
 Installation instructions
 -------------------------
 
-See [Installation Guide](/doc/InstallationGuide/).
+See [Installation Guide](/en/doc/installation-guide/).
 
 Upgrading
 ---------
@@ -46,7 +47,7 @@ If you're already running Qubes 1.0-rc1, you don't need to reinstall, it's just 
 
 ### From Qubes 1.0 Beta 3
 
-If you have Qubes Beta 3 currently installed on your system, you must reinstall from scratch, as we offer no direct upgrade option in the installer (sorry). However, we do offer tools for smooth migration of your AppVMs. In order to do that, please backup your AppVMs using the `qvm-backup` tool [as usual](/doc/BackupRestore/). Then, after you install Qubes 1.0 rc1, you can restore them using `qvm-backup-restore` tool. However, because we have changed the default template in RC1, you should tell qvm-back-restore about that by passing `--replace-template` option:
+If you have Qubes Beta 3 currently installed on your system, you must reinstall from scratch, as we offer no direct upgrade option in the installer (sorry). However, we do offer tools for smooth migration of your AppVMs. In order to do that, please backup your AppVMs using the `qvm-backup` tool [as usual](/en/doc/backup-restore/). Then, after you install Qubes 1.0 rc1, you can restore them using `qvm-backup-restore` tool. However, because we have changed the default template in RC1, you should tell qvm-back-restore about that by passing `--replace-template` option:
 
 ~~~
 qvm-backup-restore <backup_dir> --replace-template=fedora-15-x64:fedora-17-x64 

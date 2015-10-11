@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: WindowsDebugging
-permalink: /doc/WindowsDebugging/
-redirect_from: /wiki/WindowsDebugging/
+permalink: /en/doc/windows-debugging/
+redirect_from:
+- /doc/WindowsDebugging/
+- /wiki/WindowsDebugging/
 ---
 
 Debugging Windows HVMs

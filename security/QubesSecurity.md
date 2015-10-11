@@ -1,18 +1,20 @@
 ---
 layout: doc
 title: QubesSecurity
-permalink: /doc/QubesSecurity/
-redirect_from: /wiki/QubesSecurity/
+permalink: /en/doc/qubes-security/
+redirect_from:
+- /doc/QubesSecurity/
+- /wiki/QubesSecurity/
 ---
 
 Qubes Security
 ==============
 
--   [Reporting Security Issues in Qubes OS](/doc/SecurityPage/)
--   [Qubes Security Pack](/doc/SecurityPack/)
--   [Qubes Security Bulletins](/doc/SecurityBulletins/)
--   [Qubes Security Goals](/doc/SecurityGoals/)
--   [On digital signatures and how to verify Qubes keys and downloads](/doc/VerifyingSignatures/)
+-   [Reporting Security Issues in Qubes OS](/en/doc/security-page/)
+-   [Qubes Security Pack](/en/doc/security-pack/)
+-   [Qubes Security Bulletins](/en/doc/security-bulletins/)
+-   [Qubes Security Goals](/en/doc/security-goals/)
+-   [On digital signatures and how to verify Qubes keys and downloads](/en/doc/verifying-signatures/)
 
 -   [Qubes Keys](http://keys.qubes-os.org/keys/)
 

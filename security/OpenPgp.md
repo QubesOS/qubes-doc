@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: OpenPGP
-permalink: /doc/OpenPGP/
+permalink: /en/doc/open-pgp/
 redirect_from:
+- /doc/OpenPGP/
 - "/doc/UserDoc/OpenPGP/"
 - "/wiki/UserDoc/OpenPGP/"
 ---

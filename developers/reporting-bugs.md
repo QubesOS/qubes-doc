@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Reporting Bugs
-permalink: /doc/reporting-bugs/
+permalink: /en/doc/reporting-bugs/
 redirect_from:
+- /doc/reporting-bugs/
 - "/doc/BugReportingGuide/"
 - "/wiki/BugReportingGuide/"
 ---

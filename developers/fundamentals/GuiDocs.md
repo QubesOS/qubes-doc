@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: GUIdocs
-permalink: /doc/GUIdocs/
-redirect_from: /wiki/GUIdocs/
+permalink: /en/doc/gui-docs/
+redirect_from:
+- /doc/GUIdocs/
+- /wiki/GUIdocs/
 ---
 
 Qubes GUI protocol

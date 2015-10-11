@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: Lenovo450Tinkering
-permalink: /doc/Lenovo450Tinkering/
-redirect_from: /wiki/Lenovo450Tinkering/
+permalink: /en/doc/lenovo450-tinkering/
+redirect_from:
+- /doc/Lenovo450Tinkering/
+- /wiki/Lenovo450Tinkering/
 ---
 
 Instructions for getting your Lenovo 450 laptop working with Qubes/Linux

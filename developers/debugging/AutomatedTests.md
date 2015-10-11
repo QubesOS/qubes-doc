@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Automated tests
-permalink: /doc/AutomatedTests/
+permalink: /en/doc/automated-tests/
+redirect_from: /doc/AutomatedTests/
 ---
 
 Automatic tests
@@ -103,7 +104,7 @@ Example test run:
 After you added a new unit test to [core-admin/tests](https://github.com/QubesOS/qubes-core-admin/tree/master/tests) 
 you have to make sure of two things:
 
-1. The test will be added to the RPM file created by [QubesBuilder](/doc/QubesBuilder/) 
+1. The test will be added to the RPM file created by [QubesBuilder](/en/doc/qubes-builder/) 
 For this you need to edit [core-admin/tests/Makefile](https://github.com/QubesOS/qubes-core-admin/tree/master/tests/Makefile)
 2. The test will be loaded by [core-admin/tests/\_\_init\_\_.py](https://github.com/QubesOS/qubes-core-admin/tree/master/tests/__init__.py)
 

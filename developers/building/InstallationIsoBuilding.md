@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: InstallationIsoBuilding
-permalink: /doc/InstallationIsoBuilding/
-redirect_from: /wiki/InstallationIsoBuilding/
+permalink: /en/doc/installation-iso-building/
+redirect_from:
+- /doc/InstallationIsoBuilding/
+- /wiki/InstallationIsoBuilding/
 ---
 
 How to build Qubes installation ISO

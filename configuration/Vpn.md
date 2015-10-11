@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: VPN
-permalink: /doc/VPN/
-redirect_from: /wiki/VPN/
+permalink: /en/doc/vpn/
+redirect_from:
+- /doc/VPN/
+- /wiki/VPN/
 ---
 
 How To make a VPN Gateway in Qubes

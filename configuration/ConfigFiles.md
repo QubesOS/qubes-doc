@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: ConfigFiles
-permalink: /doc/ConfigFiles/
+permalink: /en/doc/config-files/
 redirect_from:
+- /doc/ConfigFiles/
 - "/doc/UserDoc/ConfigFiles/"
 - "/wiki/UserDoc/ConfigFiles/"
 ---

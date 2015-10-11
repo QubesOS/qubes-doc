@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: QubesFirewall
-permalink: /doc/QubesFirewall/
-redirect_from: /wiki/QubesFirewall/
+permalink: /en/doc/qubes-firewall/
+redirect_from:
+- /doc/QubesFirewall/
+- /wiki/QubesFirewall/
 ---
 
 Understanding Qubes networking and firewall

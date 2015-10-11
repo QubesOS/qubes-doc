@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: ResizeRootDiskImage
-permalink: /doc/ResizeRootDiskImage/
-redirect_from: /wiki/ResizeRootDiskImage/
+permalink: /en/doc/resize-root-disk-image/
+redirect_from:
+- /doc/ResizeRootDiskImage/
+- /wiki/ResizeRootDiskImage/
 ---
 
 Resizing \`root.img\` Size

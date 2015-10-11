@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: VMInterface
-permalink: /doc/VMInterface/
+permalink: /en/doc/vm-interface/
 redirect_from:
+- /doc/VMInterface/
 - "/doc/SystemDoc/VMInterface/"
 - "/wiki/SystemDoc/VMInterface/"
 ---
@@ -82,16 +83,16 @@ Other Qrexec services installed by default:
 - `qubes.DetachPciDevice` - service called in reaction to `qvm-pci -d` call on
   running VM. The service receives one word - BDF of device to detach. When the
   service call ends, the device will be detached
-- `qubes.Filecopy` - receive some files from other VM. Files sent in [qfile format](/doc/Qfilecopy/)
+- `qubes.Filecopy` - receive some files from other VM. Files sent in [qfile format](/en/doc/qfilecopy/)
 - `qubes.OpenInVM` - open a file in called VM. Service receives a single file on stdin (in
-  [qfile format](/doc/Qfilecopy/). After a file viewer/editor is terminated, if
+  [qfile format](/en/doc/qfilecopy/). After a file viewer/editor is terminated, if
   the file was modified, can be sent back (just raw content, without any
   headers); otherwise service should just terminate without sending anything.
   This service is used by both `qvm-open-in-vm` and `qvm-open-in-dvm` tools. When
   called in DispVM, service termination will trigger DispVM cleanup.
 - `qubes.Restore` - retrieve Qubes backup. The service receives backup location
   entered by the user (one line, terminated by '\n'), then should output backup
-  archive in [qfile format](/doc/Qfilecopy/) (core-agent-linux component contains
+  archive in [qfile format](/en/doc/qfilecopy/) (core-agent-linux component contains
   `tar2qfile` utility to do the conversion
 - `qubes.SelectDirectory`, `qubes.SelectFile` - services which should show
   file/directory selection dialog and return (to stdout) a single line
@@ -117,7 +118,7 @@ abstraction. This will change in the future. Those tools are:
 - `nm-online -x` - called before `qubes.SyncNtpClock` service call by `qvm-sync-clock` tool
 - `resize2fs` - called to resize filesystem on /rw partition by `qvm-grow-private` tool
 - `gpk-update-viewer` - called by Qubes Manager to display available updates in a TemplateVM
-- `systemctl start qubes-update-check.timer` (and similarly stop) - called when enabling/disabling updates checking in given VM (`qubes-update-check` [qvm-service](/doc/QubesService/))
+- `systemctl start qubes-update-check.timer` (and similarly stop) - called when enabling/disabling updates checking in given VM (`qubes-update-check` [qvm-service](/en/doc/qubes-service/))
 
 Additionally automatic tests extensively calls various commands directly in VMs. We do not plan to change that.
 

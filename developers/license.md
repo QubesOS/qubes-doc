@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: License
-permalink: /doc/license/
+permalink: /en/doc/license/
 redirect_from:
+- /doc/license/
 - "/doc/QubesLicensing/"
 - "/wiki/QubesLicensing/"
 ---

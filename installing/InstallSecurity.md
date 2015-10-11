@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: InstallSecurity
-permalink: /doc/InstallSecurity/
-redirect_from: /wiki/InstallSecurity/
+permalink: /en/doc/install-security/
+redirect_from:
+- /doc/InstallSecurity/
+- /wiki/InstallSecurity/
 ---
 
 # Installation Security Considerations #

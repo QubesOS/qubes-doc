@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: SecurityBulletins
-permalink: /doc/SecurityBulletins/
+permalink: /en/doc/security-bulletins/
 redirect_from: 
+- /doc/SecurityBulletins/
 - /wiki/SecurityBulletins/
 - /trac/wiki/SecurityBulletins/
 ---
@@ -10,7 +11,7 @@ redirect_from:
 Qubes Security Bulletins
 ========================
 
-Qubes Security Bulletins are published through the [Qubes Security Pack](/doc/SecurityPack/).
+Qubes Security Bulletins are published through the [Qubes Security Pack](/en/doc/security-pack/).
 
 2010
 ----

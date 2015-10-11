@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: Qrexec
-permalink: /doc/Qrexec/
-redirect_from: /wiki/Qrexec/
+permalink: /en/doc/qrexec/
+redirect_from:
+- /doc/Qrexec/
+- /wiki/Qrexec/
 ---
 
 Command execution in VM (and Qubes RPC)
@@ -159,4 +161,4 @@ As previously noted, Qubes aims to provide mechanisms that are very simple and t
 Qubes RPC internals
 -------------------
 
-The internal implementation of qrexec in Qubes R2 is described [here](/doc/Qrexec2Implementation/), and in Qubes R3 [here](/doc/Qrexec3Implementation/).
+The internal implementation of qrexec in Qubes R2 is described [here](/en/doc/qrexec2-implementation/), and in Qubes R3 [here](/en/doc/qrexec3-implementation/).

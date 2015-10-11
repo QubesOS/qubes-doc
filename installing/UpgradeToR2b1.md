@@ -1,19 +1,23 @@
 ---
 layout: doc
-title: UpgradeToR2B2
-permalink: /doc/UpgradeToR2B2/
-redirect_from: /wiki/UpgradeToR2B2/
+title: UpgradeToR2B1
+permalink: /en/doc/upgrade-to-r2b1/
+redirect_from:
+- /doc/UpgradeToR2B1/
+- /wiki/UpgradeToR2B1/
 ---
 
-Upgrading Qubes R1 to R2 (beta2)
-================================
+Upgrading Qubes R1 to R2 Beta 1
+===============================
 
-Existing users of Qubes R1 (but not R1 betas!) can upgrade their systems to the latest R2 beta release by following the procedure below. As usual, it is advisable to backup the system before proceeding with the upgrade. While it is possible to upgrade the system **it is strongly recommended to reinstall it**. You will preserve all your data and settings thanks to [backup and restore tools](/doc/BackupRestore/).
+**Note: Qubes R2 Beta 1 is no longer supported! Please install or upgrade to a newer Qubes R2.**
+
+**Note: This page is kept for historical reasons only! Do not follow the instructions below'''**
+
+Existing users of Qubes R1 (but not R1 betas!) can upgrade their systems to the latest R2 beta release by following the procedure below. As usual, it is advisable to backup the system before proceeding with the upgrade
 
 Upgrade all Template and Standalone VM(s)
 -----------------------------------------
-
-**If you have already R2 Beta1 installed, follow standard template update procedure (e.g. "Update VM" buttom in Qubes Manager) and skip the rest of this section**
 
 By default, in Qubes R1, there is only one Template VM, however users are free to create more Template VMs for special purposes, as well as Standalone VMs. More information on using multiple Template VMs, as well as Standalone VMs, can be found [SoftwareUpdateVM here]. The steps described in this section should be repeated in *all* user's Template and Standalone VMs.
 
@@ -48,21 +52,6 @@ By default, in Qubes R1, there is only one Template VM, however users are free t
 
 1.  Shut down the VM.
 
-Installing new template
------------------------
-
-Qubes R2 Beta2 brings new fedora-18-x64 template (based on Fedora 18). You can install it from Qubes installation DVD. Insert installation DVD into your drive and issue following commmands:
-
-~~~
-$ sudo -s
-# mkdir -p /mnt/cdrom
-# mount /dev/cdrom /mnt/cdrom # you can also use ISO image instead of /dev/cdrom; then add -o loop option
-# yum install /mnt/cdrom/Packages/q/qubes-template-fedora-18-x64*rpm
-# umount /mnt/cdrom
-~~~
-
-If you already have fedora-17-x64, you can also upgrade it to fedora-18-x64 following [standard Fedora upgrade procedure](http://fedoraproject.org/wiki/Upgrading_Fedora_using_yum) (only "yum" method will work in Qubes VM).
-
 Upgrade Dom0
 ------------
 
@@ -77,30 +66,11 @@ Be sure to do steps described in this section after *all* your template and stan
 
     This should install `qubes-release-1-6` in your Dom0.
 
-3.  Install R2 upgrade package:
+3.  Install R2 packages:
 
     ~~~
-    sudo qubes-dom0-update --releasever=1 qubes-dist-upgrade
+    sudo qubes-dom0-update --releasever=2
     ~~~
 
-4.  Start upgrade process:
+4.  Reboot your system. Please note that if you use Anti Evil Maid, then it won't be able to unseal the passphrase this time, because the Xen, kernel, and initramfs binaries have changed. Once the system boots up again, you could reseal your Anti Evil Maid's passphrase to the new configuration. Please consult Anti Evil Maid documentation for explanation on how to do that.
 
-    ~~~
-    sudo qubes-dist-upgrade
-    ~~~
-
-5.  Follow instructions on screen, first stage of upgrade should end up with reboot request.
-6.  Reboot your system, ensure that you choose "Qubes Upgrade" boot option.
-7.  When system starts up, login and start start
-
-    ~~~
-    sudo qubes-dist-upgrade
-    ~~~
-
-    again. This will start second stage of upgrade, here most packages will be upgraded, so this will take a while.
-
-8.  You will be prompted to install new bootloader. If you haven't changed anything in this matter from initial installation, just accept the default.
-9.  Reboot your system. System shutdown may hung because some running system components no longer match that installed on disk; just wait a few minutes and hard reset the system in such case.
-10. This is end of upgrade process, you should now have Qubes R2 system.
-
-Please note that if you use Anti Evil Maid, then it won't be able to unseal the passphrase this time, because the Xen, kernel, and initramfs binaries have changed. Once the system boots up again, you could reseal your Anti Evil Maid's passphrase to the new configuration. Please consult Anti Evil Maid documentation for explanation on how to do that.

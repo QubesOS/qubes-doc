@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: QubesNet
-permalink: /doc/QubesNet/
-redirect_from: /wiki/QubesNet/
+permalink: /en/doc/qubes-net/
+redirect_from:
+- /doc/QubesNet/
+- /wiki/QubesNet/
 ---
 
 VM network in Qubes

@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: UninstallingWindowsTools2
-permalink: /doc/UninstallingWindowsTools2/
-redirect_from: /wiki/UninstallingWindowsTools2/
+permalink: /en/doc/uninstalling-windows-tools-2/
+redirect_from:
+- /doc/UninstallingWindowsTools2/
+- /wiki/UninstallingWindowsTools2/
 ---
 
 Uninstalling Qubes Tools for Windows v2.x

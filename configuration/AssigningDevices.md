@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: AssigningDevices
-permalink: /doc/AssigningDevices/
-redirect_from: /wiki/AssigningDevices/
+permalink: /en/doc/assigning-devices/
+redirect_from:
+- /doc/AssigningDevices/
+- /wiki/AssigningDevices/
 ---
 
 Assigning Devices to VMs
