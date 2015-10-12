@@ -265,7 +265,7 @@ Acknowledgements
 Qubes TorVM is inspired by much of the previous work done in this area of
 transparent torified solutions. Notably the following:
 
-* [adrelanos](mailto:adrelanos@riseup.net) for his work on [aos/Whonix](https://www.whonix.org)
+* [Patrick Schleizer](mailto:adrelanos@riseup.net) for his work on [Whonix](https://www.whonix.org)
 * The [Tor Project wiki](https://trac.torproject.org/projects/tor/wiki/doc/TorifyHOWTO)
 * And the many people who contributed to discussions on [tor-talk](https://lists.torproject.org/pipermail/tor-talk/)
 
