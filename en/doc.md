@@ -74,7 +74,7 @@ Managing Operating Systems within Qubes
 
 Security Guides
 ---------------
- *  [Qubes OS Project Security Information](/en/doc/security/)
+ *  [Qubes OS Project Security Information](/en/security/)
  *  [Security Guidelines](/en/doc/security-guidelines/)
  *  [Understanding Qubes Firewall](/en/doc/qubes-firewall/)
  *  [Understanding and Preventing Data Leaks](/en/doc/data-leaks/)
@@ -142,7 +142,7 @@ For Developers
  *  [System Documentation](/en/doc/system-doc/)
  *  [Developers' FAQ](/en/doc/devel-faq/)
  *  [How to Contribute to the Qubes OS Project](/en/doc/contributing/)
- *  [Reporting Security Issues](/en/doc/security/)
+ *  [Reporting Security Issues](/en/security/)
  *  [Reporting Bugs](/en/doc/reporting-bugs/)
  *  [Source Code](/en/doc/source-code/)
  *  [Qubes OS Version Scheme](/en/doc/version-scheme/)
