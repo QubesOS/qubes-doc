@@ -10,7 +10,7 @@ redirect_from:
 Getting Started with Qubes OS
 =============================
 
-Note: This guide assumes that you've just installed Qubes for the first time. The installation guide for your Qubes release can be found on the [Downloads](/doc/QubesDownloads/) page.
+Note: This guide assumes that you've just installed Qubes for the first time. The installation guide for your Qubes release can be found on the [Downloads](/downloads/) page.
 
 Now that you've installed Qubes, let's cover some basic concepts.
 
@@ -29,7 +29,7 @@ Each domain, apart from having a distinct name, is also assigned a **label**, wh
 
 ![snapshot12.png](/attachment/wiki/GettingStarted/snapshot12.png)
 
-In addition to AppVMs and TemplateVMs, there's one special domain called "dom0," which is where the Desktop Manager runs. This is where you log in to the system. Dom0 is more trusted than any other domain (including TemplateVMs and black-labeled domains). If dom0 were ever compromised, it would be Game Over<sup>TM</sup>. (The entire system would effectively be compromised.) Due to its overarching importance, dom0 has no network connectivity and is used only for running the Window and Desktop Managers. Dom0 shouldn't be used for anything else. In particular, [you should never run user applications in dom0](/doc/SecurityGuidelines/#dom0-precautions). (That's what your AppVMs are for!)
+In addition to AppVMs and TemplateVMs, there's one special domain called "dom0," which is where the Desktop Manager runs. This is where you log in to the system. Dom0 is more trusted than any other domain (including TemplateVMs and black-labeled domains). If dom0 were ever compromised, it would be Game Over<sup>TM</sup>. (The entire system would effectively be compromised.) Due to its overarching importance, dom0 has no network connectivity and is used only for running the Window and Desktop Managers. Dom0 shouldn't be used for anything else. In particular, [you should never run user applications in dom0](/en/doc/security-guidelines/#dom0-precautions). (That's what your AppVMs are for!)
 
 Qubes VM Manager and Command Line Tools
 ---------------------------------------
@@ -116,4 +116,4 @@ In order for the changes to take effect, restart the AppVM(s).
 
 * * * * *
 
-Now that you're familiar with the basics, feel free to have a look at other [Qubes User Guides](/en/doc/).
+Now that you're familiar with the basics, please have a look at the rest of the [documentation](/en/doc/).
