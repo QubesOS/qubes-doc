@@ -10,39 +10,45 @@ redirect_from:
 Qubes Users' FAQ
 ================
 
-1.  [General Questions](#general-questions)
-    1.  [Is Qubes just another Linux distribution?](#is-qubes-just-another-linux-distribution)
-    2.  [How is Qubes different from other security solutions?](#how-is-qubes-different-from-other-security-solutions)
-    3.  [What is the main concept behind Qubes?](#what-is-the-main-concept-behind-qubes)
-    4.  [What about other approaches to security?](#what-about-other-approaches-to-security)
-    5.  [What about safe languages and formally verified microkernels?](#what-about-safe-languages-and-formally-verified-microkernels)
-    6.  [Why does Qubes use virtualization?](#why-does-qubes-use-virtualization)
-    7.  [Does Qubes run every app in a separate VM?](#does-qubes-run-every-app-in-a-separate-vm)
-    8.  [Why does Qubes use Xen instead of KVM or some other hypervisor?](#why-does-qubes-use-xen-instead-of-kvm-or-some-other-hypervisor)
-    9.  [What about this other/new (micro)kernel/hypervisor?](#what-about-this-othernew-microkernelhypervisor)
-    10. [What's so special about Qubes' GUI virtualization?](#whats-so-special-about-qubes-gui-virtualization)
-    11. [Can I watch YouTube videos in AppVMs?](#can-i-watch-youtube-videos-in-appvms)
-    12. [Can I run applications, like games, which require 3D support?](#can-i-run-applications-like-games-which-require-3d-support)
-    13. [Is Qubes a multi-user system?](#is-qubes-a-multi-user-system)
-    14. [Why passwordless sudo?](#why-passwordless-sudo)
-    15. [How should I report documentation issues?](#how-should-i-report-documentation-issues)
+[General Questions](#general-questions)
+---------------------------------------
+ * [Is Qubes just another Linux distribution?](#is-qubes-just-another-linux-distribution)
+ * [How is Qubes different from other security solutions?](#how-is-qubes-different-from-other-security-solutions)
+ * [What is the main concept behind Qubes?](#what-is-the-main-concept-behind-qubes)
+ * [What about other approaches to security?](#what-about-other-approaches-to-security)
+ * [What about safe languages and formally verified microkernels?](#what-about-safe-languages-and-formally-verified-microkernels)
+ * [Why does Qubes use virtualization?](#why-does-qubes-use-virtualization)
+ * [Does Qubes run every app in a separate VM?](#does-qubes-run-every-app-in-a-separate-vm)
+ * [Why does Qubes use Xen instead of KVM or some other hypervisor?](#why-does-qubes-use-xen-instead-of-kvm-or-some-other-hypervisor)
+ * [What about this other/new (micro)kernel/hypervisor?](#what-about-this-othernew-microkernelhypervisor)
+ * [What's so special about Qubes' GUI virtualization?](#whats-so-special-about-qubes-gui-virtualization)
+ * [Can I watch YouTube videos in AppVMs?](#can-i-watch-youtube-videos-in-appvms)
+ * [Can I run applications, like games, which require 3D support?](#can-i-run-applications-like-games-which-require-3d-support)
+ * [Is Qubes a multi-user system?](#is-qubes-a-multi-user-system)
+ * [Why passwordless sudo?](#why-passwordless-sudo)
+ * [How should I report documentation issues?](#how-should-i-report-documentation-issues)
 
-2.  [Installation & Hardware Compatibility](#installation--hardware-compatibility)
-    1.  [How much disk space does each AppVM require?](#how-much-disk-space-does-each-appvm-require)
-    2.  [How much memory is recommended for Qubes?](#how-much-memory-is-recommended-for-qubes)
-    3.  [Can I install Qubes on a system without VT-x?](#can-i-install-qubes-on-a-system-without-vt-x)
-    4.  [Can I install Qubes on a system without VT-d?](#can-i-install-qubes-on-a-system-without-vt-d)
-    5.  [Can I use AMD-v instead of VT-x?](#can-i-use-amd-v-instead-of-vt-x)
-    6.  [Can I install Qubes in a virtual machine (e.g., on VMWare)?](#can-i-install-qubes-in-a-virtual-machine-eg-on-vmware)
-    7.  [Why does my network adapter not work?](#why-does-my-network-adapter-not-work)
+[Installation & Hardware Compatibility](#installation--hardware-compatibility)
+------------------------------------------------------------------------------
+ * [How much disk space does each AppVM require?](#how-much-disk-space-does-each-appvm-require)
+ * [How much memory is recommended for Qubes?](#how-much-memory-is-recommended-for-qubes)
+ * [Can I install Qubes on a system without VT-x?](#can-i-install-qubes-on-a-system-without-vt-x)
+ * [Can I install Qubes on a system without VT-d?](#can-i-install-qubes-on-a-system-without-vt-d)
+ * [Can I use AMD-v instead of VT-x?](#can-i-use-amd-v-instead-of-vt-x)
+ * [Can I install Qubes in a virtual machine (e.g., on VMWare)?](#can-i-install-qubes-in-a-virtual-machine-eg-on-vmware)
+ * [Why does my network adapter not work?](#why-does-my-network-adapter-not-work)
 
-3.  [Common Problems](#common-problems)
-    1.  [My AppVMs lost Internet access after a TemplateVM update. What should I do?](#my-appvms-lost-internet-access-after-a-templatevm-update-what-should-i-do)
-    2.  [My keyboard layout settings are not behaving correctly. What should I do?](#my-keyboard-layout-settings-are-not-behaving-correctly-what-should-i-do)
-    3.  [My dom0 and/or TemplateVM update stalls when attempting to update via …](#my-dom0-andor-templatevm-update-stalls-when-attempting-to-update-via-the-gui-tool-what-should-i-do)
-    4.  [How do I run a Windows HVM in non-seamless mode (i.e., as a single window)?](#how-do-i-run-a-windows-hvm-in-non-seamless-mode-ie-as-a-single-window)
-    5.  [I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.](#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot)
-    6.  [I assigned a PCI device to an AppVM, then unassigned it/shut down the …](#i-assigned-a-pci-device-to-an-appvm-then-unassigned-itshut-down-the-appvm-why-isnt-the-device-available-in-dom0)
+[Common Problems](#common-problems)
+-----------------------------------
+ * [My AppVMs lost Internet access after a TemplateVM update. What should I do?](#my-appvms-lost-internet-access-after-a-templatevm-update-what-should-i-do)
+ * [My keyboard layout settings are not behaving correctly. What should I do?](#my-keyboard-layout-settings-are-not-behaving-correctly-what-should-i-do)
+ * [My dom0 and/or TemplateVM update stalls when attempting to update via …](#my-dom0-andor-templatevm-update-stalls-when-attempting-to-update-via-the-gui-tool-what-should-i-do)
+ * [How do I run a Windows HVM in non-seamless mode (i.e., as a single window)?](#how-do-i-run-a-windows-hvm-in-non-seamless-mode-ie-as-a-single-window)
+ * [I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.](#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot)
+ * [I assigned a PCI device to an AppVM, then unassigned it/shut down the …](#i-assigned-a-pci-device-to-an-appvm-then-unassigned-itshut-down-the-appvm-why-isnt-the-device-available-in-dom0)
+
+-----------------
+
 
 General Questions
 -----------------
