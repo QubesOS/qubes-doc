@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmClone
+title: qvm-clone
 permalink: /en/doc/dom0-tools/qvm-clone/
 redirect_from:
 - /doc/Dom0Tools/QvmClone/

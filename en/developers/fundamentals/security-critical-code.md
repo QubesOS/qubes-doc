@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: SecurityCriticalCode
+title: Security-critical Code
 permalink: /en/doc/security-critical-code/
 redirect_from:
 - /doc/SecurityCriticalCode/

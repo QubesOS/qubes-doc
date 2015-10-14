@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: VmTools
+title: VM Tools
 permalink: /en/doc/vm-tools/
 redirect_from:
 - /doc/VmTools/

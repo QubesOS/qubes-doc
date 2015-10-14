@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmRun
+title: qvm-run
 permalink: /en/doc/dom0-tools/qvm-run/
 redirect_from:
 - /doc/Dom0Tools/QvmRun/

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: SoftwareUpdateVM
+title: Installing and updating software in VMs
 permalink: /en/doc/software-update-vm/
 redirect_from:
 - /doc/SoftwareUpdateVM/

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Ubuntu
+title: Ubuntu Template
 permalink: /en/doc/templates/ubuntu/
 redirect_from:
 - /doc/Templates/Ubuntu/

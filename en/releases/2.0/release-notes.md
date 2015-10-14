@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Qubes R2.0 release notes
+title: Qubes R2.0 Release Notes
 permalink: /en/doc/releases/2.0/release-notes/
 redirect_from: /doc/releases/2.0/release-notes/
 ---
 
-Qubes R2.0 release notes
+Qubes R2.0 Release Notes
 ========================
 
 Detailed release notes in [this blog post](http://blog.invisiblethings.org/2014/09/26/announcing-qubes-os-release-2.html)

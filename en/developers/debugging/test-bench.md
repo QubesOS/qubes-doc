@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: TestBench
+title: Test Bench
 permalink: /en/doc/test-bench/
 redirect_from:
 - /doc/TestBench/

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: HCL
+title: Hardware Compatibility List (HCL)
 permalink: /en/doc/hcl/
 redirect_from:
 - /doc/HCL/

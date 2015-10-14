@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmShutdown
+title: qvm-shutdown
 permalink: /en/doc/dom0-tools/qvm-shutdown/
 redirect_from:
 - /doc/Dom0Tools/QvmShutdown/

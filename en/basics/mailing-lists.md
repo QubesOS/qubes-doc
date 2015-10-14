@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: MailingLists
+title: Mailing Lists
 permalink: /en/doc/mailing-lists/
 redirect_from:
 - /doc/QubesLists/

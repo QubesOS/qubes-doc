@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: KdeDom0
+title: KDE dom0
 permalink: /en/doc/kde-dom0/
 redirect_from:
 - /doc/KdeDom0/

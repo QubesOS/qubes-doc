@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Qubes R3.0 release schedule
+title: Qubes R3.0 Release Schedule
 permalink: /en/doc/releases/3.0/schedule/
 redirect_from: /doc/releases/3.0/schedule/
 ---
 
-Qubes R3.0 release schedule
+Qubes R3.0 Release Schedule
 ===========================
 
 |  Date       | Stage                                 |

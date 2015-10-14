@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Lenovo450Tinkering
+title: Lenovo450 Tinkering
 permalink: /en/doc/lenovo450-tinkering/
 redirect_from:
 - /doc/Lenovo450Tinkering/

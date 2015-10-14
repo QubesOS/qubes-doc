@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Release checklist
+title: Release Checklist
 permalink: /en/doc/releases/todo/
 redirect_from: /doc/releases/todo/
 ---
 
-Release checklist
+Release Checklist
 =================
 
 *the checklist is probably unfinished*

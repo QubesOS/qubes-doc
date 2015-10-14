@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: SecurityGuidelines
+title: Security Guidelines
 permalink: /en/doc/security-guidelines/
 redirect_from:
 - /doc/SecurityGuidelines/

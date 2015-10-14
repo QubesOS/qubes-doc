@@ -1,14 +1,14 @@
 ---
 layout: doc
-title: FedoraTemplateUpgrade
+title: Upgrading the Fedora 20 Template
 permalink: /en/doc/fedora-template-upgrade-20/
 redirect_from:
 - /doc/FedoraTemplateUpgrade20/
 - /wiki/FedoraTemplateUpgrade20/
 ---
 
-How to Upgrade Fedora Templates
-===============================
+Upgrading the Fedora 20 Template
+================================
 
 Summary: Upgrading the Standard Fedora 20 Template to Fedora 21
 ---------------------------------------------------------------

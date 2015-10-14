@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmOpenInVm
+title: qvm-open-in-vm
 permalink: /en/doc/vm-tools/qvm-open-in-vm/
 redirect_from:
 - /doc/VmTools/QvmOpenInVm/

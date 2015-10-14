@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Qubes R1.0 release notes
+title: Qubes R1.0 Release Notes
 permalink: /en/doc/releases/1.0/release-notes/
 redirect_from: /doc/releases/1.0/release-notes/
 ---
 
-Qubes R1.0 release notes
+Qubes R1.0 Release Notes
 ========================
 
 Detailed release notes in [this blog post](http://blog.invisiblethings.org/2012/09/03/introducing-qubes-10.html).

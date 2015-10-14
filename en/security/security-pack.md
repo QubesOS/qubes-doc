@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: SecurityPack
+title: Security Pack
 permalink: /en/doc/security-pack/
 redirect_from:
 - /doc/SecurityPack/

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmKill
+title: qvm-kill
 permalink: /en/doc/dom0-tools/qvm-kill/
 redirect_from:
 - /doc/Dom0Tools/QvmKill/

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: ConfigFiles
+title: Config Files
 permalink: /en/doc/config-files/
 redirect_from:
 - /doc/ConfigFiles/

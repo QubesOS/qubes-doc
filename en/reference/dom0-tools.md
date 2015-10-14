@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Dom0Tools
+title: Dom0 Tools
 permalink: /en/doc/dom0-tools/
 redirect_from:
 - /doc/DomZeroTools/

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmBlock
+title: qvm-block
 permalink: /en/doc/dom0-tools/qvm-block/
 redirect_from:
 - /doc/Dom0Tools/QvmBlock/

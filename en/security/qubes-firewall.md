@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QubesFirewall
+title: Qubes Firewall
 permalink: /en/doc/qubes-firewall/
 redirect_from:
 - /doc/QubesFirewall/

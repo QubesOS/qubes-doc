@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: NetworkBridgeSupport
+title: Network Bridge Support
 permalink: /en/doc/network-bridge-support/
 redirect_from:
 - /doc/NetworkBridgeSupport/

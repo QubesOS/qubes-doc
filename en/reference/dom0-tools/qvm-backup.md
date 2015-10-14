@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmBackup
+title: qvm-backup
 permalink: /en/doc/dom0-tools/qvm-backup/
 redirect_from:
 - /doc/Dom0Tools/QvmBackup/

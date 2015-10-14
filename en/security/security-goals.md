@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: SecurityGoals
+title: Security Goals
 permalink: /en/doc/security-goals/
 redirect_from:
 - /doc/SecurityGoals/

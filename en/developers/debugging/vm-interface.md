@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: VMInterface
+title: VM Configuration Interface
 permalink: /en/doc/vm-interface/
 redirect_from:
 - /doc/VMInterface/

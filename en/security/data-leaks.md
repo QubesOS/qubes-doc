@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: DataLeaks
+title: Data Leaks
 permalink: /en/doc/data-leaks/
 redirect_from:
 - /doc/DataLeaks/

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: VersionScheme
+title: Version Scheme
 permalink: /en/doc/version-scheme/
 redirect_from:
 - /doc/VersionScheme/

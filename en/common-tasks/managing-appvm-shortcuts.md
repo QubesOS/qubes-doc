@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: ManagingAppVmShortcuts
+title: Managing AppVm Shortcuts
 permalink: /en/doc/managing-appvm-shortcuts/
 redirect_from:
 - /doc/ManagingAppVmShortcuts/

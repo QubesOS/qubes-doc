@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmRevertTemplateChanges
+title: qvm-revert-template-changes
 permalink: /en/doc/dom0-tools/qvm-revert-template-changes/
 redirect_from:
 - /doc/Dom0Tools/QvmRevertTemplateChanges/

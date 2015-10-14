@@ -1,13 +1,13 @@
 ---
 layout: doc
-title: Archlinux template
+title: Archlinux Template
 permalink: /en/doc/templates/archlinux/
 redirect_from:
 - /doc/Templates/Archlinux/
 - /wiki/Templates/Archlinux/
 ---
 
-Archlinux template
+Archlinux Template
 ===============
 
 Archlinux template is one of the templates made by Qubes community. It should

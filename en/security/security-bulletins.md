@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: SecurityBulletins
+title: Security Bulletins
 permalink: /en/doc/security-bulletins/
 redirect_from: 
 - /doc/SecurityBulletins/

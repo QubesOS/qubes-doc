@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: InstallSecurity
+title: Installation Security
 permalink: /en/doc/install-security/
 redirect_from:
 - /doc/InstallSecurity/

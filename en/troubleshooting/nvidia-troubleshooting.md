@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: NvidiaTroubleshooting
+title: Nvidia Troubleshooting
 permalink: /en/doc/nvidia-troubleshooting/
 redirect_from:
 - /doc/NvidiaTroubleshooting/

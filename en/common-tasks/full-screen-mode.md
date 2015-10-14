@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: FullScreenMode
+title: Full Screen Mode
 permalink: /en/doc/full-screen-mode/
 redirect_from:
 - /doc/FullScreenMode/

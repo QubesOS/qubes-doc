@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: MultifactorAuthentication
+title: Multifactor Authentication
 permalink: /en/doc/multifactor-authentication/
 redirect_from: /doc/Multi-factorAuthentication/
 ---

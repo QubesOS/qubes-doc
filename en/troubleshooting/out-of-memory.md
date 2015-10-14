@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: OutOfMemory
+title: Out of Memory
 permalink: /en/doc/out-of-memory/
 redirect_from:
 - /doc/OutOfmemory/

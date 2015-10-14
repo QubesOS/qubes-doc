@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: WindowsTools2
+title: Windows Tools 2
 permalink: /en/doc/windows-tools-2/
 redirect_from:
 - /doc/WindowsTools2/

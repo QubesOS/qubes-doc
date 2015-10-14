@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QubesBuilderDetails
+title: Qubes Builder Details
 permalink: /en/doc/qubes-builder-details/
 redirect_from:
 - /doc/QubesBuilderDetails/

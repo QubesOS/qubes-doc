@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QubesArchitecture
+title: Qubes Architecture
 permalink: /en/doc/qubes-architecture/
 redirect_from:
 - /doc/QubesArchitecture/

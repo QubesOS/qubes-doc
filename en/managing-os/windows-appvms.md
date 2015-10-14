@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: WindowsAppVms
+title: Windows AppVms
 permalink: /en/doc/windows-appvms/
 redirect_from:
 - /doc/WindowsAppVms/

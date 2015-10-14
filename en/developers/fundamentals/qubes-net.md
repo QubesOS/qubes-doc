@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QubesNet
+title: Qubes Networking
 permalink: /en/doc/qubes-net/
 redirect_from:
 - /doc/QubesNet/

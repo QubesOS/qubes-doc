@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: LanguageLocalization
+title: Language Localization
 permalink: /en/doc/language-localization/
 redirect_from:
 - /doc/LanguageLocalization/

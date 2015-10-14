@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: ResizeRootDiskImage
+title: Resize Root Disk Image
 permalink: /en/doc/resize-root-disk-image/
 redirect_from:
 - /doc/ResizeRootDiskImage/

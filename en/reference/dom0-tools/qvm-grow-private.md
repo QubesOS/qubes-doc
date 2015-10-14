@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmGrowPrivate
+title: qvm-grow-private
 permalink: /en/doc/dom0-tools/qvm-grow-private/
 redirect_from:
 - /doc/Dom0Tools/QvmGrowPrivate/

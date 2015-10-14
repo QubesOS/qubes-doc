@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: HvmCreate
+title: Creating and Using HVM Domains
 permalink: /en/doc/hvm-create/
 redirect_from:
 - /doc/HvmCreate/

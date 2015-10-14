@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmFirewall
+title: qvm-firewall
 permalink: /en/doc/dom0-tools/qvm-firewall/
 redirect_from:
 - /doc/Dom0Tools/QvmFirewall/

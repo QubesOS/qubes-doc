@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: ExternalAudio
+title: External Audio
 permalink: /en/doc/external-audio/
 redirect_from:
 - /doc/ExternalAudio/

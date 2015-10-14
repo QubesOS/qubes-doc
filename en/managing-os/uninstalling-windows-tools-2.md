@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: UninstallingWindowsTools2
+title: Uninstalling Windows Tools 2
 permalink: /en/doc/uninstalling-windows-tools-2/
 redirect_from:
 - /doc/UninstallingWindowsTools2/

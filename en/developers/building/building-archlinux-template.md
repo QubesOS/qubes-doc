@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: BuildingArchlinuxTemplate
+title: Building Archlinux Template
 permalink: /en/doc/building-archlinux-template/
 redirect_from:
 - /doc/BuildingArchlinuxTemplate/

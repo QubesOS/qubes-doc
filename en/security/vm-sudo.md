@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: VmSudo
+title: VM Sudo
 permalink: /en/doc/vm-sudo/
 redirect_from:
 - /doc/VMSudo/

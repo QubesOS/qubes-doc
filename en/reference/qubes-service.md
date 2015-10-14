@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QubesService
+title: Qubes Service
 permalink: /en/doc/qubes-service/
 redirect_from:
 - /doc/QubesService/

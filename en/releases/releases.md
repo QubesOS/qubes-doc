@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Qubes releases
+title: Qubes Releases
 permalink: /en/doc/releases/
 redirect_from: /doc/releases/
 ---
 
-Qubes releases
+Qubes Releases
 ==============
 
 Qubes R1
@@ -22,4 +22,4 @@ Qubes R3.0
 --------
 
 * [Release Notes](/doc/releases/3.0/release-notes/)
-* [Release schedule](/doc/releases/3.0/schedule/)
+* [Release Schedule](/doc/releases/3.0/schedule/)

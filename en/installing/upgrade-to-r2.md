@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: UpgradeToR2
+title: Upgrading to R2
 permalink: /en/doc/upgrade-to-r2/
 redirect_from:
 - /doc/UpgradeToR2/

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: DevelopmentWorkflow
+title: Development Workflow
 permalink: /en/doc/development-workflow/
 redirect_from:
 - /doc/DevelopmentWorkflow/

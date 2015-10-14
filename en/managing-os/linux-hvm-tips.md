@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: LinuxHVMTips
+title: Linux HVM Tips
 permalink: /en/doc/linux-hvm-tips/
 redirect_from:
 - /doc/LinuxHVMTips/

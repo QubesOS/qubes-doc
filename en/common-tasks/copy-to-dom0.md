@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: CopyToDom0
+title: Copying to and from dom0
 permalink: /en/doc/copy-to-dom0/
 redirect_from:
 - /doc/CopyToDomZero/

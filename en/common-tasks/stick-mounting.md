@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: StickMounting
+title: Mounting USB Sticks
 permalink: /en/doc/stick-mounting/
 redirect_from:
 - /doc/StickMounting/

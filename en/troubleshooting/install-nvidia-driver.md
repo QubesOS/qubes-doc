@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: InstallNvidiaDriver
+title: How to Install an Nvidia Driver
 permalink: /en/doc/install-nvidia-driver/
 redirect_from:
 - /doc/InstallNvidiaDriver/

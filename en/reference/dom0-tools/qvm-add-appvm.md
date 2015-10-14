@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmAddAppvm
+title: qvm-add-appvm
 permalink: /en/doc/dom0-tools/qvm-add-appvm/
 redirect_from:
 - /doc/Dom0Tools/QvmAddAppvm/

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: DevelBooks
+title: Developer Books
 permalink: /en/doc/devel-books/
 redirect_from:
 - /doc/DevelBooks/

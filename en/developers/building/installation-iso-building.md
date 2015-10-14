@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: InstallationIsoBuilding
+title: Installation ISO Building
 permalink: /en/doc/installation-iso-building/
 redirect_from:
 - /doc/InstallationIsoBuilding/

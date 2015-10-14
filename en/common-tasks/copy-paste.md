@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: CopyPaste
+title: Copy and Paste
 permalink: /en/doc/copy-paste/
 redirect_from:
 - /doc/CopyPaste/

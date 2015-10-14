@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: SourceCode
+title: Source Code
 permalink: /en/doc/source-code/
 redirect_from:
 - /doc/SourceCode/

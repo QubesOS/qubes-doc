@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: SecondaryStorage
+title: Secondary Storage
 permalink: /en/doc/secondary-storage/
 redirect_from:
 - /doc/SecondaryStorage/

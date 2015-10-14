@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: DisposableVMs
+title: Disposable VMs
 permalink: /en/doc/dispvm/
 redirect_from:
 - /doc/DisposableVms/

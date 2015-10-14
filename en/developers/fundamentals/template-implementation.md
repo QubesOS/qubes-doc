@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: TemplateImplementation
+title: Template Implementation
 permalink: /en/doc/template-implementation/
 redirect_from:
 - /doc/TemplateImplementation/

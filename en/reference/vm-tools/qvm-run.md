@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmRun
+title: qvm-run
 permalink: /en/doc/vm-tools/qvm-run/
 redirect_from:
 - /doc/VmTools/QvmRun/

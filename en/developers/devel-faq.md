@@ -1,14 +1,14 @@
 ---
 layout: doc
-title: DevelFaq
+title: Developers' FAQ
 permalink: /en/doc/devel-faq/
 redirect_from:
 - /doc/DevelFaq/
 - /wiki/DevelFaq/
 ---
 
-Qubes Developers FAQ
-====================
+Qubes Developers' FAQ
+=====================
 
 1.  1.  [Q: Why does dom0 need to be 64-bit?](#q-why-does-dom0-need-to-be-64-bit)
     2.  [Q: Why do you use KDE in Dom0? What is the roadmap for Gnome support?](#q-why-do-you-use-kde-in-dom0-what-is-the-roadmap-for-gnome-support)

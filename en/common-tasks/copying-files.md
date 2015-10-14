@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: CopyingFiles
+title: Copying Files between Domains
 permalink: /en/doc/copying-files/
 redirect_from:
 - /doc/CopyingFiles/

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: ExternalDeviceMountPoint
+title: External Device Mount Point
 permalink: /en/doc/external-device-mount-point/
 redirect_from:
 - /doc/ExternalDeviceMountPoint/

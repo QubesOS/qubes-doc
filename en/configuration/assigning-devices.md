@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: AssigningDevices
+title: Assigning Devices
 permalink: /en/doc/assigning-devices/
 redirect_from:
 - /doc/AssigningDevices/

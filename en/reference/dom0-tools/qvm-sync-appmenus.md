@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmSyncAppmenus
+title: qvm-sync-appmenus
 permalink: /en/doc/dom0-tools/qvm-sync-appmenus/
 redirect_from:
 - /doc/Dom0Tools/QvmSyncAppmenus/

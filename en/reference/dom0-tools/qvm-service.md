@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmService
+title: qvm-service
 permalink: /en/doc/dom0-tools/qvm-service/
 redirect_from:
 - /doc/Dom0Tools/QvmService/

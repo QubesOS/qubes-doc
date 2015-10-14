@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmLs
+title: qvm-ls
 permalink: /en/doc/dom0-tools/qvm-ls/
 redirect_from:
 - /doc/Dom0Tools/QvmLs/

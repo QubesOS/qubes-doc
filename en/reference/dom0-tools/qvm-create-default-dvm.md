@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmCreateDefaultDvm
+title: qvm-create-default-dvm
 permalink: /en/doc/dom0-tools/qvm-create-default-dvm/
 redirect_from:
 - /doc/Dom0Tools/QvmCreateDefaultDvm/

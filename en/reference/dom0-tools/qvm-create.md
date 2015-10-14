@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmCreate
+title: qvm-create
 permalink: /en/doc/dom0-tools/qvm-create/
 redirect_from:
 - /doc/Dom0Tools/QvmCreate/

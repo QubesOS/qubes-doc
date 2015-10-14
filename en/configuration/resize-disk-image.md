@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: ResizeDiskImage
+title: Resize Disk Image
 permalink: /en/doc/resize-disk-image/
 redirect_from:
 - /doc/ResizeDiskImage/

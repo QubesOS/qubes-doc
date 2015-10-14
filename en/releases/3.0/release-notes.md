@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Qubes R3.0 release notes
+title: Qubes R3.0 Release Notes
 permalink: /en/doc/releases/3.0/release-notes/
 redirect_from: /doc/releases/3.0/release-notes/
 ---
 
-Qubes R3.0 release notes
+Qubes R3.0 Release Notes
 ========================
 
 This Qubes OS release is dedicated to the memory of Caspar Bowden.

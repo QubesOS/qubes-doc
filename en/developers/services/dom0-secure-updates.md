@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Dom0SecureUpdates
+title: Dom0 Secure Updates
 permalink: /en/doc/dom0-secure-updates/
 redirect_from:
 - /doc/Dom0SecureUpdates/

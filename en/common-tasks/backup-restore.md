@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: BackupRestore
+title: Backup, Restoration, and Migration
 permalink: /en/doc/backup-restore/
 redirect_from:
 - /doc/BackupRestore/

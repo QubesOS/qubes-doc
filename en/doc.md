@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Documentation
+title: Qubes OS Documentation
 permalink: /en/doc/
 redirect_from:
 - /doc/
@@ -150,4 +150,4 @@ For Developers
  *  [Documentation Guidelines](/en/doc/doc-guidelines/)
  *  [Books for Developers](/en/doc/devel-books/)
  *  [Research Papers](/en/doc/qubes-research/)
- *  [Licensing](/en/doc/license/)
+ *  [Qubes OS License](/en/doc/license/)

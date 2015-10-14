@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: SoftwareUpdateDom0
+title: Updating software in dom0
 permalink: /en/doc/software-update-dom0/
 redirect_from:
 - /doc/SoftwareUpdateDom0/

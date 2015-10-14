@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmPci
+title: qvm-pci
 permalink: /en/doc/dom0-tools/qvm-pci/
 redirect_from:
 - /doc/Dom0Tools/QvmPci/

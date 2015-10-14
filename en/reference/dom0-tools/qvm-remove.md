@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmRemove
+title: qvm-remove
 permalink: /en/doc/dom0-tools/qvm-remove/
 redirect_from:
 - /doc/Dom0Tools/QvmRemove/

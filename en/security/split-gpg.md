@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: SplitGpg
+title: Split GPG
 permalink: /en/doc/split-gpg/
 redirect_from:
 - /doc/SplitGpg/

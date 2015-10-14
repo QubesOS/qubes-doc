@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmCopyToVm
+title: qvm-copy-to-vm
 permalink: /en/doc/vm-tools/qvm-copy-to-vm/
 redirect_from:
 - /doc/VmTools/QvmCopyToVm/

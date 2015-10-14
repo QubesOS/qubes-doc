@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Automated tests
+title: Automated Tests
 permalink: /en/doc/automated-tests/
 redirect_from: /doc/AutomatedTests/
 ---

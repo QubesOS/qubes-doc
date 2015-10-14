@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: SystemRequirements
+title: System Requirements
 permalink: /en/doc/system-requirements/
 redirect_from:
 - /doc/SystemRequirements/

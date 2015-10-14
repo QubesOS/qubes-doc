@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QubesDom0Update
+title: qubes-dom0-update
 permalink: /en/doc/dom0-tools/qubes-dom0-update/
 redirect_from:
 - /doc/Dom0Tools/QubesDom0Update/

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmTemplateCommit
+title: qvm-template-commit
 permalink: /en/doc/dom0-tools/qvm-template-commit/
 redirect_from:
 - /doc/Dom0Tools/QvmTemplateCommit/

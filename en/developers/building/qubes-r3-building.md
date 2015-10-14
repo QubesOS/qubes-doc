@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QubesR3Building
+title: Qubes R3 Building
 permalink: /en/doc/qubes-r3-building/
 redirect_from:
 - /doc/QubesR3Building/

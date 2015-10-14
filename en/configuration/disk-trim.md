@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: DiskTRIM
+title: Disk TRIM
 permalink: /en/doc/disk-trim/
 redirect_from:
 - /doc/DiskTRIM/

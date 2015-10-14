@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QubesResearch
+title: Qubes Research
 permalink: /en/doc/qubes-research/
 redirect_from:
 - /doc/QubesResearch/

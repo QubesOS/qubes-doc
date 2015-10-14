@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: WindowsDebugging
+title: Windows Debugging
 permalink: /en/doc/windows-debugging/
 redirect_from:
 - /doc/WindowsDebugging/

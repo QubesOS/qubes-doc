@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: AntiEvilMaid
+title: Anti Evil Maid (AEM)
 permalink: /en/doc/anti-evil-maid/
 redirect_from:
 - /doc/AntiEvilMaid/

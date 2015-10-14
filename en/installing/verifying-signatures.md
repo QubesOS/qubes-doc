@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: VerifyingSignatures
+title: Verifying Signatures
 permalink: /en/doc/verifying-signatures/
 redirect_from:
 - /doc/VerifyingSignatures/

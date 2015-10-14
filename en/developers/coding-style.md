@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: CodingStyle
+title: Coding Style
 permalink: /en/doc/coding-style/
 redirect_from:
 - /doc/CodingStyle/

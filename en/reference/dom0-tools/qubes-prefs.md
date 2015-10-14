@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QubesPrefs
+title: qubes-prefs
 permalink: /en/doc/dom0-tools/qubes-prefs/
 redirect_from:
 - /doc/Dom0Tools/QubesPrefs/

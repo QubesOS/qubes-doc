@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: NetworkPrinter
+title: Network Printer
 permalink: /en/doc/network-printer/
 redirect_from:
 - /doc/NetworkPrinter/

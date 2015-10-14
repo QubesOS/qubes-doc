@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Debian
+title: Debian Template
 permalink: /en/doc/templates/debian/
 redirect_from:
 - /doc/Templates/Debian/

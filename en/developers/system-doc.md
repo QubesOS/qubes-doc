@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: SystemDoc
+title: System Documentation
 permalink: /en/doc/system-doc/
 redirect_from:
 - /doc/SystemDoc/
@@ -18,7 +18,7 @@ Fundamentals
  * Qubes RPC: [`qrexec` v2](/en/doc/qrexec/) ([R2 implementation](/en/doc/qrexec2-implementation/))
  * Qubes RPC: [`qrexec` v3](/en/doc/qrexec3/) ([R3 implementation](/en/doc/qrexec3-implementation/)) (Odyssey)
  * [Example for writing a `qrexec` service in Qubes OS (blog post)](http://theinvisiblethings.blogspot.com/2013/02/converting-untrusted-pdfs-into-trusted.html)
- * [Qubes GUI virtualization protocol](/en/doc/gui-docs/)
+ * [Qubes GUI virtualization protocol](/en/doc/gui/)
  * [Networking in Qubes](/en/doc/qubes-net/)
  * [Implementation of template sharing and updating](/en/doc/template-implementation/)
 

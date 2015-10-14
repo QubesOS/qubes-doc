@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: QvmAddTemplate
+title: qvm-add-template
 permalink: /en/doc/dom0-tools/qvm-add-template/
 redirect_from:
 - /doc/Dom0Tools/QvmAddTemplate/

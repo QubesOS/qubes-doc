@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: DispVMCustomization
+title: DispVM Customization
 permalink: /en/doc/dispvm-customization/
 redirect_from:
 - /doc/DispVMCustomization/

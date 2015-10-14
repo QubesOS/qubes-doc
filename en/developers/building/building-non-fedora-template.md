@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: BuildingNonFedoraTemplate
+title: Building Non-Fedora Template
 permalink: /en/doc/building-non-fedora-template/
 redirect_from:
 - /doc/BuildingNonFedoraTemplate/

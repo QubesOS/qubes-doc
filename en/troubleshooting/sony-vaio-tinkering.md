@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: SonyVaioTinkering
+title: Sony Vaio Tinkering
 permalink: /en/doc/sony-vaio-tinkering/
 redirect_from:
 - /doc/SonyVaioTinkering/

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: UserFaq
+title: Users' FAQ
 permalink: /en/doc/user-faq/
 redirect_from:
 - /doc/UserFaq/
