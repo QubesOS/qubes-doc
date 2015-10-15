@@ -51,17 +51,20 @@ It is also recommended to use an empty passphrase for the private key used for s
 So, to build Qubes one would do:
 
     # Import the Qubes master key 
-    gpg --recv-keys 0x36879494 
+    gpg --recv-keys 0xDDFA1A3E36879494
     
     # Verify its fingerprint, set as 'trusted'. 
     # This is described here: 
     # https://www.qubes-os.org/doc/VerifyingSignatures
     
-    wget http://keys.qubes-os.org/keys/qubes-developers-keys.asc 
+    wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
     gpg --import qubes-developers-keys.asc 
     
     git clone git://github.com/QubesOS/qubes-builder.git qubes-builder 
     cd qubes-builder 
+
+    # Verify its integrity:
+    git tag -v `git describe`
     
     cp example-configs/qubes-os-master.conf builder.conf 
     # edit the builder.conf file and set the following variables: 
