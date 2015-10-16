@@ -163,14 +163,11 @@ rm ~/.config/dconf/user
 ~~~
 
 *Note*: lxappearance only have effect on gtk3 theme so it won't work to change gtk2 themes (used by Firefox, Thunderbird ...). 
-
-However, it is very lightweight and can be used to identify the name and look of themes you are interested in.
-
-Once you have the name, you can apply it using gsetting command line or gconf-editor.
+             However, it is very lightweight and can be used to identify the name and look of themes you are interested in.
+             Once you have the name, you can apply it using gsetting command line or gconf-editor.
 
 *Note*: if you really want a GUI theme editor, you can install gnome-tweak-tools, but this tool have a lot 
-
-of gnome dependencies (~150MB of dependencies). Eventually install it and uninstall it as soon as you changed your theme.
+            of gnome dependencies (~150MB of dependencies). Eventually install it and uninstall it as soon as you changed your theme.
 
 #### Testing notes
 
@@ -181,17 +178,17 @@ The following programs can be used to see if theme has been correctly applied:
 * QT program: keepassx
 
 *Note*: testing in a TemplateVM will not work as expected because gnome-settings-daemon is not started in TemplateVM. 
+             so test your themes in an AppVM and then update the TemplateVM accordingly.
 
-Test themes in an AppVM and then update the TemplateVM accordingly.
-
-=== Forcing theme change for all AppVM depending on a TemplateVM
+### Forcing theme change for all AppVM depending on a TemplateVM
 
 This can be done for gtk themes by creating dconf global settings. I recommend reading these articles:
 
 [DCONF1]
+
 [DCONF2]
 
-==== Creating global file
+#### Creating global file
 
  * Setup global config file:
 
@@ -221,7 +218,7 @@ This can be done for gtk themes by creating dconf global settings. I recommend r
    system-db:qubes
    ~~~
 
-==== Locking configuration
+#### Locking configuration
 
 It should be noted that the user dconf settings stored in ~/.config/dconf/user always takes precedence over the global dconf settings.
 
@@ -240,22 +237,18 @@ Edit/Create the following file: /etc/dconf/db/qubes.d/locks/theme.lock:
 Finally, regenerate the dconf database
 > dconf update
 
-=== Uniform look for QT & GTK
+### Uniform look for QT & GTK
 
 Getting an uniform look for QT & GTK is not acheaved yet. A good source is on the following link [UNIFORMTHEME]
 
 Two case:
 
 1. You installed packages of the theme you selected both for Qt, GTK2 and GTK3.
-
     (eg: Adwaita which is the default theme. I did not found another cross framework theme on fedora default packages).
 
 2. You want to use the GTK theme you selected for Qt but there is no qt package.
-
     In this case QGtkStyle will take precedence and convert the style automaticall.
-
     You can verify if it is enabled by searching for "style=GTK+" in /etc/xdg/Trolltech.conf.
- 
     If style is changed to another name, it will be used instead of your GTK theme.
     
 *Note*: check that ~/.config/Trolltech.conf in your AppVMs is not defining another "style=" because it will take precedence over your global QT theme.
@@ -263,7 +256,7 @@ Two case:
 
 [3GMODEM]: https://www.codeenigma.com/community/blog/installing-3g-usb-modems-linux
 
-[OPENVPNSETUP]: 
+[OPENVPNSETUP]: https://groups.google.com/forum/#!searchin/qubes-users/openvpn$20setup/qubes-users/UbY4-apKScE/lhB_ouTnAwAJ
 
 [THEMEPACKAGES]: https://groups.google.com/forum/#!search/appvm$20theme/qubes-users/RyVeDiEZ6D0/YR4ITjgdYX0J
 
