@@ -1,6 +1,8 @@
-= Disable/Uninstall unecessary features/services
+Disable/Uninstall unecessary features/services
+=============================
 
-== Windows features
+Windows features
+----------------------------
 
 Uninstall windows features from Control Panel > Turn windows features On/Off. Generally, it will be required to reboot after features desinstallation. If you do not manage to uninstall some features, it is sometimes necessarry to uninstall them one by one or two by two.
 
@@ -14,7 +16,8 @@ Only keep:
 *Note*: Unselecting windows media, .Net and Internet Explorer will uninstall these components. on a new install it is generally old versions anyway and it will be quicker to install directly the new versions later.
 Services
 
-== Windows services
+Windows services
+---------------------------
 
 Disable the following services that are not required or have no sense in a VM context:
 
@@ -36,13 +39,15 @@ Disable the following services that are not required or have no sense in a VM co
 
 *Notes*: IP Helper is required as it is used by Qubes Agent to configure the IP address.
 
-== Windows update
+Windows update
+--------------------------
 
 I recommend disabling windows update (Never Check for Update) because checking for updates will start every time you start an AppVM if you don't started your template after some days. Running windows update is also apparently IO hungry.
 
 Of course I recommend starting the template regularly and checking manually for updates.
 
-== System properties
+System properties
+---------------------------
 
 Advanced => Performances:
 
@@ -63,8 +68,8 @@ Advanced => Performances:
  * Remote
     Unselect Allow Remote Assistance connetions to this computer.
 
-
-== Task scheduler
+Task scheduler
+-----------------------
 
 Open the task scheduler and *disable* the following tasks. If you remove these tasks they may be recreated automatically by various windows management tools (such as defragmentation)
 
@@ -77,30 +82,32 @@ Open the task scheduler and *disable* the following tasks. If you remove these t
  * SystemRestore: All
  * WindowsBackup: All
 
-==  Disable hibernation
+Disable hibernation
+------------------------------
 
 and clean hyberfil.sys
 
- # Ensure that you disabled the Power service (you may need to reboot so that the Power service is effectively stopped).
+ 1. Ensure that you disabled the Power service (you may need to reboot so that the Power service is effectively stopped).
 
- # Run a cmd.exe as an administrator:
+ 2. Run a cmd.exe as an administrator:
     > powercfg -h off
 
 C:\hyberfil.sys should now be deleted
 
-= Manual tasks that can/should be started in the template
+Manual tasks that can/should be started in the template
+===================================
 
  * Disk defragmentation
  * Windows Update
  * Windows file cleaning
-    # Run windows drive cleaner as Administrator.
-    # Enable all the task and run the cleaner
+    1. Run windows drive cleaner as Administrator.
+    2. Enable all the task and run the cleaner
 
  * CCleaner file cleaning
-    # Install CCleaner free
-    # Copy the attached ccleaner configuration file in CCleaner program file folder
-    # Run ccleaner with all option set except "wipe free space" (it will also remove user history and preferences)
-    # Run ccleaner only with the option "wipe free space".
+    1. Install CCleaner free
+    2. Copy the attached ccleaner configuration file in CCleaner program file folder
+    3. Run ccleaner with all option set except "wipe free space" (it will also remove user history and preferences)
+    4. Run ccleaner only with the option "wipe free space".
         It will write zeros in all unused space. This will allow you to strip the root.img file later
 	
 	
@@ -108,33 +115,18 @@ C:\hyberfil.sys should now be deleted
     Ensure that you know what you are doing in this section as you may destroy by error your template root.img file.
  
     * If you ran ccleaner with "wipe free space", follow the following procedure:
-        # from dom0, go to /var/lib/templates-vm/yourtemplate
-	# copy root.img using the following command:
+        1. from dom0, go to /var/lib/templates-vm/yourtemplate
+	2. copy root.img using the following command:
 	    cp --sparse=always root.img root.img.clean
-	# if the copy worked, you can move the new root file by running this command
+	3. if the copy worked, you can move the new root file by running this command
 	    mv root.img.clean root.img
     
     * If don't managed to fill the free space with zeroes, you can follow the following *unsafe* undocumented procedure:
-	# from dom0, go to /var/lib/templates-vm/yourtemplate
-	# check the partitionning to identify the filesystem offset of root.img
-	# mount the filesystem
-	# create a file with zeros inside the filesystem until the mounted filesystem is full
-	# remove the file
-        # unmount the partition
-	# make a copy of root.img in sparse mode.
+	1. from dom0, go to /var/lib/templates-vm/yourtemplate
+	2. check the partitionning to identify the filesystem offset of root.img
+	3. mount the filesystem
+	4. create a file with zeros inside the filesystem until the mounted filesystem is full
+	5. remove the file
+        6. unmount the partition
+	7. make a copy of root.img in sparse mode.
 	
-
-
-Data cleaning tasks (work in progress)
-
-Here is my recommendations on cleaning as much as data as possible. Note that cleaning could delete user history/preferences on some cases.
-
-I did not fully tested all the actions described here in Qubes R3 (I'm still installing / updating my Windows7 templates).
-
-    Run windows drive cleaner as Administrator.
-    Run ccleaner with all option set (it will also remove user history and preferences)
-    Additionnal ccleaner config to remove windows updates uninstallers and WindowsUpdate temporary file (will be attached in next mail)
-    TemplateVM stripping:
-        from dom0 (unsafe): check the partitionning to identify the filesystem offset, mount the filesystem, create a file with zeros until the filesystem is full, remove the file, unmount the partition and make a copy of root.img in sparse mode (automatic with cp) (script will be attached in next mail).
-        from the running TemplateVM: fill the unused space with zeros (I think ccleaner can do that), shutdown the vm, then in dom0, copy root.img in sparse mode (automatic with cp).
-
