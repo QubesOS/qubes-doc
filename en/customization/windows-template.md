@@ -120,21 +120,22 @@ Manual tasks that can/should be started in the template
     * If you ran ccleaner with "wipe free space", follow the following procedure
     
         1. from dom0, go to /var/lib/templates-vm/yourtemplate
-	2. copy root.img using the following command
+
+        2. copy root.img using the following command
 	
         > cp --sparse=always root.img root.img.clean
-	
-	3. if the copy worked, you can move the new root file by running this command
-	
-	> mv root.img.clean root.img
+
+        3. if the copy worked, you can move the new root file by running this command
+
+        > mv root.img.clean root.img
     
     * If don't managed to fill the free space with zeroes, you can follow the following  *unsafe* undocumented procedure
     
-	1. from dom0, go to /var/lib/templates-vm/yourtemplate
-	2. check the partitionning to identify the filesystem offset of root.img
-	3. mount the filesystem
-	4. create a file with zeros inside the filesystem until the mounted filesystem is full
-	5. remove the file
+        1. from dom0, go to /var/lib/templates-vm/yourtemplate
+        2. check the partitionning to identify the filesystem offset of root.img
+        3. mount the filesystem
+        4. create a file with zeros inside the filesystem until the mounted filesystem is full
+        5. remove the file
         6. unmount the partition
-	7. make a copy of root.img in sparse mode.
+        7. make a copy of root.img in sparse mode.
 	
