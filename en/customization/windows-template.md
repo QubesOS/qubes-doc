@@ -1,0 +1,140 @@
+= Disable/Uninstall unecessary features/services
+
+== Windows features
+
+Uninstall windows features from Control Panel > Turn windows features On/Off. Generally, it will be required to reboot after features desinstallation. If you do not manage to uninstall some features, it is sometimes necessarry to uninstall them one by one or two by two.
+
+Only keep:
+
+ * Print and Document Service => Internet Printing Client
+ * Print and Document Service => Windows Fax and Scan (apparently it cannot be uninstalled)
+ * Windows search
+
+*Note*: Windows search is recommended because it is a nightmare to find something in menus if it is not enabled (it removes the search bar from the start menu, from the explorer, and from the control panel).
+*Note*: Unselecting windows media, .Net and Internet Explorer will uninstall these components. on a new install it is generally old versions anyway and it will be quicker to install directly the new versions later.
+Services
+
+== Windows services
+
+Disable the following services that are not required or have no sense in a VM context:
+
+ * Base Filtering Engine (only required if your want to use Microsoft IPSEC)
+ * DHCP Client
+ * Function Discovery Provider Host
+    will not work anyway because SSDP discovery uses multicast - need to be on the same network which is not the case because of qubes firewall
+ * Peer Name Resolution Protocol
+ * Peer Netwoking Grouping
+ * Peer Networking Identity Manager
+ * SSDP Discovery
+ * Security Center (is it only notifications ?)
+ * TCP/IP Netbios Help (is Netbios still really used by Windows ? Maybe for discovery only ?)
+ * Themes (if you don't care about theme)
+ * Volume Shadow Copy (see next note in the performance section)
+ * Windows defender
+ * Windows Firewall
+ * Power
+
+*Notes*: IP Helper is required as it is used by Qubes Agent to configure the IP address.
+
+== Windows update
+
+I recommend disabling windows update (Never Check for Update) because checking for updates will start every time you start an AppVM if you don't started your template after some days. Running windows update is also apparently IO hungry.
+
+Of course I recommend starting the template regularly and checking manually for updates.
+
+== System properties
+
+Advanced => Performances:
+
+ * If your don't care about visual effect, in Visual Effect select "Adjust for best performance"
+ * I personnally tweak the page file size to win some place on my root. In Advanced>Performances>Advanced tab, change Virtual memory:
+        # unselect automatically manage paging file size for all drive
+        # click on drive C:
+        # select no paging file
+        # click on set
+        # click on drive d:
+        # select customer size
+        # use an initial size of 500 and a max size of 1000. If the page file is too small, you will notify a low memory pop up when working on windows. In this case, it often means that you should extend your AppVM RAM.
+
+ * System Protection
+    Here you can disable Shadow Folder because it has little sense in case of qubes because we do backup regularly of AppVMs/TemplateVMs and we can revert at least one template change if we break something.
+    Select drives where system protection is enabled and click Configure. "Turn of system protection" "Delete all restore points"
+
+ * Remote
+    Unselect Allow Remote Assistance connetions to this computer.
+
+
+== Task scheduler
+
+Open the task scheduler and *disable* the following tasks. If you remove these tasks they may be recreated automatically by various windows management tools (such as defragmentation)
+
+ * Autochk: All
+ * Application Experience: All
+ * Customer Experience Improvement Program: All
+ * Defrag: All
+ * DiskDiagnosis: All (the disk is virtual anyway so S.M.A.R.T. has no sense)
+ * Maintenance: All
+ * SystemRestore: All
+ * WindowsBackup: All
+
+==  Disable hibernation
+
+and clean hyberfil.sys
+
+ # Ensure that you disabled the Power service (you may need to reboot so that the Power service is effectively stopped).
+
+ # Run a cmd.exe as an administrator:
+    > powercfg -h off
+
+C:\hyberfil.sys should now be deleted
+
+= Manual tasks that can/should be started in the template
+
+ * Disk defragmentation
+ * Windows Update
+ * Windows file cleaning
+    # Run windows drive cleaner as Administrator.
+    # Enable all the task and run the cleaner
+
+ * CCleaner file cleaning
+    # Install CCleaner free
+    # Copy the attached ccleaner configuration file in CCleaner program file folder
+    # Run ccleaner with all option set except "wipe free space" (it will also remove user history and preferences)
+    # Run ccleaner only with the option "wipe free space".
+        It will write zeros in all unused space. This will allow you to strip the root.img file later
+	
+	
+ * TemplateVM stripping:
+    Ensure that you know what you are doing in this section as you may destroy by error your template root.img file.
+ 
+    * If you ran ccleaner with "wipe free space", follow the following procedure:
+        # from dom0, go to /var/lib/templates-vm/yourtemplate
+	# copy root.img using the following command:
+	    cp --sparse=always root.img root.img.clean
+	# if the copy worked, you can move the new root file by running this command
+	    mv root.img.clean root.img
+    
+    * If don't managed to fill the free space with zeroes, you can follow the following *unsafe* undocumented procedure:
+	# from dom0, go to /var/lib/templates-vm/yourtemplate
+	# check the partitionning to identify the filesystem offset of root.img
+	# mount the filesystem
+	# create a file with zeros inside the filesystem until the mounted filesystem is full
+	# remove the file
+        # unmount the partition
+	# make a copy of root.img in sparse mode.
+	
+
+
+Data cleaning tasks (work in progress)
+
+Here is my recommendations on cleaning as much as data as possible. Note that cleaning could delete user history/preferences on some cases.
+
+I did not fully tested all the actions described here in Qubes R3 (I'm still installing / updating my Windows7 templates).
+
+    Run windows drive cleaner as Administrator.
+    Run ccleaner with all option set (it will also remove user history and preferences)
+    Additionnal ccleaner config to remove windows updates uninstallers and WindowsUpdate temporary file (will be attached in next mail)
+    TemplateVM stripping:
+        from dom0 (unsafe): check the partitionning to identify the filesystem offset, mount the filesystem, create a file with zeros until the filesystem is full, remove the file, unmount the partition and make a copy of root.img in sparse mode (automatic with cp) (script will be attached in next mail).
+        from the running TemplateVM: fill the unused space with zeros (I think ccleaner can do that), shutdown the vm, then in dom0, copy root.img in sparse mode (automatic with cp).
+
