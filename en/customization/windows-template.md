@@ -63,6 +63,7 @@ Right click on computer and go to Properties > Advanced > Performances:
  * I personnally tweak the page file size to win some place on my root.
  
     In Advanced>Performances>Advanced tab, change Virtual memory:
+    
         1. unselect automatically manage paging file size for all drive
         2. click on drive C:
         3. select no paging file
