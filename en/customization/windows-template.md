@@ -4,7 +4,11 @@ Disable/Uninstall unecessary features/services
 Windows features
 ----------------------------
 
-Uninstall windows features from Control Panel > Turn windows features On/Off. Generally, it will be required to reboot after features desinstallation. If you do not manage to uninstall some features, it is sometimes necessarry to uninstall them one by one or two by two.
+Uninstall windows features from Control Panel > Turn windows features On/Off. 
+
+Generally, it will be required to reboot after features desinstallation.
+
+If you do not manage to uninstall some features, it is sometimes necessarry to uninstall them one by one or two by two.
 
 Only keep:
 
@@ -13,6 +17,7 @@ Only keep:
  * Windows search
 
 *Note*: Windows search is recommended because it is a nightmare to find something in menus if it is not enabled (it removes the search bar from the start menu, from the explorer, and from the control panel).
+
 *Note*: Unselecting windows media, .Net and Internet Explorer will uninstall these components. on a new install it is generally old versions anyway and it will be quicker to install directly the new versions later.
 Services
 
@@ -24,7 +29,8 @@ Disable the following services that are not required or have no sense in a VM co
  * Base Filtering Engine (only required if your want to use Microsoft IPSEC)
  * DHCP Client
  * Function Discovery Provider Host
-    will not work anyway because SSDP discovery uses multicast - need to be on the same network which is not the case because of qubes firewall
+ 
+    this will not work anyway because SSDP discovery uses multicast - need to be on the same network which is not the case because of qubes firewall
  * Peer Name Resolution Protocol
  * Peer Netwoking Grouping
  * Peer Networking Identity Manager
@@ -42,36 +48,48 @@ Disable the following services that are not required or have no sense in a VM co
 Windows update
 --------------------------
 
-I recommend disabling windows update (Never Check for Update) because checking for updates will start every time you start an AppVM if you don't started your template after some days. Running windows update is also apparently IO hungry.
+I recommend disabling windows update (Never Check for Update) because checking for updates will start every time you start an AppVM if you don't started your template after some days.
+
+Running windows update is also apparently IO hungry.
 
 Of course I recommend starting the template regularly and checking manually for updates.
 
 System properties
 ---------------------------
 
-Advanced => Performances:
+Right click on computer and go to Properties > Advanced > Performances:
 
  * If your don't care about visual effect, in Visual Effect select "Adjust for best performance"
- * I personnally tweak the page file size to win some place on my root. In Advanced>Performances>Advanced tab, change Virtual memory:
-        # unselect automatically manage paging file size for all drive
-        # click on drive C:
-        # select no paging file
-        # click on set
-        # click on drive d:
-        # select customer size
-        # use an initial size of 500 and a max size of 1000. If the page file is too small, you will notify a low memory pop up when working on windows. In this case, it often means that you should extend your AppVM RAM.
+ * I personnally tweak the page file size to win some place on my root.
+ 
+    In Advanced>Performances>Advanced tab, change Virtual memory:
+        1. unselect automatically manage paging file size for all drive
+        2. click on drive C:
+        3. select no paging file
+        4. click on set
+        5. click on drive d:
+        6. select customer size
+        7. use an initial size of 500 and a max size of 1000. If the page file is too small, you will notify a low memory pop up when working on windows. In this case, it often means that you should extend your AppVM RAM.
 
  * System Protection
-    Here you can disable Shadow Folder because it has little sense in case of qubes because we do backup regularly of AppVMs/TemplateVMs and we can revert at least one template change if we break something.
+ 
+    Here you can disable Shadow Folder because it has little sense in case of qubes because
+
+      * we do backup regularly of AppVMs/TemplateVMs;
+      * we can revert at least one template change if we break something.
+      
     Select drives where system protection is enabled and click Configure. "Turn of system protection" "Delete all restore points"
 
  * Remote
+ 
     Unselect Allow Remote Assistance connetions to this computer.
 
 Task scheduler
 -----------------------
 
-Open the task scheduler and *disable* the following tasks. If you remove these tasks they may be recreated automatically by various windows management tools (such as defragmentation)
+Open the task scheduler and *disable* the following tasks. 
+
+If you remove these tasks they may be recreated automatically by various windows management tools (such as defragmentation)
 
  * Autochk: All
  * Application Experience: All
@@ -123,11 +141,11 @@ Manual tasks that can/should be started in the template
 
         2. copy root.img using the following command
 	
-        > cp --sparse=always root.img root.img.clean
+            > cp --sparse=always root.img root.img.clean
 
         3. if the copy worked, you can move the new root file by running this command
 
-        > mv root.img.clean root.img
+            > mv root.img.clean root.img
     
     * If don't managed to fill the free space with zeroes, you can follow the following  *unsafe* undocumented procedure
     
