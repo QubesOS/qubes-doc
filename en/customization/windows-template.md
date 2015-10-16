@@ -98,7 +98,9 @@ Manual tasks that can/should be started in the template
 ===================================
 
  * Disk defragmentation
+ 
  * Windows Update
+ 
  * Windows file cleaning
     1. Run windows drive cleaner as Administrator.
     2. Enable all the task and run the cleaner
@@ -108,20 +110,26 @@ Manual tasks that can/should be started in the template
     2. Copy the attached ccleaner configuration file in CCleaner program file folder
     3. Run ccleaner with all option set except "wipe free space" (it will also remove user history and preferences)
     4. Run ccleaner only with the option "wipe free space".
+    
         It will write zeros in all unused space. This will allow you to strip the root.img file later
 	
-	
- * TemplateVM stripping:
+ * TemplateVM stripping
+ 
     Ensure that you know what you are doing in this section as you may destroy by error your template root.img file.
  
-    * If you ran ccleaner with "wipe free space", follow the following procedure:
-        1. from dom0, go to /var/lib/templates-vm/yourtemplate
-	2. copy root.img using the following command:
-	    cp --sparse=always root.img root.img.clean
-	3. if the copy worked, you can move the new root file by running this command
-	    mv root.img.clean root.img
+    * If you ran ccleaner with "wipe free space", follow the following procedure
     
-    * If don't managed to fill the free space with zeroes, you can follow the following *unsafe* undocumented procedure:
+        1. from dom0, go to /var/lib/templates-vm/yourtemplate
+	2. copy root.img using the following command
+	
+        > cp --sparse=always root.img root.img.clean
+	
+	3. if the copy worked, you can move the new root file by running this command
+	
+	> mv root.img.clean root.img
+    
+    * If don't managed to fill the free space with zeroes, you can follow the following  *unsafe* undocumented procedure
+    
 	1. from dom0, go to /var/lib/templates-vm/yourtemplate
 	2. check the partitionning to identify the filesystem offset of root.img
 	3. mount the filesystem
