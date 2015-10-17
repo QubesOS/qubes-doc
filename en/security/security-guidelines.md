@@ -10,17 +10,17 @@ redirect_from:
 Security Guidelines
 ===================
 
-1.  [Security Guidelines](#security-guidelines)
-    1.  [Download Verification](#download-verification)
-    2.  [Observing Security Contexts](#observing-security-contexts)
-    3.  [Installing Versus Running Programs](#installing-versus-running-programs)
-    4.  [Enabling and Verifying VT-d/IOMMU](#enabling-and-verifying-vt-diommu)
-    5.  [Updating Software](#updating-software)
-    6.  [Handling Untrusted Files](#handling-untrusted-files)
-    7.  [Anti Evil Maid](#anti-evil-maid)
-    8.  [Reassigning USB Controllers](#reassigning-usb-controllers)
-    9.  [Creating and Using a USBVM](#creating-and-using-a-usbvm)
-    10. [Dom0 Precautions](#dom0-precautions)
+ * [Download Verification](#download-verification)
+ * [Observing Security Contexts](#observing-security-contexts)
+ * [Installing Versus Running Programs](#installing-versus-running-programs)
+ * [Enabling and Verifying VT-d/IOMMU](#enabling-and-verifying-vt-diommu)
+ * [Updating Software](#updating-software)
+ * [Handling Untrusted Files](#handling-untrusted-files)
+ * [Anti Evil Maid](#anti-evil-maid)
+ * [Reassigning USB Controllers](#reassigning-usb-controllers)
+ * [Creating and Using a USBVM](#creating-and-using-a-usbvm)
+ * [Dom0 Precautions](#dom0-precautions)
+ * [TemplateBasedVM Directories](#templatebasedvm-directories)
 
 The [Qubes introduction](http://theinvisiblethings.blogspot.com/2012/09/introducing-qubes-10.html) makes clear that without some active and responsible participation of the user, no real security is possible. So, for example, Qubes does not automagically make your Firefox (or any other app) running in one of the AppVMs suddenly more secure. It is just as [secure (or insecure)](https://en.wikipedia.org/wiki/Computer_insecurity) as on a normal Linux or Windows OS. But what drastically changes is the context in which your applications are used. [This context](/en/doc/qubes-architecture/) is a [responsibility of the user](/en/doc/security-goals/). But participation requires knowledge. So it is worth stressing some basic items:
 
@@ -168,3 +168,21 @@ As explained [here](/doc/GettingStarted/#appvms-domains-and-templatevms), dom0 s
 5.  Any VM can be shut down in order to make it even more difficult for an adversary to access, and shutting down one VM does not restrict the user of other VMs. By contrast, one cannot shut down dom0 and use other VMs at the same time.
 6.  As far as we are aware, there are no special mechanisms in Xen which make dom0 more protected than any other VM, so there is no inherent security advantage to performing any user operations in dom0.
 
+
+TemplateBasedVM Directories
+---------------------------
+
+ * Whenever a TemplateBasedVM is created, the contents of the `/home`
+   directory of its parent TemplateVM are copied to the child TemplateBasedVM's
+   `/home`. From that point onward, the child TemplateBasedVM's `/home`
+   is independent from its parent TemplateVM's `/home`, which means that any
+   subsequent changes to the parent TemplateVM's `/home` will no longer affect
+   the child TemplateBasedVM's `/home`.
+
+ * Once a TemplateBasedVM has been created, any changes in its `/home`,
+   `/usr/local`, or `/rw/config` directories will be persistent across reboots,
+   which means that any files stored there will still be available after
+   restarting the TemplateBasedVM. No changes in any other directories in
+   TemplateBasedVMs persist in this manner. If you would like to make changes
+   in other directories which *do* persist in this manner, you must make those
+   changes in the parent TemplateVM.
