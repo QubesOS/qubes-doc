@@ -1,3 +1,9 @@
+---
+layout: doc
+title: Fedora Minimal Template Customization
+permalink: /en/doc/fedora-minimal-template-customization/
+---
+
 FEDORA Packages Recommendations
 ======================
 
