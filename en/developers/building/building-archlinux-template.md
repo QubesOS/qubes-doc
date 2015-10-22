@@ -15,7 +15,7 @@ The archlinux VM is now almost working as a NetVM. Based on qubes-builder code, 
 Download qubes-builder git code
 -------------------------------
 
-Prefer marmarek git repository as it is the most recent one
+Prefer the [marmarek git repository](https://github.com/marmarek/qubes-builder-archlinux) as it is the most recent one.
 
 Change your builder.conf
 ------------------------
