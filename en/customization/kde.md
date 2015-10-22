@@ -4,8 +4,8 @@ title: KDE
 permalink: /en/doc/kde/
 ---
 
-KDE Tips
-========
+Using KDE in dom0
+=================
 
 Window Management
 -----------------
@@ -35,3 +35,9 @@ on.)
 
 This can be useful for creating a simple shell script which will set up your
 workspace the way you like.
+
+
+Mailing List Threads
+--------------------
+
+ * [Nalu's KDE customization thread](https://groups.google.com/d/topic/qubes-users/KhfzF19NG1s/discussion)
