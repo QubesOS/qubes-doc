@@ -10,6 +10,16 @@ redirect_from:
 Creating and using HVM (fully virtualized) domains in Qubes 2
 =============================================================
 
+ * [What are HVM domains?](#what-are-hvm-domains)
+ * [Creating an HVM domain](#creating-an-hvm-domain)
+ * [Using Installation ISOs located in other VMs](#using-installation-isos-located-in-other-vms)
+ * [Setting up networking for HVM domains](#setting-up-networking-for-hvm-domains)
+ * [Using Template-based HVM domains](#using-template-based-hvm-domains)
+ * [Cloning HVM domains](#cloning-hvm-domains)
+ * [Installing Qubes support tools in Windows 7 VMs (only for R2 Beta 2)](#installing-qubes-support-tools-in-windows-7-vms-only-for-r2-beta-2)
+ * [Assigning PCI devices to HVM domains](#assigning-pci-devices-to-hvm-domains)
+ * [Further reading](#further-reading)
+
 What are HVM domains?
 ---------------------
 
@@ -192,8 +202,8 @@ Please note that as of now Qubes does not support shared templates for HVM domai
 
 In the near future we plan on introducing shared template also for HVM domains, hopefully solving the problems described above.
 
-~~Installing Qubes support tools in Windows 7 VMs~~ (only for R2 Beta 2)
-------------------------------------------------------------------------
+Installing Qubes support tools in Windows 7 VMs (only for R2 Beta 2)
+--------------------------------------------------------------------
 
 Note: the R2 Beta 3 (which is coming soon) has automated most of the actions described below -- please see [this page instead](/en/doc/windows-appvms/).
 
