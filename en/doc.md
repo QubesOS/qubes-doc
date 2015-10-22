@@ -113,10 +113,10 @@ Configuration Guides
 Customization Guides
 --------------------
  *  [DispVM Customization](/en/doc/dispvm-customization/)
- *  [XFCE Installation in dom0](/en/doc/xfce/)
  *  [Customizing Fedora minimal templates](/en/doc/fedora-minimal-template-customization)
  *  [Customizing Windows 7 templates](/en/doc/windows-template-customization)
- *  [Customizing the GUI experience with KDE](https://groups.google.com/d/topic/qubes-users/KhfzF19NG1s/discussion)
+ *  [Using KDE in dom0](/en/doc/kde/)
+ *  [Installing XFCE in dom0](/en/doc/xfce/)
  *  [Language Localization](/en/doc/language-localization/)
 
 
