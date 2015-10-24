@@ -44,11 +44,12 @@ Common Tasks
  *  [Copying and Pasting Text Between Domains](/en/doc/copy-paste/)
  *  [Copying and Moving Files Between Domains](/en/doc/copying-files/)
  *  [Copying Files to and from dom0](/en/doc/copy-to-dom0/)
- *  [Mounting USB Drives to AppVMs](/en/doc/stick-mounting/)
  *  [Updating Software in dom0](/en/doc/software-update-dom0/)
  *  [Updating and Installing Software in VMs](/en/doc/software-update-vm/)
  *  [Backup, Restoration, and Migration](/en/doc/backup-restore/)
  *  [Disposable VMs](/en/doc/dispvm/)
+ *  [Mounting USB Drives to AppVMs](/en/doc/stick-mounting/)
+ *  [Recording Optical Discs](/en/doc/recording-optical-discs/)
  *  [Managing Application Shortcuts](/en/doc/managing-appvm-shortcuts/)
  *  [Enabling Fullscreen Mode](/en/doc/full-screen-mode/)
 
