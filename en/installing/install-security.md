@@ -57,16 +57,18 @@ Cons:
 
  * Fixed capacity. (If the size of the ISO is larger than your disc, it will be
    inconvenient.)
- * Passthrough burning is not supported by Xen. (This mainly applies if you're
-   upgrading from a previous version of Qubes.) Currently, the only options for
-   burning optical discs in Qubes are:
+ * Passthrough recording (a.k.a., "burning") is not supported by Xen. (This
+   mainly applies if you're upgrading from a previous version of Qubes.)
+   Currently, the only options for recording optical discs (e.g., CDs, DVDs,
+   BRDs) in Qubes are:
    1. Use a USB optical drive.
    2. Attach a SATA optical drive to a secondary SATA controller, then assign
       this secondary SATA controller to an AppVM.
    3. Use a SATA optical drive attached to dom0.
-      (Option 3 violates the Qubes security model since it entails transferring
-      an untrusted ISO to dom0 in order to burn it to disc, which leaves only
-      the other two options.)
+   
+   (Option 3 violates the Qubes security model since it entails transferring an
+   untrusted ISO to dom0 in order to burn it to disc, which leaves only the
+   other two options.)
 
 [verify]: https://www.qubes-os.org/doc/VerifyingSignatures/
 [trusting-trust]: http://www.acm.org/classics/sep95/
