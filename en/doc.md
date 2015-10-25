@@ -85,11 +85,19 @@ Security Guides
  *  [Note regarding password-less root access in VM](/en/doc/vm-sudo/)
 
 
+Privacy Guides
+--------------
+ *  [Whonix for privacy & anonymization](/en/doc/privacy/whonix/)
+ *  [Install Whonix in Qubes](/en/doc/privacy/install-whonix/)
+ *  [Updating Whonix in Qubes](/en/doc/privacy/updating-whonix/)
+ *  [Uninstall Whonix from Qubes](/en/doc/privacy/uninstall-whonix/)
+ *  [How to Install a Transparent Tor ProxyVM (TorVM)](/en/doc/privacy/torvm/)
+ *  [How to set up a ProxyVM as a VPN Gateway](/en/doc/privacy/vpn/)
+
+
 Configuration Guides
 --------------------
  *  [Configuration Files](/en/doc/config-files/)
- *  [How to Install a Transparent Tor ProxyVM (TorVM)](/en/doc/torvm/)
- *  [How to set up a ProxyVM as a VPN Gateway](/en/doc/vpn/)
  *  [Storing AppVMs on Secondary Drives](/en/doc/secondary-storage/)
  *  [Where are my external storage devices mounted?](/en/doc/external-device-mount-point/)
  *  [Resizing AppVM and HVM Disk Images](/en/doc/resize-disk-image/)

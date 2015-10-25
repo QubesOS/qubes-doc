@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: VPN
-permalink: /en/doc/vpn/
+permalink: /en/doc/privacy/vpn/
 redirect_from:
 - /doc/VPN/
 - /wiki/VPN/

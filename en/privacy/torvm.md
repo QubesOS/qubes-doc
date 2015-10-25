@@ -1,11 +1,11 @@
 ---
 layout: doc
 title: TorVM
-permalink: /en/doc/torvm/
+permalink: /en/doc/privacy/torvm/
 redirect_from:
 - /doc/TorVM/
-- "/doc/UserDoc/TorVM/"
-- "/wiki/UserDoc/TorVM/"
+- /doc/UserDoc/TorVM/
+- /wiki/UserDoc/TorVM/
 ---
 
 Known issues:
@@ -14,7 +14,7 @@ Known issues:
 -   [Service doesn't start without (even empty) user torrc](https://groups.google.com/d/msg/qubes-users/fyBVmxIpbSs/R5mxUcIEZAQJ)
 
 Qubes TorVM (qubes-tor)
-==========================
+=======================
 
 Qubes TorVM is a ProxyVM service that provides torified networking to all its
 clients.
@@ -62,7 +62,7 @@ Installation
         qvm-service torvm -d qubes-netwatcher
         qvm-service torvm -d qubes-firewall
         qvm-service torvm -e qubes-tor
-          
+
         # if you  created a new template in the previous step
         qvm-prefs torvm -s template fedora-21-tor
 
@@ -127,7 +127,7 @@ This is accomplished through transparent TCP and transparent DNS proxying by
 the TorVM.
 
 The TorVM cannot anonymize information stored or transmitted from your AppVMs
-behind the TorVM. 
+behind the TorVM.
 
 *Non-comprehensive* list of identifiers TorVM does not protect:
 
