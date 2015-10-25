@@ -52,7 +52,7 @@ By installing these templates, you are trusting not only ITL and the
 distribution maintainers, but also the template maintainer. In addition,
 these templates may be somewhat less stable, since ITL does not test them.
 
- * [Whonix](/en/doc/templates/whonix/)
+ * [Whonix](/en/doc/privacy/whonix/)
  * [Ubuntu](/en/doc/templates/ubuntu/)
  * [Archlinux](/en/doc/templates/archlinux/)
 
@@ -74,4 +74,3 @@ Important Notes
    TemplateBasedVMs persist in this manner. If you would like to make changes
    in other directories which *do* persist in this manner, you must make those
    changes in the parent TemplateVM.
-

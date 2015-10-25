@@ -17,4 +17,6 @@ run it on top of Qubes OS!
 
 Whonix template(s) are another Qubes community contribution. Currently Whonix actively maintains those templates.
 
-More details, including installation instructions on [Whonix Qubes web page](https://www.whonix.org/wiki/Qubes).
+### Installation & Details
+
+To learn more and for installation instructions, read our privacy guide: [Whonix for privacy & anonymization](/en/doc/privacy/whonix/)

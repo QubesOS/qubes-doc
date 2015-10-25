@@ -90,6 +90,7 @@ Privacy Guides
  *  [Whonix for privacy & anonymization](/en/doc/privacy/whonix/)
  *  [Install Whonix in Qubes](/en/doc/privacy/install-whonix/)
  *  [Updating Whonix in Qubes](/en/doc/privacy/updating-whonix/)
+ *  [Customizing Whonix](/en/doc/privacy/customizing-whonix/)
  *  [Uninstall Whonix from Qubes](/en/doc/privacy/uninstall-whonix/)
  *  [How to Install a Transparent Tor ProxyVM (TorVM)](/en/doc/privacy/torvm/)
  *  [How to set up a ProxyVM as a VPN Gateway](/en/doc/privacy/vpn/)
