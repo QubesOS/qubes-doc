@@ -1,5 +1,5 @@
 ---
-layout: doc
+layout: default
 title: Qubes OS Documentation
 permalink: /en/doc/
 redirect_from:
