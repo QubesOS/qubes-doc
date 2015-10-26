@@ -7,18 +7,8 @@ redirect_from:
 - /wiki/HvmCreate/
 ---
 
-Creating and using HVM (fully virtualized) domains in Qubes 2
+Creating and using HVM (fully virtualized) domains
 =============================================================
-
- * [What are HVM domains?](#what-are-hvm-domains)
- * [Creating an HVM domain](#creating-an-hvm-domain)
- * [Using Installation ISOs located in other VMs](#using-installation-isos-located-in-other-vms)
- * [Setting up networking for HVM domains](#setting-up-networking-for-hvm-domains)
- * [Using Template-based HVM domains](#using-template-based-hvm-domains)
- * [Cloning HVM domains](#cloning-hvm-domains)
- * [Installing Qubes support tools in Windows 7 VMs (only for R2 Beta 2)](#installing-qubes-support-tools-in-windows-7-vms-only-for-r2-beta-2)
- * [Assigning PCI devices to HVM domains](#assigning-pci-devices-to-hvm-domains)
- * [Further reading](#further-reading)
 
 What are HVM domains?
 ---------------------
@@ -202,106 +192,10 @@ Please note that as of now Qubes does not support shared templates for HVM domai
 
 In the near future we plan on introducing shared template also for HVM domains, hopefully solving the problems described above.
 
-Installing Qubes support tools in Windows 7 VMs (only for R2 Beta 2)
---------------------------------------------------------------------
+Installing Qubes support tools in Windows 7 VMs
+-----------------------------------------------
 
-Note: the R2 Beta 3 (which is coming soon) has automated most of the actions described below -- please see [this page instead](/en/doc/windows-appvms/).
-
-Qubes support tools for Windows VMs is a set of programs and drivers that provide integration of Windows VMs with the rest of the Qubes system. Currently the following features become available for Windows VMs after installation of those tools:
-
--   Support for [secure clipboard copy/paste](/en/doc/copy-paste/) between the Windows VM and other AppVMs
--   Support for [secure file exchange](/en/doc/copying-files/) between the Windows VM and other AppVMs
--   Support for qvm-run and generic qrexec for the Windows VM (e.g. ability to run custom service within/from the Windows VM)
--   Xen PV drivers for Windows that increase performance compared to qemu emulated devices
-
-Features that are currently not supported, but are planned for future releases (as soon as R2 Beta 2):
-
--   Video driver for Windows allowing custom resolutions (arbitrary HVM window resizing) and VM's mouse cursor hiding
--   Seamless app window mode, in which application windows are extracted and composed onto a common desktop just like it's currently done for Linux AppVMs. Currently Windows HVMs run in a window that contains the whole desktop of the VM.
-
-Qubes Windows Support Tools are not open source and are distributed under a commercial license and their source code is not publicly available.
-
-Because the Windows Support Tools are not licensed under a GPL license they are not distributed with Qubes installation ISO. Instead, one can download them when needed using the standard Qubes command for installing software in Dom0:
-
-~~~
-sudo qubes-dom0-update qubes-windows-tools
-~~~
-
-This should install `qubes-windows-tools-*.rpm` in your system, a package that brings an ISO with Windows Support Tools:
-
-~~~
-[joanna@dom0 ~]$ rpm -ql qubes-windows-tools-1-201211301354.noarch
-/usr/lib/qubes/qubes-windows-tools-201211301354.iso
-~~~
-
-Now, in order to install the tools in a Windows VM one should start the VM with the ISO attached:
-
-~~~
-qvm-start lab-win7 --cdrom=/usr/lib/qubes/qubes-windows-tools-201211301354.iso
-~~~
-
-Once the Windows VM boots, a CDROM should appear in the 'My Computer' menu (typically as `D:`) with a setup program in its main directory:
-
-[![r2b1-win7-installing-qubes-tools-1.png](/attachment/wiki/HvmCreate/r2b1-win7-installing-qubes-tools-1.png)](/attachment/wiki/HvmCreate/r2b1-win7-installing-qubes-tools-1.png)
-
-Before proceeding with the installation we need to disable Windows mechanism that allows only signed drivers to be installed, because currently the drivers we provide as part of the Windows Support Tools are not digitally signed with a publicly recognizable certificate. How to do that is explained in the `README` file also located on the installation CDROM. In the future this step will not be necessary anymore, because we will sign our drivers with a publicly verifiable certificate. However, it should be noted that even now, the fact that those drivers are not digitally signed, this doesn't affect security of the Windows VM in 'any' way. This is because the actual installation ISO (the `qubes-windows-tools-*.iso` file) is distributed as a signed RPM package and its signature is verified by the `qubes-dom0-update` utility once it's being installed in Dom0. The only downside of those drivers not being signed is the inconvenience to the user that he or she must disable the signature enforcement policy before installing the tools, and also to accept a few scary looking warning windows during the installation process, as shown below.
-
-[![r2b1-win7-installing-qubes-tools-2.png](/attachment/wiki/HvmCreate/r2b1-win7-installing-qubes-tools-2.png)](/attachment/wiki/HvmCreate/r2b1-win7-installing-qubes-tools-2.png)
-[![r2b1-win7-installing-qubes-tools-4.png](/attachment/wiki/HvmCreate/r2b1-win7-installing-qubes-tools-4.png)](/attachment/wiki/HvmCreate/r2b1-win7-installing-qubes-tools-4.png)
-[![r2b1-win7-installing-qubes-tools-5.png](/attachment/wiki/HvmCreate/r2b1-win7-installing-qubes-tools-5.png)](/attachment/wiki/HvmCreate/r2b1-win7-installing-qubes-tools-5.png)
-
-After successful installation, the Windows VM must be shut down.
-
-Additionally, once should inform Qubes that tools have been installed in this VM by setting the `qrexec_installed` flag in the VM's properties -- this can be done using the `qvm-prefs` command in Dom0, e.g.:
-
-~~~
-qvm-prefs lab-win7 -s qrexec_installed true
-~~~
-
-Also, by default Qubes assumes that the default user in the Windows VM is named `user` -- if one has chosen a different user during Windows installation, Qubes should be informed about this by setting the `default_user` property for the VM, e.g.:
-
-~~~
-qvm-prefs lab-win7 -s default_user joanna
-~~~
-
-If everything went fine (please remember about the need to reboot the Windows VM after installation of the tools), one can run some simple tests to see if qrexec service runs fine with this VM, e.g.:
-
-~~~
-qvm-run lab-win7 calc
-~~~
-
-... or something more fancy (a "networkless" telnet to Windows ;):
-
-~~~
-[joanna@dom0 ~]$ qvm-run lab-win7 -p cmd.exe
-Microsoft Windows [Version 6.1.7601]
-Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
-
-C:\Windows\system32>dir c:\
-dir c:\
- Volume in drive C has no label.
- Volume Serial Number is 64FB-0198
-
- Directory of c:\
-
-08/26/2012  12:06 PM    <DIR>          DRIVERS
-12/12/2012  03:36 PM    <DIR>          Program Files
-10/25/2012  12:12 PM    <DIR>          Program Files (x86)
-03/22/2012  02:50 PM    <DIR>          SWTOOLS
-03/02/2012  12:22 AM    <DIR>          Users
-12/12/2012  03:40 PM    <DIR>          Windows
-               0 File(s)              0 bytes
-               6 Dir(s)   1,432,260,608 bytes free
-
-C:\Windows\system32>exit
-exit
-~~~
-
-Another things to check are if clipboard copy/paste and file copy works fine with this VM. If it doesn't, then perhaps one more VM reboot is necessary (seriously, hey this is Windows!).
-
-And the screenshot below illustrates the Send To entries in a Windows VM that can be used to copy/send files to other Qubes domains:
-
-[![win7-sendto-another-vm.png](/attachment/wiki/HvmCreate/win7-sendto-another-vm.png)](/attachment/wiki/HvmCreate/win7-sendto-another-vm.png)
+Windows specific steps are described on [separate page](/en/doc/windows-appvms/).
 
 Assigning PCI devices to HVM domains
 ------------------------------------
