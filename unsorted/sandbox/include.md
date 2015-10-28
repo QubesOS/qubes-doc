@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Include
-permalink: /en/doc/sandbox/include/
+permalink: /doc/sandbox/include/
 redirect_from:
+- /en/doc/sandbox/include/
 - /doc/Sandbox/Include/
 - /wiki/Sandbox/Include/
 ---

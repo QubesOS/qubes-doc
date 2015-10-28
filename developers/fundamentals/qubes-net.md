@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Qubes Networking
-permalink: /en/doc/qubes-net/
+permalink: /doc/qubes-net/
 redirect_from:
+- /en/doc/qubes-net/
 - /doc/QubesNet/
 - /wiki/QubesNet/
 ---

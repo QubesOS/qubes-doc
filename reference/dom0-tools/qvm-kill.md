@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: qvm-kill
-permalink: /en/doc/dom0-tools/qvm-kill/
+permalink: /doc/dom0-tools/qvm-kill/
 redirect_from:
+- /en/doc/dom0-tools/qvm-kill/
 - /doc/Dom0Tools/QvmKill/
 - /wiki/Dom0Tools/QvmKill/
 ---

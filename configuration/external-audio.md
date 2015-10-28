@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: External Audio
-permalink: /en/doc/external-audio/
+permalink: /doc/external-audio/
 redirect_from:
+- /en/doc/external-audio/
 - /doc/ExternalAudio/
 - /wiki/ExternalAudio/
 ---

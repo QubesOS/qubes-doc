@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Full Screen Mode
-permalink: /en/doc/full-screen-mode/
+permalink: /doc/full-screen-mode/
 redirect_from:
+- /en/doc/full-screen-mode/
 - /doc/FullScreenMode/
 - /wiki/FullScreenMode/
 ---

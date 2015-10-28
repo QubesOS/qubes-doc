@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Qubes Architecture
-permalink: /en/doc/qubes-architecture/
+permalink: /doc/qubes-architecture/
 redirect_from:
+- /en/doc/qubes-architecture/
 - /doc/QubesArchitecture/
 - /wiki/QubesArchitecture/
 ---

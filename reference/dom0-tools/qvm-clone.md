@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: qvm-clone
-permalink: /en/doc/dom0-tools/qvm-clone/
+permalink: /doc/dom0-tools/qvm-clone/
 redirect_from:
+- /en/doc/dom0-tools/qvm-clone/
 - /doc/Dom0Tools/QvmClone/
 - /wiki/Dom0Tools/QvmClone/
 ---

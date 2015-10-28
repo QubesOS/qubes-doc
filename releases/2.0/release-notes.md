@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Qubes R2.0 Release Notes
-permalink: /en/doc/releases/2.0/release-notes/
-redirect_from: /doc/releases/2.0/release-notes/
+permalink: /doc/releases/2.0/release-notes/
+redirect_from:
+- /en/doc/releases/2.0/release-notes/
 ---
 
 Qubes R2.0 Release Notes
@@ -52,20 +53,20 @@ See [Qubes Downloads](/doc/QubesDownloads/).
 Installation instructions
 -------------------------
 
-See [Installation Guide](/en/doc/installation-guide/).
+See [Installation Guide](/doc/installation-guide/).
 
 Upgrading
 ---------
 
 ### From Qubes R2 rc1
 
-Upgrading from Qubes R2 rc1 should be a simple matter of installing updates for [dom0](/en/doc/software-update-dom0/) and [VMs](/en/doc/software-update-vm/).
+Upgrading from Qubes R2 rc1 should be a simple matter of installing updates for [dom0](/doc/software-update-dom0/) and [VMs](/doc/software-update-vm/).
 
 ### From Qubes R2 beta 3 and older
 
-The easiest and safest way to upgrade to Qubes R2 (especially from older releases) is to install it from scratch and use [qubes backup and restore tools](/en/doc/backup-restore/) for migrating of all of the user VMs.
+The easiest and safest way to upgrade to Qubes R2 (especially from older releases) is to install it from scratch and use [qubes backup and restore tools](/doc/backup-restore/) for migrating of all of the user VMs.
 
-Users of R2 beta 3 can upgrade using procedure that has been described [here](/en/doc/upgrade-to-r2/).
+Users of R2 beta 3 can upgrade using procedure that has been described [here](/doc/upgrade-to-r2/).
 
 Note: if the user has custom Template VMs (i.e. other than the default template, e.g. created from it by cloning), or Standalone VMs, then the user should perform manual upgrade from R2B3 to R2rc1, as described under the link given above.
 
@@ -73,18 +74,18 @@ Note: if the user has custom Template VMs (i.e. other than the default template,
 
 #### From Qubes R1 to R2 beta1
 
-If you're already running Qubes Release 1, you don't need to reinstall, it's just enough to update the packages in your Dom0 and the template VM(s). This procedure is described [here?](/en/doc/upgrade-to-r2/).
+If you're already running Qubes Release 1, you don't need to reinstall, it's just enough to update the packages in your Dom0 and the template VM(s). This procedure is described [here?](/doc/upgrade-to-r2/).
 
 #### From Qubes R1 or R2 Beta 1 to R2 beta2
 
-Because of the distribution change in R2B2 (from fc13 to fc18) it's preferred that users reinstall Qubes R2B2 from scratch, and use [qubes backup and restore tools](/en/doc/backup-restore/) for migrating of all of the user VMs.
+Because of the distribution change in R2B2 (from fc13 to fc18) it's preferred that users reinstall Qubes R2B2 from scratch, and use [qubes backup and restore tools](/doc/backup-restore/) for migrating of all of the user VMs.
 
-Advanced users (and advanced users only) can also try a manual upgrade procedure that has been described [here](/en/doc/upgrade-to-r2b2/). It's advisable to backup your VMs before proceeding anyway!
+Advanced users (and advanced users only) can also try a manual upgrade procedure that has been described [here](/doc/upgrade-to-r2b2/). It's advisable to backup your VMs before proceeding anyway!
 
 #### Upgrading from Qubes R1 or R2 Beta 2 to R2 beta 3
 
-The easiest and safest way to upgrade to Qubes R2B3 is to install it from scratch and use [qubes backup and restore tools](/en/doc/backup-restore/) for migrating of all of the user VMs.
+The easiest and safest way to upgrade to Qubes R2B3 is to install it from scratch and use [qubes backup and restore tools](/doc/backup-restore/) for migrating of all of the user VMs.
 
-Users can also try a manual upgrade procedure that has been described [here](/en/doc/upgrade-to-r2b3/).
+Users can also try a manual upgrade procedure that has been described [here](/doc/upgrade-to-r2b3/).
 
 Note: if the user has custom Template VMs (i.e. other than the default template, e.g. created from it by cloning), or Standalone VMs, then the user should perform manual upgrade from R2B2 to R2B3, as described under the link given above.

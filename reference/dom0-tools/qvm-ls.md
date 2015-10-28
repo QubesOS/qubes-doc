@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: qvm-ls
-permalink: /en/doc/dom0-tools/qvm-ls/
+permalink: /doc/dom0-tools/qvm-ls/
 redirect_from:
+- /en/doc/dom0-tools/qvm-ls/
 - /doc/Dom0Tools/QvmLs/
 - /wiki/Dom0Tools/QvmLs/
 ---

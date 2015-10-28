@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: qvm-create-default-dvm
-permalink: /en/doc/dom0-tools/qvm-create-default-dvm/
+permalink: /doc/dom0-tools/qvm-create-default-dvm/
 redirect_from:
+- /en/doc/dom0-tools/qvm-create-default-dvm/
 - /doc/Dom0Tools/QvmCreateDefaultDvm/
 - /wiki/Dom0Tools/QvmCreateDefaultDvm/
 ---

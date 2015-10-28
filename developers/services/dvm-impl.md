@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: DVMimpl
-permalink: /en/doc/dvm-impl/
+permalink: /doc/dvm-impl/
 redirect_from:
+- /en/doc/dvm-impl/
 - /doc/DVMimpl/
 - /wiki/DVMimpl/
 ---

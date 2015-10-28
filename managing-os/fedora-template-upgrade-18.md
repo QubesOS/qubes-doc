@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Upgrading the Fedora 18 Temlpate
-permalink: /en/doc/fedora-template-upgrade-18/
+permalink: /doc/fedora-template-upgrade-18/
 redirect_from:
+- /en/doc/fedora-template-upgrade-18/
 - /doc/FedoraTemplateUpgrade18/
 - /wiki/FedoraTemplateUpgrade/
 ---
@@ -10,7 +11,7 @@ redirect_from:
 Upgrading the Fedora 18 Temlpate
 ================================
 
-(**Note:** There is a [newer version of this page for upgrading from Fedora 20 to Fedora 21](/en/doc/fedora-template-upgrade-20/).)
+(**Note:** There is a [newer version of this page for upgrading from Fedora 20 to Fedora 21](/doc/fedora-template-upgrade-20/).)
 
 This instruction in simplified version of [official Fedora instruction](https://fedoraproject.org/wiki/Upgrading_Fedora_using_yum). Note that only "yum" method will work in Qubes template VM (if you are curious why: mostly because template VM does not have own bootloader).
 

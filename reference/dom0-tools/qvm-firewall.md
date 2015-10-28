@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: qvm-firewall
-permalink: /en/doc/dom0-tools/qvm-firewall/
+permalink: /doc/dom0-tools/qvm-firewall/
 redirect_from:
+- /en/doc/dom0-tools/qvm-firewall/
 - /doc/Dom0Tools/QvmFirewall/
 - /wiki/Dom0Tools/QvmFirewall/
 ---

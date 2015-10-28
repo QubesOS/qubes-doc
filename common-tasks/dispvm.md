@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Disposable VMs
-permalink: /en/doc/dispvm/
+permalink: /doc/dispvm/
 redirect_from:
+- /en/doc/dispvm/
 - /doc/DisposableVms/
 - /wiki/DisposableVMs/
 ---
@@ -73,7 +74,7 @@ Customizing Disposable VMs
 ---------------------------------------------------------
 
 You can change the template used to generate the Disposable VM, and change settings used in the Disposable VM savefile. These changes will be reflected in every new Disposable VM.
-Full instructions are [here](/en/doc/disp-vm-customization/) 
+Full instructions are [here](/doc/disp-vm-customization/) 
 
 
 Disposable VMs and Local Forensics

@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: qvm-pci
-permalink: /en/doc/dom0-tools/qvm-pci/
+permalink: /doc/dom0-tools/qvm-pci/
 redirect_from:
+- /en/doc/dom0-tools/qvm-pci/
 - /doc/Dom0Tools/QvmPci/
 - /wiki/Dom0Tools/QvmPci/
 ---

@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: qvm-grow-private
-permalink: /en/doc/dom0-tools/qvm-grow-private/
+permalink: /doc/dom0-tools/qvm-grow-private/
 redirect_from:
+- /en/doc/dom0-tools/qvm-grow-private/
 - /doc/Dom0Tools/QvmGrowPrivate/
 - /wiki/Dom0Tools/QvmGrowPrivate/
 ---

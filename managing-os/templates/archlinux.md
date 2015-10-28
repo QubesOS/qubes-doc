@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Archlinux Template
-permalink: /en/doc/templates/archlinux/
+permalink: /doc/templates/archlinux/
 redirect_from:
+- /en/doc/templates/archlinux/
 - /doc/Templates/Archlinux/
 - /wiki/Templates/Archlinux/
 ---
@@ -27,7 +28,7 @@ Install
 -------
 
 Currently we do not ship ready to use binary package. It can be compiled using
-[this instructions](/en/doc/building-archlinux-template/).
+[this instructions](/doc/building-archlinux-template/).
 
 Olivier provides binary package build by himself, you can get it for:
 * Qubes R2 [here](https://groups.google.com/d/msgid/qubes-devel/54CE3FB1.3050708%40yahoo.fr).
@@ -38,4 +39,4 @@ Olivier provides binary package build by himself, you can get it for:
 Known issues
 ------------
 
-If you want to help in improving the template, feel free to [contribute](/en/doc/contributing/).
+If you want to help in improving the template, feel free to [contribute](/doc/contributing/).

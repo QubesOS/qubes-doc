@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Qubes Releases
-permalink: /en/doc/releases/
-redirect_from: /doc/releases/
+permalink: /doc/releases/
+redirect_from:
+- /en/doc/releases/
 ---
 
 Qubes Releases

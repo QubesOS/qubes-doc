@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Debian Template
-permalink: /en/doc/templates/debian/
+permalink: /doc/templates/debian/
 redirect_from:
+- /en/doc/templates/debian/
 - /doc/Templates/Debian/
 - /wiki/Templates/Debian/
 ---

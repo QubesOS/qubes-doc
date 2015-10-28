@@ -1,11 +1,11 @@
 ---
 layout: doc
 title: Documentation Guidelines
-permalink: /en/doc/doc-guidelines/
+permalink: /doc/doc-guidelines/
 redirect_from:
-- /doc/doc-guidelines/
-- "/wiki/DocStyle/"
-- "/doc/DocStyle/"
+- /en/doc/doc-guidelines/
+- /wiki/DocStyle/
+- /doc/DocStyle/
 ---
 
 Guidelines for Documentation Contributors

@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: qvm-remove
-permalink: /en/doc/dom0-tools/qvm-remove/
+permalink: /doc/dom0-tools/qvm-remove/
 redirect_from:
+- /en/doc/dom0-tools/qvm-remove/
 - /doc/Dom0Tools/QvmRemove/
 - /wiki/Dom0Tools/QvmRemove/
 ---

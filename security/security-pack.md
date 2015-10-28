@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Security Pack
-permalink: /en/doc/security-pack/
+permalink: /doc/security-pack/
 redirect_from:
+- /en/doc/security-pack/
 - /doc/SecurityPack/
 - /wiki/SecurityPack/
 ---
@@ -12,7 +13,7 @@ Qubes Security Pack
 
 The **Qubes Security Pack (QSP)** is a Git repository which contains:
 
- * [Qubes Security Bulletins (QSBs)](/en/doc/security-bulletins/)
+ * [Qubes Security Bulletins (QSBs)](/doc/security-bulletins/)
  * [Qubes PGP keys](https://keys.qubes-os.org/keys/)
  * [Qubes warrant canaries](https://canarywatch.org/qubesOS/)
  * Security-related information and announcements (e.g., key revocations)
@@ -212,7 +213,7 @@ its contents, and reading them.
     a trustworthy source (ideally, multiple sources) *other than* this website
     and visually compare it (them) to the fingerprint displayed in the preceding
     step, ensuring they match. You can read more about digital signatures and
-    key verification [here](/en/doc/verifying-signatures/).
+    key verification [here](/doc/verifying-signatures/).
 
  4. Verify and read the canaries.
 

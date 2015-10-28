@@ -1,11 +1,12 @@
 ---
 layout: doc
 title: DispVM Customization
-permalink: /en/doc/dispvm-customization/
+permalink: /doc/dispvm-customization/
 redirect_from:
+- /en/doc/dispvm-customization/
 - /doc/DispVMCustomization/
-- "/doc/UserDoc/DispVMCustomization/"
-- "/wiki/UserDoc/DispVMCustomization/"
+- /doc/UserDoc/DispVMCustomization/
+- /wiki/UserDoc/DispVMCustomization/
 ---
 
 Changing the template used as a basis for Disposable VM

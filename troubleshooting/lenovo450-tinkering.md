@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Lenovo450 Tinkering
-permalink: /en/doc/lenovo450-tinkering/
+permalink: /doc/lenovo450-tinkering/
 redirect_from:
+- /en/doc/lenovo450-tinkering/
 - /doc/Lenovo450Tinkering/
 - /wiki/Lenovo450Tinkering/
 ---

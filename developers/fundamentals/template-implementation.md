@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Template Implementation
-permalink: /en/doc/template-implementation/
+permalink: /doc/template-implementation/
 redirect_from:
+- /en/doc/template-implementation/
 - /doc/TemplateImplementation/
 - /wiki/TemplateImplementation/
 ---

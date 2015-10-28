@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Network Printer
-permalink: /en/doc/network-printer/
+permalink: /doc/network-printer/
 redirect_from:
+- /en/doc/network-printer/
 - /doc/NetworkPrinter/
 - /wiki/NetworkPrinter/
 ---

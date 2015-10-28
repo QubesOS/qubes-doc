@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Upgrading to R3.0
-permalink: /en/doc/upgrade-to-r3.0/
+permalink: /doc/upgrade-to-r3.0/
 redirect_from:
+- /en/doc/upgrade-to-r3.0/
 - /doc/UpgradeToR3.0/
 - /doc/UpgradeToR3.0rc1/
 ---
@@ -12,16 +13,16 @@ Upgrading Qubes R2 to R3.0
 
 **This instruction is highly experimental, the official way to upgrade from R2 is to backup the data and reinstall the system. Use at your own risk!**
 
-Current Qubes R3.0 (R3.0) systems can be upgraded in-place to the latest R3.0 by following the procedure below. However, upgrading in-place is riskier than performing a clean installation, since there are more things which can go wrong. For this reason, **we strongly recommended that users perform a [clean installation](/en/doc/installation-guide/) of Qubes R3.0**.
+Current Qubes R3.0 (R3.0) systems can be upgraded in-place to the latest R3.0 by following the procedure below. However, upgrading in-place is riskier than performing a clean installation, since there are more things which can go wrong. For this reason, **we strongly recommended that users perform a [clean installation](/doc/installation-guide/) of Qubes R3.0**.
 
-**Before attempting either an in-place upgrade or a clean installation, we strongly recommend that users back up the system by using the built-in [backup tool](/en/doc/backup-restore/).**
+**Before attempting either an in-place upgrade or a clean installation, we strongly recommend that users back up the system by using the built-in [backup tool](/doc/backup-restore/).**
 
-Experienced users may be comfortable accepting the risks of upgrading in-place. Such users may wish to first attempt an in-place upgrade. If nothing goes wrong, then some time and effort will have been saved. If something does go wrong, then the user can simply perform a clean installation, and no significant loss will have occurred (as long as the user [backed up](/en/doc/backup-restore/) correctly!).
+Experienced users may be comfortable accepting the risks of upgrading in-place. Such users may wish to first attempt an in-place upgrade. If nothing goes wrong, then some time and effort will have been saved. If something does go wrong, then the user can simply perform a clean installation, and no significant loss will have occurred (as long as the user [backed up](/doc/backup-restore/) correctly!).
 
 Upgrade all Template and Standalone VM(s)
 -----------------------------------------
 
-By default, in Qubes R2, there is only one Template VM, however users are free to create more Template VMs for special purposes, as well as Standalone VMs. More information on using multiple Template VMs, as well as Standalone VMs, can be found [here](/en/doc/software-update-vm/). The steps described in this section should be repeated in **all** user's Template and Standalone VMs.
+By default, in Qubes R2, there is only one Template VM, however users are free to create more Template VMs for special purposes, as well as Standalone VMs. More information on using multiple Template VMs, as well as Standalone VMs, can be found [here](/doc/software-update-vm/). The steps described in this section should be repeated in **all** user's Template and Standalone VMs.
 
 It is critical to complete this step **before** proceeding to dom0 upgrade. Otherwise you will most likely end with unusable system.
 

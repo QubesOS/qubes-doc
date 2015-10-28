@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Qrexec
-permalink: /en/doc/qrexec/
+permalink: /doc/qrexec/
 redirect_from:
+- /en/doc/qrexec/
 - /doc/Qrexec/
 - /wiki/Qrexec/
 ---
@@ -161,4 +162,4 @@ As previously noted, Qubes aims to provide mechanisms that are very simple and t
 Qubes RPC internals
 -------------------
 
-The internal implementation of qrexec in Qubes R2 is described [here](/en/doc/qrexec2-implementation/), and in Qubes R3 [here](/en/doc/qrexec3-implementation/).
+The internal implementation of qrexec in Qubes R2 is described [here](/doc/qrexec2-implementation/), and in Qubes R3 [here](/doc/qrexec3-implementation/).

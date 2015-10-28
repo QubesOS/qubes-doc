@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: VM Sudo
-permalink: /en/doc/vm-sudo/
+permalink: /doc/vm-sudo/
 redirect_from:
+- /en/doc/vm-sudo/
 - /doc/VMSudo/
 - /wiki/VMSudo/
 ---

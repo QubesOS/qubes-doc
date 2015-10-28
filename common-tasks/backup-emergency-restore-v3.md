@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: Emergency Backup Recovery - format version 3
-permalink: /en/doc/backup-emergency-restore-v3/
-redirect_from: /doc/BackupEmergencyRestoreV3/
+permalink: /doc/backup-emergency-restore-v3/
+redirect_from:
+- /en/doc/backup-emergency-restore-v3/
+- /doc/BackupEmergencyRestoreV3/
 ---
 
 Emergency Backup Recovery without Qubes - format version 3
@@ -53,7 +55,7 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
         compressed=True
         compression-filter=gzip
   
-    **Note:** If you see `version=2` here, go to [Emergency Backup Recovery - format version 2](/doc/BackupEmergencyRestoreV2/) instead.
+    **Note:** If you see `version=2` here, go to [Emergency Backup Recovery - format version 2](/doc/backup-emergency-restore-v2/) instead.
 
  4. Verify the integrity of the `private.img` file which houses your data.
 

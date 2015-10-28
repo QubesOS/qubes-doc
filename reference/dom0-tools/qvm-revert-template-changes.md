@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: qvm-revert-template-changes
-permalink: /en/doc/dom0-tools/qvm-revert-template-changes/
+permalink: /doc/dom0-tools/qvm-revert-template-changes/
 redirect_from:
+- /en/doc/dom0-tools/qvm-revert-template-changes/
 - /doc/Dom0Tools/QvmRevertTemplateChanges/
 - /wiki/Dom0Tools/QvmRevertTemplateChanges/
 ---

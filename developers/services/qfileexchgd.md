@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Qfileexchgd
-permalink: /en/doc/qfileexchgd/
+permalink: /doc/qfileexchgd/
 redirect_from:
+- /en/doc/qfileexchgd/
 - /doc/Qfileexchgd/
 - /wiki/Qfileexchgd/
 ---
@@ -10,7 +11,7 @@ redirect_from:
 **This mechanism is obsolete as of Qubes Beta 1!**
 ==================================================
 
-Please see this [page](/en/doc/qfilecopy/) instead.
+Please see this [page](/doc/qfilecopy/) instead.
 
 qfilexchgd, the Qubes file exchange daemon
 ==========================================

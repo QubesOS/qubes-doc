@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Ubuntu Template
-permalink: /en/doc/templates/ubuntu/
+permalink: /doc/templates/ubuntu/
 redirect_from:
+- /en/doc/templates/ubuntu/
 - /doc/Templates/Ubuntu/
 - /wiki/Templates/Ubuntu/
 ---
@@ -20,7 +21,7 @@ to redistribute a modified Ubuntu. The redistribution is not allowed by their
 Install
 -------
 
-It can built using [Qubes Builder](/en/doc/qubes-builder/). You can also access its
+It can built using [Qubes Builder](/doc/qubes-builder/). You can also access its
 documentation in the [source code
 repository](https://github.com/QubesOS/qubes-builder/blob/master/README.md).
 

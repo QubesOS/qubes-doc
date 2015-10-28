@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: XFCE
-permalink: /en/doc/xfce/
+permalink: /doc/xfce/
 redirect_from:
+- /en/doc/xfce/
 - /doc/XFCE/
 - "/doc/UserDoc/XFCE/"
 - "/wiki/UserDoc/XFCE/"

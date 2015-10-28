@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: qvm-template-commit
-permalink: /en/doc/dom0-tools/qvm-template-commit/
+permalink: /doc/dom0-tools/qvm-template-commit/
 redirect_from:
+- /en/doc/dom0-tools/qvm-template-commit/
 - /doc/Dom0Tools/QvmTemplateCommit/
 - /wiki/Dom0Tools/QvmTemplateCommit/
 ---

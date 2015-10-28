@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Assigning Devices
-permalink: /en/doc/assigning-devices/
+permalink: /doc/assigning-devices/
 redirect_from:
+- /en/doc/assigning-devices/
 - /doc/AssigningDevices/
 - /wiki/AssigningDevices/
 ---

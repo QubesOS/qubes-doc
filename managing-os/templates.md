@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Templates
-permalink: /en/doc/templates/
+permalink: /doc/templates/
 redirect_from:
+- /en/doc/templates/
 - /doc/Templates/
 - /wiki/Templates/
 ---
@@ -16,15 +17,15 @@ TemplateBasedVMs is installed. The default template is based on Fedora,
 but there are additional templates based on other Linux distributions. There
 are also templates available with or without certain software preinstalled. The
 concept of TemplateVMs is initially described
-[here](/en/doc/getting-started/#appvms-domains-and-templatevms). The technical
+[here](/doc/getting-started/#appvms-domains-and-templatevms). The technical
 details of this implementation are described in the developer documentation
-[here](/en/doc/template-implementation/).
+[here](/doc/template-implementation/).
 
 Some templates are available in ready-to-use binary form, but some of them are
 available only as source code, which can be built using
-[Qubes Builder](/en/doc/qubes-builder/). In particular, some template "flavors"
+[Qubes Builder](/doc/qubes-builder/). In particular, some template "flavors"
 are available in source code form only. Take a look at the [Qubes Builder
-documentation](/en/doc/qubes-builder/) for instructions on how to compile them.
+documentation](/doc/qubes-builder/) for instructions on how to compile them.
 
 
 ITL Supported templates
@@ -35,8 +36,8 @@ for. ITL guarantees that the binary updates are compiled from exactly the same
 source code as we publish.
 
  * Fedora (default base template)
- * [Fedora - Minimal](/en/doc/templates/fedora-minimal)
- * [Debian](/en/doc/templates/debian/)
+ * [Fedora - Minimal](/doc/templates/fedora-minimal)
+ * [Debian](/doc/templates/debian/)
 
 
 Community Supported templates
@@ -52,9 +53,9 @@ By installing these templates, you are trusting not only ITL and the
 distribution maintainers, but also the template maintainer. In addition,
 these templates may be somewhat less stable, since ITL does not test them.
 
- * [Whonix](/en/doc/templates/whonix/)
- * [Ubuntu](/en/doc/templates/ubuntu/)
- * [Archlinux](/en/doc/templates/archlinux/)
+ * [Whonix](/doc/templates/whonix/)
+ * [Ubuntu](/doc/templates/ubuntu/)
+ * [Archlinux](/doc/templates/archlinux/)
 
 
 Important Notes

@@ -1,14 +1,15 @@
 ---
 layout: doc
 title: OpenPGP
-permalink: /en/doc/open-pgp/
+permalink: /doc/open-pgp/
 redirect_from:
+- /en/doc/open-pgp/
 - /doc/OpenPGP/
-- "/doc/UserDoc/OpenPGP/"
-- "/wiki/UserDoc/OpenPGP/"
+- /doc/UserDoc/OpenPGP/
+- /wiki/UserDoc/OpenPGP/
 ---
 
-**Note 2014-08-03: This page is deprecated by [SplitGpg](/en/doc/split-gpg/). The content of this page has been integrated into that page.**
+**Note 2014-08-03: This page is deprecated by [SplitGpg](/doc/split-gpg/). The content of this page has been integrated into that page.**
 
 Using OpenPGP in Qubes
 ======================

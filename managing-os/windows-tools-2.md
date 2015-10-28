@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Windows Tools 2
-permalink: /en/doc/windows-tools-2/
+permalink: /doc/windows-tools-2/
 redirect_from:
+- /en/doc/windows-tools-2/
 - /doc/WindowsTools2/
 - /wiki/WindowsTools2/
 ---
@@ -36,7 +37,7 @@ If the install process fails you can retry it using the command line below to ge
 Uninstalling
 ------------
 
-See [this page](/en/doc/uninstalling-windows-tools-2/).
+See [this page](/doc/uninstalling-windows-tools-2/).
 
 Configuration
 -------------

@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Recording Optical Discs
-permalink: /en/doc/recording-optical-discs/
+permalink: /doc/recording-optical-discs/
+redirect_from: /en/doc/recording-optical-discs/
 ---
 
 Recording Optical Discs

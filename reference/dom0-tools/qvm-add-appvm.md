@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: qvm-add-appvm
-permalink: /en/doc/dom0-tools/qvm-add-appvm/
+permalink: /doc/dom0-tools/qvm-add-appvm/
 redirect_from:
+- /en/doc/dom0-tools/qvm-add-appvm/
 - /doc/Dom0Tools/QvmAddAppvm/
 - /wiki/Dom0Tools/QvmAddAppvm/
 ---

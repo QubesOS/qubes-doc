@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: qvm-prefs
-permalink: /en/doc/dom0-tools/qvm-prefs/
+permalink: /doc/dom0-tools/qvm-prefs/
 redirect_from:
+- /en/doc/dom0-tools/qvm-prefs/
 - /doc/Dom0Tools/QvmPrefs/
 - /wiki/Dom0Tools/QvmPrefs/
 ---

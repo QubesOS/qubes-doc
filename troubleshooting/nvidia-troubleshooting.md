@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Nvidia Troubleshooting
-permalink: /en/doc/nvidia-troubleshooting/
+permalink: /doc/nvidia-troubleshooting/
 redirect_from:
+- /en/doc/nvidia-troubleshooting/
 - /doc/NvidiaTroubleshooting/
 - /wiki/NvidiaTroubleshooting/
 ---

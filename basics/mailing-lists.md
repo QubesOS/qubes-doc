@@ -1,8 +1,11 @@
 ---
 layout: doc
 title: Mailing Lists
-permalink: /en/doc/mailing-lists/
+permalink: /doc/mailing-lists/
 redirect_from:
+- /en/doc/mailing-lists/
+- /en/doc/qubes-lists/
+- /doc/qubes-lists/
 - /doc/QubesLists/
 - /wiki/QubesLists/
 ---
@@ -47,8 +50,8 @@ This list is for helping users solve various daily problems with Qubes OS. Examp
 Please try searching both the Qubes website and the archives of the mailing lists before sending a question. In addition, please make sure that you have read and understood the following basic documentation prior to posting to the list:
 
 -   [Installation guides, System Requirements, and HCL](/doc/QubesDownloads/) \<-- for problems related to Qubes OS installation
--   [Qubes User FAQ](/en/doc/user-faq/)
--   [Qubes User Guides](/en/doc/) \<-- for questions about how to use Qubes OS
+-   [Qubes User FAQ](/doc/user-faq/)
+-   [Qubes User Guides](/doc/) \<-- for questions about how to use Qubes OS
 
 ### How to Subscribe and Post
 

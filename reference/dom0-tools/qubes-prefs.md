@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: qubes-prefs
-permalink: /en/doc/dom0-tools/qubes-prefs/
+permalink: /doc/dom0-tools/qubes-prefs/
 redirect_from:
+- /en/doc/dom0-tools/qubes-prefs/
 - /doc/Dom0Tools/QubesPrefs/
 - /wiki/Dom0Tools/QubesPrefs/
 ---

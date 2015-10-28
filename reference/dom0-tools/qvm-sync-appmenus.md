@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: qvm-sync-appmenus
-permalink: /en/doc/dom0-tools/qvm-sync-appmenus/
+permalink: /doc/dom0-tools/qvm-sync-appmenus/
 redirect_from:
+- /en/doc/dom0-tools/qvm-sync-appmenus/
 - /doc/Dom0Tools/QvmSyncAppmenus/
 - /wiki/Dom0Tools/QvmSyncAppmenus/
 ---

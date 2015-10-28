@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: USBVM
-permalink: /en/doc/usbvm/
+permalink: /doc/usbvm/
 redirect_from:
+- /en/doc/usbvm/
 - /doc/USBVM/
 - /wiki/USBVM/
 ---

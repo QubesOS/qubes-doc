@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: External Device Mount Point
-permalink: /en/doc/external-device-mount-point/
+permalink: /doc/external-device-mount-point/
 redirect_from:
+- /en/doc/external-device-mount-point/
 - /doc/ExternalDeviceMountPoint/
 - /wiki/ExternalDeviceMountPoint/
 ---

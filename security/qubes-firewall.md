@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Qubes Firewall
-permalink: /en/doc/qubes-firewall/
+permalink: /doc/qubes-firewall/
 redirect_from:
+- /en/doc/qubes-firewall/
 - /doc/QubesFirewall/
 - /wiki/QubesFirewall/
 ---

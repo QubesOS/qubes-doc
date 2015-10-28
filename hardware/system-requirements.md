@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: System Requirements
-permalink: /en/doc/system-requirements/
+permalink: /doc/system-requirements/
 redirect_from:
+- /en/doc/system-requirements/
 - /doc/SystemRequirements/
 - /wiki/SystemRequirements/
 ---
@@ -23,7 +24,7 @@ Recommended
 
 -   Fast SSD (strongly recommended)
 -   Intel GPU (strongly preferred)
-    -   Nvidia GPUs may require significant [troubleshooting](/en/doc/install-nvidia-driver/).
+    -   Nvidia GPUs may require significant [troubleshooting](/doc/install-nvidia-driver/).
     -   ATI GPUs have not been formally tested (but see the [Hardware Compatibility List](/hcl/)).
 -   Intel VT-x or AMD-v technology (required for running HVM domains, such as Windows-based AppVMs)
 -   Intel VT-d or AMD IOMMU technology (required for effective isolation of network VMs)

@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Upgrading the Fedora 20 Template
-permalink: /en/doc/fedora-template-upgrade-20/
+permalink: /doc/fedora-template-upgrade-20/
 redirect_from:
+- /en/doc/fedora-template-upgrade-20/
 - /doc/FedoraTemplateUpgrade20/
 - /wiki/FedoraTemplateUpgrade20/
 ---
@@ -197,7 +198,7 @@ As mentioned above, you may encounter the following `yum` error:
 
 In this case, you have several options:
 
- 1. [Increase the TemplateVM's disk image size](/en/doc/resize-disk-image/).
+ 1. [Increase the TemplateVM's disk image size](/doc/resize-disk-image/).
     This is the solution mentioned in the main instructions above.
  2. Delete files in order to free up space. One way to do this is by
     uninstalling packages. You may then reinstalling them again after you

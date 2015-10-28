@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: qvm-create
-permalink: /en/doc/dom0-tools/qvm-create/
+permalink: /doc/dom0-tools/qvm-create/
 redirect_from:
+- /en/doc/dom0-tools/qvm-create/
 - /doc/Dom0Tools/QvmCreate/
 - /wiki/Dom0Tools/QvmCreate/
 ---

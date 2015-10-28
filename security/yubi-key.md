@@ -1,8 +1,10 @@
 ---
 layout: doc
 title: YubiKey in Qubes
-permalink: /en/doc/yubi-key/
-redirect_from: /doc/YubiKey/
+permalink: /doc/yubi-key/
+redirect_from:
+- /en/doc/yubi-key/
+- /doc/YubiKey/
 ---
 
 Using YubiKey to Qubes authentication

@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: qvm-add-template
-permalink: /en/doc/dom0-tools/qvm-add-template/
+permalink: /doc/dom0-tools/qvm-add-template/
 redirect_from:
+- /en/doc/dom0-tools/qvm-add-template/
 - /doc/Dom0Tools/QvmAddTemplate/
 - /wiki/Dom0Tools/QvmAddTemplate/
 ---

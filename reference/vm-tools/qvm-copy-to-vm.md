@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: qvm-copy-to-vm
-permalink: /en/doc/vm-tools/qvm-copy-to-vm/
+permalink: /doc/vm-tools/qvm-copy-to-vm/
 redirect_from:
+- /en/doc/vm-tools/qvm-copy-to-vm/
 - /doc/VmTools/QvmCopyToVm/
 - /wiki/VmTools/QvmCopyToVm/
 ---

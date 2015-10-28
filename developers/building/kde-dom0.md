@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: KDE dom0
-permalink: /en/doc/kde-dom0/
+permalink: /doc/kde-dom0/
 redirect_from:
+- /en/doc/kde-dom0/
 - /doc/KdeDom0/
 - /wiki/KdeDom0/
 ---
@@ -10,7 +11,7 @@ redirect_from:
 Qubes-customized KDE packages for Dom0
 ======================================
 
-The Qubes kde-dom0 project (see [Source Code](/en/doc/source-code/)) contains the source code needed for building the customized KDE packages for use in Qubes Dom0 (the user desktop). The packages are based on Fedora 12 KDE packages, but are heavily slimmed down (Qubes doesn't need lots of KDE functionality in Dom0, such as most of the KDE apps). In the near future those KDE packages will also get some Qubes specific extensions, such as coloured titlebars/frames nicely integrated into the KDE Window Manager. And, of course, custom themes, e.g. for KDM :)
+The Qubes kde-dom0 project (see [Source Code](/doc/source-code/)) contains the source code needed for building the customized KDE packages for use in Qubes Dom0 (the user desktop). The packages are based on Fedora 12 KDE packages, but are heavily slimmed down (Qubes doesn't need lots of KDE functionality in Dom0, such as most of the KDE apps). In the near future those KDE packages will also get some Qubes specific extensions, such as coloured titlebars/frames nicely integrated into the KDE Window Manager. And, of course, custom themes, e.g. for KDM :)
 
 Getting the sources
 -------------------

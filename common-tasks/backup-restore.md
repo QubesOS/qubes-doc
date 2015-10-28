@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Backup, Restoration, and Migration
-permalink: /en/doc/backup-restore/
+permalink: /doc/backup-restore/
 redirect_from:
+- /en/doc/backup-restore/
 - /doc/BackupRestore/
 - /wiki/BackupRestore/
 ---
@@ -20,7 +21,7 @@ Qubes Backup, Restoration, and Migration
 
 With Qubes, it's easy to back up and restore your whole system, as well as to migrate between two physical machines.
 
-As of Qubes R2B3, these functions are integrated into the Qubes VM Manager GUI. There are also two command-line tools available which perform the same functions: [qvm-backup](/en/doc/dom0-tools/qvm-backup/) and [qvm-backup-restore](/en/doc/dom0-tools/qvm-backup-restore/).
+As of Qubes R2B3, these functions are integrated into the Qubes VM Manager GUI. There are also two command-line tools available which perform the same functions: [qvm-backup](/doc/dom0-tools/qvm-backup/) and [qvm-backup-restore](/doc/dom0-tools/qvm-backup-restore/).
 
 
 Creating a Backup
@@ -36,7 +37,7 @@ Creating a Backup
 
 3. Select the destination for the backup:
 
-   - If you wish to send your backup to a [USB mass storage device](/en/doc/stick-mounting/), select the device in the dropdown box next to **Device** (feature removed in R3, select appropriate **Target AppVM** and mount the stick with one click in file selection dialog).
+   - If you wish to send your backup to a [USB mass storage device](/doc/stick-mounting/), select the device in the dropdown box next to **Device** (feature removed in R3, select appropriate **Target AppVM** and mount the stick with one click in file selection dialog).
    - If you wish to send your backup to a (currently running) AppVM, select the AppVM in the dropdown box next to **Target AppVM**.
 
    You must also specify a directory on the device or in the AppVM, or a command to be executed in the AppVM as a destination for your backup. For example, if you wish to send your backup to the `~/backups` folder in the target AppVM, you would simply type `backups` in this field. This destination directory must already exist. If it does not exist, you must create it manually prior to backing up.
@@ -59,7 +60,7 @@ Restoring from a Backup
 
 2. Select the source location of the backup to be restored:
 
-   - If your backup is located on a [USB mass storage device](/en/doc/stick-mounting/), select the device in the dropdown box next to **Device**.
+   - If your backup is located on a [USB mass storage device](/doc/stick-mounting/), select the device in the dropdown box next to **Device**.
    - If your backup is located in a (currently running) AppVM, select the AppVM in the dropdown box next to **AppVM**.
 
    You must also specify the directory in which the backup resides (or a command to be executed in an AppVM). If you followed the instructions in the previous section, "Creating a Backup," then your backup is most likely in the location you chose as the destination in step 3. For example, if you had chosen the `~/backups` directory of an AppVM as your destination in step 3, you would now select the same AppVM and again type `backups` into the **Backup directory** field.
@@ -85,13 +86,13 @@ Emergency Backup Recovery without Qubes
 
 The Qubes backup system has been designed with emergency disaster recovery in mind. No special Qubes-specific tools are required to access data backed up by Qubes. In the event a Qubes system is unavailable, you can access your data on any GNU/Linux system with the following procedure.
 
-For emergency restore of backup created on Qubes R2 or newer take a look [here](/doc/BackupEmergencyRestoreV3/). For backups created on earlier Qubes version, take a look [here](/doc/BackupEmergencyRestoreV2/).
+For emergency restore of backup created on Qubes R2 or newer take a look [here](/doc/backup-emergency-restore-v3/). For backups created on earlier Qubes version, take a look [here](/doc/backup-emergency-restore-v2/).
 
 
 Migrating Between Two Physical Machines
 ---------------------------------------
 
-In order to migrate your Qubes system from one physical machine to another, simply follow the backup procedure on the old machine, [install Qubes](/doc/QubesDownloads/) on the new machine, and follow the restoration procedure on the new machine. All of your settings and data will be preserved!
+In order to migrate your Qubes system from one physical machine to another, simply follow the backup procedure on the old machine, [install Qubes](/doc/downloads/) on the new machine, and follow the restoration procedure on the new machine. All of your settings and data will be preserved!
 
 
 Notes

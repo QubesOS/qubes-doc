@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Mutt
-permalink: /en/doc/mutt/
+permalink: /doc/mutt/
 redirect_from:
+- /en/doc/mutt/
 - /doc/Mutt/
 - /wiki/Mutt/
 ---
@@ -15,8 +16,8 @@ Mutt is a fast, standards-compliant, efficient MUA (Mail User Agent). In some ar
 Mutt lacks true MTA (Message Transfer Agent aka "SMTP client") and MRA (Mail
 Retrieval Agent aka "IMAP/POP3 client"), thus there are some provisions
 built-in. In principle it is only mail reader and composer. You may install
-true MTA such as [Postfix](/en/doc/postfix/) or Exim and MRA such as
-[Fetchmail](/en/doc/fetchmail/). Alternatively you can synchronize your mailbox
+true MTA such as [Postfix](/doc/postfix/) or Exim and MRA such as
+[Fetchmail](/doc/fetchmail/). Alternatively you can synchronize your mailbox
 using [OfflineIMAP](https://github.com/OfflineIMAP/offlineimap) and just stick
 to integrated SMTP support. You can even use integrated IMAP client, but it is
 not very convenient.
@@ -29,7 +30,7 @@ Installation
 Configuration
 -------------
 
-Mutt generally works out of the box. This configuration guide discusses only Qubes-specific setup. In this example we will have one TemplateVM and several AppVMs. It also takes advantage of [SplitGPG](/en/doc/split-gpg/), which is assumed to be already working.
+Mutt generally works out of the box. This configuration guide discusses only Qubes-specific setup. In this example we will have one TemplateVM and several AppVMs. It also takes advantage of [SplitGPG](/doc/split-gpg/), which is assumed to be already working.
 
 **NOTE:** this requires `qubes-gpg-split >= 2.0.9`. 2.0.8 and earlier contains bug which causes this setup to hang in specific situations and does not allow to list keys.
 

@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Installation ISO Building
-permalink: /en/doc/installation-iso-building/
+permalink: /doc/installation-iso-building/
 redirect_from:
+- /en/doc/installation-iso-building/
 - /doc/InstallationIsoBuilding/
 - /wiki/InstallationIsoBuilding/
 ---

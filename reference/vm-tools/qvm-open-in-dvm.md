@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: qvm-open-in-dvm
-permalink: /en/doc/vm-tools/qvm-open-in-dvm/
+permalink: /doc/vm-tools/qvm-open-in-dvm/
 redirect_from:
+- /en/doc/vm-tools/qvm-open-in-dvm/
 - /doc/VmTools/QvmOpenInDvm/
 - /wiki/VmTools/QvmOpenInDvm/
 ---

@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Propaganda
-permalink: /en/doc/propaganda/
+permalink: /doc/propaganda/
 redirect_from:
+- /en/doc/propaganda/
 - /doc/Propaganda/
 - /wiki/Propaganda/
 ---

@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Copying Files between Domains
-permalink: /en/doc/copying-files/
+permalink: /doc/copying-files/
 redirect_from:
+- /en/doc/copying-files/
 - /doc/CopyingFiles/
 - /wiki/CopyingFiles/
 ---
@@ -28,7 +29,7 @@ GUI
 CLI
 ---
 
-[qvm-copy-to-vm](/en/doc/vm-tools/qvm-copy-to-vm/)
+[qvm-copy-to-vm](/doc/vm-tools/qvm-copy-to-vm/)
 
 On inter-domain file copy security
 ----------------------------------

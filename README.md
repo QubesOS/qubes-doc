@@ -44,5 +44,5 @@ making contributions, please observe the following style conventions:
 [qubes]: https://github.com/QubesOS
 [gh-fork]: https://guides.github.com/activities/forking/
 [gh-pull]: https://help.github.com/articles/using-pull-requests/
-[patch]: /doc/SourceCode/#sending-a-patch
-[lists]: https://www.qubes-os.org/doc/QubesLists/
+[patch]: https://www.qubes-os.org/doc/source-code/#sending-a-patch
+[lists]: https://www.qubes-os.org/doc/qubes-lists/

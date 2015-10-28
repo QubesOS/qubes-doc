@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Creating and Using HVM Domains
-permalink: /en/doc/hvm-create/
+permalink: /doc/hvm-create/
 redirect_from:
+- /en/doc/hvm-create/
 - /doc/HvmCreate/
 - /wiki/HvmCreate/
 ---
@@ -195,12 +196,12 @@ In the near future we plan on introducing shared template also for HVM domains, 
 Installing Qubes support tools in Windows 7 VMs
 -----------------------------------------------
 
-Windows specific steps are described on [separate page](/en/doc/windows-appvms/).
+Windows specific steps are described on [separate page](/doc/windows-appvms/).
 
 Assigning PCI devices to HVM domains
 ------------------------------------
 
-HVM domains (including Windows VMs) can be [assigned PCI devices](/en/doc/assigning-devices/) just like normal AppVMs. E.g. one can assign one of the USB controllers to the Windows VM and should be able to use various devices that require Windows software, such as phones, electronic devices that are configured via FTDI, etc.
+HVM domains (including Windows VMs) can be [assigned PCI devices](/doc/assigning-devices/) just like normal AppVMs. E.g. one can assign one of the USB controllers to the Windows VM and should be able to use various devices that require Windows software, such as phones, electronic devices that are configured via FTDI, etc.
 
 Once problem, however, at the moment, is that after the whole system gets suspend into S3 sleep, and subsequently resumed, such attached devices stop working and should be restarted within the VM. Under Windows this can be achieved by opening the Device Manager, selecting the actual device, such as a USB controller, and then first 'Disabling', and then 'Enabling' the device again. This is illustrated on the screenshot below:
 
@@ -211,5 +212,5 @@ Further reading
 
 Other documents related to HVM:
 
--   [LinuxHVMTips](/en/doc/linux-hvm-tips/)
+-   [LinuxHVMTips](/doc/linux-hvm-tips/)
 

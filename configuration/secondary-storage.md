@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Secondary Storage
-permalink: /en/doc/secondary-storage/
+permalink: /doc/secondary-storage/
 redirect_from:
+- /en/doc/secondary-storage/
 - /doc/SecondaryStorage/
 - /wiki/SecondaryStorage/
 ---

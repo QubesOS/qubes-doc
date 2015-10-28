@@ -1,11 +1,11 @@
 ---
 layout: doc
 title: Introduction
-permalink: /en/intro/
+permalink: /intro/
 redirect_from:
-- /intro/
-- "/doc/SimpleIntro/"
-- "/wiki/SimpleIntro/"
+- /en/intro/
+- /doc/SimpleIntro/
+- /wiki/SimpleIntro/
 ---
 
 A Simple Introduction to Qubes
@@ -73,8 +73,8 @@ More information
 
 This page is just a brief sketch of what Qubes is all about, and many technical details have been omitted here for the sake of presentation.
 
--   If you're a current or potential Qubes user, you may want to check out the [documentation](/en/doc/) and the [FAQ](/en/doc/user-faq/).
--   If you're a developer, there's dedicated [documentation](/en/doc/system-doc/) and an [FAQ](/en/doc/devel-faq/) just for you.
+-   If you're a current or potential Qubes user, you may want to check out the [documentation](/doc/) and the [FAQ](/doc/user-faq/).
+-   If you're a developer, there's dedicated [documentation](/doc/system-doc/) and an [FAQ](/doc/devel-faq/) just for you.
 -   Ready to give Qubes a try? Head on over to the [downloads page](/downloads/).
--   Once you've installed Qubes, here's a guide on [getting started](/en/doc/getting-started/).
+-   Once you've installed Qubes, here's a guide on [getting started](/doc/getting-started/).
 

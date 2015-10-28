@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Coding Style
-permalink: /en/doc/coding-style/
+permalink: /doc/coding-style/
 redirect_from:
+- /en/doc/coding-style/
 - /doc/CodingStyle/
 - /wiki/CodingStyle/
 - /trac/wiki/CodingStyle/

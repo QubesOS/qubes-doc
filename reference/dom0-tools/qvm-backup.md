@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: qvm-backup
-permalink: /en/doc/dom0-tools/qvm-backup/
+permalink: /doc/dom0-tools/qvm-backup/
 redirect_from:
+- /en/doc/dom0-tools/qvm-backup/
 - /doc/Dom0Tools/QvmBackup/
 - /wiki/Dom0Tools/QvmBackup/
 ---

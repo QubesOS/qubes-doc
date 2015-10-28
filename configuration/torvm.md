@@ -1,11 +1,12 @@
 ---
 layout: doc
 title: TorVM
-permalink: /en/doc/torvm/
+permalink: /doc/torvm/
 redirect_from:
+- /en/doc/torvm/
 - /doc/TorVM/
-- "/doc/UserDoc/TorVM/"
-- "/wiki/UserDoc/TorVM/"
+- /doc/UserDoc/TorVM/
+- /wiki/UserDoc/TorVM/
 ---
 
 Known issues:

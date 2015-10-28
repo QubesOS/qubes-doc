@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: qvm-shutdown
-permalink: /en/doc/dom0-tools/qvm-shutdown/
+permalink: /doc/dom0-tools/qvm-shutdown/
 redirect_from:
+- /en/doc/dom0-tools/qvm-shutdown/
 - /doc/Dom0Tools/QvmShutdown/
 - /wiki/Dom0Tools/QvmShutdown/
 ---

@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Fedora Minimal Template
-permalink: /en/doc/templates/fedora-minimal/
+permalink: /doc/templates/fedora-minimal/
 redirect_from:
+- /en/doc/templates/fedora-minimal/
 - /doc/Templates/FedoraMinimal/
 - /wiki/Templates/FedoraMinimal/
 ---

@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Glossary
-permalink: /en/doc/glossary/
+permalink: /doc/glossary/
 redirect_from:
+- /en/doc/glossary/
 - /doc/Glossary/
 - /wiki/Glossary/
 ---

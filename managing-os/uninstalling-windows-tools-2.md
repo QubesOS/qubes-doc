@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Uninstalling Windows Tools 2
-permalink: /en/doc/uninstalling-windows-tools-2/
+permalink: /doc/uninstalling-windows-tools-2/
 redirect_from:
+- /en/doc/uninstalling-windows-tools-2/
 - /doc/UninstallingWindowsTools2/
 - /wiki/UninstallingWindowsTools2/
 ---

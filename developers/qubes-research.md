@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Qubes Research
-permalink: /en/doc/qubes-research/
+permalink: /doc/qubes-research/
 redirect_from:
+- /en/doc/qubes-research/
 - /doc/QubesResearch/
 - /wiki/QubesResearch/
 ---
