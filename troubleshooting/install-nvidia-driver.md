@@ -34,7 +34,7 @@ yum install kernel-devel rpm-build kmodtool
 rpmbuild --nodeps -D "kernels `uname -r`" --rebuild nvidia-kmod-260.19.36-1.fc13.3.src.rpm
 ~~~
 
-In above command replace `uname -r` with kernel version from your Qubes dom0. If everything went right, you have now complete packages with nvidia drivers for Qubes system. Transfer them to dom0 (eg using USB stick) and install (using standard "yum install /path/to/file"). 
+In above command replace `uname -r` with kernel version from your Qubes dom0. If everything went right, you have now complete packages with nvidia drivers for Qubes system. Transfer them to dom0 (e.g. using a USB stick) and install (using standard "yum install /path/to/file"). 
 
 Then you need to disable nouveau (normally it is done by install scripts from nvidia package, but unfortunately it isn't compatible with Qubes...):
 
