@@ -53,4 +53,11 @@ Qubes Security Bulletins are published through the [Qubes Security Pack](/doc/se
 -   [Qubes Security Bulletin \#13](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-013-2015.txt) (Qubes Clipboard Timing Attacks and Qubes Core Python API Inconsistency)
 -   [Qubes Security Bulletin \#14](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-014-2015.txt) (Race condition in Qubes Inter-VM File-Copy Mechanism)
 -   [Qubes Security Bulletin \#15](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-015-2015.txt) (Critical Xen Hypervisor Vulnerability (XSA 109))
+-   [Qubes Security Bulletin \#16](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-016-2015.txt) (Xen Hypervisor Information Leaks Vulnerabilities (XSA 121 & 122))
+-   [Qubes Security Bulletin \#17](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-017-2015.txt) (Xen DoS from malicious driver domains or devices (XSA 120 & 124))
+-   [Qubes Security Bulletin \#18](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-018-2015.txt) (Xen Hypervisor Instruction Emulation Bug (XSA 123))
+-   [Qubes Security Bulletin \#19](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-019-2015.txt) (Anti Evil Maid bypass through unusual LUKS header)
+-   [Qubes Security Bulletin \#20](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-020-2015.txt) (Fedora os-prober considered harmful)
+-   [Qubes Security Bulletin \#21](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-021-2015.txt) (Anti Evil Maid bypass through filesystem ID collision)
+-   [Qubes Security Bulletin \#22](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-022-2015.txt) (Critical Xen bug in PV memory virtualization code (XSA 148))
 
