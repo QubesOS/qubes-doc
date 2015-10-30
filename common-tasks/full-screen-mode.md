@@ -19,7 +19,7 @@ Normally Qubes GUI virtualization daemon restricts the VM from "owning" the full
 Why is full screen mode potentially dangerous?
 ----------------------------------------------
 
-If one allowed one of the VMs to "own" the full screen, e.g. to show a movie on a full screen, it might not be possible for the user to know if the applications/VM really "released" the full screen, or if it has started emulating the whole desktop and pretending to be the trusted Window Manager, drawing shapes on the screen that look e.g. like other windows, belonging to other domains (e.g. to trick the user into entering a secret passphrase into a window that looks like belonging to some trusted domain).
+If one allowed one of the VMs to "own" the full screen, e.g. to show a movie on a full screen, it might not be possible for the user to know if the applications/VM really "released" the full screen, or if it has started emulating the whole desktop and is pretending to be the trusted Window Manager, drawing shapes on the screen that look e.g. like other windows, belonging to other domains (e.g. to trick the user into entering a secret passphrase into a window that looks like belonging to some trusted domain).
 
 Secure use of full screen mode
 ------------------------------
