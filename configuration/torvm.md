@@ -77,7 +77,7 @@ Installation
 
 5. Configure an AppVM to use TorVM as its NetVM (for example a vm named anon-web)
 
-        qvm-prefs -s anon-web sys-net torvm
+        qvm-prefs -s anon-web netvm torvm
         ... repeat for any other AppVMs you want torified...
 
 6. Shutdown the TemplateVM.
