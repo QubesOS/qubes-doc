@@ -1,6 +1,7 @@
 Qubes OS Documentation
 ======================
-https://www.qubes-os.org/doc/
+
+Canonical URL: https://www.qubes-os.org/doc/
 
 All [Qubes OS Project][qubes] documentation pages are stored as plain text
 files in this dedicated repository. By cloning and regularly pulling from
@@ -45,4 +46,4 @@ making contributions, please observe the following style conventions:
 [gh-fork]: https://guides.github.com/activities/forking/
 [gh-pull]: https://help.github.com/articles/using-pull-requests/
 [patch]: https://www.qubes-os.org/doc/source-code/#sending-a-patch
-[lists]: https://www.qubes-os.org/doc/qubes-lists/
+[lists]: https://www.qubes-os.org/doc/mailing-lists/
