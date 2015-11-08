@@ -86,9 +86,8 @@ Installation
         qvm-prefs -s torvm netvm sys-net
 
 8. Start the TorVM and any AppVM you have configured to be route through the TorVM
-9. From the AppVMs, verify torified connectivity
-
-        curl https://check.torproject.org
+9. From the AppVMs, verify torified connectivity, e.g. by visiting
+   `https://check.torproject.org`.
 
 
 ### Troubleshooting ###
