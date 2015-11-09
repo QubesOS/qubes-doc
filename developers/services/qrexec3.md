@@ -203,7 +203,7 @@ and we should get "3" as answer, after dom0 allows it.
 [blog post](http://theinvisiblethings.blogspot.com/2013/02/converting-untrusted-pdfs-into-trusted.html).
 
 
-## Qubes RPC internals ##
+# Qubes RPC internals #
 
 (*This is about the implementation of qrexec v3. For the implementation of
 qrexec v2, see [here](/doc/qrexec2/#qubes-rpc-internals).*)
@@ -214,7 +214,7 @@ residing in the same domain use pipes as the underlying transport medium,
 while components in separate domains use vchan link.
 
 
-### Dom0 tools implementation ###
+## Dom0 tools implementation ##
 
  * `/usr/lib/qubes/qrexec-daemon`: One instance is required for every active
    domain. Responsible for:
@@ -248,7 +248,7 @@ while components in separate domains use vchan link.
 **Note:** None of the above tools are designed to be used by users directly.
 
 
-### VM tools implementation ###
+## VM tools implementation ##
 
  * `qrexec-agent`: One instance runs in each active domain. Responsible for:
    * Handling service requests from `qrexec-client-vm` and passing them to
@@ -265,7 +265,7 @@ while components in separate domains use vchan link.
    are connected to the remote service endpoint.
 
 
-### Qrexec protocol details ###
+## Qrexec protocol details ##
 
 Qrexec protocol is message-based. All messages share a common header followed
 by an optional data packet.
@@ -292,7 +292,7 @@ same domain?*)
 Details of all possible use cases and the messages involved are described below.
 
 
-#### dom0: request execution of `some_command` in domX and pass stdin/stdout ####
+### dom0: request execution of `some_command` in domX and pass stdin/stdout ###
 
 -   **dom0**: `qrexec-client` is invoked in **dom0** as follows:
 
@@ -358,7 +358,7 @@ associated input/output pipe.
 (**int**). `qrexec-agent` then disconnects from the data vchan.
 
 
-#### domY: invoke execution of qubes service `qubes.SomeRpc` in domX and pass stdin/stdout ####
+### domY: invoke execution of qubes service `qubes.SomeRpc` in domX and pass stdin/stdout ###
 
 -   **domY**: `qrexec-client-vm` is invoked as follows:
 

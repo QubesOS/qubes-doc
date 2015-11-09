@@ -229,7 +229,7 @@ top of qrexec. Care should be taken, however, to consider potential attack
 surfaces that are exposed to untrusted or less trusted VMs in that case.
 
 
-## Qubes RPC internals ##
+# Qubes RPC internals #
 
 (*This is about the implementation of qrexec v2. For the implementation of
 qrexec v3, see [here](/doc/qrexec3/#qubes-rpc-internals). Note that the user
@@ -237,7 +237,7 @@ API in v3 is backward compatible: qrexec apps written for Qubes R2 should
 run without modification on Qubes R3.*)
 
 
-### Dom0 tools implementation ###
+## Dom0 tools implementation ##
 
 Players:
 
@@ -251,7 +251,7 @@ Players:
 **Note:** None of the above tools are designed to be used by users.
 
 
-### Linux VMs implementation ###
+## Linux VMs implementation ##
 
 Players:
 
@@ -265,7 +265,7 @@ Players:
 users. `qrexec-client-vm` is designed to be wrapped up by Qubes apps.
 
 
-### Windows VMs implemention ###
+## Windows VMs implemention ##
 
 `%QUBES_DIR%` is the installation path (`c:\Program Files\Invisible Things
 Lab\Qubes OS Windows Tools` by default).
@@ -282,7 +282,7 @@ Lab\Qubes OS Windows Tools` by default).
 users. `qrexec-client-vm` is designed to be wrapped up by Qubes apps.
 
 
-### All the pieces together at work ###
+## All the pieces together at work ##
 
 **Note:** This section is not needed to use qrexec for writing Qubes
 apps. Also note the [qrexec framework implemention in Qubes R3](/doc/qrexec3/)
