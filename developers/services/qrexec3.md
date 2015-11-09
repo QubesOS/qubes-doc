@@ -206,7 +206,7 @@ and we should get "3" as answer, after dom0 allows it.
 ## Qubes RPC internals ##
 
 (*This is about the implementation of qrexec v3. For the implementation of
-qrexec v2, see [here](/doc/qrexec2/).*)
+qrexec v2, see [here](/doc/qrexec2/#qubes-rpc-internals).*)
 
 Qrexec framework consists of a number of processes communicating with each
 other using common IPC protocol (described in detail below). Components

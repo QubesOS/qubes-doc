@@ -232,9 +232,9 @@ surfaces that are exposed to untrusted or less trusted VMs in that case.
 ## Qubes RPC internals ##
 
 (*This is about the implementation of qrexec v2. For the implementation of
-qrexec v3, see [here](/doc/qrexec3/). Note that the user API in v3 is backward
-compatible: qrexec apps written for Qubes R2 should run without modification
-on Qubes R3.*)
+qrexec v3, see [here](/doc/qrexec3/#qubes-rpc-internals). Note that the user
+API in v3 is backward compatible: qrexec apps written for Qubes R2 should
+run without modification on Qubes R3.*)
 
 
 ### Dom0 tools implementation ###
