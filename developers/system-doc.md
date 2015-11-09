@@ -14,11 +14,10 @@ System Documentation for Developers
 Fundamentals
 ------------
  * [Qubes OS Architecture Overview](/doc/qubes-architecture/)
- * [Qubes OS Architecture Spec v0.3 [PDF]](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf) (The original 2009 document that started this all...)
+ * [Qubes OS Architecture Spec v0.3 [PDF]](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf)  
+   (The original 2009 document that started this all...)
  * [Security-critical elements of Qubes OS](/doc/security-critical-code/)
- * Qubes RPC: [`qrexec` v2](/doc/qrexec/) ([R2 implementation](/doc/qrexec2-implementation/))
- * Qubes RPC: [`qrexec` v3](/doc/qrexec3/) ([R3 implementation](/doc/qrexec3-implementation/)) (Odyssey)
- * [Example for writing a `qrexec` service in Qubes OS (blog post)](http://theinvisiblethings.blogspot.com/2013/02/converting-untrusted-pdfs-into-trusted.html)
+ * [Qrexec: command execution in VMs](/doc/qrexec3/)
  * [Qubes GUI virtualization protocol](/doc/gui/)
  * [Networking in Qubes](/doc/qubes-net/)
  * [Implementation of template sharing and updating](/doc/template-implementation/)
