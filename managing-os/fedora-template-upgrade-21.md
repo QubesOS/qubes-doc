@@ -34,6 +34,8 @@ Summary: Upgrading the Standard Fedora 21 Template to Fedora 22
         [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
         [user@dom0 ~]$ qvm-trim-template fedora-22
 
+    (Done.)
+
 Detailed: Upgrading the Standard Fedora 21 Template to Fedora 22
 ----------------------------------------------------------------
 
@@ -48,7 +50,6 @@ template based on the standard Fedora 21 template.
 
  2. Attempt the upgrade process in the new template. For now you need to enable testing repository to do that.
 
-        [user@fedora-22 ~]$ sudo yum erase nautilus-actions libcacard
         [user@fedora-22 ~]$ sudo yum clean all
         [user@fedora-22 ~]$ sudo yum --releasever=22 --enablerepo=qubes*current-testing distro-sync
 
