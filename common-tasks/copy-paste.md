@@ -74,3 +74,5 @@ The copy/paste shortcuts are configurable in:
 ~~~
 /etc/qubes/guid.conf
 ~~~
+
+VMs need to be restarted in order of changes in `/etc/qubes/guid.conf` to take effect.
