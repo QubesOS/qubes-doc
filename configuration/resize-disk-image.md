@@ -26,12 +26,6 @@ qvm-grow-private <vm-name> <size>
 
 Note: Size is the target size (i.e. 4096MB or 16GB, ...), not the size to add to the existing disk.
 
-Note2: If once the VM is started, the disk is has not been increased, you can issue in the VM's terminal:
-
-~~~
-sudo resize2fs /dev/xvdb
-~~~
-
 ### Shrinking private disk image (Linux VM)
 
 **This operation is dangerous and this is why it isn't available in standard Qubes tools. If you have enough disk space, it is safer to create new VM with smaller disk and move the data.**
