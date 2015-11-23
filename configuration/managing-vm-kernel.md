@@ -9,14 +9,13 @@ redirect_from:
 VM kernel managed by dom0
 -------------------------
 
-By default VM uses kernel provided by dom0. This means that:
-1. You can select kernel version in VM settings
-2. You can modify kernel options in VM settings
-3. You can **not** modify any of above from inside of VM
-4. Installing additional kernel modules in cumbersome
+By default VMs kernels are provided by dom0. This means that:
+1. You can select kernel version in VM settings;
+2. You can modify kernel options in VM settings;
+3. You can **not** modify any of above from inside of VM;
+4. Installing additional kernel modules in cumbersome.
 
-To select which kernel given VM will use, you can use either Qubes Manager (VM
-settings, advanced tab), or `qvm-prefs` tool:
+To select which kernel a given VM will use, you can use either use Qubes Manager (VM settings, advanced tab), or `qvm-prefs` tool:
 
 ~~~
 [user@dom0 ~]$ qvm-prefs my-appvm -s kernel
@@ -33,7 +32,7 @@ Possible values:
 [user@dom0 ~]$ qvm-prefs my-appvm -s kernel default
 ~~~
 
-To check/change default kernel you can go either to "Global settings" in Qubes Manager, or use `qubes-prefs` tool:
+To check/change the default kernel you can go either to "Global settings" in Qubes Manager, or use `qubes-prefs` tool:
 
 ~~~
 [user@dom0 ~]$ qubes-prefs
@@ -49,7 +48,7 @@ updatevm          : sys-firewall
 Installing different kernel using Qubes kernel package
 ==================================
 
-Kernel for VM is packages by Qubes team in `kernel-qubes-vm` packages. Generally system will keep 3 newest available versions. You can list them with simple `rpm` command:
+VM kernels are packages by Qubes team in `kernel-qubes-vm` packages. Generally system will keep the 3 newest available versions. You can list them with the `rpm` command:
 
 ~~~
 [user@dom0 ~]$ rpm -qa 'kernel-qubes-vm*'
@@ -58,15 +57,13 @@ kernel-qubes-vm-3.18.16-3.pvops.qubes.x86_64
 kernel-qubes-vm-3.18.17-4.pvops.qubes.x86_64
 ~~~
 
-If you want more recent version (but not so tested), you can check
-`qubes-dom0-unstable` repository - Qubes team put there such packages. Keep in
-mind that those packages (as the name suggests) may be less stable than the
-default one.
+If you want more recent version, you can check `qubes-dom0-unstable` repository. As the name suggest, keep in
+mind that those packages may be less stable than the default ones.
 
 Checking available versions in `qubes-dom0-unstable` repository:
 
 ~~~
-[marmarek@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable --action=list kernel-qubes-vm
+[user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable --action=list kernel-qubes-vm
 Using sys-firewall as UpdateVM to download updates for Dom0; this may take some time...
 Running command on VM: 'sys-firewall'...
 Loaded plugins: langpacks, post-transaction-actions, yum-qubes-hooks
@@ -87,7 +84,7 @@ kernel-qubes-vm.x86_64 1000:3.18.17-4.pvops.qubes @qubes-dom0-cached
 Installing new version from `qubes-dom0-unstable` repository:
 
 ~~~
-[marmarek@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable kernel-qubes-vm
+[user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable kernel-qubes-vm
 Using sys-firewall as UpdateVM to download updates for Dom0; this may take some time...
 Running command on VM: 'sys-firewall'...
 Loaded plugins: langpacks, post-transaction-actions, yum-qubes-hooks
@@ -132,9 +129,7 @@ Complete!
 [marmarek@dom0 ~]$
 ~~~
 
-In above example it tries to remove 3.18.10-2.pvops.qubes kernel (to keep only
-3 installed), but since some VM uses it, it fails. Installation of new
-package is unaffected by this event.
+In the above example, it tries to remove 3.18.10-2.pvops.qubes kernel (to keep only 3 installed), but since some VM uses it, it fails. Installation of new package is unaffected by this event.
 
 The newly installed package is set as default VM kernel.
 
@@ -205,7 +200,6 @@ mke2fs 1.42.12 (29-Aug-2014)
 ---> Generating initramfs
 --> Done.
 ~~~
-
 
 Using kernel installed in the VM
 ================================
@@ -311,8 +305,6 @@ In case of problems, you can access VM console (using `sudo xl console VMNAME` i
 GRUB menu. You need to call it just after starting VM (until `GRUB_TIMEOUT`
 expires) - for example in separate dom0 terminal window.
 
-In any case you can later access VM logs (especially VM console log
-(`guest-VMNAME.log`). You can always set kernel back to some
-dom0-provided value to fix VM kernel
-installation.
+In any case you can later access VM logs (especially VM console log (`guest-VMNAME.log`). 
 
+You can always set kernel back to some dom0-provided value to fix VM kernel installation.
