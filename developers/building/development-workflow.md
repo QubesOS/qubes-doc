@@ -13,18 +13,20 @@ Development Workflow
 
 A workflow for developing Qubes OS+
 
-First things first, setup [QubesBuilder](/doc/qubes-builder/). This guide assumes you're using qubes-builder to build Qubes.
+First things first, setup [QubesBuilder](/doc/qubes-builder/). This guide
+assumes you're using qubes-builder to build Qubes.
 
 Repositories and committing Code
 --------------------------------
 
-Qubes is split into a bunch of git repos. This are all contained in the `qubes-src` directory under qubes-builder.
-FIXME(ypid): Not on github?
+Qubes is split into a bunch of git repos. This are all contained in the
+`qubes-src` directory under qubes-builder. Subdirectories there are separate
+components, stored in separate git repositories.
 
 The best way to write and contribute code is to create a git repo somewhere
 (e.g., github) for the repo you are interested in editing (e.g.,
-`qubes-manager`, `core`, etc). To integrate your repo with the rest of
-Qubes, cd to the repo directory and add your repository as a remote in git
+`qubes-manager`, `core-agent-linux`, etc). To integrate your repo with the rest
+of Qubes, cd to the repo directory and add your repository as a remote in git
 
 **Example:**
 
@@ -40,14 +42,14 @@ on github.
 When you are ready to submit your changes to Qubes to be merged, push your
 changes, then create a signed git tag (using `git tag -s`). Finally, send a
 letter to the Qubes listserv describing the changes and including the link to
-your repository. Don't forget to include your public PGP key you use to sign
-your tags.
+your repository. You can also create pull request on github. Don't forget to
+include your public PGP key you use to sign your tags.
 
 ### Kernel-specific notes
 
 #### Prepare fresh version of kernel sources, with Qubes-specific patches applied
 
-In qubes-builder/qubes-src/kernel:
+In qubes-builder/qubes-src/linux-kernel:
 
 ~~~
 make prep
@@ -66,7 +68,7 @@ drwxr-xr-x  6 user user 4096 Nov 21 20:48 kernel-3.4.18/linux-obj
 
 #### Go to the kernel tree and update the version
 
-In qubes-builder/qubes-src/kernel:
+In qubes-builder/qubes-src/linux-kernel:
 
 ~~~
 cd kernel-3.4.18/linux-3.4.18
@@ -77,7 +79,7 @@ cd kernel-3.4.18/linux-3.4.18
 In kernel-3.4.18/linux-3.4.18:
 
 ~~~
-cp ../../config-pvops .config
+cp ../../config .config
 make oldconfig
 ~~~
 
@@ -90,7 +92,7 @@ make menuconfig
 Copy the modified config back into the kernel tree:
 
 ~~~
-cp .config ../../../config-pvops
+cp .config ../../../config
 ~~~
 
 #### Patching the code
@@ -112,24 +114,29 @@ quilt add drivers/usb/host/Kconfig drivers/usb/host/Makefile \
 
 quilt refresh
 cd ../..
-vi series-pvops.conf
+vi series.conf
 ~~~
 
 #### Building RPMS
 
 TODO: Is this step generic for all subsystems?
 
-Now it is a good moment to make sure you have changed kernel release name in rel-pvops file. For example, if you change it to '1debug201211116c' the resulting RPMs will be named 'kernel-3.4.18-1debug20121116c.pvops.qubes.x86\_64.rpm'. This will help distinguish between different versions of the same package.
+Now it is a good moment to make sure you have changed kernel release name in
+rel file. For example, if you change it to '1debug201211116c' the
+resulting RPMs will be named
+'kernel-3.4.18-1debug20121116c.pvops.qubes.x86\_64.rpm'. This will help
+distinguish between different versions of the same package.
 
-You might want to take a moment here to review (git diff, git status), commit your changes locally.
+You might want to take a moment here to review (git diff, git status), commit
+your changes locally.
 
-To actually build RPMS, in qubes-src/kernel:
+To actually build RPMS, in qubes-builder:
 
 ~~~
-make rpms
+make linux-kernel
 ~~~
 
-RPMS will appear in qubes-src/kernel/rpm/x86\_64:
+RPMS will appear in qubes-src/linux-kernel/pkgs/fc20/x86\_64:
 
 ~~~
 -rw-rw-r-- 1 user user 42996126 Nov 17 04:08 kernel-3.4.18-1debug20121116c.pvops.qubes.x86_64.rpm
@@ -142,18 +149,18 @@ RPMS will appear in qubes-src/kernel/rpm/x86\_64:
 
 ### Useful [QubesBuilder](/doc/qubes-builder/) commands
 
-1.  *make check* - will check if all the code was commited into repository and
+1.  `make check` - will check if all the code was commited into repository and
 if all repository are tagged with signed tag.
-2.  *make show-vtags* - show version of each component (based on git tags) -
+2.  `make show-vtags` - show version of each component (based on git tags) -
 mostly useful just before building ISO. **Note:** this will not show version
 for components containing changes since last version tag
-3.  *make push* - push change from **all** repositories to git server. You must
+3.  `make push` - push change from **all** repositories to git server. You must
 set proper remotes (see above) for all repositories first.
-4.  *make prepare-merge* - fetch changes from remote repositories (can be
+4.  `make prepare-merge` - fetch changes from remote repositories (can be
 specified on commandline via GIT\_SUBDIR or GIT\_REMOTE vars), (optionally)
 verify tags and show the changes. This do not merge the changes - there are
-left for review as FETCH\_HEAD ref. You can merge them using "git merge
-FETCH\_HEAD" (in each repo directory).
+left for review as FETCH\_HEAD ref. You can merge them using `git merge
+FETCH_HEAD` (in each repo directory). Or `make do-merge` to merge all of them.
 
 Copying Code to dom0
 --------------------
@@ -194,7 +201,7 @@ sudo cp misc/vm-template-hvm.conf /usr/share/qubes/
 sudo cp misc/qubes-start.desktop /usr/share/qubes/
 sudo cp misc/block-snapshot /etc/xen/scripts/
 sudo cp aux-tools/qubes-dom0-updates.cron /etc/cron.daily/
-# FIXME(Abel Luck): I hope to 
+# FIXME(Abel Luck): I hope to
 ~~~
 
 ### Apply qvm-tools
