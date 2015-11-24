@@ -16,12 +16,27 @@ The archlinux VM is now almost working as a NetVM. Based on qubes-builder code, 
 Download qubes-builder git code
 -------------------------------
 
-Prefer the [marmarek git repository](https://github.com/marmarek/qubes-builder-archlinux) as it is the most recent one.
+Prefer the [marmarek git repository](https://github.com/marmarek/qubes-builder) as it is the most recent one.
+
+~~~
+git clone https://github.com/marmarek/qubes-builder.git
+~~~
 
 Change your builder.conf
 ------------------------
 
-Change the following variables GIT\_SUBDIR=marmarek DISTS\_VM=archlinux
+Change the following variables / add the following lines (as appropriate):
+
+~~~
+BUILDER_PLUGINS += builder-archlinux
+GIT_PREFIX := marmarek/qubes-
+DISTS_VM += archlinux
+~~~
+
+If you don't already have a `builder.conf` in the root of your qubes-builder
+directory, a basic Archlinux template build may be achieved by copying
+`example-configs/debian.conf` and making the above changes (don't forget to
+also comment out any Debian-related `DISTS_VM += ` lines).
 
 Get all required sources
 ------------------------
@@ -48,6 +63,7 @@ The first use of the builder can take several hours depending on your bandwidth 
 ~~~
 make vmm-xen-vm
 make core-vchan-xen-vm
+make core-qubesdb-vm
 make linux-utils-vm
 make core-agent-linux-vm
 make gui-common-vm
