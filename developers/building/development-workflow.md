@@ -21,7 +21,10 @@ Repositories and committing Code
 Qubes is split into a bunch of git repos. This are all contained in the `qubes-src` directory under qubes-builder.
 FIXME(ypid): Not on github?
 
-The best way to write and contribute code is to create a git repo somewhere (e.g., github) for the repo you are interested in editing (e.g., `qubes-manager`, `core`, etc). To integrate your repo with the rest of Qubes, cd to the repo directory and add your repository as a remote in git
+The best way to write and contribute code is to create a git repo somewhere
+(e.g., github) for the repo you are interested in editing (e.g.,
+`qubes-manager`, `core`, etc). To integrate your repo with the rest of
+Qubes, cd to the repo directory and add your repository as a remote in git
 
 **Example:**
 
@@ -30,9 +33,15 @@ $ cd qubes-builder/qubes-src/qubes-manager
 $ git remote add abel git@github.com:abeluck/qubes-manager.git
 ~~~
 
-You can then proceed to easily develop in your own branches, pull in new commits from the dev branches, merge them, and eventually push to your own repo on github.
+You can then proceed to easily develop in your own branches, pull in new
+commits from the dev branches, merge them, and eventually push to your own repo
+on github.
 
-When you are ready to submit your changes to Qubes to be merged, push your changes, then create a signed git tag (using `git tag -s`). Finally, send a letter to the Qubes listserv describing the changes and including the link to your repository. Don't forget to include your public PGP key you use to sign your tags.
+When you are ready to submit your changes to Qubes to be merged, push your
+changes, then create a signed git tag (using `git tag -s`). Finally, send a
+letter to the Qubes listserv describing the changes and including the link to
+your repository. Don't forget to include your public PGP key you use to sign
+your tags.
 
 ### Kernel-specific notes
 
@@ -133,19 +142,31 @@ RPMS will appear in qubes-src/kernel/rpm/x86\_64:
 
 ### Useful [QubesBuilder](/doc/qubes-builder/) commands
 
-1.  *make check* - will check if all the code was commited into repository and if all repository are tagged with signed tag.
-2.  *make show-vtags* - show version of each component (based on git tags) - mostly useful just before building ISO. **Note:** this will not show version for components containing changes since last version tag
-3.  *make push* - push change from **all** repositories to git server. You must set proper remotes (see above) for all repositories first.
-4.  *make prepare-merge* - fetch changes from remote repositories (can be specified on commandline via GIT\_SUBDIR or GIT\_REMOTE vars), (optionally) verify tags and show the changes. This do not merge the changes - there are left for review as FETCH\_HEAD ref. You can merge them using "git merge FETCH\_HEAD" (in each repo directory).
+1.  *make check* - will check if all the code was commited into repository and
+if all repository are tagged with signed tag.
+2.  *make show-vtags* - show version of each component (based on git tags) -
+mostly useful just before building ISO. **Note:** this will not show version
+for components containing changes since last version tag
+3.  *make push* - push change from **all** repositories to git server. You must
+set proper remotes (see above) for all repositories first.
+4.  *make prepare-merge* - fetch changes from remote repositories (can be
+specified on commandline via GIT\_SUBDIR or GIT\_REMOTE vars), (optionally)
+verify tags and show the changes. This do not merge the changes - there are
+left for review as FETCH\_HEAD ref. You can merge them using "git merge
+FETCH\_HEAD" (in each repo directory).
 
 Copying Code to dom0
 --------------------
 
-When developing it is convenient to be able to rapidly test changes. Assuming you're developing Qubes on Qubes, you should be working in a special VM for Qubes and occasionally you will want to transfer code or rpms back to dom0 for testing.
+When developing it is convenient to be able to rapidly test changes. Assuming
+you're developing Qubes on Qubes, you should be working in a special VM for
+Qubes and occasionally you will want to transfer code or rpms back to dom0 for
+testing.
 
 Here are some handy scripts Marek has shared to facilitate this.
 
-You may also like to run your [test environment on separate machine](/doc/test-bench/).
+You may also like to run your [test environment on separate
+machine](/doc/test-bench/).
 
 ### Syncing dom0 files
 
