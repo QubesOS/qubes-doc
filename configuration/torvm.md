@@ -203,7 +203,7 @@ all TorVMs.
 You can override these settings in your TorVM, or provide your own custom
 settings by appending them to:
 
-      /rw/usrlocal/etc/qubes-tor/torrc
+      /rw/config/qubes-tor/torrc
 
 For information on tor configuration settings `man tor`
 
