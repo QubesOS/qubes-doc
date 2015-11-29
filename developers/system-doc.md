@@ -44,7 +44,6 @@ Building
  * [Building Qubes](/doc/qubes-builder/) (["API" Details](/doc/qubes-builder-details/))
  * [Development Workflow](/doc/development-workflow/)
  * [KDE Dom0 packages for Qubes](/doc/kde-dom0/)
- * [How to build Qubes installation ISO](/doc/installation-iso-building/)
  * [Building Qubes OS 3.0 ISO](/doc/qubes-r3-building/)
  * [Building USB passthrough support (experimental)](/doc/usbvm/)
  * [Building a TemplateVM based on a new OS (ArchLinux example)](/doc/building-non-fedora-template/)
