@@ -75,7 +75,7 @@ Let's start with quick example:
 
     my new and shiny vm:
       qvm.present:
-        - name: salt-test # can be omitted then same as ID
+        - name: salt-test # can be omitted when same as ID
         - template: fedora-21
         - label: yellow
         - mem: 2000
@@ -159,5 +159,13 @@ Ensures the domain is running:
       qvm.running:
         - name: salt-test4
 
+## Further reading
+
+* [Salt documentation][salt-doc]
+* [Qubes specific modules][salt-qvm-doc]
+* [Formula for default Qubes VMs][salt-virtual-machines-doc] ([and actual states][salt-virtual-machines-states])
 
 [salt-doc]: https://docs.saltstack.com/en/latest/
+[salt-qvm-doc]: https://github.com/QubesOS/qubes-mgmt-salt-dom0-qvm/blob/master/README.rst
+[salt-virtual-machines-doc]: https://github.com/QubesOS/qubes-mgmt-salt-dom0-virtual-machines/blob/master/README.rst
+[salt-virtual-machines-states]: https://github.com/QubesOS/qubes-mgmt-salt-dom0-virtual-machines/tree/master/qvm
