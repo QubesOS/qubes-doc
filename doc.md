@@ -27,7 +27,7 @@ Choosing Your Hardware
 ----------------------
  *  [System Requirements](/doc/system-requirements/)
  *  [Hardware Compatibility List (HCL)](/hcl)
- *  Qubes Certified Laptops ([coming soon!](https://twitter.com/Puri_sm/status/644963433293717504))
+ *  [Qubes-Certified Laptops](/doc/certified-laptops/)
 
 
 Installing Qubes
