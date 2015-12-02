@@ -1,19 +1,27 @@
-Qubes OS Documentation
-======================
+---
+layout: doc
+title: Documentation Guidelines
+permalink: /doc/doc-guidelines/
+redirect_from:
+- /en/doc/doc-guidelines/
+- /wiki/DocStyle/
+- /doc/DocStyle/
+---
 
-Canonical URL: https://www.qubes-os.org/doc/
+Guidelines for Documentation Contributors
+=========================================
 
-All [Qubes OS Project][qubes] documentation pages are stored as plain text
-files in this dedicated repository. By cloning and regularly pulling from
-this repo, users can maintain their own up-to-date offline copy of all
-Qubes documentation rather than relying solely on the Web. Contributions
-to the documentation (both new content and edits of existing content)
-are welcome. To contribute, please [fork and clone][gh-fork] this repo,
-make your changes, then either [submit a pull request][gh-pull] or
-[send a patch][patch] to the `qubes-devel` [mailing list][lists]. If you have
-a GitHub account (free), you can simply browse this repository and edit the
-files here. The GitHub interface will automatically guide you through the
-[fork and pull request process][gh-fork].
+All Qubes OS documentation pages are stored as plain text files in the
+dedicated [qubes-doc] repository. By cloning and regularly pulling from
+this repo, users can maintain their own up-to-date offline copy of all Qubes
+documentation rather than relying solely on the Web.  Contributions to the
+documentation (both new content and edits of existing content) are welcome. To
+contribute, please [fork and clone][gh-fork] this repo, make your changes,
+then either [submit a pull request][gh-pull] or [send a patch][patch] to the
+`qubes-devel` [mailing list][lists]. If you have a GitHub account (free), you
+can simply browse the [qubes-doc] repository and edit the files there. The
+GitHub interface will automatically guide you through the
+[fork and pull request creation process][gh-fork].
 
 
 Markdown Conventions
@@ -42,8 +50,9 @@ making contributions, please observe the following style conventions:
 `[ref]: http://daringfireball.net/projects/markdown/syntax#link`
 
 
+[qubes-doc]: https://github.com/QubesOS/qubes-doc
 [qubes]: https://github.com/QubesOS
 [gh-fork]: https://guides.github.com/activities/forking/
 [gh-pull]: https://help.github.com/articles/using-pull-requests/
-[patch]: https://www.qubes-os.org/doc/source-code/#sending-a-patch
-[lists]: https://www.qubes-os.org/doc/mailing-lists/
+[patch]: /doc/SourceCode/#sending-a-patch
+[lists]: https://www.qubes-os.org/doc/QubesLists/
