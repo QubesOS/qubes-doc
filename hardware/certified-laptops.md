@@ -22,9 +22,14 @@ In addition, the Qubes team will receive a small portion of the revenue from any
 
 For existing Librem 13 users, please follow the instructions to ensure maximum compatibility with Qubes:
 
-1. in `dom0`, open a terminal and remove not supported X drivers:
-`sudo yum remove
-xorg-x11-drv-{trident,i740,apm,i128,cirrus,tdfx,qxl,rendition,sis,glint,siliconmotion,r128,s3virge,mga,mach64,savage}`
-2. update X drivers:
-`sudo qubes-dom0-update --releasever=3.1 --enablerepo=qubes-dom0-current-testing --action=update 'xorg-x11-drv-*'`
-3. enable newer kernel: `sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable kernel`
+1. In `dom0`, open a terminal and remove unsupported X drivers:
+
+       sudo yum remove xorg-x11-drv-{trident,i740,apm,i128,cirrus,tdfx,qxl,rendition,sis,glint,siliconmotion,r128,s3virge,mga,mach64,savage}
+
+2. Update X drivers:
+
+       sudo qubes-dom0-update --releasever=3.1 --enablerepo=qubes-dom0-current-testing --action=update 'xorg-x11-drv-*'
+
+3. Enable newer kernel:
+
+       sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable kernel
