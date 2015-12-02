@@ -10,8 +10,6 @@ redirect_from:
 - /wiki/QubesDocs/
 ---
 
-Qubes OS Documentation
-======================
 
 The Basics
 ----------
@@ -87,8 +85,8 @@ Security Guides
  *  [Note regarding password-less root access in VM](/doc/vm-sudo/)
 
 
- Privacy Guides
- --------------
+Privacy Guides
+--------------
   *  [Whonix for privacy & anonymization](/en/doc/privacy/whonix/)
   *  [Install Whonix in Qubes](/en/doc/privacy/install-whonix/)
   *  [Updating Whonix in Qubes](/en/doc/privacy/updating-whonix/)
@@ -96,7 +94,6 @@ Security Guides
   *  [Uninstall Whonix from Qubes](/en/doc/privacy/uninstall-whonix/)
   *  [How to Install a Transparent Tor ProxyVM (TorVM)](/en/doc/privacy/torvm/)
   *  [How to set up a ProxyVM as a VPN Gateway](/en/doc/privacy/vpn/)
-
 
 
 Configuration Guides
