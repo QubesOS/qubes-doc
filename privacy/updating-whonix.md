@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: Updating Whonix in Qubes
-permalink: /en/doc/privacy/updating-whonix/
+permalink: /doc/privacy/updating-whonix/
 ---
 
 Updating Whonix in Qubes
@@ -71,8 +71,6 @@ After upgrading either (easy) reboot.
 ~~~
 sudo reboot
 ~~~
-
-Or (harder) if you want to omit rebooting, use `checkrestart`. If you are interested in the latter, please click on expand on the right side.
 
 
 ### Restart after Kernel Upgrades

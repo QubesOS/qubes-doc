@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: Whonix for privacy & anonymizations
-permalink: /en/doc/privacy/whonix/
+permalink: /doc/privacy/whonix/
 ---
 
 Whonix for Privacy & Anonymity

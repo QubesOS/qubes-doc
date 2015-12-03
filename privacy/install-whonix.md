@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: Install Whonix in Qubes
-permalink: /en/doc/privacy/install-whonix/
+permalink: /doc/privacy/install-whonix/
 ---
 
 

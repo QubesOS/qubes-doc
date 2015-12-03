@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: Customizing Whonix
-permalink: /en/doc/privacy/customizing-whonix/
+permalink: /doc/privacy/customizing-whonix/
 ---
 
 Customizing Whonix
@@ -13,7 +13,7 @@ There are numerous ways to customize your Whonix install. All require a degree o
 
 This is an optional security enhancement (for testers-only). If you're technical & interested, proceed, but do so *at your own risk!*
 
-Note, if you want to use [Tor bridges](), AppArmor has been known in the past to cause problems with `obfsproxy` [see this issue](https://github.com/Whonix/Whonix/issues/67)
+Note, if you want to use [Tor bridges](https://www.whonix.org/wiki/Bridges), AppArmor has been known in the past to cause problems with `obfsproxy` [see this issue](https://github.com/Whonix/Whonix/issues/67)
 
 You will want to complete the following instructions in both the **Whonix Gateway** referred to in Qubes VM Manager as `whonix-gw` and the **Whonix Workstation** or  `whonix-ws`. You only need to apply these settings to the TemplateVMs before creating any template based VMs from these Whonix templates.
 

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: Uninstall Whonix from Qubes
-permalink: /en/doc/privacy/uninstall-whonix/
+permalink: /doc/privacy/uninstall-whonix/
 ---
 
 Uninstall Whonix from Qubes
