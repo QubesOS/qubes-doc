@@ -206,3 +206,4 @@ Known issues with Fedora 23
 
 * [Graphical update tools (using PackageKit) does not work](https://github.com/QubesOS/qubes-issues/issues/982).
 * [Dnf (new Fedora package manager) needs a lot of time to process repository metadata](https://bugzilla.redhat.com/show_bug.cgi?id=1227014), you may want to use `yum-deprecated` for now
+* ["Terminal" shortcuts do not work because the desktop file in the VM has been renamed](https://github.com/QubesOS/qubes-issues/issues/1428). See the issue report for how to update your configuration to match.
