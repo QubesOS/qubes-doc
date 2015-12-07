@@ -57,9 +57,6 @@ Manager's right-click menu and choose Run Command in VM and type
         sudo apt-get update
         sudo apt-get dist-upgrade
 
-    There will be some error messages during the process, but our tests does
-    not revealed any negative consequences.
-
 4.  Shutdown the template VM.
 
 Upgrading dom0
@@ -74,6 +71,8 @@ them again.
 2.  Upgrade dom0 to R3.1:
 
         sudo qubes-dom0-update --releasever=3.1
+
+    After this step, until you reboot the system, most of the qvm-* tools will not work.
 
 3.  If above step completed successfully you should have `qubes-core-dom0` at
 least 3.1.4. If not, repeat above step with additional `--clean` option.
