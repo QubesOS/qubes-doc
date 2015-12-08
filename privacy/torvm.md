@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: TorVM
-permalink: /doc/torvm/
+permalink: /doc/privacy/torvm/
 redirect_from:
 - /en/doc/torvm/
 - /doc/TorVM/
@@ -63,7 +63,7 @@ Installation
         qvm-service torvm -d qubes-netwatcher
         qvm-service torvm -d qubes-firewall
         qvm-service torvm -e qubes-tor
-          
+
         # if you  created a new template in the previous step
         qvm-prefs torvm -s template fedora-21-tor
 
@@ -127,7 +127,7 @@ This is accomplished through transparent TCP and transparent DNS proxying by
 the TorVM.
 
 The TorVM cannot anonymize information stored or transmitted from your AppVMs
-behind the TorVM. 
+behind the TorVM.
 
 *Non-comprehensive* list of identifiers TorVM does not protect:
 

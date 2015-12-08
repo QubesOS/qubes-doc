@@ -8,26 +8,40 @@ redirect_from:
 - /wiki/ResizeRootDiskImage/
 ---
 
-Resizing \`root.img\` Size
---------------------------
+Resize Root Disk Image
+----------------------
 
-The safest way to increase the size of \`root.img\` is to do it for a standalone
-VM (qvm-create --standalone) - which has its own root filesystem
-(copy of template, instead of smart sharing).
-But it should also work for a normal template (as long as changes in the
-template between reboots didn't exceed 10G).
+The safest way to increase the size of `root.img` is to turn your TemplateVM into a StandaloneVM. Doing this means it will have it's own root filesystem *(StandaloneVMs use a copy of template, instead of smart sharing)*. To do this run `qvm-create --standalone` from `dom0` Konsole.
 
-Replace the size and the path (name) of the template as wished and run your
-modified command:
+### Resize a StandaloneVM Root Image
+
+In `dom0` Konsole run the following command (replace the size and path):
+
 ~~~
-truncate -s 20G /var/lib/qubes/vm-templates/fedora-21/root.img
+truncate -s 20G /var/lib/qubes/appvms/standalonevm/root.img
 ~~~
 
-Then start your template or standalone VM and run:
+Then start Terminal for this StandaloneVM and run:
+
 ~~~
 sudo resize2fs /dev/mapper/dmroot
 ~~~
 
-after that shutdown the template.
+Shutdown the StandaloneVM and you will have extended the size of it's `root.img`
 
-Then you should have extended \`root.img\` in your VM/template
+
+### Resize a TemplateVM Root Image
+
+In `dom0` Konsole run the following command (replace the size and path):*Make sure changes in the TemplateVM between reboots didn't exceed 10G.*
+
+~~~
+truncate -s 20G /var/lib/qubes/vm-templates/fedora-21/root.img
+~~~
+
+Then start Terminal for this TemplateVM and run the following:
+
+~~~
+sudo resize2fs /dev/mapper/dmroot
+~~~
+
+Shutdown the TemplateVM and you will have extended the size of it's `root.img`

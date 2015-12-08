@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Qubes OS Documentation
+title: Documentation
 permalink: /doc/
 redirect_from:
 - /en/doc/
@@ -10,13 +10,10 @@ redirect_from:
 - /wiki/QubesDocs/
 ---
 
-Qubes OS Documentation
-======================
 
 The Basics
 ----------
  *  [A Simple Introduction to Qubes](/intro/)
- *  [Getting Started](/doc/getting-started/)
  *  [Users' FAQ](/doc/user-faq/)
  *  [Mailing Lists](/doc/mailing-lists/)
  *  [Further reading: How is Qubes different from...?](http://blog.invisiblethings.org/2012/09/12/how-is-qubes-os-different-from.html)
@@ -87,6 +84,17 @@ Security Guides
  *  [Note regarding password-less root access in VM](/doc/vm-sudo/)
 
 
+Privacy Guides
+--------------
+  *  [Whonix for privacy & anonymization](/doc/privacy/whonix/)
+  *  [Install Whonix in Qubes](/doc/privacy/install-whonix/)
+  *  [Updating Whonix in Qubes](/doc/privacy/updating-whonix/)
+  *  [Customizing Whonix](/doc/privacy/customizing-whonix/)
+  *  [Uninstall Whonix from Qubes](/doc/privacy/uninstall-whonix/)
+  *  [How to Install a Transparent Tor ProxyVM (TorVM)](/doc/privacy/torvm/)
+  *  [How to set up a ProxyVM as a VPN Gateway](/doc/privacy/vpn/)
+
+
 Configuration Guides
 --------------------
  *  [Configuration Files](/doc/config-files/)
@@ -155,5 +163,4 @@ For Developers
  *  [Coding Guidelines](/doc/coding-style/)
  *  [Documentation Guidelines](/doc/doc-guidelines/)
  *  [Books for Developers](/doc/devel-books/)
- *  [Research Papers](/doc/qubes-research/)
  *  [Qubes OS License](/doc/license/)

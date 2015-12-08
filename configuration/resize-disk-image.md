@@ -8,8 +8,8 @@ redirect_from:
 - /wiki/ResizeDiskImage/
 ---
 
-Resizing Disk Image
--------------------
+Resize Disk Image
+-----------------
 
 There are several disk images which can be easily extended.
  But pay attention to the overall consumed space of your sparse disk images.
