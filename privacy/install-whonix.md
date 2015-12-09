@@ -55,4 +55,4 @@ To start an application in the **Whonix Workstation AppVM** that you created, la
 
 ### Advanced Information
 
-You can learn more about [customizing Whonix here](/en/doc/privacy/customizing-whonix/)
+You can learn more about [customizing Whonix here](/doc/privacy/customizing-whonix/)
