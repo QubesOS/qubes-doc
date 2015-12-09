@@ -34,6 +34,6 @@ To install Whonix, you must have a working Qubes machine already.
 *The following links are on Whonix's site.*
 
 *  [Whonix Support](https://www.whonix.org/wiki/Support) - General Whonix, Debian, Tor, etc... related issues
-*  [Whonix Qubes Forum](https://www.whonix.org/forum/Qubes) - Whonix specific issues
+*  [Whonix Qubes Forum](https://forums.whonix.org/c/qubes) - Whonix specific issues
 
 You can also use [Qubes support](/help/), but not all Qubes users run Whonix.
