@@ -32,6 +32,10 @@ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-who
 
 After doing this, you should see two new TemplateVMs in the VM Manager called `whonix-gw` and `whonix-ws`
 
+### Enabling AppArmor
+
+This is an optional security enhancement (for testers-only). If you’re technical & interested, see [Enabling AppArmor](/doc/privacy/customizing-whonix/).
+
 ### Configuring Whonix VMs
 
 Create a **Whonix-Gateway** ProxyVM by clicking on `Create a New VM` and select `whonix-gw` as the template and select ProxyVM as the type.
@@ -52,7 +56,6 @@ Great. You should be all done installing Whonix into Qubes. Use these two Templa
 
 To start an application in the **Whonix-Workstation AppVM** that you created, launch it like any other- open the `Qubes App Launcher` and then select an app such as `Privacy Browser` which will then launch the Tor Browser
 
-
 ### Advanced Information
 
-You can learn more about [customizing Whonix here](/doc/privacy/customizing-whonix/)
+You can learn more about [installing Whonix](https://www.whonix.org/wiki/Qubes/Install), [Qubes-Whonix](https://www.whonix.org/wiki/Qubes) or [Whonix generally](https://www.whonix.org).
