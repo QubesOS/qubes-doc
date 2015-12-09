@@ -38,9 +38,13 @@ Detailed: Upgrading the Standard Fedora 21 Template to Fedora 23
 
 These instructions will show you how to upgrade the standard Fedora 21
 TemplateVM to Fedora 23. The same general procedure may be used to upgrade any
-template based on the standard Fedora 21 template.
+template based on the standard Fedora 21 template. 
 
- 1. Clone the existing template and start a terminal in the new template.
+ 1. Ensure the existing template is not running. 
+
+        [user@dom0 ~]$ qvm-shutdown fedora-21
+ 
+ 2. Clone the existing template and start a terminal in the new template.
 
         [user@dom0 ~]$ qvm-clone fedora-21 fedora-23
         [user@dom0 ~]$ qvm-run -a fedora-23 gnome-terminal
