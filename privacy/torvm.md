@@ -32,7 +32,7 @@ All non-DNS UDP and IPv6 traffic is silently dropped.
 
 See [this article](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html) for a description of the concept, architecture, and the original implementation.
 
-If you are interested TorVM, you may find the [Whonix](https://www.qubes-os.org/doc/Templates/Whonix/) templates in Qubes a more usable and robust solution for torifying traffic.
+**If you are interested TorVM, you may find the [Whonix gateway template](https://www.qubes-os.org/doc/templates/whonix/) in Qubes a more usable and robust solution for creating a torifying traffic proxy.**
 
 ## Warning + Disclaimer
 
