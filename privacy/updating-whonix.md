@@ -72,13 +72,9 @@ The easy way to do this is to simply reboot.
 sudo reboot
 ~~~
 
-
 ### Restart after Kernel Upgrades
 
 When `linux-image-...` was upgraded, reboot is required to profit from security updates.
-
-
-Operating System Updates
 
 Shutdown Whonix TemplateVM
 
