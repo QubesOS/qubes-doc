@@ -98,7 +98,7 @@ Privacy Guides
 Configuration Guides
 --------------------
  *  [Configuration Files](/doc/config-files/)
- *  [How to Install a Transparent Tor ProxyVM (TorVM)](/doc/torvm/)
+ *  [How to Install a Transparent Tor ProxyVM (TorVM)](/doc/privacy/torvm/)
  *  [How to set up a ProxyVM as a VPN Gateway](/doc/vpn/)
  *  [Storing AppVMs on Secondary Drives](/doc/secondary-storage/)
  *  [Where are my external storage devices mounted?](/doc/external-device-mount-point/)
