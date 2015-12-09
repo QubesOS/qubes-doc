@@ -4,8 +4,6 @@ title: Qubes-Certified Laptops
 permalink: /doc/certified-laptops/
 --- 
 
-*NOTE: This is just a mockup*
-
 Qubes-certified Laptops
 ============================================
 
