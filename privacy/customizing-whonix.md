@@ -17,7 +17,7 @@ Note, if you want to use [Tor bridges](https://www.whonix.org/wiki/Bridges), App
 
 You will want to complete the following instructions in both the **Whonix-Gateway** referred to in Qubes VM Manager as `whonix-gw` and the **Whonix-Workstation** or  `whonix-ws`. You only need to apply these settings to the TemplateVMs before creating any template based VMs from these Whonix templates.
 
-[Since Qubes Q3, TemplateBasedVMs inherit the kernelopts setting of their TemplateVM](https://github.com/QubesOS/qubes-issues/issues/1091)
+(This is because, [since Qubes Q3, TemplateBasedVMs inherit the kernelopts setting of their TemplateVM](https://github.com/QubesOS/qubes-issues/issues/1091).)
 
 ### Configuring Whonix-Gateway
 
