@@ -62,7 +62,7 @@ Ign http://deb.torproject.org jessie/main Translation-en
 Reading package lists... Done
 ~~~
 
-  However, if what you see is different or you see the word `WARNING:` you should look at our troubleshooting documentation for [Debian and Whonix](/doc/troubleshooting/debian-and-whonix/).
+  However, if what you see is different or you see the word `WARNING:` you should look at our troubleshooting documentation for [Debian and Whonix](/doc/troubleshooting/updating-debian-and-whonix/).
 
 ### Restart Services after Upgrading
 
