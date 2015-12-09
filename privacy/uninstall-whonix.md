@@ -7,7 +7,7 @@ permalink: /doc/privacy/uninstall-whonix/
 Uninstall Whonix from Qubes
 ===========================
 
-If you just want to remove your **Whonix Gateway ProxyVMs** or **Whonix Workstation AppVMs** this would not be the guide for doing that. Just use the Qubes VM Manager or command line tools for doing that.
+If you just want to remove your **Whonix-Gateway ProxyVMs** or **Whonix-Workstation AppVMs** this would not be the guide for doing that. Just use the Qubes VM Manager or command line tools for doing that.
 
 *Warning: This guide will completely uninstall your underlying Whonix TemplateVMs. Only do this if you want to stop using Whonix or start over with a clean install of Whonix.*
 

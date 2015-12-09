@@ -15,11 +15,11 @@ This is an optional security enhancement (for testers-only). If you're technical
 
 Note, if you want to use [Tor bridges](https://www.whonix.org/wiki/Bridges), AppArmor has been known in the past to cause problems with `obfsproxy` [see this issue](https://github.com/Whonix/Whonix/issues/67)
 
-You will want to complete the following instructions in both the **Whonix Gateway** referred to in Qubes VM Manager as `whonix-gw` and the **Whonix Workstation** or  `whonix-ws`. You only need to apply these settings to the TemplateVMs before creating any template based VMs from these Whonix templates.
+You will want to complete the following instructions in both the **Whonix-Gateway** referred to in Qubes VM Manager as `whonix-gw` and the **Whonix-Workstation** or  `whonix-ws`. You only need to apply these settings to the TemplateVMs before creating any template based VMs from these Whonix templates.
 
 [Since Qubes Q3, TemplateBasedVMs inherit the kernelopts setting of their TemplateVM](https://github.com/QubesOS/qubes-issues/issues/1091)
 
-### Configuring Whonix Gateway
+### Configuring Whonix-Gateway
 
 Launch the `dom0` terminal app `Konsole` from your Qubes App Launcher. Then get a list of current kernel parameters.
 
@@ -55,7 +55,7 @@ sudo aa-status --enabled ; echo $?
 
 It should show: `0`
 
-### Configuring Whonix Workstation
+### Configuring Whonix-Workstation
 
 In `dom0` terminal Konsole, get a list of current kernel parameters.
 

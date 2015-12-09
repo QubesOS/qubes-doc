@@ -24,7 +24,7 @@ If you answered no, have a look at the [about](https://www.whonix.org/wiki/About
 
 ### Install Templates
 
-Launch the `dom0` terminal `Konsole` from your Qubes App Launcher. Then enter the following command to install the Whonix Gateway and Workstation TemplateVMs.
+Launch the `dom0` terminal `Konsole` from your Qubes App Launcher. Then enter the following command to install the Whonix-Gateway and Workstation TemplateVMs.
 
 ~~~
 sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-whonix-gw qubes-template-whonix-ws
@@ -34,15 +34,15 @@ After doing this, you should see two new TemplateVMs in the VM Manager called `w
 
 ### Configuring Whonix VMs
 
-Create a **Whonix Gateway** ProxyVM by clicking on `Create a New VM` and select `whonix-gw` as the template and select ProxyVM as the type.
+Create a **Whonix-Gateway** ProxyVM by clicking on `Create a New VM` and select `whonix-gw` as the template and select ProxyVM as the type.
 
-![Create Whonix Gateway ProxyVMs](/attachment/wiki/Whonix/Create_Qubes-Whonix-Gateway_ProxyVM.png)
+![Create Whonix-Gateway ProxyVMs](/attachment/wiki/Whonix/Create_Qubes-Whonix-Gateway_ProxyVM.png)
 
-Create a **Whonix Workstation** AppVM by clicking on `Create a New VM` and select `whonix-ws` as the template and select AppVM (should be default) as the type.
+Create a **Whonix-Workstation** AppVM by clicking on `Create a New VM` and select `whonix-ws` as the template and select AppVM (should be default) as the type.
 
 ![Create Workstation AppVMs](/attachment/wiki/Whonix/Create_Qubes-Whonix-Workstation_AppVM.png)
 
-Configure the **Whonix Gateway TemplateVM** to use the `sys-whonix` ProxyVM that you just created.
+Configure the **Whonix-Gateway TemplateVM** to use the `sys-whonix` ProxyVM that you just created.
 
 ![TemplateVM Proxy Settings](/attachment/wiki/Whonix/Qubes-Whonix-Gateway_TemplateVM_Qubes_VM_Manager_Settings.png)
 
@@ -50,7 +50,7 @@ Great. You should be all done installing Whonix into Qubes. Use these two Templa
 
 ### Running Applications
 
-To start an application in the **Whonix Workstation AppVM** that you created, launch it like any other- open the `Qubes App Launcher` and then select an app such as `Privacy Browser` which will then launch the Tor Browser
+To start an application in the **Whonix-Workstation AppVM** that you created, launch it like any other- open the `Qubes App Launcher` and then select an app such as `Privacy Browser` which will then launch the Tor Browser
 
 
 ### Advanced Information
