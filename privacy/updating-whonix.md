@@ -66,7 +66,7 @@ Reading package lists... Done
 
 ### Restart Services after Upgrading
 
-After upgrading either (easy) reboot.
+The easy way to do this is to simply reboot.
 
 ~~~
 sudo reboot
