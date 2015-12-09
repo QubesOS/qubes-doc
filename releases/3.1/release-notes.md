@@ -15,7 +15,7 @@ New features since 3.0
 * Management Stack based of Salt Stack in dom0 - [documentation][salt-doc]
 * Out of the box Whonix setup
 * UEFI support
-* LIVE edition (still alpha, not part of R3.0-rc1)
+* LIVE edition (still alpha, not part of R3.1-rc1)
 * Updated GPU drivers in dom0
 * Colorful window application icons (instead of just colorful lock icon)
 * PV Grub support ([documentation][pvgrub-doc])
