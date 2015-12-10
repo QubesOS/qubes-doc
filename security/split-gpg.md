@@ -147,6 +147,22 @@ and so requires an updated split-gpg package with version \>=
 `qubes-gpg-split-2.0.7-1`. Please make sure you have all the latest qubes
 packages installed in your template.
 
+*NOTE*: With default settings, [Split GPG is currently incompatible with TorBirdy](https://github.com/QubesOS/qubes-issues/issues/1024). You either a)
+every time you start icedove to do the following
+([Because TorBirdy does not store these settings.](https://trac.torproject.org/projects/tor/ticket/13430))
+
+icedove -> Preferences -> Advanced -> under `Additional Parameters of gnupg` -> remove `--keyserver-options no-auto-key-retrieve,no-try-dns-srv,http-proxy=http://127.0.0.1:8118`
+
+or b) create `user.js` file permanently storing this.
+
+    [user@work ~]$ echo 'user_pref("extensions.torbirdy.custom.extensions.enigmail.agentAdditionalParam", "--no-emit-version --no-comments --display-charset utf-8");' >> ~/.icedove/*.default/user.js
+    
+The disadvantage of b) is, that you will not receive updates of the setting
+`extensions.torbirdy.custom.extensions.enigmail.agentAdditionalParam` should TorBirdy developers
+decide to modify that setting. Either not care about this or try to remember, when TorBirdy is
+updated to check if that setting has changed as per TorBirdy defaults. (You could look into
+`~/.icedove/*.default/prefs.js`.)
+
 ### How to use `gpg2` instead of `gpg` ###
 
 In your GPG backend domain's TemplateVM:
