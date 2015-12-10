@@ -103,7 +103,7 @@ for key access should be valid (default 5 minutes). This is adjustable via
 
     [user@work-gpg ~]$ echo "export QUBES_GPG_AUTOACCEPT=86400" >> ~/.bash_profile
 
-### Configuring the client apps to use split GPG backend ###
+### Configuring the client apps to use Split GPG backend ###
 
 Normally it should be enough to set the `QUBES_GPG_DOMAIN` to the GPG backend
 domain name and use `qubes-gpg-client` in place of `gpg`, e.g.:
