@@ -14,7 +14,7 @@ We aim to partner with a few select computer makers to ensure that Qubes is comp
 
 Purism Librem 13
 ----------------------------
-[![image of Librem 13](https://puri.sm/wp-content/uploads/2015/07/librem-13-700x490-20150721.png)](https://puri.sm/librem-13/)
+[![image of Librem 13](/attachment/site/qubes-plus-purism.png)](https://puri.sm/librem-13/)
 
 For users now who seek to buy a Librem 13, there will be an option to have Qubes pre-installed on their Librem 13. This will include all the necessary tweaks for maximum compatibility with Qubes. 
 
