@@ -54,13 +54,9 @@ template based on the standard Fedora 21 template.
         [user@fedora-23 ~]$ sudo yum clean all
         [user@fedora-23 ~]$ sudo yum --releasever=23 --enablerepo=qubes*current-testing distro-sync
 
- 3. Shutdown the new TemplateVM via dom0 command line or Qubes VM Manager; may need to be killed.)
+ 3. Shutdown the new TemplateVM via dom0 command line or Qubes VM Manager;
 
         [user@dom0 ~]$ qvm-shutdown fedora-23
-    
-    or
-    
-        [user@dom0 ~]$ qvm-shutdown --force fedora-23
         
     If you encounter no errors, proceed to step 7.
 
