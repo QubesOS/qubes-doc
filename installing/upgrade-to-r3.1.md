@@ -11,6 +11,8 @@ redirect_from:
 Upgrading Qubes R3.0 to R3.1
 ======================================
 
+** The upgrade R3.0->R3.1 procedure is still experimental **
+
 Current Qubes R3.1 (R3.1) systems can be upgraded in-place to the latest R3.1
 by following the procedure below.
 
@@ -34,7 +36,7 @@ Manager's right-click menu and choose Run Command in VM and type
 `gnome-terminal` there.
 2.  Install `qubes-upgrade-vm` package:
 
-        sudo yum install qubes-upgrade-vm
+        sudo yum install --enablerepo=qubes-vm-r3.0-current-testing qubes-upgrade-vm
 
 3.  Proceed with normal update in the template:
 
