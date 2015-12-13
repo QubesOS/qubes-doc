@@ -23,13 +23,13 @@ The Basics
 Choosing Your Hardware
 ----------------------
  *  [System Requirements](/doc/system-requirements/)
- *  [Hardware Compatibility List (HCL)](/hcl)
+ *  [Hardware Compatibility List (HCL)](/hcl/)
  *  [Qubes-Certified Laptops](/doc/certified-laptops/)
 
 
 Installing Qubes
 ----------------
- *  [Use Qubes without installing: Qubes Live USB (alpha)](https://groups.google.com/d/msg/qubes-users/IQdCEpkooto/iyMh3LuzCAAJ)
+ *  [Use Qubes without installing: Qubes Live USB (alpha)](/doc/live-usb/)
  *  [How to Install Qubes](/doc/installation-guide/)
  *  [Qubes Downloads](/downloads/)
  *  [Why and How to Verify Signatures](/doc/verifying-signatures/)
