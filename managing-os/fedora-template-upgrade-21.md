@@ -54,11 +54,13 @@ template based on the standard Fedora 21 template.
         [user@fedora-23 ~]$ sudo yum clean all
         [user@fedora-23 ~]$ sudo yum --releasever=23 --enablerepo=qubes*current-testing distro-sync
 
-    (Shut down TemplateVM via Qubes VM Manager; may need to be killed.)
+ 3. Shutdown the new TemplateVM via dom0 command line or Qubes VM Manager;
 
+        [user@dom0 ~]$ qvm-shutdown fedora-23
+        
     If you encounter no errors, proceed to step 7.
 
- 3. If `yum` reports that you do not have enough free disk space to proceed with
+ 4. If `yum` reports that you do not have enough free disk space to proceed with
     the upgrade process, create an empty file in dom0 to use as a cache and
     attach it to the template as a virtual disk.
 
@@ -75,14 +77,14 @@ template based on the standard Fedora 21 template.
 
     (Poweroff via Qubes VM Manager. May need to be killed.)
 
- 4. If `yum` complains that there is not enough free space in `/usr/lib/modules`,
+ 5. If `yum` complains that there is not enough free space in `/usr/lib/modules`,
     do this before reattempting the upgrade:
 
         [user@fedora-23 ~]$ sudo mkdir /mnt/removable/modules 
         [user@fedora-23 ~]$ sudo cp -rp /usr/lib/modules /mnt/removable/modules
         [user@fedora-23 ~]$ sudo mount --bind /mnt/removable/modules /usr/lib/modules
 
- 5. `yum` may complain:
+ 6. `yum` may complain:
 
         At least X MB more space needed on the / filesystem.
 
@@ -90,17 +92,17 @@ template based on the standard Fedora 21 template.
     image](/doc/ResizeDiskImage/) before reattempting the upgrade process. 
     (See **Additional Information** below for other options.)
 
- 6. After the upgrade process is finished, remove the cache file, if you
+ 7. After the upgrade process is finished, remove the cache file, if you
     created one.
 
         [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
 
- 7. Trim the new template (see **Compacting the Upgraded Template** for details
+ 8. Trim the new template (see **Compacting the Upgraded Template** for details
     and other options).
 
         [user@dom0 ~]$ qvm-trim-template fedora-23
 
- 8. (Optional) Remove the old default template.
+ 9. (Optional) Remove the old default template.
 
         [user@dom0 ~]$ sudo yum remove qubes-template-fedora-21
 
