@@ -28,6 +28,10 @@ You can get detailed description in [completed github issues][github-release-not
 Known issues
 ------------
 
+* Installation image does not fit on DVD, requires either DVD DL, or USB stick (5GB or more)
+
+* During first boot you need to create user named `user`, otherwise initial configuration will fail [#1504](https://github.com/QubesOS/qubes-issues/issues/1504)
+
 * Windows Tools: `qvm-block` does not work
 
 * Some icons in the Qubes Manager application might not be drawn correctly when using the Xfce4 environment in Dom0. If this bothers you, please use the KDE environment instead.
