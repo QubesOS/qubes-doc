@@ -128,3 +128,8 @@ Once the template has been created and installed it is easy to create AppVMs bas
 ~~~
 qvm-create --hvm <new windows appvm name> --template <name of template vm> --label <label color>
 ~~~
+
+Troubleshooting and advanced settings for Windows Tools
+-------------------------------------------------------
+
+See [this page](/doc/windows-tools-3/) for information on troubleshooting issues with Qubes Tools for Windows and advanced configuration settings.
