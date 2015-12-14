@@ -14,7 +14,6 @@ Qubes Tools for Windows: advanced settings and troubleshooting
 
 **This document only applies to Qubes R3 (tools version 3.x)**
 *Only 64-bit Windows 7 (any edition) is supported currently. Windows 8+ support is under development.*
-*HVM templates are not supported yet. Specifically, user profiles are not yet moved to a VM's private image (fix incoming).*
 
 Installable components
 ----------------------
