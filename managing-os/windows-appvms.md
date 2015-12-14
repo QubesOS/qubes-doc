@@ -30,6 +30,8 @@ Installing Windows OS in a Qubes VM
 
 Please refer to [this page](/doc/hvm-create/) for instructions on how to install Windows in a Qubes VM.
 
+NOTE: It is strongly suggested to enable autologon for any Windows HVMs that will have Qubes Tools installed. To do so, run `netplwiz` command from the `Win+R`/Start menu and uncheck the *Users must enter a user name and password to use this computer* option.
+
 Installing Qubes support tools in Windows 7 VMs
 -----------------------------------------------
 
