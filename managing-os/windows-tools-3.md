@@ -26,7 +26,9 @@ Qubes Tools for Windows (QTW for short) contain several components than can be e
    - Xen PV Disk Drivers: paravirtual storage drivers.
    - Xen PV Network Drivers: paravirtual network drivers.
 - Qubes Core Agent: qrexec agent and services. Needed for proper integration with Qubes.
+   - Move user profiles: user profile directory (c:\users) is moved to VM's private disk backed by private.img file in dom0 (useful mainly for HVM templates).
 - Qubes GUI Agent: video driver and gui agent that enable seamless showing of Windows applications on the secure Qubes desktop.
+- Disable UAC: User Account Control may interfere with QTW and doesn't really provide any additional benefits in Qubes environment.
 
 **In testing VMs only** it's probably a good idea to install a VNC server before installing QTW. If something goes very wrong with the Qubes gui agent, a VNC server should still allow access to the OS.
 
