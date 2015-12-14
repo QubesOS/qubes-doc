@@ -11,7 +11,7 @@ redirect_from:
 Installing and using Windows-based AppVMs
 =========================================
 
-Qubes provides special support for running Windows-based AppVMs. This requires the user to install Windows 7 x64 in a Qubes VM and subsequently install Qubes Windows Support tools inside the VM. This page describes this process in detail.
+Qubes provides special support for running Windows-based AppVMs. This requires the user to install Windows 7 x64 in a Qubes VM and subsequently install Qubes Windows Support tools inside the VM (support for Windows 8+ is in development). This page describes this process in detail.
 
 Qubes support tools for Windows is a set of programs and drivers that provide integration of Windows AppVMs with the rest of the Qubes system. Currently the following features are available for Windows VMs after installation of those tools:
 
