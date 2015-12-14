@@ -23,7 +23,7 @@ Qubes support tools for Windows is a set of programs and drivers that provide in
 
 Qubes Windows Support Tools are not open source and are distributed under a commercial license and their source code is not publicly available. Current status is: **Beta**.
 
-NOTE: Currently only 64-bit versions of Windows 7 are support by Qubes Windows Tools.
+NOTE: Currently only 64-bit versions of Windows 7 are supported by Qubes Windows Tools.
 
 Installing Windows OS in a Qubes VM
 -----------------------------------
