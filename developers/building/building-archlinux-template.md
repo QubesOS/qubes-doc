@@ -83,19 +83,17 @@ You can now find your template in qubes-src/linux-template-builder/rpm/noarch. I
 Known problems during building or when running the VM
 =====================================================
 
-Can't open file archlinux-2013.02.01-dual.iso
----------------------------------------------
+Build fails when fetching qubes-mgmt-salt
+-----------------------------------------
 
-Archlinux ISO files are sometimes removed from mirrors. Check the last version available on the archlinux mirror (eg: [http://mir.archlinux.fr/iso/](http://mir.archlinux.fr/iso/)), and update qubes-src/linux-template-builder/scripts\_archlinux/00\_prepare.sh accordingly:
-
-~~~
-ISO_VERSION=2013.06.01
-~~~
-
-You will also need to download the signature matching this ISO version inside qubes-src/linux-template-builder/scripts\_archlinux/:
+The `qubes-mgmt-salt` repo is not currently forked under the marmarek user on
+GitHub, to whom the above instructions set the `GIT_PREFIX`.  As Archlinux is
+not yet supported by mgmt-salt, simply leave it out of the build (when building
+the Archlinux template on it's own) by appending the following to your
+`builder.conf`:
 
 ~~~
-wget http://mir.archlinux.fr/iso/2013.06.01/archlinux-2013.06.01-dual.iso.sig
+BUILDER_PLUGINS := $(filter-out mgmt-salt,$(BUILDER_PLUGINS))
 ~~~
 
 The nm-applet (network manager icon) fails to start when archlinux is defined as a template-vm:
