@@ -61,13 +61,7 @@ Make all required qubes components
 The first use of the builder can take several hours depending on your bandwidth as it will install an archlinux chroot:
 
 ~~~
-make vmm-xen-vm
-make core-vchan-xen-vm
-make core-qubesdb-vm
-make linux-utils-vm
-make core-agent-linux-vm
-make gui-common-vm
-make gui-agent-linux-vm
+make qubes-vm
 ~~~
 
 Now build the template itself
