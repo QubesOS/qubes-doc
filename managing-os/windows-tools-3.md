@@ -14,7 +14,6 @@ Qubes Tools for Windows: advanced settings and troubleshooting
 
 **This document only applies to Qubes R3 (tools version 3.x)**
 *Only 64-bit Windows 7 (any edition) is supported currently. Windows 8+ support is under development.*
-*HVM templates are not supported yet. Specifically, user profiles are not yet moved to a VM's private image (fix incoming).*
 
 Installable components
 ----------------------
@@ -27,9 +26,13 @@ Qubes Tools for Windows (QTW for short) contain several components than can be e
    - Xen PV Disk Drivers: paravirtual storage drivers.
    - Xen PV Network Drivers: paravirtual network drivers.
 - Qubes Core Agent: qrexec agent and services. Needed for proper integration with Qubes.
+   - Move user profiles: user profile directory (c:\users) is moved to VM's private disk backed by private.img file in dom0 (useful mainly for HVM templates).
 - Qubes GUI Agent: video driver and gui agent that enable seamless showing of Windows applications on the secure Qubes desktop.
+- Disable UAC: User Account Control may interfere with QTW and doesn't really provide any additional benefits in Qubes environment.
 
 **In testing VMs only** it's probably a good idea to install a VNC server before installing QTW. If something goes very wrong with the Qubes gui agent, a VNC server should still allow access to the OS.
+
+**NOTE**: Xen PV disk drivers are not installed by default. This is because they seem to cause severe problems, including disk image/files corruption in Qubes HVMs. We're investigating this. *However*, the problem doesn't always occur in tests -- disk drivers often work *if they are installed separately after the main portion of QTW is up and running*. **Do this at your own risk** of course, but we welcome reports of success/failure in any case. With disk PV drivers absent `qvm-block` will not work for the VM, but you can still use standard Qubes inter-VM file copying mechanisms.
 
 Verbose installation
 --------------------
@@ -54,11 +57,11 @@ Starting from version 2.2.\* various aspects of Qubes Tools for Windows can be c
 Possible log levels:
 
 ||
-|0|Error|Serious errors that most likely cause irrecoverable failures|
-|1|Warning|Unexpected but non-fatal events|
-|2|Info|Useful information|
-|3|Debug|Internal state dumps for troubleshooting|
-|4|Verbose|Trace most function calls|
+|1|Error|Serious errors that most likely cause irrecoverable failures|
+|2|Warning|Unexpected but non-fatal events|
+|3|Info|Useful information (default)|
+|4|Debug|Internal state dumps for troubleshooting|
+|5|Verbose|Trace most function calls|
 
 Debug and Verbose levels can generate large volume of logs and are intended for development/troubleshooting only.
 
@@ -70,7 +73,6 @@ Component-specific settings currently available:
 
 |**Component**|**Setting**|**Type**|**Description**|**Default value**|
 |:------------|:----------|:-------|:--------------|:----------------|
-|qga|UseDirtyBits|DWORD|Enable experimental feature of the gui agent/qvideo driver: use page table dirty bits to determine changed display regions. This can improve performance but may impact display responsiveness (some changes may not be detected resulting in "stale" image). Needs VM restart to apply change.|0|
 |qga|DisableCursor|DWORD|Disable cursor in the VM. Useful for integration with Qubes desktop so you don't see two cursors. Can be disabled if you plan to use the VM through a remote desktop connection of some sort. Needs gui agent restart to apply change (locking OS/logoff should be enough since qga is restarted on desktop change).|1|
 
 Troubleshooting
@@ -86,17 +88,18 @@ Safe Mode should at least give you access to logs (see above).
 **Please include appropriate logs when reporting bugs/problems.** Starting from version 2.4.2 logs contain QTW version, but if you're using an earlier version be sure to mention which one. If the OS crashes (BSOD) please include the BSOD code and parameters in your bug report. The BSOD screen should be visible if you run the VM in debug mode (`qvm-start --debug vmname`). If it's not visible or the VM reboots automatically, try to start Windows in safe mode (see above) and 1) disable automatic restart on BSOD (Control Panel - System - Advanced system settings - Advanced - Startup and recovery), 2) check the system event log for BSOD events. If you can, send the `memory.dmp` dump file from c:\Windows.
 Xen logs (/var/log/xen/console/guest-*) are also useful as they contain pvdrivers diagnostic output.
 
-If a specific component is malfunctioning, you can increase it's log verbosity as explained above to get more troubleshooting information. Below is a list of components:
+If a specific component is malfunctioning, you can increase its log verbosity as explained above to get more troubleshooting information. Below is a list of components:
 
 ||
 |qrexec-agent|Responsible for most communication with Qubes (dom0 and other domains), secure clipboard, file copying, qrexec services.|
+|qrexec-wrapper|Helper executable that's responsible for launching qrexec services, handling their I/O and vchan communication.|
 |qrexec-client-vm|Used for communications by the qrexec protocol.|
 |qga|Gui agent.|
 |QgaWatchdog|Service that monitors session/desktop changes (logon/logoff/locking/UAC...) and simulates SAS sequence (ctrl-alt-del).|
 |qubesdb-daemon|Service for accessing Qubes configuration database.|
 |network-setup|Service that sets up network parameters according to VM's configuration.|
 |prepare-volume|Utility that initializes and formats the disk backed by `private.img` file. It's registered to run on next system boot during QTW setup, if that feature is selected (it can't run *during* the setup because Xen block device drivers are not yet active). It in turn registers move-profiles (see below) to run at early boot.|
-|move-profiles|Utility that moves user profiles directory to the private disk. It's registered as an early boot native executable (similar to chkdsk) so it can run before any profile files are opened by some other process. Its log is in a fixed location: `c:\move-profiles.log` (it can't use our common logger library so none of the log settings apply).|
+|relocate-dir|Utility that moves user profiles directory to the private disk. It's registered as an early boot native executable (similar to chkdsk) so it can run before any profile files are opened by some other process. Its log is in a fixed location: `c:\move-profiles.log` (it can't use our common logger library so none of the log settings apply).|
 
 Updates
 -------

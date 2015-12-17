@@ -11,7 +11,7 @@ redirect_from:
 Installing and using Windows-based AppVMs
 =========================================
 
-Qubes provides special support for running Windows-based AppVMs. This requires the user to install Windows 7 x64 in a Qubes VM and subsequently install Qubes Windows Support tools inside the VM. This page describes this process in detail.
+Qubes provides special support for running Windows-based AppVMs. This requires the user to install Windows 7 x64 in a Qubes VM and subsequently install Qubes Windows Support tools inside the VM (support for Windows 8+ is in development). This page describes this process in detail.
 
 Qubes support tools for Windows is a set of programs and drivers that provide integration of Windows AppVMs with the rest of the Qubes system. Currently the following features are available for Windows VMs after installation of those tools:
 
@@ -23,12 +23,14 @@ Qubes support tools for Windows is a set of programs and drivers that provide in
 
 Qubes Windows Support Tools are not open source and are distributed under a commercial license and their source code is not publicly available. Current status is: **Beta**.
 
-NOTE: Currently only 64-bit versions of Windows 7 are support by Qubes Windows Tools.
+NOTE: Currently only 64-bit versions of Windows 7 are supported by Qubes Windows Tools. Only emulated SVGA GPU is supported (althought [there has been reports](https://groups.google.com/forum/#!topic/qubes-users/cmPRMOkxkdA) on working GPU pass-through).
 
 Installing Windows OS in a Qubes VM
 -----------------------------------
 
 Please refer to [this page](/doc/hvm-create/) for instructions on how to install Windows in a Qubes VM.
+
+NOTE: It is strongly suggested to enable autologon for any Windows HVMs that will have Qubes Tools installed. To do so, run `netplwiz` command from the `Win+R`/Start menu and uncheck the *Users must enter a user name and password to use this computer* option.
 
 Installing Qubes support tools in Windows 7 VMs
 -----------------------------------------------
@@ -37,6 +39,12 @@ First, make sure that `qubes-windows-tools` is installed in your system:
 
 ~~~
 sudo qubes-dom0-update qubes-windows-tools
+~~~
+
+You can also install the package from testing repositories, where we usually publish new versions first:
+
+~~~
+qubes-dom0-update --enablerepo=qubes*testing qubes-windows-tools
 ~~~
 
 This package brings the ISO with Qubes Windows Tools that is passed to the VM when `--install-windows-tools` is specified for the `qvm-start` command. Please note that even though the Qubes Windows Tools are proprietary, none of this software ever runs in Dom0 or any other part of the system except for the Windows AppVM in which it is to be installed.
@@ -49,9 +57,7 @@ qvm-start lab-win7 --install-windows-tools
 
 Once the Windows VM boots, a CDROM should appear in the 'My Computer' menu (typically as `D:`) with a setup program in its main directory.
 
-Before proceeding with the installation we need to disable Windows mechanism that allows only signed drivers to be installed, because currently (beta releases) the drivers we provide as part of the Windows Support Tools are not digitally signed with a publicly recognizable certificate. How to do that is explained in the `README` file also located on the installation CDROM. In the future this step will not be necessary anymore, because we will sign our drivers with a publicly verifiable certificate. However, it should be noted that even now, the fact that those drivers are not digitally signed, this doesn't affect security of the Windows VM in 'any' way. This is because the actual installation ISO (the `qubes-windows-tools-*.iso` file) is distributed as a signed RPM package and its signature is verified by the `qubes-dom0-update` utility once it's being installed in Dom0. The only downside of those drivers not being signed is the inconvenience to the user that he or she must disable the signature enforcement policy before installing the tools, and also to accept a few scary looking warning windows during the installation process, as shown below.
-
-![r2b1-win7-installing-qubes-tools-5.png](/attachment/wiki/HvmCreate/r2b1-win7-installing-qubes-tools-5.png)
+Before proceeding with the installation we need to disable Windows mechanism that allows only signed drivers to be installed, because currently (beta releases) the drivers we provide as part of the Windows Support Tools are not digitally signed with a publicly recognizable certificate. How to do that is explained in the `README` file also located on the installation CDROM. In the future this step will not be necessary anymore, because we will sign our drivers with a publicly verifiable certificate. However, it should be noted that even now, the fact that those drivers are not digitally signed, this doesn't affect security of the Windows VM in 'any' way. This is because the actual installation ISO (the `qubes-windows-tools-*.iso` file) is distributed as a signed RPM package and its signature is verified by the `qubes-dom0-update` utility once it's being installed in Dom0. The only downside of those drivers not being signed is the inconvenience to the user that he or she must disable the signature enforcement policy before installing the tools.
 
 After successful installation, the Windows VM must be shut down and started again.
 
@@ -59,6 +65,12 @@ Qubes (R2 Beta 3 and later releases) will automatically detect the tools has bee
 
 ~~~
 qvm-prefs <your-appvm-name>
+~~~
+
+NOTE: it is recommended to increase the default value of `qrexec-timeout` property from 60 (seconds) to, for example, 300. During one of the first reboots after Windows Tools installation Windows user profiles are moved onto the private VM's virtual disk (private.img) and this operation can take some time. Moving profiles is performed in an early boot phase when qrexec is not yet running, so timeout may occur with the default value. To change the property use this command in dom0:
+
+~~~
+qvm-prefs -s <vm-name> qrexec-timeout 300
 ~~~
 
 Using Windows AppVMs in seamless mode (Qubes R2 Beta 3 and later)
@@ -82,7 +94,7 @@ Also, the inter-VM services work as usual -- e.g. to request opening a document 
 [user@work ~]$ qvm-open-in-vm work-win7 http://www.invisiblethingslab.com
 ~~~
 
-... just like in case of Linux AppVMs. Of course all those operations are governed by central policy engine running in Dom0 -- if the policy
+... just like in case of Linux AppVMs. Of course all those operations are governed by central policy engine running in Dom0 -- if the policy doesn't contain explicit rules for the source and/or target AppVM, the user will be asked for decision whether to allow or deny the operation.
 
 Inter-VM file copy and clipboard works for Windows AppVMs the same way as for Linux AppVM (except that we don't provide a command line wrapper, `qvm-copy-to-vm` in Windows VMs) -- to copy files from Windows AppVMs just right-click on the file in Explorer, and choose: Send To-\> Other AppVM.
 
@@ -116,3 +128,8 @@ Once the template has been created and installed it is easy to create AppVMs bas
 ~~~
 qvm-create --hvm <new windows appvm name> --template <name of template vm> --label <label color>
 ~~~
+
+Troubleshooting and advanced settings for Windows Tools
+-------------------------------------------------------
+
+See [this page](/doc/windows-tools-3/) for information on troubleshooting issues with Qubes Tools for Windows and advanced configuration settings.
