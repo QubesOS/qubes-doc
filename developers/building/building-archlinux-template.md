@@ -16,12 +16,27 @@ The archlinux VM is now almost working as a NetVM. Based on qubes-builder code, 
 Download qubes-builder git code
 -------------------------------
 
-Prefer the [marmarek git repository](https://github.com/marmarek/qubes-builder-archlinux) as it is the most recent one.
+Prefer the [marmarek git repository](https://github.com/marmarek/qubes-builder) as it is the most recent one.
+
+~~~
+git clone https://github.com/marmarek/qubes-builder.git
+~~~
 
 Change your builder.conf
 ------------------------
 
-Change the following variables GIT\_SUBDIR=marmarek DISTS\_VM=archlinux
+Change the following variables / add the following lines (as appropriate):
+
+~~~
+BUILDER_PLUGINS += builder-archlinux
+GIT_PREFIX := marmarek/qubes-
+DISTS_VM += archlinux
+~~~
+
+If you don't already have a `builder.conf` in the root of your qubes-builder
+directory, a basic Archlinux template build may be achieved by copying
+`example-configs/debian.conf` and making the above changes (don't forget to
+also comment out any Debian-related `DISTS_VM += ` lines).
 
 Get all required sources
 ------------------------
@@ -46,12 +61,7 @@ Make all required qubes components
 The first use of the builder can take several hours depending on your bandwidth as it will install an archlinux chroot:
 
 ~~~
-make vmm-xen-vm
-make core-vchan-xen-vm
-make linux-utils-vm
-make core-agent-linux-vm
-make gui-common-vm
-make gui-agent-linux-vm
+make qubes-vm
 ~~~
 
 Now build the template itself
@@ -73,19 +83,17 @@ You can now find your template in qubes-src/linux-template-builder/rpm/noarch. I
 Known problems during building or when running the VM
 =====================================================
 
-Can't open file archlinux-2013.02.01-dual.iso
----------------------------------------------
+Build fails when fetching qubes-mgmt-salt
+-----------------------------------------
 
-Archlinux ISO files are sometimes removed from mirrors. Check the last version available on the archlinux mirror (eg: [http://mir.archlinux.fr/iso/](http://mir.archlinux.fr/iso/)), and update qubes-src/linux-template-builder/scripts\_archlinux/00\_prepare.sh accordingly:
-
-~~~
-ISO_VERSION=2013.06.01
-~~~
-
-You will also need to download the signature matching this ISO version inside qubes-src/linux-template-builder/scripts\_archlinux/:
+The `qubes-mgmt-salt` repo is not currently forked under the marmarek user on
+GitHub, to whom the above instructions set the `GIT_PREFIX`.  As Archlinux is
+not yet supported by mgmt-salt, simply leave it out of the build (when building
+the Archlinux template on it's own) by appending the following to your
+`builder.conf`:
 
 ~~~
-wget http://mir.archlinux.fr/iso/2013.06.01/archlinux-2013.06.01-dual.iso.sig
+BUILDER_PLUGINS := $(filter-out mgmt-salt,$(BUILDER_PLUGINS))
 ~~~
 
 The nm-applet (network manager icon) fails to start when archlinux is defined as a template-vm:
