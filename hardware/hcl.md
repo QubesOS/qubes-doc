@@ -17,7 +17,7 @@ The [HCL](/hcl) is a compilation of reports generated and submitted by users acr
  **Note:**
  Except in the case of developer-reported entries, the Qubes team has not independently verified the accuracy of these reports.
  Please first consult the data sheets (CPU, chipset, motherboard) prior to buying new hardware for Qubes.
- Meet the [SystemRequirements](/doc/system-requirements/) and search particular for support of:
+ Meet the [System Requirements](/doc/system-requirements/) and search particular for support of:
 
 -   HVM ("AMD virtualization (AMD-V)", "Intel virtualization (VT-x)", "VIA virtualization (VIA VT)")
 -   IOMMU ("AMD I/O Virtualization Technology (AMD-Vi)", "Intel Virtualization Technology for Directed I/O (VT-d)")
