@@ -28,6 +28,7 @@ Qubes Users' FAQ
  * [Is Qubes a multi-user system?](#is-qubes-a-multi-user-system)
  * [Why passwordless sudo?](#why-passwordless-sudo)
  * [How should I report documentation issues?](#how-should-i-report-documentation-issues)
+ * [Will Qubes seek to get certified on the GNU Free System Distribution Guidelines (GNU FSDG)?](#will-qubes-seek-gnu-fsdg)
 
 [Installation & Hardware Compatibility](#installation--hardware-compatibility)
 ------------------------------------------------------------------------------
@@ -138,6 +139,10 @@ Please refer to [this page](https://www.qubes-os.org/doc/VMSudo/).
 ### How should I report documentation issues?
 
 Create an issue in [qubes-issues](https://github.com/QubesOS/qubes-issues/issues), but **please make sure your issue does not already exist**. Documentation-related issues will be assigned the `doc` label. Issues which have been created in `qubes-issues` are significantly more likely to be addressed than those sent in emails to the mailing lists.
+
+### Will Qubes seek to get certified under the GNU Free System Distribution Guidelines (GNU FSDG)?
+
+Not currently, for the same reasons that [Debian is not certified](https://www.gnu.org/distros/common-distros.en.html).
 
 Installation & Hardware Compatibility
 -------------------------------------
