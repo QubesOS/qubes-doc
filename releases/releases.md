@@ -24,3 +24,9 @@ Qubes R3.0
 
 * [Release Notes](/doc/releases/3.0/release-notes/)
 * [Release Schedule](/doc/releases/3.0/schedule/)
+
+Qubes R3.1
+--------
+
+* [Release Notes](/doc/releases/3.1/release-notes/)
+* [Release Schedule](/doc/releases/3.1/schedule/)
