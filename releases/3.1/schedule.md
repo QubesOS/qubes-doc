@@ -9,6 +9,14 @@ redirect_from:
 Qubes R3.1 Release Schedule
 ===========================
 
+<style>
+article td, article th {
+    border-width: 2px;
+    border-style: double;
+    padding: 5px;
+}
+</style>
+
 |  Date       | Stage                                   |
 | -----------:| --------------------------------------- |
 |  8 Dec 2015 | 3.1-rc1 release                         |
