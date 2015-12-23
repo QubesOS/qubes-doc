@@ -91,14 +91,14 @@ Privacy Guides
   *  [Updating Whonix in Qubes](/doc/privacy/updating-whonix/)
   *  [Customizing Whonix](/doc/privacy/customizing-whonix/)
   *  [Uninstall Whonix from Qubes](/doc/privacy/uninstall-whonix/)
-  *  [How to Install a Transparent Tor ProxyVM (TorVM)](/doc/privacy/torvm/)
+  *  [How to Install TorVM](/doc/privacy/torvm/)
   *  [How to set up a ProxyVM as a VPN Gateway](/doc/privacy/vpn/)
 
 
 Configuration Guides
 --------------------
  *  [Configuration Files](/doc/config-files/)
- *  [How to Install a Transparent Tor ProxyVM (TorVM)](/doc/privacy/torvm/)
+ *  [How to Install TorVM](/doc/privacy/torvm/)
  *  [How to set up a ProxyVM as a VPN Gateway](/doc/vpn/)
  *  [Storing AppVMs on Secondary Drives](/doc/secondary-storage/)
  *  [Where are my external storage devices mounted?](/doc/external-device-mount-point/)
