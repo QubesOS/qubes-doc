@@ -81,3 +81,11 @@ Rebuild grub config.
     ~~~
 
 Reboot required.
+
+### Upgrading over Tor ###
+
+Requires installed [Whonix](/doc/privacy/whonix/).
+
+Go to Qubes VM Manager -> System -> Global Settings. See the UpdateVM setting. Choose your desired Whonix-Gateway ProxyVM from the list. For example: sys-whonix.
+
+    Qubes VM Manager -> System -> Global Settings -> UpdateVM -> sys-whonix
