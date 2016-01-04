@@ -70,15 +70,15 @@ Of course, command line tools are still available for accomplishing various upda
 
 Install newer kernel. The following example installs kernel 3.19 and was tested on Qubes R3 RC1.
 
-    ~~~
-    sudo qubes-dom0-update kernel-3.19*
-    ~~~
+~~~
+sudo qubes-dom0-update kernel-3.19*
+~~~
 
 Rebuild grub config.
 
-    ~~~
-    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-    ~~~
+~~~
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+~~~
 
 Reboot required.
 
