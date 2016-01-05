@@ -60,4 +60,5 @@ Qubes Security Bulletins are published through the [Qubes Security Pack](/doc/se
 -   [Qubes Security Bulletin \#20](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-020-2015.txt) (Fedora os-prober considered harmful)
 -   [Qubes Security Bulletin \#21](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-021-2015.txt) (Anti Evil Maid bypass through filesystem ID collision)
 -   [Qubes Security Bulletin \#22](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-022-2015.txt) (Critical Xen bug in PV memory virtualization code (XSA 148))
+-   [Qubes Security Bulletin \#23](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-023-2015.txt) (Race condition bugs in Xen code (XSA-155 and XSA-166), other Xen bugs)
 
