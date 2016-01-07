@@ -99,7 +99,7 @@ then all the data and activities performed within that same session are also
 potentially compromised.
 
 
-How does Qubes compare to running VMs in a convential OS?
+How does Qubes compare to running VMs in a conventional OS?
 ---------------------------------------------------------
 
 Not all virtual machine software is equal when it comes to security. You may
