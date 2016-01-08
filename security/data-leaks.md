@@ -27,7 +27,7 @@ For a further discussion of covert channels, see [this thread](https://groups.go
 Types of Data Leaks
 -------------------
 
-In order to understand and attmept to prevent data leaks in Qubes, we must distinguish among three different types of relevant data leaks:
+In order to understand and attempt to prevent data leaks in Qubes, we must distinguish among three different types of relevant data leaks:
 
 1.  **Intentional leaks.** Malicious software which actively tries to leak data out of an AppVM, perhaps via cooperative covert channels established with other malicious software in another AppVM (or on some server via networking, if networking, even limited, is allowed for the AppVM).
 
