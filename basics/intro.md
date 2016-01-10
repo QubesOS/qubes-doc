@@ -43,7 +43,7 @@ stored on or accessed by this computer, such as health records, confidential
 communications, or thoughts written in a private journal. Malware can also
 interfere with the activities you perform with your computer. For example,
 if you use your computer to conduct financial transactions, the malware
-might allow its creator to make fradulent transactions in your name.
+might allow its creator to make fraudulent transactions in your name.
 
 
 Aren't antivirus programs and firewalls enough?
@@ -67,7 +67,7 @@ these bugs from being exploited.
 How does Qubes provide security?
 --------------------------------
 
-Qubes takes an appraoch called **security by compartmentalization**, which
+Qubes takes an approach called **security by compartmentalization**, which
 allows you to compartmentalize the various parts of your digital life into
 securely isolated virtual machines (VMs). A VM is basically a simulated
 computer with its own OS which runs as software on your physical computer. You
@@ -185,4 +185,3 @@ technical details have been omitted here for the sake of presentation.
 [devel-faq]: /doc/devel-faq/
 [downloads]: /downloads/
 [getting started]: /doc/getting-started/
-

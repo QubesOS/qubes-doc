@@ -14,7 +14,7 @@ Installing Whonix in Qubes is simple and only requires a few simple steps.
 
 Using privacy and anonymization tools like Whonix is not a magical solution that instantly makes you anonymous online. Please consider:
 
-* Do you know what a metadata or a man-in-the-middle attack is?
+* Do you know what metadata or a man-in-the-middle attack is?
 * Do you think nobody can eavesdrop on your communications because you are using Tor?
 * Do you know how Whonix works?
 

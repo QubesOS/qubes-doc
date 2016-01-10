@@ -59,7 +59,7 @@ Live USB variant:
    stored on the r/w partition (or on another stick).
 
    A nice variant of this persistence option, especially for frequent
-   travellers, would be to augment our backup tools so that it was
+   travelers, would be to augment our backup tools so that it was
    possible to create a LiveUSB-hosted backups of select VMs. One could then
    pick a few of their VMs, necessary for a specific travel, back them to a
    LiveUSB stick, and take this stick when traveling to a hostile country (not

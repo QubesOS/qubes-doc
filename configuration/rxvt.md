@@ -21,7 +21,7 @@ Installation
 Xresources
 ----------
 
-In TemplateVM create file `/etc/X11/Xresources.urxvt` and paste config below. `!`-lines are comments and may be left out. `#`-lines are directives to CPP (C preprocessor) and are neccessary. This shouldn't go to `/etc/X11/Xresources`, because that file is not preprocessed by default.
+In TemplateVM create file `/etc/X11/Xresources.urxvt` and paste config below. `!`-lines are comments and may be left out. `#`-lines are directives to CPP (C preprocessor) and are necessary. This shouldn't go to `/etc/X11/Xresources`, because that file is not preprocessed by default.
 
 ~~~
 ! CGA colour palette

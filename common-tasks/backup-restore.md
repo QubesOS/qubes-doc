@@ -27,7 +27,7 @@ As of Qubes R2B3, these functions are integrated into the Qubes VM Manager GUI. 
 Creating a Backup
 -----------------
 
-1. In **Qubes VM Manager**, click **System** on the menu bar, then click **Backup VMs** in the dropdown list. This brings up the **Qubes Backup VMs** window.
+1. In **Qubes VM Manager**, click **System** on the menu bar, then click **Backup VMs** in the drop-down list. This brings up the **Qubes Backup VMs** window.
 
 2. Move the AppVMs which you desire to back up to the right-hand **Selected** column. AppVMs in the left-hand **Available** column will not be backed up.
 
@@ -37,8 +37,8 @@ Creating a Backup
 
 3. Select the destination for the backup:
 
-   - If you wish to send your backup to a [USB mass storage device](/doc/stick-mounting/), select the device in the dropdown box next to **Device** (feature removed in R3, select appropriate **Target AppVM** and mount the stick with one click in file selection dialog).
-   - If you wish to send your backup to a (currently running) AppVM, select the AppVM in the dropdown box next to **Target AppVM**.
+   - If you wish to send your backup to a [USB mass storage device](/doc/stick-mounting/), select the device in the drop-down box next to **Device** (feature removed in R3, select appropriate **Target AppVM** and mount the stick with one click in file selection dialog).
+   - If you wish to send your backup to a (currently running) AppVM, select the AppVM in the drop-down box next to **Target AppVM**.
 
    You must also specify a directory on the device or in the AppVM, or a command to be executed in the AppVM as a destination for your backup. For example, if you wish to send your backup to the `~/backups` folder in the target AppVM, you would simply type `backups` in this field. This destination directory must already exist. If it does not exist, you must create it manually prior to backing up.
 
@@ -56,14 +56,14 @@ Creating a Backup
 Restoring from a Backup
 -----------------------
 
-1. In **Qubes VM Manager**, click **System** on the menu bar, then click **Restore VMs from backup** in the dropdown list. This brings up the **Qubes Restore VMs** window.
+1. In **Qubes VM Manager**, click **System** on the menu bar, then click **Restore VMs from backup** in the drop-down list. This brings up the **Qubes Restore VMs** window.
 
 2. Select the source location of the backup to be restored:
 
-   - If your backup is located on a [USB mass storage device](/doc/stick-mounting/), select the device in the dropdown box next to **Device**.
-   - If your backup is located in a (currently running) AppVM, select the AppVM in the dropdown box next to **AppVM**.
+   - If your backup is located on a [USB mass storage device](/doc/stick-mounting/), select the device in the drop-down box next to **Device**.
+   - If your backup is located in a (currently running) AppVM, select the AppVM in the drop-down box next to **AppVM**.
 
-   You must also specify the directory in which the backup resides (or a command to be executed in an AppVM). If you followed the instructions in the previous section, "Creating a Backup," then your backup is most likely in the location you chose as the destination in step 3. For example, if you had chosen the `~/backups` directory of an AppVM as your destination in step 3, you would now select the same AppVM and again type `backups` into the **Backup directory** field.
+   You must also specify the directory in which the backup resides (or a command to be executed in an AppVM). If you followed the instructions in the previous section, "Creating a Backup", then your backup is most likely in the location you chose as the destination in step 3. For example, if you had chosen the `~/backups` directory of an AppVM as your destination in step 3, you would now select the same AppVM and again type `backups` into the **Backup directory** field.
 
    **Note:** After you have typed the directory location of the backup in the **Backup directory** field, click the ellipsis button `...` to the right of the field.
 
@@ -101,4 +101,3 @@ Notes
  * The Qubes backup system relies on `openssl enc`, which is known to use a very weak key derivation scheme. The Qubes backup system also uses the same passphrase for authentication and for encryption, which is problematic from a security perspective. Users are advised to use a very high entropy passphrase for Qubes backups. For a full discussion, see [this thread](https://groups.google.com/d/msg/qubes-devel/CZ7WRwLXcnk/u_rZPoVxL5IJ).
  * For the technical details of the backup system, please refer to [this thread](https://groups.google.com/d/topic/qubes-devel/TQr_QcXIVww/discussion).
  * If working with symlinks, note the issues described in [this thread](https://groups.google.com/d/topic/qubes-users/EITd1kBHD30/discussion).
-

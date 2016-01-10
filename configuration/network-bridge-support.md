@@ -11,9 +11,9 @@ redirect_from:
 Network Bridge Support (EXPERIMENTAL and UNSUPPORTED)
 =====================================================
 
-The Qubes developpement team does not support bridging the network interfaces found in NetVM and don't plan to support it at all. Several reasons for that:
+The Qubes development team does not support bridging the network interfaces found in NetVM and don't plan to support it at all. Several reasons for that:
 
--   Using a bridged VM is almost only necessary for developpers testing or working on OSI layer 2 or layer 3 tools (MAC or routing protocols). If not for testing, such tools are almost only used directly on routers ...).
+-   Using a bridged VM is almost only necessary for developers testing or working on OSI layer 2 or layer 3 tools (MAC or routing protocols). If not for testing, such tools are almost only used directly on routers ...).
 -   Most of these tools can be anyway used directly inside the NetVM, which has direct access to the network card.
 -   It is also possible to use a secondary network card plugged into a specific development VM.
 -   Such a setup could break security features of Qubes such as AppVM firewalling.
@@ -23,7 +23,7 @@ Now if you really want to work with OSI layer2 / layer 3 tools, that you don't h
 Qubes manager patch (Qubes R2B2)
 --------------------------------
 
-The following patches can be applied to the Qubes Manager GUI in order to add an option to easily bridge a VM. Use it at your own risk. If the patch breaks the Qubes Manager, you can try to restore the qubes packages:
+The following patches can be applied to the Qubes Manager GUI in order to add an option to easily bridge a VM. Use it at your own risk. If the patch breaks the Qubes Manager, you can try to restore the Qubes packages:
 
 ~~~
 # qubes-dom-update qubes-core-dom0 qubes-manager
@@ -75,7 +75,7 @@ Modify manually the Template you use for your NetVM (not the NetVM itself). This
     -A FORWARD -j DROP
     ~~~
 
-Ensure that the IP addresses used by default in qubes are in the form 10.137.1.\* or 10.137.2.\* by running ifconfig. Of course, this setup won't work with IPv6.
+Ensure that the IP addresses used by default in Qubes are in the form 10.137.1.\* or 10.137.2.\* by running ifconfig. Of course, this setup won't work with IPv6.
 
 Now you need to restart the NetVM and FirewallVM or only iptables in both VMs if you prefer:
 

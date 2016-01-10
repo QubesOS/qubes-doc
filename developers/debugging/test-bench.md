@@ -130,7 +130,7 @@ This step is optional, but very helpful. Put these scripts somewhere in your `${
     pushd ${HOME}/builder >/dev/null
 
     # the following are needed only if you have sources outside builder
-    #rm -rf qubes-src/core-admin 
+    #rm -rf qubes-src/core-admin
     #make COMPONENTS=core-admin get-sources
 
     make core-admin
@@ -139,7 +139,7 @@ This step is optional, but very helpful. Put these scripts somewhere in your `${
 
 ### Hooking git
 
-I (woju) have those two git hooks. They ensure tests are passing (or are marked as expected failure) when commiting and pushing. For committing it is only possible to run tests that may be executed from git repo (even if the rest were available, I probably wouldn't want to do that). For pushing, I also install RPM and run tests on testbench.
+I (woju) have those two git hooks. They ensure tests are passing (or are marked as expected failure) when committing and pushing. For committing it is only possible to run tests that may be executed from git repo (even if the rest were available, I probably wouldn't want to do that). For pushing, I also install RPM and run tests on testbench.
 
 `core-admin/.git/hooks/pre-commit`: (you may retain also the default hook, here omitted for readability)
 

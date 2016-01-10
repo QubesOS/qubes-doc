@@ -18,7 +18,7 @@ Installation
 
 `yum install postfix procmail make`
 
-Procmail is not strictly neccessary, but is useful to sort your incoming mail, for example to put each mailing list in its own directory. Make is also not neccessary, but is used to keep Postfix lookup tables. You should also check `alternatives` command, to see if it is the default `mta`. It probably is not. You may need to `yum remove ssmtp` or something.
+Procmail is not strictly necessary, but is useful to sort your incoming mail, for example to put each mailing list in its own directory. Make is also not necessary, but is used to keep Postfix lookup tables. You should also check `alternatives` command, to see if it is the default `mta`. It probably is not. You may need to `yum remove ssmtp` or something.
 
 Configuration
 -------------
@@ -104,7 +104,7 @@ your.mail@exmaple.com         [mail.example.com]:submission
 your.other@mail.com         [smtp.mail.com]:smtp
 ~~~
 
-`/usr/local/etc/postfix/saslpass`. Here you put passwords to abovementioned servers. It depends on provider if you need to put whole email as username or just the part before `@`.
+`/usr/local/etc/postfix/saslpass`. Here you put passwords to above mentioned servers. It depends on provider if you need to put whole email as username or just the part before `@`.
 
 ~~~
 [mail.example.com]:submission     your.mail:y0urP4ssw0rd
@@ -118,7 +118,7 @@ spamdomain1.com       DISCARD
 spamdomain2.com     DISCARD
 ~~~
 
-Now run `make` in `/usr/local/etc/postfix`. It will hopefully compile four abovementioned lookup tables (`generic.db`, `sender_relay.db`, `saslpass.db` and `sender_access`).
+Now run `make` in `/usr/local/etc/postfix`. It will hopefully compile four above mentioned lookup tables (`generic.db`, `sender_relay.db`, `saslpass.db` and `sender_access`).
 
 ### procmail
 

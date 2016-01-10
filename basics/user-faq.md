@@ -188,7 +188,7 @@ Run `systemctl enable NetworkManager-dispatcher.service` in the TemplateVM upon 
 
 ### My keyboard layout settings are not behaving correctly. What should I do?
 
-Please read [this disccusion](https://groups.google.com/d/topic/qubes-devel/d8ZQ_62asKI/discussion).
+Please read [this discussion](https://groups.google.com/d/topic/qubes-devel/d8ZQ_62asKI/discussion).
 
 ### My dom0 and/or TemplateVM update stalls when attempting to update via the GUI tool. What should I do?
 
@@ -200,7 +200,7 @@ In your TemplateVMs, open a terminal and run `sudo yum upgrade`.
 
 ### How do I run a Windows HVM in non-seamless mode (i.e., as a single window)?
 
-Enable "debug mode" in the AppVM's settings, either by checking the box labelled "Run in debug mode" in the Qubes VM Manager AppVM settings menu or by running the [qvm-prefs command](/doc/dom0-tools/qvm-prefs/).)
+Enable "debug mode" in the AppVM's settings, either by checking the box labeled "Run in debug mode" in the Qubes VM Manager AppVM settings menu or by running the [qvm-prefs command](/doc/dom0-tools/qvm-prefs/).)
 
 
 ### I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.
@@ -232,8 +232,8 @@ This is an intended feature. A device which was previously assigned to a less tr
 or
 
 1.  Go to the sysfs (`/sys/bus/pci`), find the right device, detach it from the pciback driver and attach back to the original driver. Replace `<BDF>` with your device, for example `00:1c.2`:
-        
+
         echo 0000:<BDF> > /sys/bus/pci/drivers/pciback/unbind
         MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
         MOD=`modprobe -R $MODALIAS | head -n 1`
-        echo <BDF> > /sys/bus/pci/drivers/$MOD/bind 
+        echo <BDF> > /sys/bus/pci/drivers/$MOD/bind

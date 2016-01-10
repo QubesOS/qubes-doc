@@ -5,17 +5,17 @@ permalink: /doc/windows-template-customization/
 redirect_from: /en/doc/windows-template-customization/
 ---
 
-Disable/Uninstall unecessary features/services
+Disable/Uninstall unnecessary features/services
 =============================
 
 Windows features
 ----------------------------
 
-Uninstall windows features from Control Panel > Turn windows features On/Off. 
+Uninstall windows features from Control Panel > Turn windows features On/Off.
 
-Generally, it will be required to reboot after features desinstallation.
+Generally, it will be required to reboot after features are uninstalled.
 
-If you do not manage to uninstall some features, it is sometimes necessarry to uninstall them one by one or two by two.
+If you do not manage to uninstall some features, it is sometimes necessary to uninstall them one by one or two by two.
 
 Only keep:
 
@@ -36,8 +36,8 @@ Disable the following services that are not required or have no sense in a VM co
  * Base Filtering Engine (only required if your want to use Microsoft IPSEC)
  * DHCP Client
  * Function Discovery Provider Host
- 
-    this will not work anyway because SSDP discovery uses multicast - need to be on the same network which is not the case because of qubes firewall
+
+    this will not work anyway because SSDP discovery uses multicast - need to be on the same network which is not the case because of Qubes firewall
  * Peer Name Resolution Protocol
  * Peer Netwoking Grouping
  * Peer Networking Identity Manager
@@ -67,10 +67,10 @@ System properties
 Right click on computer and go to Properties > Advanced > Performances:
 
  * If your don't care about visual effect, in Visual Effect select "Adjust for best performance"
- * I personnally tweak the page file size to win some place on my root.
- 
+ * I personally tweak the page file size to win some place on my root.
+
     In Advanced>Performances>Advanced tab, change Virtual memory:
-    
+
         1. unselect automatically manage paging file size for all drive
         2. click on drive C:
         3. select no paging file
@@ -80,22 +80,22 @@ Right click on computer and go to Properties > Advanced > Performances:
         7. use an initial size of 500 and a max size of 1000. If the page file is too small, you will notify a low memory pop up when working on windows. In this case, it often means that you should extend your AppVM RAM.
 
  * System Protection
- 
-    Here you can disable Shadow Folder because it has little sense in case of qubes because
+
+    Here you can disable Shadow Folder because it has little sense in case of Qubes because
 
       * we do backup regularly of AppVMs/TemplateVMs;
       * we can revert at least one template change if we break something.
-      
+
     Select drives where system protection is enabled and click Configure. "Turn of system protection" "Delete all restore points"
 
  * Remote
- 
-    Unselect Allow Remote Assistance connetions to this computer.
+
+    Unselect Allow Remote Assistance connections to this computer.
 
 Task scheduler
 -----------------------
 
-Open the task scheduler and *disable* the following tasks. 
+Open the task scheduler and *disable* the following tasks.
 
 If you remove these tasks they may be recreated automatically by various windows management tools (such as defragmentation)
 
@@ -124,9 +124,9 @@ Manual tasks that can/should be started in the template
 ===================================
 
  * Disk defragmentation
- 
+
  * Windows Update
- 
+
  * Windows file cleaning
     1. Run windows drive cleaner as Administrator.
     2. Enable all the task and run the cleaner
@@ -136,32 +136,31 @@ Manual tasks that can/should be started in the template
     2. Copy the attached ccleaner configuration file in CCleaner program file folder
     3. Run ccleaner with all option set except "wipe free space" (it will also remove user history and preferences)
     4. Run ccleaner only with the option "wipe free space".
-    
+
         It will write zeros in all unused space. This will allow you to strip the root.img file later
-	
+
  * TemplateVM stripping
- 
+
     Ensure that you know what you are doing in this section as you may destroy by error your template root.img file.
- 
+
     * If you ran ccleaner with "wipe free space", follow the following procedure
-    
+
         1. from dom0, go to /var/lib/templates-vm/yourtemplate
 
         2. copy root.img using the following command
-	
+
             > cp --sparse=always root.img root.img.clean
 
         3. if the copy worked, you can move the new root file by running this command
 
             > mv root.img.clean root.img
-    
-    * If don't managed to fill the free space with zeroes, you can follow the following  *unsafe* undocumented procedure
-    
+
+    * If don't managed to fill the free space with zeros, you can follow the following  *unsafe* undocumented procedure
+
         1. from dom0, go to /var/lib/templates-vm/yourtemplate
-        2. check the partitionning to identify the filesystem offset of root.img
+        2. check the partitioning to identify the filesystem offset of root.img
         3. mount the filesystem
         4. create a file with zeros inside the filesystem until the mounted filesystem is full
         5. remove the file
         6. unmount the partition
         7. make a copy of root.img in sparse mode.
-	

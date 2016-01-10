@@ -21,7 +21,7 @@ Some kernel/Xorg combination use only 640x480 in HVM, which is quite small. To e
 
 To achieve it (all commands run as root):
 
-1.  Generate XOrg configuratio (if you don't have it):
+1.  Generate XOrg configuration (if you don't have it):
 
     ~~~
     X -configure :1 && mv ~/xorg.conf.new /etc/X11/xorg.conf
