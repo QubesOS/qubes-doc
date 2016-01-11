@@ -52,7 +52,7 @@ There can be almost arbitrary number of `qrexec-client` processes for a domain
 (i.e., `qrexec-client` processes connected to the same `qrexec-daemon`);
 their data is multiplexed independently.
 
-There is a similar command line utility avilable inside Linux AppVMs (note
+There is a similar command line utility available inside Linux AppVMs (note
 the `-vm` suffix): `qrexec-client-vm` that will be described in subsequent
 sections.
 
@@ -265,7 +265,7 @@ Players:
 users. `qrexec-client-vm` is designed to be wrapped up by Qubes apps.
 
 
-## Windows VMs implemention ##
+## Windows VMs implementation ##
 
 `%QUBES_DIR%` is the installation path (`c:\Program Files\Invisible Things
 Lab\Qubes OS Windows Tools` by default).
@@ -327,4 +327,3 @@ steps are taken:
  process to exit, and then destroys the DispVM.
 
 *TODO: Protocol description ("wire-level" spec)*
-

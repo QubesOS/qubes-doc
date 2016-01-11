@@ -149,7 +149,7 @@ RPMS will appear in qubes-src/linux-kernel/pkgs/fc20/x86\_64:
 
 ### Useful [QubesBuilder](/doc/qubes-builder/) commands
 
-1.  `make check` - will check if all the code was commited into repository and
+1.  `make check` - will check if all the code was committed into repository and
 if all repository are tagged with signed tag.
 2.  `make show-vtags` - show version of each component (based on git tags) -
 mostly useful just before building ISO. **Note:** this will not show version

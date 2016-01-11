@@ -23,7 +23,7 @@ This has the following disadvantages:
 -   performance - dom0 has to prepare and attach/detach block devices, which is slow because of hotplug scripts involvement.
 -   security - VM kernel parses partition table and filesystem metadata from the block device; they are controlled by (potentially untrusted) sender VM.
 
-In Qubes Beta1, we have reimplemented interVM file copy using qrexec, which addresses the abovementioned disadvantages. In Qubes Beta2, even more generic solution (qubes rpc) is used. See the developer docs on qrexec and qubes rpc. In a nutshell, the file sender and the file receiver just read/write from stdin/stdout, and the qubes rpc layer passes data properly - so, no block devices are used.
+In Qubes Beta1, we have reimplemented interVM file copy using qrexec, which addresses the above mentioned disadvantages. In Qubes Beta2, even more generic solution (qubes rpc) is used. See the developer docs on qrexec and qubes rpc. In a nutshell, the file sender and the file receiver just read/write from stdin/stdout, and the qubes rpc layer passes data properly - so, no block devices are used.
 
 The rpc action for regular file copy is *qubes.Filecopy*, the rpc client is named *qfile-agent*, the rpc server is named *qfile-unpacker*. For DispVM copy, the rpc action is *qubes.OpenInVM*, the rpc client is named *qopen-in-vm*, rpc server is named *vm-file-editor*. Note that the qubes.OpenInVM action can be done on a normal AppVM, too.
 

@@ -65,9 +65,9 @@ The goal of this file is to prepare a development environment of your target OS 
 
 -   the \$1 variable will contain the installation directory (INSTALLDIR should contain the same value than \$1 when you run 00\_prepare or 01\_install\_core)
 -   after your base system is installed, you should install development tools and libraries (gcc, make, ...)
--   create a user called 'user' inside your chroot, and give him enought right to run the command sudo without any password
+-   create a user called 'user' inside your chroot, and give him enough rights to run the command sudo without any password
 -   register all the repository that could be necessary and synchronize the package database
--   register a custom repository that will be used to store qubes packages
+-   register a custom repository that will be used to store Qubes packages
 
 ### Makefile.yourOSname
 
@@ -84,7 +84,7 @@ These additional target need to exist once you created your first packages:
 
 ### Testing the development chroot
 
-You will be able to test these script when making the first qubes packages. Don't forget that the first things that run when running 'make somcomponent-vm' will be these two scripts, and that you will need to debug it at this point.
+You will be able to test these script when making the first Qubes packages. Don't forget that the first things that run when running 'make somcomponent-vm' will be these two scripts, and that you will need to debug it at this point.
 
 Qubes packages
 --------------
@@ -118,7 +118,7 @@ The goal of this script is to install all the package that you want to use in yo
 
 ### 04\_install\_qubes.sh
 
-The goal of this script is to install in your template all the packages you built previously. Also you need to edit the fstab file of your template to mount qubes virtual hard drives.
+The goal of this script is to install in your template all the packages you built previously. Also you need to edit the fstab file of your template to mount Qubes virtual hard drives.
 
 ### 09\_cleanup.sh
 
@@ -137,13 +137,13 @@ As soon as you manage to make qrexec and qubes-gui-agent working, it should be s
 
 ### Xen libraries
 
-Several XEN libraries are required for Qubes to work correctly. In fact, you need to make xenstore commands working before anything else. For this, Qubes git can be used as several patches have been selected by Qubes developpers that could impact the activity inside a VM. Start be retrieving a recent git and identify how you can build a package from it: `git clone git://git.qubes-os.org/marmarek/xen`
+Several XEN libraries are required for Qubes to work correctly. In fact, you need to make xenstore commands working before anything else. For this, Qubes git can be used as several patches have been selected by Qubes developers that could impact the activity inside a VM. Start be retrieving a recent git and identify how you can build a package from it: `git clone git://git.qubes-os.org/marmarek/xen`
 
 Find the .spec file in the git repository (this is the file being used to build rpm packages), and try to adapt it to your OS in order to build a package similar to the target 'xen-vm'. For example, a PKGBUILD has been created for [ArchLinux](/doc/templates/archlinux/) and can be found on [http://aur.archlinux.org/packages/qu/qubes-vm-xen/PKGBUILD](http://aur.archlinux.org/packages/qu/qubes-vm-xen/PKGBUILD).
 
 Don't be afraid with the complexity of the PKGBUILD, most of the code is almost a copy/paste of required sources and patches found in the .spec file provided in the git repository.
 
-Note once the package has been successfully compiled and installed, you need to setup XEN filesystem. Add the folowing line to your fstab (you can create this line in your package install script): `xen                     /proc/xen               xenfs   defaults        0 0`
+Note once the package has been successfully compiled and installed, you need to setup XEN filesystem. Add the following line to your fstab (you can create this line in your package install script): `xen                     /proc/xen               xenfs   defaults        0 0`
 
 Now install the package you built and mount /proc/xen. Verify that xenstore-read works by running: `xenstore-read qubes_vm_type` That should give you the current VM type such as HVM or AppVM.
 

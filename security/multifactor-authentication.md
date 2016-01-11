@@ -11,7 +11,7 @@ Using Multi-factor Authentication with Qubes
 ============================================
 
 (Note: This page concerns multi-factor authentication for logging into external
-severices, not for logging into Qubes itself. For the latter, see
+services, not for logging into Qubes itself. For the latter, see
 [here][YubiKey].)
 
 [Multi-factor authentication (MFA)][MFA] today most commonly takes the form of a
@@ -82,12 +82,12 @@ Optional Preparation Steps
         [user@fedora-21-min-mfa ~]$ poweroff
 
  4. Create an AppVM and set it to use the TemplateVM we just created:
- 
+
         [user@dom0 ~]$ qvm-create -l black mfa
         [user@dom0 ~]$ qvm-prefs -s mfa template fedora-21-min-mfa
 
  5. Isolate the new AppVM from the network:
- 
+
         [user@dom0 ~]$ qvm-prefs -s mfa netvm none
 
 
@@ -134,12 +134,12 @@ is largely the same.
 
         [user@mfa ~]$ > google
         [user@mfa ~]$ vi google
-        
+
         #!/bin/bash
         ##My Google Account
         ##me@gmail.com
         oathtool --base32 --totp "xd2n mx5t ekg6 h6bi u74d 745k n4m7 zy3x"
-        
+
         [user@mfa ~]$ chmod +x google
 
     Since the secret key stored in the script never changes, we should never
@@ -147,10 +147,10 @@ is largely the same.
 
  4. Now, whenever Google prompts us for an authenticator code, all we have to do
     is this:
-    
+
         [user@mfa ~]$ ./google
         640916
-        
+
     Done!
 
  5. Now you can create scripts for any other TOTP-supporting services you use,
@@ -173,7 +173,7 @@ is largely the same.
         914625
         [user@mfa ~]$ ./tumblr
         701463
-    
+
     For a more complete list of compatible services, see [here][usage].
 
 

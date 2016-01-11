@@ -34,7 +34,7 @@ Main responsibilities of *qubes_guid* are:
 -   whenever AppVM signals damage event, tell local Xorg server to repaint a given window fragment
 -   receive information about window size/position change, apply them to the local window
 
-Note that keyboard and mouse events are passed to AppVM only if a window belonging to this AppVM has focus. AppVM has no way to get information on keystrokes fed to other AppVMs (e.g. XTEST extension will report the status of local AppVM keyboard only), nor synthetize and pass events to other AppVMs.
+Note that keyboard and mouse events are passed to AppVM only if a window belonging to this AppVM has focus. AppVM has no way to get information on keystrokes fed to other AppVMs (e.g. XTEST extension will report the status of local AppVM keyboard only), nor synthesize and pass events to other AppVMs.
 
 Window content updates implementation
 -------------------------------------
@@ -123,62 +123,62 @@ The header is followed by message-specific data.
 |Message name|Structure after header|Action|
 |:-----------|:---------------------|:-----|
 |MSG_CLIPBOARD_DATA|amorphic blob (length determined by the "window" field)|Store the received clipboard content (not parsing in any way)|
-|MSG_CREATE|` struct msg_create { ` 
- ` uint32_t x; ` 
- ` uint32_t y; ` 
- ` uint32_t width; ` 
- ` uint32_t height; ` 
- ` uint32_t parent; ` 
- ` uint32_t override_redirect; ` 
+|MSG_CREATE|` struct msg_create { `
+ ` uint32_t x; `
+ ` uint32_t y; `
+ ` uint32_t width; `
+ ` uint32_t height; `
+ ` uint32_t parent; `
+ ` uint32_t override_redirect; `
  ` }; `|Create a window with given parameters|
 |MSG_DESTROY|None|Destroy a window|
-|MSG_MAP|` struct msg_map_info { ` 
- ` uint32_t transient_for; ` 
- ` uint32_t override_redirect; ` 
+|MSG_MAP|` struct msg_map_info { `
+ ` uint32_t transient_for; `
+ ` uint32_t override_redirect; `
  ` }; `|Map a window with given parameters|
 |MSG_UNMAP|None|Unmap a window|
-|MSG_CONFIGURE|` struct msg_configure { ` 
- ` uint32_t x; ` 
- ` uint32_t y; ` 
- ` uint32_t width; ` 
- ` uint32_t height; ` 
- ` uint32_t override_redirect; ` 
+|MSG_CONFIGURE|` struct msg_configure { `
+ ` uint32_t x; `
+ ` uint32_t y; `
+ ` uint32_t width; `
+ ` uint32_t height; `
+ ` uint32_t override_redirect; `
  ` }; `|Change window position/size/type|
-|MSG_MFNDUMP|` struct shm_cmd { ` 
- ` uint32_t shmid; ` 
- ` uint32_t width; ` 
- ` uint32_t height; ` 
- ` uint32_t bpp; ` 
- ` uint32_t off; ` 
- ` uint32_t num_mfn; ` 
- ` uint32_t domid; ` 
- ` uint32_t mfns[0]; ` 
- ` }; `|Retrieve the array of mfns that constitute the composition buffer of a remote window. 
+|MSG_MFNDUMP|` struct shm_cmd { `
+ ` uint32_t shmid; `
+ ` uint32_t width; `
+ ` uint32_t height; `
+ ` uint32_t bpp; `
+ ` uint32_t off; `
+ ` uint32_t num_mfn; `
+ ` uint32_t domid; `
+ ` uint32_t mfns[0]; `
+ ` }; `|Retrieve the array of mfns that constitute the composition buffer of a remote window.
  The "num_mfn" 32bit integers follow the shm_cmd structure; "off" is the offset of the composite buffer start in the first frame; "shmid" and "domid" parameters are just placeholders (to be filled by *qubes_guid*), so that we can use the same structure when talking to *shmoverride.so*|
-|MSG_SHMIMAGE|` struct msg_shmimage { ` 
- `    uint32_t x; ` 
- `    uint32_t y;` 
- `    uint32_t width;` 
- `    uint32_t height;` 
+|MSG_SHMIMAGE|` struct msg_shmimage { `
+ `    uint32_t x; `
+ `    uint32_t y;`
+ `    uint32_t width;`
+ `    uint32_t height;`
  ` }; `|Repaint the given window fragment|
-|MSG_WMNAME|` struct msg_wmname { ` 
- ` char data[128]; ` 
+|MSG_WMNAME|` struct msg_wmname { `
+ ` char data[128]; `
  ` } ; `|Set the window name; only printable characters are allowed|
 |MSG_DOCK|None|Dock the window in the tray|
-|MSG_WINDOW_HINTS|` struct msg_window_hints { ` 
- `    uint32_t flags; ` 
- `    uint32_t min_width; ` 
- `    uint32_t min_height; ` 
- `    uint32_t max_width; ` 
- `    uint32_t max_height; ` 
- `    uint32_t width_inc; ` 
- `    uint32_t height_inc; ` 
- `    uint32_t base_width; ` 
- `    uint32_t base_height; ` 
+|MSG_WINDOW_HINTS|` struct msg_window_hints { `
+ `    uint32_t flags; `
+ `    uint32_t min_width; `
+ `    uint32_t min_height; `
+ `    uint32_t max_width; `
+ `    uint32_t max_height; `
+ `    uint32_t width_inc; `
+ `    uint32_t height_inc; `
+ `    uint32_t base_width; `
+ `    uint32_t base_height; `
  ` }; `|Size hints for window manager|
-|MSG_WINDOW_FLAGS|` struct msg_window_flags { ` 
- `     uint32_t flags_set; ` 
- `    uint32_t flags_unset;` 
+|MSG_WINDOW_FLAGS|` struct msg_window_flags { `
+ `     uint32_t flags_set; `
+ `    uint32_t flags_unset;`
  ` }; `|Change window state request; fields contains bitmask which flags request to be set and which unset|
 ~~~
 
@@ -202,59 +202,58 @@ The header is followed by message-specific data.
 ~~~
 |Message name|Structure after header|Action|
 |:-----------|:---------------------|:-----|
-|MSG_KEYPRESS|` struct msg_keypress {  ` 
- ` uint32_t type;  ` 
- ` uint32_t x;  ` 
- ` uint32_t y;  ` 
- ` uint32_t state;  ` 
- ` uint32_t keycode;  ` 
+|MSG_KEYPRESS|` struct msg_keypress {  `
+ ` uint32_t type;  `
+ ` uint32_t x;  `
+ ` uint32_t y;  `
+ ` uint32_t state;  `
+ ` uint32_t keycode;  `
  ` }; `|Tell *qubes_drv* driver to generate a keypress|
-|MSG_BUTTON|` struct msg_button {  ` 
- ` uint32_t type;  ` 
- ` uint32_t x;  ` 
- ` uint32_t y;  ` 
- ` uint32_t state;  ` 
- ` uint32_t button;  ` 
+|MSG_BUTTON|` struct msg_button {  `
+ ` uint32_t type;  `
+ ` uint32_t x;  `
+ ` uint32_t y;  `
+ ` uint32_t state;  `
+ ` uint32_t button;  `
  ` }; `|Tell *qubes_drv* driver to generate mouseclick|
-|MSG_MOTION|` struct msg_motion {  ` 
- ` uint32_t x;  ` 
- ` uint32_t y;  ` 
- ` uint32_t state;  ` 
- ` uint32_t is_hint;  ` 
+|MSG_MOTION|` struct msg_motion {  `
+ ` uint32_t x;  `
+ ` uint32_t y;  `
+ ` uint32_t state;  `
+ ` uint32_t is_hint;  `
  ` }; `|Tell *qubes_drv* driver to generate motion event|
-|MSG_CONFIGURE|` struct msg_configure { ` 
- ` uint32_t x; ` 
- ` uint32_t y; ` 
- ` uint32_t width; ` 
- ` uint32_t height; ` 
- ` uint32_t override_redirect; ` 
+|MSG_CONFIGURE|` struct msg_configure { `
+ ` uint32_t x; `
+ ` uint32_t y; `
+ ` uint32_t width; `
+ ` uint32_t height; `
+ ` uint32_t override_redirect; `
  ` }; `|Change window position/size/type|
-|MSG_MAP|` struct msg_map_info { ` 
- ` uint32_t transient_for; ` 
- ` uint32_t override_redirect; ` 
+|MSG_MAP|` struct msg_map_info { `
+ ` uint32_t transient_for; `
+ ` uint32_t override_redirect; `
  ` }; `|Map a window with given parameters|
 |MSG_CLOSE|None|send wmDeleteMessage to the window|
-|MSG_CROSSING|` struct msg_crossing { ` 
- ` uint32_t type; ` 
- ` uint32_t x; ` 
- ` uint32_t y; ` 
- ` uint32_t state; ` 
- ` uint32_t mode; ` 
- ` uint32_t detail; ` 
- ` uint32_t focus; ` 
+|MSG_CROSSING|` struct msg_crossing { `
+ ` uint32_t type; `
+ ` uint32_t x; `
+ ` uint32_t y; `
+ ` uint32_t state; `
+ ` uint32_t mode; `
+ ` uint32_t detail; `
+ ` uint32_t focus; `
  ` }; `|Notify window about enter/leave event|
-|MSG_FOCUS|` struct msg_focus {  ` 
- ` uint32_t type;  ` 
- ` uint32_t mode;  ` 
- ` uint32_t detail;  ` 
+|MSG_FOCUS|` struct msg_focus {  `
+ ` uint32_t type;  `
+ ` uint32_t mode;  `
+ ` uint32_t detail;  `
  `  }; `|Raise a window, XSetInputFocus|
 |MSG_CLIPBOARD_REQ|None|Retrieve the local clipboard, pass contents to gui-daemon|
 |MSG_CLIPBOARD_DATA|amorphic blob|Insert the received data into local clipboard|
 |MSG_EXECUTE|Obsolete|Obsolete, unused|
 |MSG_KEYMAP_NOTIFY|` unsigned char remote_keys[32]; `|Synchronize the keyboard state (key pressed/released) with dom0|
-|MSG_WINDOW_FLAGS|` struct msg_window_flags { ` 
- `     uint32_t flags_set; ` 
- `    uint32_t flags_unset;` 
+|MSG_WINDOW_FLAGS|` struct msg_window_flags { `
+ `     uint32_t flags_set; `
+ `    uint32_t flags_unset;`
  ` }; `|Window state change confirmation|
 ~~~
-

@@ -16,7 +16,7 @@ Existing users of Qubes R1 (but not R1 betas!) can upgrade their systems to the 
 Upgrade all Template and Standalone VM(s)
 -----------------------------------------
 
-**If you have already R2 Beta1 installed, follow standard template update procedure (e.g. "Update VM" buttom in Qubes Manager) and skip the rest of this section**
+**If you have already R2 Beta1 installed, follow standard template update procedure (e.g. "Update VM" button in Qubes Manager) and skip the rest of this section**
 
 By default, in Qubes R1, there is only one Template VM, however users are free to create more Template VMs for special purposes, as well as Standalone VMs. More information on using multiple Template VMs, as well as Standalone VMs, can be found [SoftwareUpdateVM here]. The steps described in this section should be repeated in *all* user's Template and Standalone VMs.
 
@@ -54,7 +54,7 @@ By default, in Qubes R1, there is only one Template VM, however users are free t
 Installing new template
 -----------------------
 
-Qubes R2 Beta2 brings new fedora-18-x64 template (based on Fedora 18). You can install it from Qubes installation DVD. Insert installation DVD into your drive and issue following commmands:
+Qubes R2 Beta2 brings new fedora-18-x64 template (based on Fedora 18). You can install it from Qubes installation DVD. Insert installation DVD into your drive and issue following commands:
 
 ~~~
 $ sudo -s

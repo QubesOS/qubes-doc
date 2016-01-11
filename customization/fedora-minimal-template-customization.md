@@ -15,7 +15,7 @@ Template installation
 
 > [dom0]#qubes-dom0-update qubes-template-fedora-21-minimal
 
-*Note*: the template may not start in qubes R3 when using kernel 3.19 (unstable). In this case, switch the AppVM or TemplateVM to the kernel 3.18.
+*Note*: the template may not start in Qubes R3 when using kernel 3.19 (unstable). In this case, switch the AppVM or TemplateVM to the kernel 3.18.
 
 *Note*: If you have doubts about a set of tool or package you want to install, start installing and testing it in an AppVM. You can then reproduce it later in your TemplateVM if you are satisfied. That the (QubesOS?) template philosophy.
 
@@ -27,7 +27,7 @@ Administration (documented)
 
 sudo pciutils vim-minimal less tcpdump telnet psmisc nmap nmap-ncat usbutils
 
-*Notes*: nmap can be used to discover a network (nmap -sP [network]), especially if you are inside a Microsoft network, because your AppVM will be protected/NATted behind Qubes firewall (microsoft / home network are heavily using autodiscovery technologies which require to beint in the same local network (no firewall/no NAT), eg: your printer.
+*Notes*: nmap can be used to discover a network (nmap -sP [network]), especially if you are inside a Microsoft network, because your AppVM will be protected/NATted behind Qubes firewall (microsoft / home network are heavily using autodiscovery technologies which require to be in the same local network (no firewall/no NAT), eg: your printer.
 
 Some recommendation here: check your current network using the Network manager applet (eg: 192.168.1.65). Then run nmap in your current AppVM/TemplateVM to search for the selected printer/equipement: nmap -sP 192.168.1.-. Don't forget to allow temporarily the Qubes Firewall if you are inside a TemplateVM.
 
@@ -86,9 +86,9 @@ Printer Setup
 
 system-config-printer system-config-printer-applet cups
 
-Dependency Note: depends on python3 + python3 additionnal libraries which takes more than 40 M once installed. 
+Dependency Note: depends on python3 + python3 additional libraries which takes more than 40 M once installed.
 
-Dependency Note: cups depends on ghostscript and require installing additionnal printing fonts (not documented here), so it can takes several dozen of MB
+Dependency Note: cups depends on ghostscript and require installing additional printing fonts (not documented here), so it can takes several dozen of MB
 
 Manual operations
 ---------------------------
@@ -97,7 +97,7 @@ Manual operations
 
 - First you need to search for your printer. If you don't know its name or IP, search for it using nmap: check your current network using the Network manager applet (eg: 192.168.1.65). Then run nmap in your current AppVM/TemplateVM to search for the selected printer/equipement: nmap -sP 192.168.1.-. Don't forget to allow temporarily the Qubes Firewall if you are inside a TemplateVM.
 
-- Once you identifed your printer, run system-config-printer GUI to install your printer
+- Once you identified your printer, run system-config-printer GUI to install your printer
 
 - You man need to cancel the operation to install more adapted printer drivers (eg: if the driver cannot be found automatically). Use yum search printername to find potential drivers (eg yum search photosmart)
 
@@ -112,9 +112,9 @@ lxterminal dejavu-sans-mono-fonts dejavu-sans-fonts gnome-settings-daemon
 *Note*: You need to install sans-mono fonts for the terminal or it will be unreadable (overlapping characters....), while the sans fonts are just to get nicer GUI menus.
 
 *Scite* is a nice notepad that can also highlight scripts with very light dependencies
- 
+
 scite
- 
+
 *Meld* allow comparing two text files/ two configuration files easily.
 
 meld
@@ -169,11 +169,11 @@ Cleaning the whole dconf settings is also possible by removing the following fil
 rm ~/.config/dconf/user
 ~~~
 
-*Note*: lxappearance only have effect on gtk3 theme so it won't work to change gtk2 themes (used by Firefox, Thunderbird ...). 
+*Note*: lxappearance only have effect on gtk3 theme so it won't work to change gtk2 themes (used by Firefox, Thunderbird ...).
              However, it is very lightweight and can be used to identify the name and look of themes you are interested in.
              Once you have the name, you can apply it using gsetting command line or gconf-editor.
 
-*Note*: if you really want a GUI theme editor, you can install gnome-tweak-tools, but this tool have a lot 
+*Note*: if you really want a GUI theme editor, you can install gnome-tweak-tools, but this tool have a lot
             of gnome dependencies (~150MB of dependencies). Eventually install it and uninstall it as soon as you changed your theme.
 
 #### Testing notes
@@ -184,7 +184,7 @@ The following programs can be used to see if theme has been correctly applied:
 * GTK3 program: lxterminal
 * QT program: keepassx
 
-*Note*: testing in a TemplateVM will not work as expected because gnome-settings-daemon is not started in TemplateVM. 
+*Note*: testing in a TemplateVM will not work as expected because gnome-settings-daemon is not started in TemplateVM.
              so test your themes in an AppVM and then update the TemplateVM accordingly.
 
 ### Forcing theme change for all AppVM depending on a TemplateVM
@@ -246,7 +246,7 @@ Finally, regenerate the dconf database
 
 ### Uniform look for QT & GTK
 
-Getting an uniform look for QT & GTK is not acheaved yet. A good source is on the following link [UNIFORMTHEME]
+Getting an uniform look for QT & GTK is not achieved yet. A good source is on the following link [UNIFORMTHEME]
 
 Two case:
 
@@ -254,10 +254,10 @@ Two case:
     (eg: Adwaita which is the default theme. I did not found another cross framework theme on fedora default packages).
 
 2. You want to use the GTK theme you selected for Qt but there is no qt package.
-    In this case QGtkStyle will take precedence and convert the style automaticall.
+    In this case QGtkStyle will take precedence and convert the style automatically.
     You can verify if it is enabled by searching for "style=GTK+" in /etc/xdg/Trolltech.conf.
     If style is changed to another name, it will be used instead of your GTK theme.
-    
+
 *Note*: check that ~/.config/Trolltech.conf in your AppVMs is not defining another "style=" because it will take precedence over your global QT theme.
 
 

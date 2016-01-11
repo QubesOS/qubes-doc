@@ -9,7 +9,7 @@ redirect_from:
 - "/wiki/UserDoc/XFCE/"
 ---
 
-XFCE installtion in dom0
+XFCE installation in dom0
 ========================
 
 **Disclaimer: XFCE isn't fully integrated with Qubes environment, it still require notable amount of manual configuration after install**

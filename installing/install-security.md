@@ -38,10 +38,10 @@ Pros:
 
 Cons:
 
- * Rewriteable. (If the drive is mounted to a compromised machine, the ISO could
+ * Rewritable. (If the drive is mounted to a compromised machine, the ISO could
    be maliciously altered after it has been written to the drive.)
  * Untrustworthy firmware. (Firmware can be malicious even if the drive is new.
-   Plugging a drive with rewriteable firmware into a compromised machine can
+   Plugging a drive with rewritable firmware into a compromised machine can
    also [compromise the drive][BadUSB]. Installing from a compromised drive
    could compromise even a brand new Qubes installation.)
 
@@ -66,7 +66,7 @@ Cons:
    2. Attach a SATA optical drive to a secondary SATA controller, then assign
       this secondary SATA controller to an AppVM.
    3. Use a SATA optical drive attached to dom0.
-   
+
    (Option 3 violates the Qubes security model since it entails transferring an
    untrusted ISO to dom0 in order to burn it to disc, which leaves only the
    other two options.)

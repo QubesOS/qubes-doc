@@ -50,7 +50,7 @@ A *module* is a Python extension to salt that is responsible for actually
 enforcing the state in a particular area. It exposes some *imperative* functions
 for administrator. For example there is `system` module that has `system.halt`
 function that, when issued, will immediately halt the computer. There is another
-function called `state.highstate` which will synchronise the state of the system
+function called `state.highstate` which will synchronize the state of the system
 with the administrator's will.
 
 

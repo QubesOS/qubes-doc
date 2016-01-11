@@ -115,7 +115,7 @@ Additional drive for the VM (available only for HVMs). This can be used to attac
 mac  
 Accepted values: MAC address, `auto`
 
-Can be used to force specific of virtual ethernet card in the VM. Setting to `auto` will use automatic-generated MAC - based on VM id. Especially useful when some licencing depending on static MAC address. For template-based HVM `auto` mode means to clone template MAC.
+Can be used to force specific of virtual ethernet card in the VM. Setting to `auto` will use automatic-generated MAC - based on VM id. Especially useful when some licenses depends on static MAC address. For template-based HVM `auto` mode means to clone template MAC.
 
 default\_user  
 Accepted values: username
@@ -135,7 +135,7 @@ This HVM have qrexec agent installed. When VM have qrexec agent installed, one c
 guiagent\_installed  
 Accepted values: `True`, `False`
 
-This HVM have gui agent installed. This option disables full screen GUI virtualization and enables per-window seemless GUI mode. This option will be automatically turned on during Qubes Windows Tools installation, but if you install qubes gui agent in some other OS, you need to turn this option on manually. You can turn this option off to troubleshoot some early HVM OS boot problems (enter safe mode etc), but the option will be automatically enabled at first VM normal startup (and will take effect from the next startup).
+This HVM have gui agent installed. This option disables full screen GUI virtualization and enables per-window seamless GUI mode. This option will be automatically turned on during Qubes Windows Tools installation, but if you install Qubes gui agent in some other OS, you need to turn this option on manually. You can turn this option off to troubleshoot some early HVM OS boot problems (enter safe mode etc), but the option will be automatically enabled at first VM normal startup (and will take effect from the next startup).
 
 *Notice:* when Windows GUI agent is installed in the VM, SVGA device (used to full screen video) is disabled, so even if you disable this option, you will not get functional full desktop access (on normal VM startup). Use some other means for that (VNC, RDP or so).
 

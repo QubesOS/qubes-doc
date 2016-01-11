@@ -55,7 +55,7 @@ COMPONENTS:=$(filter-out desktop-linux-kde desktop-linux-xfce,$(COMPONENTS))
 
 Just don't forget that you need to comment this line again if you want to build the whole Qubes-OS install CD.
 
-Make all required qubes components
+Make all required Qubes components
 ----------------------------------
 
 The first use of the builder can take several hours depending on your bandwidth as it will install an archlinux chroot:

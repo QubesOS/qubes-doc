@@ -17,18 +17,18 @@ From now on, it will be as follows.
 Qubes distributions and products
 --------------------------------
 
-We intend to make it easy to make a remix of qubes, targetting another
+We intend to make it easy to make a remix of qubes, targeting another
 hypervisor or isolation provider. We may also create commercial products
 intended for specific circumstances. There is one distinguished distribution
 called **Qubes OS**. All source code for it is available for download under GPL
-licence and is openly developed on the mailing lists. The rest of this document
+license and is openly developed on the mailing lists. The rest of this document
 discusses Qubes OS. Another remix may have its own version series.
 
 Release version
 ---------------
 
 Qubes OS as a whole is released from time to time. Version scheme for all
-releases is modelled after Linux kernel version numbers. When announcing new
+releases is modeled after Linux kernel version numbers. When announcing new
 release, we decide on the major.minor version (like `3.0`) and release
 `3.0-rc1`. When we feel that enough progress has been made, we put `3.0-rc2`
 and so on. All these versions are considered unstable and not ready for
@@ -79,7 +79,7 @@ in `current` repository and the cycle starts over. There should be no less than
 </table>
 
 Starting with second cycle (that is, after `-rc1`) two weeks into the cycle
-(after primary bug-reporting period) the Supreme Committee decides wether there
+(after primary bug-reporting period) the Supreme Committee decides whether there
 should be another RC. If, based on remaining issues, the Committee decides to
 release final, then the Committee agrees upon the release date, which should be
 no later than a week after.

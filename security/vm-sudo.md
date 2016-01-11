@@ -14,11 +14,11 @@ Password-less root access in VM
 Background ([/etc/sudoers.d/qubes](https://github.com/QubesOS/qubes-core-agent-linux/blob/master/misc/qubes.sudoers) in VM):
 
     user ALL=(ALL) NOPASSWD: ALL
-    
+
     # WTF?! Have you lost your mind?!
     #
     # In Qubes VMs there is no point in isolating the root account from
-    # the user account. This is because all the user data are already
+    # the user account. This is because all the user data is already
     # accessible from the user account, so there is no direct benefit for
     # the attacker if she could escalate to root (there is even no benefit
     # in trying to install some persistent rootkits, as the VM's root

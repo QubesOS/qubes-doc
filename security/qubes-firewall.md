@@ -81,7 +81,7 @@ In order to allow a service present in an VM to be exposed to the outside world 
 -   In the FirewallVM, allow packets to be routed from the NetVM to the VM and allow packets through the FirewallVM firewall
 -   In the VM, allow packets into the VM firewall to reach the service
 
-As an example we can take the use case of a web server listenning on port 443 that we want to expose on our physical interface eth0, but only to our local network 192.168.0.0/24.
+As an example we can take the use case of a web server listening on port 443 that we want to expose on our physical interface eth0, but only to our local network 192.168.0.0/24.
 
 **1. Allow packets to be routed from the outside world for the exposed service to the FirewallVM**
 
@@ -132,7 +132,7 @@ sudo nano /rw/config/rc.local
 Make this file executable:
 
 ~~~
-sudo chmod +x /rw/config/rc.local 
+sudo chmod +x /rw/config/rc.local
 ~~~
 
 **2. Allow packets to be routed from the firewallVM to the VM**
