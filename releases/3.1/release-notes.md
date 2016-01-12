@@ -30,17 +30,11 @@ Known issues
 
 * Installation image does not fit on DVD, requires either DVD DL, or USB stick (5GB or more)
 
-* During first boot you need to create user named `user`, otherwise initial configuration will fail [#1504](https://github.com/QubesOS/qubes-issues/issues/1504)
-
 * Windows Tools: `qvm-block` does not work
 
 * Some icons in the Qubes Manager application might not be drawn correctly when using the Xfce4 environment in Dom0. If this bothers you, please use the KDE environment instead.
 
-* USB VM may hang after resume. Fix: add `ehci_pci` and `xhci_pci` to `/rw/config/suspend-module-blacklist` in the `sys-usb` VM.
-
 * USB mouse (in case of USB VM) does not work at first system startup (just after completing firstboot). Workaround: restart the system.
-
-* Dom0 locale is reset to `en_US` after installation. Workaround: set locale back to the desired value.
 
 * For other known issues take a look at [our tickets](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Release+3.1%22+label%3Abug)
 
