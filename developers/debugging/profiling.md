@@ -70,7 +70,7 @@ cd ~/profiling
 ./Upload.sh
 ~~~
 
-### Analyze
+### Analyse
 
 ~~~
 make
