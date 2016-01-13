@@ -11,87 +11,100 @@ redirect_from:
 Upgrading Qubes R3.0 to R3.1
 ======================================
 
-** The upgrade R3.0->R3.1 procedure is still experimental **
-
-Current Qubes R3.1 (R3.1) systems can be upgraded in-place to the latest R3.1
-by following the procedure below.
+**Caution: The procedure to upgrade from R3.0 to R3.1 is experimental!**
 
 **Before attempting either an in-place upgrade or a clean installation, we
-strongly recommend that users back up the system by using the built-in [backup
-tool](/doc/backup-restore/).**
+strongly recommend that users [back up their systems](/doc/backup-restore/).**
+
+Current Qubes R3.0 systems can be upgraded in-place to the latest R3.1
+by following the procedure below.
+
 
 Upgrade all Template and Standalone VM(s)
 -----------------------------------------
 
-By default, in Qubes R3.0, there is only one Template VM, however users are
-free to create more Template VMs for special purposes, as well as Standalone
-VMs. More information on using multiple Template VMs, as well as Standalone
-VMs, can be found [here](/doc/software-update-vm/). The steps described in this
-section should be repeated in **all** user's Template and Standalone VMs.
+By default, in Qubes R3.0, there is only one TemplateVM. However, users are
+free to create more TemplateVMs for special purposes, as well as StandaloneVMs.
+More information on using multiple TemplateVMs, as well as StandaloneVMs, can be
+found [here](/doc/software-update-vm/). The steps described in this
+section should be repeated in **all** the user's Template and Standalone VMs.
 
-### Upgrade Fedora template:
 
-1.  Open terminal in the template VM (or standalone VM). E.g. use the Qubes
-Manager's right-click menu and choose Run Command in VM and type
-`gnome-terminal` there.
-2.  Install `qubes-upgrade-vm` package:
+### Upgrade Fedora templates: ###
 
-        sudo yum install --enablerepo=qubes-vm-r3.0-current-testing qubes-upgrade-vm
+1.  Open a terminal in the TemplateVM (or StandaloneVM). (E.g., use Qubes VM
+    Manager's right-click menu, choose "Run Command in VM," and type
+    `gnome-terminal` there.)
 
-3.  Proceed with normal update in the template:
+2.  Install the `qubes-upgrade-vm` package:
 
-        sudo yum update
+        sudo dnf install --enablerepo=qubes-vm-r3.0-current-testing qubes-upgrade-vm
 
-4.  Shutdown the template VM.
+3.  Proceed with a normal upgrade in the template:
 
-### Upgrade Debian template:
+        sudo dnf upgrade
 
-1.  Open terminal in the template VM (or standalone VM). E.g. use the Qubes
-Manager's right-click menu and choose Run Command in VM and type
-`gnome-terminal` there.
+4.  Shut down the template VM.
+
+
+### Upgrade Debian templates: ###
+
+1.  Open a terminal in the TemplateVM (or StandaloneVM). (E.g., use Qubes VM
+    Manager's right-click menu, choose "Run Command in VM," and type
+    `gnome-terminal` there.)
+
 2.  Update repository definition:
 
         sudo cp /etc/apt/sources.list.d/qubes-r3.list /etc/apt/sources.list.d/qubes-r3-upgrade.list
         sudo sed -i 's/r3.0/r3.1/' /etc/apt/sources.list.d/qubes-r3-upgrade.list
 
-3.  Proceed with normal update in the template:
+3.  Proceed with a normal update in the template:
 
         sudo apt-get update
         sudo apt-get dist-upgrade
 
-4.  Shutdown the template VM.
+4.  Shut down the template VM.
+
 
 Upgrading dom0
 --------------
 
-Be sure to do steps described in this section after *all* your template and
-standalone VMs got updated as described in the section above. Also make sure
-you haven't shutdown any of: netvm, firewallvm - you will not be able to start
-them again.
+**Important:** Do not perform the steps described in this section until **all**
+your Template and Standalone VMs have been upgraded as described in the previous
+section. Also, do not shut down `sys-net` or `sys-firewall`, since you will not
+be able to start them again until after the entire in-place upgrade procedure is
+complete.
 
-1.  Open terminal in Dom0. E.g. Start-\>System Settings-\>Konsole.
+1.  Open a terminal in Dom0. (E.g., Start -\> System Settings -\> Konsole.)
+
 2.  Upgrade dom0 to R3.1:
 
         sudo qubes-dom0-update --releasever=3.1
 
-    After this step, until you reboot the system, most of the qvm-* tools will not work.
+    At this point, most of the `qvm-*` tools will stop working until after you
+    reboot the system.
 
-3.  If above step completed successfully you should have `qubes-core-dom0` at
-least 3.1.4. If not, repeat above step with additional `--clean` option.
+3.  If the previous step completed successfully, your `qubes-core-dom0` version
+    should be `3.1.4` or higher. If it's not, repeat the previous step with the
+    `--clean` option.
 
-4.  Reboot the system.
+4.  Reboot dom0.
     
-    It may happen that the system hang during the reboot. Hard reset the system
-    in such case, all the filesystems are unmounted at this stage.
+    The system may hang during the reboot. If that happens, do not panic. All
+    the filesystems will have already been unmounted at this stage, so you can
+    simply perform a hard reboot (e.g., hold the physical power button down
+    until the machine shuts off, wait a moment, then press it again to start it
+    back up).
 
-Please note that if you use Anti Evil Maid, then it won't be able to unseal the
-passphrase this time, because the Xen, kernel, and initramfs binaries have
-changed. Once the system boots up again, you could reseal your Anti Evil Maid's
-passphrase to the new configuration. Please consult Anti Evil Maid
-documentation for explanation on how to do that.
+Please note that if you use [Anti Evil Maid](/doc/anti-evil-maid), it won't be
+able to unseal the passphrase the first time the system boots after performing
+this in-place upgrade procedure since the Xen, kernel, and initramfs binaries
+will have changed. Once the system boots up again, you can reseal your Anti Evil
+Maid passphrase to the new configuration. Please consult the Anti Evil Maid
+[documentation](/doc/anti-evil-maid) for instructions on how to do that.
 
-Now, when you have dom0 upgraded, you can install new templates from Qubes R3.1
-repositories. Especially Fedora 23 - default Qubes R3.1 template:
+Once you have upgraded dom0, you can install new templates from Qubes R3.1
+repositories, in particular the new default Fedora 23 template:
 
     sudo qubes-dom0-update qubes-template-fedora-23
 
