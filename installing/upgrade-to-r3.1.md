@@ -47,7 +47,7 @@ section should be repeated in **all** the user's Template and Standalone VMs.
 4.  Shut down the template VM.
 
 
-### Upgrade Debian templates: ###
+### Upgrade Debian (and Whonix) templates: ###
 
 1.  Open a terminal in the TemplateVM (or StandaloneVM). (E.g., use Qubes VM
     Manager's right-click menu, choose "Run Command in VM," and type
