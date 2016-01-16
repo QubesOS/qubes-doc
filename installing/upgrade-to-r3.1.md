@@ -63,7 +63,11 @@ section should be repeated in **all** the user's Template and Standalone VMs.
         sudo apt-get update
         sudo apt-get dist-upgrade
 
-4.  Shut down the template VM.
+4.  Remove unnecessary now file:
+
+        sudo rm -f /etc/apt/sources.list.d/qubes-r3-upgrade.list
+
+5.  Shut down the template VM.
 
 
 Upgrading dom0
