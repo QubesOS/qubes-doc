@@ -13,6 +13,7 @@ Known issues:
 -------------
 
 -   [Service doesn't start without (even empty) user torrc](https://groups.google.com/d/msg/qubes-users/fyBVmxIpbSs/R5mxUcIEZAQJ)
+- Fedora 21 is End of Life and is no longer supported as part of this guide, it is suggested to update to Fedora 22 or 23
 
 Qubes TorVM (qubes-tor)
 ==========================
