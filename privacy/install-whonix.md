@@ -30,6 +30,8 @@ Launch the `dom0` terminal `Konsole` from your Qubes App Launcher. Then enter th
 sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-whonix-gw qubes-template-whonix-ws
 ~~~
 
+Download will take a while and there will be no progress indicator.
+
 After doing this, you should see two new TemplateVMs in the VM Manager called `whonix-gw` and `whonix-ws`
 
 ### Enabling AppArmor
