@@ -24,6 +24,8 @@ It can be installed via the following command:
 [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-21-minimal
 ~~~
 
+Download will take a while and there will be no progress indicator.
+
 Usage
 -----
 
@@ -36,7 +38,7 @@ It is a good idea to clone the original template, and make any changes in the ne
 The sudo package is not installed by default, so let's install it:
 
 ~~~
-[user@F21-Minimal ~]$ su - 
+[user@F21-Minimal ~]$ su -
 [user@F21-Minimal ~]$ yum install sudo
 ~~~
 

@@ -36,12 +36,13 @@ Debian 7 (wheezy) - old stable:
 Debian 8 (jessie) - stable:
 
     [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-8
-    
+
 Debian 9 (stretch) - testing:
 
 A prebuilt template is not yet available, but you can build an experimental stretch template from source.
-    
-    
+
+Download will take a while and there will be no progress indicator.
+
 Known issues
 ------------
 
