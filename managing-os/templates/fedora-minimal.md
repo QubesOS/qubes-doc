@@ -60,7 +60,7 @@ And maybe some more optional but useful packages as well:
 [user@F21-Minimal ~]$ sudo dnf install pciutils vim-minimal less tcpdump telnet psmisc nmap nmap-ncat gnome-keyring
 ~~~
 
-If your network device needs some firmware then you should also install the corresponding packages as well. The `lspci` and `yum search firmware` command will help to choose the right one :)
+If your network device needs some firmware then you should also install the corresponding packages as well. The `lspci` and `dnf search firmware` command will help to choose the right one :)
 
 ### as a ProxyVM
 
@@ -72,7 +72,7 @@ This template is now ready to use for a standard firewall VM.
 
 #### VPN
 
-The needed packages depend on the VPN technology. The `yum search "NetworkManager VPN plugin"` command may help you to choose the right one. You should also install the corresponding GNOME related packages as well.
+The needed packages depend on the VPN technology. The `dnf search "NetworkManager VPN plugin"` command may help you to choose the right one. You should also install the corresponding GNOME related packages as well.
 
 [More details about setting up a VPN Gateway](/wiki/VPN#ProxyVM)
 
