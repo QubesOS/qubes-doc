@@ -236,4 +236,4 @@ or
         echo 0000:<BDF> > /sys/bus/pci/drivers/pciback/unbind
         MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
         MOD=`modprobe -R $MODALIAS | head -n 1`
-        echo <BDF> > /sys/bus/pci/drivers/$MOD/bind
+        echo 0000:<BDF> > /sys/bus/pci/drivers/$MOD/bind
