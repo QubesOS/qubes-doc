@@ -159,6 +159,7 @@ For Developers
  *  [Reporting Bugs](/doc/reporting-bugs/)
  *  [Source Code](/doc/source-code/)
  *  [Qubes OS Version Scheme](/doc/version-scheme/)
+ *  [Supported Versions](/doc/supported-versions/)
  *  [Coding Guidelines](/doc/coding-style/)
  *  [Documentation Guidelines](/doc/doc-guidelines/)
  *  [Books for Developers](/doc/devel-books/)
