@@ -29,7 +29,7 @@ or minor release. The version scheme is explained [here](/doc/version-scheme/).
 | Release 1        | 2012-09-03 | 2015-03-26 | Old, unsupported   |
 | Release 2        | 2014-09-26 | 2016-04-01 | Old, supported     |
 | Release 3.0      | 2015-10-01 | TBA        | Current, supported |
-| Release 3.1      | TBA        | TBA        | In testing         |
+| Release 3.1      | TBA        | TBA        | [In testing][r3.1-schedule] |
 | Release 3.2      | TBA        | TBA        | In development     |
 | Release 4.0      | TBA        | TBA        | In development     |
 
@@ -51,3 +51,5 @@ supported.
 
 \* Denotes versions for which we have pubished the packages but have not done
 extensive testing.
+
+[r3.1-schedule]: /doc/releases/3.1/schedule/
