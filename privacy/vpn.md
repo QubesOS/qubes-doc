@@ -53,3 +53,5 @@ Using a ProxyVM to set up a VPN client gives you the ability to:
 4.  Connect your AppVMs to use the new VM as a NetVM.
 
     ![Settings-NetVM.png](/attachment/wiki/VPN/Settings-NetVM.png)
+
+5. Optionaly you can install some [custom icons](https://github.com/Zrubi/qubes-artwork-proxy-vpn) for your VPN
