@@ -8,8 +8,8 @@ redirect_from:
 - /wiki/WindowsTools2/
 ---
 
-Qubes Tools for Windows: advanced settings and troubleshooting
-==============================================================
+Qubes Windows Tools: advanced settings and troubleshooting
+==========================================================
 
 **This document only applies to Qubes R2 (tools version 2.x)**
 *Only 64-bit Windows 7 (any edition) is supported currently. Windows 8+ support is under development.*
@@ -17,7 +17,7 @@ Qubes Tools for Windows: advanced settings and troubleshooting
 Installable components
 ----------------------
 
-Qubes Tools for Windows (QTW for short) contain several components than can be enabled or disabled during installation:
+Qubes Windows Tools (QWT for short) contain several components than can be enabled or disabled during installation:
 
 -   Xen GPL PV drivers (required): drivers for the hardware exposed by Xen.
 -   Core Windows Agent: qrexec agent and services. Needed for proper integration with Qubes.
@@ -25,7 +25,7 @@ Qubes Tools for Windows (QTW for short) contain several components than can be e
 -   GUI Windows Agent: video driver and gui agent that enable seamless showing of Windows applications on the secure Qubes desktop.
 -   Disable UAC: disables User Account Control prompts. *Is this still needed/wanted? Gui agent can handle UAC prompts now.*
 
-**In testing VMs only** it's probably a good idea to install a VNC server before installing QTW. If something goes very wrong with the Qubes gui agent, a VNC server should still allow access to the OS.
+**In testing VMs only** it's probably a good idea to install a VNC server before installing QWT. If something goes very wrong with the Qubes gui agent, a VNC server should still allow access to the OS.
 
 Verbose installation
 --------------------
@@ -42,7 +42,7 @@ See [this page](/doc/uninstalling-windows-tools-2/).
 Configuration
 -------------
 
-Starting from version 2.2.\* various aspects of Qubes Tools for Windows can be configured through registry. Main configuration key is located in `HKEY_LOCAL_MACHINE\SOFTWARE\Invisible Things Lab\Qubes Tools`. Configuration values set on this level are global to all QTW components. It's possible to override global values with component-specific keys, this is useful mainly for setting log verbosity for troubleshooting. Possible configuration values are:
+Starting from version 2.2.\* various aspects of Qubes Windows Tools can be configured through registry. Main configuration key is located in `HKEY_LOCAL_MACHINE\SOFTWARE\Invisible Things Lab\Qubes Tools`. Configuration values set on this level are global to all QWT components. It's possible to override global values with component-specific keys, this is useful mainly for setting log verbosity for troubleshooting. Possible configuration values are:
 
 |**Name**|**Type**|**Description**|**Default value**|
 |:-------|:-------|:--------------|:----------------|
@@ -82,7 +82,7 @@ If the VM is inaccessible (doesn't respond to qrexec commands, gui is not functi
 
 Safe Mode should at least give you access to logs (see above).
 
-**Please include appropriate logs when reporting bugs/problems.** Starting from version 2.4.2 logs contain QTW version, but if you're using an earlier version be sure to mention which one. If the OS crashes (BSOD) please include the BSOD code and parameters in your bug report. The BSOD screen should be visible if you run the VM in debug mode (`qvm-start --debug vmname`). If it's not visible or the VM reboots automatically, try to start Windows in safe mode (see above) and 1) disable automatic restart on BSOD (Control Panel - System - Advanced system settings - Advanced - Startup and recovery), 2) check the system event log for BSOD events.
+**Please include appropriate logs when reporting bugs/problems.** Starting from version 2.4.2 logs contain QWT version, but if you're using an earlier version be sure to mention which one. If the OS crashes (BSOD) please include the BSOD code and parameters in your bug report. The BSOD screen should be visible if you run the VM in debug mode (`qvm-start --debug vmname`). If it's not visible or the VM reboots automatically, try to start Windows in safe mode (see above) and 1) disable automatic restart on BSOD (Control Panel - System - Advanced system settings - Advanced - Startup and recovery), 2) check the system event log for BSOD events.
 
 If a specific component is malfunctioning, you can increase it's log verbosity as explained above to get more troubleshooting information. Below is a list of components:
 
@@ -91,14 +91,14 @@ If a specific component is malfunctioning, you can increase it's log verbosity a
 |qrexec-client-vm|Used for communications by the qrexec protocol.|
 |wga|Gui agent.|
 |QTWHelper|Service that monitors session/desktop changes (logon/logoff/locking/UAC...) and simulates SAS sequence (ctrl-alt-del).|
-|prepare-volume|Utility that initializes and formats the disk backed by `private.img` file. It's registered to run on next system boot during QTW setup, if that feature is selected (it can't run *during* the setup because Xen block device drivers are not yet active). It in turn registers move-profiles (see below) to run at early boot.|
+|prepare-volume|Utility that initializes and formats the disk backed by `private.img` file. It's registered to run on next system boot during QWT setup, if that feature is selected (it can't run *during* the setup because Xen block device drivers are not yet active). It in turn registers move-profiles (see below) to run at early boot.|
 |move-profiles|Utility that moves user profiles directory to the private disk. It's registered as an early boot native executable (similar to chkdsk) so it can run before any profile files are opened by some other process. Its log is in a fixed location: `c:\move-profiles.log` (it can't use our common logger library so none of the log settings apply).|
 
 Updates
 -------
 
-When we publish new QTW version (which is announced on `qubes-users` Google Group) it's usually pushed to the `current-testing` repository first. To use versions from current-testing, run this in dom0:
+When we publish new QWT version (which is announced on `qubes-users` Google Group) it's usually pushed to the `current-testing` repository first. To use versions from current-testing, run this in dom0:
 
 `qubes-dom0-update --enablerepo=qubes-dom0-current-testing qubes-windows-tools`
 
-That command will download a new QTW .iso from the testing repository. It goes without saying that you should **backup your VMs** before installing anything from testing repos.
+That command will download a new QWT .iso from the testing repository. It goes without saying that you should **backup your VMs** before installing anything from testing repos.
