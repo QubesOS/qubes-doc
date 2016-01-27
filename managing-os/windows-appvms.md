@@ -21,7 +21,7 @@ Qubes Windows Tools is a set of programs and drivers that provide integration of
 -   Support for qvm-run and generic qrexec for the Windows VM (e.g. ability to run custom service within/from the Windows VM)
 -   Xen PV drivers for Windows that increase performance compared to qemu emulated devices
 
-Qubes Windows Tools are not open source and are distributed under a commercial license and their source code is not publicly available. Current status is: **Beta**.
+Qubes Windows Tools are open source and are distributed under a GPL license.
 
 NOTE: Currently only 64-bit versions of Windows 7 are supported by Qubes Windows Tools. Only emulated SVGA GPU is supported (althought [there has been reports](https://groups.google.com/forum/#!topic/qubes-users/cmPRMOkxkdA) on working GPU pass-through).
 
@@ -47,7 +47,7 @@ You can also install the package from testing repositories, where we usually pub
 qubes-dom0-update --enablerepo=qubes*testing qubes-windows-tools
 ~~~
 
-This package brings the ISO with Qubes Windows Tools that is passed to the VM when `--install-windows-tools` is specified for the `qvm-start` command. Please note that even though the Qubes Windows Tools are proprietary, none of this software ever runs in Dom0 or any other part of the system except for the Windows AppVM in which it is to be installed.
+This package brings the ISO with Qubes Windows Tools that is passed to the VM when `--install-windows-tools` is specified for the `qvm-start` command. Please note that none of this software ever runs in Dom0 or any other part of the system except for the Windows AppVM in which it is to be installed.
 
 To install the Qubes Windows Tools in a Windows VM one should start the VM passing the additional option `--install-windows-tools`:
 
