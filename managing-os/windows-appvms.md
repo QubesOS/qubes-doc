@@ -13,7 +13,7 @@ Installing and using Windows-based AppVMs
 
 Qubes provides special support for running Windows-based AppVMs. This requires the user to install Windows 7 x64 in a Qubes VM and subsequently install Qubes Windows Tools inside the VM (support for Windows 8+ is in development). This page describes this process in detail.
 
-Qubes Windows Tools is a set of programs and drivers that provide integration of Windows AppVMs with the rest of the Qubes system. Currently the following features are available for Windows VMs after installation of those tools:
+Qubes Windows Tools are a set of programs and drivers that provide integration of Windows AppVMs with the rest of the Qubes system. Currently the following features are available for Windows VMs after installation of those tools:
 
 -   Seamless GUI mode that integrates apps windows onto the common Qubes trusted desktop (available on Qubes R2 Beta 3 and later)
 -   Support for [secure clipboard copy/paste](/doc/copy-paste/) between the Windows VM and other AppVMs
@@ -23,7 +23,7 @@ Qubes Windows Tools is a set of programs and drivers that provide integration of
 
 Qubes Windows Tools are open source and are distributed under a GPL license.
 
-NOTE: Currently only 64-bit versions of Windows 7 are supported by Qubes Windows Tools. Only emulated SVGA GPU is supported (althought [there has been reports](https://groups.google.com/forum/#!topic/qubes-users/cmPRMOkxkdA) on working GPU pass-through).
+NOTE: Currently only 64-bit versions of Windows 7 are supported by Qubes Windows Tools. Only emulated SVGA GPU is supported (although [there has been reports](https://groups.google.com/forum/#!topic/qubes-users/cmPRMOkxkdA) on working GPU pass-through).
 
 Installing Windows OS in a Qubes VM
 -----------------------------------
