@@ -45,7 +45,7 @@ Building
  * [Development Workflow](/doc/development-workflow/)
  * [KDE Dom0 packages for Qubes](/doc/kde-dom0/)
  * [Building Qubes OS 3.0 ISO](/doc/qubes-r3-building/)
- * [Building USB passthrough support (experimental)](/doc/usbvm/)
+ * [Building USB passthrough support (experimental)](/doc/pvusb/)
  * [Building a TemplateVM based on a new OS (ArchLinux example)](/doc/building-non-fedora-template/)
  * [Building the Archlinux Template](/doc/building-archlinux-template/)
 

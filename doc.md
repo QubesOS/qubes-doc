@@ -45,7 +45,7 @@ Common Tasks
  *  [Updating and Installing Software in VMs](/doc/software-update-vm/)
  *  [Backup, Restoration, and Migration](/doc/backup-restore/)
  *  [Disposable VMs](/doc/dispvm/)
- *  [Mounting USB Drives to AppVMs](/doc/stick-mounting/)
+ *  [Using and Managing USB Devices](/doc/usb/)
  *  [Recording Optical Discs](/doc/recording-optical-discs/)
  *  [Managing Application Shortcuts](/doc/managing-appvm-shortcuts/)
  *  [Enabling Fullscreen Mode](/doc/full-screen-mode/)
