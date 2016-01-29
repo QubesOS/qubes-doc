@@ -54,7 +54,7 @@ Installation
 
 0. *(Optional)* If you want to use a separate vm template for your TorVM
 
-        qvm-clone fedora-21 fedora-21-tor
+        qvm-clone fedora-23 fedora-23-tor
 
 1. In dom0, create a proxy vm and disable unnecessary services and enable qubes-tor
 
@@ -65,7 +65,7 @@ Installation
         qvm-service torvm -e qubes-tor
 
         # if you  created a new template in the previous step
-        qvm-prefs torvm -s template fedora-21-tor
+        qvm-prefs torvm -s template fedora-23-tor
 
 2. From your TemplateVM, install the torproject Fedora repo
 
