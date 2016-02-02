@@ -15,10 +15,6 @@ article td, article th {
 Supported Versions
 ==================
 
-**Under construction!** *This page is currently under construction. The
-information on this page should not be regarded as official or accurate until
-this notice has been removed.*
-
 Qubes OS
 --------
 Qubes OS releases are supported for **six months** after each subsequent major
