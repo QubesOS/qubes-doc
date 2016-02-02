@@ -23,15 +23,15 @@ Qubes OS
 --------
 Qubes OS releases are supported for **six months** after each subsequent major
 or minor release. The version scheme is explained [here](/doc/version-scheme/).
+All available current and past downloads can be found [here](/downloads/).
 
-| Qubes OS Version | Start Date | End Date   | Status             |
-| ---------------- | ---------- | ---------- | ------------------ |
-| Release 1        | 2012-09-03 | 2015-03-26 | Old, unsupported   |
-| Release 2        | 2014-09-26 | 2016-04-01 | Old, supported     |
-| Release 3.0      | 2015-10-01 | TBA        | Current, supported |
+| Qubes OS Version | Start Date | End Date   | Status                      |
+| ---------------- | ---------- | ---------- | --------------------------- |
+| Release 1        | 2012-09-03 | 2015-03-26 | Old, unsupported            |
+| Release 2        | 2014-09-26 | 2016-04-01 | Old, supported              |
+| Release 3.0      | 2015-10-01 | TBA        | Current, supported          |
 | Release 3.1      | TBA        | TBA        | [In testing][r3.1-schedule] |
-| Release 3.2      | TBA        | TBA        | In development     |
-| Release 4.0      | TBA        | TBA        | In development     |
+| Release 4.0      | TBA        | TBA        | In development              |
 
 
 Templates
