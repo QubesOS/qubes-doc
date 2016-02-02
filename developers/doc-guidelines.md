@@ -15,31 +15,31 @@ All Qubes OS documentation pages are stored as plain text files in the
 dedicated [qubes-doc] repository. By cloning and regularly pulling from
 this repo, users can maintain their own up-to-date offline copy of all Qubes
 documentation rather than relying solely on the Web.  Contributions to the
-documentation (both new content and edits of existing content) are welcome. To
-contribute, please [fork and clone][gh-fork] this repo, make your changes,
+documentation (both new content and edits of existing content) are welcome!
+
+To contribute, please [fork and clone][gh-fork] this repo, make your changes,
 then either [submit a pull request][gh-pull] or [send a patch][patch] to the
 `qubes-devel` [mailing list][lists]. If you have a GitHub account (free), you
 can simply browse the [qubes-doc] repository and edit the files there. The
 GitHub interface will automatically guide you through the
-[fork and pull request creation process][gh-fork].
+[fork and pull request creation process][gh-fork]. (We provide a detailed
+walkthrough of this process below.)
 
 
 Markdown Conventions
 --------------------
 
 All the documentation is written in Markdown for maximum accessibility. When
-making contributions, please observe the following style conventions:
+making contributions, please try to observe the following style conventions,
+where appropriate:
 
  * Use spaces instead of tabs.
  * Hard wrap Markdown lines at 80 characters.
- * Hard wrap Git commit message lines at 72 characters.
-   * This leaves exactly four spaces on each side of the commit message when
-   viewed in the default `git log` format.)
  * If appropriate, make numerals in numbered lists match between Markdown
    source and HTML output.
-   * In the event that a user is required to read the Markdown source
-   directly, this will make it easier to follow, e.g., numbered steps in a
-   set of instructions.
+   * Rationale: In the event that a user is required to read the Markdown source
+     directly, this will make it easier to follow, e.g., numbered steps in a set
+     of instructions.
  * Use hanging indentations  
    where appropriate.
  * Use underline headings (`=====` and `-----`) if possible. If this is not
@@ -47,69 +47,98 @@ making contributions, please observe the following style conventions:
    (`### H3 ###`).
  * Use `[reference-style][ref]` links.  
  
-`[ref]: http://daringfireball.net/projects/markdown/syntax#link`
+`[ref]: https://daringfireball.net/projects/markdown/syntax#link`
 
-Editing Qubes documentation
----------------------------
+([This][md] is a great source for learning about Markdown syntax.)
 
-Editing Qubes documentation is easy, if you spot some errors, feel free to
-correct it. Because Qubes OS is security-oriented project, every documentation
-change will be reviewed before being visible on the main page.
 
-First of all, we keep documentation in git repository hosted on
-[github][github]. Thanks to github interface, you can edit documentation even
-if you do not know git at all. But you need a github account for that (it is
-free!).
+Git Conventions
+---------------
 
-Ok, lets start. Every documentation page have "Edit this page" button. It can
-be on the right side (in desktop layout):
+Please attempt to follow these conventions when writing your Git commit
+messages:
+
+ * Separate the subject line from the body with a blank line.
+ * Limit the subject line to approximately 50 characters.
+ * Capitalize the subject line.
+ * Do not end the subject line with a period.
+ * Use the imperative mood in the subject line.
+ * Wrap the body at 72 characters.
+ * Use the body to explain *what* and *why* rather than *how*.
+
+For details, examples, and the rationale behind each of these conventions,
+please see [this blog post][git-commit], which is the source of this list.
+
+
+How to Contribute Using GitHub
+------------------------------
+
+Editing the documentation is easy, so if you spot any errors, please help us
+fix them! (The documentation maintainers are just volunteers who have day jobs
+of their own, so we rely heavily on the community to improve the documentation.)
+Since Qubes is a security-oriented project, every documentation change will be
+reviewed before it's published to the web. This allows us to maintain quality
+control and protect our users.
+
+As mentioned above, we keep all the documentation in a dedicated Git repository
+hosted on [GitHub][github]. Thanks to GitHub interface, you can edit the
+documentation even if you don't know Git at all! The only thing you need is a
+GitHub account, which is free.
+
+Ok, let's start. Every documentation page has an "Edit this page" button. It may
+be on the right side (in the desktop layout):
 
 ![edit-button-desktop](/attachment/wiki/doc-edit/03-button2.png)
 
-Or at the bottom in mobile layout:
+Or at the bottom (in the mobile layout):
 
 ![edit-button-mobile](/attachment/wiki/doc-edit/02-button1.png)
 
-When you click on it, you'll be prompted for Github username and password (if
-you aren't logged in already). You can also create an account from
-there. 
+When you click on it, you'll be prompted for your GitHub username and password
+(if you aren't already logged in). You can also create an account from here.
 
 ![github-sign-in](/attachment/wiki/doc-edit/04-sign-in.png)
 
-If it is your first contribution to the documentation, you need to "fork" a
-repository (make your own copy). It's easy - just click that big green button
-on the next page. This step is needed only for the first time.
+If this is your first contribution to the documentation, you need to "fork" the
+repository (make your own copy). It's easy --- just click the big green button
+on the next page. This step is only needed the first time you make a
+contribution.
 
 ![fork](/attachment/wiki/doc-edit/05-fork.png)
 
-Then you can make your modifications. You can also preview how the changes will
-be formated using "Preview changes" tab above editor.
+Now you can make your modifications. You can also preview the changes to see how
+they'll be formatted by clicking the "Preview changes" tab.
 
 ![edit](/attachment/wiki/doc-edit/06-edit.png)
 
-When you finish, describe your changes at the bottom and click "Propose file change". 
+Once you're finish, describe your changes at the bottom and click "Propose file
+change".
 
 ![commit](/attachment/wiki/doc-edit/07-commit-msg.png)
 
-After that, you'll see what exactly modification you've made. At this stage
+After that, you'll see exactly what modifications you've made. At this stage,
 those changes are still in your own copy of the documentation ("fork"). If
-everything is ok, send those change to us back using "Create pull request"
-button.
+everything looks good, send those changes to us by pressing the "Create pull
+request" button.
 
 ![pull-request](/attachment/wiki/doc-edit/08-review-changes.png)
 
-You will be able to adjust pull request message and title there. In most cases
-defaults are ok, so you can just confirm with "Create pull request" button
-again.
+You will be able to adjust the pull request message and title there. In most
+cases, the defaults are ok, so you can just confirm by pressing the "Create pull
+request" button again.
 
 ![pull-request-confirm](/attachment/wiki/doc-edit/09-create-pull-request.png)
 
-
-That's all! We will review your changes and eventually pull them into Qubes
-documentation. You'll get email notification about that.
+That's all! We will review your changes. If everything looks good, we'll pull
+them into the official documentation. Otherwise, we may have some questions for
+you, which we'll post in a comment on your pull request. (GitHub will
+automatically notify you if we do.) If, for some reason, we can't accept your
+pull request, we'll post a comment explaining why we can't.
 
 ![done](/attachment/wiki/doc-edit/10-done.png)
 
+
+[md]: https://daringfireball.net/projects/markdown/syntax
 [qubes-doc]: https://github.com/QubesOS/qubes-doc
 [qubes]: https://github.com/QubesOS
 [gh-fork]: https://guides.github.com/activities/forking/
@@ -117,3 +146,4 @@ documentation. You'll get email notification about that.
 [patch]: /doc/SourceCode/#sending-a-patch
 [lists]: https://www.qubes-os.org/doc/QubesLists/
 [github]: https://github.com/
+[git-commit]: http://chris.beams.io/posts/git-commit/
