@@ -13,13 +13,13 @@ System Documentation for Developers
 
 Fundamentals
 ------------
- * [Qubes OS Architecture Overview](/doc/qubes-architecture/)
+ * [Qubes OS Architecture Overview](/doc/architecture/)
  * [Qubes OS Architecture Spec v0.3 [PDF]](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf)  
    (The original 2009 document that started this all...)
  * [Security-critical elements of Qubes OS](/doc/security-critical-code/)
  * [Qrexec: command execution in VMs](/doc/qrexec3/)
  * [Qubes GUI virtualization protocol](/doc/gui/)
- * [Networking in Qubes](/doc/qubes-net/)
+ * [Networking in Qubes](/doc/networking/)
  * [Implementation of template sharing and updating](/doc/template-implementation/)
 
 Services
