@@ -30,8 +30,7 @@ Markdown Conventions
 --------------------
 
 All the documentation is written in Markdown for maximum accessibility. When
-making contributions, please try to observe the following style conventions,
-where appropriate:
+making contributions, please try to observe the following style conventions:
 
  * Use spaces instead of tabs.
  * Hard wrap Markdown lines at 80 characters.
@@ -49,7 +48,7 @@ where appropriate:
  
 `[ref]: https://daringfireball.net/projects/markdown/syntax#link`
 
-([This][md] is a great source for learning about Markdown syntax.)
+([This][md] is a great source for learning about Markdown.)
 
 
 Git Conventions
@@ -138,7 +137,7 @@ pull request, we'll post a comment explaining why we can't.
 ![done](/attachment/wiki/doc-edit/10-done.png)
 
 
-[md]: https://daringfireball.net/projects/markdown/syntax
+[md]: https://daringfireball.net/projects/markdown/
 [qubes-doc]: https://github.com/QubesOS/qubes-doc
 [qubes]: https://github.com/QubesOS
 [gh-fork]: https://guides.github.com/activities/forking/
