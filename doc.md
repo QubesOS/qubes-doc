@@ -13,7 +13,6 @@ redirect_from:
 
 The Basics
 ----------
- *  [A Simple Introduction to Qubes](/intro/)
  *  [Users' FAQ](/doc/user-faq/)
  *  [Mailing Lists](/doc/mailing-lists/)
  *  [Further reading: How is Qubes different from...?](http://blog.invisiblethings.org/2012/09/12/how-is-qubes-os-different-from.html)
