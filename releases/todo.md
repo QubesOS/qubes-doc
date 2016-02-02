@@ -27,6 +27,7 @@ On subsequent -rc
 * push packages to `current`
 * update release notes
 * build ISO and push to mirrors
+* notify @Rudd-O about the new ISO for new torrent hosting
 
 On final release
 ----------------
@@ -34,5 +35,6 @@ On final release
 * finish release notes
 * update InstallationInstructions
 * build ISO and push to mirrors
+* notify @Rudd-O about the new ISO for new torrent hosting
 * write blog post
 * announce on Twitter
