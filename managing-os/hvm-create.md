@@ -80,7 +80,7 @@ In order to manually configure networking in a VM, one should first find out the
 
 Alternatively, one can use `qvm-ls -n` command to obtain the same information.
 
-Now, one should configure the networking within the HVM according to those settings (IP/netmask/gateway). Only IPv4 networking is currently supported in Qubes.
+Now, one should configure the networking within the HVM according to those settings (IP/netmask/gateway). Only IPv4 networking is currently supported in Qubes. Set DNS address to the same IP as gateway.
 
 **Note:** If one plans on installing Qubes Tools for Windows guests (see below) it is 'not' necessary to configure networking manually as described in this section, because the tools will take care of setting the networking automatically for such Windows domains.
 
