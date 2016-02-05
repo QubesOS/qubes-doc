@@ -12,7 +12,7 @@ redirect_from:
 XFCE installation in dom0
 ========================
 
-**Disclaimer: XFCE isn't fully integrated with Qubes environment, it still require notable amount of manual configuration after install**
+**Disclaimer: XFCE isn't fully integrated with Qubes environment, it still requires notable amount of manual configuration after install**
 
 Requirements (as of 10/24/2012):
 
@@ -31,7 +31,7 @@ Reboot the system. At system startup, select "Xfce session" in login screen (men
 Configuration
 -------------
 
-Things needs/recommended to be done:
+Things needed/recommended to be done:
 
 -   remove some useless entries from menu and panel, especially file manager, web browser
 -   create own favorites menu (currently standard XFCE menu isn't modified to use per-VM subsections, which makes it very inconvenient):
