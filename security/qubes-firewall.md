@@ -214,7 +214,7 @@ Finally make this file executable, so it runs at each boot
 
 ` sudo chmod +x /rw/config/rc.local `
 
-**2. Allow packets to be routed from the FirewallVM to the VM**
+**2. Route packets from the FirewallVM to the VM**
 
 From a Terminal window in the VM, take note of the 'IP address' for
 interface Eth0 (i.e. 10.137.2.x)
