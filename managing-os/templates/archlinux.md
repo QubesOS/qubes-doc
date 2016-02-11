@@ -19,7 +19,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 
 <br>
 
-##Instructions
+##Instructions##
 
 <br>
 **These are the instructions for Qubes 3.1. They will take you step by step thru the entire process start to finish**
@@ -29,19 +29,19 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 <br>
-<big>**1:   Create and configure VM to use for template building:**</big>
+####**1:   Create and configure VM to use for template building:**####
 
 *   The VM should be based on a Fedora template. It's best to use a standalone VM. I created a standalone VM based on
     the Fedora 23 template. I named the VM “**development**”. These instructions assume a standalone VM based on a       Fedora template is being used.
 <br>
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/createstandalonevm_zpscf78sezy.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/createstandalonevm_zpscf78sezy.png"/></a>
+![arch-template-01](/attachment/wiki/ArchlinuxTemplate/arch-template-01.png)
 <br>
 <br>
 *   Ensure there is at least 25GB preferably 30GB of free space in the private storage. I made the private storage 30GB to be safe.
 <br>
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/development30gb_zpsijgeanf4.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/development30gb_zpsijgeanf4.png"/></a>
+![arch-template-02](/attachment/wiki/ArchlinuxTemplate/arch-template-02.png)
 <br>
 <br> 
 
@@ -50,19 +50,19 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 
-<big>**2:   Create GitHub Account(optional):**</big>
+#####**2:   Create GitHub Account(optional):**#####
 
 *   It can be helpful. Creating only a basic account is all that is needed. This will allow you to help, going           forward, with the Qubes project. You could be help edit errors in documentation. It can also be of use building      other templates.
     
 *   Create user account here https://github.com
 <br>
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/joingithub_zpsowemb6wb.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/joingithub_zpsowemb6wb.png"/></a>    
+![arch-template-03](/attachment/wiki/ArchlinuxTemplate/arch-template-03.png)    
 <br>
 <br>
 <br>
 
-<big>**3:   Install necessary packages in the 'development' VM to use "Qubes Automated Build System":**</big>
+#####**3:   Install necessary packages to 'development' VM for "Qubes Automated Build System":**#####
 
 *   Necessary packages to install:
 
@@ -89,19 +89,19 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
     *   **$ sudo dnf install git createrepo rpm-build make wget rpmdevtools python-sh dialog rpm-sign**
 <br>
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/compiletools_zps5xojzr6w.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/compiletools_zps5xojzr6w.png"/></a>
+![arch-template-04](/attachment/wiki/ArchlinuxTemplate/arch-template-04.png)
 <br>
 <br>
 <br>
 
-<big>**4:   Installing the "Qubes Automated Build System":**</big>
+#####**4:   Installing the "Qubes Automated Build System":**#####
 
 *   To get the most current build system its best to use marmarek's git repository.
 
     *   $ **git clone https://github.com/marmarek/qubes-builder.git**
 <br>
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/gitclonemarmarek_zpsrrbkfnjp.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/gitclonemarmarek_zpsrrbkfnjp.png"/></a>
+![arch-template-05](/attachment/wiki/ArchlinuxTemplate/arch-template-05.png)
 <br>
 <br>
 
@@ -112,7 +112,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 
-<big>**5:   Configuring setup script to create builder.conf file:**</big>
+#####**5:   Configuring setup script to create builder.conf file:**#####
 
 *   You will be creating the builder.conf file which tells where and what to use.   The most automated, and in in this case the easiest, way to create this is to use the script that is provided in Qubes Builder.  Its named '**setup**'.  Before running the script you need to edit one file it uses.  
    
@@ -125,18 +125,18 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
         *   **$ nano -W qubes-os-master.conf** or **$ gedit qubes-os-master.conf** or etc….
 <br>
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/cd-nano-master.conf_zpsqjdluitk.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/cd-nano-master.conf_zpsqjdluitk.png"/></a>
+![arch-template-06](/attachment/wiki/ArchlinuxTemplate/arch-template-06.png)
 <br>
 <br>
         *   Go to the first line containing '**DIST_VM ?= fc23**' it will be preceeded by line '**DIST_DOM0 ?= fc20**'.  Remove '**fc23**' or whatever is listed there leaving only '**DIST_VM ?=**'. Then save the file and close the text editor.
 <br>
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/qubes-os-master.conf_zpsm3p51bvl.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/qubes-os-master.conf_zpsm3p51bvl.png"/></a>
+![arch-template-07](/attachment/wiki/ArchlinuxTemplate/arch-template-07.png)
 <br>
 <br>
 <br>
 
-<big>**6:   Run the 'setup' script to build the builder.conf file**</big>
+#####**6:   Run the 'setup' script to build the builder.conf file**#####
 
 *   Run the 'setup' script located in '**/home/user/qubes-builder/**' Make sure you are in directory '**qubes-builder**'
 
@@ -145,7 +145,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
     *   **$ ./setup**
 <br>
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/cd-setup-script_zps8bzn5hys.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/cd-setup-script_zps8bzn5hys.png"/></a>
+![arch-template-08](/attachment/wiki/ArchlinuxTemplate/arch-template-08.png)
 <br>
 <br>
         *   First screen will ask you to import 'Qubes-Master-Signing-key.asc'.  The 'setup' script not only downloads but confirms the key to that of the key on Qubes-OS website.  
@@ -154,7 +154,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
             *   Select '**OK**' Press '**Enter**'
 <br>
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/setup-QMSkey_zpsg8colcuo.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/setup-QMSkey_zpsg8colcuo.png"/></a>
+![arch-template-09](/attachment/wiki/ArchlinuxTemplate/arch-template-09.png)
 <br>
 <br>
 
@@ -164,7 +164,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
             *   Select '**OK**' Press '**Enter**'
 <br>
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/setup-marek-key_zps8yedxbvr.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/setup-marek-key_zps8yedxbvr.png"/></a>
+![arch-template-10](/attachment/wiki/ArchlinuxTemplate/arch-template-10.png)
 <br>
 <br>
 
@@ -174,7 +174,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
             *   Select '**OK**' Press '**Enter**'
 <br>
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/setup-qube31_zpspwotfrvo.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/setup-qube31_zpspwotfrvo.png"/></a>
+![arch-template-11](/attachment/wiki/ArchlinuxTemplate/arch-template-11.png)
 <br>
 <br>
 
@@ -184,7 +184,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
             *   Select '**OK**' Press '**Enter**' 
 <br>
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/setup-repo-marek_zpsqdlynbyj.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/setup-repo-marek_zpsqdlynbyj.png"/></a>
+![arch-template-12](/attachment/wiki/ArchlinuxTemplate/arch-template-12.png)
 <br>
 <br>
 
@@ -199,7 +199,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
             *   Select '**OK**' Press **Enter**
 <br>
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/setup-builder-archlinux_zps0wqgzlea.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/setup-builder-archlinux_zps0wqgzlea.png"/></a>
+![arch-template-13](/attachment/wiki/ArchlinuxTemplate/arch-template-13.png)
 <br>
 <br>
 
@@ -212,9 +212,9 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
             *   Press '**Enter**'
 <br>
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/setup-builder-archlinux_zps0wqgzlea.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/setup-builder-archlinux_zps0wqgzlea.png"/></a>
+![arch-template-14](/attachment/wiki/ArchlinuxTemplate/arch-template-14.png)
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/setup-builder-plugin-download-ok_zps5altnfvu.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/setup-builder-plugin-download-ok_zps5altnfvu.png"/></a>
+![arch-template-15](/attachment/wiki/ArchlinuxTemplate/arch-template-15.png)
 <br>
 <br>
 
@@ -227,39 +227,41 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
             *   Select '**OK**' Press '**Enter**'
 <br>
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/setup-template-archlinux_zpsem2j2fd8.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/setup-template-archlinux_zpsem2j2fd8.png"/></a>
+![arch-template-16](/attachment/wiki/ArchlinuxTemplate/arch-template-16.png)
 <br>
 <br>
 
             *Note: 'Setup' will close and will output the text of the created build.conf file as well as the needed                    **make** commands to build the template*
 <br>
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/setup-completion_zpsd1530puu.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/setup-completion_zpsd1530puu.png"/></a>
+![arch-template-17](/attachment/wiki/ArchlinuxTemplate/arch-template-17.png)
 <br>
 <br>
 <br>
 
-<big>**7:   Install all the dependencies: (make sure you are in the “qubes-builder” directory to run the following cmds)**</big>
+#####**7:   Install all the dependencies:**##### 
+
+*Note: make sure you are in the “qubes-builder” directory to run the following cmds*
 
 *   **$ make install-deps**
 <br>
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/makeinstall-deps-conf_zps4dtotrsb.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/makeinstall-deps-conf_zps4dtotrsb.png"/></a>
+![arch-template-18](/attachment/wiki/ArchlinuxTemplate/arch-template-18.png)
 <br>
 <br>
 <br>
 
-<big>**8:   Get all the require sources for the build: (Note: this may take some time)**</big>
+#####**8:   Get all the require sources for the build: (Note: this may take some time)**#####
 
 *   **$ make get-sources**
 <br>
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/makegetsources-conf_zps8yw2ugzf.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/makegetsources-conf_zps8yw2ugzf.png"/></a>
+![arch-template-19](/attachment/wiki/ArchlinuxTemplate/arch-template-19.png)
 <br>
 <br>
 <br>
 
-<big>**9:   Make all the require Qubes Components:**</big>
+#####**9:   Make all the require Qubes Components:**#####
 
 *   **Note:** You can run a single command to build all the Qubes components or you can run them each individually.
      Both ways below:
@@ -269,7 +271,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
         *   **$ make qubes-vm**
         <br>
         <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/makequbes-vm_zpspkobb3gc.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/makequbes-vm_zpspkobb3gc.png"/></a>
+![arch-template-20](/attachment/wiki/ArchlinuxTemplate/arch-template-20.png)
         <br>
         <br>
         
@@ -293,19 +295,18 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 
 
-<big>**10:   Make the actual Archlinux template:**</big>
+#####**10:   Make the actual Archlinux template:**#####
 
-*   **$ make template**
+*   **$ make template**  
+<br>
+<br>
+![arch-template-21](/attachment/wiki/ArchlinuxTemplate/arch-template-21.png)
+<br>
+<br>
+<br>
 
-<br>
-<br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/make_template_zpstwm18q78.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/make_template_zpstwm18q78.png"/></a>
-<br>
-<br>
-<br>
 
-
-<big>**11:   Transfer Template into Dom0**</big>
+#####**11:   Transfer Template into Dom0**#####
 
 *   You need to ensure these two files are in the '**noarch**' directory 
 
@@ -320,11 +321,9 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
     *   **$ ls**
 
         *   **qubes-template-archlinux-X.X.X-XXXXXXXXXXXX.noarch.rpm**  (this is the template package 'X' replaces version and build digits)
-
-
 <br>
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/check-template-script_zps3sknpp3r.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/check-template-script_zps3sknpp3r.png"/></a>
+![arch-template-22](/attachment/wiki/ArchlinuxTemplate/arch-template-22.png)
 <br>
 <br>
 
@@ -341,29 +340,28 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
         *   **$ sudo qvm-run --pass-io development 'cat /home/user/qubes-builder/qubes-src/linux-template-builder/rpm/install-templates.sh' > install-templates.sh**
 
         *   **$ sudo qvm-run pass-io development 'cat /home/user/qubes-builder/qubes-src/linux-template-builder/rpm/noarch/qubes-template.archlinux-3.0.4-201512290227.noarch.rpm' > /home/user/Templates/qubes-template-archlinux-3.0.4-201512290227.noarch.rpm**
+<br>
+<br>
+![arch-template-23](/attachment/wiki/ArchlinuxTemplate/arch-template-23.png)
+<br>
+<br>
+![arch-template-24](/attachment/wiki/ArchlinuxTemplate/arch-template-24.png)
+<br>
+<br>
+![arch-template-25](/attachment/wiki/ArchlinuxTemplate/arch-template-25.png)
+<br>
+<br>
+<br>
+<br>
 
-<br>
-<br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/cd-root-dom0_zps9zcdx6b9.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/cd-root-dom0_zps9zcdx6b9.png"/></a>
-<br>
-<br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/transfer-script-dom0_zpskyshvn4k.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/transfer-script-dom0_zpskyshvn4k.png"/></a>
-<br>
-<br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/transfer-tempalte_rpm-dom0_zpsxcfmfzif.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/transfer-tempalte_rpm-dom0_zpsxcfmfzif.png"/></a>
-<br>
-<br>
-<br>
-<br>
-
-<big>**If everything went correct there should be a Archlinux template listed in your Qubes VM Manager**</big>
+#####**If everything went correct there should be a Archlinux template listed in your Qubes VM Manager**#####
 
 <br>
 <br>
 <br>
 ---------------
 
-#**Package Manager Proxy Setup Section**
+##**Package Manager Proxy Setup Section**##
 
 
 One last thing to setup to have a "PROPERLY" functioning archlinux template.
@@ -386,7 +384,7 @@ Please check out:
 <br>
 <br>
 
-**1:  Editing Pacman's configuration file (pacman.conf)**
+#####**1:  Editing Pacman's configuration file (pacman.conf)**#####
 
 *   Open archlinux terminal app
 
@@ -535,7 +533,7 @@ The addition of the above xrne-x86_64 repo is needed for the repo that contains 
 <br>
 <br>
 
-**2:  Setting Up GPG** (needs network access)
+#####**2:  Setting Up GPG** (needs network access)#####
 
 *   Initialize GPG Keyring 
 
@@ -552,14 +550,14 @@ The addition of the above xrne-x86_64 repo is needed for the repo that contains 
 <br>
 <br>
 
-**3:  Install Powerpill (Pacman wrapper)** (needs network access)
+#####**3:  Install Powerpill (Pacman wrapper)** (needs network access)#####
 
 *   **$ sudo pacman -S powerpill**
 
 <br>
 <br>
 
-**4:  Install Reflector** (needs network access)
+#####**4:  Install Reflector** (needs network access)#####
 
 *Note: It scripts mirror updating.  Grabbing the most up to date gen mirror list.  It ranks them by most recently sync'd.  Then ranks them on fastest speed. Also can be used by Powerpill config to allow a once stop conf file for all if so wanted.*
 
@@ -571,7 +569,7 @@ Note:  You can combine package downloads: **$ sudo pacman -S powerpill reflector
 <br>
 <br>
 
-**5:  Backup mirrorlist prior to first running Reflector.**
+#####**5:  Backup mirrorlist prior to first running Reflector.**#####
 
 Note: For info on Reflector and its configs: [Reflector](https://wiki.archlinux.org/index.php/Reflector)
 
@@ -580,7 +578,7 @@ Note: For info on Reflector and its configs: [Reflector](https://wiki.archlinux.
 <br>
 <br>
 
-**6: Setup mirrolist with Reflector** (needs network access)**
+#####**6: Setup mirrolist with Reflector** (needs network access)**#####
 
 *Note: Look at the Reflector page to decide what filter and argument string you wish to run. Below is a default string that will work for most all to setup a working basic mirrorlist.  
 
@@ -596,7 +594,7 @@ Note: For info on Reflector and its configs: [Reflector](https://wiki.archlinux.
 <br>
 
 
-**7:  Configure Powerpill configuration file to use Qubes Proxy Service**
+#####**7:  Configure Powerpill configuration file to use Qubes Proxy Service**#####
 
 *   Qubes Proxy Address: **10.137.255.254:8082**
 
@@ -632,7 +630,7 @@ Note: For info on Reflector and its configs: [Reflector](https://wiki.archlinux.
 <br>
 <br>
 
-**8:  Test Powerpill Configuration**
+#####**8:  Test Powerpill Configuration**#####
 
 *Note: Powerpill uses and passes the same syntax as pacman*
 
@@ -645,7 +643,7 @@ Note: For info on Reflector and its configs: [Reflector](https://wiki.archlinux.
 
 <br>
 <br>
-<a href="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/powerpill_-Syu_zpsgik8t8gd.png" target="_blank"><img src="http://i256.photobucket.com/albums/hh165/tim_welter/Qubes%20OS/powerpill_-Syu_zpsgik8t8gd.png"/></a>
+![arch-template-26](/attachment/wiki/ArchlinuxTemplate/arch-template-26.png)
 <br>
 <br>
 
