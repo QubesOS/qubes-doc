@@ -39,6 +39,7 @@ Qubes Users' FAQ
  * [Can I use AMD-v instead of VT-x?](#can-i-use-amd-v-instead-of-vt-x)
  * [Can I install Qubes in a virtual machine (e.g., on VMWare)?](#can-i-install-qubes-in-a-virtual-machine-eg-on-vmware)
  * [Why does my network adapter not work?](#why-does-my-network-adapter-not-work)
+ * [Can I install Qubes OS together with other operating system (dual-boot/multi-boot)?](#can-i-install-qubes-os-together-with-other-operating-system-dual-bootmulti-boot)
 
 [Common Problems](#common-problems)
 -----------------------------------
@@ -178,6 +179,13 @@ Some users have been able to do this, but it is neither recommended nor supporte
 You may have an adapter (wired, wireless), that is not compatible with open-source drivers shipped by Qubes. There may be a binary blob, which provides drivers in the linux-firmware package.
 
 Open a terminal and run `sudo yum install linux-firmware` in the TemplateVM upon which your NetVM is based. You have to restart the NetVM after the TemplateVM has been shut down.
+
+### Can I install Qubes OS together with other operating system (dual-boot/multi-boot)?
+
+You shouldn't do that, because it pose a security risk for your Qubes OS
+installation. But if you understand the risk and accept it, read [documentation
+on multibooting](/doc/multiboot/). It starts with explanation what is wrong
+with using such setup.
 
 Common Problems
 ---------------
