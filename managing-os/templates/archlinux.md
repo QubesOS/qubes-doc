@@ -188,7 +188,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 
-        *   Screen '**Builder Plugin Selection**' will gives choices of builder plugins to use for the build. 
+        *   Screen '**Builder Plugin Selection**' will give choices of builder plugins to use for the build. 
                         
             *   Deselect '**Fedora**'
             
@@ -327,28 +327,24 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 
-*   **Transfer the two files into Dom0**
+*   **Transfer the install-templates.sh script file into Dom0**
   *Note: as there is not a typical file transfer method for Dom0, for security reasons, this less than simple transfer function has to be used*
 
     *   Swtich to Domo and open a terminal window.
 
-    **Note:** Take care when entering these cmd strings.  They are very long and have a number of characters that are easy to mix '**-**' vs '**.**' '**<u>T</u>emplates** (correct) vs **<u>t</u>emplates** (wrong) or **Template_**'(also wrong)
+    **Note:** Take care when entering these cmd strings.  They are very long and have a number of characters that are easy to mix '**-**' vs '**.**' '**<u>T</u>emplates** (correct) vs **<u>t</u>emplates** (wrong) or **Template_**'(also wrong)  This script will also take care of transfering the actual template.rpm to Dom0 as well.
 
 
         *   **$ cd /**
 
         *   **$ sudo qvm-run --pass-io development 'cat /home/user/qubes-builder/qubes-src/linux-template-builder/rpm/install-templates.sh' > install-templates.sh**
 
-        *   **$ sudo qvm-run pass-io development 'cat /home/user/qubes-builder/qubes-src/linux-template-builder/rpm/noarch/qubes-template.archlinux-3.0.4-201512290227.noarch.rpm' > /home/user/Templates/qubes-template-archlinux-3.0.4-201512290227.noarch.rpm**
 <br>
 <br>
 ![arch-template-23](/attachment/wiki/ArchlinuxTemplate/arch-template-23.png)
 <br>
 <br>
 ![arch-template-24](/attachment/wiki/ArchlinuxTemplate/arch-template-24.png)
-<br>
-<br>
-![arch-template-25](/attachment/wiki/ArchlinuxTemplate/arch-template-25.png)
 <br>
 <br>
 <br>
