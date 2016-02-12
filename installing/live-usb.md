@@ -80,16 +80,16 @@ expectations accordingly.)
 1. Currently just the 3 example VMs (untrusted, personal, work), plus the
    default net and firewall VMs are created automatically.
 2. The user has an option to manually (i.e. via command line) create an
-   additional partition, e.g. for storing GPG keyring, and then mounting it to a
+   additional partition, e.g. for storing GPG keyring, and then mounting it to
    select VMs. This is to add poor-man's persistence. We will be working on
    improving/automating that, of course.
-3. Currently there is no option of "install to disk". We will be adding this
+3. Currently there is no "install to disk" option. We will be adding this
    in the future.
 4. The amount of "disk" space is limited by the amount of RAM the laptop
    has. This has a side effect of e.g. not being able to restore (even few) VMs
    from a large Qubes backup blob.
-5. It's easy to generate Out Of Memory (OOM) in Dom0 rather easily by creating
-   lots of VMs which are writing a lot into the VMs filesystem.
+5. It's easy to generate Out Of Memory (OOM) in Dom0 by creating lots of VMs
+   which are writing a lot into the VMs filesystem.
 6. There is no DispVM savefile, so if one starts one the savefile must be
    regenerated which takes about 1-2 minutes.
 7. UEFI boot doesn't work, and if you try booting it via UEFI Xen will not be
