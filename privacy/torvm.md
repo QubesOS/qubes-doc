@@ -17,8 +17,8 @@ Known issues:
 Qubes TorVM (qubes-tor)
 ==========================
 
-Qubes TorVM is a ProxyVM service that provides torified networking to all its
-clients.
+Qubes TorVM is a depreciated ProxyVM service that provides torified networking to all its
+clients. **If you are interested in TorVM, you will find the [Whonix implementation in Qubes](https://www.qubes-os.org/doc/privacy/whonix/) a more usable and robust solution for creating a torifying traffic proxy.**
 
 By default, any AppVM using the TorVM as its NetVM will be fully torified, so
 even applications that are not Tor aware will be unable to access the outside
@@ -31,8 +31,6 @@ Due to the nature of the Tor network, only IPv4 TCP and DNS traffic is allowed.
 All non-DNS UDP and IPv6 traffic is silently dropped.
 
 See [this article](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html) for a description of the concept, architecture, and the original implementation.
-
-**If you are interested TorVM, you may find the [Whonix gateway template](https://www.qubes-os.org/doc/templates/whonix/) in Qubes a more usable and robust solution for creating a torifying traffic proxy.**
 
 ## Warning + Disclaimer
 
