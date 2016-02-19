@@ -19,7 +19,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 
 <br>
 
-##Instructions##
+## Instructions ##
 
 <br>
 **These are the instructions for Qubes 3.1. They will take you step by step thru the entire process start to finish**
@@ -30,7 +30,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 
-####**1:   Create and configure VM to use for template building:**####
+#### **1:   Create and configure VM to use for template building:** ####
 
 *   The VM should be based on a Fedora template. It's best to use a standalone VM. I created a standalone VM based on
     the Fedora 23 template. I named the VM “**development**”. These instructions assume a standalone VM based on a       Fedora template is being used.
@@ -51,7 +51,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 
-#####**2:   Create GitHub Account (optional):**#####
+##### **2:   Create GitHub Account (optional):** #####
 
 *   It can be helpful. Creating only a basic account is all that is needed. This will allow you to help, going           forward, with the Qubes project. You could be help edit errors in documentation. It can also be of use building      other templates.
     
@@ -63,7 +63,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 
-#####**3:   Install necessary packages to 'development' VM for "Qubes Automated Build System":**#####
+##### **3:   Install necessary packages to 'development' VM for "Qubes Automated Build System":** #####
 
 *   Necessary packages to install:
 
@@ -95,7 +95,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 
-#####**4:   Installing the "Qubes Automated Build System":**#####
+##### **4:   Installing the "Qubes Automated Build System":** #####
 
 *   To get the most current build system its best to use marmarek's git repository.
 
@@ -113,7 +113,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 
-#####**5:   Configuring setup script to create builder.conf file:**#####
+##### **5:   Configuring setup script to create builder.conf file:** #####
 
 *   You will be creating the builder.conf file which tells where and what to use.   The most automated, and in in this case the easiest, way to create this is to use the script that is provided in Qubes Builder.  Its named '**setup**'.  Before running the script you need to edit one file it uses.  
    
@@ -137,7 +137,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 
-#####**6:   Run the 'setup' script to build the builder.conf file**#####
+##### **6:   Run the 'setup' script to build the builder.conf file** #####
 
 *   Run the 'setup' script located in '**/home/user/qubes-builder/**' Make sure you are in directory '**qubes-builder**'
 
@@ -240,7 +240,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 
-#####**7:   Install all the dependencies:**##### 
+##### **7:   Install all the dependencies:** ##### 
 
 *Note: make sure you are in the “qubes-builder” directory to run the following cmds*
 
@@ -252,7 +252,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 
-#####**8:   Get all the require sources for the build: (Note: this may take some time)**#####
+##### **8:   Get all the require sources for the build: (Note: this may take some time)** #####
 
 *   **$ make get-sources**
 <br>
@@ -262,7 +262,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 
-#####**9:   Make all the require Qubes Components:**#####
+##### **9:   Make all the require Qubes Components:** #####
 
 *   **Note:** You can run a single command to build all the Qubes components or you can run them each individually.
      Both ways below:
@@ -296,7 +296,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 
 
-#####**10:   Make the actual Archlinux template:**#####
+##### **10:   Make the actual Archlinux template:** #####
 
 *   **$ make template**  
 <br>
@@ -307,7 +307,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 
 
-#####**11:   Transfer Template into Dom0**#####
+##### **11:   Transfer Template into Dom0** #####
 
 *   You need to ensure these two files are in the '**noarch**' directory 
 
@@ -351,14 +351,14 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 
-#####**If everything went correct there should be a Archlinux template listed in your Qubes VM Manager**#####
+##### **If everything went correct there should be a Archlinux template listed in your Qubes VM Manager** #####
 
 <br>
 <br>
 <br>
 ---------------
 
-##**Package Manager Proxy Setup Section**##
+## **Package Manager Proxy Setup Section** ##
 
 
 One last thing to setup to have a "PROPERLY" functioning archlinux template.
@@ -381,7 +381,7 @@ Please check out:
 <br>
 <br>
 
-#####**1:  Editing Pacman's configuration file (pacman.conf)**#####
+##### **1:  Editing Pacman's configuration file (pacman.conf)** #####
 
 *   Open archlinux terminal app
 
@@ -396,82 +396,82 @@ Please check out:
 <br>
 
 
-    # /etc/pacman.conf
-    #
-    # See the pacman.conf(5) manpage for option and repository directives
+     #  /etc/pacman.conf
+     #
+     #  See the pacman.conf(5) manpage for option and repository directives
 
-    #
-    # GENERAL OPTIONS
-    #
+     #
+     #  GENERAL OPTIONS
+     #
     [options]
-    # The following paths are commented out with their default values listed.
-    # If you wish to use different paths, uncomment and update the paths.
-    #RootDir     = /
-    #DBPath      = /var/lib/pacman/
-    #CacheDir    = /var/cache/pacman/pkg/
-    #LogFile     = /var/log/pacman.log
+     #  The following paths are commented out with their default values listed.
+     #  If you wish to use different paths, uncomment and update the paths.
+     # RootDir     = /
+     # DBPath      = /var/lib/pacman/
+     # CacheDir    = /var/cache/pacman/pkg/
+     # LogFile     = /var/log/pacman.log
     GPGDir      = /etc/pacman.d/gnupg/
     HoldPkg     = pacman glibc
-    #XferCommand = /usr/bin/curl -C - -f %u > %o
-    #XferCommand = /usr/bin/wget --passive-ftp -c -O %o %u
-    #CleanMethod = KeepInstalled
-    #UseDelta    = 0.7
+     # XferCommand = /usr/bin/curl -C - -f %u > %o
+     # XferCommand = /usr/bin/wget --passive-ftp -c -O %o %u
+     # CleanMethod = KeepInstalled
+     # UseDelta    = 0.7
     Architecture = auto
 
 
-    # Pacman won't upgrade packages listed in IgnorePkg and members of IgnoreGroup
-    #IgnorePkg   =
-    #IgnoreGroup =
-    #NoUpgrade   =
+     #  Pacman won't upgrade packages listed in IgnorePkg and members of IgnoreGroup
+     # IgnorePkg   =
+     # IgnoreGroup =
+     # NoUpgrade   =
     NoUpgrade = /etc/X11/xinit/xinitrc.d/pulseaudio
     NoUpgrade = /etc/X11/xinit/xinitrc.d/pulseaudio
     NoUpgrade = /etc/X11/xinit/xinitrc.d/pulseaudio
-    #NoExtract   =
+     # NoExtract   =
 
-    # Misc options
-    #UseSyslog
-    #Color
-    #TotalDownload
+     #  Misc options
+     # UseSyslog
+     # Color
+     # TotalDownload
     CheckSpace
-    #VerbosePkgLists
+     # VerbosePkgLists
 
-    # By default, pacman accepts packages signed by keys that its local keyring
-    # trusts (see pacman-key and its man page), as well as unsigned packages.
-**Edited Line:** `#SigLevel    = Required DatabaseOptional`
+     #  By default, pacman accepts packages signed by keys that its local keyring
+     #  trusts (see pacman-key and its man page), as well as unsigned packages.
+**Edited Line:** ` # SigLevel    = Required DatabaseOptional`
 
     LocalFileSigLevel = Optional
-    #RemoteFileSigLevel = Required
+     # RemoteFileSigLevel = Required
 
-    # NOTE: You must run `pacman-key --init` before first using pacman; the local
-    # keyring can then be populated with the keys of all official Arch Linux
-    # packagers with `pacman-key --populate archlinux`.
+     #  NOTE: You must run `pacman-key --init` before first using pacman; the local
+     #  keyring can then be populated with the keys of all official Arch Linux
+     #  packagers with `pacman-key --populate archlinux`.
 
-    #
-    # REPOSITORIES
-    #   - can be defined here or included from another file
-    #   - pacman will search repositories in the order defined here
-    #   - local/custom mirrors can be added here or in separate files
-    #   - repositories listed first will take precedence when packages
-    #     have identical names, regardless of version number
-    #   - URLs will have $repo replaced by the name of the current repo
-    #   - URLs will have $arch replaced by the name of the architecture
-    #
-    # Repository entries are of the format:
-    #       [repo-name]
-    #       Server = ServerName
-    #       Include = IncludePath
-    #
-    # The header [repo-name] is crucial - it must be present and
-    # uncommented to enable the repo.
-    #
+     #
+     #  REPOSITORIES
+     #    - can be defined here or included from another file
+     #    - pacman will search repositories in the order defined here
+     #    - local/custom mirrors can be added here or in separate files
+     #    - repositories listed first will take precedence when packages
+     #      have identical names, regardless of version number
+     #    - URLs will have $repo replaced by the name of the current repo
+     #    - URLs will have $arch replaced by the name of the architecture
+     #
+     #  Repository entries are of the format:
+     #        [repo-name]
+     #        Server = ServerName
+     #        Include = IncludePath
+     #
+     #  The header [repo-name] is crucial - it must be present and
+     #  uncommented to enable the repo.
+     #
 
-    # The testing repositories are disabled by default. To enable, uncomment the
-    # repo name header and Include lines. You can add preferred servers immediately
-    # after the header, and they will be used before the default mirrors.
+     #  The testing repositories are disabled by default. To enable, uncomment the
+     #  repo name header and Include lines. You can add preferred servers immediately
+     #  after the header, and they will be used before the default mirrors.
 
-    #[testing]
-    #SigLevel = PackageRequired
-    #Include = /etc/pacman.d/mirrorlist
+     # [testing]
+     # SigLevel = PackageRequired
+     # Include = /etc/pacman.d/mirrorlist
 
     [core]
 **Edited Line:** `SigLevel = PackageRequired`
@@ -483,46 +483,46 @@ Please check out:
 
     Include = /etc/pacman.d/mirrorlist
 
-    #[community-testing]
-    #SigLevel = PackageRequired
-    #Include = /etc/pacman.d/mirrorlist
+     # [community-testing]
+     # SigLevel = PackageRequired
+     # Include = /etc/pacman.d/mirrorlist
 
     [community]
 **Edited Line:** `SigLevel = PackageRequired`
 
     Include = /etc/pacman.d/mirrorlist
 
-    # If you want to run 32 bit applications on your x86_64 system,
-    # enable the multilib repositories as required here.
+     #  If you want to run 32 bit applications on your x86_64 system,
+     #  enable the multilib repositories as required here.
 
-    #[multilib-testing]
-    #Include = /etc/pacman.d/mirrorlist
+     # [multilib-testing]
+     # Include = /etc/pacman.d/mirrorlist
 
-    #[multilib]
-    #Include = /etc/pacman.d/mirrorlist
+     # [multilib]
+     # Include = /etc/pacman.d/mirrorlist
 
-    # An example of a custom package repository.  See the pacman manpage for
-    # tips on creating your own repositories.
-    #[custom]
-    #SigLevel = Optional TrustAll
-    #Server = file:///home/custompkgs
+     #  An example of a custom package repository.  See the pacman manpage for
+     #  tips on creating your own repositories.
+     # [custom]
+     # SigLevel = Optional TrustAll
+     # Server = file:///home/custompkgs
 
     [multilib]
 **Edited Line:** `SigLevel = PackageRequired`
 
     Include = /etc/pacman.d/mirrorlist
 
-**Edited Line:** `#[qubes]`
+**Edited Line:** ` # [qubes]`
 
-**Edited Line:** `#Server = http://olivier.medoc.free.fr/archlinux/pkgs/`
+**Edited Line:** ` # Server = http://olivier.medoc.free.fr/archlinux/pkgs/`
 
 **Add Section Below:**
 
     [xyne-x86_64]
-    # A repo for Xyne's own projects: http://xyne.archlinux.ca/projects/
-    # Packages for the "x86_64" architecture.
-    # Added for PowerPill app
-    # Note that this includes all packages in [xyne-any].
+     #  A repo for Xyne's own projects: http://xyne.archlinux.ca/projects/
+     #  Packages for the "x86_64" architecture.
+     #  Added for PowerPill app
+     #  Note that this includes all packages in [xyne-any].
     SigLevel = Required
     Server = http://xyne.archlinux.ca/repos/xyne
 
@@ -530,7 +530,7 @@ Please check out:
 
 <br>
 
-#####**2:  Setting Up GPG** (needs network access)#####
+##### **2:  Setting Up GPG** (needs network access) #####
 
 *   Initialize GPG Keyring 
 
@@ -547,14 +547,14 @@ Please check out:
 <br>
 <br>
 
-#####**3:  Install Powerpill (Pacman wrapper)** (needs network access)#####
+##### **3:  Install Powerpill (Pacman wrapper)** (needs network access) #####
 
 *   **$ sudo pacman -S powerpill**
 
 <br>
 <br>
 
-#####**4:  Install Reflector** (needs network access)#####
+##### **4:  Install Reflector** (needs network access) #####
 
 *Note: It scripts mirror updating.  Grabbing the most up to date gen mirror list.  It ranks them by most recently sync'd.  Then ranks them on fastest speed. Also can be used by Powerpill config to allow a once stop conf file for all if so wanted.*
 
@@ -566,7 +566,7 @@ Note:  You can combine package downloads: **$ sudo pacman -S powerpill reflector
 <br>
 <br>
 
-#####**5:  Backup mirrorlist prior to first running Reflector.**#####
+##### **5:  Backup mirrorlist prior to first running Reflector.** #####
 
 Note: For info on Reflector and its configs: [Reflector](https://wiki.archlinux.org/index.php/Reflector)
 
@@ -575,7 +575,7 @@ Note: For info on Reflector and its configs: [Reflector](https://wiki.archlinux.
 <br>
 <br>
 
-#####**6: Setup mirrolist with Reflector** (needs network access)**#####
+##### **6: Setup mirrolist with Reflector** (needs network access)** #####
 
 *Note: Look at the Reflector page to decide what filter and argument string you wish to run. Below is a default string that will work for most all to setup a working basic mirrorlist.  
 
@@ -591,7 +591,7 @@ Note: For info on Reflector and its configs: [Reflector](https://wiki.archlinux.
 <br>
 
 
-#####**7:  Configure Powerpill configuration file to use Qubes Proxy Service**#####
+##### **7:  Configure Powerpill configuration file to use Qubes Proxy Service** #####
 
 *   Qubes Proxy Address: **10.137.255.254:8082**
 
@@ -627,7 +627,7 @@ Note: For info on Reflector and its configs: [Reflector](https://wiki.archlinux.
 <br>
 <br>
 
-#####**8:  Test Powerpill Configuration**#####
+##### **8:  Test Powerpill Configuration** #####
 
 *Note: Powerpill uses and passes the same syntax as pacman*
 
@@ -648,12 +648,12 @@ Note: For info on Reflector and its configs: [Reflector](https://wiki.archlinux.
 **Remember you must open up network access anytime you wish to run the Reflector script to update the mirrorlist.  This page will be updated when/if this situation changes.**
 
 
-###**If the above checks out, you can start using your new Archlinux Template**###
+### **If the above checks out, you can start using your new Archlinux Template** ###
 
 <br>
 <br>
 
-####**Known Issues:**####
+#### **Known Issues:** ####
 
 *   If there is an Arch upgrade of Pulse Audio it will require rebuilding and installing  Qubes component: gui-agent-linux 
 
@@ -665,15 +665,15 @@ Note: For info on Reflector and its configs: [Reflector](https://wiki.archlinux.
 
 <br>
 
-####**Qubes Mailing List Threads on the Archlinux build process:**####
+#### **Qubes Mailing List Threads on the Archlinux build process:** ####
 
-*   [Qubes-Devel](https://groups.google.com/forum/#!forum/qubes-devel): [Qubes Builder failed Archlinux repository is missing](https://groups.google.com/forum/#!topic/qubes-devel/tIFkS-rPVx8)
+*   [Qubes-Devel](https://groups.google.com/forum/ # !forum/qubes-devel): [Qubes Builder failed Archlinux repository is missing](https://groups.google.com/forum/#!topic/qubes-devel/tIFkS-rPVx8)
 
-*   [Qubes-Users](https://groups.google.com/forum/#!forum/qubes-users): [Trying to compile archlinux template](https://groups.google.com/forum/#!topic/qubes-users/7wuwr3LgkQQ)    
+*   [Qubes-Users](https://groups.google.com/forum/ # !forum/qubes-users): [Trying to compile archlinux template](https://groups.google.com/forum/#!topic/qubes-users/7wuwr3LgkQQ)    
 
 <br>
 
-####**Want to contribute?**####
+#### **Want to contribute?** ####
 
 *   [How can I contribute to the Qubes Project?](/doc/contributing/)
 
