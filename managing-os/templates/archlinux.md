@@ -29,6 +29,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 <br>
+
 ####**1:   Create and configure VM to use for template building:**####
 
 *   The VM should be based on a Fedora template. It's best to use a standalone VM. I created a standalone VM based on
@@ -50,7 +51,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 
-#####**2:   Create GitHub Account(optional):**#####
+#####**2:   Create GitHub Account (optional):**#####
 
 *   It can be helpful. Creating only a basic account is all that is needed. This will allow you to help, going           forward, with the Qubes project. You could be help edit errors in documentation. It can also be of use building      other templates.
     
