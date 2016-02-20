@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Whonix for privacy & anonymizations
-permalink: /doc/privacy/whonix/
+permalink: /doc/whonix/
+redirect_from: /doc/privacy/whonix/
 ---
 
 Whonix for Privacy & Anonymity
@@ -15,13 +16,13 @@ To improve your privacy & anonymity on the internet, you can install the [Whonix
 
 To install Whonix, you must have a working Qubes machine already.
 
-*  [Install Whonix in Qubes](/doc/privacy/install-whonix/)
-*  [Updating Whonix in Qubes](/doc/privacy/updating-whonix/)
+*  [Install Whonix in Qubes](/doc/whonix/install/)
+*  [Updating Whonix in Qubes](/doc/whonix/update/)
 
 ### Customizing & Uninstalling Whonix
 
-*  [Customizing Whonix](/doc/privacy/customizing-whonix/)
-*  [Uninstall Whonix from Qubes](/doc/privacy/uninstall-whonix/)
+*  [Customizing Whonix](/doc/whonix/customize/)
+*  [Uninstall Whonix from Qubes](/doc/whonix/uninstall/)
 
 *The following links are on Whonix's website and are technical.*
 

@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Customizing Whonix
-permalink: /doc/privacy/customizing-whonix/
+permalink: /doc/whonix/customize/
+redirect_from: /doc/privacy/customizing-whonix/
 ---
 
 Customizing Whonix

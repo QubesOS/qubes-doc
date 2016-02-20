@@ -85,13 +85,12 @@ Security Guides
 
 Privacy Guides
 --------------
-  *  [Whonix for privacy & anonymization](/doc/privacy/whonix/)
-  *  [Install Whonix in Qubes](/doc/privacy/install-whonix/)
-  *  [Updating Whonix in Qubes](/doc/privacy/updating-whonix/)
-  *  [Customizing Whonix](/doc/privacy/customizing-whonix/)
-  *  [Uninstall Whonix from Qubes](/doc/privacy/uninstall-whonix/)
-  *  [How to Install TorVM](/doc/privacy/torvm/)
-  *  [How to set up a ProxyVM as a VPN Gateway](/doc/privacy/vpn/)
+  *  [Whonix for privacy & anonymization](/doc/whonix/)
+  *  [Install Whonix in Qubes](/doc/whonix/install/)
+  *  [Updating Whonix in Qubes](/doc/whonix/update/)
+  *  [Customizing Whonix](/doc/whonix/customize/)
+  *  [Uninstall Whonix from Qubes](/doc/whonix/uninstall/)
+  *  [How to Install TorVM](/doc/torvm/)
 
 
 Configuration Guides
