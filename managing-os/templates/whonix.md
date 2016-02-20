@@ -20,4 +20,4 @@ Whonix template(s) are another Qubes community contribution. Currently Whonix ac
 
 ### Installation & Details
 
-To learn more and for installation instructions, read our privacy guide: [Whonix for privacy & anonymization](/doc/privacy/whonix/)
+To learn more and for installation instructions, read our privacy guide: [Whonix for privacy & anonymization](/doc/whonix/)
