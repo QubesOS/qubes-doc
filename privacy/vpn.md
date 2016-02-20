@@ -4,6 +4,7 @@ title: VPN
 permalink: /doc/privacy/vpn/
 redirect_from:
 - /en/doc/vpn/
+- /doc/vpn/
 - /doc/VPN/
 - /wiki/VPN/
 ---
