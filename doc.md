@@ -13,8 +13,11 @@ redirect_from:
 
 The Basics
 ----------
+ *  [A Tour of Qubes OS](/tour/)
+ *  [Getting Started](/getting-started)
  *  [Users' FAQ](/doc/user-faq/)
  *  [Mailing Lists](/doc/mailing-lists/)
+ *  [Documentation Guidelines](/doc/doc-guidelines/)
  *  [Further reading: How is Qubes different from...?](http://blog.invisiblethings.org/2012/09/12/how-is-qubes-os-different-from.html)
  *  [Further reading: Why Qubes is more than a collection of VMs](http://www.invisiblethingslab.com/resources/2014/Software_compartmentalization_vs_physical_separation.pdf)
 
@@ -159,6 +162,5 @@ For Developers
  *  [Qubes OS Version Scheme](/doc/version-scheme/)
  *  [Supported Versions](/doc/supported-versions/)
  *  [Coding Guidelines](/doc/coding-style/)
- *  [Documentation Guidelines](/doc/doc-guidelines/)
  *  [Books for Developers](/doc/devel-books/)
  *  [Qubes OS License](/doc/license/)

@@ -8,8 +8,8 @@ redirect_from:
 - /doc/DocStyle/
 ---
 
-Guidelines for Documentation Contributors
-=========================================
+Documentation Guidelines
+========================
 
 All Qubes OS documentation pages are stored as plain text files in the
 dedicated [qubes-doc] repository. By cloning and regularly pulling from
