@@ -20,7 +20,7 @@ We have faced several challenges when making this Live USB edition of Qubes OS,
 which traditional Linux distros don't have to bother with:
 
 1. We needed to ensure Xen is properly started when booting the stick. In fact
-   we still don't support UEFI boot for the sitck for this reason, even though
+   we still don't support UEFI boot for the stick for this reason, even though
    the Fedora liveusb creator we used does support it. Only legacy boot for this
    version, sorry.
 2. We discovered that the Fedora liveusb-create does *not* verify signatures on

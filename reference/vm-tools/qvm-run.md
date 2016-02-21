@@ -22,7 +22,7 @@ Date
 SYNOPSIS
 --------
 
-qvm-run vmname command [aguments]
+qvm-run vmname command [arguments]
 
 OPTIONS
 -------

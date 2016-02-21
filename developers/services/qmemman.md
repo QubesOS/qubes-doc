@@ -70,7 +70,7 @@ Additionally, the balance algorithm is tuned so that XEN\_FREE\_MEM\_LEFT (50MB)
 Whenever *qmemman* is asked to return X megabytes of memory to Xen free pool, the following algorithm (*qmemman\_algo.balloon*) is executed:
 
 1.  find all domains ("donors") whose actual memory is greater than its `prefmem`
-2.  calculate how much memory can be reclaimed by shrinking donors to their `prefmem`. If is is less than X, return error.
+2.  calculate how much memory can be reclaimed by shrinking donors to their `prefmem`. If it is less than X, return error.
 3.  shrink donors, proportionally to their `prefmem`, so that X MB should become free
 4.  wait BALOON\_DELAY (0.1s)
 5.  if some domain have not given back any memory, remove it from the donors list, and go to step 2, unless we already did MAX\_TRIES (20) iterations (then return error).

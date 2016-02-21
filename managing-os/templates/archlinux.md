@@ -106,7 +106,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 
-*    You will now have the Qubes Builder System enviornment installed in the directory below:
+*    You will now have the Qubes Builder System environment installed in the directory below:
 
     *   **/home/user/qubes-builder**
 <br>
@@ -115,7 +115,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 
 ##### **5:   Configuring setup script to create builder.conf file:** #####
 
-*   You will be creating the builder.conf file which tells where and what to use.   The most automated, and in in this case the easiest, way to create this is to use the script that is provided in Qubes Builder.  Its named '**setup**'.  Before running the script you need to edit one file it uses.  
+*   You will be creating the builder.conf file which tells where and what to use.   The most automated, and in this case the easiest, way to create this is to use the script that is provided in Qubes Builder.  Its named '**setup**'.  Before running the script you need to edit one file it uses.
    
     *In the future this should not be needed once a change is made to the 'setup' script.*
 
@@ -363,11 +363,11 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 
 One last thing to setup to have a "PROPERLY" functioning archlinux template.
 
-Archlinux package manager Pacman is  a fine package mangers execpt that we could not find a way to configure it to use the Qubes Update Proxy Service (QUPS) that would compliy with Qubes QUPS usage policy.  
+Archlinux package manager Pacman is  a fine package mangers except that we could not find a way to configure it to use the Qubes Update Proxy Service (QUPS) that would comply with Qubes QUPS usage policy.
 
 *If someone does find a way please post to the Qubes-Users or Devel google groups mailing list.*
 
-Powerpill is a full Pacman wrapper that not only give easy proxy configuration but futher offers numerous other advantages.   
+Powerpill is a full Pacman wrapper that not only give easy proxy configuration but further offers numerous other advantages.
 
 Please check out:
 
@@ -376,7 +376,7 @@ Please check out:
 [XYNE's (dev) Powerpill](http://xyne.archlinux.ca/projects/powerpill/)
 
 
-**Important Note:** Until Powerpill is configured you will have to open network access to the template to get the intial packages etc downloaded.  You can use the "allow full access for" a given time period in the FW settings of the template in the VMM or open up the various services thru the same window.  Remember to change it back if you choose the later route.  Actions needing network access will be noted with (needs network access)
+**Important Note:** Until Powerpill is configured you will have to open network access to the template to get the initial packages etc downloaded.  You can use the "allow full access for" a given time period in the FW settings of the template in the VMM or open up the various services thru the same window.  Remember to change it back if you choose the later route.  Actions needing network access will be noted with (needs network access)
 
 <br>
 <br>
@@ -389,7 +389,7 @@ Please check out:
 
 *   **$ sudo nano -w /etc/pacman.conf**
         
-* Below is the output of a correct pacman.conf file  Make the changes so your file matches this one or rename the orginal and create a new one and copy and paste this text into it.  Text should be justifed left in the file.  The changes from your default are to make gpg sig signing mandatory for packages but not required for DBs for the archlinux repos.  Also to add the repo (at the end) for the Powerpill package.
+* Below is the output of a correct pacman.conf file  Make the changes so your file matches this one or rename the original and create a new one and copy and paste this text into it.  Text should be justified left in the file.  The changes from your default are to make gpg sig signing mandatory for packages but not required for DBs for the archlinux repos.  Also to add the repo (at the end) for the Powerpill package.
 
 
 <br>
@@ -542,7 +542,7 @@ Please check out:
 
     *   Confirm keys with those at [Archlinux Master Keys](https://www.archlinux.org/master-keys/)
 
-    *   For more information on Pacman key sigining: [Pacman Package Key Signing](https://wiki.archlinux.org/index.php/Pacman/Package_signing)
+    *   For more information on Pacman key signing: [Pacman Package Key Signing](https://wiki.archlinux.org/index.php/Pacman/Package_signing)
 
 <br>
 <br>
@@ -579,7 +579,7 @@ Note: For info on Reflector and its configs: [Reflector](https://wiki.archlinux.
 
 *Note: Look at the Reflector page to decide what filter and argument string you wish to run. Below is a default string that will work for most all to setup a working basic mirrorlist.  
 
-*Look to Reflector pages or --help for more info on arug and filters.*
+*Look to Reflector pages or --help for more info on args and filters.*
 
 *   **$ sudo reflector --verbose -l 5 --sort rate --save /etc/pacman.d/mirrorlist**
 

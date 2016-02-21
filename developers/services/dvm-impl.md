@@ -30,7 +30,7 @@ Preparing a savefile is done by */usr/lib/qubes/qubes\_prepare\_saved\_domain.sh
 6.  when `qubes_used_mem` key appears, the domain memory is reduced to this amount, to make the savefile smaller.
 7.  APPVM private image is detached
 8.  the domain is saved via *xl save*
-9.  the COW file volatile.img (cow for for root fs and swap) is packed to `saved_cows.tar` archive
+9.  the COW file volatile.img (cow for root fs and swap) is packed to `saved_cows.tar` archive
 
 *qubes\_prepare\_saved\_domain.sh* script is somehow lowlevel. It is usually called by *qvm-create-default-dvm* script, that takes care of creating a special AppVM (named template\_name-dvm) to be passed to *qubes\_prepare\_saved\_domain.sh*, as well as copying the savefile to /dev/shm (the latter action is not done if the `/var/lib/qubes/dvmdata/dont_use_shm` file exists).
 
@@ -53,4 +53,4 @@ Validating the DisposableVM savefile
 
 DisposableVM savefile contains references to template rootfs and to COW files. The COW files are restored before each DisposableVM start, so they cannot change. On the other hand, if templateVM is started, the template rootfs will change, and it may not be coherent with the COW files.
 
-Therefore, the check for template rootfs modification time being older than DisposableVM savefile modification time is required. It is done in *qfilexchgd* daemon, just before restoring DisposableVM. If necassary, an attempt is made to recreate the DisposableVM savefile, using the last template used (or default template, if run for the first time) and the default prerun script, residing at */var/lib/qubes/vm-templates/templatename/dispvm\_prerun.sh*. Unfortunately, the prerun script takes a lot of time to execute - therefore, after template rootfs modification, the next DisposableVM creation can be longer by about 2.5 minutes.
+Therefore, the check for template rootfs modification time being older than DisposableVM savefile modification time is required. It is done in *qfilexchgd* daemon, just before restoring DisposableVM. If necessary, an attempt is made to recreate the DisposableVM savefile, using the last template used (or default template, if run for the first time) and the default prerun script, residing at */var/lib/qubes/vm-templates/templatename/dispvm\_prerun.sh*. Unfortunately, the prerun script takes a lot of time to execute - therefore, after template rootfs modification, the next DisposableVM creation can be longer by about 2.5 minutes.

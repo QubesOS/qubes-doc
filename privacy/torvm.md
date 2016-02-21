@@ -189,7 +189,7 @@ access with different stream isolation settings:
 * Port 9050 - Isolates by SOCKS Auth and client address only  
               Each AppVM gets its own circuit, and each app using a unique SOCKS
               user/pass gets its own circuit
-* Port 9049 - Isolates client + estination port, address, and by SOCKS Auth
+* Port 9049 - Isolates client + destination port, address, and by SOCKS Auth
               Same as default settings listed above, but additionally traffic
               is isolated based on destination port and destination address.
 
