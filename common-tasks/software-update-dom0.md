@@ -71,7 +71,7 @@ Of course, command line tools are still available for accomplishing various upda
 If you've installed a package such as anti-evil-maid, you can remove it with the following command:
 
     ~~~
-    sudo qubes-dom0-update action=remove anti-evil-maid
+    sudo yum remove anti-evil-maid
     ~~~
     
 ### Kernel Upgrade ###
