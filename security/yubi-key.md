@@ -13,7 +13,7 @@ Using YubiKey to Qubes authentication
 You can use YubiKey to enhance Qubes user authentication, for example to mitigate
 risk of snooping the password. This can also slightly improve security when you have [USB keyboard](https://github.com/marmarek/qubes-app-linux-input-proxy).
 
-There (at least) two possible configurations: using OTP mode and using challenge-reponse mode.
+There (at least) two possible configurations: using OTP mode and using challenge-response mode.
 
 OTP mode
 --------

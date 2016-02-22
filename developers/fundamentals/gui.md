@@ -75,7 +75,7 @@ Certainly, it would be insecure to allow AppVM to read/write clipboard of other 
 
 -   there is a "qubes clipboard" in dom0 - its contents is stored in a regular file in dom0.
 -   if user wants to copy local AppVM clipboard to qubes clipboard, she must focus on any window belonging to this AppVM, and press **Ctrl-Shift-C**. This combination is trapped by *qubes-guid*, and `CLIPBOARD_REQ` message is sent to AppVM. *qubes-gui* responds with *CLIPBOARD_DATA* message followed by clipboard contents.
--   user focuses on other AppVM window, presses **Ctrl-Shift-V**. This combination is trapped by *qubes-guid*, and `CLIPBOARD_DATA` message followed by qubes clipboard contents is sent to AppVM; *qubes_gui* copies data to the the local clipboard, and then user can paste its contents to local applications normally.
+-   user focuses on other AppVM window, presses **Ctrl-Shift-V**. This combination is trapped by *qubes-guid*, and `CLIPBOARD_DATA` message followed by qubes clipboard contents is sent to AppVM; *qubes_gui* copies data to the local clipboard, and then user can paste its contents to local applications normally.
 
 This way, user can quickly copy clipboards between AppVMs. This action is fully controlled by the user, it cannot be triggered/forced by any AppVM.
 

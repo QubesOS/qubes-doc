@@ -54,7 +54,7 @@ SMS:
    over to government agencies.)
 
  * Using `oathtool` in a dedicated, network-isolated Qubes VM allows us to
-   achieve a unqiue combination of security and convenience. The strong isolation
+   achieve a unique combination of security and convenience. The strong isolation
    Qubes provides allows us to reap the full security benefits of MFA, while
    virtualization frees us from having to worry about finding and handling a
    second physical device.
