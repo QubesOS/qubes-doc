@@ -66,6 +66,14 @@ Of course, command line tools are still available for accomplishing various upda
     sudo yum downgrade package-version
     ~~~
 
+### How to uninstall a package
+
+If you've installed a package such as anti-evil-maid, you can remove it with the following command:
+
+    ~~~
+    sudo qubes-dom0-update action=remove anti-evil-maid
+    ~~~
+    
 ### Kernel Upgrade ###
 
 Install newer kernel. The following example installs kernel 3.19 and was tested on Qubes R3 RC1.
