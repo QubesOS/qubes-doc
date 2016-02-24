@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: TorVM
-permalink: /doc/privacy/torvm/
+permalink: /doc/torvm/
 redirect_from:
+- /doc/privacy/torvm/
 - /en/doc/torvm/
 - /doc/TorVM/
 - /doc/UserDoc/TorVM/
@@ -17,8 +18,10 @@ Known issues:
 Qubes TorVM (qubes-tor)
 ==========================
 
-Qubes TorVM is a ProxyVM service that provides torified networking to all its
-clients.
+Qubes TorVM is a deprecated ProxyVM service that provides torified networking to
+all its clients. **If you are interested in TorVM, you will find the
+[Whonix implementation in Qubes](https://www.qubes-os.org/doc/privacy/whonix/) a
+more usable and robust solution for creating a torifying traffic proxy.**
 
 By default, any AppVM using the TorVM as its NetVM will be fully torified, so
 even applications that are not Tor aware will be unable to access the outside
@@ -31,8 +34,6 @@ Due to the nature of the Tor network, only IPv4 TCP and DNS traffic is allowed.
 All non-DNS UDP and IPv6 traffic is silently dropped.
 
 See [this article](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html) for a description of the concept, architecture, and the original implementation.
-
-**If you are interested TorVM, you may find the [Whonix gateway template](https://www.qubes-os.org/doc/templates/whonix/) in Qubes a more usable and robust solution for creating a torifying traffic proxy.**
 
 ## Warning + Disclaimer
 
@@ -188,7 +189,7 @@ access with different stream isolation settings:
 * Port 9050 - Isolates by SOCKS Auth and client address only  
               Each AppVM gets its own circuit, and each app using a unique SOCKS
               user/pass gets its own circuit
-* Port 9049 - Isolates client + estination port, address, and by SOCKS Auth
+* Port 9049 - Isolates client + destination port, address, and by SOCKS Auth
               Same as default settings listed above, but additionally traffic
               is isolated based on destination port and destination address.
 

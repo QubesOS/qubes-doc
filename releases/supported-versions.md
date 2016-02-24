@@ -45,7 +45,7 @@ supported.
 | Release 3.2      | TBA             | TBA                                           |
 | Release 4.0      | TBA             | TBA                                           |
 
-\* Denotes versions for which we have pubished the packages but have not done
+\* Denotes versions for which we have published the packages but have not done
 extensive testing.
 
 [r3.1-schedule]: /doc/releases/3.1/schedule/

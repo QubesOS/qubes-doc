@@ -13,8 +13,11 @@ redirect_from:
 
 The Basics
 ----------
+ *  [A Tour of Qubes OS](/tour/)
+ *  [Getting Started](/getting-started)
  *  [Users' FAQ](/doc/user-faq/)
  *  [Mailing Lists](/doc/mailing-lists/)
+ *  [Documentation Guidelines](/doc/doc-guidelines/)
  *  [Further reading: How is Qubes different from...?](http://blog.invisiblethings.org/2012/09/12/how-is-qubes-os-different-from.html)
  *  [Further reading: Why Qubes is more than a collection of VMs](http://www.invisiblethingslab.com/resources/2014/Software_compartmentalization_vs_physical_separation.pdf)
 
@@ -85,13 +88,12 @@ Security Guides
 
 Privacy Guides
 --------------
-  *  [Whonix for privacy & anonymization](/doc/privacy/whonix/)
-  *  [Install Whonix in Qubes](/doc/privacy/install-whonix/)
-  *  [Updating Whonix in Qubes](/doc/privacy/updating-whonix/)
-  *  [Customizing Whonix](/doc/privacy/customizing-whonix/)
-  *  [Uninstall Whonix from Qubes](/doc/privacy/uninstall-whonix/)
-  *  [How to Install TorVM](/doc/privacy/torvm/)
-  *  [How to set up a ProxyVM as a VPN Gateway](/doc/privacy/vpn/)
+  *  [Whonix for privacy & anonymization](/doc/whonix/)
+  *  [Install Whonix in Qubes](/doc/whonix/install/)
+  *  [Updating Whonix in Qubes](/doc/whonix/update/)
+  *  [Customizing Whonix](/doc/whonix/customize/)
+  *  [Uninstall Whonix from Qubes](/doc/whonix/uninstall/)
+  *  [How to Install TorVM](/doc/torvm/)
 
 
 Configuration Guides
@@ -160,6 +162,5 @@ For Developers
  *  [Qubes OS Version Scheme](/doc/version-scheme/)
  *  [Supported Versions](/doc/supported-versions/)
  *  [Coding Guidelines](/doc/coding-style/)
- *  [Documentation Guidelines](/doc/doc-guidelines/)
  *  [Books for Developers](/doc/devel-books/)
  *  [Qubes OS License](/doc/license/)

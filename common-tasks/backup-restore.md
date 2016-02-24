@@ -11,7 +11,7 @@ redirect_from:
 Qubes Backup, Restoration, and Migration
 ========================================
 
-**Caution:** The Qubes backup system currently relies on a [weak key derivation scheme](https://github.com/QubesOS/qubes-issues/issues/971). It is *strongly recommended* that users select a *high-entropy* passphrase for use with with Qubes backups.
+**Caution:** The Qubes backup system currently relies on a [weak key derivation scheme](https://github.com/QubesOS/qubes-issues/issues/971). It is *strongly recommended* that users select a *high-entropy* passphrase for use with Qubes backups.
 
  * [Creating a Backup](#creating-a-backup)
  * [Restoring from a Backup](#restoring-from-a-backup)
