@@ -144,4 +144,10 @@ If you would like to enable the [RPM Fusion](http://rpmfusion.org/) repository..
 
 dom0 Start Menu -> Template:Fedora 21 -> Package Sources -> Enable RPMFusion
 
-This already covers RPMFusion yum signing keys.
+Alternatively you can enable the `free` and/or `nonfree` repo by setting `enabled=1` in the following files in `/etc/yum.repos.d/`
+* rpmfusion-free.repo
+* rpmfusion-free-updates.repo
+* rpmfusion-nonfree.repo
+* rpmfusion-nonfree-updates.repo
+
+These methodes already covers RPMFusion yum signing keys.
