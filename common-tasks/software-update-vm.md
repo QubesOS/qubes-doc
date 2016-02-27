@@ -140,14 +140,19 @@ Also note that Disposable VMs do not have persistent user filesystem, and so the
 RPMFusion for a Fedora TemplateVM
 ---------------------------------
 
-If you would like to enable the [RPM Fusion](http://rpmfusion.org/) repository...
+If you would like to enable the [RPM Fusion](http://rpmfusion.org/) repository, it is recommended you clone the default fedora template and from its command line you can:
+* List repositories with `pkcon repo-list`
+* Enable a repository with `pkcon repo-enable rpmfusion-free`
+* Disable a repository with `pkcon repo-disable rpmfusion-free`
 
-dom0 Start Menu -> Template:Fedora 21 -> Package Sources -> Enable RPMFusion
+Alternatively you can enable/disable repos by setting `enabled=1` in the files in `/etc/yum.repos.d/`
 
-Alternatively you can enable the `free` and/or `nonfree` repo by setting `enabled=1` in the following files in `/etc/yum.repos.d/`
+For rpm-fusion the following files may be used, please review the repository licencing usage first.
 * rpmfusion-free.repo
 * rpmfusion-free-updates.repo
 * rpmfusion-nonfree.repo
 * rpmfusion-nonfree-updates.repo
 
-These methodes already covers RPMFusion yum signing keys.
+On the first install of a package from one of these repositories, your will be presented with the signing keys that you need to [verify](/doc/verifying-signatures/), and accept.
+http://rpmfusion.org/keys
+
