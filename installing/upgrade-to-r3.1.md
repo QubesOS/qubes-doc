@@ -11,8 +11,6 @@ redirect_from:
 Upgrading Qubes R3.0 to R3.1
 ======================================
 
-**Caution: The procedure to upgrade from R3.0 to R3.1 is experimental!**
-
 **Before attempting either an in-place upgrade or a clean installation, we
 strongly recommend that users [back up their systems](/doc/backup-restore/).**
 
