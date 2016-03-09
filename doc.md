@@ -163,3 +163,5 @@ For Developers
  *  [Documentation Guidelines](/doc/doc-guidelines/)
  *  [Books for Developers](/doc/devel-books/)
  *  [Qubes OS License](/doc/license/)
+ *  [Style Guide](/doc/style-guide/)
+ *  [Usability & UX](/doc/usability-ux/)
