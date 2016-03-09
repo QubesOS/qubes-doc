@@ -7,7 +7,7 @@ permalink: /doc/usability-ux/
 Usability & UX
 ==============
 
-If software is too complicated to use, it often goes unused. Thus, usability and user experience of Qubes OS is an utmost priority for us, as we want as many people as possible to benefit from the unique security properties of Qubes OS!
+Software that is too complicated to use, is often unused. Thus, usability and user experience of Qubes OS is an utmost priority for us, as we want as many people as possible to benefit from the unique security properties of Qubes OS!
 
 We ask anyone developing for Qubes OS to please read through this guide to better understand the user experience we strive to achieve. Also, please review [our style guide](/doc/style-guide/) for other design related information.
 
@@ -22,7 +22,7 @@ An ideal user experience is friendly and welcomes a new user to explore the inte
 </div>
 
 - Require numerous settings to be entered before a user can *begin* doing things
-- Allow breaking provided features or actions in unrecoverable ways
+- Make it possible to break provided features or actions in unrecoverable ways
 - Perform actions which compromise security and data
 - Overwhelm with too much information and cognitive load
 
@@ -53,7 +53,7 @@ There will always be the need to communicate things to users. In these cases, an
 Acronyms are short and make good names for command line tools. Acronyms do not make graphical user interfaces more intuitive for non-technical users. Until one learns an acronyms meaning, it is otherwise meaningless. Avoid acronyms whenever possible!
 
 - `DVM` - Disposable Virtual Machine
-- `GUID` - Graphic User Interface Domain
+- `GUID` - Global Unique Identifier
 - `PID` - Process Identification
 - `NetVM` - Networking Virtual Machine
 
@@ -94,7 +94,7 @@ Large amounts of the global population have been using computers for one or two 
 - Use`saving` instead of `savefile` as the former is the action trying to be completed
 - Use `Qubes` instead of `qrexec-daemon` as it is the larger context what is happening
 
-While these words are less accurate or precise, they help a user understand what is happening based on already known concepts (disk space) or start to form a mental model of something new (Qubes).
+These words are more abstract and user relevant- they help a user understand what is happening based on already known concepts (disk space) or start to form a mental model of something new (Qubes).
 
 ---
 
@@ -123,7 +123,7 @@ By using the same term throughout an interface, a user can create a mental model
 ---
 
 <div class="focus">
-  <i class="fa fa-times"></i> <strong>Avoid Unneeded Redundancies</strong>
+  <i class="fa fa-times"></i> <strong>Avoid Duplicate Words</strong>
 </div>
 
 It is easy when trying to be descriptive and accurate to add words like `Domain` before items in a list or menu such as:
@@ -135,13 +135,13 @@ Menu
 - Domain: personal
 ~~~
 
-The redundant use of `Domain` requires a users to read it for each item in the list- this takes extra time for the eye to parse to exact the word they are looking for, such as `work, banking, or personal`. This also affects horizontal space on fixed width lines.
+The repeated use of the word `Domain` requires a user to read it for each item in the list, which takes extra time for the eye to parse out the relevant word like `work, banking, or personal`.  This also affects horizontal space on fixed width lines.
 
 <div class="focus">
   <i class="fa fa-check"></i> <strong> Create Groups & Categories</strong>
 </div>
 
-It is better to group things under headings like `Domains` as this allows the eye to easily scan the uniqueness of the items
+It is more efficient to group things under headings like `Domains` as this allows the eye to easily scan the uniqueness of the items.
 
 ~~~
 Domains
@@ -152,29 +152,59 @@ Domains
 
 ---
 
-## Easy To Resolve
+## Easy To Complete
 
-Lastly, expected (and unexpected) situations will happen which require user actions or input. Make resolving of these actions as easy as possible.
+Lastly, expected (and unexpected) situations will happen which require user actions or input. Make resolving of these actions as easy as possible to complete the action or find.
 
 <div class="focus">
-  <i class="fa fa-times"></i> <strong>Do Not Strand Users</strong>
+  <i class="fa fa-times"></i> <strong>Don't Leave Users Stranded</strong>
 </div>
 
-Consider the following notifications which are shown to a user
+Consider the following notifications which are shown to a user:
 
 - `The disk space of your Qube "Work" is full`
-- `There was an error saving that Qube`
+- `There was an error saving Qube "Personal"`
 
 <div class="focus">
-  <i class="fa fa-check"></i> <strong> Offer Solutions</strong>
+  <i class="fa fa-check"></i> <strong> Offer Actionable Solutions</strong>
 </div>
 
-Add buttons or links to helpful information that a user can engage with to overcome the issue they experienced
+An error message or limit such as that can be greatly improved upon by adding buttons or links to helpful information.
 
 - Add a button `Increase Disk Space`
 - Add a link to documentation `Troubleshoot saving data`
 
-Adhering to these principles, make undesirable situations more manageable for users.
+Adhering to these principles, make undesirable situations more manageable for users instead of feeling stranded.
+
+---
+
+<div class="focus">
+  <i class="fa fa-times"></i> <strong>Avoid Repetitive Tasks</strong>
+</div>
+
+There are many cases where a user wants to perform an action on more than one file or folder. However in order to do the action, the user must repeat certain steps such as:
+
+1. Click on `Open File` from a menu or button
+2. Navigate through file system
+  - Click Folder One
+  - Click Folder Two
+  - Click Folder Three
+  - Click Folder Four
+3. Select proper file
+4. Complete task on file
+
+That subtle act of clicking through a file system can prove to be significant if a user needs to open more than a couples files in the same directory.
+
+<div class="focus">
+  <i class="fa fa-check"></i> <strong>Minimize Repetitive Steps</strong>
+</div>
+
+1. Click on `Open File` from a menu or button
+2. Remember last open file system
+3. Select proper file
+4. Complete task
+
+Clearly, cutting out navigating through the file system can save a user quite a bit of time. Alternatively, adding a button or menu item `Open Multiple Files` could be even better, as using hot keys to select multiple files is often a thing only power users know how to do!
 
 ---
 
