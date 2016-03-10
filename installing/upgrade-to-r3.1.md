@@ -36,7 +36,7 @@ section should be repeated in **all** the user's Template and Standalone VMs.
 
 2.  Install the `qubes-upgrade-vm` package:
 
-        sudo yum install --enablerepo=qubes-vm-r3.0-current-testing qubes-upgrade-vm
+        sudo yum install qubes-upgrade-vm
 
 3.  Proceed with a normal upgrade in the template:
 
