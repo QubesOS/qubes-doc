@@ -12,7 +12,7 @@ Qubes-certified laptops are laptops that have been tested by the Qubes developer
 We aim to partner with a few select computer makers to ensure that Qubes is compatible with them, so that new users have clear path towards getting started with Qubes if they desire. We aim for these makers to be as diverse as possible in terms of geography, cost, and availability. 
 
 Note that we certify only that particular configuration is supported by Qubes
-OS. We take no responsibility for our partners shipping process - including
+OS. We take no responsibility for our partners' shipping process - including
 the hardware will not being modified in any way (malicious or not).
 
 Purism Librem 13
