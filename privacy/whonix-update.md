@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Updating Whonix in Qubes
-permalink: /doc/privacy/updating-whonix/
+permalink: /doc/whonix/update/
+redirect_from: /doc/privacy/updating-whonix/
 ---
 
 Updating Whonix in Qubes

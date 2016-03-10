@@ -19,6 +19,7 @@ First you should decide what you are interested in (and good in). The Qubes proj
 -   Code audit (e.g. gui-daemon)
 -   New features
 -   Artwork (plymouth themes, KDM themes, installer themes, wallpapers, etc)
+-   [Documentation](/doc/doc-guidelines)
 
 Perhaps the best starting point is to have a look at the [issues](https://github.com/QubesOS/qubes-issues/issues) to see what are the most urgent tasks to do.
 

@@ -11,8 +11,6 @@ redirect_from:
 Upgrading Qubes R3.0 to R3.1
 ======================================
 
-**Caution: The procedure to upgrade from R3.0 to R3.1 is experimental!**
-
 **Before attempting either an in-place upgrade or a clean installation, we
 strongly recommend that users [back up their systems](/doc/backup-restore/).**
 
@@ -38,11 +36,11 @@ section should be repeated in **all** the user's Template and Standalone VMs.
 
 2.  Install the `qubes-upgrade-vm` package:
 
-        sudo dnf install --enablerepo=qubes-vm-r3.0-current-testing qubes-upgrade-vm
+        sudo yum install qubes-upgrade-vm
 
 3.  Proceed with a normal upgrade in the template:
 
-        sudo dnf upgrade
+        sudo yum upgrade
 
 4.  Shut down the template VM.
 

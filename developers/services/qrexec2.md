@@ -313,7 +313,7 @@ steps are taken:
  * `qrexec-daemon` executes `qrexec-policy`, passing source vmname, target
  vmname, rpc action, and CID as cmdline arguments
  * `qrexec-policy` evaluates the policy file. If successful, creates a pair of
- `qrexec-client` processes, whose stdin/stdout are cross-connencted.
+ `qrexec-client` processes, whose stdin/stdout are cross-connected.
    * The first `qrexec-client` connects to the src VM, using the `-c ClientID`
    parameter, which results in not creating a new process, but connecting to
    the existing process file descriptors (these are the fds of unix socket

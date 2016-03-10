@@ -75,3 +75,13 @@ Important Notes
    TemplateBasedVMs persist in this manner. If you would like to make changes
    in other directories which *do* persist in this manner, you must make those
    changes in the parent TemplateVM.
+
+ * Templates are not automatically updated when
+   [updating dom0](/doc/software-update-dom0/). This is by design, since doing
+   so would cause all user modifications to templates to be lost. Instead, you
+   should update your templates
+   [from within each template](/doc/software-update-vm/). If you *do* want to
+   update a template from dom0 (and thereby lose any user modifications in the
+   existing template), you must first uninstall the existing template from dom0:
+
+       $ sudo yum remove qubes-template-fedora-23

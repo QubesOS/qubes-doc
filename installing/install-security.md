@@ -10,17 +10,19 @@ redirect_from:
 
 # Installation Security Considerations #
 
+
 ## Verifying the Qubes ISO ##
 
-You should [verify][] the PGP signature on your Qubes ISO before you install
+You should [verify] the PGP signature on your Qubes ISO before you install
 from it. However, if the machine on which you attempt the verification process
 is already compromised, it could falsely claim that a malicious ISO has a good
 signature. Therefore, in order to be certain that your Qubes ISO is trustworthy,
 you require a trustworthy machine. But how can you be certain *that* machine is
 trustworthy? Only by using another trusted machine, and so forth. This is a
-[classic problem][trusting-trust]. While various [solutions][countering] have
-been proposed, the point is that each user must ultimately make a choice about
-whether to trust that a file is non-malicious.
+[classic problem]. While various [solutions] have been proposed, the point is
+that each user must ultimately make a choice about whether to trust that a file
+is non-malicious.
+
 
 ## Choosing an Installation Medium ##
 
@@ -29,11 +31,12 @@ decided to trust your Qubes ISO. Great! Now you must decide what sort of medium
 on which to write it so that you can install from it. From a Qubes-specific
 security perspective, each has certain pros and cons.
 
+
 ### USB Drives ###
 
 Pros:
 
- * Works via USB, including with a [USBVM][].
+ * Works via USB, including with a [USB qube].
  * Non-fixed capacity. (Easy to find one on which the ISO can fit.)
 
 Cons:
@@ -44,6 +47,7 @@ Cons:
    Plugging a drive with rewritable firmware into a compromised machine can
    also [compromise the drive][BadUSB]. Installing from a compromised drive
    could compromise even a brand new Qubes installation.)
+
 
 ### Optical Discs ###
 
@@ -71,8 +75,10 @@ Cons:
    untrusted ISO to dom0 in order to burn it to disc, which leaves only the
    other two options.)
 
-[verify]: https://www.qubes-os.org/doc/VerifyingSignatures/
-[trusting-trust]: http://www.acm.org/classics/sep95/
-[countering]: http://www.dwheeler.com/trusting-trust/
-[USBVM]: https://www.qubes-os.org/doc/SecurityGuidelines/#creating-and-using-a-usbvm
+
+[verify]: /doc/verifying-signatures/
+[classic problem]: http://www.acm.org/classics/sep95/
+[solutions]: http://www.dwheeler.com/trusting-trust/
+[USB qube]: /doc/usb/#creating-and-using-a-usb-qube
 [BadUSB]: https://srlabs.de/badusb/
+

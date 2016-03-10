@@ -21,7 +21,7 @@ Read the [guidelines](/doc/security-guidelines) carefully.
 One problem is that when you dual or multiboot, even if you are using
 encryption on your Qubes installation, /boot is still unprotected and
 could be maliciously modified by the other OS, possibly leading to Qubes
-itself being maliciously modifed.
+itself being maliciously modified.
 
 The other problem is firmware security - for example the other system
 could infect BIOS firmware, which might enable compromise or spying on
@@ -177,8 +177,8 @@ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 Troubleshooting
 ----------------------
 
-If you install Qubes without making any backups beforehand, dont worry.  
-If you didnt overwrite the original partitions, then it is usually
+If you install Qubes without making any backups beforehand, don't worry.
+If you didn't overwrite the original partitions, then it is usually
 possible to recover your old systems relatively easily, as described above.
 
 If you decided to use a shared /boot and *dont* have backups of your previous
