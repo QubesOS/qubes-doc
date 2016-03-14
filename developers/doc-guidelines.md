@@ -26,6 +26,13 @@ GitHub interface will automatically guide you through the
 walkthrough of this process below.)
 
 
+Style Guidelines
+----------------
+
+ * Familiarize yourself with the terms defined in the [glossary]. Use these
+   terms consistently and accurately throughout your writing.
+
+
 Markdown Conventions
 --------------------
 
