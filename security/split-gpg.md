@@ -7,6 +7,11 @@ redirect_from:
 - /doc/SplitGpg/
 - /doc/UserDoc/SplitGpg/
 - /wiki/UserDoc/SplitGpg/
+- /doc/open-pgp/
+- /en/doc/open-pgp/
+- /doc/OpenPGP/
+- /doc/UserDoc/OpenPGP/
+- /wiki/UserDoc/OpenPGP/
 ---
 
 Qubes Split GPG
