@@ -13,11 +13,6 @@ Qubes Backup, Restoration, and Migration
 
 **Caution:** The Qubes backup system currently relies on a [weak key derivation scheme](https://github.com/QubesOS/qubes-issues/issues/971). It is *strongly recommended* that users select a *high-entropy* passphrase for use with Qubes backups.
 
- * [Creating a Backup](#creating-a-backup)
- * [Restoring from a Backup](#restoring-from-a-backup)
- * [Emergency Backup Recovery without Qubes](#emergency-backup-recovery-without-qubes)
- * [Migrating Between Two Physical Machines](#migrating-between-two-physical-machines)
- * [Notes](#notes)
 
 With Qubes, it's easy to back up and restore your whole system, as well as to migrate between two physical machines.
 
@@ -98,6 +93,6 @@ In order to migrate your Qubes system from one physical machine to another, simp
 Notes
 -----
 
- * The Qubes backup system relies on `openssl enc`, which is known to use a very weak key derivation scheme. The Qubes backup system also uses the same passphrase for authentication and for encryption, which is problematic from a security perspective. Users are advised to use a very high entropy passphrase for Qubes backups. For a full discussion, see [this thread](https://groups.google.com/d/msg/qubes-devel/CZ7WRwLXcnk/u_rZPoVxL5IJ).
+ * The Qubes backup system relies on `openssl enc`, which is known to use a very weak key derivation scheme. The Qubes backup system also uses the same passphrase for authentication and for encryption, which is problematic from a security perspective. Users are advised to use a very high entropy passphrase for Qubes backups. For a full discussion, see [this ticket](https://github.com/QubesOS/qubes-issues/issues/971) and [this thread](https://groups.google.com/d/msg/qubes-devel/CZ7WRwLXcnk/u_rZPoVxL5IJ).
  * For the technical details of the backup system, please refer to [this thread](https://groups.google.com/d/topic/qubes-devel/TQr_QcXIVww/discussion).
  * If working with symlinks, note the issues described in [this thread](https://groups.google.com/d/topic/qubes-users/EITd1kBHD30/discussion).
