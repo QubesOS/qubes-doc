@@ -66,7 +66,7 @@ Please see [this article](http://theinvisiblethings.blogspot.com/2012/09/how-is-
 
 ### What is the main concept behind Qubes?
 
-To build security on the “Security by Isolation” principle.
+To build security on the “Security by Compartmentalization (or Isolation)” principle.
 
 ### What about other approaches to security?
 
@@ -135,11 +135,11 @@ No. Qubes does not pretend to be a multi-user system. Qubes assumes that the use
 
 ### Why passwordless sudo?
 
-Please refer to [this page](https://www.qubes-os.org/doc/VMSudo/).
+Please refer to [this page](https://www.qubes-os.org/doc/vm-sudo/).
 
 ### How should I report documentation issues?
 
-Create an issue in [qubes-issues](https://github.com/QubesOS/qubes-issues/issues), but **please make sure your issue does not already exist**. Documentation-related issues will be assigned the `doc` label. Issues which have been created in `qubes-issues` are significantly more likely to be addressed than those sent in emails to the mailing lists.
+Please see the [documentation guidelines](/doc/doc-guidelines).
 
 ### Will Qubes seek to get certified under the GNU Free System Distribution Guidelines (GNU FSDG)?
 
@@ -148,7 +148,7 @@ Not currently, for the same reasons that [Debian is not certified](https://www.g
 Installation & Hardware Compatibility
 -------------------------------------
 
-(See also: [System Requirements](/doc/system-requirements/) and [Hardware Compatibility List](/hcl/).)
+(See also: [System Requirements](/doc/system-requirements/), [Hardware Compatibility List](/hcl/), and [Certified Laptops](/doc/certified-laptops/).)
 
 ### How much disk space does each AppVM require?
 
@@ -235,11 +235,11 @@ Please review the note on [this page](https://www.qubes-os.org/doc/Dom0Tools/Qvm
 
 This is an intended feature. A device which was previously assigned to a less trusted AppVM could attack dom0 if it were automatically reassigned there. In order to re-enable the device in dom0, either:
 
-1.  Reboot the physical machine.
+ * Reboot the physical machine.
 
 or
 
-1.  Go to the sysfs (`/sys/bus/pci`), find the right device, detach it from the pciback driver and attach back to the original driver. Replace `<BDF>` with your device, for example `00:1c.2`:
+ * Go to the sysfs (`/sys/bus/pci`), find the right device, detach it from the pciback driver and attach back to the original driver. Replace `<BDF>` with your device, for example `00:1c.2`:
 
         echo 0000:<BDF> > /sys/bus/pci/drivers/pciback/unbind
         MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
