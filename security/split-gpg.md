@@ -24,12 +24,12 @@ private GPG keys, except that the role of the "smart card" plays another Qubes
 AppVM. This way one, not-so-trusted domain, e.g. the one where Thunderbird is
 running, can delegate all crypto operations, such as encryption/decryption
 and signing to another, more trusted, network-isolated, domain. This way
-a compromise of your domain where the Thunderbird or other client app is
+the compromise of your domain where Thunderbird or another client app is
 running -- arguably a not-so-unthinkable scenario -- does not allow the
-attacker to automatically also steal all your keys (we should make a rather
+attacker to automatically also steal all your keys. (We should make a rather
 obvious comment here that the so-often-used passphrases on private keys are
 pretty meaningless because the attacker can easily set up a simple backdoor
-which would wait until the user enters the passphrase and steal the key then).
+which would wait until the user enters the passphrase and steal the key then.)
 
 The diagram below presents the big picture of Split GPG architecture.
 
@@ -66,19 +66,14 @@ way it would be easy to spot unexpected requests to decrypt documents.
 
 - Current implementation requires importing of public keys to the vault
 domain. This opens up an avenue to attack the gpg running in the backend domain
-via a hypothetical bug in public key importing code. See ticket \#474 for more
+via a hypothetical bug in public key importing code. See ticket [#474] for more
 details and plans how to get around this problem, as well as the section on
-[using split GPG with subkeys](#advanced-using-split-gpg-with-subkeys) below.
+[using split GPG with subkeys] below.
 
 - It doesn't solve the problem of allowing the user to know what is to be
 signed before the operation gets approved. Perhaps the GPG backend domain
 could start a Disposable VM and have the to-be-signed document displayed
 there? To Be Determined.
-
-- Verifying detached signatures does not work (see \#900). You have to have
-public keys in AppVM and some means to use different command to verify
-them. Both git and Enigmail does not allow that and you have to choose
-between Split GPG and PGP/MIME.
 
 
 Configuring and using Split GPG
@@ -143,6 +138,14 @@ domain name and use `qubes-gpg-client` in place of `gpg`, e.g.:
 Note that running normal `gpg -K` in the demo above shows no private keys
 stored in this AppVM.
 
+A note on `gpg` and `gpg2`:
+
+Throughout this guide, we refer to `gpg`, but note that Split-GPG uses `gpg2`
+under the hood for compatibility with programs like Enigmail (which now supports
+only `gpg2`). If you encounter trouble while trying to set up Split-GPG, make
+sure you're using `gpg2` for your configuration and testing, since keyring data
+may differ between the two installations.
+
 ### Configuring Thunderbird/Enigmail for use with Split GPG ###
 
 However, when using Thunderbird with Enigmail extension it is
@@ -153,44 +156,20 @@ script instead of the standard GnuPG binary:
 
 ![tb-enigmail-split-gpg-settings-2.png](/attachment/wiki/SplitGpg/tb-enigmail-split-gpg-settings-2.png)
 
-The script also sets the QUBES\_GPG\_DOMAIN variable automatically based on
+The script also sets the `QUBES_GPG_DOMAIN` variable automatically based on
 the content of the file `/rw/config/gpg-split-domain`, which should be set to
 the name of the GPG backend VM. This file survives the AppVM reboot, of course.
 
     [user@work ~]$ sudo bash
     [user@work ~]$ echo "work-gpg" > /rw/config/gpg-split-domain
 
-*NOTE*: A recent engimail update, version `thunderbird-enigmail-1.7-1`,
-introduced changes in how Enigmail expects to execute GPG binary
-and so requires an updated split-gpg package with version \>=
-`qubes-gpg-split-2.0.7-1`. Please make sure you have all the latest qubes
-packages installed in your template.
+A note on passphrases:
 
-*NOTE*: With default settings, [Split GPG is currently incompatible with TorBirdy](https://github.com/QubesOS/qubes-issues/issues/1024). You either a)
-every time you start icedove to do the following
-([Because TorBirdy does not store these settings.](https://trac.torproject.org/projects/tor/ticket/13430))
-
-icedove -> Preferences -> Advanced -> under `Additional Parameters of gnupg` -> remove `--keyserver-options no-auto-key-retrieve,no-try-dns-srv,http-proxy=http://127.0.0.1:8118`
-
-or b) create `user.js` file permanently storing this.
-
-    [user@work ~]$ echo 'user_pref("extensions.torbirdy.custom.extensions.enigmail.agentAdditionalParam", "--no-emit-version --no-comments --display-charset utf-8");' >> ~/.icedove/*.default/user.js
-    
-The disadvantage of b) is, that you will not receive updates of the setting
-`extensions.torbirdy.custom.extensions.enigmail.agentAdditionalParam` should TorBirdy developers
-decide to modify that setting. Either not care about this or try to remember, when TorBirdy is
-updated to check if that setting has changed as per TorBirdy defaults. (You could look into
-`~/.icedove/*.default/prefs.js`.)
-
-### How to use `gpg2` instead of `gpg` ###
-
-In your GPG backend domain's TemplateVM:
-
-1. `sudo vim /etc/qubes-rpc/qubes.Gpg`
-2. Change `/usr/bin/gpg` to `/usr/bin/gpg2`.
-3. Ensure that your key has a **blank passphrase**. If not, you will encounter
-   an error.
-4. Shut down the TemplateVM and restart the GPG backend domain.
+You may experience trouble when attempting to use a PGP key *with a  passphrase*
+along with Split-GPG and Enigmail. If you do, you may need to remove the
+passphrase from your (sub)key(s) in order to get Split-GPG working correctly.
+As mentioned above, we do not believe PGP key passphrases to be significant
+from a security perspective.
 
 ### Importing public keys ###
 
@@ -208,7 +187,7 @@ displayed to accept this.
 Advanced: Using Split GPG with Subkeys
 --------------------------------------
 Users with particularly high security requirements may wish to use Split
-GPG with [​subkeys](https://wiki.debian.org/Subkeys). However, this setup
+GPG with [​subkeys]. However, this setup
 comes at a significant cost: It will be impossible to sign other people's keys
 with the master secret key without breaking this security model. Nonetheless,
 if signing others' keys is not required, then Split GPG with subkeys offers
@@ -287,17 +266,17 @@ In this example, the following keys are stored in the following locations
    This is a network-isolated VM. The initial master keypair and
    subkeys are generated in this VM. The master secret key *never*
    leaves this VM under *any* circumstances. No files or text is *ever*
-   [copied](/doc/CopyingFiles#on-inter-domain-file-copy-security) or
-   [pasted](/doc/CopyPaste#on-copypaste-security) into this VM under *any*
+   [copied] or
+   [pasted] into this VM under *any*
    circumstances.
 
  * `work-gpg`
 
    This is a network-isolated VM. This VM is used *only* as the
    GPG backend for `work-email`. The secret subkeys (but *not*
-   the master secret key) are [copied](/doc/CopyingFiles) from the
+   the master secret key) are [copied] from the
    `vault` VM to this VM. Files from less trusted VMs are *never*
-   [copied](/doc/CopyingFiles#on-inter-domain-file-copy-security) into this
+   [copied] into this
    VM under *any* circumstances.
 
  * `work-email`
@@ -311,7 +290,7 @@ In this example, the following keys are stored in the following locations
 In the standard Split GPG setup, there are at least two ways in
 which the `work-gpg` VM might be compromised. First, an attacker
 who is capable of exploiting a hypothetical bug in `work-email`'s
-[​MUA](https://en.wikipedia.org/wiki/Mail_user_agent) could gain control of
+[​MUA] could gain control of
 the `work-email` VM and send a malformed request which exploits a hypothetical
 bug in the GPG backend (running in the `work-gpg` VM), giving the attacker
 control of the `work-gpg` VM. Second, a malicious public key file which is
@@ -322,7 +301,7 @@ both the master secret key and its passphrase (if any is used, it would
 regularly be input in the work-gpg VM and therefore easily obtained by an
 attacker who controls this VM) back to the `work-email` VM or to another VM
 (e.g., the `netvm`, which is always untrusted by default) via the Split GPG
-protocol or other [covert channels](/doc/DataLeaks). Once the master secret
+protocol or other [covert channels]. Once the master secret
 key is in the `work-email` VM, the attacker could simply email it to himself
 (or to the world).
 
@@ -341,7 +320,7 @@ place. (This is significantly less devastating than having to create a new
 <sup>\*</sup>In order to gain access to the `vault` VM, the attacker
 would require the use of, e.g., a general Xen VM escape exploit
 or a [signed, compromised package which is already installed in the
-TemplateVM](/doc/SoftwareUpdateVM#notes-on-trusting-your-template-vms)
+TemplateVM][trusting-templates]
 upon which the `vault` VM is based.
 
 ### Subkey Tutorials and Discussions ###
@@ -350,8 +329,22 @@ upon which the `vault` VM is based.
 in mind, they can be adapted with a few commonsense adjustments. As always,
 exercise caution and use your good judgment.)
 
--   [​"OpenPGP in Qubes OS" on the qubes-users mailing list](https://groups.google.com/d/topic/qubes-users/Kwfuern-R2U/discussion)
--   [​"Creating the Perfect GPG Keypair" by Alex Cabal](https://alexcabal.com/creating-the-perfect-gpg-keypair/)
--   [​"GPG Offline Master Key w/ smartcard" maintained by Abel Luck](https://gist.github.com/abeluck/3383449)
--   [​"Using GnuPG with QubesOS" by Alex](https://apapadop.wordpress.com/2013/08/21/using-gnupg-with-qubesos/)
+-   [​"OpenPGP in Qubes OS" on the qubes-users mailing list][openpgp-in-qubes-os]
+-   [​"Creating the Perfect GPG Keypair" by Alex Cabal][cabal]
+-   [​"GPG Offline Master Key w/ smartcard" maintained by Abel Luck][luck]
+-   [​"Using GnuPG with QubesOS" by Alex][apapadop]
+
+
+[#474]: https://github.com/QubesOS/qubes-issues/issues/474
+[using split GPG with subkeys]: #advanced-using-split-gpg-with-subkeys
+[​subkeys]: https://wiki.debian.org/Subkeys
+[copied]: /doc/copying-files#on-inter-domain-file-copy-security
+[pasted]: /doc/copy-paste#on-copypaste-security
+[​MUA]: https://en.wikipedia.org/wiki/Mail_user_agent
+[covert channels]: /doc/data-leaks
+[trusting-templates]: /doc/SoftwareUpdateVM#notes-on-trusting-your-template-vms
+[openpgp-in-qubes-os]: https://groups.google.com/d/topic/qubes-users/Kwfuern-R2U/discussion
+[cabal]: https://alexcabal.com/creating-the-perfect-gpg-keypair/
+[luck]: https://gist.github.com/abeluck/3383449
+[apapadop]: https://apapadop.wordpress.com/2013/08/21/using-gnupg-with-qubesos/
 
