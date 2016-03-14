@@ -166,3 +166,5 @@ For Developers
  *  [Supported Versions](/doc/supported-versions/)
  *  [Books for Developers](/doc/devel-books/)
  *  [Qubes OS License](/doc/license/)
+ *  [Style Guide](/doc/style-guide/)
+ *  [Usability & UX](/doc/usability-ux/)
