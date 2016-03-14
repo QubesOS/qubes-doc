@@ -165,7 +165,7 @@ the name of the GPG backend VM. This file survives the AppVM reboot, of course.
 
 A note on passphrases:
 
-You may experience trouble when attempting to use a PGP key *with a  passphrase*
+You may experience trouble when attempting to use a PGP key *with a passphrase*
 along with Split-GPG and Enigmail. If you do, you may need to remove the
 passphrase from your (sub)key(s) in order to get Split-GPG working correctly.
 As mentioned above, we do not believe PGP key passphrases to be significant
