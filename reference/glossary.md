@@ -11,7 +11,8 @@ redirect_from:
 Glossary of Qubes Terminology
 =============================
 
-**Qubes OS**  
+Qubes OS
+--------
 A security-oriented operating system (OS). The main principle of Qubes OS is
 security by compartmentalization (or isolation), in which activities are
 compartmentalized (or isolated) in separate **qubes**.
@@ -21,7 +22,8 @@ compartmentalized (or isolated) in separate **qubes**.
    technical contexts where spaces are not permitted, (e.g., usernames), the
    space may be omitted, as in `QubesOS`.
 
-**Qube**  
+Qube
+----
 A user-friendly term for a **domain** (i.e., a VM) in Qubes OS.
 
  * Example: "In Qubes OS, you do your banking in your 'banking' qube and your
@@ -38,32 +40,38 @@ A user-friendly term for a **domain** (i.e., a VM) in Qubes OS.
    "Qubes...") can be ambiguous, since it may not be clear whether the referent
    is a collection of qubes or Qubes OS.
 
-**Domain**  
+Domain
+------
 A synonym for **virtual machine (VM)**. A software implementation of a machine
 (for example, a computer) which executes programs like a physical machine.
 
-**Dom0**  
+Dom0
+----
 Domain Zero. Also known as the **host** domain, dom0 is the initial domain
 started by the Xen hypervisor on boot. Dom0 runs the Xen management toolstack
 and has special privileges relative to other domains, such as direct access to
 most hardware.
 
-**DomU**  
+DomU
+----
 Unprivileged Domain. Also known as **guest** domains, domUs are the counterparts
 to dom0. All domains except dom0 are domUs. By default, most domUs lack direct
 hardware access.
 
-**TemplateVM**  
+TemplateVM
+----------
 Template Virtual Machine. Any VM which supplies its root filesystem to another
 VM. TemplateVMs are intended for installing and updating software applications,
 but not for running them.
 
  * Colloquially, TemplateVMs are often referred to as "templates."
 
-**TemplateBasedVM**
+TemplateBasedVM
+---------------
 Any VM which depends on a TemplateVM for its root filesystem.
 
-**Standalone(VM)**  
+Standalone(VM)
+--------------
 Standalone (Virtual Machine). In general terms, a VM is described as
 **standalone** if and only if it does not depend on any other VM for its root
 filesystem. (In other words, a VM is standalone if and only if it is not a
@@ -72,12 +80,14 @@ which is created by cloning a TemplateVM. Unlike TemplateVMs, however,
 StandaloneVMs do not supply their root filesystems to other VMs. (Therefore,
 while a TemplateVM is a type of standalone VM, it is not a StandaloneVM.)
 
-**AppVM**  
+AppVM
+-----
 Application Virtual Machine. A VM which is intended for running software
 applications. Typically a TemplateBasedVM, but may be a StandaloneVM. Never a
 TemplateVM.
 
-**NetVM**  
+NetVM
+-----
 Network Virtual Machine. A type of VM which connects directly to a network and
 provides access to that network to other VMs which connect to the NetVM. A NetVM
 called `sys-net` is created by default in most Qubes installations.
@@ -87,26 +97,31 @@ for networking purposes. For example, if `untrusted` is directly connected to
 `sys-firewall` for network access, then it is accurate to say, "`sys-firewall`
 is `untrusted`'s NetVM," even though `sys-firewall` is a ProxyVM.
 
-**ProxyVM**  
+ProxyVM
+-------
 Proxy Virtual Machine. A type of VM which proxies network access for other VMs.
 Typically, a ProxyVM sits between a NetVM and another VM (such as an AppVM or a
 TemplateVM) which requires network access.
 
-**FirewallVM**  
+FirewallVM
+----------
 Firewall Virtual Machine. A type of ProxyVM which is used to enforce
 network-level policies (a.k.a. "firewall rules"). A FirewallVM called
 `sys-firewall` is created by default in most Qubes installations.
 
-**DispVM**  
+DispVM
+------
 Disposable Virtual Machine. A temporary AppVM which can quickly be created,
 used, and destroyed.
 
-**DVM**  
+DVM
+---
 An abbreviation of **DispVM**, typically used to refer to the TemplateVM on
 which DispVMs are based. By default, a VM named `fedora-XX-dvm` is created on
 most Qubes installations (where `XX` is the current Fedora version).
 
-**PV**  
+PV
+--
 Paravirtualization. An efficient and lightweight virtualization technique
 originally introduced by the Xen Project and later adopted by other
 virtualization platforms. Unlike HVMs, paravirtualized VMs do not require
@@ -115,21 +130,25 @@ require a PV-enabled kernel and PV drivers, so the guests are aware of the
 hypervisor and can run efficiently without emulation or virtual emulated
 hardware.
 
-**HVM**  
+HVM
+---
 Hardware Virtual Machine. Any fully virtualized, or hardware-assisted, VM
 utilizing the virtualization extensions of the host CPU. Although HVMs are
 typically slower than paravirtualized VMs due to the required emulation, HVMs
 allow the user to create domains based on any operating system.
 
-**StandaloneHVM**  
+StandaloneHVM
+-------------
 Any HVM which is standalone (i.e., does not depend on any other VM for its root
 filesystem). In Qubes, StandaloneHVMs are referred to simply as **HVMs**.
 
-**TemplateHVM**  
+TemplateHVM
+-----------
 Any HVM which functions as a TemplateVM by supplying its root filesystem to
 other VMs. In Qubes, TemplateHVMs are referred to as **HVM templates**.
 
-**PVH**  
+PVH
+---
 PV on HVM. To boost performance, fully virtualized HVM guests can use special
 paravirtual device drivers (PVHVM or PV-on-HVM drivers). These drivers are
 optimized PV drivers for HVM environments and bypass the emulation for disk and
