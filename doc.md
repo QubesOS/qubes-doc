@@ -18,8 +18,6 @@ The Basics
  *  [Users' FAQ](/doc/user-faq/)
  *  [Mailing Lists](/doc/mailing-lists/)
  *  [Documentation Guidelines](/doc/doc-guidelines/)
- *  [Further reading: How is Qubes different from...?](http://blog.invisiblethings.org/2012/09/12/how-is-qubes-os-different-from.html)
- *  [Further reading: Why Qubes is more than a collection of VMs](http://www.invisiblethingslab.com/resources/2014/Software_compartmentalization_vs_physical_separation.pdf)
 
 
 Choosing Your Hardware
