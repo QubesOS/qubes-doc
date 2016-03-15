@@ -7,11 +7,6 @@ permalink: /doc/multiboot/
 Multibooting Qubes 
 ========================================
 
-1.  [Introduction](#introduction)
-2.  [Windows](#windows)
-3.  [Linux](#linux)
-4.  [Troubleshooting](#troubleshooting)
-
 Introduction
 ---------------------
 
