@@ -145,5 +145,6 @@ If you would like to enable the [RPM Fusion](http://rpmfusion.org/) repository: 
 ~~~
 sudo dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf config-manager --set-enabled rpmfusion-free rpmfusion-nonfree
+sudo dnf upgrade --refresh
 ~~~
 
