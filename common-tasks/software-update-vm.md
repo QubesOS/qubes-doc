@@ -140,8 +140,10 @@ Also note that Disposable VMs do not have persistent user filesystem, and so the
 RPMFusion for a Fedora TemplateVM
 ---------------------------------
 
-If you would like to enable the [RPM Fusion](http://rpmfusion.org/) repository...
+If you would like to enable the [RPM Fusion](http://rpmfusion.org/) repository: open a Terminal of the TemplateVM and type the following commands (you may need to Allow Full Access for some minutes in the VM Firewall rules, while the new repositories are fetched): 
 
-dom0 Start Menu -> Template:Fedora 21 -> Package Sources -> Enable RPMFusion
+~~~
+sudo dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf config-manager --set-enabled rpmfusion-free rpmfusion-nonfree
+~~~
 
-This already covers RPMFusion yum signing keys.
