@@ -112,7 +112,7 @@ Configuration Guides
  * [Fetchmail Guide](/doc/fetchmail/)
  * [Creating Custom NetVMs and ProxyVMs](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html)
  * [How to make proxy for individual tcp connection from networkless VM](https://groups.google.com/group/qubes-devel/msg/4ca950ab6d7cd11a)
- * [HTTP filtering proxy in Qubes firewall VM](https://groups.google.com/group/qubes-devel/browse_thread/thread/5252bc3f6ed4b43e/d881deb5afaa2a6c#39c95d63fccca12b)
+ * [Make an HTTP Filtering Proxy in a FirewallVM](/doc/config/http-filtering-proxy)
  * [Adding Bridge Support to the NetVM (EXPERIMENTAL)](/doc/network-bridge-support/)
  * [Assigning PCI Devices to AppVMs](/doc/assigning-devices/)
  * [Enabling TRIM for SSD disks](/doc/disk-trim/)
