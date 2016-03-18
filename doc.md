@@ -62,7 +62,7 @@ Managing Operating Systems within Qubes
  * [Templates: Debian](/doc/templates/debian/)
  * [Templates: Archlinux](/doc/templates/archlinux/)
  * [Templates: Ubuntu](/doc/templates/ubuntu/)
- * [Templates: Whonix](/doc/templates/whonix/)
+ * [Templates: Whonix](/doc/whonix/)
  * [Installing and Using Windows-based AppVMs (Qubes R2 Beta 3 and later)](/doc/windows-appvms/)
  * [Creating and Using HVM and Windows Domains (Qubes R2+)](/doc/hvm-create/)
  * [Advanced options and troubleshooting of Qubes Tools for Windows (R3)](/doc/windows-tools-3/)
@@ -92,12 +92,8 @@ Security Guides
 Privacy Guides
 --------------
 
- * [Whonix for privacy & anonymization](/doc/whonix/)
- * [Install Whonix in Qubes](/doc/whonix/install/)
- * [Updating Whonix in Qubes](/doc/whonix/update/)
- * [Customizing Whonix](/doc/whonix/customize/)
- * [Uninstall Whonix from Qubes](/doc/whonix/uninstall/)
- * [How to Install TorVM](/doc/torvm/)
+ * [Whonix for Privacy & Anonymity](/doc/whonix/)
+ * [TorVM](/doc/torvm/)
 
 
 Configuration Guides
