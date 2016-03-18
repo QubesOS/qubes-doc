@@ -72,7 +72,7 @@ Managing Operating Systems within Qubes
  * [Upgrading the Fedora 20 Template](/doc/fedora-template-upgrade-20/)
  * [Upgrading the Fedora 18 Template](/doc/fedora-template-upgrade-18/)
  * [Tips for Using Linux in an HVM](/doc/linux-hvm-tips/)
- * [Creating NetBSD VM](https://groups.google.com/group/qubes-devel/msg/4015c8900a813985)
+ * [Creating a NetBSD VM](/doc/netbsd/)
 
 
 Security Guides
