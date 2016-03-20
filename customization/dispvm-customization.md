@@ -47,7 +47,7 @@ It is possible to change the settings of each new Disposable VM (DispVM). This c
     -   Changing Nautilus' default file preview settings.
     -   Changing the DispVM's default NetVM. For example, you may wish to set the NetVM to "none." Then, whenever you start a new DispVM, you can choose your desired ProxyVM manually (by changing the newly-started DipsVMs settings). This is useful if you sometimes wish to use a DispVM with a TorVM, for example. It is also useful if you sometimes wish to open untrusted files in a network-disconnected DispVM.
 
-3.  Create an empty `/home/user/.qubes-dispvm-customized` file:
+3.  Create an empty `/home/user/.qubes-dispvm-customized` file in the VM (not in dom0):
 
 
         [user@fedora-20-x64-dvm ~]$ touch /home/user/.qubes-dispvm-customized
