@@ -129,7 +129,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 ![arch-template-06](/attachment/wiki/ArchlinuxTemplate/arch-template-06.png)
 <br>
 <br>
-        *   Go to the first line containing '**DIST_VM ?= fc23**' it will be preceeded by line '**DIST_DOM0 ?= fc20**'.  Remove '**fc23**' or whatever is listed there leaving only '**DIST_VM ?=**'. Then save the file and close the text editor.
+        *   Go to the first line containing '**DISTS_VM ?= fc23**' it will be preceeded by line '**DIST_DOM0 ?= fc20**'.  Remove '**fc23**' or whatever is listed there leaving only '**DISTS_VM ?=**'. Then save the file and close the text editor.
 <br>
 <br>
 ![arch-template-07](/attachment/wiki/ArchlinuxTemplate/arch-template-07.png)
