@@ -27,7 +27,9 @@ sticks, this includes things like USB external hard drives.)
 Qubes OS supports the ability to attach a USB drive (or just one or more of its
 partitions) to any qube easily, no matter which qube actually handles the USB
 controller. (The USB controller may be assigned on the **Devices** tab of a
-qube's settings page in Qubes VM Manager or by using the [qvm-pci][] command.)
+qube's settings page in Qubes VM Manager or by using the
+[qvm-pci][assigning-devices] command. For guidance on finding the correct USB
+controller, see [here][usb-controller].)
 
 USB drive mounting is integrated into the Qubes VM Manager GUI. Simply insert
 your USB drive, right-click on the desired qube in the Qubes VM Manager list,
@@ -36,8 +38,8 @@ device. This, however, only works for the whole device. If you would like to
 attach individual partitions, you must use the command-line tool (shown below).
 The reason for this is that when attaching a single partition, it used to be
 that the Nautilus file manager would not see it and automatically mount it (see
-[this ticket][623]). This problem, however, seems to be resolved (see
-[this issue comment][1072-comm1]).
+issue [623]). This problem, however, seems to be resolved (see
+[this comment on issue 1072][1072-comm1]).
 
 If, for some reason, the device does not appear in Nautilus and you still need
 to attach just a single partition to a device, you will need to mount it
@@ -85,8 +87,8 @@ follows:
      the same partition to multiple qubes. For example, you could attach `sdb1`
      to qube1 and then `sdb` to qube2. It is up to the user not to make this
      mistake. The Xen block device framework currently does not provide an easy
-     way around this. Point 2 of [this ticket comment][1072-comm2] gives details
-     about this.
+     way around this. Point 2 of [this comment on issue 1072][1072-comm2] gives
+     details about this.
 
  4.  The USB drive is now attached to the qube. If using a default qube, you may
      open the Nautilus file manager in the qube, and your drive should be
@@ -102,13 +104,13 @@ follows:
  7.  You may now remove the device.
 
 **Warning:** Do not remove the device before detaching it from the VM!
-Otherwise, you will not be able to attach it anywhere later. See
-[this ticket][1082] for details.
+Otherwise, you will not be able to attach it anywhere later. See issue [1082]
+for details.
 
 
 ### What if I removed the device before detaching it from the VM? ###
 
-Currently (until [this ticket][1082] gets implemented), if you remove the device
+Currently (until issue [1082] gets implemented), if you remove the device
 before detaching it from the qube, Qubes OS (more precisely, `libvirtd`) will
 think that the device is still attached to the qube and will not allow attaching
 further devices under the same name. The easiest way to recover from such a
@@ -217,7 +219,8 @@ accessible only from the USB qube itself, as explained above.
 
 
 [mass-storage]: https://en.wikipedia.org/wiki/USB_mass_storage_device_class
-[qvm-pci]: /doc/assigning-devices/
+[devices]: /doc/assigning-devices/
+[usb-controller]: /doc/assigning-devices/#finding-the-right-usb-controller
 [623]: https://github.com/QubesOS/qubes-issues/issues/623
 [1072-comm1]: https://github.com/QubesOS/qubes-issues/issues/1072#issuecomment-124270051
 [1072-comm2]: https://github.com/QubesOS/qubes-issues/issues/1072#issuecomment-124119309
