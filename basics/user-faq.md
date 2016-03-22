@@ -19,6 +19,7 @@ Qubes Users' FAQ
  * [What about other approaches to security?](#what-about-other-approaches-to-security)
  * [What about safe languages and formally verified microkernels?](#what-about-safe-languages-and-formally-verified-microkernels)
  * [Why does Qubes use virtualization?](#why-does-qubes-use-virtualization)
+ * [What do all these terms mean?](#what-do-all-these-terms-mean)
  * [Does Qubes run every app in a separate VM?](#does-qubes-run-every-app-in-a-separate-vm)
  * [Why does Qubes use Xen instead of KVM or some other hypervisor?](#why-does-qubes-use-xen-instead-of-kvm-or-some-other-hypervisor)
  * [What about this other/new (micro)kernel/hypervisor?](#what-about-this-othernew-microkernelhypervisor)
@@ -79,6 +80,10 @@ In short: these are non-realistic solutions today. We discuss this in further de
 ### Why does Qubes use virtualization?
 
 We believe that this is currently the only practically viable approach to implementing strong isolation while simultaneously providing compatibility with existing applications and drivers.
+
+### What do all these terms mean?
+
+All Qubes-specific terms are defined in the [glossary](/doc/glossary/).
 
 ### Does Qubes run every app in a separate VM?
 
