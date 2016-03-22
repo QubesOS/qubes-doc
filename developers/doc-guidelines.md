@@ -157,6 +157,7 @@ please see [this blog post][git-commit], which is the source of this list.
 
 
 [qubes-doc]: https://github.com/QubesOS/qubes-doc
+[glossary]: /doc/glossary/
 [report]: #how-to-report-issues
 [contribute]: #how-to-contribute
 [qubes-issues]: https://github.com/QubesOS/qubes-issues/issues
