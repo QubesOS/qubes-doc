@@ -12,6 +12,6 @@ For more information about the documentation, including how to contribute,
 please see the [Documentation Guidelines].
 
 
-[Qubes OS Project]]: https://github.com/QubesOS
+[Qubes OS Project]: https://github.com/QubesOS
 [documentation guidelines]: https://www.qubes-os.org/doc/doc-guidelines/
 
