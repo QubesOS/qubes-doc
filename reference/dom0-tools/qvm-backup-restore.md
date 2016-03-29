@@ -30,6 +30,9 @@ OPTIONS
 -h, --help  
 Show this help message and exit
 
+--verify-only  
+Do not restore the data, only verify backup integrity
+
 --skip-broken  
 Do not restore VMs that have missing templates or netvms
 
@@ -53,6 +56,18 @@ Do not restore dom0 user home dir
 
 --ignore-username-mismatch  
 Ignore dom0 username mismatch while restoring homedir
+
+-d APPVM, --dest-vm=APPVM  
+The AppVM to send backups to
+
+-e, --encrypted  
+The backup is encrypted
+
+-z, --compressed  
+The backup is compressed
+
+--debug  
+Enable (a lot of) debug output
 
 AUTHORS
 -------

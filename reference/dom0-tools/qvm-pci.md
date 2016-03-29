@@ -38,6 +38,10 @@ List VM PCI devices
 -a, --add  
 Add a PCI device to specified VM
 
+-C, --add-class  
+Add all devices of given class:  
+net - network interfaces, usb - USB controllers
+
 -d, --delete  
 Remove a PCI device from specified VM
 

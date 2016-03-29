@@ -16,7 +16,7 @@ NAME
 
 qvm-add-appvm - add an already installed appvm to the Qubes DB
 
-WARNING: Normally you would not need this command, and you would use qvm-create instead!
+WARNING: Noramlly you would not need this command, and you would use qvm-create instead!
 
 Date  
 2012-04-10
