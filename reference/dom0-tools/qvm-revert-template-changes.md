@@ -31,7 +31,7 @@ OPTIONS
 Show this help message and exit
 
 --force  
-Do not prompt for confirmation
+Do not prompt for comfirmation
 
 AUTHORS
 -------
