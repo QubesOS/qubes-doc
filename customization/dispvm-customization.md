@@ -56,6 +56,10 @@ It is possible to change the settings of each new Disposable VM (DispVM). This c
 5.  Regenerate the DispVM template:
 
         [user@dom0 ~]$ qvm-create-default-dvm --default-template --default-script
+        
+    or regenerate the DispVM from a customized DispVM template created before, as described in the above heading "Changing the template used as a basis for Disposable VM":
+    
+        [user@dom0 ~]$ qvm-create-default-dvm replace-this-with-customized-template-name
 
 
 **Note:** All of the above requires at least qubes-core-vm \>= 2.1.2 installed in template.
