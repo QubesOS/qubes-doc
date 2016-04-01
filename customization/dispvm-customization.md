@@ -53,13 +53,13 @@ It is possible to change the settings of each new Disposable VM (DispVM). This c
         [user@fedora-20-x64-dvm ~]$ touch /home/user/.qubes-dispvm-customized
 
 4.  Shutdown the VM (either by `poweroff` from VM terminal, or `qvm-shutdown` from dom0 terminal).
-5.  Regenerate the DispVM template:
+5.  Regenerate the DispVM template using the default template:
 
-        [user@dom0 ~]$ qvm-create-default-dvm --default-template --default-script
+        [user@dom0 ~]$ qvm-create-default-dvm --default-template
         
-    or regenerate the DispVM from a customized DispVM template created before, as described in the above heading "Changing the template used as a basis for Disposable VM":
+    Or, if you're [using a non-default template](#changing-the-template-used-as-a-basis-for-disposable-vm), regenerate the DispVM using your custom template:
     
-        [user@dom0 ~]$ qvm-create-default-dvm replace-this-with-customized-template-name
+        [user@dom0 ~]$ qvm-create-default-dvm <custom-template-name>
 
 
 **Note:** All of the above requires at least qubes-core-vm \>= 2.1.2 installed in template.
