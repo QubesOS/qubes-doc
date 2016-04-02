@@ -37,28 +37,28 @@ Do not restore the data, only verify backup integrity
 Do not restore VMs that have missing templates or netvms
 
 --ignore-missing  
-Ignore missing templates or netvms, restore VMs anyway
+Ignore missing templates and netvms, and restore the VMs anyway
 
 --skip-conflicting  
 Do not restore VMs that are already present on the host
 
 --force-root  
-Force to run, even with root privileges
+Force to run with root privileges
 
 --replace-template=REPLACE\_TEMPLATE  
-Restore VMs using another template, syntax: old-template-name:new-template-name (might be repeated)
+Restore VMs using another template, syntax: old-template-name:new-template-name (can be repeated)
 
 -x EXCLUDE, --exclude=EXCLUDE  
-Skip restore of specified VM (might be repeated)
+Skip restore of specified VM (can be repeated)
 
 --skip-dom0-home  
-Do not restore dom0 user home dir
+Do not restore dom0's user home directory
 
 --ignore-username-mismatch  
-Ignore dom0 username mismatch while restoring homedir
+Ignore dom0 username mismatch when restoring dom0's user home directory
 
 -d APPVM, --dest-vm=APPVM  
-The AppVM to send backups to
+Restore from a backup located in a specific AppVM
 
 -e, --encrypted  
 The backup is encrypted
