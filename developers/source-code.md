@@ -26,19 +26,19 @@ All of our repositories are available under the [QubesOS GitHub account].
 To clone a repository:
 
 ~~~
-git clone git://github.com/QubesOS/<repo_name>.git <repo_name>
+git clone https://github.com/QubesOS/<repo_name>.git <repo_name>
 ~~~
 
 e.g.:
 
 ~~~
-git clone git://github.com/QubesOS/qubes-core-admin.git core-admin
+git clone https://github.com/QubesOS/qubes-core-admin.git core-admin
 ~~~
 
 To clone **all** of our repositories in a single command:
 
 ~~~
-curl "https://api.github.com/orgs/QubesOS/repos?page=1&per_page=100" | grep -e 'git_url*' | cut -d \" -f 4 | xargs -L1 git clone
+curl "https://api.github.com/orgs/QubesOS/repos?page=1&per_page=100" | grep -e 'clone_url*' | cut -d \" -f 4 | xargs -L1 git clone
 ~~~
 
 To update (git fetch) **all** of these repositories in a single command:
