@@ -207,7 +207,7 @@ Supported USB device types
 As of Qubes R3.1, it is possible to attach:
 
  * USB mice
- * USB keyboards (after a few [modifications][1618])
+ * USB keyboards (see below)
  * USB block devices (such as USB mass storage devices)
    * When attaching one of these, you should get a notification about the
      new device, then you should be able to attach it to a qube in Qubes VM
@@ -216,6 +216,32 @@ As of Qubes R3.1, it is possible to attach:
 Other devices, such as USB webcams, will also work, but they will be
 accessible only from the USB qube itself, as explained above.
 
+
+How to use a USB keyboard
+-------------------------
+
+In order to use a USB keyboard, you must first attach it to a USB qube, then
+give that qube permission to pass keyboard input to dom0. Note that allowing
+keyboard access from a USB qube gives it great power. In short:
+
+ * It will see whatever you type on that keyboard (including passwords).
+ * It will be able to inject keystrokes, which basically means that it will be
+   able to enter any command. For example, if some malware catches your
+   screenlocker password, it will be able to unlock the screen when you are not
+   present. (For more details, see [here][input-proxy].)
+
+If you are sure you wish to proceed, then you must edit the
+`qubes.InputKeyboard` policy file in dom0, which is located here:
+
+    /etc/qubes-rpc/policy/qubes.InputKeyboard
+
+Add a line like this one to the top of the file:
+
+    sys-usb dom0 ask
+
+(Change `sys-usb` to your desired USB qube.)
+
+You can now use your USB keyboard.
 
 
 [mass-storage]: https://en.wikipedia.org/wiki/USB_mass_storage_device_class
@@ -227,4 +253,5 @@ accessible only from the USB qube itself, as explained above.
 [1082]: https://github.com/QubesOS/qubes-issues/issues/1082
 [faq-usbvm]: /doc/user-faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot
 [1618]: https://github.com/QubesOS/qubes-issues/issues/1618
+[input-proxy]: https://github.com/qubesos/qubes-app-linux-input-proxy
 
