@@ -78,9 +78,9 @@ In order to allow networking between VM A and B follow those steps:
 * Start both VMs, and also open a terminal in the firewall VM
 * In the firewall VM's terminal enter the following iptables rule:
 
-    ~~~
-    sudo iptables -I FORWARD 2 -s <IP address of A> -d <IP address of B> -j ACCEPT
-    ~~~
+~~~
+sudo iptables -I FORWARD 2 -s <IP address of A> -d <IP address of B> -j ACCEPT
+~~~
 
 * Now you should be able to reach the VM B from A -- test it using e.g. ping
   issues from VM A. Note however, that this doesn't allow you to reach A from
@@ -95,11 +95,11 @@ In order to allow networking between VM A and B follow those steps:
   file present, so we likely will be creating it, unless we had some other
   custom rules defines earlier in this firewallvm):
 
-    ~~~
-    [user@firewallvm ~]$ sudo bash
-    [root@firewallvm user]# echo "iptables -I FORWARD 2 -s 10.137.2.25 -d 10.137.2.6 -j ACCEPT" >> /rw/config/qubes_firewall_user_script
-    [root@firewallvm user]# chmod +x /rw/config/qubes_firewall_user_script
-    ~~~
+~~~
+[user@firewallvm ~]$ sudo bash
+[root@firewallvm user]# echo "iptables -I FORWARD 2 -s 10.137.2.25 -d 10.137.2.6 -j ACCEPT" >> /rw/config/qubes_firewall_user_script
+[root@firewallvm user]# chmod +x /rw/config/qubes_firewall_user_script
+~~~
 
 Port forwarding to a VM from the outside world
 --------------------------------------------------
