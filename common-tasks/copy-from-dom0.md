@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Copying files to and from dom0
-permalink: /doc/copy-to-dom0/
+permalink: /doc/copy-from-dom0/
 redirect_from:
+- /doc/copy-to-dom0/
 - /en/doc/copy-to-dom0/
 - /doc/CopyToDomZero/
 - /wiki/CopyToDomZero/
