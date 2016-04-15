@@ -46,13 +46,6 @@ compatibility with Qubes:
 
        sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable kernel
 
-Purism Librem 15
-----------------
-
-While it is also currently possible to order a Librem 15 with Qubes
-pre-installed, the Librem 15 is not yet officially certified. However, testing
-is underway, and we expect to be able to certify it soon.
-
 
 [System Requirements]: /doc/system-requirements/
 [Hardware Compatibility List]: /hcl/
