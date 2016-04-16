@@ -29,6 +29,12 @@ qvm-create win7 --hvm --label green
 
 (Of course, the name of the domain ("win7"), as well as it's label ("green"), are just exemplary).
 
+If you receive an error like this one, then you must first enable VT-x in your BIOS:
+
+~~~
+libvirt.libvirtError: invalid argument: could not find capabilities for arch=x86_64 
+~~~
+
 Now, we need to install an OS inside this VM, this can done by attaching an installation ISO upon starting the VM (this currently can be done only from command line, but in the future we surely will added an option to do this also from the manager):
 
 ~~~
