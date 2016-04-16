@@ -149,3 +149,9 @@ of repository.
 All version and release tags should be made and signed by someone from ITL
 staff. Public keys are included in `qubes-builder` and available at
 [https://keys.qubes-os.org/keys/](https://keys.qubes-os.org/keys/).
+
+Check installed version
+-----------------
+
+If you want to know which version you are running, for example to report
+an issue, you can find out in /etc/qubes-release in dom0.
