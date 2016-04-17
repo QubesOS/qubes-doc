@@ -48,7 +48,7 @@ To access the journald log, use the `journalctl` command.
 
 ### as a NetVM
 
-If you want to use this template to for standard NetVMs you should install some more packeges:
+If you want to use this template for standard NetVMs you should install some more packages:
 
 ~~~
 [user@F21-Minimal ~]$ sudo dnf install NetworkManager NetworkManager-wifi network-manager-applet  wireless-tools dbus-x11 dejavu-sans-fonts tinyproxy
@@ -79,3 +79,8 @@ The needed packages depend on the VPN technology. The `dnf search "NetworkManage
 #### TOR
 
 [UserDoc/TorVM](/wiki/UserDoc/TorVM)
+
+### Split GPG
+
+If you choose to use this Fedora minimal template for a machine holding your gpg keys (so called work-gpg machine in [Split GPG] (https://www.qubes-os.org/doc/split-gpg/) guide) and also you choose to use passphrase on your gpg private key, then you should install `pinentry-gtk` package. Package `pinentry-gtk` is responsible for pop-up dialog window where you enter password to use your gpg key.
+
