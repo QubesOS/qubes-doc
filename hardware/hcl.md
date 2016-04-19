@@ -40,7 +40,7 @@ You are encouraged to submit your HCL report for the benefit of further Qubes de
  If you would like to submit your HCL report, please send the **HCL Info** `.yml` file to [\`qubes-users@googlegroups.com\`](/doc/mailing-lists/) with the subject `HCL - <your machine model name>`.
  Please include any useful information about any Qubes features you may have tested (see the legend below), as well as general machine compatibility (video, networking, sleep, etc.).
  If you have problems with your hardware try a different kernel in the [Troubleshooting menu](/doc/InstallationGuideR2rc1/#troubleshooting-problems-with-the-installer).
- Please consider sending the **HCL Support Files** `.cpio.gz` file as well.
+ Please consider sending the **HCL Support Files** `.cpio.gz` file as well. To generate these add the `-s` or `--support` command line option.
 
 **Please note:**
  The **HCL Support Files** may contain numerous hardware details, including serial numbers. If, for privacy or security reasons, you do not wish to make this information public, please **do not** send the `.cpio.gz` file to the public mailing list.
