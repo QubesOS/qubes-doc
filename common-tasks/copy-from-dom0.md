@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Copying files to and from dom0
+title: Copying from (and to) dom0
 permalink: /doc/copy-from-dom0/
 redirect_from:
 - /doc/copy-to-dom0/
@@ -9,8 +9,11 @@ redirect_from:
 - /wiki/CopyToDomZero/
 ---
 
-Copying files from dom0
-=======================
+Copying from (and to) dom0
+==========================
+
+Copying **from** dom0
+---------------------
 
 To copy a file from dom0 to a VM (domU), simply use `qvm-copy-to-vm`:
 
@@ -21,8 +24,7 @@ qvm-copy-to-vm <dest-vm> <file>
 The file will arrive in your destination VM in the `~/QubesIncoming/dom0/`
 directory.
 
-Copying logs from Dom0
-----------------------
+### Copying logs from Dom0 ###
 
 In order to easily copy/paste the contents of logs from dom0 to the inter-VM
 clipboard, you can simply:
@@ -35,8 +37,7 @@ clipboard, you can simply:
 You may now paste the log contents to any VM as you normally would (i.e.,
 Ctrl-Shift-V, then Ctrl-V).
 
-Copy/Paste to and from Dom0
----------------------------
+### Copy/paste from Dom0 ###
 
 For data other than logs, there are two options:
 
@@ -46,8 +47,8 @@ For data other than logs, there are two options:
 data to the desired VM.
 
 
-Copying files to Dom0
-=====================
+Copying **to** Dom0
+-------------------
 
 There should normally be few reasons for the user to want to copy files from VMs
 to Dom0, as Dom0 only acts as a "thin trusted terminal", and no user
