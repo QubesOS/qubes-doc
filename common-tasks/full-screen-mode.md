@@ -25,7 +25,7 @@ Secure use of full screen mode
 ------------------------------
 
 However, it is possible to deal with full screen mode in a secure way assuming there are mechanisms that can be used at any time to show the full desktop, and which cannot be intercepted by the VM. An example of such q mechanism is the KDE's "Present Windows" and "Desktop Grid" effects, which are similar to Mac's "Expose" effect, and which can be used to immediately detect potential "GUI forgery", as they cannot be intercepted by any of the VM (as the GUID never passes down the key combinations that got consumed by KDE Window Manager), and so the VM cannot emulate those. Those effects are enabled by default in KDE once Compositing gets enabled in KDE (System Settings -\> Desktop -\> Enable Desktop Effects), which is recommended anyway. By default they are triggered by Ctrl-F8 and Ctrl-F9 key combinations, but can also be reassigned to other shortcuts.
-Another option is to use Alt+Tab for switching windows. This shortcut is also handled by dom0 and protects from fake windows. However one needs to pay careful attention, two windows switching when pressing Alt+Tab once means one of the windows is fake.
+Another option is to use Alt+Tab for switching windows. This shortcut is also handled by dom0.
 
 Enabling full screen mode for select VMs
 ----------------------------------------
