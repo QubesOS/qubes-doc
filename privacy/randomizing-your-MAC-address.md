@@ -46,11 +46,11 @@ Type=oneshot
 WantedBy=multi-user.target
 ```
 
-**Make sure you get the right iface names**
+**Get the right iface names**
 
-It is crucial to get the correct **iface name** for the devices (ethernet and wifi) that you want to randomize. To do 
-that, open your `sys-net`  (or where your device drivers are) and type in `terminal` the command `ifconfig` the printout 
-will look similar to:
+It's crucial to get the correct **iface name** for the devices (ethernet and wifi) you want to randomize. To get this,
+open your `sys-net` (or wherever your device drivers are) and type in `terminal` the command `ifconfig` the printout 
+will look like:
 
 ```
 enp0s0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
@@ -80,11 +80,12 @@ wlp0s1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
 
-The **iface name** values you are interested in are `enp0s0` and `wlp0s1` as those represent your ethernet and wifi 
+The **iface name** values you're interested in are `enp0s0` and `wlp0s1` as those represent your ethernet and wifi 
 devices, respectively.
 
-Also, in this blob of text is your **actual MAC addresses** which you will use to verify the randomizing is working 
-correctly. In this example, those addresses are `ether 9e:d6:53:02:4b:b6` and `ether 06:6d:70:a8:7b:35` respectively.
+Also, in this prinout is your **actual MAC addresses** which are needed to verify the randomizing is working correctly.  
+In this example, the ethernet and wifi addresses are `ether 9e:d6:53:02:4b:b6` and `ether 06:6d:70:a8:7b:35` 
+respectively.  *Copy these MAC addresses down somewhere for later.*
 
 Now, go back to your `fedora-23` TemplateVM and use the `touch` command to create service files in the appropriate 
 place, note that the `iface name` values at the end:
@@ -130,9 +131,12 @@ To verify this worked corectly, look at the `Services` pane of your VM Settings 
 
 ![sys-net Services Pane](/attachment/wiki/QubesScreenshots/r3rc1-sys-net-services.png)
 
-Your MAC address should now randomize each time you restart your computer or restart the `sys-net` VM. To verify this 
-for sure, go back to your `sys-net` or device VM and type `ifconfig` and look at the values that start with `ether` such 
-as  `ether 9e:d6:53:02:4b:b6` which should now look different.  
+**Verify it works**
+
+Go back to your `sys-net` VM terminal, type `ifconfig` and look at the values starting with `ether` such as  `ether 
+9e:d6:53:02:4b:b6` which should now look different from the previous values.
+
+Your MAC address should now randomize each time you restart your computer or restart the `sys-net` VM.
 
 ---
 
