@@ -1,29 +1,27 @@
 ---
 layout: doc
-title: Randomizing your MAC Address
-permalink: /doc/randomizing-your-mac-address/
+title: Anonymizing your MAC Address
+permalink: /doc/anonymizing-your-mac-address/
 ---
 
 Randomizing your MAC Address
 ============================
 
-Changing the default [MAC Address](https://en.wikipedia.org/wiki/MAC_address) of your hardware is crucial in protecting 
-privacy. Currently, Qubes OS *does not* "randomize" or spoof the MAC Address, so until this is implemented by default 
-you can randomize your MAC Address by the following.
+Changing the default [MAC Address](https://en.wikipedia.org/wiki/MAC_address) of your hardware is [crucial in protecting 
+privacy](https://tails.boum.org/contribute/design/MAC_address/#index1h1). Currently, Qubes OS *does not* "anonymize" or spoof the MAC Address, so until this is implemented by default you can randomize your MAC Address with the following guide.
 
 ## Configuring Qubes
 
- 
 First thing you need to do is install **macchanger** package by opening your `fedora-23` TemplateVM and typing
 
 ```
 sudo dnf install macchanger
 ```
 
-Then create the file `macspoof@.service` in `fedora-23` located at `/etc/systemd/system/` directory
+Then create the file `macspoof@.service` in `fedora-23` located at `/etc/systemd/system/` directory using a text editor such as `vim`, `emacs`, or `gedit`
 
 ```
-vim /etc/systemd/system/macspoof@.service
+sudo gedit /etc/systemd/system/macspoof@.service
 ```
 
 Paste the following inside of that newly created file
@@ -39,12 +37,20 @@ BindsTo=sys-subsystem-net-devices-%i.device
 After=sys-subsystem-net-devices-%i.device
 
 [Service]
-ExecStart=/usr/bin/macchanger -r %I
+ExecStart=/usr/bin/macchanger -e %I
 Type=oneshot
 
 [Install]
 WantedBy=multi-user.target
 ```
+
+**How random do you want your MAC address?**
+
+Note in the above line `ExecStart=/usr/bin/macchanger -e %I` we recommend the use of `macchanger` with the `-e` flag which randomizes the MAC address to an address by the same device vendor/manufacturer. There a [number of other flags](http://manpages.ubuntu.com/manpages/xenial/en/man1/macchanger.1.html) you could use instead, such as `-r` which makes a totally random MAC address, which may map to a non-existent device vendor/manufacturer and make it obvious you are spoofing your MAC address. Some reasons why we have recommended `-e` rather than `-r` are in these resources:
+
+* https://tails.boum.org/contribute/design/MAC_address/#index5h2
+* https://tails.boum.org/contribute/design/MAC_address/#limitation-only-spoof-nic-part
+* https://help.ubuntu.com/community/AnonymizingNetworkMACAddresses#Fully_Random
 
 **Get the right iface names**
 
@@ -83,7 +89,7 @@ wlp0s1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 The **iface name** values you're interested in are `enp0s0` and `wlp0s1` as those represent your ethernet and wifi 
 devices, respectively.
 
-Also, in this prinout is your **actual MAC addresses** which are needed to verify the randomizing is working correctly.  
+Also, in this printout is your **actual MAC addresses** which are needed to verify the randomizing is working correctly.  
 In this example, the ethernet and wifi addresses are `ether 9e:d6:53:02:4b:b6` and `ether 06:6d:70:a8:7b:35` 
 respectively.  *Copy these MAC addresses down somewhere for later.*
 
@@ -114,27 +120,26 @@ sudo systemctl enable macspoof@enp0s0
 Created symlink from /etc/systemd/system/multi-user.target.wants/macspoof@enp0s0.service to /etc/systemd/system/macspoof@.service.
 ```
 
-Then open up Terminal for `dom0` and enable the Qubes services for your `sys-net` VM by doing the following for each 
-device
+Now you can do the following:
+- Stop your `fedora-23` VM
+- Stop your `sys-net` VM
+
+Open your VM settings for `sys-net`, navigate to Services, and add the new services:
+- macspoof-wlp0s1
+- macspoof-enp0s0
+
+Alternatively, you can enable these services for `sys-net` from the command line by opening up Terminal in `dom0` and running the following:
 
 ```
 qubes-service -e sys-net macspoof-wlp0s1
-qubes-service -e sys-net macspood-enp0s0
+qubes-service -e sys-net macspoof-enp0s0
 ```
 
-Now do the following and you should be ready to go
-
-- Stop your `fedora-23` VM
-- Stop your `sys-net` VM and restart it
-
-To verify this worked corectly, look at the `Services` pane of your VM Settings window, which should look like
-
-![sys-net Services Pane](/attachment/wiki/QubesScreenshots/r3rc1-sys-net-services.png)
+Now restart `sys-net`.
 
 **Verify it works**
 
-Go back to your `sys-net` VM terminal, type `ifconfig` and look at the values starting with `ether` such as  `ether 
-9e:d6:53:02:4b:b6` which should now look different from the previous values.
+Go back to your `sys-net` VM terminal, type `ifconfig` and as before look at the values starting with `ether` such as  `ether 9e:d6:53:02:4b:b6` which should now look different from the previous values.
 
 Your MAC address should now randomize each time you restart your computer or restart the `sys-net` VM.
 
@@ -142,23 +147,14 @@ Your MAC address should now randomize each time you restart your computer or res
 
 ## Usage Notes
 
-This approach to MAC Randomizing has been tested and used by some users as well as some of the Qubes team. Observations 
-that are to be expected are:
+This approach to MAC Randomizing has been tested and used by some users as well as some of the Qubes team. Observations that are to be expected are:
 
 - This does not randomize your MAC Address on sleep and wake state (only on restarting the `sys-net` VM)
-- The `sys-net` networking VM takes longer for device drivers to start up than usual
-- Delayed startup causes connecting to wifi and makes `sys-whonix` first attempt connecting to Tor to fail
-- You can configure `macchanger` to use the `-e` flag which randomizes address by same device vendor/manufacturer, 
-instead of our example (which uses `-r` to make a totally random MAC address). Alter the following line:
-
-```
-ExecStart=/usr/bin/macchanger -e %I
-```
+- The `sys-net` networking VM takes longer for device drivers to start up than usual, this delayed startup may cause the first attempt of `sys-whonix` to connect to Tor to fail
 
 ## Disabling / Uninstalling
 
-To disable MAC Randomizing if you find that a network connecting to does not like changing MAC Addresses, you can 
-disable temporarily or if you want to permanently remove this solution, do the following:
+To disable MAC Randomizing if you find that a network connecting to does not like changing MAC Addresses, you can disable temporarily or if you want to permanently remove this solution, do the following:
 
 **Disable Temporarily**
 
