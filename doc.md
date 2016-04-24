@@ -94,6 +94,7 @@ Privacy Guides
 
  * [Whonix for Privacy & Anonymity](/doc/whonix/)
  * [TorVM](/doc/torvm/)
+ * [Martus](/doc/martus/)
 
 
 Configuration Guides
