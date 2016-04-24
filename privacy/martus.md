@@ -13,8 +13,8 @@ injustice and abuse.
 
 How to install Martus in a qube:
 
-1. Create a Debian 8 Martus template using the Qubes VM Manager or running
-   `qvm-clone debian-8 debian-8-martus` in dom0.
+1. Create a Debian 8 backports template using the Qubes VM Manager or running
+   `qvm-clone debian-8 debian-8-backports` in dom0.
 
 2. Add backports to the sources for the new template by opening a terminal in
    the new template, run `sudo vi /etc/apt/sources.list` and add
