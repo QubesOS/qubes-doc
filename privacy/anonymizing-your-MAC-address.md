@@ -4,7 +4,7 @@ title: Anonymizing your MAC Address
 permalink: /doc/anonymizing-your-mac-address/
 ---
 
-Randomizing your MAC Address
+Anonymizing your MAC Address
 ============================
 
 Changing the default [MAC Address](https://en.wikipedia.org/wiki/MAC_address) of your hardware is [crucial in protecting 
