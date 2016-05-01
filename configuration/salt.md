@@ -69,6 +69,42 @@ a tool called `qubesctl` that should be run instead of `salt-call --local`. It
 accepts all arguments of the vanilla tool.
 
 
+## Configuring system inside of VMs
+
+Starting with Qubes 3.2, Salt in Qubes can be used to configure VMs. Salt
+formulas can be used normal way. Simply set VM name as target minion name in
+top file. You can also use `qubes` pillar module to select VMs with a
+particular property (see below). Then you need to pass additional arguments to
+`qubesctl` tool:
+
+    usage: qubesctl [-h] [--show-output] [--force-color] [--skip-dom0]
+                    [--targets TARGETS | --templates | --app | --all]
+                    ...
+
+    positional arguments:
+      command            Salt command to execute (for example: state.highstate)
+
+    optional arguments:
+      -h, --help         show this help message and exit
+      --show-output      Show output of management commands
+      --force-color      Force color output, allow control characters from VM,
+                         UNSAFE
+      --skip-dom0        Skip dom0 condifuration (VM creation etc)
+      --targets TARGETS  Coma separated list of VMs to target
+      --templates        Target all templates
+      --app              Target all AppVMs
+      --all              Target all non-disposable VMs (TemplateVMs and AppVMs)
+
+
+To apply the configuration to all the templates, call `qubesctl --templates
+state.highstate`.
+
+Actual configuration is applied using `salt-ssh` (running over `qrexec` instead
+of `ssh`). Which means you don't need to install anything special in a VM you
+want to manage. Additionally for each target VM, `salt-ssh` is started from a
+temporary VM. This way dom0 doesn't directly interact with potentially
+malicious target VM.
+
 ## Writing your own configuration
 
 Let's start with quick example:
@@ -116,6 +152,31 @@ To actually apply the state:
     qubesctl state.highstate
 
 
+### Example of VM system configuration
+
+It is also possible to configure system inside the VM. Lets make sure that `mc`
+package is installed in all the templates. Similar to previous example, you
+need to create state file (`/srv/salt/mc-everywhere.sls`):
+
+    mc:
+      pkg.installed: []
+
+Then appropriate top file (`/srv/salt/mc-everywhere.top`):
+
+    base:
+     - qubes:type:template:
+        - match: pillar
+        - mc-everywhere
+
+Now you need to enable the configuration:
+
+    qubesctl top.enable mc-everywhere
+
+And apply the configuration:
+
+    qubesctl --all state.highstate
+
+
 ## All Qubes-specific states
 
 ### qvm.present
@@ -158,6 +219,29 @@ Ensures the domain is running:
     domain is running:
       qvm.running:
         - name: salt-test4
+
+## qubes pillar module
+
+Additional pillar data is available to ease targeting configuration (for
+example all the templates). List here may be subject to changes in future
+releases.
+
+### qubes:type
+
+VM type. Possible values:
+
+ - `admin` - administration domain (`dom0`)
+ - `template` - Template VM
+ - `standalone` - Standalone VM
+ - `app` - template based AppVM
+
+### qubes:template
+
+Template name on which given VM is based (if any).
+
+### qubes:netvm
+
+VM which provides network to the given VM
 
 ## Further reading
 
