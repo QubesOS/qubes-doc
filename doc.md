@@ -93,7 +93,7 @@ Privacy Guides
 --------------
 
  * [Whonix for Privacy & Anonymity](/doc/whonix/)
- * [Randomizing your MAC Address](/doc/randomizing-your-mac-address/)
+ * [Anonymizing your MAC Address](/doc/anonymizing-your-mac-address/)
  * [TorVM](/doc/torvm/)
  * [Martus](/doc/martus/)
 
