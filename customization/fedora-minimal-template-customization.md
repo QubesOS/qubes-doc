@@ -125,6 +125,13 @@ thunar thunar-volman ntfs-3g
 
 Dependency Note: xfce4 dependencies (but still quite light ~1.4M downloads)
 
+Miscellaneous packages
+--------------------------
+
+*pycairo* package is needed for file's contextual menu "Send to VM" to function (to actually popup dialog box and enter VM's name where the file will be sent to).
+
+*pinentry-gtk* package is responsible for pop-up dialog window where you enter password for your password protected gpg key. Install this package in machine holding your password protected gpg keys. If you do not use password protected gpg keys, there is no need to install this package.
+
 GUI themes
 -----------------
 
