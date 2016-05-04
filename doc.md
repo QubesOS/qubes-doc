@@ -160,6 +160,12 @@ Reference Pages
  * [Command Execution in VMs (and Qubes RPC)](/doc/qrexec/)
 
 
+Presentation Slides
+-------------------
+ * [[PDF] LinuxCon 2014 -- Qubes OS R2 Tutorial](/attachment/wiki/slides/LinuxCon_2014_Qubes_Tutorial.pdf)
+ * [[PDF] LinuxCon 2014 -- Qubes OS Keynote](/attachment/wiki/slides/LinuxCon_2014_Qubes_Keynote.pdf)
+
+
 For Developers
 --------------
 
