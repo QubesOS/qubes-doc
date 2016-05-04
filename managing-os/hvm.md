@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Creating and Using HVM Domains
-permalink: /doc/hvm-create/
+permalink: /doc/hvm/
 redirect_from:
+- /doc/hvm-create/
 - /en/doc/hvm-create/
 - /doc/HvmCreate/
 - /wiki/HvmCreate/
