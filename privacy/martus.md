@@ -34,7 +34,7 @@ How to install Martus in a qube:
 6. Create a new qube/appvm based on your `debian-8-martus` template with
    whatever color and networking you want (`sys-whonix` probably preferred)
    using the Qubes VM Manager or running
-   `qvm-create -t debian-8-martus -l blue martus` and
+   `qvm-create -t debian-8-backports -l blue martus` and
    `qvm-prefs -s martus netvm sys-whonix` in dom0.
 
 7. Download the latest Martus version from https://martus.org.
