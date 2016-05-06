@@ -127,8 +127,9 @@ Specifically, the notes below are aimed to help when the GRUB menu shows up fine
 
 1. Append `nomodeset ip=dhcp inst.nokill inst.vnc` to the kernel command line. Remove `rhgb` and `quiet` to see the kernel messages scroll by, which may help in further diagnostics.
    * If DHCP is not available on the installation network, the syntax becomes a bit more involved. The full list of variants is documented in the [Dracut Command-line parameters] (http://man7.org/linux/man-pages/man7/dracut.cmdline.7.html)
-2. The VGA console should switch into the installer's multi-virtual-terminal display. VNC may take a number of minutes to start, please be patient. 
-3. Connect to the IP (remember the :1) using a VNC viewer.
+2. The VGA console should switch into the installer's multi-virtual-terminal display. VNC may take a number of minutes to start, please be patient.
+   * Using the anaconda installer interface, switch to the "shell" TTY (ALT-F2), and use `ip a` command to display the IP addresses.
+3. Using the Connect to the IP (remember the :1) using a VNC viewer.
 4. Follow the installation UI. 
    * Since this won't be a usable install, skipping LUKS encryption is an option which will simplify this troubelshooting process. 
    * Do *not* reboot at the end of the installation.
