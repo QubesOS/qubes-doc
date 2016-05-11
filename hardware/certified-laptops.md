@@ -10,6 +10,9 @@ Qubes-certified Laptops
 Qubes-certified laptops are laptops that are regularly tested by the Qubes
 developers to ensure compatibility with all of Qubes' features. The developers
 test all new major versions and updates to ensure no regressions are introduced.
+To learn more about the certification process, or if you're interested in
+getting your company's hardware Qubes-certified, please see the [Hardware
+Certification] page.
 
 We aim to partner with a few select computer makers to ensure that Qubes is
 compatible with them, so that new users have clear path towards getting started
@@ -49,4 +52,6 @@ compatibility with Qubes:
 
 [System Requirements]: /doc/system-requirements/
 [Hardware Compatibility List]: /hcl/
+[Hardware Certification]: /hardware-certification/
+
 
