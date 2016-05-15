@@ -133,7 +133,8 @@ not exits, user is prompted to create one; if still there is no policy file
 after prompting, the action is denied.
 
 In the target VM, the `/etc/qubes-rpc/RPC_ACTION_NAME` must exist, containing
-the file name of the program that will be invoked.
+the file name of the program that will be invoked, or being that program itself
+- in which case it must have executable permission set (`chmod +x`).
 
 In the src VM, one should invoke the client via:
 
@@ -143,6 +144,10 @@ Note that only stdin/stdout is passed between rpc server and client --
 notably, no command line argument are passed. Source VM name is specified by
 `QREXEC_REMOTE_DOMAIN` environment variable. By default, stderr of client
 and server is logged to respective `/var/log/qubes/qrexec.XID` files.
+It is also possible to call service without specific client program - in which
+case server stdin/out will be connected with the terminal:
+
+    /usr/lib/qubes/qrexec-client-vm target_vm_name RPC_ACTION_NAME
 
 Be very careful when coding and adding a new rpc service. Unless the
 offered functionality equals full control over the target (it is the case
