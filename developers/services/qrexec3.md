@@ -156,6 +156,41 @@ be fatal to Qubes security. On the other hand, this mechanism allows to
 delegate processing of untrusted input to less privileged (or throwaway)
 AppVMs, thus wise usage of it increases security.
 
+### Service argument in policy
+
+Sometimes just service name isn't enough to make reasonable qrexec policy. One
+example of such situation is [qrexec-based USB
+passthrough](https://github.com/qubesos/qubes-issues/531) - using just service
+name it isn't possible to express policy "allow access to device X and deny to
+others". It isn't also feasible to create separate service for every device...
+
+For this reason, starting with Qubes 3.2, it is possible to specify service
+argument, which will be subject to policy. Besides above example of USB
+passthrough, service argument can make many service policies more fine-grained
+and easier to write precise policy with "allow" and "deny" actions, instead of
+"ask" (offloading additional decisions to the user). And generally the less
+choices user must make, the lower chance to make a mistake.
+
+The syntax is simple: when calling service, add an argument to the service name
+separated with `+` sign, for example:
+
+    /usr/lib/qubes/qrexec-client-vm target_vm_name RPC_ACTION_NAME+ARGUMENT
+
+Then create policy as usual, including argument
+(`/etc/qubes-rpc/policy/RPC_ACTION_NAME+ARGUMENT`). If policy for specific
+argument is not set (file does not exist), then default policy for this service
+is loaded (`/etc/qubes-rpc/policy/RPC_ACTION_NAME`).
+
+In target VM (when the call is allowed) service file will searched as:
+
+ - `/etc/qubes-rpc/RPC_ACTION_NAME+ARGUMENT`
+ - `/etc/qubes-rpc/RPC_ACTION_NAME`
+
+In any case, the script will receive `ARGUMENT` as its argument and additionally as
+`QREXEC_SERVICE_ARGUMENT` environment variable. This means it is also possible
+to install different script for particular service argument.
+
+See below for example service using argument.
 
 ### Revoking "Yes to All" authorization ###
 
@@ -207,6 +242,51 @@ and we should get "3" as answer, after dom0 allows it.
 **Note:** For a real world example of writing a qrexec service, see this
 [blog post](http://theinvisiblethings.blogspot.com/2013/02/converting-untrusted-pdfs-into-trusted.html).
 
+### Qubes RPC example - with argument usage ###
+
+We will show the necessary files to create rpc call that reads specific file
+from predefined directory on the target. Besides really naive storage, it may
+be very simple password manager.
+Additionally in this example simplified workflow will be used - server code
+placed directly in service definition file (in `/etc/qubes-rpc` directory). And
+no separate client script will be used.
+
+ * rpc server code (*/etc/qubes-rpc/test.File*)
+
+       #!/bin/sh
+       argument="$1" # service argument, also available as $QREXEC_SERVICE_ARGUMENT
+       if [ -z "$argument" ]; then
+         echo "ERROR: No argument given!"
+         exit 1
+       fi
+       # service argument is already sanitized by qrexec framework and it is
+       # quaranted to not contain any space or /, so no need for additional path
+       # sanitization
+       cat "/home/user/rpc-file-storage/$argument"
+
+ * specific policy file in dom0 (*/etc/qubes-rpc/policy/test.File+testfile1* )
+
+       source_vm1 target_vm allow
+
+ * another specific policy file in dom0 (*/etc/qubes-rpc/policy/test.File+testfile2* )
+
+       source_vm2 target_vm allow
+
+ * default policy file in dom0 (*/etc/qubes-rpc/policy/test.File* )
+
+       $anyvm $anyvm deny
+
+ * invoke rpc from `source_vm1` via
+
+       /usr/lib/qubes/qrexec-client-vm target_vm test.File+testfile1
+
+   and we should get content of `/home/user/rpc-file-storage/testfile1` as answer.
+
+ * also possible to invoke rpc from `source_vm2` via
+
+       /usr/lib/qubes/qrexec-client-vm target_vm test.File+testfile2
+
+   But when invoked with other argument or from different VM, it should be denied.
 
 # Qubes RPC internals #
 
