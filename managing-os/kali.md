@@ -13,7 +13,7 @@ There are multiple ways in which this can be achieved, for example you could cre
 
 
 Build Based on Debian Template
-==============================
+---
 
 1 - Install debian-8 template (if not already installed)
 
@@ -46,12 +46,14 @@ Build Based on Debian Template
 9 - Create a appvm from the kali template and attach necessary devices.
 
 
+Note:
+
 If you do not want to modify the sources.list file and add the signing keys yourself, alternatively you can use KATOOLIN after cloning the Debian Template. Guide on how to use KATOOLIN - http://www.tecmint.com/install-kali-linux-tools-using-katoolin-on-ubuntu-debian/ 
 
 
 
 Alternative Options to Kali
-===========================
+---
 
 PenTester Framework (PTF)
 
