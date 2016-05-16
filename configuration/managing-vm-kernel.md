@@ -10,10 +10,11 @@ VM kernel managed by dom0
 -------------------------
 
 By default VMs kernels are provided by dom0. This means that:
+
 1. You can select kernel version in VM settings;
 2. You can modify kernel options in VM settings;
 3. You can **not** modify any of above from inside of VM;
-4. Installing additional kernel modules in cumbersome.
+4. Installing additional kernel modules is cumbersome.
 
 To select which kernel a given VM will use, you can use either use Qubes Manager (VM settings, advanced tab), or `qvm-prefs` tool:
 
