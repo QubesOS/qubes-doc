@@ -16,19 +16,33 @@ Build Based on Debian Template
 ==============================
 
 1 - Install debian-8 template (if not already installed)
+
 2 - Clone debian-8 template
+
 3 - Add kali repo to /etc/apt/sources.list:
+
     * deb http://http.kali.org/kali kali-rolling main non-free contrib
+    
 4 - Find and add kali signing keys:
+
     * gpg --key-server hkp://key.gnupg.net --recv-key 7D8D0BF6 (this is the key ID I found on Kali web site)
+    
     * gpg --list-keys --with-fingerprint 7D8D0BF6 
+    
     * gpg --export --armor 7D8D0BF6 > kali.asc 
+    
     * sudo apt-key add kali.asc 
+    
     * sudo apt-key list 
+    
 5 - sudo apt-get update 
+
 6 - sudo halt 
+
 7 - backup template (cloned...) 
+
 8 - sudo apt-get apt-get install kali-*** (or similar) --> installs fine but break the template X settings. As mentioned, X packaged need to be masked prior to this, I did not take the time to look-up how to do that... 
+
 9 - Create a appvm from the kali template and attach necessary devices.
 
 
