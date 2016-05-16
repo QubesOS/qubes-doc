@@ -133,8 +133,8 @@ Open your VM settings for `sys-net`, navigate to Services, and add the new servi
 Alternatively, you can enable these services for `sys-net` from the command line by opening up Terminal in `dom0` and running the following:
 
 ```
-qubes-service -e sys-net macspoof-wlp0s1
-qubes-service -e sys-net macspoof-enp0s0
+qvm-service -e sys-net macspoof-wlp0s1
+qvm-service -e sys-net macspoof-enp0s0
 ```
 
 Now restart `sys-net`.
