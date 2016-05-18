@@ -9,12 +9,12 @@ Troubleshooting UEFI related problems
 
 
 
-Cannot start installation, it hangs after GRUB menu ("Test media and install Qubes OS")
+Cannot start installation, hangs at four penguins after choosing "Test media and install Qubes OS" in GRUB menu
 ---------------------
 
 There is some [common bug in UEFI implementation](http://xen.markmail.org/message/f6lx2ab4o2fch35r), affecting mostly Lenovo systems, but probably some others too. You can try existing workaround:
 
-1. In GRUB menu press `e`.
+1. In GRUB menu<sup id="a1-1">[1](#f1)</sup> press `e`.
 2. At the end of `chainloader` line add `/mapbs /noexitboot`.
 3. Perform installation normally, but not reboot system at the end yet.
 4. Go to `tty2` (Ctrl-Alt-F2).
@@ -35,7 +35,7 @@ System crash/restart when booting installer
 Some Dell systems and probably others have [another bug in UEFI firmware](http://markmail.org/message/amw5336otwhdxi76). And there is another workaround for it:
 
 
-1. In GRUB menu press `e`.
+1. In GRUB menu<sup id="a1-2">[1](#f1)</sup> press `e`.
 2. At the end of `chainloader` line add `-- efi=attr=uc`.
 3. Perform installation normally, but not reboot system at the end yet.
 4. Go to `tty2` (Ctrl-Alt-F2).
@@ -44,3 +44,6 @@ Some Dell systems and probably others have [another bug in UEFI firmware](http:/
         sed -i -e 's/^options=.*/\0 efi=attr=uc' /mnt/sysimage/boot/efi/qubes/xen.cfg
 
 6. Now you can reboot the system by issuing `reboot` command.
+
+* * *
+<b name="f1">1</b> If you use rEFInd, you can see 3 options regarding the USB installer. Choose "Fallback Boot Loader" to enter the GRUB menu. [↩](#a1-1) [↩](#a1-2)
