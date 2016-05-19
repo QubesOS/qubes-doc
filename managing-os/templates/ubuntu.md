@@ -31,6 +31,12 @@ want to build.
 
 Known issues
 ------------
+Building an [Ubuntu 14.4 LTS](https://groups.google.com/forum/#!topic/qubes-users/w0uZNr8nno8) template can be difficult.
+A workaround is creating an ubuntu HVM A and use X over ssh from a second vm B ([see](https://groups.google.com/forum/#!topic/qubes-users/-wkG7E55PUI)).
+To do this you have to enable networking between A and B, or set B as netvm of A. 
+If B supports copy and paste or seamless mode so does (indirectly) A. (you will be missing some features. e.g.: send file to vm A) 
+Doing this reduces the security of A to the security of B!
+This is no problem if B's only purpose is providing X over ssh only for vm A.
 
 If you want to help in improving the template, feel free to
 [contribute](/wiki/ContributingHowto).
