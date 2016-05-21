@@ -21,7 +21,7 @@ Summary: Upgrading the Standard Debian 8 Template to Debian 9
         [user@debian-9 ~]$ sudo sed -i.backup 's/jessie/stretch/g' /etc/apt/sources.list
         [user@debian-9 ~]$ sudo sed -i.backup 's/jessie/stretch/g' /etc/apt/sources.list.d/qubes-r3.list
         [user@debian-9 ~]$ sudo apt-get update && sudo apt-get dist-upgrade -y
-	[user@debian-9 ~]$ sudo apt-get autoremove
+        [user@debian-9 ~]$ sudo apt-get autoremove
 	
     (Shut down TemplateVM by any normal means.)
 
@@ -117,6 +117,6 @@ Debian Stretch packages were first made available in the Qubes R3.1 repositories
 
 Relevant Mailing List Discussions
 ---------------------------------
- * [Stretch Template Installation][https://groups.google.com/forum/#!topicsearchin/qubes-devel/debian$20stretch/qubes-devel/4rdayBF_UTc]
- * [Stretch availability in 3.2][https://groups.google.com/forum/#!topicsearchin/qubes-devel/debian$20stretch/qubes-devel/cekPfBqQMOI]
+ * [Stretch Template Installation](https://groups.google.com/forum/#!topicsearchin/qubes-devel/debian$20stretch/qubes-devel/4rdayBF_UTc)
+ * [Stretch availability in 3.2](https://groups.google.com/forum/#!topicsearchin/qubes-devel/debian$20stretch/qubes-devel/cekPfBqQMOI)
  
