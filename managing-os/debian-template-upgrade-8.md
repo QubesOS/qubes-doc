@@ -46,7 +46,7 @@ any template based on the standard Debian 8 template.
         [user@dom0 ~]$ qvm-run -a debian-9 gnome-terminal
 
  3. Update your apt repositories to use stretch instead of jessie
-    (This can be done manully with a text editor, but sed can be used to
+    (This can be done manually with a text editor, but sed can be used to
     automatically update the files and back them up.)
 
         [user@debian-9 ~]$ sudo sed -i.backup 's/jessie/stretch/g' /etc/apt/sources.list
@@ -56,7 +56,7 @@ any template based on the standard Debian 8 template.
 
         [user@debian-9 ~]$ sudo apt-get update && sudo apt-get dist-upgrade -y
 
- 5. Remove unneccessary packages that were previously installed
+ 5. Remove unnecessary packages that were previously installed
 
         [user@debian-9 ~]$ sudo apt-get autoremove
 
