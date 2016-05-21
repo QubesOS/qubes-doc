@@ -39,7 +39,15 @@ Debian 8 (jessie) - stable:
 
 Debian 9 (stretch) - testing:
 
-A prebuilt template is not yet available, but you can build an experimental stretch template from source.
+A prebuilt template is not yet available, but there are two options for
+achieving a stretch template:
+
+* build an experimental stretch template from source.
+
+* clone a debian-8 template and then modify /etc/apt/sources.list and 
+/etc/apt/sources.list.d/qubes-r3.list to pull from stretch repos rather 
+than jessie repos. After that, an apt-get dist-upgrade followed by a 
+reboot should Just Work.
 
 Download will take a while and there will be no progress indicator.
 
