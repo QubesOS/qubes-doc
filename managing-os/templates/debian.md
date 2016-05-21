@@ -33,23 +33,26 @@ Debian 7 (wheezy) - old stable:
 
     [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-7
 
+(The download will take a while, and there will be no progress indicator.)
+
 Debian 8 (jessie) - stable:
 
     [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-8
+
+(The download will take a while, and there will be no progress indicator.)
 
 Debian 9 (stretch) - testing:
 
 A prebuilt template is not yet available, but there are two options for
 achieving a stretch template:
 
-* build an experimental stretch template from source.
+* Build an experimental stretch template from source.
 
-* clone a debian-8 template and then modify /etc/apt/sources.list and 
-/etc/apt/sources.list.d/qubes-r3.list to pull from stretch repos rather 
-than jessie repos. After that, an apt-get dist-upgrade followed by a 
-reboot should Just Work.
+* Clone a `debian-8` template and then modify `/etc/apt/sources.list` and 
+`/etc/apt/sources.list.d/qubes-r3.list` to pull from stretch repos rather 
+than jessie repos. After that, an `apt-get dist-upgrade` followed by a 
+reboot should "just work."
 
-Download will take a while and there will be no progress indicator.
 
 Known issues
 ------------
