@@ -3,6 +3,7 @@ layout: doc
 title: Fedora Minimal Template
 permalink: /doc/templates/fedora-minimal/
 redirect_from:
+- /fedora-minimal/
 - /en/doc/templates/fedora-minimal/
 - /doc/Templates/FedoraMinimal/
 - /wiki/Templates/FedoraMinimal/
