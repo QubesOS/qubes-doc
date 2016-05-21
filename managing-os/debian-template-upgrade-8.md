@@ -52,8 +52,11 @@ any template based on the standard Debian 8 template.
         [user@debian-9 ~]$ sudo sed -i.backup 's/jessie/stretch/g' /etc/apt/sources.list
         [user@debian-9 ~]$ sudo sed -i.backup 's/jessie/stretch/g' /etc/apt/sources.list.d/qubes-r3.list
 
- 4. Update the package lists and upgrade to Debian 9
-
+ 4. Update the package lists and upgrade to Debian 9. During the process,
+    it will likely prompt to overwrite two files, qubes-r3.list and
+    pulse/client.conf. qubes-r3.list can be overwritten, while pulse/client.conf
+    need to left as the currently installed version.
+ 
         [user@debian-9 ~]$ sudo apt-get update && sudo apt-get dist-upgrade -y
 
  5. Remove unnecessary packages that were previously installed
