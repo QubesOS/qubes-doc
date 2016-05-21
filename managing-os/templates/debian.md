@@ -3,7 +3,7 @@ layout: doc
 title: Debian Template
 permalink: /doc/templates/debian/
 redirect_from:
-- /debian/
+- /doc/debian/
 - /en/doc/templates/debian/
 - /doc/Templates/Debian/
 - /wiki/Templates/Debian/
