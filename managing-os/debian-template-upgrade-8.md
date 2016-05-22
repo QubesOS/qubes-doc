@@ -18,8 +18,8 @@ Summary: Upgrading the Standard Debian 8 Template to Debian 9
 
         [user@dom0 ~]$ qvm-clone debian-8 debian-9
         [user@dom0 ~]$ qvm-run -a debian-9 gnome-terminal
-        [user@debian-9 ~]$ sudo sed -i.backup 's/jessie/stretch/g' /etc/apt/sources.list
-        [user@debian-9 ~]$ sudo sed -i.backup 's/jessie/stretch/g' /etc/apt/sources.list.d/qubes-r3.list
+        [user@debian-9 ~]$ sudo sed -i 's/jessie/stretch/g' /etc/apt/sources.list
+        [user@debian-9 ~]$ sudo sed -i 's/jessie/stretch/g' /etc/apt/sources.list.d/qubes-r3.list
         [user@debian-9 ~]$ sudo apt-get update && sudo apt-get dist-upgrade -y
         [user@debian-9 ~]$ sudo apt-get autoremove
 	
@@ -47,10 +47,10 @@ any template based on the standard Debian 8 template.
 
  3. Update your apt repositories to use stretch instead of jessie
     (This can be done manually with a text editor, but sed can be used to
-    automatically update the files and back them up.)
+    automatically update the files.)
 
-        [user@debian-9 ~]$ sudo sed -i.backup 's/jessie/stretch/g' /etc/apt/sources.list
-        [user@debian-9 ~]$ sudo sed -i.backup 's/jessie/stretch/g' /etc/apt/sources.list.d/qubes-r3.list
+        [user@debian-9 ~]$ sudo sed -i 's/jessie/stretch/g' /etc/apt/sources.list
+        [user@debian-9 ~]$ sudo sed -i 's/jessie/stretch/g' /etc/apt/sources.list.d/qubes-r3.list
 
  4. Update the package lists and upgrade to Debian 9. During the process,
     it will likely prompt to overwrite two files, qubes-r3.list and
