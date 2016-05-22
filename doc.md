@@ -71,6 +71,7 @@ Managing Operating Systems within Qubes
  * [Upgrading the Fedora 21 Template](/doc/fedora-template-upgrade-21/)
  * [Upgrading the Fedora 20 Template](/doc/fedora-template-upgrade-20/)
  * [Upgrading the Fedora 18 Template](/doc/fedora-template-upgrade-18/)
+ * [Upgrading the Debian 8 Template](/doc/debian-template-upgrade-8/)
  * [Tips for Using Linux in an HVM](/doc/linux-hvm-tips/)
  * [Creating a NetBSD VM](/doc/netbsd/)
 
