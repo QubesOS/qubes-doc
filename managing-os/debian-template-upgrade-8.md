@@ -118,8 +118,10 @@ may not be the best option.
 
 Debian Stretch packages were first made available in the Qubes R3.1 repositories.
 
+If sound is not working, you may need to enable the Qubes testing repository to get the testing version of qubes-gui-agent. This can be done by editing the /etc/apt/sources.list.d/qubes-r3.list file and uncommenting the Qubes Updates Candidates repo.
+
 Relevant Mailing List Discussions
 ---------------------------------
  * [Stretch Template Installation](https://groups.google.com/forum/#!topicsearchin/qubes-devel/debian$20stretch/qubes-devel/4rdayBF_UTc)
  * [Stretch availability in 3.2](https://groups.google.com/forum/#!topicsearchin/qubes-devel/debian$20stretch/qubes-devel/cekPfBqQMOI)
- 
+ * [Fixing sound in Debian Stretch](https://groups.google.com/forum/#!topic/qubes-users/JddCE54GFiU)
