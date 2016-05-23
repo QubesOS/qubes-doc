@@ -136,6 +136,7 @@ Customization Guides
  * [Customizing Windows 7 templates](/doc/windows-template-customization)
  * [Using KDE in dom0](/doc/kde/)
  * [Installing XFCE in dom0](/doc/xfce/)
+ * [Installing i3 in dom0](/doc/i3/)
  * [Language Localization](/doc/language-localization/)
 
 
