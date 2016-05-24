@@ -171,7 +171,46 @@ passphrase from your (sub)key(s) in order to get Split-GPG working correctly.
 As mentioned above, we do not believe PGP key passphrases to be significant
 from a security perspective.
 
-### Importing public keys ###
+### Configuring Git for use with Split GPG ###
+
+Git can be configured to used with Split-GPG, something useful if you would
+like to contribute to the Qubes OS  Project as every commit is required to be
+signed. The most basic ~/.gitconfig file to with working Split-GPG looks
+something like this.
+
+    [user]
+    name = YOUR NAME
+    email = YOUR EMAIL ADDRESS
+    signingkey = YOUR KEY ID
+
+    [gpg]
+    program = qubes-gpg-client-wrapper
+
+Your key id is the public id of your signing key, which can be found by running
+"qubes-gpg-client -k". In this instance, the key id is DD160C74.
+
+    [user@work ~]$ qubes-gpg-client -k
+    /home/user/.gnupg/pubring.kbx
+    -----------------------------   
+    pub   rsa4096/DD160C74 2016-04-26
+    uid                    Qubes User
+
+To sign commits, you now add the "-S" flag to your commit command, which should
+prompt for Split-GPG usage. If you would like automatically sign all commits,
+you can add the following snippet to ~/.gitconfig.
+
+    [commit]
+    gpgsign = true
+
+Lastly, if you would like to add aliases to sign and verify tags using the
+conventions the Qubes OS Project recommends, you can add the following snippet
+to ~/.gitconfig.
+
+    [alias]
+    stag = "!id=`git rev-parse --verify HEAD`; git tag -s adw_${id:0:8} -m \"Tag for commit $id\""
+    vtag = !git tag -v `git describe`
+
+## Importing public keys ###
 
 Use `qubes-gpg-import-key` in the client AppVM to import the key into the
 GPG backend VM. Of course a (safe, unspoofable) user consent dialog box is
