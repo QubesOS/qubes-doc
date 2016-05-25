@@ -38,6 +38,15 @@ Installing Qubes guest tools in Windows 7 VMs
 First, make sure that `qubes-windows-tools` is installed in your system:
 
 ~~~
+sudo qubes-dom0-update qubes-windows-tools
+~~~
+
+(If the above command does not work, it could be that the Qubes Tools are not in the stable repo yet. Try installing from the testing repo instead.)
+
+You can also install the package from testing repositories, where we usually publish new versions first:
+
+~~~
+-qubes-dom0-update --enablerepo=qubes*testing qubes-windows-tools
 sudo qubes-dom0-update --enablerepo=qubes*testing qubes-windows-tools
 ~~~
 
