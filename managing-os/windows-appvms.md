@@ -41,10 +41,13 @@ First, make sure that `qubes-windows-tools` is installed in your system:
 sudo qubes-dom0-update qubes-windows-tools
 ~~~
 
+(If the above command does not work, it could be that the Qubes Tools are not in the stable repo yet. Try installing from the testing repo instead.)
+
 You can also install the package from testing repositories, where we usually publish new versions first:
 
 ~~~
 qubes-dom0-update --enablerepo=qubes*testing qubes-windows-tools
+sudo qubes-dom0-update --enablerepo=qubes*testing qubes-windows-tools
 ~~~
 
 This package brings the ISO with Qubes Windows Tools that is passed to the VM when `--install-windows-tools` is specified for the `qvm-start` command. Please note that none of this software ever runs in Dom0 or any other part of the system except for the Windows AppVM in which it is to be installed.
