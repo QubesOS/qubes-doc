@@ -146,7 +146,7 @@ only `gpg2`). If you encounter trouble while trying to set up Split-GPG, make
 sure you're using `gpg2` for your configuration and testing, since keyring data
 may differ between the two installations.
 
-### Configuring Thunderbird/Enigmail for use with Split GPG ###
+## Using Thunderbird + Enigmail with Split GPG ##
 
 However, when using Thunderbird with Enigmail extension it is
 not enough, because Thunderbird doesn't preserve the environment
