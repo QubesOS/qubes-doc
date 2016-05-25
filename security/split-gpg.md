@@ -171,7 +171,7 @@ passphrase from your (sub)key(s) in order to get Split-GPG working correctly.
 As mentioned above, we do not believe PGP key passphrases to be significant
 from a security perspective.
 
-### Configuring Git for use with Split GPG ###
+## Using Git with Split GPG ##
 
 Git can be configured to used with Split-GPG, something useful if you would
 like to contribute to the Qubes OS  Project as every commit is required to be
