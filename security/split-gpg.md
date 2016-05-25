@@ -210,6 +210,10 @@ to ~/.gitconfig.
     stag = "!id=`git rev-parse --verify HEAD`; git tag -s user_${id:0:8} -m \"Tag for commit $id\""
     vtag = !git tag -v `git describe`
 
+Replace `user` with your short, unique nickname. Now you can use `git stag` to
+add a signed tag to a commit and `git vtag` to verify the most recent tag that
+is reachable from a commit.
+
 ## Importing public keys ###
 
 Use `qubes-gpg-import-key` in the client AppVM to import the key into the
