@@ -175,7 +175,7 @@ from a security perspective.
 
 Git can be configured to used with Split-GPG, something useful if you would
 like to contribute to the Qubes OS  Project as every commit is required to be
-signed. The most basic ~/.gitconfig file to with working Split-GPG looks
+signed. The most basic `~/.gitconfig` file to with working Split-GPG looks
 something like this.
 
     [user]
@@ -187,7 +187,7 @@ something like this.
     program = qubes-gpg-client-wrapper
 
 Your key id is the public id of your signing key, which can be found by running
-"qubes-gpg-client -k". In this instance, the key id is DD160C74.
+`qubes-gpg-client -k`. In this instance, the key id is DD160C74.
 
     [user@work ~]$ qubes-gpg-client -k
     /home/user/.gnupg/pubring.kbx
@@ -197,14 +197,14 @@ Your key id is the public id of your signing key, which can be found by running
 
 To sign commits, you now add the "-S" flag to your commit command, which should
 prompt for Split-GPG usage. If you would like automatically sign all commits,
-you can add the following snippet to ~/.gitconfig.
+you can add the following snippet to `~/.gitconfig`.
 
     [commit]
     gpgsign = true
 
 Lastly, if you would like to add aliases to sign and verify tags using the
 conventions the Qubes OS Project recommends, you can add the following snippet
-to ~/.gitconfig.
+to `~/.gitconfig`.
 
     [alias]
     stag = "!id=`git rev-parse --verify HEAD`; git tag -s user_${id:0:8} -m \"Tag for commit $id\""
