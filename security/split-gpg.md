@@ -207,7 +207,7 @@ conventions the Qubes OS Project recommends, you can add the following snippet
 to ~/.gitconfig.
 
     [alias]
-    stag = "!id=`git rev-parse --verify HEAD`; git tag -s adw_${id:0:8} -m \"Tag for commit $id\""
+    stag = "!id=`git rev-parse --verify HEAD`; git tag -s user_${id:0:8} -m \"Tag for commit $id\""
     vtag = !git tag -v `git describe`
 
 ## Importing public keys ###
