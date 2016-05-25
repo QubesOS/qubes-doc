@@ -76,8 +76,8 @@ could start a Disposable VM and have the to-be-signed document displayed
 there? To Be Determined.
 
 
-Configuring and using Split GPG
--------------------------------
+Configuring Split GPG
+---------------------
 
 In dom0, make sure the `qubes-gpg-split-dom0` package is installed.
 
