@@ -79,7 +79,7 @@ You need an openvpn server and a DNS server accessible through the vpn (use one 
 
     If it does not contain a line `redirect-gateway def1`, add it.  
     This will route all traffic through your vpn's network device, after a connection was created.
-    If the connection breaks down all traffic will be routed through the original network device (we will top this with iptables).
+    If the connection breaks down all traffic will be routed through the original network device (we will stop this with iptables).
 
     If your vpn config file contains `auth-user-pass`, change it to `auth-user-pass /home/user/auth.txt` and create a file `/home/user/auth.txt` containing the user name in the first line and the password in the second.  
     This will enable the vpn to login without requiring you to enter your username and password.
