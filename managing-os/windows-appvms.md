@@ -46,7 +46,6 @@ sudo qubes-dom0-update qubes-windows-tools
 You can also install the package from testing repositories, where we usually publish new versions first:
 
 ~~~
-qubes-dom0-update --enablerepo=qubes*testing qubes-windows-tools
 sudo qubes-dom0-update --enablerepo=qubes*testing qubes-windows-tools
 ~~~
 
