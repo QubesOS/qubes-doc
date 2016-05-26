@@ -120,36 +120,10 @@ You need an openvpn server and a DNS server accessible through the vpn (use one 
     `sudo chmod +x /rw/config/qubes-firewall-user-script`
     
 4.  Setup the vpn's autostart:  
-    Add `openvpn --config /home/user/vpn.cfg &` to `/rw/config/rc.local` and make it executable  (`sudo chmod +x /rw/config/rc.local`).
+   Edit to `/rw/config/rc.local`, make it executable  (`sudo chmod +x /rw/config/rc.local`) and add:  
 
-    If your ProxyVM takes long to shut down, this may be caused by the vpn connection.  
-    You can fix this by killing the connection on shutdown (issue `killall openvpn` on shutdown).
-    This can be done by adding  
-    
-        echo "[Unit]
-        Description=shutdown
-        Before=shutdown.target reboot.target
-        
-        [Service]
-        RemainAfterExit=yes
-        ExecStart=/bin/true
-        ExecStop=/rw/config/rc.local.shutdown
-        
-        [Install]
-        WantedBy=shutdown.target multi-user.target reboot.target
-        " > /usr/lib/systemd/system/user_shutdown_hook.service;
-
-        systemctl start user_shutdown_hook;
-
-    to `/rw/config/rc.local`.  
-    This creates and starts a service executing the script `/rw/config/rc.local.shutdown` on shutdown.
-    The service will be deleted after each shutdown, since the `root.img` gets reset at each reboot.
-
-    Now create `/rw/config/rc.local.shutdown`, make it executable `chmod +x  /rw/config/rc.local.shutdown` and put the kill command in it:
-
-        #!/bin/bash
-        killall openvpn
-    
+        ln -s /home/user/vpn.cfg /etc/openvpn/vpn.conf;  
+        systemctl --no-block start openvpn@vpn.service;
 
 5.  Configure your AppVMs to use the new VM as a NetVM.
 
