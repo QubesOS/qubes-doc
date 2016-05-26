@@ -111,10 +111,6 @@ You need an openvpn server and a DNS server accessible through the vpn (use one 
     `iptables -I FORWARD -o eth0 -j DROP`  
     `iptables -I FORWARD -i eth0 -j DROP`  
     This blocks forwarding of connections through your plain network device (in case the vpn tunnel breaks).
-    
-    `iptables -I FORWARD -o $DEV -j ACCEPT`
-    This allows forwarding of connections through the vpn. (So other AppVMs can use it)
-
 
     `iptables -t nat -I PR-QBS -p udp --dport 53 -j DNAT --to-destination $DNS`  
     `iptables -t nat -I PR-QBS -p tcp --dport 53 -j DNAT --to-destination $DNS`  
