@@ -149,6 +149,7 @@ Troubleshooting
  * [Solving problems with Macbook Air 2012](https://groups.google.com/group/qubes-devel/browse_thread/thread/b8b0d819d2a4fc39/d50a72449107ab21#8a9268c09d105e69)
  * [Getting Sony Vaio Z laptop to work with Qubes](/doc/sony-vaio-tinkering/)
  * [Getting Lenovo 450 to work with Qubes](/doc/lenovo450-tinkering/)
+ * [Getting Lenovo Thinkpad X201 to work with Qubes](/doc/thinkpad_x201/)
  * [Troubleshooting UEFI related problems](/doc/uefi-troubleshooting/)
 
 
