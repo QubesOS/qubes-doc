@@ -25,7 +25,7 @@ Build Based on Debian Template
     
 4 - Find and add kali signing keys:
 
-    * gpg --key-server hkp://key.gnupg.net --recv-key 7D8D0BF6 (this is the key ID I found on Kali web site)
+    * gpg --keyserver hkp://keys.gnupg.net --recv-key 7D8D0BF6 (this is the key ID I found on Kali web site)
     
     * gpg --list-keys --with-fingerprint 7D8D0BF6 
     
