@@ -23,7 +23,7 @@ First you should decide what you are interested in (and good in). The Qubes proj
 
 Perhaps the best starting point is to have a look at the [issues](https://github.com/QubesOS/qubes-issues/issues) to see what are the most urgent tasks to do.
 
-Before you engage in some longer activity, e.g. implementing a new feature, it's always good to contact us first (preferably via the [qubes-devel](/doc/mailing-lists/) list), to avoid a situation when two or more independent people would work on the same feature at the same time, doubling each others work. When you contact us and devote to a particular task, we will create a ticket for this task with info who is working on this feature and what is the expected date of some early code to be posted.
+Before you engage in some longer activity, e.g. implementing a new feature, it's always good to contact us first (preferably via the [qubes-devel](/doc/mailing-lists/) list), to avoid a situation when two or more independent people would work on the same feature at the same time, doubling each other's work. When you contact us and devote to a particular task, we will create a ticket for this task with info who is working on this feature and what is the expected date of some early code to be posted.
 
 When you are ready to start some work, read how to [access Qubes sources and send patches](/doc/source-code/).
 
@@ -31,4 +31,4 @@ You can also contribute in other areas than coding and testing, e.g. by providin
 
 You should be aware, however, that we will not blindly accept all the contributions! We will accept only the quality ones. Open source doesn't mean lack of quality control! If we reject your patch, please do not get discouraged, try fixing it so that it adheres to the required standards. We will only reject contributions in the good faith, to make Qubes a better OS.
 
-Thanks, The Qubes Project.
+Thanks, [The Qubes Project team](/team).
