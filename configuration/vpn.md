@@ -52,8 +52,6 @@ Using a ProxyVM to set up a VPN client gives you the ability to:
 
 
 **This configuration will not guarantee that the vpn fails closed and that there will be no leakage though clearnet.**
-
-
 See the discussion [here](https://github.com/QubesOS/qubes-issues/issues/1941).
 
 You can achieve **this** by setting up the VPN Proxy like this:
@@ -63,53 +61,47 @@ You can achieve **this** by setting up the VPN Proxy like this:
 No outbound traffic is allowed from the ProxyVM other than the vpn control connection, and all traffic is forwarded down the vpn tunnel.
 
 These instructions use the following settings - adjust accordingly to match your set-up.
-- Remote server at X.X.X.X, with openvpn port 1194. (You need to have IP address for remote server.)
+- Remote server at X.X.X.X, with openvpn udp port 1194. (You need to have IP address for remote server.)
 - DNS server provided by the VPN provider, or reachable through the VPN. IP address Y.Y.Y.Y
-- Openvpn is configured with tun0, remote 10.9.0.1, client 10.9.0.2
+- Openvpn configured with tun0, remote 10.9.0.1, client 10.9.0.2
 
 1. Set up openvpn on the proxyVM to connect to the remote server.
-
 2. Edit /rw/config/rc.local to delete the default gateway and add a static route to X.X.X.X via dev eth0.
-~~~
-sudo ip route delete default
-sudo ip route add X.X.X.X/32 via 10.9.0.2
-~~~
 
+        sudo ip route delete default
+        sudo ip route add X.X.X.X/32 via 10.9.0.2
 3. Add the following iptables rules:
-~~~
-iptables -P OUTPUT DROP
-iptables -F OUTPUT
-iptables -I OUTPUT -o lo -j ACCEPT
-iptables -A OUTPUT -o eth0 -d X.X.X.X -p udp --dport 1194
-iptables -A OUTPUT -o tun0 -j ACCEPT
-iptables -I FORWARD 1 -o eth0 -j DROP
-iptables -I FORWARD 2 -i eth0 -j DROP
-~~~
-The 2nd rule restricts outbound eth0 to the openvpn server and vpn port.
 
-The 3rd allows all traffic down the tunnel.
+        iptables -P OUTPUT DROP
+        iptables -F OUTPUT
+        iptables -I OUTPUT -o lo -j ACCEPT
+        iptables -A OUTPUT -o eth0 -d X.X.X.X -p udp --dport 1194
+        iptables -A OUTPUT -o tun0 -j ACCEPT
+        iptables -I FORWARD 1 -o eth0 -j DROP
+        iptables -I FORWARD 2 -i eth0 -j DROP
 
-The policy is to drop outbound traffic.
+  The 2nd rule restricts outbound eth0 to the openvpn server and vpn port.
 
+  The 3rd allows all traffic down the tunnel.
+
+  The policy is to drop outbound traffic.
+  
 4. Add the following rules in the nat table:
-~~~
-iptables -t nat -I PR-QBS -p udp --dport 53 -j DNAT --to-destination Y.Y.Y.Y:53
-iptables -t nat -I PR-QBS -p tcp --dport 53 -j DNAT --to-destination Y.Y.Y.Y:53
-~~~
+
+        iptables -t nat -I PR-QBS -p udp --dport 53 -j DNAT --to-destination Y.Y.Y.Y:53
+        iptables -t nat -I PR-QBS -p tcp --dport 53 -j DNAT --to-destination Y.Y.Y.Y:53
 
 5. Save the rc.local file and make it executable.
-~~~
-chmod +x /rw/config/rc.local
-~~~
+
+        chmod +x /rw/config/rc.local
 
 6. Add the *same* rules as in 3 and 4 above to /rw/config/qubes-user-firewall-script, and make *that* file executable.
-
-This is needed because when you add a qube downstream of the ProxyVM the default firewall rules for INPUT and oUTPUT chains will be reinstated.
-
+  
+    This is needed because when you add a qube downstream of the ProxyVM the default firewall rules for INPUT and OUTPUT chains will be reinstated.
 7. Either use *redirect-gateway def1* in the openvpn client config file, or manually add the gateway when the tunnel comes up:
-~~~
-sudo ip route add default via 10.9.0.2 dev tun0 proto static
-~~~
+
+        sudo ip route add default via 10.9.0.2 dev tun0 proto static
+
 
 If the tunnel drops the gateway route disappears, so there is no leakage. 
 
