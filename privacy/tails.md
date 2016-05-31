@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: Running Tails in Qubes
-permalink: /doc/running-tails/
+permalink: /doc/tails/
 redirect_from:
 - /doc/running-tails
 ---
