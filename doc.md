@@ -94,6 +94,7 @@ Privacy Guides
 --------------
 
  * [Whonix for Privacy & Anonymity](/doc/whonix/)
+ * [Running Tails in Qubes](/doc/tails/)
  * [Anonymizing your MAC Address](/doc/anonymizing-your-mac-address/)
  * [TorVM](/doc/torvm/)
  * [Martus](/doc/martus/)
