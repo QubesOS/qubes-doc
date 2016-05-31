@@ -9,20 +9,21 @@ redirect_from:
 Running Tails in Qubes
 ============================
 
-Tails is the amnesic incognito live system. It aims are preserving privacy and anonymity.
+Tails is the amnesic incognito live system. Its aims are preserving privacy and anonymity.
 
 To run Tails under Qubes:
 
 1.  Read about [creating and using HVM qubes](https://www.qubes-os.org/doc/hvm/)
 
-2.  Download and verify Tails from http://tails.boum.org in a qube, (saved as "/home/user/Downloads/tails.iso" on qube "isoVM" for purposes of this guide).
+2.  Download and verify Tails from http://tails.boum.org in a qube, (saved as `/home/user/Downloads/tails.iso` on qube "isoVM" for purposes of this guide).
+
 3.  Create a HVM
 
-  - in Manager, click VM menu and select "Create VM"
-  - Name the new qube - "Tails"
-  - Select "HVM"
-  - Configure networking
-  - Click "OK" to create new HVM.
+    - in Manager, click VM menu and select "Create VM"
+    - Name the new qube - "Tails"
+    - Select "HVM"
+    - Configure networking
+    - Click "OK" to create new HVM.
 
 4.  Open dom0 Konsole and start Tails:
 
@@ -32,13 +33,13 @@ To run Tails under Qubes:
 
 6.  Once the Tails qube has started, configure networking in the qube.
 
-  -  Check the IP address allocated to the qube - either from GUI Manager, or ```qvm-ls -n Tails``` in Konsole. (E.g. 10.137.1.101 with gateway 10.137.1.1)
-  -  In the Tails qube, open systems menu in top-right corner. Select "Wired Settings", and change  IPv4 configuration from "Automatic (DHCP)" to "Manual".
-  -  Enter the Address:   10.137.1.101  in our example.
-  -  Enter the Netmask:   255.255.255.0  
-  -  Enter the Gateway:   10.137.1.1  in our example.
-  -  Enter DNS:           10.137.1.1  in our example.
-  -  Click "Apply". You should now see "Connected".
+    -  Check the IP address allocated to the qube - either from GUI Manager, or ```qvm-ls -n Tails``` in Konsole. (E.g. 10.137.1.101 with gateway 10.137.1.1)
+    -  In the Tails qube, open systems menu in top-right corner. Select "Wired Settings", and change  IPv4 configuration from "Automatic (DHCP)" to "Manual".
+    -  Enter the Address:   10.137.1.101  in our example.
+    -  Enter the Netmask:   255.255.255.0
+    -  Enter the Gateway:   10.137.1.1  in our example.
+    -  Enter DNS:           10.137.1.1  in our example.
+    -  Click "Apply". You should now see "Connected".
 
 7.  Use Tails as normal.
 
