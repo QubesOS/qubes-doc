@@ -24,7 +24,7 @@ Qubes Users' FAQ
  * [Why does Qubes use Xen instead of KVM or some other hypervisor?](#why-does-qubes-use-xen-instead-of-kvm-or-some-other-hypervisor)
  * [What about this other/new (micro)kernel/hypervisor?](#what-about-this-othernew-microkernelhypervisor)
  * [What's so special about Qubes' GUI virtualization?](#whats-so-special-about-qubes-gui-virtualization)
- * [Can I watch YouTube videos in AppVMs?](#can-i-watch-youtube-videos-in-appvms)
+ * [Can I watch YouTube videos in qubes?](#can-i-watch-youtube-videos-in-qubes)
  * [Can I run applications, like games, which require 3D support?](#can-i-run-applications-like-games-which-require-3d-support)
  * [Is Qubes a multi-user system?](#is-qubes-a-multi-user-system)
  * [Why passwordless sudo?](#why-passwordless-sudo)
@@ -33,7 +33,7 @@ Qubes Users' FAQ
 
 [Installation & Hardware Compatibility](#installation--hardware-compatibility)
 ------------------------------------------------------------------------------
- * [How much disk space does each AppVM require?](#how-much-disk-space-does-each-appvm-require)
+ * [How much disk space does each qube require?](#how-much-disk-space-does-each-qube-require)
  * [How much memory is recommended for Qubes?](#how-much-memory-is-recommended-for-qubes)
  * [Can I install Qubes on a system without VT-x?](#can-i-install-qubes-on-a-system-without-vt-x)
  * [Can I install Qubes on a system without VT-d?](#can-i-install-qubes-on-a-system-without-vt-d)
@@ -44,13 +44,14 @@ Qubes Users' FAQ
 
 [Common Problems](#common-problems)
 -----------------------------------
- * [My AppVMs lost Internet access after a TemplateVM update. What should I do?](#my-appvms-lost-internet-access-after-a-templatevm-update-what-should-i-do)
+ * [My qubes lost Internet access after a TemplateVM update. What should I do?](#my-qubes-lost-internet-access-after-a-templatevm-update-what-should-i-do)
  * [My keyboard layout settings are not behaving correctly. What should I do?](#my-keyboard-layout-settings-are-not-behaving-correctly-what-should-i-do)
  * [My dom0 and/or TemplateVM update stalls when attempting to update via …](#my-dom0-andor-templatevm-update-stalls-when-attempting-to-update-via-the-gui-tool-what-should-i-do)
  * [How do I run a Windows HVM in non-seamless mode (i.e., as a single window)?](#how-do-i-run-a-windows-hvm-in-non-seamless-mode-ie-as-a-single-window)
  * [I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.](#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot)
- * [I assigned a PCI device to an AppVM, then unassigned it/shut down the …](#i-assigned-a-pci-device-to-an-appvm-then-unassigned-itshut-down-the-appvm-why-isnt-the-device-available-in-dom0)
-
+ * [I assigned a PCI device to a qube, then unassigned it/shut down the …](#i-assigned-a-pci-device-to-a-qube-then-unassigned-itshut-down-the-qube`-why-isnt-the-device-available-in-dom0)
+ * [How do I install Flash in a Debian qube?](#how-do-i-install-flash-in-a Debian-qube)
+  
 -----------------
 
 
@@ -87,7 +88,7 @@ All Qubes-specific terms are defined in the [glossary](/doc/glossary/).
 
 ### Does Qubes run every app in a separate VM?
 
-No! This would not make much sense. Qubes uses lightweight VMs to create security domains (e.g., "work," "personal," and "banking,"). A typical user would likely need around five domains. Very paranoid users, or those who are high-profile targets, might use a dozen or more domains.
+No! This would not make much sense. Qubes uses lightweight VMs to create security qubes (e.g., "work," "personal," and "banking,"). A typical user would likely need around five qubes. Very paranoid users, or those who are high-profile targets, might use a dozen or more qubes.
 
 ### Why does Qubes use Xen instead of KVM or some other hypervisor?
 
@@ -114,20 +115,20 @@ Here are the answers for Xen 4.1 (which we use as of 2014-04-28):
 4.  Full VT-d support including untrusted driver domains.
 5.  S3 sleep supported well.
 6.  Works on most modern CPUs/Chipsets.
-7.  Biggest performance hit on disk operations (especially in Qubes when complex 2-layer mapping used for Linux AppVMs). No GPU virtualization.
+7.  Biggest performance hit on disk operations (especially in Qubes when complex 2-layer mapping used for Linux qubes). No GPU virtualization.
 8.  Mostly Works<sup>TM</sup> :)
 
 ### What's so special about Qubes' GUI virtualization?
 
 We have designed the GUI virtualization subsystem with two primary goals: security and performance. Our GUI infrastructure introduces only about 2,500 lines of C code (LOC) into the privileged domain (Dom0), which is very little, and thus leaves little space for bugs and potential attacks. At the same time, due to the smart use of Xen shared memory, our GUI implementation is very efficient, so most virtualized applications really feel as if they were executed natively.
 
-### Can I watch YouTube videos in AppVMs?
+### Can I watch YouTube videos in qubes?
 
 Absolutely.
 
 ### Can I run applications, like games, which require 3D support?
 
-Those won’t fly. We do not provide OpenGL virtualization for AppVMs. This is mostly a security decision, as implementing such a feature would most likely introduce a great deal of complexity into the GUI virtualization infrastructure. However, Qubes does allow for the use of accelerated graphics (OpenGL) in Dom0’s Window Manager, so all the fancy desktop effects should still work.
+Those won’t fly. We do not provide OpenGL virtualization for qubes. This is mostly a security decision, as implementing such a feature would most likely introduce a great deal of complexity into the GUI virtualization infrastructure. However, Qubes does allow for the use of accelerated graphics (OpenGL) in Dom0’s Window Manager, so all the fancy desktop effects should still work.
 
 For further discussion about the potential for GPU passthorugh on Xen/Qubes, please see the following threads:
 
@@ -155,21 +156,21 @@ Installation & Hardware Compatibility
 
 (See also: [System Requirements](/doc/system-requirements/), [Hardware Compatibility List](/hcl/), and [Certified Laptops](/doc/certified-laptops/).)
 
-### How much disk space does each AppVM require?
+### How much disk space does each qube require?
 
-Each AppVM is created from a TemplateVM and shares the root filesystem with this TemplateVM (in a read-only manner). This means that each AppVM needs only as much disk space as is necessary to store its own private data. This also means that it is possible to update the software for several AppVMs simultaneously by running a single update process in the TemplateVM upon which those AppVMs are based. (These AppVMs will then have to be restarted in order for the update to take effect in them.)
+Each qube is created from a TemplateVM and shares the root filesystem with this TemplateVM (in a read-only manner). This means that each qube needs only as much disk space as is necessary to store its own private data. This also means that it is possible to update the software for several qubes simultaneously by running a single update process in the TemplateVM upon which those qubes are based. (These qubes will then have to be restarted in order for the update to take effect in them.)
 
 ### How much memory is recommended for Qubes?
 
-At least 4 GB. It is possible to install Qubes on a system with 2 GB of RAM, but the system would probably not be able to run more than three AppVMs at a time.
+At least 4 GB. It is possible to install Qubes on a system with 2 GB of RAM, but the system would probably not be able to run more than three qubes at a time.
 
 ### Can I install Qubes on a system without VT-x?
 
-Yes. Xen doesn't use VT-x (or AMD-v) for PV guest virtualization. (It uses ring0/3 separation instead.) However, without VT-x, you won't be able to use fully virtualized VMs (e.g., Windows-based AppVMs), which were introduced in Qubes 2. In addition, if your system lacks VT-x, then it also lacks VT-d. (See next question.)
+Yes. Xen doesn't use VT-x (or AMD-v) for PV guest virtualization. (It uses ring0/3 separation instead.) However, without VT-x, you won't be able to use fully virtualized VMs (e.g., Windows-based qubes), which were introduced in Qubes 2. In addition, if your system lacks VT-x, then it also lacks VT-d. (See next question.)
 
 ### Can I install Qubes on a system without VT-d?
 
-Yes. You can even run a NetVM, but you will not benefit from DMA protection for driver domains. On a system without VT-d, everything should work in the same way, except there will be no real security benefit to having a separate NetVM, as an attacker could always use a simple DMA attack to go from the NetVM to Dom0. **Nonetheless, all of Qubes' other security mechanisms, such as AppVM separation, work without VT-d. Therefore, a system running Qubes will still be significantly more secure than one running Windows, Mac, or Linux, even if it lacks VT-d.**
+Yes. You can even run a NetVM, but you will not benefit from DMA protection for driver domains. On a system without VT-d, everything should work in the same way, except there will be no real security benefit to having a separate NetVM, as an attacker could always use a simple DMA attack to go from the NetVM to Dom0. **Nonetheless, all of Qubes' other security mechanisms, such as qube separation, work without VT-d. Therefore, a system running Qubes will still be significantly more secure than one running Windows, Mac, or Linux, even if it lacks VT-d.**
 
 ### Can I use AMD-v instead of VT-x?
 
@@ -195,7 +196,7 @@ with using such setup.
 Common Problems
 ---------------
 
-### My AppVMs lost Internet access after a TemplateVM update. What should I do?
+### My qubes lost Internet access after a TemplateVM update. What should I do?
 
 Run `systemctl enable NetworkManager-dispatcher.service` in the TemplateVM upon which your NetVM is based. You may have to reboot afterward for the change to take effect. (Note: This is an upstream problem. See [here](https://bugzilla.redhat.com/show_bug.cgi?id=974811). For details, see the qubes-users mailing list threads [here](https://groups.google.com/d/topic/qubes-users/xPLGsAJiDW4/discussion) and [here](https://groups.google.com/d/topic/qubes-users/uN9G8hjKrGI/discussion).)
 
@@ -213,7 +214,7 @@ In your TemplateVMs, open a terminal and run `sudo yum upgrade`.
 
 ### How do I run a Windows HVM in non-seamless mode (i.e., as a single window)?
 
-Enable "debug mode" in the AppVM's settings, either by checking the box labeled "Run in debug mode" in the Qubes VM Manager AppVM settings menu or by running the [qvm-prefs command](/doc/dom0-tools/qvm-prefs/).)
+Enable "debug mode" in the qube's settings, either by checking the box labeled "Run in debug mode" in the Qubes VM Manager qube settings menu or by running the [qvm-prefs command](/doc/dom0-tools/qvm-prefs/).)
 
 
 ### I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.
@@ -236,9 +237,9 @@ Please review the note on [this page](https://www.qubes-os.org/doc/Dom0Tools/Qvm
 
 
 
-### I assigned a PCI device to an AppVM, then unassigned it/shut down the AppVM. Why isn't the device available in dom0?
+### I assigned a PCI device to a qube, then unassigned it/shut down the qube. Why isn't the device available in dom0?
 
-This is an intended feature. A device which was previously assigned to a less trusted AppVM could attack dom0 if it were automatically reassigned there. In order to re-enable the device in dom0, either:
+This is an intended feature. A device which was previously assigned to a less trusted qube could attack dom0 if it were automatically reassigned there. In order to re-enable the device in dom0, either:
 
  * Reboot the physical machine.
 
@@ -250,3 +251,15 @@ or
         MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
         MOD=`modprobe -R $MODALIAS | head -n 1`
         echo 0000:<BDF> > /sys/bus/pci/drivers/$MOD/bind
+        
+        
+### How do I install Flash in a Debian qube?
+
+The Debian way is to install the flashplugin-nonfree package. Do this in a Debian template. You will have to allow Full access in the firewall prior to installation. This will make Flash available to every qube using that template.
+
+If you only want Flash available in one qube:
+
+- download the Flash Player for linux (64 bit) .tar.gz from [Adobe](https://get.adobe.com/flashplayer/otherversions).
+- untar the downloaded file ```tar xf install_flash_player_11_linux.x86_64.tar.gz```
+- create ~/.mozilla/plugins if it does not exist
+- move libflashhplayer.so to ~/.mozilla/plugins, and restart iceweasel.
