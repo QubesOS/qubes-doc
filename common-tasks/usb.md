@@ -35,16 +35,7 @@ USB drive mounting is integrated into the Qubes VM Manager GUI. Simply insert
 your USB drive, right-click on the desired qube in the Qubes VM Manager list,
 click **Attach/detach block devices**, and select your desired action and
 device. This, however, only works for the whole device. If you would like to
-attach individual partitions, you must use the command-line tool (shown below).
-The reason for this is that when attaching a single partition, it used to be
-that the Nautilus file manager would not see it and automatically mount it (see
-issue [623]). This problem, however, seems to be resolved (see
-[this comment on issue 1072][1072-comm1]).
-
-If, for some reason, the device does not appear in Nautilus and you still need
-to attach just a single partition to a device, you will need to mount it
-manually. The device will show up as `/dev/xvdi` (or `/dev/xvdj` if there is
-already one device attached -- if two, `/dev/xvdk`, and so on).
+attach individual partitions, you must use the command-line tool.
 
 The command-line tool you may use to mount whole USB drives or their partitions
 is `qvm-block`. This tool can be used to assign a USB drive to a qube as
@@ -107,6 +98,14 @@ follows:
 Otherwise, you will not be able to attach it anywhere later. See issue [1082]
 for details.
 
+There have been reports that when attaching a single partition, the Nautilus
+file manager would not see it and automatically mount it (see issue [623]).
+This problem seems to be resolved (see [this comment on issue 1072][1072-comm1]).
+
+If, however, the device does not appear in Nautilus, you will need to mount it
+manually. The device will show up as `/dev/xvdi` (or `/dev/xvdj` if there is
+already one device attached -- if two, `/dev/xvdk`, and so on).
+
 
 ### What if I removed the device before detaching it from the VM? ###
 
@@ -158,10 +157,8 @@ Xen does not yet provide working PVUSB functionality, so only USB mass storage
 devices can be passed to individual qubes.
 
 For this reason, you may wish to avoid using a USB qube if you do not have a USB
-controller free of input devices and programmable devices. For example, if you
-use a USB mouse for the whole system, then delegating the sole USB controller to
-a qube would cause your mouse to be usable only in that qube. However, most
-laptops use PS-2 for keyboards and touchpad devices, which avoids this problem.
+controller free of input devices and programmable devices, although Qubes R3.1 
+introduced support for USB mice and keyboards (see below).
 
 A USB qube acts as a secure handler for potentially malicious USB devices,
 preventing them from coming into contact with dom0 (which could otherwise be
