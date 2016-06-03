@@ -139,6 +139,7 @@ Verifying Digests
 
 Each ISO is accompanied by a plain text file ending in `.DIGESTS`. This file contains the output of running several different crytographic hash functions on the ISO in order to obtain alphanumeric outputs known as "digests." For example, `Qubes-R3.1-x86_64.iso` is accompanied by `Qubes-R3.1-x86_64.iso.DIGESTS` which has the following content:
 
+    -----BEGIN PGP SIGNED MESSAGE-----
     Hash: SHA256
 
     f99634b05d15f6bb2ac02ee03e4338a0 *Qubes-R3.1-x86_64.iso
