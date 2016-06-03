@@ -98,11 +98,11 @@ Once you have obtained the Qubes Master Signing Key ([`0x36879494`](https://keys
 
 Now you can easily download any of the developer or release signing keys that happen to be used to sign particular ISO, RPM, TGZ files or git tags.
 
-For example: Qubes OS Release 2 Signing Key ([`0x0A40E458`](https://keys.qubes-os.org/keys/qubes-release-2-signing-key.asc)) is used for all Release 2 ISO images.
+For example: Qubes OS Release 3 Signing Key ([`0x03FA5082`](https://keys.qubes-os.org/keys/qubes-release-3-signing-key.asc)) is used for all Release 3 ISO images.
 
-    $ gpg --recv-keys 0x3F01DEF49719158EF86266F80C73B9D40A40E458
-    gpg: requesting key 0A40E458 from hkp server keys.gnupg.net
-    gpg: key 0A40E458: public key "Qubes OS Release 2 Signing Key" imported
+    $ gpg --recv-keys 0xC52261BE0A823221D94CA1D1CB11CA1D03FA5082
+    gpg: requesting key 03FA5082 from hkp server keys.gnupg.net
+    gpg: key 03FA5082: public key "Qubes OS Release 3 Signing Key" imported
     gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
     gpg: depth: 0  valid:   1  signed:   1  trust: 0-, 0q, 0n, 0m, 0f, 1u
     gpg: depth: 1  valid:   1  signed:   0  trust: 1-, 0q, 0n, 0m, 0f, 0u
@@ -113,23 +113,22 @@ You can also download all the currently used developers' signing keys and curren
 
 The developer signing keys are set to be valid for 1 year only, while the Qubes Master Signing Key ([`0x36879494`](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc)) has no expiration date. This latter key was generated and is kept only within a dedicated, air-gapped "vault" machine, and the private portion will (hopefully) never leave this isolated machine.
 
-You can now verify the ISO image (`Qubes-R2-x86_64-DVD.iso`) matches its signature (`Qubes-R2-x86_64-DVD.iso.asc`):
+You can now verify the ISO image (`Qubes-R3.1-x86_64.iso`) matches its signature (`Qubes-R3.1-x86_64.iso.asc`):
 
-    $ gpg -v --verify Qubes-R2-x86_64-DVD.iso.asc Qubes-R2-x86_64-DVD.iso
+    $ gpg -v --verify Qubes-R3.1-x86_64.iso.asc Qubes-R3.1-x86_64.iso
     gpg: armor header: Version: GnuPG v1
-    gpg: assuming signed data in `Qubes-R2-x86_64-DVD.iso'
-    gpg: Signature made Tue Sep 23 08:38:40 2014 UTC using RSA key ID 0A40E458
+    gpg: Signature made Tue 08 Mar 2016 07:40:56 PM PST using RSA key ID 03FA5082
     gpg: using PGP trust model
-    gpg: Good signature from "Qubes OS Release 2 Signing Key"
-    gpg: binary signature, digest algorithm SHA1
+    gpg: Good signature from "Qubes OS Release 3 Signing Key"
+    gpg: binary signature, digest algorithm SHA256
 
-The Release 2 Signing Key ([`0x0A40E458`](https://keys.qubes-os.org/keys/qubes-release-2-signing-key.asc)) used to sign this ISO image should be signed by the Qubes Master Signing Key ([`0x36879494`](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc)):
+The Release 3 Signing Key ([`0x03FA5082`](https://keys.qubes-os.org/keys/qubes-release-3-signing-key.asc)) used to sign this ISO image should be signed by the Qubes Master Signing Key ([`0x36879494`](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc)):
 
-    $ gpg --list-sig 0A40E458
-    pub   4096R/0A40E458 2012-11-15
-    uid                  Qubes OS Release 2 Signing Key
-    sig          36879494 2012-11-15  Qubes Master Signing Key
-    sig 3        0A40E458 2012-11-15  Qubes OS Release 2 Signing Key
+    $ gpg --list-sig 03FA5082
+    pub   4096R/03FA5082 2014-11-19
+    uid                  Qubes OS Release 3 Signing Key
+    sig 3        03FA5082 2014-11-19  Qubes OS Release 3 Signing Key
+    sig          36879494 2014-11-19  Qubes Master Signing Key
 
 Having problems verifying the ISO images? Make sure you have the corresponding release signing key and see this thread:
 
@@ -138,58 +137,58 @@ Having problems verifying the ISO images? Make sure you have the corresponding r
 Verifying Digests
 -----------------
 
-Each ISO is accompanied by a plain text file ending in `.DIGESTS`. This file contains the output of running several different crytographic hash functions on the ISO in order to obtain alphanumeric outputs known as "digests." For example, `Qubes-R2-x86_64-DVD.iso` is accompanied by `Qubes-R2-x86_64-DVD.iso.DIGESTS` which has the following content:
+Each ISO is accompanied by a plain text file ending in `.DIGESTS`. This file contains the output of running several different crytographic hash functions on the ISO in order to obtain alphanumeric outputs known as "digests." For example, `Qubes-R3.1-x86_64.iso` is accompanied by `Qubes-R3.1-x86_64.iso.DIGESTS` which has the following content:
 
-    -----BEGIN PGP SIGNED MESSAGE-----
     Hash: SHA256
-    
-    6f6ff24f2edec3a7607671001e694d8e *Qubes-R2-x86_64-DVD.iso
-    0344e04a98b741c311936f3e2bb67fcebfc2be08 *Qubes-R2-x86_64-DVD.iso
-    1fa056b73d8e2e93acdf3dcaface2515d61335e723d1d7d338241209119c10a3 *Qubes-R2-x86_64-DVD.iso
-    a49ff19c1ad8c51a50198ac51670cf7c71972b437fa59f2e9fc9432cce76f4529f10de1d576ac777cdd49b9325eb2f32347fd13e0f9b04f823a73e84c6ddd772 *Qubes-R2-x86_64-DVD.iso
+
+    f99634b05d15f6bb2ac02ee03e4338a0 *Qubes-R3.1-x86_64.iso
+    990b7765ee209b42b3cad78673463daae769c729 *Qubes-R3.1-x86_64.iso
+    2d82a684d507ad5789ed83272af4311fd04375e782364d5dd9df4b3d7118cc28 *Qubes-R3.1-x86_64.iso
+    083d6cfc3fb5dc97fd91d8f9f70301c154e3674114ff1727b0415c2c663b233c22e0830d0bfc1f7a532549d7e39c6ef5cfde6a90a650343b47ba57d3e8e92ca7 *Qubes-R3.1-x86_64.iso
     -----BEGIN PGP SIGNATURE-----
     Version: GnuPG v1
-    
-    iQIcBAEBCAAGBQJVvUfGAAoJEAxzudQKQORYhj0P/1TTtDn0WtlfwvSOQ5m3ybeT
-    CiEv/wWZmZR2hfTOs1chlwt5PZFUCkAk6hbr7+AbJU3HurnmyK97ORtak0WcuBiO
-    3MWKGiDaBGjKfYcv7YZWDcMRCjN69I4gq7lhXB2JC5pSnOkciD8xzSMAnyFz8Dnh
-    sHSGJIrOIeLhj0Jt90NGm2CKeQgKrbCGQWWqn/BRf40GXjkyGDSAj+Bsbnpn3LjE
-    kWOblX631PRi8eclD27/b5hsK/ur7RlpA0KKn7dJoTO2PikEZRoT7QgcIMxYWOja
-    GZhDi/5gWyttVmF1EszkwaYLAH3uqkZbgKHIsLwweTwXYxMqjobQ5dFkm0RCaXXg
-    wf/ayfyAIHCWYK0GvyHyAe7hs30UQ4Ssw0LDnnTsOwJYzxZpZqWhcg89EBMGdNgu
-    5sghcj97VHjDI/zpRyTOAi1+8ZoG1FMsvmnlpghojXPcFGM1nldKs2k1XfGHdVrH
-    ucJfhQilhsGo65EiN+v9VS6tz5dDtX5+NnkkpR5mOx1+xwUf4n+F6cWyIiLKY6Se
-    byIN0dPtErZpq47w6bhLZ3Dd/frReG8Egmr7yLAqGHKmuwvmEUA6w6a2VzWQy5G4
-    Smcj5kPHKWJ9SvAQHc7SoUmYqt2GEAKBi6CYb5Oeknf3vc4QUSPxF8KRiebUhTxc
-    ruycSbLkLklsDjfH0caD
-    =NVWj
+
+    iQIcBAEBCAAGBQJW4AqUAAoJEMsRyh0D+lCCo+cP/A/96SmGSPmnMxIor0ODsZNh
+    HtGCfFPhB2KnpLMOVUMRidoMWTzL1+J7HpWYdOS7hPhlcbDfX4A0C4QCs4b0Wkc7
+    npha/GabQuek0HSi2uKt2YQtADq9yPjpqhc3Q2crbnL9UPmKv/XdECfpnK9zSRAE
+    RKl7Uj5RAPuLQ7ee4uQ8lIXWUm6IljpHnm4cG+WP2QYLCkS8BWq18Bl9s0fKdj47
+    JzIkhpyc6Vr9a7UBBxghF+Cb9WrPy22sTtE7eQYHRibh38xdMPOw0tb9F6AMAVeC
+    hK6+xJVz+7xERtRWTQPk4LOPeHIU21xJyVipkwb+T0SrQgsNwSXsSGPe0PiNU9Xk
+    khMbKGcbA+rnQiCS/9EKORNyULRAHvD6WXUqNyIS9trhcx49fxU8taPXKze947p1
+    XvWbqBWHIcCvKVQ3t/okmNN7OXfUCIDJ9bx+qyoLsIU2BF/aZZv+5ijK26D3H+xQ
+    G+2DMIynDMOlHSioCM3I1M0Ml5sB21G0VMJF9r9r8RrDop5cVGdgksie0JvpZ/ep
+    N/L7ozf1gvrO2euVslelMOUJcBjeisT214g6/DNjQ9Ox5SkDWIXrS2ZtR/zToApg
+    x3T0IusOQQhdpC8I0nnXPL/tgyRV8UFNBhxIec7IKnGwvQlVYMFYVomPh7vJhfdl
+    GMMP3JlFAaxghZWU14+F
+    =FiJ5
     -----END PGP SIGNATURE-----
 
 Four digests have been computed for this ISO. The hash functions used, in order from top to bottom, are MD5, SHA1, SHA256, and SHA512. One way to verify that the ISO you downloaded matches any of these is by using `openssl` from the command line:
 
-    $ openssl dgst -md5 Qubes-R2-x86_64-DVD.iso
-    MD5(Qubes-R2-x86_64-DVD.iso)= 6f6ff24f2edec3a7607671001e694d8e
-    $ openssl dgst -sha1 Qubes-R2-x86_64-DVD.iso
-    SHA1(Qubes-R2-x86_64-DVD.iso)= 0344e04a98b741c311936f3e2bb67fcebfc2be08
-    $ openssl dgst -sha256 Qubes-R2-x86_64-DVD.iso
-    SHA256(Qubes-R2-x86_64-DVD.iso)= 1fa056b73d8e2e93acdf3dcaface2515d61335e723d1d7d338241209119c10a3
-    $ openssl dgst -sha512 Qubes-R2-x86_64-DVD.iso
-    SHA512(Qubes-R2-x86_64-DVD.iso)= a49ff19c1ad8c51a50198ac51670cf7c71972b437fa59f2e9fc9432cce76f4529f10de1d576ac777cdd49b9325eb2f32347fd13e0f9b04f823a73e84c6ddd772
+    $ openssl dgst -md5 Qubes-R3.1-x86_64.iso
+    MD5(Qubes-R3.1-x86_64.iso)= f99634b05d15f6bb2ac02ee03e4338a0
+    $ openssl dgst -sha1 Qubes-R3.1-x86_64.iso
+    SHA1(Qubes-R3.1-x86_64.iso)= 990b7765ee209b42b3cad78673463daae769c729
+    $ openssl dgst -sha256 Qubes-R3.1-x86_64.iso
+    SHA256(Qubes-R3.1-x86_64.iso)= 2d82a684d507ad5789ed83272af4311fd04375e782364d5dd9df4b3d7118cc28
+    $ openssl dgst -sha512 Qubes-R3.1-x86_64.iso
+    SHA512(Qubes-R3.1-x86_64.iso)=
+    083d6cfc3fb5dc97fd91d8f9f70301c154e3674114ff1727b0415c2c663b233c22e0830d0bfc1f7a532549d7e39c6ef5cfde6a90a650343b47ba57d3e8e92ca7
 
 (Notice that the outputs match the values from the `.DIGESTS` file.)
 
-However, it is possible that an attacker replaced `Qubes-R2-x86_64-DVD.iso` with a malicious ISO, computed the hash values for that ISO, and replaced the values in `Qubes-R2-x86_64-DVD.iso.DIGESTS` with his own set of values. Therefore, ideally, we should also verify the authenticity of the listed hash values. Since `Qubes-R2-x86_64-DVD.iso.DIGESTS` is a clearsigned PGP file, we can use `gpg` to verify it from the command line:
+However, it is possible that an attacker replaced `Qubes-R3.1-x86_64.iso` with a malicious ISO, computed the hash values for that ISO, and replaced the values in `Qubes-R3.1-x86_64.iso.DIGESTS` with his own set of values. Therefore, ideally, we should also verify the authenticity of the listed hash values. Since `Qubes-R3.1-x86_64.iso.DIGESTS` is a clearsigned PGP file, we can use `gpg` to verify it from the command line:
 
-    $ gpg -v --verify Qubes-R2-x86_64-DVD.iso.DIGESTS
+    $ gpg -v --verify Qubes-R3.1-x86_64.iso.DIGESTS
     gpg: armor header: Hash: SHA256
     gpg: armor header: Version: GnuPG v1
     gpg: original file name=''
-    gpg: Signature made 2015-08-01T22:27:18 UTC using RSA key ID 0A40E458
+    gpg: Signature made Wed 09 Mar 2016 03:35:48 AM PST using RSA key ID 03FA5082
     gpg: using PGP trust model
-    gpg: Good signature from "Qubes OS Release 2 Signing Key"
+    gpg: Good signature from "Qubes OS Release 3 Signing Key"
     gpg: textmode signature, digest algorithm SHA256
 
-The signature is good. Assuming our copy of the `Qubes OS Release 2 Signing Key` is also authentic (see above), we can be confident that these hash values came from the Qubes devs.
+The signature is good. Assuming our copy of the `Qubes OS Release 3 Signing Key` is also authentic (see above), we can be confident that these hash values came from the Qubes devs.
 
 Verifying Qubes Code
 --------------------
