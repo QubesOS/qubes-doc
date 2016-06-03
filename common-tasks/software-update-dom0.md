@@ -60,11 +60,31 @@ Of course, command line tools are still available for accomplishing various upda
 
     Yum will say that there is no update, but the package will nonetheless be downloaded to dom0.
 
-1.  Downgrade the packge:
+2.  Downgrade the package:
 
     ~~~
     sudo yum downgrade package-version
     ~~~
+
+### How to re-install a package
+
+You can re-install in a similar fashion to downgrading.
+
+1.  Download the package:
+
+    ~~~
+    sudo qubes-dom0-update package
+    ~~~
+
+    Yum will say that there is no update, but the package will nonetheless be downloaded to dom0.
+
+2.  Re-install the package:
+
+    ~~~
+    sudo yum reinstall package
+    ~~~
+
+    Note that yum will only re-install if the installed and downloaded versions match. You can ensure they match by either updating the package to the latest version, or specifying the package version in the first step using the form `package-version`.
 
 ### How to uninstall a package
 
