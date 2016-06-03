@@ -84,7 +84,7 @@ You can re-install in a similar fashion to downgrading.
     sudo yum reinstall package
     ~~~
 
-    Note that yum will only re-install if the installed and downloaded versions match. You can ensure they match by either updating the package to the latest version, or specifying the package version in the first step using the form _package-version_.
+    Note that yum will only re-install if the installed and downloaded versions match. You can ensure they match by either updating the package to the latest version, or specifying the package version in the first step using the form `package-version`.
 
 ### How to uninstall a package
 
