@@ -175,6 +175,7 @@ For Developers
 
  * [System Documentation](/doc/system-doc/)
  * [Developers' FAQ](/doc/devel-faq/)
+ * [Feature Development Tracker](/qubes-issues/)
  * [Reporting Security Issues](/security/)
  * [Reporting Bugs](/doc/reporting-bugs/)
  * [Source Code](/doc/source-code/)
