@@ -118,42 +118,43 @@ Using a ProxyVM to set up a VPN client gives you the ability to:
 
 4.  Create the DNS-handling script.
     Use `sudo nano /rw/config/openvpn/qubes-vpn-handler.sh` to edit and add:
+
     ```
     #!/bin/bash
     set -e
     export PATH="$PATH:/usr/sbin:/sbin"
-
-case "$1" in
-
-up)
-	# To override DHCP DNS, assign static DNS addresses with 'setenv vpn_dns' in openvpn config;
-	# Format is 'X.X.X.X  Y.Y.Y.Y [...]' with quotes.
-	if [[ -z "$vpn_dns" ]] ; then
-		# Parses DHCP options from openvpn to set DNS address translation:
-		for optionname in ${!foreign_option_*} ; do
-			option="${!optionname}"
-			unset fops; fops=($option)
-			if [ ${fops[1]} == "DNS" ] ; then vpn_dns="$vpn_dns ${fops[2]}" ; fi
-		done
-	fi
-
-	iptables -t nat -F PR-QBS
-	if [[ -n "$vpn_dns" ]] ; then
-		# Set DNS address translation in firewall:
-		for addr in $vpn_dns; do
-			iptables -t nat -A PR-QBS -i vif+ -p udp --dport 53 -j DNAT --to $addr
-			iptables -t nat -A PR-QBS -i vif+ -p tcp --dport 53 -j DNAT --to $addr
-		done
-		su - -c 'notify-send "$(hostname): LINK IS UP." --icon=network-idle' user
-	else
-		su - -c 'notify-send "$(hostname): LINK UP, NO DNS!" --icon=dialog-error' user
-	fi
-
-	;;
-down)
-	su - -c 'notify-send "$(hostname): LINK IS DOWN !" --icon=dialog-error' user
-	;;
-esac
+    
+    case "$1" in
+    
+    up)
+    	# To override DHCP DNS, assign static DNS addresses with 'setenv vpn_dns' in openvpn config;
+    	# Format is 'X.X.X.X  Y.Y.Y.Y [...]' with quotes.
+    	if [[ -z "$vpn_dns" ]] ; then
+    		# Parses DHCP options from openvpn to set DNS address translation:
+    		for optionname in ${!foreign_option_*} ; do
+    			option="${!optionname}"
+    			unset fops; fops=($option)
+    			if [ ${fops[1]} == "DNS" ] ; then vpn_dns="$vpn_dns ${fops[2]}" ; fi
+    		done
+    	fi
+    
+    	iptables -t nat -F PR-QBS
+    	if [[ -n "$vpn_dns" ]] ; then
+    		# Set DNS address translation in firewall:
+    		for addr in $vpn_dns; do
+    			iptables -t nat -A PR-QBS -i vif+ -p udp --dport 53 -j DNAT --to $addr
+    			iptables -t nat -A PR-QBS -i vif+ -p tcp --dport 53 -j DNAT --to $addr
+    		done
+    		su - -c 'notify-send "$(hostname): LINK IS UP." --icon=network-idle' user
+    	else
+    		su - -c 'notify-send "$(hostname): LINK UP, NO DNS!" --icon=dialog-error' user
+    	fi
+    
+    	;;
+    down)
+    	su - -c 'notify-send "$(hostname): LINK IS DOWN !" --icon=dialog-error' user
+    	;;
+    esac
 ```
 
     Now save the script and make it executable:  
