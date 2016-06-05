@@ -121,7 +121,7 @@ Using a ProxyVM to set up a VPN client gives you the ability to:
     ```
     #!/bin/bash
     set -e
-    export PATH=$PATH:/usr/sbin:/sbin
+    export PATH="$PATH:/usr/sbin:/sbin"
 
 case "$1" in
 
