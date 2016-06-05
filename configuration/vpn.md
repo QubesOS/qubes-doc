@@ -42,7 +42,7 @@ Using a ProxyVM to set up a VPN client gives you the ability to:
 
 #### Setup a ProxyVM as a VPN gateway
 
-**Using NetworkManager**
+#### Using NetworkManager
 
 1.  Create a new VM and check the ProxyVM radio button.
 
@@ -60,73 +60,128 @@ Using a ProxyVM to set up a VPN client gives you the ability to:
 
 5. Optionally, you can install some [custom icons](https://github.com/Zrubi/qubes-artwork-proxy-vpn) for your VPN
 
-**Using iptables and openvpn**
-
-You need an openvpn server and a DNS server accessible through the vpn (use one from your vpn provider / a public one).
+#### Using iptables and openvpn
 
 1. Create a new VM and check the ProxyVM radio button.
 
     ![Create\_New\_VM.png](/attachment/wiki/VPN/Create_New_VM.png)
+    
+    If your choice of template VM doesn't already have the `openvpn` package, you'll need to install it in the template first. You may also need to `systemctl disable` any openvpn service that comes with the package if you follow the instructions for autostart below.
 
 2. Setup openvpn:   
-    Copy your openvpn config file to `/home/user/vpn.cfg`.
+    Copy your openvpn config files to `/rw/config/openvpn/` folder. The example main config file is `openvpn-client.ovpn`.
 
-    It should have one line starting with `dev` and one starting with `proto`.
-    The first describes the connection type (`tun` or `tap`) and the second the used protocol (`tcp` or `udp`).
-    Depending on your connection type, openvpn will create a new network device (probably `tap0` or `tun0`).
+    It should have one line that reads `dev tun`.
 
-    It also contains a line `remote X.X.X.X 1194`, where `X.X.X.X` is the ip of your openvpn server.
-
-    If it does not contain a line `redirect-gateway def1`, add it.  
-    This will route all traffic through your vpn's network device, after a connection was created.
-    If the connection breaks down all traffic will be routed through the original network device (we will stop this with iptables).
-
-    If your vpn config file contains `auth-user-pass`, change it to `auth-user-pass /home/user/auth.txt` and create a file `/home/user/auth.txt` containing the user name in the first line and the password in the second.  
-    This will enable the vpn to login without requiring you to enter your username and password.
-    If a different authentication method is used, set it up to require no user input.  
-    The vpn should now start by calling `sudo openvpn --config /home/user/vpn.cfg` and require no additional user input.  
-
-    In the following, we use the following placeholder:  
-    `$DEV`  For the device created for the connection.  
-    `$PROT` For the protocol used for connection  
-    `$SVR`  For the openvpn server's ip.  
-    `$DNS`  For the dns server's ip.  
-
-
-3.  Setup iptables:  
-    Edit `/rw/config/qubes-firewall-user-script` and add:
-
-    `iptables -P OUTPUT DROP`  
-    This blocks all outgoing traffic, if not specified otherwise.
+    If it does not contain a line `redirect-gateway def1` you may wish to add it. This will route all traffic through your vpn's network device after a connection is created. However, many VPN services will push this instruction to your client automatically -- having a line that says `client` or `pull` in your openvpn config instructs your client to use parameters specified by the VPN server.
     
-    `iptables -I OUTPUT -o $DEV -j ACCEPT`  
-    This allows the local system to connect through the vpn (you dont need this).
-    
-    `iptables -I OUTPUT -o eth0 -d $SVR -p $PROT --dport 1194 -j ACCEPT`  
-    This allows your system to connect to the vpn server with the protocol `$PROT` under the port 1194.
-    
-    `iptables -I OUTPUT -o lo -j ACCEPT`  
-    This allows connections from the system to the system.
+    NOTE: If the connection breaks down all traffic will by default be routed through the upstream network device eth0 (we will stop this with iptables in step 3).
 
-    `iptables -I FORWARD -o eth0 -j DROP`  
-    `iptables -I FORWARD -i eth0 -j DROP`  
-    This blocks forwarding of connections through your plain network device (in case the vpn tunnel breaks).
+    Also add the following to accomodate a DNS script:
+    ```
+    script-security 2
+    up 'qubes-vpn-handler.sh up'
+    down 'qubes-vpn-handler.sh down'
+    ```
 
-    `iptables -t nat -I PR-QBS -p udp --dport 53 -j DNAT --to-destination $DNS`  
-    `iptables -t nat -I PR-QBS -p tcp --dport 53 -j DNAT --to-destination $DNS`  
-    This will rewrite the DNS destination, and the traffic will be routed down the vpn tunnel. (to prevent DNS leaks)
+3.  Setup iptables.
+    Edit the firewall script with `sudo nano /rw/config/qubes-firewall-user-script` and add:
 
+	```
+	#!/bin/bash
+	#    First, block all outgoing traffic
+	iptables -P OUTPUT DROP
+    iptables -F OUTPUT
+
+	#    Add the `qvpn` group to system, if it doesn't already exist
+    if ! grep -q "^qvpn:" /etc/group ; then
+        groupadd -rf qvpn
+        sync
+    fi
+    sleep 2s
+
+	#    Allow traffic from the `qvpn` group to the uplink interface (eth0);
+	#    Our openvpn will run as group `qvpn`.
+    iptables -A OUTPUT -p all -o eth0 -m owner --gid-owner qvpn \
+    -m state --state NEW,ESTABLISHED -j ACCEPT
+
+	#	Allow queries to DNS server:
+    iptables -A OUTPUT -p udp -o eth0 --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+    iptables -A OUTPUT -p tcp -o eth0 --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+
+	#	Allow internal system connections:
+    iptables -I OUTPUT -o lo -j ACCEPT
+
+	#	Block forwarding of connections through upstream network device
+	#	(in case the vpn tunnel breaks):
+    iptables -I FORWARD -o eth0 -j DROP  
+    iptables -I FORWARD -i eth0 -j DROP
+    ```
     Now save `/rw/config/qubes-firewall-user-script` and make it executable:  
     `sudo chmod +x /rw/config/qubes-firewall-user-script`
+
+4.  Create the DNS-handling script.
+    Use `sudo nano /rw/config/openvpn/qubes-vpn-handler.sh` to edit and add:
+    ```
+    #!/bin/bash
+    set -e
+
+# Pop-up notification variables
+SPID=$(pgrep -U user -f dconf-service)
+dbus=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$SPID/environ|cut -d= -f2-)
+export DBUS_SESSION_BUS_ADDRESS=$dbus
+
+case "$1" in
+
+up)
+	# To override DHCP DNS, assign static DNS addresses with 'setenv vpn_dns' in openvpn config;
+	# Format is 'X.X.X.X  Y.Y.Y.Y [...]' with quotes.
+	if [[ -z $vpn_dns ]] ; then
+		# Parses DHCP options from openvpn to set DNS address translation:
+		for optionname in ${!foreign_option_*} ; do
+			option="${!optionname}"
+			unset fops; fops=($option)
+			if [ ${fops[1]} == "DNS" ] ; then vpn_dns="$vpn_dns ${fops[2]}" ; fi
+		done
+	fi
+
+	iptables -t nat -F PR-QBS
+	if [[ -n $vpn_dns ]] ; then
+		# Set DNS address translation in firewall:
+		for addr in $vpn_dns; do
+			iptables -t nat -A PR-QBS -i vif+ -p udp --dport 53 -j DNAT --to $addr
+			iptables -t nat -A PR-QBS -i vif+ -p tcp --dport 53 -j DNAT --to $addr
+		done
+		su -c 'notify-send "$(hostname): LINK IS UP." --icon=network-idle' user
+	else
+		su -c 'notify-send "$(hostname): LINK UP, NO DNS!" --icon=dialog-error' user
+	fi
+
+	;;
+down)
+	su -c 'notify-send "$(hostname): LINK IS DOWN !" --icon=dialog-error' user
+	;;
+esac
+```
+
+    Now save the script and make it executable:  
+    `sudo chmod +x /rw/config/openvpn/qubes-vpn-handler.sh`
     
-4.  Setup the vpn's autostart:  
-   Edit to `/rw/config/rc.local`, make it executable  (`sudo chmod +x /rw/config/rc.local`) and add:  
+5.  Setup the VPN's autostart:  
+    Use `sudo nano /rw/config/rc.local` to edit and add:  
+    ```
+    #!/bin/bash
+    groupadd -rf qvpn ; sleep 2s
+    sg qvpn -c 'openvpn --cd /rw/config/openvpn/ --config openvpn-client.ovpn \
+    --daemon --writepid /var/run/openvpn/openvpn-client.pid'
+    ```
+    Now save the script and make it executable:  
+    `sudo chmod +x /rw/config/rc.local`
+    
+6. Restart the new VM!
 
-        ln -s /home/user/vpn.cfg /etc/openvpn/vpn.conf;  
-        systemctl --no-block start openvpn@vpn.service;
-
-5.  Configure your AppVMs to use the new VM as a NetVM.
+7. Configure your AppVMs to use the new VM as a NetVM.
 
     ![Settings-NetVM.png](/attachment/wiki/VPN/Settings-NetVM.png)
 
-6. Optionally, you can install some [custom icons](https://github.com/Zrubi/qubes-artwork-proxy-vpn) for your VPN
+8. Optionally, you can install some [custom icons](https://github.com/Zrubi/qubes-artwork-proxy-vpn) for your VPN
