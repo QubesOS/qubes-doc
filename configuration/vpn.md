@@ -105,10 +105,6 @@ Using a ProxyVM to set up a VPN client gives you the ability to:
     iptables -A OUTPUT -p all -o eth0 -m owner --gid-owner qvpn \
     -m state --state NEW,ESTABLISHED -j ACCEPT
 
-	#	Allow queries to DNS server:
-    iptables -A OUTPUT -p udp -o eth0 --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
-    iptables -A OUTPUT -p tcp -o eth0 --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
-
 	#	Allow internal system connections:
     iptables -I OUTPUT -o lo -j ACCEPT
 
@@ -126,17 +122,12 @@ Using a ProxyVM to set up a VPN client gives you the ability to:
     #!/bin/bash
     set -e
 
-# Pop-up notification variables
-SPID=$(pgrep -U user -f dconf-service)
-dbus=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$SPID/environ|cut -d= -f2-)
-export DBUS_SESSION_BUS_ADDRESS=$dbus
-
 case "$1" in
 
 up)
 	# To override DHCP DNS, assign static DNS addresses with 'setenv vpn_dns' in openvpn config;
 	# Format is 'X.X.X.X  Y.Y.Y.Y [...]' with quotes.
-	if [[ -z $vpn_dns ]] ; then
+	if [[ -z "$vpn_dns" ]] ; then
 		# Parses DHCP options from openvpn to set DNS address translation:
 		for optionname in ${!foreign_option_*} ; do
 			option="${!optionname}"
@@ -146,20 +137,20 @@ up)
 	fi
 
 	iptables -t nat -F PR-QBS
-	if [[ -n $vpn_dns ]] ; then
+	if [[ -n "$vpn_dns" ]] ; then
 		# Set DNS address translation in firewall:
 		for addr in $vpn_dns; do
 			iptables -t nat -A PR-QBS -i vif+ -p udp --dport 53 -j DNAT --to $addr
 			iptables -t nat -A PR-QBS -i vif+ -p tcp --dport 53 -j DNAT --to $addr
 		done
-		su -c 'notify-send "$(hostname): LINK IS UP." --icon=network-idle' user
+		su - -c 'notify-send "$(hostname): LINK IS UP." --icon=network-idle' user
 	else
-		su -c 'notify-send "$(hostname): LINK UP, NO DNS!" --icon=dialog-error' user
+		su - -c 'notify-send "$(hostname): LINK UP, NO DNS!" --icon=dialog-error' user
 	fi
 
 	;;
 down)
-	su -c 'notify-send "$(hostname): LINK IS DOWN !" --icon=dialog-error' user
+	su - -c 'notify-send "$(hostname): LINK IS DOWN !" --icon=dialog-error' user
 	;;
 esac
 ```
