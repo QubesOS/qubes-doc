@@ -40,7 +40,7 @@ Using a ProxyVM to set up a VPN client gives you the ability to:
 -   Separate your VPN credentials from Your AppVM data.
 -   Easily control which of your AppVMs are connected to your VPN by simply setting it as a NetVM of the desired AppVM.
 
-#### Setup a ProxyVM as a VPN gateway
+#### Set up a ProxyVM as a VPN gateway
 
 #### Using NetworkManager
 
@@ -68,7 +68,8 @@ Using a ProxyVM to set up a VPN client gives you the ability to:
     
     If your choice of template VM doesn't already have the `openvpn` package, you'll need to install it in the template first. You may also need to `systemctl disable` any openvpn service that comes with the package if you follow the instructions for autostart below.
 
-2. Setup openvpn:   
+2.  Set up OpenVPN.
+
     Copy your openvpn config files to `/rw/config/openvpn/` folder. The example main config file is `openvpn-client.ovpn`.
 
     It should have one line that reads `dev tun`.
@@ -78,13 +79,15 @@ Using a ProxyVM to set up a VPN client gives you the ability to:
     NOTE: If the connection breaks down all traffic will by default be routed through the upstream network device eth0 (we will stop this with iptables in step 3).
 
     Also add the following to accomodate a DNS script:
-    ```
+
+    ~~~
     script-security 2
     up 'qubes-vpn-handler.sh up'
     down 'qubes-vpn-handler.sh down'
-    ```
+    ~~~
 
-3.  Setup iptables.
+3.  Set up iptables.
+
     Edit the firewall script with `sudo nano /rw/config/qubes-firewall-user-script` and add:
 
 	~~~
@@ -110,7 +113,7 @@ Using a ProxyVM to set up a VPN client gives you the ability to:
 
 	#	Block forwarding of connections through upstream network device
 	#	(in case the vpn tunnel breaks):
-    iptables -I FORWARD -o eth0 -j DROP  
+    iptables -I FORWARD -o eth0 -j DROP
     iptables -I FORWARD -i eth0 -j DROP
     ~~~
 
@@ -161,7 +164,8 @@ Using a ProxyVM to set up a VPN client gives you the ability to:
     Now save the script and make it executable:  
     `sudo chmod +x /rw/config/openvpn/qubes-vpn-handler.sh`
     
-5.  Setup the VPN's autostart:  
+5.  Set up the VPN's autostart.
+
     Use `sudo nano /rw/config/rc.local` to edit and add:
 
     ~~~
@@ -181,3 +185,4 @@ Using a ProxyVM to set up a VPN client gives you the ability to:
     ![Settings-NetVM.png](/attachment/wiki/VPN/Settings-NetVM.png)
 
 8. Optionally, you can install some [custom icons](https://github.com/Zrubi/qubes-artwork-proxy-vpn) for your VPN
+
