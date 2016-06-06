@@ -87,7 +87,7 @@ Using a ProxyVM to set up a VPN client gives you the ability to:
 3.  Setup iptables.
     Edit the firewall script with `sudo nano /rw/config/qubes-firewall-user-script` and add:
 
-	```
+	~~~
 	#!/bin/bash
 	#    First, block all outgoing traffic
 	iptables -P OUTPUT DROP
@@ -112,20 +112,22 @@ Using a ProxyVM to set up a VPN client gives you the ability to:
 	#	(in case the vpn tunnel breaks):
     iptables -I FORWARD -o eth0 -j DROP  
     iptables -I FORWARD -i eth0 -j DROP
-    ```
+    ~~~
+
     Now save `/rw/config/qubes-firewall-user-script` and make it executable:  
     `sudo chmod +x /rw/config/qubes-firewall-user-script`
 
 4.  Create the DNS-handling script.
     Use `sudo nano /rw/config/openvpn/qubes-vpn-handler.sh` to edit and add:
-    ```
+
+    ~~~
     #!/bin/bash
     set -e
     export PATH="$PATH:/usr/sbin:/sbin"
 
-case "$1" in
+    case "$1" in
 
-up)
+    up)
 	# To override DHCP DNS, assign static DNS addresses with 'setenv vpn_dns' in openvpn config;
 	# Format is 'X.X.X.X  Y.Y.Y.Y [...]' with quotes.
 	if [[ -z "$vpn_dns" ]] ; then
@@ -150,23 +152,25 @@ up)
 	fi
 
 	;;
-down)
+    down)
 	su - -c 'notify-send "$(hostname): LINK IS DOWN !" --icon=dialog-error' user
 	;;
-esac
-```
+    esac
+    ~~~
 
     Now save the script and make it executable:  
     `sudo chmod +x /rw/config/openvpn/qubes-vpn-handler.sh`
     
 5.  Setup the VPN's autostart:  
-    Use `sudo nano /rw/config/rc.local` to edit and add:  
-    ```
+    Use `sudo nano /rw/config/rc.local` to edit and add:
+
+    ~~~
     #!/bin/bash
     groupadd -rf qvpn ; sleep 2s
     sg qvpn -c 'openvpn --cd /rw/config/openvpn/ --config openvpn-client.ovpn \
     --daemon --writepid /var/run/openvpn/openvpn-client.pid'
-    ```
+    ~~~
+
     Now save the script and make it executable:  
     `sudo chmod +x /rw/config/rc.local`
     
