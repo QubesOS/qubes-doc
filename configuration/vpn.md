@@ -78,10 +78,11 @@ Using a ProxyVM to set up a VPN client gives you the ability to:
     NOTE: If the connection breaks down all traffic will by default be routed through the upstream network device eth0 (we will stop this with iptables in step 3).
 
     Also add the following to accomodate a DNS script:
+ 
     ```
-    script-security 2
-    up 'qubes-vpn-handler.sh up'
-    down 'qubes-vpn-handler.sh down'
+        script-security 2
+        up 'qubes-vpn-handler.sh up'
+        down 'qubes-vpn-handler.sh down'
     ```
 
 3.  Setup iptables.
@@ -161,11 +162,12 @@ esac
     
 5.  Setup the VPN's autostart:  
     Use `sudo nano /rw/config/rc.local` to edit and add:  
+ 
     ```
-    #!/bin/bash
-    groupadd -rf qvpn ; sleep 2s
-    sg qvpn -c 'openvpn --cd /rw/config/openvpn/ --config openvpn-client.ovpn \
-    --daemon --writepid /var/run/openvpn/openvpn-client.pid'
+        #!/bin/bash
+        groupadd -rf qvpn ; sleep 2s
+        sg qvpn -c 'openvpn --cd /rw/config/openvpn/ --config openvpn-client.ovpn \
+        --daemon --writepid /var/run/openvpn/openvpn-client.pid'
     ```
     Now save the script and make it executable:  
     `sudo chmod +x /rw/config/rc.local`
