@@ -78,21 +78,19 @@ The installer loads Xen right at the beginning, so chances are high that if you
 can see the installer's graphical screen, Qubes will work on your system. :)
 
 
-Installing QubesOS to a USB Drive
-----------------------------------
+Installing to a USB drive
+-------------------------
 
- Installing an operating system onto a USB drive can be a convenient and secure method of ensuring that your data is protected. Be advised that a minimum storage of 32 GB is required on the USB drive. This installation process may take longer than an installation on a standard hard disk. The installation process is identical to using a hard disk in conjunction with two exceptions:
+Installing an operating system onto a USB drive can be a convenient and secure
+method of ensuring that your data is protected. Be advised that a minimum
+storage of 32 GB is required on the USB drive. This installation process may
+take longer than an installation on a standard hard disk. The installation
+process is identical to using a hard disk in conjunction with two exceptions:
 
 * Select the USB as the storage location for the OS. 
 
-* Leave the option checked to “Automatically configure my Qubes installation to the disk(s) I selected and return me to the main menu”. 
-
-
-Any issues or questions please report to the Qubes team.
-
-
-
-
+* Leave the option checked to “Automatically configure my Qubes installation to
+the disk(s) I selected and return me to the main menu”.
 
 
 Upgrading
