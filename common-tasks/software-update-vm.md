@@ -35,6 +35,39 @@ In order to permanently install new software, you should:
 
 -   You will see now that all the AppVMs based on this template (by default all your VMs) will be marked as "outdated" in the manager. This is because their fielsystems have not been yet updated -- in order to do that, you must restart each VM. You don't need to restart all of them at the same time -- e.g. if you just need the newly installed software to be available in your 'personal' domain, then restart only this VM. You will restart others whenever this will be convenient to you.
 
+Reverting changes to a TemplateVM
+---------------------------------
+
+Perhaps you've just updated your TemplateVM, and the update broke your template.
+Or perhaps you've made a terrible mistake, like accidentally confirming the
+installation of an unsigned package that could be malicious. Fortunately,
+it's easy to revert changes to TemplateVMs using the
+`qvm-revert-template-changes` command.
+
+**Important:** This command will roll back any changes made *during the last
+time the TemplateVM was run, but **not** before.* This means that if you have
+already restarted the TemplateVM, using this command is unlikely to help, and
+you'll likely want to reinstall it from the repository instead. On the other
+hand, if the template is already broken or compromised, it won't hurt to try
+reverting first. Just make sure to **back up** all of your data and changes
+first!
+
+For example, to revert changes to the `fedora-23` TemplateVM:
+
+1. Shut down all VMs based on `fedora-23`.
+2. Shut down `fedora-23`. If you've already just shut it down, do **not** start
+   it again (see above).
+3. In a dom0 terminal, type:
+
+        qvm-revert-template-changes fedora-23
+
+   If you want to skip the confirmation check, you can add the `--force` option:
+
+        qvm-revert-template-changes --force fedora-23
+
+For the technical details about how this command works and the steps it
+performs, see [here](/doc/template-implementation/#rollback-template-changes).
+
 Notes on trusting your Template VM(s)
 -------------------------------------
 
