@@ -32,7 +32,6 @@ To install Whonix, you must have a working Qubes machine already.
 ## Customizing, Reinstalling, & Uninstalling Whonix
 
 *  [Customizing Whonix](/doc/whonix/customize/)
-*  [Reinstall Whonix in Qubes](/doc/whonix/reinstall/)
 *  [Uninstall Whonix from Qubes](/doc/whonix/uninstall/)
 
 *The following links are on Whonix's website and are technical.*
