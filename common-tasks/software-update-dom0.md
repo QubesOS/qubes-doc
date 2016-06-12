@@ -96,11 +96,11 @@ If you've installed a package such as anti-evil-maid, you can remove it with the
 
 There are three Qubes dom0 testing repoistories:
 
-* `current-testing` -- testing packages that will eventually land in the stable
+* `qubes-dom0-current-testing` -- testing packages that will eventually land in the stable
   (`current`) repository
-* `security-testing` -- a subset of `current-testing` that contains packages
+* `qubes-dom0-security-testing` -- a subset of `qubes-dom0-current-testing` that contains packages
   that qualify as security fixes
-* `unstable` -- packages that are not intended to land in the stable (`current`)
+* `qubes-dom0-unstable` -- packages that are not intended to land in the stable (`qubes-dom0-current`)
   repository; mostly experimental debugging packages
 
 To temporarily enable any of these repos, use the `--enablerepo=<repo-name>`
