@@ -63,6 +63,7 @@ Managing Operating Systems within Qubes
  * [Templates: Archlinux](/doc/templates/archlinux/)
  * [Templates: Ubuntu](/doc/templates/ubuntu/)
  * [Templates: Whonix](/doc/whonix/)
+ * [How to Reinstall a TemplateVM](/doc/reinstall-template)
  * [Installing and Using Windows-based AppVMs (Qubes R2 Beta 3 and later)](/doc/windows-appvms/)
  * [Creating and Using HVM and Windows Domains (Qubes R2+)](/doc/hvm/)
  * [Advanced options and troubleshooting of Qubes Tools for Windows (R3)](/doc/windows-tools-3/)
