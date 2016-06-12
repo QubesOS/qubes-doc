@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: How to Reinstall a TemplateVM
-permalink: 
+permalink: /doc/reinstall-template/
 redirect_from:
 - /doc/whonix/reinstall/
 ---
