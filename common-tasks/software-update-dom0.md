@@ -94,6 +94,29 @@ If you've installed a package such as anti-evil-maid, you can remove it with the
     sudo yum remove anti-evil-maid
     ~~~
     
+### Testing repositories
+
+There are three Qubes dom0 testing repoistories:
+
+* `current-testing` -- testing packages that will eventually land in the stable
+  (`current`) repository
+* `security-testing` -- a subset of `current-testing` that contains packages
+  that qualify as security fixes
+* `unstable` -- packages that are not intended to land in the stable (`current`)
+  repository; mostly experimental debugging packages
+
+To temporarily enable any of these repos, use the `--enablerepo=<repo-name>`
+option. Example commands:
+
+~~~
+sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing
+sudo qubes-dom0-update --enablerepo=qubes-dom0-security-testing
+sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable
+~~~
+
+To enable any of these repos permanently, change the corresponding boolean in
+`/etc/yum.repos.d/qubes-dom0.repo`.
+
 ### Kernel Upgrade ###
 
 Install newer kernel. The following example installs kernel 3.19 and was tested on Qubes R3 RC1.
