@@ -27,6 +27,7 @@ available only as source code, which can be built using
 are available in source code form only. Take a look at the [Qubes Builder
 documentation](/doc/qubes-builder/) for instructions on how to compile them.
 
+To reinstall a currently installed TemplateVM, see [here](/doc/reinstall-template/).
 
 ITL Supported templates
 -----------------------
