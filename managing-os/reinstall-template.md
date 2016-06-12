@@ -66,9 +66,5 @@ each one.
    If you instead removed all VMs based on the old target TemplateVM, you can
    recreate your desired VMs from the newly reinstalled target TemplateVM now.
 
-   At a minimum, you'll want a ProxyVM (conventionally called `sys-whonix`)
-   based on `whonix-gw` and an AppVM based on `whonix-ws` that uses `sys-whonix`
-   as its NetVM.
-
 [TemplateVM]: /doc/templates/
 
