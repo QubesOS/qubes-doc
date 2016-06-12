@@ -90,9 +90,7 @@ You can re-install in a similar fashion to downgrading.
 
 If you've installed a package such as anti-evil-maid, you can remove it with the following command:
 
-    ~~~
     sudo yum remove anti-evil-maid
-    ~~~
     
 ### Testing repositories
 
