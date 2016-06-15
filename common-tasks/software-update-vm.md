@@ -35,6 +35,30 @@ In order to permanently install new software, you should:
 
 -   You will see now that all the AppVMs based on this template (by default all your VMs) will be marked as "outdated" in the manager. This is because their fielsystems have not been yet updated -- in order to do that, you must restart each VM. You don't need to restart all of them at the same time -- e.g. if you just need the newly installed software to be available in your 'personal' domain, then restart only this VM. You will restart others whenever this will be convenient to you.
 
+Testing repositories
+--------------------
+
+There are three Qubes VM testing repoistories (where `*` denotes the Release):
+
+* `qubes-vm-*-current-testing` -- testing packages that will eventually land in the stable
+  (`current`) repository
+* `qubes-vm-*-security-testing` -- a subset of `qubes-vm-*-current-testing` that contains packages
+  that qualify as security fixes
+* `qubes-vm-*-unstable` -- packages that are not intended to land in the stable (`qubes-vm-*-current`)
+  repository; mostly experimental debugging packages
+
+To temporarily enable any of these repos, use the `--enablerepo=<repo-name>`
+option. Example commands:
+
+~~~
+sudo dnf upgrade --enablerepo=qubes-vm-*-current-testing
+sudo dnf upgrade --enablerepo=qubes-vm-*-security-testing
+sudo dnf upgrade --enablerepo=qubes-vm-*-unstable
+~~~
+
+To enable or disable any of these repos permanently, change the corresponding boolean in
+`/etc/yum.repos.d/qubes-*.repo`.
+
 Reverting changes to a TemplateVM
 ---------------------------------
 

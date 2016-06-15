@@ -28,7 +28,7 @@ Qubes OS supports the ability to attach a USB drive (or just one or more of its
 partitions) to any qube easily, no matter which qube actually handles the USB
 controller. (The USB controller may be assigned on the **Devices** tab of a
 qube's settings page in Qubes VM Manager or by using the
-[qvm-pci][assigning-devices] command. For guidance on finding the correct USB
+[qvm-pci][Assigning Devices] command. For guidance on finding the correct USB
 controller, see [here][usb-controller].)
 
 USB drive mounting is integrated into the Qubes VM Manager GUI. Simply insert
@@ -182,13 +182,25 @@ steps as root in dom0:
 
 Alternatively, you can create a USB qube manually as follows:
 
- 1.  In a dom0 terminal, type `lsusb` to check if you have a USB controller free
-     of input devices or programmable devices. If you find such free controller,
-     note its name and proceed to step 2.
+ 1.  Read the [Assigning Devices] page to learn how to list and identify your
+     USB controllers. Carefully check whether you have a USB controller that
+     would be appropriate to assign to a USB qube. Note that it should be free
+     of input devices, programmable devices, and any other devices that must be
+     directly available to dom0. If you find a free controller, note its name
+     and proceed to step 2.
  2.  Create a new qube. Give it an appropriate name and color label
-     (recommended: `sys-usb`, red).
- 3.  In the qube's settings, go to the "Devices" tab. Find your USB controller
-     in the "Available" list. Move it to the "Selected" list.
+     (recommended: `sys-usb`, red). If you need to attach a networking device,
+     it might make sense to create a NetVM. If not, an AppVM might make more
+     sense. (The default `sys-usb` is a NetVM.)
+ 3.  In the qube's settings, go to the "Devices" tab. Find the USB controller
+     that you identified in step 1 in the "Available" list. Move it to the
+     "Selected" list.
+
+     **Caution:** By assigning a USB controller to a USB qube, it will no longer
+     be available to dom0. This can make your system unusable if, for example,
+     you have only one USB controller, and you are running Qubes off of a USB
+     drive.
+
  4.  Click "OK." Restart the qube.
  5.  Recommended: Check the box on the "Basic" tab which says "Start VM
      automatically on boot." (This will help to mitigate attacks in which
@@ -242,7 +254,7 @@ You can now use your USB keyboard.
 
 
 [mass-storage]: https://en.wikipedia.org/wiki/USB_mass_storage_device_class
-[devices]: /doc/assigning-devices/
+[Assigning Devices]: /doc/assigning-devices/
 [usb-controller]: /doc/assigning-devices/#finding-the-right-usb-controller
 [623]: https://github.com/QubesOS/qubes-issues/issues/623
 [1072-comm1]: https://github.com/QubesOS/qubes-issues/issues/1072#issuecomment-124270051

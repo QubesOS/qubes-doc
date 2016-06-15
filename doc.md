@@ -63,6 +63,7 @@ Managing Operating Systems within Qubes
  * [Templates: Archlinux](/doc/templates/archlinux/)
  * [Templates: Ubuntu](/doc/templates/ubuntu/)
  * [Templates: Whonix](/doc/whonix/)
+ * [How to Reinstall a TemplateVM](/doc/reinstall-template)
  * [Pentesting: BlackArch](/doc/pentesting/blackarch/)
  * [Pentesting: Kali](/doc/pentesting/kali/)
  * [Pentesting: PTF](/doc/pentesting/ptf/)
