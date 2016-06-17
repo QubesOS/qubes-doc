@@ -88,6 +88,8 @@ to the Kali template.
 5. Update the system:
 
         sudo apt-get update
+        sudo apt-get upgrade
+        sudo apt-get dist-upgrade
 
 6. Now is a good time to stop the template, clone it and see if restarting it
    allows you to run a terminal:
