@@ -7,8 +7,6 @@ permalink: /doc/releases/3.1/release-notes/
 Qubes R3.1 release notes
 ========================
 
-*this page is a draft for yet unreleased version*
-
 New features since 3.0
 ----------------------
 
