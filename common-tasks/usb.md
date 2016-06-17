@@ -252,6 +252,47 @@ Add a line like this one to the top of the file:
 
 You can now use your USB keyboard.
 
+Attaching a single USB device to a qube (USB passthrough)
+------------------------------------------------
+
+Stating with Qubes 3.2, it is possible to attach a single USB device to any
+Qube. While this is useful feature, it should be used with care, because there
+are [many security implications][usb-challenges] from using USB devices and USB
+passthrough will **expose your target qube** for most of them. If possible, use use
+method specific for particular device type (for example block devices described
+above), instead of this generic one.
+
+To use this feature, you need to install `qubes-usb-proxy` package in the
+templates used for USB qube and qubes you want to connect USB devices to.
+
+Listing available USB devices:
+
+    [user@dom0 ~]$ qvm-usb
+    sys-usb:2-4     04ca:300d 04ca_300d
+    sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
+    sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
+
+Attaching selected USB device:
+
+    [user@dom0 ~]$ qvm-usb -a conferences sys-usb:2-5
+    [user@dom0 ~]$ qvm-usb
+    conferences:2-1 058f:3822 058f_USB_2.0_Camera
+    sys-usb:2-4     04ca:300d 04ca_300d
+    sys-usb:2-5     058f:3822 058f_USB_2.0_Camera (attached to conferences)
+    sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
+
+Now, you can use your USB device (camera in this case) in `conferences` qube.
+
+When you finish, detach the device:
+
+    [user@dom0 ~]$ qvm-usb -d sys-usb:2-5
+    [user@dom0 ~]$ qvm-usb
+    sys-usb:2-4     04ca:300d 04ca_300d
+    sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
+    sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
+
+This feature is not yet available in Qubes Manager.
+
 
 [mass-storage]: https://en.wikipedia.org/wiki/USB_mass_storage_device_class
 [Assigning Devices]: /doc/assigning-devices/
@@ -263,4 +304,4 @@ You can now use your USB keyboard.
 [faq-usbvm]: /doc/user-faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot
 [1618]: https://github.com/QubesOS/qubes-issues/issues/1618
 [input-proxy]: https://github.com/qubesos/qubes-app-linux-input-proxy
-
+[usb-challenges]: http://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html
