@@ -141,6 +141,15 @@ Alternative Options to Kali
 
  * PenTester Framework: [PTF]
 
+Notes
+-----
+
+Various things tried:
+
+ * Forget about pinning: just dist-upgrade, then download qubes-core-agent, then BACKEND_VMM=xen dpkg-buildpackage -b -uc -us
+ * Also download requirements for debian bootstrapping from https://wiki.debian.org/BuildingTutorial
+ * And qubes-kernel-vm-support for vchan (I think)
+
 
 
 [kali]: https://www.kali.org/
