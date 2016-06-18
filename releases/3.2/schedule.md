@@ -21,5 +21,5 @@ article td, article th {
 
 |  Date       | Stage                                   |
 | -----------:| --------------------------------------- |
-| 17 Jun 2016 | 3.2-rc1 release                         |
+| 18 Jun 2016 | 3.2-rc1 release                         |
 | 15 Jul 2016 | decide whether 3.2-rc1 is the final 3.2 |
