@@ -147,6 +147,7 @@ Customization Guides
  * [Installing XFCE in dom0](/doc/xfce/)
  * [Installing i3 in dom0](/doc/i3/)
  * [Language Localization](/doc/language-localization/)
+ * [Dark Theme in Dom0 and DomU](/doc/dark-theme/)
 
 
 Troubleshooting
