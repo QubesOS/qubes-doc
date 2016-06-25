@@ -10,9 +10,6 @@ redirect_from:
 - /wiki/QubesDocs/
 ---
 
-User Documentation
-==================
-
 The Basics
 ----------
 
@@ -67,6 +64,10 @@ Managing Operating Systems within Qubes
  * [Templates: Ubuntu](/doc/templates/ubuntu/)
  * [Templates: Whonix](/doc/whonix/)
  * [How to Reinstall a TemplateVM](/doc/reinstall-template)
+ * [Pentesting](/doc/pentesting/)
+ * [Pentesting: BlackArch](/doc/pentesting/blackarch/)
+ * [Pentesting: Kali](/doc/pentesting/kali/)
+ * [Pentesting: PTF](/doc/pentesting/ptf/)
  * [Installing and Using Windows-based AppVMs (Qubes R2 Beta 3 and later)](/doc/windows-appvms/)
  * [Creating and Using HVM and Windows Domains (Qubes R2+)](/doc/hvm/)
  * [Advanced options and troubleshooting of Qubes Tools for Windows (R3)](/doc/windows-tools-3/)
@@ -143,6 +144,7 @@ Customization Guides
  * [Installing XFCE in dom0](/doc/xfce/)
  * [Installing i3 in dom0](/doc/i3/)
  * [Language Localization](/doc/language-localization/)
+ * [Dark Theme in Dom0 and DomU](/doc/dark-theme/)
 
 
 Troubleshooting
@@ -173,12 +175,11 @@ Presentation Slides
  * [[PDF] LinuxCon 2014 -- Qubes OS R2 Tutorial](/attachment/wiki/slides/LinuxCon_2014_Qubes_Tutorial.pdf)
  * [[PDF] LinuxCon 2014 -- Qubes OS Keynote](/attachment/wiki/slides/LinuxCon_2014_Qubes_Keynote.pdf)
 
-Developer Documentation
-=======================
 
-The Basics
-----------
+For Developers
+--------------
 
+ * [System Documentation](/doc/system-doc/)
  * [Developers' FAQ](/doc/devel-faq/)
  * [Feature Development Tracker](/qubes-issues/)
  * [Reporting Security Issues](/security/)
@@ -192,43 +193,3 @@ The Basics
  * [Qubes OS License](/doc/license/)
  * [Style Guide](/doc/style-guide/)
  * [Usability & UX](/doc/usability-ux/)
-
-System
-------
- * [Qubes OS Architecture Overview](/doc/architecture/)
- * [Qubes OS Architecture Spec v0.3 [PDF]](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf)  
-   (The original 2009 document that started this all...)
- * [Security-critical elements of Qubes OS](/doc/security-critical-code/)
- * [Qrexec: command execution in VMs](/doc/qrexec3/)
- * [Qubes GUI virtualization protocol](/doc/gui/)
- * [Networking in Qubes](/doc/networking/)
- * [Implementation of template sharing and updating](/doc/template-implementation/)
-
-Services
---------
- * [Inter-domain file copying](/doc/qfilecopy/) (deprecates [`qfileexchgd`](/doc/qfileexchgd/))
- * [Dynamic memory management in Qubes](/doc/qmemman/)
- * [Implementation of DisposableVMs](/doc/dvm-impl/)
- * [Article about disposable VMs](http://theinvisiblethings.blogspot.com/2010/06/disposable-vms.html)
- * [Dom0 secure update mechanism](/doc/dom0-secure-updates/)
- * VM secure update mechanism (forthcoming)
-
-Debugging
----------
- * [Profiling python code](/doc/profiling/)
- * [Test environment in separate machine for automatic tests](/doc/test-bench/)
- * [Automated tests](/doc/automated-tests/)
- * [VM-dom0 internal configuration interface](/doc/vm-interface/)
- * [Debugging Windows VMs](/doc/windows-debugging/)
-
-Building
---------
- * [Building Qubes](/doc/qubes-builder/) (["API" Details](/doc/qubes-builder-details/))
- * [Development Workflow](/doc/development-workflow/)
- * [KDE Dom0 packages for Qubes](/doc/kde-dom0/)
- * [Building Qubes OS 3.0 ISO](/doc/qubes-r3-building/)
- * [Building USB passthrough support (experimental)](/doc/pvusb/)
- * [Building a TemplateVM based on a new OS (ArchLinux example)](/doc/building-non-fedora-template/)
- * [Building the Archlinux Template](/doc/building-archlinux-template/)
-
-
