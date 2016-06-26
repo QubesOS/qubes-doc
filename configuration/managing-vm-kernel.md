@@ -239,8 +239,10 @@ sudo yum install qubes-kernel-vm-support grub2-tools
 
 Then install whatever kernel you want. If you are using distribution kernel
 package (`kernel` package), initramfs and kernel module should be handled
-automatically. If you are using manually build kernel, you need to handle this
-on your own. Take a look at `dkms` and `dracut` documentation.
+automatically, but you need to ensure you have `kernel-devel` package for the
+same kernel version installed. If you are using manually build kernel, you need
+to handle this on your own. Take a look at `dkms` and `dracut` documentation.
+Especially `dkms autoinstall` command may be useful.
 
 When kernel is installed, you need to create GRUB configuration. 
 You may want to adjust some settings in `/etc/default/grub`, for example lower
