@@ -48,13 +48,30 @@ See [Installation Guide](/doc/installation-guide/).
 Upgrading
 ---------
 
-There is no in-place upgrade procedure. Proceed with install
-from scratch and use [qubes backup and restore tools](/doc/backup-restore/)
+### From R3.1
+
+The easiest and safest way to upgrade to Qubes R3.2 is to install it from
+scratch and use [qubes backup and restore tools][backup] for
+migrating of all of the user VMs.
+
+Users of Qubes R3.1 can also upgrade using [this
+procedure][upgrade].
+
+### From R3.0 or earlier
+
+When upgrading from earlier versions the easiest and safest way is to install
+it from scratch and use [qubes backup and restore tools][backup]
 for migrating of all of the user VMs.
+
+Alternatively you can [upgrade to R3.1 using][upgrade-r3.1] first, then follow
+the instructions above. This will be time consuming process.
 
 [salt-doc]: /doc/salt/
 [usb]: /doc/usb/
 [i3]: /doc/i3/
+[upgrade]: /doc/upgrade-to-r3.2/
+[upgrade-r3.1]: /doc/releases/3.1/release-notes/#upgrading
+[backup]: /doc/backup-restore/
 [qrexec-argument]: https://github.com/QubesOS/qubes-issues/issues/1876
 [qrexec-doc]: /doc/qrexec3/#service-argument-in-policy
 [github-release-notes]: https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+3.2%22+label%3Arelease-notes+is%3Aclosed
