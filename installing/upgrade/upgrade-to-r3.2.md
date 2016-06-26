@@ -1,0 +1,135 @@
+---
+layout: doc
+title: Upgrading to R3.2
+permalink: /doc/upgrade-to-r3.2/
+redirect_from:
+- /en/doc/upgrade-to-r3.2/
+- /doc/UpgradeToR3.2/
+- /doc/UpgradeToR3.2rc1/
+---
+
+Upgrading Qubes R3.1 to R3.2
+======================================
+
+**Caution: The procedure to upgrade from R3.1 to R3.2 is experimental!**
+
+**Before attempting either an in-place upgrade or a clean installation, we
+strongly recommend that users [back up their systems](/doc/backup-restore/).**
+
+Current Qubes R3.1 systems can be upgraded in-place to the latest R3.2
+by following the procedure below.
+
+Upgrading dom0
+--------------
+
+1.  Close Qubes Manager (right click on its tray icon -\> Exit)
+
+2.  Open a terminal in Dom0. (E.g., Start -\> System Settings -\> Konsole.)
+
+3.  Install `qubes-release` package carrying R3.2 repository information.
+
+        sudo qubes-dom0-update --enablerepo=qubes*testing --releasever=3.2 qubes-release
+
+    If you made any manual changes to repository definitions, new definitions
+    will be installed as `/etc/yum.repos.d/qubes-dom0.repo.rpmnew` (you'll see
+    a message about it during package installation). In such a case, you need
+    to manually apply the changes to `/etc/yum.repos.d/qubes-dom0.repo` or
+    simply replace it with .rpmnew file.
+
+4. Upgrade dom0 to R3.2:
+
+        sudo qubes-dom0-update
+
+4.  If the previous step completed successfully, your `qubes-core-dom0` version
+    should be `3.2.3` or higher. If it's not, repeat the previous step with the
+    `--clean` option.
+
+5. Update configuration files.
+
+    Some of configuration files were saved with `.rpmnew` extension as the
+    actual files were modified. During upgrade, you'll see information about
+    such cases, like:
+
+        warning: /etc/salt/minion.d/f_defaults.conf created as /etc/salt/minion.d/f_defaults.conf.rpmnew
+
+    This will happen for every configuration you have modified manually and for
+    a few that has been modified by Qubes scripts. If you are not sure what to
+    do about them, below is a list of commands to deal with few common cases
+    (either keep the old one, or replace with the new one):
+
+        rm -f /etc/group.rpmnew
+        rm -f /etc/shadow.rpmnew
+        rm -f /etc/qubes/guid.conf.rpmnew
+        mv -f /etc/nsswitch.conf{.rpmnew,}
+        mv -f /etc/pam.d/postlogin{.rpmnew,}
+        mv -f /etc/salt/minion.d/f_defaults.conf{.rpmnew,}
+        mv -f /etc/dracut.conf{.rpmnew,}
+
+5.  Reboot dom0.
+    
+Please note that if you use [Anti Evil Maid](/doc/anti-evil-maid), it won't be
+able to unseal the passphrase the first time the system boots after performing
+this in-place upgrade procedure since the Xen, kernel, and initramfs binaries
+will have changed. Once the system boots up again, you can reseal your Anti Evil
+Maid passphrase to the new configuration. Please consult the Anti Evil Maid
+[documentation](/doc/anti-evil-maid) for instructions on how to do that.
+
+At first login after upgrade you may got a message like this:
+
+    Your saved session type 'kde-plasma' is not valid any more.
+    Please select a new one, otherwise 'default' will be used.
+
+This is result of upgrade KDE4 (`kde-plasma`) to KDE5 (`plasma`). Simply choose
+your favorite desktop environment and continue.
+
+
+Upgrade all Template and Standalone VM(s)
+-----------------------------------------
+
+By default, in Qubes R3.1, there are few TemplateVMs and no StandaloneVMs.
+However, users are free to create StandaloneVMs More information on using
+multiple TemplateVMs, as well as StandaloneVMs, can be found
+[here](/doc/software-update-vm/). The steps described in this section should be
+repeated in **all** the user's Template and Standalone VMs.
+
+
+### Upgrade Fedora templates: ###
+
+1.  Open a terminal in the TemplateVM (or StandaloneVM). (E.g., use Qubes VM
+    Manager's right-click menu, choose "Run Command in VM," and type
+    `gnome-terminal` there.)
+
+2.  Install the `qubes-upgrade-vm` package:
+
+        sudo dnf install --enablerepo=qubes*testing --refresh qubes-upgrade-vm
+
+3.  Proceed with a normal upgrade in the template:
+
+        sudo dnf upgrade --refresh
+
+4.  Shut down the template VM.
+
+
+### Upgrade Debian (and Whonix) templates: ###
+
+1.  Open a terminal in the TemplateVM (or StandaloneVM). (E.g., use Qubes VM
+    Manager's right-click menu, choose "Run Command in VM," and type
+    `gnome-terminal` there.)
+
+2.  Update repository definition:
+
+        sudo cp /etc/apt/sources.list.d/qubes-r3.list /etc/apt/sources.list.d/qubes-r3-upgrade.list
+        sudo sed -i 's/r3.1/r3.2/' /etc/apt/sources.list.d/qubes-r3-upgrade.list
+
+3.  Proceed with a normal update in the template:
+
+        sudo apt-get update
+        sudo apt-get dist-upgrade
+
+4.  Remove unnecessary now file:
+
+        sudo rm -f /etc/apt/sources.list.d/qubes-r3-upgrade.list
+
+5.  Shut down the template VM.
+
+
