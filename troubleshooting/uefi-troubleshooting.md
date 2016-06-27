@@ -38,6 +38,11 @@ There is some [common bug in UEFI implementation](http://xen.markmail.org/messag
         mapbs=1
         noexitboot=1
 
+    **Note:** You must add these parameters on two separate new lines (one
+    paramater on each line) at the end of each section that includes a kernel
+    line (i.e., all sections except the first one, since it doesn't have a
+    kernel line).
+
 12. Now you can reboot the system by issuing `reboot` command.
 
 
