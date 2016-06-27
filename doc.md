@@ -67,6 +67,10 @@ Managing Operating Systems within Qubes
  * [Templates: Ubuntu](/doc/templates/ubuntu/)
  * [Templates: Whonix](/doc/whonix/)
  * [How to Reinstall a TemplateVM](/doc/reinstall-template)
+ * [Pentesting](/doc/pentesting/)
+ * [Pentesting: BlackArch](/doc/pentesting/blackarch/)
+ * [Pentesting: Kali](/doc/pentesting/kali/)
+ * [Pentesting: PTF](/doc/pentesting/ptf/)
  * [Installing and Using Windows-based AppVMs (Qubes R2 Beta 3 and later)](/doc/windows-appvms/)
  * [Creating and Using HVM and Windows Domains (Qubes R2+)](/doc/hvm/)
  * [Advanced options and troubleshooting of Qubes Tools for Windows (R3)](/doc/windows-tools-3/)
@@ -143,6 +147,7 @@ Customization Guides
  * [Installing XFCE in dom0](/doc/xfce/)
  * [Installing i3 in dom0](/doc/i3/)
  * [Language Localization](/doc/language-localization/)
+ * [Dark Theme in Dom0 and DomU](/doc/dark-theme/)
 
 
 Troubleshooting
@@ -230,5 +235,6 @@ Building
  * [Building USB passthrough support (experimental)](/doc/pvusb/)
  * [Building a TemplateVM based on a new OS (ArchLinux example)](/doc/building-non-fedora-template/)
  * [Building the Archlinux Template](/doc/building-archlinux-template/)
+
 
 
