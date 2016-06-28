@@ -57,11 +57,11 @@ configure the encryption options before installing Qubes as follows:
     finished, you'll have LUKS-encrypted partitions with the options you chose
     above. You can verify this command in dom0:
 
-        sudo cryptsetup luksDump <partition>
+        # cryptsetup luksDump <partition>
 
     For example:
 
-        sudo cryptsetup luksDump /dev/sda2
+        # cryptsetup luksDump /dev/sda2
 
 -----
 
