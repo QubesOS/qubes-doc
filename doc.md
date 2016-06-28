@@ -40,6 +40,7 @@ Installing & Upgrading Qubes
  * [Try Qubes without installing: Qubes Live USB (alpha)](/doc/live-usb/)
  * [Supported Versions](/doc/supported-versions/)
  * [Version Scheme](/doc/version-scheme/)
+ * [Manual Encryption Configuration](/doc/encryption-config/)
 
 Common Tasks
 ------------
