@@ -263,7 +263,8 @@ method specific for particular device type (for example block devices described
 above), instead of this generic one.
 
 To use this feature, you need to install `qubes-usb-proxy` package in the
-templates used for USB qube and qubes you want to connect USB devices to.
+templates used for USB qube and qubes you want to connect USB devices to. Note
+you cannot pass through devices from dom0 (in other words: USB VM is required).
 
 Listing available USB devices:
 
