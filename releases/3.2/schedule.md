@@ -22,4 +22,7 @@ article td, article th {
 |  Date       | Stage                                   |
 | -----------:| --------------------------------------- |
 | 18 Jun 2016 | 3.2-rc1 release                         |
-| 15 Jul 2016 | decide whether 3.2-rc1 is the final 3.2 |
+|  2 Jul 2016 | decide whether 3.2-rc1 is the final 3.2 |
+| 16 Jul 2016 | current-testing freeze before 3.2-rc2   |
+| 23 Jul 2016 | 3.2-rc2 release                         |
+|  5 Aug 2016 | decide whether 3.2-rc2 is the final 3.2 |
