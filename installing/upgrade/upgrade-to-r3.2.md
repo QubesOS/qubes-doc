@@ -39,12 +39,16 @@ Upgrading dom0
 4. Upgrade dom0 to R3.2:
 
         sudo qubes-dom0-update
+        
+    You may wish to disable the screensaver "Lock screen" feature for this step, as
+    during the update XScreensaver may encounter an "Authentication failed" issue,
+    requiring a hard reboot. Alternatively, you may simply move the mouse regularly.
+    
+5.  If the previous step completed successfully, your `qubes-core-dom0` version
+    should be `3.2.3` or higher. This can be verified with the command `yum info
+    qubes-core-dom0`. If it's not, repeat the previous step with the `--clean` option.
 
-4.  If the previous step completed successfully, your `qubes-core-dom0` version
-    should be `3.2.3` or higher. If it's not, repeat the previous step with the
-    `--clean` option.
-
-5. Update configuration files.
+6. Update configuration files.
 
     Some of configuration files were saved with `.rpmnew` extension as the
     actual files were modified. During upgrade, you'll see information about
@@ -65,7 +69,7 @@ Upgrading dom0
         mv -f /etc/salt/minion.d/f_defaults.conf{.rpmnew,}
         mv -f /etc/dracut.conf{.rpmnew,}
 
-5.  Reboot dom0.
+7.  Reboot dom0.
     
 Please note that if you use [Anti Evil Maid](/doc/anti-evil-maid), it won't be
 able to unseal the passphrase the first time the system boots after performing
