@@ -7,8 +7,12 @@ permalink: /doc/encryption-config/
 Manual Encryption Configuration
 ===============================
 
+Qubes OS uses full disk encryption (FDE) by default. If you are an advanced
+user who wishes to customize your encryption parameters during installation,
+this page can help.
+
 The Qubes installer uses `cryptsetup` (LUKS/dm-crypt) under the hood. You can
-configure the encryption options before installing Qubes as follows:
+configure the encryption options while installing Qubes as follows:
 
 01. Boot into the installer. Wait for first GUI screen to appear where it asks 
     about language/localization .
