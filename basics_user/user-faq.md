@@ -15,6 +15,7 @@ Qubes Users' FAQ
 ---------------------------------------
  * [Is Qubes just another Linux distribution?](#is-qubes-just-another-linux-distribution)
  * [How is Qubes different from other security solutions?](#how-is-qubes-different-from-other-security-solutions)
+ * [Does Qubes use full disk encryption (FDE)?](#does-qubes-use-full-disk-encryption-fde)
  * [What is the main concept behind Qubes?](#what-is-the-main-concept-behind-qubes)
  * [What about other approaches to security?](#what-about-other-approaches-to-security)
  * [What about safe languages and formally verified microkernels?](#what-about-safe-languages-and-formally-verified-microkernels)
@@ -65,6 +66,10 @@ If you really want to call it a distribution, then it's more of a "Xen distribut
 ### How is Qubes different from other security solutions?
 
 Please see [this article](http://theinvisiblethings.blogspot.com/2012/09/how-is-qubes-os-different-from.html) for a thorough discussion.
+
+### Does Qubes use full disk encryption (FDE)?
+
+Yes, of course! Full disk encryption is enabled by default. Specifically, we use [`LUKS`](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup)/[`dm-crypt`](https://en.wikipedia.org/wiki/Dm-crypt). You can even [manually configure your encryption parameters](/doc/encryption-config/), if you like!
 
 ### What is the main concept behind Qubes?
 
