@@ -95,6 +95,7 @@ Security Guides
  * [Installing Anti Evil Maid](/doc/anti-evil-maid/)
  * [Using Multi-factor Authentication with Qubes](/doc/multifactor-authentication/)
  * [Using GPG more securely in Qubes: Split GPG](/doc/split-gpg/)
+ * [How to Set Up a Split Bitcoin Wallet in Qubes](/doc/split-bitcoin/)
  * [Configuring YubiKey for user authentication](/doc/yubi-key/)
  * [Note regarding password-less root access in VM](/doc/vm-sudo/)
 
