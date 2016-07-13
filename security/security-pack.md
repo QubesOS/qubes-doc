@@ -22,7 +22,7 @@ The **Qubes Security Pack (QSP)** is a Git repository which contains:
  * [Qubes PGP keys](https://keys.qubes-os.org/keys/)
  * [Qubes Security Bulletins (QSBs)](/doc/security-bulletins/)
  * [Qubes warrant canaries](https://github.com/QubesOS/qubes-secpack/tree/master/canaries)
- * [Qubes Bitcoin donation fund information](/donate/)
+ * [Qubes Bitcoin fund information](https://github.com/QubesOS/qubes-secpack/tree/master/fund)
  * Security-related information and announcements (e.g., key revocations)
 
 The official location of the QSP is:
