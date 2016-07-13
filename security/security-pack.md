@@ -6,6 +6,12 @@ redirect_from:
 - /en/doc/security-pack/
 - /doc/SecurityPack/
 - /wiki/SecurityPack/
+- /qsp/
+- /sec-pack/
+- /secpack/
+- /doc/qsp/
+- /doc/sec-pack/
+- /doc/secpack/
 ---
 
 Qubes Security Pack
@@ -13,9 +19,10 @@ Qubes Security Pack
 
 The **Qubes Security Pack (QSP)** is a Git repository which contains:
 
- * [Qubes Security Bulletins (QSBs)](/doc/security-bulletins/)
  * [Qubes PGP keys](https://keys.qubes-os.org/keys/)
- * [Qubes warrant canaries](https://canarywatch.org/qubesOS/)
+ * [Qubes Security Bulletins (QSBs)](/doc/security-bulletins/)
+ * [Qubes warrant canaries](https://github.com/QubesOS/qubes-secpack/tree/master/canaries)
+ * [Qubes Bitcoin donation fund information](/donate/)
  * Security-related information and announcements (e.g., key revocations)
 
 The official location of the QSP is:
@@ -126,7 +133,7 @@ its contents, and reading them.
 
  1. Clone the QSP repo.
 
-        [user@qubes ~]$ git clone https://github.com/QubesOS/qubes-secpack.git
+        $ git clone https://github.com/QubesOS/qubes-secpack.git
         Cloning into 'qubes-secpack'...
         remote: Counting objects: 195, done.
         remote: Total 195 (delta 0), reused 0 (delta 0)
@@ -136,7 +143,7 @@ its contents, and reading them.
 
  2. Import the included PGP keys.
 
-        [user@qubes ~]$ gpg --import qubes-secpack/keys/*/*
+        $ gpg --import qubes-secpack/keys/*/*
         gpg: directory `/home/user/.gnupg' created
         gpg: new configuration file `/home/user/.gnupg/gpg.conf' created
         gpg: WARNING: options in `/home/user/.gnupg/gpg.conf' are not yet active during this run
@@ -151,14 +158,14 @@ its contents, and reading them.
         gpg: key B298547C: public key "Marek Marczykowski (Qubes OS signing key) <marmarek@mimuw.edu.pl>" imported
         gpg: key AB5EEF90: public key "Marek Marczykowski (Qubes OS signing key) <marmarek@invisiblethingslab.com>" imported
         gpg: key A603BCB6: public key "Marek Marczykowski (Qubes OS signing key) <marmarek@invisiblethingslab.com>" imported
-        gpg: key 42CFA724: public key "Marek Marczykowski-G�recki (Qubes OS signing key) <marmarek@invisiblethingslab.com>" imported
+        gpg: key 42CFA724: public key "Marek Marczykowski-Górecki (Qubes OS signing key) <marmarek@invisiblethingslab.com>" imported
         gpg: key 15CE40BF: public key "Wojciech Zygmunt Porczyk (Qubes OS signing key) <woju@invisiblethingslab.com>" imported
         gpg: key 36879494: public key "Qubes Master Signing Key" imported
         gpg: key 211093A7: public key "Qubes OS Release 1 Signing Key" imported
         gpg: key 0A40E458: public key "Qubes OS Release 2 Signing Key" imported
         gpg: key 03FA5082: public key "Qubes OS Release 3 Signing Key" imported
         gpg: key 92C7B3DC: public key "Joanna Rutkowska (Qubes Security Pack Signing Key) <joanna@invisiblethingslab.com>" imported
-        gpg: key 1830E06A: public key "Marek Marczykowski-G�recki (Qubes security pack) <marmarek@invisiblethingslab.com>" imported
+        gpg: key 1830E06A: public key "Marek Marczykowski-Górecki (Qubes security pack) <marmarek@invisiblethingslab.com>" imported
         gpg: key 3F48CB21: public key "Qubes OS Security Team <security@qubes-os.org>" imported
         gpg: Total number processed: 17
         gpg:               imported: 17  (RSA: 17)
@@ -166,7 +173,7 @@ its contents, and reading them.
 
  3. Verify and trust the Qubes Master Signing Key.
 
-        [user@qubes ~]$ gpg --edit-key 36879494
+        $ gpg --edit-key 36879494
         gpg (GnuPG) 1.4.18; Copyright (C) 2014 Free Software Foundation, Inc.
         This is free software: you are free to change and redistribute it.
         There is NO WARRANTY, to the extent permitted by law.
@@ -215,34 +222,38 @@ its contents, and reading them.
     step, ensuring they match. You can read more about digital signatures and
     key verification [here](/doc/verifying-signatures/).
 
- 4. Verify and read the canaries.
+ 4. Verify signed Git tags.
 
-        [user@qubes ~]$ cd qubes-secpack/canaries/                                     
-        [user@qubes canaries]$ gpg --verify canary-001-2015.txt.sig.joanna canary-001-2015.txt
+        $ cd qubes-secpack/
+        $ git tag -v `git describe`
+        object 2bb7f0b966593d8ed74e140a04d60c68b96b164e
+        type commit
+        tag joanna_sec_2bb7f0b9
+        tagger Joanna Rutkowska <joanna@invisiblethingslab.com> 1468335706 +0000
+        
+        Tag for commit 2bb7f0b966593d8ed74e140a04d60c68b96b164e
+        gpg: Signature made 2016-07-12T08:01:46 PDT
+        gpg:                using RSA key 0x4E6829BC92C7B3DC
+        gpg: Good signature from "Joanna Rutkowska (Qubes Security Pack Signing Key) <joanna@invisiblethingslab.com>" [full]
+
+    (The final line of output confirms that the signature is good.)
+
+ 5. Verify detached PGP signatures.
+
+        $ cd canaries/                                     
+        $ gpg --verify canary-001-2015.txt.sig.joanna canary-001-2015.txt
         gpg: Signature made Mon Jan  5 20:21:40 2015 UTC using RSA key ID 92C7B3DC
         gpg: Good signature from "Joanna Rutkowska (Qubes Security Pack Signing Key) <joanna@invisiblethingslab.com>"
-        [user@qubes canaries]$ gpg --verify canary-001-2015.txt.sig.marmarek canary-001-2015.txt
+        $ gpg --verify canary-001-2015.txt.sig.marmarek canary-001-2015.txt
         gpg: Signature made Mon Jan  5 20:13:37 2015 UTC using RSA key ID 1830E06A
-        gpg: Good signature from "Marek Marczykowski-G�recki (Qubes security pack) <marmarek@invisiblethingslab.com>"
-        [user@qubes canaries]$ cat canary-001-2015.txt
-        
-        
-                            ---===[ Qubes Canary #1 ]===---
-        
-                                         [...]
+        gpg: Good signature from "Marek Marczykowski-Górecki (Qubes security pack) <marmarek@invisiblethingslab.com>"
 
- 5. Verify and read the QSBs.
+    (The fourth and final lines of output confirm that the two signatures are
+    good.)
 
-        [user@qubes canaries]$ cd ../QSBs/
-        [user@qubes QSBs]$ gpg --verify qsb-013-2015.txt.sig.joanna qsb-013-2015.txt
-        gpg: Signature made Mon Jan  5 21:22:14 2015 UTC using RSA key ID 92C7B3DC
-        gpg: Good signature from "Joanna Rutkowska (Qubes Security Pack Signing Key) <joanna@invisiblethingslab.com>"
-        [user@qubes QSBs]$ gpg --verify qsb-013-2015.txt.sig.marmarek qsb-013-2015.txt
-        gpg: Signature made Mon Jan  5 21:38:11 2015 UTC using RSA key ID 1830E06A
-        gpg: Good signature from "Marek Marczykowski-G�recki (Qubes security pack) <marmarek@invisiblethingslab.com>"
-        [user@qubes QSBs]$ cat qsb-013-2015.txt
-        
-        
-                     ---===[ Qubes Security Bulletin #13 ]===---
-        
-                                        [...]
+The same procedures can be applied to any directory or file in the QSP. Two
+methods of verification (signed Git tags and deatched PGP signatures) are
+provided to ensure that the system is robust (e.g., against a potential failure
+in Git tag-based verification) and to give users more options to verify the
+files.
+
