@@ -38,6 +38,7 @@ Qubes Users' FAQ
  * [How much memory is recommended for Qubes?](#how-much-memory-is-recommended-for-qubes)
  * [Can I install Qubes on a system without VT-x?](#can-i-install-qubes-on-a-system-without-vt-x)
  * [Can I install Qubes on a system without VT-d?](#can-i-install-qubes-on-a-system-without-vt-d)
+ * [What is a DMA attack?](#what-is-a-dma-attack)
  * [Can I use AMD-v instead of VT-x?](#can-i-use-amd-v-instead-of-vt-x)
  * [Can I install Qubes in a virtual machine (e.g., on VMWare)?](#can-i-install-qubes-in-a-virtual-machine-eg-on-vmware)
  * [Why does my network adapter not work?](#why-does-my-network-adapter-not-work)
@@ -176,6 +177,27 @@ Yes. Xen doesn't use VT-x (or AMD-v) for PV guest virtualization. (It uses ring0
 ### Can I install Qubes on a system without VT-d?
 
 Yes. You can even run a NetVM, but you will not benefit from DMA protection for driver domains. On a system without VT-d, everything should work in the same way, except there will be no real security benefit to having a separate NetVM, as an attacker could always use a simple DMA attack to go from the NetVM to Dom0. **Nonetheless, all of Qubes' other security mechanisms, such as qube separation, work without VT-d. Therefore, a system running Qubes will still be significantly more secure than one running Windows, Mac, or Linux, even if it lacks VT-d.**
+
+### What is a DMA attack?
+
+DMA is mechanism for PCI devices to access system memory (read/write).
+Without VT-d, any PCI device can access all the memory, regardless to
+which VM it is assigned (or if it is left in dom0). Most PCI devices allow the
+driver to request an arbitrary DMA operation (like "put received network packets
+at this address in memory", or "get this memory area and send it to the
+network"). So, without VT-d, it gives unlimited access to the whole
+system. Now, it is only a matter of knowing where to read/write to take
+over the system, instead of just crashing. But since you can read the
+whole memory, it isn't that hard.
+
+Now, how does this apply to Qubes OS? The above attack requires access to a PCI
+device, which means that it can be performed only from NetVM / UsbVM, so
+someone must first break into one of those VMs. But this isn't that hard,
+because there is a lot of complex code handling network traffic. Recent
+bugs includes DHCP client, DNS client, etc. Most attacks on NetVM /
+UsbVM (but not all!) require being somewhat close to the target system -
+for example connected to the same WiFi network, or in the case of a UsbVM,
+having physical acccess to a USB port.
 
 ### Can I use AMD-v instead of VT-x?
 
