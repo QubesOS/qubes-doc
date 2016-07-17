@@ -266,6 +266,9 @@ To use this feature, you need to install `qubes-usb-proxy` package in the
 templates used for USB qube and qubes you want to connect USB devices to. Note
 you cannot pass through devices from dom0 (in other words: USB VM is required).
 
+Set USB proxying rules: 
+* Default configuration in `/etc/qubes-rpc/policy/qubes.USB` does not allow USB proxying between VMs
+
 Listing available USB devices:
 
     [user@dom0 ~]$ qvm-usb
