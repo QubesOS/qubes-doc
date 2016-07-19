@@ -315,3 +315,11 @@ fi
 
 This time testing should allow connectivity to the service as long as the
 service is up :-)
+
+Where to put firewall rules
+---------------------------
+
+Implicit in the above example, but worth calling attention to: for all 
+VMs EXCEPT proxy VMs, iptables commands should be added to the 
+'/rw/config/rc.local' script. For proxy VMs, iptables commands should 
+be added to '/rw/config/qubes_firewall_user_script'.
