@@ -280,8 +280,28 @@ Ignore warnings about `version '...' has bad syntax`.
 
 Then install whatever kernel you want. If you are using distribution kernel
 package (`linux-image-amd64` package), initramfs and kernel module should be
-handled automatically. If you are using manually build kernel, you need to
-handle this on your own. Take a look at `dkms` and `initramfs-tools` documentation.
+handled automatically. If not, or you are building kernel manually, do this on
+using `dkms` and `initramfs-tools`:
+
+    sudo dkms autoinstall -k <kernel-version> # replace this <kernel-version> with actual kernel version
+    sudo update-initramfs -u
+
+The output should look like this:
+
+	$ sudo dkms autoinstall -k 3.16.0-4-amd64
+
+	u2mfn:
+	Running module version sanity check.
+	 - Original module
+	   - No original module exists within this kernel
+	 - Installation
+	   - Installing to /lib/modules/3.16.0-4-amd64/updates/dkms/
+
+	depmod....
+
+	DKMS: install completed.
+	$ sudo update-initramfs -u
+	update-initramfs: Generating /boot/initrd.img-3.16.0-4-amd64
 
 When kernel is installed, you need to create GRUB configuration. 
 You may want to adjust some settings in `/etc/default/grub`, for example lower
