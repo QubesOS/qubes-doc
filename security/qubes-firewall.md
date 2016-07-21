@@ -320,9 +320,10 @@ Where to put firewall rules
 ---------------------------
 
 Implicit in the above example [scripts](/doc/config-files/), but worth 
-calling attention to: for all VMs EXCEPT proxy VMs, iptables commands 
-should be added to the '/rw/config/rc.local' script. For proxy VMs 
-(sys-firewall inclusive) iptables commands should be added to 
-'/rw/config/qubes-firewall-user-script'. This is because a proxy VM is 
-constantly adjusting it's firewall, and therefore initial settings from 
-rc.local do not persist.
+calling attention to: for all VMs *except* ProxyVMs, iptables commands 
+should be added to the `/rw/config/rc.local` script. For ProxyVMs 
+(`sys-firewall` inclusive), iptables commands should be added to 
+`/rw/config/qubes-firewall-user-script`. This is because a ProxyVM is 
+constantly adjusting its firewall, and therefore initial settings from 
+`rc.local` do not persist.
+
