@@ -25,4 +25,4 @@ article td, article th {
 |  2 Jul 2016 | decide whether 3.2-rc1 is the final 3.2 |
 | <strike>16 Jul 2016</strike><br/>20 Jul 2016 | current-testing freeze before 3.2-rc2   |
 | <strike>23 Jul 2016</strike><br/>27 Jul 2016 | 3.2-rc2 release                         |
-| <strike> 5 Aug 2016</strike><br/> 9 Jul 2016 | decide whether 3.2-rc2 is the final 3.2 |
+| <strike> 5 Aug 2016</strike><br/> 9 Aug 2016 | decide whether 3.2-rc2 is the final 3.2 |
