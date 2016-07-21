@@ -39,6 +39,7 @@ To install Whonix, you must have a working Qubes machine already.
 *  [Security Advice for after installing Whonix on Qubes](https://www.whonix.org/wiki/Post_Install_Advice)
 *  [How to set up Tor Bridges in Whonix on Qubes](https://www.whonix.org/wiki/Bridges#How_to_use_bridges_in_Whonix)
 *  [Using Multiple Whonix-Workstations with Whonix on Qubes](https://www.whonix.org/wiki/Multiple_Whonix-Workstations#Qubes-Whonix)
+* [How to use Corridor (a Tor traffic whitelisting gateway) with Whonix](https://www.whonix.org/wiki/Corridor)
 
 ## Support for Whonix
 
