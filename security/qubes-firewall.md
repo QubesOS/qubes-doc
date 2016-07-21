@@ -86,7 +86,7 @@ sudo iptables -I FORWARD 2 -s <IP address of A> -d <IP address of B> -j ACCEPT
   issues from VM A. Note however, that this doesn't allow you to reach A from
   B -- for this you would need another rule, with A and B addresses swapped.
 * If everything works as expected, then the above iptables rule(s) should be
-  written into firewall VM's `qubes_firewall_user_script` script which is run
+  written into firewall VM's `qubes-firewall-user-script` script which is run
   on every firewall update. This is necessary, because Qubes orders every
   firewall VM to update all the rules whenever new VM is started in the system.
   If we didn't enter our rules into this "hook" script, then shortly our custom
@@ -97,8 +97,8 @@ sudo iptables -I FORWARD 2 -s <IP address of A> -d <IP address of B> -j ACCEPT
 
 ~~~
 [user@firewallvm ~]$ sudo bash
-[root@firewallvm user]# echo "iptables -I FORWARD 2 -s 10.137.2.25 -d 10.137.2.6 -j ACCEPT" >> /rw/config/qubes_firewall_user_script
-[root@firewallvm user]# chmod +x /rw/config/qubes_firewall_user_script
+[root@firewallvm user]# echo "iptables -I FORWARD 2 -s 10.137.2.25 -d 10.137.2.6 -j ACCEPT" >> /rw/config/qubes-firewall-user-script
+[root@firewallvm user]# chmod +x /rw/config/qubes-firewall-user-script
 ~~~
 
 Port forwarding to a VM from the outside world
@@ -235,7 +235,7 @@ the service
   remove the ` -s 192.168.0.1/24 `
 
 Once you have confirmed that the counters increase, store these command in
-'/rw/config/qubes_firewall_user_script'
+'/rw/config/qubes-firewall-user-script'
 
 ~~~
 #!/bin/sh
@@ -284,7 +284,7 @@ fi
 Finally make this file executable (so it runs at every Firewall VM update)
 
 ~~~
-sudo chmod +x /rw/config/qubes_firewall_user_script
+sudo chmod +x /rw/config/qubes-firewall-user-script
 ~~~
 
 **3. Allow packets into the VM to reach the service**
@@ -315,3 +315,14 @@ fi
 
 This time testing should allow connectivity to the service as long as the
 service is up :-)
+
+Where to put firewall rules
+---------------------------
+
+Implicit in the above example [scripts](/doc/config-files/), but worth 
+calling attention to: for all VMs EXCEPT proxy VMs, iptables commands 
+should be added to the '/rw/config/rc.local' script. For proxy VMs 
+(sys-firewall inclusive) iptables commands should be added to 
+'/rw/config/qubes-firewall-user-script'. This is because a proxy VM is 
+constantly adjusting it's firewall, and therefore initial settings from 
+rc.local do not persist.
