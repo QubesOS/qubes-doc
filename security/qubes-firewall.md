@@ -82,23 +82,38 @@ In order to allow networking between VM A and B follow those steps:
 sudo iptables -I FORWARD 2 -s <IP address of A> -d <IP address of B> -j ACCEPT
 ~~~
 
+* In VM B's terminal enter the following iptables rule:
+
+~~~
+sudo iptables -I INPUT -s <IP address of A> -j ACCEPT
+~~~
+
 * Now you should be able to reach the VM B from A -- test it using e.g. ping
-  issues from VM A. Note however, that this doesn't allow you to reach A from
-  B -- for this you would need another rule, with A and B addresses swapped.
-* If everything works as expected, then the above iptables rule(s) should be
+  issued from VM A. Note however, that this doesn't allow you to reach A from
+  B -- for this you would need two more rules, with A and B swapped.
+* If everything works as expected, then the above iptables rules should be
   written into firewall VM's `qubes-firewall-user-script` script which is run
-  on every firewall update. This is necessary, because Qubes orders every
-  firewall VM to update all the rules whenever new VM is started in the system.
-  If we didn't enter our rules into this "hook" script, then shortly our custom
-  rules would disappear and inter-VM networking would stop working. Here's an
-  example how to update the script (note that, by default, there is no script
-  file present, so we likely will be creating it, unless we had some other
+  on every firewall update, and A and B's `rc.local` script which is run when
+  the vm is launched. The `qubes-firewall-user-script` is necessary because Qubes
+  orders every firewall VM to update all the rules whenever new VM is started in
+  the system. If we didn't enter our rules into this "hook" script, then shortly
+  our custom rules would disappear and inter-VM networking would stop working.
+  Here's an example how to update the script (note that, by default, there is no
+  script file present, so we likely will be creating it, unless we had some other
   custom rules defines earlier in this firewallvm):
 
 ~~~
-[user@firewallvm ~]$ sudo bash
-[root@firewallvm user]# echo "iptables -I FORWARD 2 -s 10.137.2.25 -d 10.137.2.6 -j ACCEPT" >> /rw/config/qubes-firewall-user-script
-[root@firewallvm user]# chmod +x /rw/config/qubes-firewall-user-script
+[user@sys-firewall ~]$ sudo bash
+[root@sys-firewall user]# echo "iptables -I FORWARD 2 -s 10.137.2.25 -d 10.137.2.6 -j ACCEPT" >> /rw/config/qubes-firewall-user-script
+[root@sys-firewall user]# chmod +x /rw/config/qubes-firewall-user-script
+~~~
+
+* Here is an example how to update `rc.local`:
+
+~~~
+[user@B ~]$ sudo bash
+[root@B user]# echo "iptables -I INPUT -s 10.137.2.25 -j ACCEPT" >> /rw/config/rc.local
+[root@B user]# chmod +x /rw/config/rc.local
 ~~~
 
 Port forwarding to a VM from the outside world
