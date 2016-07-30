@@ -37,7 +37,10 @@ connection. This means it will not work for servers using load balancing. More
 on this in the message quoted below.
 
 Alternatively, one can use the `qvm-firewall` command from Dom0 to edit the
-firewall rules by hand:
+firewall rules by hand. The firewall rules for each VM are saved in an XML file
+in that VM's directory in dom0:
+
+    /var/lib/qubes/appvms/<vm-name>/firewall.xml
 
 Reconnecting VMs after a NetVM reboot
 ----------------------------------------
