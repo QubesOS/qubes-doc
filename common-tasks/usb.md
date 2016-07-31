@@ -209,23 +209,23 @@ Alternatively, you can create a USB qube manually as follows:
 
 If the USB qube will not start, see [here][faq-usbvm].
 
-### Hide all USB devices from dom0 ###
+### Hide all USB controllers from dom0 ###
 
 Even if you create a USB qube, there will be a brief period of time during the
-boot process during which dom0 will be exposed to your USB devices. This is a
-potential security risk, since even brief exposure to a malicious USB device
-could result in dom0 being compromised. There are two approaches to this
-problem:
+boot process during which dom0 will be exposed to your USB controllers (and any
+attached devices). This is a potential security risk, since even brief exposure
+to a malicious USB device could result in dom0 being compromised. There are two
+approaches to this problem:
 
 1. Physically disconnect all USB devices whenever you reboot the host.
-2. Hide (i.e., blacklist) all USB devices from dom0.
+2. Hide (i.e., blacklist) all USB controllers from dom0.
 
 **Warning:** If you use a USB [AEM] device, do not use the second option. Using
 a USB AEM device requires dom0 to have access to the USB controller to which
 your USB AEM device is attached. If dom0 cannot read your USB AEM device, AEM
 will hang.
 
-The procedure to hide all USB devices from dom0 is as follows:
+The procedure to hide all USB controllers from dom0 is as follows:
 
 1. Open the file `/etc/default/grub` in dom0.
 2. Find the line that begins with `GRUB_CMDLINE_LINUX`.
@@ -234,6 +234,8 @@ The procedure to hide all USB devices from dom0 is as follows:
 5. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
 6. Reboot.
 
+(Note: Beginning with R3.2, `rd.qubes.hide_all_usb` is set automatically if you
+opt to create a USB qube during installation.)
 
 Supported USB device types
 --------------------------
