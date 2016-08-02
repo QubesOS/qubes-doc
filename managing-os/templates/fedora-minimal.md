@@ -25,7 +25,7 @@ It can be installed via the following command:
 [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-23-minimal
 ~~~
 
-Download will take a while and there will be no progress indicator.
+The download may take a while.
 
 Usage
 -----
