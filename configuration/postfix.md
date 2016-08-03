@@ -16,9 +16,11 @@ Postfix is full featured MTA (Message Transfer Agent). Here we will configure it
 Installation
 ------------
 
-`yum install postfix procmail make`
+`yum install postfix procmail make cyrus-sasl cyrus-sasl-plain`
 
-Procmail is not strictly necessary, but is useful to sort your incoming mail, for example to put each mailing list in its own directory. Make is also not necessary, but is used to keep Postfix lookup tables. You should also check `alternatives` command, to see if it is the default `mta`. It probably is not. You may need to `yum remove ssmtp` or something.
+Cyrus-sasl is installed to authenticate to remote servers. Procmail is not strictly necessary, but is useful to sort your incoming mail, for example to put each mailing list in its own directory. Make is also not necessary, but is used to keep Postfix lookup tables.
+
+You should also check `alternatives` command, to see if it is the default `mta`. It probably is not. You may need to `yum remove ssmtp` or something
 
 Configuration
 -------------
