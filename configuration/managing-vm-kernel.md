@@ -7,7 +7,7 @@ redirect_from:
 ---
 
 VM kernel managed by dom0
--------------------------
+=========================
 
 By default VMs kernels are provided by dom0. This means that:
 
@@ -47,7 +47,7 @@ updatevm          : sys-firewall
 ~~~
 
 Installing different kernel using Qubes kernel package
-==================================
+----------------------------------
 
 VM kernels are packages by Qubes team in `kernel-qubes-vm` packages. Generally system will keep the 3 newest available versions. You can list them with the `rpm` command:
 
@@ -135,7 +135,7 @@ In the above example, it tries to remove 3.18.10-2.pvops.qubes kernel (to keep o
 The newly installed package is set as default VM kernel.
 
 Installing different VM kernel based on dom0 kernel
-===================================================
+---------------------------------------------------
 
 It is possible to package kernel installed in dom0 as VM kernel. This makes it
 possible to use VM kernel, which is not packaged by Qubes team. This includes:
@@ -203,7 +203,7 @@ mke2fs 1.42.12 (29-Aug-2014)
 ~~~
 
 Using kernel installed in the VM
-================================
+--------------------------------
 
 **This option is available only in Qubes R3.1 or newer**
 
