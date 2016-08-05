@@ -36,6 +36,23 @@ Upgrading dom0
     to manually apply the changes to `/etc/yum.repos.d/qubes-dom0.repo` or
     simply replace it with .rpmnew file.
 
+    If you are using Debian-based VM as UpdateVM (`sys-firewall` by default),
+    you need to download few more packages manually, but **do not install
+    them** yet:
+
+        sudo qubes-dom0-update systemd-compat-libs perl-libwww-perl perl-Term-ANSIColor perl-Term-Cap gdk-pixbuf2-xlib speexdsp qubes-mgmt-salt-admin-tools
+        (...)
+        Transaction Summary
+        ===============================================================
+        Install     15 Packages (+ 31 Dependent packages)
+        Upgrade      4 Packages (+200 Dependent packages)
+        
+        Total download size: 173 M
+        Is this ok [y/d/N]: n
+        Exiting on user command
+        Your transaction was saved, rerun it with:
+          yum load-transaction /tmp/yum_save_tx.....
+
 4. Upgrade dom0 to R3.2:
 
         sudo qubes-dom0-update
