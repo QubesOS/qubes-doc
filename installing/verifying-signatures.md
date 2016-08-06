@@ -86,8 +86,8 @@ Signing Key here in this document:
     uid   Qubes Master Signing Key
 
 There should also be a copy of this key at the project's main website, in the
-[Qubes Security Pack], and in the archives of the project's [developer] and
-[user] [mailing lists].
+[Qubes Security Pack], and in the archives of the project's
+[developer][devel-master-key-msg] and [user][user-master-key-msg] [mailing lists].
 
 Once you have obtained the Qubes Master Signing Key,
 you should verify the fingerprint of this key very carefully by obtaining
@@ -295,8 +295,8 @@ To verify a signature on a git tag, you can use:
 [Qubes Master Signing Key]: https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
 [keyserver]: https://en.wikipedia.org/wiki/Key_server_%28cryptographic%29#Keyserver_examples
 [Qubes Security Pack]: /doc/security-pack/
-[developer]: https://groups.google.com/forum/#!msg/qubes-devel/RqR9WPxICwg/kaQwknZPDHkJ
-[user]: https://groups.google.com/d/msg/qubes-users/CLnB5uFu_YQ/ZjObBpz0S9UJ
+[devel-master-key-msg]: https://groups.google.com/d/msg/qubes-devel/RqR9WPxICwg/kaQwknZPDHkJ
+[user-master-key-msg]: https://groups.google.com/d/msg/qubes-users/CLnB5uFu_YQ/ZjObBpz0S9UJ
 [mailing lists]: /mailing-lists/
 [Release 3 Signing Key]: https://keys.qubes-os.org/keys/qubes-release-3-signing-key.asc
 [Qubes OS Keyserver]: https://keys.qubes-os.org/keys/
