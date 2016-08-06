@@ -15,7 +15,7 @@ VM Configuration Interface
 Qubes VM have some settings set by dom0 based on VM settings. There are multiple configuration channels, which includes:
 
 -   XenStore
--   QubesDB - replacing most of xenstore (in R3 only)
+-   QubesDB - replacing most of xenstore (in R3 or later)
 -   Qubes RPC (called at VM startup, or when configuration changed)
 -   GUI protocol
 
@@ -26,6 +26,10 @@ Keys exposed by dom0 to VM (only Qubes specific included):
 
 -   `qubes-vm-type` - VM type, the same as `type` field in `qvm-prefs`. One of `AppVM`, `ProxyVM`, `NetVM`, `TemplateVM`, `HVM`, `TemplateHVM`
 -   `qubes-vm-updatable` - flag whether VM is updatable (whether changes in root.img will survive VM restart). One of `True`, `False`
+-   `qubes-vm-persistence` - what data do persist between VM restarts:
+     - `full` - all disks
+     - `rw-only` - only `/rw` disk
+     - `none` - none
 -   `qubes-timezone - name of timezone based on dom0 timezone. For example `Europe/Warsaw`
 -   `qubes-keyboard` - keyboard layout based on dom0 layout. Its syntax is suitable for `xkbcomp` command (after expanding escape sequences like `\n` or `\t`). This is meant only as some default value, VM can ignore this option and choose its own keyboard layout (this is what keyboard setting from Qubes Manager does). This entry is created as part of gui-daemon initialization (so not available when gui-daemon disabled, or not started yet).
 -   `qubes-debug-mode` - flag whether VM have debug mode enabled (qvm-prefs setting). One of `1`, `0`
@@ -55,7 +59,7 @@ Qubes RPC
 
 Services called by dom0 to provide some VM configuration:
 
--   `qubes.SetMonitorLayout` - provide list of monitors, one in a line, each line contains four numbers: `width height X Y`
+-   `qubes.SetMonitorLayout` - provide list of monitors, one in a line, each line contains four numbers: `width height X Y width_mm height_mm` (physical dimensions - `width_mm` and `height_mm` - are optional)
 -   `qubes.WaitForSession` - called to wait for full VM startup
 -   `qubes.GetAppmenus` - receive appmenus from given VM (template); TODO: describe format here
 -   `qubes.GetImageRGBA` - receive image/application icon. Protocol:
