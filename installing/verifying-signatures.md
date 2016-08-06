@@ -61,20 +61,16 @@ Importing Qubes Signing Keys
 
 Every file published by the Qubes Project (ISO, RPM, TGZ files and git
 repositories) is digitally signed by one of the developer or release signing
-keys. Each such key is signed by the Qubes Master Signing Key
-([`0x36879494`](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc)).
+keys. Each such key is signed by the [Qubes Master Signing Key]
+(`0xDDFA1A3E36879494`).
 
 The public portion of the Qubes Master Signing Key can be imported directly
-from a [
-keyserver](https://en.wikipedia.org/wiki/Key_server_%28cryptographic%29#Keyserver_examples)
-(specified on first use with --keyserver URI, keyserver saved in
-`~/.gnupg/gpg.conf`), e.g.,
+from a [keyserver] (specified on first use with `--keyserver <URI>`, keyserver
+saved in `~/.gnupg/gpg.conf`), e.g.,
 
     gpg --keyserver pool.sks-keyservers.net --recv-keys 0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
 
-or downloaded
-[here](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc) and
-imported with gpg,
+or downloaded [here][Qubes Master Signing Key] and imported with gpg,
 
     $ gpg --import ./qubes-master-signing-key.asc 
 
@@ -83,24 +79,17 @@ or fetched directly with gpg.
     $ gpg --fetch-keys https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
 
 For additional security we also publish the fingerprint of the Qubes Master
-Signing Key
-([`0x36879494`](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc))
-here in this document:
+Signing Key here in this document:
 
     pub   4096R/36879494 2010-04-01
           Key fingerprint = 427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
     uid   Qubes Master Signing Key
 
 There should also be a copy of this key at the project's main website, in the
-[Qubes Security Pack](/doc/security-pack/), and in the archives of the
-project's
-[developer](https://groups.google.com/forum/#!msg/qubes-devel/RqR9WPxICwg/kaQwknZPDHkJ)
-and
-[user](https://groups.google.com/d/msg/qubes-users/CLnB5uFu_YQ/ZjObBpz0S9UJ)
-mailing lists.
+[Qubes Security Pack], and in the archives of the project's [developer] and
+[user] [mailing lists].
 
-Once you have obtained the Qubes Master Signing Key
-([`0x36879494`](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc)),
+Once you have obtained the Qubes Master Signing Key,
 you should verify the fingerprint of this key very carefully by obtaining
 copies of the fingerprint from trustworthy independent sources and comparing
 them to the downloaded key's fingerprint to ensure they match. Then set its
@@ -151,9 +140,8 @@ verify all the keys signed by the Qubes Master Signing Key:
 Now you can easily download any of the developer or release signing keys that
 happen to be used to sign particular ISO, RPM, TGZ files or git tags.
 
-For example: Qubes OS Release 3 Signing Key
-([`0x03FA5082`](https://keys.qubes-os.org/keys/qubes-release-3-signing-key.asc))
-is used for all Release 3 ISO images.
+For example, the Qubes OS [Release 3 Signing Key] (`0xCB11CA1D03FA5082`) is
+used for all Release 3 ISO images:
 
     $ gpg --recv-keys 0xC52261BE0A823221D94CA1D1CB11CA1D03FA5082
     gpg: requesting key 03FA5082 from hkp server keys.gnupg.net
@@ -166,16 +154,12 @@ is used for all Release 3 ISO images.
 
 You can also download all the currently used developers' signing keys and
 current and older release signing keys (and also a copy of the Qubes Master
-Signing Key) from the [keys directory on our
-server](https://keys.qubes-os.org/keys/) and from the [Qubes Security
-Pack](/doc/security-pack/).
+Signing Key) from the [Qubes OS Keyserver] and from the [Qubes Security Pack].
 
 The developer signing keys are set to be valid for 1 year only, while the Qubes
-Master Signing Key
-([`0x36879494`](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc))
-has no expiration date. This latter key was generated and is kept only within a
-dedicated, air-gapped "vault" machine, and the private portion will (hopefully)
-never leave this isolated machine.
+Master Signing Key has no expiration date. This latter key was generated and is
+kept only within a dedicated, air-gapped "vault" machine, and the private
+portion will (hopefully) never leave this isolated machine.
 
 You can now verify the ISO image (`Qubes-R3.1-x86_64.iso`) matches its
 signature (`Qubes-R3.1-x86_64.iso.asc`):
@@ -187,10 +171,8 @@ signature (`Qubes-R3.1-x86_64.iso.asc`):
     gpg: Good signature from "Qubes OS Release 3 Signing Key"
     gpg: binary signature, digest algorithm SHA256
 
-The Release 3 Signing Key
-([`0x03FA5082`](https://keys.qubes-os.org/keys/qubes-release-3-signing-key.asc))
-used to sign this ISO image should be signed by the Qubes Master Signing Key
-([`0x36879494`](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc)):
+The Release 3 Signing Key used to sign this ISO image should be signed by the
+Qubes Master Signing Key:
 
     $ gpg --list-sig 03FA5082
     pub   4096R/03FA5082 2014-11-19
@@ -308,3 +290,14 @@ trusted!
 To verify a signature on a git tag, you can use:
 
     $ git tag -v <tag name>
+
+
+[Qubes Master Signing Key]: https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
+[keyserver]: https://en.wikipedia.org/wiki/Key_server_%28cryptographic%29#Keyserver_examples
+[Qubes Security Pack]: /doc/security-pack/
+[developer]: https://groups.google.com/forum/#!msg/qubes-devel/RqR9WPxICwg/kaQwknZPDHkJ
+[user]: https://groups.google.com/d/msg/qubes-users/CLnB5uFu_YQ/ZjObBpz0S9UJ
+[mailing lists]: /mailing-lists/
+[Release 3 Signing Key]: https://keys.qubes-os.org/keys/qubes-release-3-signing-key.asc
+[Qubes OS Keyserver]: https://keys.qubes-os.org/keys/
+
