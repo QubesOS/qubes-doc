@@ -164,7 +164,24 @@ Each ISO is accompanied by a plain text file ending in `.DIGESTS`. This file con
     =FiJ5
     -----END PGP SIGNATURE-----
 
-Four digests have been computed for this ISO. The hash functions used, in order from top to bottom, are MD5, SHA1, SHA256, and SHA512. One way to verify that the ISO you downloaded matches any of these is by using `openssl` from the command line:
+Four digests have been computed for this ISO. The hash functions used, in order from top to bottom, are MD5, SHA1, SHA256, and SHA512. One way to verify that the ISO you downloaded matches any of these hash values is by using the respective `*sum` programs:
+
+    $ md5sum -c Qubes-R3.1-x86_64.iso.DIGESTS
+    Qubes-R3.1-x86_64.iso: OK
+    md5sum: WARNING: 23 lines are improperly formatted
+    $ sha1sum -c Qubes-R3.1-x86_64.iso.DIGESTS
+    Qubes-R3.1-x86_64.iso: OK
+    sha1sum: WARNING: 23 lines are improperly formatted
+    $ sha256sum -c Qubes-R3.1-x86_64.iso.DIGESTS
+    Qubes-R3.1-x86_64.iso: OK
+    sha256sum: WARNING: 23 lines are improperly formatted
+    $ sha512sum -c Qubes-R3.1-x86_64.iso.DIGESTS
+    Qubes-R3.1-x86_64.iso: OK
+    sha512sum: WARNING: 23 lines are improperly formatted
+
+The `OK` response tells us that the hash value for that particular hash function matches. The program also warns us that there are 23 improperly formatted lines, but this is to be expected. This is because each file contains lines for several different hash values (as mentioned above), but each `*sum` program verifies only the line for its own hash function. In addition, there are lines for the PGP signature which the `*sum` does not know how to read.
+
+Another way is to use `openssl` to compute each hash value, then compare them to the contents of the `.DIGESTS` file.:
 
     $ openssl dgst -md5 Qubes-R3.1-x86_64.iso
     MD5(Qubes-R3.1-x86_64.iso)= f99634b05d15f6bb2ac02ee03e4338a0
