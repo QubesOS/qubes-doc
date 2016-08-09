@@ -27,6 +27,7 @@ All available current and past downloads can be found [here](/downloads/).
 | Release 2        | 2014-09-26 | 2016-04-01 | Old, unsupported            |
 | Release 3.0      | 2015-10-01 | 2016-09-09 | Old, supported              |
 | Release 3.1      | 2016-03-09 | TBA        | Current, supported          |
+| Release 3.2      | TBA        | TBA        | In testing                  |
 | Release 4.0      | TBA        | TBA        | In development              |
 
 
