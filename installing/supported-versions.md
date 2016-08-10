@@ -31,6 +31,20 @@ All available current and past downloads can be found [here](/downloads/).
 | Release 4.0      | TBA        | TBA        | In development              |
 
 
+Dom0
+----
+The table below shows the OS used for dom0 in each Qubes OS release.
+
+| Qubes OS Version | Dom0 OS   |
+| ---------------- | --------- |
+| Release 1        | Fedora 13 |
+| Release 2        | Fedora 18 |
+| Release 3.0      | Fedora 20 |
+| Release 3.1      | Fedora 20 |
+| Release 3.2      | Fedora 23 |
+| Release 4.0      | TBA       |
+
+
 Templates
 ---------
 The table below shows the [template](/doc/templates/) versions supported by each
