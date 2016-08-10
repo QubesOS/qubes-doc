@@ -23,7 +23,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 ## Instructions ##
 
 <br>
-**These are the instructions for Qubes 3.1. They will take you step by step thru the entire process start to finish**
+**These are the instructions for Qubes 3.1. They will take you step by step through the entire process start to finish**
 
 *Note: Currently there are no binary packages and it must be compiled from source using the instructions below.*
 
@@ -388,7 +388,7 @@ Please check out:
 [XYNE's (dev) Powerpill](http://xyne.archlinux.ca/projects/powerpill/)
 
 
-**Important Note:** Until Powerpill is configured you will have to open network access to the template to get the initial packages etc downloaded.  You can use the "allow full access for" a given time period in the FW settings of the template in the VMM or open up the various services thru the same window.  Remember to change it back if you choose the later route.  Actions needing network access will be noted with (needs network access)
+**Important Note:** Until Powerpill is configured you will have to open network access to the template to get the initial packages etc downloaded.  You can use the "allow full access for" a given time period in the FW settings of the template in the VMM or open up the various services through the same window.  Remember to change it back if you choose the later route.  Actions needing network access will be noted with (needs network access)
 
 <br>
 <br>
@@ -676,9 +676,9 @@ Note: For info on Reflector and its configs: [Reflector](https://wiki.archlinux.
 
 *   There May also be a similar issue of dependencies with Xorg.
    
-*   Upgrade Relfector functionality to allow its use thru the QUPS
+*   Upgrade Relfector functionality to allow its use through the QUPS
 
-*   Pacman functionality changes and allows it to be directly configured to work thru QUPS.
+*   Pacman functionality changes and allows it to be directly configured to work through QUPS.
 
 <br>
 
