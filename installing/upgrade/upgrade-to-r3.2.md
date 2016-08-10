@@ -40,11 +40,11 @@ Upgrading dom0
     you need to download few more packages manually, but **do not install
     them** yet:
 
-        sudo qubes-dom0-update systemd-compat-libs perl-libwww-perl perl-Term-ANSIColor perl-Term-Cap gdk-pixbuf2-xlib speexdsp qubes-mgmt-salt-admin-tools
+        sudo qubes-dom0-update systemd-compat-libs perl-libwww-perl perl-Term-ANSIColor perl-Term-Cap gdk-pixbuf2-xlib speexdsp qubes-mgmt-salt-admin-tools lvm2
         (...)
         Transaction Summary
         ===============================================================
-        Install     15 Packages (+ 31 Dependent packages)
+        Install     16 Packages (+ 31 Dependent packages)
         Upgrade      4 Packages (+200 Dependent packages)
         
         Total download size: 173 M
