@@ -18,8 +18,9 @@ Supported Versions
 Qubes OS
 --------
 Qubes OS releases are supported for **six months** after each subsequent major
-or minor release. The version scheme is explained [here](/doc/version-scheme/).
-All available current and past downloads can be found [here](/downloads/).
+or minor release (see [Version Scheme]). The current release and past major
+releases are always available on the [Downloads] page, while all ISOs, including
+past minor releases, are available from our [FTP server].
 
 | Qubes OS Version | Start Date | End Date   | Status                      |
 | ---------------- | ---------- | ---------- | --------------------------- |
@@ -45,11 +46,10 @@ The table below shows the OS used for dom0 in each Qubes OS release.
 | Release 4.0      | TBA       |
 
 
-Templates
----------
-The table below shows the [template](/doc/templates/) versions supported by each
-Qubes OS release. Currently, only Fedora and Debian templates are officially
-supported.
+TemplateVMs
+-----------
+The table below shows the [TemplateVM] versions supported by each Qubes OS
+release. Currently, only Fedora and Debian TemplateVMs are officially supported.
 
 | Qubes OS Version | Fedora Versions | Debian Versions                               |
 | ---------------- | --------------- | --------------------------------------------- |
@@ -62,4 +62,10 @@ supported.
 
 \* Denotes versions for which we have published the packages but have not done
 extensive testing.
+
+
+[Version Scheme]: /doc/version-scheme/
+[Downloads]: /downloads/
+[FTP server]: https://ftp.qubes-os.org/
+[TemplateVM]: /doc/templates/
 
