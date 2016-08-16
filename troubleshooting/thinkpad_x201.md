@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Getting Lenovo Thinkpad X201 to work
+title: Getting Lenovo Thinkpad X201 & X200 to work
 permalink: /doc/thinkpad_x201/
 redirect_from:
 - /en/doc/thinkpad_x201/
@@ -8,10 +8,10 @@ redirect_from:
 - /wiki/Thinkpad_X201/
 ---
 
-Instructions for getting your Lenovo Thinkpad X201 laptop working with Qubes/Linux
+Instructions for getting your Lenovo Thinkpad X201 & X200 laptop working with Qubes/Linux
 =========================================================================
 
-For being able to boot the installer from USB, you have to disable VT-D in the BIOS.
+For being able to boot the installer from USB, you have to disable VT-d in the BIOS.
 Enter the BIOS by hitting F1, go to Config - CPU and then disable there VT-d.
 
 After the installation, you have to set a startup-parameter for Xen, to be able to activate VT-d again:
