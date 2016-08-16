@@ -94,7 +94,7 @@ Now, one should configure the networking within the HVM according to those setti
 Using Template-based HVM domains
 --------------------------------
 
-TODO (Coming in Qubes R2 beta 3).
+Please see our dedicated page on [installing and using Windows-based AppVMs](/doc/windows-appvms/).
 
 Cloning HVM domains
 -------------------
