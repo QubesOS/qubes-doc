@@ -127,10 +127,12 @@ means "new VM created for this particular request," so it is never a
 source of request). Currently there is no way to specify source VM by
 type. Whenever a rpc request for action X is received, the first line in
 `/etc/qubes-rpc/policy/X` that match srcvm/destvm is consulted to determine
-whether to allow rpc, what user account the program should run in target
-VM under, and what VM to redirect the execution to. If the policy file does
-not exits, user is prompted to create one; if still there is no policy file
-after prompting, the action is denied.
+whether to allow rpc, what user account the program should run in target VM
+under, and what VM to redirect the execution to. Note that if the request is
+redirected (`target=` parameter), policy action remains the same - even if
+there is another rule which would otherwise deny such request. If the policy
+file does not exits, user is prompted to create one; if still there is no
+policy file after prompting, the action is denied.
 
 In the target VM, the `/etc/qubes-rpc/RPC_ACTION_NAME` must exist, containing
 the file name of the program that will be invoked, or being that program itself
@@ -155,6 +157,31 @@ with e.g. `qubes.VMShell` action), any vulnerability in a rpc server can
 be fatal to Qubes security. On the other hand, this mechanism allows to
 delegate processing of untrusted input to less privileged (or throwaway)
 AppVMs, thus wise usage of it increases security.
+
+### Extra keywords available in Qubes 4.0 and later
+
+**This section is about not yet released version, some details may change**
+
+In Qubes 4.0, target VM can be specified also as `$dispvm:DISP_VM`, which is
+very similar to `$dispvm` but force using particular VM (`DISP_VM`) as a base
+VM to be started as Disposable VM. For example:
+
+    anon-whonix $dispvm:anon-whonix-dvm allow
+
+Adding such policy itself will not force usage of this particular `DISP_VM` -
+it will only allow it when specified by the caller. But `$dispvm:DISP_VM` can
+also be used as target in request redirection, so _it is possible_ to force
+particular `DISP_VM` usage, when caller didn't specified it:
+
+    anon-whonix $dispvm allow,target=$dispvm:anon-whonix-dvm
+
+Note that without redirection, this rule would allow using default Disposable
+VM (`default_dispvm` VM property, which itself defaults to global
+`default_dispvm` property).
+Also note that the request will be allowed (`allow` action) even if there is no
+second rule allowing calls to `$dispvm:anon-whonix-dvm`, or even if
+there is a rule explicitly denying it. This is because the redirection happen
+_after_ considering the action.
 
 ### Service argument in policy
 
