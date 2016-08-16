@@ -105,7 +105,7 @@ Assigning USB keyboard will **deprive Dom0 VM of a keyboard**. Since a USB contr
 
 But **if you need to use a USB keyboard or mouse**, identify the USB controller in which you have your keyboard/mouse plugged in and do NOT assign it to a VM. Also makes sure you know all the other USB ports for that controller, and use them carefully, with the knowledge **you are exposing Dom0** (ie NO bluetooth device on it).
 
-All USB devices should be assumed as **side channel attack vectors** (mic via sound), others via power usage so user may prefer to remove them. [See this about rootkits](https://www.networkworld.com/news/2007/080207-black-hat-virtual-machine-rootkit-detection.html)
+All USB devices should be assumed as **side channel attack vectors** (mic via sound), others via power usage so user may prefer to remove them. [See this about rootkits](https://web.archive.org/web/20070829112704/http://www.networkworld.com/news/2007/080207-black-hat-virtual-machine-rootkit-detection.html)
 
 The **web-cam** also may involve a risk, so better to physically cover it with a adhesive tape if you do not use it. If you need it, you have **to assign it to a VM** and cover it with a cap or an elastic band when not in use. Attaching a **microphone** using Qubes VM Manager also may be risky, so attach it only when required.
 
