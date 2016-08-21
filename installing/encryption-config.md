@@ -17,7 +17,7 @@ configure the encryption options while installing Qubes as follows:
 01. Boot into the installer. Wait for first GUI screen to appear where it asks 
     about language/localization .
 02. Press `Ctrl+Alt+F2` on your keyboard to escape to a shell session. (If you
-    are on a laptop, and your laptop keyboard des not work properly, you may have
+    are on a laptop, and your laptop keyboard does not work properly, you may have
     to plug in a USB keyboard.)
 03. Check and adjust the partitioning on the drive you plan to install to with
     `parted`. For example, you can leave the partition table as `msdos/MBR` type,
