@@ -12,7 +12,7 @@ How to Reinstall a TemplateVM
 If you suspect your [TemplateVM] is broken, misconfigured, or compromised,
 or if you wish to do a clean reinstall in order to upgrade to a new version, you
 can reinstall any TemplateVM from the Qubes repository. In what follows, the
-phrase "target TemplateVM" refers to whichever TemplateVM you want to reinsatll.
+phrase "target TemplateVM" refers to whichever TemplateVM you want to reinstall.
 If you want to reinstall more than one TemplateVM, repeat these instructions for
 each one.
 
