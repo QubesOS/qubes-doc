@@ -1,0 +1,43 @@
+---
+layout: doc
+title: Conky Install for Dom0
+permalink: /doc/conky/
+---
+
+Conky Install for Dom0
+===
+
+This guide is being written to show how conky can be installed to dom0.
+
+In the future, we hope to show how to add more advance Qubes-OS specific configuration to make Conky more useful in the Xen environment with multiple VMs.
+
+Installation
+---
+
+From a console, type the following:
+
+    sudo qubes-dom0-update conky
+
+
+Configuration
+---
+
+The Conky configuration file is stored in your home directory for dom0 as .conkyrc.
+
+
+
+
+
+Optional Extras
+---
+
+Conky Manager - a GUI interface for configuring Conky.
+
+    sudo qubes-dom0-update conky-manager
+
+
+
+Group Discussion
+---
+
+https://groups.google.com/forum/#!searchin/qubes-users/conky/qubes-users/ksQjfYTW8N0/f23iJG8ty94J
