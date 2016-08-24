@@ -108,7 +108,7 @@ Privacy Guides
  * [Anonymizing your MAC Address](/doc/anonymizing-your-mac-address/)
  * [TorVM](/doc/torvm/)
  * [Martus](/doc/martus/)
- * [Martus](/doc/signal/)
+ * [Signal](/doc/signal/)
 
 
 Configuration Guides
