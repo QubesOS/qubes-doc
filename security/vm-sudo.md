@@ -95,16 +95,21 @@ Below is a complete list of configuration made according to the above statement,
 Replacing password-less root access with Dom0 user prompt
 ---------------------------------------------------------
 
-While ITL still supports the statement above, some Qubes users may want to enable user/root isolation in VMs anyway. We do not support it in any of our packages, but of course nothing can stop the user from making some modifications his or her own system. A list of steps to do so is provided here without guarantee of completeness (read: **do not rely on this for extra security**):
+While ITL supports the statement above, some Qubes users may wish to enable
+user/root isolation in VMs anyway. We do not support it in any of our packages,
+but of course nothing is preventing the user from modifying his or her own
+system. A list of steps to do so is provided here **without any guarantee of
+safety, accuracy, or completeness. Proceed at your own risk. Do not rely on
+this for extra security.**
 
-1.  Adding Dom0 "VMAuth" service:
+1. Adding Dom0 "VMAuth" service:
 
         [root@dom0 /]# echo -n "/usr/bin/echo 1" >/etc/qubes-rpc/qubes.VMAuth
         [root@dom0 /]# echo -n "$anyvm dom0 ask" >/etc/qubes-rpc/policy/qubes.VMAuth
 
-    (Note: any VMs you would like still to have password-less root access (e.g. TemplateVMs) can be specified in the second file with "\<vmname\> dom0 allow")
+   (Note: any VMs you would like still to have password-less root access (e.g. TemplateVMs) can be specified in the second file with "\<vmname\> dom0 allow")
 
-2. a)  Configuring Fedora TemplateVM to prompt Dom0 for any authorization request:
+2. Configuring Fedora TemplateVM to prompt Dom0 for any authorization request:
     - In /etc/pam.d/system-auth, replace all lines beginning with "auth" with one line:
 
           auth       [success=done default=die]  pam_exec.so seteuid /usr/lib/qubes/qrexec-client-vm dom0 qubes.VMAuth /usr/bin/grep -q ^1$
@@ -118,7 +123,7 @@ While ITL still supports the statement above, some Qubes users may want to enabl
           [root@fedora-20-x64]# rm /etc/polkit-1/rules.d/00-qubes-allow-all.rules
           [root@fedora-20-x64]# rm /etc/polkit-1/localauthority/50-local.d/qubes-allow-all.pkla
 
-2. b) Configuring Debian/Whonix TemplateVM to prompt Dom0 for any authorization request:
+3. Configuring Debian/Whonix TemplateVM to prompt Dom0 for any authorization request:
     - In /etc/pam.d/common-auth, replace all lines beginning with "auth" with one line:
 
           auth       [success=done default=die]  pam_exec.so seteuid /usr/lib/qubes/qrexec-client-vm dom0 qubes.VMAuth /bin/grep -q ^1$
