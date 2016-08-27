@@ -104,7 +104,7 @@ While ITL still supports the statement above, some Qubes users may want to enabl
 
     (Note: any VMs you would like still to have password-less root access (e.g. TemplateVMs) can be specified in the second file with "\<vmname\> dom0 allow")
 
-2.  Configuring TemplateVM to prompt Dom0 for any authorization request:
+2. a)  Configuring Fedora TemplateVM to prompt Dom0 for any authorization request:
     - In /etc/pam.d/system-auth, replace all lines beginning with "auth" with one line:
 
           auth       [success=done default=die]  pam_exec.so seteuid /usr/lib/qubes/qrexec-client-vm dom0 qubes.VMAuth /usr/bin/grep -q ^1$
@@ -117,6 +117,25 @@ While ITL still supports the statement above, some Qubes users may want to enabl
 
           [root@fedora-20-x64]# rm /etc/polkit-1/rules.d/00-qubes-allow-all.rules
           [root@fedora-20-x64]# rm /etc/polkit-1/localauthority/50-local.d/qubes-allow-all.pkla
+
+2. b) Configuring Debian/Whonix TemplateVM to prompt Dom0 for any authorization request:
+    - In /etc/pam.d/common-auth, replace all lines beginning with "auth" with one line:
+
+          auth       [success=done default=die]  pam_exec.so seteuid /usr/lib/qubes/qrexec-client-vm dom0 qubes.VMAuth /bin/grep -q ^1$
+
+    - Require authentication for sudo. Replace the first line of /etc/sudoers.d/qubes with:
+
+          user ALL=(ALL) ALL
+
+    - Disable PolKit's default-allow behavior:
+
+          [root@debian-8]# rm /etc/polkit-1/rules.d/00-qubes-allow-all.rules
+          [root@debian-8]# rm /etc/polkit-1/localauthority/50-local.d/qubes-allow-all.pkla
+
+    - In /etc/pam.d/su, comment out this line near the bottom of the file:
+
+          auth sufficient pam_permit.so
+
 
 Dom0 password-less root access
 ------------------------------
