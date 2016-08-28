@@ -13,7 +13,7 @@ Cannot start installation, hangs at four penguins after choosing "Test media and
 
 There is some [common bug in UEFI implementation](http://xen.markmail.org/message/f6lx2ab4o2fch35r), affecting mostly Lenovo systems, but probably some others too. You can try existing workaround:
 
-01. In GRUB menu<sup id="a1-1">[1](#f1)</sup> press `e`.
+01. In GRUB menu<sup id="a1-1">[1](#f1)</sup>, select "Troubleshoot", then "Boot from device", then press `e`.
 02. At the end of `chainloader` line add `/mapbs /noexitboot`.
 03. Perform installation normally, but not reboot system at the end yet.
 04. Go to `tty2` (Ctrl-Alt-F2).
