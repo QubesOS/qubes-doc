@@ -67,7 +67,7 @@ qvm-start lab-win7 --install-windows-tools
 
 Once the Windows VM boots, a CDROM should appear in the 'My Computer' menu (typically as `D:`) with a setup program in its main directory.
 
-After successful installation, the Windows VM must be shut down and started again.
+After successful installation, the Windows VM must be shut down and started again, possibly a couple of times (see [this page](/doc/WindowsTools/) for detailed configuration options).
 
 Qubes (R2 Beta 3 and later releases) will automatically detect the tools has been installed in the VM and will set appropriate properties for the VM, such as `qrexec_installed`, `guiagent_installed`, and `default_user`. This can be verified (but is not required) using qvm-prefs command:
 
