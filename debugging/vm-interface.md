@@ -78,6 +78,9 @@ Services called by dom0 to provide some VM configuration:
 -   `qubes.SetGuiMode` - called in HVM to switch between fullscreen and seamless
     GUI mode. The service receives a single word on stdin - either `FULLSCREEN`
     or `SEAMLESS`
+-   `qubes.ResizeDisk` - called to inform that underlying disk was resized.
+    Name of disk image is passed on standard input (`root`, `private`, `volatile`,
+    or other). This is used starting with Qubes 4.0.
 
 
 Other Qrexec services installed by default:
