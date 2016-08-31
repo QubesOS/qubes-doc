@@ -110,10 +110,10 @@ To simulate CTRL-ALT-DELETE in the HVM (SAS, Secure Attention Sequence), press C
 
 ![windows-seamless-7.png](/attachment/wiki/WindowsAppVms/windows-seamless-7.png)
 
-Forcing Windows AppVM into full desktop mode
---------------------------------------------
+Changing between seamless and full desktop mode
+-----------------------------------------------
 
-You can switch between seamless and "full desktop" mode for Windows HVMs in their settings in Qubes Manager.
+You can switch between seamless and "full desktop" mode for Windows HVMs in their settings in Qubes Manager. The latter is the default.
 
 Using template-based Windows AppVMs (Qubes R2 Beta 3 and later)
 ---------------------------------------------------------------
