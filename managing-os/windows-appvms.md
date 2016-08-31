@@ -129,7 +129,7 @@ qvm-create --hvm-template win7-x64-template -l green
 -   The private disk is initialized and formatted on the first reboot after tools installation. It can't be done **during** the installation because Xen mass storage drivers are not yet active.
 -   User profiles are moved to the private disk on the next reboot after the private disk is initialized. Reboot is required because the "mover utility" runs very early in the boot process so OS can't yet lock any files in there. This can take some time depending on the profiles' size and because the GUI agent is not yet active dom0/Qubes Manager may complain that the AppVM failed to boot. That's a false alarm (you can increase AppVM's default boot timeout using `qvm-prefs`), the VM should appear "green" in Qubes Manager shortly after.
 
-It also makes sense to disable Automatic Updates for all the Windows-based AppVMs -- of course this should be done in the Template VM, not in individual AppVMs, because the system-wide setting are stored in the root filesystem (which holds the system-wide registry hives).
+It also makes sense to disable Automatic Updates for all the template-based AppVMs -- of course this should be done in the Template VM, not in individual AppVMs, because the system-wide setting are stored in the root filesystem (which holds the system-wide registry hives). Then, periodically check for updates in the Template VM and the changes will be carried over to any child AppVMs.
 
 Once the template has been created and installed it is easy to create AppVMs based on:
 
