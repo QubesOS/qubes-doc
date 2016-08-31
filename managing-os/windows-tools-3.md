@@ -34,6 +34,8 @@ Qubes Windows Tools (QWT for short) contain several components than can be enabl
 
 **NOTE**: Xen PV disk drivers are not installed by default. This is because they seem to cause problems (BSOD). We're working with upstream devs to fix this. *However*, the BSOD seems to only occur after the first boot and everything works fine after that. **Enable the drivers at your own risk** of course, but we welcome reports of success/failure in any case (backup your VM first!). With disk PV drivers absent `qvm-block` will not work for the VM, but you can still use standard Qubes inter-VM file copying mechanisms.
 
+Xen PV driver components may display a message box asking for reboot during installation -- it's safe to ignore them and defer the reboot.
+
 Installation logs
 -----------------
 
