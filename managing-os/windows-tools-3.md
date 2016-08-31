@@ -39,7 +39,8 @@ Installation logs
 
 If the install process fails or something goes wrong during it, include the installation logs in your bug report. They are created in the `%TEMP%` directory, by default `<user profile>\AppData\Local\Temp`. There are two text files, one small and one big, with names starting with `Qubes_Windows_Tools`.
 
-Uninstalling QWT 3.x is **not recommended**. It will most likely make the OS non-bootable because drivers for Xen storage devices will be uninstalled. This will be fixed in the future.
+Uninstalling QWT is supported from version 3.2.1. Uninstalling previous versions is **not recommended**.
+After uninstalling you need to manually enable the DHCP Client Windows service, or set IP settings yourself to restore network access.
 
 Configuration
 -------------
