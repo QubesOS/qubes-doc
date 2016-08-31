@@ -34,12 +34,10 @@ Qubes Windows Tools (QWT for short) contain several components than can be enabl
 
 **NOTE**: Xen PV disk drivers are not installed by default. This is because they seem to cause problems (BSOD). We're working with upstream devs to fix this. *However*, the BSOD seems to only occur after the first boot and everything works fine after that. **Enable the drivers at your own risk** of course, but we welcome reports of success/failure in any case (backup your VM first!). With disk PV drivers absent `qvm-block` will not work for the VM, but you can still use standard Qubes inter-VM file copying mechanisms.
 
-Verbose installation
---------------------
+Installation logs
+-----------------
 
-If the install process fails you can retry it using the command line below to get a detailed installation log (and send that to us):
-
-`msiexec /i path-to-qubes-tools.msi /lv path-to-log-file.txt`
+If the install process fails or something goes wrong during it, include the installation logs in your bug report. They are created in the `%TEMP%` directory, by default `<user profile>\AppData\Local\Temp`. There are two text files, one small and one big, with names starting with `Qubes_Windows_Tools`.
 
 Uninstalling QWT 3.x is **not recommended**. It will most likely make the OS non-bootable because drivers for Xen storage devices will be uninstalled. This will be fixed in the future.
 
