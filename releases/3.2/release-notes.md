@@ -16,7 +16,8 @@ New features since 3.1
 * PV USB - [documentation][usb]
 * Dom0 update to Fedora 23 for better hardware support
 * Kernel 4.4.x
-* KDE 5 support
+* Default desktop environment switched to Xfce4
+* KDE 5 support (but it is no longer the default one)
 * Tiling window managers support: awesome, [i3][i3]
 * More flexible Qubes RPC services - [related ticket][qrexec-argument], [documentation][qrexec-doc]
 
@@ -24,8 +25,6 @@ You can get detailed description in [completed github issues][github-release-not
 
 Known issues
 ------------
-
-* Installation image does not fit on DVD, requires either DVD DL, or USB stick (5GB or more)
 
 * Windows Tools: `qvm-block` does not work
 
