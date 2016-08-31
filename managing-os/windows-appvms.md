@@ -75,7 +75,7 @@ Qubes (R2 Beta 3 and later releases) will automatically detect the tools has bee
 qvm-prefs <your-appvm-name>
 ~~~
 
-NOTE: it is recommended to increase the default value of `qrexec_timeout` property from 60 (seconds) to, for example, 300. During one of the first reboots after Windows Tools installation Windows user profiles are moved onto the private VM's virtual disk (private.img) and this operation can take some time. Moving profiles is performed in an early boot phase when qrexec is not yet running, so timeout may occur with the default value. To change the property use this command in dom0:
+NOTE: it is recommended to increase the default value of Windows VM's `qrexec_timeout` property from 60 (seconds) to, for example, 300. During one of the first reboots after Windows Tools installation Windows user profiles are moved onto the private VM's virtual disk (private.img) and this operation can take some time. Moving profiles is performed in an early boot phase when qrexec is not yet running, so timeout may occur with the default value. To change the property use this command in dom0:
 
 ~~~
 qvm-prefs -s <vm-name> qrexec_timeout 300
