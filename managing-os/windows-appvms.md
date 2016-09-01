@@ -51,6 +51,14 @@ sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing qubes-windows-too
 
 This package brings the ISO with Qubes Windows Tools that is passed to the VM when `--install-windows-tools` is specified for the `qvm-start` command. Please note that none of this software ever runs in Dom0 or any other part of the system except for the Windows AppVM in which it is to be installed.
 
+Before proceeding with the installation we need to disable Windows mechanism that allows only signed drivers to be installed, because currently (beta releases) the drivers we provide as part of the Windows Tools are not digitally signed with a publicly recognizable certificate. To do that:
+
+-   Start command prompt as Administrator, i.e. right click on the Command Prompt icon and choose "Run as administrator"
+-   In the command prompt type `bcdedit /set testsigning on`
+-   Reboot your Windows VM
+
+In the future this step will not be necessary anymore, because we will sign our drivers with a publicly verifiable certificate. However, it should be noted that even now, the fact that those drivers are not digitally signed, this doesn't affect security of the Windows VM in 'any' way. This is because the actual installation ISO (the `qubes-windows-tools-*.iso` file) is distributed as a signed RPM package and its signature is verified by the `qubes-dom0-update` utility once it's being installed in Dom0. The only downside of those drivers not being signed is the inconvenience to the user that he or she must disable the signature enforcement policy before installing the tools.
+
 To install the Qubes Windows Tools in a Windows VM one should start the VM passing the additional option `--install-windows-tools`:
 
 ~~~
@@ -59,9 +67,7 @@ qvm-start lab-win7 --install-windows-tools
 
 Once the Windows VM boots, a CDROM should appear in the 'My Computer' menu (typically as `D:`) with a setup program in its main directory.
 
-Before proceeding with the installation we need to disable Windows mechanism that allows only signed drivers to be installed, because currently (beta releases) the drivers we provide as part of the Windows Tools are not digitally signed with a publicly recognizable certificate. How to do that is explained in the `README` file also located on the installation CDROM. In the future this step will not be necessary anymore, because we will sign our drivers with a publicly verifiable certificate. However, it should be noted that even now, the fact that those drivers are not digitally signed, this doesn't affect security of the Windows VM in 'any' way. This is because the actual installation ISO (the `qubes-windows-tools-*.iso` file) is distributed as a signed RPM package and its signature is verified by the `qubes-dom0-update` utility once it's being installed in Dom0. The only downside of those drivers not being signed is the inconvenience to the user that he or she must disable the signature enforcement policy before installing the tools.
-
-After successful installation, the Windows VM must be shut down and started again.
+After successful installation, the Windows VM must be shut down and started again, possibly a couple of times (see [this page](/doc/windows-tools-3/) for detailed configuration options).
 
 Qubes (R2 Beta 3 and later releases) will automatically detect the tools has been installed in the VM and will set appropriate properties for the VM, such as `qrexec_installed`, `guiagent_installed`, and `default_user`. This can be verified (but is not required) using qvm-prefs command:
 
@@ -69,7 +75,7 @@ Qubes (R2 Beta 3 and later releases) will automatically detect the tools has bee
 qvm-prefs <your-appvm-name>
 ~~~
 
-NOTE: it is recommended to increase the default value of `qrexec_timeout` property from 60 (seconds) to, for example, 300. During one of the first reboots after Windows Tools installation Windows user profiles are moved onto the private VM's virtual disk (private.img) and this operation can take some time. Moving profiles is performed in an early boot phase when qrexec is not yet running, so timeout may occur with the default value. To change the property use this command in dom0:
+NOTE: it is recommended to increase the default value of Windows VM's `qrexec_timeout` property from 60 (seconds) to, for example, 300. During one of the first reboots after Windows Tools installation Windows user profiles are moved onto the private VM's virtual disk (private.img) and this operation can take some time. Moving profiles is performed in an early boot phase when qrexec is not yet running, so timeout may occur with the default value. To change the property use this command in dom0:
 
 ~~~
 qvm-prefs -s <vm-name> qrexec_timeout 300
@@ -104,10 +110,10 @@ To simulate CTRL-ALT-DELETE in the HVM (SAS, Secure Attention Sequence), press C
 
 ![windows-seamless-7.png](/attachment/wiki/WindowsAppVms/windows-seamless-7.png)
 
-Forcing Windows AppVM into full desktop mode
---------------------------------------------
+Changing between seamless and full desktop mode
+-----------------------------------------------
 
-You can switch between seamless and "full desktop" mode for Windows HVMs in their settings in Qubes Manager.
+You can switch between seamless and "full desktop" mode for Windows HVMs in their settings in Qubes Manager. The latter is the default.
 
 Using template-based Windows AppVMs (Qubes R2 Beta 3 and later)
 ---------------------------------------------------------------
@@ -123,7 +129,7 @@ qvm-create --hvm-template win7-x64-template -l green
 -   The private disk is initialized and formatted on the first reboot after tools installation. It can't be done **during** the installation because Xen mass storage drivers are not yet active.
 -   User profiles are moved to the private disk on the next reboot after the private disk is initialized. Reboot is required because the "mover utility" runs very early in the boot process so OS can't yet lock any files in there. This can take some time depending on the profiles' size and because the GUI agent is not yet active dom0/Qubes Manager may complain that the AppVM failed to boot. That's a false alarm (you can increase AppVM's default boot timeout using `qvm-prefs`), the VM should appear "green" in Qubes Manager shortly after.
 
-It also makes sense to disable Automatic Updates for all the Windows-based AppVMs -- of course this should be done in the Template VM, not in individual AppVMs, because the system-wide setting are stored in the root filesystem (which holds the system-wide registry hives).
+It also makes sense to disable Automatic Updates for all the template-based AppVMs -- of course this should be done in the Template VM, not in individual AppVMs, because the system-wide setting are stored in the root filesystem (which holds the system-wide registry hives). Then, periodically check for updates in the Template VM and the changes will be carried over to any child AppVMs.
 
 Once the template has been created and installed it is easy to create AppVMs based on:
 
