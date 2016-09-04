@@ -22,7 +22,7 @@ Qubes VM have some settings set by dom0 based on VM settings. There are multiple
 QubesDB in Qubes 3.x
 --------------------
 
-Keys exposed by dom0 to VM:
+### Keys exposed by dom0 to VM ###
 
 -   `/qubes-vm-type` - VM type, the same as `type` field in `qvm-prefs`. One of `AppVM`, `ProxyVM`, `NetVM`, `TemplateVM`, `HVM`, `TemplateHVM`
 -   `/qubes-vm-updatable` - flag whether VM is updatable (whether changes in root.img will survive VM restart). One of `True`, `False`
@@ -43,7 +43,23 @@ Keys exposed by dom0 to VM:
 -   `/qubes-netvm-network` - network address (only when VM serves as network backend - ProxyVM and NetVM); can be also calculated from qubes-netvm-gateway and qubes-netvm-netmask
 -   `/qubes-netvm-secondary-dns` - same as `qubes-secondary-dns` in connected VMs (only when VM serves as network backend - ProxyVM and NetVM); traffic sent to this IP on port 53 should be redirected to secondary DNS server
 
-Keys set by VM for passing info to dom0:
+#### Firewall rules ####
+
+QubesDB is also used to configure firewall in ProxyVMs. Rules are stored in
+separate key for each target VM. Entries:
+
+- `/qubes-iptables` - control entry - dom0 writing `reload` here signal `qubes-firewall` service to reload rules
+- `/qubes-iptables-header` - rules not related to any particular VM, should be applied before domains rules
+- `/qubes-iptables-domainrules/NNN` - rules for domain `NNN` (arbitrary number)
+in `iptables-save` format. Rules are self-contained - fill `FORWARD` iptables
+chain and contains all required matches (source IP address etc), as well as
+final default action (`DROP`/`ACCEPT`)
+
+VM after applying rules may signal some error, writing a message to
+`/qubes-iptables-error` key. This does not exclude any other way of
+communicating problem - like a popup.
+
+### Keys set by VM for passing info to dom0 ###
 
 -   `memory/meminfo` (**xenstore**) - used memory (updated by qubes-meminfo-writer), input information for qmemman; Format: 6 lines (EOL encoded as `\n`), each in format "FIELD: VALUE kB"; fields: `MemTotal`, `MemFree`, `Buffers`, `Cached`, `SwapTotal`, `SwapFree`; meaning the same as in `/proc/meminfo` in Linux.
 -   `/qubes-block-devices` - list of block devices exposed by this VM, each device (subdirectory) should be named in a way that VM can attach the device based on it. Each should contain those entries:
