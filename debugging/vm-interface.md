@@ -19,7 +19,7 @@ Qubes VM have some settings set by dom0 based on VM settings. There are multiple
 -   Qubes RPC (called at VM startup, or when configuration changed)
 -   GUI protocol
 
-QubesDB in Qubes 3.x
+QubesDB
 --------------------
 
 ### Keys exposed by dom0 to VM ###
@@ -36,11 +36,13 @@ QubesDB in Qubes 3.x
 -   `/qubes-service/SERVICE_NAME` - subtree for VM services controlled from dom0 (using qvm-service command or Qubes Manager). One of `1`, `0`. Note that not every service will be listed here, if entry is missing, it means "use VM default". List of currently supported services is in [qvm-service man page](/wiki/Dom0Tools/QvmService)
 -   `/qubes-netmask` - network mask (only when VM has netvm set); currently hardcoded "255.255.255.0"
 -   `/qubes-ip - IP address for this VM (only when VM has netvm set)
--   `/qubes-gateway` - default gateway IP and primary DNS address (only when VM has netvm set); VM should add host route to this address directly via eth0 (or whatever default interface name is)
+-   `/qubes-gateway` - default gateway IP (only when VM has netvm set); VM should add host route to this address directly via eth0 (or whatever default interface name is)
+-   `/qubes-primary-dns` - primary DNS address (only when VM has netvm set) (in Qubes 3.2 and later, previously `/qubes-gateway` was used for this purpose)
 -   `/qubes-secondary-dns` - secondary DNS address (only when VM has netvm set)
--   `/qubes-netvm-gateway` - same as `qubes-gateway` in connected VMs (only when VM serves as network backend - ProxyVM and NetVM); because this is also set as primary DNS in connected VMs, traffic sent to this IP on port 53 should be redirected to DNS server
+-   `/qubes-netvm-gateway` - same as `qubes-gateway` in connected VMs (only when VM serves as network backend - ProxyVM and NetVM)
 -   `/qubes-netvm-netmask` - same as `qubes-netmask` in connected VMs (only when VM serves as network backend - ProxyVM and NetVM)
 -   `/qubes-netvm-network` - network address (only when VM serves as network backend - ProxyVM and NetVM); can be also calculated from qubes-netvm-gateway and qubes-netvm-netmask
+-   `/qubes-netvm-primary-dns` - same as `qubes-primary-dns` in connected VMs (only when VM serves as network backend - ProxyVM and NetVM); traffic sent to this IP on port 53 should be redirected to primary DNS server (in Qubes 3.2 and later, previously `/qubes-netvm-gateway` was used for this purpose)
 -   `/qubes-netvm-secondary-dns` - same as `qubes-secondary-dns` in connected VMs (only when VM serves as network backend - ProxyVM and NetVM); traffic sent to this IP on port 53 should be redirected to secondary DNS server
 
 #### Firewall rules ####
