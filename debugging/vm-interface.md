@@ -63,7 +63,9 @@ communicating problem - like a popup.
 
 ### Keys set by VM for passing info to dom0 ###
 
--   `memory/meminfo` (**xenstore**) - used memory (updated by qubes-meminfo-writer), input information for qmemman; Format: 6 lines (EOL encoded as `\n`), each in format "FIELD: VALUE kB"; fields: `MemTotal`, `MemFree`, `Buffers`, `Cached`, `SwapTotal`, `SwapFree`; meaning the same as in `/proc/meminfo` in Linux.
+-   `memory/meminfo` (**xenstore**) - used memory (updated by qubes-meminfo-writer), input information for qmemman; Format: 6 lines (EOL encoded as `\n`), each in format "FIELD: VALUE kB"; fields: `MemTotal`, `MemFree`, `Buffers`, `Cached`, `SwapTotal`, `SwapFree`; meaning the same as in `/proc/meminfo` in Linux. Deprecated in Qubes 4.0
+-   `memory/prefmem` - preferred memory size for this VM, in bytes. Qmemman
+daemon in dom0 use this as a hint how to balance memory assignments. This deprecates `memory/meminfo` in Qubes 4.0
 -   `/qubes-block-devices` - list of block devices exposed by this VM, each device (subdirectory) should be named in a way that VM can attach the device based on it. Each should contain those entries:
     -   `desc` - device description (ASCII text)
     -   `size` - device size in bytes
