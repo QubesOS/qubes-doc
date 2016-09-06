@@ -90,6 +90,10 @@ complete.
     should be `3.1.4` or higher. If it's not, repeat the previous step with the
     `--clean` option.
 
+4.  Install new packages:
+
+        sudo qubes-dom0-update qubes-mgmt-salt-admin-tools
+
 4.  Reboot dom0.
     
     The system may hang during the reboot. If that happens, do not panic. All
