@@ -128,7 +128,11 @@ repeated in **all** the user's Template and Standalone VMs.
 
         sudo dnf upgrade --refresh
 
-4.  Shut down the template VM.
+4.  Add new packages (only needed in default template):
+
+        sudo dnf install qubes-mgmt-salt-vm-connector
+
+5.  Shut down the template VM.
 
 
 ### Upgrade Debian (and Whonix) templates: ###
@@ -147,10 +151,14 @@ repeated in **all** the user's Template and Standalone VMs.
         sudo apt-get update
         sudo apt-get dist-upgrade
 
-4.  Remove unnecessary now file:
+4.  Add new packages (only needed in default template):
+
+        sudo dnf install qubes-mgmt-salt-vm-connector
+
+5.  Remove unnecessary now file:
 
         sudo rm -f /etc/apt/sources.list.d/qubes-r3-upgrade.list
 
-5.  Shut down the template VM.
+6.  Shut down the template VM.
 
 
