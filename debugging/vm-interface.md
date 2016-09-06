@@ -45,7 +45,7 @@ QubesDB
 -   `/qubes-netvm-primary-dns` - same as `qubes-primary-dns` in connected VMs (only when VM serves as network backend - ProxyVM and NetVM); traffic sent to this IP on port 53 should be redirected to primary DNS server (in Qubes 3.2 and later, previously `/qubes-netvm-gateway` was used for this purpose)
 -   `/qubes-netvm-secondary-dns` - same as `qubes-secondary-dns` in connected VMs (only when VM serves as network backend - ProxyVM and NetVM); traffic sent to this IP on port 53 should be redirected to secondary DNS server
 
-#### Firewall rules ####
+#### Firewall rules in 3.x ####
 
 QubesDB is also used to configure firewall in ProxyVMs. Rules are stored in
 separate key for each target VM. Entries:
@@ -60,6 +60,51 @@ final default action (`DROP`/`ACCEPT`)
 VM after applying rules may signal some error, writing a message to
 `/qubes-iptables-error` key. This does not exclude any other way of
 communicating problem - like a popup.
+
+#### Firewall rules in 4.x ####
+
+QubesDB is also used to configure firewall in ProxyVMs. Each rule is stored as
+a separate entry, grouped on target VM:
+
+- `/qubes-firewall/TARGET_IP` - base tree under which rules are placed. All
+there rules there should be applied to filter traffic coming from `TARGET_IP`.
+Dom0 will do an empty write to this top level entry after finishing rules
+update, so VM can setup a watch here to trigger rules reload.
+- `/qubes-firewall/TARGET_IP/policy` - default action if no rule matches:
+`DROP` or `ACCEPT`.
+- `/qubes-firewall/TARGET_IP/NNNN` - rule number `NNNN` - decimal number,
+    padded with zeros. Se below for rule format. All the rules should be
+    applied in order of rules implied by those numbers. Note that QubesDB
+    itself does not impose any ordering (you need to sort the rules after
+    retrieving them).
+
+Each rule is a single QubesDB entry, consisting of pairs `key=value` separated
+by space. Order of those pairs in a single rule is undefined. QubesDB enforces
+a limit on a single entry length - 3072 bytes.
+Possible options for a single rule:
+
+ - `action`, values: `accept`, `drop`; this is present it every rule
+ - `dst4`, value: destination IPv4 address with a mask; for example: `192.168.0.0/24`
+ - `dst6`, value: destination IPv6 address with a mask; for example: `2000::/3`
+ - `dstname`, value: DNS hostname of destination host
+ - `proto`, values: `tcp`, `udp`, `icmp`
+ - `dstports`, value: destination ports range separated with `-`, valid only
+ together with `proto=tcp` or `proto=udp`; for example `1-1024`, `80-80`
+ - `icmp-type`, value: numeric (decimal) icmp message type, for example `8` for
+ echo request, valid only together with `proto=icmp`
+
+Rule matches only when all predicates matches. Only one of `dst4`, `dst6`,
+`dstname` can be used in a single rule.
+
+If tool applying firewall encounter any parse error (unknown option, invalid
+value etc), it should drop all the traffic coming from that `TARGET_IP`,
+regardless of properly parsed rules.
+
+Example valid rules:
+
+- `action=accept dst4=8.8.8.8 proto=udp dstports=53-53`
+- `action=drop dst6=2a00:1450:4000::/37 proto=tcp`
+- `action=drop`
 
 ### Keys set by VM for passing info to dom0 ###
 
