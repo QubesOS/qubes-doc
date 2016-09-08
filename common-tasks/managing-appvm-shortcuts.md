@@ -40,4 +40,4 @@ For Linux VMs the service script is in `/etc/qubes-rpc/qubes.GetAppMenus`. In Wi
 What if my application has not been automatically included in the list of available apps?
 -----------------------------------------------------------------------------------------
 
-You can manually create new entries in the "available applications" list of shortcuts. See [Signal] for a worked example of creating a new menu item for a Chrome .desktop shortcut.
+You can manually create new entries in the "available applications" list of shortcuts. See [Signal](/doc/signal/) for a worked example of creating a new menu item for a Chrome .desktop shortcut.
