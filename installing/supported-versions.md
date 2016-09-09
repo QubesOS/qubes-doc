@@ -45,6 +45,13 @@ The table below shows the OS used for dom0 in each Qubes OS release.
 | Release 3.2      | Fedora 23 |
 | Release 4.0      | TBA       |
 
+**Note:** Dom0 is isolated from domUs. DomUs can access only a few interfaces,
+such as Xen, device backends (in the dom0 kernel and in other VMs, such as the
+NetVM), and Qubes tools (gui-daemon, qrexec-daemon, etc.). These components are
+[security-critical], and we provide updates for all of them (when necessary),
+regardless of the support status of the base distribution. For this reason, we
+consider it safe to continue using a given base distribution in dom0 even after
+it has reached end-of-life.
 
 TemplateVMs
 -----------
@@ -67,5 +74,6 @@ extensive testing.
 [Version Scheme]: /doc/version-scheme/
 [Downloads]: /downloads/
 [FTP server]: https://ftp.qubes-os.org/
+[security-critical]: /doc/security-critical-code/
 [TemplateVM]: /doc/templates/
 
