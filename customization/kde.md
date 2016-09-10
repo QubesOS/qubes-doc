@@ -18,20 +18,27 @@ still possible to install KDE by issuing this command in dom0:
     $ sudo qubes-dom0-update @kde-desktop-qubes
 
 You can also change your default login manager (lightdm) to the new KDE default: sddm
-  * first you need to edit the `/etc/sddm.conf` to make sure if the custom X parameter is set according to Qubes needs:
-~~~
+
+ * first you need to edit the `/etc/sddm.conf` to make sure if the custom X parameter is set according to Qubes needs:
+
+    ~~~
     [XDisplay]
     ServerArguments=-nolisten tcp -background none
-~~~
-  * disable the lightdm service:
-~~~  
+    ~~~
+
+ * disable the lightdm service:
+
+    ~~~  
     $ sudo systemctl disable lightdm
-~~~  
-  * enable the sddm service:
-~~~  
+    ~~~  
+
+ * enable the sddm service:
+
+    ~~~
     $ sudo systemctl enable sddm
-~~~
-  * reboot
+    ~~~
+
+ * reboot
 
 Window Management
 -----------------
