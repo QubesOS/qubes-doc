@@ -21,22 +21,22 @@ You can also change your default login manager (lightdm) to the new KDE default:
 
  * first you need to edit the `/etc/sddm.conf` to make sure if the custom X parameter is set according to Qubes needs:
 
-    ~~~
-    [XDisplay]
-    ServerArguments=-nolisten tcp -background none
-    ~~~
+~~~
+   [XDisplay]
+   ServerArguments=-nolisten tcp -background none
+~~~
 
  * disable the lightdm service:
 
-    ~~~  
-    $ sudo systemctl disable lightdm
-    ~~~  
+~~~  
+   $ sudo systemctl disable lightdm
+~~~  
 
  * enable the sddm service:
 
-    ~~~
+~~~
     $ sudo systemctl enable sddm
-    ~~~
+~~~
 
  * reboot
 
