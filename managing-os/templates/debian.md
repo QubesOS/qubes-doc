@@ -59,3 +59,8 @@ Known issues
 ------------
 
 If you want to help in improving the template, feel free to [contribute](/wiki/ContributingHowto).
+
+More information
+----------------
+
+* [Debian wiki](https://wiki.debian.org/Qubes)
