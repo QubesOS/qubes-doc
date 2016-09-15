@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Bind-dirs - make persisnent changes to arbitrary system file in AppVM
+title: How to make any file in a TemplateBasedVM persistent using bind-dirs
 permalink: /doc/bind-dirs/
 redirect_from:
 - /en/doc/bind-dirs/
