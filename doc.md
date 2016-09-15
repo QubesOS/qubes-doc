@@ -96,6 +96,7 @@ Security Guides
  * [Using Multi-factor Authentication with Qubes](/doc/multifactor-authentication/)
  * [Using GPG more securely in Qubes: Split GPG](/doc/split-gpg/)
  * [How to Set Up a Split Bitcoin Wallet in Qubes](/doc/split-bitcoin/)
+ * [[Unofficial] Split dm-crypt](https://github.com/rustybird/qubes-split-dm-crypt)
  * [Configuring YubiKey for user authentication](/doc/yubi-key/)
  * [Note regarding password-less root access in VM](/doc/vm-sudo/)
 
