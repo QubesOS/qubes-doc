@@ -17,7 +17,8 @@ redirect_from:
  * 64-bit Intel or AMD processor (x86\_64 aka x64 aka AMD64)
  * 4 GB RAM
  * 32 GB disk space
- * Legacy boot mode ([UEFI is not supported yet][UEFI])
+ * Legacy boot mode (required for R3.0 and earlier; UEFI is supported beginning
+   with R3.1)
 
 ### Recommended ###
 
@@ -91,7 +92,6 @@ redirect_from:
  * [Advice on finding a VT-d capable notebook][vt-d-notebook].
 
 
-[UEFI]: https://github.com/QubesOS/qubes-issues/issues/794
 [nvidia]: /doc/install-nvidia-driver/
 [hardware certification requirements for Qubes 4.x]: /news/2016/07/21/new-hw-certification-for-q4/
 [Hardware Certification]: /hardware-certification/
