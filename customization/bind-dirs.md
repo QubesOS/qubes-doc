@@ -62,5 +62,5 @@ binds=( "${binds[@]/'/var/lib/tor'}" )
 
 ## Discussion ##
 
-[TemplateBasedVMs: make selected files and folders located in the root image persistent- review bind-dirs.sh](https://groups.google.com/forum/#!searchin/qubes-devel/bind-dirs|sort:relevance/qubes-devel/tcYQ4eV-XX4/J89DRLzOBQAJ)
+[TemplateBasedVMs: make selected files and folders located in the root image persistent- review bind-dirs.sh](https://groups.google.com/forum/#!topic/qubes-devel/tcYQ4eV-XX4/discussion)
 
