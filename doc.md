@@ -152,6 +152,7 @@ Customization Guides
  * [Installing i3 in dom0](/doc/i3/)
  * [Language Localization](/doc/language-localization/)
  * [Dark Theme in Dom0 and DomU](/doc/dark-theme/)
+ * [How to make any file in a TemplateBasedVM persistent using bind-dirs](/doc/bind-dirs/)
 
 
 Troubleshooting
