@@ -66,7 +66,7 @@ This method is more involved than the one above, but has anti-leak features that
 
     ![Create\_New\_VM.png](/attachment/wiki/VPN/Create_New_VM.png)
     
-    Note: Do not enable NetworkManager, as it can interfere with the scripts' DNS features. If you used NetworkManager or other method in a previous attempt, do not re-use the old ProxyVM... Create a new one according to this step.
+    Note: Do not enable NetworkManager in the ProxyVM, as it can interfere with the scripts' DNS features. If you enabled NetworkManager or used other methods in a previous attempt, do not re-use the old ProxyVM... Create a new one according to this step.
     
     If your choice of template VM doesn't already have the VPN client software, you'll need to install the software in the template before proceeding. Disable any auto-starting service that comes with the software package: for example `sudo systemctl disable openvpn.service`.
     
@@ -90,7 +90,7 @@ This method is more involved than the one above, but has anti-leak features that
     Proceed to the next step when you're sure the basic VPN connection is working.
 
 3.  Create the DNS-handling script.
-    Use `sudo nano /rw/config/openvpn/qubes-vpn-handler.sh` to edit and add:
+    Use `sudo nano /rw/config/vpn/qubes-vpn-handler.sh` to edit and add:
 
     ~~~
     #!/bin/bash
@@ -131,7 +131,7 @@ This method is more involved than the one above, but has anti-leak features that
     ~~~
 
     Now save the script and make it executable:  
-    `sudo chmod +x /rw/config/openvpn/qubes-vpn-handler.sh`
+    `sudo chmod +x /rw/config/vpn/qubes-vpn-handler.sh`
     
 4.  Configure client to use the DNS handling script. Using openvpn as an example, edit the config with `sudo nano /rw/config/vpn/openvpn-client.ovpn` and add these lines:
     ~~~
