@@ -13,9 +13,16 @@ NVidia Troubleshooting Guide
 
 If you have an NVidia graphics card it will probably not work under Xen out of the box. If your system freezes during boot and you don't see the graphical login manager after you installed Xen, then this problem most likely affects you. The following steps should provide a work around so that you should be able to use your NVidia with X under Xen, however without any fancy "desktop effects".
 
+Boot in failsafe
+---------------------
+
 1.  Boot your system using the "failsafe" boot menu, that should have been automatically added to your `grub.conf` when you installed the Dom0 kernel.
 
 If the X Window System doesn't start now, this is probably a non-Xen related issue and this guide will probably not help you.
+
+
+Configure X with nouveau
+---------------------
 
 Assuming your X Window System works fine now when you booted from the "failsafe" configuration, do the next steps...
 
@@ -74,9 +81,9 @@ If you see a terminal window in the top left corner, it means you most likely su
 
 Disabling Nouveau
 ---------------------
-If Qubes fails to properly boot after the GRUB Boot menu and displays messages starting with `nouveau` then it means that the nouveau driver failed to launch properly.
+If Qubes fails to properly boot after the GRUB Boot menu and you get a black screen that displays messages starting with `nouveau` then it means that the nouveau driver failed to launch properly.
 
-One way to get rid of it is by disabling nouveau.
+One way to get rid of this for now is to disable nouveau.
 
 Example error
 ~~~
