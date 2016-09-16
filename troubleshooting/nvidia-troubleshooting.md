@@ -85,7 +85,7 @@ nouveau E[ PGRAPH][0000:01:00.0] failed to construct context
 nouveau E[ PGRAPH][0000:01:00.0] init failed, -16
 ~~~
 
-0. In the case that you only have an external monitor it is advised to hook it up to the connector directly connected to the motherboard if it is present.
+Tip: In the case that you only have an external monitor it is advised to hook it up to the connector directly connected to the motherboard if it is present, this should bypass the graphics card.
 
 1. Verify that that GRUB Boot Menu is displaying, you should be presented with two options and a progressbar/timer than goes rather fast.
 ~~~
