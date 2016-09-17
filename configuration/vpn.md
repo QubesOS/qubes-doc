@@ -134,6 +134,7 @@ This method is more involved than the one above, but has anti-leak features that
     `sudo chmod +x /rw/config/vpn/qubes-vpn-handler.sh`
     
 4.  Configure client to use the DNS handling script. Using openvpn as an example, edit the config with `sudo nano /rw/config/vpn/openvpn-client.ovpn` and add these lines:
+
     ~~~
     script-security 2
     up 'qubes-vpn-handler.sh up'
@@ -199,7 +200,7 @@ Usage
 
 Configure your AppVMs to use the VPN VM as a NetVM...
 
-    ![Settings-NetVM.png](/attachment/wiki/VPN/Settings-NetVM.png)
+![Settings-NetVM.png](/attachment/wiki/VPN/Settings-NetVM.png)
 
 Troubleshooting
 ---------------
