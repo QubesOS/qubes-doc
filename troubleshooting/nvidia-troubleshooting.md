@@ -92,7 +92,9 @@ nouveau E[ PGRAPH][0000:01:00.0] failed to construct context
 nouveau E[ PGRAPH][0000:01:00.0] init failed, -16
 ~~~
 
-Tip: In the case that you only have an external monitor it is advised to hook it up to the connector directly connected to the motherboard if it is present, this should bypass the graphics card.
+Tip: In the case that you only have an external monitor it is advised to hook it up to the connector directly connected to the motherboard if it is present, this should bypass the nvidia graphics card.
+
+If you're seeing this error than that means another graphics card (most likely an integrated one) acted as failsafe. Disabling nouveau has the consequences of disabling nvidia support all together. 
 
 1. Verify that that GRUB Boot Menu is displaying, you should be presented with two options and a progressbar/timer than goes rather fast.
 ~~~
