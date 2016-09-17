@@ -66,4 +66,5 @@ Qubes Security Bulletins are published through the [Qubes Security Pack](/doc/se
 ----
 
 -   [Qubes Security Bulletin \#24](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-024-2016.txt) (Critical Xen bug in PV memory virtualization code (XSA 182))
+-   [Qubes Security Bulletin \#25](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-025-2016.txt) (Xen bug in event channel handling code (XSA 188))
 
