@@ -40,15 +40,15 @@ Then you need to disable nouveau (normally it is done by install scripts from nv
 
 Edit /etc/default/grub:
 
-    ~~~
-    GRUB_CMDLINE_LINUX="quiet rhgb nouveau.modeset=0 rd.driver.blacklist=nouveau video=vesa:off"
-    ~~~
+~~~
+GRUB_CMDLINE_LINUX="quiet rhgb nouveau.modeset=0 rd.driver.blacklist=nouveau video=vesa:off"
+~~~
 
 Regenerate grub configuration:
 
-    ~~~
-    grub2-mkconfig -o /boot/grub2/grub.cfg
-    ~~~
+~~~
+grub2-mkconfig -o /boot/grub2/grub.cfg
+~~~
 
 Reboot.
 
