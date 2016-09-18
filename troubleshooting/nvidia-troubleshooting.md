@@ -81,7 +81,7 @@ Assuming your X Window System works fine now when you booted from the "failsafe"
 
 Disabling Nouveau
 ---------------------
-If Qubes fails to properly boot after the GRUB Boot menu and you get a black screen that displays messages starting with `nouveau` then it means that the nouveau driver failed to launch properly.
+If Qubes fails to properly boot after the GRUB Boot menu and you are stuck on a black screen that displays messages starting with `nouveau` then it means that the nouveau driver failed to launch properly.
 
 One way to get rid of this for now is to disable nouveau.
 
@@ -93,7 +93,7 @@ nouveau E[ PGRAPH][0000:01:00.0] failed to construct context
 nouveau E[ PGRAPH][0000:01:00.0] init failed, -16
 ~~~
 
-Tip: In the case that you only have an external monitor it is advised to hook it up to the connector directly connected to the motherboard if it is present, this should bypass the nvidia graphics card.
+Tip: In case that you only have an external monitor it is advised to attach it directly to a connector of the motherboard if it is present, this should make ensure you're using the integrated graphics card instead of the nvidia graphics card.
 
 If you're seeing this error than that means another graphics card (most likely an integrated one) acted as failsafe. Disabling nouveau has the consequences of disabling nvidia support all together. 
 
@@ -106,13 +106,15 @@ If you're seeing this error than that means another graphics card (most likely a
 
  2. Quickly press the "E" key before the time is up.
 
- 3. An editor will open up that will allow you to temporarily change the grub options for the next boot.
+ 3. An editor will open up that allows you to temporarily change the grub options for the next boot.
 
- 4. Press the down arrow key and move the cursor to the line after the line with the kernel options. The line with the kernel options might look something like, I didn't type everything as it may differ from system to system but it should look something like this:
+ 4. Press the down arrow key and move the cursor to the line after the line with the kernel options. The line with the kernel options will look like this:
 
     ~~~
     module /vmlinux-4.1.13-9.pvops.qubes.x86_64 placeholder root=/dev/mapper/qubes_dom0-root ro ... rhgb quiet
     ~~~
+    
+    I didn't type everything as it may differ from system to system.
 
     Please note: chose the module that starts with `vmlinux`!
 
@@ -132,7 +134,7 @@ If you're seeing this error than that means another graphics card (most likely a
 
 To make this change persistent, so your boot will always work properly you'll have to do the following:
 
- 1. Open a terminal (do this vb clicking on Q > 'run command' > type 'terminal' and hit enter)
+ 1. Open a terminal (do this by clicking on Q > 'run command' > type 'terminal' and hit enter)
 
  2. type following commands:
 
