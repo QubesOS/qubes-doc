@@ -93,7 +93,7 @@ nouveau E[ PGRAPH][0000:01:00.0] failed to construct context
 nouveau E[ PGRAPH][0000:01:00.0] init failed, -16
 ~~~
 
-Tip: In case that you only have an external monitor it is advised to attach it directly to a connector of the motherboard if it is present, this should make ensure you're using the integrated graphics card instead of the nvidia graphics card.
+Tip: In case you only have an external monitor it is advised to attach it directly to a connector of the motherboard if it is present, this should ensure that you're using the integrated graphics card instead of the nvidia graphics card.
 
 If you're seeing this error than that means another graphics card (most likely an integrated one) acted as failsafe. Disabling nouveau has the consequences of disabling nvidia support all together. 
 
@@ -114,7 +114,7 @@ If you're seeing this error than that means another graphics card (most likely a
     module /vmlinux-4.1.13-9.pvops.qubes.x86_64 placeholder root=/dev/mapper/qubes_dom0-root ro ... rhgb quiet
     ~~~
     
-    I didn't type everything as it may differ from system to system.
+    It is not an exact copy as it may differ from system to system.
 
     Please note: chose the module that starts with `vmlinux`!
 
@@ -132,7 +132,7 @@ If you're seeing this error than that means another graphics card (most likely a
 
     Qubes should now boot properly, if that's the case then we should make this change permanent such that the GRUB config knows to not run nouveau.
 
-To make this change persistent, so your boot will always work properly you'll have to do the following:
+You'll have to do the following to make this change persistent, so that it will work properly on every boot :
 
  1. Open a terminal (do this by clicking on Q > 'run command' > type 'terminal' and hit enter)
 
