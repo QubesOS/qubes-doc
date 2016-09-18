@@ -16,7 +16,7 @@ If you have an NVidia graphics card it will probably not work under Xen out of t
 Boot in failsafe
 ---------------------
 
-1.  Boot your system using the "failsafe" boot menu, that should have been automatically added to your `grub.conf` when you installed the Dom0 kernel.
+Boot your system using the "failsafe" boot menu, that should have been automatically added to your `grub.conf` when you installed the Dom0 kernel.
 
 If the X Window System doesn't start now, this is probably a non-Xen related issue and this guide will probably not help you.
 
@@ -26,57 +26,57 @@ Configure X with nouveau
 
 Assuming your X Window System works fine now when you booted from the "failsafe" configuration, do the next steps...
 
-1.  Do not log into X, but instead switch to a text console (press Ctrl-Alt-F2)
+ 1. Do not log into X, but instead switch to a text console (press Ctrl-Alt-F2)
 
-1.  Log in as root
+ 2. Log in as root
 
-1.  Switch to runlevel 3 (this should kill your X server):
+ 3. Switch to runlevel 3 (this should kill your X server):
 
-~~~
-init 3
-~~~
+    ~~~
+    init 3
+    ~~~
 
-1.  Run X-autoconfiguration:
+ 4. Run X-autoconfiguration:
 
-~~~
-Xorg -configure
-~~~
+    ~~~
+    Xorg -configure
+    ~~~
 
-This should generate a file `xorg.conf.new` in the `/root` directory.
+    This should generate a file `xorg.conf.new` in the `/root` directory.
 
-In most cases you can ignore any warning or error messages displayed by the X server, assuming it generated the xorg.conf.new file.
+    In most cases you can ignore any warning or error messages displayed by the X server, assuming it generated the xorg.conf.new file.
 
-1.  Edit this newly generated `xorg.conf.new` file and introduce the following two modifications:
+ 5. Edit this newly generated `xorg.conf.new` file and introduce the following two modifications:
 
--   Uncomment the ShadowFB option, so that you should now have something like this:
+    First, uncomment the ShadowFB option, so that you should now have something like this:
 
     ~~~
     Option     "ShadowFB"                   # [<bool>]
     ~~~
 
--   Change the driver name to `nouveau` (you will probably have `nv` written there):
+    Second, change the driver name to `nouveau` (you will probably have `nv` written there):
 
     ~~~
     Driver      "nouveau"
     ~~~
 
-Save the modification, exit the editor.
+    Save the modification, exit the editor.
 
-1.  Move the file to `/etc/X11` and rename it as `xorg.conf`:
+ 6. Move the file to `/etc/X11` and rename it as `xorg.conf`:
 
-~~~
-mv /root/xorg.conf.new /etc/X11/xorg.conf
-~~~
+    ~~~
+    mv /root/xorg.conf.new /etc/X11/xorg.conf
+    ~~~
 
-1.  Verify that X will work with those new settings:
+ 7. Verify that X will work with those new settings:
 
-~~~
-xinit
-~~~
+    ~~~
+    xinit
+    ~~~
 
-If you see a terminal window in the top left corner, it means you most likely succeeded, even if your keyboard or mouse do not work now (don't worry about them).
+    If you see a terminal window in the top left corner, it means you most likely succeeded, even if your keyboard or mouse do not work now (don't worry about them).
 
-1.  Reboot and let the system boot from the normal boot configuration. You should be able to use X under Xen now.
+ 8. Reboot and let the system boot from the normal boot configuration. You should be able to use X under Xen now.
 
 
 Disabling Nouveau
@@ -86,6 +86,7 @@ If Qubes fails to properly boot after the GRUB Boot menu and you get a black scr
 One way to get rid of this for now is to disable nouveau.
 
 Example error
+
 ~~~
 nouveau E[ PGRAPH][0000:01:00.0] grctx template channel unload timeout
 nouveau E[ PGRAPH][0000:01:00.0] failed to construct context
@@ -96,54 +97,61 @@ Tip: In the case that you only have an external monitor it is advised to hook it
 
 If you're seeing this error than that means another graphics card (most likely an integrated one) acted as failsafe. Disabling nouveau has the consequences of disabling nvidia support all together. 
 
-1. Verify that that GRUB Boot Menu is displaying, you should be presented with two options and a progressbar/timer than goes rather fast.
-~~~
-Qubes
-Qubes with advanced Xen options
-~~~
+ 1. Verify that that GRUB Boot Menu is displaying, you should be presented with two options and a progressbar/timer than goes rather fast.
 
-2. Quickly press the "E" key before the time is up.
+    ~~~
+    Qubes
+    Qubes with advanced Xen options
+    ~~~
 
-3. An editor will open up that will allow you to temporarily change the grub options for the next boot.
+ 2. Quickly press the "E" key before the time is up.
 
-4. Press the down arrow key and move the cursor to the line after the line with the kernel options. The line with the kernel options might look something like, I didn't type everything as it may differ from system to system but it should look something like this:
+ 3. An editor will open up that will allow you to temporarily change the grub options for the next boot.
 
-~~~
-module /vmlinux-4.1.13-9.pvops.qubes.x86_64 placeholder root=/dev/mapper/qubes_dom0-root ro ... rhgb quiet
-~~~
+ 4. Press the down arrow key and move the cursor to the line after the line with the kernel options. The line with the kernel options might look something like, I didn't type everything as it may differ from system to system but it should look something like this:
 
-Please note: chose the module that starts with `vmlinux`!
+    ~~~
+    module /vmlinux-4.1.13-9.pvops.qubes.x86_64 placeholder root=/dev/mapper/qubes_dom0-root ro ... rhgb quiet
+    ~~~
 
-5. Press the left/right arrow keys to position the cursor at the end of kernel options line, after `rhgb quiet` in this case.
+    Please note: chose the module that starts with `vmlinux`!
 
-6.  Add the following:
-~~~
-nouveau.modeset=0 rd.driver.blacklist=nouveau video=vesa:off
-~~~
-This will tempororarily disable nouveau until boot.
+ 5. Press the left/right arrow keys to position the cursor at the end of kernel options line, after `rhgb quiet` in this case.
 
-7. Press either the F10 key or Ctrl+X to start the boot process.
+ 6. Add the following:
 
-Qubes should now boot properly, if that's the case then we should make this change permanent such that the GRUB config knows to not run nouveau.
+    ~~~
+    nouveau.modeset=0 rd.driver.blacklist=nouveau video=vesa:off
+    ~~~
 
-To make this change persistent, so your boot will always work properly you'll have to do the following
+    This will tempororarily disable nouveau until boot.
 
-1. Open a terminal (do this vb clicking on Q > 'run command' > type 'terminal' and hit enter)
+ 7. Press either the F10 key or Ctrl+X to start the boot process.
 
-2. type following commands:
-~~~
-cd /etc/default/
-sudo nano grub
-~~~
+    Qubes should now boot properly, if that's the case then we should make this change permanent such that the GRUB config knows to not run nouveau.
 
-3. Edit `GRUB_CMDLINE_LINUX`, add the following to it at the end:
-~~~
-nouveau.modeset=0 rd.driver.blacklist=nouveau video=vesa:off
-~~~
+To make this change persistent, so your boot will always work properly you'll have to do the following:
 
-4. ctrl + X and then y to save the file.
+ 1. Open a terminal (do this vb clicking on Q > 'run command' > type 'terminal' and hit enter)
 
-5. The final step is to compile the configuration file to something the bootloader can read.
-~~~
-sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-~~~
+ 2. type following commands:
+
+    ~~~
+    cd /etc/default/
+    sudo nano grub
+    ~~~
+
+ 3. Edit `GRUB_CMDLINE_LINUX`, add the following to it at the end:
+
+    ~~~
+    nouveau.modeset=0 rd.driver.blacklist=nouveau video=vesa:off
+    ~~~
+
+ 4. ctrl + X and then y to save the file.
+
+ 5. The final step is to compile the configuration file to something the bootloader can read.
+
+    ~~~
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    ~~~
+
