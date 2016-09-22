@@ -170,8 +170,8 @@ TemplateBasedHVM
 Any [HVM](#hvm) that depends on a [TemplateVM](#templatevm) for its root
 filesystem. 
 
-PVH
----
+PVHVM
+-----
 [PV](#pv) on [HVM](#hvm). To boost performance, fully virtualized HVM guests can
 use special paravirtual device drivers (PVHVM or PV-on-HVM drivers). These
 drivers are optimized PV drivers for HVM environments and bypass the emulation
