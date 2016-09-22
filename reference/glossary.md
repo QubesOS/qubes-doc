@@ -82,7 +82,8 @@ applications, but not for running them.
 
 TemplateBasedVM
 ---------------
-Any [VM](#vm) which depends on a TemplateVM for its root filesystem.
+Any [VM](#vm) which depends on a [TemplateVM](#templatevm) for its root
+filesystem.
 
 Standalone(VM)
 --------------
@@ -163,6 +164,11 @@ TemplateHVM
 Any [HVM](#hvm) which functions as a [TemplateVM](#templatevm) by supplying its
 root filesystem to other VMs. In Qubes, TemplateHVMs are referred to as **HVM
 templates**.
+
+TemplateBasedHVM
+----------------
+Any [HVM](#hvm) that depends on a [TemplateVM](#templatevm) for its root
+filesystem. 
 
 PVH
 ---
