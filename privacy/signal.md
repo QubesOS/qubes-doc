@@ -42,33 +42,29 @@ Creating a Shortcut in KDE
 --------------------------
 
 Let's make Signal a bit more usable by creating a shortcut in our desktop
-panel that launches Signal directly. This assumes that you're using KDE in Dom0
-and that your AppVM is named `Signal`.
+panel that launches Signal directly. This assumes that you're using KDE in Dom0,
+you use Signal in an AppVM named `Signal`, and this AppVM uses `fedora-23` as its TemplateVM.
 
-1. Create a Chromium shortcut (Q -> Domain: Signal -> Signal: Add more
-   shortcuts... -> Select "Chromium web browser")
-2. Follow [these instructions][shortcut] to create a desktop shortcut.
-3. Right-click on Chromium icon in panel and select "Icon Settings".
-4. Change the "Command" field of the "Application" tab to:
+1. Follow [these instructions][shortcut] to create a desktop shortcut on the Desktop of your Signal AppVM.
+   Let's assume the shortcut file you get is /home/user/Desktop/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop
+2. Copy this shortcut file to the AppVM's TemplateVM - in this case, to fedora-23.
+3. You'll also want to copy across an icon for your new shortcut - you can find this at
+   /home/user/.local/share/icons/hicolor/48x48/apps/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.png
+   Copy this icon to the fedora-23 TemplateVM.
+4. Open a terminal in your fedora-23 TemplateVM and cd to /home/user/QubesIncoming/Signal/
+   You should find your shortcut and icon files just transferred across from the Signal AppVM.
+   Move these files to the following locations:
+   [user@fedora-23 Signal]$ sudo mv chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop /usr/share/applications/
+   [user@fedora-23 Signal]$ sudo mv chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.png /usr/share/icons/hicolor/48x48/
+5. From a Dom0 terminal, instruct Qubes to synchronize the application menus of this TemplateVM:
+   [user@dom0 ~]$ qvm-sync-appmenus fedora-23
+6. With your mouse select the `Q` menu -> `Domain: Signal` -> `Signal: Add more shortcuts`
+   Select `Signal Private Messenger` from the left `Available` column, move it to the right `Selected` column by clicking the `>` button and then `OK` to apply the changes and close the window.
+7. Then follow the `Q` menu once more, right-click on the new `Signal: Signal Private Messenger` menu item and select `Add to Panel`.
 
-        qvm-run -a --tray Signal '/usr/lib64/chromium-browser/chromium-browser.sh --profile-directory=Default --app-id=<long string which you'll get from the properties of the desktop shortcut you created above>'
-
-   **Note:** Another method (more "correct" but less straightforward) is to [use
-   the way Qubes handles shortcuts internally to create a `.desktop`
-   file][shortcut-desktop].
-5. (Optional) Copy the Signal app icon file from the Signal AppVM to dom0.
-   (**Warning**: copying untrusted files to dom0 is dangerous! Do this only if
-   you understand and accept the risks!)
-
-        [user@dom0]$ qvm-run --pass-io Signal 'cat /home/user/.local/share/icons/hicolor/48x48/apps/chrome-<long-appID>-Default.png' > /home/users/signal-icon.png
-6. (Optional) Change your new shortcut's icon from Chrome to Signal by pointing
-   it to `/home/users/signal-icon.png`.
+You can now launch the Signal messenger inside its own dedicated AppVM with a single click from KDE's panel.
 
 -----
-
-These instructions were contributed by Qubes community member Alex (IX4 Svs) in
-a [message] to the `qubes-users` [mailing list]. Thanks, Alex!
-
 
 [Signal]: https://whispersystems.org/
 [signal-wikipedia]: https://en.wikipedia.org/wiki/Signal_(software)
