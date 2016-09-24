@@ -75,7 +75,7 @@ This template is now ready to use for a standard firewall VM.
 
 The needed packages depend on the VPN technology. The `dnf search "NetworkManager VPN plugin"` command may help you to choose the right one. You should also install the corresponding GNOME related packages as well.
 
-[More details about setting up a VPN Gateway](/wiki/VPN#ProxyVM)
+[More details about setting up a VPN Gateway](/doc/vpn/#proxyvm)
 
 #### TOR
 

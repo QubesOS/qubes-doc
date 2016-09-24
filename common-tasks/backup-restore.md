@@ -87,7 +87,7 @@ For emergency restore of backup created on Qubes R2 or newer take a look [here](
 Migrating Between Two Physical Machines
 ---------------------------------------
 
-In order to migrate your Qubes system from one physical machine to another, simply follow the backup procedure on the old machine, [install Qubes](/doc/downloads/) on the new machine, and follow the restoration procedure on the new machine. All of your settings and data will be preserved!
+In order to migrate your Qubes system from one physical machine to another, simply follow the backup procedure on the old machine, [install Qubes](/downloads/) on the new machine, and follow the restoration procedure on the new machine. All of your settings and data will be preserved!
 
 
 Notes

@@ -9,7 +9,7 @@ redirect_from:
 Qubes R3.2 Release Schedule
 ===========================
 
-This schedule is based on [Version Scheme](/doc/version-scheme/#tocAnchor-1-1-3).
+This schedule is based on [Version Scheme](/doc/version-scheme/#release-schedule).
 
 <style>
 article td, article th {

@@ -30,7 +30,7 @@ Qubes Users' FAQ
  * [Is Qubes a multi-user system?](#is-qubes-a-multi-user-system)
  * [Why passwordless sudo?](#why-passwordless-sudo)
  * [How should I report documentation issues?](#how-should-i-report-documentation-issues)
- * [Will Qubes seek to get certified on the GNU Free System Distribution Guidelines (GNU FSDG)?](#will-qubes-seek-gnu-fsdg)
+ * [Will Qubes seek to get certified on the GNU Free System Distribution Guidelines (GNU FSDG)?](#will-qubes-seek-to-get-certified-under-the-gnu-free-system-distribution-guidelines-gnu-fsdg)
 
 [Installation & Hardware Compatibility](#installation--hardware-compatibility)
 ------------------------------------------------------------------------------
@@ -51,8 +51,8 @@ Qubes Users' FAQ
  * [My dom0 and/or TemplateVM update stalls when attempting to update via …](#my-dom0-andor-templatevm-update-stalls-when-attempting-to-update-via-the-gui-tool-what-should-i-do)
  * [How do I run a Windows HVM in non-seamless mode (i.e., as a single window)?](#how-do-i-run-a-windows-hvm-in-non-seamless-mode-ie-as-a-single-window)
  * [I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.](#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot)
- * [I assigned a PCI device to a qube, then unassigned it/shut down the …](#i-assigned-a-pci-device-to-a-qube-then-unassigned-itshut-down-the-qube`-why-isnt-the-device-available-in-dom0)
- * [How do I install Flash in a Debian qube?](#how-do-i-install-flash-in-a Debian-qube)
+ * [I assigned a PCI device to a qube, then unassigned it/shut down the …](#i-assigned-a-pci-device-to-a-qube-then-unassigned-itshut-down-the-qube-why-isnt-the-device-available-in-dom0)
+ * [How do I install Flash in a Debian qube?](#how-do-i-install-flash-in-a-debian-qube)
   
 -----------------
 

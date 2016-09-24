@@ -97,7 +97,7 @@ redirect_from:
 [Hardware Certification]: /hardware-certification/
 [Hardware Compatibility List]: /hcl/
 [hcl-doc]: /doc/hcl/
-[hcl-report]: /doc/HCL/#generating-and-submitting-new-reports
+[hcl-report]: /doc/hcl/#generating-and-submitting-new-reports
 [Anti Evil Maid]: /doc/anti-evil-maid/
 [Qubes-certified laptop]: /doc/certified-laptops/
 [live USB]: /doc/live-usb/

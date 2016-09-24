@@ -17,7 +17,7 @@ TemplateBasedVMs is installed. The default template is based on Fedora,
 but there are additional templates based on other Linux distributions. There
 are also templates available with or without certain software preinstalled. The
 concept of TemplateVMs is initially described
-[here](/doc/getting-started/#appvms-domains-and-templatevms). The technical
+[here](/getting-started/#appvms-qubes-and-templatevms). The technical
 details of this implementation are described in the developer documentation
 [here](/doc/template-implementation/).
 
