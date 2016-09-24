@@ -10,7 +10,7 @@ redirect_from:
 ---
 
 How To make a VPN Gateway in Qubes
-----------------------------------
+==================================
 
 Although setting up a VPN connection is not by itself Qubes specific, there are a number of Qubes-related details that can make using the connection more versatile and secure. This document is a Qubes-specific outline for choosing the type of VM to use, and shows how to prepare a ProxyVM for either NetworkManager or a set of fail-safe VPN scripts.
 
