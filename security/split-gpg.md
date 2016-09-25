@@ -377,11 +377,11 @@ exercise caution and use your good judgment.)
 [#474]: https://github.com/QubesOS/qubes-issues/issues/474
 [using split GPG with subkeys]: #advanced-using-split-gpg-with-subkeys
 [​subkeys]: https://wiki.debian.org/Subkeys
-[copied]: /doc/copying-files#on-inter-domain-file-copy-security
+[copied]: /doc/copying-files#on-inter-qube-file-copy-security
 [pasted]: /doc/copy-paste#on-copypaste-security
 [​MUA]: https://en.wikipedia.org/wiki/Mail_user_agent
 [covert channels]: /doc/data-leaks
-[trusting-templates]: /doc/SoftwareUpdateVM#notes-on-trusting-your-template-vms
+[trusting-templates]: /doc/software-update-vm/#notes-on-trusting-your-template-vms
 [openpgp-in-qubes-os]: https://groups.google.com/d/topic/qubes-users/Kwfuern-R2U/discussion
 [cabal]: https://alexcabal.com/creating-the-perfect-gpg-keypair/
 [luck]: https://gist.github.com/abeluck/3383449

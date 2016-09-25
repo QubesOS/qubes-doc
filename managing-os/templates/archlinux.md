@@ -694,6 +694,6 @@ Note: For info on Reflector and its configs: [Reflector](https://wiki.archlinux.
 
 *   [How can I contribute to the Qubes Project?](/doc/contributing/)
 
-*   [Guidelines for Documentation Contributors](doc/doc-guidelines/)
+*   [Guidelines for Documentation Contributors](/doc/doc-guidelines/)
 
 <br>
