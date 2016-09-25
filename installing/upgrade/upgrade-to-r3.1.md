@@ -109,6 +109,11 @@ will have changed. Once the system boots up again, you can reseal your Anti Evil
 Maid passphrase to the new configuration. Please consult the Anti Evil Maid
 [documentation](/doc/anti-evil-maid) for instructions on how to do that.
 
+If you use USB VM, you may encounter problem with starting it on updated Xen
+version (because of strict default settings). Take a look at 
+[User FAQ](/doc/user-faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot)
+for details.
+
 Once you have upgraded dom0, you can install new templates from Qubes R3.1
 repositories, in particular the new default Fedora 23 template:
 
