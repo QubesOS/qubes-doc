@@ -8,7 +8,7 @@ Troubleshooting UEFI related problems
 ========================================
 
 
-Cannot start installation, hangs at four penguins after choosing "Test media and install Qubes OS" in GRUB menu
+Cannot start installation, installation completes successfully but then BIOS loops at boot device selection, hangs at four penguins after choosing "Test media and install Qubes OS" in GRUB menu
 ---------------------
 
 There is some [common bug in UEFI implementation](http://xen.markmail.org/message/f6lx2ab4o2fch35r), affecting mostly Lenovo systems, but probably some others too. You can try existing workaround:
