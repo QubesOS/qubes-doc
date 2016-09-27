@@ -196,10 +196,6 @@ drive             : None
 timezone          : localtime
 ~~~
 
-Please note that as of now Qubes does not support shared templates for HVM domains. This means that HVM domains cloned this way will have two separate copies of the whole filesystem. This has consequences in taking much more disk space when compared to standard AppVMs that share the root filesystem with the Template VM. Another consequence is that it's probably not legal to clone a proprietary OS (such as Windows) this way unless your license specifically allows for that (even though Windows Activation won't complain when one sets identical MAC address for the cloned VMs, it's doubtful practice at best).
-
-In the near future we plan on introducing shared template also for HVM domains, hopefully solving the problems described above.
-
 Installing Qubes support tools in Windows 7 VMs
 -----------------------------------------------
 
