@@ -253,6 +253,19 @@ A device that does not support reset is not safe and generally should not be ass
 Most likely the offending controller is a USB3.0 device. You can remove this controller from the usbVM, and see if this allows the VM to boot.
 Alternatively you may be able to disable USB 3.0 in the BIOS.
 
+Errors suggesting this issue:
+ - in `xl dmesg` output:
+```
+(XEN) [VT-D] It's disallowed to assign 0000:00:1a.0 with shared RMRR at dbe9a000 for Dom19.
+(XEN) XEN_DOMCTL_assign_device: assign 0000:00:1a.0 to dom19 failed (-1)
+```
+ - during `qvm-start sys-usb`:
+
+```
+internal error: Unable to reset PCI device [...]  no FLR, PM reset or bus reset available.
+```
+
+
 Another solution would be to set the pci_strictreset option using qvm-prefs in dom0:
 
 `qvm-prefs usbVM -s pci_strictreset false`
