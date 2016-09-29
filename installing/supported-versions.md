@@ -27,8 +27,8 @@ past minor releases, are available from our [FTP server].
 | Release 1        | 2012-09-03 | 2015-03-26 | Old, unsupported            |
 | Release 2        | 2014-09-26 | 2016-04-01 | Old, unsupported            |
 | Release 3.0      | 2015-10-01 | 2016-09-09 | Old, unsupported            |
-| Release 3.1      | 2016-03-09 | TBA        | Current, supported          |
-| Release 3.2      | TBA        | TBA        | In testing                  |
+| Release 3.1      | 2016-03-09 | 2017-03-29 | Old, supported              |
+| Release 3.2      | 2016-09-29 | TBA        | Current, supported          |
 | Release 4.0      | TBA        | TBA        | In development              |
 
 
@@ -64,7 +64,7 @@ release. Currently, only Fedora and Debian TemplateVMs are officially supported.
 | Release 2        | 21              | None                                          |
 | Release 3.0      | 21, 22\*, 23    | 7 ("wheezy")\*, 8 ("jessie")                  |
 | Release 3.1      | 21, 22\*, 23    | 7 ("wheezy")\*, 8 ("jessie"), 9 ("stretch")\* |
-| Release 3.2      | TBA             | TBA                                           |
+| Release 3.2      | 23              | 8 ("jessie")                                  |
 | Release 4.0      | TBA             | TBA                                           |
 
 \* Denotes versions for which we have published the packages but have not done
