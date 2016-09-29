@@ -28,7 +28,16 @@ There is some [common bug in UEFI implementation](http://xen.markmail.org/messag
         efibootmgr -b XXXX -B
         efibootmgr -v -c -u -L Qubes -l /EFI/qubes/xen.efi -d /dev/sda -p 1 "placeholder /mapbs /noexitboot"
 
-09. Compare new entry with the old one (printed in step 6) - it should only differ in additional options at the end.
+09. Compare new entry with the old one (printed in step 6) - it should only differ in additional options at the end, and look probably something like this:
+
+        Boot0001* Qubes HD(1,GPT,partition-guid-here,0x800,0x64000)/File(\EFI\qubes\xen.efi)p.l.a.c.e.h.o.l.d.e.r. ./.m.a.p.b.s. ./.n.o.e.x.i.t.b.o.o.t.
+
+    If instead it looks like:
+
+        Boot0001* Qubes HD(1,0,00000000...0,0x0,0x0)/File(\EFI\qubes\xen.efi)p.l.a.c.e.h.o.l.d.e.r. ./.m.a.p.b.s. ./.n.o.e.x.i.t.b.o.o.t.
+
+    then try passing `/dev/sda1` or `/dev/nvme0n1p1` or whatever is your EFI partition instead of `/dev/sda` and `-p 1`.
+
 10. Now you can reboot the system by issuing `reboot` command.
 
     **For Qubes 3.2 or later:**
