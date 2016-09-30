@@ -151,7 +151,7 @@ repeated in **all** the user's Template and Standalone VMs.
 
 4.  Add new packages (only needed in default template):
 
-        sudo dnf install qubes-mgmt-salt-vm-connector
+        sudo apt-get install qubes-mgmt-salt-vm-connector
 
 5.  Remove unnecessary now file:
 
