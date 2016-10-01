@@ -161,10 +161,10 @@ Master Signing Key has no expiration date. This latter key was generated and is
 kept only within a dedicated, air-gapped "vault" machine, and the private
 portion will (hopefully) never leave this isolated machine.
 
-You can now verify the ISO image (`Qubes-R3.1-x86_64.iso`) matches its
-signature (`Qubes-R3.1-x86_64.iso.asc`):
+You can now verify the ISO image (`Qubes-R3.2-x86_64.iso`) matches its
+signature (`Qubes-R3.2-x86_64.iso.asc`):
 
-    $ gpg -v --verify Qubes-R3.1-x86_64.iso.asc Qubes-R3.1-x86_64.iso
+    $ gpg -v --verify Qubes-R3.2-x86_64.iso.asc Qubes-R3.2-x86_64.iso
     gpg: armor header: Version: GnuPG v1
     gpg: Signature made Tue 08 Mar 2016 07:40:56 PM PST using RSA key ID 03FA5082
     gpg: using PGP trust model
@@ -186,56 +186,57 @@ Verifying Digests
 
 Each ISO is also accompanied by a plain text file ending in `.DIGESTS`. This
 file contains the output of running several different crytographic hash
-functions on the ISO in order to obtain alphanumeric outputs known as "digests."
-These digests are provided as an alternative verification method to PGP
-signatures (though the digests themselves are also PGP-signed -- see below). If
-you've already verified the signatures on the ISO directly, then verifying
-digests is not necessary.
+functions on the ISO in order to obtain alphanumeric outputs known as "digests"
+or "hash values." These hash values are provided as an alternative verification
+method to PGP signatures (though the `.DIGESTS` file is itself also PGP-signed
+--- see below). If you've already verified the signatures on the ISO directly,
+then verifying digests is not necessary. You can always find all the `.DIGESTS`
+files for every Qubes ISO in the [Qubes Security Pack].
 
-For example, `Qubes-R3.1-x86_64.iso` is accompanied by
-`Qubes-R3.1-x86_64.iso.DIGESTS` which has the following content:
+As an example, `Qubes-R3.2-x86_64.iso` is accompanied by
+`Qubes-R3.2-x86_64.iso.DIGESTS` which has the following content:
 
     -----BEGIN PGP SIGNED MESSAGE-----
     Hash: SHA256
-
-    f99634b05d15f6bb2ac02ee03e4338a0 *Qubes-R3.1-x86_64.iso
-    990b7765ee209b42b3cad78673463daae769c729 *Qubes-R3.1-x86_64.iso
-    2d82a684d507ad5789ed83272af4311fd04375e782364d5dd9df4b3d7118cc28 *Qubes-R3.1-x86_64.iso
-    083d6cfc3fb5dc97fd91d8f9f70301c154e3674114ff1727b0415c2c663b233c22e0830d0bfc1f7a532549d7e39c6ef5cfde6a90a650343b47ba57d3e8e92ca7 *Qubes-R3.1-x86_64.iso
+    
+    3c951138b8b9867d8657f173c1b58b82 *Qubes-R3.2-x86_64.iso
+    1fc9508160d7c4cba6cacc3025165b0f996c843f *Qubes-R3.2-x86_64.iso
+    6b998045a513dcdd45c1c6e61ace4f1b4e7eff799f381dccb9eb0170c80f678a *Qubes-R3.2-x86_64.iso
+    de1eb2e76bdb48559906f6fe344027ece20658d4a7f04ba00d4e40c63723171c62bdcc869375e7a4a4499d7bff484d7a621c3acfe9c2b221baee497d13cd02fe *Qubes-R3.2-x86_64.iso
     -----BEGIN PGP SIGNATURE-----
-    Version: GnuPG v1
-
-    iQIcBAEBCAAGBQJW4AqUAAoJEMsRyh0D+lCCo+cP/A/96SmGSPmnMxIor0ODsZNh
-    HtGCfFPhB2KnpLMOVUMRidoMWTzL1+J7HpWYdOS7hPhlcbDfX4A0C4QCs4b0Wkc7
-    npha/GabQuek0HSi2uKt2YQtADq9yPjpqhc3Q2crbnL9UPmKv/XdECfpnK9zSRAE
-    RKl7Uj5RAPuLQ7ee4uQ8lIXWUm6IljpHnm4cG+WP2QYLCkS8BWq18Bl9s0fKdj47
-    JzIkhpyc6Vr9a7UBBxghF+Cb9WrPy22sTtE7eQYHRibh38xdMPOw0tb9F6AMAVeC
-    hK6+xJVz+7xERtRWTQPk4LOPeHIU21xJyVipkwb+T0SrQgsNwSXsSGPe0PiNU9Xk
-    khMbKGcbA+rnQiCS/9EKORNyULRAHvD6WXUqNyIS9trhcx49fxU8taPXKze947p1
-    XvWbqBWHIcCvKVQ3t/okmNN7OXfUCIDJ9bx+qyoLsIU2BF/aZZv+5ijK26D3H+xQ
-    G+2DMIynDMOlHSioCM3I1M0Ml5sB21G0VMJF9r9r8RrDop5cVGdgksie0JvpZ/ep
-    N/L7ozf1gvrO2euVslelMOUJcBjeisT214g6/DNjQ9Ox5SkDWIXrS2ZtR/zToApg
-    x3T0IusOQQhdpC8I0nnXPL/tgyRV8UFNBhxIec7IKnGwvQlVYMFYVomPh7vJhfdl
-    GMMP3JlFAaxghZWU14+F
-    =FiJ5
+    Version: GnuPG v2
+    
+    iQIcBAEBCAAGBQJX4XO/AAoJEMsRyh0D+lCCL9sP/jlZ26zhvlDEX/eaA/ANa/6b
+    Dpsh/sqZEpz1SWoUxdm0gS+anc8nSDoCQSMBxnafuBbmwTChdHI/P7NvNirCULma
+    9nw+EYCsCiNZ9+WCeroR8XDFSiDjvfkve0R8nwfma1XDqu1bN2ed4n/zNoGgQ8w0
+    t5LEVDKCVJ+65pI7RzOSMbWaw+uWfGehbgumD7a6rfEOqOTONoZOjJJTnM0+NFJF
+    Qz5yBg+0FQYc7FmfX+tY801AwSyevj3LKGqZN1GVcU9hhoHH7f2BcbdNk9I5WHHq
+    doKMnZtcdyadQGwMNB68Wu9+0CWsXvk6E00QfW69M4d6w0gbyoJyUL1uzxgixb5O
+    qodxrqeitXQSZZvU4kom5zlSjqZs4dGK+Ueplpkr8voT8TSWer0Nbh/VMfrNSt1z
+    0/j+e/KMjor7XxehR+XhNWa2YLjA5l5H9rP+Ct/LAfVFp4uhsAnYf0rUskhCStxf
+    Zmtqz4FOw/iSz0Os+IVcnRcyTYWh3e9XaW56b9J/ou0wlwmJ7oJuEikOHBDjrUph
+    2a8AM+QzNmnc0tDBWTtT2frXcotqL+Evp/kQr5G5pJM/mTR5EQm7+LKSl7yCPoCj
+    g8JqGYYptgkxjQdX3YAy9VDsCJ/6EkFc2lkQHbgZxjXqyrEMbgeSXtMltZ7cCqw1
+    3N/6YZw1gSuvBlTquP27
+    =e9oD
     -----END PGP SIGNATURE-----
-
+    
 Four digests have been computed for this ISO. The hash functions used, in order
 from top to bottom, are MD5, SHA1, SHA256, and SHA512. One way to verify that
 the ISO you downloaded matches any of these hash values is by using the
 respective `*sum` programs:
 
-    $ md5sum -c Qubes-R3.1-x86_64.iso.DIGESTS
-    Qubes-R3.1-x86_64.iso: OK
+    $ md5sum -c Qubes-R3.2-x86_64.iso.DIGESTS
+    Qubes-R3.2-x86_64.iso: OK
     md5sum: WARNING: 23 lines are improperly formatted
-    $ sha1sum -c Qubes-R3.1-x86_64.iso.DIGESTS
-    Qubes-R3.1-x86_64.iso: OK
+    $ sha1sum -c Qubes-R3.2-x86_64.iso.DIGESTS
+    Qubes-R3.2-x86_64.iso: OK
     sha1sum: WARNING: 23 lines are improperly formatted
-    $ sha256sum -c Qubes-R3.1-x86_64.iso.DIGESTS
-    Qubes-R3.1-x86_64.iso: OK
+    $ sha256sum -c Qubes-R3.2-x86_64.iso.DIGESTS
+    Qubes-R3.2-x86_64.iso: OK
     sha256sum: WARNING: 23 lines are improperly formatted
-    $ sha512sum -c Qubes-R3.1-x86_64.iso.DIGESTS
-    Qubes-R3.1-x86_64.iso: OK
+    $ sha512sum -c Qubes-R3.2-x86_64.iso.DIGESTS
+    Qubes-R3.2-x86_64.iso: OK
     sha512sum: WARNING: 23 lines are improperly formatted
 
 The `OK` response tells us that the hash value for that particular hash
@@ -249,34 +250,33 @@ read.
 Another way is to use `openssl` to compute each hash value, then compare them
 to the contents of the `.DIGESTS` file.:
 
-    $ openssl dgst -md5 Qubes-R3.1-x86_64.iso
-    MD5(Qubes-R3.1-x86_64.iso)= f99634b05d15f6bb2ac02ee03e4338a0
-    $ openssl dgst -sha1 Qubes-R3.1-x86_64.iso
-    SHA1(Qubes-R3.1-x86_64.iso)= 990b7765ee209b42b3cad78673463daae769c729
-    $ openssl dgst -sha256 Qubes-R3.1-x86_64.iso
-    SHA256(Qubes-R3.1-x86_64.iso)= 2d82a684d507ad5789ed83272af4311fd04375e782364d5dd9df4b3d7118cc28
-    $ openssl dgst -sha512 Qubes-R3.1-x86_64.iso
-    SHA512(Qubes-R3.1-x86_64.iso)=
-    083d6cfc3fb5dc97fd91d8f9f70301c154e3674114ff1727b0415c2c663b233c22e0830d0bfc1f7a532549d7e39c6ef5cfde6a90a650343b47ba57d3e8e92ca7
+    $ openssl dgst -md5 Qubes-R3.2-x86_64.iso
+    MD5(Qubes-R3.2-x86_64.iso)= 3c951138b8b9867d8657f173c1b58b82
+    $ openssl dgst -sha1 Qubes-R3.2-x86_64.iso
+    SHA1(Qubes-R3.2-x86_64.iso)= 1fc9508160d7c4cba6cacc3025165b0f996c843f
+    $ openssl dgst -sha256 Qubes-R3.2-x86_64.iso
+    SHA256(Qubes-R3.2-x86_64.iso)= 6b998045a513dcdd45c1c6e61ace4f1b4e7eff799f381dccb9eb0170c80f678a
+    $ openssl dgst -sha512 Qubes-R3.2-x86_64.iso
+    SHA512(Qubes-R3.2-x86_64.iso)= de1eb2e76bdb48559906f6fe344027ece20658d4a7f04ba00d4e40c63723171c62bdcc869375e7a4a4499d7bff484d7a621c3acfe9c2b221baee497d13cd02fe
 
 (Notice that the outputs match the values from the `.DIGESTS` file.)
 
-However, it is possible that an attacker replaced `Qubes-R3.1-x86_64.iso` with
+However, it is possible that an attacker replaced `Qubes-R3.2-x86_64.iso` with
 a malicious ISO, computed the hash values for that ISO, and replaced the values
-in `Qubes-R3.1-x86_64.iso.DIGESTS` with his own set of values. Therefore,
+in `Qubes-R3.2-x86_64.iso.DIGESTS` with his own set of values. Therefore,
 ideally, we should also verify the authenticity of the listed hash values.
-Since `Qubes-R3.1-x86_64.iso.DIGESTS` is a clearsigned PGP file, we can use
+Since `Qubes-R3.2-x86_64.iso.DIGESTS` is a clearsigned PGP file, we can use
 `gpg` to verify it from the command line:
 
-    $ gpg -v --verify Qubes-R3.1-x86_64.iso.DIGESTS
+    $ gpg -v --verify Qubes-R3.2-x86_64.iso.DIGESTS 
     gpg: armor header: Hash: SHA256
-    gpg: armor header: Version: GnuPG v1
+    gpg: armor header: Version: GnuPG v2
     gpg: original file name=''
-    gpg: Signature made Wed 09 Mar 2016 03:35:48 AM PST using RSA key ID 03FA5082
+    gpg: Signature made Tue 20 Sep 2016 10:37:03 AM PDT using RSA key ID 03FA5082
     gpg: using PGP trust model
     gpg: Good signature from "Qubes OS Release 3 Signing Key"
     gpg: textmode signature, digest algorithm SHA256
-
+    
 The signature is good. Assuming our copy of the `Qubes OS Release 3 Signing
 Key` is also authentic (see above), we can be confident that these hash values
 came from the Qubes devs.
