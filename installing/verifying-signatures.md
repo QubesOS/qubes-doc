@@ -188,10 +188,15 @@ release signing key and see this thread:
 Verifying Digests
 -----------------
 
-Each ISO is accompanied by a plain text file ending in `.DIGESTS`. This file
-contains the output of running several different crytographic hash functions on
-the ISO in order to obtain alphanumeric outputs known as "digests." For
-example, `Qubes-R3.1-x86_64.iso` is accompanied by
+Each ISO is also accompanied by a plain text file ending in `.DIGESTS`. This
+file contains the output of running several different crytographic hash
+functions on the ISO in order to obtain alphanumeric outputs known as "digests."
+These digests are provided as an alternative verification method to PGP
+signatures (though the digests themselves are also PGP-signed -- see below). If
+you've already verified the signatures on the ISO directly, then verifying
+digests is not necessary.
+
+For example, `Qubes-R3.1-x86_64.iso` is accompanied by
 `Qubes-R3.1-x86_64.iso.DIGESTS` which has the following content:
 
     -----BEGIN PGP SIGNED MESSAGE-----
