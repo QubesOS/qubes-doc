@@ -180,10 +180,6 @@ Qubes Master Signing Key:
     sig 3        03FA5082 2014-11-19  Qubes OS Release 3 Signing Key
     sig          36879494 2014-11-19  Qubes Master Signing Key
 
-Having problems verifying the ISO images? Make sure you have the corresponding
-release signing key and see this thread:
-
-[https://groups.google.com/group/qubes-devel/browse\_thread/thread/4bdec1cd19509b38/9f8e219c41e1b232](https://groups.google.com/group/qubes-devel/browse_thread/thread/4bdec1cd19509b38/9f8e219c41e1b232)
 
 Verifying Digests
 -----------------
