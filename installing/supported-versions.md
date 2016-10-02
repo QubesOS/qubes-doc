@@ -64,7 +64,7 @@ release. Currently, only Fedora and Debian TemplateVMs are officially supported.
 | Release 2        | 21              | None                                          |
 | Release 3.0      | 21, 22\*, 23    | 7 ("wheezy")\*, 8 ("jessie")                  |
 | Release 3.1      | 21, 22\*, 23    | 7 ("wheezy")\*, 8 ("jessie"), 9 ("stretch")\* |
-| Release 3.2      | 23              | 8 ("jessie")                                  |
+| Release 3.2      | 23, 24\*        | 8 ("jessie"), 9 ("stretch")\*                 |
 | Release 4.0      | TBA             | TBA                                           |
 
 \* Denotes versions for which we have published the packages but have not done
