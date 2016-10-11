@@ -38,3 +38,11 @@ Then reboot, enter BIOS and re-enable VT-d.
    ~~~
 
 2. Add the script to the startup-items of your desktop environment.
+
+## ThinkPads with Intel HD 3000 graphics ##
+
+Several ThinkPad models have Intel HD 3000 graphics, including the T420s and the
+T520. Some users with these laptops have experienced random reboots, which were
+solved by adding `i915.enable_rc6=0` as a kernel parameter to
+`GRUB_CMDLINE_LINUX` in the file `/etc/default/grub` in dom0.
+
