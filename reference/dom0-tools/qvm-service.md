@@ -88,7 +88,7 @@ Enable CUPS service. The user can disable cups in VM which do not need printing 
 crond  
 Default: disabled
 
-Enable CRON service.
+Enable CRON service.  To have cron jobs persist across reboots, put /var/spool/cron in /rw/config/qubes-bind-dirs/50_user.conf. (See [Instructions](/doc/bind-dirs/) )
 
 network-manager  
 Default: enabled in NetVM
