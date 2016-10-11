@@ -1,15 +1,17 @@
 ---
 layout: doc
-title: Getting Lenovo Thinkpad X201 & X200 to work
-permalink: /doc/thinkpad_x201/
+title: ThinkPad Troubleshooting
+permalink: /doc/thinkpad-troubleshooting/
 redirect_from:
+- /doc/thinkpad_x201/
 - /en/doc/thinkpad_x201/
 - /doc/Thinkpad_X201/
 - /wiki/Thinkpad_X201/
 ---
 
-Instructions for getting your Lenovo Thinkpad X201 & X200 laptop working with Qubes/Linux
-=========================================================================
+# ThinkPad Troubleshooting #
+
+## Instructions for getting your Lenovo Thinkpad X201 & X200 laptop working with Qubes/Linux ##
 
 For being able to boot the installer from USB, you have to disable VT-d in the BIOS.
 Enter the BIOS by hitting F1, go to Config - CPU and then disable there VT-d.
@@ -23,8 +25,7 @@ After the installation, you have to set a startup-parameter for Xen, to be able 
 
 Then reboot, enter BIOS and re-enable VT-d.
 
-Getting scrolling with the Trackpoint and the Middle Button to work
--------------------------------------------------
+### Getting scrolling with the Trackpoint and the Middle Button to work ###
 
 1. Create a script with the following content:
 
