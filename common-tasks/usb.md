@@ -277,7 +277,7 @@ If you are sure you wish to proceed, then you must edit the
 
 Add a line like this one to the top of the file:
 
-    sys-usb dom0 ask
+    sys-usb dom0 ask,user=root
 
 (Change `sys-usb` to your desired USB qube.)
 
