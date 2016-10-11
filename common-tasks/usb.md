@@ -180,6 +180,8 @@ steps as root in dom0:
 
         qubesctl state.highstate
 
+(Note: This automatically [hides all USB controllers from dom0][hide-usb].)
+
 Alternatively, you can create a USB qube manually as follows:
 
  1.  Read the [Assigning Devices] page to learn how to list and identify your
@@ -235,7 +237,9 @@ The procedure to hide all USB controllers from dom0 is as follows:
 6. Reboot.
 
 (Note: Beginning with R3.2, `rd.qubes.hide_all_usb` is set automatically if you
-opt to create a USB qube during installation.)
+opt to create a USB qube during installation. This also occurs automatically if
+you choose to [create a USB qube] using the `qubesctl` method, which is the
+first pair of steps in the linked section.)
 
 Supported USB device types
 --------------------------
@@ -329,8 +333,10 @@ This feature is not yet available in Qubes Manager.
 [1072-comm1]: https://github.com/QubesOS/qubes-issues/issues/1072#issuecomment-124270051
 [1072-comm2]: https://github.com/QubesOS/qubes-issues/issues/1072#issuecomment-124119309
 [1082]: https://github.com/QubesOS/qubes-issues/issues/1082
+[hide-usb]: #hide-all-usb-controllers-from-dom0
 [faq-usbvm]: /doc/user-faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot
 [AEM]: /doc/anti-evil-maid/
 [1618]: https://github.com/QubesOS/qubes-issues/issues/1618
+[create a USB qube]: #creating-and-using-a-usb-qube
 [input-proxy]: https://github.com/qubesos/qubes-app-linux-input-proxy
 [usb-challenges]: http://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html
