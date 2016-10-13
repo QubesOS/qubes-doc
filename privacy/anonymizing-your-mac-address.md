@@ -10,9 +10,11 @@ Anonymizing your MAC Address
 ============================
 
 Changing the default [MAC Address](https://en.wikipedia.org/wiki/MAC_address) of your hardware is [crucial in protecting 
-privacy](https://tails.boum.org/contribute/design/MAC_address/#index1h1). Currently, Qubes OS *does not* "anonymize" or spoof the MAC Address, so until this is implemented by default you can randomize your MAC Address with the following guide.
+privacy](https://tails.boum.org/contribute/design/MAC_address/#index1h1). Currently, Qubes OS *does not* "anonymize" or spoof the MAC Address, so until this is implemented by default you can randomize your MAC Address using one of the following methods.
+N.B Although these guides refer to the `fedora-23` Template VM the methods will work in a Debian based Template: you will need to used apt-get instead of dnf, obviously.
 
-## Configuring Qubes
+Method 1
+========
 
 First thing you need to do is install **macchanger** package by opening your `fedora-23` TemplateVM and typing
 
@@ -170,3 +172,48 @@ To disable MAC Randomizing if you find that a network connecting to does not lik
 - Also in `fedora-23` type `sudo systemctl disable macspoof@enp0s0`
 - Remove the service file `sudo rm /etc/systemd/system/macspoof@.service` in TemplateVM
 - Delete the package `sudo dnf remove macchanger`
+
+Method 2
+========
+
+An alternative approach is to use udev rules.
+
+This method does not require you to specify interface names, will apply to all interfaces, even those added after boot, and will retain the random MAC address through sleep/wake cycles.
+
+Install **macchanger** package in the TemplateVM backing sys-net.
+
+In that template create a udev rule using an editor of your choice.
+
+In /etc/udev/rules.d create the file 00-mac-spoof.rules with content:
+```
+SUBSYSTEM=="net", ACTION=="add", ATTR{type}=="1", RUN+="/usr/bin/macchanger -e  $name"
+```
+
+Stop the TemplateVM
+
+Now restart the `sys-net` VM and confirm that the MAC address has been changed.
+
+**Disable Temporarily**
+
+You can manually override the changed MAC address:
+
+Open a terminal in `sys-net`, bring down the relevant interface, and manually use macchanger to set the MAC address.
+
+You can use the native MAC address, but you could also use this method to repeatedly use a different MAC address in certain situations if you choose, provided you have made a note of the MAC you want to use.
+For example, to override the MAC assigned to eth0:
+```
+sudo macchanger -s eth0  (Shows the Current and permanent MAC addresses)
+sudo ifconfig eth0 down
+sudo macchanger -m XX:XX:XX:XX:XX:XX eth0
+sudo ifconfig eth0 up
+```
+where XX:XX:XX:XX:XX:XX is the MAC address you want to use.
+
+**Uninstall Permanently**
+
+Delete the 00-mac-spoof.rules file.
+
+
+
+
+
