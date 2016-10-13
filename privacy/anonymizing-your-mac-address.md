@@ -178,14 +178,14 @@ Your MAC address should now randomize each time you restart your computer or res
 
 ---
 
-## Usage Notes
+## Usage Notes - Macchanger
 
 This approach to MAC Randomizing has been tested and used by some users as well as some of the Qubes team. Observations that are to be expected are:
 
 - This does not randomize your MAC Address on sleep and wake state (only on restarting the `sys-net` VM)
 - The `sys-net` networking VM takes longer for device drivers to start up than usual, this delayed startup may cause the first attempt of `sys-whonix` to connect to Tor to fail
 
-## Disabling / Uninstalling
+## Disabling / Uninstalling Macchanger
 
 To disable MAC Randomizing if you find that a network connecting to does not like changing MAC Addresses, you can disable temporarily or if you want to permanently remove this solution, do the following:
 
