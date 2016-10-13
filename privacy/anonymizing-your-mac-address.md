@@ -9,10 +9,41 @@ redirect_from:
 Anonymizing your MAC Address
 ============================
 
-Changing the default [MAC Address](https://en.wikipedia.org/wiki/MAC_address) of your hardware is [crucial in protecting 
-privacy](https://tails.boum.org/contribute/design/MAC_address/#index1h1). Currently, Qubes OS *does not* "anonymize" or spoof the MAC Address, so until this is implemented by default you can randomize your MAC Address with the following guide.
+Although it is not the only metadata broadcast by network hardware, changing the default [MAC Address](https://en.wikipedia.org/wiki/MAC_address) of your hardware could be [an important step in protecting 
+privacy](https://tails.boum.org/contribute/design/MAC_address/#index1h1). Currently, Qubes OS *does not* automatically "anonymize" or spoof the MAC Address, so until this is implemented by default you can randomize your MAC Address with one of the following guides using either Network Manager or macchanger...
 
-## Configuring Qubes
+## Upgrading and configuring Network Manager in Qubes
+
+Newer versions of Network Manager have a robust set of options for randomizing MAC addresses, and can handle the entire process across reboots, sleep/wake cycles and different connection states. In particular, versions 1.4.2 and later should be well suited for Qubes.
+
+NM 1.4.2 is currently available from the Debian 9 (testing) repository, and has been tested in Qubes using a Debian template [upgraded to version 9.](https://www.qubes-os.org/doc/debian-template-upgrade-8/) 
+
+In the Debian 9 template you intend to use as a NetVM, check that Network Manager version is now at least 1.4.2:
+```https://www.qubes-os.org/doc/anonymizing-your-mac-address/
+$ sudo Network-Manager -V
+1.4.2
+```
+
+Add the settings in /etc/NetworkManager/NetworkManager.conf. The following example enables Wifi MAC address randomization both while scanning (not connected) and while connected.
+
+```
+[device-scan]
+wifi.scan-rand-mac-address=yes
+
+[connection]
+wifi.assigned-mac-address=stable
+```
+
+To see the available configuration options, refer to the man page: `man nm-settings`
+
+Next, create a new NetVM using the new template and assign network devices to it.
+
+Finally, shutdown all VMs and change the settings of sys-firewall, etc. to use the new NetVM.
+
+You can check the MAC address currently in use by looking at the status pages of your router device(s), or in the NetVM with the command `sudo ip link show`.
+
+
+## Configuring Qubes with macchanger and scripts
 
 First thing you need to do is install **macchanger** package by opening your `fedora-23` TemplateVM and typing
 
