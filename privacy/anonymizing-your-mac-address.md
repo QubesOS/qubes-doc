@@ -31,7 +31,7 @@ Add the settings in /etc/NetworkManager/NetworkManager.conf. The following examp
 wifi.scan-rand-mac-address=yes
 
 [connection]
-wifi.assigned-mac-address=stable
+wifi.cloned-mac-address=stable
 ```
 
 To see the available configuration options, refer to the man page: `man nm-settings`
