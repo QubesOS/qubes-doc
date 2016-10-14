@@ -9,27 +9,33 @@ redirect_from:
 How to Reinstall a TemplateVM
 =============================
 
-If you suspect your [TemplateVM] is broken, misconfigured, or compromised,
-or if you wish to do a clean reinstall in order to upgrade to a new version, you
-can reinstall any TemplateVM that was installed from the Qubes repository. Starting in Qubes 3.1, the process is greatly simplified.
+If you suspect your [TemplateVM] is broken, misconfigured, or compromised, you
+can reinstall any TemplateVM that was installed from the Qubes repository.
+Starting in Qubes 3.1, the process is greatly simplified.
 
-First, copy any files that you wish to keep from the TemplateVM's /home and /rw folders into safe storage.
+First, copy any files that you wish to keep from the TemplateVM's `/home` and
+`/rw` folders to a safe storage location. Then, in a dom0 terminal, run:
 
-Then in a dom0 CLI:
+    sudo qubes-dom0-update --action=reinstall qubes-template-package-name
 
-```
-sudo qubes-dom0-update --action=reinstall qubes-template-name
-```
+Replace `qubes-template-package-name` with the name of the *package* of the
+template you wish to reinstall. For example, use `qubes-template-fedora-23` if
+you wish to reinstall the `fedora-23` template. Only one template can be
+reinstalled at a time.
 
-Where `qubes-template-name` is shown, use the *package name* of the template you wish to reinstall. For example, `qubes-template-fedora-23`. Only one template can be reinstalled at a time.
+VMs that are using the reinstalled template will not be affected until they are
+restarted.
 
-Finally, stop or restart any VMs that are using the reinstalled Template so the changes may take effect.
+Manual Reinstallation Method
+----------------------------
 
-##Reinstall Template - Older method for Qubes 3.0
+If you're using Qubes 3.0 or older, or if you wish to do a clean reinstallation
+of a template in order to upgrade to a different version, you should use the
+manual method.
 
-In what follows, the term "target TemplateVM" refers to whichever TemplateVM you want to reinstall.
-If you want to reinstall more than one TemplateVM, repeat these instructions for
-each one.
+In what follows, the term "target TemplateVM" refers to whichever TemplateVM you
+want to reinstall. If you want to reinstall more than one TemplateVM, repeat
+these instructions for each one.
 
 1. (Optional) Clone the existing target TemplateVM.
 
