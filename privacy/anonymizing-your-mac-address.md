@@ -19,20 +19,21 @@ Newer versions of Network Manager have a robust set of options for randomizing M
 NM 1.4.2 is currently available from the Debian 9 (testing) repository, and has been tested in Qubes using a Debian template [upgraded to version 9.](https://www.qubes-os.org/doc/debian-template-upgrade-8/) 
 
 In the Debian 9 template you intend to use as a NetVM, check that Network Manager version is now at least 1.4.2:
-```https://www.qubes-os.org/doc/anonymizing-your-mac-address/
+
+~~~
 $ sudo Network-Manager -V
 1.4.2
-```
+~~~
 
-Add the settings in /etc/NetworkManager/NetworkManager.conf. The following example enables Wifi MAC address randomization both while scanning (not connected) and while connected.
+Add the settings in `/etc/NetworkManager/NetworkManager.conf`. The following example enables Wifi MAC address randomization both while scanning (not connected) and while connected.
 
-```
+~~~
 [device-scan]
 wifi.scan-rand-mac-address=yes
 
 [connection]
 wifi.cloned-mac-address=stable
-```
+~~~
 
 To see the available configuration options, refer to the man page: `man nm-settings`
 
@@ -47,19 +48,19 @@ You can check the MAC address currently in use by looking at the status pages of
 
 First thing you need to do is install **macchanger** package by opening your `fedora-23` TemplateVM and typing
 
-```
+~~~
 sudo dnf install macchanger
-```
+~~~
 
 Then create the file `macspoof@.service` in `fedora-23` located at `/etc/systemd/system/` directory using a text editor such as `vim`, `emacs`, or `gedit`
 
-```
+~~~
 sudo gedit /etc/systemd/system/macspoof@.service
-```
+~~~
 
 Paste the following inside of that newly created file
 
-```
+~~~
 [Unit]
 Description=macchanger on %I
 # Hack since macspoof@%i contains @ which is not allowed yet
@@ -75,15 +76,15 @@ Type=oneshot
 
 [Install]
 WantedBy=multi-user.target
-```
+~~~
 
 **How random do you want your MAC address?**
 
 Note in the above line `ExecStart=/usr/bin/macchanger -e %I` we recommend the use of `macchanger` with the `-e` flag which randomizes the MAC address to an address by the same device vendor/manufacturer. There a [number of other flags](http://manpages.ubuntu.com/manpages/xenial/en/man1/macchanger.1.html) you could use instead, such as `-r` which makes a totally random MAC address, which may map to a non-existent device vendor/manufacturer and make it obvious you are spoofing your MAC address. Some reasons why we have recommended `-e` rather than `-r` are in these resources:
 
-* https://tails.boum.org/contribute/design/MAC_address/#index5h2
-* https://tails.boum.org/contribute/design/MAC_address/#limitation-only-spoof-nic-part
-* https://help.ubuntu.com/community/AnonymizingNetworkMACAddresses#Fully_Random
+* <https://tails.boum.org/contribute/design/MAC_address/#index5h2>
+* <https://tails.boum.org/contribute/design/MAC_address/#limitation-only-spoof-nic-part>
+* <https://help.ubuntu.com/community/AnonymizingNetworkMACAddresses#Fully_Random>
 
 **Get the right iface names**
 
@@ -91,7 +92,7 @@ It's crucial to get the correct **iface name** for the devices (ethernet and wif
 open your `sys-net` (or wherever your device drivers are) and type in `terminal` the command `ifconfig` the printout 
 will look like:
 
-```
+~~~
 enp0s0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 	ether 9e:d6:53:02:4b:b6  txqueuelen 1000  (Ethernet)
         RX packets 0  bytes 0 (0.0 B)
@@ -117,7 +118,7 @@ wlp0s1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 32  bytes 3712 (3.6 KiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-```
+~~~
 
 The **iface name** values you're interested in are `enp0s0` and `wlp0s1` as those represent your ethernet and wifi 
 devices, respectively.
@@ -129,29 +130,29 @@ respectively.  *Copy these MAC addresses down somewhere for later.*
 Now, go back to your `fedora-23` TemplateVM and use the `touch` command to create service files in the appropriate 
 place, note that the `iface name` values at the end:
 
-```
+~~~
 cd /var/run/qubes-service/
 sudo touch macspoof-enp0s0
 sudo touch macspoof-wlp0s1
-```
+~~~
 
 Verify the correct files exist in the directory
 
-```
+~~~
 [user@fedora-23 qubes-service]$ ls
 cups             macspoof-wlp0s1  qubes-update-check
 macspoof-enp0s0  meminfo-writer   updates-proxy-setup
-```
+~~~
 
 Now, also within the TemplateVM, type the following commands for each hardware device that you want to randomize a MAC 
 addresses for
 
-```
+~~~
 sudo systemctl enable macspoof@wlp0s1
 Created symlink from /etc/systemd/system/multi-user.target.wants/macspoof@wlp0s1.service to /etc/systemd/system/macspoof@.service.
 sudo systemctl enable macspoof@enp0s0
 Created symlink from /etc/systemd/system/multi-user.target.wants/macspoof@enp0s0.service to /etc/systemd/system/macspoof@.service.
-```
+~~~
 
 Now you can do the following:
 - Stop your `fedora-23` VM
@@ -163,10 +164,10 @@ Open your VM settings for `sys-net`, navigate to Services, and add the new servi
 
 Alternatively, you can enable these services for `sys-net` from the command line by opening up Terminal in `dom0` and running the following:
 
-```
+~~~
 qvm-service -e sys-net macspoof-wlp0s1
 qvm-service -e sys-net macspoof-enp0s0
-```
+~~~
 
 Now restart `sys-net`.
 
