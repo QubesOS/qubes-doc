@@ -101,7 +101,8 @@ ls -lh root.img  (<--verify new size of disk image)
 ~~~
 
 The partition table and file-system must be adjusted after this change.
-Use tools appropriate to the OS in your HVM. For example:
+Use tools appropriate to the OS in your HVM. Brief instructions for Windows 7,
+FreeBSD, and Linux are provided below.
 
 #### Windows 7
 
