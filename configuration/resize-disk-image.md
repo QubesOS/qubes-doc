@@ -100,7 +100,8 @@ truncate -s 30GB root.img
 ls -lh root.img  (<--verify new size of disk image)
 ~~~
 
-The partition table and file-system must be adjusted after this change:
+The partition table and file-system must be adjusted after this change.
+Use tools appropriate to the OS in your HVM. For example:
 
 #### Windows 7
 
@@ -119,3 +120,8 @@ sysctl kern.geom.debugflags=0x10
 gpart resize -i index ada0
 zpool online -e poolname ada0
 ~~~
+
+#### Linux
+
+You will see that there is unallocated free space at the end of your primary disk.
+You can use standard linux tools like fdisk and mkfs to make this space available.
