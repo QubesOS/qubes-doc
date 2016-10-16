@@ -320,7 +320,9 @@ grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your 
 ~~~
 
 Then shutdown the VM. From now you can set `pvgrub2` as VM kernel and it will
-start kernel configured within VM. 
+start kernel configured within VM.
+
+When starting the VM you can safely ignore any warnings about a missing module 'dummy-hcd'
 
 ### Troubleshooting
 
