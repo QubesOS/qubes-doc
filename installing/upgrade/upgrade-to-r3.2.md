@@ -26,7 +26,7 @@ Upgrading dom0
 
 3.  Install `qubes-release` package carrying R3.2 repository information.
 
-        sudo qubes-dom0-update --enablerepo=qubes*testing --releasever=3.2 qubes-release
+        sudo qubes-dom0-update --releasever=3.2 qubes-release
 
     If you made any manual changes to repository definitions, new definitions
     will be installed as `/etc/yum.repos.d/qubes-dom0.repo.rpmnew` (you'll see
@@ -120,7 +120,7 @@ repeated in **all** the user's Template and Standalone VMs.
 
 2.  Install the `qubes-upgrade-vm` package:
 
-        sudo dnf install --enablerepo=qubes*testing --refresh qubes-upgrade-vm
+        sudo dnf install --refresh qubes-upgrade-vm
 
 3.  Proceed with a normal upgrade in the template:
 
