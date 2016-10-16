@@ -4,14 +4,6 @@ title: Supported Versions
 permalink: /doc/supported-versions/
 ---
 
-<style>
-article td, article th {
-    border-width: 2px;
-    border-style: double;
-    padding: 5px;
-}
-</style>
-
 Supported Versions
 ==================
 
