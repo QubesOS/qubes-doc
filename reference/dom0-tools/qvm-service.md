@@ -88,7 +88,7 @@ Enable CUPS service. The user can disable cups in VM which do not need printing 
 crond  
 Default: disabled
 
-Enable CRON service.
+Enable CRON service.  To have cron jobs persist across reboots, /var/spool/cron is bind-mounted from /rw/bind-dirs. To override this see [Bind-Dir Instructions](/doc/bind-dirs/) )
 
 network-manager  
 Default: enabled in NetVM
