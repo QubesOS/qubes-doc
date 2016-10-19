@@ -34,6 +34,7 @@ Choosing Your Hardware
  * [System Requirements](/doc/system-requirements/)
  * [Hardware Compatibility List (HCL)](/hcl/)
  * [Qubes-Certified Laptops](/doc/certified-laptops/)
+ * [Hardware Certification](/hardware-certification/)
 
 
 Installing & Upgrading Qubes
