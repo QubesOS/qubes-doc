@@ -16,9 +16,12 @@ User Documentation
 The Basics
 ----------
 
- * [A Tour of Qubes OS](/tour/)
+ * [What is Qubes OS?](/intro/)
+ * [Video Tours](/video-tours/)
+ * [Screenshots](/screenshots/)
  * [Getting Started](/getting-started/)
  * [User FAQ](/doc/user-faq/)
+ * [Mailing Lists](/mailing-lists/)
 
 
 Choosing Your Hardware
@@ -191,17 +194,17 @@ Developer Documentation
 The Basics
 ----------
 
- * [Developers' FAQ](/doc/devel-faq/)
- * [Feature Development Tracker](/qubes-issues/)
+ * [Developer FAQ](/doc/devel-faq/)
  * [Reporting Security Issues](/security/)
  * [Reporting Bugs](/doc/reporting-bugs/)
  * [Source Code](/doc/source-code/)
- * [How to Contribute to the Qubes OS Project](/doc/contributing/)
+ * [Feature Development Tracker](/qubes-issues/)
+ * [How to Contribute](/doc/contributing/)
  * [Coding Guidelines](/doc/coding-style/)
  * [Documentation Guidelines](/doc/doc-guidelines/)
  * [Code Signing](/doc/code-signing/)
- * [Books for Developers](/doc/devel-books/)
  * [Qubes OS License](/doc/license/)
+ * [Books for Developers](/doc/devel-books/)
  * [Style Guide](/doc/style-guide/)
  * [Usability & UX](/doc/usability-ux/)
 
