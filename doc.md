@@ -8,6 +8,10 @@ redirect_from:
 - /wiki/UserDoc/
 - /doc/QubesDocs/
 - /wiki/QubesDocs/
+- /help/
+- /en/help/
+- /en/community/
+- /community/
 ---
 
 User Documentation
