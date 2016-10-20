@@ -152,9 +152,7 @@ USB stack is put to work to parse the data presented by the USB device in order
 to determine if it is a USB mass storage device, to read its configuration, etc.
 This happens even if the drive is then assigned and mounted in another qube.
 
-To avoid this risk, it is possible to prepare and utilize a USB qube. However,
-Xen does not yet provide working PVUSB functionality, so only USB mass storage
-devices can be passed to individual qubes.
+To avoid this risk, it is possible to prepare and utilize a USB qube.
 
 For this reason, you may wish to avoid using a USB qube if you do not have a USB
 controller free of input devices and programmable devices, although Qubes R3.1 
