@@ -258,10 +258,11 @@ In this example, the following keys are stored in the following locations
    leave the `vault` VM, so it is extremely unlikely ever to be obtained by
    an adversary (see below). Second, an adversary who *does* manage to obtain
    the master secret key either possesses the passphrase to unlock the key
-   (if one is used), or he does not. If he does, then he can simply use
-   the passphrase in order to legally extend the expiration date of the key
-   (or remove it entirely). If he does not, then he cannot use the key at
-   all. In either case, an expiration date provides no additional benefit.
+   (if one is used) or does not. An adversary who *does* possess the passphrase
+   can simply use it to legally extend the expiration date of the key
+   (or remove it entirely). An adversary who does *not* possess the passphrase
+   cannot use the key at all. In either case, an expiration date provides no
+   additional benefit.
 
    By the same token, however, having a passphrase on the key is of little
    value. An adversary who is capable of stealing the key from your `vault`
