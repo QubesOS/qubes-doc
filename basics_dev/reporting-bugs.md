@@ -6,12 +6,19 @@ redirect_from:
 - /en/doc/reporting-bugs/
 - /doc/BugReportingGuide/
 - /wiki/BugReportingGuide/
+- /reporting-bugs/
+- /bug/
+- /bugs/
+- /bug-report/
+- /bug-reports/
 ---
 
 Bug Reporting Guide
 ===================
 
-One of the most important contribution task is reporting the bugs you have found.
+One of the most important contribution tasks is reporting the bugs you have
+found. Please note that there is a separate process for [reporting security
+issues](/security/).
 
 Asking a Question
 -----------------
@@ -21,9 +28,8 @@ docs](https://www.qubes-os.org/doc/), Google, GitHub, and StackOverflow. If
 your question is something that has been answered many times before, the
 project maintainers might be tired of repeating themselves.
 
-Whenever possible, ask your question on the Qubes mailing list which is
-located [here](https://groups.google.com/forum/#!forum/qubes-users). This
-allows anyone to answer and makes the answer available for the next person
+Whenever possible, ask your question on the [mailing lists](/mailing-lists/).
+This allows anyone to answer and makes the answer available for the next person
 with the same question.
 
 Submitting a Bug Report (or "Issue")
