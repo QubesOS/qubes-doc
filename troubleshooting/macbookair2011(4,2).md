@@ -67,6 +67,10 @@ RemainAfterExit=yes
 [Install]
 WantedBy=multi-user.target
 ~~~
+Run:
+~~~
+systemctl enable qubes-pre-netvm.service
+~~~
 And that’s it.
 
 
