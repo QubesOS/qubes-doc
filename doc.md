@@ -26,6 +26,8 @@ The Basics
  * [Getting Started](/getting-started/)
  * [User FAQ](/doc/user-faq/)
  * [Mailing Lists](/mailing-lists/)
+ * [Report a Security Issue](/security/)
+ * [Report a Bug](/doc/reporting-bugs/)
 
 
 Choosing Your Hardware
@@ -200,8 +202,8 @@ The Basics
 ----------
 
  * [Developer FAQ](/doc/devel-faq/)
- * [Reporting Security Issues](/security/)
- * [Reporting Bugs](/doc/reporting-bugs/)
+ * [Report a Security Issue](/security/)
+ * [Report a Bug](/doc/reporting-bugs/)
  * [Source Code](/doc/source-code/)
  * [Feature Development Tracker](/qubes-issues/)
  * [How to Contribute](/doc/contributing/)
