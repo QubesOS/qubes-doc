@@ -246,7 +246,6 @@ Building
 --------
  * [Building Qubes](/doc/qubes-builder/) (["API" Details](/doc/qubes-builder-details/))
  * [Development Workflow](/doc/development-workflow/)
- * [KDE Dom0 packages for Qubes](/doc/kde-dom0/)
  * [Building Qubes OS 3.0 ISO](/doc/qubes-r3-building/)
  * [Building USB passthrough support (experimental)](/doc/pvusb/)
  * [Building Qubes Templates](https://github.com/QubesOS/qubes-template-configs)
