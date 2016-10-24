@@ -172,10 +172,9 @@ Troubleshooting
  * [Installing on system with new AMD GPU (missing firmware problem)](https://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76)
  * [How to install an Nvidia driver in dom0](/doc/install-nvidia-driver/)
  * [Nvidia troubleshooting guide](/doc/nvidia-troubleshooting/)
+ * [Lenovo ThinkPad Troubleshooting](/doc/thinkpad-troubleshooting/)
  * [Apple MacBook Troubleshooting](/doc/macbook-troubleshooting/)
  * [Getting Sony Vaio Z laptop to work with Qubes](/doc/sony-vaio-tinkering/)
- * [Getting Lenovo 450 to work with Qubes](/doc/lenovo450-tinkering/)
- * [Getting Lenovo Thinkpad X201 to work with Qubes](/doc/thinkpad_x201/)
  * [Troubleshooting UEFI related problems](/doc/uefi-troubleshooting/)
 
 
