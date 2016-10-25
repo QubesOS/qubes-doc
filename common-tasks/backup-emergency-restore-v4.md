@@ -64,12 +64,14 @@ Recovery - format version 3](/doc/backup-emergency-restore-v3/)
         encrypted=True
         compressed=True
         compression-filter=gzip
+        backup_id=20161020T123455-1234
   
  6. Verify the integrity and decrypt the `private.img` file which houses your data.
 
+        [user@restore ~]$ backup_id=20161020T123455-1234 # see backup-header above
         [user@restore ~]$ for f_enc in vm1/private.img.???.enc; do \
             f_dec=${f_enc%.enc}; \
-            echo "$f_dec!$backup_pass" | scrypt -P dec $f_enc $f_dec || break; \
+            echo "$backup_id!$f_dec!$backup_pass" | scrypt -P dec $f_enc $f_dec || break; \
             done
 
     **Note:** If the above fail, most likely your backup is corrupted, or been tampered with.
