@@ -38,26 +38,30 @@ If you're a Signal user on Android, you can now have Signal inside Qubes.
    this app with your phone.
 6. Signal should now work in your AppVM.
 
-Creating a Shortcut in KDE
---------------------------
+Creating a Shortcut in the applications menu
+--------------------------------------------
 
 Let's make Signal a bit more usable by creating a shortcut in our desktop
-panel that launches Signal directly. This assumes that you're using KDE in Dom0,
+panel that launches Signal directly. This assumes that you're using KDE or Xfce in Dom0,
 you use Signal in an AppVM named `Signal`, and this AppVM uses `fedora-23` as its TemplateVM.
 
 1. Follow [these instructions][shortcut] to create a desktop shortcut on the Desktop of your Signal AppVM.
-   Let's assume the shortcut file you get is /home/user/Desktop/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop
-2. Copy this shortcut file to the AppVM's TemplateVM - in this case, to fedora-23.
+   Let's assume the shortcut file you get is `/home/user/Desktop/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop`
+2. Copy this shortcut file to the AppVM's TemplateVM - in this case, to `fedora-23`.
 3. You'll also want to copy across an icon for your new shortcut - you can find this at
-   /home/user/.local/share/icons/hicolor/48x48/apps/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.png
-   Copy this icon to the fedora-23 TemplateVM.
-4. Open a terminal in your fedora-23 TemplateVM and cd to /home/user/QubesIncoming/Signal/
+   `/home/user/.local/share/icons/hicolor/48x48/apps/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.png`
+   Copy this icon to the `fedora-23` TemplateVM.
+4. Open a terminal in your `fedora-23` TemplateVM and `cd` to `/home/user/QubesIncoming/Signal/`.
    You should find your shortcut and icon files just transferred across from the Signal AppVM.
    Move these files to the following locations:
-   [user@fedora-23 Signal]$ sudo mv chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop /usr/share/applications/
-   [user@fedora-23 Signal]$ sudo mv chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.png /usr/share/icons/hicolor/48x48/
+   
+        [user@fedora-23 Signal]$ sudo mv chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop /usr/share/applications/
+        [user@fedora-23 Signal]$ sudo mv chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.png /usr/share/icons/hicolor/48x48/
+
 5. From a Dom0 terminal, instruct Qubes to synchronize the application menus of this TemplateVM:
-   [user@dom0 ~]$ qvm-sync-appmenus fedora-23
+
+        [user@dom0 ~]$ qvm-sync-appmenus fedora-23
+        
 6. With your mouse select the `Q` menu -> `Domain: Signal` -> `Signal: Add more shortcuts`
    Select `Signal Private Messenger` from the left `Available` column, move it to the right `Selected` column by clicking the `>` button and then `OK` to apply the changes and close the window.
 7. Then follow the `Q` menu once more, right-click on the new `Signal: Signal Private Messenger` menu item and select `Add to Panel`.
