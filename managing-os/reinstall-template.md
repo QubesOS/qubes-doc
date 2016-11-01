@@ -29,9 +29,9 @@ restarted.
 Manual Reinstallation Method
 ----------------------------
 
-If you're using Qubes 3.0 or older, or if you wish to do a clean reinstallation
-of a template in order to upgrade to a different version, you should use the
-manual method.
+If you're using Qubes 3.0 or older, you should use the manual reinstallation
+method. You can also use this method on later Qubes versions if, for any reason,
+you want to reinstall a template manually.
 
 In what follows, the term "target TemplateVM" refers to whichever TemplateVM you
 want to reinstall. If you want to reinstall more than one TemplateVM, repeat
