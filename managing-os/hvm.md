@@ -72,6 +72,75 @@ The AppVM where the ISO is kept must be running for this to work as this VM is n
 
 ![r2b1-installing-ubuntu-1.png](/attachment/wiki/HvmCreate/r2b1-installing-ubuntu-1.png)
 
+Converting VirtualBox VM to HVM
+-------------------------------
+
+Microsoft provides [free 90 day evaluation VirtualBox VMs for browser testing](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
+
+About 60 GB of disk space is required for conversion, use external harddrive if needed. Final root.img size is 40 GB.
+
+In Debian AppVM, install qemu-utils and unzip:
+
+~~~
+sudo apt install qemu-utils unzip
+~~~
+
+Unzip VirtualBox zip file:
+
+~~~
+unzip *.zip 
+~~~
+
+Extract OVA tar archive:
+
+~~~
+tar -xvf *.ova
+~~~
+
+Convert vmdk to raw:
+
+~~~
+qemu-img convert -O raw *.vmdk win10.raw
+~~~
+
+Create new HVM in Dom0, with amount of RAM in MB you wish:
+
+~~~
+qvm-create --hvm win10 --label red --mem=4096
+~~~
+
+Copy file to Dom0:
+
+~~~
+qvm-run --pass-io untrusted 'cat "/media/user/externalhd/win10.raw"' > /var/lib/qubes/appvms/win10/root.img
+~~~
+
+Start win10 VM:
+
+~~~
+qvm-start win10
+~~~
+
+**Optional ways to get more information**
+
+Filetype of OVA file:
+
+~~~
+file *.ova
+~~~
+
+List files of OVA tar archive:
+
+~~~
+tar -tf *.ova
+~~~
+
+List filetypes supported by qemu-img:
+
+~~~
+qemu-img -h | tail -n1
+~~~
+
 Setting up networking for HVM domains
 -------------------------------------
 
