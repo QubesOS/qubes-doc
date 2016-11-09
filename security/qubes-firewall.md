@@ -42,14 +42,14 @@ in that VM's directory in dom0:
 
     /var/lib/qubes/appvms/<vm-name>/firewall.xml
     
-Please note that there is a 3kb limit to the size of the iptables script. 
+Please note that there is a 3 kB limit to the size of the `iptables` script. 
 This equates to somewhere between 35 and 39 rules. 
-If this limit is exceeded then the qube will not start.
+If this limit is exceeded, the qube will not start.
 
 It is possible to work around this limit by enforcing the rules on the qube itself
-by putting appropriate rules in /rw/config. See [below](#where_to_put_firewall_rules).
-In complex cases it might be appropriate to load a ruleset using iptables-restore
-called from /rw/config/rc.local
+by putting appropriate rules in `/rw/config`. See [below](#where-to-put-firewall-rules).
+In complex cases, it might be appropriate to load a ruleset using `iptables-restore`
+called from `/rw/config/rc.local`.
 
 Reconnecting VMs after a NetVM reboot
 ----------------------------------------
