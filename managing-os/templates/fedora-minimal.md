@@ -49,10 +49,10 @@ To access the journald log, use the `journalctl` command.
 
 ### as a NetVM
 
-If you want to use this template to for standard NetVMs with USB forwarding capabilities you should install some more packeges:
+If you want to use this template for standard NetVMs you should install some more packages:
 
 ~~~
-[user@F21-Minimal ~]$ sudo dnf install NetworkManager NetworkManager-wifi network-manager-applet  wireless-tools dbus-x11 dejavu-sans-fonts tinyproxy qubes-input-proxy-sender
+[user@F21-Minimal ~]$ sudo dnf install NetworkManager NetworkManager-wifi network-manager-applet  wireless-tools dbus-x11 dejavu-sans-fonts tinyproxy
 ~~~
 
 And maybe some more optional but useful packages as well:
@@ -62,6 +62,14 @@ And maybe some more optional but useful packages as well:
 ~~~
 
 If your network device needs some firmware then you should also install the corresponding packages as well. The `lspci` and `dnf search firmware` command will help to choose the right one :)
+
+### as a USBVM
+
+If you want this template to allow USB input forwarding, you will need to install one extra package.
+
+~~~
+[user@F21-Minimal ~]$ sudo dnf install qubes-input-proxy-sender
+~~~
 
 ### as a ProxyVM
 
