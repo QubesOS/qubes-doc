@@ -187,9 +187,10 @@ _after_ considering the action.
 
 Sometimes just service name isn't enough to make reasonable qrexec policy. One
 example of such situation is [qrexec-based USB
-passthrough](https://github.com/qubesos/qubes-issues/531) - using just service
-name it isn't possible to express policy "allow access to device X and deny to
-others". It isn't also feasible to create separate service for every device...
+passthrough](https://github.com/qubesos/qubes-issues/issues/531) - using just
+service name it isn't possible to express policy "allow access to device X and
+deny to others". It isn't also feasible to create separate service for every
+device...
 
 For this reason, starting with Qubes 3.2, it is possible to specify service
 argument, which will be subject to policy. Besides above example of USB
