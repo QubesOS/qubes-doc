@@ -32,10 +32,7 @@ want to build.
 
 Ubuntu 14.4 LTS (Trusty) can be built with little effort.
 
-Known issues
-------------
-
-
+----------
 
 If you want to help in improving the template, feel free to
-[contribute](/wiki/ContributingHowto).
+[contribute](/doc/contributing/).
