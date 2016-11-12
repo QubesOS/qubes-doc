@@ -541,6 +541,6 @@ Usage: add this line to `/etc/apt/sources.list` on test machine (adjust host and
 deb http://local-test.lan/linux-deb/r3.1 jessie-unstable main
 ~~~
 
-[port-forwarding]: /doc/qubes-firewall/#port-forwarding-to-a-qube-from-the-outside-world
+[port-forwarding]: /doc/firewall/#port-forwarding-to-a-qube-from-the-outside-world
 [linux-yum]: https://github.com/QubesOS/qubes-linux-yum
 [linux-deb]: https://github.com/QubesOS/qubes-linux-deb

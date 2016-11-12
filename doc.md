@@ -101,7 +101,7 @@ Security Guides
 
  * [Qubes OS Project Security Information](/security/)
  * [Security Guidelines](/doc/security-guidelines/)
- * [Understanding Qubes Firewall](/doc/qubes-firewall/)
+ * [Understanding Qubes Firewall](/doc/firewall/)
  * [Understanding and Preventing Data Leaks](/doc/data-leaks/)
  * [Installing Anti Evil Maid](/doc/anti-evil-maid/)
  * [Using Multi-factor Authentication with Qubes](/doc/multifactor-authentication/)
