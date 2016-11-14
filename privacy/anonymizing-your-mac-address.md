@@ -21,7 +21,7 @@ NM 1.4.2 is currently available from the Debian 9 (testing) repository, and has 
 In the Debian 9 template you intend to use as a NetVM, check that Network Manager version is now at least 1.4.2:
 
 ~~~
-$ sudo Network-Manager -V
+$ sudo NetworkManager -V
 1.4.2
 ~~~
 
