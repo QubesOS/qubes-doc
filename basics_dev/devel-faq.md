@@ -32,3 +32,10 @@ Q: How do I submit a patch?
 ---------------------------
 
 See [Qubes Source Code Repositories](/doc/source-code/).
+
+Q: What is Qubes' attitude toward changing guest distros?
+---------------------------------------------------------
+
+We try to respect each distro's culture, where possibe. See the discussion on
+issue [#1014](https://github.com/QubesOS/qubes-issues/issues/1014) for an
+example.
