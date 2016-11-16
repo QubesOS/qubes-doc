@@ -25,7 +25,7 @@ $ sudo NetworkManager -V
 1.4.2
 ~~~
 
-Add the settings in `/etc/NetworkManager/NetworkManager.conf`. The following example enables Wifi MAC address randomization while scanning (not connected), and uses a randomly generated but persistent MAC address for each individual Wifi and Ethernet connection profile.
+Write the settings to a new file in the `/etc/NetworkManager/conf.d/` directory, such as `mac.conf`. The following example enables Wifi MAC address randomization while scanning (not connected), and uses a randomly generated but persistent MAC address for each individual Wifi and Ethernet connection profile.
 
 ~~~
 [device]
