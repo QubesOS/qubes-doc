@@ -104,10 +104,10 @@ this for extra security.**
 
 1. Adding Dom0 "VMAuth" service:
 
-        [root@dom0 /]# echo -n "/usr/bin/echo 1" >/etc/qubes-rpc/qubes.VMAuth
-        [root@dom0 /]# echo -n "$anyvm dom0 ask" >/etc/qubes-rpc/policy/qubes.VMAuth
+        [root@dom0 /]# echo -n '/usr/bin/echo 1' >/etc/qubes-rpc/qubes.VMAuth
+        [root@dom0 /]# echo -n '$anyvm dom0 ask' >/etc/qubes-rpc/policy/qubes.VMAuth
 
-   (Note: any VMs you would like still to have password-less root access (e.g. TemplateVMs) can be specified in the second file with "\<vmname\> dom0 allow")
+   (Note: any VMs you would like still to have password-less root access (e.g. TemplateVMs) can be specified in the second file with '\<vmname\> dom0 allow')
 
 2. Configuring Fedora TemplateVM to prompt Dom0 for any authorization request:
     - In /etc/pam.d/system-auth, replace all lines beginning with "auth" with one line:
