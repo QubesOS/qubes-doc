@@ -25,7 +25,7 @@ $ sudo NetworkManager -V
 1.4.2
 ~~~
 
-Add the settings in `/etc/NetworkManager/NetworkManager.conf`. The following example enables Wifi MAC address randomization both while scanning (not connected) and while connected.
+Add the settings in `/etc/NetworkManager/NetworkManager.conf`. The following example enables Wifi MAC address randomization while scanning (not connected), and uses a randomly generated but persistent MAC address for each individual Wifi and Ethernet connection profile.
 
 ~~~
 [device]
@@ -33,6 +33,7 @@ wifi.scan-rand-mac-address=yes
 
 [connection]
 wifi.cloned-mac-address=stable
+ethernet.cloned-mac-address=stable
 ~~~
 
 To see the available configuration options, refer to the man page: `man nm-settings`
