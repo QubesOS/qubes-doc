@@ -28,7 +28,7 @@ $ sudo NetworkManager -V
 Add the settings in `/etc/NetworkManager/NetworkManager.conf`. The following example enables Wifi MAC address randomization both while scanning (not connected) and while connected.
 
 ~~~
-[device-scan]
+[device]
 wifi.scan-rand-mac-address=yes
 
 [connection]
