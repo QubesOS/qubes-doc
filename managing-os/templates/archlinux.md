@@ -23,7 +23,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 ## Instructions ##
 
 <br>
-**These are the instructions for Qubes 3.1. They will take you step by step through the entire process start to finish**
+**These are the instructions for Qubes 3.2. They will take you step by step through the entire process start to finish**
 
 *Note: Currently there are no binary packages and it must be compiled from source using the instructions below.*
 
@@ -107,10 +107,10 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 
-*    You will now have the Qubes Builder System environment installed in the directory below:
 
-    *   **/home/user/qubes-builder**
-<br>
+*   You will now have the Qubes Builder System environment installed in the directory below:
+
+    *   **/home/user/qubes-builder/**
 <br>
 <br>
 
@@ -120,11 +120,11 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
    
     *In the future this should not be needed once a change is made to the 'setup' script.*
 
-    *   Edit the '**qubes-os-r3.1.conf**' which is found in **/home/user/qubes-builder/example-configs**  Use the text editor of your choice.
+    *   Edit the '**qubes-os-r3.2.conf**' which is found in **/home/user/qubes-builder/example-configs**  Use the text editor of your choice.
     
         *   **$ cd /home/user/qubes-builder/example-config/**
     
-        *   **$ nano -W qubes-os-r3.1.conf** or **$ gedit qubes-os-r3.1.conf** or etc….
+        *   **$ nano -W qubes-os-r3.2.conf** or **$ gedit qubes-os-r3.2.conf** or etc….
 <br>
 <br>
 ![arch-template-06](/attachment/wiki/ArchlinuxTemplate/arch-template-06.png)
@@ -172,7 +172,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 
         *   This screen will give you the choice of which Qubes Release to build the template for.
 
-            *   Select '**Qubes Release 3.1**'
+            *   Select '**Qubes Release 3.2**'
             *   Select '**OK**' Press '**Enter**'
 <br>
 <br>
@@ -186,13 +186,16 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
             *   Select '**OK**' Press '**Enter**' 
 <br>
 <br>
+![arch-template-12](/attachment/wiki/ArchlinuxTemplate/arch-template-12.png)
+<br>
+<br>
 
         *   Screen "**Build Template Only?**"
 
             *   Select '**Yes**' Press '**Enter**' 
 <br>
 <br>
-![arch-template-12](/attachment/wiki/ArchlinuxTemplate/arch-template-12.png)
+![arch-template-12](/attachment/wiki/ArchlinuxTemplate/arch-template-12a.png)
 <br>
 <br>
 
@@ -200,9 +203,9 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
                         
             *   Deselect '**Fedora**'
             
-            *   Deselect '**mgnt_salt**'
+            *   Deselect '**mgmt_salt**'
             
-            *   Select '**archlinux**'
+            *   Select '**builder-archlinux**'
 
             *   Select '**OK**' Press **Enter**
 <br>
@@ -213,10 +216,18 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 
         *   Screen '**Get sources**' wants to download additional packages needed for the choosen plugin/s.
         
-            *   Select '**No**' Press '**Enter**'
+            *   Select '**Yes**' Press '**Enter**'
 <br>
 <br>
 ![arch-template-14](/attachment/wiki/ArchlinuxTemplate/arch-template-14.png)
+<br>
+<br>
+
+        *   Then wait for download to finish and press '**OK**'
+<br>
+<br>
+![arch-template-14](/attachment/wiki/ArchlinuxTemplate/arch-template-15.png)
+<br>
 <br>
 
         *   Screen '**Template Distribution Selection**' allows you to choose the actual template/s you wish to build.
@@ -236,19 +247,6 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 ![arch-template-17](/attachment/wiki/ArchlinuxTemplate/arch-template-17.png)
-<br>
-<br>
-	*	Archlinux builder is not(yet?) in official Qubes release branch, so it has to be downloaded from different repository.
-
-			* Open file builder.conf with your favourite text editor and find section **"O V E R R I D E   B R A N C H"** (single space
-between letters) and add:
-
-    			*   **GIT_URL_builder_archlinux = $(GIT_BASEURL)/marmarek/qubes-builder-archlinux.git**
-
-<br>
-<br>
-![arch-template-17](/attachment/wiki/ArchlinuxTemplate/arch-template-17a.png)
-<br>
 <br>
 <br>
 
