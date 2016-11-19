@@ -25,7 +25,7 @@ $ sudo NetworkManager -V
 1.4.2
 ~~~
 
-Write the settings to a new file in the `/etc/NetworkManager/conf.d/` directory, such as `mac.conf`. The following example enables Wifi MAC address randomization while scanning (not connected), and uses a randomly generated but persistent MAC address for each individual Wifi and Ethernet connection profile.
+Write the settings to a new file in the `/etc/NetworkManager/conf.d/` directory, such as `mac.conf`. The following example enables Wifi and Ethernet MAC address randomization while scanning (not connected), and uses a randomly generated but persistent MAC address for each individual Wifi and Ethernet connection profile.
 
 ~~~
 [device]
@@ -36,7 +36,10 @@ wifi.cloned-mac-address=stable
 ethernet.cloned-mac-address=stable
 ~~~
 
-To see the available configuration options, refer to the man page: `man nm-settings`
+`stable` generates a random address that persists for each boot session.
+`random` generates a random address each time a link goes up.
+
+To see all the available configuration options, refer to the man page: `man nm-settings`
 
 Next, create a new NetVM using the new template and assign network devices to it.
 
