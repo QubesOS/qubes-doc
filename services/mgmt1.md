@@ -1,5 +1,5 @@
 ---
-layout: doc
+layout: doc-full
 title: Management API
 permalink: /doc/mgmt1/
 ---
