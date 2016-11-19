@@ -130,7 +130,7 @@ minimal template) is the same as the procedure for the standard template above,
 
 
 Compacting the Upgraded Template
-================================
+--------------------------------
 
 Neither `fstrim` nor the `discard` mount option works on the TemplateVM's root
 filesystem, so when a file is removed in the template, space is not freed in
@@ -143,7 +143,7 @@ You can use the `qvm-trim-template` tool:
 
 
 Additional Information
-======================
+----------------------
 
 As mentioned above, you may encounter the following `dnf` error:
 
