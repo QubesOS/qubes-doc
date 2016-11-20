@@ -253,5 +253,15 @@ Building
  * [Building a TemplateVM based on a new OS (ArchLinux example)](/doc/building-non-fedora-template/)
  * [Building the Archlinux Template](/doc/building-archlinux-template/)
 
-
+Releases
+--------
+ * [Release checklist](/doc/releases/todo/)
+ * [Qubes R1.0 release notes](/doc/releases/1.0/release-notes/)
+ * [Qubes R2.0 release notes](/doc/releases/2.0/release-notes/)
+ * [Qubes R3.0 release notes](/doc/releases/3.0/release-notes/)
+ * [Qubes R3.0 release schedule](/doc/releases/3.0/schedule/)
+ * [Qubes R3.1 release notes](/doc/releases/3.1/release-notes/)
+ * [Qubes R3.1 release schedule](/doc/releases/3.1/schedule/)
+ * [Qubes R3.2 release notes](/doc/releases/3.2/release-notes/)
+ * [Qubes R3.2 release schedule](/doc/releases/3.2/schedule/)
 
