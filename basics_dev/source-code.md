@@ -57,7 +57,13 @@ If you want to contribute code to the project, there are two ways. Whichever
 method you choose, you must [sign your code] before it can be accepted.
 
 *  **Preferred**: Use GitHub's [fork & pull requests].
-*  Send a patch to our developer [mailing list] (`git format-patch`).
+
+   Opening a pull request on GitHub greatly eases the code review and tracking
+   process. In addition, especially for bigger changes, it's a good idea to send
+   a message to the [qubes-devel mailing list] in order to notify people who
+   do not receive GitHub notifications.
+
+*  Send a patch to the [qubes-devel mailing list] (`git format-patch`).
 
    1. Make all the changes in your working directory, i.e. edit files, move them
       around (you can use 'git mv' for this), etc.
@@ -77,5 +83,5 @@ method you choose, you must [sign your code] before it can be accepted.
 [QubesOS GitHub account]: https://github.com/QubesOS/
 [sign your code]: /doc/code-signing/
 [fork & pull requests]: https://guides.github.com/activities/forking/
-[mailing list]: /doc/mailing-lists/
+[qubes-devel mailing list]: /mailing-lists/#qubes-devel
 
