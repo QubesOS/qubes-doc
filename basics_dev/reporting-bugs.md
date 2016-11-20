@@ -30,15 +30,15 @@ it.
 
  * Read the [documentation] to see whether what you've found is really a bug.
 
- * Search through the existing [Qubes issues] by typing your key words in the
-   **Filters** box. Make sure to check both currently open issues, as well as
-   issues that are already closed. If you find an issue that seems to be similar
-   to yours, read through it. If this issue is the same as yours, you can
-   comment with additional information to help the maintainer debug it. Adding a
-   comment will subscribe you to email notifications, which can be helpful in
-   getting important updates regarding the issue. If you don't have anything to
-   add but still want to receive email updates, you can click the "watch" button
-   at the bottom of the comments.
+ * Search through the existing [Qubes issues][qubes-issues] by typing your key
+   words in the **Filters** box. Make sure to check both currently open issues,
+   as well as issues that are already closed. If you find an issue that seems to
+   be similar to yours, read through it. If this issue is the same as yours, you
+   can comment with additional information to help the maintainer debug it.
+   Adding a comment will subscribe you to email notifications, which can be
+   helpful in getting important updates regarding the issue. If you don't have
+   anything to add but still want to receive email updates, you can click the
+   "watch" button at the bottom of the comments.
 
  * Search through our [mailing list] archives by visiting the Google Groups web
    interfaces for both [qubes-users] and [qubes-devel].
@@ -83,7 +83,7 @@ Please see our guidelines on [how to contribute code].
 [contribute to the Qubes OS Project]: /doc/contributing/
 [documentation]: /doc/
 [qubes-issues]: https://github.com/QubesOS/qubes-issues/issues
-[mailing lists]: https://www.qubes-os.org/mailing-lists/
+[mailing list]: https://www.qubes-os.org/mailing-lists/
 [qubes-users]: https://groups.google.com/group/qubes-users
 [qubes-devel]: https://groups.google.com/group/qubes-devel
 [how to contribute code]: /doc/contributing/#contributing-code
