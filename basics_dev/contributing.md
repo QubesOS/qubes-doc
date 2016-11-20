@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Contributing
+title: Contributing to the Qubes OS Project
 permalink: /doc/contributing/
 redirect_from:
 - /en/doc/contributing/
@@ -8,31 +8,68 @@ redirect_from:
 - /wiki/ContributingHowto/
 ---
 
-How can I contribute to the Qubes Project?
-==========================================
+How to Contribute to the Qubes OS Project
+=========================================
 
-Thank you for your interest in contributing to the Qubes OS project! 
+Thank you for your interest in contributing to Qubes! Here are some of the many
+ways in which you can help:
 
-Following these guidelines helps communicate you respect the time of the developers managing and developing this open source project. In return, they will reciprocate that respect in addressing your issue, assessing changes, and helping you finalize your pull requests.
+* Audit the [source code]
+* [Report security issues]
+* [Send patches] to fix bugs or implement features
+* [Report bugs]
+* Submit [HCL reports] for your hardware
+* Record [video tours]
+* Create [artwork] (plymouth themes, installer themes, wallpapers, etc.)
+* [Write and edit the documentation]
+* [Donate] to the project
+* If you represent an organization, become a [Qubes partner]
+* Answer questions on the [mailing lists]
+* Engage with us on social media:
+  * Follow us on [Twitter]
+  * Join us on [Reddit]
+  * Like us on [Facebook]
+  * Support our [StackExchange] proposal
+* And last but not least, tell your friends and colleagues about how Qubes
+  can help them secure their digital lives!
 
-There are many ways to contribute to the Qubes OS project:
+Contributing Code
+-----------------
 
--   writing turorials or recording video demos
--   testing and [bug reporting](/doc/reporting-bugs/)
--   auditing code
--   requesting or implementing new features
--   creating artwork (plymouth themes, KDM themes, installer themes, wallpapers, etc)
--   writing [documentation](/doc/doc-guidelines)
+If you're interested in contributing code, the best starting point is to have a
+look at our [GitHub issues] to see which tasks are the most urgent. You can
+filter issues depending on your interest and experience. For example, here are
+some common issue labels:
 
-The best starting point is to have a look at the [issues](https://github.com/QubesOS/qubes-issues/issues) to see what are the most urgent tasks to do. You can filter issues depending on your interest and experience, such as:
+* [Help wanted](https://github.com/QubesOS/qubes-issues/issues?page=3&q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22&utf8=%E2%9C%93)
+* [UX and usability](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3AUX)
+* [Windows tools](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+windows+tools%22)
+* [Documentation](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+doc%22)
+* [Privacy](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3A%22privacy%22%20)
+* [Debian](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+Debian%22)
 
-- [help wanted](https://github.com/QubesOS/qubes-issues/issues?page=3&q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22&utf8=%E2%9C%93)
-- [UX and usability](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3AUX)
-- [Windows tools](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+windows+tools%22)
-- [Documentation](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+doc%22)
-- [privacy](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3A%22privacy%22%20)
-- [Debian](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+Debian%22)
+Before you engage in an activity that will take you a significant amount of
+time, e.g. implementing a new feature, it's always good to contact us first,
+preferably via the [qubes-devel] mailing list. Once we've worked out the
+details, we'll add you to our [Community-Developed Feature Tracker].
 
-Before you engage in an activity that will take you a significant amount of time, e.g. implementing a new feature, it's always good to contact us first, preferably via the [qubes-devel](/doc/mailing-lists/) list. When you contact us and devote to a particular task, we will create a ticket for this task with info who is working on this feature and what is the expected date of some early code to be posted.
 
-If you are interested in contributing code, please read how to [access Qubes sources and send patches](/doc/source-code/).
+[source code]: /doc/source-code/
+[Report security issues]: /security/
+[Send patches]: /doc/source-code/#how-to-send-patches
+[Report bugs]: /doc/reporting-bugs/
+[HCL reports]: /doc/hcl/
+[video tours]: /video-tours/
+[artwork]: https://github.com/QubesOS/qubes-artwork
+[Write and edit the documentation]: /doc/doc-guidelines
+[mailing lists]: /mailing-lists/
+[Donate]: /donate/
+[Qubes partner]: /partners/
+[Twitter]: https://twitter.com/QubesOS
+[Reddit]: https://www.reddit.com/r/Qubes/
+[Facebook]: https://www.facebook.com/QubesOS
+[StackExchange]: https://area51.stackexchange.com/proposals/98519/qubes-os
+[GitHub issues]: https://github.com/QubesOS/qubes-issues/issues
+[qubes-devel]: /mailing-lists/#qubes-devel
+[Community-Developed Feature Tracker]: https://www.qubes-os.org/qubes-issues/
+
