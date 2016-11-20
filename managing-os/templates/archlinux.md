@@ -83,12 +83,14 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
     *   dailog
 
     *   rpm-sign
+    
+    *	gnupg
 <br>
 
 
 *   The tools can usually be installed all together with the following terminal command string:
 
-    *   **$ sudo dnf install git createrepo rpm-build make wget rpmdevtools python-sh dialog rpm-sign**
+    *   **$ sudo dnf install git createrepo rpm-build make wget rpmdevtools python-sh dialog rpm-sign gnupg**
 <br>
 <br>
 ![arch-template-04](/attachment/wiki/ArchlinuxTemplate/arch-template-04.png)
