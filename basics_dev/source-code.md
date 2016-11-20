@@ -53,7 +53,7 @@ find . -mindepth 1 -maxdepth 1 -type d -exec git -C {} fetch --tags --recurse-su
 How to Send Patches
 -------------------
 
-If you want to contribute code to the project, there are two ways. Whichever
+If you want to [contribute code] to the project, there are two ways. Whichever
 method you choose, you must [sign your code] before it can be accepted.
 
 *  **Preferred**: Use GitHub's [fork & pull requests].
@@ -81,6 +81,7 @@ method you choose, you must [sign your code] before it can be accepted.
 
 
 [QubesOS GitHub account]: https://github.com/QubesOS/
+[contribute code]: /doc/contributing/#contributing-code
 [sign your code]: /doc/code-signing/
 [fork & pull requests]: https://guides.github.com/activities/forking/
 [qubes-devel mailing list]: /mailing-lists/#qubes-devel
