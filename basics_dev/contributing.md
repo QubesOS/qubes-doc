@@ -16,7 +16,7 @@ ways in which you can help:
 
 * Audit the [source code]
 * [Report security issues]
-* [Send patches] to fix bugs or implement features
+* [Send patches][patch] to fix bugs or implement features
 * [Report bugs]
 * Submit [HCL reports] for your hardware
 * Record [video tours]
@@ -51,12 +51,13 @@ some common issue labels:
 Before you engage in an activity that will take you a significant amount of
 time, e.g. implementing a new feature, it's always good to contact us first,
 preferably via the [qubes-devel] mailing list. Once we've worked out the
-details, we'll add you to our [Community-Developed Feature Tracker].
+details, we'll add you to our [Community-Developed Feature Tracker]. We'll then
+be grateful to [receive your patch][patch].
 
 
 [source code]: /doc/source-code/
 [Report security issues]: /security/
-[Send patches]: /doc/source-code/#how-to-send-patches
+[patch]: /doc/source-code/#how-to-send-patches
 [Report bugs]: /doc/reporting-bugs/
 [HCL reports]: /doc/hcl/
 [video tours]: /video-tours/
