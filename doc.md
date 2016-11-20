@@ -28,6 +28,7 @@ The Basics
  * [Mailing Lists](/mailing-lists/)
  * [Report a Security Issue](/security/)
  * [Report a Bug](/doc/reporting-bugs/)
+ * [How to Contribute](/doc/contributing/)
 
 
 Choosing Your Hardware
@@ -204,13 +205,13 @@ The Basics
  * [Developer FAQ](/doc/devel-faq/)
  * [Report a Security Issue](/security/)
  * [Report a Bug](/doc/reporting-bugs/)
- * [Source Code](/doc/source-code/)
- * [Feature Development Tracker](/qubes-issues/)
  * [How to Contribute](/doc/contributing/)
+ * [Source Code](/doc/source-code/)
+ * [Qubes OS License](/doc/license/)
  * [Coding Guidelines](/doc/coding-style/)
  * [Documentation Guidelines](/doc/doc-guidelines/)
  * [Code Signing](/doc/code-signing/)
- * [Qubes OS License](/doc/license/)
+ * [Feature Development Tracker](/qubes-issues/)
  * [Books for Developers](/doc/devel-books/)
  * [Style Guide](/doc/style-guide/)
  * [Usability & UX](/doc/usability-ux/)
@@ -218,8 +219,7 @@ The Basics
 System
 ------
  * [Qubes OS Architecture Overview](/doc/architecture/)
- * [Qubes OS Architecture Spec v0.3 [PDF]](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf)  
-   (The original 2009 document that started this all...)
+ * [Qubes OS Architecture Spec v0.3 [PDF]](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf)
  * [Security-critical elements of Qubes OS](/doc/security-critical-code/)
  * [Qrexec: command execution in VMs](/doc/qrexec3/)
  * [Qubes GUI virtualization protocol](/doc/gui/)
