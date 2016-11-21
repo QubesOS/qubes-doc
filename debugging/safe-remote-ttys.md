@@ -1,3 +1,12 @@
+---
+layout: doc
+title: Safe Remote Dom0 Terminals
+permalink: /doc/safe-remote-ttys/
+redirect_from:
+- /en/doc/safe-remote-ttys/
+- /doc/safe-remote-ttys/
+---
+
 Safe Remote Dom0 Terminals
 ==========================
 
