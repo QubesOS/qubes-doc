@@ -59,7 +59,7 @@ If you use the serial console as normal (via e.g. getty on ttyX, and logging in 
 Ideally, you would take input from your trusted keyboard, and only send the output over the serial cable via e.g. disabling getty and using:
 
 ~~~
-script -f /dev/tty0
+script -f /dev/ttyS0
 ~~~
 
 You don't even need to connect the TX pin.
