@@ -141,6 +141,12 @@ this for extra security.**
 
           auth sufficient pam_permit.so
 
+    - For Whonix, if prompts appear during boot, create /etc/sudoers.d/zz99 and add two lines:
+
+    ```
+          ALL ALL=NOPASSWD: /usr/sbin/virt-what
+          ALL ALL=NOPASSWD: /usr/sbin/service whonixcheck *
+    ```
 
 Dom0 password-less root access
 ------------------------------
