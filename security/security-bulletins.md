@@ -68,4 +68,5 @@ Qubes Security Bulletins are published through the [Qubes Security Pack](/doc/se
 -   [Qubes Security Bulletin \#24](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-024-2016.txt) (Critical Xen bug in PV memory virtualization code (XSA 182))
 -   [Qubes Security Bulletin \#25](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-025-2016.txt) (Xen bug in event channel handling code (XSA 188))
 -   [Qubes Security Bulletin \#26](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-026-2016.txt) (Colored window border handling bug in Qubes GUI daemon)
+-   [Qubes Security Bulletin \#27](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-027-2016.txt) (Xen 64-bit bit test instruction emulation broken (XSA 195))
 
