@@ -21,7 +21,8 @@ Use your normal keyboard for input, but have the output go to a remote machine i
 
 To do this, we make use of script(1), qvm-run, and optionally your network transport of choice.
 
-### To a different VM ###
+To a different VM
+-----------------
 
 As an example of forwarding terminal output to another VM on the same machine:
 
@@ -31,7 +32,8 @@ $ qvm-run -p some-vm 'xterm -e "cat 0<&5" 5<&0' </tmp/foo >/dev/null 2>&1 &
 $ script -f /tmp/foo
 ~~~
 
-### To a different machine ###
+To a different machine
+----------------------
 
 In this case over SSH (from a network-connected VM):
 
@@ -46,11 +48,13 @@ $ script -f /tmp/foo
 Note that no data received over SSH is ever treated as terminal input in Dom0.
 The input path remains only from your trusted local keyboard.
 
-### Multiple terminals ###
+Multiple terminals
+------------------
 
 For multiple terminals, you may find it easier to just use tmux than to try to blindly switch to the correct window.
 
-### Terminal size ###
+Terminal size
+-------------
 
 It is up to you to ensure the sizes of the local and remote terminal are the same, otherwise things may display incorrectly (especially in interactive programs).
 Depending on your shell, the size of your local (blind) terminal is likely stored in the `$LINES` and `$COLUMNS` variables.
