@@ -17,7 +17,7 @@ redirect_from:
 Qubes Security Pack
 ===================
 
-The **Qubes Security Pack (QSP)** is a Git repository which contains:
+The **Qubes Security Pack** (`qubes-secpack`) is a Git repository that contains:
 
  * [Qubes PGP keys](https://keys.qubes-os.org/keys/)
  * [Qubes Security Bulletins (QSBs)](/doc/security-bulletins/)
@@ -25,17 +25,18 @@ The **Qubes Security Pack (QSP)** is a Git repository which contains:
  * [Qubes Bitcoin fund information](https://github.com/QubesOS/qubes-secpack/tree/master/fund)
  * Security-related information and announcements (e.g., key revocations)
 
-The official location of the QSP is:
+While `qubes-secpack` itself is independent of any particular host, its current
+official location is:
 
-`https://github.com/QubesOS/qubes-secpack`
-[(link)](https://github.com/QubesOS/qubes-secpack)
+<https://github.com/QubesOS/qubes-secpack>
 
 
 History and Rationale
 ---------------------
 
-On 2013-01-05, Joanna Rutkowska announced the QSP and explained its rationale in
-an [email](https://groups.google.com/d/msg/qubes-devel/twkOEaMLtNI/lZyGx6_jFCEJ)
+On 2013-01-05, Joanna Rutkowska announced the `qubes-secpack` and explained its
+rationale in an
+[email](https://groups.google.com/d/msg/qubes-devel/twkOEaMLtNI/lZyGx6_jFCEJ)
 to the Qubes mailing lists:
 
     Hello,
@@ -128,10 +129,10 @@ to the Qubes mailing lists:
 How to Obtain, Verify, and Read
 -------------------------------
 
-The following example demonstrates one method of obtaining the QSP, verifying
-its contents, and reading them.
+The following example demonstrates one method of obtaining the `qubes-secpack`,
+verifying its contents, and reading them.
 
- 1. Clone the QSP repo.
+ 1. Clone the `qubes-secpack` repo.
 
         $ git clone https://github.com/QubesOS/qubes-secpack.git
         Cloning into 'qubes-secpack'...
@@ -251,9 +252,9 @@ its contents, and reading them.
     (The fourth and final lines of output confirm that the two signatures are
     good.)
 
-The same procedures can be applied to any directory or file in the QSP. Two
-methods of verification (signed Git tags and deatched PGP signatures) are
-provided to ensure that the system is robust (e.g., against a potential failure
-in Git tag-based verification) and to give users more options to verify the
-files.
+The same procedures can be applied to any directory or file in the
+`qubes-secpack`. Two methods of verification (signed Git tags and deatched PGP
+signatures) are provided to ensure that the system is robust (e.g., against a
+potential failure in Git tag-based verification) and to give users more options
+to verify the files.
 
