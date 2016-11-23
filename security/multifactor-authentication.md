@@ -67,24 +67,24 @@ Optional Preparation Steps
     [minimal Fedora template][FedoraMinimal]. Get it if you haven't already done
     so:
 
-        [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-21-minimal
+        [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-24-minimal
 
  2. Since we'll be making some modifications, you may want to clone the minimal
     template:
 
-        [user@dom0 ~]$ qvm-clone fedora-21-minimal fedora-21-min-mfa
+        [user@dom0 ~]$ qvm-clone fedora-24-minimal fedora-24-min-mfa
 
  3. Since this is going to be a minimal environment in which we run `oathtool`
     from the command line, we'll install only a couple of packages:
 
-        [user@fedora-21-min-mfa ~]$ su -
-        [user@fedora-21-min-mfa ~]# yum install oathtool vim-minimal
-        [user@fedora-21-min-mfa ~]$ poweroff
+        [user@fedora-24-min-mfa ~]$ su -
+        [user@fedora-24-min-mfa ~]# yum install oathtool vim-minimal
+        [user@fedora-24-min-mfa ~]$ poweroff
 
  4. Create an AppVM and set it to use the TemplateVM we just created:
 
         [user@dom0 ~]$ qvm-create -l black mfa
-        [user@dom0 ~]$ qvm-prefs -s mfa template fedora-21-min-mfa
+        [user@dom0 ~]$ qvm-prefs -s mfa template fedora-24-min-mfa
 
  5. Isolate the new AppVM from the network:
 
