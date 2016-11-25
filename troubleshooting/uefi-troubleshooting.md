@@ -67,7 +67,7 @@ Some Dell systems and probably others have [another bug in UEFI firmware](http:/
 4. Go to `tty2` (Ctrl-Alt-F2).
 5. Execute:
 
-        sed -i -e 's/^options=.*/\0 efi=attr=uc' /mnt/sysimage/boot/efi/qubes/xen.cfg
+        sed -i -e 's/^options=.*/\0 efi=attr=uc/' /mnt/sysimage/boot/efi/qubes/xen.cfg
 
 6. Now you can reboot the system by issuing `reboot` command.
 
