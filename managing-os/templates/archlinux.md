@@ -100,9 +100,9 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 
 ##### **4:   Installing the "Qubes Automated Build System":** #####
 
-*   To get the most current build system its best to use marmarek's git repository.
+*   Download the latest stable qubes-builder repository:
 
-    *   $ **git clone https://github.com/marmarek/qubes-builder.git**
+    *   $ **git clone https://github.com/QubesOS/qubes-builder.git**
 <br>
 <br>
 ![arch-template-05](/attachment/wiki/ArchlinuxTemplate/arch-template-05.png)
