@@ -30,6 +30,14 @@ The Basics
  * [Report a Bug](/doc/reporting-bugs/)
  * [How to Contribute](/doc/contributing/)
 
+Security Information
+--------------------
+ * [Security Main Page](/security/)
+ * [Security Pack](/doc/security-pack/)
+ * [Security Bulletins](/doc/security-bulletins/)
+ * [Canaries](/doc/canaries/)
+ * [Why and How to Verify Signatures](/doc/verifying-signatures/)
+ * [Qubes PGP Keys](http://keys.qubes-os.org/keys/)
 
 Choosing Your Hardware
 ----------------------
@@ -215,6 +223,18 @@ The Basics
  * [Books for Developers](/doc/devel-books/)
  * [Style Guide](/doc/style-guide/)
  * [Usability & UX](/doc/usability-ux/)
+
+Security Information
+--------------------
+ * [Security Main Page](/security/)
+ * [Security Goals](/doc/security-goals/)
+ * [Security Pack](/doc/security-pack/)
+ * [Security Bulletins](/doc/security-bulletins/)
+ * [Security Bulletin Checklist](/doc/security-bulletins/checklist/)
+ * [Security Bulletin Template](/doc/security-bulletins/template/)
+ * [Canaries](/doc/canaries/)
+ * [Why and How to Verify Signatures](/doc/verifying-signatures/)
+ * [Qubes PGP Keys](http://keys.qubes-os.org/keys/)
 
 System
 ------
