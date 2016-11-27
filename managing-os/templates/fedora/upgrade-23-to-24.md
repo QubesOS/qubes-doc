@@ -47,18 +47,32 @@ template based on the standard Fedora 23 template.
         [user@dom0 ~]$ qvm-clone fedora-23 fedora-24
         [user@dom0 ~]$ qvm-run -a fedora-24 gnome-terminal
 
- 2. Attempt the upgrade process in the new template.
+ 3. Attempt the upgrade process in the new template.
 
         [user@fedora-24 ~]$ sudo dnf clean all
         [user@fedora-24 ~]$ sudo dnf --releasever=24 distro-sync
 
- 3. Shutdown the new TemplateVM via dom0 command line or Qubes VM Manager;
+    **Note:** `dnf` might ask you to approve importing a new package signing
+    key. For example, you might see a prompt like this one:
+
+        warning: /var/cache/dnf/fedora-d02ca361e1b58501/packages/python2-babel-2.3.4-1.fc24.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID 81b46521: NOKEY
+        Importing GPG key 0x81B46521:
+         Userid     : "Fedora (24) <fedora-24-primary@fedoraproject.org>"
+         Fingerprint: 5048 BDBB A5E7 76E5 47B0 9CCC 73BD E983 81B4 6521
+         From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-24-x86_64
+        Is this ok [y/N]:
+
+    This key was already checked when it was installed (notice that the "From"
+    line refers to a location on your local disk), so you can safely say yes to
+    this prompt.
+
+ 4. Shutdown the new TemplateVM via dom0 command line or Qubes VM Manager;
 
         [user@dom0 ~]$ qvm-shutdown fedora-24
         
     If you encounter no errors, proceed to step 7.
 
- 4. If `dnf` reports that you do not have enough free disk space to proceed with
+ 5. If `dnf` reports that you do not have enough free disk space to proceed with
     the upgrade process, create an empty file in dom0 to use as a cache and
     attach it to the template as a virtual disk.
 
@@ -75,7 +89,7 @@ template based on the standard Fedora 23 template.
 
     (Poweroff via Qubes VM Manager. May need to be killed.)
 
- 5. `dnf` may complain:
+ 6. `dnf` may complain:
 
         At least X MB more space needed on the / filesystem.
 
@@ -83,17 +97,17 @@ template based on the standard Fedora 23 template.
     image](/doc/ResizeDiskImage/) before reattempting the upgrade process. 
     (See **Additional Information** below for other options.)
 
- 6. After the upgrade process is finished, remove the cache file, if you
+ 7. After the upgrade process is finished, remove the cache file, if you
     created one.
 
         [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
 
- 7. Trim the new template (see **Compacting the Upgraded Template** for details
+ 8. Trim the new template (see **Compacting the Upgraded Template** for details
     and other options).
 
         [user@dom0 ~]$ qvm-trim-template fedora-24
 
- 8. (Optional) Remove the old default template.
+ 9. (Optional) Remove the old default template.
 
         [user@dom0 ~]$ sudo dnf remove qubes-template-fedora-23
 
