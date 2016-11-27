@@ -1,8 +1,9 @@
 ---
 layout: doc
-title: Upgrading the Fedora 23 Template
-permalink: /doc/fedora-template-upgrade-23/
+title: Upgrading the Fedora 23 Template to Fedora 24
+permalink: /doc/template/fedora/upgrade-23-to-24/
 redirect_from:
+- /doc/fedora-template-upgrade-23/
 - /en/doc/fedora-template-upgrade-23/
 - /doc/FedoraTemplateUpgrade23/
 - /wiki/FedoraTemplateUpgrade23/

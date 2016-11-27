@@ -1,8 +1,9 @@
 ---
 layout: doc
-title: Upgrading the Fedora 21 Template
-permalink: /doc/fedora-template-upgrade-21/
+title: Upgrading the Fedora 21 Template to Fedora 23
+permalink: /doc/template/fedora/upgrade-21-to-23/
 redirect_from:
+- /doc/fedora-template-upgrade-21/
 - /en/doc/fedora-template-upgrade-21/
 - /doc/FedoraTemplateUpgrade21/
 - /wiki/FedoraTemplateUpgrade21/

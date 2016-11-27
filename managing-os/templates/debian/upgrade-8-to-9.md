@@ -1,8 +1,9 @@
 ---
 layout: doc
-title: Upgrading the Debian 8 Template
-permalink: /doc/debian-template-upgrade-8/
+title: Upgrading the Debian 8 Template to Debian 9
+permalink: /doc/template/debian/upgrade-8-to-9/
 redirect_from:
+- /doc/debian-template-upgrade-8/
 - /en/doc/debian-template-upgrade-8/
 - /doc/DebianTemplateUpgrade8/
 - /wiki/DebianTemplateUpgrade8/
