@@ -14,7 +14,9 @@ Upgrading the Debian 8 Template
 
 Disclaimer: Debian 9 (Stretch) is marked testing for a reason. You may notice stability problems when using it.
 
-Summary: Upgrading the Standard Debian 8 Template to Debian 9
+Please note that if you installed packages from one of the testing repositories you must make sure that the repository is enabled in /etc/apt/sources.list.d/qubes-r3.list before attempting the upgrade. Otherwise your upgrade will [break](https://github.com/QubesOS/qubes-issues/issues/2418)
+
+Summary: Upgrading a Debian 8 Template to Debian 9
 -------------------------------------------------------------
 
         [user@dom0 ~]$ qvm-clone debian-8 debian-9
