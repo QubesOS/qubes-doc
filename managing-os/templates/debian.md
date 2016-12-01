@@ -34,13 +34,9 @@ Debian 7 (wheezy) - old stable:
 
     [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-7
 
-(The download will take a while, and there will be no progress indicator.)
-
 Debian 8 (jessie) - stable:
 
     [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-8
-
-(The download will take a while, and there will be no progress indicator.)
 
 Debian 9 (stretch) - testing:
 
