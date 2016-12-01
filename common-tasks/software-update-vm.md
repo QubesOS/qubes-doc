@@ -11,20 +11,20 @@ redirect_from:
 Installing and updating software in VMs
 =======================================
 
-How Template VM works in Qubes
+How TemplateVMs work in Qubes
 ------------------------------
 
-Most of the AppVMs (domains) are based on a *template VM*, which means that their root filesystem (i.e. all the programs and system files) is based on the root filesystem of the corresponding template VM. This dramatically saves disk space, because each new AppVM needs disk space only for storing the user's files (i.e. the home directory). Of course the AppVM has only read-access to the template's filesystem -- it cannot modify it in any way.
+Most of the AppVMs (domains) are based on a *TemplateVM*, which means that their root filesystem (i.e. all the programs and system files) is based on the root filesystem of the corresponding template VM. This dramatically saves disk space, because each new AppVM needs disk space only for storing the user's files (i.e. the home directory). Of course the AppVM has only read-access to the template's filesystem -- it cannot modify it in any way.
 
 In addition to saving on the disk space, and reducing domain creation time, another advantage of such scheme is the possibility for centralized software update. It's just enough to do the update in the template VM, and then all the AppVMs based on this template get updates automatically after they are restarted.
 
 The default template is called **fedora-14-x64** in Qubes R1 and **fedora-20-x64** in Qubes R2.
 
-The side effect of this mechanism is, of course, that if you install any software in your AppVM, more specifically in any directory other than `/home` or `/usr/local` then it will disappear after the AppVM reboot (as the root filesystem for this AppVM will again be "taken" from the Template VM). **This means one normally install software in the Template VM, not in AppVMs.**
+The side effect of this mechanism is, of course, that if you install any software in your AppVM, more specifically in any directory other than `/home` or `/usr/local` then it will disappear after the AppVM reboot (as the root filesystem for this AppVM will again be "taken" from the TemplateVM). **This means one normally install software in the TemplateVM, not in AppVMs.**
 
 Unlike VM private filesystems, the template VM root filesystem does not support discard, so deleting files does not free the space in dom0. See [these instructions](/doc/template/fedora/upgrade-23-to-24/#compacting-the-upgraded-template) to recover space in dom0.
 
-Installing (or updating) software in the template VM
+Installing (or updating) software in the TemplateVM
 ----------------------------------------------------
 
 In order to permanently install new software, you should:
@@ -92,10 +92,10 @@ For example, to revert changes to the `fedora-23` TemplateVM:
 For the technical details about how this command works and the steps it
 performs, see [here](/doc/template-implementation/#rollback-template-changes).
 
-Notes on trusting your Template VM(s)
+Notes on trusting your TemplateVM(s)
 -------------------------------------
 
-As the template VM is used for creating filesystems for other AppVMs, where you actually do the work, it means that the template VM is as trusted as the most trusted AppVM based on this template. In other words, if your template VM gets compromised, e.g. because you installed an application, whose *installer's scripts* were malicious, then *all* your AppVMs (based on this template) will inherit this compromise.
+As the TemplateVM is used for creating filesystems for other AppVMs, where you actually do the work, it means that the TemplateVM is as trusted as the most trusted AppVM based on this template. In other words, if your template VM gets compromised, e.g. because you installed an application, whose *installer's scripts* were malicious, then *all* your AppVMs (based on this template) will inherit this compromise.
 
 There are several ways to deal with this problem:
 
