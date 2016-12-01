@@ -29,7 +29,8 @@ Summary: Upgrading the Standard Fedora 23 Template to Fedora 24
         [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
         [user@dom0 ~]$ qvm-trim-template fedora-24
 
-    (Done.)
+(Optional cleanup: Switch everything over to the new template and delete the old one. See instructions below for details.)
+
 
 Detailed: Upgrading the Standard Fedora 23 Template to Fedora 24
 ----------------------------------------------------------------
@@ -106,6 +107,13 @@ template based on the standard Fedora 23 template.
     and other options).
 
         [user@dom0 ~]$ qvm-trim-template fedora-24
+
+ 9. (Optional) Switch everything that was set to the old template to the new
+    template, e.g.:
+
+     * The "default template" setting in Qubes Manager
+     * AppVMs based on the old template
+     * The [DispVM](/doc/dispvm/) template
 
  9. (Optional) Remove the old default template.
 
