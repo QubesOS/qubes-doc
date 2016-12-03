@@ -29,7 +29,8 @@ Summary: Upgrading the Standard Fedora 23 Template to Fedora 24
         [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
         [user@dom0 ~]$ qvm-trim-template fedora-24
 
-(Optional cleanup: Switch everything over to the new template and delete the old one. See instructions below for details.)
+(Optional cleanup: Switch everything over to the new template and delete the old
+one. See instructions below for details.)
 
 
 Detailed: Upgrading the Standard Fedora 23 Template to Fedora 24
@@ -111,11 +112,15 @@ template based on the standard Fedora 23 template.
  9. (Optional) Switch everything that was set to the old template to the new
     template, e.g.:
 
-     * The "default template" setting in Qubes Manager
-     * AppVMs based on the old template
-     * The [DispVM](/doc/dispvm/) template
+     1. Make the new template the default template
+        (Qubes Manager --> Global settings --> Default template)
+     2. Base AppVMs on the new template
+        (Qubes Manager --> VM settings --> Template)
+     3. Base the [DispVM](/doc/dispvm/) template on the new template
+        (From dom0, issue `qvm-create-default-dvm --default-template` or
+        `qvm-create-default-dvm <new-template-name>`.)
 
- 9. (Optional) Remove the old default template.
+ 10. (Optional) Remove the old default template.
 
         [user@dom0 ~]$ sudo dnf remove qubes-template-fedora-23
 
