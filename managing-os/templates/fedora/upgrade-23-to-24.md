@@ -118,7 +118,7 @@ template based on the standard Fedora 23 template.
         (Qubes Manager --> VM settings --> Template)
      3. Base the [DispVM](/doc/dispvm/) template on the new template
         (From dom0, issue `qvm-create-default-dvm --default-template` or
-        `qvm-create-default-dvm <new-template-name>`.)
+        `qvm-create-default-dvm fedora-24`.)
 
  10. (Optional) Remove the old default template.
 
