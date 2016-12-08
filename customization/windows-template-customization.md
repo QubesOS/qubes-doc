@@ -132,6 +132,7 @@ Manual tasks that can/should be started in the template
     2. Enable all the task and run the cleaner
 
  * Secure Disk Erasure
+ 
     List of Disk Erasing Software: https://en.wikipedia.org/wiki/List_of_data-erasing_software
 
  * TemplateVM stripping
