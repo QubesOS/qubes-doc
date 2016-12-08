@@ -131,17 +131,14 @@ Manual tasks that can/should be started in the template
     1. Run Windows Disk Cleanup as Administrator.
     2. Enable all the task and run the cleaner
 
- * BleachBit
-    1. Install BleachBit (http://bleachbit.sourceforge.net/download)
-    2. Run BleachBit with 'Free disk space' checked.
- 
-        It will write zeros in all unused space. This will allow you to strip the root.img file later
+ * Secure Disk Erasure
+    List of Disk Erasing Software: https://en.wikipedia.org/wiki/List_of_data-erasing_software
 
  * TemplateVM stripping
 
     Ensure that you know what you are doing in this section as you may destroy by error your template root.img file.
 
-    * If you ran BleachBit with "Free disk space", follow the following procedure
+    * Use disk erasing software (list above) to fill free disk space with zeros. (Both CCleaner and BleachBit have been tested.)
 
         1. from dom0, go to /var/lib/templates-vm/yourtemplate
 
