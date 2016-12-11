@@ -132,6 +132,21 @@ Source Code management (Git) guidelines
     -   Code repositories represent also licensing boundaries. So, e.g. because `core-agent-linux` and `core-agent-windows` are maintained in two different repositories, it is possible to have the latter under a proprietary, non-GPL license, while keeping the former fully open source.
     -   We have drastically changes the layout and naming of the code repositories shortly after Qubes OS R2 Beta 2 release. For details on the current code layout, please read [this article](http://theinvisiblethings.blogspot.com/2013/03/introducing-qubes-odyssey-framework.html).
 
+Commit message guidelines
+-------------------------
+
+Please attempt to follow these conventions when writing your Git commit messages:
+
+ * Separate the subject line from the body with a blank line.
+ * Limit the subject line to approximately 50 characters.
+ * Capitalize the subject line.
+ * Do not end the subject line with a period.
+ * Use the imperative mood in the subject line.
+ * Wrap the body at 72 characters.
+ * Use the body to explain *what* and *why* rather than *how*.
+
+For details, examples, and the rationale behind each of these conventions, please see [this blog post](http://chris.beams.io/posts/git-commit/), which is the source of this list.
+
 Security coding guidelines
 --------------------------
 
