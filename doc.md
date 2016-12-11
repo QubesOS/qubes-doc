@@ -187,6 +187,7 @@ Troubleshooting
  * [Apple MacBook Troubleshooting](/doc/macbook-troubleshooting/)
  * [Getting Sony Vaio Z laptop to work with Qubes](/doc/sony-vaio-tinkering/)
  * [Troubleshooting UEFI related problems](/doc/uefi-troubleshooting/)
+ * [Fixing wireless on suspend & resume](/doc/wireless-troubleshooting/)
 
 
 Reference Pages
