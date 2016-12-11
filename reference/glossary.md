@@ -170,6 +170,12 @@ TemplateBasedHVM
 Any [HVM](#hvm) that depends on a [TemplateVM](#templatevm) for its root
 filesystem. 
 
+ServiceVM
+---------
+Service Virtual Machine. A [VM](#vm) the primary purpose of which is to provide
+a service or services to other VMs. NetVMs and ProxyVMs are examples of
+ServiceVMs.
+
 PVHVM
 -----
 [PV](#pv) on [HVM](#hvm). To boost performance, fully virtualized HVM guests can
