@@ -80,7 +80,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 
     *   python-sh
 
-    *   dailog
+    *   dialog
 
     *   rpm-sign
     
