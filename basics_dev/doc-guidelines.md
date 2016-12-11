@@ -141,19 +141,8 @@ making contributions, please try to observe the following style conventions:
 Git Conventions
 ---------------
 
-Please attempt to follow these conventions when writing your Git commit
-messages:
-
- * Separate the subject line from the body with a blank line.
- * Limit the subject line to approximately 50 characters.
- * Capitalize the subject line.
- * Do not end the subject line with a period.
- * Use the imperative mood in the subject line.
- * Wrap the body at 72 characters.
- * Use the body to explain *what* and *why* rather than *how*.
-
-For details, examples, and the rationale behind each of these conventions,
-please see [this blog post][git-commit], which is the source of this list.
+Please try to write good commit messages, according to the
+[instructions in our coding style guidelines][git-commit].
 
 
 [qubes-doc]: https://github.com/QubesOS/qubes-doc
@@ -165,4 +154,4 @@ please see [this blog post][git-commit], which is the source of this list.
 [gh-pull]: https://help.github.com/articles/using-pull-requests/
 [GitHub]: https://github.com/
 [md]: https://daringfireball.net/projects/markdown/
-[git-commit]: http://chris.beams.io/posts/git-commit/
+[git-commit]: /doc/coding-style/#commit-message-guidelines
