@@ -247,6 +247,7 @@ System
  * [Qubes GUI virtualization protocol](/doc/gui/)
  * [Networking in Qubes](/doc/networking/)
  * [Implementation of template sharing and updating](/doc/template-implementation/)
+ * [Storage Pools](/doc/storage-pools/)
 
 Services
 --------
