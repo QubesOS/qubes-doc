@@ -25,4 +25,5 @@ Qubes Canaries are published through the [Qubes Security Pack](/doc/security-pac
 -   [Qubes Canary \#7](https://github.com/QubesOS/qubes-secpack/blob/master/canaries/canary-007-2016.txt)
 -   [Qubes Canary \#8](https://github.com/QubesOS/qubes-secpack/blob/master/canaries/canary-008-2016.txt)
 -   [Qubes Canary \#9](https://github.com/QubesOS/qubes-secpack/blob/master/canaries/canary-009-2016.txt)
+-   [Qubes Canary \#10](https://github.com/QubesOS/qubes-secpack/blob/master/canaries/canary-010-2016.txt)
 
