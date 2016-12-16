@@ -32,8 +32,8 @@ Write the settings to a new file in the `/etc/NetworkManager/conf.d/` directory,
 wifi.scan-rand-mac-address=yes
 
 [connection]
-wifi.assigned-mac-address=stable
-ethernet.assigned-mac-address=stable
+wifi.cloned-mac-address=stable
+ethernet.cloned-mac-address=stable
 ~~~
 
 `stable` generates a random address that persists for each boot session.
