@@ -79,9 +79,15 @@ VM: {
 Currently supported settings:
 
 -   `allow_fullscreen` - allow VM to request its windows to go 
-fullscreen (without any colorful frame). Regardless of this setting, 
-you can also set window fullscreen using trusted window manager 
-settings (right click on title bar).
+fullscreen (without any colorful frame).
+
+    **Note:** Regardless of this setting, you can always put a window into
+fullscreen mode in Xfce4 using the trusted window manager by right-clicking on
+a window's title bar and selecting "Fullscreen". This functionality should still
+be considered safe, since a VM window still can't voluntarily enter fullscreen
+mode. The user must select this option from the trusted window manager in dom0.
+To exit fullscreen mode from here, press `alt` + `space` to bring up the title
+bar menu again, then select "Leave Fullscreen".
 
 -   `allow_utf8_titles` - allow to use UTF-8 in window titles, 
 otherwise non-ASCII characters are replaced by underscore.
