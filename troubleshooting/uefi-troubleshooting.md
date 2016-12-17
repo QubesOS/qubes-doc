@@ -73,3 +73,15 @@ Some Dell systems and probably others have [another bug in UEFI firmware](http:/
 
 * * *
 <b name="f1">1</b> If you use rEFInd, you can see 3 options regarding the USB installer. Choose "Fallback Boot Loader" to enter the GRUB menu. [↩](#a1-1) [↩](#a1-2)
+
+
+Boot device not recognized after installing
+------------------------------------------
+
+Some firmware will not recognize the default Qubes EFI configuration. As such,
+it will have to be manually edited to be bootable (this will need to be done after
+every kernel and Xen update.)
+
+1. Copy /boot/efi/EFI/qubes/ to /boot/efi/EFI/BOOT/
+2. Rename /boot/efi/EFI/BOOT/xen.efi to /boot/efi/EFI/BOOT/BOOTX64.efi
+3. Rename /boot/efi/EFI/BOOT/xen.cfg to /boot/efi/EFI/BOOT/BOOTX64.cfg
