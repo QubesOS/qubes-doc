@@ -82,6 +82,6 @@ Some firmware will not recognize the default Qubes EFI configuration. As such,
 it will have to be manually edited to be bootable (this will need to be done after
 every kernel and Xen update.)
 
-1. Copy /boot/efi/EFI/qubes/ to /boot/efi/EFI/BOOT/
-2. Rename /boot/efi/EFI/BOOT/xen.efi to /boot/efi/EFI/BOOT/BOOTX64.efi
-3. Rename /boot/efi/EFI/BOOT/xen.cfg to /boot/efi/EFI/BOOT/BOOTX64.cfg
+1. Copy `/boot/efi/EFI/qubes/` to `/boot/efi/EFI/BOOT/`.
+2. Rename `/boot/efi/EFI/BOOT/xen.efi` to `/boot/efi/EFI/BOOT/BOOTX64.efi`.
+3. Rename `/boot/efi/EFI/BOOT/xen.cfg` to `/boot/efi/EFI/BOOT/BOOTX64.cfg`.
