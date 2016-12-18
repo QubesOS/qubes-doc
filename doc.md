@@ -66,7 +66,7 @@ Common Tasks
 
  * [Copying and Pasting Text Between Domains](/doc/copy-paste/)
  * [Copying and Moving Files Between Domains](/doc/copying-files/)
- * [Copying Files to and from dom0](/doc/copy-to-dom0/)
+ * [Copying from (and to) dom0](/doc/copy-from-dom0/)
  * [Updating Software in dom0](/doc/software-update-dom0/)
  * [Updating and Installing Software in VMs](/doc/software-update-vm/)
  * [Backup, Restoration, and Migration](/doc/backup-restore/)
