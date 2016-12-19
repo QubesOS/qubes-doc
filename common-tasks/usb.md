@@ -220,7 +220,7 @@ directly to dom0.
 2. In Qubes Manager, right-click on the USB qube and select "Remove VM."
 3. Open the file `/etc/default/grub` in dom0.
 4. Find the line(s) that begins with `GRUB_CMDLINE_LINUX`.
-5. Remove `rd.qubes.hide_all_usb` from those line.
+5. If `rd.qubes.hide_all_usb` appears anywhere in those lines, remove it.
 6. Save and close the file.
 7. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
 8. Reboot.
