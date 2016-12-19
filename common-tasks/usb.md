@@ -209,7 +209,25 @@ Alternatively, you can create a USB qube manually as follows:
 
 If the USB qube will not start, see [here][faq-usbvm].
 
-### Hide all USB controllers from dom0 ###
+
+Removing a USB qube
+-------------------
+
+**Warning:** This procedure will result in your USB controller(s) being attached
+directly to dom0.
+
+1. Shut down the USB qube.
+2. In Qubes Manager, right-click on the USB qube and select "Remove VM."
+3. Open the file `/etc/default/grub` in dom0.
+4. Find the line(s) that begins with `GRUB_CMDLINE_LINUX`.
+5. Remove `rd.qubes.hide_all_usb` from those line.
+6. Save and close the file.
+7. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
+8. Reboot.
+
+
+How to hide all USB controllers from dom0
+-----------------------------------------
 
 Even if you create a USB qube, there will be a brief period of time during the
 boot process during which dom0 will be exposed to your USB controllers (and any
@@ -282,7 +300,7 @@ Add a line like this one to the top of the file:
 You can now use your USB keyboard.
 
 Attaching a single USB device to a qube (USB passthrough)
-------------------------------------------------
+---------------------------------------------------------
 
 Stating with Qubes 3.2, it is possible to attach a single USB device to any
 Qube. While this is useful feature, it should be used with care, because there
