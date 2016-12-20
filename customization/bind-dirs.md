@@ -43,7 +43,7 @@ bind-dirs.sh works with Qubes R3.2 and above.
 
 ## Limitations ##
 
-* Files that exist in the TempalteVM root image cannot be made deleted in the TemlateBasedVMs root image using bind-dirs.sh.
+* Files that exist in the TemplateVM root image cannot be made deleted in the TemplateBasedVMs root image using bind-dirs.sh.
 * Does not work if the file / folder in question does not already exist in the root image. I.e. a file that does not exist in the root image cannot be bind mounted in the TemplateBasedVM.
 * Re-running `sudo /usr/lib/qubes/bind-dirs.sh` without previous `sudo /usr/lib/qubes/bind-dirs.sh umount` does not work.
 * Running 'sudo /usr/lib/qubes/bind-dirs.sh umount' after boot (before shutdown) is probably not sane and nothing can be done about that.
