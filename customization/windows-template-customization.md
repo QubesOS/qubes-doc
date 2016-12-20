@@ -47,7 +47,6 @@ Disable the following services that are not required or have no sense in a VM co
  * Volume Shadow Copy (see next note in the performance section)
  * Windows defender
  * Windows Firewall
- * Power
 
 *Notes*: IP Helper is required as it is used by Qubes Agent to configure the IP address.
 
@@ -107,20 +106,24 @@ If you remove these tasks they may be recreated automatically by various windows
  * SystemRestore: All
  * WindowsBackup: All
 
-Disable hibernation
-------------------------------
+Power options
+-------------
 
-and clean hyberfil.sys
+First, enable the "Power" Windows service. Then, set all of the following:
 
- 1. Ensure that you disabled the Power service (you may need to reboot so that the Power service is effectively stopped).
+ * Put the computer to sleep: `Never`
+ * Turn the display off: `Never`
+ * Turn off hard disk after: Setting (Minutes): `0`
 
- 2. Run a cmd.exe as an administrator:
-    > powercfg -h off
+Turn off hibernation. Open a command prompt (`cmd.exe`) as an administrator,
+then execute:
 
-C:\hyberfil.sys should now be deleted
+    powercfg -h off
+
+The hibernation file (`C:\hyberfil.sys`) should now be deleted.
 
 Manual tasks that can/should be started in the template
-===================================
+-------------------------------------------------------
 
  * Disk defragmentation
 
