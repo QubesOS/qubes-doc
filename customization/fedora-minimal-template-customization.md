@@ -139,7 +139,7 @@ Managing GUI theme / appearance is often complex because when you do not want to
 
 For this reason, we need to customize themes for each GUI framework that our application depends on.
 
-This often includes GTK2, GTK3 (which us a different configuration/themes than GTK2), QT.
+This often includes GTK2, GTK3 (which us a different configuration/themes than GTK2), Qt.
 
 The apparance of Windows can only be changed in dom0, however, the appearance of all buttons, menus, icons, widgets are specific to each AppVM.
 
@@ -189,7 +189,7 @@ The following programs can be used to see if theme has been correctly applied:
 
 * GTK2 program: scite, thunderbird, firefox
 * GTK3 program: lxterminal
-* QT program: keepassx
+* Qt program: keepassx
 
 *Note*: testing in a TemplateVM will not work as expected because gnome-settings-daemon is not started in TemplateVM.
              so test your themes in an AppVM and then update the TemplateVM accordingly.
@@ -251,9 +251,9 @@ Edit/Create the following file: /etc/dconf/db/qubes.d/locks/theme.lock:
 Finally, regenerate the dconf database
 > dconf update
 
-### Uniform look for QT & GTK
+### Uniform look for Qt & GTK
 
-Getting an uniform look for QT & GTK is not achieved yet. A good source is on the following link [UNIFORMTHEME]
+Getting an uniform look for Qt & GTK is not achieved yet. A good source is on the following link [UNIFORMTHEME]
 
 Two case:
 
@@ -265,7 +265,7 @@ Two case:
     You can verify if it is enabled by searching for "style=GTK+" in /etc/xdg/Trolltech.conf.
     If style is changed to another name, it will be used instead of your GTK theme.
 
-*Note*: check that ~/.config/Trolltech.conf in your AppVMs is not defining another "style=" because it will take precedence over your global QT theme.
+*Note*: check that ~/.config/Trolltech.conf in your AppVMs is not defining another "style=" because it will take precedence over your global Qt theme.
 
 
 [3GMODEM]: https://www.codeenigma.com/community/blog/installing-3g-usb-modems-linux
