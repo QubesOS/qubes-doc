@@ -26,7 +26,6 @@ Only keep:
 *Note*: Windows search is recommended because it is a nightmare to find something in menus if it is not enabled (it removes the search bar from the start menu, from the explorer, and from the control panel).
 
 *Note*: Unselecting windows media, .Net and Internet Explorer will uninstall these components. on a new install it is generally old versions anyway and it will be quicker to install directly the new versions later.
-Services
 
 Windows services
 ---------------------------
