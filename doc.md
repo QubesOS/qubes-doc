@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: doc-index
 title: Documentation
 permalink: /doc/
 redirect_from:
@@ -19,15 +19,12 @@ User Documentation
 
 The Basics
 ----------
-
  * [What is Qubes OS?](/intro/)
  * [Video Tours](/video-tours/)
  * [Screenshots](/screenshots/)
  * [Getting Started](/getting-started/)
  * [User FAQ](/doc/user-faq/)
  * [Mailing Lists](/mailing-lists/)
- * [Report a Security Issue](/security/)
- * [Report a Bug](/doc/reporting-bugs/)
  * [How to Contribute](/doc/contributing/)
 
 Security Information
@@ -41,7 +38,6 @@ Security Information
 
 Choosing Your Hardware
 ----------------------
-
  * [System Requirements](/doc/system-requirements/)
  * [Hardware Compatibility List (HCL)](/hcl/)
  * [Qubes-Certified Laptops](/doc/certified-laptops/)
@@ -50,7 +46,6 @@ Choosing Your Hardware
 
 Installing & Upgrading Qubes
 ----------------------------
-
  * [Qubes Downloads](/downloads/)
  * [Installation Guide](/doc/installation-guide/)
  * [Upgrade Guides](/doc/upgrade/)
@@ -63,7 +58,6 @@ Installing & Upgrading Qubes
 
 Common Tasks
 ------------
-
  * [Copying and Pasting Text Between Domains](/doc/copy-paste/)
  * [Copying and Moving Files Between Domains](/doc/copying-files/)
  * [Copying from (and to) dom0](/doc/copy-from-dom0/)
@@ -79,7 +73,6 @@ Common Tasks
 
 Managing Operating Systems within Qubes
 ---------------------------------------
-
  * [TemplateVMs](/doc/templates/)
  * [Templates: Fedora](/doc/templates/fedora/)
  * [Templates: Fedora Minimal](/doc/templates/fedora-minimal/)
@@ -108,7 +101,6 @@ Managing Operating Systems within Qubes
 
 Security Guides
 ---------------
-
  * [Qubes OS Project Security Information](/security/)
  * [Security Guidelines](/doc/security-guidelines/)
  * [Understanding Qubes Firewall](/doc/firewall/)
@@ -124,7 +116,6 @@ Security Guides
 
 Privacy Guides
 --------------
-
  * [Whonix for Privacy & Anonymity](/doc/whonix/)
  * [Running Tails in Qubes](/doc/tails/)
  * [Anonymizing your MAC Address](/doc/anonymizing-your-mac-address/)
@@ -135,7 +126,6 @@ Privacy Guides
 
 Configuration Guides
 --------------------
-
  * [Configuration Files](/doc/config-files/)
  * [How to set up a ProxyVM as a VPN Gateway](/doc/vpn/)
  * [Storing AppVMs on Secondary Drives](/doc/secondary-storage/)
@@ -164,7 +154,6 @@ Configuration Guides
 
 Customization Guides
 --------------------
-
  * [DispVM Customization](/doc/dispvm-customization/)
  * [Customizing Fedora minimal templates](/doc/fedora-minimal-template-customization)
  * [Customizing Windows 7 templates](/doc/windows-template-customization)
@@ -178,7 +167,6 @@ Customization Guides
 
 Troubleshooting
 ---------------
-
  * [Home directory is out of disk space error](/doc/out-of-memory/)
  * [Installing on system with new AMD GPU (missing firmware problem)](https://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76)
  * [How to install an Nvidia driver in dom0](/doc/install-nvidia-driver/)
@@ -193,7 +181,6 @@ Troubleshooting
 
 Reference Pages
 ---------------
-
  * [Dom0 Command-Line Tools](/doc/dom0-tools/)
  * [DomU Command-Line Tools](/doc/vm-tools/)
  * [Glossary of Qubes Terminology](/doc/glossary/)
@@ -212,7 +199,6 @@ Developer Documentation
 
 The Basics
 ----------
-
  * [Developer FAQ](/doc/devel-faq/)
  * [Report a Security Issue](/security/)
  * [Report a Bug](/doc/reporting-bugs/)
@@ -222,7 +208,7 @@ The Basics
  * [Coding Guidelines](/doc/coding-style/)
  * [Documentation Guidelines](/doc/doc-guidelines/)
  * [Code Signing](/doc/code-signing/)
- * [Feature Development Tracker](/qubes-issues/)
+ * [Community-Developed Feature Tracker](/qubes-issues/)
  * [Books for Developers](/doc/devel-books/)
  * [Style Guide](/doc/style-guide/)
  * [Usability & UX](/doc/usability-ux/)
