@@ -188,6 +188,7 @@ Troubleshooting
  * [Getting Sony Vaio Z laptop to work with Qubes](/doc/sony-vaio-tinkering/)
  * [Troubleshooting UEFI related problems](/doc/uefi-troubleshooting/)
  * [Fixing wireless on suspend & resume](/doc/wireless-troubleshooting/)
+ * [How to remove VMs manually](/doc/remove-vm-manually/)
 
 
 Reference Pages
