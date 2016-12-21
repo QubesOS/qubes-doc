@@ -23,17 +23,21 @@ bind-dirs.sh works with Qubes R3.2 and above.
 
 ## How to use bind-dirs.sh? ##
 
-1. Create a file `/rw/config/qubes-bind-dirs.d/50_user.conf` with root rights inside a VM.
+1. Make sure folder `/rw/config/qubes-bind-dirs.d` exists.
 
-2. Append a folder or file to the `binds` variable. In the following example we are using folder `/var/lib/tor`. You can replace that folder with a folder or file of your choice.
+       sudo mkdir -p /rw/config/qubes-bind-dirs.d
+
+2. Create a file `/rw/config/qubes-bind-dirs.d/50_user.conf` with root rights inside a VM.
+
+3. Append a folder or file to the `binds` variable. In the following example we are using folder `/var/lib/tor`. You can replace that folder with a folder or file of your choice.
 
        binds+=( '/var/lib/tor' )
 
-3. Save.
+4. Save.
 
-4. Reboot the VM.
+5. Reboot the VM.
 
-5. Done.
+6. Done.
 
 ## Other Configuration Folders ##
 
