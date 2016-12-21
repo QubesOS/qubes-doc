@@ -21,7 +21,7 @@ Installation
 The Fedora minimal template can be installed with the following command:
 
 ~~~
-[user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-23-minimal
+[user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-24-minimal
 ~~~
 
 The download may take a while depending on your connection speed.
@@ -32,7 +32,7 @@ Duplication and first steps
 It is higly recommended to clone the original template, and make any changes in the clone instead of the original template. The following command clones the template. Replace `your-new-clone` with your desired name.
 
 ~~~
-[user@dom0 ~]$ qvm-clone fedora-23-minimal your-new-clone
+[user@dom0 ~]$ qvm-clone fedora-24-minimal your-new-clone
 ~~~
 
 You must start the template in order to customize it.
@@ -59,7 +59,7 @@ Use case | Description | Required steps
 --- | --- | ---
 **Standard utilities** | If you need the commonly used utilities | Install the following packages: `pciutils` `vim-minimal` `less` `psmisc` `gnome-keyring`
 **FirewallVM** | You can use the minimal template as a [FirewallVM](/doc/firewall/), such as the basis template for `sys-firewall` | No extra packages are needed for the template to work as a firewall.
-**NetVM** | You can use this template as the basis for a NetVM such as `sys-net` | Install the following packages: `NetworkManager` `NetworkManager-wifi` `network-manager-applet` `wireless-tools` `dbus-x11 dejavu-sans-fonts` `tinyproxy`.
+**NetVM** | You can use this template as the basis for a NetVM such as `sys-net` | Install the following packages: `NetworkManager` `NetworkManager-wifi` `network-manager-applet` `wireless-tools` `dbus-x11 dejavu-sans-fonts` `tinyproxy`  `notification-daemon` `gnome-keyring`.
 **NetVM (extra firmware)** | If your network devices need extra packages for the template to work as a network VM | Use the `lspci` command to identify the devices, then run `dnf search firmware` (replace `firmware` with the appropriate device identifier) to find the needed packages and then install them.
 **Network utilities** | If you need utilities for debugging and analyzing network connections | Install the following packages: `tcpdump` `telnet` `nmap` `nmap-ncat`
 **USB** | If you want USB input forwarding to use this template as the basis for a [USB](/doc/usb/) qube such as `sys-usb` | Install `qubes-input-proxy-sender`
