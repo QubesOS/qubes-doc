@@ -15,6 +15,9 @@ Upgrading the Fedora 23 Template
 Summary: Upgrading the Standard Fedora 23 Template to Fedora 24
 ---------------------------------------------------------------
 
+**Note:** The prompt on each line indicates where each command should be entered
+(`@dom0` or `@fedora-24`).
+
         [user@dom0 ~]$ qvm-clone fedora-23 fedora-24
         [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
         [user@dom0 ~]$ qvm-run -a fedora-24 gnome-terminal
@@ -38,7 +41,10 @@ Detailed: Upgrading the Standard Fedora 23 Template to Fedora 24
 
 These instructions will show you how to upgrade the standard Fedora 23
 TemplateVM to Fedora 24. The same general procedure may be used to upgrade any
-template based on the standard Fedora 23 template. 
+template based on the standard Fedora 23 template.
+
+**Note:** The command-line prompt on each line indicates where each command
+should be entered (`@dom0` or `@fedora-24`).
 
  1. Ensure the existing template is not running. 
 
@@ -68,65 +74,81 @@ template based on the standard Fedora 23 template.
     line refers to a location on your local disk), so you can safely say yes to
     this prompt.
 
- 4. Shutdown the new TemplateVM via dom0 command line or Qubes VM Manager;
+    **Note:** If you encounter no errors, proceed to step 4. If you do encounter
+    errors, see the next two points first.
+
+     * If `dnf` reports that you do not have enough free disk space to proceed
+       with the upgrade process, create an empty file in dom0 to use as a cache
+       and attach it to the template as a virtual disk.
+
+           [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
+           [user@dom0 ~]$ qvm-block -A fedora-24 dom0:/var/tmp/template-upgrade-cache.img
+
+       Then reattempt the upgrade process, but this time use the virtual disk
+       as a cache.
+
+           [user@fedora-24 ~]$ sudo mkfs.ext4 /dev/xvdi
+           [user@fedora-24 ~]$ sudo mount /dev/xvdi /mnt/removable
+           [user@fedora-24 ~]$ sudo dnf clean all
+           [user@fedora-24 ~]$ sudo dnf --releasever=24 --setopt=cachedir=/mnt/removable distro-sync
+
+       If this attempt is successful, proceed to step 4.
+
+     * `dnf` may complain:
+
+           At least X MB more space needed on the / filesystem.
+
+       In this case, one option is to [resize the TemplateVM's disk
+       image][resize-disk-image] before reattempting the upgrade process. 
+       (See [Additional Information] below for other options.)
+
+ 4. Shut down the new TemplateVM (from the command-line or Qubes VM Manager).
 
         [user@dom0 ~]$ qvm-shutdown fedora-24
-        
-    If you encounter no errors, proceed to step 7.
 
- 5. If `dnf` reports that you do not have enough free disk space to proceed with
-    the upgrade process, create an empty file in dom0 to use as a cache and
-    attach it to the template as a virtual disk.
-
-        [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
-        [user@dom0 ~]$ qvm-block -A fedora-24 dom0:/var/tmp/template-upgrade-cache.img
-
-    Then reattempt the upgrade process, but this time using the virtual disk as
-    a cache.
-
-        [user@fedora-24 ~]$ sudo mkfs.ext4 /dev/xvdi
-        [user@fedora-24 ~]$ sudo mount /dev/xvdi /mnt/removable
-        [user@fedora-24 ~]$ sudo dnf clean all
-        [user@fedora-24 ~]$ sudo dnf --releasever=24 --setopt=cachedir=/mnt/removable distro-sync
-
-    (Poweroff via Qubes VM Manager. May need to be killed.)
-
- 6. `dnf` may complain:
-
-        At least X MB more space needed on the / filesystem.
-
-    In this case, one option is to [resize the TemplateVM's disk
-    image](/doc/ResizeDiskImage/) before reattempting the upgrade process. 
-    (See **Additional Information** below for other options.)
-
- 7. After the upgrade process is finished, remove the cache file, if you
-    created one.
+ 5. Remove the cache file, if you created one.
 
         [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
 
- 8. Trim the new template (see **Compacting the Upgraded Template** for details
+ 6. Trim the new template (see [Compacting the Upgraded Template] for details
     and other options).
 
         [user@dom0 ~]$ qvm-trim-template fedora-24
 
- 9. (Optional) Switch everything that was set to the old template to the new
+ 7. (Recommended) Switch everything that was set to the old template to the new
     template, e.g.:
 
-     1. Make the new template the default template
-        (Qubes Manager --> Global settings --> Default template)
-     2. Base AppVMs on the new template
-        (Qubes Manager --> VM settings --> Template)
-     3. Base the [DispVM](/doc/dispvm/) template on the new template
-        (From dom0, issue `qvm-create-default-dvm --default-template` or
-        `qvm-create-default-dvm fedora-24`.)
+     1. Make the new template the default template:
 
- 10. (Optional) Remove the old default template.
+        Qubes Manager --> Global settings --> Default template
+
+     2. Base AppVMs on the new template. In Qubes Manager, for each VM that is
+        currently based on `fedora-23` that you would like to base on
+        `fedora-24`, enter its VM settings and change the Template selection:
+
+        Qubes Manager --> (Select a VM) --> VM settings --> Template
+
+     3. Base the [DispVM] template on the new template.
+
+        If you have set the new template as your default template:
+
+            [user@dom0 ~]$ qvm-create-default-dvm --default-template
+
+        Otherwise:
+
+            [user@dom0 ~]$ qvm-create-default-dvm fedora-24
+
+ 8. (Optional) Remove the old template. (Make sure to type `fedora-23`, not
+    `fedora-24`.)
 
         [user@dom0 ~]$ sudo dnf remove qubes-template-fedora-23
 
 
 Summary: Upgrading the Minimal Fedora 23 Template to Fedora 24
 --------------------------------------------------------------
+
+**Note:** The prompt on each line indicates where each command should be entered
+(`@dom0` or `@fedora-24`).
 
         [user@dom0 ~]$ qvm-clone fedora-23-minimal fedora-24-minimal
         [user@dom0 ~]$ qvm-run -a fedora-24-minimal xterm
@@ -167,7 +189,7 @@ really necessary after upgrading.
 
 You can use the `qvm-trim-template` tool:
 
-        [user@dom0 ~]$ qvm-trim-template fedora-24
+    [user@dom0 ~]$ qvm-trim-template fedora-24
 
 
 Additional Information
@@ -179,7 +201,7 @@ As mentioned above, you may encounter the following `dnf` error:
 
 In this case, you have several options:
 
- 1. [Increase the TemplateVM's disk image size](/doc/resize-disk-image/).
+ 1. [Increase the TemplateVM's disk image size][resize-disk-image].
     This is the solution mentioned in the main instructions above.
  2. Delete files in order to free up space. One way to do this is by
     uninstalling packages. You may then reinstalling them again after you
@@ -191,8 +213,15 @@ In this case, you have several options:
  5. Do not perform an in-place upgrade. Instead, simply download and install a
     new template package, then redo all desired template modifications.
 
-With regard to the last option, here are some useful messages from the mailing
-list which also apply to TemplateVM management and migration in general:
+    With regard to the last option, here are some useful messages from the
+    mailing list which also apply to TemplateVM management and migration in
+    general:
 
- * [Marek](https://groups.google.com/d/msg/qubes-users/mCXkxlACILQ/dS1jbLRP9n8J)
- * [Jason M](https://groups.google.com/d/msg/qubes-users/mCXkxlACILQ/5PxDfI-RKAsJ)
+     * [Marek](https://groups.google.com/d/msg/qubes-users/mCXkxlACILQ/dS1jbLRP9n8J)
+     * [Jason M](https://groups.google.com/d/msg/qubes-users/mCXkxlACILQ/5PxDfI-RKAsJ)
+
+
+[resize-disk-image]: /doc/resize-disk-image/
+[Additional Information]: #additional-information
+[Compacting the Upgraded Template]: #compacting-the-upgraded-template
+[DispVM]: /doc/dispvm/
