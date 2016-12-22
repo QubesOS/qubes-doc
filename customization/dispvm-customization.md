@@ -9,8 +9,11 @@ redirect_from:
 - /wiki/UserDoc/DispVMCustomization/
 ---
 
+DispVM Customization
+====================
+
 Changing the template used as a basis for Disposable VM
-========================================================
+-------------------------------------------------------
 
 You may want to use a non-default template as a basis for Disposable VM. One example is to use a less-trusted template with some less trusted, 3rd party, often unsigned, applications installed, such as e.g. 3rd part printer drivers.
 
@@ -33,7 +36,7 @@ One can easily verify if the new Disposable VM template is indeed based on a cus
 
 
 Customization of Disposable VM
-==============================
+------------------------------
 
 It is possible to change the settings of each new Disposable VM (DispVM). This can be done by customizing the DispVM template:
 
