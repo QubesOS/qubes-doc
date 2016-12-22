@@ -87,6 +87,17 @@ Important Notes
 
        $ sudo yum remove qubes-template-fedora-24
 
+ * Standalone VMs using Template VMs as a basis can be created easily. These
+   VMs receive a *copy* of the operating system and do not get automatically
+   updated when Template VMs are updated--they must be updated individually.
+   
+ * Template VMs can occupy more space on the dom0 filesystem than necessary
+   because they cannot employ automatic TRIM/discard on the root fs. The
+   `qvm-trim-template` command in dom0 is used to recover this unused space.
+
+   Conversely, the root filesystems in Standalone VMs *can* employ
+   TRIM/discard on the root fs using normal tools and configuration options.
+ 
  * On XFCE based Dom0, a manual action may be required to remove the "Start Menu"
    sub-menu of the removed TemplateVM. For example, to remove a dangling sub-menu
    for a removed "fedora-24" template, open a Dom0 Terminal and type:
