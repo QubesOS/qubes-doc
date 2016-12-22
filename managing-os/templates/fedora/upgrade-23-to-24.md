@@ -192,6 +192,17 @@ You can use the `qvm-trim-template` tool:
     [user@dom0 ~]$ qvm-trim-template fedora-24
 
 
+Upgrading StandaloneVMs
+-----------------------
+
+The procedure for upgrading a StandaloneVM from Fedora 23 to Fedora 24 is the
+same as for a TemplateVM, except that `qvm-trim-template` does not work on
+StandaloneVMs. Instead, you should run the following command inside the
+StandaloneVM in order to compact it:
+
+    $ sudo fstrim -v -a
+
+
 Additional Information
 ----------------------
 
