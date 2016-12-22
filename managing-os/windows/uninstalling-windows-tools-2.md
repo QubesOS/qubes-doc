@@ -60,7 +60,7 @@ If you need network access to copy the uninstall script to the HVM, use *Safe Mo
 
 
 The uninstall script
-====================
+--------------------
 
 Save it as a .BAT file in the HVM and run in Safe Mode.
 

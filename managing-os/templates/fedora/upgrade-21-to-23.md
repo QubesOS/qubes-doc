@@ -141,7 +141,7 @@ minimal template) is the same as the procedure for the standard template above,
 
 
 Compacting the Upgraded Template
-================================
+--------------------------------
 
 Neither `fstrim` nor the `discard` mount option works on the TemplateVM's root
 filesystem, so when a file is removed in the template, space is not freed in
@@ -174,7 +174,7 @@ TemplateVM's max size + the actually used space there) free space in dom0.
 
 
 Additional Information
-======================
+----------------------
 
 As mentioned above, you may encounter the following `yum` error:
 
@@ -203,13 +203,13 @@ list which also apply to TemplateVM management and migration in general:
  * [Jason M](https://groups.google.com/d/msg/qubes-users/mCXkxlACILQ/5PxDfI-RKAsJ)
 
 Upgrading to Fedora 22
-======================
+----------------------
 
 You may choose to upgrade to Fedora 22 instead of Fedora 23. In that case,
 simply replace version "23" with "22" in all above commands.
 
 Known issues with Fedora 23
-===========================
+---------------------------
 
 * [Graphical update tools (using PackageKit) does not work](https://github.com/QubesOS/qubes-issues/issues/982).
 * [Dnf (new Fedora package manager) needs a lot of time to process repository metadata](https://bugzilla.redhat.com/show_bug.cgi?id=1227014), you may want to use `yum-deprecated` for now

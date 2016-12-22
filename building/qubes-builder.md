@@ -126,7 +126,7 @@ If you want to somehow modify sources, you can also do it, here are some basic s
         make iso
 
 Code verification keys management
-=================================
+---------------------------------
 
 [QubesBuilder](/doc/qubes-builder/) by default verifies signed tags on every downloaded code. Public keys used for that are stored in `keyrings/git`. By default Qubes developers' keys are imported automatically, but if you need some additional keys (for example your own), you can add them using:
 
