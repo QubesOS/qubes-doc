@@ -51,7 +51,7 @@ sudo yum --releasever=20 --setopt=cachedir=/mnt/removable distro-sync
 After upgrade is finished, you can remove /var/tmp/template-upgrade-cache.img file.
 
 Compacting templates root.img
-=============================
+-----------------------------
 
 fstrim, nor "discard" mount option do not work on template root fs, so when some file is removed in the template, space isn't freed in dom0. This means that template will use about twice a space that is really need after upgrade.
 

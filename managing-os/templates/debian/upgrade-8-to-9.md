@@ -17,7 +17,7 @@ Disclaimer: Debian 9 (Stretch) is marked testing for a reason. You may notice st
 Please note that if you installed packages from one of the testing repositories you must make sure that the repository is enabled in `/etc/apt/sources.list.d/qubes-r3.list` before attempting the upgrade. Otherwise, your upgrade will [break](https://github.com/QubesOS/qubes-issues/issues/2418).
 
 Summary: Upgrading a Debian 8 Template to Debian 9
--------------------------------------------------------------
+--------------------------------------------------
 
         [user@dom0 ~]$ qvm-clone debian-8 debian-9
         [user@dom0 ~]$ qvm-run -a debian-9 gnome-terminal
@@ -81,7 +81,7 @@ any template based on the standard Debian 8 template.
 	
 
 Compacting the Upgraded Template
-================================
+--------------------------------
 
 Neither `fstrim` nor the `discard` mount option works on the TemplateVM's root
 filesystem, so when a file is removed in the template, space is not freed in
@@ -113,7 +113,7 @@ TemplateVM's max size + the actually used space there) free space in dom0.
         [user@dom0 ~]$ mv root.img.new root.img
 
 Additional Information
-======================
+----------------------
 
 It should be noted that Debian 9 (Stretch) is currently marked testing and
 should be treat as such. For projects that need absolute stability, upgrading
