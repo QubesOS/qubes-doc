@@ -155,7 +155,7 @@ Be very careful when coding and adding a new rpc service. Unless the
 offered functionality equals full control over the target (it is the case
 with e.g. `qubes.VMShell` action), any vulnerability in a rpc server can
 be fatal to Qubes security. On the other hand, this mechanism allows to
-delegate processing of untrusted input to less privileged (or throwaway)
+delegate processing of untrusted input to less privileged (or disposable)
 AppVMs, thus wise usage of it increases security.
 
 ### Extra keywords available in Qubes 4.0 and later
