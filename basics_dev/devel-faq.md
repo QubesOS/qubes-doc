@@ -36,6 +36,17 @@ See [Qubes Source Code Repositories](/doc/source-code/).
 Q: What is Qubes' attitude toward changing guest distros?
 ---------------------------------------------------------
 
-We try to respect each distro's culture, where possibe. See the discussion on
+We try to respect each distro's culture, where possible. See the discussion on
 issue [#1014](https://github.com/QubesOS/qubes-issues/issues/1014) for an
 example.
+
+The policy is there mostly to ease maintenance, on several levels:
+
+ * Less modifications means easier migration to new upstream distribution
+   releases
+ * Upstream documentation matching the distribution running in Qubes VM
+ * Less likely to introduce Qubes-specific issues
+ * Each officially supported distribution (ideally) should offer the same set of
+   Qubes-specific features - a change in one supported distribution should be
+   followed also in others (including some new in the future)
+
