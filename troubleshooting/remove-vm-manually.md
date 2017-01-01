@@ -14,7 +14,7 @@ All commands should be executed in a dom0 terminal.
 
 1. Remove the TemplateVM's directory:
 
-        $ rm /var/lib/qubes/vm-templates/<template-name>
+        $ rm -rf /var/lib/qubes/vm-templates/<template-name>
 
 2. Remove the TemplateVM from qubes.xml:
 
