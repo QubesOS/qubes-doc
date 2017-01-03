@@ -164,7 +164,7 @@ need to create state file (`/srv/salt/mc-everywhere.sls`):
 Then appropriate top file (`/srv/salt/mc-everywhere.top`):
 
     base:
-     - qubes:type:template:
+     qubes:type:template:
         - match: pillar
         - mc-everywhere
 
