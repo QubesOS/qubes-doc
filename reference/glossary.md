@@ -85,9 +85,9 @@ TemplateBasedVM
 Any [VM](#vm) which depends on a [TemplateVM](#templatevm) for its root
 filesystem.
 
-Standalone(VM)
+StandaloneVM
 --------------
-Standalone (Virtual Machine). In general terms, a [VM](#vm) is described as
+In general terms, a [VM](#vm) is described as
 **standalone** if and only if it does not depend on any other VM for its root
 filesystem. (In other words, a VM is standalone if and only if it is not a
 TemplateBasedVM.) More specifically, a **StandaloneVM** is a type of VM in Qubes
