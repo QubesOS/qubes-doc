@@ -46,6 +46,7 @@ Qubes Users' FAQ
 
 [Common Problems](#common-problems)
 -----------------------------------
+ * [How do I connect to a wireless network?](#how-do-i-connect-to-a-wireless-network)
  * [My qubes lost Internet access after a TemplateVM update. What should I do?](#my-qubes-lost-internet-access-after-a-templatevm-update-what-should-i-do)
  * [My keyboard layout settings are not behaving correctly. What should I do?](#my-keyboard-layout-settings-are-not-behaving-correctly-what-should-i-do)
  * [My dom0 and/or TemplateVM update stalls when attempting to update via …](#my-dom0-andor-templatevm-update-stalls-when-attempting-to-update-via-the-gui-tool-what-should-i-do)
@@ -222,6 +223,17 @@ with using such setup.
 
 Common Problems
 ---------------
+
+### How do I connect to a wireless network?
+
+Normally, you should be able to connect through NetworkManager. If you're having
+trouble, start a terminal in `sys-net` (choose "ServiceVM: sys-net" from the
+application menu), and use `nmcli`. For usage information, see `man nmcli`.
+Specifically, try something like:
+
+~~~
+nmcli dev wifi con SSID password <password> name <SSID>
+~~~
 
 ### My qubes lost Internet access after a TemplateVM update. What should I do?
 
