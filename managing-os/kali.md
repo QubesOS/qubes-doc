@@ -56,6 +56,7 @@ to the Kali template.
 
         # in the debian-9 template terminal:
         # substitute jessie for stretch in
+        sudo -s
         sensible-editor /etc/apt/sources.list
         sensible-editor /etc/apt/sources.list.d/qubes-r3.list
         apt-get update && apt-get dist-upgrade
@@ -89,8 +90,8 @@ to the Kali template.
 5. Update the system:
 
         # in kali-tpl:
-        sudo apt-get update
-        sudo apt-get dist-upgrade
+        sudo -s
+        apt-get update && apt-get dist-upgrade
 
 6. Shut down the `kali-tpl` template:
 
