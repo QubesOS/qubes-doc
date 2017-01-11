@@ -39,7 +39,7 @@ Steps to build a Kali template
 2. **DO NOT TURN OFF** the dispVM
 
 3. Make sure the key ID is the valid one listed on the [Kali website]. Ideally,
-   verify the fingerprint through other channels.
+   verify the fingerprint through other channels as recommended on that link.
 
 Once you have the key, keep the dispVM on as you'll need to copy the key over
 to the Kali template.
@@ -108,25 +108,21 @@ At this point you should have a working template and you can install the tools y
 
         # in kali-tpl:
         sudo apt-get install kali-linux-full
+        
+2. [optional] Customise the template's home directory (e.g. install your licensed copy of Burp Suite Professional)
+        
+### Use the template
 
-2. Enjoy and don't forget to back up your appVMs as [audio CDs].
+The template is ready to be used. You can now spin up AppVMs based on the `kali-tpl` template.
 
-
-Installing via third-party scripts: Katoolin
---------------------------------------------
-
-If you do not want to modify the `sources.list` file and add the signing keys
-yourself, alternatively you can use [KATOOLIN] after cloning the Debian
-Template.
-
-You should probably inspect the script and make sure it does what you want
-before trusting it blindly.
 
 
 Alternative Options to Kali
 ===========================
 
- * PenTester Framework: [PTF]
+ * PenTester Framework: [PTF] ([PTF Qubes OS guide])
+ * Black Arch with [BA Qubes OS guide])
+ * [KATOOLIN]
 
 Notes
 -----
@@ -137,9 +133,11 @@ Thanks to the people in [the discussion thread].
 [kali]: https://www.kali.org/
 [kali website]: https://docs.kali.org/introduction/download-official-kali-linux-images.
 [KATOOLIN]: http://www.tecmint.com/install-kali-linux-tools-using-katoolin-on-ubuntu-debian/ 
-[the debian-8 template]: https://www.qubes-os.org/doc/templates/debian/
+[the debian-8 template]: https://www.qubes-os.org/doc/templates/debian/#install
 [PTF]: https://www.trustedsec.com/may-2015/new-tool-the-pentesters-framework-ptf-released/
 [audio CDs]: https://www.reddit.com/r/Nirvana/comments/3hmra1/the_main_character_in_the_tv_show_mr_robot_has_a/
 [resize the template]: https://www.qubes-os.org/doc/resize-disk-image/
 [the Debian wiki]: https://wiki.debian.org/Qubes#Install_Debian_Templates
 [the discussion thread]: https://github.com/QubesOS/qubes-issues/issues/1981
+[PTF Qubes OS guide]: https://www.qubes-os.org/doc/pentesting/ptf/
+[BA Qubes OS guide]: https://www.qubes-os.org/doc/pentesting/blackarch/
