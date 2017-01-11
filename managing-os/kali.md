@@ -46,7 +46,7 @@ to the Kali template.
 
 ### Customize the template
 
-1. Install [the debian-8 template] (if not already installed)
+1. Install [the debian-8 template] if not already installed
 
 2. Clone the debian template and start a terminal in it:
 
