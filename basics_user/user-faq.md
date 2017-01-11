@@ -31,6 +31,7 @@ Qubes Users' FAQ
  * [Why passwordless sudo?](#why-passwordless-sudo)
  * [How should I report documentation issues?](#how-should-i-report-documentation-issues)
  * [Will Qubes seek to get certified on the GNU Free System Distribution Guidelines (GNU FSDG)?](#will-qubes-seek-to-get-certified-under-the-gnu-free-system-distribution-guidelines-gnu-fsdg)
+ * [What does it mean to "distrust the infrastructure"?](#what-does-it-mean-to-distrust-the-infrastructure)
 
 [Installation & Hardware Compatibility](#installation--hardware-compatibility)
 ------------------------------------------------------------------------------
@@ -158,6 +159,28 @@ Please see the [documentation guidelines](/doc/doc-guidelines).
 ### Will Qubes seek to get certified under the GNU Free System Distribution Guidelines (GNU FSDG)?
 
 Not currently, for the same reasons that [Debian is not certified](https://www.gnu.org/distros/common-distros.en.html).
+
+### What does it mean to "distrust the infrastructure"?
+
+A core tenet of the Qubes philosophy is "distrust the infrastructure," where
+"the infrastructure" refers to things like hosting providers, CDNs, DNS
+services, package repositories, email servers, PGP keyservers, etc. As a
+project, we focus on securing endpoints instead of attempting to secure "the
+middle" (i.e., the infrastructure), since one of our primary goals is to free
+users from being forced to entrust their security to unknown third parties.
+Instead, our aim is for users to be required to trust as few entities as
+possible (ideally, only themselves and any known persons whom they voluntarily
+decide to trust).
+
+Users can never fully control all the infrastructure they rely upon, and they
+can never fully trust all the entities who do control it. Therefore, we believe
+the best solution is not to attempt to make the infrastructure trustworthy, but
+instead to concentrate on solutions that obviate the need to do so. We believe
+that many attempts to make the infrastructure appear trustworthy actually
+provide only the illusion of security and are ultimately a disservice to real
+users. Since we don't want to encourage or endorse this, we make our distrust of
+the infrastructure explicit.
+
 
 Installation & Hardware Compatibility
 -------------------------------------
