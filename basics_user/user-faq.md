@@ -54,6 +54,7 @@ Qubes Users' FAQ
  * [I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.](#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot)
  * [I assigned a PCI device to a qube, then unassigned it/shut down the …](#i-assigned-a-pci-device-to-a-qube-then-unassigned-itshut-down-the-qube-why-isnt-the-device-available-in-dom0)
  * [How do I install Flash in a Debian qube?](#how-do-i-install-flash-in-a-debian-qube)
+ * [How do I play video files?](#how-do-i-play-video-files)
   
 -----------------
 
@@ -314,3 +315,20 @@ If you only want Flash available in one qube:
 - untar the downloaded file ```tar xf install_flash_player_11_linux.x86_64.tar.gz```
 - create ~/.mozilla/plugins if it does not exist
 - move libflashhplayer.so to ~/.mozilla/plugins, and restart iceweasel.
+
+### How do I play video files?
+
+If you're having trouble playing a video file in a qube, you're probably
+missing the required codecs. The easiest way to resolve this is to install VLC
+Media Player and use that to play your video files. You can do this in multiple
+different TemplateVM distros (Fedora, Debian, etc.), but for simplicity, we'll
+assume you're using Fedora:
+
+1. (Recommended) Clone an existing Fedora TemplateVM.
+2. [Enable the appropriate RPMFusion repos in the desired Fedora TemplateVM.](/doc/software-update-vm/#rpmfusion-for-a-fedora-templatevm)
+3. Install VLC in that TemplateVM:
+
+       $ sudo dnf install vlc
+
+4. Use VLC to play your video files.
+
