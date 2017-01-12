@@ -8,15 +8,15 @@ redirect_from:
 - /wiki/InstallNvidiaDriver/
 ---
 
-#Nvidia proprietary driver installation
+# Nvidia proprietary driver installation
 
 You can use rpm packages from rpmfusion, or you can build the driver yourself.
 
-##RpmFusion packages
+## RpmFusion packages
 
 There are rpm packages with all necessary software on rpmfusion. The only package you have to compile is the kernel module (but there is a ready built src.rpm package).
 
-###Download packages
+### Download packages
 
 You will need any Fedora 18 system to download and build packages. You can use Qubes AppVM for it, but it isn't necessary. To download packages from rpmfusion - add this repository to your yum configuration (instructions are on their website). Then download packages using yumdownloader:
 
@@ -25,7 +25,7 @@ yumdownloader --resolve xorg-x11-drv-nvidia
 yumdownloader --source nvidia-kmod
 ~~~
 
-###Build kernel package
+### Build kernel package
 
 You will need at least kernel-devel (matching your Qubes dom0 kernel), rpmbuild tool and kmodtool, and then you can use it to build package:
 
@@ -40,21 +40,21 @@ Then you need to disable nouveau (normally it is done by install scripts from nv
 
 Edit /etc/default/grub:
 
-    ~~~
-    GRUB_CMDLINE_LINUX="quiet rhgb nouveau.modeset=0 rd.driver.blacklist=nouveau video=vesa:off"
-    ~~~
+~~~
+GRUB_CMDLINE_LINUX="quiet rhgb nouveau.modeset=0 rd.driver.blacklist=nouveau video=vesa:off"
+~~~
 
 Regenerate grub configuration:
 
-    ~~~
-    grub2-mkconfig -o /boot/grub2/grub.cfg
-    ~~~
+~~~
+grub2-mkconfig -o /boot/grub2/grub.cfg
+~~~
 
 Reboot.
 
 
 
-##Manual installation
+## Manual installation
 
 This process is quite complicated: First - download the source from nvidia.com site. Here "NVIDIA-Linux-x86\_64-260.19.44.run" is used. Copy it to dom0. Every next step is done in dom0.
 
@@ -64,7 +64,7 @@ See [this page](/doc/copy-to-dom0/) for instructions on how to transfer files to
 
 
 
-###Userspace components
+### Userspace components
 
 Install libraries, Xorg driver, configuration utilities. This can by done by nvidia-installer:
 
@@ -72,7 +72,7 @@ Install libraries, Xorg driver, configuration utilities. This can by done by nvi
 ./NVIDIA-Linux-x86_64-260.19.44.run --ui=none --no-x-check --keep --no-nouveau-check --no-kernel-module
 ~~~
 
-###Kernel module
+### Kernel module
 
 You will need:
 
@@ -96,7 +96,7 @@ mv /lib/modules/2.6.34.1-12.xenlinux.qubes.x86_64/kernel/drivers/video/nvidia.ko
 
 Ignore any errors while inserting nvidia.ko (at the end of make phase). 
 
-###Disable nouveau:
+### Disable nouveau:
 
 ~~~
 cat /etc/modprobe.d/nouveau-disable.conf
@@ -106,7 +106,7 @@ install nouveau /bin/true
 
 Add *rdblacklist=nouveau* option to /boot/grub/menu.lst (at the end of line containing *vmlinuz*).
 
-###Configure Xorg
+### Configure Xorg
 
 After all, you should configure Xorg to use nvidia driver. You can use *nvidia-xconfig* or do it manually:
 
@@ -118,7 +118,7 @@ mv /root/xorg.conf.new /etc/X11/xorg.conf
 
 Reboot to verify all this works.
 
-#Troubleshooting lack of video output during installation
+# Troubleshooting lack of video output during installation
 
 Specifically, the notes below are aimed to help when the GRUB menu shows up fine, the installation environment starts loading, and then the display(s) go into standby mode. This is, typically, related to some sort of an issue with the kernel's KMS/video card modules.
 

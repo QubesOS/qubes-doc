@@ -131,6 +131,10 @@ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 Reboot required.
 
+If you wish to upgrade to a kernel that is not available from the repos, then
+there is no easy way to do so, but [it may still be possible if you're willing
+to do a lot of work yourself](https://groups.google.com/d/msg/qubes-users/m8sWoyV58_E/HYdReRIYBAAJ).
+
 ### Upgrading over Tor ###
 
 Requires installed [Whonix](/doc/privacy/whonix/).

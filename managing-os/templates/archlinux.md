@@ -23,7 +23,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 ## Instructions ##
 
 <br>
-**These are the instructions for Qubes 3.1. They will take you step by step thru the entire process start to finish**
+**These are the instructions for Qubes 3.2. They will take you step by step through the entire process start to finish**
 
 *Note: Currently there are no binary packages and it must be compiled from source using the instructions below.*
 
@@ -80,15 +80,17 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 
     *   python-sh
 
-    *   dailog
+    *   dialog
 
     *   rpm-sign
+    
+    *	gnupg
 <br>
 
 
 *   The tools can usually be installed all together with the following terminal command string:
 
-    *   **$ sudo dnf install git createrepo rpm-build make wget rpmdevtools python-sh dialog rpm-sign**
+    *   **$ sudo dnf install git createrepo rpm-build make wget rpmdevtools python-sh dialog rpm-sign gnupg**
 <br>
 <br>
 ![arch-template-04](/attachment/wiki/ArchlinuxTemplate/arch-template-04.png)
@@ -98,19 +100,19 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 
 ##### **4:   Installing the "Qubes Automated Build System":** #####
 
-*   To get the most current build system its best to use marmarek's git repository.
+*   Download the latest stable qubes-builder repository:
 
-    *   $ **git clone https://github.com/marmarek/qubes-builder.git**
+    *   $ **git clone https://github.com/QubesOS/qubes-builder.git**
 <br>
 <br>
 ![arch-template-05](/attachment/wiki/ArchlinuxTemplate/arch-template-05.png)
 <br>
 <br>
 
-*    You will now have the Qubes Builder System environment installed in the directory below:
 
-    *   **/home/user/qubes-builder**
-<br>
+*   You will now have the Qubes Builder System environment installed in the directory below:
+
+    *   **/home/user/qubes-builder/**
 <br>
 <br>
 
@@ -120,11 +122,11 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
    
     *In the future this should not be needed once a change is made to the 'setup' script.*
 
-    *   Edit the '**qubes-os-r3.1.conf**' which is found in **/home/user/qubes-builder/example-configs**  Use the text editor of your choice.
+    *   Edit the '**qubes-os-r3.2.conf**' which is found in **/home/user/qubes-builder/example-configs**  Use the text editor of your choice.
     
         *   **$ cd /home/user/qubes-builder/example-config/**
     
-        *   **$ nano -W qubes-os-r3.1.conf** or **$ gedit qubes-os-r3.1.conf** or etc….
+        *   **$ nano -W qubes-os-r3.2.conf** or **$ gedit qubes-os-r3.2.conf** or etc….
 <br>
 <br>
 ![arch-template-06](/attachment/wiki/ArchlinuxTemplate/arch-template-06.png)
@@ -172,7 +174,7 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 
         *   This screen will give you the choice of which Qubes Release to build the template for.
 
-            *   Select '**Qubes Release 3.1**'
+            *   Select '**Qubes Release 3.2**'
             *   Select '**OK**' Press '**Enter**'
 <br>
 <br>
@@ -186,13 +188,16 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
             *   Select '**OK**' Press '**Enter**' 
 <br>
 <br>
+![arch-template-12](/attachment/wiki/ArchlinuxTemplate/arch-template-12.png)
+<br>
+<br>
 
         *   Screen "**Build Template Only?**"
 
             *   Select '**Yes**' Press '**Enter**' 
 <br>
 <br>
-![arch-template-12](/attachment/wiki/ArchlinuxTemplate/arch-template-12.png)
+![arch-template-12](/attachment/wiki/ArchlinuxTemplate/arch-template-12a.png)
 <br>
 <br>
 
@@ -200,9 +205,9 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
                         
             *   Deselect '**Fedora**'
             
-            *   Deselect '**mgnt_salt**'
+            *   Deselect '**mgmt_salt**'
             
-            *   Select '**archlinux**'
+            *   Select '**builder-archlinux**'
 
             *   Select '**OK**' Press **Enter**
 <br>
@@ -213,10 +218,18 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 
         *   Screen '**Get sources**' wants to download additional packages needed for the choosen plugin/s.
         
-            *   Select '**No**' Press '**Enter**'
+            *   Select '**Yes**' Press '**Enter**'
 <br>
 <br>
 ![arch-template-14](/attachment/wiki/ArchlinuxTemplate/arch-template-14.png)
+<br>
+<br>
+
+        *   Then wait for download to finish and press '**OK**'
+<br>
+<br>
+![arch-template-14](/attachment/wiki/ArchlinuxTemplate/arch-template-15.png)
+<br>
 <br>
 
         *   Screen '**Template Distribution Selection**' allows you to choose the actual template/s you wish to build.
@@ -236,19 +249,6 @@ Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 <br>
 <br>
 ![arch-template-17](/attachment/wiki/ArchlinuxTemplate/arch-template-17.png)
-<br>
-<br>
-	*	Archlinux builder is not(yet?) in official Qubes release branch, so it has to be downloaded from different repository.
-
-			* Open file builder.conf with your favourite text editor and find section **"O V E R R I D E   B R A N C H"** (single space
-between letters) and add:
-
-    			*   **GIT_URL_builder_archlinux = $(GIT_BASEURL)/marmarek/qubes-builder-archlinux.git**
-
-<br>
-<br>
-![arch-template-17](/attachment/wiki/ArchlinuxTemplate/arch-template-17a.png)
-<br>
 <br>
 <br>
 
@@ -388,7 +388,7 @@ Please check out:
 [XYNE's (dev) Powerpill](http://xyne.archlinux.ca/projects/powerpill/)
 
 
-**Important Note:** Until Powerpill is configured you will have to open network access to the template to get the initial packages etc downloaded.  You can use the "allow full access for" a given time period in the FW settings of the template in the VMM or open up the various services thru the same window.  Remember to change it back if you choose the later route.  Actions needing network access will be noted with (needs network access)
+**Important Note:** Until Powerpill is configured you will have to open network access to the template to get the initial packages etc downloaded.  You can use the "allow full access for" a given time period in the FW settings of the template in the VMM or open up the various services through the same window.  Remember to change it back if you choose the later route.  Actions needing network access will be noted with (needs network access)
 
 <br>
 <br>
@@ -676,9 +676,9 @@ Note: For info on Reflector and its configs: [Reflector](https://wiki.archlinux.
 
 *   There May also be a similar issue of dependencies with Xorg.
    
-*   Upgrade Relfector functionality to allow its use thru the QUPS
+*   Upgrade Relfector functionality to allow its use through the QUPS
 
-*   Pacman functionality changes and allows it to be directly configured to work thru QUPS.
+*   Pacman functionality changes and allows it to be directly configured to work through QUPS.
 
 <br>
 
@@ -694,6 +694,6 @@ Note: For info on Reflector and its configs: [Reflector](https://wiki.archlinux.
 
 *   [How can I contribute to the Qubes Project?](/doc/contributing/)
 
-*   [Guidelines for Documentation Contributors](doc/doc-guidelines/)
+*   [Guidelines for Documentation Contributors](/doc/doc-guidelines/)
 
 <br>

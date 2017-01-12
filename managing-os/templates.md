@@ -17,7 +17,7 @@ TemplateBasedVMs is installed. The default template is based on Fedora,
 but there are additional templates based on other Linux distributions. There
 are also templates available with or without certain software preinstalled. The
 concept of TemplateVMs is initially described
-[here](/doc/getting-started/#appvms-domains-and-templatevms). The technical
+[here](/getting-started/#appvms-qubes-and-templatevms). The technical
 details of this implementation are described in the developer documentation
 [here](/doc/template-implementation/).
 
@@ -85,14 +85,25 @@ Important Notes
    update a template from dom0 (and thereby lose any user modifications in the
    existing template), you must first uninstall the existing template from dom0:
 
-       $ sudo yum remove qubes-template-fedora-23
+       $ sudo yum remove qubes-template-fedora-24
 
+ * Standalone VMs using Template VMs as a basis can be created easily. These
+   VMs receive a *copy* of the operating system and do not get automatically
+   updated when Template VMs are updated--they must be updated individually.
+   
+ * Template VMs can occupy more space on the dom0 filesystem than necessary
+   because they cannot employ automatic TRIM/discard on the root fs. The
+   `qvm-trim-template` command in dom0 is used to recover this unused space.
+
+   Conversely, the root filesystems in Standalone VMs *can* employ
+   TRIM/discard on the root fs using normal tools and configuration options.
+ 
  * On XFCE based Dom0, a manual action may be required to remove the "Start Menu"
    sub-menu of the removed TemplateVM. For example, to remove a dangling sub-menu
-   for a removed "fedora-21" template, open a Dom0 Terminal and type:
+   for a removed "fedora-24" template, open a Dom0 Terminal and type:
 
-       $ sudo rm ~/.local/share/applications/fedora-21-*
+       $ sudo rm ~/.local/share/applications/fedora-24-*
 
-   Just make sure there are no other TemplateVMs whose names start with "fedora-21"
+   Just make sure there are no other TemplateVMs whose names start with "fedora-24"
    or else their menu items will be removed too. 
        

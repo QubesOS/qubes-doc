@@ -39,7 +39,6 @@ In order to generate a HCL report in Qubes, simply open a terminal in dom0 (KDE:
 You are encouraged to submit your HCL report for the benefit of further Qubes development and other users.
  If you would like to submit your HCL report, please send the **HCL Info** `.yml` file to [\`qubes-users@googlegroups.com\`](/doc/mailing-lists/) with the subject `HCL - <your machine model name>`.
  Please include any useful information about any Qubes features you may have tested (see the legend below), as well as general machine compatibility (video, networking, sleep, etc.).
- If you have problems with your hardware try a different kernel in the [Troubleshooting menu](/doc/InstallationGuideR2rc1/#troubleshooting-problems-with-the-installer).
  Please consider sending the **HCL Support Files** `.cpio.gz` file as well. To generate these add the `-s` or `--support` command line option.
 
 **Please note:**

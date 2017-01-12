@@ -32,8 +32,8 @@ Creating a Backup
 
 3. Select the destination for the backup:
 
-   - If you wish to send your backup to a [USB mass storage device](/doc/stick-mounting/), select the device in the drop-down box next to **Device** (feature removed in R3, select appropriate **Target AppVM** and mount the stick with one click in file selection dialog).
-   - If you wish to send your backup to a (currently running) AppVM, select the AppVM in the drop-down box next to **Target AppVM**.
+   If you wish to send your backup to a (currently running) AppVM, select the AppVM in the drop-down box next to **Target AppVM**.
+   If you wish to send your backup to a [USB mass storage device](/doc/stick-mounting/), first mount the device in an AppVM, then select the mount point inside that AppVM as the backup destination.
 
    You must also specify a directory on the device or in the AppVM, or a command to be executed in the AppVM as a destination for your backup. For example, if you wish to send your backup to the `~/backups` folder in the target AppVM, you would simply type `backups` in this field. This destination directory must already exist. If it does not exist, you must create it manually prior to backing up.
 
@@ -87,8 +87,16 @@ For emergency restore of backup created on Qubes R2 or newer take a look [here](
 Migrating Between Two Physical Machines
 ---------------------------------------
 
-In order to migrate your Qubes system from one physical machine to another, simply follow the backup procedure on the old machine, [install Qubes](/doc/downloads/) on the new machine, and follow the restoration procedure on the new machine. All of your settings and data will be preserved!
+In order to migrate your Qubes system from one physical machine to another, simply follow the backup procedure on the old machine, [install Qubes](/downloads/) on the new machine, and follow the restoration procedure on the new machine. All of your settings and data will be preserved!
 
+Choosing a Backup Passphrase
+----------------------------
+
+Here are some things to consider when selecting a passphrase for your backups:
+
+ * If you plan to store the backup for a long time or on third-party servers, you should make sure to use a very long, high-entropy passphrase. (Depending on the decryption passphrase you use for your system drive, this may necessitate selecting a stronger passphrase. If your system drive decryption passphrase is already sufficiently strong, it may not.)
+ * An adversary who has access to your backups may try to substitute one backup for another. For example, when you attempt to retrieve a recent backup, the adversary may instead give you a very old backup containing a compromised AppVM. If you're concerned about this type of attack, you may wish to use a different passphrase for each backup, e.g., by appending a number or date to the passphrase.
+ * If you're forced to enter your system drive decryption passphrase in plain view of others (where it can be shoulder-surfed), then you may want to use a different passphrase for your backups (even if your system drive decryption passphrase is already maximally strong). On the othe hand, if you're careful to avoid shoulder-surfing and/or have a passphrase that's difficult to detect via shoulder-surfing, then this may not be a problem for you.
 
 Notes
 -----

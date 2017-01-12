@@ -26,8 +26,10 @@ the hardware will not being modified in any way (malicious or not).
 For more general information about choosing hardware for Qubes, please see the
 [System Requirements] and the [Hardware Compatibility List].
 
-Purism Librem 13
-----------------
+Certified for Qubes R3.x
+------------------------
+
+### Purism Librem 13 ###
 
 [![image of Librem 13](/attachment/site/qubes-plus-purism.png)](https://puri.sm/librem-13/)
 
@@ -49,9 +51,15 @@ compatibility with Qubes:
 
        sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable kernel
 
+Certified for Qubes R4.x
+------------------------
+
+There are [updated requirements] for Qubes R4.x certification. Currently, no
+laptops are certified for Qubes R4.x. This page will be updated once
+R4.x-certified laptops are available.
 
 [System Requirements]: /doc/system-requirements/
 [Hardware Compatibility List]: /hcl/
 [Hardware Certification]: /hardware-certification/
-
+[updated requirements]: /news/2016/07/21/new-hw-certification-for-q4/
 

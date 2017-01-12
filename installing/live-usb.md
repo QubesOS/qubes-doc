@@ -100,7 +100,7 @@ Downloading and burning
 -----------------------
 
 1. Download the ISO (and its signature for verification) from the
-   [downloads page](/downloads/#qubes-live-usb-alpha/).
+   [downloads page](/downloads/#qubes-live-usb-alpha).
 2. "Burn" (copy) the ISO onto a USB drive (replace `/dev/sdX` with your USB
    drive device):
 

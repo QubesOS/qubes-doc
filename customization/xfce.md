@@ -14,17 +14,9 @@ XFCE installation in dom0
 
 **Disclaimer: XFCE isn't fully integrated with Qubes environment, it still requires notable amount of manual configuration after install**
 
-Requirements (as of 10/24/2012):
-
--   qubes-core-dom0-2.0.37 (not released yet, possible to build from "master" branch of marmarek's repo)
-
 Installation:
 
-    qubes-dom0-update --enablerepo=qubes-dom0-unstable @XFCE
-
-Then you need to create /etc/sysconfig/desktop to stay with KDM, as GDM still starts invalid Xorg startup script:
-
-    DISPLAYMANAGER=KDE
+    sudo qubes-dom0-update @xfce-desktop-qubes
 
 Reboot the system. At system startup, select "Xfce session" in login screen (menu on the right bottom corner of the screen).
 

@@ -11,6 +11,45 @@ redirect_from:
 Tips for Linux in HVM domain
 ============================
 
+How to fix bootup kernel error 
+-------------------------------
+
+This concerns the following:
+
+    BUG: soft lockup - CPU#0 stuck for 23s! [systemd-udevd:244]
+
+This has been tested with Qubes `R3.2-RC3`. Note that the issue may be related
+to the `bochs_drm` video driver. To fix this:
+
+1.  Edit the file `/etc/default/grub`.
+
+2.  Find the line which starts:
+
+    ~~~
+    GRUB_CMDLINE_LINUX=
+    ~~~
+
+3.  Remove this text from that line:
+
+    ~~~
+    rhgb
+    ~~~
+
+4.  Add this text to that line:
+
+    ~~~
+    modprobe.blacklist=bochs_drm
+    ~~~
+
+5.  Run this command:
+
+    ~~~
+    grub2-mkconfig --output=/boot/grub2/grub.cfg
+    ~~~
+
+The HVM should no longer display the error if it's related to the `bochs_drm`
+kernel driver.
+
 Screen resolution
 -----------------
 

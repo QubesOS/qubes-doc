@@ -82,7 +82,8 @@ applications, but not for running them.
 
 TemplateBasedVM
 ---------------
-Any [VM](#vm) which depends on a TemplateVM for its root filesystem.
+Any [VM](#vm) which depends on a [TemplateVM](#templatevm) for its root
+filesystem.
 
 Standalone(VM)
 --------------
@@ -164,8 +165,19 @@ Any [HVM](#hvm) which functions as a [TemplateVM](#templatevm) by supplying its
 root filesystem to other VMs. In Qubes, TemplateHVMs are referred to as **HVM
 templates**.
 
-PVH
----
+TemplateBasedHVM
+----------------
+Any [HVM](#hvm) that depends on a [TemplateVM](#templatevm) for its root
+filesystem. 
+
+ServiceVM
+---------
+Service Virtual Machine. A [VM](#vm) the primary purpose of which is to provide
+a service or services to other VMs. NetVMs and ProxyVMs are examples of
+ServiceVMs.
+
+PVHVM
+-----
 [PV](#pv) on [HVM](#hvm). To boost performance, fully virtualized HVM guests can
 use special paravirtual device drivers (PVHVM or PV-on-HVM drivers). These
 drivers are optimized PV drivers for HVM environments and bypass the emulation

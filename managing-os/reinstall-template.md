@@ -9,12 +9,39 @@ redirect_from:
 How to Reinstall a TemplateVM
 =============================
 
-If you suspect your [TemplateVM] is broken, misconfigured, or compromised,
-or if you wish to do a clean reinstall in order to upgrade to a new version, you
-can reinstall any TemplateVM from the Qubes repository. In what follows, the
-phrase "target TemplateVM" refers to whichever TemplateVM you want to reinsatll.
-If you want to reinstall more than one TemplateVM, repeat these instructions for
-each one.
+If you suspect your [TemplateVM] is broken, misconfigured, or compromised, you
+can reinstall any TemplateVM that was installed from the Qubes repository.
+Starting in Qubes 3.1, the process is greatly simplified.
+
+First, copy any files that you wish to keep from the TemplateVM's `/home` and
+`/rw` folders to a safe storage location. Then, in a dom0 terminal, run:
+
+    $ sudo qubes-dom0-update --action=reinstall qubes-template-package-name
+
+Replace `qubes-template-package-name` with the name of the *package* of the
+template you wish to reinstall. For example, use `qubes-template-fedora-24` if
+you wish to reinstall the `fedora-24` template. Only one template can be
+reinstalled at a time.
+
+**Reminder:** If you're trying to reinstall a template that is not in an enabled
+repo, you must enable that repo. For example:
+
+    $ sudo qubes-dom0-update --enablerepo=qubes-templates-community --action=reinstall qubes-template-whonix-ws
+
+**Note:** VMs that are using the reinstalled template will not be affected until they are
+restarted.
+
+
+Manual Reinstallation Method
+----------------------------
+
+If you're using Qubes 3.0 or older, you should use the manual reinstallation
+method. You can also use this method on later Qubes versions if, for any reason,
+you want to reinstall a template manually.
+
+In what follows, the term "target TemplateVM" refers to whichever TemplateVM you
+want to reinstall. If you want to reinstall more than one TemplateVM, repeat
+these instructions for each one.
 
 1. (Optional) Clone the existing target TemplateVM.
 

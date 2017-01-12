@@ -105,7 +105,7 @@ Assigning USB keyboard will **deprive Dom0 VM of a keyboard**. Since a USB contr
 
 But **if you need to use a USB keyboard or mouse**, identify the USB controller in which you have your keyboard/mouse plugged in and do NOT assign it to a VM. Also makes sure you know all the other USB ports for that controller, and use them carefully, with the knowledge **you are exposing Dom0** (ie NO bluetooth device on it).
 
-All USB devices should be assumed as **side channel attack vectors** (mic via sound), others via power usage so user may prefer to remove them. [See this about rootkits](https://www.networkworld.com/news/2007/080207-black-hat-virtual-machine-rootkit-detection.html)
+All USB devices should be assumed as **side channel attack vectors** (mic via sound), others via power usage so user may prefer to remove them. [See this about rootkits](https://web.archive.org/web/20070829112704/http://www.networkworld.com/news/2007/080207-black-hat-virtual-machine-rootkit-detection.html)
 
 The **web-cam** also may involve a risk, so better to physically cover it with a adhesive tape if you do not use it. If you need it, you have **to assign it to a VM** and cover it with a cap or an elastic band when not in use. Attaching a **microphone** using Qubes VM Manager also may be risky, so attach it only when required.
 
@@ -113,7 +113,7 @@ It is preferably to avoid using **Bluetooth** if you travel and if you do not tr
 
 Many laptops will also allow one to disable various hardware (Camera, BT, Mic, etc) **in BIOS**. This might or might not be safe, depending on how much you trust your BIOS vendor.
 
-If the VM will not start after you have assigned a USB controller, look at [this faq](../UserFaq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot)
+If the VM will not start after you have assigned a USB controller, look at [this faq](../user-faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot)
 
 
 Creating and Using a USBVM
@@ -125,7 +125,7 @@ See [here](/doc/usb/).
 Dom0 Precautions
 ----------------
 
-As explained [here](/doc/GettingStarted/#appvms-domains-and-templatevms), dom0 should not be used for any user operations. There are several reasons for this:
+As explained [here](/getting-started/#appvms-qubes-and-templatevms), dom0 should not be used for any user operations. There are several reasons for this:
 
 1.  Secure isolation among domUs (i.e., AppVMs, StandaloneVMs, HVMs, etc.) is the *raison d'être* of Qubes. This is the primary reason that we recommend the delegation of all user activities to some number of AppVMs. In the event that any given VM is compromised, only that particular VM is compromised. (TemplateVMs are the exception to this. If a TemplateVM were compromised, then every AppVM based on it might also be compromised. Even in this case, however, the entire system would not necessarily have been compromised, since StandaloneVM(s), HVM(s), and/or multiple TemplateVMs might be in use.) By contrast, if dom0 were ever compromised, the entire system would thereby be compromised.
 2.  Due to the absence of convenience mechanisms in dom0 such as the inter-VM clipboard and inter-VM file copying, it is significantly less convenient to attempt to use dom0 for user operations (e.g., password management) in conjunction with AppVMs than it is to use another dedicated AppVM (e.g., a "vault" VM).

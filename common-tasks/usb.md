@@ -152,9 +152,7 @@ USB stack is put to work to parse the data presented by the USB device in order
 to determine if it is a USB mass storage device, to read its configuration, etc.
 This happens even if the drive is then assigned and mounted in another qube.
 
-To avoid this risk, it is possible to prepare and utilize a USB qube. However,
-Xen does not yet provide working PVUSB functionality, so only USB mass storage
-devices can be passed to individual qubes.
+To avoid this risk, it is possible to prepare and utilize a USB qube.
 
 For this reason, you may wish to avoid using a USB qube if you do not have a USB
 controller free of input devices and programmable devices, although Qubes R3.1 
@@ -179,6 +177,8 @@ steps as root in dom0:
  2. Apply the configuration:
 
         qubesctl state.highstate
+
+(Note: This automatically [hides all USB controllers from dom0][hide-usb].)
 
 Alternatively, you can create a USB qube manually as follows:
 
@@ -209,6 +209,53 @@ Alternatively, you can create a USB qube manually as follows:
 
 If the USB qube will not start, see [here][faq-usbvm].
 
+
+Removing a USB qube
+-------------------
+
+**Warning:** This procedure will result in your USB controller(s) being attached
+directly to dom0.
+
+1. Shut down the USB qube.
+2. In Qubes Manager, right-click on the USB qube and select "Remove VM."
+3. Open the file `/etc/default/grub` in dom0.
+4. Find the line(s) that begins with `GRUB_CMDLINE_LINUX`.
+5. If `rd.qubes.hide_all_usb` appears anywhere in those lines, remove it.
+6. Save and close the file.
+7. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
+8. Reboot.
+
+
+How to hide all USB controllers from dom0
+-----------------------------------------
+
+Even if you create a USB qube, there will be a brief period of time during the
+boot process during which dom0 will be exposed to your USB controllers (and any
+attached devices). This is a potential security risk, since even brief exposure
+to a malicious USB device could result in dom0 being compromised. There are two
+approaches to this problem:
+
+1. Physically disconnect all USB devices whenever you reboot the host.
+2. Hide (i.e., blacklist) all USB controllers from dom0.
+
+**Warning:** If you use a USB [AEM] device, do not use the second option. Using
+a USB AEM device requires dom0 to have access to the USB controller to which
+your USB AEM device is attached. If dom0 cannot read your USB AEM device, AEM
+will hang.
+
+The procedure to hide all USB controllers from dom0 is as follows:
+
+1. Open the file `/etc/default/grub` in dom0.
+2. Find the line that begins with `GRUB_CMDLINE_LINUX`.
+3. Add `rd.qubes.hide_all_usb` to that line.
+4. Save and close the file.
+5. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
+6. Reboot.
+
+(Note: Beginning with R3.2, `rd.qubes.hide_all_usb` is set automatically if you
+opt to create a USB qube during installation. This also occurs automatically if
+you choose to [create a USB qube] using the `qubesctl` method, which is the
+first pair of steps in the linked section.)
 
 Supported USB device types
 --------------------------
@@ -246,11 +293,53 @@ If you are sure you wish to proceed, then you must edit the
 
 Add a line like this one to the top of the file:
 
-    sys-usb dom0 ask
+    sys-usb dom0 ask,user=root
 
 (Change `sys-usb` to your desired USB qube.)
 
 You can now use your USB keyboard.
+
+Attaching a single USB device to a qube (USB passthrough)
+---------------------------------------------------------
+
+Stating with Qubes 3.2, it is possible to attach a single USB device to any
+Qube. While this is useful feature, it should be used with care, because there
+are [many security implications][usb-challenges] from using USB devices and USB
+passthrough will **expose your target qube** for most of them. If possible, use 
+method specific for particular device type (for example block devices described
+above), instead of this generic one.
+
+To use this feature, you need to install `qubes-usb-proxy` package in the
+templates used for USB qube and qubes you want to connect USB devices to. Note
+you cannot pass through devices from dom0 (in other words: USB VM is required).
+
+Listing available USB devices:
+
+    [user@dom0 ~]$ qvm-usb
+    sys-usb:2-4     04ca:300d 04ca_300d
+    sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
+    sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
+
+Attaching selected USB device:
+
+    [user@dom0 ~]$ qvm-usb -a conferences sys-usb:2-5
+    [user@dom0 ~]$ qvm-usb
+    conferences:2-1 058f:3822 058f_USB_2.0_Camera
+    sys-usb:2-4     04ca:300d 04ca_300d
+    sys-usb:2-5     058f:3822 058f_USB_2.0_Camera (attached to conferences)
+    sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
+
+Now, you can use your USB device (camera in this case) in `conferences` qube.
+
+When you finish, detach the device:
+
+    [user@dom0 ~]$ qvm-usb -d sys-usb:2-5
+    [user@dom0 ~]$ qvm-usb
+    sys-usb:2-4     04ca:300d 04ca_300d
+    sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
+    sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
+
+This feature is not yet available in Qubes Manager.
 
 
 [mass-storage]: https://en.wikipedia.org/wiki/USB_mass_storage_device_class
@@ -260,7 +349,10 @@ You can now use your USB keyboard.
 [1072-comm1]: https://github.com/QubesOS/qubes-issues/issues/1072#issuecomment-124270051
 [1072-comm2]: https://github.com/QubesOS/qubes-issues/issues/1072#issuecomment-124119309
 [1082]: https://github.com/QubesOS/qubes-issues/issues/1082
+[hide-usb]: #how-to-hide-all-usb-controllers-from-dom0
 [faq-usbvm]: /doc/user-faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot
+[AEM]: /doc/anti-evil-maid/
 [1618]: https://github.com/QubesOS/qubes-issues/issues/1618
+[create a USB qube]: #creating-and-using-a-usb-qube
 [input-proxy]: https://github.com/qubesos/qubes-app-linux-input-proxy
-
+[usb-challenges]: http://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html
