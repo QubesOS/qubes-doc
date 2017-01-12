@@ -202,6 +202,16 @@ Configure your AppVMs to use the VPN VM as a NetVM...
 
 ![Settings-NetVM.png](/attachment/wiki/VPN/Settings-NetVM.png)
 
+
+If you want to be able to use the qubes firewall, create a ProxyVM firewall and set it to use the VPN VM as NetVM.
+Then configure AppVMs to use *that* firewall as their NetVM.
+
+If you want to update your Templates through the VPN, configure the ProxyVM firewall so as to enable the qubes-updates-proxy service.
+You can do this using the services tab in the Manager or at the command line:
+`qvm-service -e <name> qubes-updates-proxy`
+Then configure your templates to use the ProxyVM firewall as their NetVM.
+
+
 Troubleshooting
 ---------------
 
