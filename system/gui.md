@@ -17,7 +17,7 @@ qubes_gui and qubes_guid processes
 
 All AppVM X applications connect to local (running in AppVM) Xorg server, that uses the following "hardware" drivers:
 
--   *dummy_drv* - video driver, that paints onto a framebuffer located in RAM, not connected to real hardware
+-   *dummyqsb_drv* - video driver, that paints onto a framebuffer located in RAM, not connected to real hardware
 -   *qubes_drv* - it provides a virtual keyboard and mouse (in fact, more, see below)
 
 For each AppVM, there is a pair of *qubes_gui* (running in AppVM) and *qubes_guid* (running in dom0) processes, connected over vchan. Main responsibilities of *qubes_gui* are:
@@ -48,10 +48,10 @@ Now, *qubes_guid* has to tell dom0 Xorg server about the location of the buffer.
 
 -   in dom0, the Xorg server is started with *LD_PRELOAD*-ed library named *shmoverride.so*. This library hooks all function calls related to shared memory.
 -   *qubes_guid* creates a shared memory segment, and then tells Xorg to attach it via *MIT-SHM* extension
--   when Xorg tries to attach the segment (via glibc *shmat*) *shmoverride.so* intercepts this call and instead maps AppVM memory via *xc_map_foreign_range*
+-   when Xorg tries to attach the segment (via glibc *shmat*) *shmoverride.so* intercepts this call and instead maps AppVM memory via *xc_map_foreign_pages*
 -   since then, we can use MIT-SHM functions, e.g. *XShmPutImage* to draw onto a dom0 window. *XShmPutImage* will paint with DRAM speed; actually, many drivers use DMA for this.
 
-The important detail is that *xc_map_foreign_range* verifies that a given mfn range actually belongs to a given domain id (and the latter is provided by trusted *qubes_guid*). Therefore, rogue AppVM cannot gain anything by passing crafted mnfs in the `MFNDUMP` message.
+The important detail is that *xc_map_foreign_pages* verifies that a given mfn range actually belongs to a given domain id (and the latter is provided by trusted *qubes_guid*). Therefore, rogue AppVM cannot gain anything by passing crafted mnfs in the `MFNDUMP` message.
 
 To sum up, this solution has the following benefits:
 
