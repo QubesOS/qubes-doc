@@ -122,6 +122,7 @@ Privacy Guides
  * [TorVM](/doc/torvm/)
  * [Martus](/doc/martus/)
  * [Signal](/doc/signal/)
+ * [Hidden Service Repos](/doc/hidden-service-repos/)
 
 
 Configuration Guides
