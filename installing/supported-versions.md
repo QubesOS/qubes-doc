@@ -12,7 +12,7 @@ Qubes OS
 Qubes OS releases are supported for **six months** after each subsequent major
 or minor release (see [Version Scheme]). The current release and past major
 releases are always available on the [Downloads] page, while all ISOs, including
-past minor releases, are available from our [FTP server].
+past minor releases, are available from our [download mirrors].
 
 | Qubes OS Version | Start Date | End Date   | Status                      |
 | ---------------- | ---------- | ---------- | --------------------------- |
@@ -65,7 +65,7 @@ extensive testing.
 
 [Version Scheme]: /doc/version-scheme/
 [Downloads]: /downloads/
-[FTP server]: https://ftp.qubes-os.org/
+[download mirrors]: /downloads/#mirrors
 [security-critical]: /doc/security-critical-code/
 [TemplateVM]: /doc/templates/
 
