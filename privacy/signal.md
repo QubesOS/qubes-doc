@@ -56,7 +56,7 @@ you use Signal in an AppVM named `Signal`, and this AppVM uses `fedora-23` as it
    Move these files to the following locations:
    
         [user@fedora-23 Signal]$ sudo mv chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop /usr/share/applications/
-        [user@fedora-23 Signal]$ sudo mv chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.png /usr/share/icons/hicolor/48x48/
+        [user@fedora-23 Signal]$ sudo mv chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.png /usr/share/icons/hicolor/48x48/apps/
 
 5. From a Dom0 terminal, instruct Qubes to synchronize the application menus of this TemplateVM:
 
