@@ -106,6 +106,26 @@ pull request, we'll post a comment explaining why we can't.
 ![done](/attachment/wiki/doc-edit/10-done.png)
 
 
+Contribution Suggestions
+------------------------
+
+ * If you find any inaccuracies in the documentation, please correct them!
+
+ * If you find an inaccuracy but don't know how to correct, you can still help
+   by documenting the inaccuracy. For example, if you have *thoroughly* tested
+   a set of steps in the documentation and know *for certain* that they no
+   longer work on a certain version of Qubes (e.g., because the steps are
+   out-of-date), then please add a note to the documentation indicating this.
+   You may also wish to provide a link to a relevant thread on the [mailing
+   lists].
+
+ * Where appropriate, specify the version of the software to which your
+   contribution applies. For example, if you're contributing a set of
+   instructions for doing something in dom0, specify the version(s) of Qubes OS
+   with which you know these instructions to work. This allows future readers to
+   more easily estimate the accuracy and applicability of information.
+
+
 Style Guidelines
 ----------------
 
@@ -153,5 +173,6 @@ Please try to write good commit messages, according to the
 [gh-fork]: https://guides.github.com/activities/forking/
 [gh-pull]: https://help.github.com/articles/using-pull-requests/
 [GitHub]: https://github.com/
+[mailing lists]: /mailing-lists/
 [md]: https://daringfireball.net/projects/markdown/
 [git-commit]: /doc/coding-style/#commit-message-guidelines
