@@ -41,7 +41,7 @@ Install
 
 A prebuilt template is available only for Qubes 3.2. Before Qubes 3.2, it should be compiled from source as described in [building-archlinux-template](/doc/building-archlinux-template/).
 
-    [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-archlinux
+    [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-archlinux
 
 ## **Package Manager Proxy Setup Section** ##
 
