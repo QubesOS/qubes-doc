@@ -1,14 +1,15 @@
 ---
 layout: doc
-title: Hidden Service Repos
-permalink: /doc/hidden-service-repos/
+title: Onion Service Repos
+permalink: /doc/onion-service-repos/
+redirect_from: /doc/hidden-service-repos/
 ---
 
-Hidden Service Repos
+Onion Service Repos
 ====================
 
-Run the following commands in dom0 in order to use Qubes' Tor hidden service
-repos for each type of VM.
+Run the following commands in dom0 in order to use Qubes' Tor onion service
+(aka "hidden service") repos for each type of VM.
 
 **Note:** The `cat`s are optional, for confirmation only.
 
