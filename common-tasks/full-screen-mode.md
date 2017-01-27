@@ -30,7 +30,7 @@ Another option is to use Alt+Tab for switching windows. This shortcut is also ha
 Enabling full screen mode for select VMs
 ----------------------------------------
 
-If you want to enable full screen mode for select VMs, you can do that by creating the following entry in the /etc/qubes/guid.conf file in Dom0:
+If you want to enable full screen mode for select VMs, you can do that by creating the following entry in the `/etc/qubes/guid.conf` file in Dom0:
 
 **Note:** Regardless of the settings below, you can always put a window into
 fullscreen mode in Xfce4 using the trusted window manager by right-clicking on
