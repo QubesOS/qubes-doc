@@ -81,16 +81,16 @@ Configuring Split GPG
 
 In dom0, make sure the `qubes-gpg-split-dom0` package is installed.
 
-    sudo qubes-dom0-update qubes-gpg-split-dom0
+    [user@dom0 ~]$ sudo qubes-dom0-update qubes-gpg-split-dom0
     
-If using templates based on Debian, make sure you have the `qubes-gpg-split`
+If using templates based on Debian or Whonix, make sure you have the `qubes-gpg-split`
 package installed.
 
-    sudo apt-get install qubes-gpg-split
+    [user@debian-8 ~]$ sudo apt-get install qubes-gpg-split
     
 For Fedora.
 
-    sudo yum install qubes-gpg-split
+    [user@fedora-24 ~]$ sudo yum install qubes-gpg-split
 
 Start with creating a dedicated AppVM for storing your keys (the GPG backend
 domain). It is recommended that this domain be network disconnected (set its
