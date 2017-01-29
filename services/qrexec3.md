@@ -105,15 +105,24 @@ In dom0, there is a bunch of files in `/etc/qubes-rpc/policy` directory,
 whose names describe the available rpc actions. Their content is the rpc
 access policy database. Currently defined actions are:
 
+    qubes.ClipboardPaste
     qubes.Filecopy
+    qubes.GetImageRGBA
+    qubes.GetRandomizedTime
+    qubes.Gpg
+    qubes.GpgImportKey
+    qubes.InputKeyboard
+    qubes.InputMouse
+    qubes.NotifyTools
+    qubes.NotifyUpdates
     qubes.OpenInVM
+    qubes.OpenURL
+    qubes.PdfConvert
     qubes.ReceiveUpdates
     qubes.SyncAppMenus
+    qubes.USB
     qubes.VMShell
-    qubes.ClipboardPaste
-    qubes.Gpg
-    qubes.NotifyUpdates
-    qubes.PdfConvert
+    qubes.WindowIconUpdater
 
 These files contain lines with the following format:
 
