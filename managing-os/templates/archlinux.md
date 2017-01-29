@@ -25,7 +25,13 @@ Updates for this template are provided by [Olivier Médoc](mailto:o_medoc@yahoo.
           Key fingerprint = D85E E12F 9678 51CC F433  515A 2043 E7AC C183 3B9C
     uid                          Olivier MEDOC (Qubes-OS signing key) <o_medoc@yahoo.fr>
 
-The key is not installed when you install (signed) template package. You can however choose to trust it by registering it into pacman:
+The update repository is disabled when you install (signed) template package. You can however choose to trust it by registering it into pacman.
+
+Enable the repository by running the following command:
+
+    # mv /etc/pacman.d/99-qubes-repository-3.2.disabled /etc/pacman.d/99-qubes-repository-3.2.conf
+
+Then you need to install and sign the public GPG key of the package maintainer:
 
     # pacman-key --recv-key 2043E7ACC1833B9C
     # pacman-key --finger 2043E7ACC1833B9C
@@ -43,7 +49,17 @@ A prebuilt template is available only for Qubes 3.2. Before Qubes 3.2, it should
 
     [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-archlinux
 
-## **Package Manager Proxy Setup Section** ##
+## **Known Issues:** ##
+
+### **Package cannot be updated because of errors related to xorg-server or pulseaudio versions** ###
+
+In case archlinux upgrade pulseaudio major version or xorg-server version, updating these packages will break the qubes GUI agent. To avoid breaking things, the update is blocked until a new version of the GUI agent is available.
+
+In this case, the gui-agent-linux component of Qubes-OS needs to be rebuild using these last xorg-server or pulseaudio libraries. You can try to rebuilt it yourself or wait for a new qubes-vm-gui package to be available.
+
+<br>
+
+## **Packages manager wrapper** ##
 
 
 Powerpill is a full Pacman wrapper that not only give easy proxy configuration but further offers numerous other advantages.
@@ -335,18 +351,6 @@ Note: For info on Reflector and its configs: [Reflector](https://wiki.archlinux.
 ### **If the above checks out, you can start using your new Archlinux Template** ###
 
 <br>
-<br>
-
-#### **Known Issues:** ####
-
-*   If there is an Arch upgrade of Pulse Audio it will require rebuilding and installing  Qubes component: gui-agent-linux 
-
-*   There May also be a similar issue of dependencies with Xorg.
-   
-*   Upgrade Relfector functionality to allow its use through the QUPS
-
-*   Pacman functionality changes and allows it to be directly configured to work through QUPS.
-
 <br>
 
 #### **Qubes Mailing List Threads on the Archlinux build process:** ####
