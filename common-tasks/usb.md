@@ -44,7 +44,7 @@ follows:
  1. Insert your USB drive.
 
  2. In a dom0 console (running as a normal user), list all available block
-   devices:
+    devices:
 
         qvm-block -l
 
@@ -66,7 +66,7 @@ follows:
  3.  Assuming your USB drive is attached to dom0 and is `sdb`, we attach the
      device to a qube with the name `personal` like so:
 
-        qvm-block -a personal dom0:sdb
+         qvm-block -a personal dom0:sdb
 
      This will attach the device to the qube as `/dev/xvdi` if that name is not
      already taken by another attached device, or `/dev/xvdj`, etc.
@@ -88,9 +88,13 @@ follows:
  5.  When you finish using your USB drive, click the eject button or right-click
      and select **Unmount**.
 
- 6.  In a dom0 console, detach the stick:
+ 6.  In a dom0 console, detach the stick
 
-         qvm-block -d <device> <vmname>
+         qvm-block -d <device>
+         
+     or
+     
+         qvm-block -d <vmname>
 
  7.  You may now remove the device.
 
