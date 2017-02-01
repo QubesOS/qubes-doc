@@ -90,7 +90,7 @@ follows:
 
  6.  In a dom0 console, detach the stick:
 
-        qvm-block -d <device> <vmname>
+         qvm-block -d <device> <vmname>
 
  7.  You may now remove the device.
 
