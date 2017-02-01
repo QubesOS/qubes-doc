@@ -64,7 +64,7 @@ follows:
         sudo udevadm trigger --action=change
 
  3.  Assuming your USB drive is attached to dom0 and is `sdb`, we attach the
-     device to a qube like so:
+     device to a qube with the name `personal` like so:
 
         qvm-block -a personal dom0:sdb
 
