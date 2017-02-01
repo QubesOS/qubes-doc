@@ -30,7 +30,9 @@ To quickly prepare the builder configuration, you can use `setup` script
 available in the repository - it will interactively ask you which templates you
 want to build.
 
-Ubuntu 14.4 LTS (Trusty) can be built with little effort.
+The build for Ubuntu 14.4 LTS (Trusty) is currently broken.
+
+The build for Ubuntu 16.4 LTS (Xenial) is straightforward.
 
 ----------
 
