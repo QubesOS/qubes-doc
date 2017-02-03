@@ -13,7 +13,9 @@ redirect_from:
 <br>
 **These are the instructions for Qubes 3.2. They will take you step by step through the entire process start to finish**
 
-*Note: Currently there are no binary packages and it must be compiled from source using the instructions below.*
+*Note: These instructions have not been tested for Qubes 3.1. However they could be working.*
+
+*Note: No binary package for the archlinux template exists for Qubes 3.1.*
 
 <br>
 <br>
