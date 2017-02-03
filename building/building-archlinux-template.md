@@ -339,81 +339,57 @@ redirect_from:
 
 * If everything went correct there should be a Archlinux template listed in your Qubes VM Manager *
 
----------------
 
-Known problems during building or when running the VM
-=====================================================
+# Known problems in building with Qubes R3.X 
 
-Build fails when fetching qubes-mgmt-salt
------------------------------------------
+## Build fails when fetching qubes-mgmt-salt
 
 The `qubes-mgmt-salt` repo is not currently forked under the marmarek user on
 GitHub, to whom the above instructions set the `GIT_PREFIX`.  As Archlinux is
 not yet supported by mgmt-salt, simply leave it out of the build (when building
-the Archlinux template on it's own) by appending the following to your
-`builder.conf`:
+the Archlinux template on it's own) by appending the following to your `override.conf` file:
 
-~~~
-BUILDER_PLUGINS := $(filter-out mgmt-salt,$(BUILDER_PLUGINS))
-~~~
+`BUILDER_PLUGINS := $(filter-out mgmt-salt,$(BUILDER_PLUGINS))`
 
-The nm-applet (network manager icon) fails to start when archlinux is defined as a template-vm:
------------------------------------------------------------------------------------------------
+## The nm-applet (network manager icon) fails to start when archlinux is defined as a template-vm
 
 In fact /etc/dbus-1/system.d/org.freedesktop.NetworkManager.conf does not allow a standard user to run network manager clients. To allow this, one need to change inside \<policy context="default"\>:
 
-~~~
-<deny send_destination="org.freedesktop.NetworkManager"/>
-~~~
+`<deny send_destination="org.freedesktop.NetworkManager"/>`
 
 to
 
-~~~
-<allow send_destination="org.freedesktop.NetworkManager"/>
-~~~
+`<allow send_destination="org.freedesktop.NetworkManager"/>`
 
-DispVM, Yum proxy and most Qubes addons (thunderbird ...) have not been tested at all.
---------------------------------------------------------------------------------------
+## DispVM, Yum proxy and most Qubes addons (thunderbird ...) have not been tested at all
 
-The sound does not work in AppVMs and there are messages related to pulse segfault in glibc when running dmesg (FIXED)
-----------------------------------------------------------------------------------------------------------------------
+## Error when building the gui-agent-linux with pulsecore error
 
-This is apparently a bug in Archlinux between glibc and pulseaudio package 4.0-6. The packages pulseaudio-4.0-2 and libpulse-4.0-2 are known to work and can be downloaded and reinstalled manually.
-
-Error when building the gui-agent-linux with pulsecore error
-------------------------------------------------------------
-
-~~~
+```
 module-vchan-sink.c:62:34: fatal error: pulsecore/core-error.h: No such file or directory
  #include <pulsecore/core-error.h>
-~~~
+```
 
 This error is because Archlinux update package too quickly. Probably, a new version of pulseaudio has been released, but the qubes team has not imported the new development headers yet.
 
 You can create fake new headers just by copying the old headers:
-
-~~~
+```
 cd qubes-builder/qubes-src/gui-agent-linux/pulse
 ls
 cp -r pulsecore-#lastversion pulsecore-#archlinuxversion
-~~~
+```
 
 You can check the current archlinux pulseaudio version like this:
 
-~~~
-sudo chroot chroot-archlinux/ pacman -Qi pulseaudio
-~~~
+`sudo chroot chroot-archlinux/ pacman -Qi pulseaudio`
 
-chroot-archlinux/dev/pts has not been unmounted
------------------------------------------------
+## chroot-archlinux/dev/pts has not been unmounted
 
 This is a known problem when there are errors during building. Check what is mounted using the command mount (with no parameters). Just unmount what you can (or reboot your vm if you are too lazy :) )
 
-Known problems in Qubes R2-B2
-=============================
+# Known problems in building with Qubes R2-B2
 
-xen-vmm-vm fail to build with a PARSETUPLE related error (FIXED):
------------------------------------------------------------------
+## xen-vmm-vm fail to build with a PARSETUPLE related error (FIXED)
 
 Commenting out "\#define HAVE\_ATTRIBUTE\_FORMAT\_PARSETUPLE" from chroot\_archlinux/usr/include/python2.7/pyconfig.h fixes the problem, but it isn't the right solution [1]...
 
@@ -421,37 +397,31 @@ A better fix is planned for the next python release (the bug is considered relea
 
 [1] [http://bugs.python.org/issue17547](http://bugs.python.org/issue17547)
 
-The boot process fails without visible errors in the logs, but spawn a recovery shell
--------------------------------------------------------------------------------------
+## The boot process fails without visible errors in the logs, but spawn a recovery shell
 
-The problem is a new conflict between systemd and the old sysvinit style. To fix this, you can change the master xen template in dom0 to remove sysvinit remains: Edit **INSIDE DOM0** /usr/share/qubes/vm-template.conf, and change the variable 'extra' that contains the kernel variables: from:
+The problem is new conflict between systemd and the old sysvinit style. To fix this, you can change the master xen template in dom0 to remove sysvinit remains: Edit **INSIDE DOM0** /usr/share/qubes/vm-template.conf, and change the variable 'extra' that contains the kernel variables: from:
 
-~~~
-extra="ro nomodeset 3 console=hvc0 rd_NO_PLYMOUTH {kernelopts}"
-~~~
+`extra="ro nomodeset 3 console=hvc0 rd_NO_PLYMOUTH {kernelopts}"`
 
 to:
 
-~~~
-extra="ro nomodeset console=hvc0 rd_NO_PLYMOUTH {kernelopts}"
-~~~
+`extra="ro nomodeset console=hvc0 rd_NO_PLYMOUTH {kernelopts}"`
 
-Qubes-OS is now using different xenstore variable names, which makes to archlinux VM failing to boot
-----------------------------------------------------------------------------------------------------
+## Qubes-OS is now using different xenstore variable names, which makes to archlinux VM failing to boot
 
 Apply the following fix in the template to revert the variable name to the old Qubes version.
 
 You can edit the template the following way:
 
-~~~
+```
 sudo mkdir /mnt/vm
 sudo mount /var/lib/qubes/vm-templates/archlinux-x64/root.img /mnt/vm
 sudo chroot /mnt/vm
-~~~
+```
 
 Then apply the fix:
 
-~~~
+```
 sudo sed 's:qubes-keyboard:qubes_keyboard:g' -i /etc/X11/xinit/xinitrc.d/qubes-keymap.sh
 
 sudo sed 's:qubes-netvm-domid:qubes_netvm_domid:g' -i /etc/NetworkManager/dispatcher.d/30-qubes-external-ip
@@ -484,19 +454,14 @@ sudo sed 's:qubes-vm-updateable:qubes_vm_updateable:g' -i /usr/lib/qubes/qubes_t
 
 sudo sed 's:qubes-vm-type:qubes_vm_type:g' -i /usr/bin/qubes-session
 sudo sed 's:qubes-vm-updateable:qubes_vm_updateable:g' -i /usr/bin/qubes-session
-~~~
+```
 
-Do not forgot to:
+Do not forgot to unmount the VM:
 
-~~~
-umount /mnt/vm
-~~~
+`umount /mnt/vm`
 
-Installing the template in dom0 fails because of a missing dependency (qubes-core-dom0-linux)
----------------------------------------------------------------------------------------------
+## Installing the template in dom0 fails because of a missing dependency (qubes-core-dom0-linux)
 
-Again you built a template based on a recent Qubes API which has not been released yet. So skip the dependency for now:
+Again you built a template based on a recent Qubes API which has not been released yet. So skip the dependency for now
 
-~~~
-sudo rpm -U --nodeps yourpackage.rpm
-~~~
+`sudo rpm -U --nodeps yourpackage.rpm`
