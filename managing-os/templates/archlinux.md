@@ -64,7 +64,7 @@ Note that Archlinux does not install GUI packages by default as this decision is
 
 If you decide to use binary packages but that you where using a Qubes-3.1 Template, your can follow these instructions to enable Qubes 3.2 agents.
 
-You can use a template that you built for Qubes 3.1 in Qubes 3.2. At least main agent functionnalities should still working so that you can at least open a terminal.
+You can use a template that you built for Qubes 3.1 in Qubes 3.2. The qrexec and gui agent functionnalities should still be working so that you can at least open a terminal.
 
 In order to enable binary packages for Qubes 3.2, add the following lines to the end of /etc/pacman.conf
 
@@ -74,9 +74,9 @@ Server = http://olivier.medoc.free.fr/archlinux/current/
 ```
 
 You should then follow the instruction related to pacman-key in order to sign the binary packages PGP key. With the key enabled, a pacman update will update qubes agents:
-` #pacman -Suy `
+` # pacman -Suy `
 
-The two line that have just been added to /etc/pacman.conf shoud then be removed as they have been included in the qubes-vm-core update in the file `/etc/pacmand.d/99-qubes-repository-3.2.conf`
+The two line that have just been added to /etc/pacman.conf should then be removed as they have been included in the qubes-vm-core update in the file `/etc/pacmand.d/99-qubes-repository-3.2.conf`
 
 ## Known Issues
 
@@ -88,10 +88,10 @@ In this case, the gui-agent-linux component of Qubes-OS needs to be rebuild usin
 
 ### qubes-vm is apparently starting properly (green dot) however graphical applications do not appears to work
 
-They are multiple possible reasons. Some of them are described in the following issues:
+They are multiple potential reasons. Some of them are described in the following issues:
 * https://github.com/QubesOS/qubes-issues/issues/2612
 
-In issue 2612, check that all lines in /etc/fstab related to /rw or /home uses the option noauto. This bug can appears if you uses an old Archlinux Template.
+In issue 2612, check that the option `noauto` is present for all lines in /etc/fstab related to /rw or /home. This bug can appears if you come from an old Archlinux Template (pre February 2017).
 
 ## Debugging a broken VM
 
