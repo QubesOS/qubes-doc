@@ -9,8 +9,7 @@ redirect_from:
 - /wiki/Templates/Archlinux/
 ---
 
-Archlinux Template
-===============
+# Archlinux Template
 
 Archlinux template is one of the templates made by Qubes community. It should
 be considered experimental as Qubes developers team use mainly Fedora-based VMs
@@ -25,13 +24,21 @@ Updates for this template are provided by [Olivier Médoc](mailto:o_medoc@yahoo.
           Key fingerprint = D85E E12F 9678 51CC F433  515A 2043 E7AC C183 3B9C
     uid                          Olivier MEDOC (Qubes-OS signing key) <o_medoc@yahoo.fr>
 
+## Installation
+
+A prebuilt template is available only for Qubes 3.2. Before Qubes 3.2, it should be compiled from source as described in [building-archlinux-template](/doc/building-archlinux-template/).
+
+    [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-archlinux
+
+## Binary packages activation
+
 The update repository is disabled when you install (signed) template package. You can however choose to trust it by registering it into pacman.
 
 Enable the repository by running the following command:
 
     # mv /etc/pacman.d/99-qubes-repository-3.2.disabled /etc/pacman.d/99-qubes-repository-3.2.conf
 
-Then you need to install and sign the public GPG key of the package maintainer:
+Then you need to install and sign the public GPG key of the package maintainer (note that accessing to GPG servers requires to temporarily disable the firewall in your template):
 
     # pacman-key --recv-key 2043E7ACC1833B9C
     # pacman-key --finger 2043E7ACC1833B9C
@@ -40,26 +47,28 @@ If the fingerprint is correct, you can then sign the key:
 
     # pacman-key --lsign-key 2043E7ACC1833B9C
 
-<br>
+## Default packages
 
-Install
--------
+In order to keep the template as small and simple as possible, default installed package have been arbitrarily selected based on multiple subjective criterias that however essentially include libraries dependencies. This packages are:
+* Some font packages to keep good user experience
+* leafpad: a note pad
+* xfce4-terminal: a terminal
+* thunar: a file browser that support mounting usb keys
+* firefox: web browser
+* thunderbird: a mail browser
+* evince: a document viewer
 
-A prebuilt template is available only for Qubes 3.2. Before Qubes 3.2, it should be compiled from source as described in [building-archlinux-template](/doc/building-archlinux-template/).
+Note that Archlinux does not install GUI packages by default as this decision is left to users. This packages have only been selected to have a usable template.
 
-    [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-archlinux
+## Known Issues
 
-## **Known Issues:** ##
-
-### **Package cannot be updated because of errors related to xorg-server or pulseaudio versions** ###
+### Package cannot be updated because of errors related to xorg-server or pulseaudio versions
 
 In case archlinux upgrade pulseaudio major version or xorg-server version, updating these packages will break the qubes GUI agent. To avoid breaking things, the update is blocked until a new version of the GUI agent is available.
 
 In this case, the gui-agent-linux component of Qubes-OS needs to be rebuild using these last xorg-server or pulseaudio libraries. You can try to rebuilt it yourself or wait for a new qubes-vm-gui package to be available.
 
-<br>
-
-## **Packages manager wrapper** ##
+## Packages manager wrapper
 
 
 Powerpill is a full Pacman wrapper that not only give easy proxy configuration but further offers numerous other advantages.
@@ -353,15 +362,7 @@ Note: For info on Reflector and its configs: [Reflector](https://wiki.archlinux.
 <br>
 <br>
 
-#### **Qubes Mailing List Threads on the Archlinux build process:** ####
-
-*   [Qubes-Devel](https://groups.google.com/forum/#!forum/qubes-devel): [Qubes Builder failed Archlinux repository is missing](https://groups.google.com/forum/#!topic/qubes-devel/tIFkS-rPVx8)
-
-*   [Qubes-Users](https://groups.google.com/forum/#!forum/qubes-users): [Trying to compile archlinux template](https://groups.google.com/forum/#!topic/qubes-users/7wuwr3LgkQQ)    
-
-<br>
-
-#### **Want to contribute?** ####
+## Want to contribute?
 
 *   [How can I contribute to the Qubes Project?](/doc/contributing/)
 
