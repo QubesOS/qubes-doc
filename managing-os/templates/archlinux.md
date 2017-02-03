@@ -60,6 +60,24 @@ In order to keep the template as small and simple as possible, default installed
 
 Note that Archlinux does not install GUI packages by default as this decision is left to users. This packages have only been selected to have a usable template.
 
+## Updating a Qubes-3.1 Archlinux Template
+
+If you decide to use binary packages but that you where using a Qubes-3.1 Template, your can follow these instructions to enable Qubes 3.2 agents.
+
+You can use a template that you built for Qubes 3.1 in Qubes 3.2. At least main agent functionnalities should still working so that you can at least open a terminal.
+
+In order to enable binary packages for Qubes 3.2, add the following lines to the end of /etc/pacman.conf
+
+```
+[qubes-r3.2]
+Server = http://olivier.medoc.free.fr/archlinux/current/
+```
+
+You should then follow the instruction related to pacman-key in order to sign the binary packages PGP key. With the key enabled, a pacman update will update qubes agents:
+` #pacman -Suy `
+
+The two line that have just been added to /etc/pacman.conf shoud then be removed as they have been included in the qubes-vm-core update in the file `/etc/pacmand.d/99-qubes-repository-3.2.conf`
+
 ## Known Issues
 
 ### Package cannot be updated because of errors related to xorg-server or pulseaudio versions
@@ -67,6 +85,29 @@ Note that Archlinux does not install GUI packages by default as this decision is
 In case archlinux upgrade pulseaudio major version or xorg-server version, updating these packages will break the qubes GUI agent. To avoid breaking things, the update is blocked until a new version of the GUI agent is available.
 
 In this case, the gui-agent-linux component of Qubes-OS needs to be rebuild using these last xorg-server or pulseaudio libraries. You can try to rebuilt it yourself or wait for a new qubes-vm-gui package to be available.
+
+### qubes-vm is apparently starting properly (green dot) however graphical applications do not appears to work
+
+They are multiple possible reasons. Some of them are described in the following issues:
+* https://github.com/QubesOS/qubes-issues/issues/2612
+
+In issue 2612, check that all lines in /etc/fstab related to /rw or /home uses the option noauto. This bug can appears if you uses an old Archlinux Template.
+
+## Debugging a broken VM
+
+In order to identify the issue, you should start by getting a console access to the VM:
+
+* Either by running in dom0 `qvm-run --pass-io --nogui yourbrokenvm 'your command here'`
+
+* Or by running in dom0 `sudo xl console yourbrokenvm`
+
+Starts by trying to run a GUI application such as xfce4-terminal in order to identify any error message.
+
+Then you can check potential broken systemd service by running the following command inside the broken vm: `systemctl | grep fail`.
+
+If you identified a broken service check `journalctl -la -u yourbrokenservice`. If not check `journalctl -b` for errors.
+
+Finally, errors related to the GUI agent can be found inside the VM in `/home/user/.xsession-errors`
 
 ## Packages manager wrapper
 
