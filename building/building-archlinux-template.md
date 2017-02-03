@@ -465,3 +465,12 @@ Do not forgot to unmount the VM:
 Again you built a template based on a recent Qubes API which has not been released yet. So skip the dependency for now
 
 `sudo rpm -U --nodeps yourpackage.rpm`
+
+
+# Qubes Mailing List Threads on the Archlinux build process
+
+*   [Qubes-Devel](https://groups.google.com/forum/#!forum/qubes-devel): [Qubes Builder failed Archlinux repository is missing](https://groups.google.com/forum/#!topic/qubes-devel/tIFkS-rPVx8)
+
+*   [Qubes-Users](https://groups.google.com/forum/#!forum/qubes-users): [Trying to compile archlinux template](https://groups.google.com/forum/#!topic/qubes-users/7wuwr3LgkQQ)    
+
+<br>
