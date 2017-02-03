@@ -8,20 +8,15 @@ redirect_from:
 - /wiki/BuildingArchlinuxTemplate/
 ---
 
-## Archlinux template building instructions ##
+# Archlinux template building instructions
 
-<br>
 **These are the instructions for Qubes 3.2. They will take you step by step through the entire process start to finish**
 
 *Note: These instructions have not been tested for Qubes 3.1. However they could be working.*
 
 *Note: No binary package for the archlinux template exists for Qubes 3.1.*
 
-<br>
-<br>
-<br>
-
-#### **1:   Create and configure VM to use for template building:** ####
+## 1:   Create and configure VM to use for template building
 
 *   The VM should be based on a Fedora template. It's best to use a standalone VM. I created a standalone VM based on
     the Fedora 23 template. I named the VM “**development**”. These instructions assume a standalone VM based on a       Fedora template is being used.
@@ -38,11 +33,8 @@ redirect_from:
 <br> 
 
 *Note: Unless otherwise noted,  all commands are from within the “development” VM or whatever you named your standalone VM used for building the template.*
-<br>
-<br>
-<br>
 
-##### **2:   Create GitHub Account (optional):** #####
+## 2:   Create GitHub Account (optional)
 
 *   It can be helpful. Creating only a basic account is all that is needed. This will allow you to help, going           forward, with the Qubes project. You could be help edit errors in documentation. It can also be of use building      other templates.
     
@@ -52,9 +44,8 @@ redirect_from:
 ![arch-template-03](/attachment/wiki/ArchlinuxTemplate/arch-template-03.png)    
 <br>
 <br>
-<br>
 
-##### **3:   Install necessary packages to 'development' VM for "Qubes Automated Build System":** #####
+## 3:   Install necessary packages to 'development' VM for "Qubes Automated Build System"
 
 *   Necessary packages to install:
 
@@ -75,7 +66,6 @@ redirect_from:
     *   rpm-sign
     
     *	gnupg
-<br>
 
 
 *   The tools can usually be installed all together with the following terminal command string:
@@ -86,9 +76,8 @@ redirect_from:
 ![arch-template-04](/attachment/wiki/ArchlinuxTemplate/arch-template-04.png)
 <br>
 <br>
-<br>
 
-##### **4:   Installing the "Qubes Automated Build System":** #####
+## 4:   Installing the "Qubes Automated Build System"
 
 *   Download the latest stable qubes-builder repository:
 
@@ -106,7 +95,7 @@ redirect_from:
 <br>
 <br>
 
-##### **5:   Configuring setup script to create builder.conf file:** #####
+## 5:   Configuring setup script to create builder.conf file
 
 *   You will be creating the builder.conf file which tells where and what to use.   The most automated, and in this case the easiest, way to create this is to use the script that is provided in Qubes Builder.  Its named '**setup**'.  Before running the script you need to edit one file it uses.
    
@@ -130,7 +119,7 @@ redirect_from:
 <br>
 <br>
 
-##### **6:   Run the 'setup' script to build the builder.conf file** #####
+## 6:   Run the 'setup' script to build the builder.conf file
 
 *   Run the 'setup' script located in '**/home/user/qubes-builder/**' Make sure you are in directory '**qubes-builder**'
 
@@ -242,7 +231,7 @@ redirect_from:
 <br>
 <br>
 
-##### **7:   Install all the dependencies:** ##### 
+## 7:   Install all the dependencies
 
 *Note: make sure you are in the “qubes-builder” directory to run the following cmds*
 
@@ -252,9 +241,8 @@ redirect_from:
 ![arch-template-18](/attachment/wiki/ArchlinuxTemplate/arch-template-18.png)
 <br>
 <br>
-<br>
 
-##### **8:   Get all the require sources for the build: (Note: this may take some time)** #####
+## 8:   Get all the require sources for the build: (Note: this may take some time)
 
 *   **$ make get-sources**
 <br>
@@ -264,7 +252,7 @@ redirect_from:
 <br>
 <br>
 
-##### **9:   Make all the require Qubes Components:** #####
+## 9:   Make all the require Qubes Components
 
 *   **Note:** You can run a single command to build all the Qubes components or you can run them each individually.
      Both ways below:
@@ -298,7 +286,7 @@ redirect_from:
 <br>
 
 
-##### **10:   Make the actual Archlinux template:** #####
+## 10:   Make the actual Archlinux template
 
 *   **$ make template**  
 <br>
@@ -306,10 +294,8 @@ redirect_from:
 ![arch-template-21](/attachment/wiki/ArchlinuxTemplate/arch-template-21.png)
 <br>
 <br>
-<br>
 
-
-##### **11:   Transfer Template into Dom0** #####
+## 11:   Transfer Template into Dom0
 
 *   You need to ensure these two files are in the '**noarch**' directory 
 
@@ -350,14 +336,9 @@ redirect_from:
 ![arch-template-24](/attachment/wiki/ArchlinuxTemplate/arch-template-24.png)
 <br>
 <br>
-<br>
-<br>
 
-##### **If everything went correct there should be a Archlinux template listed in your Qubes VM Manager** #####
+* If everything went correct there should be a Archlinux template listed in your Qubes VM Manager *
 
-<br>
-<br>
-<br>
 ---------------
 
 Known problems during building or when running the VM
