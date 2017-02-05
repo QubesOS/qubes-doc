@@ -17,6 +17,8 @@ installation ISO.
 
 In order to use it one should use an rpm-based distro, like Fedora :) and should ensure the following packages are installed:
 
+-   sudo
+-   gpg
 -   git
 -   createrepo
 -   rpm-build
@@ -26,10 +28,13 @@ In order to use it one should use an rpm-based distro, like Fedora :) and should
 -   python-sh
 -   dialog
 -   rpm-sign
+-   dpkg-dev
+-   debootstrap
+-   PyYAML
 
 Unusually one can install those packages by just issuing:
 
-    sudo yum install git createrepo rpm-build make wget rpmdevtools python-sh dialog rpm-sign
+    sudo dnf install gpg git createrepo rpm-build make wget rpmdevtools python-sh dialog rpm-sign dpkg-dev debootstrap PyYAML
 
 The build system creates build environments in chroots and so no other packages are needed on the host. All files created by the build system are contained within the qubes-builder directory. The full build requires some 25GB of free space, so keep that in mind when deciding where to place this directory.
 
