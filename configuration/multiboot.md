@@ -85,8 +85,9 @@ menuentry "Windows" {
      insmod ntfs
      ntldr (hd1,X)/bootmgr
 }
-(Change X to reflect the relevant system partition.)
 ~~~
+
+(Change `X` to reflect the relevant system partition.)
 
 Then update the grub config:
 
@@ -96,6 +97,19 @@ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 There is no  need to reinstall grub itself.
 
+If the above stanza does not work, you may try this one (at your own risk!)
+instead:
+
+~~~
+menuentry "Windows" {
+    insmod part_msdos
+    insmod ntfs
+    set root='(hd0,msdosX)'
+    chainloader +1
+}
+~~~
+
+(Change `X` to reflect the relevant system partition.)
 
 
 Linux
