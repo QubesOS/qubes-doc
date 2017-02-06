@@ -21,6 +21,8 @@ basic salt-related vocabulary. For more exhaustive documentation, visit
 [official site][salt-doc], though we must warn you that it is not easy to read
 if you just start working with salt and know nothing.
 
+### The architecture
+
 Salt has client-server architecture, where server (called *master*) manages its
 clients (called *minions*). In typical situation it is intended that
 administrator interacts only with master and keeps the configuration there. In
@@ -33,7 +35,7 @@ minion runs. A *state* is an end effect *declaratively* expressed by the
 administrator. This is the most important concept in the whole package. All
 configuration (ie. the states) are written in YAML.
 
-A *pillar* is a data backend declared by administrator. When states became
+A *pillar* is a data back-end declared by administrator. When states became
 repetitive, instead of pure YAML they can be written with help of some template
 engine (preferably jinja2), which can use data structures specified in pillars.
 
@@ -53,6 +55,124 @@ function that, when issued, will immediately halt the computer. There is another
 function called `state.highstate` which will synchronize the state of the system
 with the administrator's will.
 
+### Configuration
+
+#### States
+
+The smallest unit of configuration is a state.
+A state is written in yaml and looks like this:
+
+    stateid:
+      cmd.run:  #this is the execution module. in this case it will execute a command on the shell
+      - name: echo 'hello world' #this is a parameter of the state. 
+
+The stateid has to be unique over all states running for a minion and can be used
+to order the execution of states.
+`cmd.run` is the execution module. It decides which action will be executed.
+`name: echo 'hello world'` is a parameter for the execution module. It depends on
+the module which parameters are accepted.
+
+There is list of [officially available states][salt-doc-states].
+There are many very useful states:
+
+* For [managing files][salt-doc-states-file]: Use this to create files or 
+  directories and change them (append lines, replace text, set their content etc.)
+* For [installing and uninstalling][salt-doc-states-pkg] packages.
+* To [execute shell commands][salt-doc-states-cmd].
+
+With these three states you can do most of the configuration inside of a vm.
+
+You also can [order the execution][salt-doc-states-order] of your states:
+
+    D:
+      cmd.run:
+      - name: echo 1
+      - order: last
+    C:
+      cmd.run:
+      - name: echo 1
+    B:
+      cmd.run:
+      - name: echo 1
+      - require:
+        - cmd: A
+      - require_in:
+        - cmd:C
+    A:
+      cmd.run:
+      - name: echo 1
+      - order: 1
+
+The order of execution will be `A, B, C, D`.
+The official documentation has more details on the [require][salt-doc-states-req] and
+[order][salt-doc-states-ord] arguments.
+
+#### State files
+
+When configuring a system you will write one or several state files (`*.sls`) and
+put (or symlink) them in the salt main directory `/srv/salt/`.
+Each state file contains one multiple states and should describe some unit of 
+configuration (e.g.: A state file `mail.sls` could setup a vm for mailing).
+
+#### Top files
+
+After you have state several state files, you need something to assign them to a
+vm. This is done by `*.top` files ([official documentation][salt-doc-top]).
+Their structure looks like this:
+
+    environment:
+      target_matching_clause:
+      - statefile1
+      - folder2.statefile2
+
+The environment will be in most cases `base`.
+The `target_matching_clause` will be used to select your minions (vms).
+It can be just the name of a vm or a regular expression.
+If you are using a regular expression, you need to give salt a hint you are doing
+so:
+
+    environment:
+      ^app-(work|(?!mail).*)$:
+      - match: pcre
+      - statefile
+
+For each target you can write a list of state files.
+Each line is a path to a state file (without the `.sls`) relative to the main 
+directory. Each `/` is exchanged by a dot, so you can't reference files or 
+directories with a dot in their name.
+
+### Enabling top files and applying the configuration
+
+Now because we use custom extension to manage top files (instead of just
+enabling them all) to enable the particular top file you should issue command:
+
+    qubesctl top.enable my-new-vm
+
+To list all enabled tops:
+
+    qubesctl top.enabled
+
+And to disable one:
+
+    qubesctl top.disable my-new-vm
+
+To actually apply the states to dom0 and all vms:
+
+    qubesctl --all state.highstate
+
+(More information on the command is further down.)
+
+### Templating files
+
+You will sometimes find your self writing repetitive states. To solve this,
+there is the ability to template files or states.
+This can be done with [jinja][jinja].
+Jinja is similar to python and behaves in many cases similar, but there 
+sometimes are differences (e.g. If you set some variable inside a loop,
+the variable outside will not get changed. Unless you use a do statement).
+So you should take a look at the [jinja api documentation][jinja-tmp].
+How you can use jinja to directly call salt functions and get data about
+your system is documented in the [salt documentation][jinja-call-salt-functions].
 
 ## Salt configuration, Qubes OS layout
 
@@ -133,19 +253,9 @@ This should be put in `/srv/salt/my-new-vm.sls` or another `.sls` file. Separate
 
 The third line should contain the name of the previous file, without `.sls`.
 
-Now because we use custom extension to manage top files (instead of just
-enabling them all) to enable the particular top file you should issue command:
+To enable the particular top file you should issue command:
 
     qubesctl top.enable my-new-vm
-
-To list all enabled tops:
-
-    qubesctl top.enabled
-
-And to disable one:
-
-    qubesctl top.disable my-new-vm
-
 
 To actually apply the state:
 
@@ -178,6 +288,7 @@ And apply the configuration:
 
 
 ## All Qubes-specific states
+
 
 ### qvm.present
 
@@ -214,6 +325,7 @@ This enables, disables, or sets to default, the services as in qvm-service.
 
 ### qvm.running
 
+
 Ensures the domain is running:
 
     domain is running:
@@ -243,9 +355,55 @@ Template name on which given VM is based (if any).
 
 VM which provides network to the given VM
 
+## Debugging
+The output for each vm is logged in `/var/log/qubes/mgmt-VM_NAME.log`.
+
+If the log does not contain useful information, you can stop `qubesctl` by 
+pressing `ctrl+z`.
+
+You need to:
+1. run `sudo qubesctl --skip-dom0 --target=VM_NAME state.highstate`
+2. When your vm is being started (yellow) press Ctrl-Z on qubesctl.
+3. Open terminal in disp-mgmt-VM_NAME.
+4. Look at /etc/qubes-rpc/qubes.SaltLinuxVM - this is what is 
+   executed in the management vm.
+5. Get the last two lines:
+
+    export PATH="/usr/lib/qubes-vm-connector/ssh-wrapper:$PATH"
+    salt-ssh "$target_vm" $salt_command
+
+  Adjust $target_vm (VM_NAME) and $salt_command (state.highstate).
+6. Execute them, fix problems, repeat.
+
+## Known pitfalls
+
+### Using fedora-24-minimal
+The fedora-24-minimal package is missing the sudo package.
+You can install it via:
+
+    qvm-run -p vmname 'dnf install -y sudo'
+    
+The `-p` is will cause the execution to wait until the package is installed.
+This is important when using a state with `cmd.run`.
+
+### Disk quota exceeded (when installing templates)
+If you install multiple templates you may encounter this error.
+The solution is to shut down the updatevm between each install.
+E.g.:
+
+{% raw %}
+    install template and shutdown updatevm:
+      cmd.run:
+      - name: sudo qubes-dom0-update -y fedora-24; qvm-shutdown {{salt.cmd.run(qubes-prefs updatevm) }}
+{% endraw %}
+
 ## Further reading
 
 * [Salt documentation][salt-doc]
+* [Salt states][salt-doc-states] ([files][salt-doc-states-file], [commands][salt-doc-states-cmd], 
+  [packages][salt-doc-states-pkg], [ordering][salt-doc-states-order])
+* [Top files][salt-doc-top]
+* [Jinja templates][jinja]
 * [Qubes specific modules][salt-qvm-doc]
 * [Formula for default Qubes VMs][salt-virtual-machines-doc] ([and actual states][salt-virtual-machines-states])
 
@@ -253,3 +411,14 @@ VM which provides network to the given VM
 [salt-qvm-doc]: https://github.com/QubesOS/qubes-mgmt-salt-dom0-qvm/blob/master/README.rst
 [salt-virtual-machines-doc]: https://github.com/QubesOS/qubes-mgmt-salt-dom0-virtual-machines/blob/master/README.rst
 [salt-virtual-machines-states]: https://github.com/QubesOS/qubes-mgmt-salt-dom0-virtual-machines/tree/master/qvm
+[salt-doc-states]: https://docs.saltstack.com/en/latest/ref/states/all/
+[salt-doc-states-file]: https://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html
+[salt-doc-states-pkg]: https://docs.saltstack.com/en/latest/ref/states/all/salt.states.pkg.html
+[salt-doc-states-cmd]: https://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html
+[salt-doc-states-order]: https://docs.saltstack.com/en/latest/ref/states/ordering.html
+[salt-doc-states-req]: https://docs.saltstack.com/en/latest/ref/states/requisites.html
+[salt-doc-states-ord]: https://docs.saltstack.com/en/latest/ref/states/ordering.html#the-order-option
+[salt-doc-top]:https://docs.saltstack.com/en/latest/ref/states/top.html
+[jinja]: http://jinja.pocoo.org/
+[jinja-tmp]: http://jinja.pocoo.org/docs/2.9/templates/
+[jinja-call-salt-functions]: https://docs.saltstack.com/en/getstarted/config/jinja.html#get-data-using-salt
