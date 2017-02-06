@@ -9,8 +9,7 @@ redirect_from:
 - /wiki/Templates/Archlinux/
 ---
 
-Archlinux Template
-===============
+# Archlinux Template
 
 Archlinux template is one of the templates made by Qubes community. It should
 be considered experimental as Qubes developers team use mainly Fedora-based VMs
@@ -25,7 +24,21 @@ Updates for this template are provided by [Olivier Médoc](mailto:o_medoc@yahoo.
           Key fingerprint = D85E E12F 9678 51CC F433  515A 2043 E7AC C183 3B9C
     uid                          Olivier MEDOC (Qubes-OS signing key) <o_medoc@yahoo.fr>
 
-The key is not installed when you install (signed) template package. You can however choose to trust it by registering it into pacman:
+## Installation
+
+A prebuilt template is available only for Qubes 3.2. Before Qubes 3.2, it should be compiled from source as described in [building-archlinux-template](/doc/building-archlinux-template/).
+
+    [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-archlinux
+
+## Binary packages activation
+
+The update repository is disabled when you install (signed) template package. You can however choose to trust it by registering it into pacman.
+
+Enable the repository by running the following command:
+
+    # mv /etc/pacman.d/99-qubes-repository-3.2.disabled /etc/pacman.d/99-qubes-repository-3.2.conf
+
+Then you need to install and sign the public GPG key of the package maintainer (note that accessing to GPG servers requires to temporarily disable the firewall in your template):
 
     # pacman-key --recv-key 2043E7ACC1833B9C
     # pacman-key --finger 2043E7ACC1833B9C
@@ -34,16 +47,69 @@ If the fingerprint is correct, you can then sign the key:
 
     # pacman-key --lsign-key 2043E7ACC1833B9C
 
-<br>
+## Default packages
 
-Install
--------
+In order to keep the template as small and simple as possible, default installed package have been arbitrarily selected based on multiple subjective criterias that however essentially include libraries dependencies. This packages are:
+* Some font packages to keep good user experience
+* leafpad: a note pad
+* xfce4-terminal: a terminal
+* thunar: a file browser that support mounting usb keys
+* firefox: web browser
+* thunderbird: a mail browser
+* evince: a document viewer
 
-A prebuilt template is available only for Qubes 3.2. Before Qubes 3.2, it should be compiled from source as described in [building-archlinux-template](/doc/building-archlinux-template/).
+Note that Archlinux does not install GUI packages by default as this decision is left to users. This packages have only been selected to have a usable template.
 
-    [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-archlinux
+## Updating a Qubes-3.1 Archlinux Template
 
-## **Package Manager Proxy Setup Section** ##
+If you decide to use binary packages but that you where using a Qubes-3.1 Template, your can follow these instructions to enable Qubes 3.2 agents.
+
+You can use a template that you built for Qubes 3.1 in Qubes 3.2. The qrexec and gui agent functionnalities should still be working so that you can at least open a terminal.
+
+In order to enable binary packages for Qubes 3.2, add the following lines to the end of /etc/pacman.conf
+
+```
+[qubes-r3.2]
+Server = http://olivier.medoc.free.fr/archlinux/current/
+```
+
+You should then follow the instruction related to pacman-key in order to sign the binary packages PGP key. With the key enabled, a pacman update will update qubes agents:
+` # pacman -Suy `
+
+The two line that have just been added to /etc/pacman.conf should then be removed as they have been included in the qubes-vm-core update in the file `/etc/pacmand.d/99-qubes-repository-3.2.conf`
+
+## Known Issues
+
+### Package cannot be updated because of errors related to xorg-server or pulseaudio versions
+
+In case archlinux upgrade pulseaudio major version or xorg-server version, updating these packages will break the qubes GUI agent. To avoid breaking things, the update is blocked until a new version of the GUI agent is available.
+
+In this case, the gui-agent-linux component of Qubes-OS needs to be rebuild using these last xorg-server or pulseaudio libraries. You can try to rebuilt it yourself or wait for a new qubes-vm-gui package to be available.
+
+### qubes-vm is apparently starting properly (green dot) however graphical applications do not appears to work
+
+They are multiple potential reasons. Some of them are described in the following issues:
+* https://github.com/QubesOS/qubes-issues/issues/2612
+
+In issue 2612, check that the option `noauto` is present for all lines in /etc/fstab related to /rw or /home. This bug can appears if you come from an old Archlinux Template (pre February 2017).
+
+## Debugging a broken VM
+
+In order to identify the issue, you should start by getting a console access to the VM:
+
+* Either by running in dom0 `qvm-run --pass-io --nogui yourbrokenvm 'your command here'`
+
+* Or by running in dom0 `sudo xl console yourbrokenvm`
+
+Starts by trying to run a GUI application such as xfce4-terminal in order to identify any error message.
+
+Then you can check potential broken systemd service by running the following command inside the broken vm: `systemctl | grep fail`.
+
+If you identified a broken service check `journalctl -la -u yourbrokenservice`. If not check `journalctl -b` for errors.
+
+Finally, errors related to the GUI agent can be found inside the VM in `/home/user/.xsession-errors`
+
+## Packages manager wrapper
 
 
 Powerpill is a full Pacman wrapper that not only give easy proxy configuration but further offers numerous other advantages.
@@ -337,27 +403,7 @@ Note: For info on Reflector and its configs: [Reflector](https://wiki.archlinux.
 <br>
 <br>
 
-#### **Known Issues:** ####
-
-*   If there is an Arch upgrade of Pulse Audio it will require rebuilding and installing  Qubes component: gui-agent-linux 
-
-*   There May also be a similar issue of dependencies with Xorg.
-   
-*   Upgrade Relfector functionality to allow its use through the QUPS
-
-*   Pacman functionality changes and allows it to be directly configured to work through QUPS.
-
-<br>
-
-#### **Qubes Mailing List Threads on the Archlinux build process:** ####
-
-*   [Qubes-Devel](https://groups.google.com/forum/#!forum/qubes-devel): [Qubes Builder failed Archlinux repository is missing](https://groups.google.com/forum/#!topic/qubes-devel/tIFkS-rPVx8)
-
-*   [Qubes-Users](https://groups.google.com/forum/#!forum/qubes-users): [Trying to compile archlinux template](https://groups.google.com/forum/#!topic/qubes-users/7wuwr3LgkQQ)    
-
-<br>
-
-#### **Want to contribute?** ####
+## Want to contribute?
 
 *   [How can I contribute to the Qubes Project?](/doc/contributing/)
 
