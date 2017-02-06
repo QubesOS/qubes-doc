@@ -390,9 +390,11 @@ If you install multiple templates you may encounter this error.
 The solution is to shut down the updatevm between each install.
 E.g.:
 
+{% raw %}
     install template and shutdown updatevm:
       cmd.run:
       - name: sudo qubes-dom0-update -y fedora-24; qvm-shutdown {{salt.cmd.run(qubes-prefs updatevm) }}
+{% endraw %}
 
 ## Further reading
 
