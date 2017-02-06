@@ -1,4 +1,4 @@
-﻿---
+---
 layout: doc
 title: Management stack
 permalink: /doc/salt/
