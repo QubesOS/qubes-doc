@@ -155,9 +155,9 @@ And to disable one:
 
     qubesctl top.disable my-new-vm
 
-To actually apply the state:
+To actually apply the states to dom0 and all vms:
 
-    qubesctl state.highstate
+    qubesctl --all state.highstate
 
 (More information on the command is further down.)
 
