@@ -74,6 +74,7 @@ the module which parameters are accepted.
 
 There is list of [officially available states][salt-doc-states].
 There are many very useful states:
+
 * For [managing files][salt-doc-states-file]: Use this to create files or 
   directories and change them (append lines, replace text, set their content etc.)
 * For [installing and uninstalling][salt-doc-states-pkg] packages.
