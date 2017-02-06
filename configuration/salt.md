@@ -376,6 +376,7 @@ You need to:
 6. Execute them, fix problems, repeat.
 
 ## Known pitfalls
+
 ### Using fedora-24-minimal
 The fedora-24-minimal package is missing the sudo package.
 You can install it via:
