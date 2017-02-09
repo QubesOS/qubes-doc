@@ -14,16 +14,15 @@ You can use rpm packages from rpmfusion, or you can build the driver yourself.
 
 ## Word of Caution 
 
-Proprietary (NVIDIA/AMD) drivers are known to be sometimes highly problematic, or completely unsupported. 
-AMD driver support is prebaked in the Qubes kernel (4.14) but only RADEON HD 4000-9000 give or take, NOT most of the latest cards. 
-NOT until AMDGPU support in the 4.5+ kernel, which isn't released yet for Qubes. 
+Proprietary (Nvidia/Amd) drivers are known to be sometimes highly problematic, or completely unsupported. 
+Radeon driver support is prebaked in the Qubes kernel (v4.4.14-11) but only versions 4000-9000 give or take.
+Support for newer cards is limited until Amdgpu support in the 4.5+ kernel, which isn't released yet for qubes. 
 
-Built in Intel Graphics, Radeon graphics (between that 4000-9000 range), and perhaps some prebaked NVIDIA cards i don't know about. Those are your best bet for Great Qubes support.
+Built in Intel graphics, Radeon graphics (between that 4000-9000 range), and perhaps some prebaked Nvidia card support that i don't know about. Those are your best bet for great Qubes support.
 
-If you do happen to get proprietary drivers working on your Qubes system (Via installing them). Please take the time to go to the 
+If you do happen to get proprietary drivers working on your Qubes system (via installing them). Please take the time to go to the 
 [Hardware Compatibility List (HCL)](https://www.qubes-os.org/doc/hcl/#generating-and-submitting-new-reports )
 Add your computer, graphics card, and installation steps you did to get everything working.
-
 
 ## RpmFusion packages
 
