@@ -32,12 +32,16 @@ Known Issues
    The same problem may occur if the above procedure is attempted on a
    [TemplateVM][]. [[1]]
 
- * This issue applies only to R3.1, not R3.2 or later:
+ * There is an issue which applies only to R3.1:
+
    After implementing the above procedure, starting `my-new-appvm` will cause
    dom0 notifications to occur stating that loop devices have been attached to
    dom0. This is normal. (No untrusted devices are actually being mounted to
    dom0.) Do not attempt to detach these disks. (They will automatically be
    detached when you shut down the AppVM.) [[2]]
+
+   In R3.2 and later, such notifications do not appear.
+
 
 [Qubes Backup]: https://www.qubes-os.org/doc/BackupRestore/
 [TemplateVM]: https://www.qubes-os.org/doc/Templates/
