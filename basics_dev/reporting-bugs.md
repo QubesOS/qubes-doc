@@ -55,6 +55,12 @@ meant to track more general bugs and enhancements that affect a broad range of
 Qubes users.
 
 
+How to copy information out of Dom0
+-----------------------------------
+
+See [Copying from (and to) dom0](/doc/copy-from-dom0/).
+
+
 How to submit a report on the mailing lists
 -------------------------------------------
 
