@@ -61,7 +61,7 @@ It is possible to change the settings of each new Disposable VM (DispVM). This c
 
         [user@dom0 ~]$ qvm-create-default-dvm --default-template
         
-    Or, if you're [using a non-default template](#changing-the-template-used-as-a-basis-for-disposable-vm), regenerate the DispVM using your custom template:
+    Or, if you're [using a non-default template](#changing-the-dvm-template), regenerate the DispVM using your custom template:
     
         [user@dom0 ~]$ qvm-create-default-dvm <custom-template-name>
 
