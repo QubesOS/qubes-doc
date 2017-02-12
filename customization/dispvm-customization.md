@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: DispVM Customization
+title: Disposable VM Customization
 permalink: /doc/dispvm-customization/
 redirect_from:
 - /en/doc/dispvm-customization/
@@ -9,17 +9,17 @@ redirect_from:
 - /wiki/UserDoc/DispVMCustomization/
 ---
 
-DispVM Customization
+Disposable VM Customization
 ====================
 
-Changing the DVM Template
+Changing the Template Used as a Basis for Disposable VM
 -------------------------
 
 You may want to use a non-default template the [DVM Template](/doc/glossary/#dvm-template). One example is to use a less-trusted template with some less trusted, 3rd party, often unsigned, applications installed, such as e.g. 3rd part printer drivers.
 
 In order to regenerate the Disposable VM "snapshot" (called 'savefile' on Qubes) one can use the following command in Dom0:
 
-    [joanna@dom0 ~]$ qvm-create-default-dvm <custom-template-name>
+    [user@dom0 ~]$ qvm-create-default-dvm <custom-template-name>
 
 
 This would create a new Disposable VM savefile based on the custom template. Now, whenever one opens a file (from any AppVM) in a Disposable VM, a Disposable VM based on this template will be used.
@@ -27,11 +27,11 @@ This would create a new Disposable VM savefile based on the custom template. Now
 One can easily verify if the new Disposable VM template is indeed based on a custom template (in the example below the template called "f17-yellow" was used as a basis for the Disposable VM):
 
 
-    [joanna@dom0 ~]$ ll /var/lib/qubes/dvmdata/
+    [user@dom0 ~]$ ll /var/lib/qubes/dvmdata/
     total 0
-    lrwxrwxrwx 1 joanna joanna 45 Mar 11 13:59 default_dvm.conf -> /var/lib/qubes/appvms/f17-yellow-dvm/dvm.conf
-    lrwxrwxrwx 1 joanna joanna 49 Mar 11 13:59 default_savefile -> /var/lib/qubes/appvms/f17-yellow-dvm/dvm-savefile
-    lrwxrwxrwx 1 joanna joanna 47 Mar 11 13:59 savefile_root -> /var/lib/qubes/vm-templates/f17-yellow/root.img
+    lrwxrwxrwx 1 user user 45 Mar 11 13:59 default_dvm.conf -> /var/lib/qubes/appvms/f17-yellow-dvm/dvm.conf
+    lrwxrwxrwx 1 user user 49 Mar 11 13:59 default_savefile -> /var/lib/qubes/appvms/f17-yellow-dvm/dvm-savefile
+    lrwxrwxrwx 1 user user 47 Mar 11 13:59 savefile_root -> /var/lib/qubes/vm-templates/f17-yellow/root.img
 
 If you wish to use the `fedora-minimal` template as a DVM Template, see the "DVM Template" use case under [fedora-minimal customization](/doc/templates/fedora-minimal/#customization).
 
@@ -61,7 +61,7 @@ It is possible to change the settings of each new Disposable VM (DispVM). This c
 
         [user@dom0 ~]$ qvm-create-default-dvm --default-template
         
-    Or, if you're [using a non-default template](#changing-the-dvm-template), regenerate the DispVM using your custom template:
+    Or, if you're [using a non-default template](#changing-the-template-used-as-a-basis-for-disposable-vm), regenerate the DispVM using your custom template:
     
         [user@dom0 ~]$ qvm-create-default-dvm <custom-template-name>
 
