@@ -39,12 +39,19 @@ Ctrl-Shift-V, then Ctrl-V).
 
 ### Copy/paste from Dom0 ###
 
-For data other than logs, there are two options:
+For data other than logs, there are several options:
 
 1.  Copy it as a file (see above)
-2.  Paste the data to `/var/run/qubes/qubes-clipboard.bin`, then write "dom0" to
-`/var/run/qubes/qubes-clipboard.bin.source`. Then use Ctrl-Shift-V to paste the
-data to the desired VM.
+2.  Since updated versions of 3.2 you can copy text to the dom0 clipboard
+    (Ctrl-C as normal), then click "Copy Dom0 clipboard" in the Qubes menu:
+    ![copy-dom0-clipboard](/attachment/wiki/QubesScreenshots/r3.2-dom0-copyout.png)
+    which is equivelant to Ctrl-Shift-C from a normal AppVM.
+    Then you can use Ctrl-Shift-V and Ctrl-V to paste the copied text into an
+    AppVM as normal.
+3.  In older versions, write the data you wish to copy into
+    `/var/run/qubes/qubes-clipboard.bin`, then write "dom0" to
+    `/var/run/qubes/qubes-clipboard.bin.source`.
+    Then use Ctrl-Shift-V to paste the data to the desired VM.
 
 
 Copying **to** Dom0
