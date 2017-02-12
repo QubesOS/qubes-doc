@@ -132,9 +132,14 @@ created, used, and destroyed.
 
 DVM
 ---
-An abbreviation of [DispVM](#dispvm), typically used to refer to the TemplateVM
-on which DispVMs are based. By default, a VM named `fedora-XX-dvm` is created on
-most Qubes installations (where `XX` is the current Fedora version).
+An abbreviation of [DispVM](#dispvm), typically used to refer to
+[DVM Templates](#dvm-template).
+
+DVM Template
+------------
+The TemplateVM on which [DispVMs](#dispvm) are based. By default, a VM named
+`fedora-XX-dvm` is created on most Qubes installations (where `XX` is the
+current Fedora version).
 
 PV
 --
