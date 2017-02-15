@@ -122,7 +122,6 @@ Privacy Guides
  * [TorVM](/doc/torvm/)
  * [Martus](/doc/martus/)
  * [Signal](/doc/signal/)
- * [Onion Service Repos](/doc/onion-service-repos/)
 
 
 Configuration Guides
