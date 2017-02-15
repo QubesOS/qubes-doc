@@ -55,6 +55,7 @@ Qubes Users' FAQ
  * [I assigned a PCI device to a qube, then unassigned it/shut down the …](#i-assigned-a-pci-device-to-a-qube-then-unassigned-itshut-down-the-qube-why-isnt-the-device-available-in-dom0)
  * [How do I install Flash in a Debian qube?](#how-do-i-install-flash-in-a-debian-qube)
  * [How do I play video files?](#how-do-i-play-video-files)
+ * [My encrypted drive doesn't appear in Debian qube?](#my-encrypted-drive-doesnt-appear-in-debian-qube)
   
 -----------------
 
@@ -343,3 +344,23 @@ assume you're using Fedora:
 
 4. Use VLC to play your video files.
 
+### My encrypted drive doesn't appear in Debian qube.
+
+This is an issue that affects qubes based on Debian Jessie. The problem is fixed in Stretch, and does not affect Fedora based qubes.
+
+A mixed drive with some encrypted partitions appears correctly in nautilus. The encrypted partitions are identified and the user is prompted for password on attempting to mount the partition.
+
+A fully encrypted drive does not appear in nautilus.
+
+The work round is to manually decrypt and mount the drive:
+
+1. attach usb device to qube - it should be attached as /dev/xvdi or similar.
+2. sudo cryptsetup open /dev/xvdi bk --type luks
+3. sudo cryptsetup status /dev/mapper/bk [Shows useful status]
+4. sudo mount /dev/mapper/bk /mnt
+
+The decrypted device is now available at /mnt - when you have finished using it unmount and close the drive.
+
+1. sudo umount /mnt
+2. sudo cryptsetup close bk --type luks
+3. remove usb from qube
