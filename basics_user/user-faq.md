@@ -55,7 +55,7 @@ Qubes Users' FAQ
  * [I assigned a PCI device to a qube, then unassigned it/shut down the …](#i-assigned-a-pci-device-to-a-qube-then-unassigned-itshut-down-the-qube-why-isnt-the-device-available-in-dom0)
  * [How do I install Flash in a Debian qube?](#how-do-i-install-flash-in-a-debian-qube)
  * [How do I play video files?](#how-do-i-play-video-files)
- * [My encrypted drive doesn't appear in Debian qube?](#my-encrypted-drive-doesn't-appear-in-Debian-qube)
+ * [My encrypted drive doesn't appear in Debian qube?](#my-encrypted-drive-doesnt-appear-in-debian-qube)
   
 -----------------
 
