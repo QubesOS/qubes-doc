@@ -50,5 +50,12 @@ The policy is there mostly to ease maintenance, on several levels:
    Qubes-specific features - a change in one supported distribution should be
    followed also in others (including some new in the future)
 
+Is QEMU part of the TCB?
+------------------------
 
+No. Unlike many other virtualization systems, Qubes takes special effort to keep
+the I/O emulation component (QEMU) _outside_ of the TCB. This has been achieved
+thanks to the careful use of Xen's stub domain feature. For more details about
+how we improved on Xen's native stub domain use, see
+[here](https://blog.invisiblethings.org/2012/03/03/windows-support-coming-to-qubes.html).
 
