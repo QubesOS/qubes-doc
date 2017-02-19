@@ -140,7 +140,11 @@ All the documentation is written in Markdown for maximum accessibility. When
 making contributions, please try to observe the following style conventions:
 
  * Use spaces instead of tabs.
- * Hard wrap Markdown lines at 80 characters.
+ * Insert a newline at the end of each sentence.
+   * Rationale: This practice is most appropriate for source that consists
+     primarily of natural language text. It results in the most useful diffs
+     and facilitates translation into other languages while mostly preserving
+     source readability.
  * If appropriate, make numerals in numbered lists match between Markdown
    source and HTML output.
    * Rationale: In the event that a user is required to read the Markdown source
