@@ -70,6 +70,49 @@ to set the policy using current mechanism.
 | `mgmt.backup.Info`                      | `dom0`                 | ?             | content?                                  | ?                                        |
 | `mgmt.backup.Restore`                   | `dom0`                 | ?             | content                                   | ?                                        |
 
+## Returned messages
+
+First two bytes of a message is a message type. This is 16 bit little endian
+integer. Values start at 0x30 (48, `'0'`, zero digit in ASCII) for readability
+in hexdump.
+
+This alternatively can be thought of as zero-terminated string containing
+single ASCII digit.
+
+### OK (0)
+
+```
+30 00 <content>
+```
+
+Server will close the connection after delivering single message.
+
+### EVENT (1)
+
+```
+31 00 <subject> 00 <event> 00 ( <key> 00 <value> 00 )* 00
+```
+
+Events are returned as stream of messages in selected API calls. Normally server
+will not close the connection.
+
+A method yielding events will not ever return a `OK` or `EXCEPTION` message.
+
+### EXCEPTION (2)
+
+```
+32 00 <type> 00 ( <traceback> )? 00 <format string> 00 ( <field> 00 )*
+```
+
+Server will close the connection.
+
+Traceback may be empty, can be enabled server-side as part of debug mode.
+Delimiting zero-byte is always present.
+
+Fields are should substituted into `%`-style format string, possibly after
+client-side translation, to form final message to be displayed unto user. Server
+does not by itself support translation.
+
 ## Tags
 
 - `created-by-<vm>`
