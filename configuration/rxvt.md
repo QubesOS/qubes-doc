@@ -122,6 +122,10 @@ URxvt.print-pipe:               cat > $(TMPDIR=$HOME mktemp urxvt.XXXXXX)
 ! is no need for w32-style intuition and virtually no need to "paste over".
 URxvt.perl-ext-common:          default,selection-to-clipboard
 
+! Prevent rxvt from entering Keyboard symbols entry mode whenever you press
+! ctrl+shift, e.g. to copy or paste something to/from Qubes' clipboard.
+URxvt.iso14755_52: false
+
 URxvt.insecure:                 False
 
 ! some termcap-aware software sometimes throw '$TERM too long'
