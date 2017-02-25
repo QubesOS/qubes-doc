@@ -56,6 +56,7 @@ Qubes Users' FAQ
  * [How do I install Flash in a Debian qube?](#how-do-i-install-flash-in-a-debian-qube)
  * [How do I play video files?](#how-do-i-play-video-files)
  * [My encrypted drive doesn't appear in Debian qube?](#my-encrypted-drive-doesnt-appear-in-debian-qube)
+ * [Windows Update is stuck.](#windows-update-is-stuck)
   
 -----------------
 
@@ -364,3 +365,8 @@ The decrypted device is now available at /mnt - when you have finished using it 
 1. sudo umount /mnt
 2. sudo cryptsetup close bk --type luks
 3. remove usb from qube
+
+### Windows Update is stuck.
+
+This has nothing to do with Qubes. [It's a longstanding Windows bug.](https://superuser.com/questions/951960/windows-7-sp1-windows-update-stuck-checking-for-updates)
+
