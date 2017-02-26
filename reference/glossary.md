@@ -127,8 +127,8 @@ network-level policies (a.k.a. "firewall rules"). A FirewallVM called
 
 DispVM
 ------
-Disposable Virtual Machine. A temporary [AppVM](#appvm) which can quickly be
-created, used, and destroyed.
+[Disposable Virtual Machine]. A temporary [AppVM](#appvm) based on a
+[DVM Template](#dvm-template) which can quickly be created, used, and destroyed.
 
 DVM
 ---
@@ -197,5 +197,6 @@ systems. This allows for optimal performance on guest operating systems such as
 Windows.
 
 
+[Disposable Virtual Machine]: /doc/dispvm/
 [DispVM Customization]: /doc/dispvm-customization/
 
