@@ -137,9 +137,15 @@ An abbreviation of [DispVM](#dispvm), typically used to refer to
 
 DVM Template
 ------------
-The TemplateVM on which [DispVMs](#dispvm) are based. By default, a VM named
-`fedora-XX-dvm` is created on most Qubes installations (where `XX` is the
-current Fedora version).
+TemplateBasedVMs on which [DispVMs](#dispvm) are based. By default, a
+DVM Template named `fedora-XX-dvm` is created on most Qubes installations
+(where `XX` is the Fedora version of the default TemplateVM). DVM Templates are
+neither [TemplateVMs](#templatevm) nor [AppVMs](#appvm). They are intended
+neither for installing nor running software. Rather, they are intended for
+*customizing* or *configuring* software that has already been installed on the
+TemplateVM on which the DVM Template is based (see [DispVM Customization]). This
+software is then intended to be run (in its customized stated) in DispVMs that
+are based on the DVM Template.
 
 PV
 --
@@ -189,4 +195,7 @@ drivers are optimized PV drivers for HVM environments and bypass the emulation
 for disk and network I/O, thus providing PV-like (or better) performance on HVM
 systems. This allows for optimal performance on guest operating systems such as
 Windows.
+
+
+[DispVM Customization]: /doc/dispvm-customization/
 
