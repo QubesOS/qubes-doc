@@ -72,9 +72,9 @@ to set the policy using current mechanism.
 
 ## Returned messages
 
-First two bytes of a message is a message type. This is 16 bit little endian
-integer. Values start at 0x30 (48, `'0'`, zero digit in ASCII) for readability
-in hexdump.
+First byte of a message is a message type. This is 8 bit non-zero integer.
+Values start at 0x30 (48, `'0'`, zero digit in ASCII) for readability in hexdump.
+Next byte must be 0x00 (a separator).
 
 This alternatively can be thought of as zero-terminated string containing
 single ASCII digit.
