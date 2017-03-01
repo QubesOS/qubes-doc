@@ -66,7 +66,9 @@ General Questions
 
 ### Is Qubes just another Linux distribution?
 
-If you really want to call it a distribution, then it's more of a "Xen distribution" than a Linux one. But Qubes is much more than just Xen packaging. It has its own VM management infrastructure, with support for template VMs, centralized VM updating, etc. It also has a very unique GUI virtualization infrastructure.
+If you really want to call it a distribution, then it's more of a "Xen distribution" than a Linux one. 
+But Qubes is much more than just Xen packaging. 
+It has its own VM management infrastructure, with support for template VMs, centralized VM updating, etc. It also has a very unique GUI virtualization infrastructure.
 
 ### How is Qubes different from other security solutions?
 
@@ -74,7 +76,10 @@ Please see [this article](http://theinvisiblethings.blogspot.com/2012/09/how-is-
 
 ### Does Qubes use full disk encryption (FDE)?
 
-Yes, of course! Full disk encryption is enabled by default. Specifically, we use [`LUKS`](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup)/[`dm-crypt`](https://en.wikipedia.org/wiki/Dm-crypt). You can even [manually configure your encryption parameters](/doc/encryption-config/), if you like!
+Yes, of course! 
+Full disk encryption is enabled by default. 
+Specifically, we use [`LUKS`](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup)/[`dm-crypt`](https://en.wikipedia.org/wiki/Dm-crypt). 
+You can even [manually configure your encryption parameters](/doc/encryption-config/), if you like!
 
 ### What is the main concept behind Qubes?
 
@@ -82,7 +87,8 @@ To build security on the “Security by Compartmentalization (or Isolation)” p
 
 ### What about other approaches to security?
 
-The other two popular [approaches](http://theinvisiblethings.blogspot.com/2008/09/three-approaches-to-computer-security.html) are “Security by Correctness” and “Security by Obscurity.” We don't believe either of these approaches are capable of providing reasonable security today, nor do we believe that they will be capable of doing so in the foreseeable future.
+The other two popular [approaches](http://theinvisiblethings.blogspot.com/2008/09/three-approaches-to-computer-security.html) are “Security by Correctness” and “Security by Obscurity.” 
+We don't believe either of these approaches are capable of providing reasonable security today, nor do we believe that they will be capable of doing so in the foreseeable future.
 
 ### What about safe languages and formally verified microkernels?
 
@@ -98,11 +104,13 @@ All Qubes-specific terms are defined in the [glossary](/doc/glossary/).
 
 ### Does Qubes run every app in a separate VM?
 
-No! This would not make much sense. Qubes uses lightweight VMs to create security qubes (e.g., "work," "personal," and "banking,"). A typical user would likely need around five qubes. Very paranoid users, or those who are high-profile targets, might use a dozen or more qubes.
+No! This would not make much sense. Qubes uses lightweight VMs to create security qubes (e.g., "work," "personal," and "banking,"). 
+A typical user would likely need around five qubes. Very paranoid users, or those who are high-profile targets, might use a dozen or more qubes.
 
 ### Why does Qubes use Xen instead of KVM or some other hypervisor?
 
-In short: we believe the Xen architecture allows for the creation of more secure systems (i.e. with a much smaller TCB, which translates to a smaller attack surface). We discuss this in much greater depth in our [Architecture Specification document](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf).
+In short: we believe the Xen architecture allows for the creation of more secure systems (i.e. with a much smaller TCB, which translates to a smaller attack surface). 
+We discuss this in much greater depth in our [Architecture Specification document](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf).
 
 ### What about this other/new (micro)kernel/hypervisor?
 
@@ -130,7 +138,9 @@ Here are the answers for Xen 4.1 (which we use as of 2014-04-28):
 
 ### What's so special about Qubes' GUI virtualization?
 
-We have designed the GUI virtualization subsystem with two primary goals: security and performance. Our GUI infrastructure introduces only about 2,500 lines of C code (LOC) into the privileged domain (Dom0), which is very little, and thus leaves little space for bugs and potential attacks. At the same time, due to the smart use of Xen shared memory, our GUI implementation is very efficient, so most virtualized applications really feel as if they were executed natively.
+We have designed the GUI virtualization subsystem with two primary goals: security and performance. 
+Our GUI infrastructure introduces only about 2,500 lines of C code (LOC) into the privileged domain (Dom0), which is very little, and thus leaves little space for bugs and potential attacks. 
+At the same time, due to the smart use of Xen shared memory, our GUI implementation is very efficient, so most virtualized applications really feel as if they were executed natively.
 
 ### Can I watch YouTube videos in qubes?
 
@@ -138,7 +148,10 @@ Absolutely.
 
 ### Can I run applications, like games, which require 3D support?
 
-Those won’t fly. We do not provide OpenGL virtualization for qubes. This is mostly a security decision, as implementing such a feature would most likely introduce a great deal of complexity into the GUI virtualization infrastructure. However, Qubes does allow for the use of accelerated graphics (OpenGL) in Dom0’s Window Manager, so all the fancy desktop effects should still work.
+Those won’t fly. 
+We do not provide OpenGL virtualization for Qubes. 
+This is mostly a security decision, as implementing such a feature would most likely introduce a great deal of complexity into the GUI virtualization infrastructure. 
+However, Qubes does allow for the use of accelerated graphics (OpenGL) in Dom0’s Window Manager, so all the fancy desktop effects should still work.
 
 For further discussion about the potential for GPU passthorugh on Xen/Qubes, please see the following threads:
 
@@ -147,7 +160,11 @@ For further discussion about the potential for GPU passthorugh on Xen/Qubes, ple
 
 ### Is Qubes a multi-user system?
 
-No. Qubes does not pretend to be a multi-user system. Qubes assumes that the user who controls Dom0 controls the whole system. It would be very difficult to **securely** implement multi-user support. See [here](https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06) for details.
+No. 
+Qubes does not pretend to be a multi-user system. 
+Qubes assumes that the user who controls Dom0 controls the whole system. 
+It would be very difficult to **securely** implement multi-user support. 
+See [here](https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06) for details.
 
 ### Why passwordless sudo?
 
@@ -163,24 +180,14 @@ Not currently, for the same reasons that [Debian is not certified](https://www.g
 
 ### What does it mean to "distrust the infrastructure"?
 
-A core tenet of the Qubes philosophy is "distrust the infrastructure," where
-"the infrastructure" refers to things like hosting providers, CDNs, DNS
-services, package repositories, email servers, PGP keyservers, etc. As a
-project, we focus on securing endpoints instead of attempting to secure "the
-middle" (i.e., the infrastructure), since one of our primary goals is to free
-users from being forced to entrust their security to unknown third parties.
-Instead, our aim is for users to be required to trust as few entities as
-possible (ideally, only themselves and any known persons whom they voluntarily
-decide to trust).
+A core tenet of the Qubes philosophy is "distrust the infrastructure," where "the infrastructure" refers to things like hosting providers, CDNs, DNS services, package repositories, email servers, PGP keyservers, etc. 
+As a project, we focus on securing endpoints instead of attempting to secure "the middle" (i.e., the infrastructure), since one of our primary goals is to free users from being forced to entrust their security to unknown third parties.
+Instead, our aim is for users to be required to trust as few entities as possible (ideally, only themselves and any known persons whom they voluntarily decide to trust).
 
-Users can never fully control all the infrastructure they rely upon, and they
-can never fully trust all the entities who do control it. Therefore, we believe
-the best solution is not to attempt to make the infrastructure trustworthy, but
-instead to concentrate on solutions that obviate the need to do so. We believe
-that many attempts to make the infrastructure appear trustworthy actually
-provide only the illusion of security and are ultimately a disservice to real
-users. Since we don't want to encourage or endorse this, we make our distrust of
-the infrastructure explicit.
+Users can never fully control all the infrastructure they rely upon, and they can never fully trust all the entities who do control it. 
+Therefore, we believe the best solution is not to attempt to make the infrastructure trustworthy, but instead to concentrate on solutions that obviate the need to do so. 
+We believe that many attempts to make the infrastructure appear trustworthy actually provide only the illusion of security and are ultimately a disservice to real users. 
+Since we don't want to encourage or endorse this, we make our distrust of the infrastructure explicit.
 
 
 Installation & Hardware Compatibility
@@ -190,40 +197,46 @@ Installation & Hardware Compatibility
 
 ### How much disk space does each qube require?
 
-Each qube is created from a TemplateVM and shares the root filesystem with this TemplateVM (in a read-only manner). This means that each qube needs only as much disk space as is necessary to store its own private data. This also means that it is possible to update the software for several qubes simultaneously by running a single update process in the TemplateVM upon which those qubes are based. (These qubes will then have to be restarted in order for the update to take effect in them.)
+Each qube is created from a TemplateVM and shares the root filesystem with this TemplateVM (in a read-only manner). 
+This means that each qube needs only as much disk space as is necessary to store its own private data. 
+This also means that it is possible to update the software for several qubes simultaneously by running a single update process in the TemplateVM upon which those qubes are based. 
+(These qubes will then have to be restarted in order for the update to take effect in them.)
 
 ### How much memory is recommended for Qubes?
 
-At least 4 GB. It is possible to install Qubes on a system with 2 GB of RAM, but the system would probably not be able to run more than three qubes at a time.
+At least 4 GB. 
+It is possible to install Qubes on a system with 2 GB of RAM, but the system would probably not be able to run more than three qubes at a time.
 
 ### Can I install Qubes on a system without VT-x?
 
-Yes. Xen doesn't use VT-x (or AMD-v) for PV guest virtualization. (It uses ring0/3 separation instead.) However, without VT-x, you won't be able to use fully virtualized VMs (e.g., Windows-based qubes), which were introduced in Qubes 2. In addition, if your system lacks VT-x, then it also lacks VT-d. (See next question.)
+Yes. 
+Xen doesn't use VT-x (or AMD-v) for PV guest virtualization. 
+(It uses ring0/3 separation instead.) 
+However, without VT-x, you won't be able to use fully virtualized VMs (e.g., Windows-based qubes), which were introduced in Qubes 2. 
+In addition, if your system lacks VT-x, then it also lacks VT-d. (See next question.)
 
 ### Can I install Qubes on a system without VT-d?
 
-Yes. You can even run a NetVM, but you will not benefit from DMA protection for driver domains. On a system without VT-d, everything should work in the same way, except there will be no real security benefit to having a separate NetVM, as an attacker could always use a simple DMA attack to go from the NetVM to Dom0. **Nonetheless, all of Qubes' other security mechanisms, such as qube separation, work without VT-d. Therefore, a system running Qubes will still be significantly more secure than one running Windows, Mac, or Linux, even if it lacks VT-d.**
+Yes. 
+You can even run a NetVM, but you will not benefit from DMA protection for driver domains. 
+On a system without VT-d, everything should work in the same way, except there will be no real security benefit to having a separate NetVM, as an attacker could always use a simple DMA attack to go from the NetVM to Dom0. 
+**Nonetheless, all of Qubes' other security mechanisms, such as qube separation, work without VT-d. 
+Therefore, a system running Qubes will still be significantly more secure than one running Windows, Mac, or Linux, even if it lacks VT-d.**
 
 ### What is a DMA attack?
 
 DMA is mechanism for PCI devices to access system memory (read/write).
-Without VT-d, any PCI device can access all the memory, regardless to
-which VM it is assigned (or if it is left in dom0). Most PCI devices allow the
-driver to request an arbitrary DMA operation (like "put received network packets
-at this address in memory", or "get this memory area and send it to the
-network"). So, without VT-d, it gives unlimited access to the whole
-system. Now, it is only a matter of knowing where to read/write to take
-over the system, instead of just crashing. But since you can read the
-whole memory, it isn't that hard.
+Without VT-d, any PCI device can access all the memory, regardless to which VM it is assigned (or if it is left in dom0). 
+Most PCI devices allow the driver to request an arbitrary DMA operation (like "put received network packets at this address in memory", or "get this memory area and send it to the network"). 
+So, without VT-d, it gives unlimited access to the whole system. 
+Now, it is only a matter of knowing where to read/write to take over the system, instead of just crashing. 
+But since you can read the whole memory, it isn't that hard.
 
-Now, how does this apply to Qubes OS? The above attack requires access to a PCI
-device, which means that it can be performed only from NetVM / UsbVM, so
-someone must first break into one of those VMs. But this isn't that hard,
-because there is a lot of complex code handling network traffic. Recent
-bugs includes DHCP client, DNS client, etc. Most attacks on NetVM /
-UsbVM (but not all!) require being somewhat close to the target system -
-for example connected to the same WiFi network, or in the case of a UsbVM,
-having physical acccess to a USB port.
+Now, how does this apply to Qubes OS? 
+The above attack requires access to a PCI device, which means that it can be performed only from NetVM / UsbVM, so someone must first break into one of those VMs. 
+But this isn't that hard, because there is a lot of complex code handling network traffic. 
+Recent bugs includes DHCP client, DNS client, etc. 
+Most attacks on NetVM / UsbVM (but not all!) require being somewhat close to the target system - for example connected to the same WiFi network, or in the case of a UsbVM, having physical acccess to a USB port.
 
 ### Can I use AMD-v instead of VT-x?
 
@@ -241,17 +254,19 @@ Open a terminal and run `sudo yum install linux-firmware` in the TemplateVM upon
 
 ### Can I install Qubes OS together with other operating system (dual-boot/multi-boot)?
 
-You shouldn't do that, because it pose a security risk for your Qubes OS
-installation. But if you understand the risk and accept it, read [documentation
-on multibooting](/doc/multiboot/). It starts with explanation what is wrong
-with using such setup.
+You shouldn't do that, because it pose a security risk for your Qubes OS installation. 
+But if you understand the risk and accept it, read [documentation on multibooting](/doc/multiboot/). 
+It starts with explanation what is wrong with using such setup.
 
 Common Problems
 ---------------
 
 ### My qubes lost Internet access after a TemplateVM update. What should I do?
 
-Run `systemctl enable NetworkManager-dispatcher.service` in the TemplateVM upon which your NetVM is based. You may have to reboot afterward for the change to take effect. (Note: This is an upstream problem. See [here](https://bugzilla.redhat.com/show_bug.cgi?id=974811). For details, see the qubes-users mailing list threads [here](https://groups.google.com/d/topic/qubes-users/xPLGsAJiDW4/discussion) and [here](https://groups.google.com/d/topic/qubes-users/uN9G8hjKrGI/discussion).)
+Run `systemctl enable NetworkManager-dispatcher.service` in the TemplateVM upon which your NetVM is based. 
+You may have to reboot afterward for the change to take effect. 
+(Note: This is an upstream problem. See [here](https://bugzilla.redhat.com/show_bug.cgi?id=974811). 
+For details, see the qubes-users mailing list threads [here](https://groups.google.com/d/topic/qubes-users/xPLGsAJiDW4/discussion) and [here](https://groups.google.com/d/topic/qubes-users/uN9G8hjKrGI/discussion).)
 
 ### My keyboard layout settings are not behaving correctly. What should I do?
 
@@ -273,10 +288,12 @@ Enable "debug mode" in the qube's settings, either by checking the box labeled "
 ### I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.
 
 
-This is probably because one of the controllers does not support reset. In Qubes R2 any such errors were ignored but in Qubes R3.0 they are not.
+This is probably because one of the controllers does not support reset. 
+In Qubes R2 any such errors were ignored but in Qubes R3.0 they are not.
 A device that does not support reset is not safe and generally should not be assigned to a VM.
 
-Most likely the offending controller is a USB3.0 device. You can remove this controller from the usbVM, and see if this allows the VM to boot.
+Most likely the offending controller is a USB3.0 device. 
+You can remove this controller from the usbVM, and see if this allows the VM to boot.
 Alternatively you may be able to disable USB 3.0 in the BIOS.
 
 Errors suggesting this issue:
@@ -298,13 +315,11 @@ Another solution would be to set the pci_strictreset option using qvm-prefs in d
 This option allows the VM to ignore the error and the VM will start.
 Please review the note on [this page](https://www.qubes-os.org/doc/Dom0Tools/QvmPrefs/) and be aware of the potential risk.
 
-
-
-
-
 ### I assigned a PCI device to a qube, then unassigned it/shut down the qube. Why isn't the device available in dom0?
 
-This is an intended feature. A device which was previously assigned to a less trusted qube could attack dom0 if it were automatically reassigned there. In order to re-enable the device in dom0, either:
+This is an intended feature. 
+A device which was previously assigned to a less trusted qube could attack dom0 if it were automatically reassigned there. 
+In order to re-enable the device in dom0, either:
 
  * Reboot the physical machine.
 
@@ -320,24 +335,35 @@ or
         
 ### How do I install Flash in a Debian qube?
 
-The Debian way is to install the flashplugin-nonfree package. Do this in a Debian template. You will have to allow Full access in the firewall prior to installation. This will make Flash available to every qube using that template.
+The Debian way is to install the flashplugin-nonfree package. 
+Do this in a Debian template. You will have to allow Full access in the firewall prior to installation. 
+This will make Flash available to every qube using that template.
 
 If you only want Flash available in one qube:
 
 - download the Flash Player for linux (64 bit) .tar.gz from [Adobe](https://get.adobe.com/flashplayer/otherversions).
 - untar the downloaded file ```tar xf install_flash_player_11_linux.x86_64.tar.gz```
-- create ~/.mozilla/plugins if it does not exist
-- move libflashhplayer.so to ~/.mozilla/plugins, and restart iceweasel.
+- create `~/.mozilla/plugins` if it does not exist
+- move `libflashhplayer.so` to `~/.mozilla/plugins`, and restart iceweasel.
 
 ### How do I play video files?
 
-If you're having trouble playing a video file in a qube, you're probably
-missing the required codecs. The easiest way to resolve this is to install VLC
-Media Player and use that to play your video files. You can do this in multiple
-different TemplateVM distros (Fedora, Debian, etc.), but for simplicity, we'll
-assume you're using Fedora:
+If you're having trouble playing a video file in a qube, you're probably missing the required codecs. 
+The easiest way to resolve this is to install VLC Media Player and use that to play your video files. 
+You can do this in multiple different TemplateVM distros (Fedora, Debian, etc.). 
 
-1. (Recommended) Clone an existing Fedora TemplateVM.
+For Debian:
+
+1. (Recommended) Clone an existing Debian TemplateVM
+2. Install VLC in that TemplateVM:
+
+       $ sudo apt install vlc
+
+3. Use VLC to play your video files
+
+For Fedora:
+
+1. (Recommended) Clone an existing Fedora TemplateVM
 2. [Enable the appropriate RPMFusion repos in the desired Fedora TemplateVM.](/doc/software-update-vm/#rpmfusion-for-a-fedora-templatevm)
 3. Install VLC in that TemplateVM:
 
@@ -347,11 +373,13 @@ assume you're using Fedora:
 
 ### My encrypted drive doesn't appear in Debian qube.
 
-This is an issue that affects qubes based on Debian Jessie. The problem is fixed in Stretch, and does not affect Fedora based qubes.
+This is an issue that affects qubes based on Debian Jessie. 
+The problem is fixed in Stretch, and does not affect Fedora-based qubes.
 
-A mixed drive with some encrypted partitions appears correctly in nautilus. The encrypted partitions are identified and the user is prompted for password on attempting to mount the partition.
+A mixed drive with some encrypted partitions appears correctly in Nautilus. 
+The encrypted partitions are identified and the user is prompted for password on attempting to mount the partition.
 
-A fully encrypted drive does not appear in nautilus.
+A fully encrypted drive does not appear in Nautilus.
 
 The work round is to manually decrypt and mount the drive:
 
@@ -360,7 +388,7 @@ The work round is to manually decrypt and mount the drive:
 3. sudo cryptsetup status /dev/mapper/bk [Shows useful status]
 4. sudo mount /dev/mapper/bk /mnt
 
-The decrypted device is now available at /mnt - when you have finished using it unmount and close the drive.
+The decrypted device is now available at `/mnt` - when you have finished using it unmount and close the drive.
 
 1. sudo umount /mnt
 2. sudo cryptsetup close bk --type luks
@@ -368,5 +396,6 @@ The decrypted device is now available at /mnt - when you have finished using it 
 
 ### Windows Update is stuck.
 
-This has nothing to do with Qubes. [It's a longstanding Windows bug.](https://superuser.com/questions/951960/windows-7-sp1-windows-update-stuck-checking-for-updates)
+This has nothing to do with Qubes. 
+[It's a longstanding Windows bug.](https://superuser.com/questions/951960/windows-7-sp1-windows-update-stuck-checking-for-updates)
 
