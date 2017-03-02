@@ -343,7 +343,7 @@ When you finish, detach the device:
     sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
     sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
 
-This feature is not yet available in Qubes Manager.
+This feature is not yet available in Qubes Manager however, if you would like to contribute to Qubes OS project and are a student please consider applying for the [Google Summer of Code][gsoc-page] scholarship and choosing QubesOS Project as a mentor organization. You can find list of our our Project Ideas [here][project-page].
 
 
 [mass-storage]: https://en.wikipedia.org/wiki/USB_mass_storage_device_class
@@ -360,3 +360,5 @@ This feature is not yet available in Qubes Manager.
 [create a USB qube]: #creating-and-using-a-usb-qube
 [input-proxy]: https://github.com/qubesos/qubes-app-linux-input-proxy
 [usb-challenges]: http://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html
+[project-page]: https://www.qubes-os.org/gsoc/
+[gsoc-page]: https://summerofcode.withgoogle.com/organizations/6239659689508864/
