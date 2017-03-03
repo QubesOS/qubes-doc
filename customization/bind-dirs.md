@@ -54,7 +54,7 @@ bind-dirs.sh works with Qubes R3.2 and above.
 
 ## How to remove binds from bind-dirs.sh? ##
 
-`binds` is actually just a bash variable (an array) and the bind-dirs.sh configuration folders are `source`d as bash snippets in lexical order. Therefore if you wanted to remove an existing entry from the `binds` array, you could do that by using a lexically higher configuration file. For example, if you wanted to make `/var/lib/tor` non-persistant in `sys-whonix` without manually editing [`/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf`](https://github.com/Whonix/qubes-whonix/blob/master/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf), you could use the following.
+`binds` is actually just a bash variable (an array) and the bind-dirs.sh configuration folders are `source`d as bash snippets in lexical order. Therefore if you wanted to remove an existing entry from the `binds` array, you could do that by using a lexically higher configuration file. For example, if you wanted to make `/var/lib/tor` non-persistent in `sys-whonix` without manually editing [`/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf`](https://github.com/Whonix/qubes-whonix/blob/master/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf), you could use the following.
 
 `/rw/config/qubes-bind-dirs.d/50_user.conf`
 
