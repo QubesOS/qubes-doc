@@ -44,6 +44,7 @@ to set the policy using current mechanism.
 | `mgmt.vm.microphone.Attach`             | vm                     | -             | -                                         | -                                        |
 | `mgmt.vm.microphone.Detach`             | vm                     | -             | -                                         | -                                        |
 | `mgmt.pool.List`                        | `dom0`                 | -             | -                                         | `<pool>\n`                               |
+| `mgmt.pool.ListDrivers`                 | `dom0`                 | -             | -                                         | `<pool-driver> <property> ...\n`         | Properties allowed in `mgmt.pool.Add`
 | `mgmt.pool.Info`                        | `dom0`                 | pool          | -                                         | `<property>=<value>\n`                   |
 | `mgmt.pool.Add`                         | `dom0`                 | pool          | `<property>=<value>\n`                    | -                                        |
 | `mgmt.pool.Remove`                      | `dom0`                 | pool          | -                                         | -                                        |
@@ -52,13 +53,13 @@ to set the policy using current mechanism.
 | `mgmt.pool.volume.ListSnapshots`        | `dom0`                 | pool:vid      | -                                         | `<snapshot>\n`                           |
 | `mgmt.pool.volume.Snapshot`             | `dom0`                 | pool:vid      | -                                         | snapshot                                 |
 | `mgmt.pool.volume.Revert`               | `dom0`                 | pool:vid      | snapshot                                  | -                                        |
-| `mgmt.pool.volume.Extend`               | `dom0`                 | pool:vid      | -                                         | `<size_in_bytes>`                        |
-| `mgmt.vm.volume.List`                   | vm                     | -/pool?       | -                                         | ?                                        |
-| `mgmt.vm.volume.Info`                   | vm                     | volume        | -                                         | ?                                        |
+| `mgmt.pool.volume.Resize`               | `dom0`                 | pool:vid      | -                                         | `<size_in_bytes>`                        |
+| `mgmt.vm.volume.List`                   | vm                     | -             | -                                         | `<volume>\n`                             | `<volume>` is per-VM volume name, `<vid>` is pool-unique volume id
+| `mgmt.vm.volume.Info`                   | vm                     | volume        | -                                         | `<property>=<value>\n`                   |
 | `mgmt.vm.volume.ListSnapshots`          | vm                     | volume        | -                                         | snapshot                                 | duplicate of `mgmt.pool.volume.`, but with other call params |
 | `mgmt.vm.volume.Snapshot`               | vm                     | volume        | -                                         | snapshot                                 | id. |
 | `mgmt.vm.volume.Revert`                 | vm                     | volume        | snapshot                                  | -                                        | id. |
-| `mgmt.vm.volume.Extend`                 | vm                     | volume        | -                                         | `<size_in_bytes>`                        | id. |
+| `mgmt.vm.volume.Resize`                 | vm                     | volume        | -                                         | `<size_in_bytes>`                        | id. |
 | `mgmt.vm.volume.Attach`                 | vm                     | volume        | -                                         | -                                        |
 | `mgmt.vm.volume.Detach`                 | vm                     | volume        | -                                         | -                                        |
 | `mgmt.vm.Start`                         | vm                     | -             | -                                         | -                                        |
@@ -69,6 +70,18 @@ to set the policy using current mechanism.
 | `mgmt.backup.Execute`                   | `dom0`                 | config id     | -                                         | -                                        | config in `/etc/qubes/backup/<id>.conf` |
 | `mgmt.backup.Info`                      | `dom0`                 | ?             | content?                                  | ?                                        |
 | `mgmt.backup.Restore`                   | `dom0`                 | ?             | content                                   | ?                                        |
+
+Volume properties:
+ - `pool`
+ - `vid`
+ - `size`
+ - `usage`
+ - `rw`
+ - `internal`
+ - `source`
+ - `save_on_stop`
+ - `snap_on_start`
+
 
 ## Returned messages
 
