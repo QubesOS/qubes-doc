@@ -10,7 +10,11 @@ Qubes Live USB (alpha)
 Qubes Live USB allows you to run and try Qubes OS without having to install it
 anywhere. Qubes Live USB is currently in alpha. If you use it, please consider
 running the [HCL reporting tool](/hcl/) and sending us the results so that we
-can continue to improve it.
+can continue to improve it. If you would like to contribute to Qubes OS project
+by improving Qubes Live USB and integrating it with the installer please consider
+applying for [Google Summer of Code][gsoc-page] scholarship and choosing 
+QubesOS Project as a mentor organization. 
+You can find list of our our Project Ideas [here][project-page].
 
 
 Introduction
@@ -112,3 +116,6 @@ Downloading and burning
    **Caution:** It is very easy to misuse the `dd` command. If you mix up `if`
    and `of` or specify an incorrect device, you could accidentally overwrite
    your primary system drive. Please be careful!
+
+[project-page]: https://www.qubes-os.org/gsoc/
+[gsoc-page]: https://summerofcode.withgoogle.com/organizations/6239659689508864/
