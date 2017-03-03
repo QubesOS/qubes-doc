@@ -10,11 +10,11 @@ Qubes Live USB (alpha)
 Qubes Live USB allows you to run and try Qubes OS without having to install it
 anywhere. Qubes Live USB is currently in alpha. If you use it, please consider
 running the [HCL reporting tool](/hcl/) and sending us the results so that we
-can continue to improve it. If you would like to contribute to Qubes OS project
-by improving Qubes Live USB and integrating it with the installer please consider
-applying for [Google Summer of Code][gsoc-page] scholarship and choosing 
-QubesOS Project as a mentor organization. 
-You can find list of our our Project Ideas [here][project-page].
+can continue to improve it. If  would like to contribute to the Qubes OS
+Project by improving Qubes Live USB and integrating it with the installer,
+please consider applying for a [Google Summer of Code][gsoc-page] scholarship
+(if you are eligible) and choosing the QubesOS Project as a mentor
+organization. You can find our list of project ideas [here][project-page].
 
 
 Introduction
