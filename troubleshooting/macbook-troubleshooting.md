@@ -148,6 +148,9 @@ In this section, I explain how I installed Qubes 3.2 on a MacBook Pro Retina 201
 Good news: the relevant stuff works.
 Bad news: still some minor issue to investigate.
 
+For the time being, my setup is just for testing purposes and help to bypass some blocking issues: do not use it in production or on machine where security is a concern!
+I hope to improve it as soon as possible.
+
 During my nigths trying to get Qubes OS working, I faced tow main and blocking issues:
 *   no boot, due to empty xen.cfg file
 *   system freeze, due to Broadcom BCM43602 wifi card
@@ -178,11 +181,10 @@ Download and prepare a USB with Qubes 3.2
 
 You can install Qubes using BIOS or UEFI:
 *  BIOS/CSM/Legacy: I have not been able to install using legagy, but I did not spent a lot of time on it.
-   * power on the macbook pressing Option button
-   * GRUB menu appears, with option to test media & install, install, troubleshoot and rescue
-   * whatever option I choose, I have a quick flash and back to the menu
+*  UEFI plain: grub menu appears, but any gave me a quick flash and returned the main menu. I can boot it manually fixing the grub.cfg file, adding commands linuexefi and initrdefi, pointing proper files in /efi/boot. After boot, I end up with not root file system.
 *  UEFI, using rEFInd: I have been successful, despite some issues to be fixed manually, after installation completion
-   * download [rEFInd] ZIP file, unzip it and run installer
+   * download [rEFInd] refind-bin-0.10.4.zip: this file is not signed, so decide if you trust it or not. SHA1 sum is 3d69c23b7d338419e5559a93cd6ae3ec66323b1e  
+   * unzip it and run installer, which install rEFIind on the internal SSD
    * if installation fails due to SIP, reboot in recovery mode, open a terminal and issue command
    ~~~
    crsutil disable
@@ -251,7 +253,7 @@ chrooot /mnt/sysimage
 default=4.4.14-11.pvops.qubes.x868_64
 
 [4.4.14-11.pvops.qubes.x868_64]
-options=loglvl=all
+options=loglvl=all dom0_mem=min:1024M dom0_mem=max:4096M
 kernel=vmlinuz-4.4.14-11.pvops.qubes.x86_64
 ramdisk=initramfs-4.4.14-11.pvops.qubes.x86_64.img
 ~~~
@@ -275,8 +277,11 @@ Everything should now be ok, Qubes OS boots using EFI and you will get the last 
 ### 6. Fix pulseaudio, which locks CPU freezing the system often for 20 seconds
 
 My macbook has frequent freezes. Looking at journalctl output I saw that pulseaudio locks CPU for 20 seconds, very often.
-The quickest workaround, is to open a dom0 terminal, as root and edit /etc/pulse/client.conf and adding "autospawn = no"
-Then, as normal user, issue command "pulseaudio --kill"
+
+You can fix this issue, killing audio support with this quick workaround:
+*  open a dom0 terminal, as root and edit /etc/pulse/client.conf
+*  add "autospawn = no"
+*  Then, as normal user, issue command "pulseaudio --kill"
 
 ### 7. Fix system freezes due to Broadcom BCM43602
 
