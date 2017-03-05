@@ -23,21 +23,36 @@ bind-dirs.sh works with Qubes R3.2 and above.
 
 ## How to use bind-dirs.sh? ##
 
+Inside your TemplateBasedVM.
+
 1. Make sure folder `/rw/config/qubes-bind-dirs.d` exists.
 
        sudo mkdir -p /rw/config/qubes-bind-dirs.d
 
 2. Create a file `/rw/config/qubes-bind-dirs.d/50_user.conf` with root rights inside a VM.
 
-3. Append a folder or file to the `binds` variable. In the following example we are using folder `/var/lib/tor`. You can replace that folder with a folder or file of your choice.
+       sudo nano /rw/config/qubes-bind-dirs.d/50_user.conf
+
+3. Append a folder or file to the `binds` variable. In the following example we are using folder `/var/lib/tor`. You can replace that folder with a folder of your choice.
 
        binds+=( '/var/lib/tor' )
+       
+In the following example we are using file `/etc/tor/torrc`. You can replace that file with a file of your choice.
+       
+       binds+=( '/etc/tor/torrc' )
+
+Multiple configuration lines, files and folders supported. For example, you could use both.
+
+       binds+=( '/var/lib/tor' )
+       binds+=( '/etc/tor/torrc' )
 
 4. Save.
 
-5. Reboot the VM.
+5. Reboot your TemplateBasedVM.
 
 6. Done.
+
+If you added for example folder `/var/lib/tor` to the `binds` variable, from now any files within that folder would persist reboots. If you added for example file `/etc/tor/torrc` to the `binds` variable, from now any modifications to that file would persist reboots.
 
 ## Other Configuration Folders ##
 
