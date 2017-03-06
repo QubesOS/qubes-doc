@@ -25,35 +25,28 @@ Hardware Requirements
 Please see the [system requirements] and [Hardware Compatibility List] pages for
 more information on required and recommended hardware.
 
-**Note:** We don't recommend installing Qubes in a virtual machine! It will
-likely not work. Please don't send emails asking about it. You can, however,
-install it on an external USB hard drive and run from it, at least for testing.
-(Bear in mind, however, that such disks are typically *orders* of magnitude
-slower than even the slowest internal hard drives). We also have a [live USB]
+**Note:** We don't recommend installing Qubes in a virtual machine! It probably
+won't work. Please don't send emails asking about it. Rather than running Qubes within a virtual machine, 
+you can install and run Qubes on a USB drive for testing. Keep in mind that USB drives are 
+slower than even the slowest internal hard drives. We also have a [live USB]
 option (currently in alpha).
 
 
 Downloading the ISO
 -------------------
 
-See the [downloads] page for ISO downloads. Remember, we have absolutely
-no control over those servers, so you should be assuming that they might be
-compromised, or just be serving compromised ISOs because their operators decided
-so, for whatever reason. Always verify the digital signature on the downloaded
-ISO. Make sure to read our guide on [verifying signatures] for more info about
-how to download and verify our PGP keys and verify the downloaded ISO.
+See the [downloads] page for ISO downloads. WW have no control over the servers, so it's  safest to assume that they may be
+compromised. Bee certain to verify the digital signature on the downloaded
+ISO. Read our guide on [verifying signatures].
 
 
-Copying the ISO onto the installation medium
+Copying the ISO onto the installation Medium
 --------------------------------------------
 
-Once you verify this is an authentic ISO, you should copy it onto the
-installation medium of your choice, such as a DVD or a USB drive. (Please note
-that there are important [security considerations] to keep in mind when choosing
-an installation medium.)
+After you verify your copy is an authentic ISO, you should copy it onto a DVD or a USB drive. There are important [security considerations] to keep in mind when choosing
+an installation medium.
 
-If you prefer to use a USB drive, then you just need to copy the ISO onto the
-USB device, e.g. using `dd`:
+When copying to a USB drive using Linux use the `dd` command as follows: `dd`:
 
     dd if=Qubes-R3-x86_64.iso of=/dev/sdX
 
@@ -68,24 +61,21 @@ need to do that **after** selecting the Qubes ISO):
 
 <img src="/attachment/wiki/InstallationGuide/rufus-main-boxed.png" height="350">
 
-Before proceeding with the installation, you are encouraged to first read all
+Before proceeding with the installation, continue reading
 the information on this page. When you're ready, boot your system from the
-installation source and follow the on-screen instructions. The installer is very
-simple and asks very few questions. (It's actually easier to install Qubes right
-now than most other Linux distributions!)
+source you created and follow the on-screen instructions. The installer is very
+simple and asks very few questions. It's actually easier to install Qubes right
+now than most other Linux distributions!
 
 The installer loads Xen right at the beginning, so chances are high that if you
 can see the installer's graphical screen, Qubes will work on your system. :)
 
 
-Installing to a USB drive
+Installing to a USB Drive
 -------------------------
 
 Installing an operating system onto a USB drive can be a convenient and secure
-method of ensuring that your data is protected. Be advised that a minimum
-storage of 32 GB is required on the USB drive. This installation process may
-take longer than an installation on a standard hard disk. The installation
-process is identical to using a hard disk in conjunction with two exceptions:
+method of ensuring that your data is protected. A minimum 32 GB is required on the USB drive. Installing on a USB takes longer than an installation on a standard hard disk but The installation process is identical with two exceptions:
 
 * Select the USB as the storage location for the OS. 
 
@@ -106,8 +96,8 @@ Getting Help
 
  * We work very hard on making the [documentation] accurate, comprehensive, and
    useful. We urge you to read it! It may very well contain the answers to your
-   questions. (Since the documentation is a community effort, we'd also greatly
-   appreciate your help in [improving] it!)
+   questions. Since the documentation is a community effort, we'd also greatly
+   appreciate your help in [improving] it!
 
  * If you don't find your answer in the documentation, it may be time to consult
    the [mailing lists], as well as the many other available sources of [help].
