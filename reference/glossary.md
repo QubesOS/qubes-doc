@@ -164,6 +164,13 @@ To boost performance, fully virtualized HVM guests can use special paravirtual d
 These drivers are optimized PV drivers for HVM environments and bypass the emulation for disk and network I/O, thus providing PV-like (or better) performance on HVM systems. 
 This allows for optimal performance on guest operating systems such as Windows.
 
+Windows Tools
+-----
+Qubes Windows Tools are a set of programs and drivers that provide integration of Windows [AppVMs](#appvm) with the rest of the Qubes system.
+
+QWT
+----
+An abbreviation of Qubes [Windows Tools](#windows-tools).
 
 [Disposable Virtual Machine]: /doc/dispvm/
 [DispVM Customization]: /doc/dispvm-customization/
