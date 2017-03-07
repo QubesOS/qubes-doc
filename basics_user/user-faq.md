@@ -31,7 +31,10 @@ Qubes Users' FAQ
  * [Why passwordless sudo?](#why-passwordless-sudo)
  * [How should I report documentation issues?](#how-should-i-report-documentation-issues)
  * [Will Qubes seek to get certified on the GNU Free System Distribution Guidelines (GNU FSDG)?](#will-qubes-seek-to-get-certified-under-the-gnu-free-system-distribution-guidelines-gnu-fsdg)
+ * [Should I trust this website?](#should-i-trust-this-website)
  * [What does it mean to "distrust the infrastructure"?](#what-does-it-mean-to-distrust-the-infrastructure)
+ * [Why does this website use Cloudflare?](#why-does-this-website-use-cloudflare)
+ * [Why doesn't this website have security feature X?](#why-doesnt-this-website-have-security-feature-x)
 
 [Installation & Hardware Compatibility](#installation--hardware-compatibility)
 ------------------------------------------------------------------------------
@@ -179,6 +182,15 @@ Please see the [documentation guidelines](/doc/doc-guidelines).
 
 Not currently, for the same reasons that [Debian is not certified](https://www.gnu.org/distros/common-distros.en.html).
 
+### Should I trust this website?
+
+This website is hosted via GitHub Pages behind Cloudflare ([why?](#why-does-this-website-use-cloudflare)).
+Therefore, it is largely outside of our control.
+We don't consider this a problem, however, since we explicitly [distrust the infrastructure](#what-does-it-mean-to-distrust-the-infrastructure).
+For this reason, we don't think that anyone should place undue trust in the live version of this site on the Web.
+Instead, if you want to obtain your own, trustworthy copy of this website in a secure way, you should clone our [website repo](https://github.com/QubesOS/qubesos.github.io), [verify the PGP signatures on the commits and/or tags](/doc/verifying-signatures/#verifying-qubes-code) (signed by the [doc-signing keys](https://github.com/QubesOS/qubes-secpack/tree/master/keys/doc-signing)), then either [render the site on your local machine](https://github.com/QubesOS/qubesos.github.io/blob/master/README.md#instructions) or simply read the source, the vast majority of which was [intentionally written in Markdown so as to be readable as plain text for this very reason](/doc/doc-guidelines/#markdown-conventions).
+We've gone to special effort to set all of this up so that no one has to trust the infrastructure and so that the contents of this website are maximally available and accessible.
+
 ### What does it mean to "distrust the infrastructure"?
 
 A core tenet of the Qubes philosophy is "distrust the infrastructure," where "the infrastructure" refers to things like hosting providers, CDNs, DNS services, package repositories, email servers, PGP keyservers, etc. 
@@ -189,6 +201,28 @@ Users can never fully control all the infrastructure they rely upon, and they ca
 Therefore, we believe the best solution is not to attempt to make the infrastructure trustworthy, but instead to concentrate on solutions that obviate the need to do so. 
 We believe that many attempts to make the infrastructure appear trustworthy actually provide only the illusion of security and are ultimately a disservice to real users. 
 Since we don't want to encourage or endorse this, we make our distrust of the infrastructure explicit.
+
+Also see: [Should I trust this website?](#should-i-trust-this-website)
+
+### Why does this website use Cloudflare?
+
+Three main reasons:
+
+1. We [distrust the infrastructure](#what-does-it-mean-to-distrust-the-infrastructure), including Cloudflare.
+2. It's free (as in beer). We'd have to spend either time or money to implement a solution ourselves or pay someone to do so, and we can't spare either one right now.
+3. It has low admin/overhead requirements, which is very important, given how little time we have to spare.
+
+Also see: [Should I trust this website?](#should-i-trust-this-website)
+
+### Why doesn't this website have security feature X?
+
+Although we caution users against [placing undue trust in this website](#should-i-trust-this-website) because we [distrust the infrastructure](#what-does-it-mean-to-distrust-the-infrastructure), we have no objection to enabling website security features when doing so is relatively costless and provides some marginal benefit to website visitors (e.g., HTTPS via Cloudflare page rules).
+So, if feature X isn't enabled, it's most likely for one of three reasons:
+
+1. Our GitHub Pages + Cloudflare platform doesn't support it.
+2. Our platform supports it, but we've decided not to enable it.
+3. Our platform supports it, but we're not aware that we can enable it or have forgotten to do so.
+   (If it seems like this is the case, let us know!)
 
 
 Installation & Hardware Compatibility
