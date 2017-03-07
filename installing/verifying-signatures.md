@@ -284,13 +284,25 @@ came from the Qubes devs.
 Verifying Qubes Code
 --------------------
 
-Developers who fetch code from our Git server should always verify tags on the
-latest commit. Any commits that are not followed by a signed tag should not be
-trusted!
+Developers who fetch code from our Git server should always verify the PGP signature of the tag on the latest commit.
+In some cases, commits themselves may also be signed.
+Any unsigned commit that is not followed by a signed tag should not be trusted!
 
-To verify a signature on a git tag, you can use:
+To verify a signature on a git tag:
 
     $ git tag -v <tag name>
+
+or
+
+    $ git verify-tag <tag name>
+
+To verify a signature on a git commit:
+
+    $ git log --show-signature <commit ID>
+
+or
+
+    $ git verify-commit <commit ID>
 
 
 [Qubes Master Signing Key]: https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
