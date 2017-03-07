@@ -117,7 +117,7 @@ Because we chose to use Fedora as a vendor for the Qubes OS foundation (e.g. for
 
 -   So, are the template VMs as trusted as Dom0?
 
-Not quite. Dom0 compromise is absolutely fatal, and it leads to Game Over<sup>TM</sup>. However, a compromise of a template affects only a subset of all your AppVMs (in case you use more than one template, or also some standalone VMs). Also, if your AppVMs are network disconnected, even though their filesystems might got compromised due to the corresponding template compromise, it still would be difficult for the attacker to actually leak out the data stolen in an AppVM. Not impossible (due to existence of cover channels between VMs on x86 architecture), but difficult and slow.
+Not quite. Dom0 compromise is absolutely fatal, and it leads to Game Over<sup>TM</sup>. However, a compromise of a template affects only a subset of all your AppVMs (in case you use more than one template, or also some standalone VMs). Also, if your AppVMs are network disconnected, even though their filesystems might get compromised due to the corresponding template compromise, it still would be difficult for the attacker to actually leak out the data stolen in an AppVM. Not impossible (due to existence of cover channels between VMs on x86 architecture), but difficult and slow.
 
 Standalone VMs
 --------------
