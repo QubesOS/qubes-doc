@@ -222,6 +222,7 @@ Security Information
  * [Security Bulletin Checklist](/doc/security-bulletins/checklist/)
  * [Security Bulletin Template](/doc/security-bulletins/template/)
  * [Canaries](/doc/canaries/)
+ * [Canary Template](/doc/canaries/template/)
  * [Why and How to Verify Signatures](/doc/verifying-signatures/)
  * [Qubes PGP Keys](http://keys.qubes-os.org/keys/)
 
