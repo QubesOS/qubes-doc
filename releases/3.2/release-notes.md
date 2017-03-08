@@ -24,6 +24,8 @@ You can get detailed description in [completed github issues][github-release-not
 Known issues
 ------------
 
+* [Fedora 23 reached EOL in December 2016](https://fedoraproject.org/wiki/End_of_life). There is a [manual procedure to upgrade your VMs](https://www.qubes-os.org/news/2016/11/15/fedora-24-template-available/).
+
 * Windows Tools: `qvm-block` does not work
 
 * Some icons in the Qubes Manager application might not be drawn correctly when using the Xfce4 environment in Dom0. If this bothers you, please use the KDE environment instead.
@@ -41,6 +43,7 @@ Installation instructions
 -------------------------
 
 See [Installation Guide](/doc/installation-guide/).
+After installation, [manually upgrade to Fedora 24](https://www.qubes-os.org/news/2016/11/15/fedora-24-template-available/).
 
 Upgrading
 ---------
