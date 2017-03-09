@@ -12,7 +12,7 @@ redirect_from:
 Disposable VM Customization
 ====================
 
-Changing the DVM Template
+Changing the Template Used as a Basis for Disposable VM
 -------------------------
 
 You may want to use a non-default template the [DVM Template](/doc/glossary/#dvm-template). One example is to use a less-trusted template with some less trusted, 3rd party, often unsigned, applications installed, such as e.g. 3rd part printer drivers.
@@ -61,7 +61,7 @@ It is possible to change the settings of each new Disposable VM (DispVM). This c
 
         [user@dom0 ~]$ qvm-create-default-dvm --default-template
         
-    Or, if you're [using a non-default template](#changing-the-dvm-template), regenerate the DispVM using your custom template:
+    Or, if you're [using a non-default template](#changing-the-template-used-as-a-basis-for-disposable-vm), regenerate the DispVM using your custom template:
     
         [user@dom0 ~]$ qvm-create-default-dvm <custom-template-name>
 
