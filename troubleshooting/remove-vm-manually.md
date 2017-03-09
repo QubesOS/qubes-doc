@@ -24,6 +24,6 @@ All commands should be executed in a dom0 terminal.
 
         $ rm ~/.local/share/applications/<template-name>*
 
-4. Remove the TemplateVM's Applications Menu entry from '/etc/xdg/menus/applications-merged'
-        
+4. Remove the TemplateVM's Applications Menu entry from `/etc/xdg/menus/applications-merged`
+
         $ sudo rm /etc/xdg/menus/applications-merged/<template-name>*
