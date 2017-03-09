@@ -13,63 +13,75 @@ to set the policy using current mechanism.
 
 ## The calls
 
-| call                                    | dest                   | argument      | inside                                    | return                                   | note |
-| --------------------------------------- | ---------------------- | ------------- | ----------------------------------------- | ---------------------------------------- | ---- |
-| `mgmt.vm.List`                          | `dom0`                 | -             | -                                         | `<name> class=<class> state=<state>\n`   |
-| `mgmt.vm.Create.<class>`                | `dom0`                 | template      | `name=<name> label=<label>`               | -                                        |
-| `mgmt.vm.CreateInPool.<class>`          | `dom0`                 | template      | `name=<name> label=<label> pool=<pool>`   | -                                        |
-| `mgmt.vm.CreateTemplate`                | `dom0`                 | name          | `root.img`                                | -                                        |
-| `mgmt.vm.property.List`                 | vm                     | -             | -                                         | `<property>\n`                           |
-| `mgmt.vm.property.Get`                  | vm                     | property      | -                                         | `default={yes|no} <value>`               |
-| `mgmt.vm.property.Help`                 | vm                     | property      | -                                         | `help.rst`                               |
-| `mgmt.vm.property.Reset`                | vm                     | property      | -                                         | -                                        |
-| `mgmt.vm.property.Set`                  | vm                     | property      | value                                     | -                                        |
-| `mgmt.vm.feature.List`                  | vm                     | -             | -                                         | `<feature>\n`                            |
-| `mgmt.vm.feature.Get`                   | vm                     | feature       | -                                         | value                                    |
-| `mgmt.vm.feature.CheckWithTemplate`     | vm                     | feature       | -                                         | value                                    |
-| `mgmt.vm.feature.Remove`                | vm                     | feature       | -                                         | -                                        |
-| `mgmt.vm.feature.Set`                   | vm                     | feature       | value                                     | -                                        |
-| `mgmt.vm.tag.List`                      | vm                     | tag           | -                                         | `<tag>\n`                                |
-| `mgmt.vm.tag.Get`                       | vm                     | tag           | -                                         | `0` or `1`                               | retcode? |
-| `mgmt.vm.tag.Remove`                    | vm                     | tag           | -                                         | -                                        |
-| `mgmt.vm.tag.Set`                       | vm                     | tag           | -                                         | -                                        |
-| `mgmt.vm.firewall.Get`                  | vm                     | position      | -                                         | `<rule id> <rule>\n`                     |
-| `mgmt.vm.firewall.InsertRule`           | vm                     | position      | rule                                      | rule id                                  |
-| `mgmt.vm.firewall.RemoveRule`           | vm                     | rule id       | -                                         | -                                        |
-| `mgmt.vm.firewall.Flush`                | vm                     | -             | -                                         | -                                        |
-| `mgmt.vm.device.<class>.Attach`         | vm                     | device        | -                                         | -                                        |
-| `mgmt.vm.device.<class>.Detach`         | vm                     | device        | -                                         | -                                        |
-| `mgmt.vm.device.<class>.List`           | vm                     | -             | -                                         | `<device>\n`                             |
-| `mgmt.vm.device.<class>.Available`      | vm                     | -             | -                                         | `<device>\n`                             |
-| `mgmt.vm.microphone.Attach`             | vm                     | -             | -                                         | -                                        |
-| `mgmt.vm.microphone.Detach`             | vm                     | -             | -                                         | -                                        |
-| `mgmt.pool.List`                        | `dom0`                 | -             | -                                         | `<pool>\n`                               |
-| `mgmt.pool.ListDrivers`                 | `dom0`                 | -             | -                                         | `<pool-driver> <property> ...\n`         | Properties allowed in `mgmt.pool.Add`
-| `mgmt.pool.Info`                        | `dom0`                 | pool          | -                                         | `<property>=<value>\n`                   |
-| `mgmt.pool.Add`                         | `dom0`                 | pool          | `<property>=<value>\n`                    | -                                        |
-| `mgmt.pool.Remove`                      | `dom0`                 | pool          | -                                         | -                                        |
-| `mgmt.pool.volume.List`                 | `dom0`                 | pool          | -                                         | volume id                                |
-| `mgmt.pool.volume.Info`                 | `dom0`                 | pool:vid      | -                                         | `<property>=<value>\n`                   |
-| `mgmt.pool.volume.ListSnapshots`        | `dom0`                 | pool:vid      | -                                         | `<snapshot>\n`                           |
-| `mgmt.pool.volume.Snapshot`             | `dom0`                 | pool:vid      | -                                         | snapshot                                 |
-| `mgmt.pool.volume.Revert`               | `dom0`                 | pool:vid      | snapshot                                  | -                                        |
-| `mgmt.pool.volume.Resize`               | `dom0`                 | pool:vid      | -                                         | `<size_in_bytes>`                        |
-| `mgmt.vm.volume.List`                   | vm                     | -             | -                                         | `<volume>\n`                             | `<volume>` is per-VM volume name, `<vid>` is pool-unique volume id
-| `mgmt.vm.volume.Info`                   | vm                     | volume        | -                                         | `<property>=<value>\n`                   |
-| `mgmt.vm.volume.ListSnapshots`          | vm                     | volume        | -                                         | snapshot                                 | duplicate of `mgmt.pool.volume.`, but with other call params |
-| `mgmt.vm.volume.Snapshot`               | vm                     | volume        | -                                         | snapshot                                 | id. |
-| `mgmt.vm.volume.Revert`                 | vm                     | volume        | snapshot                                  | -                                        | id. |
-| `mgmt.vm.volume.Resize`                 | vm                     | volume        | -                                         | `<size_in_bytes>`                        | id. |
-| `mgmt.vm.volume.Attach`                 | vm                     | volume        | -                                         | -                                        |
-| `mgmt.vm.volume.Detach`                 | vm                     | volume        | -                                         | -                                        |
-| `mgmt.vm.Start`                         | vm                     | -             | -                                         | -                                        |
-| `mgmt.vm.Shutdown`                      | vm                     | -             | -                                         | -                                        |
-| `mgmt.vm.Pause`                         | vm                     | -             | -                                         | -                                        |
-| `mgmt.vm.Unpause`                       | vm                     | -             | -                                         | -                                        |
-| `mgmt.vm.Kill`                          | vm                     | -             | -                                         | -                                        |
-| `mgmt.backup.Execute`                   | `dom0`                 | config id     | -                                         | -                                        | config in `/etc/qubes/backup/<id>.conf` |
-| `mgmt.backup.Info`                      | `dom0`                 | ?             | content?                                  | ?                                        |
-| `mgmt.backup.Restore`                   | `dom0`                 | ?             | content                                   | ?                                        |
+| call                                  | dest      | argument  | inside                                    | return                                                    | note |
+| ------------------------------------- | --------- | --------- | ----------------------------------------- | --------------------------------------------------------- | ---- |
+| `mgmt.vmclass.List`                   | `dom0`    | -         | -                                         | `<class>\n`                                               |
+| `mgmt.vm.List`                        | `dom0`|vm | -         | -                                         | `<name> class=<class> state=<state>\n`                    |
+| `mgmt.vm.Create.<class>`              | `dom0`    | template  | `name=<name> label=<label>`               | -                                                         |
+| `mgmt.vm.CreateInPool.<class>`        | `dom0`    | template  | `name=<name> label=<label> pool=<pool>`   | -                                                         |
+| `mgmt.vm.CreateTemplate`              | `dom0`    | name      | `root.img`                                | -                                                         |
+| `mgmt.vm.Clone`                       | vm        | -         | `name=<name>`                             | -                                                         |
+| `mgmt.vm.Remove`                      | vm        | -         | -                                         | -                                                         |
+| `mgmt.label.List`                     | `dom0`    | -         | -                                         | `<property>\n`                                            |
+| `mgmt.label.Create`                   | `dom0`    | label     | `0xRRGGBB`                                | -                                                         |
+| `mgmt.label.Get`                      | `dom0`    | label     | -                                         | `0xRRGGBB`                                                |
+| `mgmt.label.Remove`                   | `dom0`    | label     | -                                         | -                                                         |
+| `mgmt.property.List`                  | `dom0`    | -         | -                                         | `<property>\n`                                            |
+| `mgmt.property.Get`                   | `dom0`    | property  | -                                         | `default={yes|no} type={str|int|bool|vm|label} <value>`   |
+| `mgmt.property.Help`                  | `dom0`    | property  | -                                         | `help`                                                    |
+| `mgmt.property.HelpRst`               | `dom0`    | property  | -                                         | `help.rst`                                                |
+| `mgmt.property.Reset`                 | `dom0`    | property  | -                                         | -                                                         |
+| `mgmt.property.Set`                   | `dom0`    | property  | value                                     | -                                                         |
+| `mgmt.vm.property.List`               | vm        | -         | -                                         | `<property>\n`                                            |
+| `mgmt.vm.property.Get`                | vm        | property  | -                                         | `default={yes|no} <value>`                                |
+| `mgmt.vm.property.Help`               | vm        | property  | -                                         | `help`                                                    |
+| `mgmt.vm.property.HelpRst`            | vm        | property  | -                                         | `help.rst`                                                |
+| `mgmt.vm.property.Reset`              | vm        | property  | -                                         | -                                                         |
+| `mgmt.vm.property.Set`                | vm        | property  | value                                     | -                                                         |
+| `mgmt.vm.feature.List`                | vm        | -         | -                                         | `<feature>\n`                                             |
+| `mgmt.vm.feature.Get`                 | vm        | feature   | -                                         | value                                                     |
+| `mgmt.vm.feature.CheckWithTemplate`   | vm        | feature   | -                                         | value                                                     |
+| `mgmt.vm.feature.Remove`              | vm        | feature   | -                                         | -                                                         |
+| `mgmt.vm.feature.Set`                 | vm        | feature   | value                                     | -                                                         |
+| `mgmt.vm.tag.List`                    | vm        | tag       | -                                         | `<tag>\n`                                                 |
+| `mgmt.vm.tag.Get`                     | vm        | tag       | -                                         | `0` or `1`                                                | retcode? |
+| `mgmt.vm.tag.Remove`                  | vm        | tag       | -                                         | -                                                         |
+| `mgmt.vm.tag.Set`                     | vm        | tag       | -                                         | -                                                         |
+| `mgmt.vm.firewall.Get`                | vm        | position  | -                                         | `<rule id> <rule>\n`                                      |
+| `mgmt.vm.firewall.InsertRule`         | vm        | position  | rule                                      | rule id                                                   |
+| `mgmt.vm.firewall.RemoveRule`         | vm        | rule id   | -                                         | -                                                         |
+| `mgmt.vm.firewall.Flush`              | vm        | -         | -                                         | -                                                         |
+| `mgmt.vm.device.<class>.Attach`       | vm        | device    | -                                         | -                                                         |
+| `mgmt.vm.device.<class>.Detach`       | vm        | device    | -                                         | -                                                         |
+| `mgmt.vm.device.<class>.List`         | vm        | -         | -                                         | `<device>\n`                                              |
+| `mgmt.vm.device.<class>.Available`    | vm        | -         | -                                         | `<device>\n`                                              |
+| `mgmt.vm.microphone.Attach`           | vm        | -         | -                                         | -                                                         |
+| `mgmt.vm.microphone.Detach`           | vm        | -         | -                                         | -                                                         |
+| `mgmt.pool.List`                      | `dom0`    | -         | -                                         | `<pool>\n`                                                |
+| `mgmt.pool.ListDrivers`               | `dom0`    | -         | -                                         | `<pool-driver> <property> ...\n`                          | Properties allowed in `mgmt.pool.Add`
+| `mgmt.pool.Info`                      | `dom0`    | pool      | -                                         | `<property>=<value>\n`                                    |
+| `mgmt.pool.Add`                       | `dom0`    | pool      | `<property>=<value>\n`                    | -                                                         |
+| `mgmt.pool.Remove`                    | `dom0`    | pool      | -                                         | -                                                         |
+| `mgmt.pool.volume.List`               | `dom0`    | pool      | -                                         | volume id                                                 |
+| `mgmt.pool.volume.Info`               | `dom0`    | pool      | vid                                       | `<property>=<value>\n`                                    |
+| `mgmt.pool.volume.ListSnapshots`      | `dom0`    | pool      | vid                                       | `<snapshot>\n`                                            |
+| `mgmt.pool.volume.Snapshot`           | `dom0`    | pool      | vid                                       | snapshot                                                  |
+| `mgmt.pool.volume.Revert`             | `dom0`    | pool      | `<vid> <snapshot>`                        | -                                                         |
+| `mgmt.pool.volume.Resize`             | `dom0`    | pool      | `<vid> <size_in_bytes>`                   | -                                                         |
+| `mgmt.vm.volume.List`                 | vm        | -         | -                                         | `<volume>\n`                                              | `<volume>` is per-VM volume name, `<vid>` is pool-unique volume id
+| `mgmt.vm.volume.Info`                 | vm        | volume    | -                                         | `<property>=<value>\n`                                    |
+| `mgmt.vm.volume.ListSnapshots`        | vm        | volume    | -                                         | snapshot                                                  | duplicate of `mgmt.pool.volume.`, but with other call params |
+| `mgmt.vm.volume.Snapshot`             | vm        | volume    | -                                         | snapshot                                                  | id. |
+| `mgmt.vm.volume.Revert`               | vm        | volume    | snapshot                                  | -                                                         | id. |
+| `mgmt.vm.volume.Resize`               | vm        | volume    | size_in_bytes                             | -                                                         | id. |
+| `mgmt.vm.Start`                       | vm        | -         | -                                         | -                                                         |
+| `mgmt.vm.Shutdown`                    | vm        | -         | -                                         | -                                                         |
+| `mgmt.vm.Pause`                       | vm        | -         | -                                         | -                                                         |
+| `mgmt.vm.Unpause`                     | vm        | -         | -                                         | -                                                         |
+| `mgmt.vm.Kill`                        | vm        | -         | -                                         | -                                                         |
+| `mgmt.backup.Execute`                 | `dom0`    | config i  | -                                         | -                                                         | config in `/etc/qubes/backup/<id>.conf` |
+| `mgmt.backup.Info`                    | `dom0`    | ?         | content?                                  | ?                                                         |
+| `mgmt.backup.Restore`                 | `dom0`    | ?         | content                                   | ?                                                         |
 
 Volume properties:
  - `pool`
@@ -151,3 +163,5 @@ does not by itself support translation.
   done by writing custom qrexec calls
 - maybe some generator for `.desktop` for appmenus, which would wrap calls in
   `qrexec-client-vm`
+
+<!-- vim: set ts=4 sts=4 sw=4 et : -->
