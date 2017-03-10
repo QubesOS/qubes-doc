@@ -69,7 +69,7 @@ Common Tasks
  * [Recording Optical Discs](/doc/recording-optical-discs/)
  * [Managing Application Shortcuts](/doc/managing-appvm-shortcuts/)
  * [Enabling Fullscreen Mode](/doc/full-screen-mode/)
-
+ * [Tips and Tricks](/doc/tips-and-tricks/)
 
 Managing Operating Systems within Qubes
 ---------------------------------------
