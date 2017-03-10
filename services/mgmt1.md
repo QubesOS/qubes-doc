@@ -16,7 +16,7 @@ to set the policy using current mechanism.
 | call                                  | dest      | argument  | inside                                    | return                                                    | note |
 | ------------------------------------- | --------- | --------- | ----------------------------------------- | --------------------------------------------------------- | ---- |
 | `mgmt.vmclass.List`                   | `dom0`    | -         | -                                         | `<class>\n`                                               |
-| `mgmt.vm.List`                        | `dom0`|vm | -         | -                                         | `<name> class=<class> state=<state>\n`                    |
+| `mgmt.vm.List`                        | `dom0|<vm>` | -         | -                                         | `<name> class=<class> state=<state>\n`                    |
 | `mgmt.vm.Create.<class>`              | `dom0`    | template  | `name=<name> label=<label>`               | -                                                         |
 | `mgmt.vm.CreateInPool.<class>`        | `dom0`    | template  | `name=<name> label=<label> pool=<pool>`   | -                                                         |
 | `mgmt.vm.CreateTemplate`              | `dom0`    | name      | `root.img`                                | -                                                         |
@@ -60,7 +60,7 @@ to set the policy using current mechanism.
 | `mgmt.pool.List`                      | `dom0`    | -         | -                                         | `<pool>\n`                                                |
 | `mgmt.pool.ListDrivers`               | `dom0`    | -         | -                                         | `<pool-driver> <property> ...\n`                          | Properties allowed in `mgmt.pool.Add`
 | `mgmt.pool.Info`                      | `dom0`    | pool      | -                                         | `<property>=<value>\n`                                    |
-| `mgmt.pool.Add`                       | `dom0`    | pool      | `<property>=<value>\n`                    | -                                                         |
+| `mgmt.pool.Add`                       | `dom0`    | driver    | `<property>=<value>\n`                    | -                                                         |
 | `mgmt.pool.Remove`                    | `dom0`    | pool      | -                                         | -                                                         |
 | `mgmt.pool.volume.List`               | `dom0`    | pool      | -                                         | volume id                                                 |
 | `mgmt.pool.volume.Info`               | `dom0`    | pool      | vid                                       | `<property>=<value>\n`                                    |
