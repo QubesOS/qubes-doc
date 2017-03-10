@@ -107,8 +107,8 @@ you choose to [create a USB qube] using the `qubesctl` method, which is the
 first pair of steps in the linked section.)
 
 **Warning** USB keyboard cannot be used to type the disk passphrase
-if USB controllers were hidden from dom0 as USB qube is not active yet. Before hiding
-USB controllers make sure your laptop keyboard is not internally connected via USB
+if USB controllers were hidden from dom0. Before hiding USB controllers
+make sure your laptop keyboard is not internally connected via USB
 (by checking output of `lsusb` command) or that you have a PS/2 keyboard at hand
 (if using a desktop PC). Failure to do so will render your system unusable.
 
