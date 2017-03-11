@@ -45,8 +45,7 @@ Use the `qvm-open-in-dvm` command line (from your AppVM), e.g.:
 [user@work-pub ~]$ qvm-open-in-dvm Downloads/apple-sandbox.pdf
 ~~~
 
-The qvm-open-in-dvm will not exit until you close the application in the Disposable VM.
-
+The qvm-open-in-dvm will not exit until you close the application in the Disposable V
 Starting an arbitrary application in a disposable VM via command line (from Dom0)
 ---------------------------------------------------------------------------------
 
@@ -81,3 +80,31 @@ Disposable VMs and Local Forensics
 ----------------------------------
 
 At this time, DispVMs should not be relied upon to circumvent local forensics, as they do not run entirely in RAM. For details, see [this thread](https://groups.google.com/d/topic/qubes-devel/QwL5PjqPs-4/discussion).
+
+Adding arbitrary programs to Disposable VM Application Menu
+-----------------------------------------------------------
+
+For added convenience, arbitrary programs can be added to the Application Menu of the Disposable VM. In order to do that `arbitrary.desktop` file has to be created in `/usr/share/applications` that file will point to the desired program. Use following template when creating a .desktop file:
+
+`[Desktop Entry]`<br>
+`Version=1.0`<br>
+`Type=Application`<br>
+`Exec=sh -c 'echo arbitrary | /usr/lib/qubes/qfile-daemon-dvm qubes.VMShell dom0 DEFAULT red'`<br>
+`Icon=dispvm-red`<br>
+`Terminal=false`<br>
+`Name=DispVM: Arbitrary Name`<br>
+`GenericName=DispVM: Arbitrary Generic Name`<br>
+`StartupNotify=false`<br>
+`Categories=Network;X-Qubes-VM;`<br>
+
+Next, the /etc/xdg/menus/applications-merged/qubes-dispvm.menu file has to be modified so that it points to our newly-created .desktop file.
+
+Add `<Filename>arbitrary.desktop</Filename>` line to the `<Include></Include>` block. The modified file should look like this:
+
+`<Include>`<br>
+`<Filename>qubes-dispvm-firefox.desktop</Filename>`<br>
+`<Filename>qubes-dispvm-xterm.desktop</Filename>`<br>
+`<Filename>arbitrary.desktop</Filename>`<br>
+`</Include>`<br>
+
+After saving the changes our program should appear under the Disposable VM Applications menu.
