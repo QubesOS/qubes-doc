@@ -67,3 +67,32 @@ It is possible to change the settings of each new Disposable VM (DispVM). This c
 
 
 **Note:** All of the above requires at least qubes-core-vm \>= 2.1.2 installed in template.
+
+
+Adding arbitrary programs to Disposable VM Application Menu
+-----------------------------------------------------------
+
+For added convenience, arbitrary programs can be added to the Application Menu of the Disposable VM. In order to do that `arbitrary.desktop` file has to be created in `/usr/share/applications` that file will point to the desired program. Use following template when creating a .desktop file:
+
+    [Desktop Entry]
+    Version=1.0
+    Type=Application
+    Exec=sh -c 'echo arbitrary | /usr/lib/qubes/qfile-daemon-dvm qubes.VMShell dom0 DEFAULT red
+    Icon=dispvm-red
+    Terminal=false
+    Name=DispVM: Arbitrary Name
+    GenericName=DispVM: Arbitrary Generic Name
+    StartupNotify=false
+    Categories=Network;X-Qubes-VM;
+
+Next, the /etc/xdg/menus/applications-merged/qubes-dispvm.menu file has to be modified so that it points to our newly-created .desktop file.
+
+Add `<Filename>arbitrary.desktop</Filename>` line to the `<Include></Include>` block. The modified file should look like this:
+
+    <Include>
+    <Filename>qubes-dispvm-firefox.desktop</Filename>
+    <Filename>qubes-dispvm-xterm.desktop</Filename>
+    <Filename>arbitrary.desktop</Filename>
+    </Include>
+
+After saving the changes our program should appear under the Disposable VM Applications menu.
