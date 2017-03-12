@@ -44,7 +44,7 @@ Credit: [Micah Lee](https://micahflee.com/2016/06/qubes-tip-opening-links-in-you
 
 Preventing data leaks
 ---------------------
-First make sure to read [Understanding and Preventing Data Leaks](doc/data-leaks/) section to understand the limits of this tip.
+First make sure to read [Understanding and Preventing Data Leaks](/doc/data-leaks/) section to understand the limits of this tip.
 
 Suppose that you have a not so trusted enviroment, for example a Windows VM, an application that track and report it's usage or you simply want to protect your data.
 
