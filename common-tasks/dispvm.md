@@ -45,7 +45,8 @@ Use the `qvm-open-in-dvm` command line (from your AppVM), e.g.:
 [user@work-pub ~]$ qvm-open-in-dvm Downloads/apple-sandbox.pdf
 ~~~
 
-The qvm-open-in-dvm will not exit until you close the application in the Disposable V
+The qvm-open-in-dvm will not exit until you close the application in the Disposable VM.
+
 Starting an arbitrary application in a disposable VM via command line (from Dom0)
 ---------------------------------------------------------------------------------
 
