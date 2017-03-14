@@ -16,9 +16,6 @@ NAME
 
 qvm-firewall
 
-Date  
-2012-04-10
-
 SYNOPSIS
 --------
 

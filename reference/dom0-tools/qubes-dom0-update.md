@@ -16,9 +16,6 @@ NAME
 
 qubes-dom0-update - update software in dom0
 
-Date  
-2012-04-13
-
 SYNOPSIS
 --------
 

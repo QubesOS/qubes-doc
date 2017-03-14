@@ -16,9 +16,6 @@ NAME
 
 qvm-start - start a specified VM
 
-Date  
-2012-04-11
-
 SYNOPSIS
 --------
 

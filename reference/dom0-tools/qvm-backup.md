@@ -16,9 +16,6 @@ NAME
 
 qvm-backup
 
-Date  
-2012-04-10
-
 SYNOPSIS
 --------
 

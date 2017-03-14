@@ -16,9 +16,6 @@ NAME
 
 qvm-sync-appmenus - updates desktop file templates for given StandaloneVM or TemplateVM
 
-Date  
-2012-04-11
-
 SYNOPSIS
 --------
 

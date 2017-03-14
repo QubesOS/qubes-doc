@@ -16,9 +16,6 @@ NAME
 
 qvm-clone - clones an existing VM by copying all its disk files
 
-Date  
-2012-04-10
-
 SYNOPSIS
 --------
 

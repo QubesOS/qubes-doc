@@ -16,9 +16,6 @@ NAME
 
 qvm-remove - remove a VM
 
-Date  
-2012-04-11
-
 SYNOPSIS
 --------
 

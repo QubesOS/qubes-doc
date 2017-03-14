@@ -16,9 +16,6 @@ NAME
 
 qvm-prefs - list/set various per-VM properties
 
-Date  
-2012-04-11
-
 SYNOPSIS
 --------
 
