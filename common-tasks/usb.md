@@ -158,8 +158,18 @@ How to use a USB mouse
 ----------------------
 
 In order to use a USB mouse, you must first attach it to a USB qube, then
-give that qube permission to pass mouse input to dom0.
-Edit the `qubes.InputMouse` policy file in dom0, which is located here:
+give that qube permission to pass mouse input to dom0. Note that allowing
+mouse access from a USB qube gives it great power. In short:
+
+ * It will be able to change any global and per-domain setting available within GUI
+ * It will be able to attach untrusted devices to domains that should not
+   have device access
+ * It will be able to enable networking in network-disconnected domains
+ * It will be able to initiate file transfer between domains.
+   (For more details, see [here][input-proxy].)
+
+If you are sure you wish to proceed, then you must edit the
+`qubes.InputMouse` policy file in dom0, which is located here:
 
     /etc/qubes-rpc/policy/qubes.InputMouse
 
