@@ -24,20 +24,20 @@ Creating a Backup
 
 1. In **Qubes VM Manager**, click **System** on the menu bar, then click **Backup VMs** in the drop-down list. This brings up the **Qubes Backup VMs** window.
 
-2. Move the AppVMs which you desire to back up to the right-hand **Selected** column. AppVMs in the left-hand **Available** column will not be backed up.
+2. Move the VMs that you want to back up to the right-hand **Selected** column. VMs in the left-hand **Available** column will not be backed up.
 
-   **Note:** An AppVM must be shut down in order to be backed up. Currently running AppVMs appear in red.
+   **Note:** A VM must be shut down in order to be backed up. Currently running VMs appear in red.
 
-   Once you have selected all desired AppVMs, click **Next**.
+   Once you have selected all desired VMs, click **Next**.
 
 3. Select the destination for the backup:
 
-   If you wish to send your backup to a (currently running) AppVM, select the AppVM in the drop-down box next to **Target AppVM**.
-   If you wish to send your backup to a [USB mass storage device](/doc/stick-mounting/), first mount the device in an AppVM, then select the mount point inside that AppVM as the backup destination.
+   If you wish to send your backup to a (currently running) VM, select the VM in the drop-down box next to **Target AppVM**.
+   If you wish to send your backup to a [USB mass storage device](/doc/stick-mounting/), first mount the device in a VM, then select the mount point inside that VM as the backup destination.
 
-   You must also specify a directory on the device or in the AppVM, or a command to be executed in the AppVM as a destination for your backup. For example, if you wish to send your backup to the `~/backups` folder in the target AppVM, you would simply type `backups` in this field. This destination directory must already exist. If it does not exist, you must create it manually prior to backing up.
+   You must also specify a directory on the device or in the VM, or a command to be executed in the VM as a destination for your backup. For example, if you wish to send your backup to the `~/backups` folder in the target VM, you would simply type `backups` in this field. This destination directory must already exist. If it does not exist, you must create it manually prior to backing up.
 
-   By specifying the appropriate directory as the destination in an AppVM, it is possible to send the backup directly to, e.g., a USB mass storage device attached to the AppVM. Likewise, it is possible to enter any command as a backup target by specifying the command as the destination in the AppVM. This can be used to send your backup directly to, e.g., a remote server using SSH.
+   By specifying the appropriate directory as the destination in a VM, it is possible to send the backup directly to, e.g., a USB mass storage device attached to the VM. Likewise, it is possible to enter any command as a backup target by specifying the command as the destination in the VM. This can be used to send your backup directly to, e.g., a remote server using SSH.
 
    At this point, you must also choose whether to encrypt your backup by checking or unchecking the **Encrypt backup** box.
 
@@ -56,14 +56,14 @@ Restoring from a Backup
 2. Select the source location of the backup to be restored:
 
    - If your backup is located on a [USB mass storage device](/doc/stick-mounting/), select the device in the drop-down box next to **Device**.
-   - If your backup is located in a (currently running) AppVM, select the AppVM in the drop-down box next to **AppVM**.
+   - If your backup is located in a (currently running) VM, select the VM in the drop-down box next to **AppVM**.
 
-   You must also specify the directory in which the backup resides (or a command to be executed in an AppVM). If you followed the instructions in the previous section, "Creating a Backup," then your backup is most likely in the location you chose as the destination in step 3. For example, if you had chosen the `~/backups` directory of an AppVM as your destination in step 3, you would now select the same AppVM and again type `backups` into the **Backup directory** field.
+   You must also specify the directory in which the backup resides (or a command to be executed in a VM). If you followed the instructions in the previous section, "Creating a Backup," then your backup is most likely in the location you chose as the destination in step 3. For example, if you had chosen the `~/backups` directory of a VM as your destination in step 3, you would now select the same VM and again type `backups` into the **Backup directory** field.
 
    **Note:** After you have typed the directory location of the backup in the **Backup directory** field, click the ellipsis button `...` to the right of the field.
 
 3. There are three options you may select when restoring from a backup:
-   1.  **ignore missing**: If any of the AppVMs in your backup depended upon a NetVM, ProxyVM, or TemplateVM which is not present in (i.e., "missing from") the current system, checking this box will ignore the fact that they are missing and restore the AppVMs anyway.
+   1.  **ignore missing**: If any of the VMs in your backup depended upon a NetVM, ProxyVM, or TemplateVM that is not present in (i.e., "missing from") the current system, checking this box will ignore the fact that they are missing and restore the VMs anyway.
    2.  **ignore username mismatch**: This option applies only to the restoration of dom0's home directory. If your backup was created on a Qubes system which had a different dom0 username than the dom0 username of the current system, then checking this box will ignore the mismatch between the two usernames and proceed to restore the home directory anyway.
    3.  **skip dom0**: If this box is checked, dom0's home directory will not be restored from your backup.
 
@@ -71,7 +71,7 @@ Restoring from a Backup
 
    **Note:** The passphrase which was supplied when the backup was created was used for **both** encryption/decryption and integrity verification. If the backup was not encrypted, the supplied passphrase is used only for integrity verification.
 
-   **Note:** An AppVM cannot be restored from a backup if an AppVM with the same name already exists on the current system. You must first remove or change the name of any AppVM with the same name in order to restore such an AppVM.
+   **Note:** A VM cannot be restored from a backup if a VM with the same name already exists on the current system. You must first remove or change the name of any VM with the same name in order to restore such a VM.
 
 5. When you are ready, click **Next**. Qubes will proceed to restore from your backup. Once the progress bar has completed, you may click **Finish**.
 
@@ -95,7 +95,7 @@ Choosing a Backup Passphrase
 Here are some things to consider when selecting a passphrase for your backups:
 
  * If you plan to store the backup for a long time or on third-party servers, you should make sure to use a very long, high-entropy passphrase. (Depending on the decryption passphrase you use for your system drive, this may necessitate selecting a stronger passphrase. If your system drive decryption passphrase is already sufficiently strong, it may not.)
- * An adversary who has access to your backups may try to substitute one backup for another. For example, when you attempt to retrieve a recent backup, the adversary may instead give you a very old backup containing a compromised AppVM. If you're concerned about this type of attack, you may wish to use a different passphrase for each backup, e.g., by appending a number or date to the passphrase.
+ * An adversary who has access to your backups may try to substitute one backup for another. For example, when you attempt to retrieve a recent backup, the adversary may instead give you a very old backup containing a compromised VM. If you're concerned about this type of attack, you may wish to use a different passphrase for each backup, e.g., by appending a number or date to the passphrase.
  * If you're forced to enter your system drive decryption passphrase in plain view of others (where it can be shoulder-surfed), then you may want to use a different passphrase for your backups (even if your system drive decryption passphrase is already maximally strong). On the othe hand, if you're careful to avoid shoulder-surfing and/or have a passphrase that's difficult to detect via shoulder-surfing, then this may not be a problem for you.
 
 Notes
