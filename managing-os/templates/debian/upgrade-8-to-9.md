@@ -125,8 +125,8 @@ If sound is not working, you may need to enable the Qubes testing repository to 
 
 User-initiated updates/upgrades may not run when a templateVM first starts. This is due to a new Debian config setting that attempts to update automatically; it can be [disabled with](https://github.com/QubesOS/qubes-issues/issues/2621) `systemctl disable apt-daily.timer`.
 
-Relevant Mailing List Discussions
----------------------------------
+Relevant Discussions
+--------------------
  * [Stretch Template Installation](https://groups.google.com/forum/#!topicsearchin/qubes-devel/debian$20stretch/qubes-devel/4rdayBF_UTc)
  * [Stretch availability in 3.2](https://groups.google.com/forum/#!topicsearchin/qubes-devel/debian$20stretch/qubes-devel/cekPfBqQMOI)
  * [Fixing sound in Debian Stretch](https://groups.google.com/forum/#!topic/qubes-users/JddCE54GFiU)
