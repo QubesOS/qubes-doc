@@ -25,6 +25,11 @@ After that, select the *Add more shortcuts* entry in VM's submenu to customize w
 
 The above image shows that Windows HVMs are also supported (provided that Qubes Tools are installed).
 
+What about applications in DispVMs?
+-----------------------------------
+
+[See here](/doc/dispvm-customization/#adding-arbitrary-programs-to-disposable-vm-application-menu).
+
 Behind the scenes
 -----------------
 
