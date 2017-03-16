@@ -260,7 +260,6 @@ Building
  * [Building Qubes](/doc/qubes-builder/) (["API" Details](/doc/qubes-builder-details/))
  * [Development Workflow](/doc/development-workflow/)
  * [Building Qubes OS 3.0 ISO](/doc/qubes-r3-building/)
- * [Building USB passthrough support (experimental)](/doc/pvusb/)
  * [Building Qubes Templates](https://github.com/QubesOS/qubes-template-configs)
  * [Building a TemplateVM based on a new OS (ArchLinux example)](/doc/building-non-fedora-template/)
  * [Building the Archlinux Template](/doc/building-archlinux-template/)
