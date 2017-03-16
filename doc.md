@@ -129,7 +129,6 @@ Configuration Guides
  * [Configuration Files](/doc/config-files/)
  * [How to set up a ProxyVM as a VPN Gateway](/doc/vpn/)
  * [Storing AppVMs on Secondary Drives](/doc/secondary-storage/)
- * [Where are my external storage devices mounted?](/doc/external-device-mount-point/)
  * [Multibooting](/doc/multiboot/)
  * [Resizing AppVM and HVM Disk Images](/doc/resize-disk-image/)
  * [Extending `root.img` Size](/doc/resize-root-disk-image/)
