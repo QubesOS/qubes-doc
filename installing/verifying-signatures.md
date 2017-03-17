@@ -143,7 +143,7 @@ happen to be used to sign particular ISO, RPM, TGZ files or git tags.
 For example, the Qubes OS [Release 3 Signing Key] (`0xCB11CA1D03FA5082`) is
 used for all Release 3 ISO images:
 
-    $ gpg --recv-keys 0xC52261BE0A823221D94CA1D1CB11CA1D03FA5082
+    $ gpg --keyserver pool.sks-keyservers.net --recv-keys 0xC52261BE0A823221D94CA1D1CB11CA1D03FA5082
     gpg: requesting key 03FA5082 from hkp server keys.gnupg.net
     gpg: key 03FA5082: public key "Qubes OS Release 3 Signing Key" imported
     gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
