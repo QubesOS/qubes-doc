@@ -128,21 +128,34 @@ directly to dom0.
 7. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
 8. Reboot.
 
+
+Security Warning about USB Input Devices
+----------------------------------------
+
+**Important security warning. Please read this section carefully!**
+
+If you connect USB input devices (keyboard and mouse) to a VM, that VM will effectively have control over your system.
+Because of this, the benefits of using a USB qube are much smaller than using a fully untrusted USB qube.
+In addition to having control over your system, such VM can also sniff all the input your enter there (for example, passwords in the case of a USB keyboard).
+
+There is no simple way to protect against sniffing, but you can make it harder to exploit control over input devices.
+
+If you have only a USB mouse connected to a USB qube, but the keyboard is connected directly to dom0 (using a PS/2 connector, for example), you simply need to lock the screen when you are away from your computer.
+You must do this every time you leave your computer unattended, even if there no risk of anyone else having direct physical access to your computer.
+This is because you are guarding the system not only against anyone with local access, but also against possible actions from a potentially compromised USB qube.
+
+If your keyboard is also connected to a USB qube, things are much harder.
+Locking the screen (with a traditional password) does not solve the problem, because the USB qube can simply sniff this password and later easily unlock the screen.
+One possibility is to set up the screen locker to require an additional step to unlock (i.e., two-factor authentication).
+One way to achieve this is to use a [YubiKey], or some other hardware token, or even to manually enter a one-time password.
+
 How to use a USB keyboard
 -------------------------
 
-In order to use a USB keyboard, you must first attach it to a USB qube, then
-give that qube permission to pass keyboard input to dom0. Note that allowing
-keyboard access from a USB qube gives it great power. In short:
+**Caution:** Please carefully read the [Security Warning about USB Input Devices] before proceeding.
 
- * It will see whatever you type on that keyboard (including passwords).
- * It will be able to inject keystrokes, which basically means that it will be
-   able to enter any command. For example, if some malware catches your
-   screenlocker password, it will be able to unlock the screen when you are not
-   present. (For more details, see [here][input-proxy].)
-
-If you are sure you wish to proceed, then you must edit the
-`qubes.InputKeyboard` policy file in dom0, which is located here:
+In order to use a USB keyboard, you must first attach it to a USB qube, then give that qube permission to pass keyboard input to dom0.
+Edit the `qubes.InputKeyboard` policy file in dom0, which is located here:
 
     /etc/qubes-rpc/policy/qubes.InputKeyboard
 
@@ -157,19 +170,10 @@ You can now use your USB keyboard.
 How to use a USB mouse
 ----------------------
 
-In order to use a USB mouse, you must first attach it to a USB qube, then
-give that qube permission to pass mouse input to dom0. Note that allowing
-mouse access from a USB qube gives it great power. In short:
+**Caution:** Please carefully read the [Security Warning about USB Input Devices] before proceeding.
 
- * It will be able to change any global and per-domain setting available within GUI
- * It will be able to attach untrusted devices to domains that should not
-   have device access
- * It will be able to enable networking in network-disconnected domains
- * It will be able to initiate file transfer between domains.
-   (For more details, see [here][input-proxy].)
-
-If you are sure you wish to proceed, then you must edit the
-`qubes.InputMouse` policy file in dom0, which is located here:
+In order to use a USB mouse, you must first attach it to a USB qube, then give that qube permission to pass mouse input to dom0.
+Edit the `qubes.InputMouse` policy file in dom0, which is located here:
 
     /etc/qubes-rpc/policy/qubes.InputMouse
 
@@ -362,7 +366,8 @@ This feature is not yet available in Qubes Manager however, if you would like to
 [AEM]: /doc/anti-evil-maid/
 [1618]: https://github.com/QubesOS/qubes-issues/issues/1618
 [create a USB qube]: #creating-and-using-a-usb-qube
-[input-proxy]: https://github.com/qubesos/qubes-app-linux-input-proxy
 [usb-challenges]: http://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html
-[project-page]: https://www.qubes-os.org/gsoc/
+[project-page]: /gsoc/
 [gsoc-page]: https://summerofcode.withgoogle.com/organizations/6239659689508864/
+[YubiKey]: /doc/YubiKey/
+[Security Warning about USB Input Devices]: #security-warning-about-usb-input-devices
