@@ -58,6 +58,7 @@ Qubes Users' FAQ
  * [I assigned a PCI device to a qube, then unassigned it/shut down the …](#i-assigned-a-pci-device-to-a-qube-then-unassigned-itshut-down-the-qube-why-isnt-the-device-available-in-dom0)
  * [How do I install Flash in a Debian qube?](#how-do-i-install-flash-in-a-debian-qube)
  * [How do I play video files?](#how-do-i-play-video-files)
+ * [Where are my external storage devices mounted?](#where-are-my-external-storage-devices-mounted)
  * [My encrypted drive doesn't appear in Debian qube?](#my-encrypted-drive-doesnt-appear-in-debian-qube)
  * [Windows Update is stuck.](#windows-update-is-stuck)
  * [Fullscreen Firefox is frozen.](#fullscreen-firefox-is-frozen)
@@ -405,6 +406,10 @@ For Fedora:
        $ sudo dnf install vlc
 
 4. Use VLC to play your video files.
+
+### Where are my external storage devices mounted?
+
+At least on Fedora-based VMs (and likely others), they can be found mounted under `/run/media/user/`.
 
 ### My encrypted drive doesn't appear in Debian qube.
 
