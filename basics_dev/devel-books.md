@@ -14,7 +14,7 @@ Below is a list of various books that might be useful in learning some basics ne
     -   [https://www.amazon.com/Definitive-Guide-Xen-Hypervisor/dp/013234971X](https://www.amazon.com/Definitive-Guide-Xen-Hypervisor/dp/013234971X)
 
 -   Some good books about Linux kernel:
-    -   [https://www.amazon.com/Linux-Kernel-Development-Robert-Love/dp/0672329468](https://www.amazon.com/Linux-Kernel-Development-Robert-Love/dp/0672329468]
+    -   [https://www.amazon.com/Linux-Kernel-Development-Robert-Love/dp/0672329468](https://www.amazon.com/Linux-Kernel-Development-Robert-Love/dp/0672329468)
     -   [https://www.amazon.com/Linux-Device-Drivers-Jonathan-Corbet/dp/0596005903](https://www.amazon.com/Linux-Device-Drivers-Jonathan-Corbet/dp/0596005903)
 
 -   Solid intro into Trusted Computing by David Grawrock (original Intel architect for TXT):
