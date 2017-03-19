@@ -62,6 +62,7 @@ Qubes Users' FAQ
  * [My encrypted drive doesn't appear in Debian qube?](#my-encrypted-drive-doesnt-appear-in-debian-qube)
  * [Windows Update is stuck.](#windows-update-is-stuck)
  * [Fullscreen Firefox is frozen.](#fullscreen-firefox-is-frozen)
+ * [I have weird graphics glitches like the screen turning partially black.](#i-have-weird-graphics-glitches-like-the-screen-turning-partially-black)
   
 -----------------
 
@@ -447,3 +448,10 @@ This has nothing to do with Qubes.
 
 Press `F11` twice.
 
+### I have weird graphics glitches like the screen turning partially black.
+
+If it seems like the issue described in [this thread](https://github.com/QubesOS/qubes-issues/issues/2399), try disabling the window compositor:
+
+- Q -> System Tools -> Window Manager Tweaks -> Compositor -> uncheck "Enable display compositing"
+
+Please report (via the mailing lists) if you experience this issue, and whether disabling the compositor fixes it for you or not.
