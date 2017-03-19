@@ -20,49 +20,46 @@ Under the "Is Qubes Affected?" column, there are two possible values: **Yes** or
  * **Yes** means that the *security* of Qubes OS *is* affected.
  * **No** means that the *security* of Qubes OS is *not* affected.
 
-**Note:** For the purpose of this tracker, we do *not* classify mere [denial-of-service (DoS) attacks][DoS] as affecting the *security* of Qubes OS.
+Important Notes
+---------------
+
+* For the purpose of this tracker, we do *not* classify mere [denial-of-service (DoS) attacks][DoS] as affecting the *security* of Qubes OS.
   Therefore, if an XSA pertains *only* to DoS attacks against Qubes, the value in this column will be **No**.
+
+* For simplicitly, we use the present tense ("is affected") throughout this page, but this does **not** necessarily mean that up-to-date Qubes installations are *currently* affected by any particular XSA.
+  Please read the QSB (if any) for each XSA for patching details.
 
 <table>
   <tr>
     <th title="Anchor Link"><span class="fa fa-link"></span></th>
     <th title="Xen Security Advisory">XSA</th>
     <th>Is Qubes Affected?</th>
-    <th title="Qubes Security Bulletin">QSB</th>
-    <th>Comments</th>
   </tr>
 {% for xsa in site.data.xsa %}
   <tr id="{{ xsa.xsa }}">
     <td><a href="#{{ xsa.xsa }}" class="fa fa-link black-icon" title="Anchor link to tracker row: XSA-{{ xsa.xsa}}"></a></td>
     <td>
-    {% if xsa.xsa <= 25 %}
-      <a href="https://wiki.xenproject.org/wiki/Security_Announcements_(Historical)" title="Xen Security Advisory {{ xsa.xsa }}">XSA-{{ xsa.xsa }}&nbsp;<span class="fa fa-external-link"></span></a>
-    {% else %}
-      <a href="https://xenbits.xen.org/xsa/advisory-{{ xsa.xsa }}.html" title="Xen Security Advisory {{ xsa.xsa }}">XSA-{{ xsa.xsa }}&nbsp;<span class="fa fa-external-link"></span></a>
-    {% endif %}
+      <a title="Xen Security Advisory {{ xsa.xsa }}" href="
+      {% if xsa.xsa <= 25 %}
+        https://wiki.xenproject.org/wiki/Security_Announcements_(Historical)
+      {% else %}
+        https://xenbits.xen.org/xsa/advisory-{{ xsa.xsa }}.html
+      {% endif %}
+      ">XSA-{{ xsa.xsa }}&nbsp;<span class="fa fa-external-link"></span></a>
     </td>
     <td>
     {% if xsa.affected == false %}
-      <abbr title="No, the security of Qubes OS is not affected by this XSA.">No</abbr>
+      {% if xsa.mitigation %}
+        No (<a href="#{{ xsa.mitigation }}" title="No, the security of Qubes OS is not affected by XSA-{{ xsa.xsa }}. Click to read the explanation.">{{ xsa.mitigation }}</a>)
+      {% else %}
+        <span title="No, the security of Qubes OS is not affected by XSA-{{ xsa.xsa }}.">No</span>
+      {% endif %}
     {% elsif xsa.affected == true %}
-      <abbr title="Yes, the security of Qubes OS is affected by this XSA.">Yes</abbr>
+      <span title="Yes, the security of Qubes OS is affected by XSA-{{ xsa.xsa }}.">Yes</span>
+      {% if xsa.qsb %}
+        | <a href="https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-{{ xsa.qsb }}.txt" title="Qubes Security Bulletin {{ xsa.qsb }}">QSB-{{ xsa.qsb }}&nbsp;<span class="fa fa-external-link"></span></a>
+      {% endif %}
     {% else %}
-    {% endif %}
-    </td>
-    <td>
-    {% if xsa.qsb %}
-      <a href="https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-{{ xsa.qsb }}.txt" title="Qubes Security Bulletin {{ xsa.qsb }}">QSB-{{ xsa.qsb }}&nbsp;<span class="fa fa-external-link"></span></a>
-    {% else %}
-      <abbr title="Not Applicable">N/A</abbr>
-    {% endif %}
-    </td>
-    <td>
-    {% if xsa.comments %}
-      {{ xsa.comments }}
-    {% elsif xsa.qsb %}
-      See QSB for details
-    {% else %}
-      None
     {% endif %}
     </td>
   </tr>
