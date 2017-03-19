@@ -39,13 +39,13 @@ Important Notes
   <tr id="{{ xsa.xsa }}">
     <td><a href="#{{ xsa.xsa }}" class="fa fa-link black-icon" title="Anchor link to tracker row: XSA-{{ xsa.xsa}}"></a></td>
     <td>
-      <a title="Xen Security Advisory {{ xsa.xsa }}" href="
+      <a title="Xen Security Advisory {{ xsa.xsa }}"
       {% if xsa.xsa <= 25 %}
-        https://wiki.xenproject.org/wiki/Security_Announcements_(Historical)
+        href="https://wiki.xenproject.org/wiki/Security_Announcements_(Historical)"
       {% else %}
-        https://xenbits.xen.org/xsa/advisory-{{ xsa.xsa }}.html
-      {% endif %}
-      ">XSA-{{ xsa.xsa }}&nbsp;<span class="fa fa-external-link"></span></a>
+        href="https://xenbits.xen.org/xsa/advisory-{{ xsa.xsa }}.html"
+      {% endif %}>
+      XSA-{{ xsa.xsa }}&nbsp;<span class="fa fa-external-link"></span></a>
     </td>
     <td>
     {% if xsa.affected == false %}
