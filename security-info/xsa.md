@@ -4,28 +4,24 @@ title: Xen Security Advisory (XSA) Tracker
 permalink: /security/xsa/
 ---
 
-<h1>Xen Security Advisory (XSA) Tracker</h1>
+Xen Security Advisory (XSA) Tracker
+===================================
 
-<p>
-  <b>Notice:</b> This page is still under construction.
-  Until this notice is removed, the information below may not be accurate.
-  We appreciate your patience.
-</p>
+**Notice:** This page is still under construction.
+Until this notice is removed, the information below may not be accurate.
+We appreciate your patience.
 
-<p>
-  This tracker shows whether Qubes OS is affected by any given <a href="https://xenbits.xen.org/xsa/" title="Xen Security Advisory (XSA)">Xen Security Advisory (XSA)</a>.
-  Shortly after a new XSA is published, we will add a new row to this tracker.
-  Whenever Qubes is significantly affected by an XSA, a <a href="/security/bulletins/" title="Qubes Security Bulletin (QSB)">Qubes Security Bulletin (QSB)</a> is published, and a link to that QSB is added to the row for the associated XSA.
-</p>
-<p>
-  Under the "Is Qubes Affected?" column, there are two possible values: <b>Yes</b> or <b>No</b>.
-  <ul>
-  <li><b>Yes</b> means that the <em>security</em> of Qubes OS <em>is</em> affected.</li>
-  <li><b>No</b> means that the <em>security</em> of Qubes OS is <em>not</em> affected.</li>
-  </ul>
-  <b>Note:</b> For the purpose of this tracker, we do <em>not</em> classify mere <a href="https://en.wikipedia.org/wiki/Denial-of-service_attack">denial-of-service (DoS) attacks</a> as affecting the <em>security</em> of Qubes OS.
-  Therefore, if an XSA pertains <em>only</em> to DoS attacks against Qubes, the value in this column will be <b>No</b>.
-</p>
+This tracker shows whether Qubes OS is affected by any given [Xen Security Advisory (XSA)][XSA].
+Shortly after a new XSA is published, we will add a new row to this tracker.
+Whenever Qubes is significantly affected by an XSA, a [Qubes Security Bulletin (QSB)][QSB] is published, and a link to that QSB is added to the row for the associated XSA.
+
+Under the "Is Qubes Affected?" column, there are two possible values: **Yes** or **No**.
+
+ * **Yes** means that the *security* of Qubes OS *is* affected.
+ * **No** means that the *security* of Qubes OS is *not* affected.
+
+**Note:** For the purpose of this tracker, we do *not* classify mere [denial-of-service (DoS) attacks][DoS] as affecting the *security* of Qubes OS.
+  Therefore, if an XSA pertains *only* to DoS attacks against Qubes, the value in this column will be **No**.
 
 <table>
   <tr>
@@ -72,4 +68,9 @@ permalink: /security/xsa/
   </tr>
 {% endfor %}
 </table>
+
+
+[XSA]: https://xenbits.xen.org/xsa/
+[QSB]: /security/bulletins/
+[DoS]: https://en.wikipedia.org/wiki/Denial-of-service_attack
 
