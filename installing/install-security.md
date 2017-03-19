@@ -76,7 +76,7 @@ Cons:
    other two options.)
 
 
-[verify]: /doc/verifying-signatures/
+[verify]: /security/verifying-signatures/
 [classic problem]: http://www.acm.org/classics/sep95/
 [solutions]: http://www.dwheeler.com/trusting-trust/
 [USB qube]: /doc/usb/#creating-and-using-a-usb-qube

@@ -1,7 +1,8 @@
 ---
-layout: doc
+layout: security
 title: Canary Template
-permalink: /doc/canaries/template/
+permalink: /security/canaries/template/
+redirect_from: /doc/canaries/template/
 ---
 
 Canary Template
@@ -20,11 +21,11 @@ View Canary #<number> in the qubes-secpack:
 
 Learn about the qubes-secpack, including how to obtain, verify, and read it:
 
-<https://www.qubes-os.org/doc/security-pack/>
+<https://www.qubes-os.org/security/pack/>
 
 View all past canaries:
 
-<https://www.qubes-os.org/doc/canaries/>
+<https://www.qubes-os.org/security/canaries/>
 
 ```
                     ---===[ Qubes Canary #<number> ]===---

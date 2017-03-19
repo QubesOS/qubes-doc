@@ -29,11 +29,12 @@ The Basics
 
 Security Information
 --------------------
- * [Security Main Page](/security/)
- * [Security Pack](/doc/security-pack/)
- * [Security Bulletins](/doc/security-bulletins/)
- * [Canaries](/doc/canaries/)
- * [Why and How to Verify Signatures](/doc/verifying-signatures/)
+ * [Security Center](/security/)
+ * [Security Pack](/security/pack/)
+ * [Security Bulletins](/security/bulletins/)
+ * [Canaries](/security/canaries/)
+ * [Xen Security Advisory (XSA) Tracker](/security/xsa/)
+ * [Why and How to Verify Signatures](/security/verifying-signatures/)
  * [Qubes PGP Keys](http://keys.qubes-os.org/keys/)
 
 Choosing Your Hardware
@@ -49,7 +50,7 @@ Installing & Upgrading Qubes
  * [Qubes Downloads](/downloads/)
  * [Installation Guide](/doc/installation-guide/)
  * [Upgrade Guides](/doc/upgrade/)
- * [Why and How to Verify Signatures](/doc/verifying-signatures/)
+ * [Why and How to Verify Signatures](/security/verifying-signatures/)
  * [Security Considerations when Installing](/doc/install-security/)
  * [Try Qubes without installing: Qubes Live USB (alpha)](/doc/live-usb/)
  * [Supported Versions](/doc/supported-versions/)
@@ -214,15 +215,15 @@ The Basics
 
 Security Information
 --------------------
- * [Security Main Page](/security/)
- * [Security Goals](/doc/security-goals/)
- * [Security Pack](/doc/security-pack/)
- * [Security Bulletins](/doc/security-bulletins/)
- * [Security Bulletin Checklist](/doc/security-bulletins/checklist/)
- * [Security Bulletin Template](/doc/security-bulletins/template/)
- * [Canaries](/doc/canaries/)
- * [Canary Template](/doc/canaries/template/)
- * [Why and How to Verify Signatures](/doc/verifying-signatures/)
+ * [Security Center](/security/)
+ * [Security Pack](/security/pack/)
+ * [Security Bulletins](/security/bulletins/)
+ * [Security Bulletin Checklist](/security/bulletins/checklist/)
+ * [Security Bulletin Template](/security/bulletins/template/)
+ * [Canaries](/security/canaries/)
+ * [Canary Template](/security/canaries/template/)
+ * [Xen Security Advisory (XSA) Tracker](/security/xsa/)
+ * [Why and How to Verify Signatures](/security/verifying-signatures/)
  * [Qubes PGP Keys](http://keys.qubes-os.org/keys/)
 
 System

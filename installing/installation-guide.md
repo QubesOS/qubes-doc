@@ -121,7 +121,7 @@ Getting Help
 [Hardware Compatibility List]: /hcl/
 [live USB]: /doc/live-usb/
 [downloads]: /downloads/
-[verifying signatures]: /doc/verifying-signatures/
+[verifying signatures]: /security/verifying-signatures/
 [security considerations]: /doc/install-security/
 [Rufus]: http://rufus.akeo.ie/
 [documentation]: /doc/

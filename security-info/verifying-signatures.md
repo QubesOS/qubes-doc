@@ -1,8 +1,9 @@
 ---
-layout: doc
+layout: security
 title: Verifying Signatures
-permalink: /doc/verifying-signatures/
+permalink: /security/verifying-signatures/
 redirect_from:
+- /doc/verifying-signatures/
 - /en/doc/verifying-signatures/
 - /doc/VerifyingSignatures/
 - /wiki/VerifyingSignatures/
@@ -307,7 +308,7 @@ or
 
 [Qubes Master Signing Key]: https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
 [keyserver]: https://en.wikipedia.org/wiki/Key_server_%28cryptographic%29#Keyserver_examples
-[Qubes Security Pack]: /doc/security-pack/
+[Qubes Security Pack]: /security/pack/
 [devel-master-key-msg]: https://groups.google.com/d/msg/qubes-devel/RqR9WPxICwg/kaQwknZPDHkJ
 [user-master-key-msg]: https://groups.google.com/d/msg/qubes-users/CLnB5uFu_YQ/ZjObBpz0S9UJ
 [mailing lists]: /mailing-lists/

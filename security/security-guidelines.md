@@ -11,12 +11,12 @@ redirect_from:
 Security Guidelines
 ===================
 
-The [Qubes introduction](http://theinvisiblethings.blogspot.com/2012/09/introducing-qubes-10.html) makes clear that without some active and responsible participation of the user, no real security is possible. So, for example, Qubes does not automagically make your Firefox (or any other app) running in one of the AppVMs suddenly more secure. It is just as [secure (or insecure)](https://en.wikipedia.org/wiki/Computer_insecurity) as on a normal Linux or Windows OS. But what drastically changes is the context in which your applications are used. [This context](/doc/qubes-architecture/) is a [responsibility of the user](/doc/security-goals/). But participation requires knowledge. So it is worth stressing some basic items:
+The [Qubes introduction](http://theinvisiblethings.blogspot.com/2012/09/introducing-qubes-10.html) makes clear that without some active and responsible participation of the user, no real security is possible. So, for example, Qubes does not automagically make your Firefox (or any other app) running in one of the AppVMs suddenly more secure. It is just as [secure (or insecure)](https://en.wikipedia.org/wiki/Computer_insecurity) as on a normal Linux or Windows OS. But what drastically changes is the context in which your applications are used. [This context](/doc/qubes-architecture/) is a [responsibility of the user](/security/goals/). But participation requires knowledge. So it is worth stressing some basic items:
 
 Download Verification
 ---------------------
 
-**Verify the authenticity and integrity of your downloads, [particularly Qubes iso](/doc/verifying-signatures/).**
+**Verify the authenticity and integrity of your downloads, [particularly Qubes iso](/security/verifying-signatures/).**
 
 Standard program installation
 

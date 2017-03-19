@@ -1,8 +1,9 @@
 ---
-layout: doc
+layout: security
 title: Security Pack
-permalink: /doc/security-pack/
+permalink: /security/pack/
 redirect_from:
+- /doc/security-pack/
 - /en/doc/security-pack/
 - /doc/SecurityPack/
 - /wiki/SecurityPack/
@@ -20,7 +21,7 @@ Qubes Security Pack
 The **Qubes Security Pack** (`qubes-secpack`) is a Git repository that contains:
 
  * [Qubes PGP keys](https://keys.qubes-os.org/keys/)
- * [Qubes Security Bulletins (QSBs)](/doc/security-bulletins/)
+ * [Qubes Security Bulletins (QSBs)](/security/bulletins/)
  * [Qubes warrant canaries](https://github.com/QubesOS/qubes-secpack/tree/master/canaries)
  * [Qubes Bitcoin fund information](https://github.com/QubesOS/qubes-secpack/tree/master/fund)
  * Security-related information and announcements (e.g., key revocations)
@@ -221,7 +222,7 @@ verifying its contents, and reading them.
     a trustworthy source (ideally, multiple sources) *other than* this website
     and visually compare it (them) to the fingerprint displayed in the preceding
     step, ensuring they match. You can read more about digital signatures and
-    key verification [here](/doc/verifying-signatures/).
+    key verification [here](/security/verifying-signatures/).
 
  4. Verify signed Git tags.
 

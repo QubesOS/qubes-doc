@@ -1,7 +1,8 @@
 ---
-layout: doc
+layout: security
 title: Security Bulletin Template
-permalink: /doc/security-bulletins/template/
+permalink: /security/bulletins/template/
+redirect_from: /doc/security-bulletins/template/
 ---
 
 Security Bulletin Template
@@ -20,11 +21,11 @@ View QSB #<number> in the qubes-secpack:
 
 Learn about the qubes-secpack, including how to obtain, verify, and read it:
 
-<https://www.qubes-os.org/doc/security-pack/>
+<https://www.qubes-os.org/security/pack/>
 
 View all past QSBs:
 
-<https://www.qubes-os.org/doc/security-bulletins/>
+<https://www.qubes-os.org/security/bulletins/>
 
 ```
              ---===[ Qubes Security Bulletin #<number>]===---
