@@ -56,6 +56,7 @@ Installing & Upgrading Qubes
  * [Supported Versions](/doc/supported-versions/)
  * [Version Scheme](/doc/version-scheme/)
  * [Custom Installation](/doc/custom-install/)
+ * [Testing new releases and updates](/doc/testing/)
 
 Common Tasks
 ------------
@@ -203,6 +204,7 @@ The Basics
  * [Report a Security Issue](/security/)
  * [Report a Bug](/doc/reporting-bugs/)
  * [How to Contribute](/doc/contributing/)
+ * [Testing new releases and updates](/doc/testing/)
  * [Source Code](/doc/source-code/)
  * [Qubes OS License](/doc/license/)
  * [Coding Guidelines](/doc/coding-style/)
