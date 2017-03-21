@@ -53,8 +53,8 @@ Statistics
 * Total XSAs affecting Qubes OS: **{{ xsa_affected | round }}**
 * Percentage of XSAs affecting Qubes OS: **{{ affected_percentage }}%**
 
-Table
------
+Tracker
+-------
 <table>
   <tr class="center">
     <th title="Anchor Link"><span class="fa fa-link"></span></th>
