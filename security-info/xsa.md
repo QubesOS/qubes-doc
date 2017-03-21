@@ -30,14 +30,16 @@ Important Notes
   Please read the QSB (if any) for each XSA for patching details.
 
 <table>
-  <tr>
+  <tr class="center">
     <th title="Anchor Link"><span class="fa fa-link"></span></th>
+    <th>Date</th>
     <th title="Xen Security Advisory">XSA</th>
     <th>Is Qubes Affected?</th>
   </tr>
 {% for xsa in site.data.xsa %}
   <tr id="{{ xsa.xsa }}">
     <td><a href="#{{ xsa.xsa }}" class="fa fa-link black-icon" title="Anchor link to tracker row: XSA-{{ xsa.xsa}}"></a></td>
+    <td>{{ xsa.date }}</td>
     <td>
       <a title="Xen Security Advisory {{ xsa.xsa }}"
       {% if xsa.xsa <= 25 %}
