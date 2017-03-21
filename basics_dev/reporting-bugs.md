@@ -76,11 +76,19 @@ When you file a new issue, you should be sure to include the version of Qubes
 your'e using, as well as versions of related software packages. If your issue is
 related to hardware, provide as many details as possible about the hardware,
 which could include using command-line tools such as `lspci`.
+If you're reporting a bug in a package that is in a [testing] repository, please reference the appropriate issue in the [`updates-status`] repository.
 
 Project maintainers really appreciate thorough explanations. It usually
 helps them address the problem more quickly, so everyone wins!
 
-Improving the Code
+
+Testing new releases and updates
+--------------------------------
+
+Please see [Testing New Releases and Updates][testing].
+
+
+Improving the code
 ------------------
 
 Please see our guidelines on [how to contribute code].
@@ -92,5 +100,7 @@ Please see our guidelines on [how to contribute code].
 [mailing list]: https://www.qubes-os.org/mailing-lists/
 [qubes-users]: https://groups.google.com/group/qubes-users
 [qubes-devel]: https://groups.google.com/group/qubes-devel
+[testing]: /doc/testing/
+[`updates-status`]: https://github.com/QubesOS/updates-status/issues
 [how to contribute code]: /doc/contributing/#contributing-code
 
