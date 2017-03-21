@@ -24,10 +24,11 @@ Important Notes
 ---------------
 
 * For the purpose of this tracker, we do *not* classify mere [denial-of-service (DoS) attacks][DoS] as affecting the *security* of Qubes OS.
-  Therefore, if an XSA pertains *only* to DoS attacks against Qubes, the value in this column will be **No**.
-
+  Therefore, if an XSA pertains *only* to DoS attacks against Qubes, the value in the "Is Qubes Affected?" column will be **No**.
 * For simplicitly, we use the present tense ("is affected") throughout this page, but this does **not** necessarily mean that up-to-date Qubes installations are *currently* affected by any particular XSA.
+  In fact, it is extremely unlikely that any up-to-date Qubes installations are vulnerable to any XSAs on this page, since patches are almost always published concurrently with QSBs.
   Please read the QSB (if any) for each XSA for patching details.
+* All dates are in UTC.
 
 <table>
   <tr class="center">
