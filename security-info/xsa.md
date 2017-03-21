@@ -40,16 +40,21 @@ Statistics
 {% assign timespan_epoch = date_last_epoch | minus: date_first_epoch %}
 {% assign timespan_human = timespan_epoch | divided_by: 31536000.0 | round: 1 %}
 {% assign xsa_total = site.data.xsa | size | plus: 1.0 %}
+{% assign xsa_unused = 0.0 %}
 {% assign xsa_affected = 0.0 %}
 {% for xsa in site.data.xsa %}
   {% if xsa.affected == true %}
     {% assign xsa_affected = xsa_affected | plus: 1.0 %}
   {% endif %}
+  {% if xsa.unused == true %}
+    {% assign xsa_unused = xsa_unused | plus: 1.0 %}
+  {% endif %}
 {% endfor %}
-{% assign affected_percentage = xsa_affected | divided_by: xsa_total | times: 100 | round: 2 %}
+{% assign xsa_used = xsa_total | minus: xsa_unused %}
+{% assign affected_percentage = xsa_affected | divided_by: xsa_used | times: 100.0 | round: 2 %}
 
 * Total time span: **{{ timespan_human }} years** ({{ date_first }} to {{ date_last }})
-* Total XSAs published: **{{ xsa_total | round }}**
+* Total XSAs published: **{{ xsa_used | round }}**
 * Total XSAs affecting Qubes OS: **{{ xsa_affected | round }}**
 * Percentage of XSAs affecting Qubes OS: **{{ affected_percentage }}%**
 
@@ -77,7 +82,9 @@ Tracker
     </td>
     <td>
     {% if xsa.affected == false %}
-      {% if xsa.mitigation %}
+      {% if xsa.unused %}
+        No (unused XSA number)
+      {% elsif xsa.mitigation %}
         No (<a href="#{{ xsa.mitigation }}" title="No, the security of Qubes OS is not affected by XSA-{{ xsa.xsa }}. Click to read the explanation.">{{ xsa.mitigation }}</a>)
       {% else %}
         <span title="No, the security of Qubes OS is not affected by XSA-{{ xsa.xsa }}.">No</span>
