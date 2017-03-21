@@ -18,6 +18,7 @@ ways in which you can help:
 * [Report security issues]
 * [Send patches][patch] to fix bugs or implement features
 * [Report bugs]
+* [Test new releases and updates]
 * Submit [HCL reports] for your hardware
 * Record [video tours]
 * Create [artwork] (plymouth themes, installer themes, wallpapers, etc.)
@@ -59,6 +60,7 @@ be grateful to [receive your patch][patch].
 [Report security issues]: /security/
 [patch]: /doc/source-code/#how-to-send-patches
 [Report bugs]: /doc/reporting-bugs/
+[Test new releases and updates]: /doc/testing/
 [HCL reports]: /doc/hcl/
 [video tours]: /video-tours/
 [artwork]: https://github.com/QubesOS/qubes-artwork
