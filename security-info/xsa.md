@@ -17,19 +17,44 @@ Whenever Qubes is significantly affected by an XSA, a [Qubes Security Bulletin (
 
 Under the "Is Qubes Affected?" column, there are two possible values: **Yes** or **No**.
 
- * **Yes** means that the *security* of Qubes OS *is* affected.
- * **No** means that the *security* of Qubes OS is *not* affected.
+* **Yes** means that the *security* of Qubes OS *is* affected.
+* **No** means that the *security* of Qubes OS is *not* affected.
+
 
 Important Notes
 ---------------
-
 * For the purpose of this tracker, we do *not* classify mere [denial-of-service (DoS) attacks][DoS] as affecting the *security* of Qubes OS.
   Therefore, if an XSA pertains *only* to DoS attacks against Qubes, the value in the "Is Qubes Affected?" column will be **No**.
-* For simplicitly, we use the present tense ("is affected") throughout this page, but this does **not** necessarily mean that up-to-date Qubes installations are *currently* affected by any particular XSA.
+* For simplicity, we use the present tense ("is affected") throughout this page, but this does **not** necessarily mean that up-to-date Qubes installations are *currently* affected by any particular XSA.
   In fact, it is extremely unlikely that any up-to-date Qubes installations are vulnerable to any XSAs on this page, since patches are almost always published concurrently with QSBs.
   Please read the QSB (if any) for each XSA for patching details.
 * All dates are in UTC.
 
+
+Statistics
+----------
+{% assign date_first = site.data.xsa.first.date %}
+{% assign date_first_epoch = date_first | date: "%s" %}
+{% assign date_last = site.data.xsa.last.date %}
+{% assign date_last_epoch = date_last | date: "%s" %}
+{% assign timespan_epoch = date_last_epoch | minus: date_first_epoch %}
+{% assign timespan_human = timespan_epoch | divided_by: 31536000.0 | round: 1 %}
+{% assign xsa_total = site.data.xsa | size | plus: 1.0 %}
+{% assign xsa_affected = 0.0 %}
+{% for xsa in site.data.xsa %}
+  {% if xsa.affected == true %}
+    {% assign xsa_affected = xsa_affected | plus: 1.0 %}
+  {% endif %}
+{% endfor %}
+{% assign affected_percentage = xsa_affected | divided_by: xsa_total | times: 100 | round: 2 %}
+
+* Total time span: **{{ timespan_human }} years** ({{ date_first }} to {{ date_last }})
+* Total XSAs published: **{{ xsa_total | round }}**
+* Total XSAs affecting Qubes OS: **{{ xsa_affected | round }}**
+* Percentage of XSAs affecting Qubes OS: **{{ affected_percentage }}%**
+
+Table
+-----
 <table>
   <tr class="center">
     <th title="Anchor Link"><span class="fa fa-link"></span></th>
@@ -39,7 +64,7 @@ Important Notes
   </tr>
 {% for xsa in site.data.xsa %}
   <tr id="{{ xsa.xsa }}">
-    <td><a href="#{{ xsa.xsa }}" class="fa fa-link black-icon" title="Anchor link to tracker row: XSA-{{ xsa.xsa}}"></a></td>
+    <td><a href="#{{ xsa.xsa }}" class="fa fa-link black-icon" title="Anchor link to tracker row: XSA-{{ xsa.xsa }}"></a></td>
     <td>{{ xsa.date }}</td>
     <td>
       <a title="Xen Security Advisory {{ xsa.xsa }}"
