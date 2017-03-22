@@ -24,6 +24,8 @@ Important Notes
 * For simplicity, we use the present tense ("is affected") throughout this page, but this does **not** necessarily mean that up-to-date Qubes installations are *currently* affected by any particular XSA.
   In fact, it is extremely unlikely that any up-to-date Qubes installations are vulnerable to any XSAs on this page, since patches are almost always published concurrently with QSBs.
   Please read the QSB (if any) for each XSA for patching details.
+* Embargoed XSAs are excluded from this tracker until they are publicly released, since the [Xen Security Policy] does not permit us to state whether Qubes is affected prior to the embargo date.
+* Unused XSA numbers are included in the tracker for the sake of completeness, but they are excluded from the [Statistics] section for the sake of accuracy.
 * All dates are in UTC.
 
 
@@ -101,4 +103,6 @@ Tracker
 [XSA]: https://xenbits.xen.org/xsa/
 [QSB]: /security/bulletins/
 [DoS]: https://en.wikipedia.org/wiki/Denial-of-service_attack
+[Xen Security Policy]: https://www.xenproject.org/security-policy.html
+[Statistics]: #statistics
 
