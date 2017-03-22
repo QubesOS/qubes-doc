@@ -35,8 +35,10 @@ In order to permanently install new software, you should:
 
 -   You will see now that all the AppVMs based on this template (by default all your VMs) will be marked as "outdated" in the manager. This is because their filesystems have not been yet updated -- in order to do that, you must restart each VM. You don't need to restart all of them at the same time -- e.g. if you just need the newly installed software to be available in your 'personal' domain, then restart only this VM. You will restart others whenever this will be convenient to you.
 
-Fedora testing repositories
----------------------------
+Testing repositories
+--------------------
+
+### Fedora ###
 
 There are three Qubes VM testing repositories (where `*` denotes the Release):
 
@@ -59,8 +61,7 @@ sudo dnf upgrade --enablerepo=qubes-vm-*-unstable
 To enable or disable any of these repos permanently, change the corresponding boolean in
 `/etc/yum.repos.d/qubes-*.repo`.
 
-Debian testing repositories
----------------------------
+### Debian ###
 
 Debian also has three Qubes VM testing repositories (where `*` denotes the Release):
 
