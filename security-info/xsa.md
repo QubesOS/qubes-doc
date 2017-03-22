@@ -7,10 +7,6 @@ permalink: /security/xsa/
 Xen Security Advisory (XSA) Tracker
 ===================================
 
-**Notice:** This page is still under construction.
-Until this notice is removed, the information below may not be accurate.
-We appreciate your patience.
-
 This tracker shows whether Qubes OS is affected by any given [Xen Security Advisory (XSA)][XSA].
 Shortly after a new XSA is published, we will add a new row to this tracker.
 Whenever Qubes is significantly affected by an XSA, a [Qubes Security Bulletin (QSB)][QSB] is published, and a link to that QSB is added to the row for the associated XSA.
