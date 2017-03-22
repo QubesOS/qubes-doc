@@ -67,7 +67,7 @@ Tracker
     <th title="Xen Security Advisory">XSA</th>
     <th>Is Qubes Affected?</th>
   </tr>
-{% for xsa in site.data.xsa %}
+{% for xsa in site.data.xsa reversed %}
   <tr id="{{ xsa.xsa }}">
     <td><a href="#{{ xsa.xsa }}" class="fa fa-link black-icon" title="Anchor link to tracker row: XSA-{{ xsa.xsa }}"></a></td>
     <td>{{ xsa.date }}</td>
