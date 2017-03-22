@@ -33,12 +33,12 @@ In order to permanently install new software, you should:
 
 -   Install/update software as usual (e.g. using yum, or the dedicated GUI application). Then, shutdown the template VM,
 
--   You will see now that all the AppVMs based on this template (by default all your VMs) will be marked as "outdated" in the manager. This is because their fielsystems have not been yet updated -- in order to do that, you must restart each VM. You don't need to restart all of them at the same time -- e.g. if you just need the newly installed software to be available in your 'personal' domain, then restart only this VM. You will restart others whenever this will be convenient to you.
+-   You will see now that all the AppVMs based on this template (by default all your VMs) will be marked as "outdated" in the manager. This is because their filesystems have not been yet updated -- in order to do that, you must restart each VM. You don't need to restart all of them at the same time -- e.g. if you just need the newly installed software to be available in your 'personal' domain, then restart only this VM. You will restart others whenever this will be convenient to you.
 
-Testing repositories
---------------------
+Fedora testing repositories
+---------------------------
 
-There are three Qubes VM testing repoistories (where `*` denotes the Release):
+There are three Qubes VM testing repositories (where `*` denotes the Release):
 
 * `qubes-vm-*-current-testing` -- testing packages that will eventually land in the stable
   (`current`) repository
@@ -58,6 +58,21 @@ sudo dnf upgrade --enablerepo=qubes-vm-*-unstable
 
 To enable or disable any of these repos permanently, change the corresponding boolean in
 `/etc/yum.repos.d/qubes-*.repo`.
+
+Debian testing repositories
+---------------------------
+
+Debian also has three Qubes VM testing repositories (where `*` denotes the Release):
+
+* `*-testing` -- testing packages that will eventually land in the stable
+  (`current`) repository
+* `*-securitytesting` -- a subset of `*-testing` that contains packages
+  that qualify as security fixes
+* `*-unstable` -- packages that are not intended to land in the stable
+  repository; mostly experimental debugging packages
+
+To enable or disable any of these repos permanently, uncomment the corresponding `deb` line in
+`/etc/apt/sources.list.d/qubes-r3.list`
 
 Reverting changes to a TemplateVM
 ---------------------------------
