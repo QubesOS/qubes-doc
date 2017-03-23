@@ -129,23 +129,19 @@ Manual tasks that can/should be started in the template
 
  * Windows Update
 
- * Windows file cleaning
-    1. Run windows drive cleaner as Administrator.
+ * Windows Disk Cleanup
+    1. Run Windows Disk Cleanup as Administrator.
     2. Enable all the task and run the cleaner
 
- * CCleaner file cleaning
-    1. Install CCleaner free
-    2. Copy the attached ccleaner configuration file in CCleaner program file folder
-    3. Run ccleaner with all option set except "wipe free space" (it will also remove user history and preferences)
-    4. Run ccleaner only with the option "wipe free space".
-
-        It will write zeros in all unused space. This will allow you to strip the root.img file later
+ * Secure Disk Erasure
+ 
+    List of Disk Erasing Software: https://en.wikipedia.org/wiki/List_of_data-erasing_software
 
  * TemplateVM stripping
 
     Ensure that you know what you are doing in this section as you may destroy by error your template root.img file.
 
-    * If you ran ccleaner with "wipe free space", follow the following procedure
+    * Use disk erasing software (list above) to fill free disk space with zeros. (Both CCleaner and BleachBit have been tested.)
 
         1. from dom0, go to /var/lib/templates-vm/yourtemplate
 
