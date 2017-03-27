@@ -70,7 +70,6 @@ If you want to circumvent this process, you can create the relevant filestructur
 ## Limitations ##
 
 * Files that exist in the TemplateVM root image cannot be deleted in the TemplateBasedVMs root image using bind-dirs.sh.
-* The file / folder in question must already exist in the root image. I.e. a file that does not exist in the root image cannot be bind mounted in the TemplateBasedVM.
 * Re-running `sudo /usr/lib/qubes/bind-dirs.sh` without a previous `sudo /usr/lib/qubes/bind-dirs.sh umount` does not work.
 * Running 'sudo /usr/lib/qubes/bind-dirs.sh umount' after boot (before shutdown) is probably not sane and nothing can be done about that.
 * Many editors create a temporary file and copy it over the original file. If you have bind mounted an individual file this will break the mount.
