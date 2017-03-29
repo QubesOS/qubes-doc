@@ -122,7 +122,7 @@ By default, a DVM Template named `fedora-XX-dvm` is created on most Qubes instal
 DVM Templates are neither [TemplateVMs](#templatevm) nor [AppVMs](#appvm). 
 They are intended neither for installing nor running software. 
 Rather, they are intended for *customizing* or *configuring* software that has already been installed on the TemplateVM on which the DVM Template is based (see [DispVM Customization]). 
-This software is then intended to be run (in its customized stated) in DispVMs that are based on the DVM Template.
+This software is then intended to be run (in its customized state) in DispVMs that are based on the DVM Template.
 
 PV
 --
