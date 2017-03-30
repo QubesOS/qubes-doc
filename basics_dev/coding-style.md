@@ -58,26 +58,26 @@ General typographic conventions
     }
     ~~~
 
-File naming conventions
+File naming and organization conventions
 -----------------------
 
--   All file names written with small letters, use dash to separate words, rather than underscores, e.g. `qubes-dom0-update`. Never use spaces!
+-   All file names: written with small letters, using dashes to separate words rather than underscores, e.g. `qubes-dom0-update`. Never use spaces!
 
-**File naming in Linux/Unix-like systems:**
+**File naming and organization in Linux/Unix-like systems:**
 
 -   User commands that operate on particular VMs (also those accessible in VMs): `/usr/bin/qvm-*`
 -   User commands that apply to the whole system (Dom0 only): `/usr/bin/qubes-*`
 -   Auxiliary executables and scripts in `/usr/libexec/qubes/` (Note: previously we used `/usr/lib/qubes` but decided to change that)
 -   Helper, non-executable files in `/usr/share/qubes/`
 -   Various config files in `/etc/qubes`
--   Qubes RPC services in `/etc/qubes-rpc`. Qubes RPC Policy definitions (only in Dom0) in `/etc/qubes-rpc/policy/`
--   All VM-related configs, images, and other files in `/var/lib/qubes/`
--   System-wide temporary files which reflect the current state of system in `/var/run/qubes`
+-   Qubes RPC services in `/etc/qubes-rpc`. Qubes RPC Policy definitions (only in Dom0) should go in `/etc/qubes-rpc/policy/`
+-   All VM-related configs, images, and other files should go in `/var/lib/qubes/`
+-   System-wide temporary files which reflect the current state of system should go in `/var/run/qubes/`
 -   Logs: either log to the system-wide messages, or to `/var/log/qubes/`
 
-**File naming in Windows systems:**
+**File naming and organizatio in Windows systems:**
 
--   All base qubes-related files in `C:\Program Files\Invisible Things Lab\Qubes\` (Exceptionally spaces are allowed here to adhere to Windows naming conventions)
+-   All base qubes-related files should be in `C:\Program Files\Invisible Things Lab\Qubes\` (Spaces are exceptionally allowed here to adhere to Windows naming conventions)
 -   Other, 3rd party files, not Qubes-specific, such as e.g. Xen PV drivers might be in different vendor subdirs, e.g. `C:\Program Files\Xen PV Drivers`
 
 General programming style guidelines
