@@ -75,7 +75,7 @@ File naming and organization conventions
 -   System-wide temporary files which reflect the current state of system should go in `/var/run/qubes/`
 -   Logs: either log to the system-wide messages, or to `/var/log/qubes/`
 
-**File naming and organizatio in Windows systems:**
+**File naming and organization in Windows systems:**
 
 -   All base qubes-related files should be in `C:\Program Files\Invisible Things Lab\Qubes\` (Spaces are exceptionally allowed here to adhere to Windows naming conventions)
 -   Other, 3rd party files, not Qubes-specific, such as e.g. Xen PV drivers might be in different vendor subdirs, e.g. `C:\Program Files\Xen PV Drivers`
