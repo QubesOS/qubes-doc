@@ -29,7 +29,7 @@ And here's a [link to the real case](https://groups.google.com/forum/#!msg/qubes
 General typographic conventions
 -------------------------------
 
--   **Use space-expanded tabs that equal 4 spaces.** Yes, we know, there are many arguments for using "real" tabs instead of space-expanded tabs, but we need to pick one convention to make the project consistent. One argument for using space-expanded tabs is that this way the programmer is in control of how the code will look like, despite how other users have configured their editors to visualize the tabs (of course, we assume any sane person uses a fixed-width font for viewing the source code). If it makes you feel any better, assume this is just an uneducated arbitrary choice made to enforce a unified style.
+-   **Use space-expanded tabs that equal 4 spaces.** Yes, we know, there are many arguments for using "real" tabs instead of space-expanded tabs, but we need to pick one convention to make the project consistent. One argument for using space-expanded tabs is that this way the programmer is in control of how the code will look like, despite how other users have configured their editors to visualize the tabs (of course, we assume any sane person uses a fixed-width font for viewing the source code). If it makes you feel any better, assume this is just an arbitrary choice made to enforce a unified style.
 
 -   **Maintain max. line length of 80 characters**. Even though today's monitors often are very wide and it's often not a problem to have 120 characters displayed in an editor, maintaining shorter line lengths improves readability. It also allows others to have two parallel windows open, side by side, each with different parts of the source code.
 
