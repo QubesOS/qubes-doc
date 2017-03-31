@@ -15,16 +15,16 @@ Coding Guidelines for Qubes Developers
 Rationale
 ---------
 
-Maintaining proper coding style is very important for any larger software project, such as Qubes. Here's why:
+Maintaining proper coding style is very important for any large software project, such as Qubes. Here's why:
 
--   It eases maintenance, such as adding new functionality or generalization later,
--   It allows others (as well as the original author after some time!) to easily understand fragments of code, what they were supposed to do, and so makes it easier to later extend them with newer functionality or bug fixes,
+-   It eases maintenance tasks, such as adding new functionality or generalizing code later,
+-   It allows others (as well as the future you!) to easily understand fragments of code and what they were supposed to do, and thus makes it easier to later extend them with newer functionality or bug fixes,
 -   It allows others to easily review the code and catch various bugs,
 -   It provides for an aesthetically pleasing experience when one reads the code...
 
-Often, developers, usually smart developers, neglect the value of proper coding style, thinking that it's most important how their code works, and expecting that if it solves some problem using a nice and neat trick, then it's all that is really required. Such thinking shows, however, immaturity and is a signal that the developer, however bright and smart, might not be a good fit for any larger project. Writing a clever exploit, that is to be used at one Black Hat show is one thing, while writing a useful software that is to be used and maintained for years, is quite a different story. If you want to show off what a smart programmer you are, then you should become a researcher and write exploits. If, on the other hand, you want to be part of a team that makes real, useful software, you should ensure your coding style is impeccable. We often, at Qubes project, often took shortcuts, and often wrote nasty code, and this always back fired at us, sometime months, sometime years later, the net result being we had to spend time fixing code, rather than implementing new functionality.
+Often, developers, usually smart ones, undersell the value of proper coding style, thinking that it's much more important how their code works. These developers expect that if their code solves some problem using a nice and neat trick, then that's all that is really required. Such thinking shows, however, immaturity and is a signal that the developer, no matter how bright and smart, might not be a good fit for larger projects. Writing a clever exploit for a Black Hat show is one thing - writing useful software supposed to be used and maintained for years is quite a different story. If you want to show off what a smart programmer you are, then you should become a researcher and write exploits. If, on the other hand, you want to be part of a team that makes real, useful software, you should ensure your coding style is impeccable. At Qubes project, we often took shortcuts and wrote nasty code, and this has always back fired at us, sometime months, sometime years later, the net result being we had to spend time fixing code, rather than implementing new functionality.
 
-And here's a [link to the real case](https://groups.google.com/forum/#!msg/qubes-devel/XgTo6L8-5XA/JLOadvBqnqMJ) (one Qubes Security Bulletin) demonstrating how the above described problem lead to a real security bug. Never assume you're smart enough that you can disregard clean and rigorous coding!
+And here's a [link to the real case](https://groups.google.com/forum/#!msg/qubes-devel/XgTo6L8-5XA/JLOadvBqnqMJ) (one Qubes Security Bulletin) demonstrating how the lackadaisical coding style lead to a real security bug. Never assume you're smart enough  to disregard clean and rigorous coding!
 
 General typographic conventions
 -------------------------------
