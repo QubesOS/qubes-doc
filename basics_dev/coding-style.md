@@ -29,25 +29,25 @@ And here's a [link to the real case](https://groups.google.com/forum/#!msg/qubes
 General typographic conventions
 -------------------------------
 
--   **Use space-expanded tabs that equal 4 spaces.** Yes, we know, there are many arguments for using "real" tabs, instead of space-expanded tabs, but we need to pick one convention to make the project consistent. One argument for using space-expanded tabs is that this way the programmer is in control of how the code will look like, despite how other users have configured their editors to visualize the tabs (of course, we assume any sane person uses a fixed-width font for viewing the source code). Anyway, if this makes you feel better, assume this is just an arbitrary choice.
+-   **Use space-expanded tabs that equal 4 spaces.** Yes, we know, there are many arguments for using "real" tabs instead of space-expanded tabs, but we need to pick one convention to make the project consistent. One argument for using space-expanded tabs is that this way the programmer is in control of how the code will look like, despite how other users have configured their editors to visualize the tabs (of course, we assume any sane person uses a fixed-width font for viewing the source code). If it makes you feel any better, assume this is just an arbitrary choice made to enforce a unified style.
 
--   **Maintain max. line length of 80 characters**. Even though today's monitors often are very wide and it's often not a problem to have 120 characters displayed in an editor, still maintaining shorter line lengths improves readability. It also allows to have two parallel windows open, side by side, each with different parts of the source code.
+-   **Maintain max. line length of 80 characters**. Even though today's monitors often are very wide and it's often not a problem to have 120 characters displayed in an editor, maintaining shorter line lengths improves readability. It also allows others to have two parallel windows open, side by side, each with different parts of the source code.
 
--   Class, functions, variables, and arguments naming convention for any OS other than Windows:
+-   **Naming conventions for any OS *other than Windows***:
     -   `ClassName`
     -   `some_variable`, `some_function`, `some_argument`
 
--   Class, functions, variables, and arguments naming convention for **Windows OS** -- exceptionally to preserve Windows conventions please use the following:
+-   **Naming convention *for Windows OS*** -- exceptionally to preserve Windows conventions please use the following:
     -   `ClassName`, `FunctionName`
     -   `pszArgumentOne`, `hPipe` -- use Hungarian notation for argument and variables
 
--   Horizontal spacing -- maintain at least decent amount of horizontal spacing, such as e.g. add obligatory space after `if` or before `{` in C, and similar in other languages. Whether to also use spaces within expressions, such as (x\*2+5) vs. (x \* 2 + 5) is left to the developer's judgment. Do not put spaces immediately after and before the brackets in expressions, so avoid constructs like this: `if ( condition )` and use `if (condition)` instead.
+-   **Maintain a decent amount of horizontal spacing**, e.g. add a space after `if` or before `{` in C, and similar in other languages. Whether and where to also use spaces within expressions, such as (x\*2+5) vs. (x \* 2 + 5) is left to the developer's judgment. Do not put spaces immediately after or before the brackets in expressions, so avoid constructs like this: `if ( condition )` and use ones like this: `if (condition)` instead.
 
--   **Use single new lines** ('\\n' aka LF) in any non-Windows source code. On Windows, exceptionally, use the CRLF line endings -- this will allow the source code to be easily view-able in various Windows-based programs.
+-   **Use single new lines** ('\\n' aka LF) in any non-Windows source code. On Windows, exceptionally, use the CRLF line endings (--). This will allow the source code to be easily viewable in various Windows-based programs.
 
--   **Use descriptive names for variables and functions**! Really, these days, when most editors have auto-completion feature, there is no excuse for using short variable names.
+-   **Use descriptive names for variables and functions**! Really, at a time when most editors have auto-completion features, there is no excuse for using short variable names.
 
--   Comments should be indent together with the code, e.g. like this:
+-   **Comments should be indented together with the code**, e.g. like this:
 
     ~~~
     for (...) {
