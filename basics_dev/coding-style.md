@@ -68,16 +68,16 @@ File naming and organization conventions
 -   User commands that operate on particular VMs (also those accessible in VMs): `/usr/bin/qvm-*`
 -   User commands that apply to the whole system (Dom0 only): `/usr/bin/qubes-*`
 -   Auxiliary executables and scripts in `/usr/libexec/qubes/` (Note: previously we used `/usr/lib/qubes` but decided to change that)
--   Helper, non-executable files in `/usr/share/qubes/`
--   Various config files in `/etc/qubes`
--   Qubes RPC services in `/etc/qubes-rpc`. Qubes RPC Policy definitions (only in Dom0) should go in `/etc/qubes-rpc/policy/`
--   All VM-related configs, images, and other files should go in `/var/lib/qubes/`
--   System-wide temporary files which reflect the current state of system should go in `/var/run/qubes/`
+-   Helper, non-executable files: `/usr/share/qubes/`
+-   Various config files: `/etc/qubes`
+-   Qubes RPC services: `/etc/qubes-rpc`. Qubes RPC Policy definitions (only in Dom0): `/etc/qubes-rpc/policy/`
+-   All VM-related configs, images, and other files: `/var/lib/qubes/`
+-   System-wide temporary files which reflect the current state of system: `/var/run/qubes/`
 -   Logs: either log to the system-wide messages, or to `/var/log/qubes/`
 
 **File naming and organization in Windows systems:**
 
--   All base qubes-related files should be in `C:\Program Files\Invisible Things Lab\Qubes\` (Spaces are exceptionally allowed here to adhere to Windows naming conventions)
+-   All base qubes-related files: `C:\Program Files\Invisible Things Lab\Qubes\` (Spaces are exceptionally allowed here to adhere to Windows naming conventions)
 -   Other, 3rd party files, not Qubes-specific, such as e.g. Xen PV drivers might be in different vendor subdirs, e.g. `C:\Program Files\Xen PV Drivers`
 
 General programming style guidelines
