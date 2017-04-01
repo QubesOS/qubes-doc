@@ -16,18 +16,17 @@ dedicated [qubes-doc] repository. By cloning and regularly pulling from
 this repo, users can maintain their own up-to-date offline copy of all Qubes
 documentation rather than relying solely on the Web.
 
-The documentation is a community effort in which volunteers work hard trying to
+The documentation is a community effort. Volunteers work hard trying to
 keep everything accurate and comprehensive. If you notice a problem with the
 documentation or some way it can be improved, please [report] it! Better
-yet, you can [edit the documentation][contribute] yourself, both to add new
-content and to edit existing content.
+yet, you can [edit the documentation][contribute] yourself, both to add or improve existing content.
 
 
 How to Report Issues
 --------------------
 
-To report an issue, please create an issue in [qubes-issues], but before you do,
-please make sure your issue does **not** already exist. Documentation-related
+To report an issue, please create one in [qubes-issues], but before you do,
+please make sure it does **not** already exist. Documentation-related
 issues will be assigned the `doc` label. Issues which have been created in
 [qubes-issues] are significantly more likely to be addressed than those sent in
 emails to the mailing lists or to individuals.
@@ -79,7 +78,7 @@ they'll be formatted by clicking the "Preview changes" tab.
 
 ![edit](/attachment/wiki/doc-edit/06-edit.png)
 
-Once you're finish, describe your changes at the bottom and click "Propose file
+Once you're finished, describe your changes at the bottom and click "Propose file
 change".
 
 ![commit](/attachment/wiki/doc-edit/07-commit-msg.png)
@@ -111,10 +110,10 @@ Contribution Suggestions
 
  * If you find any inaccuracies in the documentation, please correct them!
 
- * If you find an inaccuracy but don't know how to correct, you can still help
+ * If you find an inaccuracy but don't know how to correct it, you can still help
    by documenting the inaccuracy. For example, if you have *thoroughly* tested
    a set of steps in the documentation and know *for certain* that they no
-   longer work on a certain version of Qubes (e.g., because the steps are
+   longer work on a certain version of Qubes (maybe because the steps are
    out-of-date), then please add a note to the documentation indicating this.
    You may also wish to provide a link to a relevant thread on the [mailing
    lists].
