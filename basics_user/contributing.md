@@ -50,7 +50,7 @@ some common issue labels:
 * [Debian](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+Debian%22)
 
 Before you engage in an activity that will take you a significant amount of
-time, e.g. implementing a new feature, it's always good to contact us first,
+time, like implementing a new feature, it's always good to contact us first,
 preferably via the [qubes-devel] mailing list. Once we've worked out the
 details, we'll add you to our [Community-Developed Feature Tracker]. We'll then
 be grateful to [receive your patch][patch].
