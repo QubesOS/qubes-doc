@@ -12,9 +12,9 @@ redirect_from:
 How To make a VPN Gateway in Qubes
 ==================================
 
-Although setting up a VPN connection is not by itself Qubes specific, there are a number of Qubes-related details that can make using the connection more versatile and secure. This document is a Qubes-specific outline for choosing the type of VM to use, and shows how to prepare a ProxyVM for either NetworkManager or a set of fail-safe VPN scripts.
+Although setting up a VPN connection is not by itself Qubes specific, Qubes includes a number of tools that can make the client-side setup of yourVPN more versatile and secure. This document is a Qubes-specific outline for choosing the type of VM to use, and shows how to prepare a ProxyVM for either NetworkManager or a set of fail-safe VPN scripts.
 
-Please refer to guest OS and VPN service documentation when considering the specific steps and parameters for your connection(s); The relevant documentation for the Qubes default guest OS (Fedora) is [Establishing a VPN Connection.](https://docs.fedoraproject.org/en-US/Fedora/23/html/Networking_Guide/sec-Establishing_a_VPN_Connection.html)
+Please refer to your guest OS and VPN service documentation when considering the specific steps and parameters for your connection(s); The relevant documentation for the Qubes default guest OS (Fedora) is [Establishing a VPN Connection.](https://docs.fedoraproject.org/en-US/Fedora/23/html/Networking_Guide/sec-Establishing_a_VPN_Connection.html)
 
 ### NetVM
 
@@ -29,18 +29,18 @@ While the NetworkManager service is not started here (for a good reason), you ca
 
 ### ProxyVM
 
-One of the best things in Qubes is that you can use a special type of VM called a ProxyVM. The special thing is that your AppVMs see this as a NetVM (or uplink), and your NetVMs see it as a downstream AppVM. Because of this, you can place a ProxyVM between your AppVMs and your NetVM. This is how the default sys-firewall VM functions.
+One of the best unique features of Qubes OS is its special type of VM called a ProxyVM. The special thing is that your AppVMs see this as a NetVM (or uplink), and your NetVMs see it as a downstream AppVM. Because of this, you can place a ProxyVM between your AppVMs and your NetVM. This is how the default sys-firewall VM functions.
 
 Using a ProxyVM to set up a VPN client gives you the ability to:
 
--   Separate your VPN credentials from Your NetVM.
--   Separate your VPN credentials from Your AppVM data.
+-   Separate your VPN credentials from your NetVM.
+-   Separate your VPN credentials from your AppVM data.
 -   Easily control which of your AppVMs are connected to your VPN by simply setting it as a NetVM of the desired AppVM.
 
 Set up a ProxyVM as a VPN gateway using NetworkManager
 ------------------------------------------------------
 
-1.  Create a new VM: Name it, click the ProxyVM radio button then choose a color and template.
+1.  Create a new VM, name it, click the ProxyVM radio button, and then choose a color and template.
 
     ![Create\_New\_VM.png](/attachment/wiki/VPN/Create_New_VM.png)
 
@@ -62,7 +62,7 @@ Set up a ProxyVM as a VPN gateway using iptables and CLI scripts
 
 This method is more involved than the one above, but has anti-leak features that also make the connection _fail closed_ should it be interrupted. It has been tested with Fedora 23 and Debian 8 templates.
 
-1. Create a new VM: Name it, click the ProxyVM radio button then choose a color and template.
+1. Create a new VM, name it, click the ProxyVM radio button, and then choose a color and template.
 
     ![Create\_New\_VM.png](/attachment/wiki/VPN/Create_New_VM.png)
     
@@ -70,14 +70,14 @@ This method is more involved than the one above, but has anti-leak features that
     
     If your choice of template VM doesn't already have the VPN client software, you'll need to install the software in the template before proceeding. Disable any auto-starting service that comes with the software package: for example `sudo systemctl disable openvpn.service`.
     
-    You may also wish to install `nano` or other simple text editor for entering the scripts below.
+    You may also wish to install `nano` or another simple text editor for entering the scripts below.
 
-2.  Set up and initial test of the VPN client.
+2.  Set up and test the VPN client.
 
     Make sure the VPN VM and its template VM are not running.
     
     Run a terminal (CLI) in the VPN VM -- this will start the VM. Then make a new 'vpn' folder with `sudo mkdir /rw/config/vpn` and copy your VPN config files here (the example config filename used here is `openvpn-client.ovpn`). Files accompanying the main config such as *.crt and *.pem should also go here, and should not be referenced in the main config by absolute paths such as '/etc/...'.
-    
+
     Notes about VPN config options: The VPN scripts here are intended to work with commonly used `tun` interfaces, whereas `tap` mode is untested. Also, the config should route all traffic through your VPN's interface after a connection is created; For openvpn the directive for this is `redirect-gateway def1`. Lastly, the VPN client may not be able to prompt you for credentials when connecting to the server: Creating a file in the 'vpn' folder with your credentials and using a directive such as openvpn's `auth-user-pass <filename>` is recommended.
     
     __Test your client configuration:__ Run the client from a CLI prompt in the 'vpn' folder, preferably as root. For example:
