@@ -40,7 +40,7 @@ Using a ProxyVM to set up a VPN client gives you the ability to:
 Set up a ProxyVM as a VPN gateway using NetworkManager
 ------------------------------------------------------
 
-1.  Create a new VM, name it, click the ProxyVM radio button, and then choose a color and template.
+1.  Create a new VM, name it, click the ProxyVM radio button, and choose a color and template.
 
     ![Create\_New\_VM.png](/attachment/wiki/VPN/Create_New_VM.png)
 
@@ -62,7 +62,7 @@ Set up a ProxyVM as a VPN gateway using iptables and CLI scripts
 
 This method is more involved than the one above, but has anti-leak features that also make the connection _fail closed_ should it be interrupted. It has been tested with Fedora 23 and Debian 8 templates.
 
-1. Create a new VM, name it, click the ProxyVM radio button, and then choose a color and template.
+1. Create a new VM, name it, click the ProxyVM radio button, and choose a color and template.
 
     ![Create\_New\_VM.png](/attachment/wiki/VPN/Create_New_VM.png)
     
