@@ -72,3 +72,8 @@ Qubes Security Bulletins are published through the [Qubes Security Pack](/securi
 -   [Qubes Security Bulletin \#27](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-027-2016.txt) (Xen 64-bit bit test instruction emulation broken (XSA 195))
 -   [Qubes Security Bulletin \#28](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-028-2016.txt) (Debian update mechanism vulnerability)
 
+2017
+----
+
+-   [Qubes Security Bulletin \#29](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-029-2017.txt) (Critical Xen bug in PV memory virtualization code (XSA-212))
+
