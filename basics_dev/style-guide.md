@@ -28,7 +28,7 @@ Currently Qubes OS is using the following fonts for our website, branding, and o
 
 ## Colors
 
-The following **grayscale** colors are currently used on the Qubes website and documentation, and will eventually match colors within the OS itself.
+The following **grayscale** colors are currently used on the Qubes website and documentation, and they will eventually match colors within the OS itself.
 
 <div class="styleguide">
 {% for color in site.data.styleguide.colors %}
@@ -42,7 +42,7 @@ The following **grayscale** colors are currently used on the Qubes website and d
 {% endfor %}
 </div>
 
-The following **colors** are currently being used on the Qubes website and documentation, and will eventually match the colors within the OS itself!
+The following **colors** are currently being used on the Qubes website and documentation, and they will eventually match the colors within the OS itself!
 
 <div class="styleguide">
 {% for color in site.data.styleguide.colors %}
