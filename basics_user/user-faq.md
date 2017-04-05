@@ -307,15 +307,17 @@ For details, see the qubes-users mailing list threads [here](https://groups.goog
 
 ### My keyboard layout settings are not behaving correctly. What should I do?
 
-In `Q` → `System Tools` → `Keyboard` → `Layout`, leave the checkbox `Use system defaults` checked. Do not customize the keyboard layout here.
+The best approach is to choose the right keyboard layout during the installation process. But if you want to change things afterwards, you can try this workaround.
+
+Assuming XFCE desktop: in `Q` → `System Tools` → `Keyboard` → `Layout`, leave the checkbox "`Use system defaults`" checked. Do not customize the keyboard layout here.
 
 Set the system-wide layout and options for `xorg` with the `localectl` command in `dom0`. You can use `localectl --help` as a starting point.
 
 Example: `localectl set-x11-keymap us dell ,qwerty compose:caps`.
 
-This generates the appropriate configuration in `/etc/X11/xorg.conf.d/00-keyboard.conf`.
+This generates the appropriate configuration in `/etc/X11/xorg.conf.d/00-keyboard.conf`. This file is auto-generated. Do not edit it by hand, unless you know what you are doing.
 
-Restarting `xorg` is required. The easy way is to reboot the system.
+Restarting `xorg` is required. The most straightforward way is to reboot the system.
 
 More information in [this discussion](https://groups.google.com/d/topic/qubes-devel/d8ZQ_62asKI/discussion) and [this issue](https://github.com/QubesOS/qubes-issues/issues/1396).
 
