@@ -94,7 +94,7 @@ If you've installed a package such as anti-evil-maid, you can remove it with the
     
 ### Testing repositories
 
-There are three Qubes dom0 testing repoistories:
+There are three Qubes dom0 testing repositories:
 
 * `qubes-dom0-current-testing` -- testing packages that will eventually land in the stable
   (`current`) repository
