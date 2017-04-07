@@ -117,10 +117,11 @@ To enable or disable any of these repos permanently, change the corresponding bo
 
 ### Kernel Upgrade ###
 
-Install newer kernel. The following example installs kernel 3.19 and was tested on Qubes R3 RC1.
+Install newer kernel for dom0 and VMs. The package `kernel` is for dom0 and the package `kernel-qubes-vm`
+is needed for the VMs.
 
 ~~~
-sudo qubes-dom0-update kernel-3.19*
+sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable kernel kernel-qubes-vm
 ~~~
 
 Rebuild grub config.
