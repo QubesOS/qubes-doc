@@ -2,6 +2,8 @@
 layout: doc-full
 title: Management API
 permalink: /doc/mgmt1/
+redirect_from:
+- /doc/mgmt/
 ---
 
 # Management API
