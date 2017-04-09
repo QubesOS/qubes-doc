@@ -43,12 +43,12 @@ to set the policy using current mechanism.
 | `mgmt.vm.feature.CheckWithTemplate`   | vm        | feature   | -                                         | value                                                     |
 | `mgmt.vm.feature.Remove`              | vm        | feature   | -                                         | -                                                         |
 | `mgmt.vm.feature.Set`                 | vm        | feature   | value                                     | -                                                         |
-| `mgmt.vm.tag.List`                    | vm        | tag       | -                                         | `<tag>\n`                                                 |
+| `mgmt.vm.tag.List`                    | vm        | -         | -                                         | `<tag>\n`                                                 |
 | `mgmt.vm.tag.Get`                     | vm        | tag       | -                                         | `0` or `1`                                                | retcode? |
 | `mgmt.vm.tag.Remove`                  | vm        | tag       | -                                         | -                                                         |
 | `mgmt.vm.tag.Set`                     | vm        | tag       | -                                         | -                                                         |
-| `mgmt.vm.firewall.Get`                | vm        | position  | -                                         | `<rule id> <rule>\n`                                      |
-| `mgmt.vm.firewall.InsertRule`         | vm        | position  | rule                                      | rule id                                                   |
+| `mgmt.vm.firewall.List`               | vm        | -         | -                                         | `<rule id> <rule>\n`                                      |
+| `mgmt.vm.firewall.InsertRule`         | vm        | rule id   | rule                                      | rule id                                                   | insert before given rule, use `END` as rule id to add rule at the end
 | `mgmt.vm.firewall.RemoveRule`         | vm        | rule id   | -                                         | -                                                         |
 | `mgmt.vm.firewall.Flush`              | vm        | -         | -                                         | -                                                         |
 | `mgmt.vm.device.<class>.Attach`       | vm        | device    | -                                         | -                                                         |
@@ -82,6 +82,7 @@ to set the policy using current mechanism.
 | `mgmt.backup.Execute`                 | `dom0`    | config i  | -                                         | -                                                         | config in `/etc/qubes/backup/<id>.conf` |
 | `mgmt.backup.Info`                    | `dom0`    | ?         | content?                                  | ?                                                         |
 | `mgmt.backup.Restore`                 | `dom0`    | ?         | content                                   | ?                                                         |
+| `mgmt.Events`                         | `dom0|vm` | -         | -                                         | events                                                    |
 
 Volume properties:
  - `pool`
