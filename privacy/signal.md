@@ -48,9 +48,12 @@ you use Signal in an AppVM named `Signal`, and this AppVM uses `fedora-23` as it
 1. Follow [these instructions][shortcut] to create a desktop shortcut on the Desktop of your Signal AppVM.
    Let's assume the shortcut file you get is `/home/user/Desktop/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop`
 2. Copy this shortcut file to the AppVM's TemplateVM - in this case, to `fedora-23`.
+
+       [user@Signal ~]$ qvm-copy-to-vm fedora-23 /home/user/Desktop/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop
+
 3. You'll also want to copy across an icon for your new shortcut - you can find this at
    `/home/user/.local/share/icons/hicolor/48x48/apps/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.png`
-   Copy this icon to the `fedora-23` TemplateVM.
+   Copy this icon to the `fedora-23` TemplateVM in the same way as step 2.
 4. Open a terminal in your `fedora-23` TemplateVM and `cd` to `/home/user/QubesIncoming/Signal/`.
    You should find your shortcut and icon files just transferred across from the Signal AppVM.
    Move these files to the following locations:
@@ -62,11 +65,16 @@ you use Signal in an AppVM named `Signal`, and this AppVM uses `fedora-23` as it
 
         [user@dom0 ~]$ qvm-sync-appmenus fedora-23
         
-6. With your mouse select the `Q` menu -> `Domain: Signal` -> `Signal: Add more shortcuts`
-   Select `Signal Private Messenger` from the left `Available` column, move it to the right `Selected` column by clicking the `>` button and then `OK` to apply the changes and close the window.
-7. Then follow the `Q` menu once more, right-click on the new `Signal: Signal Private Messenger` menu item and select `Add to Panel`.
+6. Stop both the AppVM (`Signal`) and its TemplateVM (`fedora-23`).
+   The `Signal` VM will now see the desktop file in `/usr/share/applications` when it is next started.
 
-You can now launch the Signal messenger inside its own dedicated AppVM with a single click from KDE's panel.
+7. With your mouse select the `Q` menu -> `Domain: Signal` -> `Signal: Add more shortcuts`
+   Select `Signal Private Messenger` from the left `Available` column, move it to the right `Selected` column by clicking the `>` button and then `OK` to apply the changes and close the window.
+8. (optional, only on KDE:) Follow the `Q` menu once more, right-click on the new `Signal: Signal Private Messenger` menu item and select `Add to Panel`.
+
+You can now launch the Signal messenger inside its own dedicated AppVM directly from the desktop.
+
+The same steps should work for any Chrome app.
 
 -----
 
@@ -76,4 +84,3 @@ You can now launch the Signal messenger inside its own dedicated AppVM with a si
 [shortcut-desktop]: /doc/managing-appvm-shortcuts/#tocAnchor-1-1-1
 [message]: https://groups.google.com/d/msg/qubes-users/rMMgeR-KLbU/XXOFri26BAAJ
 [mailing list]: /mailing-lists/
-
