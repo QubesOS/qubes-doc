@@ -27,6 +27,7 @@ to set the policy using current mechanism.
 | `mgmt.label.List`                     | `dom0`    | -         | -                                         | `<property>\n`                                            |
 | `mgmt.label.Create`                   | `dom0`    | label     | `0xRRGGBB`                                | -                                                         |
 | `mgmt.label.Get`                      | `dom0`    | label     | -                                         | `0xRRGGBB`                                                |
+| `mgmt.label.Index`                    | `dom0`    | label     | -                                         | `<label-index>`                                           |
 | `mgmt.label.Remove`                   | `dom0`    | label     | -                                         | -                                                         |
 | `mgmt.property.List`                  | `dom0`    | -         | -                                         | `<property>\n`                                            |
 | `mgmt.property.Get`                   | `dom0`    | property  | -                                         | `default={yes|no} type={str|int|bool|vm|label} <value>`   |
@@ -125,6 +126,10 @@ Events are returned as stream of messages in selected API calls. Normally server
 will not close the connection.
 
 A method yielding events will not ever return a `OK` or `EXCEPTION` message.
+
+When calling such method, it will produce an artificial event
+`connection-established` just after connection, to help avoiding race
+conditions during event handler registration.
 
 ### EXCEPTION (2)
 
