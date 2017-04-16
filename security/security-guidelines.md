@@ -11,14 +11,18 @@ redirect_from:
 Security Guidelines
 ===================
 
-The [Qubes introduction](http://theinvisiblethings.blogspot.com/2012/09/introducing-qubes-10.html) makes clear that without some active and responsible participation of the user, no real security is possible. Running Firefox inside of an AppVM does not automagically make it (or any other app) more secure. Programs themselves remain just as secure [(or insecure)](https://en.wikipedia.org/wiki/Computer_insecurity) on Qubes as on a normal Linux or Windows OS. What drastically changes is the context in which your applications are used. [This context](/doc/qubes-architecture/) is a [responsibility of the user](/security/goals/). But managing security in this context well requires knowledge of some new concepts and procedures. So it is worth stressing some basic items:
+Without some active and responsible participation of the user, no real security is possible. Running Firefox inside of an AppVM does not automagically make it (or any other app) more secure. 
+Programs themselves remain just as secure [(or insecure)](https://en.wikipedia.org/wiki/Computer_insecurity) on Qubes as on a normal Linux or Windows OS. 
+What drastically changes is the context in which your applications are used. [This context](/doc/qubes-architecture/) is a [responsibility of the user](/security/goals/). 
+But managing security in this context well requires knowledge of some new concepts and procedures. So it is worth stressing some basic items:
 
 Download Verification
 ---------------------
 
 **Verify the authenticity and integrity of your downloads, [particularly the Qubes iso](/security/verifying-signatures/).**
 
-The internet is always a dangerous place. While your connection to the Qubes website and download mirrors is encrypted, meaning that your downloads from here can't be modified by a third party en route, there is always the chance that these websites themselves have been compromised. 
+The internet is always a dangerous place. 
+While your connection to the Qubes website and download mirrors is encrypted, meaning that your downloads from here can't be modified by a third party en route, there is always the chance that these websites themselves have been compromised. 
 Signature verification allows us to validate for ourselves that these files were the ones authored and signed by their creators (in this case the Qubes development team). 
 
 Because it's so easy for a hacker who manages to tamper with the downloaded iso files this way to patch in malware, it is of the utmost importance that you **verify the signature of the Qubes iso** you use to install Qubes. 
