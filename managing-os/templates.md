@@ -102,7 +102,7 @@ Important Notes
    sub-menu of the removed TemplateVM. For example, to remove a dangling sub-menu
    for a removed "fedora-24" template, open a Dom0 Terminal and type:
 
-       $ sudo rm ~/.local/share/applications/fedora-24-*
+       $ rm ~/.local/share/applications/fedora-24-*
 
    Just make sure there are no other TemplateVMs whose names start with "fedora-24"
    or else their menu items will be removed too. 
