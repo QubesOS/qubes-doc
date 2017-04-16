@@ -18,13 +18,19 @@ Download Verification
 
 **Verify the authenticity and integrity of your downloads, [particularly the Qubes iso](/security/verifying-signatures/).**
 
-The standard program installation command for Fedora and Qubes repositories
+The internet is always a dangerous place. While your connection to the Qubes website and download mirrors is encrypted, meaning that your downloads from here can't be modified by a third party en route, there is always the chance that these websites themselves have been compromised. 
+Signature verification allows us to validate for ourselves that these files were the ones authored and signed by their creators (in this case the Qubes development team). 
+
+Because it's so easy for a hacker who manages to tamper with the downloaded iso files this way to patch in malware, it is of the utmost importance that you **verify the signature of the Qubes iso** you use to install Qubes. 
+See the page on [Verifying Signatures](https://www.qubes-os.org/security/verifying-signatures/) for more information and a tutorial on how to accomplish this.
+
+Once you have Qubes installed, the standard program installation command for Fedora and Qubes repositories
 
 ~~~
 sudo yum install <program>
 ~~~
 
-automatically accomplishes this verification.
+automatically accomplishes this verification. 
 
 Custom user-added repositories might come with gpgcheck disabled. [Check the config files](http://docs.fedoraproject.org/en-US/Fedora/12/html/Deployment_Guide/sec-Configuring_Yum_and_Yum_Repositories.html) and verify that 
 
@@ -36,7 +42,10 @@ Plus, make sure you also **safely import their signing keys**. This may require 
 
 Even then, you might want to consider new repositories to be **less** secure and not use them in templates that feed your more trusted VMs.
 
-If you **need** to download programs that cannot be verified, then it is much less dangerous to install them in a **cloned template or a standalone VM**.
+If you **need** to download programs that cannot be verified, then it is much less dangerous to install them in a **cloned template or a standalone VM**. 
+
+Remember: Qubes cannot automatically verify the signature of files that come from other sources like your browser, torrenting client, or home-made tofu recipe downloader. If the providers of these downloads provide keys for you to verify the signatures of their downloads, do it!
+
 
 Observing Security Contexts
 ---------------------------
