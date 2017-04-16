@@ -56,9 +56,11 @@ Observing Security Contexts
 
 Each VM is assigned a specific colour for its window borders. These borders are how Qubes displays the **security context** of applications and data so that users can be easily aware of this at all times. Be sure to check the colour of window borders before taking any action, particularly if it affects the security of your system. [See this blog post for more information](http://theinvisiblethings.blogspot.com/2011/05/app-oriented-ui-model-and-its-security.html).
 
-Also, be sure to use **Expose-like effect** when dealing with a smaller window displayed on top of a larger window. Remember that any "red" program can display a "green" password prompt box, and you don't want to enter your password there!
-
-Check that **Expose-like effect** is activated in System Tools -\> System Settings -\> Desktop Effects -\> All Effects -\> Desktop Grid Present Windows effects in KDE, or, if you're a hard-core Xfce4 user or something, then manually move the more trusted window so that it is not displayed on top of a less trusted one, but rather over the trusted Dom0 wallpaper. This feature is designed to make it easy to tell if a program is trying to trick you into entering passwords or other information from your seperate, more trusted VMs.
+Always remember that any "red" window can draw "green" password prompts. 
+Don't let yourself be tricked into entering credentials designated to one qube into a forged input boxes rendered by another.
+For XFCE users (which is the default desktop environment on QubesOS) it would be wise to manually move the more trusted window so that it is not displayed on top of a less trusted one, but rather over the trusted Dom0 wallpaper. 
+If you use KDE, it has a helpful feature called **Expose-like effect** that is activated in System Tools -\> System Settings -\> Desktop Effects -\> All Effects -\> Desktop Grid Present Windows. 
+Performing these steps makes it easier to tell the difference between when you're being phished and when you're genuinely being asked for credentials.
 
 Installing Versus Running Programs
 ----------------------------------
