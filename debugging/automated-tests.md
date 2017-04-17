@@ -10,28 +10,22 @@ redirect_from:
 Automatic tests
 ===============
 
-Starting with Qubes R3 we use [python unittest][unittest] to perform automatic
-tests of Qubes OS. Regardless of the name, we use it for both [unit
-tests](https://en.wikipedia.org/wiki/Unit_tests) and [integration
-tests](https://en.wikipedia.org/wiki/Integration_tests). The main purpose is of
-course to deliver much more stable releases.
+Starting with Qubes R3 we use [python unittest][unittest] to perform automatic tests of Qubes OS. 
+Despite the name, we use it for both [unit tests](https://en.wikipedia.org/wiki/Unit_tests) and [integration tests](https://en.wikipedia.org/wiki/Integration_tests). 
+The main purpose is, of course, to deliver much more stable releases.
 
-Integration tests are written with assumption to be called on dedicated
-hardware. **Do not run those test on machine where you have important data, you
-can loose it**. Especially all the VMs with name starting with `test-` are
-removed. All the tests are started from dom0, even when testing some VM
-component. Those tests will create new VM(s), run the test, then remove the VM(s).
+Integration tests are written with the assumption that they will be called on dedicated hardware. 
+**Do not run these tests on installations with important data, because you might lose it.**
+Since these tests were written with this expectation, all the VMs with a name starting with `test-` on the installation are removed during the process, and all the tests are recklessly started from dom0, even when testing VM components.
 
-Most of the tests are stored in [core-admin
-repository](https://github.com/QubesOS/qubes-core-admin/tree/master/tests) in
-`tests` directory. To start them you can use standard python unittest runner:
+Most of the tests are stored in the [core-admin repository](https://github.com/QubesOS/qubes-core-admin/tree/master/tests) in the `tests` directory. 
+To start them you can use standard python unittest runner:
     python -m unittest -v qubes.tests
 Or our custom one:
     python -m qubes.tests.run -v
 
-Our test runner can be used mostly the same as the standard one, with some nice
-additional features like no need to prefix all the tests with "qubes.tests", or
-color output. It is also the only way to run only selected template tests.
+Our test runner runs mostly the same as the standard one, but it has some nice additional features like color output and not needing the "qubes.test" prefix. 
+It also has the ability to run lone selected template tests.
 
 You can use `python -m qubes.tests.run -h` to get usage information:
 
@@ -73,7 +67,7 @@ You can use `python -m qubes.tests.run -h` to get usage information:
     MODULE+"/"+CLASS+"/"+FUNCTION. MODULE should omit initial "qubes.tests.".
     Example: basic/TC_00_Basic/test_000_create
 
-For example to run only tests for fedora-21 template, you can use `-l` option, then filter the list:
+For instance, to run only the tests for the fedora-21 template, you can use the `-l` option, then filter the list:
 
     [user@dom0 ~]$ python -m qubes.tests.run -l | grep fedora-21
     network/VmNetworking_fedora-21/test_000_simple_networking
@@ -103,24 +97,22 @@ Example test run:
 ![snapshot-tests2.png](/attachment/wiki/developers/snapshot-tests2.png)
 
 ## Adding a new test to core-admin
-After you added a new unit test to [core-admin/tests](https://github.com/QubesOS/qubes-core-admin/tree/master/tests) 
-you have to make sure of two things:
+After adding a new unit test to [core-admin/tests](https://github.com/QubesOS/qubes-core-admin/tree/master/tests) you'll have to make sure of two things:
 
-1. The test will be added to the RPM file created by [QubesBuilder](/doc/qubes-builder/) 
-For this you need to edit [core-admin/tests/Makefile](https://github.com/QubesOS/qubes-core-admin/tree/master/tests/Makefile)
-2. The test will be loaded by [core-admin/tests/\_\_init\_\_.py](https://github.com/QubesOS/qubes-core-admin/tree/master/tests/__init__.py)
+1. That the test will be added to the RPM file created by [QubesBuilder](/doc/qubes-builder/). For this you need to edit the [core-admin/tests/Makefile](https://github.com/QubesOS/qubes-core-admin/tree/master/tests/Makefile)
+2. That the test will be loaded by [core-admin/tests/\_\_init\_\_.py](https://github.com/QubesOS/qubes-core-admin/tree/master/tests/__init__.py)
 
-### Editing the  Makefile
-Add at the bottom of the file the two lines which will copy your test and its
-compiled version to the right directory in the RPM file. I.e. adding `example.py`
+### Editing the Makefile
+To add your tests, you must append these two lines to the end of the makefile, which will copy your test and its compiled version to the right directory in the RPM file. 
+If your test is `example.py`, the appended lines would be:
 
     cp example.py $(DESTDIR)$(PYTHON_TESTSPATH)
     cp example.py[co] $(DESTDIR)$(PYTHON_TESTSPATH)
 
 
 ### Editing \_\_init\_\_.py
-Add at the bottom of the file in the method `def load_tests` to the variable
-`modname` your test. I.e adding `example.py`.
+You'll also need to add your test at the bottom of the \_\_init\_\_.py file, in the method `def load_tests`, in the for loop with `modname`.
+Again, given the hypothetical `example.py` test:
 
 ~~~python
     for modname in (
