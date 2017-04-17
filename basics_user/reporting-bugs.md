@@ -16,17 +16,18 @@ redirect_from:
 Reporting Bugs
 ==============
 
-One of the most important ways in which you can [contribute to the Qubes OS
-Project] is by reporting any bugs you have found. Please note that there is a
-separate process for [reporting security issues](/security/).
+One of the most important ways in which you can [contribute to the Qubes OS Project] is by reporting any bugs you have found. 
+Please note that there is a separate process for [reporting security issues](/security/).
 
 
 Before you submit a report
 --------------------------
 
-Before you submit a bug report, please take a moment to check whether your issue
-has already been reported and to determine which venue is most approriate for
-it.
+Before you submit a bug report, please take a moment to:
+
+ * Check whether your issue has already been reported.
+ 
+ * Determine which venue is most appropriate for it.
 
  * Read the [documentation] to see whether what you've found is really a bug.
 
