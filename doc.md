@@ -14,7 +14,7 @@ redirect_from:
 - /community/
 ---
 
-User Documentation
+Awesome User Documentation
 ==================
 
 The Basics
