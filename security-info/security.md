@@ -28,7 +28,7 @@ Qubes OS Project Security Center
 Reporting Security Issues in Qubes OS
 -------------------------------------
 
-If you believe you have found a security issue affecting Qubes OS, either directly or through third party code Qubes uses, then we would be more than happy to hear from you!
+If you believe you have found a security issue affecting Qubes OS, either directly or indirectly (e.g. the issue affects Xen in a configuration that is used in Qubes OS), then we would be more than happy to hear from you!
 
 We promise to treat any reported issue seriously and, if the investigation confirms it affects Qubes, to patch it within a reasonable time, release a public Security Bulletin that describes the issue, discuss potential impact of the vulnerability, reference applicable patches or workarounds, and credit the discoverer.
 
