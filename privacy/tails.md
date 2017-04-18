@@ -76,5 +76,5 @@ You will probably want to implement [MAC spoofing](https://www.qubes-os.org/doc/
 There are added security concerns for Tails users when running it in a virtual machine.
 If you intend to do this, you should read [the warnings](https://tails.boum.org/doc/advanced_topics/virtualization/) from the Tails team about it.
 While the Qubes security model mitigates most of the risks identified, traces of the Tails session may remain on the disk.
-Live booting Tails, while less convenient, is always more secure than using it inside virtualization software or Qubes, because you don't run the added risk of the virtualization software or Host OS being compromised.
+Live booting Tails, though less convenient, is always more secure than using it inside virtualization software or Qubes, because you don't run the added risk of the virtualization software or Host OS being compromised.
 Depending on your security model, and why you are using Tails, this may be dangerous.
