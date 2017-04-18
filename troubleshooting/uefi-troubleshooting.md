@@ -89,3 +89,40 @@ every kernel and Xen update.)
 1. Copy `/boot/efi/EFI/qubes/` to `/boot/efi/EFI/BOOT/`.
 2. Rename `/boot/efi/EFI/BOOT/xen.efi` to `/boot/efi/EFI/BOOT/BOOTX64.efi`.
 3. Rename `/boot/efi/EFI/BOOT/xen.cfg` to `/boot/efi/EFI/BOOT/BOOTX64.cfg`.
+
+Installation finished but "Qubes" boot option is missing and xen.cfg is empty
+--------------------------------------------------------------------------------------
+
+In some cases installer fails to finish EFI setup and leave the system without
+Qubes-specific EFI configuration. In such a case you need to finish those parts
+manually. You can do that just after installation (switch to `tty2` with
+Ctrl-Alt-F2), or booting from installation media in "Rescue a Qubes system" mode.
+
+1. Examine `/boot/efi/EFI/qubes` (if using Qubes installation media, it's in `/mnt/sysimage/boot/efi/EFI/qubes`). You should see there 4 files:
+
+    - xen.cfg (empty, size 0)
+    - xen-(xen-version).efi
+    - vmlinuz-(kernel-version)
+    - initramfs-(kernel-version).img
+
+2. Copy `xen-(xen-version).efi` to `xen.efi`:
+
+       cd /mnt/sysimage/boot/efi/EFI/qubes
+       cp xen-*.efi xen.efi
+
+3. Create xen.cfg with this content (adjust kernel version, and filesystem
+   locations, below values are based on default installation of Qubes 3.2):
+
+
+       [global]
+       default=4.4.14-11.pvops.qubes.x86_64
+
+       [4.4.14-11.pvops.qubes.x86_64]
+       options=loglvl=all dom0_mem=min:1024M dom0_mem=max:4096M
+       kernel=vmlinuz-4.4.14-11.pvops.qubes.x86_64 root=/dev/mapper/qubes_dom0-root rd.lvm.lv=qubes_dom0/root rd.lvm.lv=qubes_dom0/swap i915.preliminary_hw_support=1 rhgb quiet
+       ramdisk=initramfs-4.4.14-11.pvops.qubes.x86_64.img
+
+4. Create boot entry in EFI firmware (replace `/dev/sda` with your disk name and `-p 1` with `/boot/efi` partition number):
+
+       efibootmgr -v -c -u -L Qubes -l /EFI/qubes/xen.efi -d /dev/sda -p 1 "placeholder /mapbs /noexitboot"
+
