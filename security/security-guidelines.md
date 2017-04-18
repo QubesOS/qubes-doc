@@ -14,7 +14,7 @@ Security Guidelines
 Without some active and responsible participation of the user, no real security is possible. Running Firefox inside of an AppVM does not automagically make it (or any other app) more secure. 
 Programs themselves remain just as secure [(or insecure)](https://en.wikipedia.org/wiki/Computer_insecurity) on Qubes as on a normal Linux or Windows OS. 
 What drastically changes is the context in which your applications are used. 
-This context is a responsibility of the user. 
+[This context](/doc/qubes-architecture/) is a [responsibility of the user](/security/goals/). 
 But managing security in this context well requires knowledge of some new concepts and procedures. So it is worth stressing some basic items:
 
 Download Verification
