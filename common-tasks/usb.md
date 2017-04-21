@@ -318,7 +318,7 @@ steps:
 Attaching a single USB device to a qube (USB passthrough)
 ---------------------------------------------------------
 
-Stating with Qubes 3.2, it is possible to attach a single USB device to any
+Starting with Qubes 3.2, it is possible to attach a single USB device to any
 Qube. While this is useful feature, it should be used with care, because there
 are [many security implications][usb-challenges] from using USB devices and USB
 passthrough will **expose your target qube** for most of them. If possible, use 
