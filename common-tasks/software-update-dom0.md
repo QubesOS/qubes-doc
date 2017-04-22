@@ -118,7 +118,7 @@ To enable or disable any of these repos permanently, change the corresponding bo
 ### Kernel Upgrade ###
 
 Install newer kernel for dom0 and VMs. The package `kernel` is for dom0 and the package `kernel-qubes-vm`
-is needed for the VMs.
+is needed for the VMs. (Note that the following example enables the unstable repo.)
 
 ~~~
 sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable kernel kernel-qubes-vm
