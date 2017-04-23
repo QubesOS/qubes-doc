@@ -10,7 +10,7 @@ Martus
 [Martus] is a free, open source, secure information collection and management tool 
 that empowers rights activists to be stronger in their fight against injustice and abuse.
 
-To install Martus in a qube, you must:
+To install Martus in a qube, you have several steps ahead of you:
 
 1. Create a Debian 8 backports template using the Qubes VM Manager or running
    `qvm-clone debian-8 debian-8-backports` in dom0.
