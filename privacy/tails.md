@@ -63,8 +63,13 @@ This seems to arise because Tails sizes to the height of the screen, but there i
 Either remove the title bar altogether, or move the window upwards using ALT+drag.
 
 ### Persistent Volume
-The persistence tools will not work because Tails has not been launched from USB.
-The HVM disk(s) can be configured and mounted from within Tails to provide persistent storage. 
+The persistence tools will not work because Tails has not been launched from USB.  
+The HVM disk(s) can be configured and mounted from within Tails to provide persistent storage.   
+If you want to use an existing USB persistent volume: 
+ - Interrupt the Tails vm boot process with arrow-up when the grub boot menu appears. 
+ - In dom0 attach the USB drive containing the persistent volume to the Tails vm. 
+ - Continue booting Tails: Tails-greeter will detect the encrypted partition on the attached USB. 
+ - Unlock the persistent volume in Tails-greeter and use it as normal.
 
 ### Shutdown
 The Tails qube will not shut down cleanly.
