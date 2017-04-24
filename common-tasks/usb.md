@@ -140,7 +140,7 @@ Security Warning about USB Input Devices
 
 If you connect USB input devices (keyboard and mouse) to a VM, that VM will effectively have control over your system.
 Because of this, the benefits of using a USB qube are much smaller than using a fully untrusted USB qube.
-In addition to having control over your system, such VM can also sniff all the input your enter there (for example, passwords in the case of a USB keyboard).
+In addition to having control over your system, such VM can also sniff all the input you enter there (for example, passwords in the case of a USB keyboard).
 
 There is no simple way to protect against sniffing, but you can make it harder to exploit control over input devices.
 
