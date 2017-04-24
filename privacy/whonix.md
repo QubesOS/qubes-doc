@@ -32,17 +32,17 @@ while the workstation is used for making AppVMs.
 *  [Customizing Whonix](/doc/whonix/customize/)
 *  [Uninstalling Whonix from Qubes](/doc/whonix/uninstall/)
 
-*The following pages are from Whonix's website.*
+*The following pages are written by the Whonix developers and are located on their website.*
 
 * [Using Whonix with DisposableVMs](https://www.whonix.org/blog/qubes-whonix-dispvm)
-* [Security Advice for using Whonix on Qubes](https://www.whonix.org/wiki/Post_Install_Advice)
+* [Post-Installation Security Advice](https://www.whonix.org/wiki/Post_Install_Advice)
 * [How to set up Tor Bridges in Whonix on Qubes](https://www.whonix.org/wiki/Bridges#How_to_use_bridges_in_Whonix)
 * [Using Multiple Whonix-Workstations with Whonix on Qubes](https://www.whonix.org/wiki/Multiple_Whonix-Workstations#Qubes-Whonix)
 * [How to use Corridor (a Tor traffic whitelisting gateway) with Whonix](https://www.whonix.org/wiki/Corridor)
 
 ## Support for Whonix
 
-*The following pages are from Whonix's website.*
+*The following pages are written by the Whonix developers and are located on their website.*
 
 *  [Whonix Support](https://www.whonix.org/wiki/Support) - General Whonix, Debian, Tor, etc... related issues
 *  [Whonix Qubes Forum](https://forums.whonix.org/c/qubes) - Whonix specific issues
