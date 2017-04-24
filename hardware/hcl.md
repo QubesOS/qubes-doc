@@ -32,7 +32,7 @@ If using the list to make a purchasing decision, we recommend that you choose ha
 Generating and Submitting New Reports
 -------------------------------------
 
-In order to generate a an HCL report in Qubes, simply open a terminal in dom0 (KDE: start-menu -\> System Tools -\> Konsole or Terminal Emulator)
+In order to generate an HCL report in Qubes, simply open a terminal in dom0 (KDE: start-menu -\> System Tools -\> Konsole or Terminal Emulator)
 and run `qubes-hcl-report <vm-name>`, where `<vm-name>` is the name of the VM to which the generated HCL files will be saved.
 (Note: If you are working with a new Qubes installation, you may need to update your system in order to download this script.)
 
