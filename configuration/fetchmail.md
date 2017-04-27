@@ -72,7 +72,7 @@ Next, add this to `/rw/config/rc.local`:
 for rc in /usr/local/etc/fetchmail/*.rc; do
         instance=${rc%.*}
         instance=${instance##*/}
-        echo systemctl --no-block start fetchmail@${instance}
+        systemctl --no-block start fetchmail@${instance}
 done
 ~~~
 
