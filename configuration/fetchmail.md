@@ -23,7 +23,7 @@ Configuration
 
 Assuming you have more than one account (safe assumption these days), you need to spawn multiple fetchmail instances, one for each IMAP/POP3 server (though one instance can watch over several accounts on one server). The easiest way is to create template systemd unit and start it several times. Fedora does not supply any, so we have to write one anyway.
 
-**NOTE:** this assumes you use [Postfix](/doc/postfix/) as your local MTA.
+**NOTE:** this assumes you use [Postfix](/doc/postfix/) or Exim4 as your local MTA.
 
 In TemplateVM create `/etc/systemd/system/fetchmail@.service`:
 
@@ -36,6 +36,20 @@ Requires=postfix.service
 [Service]
 User=user
 ExecStart=/bin/fetchmail -f /usr/local/etc/fetchmail/%I.rc -d 60 -i /usr/local/etc/fetchmail/.%I.fetchids --pidfile /usr/local/etc/fetchmail/.%I.pid
+RestartSec=1
+~~~
+
+Alternatively, in Debian with Exim4:
+
+~~~
+[Unit]
+Description=Mail Retrieval Agent
+After=network.target
+Requires=exim4.service
+
+[Service]
+User=user
+ExecStart=/usr/bin/fetchmail -f /usr/local/etc/fetchmail/%I.rc -d 60 -i /usr/local/etc/fetchmail/.%I.fetchids --pidfile /usr/local/etc/fetchmail/.%I.pid
 RestartSec=1
 ~~~
 
