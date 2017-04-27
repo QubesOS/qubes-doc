@@ -8,6 +8,8 @@ redirect_from:
 - /wiki/QubesBuilder/
 ---
 
+**Note: The build system has been improved since this how-to was last updated. The [Archlinux template building instructions](https://www.qubes-os.org/doc/building-archlinux-template/) contain more up-to-date and detailed information on how to use the build system.**
+
 Building Qubes from scratch
 ===========================
 
