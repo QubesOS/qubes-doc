@@ -77,23 +77,36 @@ redirect_from:
 <br>
 <br>
 
-## 4:   Installing the "Qubes Automated Build System"
+## 4:   Downloading and verifying the "Qubes Automated Build System"
 
-*   Download the latest stable qubes-builder repository:
+* Import the Qubes master key 
 
-    *   $ **git clone https://github.com/QubesOS/qubes-builder.git**
-<br>
-<br>
-![arch-template-05](/attachment/wiki/ArchlinuxTemplate/arch-template-05.png)
-<br>
-<br>
+      gpg --recv-keys 0xDDFA1A3E36879494
+    
+* Verify its fingerprint, set as 'trusted'. [This is described here](https://www.qubes-os.org/doc/VerifyingSignatures).
 
+* Download the Qubes developers' keys.
 
-*   You will now have the Qubes Builder System environment installed in the directory below:
+      wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
+      gpg --import qubes-developers-keys.asc 
 
-    *   **/home/user/qubes-builder/**
-<br>
-<br>
+* Download the latest stable qubes-builder repository:
+
+      git clone git://github.com/QubesOS/qubes-builder.git qubes-builder
+    
+  ![arch-template-05](/attachment/wiki/ArchlinuxTemplate/arch-template-05.png)
+    
+* Copy your gpg keyrings to your local copy of the repository. (Otherwise you will be asked to download the keys again.)
+
+      # Assuming qubes-builder is in your home directory
+      cp .gnupg/pubring.gpg qubes-builder/keyrings/git/
+      cp .gnupg/secring.gpg qubes-builder/keyrings/git/
+     
+* Verify the integrity of the downloaded repository. The last line should read `gpg: Good signature from`...
+
+      cd qubes-builder 
+      git tag -v `git describe`
+
 
 ## 5:   Configuring setup script to create builder.conf file
 
