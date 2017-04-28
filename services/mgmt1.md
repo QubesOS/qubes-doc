@@ -20,9 +20,10 @@ to set the policy using current mechanism.
 | `mgmt.vmclass.List`                   | `dom0`    | -         | -                                         | `<class>\n`                                               |
 | `mgmt.vm.List`                        | `dom0|<vm>` | -         | -                                         | `<name> class=<class> state=<state>\n`                    |
 | `mgmt.vm.Create.<class>`              | `dom0`    | template  | `name=<name> label=<label>`               | -                                                         |
-| `mgmt.vm.CreateInPool.<class>`        | `dom0`    | template  | `name=<name> label=<label> pool=<pool>`   | -                                                         |
+| `mgmt.vm.CreateInPool.<class>`        | `dom0`    | template  | `name=<name> label=<label> pool=<pool> pool:<volume>=<pool>`   | -                                                         | either use `pool=` to put all volumes there, or `pool:<volume>=` for individual volumes - both forms are not allowed at the same time
 | `mgmt.vm.CreateTemplate`              | `dom0`    | name      | `root.img`                                | -                                                         |
 | `mgmt.vm.Clone`                       | vm        | -         | `name=<name>`                             | -                                                         |
+| `mgmt.vm.CloneInPool`                 | vm        | -         | `name=<name> pool=<pool> pool:<volume>=<pool>` | -                                                         | same as for `mgmt.vm.CreateInPool`
 | `mgmt.vm.Remove`                      | vm        | -         | -                                         | -                                                         |
 | `mgmt.label.List`                     | `dom0`    | -         | -                                         | `<property>\n`                                            |
 | `mgmt.label.Create`                   | `dom0`    | label     | `0xRRGGBB`                                | -                                                         |
