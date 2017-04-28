@@ -336,10 +336,11 @@ redirect_from:
 
     **Note:** Take care when entering these cmd strings.  They are very long and have a number of characters that are easy to mix '**-**' vs '**.**' '**<u>T</u>emplates** (correct) vs **<u>t</u>emplates** (wrong) or **Template_**'(also wrong)  This script will also take care of transfering the actual template.rpm to Dom0 as well.
 
-
-        *   **$ cd /**
-
-        *   **$ sudo qvm-run --pass-io development 'cat /home/user/qubes-builder/qubes-src/linux-template-builder/rpm/install-templates.sh' > install-templates.sh**
+       *   **$ qvm-run --pass-io development 'cat /home/user/qubes-builder/qubes-src/linux-template-builder/rpm/install-templates.sh' > install-templates.sh**
+       
+       *   **$ chmod +x install-templates.sh**
+       
+       *   **$ ./install-templates.sh**
 
 <br>
 <br>
