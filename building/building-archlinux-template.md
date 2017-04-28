@@ -30,18 +30,18 @@ redirect_from:
 <br>
 ![arch-template-02](/attachment/wiki/ArchlinuxTemplate/arch-template-02.png)
 <br>
-<br> 
+<br>
 
 *Note: Unless otherwise noted,  all commands are from within the “development” VM or whatever you named your standalone VM used for building the template.*
 
 ## 2:   Create GitHub Account (optional)
 
 *   It can be helpful. Creating only a basic account is all that is needed. This will allow you to help, going           forward, with the Qubes project. You could be help edit errors in documentation. It can also be of use building      other templates.
-    
+
 *   Create user account here https://github.com
 <br>
 <br>
-![arch-template-03](/attachment/wiki/ArchlinuxTemplate/arch-template-03.png)    
+![arch-template-03](/attachment/wiki/ArchlinuxTemplate/arch-template-03.png)
 <br>
 <br>
 
@@ -50,13 +50,13 @@ redirect_from:
 *   Necessary packages to install:
 
     *   git
-    
+
     *   createrepo
-    
+
     *   rpm-build
-    
+
     *   make
-    
+
     *   rpmdevtools
 
     *   python-sh
@@ -64,7 +64,7 @@ redirect_from:
     *   dialog
 
     *   rpm-sign
-    
+
     *	gnupg
 
 
@@ -79,45 +79,45 @@ redirect_from:
 
 ## 4:   Downloading and verifying the "Qubes Automated Build System"
 
-* Import the Qubes master key 
+* Import the Qubes master key
 
       gpg --recv-keys 0xDDFA1A3E36879494
-    
+
 * Verify its fingerprint, set as 'trusted'. [This is described here](https://www.qubes-os.org/doc/VerifyingSignatures).
 
 * Download the Qubes developers' keys.
 
       wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
-      gpg --import qubes-developers-keys.asc 
+      gpg --import qubes-developers-keys.asc
 
 * Download the latest stable qubes-builder repository:
 
       git clone git://github.com/QubesOS/qubes-builder.git qubes-builder
-    
+
   ![arch-template-05](/attachment/wiki/ArchlinuxTemplate/arch-template-05.png)
-    
+
 * Copy your gpg keyrings to your local copy of the repository. (Otherwise you will be asked to download the keys again.)
 
       # Assuming qubes-builder is in your home directory
       cp .gnupg/pubring.gpg qubes-builder/keyrings/git/
       cp .gnupg/trustdb.gpg qubes-builder/keyrings/git/
-     
+
 * Verify the integrity of the downloaded repository. The last line should read `gpg: Good signature from`...
 
-      cd qubes-builder 
+      cd qubes-builder
       git tag -v `git describe`
 
 
 ## 5:   Configuring setup script to create builder.conf file
 
 *   You will be creating the builder.conf file which tells where and what to use.   The most automated, and in this case the easiest, way to create this is to use the script that is provided in Qubes Builder.  Its named '**setup**'.  Before running the script you need to edit one file it uses.
-   
+
     *In the future this should not be needed once a change is made to the 'setup' script.*
 
     *   Edit the '**qubes-os-r3.2.conf**' which is found in **/home/user/qubes-builder/example-configs**  Use the text editor of your choice.
-    
+
         *   **$ cd /home/user/qubes-builder/example-config/**
-    
+
         *   **$ nano -W qubes-os-r3.2.conf** or **$ gedit qubes-os-r3.2.conf** or etc….
 <br>
 <br>
@@ -144,8 +144,8 @@ redirect_from:
 ![arch-template-08](/attachment/wiki/ArchlinuxTemplate/arch-template-08.png)
 <br>
 <br>
-        *   First screen will ask you to import 'Qubes-Master-Signing-key.asc'.  The 'setup' script not only downloads but confirms the key to that of the key on Qubes-OS website.  
-            
+        *   First screen will ask you to import 'Qubes-Master-Signing-key.asc'.  The 'setup' script not only downloads but confirms the key to that of the key on Qubes-OS website.
+
             *   Select '**YES**'
             *   Select '**OK**' Press '**Enter**'
 <br>
@@ -155,7 +155,7 @@ redirect_from:
 <br>
 
         *   Next screen will ask you to import Marek Marczykowski-Goracki (Qubes OS signing key).  Again 'setup' will confirm this key to the fingerprint.
-            
+
             *   Select '**YES**'
             *   Select '**OK**' Press '**Enter**'
 <br>
@@ -177,7 +177,7 @@ redirect_from:
         *   Screen "**Choose Repos To Use To Build Packages**"
 
             *   Select 'QubesOS/qubes- Stable - Default Repo'
-            *   Select '**OK**' Press '**Enter**' 
+            *   Select '**OK**' Press '**Enter**'
 <br>
 <br>
 ![arch-template-12](/attachment/wiki/ArchlinuxTemplate/arch-template-12.png)
@@ -186,19 +186,19 @@ redirect_from:
 
         *   Screen "**Build Template Only?**"
 
-            *   Select '**Yes**' Press '**Enter**' 
+            *   Select '**Yes**' Press '**Enter**'
 <br>
 <br>
 ![arch-template-12](/attachment/wiki/ArchlinuxTemplate/arch-template-12a.png)
 <br>
 <br>
 
-        *   Screen '**Builder Plugin Selection**' will give choices of builder plugins to use for the build. 
-                        
+        *   Screen '**Builder Plugin Selection**' will give choices of builder plugins to use for the build.
+
             *   Deselect '**Fedora**'
-            
+
             *   Deselect '**mgmt_salt**'
-            
+
             *   Select '**builder-archlinux**'
 
             *   Select '**OK**' Press **Enter**
@@ -209,7 +209,7 @@ redirect_from:
 <br>
 
         *   Screen '**Get sources**' wants to download additional packages needed for the choosen plugin/s.
-        
+
             *   Select '**Yes**' Press '**Enter**'
 <br>
 <br>
@@ -271,29 +271,29 @@ redirect_from:
      Both ways below:
 
     *   Single command to build all Qubes components together: (this command can take a long time to process depending of your pc proccessing power)
-    
+
         *   **$ make qubes-vm**
         <br>
         <br>
 ![arch-template-20](/attachment/wiki/ArchlinuxTemplate/arch-template-20.png)
         <br>
         <br>
-        
-        
+
+
             *   These are the indivual component 'make' commands:
-    
+
                 *   **$ make vmm-xen-vm**
-          
+
                 *   **$ make core-vchan-xen-vm**
-           
+
                 *   **$ make core-qubesdb-vm**
-           
+
                 *   **$ make linux-utils-vm**
-           
+
                 *   **$ make core-agent-linux-vm**
-           
+
                 *   **$ make gui-common-vm**
-           
+
                 *   **$ make gui-agent-linux-vm**
 <br>
 <br>
@@ -301,7 +301,7 @@ redirect_from:
 
 ## 10:   Make the actual Archlinux template
 
-*   **$ make template**  
+*   **$ make template**
 <br>
 <br>
 ![arch-template-21](/attachment/wiki/ArchlinuxTemplate/arch-template-21.png)
@@ -310,7 +310,7 @@ redirect_from:
 
 ## 11:   Transfer Template into Dom0
 
-*   You need to ensure these two files are in the '**noarch**' directory 
+*   You need to ensure these two files are in the '**noarch**' directory
 
     *   **$ cd /home/user/qubes-builder/qubes-src/linux-template-builder/rpm/**
 
@@ -353,7 +353,7 @@ redirect_from:
 * If everything went correct there should be a Archlinux template listed in your Qubes VM Manager *
 
 
-# Known problems in building with Qubes R3.X 
+# Known problems in building with Qubes R3.X
 
 ## Build fails when fetching qubes-mgmt-salt
 
@@ -484,6 +484,6 @@ Again you built a template based on a recent Qubes API which has not been releas
 
 *   [Qubes-Devel](https://groups.google.com/forum/#!forum/qubes-devel): [Qubes Builder failed Archlinux repository is missing](https://groups.google.com/forum/#!topic/qubes-devel/tIFkS-rPVx8)
 
-*   [Qubes-Users](https://groups.google.com/forum/#!forum/qubes-users): [Trying to compile archlinux template](https://groups.google.com/forum/#!topic/qubes-users/7wuwr3LgkQQ)    
+*   [Qubes-Users](https://groups.google.com/forum/#!forum/qubes-users): [Trying to compile archlinux template](https://groups.google.com/forum/#!topic/qubes-users/7wuwr3LgkQQ)
 
 <br>
