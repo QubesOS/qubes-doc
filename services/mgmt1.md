@@ -55,9 +55,9 @@ to set the policy using current mechanism.
 | `mgmt.vm.firewall.InsertRule`         | vm        | rule id   | rule                                      | rule id                                                   | insert before given rule, use `END` as rule id to add rule at the end
 | `mgmt.vm.firewall.RemoveRule`         | vm        | rule id   | -                                         | -                                                         |
 | `mgmt.vm.firewall.Flush`              | vm        | -         | -                                         | -                                                         |
-| `mgmt.vm.device.<class>.Attach`       | vm        | device    | -                                         | -                                                         |
+| `mgmt.vm.device.<class>.Attach`       | vm        | device    | options                                   | -                                                         | optional options given in `key=value` format, separated with spaces
 | `mgmt.vm.device.<class>.Detach`       | vm        | device    | -                                         | -                                                         |
-| `mgmt.vm.device.<class>.List`         | vm        | -         | -                                         | `<device>\n`                                              |
+| `mgmt.vm.device.<class>.List`         | vm        | -         | -                                         | `<device> <options>\n`                                    |
 | `mgmt.vm.device.<class>.Available`    | vm        | -         | -                                         | `<device>\n`                                              |
 | `mgmt.vm.microphone.Attach`           | vm        | -         | -                                         | -                                                         |
 | `mgmt.vm.microphone.Detach`           | vm        | -         | -                                         | -                                                         |
