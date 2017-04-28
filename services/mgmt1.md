@@ -72,12 +72,14 @@ to set the policy using current mechanism.
 | `mgmt.pool.volume.Snapshot`           | `dom0`    | pool      | vid                                       | snapshot                                                  |
 | `mgmt.pool.volume.Revert`             | `dom0`    | pool      | `<vid> <snapshot>`                        | -                                                         |
 | `mgmt.pool.volume.Resize`             | `dom0`    | pool      | `<vid> <size_in_bytes>`                   | -                                                         |
+| `mgmt.pool.volume.Import`             | `dom0`    | pool      | `<vid>\n<raw volume data>`                | -                                                         |
 | `mgmt.vm.volume.List`                 | vm        | -         | -                                         | `<volume>\n`                                              | `<volume>` is per-VM volume name, `<vid>` is pool-unique volume id
 | `mgmt.vm.volume.Info`                 | vm        | volume    | -                                         | `<property>=<value>\n`                                    |
 | `mgmt.vm.volume.ListSnapshots`        | vm        | volume    | -                                         | snapshot                                                  | duplicate of `mgmt.pool.volume.`, but with other call params |
 | `mgmt.vm.volume.Snapshot`             | vm        | volume    | -                                         | snapshot                                                  | id. |
 | `mgmt.vm.volume.Revert`               | vm        | volume    | snapshot                                  | -                                                         | id. |
 | `mgmt.vm.volume.Resize`               | vm        | volume    | size_in_bytes                             | -                                                         | id. |
+| `mgmt.vm.volume.Import`               | vm        | volume    | raw volume data                           | -                                                         | id. |
 | `mgmt.vm.Start`                       | vm        | -         | -                                         | -                                                         |
 | `mgmt.vm.Shutdown`                    | vm        | -         | -                                         | -                                                         |
 | `mgmt.vm.Pause`                       | vm        | -         | -                                         | -                                                         |
