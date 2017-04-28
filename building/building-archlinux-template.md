@@ -100,7 +100,7 @@ redirect_from:
 
       # Assuming qubes-builder is in your home directory
       cp .gnupg/pubring.gpg qubes-builder/keyrings/git/
-      cp .gnupg/secring.gpg qubes-builder/keyrings/git/
+      cp .gnupg/trustdb.gpg qubes-builder/keyrings/git/
      
 * Verify the integrity of the downloaded repository. The last line should read `gpg: Good signature from`...
 
