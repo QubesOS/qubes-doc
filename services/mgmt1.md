@@ -51,10 +51,12 @@ to set the policy using current mechanism.
 | `mgmt.vm.tag.Get`                     | vm        | tag       | -                                         | `0` or `1`                                                | retcode? |
 | `mgmt.vm.tag.Remove`                  | vm        | tag       | -                                         | -                                                         |
 | `mgmt.vm.tag.Set`                     | vm        | tag       | -                                         | -                                                         |
-| `mgmt.vm.firewall.List`               | vm        | -         | -                                         | `<rule id> <rule>\n`                                      |
-| `mgmt.vm.firewall.InsertRule`         | vm        | rule id   | rule                                      | rule id                                                   | insert before given rule, use `END` as rule id to add rule at the end
-| `mgmt.vm.firewall.RemoveRule`         | vm        | rule id   | -                                         | -                                                         |
+| `mgmt.vm.firewall.Get`                | vm        | -         | -                                         | `<rule>\n`                                                | rules syntax as in [firewall interface](/doc/vm-interface/#firewall-rules-in-4x) with addition of `expire=` and `comment=` options; `comment=` (if present) must be the last option
+| `mgmt.vm.firewall.Set`                | vm        | -         | `<rule>\n`                                | -                                                         | set firewall rules, see `mgmt.vm.firewall.Get` for syntax
 | `mgmt.vm.firewall.Flush`              | vm        | -         | -                                         | -                                                         |
+| `mgmt.vm.firewall.SetPolicy`          | vm        | -         | `accept|drop`                             | -                                                         |
+| `mgmt.vm.firewall.GetPolicy`          | vm        | -         | -                                         | `accept|drop`                                             |
+| `mgmt.vm.firewall.Reload`             | vm        | -         | -                                         | -                                                         | force reload firewall without changing any rule
 | `mgmt.vm.device.<class>.Attach`       | vm        | device    | options                                   | -                                                         | optional options given in `key=value` format, separated with spaces
 | `mgmt.vm.device.<class>.Detach`       | vm        | device    | -                                         | -                                                         |
 | `mgmt.vm.device.<class>.List`         | vm        | -         | -                                         | `<device> <options>\n`                                    |
