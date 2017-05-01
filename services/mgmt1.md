@@ -57,10 +57,10 @@ to set the policy using current mechanism.
 | `mgmt.vm.firewall.SetPolicy`          | vm        | -         | `accept|drop`                             | -                                                         |
 | `mgmt.vm.firewall.GetPolicy`          | vm        | -         | -                                         | `accept|drop`                                             |
 | `mgmt.vm.firewall.Reload`             | vm        | -         | -                                         | -                                                         | force reload firewall without changing any rule
-| `mgmt.vm.device.<class>.Attach`       | vm        | device    | options                                   | -                                                         | optional options given in `key=value` format, separated with spaces
-| `mgmt.vm.device.<class>.Detach`       | vm        | device    | -                                         | -                                                         |
+| `mgmt.vm.device.<class>.Attach`       | vm        | device    | options                                   | -                                                         | `device` is in form `<backend-name>+<device-ident>` <br/>optional options given in `key=value` format, separated with spaces; <br/>options can include `persistent=yes` to "persistently" attach the device (default is temporary)
+| `mgmt.vm.device.<class>.Detach`       | vm        | device    | -                                         | -                                                         | `device` is in form `<backend-name>+<device-ident>`
 | `mgmt.vm.device.<class>.List`         | vm        | -         | -                                         | `<device> <options>\n`                                    |
-| `mgmt.vm.device.<class>.Available`    | vm        | -         | -                                         | `<device>\n`                                              |
+| `mgmt.vm.device.<class>.Available`    | vm        | device-ident | -                                         | `<device-ident> <properties> description=<desc>\n`        | optional service argument may be used to get info about a single device, <br/>optional (device class specific) properties are in `key=value` form, <br/>`description` must be the last one and is the only one allowed to contain spaces; <br/>options can include `persistent=yes` for "persistently" attached devices (default is temporary)
 | `mgmt.vm.microphone.Attach`           | vm        | -         | -                                         | -                                                         |
 | `mgmt.vm.microphone.Detach`           | vm        | -         | -                                         | -                                                         |
 | `mgmt.pool.List`                      | `dom0`    | -         | -                                         | `<pool>\n`                                                |
@@ -161,6 +161,9 @@ does not by itself support translation.
 ## General notes
 
 - there is no provision for `qvm-run`, but there already exists `qubes.VMShell` call
+- generally actions `*.List` return a list of objects and have "object
+  identifier" as first word in a row. Such action can be also called with "object
+  identifier" in argument to get only a single entry (in the same format).
 
 ## TODO
 
