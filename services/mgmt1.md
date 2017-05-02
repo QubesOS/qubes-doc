@@ -20,10 +20,10 @@ to set the policy using current mechanism.
 | `mgmt.vmclass.List`                   | `dom0`    | -         | -                                         | `<class>\n`                                               |
 | `mgmt.vm.List`                        | `dom0|<vm>` | -         | -                                         | `<name> class=<class> state=<state>\n`                    |
 | `mgmt.vm.Create.<class>`              | `dom0`    | template  | `name=<name> label=<label>`               | -                                                         |
-| `mgmt.vm.CreateInPool.<class>`        | `dom0`    | template  | `name=<name> label=<label> pool=<pool> pool:<volume>=<pool>`   | -                                                         | either use `pool=` to put all volumes there, or `pool:<volume>=` for individual volumes - both forms are not allowed at the same time
+| `mgmt.vm.CreateInPool.<class>`        | `dom0`    | template  | `name=<name> label=<label> `<br/>`pool=<pool> pool:<volume>=<pool>`   | -                                                         | either use `pool=` to put all volumes there, <br/>or `pool:<volume>=` for individual volumes - both forms are not allowed at the same time
 | `mgmt.vm.CreateTemplate`              | `dom0`    | name      | `root.img`                                | -                                                         |
 | `mgmt.vm.Clone`                       | vm        | -         | `name=<name>`                             | -                                                         |
-| `mgmt.vm.CloneInPool`                 | vm        | -         | `name=<name> pool=<pool> pool:<volume>=<pool>` | -                                                         | same as for `mgmt.vm.CreateInPool`
+| `mgmt.vm.CloneInPool`                 | vm        | -         | `name=<name> `<br/>`pool=<pool> pool:<volume>=<pool>` | -                                                         | same as for `mgmt.vm.CreateInPool`
 | `mgmt.vm.Remove`                      | vm        | -         | -                                         | -                                                         |
 | `mgmt.label.List`                     | `dom0`    | -         | -                                         | `<property>\n`                                            |
 | `mgmt.label.Create`                   | `dom0`    | label     | `0xRRGGBB`                                | -                                                         |
@@ -31,7 +31,7 @@ to set the policy using current mechanism.
 | `mgmt.label.Index`                    | `dom0`    | label     | -                                         | `<label-index>`                                           |
 | `mgmt.label.Remove`                   | `dom0`    | label     | -                                         | -                                                         |
 | `mgmt.property.List`                  | `dom0`    | -         | -                                         | `<property>\n`                                            |
-| `mgmt.property.Get`                   | `dom0`    | property  | -                                         | `default={yes|no} type={str|int|bool|vm|label} <value>`   |
+| `mgmt.property.Get`                   | `dom0`    | property  | -                                         | `default={yes|no} `<br/>`type={str|int|bool|vm|label} <value>`   |
 | `mgmt.property.Help`                  | `dom0`    | property  | -                                         | `help`                                                    |
 | `mgmt.property.HelpRst`               | `dom0`    | property  | -                                         | `help.rst`                                                |
 | `mgmt.property.Reset`                 | `dom0`    | property  | -                                         | -                                                         |
@@ -51,14 +51,16 @@ to set the policy using current mechanism.
 | `mgmt.vm.tag.Get`                     | vm        | tag       | -                                         | `0` or `1`                                                | retcode? |
 | `mgmt.vm.tag.Remove`                  | vm        | tag       | -                                         | -                                                         |
 | `mgmt.vm.tag.Set`                     | vm        | tag       | -                                         | -                                                         |
-| `mgmt.vm.firewall.List`               | vm        | -         | -                                         | `<rule id> <rule>\n`                                      |
-| `mgmt.vm.firewall.InsertRule`         | vm        | rule id   | rule                                      | rule id                                                   | insert before given rule, use `END` as rule id to add rule at the end
-| `mgmt.vm.firewall.RemoveRule`         | vm        | rule id   | -                                         | -                                                         |
+| `mgmt.vm.firewall.Get`                | vm        | -         | -                                         | `<rule>\n`                                                | rules syntax as in [firewall interface](/doc/vm-interface/#firewall-rules-in-4x) with addition of `expire=` and `comment=` options; `comment=` (if present) must be the last option
+| `mgmt.vm.firewall.Set`                | vm        | -         | `<rule>\n`                                | -                                                         | set firewall rules, see `mgmt.vm.firewall.Get` for syntax
 | `mgmt.vm.firewall.Flush`              | vm        | -         | -                                         | -                                                         |
-| `mgmt.vm.device.<class>.Attach`       | vm        | device    | options                                   | -                                                         | optional options given in `key=value` format, separated with spaces
-| `mgmt.vm.device.<class>.Detach`       | vm        | device    | -                                         | -                                                         |
+| `mgmt.vm.firewall.SetPolicy`          | vm        | -         | `accept|drop`                             | -                                                         |
+| `mgmt.vm.firewall.GetPolicy`          | vm        | -         | -                                         | `accept|drop`                                             |
+| `mgmt.vm.firewall.Reload`             | vm        | -         | -                                         | -                                                         | force reload firewall without changing any rule
+| `mgmt.vm.device.<class>.Attach`       | vm        | device    | options                                   | -                                                         | `device` is in form `<backend-name>+<device-ident>` <br/>optional options given in `key=value` format, separated with spaces; <br/>options can include `persistent=yes` to "persistently" attach the device (default is temporary)
+| `mgmt.vm.device.<class>.Detach`       | vm        | device    | -                                         | -                                                         | `device` is in form `<backend-name>+<device-ident>`
 | `mgmt.vm.device.<class>.List`         | vm        | -         | -                                         | `<device> <options>\n`                                    |
-| `mgmt.vm.device.<class>.Available`    | vm        | -         | -                                         | `<device>\n`                                              |
+| `mgmt.vm.device.<class>.Available`    | vm        | device-ident | -                                         | `<device-ident> <properties> description=<desc>\n`        | optional service argument may be used to get info about a single device, <br/>optional (device class specific) properties are in `key=value` form, <br/>`description` must be the last one and is the only one allowed to contain spaces; <br/>options can include `persistent=yes` for "persistently" attached devices (default is temporary)
 | `mgmt.vm.microphone.Attach`           | vm        | -         | -                                         | -                                                         |
 | `mgmt.vm.microphone.Detach`           | vm        | -         | -                                         | -                                                         |
 | `mgmt.pool.List`                      | `dom0`    | -         | -                                         | `<pool>\n`                                                |
@@ -91,6 +93,7 @@ to set the policy using current mechanism.
 | `mgmt.Events`                         | `dom0|vm` | -         | -                                         | events                                                    |
 
 Volume properties:
+
  - `pool`
  - `vid`
  - `size`
@@ -158,6 +161,9 @@ does not by itself support translation.
 ## General notes
 
 - there is no provision for `qvm-run`, but there already exists `qubes.VMShell` call
+- generally actions `*.List` return a list of objects and have "object
+  identifier" as first word in a row. Such action can be also called with "object
+  identifier" in argument to get only a single entry (in the same format).
 
 ## TODO
 
