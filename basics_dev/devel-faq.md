@@ -47,7 +47,7 @@ The policy is there mostly to ease maintenance, on several levels:
  * We're less likely to introduce Qubes-specific issues.
  * Each officially supported distribution (ideally) should offer the same set of
    Qubes-specific features - a change in one supported distribution should be
-   followed also in others, including new future distributions. Modifying one
+   followed also in others, including new future distributions.
 
 Is I/O emulation component (QEMU) part of the Trusted Computing Base (TCB)?
 ------------------------
