@@ -23,7 +23,7 @@ by using the gateway as a ProxyVM to route all network traffic through Tor,
 while the workstation is used for making AppVMs.
 
 ## Getting Started with Whonix
-
+*  Note: To install Whonix in Qubes, you must already have a working Qubes machine.
 *  [Installing Whonix in Qubes](/doc/whonix/install/)
 *  [Updating Whonix in Qubes](/doc/whonix/update/)
 
