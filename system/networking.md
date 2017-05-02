@@ -22,7 +22,7 @@ The IP address of `eth0` interface in AppVM, as well as two IP addresses to be u
 Cooperative Covert Channels Between Domains
 -------------------------------------------
 
-Qubes does not attempt to eliminate cooperative covert channels between two or more compromised domains. We don't believe this is possible to achieve on x86 hardware, and we also doubt it makes any sense in practice for most users -- after all, if the two domains are compromised, then it's already (almost) all lost anyway.
+Qubes does not attempt to eliminate cooperative covert channels between two or more compromised domains. We don't believe this is possible to achieve on x86 hardware, and we also doubt it makes any sense in practice for most users -- after all, if the two domains are compromised, then it's probably already all lost anyway.
 
 Routing tables examples
 -----------------------
