@@ -27,6 +27,10 @@ View all past QSBs:
 
 <https://www.qubes-os.org/security/bulletins/>
 
+View <XSA> in the XSA Tracker:
+
+<https://www.qubes-os.org/security/xsa/`<XSA>`>
+
 ```
              ---===[ Qubes Security Bulletin #<number>]===---
 
