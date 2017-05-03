@@ -145,7 +145,7 @@ Please attempt to follow these conventions when writing your Git commit messages
  * Wrap the body at 72 characters.
  * Use the body to explain *what* and *why* rather than *how*.
 
-For details, examples, and the rationale behind each of these conventions, please see [this blog post](http://chris.beams.io/posts/git-commit/), which is the source of this list.
+For details, examples, and the rationale behind each of these conventions, please see [this blog post](https://chris.beams.io/posts/git-commit/), which is the source of this list.
 
 Security coding guidelines
 --------------------------
