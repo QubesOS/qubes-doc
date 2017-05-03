@@ -78,7 +78,7 @@ Cons:
 
 [verify]: /security/verifying-signatures/
 [classic problem]: https://www.ece.cmu.edu/~ganger/712.fall02/papers/p761-thompson.pdf
-[solutions]: http://www.dwheeler.com/trusting-trust/
+[solutions]: https://www.dwheeler.com/trusting-trust/
 [USB qube]: /doc/usb/#creating-and-using-a-usb-qube
 [BadUSB]: https://srlabs.de/badusb/
 
