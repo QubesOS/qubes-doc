@@ -409,7 +409,7 @@ Commenting out "\#define HAVE\_ATTRIBUTE\_FORMAT\_PARSETUPLE" from chroot\_archl
 
 A better fix is planned for the next python release (the bug is considered release blocking), and will be updated in archlinux chroot as soon as available.
 
-[1] [http://bugs.python.org/issue17547](http://bugs.python.org/issue17547)
+[1] [https://bugs.python.org/issue17547](https://bugs.python.org/issue17547)
 
 ## The boot process fails without visible errors in the logs, but spawn a recovery shell
 
