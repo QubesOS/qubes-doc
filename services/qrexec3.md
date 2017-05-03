@@ -277,7 +277,7 @@ on the target and returns back the result to the invoker.
 and we should get "3" as answer, after dom0 allows it.
 
 **Note:** For a real world example of writing a qrexec service, see this
-[blog post](http://theinvisiblethings.blogspot.com/2013/02/converting-untrusted-pdfs-into-trusted.html).
+[blog post](https://blog.invisiblethings.org/2013/02/21/converting-untrusted-pdfs-into-trusted.html).
 
 ### Qubes RPC example - with argument usage ###
 
