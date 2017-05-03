@@ -22,7 +22,7 @@ the user is free to create more, if needed.
 For more information, see the following:
 
 -   [https://groups.google.com/group/qubes-devel/browse\_thread/thread/9e231b0e14bf9d62](https://groups.google.com/group/qubes-devel/browse_thread/thread/9e231b0e14bf9d62)
--   [http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html)
+-   [https://blog.invisiblethings.org/2011/09/28/playing-with-qubes-networking-for-fun.html](https://blog.invisiblethings.org/2011/09/28/playing-with-qubes-networking-for-fun.html)
 
 How to edit rules
 -----------------
