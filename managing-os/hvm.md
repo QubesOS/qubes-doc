@@ -17,7 +17,7 @@ What are HVM domains?
 
 HVM domains (Hardware VM), in contrast to PV domains (Paravirtualized domains), allow one to create domains based on any OS for which one has an installation ISO.  For example, this allows one to have Windows-based VMs in Qubes.
 
-Interested readers might want to check [this article](http://theinvisiblethings.blogspot.com/2012/03/windows-support-coming-to-qubes.html) to learn why it took so long for Qubes OS to support HVM domains (Qubes 1 only supported Linux based PV domains).
+Interested readers might want to check [this article](https://blog.invisiblethings.org/2012/03/03/windows-support-coming-to-qubes.html) to learn why it took so long for Qubes OS to support HVM domains (Qubes 1 only supported Linux based PV domains).
 
 Creating an HVM domain
 ----------------------
@@ -144,7 +144,7 @@ qemu-img -h | tail -n1
 Setting up networking for HVM domains
 -------------------------------------
 
-Just like standard paravirtualized AppVMs, the HVM domains get fixed IP addresses centrally assigned by Qubes. Normally Qubes agent scripts running within each AppVM are responsible for setting up networking within the VM according the configuration created by Qubes. Such centrally managed networking infrastructure allows for [advanced networking configuration](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html).
+Just like standard paravirtualized AppVMs, the HVM domains get fixed IP addresses centrally assigned by Qubes. Normally Qubes agent scripts running within each AppVM are responsible for setting up networking within the VM according the configuration created by Qubes. Such centrally managed networking infrastructure allows for [advanced networking configuration](https://blog.invisiblethings.org/2011/09/28/playing-with-qubes-networking-for-fun.html).
 
 A generic HVM domain such as a standard Windows or Ubuntu installation, however, has no Qubes agent scripts running inside it initially and thus requires manual networking configuration so that it match the values assigned by Qubes for this domain.
 
