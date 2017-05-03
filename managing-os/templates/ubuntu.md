@@ -16,7 +16,7 @@ If you would like to use Ubuntu Linux distribution in your AppVMs, you can build
 install one of the available Ubuntu templates. These templates are currently not
 available in ready to use binary packages, because Canonical does not allow
 redistribution of a modified Ubuntu. The redistribution is not allowed by their
-[Intellectual property rights policy](http://www.ubuntu.com/legal/terms-and-policies/intellectual-property-policy).
+[Intellectual property rights policy](https://www.ubuntu.com/legal/terms-and-policies/intellectual-property-policy).
 
 
 Install
