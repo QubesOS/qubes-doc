@@ -216,7 +216,7 @@ appear after the invocation of this command. If we changed the policy from
 be allowed.
 
 **Note:** For a real world example of writing a qrexec service, see this
-[blog post](http://theinvisiblethings.blogspot.com/2013/02/converting-untrusted-pdfs-into-trusted.html).
+[blog post](https://blog.invisiblethings.org/2013/02/21/converting-untrusted-pdfs-into-trusted.html).
 
 ### More high-level RPCs? ###
 
