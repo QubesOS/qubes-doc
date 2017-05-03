@@ -99,7 +99,7 @@ Also, the inter-VM services work as usual -- e.g. to request opening a document 
 ~~~
 
 ~~~
-[user@work ~]$ qvm-open-in-vm work-win7 http://www.invisiblethingslab.com
+[user@work ~]$ qvm-open-in-vm work-win7 https://invisiblethingslab.com
 ~~~
 
 ... just like in case of Linux AppVMs. Of course all those operations are governed by central policy engine running in Dom0 -- if the policy doesn't contain explicit rules for the source and/or target AppVM, the user will be asked for decision whether to allow or deny the operation.
