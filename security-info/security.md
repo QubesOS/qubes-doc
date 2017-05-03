@@ -23,7 +23,7 @@ Qubes OS Project Security Center
 -   [Canaries](/security/canaries/)
 -   [Xen Security Advisory (XSA) Tracker](/security/xsa/)
 -   [Why and How to Verify Signatures](/security/verifying-signatures/)
--   [PGP Keys](http://keys.qubes-os.org/keys/)
+-   [PGP Keys](https://keys.qubes-os.org/keys/)
 
 Reporting Security Issues in Qubes OS
 -------------------------------------
@@ -45,10 +45,9 @@ security at qubes-os dot org
 
 ### Qubes Security Team GPG Key ###
 
-Please use [this GPG key](http://keys.qubes-os.org/keys/qubes-os-security-team-key.asc) to encrypt any emails sent to this address. Like all GPG keys used by the Qubes project, this key is signed by the Qubes Master key. Please see [this page](/security/verifying-signatures/) for more information on how to verify the keys.
+Please use [this GPG key](https://keys.qubes-os.org/keys/qubes-os-security-team-key.asc) to encrypt any emails sent to this address. Like all GPG keys used by the Qubes project, this key is signed by the Qubes Master key. Please see [this page](/security/verifying-signatures/) for more information on how to verify the keys.
 
 ### Members of the Security Team ###
 
 -   Joanna Rutkowska \<joanna at invisiblethingslab dot com\>
 -   Marek Marczykowski \<marmarek at invisiblethingslab dot com\>
-
