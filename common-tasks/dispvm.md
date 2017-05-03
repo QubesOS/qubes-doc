@@ -14,7 +14,7 @@ Disposable VMs (DispVMs)
 Background
 ----------
 
-A Disposable VM (DispVM) is a lightweight VM that can be created quickly and which will disappear when it is finished with. Usually a Disposable VM is created in order to host a single application, like a viewer or an editor. This means that you can safely work with files without risk of compromising any of your VMs. Changes made to a file opened in a disposable VM are passed back to the originating VM. See [this article](http://theinvisiblethings.blogspot.com/2010/06/disposable-vms.html) for more on why would one want to use a Disposable VM.
+A Disposable VM (DispVM) is a lightweight VM that can be created quickly and which will disappear when it is finished with. Usually a Disposable VM is created in order to host a single application, like a viewer or an editor. This means that you can safely work with files without risk of compromising any of your VMs. Changes made to a file opened in a disposable VM are passed back to the originating VM. See [this article](https://blog.invisiblethings.org/2010/06/01/disposable-vms.html) for more on why would one want to use a Disposable VM.
 
 By default a Disposable VM will inherit the NetVM and firewall settings of the ancestor VM, that is the VM it is launched from. Thus if an AppVM uses sys-net as NetVM (instead of, say, sys-whonix), any DispVM launched from this AppVM will also have sys-net as its NetVM. You can change this behaviour for individual VMs: in the Qubes Manager open VM Settings for the VM in question and go to the "Advanced" tab. Here you can edit the "NetVM for DispVM" setting to change the NetVM of any DispVM launched from that VM.
 
