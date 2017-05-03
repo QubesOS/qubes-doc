@@ -130,7 +130,7 @@ Source Code management (Git) guidelines
     -   This creates natural boundaries between different code blocks, enforcing proper interfaces, and easing independent development to be conducted on various code parts at the same time, without the fear of running into conflicts.
     -   By maintaining relatively small git repositories, it is easy for new developers to understand the code and contribute new patches, without the need to understand all the other code.
     -   Code repositories represent also licensing boundaries. So, e.g. because `core-agent-linux` and `core-agent-windows` are maintained in two different repositories, it is possible to have the latter under a proprietary, non-GPL license, while keeping the former fully open source.
-    -   We have drastically changes the layout and naming of the code repositories shortly after Qubes OS R2 Beta 2 release. For details on the current code layout, please read [this article](http://theinvisiblethings.blogspot.com/2013/03/introducing-qubes-odyssey-framework.html).
+    -   We have drastically changes the layout and naming of the code repositories shortly after Qubes OS R2 Beta 2 release. For details on the current code layout, please read [this article](https://blog.invisiblethings.org/2013/03/21/introducing-qubes-odyssey-framework.html).
 
 Commit message guidelines
 -------------------------
