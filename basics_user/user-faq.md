@@ -78,7 +78,7 @@ It has its own VM management infrastructure, with support for template VMs, cent
 
 ### How is Qubes different from other security solutions?
 
-Please see [this article](http://theinvisiblethings.blogspot.com/2012/09/how-is-qubes-os-different-from.html) for a thorough discussion.
+Please see [this article](https://blog.invisiblethings.org/2012/09/12/how-is-qubes-os-different-from.html) for a thorough discussion.
 
 ### Does Qubes use full disk encryption (FDE)?
 
@@ -93,7 +93,7 @@ To build security on the “Security by Compartmentalization (or Isolation)” p
 
 ### What about other approaches to security?
 
-The other two popular [approaches](http://theinvisiblethings.blogspot.com/2008/09/three-approaches-to-computer-security.html) are “Security by Correctness” and “Security by Obscurity.” 
+The other two popular [approaches](https://blog.invisiblethings.org/2008/09/02/three-approaches-to-computer-security.html) are “Security by Correctness” and “Security by Obscurity.” 
 We don't believe either of these approaches are capable of providing reasonable security today, nor do we believe that they will be capable of doing so in the foreseeable future.
 
 ### What about safe languages and formally verified microkernels?
