@@ -80,7 +80,7 @@ The same steps should work for any Chrome app.
 
 [Signal]: https://whispersystems.org/
 [signal-wikipedia]: https://en.wikipedia.org/wiki/Signal_(software)
-[shortcut]: http://support.whispersystems.org/hc/en-us/articles/216839277-Where-is-Signal-Desktop-on-my-computer-
+[shortcut]: https://support.whispersystems.org/hc/en-us/articles/216839277-Where-is-Signal-Desktop-on-my-computer-
 [shortcut-desktop]: /doc/managing-appvm-shortcuts/#tocAnchor-1-1-1
 [message]: https://groups.google.com/d/msg/qubes-users/rMMgeR-KLbU/XXOFri26BAAJ
 [mailing list]: /mailing-lists/
