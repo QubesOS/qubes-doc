@@ -37,7 +37,7 @@ sudo yum install <program>
 
 automatically accomplishes this verification. 
 
-Custom user-added repositories might come with gpgcheck disabled. [Check the config files](http://docs.fedoraproject.org/en-US/Fedora/12/html/Deployment_Guide/sec-Configuring_Yum_and_Yum_Repositories.html) and verify that 
+Custom user-added repositories might come with gpgcheck disabled. [Check the config files](https://docs.fedoraproject.org/en-US/Fedora/12/html/Deployment_Guide/sec-Configuring_Yum_and_Yum_Repositories.html) and verify that 
 
 ~~~
 gpgcheck=1
@@ -55,7 +55,7 @@ Remember: Qubes cannot automatically verify the signature of files that come fro
 Observing Security Contexts
 ---------------------------
 
-Each VM is assigned a specific colour for its window borders. These borders are how Qubes displays the **security context** of applications and data so that users can be easily aware of this at all times. Be sure to check the colour of window borders before taking any action, particularly if it affects the security of your system. [See this blog post for more information](http://theinvisiblethings.blogspot.com/2011/05/app-oriented-ui-model-and-its-security.html).
+Each VM is assigned a specific colour for its window borders. These borders are how Qubes displays the **security context** of applications and data so that users can be easily aware of this at all times. Be sure to check the colour of window borders before taking any action, particularly if it affects the security of your system. [See this blog post for more information](https://blog.invisiblethings.org/2011/05/21/app-oriented-ui-model-and-its-security.html).
 
 Always remember that any "red" window can draw "green" password prompts. 
 Don't let yourself be tricked into entering credentials designated to one qube into a forged input boxes rendered by another.
