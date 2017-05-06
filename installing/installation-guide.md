@@ -123,7 +123,7 @@ Getting Help
 [downloads]: /downloads/
 [verifying signatures]: /security/verifying-signatures/
 [security considerations]: /doc/install-security/
-[Rufus]: http://rufus.akeo.ie/
+[Rufus]: https://rufus.akeo.ie/
 [documentation]: /doc/
 [improving]: /doc/doc-guidelines/
 [mailing lists]: /doc/mailing-lists/
