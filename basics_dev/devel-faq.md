@@ -23,44 +23,40 @@ So, having faced a choice between 32-bit and 64-bit OS for Dom0, it was almost a
 The 64-bit option provides some (little perhaps, but some) more protection against some classes of attacks, and at the same time does not have any disadvantages except the extra requirement of a 64 bit processor. 
 And even though Qubes now "needs" a 64 bit processor, it didn't make sense to run Qubes on a system without 3-4GB of memory, and those have 64-bit CPUs anyway.
 
-What is the recommended build environment?
+What is the recommended build environment for Qubes OS?
 ------------------------------------------
 
-Any rpm-based, 64-bit. Preferred Fedora.
+Any rpm-based, 64-bit environment, the preferred OS being Fedora.
 
-How to build Qubes from sources?
+How do I build Qubes from sources?
 --------------------------------
 
-See [the instruction](/doc/qubes-builder/)
+See [these instructions](/doc/qubes-builder/).
 
 How do I submit a patch?
 ------------------------
 
-See [Qubes Source Code Repositories](/doc/source-code/).
+See the [Qubes Source Code Repositories](/doc/source-code/) article.
 
 What is Qubes' attitude toward changing guest distros?
 ------------------------------------------------------
 
-We try to respect each distro's culture, where possible. See the discussion on
-issue [#1014](https://github.com/QubesOS/qubes-issues/issues/1014) for an
-example.
+We try to respect each distro's culture, where possible. 
+See the discussion on issue [#1014](https://github.com/QubesOS/qubes-issues/issues/1014) for an example.
 
 The policy is there mostly to ease maintenance, on several levels:
 
  * Less modifications means easier migration to new upstream distribution
-   releases
- * Upstream documentation matching the distribution running in Qubes VM
- * Less likely to introduce Qubes-specific issues
+   releases.
+ * The upstream documentation matches the distribution running in the Qubes VM.
+ * We're less likely to introduce Qubes-specific issues.
  * Each officially supported distribution (ideally) should offer the same set of
    Qubes-specific features - a change in one supported distribution should be
-   followed also in others (including some new in the future)
+   followed also in others, including new future distributions.
 
-Is QEMU part of the TCB?
+Is I/O emulation component (QEMU) part of the Trusted Computing Base (TCB)?
 ------------------------
 
-No. Unlike many other virtualization systems, Qubes takes special effort to keep
-the I/O emulation component (QEMU) _outside_ of the TCB. This has been achieved
-thanks to the careful use of Xen's stub domain feature. For more details about
-how we improved on Xen's native stub domain use, see
-[here](https://blog.invisiblethings.org/2012/03/03/windows-support-coming-to-qubes.html).
-
+No. Unlike many other virtualization systems, Qubes takes special effort to keep QEMU _outside_ of the TCB. 
+This has been achieved thanks to the careful use of Xen's stub domain feature. 
+For more details about how we improved on Xen's native stub domain use, see [here](https://blog.invisiblethings.org/2012/03/03/windows-support-coming-to-qubes.html).
