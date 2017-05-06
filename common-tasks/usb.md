@@ -370,7 +370,7 @@ This feature is not yet available in Qubes Manager however, if you would like to
 [AEM]: /doc/anti-evil-maid/
 [1618]: https://github.com/QubesOS/qubes-issues/issues/1618
 [create a USB qube]: #creating-and-using-a-usb-qube
-[usb-challenges]: http://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html
+[usb-challenges]: https://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html
 [project-page]: /gsoc/
 [gsoc-page]: https://summerofcode.withgoogle.com/organizations/6239659689508864/
 [YubiKey]: /doc/YubiKey/
