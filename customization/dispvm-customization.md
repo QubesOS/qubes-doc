@@ -72,7 +72,7 @@ It is possible to change the settings of each new Disposable VM (DispVM). This c
 Adding arbitrary programs to Disposable VM Application Menu
 -----------------------------------------------------------
 
-For added convenience, arbitrary programs can be added to the Application Menu of the Disposable VM. In order to do that `arbitrary.desktop` file has to be created in `/usr/share/applications` in Dom0. That file will point to the desired program. Use following template when creating a .desktop file:
+For added convenience, arbitrary programs can be added to the Application Menu of the Disposable VM. In order to do that create (e.g.) `arbitrary.desktop` file in `/usr/share/applications` in Dom0. That file will point to the desired program. Use the following template for the file:
 
     [Desktop Entry]
     Version=1.0
@@ -85,9 +85,9 @@ For added convenience, arbitrary programs can be added to the Application Menu o
     StartupNotify=false
     Categories=Network;X-Qubes-VM;
 
-Next, the /etc/xdg/menus/applications-merged/qubes-dispvm.menu file has to be modified so that it points to our newly-created .desktop file.
+Next, the `/etc/xdg/menus/applications-merged/qubes-dispvm.menu` file has to be modified so that it points to the newly-created .desktop file. (If you use i3 you can skip this step; the shortcut gets added to dmenu automatically.)
 
-Add `<Filename>arbitrary.desktop</Filename>` line to the `<Include></Include>` block. The modified file should look like this:
+Add a `<Filename>arbitrary.desktop</Filename>` line so that your modified file looks like this:
 
     <Include>
     <Filename>qubes-dispvm-firefox.desktop</Filename>
@@ -95,4 +95,4 @@ Add `<Filename>arbitrary.desktop</Filename>` line to the `<Include></Include>` b
     <Filename>arbitrary.desktop</Filename>
     </Include>
 
-After saving the changes our program should appear under the Disposable VM Applications menu.
+After saving the changes the new shortcut should appear in the Disposable VM Applications menu.
