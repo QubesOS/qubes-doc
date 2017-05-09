@@ -2,7 +2,7 @@ This short howto will explain how you can use Spotify, Netflix or Amazon Prime u
 This steps have been tested by providing an own "multimedia" App VM which is based on the Qubes OS Debian 8 Template VM.
 
 Listen to Spotify
-
+=================
 Install-Howto: https://www.spotify.com/de/download/linux/
 
 Detailed steps:
@@ -16,6 +16,7 @@ I could then start the native spotify client .. easy.
 
 
 Play Netflix
+============
 The built in Firefox (from the Debian Template VM) was Firefox ESR 45.3.0
 According to the "supported browser" list Mozilla Firefox >= 47.x is needed.
 I've thereoff installed Firefox v53.0.2 according to this manual:
@@ -42,6 +43,55 @@ That's it, login into Netflix and enjoy.
 
 
 How to use Amazon Prime
+=======================
 If you have setup everything to watch netflix (see above), Amazon Prime should also work.
 Enjoy"
 
+
+Play DVDs
+=========
+
+To play DVDs within Qubes I have used my new multimedia App VM (which can also play Spotify and Netflix, see post from yesterday).
+The multimedia App-VM is based on the Debian 8 Template in Qubes 3.2
+
+Some suggested to install the whole desktop within the Debian Image, I don't want to install everything but only the stuff, that is really needed.
+As such I have looked at the Debian documentation
+
+1) Launch Debian 8 Template VM and install the Qubes Proxy Tools, so that you can pass your (external?) DVD-Drive via sys-usb to the multimedia App-VM. Strangely the qubes-usb-proxy seems to be installed within the fedora template but not in the debian template.
+   In Debian Template VM:
+   sudo apt-get install qubes-usb-proxy
+
+2) Install libdbdread4 from the default repositories:
+   In Debian Template VM:
+   apt-get install libdvdread4
+   
+3) Install libdvdcss for the decryption of CSS protected-DVDs.
+   Because of license restrictions in various countries this can't be done from the Debian repositories but needs to be installed manually.
+   (not that hard :-)).
+   Download the packaged .deb from: http://www.deb-multimedia.org/dists/stable/main/binary-amd64/package/libdvdcss2
+   In Debian Template VM:
+   wget http://www.deb-multimedia.org/pool/main/libd/libdvdcss/libdvdcss2_1.3.0-dmo1_amd64.deb
+   sudo dpkg -i libdvdcss2_1.3.0-dmo1_amd64.deb
+
+4) I like to use VLC to playback Video/DVDs - you might want to use another player, but VLC works fine.
+   As this is not installed in the default Debian Template:
+   In Debian Template VM:
+   sudo apt-get install vlc
+   This will also install some dependencies.
+
+5) Shutdown the Debian Template VM and launch your multimedia App VM
+
+6) Plugin your external USB DVD-Drive (if you don't have an internal drive) and pass it to the multimedia App VM
+   In dom0:
+   qvm-usb -a multimedia sys-usb:3-6
+
+7) Launch VLC
+   qvm-run multimedia vlc
+   Warning: a window will open in the background which will ask for collecting metadata information.
+   I haven't seen the window as it was covered by the VLC main window, so that I couldn't launch any commands in this window.
+
+8) Open DVD within VLC:
+   Media > Open Disk
+   You can leave the defaults (/dev/sr0) and just hit play
+
+Enjoy your DVD
