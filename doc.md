@@ -152,7 +152,7 @@ Configuration Guides
  * [Salt management stack](/doc/salt/)
  * [Adding SSD storage cache](https://groups.google.com/d/msgid/qubes-users/a08359c9-9eb0-4d1a-ad92-a8a9bc676ea6%40googlegroups.com)
  * [Setting default applications; using `qvm-open-in-(d)vm` as a default application](/doc/default-applications/)
-
+ * [Tweaking Tor Browser](/doc/tweaking-tor-browser/)
 
 Customization Guides
 --------------------
