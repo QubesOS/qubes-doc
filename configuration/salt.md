@@ -381,19 +381,18 @@ VM which provides network to the given VM
 The output for each VM is logged in `/var/log/qubes/mgmt-VM_NAME.log`.
 
 If the log does not contain useful information:
-1. Stop `qubesctl` using Ctrl-z
-2. Run `sudo qubesctl --skip-dom0 --target=VM_NAME state.highstate`
-3. When your VM is being started (yellow) press Ctrl-z on qubesctl.
-4. Open terminal in disp-mgmt-VM_NAME.
-5. Look at /etc/qubes-rpc/qubes.SaltLinuxVM - this is what is 
+1. Run `sudo qubesctl --skip-dom0 --target=VM_NAME state.highstate`
+2. When your VM is being started (yellow) press Ctrl-z on qubesctl.
+3. Open terminal in disp-mgmt-VM_NAME.
+4. Look at /etc/qubes-rpc/qubes.SaltLinuxVM - this is what is 
    executed in the management VM.
-6. Get the last two lines:
+5. Get the last two lines:
 
     $ export PATH="/usr/lib/qubes-vm-connector/ssh-wrapper:$PATH"
     $ salt-ssh "$target_vm" $salt_command
 
   Adjust $target_vm (VM_NAME) and $salt_command (state.highstate).
-7. Execute them, fix problems, repeat.
+6. Execute them, fix problems, repeat.
 
 ## Known Pitfalls
 
@@ -402,10 +401,10 @@ If the log does not contain useful information:
 The fedora-24-minimal package is missing the `sudo` package.
 You can install it via:
 
-    $ qvm-run -p vmname 'dnf install -y sudo'
+    $ qvm-run -p -u root fedora-24-minimal-template 'dnf install -y sudo'
     
 The `-p` will cause the execution to wait until the package is installed.
-Having `sudo` is important when using a state with `cmd.run`.
+Having the `-p` flag is important when using a state with `cmd.run`.
 
 ### Disk Quota Exceeded (When Installing Templates)
 
