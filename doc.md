@@ -124,6 +124,7 @@ Privacy Guides
  * [TorVM](/doc/torvm/)
  * [Martus](/doc/martus/)
  * [Signal](/doc/signal/)
+ * [Reducing the fingerprint of the text-based web browser w3m](/doc/w3m/)
 
 
 Configuration Guides
@@ -151,7 +152,6 @@ Configuration Guides
  * [Managing VM kernel](/doc/managing-vm-kernel/)
  * [Salt management stack](/doc/salt/)
  * [Adding SSD storage cache](https://groups.google.com/d/msgid/qubes-users/a08359c9-9eb0-4d1a-ad92-a8a9bc676ea6%40googlegroups.com)
- * [Reducing the fingerprint of the text-based web browser w3m](/doc/w3m/)
 
 
 Customization Guides
