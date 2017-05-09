@@ -1,0 +1,47 @@
+This short howto will explain how you can use Spotify, Netflix or Amazon Prime under Qubes OS.
+This steps have been tested by providing an own "multimedia" App VM which is based on the Qubes OS Debian 8 Template VM.
+
+Listen to Spotify
+
+Install-Howto: https://www.spotify.com/de/download/linux/
+
+Detailed steps:
+
+1) sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+2) echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+3) sudo apt-get update
+4) sudo apt-get install spotify-client
+
+I could then start the native spotify client .. easy.
+
+
+Play Netflix
+The built in Firefox (from the Debian Template VM) was Firefox ESR 45.3.0
+According to the "supported browser" list Mozilla Firefox >= 47.x is needed.
+I've thereoff installed Firefox v53.0.2 according to this manual:
+http://libre-software.net/how-to-install-firefox-on-ubuntu-linux-mint/
+
+1) download firefox from https://www.mozilla.org/en-US/firefox/new/?scene=2
+direct download link:
+https://download-installer.cdn.mozilla.net/pub/firefox/releases/53.0.2/linux-x86_64/en-US/firefox-53.0.2.tar.bz2
+
+2) unpack the downloaded file
+tar -xjf firefox-53.0.2.tar.bz2
+
+3) move the unpacked folder:
+sudo mv firefox /opt/firefox53
+
+4) Create a symlink to the new firefox version:
+if you want to use the new installed firefox as "standard firefox", rename the original link in case you want to go back to the previous version
+sudo mv /usr/bin/firefox /usr/bin/firefox-old
+Create a link to the new firefox version
+sudo ln -s /opt/firefox53/firefox /usr/bin/firefox
+
+5) Launch firefox and open Preferences, Content and enable "Play DRM content"
+That's it, login into Netflix and enjoy.
+
+
+How to use Amazon Prime
+If you have setup everything to watch netflix (see above), Amazon Prime should also work.
+Enjoy"
+
