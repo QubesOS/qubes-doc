@@ -164,6 +164,8 @@ does not by itself support translation.
 - generally actions `*.List` return a list of objects and have "object
   identifier" as first word in a row. Such action can be also called with "object
   identifier" in argument to get only a single entry (in the same format).
+- closing qrexec connection normally does _not_ interrupt running operation; this is important to avoid leaving the system in inconsistent state
+- actual operation starts only after caller send all the parameters (including a payload), signaled by sending EOF mark; there is no support for interactive protocols, to keep the protocol reasonable simple
 
 ## TODO
 
