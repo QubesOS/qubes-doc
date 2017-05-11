@@ -1,3 +1,9 @@
+---
+layout: doc
+title: How to play multimedia content
+permalink: /doc/config/multimedia/
+---
+
 This short howto will explain how you can use Spotify, Netflix or Amazon Prime under Qubes OS.
 This steps have been tested by providing an own "multimedia" App VM which is based on the Qubes OS Debian 8 Template VM.
 
