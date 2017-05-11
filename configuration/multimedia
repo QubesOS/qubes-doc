@@ -17,6 +17,12 @@ I could then start the native spotify client .. easy.
 
 Play Netflix
 ============
+You can play Netflix by installing a more recent version of firefox or by installing Google Chroome.
+As Google Chrome will play video from Netflx and (!) Amazon, the suggestion is to install Google Chrome.
+If you don't use Amazon Prime, Firefox will work.
+
+Install Firefox
+---------------
 The built in Firefox (from the Debian Template VM) was Firefox ESR 45.3.0
 According to the "supported browser" list Mozilla Firefox >= 47.x is needed.
 I've thereoff installed Firefox v53.0.2 according to this manual:
@@ -44,8 +50,26 @@ That's it, login into Netflix and enjoy.
 
 How to use Amazon Prime
 =======================
-If you have setup everything to watch netflix (see above), Amazon Prime should also work.
-Enjoy"
+Playing Video thorugh Amazon Prime via Firefox didn't work, with Google Chrome it works.
+Warning: You need to install Google Chrome, not Chromium.
+
+Install Google Chrome
+---------------------
+Launch you Debian 8 Template VM
+
+1) Download latest .deb-package of Google Chrome
+   wget -c wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+
+2) Install the package
+   sudo dpkg -i google-chrome-*.deb
+
+3) Install missing dependencies
+   sudo apt-get install -f
+
+4) Shutdown Template VM
+
+5) Add Google Chrome Shortcut to your multimedia App VM
+
 
 
 Play DVDs
