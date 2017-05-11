@@ -291,9 +291,9 @@ Open a terminal and run `sudo yum install linux-firmware` in the TemplateVM upon
 
 ### Can I install Qubes OS together with other operating system (dual-boot/multi-boot)?
 
-You shouldn't do that, because it pose a security risk for your Qubes OS installation. 
+You shouldn't do that, because it poses a security risk for your Qubes OS installation.
 But if you understand the risk and accept it, read [documentation on multibooting](/doc/multiboot/). 
-It starts with explanation what is wrong with using such setup.
+It starts with explaining what is wrong with using such a setup.
 
 Common Problems
 ---------------
@@ -438,7 +438,7 @@ The encrypted partitions are identified and the user is prompted for password on
 
 A fully encrypted drive does not appear in Nautilus.
 
-The work round is to manually decrypt and mount the drive:
+The workaround is to manually decrypt and mount the drive:
 
 1. attach usb device to qube - it should be attached as /dev/xvdi or similar.
 2. sudo cryptsetup open /dev/xvdi bk --type luks

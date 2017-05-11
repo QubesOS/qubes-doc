@@ -20,7 +20,7 @@ In addition to saving on the disk space, and reducing domain creation time, anot
 
 The default template is called **fedora-14-x64** in Qubes R1 and **fedora-20-x64** in Qubes R2.
 
-The side effect of this mechanism is, of course, that if you install any software in your AppVM, more specifically in any directory other than `/home` or `/usr/local` then it will disappear after the AppVM reboot (as the root filesystem for this AppVM will again be "taken" from the TemplateVM). **This means one normally install software in the TemplateVM, not in AppVMs.**
+The side effect of this mechanism is, of course, that if you install any software in your AppVM, more specifically in any directory other than `/home` or `/usr/local` then it will disappear after the AppVM reboot (as the root filesystem for this AppVM will again be "taken" from the TemplateVM). **This means one normally installs software in the TemplateVM, not in AppVMs.**
 
 Unlike VM private filesystems, the template VM root filesystem does not support discard, so deleting files does not free the space in dom0. See [these instructions](/doc/template/fedora/upgrade-23-to-24/#compacting-the-upgraded-template) to recover space in dom0.
 
@@ -33,7 +33,7 @@ In order to permanently install new software, you should:
 
 -   Install/update software as usual (e.g. using yum, or the dedicated GUI application). Then, shutdown the template VM,
 
--   You will see now that all the AppVMs based on this template (by default all your VMs) will be marked as "outdated" in the manager. This is because their filesystems have not been yet updated -- in order to do that, you must restart each VM. You don't need to restart all of them at the same time -- e.g. if you just need the newly installed software to be available in your 'personal' domain, then restart only this VM. You will restart others whenever this will be convenient to you.
+-   You will see now that all the AppVMs based on this template (by default all your VMs) will be marked as "outdated" in the manager. This is because their filesystems have not been yet updated -- in order to do that, you must restart each VM. You don't need to restart all of them at the same time -- e.g. if you just need the newly installed software to be available in your 'personal' domain, then restart only this VM. You can restart others whenever this will be convenient to you.
 
 Testing repositories
 --------------------
@@ -115,19 +115,19 @@ As the TemplateVM is used for creating filesystems for other AppVMs, where you a
 
 There are several ways to deal with this problem:
 
--   Only install packages from trusted sources -- e.g. from the pre-configured Fedora repositories. All those packages are signed by Fedora, and as we expect that at least the package's installation scripts are not malicious. This is enforced by default (at the [firewall VM level](/doc/firewall/)), by not allowing any networking connectivity in the default template VM, except for access to the Fedora repos.
+-   Only install packages from trusted sources -- e.g. from the pre-configured Fedora repositories. All those packages are signed by Fedora, and we expect that at least the package's installation scripts are not malicious. This is enforced by default (at the [firewall VM level](/doc/firewall/)), by not allowing any networking connectivity in the default template VM, except for access to the Fedora repos.
 
 -   Use *standalone VMs* (see below) for installation of untrusted software packages.
 
--   Use multiple templates (see below) for different classes of domains, e.g. a less trusted template, used for creation of less trusted AppVMs, would get various packages from somehow less trusted vendors, while the template used for more trusted AppVMs will only get packages from the standard Fedora repos.
+-   Use multiple templates (see below) for different classes of domains, e.g. a less trusted template, used for creation of less trusted AppVMs, would get various packages from somewhat less trusted vendors, while the template used for more trusted AppVMs will only get packages from the standard Fedora repos.
 
 Some popular questions:
 
 -   So, why should we actually trust Fedora repos -- it also contains large amount of 3rd party software that might buggy, right?
 
-As long as template's compromise is considered, it doesn't really matter whether /usr/bin/firefox is buggy and can be exploited, or not. What matters is whether its *installation* scripts (such as %post in the rpm.spec) are benign or not. Template VM should be used only for installation of packages, and nothing more, so it should never get a chance to actually run the /usr/bin/firefox and got infected from it, in case it was compromised. Also, some of your more trusted AppVMs, would have networking restrictions enforced by the [firewall VM](/doc/firewall/), and again they should not fear this proverbial /usr/bin/firefox being potentially buggy and easy to compromise.
+As long as template's compromise is considered, it doesn't really matter whether /usr/bin/firefox is buggy and can be exploited, or not. What matters is whether its *installation* scripts (such as %post in the rpm.spec) are benign or not. Template VM should be used only for installation of packages, and nothing more, so it should never get a chance to actually run the /usr/bin/firefox and get infected from it, in case it was compromised. Also, some of your more trusted AppVMs, would have networking restrictions enforced by the [firewall VM](/doc/firewall/), and again they should not fear this proverbial /usr/bin/firefox being potentially buggy and easy to compromise.
 
--   But why trusting Fedora?
+-   But why trust Fedora?
 
 Because we chose to use Fedora as a vendor for the Qubes OS foundation (e.g. for Dom0 packages and for AppVM packages). We also chose to trust several other vendors, such as Xen.org, kernel.org, and a few others whose software we use in Dom0. We had to trust *somebody* as we are unable to write all the software from scratch ourselves. But there is a big difference in trusting all Fedora packages to be non-malicious (in terms of installation scripts) vs. trusting all those packages are non-buggy and non-exploitable. We certainly do not assume the latter.
 
@@ -140,11 +140,11 @@ Standalone VMs
 
 Standalone VMs have their own copy of the whole filesystem, and thus can be updated and managed on its own. But this means that they take a few GBs on disk, and also that centralized updates do not apply to them.
 
-Sometime it might be convenient to have a VM that has its own filesystem, where you can directly introduce changes, without the need to start/stop the template VM. Such situations include e.g.:
+Sometimes it might be convenient to have a VM that has its own filesystem, where you can directly introduce changes, without the need to start/stop the template VM. Such situations include e.g.:
 
--   VMs used for development (devel environments requires a lot of \*-devel packages and specific devel tools)
+-   VMs used for development (devel environments require a lot of \*-devel packages and specific devel tools)
 
--   VMs used for installing untrusted packages. Normally you install digitally signed software from Red Hat/Fedora repositories, and it's reasonable that such software has non malicious *installation* scripts (rpm pre/post scripts). However, when you would like to install some packages form less trusted sources, or unsigned, then using a dedicated (untrusted) standalone VM might be a better way.
+-   VMs used for installing untrusted packages. Normally you install digitally signed software from Red Hat/Fedora repositories, and it's reasonable that such software has non malicious *installation* scripts (rpm pre/post scripts). However, when you would like to install some packages from less trusted sources, or unsigned, then using a dedicated (untrusted) standalone VM might be a better way.
 
 In order to create a standalone VM you can use a command line like this (from console in Dom0):
 
@@ -168,14 +168,14 @@ qvm-create <vmname> --template <templatename> --label <label>
 Temporarily allowing networking for software installation
 ---------------------------------------------------------
 
-Some 3rd party applications cannot be installed using the standard yum repositories, and need to be manually downloaded and installed. When the installation requires internet connection to access 3rd party repositories, it will naturally fail when run in a Template VM because the default firewall rules for templates only allow connections to standard yum repositories. So it is necessary to modify firewall rules to allow less restrictive internet access for the time of the installation, if one really wants to install those applications into a template. As soon as software installation is completed, firewall rules should be returned back to the default state. The user should decided by themselves whether such 3rd party applications should be equally trusted as the ones that come from the standard Fedora signed repositories and whether their installation will not compromise the default Template VM, and potentially consider installing them into a separate template or a standalone VM (in which case the problem of limited networking access doesn't apply by default), as described above.
+Some 3rd party applications cannot be installed using the standard yum repositories, and need to be manually downloaded and installed. When the installation requires internet connection to access 3rd party repositories, it will naturally fail when run in a Template VM because the default firewall rules for templates only allow connections to standard yum repositories. So it is necessary to modify firewall rules to allow less restrictive internet access for the time of the installation, if one really wants to install those applications into a template. As soon as software installation is completed, firewall rules should be returned back to the default state. The user should decide by themselves whether such 3rd party applications should be equally trusted as the ones that come from the standard Fedora signed repositories and whether their installation will not compromise the default Template VM, and potentially consider installing them into a separate template or a standalone VM (in which case the problem of limited networking access doesn't apply by default), as described above.
 
 Updates proxy
 -------------
 
-Updates proxy is a service which filter http access to allow access to only something that looks like yum or apt repository. This is meant to mitigate user errors (like using browser in the template VM), rather than some real isolation. It is done with http proxy instead of simple firewall rules because it is hard to list all the repository mirrors (and keep that list up to date). The proxy is used only to filter the traffic, not to cache anything.
+Updates proxy is a service which filters http access to allow access to only something that looks like a yum or apt repository. This is meant to mitigate user errors (like using browser in the template VM), rather than some real isolation. It is done with http proxy instead of simple firewall rules because it is hard to list all the repository mirrors (and keep that list up to date). The proxy is used only to filter the traffic, not to cache anything.
 
-The proxy is running in selected VMs (by default all the NetVMs (1)) and intercept traffic directed to 10.137.255.254:8082. Thanks to such configuration all the VMs can use the same proxy address, and if there is a proxy on network path, it will handle the traffic (of course when firewall rules allows that). If the VM is configured to have access to the updates proxy (2), the startup scripts will automatically configure yum to really use the proxy (3). Also access to updates proxy is independent of any other firewall settings (VM will have access to updates proxy, even if policy is set to block all the traffic).
+The proxy is running in selected VMs (by default all the NetVMs (1)) and intercepts traffic directed to 10.137.255.254:8082. Thanks to such configuration all the VMs can use the same proxy address, and if there is a proxy on network path, it will handle the traffic (of course when firewall rules allow that). If the VM is configured to have access to the updates proxy (2), the startup scripts will automatically configure yum to really use the proxy (3). Also access to updates proxy is independent of any other firewall settings (VM will have access to updates proxy, even if policy is set to block all the traffic).
 
 (1) Services tab -\> "qubes-yum-proxy" entry; check qvm-service manual for details
 
@@ -185,13 +185,13 @@ The proxy is running in selected VMs (by default all the NetVMs (1)) and interce
 
 ### Technical details
 
-1.  Updates proxy: It is running as "qubes-yum-proxy" service. Startup script of this service setup firewall rule to intercept proxy traffic:
+1.  Updates proxy: It is running as "qubes-yum-proxy" service. Startup script of this service sets up the firewall rule to intercept proxy traffic:
 
     ~~~
     iptables -t nat -A PR-QBS-SERVICES -d 10.137.255.254/32 -i vif+ -p tcp -m tcp --dport 8082 -j REDIRECT
     ~~~
 
-1.  VM using the proxy service Startup script (qubes-misc-post service) configure yum using /etc/yum.conf.d/qubes-proxy.conf file. It can either contain
+1.  VM using the proxy service Startup script (qubes-misc-post service) configures yum using /etc/yum.conf.d/qubes-proxy.conf file. It can either contain
 
     ~~~
     proxy=http://10.137.255.254:8082/

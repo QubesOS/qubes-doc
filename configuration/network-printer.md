@@ -27,7 +27,7 @@ In order to mitigate this risk, one might consider creating a custom template (i
 
 However, one should be aware that most (all?) network printing protocols are insecure, unencrypted protocols. This means, that an attacker who is able to sniff the local network, or who is controlling the (normally untrusted) Qubes NetVM, will likely to be able to see the documents being printed. This is a limitation of today's printers and printing protocols, something that cannot be solved by Qubes or any other OS.
 
-Additionally, the printer drivers as well as CUPS application itself, might be buggy and might got exploited when talking to a compromised printer (or by an attacker who controls the local network, or the default NetVM). Consider not using printing from your more trusted AppVMs for this reason.
+Additionally, the printer drivers as well as CUPS application itself, might be buggy and might get exploited when talking to a compromised printer (or by an attacker who controls the local network, or the default NetVM). Consider not using printing from your more trusted AppVMs for this reason.
 
 Steps to configure a network printer in a template VM
 ----------------------------------------------------------

@@ -11,7 +11,7 @@ redirect_from:
 Resize Root Disk Image
 ----------------------
 
-The safest way to increase the size of `root.img` is to turn your TemplateVM into a StandaloneVM. Doing this means it will have it's own root filesystem *(StandaloneVMs use a copy of template, instead of smart sharing)*. To do this run `qvm-create --standalone` from `dom0` Konsole.
+The safest way to increase the size of `root.img` is to turn your TemplateVM into a StandaloneVM. Doing this means it will have its own root filesystem *(StandaloneVMs use a copy of template, instead of smart sharing)*. To do this run `qvm-create --standalone` from `dom0` Konsole.
 
 ### Resize a StandaloneVM Root Image
 
@@ -27,7 +27,7 @@ Then start Terminal for this StandaloneVM and run:
 sudo resize2fs /dev/mapper/dmroot
 ~~~
 
-Shutdown the StandaloneVM and you will have extended the size of it's `root.img`
+Shutdown the StandaloneVM and you will have extended the size of its `root.img`
 
 
 ### Resize a TemplateVM Root Image
@@ -51,4 +51,4 @@ to do!`.
 sudo resize2fs /dev/mapper/dmroot
 ~~~
 
-Shutdown the TemplateVM and you will have extended the size of it's `root.img`.
+Shutdown the TemplateVM and you will have extended the size of its `root.img`.

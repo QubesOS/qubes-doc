@@ -40,7 +40,7 @@ problematic device drivers.
 
 Note that scripts need to be executable (chmod +x) to be used.
 
-Also take a look at [bind-dirs][/doc/bind-dirs] for instruction how to easily
+Also take a look at [bind-dirs](/doc/bind-dirs) for instruction how to easily
 modify arbitrary system file in AppVM and have those changes persistent.
 
 GUI and audio configuration in dom0

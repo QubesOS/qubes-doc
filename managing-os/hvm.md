@@ -48,7 +48,7 @@ The above command assumes the installation ISO was transferred to Dom0 (copied u
 qvm-start win7 --cdrom=/dev/cdrom
 ~~~
 
-Next the VM will start booting from the attached CDROM device (which in the example above just happens to be a Windows 7 installation disk). Depending on the OS that is being installed in the VM one might be required to start the VM several times (as is the case with Windows 7 installations), because whenever the installer wants to "reboot the system" it actually shutdowns the VM and Qubes won't automatically start it.  Several invocations of qvm-start command (as shown above) might be needed.
+Next the VM will start booting from the attached CDROM device (which in the example above just happens to be a Windows 7 installation disk). Depending on the OS that is being installed in the VM one might be required to start the VM several times (as is the case with Windows 7 installations), because whenever the installer wants to "reboot the system" it actually shuts down the VM and Qubes won't automatically start it.  Several invocations of qvm-start command (as shown above) might be needed.
 
 [![r2b1-win7-installing.png](/attachment/wiki/HvmCreate/r2b1-win7-installing.png)](/attachment/wiki/HvmCreate/r2b1-win7-installing.png)
 
@@ -170,7 +170,7 @@ Cloning HVM domains
 
 Just like normal AppVMs, the HVM domains can also be cloned either using a command-line `qvm-clone` command or via manager's 'Clone VM' option in the right-click menu.
 
-The cloned VM will get identical root and private image and will essentially be an identical of the original VM except that it will get a different MAC address for the networking interface:
+The cloned VM will get identical root and private images and will essentially be identical to the original VM except that it will get a different MAC address for the networking interface:
 
 ~~~
 [joanna@dom0 ~]$ qvm-prefs win7

@@ -10,7 +10,7 @@ redirect_from:
 
 VMs have already TRIM enabled by default, but dom0 doesn't. There are some security implications (read for example [this article](https://asalor.blogspot.com/2011/08/trim-dm-crypt-problems.html)), but IMO not very serious.
 
-To enable TRIM in dom0 you need:
+To enable TRIM in dom0 you need to:
 
 1.  Get your LUKS device UUID:
 

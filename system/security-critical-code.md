@@ -48,7 +48,7 @@ Additionally when we consider attacks that originate through a compromised netwo
 Buggy Code vs. Back-doored Code Distinction
 -------------------------------------------
 
-There is an important distinction between the buggy code and maliciously trojaned code. We could have the most secure architecture and the most bulletproof TCB that perfectly isolates all domains from each other, but it still would be pretty useless if all the code used within domains, e.g. the actual email clients, word processors, etc, was somehow trojaned. In that case only network-isolated domains could be somehow trusted, while all others could be not.
+There is an important distinction between the buggy code and maliciously trojaned code. We could have the most secure architecture and the most bulletproof TCB that perfectly isolates all domains from each other, but it still would be pretty useless if all the code used within domains, e.g. the actual email clients, word processors, etc, was somehow trojaned. In that case only network-isolated domains could be somewhat trusted, while all others could be not.
 
 The above means that we must trust at least some of the vendors (not all, of course, but at least those few that provide the apps that we use in the most critical domains). In practice in Qubes OS we trust the software provided by Fedora project. This software is signed by Fedora distribution keys and so it is also critical that the tools used in domains for software updates (yum and rpm) be trusted.
 

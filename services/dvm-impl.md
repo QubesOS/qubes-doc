@@ -32,7 +32,7 @@ Preparing a savefile is done by */usr/lib/qubes/qubes\_prepare\_saved\_domain.sh
 8.  the domain is saved via *xl save*
 9.  the COW file volatile.img (cow for root fs and swap) is packed to `saved_cows.tar` archive
 
-*qubes\_prepare\_saved\_domain.sh* script is somehow lowlevel. It is usually called by *qvm-create-default-dvm* script, that takes care of creating a special AppVM (named template\_name-dvm) to be passed to *qubes\_prepare\_saved\_domain.sh*, as well as copying the savefile to /dev/shm (the latter action is not done if the `/var/lib/qubes/dvmdata/dont_use_shm` file exists).
+*qubes\_prepare\_saved\_domain.sh* script is somewhat lowlevel. It is usually called by *qvm-create-default-dvm* script, that takes care of creating a special AppVM (named template\_name-dvm) to be passed to *qubes\_prepare\_saved\_domain.sh*, as well as copying the savefile to /dev/shm (the latter action is not done if the `/var/lib/qubes/dvmdata/dont_use_shm` file exists).
 
 Restoring a DisposableVM from the savefile
 ------------------------------------------

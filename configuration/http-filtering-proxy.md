@@ -31,10 +31,10 @@ prevents websites that use DNS-based load balancers from working
 unless the user reloads the firewall rules (which re-resolve the DNS
 names) whenever the balancer transfer her session to another IP. Third
 the initial setup of the rules is complicated as the firewall drops
-the connection silently. As a workaround on can use browser's network
+the connection silently. As a workaround one can use browser's network
 console to see what is blocked, but this is time-consuming and one can
 trivially miss some important cases like including in the firewall
-white list sites for OCSP SSL certificate verification.
+white-list sites for OCSP SSL certificate verification.
 
 These drawbacks can be mitigated if one replaces iptable-based rules
 with a filtering HTTP proxy. The following describes how to setup
@@ -94,7 +94,7 @@ Setup
         name.ip-address-of-app-vm
 
    The name part before the dot can be arbitrary. For convenience one can
-   use AppVm name here, but this is not required. It is important to get
+   use AppVM name here, but this is not required. It is important to get
    ip address part right as this is what the control script uses to
    determine for which AppVM to apply the proxy rules. One can check the
    IP address of AppVM in Qubes VM manager in the VM settings dialog, see

@@ -29,7 +29,7 @@ The download may take a while depending on your connection speed.
 Duplication and first steps
 ---------------------------
 
-It is higly recommended to clone the original template, and make any changes in the clone instead of the original template. The following command clones the template. Replace `your-new-clone` with your desired name.
+It is highly recommended to clone the original template, and make any changes in the clone instead of the original template. The following command clones the template. Replace `your-new-clone` with your desired name.
 
 ~~~
 [user@dom0 ~]$ qvm-clone fedora-24-minimal your-new-clone

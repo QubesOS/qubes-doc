@@ -43,7 +43,7 @@ documentation change will be reviewed before it's published to the web. This
 allows us to maintain quality control and protect our users.
 
 As mentioned above, we keep all the documentation in a dedicated [Git
-repository][qubes-doc] hosted on [GitHub]. Thanks to GitHub interface, you can
+repository][qubes-doc] hosted on [GitHub]. Thanks to the GitHub interface, you can
 edit the documentation even if you don't know Git at all! The only thing you
 need is a GitHub account, which is free.
 

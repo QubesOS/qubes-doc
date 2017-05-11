@@ -110,7 +110,7 @@ opt to create a USB qube during installation. This also occurs automatically if
 you choose to [create a USB qube] using the `qubesctl` method, which is the
 first pair of steps in the linked section.)
 
-**Warning** USB keyboard cannot be used to type the disk passphrase
+**Warning** A USB keyboard cannot be used to type the disk passphrase
 if USB controllers were hidden from dom0. Before hiding USB controllers
 make sure your laptop keyboard is not internally connected via USB
 (by checking output of `lsusb` command) or that you have a PS/2 keyboard at hand
@@ -319,10 +319,10 @@ Attaching a single USB device to a qube (USB passthrough)
 ---------------------------------------------------------
 
 Starting with Qubes 3.2, it is possible to attach a single USB device to any
-Qube. While this is useful feature, it should be used with care, because there
+Qube. While this is a useful feature, it should be used with care, because there
 are [many security implications][usb-challenges] from using USB devices and USB
 passthrough will **expose your target qube** for most of them. If possible, use 
-method specific for particular device type (for example block devices described
+a method specific for particular device type (for example block devices described
 above), instead of this generic one.
 
 To use this feature, you need to install `qubes-usb-proxy` package in the
@@ -355,7 +355,7 @@ When you finish, detach the device:
     sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
     sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
 
-This feature is not yet available in Qubes Manager however, if you would like to contribute to Qubes OS project by implementing it and are a student please consider applying for the [Google Summer of Code][gsoc-page] scholarship and choosing QubesOS Project as a mentor organization. You can find list of our our Project Ideas [here][project-page].
+This feature is not yet available in Qubes Manager however, if you would like to contribute to Qubes OS project by implementing it and are a student please consider applying for the [Google Summer of Code][gsoc-page] scholarship and choosing QubesOS Project as a mentor organization. You can find list of our Project Ideas [here][project-page].
 
 
 [mass-storage]: https://en.wikipedia.org/wiki/USB_mass_storage_device_class

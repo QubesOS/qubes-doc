@@ -149,7 +149,7 @@ macspoof-enp0s0  meminfo-writer   updates-proxy-setup
 ~~~
 
 Now, also within the TemplateVM, type the following commands for each hardware device that you want to randomize a MAC 
-addresses for
+address for
 
 ~~~
 sudo systemctl enable macspoof@wlp0s1

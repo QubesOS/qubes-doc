@@ -116,7 +116,7 @@ Additional Information
 ----------------------
 
 It should be noted that Debian 9 (Stretch) is currently marked testing and
-should be treat as such. For projects that need absolute stability, upgrading
+should be treated as such. For projects that need absolute stability, upgrading
 may not be the best option.
 
 Debian Stretch packages were first made available in the Qubes R3.1 repositories.

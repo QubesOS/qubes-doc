@@ -58,7 +58,7 @@ Observing Security Contexts
 Each VM is assigned a specific colour for its window borders. These borders are how Qubes displays the **security context** of applications and data so that users can be easily aware of this at all times. Be sure to check the colour of window borders before taking any action, particularly if it affects the security of your system. [See this blog post for more information](https://blog.invisiblethings.org/2011/05/21/app-oriented-ui-model-and-its-security.html).
 
 Always remember that any "red" window can draw "green" password prompts. 
-Don't let yourself be tricked into entering credentials designated to one qube into a forged input boxes rendered by another.
+Don't let yourself be tricked into entering credentials designated to one qube into a forged input box rendered by another.
 For XFCE users (which is the default desktop environment on QubesOS) it would be wise to manually move the more trusted window so that it is not displayed on top of a less trusted one, but rather over the trusted Dom0 wallpaper. 
 If you use KDE, it has a helpful feature called **Expose-like effect** that is activated in System Tools -\> System Settings -\> Desktop Effects -\> All Effects -\> Desktop Grid Present Windows. 
 Performing these steps makes it easier to tell the difference between when you're being phished and when you're genuinely being asked for credentials.

@@ -19,7 +19,7 @@ Using privacy and anonymization tools like Whonix is not a magical solution that
 * Do you think nobody can eavesdrop on your communications because you are using Tor?
 * Do you know how Whonix works?
 
-If you answered no, have a look at the [about](https://www.whonix.org/wiki/About), [warning](https://www.whonix.org/wiki/Warning) and [do not](https://www.whonix.org/wiki/DoNot) pages (on the Whonix website) to make sure Whonix is the right tool for you and you understand  it's limitations.
+If you answered no, have a look at the [about](https://www.whonix.org/wiki/About), [warning](https://www.whonix.org/wiki/Warning) and [do not](https://www.whonix.org/wiki/DoNot) pages (on the Whonix website) to make sure Whonix is the right tool for you and you understand its limitations.
 
 ---
 
@@ -37,7 +37,7 @@ After doing this, you should see two new TemplateVMs in the VM Manager called `w
 
 ### Enabling AppArmor
 
-This is an optional security enhancement (for testers-only). If you’re technical & interested, see [Enabling AppArmor](/doc/privacy/customizing-whonix/).
+This is an optional security enhancement (for testers-only). If you’re technical and interested, see [Enabling AppArmor](/doc/privacy/customizing-whonix/).
 
 ### Configuring Whonix VMs
 
@@ -57,7 +57,7 @@ Great. You should be all done installing Whonix into Qubes. Use these two Templa
 
 ### Running Applications
 
-To start an application in the **Whonix-Workstation AppVM** that you created, launch it like any other- open the `Qubes App Launcher` and then select an app such as `Privacy Browser` which will then launch the Tor Browser
+To start an application in the **Whonix-Workstation AppVM** that you created, launch it like any other- open the `Qubes App Launcher` and then select an app such as `Privacy Browser` which will then launch the Tor Browser.
 
 ### Advanced Information
 

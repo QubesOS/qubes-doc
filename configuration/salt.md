@@ -227,7 +227,7 @@ malicious target VM.
 
 ## Writing your own configuration
 
-Let's start with quick example:
+Let's start with a quick example:
 
     my new and shiny vm:
       qvm.present:
@@ -304,7 +304,7 @@ You can set properties of existing domain:
         - netvm: sys-firewall
 
 Note that `name:` is a matcher, ie. it says the domain which properties will be
-manipulated is called `salt-test2`. The implies that you currently cannot rename
+manipulated is called `salt-test2`. This implies that you currently cannot rename
 domains this way.
 
 ### qvm.service

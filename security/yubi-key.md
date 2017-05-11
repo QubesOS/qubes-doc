@@ -24,23 +24,23 @@ package. This package does not support sharing the same key slot with other
 applications (it will deny further authentications if you try).
 
 Contrary to instruction there, currently there is no binary packages in Qubes
-repository and you need to compile it yourself. This can change in the future.
+repository and you need to compile it yourself. This might change in the future.
 
 Challenge-reponse mode
 ----------------------
 
 In this mode, your YubiKey will generate response based on secret key, and
 random challenge (instead of counter). This means that it isn't possible to
-generate response in advance even when someone get access to your YubiKey. This
-makes reasonably safe to use the same YubiKey for other services (also in
+generate response in advance even if someone gets access to your YubiKey. This
+makes it reasonably safe to use the same YubiKey for other services (also in
 challenge-response mode).
 
-Same as in OTP case, you will need to setup your YubiKey, choose separate
+Same as in OTP case, you will need to set up your YubiKey, choose separate
 password (other than your login password!) and apply the configuration.
 
-To use this mode you need:
+To use this mode you need to:
 
-1. Configure your YubiKey for challenge-reponse HMAC-SHA1 mode, for example
+1. Configure your YubiKey for challenge-response HMAC-SHA1 mode, for example
    [following this
    tutorial](https://www.yubico.com/products/services-software/personalization-tools/challenge-response/)
 2. Install `ykpers` package in template on which your USB VM is based.
@@ -93,31 +93,31 @@ password associated with YubiKey. If you configured so, YubiKey will request
 confirmation by pressing button on it (it will blink).
 When everything is ok, your screen will be unlocked.
 
-In any case you can still use your login password, but do it in secure location
+In any case you can still use your login password, but do it in a secure location
 where no one can snoop your password.
 
 Locking the screen when YubiKey is removed
 ------------------------------------------
 
 You can setup your system to automatically lock the screen when you unplug
-YubiKey. This will require creating simple qrexec service which will expose
-ability to lock the screen to your USB VM, and then adding udev hook to
+YubiKey. This will require creating a simple qrexec service which will expose
+the ability to lock the screen to your USB VM, and then adding udev hook to
 actually call that service.
 
 1. First configure the qrexec service. Create `/etc/qubes-rpc/custom.LockScreen` (in dom0)
-  with simple command to lock the screen. In case of xscreensaver (used in Xfce)
+  with a simple command to lock the screen. In case of xscreensaver (used in Xfce)
   it would be:
 
         DISPLAY=:0 xscreensaver-command -lock
 
-2. Allow your USB VM to call that service. Assuming that its named `sys-usb` it
+2. Allow your USB VM to call that service. Assuming that it's named `sys-usb` it
 would require creating `/etc/qubes-rpc/policy/custom.LockScreen` with:
 
         sys-usb dom0 allow
 
 3. Create udev hook in your USB VM. Store it in `/rw/config` to have it
 persistent across VM restarts. For example name the file
-`/rw/config/yubikey.rules`. Write there single line:
+`/rw/config/yubikey.rules`. Write there a single line:
 
         ACTION=="remove", SUBSYSTEM=="usb", ENV{ID_SECURITY_TOKEN}=="1", RUN+="/usr/bin/qrexec-client-vm dom0 custom.LockScreen"
 

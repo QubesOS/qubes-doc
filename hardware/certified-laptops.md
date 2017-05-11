@@ -15,7 +15,7 @@ getting your company's hardware Qubes-certified, please see the [Hardware
 Certification] page.
 
 We aim to partner with a few select computer makers to ensure that Qubes is
-compatible with them and new users have clear path towards getting started
+compatible with them and new users have a clear path towards getting started
 with Qubes if they desire. We look for these makers to be as diverse as possible
 in terms of geography, cost, and availability.
 

@@ -34,7 +34,7 @@ The basic idea is to:
 1.  Shrink filesystem on the private disk image.
 2.  Then shrink the image.
 
-Ext4 does not support online shrinking, so can't be done as convenient as image grown. Note that we don't want to touch the VM filesystem directly in dom0 for security reasons. First you need to start VM without `/rw` mounted. One of the possibility is to interrupt its normal startup by adding `rd.break` kernel option:
+Ext4 does not support online shrinking, so can't be done as convenient as image grown. Note that we don't want to touch the VM filesystem directly in dom0 for security reasons. First you need to start VM without `/rw` mounted. One of the possibilities is to interrupt its normal startup by adding `rd.break` kernel option:
 
 ~~~
 qvm-prefs -s <vm-name> kernelopts rd.break
@@ -63,7 +63,7 @@ Now you can resize the image:
 truncate -s <new-desired-size> /var/lib/qubes/appvms/<vm-name>/private.img
 ~~~
 
-**It is critical to use the same (or bigger for some safety margin) size in truncate call compared to resize2fs call. Otherwise you will loose your data!** Then reset kernel options back to default:
+**It is critical to use the same (or bigger for some safety margin) size in truncate call compared to resize2fs call. Otherwise you will lose your data!** Then reset kernel options back to default:
 
 ~~~
 qvm-prefs -s <vm-name> kernelopts default
@@ -75,8 +75,8 @@ Done.
 
 If you want install a lot of software in your TemplateVM, you may need to increase the amount of disk space your TemplateVM can use.
 
-1.  Make sure that all the VMs based on this template are shut off (including netvms etc).
-2.  Sanity check: verify that none of loop device are pointing at this template root.img: `sudo losetup -a`
+1.  Make sure that all the VMs based on this template are powered off (including netvms etc).
+2.  Sanity check: verify that none of the loop devices are pointing at this template root.img: `sudo losetup -a`
 3.  Resize root.img file using `truncate -s <desired size>` (the root.img path can be obtained from qvm-prefs).
 4.  If any netvm/proxyvm used by this template is based on it, set template netvm to none.
 5.  Start the template.

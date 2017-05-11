@@ -95,7 +95,7 @@ to the Qubes mailing lists:
     very soon, the possibility of having to disclose any of the Qubes
     signing keys to anybody might have pretty serious consequences for those
     who decided to entrust Qubes with anything serious. And we would like to
-    somehow minimize these consequences with this canary thing.
+    somewhat minimize these consequences with this canary thing.
     
     Additionally the canary is a nice way of ensuring "freshness" of our
     messaging to the community.
@@ -254,7 +254,7 @@ verifying its contents, and reading them.
     good.)
 
 The same procedures can be applied to any directory or file in the
-`qubes-secpack`. Two methods of verification (signed Git tags and deatched PGP
+`qubes-secpack`. Two methods of verification (signed Git tags and detached PGP
 signatures) are provided to ensure that the system is robust (e.g., against a
 potential failure in Git tag-based verification) and to give users more options
 to verify the files.

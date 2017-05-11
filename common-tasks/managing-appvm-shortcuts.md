@@ -15,11 +15,11 @@ For ease of use Qubes aggregates shortcuts to applications that are installed in
 
 ![dom0-menu.png"](/attachment/wiki/ManagingAppVmShortcuts/dom0-menu.png)
 
-To make newly installed applications show up in the menu, use the **qvm-sync-appmenus** command (Linux VMs does this automatically):
+To make newly installed applications show up in the menu, use the **qvm-sync-appmenus** command (Linux VMs do this automatically):
 
 `qvm-sync-appmenus vmname`
 
-After that, select the *Add more shortcuts* entry in VM's submenu to customize which applications are shown:
+After that, select the *Add more shortcuts* entry in the VM's submenu to customize which applications are shown:
 
 ![dom0-appmenu-select.png"](/attachment/wiki/ManagingAppVmShortcuts/dom0-appmenu-select.png)
 
@@ -45,4 +45,4 @@ For Linux VMs the service script is in `/etc/qubes-rpc/qubes.GetAppMenus`. In Wi
 What if my application has not been automatically included in the list of available apps?
 -----------------------------------------------------------------------------------------
 
-You can manually create new entries in the "available applications" list of shortcuts. See [Signal](/doc/signal/) for a worked example of creating a new menu item for a Chrome .desktop shortcut.
+You can manually create new entries in the "available applications" list of shortcuts. See [Signal](/doc/signal/) for a working example of creating a new menu item for a Chrome .desktop shortcut.
