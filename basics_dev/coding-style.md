@@ -97,7 +97,7 @@ General programming style guidelines
     }
     ~~~
 
--   Do **not** use comments to disable code fragments. In a production code there should really be no commented or disabled code fragments. If you really, really have a good reason to retain some fragment of unused code, use \#if or \#ifdef to disable it, e.g.:
+-   Do **not** use comments to disable code fragments. In production code there should really be no commented or disabled code fragments. If you really, really have a good reason to retain some fragment of unused code, use \#if or \#ifdef to disable it, e.g.:
 
     ~~~
     #if 0
@@ -130,7 +130,7 @@ Source Code management (Git) guidelines
     -   This creates natural boundaries between different code blocks, enforcing proper interfaces, and easing independent development to be conducted on various code parts at the same time, without the fear of running into conflicts.
     -   By maintaining relatively small git repositories, it is easy for new developers to understand the code and contribute new patches, without the need to understand all the other code.
     -   Code repositories represent also licensing boundaries. So, e.g. because `core-agent-linux` and `core-agent-windows` are maintained in two different repositories, it is possible to have the latter under a proprietary, non-GPL license, while keeping the former fully open source.
-    -   We have drastically changes the layout and naming of the code repositories shortly after Qubes OS R2 Beta 2 release. For details on the current code layout, please read [this article](https://blog.invisiblethings.org/2013/03/21/introducing-qubes-odyssey-framework.html).
+    -   We have drastically changed the layout and naming of the code repositories shortly after Qubes OS R2 Beta 2 release. For details on the current code layout, please read [this article](https://blog.invisiblethings.org/2013/03/21/introducing-qubes-odyssey-framework.html).
 
 Commit message guidelines
 -------------------------
@@ -165,7 +165,7 @@ Security coding guidelines
        height = untrusted_conf.height;
     ~~~
 
--   Use another variables, without the `untrusted_` prefix to hold the sanitized values, as shown above.
+-   Use equivalent variables, without the `untrusted_` prefix to hold the sanitized values, as shown above.
 
 Python-specific guidelines
 --------------------------
@@ -178,7 +178,7 @@ C and C++ specific guidelines
 -   Do not place code in `*.h` files.
 -   Use `const` whenever possible, e.g. in function arguments passed via pointers.
 -   Do not mix procedural and objective code together -- if you write in C++, use classes and objects.
--   Think about classes hierarchy, before start implementing specific methods.
+-   Think about classes hierarchy, before starting to implement specific methods.
 
 Bash-specific guidelines
 ------------------------

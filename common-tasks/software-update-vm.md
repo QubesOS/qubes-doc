@@ -125,7 +125,7 @@ Some popular questions:
 
 -   So, why should we actually trust Fedora repos -- it also contains large amount of 3rd party software that might buggy, right?
 
-As long as template's compromise is considered, it doesn't really matter whether /usr/bin/firefox is buggy and can be exploited, or not. What matters is whether its *installation* scripts (such as %post in the rpm.spec) are benign or not. Template VM should be used only for installation of packages, and nothing more, so it should never get a chance to actually run the /usr/bin/firefox and get infected from it, in case it was compromised. Also, some of your more trusted AppVMs, would have networking restrictions enforced by the [firewall VM](/doc/firewall/), and again they should not fear this proverbial /usr/bin/firefox being potentially buggy and easy to compromise.
+As far as the template's compromise is concerned, it doesn't really matter whether /usr/bin/firefox is buggy and can be exploited, or not. What matters is whether its *installation* scripts (such as %post in the rpm.spec) are benign or not. Template VM should be used only for installation of packages, and nothing more, so it should never get a chance to actually run the /usr/bin/firefox and get infected from it, in case it was compromised. Also, some of your more trusted AppVMs, would have networking restrictions enforced by the [firewall VM](/doc/firewall/), and again they should not fear this proverbial /usr/bin/firefox being potentially buggy and easy to compromise.
 
 -   But why trust Fedora?
 
@@ -138,7 +138,7 @@ Not quite. Dom0 compromise is absolutely fatal, and it leads to Game Over<sup>TM
 Standalone VMs
 --------------
 
-Standalone VMs have their own copy of the whole filesystem, and thus can be updated and managed on its own. But this means that they take a few GBs on disk, and also that centralized updates do not apply to them.
+Standalone VMs have their own copy of the whole filesystem, and thus can be updated and managed on their own. But this means that they take a few GBs on disk, and also that centralized updates do not apply to them.
 
 Sometimes it might be convenient to have a VM that has its own filesystem, where you can directly introduce changes, without the need to start/stop the template VM. Such situations include e.g.:
 

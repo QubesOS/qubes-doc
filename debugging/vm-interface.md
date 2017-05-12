@@ -32,7 +32,7 @@ QubesDB
      - `none` - none
 -   `/qubes-timezone - name of timezone based on dom0 timezone. For example `Europe/Warsaw`
 -   `/qubes-keyboard` - keyboard layout based on dom0 layout. Its syntax is suitable for `xkbcomp` command (after expanding escape sequences like `\n` or `\t`). This is meant only as some default value, VM can ignore this option and choose its own keyboard layout (this is what keyboard setting from Qubes Manager does). This entry is created as part of gui-daemon initialization (so not available when gui-daemon disabled, or not started yet).
--   `/qubes-debug-mode` - flag whether VM have debug mode enabled (qvm-prefs setting). One of `1`, `0`
+-   `/qubes-debug-mode` - flag whether VM has debug mode enabled (qvm-prefs setting). One of `1`, `0`
 -   `/qubes-service/SERVICE_NAME` - subtree for VM services controlled from dom0 (using qvm-service command or Qubes Manager). One of `1`, `0`. Note that not every service will be listed here, if entry is missing, it means "use VM default". List of currently supported services is in [qvm-service man page](/wiki/Dom0Tools/QvmService)
 -   `/qubes-netmask` - network mask (only when VM has netvm set); currently hardcoded "255.255.255.0"
 -   `/qubes-ip - IP address for this VM (only when VM has netvm set)
@@ -50,7 +50,7 @@ QubesDB
 QubesDB is also used to configure firewall in ProxyVMs. Rules are stored in
 separate key for each target VM. Entries:
 
-- `/qubes-iptables` - control entry - dom0 writing `reload` here signal `qubes-firewall` service to reload rules
+- `/qubes-iptables` - control entry - dom0 writing `reload` here signals `qubes-firewall` service to reload rules
 - `/qubes-iptables-header` - rules not related to any particular VM, should be applied before domains rules
 - `/qubes-iptables-domainrules/NNN` - rules for domain `NNN` (arbitrary number)
 in `iptables-save` format. Rules are self-contained - fill `FORWARD` iptables
@@ -59,7 +59,7 @@ final default action (`DROP`/`ACCEPT`)
 
 VM after applying rules may signal some error, writing a message to
 `/qubes-iptables-error` key. This does not exclude any other way of
-communicating problem - like a popup.
+communicating problems - like a popup.
 
 #### Firewall rules in 4.x ####
 
@@ -84,7 +84,7 @@ by space. Order of those pairs in a single rule is undefined. QubesDB enforces
 a limit on a single entry length - 3072 bytes.
 Possible options for a single rule:
 
- - `action`, values: `accept`, `drop`; this is present it every rule
+ - `action`, values: `accept`, `drop`; this is present in every rule
  - `dst4`, value: destination IPv4 address with a mask; for example: `192.168.0.0/24`
  - `dst6`, value: destination IPv6 address with a mask; for example: `2000::/3`
  - `dstname`, value: DNS hostname of destination host
@@ -100,7 +100,7 @@ Possible options for a single rule:
 Rule matches only when all predicates matches. Only one of `dst4`, `dst6`,
 `dstname`, `specialtarget` can be used in a single rule.
 
-If tool applying firewall encounter any parse error (unknown option, invalid
+If tool applying firewall encounters any parse error (unknown option, invalid
 value etc), it should drop all the traffic coming from that `SOURCE_IP`,
 regardless of properly parsed rules.
 
@@ -117,7 +117,7 @@ Example valid rules:
 -   `memory/meminfo` (**xenstore**) - used memory (updated by qubes-meminfo-writer), input information for qmemman;
     - Qubes 3.x format: 6 lines (EOL encoded as `\n`), each in format "FIELD: VALUE kB"; fields: `MemTotal`, `MemFree`, `Buffers`, `Cached`, `SwapTotal`, `SwapFree`; meaning the same as in `/proc/meminfo` in Linux.
     - Qubes 4.0+ format: used memory size in the VM, in kbytes
--   `/qubes-block-devices` - list of block devices exposed by this VM, each device (subdirectory) should be named in a way that VM can attach the device based on it. Each should contain those entries:
+-   `/qubes-block-devices` - list of block devices exposed by this VM, each device (subdirectory) should be named in a way that VM can attach the device based on it. Each should contain these entries:
     -   `desc` - device description (ASCII text)
     -   `size` - device size in bytes
     -   `mode` - default connection mode; `r` for read-only, `w` for read-write
@@ -130,7 +130,7 @@ Qubes RPC
 
 Services called by dom0 to provide some VM configuration:
 
--   `qubes.SetMonitorLayout` - provide list of monitors, one in a line, each line contains four numbers: `width height X Y width_mm height_mm` (physical dimensions - `width_mm` and `height_mm` - are optional)
+-   `qubes.SetMonitorLayout` - provide list of monitors, one per line. Each line contains four numbers: `width height X Y width_mm height_mm` (physical dimensions - `width_mm` and `height_mm` - are optional)
 -   `qubes.WaitForSession` - called to wait for full VM startup
 -   `qubes.GetAppmenus` - receive appmenus from given VM (template); TODO: describe format here
 -   `qubes.GetImageRGBA` - receive image/application icon. Protocol:
@@ -172,7 +172,7 @@ Other Qrexec services installed by default:
 - `qubes.Restore` - retrieve Qubes backup. The service receives backup location
   entered by the user (one line, terminated by '\n'), then should output backup
   archive in [qfile format](/doc/qfilecopy/) (core-agent-linux component contains
-  `tar2qfile` utility to do the conversion
+  `tar2qfile` utility to do the conversion)
 - `qubes.SelectDirectory`, `qubes.SelectFile` - services which should show
   file/directory selection dialog and return (to stdout) a single line
   containing selected path, or nothing in the case of cancellation
@@ -199,7 +199,7 @@ abstraction. This will change in the future. Those tools are:
 - `gpk-update-viewer` - called by Qubes Manager to display available updates in a TemplateVM
 - `systemctl start qubes-update-check.timer` (and similarly stop) - called when enabling/disabling updates checking in given VM (`qubes-update-check` [qvm-service](/doc/qubes-service/))
 
-Additionally automatic tests extensively calls various commands directly in VMs. We do not plan to change that.
+Additionally automatic tests extensively call various commands directly in VMs. We do not plan to change that.
 
 GUI protocol
 ------------

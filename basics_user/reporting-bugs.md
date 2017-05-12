@@ -74,7 +74,7 @@ How to submit a report on GitHub
 We track all bugs in the [qubes-issues] tracker on GitHub.
 
 When you file a new issue, you should be sure to include the version of Qubes
-your'e using, as well as versions of related software packages. If your issue is
+you're using, as well as versions of related software packages. If your issue is
 related to hardware, provide as many details as possible about the hardware,
 which could include using command-line tools such as `lspci`.
 If you're reporting a bug in a package that is in a [testing] repository, please reference the appropriate issue in the [updates-status] repository.

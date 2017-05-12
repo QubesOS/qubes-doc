@@ -227,7 +227,7 @@ sudo qubes-dom0-update grub2-xen
 ### Installing kernel in Fedora VM
 
 In Fedora based VM, you need to install `qubes-kernel-vm-support` package. This
-package include required additional kernel module and initramfs addition
+package includes required additional kernel module and initramfs addition
 required to start Qubes VM (for details see
 [template implementation](/doc/template-implementation/)). Additionally you
 need some GRUB tools to create its configuration. Note: you don't need actual
@@ -240,7 +240,7 @@ sudo yum install qubes-kernel-vm-support grub2-tools
 Then install whatever kernel you want. If you are using distribution kernel
 package (`kernel` package), initramfs and kernel module should be handled
 automatically, but you need to ensure you have `kernel-devel` package for the
-same kernel version installed. If you are using manually build kernel, you need
+same kernel version installed. If you are using a manually built kernel, you need
 to handle this on your own. Take a look at `dkms` and `dracut` documentation.
 Especially `dkms autoinstall` command may be useful.
 
@@ -265,7 +265,7 @@ start kernel configured within VM.
 ### Installing kernel in Debian VM
 
 In Debian based VM, you need to install `qubes-kernel-vm-support` package. This
-package include required additional kernel module and initramfs addition
+package includes required additional kernel module and initramfs addition
 required to start Qubes VM (for details see
 [template implementation](/doc/template-implementation/)). Additionally you
 need some GRUB tools to create its configuration. Note: you don't need actual

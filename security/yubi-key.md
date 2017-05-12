@@ -26,7 +26,7 @@ applications (it will deny further authentications if you try).
 Contrary to instruction there, currently there is no binary packages in Qubes
 repository and you need to compile it yourself. This might change in the future.
 
-Challenge-reponse mode
+Challenge-response mode
 ----------------------
 
 In this mode, your YubiKey will generate response based on secret key, and
