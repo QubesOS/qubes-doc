@@ -307,7 +307,7 @@ steps:
       brackets by `qvm-block` command
     * `phy:/dev/sda` - physical path at which device appears in source qube
       (just after source qube name in `qvm-block` output)
-    * `backend=sys-usb` - name of source qube, can be omitted in case of dom0
+    * `backend=sys-usb` - name of source qube, can be omitted in the case of dom0
     * `xvdi` - "frontend" device name (listed at the end of line in `qvm-block`
       output)
 

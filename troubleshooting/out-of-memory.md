@@ -35,7 +35,7 @@ sudo yum clean all
 qvm-remove <VMname>
 ~~~
 
-With this method you lose one VM data, but it'll more securely work.
+With this method you lose the data of one VM, but it'll more reliably work.
 
 1.  Decrease filesystem safety margin (5% by default):
 
@@ -43,5 +43,5 @@ With this method you lose one VM data, but it'll more securely work.
 sudo tune2fs -m 4 /dev/mapper/vg_dom0-lv_root
 ~~~
 
-1.  Remove some unneeded files in dom0 home (if you have one, most likely no).
+1.  Remove some unneeded files in dom0 home (if you have any, most likely no).
 

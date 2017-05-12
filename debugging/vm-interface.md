@@ -175,7 +175,7 @@ Other Qrexec services installed by default:
   `tar2qfile` utility to do the conversion
 - `qubes.SelectDirectory`, `qubes.SelectFile` - services which should show
   file/directory selection dialog and return (to stdout) a single line
-  containing selected path, or nothing in case of cancellation
+  containing selected path, or nothing in the case of cancellation
 - `qubes.SuspendPre` - service called in every VM with PCI device attached just
   before system suspend
 - `qubes.SuspendPost` - service called in every VM with PCI device attached just

@@ -32,7 +32,7 @@ A user-friendly term for a [VM](#vm) in Qubes OS.
 
  * "Qube" is an informal term intended to make it easier for less technical users to understand Qubes OS and learn how to use it. In technical discussions, the other, more precise terms defined on this page are to be preferred.
 
- * The term "qube" should be lowercase unless it is the first word in a sentence. Note that starting a sentence with the plural of "qube" (i.e., "Qubes...") can be ambiguous, since it may not be clear whether the referent is a collection of qubes or [Qubes OS](#qubes-os).
+ * The term "qube" should be lowercase unless it is the first word in a sentence. Note that starting a sentence with the plural of "qube" (i.e., "Qubes...") can be ambiguous, since it may not be clear whether the reference is a collection of qubes or [Qubes OS](#qubes-os).
 
 Domain
 ------

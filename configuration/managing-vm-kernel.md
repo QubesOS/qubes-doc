@@ -144,7 +144,7 @@ possible to use VM kernel, which is not packaged by Qubes team. This includes:
 
 To prepare such VM kernel, you need to install `qubes-kernel-vm-support`
 package in dom0 and also have matching kernel headers installed (`kernel-devel`
-package in case of Fedora kernel package). You can install required stuff using `qubes-dom0-update`:
+package in the case of Fedora kernel package). You can install required stuff using `qubes-dom0-update`:
 
 ~~~
 [user@dom0 ~]$ sudo qubes-dom0-update qubes-kernel-vm-support kernel-devel
@@ -326,7 +326,7 @@ When starting the VM you can safely ignore any warnings about a missing module '
 
 ### Troubleshooting
 
-In case of problems, you can access VM console (using `sudo xl console VMNAME` in dom0) to access
+In the event of a problem, you can access VM console (using `sudo xl console VMNAME` in dom0) to access
 GRUB menu. You need to call it just after starting VM (until `GRUB_TIMEOUT`
 expires) - for example in separate dom0 terminal window.
 

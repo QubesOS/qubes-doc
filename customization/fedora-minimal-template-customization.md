@@ -17,7 +17,7 @@ Template installation
 
 *Note*: the template may not start in Qubes R3 when using kernel 3.19 (unstable). In this case, switch the AppVM or TemplateVM to the kernel 3.18.
 
-*Note*: If you have doubts about a set of tool or package you want to install, start installing and testing it in an AppVM. You can then reproduce it later in your TemplateVM if you are satisfied. That the (QubesOS?) template philosophy.
+*Note*: If you have doubts about a set of tools or package you want to install, start installing and testing it in an AppVM. You can then reproduce it later in your TemplateVM if you are satisfied. That is the (QubesOS?) template philosophy.
 
 Standard tools installation
 ================
@@ -27,9 +27,9 @@ Administration (documented)
 
 sudo pciutils vim-minimal less tcpdump telnet psmisc nmap nmap-ncat usbutils
 
-*Notes*: nmap can be used to discover a network (nmap -sP [network]), especially if you are inside a Microsoft network, because your AppVM will be protected/NATted behind Qubes firewall (microsoft / home network are heavily using autodiscovery technologies which require to be in the same local network (no firewall/no NAT), eg: your printer.
+*Notes*: nmap can be used to discover a network (nmap -sP [network]), especially if you are inside a Microsoft network, because your AppVM will be protected/NATted behind Qubes firewall (Microsoft / home network are heavily using autodiscovery technologies which require to be in the same local network (no firewall/no NAT), eg: your printer).
 
-Some recommendation here: check your current network using the Network manager applet (eg: 192.168.1.65). Then run nmap in your current AppVM/TemplateVM to search for the selected printer/equipement: nmap -sP 192.168.1.-. Don't forget to allow temporarily the Qubes Firewall if you are inside a TemplateVM.
+Some recommendation here: check your current network using the Network manager applet (eg: 192.168.1.65). Then run nmap in your current AppVM/TemplateVM to search for the selected printer/equipment: nmap -sP 192.168.1.-. Don't forget to temporarily allow traffic via the Qubes Firewall if you are inside a TemplateVM.
 
 Administration (undocumented)
 -------------------------------------------------
@@ -77,7 +77,7 @@ Search for a VPN package for your particular vpn solution
 
 OR
 
-For manual handling of VPN (and because NetworkManager is not available in proxyVMs, check the Qubes-users mail threads on google group
+For manual handling of VPN (and because NetworkManager is not available in proxyVMs, check the Qubes-users mail threads on google group)
 
 (cprise started a good one on openvpn: [OPENVPNSETUP] "[qubes-users] OpenVPN Setup, Revisited Again!")
 
@@ -95,11 +95,11 @@ Manual operations
 
 - Don't forget to restart your TemplateVM or only the cups service when you installed cups (systemctl start cups)
 
-- First you need to search for your printer. If you don't know its name or IP, search for it using nmap: check your current network using the Network manager applet (eg: 192.168.1.65). Then run nmap in your current AppVM/TemplateVM to search for the selected printer/equipement: nmap -sP 192.168.1.-. Don't forget to allow temporarily the Qubes Firewall if you are inside a TemplateVM.
+- First you need to search for your printer. If you don't know its name or IP, search for it using nmap: check your current network using the Network manager applet (eg: 192.168.1.65). Then run nmap in your current AppVM/TemplateVM to search for the selected printer/equipement: nmap -sP 192.168.1.-. Don't forget to temporarily allow traffic via the Qubes Firewall if you are inside a TemplateVM.
 
 - Once you identified your printer, run system-config-printer GUI to install your printer
 
-- You man need to cancel the operation to install more adapted printer drivers (eg: if the driver cannot be found automatically). Use yum search printername to find potential drivers (eg yum search photosmart)
+- You may need to cancel the operation to install more adapted printer drivers (eg: if the driver cannot be found automatically). Use yum search printername to find potential drivers (eg yum search photosmart)
 
 GUI recommendations
 =============
@@ -135,13 +135,13 @@ Miscellaneous packages
 GUI themes
 -----------------
 
-Managing GUI theme / appearance is often complex because when you do not want to depends on a specific desktop system.
+Managing GUI theme / appearance is often complex because when you do not want to depend on a specific desktop system.
 
 For this reason, we need to customize themes for each GUI framework that our application depends on.
 
 This often includes GTK2, GTK3 (which us a different configuration/themes than GTK2), Qt.
 
-The apparance of Windows can only be changed in dom0, however, the appearance of all buttons, menus, icons, widgets are specific to each AppVM.
+The appearance of Windows can only be changed in dom0, however, the appearance of all buttons, menus, icons, widgets are specific to each AppVM.
 
 ### Packages
 
@@ -155,7 +155,7 @@ You can check your currently installed theme packages (to eventually remove them
 
 ### Tweaking theme and appearance
 
-First you can get an insight of installed Gtk theme and see how it will appears using lxappearance.
+First you can get an insight of installed Gtk theme and see how it will appear using lxappearance.
 
 I recommend not applying settings using lxappearance (do not click on apply) because it will create multiple configuration files.
 
@@ -176,12 +176,12 @@ Cleaning the whole dconf settings is also possible by removing the following fil
 rm ~/.config/dconf/user
 ~~~
 
-*Note*: lxappearance only have effect on gtk3 theme so it won't work to change gtk2 themes (used by Firefox, Thunderbird ...).
+*Note*: lxappearance only has an effect on gtk3 theme so it won't work to change gtk2 themes (used by Firefox, Thunderbird ...).
              However, it is very lightweight and can be used to identify the name and look of themes you are interested in.
              Once you have the name, you can apply it using gsetting command line or gconf-editor.
 
-*Note*: if you really want a GUI theme editor, you can install gnome-tweak-tools, but this tool have a lot
-            of gnome dependencies (~150MB of dependencies). Eventually install it and uninstall it as soon as you changed your theme.
+*Note*: if you really want a GUI theme editor, you can install gnome-tweak-tools, but this tool has a lot
+            of gnome dependencies (~150MB of dependencies). You can install it and uninstall it as soon as you change your theme.
 
 #### Testing notes
 
@@ -258,7 +258,7 @@ Getting an uniform look for Qt & GTK is not achieved yet. A good source is on th
 Two case:
 
 1. You installed packages of the theme you selected both for Qt, GTK2 and GTK3.
-    (eg: Adwaita which is the default theme. I did not found another cross framework theme on fedora default packages).
+    (eg: Adwaita which is the default theme. I have not found another cross framework theme on fedora default packages).
 
 2. You want to use the GTK theme you selected for Qt but there is no qt package.
     In this case QGtkStyle will take precedence and convert the style automatically.

@@ -26,7 +26,7 @@ solved by adding `i915.enable_rc6=0` as a kernel parameter to
 ## Instructions for getting your Lenovo Thinkpad X201 & X200 laptop working with Qubes/Linux ##
 
 For being able to boot the installer from USB, you have to disable VT-d in the BIOS.
-Enter the BIOS by hitting F1, go to Config - CPU and then disable there VT-d.
+Enter the BIOS by hitting F1, go to Config - CPU and then disable VT-d there.
 
 After the installation, you have to set a startup-parameter for Xen, to be able to activate VT-d again:
 

@@ -18,9 +18,9 @@ Proprietary (NVIDIA/AMD) drivers are known to be sometimes highly problematic, o
 Radeon driver support is prebaked in the Qubes kernel (v4.4.14-11) but only versions 4000-9000 give or take.
 Support for newer cards is limited until AMDGPU support in the 4.5+ kernel, which isn't released yet for Qubes. 
 
-Built in Intel graphics, Radeon graphics (between that 4000-9000 range), and perhaps some prebaked NVIDIA card support that i don't know about. Those are your best bet for great Qubes support.
+Built in Intel graphics, Radeon graphics (between that 4000-9000 range), and perhaps some prebaked NVIDIA card support that I don't know about. Those are your best bet for great Qubes support.
 
-If you do happen to get proprietary drivers working on your Qubes system (via installing them). Please take the time to go to the 
+If you do happen to get proprietary drivers working on your Qubes system (via installing them), please take the time to go to the
 [Hardware Compatibility List (HCL)](https://www.qubes-os.org/doc/hcl/#generating-and-submitting-new-reports )
 Add your computer, graphics card, and installation steps you did to get everything working.
 
@@ -39,14 +39,14 @@ yumdownloader --source nvidia-kmod
 
 ### Build kernel package
 
-You will need at least kernel-devel (matching your Qubes dom0 kernel), rpmbuild tool and kmodtool, and then you can use it to build package:
+You will need at least kernel-devel (matching your Qubes dom0 kernel), rpmbuild tool and kmodtool, and then you can use it to build the package:
 
 ~~~
 yum install kernel-devel rpm-build kmodtool
 rpmbuild --nodeps -D "kernels `uname -r`" --rebuild nvidia-kmod-260.19.36-1.fc13.3.src.rpm
 ~~~
 
-In above command replace `uname -r` with kernel version from your Qubes dom0. If everything went right, you have now complete packages with nvidia drivers for Qubes system. Transfer them to dom0 (e.g. using a USB stick) and install (using standard "yum install /path/to/file"). 
+In the above command, replace `uname -r` with kernel version from your Qubes dom0. If everything went right, you have now complete packages with nvidia drivers for the Qubes system. Transfer them to dom0 (e.g. using a USB stick) and install (using standard "yum install /path/to/file").
 
 Then you need to disable nouveau (normally it is done by install scripts from nvidia package, but unfortunately it isn't compatible with Qubes...):
 
@@ -92,13 +92,13 @@ You will need:
 -   kernel-devel package installed
 -   gcc, make, etc
 
-This installation must be done manually, because nvidia-installer refused to install it on Xen kernel. Firstly ensure that kernel-devel package installed all needed files. This should consists of:
+This installation must be done manually, because nvidia-installer refused to install it on Xen kernel. Firstly ensure that kernel-devel package installed all needed files. This should consist of:
 
 -   */usr/src/kernels/2.6.34.1-12.xenlinux.qubes.x86\_64*
 -   */lib/modules/2.6.34.1-12.xenlinux.qubes.x86\_64/build* symlinked to the above directory
 -   */usr/src/kernels/2.6.34.1-12.xenlinux.qubes.x86\_64/arch/x64/include/mach-xen* should be present (if not - take it from kernel sources)
 
-If all the files are not there correct the errors manually. To build kernel module, enter *NVIDIA-Linux-x86\_64-260.19.44/kernel* directory and execute:
+If all the files are not there correct the errors manually. To build the kernel module, enter *NVIDIA-Linux-x86\_64-260.19.44/kernel* directory and execute:
 
 ~~~
 make
@@ -120,7 +120,7 @@ Add *rdblacklist=nouveau* option to /boot/grub/menu.lst (at the end of line cont
 
 ### Configure Xorg
 
-After all, you should configure Xorg to use nvidia driver. You can use *nvidia-xconfig* or do it manually:
+Finally, you should configure Xorg to use nvidia driver. You can use *nvidia-xconfig* or do it manually:
 
 ~~~
 X -configure
@@ -143,7 +143,7 @@ Specifically, the notes below are aimed to help when the GRUB menu shows up fine
    * Using the anaconda installer interface, switch to the "shell" TTY (ALT-F2), and use `ip a` command to display the IP addresses.
 3. Using the Connect to the IP (remember the :1) using a VNC viewer.
 4. Follow the installation UI. 
-   * Since this won't be a usable install, skipping LUKS encryption is an option which will simplify this troubelshooting process. 
+   * Since this won't be a usable install, skipping LUKS encryption is an option which will simplify this troubleshooting process.
    * Do *not* reboot at the end of the installation.
 5. Once the installation completes, use the local VGA console switch to TTY2 via ALT-F2
    * Switch to the chroot of the newly-installed system via `chroot /mnt/sysinstall`
@@ -152,7 +152,7 @@ Specifically, the notes below are aimed to help when the GRUB menu shows up fine
    * Exit out of the chroot environment (`exit` or CTRL-D)
 6. Reboot
 
-*Note* If the kernel parameters do *not* include `quiet` and `rhgb`, the kernel messages can easily obscure the LUKS passphrase prompt. Additionally, each character entered will cause the LUKS passphrase prompt to repeat onto next line. Both of these are cosmetic. The trade-off between kernel messages and the easy-to-spot LUKS passphrase prompt is left as excercise to the user.
+*Note* If the kernel parameters do *not* include `quiet` and `rhgb`, the kernel messages can easily obscure the LUKS passphrase prompt. Additionally, each character entered will cause the LUKS passphrase prompt to repeat onto next line. Both of these are cosmetic. The trade-off between kernel messages and the easy-to-spot LUKS passphrase prompt is left as exercise to the user.
 
 ## Gather initial `dmesg` output
 If all is well, the newly-installed Qubes OS instance should allow for user root to log in. 
@@ -166,7 +166,7 @@ Run `dmesg > dmesg.nomodeset.out` to gather an initial dmesg output.
 4. Blindly log in as user root
 5. Blindly run `dmesg > dmesg.out`
 6. Blindly run `reboot` (this will also serve to confirm that logging in as root, and running commands blindly is possible rather than, say, the kernel having hung or some such).
-   * Should this step fail, perhaps by the time step #3 was underaken, the OS hasn't finished coming up yet. Please retry, possibly with a different TTY (say, 3 or 4 - so CTRL-ALT-F3?)
+   * Should this step fail, perhaps by the time step #3 was undertaken, the OS hasn't finished coming up yet. Please retry, possibly with a different TTY (say, 3 or 4 - so CTRL-ALT-F3?)
 
 ## Exfiltrate the dmesg outputs
 Allow the system to boot normally, log in as user root, and sneakernet the files off the system for analysis, review, bug logging, et cetera.

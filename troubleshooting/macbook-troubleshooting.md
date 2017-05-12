@@ -118,7 +118,7 @@ Results:
 * SD card access: OK (tested at dom0)
 * Lid-close suspend: OK
 * Wifi: +10%-20% ICMP packet loss when comparing with OSX (have similar rates
-  with tails Linux, more tests are required)
+  with Tails Linux, more tests are required)
 
 ### References
 
@@ -151,7 +151,7 @@ Bad news: still some minor issue to investigate.
 For the time being, my setup is just for testing purposes and help to bypass some blocking issues: do not use it in production or on machine where security is a concern!
 I hope to improve it as soon as possible.
 
-During my nigths trying to get Qubes OS working, I faced tow main and blocking issues:
+During my nights trying to get Qubes OS working, I faced two main and blocking issues:
 *   no boot, due to empty xen.cfg file
 *   system freeze, due to Broadcom BCM43602 wifi card
 
@@ -180,29 +180,29 @@ For security reasons, you should install Qubes using the whole disk. I preferred
 Download and prepare a USB with Qubes 3.2
 
 You can install Qubes using BIOS or UEFI:
-*  BIOS/CSM/Legacy: I have not been able to install using legagy, but I did not spent a lot of time on it.
-*  UEFI plain: grub menu appears, but any gave me a quick flash and returned the main menu. I can boot it manually fixing the grub.cfg file, adding commands linuexefi and initrdefi, pointing proper files in /efi/boot. After boot, I end up with not root file system.
+*  BIOS/CSM/Legacy: I have not been able to install using legagy, but I did not spend a lot of time on it.
+*  UEFI plain: grub menu appears, but any gave me a quick flash and returned the main menu. I can boot it manually fixing the grub.cfg file, adding commands linuexefi and initrdefi, pointing proper files in /efi/boot. After boot, I end up with no root file system.
 *  UEFI, using rEFInd: I have been successful, despite some issues to be fixed manually, after installation completion
    * download [rEFInd] refind-bin-0.10.4.zip: this file is not signed, so decide if you trust it or not. SHA1 sum is 3d69c23b7d338419e5559a93cd6ae3ec66323b1e  
-   * unzip it and run installer, which install rEFIind on the internal SSD
+   * unzip it and run installer, which installs rEFIind on the internal SSD
    * if installation fails due to SIP, reboot in recovery mode, open a terminal and issue command
    ~~~
    crsutil disable
    ~~~
    * reboot and you will see some icons
    * choose Boot EFI\BOOT\xen.efi from ANACONDA
-   * after a will the graphical installer is up and running, with keyboard and touchpad working
+   * after a while the graphical installer is up and running, with keyboard and touchpad working
 
 ### 3. Installation
 
-*  As a general rule, keep the default values proposed during installation: you will change them later on
+*  As a general rule, keep the default values proposed during installation: you can change them later on
 *  Keep English, as language, locale
 *  My macbook has a US keyboard, so I cannot say what happens if you change keyboard layout
 *  DO NOT CHANGE the timezone, because it will trigger the wifi card, leading to a system freeze
 *  Choose the "installation destination": do not change anything and press DONE button
 *  Insert your password for Full Disk Encryption
 *  If you do not already have free space on internal SSD disk, you will be prompted to reclaim some space: 
-*  If you shrunk OSX partition, disk utility left an empy partition: delete useless partition (eg: if you shrunk OSX parition, diskutil  created an empty partition)
+*  If you shrunk OSX partition, disk utility left an empy partition: delete useless partition (eg: if you shrunk OSX parition, diskutil created an empty partition)
 *  Press on "reclaim space"
 *  Press on "begin installation"
 *  create your user and password
@@ -285,7 +285,7 @@ You can fix this issue, killing audio support with this quick workaround:
 
 ### 7. Fix system freezes due to Broadcom BCM43602
 
-*  If you experiences a system freeze, during VM setup, force a reboot and press OPTION key. 
+*  If you experience a system freeze, during VM setup, force a reboot and press OPTION key.
    *  You will reach grub shell
    ~~~
    configfile /EFI/qubes/grub.cfg
@@ -316,7 +316,7 @@ qvm-start sys-net
 xl pci-attach sys-net 04:00.0
 ~~~
 
-This latest steps are required to launch sys-net with wifi access. They can be automated in a custom systemd service
+These latest steps are required to launch sys-net with wifi access. They can be automated in a custom systemd service
 
    
 

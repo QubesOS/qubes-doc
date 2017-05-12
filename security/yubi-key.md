@@ -105,7 +105,7 @@ the ability to lock the screen to your USB VM, and then adding udev hook to
 actually call that service.
 
 1. First configure the qrexec service. Create `/etc/qubes-rpc/custom.LockScreen` (in dom0)
-  with a simple command to lock the screen. In case of xscreensaver (used in Xfce)
+  with a simple command to lock the screen. In the case of xscreensaver (used in Xfce)
   it would be:
 
         DISPLAY=:0 xscreensaver-command -lock
@@ -131,7 +131,7 @@ persistent across VM restarts. For example name the file
 
 If you use KDE, the command(s) in first step would be different:
 
-        # In case of USB VM being autostarted, it will not have direct access to D-Bus
+        # In the case of USB VM being autostarted, it will not have direct access to D-Bus
         # session bus, so find its address manually:
         kde_pid=`pidof kdeinit4`
         export `cat /proc/$kde_pid/environ|grep -ao 'DBUS_SESSION_BUS_ADDRESS=[[:graph:]]*'`

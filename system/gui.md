@@ -43,7 +43,7 @@ Window content updates implementation
 
 Typical remote desktop applications, like *vnc*, pass information on all changed window content in-band (say, over tcp). 
 As that channel has limited throughput, this impacts video performance. 
-In case of Qubes, *qubes_gui* does not transfer all changed pixels via vchan. Instead, for each window, upon its creation or size change, *qubes_gui*
+In the case of Qubes, *qubes_gui* does not transfer all changed pixels via vchan. Instead, for each window, upon its creation or size change, *qubes_gui*
 
 -   asks *qubes_drv* driver for the list of physical memory frames that hold the composition buffer of a window
 -   passes this information via `MFNDUMP` message to *qubes_guid* in dom0
