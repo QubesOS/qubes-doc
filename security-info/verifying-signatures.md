@@ -96,6 +96,7 @@ copies of the fingerprint from multiple independent sources and comparing
 them to the downloaded key's fingerprint to ensure they match. Here are some
 ideas:
 
+ * Use the PGP Web of Trust.
  * Use different search engines to search for the fingerprint.
  * Use Tor to view and search for the fingerprint on various websites.
  * Use various VPNs and proxy servers.
