@@ -77,7 +77,7 @@ redirect_from:
 <br>
 <br>
 
-## 4: Downloading and verifying the integrity the "Qubes Automated Build System"
+## 4: Downloading and verifying the integrity of the "Qubes Automated Build System"
 
 * Import the Qubes master key
 
