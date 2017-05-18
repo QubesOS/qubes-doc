@@ -85,7 +85,7 @@ Despite the existence of a freedom-respecting open source version of Chrome avai
 
 According to the Chromium developer schedule, 59 is targeted to be out by June 6, 2017.
 
-Based on OWS's [2017 job listings][job listings], the "different platform" will probably be Node or Electron, and tthus presumably a standalone app that's built from the legacy's javascript code.
+Based on OWS's [2017 job listings][job listings], the "different platform" will probably be Node or Electron, and thus presumably a standalone app that's built from the legacy's javascript code.
 
 
 [Signal]: https://whispersystems.org/
