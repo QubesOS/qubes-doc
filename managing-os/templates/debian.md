@@ -43,12 +43,16 @@ Debian 9 (stretch) - testing:
 A prebuilt template is not yet available, but there are two options for
 achieving a stretch template:
 
-* Build an experimental stretch template from source.
+1. Build an experimental stretch template from source.
 
-* Clone a `debian-8` template and then modify `/etc/apt/sources.list` and 
-`/etc/apt/sources.list.d/qubes-r3.list` to pull from stretch repos rather 
-than jessie repos. After that, an `apt-get dist-upgrade` followed by a 
-reboot should "just work."
+2. Clone a `debian-8` template and then modify in the cloned template
+`/etc/apt/sources.list` and `/etc/apt/sources.list.d/qubes-r3.list`
+to pull from stretch repos rather than jessie repos. Simply replace
+all instances of "jessie" with "stretch". 
+After that, an `apt-get dist-upgrade` followed by a 
+reboot should "just work. Unused packages will have to be removed 
+or else it will conflict with the upgrade.
+3. [https://www.qubes-os.org/doc/template/debian/upgrade-8-to-9/ Follow the steps located on this page].
 
 
 Known issues
