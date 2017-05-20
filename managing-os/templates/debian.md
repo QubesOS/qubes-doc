@@ -43,18 +43,22 @@ Debian 9 (stretch) - stable:
 A prebuilt template is not yet available, but there are two options for
 achieving a stretch template:
 
-* Build an experimental stretch template from source.
+1. Build an experimental stretch template from source.
 
-* Clone a `debian-8` template and then modify `/etc/apt/sources.list` and 
-`/etc/apt/sources.list.d/qubes-r3.list` to pull from stretch repos rather 
-than jessie repos. After that, an `apt-get dist-upgrade` followed by a 
-reboot should "just work."
+2. Clone a `debian-8` template and then modify in the cloned template `/etc/apt/sources.list` and `/etc/apt/sources.list.d/qubes-r3.list` to pull from stretch repos rather than jessie repos. 
+Simply replace all instances of "jessie" with "stretch". 
+
+    After that, an `apt-get dist-upgrade` followed by a reboot should "just work". 
+    Unused packages will have to be removed or else it will conflict with the upgrade.
+
+    Full instructions are on [this page][stretch]
+
 
 
 Known issues
 ------------
 
-###Starting services
+### Starting services
 
 
 The Debian way (generally) is to start daemons if they are installed.
@@ -79,7 +83,7 @@ Where you **DO** want the service to run, put this in /rw/config/rc.local:
 Don't forget to make the file executable.
 
 
-###Unattended Upgrades
+### Unattended Upgrades
 
 Some users have noticed that on upgrading to Stretch, the unattended-upgrade package is installed.
 
@@ -88,7 +92,8 @@ This package is pulled in as part of a Recommend chain, and can be purged.
 The lesson is that you should carefully look at what is being installed to your system, particularly if you run dist-upgrade. 
 
 
-###Contributing
+Contributing
+----------------
 
 If you want to help in improving the template, feel free to [contribute](/wiki/ContributingHowto).
 
@@ -96,3 +101,5 @@ More information
 ----------------
 
 * [Debian wiki](https://wiki.debian.org/Qubes)
+
+[stretch]: https://www.qubes-os.org/doc/template/debian/upgrade-8-to-9/ 
