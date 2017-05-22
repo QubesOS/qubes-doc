@@ -62,8 +62,6 @@ to set the policy using current mechanism.
 | `admin.vm.device.<class>.Detach`       | vm        | device    | -                                         | -                                                         | `device` is in form `<backend-name>+<device-ident>`
 | `admin.vm.device.<class>.List`         | vm        | -         | -                                         | `<device> <options>\n`                                    | options can include `persistent=yes` for "persistently" attached devices (default is temporary)
 | `admin.vm.device.<class>.Available`    | vm        | device-ident | -                                         | `<device-ident> <properties> description=<desc>\n`        | optional service argument may be used to get info about a single device, <br/>optional (device class specific) properties are in `key=value` form, <br/>`description` must be the last one and is the only one allowed to contain spaces
-| `admin.vm.microphone.Attach`           | vm        | -         | -                                         | -                                                         |
-| `admin.vm.microphone.Detach`           | vm        | -         | -                                         | -                                                         |
 | `admin.pool.List`                      | `dom0`    | -         | -                                         | `<pool>\n`                                                |
 | `admin.pool.ListDrivers`               | `dom0`    | -         | -                                         | `<pool-driver> <property> ...\n`                          | Properties allowed in `admin.pool.Add`
 | `admin.pool.Info`                      | `dom0`    | pool      | -                                         | `<property>=<value>\n`                                    |
@@ -88,9 +86,8 @@ to set the policy using current mechanism.
 | `admin.vm.Pause`                       | vm        | -         | -                                         | -                                                         |
 | `admin.vm.Unpause`                     | vm        | -         | -                                         | -                                                         |
 | `admin.vm.Kill`                        | vm        | -         | -                                         | -                                                         |
-| `admin.backup.Execute`                 | `dom0`    | config i  | -                                         | -                                                         | config in `/etc/qubes/backup/<id>.conf` |
-| `admin.backup.Info`                    | `dom0`    | ?         | content?                                  | ?                                                         |
-| `admin.backup.Restore`                 | `dom0`    | ?         | content                                   | ?                                                         |
+| `admin.backup.Execute`                 | `dom0`    | config id | -                                         | -                                                         | config in `/etc/qubes/backup/<id>.conf`, only one backup operation of given `config id` can be running at once |
+| `admin.backup.Info`                    | `dom0`    | config id | -                                         | backup info                                               | info what would be included in the backup
 | `admin.Events`                         | `dom0|vm` | -         | -                                         | events                                                    |
 
 Volume properties:
