@@ -95,7 +95,7 @@ to the Qubes mailing lists:
     very soon, the possibility of having to disclose any of the Qubes
     signing keys to anybody might have pretty serious consequences for those
     who decided to entrust Qubes with anything serious. And we would like to
-    minimize these consequences with this canary thing.
+    somehow minimize these consequences with this canary thing.
     
     Additionally the canary is a nice way of ensuring "freshness" of our
     messaging to the community.
