@@ -116,7 +116,7 @@ would require creating `/etc/qubes-rpc/policy/custom.LockScreen` with:
         sys-usb dom0 allow
 
 3. Create udev hook in your USB VM. Store it in `/rw/config` to have it
-persis across VM restarts. For example name the file
+persist across VM restarts. For example name the file
 `/rw/config/yubikey.rules`. Add the following line:
 
         ACTION=="remove", SUBSYSTEM=="usb", ENV{ID_SECURITY_TOKEN}=="1", RUN+="/usr/bin/qrexec-client-vm dom0 custom.LockScreen"
