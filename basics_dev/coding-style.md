@@ -165,6 +165,8 @@ Security coding guidelines
        height = untrusted_conf.height;
     ~~~
 
+-   Use others variables, without the `untrusted_` prefix to hold the sanitized values, as shown above.
+
 Python-specific guidelines
 --------------------------
 

@@ -42,7 +42,7 @@ Normally, disposable VM is created when qubes rpc request with target *\$dispvm*
 1.  modify the savefile so that the VM name, VM UUID, MAC address and IP address are unique
 2.  restore the COW files from the `saved_cows.tar`
 3.  create the `/var/run/qubes/fast_block_attach` file, whose presence tells the `/etc/xen/scripts/block` script to bypass some redundant checks and execute as fast as possible.
-4.  execute "xl restore" in order to restore a domain.
+4.  execute `xl restore` in order to restore a domain.
 5.  create the same xenstore keys as normally created when AppVM boots (e.g. `qubes_ip`)
 6.  create the `qubes_restore_complete` xenstore key. This allows the boot process in DisposableVM to continue.
 
