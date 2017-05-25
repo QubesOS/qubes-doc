@@ -152,7 +152,7 @@ Specifically, the notes below are aimed to help when the GRUB menu shows up fine
    * Exit out of the chroot environment (`exit` or CTRL-D)
 6. Reboot
 
-*Note* If the kernel parameters do *not* include `quiet` and `rhgb`, the kernel messages can easily obscure the LUKS passphrase prompt. Additionally, each character entered will cause the LUKS passphrase prompt to repeat onto next line. Both of these are cosmetic. The trade-off between kernel messages and the easy-to-spot LUKS passphrase prompt is left as exercise to the user.
+*Note* If the kernel parameters do *not* include `quiet` and `rhgb`, the kernel messages can easily obscure the LUKS passphrase prompt. Additionally, each character entered will cause the LUKS passphrase prompt to repeat onto next line. Both of these are cosmetic. The trade-off between kernel messages and the easy-to-spot LUKS passphrase prompt is left as an exercise to the user.
 
 ## Gather initial `dmesg` output
 If all is well, the newly-installed Qubes OS instance should allow for user root to log in. 

@@ -75,7 +75,7 @@ Done.
 
 If you want install a lot of software in your TemplateVM, you may need to increase the amount of disk space your TemplateVM can use.
 
-1.  Make sure that all the VMs based on this template are powered off (including netvms etc).
+1.  Make sure that all the VMs based on this template are shut down (including netvms etc).
 2.  Sanity check: verify that none of the loop devices are pointing at this template root.img: `sudo losetup -a`
 3.  Resize root.img file using `truncate -s <desired size>` (the root.img path can be obtained from qvm-prefs).
 4.  If any netvm/proxyvm used by this template is based on it, set template netvm to none.

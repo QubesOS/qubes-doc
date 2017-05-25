@@ -82,9 +82,9 @@ The two lines that have just been added to /etc/pacman.conf should then be remov
 
 ### Package cannot be updated because of errors related to xorg-server or pulseaudio versions
 
-In the case of archlinux upgrade pulseaudio major version or xorg-server version, updating these packages will break the qubes GUI agent. To avoid breaking things, the update is blocked until a new version of the GUI agent is available.
+Upgrading pulseaudio or xorg-server to a newer major version will break the Qubes GUI agent. Avoid upgrading these packages until such time that a future version of the GUI agent addresses this issue.
 
-In this case, the gui-agent-linux component of Qubes-OS needs to be rebuilt using these last xorg-server or pulseaudio libraries. You can try to rebuild it yourself or wait for a new qubes-vm-gui package to be available.
+Specifically, the gui-agent-linux component of Qubes-OS needs to be rebuilt using these last xorg-server or pulseaudio libraries. You can try to rebuild it yourself or wait for a new qubes-vm-gui package to be available.
 
 ### qubes-vm is apparently starting properly (green dot) however graphical applications do not appear to work
 

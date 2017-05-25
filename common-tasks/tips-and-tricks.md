@@ -46,7 +46,7 @@ Preventing data leaks
 ---------------------
 First make sure to read [Understanding and Preventing Data Leaks](/doc/data-leaks/) section to understand the limits of this tip.
 
-Suppose that you have in a not so trusted enviroment, for example a Windows VM, an application that track and report its usage, or you simply want to protect your data.
+Suppose that you have within a not so trusted enviroment - for example, a Windows VM - an application that track and report its usage, or you simply want to protect your data.
 
 Start Windows template VM (which has no user data), install/upgrade apps; then start Windows AppVM (with data) in offline mode. So, if you worry (hypothetically) that your Windows or app updater might want to send your data away, this Qubes OS trick will prevent this.
 This applies also to any TemplateBasedVM relative to its parent TemplateVM, but the privacy risk is especially high in the case of Windows.

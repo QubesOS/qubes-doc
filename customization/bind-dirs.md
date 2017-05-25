@@ -89,7 +89,7 @@ For example, if you wanted to make `/var/lib/tor` non-persistant in `sys-whonix`
 binds=( "${binds[@]/'/var/lib/tor'}" )
 ~~~
 
-(Editing `/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf` directly is not recommended, since such changes get lost when that file is changed in the package on upgrades.)
+(Editing `/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf` directly is strongly discouraged, since such changes get lost when that file is changed in the package on upgrades.)
 
 ## Discussion ##
 

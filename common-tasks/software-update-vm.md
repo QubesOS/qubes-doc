@@ -119,7 +119,7 @@ There are several ways to deal with this problem:
 
 -   Use *standalone VMs* (see below) for installation of untrusted software packages.
 
--   Use multiple templates (see below) for different classes of domains, e.g. a less trusted template, used for creation of less trusted AppVMs, would get various packages from somewhat less trusted vendors, while the template used for more trusted AppVMs will only get packages from the standard Fedora repos.
+-   Use multiple templates (see below) for different classes of domains, e.g. a less trusted template, used for creation of less trusted AppVMs, would get various packages from less trusted vendors, while the template used for more trusted AppVMs will only get packages from the standard Fedora repos.
 
 Some popular questions:
 

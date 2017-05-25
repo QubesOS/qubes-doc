@@ -199,7 +199,7 @@ abstraction. This will change in the future. Those tools are:
 - `gpk-update-viewer` - called by Qubes Manager to display available updates in a TemplateVM
 - `systemctl start qubes-update-check.timer` (and similarly stop) - called when enabling/disabling updates checking in given VM (`qubes-update-check` [qvm-service](/doc/qubes-service/))
 
-Additionally automatic tests extensively call various commands directly in VMs. We do not plan to change that.
+Additionally, automatic tests extensively run various commands directly in VMs. We do not plan to change that.
 
 GUI protocol
 ------------

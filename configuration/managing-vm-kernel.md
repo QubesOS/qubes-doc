@@ -326,9 +326,9 @@ When starting the VM you can safely ignore any warnings about a missing module '
 
 ### Troubleshooting
 
-In the event of a problem, you can access VM console (using `sudo xl console VMNAME` in dom0) to access
-GRUB menu. You need to call it just after starting VM (until `GRUB_TIMEOUT`
-expires) - for example in separate dom0 terminal window.
+In the event of a problem, you can access the VM console (using `sudo xl console VMNAME` in dom0) to access
+the GRUB menu. You need to call it just after starting VM (until `GRUB_TIMEOUT`
+expires) - for example in a separate dom0 terminal window.
 
 In any case you can later access VM logs (especially VM console log (`guest-VMNAME.log`). 
 

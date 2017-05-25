@@ -58,15 +58,15 @@ list of available devices, which you can select to be assigned to that VM.
 Finding the right USB controller
 --------------------------------
 
-If you want to assign a certain [USB] device to a VM (by attaching the whole
-USB controller), you need to figure out which PCI device is the right
+If you want to assign a certain USB device to a VM by attaching the whole
+USB controller, you need to figure out which PCI device is the right
 controller. First, check to which USB bus the device is connected:
 
 ~~~
 lsusb
 ~~~
 
-For example, I want to assign a broadband modem to the netvm. In the output of
+For example, I want to assign a broadband modem to the NetVM. In the output of
 `lsusb` it can be listed as something like this. (In this case, the device isn't
 fully identified):
 

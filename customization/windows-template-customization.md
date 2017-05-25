@@ -62,10 +62,10 @@ Of course I recommend starting the template regularly and checking manually for 
 System properties
 ---------------------------
 
-Right click on computer and go to Properties > Advanced > Performances:
+Right click on computer and go to Properties > Advanced > Performance:
 
  * If you don't care about visual effect, in Visual Effect select "Adjust for best performance"
- * I personally tweak the page file size to win some space on my root.
+ * I personally tweak the page file size to gain some space on my root.
 
     In Advanced>Performances>Advanced tab, change Virtual memory:
 

@@ -17,7 +17,7 @@ Template installation
 
 *Note*: the template may not start in Qubes R3 when using kernel 3.19 (unstable). In this case, switch the AppVM or TemplateVM to the kernel 3.18.
 
-*Note*: If you have doubts about a set of tools or package you want to install, start installing and testing it in an AppVM. You can then reproduce it later in your TemplateVM if you are satisfied. That is the (QubesOS?) template philosophy.
+*Note*: If you have doubts about a set of tools or package you want to install, start installing and testing it in an AppVM. You can then reproduce it later in your TemplateVM if you are satisfied. That is the (Qubes OS?) template philosophy.
 
 Standard tools installation
 ================
@@ -176,7 +176,7 @@ Cleaning the whole dconf settings is also possible by removing the following fil
 rm ~/.config/dconf/user
 ~~~
 
-*Note*: lxappearance only has an effect on gtk3 theme so it won't work to change gtk2 themes (used by Firefox, Thunderbird ...).
+*Note*: lxappearance only has an effect on gtk3 themes so it won't work to change gtk2 themes (used by Firefox, Thunderbird ...).
              However, it is very lightweight and can be used to identify the name and look of themes you are interested in.
              Once you have the name, you can apply it using gsetting command line or gconf-editor.
 

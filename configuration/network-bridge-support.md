@@ -42,7 +42,7 @@ First, retrieve the attachment of this Wifi article in dom0. Then apply the thre
 
 Finally restart the qubes manager GUI.
 
-A new option is now available in the AppVM Settings to enable set the NetVM in bridge mode. For a bridged AppVM, you should the select a netvm instead of a firewall vm, enable the Bridge option and restart your AppVM.
+An option is available in the AppVM Settings to enable setting the NetVM in bridge mode. For a bridged AppVM, you should then select a NetVM instead of a FirewallVM/  ProxyVM, enable the Bridge option, and restart your AppVM.
 
 NetVM patch (Qubes R2B2)
 ------------------------

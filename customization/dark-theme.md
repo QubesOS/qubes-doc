@@ -109,7 +109,7 @@ This is the result after applying the steps described here.
 Dark App VM, Template VM, Standalone VM, HVM (Linux Gnome)
 ==========================================================
 
-Almost all Qubes VM's are based on the Gnome desktop. Therefore the description below is focused on the Gnome Desktop Environment.
+Almost all Qubes VMs use default applications based on the GTK toolkit. Therefore the description below is focused on tools from the Gnome Desktop Environment.
 
 Using "Gnome-Tweak-Tool"
 ------------------------
@@ -120,7 +120,7 @@ The advantage of creating a dark themed Template VM is, that each AppVM which is
 
 1. Start VM
 
-    **Note:** In the case of App VM start the Template on which the AppVM is based on.
+    **Note:** Remember that if you want to make the change persistent, the change needs to be made in the TemplateVM, not the AppVM.
 
 2. Install `Gnome-Tweak-Tool`
 
@@ -174,7 +174,7 @@ Manually works for Debian, Fedora and Archlinux.
 
 1. Start VM
 
-    **Note:** In the case of App VM start the Template on which the AppVM is based on.
+    **Note:** Remember that if you want to make the change persistent, the change needs to be made in the TemplateVM, not the AppVM.
 
 2. Enable `Global Dark Theme`
 
