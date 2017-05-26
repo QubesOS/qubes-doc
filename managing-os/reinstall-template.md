@@ -23,6 +23,12 @@ template you wish to reinstall. For example, use `qubes-template-fedora-24` if
 you wish to reinstall the `fedora-24` template. Only one template can be
 reinstalled at a time.
 
+Note that Qubes may initially refuse to perform the reinstall if the exact revision of
+the template package on your system is no longer in the Qubes online repository. In
+this case, you can specify `upgrade` as the action instead and the newer version will be
+used. The other `dnf` package actions that are now supported in addition to `reinstall`
+and `upgrade` are `upgrade-to` and `downgrade`.
+
 **Reminder:** If you're trying to reinstall a template that is not in an enabled
 repo, you must enable that repo. For example:
 
