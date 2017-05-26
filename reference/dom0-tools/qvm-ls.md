@@ -16,9 +16,6 @@ NAME
 
 qvm-ls - list VMs and various information about their state
 
-Date  
-2012-04-03
-
 SYNOPSIS
 --------
 

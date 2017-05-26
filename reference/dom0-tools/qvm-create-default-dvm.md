@@ -16,9 +16,6 @@ NAME
 
 qvm-create-default-dvm - creates a default disposable VM
 
-Date  
-2012-04-10
-
 SYNOPSIS
 --------
 

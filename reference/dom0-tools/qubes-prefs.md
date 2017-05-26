@@ -23,9 +23,6 @@ qubes-prefs - display system-wide Qubes settings, such as:
 -   default kernel
 -   default netVM
 
-Date  
-2012-04-13
-
 SYNOPSIS
 --------
 

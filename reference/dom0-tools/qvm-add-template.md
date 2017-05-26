@@ -16,9 +16,6 @@ NAME
 
 qvm-add-template - adds an already installed template to the Qubes DB
 
-Date  
-2012-04-10
-
 SYNOPSIS
 --------
 

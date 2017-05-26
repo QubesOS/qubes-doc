@@ -16,9 +16,6 @@ NAME
 
 qvm-template-commit
 
-Date  
-2012-04-11
-
 SYNOPSIS
 --------
 

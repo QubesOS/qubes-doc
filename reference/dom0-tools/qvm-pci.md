@@ -16,9 +16,6 @@ NAME
 
 qvm-pci - list/set VM PCI devices
 
-Date  
-2012-04-11
-
 SYNOPSIS
 --------
 

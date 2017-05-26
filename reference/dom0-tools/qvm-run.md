@@ -16,9 +16,6 @@ NAME
 
 qvm-run - run a command on a specified VM
 
-Date  
-2012-04-11
-
 SYNOPSIS
 --------
 

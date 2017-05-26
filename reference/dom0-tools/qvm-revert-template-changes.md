@@ -16,9 +16,6 @@ NAME
 
 qvm-revert-template-changes
 
-Date  
-2012-04-11
-
 SYNOPSIS
 --------
 

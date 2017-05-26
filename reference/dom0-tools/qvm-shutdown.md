@@ -16,9 +16,6 @@ NAME
 
 qvm-shutdown
 
-Date  
-2012-04-11
-
 SYNOPSIS
 --------
 
