@@ -19,6 +19,15 @@ redirect_from:
 Installation Guide
 ==================
 
+Warning
+-------
+
+There is a set of known upstream bugs in the Fedora installer that affect Qubes OS ([Bug 1170803], [Bug 1374983], and [Bug 1268700]; tracked in Qubes issue [#2835]).
+Because of these bugs, the installer will try to access all existing disk partitions, run fsck on them, and mount them.
+Therefore, we *strongly* recommended that, prior to starting the Qubes installer, you physically disconnect all disks that you do not want to be modified.
+Furthermore, if you are installing Qubes on a potentially compromised system, we *strongly* recommended that you wipe your target installation disk before starting the installer.
+
+
 Hardware Requirements
 ---------------------
 
@@ -117,6 +126,10 @@ Getting Help
    questions to the appropriate mailing list.
 
 
+[Bug 1170803]: https://bugzilla.redhat.com/show_bug.cgi?id=1170803
+[Bug 1374983]: https://bugzilla.redhat.com/show_bug.cgi?id=1374983
+[Bug 1268700]: https://bugzilla.redhat.com/show_bug.cgi?id=1268700
+[#2835]: https://github.com/QubesOS/qubes-issues/issues/2835
 [system requirements]: /doc/system-requirements/
 [Hardware Compatibility List]: /hcl/
 [live USB]: /doc/live-usb/
