@@ -233,6 +233,7 @@ System
  * [Qubes OS Architecture Overview](/doc/architecture/)
  * [Qubes OS Architecture Spec v0.3 [PDF]](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf)
  * [Security-critical elements of Qubes OS](/doc/security-critical-code/)
+ * [Qubes core (`qubes-core-admin`)](https://dev.qubes-os.org/projects/core-admin/en/latest/)
  * [Qrexec: command execution in VMs](/doc/qrexec3/)
  * [Qubes GUI virtualization protocol](/doc/gui/)
  * [Networking in Qubes](/doc/networking/)
