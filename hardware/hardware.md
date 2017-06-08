@@ -85,7 +85,7 @@ developers to ensure compatibility with all of Qubes' features. The developers
 test all new major versions and updates to ensure that no regressions are introduced.
 To learn more about the certification process, or if you're interested in
 getting your company's hardware Qubes-certified, please see the [Hardware
-Certification] page.
+Certification] section.
 
 We aim to partner with a few select computer makers to ensure that Qubes is
 compatible with them and new users have clear path towards getting started
@@ -135,6 +135,7 @@ R4.x-certified laptops are available.
 [stateless laptop]: https://blog.invisiblethings.org/2015/12/23/state_harmful.html
 [System Requirements]: /doc/system-requirements/
 [Hardware Compatibility List]: /hcl/
+[Hardware Certification]: #hardware-certification
 [Purism Librem 13]: #purism-librem-13
 [updated requirements]: /news/2016/07/21/new-hw-certification-for-q4/
 [system requirements for Qubes 4.x]: /doc/system-requirements/#qubes-release-4x
