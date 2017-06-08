@@ -94,12 +94,12 @@ redirect_from:
 
 [nvidia]: /doc/install-nvidia-driver/
 [hardware certification requirements for Qubes 4.x]: /news/2016/07/21/new-hw-certification-for-q4/
-[Hardware Certification]: /hardware-certification/
+[Hardware Certification]: /doc/hardware/#hardware-certification
 [Hardware Compatibility List]: /hcl/
 [hcl-doc]: /doc/hcl/
 [hcl-report]: /doc/hcl/#generating-and-submitting-new-reports
 [Anti Evil Maid]: /doc/anti-evil-maid/
-[Qubes-certified laptop]: /doc/certified-laptops/
+[Qubes-certified laptop]: /doc/hardware/#qubes-certified-laptops
 [live USB]: /doc/live-usb/
 [#230]: https://github.com/QubesOS/qubes-issues/issues/230
 [vt-d-notebook]: https://groups.google.com/d/msg/qubes-users/Sz0Nuhi4N0o/ZtpJdoc0OY8J
