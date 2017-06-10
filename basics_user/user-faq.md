@@ -343,7 +343,12 @@ A device that does not support reset is not safe and generally should not be ass
 
 Most likely the offending controller is a USB3.0 device. 
 You can remove this controller from the usbVM, and see if this allows the VM to boot.
-Alternatively you may be able to disable USB 3.0 in the BIOS.
+Alternatively you may be able to disable USB 3.0 in the BIOS. If the BIOS does not have the option to disable USB 3.0, try running the following command in dom0 to [force USB 2.0 modes for the USB ports](https://www.systutorials.com/qa/1908/how-to-force-a-usb-3-0-port-to-work-in-usb-2-0-mode-in-linux):
+
+        lspci -nn | grep USB \
+        | cut -d '[' -f3 | cut -d ']' -f1 \
+        | xargs -I@ setpci -H1 -d @ d0.l=0
+
 
 Errors suggesting this issue:
 
