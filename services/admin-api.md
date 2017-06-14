@@ -157,10 +157,10 @@ does not by itself support translation.
 The tags provided can be used to write custom policies. They are not used in
 a&nbsp;default Qubes OS installation. However, they are created anyway.
 
-- `created-by-<vm>` &emdash;&nbsp;Created in an extension to qubesd at the
+- `created-by-<vm>` &mdash;&nbsp;Created in an extension to qubesd at the
   moment of creation of the VM. Cannot be changed via API, which is also
   enforced by this extension.
-- `managed-by-<vm>` &emdash;&nbsp;Can be used for the same purpose, but it is
+- `managed-by-<vm>` &mdash;&nbsp;Can be used for the same purpose, but it is
   not created automatically, nor is it forbidden to set or reset this tag.
 
 ## General notes
