@@ -109,10 +109,23 @@ Create new HVM in Dom0, with amount of RAM in MB you wish:
 qvm-create --hvm win10 --label red --mem=4096
 ~~~
 
+Because Windows image is a sparse file, tar it with -S option:
+
+~~~
+tar -Scf win10.raw.tar win10.raw
+du -h win10.raw.tar
+~~~
+
 Copy file to Dom0:
 
 ~~~
-qvm-run --pass-io untrusted 'cat "/media/user/externalhd/win10.raw"' > /var/lib/qubes/appvms/win10/root.img
+qvm-run --pass-io untrusted 'cat "/media/user/externalhd/win10.raw.tar"' > win10.raw.tar
+~~~
+
+Untar the image and move to AppVM dir:
+
+~~~
+mv win10.raw /var/lib/qubes/appvms/win10/root.img
 ~~~
 
 Start win10 VM:
