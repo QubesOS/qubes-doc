@@ -72,13 +72,14 @@ to set the policy using current mechanism.
 | `admin.pool.volume.Revert`             | `dom0`    | pool      | `<vid> <snapshot>`                        | -                                                         |
 | `admin.pool.volume.Resize`             | `dom0`    | pool      | `<vid> <size_in_bytes>`                   | -                                                         |
 | `admin.pool.volume.Import`             | `dom0`    | pool      | `<vid>\n<raw volume data>`                | -                                                         |
-| `admin.vm.volume.List`                 | vm        | -         | -                                         | `<volume>\n`                                              | `<volume>` is per-VM volume name, `<vid>` is pool-unique volume id
+| `admin.vm.volume.List`                 | vm        | -         | -                                         | `<volume>\n`                                              | `<volume>` is per-VM volume name (`root`, `private`, etc), `<vid>` is pool-unique volume id
 | `admin.vm.volume.Info`                 | vm        | volume    | -                                         | `<property>=<value>\n`                                    |
 | `admin.vm.volume.ListSnapshots`        | vm        | volume    | -                                         | snapshot                                                  | duplicate of `admin.pool.volume.`, but with other call params |
 | `admin.vm.volume.Snapshot`             | vm        | volume    | -                                         | snapshot                                                  | id. |
 | `admin.vm.volume.Revert`               | vm        | volume    | snapshot                                  | -                                                         | id. |
 | `admin.vm.volume.Resize`               | vm        | volume    | size_in_bytes                             | -                                                         | id. |
 | `admin.vm.volume.Import`               | vm        | volume    | raw volume data                           | -                                                         | id. |
+| `admin.vm.volume.Clone`                | vm        | volume    | dest VM name                              | -                                                         | copy volume data from `volume` of `vm` to same volume of `dest VM name` |
 | `admin.vm.Start`                       | vm        | -         | -                                         | -                                                         |
 | `admin.vm.Shutdown`                    | vm        | -         | -                                         | -                                                         |
 | `admin.vm.Pause`                       | vm        | -         | -                                         | -                                                         |
