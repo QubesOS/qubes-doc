@@ -23,8 +23,6 @@ to set the policy using current mechanism.
 | `admin.vm.Create.<class>`              | `dom0`    | template  | `name=<name> label=<label>`               | -                                                         |
 | `admin.vm.CreateInPool.<class>`        | `dom0`    | template  | `name=<name> label=<label> `<br/>`pool=<pool> pool:<volume>=<pool>`   | -                                                         | either use `pool=` to put all volumes there, <br/>or `pool:<volume>=` for individual volumes - both forms are not allowed at the same time
 | `admin.vm.CreateTemplate`              | `dom0`    | name      | `root.img`                                | -                                                         |
-| `admin.vm.Clone`                       | vm        | -         | `name=<name>`                             | -                                                         |
-| `admin.vm.CloneInPool`                 | vm        | -         | `name=<name> `<br/>`pool=<pool> pool:<volume>=<pool>` | -                                                         | same as for `admin.vm.CreateInPool`
 | `admin.vm.Remove`                      | vm        | -         | -                                         | -                                                         |
 | `admin.label.List`                     | `dom0`    | -         | -                                         | `<property>\n`                                            |
 | `admin.label.Create`                   | `dom0`    | label     | `0xRRGGBB`                                | -                                                         |
