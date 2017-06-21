@@ -18,17 +18,21 @@ Beware: Dragons might eat your precious data!
 Install ZFS in Dom0
 ===================
 
-Install DKMS style packages for Fedora <sup>(defunct\\ in\\ 0.6.2\\ due\\ to\\ spl/issues/284)</sup>
+Install DKMS style packages for Fedora
 ----------------------------------------------------------------------------------------------------
 
-Fetch and install repository for DKMS style packages for your Dom0 Fedora version [http://zfsonlinux.org/fedora.html](http://zfsonlinux.org/fedora.html):
+Fetch and install repository for DKMS style packages for your Dom0 Fedora version [https://github.com/zfsonlinux/zfs/wiki/Fedora](https://github.com/zfsonlinux/zfs/wiki/Fedora)
+
+Note that Fedora 23 is deprecated and unsupported; at this point, 25 is not stable enough for daily use on Qubes. From here on, we will assume that you have updated your Dom0 to fc24. Aside from attempting to use a mis-written command to pass a key to Dom0, and leaving redundant/old repos in the /etc/yum.repos.d/ folder, [This Forum Post](https://groups.google.com/forum/#!msg/qubes-users/m8sWoyV58_E/HYdReRIYBAAJ) walked this author through the process nicely.
 
 ~~~
-disp1# wget http://archive.zfsonlinux.org/fedora/zfs-release-1-1$(rpm -E %dist).noarch.rpm
-dom0# qvm-run --pass-io disp1 'cat /home/user/zfs-release-1-1.fc18.noarch.rpm' > /home/user/zfs-release-1-1.fc18.noarch.rpm
-dom0# sudo yum localinstall /home/user/zfs-release-1-1.fc18.noarch.rpm
-dom0# sudo sed -i 's/$releasever/18/g' /etc/yum.repo.d/zfs.repo
-dom0# sudo qubes-dom0-update @development-tools
+disp1# wget http://archive.zfsonlinux.org/fedora/zfs-release-fc24.noarch.rpm
+disp1# wget http://pgp.mit.edu/pks/lookup?op=get&search=0xA9D5A1C0F14AB620 > ~/zfs.key
+dom0# qvm-run --pass-io disp1 'cat ~/zfs-release.fc24.noarch.rpm' > ~/zfs-release.fc24.noarch.rpm
+dom0# qvm-run --pass-io disp1 'cat ~/zfs.key' > ~/zfs.key
+dom0# sudo rom --import ~/zfs.key
+dom0# sudo dnf install /home/user/zfs-release.fc24.noarch.rpm
+dom0# sudo sed -i 's/$releasever/24/g' /etc/yum.repo.d/zfs.repo
 dom0# sudo qubes-dom0-update zfs
 ~~~
 
