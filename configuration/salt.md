@@ -202,7 +202,7 @@ Because we use some code that is not found in older versions of Salt, there is
 a tool called `qubesctl` that should be run instead of `salt-call --local`.
 It accepts all the same arguments of the vanilla tool.
 
-## Configuring Systems from Dom0
+## Configuring a VM's System from Dom0
 
 Starting with Qubes R3.2, Salt in Qubes can be used to configure VMs from dom0.
 Simply set the VM name as the target minion name in the top file.
@@ -287,7 +287,7 @@ To apply the state:
 
     $ qubesctl state.highstate
 
-### Example of Configuring Systems from Dom0
+### Example of Configuring a VM's System from Dom0
 
 Lets make sure that the `mc` package is installed in all templates.
 Similar to the previous example, you need to create a state file 
