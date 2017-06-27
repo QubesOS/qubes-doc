@@ -233,6 +233,5 @@ a&nbsp;default Qubes OS installation. However, they are created anyway.
 
 <!-- vim: set ts=4 sts=4 sw=4 et : -->
 
-[admin-api]: ../admin-api/
 [admin-api-architecture]: /attachment/wiki/AdminAPI/admin-api-architecture.svg
 
