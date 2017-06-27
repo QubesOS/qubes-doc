@@ -195,8 +195,6 @@ does not by itself support translation.
 
 ## Tags
 
-*not implemented yet*
-
 The tags provided can be used to write custom policies. They are not used in
 a&nbsp;default Qubes OS installation. However, they are created anyway.
 
@@ -205,6 +203,79 @@ a&nbsp;default Qubes OS installation. However, they are created anyway.
   enforced by this extension.
 - `managed-by-<vm>` &mdash;&nbsp;Can be used for the same purpose, but it is
   not created automatically, nor is it forbidden to set or reset this tag.
+
+## Backup profile
+
+Backup-related calls do not allow (yet) to specify what should be included in
+the backup. This needs to be configured separately in dom0, with a backup
+profile, stored in `/etc/qubes/backup/<profile>.conf`. The file use yaml syntax
+and have following settings:
+
+- `include` - list of VMs to include, can also contains tags using
+  `$tag:some-tag` syntax or all VMs of given type using `$type:AppVM`, known
+  from qrexec policy
+- `exclude` - list of VMs to exclude, after evaluating `include` setting
+- `destination_vm` - VM to which the backup should be send
+- `destination_path` - path to which backup should be written in
+  `destination_vm`. This setting is given to `qubes.Backup` service and
+  technically it's up to it how to interpret it. In current implementation it is
+  interpreted as a directory where a new file should be written (with a name
+  based on the current timestamp), or a command where the backup should
+  be piped to
+- `compression` - should the backup be compressed (default: True)? The value can be either
+  `False` or `True` for default compression, or a compression command (needs to
+  accept `-d` argument for decompression)
+- `passphrase_text` - passphrase used to encrypt and integrity protect the backup
+- `passphrase_vm` - VM which should be asked what backup passphrase should be
+  used. The asking is performed using `qubes.BackupPassphrase+profile_name`
+  service, which is expected to output chosen passphrase to its stdout. Empty
+  output cancel the backup operation. This service can be used either to ask
+  the user interactively, or to have some automated passphrase handling (for
+  example: generate randomly, then encrypt with a public key and send
+  somewhere)
+
+Not all settings needs to be set.
+
+Example backup profile:
+
+```yaml
+# Backup only selected VMs
+include:
+  - work
+  - personal
+  - vault
+  - banking
+
+# Store the backup on external disk
+destination_vm: sys-usb
+destination_path: /media/my-backup-disk
+
+# Use static passphrase
+passphrase_text: "My$Very!@Strong23Passphrase"
+```
+
+And slightly more advanced one:
+
+```yaml
+# Include all VMs with a few exceptions
+include:
+  - $type:AppVM
+  - $type:TemplateVM
+  - $type:StandaloneVM
+exclude:
+  - untrusted
+  - $tag:do-not-backup
+
+# parallel gzip for faster backup
+compression: pigz
+
+# ask 'vault' VM for the backup passphrase
+passphrase_vm: vault
+
+# send the (encrypted) backup directly to remote server
+destination_vm: sys-net
+destination_path: ncftpput -u my-ftp-username -p my-ftp-pass -c my-ftp-server /directory/for/backups
+```
 
 ## General notes
 
