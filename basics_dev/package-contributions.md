@@ -37,8 +37,8 @@ In order to be accepted, packages must:
 
 Updates
 -------
-If you would like to update or patch an existing contributed package (i.e., code in a fork owned by [QubesOS-contrib]), whether it is your contribution or someone else's, please submit a [signed][sig], fast-forwarded pull request to that repo with your changes.
-Please note that your pull request **must** be both [signed][sig] and fast-forwarded, or else it will be closed without further review.
+If you would like to update or patch an existing contributed package (i.e., code in a fork owned by [QubesOS-contrib]), whether it is your contribution or someone else's, please submit a [signed][sig], fast-forwardable pull request to that repo with your changes.
+Please note that your pull request **must** be both [signed][sig] and fast-forwardable, or else it will be closed without further review.
 
 [Inclusion Criteria]: #inclusion-criteria
 [sig]: /doc/code-signing/
