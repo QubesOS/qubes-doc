@@ -40,6 +40,16 @@ Updates
 If you would like to update or patch an existing contributed package (i.e., code in a fork owned by [QubesOS-contrib]), whether it is your contribution or someone else's, please submit a [signed][sig], fast-forwardable pull request to that repo with your changes.
 Please note that your pull request **must** be both [signed][sig] and fast-forwardable, or else it will be closed without further review.
 
+Maintainers and Versions
+------------------------
+If you contribute a package, we'll assume that you will (willingly) be the maintainer of that package, unless you tell us otherwise.
+As the maintainer of the package, it is your privilege and responsibility to:
+
+ * Review each pull request against the package.
+ * Decide when a new version of the package should be uploaded.
+ * Add appropriate version tags.
+
+
 [Inclusion Criteria]: #inclusion-criteria
 [sig]: /doc/code-signing/
 [qubes-issues]: https://github.com/QubesOS/qubes-issues/issues/
