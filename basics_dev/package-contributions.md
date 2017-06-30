@@ -87,6 +87,8 @@ If you do not act on your maintainer duties for a given package for an extended 
 
 
 [Inclusion Criteria]: #inclusion-criteria
+[Contribution Procedure]: #contribution-procedure
+[Update Procedure]: #update-procedure
 [Review Procedure]: #review-procedure
 [Package Maintainer]: #package-maintainers
 [Qubes OS License]: /doc/license/
