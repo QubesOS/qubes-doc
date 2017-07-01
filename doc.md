@@ -40,7 +40,7 @@ Security Information
 Choosing Your Hardware
 ----------------------
  * [System Requirements](/doc/system-requirements/)
- * [General Hardware Information](/doc/hardware/)
+ * [Certified Hardware](/doc/certified-hardware/)
  * [Hardware Compatibility List (HCL)](/hcl/)
 
 Installing & Upgrading Qubes
