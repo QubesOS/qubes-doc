@@ -37,7 +37,7 @@ To have hardware certified, the vendor must:
 
 1. Send the Qubes team two (2) units for testing (non-returnable) for each configuration the vendor wishes to be offering.
 2. Offer to customers the very same configuration (same motherboard, same screen, same BIOS version, same Wi-Fi module, etc.) for at least one year.
-3. Pay the Qubes team a portion of the sales of each unit, to be agreed upon between the hardware vendor and the Qubes team.
+3. Pay the Qubes team a flat monthly rate, to be agreed upon between the hardware vendor and the Qubes team.
 
 It is the vendor's responsibility to ensure the hardware they wish to have certified can run Qubes OS, at the very least the latest stable version.
 This could be done by consulting the [Hardware Compatibility List] or trying to install it themselves before shipping any units to us.
