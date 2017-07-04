@@ -113,7 +113,7 @@ to set the policy using current mechanism.
 | `admin.pool.volume.Revert`             | `dom0`    | pool      | `<vid> <snapshot>`                        | -                                                         |
 | `admin.pool.volume.Resize`             | `dom0`    | pool      | `<vid> <size_in_bytes>`                   | -                                                         |
 | `admin.pool.volume.Import`             | `dom0`    | pool      | `<vid>\n<raw volume data>`                | -                                                         |
-| `admin.pool.volume.CloneFrom`          | `dom0`    | pool      | vid                                       | token, to be used in `admin.vm.volume.CloneTo`            | obtain a token to copy volume `vid` in `pool` |
+| `admin.pool.volume.CloneFrom`          | `dom0`    | pool      | vid                                       | token, to be used in `admin.pool.volume.CloneTo`          | obtain a token to copy volume `vid` in `pool`;<br/>the token is one time use only, it's invalidated by `admin.pool.volume.CloneTo`, even if the operation fails |
 | `admin.pool.volume.CloneTo`            | `dom0`    | pool      | `<vid> <token>`                           | -                                                         | copy volume pointed by a token to volume `vid` in `pool` |
 | `admin.vm.volume.List`                 | vm        | -         | -                                         | `<volume>\n`                                              | `<volume>` is per-VM volume name (`root`, `private`, etc), `<vid>` is pool-unique volume id
 | `admin.vm.volume.Info`                 | vm        | volume    | -                                         | `<property>=<value>\n`                                    |
@@ -122,7 +122,7 @@ to set the policy using current mechanism.
 | `admin.vm.volume.Revert`               | vm        | volume    | snapshot                                  | -                                                         | id. |
 | `admin.vm.volume.Resize`               | vm        | volume    | size_in_bytes                             | -                                                         | id. |
 | `admin.vm.volume.Import`               | vm        | volume    | raw volume data                           | -                                                         | id. |
-| `admin.vm.volume.CloneFrom`            | vm        | volume    | -                                         | token, to be used in `admin.vm.volume.CloneTo`            | obtain a token to copy `volume` of `vm` |
+| `admin.vm.volume.CloneFrom`            | vm        | volume    | -                                         | token, to be used in `admin.vm.volume.CloneTo`            | obtain a token to copy `volume` of `vm`;<br/>the token is one time use only, it's invalidated by `admin.vm.volume.CloneTo`, even if the operation fails |
 | `admin.vm.volume.CloneTo`              | vm        | volume    | token, obtained with `admin.vm.volume.CloneFrom` | -                                                         | copy volume pointed by a token to `volume` of `vm` |
 | `admin.vm.Start`                       | vm        | -         | -                                         | -                                                         |
 | `admin.vm.Shutdown`                    | vm        | -         | -                                         | -                                                         |
