@@ -413,7 +413,7 @@ The solution is to shut down the updateVM between each install:
 
     install template and shutdown updateVM:
       cmd.run:
-      - name: sudo qubes-dom0-update -y fedora-24; qvm-shutdown {{salt.cmd.run(qubes-prefs updateVM) }}
+      - name: sudo qubes-dom0-update -y fedora-24; qvm-shutdown {% raw %}{{ salt.cmd.run(qubes-prefs updateVM) }}{% endraw %}
 
 ## Further Reading
 
