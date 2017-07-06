@@ -12,8 +12,6 @@ redirect_from:
 Upgrading the Debian 8 Template
 ===============================
 
-Disclaimer: Debian 9 (Stretch) is marked testing for a reason. You may notice stability problems when using it.
-
 Please note that if you installed packages from one of the testing repositories you must make sure that the repository is enabled in `/etc/apt/sources.list.d/qubes-r3.list` before attempting the upgrade. Otherwise, your upgrade will [break](https://github.com/QubesOS/qubes-issues/issues/2418).
 
 Summary: Upgrading a Debian 8 Template to Debian 9
@@ -114,10 +112,6 @@ TemplateVM's max size + the actually used space there) free space in dom0.
 
 Additional Information
 ----------------------
-
-It should be noted that Debian 9 (Stretch) is currently marked testing and
-should be treat as such. For projects that need absolute stability, upgrading
-may not be the best option.
 
 Debian Stretch packages were first made available in the Qubes R3.1 repositories.
 
