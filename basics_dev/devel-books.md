@@ -21,7 +21,7 @@ Below is a list of various books that might be useful in learning some basics ne
     -   [https://www.amazon.com/Dynamics-Trusted-Platform-Buildin-Grawrock/dp/1934053082](https://www.amazon.com/Dynamics-Trusted-Platform-Buildin-Grawrock/dp/1934053082)
 
 -   Good book about GIT:
-    -   [http://progit.org/book/](http://progit.org/book/)
+    -   [https://git-scm.com/book/en/v2](https://git-scm.com/book/en/v2)
 
 -   Useful books about Python:
     -   [http://www.qtrac.eu/py3book.html](http://www.qtrac.eu/py3book.html) (Note that Qubes management tools are written in Python 2.6, but this book is still a very good choice)
