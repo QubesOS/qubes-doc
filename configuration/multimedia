@@ -11,14 +11,23 @@ Listen to Spotify
 =================
 Install-Howto: https://www.spotify.com/de/download/linux/
 
-Detailed steps:
+Detailed steps which must be run in the Debian 8 template VM.
+A good idea might be to clone the existing Debian 8 template and create an own debian-8-multimedia template from whoch you can then create an App-VM.
+You need to make sure that you allow networking to the internet during installation, as you need to download some data which are not from the default repositories.
 
-1) sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
-2) echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-3) sudo apt-get update
-4) sudo apt-get install spotify-client
+# Become root
+su -
+# Download the Key which is used for signing the Spotify package repository
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+#Public-Key: http://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0xD2C19886&fingerprint=on
+#Fingerprint: BBEB DCB3 18AD 50EC 6865 0906 13B0 0F1F D2C1 9886
+# Add the package repository to your list of package sources
+echo deb http://repository.spotify.com stable non-free | tee /etc/apt/sources.list.d/spotify.list
+# Make the new repository known to your system
+apt-get update
+# Install the Spotify Client
+apt-get install -y spotify-client
 
-I could then start the native spotify client .. easy.
 
 
 Play Netflix
