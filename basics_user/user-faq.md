@@ -464,6 +464,6 @@ Press `F11` twice.
 
 If it seems like the issue described in [this thread](https://github.com/QubesOS/qubes-issues/issues/2399), try disabling the window compositor:
 
-- Q -> System Tools -> Window Manager Tweaks -> Compositor -> uncheck "Enable display compositing"
+- Q → System Tools → Window Manager Tweaks → Compositor → uncheck "Enable display compositing"
 
 Please report (via the mailing lists) if you experience this issue, and whether disabling the compositor fixes it for you or not.
