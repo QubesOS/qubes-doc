@@ -332,7 +332,7 @@ redirect_from:
 *   **Transfer the install-templates.sh script file into Dom0**
   *Note: as there is not a typical file transfer method for Dom0, for security reasons, this less than simple transfer function has to be used*
 
-    *   Swtich to Domo and open a terminal window.
+    *   Switch to Domo and open a terminal window.
 
     **Note:** Take care when entering these cmd strings.  They are very long and have a number of characters that are easy to mix '**-**' vs '**.**' '**<u>T</u>emplates** (correct) vs **<u>t</u>emplates** (wrong) or **Template_**'(also wrong)  This script will also take care of transfering the actual template.rpm to Dom0 as well.
 
