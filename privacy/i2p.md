@@ -19,7 +19,7 @@ Installation
 1. Next, you need to add the I2P repository and the apt key to the new template. Start your new TemplateVM, open the firewall configuration and allow full access for 5 minutes. Then run the following commands (as root):
 	~~~
 	echo 'deb https://deb.i2p2.de/ jessie main' > /etc/apt/sources.list.d/i2p.list
-	echo 'deb-src https://deb.i2p2.de/ jessie main' > /etc/apt/sources.list.d/i2p.list
+	echo 'deb-src https://deb.i2p2.de/ jessie main' >> /etc/apt/sources.list.d/i2p.list
 	wget https://geti2p.net/_static/i2p-debian-repo.key.asc
 	apt-key add i2p-debian-repo.key.asc
 	rm -rf i2p-debian-repo.key.asc
