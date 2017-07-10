@@ -173,7 +173,7 @@ or
 
 [usb]: /doc/usb/
 [ml1]: https://groups.google.com/group/qubes-devel/browse_thread/thread/631c4a3a9d1186e3
-[ml2]: https://groups.google.com/forum/\#!topic/qubes-users/Fs94QAc3vQI
-[PCI passthrough]: http://wiki.xen.org/wiki/Xen_PCI_Passthrough
-[Software Attacks on Intel VT-d]: http://www.invisiblethingslab.com/resources/2011/Software%20Attacks%20on%20Intel%20VT-d.pdf
+[ml2]: https://groups.google.com/forum/#!topic/qubes-users/Fs94QAc3vQI
+[PCI passthrough]: https://wiki.xen.org/wiki/Xen_PCI_Passthrough
+[Software Attacks on Intel VT-d]: https://invisiblethingslab.com/resources/2011/Software%20Attacks%20on%20Intel%20VT-d.pdf
 

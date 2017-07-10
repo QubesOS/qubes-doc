@@ -19,6 +19,15 @@ redirect_from:
 Installation Guide
 ==================
 
+Warning
+-------
+
+There is a set of known upstream bugs in the Fedora installer that affect Qubes OS ([Bug 1170803], [Bug 1374983], and [Bug 1268700]; tracked in Qubes issue [#2835]).
+Because of these bugs, the installer will try to access all existing disk partitions, run fsck on them, and mount them.
+Therefore, we *strongly* recommended that, prior to starting the Qubes installer, you physically disconnect all disks that you do not want to be modified.
+Furthermore, if you are installing Qubes on a potentially compromised system, we *strongly* recommended that you wipe your target installation disk before starting the installer.
+
+
 Hardware Requirements
 ---------------------
 
@@ -55,12 +64,13 @@ an installation medium.)
 If you prefer to use a USB drive, then you just need to copy the ISO onto the
 USB device, e.g. using `dd`:
 
-    dd if=Qubes-R3-x86_64.iso of=/dev/sda
+    dd if=Qubes-R3-x86_64.iso of=/dev/sdX
 
 Change `Qubes-R3-x86_64.iso` to the filename of the version you're installing,
-and change `/dev/sda` to the correct target device. **Warning:** Choosing the
-wrong device could result in data loss. Make sure to write to the entire device
-(e.g., `/dev/sda`) rather than just a single partition (e.g., `/dev/sda1`).
+and change `/dev/sdX` to the correct target device (e.g., `/dev/sda`).
+**Warning:** Choosing the wrong device could result in data loss. Make sure to
+write to the entire device (e.g., `/dev/sda`) rather than just a single
+partition (e.g., `/dev/sda1`).
 
 On Windows, you can use the [Rufus] tool. Be sure to select "DD image" mode (you
 need to do that **after** selecting the Qubes ISO):
@@ -75,6 +85,21 @@ now than most other Linux distributions!)
 
 The installer loads Xen right at the beginning, so chances are high that if you
 can see the installer's graphical screen, Qubes will work on your system. :)
+
+
+Installing to a USB drive
+-------------------------
+
+Installing an operating system onto a USB drive can be a convenient and secure
+method of ensuring that your data is protected. Be advised that a minimum
+storage of 32 GB is required on the USB drive. This installation process may
+take longer than an installation on a standard hard disk. The installation
+process is identical to using a hard disk in conjunction with two exceptions:
+
+* Select the USB as the storage location for the OS. 
+
+* Leave the option checked to “Automatically configure my Qubes installation to
+the disk(s) I selected and return me to the main menu”.
 
 
 Upgrading
@@ -101,13 +126,17 @@ Getting Help
    questions to the appropriate mailing list.
 
 
+[Bug 1170803]: https://bugzilla.redhat.com/show_bug.cgi?id=1170803
+[Bug 1374983]: https://bugzilla.redhat.com/show_bug.cgi?id=1374983
+[Bug 1268700]: https://bugzilla.redhat.com/show_bug.cgi?id=1268700
+[#2835]: https://github.com/QubesOS/qubes-issues/issues/2835
 [system requirements]: /doc/system-requirements/
 [Hardware Compatibility List]: /hcl/
 [live USB]: /doc/live-usb/
 [downloads]: /downloads/
-[verifying signatures]: /doc/verifying-signatures/
+[verifying signatures]: /security/verifying-signatures/
 [security considerations]: /doc/install-security/
-[Rufus]: http://rufus.akeo.ie/
+[Rufus]: https://rufus.akeo.ie/
 [documentation]: /doc/
 [improving]: /doc/doc-guidelines/
 [mailing lists]: /doc/mailing-lists/

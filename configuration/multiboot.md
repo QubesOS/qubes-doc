@@ -40,18 +40,6 @@ If you are really paranoid clone your disc.
 
 Make sure you have install discs to hand for the existing operating system.
 
-Qubes 3.0 does not support UEFI boot. If you are already using it the first step
-is to change boot mode.
-
-Most PCs using UEFI firmware and bootloader can be configured to disable
-UEFI entirely and instead revert to legacy MBR boot mode. 
-
-Two separate steps are often required to achieve this:
-
-*    Enabling legacy boot mode
-*    Disabling Secure Boot
-
-
 Qubes by default does not include other systems in the generated grub menu, 
 because handling of other systems has been disabled. This means
 that you will have to manually add grub entries for any other OS.
@@ -97,8 +85,9 @@ menuentry "Windows" {
      insmod ntfs
      ntldr (hd1,X)/bootmgr
 }
-(Change X to reflect the relevant system partition.)
 ~~~
+
+(Change `X` to reflect the relevant system partition.)
 
 Then update the grub config:
 
@@ -108,6 +97,19 @@ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 There is no  need to reinstall grub itself.
 
+If the above stanza does not work, you may try this one (at your own risk!)
+instead:
+
+~~~
+menuentry "Windows" {
+    insmod part_msdos
+    insmod ntfs
+    set root='(hd0,msdosX)'
+    chainloader +1
+}
+~~~
+
+(Change `X` to reflect the relevant system partition.)
 
 
 Linux

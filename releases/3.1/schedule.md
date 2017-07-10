@@ -9,15 +9,7 @@ redirect_from:
 Qubes R3.1 Release Schedule
 ===========================
 
-This schedule is based on [Version Scheme](/doc/version-scheme/#tocAnchor-1-1-3).
-
-<style>
-article td, article th {
-    border-width: 2px;
-    border-style: double;
-    padding: 5px;
-}
-</style>
+This schedule is based on [Version Scheme](/doc/version-scheme/#release-schedule).
 
 |  Date       | Stage                                   |
 | -----------:| --------------------------------------- |

@@ -4,7 +4,7 @@ title: HTTP Filtering Proxy
 permalink: /doc/config/http-filtering-proxy/
 ---
 
-How to run an HTTP filtering proxy in a FirwallVM
+How to run an HTTP filtering proxy in a FirewallVM
 =================================================
 
 Introduction
@@ -162,7 +162,7 @@ Setup
    to restart all proxy processes.
 
 7. To make sure that the proxy is started automatically when the AppVM
-   starts change `/rw/config/qubes_firewall_user_script` to include the
+   starts change `/rw/config/qubes-firewall-user-script` to include the
    following line:
 
         /rw/config/tinyproxy/proxyctl.py update
@@ -174,8 +174,8 @@ Setup
 
    Make sure that the script is owned by root and executable:
 
-        sudo chown root:root /rw/config/qubes_firewall_user_script
-        sudo chmod 755 /rw/config/qubes_firewall_user_script
+        sudo chown root:root /rw/config/qubes-firewall-user-script
+        sudo chmod 755 /rw/config/qubes-firewall-user-script
 
 8. In Qubes VM manager adjust Firewall rules for each AppVM with a
    proxy. In a typical case when only HTTP proxy should be used for

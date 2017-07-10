@@ -10,14 +10,18 @@ Qubes Live USB (alpha)
 Qubes Live USB allows you to run and try Qubes OS without having to install it
 anywhere. Qubes Live USB is currently in alpha. If you use it, please consider
 running the [HCL reporting tool](/hcl/) and sending us the results so that we
-can continue to improve it.
+can continue to improve it. If  would like to contribute to the Qubes OS
+Project by improving Qubes Live USB and integrating it with the installer,
+please consider applying for a [Google Summer of Code][gsoc-page] scholarship
+(if you are eligible) and choosing the QubesOS Project as a mentor
+organization. You can find our list of project ideas [here][project-page].
 
 
 Introduction
 ------------
 
-We have faced several challenges when making this Live USB edition of Qubes OS,
-which traditional Linux distros don't have to bother with:
+When making this Live USB edition of Qubes OS, we faced several challenges which
+traditional Linux distros don't have to bother with:
 
 1. We needed to ensure Xen is properly started when booting the stick. In fact
    we still don't support UEFI boot for the stick for this reason, even though
@@ -39,20 +43,20 @@ few tens of MBs per VM, sometimes even more. Also, each VM's private
 image, which essentially holds just the user home directory, typically starts
 with a few tens of MBs for an "empty VM". Now, while these represent rather
 insignificant numbers on a disk-basked system, in the case of a live USB all
-these files must be stored in RAM, which is a scare resource on any OS, but
+these files must be stored in RAM, which is a scarce resource on any OS, but
 especially on Qubes.
 
 We have implemented some quick optimizations in order to minimize the above
 problem, but this is still far from a proper solution. We're planning to work
 more on this next.
 
-Now, there are three directions in how we want to work further on this Qubes
+There are three directions in which we want to do further work on this Qubes
 Live USB variant:
 
 1. Introduce an easy, clickable "install to disk" option, merging this with the
    Qubes installation ISO. So, e.g. make it possible to first see if the given
-   hardware is compatible with Qubes (run the HCL reporting tool) and only then
-   install on the main disk. Also, ensure UEFI boot works well.
+   hardware is compatible with Qubes (by running the HCL reporting tool) and
+   only then install on the main disk. Also, ensure UEFI boot works well.
 
 2. Introduce options for persistence while still running this out of a USB
    stick. This would be achieved by allowing (select) VMs' private images to be
@@ -74,7 +78,7 @@ Live USB variant:
 Current limitations
 -------------------
 
-(Remember that Qubes Live USB is currently in  alpha, so please  meter your
+(Remember that Qubes Live USB is currently in alpha, so please meter your
 expectations accordingly.)
 
 1. Currently just the 3 example VMs (untrusted, personal, work), plus the
@@ -90,17 +94,17 @@ expectations accordingly.)
    from a large Qubes backup blob.
 5. It's easy to generate Out Of Memory (OOM) in Dom0 by creating lots of VMs
    which are writing a lot into the VMs filesystem.
-6. There is no DispVM savefile, so if one starts one the savefile must be
-   regenerated which takes about 1-2 minutes.
-7. UEFI boot doesn't work, and if you try booting it via UEFI Xen will not be
-   started, rendering the whole experiment unusable.
+6. There is no DispVM savefile, so if you start a DispVM the savefile must be
+   regenerated, which takes about 1-2 minutes.
+7. UEFI boot doesn't work, and if you try booting Qubes Live USB via UEFI, Xen
+   will not be started, rendering the whole experiment unusable.
 
 
 Downloading and burning
 -----------------------
 
 1. Download the ISO (and its signature for verification) from the
-   [downloads page](/downloads/#qubes-live-usb-alpha/).
+   [downloads page](/downloads/#qubes-live-usb-alpha).
 2. "Burn" (copy) the ISO onto a USB drive (replace `/dev/sdX` with your USB
    drive device):
 
@@ -112,3 +116,6 @@ Downloading and burning
    **Caution:** It is very easy to misuse the `dd` command. If you mix up `if`
    and `of` or specify an incorrect device, you could accidentally overwrite
    your primary system drive. Please be careful!
+
+[project-page]: https://www.qubes-os.org/gsoc/
+[gsoc-page]: https://summerofcode.withgoogle.com/organizations/6239659689508864/

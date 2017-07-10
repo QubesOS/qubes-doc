@@ -7,7 +7,7 @@ redirect_from:
 ---
 
 VM kernel managed by dom0
--------------------------
+=========================
 
 By default VMs kernels are provided by dom0. This means that:
 
@@ -47,7 +47,7 @@ updatevm          : sys-firewall
 ~~~
 
 Installing different kernel using Qubes kernel package
-==================================
+----------------------------------
 
 VM kernels are packages by Qubes team in `kernel-qubes-vm` packages. Generally system will keep the 3 newest available versions. You can list them with the `rpm` command:
 
@@ -135,7 +135,7 @@ In the above example, it tries to remove 3.18.10-2.pvops.qubes kernel (to keep o
 The newly installed package is set as default VM kernel.
 
 Installing different VM kernel based on dom0 kernel
-===================================================
+---------------------------------------------------
 
 It is possible to package kernel installed in dom0 as VM kernel. This makes it
 possible to use VM kernel, which is not packaged by Qubes team. This includes:
@@ -203,7 +203,7 @@ mke2fs 1.42.12 (29-Aug-2014)
 ~~~
 
 Using kernel installed in the VM
-================================
+--------------------------------
 
 **This option is available only in Qubes R3.1 or newer**
 
@@ -239,8 +239,10 @@ sudo yum install qubes-kernel-vm-support grub2-tools
 
 Then install whatever kernel you want. If you are using distribution kernel
 package (`kernel` package), initramfs and kernel module should be handled
-automatically. If you are using manually build kernel, you need to handle this
-on your own. Take a look at `dkms` and `dracut` documentation.
+automatically, but you need to ensure you have `kernel-devel` package for the
+same kernel version installed. If you are using manually build kernel, you need
+to handle this on your own. Take a look at `dkms` and `dracut` documentation.
+Especially `dkms autoinstall` command may be useful.
 
 When kernel is installed, you need to create GRUB configuration. 
 You may want to adjust some settings in `/etc/default/grub`, for example lower
@@ -278,8 +280,28 @@ Ignore warnings about `version '...' has bad syntax`.
 
 Then install whatever kernel you want. If you are using distribution kernel
 package (`linux-image-amd64` package), initramfs and kernel module should be
-handled automatically. If you are using manually build kernel, you need to
-handle this on your own. Take a look at `dkms` and `initramfs-tools` documentation.
+handled automatically. If not, or you are building kernel manually, do this on
+using `dkms` and `initramfs-tools`:
+
+    sudo dkms autoinstall -k <kernel-version> # replace this <kernel-version> with actual kernel version
+    sudo update-initramfs -u
+
+The output should look like this:
+
+	$ sudo dkms autoinstall -k 3.16.0-4-amd64
+
+	u2mfn:
+	Running module version sanity check.
+	 - Original module
+	   - No original module exists within this kernel
+	 - Installation
+	   - Installing to /lib/modules/3.16.0-4-amd64/updates/dkms/
+
+	depmod....
+
+	DKMS: install completed.
+	$ sudo update-initramfs -u
+	update-initramfs: Generating /boot/initrd.img-3.16.0-4-amd64
 
 When kernel is installed, you need to create GRUB configuration. 
 You may want to adjust some settings in `/etc/default/grub`, for example lower
@@ -298,7 +320,9 @@ grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your 
 ~~~
 
 Then shutdown the VM. From now you can set `pvgrub2` as VM kernel and it will
-start kernel configured within VM. 
+start kernel configured within VM.
+
+When starting the VM you can safely ignore any warnings about a missing module 'dummy-hcd'
 
 ### Troubleshooting
 

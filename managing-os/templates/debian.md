@@ -12,9 +12,9 @@ redirect_from:
 Debian template(s)
 ===============
 
-If you like to use Debian Linux distribution in your AppVMs, you can install one of available Debian templates.
+If you would like to use Debian Linux distribution in your qubes, you can install one of the available Debian templates.
 
-Updates for this template are provided by ITL and are signed by this key:
+Updates for these templates are provided by ITL and are signed by this key:
 
     pub   4096R/47FD92FA 2014-07-27
           Key fingerprint = 2D43 E932 54EE EA7C B31B  6A77 5E58 18AB 47FD 92FA
@@ -28,21 +28,17 @@ which is also integrity-protected using signed git tags.
 Install
 -------
 
-It can be installed via the following command:
+Templates can be installed with the following command:
 
-Debian 7 (wheezy) - old stable:
+Debian 7 (wheezy) - obsolete/archive:
 
     [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-7
 
-(The download will take a while, and there will be no progress indicator.)
-
-Debian 8 (jessie) - stable:
+Debian 8 (jessie) - oldstable:
 
     [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-8
 
-(The download will take a while, and there will be no progress indicator.)
-
-Debian 9 (stretch) - testing:
+Debian 9 (stretch) - stable:
 
 A prebuilt template is not yet available, but there are two options for
 achieving a stretch template:
@@ -58,4 +54,45 @@ reboot should "just work."
 Known issues
 ------------
 
+###Starting services
+
+
+The Debian way (generally) is to start daemons if they are installed.
+This means that if you install (say) ssh-server in a template, *all* the qubes that use that template will run a ssh server when they start. (They will, naturally, all have the same server key.) This may not be what you want.
+
+So be very careful when installing software in Templates - if the daemon spawns outbound connections then there is a serious security risk.
+
+In general, a reasonable approach would be, (using ssh as example):
+- Install the ssh service.
+- systemctl stop ssh
+- systemctl disable ssh
+- systemctl mask ssh
+- Close down template
+
+Now the ssh service will **NOT** start in qubes based on this template.
+
+Where you **DO** want the service to run, put this in /rw/config/rc.local:
+
+    systemctl unmask ssh
+    systemctl start ssh
+
+Don't forget to make the file executable.
+
+
+###Unattended Upgrades
+
+Some users have noticed that on upgrading to Stretch, the unattended-upgrade package is installed.
+
+This package is pulled in as part of a Recommend chain, and can be purged.
+
+The lesson is that you should carefully look at what is being installed to your system, particularly if you run dist-upgrade. 
+
+
+###Contributing
+
 If you want to help in improving the template, feel free to [contribute](/wiki/ContributingHowto).
+
+More information
+----------------
+
+* [Debian wiki](https://wiki.debian.org/Qubes)

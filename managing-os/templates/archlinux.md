@@ -9,8 +9,7 @@ redirect_from:
 - /wiki/Templates/Archlinux/
 ---
 
-Archlinux Template
-===============
+# Archlinux Template
 
 Archlinux template is one of the templates made by Qubes community. It should
 be considered experimental as Qubes developers team use mainly Fedora-based VMs
@@ -18,366 +17,100 @@ to test new features/updates.
 
 Main maintainer of this template is [Olivier Médoc](mailto:o_medoc@yahoo.fr).
 
-<br>
-
-## Instructions ##
+Updates for this template are provided by [Olivier Médoc](mailto:o_medoc@yahoo.fr) and are signed by the following key:
 
-<br>
-**These are the instructions for Qubes 3.1. They will take you step by step thru the entire process start to finish**
-
-*Note: Currently there are no binary packages and it must be compiled from source using the instructions below.*
-
-<br>
-<br>
-<br>
-
-#### **1:   Create and configure VM to use for template building:** ####
-
-*   The VM should be based on a Fedora template. It's best to use a standalone VM. I created a standalone VM based on
-    the Fedora 23 template. I named the VM “**development**”. These instructions assume a standalone VM based on a       Fedora template is being used.
-<br>
-<br>
-![arch-template-01](/attachment/wiki/ArchlinuxTemplate/arch-template-01.png)
-<br>
-<br>
-*   Ensure there is at least 25GB preferably 30GB of free space in the private storage. I made the private storage 30GB to be safe.
-<br>
-<br>
-![arch-template-02](/attachment/wiki/ArchlinuxTemplate/arch-template-02.png)
-<br>
-<br> 
-
-*Note: Unless otherwise noted,  all commands are from within the “development” VM or whatever you named your standalone VM used for building the template.*
-<br>
-<br>
-<br>
-
-##### **2:   Create GitHub Account (optional):** #####
-
-*   It can be helpful. Creating only a basic account is all that is needed. This will allow you to help, going           forward, with the Qubes project. You could be help edit errors in documentation. It can also be of use building      other templates.
-    
-*   Create user account here https://github.com
-<br>
-<br>
-![arch-template-03](/attachment/wiki/ArchlinuxTemplate/arch-template-03.png)    
-<br>
-<br>
-<br>
-
-##### **3:   Install necessary packages to 'development' VM for "Qubes Automated Build System":** #####
-
-*   Necessary packages to install:
-
-    *   git
-    
-    *   createrepo
-    
-    *   rpm-build
-    
-    *   make
-    
-    *   rpmdevtools
-
-    *   python-sh
-
-    *   dailog
-
-    *   rpm-sign
-<br>
-
-
-*   The tools can usually be installed all together with the following terminal command string:
-
-    *   **$ sudo dnf install git createrepo rpm-build make wget rpmdevtools python-sh dialog rpm-sign**
-<br>
-<br>
-![arch-template-04](/attachment/wiki/ArchlinuxTemplate/arch-template-04.png)
-<br>
-<br>
-<br>
-
-##### **4:   Installing the "Qubes Automated Build System":** #####
-
-*   To get the most current build system its best to use marmarek's git repository.
-
-    *   $ **git clone https://github.com/marmarek/qubes-builder.git**
-<br>
-<br>
-![arch-template-05](/attachment/wiki/ArchlinuxTemplate/arch-template-05.png)
-<br>
-<br>
-
-*    You will now have the Qubes Builder System environment installed in the directory below:
-
-    *   **/home/user/qubes-builder**
-<br>
-<br>
-<br>
-
-##### **5:   Configuring setup script to create builder.conf file:** #####
-
-*   You will be creating the builder.conf file which tells where and what to use.   The most automated, and in this case the easiest, way to create this is to use the script that is provided in Qubes Builder.  Its named '**setup**'.  Before running the script you need to edit one file it uses.
-   
-    *In the future this should not be needed once a change is made to the 'setup' script.*
-
-    *   Edit the '**qubes-os-r3.1.conf**' which is found in **/home/user/qubes-builder/example-configs**  Use the text editor of your choice.
-    
-        *   **$ cd /home/user/qubes-builder/example-config/**
-    
-        *   **$ nano -W qubes-os-r3.1.conf** or **$ gedit qubes-os-r3.1.conf** or etc….
-<br>
-<br>
-![arch-template-06](/attachment/wiki/ArchlinuxTemplate/arch-template-06.png)
-<br>
-<br>
-        *   Go to the first line containing '**DISTS_VM ?= fc23**' it will be preceeded by line '**DIST_DOM0 ?= fc20**'.  Remove '**fc23**' or whatever is listed there leaving only '**DISTS_VM ?=**'. Then save the file and close the text editor.
-<br>
-<br>
-![arch-template-07](/attachment/wiki/ArchlinuxTemplate/arch-template-07.png)
-<br>
-<br>
-<br>
-
-##### **6:   Run the 'setup' script to build the builder.conf file** #####
-
-*   Run the 'setup' script located in '**/home/user/qubes-builder/**' Make sure you are in directory '**qubes-builder**'
-
-    *   **$ cd /home/user/qubes-builder/**
-
-    *   **$ ./setup**
-<br>
-<br>
-![arch-template-08](/attachment/wiki/ArchlinuxTemplate/arch-template-08.png)
-<br>
-<br>
-        *   First screen will ask you to import 'Qubes-Master-Signing-key.asc'.  The 'setup' script not only downloads but confirms the key to that of the key on Qubes-OS website.  
-            
-            *   Select '**YES**'
-            *   Select '**OK**' Press '**Enter**'
-<br>
-<br>
-![arch-template-09](/attachment/wiki/ArchlinuxTemplate/arch-template-09.png)
-<br>
-<br>
-
-        *   Next screen will ask you to import Marek Marczykowski-Goracki (Qubes OS signing key).  Again 'setup' will confirm this key to the fingerprint.
-            
-            *   Select '**YES**'
-            *   Select '**OK**' Press '**Enter**'
-<br>
-<br>
-![arch-template-10](/attachment/wiki/ArchlinuxTemplate/arch-template-10.png)
-<br>
-<br>
-
-        *   This screen will give you the choice of which Qubes Release to build the template for.
-
-            *   Select '**Qubes Release 3.1**'
-            *   Select '**OK**' Press '**Enter**'
-<br>
-<br>
-![arch-template-11](/attachment/wiki/ArchlinuxTemplate/arch-template-11.png)
-<br>
-<br>
-
-        *   Screen "**Choose Repos To Use To Build Packages**"
-
-            *   Select 'QubesOS/qubes- Stable - Default Repo'
-            *   Select '**OK**' Press '**Enter**' 
-<br>
-<br>
-
-        *   Screen "**Build Template Only?**"
-
-            *   Select '**Yes**' Press '**Enter**' 
-<br>
-<br>
-![arch-template-12](/attachment/wiki/ArchlinuxTemplate/arch-template-12.png)
-<br>
-<br>
-
-        *   Screen '**Builder Plugin Selection**' will give choices of builder plugins to use for the build. 
-                        
-            *   Deselect '**Fedora**'
-            
-            *   Deselect '**mgnt_salt**'
-            
-            *   Select '**archlinux**'
-
-            *   Select '**OK**' Press **Enter**
-<br>
-<br>
-![arch-template-13](/attachment/wiki/ArchlinuxTemplate/arch-template-13.png)
-<br>
-<br>
-
-        *   Screen '**Get sources**' wants to download additional packages needed for the choosen plugin/s.
-        
-            *   Select '**No**' Press '**Enter**'
-<br>
-<br>
-![arch-template-14](/attachment/wiki/ArchlinuxTemplate/arch-template-14.png)
-<br>
-
-        *   Screen '**Template Distribution Selection**' allows you to choose the actual template/s you wish to build.
-
-            *   Scroll Down to the very bottom (it is off the screen at first)
-
-            *   Select '**archlinux**'
-
-            *   Select '**OK**' Press '**Enter**'
-<br>
-<br>
-![arch-template-16](/attachment/wiki/ArchlinuxTemplate/arch-template-16.png)
-<br>
-<br>
-
-            *Note: 'Setup' will close and will output the text of the created build.conf file as well as the needed                    **make** commands to build the template*
-<br>
-<br>
-![arch-template-17](/attachment/wiki/ArchlinuxTemplate/arch-template-17.png)
-<br>
-<br>
-	*	Archlinux builder is not(yet?) in official Qubes release branch, so it has to be downloaded from different repository.
-
-			* Open file builder.conf with your favourite text editor and find section **"O V E R R I D E   B R A N C H"** (single space
-between letters) and add:
-
-    			*   **GIT_URL_builder_archlinux = $(GIT_BASEURL)/marmarek/qubes-builder-archlinux.git**
-
-<br>
-<br>
-![arch-template-17](/attachment/wiki/ArchlinuxTemplate/arch-template-17a.png)
-<br>
-<br>
-<br>
-
-##### **7:   Install all the dependencies:** ##### 
-
-*Note: make sure you are in the “qubes-builder” directory to run the following cmds*
-
-*   **$ make install-deps**
-<br>
-<br>
-![arch-template-18](/attachment/wiki/ArchlinuxTemplate/arch-template-18.png)
-<br>
-<br>
-<br>
-
-##### **8:   Get all the require sources for the build: (Note: this may take some time)** #####
-
-*   **$ make get-sources**
-<br>
-<br>
-![arch-template-19](/attachment/wiki/ArchlinuxTemplate/arch-template-19.png)
-<br>
-<br>
-<br>
-
-##### **9:   Make all the require Qubes Components:** #####
-
-*   **Note:** You can run a single command to build all the Qubes components or you can run them each individually.
-     Both ways below:
-
-    *   Single command to build all Qubes components together: (this command can take a long time to process depending of your pc proccessing power)
-    
-        *   **$ make qubes-vm**
-        <br>
-        <br>
-![arch-template-20](/attachment/wiki/ArchlinuxTemplate/arch-template-20.png)
-        <br>
-        <br>
-        
-        
-            *   These are the indivual component 'make' commands:
-    
-                *   **$ make vmm-xen-vm**
-          
-                *   **$ make core-vchan-xen-vm**
-           
-                *   **$ make core-qubesdb-vm**
-           
-                *   **$ make linux-utils-vm**
-           
-                *   **$ make core-agent-linux-vm**
-           
-                *   **$ make gui-common-vm**
-           
-                *   **$ make gui-agent-linux-vm**
-<br>
-<br>
-
-
-##### **10:   Make the actual Archlinux template:** #####
-
-*   **$ make template**  
-<br>
-<br>
-![arch-template-21](/attachment/wiki/ArchlinuxTemplate/arch-template-21.png)
-<br>
-<br>
-<br>
-
-
-##### **11:   Transfer Template into Dom0** #####
-
-*   You need to ensure these two files are in the '**noarch**' directory 
-
-    *   **$ cd /home/user/qubes-builder/qubes-src/linux-template-builder/rpm/**
-
-    *   **$ ls**   *(confirm the below two files are there)*
-
-        *   **install-templates.sh**   (script to install template in dom0)
-
-    *   **$ cd noarch**
-
-    *   **$ ls**
-
-        *   **qubes-template-archlinux-X.X.X-XXXXXXXXXXXX.noarch.rpm**  (this is the template package 'X' replaces version and build digits)
-<br>
-<br>
-![arch-template-22](/attachment/wiki/ArchlinuxTemplate/arch-template-22.png)
-<br>
-<br>
-
-*   **Transfer the install-templates.sh script file into Dom0**
-  *Note: as there is not a typical file transfer method for Dom0, for security reasons, this less than simple transfer function has to be used*
-
-    *   Swtich to Domo and open a terminal window.
-
-    **Note:** Take care when entering these cmd strings.  They are very long and have a number of characters that are easy to mix '**-**' vs '**.**' '**<u>T</u>emplates** (correct) vs **<u>t</u>emplates** (wrong) or **Template_**'(also wrong)  This script will also take care of transfering the actual template.rpm to Dom0 as well.
-
-
-        *   **$ cd /**
-
-        *   **$ sudo qvm-run --pass-io development 'cat /home/user/qubes-builder/qubes-src/linux-template-builder/rpm/install-templates.sh' > install-templates.sh**
-
-<br>
-<br>
-![arch-template-23](/attachment/wiki/ArchlinuxTemplate/arch-template-23.png)
-<br>
-<br>
-![arch-template-24](/attachment/wiki/ArchlinuxTemplate/arch-template-24.png)
-<br>
-<br>
-<br>
-<br>
-
-##### **If everything went correct there should be a Archlinux template listed in your Qubes VM Manager** #####
-
-<br>
-<br>
-<br>
----------------
-
-## **Package Manager Proxy Setup Section** ##
-
-
-One last thing to setup to have a "PROPERLY" functioning archlinux template.
-
-Archlinux package manager Pacman is  a fine package mangers except that we could not find a way to configure it to use the Qubes Update Proxy Service (QUPS) that would comply with Qubes QUPS usage policy.
-
-*If someone does find a way please post to the Qubes-Users or Devel google groups mailing list.*
+
+    pub   2048R/2043E7ACC1833B9C 2014-03-27 [expires: 2018-03-29]
+          Key fingerprint = D85E E12F 9678 51CC F433  515A 2043 E7AC C183 3B9C
+    uid                          Olivier MEDOC (Qubes-OS signing key) <o_medoc@yahoo.fr>
+
+## Installation
+
+A prebuilt template is available only for Qubes 3.2. Before Qubes 3.2, it should be compiled from source as described in [building-archlinux-template](/doc/building-archlinux-template/).
+
+    [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-archlinux
+
+## Binary packages activation
+
+The update repository is disabled when you install (signed) template package. You can however choose to trust it by registering it into pacman.
+
+Enable the repository by running the following command:
+
+    # mv /etc/pacman.d/99-qubes-repository-3.2.disabled /etc/pacman.d/99-qubes-repository-3.2.conf
+
+Then you need to install and sign the public GPG key of the package maintainer (note that accessing to GPG servers requires to temporarily disable the firewall in your template):
+
+    # pacman-key --recv-key 2043E7ACC1833B9C
+    # pacman-key --finger 2043E7ACC1833B9C
+ 
+If the fingerprint is correct, you can then sign the key:
+
+    # pacman-key --lsign-key 2043E7ACC1833B9C
+
+## Default packages
+
+In order to keep the template as small and simple as possible, default installed package have been arbitrarily selected based on multiple subjective criterias that however essentially include libraries dependencies. This packages are:
+* Some font packages to keep good user experience
+* leafpad: a note pad
+* xfce4-terminal: a terminal
+* thunar: a file browser that support mounting usb keys
+* firefox: web browser
+* thunderbird: a mail browser
+* evince: a document viewer
+
+Note that Archlinux does not install GUI packages by default as this decision is left to users. This packages have only been selected to have a usable template.
+
+## Updating a Qubes-3.1 Archlinux Template
+
+If you decide to use binary packages but that you where using a Qubes-3.1 Template, your can follow these instructions to enable Qubes 3.2 agents.
+
+You can use a template that you built for Qubes 3.1 in Qubes 3.2. The qrexec and gui agent functionnalities should still be working so that you can at least open a terminal.
+
+In order to enable binary packages for Qubes 3.2, add the following lines to the end of /etc/pacman.conf
+
+```
+[qubes-r3.2]
+Server = http://olivier.medoc.free.fr/archlinux/current/
+```
+
+You should then follow the instruction related to pacman-key in order to sign the binary packages PGP key. With the key enabled, a pacman update will update qubes agents:
+` # pacman -Suy `
+
+The two line that have just been added to /etc/pacman.conf should then be removed as they have been included in the qubes-vm-core update in the file `/etc/pacmand.d/99-qubes-repository-3.2.conf`
+
+## Known Issues
+
+### Package cannot be updated because of errors related to xorg-server or pulseaudio versions
+
+In case archlinux upgrade pulseaudio major version or xorg-server version, updating these packages will break the qubes GUI agent. To avoid breaking things, the update is blocked until a new version of the GUI agent is available.
+
+In this case, the gui-agent-linux component of Qubes-OS needs to be rebuild using these last xorg-server or pulseaudio libraries. You can try to rebuilt it yourself or wait for a new qubes-vm-gui package to be available.
+
+### qubes-vm is apparently starting properly (green dot) however graphical applications do not appears to work
+
+They are multiple potential reasons. Some of them are described in the following issues:
+* https://github.com/QubesOS/qubes-issues/issues/2612
+
+In issue 2612, check that the option `noauto` is present for all lines in /etc/fstab related to /rw or /home. This bug can appears if you come from an old Archlinux Template (pre February 2017).
+
+## Debugging a broken VM
+
+In order to identify the issue, you should start by getting a console access to the VM:
+
+* Either by running in dom0 `qvm-run --pass-io --nogui yourbrokenvm 'your command here'`
+
+* Or by running in dom0 `sudo xl console yourbrokenvm`
+
+Starts by trying to run a GUI application such as xfce4-terminal in order to identify any error message.
+
+Then you can check potential broken systemd service by running the following command inside the broken vm: `systemctl | grep fail`.
+
+If you identified a broken service check `journalctl -la -u yourbrokenservice`. If not check `journalctl -b` for errors.
+
+Finally, errors related to the GUI agent can be found inside the VM in `/home/user/.xsession-errors`
+
+## Packages manager wrapper
+
 
 Powerpill is a full Pacman wrapper that not only give easy proxy configuration but further offers numerous other advantages.
 
@@ -388,7 +121,7 @@ Please check out:
 [XYNE's (dev) Powerpill](http://xyne.archlinux.ca/projects/powerpill/)
 
 
-**Important Note:** Until Powerpill is configured you will have to open network access to the template to get the initial packages etc downloaded.  You can use the "allow full access for" a given time period in the FW settings of the template in the VMM or open up the various services thru the same window.  Remember to change it back if you choose the later route.  Actions needing network access will be noted with (needs network access)
+**Important Note:** As you are working in a template vm, by default, you will have to open network access to the template to download files manually, except for package managed which should be handled by the Qubes proxy. You can use the "allow full access for" a given time period in the FW settings of the template in the VMM or open up the various services through the same window.  Remember to change it back if you choose the later route.  Actions needing network access will be noted with (needs network access)
 
 <br>
 <br>
@@ -564,14 +297,14 @@ Please check out:
 <br>
 <br>
 
-##### **3:  Install Powerpill (Pacman wrapper)** (needs network access) #####
+##### **3:  Install Powerpill (Pacman wrapper)** #####
 
 *   **$ sudo pacman -S powerpill**
 
 <br>
 <br>
 
-##### **4:  Install Reflector** (needs network access) #####
+##### **4:  Install Reflector** #####
 
 *Note: It scripts mirror updating.  Grabbing the most up to date gen mirror list.  It ranks them by most recently sync'd.  Then ranks them on fastest speed. Also can be used by Powerpill config to allow a once stop conf file for all if so wanted.*
 
@@ -670,30 +403,10 @@ Note: For info on Reflector and its configs: [Reflector](https://wiki.archlinux.
 <br>
 <br>
 
-#### **Known Issues:** ####
-
-*   If there is an Arch upgrade of Pulse Audio it will require rebuilding and installing  Qubes component: gui-agent-linux 
-
-*   There May also be a similar issue of dependencies with Xorg.
-   
-*   Upgrade Relfector functionality to allow its use thru the QUPS
-
-*   Pacman functionality changes and allows it to be directly configured to work thru QUPS.
-
-<br>
-
-#### **Qubes Mailing List Threads on the Archlinux build process:** ####
-
-*   [Qubes-Devel](https://groups.google.com/forum/#!forum/qubes-devel): [Qubes Builder failed Archlinux repository is missing](https://groups.google.com/forum/#!topic/qubes-devel/tIFkS-rPVx8)
-
-*   [Qubes-Users](https://groups.google.com/forum/#!forum/qubes-users): [Trying to compile archlinux template](https://groups.google.com/forum/#!topic/qubes-users/7wuwr3LgkQQ)    
-
-<br>
-
-#### **Want to contribute?** ####
+## Want to contribute?
 
 *   [How can I contribute to the Qubes Project?](/doc/contributing/)
 
-*   [Guidelines for Documentation Contributors](doc/doc-guidelines/)
+*   [Guidelines for Documentation Contributors](/doc/doc-guidelines/)
 
 <br>

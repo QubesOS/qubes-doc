@@ -33,7 +33,7 @@ identifying information (IP address and MAC address).
 Due to the nature of the Tor network, only IPv4 TCP and DNS traffic is allowed.
 All non-DNS UDP and IPv6 traffic is silently dropped.
 
-See [this article](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html) for a description of the concept, architecture, and the original implementation.
+See [this article](https://blog.invisiblethings.org/2011/09/28/playing-with-qubes-networking-for-fun.html) for a description of the concept, architecture, and the original implementation.
 
 ## Warning + Disclaimer
 

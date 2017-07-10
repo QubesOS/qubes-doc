@@ -29,26 +29,14 @@ On Copy/Paste Security
 
 The scheme is *secure* because it doesn't allow other VMs to steal the content of the clipboard. However, one should keep in mind that performing a copy and paste operation from *less trusted* to *more trusted* domain can always be potentially insecure, because the data that we insert might potentially try to exploit some hypothetical bug in the destination VM (e.g. the seemingly innocent link that we copy from untrusted domain, might turn out to be, in fact, a large buffer of junk that, when pasted into the destination VM's word processor could exploit a hypothetical bug in the undo buffer). This is a general problem and applies to any data transfer between *less trusted to more trusted* domains. It even applies to copying files between physically separate machines (air-gapped) systems. So, you should always copy clipboard and data only from *more trusted* to *less trusted* domains.
 
-See also [this article](http://theinvisiblethings.blogspot.com/2011/03/partitioning-my-digital-life-into.html) for more information on this topic, and some ideas of how we might solve this problem in some future version of Qubes.
+See also [this article](https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html) for more information on this topic, and some ideas of how we might solve this problem in some future version of Qubes.
 
 And [this message](https://groups.google.com/group/qubes-devel/msg/48b4b532cee06e01) from qubes-devel.
 
 Copy/Paste between dom0 and other domains
 -----------------------------------------
 
-Copy/Paste between dom0 and other domains is intentionally prohibited by default. There should normally be no reason for any data exchange between dom0 and other VMs (except for the reporting of error logs). In order to easily copy/paste the contents of logs from dom0 to the inter-VM clipboard:
-
-1.  Right-click on the desired VM in the Qubes VM Manager.
-2.  Click "Logs."
-3.  Click on the desired log.
-4.  Click "Copy to Qubes clipboard."
-
-You may now paste the log contents to any VM as you normally would (i.e., Ctrl-Shift-V, then Ctrl-V).
-
-For data other than logs, there are two options:
-
-1.  [Copy it as a file.](/doc/copy-to-dom0/)
-2.  Paste the data to `/var/run/qubes/qubes-clipboard.bin`, then write "dom0" to `/var/run/qubes/qubes-clipboard.bin.source`. Then use Ctrl-Shift-V to paste the data to the desired VM.
+See ["Copying from (and to) dom0"](/doc/copy-from-dom0/).
 
 Clipboard automatic policy enforcement
 --------------------------------------

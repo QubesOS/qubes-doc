@@ -7,6 +7,10 @@ redirect_from:
 - /en/doc/stick-mounting/
 - /doc/StickMounting/
 - /wiki/StickMounting/
+- /doc/external-device-mount-point/
+- /en/doc/external-device-mount-point/
+- /doc/ExternalDeviceMountPoint/
+- /wiki/ExternalDeviceMountPoint/
 - /doc/usbvm/
 - /en/doc/usbvm/
 - /doc/USBVM/
@@ -16,6 +20,174 @@ redirect_from:
 
 Using and Managing USB Devices
 ==============================
+
+Creating and Using a USB qube
+-----------------------------
+
+The connection of an untrusted USB device to dom0 is a security risk since dom0,
+like almost every OS, reads partition tables automatically and since the whole
+USB stack is put to work to parse the data presented by the USB device in order
+to determine if it is a USB mass storage device, to read its configuration, etc.
+This happens even if the drive is then assigned and mounted in another qube.
+
+To avoid this risk, it is possible to prepare and utilize a USB qube.
+
+A USB qube acts as a secure handler for potentially malicious USB devices,
+preventing them from coming into contact with dom0 (which could otherwise be
+fatal to the security of the whole system). With a USB qube, every time you
+connect an untrusted USB drive to a USB port managed by that USB controller, you
+will have to attach it to the qube in which you wish to use it (if different
+from the USB qube itself), either by using Qubes VM Manager or the command line
+(see instructions above). 
+You can create a USB qube using the management stack by performing the following
+steps as root in dom0:
+
+ 1. Enable `sys-usb`:
+
+        qubesctl top.enable qvm.sys-usb
+
+ 2. Apply the configuration:
+
+        qubesctl state.highstate
+
+Alternatively, you can create a USB qube manually as follows:
+
+ 1.  Read the [Assigning Devices] page to learn how to list and identify your
+     USB controllers. Carefully check whether you have a USB controller that
+     would be appropriate to assign to a USB qube. Note that it should be free
+     of input devices, programmable devices, and any other devices that must be
+     directly available to dom0. If you find a free controller, note its name
+     and proceed to step 2.
+ 2.  Create a new qube. Give it an appropriate name and color label
+     (recommended: `sys-usb`, red). If you need to attach a networking device,
+     it might make sense to create a NetVM. If not, an AppVM might make more
+     sense. (The default `sys-usb` is a NetVM.)
+ 3.  In the qube's settings, go to the "Devices" tab. Find the USB controller
+     that you identified in step 1 in the "Available" list. Move it to the
+     "Selected" list.
+
+     **Caution:** By assigning a USB controller to a USB qube, it will no longer
+     be available to dom0. This can make your system unusable if, for example,
+     you have only one USB controller, and you are running Qubes off of a USB
+     drive.
+
+ 4.  Click "OK." Restart the qube.
+ 5.  Recommended: Check the box on the "Basic" tab which says "Start VM
+     automatically on boot." (This will help to mitigate attacks in which
+     someone forces your system to reboot, then plugs in a malicious USB
+     device.)
+
+If the USB qube will not start, see [here][faq-usbvm].
+
+How to hide all USB controllers from dom0
+-----------------------------------------
+
+If you create a USB qube manually, there will be a brief period of time during the
+boot process during which dom0 will be exposed to your USB controllers (and any
+attached devices). This is a potential security risk, since even brief exposure
+to a malicious USB device could result in dom0 being compromised. There are two
+approaches to this problem:
+
+1. Physically disconnect all USB devices whenever you reboot the host.
+2. Hide (i.e., blacklist) all USB controllers from dom0.
+
+**Warning:** If you use a USB [AEM] device, do not use the second option. Using
+a USB AEM device requires dom0 to have access to the USB controller to which
+your USB AEM device is attached. If dom0 cannot read your USB AEM device, AEM
+will hang.
+
+The procedure to hide all USB controllers from dom0 is as follows:
+
+1. Open the file `/etc/default/grub` in dom0.
+2. Find the line that begins with `GRUB_CMDLINE_LINUX`.
+3. Add `rd.qubes.hide_all_usb` to that line.
+4. Save and close the file.
+5. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
+6. Reboot.
+
+(Note: Beginning with R3.2, `rd.qubes.hide_all_usb` is set automatically if you
+opt to create a USB qube during installation. This also occurs automatically if
+you choose to [create a USB qube] using the `qubesctl` method, which is the
+first pair of steps in the linked section.)
+
+**Warning** USB keyboard cannot be used to type the disk passphrase
+if USB controllers were hidden from dom0. Before hiding USB controllers
+make sure your laptop keyboard is not internally connected via USB
+(by checking output of `lsusb` command) or that you have a PS/2 keyboard at hand
+(if using a desktop PC). Failure to do so will render your system unusable.
+
+
+Removing a USB qube
+-------------------
+
+**Warning:** This procedure will result in your USB controller(s) being attached
+directly to dom0.
+
+1. Shut down the USB qube.
+2. In Qubes Manager, right-click on the USB qube and select "Remove VM."
+3. Open the file `/etc/default/grub` in dom0.
+4. Find the line(s) that begins with `GRUB_CMDLINE_LINUX`.
+5. If `rd.qubes.hide_all_usb` appears anywhere in those lines, remove it.
+6. Save and close the file.
+7. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
+8. Reboot.
+
+
+Security Warning about USB Input Devices
+----------------------------------------
+
+**Important security warning. Please read this section carefully!**
+
+If you connect USB input devices (keyboard and mouse) to a VM, that VM will effectively have control over your system.
+Because of this, the benefits of using a USB qube are much smaller than using a fully untrusted USB qube.
+In addition to having control over your system, such VM can also sniff all the input you enter there (for example, passwords in the case of a USB keyboard).
+
+There is no simple way to protect against sniffing, but you can make it harder to exploit control over input devices.
+
+If you have only a USB mouse connected to a USB qube, but the keyboard is connected directly to dom0 (using a PS/2 connector, for example), you simply need to lock the screen when you are away from your computer.
+You must do this every time you leave your computer unattended, even if there no risk of anyone else having direct physical access to your computer.
+This is because you are guarding the system not only against anyone with local access, but also against possible actions from a potentially compromised USB qube.
+
+If your keyboard is also connected to a USB qube, things are much harder.
+Locking the screen (with a traditional password) does not solve the problem, because the USB qube can simply sniff this password and later easily unlock the screen.
+One possibility is to set up the screen locker to require an additional step to unlock (i.e., two-factor authentication).
+One way to achieve this is to use a [YubiKey], or some other hardware token, or even to manually enter a one-time password.
+
+How to use a USB keyboard
+-------------------------
+
+**Caution:** Please carefully read the [Security Warning about USB Input Devices] before proceeding.
+
+In order to use a USB keyboard, you must first attach it to a USB qube, then give that qube permission to pass keyboard input to dom0.
+Edit the `qubes.InputKeyboard` policy file in dom0, which is located here:
+
+    /etc/qubes-rpc/policy/qubes.InputKeyboard
+
+Add a line like this one to the top of the file:
+
+    sys-usb dom0 ask,user=root
+
+(Change `sys-usb` to your desired USB qube.)
+
+You can now use your USB keyboard.
+
+How to use a USB mouse
+----------------------
+
+**Caution:** Please carefully read the [Security Warning about USB Input Devices] before proceeding.
+
+In order to use a USB mouse, you must first attach it to a USB qube, then give that qube permission to pass mouse input to dom0.
+Edit the `qubes.InputMouse` policy file in dom0, which is located here:
+
+    /etc/qubes-rpc/policy/qubes.InputMouse
+
+Add a line like this to the op of the file:
+
+    sys-usb dom0 ask,user=root
+    
+(Change `sys-usb` to your desired USB qube.)
+
+You can now use your USB mouse.
 
 How to attach USB drives
 ------------------------
@@ -28,7 +200,7 @@ Qubes OS supports the ability to attach a USB drive (or just one or more of its
 partitions) to any qube easily, no matter which qube actually handles the USB
 controller. (The USB controller may be assigned on the **Devices** tab of a
 qube's settings page in Qubes VM Manager or by using the
-[qvm-pci][assigning-devices] command. For guidance on finding the correct USB
+[qvm-pci][Assigning Devices] command. For guidance on finding the correct USB
 controller, see [here][usb-controller].)
 
 USB drive mounting is integrated into the Qubes VM Manager GUI. Simply insert
@@ -44,7 +216,7 @@ follows:
  1. Insert your USB drive.
 
  2. In a dom0 console (running as a normal user), list all available block
-   devices:
+    devices:
 
         qvm-block -l
 
@@ -64,9 +236,9 @@ follows:
         sudo udevadm trigger --action=change
 
  3.  Assuming your USB drive is attached to dom0 and is `sdb`, we attach the
-     device to a qube like so:
+     device to a qube with the name `personal` like so:
 
-        qvm-block -a personal dom0:sdb
+         qvm-block -a personal dom0:sdb
 
      This will attach the device to the qube as `/dev/xvdi` if that name is not
      already taken by another attached device, or `/dev/xvdj`, etc.
@@ -88,9 +260,13 @@ follows:
  5.  When you finish using your USB drive, click the eject button or right-click
      and select **Unmount**.
 
- 6.  In a dom0 console, detach the stick:
+ 6.  In a dom0 console, detach the stick
 
-        qvm-block -d <device> <vmname>
+         qvm-block -d <device>
+         
+     or
+     
+         qvm-block -d <vmname>
 
  7.  You may now remove the device.
 
@@ -98,11 +274,7 @@ follows:
 Otherwise, you will not be able to attach it anywhere later. See issue [1082]
 for details.
 
-There have been reports that when attaching a single partition, the Nautilus
-file manager would not see it and automatically mount it (see issue [623]).
-This problem seems to be resolved (see [this comment on issue 1072][1072-comm1]).
-
-If, however, the device does not appear in Nautilus, you will need to mount it
+If the device does not appear in Nautilus, you will need to mount it
 manually. The device will show up as `/dev/xvdi` (or `/dev/xvdj` if there is
 already one device attached -- if two, `/dev/xvdk`, and so on).
 
@@ -143,112 +315,63 @@ steps:
     `qvm-block -d` command.
 
 
-Creating and Using a USB qube
------------------------------
+Attaching a single USB device to a qube (USB passthrough)
+---------------------------------------------------------
 
-The connection of an untrusted USB device to dom0 is a security risk since dom0,
-like almost every OS, reads partition tables automatically and since the whole
-USB stack is put to work to parse the data presented by the USB device in order
-to determine if it is a USB mass storage device, to read its configuration, etc.
-This happens even if the drive is then assigned and mounted in another qube.
+Starting with Qubes 3.2, it is possible to attach a single USB device to any
+Qube. While this is useful feature, it should be used with care, because there
+are [many security implications][usb-challenges] from using USB devices and USB
+passthrough will **expose your target qube** for most of them. If possible, use 
+method specific for particular device type (for example block devices described
+above), instead of this generic one.
 
-To avoid this risk, it is possible to prepare and utilize a USB qube. However,
-Xen does not yet provide working PVUSB functionality, so only USB mass storage
-devices can be passed to individual qubes.
+To use this feature, you need to install `qubes-usb-proxy` package in the
+templates used for USB qube and qubes you want to connect USB devices to. Note
+you cannot pass through devices from dom0 (in other words: USB VM is required).
 
-For this reason, you may wish to avoid using a USB qube if you do not have a USB
-controller free of input devices and programmable devices, although Qubes R3.1 
-introduced support for USB mice and keyboards (see below).
+Listing available USB devices:
 
-A USB qube acts as a secure handler for potentially malicious USB devices,
-preventing them from coming into contact with dom0 (which could otherwise be
-fatal to the security of the whole system). With a USB qube, every time you
-connect an untrusted USB drive to a USB port managed by that USB controller, you
-will have to attach it to the qube in which you wish to use it (if different
-from the USB qube itself), either by using Qubes VM Manager or the command line
-(see instructions above). Again, this works only for USB mass storage devices.
-Other devices cannot currently be virtualized.
+    [user@dom0 ~]$ qvm-usb
+    sys-usb:2-4     04ca:300d 04ca_300d
+    sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
+    sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
 
-You can create a USB qube using the management stack by performing the following
-steps as root in dom0:
+Attaching selected USB device:
 
- 1. Enable `sys-usb`:
+    [user@dom0 ~]$ qvm-usb -a conferences sys-usb:2-5
+    [user@dom0 ~]$ qvm-usb
+    conferences:2-1 058f:3822 058f_USB_2.0_Camera
+    sys-usb:2-4     04ca:300d 04ca_300d
+    sys-usb:2-5     058f:3822 058f_USB_2.0_Camera (attached to conferences)
+    sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
 
-        qubesctl top.enable qvm.sys-usb
+Now, you can use your USB device (camera in this case) in `conferences` qube.
 
- 2. Apply the configuration:
+When you finish, detach the device:
 
-        qubesctl state.highstate
+    [user@dom0 ~]$ qvm-usb -d sys-usb:2-5
+    [user@dom0 ~]$ qvm-usb
+    sys-usb:2-4     04ca:300d 04ca_300d
+    sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
+    sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
 
-Alternatively, you can create a USB qube manually as follows:
-
- 1.  In a dom0 terminal, type `lsusb` to check if you have a USB controller free
-     of input devices or programmable devices. If you find such free controller,
-     note its name and proceed to step 2.
- 2.  Create a new qube. Give it an appropriate name and color label
-     (recommended: `sys-usb`, red).
- 3.  In the qube's settings, go to the "Devices" tab. Find your USB controller
-     in the "Available" list. Move it to the "Selected" list.
- 4.  Click "OK." Restart the qube.
- 5.  Recommended: Check the box on the "Basic" tab which says "Start VM
-     automatically on boot." (This will help to mitigate attacks in which
-     someone forces your system to reboot, then plugs in a malicious USB
-     device.)
-
-If the USB qube will not start, see [here][faq-usbvm].
-
-
-Supported USB device types
---------------------------
-
-As of Qubes R3.1, it is possible to attach:
-
- * USB mice
- * USB keyboards (see below)
- * USB block devices (such as USB mass storage devices)
-   * When attaching one of these, you should get a notification about the
-     new device, then you should be able to attach it to a qube in Qubes VM
-     Manager.
-
-Other devices, such as USB webcams, will also work, but they will be
-accessible only from the USB qube itself, as explained above.
-
-
-How to use a USB keyboard
--------------------------
-
-In order to use a USB keyboard, you must first attach it to a USB qube, then
-give that qube permission to pass keyboard input to dom0. Note that allowing
-keyboard access from a USB qube gives it great power. In short:
-
- * It will see whatever you type on that keyboard (including passwords).
- * It will be able to inject keystrokes, which basically means that it will be
-   able to enter any command. For example, if some malware catches your
-   screenlocker password, it will be able to unlock the screen when you are not
-   present. (For more details, see [here][input-proxy].)
-
-If you are sure you wish to proceed, then you must edit the
-`qubes.InputKeyboard` policy file in dom0, which is located here:
-
-    /etc/qubes-rpc/policy/qubes.InputKeyboard
-
-Add a line like this one to the top of the file:
-
-    sys-usb dom0 ask
-
-(Change `sys-usb` to your desired USB qube.)
-
-You can now use your USB keyboard.
+This feature is not yet available in Qubes Manager however, if you would like to contribute to Qubes OS project by implementing it and are a student please consider applying for the [Google Summer of Code][gsoc-page] scholarship and choosing QubesOS Project as a mentor organization. You can find list of our our Project Ideas [here][project-page].
 
 
 [mass-storage]: https://en.wikipedia.org/wiki/USB_mass_storage_device_class
-[devices]: /doc/assigning-devices/
+[Assigning Devices]: /doc/assigning-devices/
 [usb-controller]: /doc/assigning-devices/#finding-the-right-usb-controller
 [623]: https://github.com/QubesOS/qubes-issues/issues/623
 [1072-comm1]: https://github.com/QubesOS/qubes-issues/issues/1072#issuecomment-124270051
 [1072-comm2]: https://github.com/QubesOS/qubes-issues/issues/1072#issuecomment-124119309
 [1082]: https://github.com/QubesOS/qubes-issues/issues/1082
+[hide-usb]: #how-to-hide-all-usb-controllers-from-dom0
 [faq-usbvm]: /doc/user-faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot
+[AEM]: /doc/anti-evil-maid/
 [1618]: https://github.com/QubesOS/qubes-issues/issues/1618
-[input-proxy]: https://github.com/qubesos/qubes-app-linux-input-proxy
-
+[create a USB qube]: #creating-and-using-a-usb-qube
+[usb-challenges]: https://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html
+[project-page]: /gsoc/
+[gsoc-page]: https://summerofcode.withgoogle.com/organizations/6239659689508864/
+[YubiKey]: /doc/YubiKey/
+[Security Warning about USB Input Devices]: #security-warning-about-usb-input-devices

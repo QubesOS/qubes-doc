@@ -32,7 +32,8 @@ Known Issues
    The same problem may occur if the above procedure is attempted on a
    [TemplateVM][]. [[1]]
 
- * After implementing the above procedure, starting `my-new-appvm` will cause
+ * This issue applies only to R3.1, not R3.2 or later:
+   After implementing the above procedure, starting `my-new-appvm` will cause
    dom0 notifications to occur stating that loop devices have been attached to
    dom0. This is normal. (No untrusted devices are actually being mounted to
    dom0.) Do not attempt to detach these disks. (They will automatically be

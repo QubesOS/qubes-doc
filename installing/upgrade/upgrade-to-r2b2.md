@@ -64,7 +64,7 @@ $ sudo -s
 # umount /mnt/cdrom
 ~~~
 
-If you already have fedora-17-x64, you can also upgrade it to fedora-18-x64 following [standard Fedora upgrade procedure](http://fedoraproject.org/wiki/Upgrading_Fedora_using_yum) (only "yum" method will work in Qubes VM).
+If you already have fedora-17-x64, you can also upgrade it to fedora-18-x64 following [standard Fedora upgrade procedure](https://fedoraproject.org/wiki/Upgrading_Fedora_using_yum) (only "yum" method will work in Qubes VM).
 
 Upgrade Dom0
 ------------

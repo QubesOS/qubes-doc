@@ -60,26 +60,68 @@ Of course, command line tools are still available for accomplishing various upda
 
     Yum will say that there is no update, but the package will nonetheless be downloaded to dom0.
 
-1.  Downgrade the packge:
+2.  Downgrade the package:
 
     ~~~
     sudo yum downgrade package-version
     ~~~
 
+### How to re-install a package
+
+You can re-install in a similar fashion to downgrading.
+
+1.  Download the package:
+
+    ~~~
+    sudo qubes-dom0-update package
+    ~~~
+
+    Yum will say that there is no update, but the package will nonetheless be downloaded to dom0.
+
+2.  Re-install the package:
+
+    ~~~
+    sudo yum reinstall package
+    ~~~
+
+    Note that yum will only re-install if the installed and downloaded versions match. You can ensure they match by either updating the package to the latest version, or specifying the package version in the first step using the form `package-version`.
+
 ### How to uninstall a package
 
 If you've installed a package such as anti-evil-maid, you can remove it with the following command:
 
-    ~~~
     sudo yum remove anti-evil-maid
-    ~~~
     
-### Kernel Upgrade ###
+### Testing repositories
 
-Install newer kernel. The following example installs kernel 3.19 and was tested on Qubes R3 RC1.
+There are three Qubes dom0 testing repositories:
+
+* `qubes-dom0-current-testing` -- testing packages that will eventually land in the stable
+  (`current`) repository
+* `qubes-dom0-security-testing` -- a subset of `qubes-dom0-current-testing` that contains packages
+  that qualify as security fixes
+* `qubes-dom0-unstable` -- packages that are not intended to land in the stable (`qubes-dom0-current`)
+  repository; mostly experimental debugging packages
+
+To temporarily enable any of these repos, use the `--enablerepo=<repo-name>`
+option. Example commands:
 
 ~~~
-sudo qubes-dom0-update kernel-3.19*
+sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing
+sudo qubes-dom0-update --enablerepo=qubes-dom0-security-testing
+sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable
+~~~
+
+To enable or disable any of these repos permanently, change the corresponding boolean in
+`/etc/yum.repos.d/qubes-dom0.repo`.
+
+### Kernel Upgrade ###
+
+Install newer kernel for dom0 and VMs. The package `kernel` is for dom0 and the package `kernel-qubes-vm`
+is needed for the VMs. (Note that the following example enables the unstable repo.)
+
+~~~
+sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable kernel kernel-qubes-vm
 ~~~
 
 Rebuild grub config.
@@ -89,6 +131,10 @@ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 ~~~
 
 Reboot required.
+
+If you wish to upgrade to a kernel that is not available from the repos, then
+there is no easy way to do so, but [it may still be possible if you're willing
+to do a lot of work yourself](https://groups.google.com/d/msg/qubes-users/m8sWoyV58_E/HYdReRIYBAAJ).
 
 ### Upgrading over Tor ###
 

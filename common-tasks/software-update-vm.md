@@ -11,20 +11,20 @@ redirect_from:
 Installing and updating software in VMs
 =======================================
 
-How Template VM works in Qubes
+How TemplateVMs work in Qubes
 ------------------------------
 
-Most of the AppVMs (domains) are based on a *template VM*, which means that their root filesystem (i.e. all the programs and system files) is based on the root filesystem of the corresponding template VM. This dramatically saves disk space, because each new AppVM needs disk space only for storing the user's files (i.e. the home directory). Of course the AppVM has only read-access to the template's filesystem -- it cannot modify it in any way.
+Most of the AppVMs (domains) are based on a *TemplateVM*, which means that their root filesystem (i.e. all the programs and system files) is based on the root filesystem of the corresponding template VM. This dramatically saves disk space, because each new AppVM needs disk space only for storing the user's files (i.e. the home directory). Of course the AppVM has only read-access to the template's filesystem -- it cannot modify it in any way.
 
 In addition to saving on the disk space, and reducing domain creation time, another advantage of such scheme is the possibility for centralized software update. It's just enough to do the update in the template VM, and then all the AppVMs based on this template get updates automatically after they are restarted.
 
 The default template is called **fedora-14-x64** in Qubes R1 and **fedora-20-x64** in Qubes R2.
 
-The side effect of this mechanism is, of course, that if you install any software in your AppVM, more specifically in any directory other than `/home` or `/usr/local` then it will disappear after the AppVM reboot (as the root filesystem for this AppVM will again be "taken" from the Template VM). **This means one normally install software in the Template VM, not in AppVMs.**
+The side effect of this mechanism is, of course, that if you install any software in your AppVM, more specifically in any directory other than `/home` or `/usr/local` then it will disappear after the AppVM reboot (as the root filesystem for this AppVM will again be "taken" from the TemplateVM). **This means one normally install software in the TemplateVM, not in AppVMs.**
 
-Unlike VM private filesystems, the template VM root filesystem does not support discard, so deleting files does not free the space in dom0. See [these instructions](/doc/FedoraTemplateUpgrade/#compacting-templates-rootimg) to recover space in dom0.
+Unlike VM private filesystems, the template VM root filesystem does not support discard, so deleting files does not free the space in dom0. See [these instructions](/doc/template/fedora/upgrade-23-to-24/#compacting-the-upgraded-template) to recover space in dom0.
 
-Installing (or updating) software in the template VM
+Installing (or updating) software in the TemplateVM
 ----------------------------------------------------
 
 In order to permanently install new software, you should:
@@ -33,16 +33,89 @@ In order to permanently install new software, you should:
 
 -   Install/update software as usual (e.g. using yum, or the dedicated GUI application). Then, shutdown the template VM,
 
--   You will see now that all the AppVMs based on this template (by default all your VMs) will be marked as "outdated" in the manager. This is because their fielsystems have not been yet updated -- in order to do that, you must restart each VM. You don't need to restart all of them at the same time -- e.g. if you just need the newly installed software to be available in your 'personal' domain, then restart only this VM. You will restart others whenever this will be convenient to you.
+-   You will see now that all the AppVMs based on this template (by default all your VMs) will be marked as "outdated" in the manager. This is because their filesystems have not been yet updated -- in order to do that, you must restart each VM. You don't need to restart all of them at the same time -- e.g. if you just need the newly installed software to be available in your 'personal' domain, then restart only this VM. You will restart others whenever this will be convenient to you.
 
-Notes on trusting your Template VM(s)
+Testing repositories
+--------------------
+
+### Fedora ###
+
+There are three Qubes VM testing repositories (where `*` denotes the Release):
+
+* `qubes-vm-*-current-testing` -- testing packages that will eventually land in the stable
+  (`current`) repository
+* `qubes-vm-*-security-testing` -- a subset of `qubes-vm-*-current-testing` that contains packages
+  that qualify as security fixes
+* `qubes-vm-*-unstable` -- packages that are not intended to land in the stable (`qubes-vm-*-current`)
+  repository; mostly experimental debugging packages
+
+To temporarily enable any of these repos, use the `--enablerepo=<repo-name>`
+option. Example commands:
+
+~~~
+sudo dnf upgrade --enablerepo=qubes-vm-*-current-testing
+sudo dnf upgrade --enablerepo=qubes-vm-*-security-testing
+sudo dnf upgrade --enablerepo=qubes-vm-*-unstable
+~~~
+
+To enable or disable any of these repos permanently, change the corresponding boolean in
+`/etc/yum.repos.d/qubes-*.repo`.
+
+### Debian ###
+
+Debian also has three Qubes VM testing repositories (where `*` denotes the Release):
+
+* `*-testing` -- testing packages that will eventually land in the stable
+  (`current`) repository
+* `*-securitytesting` -- a subset of `*-testing` that contains packages
+  that qualify as security fixes
+* `*-unstable` -- packages that are not intended to land in the stable
+  repository; mostly experimental debugging packages
+
+To enable or disable any of these repos permanently, uncomment the corresponding `deb` line in
+`/etc/apt/sources.list.d/qubes-r3.list`
+
+Reverting changes to a TemplateVM
+---------------------------------
+
+Perhaps you've just updated your TemplateVM, and the update broke your template.
+Or perhaps you've made a terrible mistake, like accidentally confirming the
+installation of an unsigned package that could be malicious. Fortunately,
+it's easy to revert changes to TemplateVMs using the
+`qvm-revert-template-changes` command.
+
+**Important:** This command will roll back any changes made *during the last
+time the TemplateVM was run, but **not** before.* This means that if you have
+already restarted the TemplateVM, using this command is unlikely to help, and
+you'll likely want to reinstall it from the repository instead. On the other
+hand, if the template is already broken or compromised, it won't hurt to try
+reverting first. Just make sure to **back up** all of your data and changes
+first!
+
+For example, to revert changes to the `fedora-23` TemplateVM:
+
+1. Shut down all VMs based on `fedora-23`.
+2. Shut down `fedora-23`. If you've already just shut it down, do **not** start
+   it again (see above).
+3. In a dom0 terminal, type:
+
+        qvm-revert-template-changes fedora-23
+
+   If you want to skip the confirmation check, you can add the `--force` option:
+
+        qvm-revert-template-changes --force fedora-23
+
+For the technical details about how this command works and the steps it
+performs, see [here](/doc/template-implementation/#rollback-template-changes).
+
+Notes on trusting your TemplateVM(s)
 -------------------------------------
 
-As the template VM is used for creating filesystems for other AppVMs, where you actually do the work, it means that the template VM is as trusted as the most trusted AppVM based on this template. In other words, if your template VM gets compromised, e.g. because you installed an application, whose *installer's scripts* were malicious, then *all* your AppVMs (based on this template) will inherit this compromise.
+As the TemplateVM is used for creating filesystems for other AppVMs, where you actually do the work, it means that the TemplateVM is as trusted as the most trusted AppVM based on this template. In other words, if your template VM gets compromised, e.g. because you installed an application, whose *installer's scripts* were malicious, then *all* your AppVMs (based on this template) will inherit this compromise.
 
 There are several ways to deal with this problem:
 
--   Only install packages from trusted sources -- e.g. from the pre-configured Fedora repositories. All those packages are signed by Fedora, and as we expect that at least the package's installation scripts are not malicious. This is enforced by default (at the [firewall VM level](/doc/qubes-firewall/)), by not allowing any networking connectivity in the default template VM, except for access to the Fedora repos.
+-   Only install packages from trusted sources -- e.g. from the pre-configured Fedora repositories. All those packages are signed by Fedora, and as we expect that at least the package's installation scripts are not malicious. This is enforced by default (at the [firewall VM level](/doc/firewall/)), by not allowing any networking connectivity in the default template VM, except for access to the Fedora repos.
 
 -   Use *standalone VMs* (see below) for installation of untrusted software packages.
 
@@ -52,7 +125,7 @@ Some popular questions:
 
 -   So, why should we actually trust Fedora repos -- it also contains large amount of 3rd party software that might buggy, right?
 
-As long as template's compromise is considered, it doesn't really matter whether /usr/bin/firefox is buggy and can be exploited, or not. What matters is whether its *installation* scripts (such as %post in the rpm.spec) are benign or not. Template VM should be used only for installation of packages, and nothing more, so it should never get a chance to actually run the /usr/bin/firefox and got infected from it, in case it was compromised. Also, some of your more trusted AppVMs, would have networking restrictions enforced by the [firewall VM](/doc/qubes-firewall/), and again they should not fear this proverbial /usr/bin/firefox being potentially buggy and easy to compromise.
+As long as template's compromise is considered, it doesn't really matter whether /usr/bin/firefox is buggy and can be exploited, or not. What matters is whether its *installation* scripts (such as %post in the rpm.spec) are benign or not. Template VM should be used only for installation of packages, and nothing more, so it should never get a chance to actually run the /usr/bin/firefox and got infected from it, in case it was compromised. Also, some of your more trusted AppVMs, would have networking restrictions enforced by the [firewall VM](/doc/firewall/), and again they should not fear this proverbial /usr/bin/firefox being potentially buggy and easy to compromise.
 
 -   But why trusting Fedora?
 
@@ -60,7 +133,7 @@ Because we chose to use Fedora as a vendor for the Qubes OS foundation (e.g. for
 
 -   So, are the template VMs as trusted as Dom0?
 
-Not quite. Dom0 compromise is absolutely fatal, and it leads to Game Over<sup>TM</sup>. However, a compromise of a template affects only a subset of all your AppVMs (in case you use more than one template, or also some standalone VMs). Also, if your AppVMs are network disconnected, even though their filesystems might got compromised due to the corresponding template compromise, it still would be difficult for the attacker to actually leak out the data stolen in an AppVM. Not impossible (due to existence of cover channels between VMs on x86 architecture), but difficult and slow.
+Not quite. Dom0 compromise is absolutely fatal, and it leads to Game Over<sup>TM</sup>. However, a compromise of a template affects only a subset of all your AppVMs (in case you use more than one template, or also some standalone VMs). Also, if your AppVMs are network disconnected, even though their filesystems might get compromised due to the corresponding template compromise, it still would be difficult for the attacker to actually leak out the data stolen in an AppVM. Not impossible (due to existence of cover channels between VMs on x86 architecture), but difficult and slow.
 
 Standalone VMs
 --------------
