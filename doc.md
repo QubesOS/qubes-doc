@@ -89,6 +89,7 @@ Managing Operating Systems within Qubes
  * [Windows: Advanced options and troubleshooting of Qubes Tools for Windows (R3)](/doc/windows-tools-3/)
  * [Windows: Advanced options and troubleshooting of Qubes Tools for Windows (R2)](/doc/windows-tools-2/)
  * [Windows: Uninstalling Qubes Tools for Windows 2.x](/doc/uninstalling-windows-tools-2/)
+ * [Fedora: Upgrading the Fedora 24 Template to Fedora 25](/doc/template/fedora/upgrade-24-to-25/)
  * [Fedora: Upgrading the Fedora 23 Template to Fedora 24](/doc/template/fedora/upgrade-23-to-24/)
  * [Fedora: Upgrading the Fedora 21 Template to Fedora 23](/doc/template/fedora/upgrade-21-to-23/)
  * [Fedora: Upgrading the Fedora 20 Template to Fedora 21](/doc/template/fedora/upgrade-20-to-21/)
