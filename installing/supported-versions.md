@@ -21,7 +21,8 @@ past minor releases, are available from our [download mirrors].
 | Release 3.0      | 2015-10-01 | 2016-09-09 | Old, unsupported                |
 | Release 3.1      | 2016-03-09 | 2017-03-29 | Old, unsupported                |
 | Release 3.2      | 2016-09-29 | TBA        | Current, [extended support]     |
-| Release 4.0      | TBA        | TBA        | In development                  |
+| Release 3.2.1    | TBA        | TBA        | In development                  |
+| Release 4.0      | TBA        | TBA        | In development (prerelease)     |
 
 
 Dom0
@@ -35,7 +36,8 @@ The table below shows the OS used for dom0 in each Qubes OS release.
 | Release 3.0      | Fedora 20 |
 | Release 3.1      | Fedora 20 |
 | Release 3.2      | Fedora 23 |
-| Release 4.0      | TBA       |
+| Release 3.2.1    | Fedora 23 |
+| Release 4.0      | Fedora 25 |
 
 **Note:** Dom0 is isolated from domUs. DomUs can access only a few interfaces,
 such as Xen, device backends (in the dom0 kernel and in other VMs, such as the
@@ -57,6 +59,7 @@ release. Currently, only Fedora and Debian TemplateVMs are officially supported.
 | Release 3.0      | 21, 22\*, 23    | 7 ("wheezy")\*, 8 ("jessie")                  |
 | Release 3.1      | 21, 22\*, 23    | 7 ("wheezy")\*, 8 ("jessie"), 9 ("stretch")\* |
 | Release 3.2      | 23, 24\*        | 8 ("jessie"), 9 ("stretch")\*                 |
+| Release 3.2.1    | TBA             | TBA                                           |
 | Release 4.0      | TBA             | TBA                                           |
 
 \* Denotes versions for which we have published the packages but have not done
