@@ -97,9 +97,9 @@ to set the policy using current mechanism.
 | `admin.vm.firewall.Get`                | vm        | -         | -                                         | `<rule>\n`                                                | rules syntax as in [firewall interface](/doc/vm-interface/#firewall-rules-in-4x) with addition of `expire=` and `comment=` options; `comment=` (if present) must be the last option
 | `admin.vm.firewall.Set`                | vm        | -         | `<rule>\n`                                | -                                                         | set firewall rules, see `admin.vm.firewall.Get` for syntax
 | `admin.vm.firewall.Reload`             | vm        | -         | -                                         | -                                                         | force reload firewall without changing any rule
-| `admin.vm.device.<class>.Attach`       | vm        | device    | options                                   | -                                                         | `device` is in form `<backend-name>+<device-ident>` <br/>optional options given in `key=value` format, separated with spaces; <br/>options can include `persistent=yes` to "persistently" attach the device (default is temporary)
+| `admin.vm.device.<class>.Attach`       | vm        | device    | options                                   | -                                                         | `device` is in form `<backend-name>+<device-ident>` <br/>optional options given in `key=value` format, separated with spaces; <br/>options can include `persistent=True` to "persistently" attach the device (default is temporary)
 | `admin.vm.device.<class>.Detach`       | vm        | device    | -                                         | -                                                         | `device` is in form `<backend-name>+<device-ident>`
-| `admin.vm.device.<class>.List`         | vm        | -         | -                                         | `<device> <options>\n`                                    | options can include `persistent=yes` for "persistently" attached devices (default is temporary)
+| `admin.vm.device.<class>.List`         | vm        | -         | -                                         | `<device> <options>\n`                                    | options can include `persistent=True` for "persistently" attached devices (default is temporary)
 | `admin.vm.device.<class>.Available`    | vm        | device-ident | -                                         | `<device-ident> <properties> description=<desc>\n`        | optional service argument may be used to get info about a single device, <br/>optional (device class specific) properties are in `key=value` form, <br/>`description` must be the last one and is the only one allowed to contain spaces
 | `admin.pool.List`                      | `dom0`    | -         | -                                         | `<pool>\n`                                                |
 | `admin.pool.ListDrivers`               | `dom0`    | -         | -                                         | `<pool-driver> <property> ...\n`                          | Properties allowed in `admin.pool.Add`
@@ -140,7 +140,6 @@ Volume properties:
  - `size`
  - `usage`
  - `rw`
- - `internal`
  - `source`
  - `save_on_stop`
  - `snap_on_start`
