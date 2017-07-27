@@ -133,6 +133,7 @@ to set the policy using current mechanism.
 | `admin.backup.Info`                    | `dom0`    | config id | -                                         | backup info                                               | info what would be included in the backup
 | `admin.backup.Cancel`                  | `dom0`    | config id | -                                         | -                                                         | cancel running backup operation
 | `admin.Events`                         | `dom0|vm` | -         | -                                         | events                                                    |
+| `admin.vm.Stats`                       | `dom0|vm` | -         | -                                         | `vm-stats` events, see below                              | emit VM statistics (CPU, memory usage) in form of events
 
 Volume properties:
 
@@ -144,6 +145,12 @@ Volume properties:
  - `source`
  - `save_on_stop`
  - `snap_on_start`
+
+Method `admin.vm.Stats` returns `vm-stats` events every `stats_interval` seconds, for every running VM. Parameters of `vm-stats` events:
+
+ - `memory_kb` - memory usage in kB
+ - `cpu_time` - absolute CPU time (in milliseconds) spent by the VM since its startup, normalized for one CPU
+ - `cpu_usage` - CPU usage in percents
 
 
 ## Returned messages
