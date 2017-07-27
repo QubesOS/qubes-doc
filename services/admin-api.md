@@ -131,6 +131,7 @@ to set the policy using current mechanism.
 | `admin.vm.Kill`                        | vm        | -         | -                                         | -                                                         |
 | `admin.backup.Execute`                 | `dom0`    | config id | -                                         | -                                                         | config in `/etc/qubes/backup/<id>.conf`, only one backup operation of given `config id` can be running at once |
 | `admin.backup.Info`                    | `dom0`    | config id | -                                         | backup info                                               | info what would be included in the backup
+| `admin.backup.Cancel`                  | `dom0`    | config id | -                                         | -                                                         | cancel running backup operation
 | `admin.Events`                         | `dom0|vm` | -         | -                                         | events                                                    |
 
 Volume properties:
