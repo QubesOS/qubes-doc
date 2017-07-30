@@ -19,8 +19,8 @@ First, copy any files that you wish to keep from the TemplateVM's `/home` and
     $ sudo qubes-dom0-update --action=reinstall qubes-template-package-name
 
 Replace `qubes-template-package-name` with the name of the *package* of the
-template you wish to reinstall. For example, use `qubes-template-fedora-24` if
-you wish to reinstall the `fedora-24` template. Only one template can be
+template you wish to reinstall. For example, use `qubes-template-fedora-25` if
+you wish to reinstall the `fedora-25` template. Only one template can be
 reinstalled at a time.
 
 Note that Qubes may initially refuse to perform the reinstall if the exact revision of

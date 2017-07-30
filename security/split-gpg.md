@@ -90,7 +90,7 @@ package installed.
     
 For Fedora.
 
-    [user@fedora-24 ~]$ sudo yum install qubes-gpg-split
+    [user@fedora-25 ~]$ sudo yum install qubes-gpg-split
 
 Start with creating a dedicated AppVM for storing your keys (the GPG backend
 domain). It is recommended that this domain be network disconnected (set its
