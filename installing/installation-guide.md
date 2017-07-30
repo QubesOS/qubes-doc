@@ -22,8 +22,9 @@ Installation Guide
 Warning
 -------
 
-There is a set of known upstream bugs in the Fedora installer that affect Qubes OS ([Bug 1170803], [Bug 1374983], and [Bug 1268700]; tracked in Qubes issue [#2835]).
-Because of these bugs, the installer will try to access all existing disk partitions, run fsck on them, and mount them.
+There is a set of known upstream bugs in the Fedora installer that affect Qubes 3.2 ([Bug 1170803], [Bug 1374983], and [Bug 1268700]; tracked in Qubes issue [#2835]).
+This issue is fixed in Qubes 4.0.
+On Qubes 3.2, because of these bugs, the installer will try to access all existing disk partitions, run fsck on them, and mount them.
 Therefore, we *strongly* recommended that, prior to starting the Qubes installer, you physically disconnect all disks that you do not want to be modified.
 Furthermore, if you are installing Qubes on a potentially compromised system, we *strongly* recommended that you wipe your target installation disk before starting the installer.
 
