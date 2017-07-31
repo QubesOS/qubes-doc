@@ -278,7 +278,7 @@ Releases
  * [Qubes R3.1 release notes](/doc/releases/3.1/release-notes/)
  * [Qubes R3.1 release schedule](/doc/releases/3.1/schedule/)
  * [Qubes R3.2 release notes](/doc/releases/3.2/release-notes/)
- * [Qubes R4.0 release schedule](/doc/releases/4.0/schedule/)
- * [Qubes R4.0 release notes](/doc/releases/4.0/release-notes/)
  * [Qubes R3.2 release schedule](/doc/releases/3.2/schedule/)
+ * [Qubes R4.0 release notes](/doc/releases/4.0/release-notes/)
+ * [Qubes R4.0 release schedule](/doc/releases/4.0/schedule/)
 
