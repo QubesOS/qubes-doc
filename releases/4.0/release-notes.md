@@ -70,7 +70,7 @@ supported option to upgrade to Qubes R4.0 is to install it from scratch and use
 [hide-ip]: https://github.com/QubesOS/qubes-issues/issues/1143
 [packages-split]: https://github.com/QubesOS/qubes-issues/issues/2771
 [hvm-switch]: https://github.com/QubesOS/qubes-issues/issues/2185
-[manager-ticket]: https://github.com/QubesOS/qubes-issues/issues/2134
+[manager-ticket]: https://github.com/QubesOS/qubes-issues/issues/2132
 [dispvm-ticket]: https://github.com/QubesOS/qubes-issues/issues/2253
 [qrexec-proxy]: https://github.com/QubesOS/qubes-issues/issues/1854
 [qrexec-policy-keywords]: https://github.com/QubesOS/qubes-issues/issues/865
