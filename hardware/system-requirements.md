@@ -10,6 +10,14 @@ redirect_from:
 
 # System Requirements #
 
+<div class="alert alert-warning" role="alert">
+  <i class="fa fa-exclamation-triangle"></i>
+  <b>Notice:</b>
+  The system requirements on this page are <em>necessary, but not sufficient,</em> for Qubes compatibility at a minimal or recommended level.
+  In other words, just because a computer satisfies these requirements doesn't mean that Qubes will successfully install and run on it.
+  We strongly recommend consulting the <a href="/hcl/">Hardware Compatibility List</a> to verify that Qubes can install and run on your specific model in the ways you need it to.
+</div>
+
 ## Qubes Release 3.x ##
 
 ### Minimum ###
