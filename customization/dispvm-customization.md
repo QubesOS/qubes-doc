@@ -77,7 +77,7 @@ For added convenience, arbitrary programs can be added to the Application Menu o
     [Desktop Entry]
     Version=1.0
     Type=Application
-    Exec=sh -c 'echo arbitrary | /usr/lib/qubes/qfile-daemon-dvm qubes.VMShell dom0 DEFAULT red
+    Exec=sh -c 'echo arbitrary | /usr/lib/qubes/qfile-daemon-dvm qubes.VMShell dom0 DEFAULT red'
     Icon=dispvm-red
     Terminal=false
     Name=DispVM: Arbitrary Name
