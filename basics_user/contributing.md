@@ -25,6 +25,7 @@ ways in which you can help:
 * [Write and edit the documentation]
 * [Donate] to the project
 * If you represent an organization, become a [Qubes partner]
+* Add a [Qubes download mirror]
 * Answer questions on the [mailing lists]
 * Engage with us on social media:
   * Follow us on [Twitter]

@@ -46,6 +46,7 @@ Choosing Your Hardware
 Installing & Upgrading Qubes
 ----------------------------
  * [Qubes Downloads](/downloads/)
+ * [Qubes Download Mirrors](/downloads/mirrors/)
  * [Installation Guide](/doc/installation-guide/)
  * [Upgrade Guides](/doc/upgrade/)
  * [Why and How to Verify Signatures](/security/verifying-signatures/)
