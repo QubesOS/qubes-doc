@@ -79,4 +79,5 @@ Qubes Security Bulletins are published through the [Qubes Security Pack](/securi
 -   [Qubes Security Bulletin \#30](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-030-2017.txt) (Critical Xen bugs related to PV memory virtualization (XSA-213, XSA-214))
 -   [Qubes Security Bulletin \#31](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-031-2017.txt) (Xen hypervisor vulnerabilities with unresearched impact (XSA 216-224))
 -   [Qubes Security Bulletin \#32](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-032-2017.txt) (Xen hypervisor and Linux kernel vulnerabilities (XSA-226 through XSA-230))
+-   [Qubes Security Bulletin \#33](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-033-2017.txt) (Xen hypervisor (XSA-231 through XSA-234))
 
