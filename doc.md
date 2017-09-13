@@ -194,6 +194,7 @@ Presentation Slides
  * [[PDF] LinuxCon 2014 -- Qubes OS R2 Tutorial](/attachment/wiki/slides/LinuxCon_2014_Qubes_Tutorial.pdf)
  * [[PDF] LinuxCon 2014 -- Qubes OS Keynote](/attachment/wiki/slides/LinuxCon_2014_Qubes_Keynote.pdf)
  * [[PDF] RMLL 2016 -- Improving client systems security with Qubes OS](/attachment/wiki/slides/RMLL_2016_Improving-client-systems-security.pdf)
+ * [[PDF] Golem and Friends 2017 -- Towards Reasonably Secure Computing in the Decentralized World](/attachment/wiki/slides/Secure_Computing_in_Decentralized_World.pdf)
 
 Developer Documentation
 =======================
