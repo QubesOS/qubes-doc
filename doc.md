@@ -178,6 +178,7 @@ Troubleshooting
  * [Troubleshooting UEFI related problems](/doc/uefi-troubleshooting/)
  * [Fixing wireless on suspend & resume](/doc/wireless-troubleshooting/)
  * [How to remove VMs manually](/doc/remove-vm-manually/)
+ * [Intel Integrated Graphics Troubleshooting](/doc/intel-igfx-troubleshooting/)
 
 
 Reference Pages
