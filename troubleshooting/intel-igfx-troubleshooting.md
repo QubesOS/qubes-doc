@@ -45,5 +45,5 @@ Edit the startup parameters for Xen:
 2. Edit `/boot/efi/EFI/qubes/xen.cfg` (e.g. `sudo nano /boot/efi/EFI/qubes/xen.cfg`)
 3. Add to the line `options` the setting `iommu=no-igfx`, save and quit
 
-<b name="f1">1</b> https://github.com/QubesOS/qubes-issues/issues/2841 [↩](#a1-1)
+<b name="f1">1</b> <https://github.com/QubesOS/qubes-issues/issues/2841> [↩](#a1-1)
 
