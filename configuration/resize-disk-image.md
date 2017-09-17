@@ -73,11 +73,11 @@ Done.
 
 ### Template disk image
 
-If you want install a lot of software in your TemplateVM, you may need to increase the amount of disk space your TemplateVM can use.
+If you want install a lot of software in your TemplateVM, you may need to increase the amount of disk space your TemplateVM can use. See also additional information and caveats about [resizing the root disk image].
 
 1.  Make sure that all the VMs based on this template are shut off (including netvms etc).
-2.  Sanity check: verify that none of loop device are pointing at this template root.img: `sudo losetup -a`
-3.  Resize root.img file using `truncate -s <desired size>` (the root.img path can be obtained from qvm-prefs).
+2.  Sanity check: verify that none of loop device are pointing at this template root.img. Run this in dom0: `sudo losetup -a`
+3.  Resize root.img file. Run this in dom0: `truncate -s <desired size> <path to root.img>` (the root.img path can be obtained from qvm-prefs).
 4.  If any netvm/proxyvm used by this template is based on it, set template netvm to none.
 5.  Start the template.
 6.  Execute `sudo resize2fs /dev/mapper/dmroot` in the template.
@@ -126,3 +126,6 @@ zpool online -e poolname ada0
 
 You will see that there is unallocated free space at the end of your primary disk.
 You can use standard linux tools like fdisk and mkfs to make this space available.
+
+
+[resizing the root disk image]: https://www.qubes-os.org/doc/resize-root-disk-image/
