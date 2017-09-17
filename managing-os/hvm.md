@@ -36,7 +36,34 @@ If you receive an error like this one, then you must first enable VT-x in your B
 libvirt.libvirtError: invalid argument: could not find capabilities for arch=x86_64 
 ~~~
 
-Now we need to install an OS inside this VM.  This can done by attaching an installation ISO to and starting the VM (this can currently only be done from command line, but in the future we will surely add an option to do this also from the manager):
+Installing an operating system in the HVM domain
+------------------------------------------------
+
+**Before first starting the HVM**, it is important to check the configuration of the HVM to prevent unexpected or random failures occuring during or after installation. This is particularly important, and in some cases **_vital_**, if installing **Windows 7.**
+
+### Configuring the HVM before first boot (especially important for Windows 7)
+
+The default memory size of the HVM created above is 512 megabytes. This size will work with many operating systems, but can cause seemingly random problems when installing Windows 7. It is advisable to increase the default memory size **before beginning** the Windows 7 installation process, otherwise one may unexpectedly get a Windows 'BSOD' (blue screen) stating 'Registry Corruption'. This makes the HVM fail to boot, and cannot be repaired by the inbuilt Windows repair / safe mode options.
+
+Some (many?) people can install Windows 7 with 512MB ram selected. Others may get the 'blue screen' after the final setup of Windows 7 (e.g. after entering username), or when attaching a virtual CD drive, or after installing the Qubes Windows Tools. Increasing the memory beyond 512MB is likely to fix many of these problems.
+
+The default memory size can be changed from the command line, but also from the 'Applications' menu. To adjust the default memory size using the desktop 'Applications' menu, proceed as follows:
+
+1. Open the 'Applications menu' by clicking on the square blue icon (containing a white/gray letter 'Q') at the top left of the default panel. Clicking this will give a list of Domains, ServiceVMs, and Templates. One of these will be called Domain:Win7 (or Domain:X where X is the name of the HVM you just created).
+
+2. In the submenu for the 'Win7' VM (or the HVM you just created), click **'Add More Shortcuts'**. This will open the Settings program (Dom0:Settings) without actually starting the VM. The Settings program has a number of tabs. Click on the 'Advanced' tab to access the memory settings.
+
+3. Under the 'Advanced' tab of the Settings program (for HVMs), the default 'Initial memory' is 512MB, and the 'Max memory' is 512MB. The 'Max memory' is grayed out (if creating a HVM), so at first glance, it appears that you cannot increase the memory beyond 512MB.
+
+4. To increase the HVM memory beyond 512MB, increase the 'Initial memory'. For Windows 7, 1536MB results in a stable system. 1024MB should _theoretically_ be enough, however. After increasing the 'Initial memory', a small window titled '[Dom0] Warning!' will appear, stating _'Max memory can not be less than initial memory. Setting max memory to equal initial memory'_. This results in the greyed-out 'Max memory' being changed to the value entered in 'Initial memory'.
+
+5. Once this is done, we are ready to proceed. Note that it is possible to change memory size after the first boot, but if the 'Blue Screen' appears, it usually results in the need to start the install from the beginning after deleting the HVM.
+
+6. For further troubleshoouting around Windows 7 installation and the 'Blue Screen of Death' please visit the 'qubes-users' group on Google Groups. A more detailed page will be added here soon.
+ 
+### The Installation Process
+
+After ensuring the HVM is configured properly (making any changes if needed), we need to install an OS into the VM.  This can done by attaching an installation ISO to and starting the VM (this can currently only be done from command line, but in the future we will surely add an option to do this also from the manager):
 
 ~~~
 qvm-start win7 --cdrom=/usr/local/iso/win7_en.iso
@@ -51,6 +78,51 @@ qvm-start win7 --cdrom=/dev/cdrom
 Next the VM will start booting from the attached CDROM device (which in the example above just happens to be a Windows 7 installation disk). Depending on the OS that is being installed in the VM one might be required to start the VM several times (as is the case with Windows 7 installations), because whenever the installer wants to "reboot the system" it actually shutdowns the VM and Qubes won't automatically start it.  Several invocations of qvm-start command (as shown above) might be needed.
 
 [![r2b1-win7-installing.png](/attachment/wiki/HvmCreate/r2b1-win7-installing.png)](/attachment/wiki/HvmCreate/r2b1-win7-installing.png)
+
+### Troubleshooting installer 'freezing' on 'Starting Windows' screen (Windows 7)
+
+For some users, there is an issue where the Windows 7 installer will sometimes 'freeze' on the 'Starting Windows' screen (the Windows logo continues to 'pulsate' but the installation does not progress any further). There are two ways to address this:
+
+1. Attempt the install again, and if this fails in the same way, reboot Qubes, and attempt the install again as per the instructions above.
+
+2. Manually edit the HVM's configuration file. 
+   - This can be done by starting the Dom0 terminal (from the Applications menu at the top right of the desktop), then:
+   - Assuming the HVM you have made is called Win7, enter the command below in the dom0 terminal, **replacing Win7 with the name of your HVM, and replacing 'username' with your username** which can be seen in the dom0 terminal command prompt, e.g. , [**username**@dom0 ~]$ 
+
+~~~
+cp /var/lib/qubes/appvms/Win7/Win7.conf /home/username/Win7.conf
+~~~
+
+3. Next, we need to edit the custom configuration file. One way is to type :
+
+~~~
+nano /home/username/Win7.conf
+~~~
+
+At the end of this file, you will see the code:
+
+~~~
+    <input type='tablet' bus='usb'/>
+    <video type='vga'>
+      <model type='xen' vram='16384'/>
+    </video>
+  </devices>
+</domain>
+~~~
+
+4. Change the 'model type' line to that shown below, then save the file.
+
+~~~
+     <model type='cirrus' vram='16384'/>
+~~~
+
+5. When booting the HVM, use the customised configuration file as follows (edit ISO path, username and the name of the .conf file to match yours)
+
+~~~
+ qvm-start win7 --cdrom=/usr/local/iso/win7_en.iso --custom-config=/home/username/Win7.conf
+~~~
+
+5. This modification should allow Windows 7 installer to proceed beyond the 'Starting Windows' screen. You will need to use the custom file on each of the reboots during installation, and probably once the system is fully installed. Please visit the qubes-users group on Google Groups is you need to discuss this further, or find a way to make the custom-config persistent (some users will find that Windows will boot normally once installed, even if no longer using the custom configuration file, but some won't).
 
 Using Installation ISOs located in other VMs
 --------------------------------------------
