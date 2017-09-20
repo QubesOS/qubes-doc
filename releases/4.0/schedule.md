@@ -14,6 +14,6 @@ This schedule is based on [Version Scheme](/doc/version-scheme/#release-schedule
 |  Date       | Stage                                   |
 | -----------:| --------------------------------------- |
 | 31 Jul 2017 | 4.0-rc1 release                         |
-| <strike>28 Aug 2017</strike><br/>11 Sep 2017 | current-testing freeze before 4.0-rc2   |
-| <strike> 4 Sep 2017</strike><br/>18 Sep 2017 | 4.0-rc2 release                         |
-|  2 Oct 2017 | decide whether 4.0-rc2 is the final 4.0 |
+| <strike>28 Aug 2017</strike><br/><strike>11 Sep 2017</strike><br/>9 Oct 2017 | current-testing freeze before 4.0-rc2   |
+| <strike> 4 Sep 2017</strike><br/><strike>18 Sep 2017</strike><br/>16 Oct 2017 | 4.0-rc2 release                         |
+| 30 Oct 2017 | decide whether 4.0-rc2 is the final 4.0 |
