@@ -123,6 +123,8 @@ Removing a USB qube
 **Warning:** This procedure will result in your USB controller(s) being attached
 directly to dom0.
 
+For legacy boot:
+
 1. Shut down the USB qube.
 2. In Qubes Manager, right-click on the USB qube and select "Remove VM."
 3. Open the file `/etc/default/grub` in dom0.
@@ -131,6 +133,16 @@ directly to dom0.
 6. Save and close the file.
 7. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
 8. Reboot.
+
+For UEFI boot:
+
+1. Shut down the USB qube.
+2. In Qubes Manager, right-click on the USB qube and select "Remove VM."
+3. Open the file `/boot/efi/EFI/xen.cfg` in dom0.
+4. Remove `rd.qubes.hide_all_usb` from all lines.
+5. Save and close the file.
+6. Reboot.
+
 
 
 Security Warning about USB Input Devices
