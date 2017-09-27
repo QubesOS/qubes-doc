@@ -165,7 +165,7 @@ Edit the `qubes.InputKeyboard` policy file in dom0, which is located here:
 
 Add a line like this one to the top of the file:
 
-    sys-usb dom0 ask,user=root
+    sys-usb dom0 allow,user=root
 
 (Change `sys-usb` to your desired USB qube.)
 
@@ -183,7 +183,7 @@ Edit the `qubes.InputMouse` policy file in dom0, which is located here:
 
 Add a line like this to the op of the file:
 
-    sys-usb dom0 ask,user=root
+    sys-usb dom0 allow,user=root
     
 (Change `sys-usb` to your desired USB qube.)
 
