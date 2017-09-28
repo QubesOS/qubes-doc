@@ -21,8 +21,9 @@ In order to regenerate the Disposable VM "snapshot" (called 'savefile' on Qubes)
 
     [user@dom0 ~]$ qvm-create-default-dvm <custom-template-name>
 
-
-This would create a new Disposable VM savefile based on the custom template. Now, whenever one opens a file (from any AppVM) in a Disposable VM, a Disposable VM based on this template will be used.
+This would create a new Disposable VM savefile based on the custom template.
+For example `<custom-template-name>` could be the name of the existing `debian-8` vm, which creates the disposable vm `debain-8-dvm`.
+Now, whenever one opens a file (from any AppVM) in a Disposable VM, a Disposable VM based on this template will be used.
 
 One can easily verify if the new Disposable VM template is indeed based on a custom template (in the example below the template called "f17-yellow" was used as a basis for the Disposable VM):
 
