@@ -14,7 +14,7 @@ permalink: /experts/
     <div class="row featured-quotes">
       <div class="col-lg-3 col-md-3 text-center">
         <a class="avatar-large" href="https://twitter.com/Snowden/status/781493632293605376" target="_blank">
-          <img src="/attachment/site/picture-snowden.jpg">
+          <img src="/attachment/site/expert-edward-snowden.jpg">
         </a>
       </div>
       <div class="col-lg-9 col-md-9 more-top">
@@ -29,14 +29,14 @@ permalink: /experts/
     <div class="row featured-quotes">
       <div class="col-lg-3 col-md-3 text-center">
         <a class="avatar-large" href="https://twitter.com/hashbreaker/status/577206817475850240" target="_blank">
-          <img src="/attachment/site/picture-dan-bernstein.jpg">
+          <img src="/attachment/site/expert-daniel-j-bernstein.jpg">
         </a>
       </div>
       <div class="col-lg-9 col-md-9 more-top">
         <a href="https://twitter.com/hashbreaker/status/577206817475850240" target="_blank">
           <blockquote>"Happy thought of the day: An attacker who merely finds a browser bug can't listen to my microphone except when I've told Qubes to enable it."
             <i class="fa fa-twitter fa-fw" aria-hidden="true"></i>
-            <footer>Daniel J. Bernstein<cite title="Source Title">, mathematician, cryptologist, computer scientist</cite></footer>
+            <footer>Daniel J. Bernstein<cite title="Source Title">, mathematician, cryptologist, and computer scientist</cite></footer>
           </blockquote>
         </a>
       </div>
@@ -44,7 +44,7 @@ permalink: /experts/
     <div class="row featured-quotes">
       <div class="col-lg-3 col-md-3 text-center">
         <a class="avatar-large" href="https://twitter.com/micahflee/status/577998730340622337" target="_blank">
-          <img src="/attachment/site/picture-micah-lee.jpg">
+          <img src="/attachment/site/expert-micah-lee.jpg">
         </a>
       </div>
       <div class="col-lg-9 col-md-9 more-top">
@@ -59,14 +59,14 @@ permalink: /experts/
     <div class="row featured-quotes">
       <div class="col-lg-3 col-md-3 text-center">
         <a class="avatar-large" href="https://twitter.com/isislovecruft" target="_blank">
-          <img src="/attachment/site/picture-isis.jpg">
+          <img src="/attachment/site/expert-isis-agora-lovecruft.jpg">
         </a>
       </div>
       <div class="col-lg-9 col-md-9 more-top">
         <a href="https://twitter.com/isislovecruft" target="_blank">
           <blockquote>"With QubesOS, I feel more comfortable accessing Tor Project infrastructure from the same laptop I use to execute random GameBoy ROMs I downloaded from the internet."
             <i class="fa fa-twitter fa-fw" aria-hidden="true"></i>
-            <footer>Isis Agora Lovecruft<cite title="Source Title">, cypherpunk, Tor Project core developer</cite></footer>
+            <footer>Isis Agora Lovecruft<cite title="Source Title">, cypherpunk and Tor Project core developer</cite></footer>
           </blockquote>
         </a>
       </div>
@@ -74,7 +74,7 @@ permalink: /experts/
     <div class="row featured-quotes">
       <div class="col-lg-3 col-md-3 text-center">
         <a class="avatar-large" href="https://twitter.com/csoghoian/status/756212792785534976" target="_blank">
-          <img src="/attachment/site/picture-soghoian.jpg">
+          <img src="/attachment/site/expert-christopher-soghoian.jpg">
         </a>
       </div>
       <div class="col-lg-9 col-md-9 more-top">
@@ -89,7 +89,7 @@ permalink: /experts/
     <div class="row featured-quotes">
       <div class="col-lg-3 col-md-3 text-center">
         <a class="avatar-large" href="https://twitter.com/petertoddbtc/status/709098684672135168" target="_blank">
-          <img src="/attachment/site/picture-todd.jpg">
+          <img src="/attachment/site/expert-peter-todd.jpg">
         </a>
       </div>
       <div class="col-lg-9 col-md-9 more-top">
@@ -104,14 +104,29 @@ permalink: /experts/
     <div class="row featured-quotes">
       <div class="col-lg-3 col-md-3 text-center">
         <a class="avatar-large" href="https://twitter.com/legind/status/742504400854257664" target="_blank">
-          <img src="/attachment/site/picture-bill-budington.jpg">
+          <img src="/attachment/site/expert-bill-budington.jpg">
         </a>
       </div>
       <div class="col-lg-9 col-md-9 more-top">
         <a href="https://twitter.com/legind/status/742504400854257664" target="_blank">
           <blockquote>"I really like it [Qubes OS]. If your hardware supports it, I recommend it. Everything is super well thought-out."
             <i class="fa fa-twitter fa-fw" aria-hidden="true"></i>
-            <footer>Bill Budington<cite title="Source Title">, Security Engineer & Technologist, Electronic Frontier Foundation</cite></footer>
+            <footer>Bill Budington<cite title="Source Title">, security engineer and technologist, Electronic Frontier Foundation</cite></footer>
+          </blockquote>
+        </a>
+      </div>
+    </div>
+    <div class="row featured-quotes">
+      <div class="col-lg-3 col-md-3 text-center">
+        <a class="avatar-large" href="https://twitter.com/kennwhite/status/914924731400425475" target="_blank">
+          <img src="/attachment/site/expert-kenn-white.jpg">
+        </a>
+      </div>
+      <div class="col-lg-9 col-md-9 more-top">
+        <a href="https://twitter.com/kennwhite/status/914924731400425475" target="_blank">
+          <blockquote>"Periodic shout out to [Rutkowska] and the QubesOS team for *years* of hard work to improve desktop security. Qubes is the real deal."
+            <i class="fa fa-twitter fa-fw" aria-hidden="true"></i>
+            <footer>Kenn White<cite title="Source Title">, security researcher, Open Crypto Audit Project</cite></footer>
           </blockquote>
         </a>
       </div>
