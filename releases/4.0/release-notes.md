@@ -38,10 +38,6 @@ Known issues
 
 * List of USB devices may contain device identifiers instead of name
 
-* Some PCI devices not working in HVM, sys-net and sys-usb created as PV to workaround this issue
-
-* Installation image lack Whonix templates
-
 * For other known issues take a look at [our tickets](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Release+4.0%22+label%3Abug)
 
 It is advised to install updates just after system installation to apply bug fixes for (some of) the above problems.
