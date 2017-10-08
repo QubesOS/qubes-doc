@@ -134,6 +134,7 @@ Configuration Guides
  * [Multibooting](/doc/multiboot/)
  * [Resizing AppVM and HVM Disk Images](/doc/resize-disk-image/)
  * [Extending `root.img` Size](/doc/resize-root-disk-image/)
+ * [RPC Policies](/doc/rpc-policy/)
  * [Installing ZFS in Qubes](/doc/zfs/)
  * [Mutt Guide](/doc/mutt/)
  * [Postfix Guide](/doc/postfix/)
