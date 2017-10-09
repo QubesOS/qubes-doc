@@ -161,7 +161,7 @@ the content of the file `/rw/config/gpg-split-domain`, which should be set to
 the name of the GPG backend VM. This file survives the AppVM reboot, of course.
 
     [user@work ~]$ sudo bash
-    [user@work ~]$ echo "work-gpg" > /rw/config/gpg-split-domain
+    [root@work ~]$ echo "work-gpg" > /rw/config/gpg-split-domain
 
 A note on passphrases:
 
