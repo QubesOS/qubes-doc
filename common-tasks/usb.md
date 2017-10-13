@@ -325,7 +325,7 @@ passthrough will **expose your target qube** for most of them. If possible, use
 method specific for particular device type (for example block devices described
 above), instead of this generic one.
 
-To use this feature, you need to install `qubes-usb-proxy` package in the
+To use this feature, you need to install [`qubes-usb-proxy`][qubes-usb-proxy] package in the
 templates used for USB qube and qubes you want to connect USB devices to. Note
 you cannot pass through devices from dom0 (in other words: USB VM is required).
 
@@ -375,3 +375,4 @@ This feature is not yet available in Qubes Manager however, if you would like to
 [gsoc-page]: https://summerofcode.withgoogle.com/organizations/6239659689508864/
 [YubiKey]: /doc/YubiKey/
 [Security Warning about USB Input Devices]: #security-warning-about-usb-input-devices
+[qubes-usb-proxy]: https://github.com/QubesOS/qubes-app-linux-usb-proxy
