@@ -50,6 +50,7 @@ Qubes Users' FAQ
 
 [Common Problems](#common-problems)
 -----------------------------------
+ * [Which version of Qubes am I running?](#which-version-of-qubes-am-i-running)
  * [My qubes lost Internet access after a TemplateVM update. What should I do?](#my-qubes-lost-internet-access-after-a-templatevm-update-what-should-i-do)
  * [My keyboard layout settings are not behaving correctly. What should I do?](#my-keyboard-layout-settings-are-not-behaving-correctly-what-should-i-do)
  * [My dom0 and/or TemplateVM update stalls when attempting to update via …](#my-dom0-andor-templatevm-update-stalls-when-attempting-to-update-via-the-gui-tool-what-should-i-do)
@@ -297,6 +298,10 @@ It starts with explanation what is wrong with using such setup.
 
 Common Problems
 ---------------
+
+### Which version of Qubes am I running?
+
+See [here](/doc/version-scheme/#check-installed-version).
 
 ### My qubes lost Internet access after a TemplateVM update. What should I do?
 
