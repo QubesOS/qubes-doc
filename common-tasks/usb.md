@@ -333,7 +333,8 @@ templates used for the USB qube and qubes you want to connect USB devices to. No
 you cannot pass through devices from dom0 (in other words: USB VM is required).
 `qubes-usb-proxy` should be installed by default in the template VM.
 However, if you receive this error: `ERROR: qubes-usb-proxy not installed in the VM`,
-you can install the `qubes-usb-proxy` with the package manager.
+you can install the `qubes-usb-proxy` with the package manager in the VM
+you want to attach the USB device to.
 
 - Fedora: `sudo dnf install qubes-usb-proxy`
 - Debian/Ubuntu: `sudo apt-get install qubes-usb-proxy`
