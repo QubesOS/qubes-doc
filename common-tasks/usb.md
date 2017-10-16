@@ -325,9 +325,20 @@ passthrough will **expose your target qube** for most of them. If possible, use
 method specific for particular device type (for example block devices described
 above), instead of this generic one.
 
+### Installation of qubes-usb-proxy ###
+[installation]: #installation-of-qubes-usb-proxy
+
 To use this feature, you need to install [`qubes-usb-proxy`][qubes-usb-proxy] package in the
-templates used for USB qube and qubes you want to connect USB devices to. Note
+templates used for the USB qube and qubes you want to connect USB devices to. Note
 you cannot pass through devices from dom0 (in other words: USB VM is required).
+`qubes-usb-proxy` should be installed by default in the template VM.
+However, if you receive this error: `ERROR: qubes-usb-proxy not installed in the VM`,
+you can install the `qubes-usb-proxy` with the package manager.
+
+- Fedora: `sudo dnf install qubes-usb-proxy`
+- Debian/Ubuntu: `sudo apt-get install qubes-usb-proxy`
+
+### Usage of qubes-usb-proxy ###
 
 Listing available USB devices:
 
@@ -345,7 +356,9 @@ Attaching selected USB device:
     sys-usb:2-5     058f:3822 058f_USB_2.0_Camera (attached to conferences)
     sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
 
-Now, you can use your USB device (camera in this case) in `conferences` qube.
+Now, you can use your USB device (camera in this case) in the `conferences` qube.
+If you see the error `ERROR: qubes-usb-proxy not installed in the VM` instead,
+please refer to the [Installation Section][installation].
 
 When you finish, detach the device:
 
