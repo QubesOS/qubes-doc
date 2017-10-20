@@ -20,23 +20,23 @@ A "Watching" Wallet and a "Cold" Wallet
 1. Create a fedora-25-electrum template using the Qubes VM Manager or running
    `qvm-clone fedora-25 fedora-25-electrum` in dom0.
 
-2. Start the new template and install electrum:
+2. Start the new template:
    `qvm-start fedora-25-electrum`
    `qvm-run fedora-25-electrum xterm`
 
-3. Install `electrum`.  Inside fedora-25-electrum terminal enter:
+3. Install `electrum` to fedora-25-electrum template VM.  From fedora-25-electrum terminal enter:
    `sudo dnf update`.
    `sudo dnf install electrum`.
 
-5. shut down your `fedora-25-electrum` template
+4. Shut down your `fedora-25-electrum` template
 
-6. create an `offline-bitcoin` qube based on `fedora-25-electrum` using the Qubes VM Manager or running `qvm-create -t fedora-25-electrum -l black offline-bitcoin` and `qvm-prefs -s offline-bitcoin netvm none` in dom0.
+5. Create an `offline-bitcoin` qube based on `fedora-25-electrum` using the Qubes VM Manager or running `qvm-create -t fedora-25-electrum -l black offline-bitcoin` and `qvm-prefs -s offline-bitcoin netvm none` in dom0.
 
-7. follow the [electrum documentation in creating an offline wallet](http://docs.electrum.org/en/latest/coldstorage.html#create-an-offline-wallet)
+6. Follow the [electrum documentation in creating an offline wallet](http://docs.electrum.org/en/latest/coldstorage.html#create-an-offline-wallet)
 
-8. create a `watching-bitcoin` qubes based on `fedora-25-electrum` connecting to the internet how ever you prefer using the Qubes VM Manager or running for example `qvm-create -t fedora-25-electrum -l green watching-bitcoin` and `qvm-prefs -s watching-bitcoin netvm sys-whonix` in dom0.
+7. Create a `watching-bitcoin` qubes based on `fedora-25-electrum` connecting to the internet how ever you prefer using the Qubes VM Manager or running for example `qvm-create -t fedora-25-electrum -l green watching-bitcoin` and `qvm-prefs -s watching-bitcoin netvm sys-whonix` in dom0.
 
-9. follow the [electrum documentation in creating an online watching-only wallet](http://docs.electrum.org/en/latest/coldstorage.html#create-a-watching-only-version-of-your-wallet)
+8. Follow the [electrum documentation in creating an online watching-only wallet](http://docs.electrum.org/en/latest/coldstorage.html#create-a-watching-only-version-of-your-wallet)
 
 Important Notes
 ---------------
