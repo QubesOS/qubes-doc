@@ -26,7 +26,7 @@ What is [Signal]?
 How to install Signal in Qubes
 ------------------------------
 
-If you're a Signal user on Android, you can now have Signal inside Qubes.
+Oepn Whisper Systems develops a desktop version of Signal with the same text messaging functionality as the iPhone and Android apps. Signal for desktops is a Chrome app, which means it requires Google Chrome or its open source alternative Chromium to function. In order to install it on Qubes, you'll need to complete these steps:
 
 1. Install the Chromium browser in a TemplateVM.
 2. Shut down the TemplateVM.
@@ -42,7 +42,8 @@ Creating a Shortcut in the applications menu
 --------------------------------------------
 
 Let's make Signal a bit more usable by creating a shortcut in our desktop
-panel that launches Signal directly. This assumes that you're using KDE or Xfce in Dom0,
+panel that launches Signal directly. 
+This assumes that you're using KDE or Xfce in Dom0,
 you use Signal in an AppVM named `Signal`, and this AppVM uses `fedora-23` as its TemplateVM.
 
 1. Follow [these instructions][shortcut] to create a desktop shortcut on the Desktop of your Signal AppVM.
@@ -76,7 +77,16 @@ You can now launch the Signal messenger inside its own dedicated AppVM directly 
 
 The same steps should work for any Chrome app.
 
------
+Installing Signal without Chrome
+---------------------------------------------------------
+Despite the existence of a freedom-respecting open source version of Chrome available for install, some users might want to use it without the browser. Unfortunately, Signal Desktop currently only exists in the form of a Chrome app. In August 2016, Google announced that it is going to [discontinue Chrome apps][discontinuing Chrome apps] starting from the second half of 2017. OWS developers have mentioned on Github that they are planning to [switch to a different platform][Signal moving away from chrome] by then:
+
+> Chrome apps are officially being deprecated and this might be the first signs of it. I don't know what their release schedule looks like but I just upgraded to 57, and hopefully we'll be migrated to a different platform by the time 59 is out.
+
+According to the Chromium developer schedule, 59 is targeted to be out by June 6, 2017.
+
+Based on OWS's [2017 job listings][job listings], the "different platform" will probably be Node or Electron, and thus presumably a standalone app that's built from the legacy's javascript code.
+
 
 [Signal]: https://whispersystems.org/
 [signal-wikipedia]: https://en.wikipedia.org/wiki/Signal_(software)
@@ -84,3 +94,6 @@ The same steps should work for any Chrome app.
 [shortcut-desktop]: /doc/managing-appvm-shortcuts/#tocAnchor-1-1-1
 [message]: https://groups.google.com/d/msg/qubes-users/rMMgeR-KLbU/XXOFri26BAAJ
 [mailing list]: /mailing-lists/
+[job listings]: https://web-beta.archive.org/web/20170126221917/https://whispersystems.org/workworkwork
+[discontinuing Chrome apps]: https://blog.chromium.org/2016/08/from-chrome-apps-to-web.html
+[Signal moving away from chrome]: https://github.com/WhisperSystems/Signal-Desktop/issues/1100#issuecomment-289234685
