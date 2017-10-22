@@ -7,9 +7,9 @@ Using I2P (Invisible Internet Project) with Qubes
 Preparation
 ===========
 
-The I2P Software will be running on a Debian 8 virtual machine. At first, you need to install Debian 8 as a TemplateVM. If you want, you can create a dedicated clone of the default Debian-8 TemplateVM. In the Dom0 Terminal, run the command:
+The I2P Software will be running on a Debian 9 virtual machine. At first, you need to install Debian 9 as a TemplateVM. If you want, you can create a dedicated clone of the default Debian-9 TemplateVM. In the Dom0 Terminal, run the command:
 ~~~
-qvm-clone debian-8 debian-8-i2p
+qvm-clone debian-9 debian-9-i2p
 ~~~
 
 
@@ -18,8 +18,8 @@ Installation
 	
 1. Next, you need to add the I2P repository and the apt key to the new template. Start your new TemplateVM, open the firewall configuration and allow full access for 5 minutes. Then run the following commands (as root):
 	~~~
-	echo 'deb https://deb.i2p2.de/ jessie main' > /etc/apt/sources.list.d/i2p.list
-	echo 'deb-src https://deb.i2p2.de/ jessie main' >> /etc/apt/sources.list.d/i2p.list
+	echo 'deb https://deb.i2p2.de/ stretch main' > /etc/apt/sources.list.d/i2p.list
+	echo 'deb-src https://deb.i2p2.de/ stretch main' >> /etc/apt/sources.list.d/i2p.list
 	wget https://geti2p.net/_static/i2p-debian-repo.key.asc
 	apt-key add i2p-debian-repo.key.asc
 	rm -rf i2p-debian-repo.key.asc
@@ -58,7 +58,7 @@ Installation
 	echo "binds+=( '/mail' )" >> /rw/config/qubes-bind-dirs.d/50_user.conf
 	~~~
 
-7. Shutdown your TemplateVM and create an AppVM which uses your Template "debian-8-i2p" (or "debian-8" if you did not create a clone). Connect your AppVM to "sys-firewall".
+7. Shutdown your TemplateVM and create an AppVM which uses your Template "debian-9-i2p" (or "debian-9" if you did not create a clone). Connect your AppVM to "sys-firewall".
 
 8. Start the AppVM you created. Open Firefox Web Browser and go to Preferences -> Advanced -> Network Settings. Now select "Manual Proxy Configuration" and configure the Proxy Settings: HTTP: 127.0.0.1:4444 - HTTPS: 127.0.0.1:4445 - No Proxy: localhost, 127.0.0.1
 
