@@ -44,7 +44,7 @@ Qubes Users' FAQ
  * [Can I install Qubes on a system without VT-d?](#can-i-install-qubes-on-a-system-without-vt-d)
  * [What is a DMA attack?](#what-is-a-dma-attack)
  * [Can I use AMD-v instead of VT-x?](#can-i-use-amd-v-instead-of-vt-x)
- * [Can I install Qubes in a virtual machine (e.g., on VMWare)?](#can-i-install-qubes-in-a-virtual-machine-eg-on-vmware)
+ * [Can I install Qubes in a virtual machine (e.g., on VMware)?](#can-i-install-qubes-in-a-virtual-machine-eg-on-vmware)
  * [Why does my network adapter not work?](#why-does-my-network-adapter-not-work)
  * [Can I install Qubes OS together with other operating system (dual-boot/multi-boot)?](#can-i-install-qubes-os-together-with-other-operating-system-dual-bootmulti-boot)
 
@@ -160,7 +160,7 @@ We do not provide OpenGL virtualization for Qubes.
 This is mostly a security decision, as implementing such a feature would most likely introduce a great deal of complexity into the GUI virtualization infrastructure. 
 However, Qubes does allow for the use of accelerated graphics (OpenGL) in Dom0’s Window Manager, so all the fancy desktop effects should still work.
 
-For further discussion about the potential for GPU passthorugh on Xen/Qubes, please see the following threads:
+For further discussion about the potential for GPU passthrough on Xen/Qubes, please see the following threads:
 
 -   [GPU passing to HVM](https://groups.google.com/group/qubes-devel/browse_frm/thread/31f1f2da39978573?scoring=d&q=GPU&)
 -   [Clarifications on GPU security](https://groups.google.com/group/qubes-devel/browse_frm/thread/31e2d8a47c8b4474?scoring=d&q=GPU&)
@@ -280,7 +280,7 @@ Most attacks on NetVM / UsbVM (but not all!) require being somewhat close to the
 
 See [this message](http://groups.google.com/group/qubes-devel/msg/6412170cfbcb4cc5).
 
-### Can I install Qubes in a virtual machine (e.g., on VMWare)?
+### Can I install Qubes in a virtual machine (e.g., on VMware)?
 
 Some users have been able to do this, but it is neither recommended nor supported. Qubes should be installed bare-metal. (After all, it uses its own bare-metal hypervisor!)
 
