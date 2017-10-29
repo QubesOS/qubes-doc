@@ -380,7 +380,7 @@ This feature is not yet available in Qubes Manager however, if you would like to
 [623]: https://github.com/QubesOS/qubes-issues/issues/623
 [1072-comm1]: https://github.com/QubesOS/qubes-issues/issues/1072#issuecomment-124270051
 [1072-comm2]: https://github.com/QubesOS/qubes-issues/issues/1072#issuecomment-124119309
-[2270-comm23]:https://github.com/QubesOS/qubes-issues/issues/2270#issuecomment-340230674
+[2270-comm23]: https://github.com/QubesOS/qubes-issues/issues/2270#issuecomment-242900312
 [1082]: https://github.com/QubesOS/qubes-issues/issues/1082
 [hide-usb]: #how-to-hide-all-usb-controllers-from-dom0
 [faq-usbvm]: /doc/user-faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot
