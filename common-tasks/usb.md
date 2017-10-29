@@ -50,6 +50,8 @@ steps as root in dom0:
 
         qubesctl state.highstate
 
+**Warning:** This has the potential to prevent you from connecting a keyboard to Qubes via USB. There are problems with doing this with a encrypted install (LUKS). If you find yourself in this situation, see this [issue][2270-comm23]
+
 Alternatively, you can create a USB qube manually as follows:
 
  1.  Read the [Assigning Devices] page to learn how to list and identify your
@@ -378,6 +380,7 @@ This feature is not yet available in Qubes Manager however, if you would like to
 [623]: https://github.com/QubesOS/qubes-issues/issues/623
 [1072-comm1]: https://github.com/QubesOS/qubes-issues/issues/1072#issuecomment-124270051
 [1072-comm2]: https://github.com/QubesOS/qubes-issues/issues/1072#issuecomment-124119309
+[2270-comm23]:https://github.com/QubesOS/qubes-issues/issues/2270#issuecomment-340230674
 [1082]: https://github.com/QubesOS/qubes-issues/issues/1082
 [hide-usb]: #how-to-hide-all-usb-controllers-from-dom0
 [faq-usbvm]: /doc/user-faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot
