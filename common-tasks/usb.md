@@ -24,7 +24,7 @@ Using and Managing USB Devices
 Creating and Using a USB qube
 -----------------------------
 
-**Warning:** This has the potential to prevent you from connecting a keyboard to Qubes via USB. There are problems with doing this with a encrypted install (LUKS). If you find yourself in this situation, see this [issue][2270-comm23]
+**Warning:** This has the potential to prevent you from connecting a keyboard to Qubes via USB. There are problems with doing this with a encrypted install (LUKS). If you find yourself in this situation, see this [issue][2270-comm23].
 
 The connection of an untrusted USB device to dom0 is a security risk since dom0,
 like almost every OS, reads partition tables automatically and since the whole
