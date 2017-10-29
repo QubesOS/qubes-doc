@@ -24,6 +24,8 @@ Using and Managing USB Devices
 Creating and Using a USB qube
 -----------------------------
 
+**Warning:** This has the potential to prevent you from connecting a keyboard to Qubes via USB. There are problems with doing this with a encrypted install (LUKS). If you find yourself in this situation, see this [issue][2270-comm23]
+
 The connection of an untrusted USB device to dom0 is a security risk since dom0,
 like almost every OS, reads partition tables automatically and since the whole
 USB stack is put to work to parse the data presented by the USB device in order
@@ -49,8 +51,6 @@ steps as root in dom0:
  2. Apply the configuration:
 
         qubesctl state.highstate
-
-**Warning:** This has the potential to prevent you from connecting a keyboard to Qubes via USB. There are problems with doing this with a encrypted install (LUKS). If you find yourself in this situation, see this [issue][2270-comm23]
 
 Alternatively, you can create a USB qube manually as follows:
 
