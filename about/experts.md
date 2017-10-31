@@ -58,6 +58,21 @@ permalink: /experts/
     </div>
     <div class="row featured-quotes">
       <div class="col-lg-3 col-md-3 text-center">
+        <a class="avatar-large" href="https://twitter.com/petertoddbtc/status/924981145871060996" target="_blank">
+          <img src="/attachment/site/expert-peter-todd.jpg">
+        </a>
+      </div>
+      <div class="col-lg-9 col-md-9 more-top">
+        <a href="https://twitter.com/petertoddbtc/status/924981145871060996" target="_blank">
+          <blockquote>"Donated a % of my consulting company's last year revenue to Qubes OS. I rely on it for all my work, and recommend it to clients too."
+            <i class="fa fa-twitter fa-fw" aria-hidden="true"></i>
+            <footer>Peter Todd<cite title="Source Title">, Applied Cryptography Consultant</cite></footer>
+          </blockquote>
+        </a>
+      </div>
+    </div>
+    <div class="row featured-quotes">
+      <div class="col-lg-3 col-md-3 text-center">
         <a class="avatar-large" href="https://twitter.com/isislovecruft" target="_blank">
           <img src="/attachment/site/expert-isis-agora-lovecruft.jpg">
         </a>
@@ -82,21 +97,6 @@ permalink: /experts/
           <blockquote>"I am so much happier and less stressed out after switching to QubesOS. Can wholeheartedly recommend."
             <i class="fa fa-twitter fa-fw" aria-hidden="true"></i>
             <footer>Christopher Soghoian<cite title="Source Title">, privacy researcher, activist, and principal technologist at the ACLU</cite></footer>
-          </blockquote>
-        </a>
-      </div>
-    </div>
-    <div class="row featured-quotes">
-      <div class="col-lg-3 col-md-3 text-center">
-        <a class="avatar-large" href="https://twitter.com/petertoddbtc/status/709098684672135168" target="_blank">
-          <img src="/attachment/site/expert-peter-todd.jpg">
-        </a>
-      </div>
-      <div class="col-lg-9 col-md-9 more-top">
-        <a href="https://twitter.com/petertoddbtc/status/709098684672135168" target="_blank">
-          <blockquote>"One of the most valuable parts of installing QubesOS was forcing myself to think through exactly what vulns [vulnerabilities] I have."
-            <i class="fa fa-twitter fa-fw" aria-hidden="true"></i>
-            <footer>Peter Todd<cite title="Source Title">, Applied Cryptography Consultant</cite></footer>
           </blockquote>
         </a>
       </div>
