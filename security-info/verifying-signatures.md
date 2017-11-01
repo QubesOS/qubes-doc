@@ -92,10 +92,29 @@ There should also be a copy of this key at the project's main website, in the
 
 Once you have obtained the Qubes Master Signing Key,
 you should verify the fingerprint of this key very carefully by obtaining
-copies of the fingerprint from trustworthy independent sources and comparing
-them to the downloaded key's fingerprint to ensure they match. Then set its
-trust level to "ultimate" (oh, well), so that it can be used to automatically
-verify all the keys signed by the Qubes Master Signing Key:
+copies of the fingerprint from multiple independent sources and comparing
+them to the downloaded key's fingerprint to ensure they match. Here are some
+ideas:
+
+ * Use the PGP Web of Trust.
+ * Check the key against different keyservers.
+ * Use different search engines to search for the fingerprint.
+ * Use Tor to view and search for the fingerprint on various websites.
+ * Use various VPNs and proxy servers.
+ * Use different Wi-Fi networks (work, school, internet cafe, etc.).
+ * Ask people to post the fingerprint in various forums and chat rooms.
+ * Check against PDFs and photographs in which the fingerprint appears
+   (e.g., slides from a talk or on a T-shirt).
+ * Repeat all of the above from different computers and devices.
+
+In addition, some operating systems have built-in keyrings containing keys
+capable of validating the Qubes Master Signing Key. For example, if you have
+a Debian system, then your debian-keyring may already contain the necessary
+keys.
+
+Once you're confident that you have the legitimate Qubes Master Signing Key,
+set its trust level to "ultimate" (oh, well), so that it can be used to
+automatically verify all the keys signed by the Qubes Master Signing Key:
 
 
     $ gpg --edit-key 0x36879494

@@ -44,12 +44,13 @@ Qubes Users' FAQ
  * [Can I install Qubes on a system without VT-d?](#can-i-install-qubes-on-a-system-without-vt-d)
  * [What is a DMA attack?](#what-is-a-dma-attack)
  * [Can I use AMD-v instead of VT-x?](#can-i-use-amd-v-instead-of-vt-x)
- * [Can I install Qubes in a virtual machine (e.g., on VMWare)?](#can-i-install-qubes-in-a-virtual-machine-eg-on-vmware)
+ * [Can I install Qubes in a virtual machine (e.g., on VMware)?](#can-i-install-qubes-in-a-virtual-machine-eg-on-vmware)
  * [Why does my network adapter not work?](#why-does-my-network-adapter-not-work)
  * [Can I install Qubes OS together with other operating system (dual-boot/multi-boot)?](#can-i-install-qubes-os-together-with-other-operating-system-dual-bootmulti-boot)
 
 [Common Problems](#common-problems)
 -----------------------------------
+ * [Which version of Qubes am I running?](#which-version-of-qubes-am-i-running)
  * [My qubes lost Internet access after a TemplateVM update. What should I do?](#my-qubes-lost-internet-access-after-a-templatevm-update-what-should-i-do)
  * [My keyboard layout settings are not behaving correctly. What should I do?](#my-keyboard-layout-settings-are-not-behaving-correctly-what-should-i-do)
  * [My dom0 and/or TemplateVM update stalls when attempting to update via …](#my-dom0-andor-templatevm-update-stalls-when-attempting-to-update-via-the-gui-tool-what-should-i-do)
@@ -159,7 +160,7 @@ We do not provide OpenGL virtualization for Qubes.
 This is mostly a security decision, as implementing such a feature would most likely introduce a great deal of complexity into the GUI virtualization infrastructure. 
 However, Qubes does allow for the use of accelerated graphics (OpenGL) in Dom0’s Window Manager, so all the fancy desktop effects should still work.
 
-For further discussion about the potential for GPU passthorugh on Xen/Qubes, please see the following threads:
+For further discussion about the potential for GPU passthrough on Xen/Qubes, please see the following threads:
 
 -   [GPU passing to HVM](https://groups.google.com/group/qubes-devel/browse_frm/thread/31f1f2da39978573?scoring=d&q=GPU&)
 -   [Clarifications on GPU security](https://groups.google.com/group/qubes-devel/browse_frm/thread/31e2d8a47c8b4474?scoring=d&q=GPU&)
@@ -272,14 +273,14 @@ But since you can read the whole memory, it isn't that hard.
 Now, how does this apply to Qubes OS? 
 The above attack requires access to a PCI device, which means that it can be performed only from NetVM / UsbVM, so someone must first break into one of those VMs. 
 But this isn't that hard, because there is a lot of complex code handling network traffic. 
-Recent bugs includes DHCP client, DNS client, etc. 
+Recent bugs include DHCP client, DNS client, etc. 
 Most attacks on NetVM / UsbVM (but not all!) require being somewhat close to the target system - for example connected to the same WiFi network, or in the case of a UsbVM, having physical acccess to a USB port.
 
 ### Can I use AMD-v instead of VT-x?
 
 See [this message](http://groups.google.com/group/qubes-devel/msg/6412170cfbcb4cc5).
 
-### Can I install Qubes in a virtual machine (e.g., on VMWare)?
+### Can I install Qubes in a virtual machine (e.g., on VMware)?
 
 Some users have been able to do this, but it is neither recommended nor supported. Qubes should be installed bare-metal. (After all, it uses its own bare-metal hypervisor!)
 
@@ -291,18 +292,22 @@ Open a terminal and run `sudo yum install linux-firmware` in the TemplateVM upon
 
 ### Can I install Qubes OS together with other operating system (dual-boot/multi-boot)?
 
-You shouldn't do that, because it poses a security risk for your Qubes OS installation.
-But if you understand the risk and accept it, read [documentation on multibooting](/doc/multiboot/). 
-It starts with explaining what is wrong with using such a setup.
+You shouldn't do that, because it poses a security risk for your Qubes OS installation. 
+But if you understand the risk and accept it, read [documentation on multibooting](/doc/multiboot/), 
+it begins with an explanation of the risks with such a setup.
 
 Common Problems
 ---------------
+
+### Which version of Qubes am I running?
+
+See [here](/doc/version-scheme/#check-installed-version).
 
 ### My qubes lost Internet access after a TemplateVM update. What should I do?
 
 Run `systemctl enable NetworkManager-dispatcher.service` in the TemplateVM upon which your NetVM is based. 
 You may have to reboot afterward for the change to take effect. 
-(Note: This is an upstream problem. See [here](https://bugzilla.redhat.com/show_bug.cgi?id=974811). 
+(Note: This is an upstream problem. See [here](https://bugzilla.redhat.com/show_bug.cgi?id=974811)). 
 For details, see the qubes-users mailing list threads [here](https://groups.google.com/d/topic/qubes-users/xPLGsAJiDW4/discussion) and [here](https://groups.google.com/d/topic/qubes-users/uN9G8hjKrGI/discussion).)
 
 ### My keyboard layout settings are not behaving correctly. What should I do?
@@ -341,7 +346,7 @@ This is probably because one of the controllers does not support reset.
 In Qubes R2 any such errors were ignored but in Qubes R3.0 they are not.
 A device that does not support reset is not safe and generally should not be assigned to a VM.
 
-Most likely the offending controller is a USB3.0 device. 
+Most likely the offending controller is a USB 3.0 device. 
 You can remove this controller from the usbVM, and see if this allows the VM to boot.
 Alternatively you may be able to disable USB 3.0 in the BIOS.
 
@@ -464,6 +469,6 @@ Press `F11` twice.
 
 If it seems like the issue described in [this thread](https://github.com/QubesOS/qubes-issues/issues/2399), try disabling the window compositor:
 
-- Q -> System Tools -> Window Manager Tweaks -> Compositor -> uncheck "Enable display compositing"
+- Q → System Tools → Window Manager Tweaks → Compositor → uncheck "Enable display compositing"
 
 Please report (via the mailing lists) if you experience this issue, and whether disabling the compositor fixes it for you or not.

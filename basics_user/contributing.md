@@ -25,6 +25,7 @@ ways in which you can help:
 * [Write and edit the documentation]
 * [Donate] to the project
 * If you represent an organization, become a [Qubes partner]
+* Add a [Qubes download mirror]
 * Answer questions on the [mailing lists]
 * Engage with us on social media:
   * Follow us on [Twitter]
@@ -75,4 +76,5 @@ be grateful to [receive your patch][patch].
 [GitHub issues]: https://github.com/QubesOS/qubes-issues/issues
 [qubes-devel]: /mailing-lists/#qubes-devel
 [Community-Developed Feature Tracker]: https://www.qubes-os.org/qubes-issues/
+[Qubes download mirror]: /downloads/mirrors/
 

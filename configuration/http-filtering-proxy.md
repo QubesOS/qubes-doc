@@ -4,7 +4,7 @@ title: HTTP Filtering Proxy
 permalink: /doc/config/http-filtering-proxy/
 ---
 
-How to run an HTTP filtering proxy in a FirwallVM
+How to run an HTTP filtering proxy in a FirewallVM
 =================================================
 
 Introduction

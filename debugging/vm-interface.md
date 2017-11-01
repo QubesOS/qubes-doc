@@ -96,6 +96,7 @@ Possible options for a single rule:
  together with `proto=tcp` or `proto=udp`; for example `1-1024`, `80-80`
  - `icmptype`, value: numeric (decimal) icmp message type, for example `8` for
  echo request, valid only together with `proto=icmp`
+ - `dpi`, value: Deep Packet Inspection protocol (like: HTTP, SSL, SMB, SSH, SMTP) or the default 'NO' as no DPI, only  packet filtering
 
 Rule matches only when all predicates matches. Only one of `dst4`, `dst6`,
 `dstname`, `specialtarget` can be used in a single rule.

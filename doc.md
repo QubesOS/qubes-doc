@@ -40,14 +40,13 @@ Security Information
 Choosing Your Hardware
 ----------------------
  * [System Requirements](/doc/system-requirements/)
+ * [Certified Hardware](/doc/certified-hardware/)
  * [Hardware Compatibility List (HCL)](/hcl/)
- * [Qubes-Certified Laptops](/doc/certified-laptops/)
- * [Hardware Certification](/hardware-certification/)
-
 
 Installing & Upgrading Qubes
 ----------------------------
  * [Qubes Downloads](/downloads/)
+ * [Qubes Download Mirrors](/downloads/mirrors/)
  * [Installation Guide](/doc/installation-guide/)
  * [Upgrade Guides](/doc/upgrade/)
  * [Why and How to Verify Signatures](/security/verifying-signatures/)
@@ -91,6 +90,7 @@ Managing Operating Systems within Qubes
  * [Windows: Advanced options and troubleshooting of Qubes Tools for Windows (R3)](/doc/windows-tools-3/)
  * [Windows: Advanced options and troubleshooting of Qubes Tools for Windows (R2)](/doc/windows-tools-2/)
  * [Windows: Uninstalling Qubes Tools for Windows 2.x](/doc/uninstalling-windows-tools-2/)
+ * [Fedora: Upgrading the Fedora 24 Template to Fedora 25](/doc/template/fedora/upgrade-24-to-25/)
  * [Fedora: Upgrading the Fedora 23 Template to Fedora 24](/doc/template/fedora/upgrade-23-to-24/)
  * [Fedora: Upgrading the Fedora 21 Template to Fedora 23](/doc/template/fedora/upgrade-21-to-23/)
  * [Fedora: Upgrading the Fedora 20 Template to Fedora 21](/doc/template/fedora/upgrade-20-to-21/)
@@ -134,6 +134,7 @@ Configuration Guides
  * [Multibooting](/doc/multiboot/)
  * [Resizing AppVM and HVM Disk Images](/doc/resize-disk-image/)
  * [Extending `root.img` Size](/doc/resize-root-disk-image/)
+ * [RPC Policies](/doc/rpc-policy/)
  * [Installing ZFS in Qubes](/doc/zfs/)
  * [Mutt Guide](/doc/mutt/)
  * [Postfix Guide](/doc/postfix/)
@@ -178,6 +179,7 @@ Troubleshooting
  * [Troubleshooting UEFI related problems](/doc/uefi-troubleshooting/)
  * [Fixing wireless on suspend & resume](/doc/wireless-troubleshooting/)
  * [How to remove VMs manually](/doc/remove-vm-manually/)
+ * [Intel Integrated Graphics Troubleshooting](/doc/intel-igfx-troubleshooting/)
 
 
 Reference Pages
@@ -194,6 +196,7 @@ Presentation Slides
  * [[PDF] LinuxCon 2014 -- Qubes OS R2 Tutorial](/attachment/wiki/slides/LinuxCon_2014_Qubes_Tutorial.pdf)
  * [[PDF] LinuxCon 2014 -- Qubes OS Keynote](/attachment/wiki/slides/LinuxCon_2014_Qubes_Keynote.pdf)
  * [[PDF] RMLL 2016 -- Improving client systems security with Qubes OS](/attachment/wiki/slides/RMLL_2016_Improving-client-systems-security.pdf)
+ * [[PDF] Golem and Friends 2017 -- Towards Reasonably Secure Computing in the Decentralized World](/attachment/wiki/slides/Secure_Computing_in_Decentralized_World.pdf)
 
 Developer Documentation
 =======================
@@ -233,6 +236,8 @@ System
  * [Qubes OS Architecture Overview](/doc/architecture/)
  * [Qubes OS Architecture Spec v0.3 [PDF]](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf)
  * [Security-critical elements of Qubes OS](/doc/security-critical-code/)
+ * [Qubes Core Admin](https://dev.qubes-os.org/projects/core-admin/en/latest/)
+ * [Qubes Core Admin Client](https://dev.qubes-os.org/projects/core-admin-client/en/latest/)
  * [Qrexec: command execution in VMs](/doc/qrexec3/)
  * [Qubes GUI virtualization protocol](/doc/gui/)
  * [Networking in Qubes](/doc/networking/)
@@ -278,4 +283,6 @@ Releases
  * [Qubes R3.1 release schedule](/doc/releases/3.1/schedule/)
  * [Qubes R3.2 release notes](/doc/releases/3.2/release-notes/)
  * [Qubes R3.2 release schedule](/doc/releases/3.2/schedule/)
+ * [Qubes R4.0 release notes](/doc/releases/4.0/release-notes/)
+ * [Qubes R4.0 release schedule](/doc/releases/4.0/schedule/)
 

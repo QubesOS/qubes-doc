@@ -35,7 +35,7 @@ and run `newaliases`.
 
 This is the only thing to do in TemplateVM, as MTA configuration is AppVM specific, so we will keep it in `/usr/local` (ie. `/rw/usrlocal`) in each AppVM.
 
-Now shutdown TemplateVM, start AppVM. Create directory `/usr/local/etc/postfix` and copy `/etc/postfix/master.cf` there.
+Now shutdown TemplateVM, start AppVM. Create directory `/usr/local/etc/postfix` and copy `/etc/postfix/master.cf` and `/etc/postfix/postfix-files` there.
 
 ### Makefile
 
@@ -152,4 +152,4 @@ mount --bind /usr/local/etc/postfix /etc/postfix
 systemctl --no-block start postfix
 ~~~
 
-Reboot your AppVM and you are done.
+Make sure `/rw/config/rc.local` is executable (i.e., `chmod a+x /rw/config/rc.local`).  Reboot your AppVM and you are done.

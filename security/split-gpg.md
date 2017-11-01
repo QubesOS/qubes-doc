@@ -90,7 +90,7 @@ package installed.
     
 For Fedora.
 
-    [user@fedora-24 ~]$ sudo yum install qubes-gpg-split
+    [user@fedora-25 ~]$ sudo yum install qubes-gpg-split
 
 Start with creating a dedicated AppVM for storing your keys (the GPG backend
 domain). It is recommended that this domain be network disconnected (set its
@@ -161,7 +161,7 @@ the content of the file `/rw/config/gpg-split-domain`, which should be set to
 the name of the GPG backend VM. This file survives the AppVM reboot, of course.
 
     [user@work ~]$ sudo bash
-    [user@work ~]$ echo "work-gpg" > /rw/config/gpg-split-domain
+    [root@work ~]$ echo "work-gpg" > /rw/config/gpg-split-domain
 
 A note on passphrases:
 

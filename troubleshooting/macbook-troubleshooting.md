@@ -244,10 +244,12 @@ then press "e", edit grub cfg and boot pressing Fn+F10
 
 *  Fix grub2 configuration, which uses wrong command for EFI boot
 *  analyzing /mnt/sysimage/var/log/anaconda/program.log I found the faulty commands issues by Anaconda installer
+
 ~~~
 chrooot /mnt/sysimage
 ~~~
 * edit /boot/efi/EFI/qubes/xen.cfg file putting the following content
+
 ~~~
 [global]
 default=4.4.14-11.pvops.qubes.x868_64
@@ -259,6 +261,7 @@ ramdisk=initramfs-4.4.14-11.pvops.qubes.x86_64.img
 ~~~
 
 *  The main mistake is the efibootmgr, that needs the right commands. Just in case, re-apply all the commands, adapting to your own disk layout (-d /dev/sdxxx -p partition_number)
+
 ~~~
 grep Running /mnt/sysimage/var/log/anaconda/program.log | tail -n 20
 efibootmgr -b 0000 -B

@@ -192,6 +192,15 @@ second rule allowing calls to `$dispvm:anon-whonix-dvm`, or even if
 there is a rule explicitly denying it. This is because the redirection happens
 _after_ considering the action.
 
+In Qubes 4.0 there are also additional methods to specify source/target VM:
+
+ * `$tag:some-tag` - meaning a VM with tag `some-tag`
+ * `$type:type` - meaning a VM of `type` (like `AppVM`, `TemplateVM` etc)
+
+Target VM can be also specified as `$default`, which matches the case when
+calling VM didn't specified any particular target (either by using `$default`
+target, or empty target).
+
 ### Service argument in policy
 
 Sometimes just service name isn't enough to make reasonable qrexec policy. One

@@ -4,3 +4,9 @@ rvm:
  - 2.1
 install: git clone https://github.com/${TRAVIS_REPO_SLUG%%/*}/qubesos.github.io ~/qubesos.github.io
 script: ~/qubesos.github.io/_utils/travis.sh
+addons:
+  apt:
+    packages:
+    - hunspell
+    - pandoc
+    - jq

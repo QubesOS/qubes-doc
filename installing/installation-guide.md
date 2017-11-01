@@ -19,6 +19,16 @@ redirect_from:
 Installation Guide
 ==================
 
+Warning
+-------
+
+There is a set of known upstream bugs in the Fedora installer that affect Qubes 3.2 ([Bug 1170803], [Bug 1374983], and [Bug 1268700]; tracked in Qubes issue [#2835]).
+This issue is fixed in Qubes 4.0.
+On Qubes 3.2, because of these bugs, the installer will try to access all existing disk partitions, run fsck on them, and mount them.
+Therefore, we *strongly* recommended that, prior to starting the Qubes installer, you physically disconnect all disks that you do not want to be modified.
+Furthermore, if you are installing Qubes on a potentially compromised system, we *strongly* recommended that you wipe your target installation disk before starting the installer.
+
+
 Hardware Requirements
 ---------------------
 
@@ -55,7 +65,7 @@ an installation medium.)
 If you prefer to use a USB drive, then you just need to copy the ISO onto the
 USB device, e.g. using `dd`:
 
-    dd if=Qubes-R3-x86_64.iso of=/dev/sdX
+    dd if=Qubes-R3-x86_64.iso of=/dev/sdX bs=1M
 
 Change `Qubes-R3-x86_64.iso` to the filename of the version you're installing,
 and change `/dev/sdX` to the correct target device (e.g., `/dev/sda`).
@@ -117,6 +127,10 @@ Getting Help
    questions to the appropriate mailing list.
 
 
+[Bug 1170803]: https://bugzilla.redhat.com/show_bug.cgi?id=1170803
+[Bug 1374983]: https://bugzilla.redhat.com/show_bug.cgi?id=1374983
+[Bug 1268700]: https://bugzilla.redhat.com/show_bug.cgi?id=1268700
+[#2835]: https://github.com/QubesOS/qubes-issues/issues/2835
 [system requirements]: /doc/system-requirements/
 [Hardware Compatibility List]: /hcl/
 [live USB]: /doc/live-usb/

@@ -30,15 +30,15 @@ Install
 
 Templates can be installed with the following command:
 
-Debian 7 (wheezy) - old stable:
+Debian 7 (wheezy) - obsolete/archive:
 
     [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-7
 
-Debian 8 (jessie) - stable:
+Debian 8 (jessie) - oldstable:
 
     [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-8
 
-Debian 9 (stretch) - testing:
+Debian 9 (stretch) - stable:
 
 A prebuilt template is not yet available, but there are two options for
 achieving a stretch template:

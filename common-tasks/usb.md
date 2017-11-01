@@ -24,6 +24,8 @@ Using and Managing USB Devices
 Creating and Using a USB qube
 -----------------------------
 
+**Warning:** This has the potential to prevent you from connecting a keyboard to Qubes via USB. There are problems with doing this with a encrypted install (LUKS). If you find yourself in this situation, see this [issue][2270-comm23].
+
 The connection of an untrusted USB device to dom0 is a security risk since dom0,
 like almost every OS, reads partition tables automatically and since the whole
 USB stack is put to work to parse the data presented by the USB device in order
@@ -110,7 +112,7 @@ opt to create a USB qube during installation. This also occurs automatically if
 you choose to [create a USB qube] using the `qubesctl` method, which is the
 first pair of steps in the linked section.)
 
-**Warning** A USB keyboard cannot be used to type the disk passphrase
+**Warning:** A USB keyboard cannot be used to type the disk passphrase
 if USB controllers were hidden from dom0. Before hiding USB controllers
 make sure your laptop keyboard is not internally connected via USB
 (by checking output of `lsusb` command) or that you have a PS/2 keyboard at hand
@@ -325,9 +327,21 @@ passthrough will **expose your target qube** for most of them. If possible, use
 a method specific for particular device type (for example block devices described
 above), instead of this generic one.
 
-To use this feature, you need to install `qubes-usb-proxy` package in the
-templates used for USB qube and qubes you want to connect USB devices to. Note
+### Installation of qubes-usb-proxy ###
+[installation]: #installation-of-qubes-usb-proxy
+
+To use this feature, you need to install [`qubes-usb-proxy`][qubes-usb-proxy] package in the
+templates used for the USB qube and qubes you want to connect USB devices to. Note
 you cannot pass through devices from dom0 (in other words: USB VM is required).
+`qubes-usb-proxy` should be installed by default in the template VM.
+However, if you receive this error: `ERROR: qubes-usb-proxy not installed in the VM`,
+you can install the `qubes-usb-proxy` with the package manager in the VM
+you want to attach the USB device to.
+
+- Fedora: `sudo dnf install qubes-usb-proxy`
+- Debian/Ubuntu: `sudo apt-get install qubes-usb-proxy`
+
+### Usage of qubes-usb-proxy ###
 
 Listing available USB devices:
 
@@ -345,7 +359,9 @@ Attaching selected USB device:
     sys-usb:2-5     058f:3822 058f_USB_2.0_Camera (attached to conferences)
     sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
 
-Now, you can use your USB device (camera in this case) in `conferences` qube.
+Now, you can use your USB device (camera in this case) in the `conferences` qube.
+If you see the error `ERROR: qubes-usb-proxy not installed in the VM` instead,
+please refer to the [Installation Section][installation].
 
 When you finish, detach the device:
 
@@ -364,6 +380,7 @@ This feature is not yet available in Qubes Manager however, if you would like to
 [623]: https://github.com/QubesOS/qubes-issues/issues/623
 [1072-comm1]: https://github.com/QubesOS/qubes-issues/issues/1072#issuecomment-124270051
 [1072-comm2]: https://github.com/QubesOS/qubes-issues/issues/1072#issuecomment-124119309
+[2270-comm23]: https://github.com/QubesOS/qubes-issues/issues/2270#issuecomment-242900312
 [1082]: https://github.com/QubesOS/qubes-issues/issues/1082
 [hide-usb]: #how-to-hide-all-usb-controllers-from-dom0
 [faq-usbvm]: /doc/user-faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot
@@ -375,3 +392,4 @@ This feature is not yet available in Qubes Manager however, if you would like to
 [gsoc-page]: https://summerofcode.withgoogle.com/organizations/6239659689508864/
 [YubiKey]: /doc/YubiKey/
 [Security Warning about USB Input Devices]: #security-warning-about-usb-input-devices
+[qubes-usb-proxy]: https://github.com/QubesOS/qubes-app-linux-usb-proxy

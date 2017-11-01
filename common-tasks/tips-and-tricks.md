@@ -52,3 +52,10 @@ Start the Windows TemplateVM (which has no user data), install/upgrade apps; the
 This applies also to any TemplateBasedVM relative to its parent TemplateVM, but the privacy risk is especially high in the case of Windows.
 
 Credit: [Joanna Rutkovska](https://twitter.com/rootkovska/status/832571372085850112)
+
+
+Trim for standalone AppVMs
+---------------------
+The `qvm-trim-template` command is not available for a standalone AppVM.
+
+It is still possible to trim the AppVM disks by using the `fstrim --all` command from the appvm
