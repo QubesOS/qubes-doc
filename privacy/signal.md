@@ -102,19 +102,20 @@ This can also be used to add a application portable application/script from a ta
    
 6. (optional, only on KDE:) Follow the `Q` menu once more, right-click on the new `Signal: Signal Private Messenger` menu item and select `Add to Panel`.
 
-Use AppVM based on debian
----------------------------------------------------------------
+Use an AppVM based on Debian
+----------------------------
 
 **CAUTION:** Before proceeding, please carefully read [On Digital Signatures and Key Verification][qubes-verifying-signatures].
 This website cannot guarantee that any PGP key you download from the Internet is authentic.
 Always obtain a trusted key fingerprint via other channels, and always check any key you download against your trusted copy of the fingerprint.
 
-If you don't use chromium, you can install signal with debian :
+If you don't use Chromium, you can install signal with Debian:
 
-1. (Optional)Create a TemplateVM (debian 8)
+1. (Optional)Create a TemplateVM (Debian 8)
 
        [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-8
-2. Open a terminal in debian 8
+
+2. Open a terminal in Debian 8
 
        [user@dom0 ~]$ qvm-run -a debian-8 gnome-terminal
        
@@ -123,13 +124,13 @@ If you don't use chromium, you can install signal with debian :
        (Optional)[user@debian-8 ~]$ sudo apt-get install curl
        [user@debian-8 ~]$ curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
        [user@debian-8 ~]$ echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
-       [user@debian-8 ~]$ sudo apt uptdate && sudo apt install signal-desktop
+       [user@debian-8 ~]$ sudo apt update && sudo apt install signal-desktop
 
 5. Shutdown the TemplateVM :
 
         [user@dom0 ~]$ qvm-shutdown debian-8
         
-6. Create a AppVM based on this TemplateVM
+6. Create an AppVM based on this TemplateVM
 7. With your mouse select the `Q` menu -> `Domain: "AppVM Name"` -> `"AppVM Name": Add more shortcuts`
    Select `Signal` from the left `Available` column, move it to the right `Selected` column by clicking the `>` button and then `OK` to apply the changes and close the window.
 
