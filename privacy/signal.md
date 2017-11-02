@@ -105,6 +105,10 @@ This can also be used to add a application portable application/script from a ta
 Use AppVM based on debian
 ---------------------------------------------------------------
 
+**CAUTION:** Before proceeding, please carefully read [On Digital Signatures and Key Verification][qubes-verifying-signatures].
+This website cannot guarantee that any PGP key you download from the Internet is authentic.
+Always obtain a trusted key fingerprint via other channels, and always check any key you download against your trusted copy of the fingerprint.
+
 If you don't use chromium, you can install signal with debian :
 
 1. (Optional)Create a TemplateVM (debian 8)
@@ -131,6 +135,7 @@ If you don't use chromium, you can install signal with debian :
 
 -----
 
+[qubes-verifying-signatures]: /security/verifying-signatures/
 [Signal]: https://whispersystems.org/
 [signal-wikipedia]: https://en.wikipedia.org/wiki/Signal_(software)
 [shortcut]: https://support.whispersystems.org/hc/en-us/articles/216839277-Where-is-Signal-Desktop-on-my-computer-
