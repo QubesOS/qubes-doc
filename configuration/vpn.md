@@ -61,29 +61,43 @@ Set up a ProxyVM as a VPN gateway using iptables and CLI scripts
 ----------------------------------------------------------------
 
 This method is more involved than the one above, but has anti-leak features that also make the connection _fail closed_ should it be interrupted. It has been tested with Fedora 23 and Debian 8 templates.
+ 
+   If not using OpenVPN: These directions are specifically written for those wishing to use OpenVPN as their VPN client software. If you are trying to use different VPN client software, you may need to edit some of the options given for the script files (see specifically Step 5, below). If your choice of template VM doesn't already have OpenVPN or you want to use different VPN client software, you'll need to install the software in the template before proceeding. If you do install software, remember to disable any auto-starting service that comes with the software package: for example `sudo systemctl disable openvpn.service`.
+
+   If using OpenVPN: If you wish to use openvpn as your VPN client software, then you're in luck! The default Fedora-23 template that comes with Qubes 3.2 already has openvpn client software installed.
+    
+   Text editor: You will need a text editor to enter the scripts below. A good text editor is `nano`. This can be done by entering `sudo dnf install nano` in terminal for Fedora users, and `sudo apt-get nano` for Debian users. Another text editor is `gedit`, which comes already installed in the Qubes default Fedora template.
 
 1. Create a new VM, name it, click the ProxyVM radio button, and choose a color and template.
 
     ![Create\_New\_VM.png](/attachment/wiki/VPN/Create_New_VM.png)
     
     Note: Do not enable NetworkManager in the ProxyVM, as it can interfere with the scripts' DNS features. If you enabled NetworkManager or used other methods in a previous attempt, do not re-use the old ProxyVM... Create a new one according to this step.
-    
-    If your choice of template VM doesn't already have the VPN client software, you'll need to install the software in the template before proceeding. Disable any auto-starting service that comes with the software package: for example `sudo systemctl disable openvpn.service`.
-    
-    You may also wish to install `nano` or another simple text editor for entering the scripts below.
-
+  
 2.  Set up and test the VPN client.
 
-    Make sure the VPN VM and its template VM are not running.
+    First, make sure the VPN VM and its template VM are not running.
     
-    Run a terminal (CLI) in the VPN VM -- this will start the VM. Then make a new 'vpn' folder with `sudo mkdir /rw/config/vpn` and copy your VPN config files here (the example config filename used here is `openvpn-client.ovpn`). Files accompanying the main config such as *.crt and *.pem should also go here, and should not be referenced in the main config by absolute paths such as '/etc/...'.
+    Then, run a terminal CLI in the VPN VM (the ProxyVM just created). You can access terminal by right-clicking the VPN VM inside of Qubes VM Manager, selecting "Run command in VM", and typing `gnome-terminal` [ENTER]. 
+    
+    Once in terminal, make a new 'vpn' folder with `sudo mkdir /rw/config/vpn` and copy your VPN config files here (the example config filename used here is `openvpn-client.ovpn`). Files accompanying the main config such as *.crt and *.pem should also go here, and should not be referenced in the main config by absolute paths such as '/etc/...'.
 
-    Notes about VPN config options: The VPN scripts here are intended to work with commonly used `tun` interfaces, whereas `tap` mode is untested. Also, the config should route all traffic through your VPN's interface after a connection is created; For openvpn the directive for this is `redirect-gateway def1`. Lastly, the VPN client may not be able to prompt you for credentials when connecting to the server: Creating a file in the 'vpn' folder with your credentials and using a directive such as openvpn's `auth-user-pass <filename>` is recommended.
+    Notes about VPN config options: The VPN scripts here are intended to work with commonly used `tun` interfaces, whereas `tap` mode is untested. Also, the config should route all traffic through your VPN's interface after a connection is created; For openvpn the directive for this is `redirect-gateway def1`.
     
-    __Test your client configuration:__ Run the client from a CLI prompt in the 'vpn' folder, preferably as root. For example:
+    Notes about logging into VPN: Once the steps outlined below are completed, the VPN client will not be able to prompt you for credentials when connecting to the server. If you are unable to connect to the VPN server after completing all the steps (but was able to before), make sure you have created a file containing your VPN login credentials, placed in the 'vpn' folder and are using a directive such as openvpn's `auth-user-pass <filename>`, in the script given below for `rc.local`.
+    
+    __Test your client configuration:__ Run the client from a terminal CLI prompt in the 'vpn' folder, preferably as root. For example:
     ```
     sudo openvpn --cd /rw/config/vpn --config openvpn-client.ovpn
     ```
+    At this point you will likely need to enter in the username and password for your VPN service. In order to automate this, create a txt file containing your VPN login credentials with `sudo nano /rw/config/vpn/auth.txt`. Add your username and password for the VPN service into the first two lines of auth.txt
+     ~~~
+     Username
+     Password
+    ~~~
+    Now save and exit.  If using Nano: [CTRL-X] [Y] [ENTER]
+    
+    Now you can test your connection (without having to enter in your login credentials) with `sudo openvpn --cd /rw/config/vpn --config openvpn-client.ovpn auth-user-pass auth.txt`
     
     Watch for status messages that indicate whether the connection is successful and test from another VPN VM terminal window with `ping` and `traceroute`. DNS may be tested at this point by replacing addresses in `/etc/resolv.conf` with ones appropriate for your VPN (although this file will not be used when setup is complete). Diagnose any connection problems using resources such as client documentation and help from your VPN service provider.
     
@@ -189,11 +203,14 @@ This method is more involved than the one above, but has anti-leak features that
     ~~~
     
     Change the `VPN_CLIENT` and `VPN_OPTIONS` variables to match your VPN software.
-
+    
+    If using an "auth.txt" file, or a similar file containing your login credentials for the VPN service, make sure to reference that file in `VPN_OPTIONS` so that your VPN service will correctly autostart with you logged in. For example, change the third line in the script given above to: `VPN_OPTIONS='--cd /rw/config/vpn/ --config openvpn-client.ovpn --auth-user-pass auth.txt --daemon'`
+    
     Now save the script and make it executable:  
     `sudo chmod +x /rw/config/rc.local`
     
 6. Restart the new VM! The link should then be established automatically with a popup notification to that effect.
+
 
 Usage
 -----
@@ -213,6 +230,8 @@ You can do this in the Services tab in Qubes VM Manager or on the command-line:
 
 Then, configure your templates to use your new FirewallVM as their NetVM.
 
+Creating 
+-----
 
 Troubleshooting
 ---------------
@@ -221,3 +240,4 @@ Troubleshooting
 * Test DNS: Ping a familiar domain name from an appVM. It should print the IP address for the domain.
 * For scripting: Ping external IP addresses from inside the VPN VM using `sudo sg qvpn -c 'ping ...'`, then from an appVM using just `ping ...`. Once the firewall rules are in place, you will have to use `sudo sg` to run any IP network commands in the VPN VM.
 * Use `iptables -L -v` and `iptables -L -v -t nat` to check firewall rules. The latter shows the critical PR-QBS chain that enables DNS forwarding.
+* If having trouble connecting after setting up autostart, make sure to check that `auth-user-pass` references a "auth.txt" file, properly filled with your loging credentials. 
