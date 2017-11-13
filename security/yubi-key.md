@@ -44,7 +44,7 @@ To use this mode you need:
    [following this
    tutorial](https://www.yubico.com/products/services-software/personalization-tools/challenge-response/)
 2. Install `ykpers` package in template on which your USB VM is based.
-3. Create `/usr/local/bin/yubikey-auth` script:
+3. Create `/usr/local/bin/yubikey-auth` script your USB VM:
 
        #!/bin/sh
 
@@ -75,7 +75,7 @@ To use this mode you need:
 
 4. Adjust USB VM name (`sys-usb` above), and possibly YubiKey slot number (`2`
    above), then make the script executable.
-5. Edit `/etc/pam.d/xscreensaver` (or appropriate file if you are using other
+5. Edit `/etc/pam.d/xscreensaver` in dom0 (or appropriate file if you are using other
    screen locker program). Add this line at the beginning:
 
        auth [success=done default=ignore] pam_exec.so expose_authtok quiet /usr/local/bin/yubikey-auth AESKEY PASSWORD-HASH
