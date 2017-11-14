@@ -50,7 +50,7 @@ you use Signal in an AppVM named `Signal`, and this AppVM uses `fedora-23` as it
    Let's assume the shortcut file you get is `/home/user/Desktop/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop`
 2. Copy this shortcut file to the AppVM's TemplateVM - in this case, to `fedora-23`.
 
-       [user@Signal ~]$ qvm-copy-to-vm fedora-23 /home/user/Desktop/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop
+       qvm-copy-to-vm fedora-23 /home/user/Desktop/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop
 
 3. You'll also want to copy across an icon for your new shortcut - you can find this at
    `/home/user/.local/share/icons/hicolor/48x48/apps/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.png`
@@ -59,12 +59,12 @@ you use Signal in an AppVM named `Signal`, and this AppVM uses `fedora-23` as it
    You should find your shortcut and icon files just transferred across from the Signal AppVM.
    Move these files to the following locations:
    
-        [user@fedora-23 Signal]$ sudo mv chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop /usr/share/applications/
-        [user@fedora-23 Signal]$ sudo mv chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.png /usr/share/icons/hicolor/48x48/apps/
+        sudo mv chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop /usr/share/applications/
+        sudo mv chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.png /usr/share/icons/hicolor/48x48/apps/
 
 5. From a Dom0 terminal, instruct Qubes to synchronize the application menus of this TemplateVM:
 
-        [user@dom0 ~]$ qvm-sync-appmenus fedora-23
+        qvm-sync-appmenus fedora-23
         
 6. Stop both the AppVM (`Signal`) and its TemplateVM (`fedora-23`).
    The `Signal` VM will now see the desktop file in `/usr/share/applications` when it is next started.
@@ -86,15 +86,15 @@ This can also be used to add a application portable application/script from a ta
 
 1. First you will need to copy/move the .desktop file: `/home/user/Desktop/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop`to the applications folder on the StandaloneVM: `/usr/share/applications/`
 
-        [user@Signal ~]$ sudo mv /home/user/Desktop/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop /usr/share/applications/
+        sudo mv /home/user/Desktop/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop /usr/share/applications/
 
 2. Now copy/move over the icon file to make it look all nice and pretty.  
 
-        [user@Signal ~]$ sudo mv /home/user/Desktop/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop /usr/share/icons/hicolor/48x48/apps/
+        sudo mv /home/user/Desktop/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop /usr/share/icons/hicolor/48x48/apps/
 
 3. Now fire up the `dom0` Terminal Emulator from `Q` Menu -> `Terminal Emulator`. All you need to do now is run the command to sync the app menus `qvm-sync-appmenus` along with the Standalone VM name `Signal`.
 
-        [user@dom0 ~]$ qvm-sync-appmenus Signal
+        qvm-sync-appmenus Signal
 
 4. Now stop the StandaloneVM: `Signal`.
 
@@ -113,22 +113,22 @@ If you don't use Chromium, you can install signal with Debian:
 
 1. (Optional)Create a TemplateVM (Debian 8)
 
-       [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-8
+       sudo qubes-dom0-update qubes-template-debian-8
 
 2. Open a terminal in Debian 8
 
-       [user@dom0 ~]$ qvm-run -a debian-8 gnome-terminal
+       qvm-run -a debian-8 gnome-terminal
        
 3. Use these commands in your terminal
 
-       (Optional)[user@debian-8 ~]$ sudo apt-get install curl
-       [user@debian-8 ~]$ curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
-       [user@debian-8 ~]$ echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
-       [user@debian-8 ~]$ sudo apt update && sudo apt install signal-desktop
+       sudo apt-get install curl
+       curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
+       echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+       sudo apt update && sudo apt install signal-desktop
 
 5. Shutdown the TemplateVM :
 
-        [user@dom0 ~]$ qvm-shutdown debian-8
+        qvm-shutdown debian-8
         
 6. Create an AppVM based on this TemplateVM
 7. With your mouse select the `Q` menu -> `Domain: "AppVM Name"` -> `"AppVM Name": Add more shortcuts`
