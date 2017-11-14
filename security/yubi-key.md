@@ -87,7 +87,7 @@ To use this mode you need:
 6. Edit `/etc/pam.d/xscreensaver` (or appropriate file if you are using other
    screen locker program) in dom0. Add this line at the beginning:
 
-       auth [success=done default=ignore] pam_exec.so expose_authtok quiet /usr/bin/yk-self AESKEY PASSWORD-HASH
+       auth [success=done default=ignore] pam_exec.so expose_authtok quiet /usr/bin/yk-auth AESKEY PASSWORD-HASH
 
    Replace `AESKEY` with hex-encoded key configured in the third step, then
    replace `PASSWORD-HASH` with SHA1 hash for your YubiKey-linked password 
