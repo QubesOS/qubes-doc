@@ -17,6 +17,7 @@ ways in which you can help:
 * Audit the [source code]
 * [Report security issues]
 * [Send patches][patch] to fix bugs or implement features
+* [Contribute packages]
 * [Report bugs]
 * [Test new releases and updates]
 * Submit [HCL reports] for your hardware
@@ -60,6 +61,7 @@ be grateful to [receive your patch][patch].
 [source code]: /doc/source-code/
 [Report security issues]: /security/
 [patch]: /doc/source-code/#how-to-send-patches
+[Contribute packages]: /doc/package-contributions
 [Report bugs]: /doc/reporting-bugs/
 [Test new releases and updates]: /doc/testing/
 [HCL reports]: /doc/hcl/
