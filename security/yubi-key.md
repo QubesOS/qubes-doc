@@ -74,8 +74,10 @@ To use this mode you need:
 
 4. Adjust USB VM name in case you are using something other than the default
    `sys-usb` by editing `/etc/qubes/yk-keys/yk-vm` in dom0.
-  
-5. Paste your hashed password (other than your standard Qubes password)  into
+
+5. Paste your `AESKEY` from step 2 into `/etc/qubes/yk-keys/yk-secret-key.hex` in dom0.
+
+6. Paste your hashed password (other than your standard Qubes password)  into
 `/etc/qubes/yk-keys/yk-login-pass-hashed.hex` in dom0.
 
    You can calculate your hashed password using this command:
@@ -84,7 +86,7 @@ To use this mode you need:
        
    (Replace `PASSWORD` with your actual password.)
 
-6. Edit `/etc/pam.d/xscreensaver` (or appropriate file if you are using other
+7. Edit `/etc/pam.d/xscreensaver` (or appropriate file if you are using other
    screen locker program) in dom0. Add this line at the beginning:
 
        auth [success=done default=ignore] pam_exec.so expose_authtok quiet /usr/bin/yk-auth
