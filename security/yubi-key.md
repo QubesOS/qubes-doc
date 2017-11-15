@@ -88,9 +88,13 @@ To use this mode you need:
 
 ### Usage
 
-When you want to unlock your screen, plug YubiKey into USB slot, then enter
-password associated with YubiKey. If you configured so, YubiKey will request
-confirmation by pressing button on it (it will blink).
+When you want to unlock your screen...
+
+1) Plug YubiKey into USB slot.
+2) Enter password associated with YubiKey.
+3) Press Enter.
+4) If you configured so, YubiKey will request confirmation by pressing button on it (it will blink).
+
 When everything is ok, your screen will be unlocked.
 
 In any case you can still use your login password, but do it in secure location
