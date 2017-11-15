@@ -54,7 +54,7 @@ To use this mode you need:
    in your TemplateBased USB VM or install the packages inside your USB VM if you would like to avoid
    rebooting your USB VM.
        
-2. Configure your YubiKey for challenge-reponse HMAC-SHA1 mode, for example
+2. Configure your YubiKey for challenge-reponse `HMAC-SHA1` mode, for example
    [following this
    tutorial](https://www.yubico.com/products/services-software/personalization-tools/challenge-response/).
    
