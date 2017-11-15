@@ -207,6 +207,7 @@ The Basics
  * [Report a Security Issue](/security/)
  * [Report a Bug](/doc/reporting-bugs/)
  * [How to Contribute](/doc/contributing/)
+ * [Package Contributions](/doc/package-contributions/)
  * [Testing new releases and updates](/doc/testing/)
  * [Source Code](/doc/source-code/)
  * [Qubes OS License](/doc/license/)
