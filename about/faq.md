@@ -1,101 +1,40 @@
 ---
-layout: doc
-title: Users' FAQ
-permalink: /doc/user-faq/
+layout: sidebar
+title: FAQ
+permalink: /faq/
 redirect_from:
+- /doc/user-faq/
 - /en/doc/user-faq/
 - /doc/UserFaq/
 - /wiki/UserFaq/
+- /doc/devel-faq/
+- /en/doc/devel-faq/
+- /doc/DevelFaq/
+- /wiki/DevelFaq/
 ---
 
-Qubes Users' FAQ
-================
+# Frequently Asked Questions
 
-[General Questions](#general-questions)
----------------------------------------
- * [Is Qubes just another Linux distribution?](#is-qubes-just-another-linux-distribution)
- * [How is Qubes different from other security solutions?](#how-is-qubes-different-from-other-security-solutions)
- * [Does Qubes use full disk encryption (FDE)?](#does-qubes-use-full-disk-encryption-fde)
- * [What is the main concept behind Qubes?](#what-is-the-main-concept-behind-qubes)
- * [What about other approaches to security?](#what-about-other-approaches-to-security)
- * [What about safe languages and formally verified microkernels?](#what-about-safe-languages-and-formally-verified-microkernels)
- * [Why does Qubes use virtualization?](#why-does-qubes-use-virtualization)
- * [What do all these terms mean?](#what-do-all-these-terms-mean)
- * [Does Qubes run every app in a separate VM?](#does-qubes-run-every-app-in-a-separate-vm)
- * [Why does Qubes use Xen instead of KVM or some other hypervisor?](#why-does-qubes-use-xen-instead-of-kvm-or-some-other-hypervisor)
- * [What about this other/new (micro)kernel/hypervisor?](#what-about-this-othernew-microkernelhypervisor)
- * [What's so special about Qubes' GUI virtualization?](#whats-so-special-about-qubes-gui-virtualization)
- * [Can I watch YouTube videos in qubes?](#can-i-watch-youtube-videos-in-qubes)
- * [Can I run applications, like games, which require 3D support?](#can-i-run-applications-like-games-which-require-3d-support)
- * [Is Qubes a multi-user system?](#is-qubes-a-multi-user-system)
- * [Why passwordless sudo?](#why-passwordless-sudo)
- * [How should I report documentation issues?](#how-should-i-report-documentation-issues)
- * [Will Qubes seek to get certified on the GNU Free System Distribution Guidelines (GNU FSDG)?](#will-qubes-seek-to-get-certified-under-the-gnu-free-system-distribution-guidelines-gnu-fsdg)
- * [Should I trust this website?](#should-i-trust-this-website)
- * [What does it mean to "distrust the infrastructure"?](#what-does-it-mean-to-distrust-the-infrastructure)
- * [Why does this website use Cloudflare?](#why-does-this-website-use-cloudflare)
- * [Why doesn't this website have security feature X?](#why-doesnt-this-website-have-security-feature-x)
+## General & Security Questions
 
-[Installation & Hardware Compatibility](#installation--hardware-compatibility)
-------------------------------------------------------------------------------
- * [How much disk space does each qube require?](#how-much-disk-space-does-each-qube-require)
- * [How much memory is recommended for Qubes?](#how-much-memory-is-recommended-for-qubes)
- * [Can I install Qubes on a system without VT-x?](#can-i-install-qubes-on-a-system-without-vt-x)
- * [Can I install Qubes on a system without VT-d?](#can-i-install-qubes-on-a-system-without-vt-d)
- * [What is a DMA attack?](#what-is-a-dma-attack)
- * [Can I use AMD-v instead of VT-x?](#can-i-use-amd-v-instead-of-vt-x)
- * [Can I install Qubes in a virtual machine (e.g., on VMware)?](#can-i-install-qubes-in-a-virtual-machine-eg-on-vmware)
- * [Why does my network adapter not work?](#why-does-my-network-adapter-not-work)
- * [Can I install Qubes OS together with other operating system (dual-boot/multi-boot)?](#can-i-install-qubes-os-together-with-other-operating-system-dual-bootmulti-boot)
+### What is the main concept behind Qubes?
 
-[Common Problems](#common-problems)
------------------------------------
- * [Which version of Qubes am I running?](#which-version-of-qubes-am-i-running)
- * [My qubes lost Internet access after a TemplateVM update. What should I do?](#my-qubes-lost-internet-access-after-a-templatevm-update-what-should-i-do)
- * [My keyboard layout settings are not behaving correctly. What should I do?](#my-keyboard-layout-settings-are-not-behaving-correctly-what-should-i-do)
- * [My dom0 and/or TemplateVM update stalls when attempting to update via …](#my-dom0-andor-templatevm-update-stalls-when-attempting-to-update-via-the-gui-tool-what-should-i-do)
- * [How do I run a Windows HVM in non-seamless mode (i.e., as a single window)?](#how-do-i-run-a-windows-hvm-in-non-seamless-mode-ie-as-a-single-window)
- * [I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.](#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot)
- * [I assigned a PCI device to a qube, then unassigned it/shut down the …](#i-assigned-a-pci-device-to-a-qube-then-unassigned-itshut-down-the-qube-why-isnt-the-device-available-in-dom0)
- * [How do I install Flash in a Debian qube?](#how-do-i-install-flash-in-a-debian-qube)
- * [How do I play video files?](#how-do-i-play-video-files)
- * [How do I access my external drive?](#how-do-i-access-my-external-drive)
- * [My encrypted drive doesn't appear in Debian qube?](#my-encrypted-drive-doesnt-appear-in-debian-qube)
- * [Windows Update is stuck.](#windows-update-is-stuck)
- * [Fullscreen Firefox is frozen.](#fullscreen-firefox-is-frozen)
- * [I have weird graphics glitches like the screen turning partially black.](#i-have-weird-graphics-glitches-like-the-screen-turning-partially-black)
-  
------------------
+To build security on the "Security by Compartmentalization (or Isolation)" principle.
 
+### What about other approaches to security?
 
-General Questions
------------------
+The other two popular [approaches](https://blog.invisiblethings.org/2008/09/02/three-approaches-to-computer-security.html) are “Security by Correctness” and “Security by Obscurity.” 
+We don't believe either of these approaches are capable of providing reasonable security today, nor do we believe that they will be capable of doing so in the foreseeable future.
+
+### How is Qubes different from other security solutions?
+
+Please see [this article](https://blog.invisiblethings.org/2012/09/12/how-is-qubes-os-different-from.html) for a thorough discussion.
 
 ### Is Qubes just another Linux distribution?
 
 If you really want to call it a distribution, then it's more of a "Xen distribution" than a Linux one. 
 But Qubes is much more than just Xen packaging. 
 It has its own VM management infrastructure, with support for template VMs, centralized VM updating, etc. It also has a very unique GUI virtualization infrastructure.
-
-### How is Qubes different from other security solutions?
-
-Please see [this article](https://blog.invisiblethings.org/2012/09/12/how-is-qubes-os-different-from.html) for a thorough discussion.
-
-### Does Qubes use full disk encryption (FDE)?
-
-Yes, of course! 
-Full disk encryption is enabled by default. 
-Specifically, we use [`LUKS`](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup)/[`dm-crypt`](https://en.wikipedia.org/wiki/Dm-crypt). 
-You can even [manually configure your encryption parameters](/doc/encryption-config/), if you like!
-
-### What is the main concept behind Qubes?
-
-To build security on the “Security by Compartmentalization (or Isolation)” principle.
-
-### What about other approaches to security?
-
-The other two popular [approaches](https://blog.invisiblethings.org/2008/09/02/three-approaches-to-computer-security.html) are “Security by Correctness” and “Security by Obscurity.” 
-We don't believe either of these approaches are capable of providing reasonable security today, nor do we believe that they will be capable of doing so in the foreseeable future.
 
 ### What about safe languages and formally verified microkernels?
 
@@ -104,6 +43,13 @@ In short: these are non-realistic solutions today. We discuss this in further de
 ### Why does Qubes use virtualization?
 
 We believe that this is currently the only practically viable approach to implementing strong isolation while simultaneously providing compatibility with existing applications and drivers.
+
+### Does Qubes use full disk encryption (FDE)?
+
+Yes, of course! 
+Full disk encryption is enabled by default. 
+Specifically, we use [`LUKS`](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup)/[`dm-crypt`](https://en.wikipedia.org/wiki/Dm-crypt). 
+You can even [manually configure your encryption parameters](/doc/encryption-config/), if you like!
 
 ### What do all these terms mean?
 
@@ -148,30 +94,6 @@ Here are the answers for Xen 4.1 (which we use as of 2014-04-28):
 We have designed the GUI virtualization subsystem with two primary goals: security and performance. 
 Our GUI infrastructure introduces only about 2,500 lines of C code (LOC) into the privileged domain (Dom0), which is very little, and thus leaves little space for bugs and potential attacks. 
 At the same time, due to the smart use of Xen shared memory, our GUI implementation is very efficient, so most virtualized applications really feel as if they were executed natively.
-
-### Can I watch YouTube videos in qubes?
-
-Absolutely.
-
-### Can I run applications, like games, which require 3D support?
-
-Those won’t fly. 
-We do not provide OpenGL virtualization for Qubes. 
-This is mostly a security decision, as implementing such a feature would most likely introduce a great deal of complexity into the GUI virtualization infrastructure. 
-However, Qubes does allow for the use of accelerated graphics (OpenGL) in Dom0’s Window Manager, so all the fancy desktop effects should still work.
-
-For further discussion about the potential for GPU passthrough on Xen/Qubes, please see the following threads:
-
--   [GPU passing to HVM](https://groups.google.com/group/qubes-devel/browse_frm/thread/31f1f2da39978573?scoring=d&q=GPU&)
--   [Clarifications on GPU security](https://groups.google.com/group/qubes-devel/browse_frm/thread/31e2d8a47c8b4474?scoring=d&q=GPU&)
-
-### Is Qubes a multi-user system?
-
-No. 
-Qubes does not pretend to be a multi-user system. 
-Qubes assumes that the user who controls Dom0 controls the whole system. 
-It would be very difficult to **securely** implement multi-user support. 
-See [here](https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06) for details.
 
 ### Why passwordless sudo?
 
@@ -227,11 +149,45 @@ So, if feature X isn't enabled, it's most likely for one of three reasons:
 3. Our platform supports it, but we're not aware that we can enable it or have forgotten to do so.
    (If it seems like this is the case, let us know!)
 
+----------
 
-Installation & Hardware Compatibility
--------------------------------------
+## Users
 
-(See also: [System Requirements](/doc/system-requirements/), [Hardware Compatibility List](/hcl/), and [Certified Laptops](/doc/certified-laptops/).)
+### Can I watch YouTube videos in qubes?
+
+Absolutely.
+
+### Can I run applications, like games, which require 3D support?
+
+Those won’t fly. 
+We do not provide OpenGL virtualization for Qubes. 
+This is mostly a security decision, as implementing such a feature would most likely introduce a great deal of complexity into the GUI virtualization infrastructure. 
+However, Qubes does allow for the use of accelerated graphics (OpenGL) in Dom0’s Window Manager, so all the fancy desktop effects should still work.
+
+For further discussion about the potential for GPU passthrough on Xen/Qubes, please see the following threads:
+
+-   [GPU passing to HVM](https://groups.google.com/group/qubes-devel/browse_frm/thread/31f1f2da39978573?scoring=d&q=GPU&)
+-   [Clarifications on GPU security](https://groups.google.com/group/qubes-devel/browse_frm/thread/31e2d8a47c8b4474?scoring=d&q=GPU&)
+
+### Is Qubes a multi-user system?
+
+No. 
+Qubes does not pretend to be a multi-user system. 
+Qubes assumes that the user who controls Dom0 controls the whole system. 
+It would be very difficult to **securely** implement multi-user support. 
+See [here](https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06) for details.
+
+### What are the system requirements for Qubes OS?
+
+See the [System Requirements](/doc/system-requirements/).
+
+### Is there a list of hardware that is compatible with Qubes OS?
+
+See the [Hardware Compatibility List](/hcl/).
+
+### Is there any certified hardware for Qubes OS?
+
+See [Certified Hardware](/doc/certified-hardware/).
 
 ### How much disk space does each qube require?
 
@@ -296,9 +252,6 @@ You shouldn't do that, because it poses a security risk for your Qubes OS instal
 But if you understand the risk and accept it, read [documentation on multibooting](/doc/multiboot/), 
 it begins with an explanation of the risks with such a setup.
 
-Common Problems
----------------
-
 ### Which version of Qubes am I running?
 
 See [here](/doc/version-scheme/#check-installed-version).
@@ -338,9 +291,7 @@ In your TemplateVMs, open a terminal and run `sudo yum upgrade`.
 
 Enable "debug mode" in the qube's settings, either by checking the box labeled "Run in debug mode" in the Qubes VM Manager qube settings menu or by running the [qvm-prefs command](/doc/dom0-tools/qvm-prefs/).)
 
-
 ### I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.
-
 
 This is probably because one of the controllers does not support reset. 
 In Qubes R2 any such errors were ignored but in Qubes R3.0 they are not.
@@ -385,8 +336,7 @@ or
         MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
         MOD=`modprobe -R $MODALIAS | head -n 1`
         echo 0000:<BDF> > /sys/bus/pci/drivers/$MOD/bind
-        
-        
+
 ### How do I install Flash in a Debian qube?
 
 The Debian way is to install the flashplugin-nonfree package. 
@@ -472,3 +422,52 @@ If it seems like the issue described in [this thread](https://github.com/QubesOS
 - Q → System Tools → Window Manager Tweaks → Compositor → uncheck "Enable display compositing"
 
 Please report (via the mailing lists) if you experience this issue, and whether disabling the compositor fixes it for you or not.
+
+----------
+
+## Developers
+
+### Why does dom0 need to be 64-bit?
+
+Since 2013 [Xen has not supported 32-bit x86 architecture](https://wiki.xenproject.org/wiki/Xen_Project_Release_Features) and Intel VT-d, which Qubes uses to isolate devices and drivers, is available on Intel 64-bit processors only.
+
+In addition, with features like improved ASLR, it is often more difficult to exploit a bug on x64 Linux than x86 Linux. 
+While we designed Qubes from the beginning to limit potential attack vectors, we still realize that some of the code running in Dom0, e.g. our GUI daemon or xen-store daemon, however simple, might contain some bugs. 
+Plus since we haven't implemented a separate storage domain, the disk backends are in Dom0 and are "reachable" from the VMs, which adds up to the potential attack surface. 
+So, having faced a choice between 32-bit and 64-bit OS for Dom0, it was almost a no-brainer. 
+The 64-bit option provides some (little perhaps, but some) more protection against some classes of attacks, and at the same time does not have any disadvantages except the extra requirement of a 64 bit processor. 
+And even though Qubes now "needs" a 64 bit processor, it didn't make sense to run Qubes on a system without 3-4GB of memory, and those have 64-bit CPUs anyway.
+
+### What is the recommended build environment for Qubes OS?
+
+Any rpm-based, 64-bit environment, the preferred OS being Fedora.
+
+### How do I build Qubes from sources?
+
+See [these instructions](/doc/qubes-builder/).
+
+### How do I submit a patch?
+
+See the [Qubes Source Code Repositories](/doc/source-code/) article.
+
+### What is Qubes' attitude toward changing guest distros?
+
+We try to respect each distro's culture, where possible. 
+See the discussion on issue [#1014](https://github.com/QubesOS/qubes-issues/issues/1014) for an example.
+
+The policy is there mostly to ease maintenance, on several levels:
+
+ * Less modifications means easier migration to new upstream distribution
+   releases.
+ * The upstream documentation matches the distribution running in the Qubes VM.
+ * We're less likely to introduce Qubes-specific issues.
+ * Each officially supported distribution (ideally) should offer the same set of
+   Qubes-specific features - a change in one supported distribution should be
+   followed also in others, including new future distributions.
+
+### Is I/O emulation component (QEMU) part of the Trusted Computing Base (TCB)?
+
+No. Unlike many other virtualization systems, Qubes takes special effort to keep QEMU _outside_ of the TCB. 
+This has been achieved thanks to the careful use of Xen's stub domain feature. 
+For more details about how we improved on Xen's native stub domain use, see [here](https://blog.invisiblethings.org/2012/03/03/windows-support-coming-to-qubes.html).
+
