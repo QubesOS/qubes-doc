@@ -65,6 +65,10 @@ A typical user would likely need around five qubes. Very paranoid users, or thos
 In short: we believe the Xen architecture allows for the creation of more secure systems (i.e. with a much smaller TCB, which translates to a smaller attack surface). 
 We discuss this in much greater depth in our [Architecture Specification document](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf).
 
+### How is Qubes affected by Xen Security Advisories (XSAs)?
+
+See the [XSA Tracker](/security/xsa/).
+
 ### What about this other/new (micro)kernel/hypervisor?
 
 Whenever starting a discussion about another (micro)kernel or hypervisor in relation to Qubes, we strongly suggest including answers to the following questions first:
