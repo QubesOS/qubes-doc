@@ -30,7 +30,7 @@ The Basics
 Security Information
 --------------------
  * [Security Center](/security/)
- * [Security FAQ] (/faq/#general-security)
+ * [Security FAQ](/faq/#general--security)
  * [Security Pack](/security/pack/)
  * [Security Bulletins](/security/bulletins/)
  * [Canaries](/security/canaries/)
@@ -223,7 +223,7 @@ The Basics
 Security Information
 --------------------
  * [Security Center](/security/)
- * [Security FAQ] (/faq/#general-security)
+ * [Security FAQ](/faq/#general--security)
  * [Security Pack](/security/pack/)
  * [Security Bulletins](/security/bulletins/)
  * [Security Bulletin Checklist](/security/bulletins/checklist/)
