@@ -97,12 +97,12 @@ To use this mode you need:
 10. Edit `/etc/pam.d/xscreensaver` (or appropriate file if you are using other
    screen locker program) in dom0. Add this line at the beginning:
 
-       auth include yubikey
+        auth include yubikey
 
 11. Edit `/etc/pam.d/lightdm` (or appropriate file if you are using other
    display manager) in dom0. Add this line at the beginning:
 
-       auth include yubikey
+        auth include yubikey
 
 ### Usage
 
