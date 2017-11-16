@@ -228,9 +228,9 @@ technical details have been omitted here for the sake of presentation.
 [Xen]: https://www.xenproject.org
 [paper-compart]: https://invisiblethingslab.com/resources/2014/Software_compartmentalization_vs_physical_separation.pdf
 [doc]: /doc/
-[user-faq]: /doc/user-faq/
+[user-faq]: /faq/#users
 [system-doc]: /doc/system-doc/
-[devel-faq]: /doc/devel-faq/
+[devel-faq]: /faq/#developers
 [downloads]: /downloads/
 [getting started]: /getting-started/
 

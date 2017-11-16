@@ -383,7 +383,7 @@ This feature is not yet available in Qubes Manager however, if you would like to
 [2270-comm23]: https://github.com/QubesOS/qubes-issues/issues/2270#issuecomment-242900312
 [1082]: https://github.com/QubesOS/qubes-issues/issues/1082
 [hide-usb]: #how-to-hide-all-usb-controllers-from-dom0
-[faq-usbvm]: /doc/user-faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot
+[faq-usbvm]: /faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot
 [AEM]: /doc/anti-evil-maid/
 [1618]: https://github.com/QubesOS/qubes-issues/issues/1618
 [create a USB qube]: #creating-and-using-a-usb-qube
