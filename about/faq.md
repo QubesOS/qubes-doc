@@ -1,6 +1,6 @@
 ---
 layout: sidebar
-title: FAQ
+title: Frequently Asked Questions
 permalink: /faq/
 redirect_from:
 - /doc/user-faq/
@@ -15,7 +15,7 @@ redirect_from:
 
 # Frequently Asked Questions
 
-## General & Security Questions
+## General & Security
 
 ### What is the main concept behind Qubes?
 
