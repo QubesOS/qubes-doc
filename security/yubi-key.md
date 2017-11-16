@@ -105,6 +105,13 @@ When everything is ok, your screen will be unlocked.
 In any case you can still use your login password, but do it in secure location
 where no one can snoop your password.
 
+### Mandatory YubiKey Login
+
+Edit `/etc/pam.d/xscreensaver` (or appropriate file if you are using other screen locker program)
+and remove `default=ignore` so the line looks like this.
+
+    auth [success=done default=ignore] pam_exec.so expose_authtok quiet /usr/bin/yk-auth
+
 Locking the screen when YubiKey is removed
 ------------------------------------------
 
