@@ -115,7 +115,7 @@ where no one can snoop your password.
 Edit `/etc/pam.d/yubikey` (or appropriate file if you are using other screen locker program)
 and remove `default=ignore` so the line looks like this.
 
-    auth [success=done default=ignore] pam_exec.so expose_authtok quiet /usr/bin/yk-auth
+    auth [success=done] pam_exec.so expose_authtok quiet /usr/bin/yk-auth
 
 Locking the screen when YubiKey is removed
 ------------------------------------------
