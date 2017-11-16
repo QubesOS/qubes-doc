@@ -86,10 +86,15 @@ To use this mode you need:
        
    (Replace `PASSWORD` with your actual password.)
 
-7. Edit `/etc/pam.d/xscreensaver` (or appropriate file if you are using other
+7. Create `/etc/pam.d/yubikey` (or appropriate file if you are using other
    screen locker program) in dom0. Add this line at the beginning:
 
        auth [success=done default=ignore] pam_exec.so expose_authtok quiet /usr/bin/yk-auth
+
+8. Edit `/etc/pam.d/xscreensaver` (or appropriate file if you are using other
+   screen locker program) in dom0. Add this line at the beginning:
+   
+       auth include yubikey
 
 ### Usage
 
@@ -107,7 +112,7 @@ where no one can snoop your password.
 
 ### Mandatory YubiKey Login
 
-Edit `/etc/pam.d/xscreensaver` (or appropriate file if you are using other screen locker program)
+Edit `/etc/pam.d/yubikey` (or appropriate file if you are using other screen locker program)
 and remove `default=ignore` so the line looks like this.
 
     auth [success=done default=ignore] pam_exec.so expose_authtok quiet /usr/bin/yk-auth
