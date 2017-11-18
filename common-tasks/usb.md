@@ -24,10 +24,10 @@ Using and Managing USB Devices
 Creating and Using a USB qube
 -----------------------------
 
-**Warning:** This has the potential to prevent you from connecting a keyboard to Qubes via USB. There are problems with doing this with a encrypted install (LUKS). If you find yourself in this situation, see this [issue][2270-comm23].
+**Warning:** This has the potential to prevent you from connecting a keyboard to Qubes via USB. There are problems with doing this in an encrypted install (LUKS). If you find yourself in this situation, see this [issue][2270-comm23].
 
-The connection of an untrusted USB device to dom0 is a security risk since dom0,
-like almost every OS, reads partition tables automatically and since the whole
+Connecting an untrusted USB device to dom0 is a security risk since dom0,
+like almost every OS, reads partition tables automatically. The whole
 USB stack is put to work to parse the data presented by the USB device in order
 to determine if it is a USB mass storage device, to read its configuration, etc.
 This happens even if the drive is then assigned and mounted in another qube.
@@ -46,18 +46,18 @@ steps as root in dom0:
 
  1. Enable `sys-usb`:
 
-        qubesctl top.enable qvm.sys-usb
+        sudo qubesctl top.enable qvm.sys-usb
 
  2. Apply the configuration:
 
-        qubesctl state.highstate
+        sudo qubesctl state.highstate
 
 Alternatively, you can create a USB qube manually as follows:
 
  1.  Read the [Assigning Devices] page to learn how to list and identify your
      USB controllers. Carefully check whether you have a USB controller that
-     would be appropriate to assign to a USB qube. Note that it should be free
-     of input devices, programmable devices, and any other devices that must be
+     would be appropriate to assign to a USB qube. Note that it should have no
+     input devices, programmable devices, and any other devices that must be
      directly available to dom0. If you find a free controller, note its name
      and proceed to step 2.
  2.  Create a new qube. Give it an appropriate name and color label
