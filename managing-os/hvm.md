@@ -29,10 +29,9 @@ First, let's create a new HVM domain. Use the `--hvm` switch to `qvm-create`, or
 qvm-create win7 --hvm --label green
 ~~~
 
-(The name of the domain ("win7") as well as its label ("green") are just exemplary of course).
+The name of the domain ("win7") as well as its label ("green") are just exemplary of course.
 
-It is unnecessary for Qubes 4 users to pass in the `--hvm` switch. To create a StandaloneVM in Qubes 4, use
-the --class option, as VMs are template-based by default:
+**Note:** It is unnecessary for Qubes 4 users to pass in the `--hvm` switch. To create a StandaloneVM in Qubes 4, use the --class option, as VMs are template-based by default:
 
 ~~~
 qvm-create win7 --class StandaloneVM --label green
