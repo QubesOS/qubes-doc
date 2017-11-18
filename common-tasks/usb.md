@@ -56,7 +56,7 @@ Alternatively, you can create a USB qube manually as follows:
 
  1.  Read the [Assigning Devices] page to learn how to list and identify your
      USB controllers. Carefully check whether you have a USB controller that
-     would be appropriate to assign to a USB qube. Note that it should be have no
+     would be appropriate to assign to a USB qube. Note that it should have no
      input devices, programmable devices, and any other devices that must be
      directly available to dom0. If you find a free controller, note its name
      and proceed to step 2.
