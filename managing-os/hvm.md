@@ -17,26 +17,33 @@ What are HVM domains?
 
 HVM domains (Hardware VM), in contrast to PV domains (Paravirtualized domains), allow one to create domains based on any OS for which one has an installation ISO.  For example, this allows one to have Windows-based VMs in Qubes.
 
-Interested readers might want to check [this article](https://blog.invisiblethings.org/2012/03/03/windows-support-coming-to-qubes.html) to learn why it took so long for Qubes OS to support HVM domains (Qubes 1 only supported Linux based PV domains).
+Interested readers might want to check [this article](https://blog.invisiblethings.org/2012/03/03/windows-support-coming-to-qubes.html) to learn why it took so long for Qubes OS to support HVM domains (Qubes 1 only supported Linux based PV domains). As of
+Qubes 4, every VM is HVM by default ([see here](https://blog.invisiblethings.org/2017/07/31/qubes-40-rc1.html)).
 
 Creating an HVM domain
 ----------------------
 
-First, lets create a new HVM domain.  Use the --hvm switch to qvm-create, or choose HVM type in the Qubes Manager VM creation dialog box:
+First, let's create a new HVM domain. Use the `--hvm` switch to `qvm-create`, or choose HVM type in the Qubes Manager VM creation dialog box:
 
 ~~~
 qvm-create win7 --hvm --label green
 ~~~
 
-(The name of the domain ("win7") as well as it's label ("green") are just exemplary of course).
+The name of the domain ("win7") as well as its label ("green") are just exemplary of course.
+
+**Note:** It is unnecessary for Qubes 4 users to pass in the `--hvm` switch. To create a StandaloneVM in Qubes 4, use the --class option, as VMs are template-based by default:
+
+~~~
+qvm-create win7 --class StandaloneVM --label green
+~~~
 
 If you receive an error like this one, then you must first enable VT-x in your BIOS:
 
 ~~~
-libvirt.libvirtError: invalid argument: could not find capabilities for arch=x86_64 
+libvirt.libvirtError: invalid argument: could not find capabilities for arch=x86_64
 ~~~
 
-Now we need to install an OS inside this VM.  This can done by attaching an installation ISO to and starting the VM (this can currently only be done from command line, but in the future we will surely add an option to do this also from the manager):
+Now we need to install an OS inside this VM.  This can be done by attaching an installation ISO to and starting the VM (this can currently only be done from command line, but in the future we will surely add an option to do this also from the manager):
 
 ~~~
 qvm-start win7 --cdrom=/usr/local/iso/win7_en.iso
@@ -48,7 +55,7 @@ The above command assumes the installation ISO was transferred to Dom0 (copied u
 qvm-start win7 --cdrom=/dev/cdrom
 ~~~
 
-Next the VM will start booting from the attached CDROM device (which in the example above just happens to be a Windows 7 installation disk). Depending on the OS that is being installed in the VM one might be required to start the VM several times (as is the case with Windows 7 installations), because whenever the installer wants to "reboot the system" it actually shutdowns the VM and Qubes won't automatically start it.  Several invocations of qvm-start command (as shown above) might be needed.
+Next, the VM will start booting from the attached CDROM device (which in the example above just happens to be a Windows 7 installation disk). Depending on the OS being installed in the VM, one might be required to start the VM several times (as is the case with Windows 7 installations), because whenever the installer wants to "reboot the system" it actually shutdowns the VM and Qubes won't automatically start it.  Several invocations of qvm-start command (as shown above) might be needed.
 
 **Note:** If your Windows installation gets stuck at the glowing Windows logo, you might want to read [Issue 2488](https://github.com/QubesOS/qubes-issues/issues/2488) for a solution.
 
@@ -90,7 +97,7 @@ sudo apt install qemu-utils unzip
 Unzip VirtualBox zip file:
 
 ~~~
-unzip *.zip 
+unzip *.zip
 ~~~
 
 Extract OVA tar archive:
@@ -287,4 +294,3 @@ Further reading
 Other documents related to HVM:
 
 -   [LinuxHVMTips](/doc/linux-hvm-tips/)
-
