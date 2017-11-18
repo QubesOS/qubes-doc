@@ -24,6 +24,8 @@ Using and Managing USB Devices
 Creating and Using a USB qube
 -----------------------------
 
+**Warning:** This has the potential to prevent you from connecting a keyboard to Qubes via USB. There are problems with doing this with a encrypted install (LUKS). If you find yourself in this situation, see this [issue][2270-comm23].
+
 The connection of an untrusted USB device to dom0 is a security risk since dom0,
 like almost every OS, reads partition tables automatically and since the whole
 USB stack is put to work to parse the data presented by the USB device in order
@@ -110,7 +112,7 @@ opt to create a USB qube during installation. This also occurs automatically if
 you choose to [create a USB qube] using the `qubesctl` method, which is the
 first pair of steps in the linked section.)
 
-**Warning** USB keyboard cannot be used to type the disk passphrase
+**Warning:** USB keyboard cannot be used to type the disk passphrase
 if USB controllers were hidden from dom0. Before hiding USB controllers
 make sure your laptop keyboard is not internally connected via USB
 (by checking output of `lsusb` command) or that you have a PS/2 keyboard at hand
@@ -165,7 +167,7 @@ Edit the `qubes.InputKeyboard` policy file in dom0, which is located here:
 
 Add a line like this one to the top of the file:
 
-    sys-usb dom0 ask,user=root
+    sys-usb dom0 allow,user=root
 
 (Change `sys-usb` to your desired USB qube.)
 
@@ -183,7 +185,7 @@ Edit the `qubes.InputMouse` policy file in dom0, which is located here:
 
 Add a line like this to the op of the file:
 
-    sys-usb dom0 ask,user=root
+    sys-usb dom0 allow,user=root
     
 (Change `sys-usb` to your desired USB qube.)
 
@@ -378,9 +380,10 @@ This feature is not yet available in Qubes Manager however, if you would like to
 [623]: https://github.com/QubesOS/qubes-issues/issues/623
 [1072-comm1]: https://github.com/QubesOS/qubes-issues/issues/1072#issuecomment-124270051
 [1072-comm2]: https://github.com/QubesOS/qubes-issues/issues/1072#issuecomment-124119309
+[2270-comm23]: https://github.com/QubesOS/qubes-issues/issues/2270#issuecomment-242900312
 [1082]: https://github.com/QubesOS/qubes-issues/issues/1082
 [hide-usb]: #how-to-hide-all-usb-controllers-from-dom0
-[faq-usbvm]: /doc/user-faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot
+[faq-usbvm]: /faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot
 [AEM]: /doc/anti-evil-maid/
 [1618]: https://github.com/QubesOS/qubes-issues/issues/1618
 [create a USB qube]: #creating-and-using-a-usb-qube

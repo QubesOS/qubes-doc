@@ -369,7 +369,7 @@ You must be subscribed in order to post to this list.
 [HCL]: /doc/hcl/
 [Installation Guide]: /doc/installation-guide/
 [System Requirements]: /doc/system-requirements/
-[User FAQ]: /doc/user-faq/
+[User FAQ]: /faq/#users
 [documentation]: /doc/
 [thunderbird-newsgroup]: https://support.mozilla.org/en-US/kb/creating-newsgroup-account
 [qubes-users-web]: https://groups.google.com/group/qubes-users

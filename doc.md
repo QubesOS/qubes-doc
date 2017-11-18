@@ -23,13 +23,14 @@ The Basics
  * [Video Tours](/video-tours/)
  * [Screenshots](/screenshots/)
  * [Getting Started](/getting-started/)
- * [User FAQ](/doc/user-faq/)
+ * [User FAQ](/faq/#users)
  * [Mailing Lists](/mailing-lists/)
  * [How to Contribute](/doc/contributing/)
 
 Security Information
 --------------------
  * [Security Center](/security/)
+ * [Security FAQ](/faq/#general--security)
  * [Security Pack](/security/pack/)
  * [Security Bulletins](/security/bulletins/)
  * [Canaries](/security/canaries/)
@@ -203,10 +204,11 @@ Developer Documentation
 
 The Basics
 ----------
- * [Developer FAQ](/doc/devel-faq/)
+ * [Developer FAQ](/faq/#developers)
  * [Report a Security Issue](/security/)
  * [Report a Bug](/doc/reporting-bugs/)
  * [How to Contribute](/doc/contributing/)
+ * [Package Contributions](/doc/package-contributions/)
  * [Testing new releases and updates](/doc/testing/)
  * [Source Code](/doc/source-code/)
  * [Qubes OS License](/doc/license/)
@@ -221,6 +223,7 @@ The Basics
 Security Information
 --------------------
  * [Security Center](/security/)
+ * [Security FAQ](/faq/#general--security)
  * [Security Pack](/security/pack/)
  * [Security Bulletins](/security/bulletins/)
  * [Security Bulletin Checklist](/security/bulletins/checklist/)

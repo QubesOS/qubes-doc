@@ -17,6 +17,7 @@ ways in which you can help:
 * Audit the [source code]
 * [Report security issues]
 * [Send patches][patch] to fix bugs or implement features
+* [Contribute packages]
 * [Report bugs]
 * [Test new releases and updates]
 * Submit [HCL reports] for your hardware
@@ -31,7 +32,6 @@ ways in which you can help:
   * Follow us on [Twitter]
   * Join us on [Reddit]
   * Like us on [Facebook]
-  * Support our [StackExchange] proposal
 * And last but not least, tell your friends and colleagues about how Qubes
   can help them secure their digital lives!
 
@@ -60,6 +60,7 @@ be grateful to [receive your patch][patch].
 [source code]: /doc/source-code/
 [Report security issues]: /security/
 [patch]: /doc/source-code/#how-to-send-patches
+[Contribute packages]: /doc/package-contributions
 [Report bugs]: /doc/reporting-bugs/
 [Test new releases and updates]: /doc/testing/
 [HCL reports]: /doc/hcl/
@@ -72,7 +73,6 @@ be grateful to [receive your patch][patch].
 [Twitter]: https://twitter.com/QubesOS
 [Reddit]: https://www.reddit.com/r/Qubes/
 [Facebook]: https://www.facebook.com/QubesOS
-[StackExchange]: https://area51.stackexchange.com/proposals/98519/qubes-os
 [GitHub issues]: https://github.com/QubesOS/qubes-issues/issues
 [qubes-devel]: /mailing-lists/#qubes-devel
 [Community-Developed Feature Tracker]: https://www.qubes-os.org/qubes-issues/

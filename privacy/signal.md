@@ -38,6 +38,7 @@ If you're a Signal user on Android, you can now have Signal inside Qubes.
    this app with your phone.
 6. Signal should now work in your AppVM.
 
+
 Creating a Shortcut in the applications menu
 --------------------------------------------
 
@@ -76,8 +77,66 @@ You can now launch the Signal messenger inside its own dedicated AppVM directly 
 
 The same steps should work for any Chrome app.
 
+Creating a shortcut in the applications menu for a StandaloneVM
+---------------------------------------------------------------
+
+If you want to add to the standalone VM rather than a template, then follow below.
+The following part will also assume that the .desktop file has been correctly made.
+This can also be used to add a application portable application/script from a tar archive, also this part of the guide is assuming that the StandaloneVM is called `Signal`.
+
+1. First you will need to copy/move the .desktop file: `/home/user/Desktop/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop`to the applications folder on the StandaloneVM: `/usr/share/applications/`
+
+        [user@Signal ~]$ sudo mv /home/user/Desktop/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop /usr/share/applications/
+
+2. Now copy/move over the icon file to make it look all nice and pretty.  
+
+        [user@Signal ~]$ sudo mv /home/user/Desktop/chrome-bikioccmkafdpakkkcpdbhpfkkhcmohk-Default.desktop /usr/share/icons/hicolor/48x48/apps/
+
+3. Now fire up the `dom0` Terminal Emulator from `Q` Menu -> `Terminal Emulator`. All you need to do now is run the command to sync the app menus `qvm-sync-appmenus` along with the Standalone VM name `Signal`.
+
+        [user@dom0 ~]$ qvm-sync-appmenus Signal
+
+4. Now stop the StandaloneVM: `Signal`.
+
+5. With your mouse select the `Q` menu -> `Domain: Signal` -> `Signal: Add more shortcuts`. Select `Signal Private Messenger` from the left `Available` column, move it to the right `Selected` column by clicking the `>` button and then `OK` to apply the changes and close the window.
+   
+6. (optional, only on KDE:) Follow the `Q` menu once more, right-click on the new `Signal: Signal Private Messenger` menu item and select `Add to Panel`.
+
+Use an AppVM based on Debian
+----------------------------
+
+**CAUTION:** Before proceeding, please carefully read [On Digital Signatures and Key Verification][qubes-verifying-signatures].
+This website cannot guarantee that any PGP key you download from the Internet is authentic.
+Always obtain a trusted key fingerprint via other channels, and always check any key you download against your trusted copy of the fingerprint.
+
+If you don't use Chromium, you can install signal with Debian:
+
+1. (Optional)Create a TemplateVM (Debian 8)
+
+       [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-8
+
+2. Open a terminal in Debian 8
+
+       [user@dom0 ~]$ qvm-run -a debian-8 gnome-terminal
+       
+3. Use these commands in your terminal
+
+       (Optional)[user@debian-8 ~]$ sudo apt-get install curl
+       [user@debian-8 ~]$ curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
+       [user@debian-8 ~]$ echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+       [user@debian-8 ~]$ sudo apt update && sudo apt install signal-desktop
+
+5. Shutdown the TemplateVM :
+
+        [user@dom0 ~]$ qvm-shutdown debian-8
+        
+6. Create an AppVM based on this TemplateVM
+7. With your mouse select the `Q` menu -> `Domain: "AppVM Name"` -> `"AppVM Name": Add more shortcuts`
+   Select `Signal` from the left `Available` column, move it to the right `Selected` column by clicking the `>` button and then `OK` to apply the changes and close the window.
+
 -----
 
+[qubes-verifying-signatures]: /security/verifying-signatures/
 [Signal]: https://whispersystems.org/
 [signal-wikipedia]: https://en.wikipedia.org/wiki/Signal_(software)
 [shortcut]: https://support.whispersystems.org/hc/en-us/articles/216839277-Where-is-Signal-Desktop-on-my-computer-

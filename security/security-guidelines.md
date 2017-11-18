@@ -129,7 +129,7 @@ It is preferable to avoid using **Bluetooth** if you travel or do not trust your
 
 Many laptops allow one to disable various hardware (Camera, BT, Mic, etc) **in BIOS**. This might or might not be a dependable way of getting rid of those devices, depending on how much you trust your BIOS vendor.
 
-If the VM will not start after you have assigned a USB controller, look at [this faq](../user-faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot).
+If the VM will not start after you have assigned a USB controller, look at [this FAQ](/faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot).
 
 
 Creating and Using a USBVM

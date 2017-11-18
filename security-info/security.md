@@ -17,6 +17,7 @@ redirect_from:
 Qubes OS Project Security Center
 ================================
 
+-   [Security FAQ](/faq/#general--security)
 -   [Security Goals](/security/goals/)
 -   [Security Pack](/security/pack/)
 -   [Security Bulletins](/security/bulletins/)

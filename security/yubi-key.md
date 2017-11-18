@@ -11,7 +11,7 @@ Using YubiKey to Qubes authentication
 =====================================
 
 You can use YubiKey to enhance Qubes user authentication, for example to mitigate
-risk of snooping the password. This can also slightly improve security when you have [USB keyboard](https://github.com/marmarek/qubes-app-linux-input-proxy).
+risk of snooping the password. This can also slightly improve security when you have [USB keyboard](https://www.qubes-os.org/doc/usb/#security-warning-about-usb-input-devices).
 
 There (at least) two possible configurations: using OTP mode and using challenge-response mode.
 
@@ -88,9 +88,13 @@ To use this mode you need:
 
 ### Usage
 
-When you want to unlock your screen, plug YubiKey into USB slot, then enter
-password associated with YubiKey. If you configured so, YubiKey will request
-confirmation by pressing button on it (it will blink).
+When you want to unlock your screen...
+
+1) Plug YubiKey into USB slot.
+2) Enter password associated with YubiKey.
+3) Press Enter.
+4) If you configured so, YubiKey will request confirmation by pressing button on it (it will blink).
+
 When everything is ok, your screen will be unlocked.
 
 In any case you can still use your login password, but do it in secure location
@@ -104,7 +108,9 @@ YubiKey. This will require creating simple qrexec service which will expose
 ability to lock the screen to your USB VM, and then adding udev hook to
 actually call that service.
 
-1. First configure the qrexec service. Create `/etc/qubes-rpc/custom.LockScreen` (in dom0)
+In dom0:
+
+1. First configure the qrexec service. Create `/etc/qubes-rpc/custom.LockScreen`
   with simple command to lock the screen. In case of xscreensaver (used in Xfce)
   it would be:
 
@@ -115,7 +121,9 @@ would require creating `/etc/qubes-rpc/policy/custom.LockScreen` with:
 
         sys-usb dom0 allow
 
-3. Create udev hook in your USB VM. Store it in `/rw/config` to have it
+In your USB VM:
+
+3. Create udev hook. Store it in `/rw/config` to have it
 persistent across VM restarts. For example name the file
 `/rw/config/yubikey.rules`. Write there single line:
 
@@ -126,8 +134,13 @@ persistent across VM restarts. For example name the file
         ln -s /rw/config/yubikey.rules /etc/udev/rules.d/
         udevadm control --reload
 
-  Then make `/rw/config/rc.local` executable. For changes to take effect, you
-  need to call this script manually for the first time.
+5. Then make `/rw/config/rc.local` executable.
+
+        sudo chmod +x /rw/config/rc.local
+  
+6. For changes to take effect, you need to call this script manually for the first time.
+
+        sudo /rw/config/rc.local
 
 If you use KDE, the command(s) in first step would be different:
 
