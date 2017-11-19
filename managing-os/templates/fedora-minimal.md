@@ -99,7 +99,7 @@ The following table shows example of tools that can be installed with minimum de
 
 Use case | Description | Package
 --- | --- | ---
-**File manager** |  Thunar is xfce file manager and has limited xfce dependencies. It has support for automount, and shared folders. | `thunar` `thunar-volman` `ntfs-3g` `cifs-utils`
+**File manager** |  Thunar is xfce file manager and has limited xfce dependencies. It has support for `automount`, and shared folders. | `thunar` `thunar-volman` `ntfs-3g` `cifs-utils`
 **Notepad** | Scite has limited dependencies but support indentation and syntax highlighting | `scite`
 **Terminal** | lxterminal has limited dependencies and support tabs | `lxterminal`
 **Printing** | Cups and some configuration apples need to be installed to support printing (see notes below) | `system-config-printer` `system-config-printer-applet` `cups`
@@ -110,7 +110,8 @@ You need to install sans-mono fonts for terminals to be readable (to avoid overl
 
 Sans fonts are also needed to get nicer GUI menus.
 
-For example it is possible to install sans and mono variants of nice fonts such as bitstream-vera or dejavu fonts.
+For example it is possible to install sans and mono variants of nice fonts such as `bitstream-vera` or `dejavu` fonts.
+
 `dnf install bitstream-vera-sans-fonts bitstream-vera-sans-mono-fonts dejavu-sans-fonts dejavu-sans-mono-fonts`
 
 ### Printing ###
@@ -125,4 +126,4 @@ The tools above depends on python3 + python3 additional libraries which takes mo
 
 References
 ----------
-[1] https://www.codeenigma.com/community/blog/installing-3g-usb-modems-linux
+[[1] https://www.codeenigma.com/community/blog/installing-3g-usb-modems-linux](https://www.codeenigma.com/community/blog/installing-3g-usb-modems-linux)
