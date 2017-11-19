@@ -46,7 +46,7 @@ If the qubes-vm-keyring package is not present in `/etc/pacman.d/`, please refer
 
 Several Qubes packages are not necessarily installed by default in the Archlinux Template. These packages can be installed to add additional functionnalities to the template:
 * `qubes-vm-networking`: Contains Qubes tools and dependencies required to use the template as a NetVM/ProxyVM
-* `qubes-vm-pulseaudio`: Contains Pulseaudio agent enabling sound support in the template
+* `qubes-vm-pulseaudio`: Contains `Pulseaudio` agent enabling sound support in the template
 
 ## Default template packages
 
