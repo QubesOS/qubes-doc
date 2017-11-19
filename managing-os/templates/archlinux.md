@@ -32,22 +32,23 @@ A prebuilt template is available only for Qubes 3.2. Before Qubes 3.2, it should
 
 ## Binary packages activation
 
-The update repository is disabled when you install (signed) template package. You can however choose to trust it by registering it into pacman.
+The Qubes update repository is disabled by default in the Archlinux template. You can however choose to trust it by registering it into pacman.
 
-Enable the repository by running the following command:
+Since November 2017, an activation package is present in the template. The update repository can thus be activated by running the following command inside the template:
 
-    # mv /etc/pacman.d/99-qubes-repository-3.2.disabled /etc/pacman.d/99-qubes-repository-3.2.conf
+    # pacman -sU /etc/pacman.d/qubes-vm-keyring*.pkg.tar.xz
+    
+It should be noted to this command will create a trust for packages provided by [Olivier Médoc](mailto:o_medoc@yahoo.fr) and signed by the PGP key above.
 
-Then you need to install and sign the public GPG key of the package maintainer (note that accessing to GPG servers requires to temporarily disable the firewall in your template):
+If the qubes-vm-keyring package is not present in `/etc/pacman.d/`, please refer to the section #Activating binary packages manually.
 
-    # pacman-key --recv-key 2043E7ACC1833B9C
-    # pacman-key --finger 2043E7ACC1833B9C
- 
-If the fingerprint is correct, you can then sign the key:
+## Optional Qubes packages
 
-    # pacman-key --lsign-key 2043E7ACC1833B9C
+Several Qubes packages are not necessarilly installed by default in the Archlinux Template. These packages can be installed to add additional functionnalities to the template:
+* `qubes-vm-networking`: Contains Qubes tools and dependencies required to use the template as a NetVM/ProxyVM
+* `qubes-vm-pulseaudio`: Contains Pulseaudio agent enabling sound support in the template
 
-## Default packages
+## Default template packages
 
 In order to keep the template as small and simple as possible, default installed package have been arbitrarily selected based on multiple subjective criterias that however essentially include libraries dependencies. This packages are:
 * Some font packages to keep good user experience
@@ -59,6 +60,28 @@ In order to keep the template as small and simple as possible, default installed
 * evince: a document viewer
 
 Note that Archlinux does not install GUI packages by default as this decision is left to users. This packages have only been selected to have a usable template.
+
+## Activating binary packages manually
+
+Enable the repository by running the following command:
+
+    # rm /etc/pacman.d/99-qubes-repository-3.2.conf
+    # ln -s /etc/pacman.d/99-qubes-repository-3.2.disabled /etc/pacman.d/99-qubes-repository-3.2.conf
+
+Then you need to install and sign the public GPG key of the package maintainer (note that accessing to GPG servers requires to temporarily disable the firewall in your template):
+
+    # pacman-key --recv-key 2043E7ACC1833B9C
+    # pacman-key --finger 2043E7ACC1833B9C
+ 
+If the fingerprint is correct, you can then sign the key:
+
+    # pacman-key --lsign-key 2043E7ACC1833B9C
+
+## Updating a Qubes-3.2 Archlinux Template
+
+Because of changes in the Qubes-4.0 partition layout, and usage of XEN HVMs instead of pv-guests. It is not straightforward to update a Qubes-3.2 template to Qubes-4.0.
+
+For this reason, it is recommended to start from a new template in Qubes-4.0.
 
 ## Updating a Qubes-3.1 Archlinux Template
 
@@ -110,7 +133,6 @@ If you identified a broken service check `journalctl -la -u yourbrokenservice`. 
 Finally, errors related to the GUI agent can be found inside the VM in `/home/user/.xsession-errors`
 
 ## Packages manager wrapper
-
 
 Powerpill is a full Pacman wrapper that not only give easy proxy configuration but further offers numerous other advantages.
 
