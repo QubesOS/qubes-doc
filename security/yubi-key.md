@@ -66,6 +66,7 @@ To use this mode you need:
    `HMAC-SHA1 mode`: `fixed 64 bit input`. 
    - We will refer the `Secret Key (20 bytes hex)` as `AESKEY`.
       - It is recommended to keep a backup of your `AESKEY` in an offline VM used as vault.
+      - Consider to keep a backup of your `AESKEY` on paper and store it in a safe place.
       - In case you have multiple yubikeys for backup purposes (in case a yubikey gets lost, stolen or breaks) you can write the same settings into other yubikeys.
 
 3. Install [qubes-app-yubikey](https://github.com/QubesOS/qubes-app-yubikey) in dom0.
