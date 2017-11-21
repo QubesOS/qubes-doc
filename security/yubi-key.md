@@ -70,7 +70,7 @@ To use this mode you need:
 
 3. Install [qubes-app-yubikey](https://github.com/QubesOS/qubes-app-yubikey) in dom0.
 
-       sudo qubes-dom0-update qubes-dom0-yubikey
+       sudo qubes-dom0-update qubes-yubikey-dom0
 
 4. Adjust USB VM name in case you are using something other than the default
    `sys-usb` by editing `/etc/qubes/yk-keys/yk-vm` in dom0.
