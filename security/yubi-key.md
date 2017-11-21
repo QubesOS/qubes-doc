@@ -86,20 +86,16 @@ To use this mode you need:
        
    (Replace `PASSWORD` with your actual password.)
 
-7. Create `/etc/pam.d/yubikey` in dom0 with the following content:
-
-       auth [success=done default=ignore] pam_exec.so expose_authtok quiet /usr/bin/yk-auth
-
-9. Edit `/etc/pam.d/login` in dom0. Add this line at the beginning:
+7. Edit `/etc/pam.d/login` in dom0. Add this line at the beginning:
 
        auth include yubikey
 
-10. Edit `/etc/pam.d/xscreensaver` (or appropriate file if you are using other
+8. Edit `/etc/pam.d/xscreensaver` (or appropriate file if you are using other
    screen locker program) in dom0. Add this line at the beginning:
 
         auth include yubikey
 
-11. Edit `/etc/pam.d/lightdm` (or appropriate file if you are using other
+9. Edit `/etc/pam.d/lightdm` (or appropriate file if you are using other
    display manager) in dom0. Add this line at the beginning:
 
         auth include yubikey
