@@ -76,8 +76,6 @@ redirect_from:
    (See [hcl-report] for advice on hardware compatibility testing.)
    Remember to change the devices assigned to your NetVM and USBVM if you move between different machines.
  * Installing Qubes in a virtual machine is not recommended, as it uses its own bare-metal hypervisor (Xen).
- * Macintosh PCs are not currently supported due to keyboard and mouse problems.
-   (See [#230] for details. Patches welcome!)
  * [Advice on finding a VT-d capable notebook][vt-d-notebook].
 
 
