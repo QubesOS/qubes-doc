@@ -26,7 +26,7 @@ All of our repositories are available under the [QubesOS GitHub account].
 To clone a repository:
 
 ~~~
-git clone https://github.com/QubesOS/<repo_name>.git <repo_name>
+git clone https://github.com/QubesOS/qubes-<repo_name>.git <repo_name>
 ~~~
 
 e.g.:
