@@ -65,6 +65,11 @@ Either remove the title bar altogether, or move the window upwards using ALT+dra
 ### Persistent Volume
 The persistence tools will not work because Tails has not been launched from USB.
 The HVM disk(s) can be configured and mounted from within Tails to provide persistent storage. 
+In case you want to use your existing USB persistent volume: 
+ - Interrupt Tails vm boot process with arrow-up when grub boot menu appears. 
+ - Attach your USB drive with the persistent volume via Dom0 to Tails vm. 
+ - Continue booting Tails, Tails-greeter will detect your encrypted partition on the attached USB. 
+ - Unlock your persistent volume in Tails-greeter and use it as normal.
 
 ### Shutdown
 The Tails qube will not shut down cleanly.
