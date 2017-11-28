@@ -40,7 +40,11 @@ Debian 8 (jessie) - oldstable:
 
 Debian 9 (stretch) - stable:
 
-A prebuilt template is not yet available, but there are two options for
+In Qubes 4.0 -  
+
+    [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-9
+
+A prebuilt template is not available in Qubes 3.2, but there are two options for
 achieving a stretch template:
 
 1. Build an experimental stretch template from source.
