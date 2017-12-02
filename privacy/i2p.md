@@ -16,7 +16,7 @@ qvm-clone debian-9 debian-9-i2p
 Installation
 ============
 	
-1. Next, you need to add the I2P repository and the apt key to the new template. Therefore, you need Internet access in your Template. Start your new TemplateVM, open the firewall configuration and allow full access for 5 minutes (this is neccessary for downloading the apt key for I2P). Now run the following commands (as root):
+1. Next, you need to add the I2P repository and the apt key to the new template. Therefore you need Internet access for your Template. If you have an active Internet connection, start your new TemplateVM, open the firewall configuration and allow full access for 5 minutes (this is neccessary for downloading the apt key for I2P). Now run the following commands (as root):
 	~~~
 	echo 'deb https://deb.i2p2.de/ stretch main' > /etc/apt/sources.list.d/i2p.list
 	echo 'deb-src https://deb.i2p2.de/ stretch main' >> /etc/apt/sources.list.d/i2p.list
