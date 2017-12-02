@@ -16,7 +16,7 @@ qvm-clone debian-9 debian-9-i2p
 Installation
 ============
 	
-1. Next, you need to add the I2P repository and the apt key to the new template. Therefore, you need Internet access in your Template. Start your new TemplateVM, open the firewall configuration and allow full access for 5 minutes (this is neccessary for downloading the apt key for I2P. Now run the following commands (as root):
+1. Next, you need to add the I2P repository and the apt key to the new template. Therefore, you need Internet access in your Template. Start your new TemplateVM, open the firewall configuration and allow full access for 5 minutes (this is neccessary for downloading the apt key for I2P). Now run the following commands (as root):
 	~~~
 	echo 'deb https://deb.i2p2.de/ stretch main' > /etc/apt/sources.list.d/i2p.list
 	echo 'deb-src https://deb.i2p2.de/ stretch main' >> /etc/apt/sources.list.d/i2p.list
@@ -27,7 +27,7 @@ Installation
 	
 	If you are using Debian 8, replace 'stretch' with 'jessie' in the commands above.
 
-2. Then, update your systems package manager and install the i2p packages:
+2. Then, update your package manager and install the i2p packages:
 	~~~
 	sudo apt update
 	sudo apt install i2p i2p-keyring
@@ -67,7 +67,7 @@ Installation
 
 7. Shutdown your TemplateVM and create an AppVM which uses your Template "debian-9-i2p" (or "debian-9" if you did not create a clone). Connect your AppVM to "sys-firewall".
 
-8. Start the AppVM you created. Open Firefox Web Browser and go to Preferences -> Advanced -> Network Settings. Now select "Manual Proxy Configuration" and configure the Proxy Settings: HTTP: 127.0.0.1 port 4444 - HTTPS: 127.0.0.1: port 4445 - No Proxy: localhost, 127.0.0.1
+8. Start the AppVM you created. Open Firefox Web Browser and go to Preferences -> Advanced -> Network Settings. Now select "Manual Proxy Configuration" and configure the Proxy Settings: HTTP: 127.0.0.1 port 4444 - HTTPS: 127.0.0.1 port 4445 - No Proxy: localhost, 127.0.0.1
 
 Finally, reboot your AppVM and start browsing the I2P Network. You can reach the I2P Router Console by going to
 ~~~
