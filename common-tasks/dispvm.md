@@ -30,7 +30,7 @@ You can change this behaviour for individual VMs: in Qubes VM Manager open VM Se
 Here you can edit the "NetVM for DispVM" setting to change the NetVM of any DispVM launched from that VM.
 
 A Disposable VM launched from the Start Menu inherits the NetVM of the [DVM Template](https://www.qubes-os.org/doc/glossary/#dvm-template). 
-By default the DMV template is called `fedora-XX-dvm` (where `XX` is the Fedora version of the default TemplateVM). 
+By default the DVM template is called `fedora-XX-dvm` (where `XX` is the Fedora version of the default TemplateVM). 
 As an "internal" VM it is hidden in Qubes VM Manager, but can be shown by selecting "Show/Hide internal VMs". 
 Note that changing the "NetVM for DispVM" setting for the DVM Template does *not* affect the NetVM of DispVMs launched from the Start Menu; only changing the DVM Template's own NetVM does.
 
