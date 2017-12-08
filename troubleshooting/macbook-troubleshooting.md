@@ -187,11 +187,11 @@ You can install Qubes using BIOS or UEFI:
    * unzip it and run installer, which install rEFIind on the internal SSD
    * if installation fails due to SIP, reboot in recovery mode, open a terminal and issue command
    ~~~
-   crsutil disable
+   csrutil disable
    ~~~
    * reboot and you will see some icons
    * choose Boot EFI\BOOT\xen.efi from ANACONDA
-   * after a will the graphical installer is up and running, with keyboard and touchpad working
+   * after a while the graphical installer is up (keyboard and touchpad working)
 
 ### 3. Installation
 
