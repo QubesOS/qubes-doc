@@ -123,7 +123,7 @@ There are several ways to deal with this problem:
 
 Some popular questions:
 
--   So, why should we actually trust Fedora repos -- it also contains large amount of 3rd party software that might buggy, right?
+-   So, why should we actually trust Fedora repos -- it also contains large amount of third-party software that might buggy, right?
 
 As long as template's compromise is considered, it doesn't really matter whether /usr/bin/firefox is buggy and can be exploited, or not. What matters is whether its *installation* scripts (such as %post in the rpm.spec) are benign or not. Template VM should be used only for installation of packages, and nothing more, so it should never get a chance to actually run the /usr/bin/firefox and got infected from it, in case it was compromised. Also, some of your more trusted AppVMs, would have networking restrictions enforced by the [firewall VM](/doc/firewall/), and again they should not fear this proverbial /usr/bin/firefox being potentially buggy and easy to compromise.
 
@@ -168,7 +168,7 @@ qvm-create <vmname> --template <templatename> --label <label>
 Temporarily allowing networking for software installation
 ---------------------------------------------------------
 
-Some 3rd party applications cannot be installed using the standard yum repositories, and need to be manually downloaded and installed. When the installation requires internet connection to access 3rd party repositories, it will naturally fail when run in a Template VM because the default firewall rules for templates only allow connections to standard yum repositories. So it is necessary to modify firewall rules to allow less restrictive internet access for the time of the installation, if one really wants to install those applications into a template. As soon as software installation is completed, firewall rules should be returned back to the default state. The user should decided by themselves whether such 3rd party applications should be equally trusted as the ones that come from the standard Fedora signed repositories and whether their installation will not compromise the default Template VM, and potentially consider installing them into a separate template or a standalone VM (in which case the problem of limited networking access doesn't apply by default), as described above.
+Some third-party applications cannot be installed using the standard yum repositories, and need to be manually downloaded and installed. When the installation requires internet connection to access third-party repositories, it will naturally fail when run in a Template VM because the default firewall rules for templates only allow connections to standard yum repositories. So it is necessary to modify firewall rules to allow less restrictive internet access for the time of the installation, if one really wants to install those applications into a template. As soon as software installation is completed, firewall rules should be returned back to the default state. The user should decided by themselves whether such third-party applications should be equally trusted as the ones that come from the standard Fedora signed repositories and whether their installation will not compromise the default Template VM, and potentially consider installing them into a separate template or a standalone VM (in which case the problem of limited networking access doesn't apply by default), as described above.
 
 Updates proxy
 -------------
