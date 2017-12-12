@@ -134,8 +134,9 @@ Examples of topics or questions suitable for this list include:
 
 ### Read these first
 
-Please try searching both the Qubes website and the archives of the mailing
-lists before sending a question. In addition, please make sure that you have
+Please try searching both the Qubes website and the
+[archives of the mailing lists][qubes-users-archive]
+before sending a question. In addition, please make sure that you have
 read and understood the following basic documentation prior to posting to the
 list:
 
@@ -331,8 +332,8 @@ qubes-translation
 
 ### How to use this list
 
-This list is for discussion around the localization and translation of Qubes OS, 
-its documentation, and the website. 
+This list is for discussion around the localization and translation of Qubes OS,
+its documentation, and the website.
 
 Examples of topics or question suitable for this list include:
 
@@ -372,6 +373,7 @@ You must be subscribed in order to post to this list.
 [User FAQ]: /faq/#users
 [documentation]: /doc/
 [thunderbird-newsgroup]: https://support.mozilla.org/en-US/kb/creating-newsgroup-account
+[qubes-users-archive]: https://www.mail-archive.com/qubes-users@googlegroups.com/
 [qubes-users-web]: https://groups.google.com/group/qubes-users
 [qubes-devel-web]: https://groups.google.com/group/qubes-devel
 [qubes-translation-web]: https://groups.google.com/group/qubes-translation
