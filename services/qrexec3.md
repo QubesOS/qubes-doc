@@ -201,6 +201,26 @@ Target VM can be also specified as `$default`, which matches the case when
 calling VM didn't specified any particular target (either by using `$default`
 target, or empty target).
 
+In Qubes 4.0 policy confirmation dialog (`ask` action) allow the user to
+specify target VM. User can choose from VMs that, according to policy, would
+lead to `ask` or `allow` actions. It is not possible to select VM that policy
+would deny. By default no VM is selected, even if the caller provided some, but
+policy can specify default value using `default_target=` parameter. For
+example:
+
+    work-mail work-archive allow
+    work-mail $tag:work ask,default_target=work-files
+    work-mail $default  ask,default_target=work-files
+
+The first rule allow call from `work-mail` to `work-archive`, without any
+confirmation.
+The second rule will ask the user about calls from `work-mail` VM to any VM with
+tag `work`. And the confirmation dialog will have `work-files` VM chosen by
+default, regardless of the VM specified by the caller (`work-mail` VM). The
+third rule allow the caller to not specify target VM at all and let the user
+choose, still - from VMs with tag `work` (and `work-archive`, regardless of
+tag), and with `work-files` as default.
+
 ### Service argument in policy
 
 Sometimes just service name isn't enough to make reasonable qrexec policy. One
