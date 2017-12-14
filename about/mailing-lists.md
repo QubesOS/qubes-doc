@@ -134,9 +134,8 @@ Examples of topics or questions suitable for this list include:
 
 ### Read these first
 
-Please try searching both the Qubes website and the
-[archives of the mailing lists][qubes-users-archive]
-before sending a question. In addition, please make sure that you have
+Please try searching both the Qubes website and the archives of the mailing
+lists before sending a question. In addition, please make sure that you have
 read and understood the following basic documentation prior to posting to the
 list:
 
@@ -167,6 +166,7 @@ were sent directly to the list.
      interface. This has the advantage that it allows you to search and reply to
      messages which were sent prior to your subscription to the list. However, a
      Google account is required in order to post through this interface.
+ * You can also search the [traditional mail archive][qubes-users-archive]
 
 #### Gmane
 
@@ -247,6 +247,7 @@ You must be subscribed in order to post to this list.
      interface. This has the advantage that it allows you to search and reply to
      messages which were sent prior to your subscription to the list. However, a
      Google account is required in order to post through this interface.
+ * You can also search the [traditional mail archive][qubes-devel-archive]
 
 #### Gmane
 
@@ -374,6 +375,7 @@ You must be subscribed in order to post to this list.
 [documentation]: /doc/
 [thunderbird-newsgroup]: https://support.mozilla.org/en-US/kb/creating-newsgroup-account
 [qubes-users-archive]: https://www.mail-archive.com/qubes-users@googlegroups.com/
+[qubes-devel-archive]: https://www.mail-archive.com/qubes-devel@googlegroups.com/
 [qubes-users-web]: https://groups.google.com/group/qubes-users
 [qubes-devel-web]: https://groups.google.com/group/qubes-devel
 [qubes-translation-web]: https://groups.google.com/group/qubes-translation
