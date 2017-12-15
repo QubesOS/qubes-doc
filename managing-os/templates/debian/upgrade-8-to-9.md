@@ -12,7 +12,8 @@ redirect_from:
 Upgrading the Debian 8 Template
 ===============================
 
-Please note that if you installed packages from one of the testing repositories you must make sure that the repository is enabled in `/etc/apt/sources.list.d/qubes-r3.list` before attempting the upgrade. Otherwise, your upgrade will [break](https://github.com/QubesOS/qubes-issues/issues/2418).
+Please note that if you installed packages from one of the testing repositories you must make sure that the repository is enabled in `/etc/apt/sources.list.d/qubes-r3.list` before attempting the upgrade. 
+Otherwise, your upgrade will [break](https://github.com/QubesOS/qubes-issues/issues/2418).
 
 Summary: Upgrading a Debian 8 Template to Debian 9
 --------------------------------------------------
@@ -115,9 +116,12 @@ Additional Information
 
 Debian Stretch packages were first made available in the Qubes R3.1 repositories.
 
-If sound is not working, you may need to enable the Qubes testing repository to get the testing version of qubes-gui-agent. This can be done by editing the /etc/apt/sources.list.d/qubes-r3.list file and uncommenting the Qubes Updates Candidates repo.
+If sound is not working, you may need to enable the Qubes testing repository to get the testing version of qubes-gui-agent. 
+This can be done by editing the /etc/apt/sources.list.d/qubes-r3.list file and uncommenting the Qubes Updates Candidates repo.
 
-User-initiated updates/upgrades may not run when a templateVM first starts. This is due to a new Debian config setting that attempts to update automatically; it can be [disabled with](https://github.com/QubesOS/qubes-issues/issues/2621) `systemctl disable apt-daily.timer`.
+User-initiated updates/upgrades may not run when a templateVM first starts. 
+This is due to a new Debian config setting that attempts to update automatically; it should be disabled with:  
+`sudo systemctl disable apt-daily.{service,timer}`.
 
 Relevant Discussions
 --------------------
@@ -125,3 +129,4 @@ Relevant Discussions
  * [Stretch availability in 3.2](https://groups.google.com/forum/#!topicsearchin/qubes-devel/debian$20stretch/qubes-devel/cekPfBqQMOI)
  * [Fixing sound in Debian Stretch](https://groups.google.com/forum/#!topic/qubes-users/JddCE54GFiU)
  * [User apt commands blocked on startup](https://github.com/QubesOS/qubes-issues/issues/2621)
+
