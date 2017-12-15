@@ -13,11 +13,14 @@ FEDORA Packages Recommendations
 Template installation
 ------------------------------
 
-> [dom0]#qubes-dom0-update qubes-template-fedora-21-minimal
+> [dom0]#qubes-dom0-update qubes-template-fedora-26-minimal
 
-*Note*: the template may not start in Qubes R3 when using kernel 3.19 (unstable). In this case, switch the AppVM or TemplateVM to the kernel 3.18.
 
-*Note*: If you have doubts about a set of tool or package you want to install, start installing and testing it in an AppVM. You can then reproduce it later in your TemplateVM if you are satisfied. That the (QubesOS?) template philosophy.
+*Note*: If you have doubts about a set of tool or package you want to install, start installing and testing it in an AppVM. 
+You can then reproduce it later in your TemplateVM if you are satisfied.
+That is the template philosophy in QubesOS.
+
+For more information on the uses of a minimal template read [this page][Minimal].
 
 Standard tools installation
 ================
@@ -25,28 +28,32 @@ Standard tools installation
 Administration (documented)
 ---------------------------------------------
 
-sudo pciutils vim-minimal less tcpdump telnet psmisc nmap nmap-ncat usbutils
+> sudo pciutils vim-minimal less tcpdump telnet psmisc nmap nmap-ncat usbutils
 
-*Notes*: nmap can be used to discover a network (nmap -sP [network]), especially if you are inside a Microsoft network, because your AppVM will be protected/NATted behind Qubes firewall (microsoft / home network are heavily using autodiscovery technologies which require to be in the same local network (no firewall/no NAT), eg: your printer.
+*Notes*: nmap can be used to discover hosts on a network (nmap -sP [network]), especially if you are inside a Microsoft network, because your AppVM will be protected/NATted behind the Qubes firewall.
+(Microsoft / home networks make heavy use of autodiscovery technologies which require clients to be in the same local network (no firewall/no NAT), eg: your printer.)
 
-Some recommendation here: check your current network using the Network manager applet (eg: 192.168.1.65). Then run nmap in your current AppVM/TemplateVM to search for the selected printer/equipement: nmap -sP 192.168.1.-. Don't forget to allow temporarily the Qubes Firewall if you are inside a TemplateVM.
+Some recommendations here: check your current network using the Network manager applet (eg: 192.168.1.65). 
+Then run nmap in your current AppVM/TemplateVM to search for the selected printer/equipment: 
+	nmap -sP 192.168.1.-. 
+Don't forget to open temporarily the Qubes Firewall if you are doing this in a TemplateVM.
 
 Administration (undocumented)
 -------------------------------------------------
 
-openssh keepassx openssl gnome-keyring man
+> openssh keepassx openssl gnome-keyring man
 
 Dependency note: keepassx rely on qt which takes ~30MB
 
 Network VM (documented)
 ----------------------------------------
 
-NetworkManager NetworkManager-wifi network-manager-applet wireless-tools dbus-x11 tar tinyproxy
+> NetworkManager NetworkManager-wifi network-manager-applet wireless-tools dbus-x11 tar tinyproxy
 
 Network VM (undocumented)
 --------------------------------------------
 
-which dconf dconf-editor
+> which dconf dconf-editor
 
 *Notes*: which is required for autostart scripts
 
@@ -55,36 +62,38 @@ which dconf dconf-editor
 Network VM (manual operations - documented)
 ------------------------------------------------------------------------
 
-Search for a wireless firmware matching your wireless card (to be launched in network VM)
+Search for wireless firmware matching your wireless card (to be launched in network VM)
 
-> lspci; yum search firmware
+> lspci; dnf search firmware
 
 ProxyVM/NetworkVM for 3G Modems
-=====================
+--------------------------------------------
 
-ModemManager NetworkManager-wwan usb_modeswitch modem-manager-gui
+> ModemManager NetworkManager-wwan usb_modeswitch modem-manager-gui
 
-Dependency note: modem-manager-gui rely on webkit-gtk and is optional (NetworkManager can handle the modem alone)
+Dependency note: modem-manager-gui relies on webkit-gtk and is optional (NetworkManager can handle the modem alone)
 
 Source: [3GMODEM]
 
 ProxyVM for VPNs
-==========
+--------------------------------------------
 
 Search for a VPN package for your particular vpn solution
 
-> yum search NetworkManager [openconnect|openswat|...]
+> dnf search NetworkManager [openconnect\|openswat\|...]
 
 OR
 
-For manual handling of VPN (and because NetworkManager is not available in proxyVMs, check the Qubes-users mail threads on google group
+For manual handling of VPN (and because NetworkManager is not available in proxyVMs), check the Qubes-users mail threads on google groups.
+(cprise started a good thread on [openvpn][OPENVPNSETUP].)
 
-(cprise started a good one on openvpn: [OPENVPNSETUP] "[qubes-users] OpenVPN Setup, Revisited Again!")
+Refer also to this [guide][VPN].
+
 
 Printer Setup
-========
+--------------------------------------------
 
-system-config-printer system-config-printer-applet cups
+> system-config-printer system-config-printer-applet cups
 
 Dependency Note: depends on python3 + python3 additional libraries which takes more than 40 M once installed.
 
@@ -99,29 +108,28 @@ Manual operations
 
 - Once you identified your printer, run system-config-printer GUI to install your printer
 
-- You man need to cancel the operation to install more adapted printer drivers (eg: if the driver cannot be found automatically). Use yum search printername to find potential drivers (eg yum search photosmart)
+- You may need to cancel the operation to install more adapted printer drivers (eg: if the driver cannot be found automatically). Use dnf search printername to find potential drivers (eg dnf search photosmart)
 
 GUI recommendations
-=============
+======================
 
 Lightweight packages recommendations
 ---------------------------------------------------------------
 
-lxterminal dejavu-sans-mono-fonts dejavu-sans-fonts gnome-settings-daemon
+> lxterminal dejavu-sans-mono-fonts dejavu-sans-fonts gnome-settings-daemon
 
 *Note*: You need to install sans-mono fonts for the terminal or it will be unreadable (overlapping characters....), while the sans fonts are just to get nicer GUI menus.
 
 *Scite* is a nice notepad that can also highlight scripts with very light dependencies
+> scite
 
-scite
+*Meld* allows easy comparison of two text files/ two configuration files.
 
-*Meld* allow comparing two text files/ two configuration files easily.
-
-meld
+> meld
 
 *Thunar* is a light file manager usually used by xfce
 
-thunar thunar-volman ntfs-3g
+> thunar thunar-volman ntfs-3g
 
 Dependency Note: xfce4 dependencies (but still quite light ~1.4M downloads)
 
@@ -130,7 +138,9 @@ Miscellaneous packages
 
 *pycairo* package is needed for file's contextual menu "Send to VM" to function (to actually popup dialog box and enter VM's name where the file will be sent to).
 
-*pinentry-gtk* package is responsible for pop-up dialog window where you enter password for your password protected gpg key. Install this package in machine holding your password protected gpg keys. If you do not use password protected gpg keys, there is no need to install this package.
+*pinentry-gtk* package is responsible for pop-up dialog window where you enter password for your password protected gpg key. 
+Install this package in the qube holding your password protected gpg keys. 
+If you do not use password protected gpg keys, there is no need to install this package.
 
 GUI themes
 -----------------
@@ -147,9 +157,9 @@ The apparance of Windows can only be changed in dom0, however, the appearance of
 
 Choose theme packages for each framework. I recommend the following documentation [THEMEPACKAGES]
 
-clearlooks-phenix-gtk2-theme clearlooks-phenix-gtk3-theme
+> clearlooks-phenix-gtk2-theme clearlooks-phenix-gtk3-theme
 
-You can search for other themes using yum search theme gtk
+You can search for other themes using dnf search theme gtk
 
 You can check your currently installed theme packages (to eventually remove them) using rpm -qa | grep theme
 
@@ -279,3 +289,7 @@ Two case:
 [DCONF2]: https://wiki.gnome.org/Projects/dconf/SystemAdministrators
 
 [UNIFORMTHEME]: https://wiki.archlinux.org/index.php/Uniform_look_for_Qt_and_GTK_applications
+
+[Minimal]: ../templates/fedora-minimal/
+
+[VPN]:  ../vpn/
