@@ -166,6 +166,7 @@ were sent directly to the list.
      interface. This has the advantage that it allows you to search and reply to
      messages which were sent prior to your subscription to the list. However, a
      Google account is required in order to post through this interface.
+ * You can also search the [traditional mail archive][qubes-users-archive]
 
 #### Gmane
 
@@ -246,6 +247,7 @@ You must be subscribed in order to post to this list.
      interface. This has the advantage that it allows you to search and reply to
      messages which were sent prior to your subscription to the list. However, a
      Google account is required in order to post through this interface.
+ * You can also search the [traditional mail archive][qubes-devel-archive]
 
 #### Gmane
 
@@ -331,8 +333,8 @@ qubes-translation
 
 ### How to use this list
 
-This list is for discussion around the localization and translation of Qubes OS, 
-its documentation, and the website. 
+This list is for discussion around the localization and translation of Qubes OS,
+its documentation, and the website.
 
 Examples of topics or question suitable for this list include:
 
@@ -372,6 +374,8 @@ You must be subscribed in order to post to this list.
 [User FAQ]: /faq/#users
 [documentation]: /doc/
 [thunderbird-newsgroup]: https://support.mozilla.org/en-US/kb/creating-newsgroup-account
+[qubes-users-archive]: https://www.mail-archive.com/qubes-users@googlegroups.com/
+[qubes-devel-archive]: https://www.mail-archive.com/qubes-devel@googlegroups.com/
 [qubes-users-web]: https://groups.google.com/group/qubes-users
 [qubes-devel-web]: https://groups.google.com/group/qubes-devel
 [qubes-translation-web]: https://groups.google.com/group/qubes-translation
