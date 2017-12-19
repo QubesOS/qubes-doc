@@ -9,7 +9,7 @@ redirect_from:
 - /wiki/GettingStarted/
 ---
 
-<a name="already-installed"></a>Now that you've installed Qubes, let's cover some basic concepts. 
+<a name="already-installed"></a>After [installing Qubes](/doc/installation-guide/), let's cover some basic concepts.
 You might also like to refer to the [Glossary](/doc/glossary/).
 
 AppVMs (qubes) and TemplateVMs
