@@ -71,6 +71,11 @@ qvm-prefs -s <vm-name> kernelopts default
 
 Done.
 
+>In order to avoid error, you might want to first reduce the filesystem to a smaller size than desired (say 3G), then truncate the image to the target size (for example 4G), and lastly grow the filesystem to the target size. In order to do this, after the `truncate` step, start the vm again in maintenance mode and use the following command to extend the filesystem to the correct size : `resize2fs /dev/xvdb`.
+>
+>With no argument, resize2fs grows the filesystem to match the underlying block device (the .img file you just shrunk)
+
+
 ### Template disk image
 
 If you want install a lot of software in your TemplateVM, you may need to increase the amount of disk space your TemplateVM can use. See also additional information and caveats about [resizing the root disk image].
