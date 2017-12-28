@@ -39,52 +39,67 @@ Same as in OTP case, you will need to setup your YubiKey, choose separate
 password (other than your login password!) and apply the configuration.
 
 To use this mode you need:
+   
+1. Install yubikey personalization the packages in your TemplateVM on which your USB VM is based.
 
-1. Configure your YubiKey for challenge-reponse HMAC-SHA1 mode, for example
+   For Fedora.
+
+       sudo dnf install ykpers yubikey-personalization-gui
+
+   For Debian.
+
+       sudo apt-get install yubikey-personalization yubikey-personalization-gui
+       
+   Shut down your TempalteVM. Then reboot your USB VM (so changes inside the TemplateVM take effect
+   in your TemplateBased USB VM or install the packages inside your USB VM if you would like to avoid
+   rebooting your USB VM.
+       
+2. Configure your YubiKey for challenge-reponse `HMAC-SHA1` mode, for example
    [following this
-   tutorial](https://www.yubico.com/products/services-software/personalization-tools/challenge-response/)
-2. Install `ykpers` package in template on which your USB VM is based.
-3. Create `/usr/local/bin/yubikey-auth` script:
+   tutorial](https://www.yubico.com/products/services-software/personalization-tools/challenge-response/).
+   
+   On Debian, you can run the graphical user interface `yubikey-personalization-gui` from the command line.
+   
+   - Choose `configuration slot 2`.
+   - It is recommended to enable `Require user input (button press)` but this is optional.
+   - Note: Derivating from the above video, use the following settings select
+   `HMAC-SHA1 mode`: `fixed 64 bit input`. 
+   - We will refer the `Secret Key (20 bytes hex)` as `AESKEY`.
+      - It is recommended to keep a backup of your `AESKEY` in an offline VM used as vault.
+      - Consider to keep a backup of your `AESKEY` on paper and store it in a safe place.
+      - In case you have multiple yubikeys for backup purposes (in case a yubikey gets lost, stolen or breaks) you can write the same settings into other yubikeys.
 
-       #!/bin/sh
+3. Install [qubes-app-yubikey](https://github.com/QubesOS/qubes-app-yubikey) in dom0.
 
-       key="$1"
+       sudo qubes-dom0-update qubes-yubikey-dom0
 
-       if [ -z "$key" ]; then
-           echo "Usage: $0 <AESKEY> [<PASSWORD-HASH>]"
-           exit 1
-       fi
+4. Adjust USB VM name in case you are using something other than the default
+   `sys-usb` by editing `/etc/qubes/yk-keys/yk-vm` in dom0.
 
-       # if password has given, verify it
-       if [ -n "$2" ]; then
-           # PAM appends \0 at the end
-           hash=`head -c -1 | openssl dgst -sha1 -r | cut -f1 -d ' '`
-           if [ "x$2" != "x$hash" ]; then
-               exit 1
-           fi
-       fi
+5. Paste your `AESKEY` from step 2 into `/etc/qubes/yk-keys/yk-secret-key.hex` in dom0.
 
-       challenge=`head -c64 /dev/urandom | xxd -c 64 -ps`
-       # You may need to adjust slot number and USB VM name here
-       response=`qvm-run -u root --nogui -p sys-usb "ykchalresp -2 -x $challenge"`
+6. Paste your hashed password (other than your standard Qubes password)  into
+`/etc/qubes/yk-keys/yk-login-pass-hashed.hex` in dom0.
 
-       correct_response=`echo $challenge | xxd -r -ps | openssl dgst -sha1 -macopt hexkey:$key -mac HMAC -r | cut -f1 -d ' '`
-
-       test "x$correct_response" = "x$response"
-       exit $?
-
-4. Adjust USB VM name (`sys-usb` above), and possibly YubiKey slot number (`2`
-   above), then make the script executable.
-5. Edit `/etc/pam.d/xscreensaver` (or appropriate file if you are using other
-   screen locker program). Add this line at the beginning:
-
-       auth [success=done default=ignore] pam_exec.so expose_authtok quiet /usr/local/bin/yubikey-auth AESKEY PASSWORD-HASH
-
-   Replace `AESKEY` with hex-encoded key configured in the first step, then
-   replace `PASSWORD-HASH` with SHA1 hash for your YubiKey-linked password (other
-   than your standard Qubes password). You can calculate it using this command:
+   You can calculate your hashed password using this command:
 
        echo -n "PASSWORD" | openssl dgst -sha1
+       
+   (Replace `PASSWORD` with your actual password.)
+
+7. Edit `/etc/pam.d/login` in dom0. Add this line at the beginning:
+
+       auth include yubikey
+
+8. Edit `/etc/pam.d/xscreensaver` (or appropriate file if you are using other
+   screen locker program) in dom0. Add this line at the beginning:
+
+        auth include yubikey
+
+9. Edit `/etc/pam.d/lightdm` (or appropriate file if you are using other
+   display manager) in dom0. Add this line at the beginning:
+
+        auth include yubikey
 
 ### Usage
 
@@ -99,6 +114,13 @@ When everything is ok, your screen will be unlocked.
 
 In any case you can still use your login password, but do it in secure location
 where no one can snoop your password.
+
+### Mandatory YubiKey Login
+
+Edit `/etc/pam.d/yubikey` (or appropriate file if you are using other screen locker program)
+and remove `default=ignore` so the line looks like this.
+
+    auth [success=done] pam_exec.so expose_authtok quiet /usr/bin/yk-auth
 
 Locking the screen when YubiKey is removed
 ------------------------------------------
