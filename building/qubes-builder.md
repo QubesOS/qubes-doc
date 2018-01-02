@@ -17,7 +17,7 @@ We have a fully automated build system for Qubes, that downloads, builds and
 packages all the Qubes components, and finally should spit out a ready-to-use
 installation ISO.
 
-In order to use it one should use an rpm-based distro, like Fedora :) and should ensure the following packages are installed:
+In order to use it, one should use an rpm-based distro, like Fedora :), and should ensure the following packages are installed:
 
 -   sudo
 -   gpg

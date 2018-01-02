@@ -36,7 +36,7 @@ ITL guarantees that the binary updates are compiled from exactly the same source
 Community Supported templates
 -----------------------------
 
-These templates are supported by the Qubes community. Some of them are available in ready-to-use binary package form (built by ITL), while others are available only in source code form. In all cases ITL, does not provide updates for these templates. However, such updates may be provided by the template maintainer.
+These templates are supported by the Qubes community. Some of them are available in ready-to-use binary package form (built by ITL), while others are available only in source code form. In all cases, ITL does not provide updates for these templates. However, such updates may be provided by the template maintainer.
 
 By installing these templates, you are trusting not only ITL and the distribution maintainers, but also the template maintainer. In addition, these templates may be somewhat less stable, since ITL does not test them.
 
