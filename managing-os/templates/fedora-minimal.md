@@ -12,7 +12,7 @@ redirect_from:
 Fedora - minimal
 ================
 
-The template only weighs about 300 MB and has only the most vital packages installed, including a minimal X and xterm installation.
+The template only weighs about 2.3 GB and has only the most vital packages installed, including a minimal X and xterm installation.
 The minimal template, however, can be easily extended to fit your requirements. The sections below contain the instructions on duplicating the template and provide some examples for commonly desired use cases.
 
 Installation
@@ -21,7 +21,7 @@ Installation
 The Fedora minimal template can be installed with the following command:
 
 ~~~
-[user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-25-minimal
+[user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-26-minimal
 ~~~
 
 The download may take a while depending on your connection speed.
@@ -32,14 +32,20 @@ Duplication and first steps
 It is higly recommended to clone the original template, and make any changes in the clone instead of the original template. The following command clones the template. Replace `your-new-clone` with your desired name.
 
 ~~~
-[user@dom0 ~]$ qvm-clone fedora-25-minimal your-new-clone
+[user@dom0 ~]$ qvm-clone fedora-26-minimal your-new-clone
 ~~~
 
 You must start the template in order to customize it.
-A recommended first step is to install the `sudo` package, which is not installed by default in the minimal template:
+
+For Qubes R4.0, sudo is not installed by default in the minimal template.  To update or install packages, from a dom0 terminal window:
 
 ~~~
-[user@your-new-clone ~]$ su -
+[user@dom0 ~]$ qvm-run -u root fedora-26-minimal xterm
+~~~
+
+If you would like to skip this step in future, please install the `sudo` package:
+
+~~~
 [user@your-new-clone ~]$ dnf install sudo
 ~~~
 
@@ -59,7 +65,7 @@ Use case | Description | Required steps
 --- | --- | ---
 **Standard utilities** | If you need the commonly used utilities | Install the following packages: `pciutils` `vim-minimal` `less` `psmisc` `gnome-keyring`
 **FirewallVM** | You can use the minimal template as a [FirewallVM](/doc/firewall/), such as the basis template for `sys-firewall` | No extra packages are needed for the template to work as a firewall.
-**NetVM** | You can use this template as the basis for a NetVM such as `sys-net` | Install the following packages: `NetworkManager` `NetworkManager-wifi` `network-manager-applet` `wireless-tools` `dbus-x11 dejavu-sans-fonts` `tinyproxy`  `notification-daemon` `gnome-keyring`.
+**NetVM** | You can use this template as the basis for a NetVM such as `sys-net` | Install the following packages:  `NetworkManager-wifi` `wireless-tools` `dejavu-sans-fonts` `notification-daemon`.
 **NetVM (extra firmware)** | If your network devices need extra packages for the template to work as a network VM | Use the `lspci` command to identify the devices, then run `dnf search firmware` (replace `firmware` with the appropriate device identifier) to find the needed packages and then install them.
 **Network utilities** | If you need utilities for debugging and analyzing network connections | Install the following packages: `tcpdump` `telnet` `nmap` `nmap-ncat`
 **USB** | If you want USB input forwarding to use this template as the basis for a [USB](/doc/usb/) qube such as `sys-usb` | Install `qubes-input-proxy-sender`
