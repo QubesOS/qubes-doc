@@ -48,7 +48,7 @@ Dependency note: keepassx rely on qt which takes ~30MB
 Network VM (documented)
 ----------------------------------------
 
-> NetworkManager NetworkManager-wifi network-manager-applet wireless-tools dbus-x11 tar tinyproxy
+> NetworkManager NetworkManager-wifi network-manager-applet wireless-tools dbus-x11 tar tinyproxy iptables
 
 Network VM (undocumented)
 --------------------------------------------
