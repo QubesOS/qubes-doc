@@ -29,7 +29,7 @@ Summary: Upgrading the Standard Fedora 25 Template to Fedora 26
         [user@fedora-26 ~]$ sudo mkfs.ext4 /dev/xvdi
         [user@fedora-26 ~]$ sudo mount /dev/xvdi /mnt/removable
         [user@fedora-26 ~]$ sudo dnf clean all
-        [user@fedora-26 ~]$ sudo dnf --releasever=26 --setopt=cachedir=/mnt/removable distro-sync
+        [user@fedora-26 ~]$ sudo dnf --releasever=26 --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
 
     (Shut down TemplateVM by any normal means.)
 
@@ -61,7 +61,7 @@ should be entered (`@dom0` or `@fedora-26`).
  3. Attempt the upgrade process in the new template.
 
         [user@fedora-26 ~]$ sudo dnf clean all
-        [user@fedora-26 ~]$ sudo dnf --releasever=26 distro-sync
+        [user@fedora-26 ~]$ sudo dnf --releasever=26 distro-sync --best --allowerasing
 
     **Note:** `dnf` might ask you to approve importing a new package signing
     key. For example, you might see a prompt like this one:
@@ -93,7 +93,7 @@ should be entered (`@dom0` or `@fedora-26`).
            [user@fedora-26 ~]$ sudo mkfs.ext4 /dev/xvdi
            [user@fedora-26 ~]$ sudo mount /dev/xvdi /mnt/removable
            [user@fedora-26 ~]$ sudo dnf clean all
-           [user@fedora-26 ~]$ sudo dnf --releasever=26 --setopt=cachedir=/mnt/removable distro-sync
+           [user@fedora-26 ~]$ sudo dnf --releasever=26 --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
 
        If this attempt is successful, proceed to step 4.
 
@@ -157,7 +157,7 @@ Summary: Upgrading the Minimal Fedora 25 Template to Fedora 26
         [user@dom0 ~]$ qvm-run -a fedora-26-minimal xterm
         [user@fedora-26-minimal ~]$ su -
         [root@fedora-26-minimal ~]# dnf clean all
-        [user@fedora-26-minimal ~]# dnf --releasever=26 distro-sync
+        [user@fedora-26-minimal ~]# dnf --releasever=26 --best --allowerasing distro-sync
 
     (Shut down TemplateVM by any normal means.)
 
