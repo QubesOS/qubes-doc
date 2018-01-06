@@ -16,8 +16,10 @@ This instruction is about upgrading Fedora 25 to Fedora 26 template. The same
 instructions can be used to upgrade Fedora 24 to Fedora 26 - simply start with
 cloning fedora-24 instead of fedora-25.
 
-Summary: Qubes 3.2: Upgrading the Standard Fedora 25 Template to Fedora 26
---------------------------------------------------------------------------
+Qubes 3.2: Main Instructions
+----------------------------
+
+### Summary: Upgrading the Standard Fedora 25 Template to Fedora 26 ###
 
 **Note:** The prompt on each line indicates where each command should be entered
 (`@dom0` or `@fedora-26`).
@@ -40,33 +42,7 @@ Summary: Qubes 3.2: Upgrading the Standard Fedora 25 Template to Fedora 26
 one. See instructions below for details.)
 
 
-Summary: Qubes 4.0: Upgrading the Standard Fedora 25 Template to Fedora 26
---------------------------------------------------------------------------
-
-**Note:** The prompt on each line indicates where each command should be entered
-(`@dom0` or `@fedora-26`).
-
-        [user@dom0 ~]$ qvm-clone fedora-25 fedora-26
-        [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
-        [user@dom0 ~]$ qvm-run -a fedora-26 gnome-terminal
-        [user@dom0 ~]$ dev=$(sudo losetup -f --show /var/tmp/template-upgrade-cache.img)
-        [user@dom0 ~]$ qvm-block attach fedora-26 dom0:${dev##*/}
-        [user@fedora-26 ~]$ sudo mkfs.ext4 /dev/xvdi
-        [user@fedora-26 ~]$ sudo mount /dev/xvdi /mnt/removable
-        [user@fedora-26 ~]$ sudo dnf clean all
-        [user@fedora-26 ~]$ sudo dnf --releasever=26 --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
-        [user@fedora-26 ~]$ sudo fstrim -v /
-
-    (Shut down TemplateVM by any normal means.)
-
-        [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
-
-(Optional cleanup: Switch everything over to the new template and delete the old
-one. See instructions below for details.)
-
-
-Detailed: Qubes 3.2: Upgrading the Standard Fedora 25 Template to Fedora 26
----------------------------------------------------------------------------
+### Detailed: Upgrading the Standard Fedora 25 Template to Fedora 26 ###
 
 These instructions will show you how to upgrade the standard Fedora 25
 TemplateVM to Fedora 26. The same general procedure may be used to upgrade any
@@ -173,8 +149,56 @@ should be entered (`@dom0` or `@fedora-26`).
         [user@dom0 ~]$ sudo dnf remove qubes-template-fedora-25
 
 
-Detailed: Qubes 4.0: Upgrading the Standard Fedora 25 Template to Fedora 26
----------------------------------------------------------------------------
+### Compacting the Upgraded Template ###
+
+Neither `fstrim` nor the `discard` mount option works on the TemplateVM's root
+filesystem, so when a file is removed in the template, space is not freed in
+dom0. This means that the template will use about twice as much space as is
+really necessary after upgrading.
+
+You can use the `qvm-trim-template` tool:
+
+    [user@dom0 ~]$ qvm-trim-template fedora-26
+
+
+### Upgrading StandaloneVMs ###
+
+The procedure for upgrading a StandaloneVM from Fedora 25 to Fedora 26 is the
+same as for a TemplateVM, except that `qvm-trim-template` does not work on
+StandaloneVMs. Instead, you should run the following command inside the
+StandaloneVM in order to compact it:
+
+    $ sudo fstrim -v -a
+
+
+Qubes 4.0: Main Instructions
+----------------------------
+
+### Summary: Upgrading the Standard Fedora 25 Template to Fedora 26 ###
+
+**Note:** The prompt on each line indicates where each command should be entered
+(`@dom0` or `@fedora-26`).
+
+        [user@dom0 ~]$ qvm-clone fedora-25 fedora-26
+        [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
+        [user@dom0 ~]$ qvm-run -a fedora-26 gnome-terminal
+        [user@dom0 ~]$ dev=$(sudo losetup -f --show /var/tmp/template-upgrade-cache.img)
+        [user@dom0 ~]$ qvm-block attach fedora-26 dom0:${dev##*/}
+        [user@fedora-26 ~]$ sudo mkfs.ext4 /dev/xvdi
+        [user@fedora-26 ~]$ sudo mount /dev/xvdi /mnt/removable
+        [user@fedora-26 ~]$ sudo dnf clean all
+        [user@fedora-26 ~]$ sudo dnf --releasever=26 --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
+        [user@fedora-26 ~]$ sudo fstrim -v /
+
+    (Shut down TemplateVM by any normal means.)
+
+        [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
+
+(Optional cleanup: Switch everything over to the new template and delete the old
+one. See instructions below for details.)
+
+
+### Detailed: Upgrading the Standard Fedora 25 Template to Fedora 26 ###
 
 These instructions will show you how to upgrade the standard Fedora 25
 TemplateVM to Fedora 26. The same general procedure may be used to upgrade any
@@ -257,21 +281,15 @@ should be entered (`@dom0` or `@fedora-26`).
 
      1. Make the new template the default template:
 
-        R4.0: Menu --> System Tools --> Qubes Global Settings --> Default template
+        Applications Menu --> System Tools --> Qubes Global Settings --> Default template
 
      2. Base AppVMs on the new template. In Qubes Manager, for each VM that is
         currently based on `fedora-25` that you would like to base on
         `fedora-26`, enter its VM settings and change the Template selection:
 
-        Qubes 4.0: Menu --> (select a VM) --> VM settings --> Template
+        Applications Menu --> (select a VM) --> VM settings --> Template
 
      3. Base the [DispVM] template on the new template.
-
-        If you have set the new template as your default template:
-
-            [user@dom0 ~]$ qvm-create-default-dvm --default-template
-
-        Otherwise:
 
             [user@dom0 ~]$ qvm-create -l red -t fedora-26 fedora-26-dvm
             [user@dom0 ~]$ qvm-prefs fedora-26-dvm template_for_dispvms True
@@ -284,8 +302,16 @@ should be entered (`@dom0` or `@fedora-26`).
         [user@dom0 ~]$ sudo dnf remove qubes-template-fedora-25
 
 
-Summary: Upgrading the Minimal Fedora 25 Template to Fedora 26
---------------------------------------------------------------
+### Upgrading StandaloneVMs ###
+
+The procedure for upgrading a StandaloneVM from Fedora 25 to Fedora 26 is the
+same as for a TemplateVM.
+
+
+The Minimal Template
+--------------------
+
+### Summary: Upgrading the Minimal Fedora 25 Template to Fedora 26 ###
 
 **Note:** The prompt on each line indicates where each command should be entered
 (`@dom0` or `@fedora-26`).
@@ -303,8 +329,7 @@ Summary: Upgrading the Minimal Fedora 25 Template to Fedora 26
 described for the standard template above.)
 
 
-Differences Between the Standard and Minimal Upgrade Procedures
----------------------------------------------------------------
+### Differences Between the Standard and Minimal Upgrade Procedures ###
 
 The procedure for upgrading the minimal template (or any template based on the
 minimal template) is the same as the procedure for the standard template above,
@@ -315,37 +340,6 @@ minimal template) is the same as the procedure for the standard template above,
     `xterm` for the standard template, if you prefer.)
  2. `sudo` is not installed by default. Unless you've installed it, use
     `qvm-run -u root -a fedora-26-minimal xterm` in dom0, as demonstrated above.
-
-
-R3.2 Only: Compacting the Upgraded Template
--------------------------------------------
-
-Neither `fstrim` nor the `discard` mount option works on the TemplateVM's root
-filesystem, so when a file is removed in the template, space is not freed in
-dom0. This means that the template will use about twice as much space as is
-really necessary after upgrading.
-
-You can use the `qvm-trim-template` tool:
-
-    [user@dom0 ~]$ qvm-trim-template fedora-26
-
-
-R3.2: Upgrading StandaloneVMs
------------------------------
-
-The procedure for upgrading a StandaloneVM from Fedora 25 to Fedora 26 is the
-same as for a TemplateVM, except that `qvm-trim-template` does not work on
-StandaloneVMs. Instead, you should run the following command inside the
-StandaloneVM in order to compact it:
-
-    $ sudo fstrim -v -a
-
-
-R4.0: Upgrading StandaloneVMs
------------------------------
-
-The procedure for upgrading a StandaloneVM from Fedora 25 to Fedora 26 is the
-same as for a TemplateVM.
 
 
 Additional Information
