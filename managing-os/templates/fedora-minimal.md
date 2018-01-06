@@ -12,7 +12,7 @@ redirect_from:
 Fedora - minimal
 ================
 
-The template only weighs about 2.3 GB and has only the most vital packages installed, including a minimal X and xterm installation.
+The template only weighs about 600 MB compressed (2 GB on disk) and has only the most vital packages installed, including a minimal X and xterm installation.
 The minimal template, however, can be easily extended to fit your requirements. The sections below contain the instructions on duplicating the template and provide some examples for commonly desired use cases.
 
 Installation
