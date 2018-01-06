@@ -105,6 +105,17 @@ pull request, we'll post a comment explaining why we can't.
 ![done](/attachment/wiki/doc-edit/10-done.png)
 
 
+Version-specific Documentation
+------------------------------
+
+We maintain only one set of documentation for Qubes OS.
+We do not maintain a different set of documentation for each version of Qubes.
+Our single set of Qubes OS documentation is updated on a continual, rolling basis.
+Our first priority is to document all **current, stable releases** of Qubes.
+Our second priority is to document the next, upcoming release (if any) that is currently in the beta or release candidate stage.
+In cases where a documentation page covers functionality that differs considerably between Qubes OS versions, the page should be subdivided into clearly-labeled sections that cover the different functionality in different versions.
+
+
 Contribution Suggestions
 ------------------------
 
