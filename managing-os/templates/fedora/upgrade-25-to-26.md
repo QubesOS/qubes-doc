@@ -16,8 +16,8 @@ This instruction is about upgrading Fedora 25 to Fedora 26 template. The same
 instructions can be used to upgrade Fedora 24 to Fedora 26 - simply start with
 cloning fedora-24 instead of fedora-25.
 
-Summary: Upgrading the Standard Fedora 25 Template to Fedora 26
----------------------------------------------------------------
+Summary: Qubes 3.2: Upgrading the Standard Fedora 25 Template to Fedora 26
+--------------------------------------------------------------------------
 
 **Note:** The prompt on each line indicates where each command should be entered
 (`@dom0` or `@fedora-26`).
@@ -39,8 +39,34 @@ Summary: Upgrading the Standard Fedora 25 Template to Fedora 26
 (Optional cleanup: Switch everything over to the new template and delete the old
 one. See instructions below for details.)
 
-Detailed: Upgrading the Standard Fedora 25 Template to Fedora 26
-----------------------------------------------------------------
+
+Summary: Qubes 4.0: Upgrading the Standard Fedora 25 Template to Fedora 26
+--------------------------------------------------------------------------
+
+**Note:** The prompt on each line indicates where each command should be entered
+(`@dom0` or `@fedora-26`).
+
+        [user@dom0 ~]$ qvm-clone fedora-25 fedora-26
+        [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
+        [user@dom0 ~]$ qvm-run -a fedora-26 gnome-terminal
+        [user@dom0 ~]$ dev=$(sudo losetup -f --show /var/tmp/template-upgrade-cache.img)
+        [user@dom0 ~]$ qvm-block attach fedora-26 dom0:${dev##*/}
+        [user@fedora-26 ~]$ sudo mkfs.ext4 /dev/xvdi
+        [user@fedora-26 ~]$ sudo mount /dev/xvdi /mnt/removable
+        [user@fedora-26 ~]$ sudo dnf clean all
+        [user@fedora-26 ~]$ sudo dnf --releasever=26 --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
+        [user@fedora-26 ~]$ sudo fstrim -v /
+
+    (Shut down TemplateVM by any normal means.)
+
+        [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
+
+(Optional cleanup: Switch everything over to the new template and delete the old
+one. See instructions below for details.)
+
+
+Detailed: Qubes 3.2: Upgrading the Standard Fedora 25 Template to Fedora 26
+---------------------------------------------------------------------------
 
 These instructions will show you how to upgrade the standard Fedora 25
 TemplateVM to Fedora 26. The same general procedure may be used to upgrade any
@@ -49,10 +75,10 @@ template based on the standard Fedora 25 template.
 **Note:** The command-line prompt on each line indicates where each command
 should be entered (`@dom0` or `@fedora-26`).
 
- 1. Ensure the existing template is not running. 
+ 1. Ensure the existing template is not running.
 
         [user@dom0 ~]$ qvm-shutdown fedora-25
- 
+
  2. Clone the existing template and start a terminal in the new template.
 
         [user@dom0 ~]$ qvm-clone fedora-25 fedora-26
@@ -66,10 +92,10 @@ should be entered (`@dom0` or `@fedora-26`).
     **Note:** `dnf` might ask you to approve importing a new package signing
     key. For example, you might see a prompt like this one:
 
-        warning: /var/cache/dnf/fedora-d02ca361e1b58501/packages/python2-babel-2.3.4-1.fc26.noarch.rpm: Header V3 RSA/SHA266 Signature, key ID 8fdb19c98: NOKEY
-        Importing GPG key 0x81B46521:
+        warning: /var/cache/dnf/fedora-d02ca361e1b58501/packages/python2-babel-2.3.4-1.fc26.noarch.rpm: Header V3 RSA/SHA266 Signature, key ID 64dab85d: NOKEY
+        Importing GPG key 0x64DAB85D:
          Userid     : "Fedora (26) <fedora-26-primary@fedoraproject.org>"
-         Fingerprint: C437 DCCD 558A 66A3 7D6F 4372 4089 D8F2 FDB1 9C98
+         Fingerprint: E641 850B 77DF 4353 78D1 D7E2 812A 6B4B 64DA B85D
          From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-26-x86_64
         Is this ok [y/N]:
 
@@ -102,7 +128,7 @@ should be entered (`@dom0` or `@fedora-26`).
            At least X MB more space needed on the / filesystem.
 
        In this case, one option is to [resize the TemplateVM's disk
-       image][resize-disk-image] before reattempting the upgrade process. 
+       image][resize-disk-image] before reattempting the upgrade process.
        (See [Additional Information] below for other options.)
 
  4. Shut down the new TemplateVM (from the command-line or Qubes VM Manager).
@@ -147,6 +173,117 @@ should be entered (`@dom0` or `@fedora-26`).
         [user@dom0 ~]$ sudo dnf remove qubes-template-fedora-25
 
 
+Detailed: Qubes 4.0: Upgrading the Standard Fedora 25 Template to Fedora 26
+---------------------------------------------------------------------------
+
+These instructions will show you how to upgrade the standard Fedora 25
+TemplateVM to Fedora 26. The same general procedure may be used to upgrade any
+template based on the standard Fedora 25 template.
+
+**Note:** The command-line prompt on each line indicates where each command
+should be entered (`@dom0` or `@fedora-26`).
+
+ 1. Ensure the existing template is not running.
+
+        [user@dom0 ~]$ qvm-shutdown fedora-25
+
+ 2. Clone the existing template and start a terminal in the new template.
+
+        [user@dom0 ~]$ qvm-clone fedora-25 fedora-26
+        [user@dom0 ~]$ qvm-run -a fedora-26 gnome-terminal
+
+ 3. Attempt the upgrade process in the new template.
+
+        [user@fedora-26 ~]$ sudo dnf clean all
+        [user@fedora-26 ~]$ sudo dnf --releasever=26 distro-sync --best --allowerasing
+
+    **Note:** `dnf` might ask you to approve importing a new package signing
+    key. For example, you might see a prompt like this one:
+
+        warning: /var/cache/dnf/fedora-d02ca361e1b58501/packages/python2-babel-2.3.4-1.fc26.noarch.rpm: Header V3 RSA/SHA266 Signature, key ID 64dab85d: NOKEY
+        Importing GPG key 0x64DAB85D:
+         Userid     : "Fedora (26) <fedora-26-primary@fedoraproject.org>"
+         Fingerprint: E641 850B 77DF 4353 78D1 D7E2 812A 6B4B 64DA B85D
+         From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-26-x86_64
+        Is this ok [y/N]:
+
+    This key was already checked when it was installed (notice that the "From"
+    line refers to a location on your local disk), so you can safely say yes to
+    this prompt.
+
+    **Note:** If you encounter no errors, proceed to step 4. If you do encounter
+    errors, see the next two points first.
+
+     * If `dnf` reports that you do not have enough free disk space to proceed
+       with the upgrade process, create an empty file in dom0 to use as a cache
+       and attach it to the template as a virtual disk.
+
+           [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
+           [user@dom0 ~]$ dev=$(sudo losetup -f --show /var/tmp/template-upgrade-cache.img)
+           [user@dom0 ~]$ qvm-block attach fedora-26 dom0:${dev##*/}
+
+       Then reattempt the upgrade process, but this time use the virtual disk
+       as a cache.
+
+           [user@fedora-26 ~]$ sudo mkfs.ext4 /dev/xvdi
+           [user@fedora-26 ~]$ sudo mount /dev/xvdi /mnt/removable
+           [user@fedora-26 ~]$ sudo dnf clean all
+           [user@fedora-26 ~]$ sudo dnf --releasever=26 --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
+
+       If this attempt is successful, proceed to step 4.
+
+     * `dnf` may complain:
+
+           At least X MB more space needed on the / filesystem.
+
+       In this case, one option is to [resize the TemplateVM's disk
+       image][resize-disk-image] before reattempting the upgrade process.
+       (See [Additional Information] below for other options.)
+
+ 4. Trim the new template.
+
+        [user@fedora-26 ~]$ sudo fstrim -v /
+
+ 5. Shut down the new TemplateVM (from the command-line or Qubes VM Manager).
+
+        [user@dom0 ~]$ qvm-shutdown fedora-26
+
+ 6. Remove the cache file, if you created one.
+
+        [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
+
+ 7. (Recommended) Switch everything that was set to the old template to the new
+    template, e.g.:
+
+     1. Make the new template the default template:
+
+        R4.0: Menu --> System Tools --> Qubes Global Settings --> Default template
+
+     2. Base AppVMs on the new template. In Qubes Manager, for each VM that is
+        currently based on `fedora-25` that you would like to base on
+        `fedora-26`, enter its VM settings and change the Template selection:
+
+        Qubes 4.0: Menu --> (select a VM) --> VM settings --> Template
+
+     3. Base the [DispVM] template on the new template.
+
+        If you have set the new template as your default template:
+
+            [user@dom0 ~]$ qvm-create-default-dvm --default-template
+
+        Otherwise:
+
+            [user@dom0 ~]$ qvm-create -l red -t fedora-26 fedora-26-dvm
+            [user@dom0 ~]$ qvm-prefs fedora-26-dvm template_for_dispvms True
+            [user@dom0 ~]$ qvm-features fedora-26-dvm appmenus-dispvm 1
+            [user@dom0 ~]$ qubes-prefs default-dispvm fedora-26-dvm
+
+ 8. (Optional) Remove the old template. (Make sure to type `fedora-25`, not
+    `fedora-26`.)
+
+        [user@dom0 ~]$ sudo dnf remove qubes-template-fedora-25
+
+
 Summary: Upgrading the Minimal Fedora 25 Template to Fedora 26
 --------------------------------------------------------------
 
@@ -154,8 +291,7 @@ Summary: Upgrading the Minimal Fedora 25 Template to Fedora 26
 (`@dom0` or `@fedora-26`).
 
         [user@dom0 ~]$ qvm-clone fedora-25-minimal fedora-26-minimal
-        [user@dom0 ~]$ qvm-run -a fedora-26-minimal xterm
-        [user@fedora-26-minimal ~]$ su -
+        [user@dom0 ~]$ qvm-run -u root -a fedora-26-minimal xterm
         [root@fedora-26-minimal ~]# dnf clean all
         [user@fedora-26-minimal ~]# dnf --releasever=26 --best --allowerasing distro-sync
 
@@ -177,13 +313,12 @@ minimal template) is the same as the procedure for the standard template above,
  1. `gnome-terminal` is not installed by default. Unless you've installed it
     (or another terminal emulator), use `xterm`. (Of course, you can also use
     `xterm` for the standard template, if you prefer.)
- 2. `sudo` is not installed by default. Unless you've installed it, use `su` as
-    demonstrated above. (Of course, you can also use `su` for the standard
-    template, if you prefer.)
+ 2. `sudo` is not installed by default. Unless you've installed it, use
+    `qvm-run -u root -a fedora-26-minimal xterm` in dom0, as demonstrated above.
 
 
-Compacting the Upgraded Template
---------------------------------
+R3.2 Only: Compacting the Upgraded Template
+-------------------------------------------
 
 Neither `fstrim` nor the `discard` mount option works on the TemplateVM's root
 filesystem, so when a file is removed in the template, space is not freed in
@@ -195,8 +330,8 @@ You can use the `qvm-trim-template` tool:
     [user@dom0 ~]$ qvm-trim-template fedora-26
 
 
-Upgrading StandaloneVMs
------------------------
+R3.2: Upgrading StandaloneVMs
+-----------------------------
 
 The procedure for upgrading a StandaloneVM from Fedora 25 to Fedora 26 is the
 same as for a TemplateVM, except that `qvm-trim-template` does not work on
@@ -204,6 +339,13 @@ StandaloneVMs. Instead, you should run the following command inside the
 StandaloneVM in order to compact it:
 
     $ sudo fstrim -v -a
+
+
+R4.0: Upgrading StandaloneVMs
+-----------------------------
+
+The procedure for upgrading a StandaloneVM from Fedora 25 to Fedora 26 is the
+same as for a TemplateVM.
 
 
 Additional Information
@@ -239,3 +381,4 @@ In this case, you have several options:
 [Additional Information]: #additional-information
 [Compacting the Upgraded Template]: #compacting-the-upgraded-template
 [DispVM]: /doc/dispvm/
+
