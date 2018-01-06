@@ -52,7 +52,7 @@ The following table provides an overview of which packages are needed for which 
 As expected, the required packages are to be installed in the running template with the following command. Replace "packages` with a space-delimited list of packages to be installed.
 
 ~~~
-[user@your-new-clone ~]$ sudo dnf install packages
+[user@your-new-clone ~]$ sudo dnf --enablerepo=qubes-vm-*-current-testing install packages
 ~~~
 
 Use case | Description | Required steps
@@ -65,10 +65,29 @@ Use case | Description | Required steps
 **USB** | If you want USB input forwarding to use this template as the basis for a [USB](/doc/usb/) qube such as `sys-usb` | Install `qubes-input-proxy-sender`
 **VPN** | You can use this template as basis for a [VPN](/doc/vpn/) qube | Use the `dnf search "NetworkManager VPN plugin"` command to look up the VPN packages you need, based on the VPN technology you'll be using, and install them. Some GNOME related packages may be needed as well. After creation of a machine based on this template, follow the [VPN howto](/doc/vpn/#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager) to configure it.
 **DVM Template** | If you want to use this VM as a [DVM Template](/doc/glossary/#dvm-template) | Install `perl-Encode`
-  
-  
-
+ 
 A comprehensive guide to customizing the minimal template is available [here][GUIDE]
+
+Qubes 4.0, fedora-26
+------
+In Qubes4.0 the `fedora-26-minimal` template is available and can be installed issuing the following command:
+
+~~~
+[user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-25-minimal
+~~~
+
+This template is slightly bigger (~600MB). All the suggestions made in the previous section apply. In addiction to this, in many situations packages from the qubes-core-agent suite will be needed to make the customized minimal template to work properly. These packages are:
+
+- `qubes-core-agent-passwordless-root`, `polkit`: By default the 'fedora-26-minimal' template doesn't have passwordless root. These two packages fix the situation.
+- `qubes-core-agent-nautilus`: This package provides integration with the Nautilus file manager (without it things like "copy to VM/open in disposable VM" will not be shown in Nautilus).
+- `qubes-core-agent-qrexec`: Qubes qrexec agent.
+- `qubes-core-agent-systemd`: Qubes unit files for SystemD init style.
+- `qubes-core-agent-sysvinit`: Qubes unit files for SysV init style or upstart.
+- `qubes-core-agent-networking`: Networking support. Useful if the template has to be used for a `sys-net` VM.
+- `qubes-core-agent-network-manager`: Integration for NetworkManager. Useful if the template has to be used for a `sys-net` VM.
+- `qubes-core-agent-dom0-updates`: Script required to handle `dom0` updates. Any template which the VM respondible for 'dom0' updates is based on must contain this package.
+
+
 
 Logging
 -------
