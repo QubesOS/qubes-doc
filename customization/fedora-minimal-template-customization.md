@@ -78,16 +78,13 @@ Source: [3GMODEM]
 ProxyVM for VPNs
 --------------------------------------------
 
-Search for a VPN package for your particular vpn solution
+Search for a VPN package for your particular vpn solution then [configure][VPNNM] NetworkManager
 
-> dnf search NetworkManager [openconnect\|openswat\|...]
+> dnf search NetworkManager [openvpn\|openconnect\|openswat\|...]
 
 OR
 
-For manual handling of VPN (and because NetworkManager is not available in proxyVMs), check the Qubes-users mail threads on google groups.
-(cprise started a good thread on [openvpn][OPENVPNSETUP].)
-
-Refer also to this [guide][VPN].
+Refer to [this guide][VPN] which includes instructions for failsafe anti-leak VPN configuration using CLI scripts. (An early discussion about OpenVPN configuration can be viewed [here][OPENVPNSETUP].) Required packages will be `iptables` in addition to VPN software such as `openvpn`.
 
 
 Printer Setup
@@ -292,4 +289,6 @@ Two case:
 
 [Minimal]: ../templates/fedora-minimal/
 
-[VPN]:  ../vpn/
+[VPNNM]:  ../vpn/#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager
+
+[VPN]:  ../vpn/#set-up-a-proxyvm-as-a-vpn-gateway-using-iptables-and-cli-scripts
