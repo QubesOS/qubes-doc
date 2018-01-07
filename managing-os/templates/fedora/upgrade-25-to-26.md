@@ -16,8 +16,8 @@ This instruction is about upgrading Fedora 25 to Fedora 26 template. The same
 instructions can be used to upgrade Fedora 24 to Fedora 26 - simply start with
 cloning fedora-24 instead of fedora-25.
 
-Qubes 3.2: Main Instructions
-----------------------------
+Qubes 3.2 Instructions
+----------------------
 
 ### Summary: Upgrading the Standard Fedora 25 Template to Fedora 26 ###
 
@@ -171,8 +171,26 @@ StandaloneVM in order to compact it:
     $ sudo fstrim -v -a
 
 
-Qubes 4.0: Main Instructions
-----------------------------
+### Summary: Upgrading the Minimal Fedora 25 Template to Fedora 26 ###
+
+**Note:** The prompt on each line indicates where each command should be entered
+(`@dom0` or `@fedora-26`).
+
+        [user@dom0 ~]$ qvm-clone fedora-25-minimal fedora-26-minimal
+        [user@dom0 ~]$ qvm-run -u root -a fedora-26-minimal xterm
+        [root@fedora-26-minimal ~]# dnf clean all
+        [user@fedora-26-minimal ~]# dnf --releasever=26 --best --allowerasing distro-sync
+
+    (Shut down TemplateVM by any normal means.)
+
+        [user@dom0 ~]$ qvm-trim-template fedora-26-minimal
+
+(If you encounter insufficient space issues, you may need to use the methods
+described for the standard template above.)
+
+
+Qubes 4.0 Instructions
+----------------------
 
 ### Summary: Upgrading the Standard Fedora 25 Template to Fedora 26 ###
 
@@ -308,9 +326,6 @@ The procedure for upgrading a StandaloneVM from Fedora 25 to Fedora 26 is the
 same as for a TemplateVM.
 
 
-The Minimal Template
---------------------
-
 ### Summary: Upgrading the Minimal Fedora 25 Template to Fedora 26 ###
 
 **Note:** The prompt on each line indicates where each command should be entered
@@ -320,26 +335,12 @@ The Minimal Template
         [user@dom0 ~]$ qvm-run -u root -a fedora-26-minimal xterm
         [root@fedora-26-minimal ~]# dnf clean all
         [user@fedora-26-minimal ~]# dnf --releasever=26 --best --allowerasing distro-sync
+        [user@fedora-26-minimal ~]# fstrim -v /
 
     (Shut down TemplateVM by any normal means.)
 
-        [user@dom0 ~]$ qvm-trim-template fedora-26-minimal
-
 (If you encounter insufficient space issues, you may need to use the methods
 described for the standard template above.)
-
-
-### Differences Between the Standard and Minimal Upgrade Procedures ###
-
-The procedure for upgrading the minimal template (or any template based on the
-minimal template) is the same as the procedure for the standard template above,
-**with the following exceptions**:
-
- 1. `gnome-terminal` is not installed by default. Unless you've installed it
-    (or another terminal emulator), use `xterm`. (Of course, you can also use
-    `xterm` for the standard template, if you prefer.)
- 2. `sudo` is not installed by default. Unless you've installed it, use
-    `qvm-run -u root -a fedora-26-minimal xterm` in dom0, as demonstrated above.
 
 
 Additional Information
