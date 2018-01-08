@@ -9,12 +9,17 @@ redirect_from:
 - /wiki/FedoraTemplateUpgrade25/
 ---
 
-Upgrading the Fedora 25 Template
-================================
+Upgrading the Fedora 25 Template to Fedora 26
+=============================================
 
-This instruction is about upgrading Fedora 25 to Fedora 26 template. The same
-instructions can be used to upgrade Fedora 24 to Fedora 26 - simply start with
-cloning fedora-24 instead of fedora-25.
+This page provides instructions for performing an in-place upgrade of an
+installed Fedora 25 [TemplateVM] to Fedora 26. If you wish to install a new,
+unmodified Fedora 26 template instead of upgrading a template that is already
+installed in your system, please see the [Fedora TemplateVM] page instead.
+
+These instructions can also be used to upgrade a Fedora 24 TemplateVM to
+Fedora 26. Simply start by cloning `fedora-24` instead of `fedora-25` in the
+instructions below.
 
 Qubes 3.2 Instructions
 ----------------------
@@ -372,6 +377,8 @@ In this case, you have several options:
      * [Jason M](https://groups.google.com/d/msg/qubes-users/mCXkxlACILQ/5PxDfI-RKAsJ)
 
 
+[TemplateVM]: /doc/templates/
+[Fedora TemplateVM]: /doc/templates/fedora/
 [resize-disk-image]: /doc/resize-disk-image/
 [Additional Information]: #additional-information
 [Compacting the Upgraded Template]: #compacting-the-upgraded-template
