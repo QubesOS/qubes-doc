@@ -74,16 +74,11 @@ Use case | Description | Required steps
  
 A comprehensive guide to customizing the minimal template is available [here][GUIDE]
 
-Qubes 4.0, fedora-26
-------
-In Qubes4.0 the `fedora-26-minimal` template is available and can be installed issuing the following command:
 
-~~~
-[user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-26-minimal
-~~~
+Qubes 4.0
+---------
 
-This template is slightly bigger (~600MB). All the suggestions made in the previous section apply. In addiction to this, in many situations packages from the qubes-core-agent suite will be needed to make the customized minimal template to work properly. These packages are:
-
+In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be needed to make the customized minimal template work properly. These packages are:
 
 - `qubes-core-agent-qrexec`: Qubes qrexec agent. Installed by default.
 - `qubes-core-agent-systemd`: Qubes unit files for SystemD init style. Installed by default.
