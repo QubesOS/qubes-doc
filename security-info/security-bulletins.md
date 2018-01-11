@@ -83,4 +83,5 @@ Qubes Security Bulletins are published through the [Qubes Security Pack](/securi
 -   [Qubes Security Bulletin \#34](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-034-2017.txt) (GUI issue and Xen vulnerabilities (XSA-237 through XSA-244))
 -   [Qubes Security Bulletin \#35](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-035-2017.txt) (Xen hypervisor issue related to grant tables (XSA-236))
 -   [Qubes Security Bulletin \#36](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-036-2017.txt) (Xen hypervisor issue in populate-on-demand code (XSA-247))
+-   [Qubes Security Bulletin \#37](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt) (Information leaks due to processor speculative execution bugs)
 
