@@ -44,7 +44,7 @@ To use this mode you need:
    [following this
    tutorial](https://www.yubico.com/products/services-software/personalization-tools/challenge-response/)
 2. Install `ykpers` package in template on which your USB VM is based.
-3. Create `/usr/local/bin/yubikey-auth` script:
+3. Create `/usr/local/bin/yubikey-auth` script in dom0:
 
        #!/bin/sh
 
