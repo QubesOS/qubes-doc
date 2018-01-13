@@ -37,10 +37,9 @@ more information on required and recommended hardware.
 
 **Note:** We don't recommend installing Qubes in a virtual machine! It will
 likely not work. Please don't send emails asking about it. You can, however,
-install it on an external USB hard drive and run from it, at least for testing.
-(Bear in mind, however, that such disks are typically *orders* of magnitude
-slower than even the slowest internal hard drives). We also have a [live USB]
-option (currently in alpha).
+install it on an external USB hard drive (at least 32 GB) and run from it,
+at least for testing. Bear in mind, however, that such disks are typically
+*orders* of magnitude slower than even the slowest internal hard drives.
 
 
 Downloading the ISO
@@ -85,7 +84,8 @@ simple and asks very few questions. (It's actually easier to install Qubes right
 now than most other Linux distributions!)
 
 The installer loads Xen right at the beginning, so chances are high that if you
-can see the installer's graphical screen, Qubes will work on your system. :)
+can see the installer's graphical screen and you pass the compatibility check that
+runs immediately after that, Qubes will work on your system. :)
 
 
 Installing to a USB drive
