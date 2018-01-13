@@ -7,6 +7,19 @@ permalink: /doc/uefi-troubleshooting/
 Troubleshooting UEFI related problems
 ========================================
 
+Change installer kernel parameters in UEFI
+---------------------
+
+If you've installed successfully in legacy mode but had to change some kernel parameters for it to work, you should try installing in UEFI with the same kernel parameters.
+
+Change the `xen.cfg` on a USB media
+
+01. Attach the usb disk, find the EFI partition and mount it
+02. Edit your xen.cfg changing the `kernel` key to add your kernel parameters on the boot entry of your choice
+03. Install using your modified boot entry
+
+You can also update an iso image, use `losetup` to isolate the EFI partition and mount it.
+
 
 Cannot start installation, installation completes successfully but then BIOS loops at boot device selection, hangs at four penguins after choosing "Test media and install Qubes OS" in GRUB menu
 ---------------------
