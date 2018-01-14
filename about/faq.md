@@ -93,6 +93,20 @@ Here are the answers for Xen 4.1 (which we use as of 2014-04-28):
 7.  Biggest performance hit on disk operations (especially in Qubes when complex 2-layer mapping used for Linux qubes). No GPU virtualization.
 8.  Mostly Works<sup>TM</sup> :)
 
+### Which virtualization modes do VMs use?
+
+Here is an overview of the VM virtualization modes that correspond to each Qubes OS version (as of 2018-01-13):
+
+VM Type \ Qubes OS version         | 3.2 | 3.2+ | 4.0-rc1-3 | 4.0-rc4 |
+---------------------------------- | --- | ---- | --------- | ------- |
+Default VMs without PCI devices    | PV  | PVH  |    HVM    |   PVH   |
+Default VMs with PCI devices       | PV  | PV   |    HVM    |   HVM   |
+Stub domains - Default VMs w/o PCI | N/A | N/A  |    PV     |   N/A   |
+Stub domains - Default VMs w/ PCI  | PV  | PV   |    PV     |   PV    |
+Stub domains - HVMs                | PV  | PV   |    PV     |   PV    |
+
+("3.2+" denotes Qubes 3.2 after applying the update discussed in [QSB #37](/news/2018/01/11/qsb-37/), which will result in most VMs running in PVH mode. "N/A" means "not applicable." PVH VMs do not require stub domains.)
+
 ### What's so special about Qubes' GUI virtualization?
 
 We have designed the GUI virtualization subsystem with two primary goals: security and performance. 
@@ -178,8 +192,11 @@ For further discussion about the potential for GPU passthrough on Xen/Qubes, ple
 No. 
 Qubes does not pretend to be a multi-user system. 
 Qubes assumes that the user who controls Dom0 controls the whole system. 
-It would be very difficult to **securely** implement multi-user support. 
+It is very difficult to **securely** implement multi-user support. 
 See [here](https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06) for details.
+
+However, in Qubes 4.x we will be implementing management functionality. See [Admin API](https://www.qubes-os.org/news/2017/06/27/qubes-admin-api/) and [Core Stack](https://www.qubes-os.org/news/2017/10/03/core3/) for more details.
+
 
 ### What are the system requirements for Qubes OS?
 
@@ -202,10 +219,14 @@ This also means that it is possible to update the software for several qubes sim
 
 ### How much memory is recommended for Qubes?
 
-At least 4 GB. 
+At least 4 GB, but 8 GB is more realistic. 
 It is possible to install Qubes on a system with 2 GB of RAM, but the system would probably not be able to run more than three qubes at a time.
 
-### Can I install Qubes on a system without VT-x?
+### Can I install Qubes 4.x on a system without VT-x or VT-d?
+
+Qubes 4.x requires Intel VT-x with EPT / AMD-V with RVI (SLAT) and Intel VT-d / AMD-Vi (aka AMD IOMMU) for proper functionality (see the [4.x System Requirements](/doc/system-requirements/#qubes-release-4x)). You may be able to install it without the required CPU features for testing purposes only, but VMs may not function correctly and there will be no security isolation. For more information, see our post on [updated requirements for Qubes-certified hardware](/news/2016/07/21/new-hw-certification-for-q4/).
+
+### Can I install Qubes 3.2 on a system without VT-x?
 
 Yes. 
 Xen doesn't use VT-x (or AMD-v) for PV guest virtualization. 
@@ -213,7 +234,7 @@ Xen doesn't use VT-x (or AMD-v) for PV guest virtualization.
 However, without VT-x, you won't be able to use fully virtualized VMs (e.g., Windows-based qubes), which were introduced in Qubes 2. 
 In addition, if your system lacks VT-x, then it also lacks VT-d. (See next question.)
 
-### Can I install Qubes on a system without VT-d?
+### Can I install Qubes 3.2 on a system without VT-d?
 
 Yes. 
 You can even run a NetVM, but you will not benefit from DMA protection for driver domains. 
@@ -238,7 +259,7 @@ Most attacks on NetVM / UsbVM (but not all!) require being somewhat close to the
 
 ### Can I use AMD-v instead of VT-x?
 
-See [this message](http://groups.google.com/group/qubes-devel/msg/6412170cfbcb4cc5).
+Yes, and see [this message](http://groups.google.com/group/qubes-devel/msg/6412170cfbcb4cc5).
 
 ### Can I install Qubes in a virtual machine (e.g., on VMware)?
 
@@ -248,7 +269,7 @@ Some users have been able to do this, but it is neither recommended nor supporte
 
 You may have an adapter (wired, wireless), that is not compatible with open-source drivers shipped by Qubes. There may be a binary blob, which provides drivers in the linux-firmware package.
 
-Open a terminal and run `sudo yum install linux-firmware` in the TemplateVM upon which your NetVM is based. You have to restart the NetVM after the TemplateVM has been shut down.
+Open a terminal and run `sudo dnf install linux-firmware` (or `sudo yum install linux-firmware` in Qubes versions prior to 3.2.1) in the TemplateVM upon which your NetVM is based. You have to restart the NetVM after the TemplateVM has been shut down.
 
 ### Can I install Qubes OS together with other operating system (dual-boot/multi-boot)?
 
@@ -289,7 +310,7 @@ This can usually be fixed by updating via the command line.
 
 In dom0, open a terminal and run `sudo qubes-dom0-update`.
 
-In your TemplateVMs, open a terminal and run `sudo yum upgrade`.
+In your TemplateVMs, open a terminal and run `sudo dnf upgrade` (or `sudo yum upgrade` for Qubes older than 3.2.1).
 
 ### How do I run a Windows HVM in non-seamless mode (i.e., as a single window)?
 
@@ -298,8 +319,9 @@ Enable "debug mode" in the qube's settings, either by checking the box labeled "
 ### I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.
 
 This is probably because one of the controllers does not support reset. 
-In Qubes R2 any such errors were ignored but in Qubes R3.0 they are not.
-A device that does not support reset is not safe and generally should not be assigned to a VM.
+In Qubes R2 any such errors were ignored. In Qubes R3.x they are not. In R4.x, devices that are automatically added to sys-net and sys-usb on install but do not support FLR will be attached with the no-strict-reset option, but see the related warning in the last sentence in this answer.
+
+A device that does not support reset is not ideal and generally should not be assigned to a VM.
 
 Most likely the offending controller is a USB 3.0 device. 
 You can remove this controller from the usbVM, and see if this allows the VM to boot.
@@ -321,11 +343,17 @@ Errors suggesting this issue:
         internal error: Unable to reset PCI device [...]  no FLR, PM reset or bus reset available.
 
 
-Another solution would be to set the pci_strictreset option using qvm-prefs in dom0:
+Another solution would be to set the pci_strictreset option in dom0:
 
-`qvm-prefs usbVM -s pci_strictreset false`
+ - In Qubes R4.x, when attaching the PCI device to the VM (where <BDF> can be obtained from running [qvm-pci](/doc/dom0-tools/qvm-pci/)):
 
-This option allows the VM to ignore the error and the VM will start.
+        qvm-pci attach -persistent -option no-strict-reset=true usbVM dom0:<BDF>
+
+ - In Qubes R3.x, by modifying the VM's properties:
+
+        qvm-prefs usbVM -s pci_strictreset false
+
+These options allow the VM to ignore the error and the VM will start.
 Please review the note on [this page](https://www.qubes-os.org/doc/Dom0Tools/QvmPrefs/) and be aware of the potential risk.
 
 ### I assigned a PCI device to a qube, then unassigned it/shut down the qube. Why isn't the device available in dom0?
@@ -385,10 +413,8 @@ For Fedora:
 
 ### How do I access my external drive?
 
-External media such as external hard drives or flash drives plugged in via USB are available in the sys-usb VM.
-They can either be manually mounted with the `mount` command, or accessed conveniently via the graphical file manager which mounts them under `/run/media/user`.
-
-Devices which are passed from one VM to another via `qvm-block` show up as `/dev/xvd*` and must be mounted manually.
+The recommended approach is to pass only the specific partition you intend to use from [`sys-usb`](/doc/usb/) to another qube via [qvm-block](/doc/dom0-tools/qvm-block/). They will show up in the destination qube as `/dev/xvd*` and must be mounted manually. Another approach is to use the Qubes VM Manager. Simply insert your USB drive, right-click on the desired qube in the Qubes VM Manager list, click Attach/detach block devices, and select your desired action and device.
+Although external media such as external hard drives or flash drives plugged in via USB are available in the USB qube, it is recommended not to access them directly from inside the USB qube.
 See ["How to attach USB drives"](/doc/usb/#how-to-attach-usb-drives) for more information.
 
 ### My encrypted drive doesn't appear in Debian qube.
