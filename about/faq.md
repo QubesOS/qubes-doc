@@ -93,17 +93,19 @@ Here are the answers for Xen 4.1 (which we use as of 2014-04-28):
 7.  Biggest performance hit on disk operations (especially in Qubes when complex 2-layer mapping used for Linux qubes). No GPU virtualization.
 8.  Mostly Works<sup>TM</sup> :)
 
-Here is an overview of the VM modes that correspond to each Qubes OS
-version:
+### Which virtualization modes do VMs use?
 
-VM type \ Qubes OS version         | 3.2 | 3.2.+| 4.0-rc1-3 | 4.0-rc4 |
+Here is an overview of the VM virtualization modes that correspond to each Qubes OS version (as of 2018-01-13):
+
+VM Type \ Qubes OS version         | 3.2 | 3.2+ | 4.0-rc1-3 | 4.0-rc4 |
 ---------------------------------- | --- | ---- | --------- | ------- |
 Default VMs without PCI devices    | PV  | PVH  |    HVM    |   PVH   |
 Default VMs with PCI devices       | PV  | PV   |    HVM    |   HVM   |
-Stub domains - VMs w/o PCI devices | PV  | N/A  |    PV     |   N/A   |
-Stub domains - VMs w/ PCI devices  | PV  | PV   |    PV     |   PV    |
+Stub domains - Default VMs w/o PCI | N/A | N/A  |    PV     |   N/A   |
+Stub domains - Default VMs w/ PCI  | PV  | PV   |    PV     |   PV    |
+Stub domains - HVMs                | PV  | PV   |    PV     |   PV    |
 
-("N/A" means "not applicable," since HVMs do not require stub domains.)
+("3.2+" denotes Qubes 3.2 after applying the update discussed in [QSB #37](/news/2018/01/11/qsb-37/), which will result in most VMs running in PVH mode. "N/A" means "not applicable." PVH VMs do not require stub domains.)
 
 ### What's so special about Qubes' GUI virtualization?
 
