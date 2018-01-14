@@ -224,7 +224,7 @@ It is possible to install Qubes on a system with 2 GB of RAM, but the system wou
 
 ### Can I install Qubes 4.x on a system without VT-x or VT-d?
 
-Qubes 4.x requires Intel VT-x with EPT / AMD-V with RVI (SLAT) and Intel VT-d / AMD-Vi (aka AMD IOMMU) for proper functionality. You may be able to install it without the required CPU features for testing purposes only, but VMs may not function correctly and there will be no security isolation. 
+Qubes 4.x requires Intel VT-x with EPT / AMD-V with RVI (SLAT) and Intel VT-d / AMD-Vi (aka AMD IOMMU) for proper functionality (see the [4.x System Requirements](/doc/system-requirements/#qubes-release-4x)). You may be able to install it without the required CPU features for testing purposes only, but VMs may not function correctly and there will be no security isolation. For more information, see our post on [updated requirements for Qubes-certified hardware](/news/2016/07/21/new-hw-certification-for-q4/).
 
 ### Can I install Qubes 3.2 on a system without VT-x?
 
