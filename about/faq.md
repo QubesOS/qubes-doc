@@ -102,10 +102,10 @@ VM Type \ Qubes OS version         | 3.2 | 3.2+ | 4.0-rc1-3 | 4.0-rc4 |
 Default VMs without PCI devices    | PV  | PVH  |    HVM    |   PVH   |
 Default VMs with PCI devices       | PV  | PV   |    HVM    |   HVM   |
 Stub domains - Default VMs w/o PCI | N/A | N/A  |    PV     |   N/A   |
-Stub domains - Default VMs w/ PCI  | PV  | PV   |    PV     |   PV    |
+Stub domains - Default VMs w/ PCI  | N/A | N/A  |    PV     |   PV    |
 Stub domains - HVMs                | PV  | PV   |    PV     |   PV    |
 
-("3.2+" denotes Qubes 3.2 after applying the update discussed in [QSB #37](/news/2018/01/11/qsb-37/), which will result in most VMs running in PVH mode. "N/A" means "not applicable." PVH VMs do not require stub domains.)
+("3.2+" denotes Qubes 3.2 after applying the update discussed in [QSB #37](/news/2018/01/11/qsb-37/), which will result in most VMs running in PVH mode. "N/A" means "not applicable," since PV and PVH VMs do not require stub domains.)
 
 ### What's so special about Qubes' GUI virtualization?
 
