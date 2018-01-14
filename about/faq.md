@@ -413,10 +413,9 @@ For Fedora:
 
 ### How do I access my external drive?
 
-The recommended approach is to pass only the specific partition you intend to use from sys-usb to another qube via [qvm-block](/doc/dom0-tools/qvm-block/). They will show up in the destination qube as `/dev/xvd*` and must be mounted manually. The next best approach is to use the Qubes VM Manager GUI. Simply insert your USB drive, right-click on the desired qube in the Qubes VM Manager list, click Attach/detach block devices, and select your desired action and device.
+The recommended approach is to pass only the specific partition you intend to use from [`sys-usb`](/doc/usb/) to another qube via [qvm-block](/doc/dom0-tools/qvm-block/). They will show up in the destination qube as `/dev/xvd*` and must be mounted manually. Another approach is to use the Qubes VM Manager. Simply insert your USB drive, right-click on the desired qube in the Qubes VM Manager list, click Attach/detach block devices, and select your desired action and device.
+Although external media such as external hard drives or flash drives plugged in via USB are available in the USB qube, it is recommended not to access them directly from inside the USB qube.
 See ["How to attach USB drives"](/doc/usb/#how-to-attach-usb-drives) for more information.
-
-Although external media such as external hard drives or flash drives plugged in via USB are available in the sys-usb qube, they should not be accessed directly from it.
 
 ### My encrypted drive doesn't appear in Debian qube.
 
