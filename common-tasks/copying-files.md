@@ -32,7 +32,12 @@ GUI
 CLI
 ---
 
+qvm-copy [--without-progress] dest_vmname file [file]+
+
 [qvm-copy-to-vm](/doc/vm-tools/qvm-copy-to-vm/)
+
+note: qvm-copy-to-vm/qvm-move-to-vm tools are deprecated, use qvm-copy/qvm-move to avoid typing target qube name twice
+
 
 On inter-qube file copy security
 ----------------------------------
