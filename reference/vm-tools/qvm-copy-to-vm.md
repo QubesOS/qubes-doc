@@ -14,7 +14,10 @@ qvm-copy-to-vm
 NAME
 ----
 
-qvm-copy-to-vm - copy specified files to specified destination VM
+qvm-copy - copy specified files to destination VM (chosen afterward in dom0 qubes.Filecopy popup dialog)
+
+deprecated: qvm-copy-to-vm - copy specified files to specified destination VM
+qvm-copy-to-vm/qvm-move-to-vm tools are deprecated 2017-01, use qvm-copy/qvm-move to avoid typing target qube name twice
 
 Date  
 2012-05-30
@@ -22,7 +25,7 @@ Date
 SYNOPSIS
 --------
 
-qvm-copy-to-vm [--without-progress] dest\_vmname file [file]+
+qvm-copy file [file]+
 
 OPTIONS
 -------
