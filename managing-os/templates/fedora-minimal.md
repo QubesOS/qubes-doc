@@ -37,18 +37,6 @@ It is higly recommended to clone the original template, and make any changes in 
 
 You must start the template in order to customize it.
 
-For Qubes R4.0, sudo is not installed by default in the minimal template.  To update or install packages, from a dom0 terminal window:
-
-~~~
-[user@dom0 ~]$ qvm-run -u root fedora-26-minimal xterm
-~~~
-
-If you would like to skip this step in future, please install the `sudo` package:
-
-~~~
-[user@your-new-clone ~]$ dnf install sudo
-~~~
-
 Customization
 -------------
 
@@ -77,6 +65,18 @@ A comprehensive guide to customizing the minimal template is available [here][GU
 
 Qubes 4.0
 ---------
+
+In Qubes R4.0, sudo is not installed by default in the minimal template.  To update or install packages to it, from a dom0 terminal window:
+
+~~~
+[user@dom0 ~]$ qvm-run -u root fedora-26-minimal xterm
+~~~
+
+If you would like to skip this step in future, please install the `sudo` package:
+
+~~~
+[user@your-new-clone ~]$ dnf install sudo
+~~~
 
 In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be needed to make the customized minimal template work properly. These packages are:
 
