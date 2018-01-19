@@ -382,25 +382,11 @@ details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
 
 - Work at upstream Tor: An older version of https://trac.torproject.org/projects/tor/wiki/doc/TransparentProxy page was the origin of Whonix. Update that page for nftables / IPv6 support without mentioning Whonix. Then discuss that on the tor-talk mailing list for wider input. - https://trac.torproject.org/projects/tor/ticket/21397
 - implement corridor feature request add IPv6 support / port to nftables - https://github.com/rustybird/corridor/issues/39
-- port whonix-gw-firewall to nftables
-- port whonix-ws-firewall to nftables
+- port [whonix-firewall](https://github.com/Whonix/whonix-firewall) to nftables
 - make connections to IPv6 Tor relays work
 - make connections to IPv6 destinations work
 
 **Knowledge prerequisite**: 
-
-**Mentor**: [Patrick Schleizer](/team/)
-
-### Standalone connection wizard for Tor pluggable transports
-**Project**: Standalone connection wizard for Tor pluggable transports
-
-**Brief explanation**: [#1938](https://github.com/QubesOS/qubes-issues/issues/1938), https://www.whonix.org/blog/connection-bridge-wizard, https://github.com/Whonix/anon-connection-wizard
-
-**Expected results**: 
-
-Users are presented with a GUI where they can select different bridges to use to connect to Tor if it is censored in their country/region, just like with the Tor Browser.
-
-**Knowledge prerequisite**:
 
 **Mentor**: [Patrick Schleizer](/team/)
 
