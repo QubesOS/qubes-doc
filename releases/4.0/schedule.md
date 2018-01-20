@@ -22,4 +22,4 @@ This schedule is based on [Version Scheme](/doc/version-scheme/#release-schedule
 | 11 Dec 2017 | decide whether 4.0-rc3 is the final 4.0 |
 |  1 Jan 2018 | current-testing freeze before 4.0-rc4 |
 | <strike>8 Jan 2018</strike><br/>TBD | 4.0-rc4 release |
-| 22 Jan 2018 | decide whether 4.0-rc4 is the final 4.0 |
+| <strike>22 Jan 2018</strike><br/>TBD | decide whether 4.0-rc4 is the final 4.0 |
