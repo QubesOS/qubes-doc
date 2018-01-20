@@ -227,6 +227,21 @@ displayed to accept this.
 
 <br />
 
+Qubes 4.0
+---------
+New qrexec policies in Qubes R4.0 by default require the user to enter the name 
+of the domain containing GPG keys each time it is accessed.  To improve usability 
+for Thunderbird+Enigmail, in `dom0` place the following line at the top of the file 
+`/etc/qubes-rpc/policy/qubes.Gpg`:
+
+```
+work-email  work-gpg  allow
+```
+where `work-email` is the Thunderbird+Enigmail AppVM and `work-gpg` contains 
+your GPG keys.
+
+<br />
+
 Advanced: Using Split GPG with Subkeys
 --------------------------------------
 Users with particularly high security requirements may wish to use Split
