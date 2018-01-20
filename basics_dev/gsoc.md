@@ -391,19 +391,6 @@ details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
 
 **Mentor**: [Patrick Schleizer](/team/)
 
-### Standalone connection wizard for Tor pluggable transports
-**Project**: Standalone connection wizard for Tor pluggable transports
-
-**Brief explanation**: [#1938](https://github.com/QubesOS/qubes-issues/issues/1938), https://www.whonix.org/blog/connection-bridge-wizard, https://github.com/Whonix/anon-connection-wizard
-
-**Expected results**: 
-
-Users are presented with a GUI where they can select different bridges to use to connect to Tor if it is censored in their country/region, just like with the Tor Browser.
-
-**Knowledge prerequisite**:
-
-**Mentor**: [Patrick Schleizer](/team/)
-
 ### Leverage modern static & dynamic analysis
 **Project**: Leverage modern static & dynamic analysis
 
