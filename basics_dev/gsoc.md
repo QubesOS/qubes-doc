@@ -5,7 +5,7 @@ permalink: /gsoc/
 redirect_from: /GSoC/
 ---
 
-2017 Google Summer of Code
+2018 Google Summer of Code
 ================
 
 ## Information for Students
@@ -17,6 +17,8 @@ Being accepted as a Google Summer of Code student is quite competitive. Students
 You don't have to be a proven developer -- in fact, this whole program is meant to facilitate joining Qubes and other free and open source communities. The Qubes community maintains information about [contributing to Qubes development][contributing] and [how to send patches][patches]. In order to contribute code to the Qubes project, you must be able to [sign your code][code-signing].
 
 You should start learning the components that you plan on working on before the start date. Qubes developers are available on the [mailing lists][ml-devel] for help. The GSoC timeline reserves a lot of time for bonding with the project -- use that time wisely. Good communication is key, you should plan to communicate with your team daily and formally report progress and plans weekly. Students who neglect active communication will be failed.
+
+You can view the projects we had in 2017 in the [GSoC archive here][2017-archive].
 
 ### Overview of Steps
 
@@ -548,6 +550,7 @@ Details, reference: [#2233](https://github.com/QubesOS/qubes-issues/issues/2233)
 
 We adapted some of the language here about GSoC from the [KDE GSoC page](https://community.kde.org/GSoC).
 
+[2017-archive]: https://summerofcode.withgoogle.com/archive/2017/organizations/5074771758809088/
 [gsoc-qubes]: https://summerofcode.withgoogle.com/organizations/6239659689508864/
 [gsoc]: https://summerofcode.withgoogle.com/
 [team]: https://www.qubes-os.org/team/
