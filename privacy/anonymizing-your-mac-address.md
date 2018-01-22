@@ -34,10 +34,11 @@ wifi.scan-rand-mac-address=yes
 [connection]
 wifi.cloned-mac-address=stable
 ethernet.cloned-mac-address=stable
+connection.stable-id=${CONNECTION}/${BOOT}
 ~~~
 
-`stable` generates a random address that persists for each boot session.
-`random` generates a random address each time a link goes up.
+* `stable` in combination with `${CONNECTION}/${BOOT}` generates a random address that persists for each boot session.
+* `random` generates a random address each time a link goes up.
 
 To see all the available configuration options, refer to the man page: `man nm-settings`
 
