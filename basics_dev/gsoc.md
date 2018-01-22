@@ -285,7 +285,7 @@ with IPv6 being available or not in directly connected network. See
  - writing Thunderbird/Firefox extensions (XUL, javascript)
  - writing Chrome extensions (javascript)
 
-**Mentor**: [Jean-Philippe Ouellet](mailto:jpo@vt.edu)
+**Mentor**: Inquire on [qubes-devel][ml-devel].
 
 ### LogVM(s)
 
@@ -316,7 +316,7 @@ immune to altering past entries. See
  - systemd
  - Python/Bash scripting
 
-**Mentor**: [Jean-Philippe Ouellet](mailto:jpo@vt.edu)
+**Mentor**: Inquire on [qubes-devel][ml-devel].
 
 ### GUI improvements
 
@@ -340,7 +340,7 @@ immune to altering past entries. See
 
  - Python, PyGTK
 
-**Mentor**: [Jean-Philippe Ouellet](mailto:jpo@vt.edu)
+**Mentor**: Inquire on [qubes-devel][ml-devel].
 
 ### Xen GPU pass-through for Intel integrated GPUs
 **Project**: Xen GPU pass-through for Intel integrated GPUs (largely independent of Qubes)
@@ -391,28 +391,6 @@ details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
 **Knowledge prerequisite**: 
 
 **Mentor**: [Patrick Schleizer](/team/)
-
-### Leverage modern static & dynamic analysis
-**Project**: Leverage modern static & dynamic analysis
-
-**Brief explanation**:
-
-**Expected results**: Stand up tooling to automatically run various tools against the Qubes code base, and address as many found issues as possible.
-
-**Knowledge prerequisite**: Familiarity with various analysis tools & techniques, including but not limited to: valgrind, coverity, clang's sanitizers, guided fuzzing.
-
-**Mentor**: [Jean-Philippe Ouellet](mailto:jpo@vt.edu)
-
-### Formally analyze how untrusted inputs propagate through the Qubes code base
-**Project**: Formally analyze how untrusted inputs propagate through the Qubes code base
-
-**Brief explanation**: It would be useful to have a rigorous understanding of what code paths are reachable and which state can be affected via input from untrusted domains. Such analysis would likely involve building a model of the system with a combination of taint tracking and static and symbolic analysis.
-
-**Expected results**: A rigorous model of the scope of code paths and state reachable or affectable from other (Xen) domains.
-
-**Knoledge prerequisite**: Frama-C, pytaint, angr, others.
-
-**Mentor**: [Jean-Philippe Ouellet](mailto:jpo@vt.edu)
 
 ### Audio support for Qubes Windows Tools
 **Project**: Audio support for Qubes Windows Tools
