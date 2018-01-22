@@ -72,12 +72,6 @@ In Qubes R4.0, sudo is not installed by default in the minimal template.  To upd
 [user@dom0 ~]$ qvm-run -u root fedora-26-minimal xterm
 ~~~
 
-If you would like to skip this step in future, please install the `sudo` package:
-
-~~~
-[user@your-new-clone ~]$ dnf install sudo
-~~~
-
 In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be needed to make the customized minimal template work properly. These packages are:
 
 - `qubes-core-agent-qrexec`: Qubes qrexec agent. Installed by default.
@@ -87,7 +81,8 @@ In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be neede
 - `qubes-core-agent-sysvinit`: Qubes unit files for SysV init style or upstart.
 - `qubes-core-agent-networking`: Networking support. Useful if the template has to be used for a `sys-net` VM.
 - `qubes-core-agent-network-manager`: Integration for NetworkManager. Useful if the template has to be used for a `sys-net` VM.
-- `qubes-core-agent-dom0-updates`: Script required to handle `dom0` updates. Any template which the VM respondible for 'dom0' updates is based on must contain this package.
+- `qubes-core-agent-dom0-updates`: Script required to handle `dom0` updates. Any template which the VM responsible for 'dom0' updates (e.g. `sys-firewall`) is based on must contain this package.
+- `qubes-usb-proxy`: Required in minimal template for a USB qube (`sys-usb`) as well as in minimal template for any destination domains to which USB devices are to be attached (e.g `sys-net` if using USB network adapter).   
 - `pulseaudio-qubes`: Needed to have audio on the template VM.
 
 
