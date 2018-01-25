@@ -82,13 +82,13 @@ Run a terminal (CLI) in the VPN VM -- this will start the VM. Then create a new 
     
         sudo mkdir /rw/config/vpn
     
-Copy your VPN config files to `/rw/config/vpn`. Your VPN config file should be named `openvpn-client.ovpn`) so you can use the scripts below as is without modification. Otherwise you would have to replace the file name.
+Copy your VPN config files to `/rw/config/vpn`. Your VPN config file should be named `openvpn-client.ovpn`) so you can use the scripts below as is without modification. Otherwise you would have to replace the file name. `openvpn-client.ovpn` contents:
 
 Files accompanying the main config such as `*.crt` and `*.pem` should also go to `/rw/config/vpn` folder.
 
-Files reference in `openvpn-client.ovpn` should not be referenced by absolute paths such as `/etc/...`.
+Files referenced in `openvpn-client.ovpn` should not use absolute paths such as `/etc/...`.
 
-`openvpn-client.ovpn` contents: The VPN scripts here are intended to work with commonly used `tun` interfaces, whereas `tap` mode is untested.
+The VPN scripts here are intended to work with commonly used `tun` interfaces, whereas `tap` mode is untested.
 
 Also, the config should route all traffic through your VPN's interface after a connection is created; For openvpn the directive for this is `redirect-gateway def1`. For OpenVPN.
 
