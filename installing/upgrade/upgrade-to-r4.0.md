@@ -31,7 +31,7 @@ Backup R3.2
 
 2.  Create an AppVM to be used for testing (in **Qubes VM Manager**, select the **VM -> Create New VM** menu item). It will be deleted later so just accept the defaults.
 
-3.  Shutdown all non-essential VMs. Typically, `sys-usb` wil be the only VM you need to leave running.
+3.  Shutdown all non-essential VMs. Typically, `sys-usb` will be the only VM you need to leave running.
 
 4.  Follow the **Creating a Backup** section in the [Backup, Restoration, and Migration](/doc/backup-restore) guide to back up **all VMs** except sys-usb. 
 
@@ -46,7 +46,7 @@ Install R4.0
 
 1.  Shutdown R3.2 and boot the R4.0 installer.
 
-2.  Follow the installation prompts, except when you get to the drive selection screen choose **I want to make additional space available**. Put a checkmark on the top of the list to select all partitions. **THIS WILL ERASE THE ENTIRE DRIVE**, so only do this if Qubes is the only OS installed on your computer. If you did not test restoring a VM in the previous section, cancel the install, go back and do that now. 
+2.  Follow the installation prompts, except when you get to the drive selection screen choose **I want to make additional space available**. Put a check-mark on the top of the list to select all partitions. **THIS WILL ERASE THE ENTIRE DRIVE**, so only do this if Qubes is the only OS installed on your computer. If you did not test restoring a VM in the previous section, cancel the install, go back and do that now. 
 
 3.  Complete the R4.0 installation. Consult the same resources if you run into trouble.
 
