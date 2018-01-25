@@ -7,7 +7,6 @@ redirect_from: /GSoC/
 
 2018 Google Summer of Code
 ================
-
 ## Information for Students
 
 Thank you for your interest in participating in the [Google Summer of Code program][gsoc-qubes] with the [Qubes OS team][team]. You can read more about the Google Summer of Code program at the [official website][gsoc] and the [official FAQ][gsoc-faq].
@@ -524,6 +523,17 @@ Details, reference: [#2233](https://github.com/QubesOS/qubes-issues/issues/2233)
 
 **Mentor**:
 
+### Generalize the Qubes PDF Converter to other types of files
+
+**Project**: Qubes Converters
+
+**Brief explanation**: One of the pioneering ideas of Qubes is to use disposable virtual machines to convert untrustworthy files (such as documents given to journalists by unknown and potentially malicious whistleblowers) into trusthworhty files.  See [Joanna's blog on the Qubes PDF Convert](http://theinvisiblethings.blogspot.co.uk/2013/02/converting-untrusted-pdfs-into-trusted.html) for details of the idea.  Joanna has implemented a prototype for PDF documents.  The goal of this project would be to generalize beyond the simple prototype to accommodate a wide variety of file formats, including Word documents, audio files, video files, spreadsheets, and so on.  The converters should prioritise safety over faithful conversion.  For example the Qubes PDF converter typically leads to lower quality PDFs (e.g. cut and paste is no longer possible), because this makes the conversion process safer.
+
+**Expected results**: We expect that in the timeframe, it will be possible to implement many converters for many file formats.  However, if any unexpected difficulties arise, we would prioritise a small number of safe and high quality converters over a large number of unsafe or unuseful converters.
+
+**Knowledge prerequisite**: Most of the coding will probably be implemented as shell scripts to interface with pre-existing converts (such as ImageMagick in the Qubes PDF converter).  However, shell scripts are not safe for processing untrusted data, so any extra processing will need to be implemented in another language -- probably Python.
+
+**Mentors**: Andrew Clausen and Jean-Philippe Ouellet
 ----
 
 We adapted some of the language here about GSoC from the [KDE GSoC page](https://community.kde.org/GSoC).
