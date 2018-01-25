@@ -173,6 +173,11 @@ Add a line like this one to the top of the file:
 
 You can now use your USB keyboard.
 
+For a confirmation dialog each time the USB keyboard is connected, change this line to:
+```
+sys-usb dom0 ask,default_target=dom0
+```
+
 How to use a USB mouse
 ----------------------
 
@@ -183,13 +188,18 @@ Edit the `qubes.InputMouse` policy file in dom0, which is located here:
 
     /etc/qubes-rpc/policy/qubes.InputMouse
 
-Add a line like this to the op of the file:
+Add a line like this to the top of the file:
 
     sys-usb dom0 allow,user=root
     
 (Change `sys-usb` to your desired USB qube.)
 
 You can now use your USB mouse.
+
+For a confirmation dialog each time the USB mouse is connected, change this line to:
+```
+sys-usb dom0 ask,default_target=dom0
+```
 
 How to attach USB drives
 ------------------------

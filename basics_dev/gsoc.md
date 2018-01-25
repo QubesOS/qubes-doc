@@ -5,7 +5,7 @@ permalink: /gsoc/
 redirect_from: /GSoC/
 ---
 
-2017 Google Summer of Code
+2018 Google Summer of Code
 ================
 
 ## Information for Students
@@ -17,6 +17,8 @@ Being accepted as a Google Summer of Code student is quite competitive. Students
 You don't have to be a proven developer -- in fact, this whole program is meant to facilitate joining Qubes and other free and open source communities. The Qubes community maintains information about [contributing to Qubes development][contributing] and [how to send patches][patches]. In order to contribute code to the Qubes project, you must be able to [sign your code][code-signing].
 
 You should start learning the components that you plan on working on before the start date. Qubes developers are available on the [mailing lists][ml-devel] for help. The GSoC timeline reserves a lot of time for bonding with the project -- use that time wisely. Good communication is key, you should plan to communicate with your team daily and formally report progress and plans weekly. Students who neglect active communication will be failed.
+
+You can view the projects we had in 2017 in the [GSoC archive here][2017-archive].
 
 ### Overview of Steps
 
@@ -283,7 +285,7 @@ with IPv6 being available or not in directly connected network. See
  - writing Thunderbird/Firefox extensions (XUL, javascript)
  - writing Chrome extensions (javascript)
 
-**Mentor**: [Jean-Philippe Ouellet](mailto:jpo@vt.edu)
+**Mentor**: Inquire on [qubes-devel][ml-devel].
 
 ### LogVM(s)
 
@@ -314,7 +316,7 @@ immune to altering past entries. See
  - systemd
  - Python/Bash scripting
 
-**Mentor**: [Jean-Philippe Ouellet](mailto:jpo@vt.edu)
+**Mentor**: Inquire on [qubes-devel][ml-devel].
 
 ### GUI improvements
 
@@ -338,7 +340,7 @@ immune to altering past entries. See
 
  - Python, PyGTK
 
-**Mentor**: [Jean-Philippe Ouellet](mailto:jpo@vt.edu)
+**Mentor**: Inquire on [qubes-devel][ml-devel].
 
 ### Xen GPU pass-through for Intel integrated GPUs
 **Project**: Xen GPU pass-through for Intel integrated GPUs (largely independent of Qubes)
@@ -382,49 +384,13 @@ details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
 
 - Work at upstream Tor: An older version of https://trac.torproject.org/projects/tor/wiki/doc/TransparentProxy page was the origin of Whonix. Update that page for nftables / IPv6 support without mentioning Whonix. Then discuss that on the tor-talk mailing list for wider input. - https://trac.torproject.org/projects/tor/ticket/21397
 - implement corridor feature request add IPv6 support / port to nftables - https://github.com/rustybird/corridor/issues/39
-- port whonix-gw-firewall to nftables
-- port whonix-ws-firewall to nftables
+- port [whonix-firewall](https://github.com/Whonix/whonix-firewall) to nftables
 - make connections to IPv6 Tor relays work
 - make connections to IPv6 destinations work
 
 **Knowledge prerequisite**: 
 
 **Mentor**: [Patrick Schleizer](/team/)
-
-### Standalone connection wizard for Tor pluggable transports
-**Project**: Standalone connection wizard for Tor pluggable transports
-
-**Brief explanation**: [#1938](https://github.com/QubesOS/qubes-issues/issues/1938), https://www.whonix.org/blog/connection-bridge-wizard, https://github.com/Whonix/anon-connection-wizard
-
-**Expected results**: 
-
-Users are presented with a GUI where they can select different bridges to use to connect to Tor if it is censored in their country/region, just like with the Tor Browser.
-
-**Knowledge prerequisite**:
-
-**Mentor**: [Patrick Schleizer](/team/)
-
-### Leverage modern static & dynamic analysis
-**Project**: Leverage modern static & dynamic analysis
-
-**Brief explanation**:
-
-**Expected results**: Stand up tooling to automatically run various tools against the Qubes code base, and address as many found issues as possible.
-
-**Knowledge prerequisite**: Familiarity with various analysis tools & techniques, including but not limited to: valgrind, coverity, clang's sanitizers, guided fuzzing.
-
-**Mentor**: [Jean-Philippe Ouellet](mailto:jpo@vt.edu)
-
-### Formally analyze how untrusted inputs propagate through the Qubes code base
-**Project**: Formally analyze how untrusted inputs propagate through the Qubes code base
-
-**Brief explanation**: It would be useful to have a rigorous understanding of what code paths are reachable and which state can be affected via input from untrusted domains. Such analysis would likely involve building a model of the system with a combination of taint tracking and static and symbolic analysis.
-
-**Expected results**: A rigorous model of the scope of code paths and state reachable or affectable from other (Xen) domains.
-
-**Knoledge prerequisite**: Frama-C, pytaint, angr, others.
-
-**Mentor**: [Jean-Philippe Ouellet](mailto:jpo@vt.edu)
 
 ### Audio support for Qubes Windows Tools
 **Project**: Audio support for Qubes Windows Tools
@@ -562,6 +528,7 @@ Details, reference: [#2233](https://github.com/QubesOS/qubes-issues/issues/2233)
 
 We adapted some of the language here about GSoC from the [KDE GSoC page](https://community.kde.org/GSoC).
 
+[2017-archive]: https://summerofcode.withgoogle.com/archive/2017/organizations/5074771758809088/
 [gsoc-qubes]: https://summerofcode.withgoogle.com/organizations/6239659689508864/
 [gsoc]: https://summerofcode.withgoogle.com/
 [team]: https://www.qubes-os.org/team/
