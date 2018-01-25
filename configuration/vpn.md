@@ -257,8 +257,9 @@ If you are using anything other than OpenVPN, change the `VPN_CLIENT` and `VPN_O
 
 Save the script.
 
-Make it executable:  
-    `sudo chmod +x /rw/config/rc.local`
+Make it executable.
+
+       sudo chmod +x /rw/config/rc.local`
     
 6. Restart the new VM! The link should then be established automatically with a popup notification to that effect.
 
