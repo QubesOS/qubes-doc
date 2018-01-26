@@ -58,10 +58,14 @@ Of course, command line tools are still available for accomplishing various upda
     sudo qubes-dom0-update package-version
     ~~~
 
-    Yum will say that there is no update, but the package will nonetheless be downloaded to dom0.
+    Dnf/Yum will say that there is no update, but the package will nonetheless be downloaded to dom0.
 
-2.  Downgrade the package:
+2.  Downgrade the package (R4.0+):
 
+    ~~~
+    sudo dnf downgrade package-version
+    ~~~
+    R3.2 and earlier
     ~~~
     sudo yum downgrade package-version
     ~~~
@@ -76,20 +80,26 @@ You can re-install in a similar fashion to downgrading.
     sudo qubes-dom0-update package
     ~~~
 
-    Yum will say that there is no update, but the package will nonetheless be downloaded to dom0.
+    Dnf/Yum will say that there is no update, but the package will nonetheless be downloaded to dom0.
 
-2.  Re-install the package:
+2.  Re-install the package (R4.0+):
 
+    ~~~
+    sudo dnf reinstall package
+    ~~~
+    R3.2 and earlier
     ~~~
     sudo yum reinstall package
     ~~~
 
-    Note that yum will only re-install if the installed and downloaded versions match. You can ensure they match by either updating the package to the latest version, or specifying the package version in the first step using the form `package-version`.
+    Note that Dnf/Yum will only re-install if the installed and downloaded versions match. You can ensure they match by either updating the package to the latest version, or specifying the package version in the first step using the form `package-version`.
 
 ### How to uninstall a package
 
-If you've installed a package such as anti-evil-maid, you can remove it with the following command:
+If you've installed a package such as anti-evil-maid, you can remove it with the following command (R4.0+):
 
+    sudo dnf remove anti-evil-maid
+R3.2 and earlier
     sudo yum remove anti-evil-maid
     
 ### Testing repositories
@@ -124,8 +134,16 @@ is needed for the VMs. (Note that the following example enables the unstable rep
 sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable kernel kernel-qubes-vm
 ~~~
 
-Rebuild grub config.
+If the update process does not automatically do it (you should see it mentioned in the CLI output
+from the update command), you may need to manually rebuild the EFI or grub config depending on which
+your system uses.
 
+EFI (Replace the file names with the correct versions for your updated kernel)
+~~~
+sudo /usr/bin/dracut -f /boot/efi/EFI/qubes/initramfs-4.4.31-11.pvops.qubes.x86_64.img 4.4.31-11.pvops.qubes.x86_64
+~~~
+
+Grub2
 ~~~
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 ~~~
