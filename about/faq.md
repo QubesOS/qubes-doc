@@ -103,7 +103,7 @@ Default VMs without PCI devices    | PV  |    HVM    |   PVH   |
 Default VMs with PCI devices       | PV  |    HVM    |   HVM   |
 Stub domains - Default VMs w/o PCI | N/A |    PV     |   N/A   |
 Stub domains - Default VMs w/ PCI  | N/A |    PV     |   PV    |
-Stub domains - HVMs | PV | PV | PV |
+Stub domains - HVMs                | PV  |    PV     |   PV    |
 
 ### What's so special about Qubes' GUI virtualization?
 
