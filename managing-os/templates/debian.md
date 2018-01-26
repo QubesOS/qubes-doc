@@ -25,8 +25,8 @@ can also obtain the key from [git
 repository](https://github.com/QubesOS/qubes-core-agent-linux/blob/master/misc/qubes-archive-keyring.gpg),
 which is also integrity-protected using signed git tags.
 
-Install
--------
+Installing
+----------
 
 Templates can be installed with the following command:
 
@@ -57,6 +57,12 @@ Simply replace all instances of "jessie" with "stretch".
 
     Full instructions are on [this page][stretch]
 
+Upgrading
+---------
+
+To upgrade your Debian TemplateVM, please consult the guide that corresponds to your situation:
+
+ * [Upgrading the Debian 8 Template to Debian 9](/doc/template/debian/upgrade-8-to-9/)
 
 
 Known issues
@@ -101,9 +107,12 @@ Contributing
 
 If you want to help in improving the template, feel free to [contribute](/wiki/ContributingHowto).
 
+
 More information
 ----------------
 
 * [Debian wiki](https://wiki.debian.org/Qubes)
 
+
 [stretch]: https://www.qubes-os.org/doc/template/debian/upgrade-8-to-9/ 
+

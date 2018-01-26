@@ -11,8 +11,8 @@ The Fedora [TemplateVM] is the default TemplateVM in Qubes OS.
 This page is about the standard (or "full") Fedora TemplateVM.
 For the minimal version, please see the [Fedora Minimal] page.
 
-Installation
-------------
+Installing
+----------
 
 The Fedora TemplateVM comes preinstalled with Qubes OS.
 However, there may be times when you wish to install a fresh copy from the Qubes repositories, e.g.:
@@ -43,6 +43,19 @@ After installing a fresh Fedora TemplateVM, we recommend performing the followin
         $ sudo dnf remove qubes-template-fedora-26
 
    (If necessary, replace `26` with your desired Fedora version.)
+
+
+Upgrading
+---------
+
+To upgrade your Fedora TemplateVM, please consult the guide that corresponds to your situation:
+
+ * [Upgrading the Fedora 25 Template to Fedora 26](/doc/template/fedora/upgrade-25-to-26/)
+ * [Upgrading the Fedora 24 Template to Fedora 25](/doc/template/fedora/upgrade-24-to-25/)
+ * [Upgrading the Fedora 23 Template to Fedora 24](/doc/template/fedora/upgrade-23-to-24/)
+ * [Upgrading the Fedora 21 Template to Fedora 23](/doc/template/fedora/upgrade-21-to-23/)
+ * [Upgrading the Fedora 20 Template to Fedora 21](/doc/template/fedora/upgrade-20-to-21/)
+ * [Upgrading the Fedora 18 Template to Fedora 20](/doc/template/fedora/upgrade-18-to-20/)
 
 
 [TemplateVM]: /doc/templates/

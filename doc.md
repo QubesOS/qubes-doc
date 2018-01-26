@@ -86,21 +86,11 @@ Managing Operating Systems within Qubes
  * [Pentesting: BlackArch](/doc/pentesting/blackarch/)
  * [Pentesting: Kali](/doc/pentesting/kali/)
  * [Pentesting: PTF](/doc/pentesting/ptf/)
- * [Windows: Installing and Using Windows-based AppVMs (Qubes R2 Beta 3 and later)](/doc/windows-appvms/)
- * [Windows: Creating and Using HVM and Windows Domains (Qubes R2+)](/doc/hvm/)
- * [Windows: Advanced options and troubleshooting of Qubes Tools for Windows (R3)](/doc/windows-tools-3/)
- * [Windows: Advanced options and troubleshooting of Qubes Tools for Windows (R2)](/doc/windows-tools-2/)
- * [Windows: Uninstalling Qubes Tools for Windows 2.x](/doc/uninstalling-windows-tools-2/)
- * [Fedora: Upgrading the Fedora 25 Template to Fedora 26](/doc/template/fedora/upgrade-25-to-26/)
- * [Fedora: Upgrading the Fedora 24 Template to Fedora 25](/doc/template/fedora/upgrade-24-to-25/)
- * [Fedora: Upgrading the Fedora 23 Template to Fedora 24](/doc/template/fedora/upgrade-23-to-24/)
- * [Fedora: Upgrading the Fedora 21 Template to Fedora 23](/doc/template/fedora/upgrade-21-to-23/)
- * [Fedora: Upgrading the Fedora 20 Template to Fedora 21](/doc/template/fedora/upgrade-20-to-21/)
- * [Fedora: Upgrading the Fedora 18 Template to Fedora 20](/doc/template/fedora/upgrade-18-to-20/)
- * [Debian: Upgrading the Debian 8 Template to Debian 9](/doc/template/debian/upgrade-8-to-9/)
- * [How to Reinstall a TemplateVM](/doc/reinstall-template)
+ * [Windows](/doc/windows/)
+ * [Creating and Using HVM Domains](/doc/hvm/)
  * [Tips for Using Linux in an HVM](/doc/linux-hvm-tips/)
  * [Creating a NetBSD VM](/doc/netbsd/)
+ * [How to Reinstall a TemplateVM](/doc/reinstall-template)
 
 
 Security Guides
@@ -278,15 +268,7 @@ Building
 
 Releases
 --------
+ * [Release notes](/doc/releases/notes/)
+ * [Release schedules](/doc/releases/schedules/)
  * [Release checklist](/doc/releases/todo/)
- * [Qubes R1.0 release notes](/doc/releases/1.0/release-notes/)
- * [Qubes R2.0 release notes](/doc/releases/2.0/release-notes/)
- * [Qubes R3.0 release notes](/doc/releases/3.0/release-notes/)
- * [Qubes R3.0 release schedule](/doc/releases/3.0/schedule/)
- * [Qubes R3.1 release notes](/doc/releases/3.1/release-notes/)
- * [Qubes R3.1 release schedule](/doc/releases/3.1/schedule/)
- * [Qubes R3.2 release notes](/doc/releases/3.2/release-notes/)
- * [Qubes R3.2 release schedule](/doc/releases/3.2/schedule/)
- * [Qubes R4.0 release notes](/doc/releases/4.0/release-notes/)
- * [Qubes R4.0 release schedule](/doc/releases/4.0/schedule/)
 
