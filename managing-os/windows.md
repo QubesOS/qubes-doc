@@ -13,4 +13,4 @@ For more information about Windows VMs in Qubes OS, please see the specific guid
  * [Advanced options and troubleshooting of Qubes Tools for Windows (R3)](/doc/windows-tools-3/)
  * [Advanced options and troubleshooting of Qubes Tools for Windows (R2)](/doc/windows-tools-2/)
  * [Uninstalling Qubes Tools for Windows 2.x](/doc/uninstalling-windows-tools-2/)
- * [ * [Creating and Using HVM and Windows Domains](/doc/hvm/)
+ * [Creating and Using HVM and Windows Domains](/doc/hvm/)
