@@ -97,15 +97,13 @@ Here are the answers for Xen 4.1 (which we use as of 2014-04-28):
 
 Here is an overview of the VM virtualization modes that correspond to each Qubes OS version (as of 2018-01-13):
 
-VM Type \ Qubes OS version         | 3.2 | 3.2+ | 4.0-rc1-3 | 4.0-rc4 |
----------------------------------- | --- | ---- | --------- | ------- |
-Default VMs without PCI devices    | PV  | PVH  |    HVM    |   PVH   |
-Default VMs with PCI devices       | PV  | PV   |    HVM    |   HVM   |
-Stub domains - Default VMs w/o PCI | N/A | N/A  |    PV     |   N/A   |
-Stub domains - Default VMs w/ PCI  | N/A | N/A  |    PV     |   PV    |
-Stub domains - HVMs                | PV  | PV   |    PV     |   PV    |
-
-("3.2+" denotes Qubes 3.2 after applying the update discussed in [QSB #37](/news/2018/01/11/qsb-37/), which will result in most VMs running in PVH mode. "N/A" means "not applicable," since PV and PVH VMs do not require stub domains.)
+VM type \ Qubes OS version         | 3.2 | 4.0-rc1-3 | 4.0-rc4 |
+---------------------------------- | --- | --------- | ------- |
+Default VMs without PCI devices    | PV  |    HVM    |   PVH   |
+Default VMs with PCI devices       | PV  |    HVM    |   HVM   |
+Stub domains - Default VMs w/o PCI | N/A |    PV     |   N/A   |
+Stub domains - Default VMs w/ PCI  | N/A |    PV     |   PV    |
+Stub domains - HVMs | PV | PV | PV |
 
 ### What's so special about Qubes' GUI virtualization?
 
@@ -345,7 +343,7 @@ Errors suggesting this issue:
 
 Another solution would be to set the pci_strictreset option in dom0:
 
- - In Qubes R4.x, when attaching the PCI device to the VM (where <BDF> can be obtained from running [qvm-pci](/doc/dom0-tools/qvm-pci/)):
+ - In Qubes R4.x, when attaching the PCI device to the VM (where `<BDF>` can be obtained from running [qvm-pci](/doc/dom0-tools/qvm-pci/)):
 
         qvm-pci attach -persistent -option no-strict-reset=true usbVM dom0:<BDF>
 
@@ -413,9 +411,13 @@ For Fedora:
 
 ### How do I access my external drive?
 
-The recommended approach is to pass only the specific partition you intend to use from [`sys-usb`](/doc/usb/) to another qube via [qvm-block](/doc/dom0-tools/qvm-block/). They will show up in the destination qube as `/dev/xvd*` and must be mounted manually. Another approach is to use the Qubes VM Manager. Simply insert your USB drive, right-click on the desired qube in the Qubes VM Manager list, click Attach/detach block devices, and select your desired action and device.
-Although external media such as external hard drives or flash drives plugged in via USB are available in the USB qube, it is recommended not to access them directly from inside the USB qube.
-See ["How to attach USB drives"](/doc/usb/#how-to-attach-usb-drives) for more information.
+The recommended approach is to pass only the specific partition you intend to use from [`sys-usb`](/doc/usb/) to another qube via [qvm-block](/doc/dom0-tools/qvm-block/). They will show up in the destination qube as `/dev/xvd*` and must be mounted manually. Another approach is to attach the entire USB drive to your destination qube. However, this could theoretically lead to an attack because it forces the destination qube to parse the device's partition table. If you believe your device is safe, you may proceed to attach it.
+
+In Qubes 4.0, this is accomplished with the widget located in the tool tray (default top right corner, look for an icon with a yellow square). From the top part of the list, click on the drive you want to attach, then select the qube to attach it to. Although you can also attach the entire USB device to a qube by selecting it from the bottom part of the list, in general this approach should not be used because you are exposing the target qube to unnecessary additional attack surface.
+
+In Qubes 3.2, you can use the Qubes VM Manager. Simply insert your USB drive, right-click on the desired qube in the Qubes VM Manager list, click Attach/detach block devices, and select your desired action and device.
+
+Although external media such as external hard drives or flash drives plugged in via USB are available in the USB qube, it is not recommended to access them directly from inside the USB qube. See ["How to attach USB drives"](/doc/usb/#how-to-attach-usb-drives) for more information.
 
 ### My encrypted drive doesn't appear in Debian qube.
 
@@ -499,7 +501,7 @@ The policy is there mostly to ease maintenance, on several levels:
    Qubes-specific features - a change in one supported distribution should be
    followed also in others, including new future distributions.
 
-### Is I/O emulation component (QEMU) part of the Trusted Computing Base (TCB)?
+### Is the I/O emulation component (QEMU) part of the Trusted Computing Base (TCB)?
 
 No. Unlike many other virtualization systems, Qubes takes special effort to keep QEMU _outside_ of the TCB. 
 This has been achieved thanks to the careful use of Xen's stub domain feature. 
