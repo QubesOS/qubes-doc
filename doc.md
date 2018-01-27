@@ -245,7 +245,6 @@ Services
  * [Implementation of DisposableVMs](/doc/dvm-impl/)
  * [Article about disposable VMs](http://theinvisiblethings.blogspot.com/2010/06/disposable-vms.html)
  * [Dom0 secure update mechanism](/doc/dom0-secure-updates/)
- * VM secure update mechanism (forthcoming)
 
 Debugging
 ---------
