@@ -18,20 +18,24 @@ Most of the AppVMs (domains) are based on a *TemplateVM*, which means that their
 
 In addition to saving on the disk space, and reducing domain creation time, another advantage of such scheme is the possibility for centralized software update. It's just enough to do the update in the template VM, and then all the AppVMs based on this template get updates automatically after they are restarted.
 
-The default template is called **fedora-14-x64** in Qubes R1 and **fedora-20-x64** in Qubes R2.
+The default template is called **fedora-23** in Qubes R3.2 and **fedora-26** in Qubes R4.0.
 
-The side effect of this mechanism is, of course, that if you install any software in your AppVM, more specifically in any directory other than `/home` or `/usr/local` then it will disappear after the AppVM reboot (as the root filesystem for this AppVM will again be "taken" from the TemplateVM). **This means one normally install software in the TemplateVM, not in AppVMs.**
+The side effect of this mechanism is, of course, that if you install any software in your AppVM, more specifically in any directory other than `/home`, `/usr/local`, or `/rw` then it will disappear after the AppVM reboots (as the root filesystem for this AppVM will again be "taken" from the TemplateVM). **This means one normally installs software in the TemplateVM, not in AppVMs.**
 
-Unlike VM private filesystems, the template VM root filesystem does not support discard, so deleting files does not free the space in dom0. See [these instructions](/doc/template/fedora/upgrade-23-to-24/#compacting-the-upgraded-template) to recover space in dom0.
+Unlike VM private filesystems, under R3.x the template VM root filesystem does not support discard by default, so deleting files does not free the space in dom0. See [these instructions](/doc/template/fedora/upgrade-23-to-24/#compacting-the-upgraded-template) to recover space in dom0.
+
+In R4.0 and higher, the template root filesystem is created in a thin pool so manual trims are no longer needed.
+
+See [here](/doc/disk-trim) for further discussion on enabling discards/trim support under all versions.
 
 Installing (or updating) software in the TemplateVM
 ----------------------------------------------------
 
 In order to permanently install new software, you should:
 
--   Start the template VM and then start either console (e.g. `gnome-terminal`) or dedicated software management application, such as `gpk-application` (*Start-\>Applications-\>Template: fedora-XX-x64-\>Add/Remove software*),
+-   Start the template VM and then start either console (e.g. `gnome-terminal`) or dedicated software management application, such as `gpk-application` (*Start-\>Applications-\>Template: fedora-XX-\>Add/Remove software*),
 
--   Install/update software as usual (e.g. using yum, or the dedicated GUI application). Then, shutdown the template VM,
+-   Install/update software as usual (e.g. using dnf, or the dedicated GUI application). Then, shutdown the template VM,
 
 -   You will see now that all the AppVMs based on this template (by default all your VMs) will be marked as "outdated" in the manager. This is because their filesystems have not been yet updated -- in order to do that, you must restart each VM. You don't need to restart all of them at the same time -- e.g. if you just need the newly installed software to be available in your 'personal' domain, then restart only this VM. You will restart others whenever this will be convenient to you.
 
@@ -73,9 +77,14 @@ Debian also has three Qubes VM testing repositories (where `*` denotes the Relea
   repository; mostly experimental debugging packages
 
 To enable or disable any of these repos permanently, uncomment the corresponding `deb` line in
-`/etc/apt/sources.list.d/qubes-r3.list`
+`/etc/apt/sources.list.d/qubes-r*.list`
 
-Reverting changes to a TemplateVM
+Reverting changes to a TemplateVM (R4.0)
+---------------------------------
+
+TBD- Qubes 4.0 uses a CoW system that permits snapshotting. To revert changes, one would...
+
+Reverting changes to a TemplateVM (R3.2)
 ---------------------------------
 
 Perhaps you've just updated your TemplateVM, and the update broke your template.
@@ -127,7 +136,7 @@ Some popular questions:
 
 As long as template's compromise is considered, it doesn't really matter whether /usr/bin/firefox is buggy and can be exploited, or not. What matters is whether its *installation* scripts (such as %post in the rpm.spec) are benign or not. Template VM should be used only for installation of packages, and nothing more, so it should never get a chance to actually run the /usr/bin/firefox and got infected from it, in case it was compromised. Also, some of your more trusted AppVMs, would have networking restrictions enforced by the [firewall VM](/doc/firewall/), and again they should not fear this proverbial /usr/bin/firefox being potentially buggy and easy to compromise.
 
--   But why trusting Fedora?
+-   But why trust Fedora?
 
 Because we chose to use Fedora as a vendor for the Qubes OS foundation (e.g. for Dom0 packages and for AppVM packages). We also chose to trust several other vendors, such as Xen.org, kernel.org, and a few others whose software we use in Dom0. We had to trust *somebody* as we are unable to write all the software from scratch ourselves. But there is a big difference in trusting all Fedora packages to be non-malicious (in terms of installation scripts) vs. trusting all those packages are non-buggy and non-exploitable. We certainly do not assume the latter.
 
@@ -170,12 +179,12 @@ Temporarily allowing networking for software installation
 
 Some third-party applications cannot be installed using the standard yum repositories, and need to be manually downloaded and installed. When the installation requires internet connection to access third-party repositories, it will naturally fail when run in a Template VM because the default firewall rules for templates only allow connections to standard yum repositories. So it is necessary to modify firewall rules to allow less restrictive internet access for the time of the installation, if one really wants to install those applications into a template. As soon as software installation is completed, firewall rules should be returned back to the default state. The user should decided by themselves whether such third-party applications should be equally trusted as the ones that come from the standard Fedora signed repositories and whether their installation will not compromise the default Template VM, and potentially consider installing them into a separate template or a standalone VM (in which case the problem of limited networking access doesn't apply by default), as described above.
 
-Updates proxy
+Updates proxy (some content applies only to versions earlier than R3.2)
 -------------
 
 Updates proxy is a service which filter http access to allow access to only something that looks like yum or apt repository. This is meant to mitigate user errors (like using browser in the template VM), rather than some real isolation. It is done with http proxy instead of simple firewall rules because it is hard to list all the repository mirrors (and keep that list up to date). The proxy is used only to filter the traffic, not to cache anything.
 
-The proxy is running in selected VMs (by default all the NetVMs (1)) and intercept traffic directed to 10.137.255.254:8082. Thanks to such configuration all the VMs can use the same proxy address, and if there is a proxy on network path, it will handle the traffic (of course when firewall rules allows that). If the VM is configured to have access to the updates proxy (2), the startup scripts will automatically configure yum to really use the proxy (3). Also access to updates proxy is independent of any other firewall settings (VM will have access to updates proxy, even if policy is set to block all the traffic).
+The proxy is running in selected VMs (by default all the NetVMs (1)) and intercept traffic directed to 10.137.255.254:8082. Thanks to such configuration all the VMs can use the same proxy address, and if there is a proxy on network path, it will handle the traffic (of course when firewall rules allows that). If the VM is configured to have access to the updates proxy (2), the startup scripts will automatically configure dnf to really use the proxy (3). Also access to updates proxy is independent of any other firewall settings (VM will have access to updates proxy, even if policy is set to block all the traffic).
 
 (1) Services tab -\> "qubes-yum-proxy" entry; check qvm-service manual for details
 
@@ -199,12 +208,12 @@ The proxy is running in selected VMs (by default all the NetVMs (1)) and interce
 
     line, or be empty. Note that this file is specifically included from main yum.conf, yum does not support real conf.d configuration style...
 
-Note on treating AppVM's root filesystem non-persistency as a security feature
+Note on treating AppVM's root filesystem non-persistence as a security feature
 ------------------------------------------------------------------------------
 
 As explained above, any AppVM that is based on a Template VM (i.e. which is not a Standalone VM) has its root filesystem non-persistent across the VM reboots. In other words whatever changes the VM makes (or the malware running in this AppVM makes) to its root filesystem, are automatically discarded whenever one restarts the AppVM. This might seem like an excellent anti-malware mechanism to be used inside the AppVM...
 
-However, one should be careful with treating this property as a reliable way to keep the AppVM malware-free. This is because the non-persistency, in case of normal AppVMs, applies only to the root filesystem and not to the user filesystem (on which the `/home`, `/rw`, and `/usr/local` are stored) for obvious reasons. It is possible that malware, especially malware that could be specifically written to target a Qubes-based AppVMs, could install its hooks inside the user home directory files only. Examples of obvious places for such hooks could be: `.bashrc`, the Firefox profile directory which contains the extensions, or some PDF or DOC documents that are expected to be opened by the user frequently (assuming the malware found an exploitable bug in the PDF or DOC reader), and surely many others places, all in the user's home directory.
+However, one should be careful with treating this property as a reliable way to keep the AppVM malware-free. This is because the non-persistence, in case of normal AppVMs, applies only to the root filesystem and not to the user filesystem (on which the `/home`, `/rw`, and `/usr/local` are stored) for obvious reasons. It is possible that malware, especially malware that could be specifically written to target a Qubes-based AppVMs, could install its hooks inside the user home directory files only. Examples of obvious places for such hooks could be: `.bashrc`, the Firefox profile directory which contains the extensions, or some PDF or DOC documents that are expected to be opened by the user frequently (assuming the malware found an exploitable bug in the PDF or DOC reader), and surely many others places, all in the user's home directory.
 
 One advantage of the non-persistent rootfs though, is that the malware is still inactive before the user's filesystem gets mounted and "processed" by system/applications, which might theoretically allow for some scanning programs (or a skilled user) to reliably scan for signs of infections of the AppVM. But, of course, the problem of finding malware hooks in general is hard, so this would work likely only for some special cases (e.g. an AppVM which doesn't use Firefox, as otherwise it would be hard to scan the Firefox profile directory reliably to find malware hooks there). Also note that the user filesystem's metadata might got maliciously modified by malware in order to exploit a hypothetical bug in the AppVM kernel whenever it mounts the malformed filesystem. However, these exploits will automatically stop working (and so the infection might be cleared automatically) after the hypothetical bug got patched and the update applied (via template update), which is an exceptional feature of Qubes OS.
 
