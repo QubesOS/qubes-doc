@@ -14,7 +14,7 @@ Updating software in dom0
 Why would one want to update software in dom0?
 ----------------------------------------------
 
-Normally, there should be few reasons for updating software in dom0. This is because there is no networking in dom0, which means that even if some bugs are discovered e.g. in the dom0 Desktop Manager, this really is not a problem for Qubes, because none of the third-party software running in dom0 is accessible from VMs or the network in any way. Some exceptions to this include: Qubes GUI daemon, Xen store daemon, and disk back-ends. (We plan move the disk backends to an untrusted domain in Qubes 2.0.) Of course, we believe this software is reasonably secure, and we hope it will not need patching.
+Normally, there should be few reasons for updating software in dom0. This is because there is no networking in dom0, which means that even if some bugs are discovered e.g. in the dom0 Desktop Manager, this really is not a problem for Qubes, because none of the third-party software running in dom0 is accessible from VMs or the network in any way. Some exceptions to this include: Qubes GUI daemon, Xen store daemon, and disk back-ends. (We plan move the disk backends to an untrusted domain.) Of course, we believe this software is reasonably secure, and we hope it will not need patching.
 
 However, we anticipate some other situations in which updating dom0 software might be necessary or desirable:
 
@@ -58,16 +58,12 @@ Of course, command line tools are still available for accomplishing various upda
     sudo qubes-dom0-update package-version
     ~~~
 
-    Dnf/Yum will say that there is no update, but the package will nonetheless be downloaded to dom0.
+    Dnf will say that there is no update, but the package will nonetheless be downloaded to dom0.
 
-2.  Downgrade the package (R4.0+):
+2.  Downgrade the package:
 
     ~~~
     sudo dnf downgrade package-version
-    ~~~
-    R3.2 and earlier
-    ~~~
-    sudo yum downgrade package-version
     ~~~
 
 ### How to re-install a package
@@ -80,27 +76,21 @@ You can re-install in a similar fashion to downgrading.
     sudo qubes-dom0-update package
     ~~~
 
-    Dnf/Yum will say that there is no update, but the package will nonetheless be downloaded to dom0.
+    Dnf will say that there is no update, but the package will nonetheless be downloaded to dom0.
 
-2.  Re-install the package (R4.0+):
+2.  Re-install the package:
 
     ~~~
     sudo dnf reinstall package
     ~~~
-    R3.2 and earlier
-    ~~~
-    sudo yum reinstall package
-    ~~~
 
-    Note that Dnf/Yum will only re-install if the installed and downloaded versions match. You can ensure they match by either updating the package to the latest version, or specifying the package version in the first step using the form `package-version`.
+    Note that Dnf will only re-install if the installed and downloaded versions match. You can ensure they match by either updating the package to the latest version, or specifying the package version in the first step using the form `package-version`.
 
 ### How to uninstall a package
 
-If you've installed a package such as anti-evil-maid, you can remove it with the following command (R4.0+):
+If you've installed a package such as anti-evil-maid, you can remove it with the following command:
 
     sudo dnf remove anti-evil-maid
-R3.2 and earlier
-    sudo yum remove anti-evil-maid
     
 ### Testing repositories
 
