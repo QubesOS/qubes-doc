@@ -135,11 +135,11 @@ Emergency Backup Recovery without Qubes
 
 The Qubes backup system has been designed with emergency disaster recovery in mind. No special Qubes-specific tools are required to access data backed up by Qubes. In the event a Qubes system is unavailable, you can access your data on any GNU/Linux system with the following procedure.
 
-Refer to the follow for emergency restore of a backup created on:
+Refer to the following for emergency restore of a backup created on:
 
  * [Qubes R4 or newer](/doc/backup-emergency-restore-v4/)
  * [Qubes R3](/doc/backup-emergency-restore-v3/)
- * [Earlier Qubes versions](/doc/backup-emergency-restore-v2/)
+ * [Qubes R2 or older](/doc/backup-emergency-restore-v2/)
 
 
 Migrating Between Two Physical Machines
