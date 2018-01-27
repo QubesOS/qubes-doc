@@ -94,7 +94,7 @@ Restoring from a Backup (R4.0 and later)
 3. There are three options you may select when restoring from a backup:
    1.  **ignore missing templates and net VMs**: If any of the VMs in your backup depended upon a NetVM or TemplateVM that is not present in (i.e., "missing from") the current system, checking this box will ignore the fact that they are missing and restore the VMs anyway.
    2.  **ignore username mismatch**: This option applies only to the restoration of dom0's home directory. If your backup was created on a Qubes system which had a different dom0 username than the dom0 username of the current system, then checking this box will ignore the mismatch between the two usernames and proceed to restore the home directory anyway.
-   3.  **Verify backup integrity, do not restore the data**: Like it says- check this if you only want to verify.
+   3.  **Verify backup integrity, do not restore the data**: This will scan the backup file for corrupted data. However, it does not currently detect if it is missing data as long as it is a correctly structured, non-corrupted backup file. See [issue #3498](https://github.com/QubesOS/qubes-issues/issues/3498) for more details.
 
 4. If your backup is encrypted, you must check the **Encrypted backup** box. If a passphrase was supplied during the creation of your backup (regardless of whether it is encrypted), then you must supply it here.
 
@@ -119,7 +119,7 @@ Restoring from a Backup (R3.2 and earlier)
 3. There are three options you may select when restoring from a backup:
    1.  **ignore missing**: If any of the VMs in your backup depended upon a NetVM, ProxyVM, or TemplateVM that is not present in (i.e., "missing from") the current system, checking this box will ignore the fact that they are missing and restore the VMs anyway.
    2.  **ignore username mismatch**: This option applies only to the restoration of dom0's home directory. If your backup was created on a Qubes system which had a different dom0 username than the dom0 username of the current system, then checking this box will ignore the mismatch between the two usernames and proceed to restore the home directory anyway.
-   3.  **Verify backup integrity, do not restore the data**: Like it says- check this if you only want to verify.
+   3.  **Verify backup integrity, do not restore the data**: This will scan the backup file for corrupted data. However, it does not currently detect if it is missing data as long as it is a correctly structured, non-corrupted backup file. See [issue #3498](https://github.com/QubesOS/qubes-issues/issues/3498) for more details..
 
 4. If your backup is encrypted, you must check the **Encrypted backup** box. If a passphrase was supplied during the creation of your backup (regardless of whether it is encrypted), then you must supply it here.
 
