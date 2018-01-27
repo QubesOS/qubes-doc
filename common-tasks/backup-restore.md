@@ -44,6 +44,7 @@ Creating a Backup (R4.0 and later)
    **Note:** The supplied passphrase is used for **both** encryption/decryption and integrity verification.
 
    At this point, you may also choose whether to save your settings by checking or unchecking the **Save settings as default backup profile** box.
+   
    **Warning: Saving the settings will result in your backup passphrase being saved in plaintext in dom0, so consider your threat model before checking this box.**
 
 4. When you are ready, click **Next**. Qubes will proceed to create your backup. Once the progress bar has completed, you may click **Finish**.
@@ -119,7 +120,7 @@ Restoring from a Backup (R3.2 and earlier)
 3. There are three options you may select when restoring from a backup:
    1.  **ignore missing**: If any of the VMs in your backup depended upon a NetVM, ProxyVM, or TemplateVM that is not present in (i.e., "missing from") the current system, checking this box will ignore the fact that they are missing and restore the VMs anyway.
    2.  **ignore username mismatch**: This option applies only to the restoration of dom0's home directory. If your backup was created on a Qubes system which had a different dom0 username than the dom0 username of the current system, then checking this box will ignore the mismatch between the two usernames and proceed to restore the home directory anyway.
-   3.  **Verify backup integrity, do not restore the data**: This will scan the backup file for corrupted data. However, it does not currently detect if it is missing data as long as it is a correctly structured, non-corrupted backup file. See [issue #3498](https://github.com/QubesOS/qubes-issues/issues/3498) for more details..
+   3.  **Verify backup integrity, do not restore the data**: This will scan the backup file for corrupted data. However, it does not currently detect if it is missing data as long as it is a correctly structured, non-corrupted backup file. See [issue #3498](https://github.com/QubesOS/qubes-issues/issues/3498) for more details.
 
 4. If your backup is encrypted, you must check the **Encrypted backup** box. If a passphrase was supplied during the creation of your backup (regardless of whether it is encrypted), then you must supply it here.
 
