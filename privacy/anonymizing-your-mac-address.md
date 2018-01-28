@@ -37,7 +37,7 @@ ethernet.cloned-mac-address=stable
 connection.stable-id=${CONNECTION}/${BOOT}
 ~~~
 
-* `stable` in combination with `${CONNECTION}/${BOOT}` generates a random address that persists for each boot session.
+* `stable` in combination with `${CONNECTION}/${BOOT}` generates a random address that persists until reboot.
 * `random` generates a random address each time a link goes up.
 
 To see all the available configuration options, refer to the man page: `man nm-settings`
