@@ -413,8 +413,8 @@ details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
 
 **Mentor**: [Rafał Wojdyła](/team/)
 
-### Gui agent for Windows 8/10
-**Project**: Gui agent for Windows 8/10
+### GUI agent for Windows 8/10
+**Project**: GUI agent for Windows 8/10
 
 **Brief explanation**: Add support for Windows 8+ to the Qubes GUI agent and video driver. Starting from Windows 8, Microsoft requires all video drivers to conform to the WDDM display driver model which is incompatible with the current Qubes video driver. Unfortunately the WDDM model is much more complex than the old XPDM one and officially *requires* a physical GPU device (which may be emulated). Some progress has been made to create a full WDDM driver that *doesn't* require a GPU device, but the driver isn't working correctly yet. Alternatively, WDDM model supports display-only drivers which are much simpler but don't have access to system video memory and rendering surfaces (a key feature that would simplify seamless GUI mode). [#1861](https://github.com/QubesOS/qubes-issues/issues/1861)
 
