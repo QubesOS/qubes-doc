@@ -90,7 +90,7 @@ Files referenced in `openvpn-client.ovpn` should not use absolute paths such as 
 
 The VPN scripts here are intended to work with commonly used `tun` interfaces, whereas `tap` mode is untested.
 
-Also, the config should route all traffic through your VPN's interface after a connection is created; For openvpn the directive for this is `redirect-gateway def1`. For OpenVPN.
+Also, the config should route all traffic through your VPN's interface after a connection is created; For OpenVPN the directive for this is `redirect-gateway def1`.
 
        sudo nano /rw/config/vpn/openvpn-client.ovpn
        
