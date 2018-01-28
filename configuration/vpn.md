@@ -94,11 +94,11 @@ Also, the config should route all traffic through your VPN's interface after a c
 
        sudo nano /rw/config/vpn/openvpn-client.ovpn
        
-Make sure it already includes or add.
+Make sure it already includes or add:
 
        redirect-gateway def1
 
-The VPN client may not be able to prompt you for credentials when connecting to the server. Create a file in the `/rw/config/vpn` folder with your credentials and using a directive. For example for OpenVPN, add.
+The VPN client may not be able to prompt you for credentials when connecting to the server. Create a file in the `/rw/config/vpn` folder with your credentials and using a directive. For example for OpenVPN, add:
 
       auth-user-pass pass.txt
       
@@ -108,12 +108,10 @@ The VPN client may not be able to prompt you for credentials when connecting to 
  
       sudo nano /rw/config/vpn/pass.txt
  
- Add.
+ Add:
  
- ```
- username
- password
- ```
+        username
+        password
  
  Replace `username` and `password` with your actual username and password.
  
@@ -205,7 +203,7 @@ Save the script.
     
        sudo nano /rw/config/qubes-firewall-user-script
        
-Clear out the existing lines and add.
+Clear out the existing lines and add:
 
 	~~~
 	#!/bin/bash
@@ -241,7 +239,7 @@ Make it executable.
 
        sudo nano /rw/config/rc.local
 
-Clear out the existing lines and add.
+Clear out the existing lines and add:
 
     ~~~
     #!/bin/bash
