@@ -82,7 +82,8 @@ To enable or disable any of these repos permanently, uncomment the corresponding
 Reverting changes to a TemplateVM (R4.0)
 ---------------------------------
 
-TBD- Qubes 4.0 uses a CoW system that permits snapshotting. To revert changes, one would...
+Qubes 4.0 uses a CoW system that permits snapshotting. Reversion functionality is still being developed at the
+time of writing. See [issue #3256](https://github.com/QubesOS/qubes-issues/issues/3256) for details.
 
 Reverting changes to a TemplateVM (R3.2)
 ---------------------------------
@@ -179,34 +180,63 @@ Temporarily allowing networking for software installation
 
 Some third-party applications cannot be installed using the standard yum repositories, and need to be manually downloaded and installed. When the installation requires internet connection to access third-party repositories, it will naturally fail when run in a Template VM because the default firewall rules for templates only allow connections to standard yum repositories. So it is necessary to modify firewall rules to allow less restrictive internet access for the time of the installation, if one really wants to install those applications into a template. As soon as software installation is completed, firewall rules should be returned back to the default state. The user should decided by themselves whether such third-party applications should be equally trusted as the ones that come from the standard Fedora signed repositories and whether their installation will not compromise the default Template VM, and potentially consider installing them into a separate template or a standalone VM (in which case the problem of limited networking access doesn't apply by default), as described above.
 
-Updates proxy (some content applies only to versions earlier than R3.2)
+Updates proxy
 -------------
 
-Updates proxy is a service which filter http access to allow access to only something that looks like yum or apt repository. This is meant to mitigate user errors (like using browser in the template VM), rather than some real isolation. It is done with http proxy instead of simple firewall rules because it is hard to list all the repository mirrors (and keep that list up to date). The proxy is used only to filter the traffic, not to cache anything.
+Updates proxy is a service which filters http access to allow access to only something that looks like yum or apt repository. This is meant to mitigate user errors (like using a browser in the template VM), rather than some real isolation. It is done with an http proxy (tinyproxy) instead of simple firewall rules because it is hard to list all the repository mirrors (and keep that list up to date). The proxy is used only to filter the traffic, not to cache anything.
 
-The proxy is running in selected VMs (by default all the NetVMs (1)) and intercept traffic directed to 10.137.255.254:8082. Thanks to such configuration all the VMs can use the same proxy address, and if there is a proxy on network path, it will handle the traffic (of course when firewall rules allows that). If the VM is configured to have access to the updates proxy (2), the startup scripts will automatically configure dnf to really use the proxy (3). Also access to updates proxy is independent of any other firewall settings (VM will have access to updates proxy, even if policy is set to block all the traffic).
+There are two services ([qvm-service](https://www.qubes-os.org/doc/dom0-tools/qvm-service/), [service framework](https://www.qubes-os.org/doc/qubes-service/)):
 
-(1) Services tab -\> "qubes-yum-proxy" entry; check qvm-service manual for details
+1. qubes-updates-proxy (and its deprecated name: qubes-yum-proxy) - a service providing a proxy for templates - by default enabled in NetVMs (especially: sys-net)
+2. updates-proxy-setup (and its deprecated name: yum-proxy-setup) - use a proxy provided by another VM (instead of downloading updates directly), enabled by default in all templates
 
-(2) Firewall tab -\> Allow connections to Updates Proxy; this setting works immediately (once OK is clicked)
+This is generally the same in R3.2 and R4.0 - in both cases both the old and new names work. And in both cases defaults listed above are applied if the service is not explicitly listed in services tab.
 
-(3) Services tab -\> "yum-proxy-setup" entry; this setting works at next VM startup
+### Technical details (R4.0)
 
-### Technical details
+Instead of using a network connection like in R3.2, R4.0 uses RPC/qrexec. The proxy is configured in
+qrexec policy: /etc/qubes-rpc/policy/qubes.UpdatesProxy. By default this is set to
+sys-net and/or sys-whonix, depending on firstboot choices. This new design allows for templates to be
+updated even when they are not connected to any netvm.
 
-1.  Updates proxy: It is running as "qubes-yum-proxy" service. Startup script of this service setup firewall rule to intercept proxy traffic:
+Example policy file in R4.0 (with whonix installed, but not set as default updatevm for all templates):
+```
+# any VM with tag `whonix-updatevm` should use `sys-whonix`; this tag is added to `whonix-gw` and `whonix-ws` during installation and is preserved during template clone
+$tag:whonix-updatevm $default allow,target=sys-whonix
+$tag:whonix-updatevm $anyvm deny
+
+# other templates use sys-net
+$type:TemplateVM $default allow,target=sys-net
+$anyvm $anyvm deny
+```
+
+### Technical details (R3.2)
+
+The proxy is running in selected VMs (by default all the NetVMs). Thanks to such configuration all VMs
+can use the same proxy address, and if there is a proxy on network path, it will handle the traffic
+(of course when firewall rules allow that). The first proxy on the network path according to the template's
+netvm setting will be used. If the VM is configured to have access to the updates proxy (1),
+the startup scripts will automatically configure dnf to use the proxy. Also access to updates proxy is
+independent of any other firewall settings (VM will have access to updates proxy, even if the policy is
+set to block all the traffic).
+
+(1) Firewall tab -\> Allow connections to Updates Proxy; this setting works immediately (once OK is clicked)
+
+1.  Updates proxy: It is running as "qubes-updates-proxy" service. Startup script of this service sets up
+a firewall rule to intercept traffic directed to 10.137.255.254:8082:
 
     ~~~
     iptables -t nat -A PR-QBS-SERVICES -d 10.137.255.254/32 -i vif+ -p tcp -m tcp --dport 8082 -j REDIRECT
     ~~~
 
-1.  VM using the proxy service Startup script (qubes-misc-post service) configure yum using /etc/yum.conf.d/qubes-proxy.conf file. It can either contain
+2.  VMs using the proxy service Startup script (updates-proxy-setup or qubes-misc-post service) configure
+dnf using /etc/yum.conf.d/qubes-proxy.conf file. It can either contain a
 
     ~~~
     proxy=http://10.137.255.254:8082/
     ~~~
 
-    line, or be empty. Note that this file is specifically included from main yum.conf, yum does not support real conf.d configuration style...
+    line, or be empty. Note that this file is specifically included from main yum.conf, dnf does not support real conf.d configuration style...
 
 Note on treating AppVM's root filesystem non-persistence as a security feature
 ------------------------------------------------------------------------------
