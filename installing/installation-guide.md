@@ -75,6 +75,9 @@ partition (e.g., `/dev/sda1`).
 On Windows, you can use the [Rufus] tool. Be sure to select "DD image" mode (you
 need to do that **after** selecting the Qubes ISO):
 
+**Warning:** If you do that on Windows 10, you can only install Qubes without 
+MediaTest, which isn't recommended. 
+
 <img src="/attachment/wiki/InstallationGuide/rufus-main-boxed.png" height="350">
 
 Before proceeding with the installation, you are encouraged to first read all
