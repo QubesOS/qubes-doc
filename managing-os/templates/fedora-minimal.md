@@ -121,7 +121,7 @@ The tools above depends on python3 + python3 additional libraries which takes mo
 1. If you want to install a network printer inside a template, you first need to identify the printer IP address.
 2. Once the printer is identified, open temporarily firewall access to the printer, as qubes firewall is filtering all outbound trafic by default in templates
 3. Run system-config-printer GUI to install your printer
-4/ Eventually, install printer drivers if the driver cannot be found automatically by search for driver packages `dnf search printername` eg: `dnf search photosmart`
+4. Eventually, install printer drivers if the driver cannot be found automatically by search for driver packages `dnf search printername` eg: `dnf search photosmart`
 
 
 References
