@@ -33,7 +33,7 @@ Creating a Backup (R4.0 and later)
 3. Select the destination for the backup:
 
    If you wish to send your backup to a (currently running) VM, select the VM in the drop-down box next to **Target AppVM**.
-   If you wish to send your backup to a [USB mass storage device](/doc/stick-mounting/), you can use the directory selection widget to mount a connected device (under "Other locations" item on the left); or first mount the device in a VM, then select the mount point inside that VM as the backup destination.
+   If you wish to send your backup to a [USB mass storage device](/doc/usb/), you can use the directory selection widget to mount a connected device (under "Other locations" item on the left); or first mount the device in a VM, then select the mount point inside that VM as the backup destination.
 
    You must also specify a directory on the device or in the VM, or a command to be executed in the VM as a destination for your backup. For example, if you wish to send your backup to the `~/backups` folder in the target VM, you would simply browse to it using the convenient directory selection dialog (`...`) at the right. This destination directory must already exist. If it does not exist, you must create it manually prior to backing up.
 
@@ -45,7 +45,7 @@ Creating a Backup (R4.0 and later)
    
    **Warning: Saving the settings will result in your backup passphrase being saved in plaintext in dom0, so consider your threat model before checking this box.**
 
-4. You will now the the summary of VMs to be backed up. If there are any issues preventing the backup, they will be listed here and the **Next** button greyed out.
+4. You will now see the summary of VMs to be backed up. If there are any issues preventing the backup, they will be listed here and the **Next** button greyed out.
 
 5. When you are ready, click **Next**. Qubes will proceed to create your backup. Once the progress bar has completed, you may click **Finish**.
 
@@ -63,7 +63,7 @@ Creating a Backup (R3.2 and earlier)
 3. Select the destination for the backup:
 
    If you wish to send your backup to a (currently running) VM, select the VM in the drop-down box next to **Target AppVM**.
-   If you wish to send your backup to a [USB mass storage device](/doc/stick-mounting/), you can use the directory selection widget to mount a connected device (under "Other locations" item on the left); or first mount the device in a VM, then select the mount point inside that VM as the backup destination.
+   If you wish to send your backup to a [USB mass storage device](/doc/usb/), you can use the directory selection widget to mount a connected device (under "Other locations" item on the left); or first mount the device in a VM, then select the mount point inside that VM as the backup destination.
 
    You must also specify a directory on the device or in the VM, or a command to be executed in the VM as a destination for your backup. For example, if you wish to send your backup to the `~/backups` folder in the target VM, you would simply browse to it using the convenient directory selection dialog (`...`) at the right. If it does not exist, you must create it manually prior to backing up.
 
@@ -75,7 +75,7 @@ Creating a Backup (R3.2 and earlier)
 
    **Note:** The supplied passphrase is used for **both** encryption/decryption and integrity verification. If you decide not to encrypt your backup (by unchecking the **Encrypt backup** box), the passphrase you supply will be used **only** for integrity verification. If you supply a passphrase but do not check the **Encrypt backup** box, your backup will **not** be encrypted!
 
-4. You will now the the summary of VMs to be backed up. If there are any issues preventing the backup, they will be listed here and the **Next** button greyed out.
+4. You will now see the summary of VMs to be backed up. If there are any issues preventing the backup, they will be listed here and the **Next** button greyed out.
 
 5. When you are ready, click **Next**. Qubes will proceed to create your backup. Once the progress bar has completed, you may click **Finish**.
 
@@ -87,7 +87,7 @@ Restoring from a Backup (R4.0 and later)
 
 2. Select the source location of the backup to be restored:
 
-   - If your backup is located on a [USB mass storage device](/doc/stick-mounting/), attach it first to another VM or select `sys-usb` in the next item.
+   - If your backup is located on a [USB mass storage device](/doc/usb/), attach it first to another VM or select `sys-usb` in the next item.
    - If your backup is located in a (currently running) VM, select the VM in the drop-down box next to **AppVM**.
 
    You must also specify the directory and filename of the backup (or a command to be executed in a VM) in the **Backup file** field. If you followed the instructions in the previous section, "Creating a Backup," then your backup is most likely in the location you chose as the destination in step 3. For example, if you had chosen the `~/backups` directory of a VM as your destination in step 3, you would now select the same VM and again browse to (using `...`) the `backups` folder. Once you've located the backup file, double-click it or select it and hit **OK**.
@@ -101,7 +101,7 @@ Restoring from a Backup (R4.0 and later)
 
    **Note:** The passphrase which was supplied when the backup was created was used for **both** encryption/decryption and integrity verification. If the backup was not encrypted, the supplied passphrase is used only for integrity verification. All backups made from a Qubes R4.0 system will be encrypted.
 
-5. You will now the the summary of VMs to be restored. If there are any issues preventing the restore, they will be listed here and the **Next** button greyed out.
+5. You will now see the summary of VMs to be restored. If there are any issues preventing the restore, they will be listed here and the **Next** button greyed out.
 
 6. When you are ready, click **Next**. Qubes will proceed to restore from your backup. Once the progress bar has completed, you may click **Finish**.
 
@@ -112,7 +112,7 @@ Restoring from a Backup (R3.2 and earlier)
 
 2. Select the source location of the backup to be restored:
 
-   - If your backup is located on a [USB mass storage device](/doc/stick-mounting/), attach it first to another VM or select `sys-usb` in the next item.
+   - If your backup is located on a [USB mass storage device](/doc/usb/), attach it first to another VM or select `sys-usb` in the next item.
    - If your backup is located in a (currently running) VM, select the VM in the drop-down box next to **AppVM**.
 
    You must also specify the directory and filename of the backup (or a command to be executed in a VM) in the **Backup file** field. If you followed the instructions in the previous section, "Creating a Backup," then your backup is most likely in the location you chose as the destination in step 3. For example, if you had chosen the `~/backups` directory of a VM as your destination in step 3, you would now select the same VM and again browse to (using `...`) the `backups` folder. Once you've located the backup file, double-click or select it and hit **OK**.
@@ -128,7 +128,7 @@ Restoring from a Backup (R3.2 and earlier)
 
    **Note:** A VM cannot be restored from a backup if a VM with the same name already exists on the current system. You must first remove or change the name of any VM with the same name in order to restore such a VM.
 
-5. You will now the the summary of VMs to be restored. If there are any issues preventing the restore, they will be listed here and the **Next** button greyed out.
+5. You will now see the summary of VMs to be restored. If there are any issues preventing the restore, they will be listed here and the **Next** button greyed out.
 
 6. When you are ready, click **Next**. Qubes will proceed to restore from your backup. Once the progress bar has completed, you may click **Finish**.
 
