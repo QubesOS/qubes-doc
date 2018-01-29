@@ -36,7 +36,7 @@ Before the summer starts, there are some preparatory tasks which are highly enco
 
 ### Student proposal guidelines
 
-A project proposal is what you will be judged upon. Write a clear proposal on what you plan to do, the scope of your project, and why we should choose you to do it. Proposals are the basis of the GSoC projects and therefore one of the most important things to do well. The proposal is not only the basis of our decision of which student to choose, it has also an effect on Google's decision as to how many student slots are assigned to Qubes. 
+A project proposal is what you will be judged upon. Write a clear proposal on what you plan to do, the scope of your project, and why we should choose you to do it. Proposals are the basis of the GSoC projects and therefore one of the most important things to do well. The proposal is not only the basis of our decision of which student to choose, it has also an effect on Google's decision as to how many student slots are assigned to Qubes.
 
 Below is the application template:
 
@@ -86,7 +86,7 @@ These project ideas were contributed by our developers and may be incomplete. If
 
 **Expected results**: What is the expected result in the timeframe given
 
-**Knowledge prerequisite**: Pre-requisites for working on the project. What coding language and knowledge is needed? 
+**Knowledge prerequisite**: Pre-requisites for working on the project. What coding language and knowledge is needed?
 If applicable, links to more information or discussions
 
 **Mentor**: Name and email address.
@@ -128,7 +128,7 @@ would override all the user changes there). More details:
      [#1705](https://github.com/QubesOS/qubes-issues/issues/1705) for some idea
      (this one lack integrity verification, but similar service could
      be developed with that added)
- - If new "package" format is developed, add support for it into 
+ - If new "package" format is developed, add support for it into
    [linux-template-builder](https://github.com/QubesOS/qubes-linux-template-builder).
  - Document the mechanism.
  - Write unit tests and integration tests.
@@ -142,6 +142,84 @@ would override all the user changes there). More details:
  - RPM package format, (yum) repository basics
 
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
+
+### Easy inter-VM networking configuration
+
+**Project**: Easy inter-VM networking configuration
+
+**Brief explanation**: Utility to easily configure selected VMs to be reachable (by network) from other VMs or outside network. Currently such configuration require adding iptables rules in multiple VMs manually. For exposing VM to outside network, it may be good to adopt qrexec-based TCP forwarding ([#2148](https://github.com/QubesOS/qubes-issues/issues/2148)).
+
+**Expected results**:
+
+- support firewall rules for inter-VM traffic in qubes-firewall - both VM side (qubes-firewall service) and dom0 configuration side (relevant Admin API calls)
+- mechanism for configuring firewall in target VM, especially INPUT iptables chain - currently it is hardcoded to drop new incoming connections
+- convenient tool (or modification to existing tool) for controlling above mechanisms
+- integration the above with existing GUI tools (especially VM settings)
+
+Relevant links:
+ - [Qubes networking and firewall documentation](/doc/firewall/)
+ - [qubes-firewall service code](https://github.com/QubesOS/qubes-core-agent-linux/blob/master/qubesagent/firewall.py)
+
+**Knowledge prerequisite**:
+
+- iptables
+- basics of nft
+- python3
+
+**Mentor**: [Marek Marczykowski-Górecki](/team/)
+
+### Mechanism for maintaining in-VM configuration
+
+**Project**: Mechanism for maintaining in-VM configuration
+
+**Brief explanation**: Large number of VMs is hard to maintain. Templates helps with keeping them updated, but many applications have configuration in user home directory, which is not synchronized.
+
+**Expected results**:
+
+- Design a mechanism how to _safely_ synchronize application configuration living in user home directory (`~/.config`, some other "dotfiles"). Mechanism should be resistant against malicious VM forcing its configuration on other VMs. Some approach could be a strict control which VM can send what changes (whitelist approach, not blacklist).
+- Implementation of the above mechanism.
+- Documentation how to configure it securely.
+
+
+**Knowledge prerequisite**:
+
+- shell and/or python scripting
+- Qubes OS qrexec services
+
+**Mentor**: [Marek Marczykowski-Górecki](/team/), [Wojtek Porczyk](/team/).
+
+### Wayland support in GUI agent and/or GUI daemon
+
+**Project**: Wayland support in GUI agent and/or GUI daemon
+
+**Brief explanation**: Currently both GUI agent (VM side of the GUI virtualization) and GUI daemon (dom0 side of GUI virtualization) support X11 protocol only. It may be useful to add support for Wayland there. Note that those are in fact two independent projects:
+
+1. GUI agent - make it work as Wayland compositor, instead of extracting window's composition buffers using custom X11 driver
+2. GUI daemon - act as Wayland application, showing windows retrieved from VMs, keeping zero-copy display path (window content is directly mapped from application running in VM, not copied)
+
+**Expected results**:
+
+Choose either of GUI agent, GUI daemon. Both are of similar complexity and each separately looks like a good task for GSoC time period.
+
+- design relevant GUI agent/daemon changes, the GUI protocol should not be affected
+- consider window decoration handling - VM should have no way of spoofing those, so it must be enforced by GUI daemon (either client-side - by GUI daemon itself, or server-side, based on hints given by GUI daemon)
+- implement relevant GUI agent/daemon changes
+- implement tests for new GUI handling, similar to existing tests for X11 based GUI
+
+Relevant links:
+ - [Low level GUI documentation](/doc/gui/)
+ - [qubes-gui-agent-linux](https://github.com/qubesos/qubes-gui-agent-linux)
+ - [qubes-gui-daemon](https://github.com/qubesos/qubes-gui-daemon)
+ - [Use Wayland instead of X11 to increase performance](https://github.com/qubesos/qubes-issues/issues/3366)
+
+**Knowledge prerequisite**:
+
+- Wayland architecture
+- basics of X11 (for understanding existing code)
+- C language
+- using shared memory (synchronization methods etc)
+
+**Mentor**: [Marek Marczykowski-Górecki](/team/).
 
 ### Qubes Live USB
 
@@ -197,7 +275,7 @@ details: [#1552](https://github.com/QubesOS/qubes-issues/issues/1552),
 
 **Project**: additional Thunderbird, Firefox and Chrome extensions
 
-**Brief explanation**: 
+**Brief explanation**:
 
 * browser/mail: open link in vm
 * browser/mail: open link in dispvm
@@ -288,7 +366,7 @@ details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
 
 **Brief explanation**: [T509](https://phabricator.whonix.org/T509)
 
-**Expected results**: 
+**Expected results**:
 
 - Work at upstream Tor: An older version of https://trac.torproject.org/projects/tor/wiki/doc/TransparentProxy page was the origin of Whonix. Update that page for nftables / IPv6 support without mentioning Whonix. Then discuss that on the tor-talk mailing list for wider input. - https://trac.torproject.org/projects/tor/ticket/21397
 - implement corridor feature request add IPv6 support / port to nftables - https://github.com/rustybird/corridor/issues/39
@@ -296,7 +374,11 @@ details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
 - make connections to IPv6 Tor relays work
 - make connections to IPv6 destinations work
 
-**Knowledge prerequisite**: 
+**Knowledge prerequisite**:
+
+- nftables
+- iptables
+- IPv6
 
 **Mentor**: [Patrick Schleizer](/team/)
 
