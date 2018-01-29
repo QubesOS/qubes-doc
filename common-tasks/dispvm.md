@@ -26,7 +26,7 @@ Disposable VMs and Networking (R4.0 and later)
 
 R4.0 introduces the concept of multiple disposable VM templates (R3.2 was limited to one).
 This allows for the creation of multiple differently configured disposable VMs that can be accessed from 
-the Applications menu (e.g. `fedora-XX-dvm`). Even more types of DispVMs can be created on-the-fly on a per AppVM basis.
+the Applications menu. Even more types of DispVMs can be created on-the-fly on a per AppVM basis.
 As you can see, this is a very flexible and powerful system for managing your Disposable VMs.
 
 NetVM and firewall rules for Disposable VMs can be set as they can for a normal VM. 
@@ -41,7 +41,6 @@ Disposable VMs will temporarily appear with the name `disp####`.
 
 A Disposable VM launched from the Start Menu inherits the NetVM and firewall settings of the [DVM Template](https://www.qubes-os.org/doc/glossary/#dvm-template) from which it is built. 
 By default the DVM template is called `fedora-XX-dvm` (where `XX` is the Fedora version of the default TemplateVM). 
-As an "internal" VM it is hidden in Qubes VM Manager, but can be shown by selecting "Show/Hide internal VMs". 
 Note that changing the "NetVM" setting for the DVM Template *does* affect the NetVM of DispVMs launched from the Start Menu.
 
 Disposable VMs and Networking (R3.2 and earlier)
