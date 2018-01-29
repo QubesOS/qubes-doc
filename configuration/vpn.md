@@ -68,29 +68,72 @@ This method is more involved than the one above, but has anti-leak features that
     
     Note: Do not enable NetworkManager in the ProxyVM, as it can interfere with the scripts' DNS features. If you enabled NetworkManager or used other methods in a previous attempt, do not re-use the old ProxyVM... Create a new one according to this step.
     
-    If your choice of template VM doesn't already have the VPN client software, you'll need to install the software in the template before proceeding. Disable any auto-starting service that comes with the software package: for example `sudo systemctl disable openvpn.service`.
+    If your choice of TemplateVM doesn't already have the VPN client software, you'll need to install the software in the template before proceeding. Disable any auto-starting service that comes with the software package. For example for OpenVPN.
     
-    You may also wish to install `nano` or another simple text editor for entering the scripts below.
+       sudo systemctl disable openvpn.service
+    
+You may also wish to install `nano` or another simple text editor for entering the scripts below.
 
 2.  Set up and test the VPN client.
 
-    Make sure the VPN VM and its template VM are not running.
+Make sure the VPN VM and its TemplateVM is not running.
     
-    Run a terminal (CLI) in the VPN VM -- this will start the VM. Then make a new 'vpn' folder with `sudo mkdir /rw/config/vpn` and copy your VPN config files here (the example config filename used here is `openvpn-client.ovpn`). Files accompanying the main config such as *.crt and *.pem should also go here, and should not be referenced in the main config by absolute paths such as '/etc/...'.
+Run a terminal (CLI) in the VPN VM -- this will start the VM. Then create a new `/rw/config/vpn` folder with.
+    
+        sudo mkdir /rw/config/vpn
+    
+Copy your VPN config files to `/rw/config/vpn`. Your VPN config file should be named `openvpn-client.ovpn`) so you can use the scripts below as is without modification. Otherwise you would have to replace the file name. `openvpn-client.ovpn` contents:
 
-    Notes about VPN config options: The VPN scripts here are intended to work with commonly used `tun` interfaces, whereas `tap` mode is untested. Also, the config should route all traffic through your VPN's interface after a connection is created; For openvpn the directive for this is `redirect-gateway def1`. Lastly, the VPN client may not be able to prompt you for credentials when connecting to the server: Creating a file in the 'vpn' folder with your credentials and using a directive such as openvpn's `auth-user-pass <filename>` is recommended.
+Files accompanying the main config such as `*.crt` and `*.pem` should also go to `/rw/config/vpn` folder.
+
+Files referenced in `openvpn-client.ovpn` should not use absolute paths such as `/etc/...`.
+
+The VPN scripts here are intended to work with commonly used `tun` interfaces, whereas `tap` mode is untested.
+
+Also, the config should route all traffic through your VPN's interface after a connection is created; For OpenVPN the directive for this is `redirect-gateway def1`.
+
+       sudo nano /rw/config/vpn/openvpn-client.ovpn
+       
+Make sure it already includes or add:
+
+       redirect-gateway def1
+
+The VPN client may not be able to prompt you for credentials when connecting to the server. Create a file in the `/rw/config/vpn` folder with your credentials and using a directive. For example for OpenVPN, add:
+
+      auth-user-pass pass.txt
+      
+ Save file `/rw/config/vpn/openvpn-client.ovpn`.
+ 
+ Make sure a `/rw/config/vpn/pass.txt` file actually exists.
+ 
+      sudo nano /rw/config/vpn/pass.txt
+ 
+ Add:
+ 
+        username
+        password
+ 
+ Replace `username` and `password` with your actual username and password.
+ 
+ __Test your client configuration:__ Run the client from a CLI prompt in the 'vpn' folder, preferably as root. For example:
     
-    __Test your client configuration:__ Run the client from a CLI prompt in the 'vpn' folder, preferably as root. For example:
-    ```
-    sudo openvpn --cd /rw/config/vpn --config openvpn-client.ovpn
-    ```
+       sudo openvpn --cd /rw/config/vpn --config openvpn-client.ovpn
     
-    Watch for status messages that indicate whether the connection is successful and test from another VPN VM terminal window with `ping` and `traceroute`. DNS may be tested at this point by replacing addresses in `/etc/resolv.conf` with ones appropriate for your VPN (although this file will not be used when setup is complete). Diagnose any connection problems using resources such as client documentation and help from your VPN service provider.
+Watch for status messages that indicate whether the connection is successful and test from another VPN VM terminal window with `ping`.
+
+       ping 8.8.8.8
+       
+`ping` can be aborted by pressing the two keys `ctrl` + `c` at the same time.
+
+DNS may be tested at this point by replacing addresses in `/etc/resolv.conf` with ones appropriate for your VPN (although this file will not be used when setup is complete). Diagnose any connection problems using resources such as client documentation and help from your VPN service provider.
     
-    Proceed to the next step when you're sure the basic VPN connection is working.
+Proceed to the next step when you're sure the basic VPN connection is working.
 
 3.  Create the DNS-handling script.
-    Use `sudo nano /rw/config/vpn/qubes-vpn-handler.sh` to edit and add:
+
+        sudo nano /rw/config/vpn/qubes-vpn-handler.sh
+       
+ Edit and add:
 
     ~~~
     #!/bin/bash
@@ -130,22 +173,37 @@ This method is more involved than the one above, but has anti-leak features that
     esac
     ~~~
 
-    Now save the script and make it executable:  
-    `sudo chmod +x /rw/config/vpn/qubes-vpn-handler.sh`
+Save the script.
+
+Make it executable.
+
+       sudo chmod +x /rw/config/vpn/qubes-vpn-handler.sh
     
-4.  Configure client to use the DNS handling script. Using openvpn as an example, edit the config with `sudo nano /rw/config/vpn/openvpn-client.ovpn` and add these lines:
+4.  Configure client to use the DNS handling script. Using openvpn as an example, edit the config.
+
+       sudo nano /rw/config/vpn/openvpn-client.ovpn
+       
+ Add the following.
 
     ~~~
     script-security 2
     up 'qubes-vpn-handler.sh up'
     down 'qubes-vpn-handler.sh down'
     ~~~
+    
+Remove other instances of lines starting with `script-security`, `up` or `down` should there be any others.
 
-    **Restart the client and test the connection again** ...this time from an AppVM!
+Save the script.
+
+**Restart the client and test the connection again** ...this time from an AppVM!
 
 5.  Set up iptables anti-leak rules.
 
-    Edit the firewall script with `sudo nano /rw/config/qubes-firewall-user-script` then clear out the existing lines and add:
+    Edit the firewall script.
+    
+       sudo nano /rw/config/qubes-firewall-user-script
+       
+Clear out the existing lines and add:
 
 	~~~
 	#!/bin/bash
@@ -171,12 +229,17 @@ This method is more involved than the one above, but has anti-leak features that
     iptables -I OUTPUT -p all -o eth0 -m owner --gid-owner qvpn -j ACCEPT
     ~~~
 
-    Now save the script and make it executable:  
-    `sudo chmod +x /rw/config/qubes-firewall-user-script`
+Save the script.
+
+Make it executable.
+
+       sudo chmod +x /rw/config/qubes-firewall-user-script
 
 5.  Set up the VPN's autostart.
 
-    Use `sudo nano /rw/config/rc.local` to clear out the existing lines and add:
+       sudo nano /rw/config/rc.local
+
+Clear out the existing lines and add:
 
     ~~~
     #!/bin/bash
@@ -188,10 +251,13 @@ This method is more involved than the one above, but has anti-leak features that
     sg qvpn -c "$VPN_CLIENT $VPN_OPTIONS"
     ~~~
     
-    Change the `VPN_CLIENT` and `VPN_OPTIONS` variables to match your VPN software.
+If you are using anything other than OpenVPN, change the `VPN_CLIENT` and `VPN_OPTIONS` variables to match your VPN software.
 
-    Now save the script and make it executable:  
-    `sudo chmod +x /rw/config/rc.local`
+Save the script.
+
+Make it executable.
+
+       sudo chmod +x /rw/config/rc.local`
     
 6. Restart the new VM! The link should then be established automatically with a popup notification to that effect.
 
