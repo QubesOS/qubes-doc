@@ -92,44 +92,6 @@ If applicable, links to more information or discussions
 **Mentor**: Name and email address.
 ```
 
-### Qubes MIME handlers
-
-**Project**: Qubes MIME handlers
-
-**Brief explanation**: [#441](https://github.com/QubesOS/qubes-issues/issues/441) (including remembering decision whether some file
-should be opened in DispVM or locally)
-
-**Expected results**:
-
- - Design mechanism for recognising which files should be opened locally and which in Disposable VM. This mechanism should:
-   - Respect default action like "by default open files in Disposable VM" (this
-     may be about files downloaded from the internet, transferred from
-     other VM etc).
-   - Allow setting persistent flag for a file that should be opened in specific
-     way ("locally"); this flag should local to the VM - it shouldn't be possible
-     to preserve (or even fabricate) the flag while transferring the file from/to
-     VM.
-   - See linked ticket for simple ideas.
- - Implement generic file handler to apply this mechanism; it should work
-   regardless of file type, and if file is chosen to be opened locally, normal
-   (XDG) rules of choosing application should apply.
- - Setting/unsetting the flag should be easy - like if once file is chosen to
-   be opened locally, it should remember that decision.
- - Preferably use generic mechanism to integrate it into file managers (XDG
-   standards). If not possible - integrate with Nautilus and Dolphin.
- - Optionally implement the same for Windows.
- - Document the mechanism (how the flag is stored, how mechanism is plugged
-   into file managers etc).
- - Write unit tests and integration tests.
-
-**Knowledge prerequisite**:
-
- - XDG standards
- - Bash or Python scripting
- - Basic knowledge of configuration/extension for file managers
-
-**Mentor**: [Marek Marczykowski-Górecki](/team/)
-
 ### Template manager, new template distribution mechanism
 
 **Project**: Template manager, new template distribution mechanism
@@ -231,37 +193,8 @@ details: [#1552](https://github.com/QubesOS/qubes-issues/issues/1552),
 
 **Mentor**: [Thomas Leonard](mailto:talex5@gmail.com), [Marek Marczykowski-Górecki](/team/)
 
-### IPv6 support
-**Project**: IPv6 support
-
-**Brief explanation**: Add support for native IPv6 in Qubes VMs. This should
-include IPv6 routing (+NAT...), IPv6-aware firewall, DNS configuration, dealing
-with IPv6 being available or not in directly connected network. See
-[#718](https://github.com/QubesOS/qubes-issues/issues/718) for more details.
-
-**Expected results**:
-
- - Add IPv6 handling to network configuration scripts in VMs
- - Add support for IPv6 in Qubes firewall (including CLI/GUI tools to configure it)
- - Design and implement simple mechanism to propagate information about IPv6
-   being available at all (if necessary). This should be aware of ProxyVMs
-   potentially adding/removing IPv6 support - like VPN, Tor etc.
- - Add unit tests and integration tests for both configuration scripts and UI
-   enhancements.
- - Update documentation.
-
-**Knowledge prerequisite**:
-
- - network protocols, especially IPv6, TCP, DNS, DHCPv6, ICMPv6 (including
-   autoconfiguration)
- - ip(6)tables, nftables, NAT
- - Python and Bash scripting
- - network configuration on Linux: ip tool, configuration files on Debian and
-   Fedora, NetworkManager
-
-**Mentor**: [Marek Marczykowski-Górecki](/team/)
-
 ### Thunderbird, Firefox and Chrome extensions
+
 **Project**: additional Thunderbird, Firefox and Chrome extensions
 
 **Brief explanation**: 
@@ -315,31 +248,7 @@ immune to altering past entries. See
  - systemd
  - Python/Bash scripting
 
-**Mentor**: Inquire on [qubes-devel][ml-devel].
-
-### GUI improvements
-
-**Project**: GUI improvements
-
-**Brief explanation**:
-
-* GUI for enabling USB keyboard: [#2329](https://github.com/QubesOS/qubes-issues/issues/2329)
-* GUI for enabling USB passthrough: [#2328](https://github.com/QubesOS/qubes-issues/issues/2328)
-* GUI interface for /etc/qubes/guid.conf: [#2304](https://github.com/QubesOS/qubes-issues/issues/2304)
-* Improving inter-VM file copy / move UX master ticket: [#1839](https://github.com/QubesOS/qubes-issues/issues/1839)
-* and comprehensive list of GUI issues: [#1117](https://github.com/QubesOS/qubes-issues/issues/1117)
-
-**Expected results**:
-
- - Add/enhance GUI tools to configure/do things mentioned in description above.
-   Reasonable subset of those things is acceptable.
- - Write tests for added elements.
-
-**Knowledge prerequisite**:
-
- - Python, PyGTK
-
-**Mentor**: Inquire on [qubes-devel][ml-devel].
+**Mentor**: [Marek Marczykowski-Górecki](/team/)
 
 ### Xen GPU pass-through for Intel integrated GPUs
 **Project**: Xen GPU pass-through for Intel integrated GPUs (largely independent of Qubes)
@@ -424,27 +333,7 @@ details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
 
 **Mentor**: [Rafał Wojdyła](/team/)
 
-### Make Anti Evil Maid resistant against shoulder surfing and video surveillance
-
-**Project**: Observing the user during early boot should not be sufficient to defeat the protection offered by Anti Evil Maid.
-
-**Brief explanation**:
-
-1. Implement optional support for time-based one-time-password seed secrets. Instead of verifying a static text or picture (which the attacker can record and replay later on a compromised system), the user would verify an ephemeral six-digit code displayed on another device, e.g. a smartphone running any Google Authenticator compatible code generator app.
-
-2. Implement optional support for storing a passphrase-encrypted LUKS disk decryption key on a secondary AEM device. The attacker would then have to seize this device in order to decrypt the user's data; just recording the passphrase as it is entered would no longer be enough.
-
-**Expected results**: AEM package updates implementing both features, with fallback support in case the user does not have their smartphone or secondary AEM device at hand. Good UX and documentation for enrolling or upgrading users.
-
-**Knowledge prerequisite**:
-
-- Bash scripting
-- The AEM threat model
-- GRUB2, dracut, systemd, LUKS
-
-**Mentor**: [Rusty Bird](mailto:rustybird@openmailbox.org)
-
-### GNOME support in dom0
+### GNOME support in dom0 / GUI VM
 
 **Project**: GNOME support in dom0
 
@@ -518,7 +407,7 @@ for more information and qubes-specific background.
 
 **Knoledge prerequisite**: qubes-builder [[1]](https://www.qubes-os.org/doc/qubes-builder/) [[2]](https://www.qubes-os.org/doc/qubes-builder-details/) [[3]](https://github.com/QubesOS/qubes-builder/tree/master/doc), and efficient at introspecting complex systems: comfortable with tracing and debugging tools, ability to quickly identify and locate issues within a large codebase (upstream build tools), etc.
 
-**Mentor**: Inquire on [qubes-devel][ml-devel].
+**Mentor**: [Marek Marczykowski-Górecki](/team/)
 
 ### Android development in Qubes
 
