@@ -59,4 +59,4 @@ Trim for standalone AppVMs
 The `qvm-trim-template` command is not available for a standalone AppVM.
 
 It is still possible to trim the AppVM disks by using the `fstrim --all` command from the appvm.
-Note you may need to add the `discard` option to the mount line in `/etc/fstab` inside the standalone AppVM before this will work as expected.
+You can also add the `discard` option to the mount line in `/etc/fstab` inside the standalone AppVM if you want trimming to be performed automatically, but there may be a performance impact on writes and deletes.
