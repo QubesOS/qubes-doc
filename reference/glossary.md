@@ -89,7 +89,8 @@ Typically a TemplateBasedVM, but may be a StandaloneVM. Never a TemplateVM.
 NetVM
 -----
 Network Virtual Machine. 
-A type of [VM](#vm) that connects directly to a network and provides network access any VMs connected to the NetVM. 
+A type of [VM](#vm) that connects directly to a network.
+Other VMs gain access to a network by connecting to a NetVM (usually indirectly, via a [FirewallVM](#firewallvm)).
 A NetVM called `sys-net` is created by default in most Qubes installations.
 
 Alternatively, "NetVM" may refer to whichever VM is directly connected to a VM for networking purposes. 
