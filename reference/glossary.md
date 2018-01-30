@@ -167,6 +167,12 @@ Service Virtual Machine.
 A [VM](#vm) the primary purpose of which is to provide a service or services to other VMs. 
 NetVMs and ProxyVMs are examples of ServiceVMs.
 
+SystemVM
+--------
+System Virtual Machine.
+A synonym for [ServiceVM](#servicevm).
+SystemVMs usually have the prefix `sys-`.
+
 PVHVM
 -----
 [PV](#pv) on [HVM](#hvm). 
