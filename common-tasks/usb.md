@@ -30,14 +30,11 @@ sticks, this includes things like USB external hard drives.)
 
 Qubes OS supports the ability to attach a USB drive (or just one or more of its
 partitions) to any qube easily, no matter which qube actually handles the USB
-controller. (The USB controller may be assigned on the **Devices** tab of a
-qube's settings page in Qubes VM Manager or by using the
-[qvm-pci][Assigning Devices] command. For guidance on finding the correct USB
-controller, see [here][usb-controller].)
+controller.
 
 **R4.0**
 
-USB drive mounting is integrated into the Connection Widget. This is the tool tray
+USB drive mounting is integrated into the Devices Widget. This is the tool tray
 icon with a yellow square located in the top right of your screen by default.
 Simply insert
 your USB drive and click on the widget. You will see multiple entries for your
@@ -75,14 +72,14 @@ follows:
         usbVM:sdb1    Disk () 2GiB
 
     **Note:** If your device is not listed here, you may refresh the list by
-    calling (from the qube to which the device is connected):
+    calling from the qube to which the device is connected (typically `sys-usb`):
 
         sudo udevadm trigger --action=change
 
  3.  Assuming your USB drive is attached to `sys-usb` and is `sdb`, we attach the
      device to a qube with the name `personal` like so:
 
-         qvm-block a personal sys-usb:sdb
+         qvm-block attach personal sys-usb:sdb
 
      This will attach the device to the qube as `/dev/xvdi` if that name is not
      already taken by another attached device, or `/dev/xvdj`, etc.
@@ -90,13 +87,6 @@ follows:
      You may also mount one partition at a time by using the same command with
      the partition number after `sdb`.
 
-     **Warning:** when working with single partitions, it is possible to assign
-     the same partition to multiple qubes. For example, you could attach `sdb1`
-     to qube1 and then `sdb` to qube2. It is up to the user not to make this
-     mistake. The Xen block device framework currently does not provide an easy
-     way around this. Point 2 of [this comment on issue 1072][1072-comm2] gives
-     details about this.
-     
  4.  The USB drive is now attached to the qube. If using a default qube, you may
      open the Nautilus file manager in the qube, and your drive should be
      visible in the **Devices** panel on the left. If you've attached a single
@@ -114,7 +104,7 @@ follows:
 
  6.  In a dom0 console, detach the stick
 
-         qvm-block d <vmname> <device>
+         qvm-block detach <vmname> <device>
 
  7.  You may now remove the device.
 
@@ -153,7 +143,7 @@ follows:
         usbVM:sdb1    Disk () 2GiB
 
     **Note:** If your device is not listed here, you may refresh the list by
-    calling (from the qube to which the device is connected):
+    calling from the qube to which the device is connected (typically `sys-usb`):
 
         sudo udevadm trigger --action=change
 
@@ -321,7 +311,10 @@ fatal to the security of the whole system). With a USB qube, every time you
 connect an untrusted USB drive to a USB port managed by that USB controller, you
 will have to attach it to the qube in which you wish to use it (if different
 from the USB qube itself), either by using Qubes VM Manager or the command line
-(see instructions above). 
+(see instructions above). The USB controller may be assigned on the **Devices** tab of a
+qube's settings page in Qubes VM Manager or by using the
+[qvm-pci][Assigning Devices] command. For guidance on finding the correct USB
+controller, see [here][usb-controller].)
 You can create a USB qube using the management stack by performing the following
 steps as root in dom0:
 
@@ -331,7 +324,7 @@ steps as root in dom0:
 
  2. Apply the configuration:
 
-        sudo qubesctl state.highstate
+        sudo qubesctl state.sls qvm.sys-usb
 
 Alternatively, you can create a USB qube manually as follows:
 
@@ -464,7 +457,12 @@ How to use a USB mouse
 
 **Caution:** Please carefully read the [Security Warning about USB Input Devices] before proceeding.
 
-In order to use a USB mouse, you must first attach it to a USB qube, then give that qube permission to pass mouse input to dom0.
+In order to use a USB mouse, you must first attach it to a USB qube, then give that
+qube permission to pass mouse input to dom0.
+The following steps are already done by default if you created the sys-usb qube with
+`qubesctl state.sls qvm.sys-usb` above, or let Qubes create it for you on first boot. However,
+if you've created the USB qube manually:
+
 Edit the `qubes.InputMouse` policy file in dom0, which is located here:
 
     /etc/qubes-rpc/policy/qubes.InputMouse
