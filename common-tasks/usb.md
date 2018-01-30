@@ -200,7 +200,7 @@ manually. The device will show up as `/dev/xvdi` (or `/dev/xvdj` if there is
 already one device attached -- if two, `/dev/xvdk`, and so on).
 
 
-### What if I removed the device before detaching it from the VM? ###
+### What if I removed the device before detaching it from the VM? (R3.2) ###
 
 Currently (until issue [1082] gets implemented), if you remove the device
 before detaching it from the qube, Qubes OS (more precisely, `libvirtd`) will
@@ -219,7 +219,7 @@ steps:
 
         [user@dom0 ~]$ qvm-block
         sys-usb:sda DataTraveler_2.0 () 246 MiB (attached to 'testvm' as 'xvdi')
-        [user@dom0 ~]$ xl block-attach testvm phy:/dev/sda backend=sys-usb xvdi
+        [user@dom0 ~]$ sudo xl block-attach testvm phy:/dev/sda backend=sys-usb xvdi
 
     In above example, all `xl block-attach` parameters can be deduced from the
     output of `qvm-block`. In order:
@@ -260,7 +260,52 @@ you want to attach the USB device to.
 - Fedora: `sudo dnf install qubes-usb-proxy`
 - Debian/Ubuntu: `sudo apt-get install qubes-usb-proxy`
 
-### Usage of qubes-usb-proxy ###
+### Usage of qubes-usb-proxy (R4.0) ###
+
+This feature is also available from the Devices Widget. This is the tool tray
+icon with a yellow square located in the top right of your screen by default.
+Simply insert
+your USB device and click on the widget. You will see an entry for your device
+such as `sys-usb:2-5 - 058f_USB_2.0_Camera` for example.
+Hover over it.
+This will pop up a submenu showing running VMs to which the USB device can be connected.
+Click on one and your device will be attached! You may also use the command line:
+
+Listing available USB devices:
+
+    [user@dom0 ~]$ qvm-usb
+    sys-usb:2-4     04ca:300d 04ca_300d
+    sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
+    sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
+
+Attaching selected USB device:
+
+    [user@dom0 ~]$ qvm-usb attach conferences sys-usb:2-5
+    [user@dom0 ~]$ qvm-usb
+    conferences:2-1 058f:3822 058f_USB_2.0_Camera
+    sys-usb:2-4     04ca:300d 04ca_300d
+    sys-usb:2-5     058f:3822 058f_USB_2.0_Camera (attached to conferences)
+    sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
+
+Now, you can use your USB device (camera in this case) in the `conferences` qube.
+If you see the error `ERROR: qubes-usb-proxy not installed in the VM` instead,
+please refer to the [Installation Section][installation].
+
+When you finish, detach the device. This can be done in the GUI by
+clicking on the Devices Widget. You will see a bolded entry for your device
+such as `sys-usb:2-5 - 058f_USB_2.0_Camera` for example.
+Hover over it.
+This will pop up a submenu showing running VMs. The one which your device is
+connected to will have an Eject button next to it. Click that and your device
+will be detached. You may also use the command line:
+
+    [user@dom0 ~]$ qvm-usb detach sys-usb:2-5
+    [user@dom0 ~]$ qvm-usb
+    sys-usb:2-4     04ca:300d 04ca_300d
+    sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
+    sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
+    
+### Usage of qubes-usb-proxy (R3.2) ###
 
 Listing available USB devices:
 
@@ -290,7 +335,7 @@ When you finish, detach the device:
     sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
     sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
 
-This feature is not yet available in Qubes Manager however, if you would like to contribute to Qubes OS project by implementing it and are a student please consider applying for the [Google Summer of Code][gsoc-page] scholarship and choosing QubesOS Project as a mentor organization. You can find list of our our Project Ideas [here][project-page].
+This feature is not available in Qubes Manager.
 
 Creating and Using a USB qube
 -----------------------------
@@ -494,8 +539,6 @@ sys-usb dom0 ask,default_target=dom0
 [1618]: https://github.com/QubesOS/qubes-issues/issues/1618
 [create a USB qube]: #creating-and-using-a-usb-qube
 [usb-challenges]: https://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html
-[project-page]: /gsoc/
-[gsoc-page]: https://summerofcode.withgoogle.com/organizations/6239659689508864/
 [YubiKey]: /doc/YubiKey/
 [Security Warning about USB Input Devices]: #security-warning-about-usb-input-devices
 [qubes-usb-proxy]: https://github.com/QubesOS/qubes-app-linux-usb-proxy
