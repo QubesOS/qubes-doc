@@ -35,6 +35,95 @@ qube's settings page in Qubes VM Manager or by using the
 [qvm-pci][Assigning Devices] command. For guidance on finding the correct USB
 controller, see [here][usb-controller].)
 
+ * R4.0
+
+USB drive mounting is integrated into the Connection Widget. This is the tooltray
+icon with a yellow square located in the top right of your screen by default.
+Simply insert
+your USB drive and click on the widget. You will see multiple entries for your
+USB drive; typically, `sys-usb:sda`, `sys-usb:sda1`, and `sys-usb:2-1` for example.
+The simplest (but slightly less secure, see note below about attaching individual
+partitions) option is to attach the entire block drive. In our example, this is `sda`,
+so hover over it.
+This will pop up a submenu showing running VMs to which the USB drive can be connected.
+Click on one and your USB drive will be attached!
+
+Note that attaching individual partitions can be slightly more secure because it doesn't
+force the target AppVM to parse the partition table. However, it often means the 
+AppVM won't detect the new partition and you will need to manually mount it inside
+the AppVM. To do this with the GUI,
+you'd select the `sda1` entry in our example and proceed to connect to an AppVM.
+Once the USB drive has been attached to the AppVM, it will
+appear as `/dev/xvd*` (usually `xvdi` but sometimes with higher letters if you
+have multiple devices attached.) Follow the below steps if you need to manually mount
+the partition:
+    ```
+    cd ~
+    mkdir mnt
+    sudo mount /dev/xvdi mnt
+    ```
+    And when done:
+    `sudo umount mnt`
+    
+The command-line tool you may use to mount whole USB drives or their partitions
+is `qvm-block`. This tool can be used to assign a USB drive to a qube as
+follows:
+
+ 1. Insert your USB drive.
+
+ 2. In a dom0 console (running as a normal user), list all available block
+    devices:
+
+        qvm-block
+
+    This will list all available block devices connected to any USB controller
+    in your system, no matter which qube hosts the controller. The name of the
+    qube hosting the USB controller is displayed before the colon in the device
+    name. The string after the colon is the name of the device used within the
+    qube, like so:
+
+        dom0:sdb1     Cruzer () 4GiB
+        
+        usbVM:sdb1    Disk () 2GiB
+
+    **Note:** If your device is not listed here, you may refresh the list by
+    calling (from the qube to which the device is connected):
+
+        sudo udevadm trigger --action=change
+
+ 3.  Assuming your USB drive is attached to dom0 and is `sdb`, we attach the
+     device to a qube with the name `personal` like so:
+
+         qvm-block a personal dom0:sdb
+
+     This will attach the device to the qube as `/dev/xvdi` if that name is not
+     already taken by another attached device, or `/dev/xvdj`, etc.
+
+     You may also mount one partition at a time by using the same command with
+     the partition number after `sdb`.
+
+     **Warning:** when working with single partitions, it is possible to assign
+     the same partition to multiple qubes. For example, you could attach `sdb1`
+     to qube1 and then `sdb` to qube2. It is up to the user not to make this
+     mistake. The Xen block device framework currently does not provide an easy
+     way around this. Point 2 of [this comment on issue 1072][1072-comm2] gives
+     details about this.
+
+ 4.  The USB drive is now attached to the qube. If using a default qube, you may
+     open the Nautilus file manager in the qube, and your drive should be
+     visible in the **Devices** panel on the left.
+
+ 5.  When you finish using your USB drive, click the eject button or right-click
+     and select **Unmount**.
+
+ 6.  In a dom0 console, detach the stick
+
+         qvm-block d <vmname> <device>
+
+ 7.  You may now remove the device.
+
+ * R3.2
+
 USB drive mounting is integrated into the Qubes VM Manager GUI. Simply insert
 your USB drive, right-click on the desired qube in the Qubes VM Manager list,
 click **Attach/detach block devices**, and select your desired action and
@@ -50,7 +139,7 @@ follows:
  2. In a dom0 console (running as a normal user), list all available block
     devices:
 
-        qvm-block -l
+        qvm-block
 
     This will list all available block devices connected to any USB controller
     in your system, no matter which qube hosts the controller. The name of the
@@ -76,7 +165,8 @@ follows:
      already taken by another attached device, or `/dev/xvdj`, etc.
 
      You may also mount one partition at a time by using the same command with
-     the partition number after `sdb`.
+     the partition number after `sdb`. This is slightly more secure because it
+     does not force the target AppVM to parse the partition table.
 
      **Warning:** when working with single partitions, it is possible to assign
      the same partition to multiple qubes. For example, you could attach `sdb1`
