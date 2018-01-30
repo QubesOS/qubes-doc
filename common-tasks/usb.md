@@ -35,9 +35,9 @@ qube's settings page in Qubes VM Manager or by using the
 [qvm-pci][Assigning Devices] command. For guidance on finding the correct USB
 controller, see [here][usb-controller].)
 
- * R4.0
+**R4.0**
 
-USB drive mounting is integrated into the Connection Widget. This is the tooltray
+USB drive mounting is integrated into the Connection Widget. This is the tool tray
 icon with a yellow square located in the top right of your screen by default.
 Simply insert
 your USB drive and click on the widget. You will see multiple entries for your
@@ -51,19 +51,7 @@ Click on one and your USB drive will be attached!
 Note that attaching individual partitions can be slightly more secure because it doesn't
 force the target AppVM to parse the partition table. However, it often means the 
 AppVM won't detect the new partition and you will need to manually mount it inside
-the AppVM. To do this with the GUI,
-you'd select the `sda1` entry in our example and proceed to connect to an AppVM.
-Once the USB drive has been attached to the AppVM, it will
-appear as `/dev/xvd*` (usually `xvdi` but sometimes with higher letters if you
-have multiple devices attached.) Follow the below steps if you need to manually mount
-the partition:
-    ```
-    cd ~
-    mkdir mnt
-    sudo mount /dev/xvdi mnt
-    ```
-    And when done:
-    `sudo umount mnt`
+the AppVM. See below for more detailed steps.
     
 The command-line tool you may use to mount whole USB drives or their partitions
 is `qvm-block`. This tool can be used to assign a USB drive to a qube as
@@ -91,10 +79,10 @@ follows:
 
         sudo udevadm trigger --action=change
 
- 3.  Assuming your USB drive is attached to dom0 and is `sdb`, we attach the
+ 3.  Assuming your USB drive is attached to `sys-usb` and is `sdb`, we attach the
      device to a qube with the name `personal` like so:
 
-         qvm-block a personal dom0:sdb
+         qvm-block a personal sys-usb:sdb
 
      This will attach the device to the qube as `/dev/xvdi` if that name is not
      already taken by another attached device, or `/dev/xvdj`, etc.
@@ -108,13 +96,21 @@ follows:
      mistake. The Xen block device framework currently does not provide an easy
      way around this. Point 2 of [this comment on issue 1072][1072-comm2] gives
      details about this.
-
+     
  4.  The USB drive is now attached to the qube. If using a default qube, you may
      open the Nautilus file manager in the qube, and your drive should be
-     visible in the **Devices** panel on the left.
+     visible in the **Devices** panel on the left. If you've attached a single
+     partition, you may need to manually mount before it becomes visible:
+     ```
+     cd ~
+     mkdir mnt
+     sudo mount /dev/xvdi mnt
+     ```
 
  5.  When you finish using your USB drive, click the eject button or right-click
-     and select **Unmount**.
+     and select **Unmount**. If you've manually mounted a single partition
+     in the above step, use:
+     `sudo umount mnt`
 
  6.  In a dom0 console, detach the stick
 
@@ -122,7 +118,7 @@ follows:
 
  7.  You may now remove the device.
 
- * R3.2
+**R3.2**
 
 USB drive mounting is integrated into the Qubes VM Manager GUI. Simply insert
 your USB drive, right-click on the desired qube in the Qubes VM Manager list,
@@ -130,6 +126,11 @@ click **Attach/detach block devices**, and select your desired action and
 device. This, however, only works for the whole device. If you would like to
 attach individual partitions, you must use the command-line tool.
 
+Note that attaching individual partitions can be slightly more secure because it doesn't
+force the target AppVM to parse the partition table. However, it often means the 
+AppVM won't detect the new partition and you will need to manually mount it inside
+the AppVM. See below for more detailed steps.
+    
 The command-line tool you may use to mount whole USB drives or their partitions
 is `qvm-block`. This tool can be used to assign a USB drive to a qube as
 follows:
@@ -156,10 +157,10 @@ follows:
 
         sudo udevadm trigger --action=change
 
- 3.  Assuming your USB drive is attached to dom0 and is `sdb`, we attach the
+ 3.  Assuming your USB drive is attached to `sys-usb` and is `sdb`, we attach the
      device to a qube with the name `personal` like so:
 
-         qvm-block -a personal dom0:sdb
+         qvm-block -a personal sys-usb:sdb
 
      This will attach the device to the qube as `/dev/xvdi` if that name is not
      already taken by another attached device, or `/dev/xvdj`, etc.
@@ -177,10 +178,18 @@ follows:
 
  4.  The USB drive is now attached to the qube. If using a default qube, you may
      open the Nautilus file manager in the qube, and your drive should be
-     visible in the **Devices** panel on the left.
-
+     visible in the **Devices** panel on the left. If you've attached a single
+     partition, you may need to manually mount before it becomes visible:
+     ```
+     cd ~
+     mkdir mnt
+     sudo mount /dev/xvdi mnt
+     ```
+   
  5.  When you finish using your USB drive, click the eject button or right-click
-     and select **Unmount**.
+     and select **Unmount**. If you've manually mounted a single partition
+     in the above step, use:
+     `sudo umount mnt`
 
  6.  In a dom0 console, detach the stick
 
