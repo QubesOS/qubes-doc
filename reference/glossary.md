@@ -22,7 +22,7 @@ The main principle of Qubes OS is security by compartmentalization (or isolation
 VM
 --
 An abbreviation for "virtual machine." 
-A software implementation of a machine (for example, a computer) which executes programs like a physical machine.
+A software implementation of a machine (for example, a computer) that executes programs like a physical machine.
 
 Qube
 ----
@@ -62,34 +62,34 @@ By default, most domUs lack direct hardware access.
 TemplateVM
 ----------
 Template Virtual Machine. 
-Any [VM](#vm) which supplies its root filesystem to another VM. 
+Any [VM](#vm) that supplies its root filesystem to another VM. 
 TemplateVMs are intended for installing and updating software applications, but not for running them.
 
  * Colloquially, TemplateVMs are often referred to as "templates."
 
 TemplateBasedVM
 ---------------
-Any [VM](#vm) which depends on a [TemplateVM](#templatevm) for its root filesystem.
+Any [VM](#vm) that depends on a [TemplateVM](#templatevm) for its root filesystem.
 
 Standalone(VM)
 --------------
 Standalone (Virtual Machine). 
 In general terms, a [VM](#vm) is described as **standalone** if and only if it does not depend on any other VM for its root filesystem. 
 (In other words, a VM is standalone if and only if it is not a TemplateBasedVM.) 
-More specifically, a **StandaloneVM** is a type of VM in Qubes which is created by cloning a TemplateVM. 
+More specifically, a **StandaloneVM** is a type of VM in Qubes that is created by cloning a TemplateVM. 
 Unlike TemplateVMs, however, StandaloneVMs do not supply their root filesystems to other VMs. 
 (Therefore, while a TemplateVM is a type of standalone VM, it is not a StandaloneVM.)
 
 AppVM
 -----
 Application Virtual Machine. 
-A [VM](#vm) which is intended for running software applications. 
+A [VM](#vm) that is intended for running software applications. 
 Typically a TemplateBasedVM, but may be a StandaloneVM. Never a TemplateVM.
 
 NetVM
 -----
 Network Virtual Machine. 
-A type of [VM](#vm) which connects directly to a network and provides access to that network to other VMs which connect to the NetVM. 
+A type of [VM](#vm) that connects directly to a network and provides network access any VMs connected to the NetVM. 
 A NetVM called `sys-net` is created by default in most Qubes installations.
 
 Alternatively, "NetVM" may refer to whichever VM is directly connected to a VM for networking purposes. 
@@ -98,18 +98,18 @@ For example, if `untrusted` is directly connected to `sys-firewall` for network 
 ProxyVM
 -------
 Proxy Virtual Machine. 
-A type of [VM](#vm) which proxies network access for other VMs. 
-Typically, a ProxyVM sits between a NetVM and another VM (such as an AppVM or a TemplateVM) which requires network access.
+A type of [VM](#vm) that proxies network access for other VMs. 
+Typically, a ProxyVM sits between a NetVM and another VM (such as an AppVM or a TemplateVM) that requires network access.
 
 FirewallVM
 ----------
 Firewall Virtual Machine. 
-A type of [ProxyVM](#proxyvm) which is used to enforce network-level policies (a.k.a. "firewall rules"). 
+A type of [ProxyVM](#proxyvm) that is used to enforce network-level policies (a.k.a. "firewall rules"). 
 A FirewallVM called `sys-firewall` is created by default in most Qubes installations.
 
 DispVM
 ------
-[Disposable Virtual Machine]. A temporary [AppVM](#appvm) based on a [DVM Template](#dvm-template) which can quickly be created, used, and destroyed.
+[Disposable Virtual Machine]. A temporary [AppVM](#appvm) based on a [DVM Template](#dvm-template) that can quickly be created, used, and destroyed.
 
 DVM
 ---
@@ -139,12 +139,12 @@ Although HVMs are typically slower than paravirtualized VMs due to the required 
 
 StandaloneHVM
 -------------
-Any [HVM](#hvm) which is standalone (i.e., does not depend on any other VM for its root filesystem). 
+Any [HVM](#hvm) that is standalone (i.e., does not depend on any other VM for its root filesystem). 
 In Qubes, StandaloneHVMs are referred to simply as **HVMs**.
 
 TemplateHVM
 -----------
-Any [HVM](#hvm) which functions as a [TemplateVM](#templatevm) by supplying its root filesystem to other VMs. 
+Any [HVM](#hvm) that functions as a [TemplateVM](#templatevm) by supplying its root filesystem to other VMs. 
 In Qubes, TemplateHVMs are referred to as **HVM templates**.
 
 TemplateBasedHVM
