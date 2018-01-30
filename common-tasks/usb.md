@@ -292,14 +292,14 @@ If you see the error `ERROR: qubes-usb-proxy not installed in the VM` instead,
 please refer to the [Installation Section][installation].
 
 When you finish, detach the device. This can be done in the GUI by
-clicking on the Devices Widget. You will see a bolded entry for your device
-such as `sys-usb:2-5 - 058f_USB_2.0_Camera` for example.
+clicking on the Devices Widget. You will see an entry in bold for your device
+such as **`sys-usb:2-5 - 058f_USB_2.0_Camera`**.
 Hover over it.
 This will pop up a submenu showing running VMs. The one which your device is
 connected to will have an Eject button next to it. Click that and your device
 will be detached. You may also use the command line:
 
-    [user@dom0 ~]$ qvm-usb detach sys-usb:2-5
+    [user@dom0 ~]$ qvm-usb detach conferences sys-usb:2-5
     [user@dom0 ~]$ qvm-usb
     sys-usb:2-4     04ca:300d 04ca_300d
     sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
@@ -359,7 +359,7 @@ from the USB qube itself), either by using Qubes VM Manager or the command line
 (see instructions above). The USB controller may be assigned on the **Devices** tab of a
 qube's settings page in Qubes VM Manager or by using the
 [qvm-pci][Assigning Devices] command. For guidance on finding the correct USB
-controller, see [here][usb-controller].)
+controller, see [here][usb-controller].
 You can create a USB qube using the management stack by performing the following
 steps as root in dom0:
 
@@ -419,12 +419,22 @@ will hang.
 
 The procedure to hide all USB controllers from dom0 is as follows:
 
-1. Open the file `/etc/default/grub` in dom0.
-2. Find the line that begins with `GRUB_CMDLINE_LINUX`.
-3. Add `rd.qubes.hide_all_usb` to that line.
-4. Save and close the file.
-5. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
-6. Reboot.
+ * GRUB2
+
+ 1. Open the file `/etc/default/grub` in dom0.
+ 2. Find the line that begins with `GRUB_CMDLINE_LINUX`.
+ 3. Add `rd.qubes.hide_all_usb` to that line.
+ 4. Save and close the file.
+ 5. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
+ 6. Reboot.
+
+ * EFI
+ 
+ 1. Open the file `/boot/efi/EFI/qubes/xen.cfg` in dom0.
+ 2. Find the lines that begin with `kernel=`. There may be more than one.
+ 3. Add `rd.qubes.hide_all_usb` to those lines.
+ 4. Save and close the file.
+ 5. Reboot.
 
 (Note: Beginning with R3.2, `rd.qubes.hide_all_usb` is set automatically if you
 opt to create a USB qube during installation. This also occurs automatically if
@@ -444,15 +454,26 @@ Removing a USB qube
 **Warning:** This procedure will result in your USB controller(s) being attached
 directly to dom0.
 
-1. Shut down the USB qube.
-2. In Qubes Manager, right-click on the USB qube and select "Remove VM."
-3. Open the file `/etc/default/grub` in dom0.
-4. Find the line(s) that begins with `GRUB_CMDLINE_LINUX`.
-5. If `rd.qubes.hide_all_usb` appears anywhere in those lines, remove it.
-6. Save and close the file.
-7. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
-8. Reboot.
+ * GRUB2
+ 
+ 1. Shut down the USB qube.
+ 2. In Qubes Manager, right-click on the USB qube and select "Remove VM."
+ 3. Open the file `/etc/default/grub` in dom0.
+ 4. Find the line(s) that begins with `GRUB_CMDLINE_LINUX`.
+ 5. If `rd.qubes.hide_all_usb` appears anywhere in those lines, remove it.
+ 6. Save and close the file.
+ 7. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
+ 8. Reboot.
 
+ * EFI
+ 
+ 1. Shut down the USB qube.
+ 2. In Qubes Manager, right-click on the USB qube and select "Remove VM."
+ 3. Open the file `/boot/efi/EFI/qubes/xen.cfg` in dom0.
+ 4. Find the line(s) that begins with `kernel=`.
+ 5. If `rd.qubes.hide_all_usb` appears anywhere in those lines, remove it.
+ 6. Save and close the file.
+ 7. Reboot.
 
 Security Warning about USB Input Devices
 ----------------------------------------
