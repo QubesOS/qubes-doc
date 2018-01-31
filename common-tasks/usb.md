@@ -361,15 +361,9 @@ qube's settings page in Qubes VM Manager or by using the
 [qvm-pci][Assigning Devices] command. For guidance on finding the correct USB
 controller, see [here][usb-controller].
 You can create a USB qube using the management stack by performing the following
-steps as root in dom0:
+as root in dom0:
 
- 1. Enable `sys-usb`:
-
-        sudo qubesctl top.enable qvm.sys-usb
-
- 2. Apply the configuration:
-
-        sudo qubesctl state.sls qvm.sys-usb
+    sudo qubesctl state.sls qvm.sys-usb
 
 Alternatively, you can create a USB qube manually as follows:
 
