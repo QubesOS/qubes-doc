@@ -17,8 +17,14 @@ What are HVM domains?
 
 HVM domains (Hardware VM), in contrast to PV domains (Paravirtualized domains), allow one to create domains based on any OS for which one has an installation ISO.  For example, this allows one to have Windows-based VMs in Qubes.
 
-Interested readers might want to check [this article](https://blog.invisiblethings.org/2012/03/03/windows-support-coming-to-qubes.html) to learn why it took so long for Qubes OS to support HVM domains (Qubes 1 only supported Linux based PV domains). As of
-Qubes 4, every VM is HVM by default ([see here](https://blog.invisiblethings.org/2017/07/31/qubes-40-rc1.html)).
+Interested readers might want to check
+[this article](https://blog.invisiblethings.org/2012/03/03/windows-support-coming-to-qubes.html)
+to learn why it took so long for Qubes OS to support HVM domains
+(Qubes 1 only supported Linux based PV domains). As of
+Qubes 4, every VM is PVH by default, except those with attached PCI devices which are HVM.
+[See here](https://blog.invisiblethings.org/2017/07/31/qubes-40-rc1.html) for a discussion
+of the switch to HVM from R3.2's PV, and [here](https://www.qubes-os.org/news/2018/01/11/qsb-37/)
+for changing the default to PVH.
 
 Creating an HVM domain
 ----------------------
