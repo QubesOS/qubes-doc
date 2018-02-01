@@ -94,3 +94,10 @@ Qubes agents
 
 Linux Qubes agents are written primarily for PV qubes, but it is possible to run them also in a HVM qube.
 However some work may be required to achieve this. Check [this thread](https://groups.google.com/group/qubes-devel/browse_thread/thread/081df4a43e49e7a5).
+
+Driver malfunction after suspend
+------------
+
+Occasionally, some drivers (such as Intel wireless NICs) may not function properly after a suspend.
+To work around the issue, add the driver (`iwlmvm` and `iwlwifi`, for example) to
+`/rw/config/suspend-module-blacklist` in your `sys-net` qube.
