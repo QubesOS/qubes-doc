@@ -58,6 +58,7 @@ Upgrading
 There is no in-place upgrade path from earlier Qubes versions. The only
 supported option to upgrade to Qubes R4.0 is to install it from scratch and use
 [qubes backup and restore tools][backup] for migrating of all of the user VMs.
+We also provide [detailed instruction][upgrade-to-r4.0] for this procedure.
 
 
 [backup]: /doc/backup-restore/
@@ -77,3 +78,4 @@ supported option to upgrade to Qubes R4.0 is to install it from scratch and use
 [qsb-24]: https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-024-2016.txt
 [backup-format]: /doc/backup-emergency-restore-v4/
 [api-doc]: https://dev.qubes-os.org/projects/qubes-core-admin/en/latest/
+[upgrade-to-r4.0]: https://www.qubes-os.org/doc/upgrade-to-r4.0/
