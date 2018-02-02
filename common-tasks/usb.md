@@ -500,7 +500,7 @@ Those steps are not performed by default, because of risk explained in [Security
 
 ### R4.0, using salt ###
 
-To allow USB keyboard usage (including early boot for LUKS passphrase), execute in dom0:
+To allow USB keyboard usage (including early boot for LUKS passphrase), make sure you have the latest `qubes-mgmt-salt-dom0-virtual-machines` package (simply [install dom0 updates][dom0-updates]) and execute in dom0:
 
     sudo qubesctl state.sls qvm.usb-keyboard
 
@@ -579,3 +579,4 @@ sys-usb dom0 ask,default_target=dom0
 [Security Warning about USB Input Devices]: #security-warning-about-usb-input-devices
 [How to hide all USB controllers from dom0]: #how-to-hide-all-usb-controllers-from-dom0
 [qubes-usb-proxy]: https://github.com/QubesOS/qubes-app-linux-usb-proxy
+[dom0-updates]: /doc/software-update-dom0/#how-to-update-software-in-dom0
