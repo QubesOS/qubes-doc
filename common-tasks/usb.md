@@ -32,7 +32,7 @@ Qubes OS supports the ability to attach a USB drive (or just one or more of its
 partitions) to any qube easily, no matter which qube actually handles the USB
 controller.
 
-**R4.0**
+### R4.0 ###
 
 USB drive mounting is integrated into the Devices Widget. This is the tool tray
 icon with a yellow square located in the top right of your screen by default.
@@ -108,7 +108,7 @@ follows:
 
  7.  You may now remove the device.
 
-**R3.2**
+### R3.2 ###
 
 USB drive mounting is integrated into the Qubes VM Manager GUI. Simply insert
 your USB drive, right-click on the desired qube in the Qubes VM Manager list,
