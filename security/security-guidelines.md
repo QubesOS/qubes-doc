@@ -32,7 +32,7 @@ See the page on [Verifying Signatures](https://www.qubes-os.org/security/verifyi
 Once you have Qubes installed, the standard program installation command for Fedora and Qubes repositories
 
 ~~~
-sudo yum install <program>
+sudo dnf install <program>
 ~~~
 
 automatically accomplishes this verification. 
@@ -93,7 +93,7 @@ sudo qubes-dom0-update
 and run in templates and standalone VM
 
 ~~~
-sudo yum update
+sudo dnf update
 ~~~
 
 or use the equivalent items in Qubes Manager, which displays an icon when an update is available.
@@ -154,12 +154,6 @@ As explained [here](/getting-started/#appvms-qubes-and-templatevms), dom0 should
 TemplateBasedVM Directories
 ---------------------------
 
- * Whenever a TemplateBasedVM is created, the contents of its `/home`
-   directory is copied from its parent TemplateVM. From that point onward, the child TemplateBasedVM's `/home`
-   is independent from its parent TemplateVM's `/home`, which means that any
-   subsequent changes to the parent TemplateVM's `/home` will no longer affect
-   the child TemplateBasedVM's `/home`.
-
  * Once a TemplateBasedVM has been created, any changes in its `/home`,
    `/usr/local`, or `/rw/config` directories will be persistent across reboots,
    which means that any files stored there will still be available after
@@ -167,3 +161,6 @@ TemplateBasedVM Directories
    TemplateBasedVMs persist in this manner. If you would like to make changes
    in other directories which *do* persist in this manner, you must make those
    changes in the parent TemplateVM.
+   
+ * See [here](/doc/templates) for more detail and version specific information.
+ 
