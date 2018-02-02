@@ -86,11 +86,11 @@ In dom0, make sure the `qubes-gpg-split-dom0` package is installed.
 If using templates based on Debian or Whonix, make sure you have the `qubes-gpg-split`
 package installed.
 
-    [user@debian-8 ~]$ sudo apt-get install qubes-gpg-split
+    [user@debian-8 ~]$ sudo apt install qubes-gpg-split
     
 For Fedora.
 
-    [user@fedora-25 ~]$ sudo yum install qubes-gpg-split
+    [user@fedora-25 ~]$ sudo dnf install qubes-gpg-split
 
 Start with creating a dedicated AppVM for storing your keys (the GPG backend
 domain). It is recommended that this domain be network disconnected (set its
