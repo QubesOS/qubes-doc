@@ -494,6 +494,24 @@ How to use a USB keyboard
 
 **Caution:** Please carefully read the [Security Warning about USB Input Devices] before proceeding.
 
+If you use USB keyboard, automatic USB qube creation during installation is disabled.
+Additional steps are required to avoid locking you out from the system.
+Those steps are not performed by default, because of risk explained in [Security Warning about USB Input Devices].
+
+### R4.0, using salt ###
+
+To allow USB keyboard usage (including early boot for LUKS passphrase), execute in dom0:
+
+    sudo qubesctl state.sls qvm.usb-keyboard
+
+The above command will take care of all required configuration, including creating USB qube if not present.
+Note that it will expose dom0 to USB devices while entering LUKS passphrase.
+Users are advised to physically disconnect other devices from the system for that time, to minimize the risk.
+
+If you wish to perform only subset of this configuration (for example do not enable USB keyboard during boot), see manual instructions below.
+
+### R3.2, manual ###
+
 In order to use a USB keyboard, you must first attach it to a USB qube, then give that qube permission to pass keyboard input to dom0.
 Edit the `qubes.InputKeyboard` policy file in dom0, which is located here:
 
@@ -511,6 +529,9 @@ For a confirmation dialog each time the USB keyboard is connected, change this l
 ```
 sys-usb dom0 ask,default_target=dom0
 ```
+
+Additionally, if you want to use USB keyboard to enter LUKS passphrase, it is incompatible with [hiding USB controllers from dom0][How to hide all USB controllers from dom0].
+You need to revert that procedure (remove `rd.qubes.hide_all_usb` option from files mentioned there) and employ alternative protection during system boot - disconnect other devices during startup.
 
 How to use a USB mouse
 ----------------------
@@ -556,4 +577,5 @@ sys-usb dom0 ask,default_target=dom0
 [usb-challenges]: https://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html
 [YubiKey]: /doc/YubiKey/
 [Security Warning about USB Input Devices]: #security-warning-about-usb-input-devices
+[How to hide all USB controllers from dom0]: #how-to-hide-all-usb-controllers-from-dom0
 [qubes-usb-proxy]: https://github.com/QubesOS/qubes-app-linux-usb-proxy
