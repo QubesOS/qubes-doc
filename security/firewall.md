@@ -374,12 +374,11 @@ Where to put firewall rules (R4.0)
 ---------------------------
 
 Implicit in the above example [scripts](/doc/config-files/), but worth 
-calling attention to: for all qubes *except* NetVMs, iptables commands 
-should be added to the `/rw/config/rc.local` script. For NetVMs 
-(`sys-firewall` inclusive), iptables commands should be added to 
-`/rw/config/qubes-firewall-user-script`. This is because a NetVM is 
-constantly adjusting its firewall, and therefore initial settings from 
-`rc.local` do not persist.
+calling attention to: for all qubes *except* AppVMs supplying networking,
+iptables commands should be added to the `/rw/config/rc.local` script. For
+AppVMs supplying networking (`sys-firewall` inclusive), 
+iptables commands should be added to 
+`/rw/config/qubes-firewall-user-script`.
 
 Where to put firewall rules (R3.2)
 ---------------------------
