@@ -102,6 +102,11 @@ It has been tested with Fedora 23 and Debian 8 templates.
    Make sure it already includes or add:
 
        redirect-gateway def1
+   
+   Since we will be routing DNS queries to go through the VPN, the client will not be able to look up the server's IP if it disconnects, preventing it from reconnecting again.
+   To fix this, add the following to remember the initially resolved IP address:
+   
+       persist-remote-ip
 
    The VPN client may not be able to prompt you for credentials when connecting to the server.
    Create a file in the `/rw/config/vpn` folder with your credentials and using a directive.
