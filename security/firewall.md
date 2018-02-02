@@ -32,6 +32,11 @@ Manager and press the "firewall" button:
 
 ![r2b1-manager-firewall.png](/attachment/wiki/QubesFirewall/r2b1-manager-firewall.png)
 
+*R4.0 note:* ICMP and DNS are no longer accessible in the GUI, but can be changed
+via `qvm-firewall` described below. Connections to Updates Proxy are no longer made
+over network so can not be allowed or blocked with firewall rules
+(see [R4.0 Updates proxy](https://www.qubes-os.org/doc/software-update-vm/) for more detail.
+
 Note that if you specify a rule by DNS name it will be resolved to IP(s)
 *at the moment of applying the rules*, and not on the fly for each new
 connection. This means it will not work for servers using load balancing. More
@@ -52,7 +57,28 @@ by putting appropriate rules in `/rw/config`. See [below](#where-to-put-firewall
 In complex cases, it might be appropriate to load a ruleset using `iptables-restore`
 called from `/rw/config/rc.local`.
 
-Reconnecting VMs after a NetVM reboot
+Reconnecting VMs after a NetVM reboot (R4.0)
+----------------------------------------
+
+Normally Qubes doesn't let the user stop a NetVM if there are other qubes
+running which use it as their own NetVM. But in case the NetVM stops for
+whatever reason (e.g. it crashes, or the user forces its shutdown via qvm-kill
+via terminal in Dom0), Qubes R4.0 will often automatically repair the
+connection. If it does not, then there is an easy way to restore the connection to
+the NetVM by issuing:
+
+` qvm-prefs <vm> netvm <netvm> `
+
+Normally qubes do not connect directly to the actual NetVM which has networking
+devices, but rather to the default sys-firewall first, and in most cases it would
+be the NetVM that will crash, e.g. in response to S3 sleep/restore or other
+issues with WiFi drivers. In that case it is only necessary to issue the above
+command once, for the sys-firewall (this assumes default VM-naming used by the
+default Qubes installation):
+
+` qvm-prefs sys-firewall netvm sys-net `
+
+Reconnecting VMs after a NetVM reboot (R3.2)
 ----------------------------------------
 
 Normally Qubes doesn't let the user stop a NetVM if there are other qubes
@@ -70,7 +96,7 @@ issues with WiFi drivers. In that case it is only necessary to issue the above
 command once, for the sys-firewall (this assumes default VM-naming used by the
 default Qubes installation):
 
-` qvm-prefs sys-firewall -s netvm netvm `
+` qvm-prefs sys-firewall -s netvm sys-net `
 
 Enabling networking between two qubes
 --------------------------------------
@@ -344,7 +370,18 @@ fi
 This time testing should allow connectivity to the service as long as the
 service is up :-)
 
-Where to put firewall rules
+Where to put firewall rules (R4.0)
+---------------------------
+
+Implicit in the above example [scripts](/doc/config-files/), but worth 
+calling attention to: for all qubes *except* NetVMs, iptables commands 
+should be added to the `/rw/config/rc.local` script. For NetVMs 
+(`sys-firewall` inclusive), iptables commands should be added to 
+`/rw/config/qubes-firewall-user-script`. This is because a NetVM is 
+constantly adjusting its firewall, and therefore initial settings from 
+`rc.local` do not persist.
+
+Where to put firewall rules (R3.2)
 ---------------------------
 
 Implicit in the above example [scripts](/doc/config-files/), but worth 
