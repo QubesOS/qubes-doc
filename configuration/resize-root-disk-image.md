@@ -11,9 +11,11 @@ redirect_from:
 Resize Root Disk Image
 ----------------------
 
+See additional information and caveats about [resizing private disk images](/doc/resize-disk-image/), paying particular attention to "OS Specific Follow-up Instructions" at the end.
+
 ### Template disk image 
 
-If you want install a lot of software in your TemplateVM, you may need to increase the amount of disk space your TemplateVM can use. See also additional information and caveats about [resizing private disk images](/doc/resize-disk-image/).
+If you want install a lot of software in your TemplateVM, you may need to increase the amount of disk space your TemplateVM can use. 
 *Make sure changes in the TemplateVM between reboots don't exceed 10G.*
 
 1.  Make sure that all the VMs based on this template are shut off (including netvms etc).
