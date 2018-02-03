@@ -16,7 +16,7 @@ There are several disk images which can be easily extended, but pay attention to
 
 ### Private disk image (R4.0)
 
-1048576 MiB is the maximum size which can be assigned to a private storage through Qube Manager.
+1048576 MiB is the maximum size which can be assigned to private storage through Qube Manager.
 
 To grow the private disk image of an AppVM beyond this limit, [qvm-volume](/doc/dom0-tools/qvm-volume/) can be used:
 
@@ -28,7 +28,7 @@ Note: Size is the target size (i.e. 4096MB or 16GB, ...), not the size to add to
 
 ### Private disk image (R3.2)
 
-1048576 MB is the maximum size which can be assigned to a private storage through Qubes Manager.
+1048576 MB is the maximum size which can be assigned to private storage through Qubes Manager.
 
 To grow the private disk image of an AppVM beyond this limit, [qvm-grow-private](/doc/dom0-tools/qvm-grow-private/) can be used:
 
@@ -40,9 +40,9 @@ Note: Size is the target size (i.e. 4096MB or 16GB, ...), not the size to add to
 
 ### Shrinking private disk image (Linux VM, R4.0)
 
-1.  Create a new qube with smaller disk using Qube Manager or qvm-create
-2.  Move data using OS tools
-3.  Delete old qube using Qube Manager or qvm-remove
+1.  Create a new qube with smaller disk using Qube Manager or `qvm-create`
+2.  Move data to the new qube using `qvm-copy` or OS utilities
+3.  Delete old qube using Qube Manager or `qvm-remove`
 
 ### Shrinking private disk image (Linux VM, R3.2)
 
