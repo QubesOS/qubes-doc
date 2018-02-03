@@ -121,5 +121,5 @@ Downloading and burning
    and `of` or specify an incorrect device, you could accidentally overwrite
    your primary system drive. Please be careful!
 
-[project-page]: https://www.qubes-os.org/gsoc/
+[project-page]: /gsoc/
 [gsoc-page]: https://summerofcode.withgoogle.com/organizations/6239659689508864/

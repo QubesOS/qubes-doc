@@ -78,4 +78,4 @@ We also provide [detailed instruction][upgrade-to-r4.0] for this procedure.
 [qsb-24]: https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-024-2016.txt
 [backup-format]: /doc/backup-emergency-restore-v4/
 [api-doc]: https://dev.qubes-os.org/projects/qubes-core-admin/en/latest/
-[upgrade-to-r4.0]: https://www.qubes-os.org/doc/upgrade-to-r4.0/
+[upgrade-to-r4.0]: /doc/upgrade-to-r4.0/

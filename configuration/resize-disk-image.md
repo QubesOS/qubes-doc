@@ -133,4 +133,4 @@ You will see that there is unallocated free space at the end of your primary dis
 You can use standard linux tools like fdisk and mkfs to make this space available.
 
 
-[resizing the root disk image]: https://www.qubes-os.org/doc/resize-root-disk-image/
+[resizing the root disk image]: /doc/resize-root-disk-image/

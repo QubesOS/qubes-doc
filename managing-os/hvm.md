@@ -23,7 +23,7 @@ to learn why it took so long for Qubes OS to support HVM domains
 (Qubes 1 only supported Linux based PV domains). As of
 Qubes 4, every VM is PVH by default, except those with attached PCI devices which are HVM.
 [See here](https://blog.invisiblethings.org/2017/07/31/qubes-40-rc1.html) for a discussion
-of the switch to HVM from R3.2's PV, and [here](https://www.qubes-os.org/news/2018/01/11/qsb-37/)
+of the switch to HVM from R3.2's PV, and [here](/news/2018/01/11/qsb-37/)
 for changing the default to PVH.
 
 Creating an HVM domain

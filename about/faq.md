@@ -113,7 +113,7 @@ At the same time, due to the smart use of Xen shared memory, our GUI implementat
 
 ### Why passwordless sudo?
 
-Please refer to [this page](https://www.qubes-os.org/doc/vm-sudo/).
+Please refer to [this page](/doc/vm-sudo/).
 
 ### How should I report documentation issues?
 
@@ -193,7 +193,7 @@ Qubes assumes that the user who controls Dom0 controls the whole system.
 It is very difficult to **securely** implement multi-user support. 
 See [here](https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06) for details.
 
-However, in Qubes 4.x we will be implementing management functionality. See [Admin API](https://www.qubes-os.org/news/2017/06/27/qubes-admin-api/) and [Core Stack](https://www.qubes-os.org/news/2017/10/03/core3/) for more details.
+However, in Qubes 4.x we will be implementing management functionality. See [Admin API](/news/2017/06/27/qubes-admin-api/) and [Core Stack](/news/2017/10/03/core3/) for more details.
 
 
 ### What are the system requirements for Qubes OS?
@@ -352,7 +352,7 @@ Another solution would be to set the pci_strictreset option in dom0:
         qvm-prefs usbVM -s pci_strictreset false
 
 These options allow the VM to ignore the error and the VM will start.
-Please review the note on [this page](https://www.qubes-os.org/doc/Dom0Tools/QvmPrefs/) and be aware of the potential risk.
+Please review the note on [this page](/doc/Dom0Tools/QvmPrefs/) and be aware of the potential risk.
 
 ### I assigned a PCI device to a qube, then unassigned it/shut down the qube. Why isn't the device available in dom0?
 

@@ -27,7 +27,7 @@ While your connection to the Qubes website and download mirrors is encrypted, me
 Signature verification allows us to validate for ourselves that these files were the ones authored and signed by their creators (in this case the Qubes development team). 
 
 Because it's so easy for a hacker who manages to tamper with the downloaded iso files this way to patch in malware, it is of the utmost importance that you **verify the signature of the Qubes iso** you use to install Qubes. 
-See the page on [Verifying Signatures](https://www.qubes-os.org/security/verifying-signatures/) for more information and a tutorial on how to accomplish this.
+See the page on [Verifying Signatures](/security/verifying-signatures/) for more information and a tutorial on how to accomplish this.
 
 Once you have Qubes installed, the standard program installation command for Fedora and Qubes repositories
 
@@ -79,7 +79,7 @@ qubes-hcl-report <userVM>
 
 where \<userVM\> is the name of the VM within which the report will be written (but the report will also be displayed in the Dom0 terminal). If it displays that VT-d is active, you should be able to assign **PCIe devices to an HVM** and **enjoy DMA protection** for your driver domains, so you successfully passed this step.
 
-If VT-d is not active, attempt to activate it by selecting the **VT-d flag** within the BIOS settings. If your processor/BIOS does not allow VT-d activation you still enjoy much better security than alternative systems, but you may be vulnerable to **DMA attacks**. Next time you buy a computer consult our **[HCL (Hardware Compatibility List)](https://www.qubes-os.org/hcl/)** and possibly contribute to it.
+If VT-d is not active, attempt to activate it by selecting the **VT-d flag** within the BIOS settings. If your processor/BIOS does not allow VT-d activation you still enjoy much better security than alternative systems, but you may be vulnerable to **DMA attacks**. Next time you buy a computer consult our **[HCL (Hardware Compatibility List)](/hcl/)** and possibly contribute to it.
 
 Updating Software
 -----------------

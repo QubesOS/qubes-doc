@@ -479,7 +479,7 @@ details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
 
 **Brief explanation**: A long-term goal is to be able to build the entire OS and installation media in a completely bit-wise deterministic manner, but there are many baby steps to be taken along that path. See:
 
-- "[Security challenges for the Qubes build process](https://www.qubes-os.org/news/2016/05/30/build-security/)"
+- "[Security challenges for the Qubes build process](/news/2016/05/30/build-security/)"
 - [This mailing list post](https://groups.google.com/d/msg/qubes-devel/gq-wb9wTQV8/mdliS4P2BQAJ)
 - and [reproducible-builds.org](https://reproducible-builds.org/)
 
@@ -487,7 +487,7 @@ for more information and qubes-specific background.
 
 **Expected results**: Significant progress towards making the Qubes build process deterministic. This would likely involve cooperation with and hacking on several upstream build tools to eliminate sources of variability.
 
-**Knoledge prerequisite**: qubes-builder [[1]](https://www.qubes-os.org/doc/qubes-builder/) [[2]](https://www.qubes-os.org/doc/qubes-builder-details/) [[3]](https://github.com/QubesOS/qubes-builder/tree/master/doc), and efficient at introspecting complex systems: comfortable with tracing and debugging tools, ability to quickly identify and locate issues within a large codebase (upstream build tools), etc.
+**Knoledge prerequisite**: qubes-builder [[1]](/doc/qubes-builder/) [[2]](/doc/qubes-builder-details/) [[3]](https://github.com/QubesOS/qubes-builder/tree/master/doc), and efficient at introspecting complex systems: comfortable with tracing and debugging tools, ability to quickly identify and locate issues within a large codebase (upstream build tools), etc.
 
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
 
@@ -513,17 +513,17 @@ We adapted some of the language here about GSoC from the [KDE GSoC page](https:/
 [2017-archive]: https://summerofcode.withgoogle.com/archive/2017/organizations/5074771758809088/
 [gsoc-qubes]: https://summerofcode.withgoogle.com/organizations/6239659689508864/
 [gsoc]: https://summerofcode.withgoogle.com/
-[team]: https://www.qubes-os.org/team/
+[team]: /team/
 [gsoc-faq]: https://developers.google.com/open-source/gsoc/faq
-[contributing]: https://www.qubes-os.org/doc/contributing/#contributing-code
-[patches]: https://www.qubes-os.org/doc/source-code/#how-to-send-patches
-[code-signing]: https://www.qubes-os.org/doc/code-signing/
-[ml-devel]: https://www.qubes-os.org/mailing-lists/#qubes-devel
+[contributing]: /doc/contributing/#contributing-code
+[patches]: /doc/source-code/#how-to-send-patches
+[code-signing]: /doc/code-signing/
+[ml-devel]: /mailing-lists/#qubes-devel
 [gsoc-participate]: https://developers.google.com/open-source/gsoc/
 [gsoc-student]: https://developers.google.com/open-source/gsoc/resources/manual#student_manual
 [how-to-gsoc]: http://teom.org/blog/kde/how-to-write-a-kick-ass-proposal-for-google-summer-of-code/
 [gsoc-submit]: https://summerofcode.withgoogle.com/
-[mailing-lists]: https://www.qubes-os.org/mailing-lists/
+[mailing-lists]: /mailing-lists/
 [qubes-issues]: https://github.com/QubesOS/qubes-issues/issues
 [qubes-issues-suggested]: https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22P%3A%20minor%22%20label%3A%22help%20wanted%22
-[qubes-builder]: https://www.qubes-os.org/doc/qubes-builder/
+[qubes-builder]: /doc/qubes-builder/

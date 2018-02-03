@@ -114,5 +114,5 @@ More information
 * [Debian wiki](https://wiki.debian.org/Qubes)
 
 
-[stretch]: https://www.qubes-os.org/doc/template/debian/upgrade-8-to-9/ 
+[stretch]: /doc/template/debian/upgrade-8-to-9/ 
 
