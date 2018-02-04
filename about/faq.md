@@ -345,14 +345,14 @@ Another solution would be to set the pci_strictreset option in dom0:
 
  - In Qubes R4.x, when attaching the PCI device to the VM (where `<BDF>` can be obtained from running [qvm-pci](/doc/dom0-tools/qvm-pci/)):
 
-        qvm-pci attach -persistent -option no-strict-reset=true usbVM dom0:<BDF>
+        qvm-pci attach --persistent --option no-strict-reset=true usbVM dom0:<BDF>
 
  - In Qubes R3.x, by modifying the VM's properties:
 
         qvm-prefs usbVM -s pci_strictreset false
 
 These options allow the VM to ignore the error and the VM will start.
-Please review the note on [this page](/doc/Dom0Tools/QvmPrefs/) and be aware of the potential risk.
+Please review the notes on [this page](/doc/Dom0Tools/QvmPrefs/) and [here](/doc/assigning-devices/) and be aware of the potential risks.
 
 ### I assigned a PCI device to a qube, then unassigned it/shut down the qube. Why isn't the device available in dom0?
 
@@ -370,6 +370,8 @@ or
         MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
         MOD=`modprobe -R $MODALIAS | head -n 1`
         echo 0000:<BDF> > /sys/bus/pci/drivers/$MOD/bind
+
+See also [here](/doc/assigning-devices/).
 
 ### How do I install Flash in a Debian qube?
 
