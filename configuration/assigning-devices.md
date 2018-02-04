@@ -167,7 +167,7 @@ for more details.
 
 At other times, you may instead need to disable the FLR requirement on a device.
 This will also weaken device isolation; see the "I created a usbVM..." entry in
-the [FAQ](/doc/faq/) for more details.
+the [FAQ](/doc/user-faq/) for more details.
 
 R4.0
 ------------------------
