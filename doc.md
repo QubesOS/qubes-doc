@@ -176,8 +176,10 @@ Troubleshooting
 
 Reference Pages
 ---------------
- * [Dom0 Command-Line Tools](/doc/dom0-tools/)
- * [DomU Command-Line Tools](/doc/vm-tools/)
+ * [Command-Line Tools: Qubes 3.2, dom0](/doc/tools/3.2/dom0/)
+ * [Command-Line Tools: Qubes 3.2, domU](/doc/tools/3.2/domU/)
+ * [Command-Line Tools: Qubes 4.0, dom0](/doc/tools/4.0/dom0/)
+ * [Command-Line Tools: Qubes 4.0, domU](/doc/tools/4.0/domU/)
  * [Glossary of Qubes Terminology](/doc/glossary/)
  * [Qubes Service Framework](/doc/qubes-service/)
  * [Command Execution in VMs (and Qubes RPC)](/doc/qrexec/)
