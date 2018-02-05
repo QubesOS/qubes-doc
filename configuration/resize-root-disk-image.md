@@ -53,7 +53,9 @@ Note: Size is the target size (i.e. 4096MB or 16GB, ...), not the size to add to
 
 ### Resize a StandaloneVM Root Image (R3.2)
 
-Another way to increase the size of `root.img` is to turn your TemplateVM into a StandaloneVM. Doing this means it will have it's own root filesystem *(StandaloneVMs use a copy of template, instead of smart sharing)*. To do this run `qvm-create --standalone` from `dom0` console.
+Another way to increase the size of `root.img` is to turn your TemplateVM into a StandaloneVM.
+Doing this means it will have it's own root filesystem *(StandaloneVMs use a copy of template, instead of smart sharing)*.
+To do this run `qvm-create --standalone` from `dom0` console.
 
 In `dom0` console run the following command (replace the size and path):
 
