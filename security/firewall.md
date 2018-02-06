@@ -53,7 +53,8 @@ This equates to somewhere between 35 and 39 rules.
 If this limit is exceeded, the qube will not start.
 
 It is possible to work around this limit by enforcing the rules on the qube itself
-by putting appropriate rules in `/rw/config`. See [below](#where-to-put-firewall-rules).
+by putting appropriate rules in `/rw/config`.
+See the "Where to put firewall rules" sections below for [R4.0](#where-to-put-firewall-rules-r40) and [R3.2](#where-to-put-firewall-rules-r32).
 In complex cases, it might be appropriate to load a ruleset using `iptables-restore`
 called from `/rw/config/rc.local`.
 
