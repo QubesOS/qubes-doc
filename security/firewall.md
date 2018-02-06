@@ -122,9 +122,9 @@ For a good visibility, from Dom0 terminal
 qvm-ls -n
 ~~~
 
-In order to provide more security and anomity, in QubesOS all the virtual MAC addresses are fe:ff:ff:ff:ff:ff. Moreover, routing is kept local between a qube and its NetworkVM (no route is present in any qube). This is achieved by each qube having his NetworkVM as default gateway while natting (masquerading) the traffic (hiding traffic coming from qube's child behind it's own IP).
+In order to provide more security and anonymity, in QubesOS all the virtual MAC addresses are fe:ff:ff:ff:ff:ff. Moreover, routing is kept local between a qube and its NetworkVM (no route is present in any qube). This is achieved by each qube having his NetworkVM as default gateway while natting (masquerading) the traffic (hiding traffic coming from qube's child behind it's own IP).
 Traffic can flow from child to parent by following the default gateway.
-Flow from parent to child is done via local traffic, but it is the de-natting (un-masquerading) which transform to the packet and allows it to reach the next child.
+Flow from parent to child is done via local traffic, but it is the de-natting (un-masquerading) which transform the packet and provides it with the IP and source port of the next child.
 Note that this un-masquarading is provided for free when the traffic is initiated from child qubes (i.e. AppVM), as it is return (established) traffic. This is why hosting a service in Qubes requires natting (pre-routing) of the traffic (as this is not established traffic).
 
 Enabling networking between two qubes
