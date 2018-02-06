@@ -99,6 +99,34 @@ default Qubes installation):
 
 ` qvm-prefs sys-firewall -s netvm sys-net `
 
+Deeper network understanding
+----------------------------
+Every qube can (but does not have to) be configured to be logically wired to a NetworkVM. This allows for an arrangement of qubes to be chained in "rooted trees" type of graphs. You can have more than one rooted tree graph in your setup.
+Moreover, every qube can be configured to have PCI device(s) attached (i.e. Network Card).
+
+The default setup is composed of one tree where the leaves are used by the user and the root gives access to the network.
+The sys-net NetworkVM which will have your physical network interface(s) attached is the root.
+The sys-firewall FirewallVM has sys-net as NetworkVM and is the next child in the tree. It has the important role to filter (and route) network traffic. No other service should be running on it and even tools such as tcpdump (used to capture network traffic) should only be used with trusted traffic going through.
+Next, the ApplicationVMs (such as work, personal), DisposableVMs and sys-whonix are the next tier of children.
+Finally whonix-ws-dvm hang of sys-whonix.
+
+Here are 3 examples of more advanced configuration:
+- The pen-tester tree: a second independant tree with a different network card attached to the second root
+- The intranet firewall leaf: one of the ApplicationVM is configured to have a PCI network card attached (patched to the intranet).
+- The DMZ: the topologies does not change from the default tree, just some of the ApplicationVM host a service (i.e. print/file/web server)
+
+The network interface connecting to the NetworkVM of a qube is eth0 while interface(s) connecting to the leaves are vifXX.0.
+In R4: DisposableVM have an IP address of 10.138.XX.YY/32 while the other VMs have a fixed IP address of 10.137.0.XX/32 (vifXX.0 are not fixed).
+For a good visibility, from Dom0 terminal
+~~~
+qvm-ls -n
+~~~
+
+In order to provide more security and anomity, in QubesOS all the virtual MAC addresses are fe:ff:ff:ff:ff:ff. Moreover, routing is kept local between a qube and its NetworkVM (no route is present in any qube). This is achieved by each qube having his NetworkVM as default gateway while natting (masquerading) the traffic (hiding traffic coming from qube's child behind it's own IP).
+Traffic can flow from child to parent by following the default gateway.
+Flow from parent to child is done via local traffic, but it is the de-natting (un-masquerading) which transform to the packet and allows it to reach the next child.
+Note that this un-masquarading is provided for free when the traffic is initiated from child qubes (i.e. AppVM), as it is return (established) traffic. This is why hosting a service in Qubes requires natting (pre-routing) of the traffic (as this is not established traffic).
+
 Enabling networking between two qubes
 --------------------------------------
 
