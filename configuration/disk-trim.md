@@ -19,7 +19,7 @@ In a Linux system running on bare metal, this is relatively straight-forward.
 When instructed by the operating system, discards are issued by the file-system driver directly to the storage driver and then to the SSD.
 
 In Qubes, this gets more complex due to virtualization, LUKS, and LVM (and thin pools on R4.0 and up).
-If you run `fstrim --all` inside a TemplateVM, the `discard` can follow a path like:
+If you run `fstrim --all` inside a TemplateVM, in a worst case the `discard` can follow a path like:
 
     OS -> File-system Driver -> Virtual Storage Driver -> Backend Storage Driver -> LVM Storage Driver -> LUKS Driver -> Physical Storage Driver -> Physical Storage Device
     
@@ -43,37 +43,21 @@ Add the following contents:
 
 And mark it as executable with `chmod 755 /etc/cron.daily/trim`.
 
-**Note** Although discards can be issued on every delete by adding the `discard` mount option to `/etc/fstab`, this option can hurt performance so the above procedure is recommended instead.
+**Note** Although discards can be issued on every delete inside `dom0` by adding the `discard` mount option to `/etc/fstab`, this option can hurt performance so the above procedure is recommended instead.
+However, inside App and Template qubes, the `discard` mount option is on by default to notify the LVM thin pool driver (R4.0) or sparse file driver (R3.2) that the space is no longer needed and can be zeroed and re-used.
 
 If you are using Qubes with LVM, you may also want to set `issue_discards = 1` in `/etc/lvm/lvm.conf`.
 Setting this option will permit LVM to issue discards to the SSD when logical volumes are shrunk or deleted.
-This is relatively rare in R3.x, but more frequent in R4.x with disposable VMs.
-
-To verify if discards are enabled you may use `dmsetup table` (confirm the line for your device mentions "discards") or just run `fstrim -av` (you should see a number of bytes trimmed).
-
-See also version specific notes below.
+In R4.x, LVM Logical volumes are frequently deleted (every time a disposable VM is shut down, for example) so setting `issue_discards = 1` is recommended if using an SSD.
+However, this is relatively rare in R3.x.
 
 
-R4.0
+LUKS
 ----------
 
-TRIM support is enabled by default at all layers, including LUKS.
+If you have enabled LUKS in dom0, discards will not get passed down to the storage device. 
 
-LVM Logical volumes are frequently deleted (every time a disposable VM is shut down, for example) so setting `issue_discards = 1` in `/etc/lvm/lvm.conf` is recommended if using an SSD.
-
-
-R3.2.1
-----------
-
-TRIM support is enabled by default at all layers, including LUKS.
-
-
-R3.2
-----------
-
-VMs have already TRIM enabled by default, but dom0 doesn't. 
-
-To enable TRIM in dom0 you need:
+To enable TRIM support in dom0 with LUKS you need to:
 
 1. Get your LUKS device UUID:
 
@@ -98,5 +82,8 @@ To enable TRIM in dom0 you need:
     dracut -H -f
     ~~~
 
-5. Reboot the system and verify that discards are really enabled.
+5. Reboot the system.
+
+6. To verify if discards are enabled you may use `dmsetup table` (confirm the line for your device mentions "discards") or just run `fstrim -av` (you should see a `/` followed by the number of bytes trimmed).
+
 
