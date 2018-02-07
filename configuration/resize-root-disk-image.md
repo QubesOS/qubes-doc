@@ -31,7 +31,7 @@ If you want install a lot of software in your TemplateVM, you may need to increa
 
 1048576 MiB is the maximum size which can be assigned to root storage through Qube Manager.
 
-To grow the root disk image of an AppVM beyond this limit, [qvm-volume](/doc/dom0-tools/qvm-volume/) can be used:
+To grow the root disk image of an AppVM beyond this limit, `qvm-volume` can be used:
 
 ~~~
 qvm-volume extend <vm_name>:root <size>
@@ -43,7 +43,7 @@ Note: Size is the target size (i.e. 4096MB or 16GB, ...), not the size to add to
 
 1048576 MB is the maximum size which can be assigned to root storage through Qubes Manager.
 
-To grow the root disk image of an AppVM beyond this limit, [qvm-grow-root](/doc/dom0-tools/qvm-grow-root/) can be used:
+To grow the root disk image of an AppVM beyond this limit, `qvm-grow-root` can be used:
 
 ~~~
 qvm-grow-root <vm-name> <size>
