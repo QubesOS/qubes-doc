@@ -17,7 +17,7 @@ Installation
 ------------
 
 `dnf install rxvt-unicode-256color-ml` will bring both base `rxvt-unicode` and extension.
-Let me also recommend excellent Terminus font: `yum install terminus-fonts`.
+Let me also recommend excellent Terminus font: `dnf install terminus-fonts`.
 
 Xresources
 ----------
