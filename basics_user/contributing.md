@@ -75,6 +75,6 @@ be grateful to [receive your patch][patch].
 [Facebook]: https://www.facebook.com/QubesOS
 [GitHub issues]: https://github.com/QubesOS/qubes-issues/issues
 [qubes-devel]: /mailing-lists/#qubes-devel
-[Community-Developed Feature Tracker]: https://www.qubes-os.org/qubes-issues/
+[Community-Developed Feature Tracker]: /qubes-issues/
 [Qubes download mirror]: /downloads/mirrors/
 

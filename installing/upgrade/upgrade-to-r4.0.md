@@ -84,18 +84,19 @@ Restore from your backup
 4. Go to **Qubes menu -> System Tools -> Qubes Manager** to start it.
 
 5. Follow the **Restoring from a Backup** section in the [Backup, Restoration, and Migration](/doc/backup-restore/) guide.
-   It is cleanest to restore only the [AppVMs](/doc/glossary/#appvm) and [StandaloneVMs](/doc/glossary/#standalonevm) from R3.2, so it is recommended not to select any **sys-** or templates to restore unless you've heavily customized them.
-   If the restore tool complains about missing templates, you can select the option to restore the AppVMs anyways, then change them after restore to use one of the default R4.0 templates.
+   We recommend that you restore only your [TemplateBasedVMs](/doc/glossary/#templatebasedvm) and [StandaloneVMs](/doc/glossary/#standalonevm) from R3.2.
+   Using [TemplateVMs](/doc/templates/) and [SystemVMs](/doc/glossary/#systemvm) from R3.2 is not fully supported (see [#3514](https://github.com/QubesOS/qubes-issues/issues/3514)).
+   Instead, we recommend using the TemplateVMs that were created specifically for R4.0, which you can [customize](/doc/software-update-vm/) according to your needs.
+   For the TemplateVM OS versions supported in R4.0, see [Supported Versions](/doc/supported-versions/#templatevms).
+   If the restore tool complains about missing templates, you can select the option to restore the AppVMs anyway, then change them afterward to use one of the default R4.0 templates.
 
 
 Upgrade all Template and Standalone VM(s)
 -----------------------------------------
 
-By default, in Qubes R4.0, there are few [TemplateVMs](/doc/templates/) and no [StandaloneVMs](/doc/glossary/#standalonevm).
-However, users are free to create StandaloneVMs.
-More information on using multiple TemplateVMs, as well as StandaloneVMs, can be found [here](/doc/software-update-vm/).
-We strongly recommend that you upgrade **all** TemplateVMs and StandaloneVMs.
-Please consult the guides below for specific instructions:
+We strongly recommend that you update **all** TemplateVMs and StandaloneVMs before use so that you have the latest security patches from upstream distributions.
+In addition, if the default templates have reached EOL (end-of-life) by the time you install R4.0, we strongly recommend that you upgrade them before use.
+Please see [Supported Versions](/doc/supported-versions/) for information on supported OS versions and consult the guides below for specific upgrade instructions:
 
  * [Upgrading Fedora TemplateVMs](/doc/templates/fedora/#upgrading)
  * [Upgrading Debian TemplateVMs](/doc/templates/debian/#upgrading)

@@ -113,7 +113,7 @@ At the same time, due to the smart use of Xen shared memory, our GUI implementat
 
 ### Why passwordless sudo?
 
-Please refer to [this page](https://www.qubes-os.org/doc/vm-sudo/).
+Please refer to [this page](/doc/vm-sudo/).
 
 ### How should I report documentation issues?
 
@@ -193,7 +193,7 @@ Qubes assumes that the user who controls Dom0 controls the whole system.
 It is very difficult to **securely** implement multi-user support. 
 See [here](https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06) for details.
 
-However, in Qubes 4.x we will be implementing management functionality. See [Admin API](https://www.qubes-os.org/news/2017/06/27/qubes-admin-api/) and [Core Stack](https://www.qubes-os.org/news/2017/10/03/core3/) for more details.
+However, in Qubes 4.x we will be implementing management functionality. See [Admin API](/news/2017/06/27/qubes-admin-api/) and [Core Stack](/news/2017/10/03/core3/) for more details.
 
 
 ### What are the system requirements for Qubes OS?
@@ -345,14 +345,14 @@ Another solution would be to set the pci_strictreset option in dom0:
 
  - In Qubes R4.x, when attaching the PCI device to the VM (where `<BDF>` can be obtained from running [qvm-pci](/doc/dom0-tools/qvm-pci/)):
 
-        qvm-pci attach -persistent -option no-strict-reset=true usbVM dom0:<BDF>
+        qvm-pci attach --persistent --option no-strict-reset=true usbVM dom0:<BDF>
 
  - In Qubes R3.x, by modifying the VM's properties:
 
         qvm-prefs usbVM -s pci_strictreset false
 
 These options allow the VM to ignore the error and the VM will start.
-Please review the note on [this page](https://www.qubes-os.org/doc/Dom0Tools/QvmPrefs/) and be aware of the potential risk.
+Please review the notes on [this page](/doc/Dom0Tools/QvmPrefs/) and [here](/doc/assigning-devices/) and be aware of the potential risks.
 
 ### I assigned a PCI device to a qube, then unassigned it/shut down the qube. Why isn't the device available in dom0?
 
@@ -370,6 +370,8 @@ or
         MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
         MOD=`modprobe -R $MODALIAS | head -n 1`
         echo 0000:<BDF> > /sys/bus/pci/drivers/$MOD/bind
+
+See also [here](/doc/assigning-devices/).
 
 ### How do I install Flash in a Debian qube?
 
@@ -413,7 +415,7 @@ For Fedora:
 
 The recommended approach is to pass only the specific partition you intend to use from [`sys-usb`](/doc/usb/) to another qube via [qvm-block](/doc/dom0-tools/qvm-block/). They will show up in the destination qube as `/dev/xvd*` and must be mounted manually. Another approach is to attach the entire USB drive to your destination qube. However, this could theoretically lead to an attack because it forces the destination qube to parse the device's partition table. If you believe your device is safe, you may proceed to attach it.
 
-In Qubes 4.0, this is accomplished with the widget located in the tool tray (default top right corner, look for an icon with a yellow square). From the top part of the list, click on the drive you want to attach, then select the qube to attach it to. Although you can also attach the entire USB device to a qube by selecting it from the bottom part of the list, in general this approach should not be used because you are exposing the target qube to unnecessary additional attack surface.
+In Qubes 4.0, this is accomplished with the Devices Widget located in the tool tray (default top right corner, look for an icon with a yellow square). From the top part of the list, click on the drive you want to attach, then select the qube to attach it to. Although you can also attach the entire USB device to a qube by selecting it from the bottom part of the list, in general this approach should not be used because you are exposing the target qube to unnecessary additional attack surface.
 
 In Qubes 3.2, you can use the Qubes VM Manager. Simply insert your USB drive, right-click on the desired qube in the Qubes VM Manager list, click Attach/detach block devices, and select your desired action and device.
 

@@ -83,7 +83,7 @@ redirect_from:
 
       gpg --keyserver pgp.mit.edu --recv-keys 0xDDFA1A3E36879494
 
-* Verify its fingerprint, set as 'trusted'. [This is described here](https://www.qubes-os.org/doc/VerifyingSignatures).
+* Verify its fingerprint, set as 'trusted'. [This is described here](/doc/VerifyingSignatures).
 
 * Download the Qubes developers' keys.
 
