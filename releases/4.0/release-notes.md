@@ -82,6 +82,7 @@ We also provide [detailed instruction][upgrade-to-r4.0] for this procedure.
 [vm-interface]: /doc/vm-interface/
 [admin-api]: /news/2017/06/27/qubes-admin-api/
 [qsb-24]: https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-024-2016.txt
+[qsb-37]: https://www.qubes-os.org/news/2018/01/24/qsb-37-update/
 [backup-format]: /doc/backup-emergency-restore-v4/
 [api-doc]: https://dev.qubes-os.org/projects/qubes-core-admin/en/latest/
 [upgrade-to-r4.0]: /doc/upgrade-to-r4.0/
