@@ -139,7 +139,6 @@ Configuration Guides
  * [Enabling TRIM for SSD disks](/doc/disk-trim/)
  * [Configuring a Network Printer](/doc/network-printer/)
  * [Using External Audio Devices](/doc/external-audio/)
- * [Booting with GRUB2 and GPT](https://groups.google.com/group/qubes-devel/browse_thread/thread/e4ac093cabd37d2b/d5090c20d92c4128#d5090c20d92c4128)
  * [Rxvt Guide](/doc/rxvt/)
  * [Managing VM kernel](/doc/managing-vm-kernel/)
  * [Salt management stack](/doc/salt/)
