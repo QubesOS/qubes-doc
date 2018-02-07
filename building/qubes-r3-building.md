@@ -20,9 +20,9 @@ sudo qubes-dom0-update qubes-template-fedora-26
 
 Create a standalone appVM from the Fedora 26 template.
 You may choose your own name, but this document will refer to it as `dev26`.
-Set private storage to at least 60000MB if you will be building only the default templates; 100000MB if you plan on additional.
+Set private storage to at least 60 GB if you will be building only the default templates; 100 GB if you plan on additional.
 It's not required, but if you allocate additional CPU cores, the build process can utilize them at some steps such as the kernel build.
-Likewise, more memory (up to 16GB) can help.
+Likewise, more memory (up to 16 GB) can help.
 Last, you may want to disable memory balancing on `dev26` but keep in mind the impact on your other qubes.
 
 Once you've built `dev26`, open a Terminal window to it and install the necessary dependencies (see [QubesBuilder](/doc/qubes-builder/) for more info):
