@@ -19,7 +19,7 @@ See also additional information and caveats about [resizing the root disk image]
 
 1048576 MiB is the maximum size which can be assigned to private storage through Qube Manager.
 
-To grow the private disk image of an AppVM beyond this limit, [qvm-volume](/doc/dom0-tools/qvm-volume/) can be used:
+To grow the private disk image of an AppVM beyond this limit, `qvm-volume` can be used:
 
 ~~~
 qvm-volume extend <vm_name>:private <size>
