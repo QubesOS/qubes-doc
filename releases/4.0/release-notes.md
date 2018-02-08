@@ -31,9 +31,12 @@ New features since 3.2
 
 You can get detailed description in [completed github issues][github-release-notes]
 
-Note
-----
-* PV VMs restored from R3.2 to R4.x will be automatically migrated to PVH from R4.rc4 to address [QSB 37 (Meltdown & Spectre)][qsb-37]. However PV VMs restored from R4.x are not migrated.
+Security Notes
+--------------
+
+* PV VMs migrated from 3.2 to 4.0-rc4 or later are automatically set to PVH mode in order to protect against Meltdown (see [QSB #37][qsb-37]).
+  However, PV VMs migrated from any earlier 4.0 release candidate (RC1, RC2, or RC3) are not automically set to PVH mode.
+  These must be set manually.
 
 Known issues
 ------------
@@ -43,8 +46,6 @@ Known issues
 * List of USB devices may contain device identifiers instead of name
 
 * For other known issues take a look at [our tickets](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Release+4.0%22+label%3Abug)
-
-* Until R4.rc3 included, PV VMs restored from R3.x backup will not automatically be migrated to PVH mode and may be exposed to [QSB 37][qsb-37].
 
 It is advised to install updates just after system installation to apply bug fixes for (some of) the above problems.
 
