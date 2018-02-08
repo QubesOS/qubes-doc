@@ -105,6 +105,18 @@ pull request, we'll post a comment explaining why we can't.
 ![done](/attachment/wiki/doc-edit/10-done.png)
 
 
+How to add images
+-----------------
+
+To add an image to a page, use the following syntax in the main document:
+
+```
+![Image Title](/attachment/wiki/page-title/image-filename.png)
+```
+
+Then, submit your image(s) in a separate pull request to the [qubes-attachment](https://github.com/QubesOS/qubes-attachment) repository using the same path and filename.
+
+
 Version-specific Documentation
 ------------------------------
 
