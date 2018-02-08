@@ -33,7 +33,7 @@ You can get detailed description in [completed github issues][github-release-not
 
 Note
 ----
-* PV VMs restaured from R3.2 to R4.x will be automatically migrated to PVH from R4.rc4 to address [QSB 37 (Meltdown & Spectre)][qsb-37]. However PV VMs restored from R4.x are not migrated.
+* PV VMs restored from R3.2 to R4.x will be automatically migrated to PVH from R4.rc4 to address [QSB 37 (Meltdown & Spectre)][qsb-37]. However PV VMs restored from R4.x are not migrated.
 
 Known issues
 ------------
@@ -44,7 +44,7 @@ Known issues
 
 * For other known issues take a look at [our tickets](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Release+4.0%22+label%3Abug)
 
-* Until R4.rc3 included, PV VMs restored from R3.x backup will not automatically be migrated to PVH mode and may be explosed to [QSB 37][qsb-37].
+* Until R4.rc3 included, PV VMs restored from R3.x backup will not automatically be migrated to PVH mode and may be exposed to [QSB 37][qsb-37].
 
 It is advised to install updates just after system installation to apply bug fixes for (some of) the above problems.
 
