@@ -461,6 +461,15 @@ If it seems like the issue described in [this thread](https://github.com/QubesOS
 
 Please report (via the mailing lists) if you experience this issue, and whether disabling the compositor fixes it for you or not.
 
+### My HVM in Qubes R4.0 won't let me start/install an OS
+
+I see a screen popup with SeaBios and 4 lines, last one being "Probing EDD (edd=off to disable!... ok".
+
+From a `dom0` prompt, enter:
+
+    qvm-prefs <HVMname> kernel ""
+
+
 ----------
 
 ## Developers
