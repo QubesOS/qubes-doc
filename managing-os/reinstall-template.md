@@ -11,13 +11,35 @@ How to Reinstall a TemplateVM
 
 If you suspect your [TemplateVM] is broken, misconfigured, or compromised, you can reinstall any TemplateVM that was installed from the Qubes repository.
 
-The procedure varies by Qubes version; see the appropriate section below.
+The procedure varies by Qubes version and UpdateVM's distribution; see the appropriate section below.
 
 
-Manual Reinstallation Method (R4.0)
+Manual Reinstallation Method (Fedora based UpdateVM, R3.1+)
 ----------------------------
 
-If you're using Qubes 4.0 or newer, you should use the manual reinstallation method.
+First, copy any files that you wish to keep from the TemplateVM's `/home` and `/rw` folders to a safe storage location.
+Then, in a dom0 terminal, run:
+
+    $ sudo qubes-dom0-update --action=reinstall qubes-template-package-name
+
+Replace `qubes-template-package-name` with the name of the *package* of the template you wish to reinstall.
+For example, use `qubes-template-fedora-25` if you wish to reinstall the `fedora-25` template.
+Only one template can be reinstalled at a time.
+
+Note that Qubes may initially refuse to perform the reinstall if the exact revision of the template package on your system is no longer in the Qubes online repository.
+In this case, you can specify `upgrade` as the action instead and the newer version will be used. 
+The other `dnf` package actions that are supported in addition to `reinstall` and `upgrade` are `upgrade-to` and `downgrade`.
+
+**Reminder:** If you're trying to reinstall a template that is not in an enabled repo, you must enable that repo.
+For example:
+
+    $ sudo qubes-dom0-update --enablerepo=qubes-templates-community --action=reinstall qubes-template-whonix-ws
+
+**Note:** VMs that are using the reinstalled template will not be affected until they are restarted.
+
+
+Manual Reinstallation Method (Debian based UpdateVM, R3.1+)
+----------------------------
 
 In what follows, the term "target TemplateVM" refers to whichever TemplateVM you want to reinstall.
 If you want to reinstall more than one TemplateVM, repeat these instructions for each one.
@@ -59,30 +81,6 @@ If you want to reinstall more than one TemplateVM, repeat these instructions for
    command `qvm-remove <vm-name>` in dom0.
    
    
-Manual Reinstallation Method (R3.1 - R3.2)
-----------------------------
-
-First, copy any files that you wish to keep from the TemplateVM's `/home` and `/rw` folders to a safe storage location.
-Then, in a dom0 terminal, run:
-
-    $ sudo qubes-dom0-update --action=reinstall qubes-template-package-name
-
-Replace `qubes-template-package-name` with the name of the *package* of the template you wish to reinstall.
-For example, use `qubes-template-fedora-25` if you wish to reinstall the `fedora-25` template.
-Only one template can be reinstalled at a time.
-
-Note that Qubes may initially refuse to perform the reinstall if the exact revision of the template package on your system is no longer in the Qubes online repository.
-In this case, you can specify `upgrade` as the action instead and the newer version will be used. 
-The other `dnf` package actions that are supported in addition to `reinstall` and `upgrade` are `upgrade-to` and `downgrade`.
-
-**Reminder:** If you're trying to reinstall a template that is not in an enabled repo, you must enable that repo.
-For example:
-
-    $ sudo qubes-dom0-update --enablerepo=qubes-templates-community --action=reinstall qubes-template-whonix-ws
-
-**Note:** VMs that are using the reinstalled template will not be affected until they are restarted.
-
-
 Manual Reinstallation Method (R3.0 or earlier)
 ----------------------------
 
