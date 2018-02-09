@@ -40,7 +40,7 @@ The name of the domain ("win7") as well as its label ("green") are just exemplar
 **Note:** It is unnecessary for Qubes 4 users to pass in the `--hvm` switch. To create a StandaloneVM in Qubes 4, use the --class option, as VMs are template-based by default:
 
 ~~~
-qvm-create win7 --class StandaloneVM --label green
+qvm-create win7 --class StandaloneVM --property virt_mode=hvm --property kernel="" --label green
 ~~~
 
 If you receive an error like this one, then you must first enable VT-x in your BIOS:
@@ -53,9 +53,11 @@ Now we need to install an OS inside this VM.  This can be done by attaching an i
 
 ~~~
 qvm-start win7 --cdrom=/usr/local/iso/win7_en.iso
+or
+qvm-start win7 --cdrom=TempIsoVM:/home/user/win7.iso
 ~~~
 
-The above command assumes the installation ISO was transferred to Dom0 (copied using `dd` command from an installation CDROM for example). If one wishes to use the actual physical media without copying it first to a file, then one can just pass `/dev/cdrom` as an argument to `--cdrom`:
+The above first command assumes the installation ISO was transferred to Dom0 (copied using `dd` command from an installation CDROM for example). The second is for when the iso is in another VM. If one wishes to use the actual physical media without copying it first to a file, then one can just pass `/dev/cdrom` as an argument to `--cdrom`:
 
 ~~~
 qvm-start win7 --cdrom=/dev/cdrom
