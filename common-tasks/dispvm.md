@@ -11,37 +11,54 @@ redirect_from:
 Disposable VMs (DispVMs)
 ========================
 
-A Disposable VM (DispVM) is a lightweight VM that can be created quickly and will disappear when closed. 
-Disposable VMs are usually created in order to host a single application, like a viewer, editor, or web browser. 
-Changes made to a file opened in a Disposable VM are passed back to the originating VM. 
-This means that you can safely work with untrusted files without risk of compromising your other VMs. 
-DispVMs can be created either directly from Dom0 or from within AppVMs. 
-Once a DispVM has been created it will appear in Qubes VM Manager with the name "dispX". 
+A Disposable VM (DispVM) is a lightweight VM that can be created quickly and will disappear when closed.
+Disposable VMs are usually created in order to host a single application, like a viewer, editor, or web browser.
+
+From inside an AppVM, choosing the `Open in Disposable VM` option on a file will launch a DispVM for just that file.
+Changes made to a file opened in a DispVM are passed back to the originating VM.
+This means that you can safely work with untrusted files without risk of compromising your other VMs.
+DispVMs can be launched either directly from Dom0's Start Menu or terminal window, or from within AppVMs.
+While running, DispVMs will appear in Qubes VM Manager with the name `disp####`.
 
 See [this article](https://blog.invisiblethings.org/2010/06/01/disposable-vms.html) for more on why one would want to use a Disposable VM.
+
+
+DVM Templates
+----------
+
+Similarly to how AppVMs are based on their underlying [TemplateVM](https://www.qubes-os.org/doc/glossary/#templatevm), DispVMs are based on their underlying [DVM Template](https://www.qubes-os.org/doc/glossary/#dvm-template).
+
+On a fresh installation of Qubes, the DVM template is called `fedora-XX-dvm` (where `XX` is the Fedora version of the default TemplateVM). 
 
 Disposable VMs and Networking (R4.0 and later)
 -----------------------------
 
+R4.0 introduces the concept of multiple disposable VM templates, whereas R3.2 was limited to only one.
+You can set any AppVM to have the ability to act as a DVM Template with:
 
-R4.0 introduces the concept of multiple disposable VM templates (R3.2 was limited to one).
-This allows for the creation of multiple differently configured disposable VMs that can be accessed from 
-the Applications menu. Even more types of DispVMs can be created on-the-fly on a per AppVM basis.
-As you can see, this is a very flexible and powerful system for managing your Disposable VMs.
+    qvm-prefs <vmname> template_for_dispvms true
 
-NetVM and firewall rules for Disposable VMs can be set as they can for a normal VM. 
-By default a DispVM will inherit the NetVM and firewall settings of the DispVM Template from which it is built. 
-Thus if an AppVM uses sys-net as its NetVM, but the default system DispVM uses sys-whonix,
-any DispVM launched from this AppVM will have sys-whonix as its NetVM.
-The default system wide DispVM template can be changed with `qubes-prefs default_dispvm`.
-You can change this behaviour for individual VMs: in the Application Menu, open Qube Settings
-for the VM in question and go to the "Advanced" tab. 
+The default system wide DVM template can be changed with `qubes-prefs default_dispvm`.
+By combining the two, choosing `Open in Disposable VM` from inside an AppVM will open the document in a DispVM based on the default DVM template you specified.
+
+You can change this behaviour for individual VMs: in the Application Menu, open Qube Settings for the VM in question and go to the "Advanced" tab. 
 Here you can edit the "Default DispVM" setting to specify which DispVM template will be used to launch DispVMs from that VM.
-Disposable VMs will temporarily appear with the name `disp####`. 
+This can also be changed from the command line with:
 
-A Disposable VM launched from the Start Menu inherits the NetVM and firewall settings of the [DVM Template](https://www.qubes-os.org/doc/glossary/#dvm-template) from which it is built. 
-By default the DVM template is called `fedora-XX-dvm` (where `XX` is the Fedora version of the default TemplateVM). 
-Note that changing the "NetVM" setting for the DVM Template *does* affect the NetVM of DispVMs launched from the Start Menu.
+    qvm-prefs <vmname> default_dispvm <dvmtemplatename>
+
+You can even set an AppVM that has also been configured as a DVM template to use itself, so DispVMs launched from within the AppVM/DVM Template would inherit the same settings.
+
+NetVM and firewall rules for DVM templates can be set as they can for a normal VM. 
+By default a DispVM will inherit the NetVM and firewall settings of the DVM Template on which it is based.
+Launching a DispVM from an AppVM will result in it using the DispVM's network/firewall settings (which default to the DVM template on which it is based).
+Thus if an AppVM uses sys-net as its NetVM, but the default system DispVM uses sys-whonix, any DispVM launched from this AppVM will have sys-whonix as its NetVM.
+
+**Note** The opposite is also true. This means if the default system DispVM uses sys-net, launching a DispVM from inside anon-whonix will result in the DispVM using sys-net.
+
+A Disposable VM launched from the Start Menu inherits the NetVM and firewall settings of the DVM Template on which it is based.
+Note that changing the "NetVM" setting for the system default DVM Template *does* affect the NetVM of DispVMs launched from the Start Menu.
+Different DVM Templates with individual NetVM settings can be added to the Start Menu. 
 
 Disposable VMs and Networking (R3.2 and earlier)
 -----------------------------
@@ -52,8 +69,7 @@ Thus if an AppVM uses sys-net as its NetVM, any DispVM launched from this AppVM 
 You can change this behaviour for individual VMs: in Qubes VM Manager open VM Settings for the VM in question and go to the "Advanced" tab. 
 Here you can edit the "NetVM for DispVM" setting to change the NetVM of any DispVM launched from that VM.
 
-A Disposable VM launched from the Start Menu inherits the NetVM of the [DVM Template](https://www.qubes-os.org/doc/glossary/#dvm-template). 
-By default the DVM template is called `fedora-XX-dvm` (where `XX` is the Fedora version of the default TemplateVM). 
+A Disposable VM launched from the Start Menu inherits the NetVM of the [DVM Template](https://www.qubes-os.org/doc/glossary/#dvm-template).
 As an "internal" VM it is hidden in Qubes VM Manager, but can be shown by selecting "Show/Hide internal VMs". 
 Note that changing the "NetVM for DispVM" setting for the DVM Template does *not* affect the NetVM of DispVMs launched from the Start Menu; only changing the DVM Template's own NetVM does.
 
