@@ -37,10 +37,11 @@ qvm-create win7 --hvm --label green
 
 The name of the domain ("win7") as well as its label ("green") are just exemplary of course.
 
-**Note:** It is unnecessary for Qubes 4 users to pass in the `--hvm` switch. To create a StandaloneVM in Qubes 4, use the --class option, as VMs are template-based by default:
+**Note:** To create a StandaloneVM in Qubes 4, use the --class option, as VMs are template-based by default
 
 ~~~
-qvm-create win7 --class StandaloneVM --property virt_mode=hvm --property kernel="" --property memory=4096 --label green
+qvm-create win7 --class StandaloneVM --property virt_mode=hvm --property kernel="" --property memory=4096 --property maxmem=4096 --property debug=True --label green
+qvm-features win7 video-model cirrus
 ~~~
 
 If you receive an error like this one, then you must first enable VT-x in your BIOS:
