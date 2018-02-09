@@ -69,7 +69,7 @@ Thus if an AppVM uses sys-net as its NetVM, any DispVM launched from this AppVM 
 You can change this behaviour for individual VMs: in Qubes VM Manager open VM Settings for the VM in question and go to the "Advanced" tab. 
 Here you can edit the "NetVM for DispVM" setting to change the NetVM of any DispVM launched from that VM.
 
-A Disposable VM launched from the Start Menu inherits the NetVM of the [DVM Template](https://www.qubes-os.org/doc/glossary/#dvm-template).
+A Disposable VM launched from the Start Menu inherits the NetVM of the [DVM Template](/doc/glossary/#dvm-template).
 As an "internal" VM it is hidden in Qubes VM Manager, but can be shown by selecting "Show/Hide internal VMs". 
 Note that changing the "NetVM for DispVM" setting for the DVM Template does *not* affect the NetVM of DispVMs launched from the Start Menu; only changing the DVM Template's own NetVM does.
 
