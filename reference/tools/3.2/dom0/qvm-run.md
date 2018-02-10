@@ -44,7 +44,7 @@ Run command in a VM as a specified user
 Use tray notifications instead of stdout
 
 --all  
-Run command on all currently running VMs (or all paused, in case of --unpause)
+Run command on all currently running VMs (or all paused, in the case of --unpause)
 
 --exclude=EXCLUDE\_LIST  
 When --all is used: exclude this VM name (might be repeated)

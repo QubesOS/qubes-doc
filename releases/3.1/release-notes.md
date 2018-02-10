@@ -32,7 +32,7 @@ Known issues
 
 * Some icons in the Qubes Manager application might not be drawn correctly when using the Xfce4 environment in Dom0. If this bothers you, please use the KDE environment instead.
 
-* USB mouse (in case of USB VM) does not work at first system startup (just after completing firstboot). Workaround: restart the system.
+* USB mouse (in the case of USB VM) does not work at first system startup (just after completing firstboot). Workaround: restart the system.
 
 * For other known issues take a look at [our tickets](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Release+3.1%22+label%3Abug)
 

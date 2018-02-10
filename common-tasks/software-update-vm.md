@@ -37,7 +37,7 @@ In order to permanently install new software, you should:
 
 -   Install/update software as usual (e.g. using dnf, or the dedicated GUI application). Then, shutdown the template VM,
 
--   You will see now that all the AppVMs based on this template (by default all your VMs) will be marked as "outdated" in the manager. This is because their filesystems have not been yet updated -- in order to do that, you must restart each VM. You don't need to restart all of them at the same time -- e.g. if you just need the newly installed software to be available in your 'personal' domain, then restart only this VM. You will restart others whenever this will be convenient to you.
+-   You will see now that all the AppVMs based on this template (by default all your VMs) will be marked as "outdated" in the manager. This is because their filesystems have not been yet updated -- in order to do that, you must restart each VM. You don't need to restart all of them at the same time -- e.g. if you just need the newly installed software to be available in your 'personal' domain, then restart only this VM. You can restart others whenever this will be convenient to you.
 
 Testing repositories
 --------------------
@@ -124,17 +124,17 @@ As the TemplateVM is used for creating filesystems for other AppVMs, where you a
 
 There are several ways to deal with this problem:
 
--   Only install packages from trusted sources -- e.g. from the pre-configured Fedora repositories. All those packages are signed by Fedora, and as we expect that at least the package's installation scripts are not malicious. This is enforced by default (at the [firewall VM level](/doc/firewall/)), by not allowing any networking connectivity in the default template VM, except for access to the Fedora repos.
+-   Only install packages from trusted sources -- e.g. from the pre-configured Fedora repositories. All those packages are signed by Fedora, and we expect that at least the package's installation scripts are not malicious. This is enforced by default (at the [firewall VM level](/doc/firewall/)), by not allowing any networking connectivity in the default template VM, except for access to the Fedora repos.
 
 -   Use *standalone VMs* (see below) for installation of untrusted software packages.
 
--   Use multiple templates (see below) for different classes of domains, e.g. a less trusted template, used for creation of less trusted AppVMs, would get various packages from somehow less trusted vendors, while the template used for more trusted AppVMs will only get packages from the standard Fedora repos.
+-   Use multiple templates (see below) for different classes of domains, e.g. a less trusted template, used for creation of less trusted AppVMs, would get various packages from less trusted vendors, while the template used for more trusted AppVMs will only get packages from the standard Fedora repos.
 
 Some popular questions:
 
 -   So, why should we actually trust Fedora repos -- it also contains large amount of third-party software that might buggy, right?
 
-As long as template's compromise is considered, it doesn't really matter whether /usr/bin/firefox is buggy and can be exploited, or not. What matters is whether its *installation* scripts (such as %post in the rpm.spec) are benign or not. Template VM should be used only for installation of packages, and nothing more, so it should never get a chance to actually run the /usr/bin/firefox and got infected from it, in case it was compromised. Also, some of your more trusted AppVMs, would have networking restrictions enforced by the [firewall VM](/doc/firewall/), and again they should not fear this proverbial /usr/bin/firefox being potentially buggy and easy to compromise.
+As far as the template's compromise is concerned, it doesn't really matter whether /usr/bin/firefox is buggy and can be exploited, or not. What matters is whether its *installation* scripts (such as %post in the rpm.spec) are benign or not. Template VM should be used only for installation of packages, and nothing more, so it should never get a chance to actually run the /usr/bin/firefox and get infected from it, in case it was compromised. Also, some of your more trusted AppVMs, would have networking restrictions enforced by the [firewall VM](/doc/firewall/), and again they should not fear this proverbial /usr/bin/firefox being potentially buggy and easy to compromise.
 
 -   But why trust Fedora?
 
@@ -147,13 +147,13 @@ Not quite. Dom0 compromise is absolutely fatal, and it leads to Game Over<sup>TM
 Standalone VMs
 --------------
 
-Standalone VMs have their own copy of the whole filesystem, and thus can be updated and managed on its own. But this means that they take a few GBs on disk, and also that centralized updates do not apply to them.
+Standalone VMs have their own copy of the whole filesystem, and thus can be updated and managed on their own. But this means that they take a few GBs on disk, and also that centralized updates do not apply to them.
 
-Sometime it might be convenient to have a VM that has its own filesystem, where you can directly introduce changes, without the need to start/stop the template VM. Such situations include e.g.:
+Sometimes it might be convenient to have a VM that has its own filesystem, where you can directly introduce changes, without the need to start/stop the template VM. Such situations include e.g.:
 
--   VMs used for development (devel environments requires a lot of \*-devel packages and specific devel tools)
+-   VMs used for development (devel environments require a lot of \*-devel packages and specific devel tools)
 
--   VMs used for installing untrusted packages. Normally you install digitally signed software from Red Hat/Fedora repositories, and it's reasonable that such software has non malicious *installation* scripts (rpm pre/post scripts). However, when you would like to install some packages form less trusted sources, or unsigned, then using a dedicated (untrusted) standalone VM might be a better way.
+-   VMs used for installing untrusted packages. Normally you install digitally signed software from Red Hat/Fedora repositories, and it's reasonable that such software has non malicious *installation* scripts (rpm pre/post scripts). However, when you would like to install some packages from less trusted sources, or unsigned, then using a dedicated (untrusted) standalone VM might be a better way.
 
 In order to create a standalone VM you can use a command line like this (from console in Dom0):
 
@@ -177,14 +177,14 @@ qvm-create <vmname> --template <templatename> --label <label>
 Temporarily allowing networking for software installation
 ---------------------------------------------------------
 
-Some third-party applications cannot be installed using the standard yum repositories, and need to be manually downloaded and installed. When the installation requires internet connection to access third-party repositories, it will naturally fail when run in a Template VM because the default firewall rules for templates only allow connections to standard yum repositories. So it is necessary to modify firewall rules to allow less restrictive internet access for the time of the installation, if one really wants to install those applications into a template. As soon as software installation is completed, firewall rules should be returned back to the default state. The user should decided by themselves whether such third-party applications should be equally trusted as the ones that come from the standard Fedora signed repositories and whether their installation will not compromise the default Template VM, and potentially consider installing them into a separate template or a standalone VM (in which case the problem of limited networking access doesn't apply by default), as described above.
+Some third-party applications cannot be installed using the standard yum repositories, and need to be manually downloaded and installed. When the installation requires internet connection to access third-party repositories, it will naturally fail when run in a Template VM because the default firewall rules for templates only allow connections to standard yum repositories. So it is necessary to modify firewall rules to allow less restrictive internet access for the time of the installation, if one really wants to install those applications into a template. As soon as software installation is completed, firewall rules should be returned back to the default state. The user should decide by themselves whether such third-party applications should be equally trusted as the ones that come from the standard Fedora signed repositories and whether their installation will not compromise the default Template VM, and potentially consider installing them into a separate template or a standalone VM (in which case the problem of limited networking access doesn't apply by default), as described above.
 
 Updates proxy (some content applies only to versions earlier than R3.2)
 -------------
 
-Updates proxy is a service which filter http access to allow access to only something that looks like yum or apt repository. This is meant to mitigate user errors (like using browser in the template VM), rather than some real isolation. It is done with http proxy instead of simple firewall rules because it is hard to list all the repository mirrors (and keep that list up to date). The proxy is used only to filter the traffic, not to cache anything.
+Updates proxy is a service which filters http access to allow access to only something that looks like a yum or apt repository. This is meant to mitigate user errors (like using browser in the template VM), rather than some real isolation. It is done with http proxy instead of simple firewall rules because it is hard to list all the repository mirrors (and keep that list up to date). The proxy is used only to filter the traffic, not to cache anything.
 
-The proxy is running in selected VMs (by default all the NetVMs (1)) and intercept traffic directed to 10.137.255.254:8082. Thanks to such configuration all the VMs can use the same proxy address, and if there is a proxy on network path, it will handle the traffic (of course when firewall rules allows that). If the VM is configured to have access to the updates proxy (2), the startup scripts will automatically configure dnf to really use the proxy (3). Also access to updates proxy is independent of any other firewall settings (VM will have access to updates proxy, even if policy is set to block all the traffic).
+The proxy is running in selected VMs (by default all the NetVMs (1)) and intercepts traffic directed to 10.137.255.254:8082. Thanks to such configuration all the VMs can use the same proxy address, and if there is a proxy on network path, it will handle the traffic (of course when firewall rules allow that). If the VM is configured to have access to the updates proxy (2), the startup scripts will automatically configure dnf to really use the proxy (3). Also access to updates proxy is independent of any other firewall settings (VM will have access to updates proxy, even if policy is set to block all the traffic).
 
 (1) Services tab -\> "qubes-yum-proxy" entry; check qvm-service manual for details
 
@@ -194,13 +194,13 @@ The proxy is running in selected VMs (by default all the NetVMs (1)) and interce
 
 ### Technical details
 
-1.  Updates proxy: It is running as "qubes-yum-proxy" service. Startup script of this service setup firewall rule to intercept proxy traffic:
+1.  Updates proxy: It is running as "qubes-yum-proxy" service. Startup script of this service sets up the firewall rule to intercept proxy traffic:
 
     ~~~
     iptables -t nat -A PR-QBS-SERVICES -d 10.137.255.254/32 -i vif+ -p tcp -m tcp --dport 8082 -j REDIRECT
     ~~~
 
-1.  VM using the proxy service Startup script (qubes-misc-post service) configure yum using /etc/yum.conf.d/qubes-proxy.conf file. It can either contain
+1.  VM using the proxy service Startup script (qubes-misc-post service) configures yum using /etc/yum.conf.d/qubes-proxy.conf file. It can either contain
 
     ~~~
     proxy=http://10.137.255.254:8082/
@@ -213,7 +213,7 @@ Note on treating AppVM's root filesystem non-persistence as a security feature
 
 As explained above, any AppVM that is based on a Template VM (i.e. which is not a Standalone VM) has its root filesystem non-persistent across the VM reboots. In other words whatever changes the VM makes (or the malware running in this AppVM makes) to its root filesystem, are automatically discarded whenever one restarts the AppVM. This might seem like an excellent anti-malware mechanism to be used inside the AppVM...
 
-However, one should be careful with treating this property as a reliable way to keep the AppVM malware-free. This is because the non-persistence, in case of normal AppVMs, applies only to the root filesystem and not to the user filesystem (on which the `/home`, `/rw`, and `/usr/local` are stored) for obvious reasons. It is possible that malware, especially malware that could be specifically written to target a Qubes-based AppVMs, could install its hooks inside the user home directory files only. Examples of obvious places for such hooks could be: `.bashrc`, the Firefox profile directory which contains the extensions, or some PDF or DOC documents that are expected to be opened by the user frequently (assuming the malware found an exploitable bug in the PDF or DOC reader), and surely many others places, all in the user's home directory.
+However, one should be careful with treating this property as a reliable way to keep the AppVM malware-free. This is because the non-persistence, in the case of normal AppVMs, applies only to the root filesystem and not to the user filesystem (on which the `/home`, `/rw`, and `/usr/local` are stored) for obvious reasons. It is possible that malware, especially malware that could be specifically written to target a Qubes-based AppVMs, could install its hooks inside the user home directory files only. Examples of obvious places for such hooks could be: `.bashrc`, the Firefox profile directory which contains the extensions, or some PDF or DOC documents that are expected to be opened by the user frequently (assuming the malware found an exploitable bug in the PDF or DOC reader), and surely many others places, all in the user's home directory.
 
 One advantage of the non-persistent rootfs though, is that the malware is still inactive before the user's filesystem gets mounted and "processed" by system/applications, which might theoretically allow for some scanning programs (or a skilled user) to reliably scan for signs of infections of the AppVM. But, of course, the problem of finding malware hooks in general is hard, so this would work likely only for some special cases (e.g. an AppVM which doesn't use Firefox, as otherwise it would be hard to scan the Firefox profile directory reliably to find malware hooks there). Also note that the user filesystem's metadata might got maliciously modified by malware in order to exploit a hypothetical bug in the AppVM kernel whenever it mounts the malformed filesystem. However, these exploits will automatically stop working (and so the infection might be cleared automatically) after the hypothetical bug got patched and the update applied (via template update), which is an exceptional feature of Qubes OS.
 

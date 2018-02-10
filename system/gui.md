@@ -43,7 +43,7 @@ Window content updates implementation
 
 Typical remote desktop applications, like *vnc*, pass information on all changed window content in-band (say, over tcp). 
 As that channel has limited throughput, this impacts video performance. 
-In case of Qubes, *qubes_gui* does not transfer all changed pixels via vchan. Instead, for each window, upon its creation or size change, *qubes_gui*
+In the case of Qubes, *qubes_gui* does not transfer all changed pixels via vchan. Instead, for each window, upon its creation or size change, *qubes_gui*
 
 -   asks *qubes_drv* driver for the list of physical memory frames that hold the composition buffer of a window
 -   passes this information via `MFNDUMP` message to *qubes_guid* in dom0
@@ -71,9 +71,9 @@ To sum up, this solution has the following benefits:
 Security markers on dom0 windows
 --------------------------------
 
-It is important that user knows which AppVM a given window belongs to. This prevents a rogue AppVM from painting a window pretending to belong to other AppVM or dom0 and trying to steal, for example, passwords.
+It is important that the user knows which AppVM a given window belongs to. This prevents a rogue AppVM from painting a window pretending to belong to other AppVM or dom0 and trying to steal, for example, passwords.
 
-In Qubes, a custom window decorator is used that paints a colourful frame (the colour is determined during AppVM creation) around decorated windows. Additionally, the window title always starts with **[name of the AppVM]**. If a window has a *override_redirect* attribute, meaning that it should not be treated by a window manager (typical case is menu windows), *qubes_guid* draws a two-pixel colourful frame around it manually.
+In Qubes, a custom window decorator is used that paints a colourful frame (the colour is determined during AppVM creation) around decorated windows. Additionally, the window title always starts with **[name of the AppVM]**. If a window has an *override_redirect* attribute, meaning that it should not be treated by a window manager (typical case is menu windows), *qubes_guid* draws a two-pixel colourful frame around it manually.
 
 Clipboard sharing implementation
 --------------------------------
@@ -81,11 +81,11 @@ Clipboard sharing implementation
 Certainly, it would be insecure to allow AppVM to read/write the clipboards of other AppVMs unconditionally. 
 Therefore, the following mechanism is used:
 
--   there is a "qubes clipboard" in dom0 - its contents is stored in a regular file in dom0.
--   if user wants to copy local AppVM clipboard to qubes clipboard, she must focus on any window belonging to this AppVM, and press **Ctrl-Shift-C**. This combination is trapped by *qubes-guid*, and `CLIPBOARD_REQ` message is sent to AppVM. *qubes-gui* responds with *CLIPBOARD_DATA* message followed by clipboard contents.
--   user focuses on other AppVM window, presses **Ctrl-Shift-V**. This combination is trapped by *qubes-guid*, and `CLIPBOARD_DATA` message followed by qubes clipboard contents is sent to AppVM; *qubes_gui* copies data to the local clipboard, and then user can paste its contents to local applications normally.
+-   there is a "qubes clipboard" in dom0 - its contents are stored in a regular file in dom0.
+-   if the user wants to copy local AppVM clipboard to qubes clipboard, she must focus on any window belonging to this AppVM, and press **Ctrl-Shift-C**. This combination is trapped by *qubes-guid*, and `CLIPBOARD_REQ` message is sent to AppVM. *qubes-gui* responds with *CLIPBOARD_DATA* message followed by clipboard contents.
+-   the user focuses on other AppVM window, presses **Ctrl-Shift-V**. This combination is trapped by *qubes-guid*, and `CLIPBOARD_DATA` message followed by qubes clipboard contents is sent to AppVM; *qubes_gui* copies data to the local clipboard, and then user can paste its contents to local applications normally.
 
-This way, user can quickly copy clipboards between AppVMs. 
+This way, the user can quickly copy clipboards between AppVMs. 
 This action is fully controlled by the user, it cannot be triggered/forced by any AppVM.
 
 *qubes_gui* and *qubes_guid* code notes

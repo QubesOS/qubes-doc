@@ -18,7 +18,7 @@ See additional information and caveats about [resizing private disk images](/doc
 If you want install a lot of software in your TemplateVM, you may need to increase the amount of disk space your TemplateVM can use. 
 *Make sure changes in the TemplateVM between reboots don't exceed 10G.*
 
-1.  Make sure that all the VMs based on this template are shut off (including netvms etc).
+1.  Make sure that all the VMs based on this template are shut down (including netvms etc).
 2.  Resize root image using Qubes version specific procedure below.
 3.  If any netvm/proxyvm used by this template is based on it, set template's netvm to none.
 4.  Start the template.

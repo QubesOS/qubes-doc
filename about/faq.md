@@ -431,7 +431,7 @@ The encrypted partitions are identified and the user is prompted for password on
 
 A fully encrypted drive does not appear in Nautilus.
 
-The work round is to manually decrypt and mount the drive:
+The workaround is to manually decrypt and mount the drive:
 
 1. attach usb device to qube - it should be attached as /dev/xvdi or similar.
 2. sudo cryptsetup open /dev/xvdi bk --type luks

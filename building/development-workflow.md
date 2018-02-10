@@ -419,7 +419,7 @@ Remember to also import gpg public key using `rpm --import`.
 
 ### Deb packages - Apt repo
 
-Steps are mostly the same as in case of yum repo. Only details differs:
+Steps are mostly the same as in the case of yum repo. The only details that differ:
 
  - use [linux-deb] instead of [linux-yum] as a base - both in source and target VM
  - use different `update_repo.sh` script in source VM (below)

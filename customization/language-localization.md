@@ -18,7 +18,7 @@ How to set up pinyin input in Qubes
 
 2. Close and shut down the TemplateVM. 
 
-3. Restart an AppVM which based on the template you installed `ibus-pinyin` and open a terminal.
+3. Restart an AppVM which is based on the template you installed `ibus-pinyin` in, and open a terminal.
  
 4. Run `ibus-setup`
 

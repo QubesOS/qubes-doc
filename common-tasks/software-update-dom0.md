@@ -14,7 +14,7 @@ Updating software in dom0
 Why would one want to update software in dom0?
 ----------------------------------------------
 
-Normally, there should be few reasons for updating software in dom0. This is because there is no networking in dom0, which means that even if some bugs are discovered e.g. in the dom0 Desktop Manager, this really is not a problem for Qubes, because none of the third-party software running in dom0 is accessible from VMs or the network in any way. Some exceptions to this include: Qubes GUI daemon, Xen store daemon, and disk back-ends. (We plan move the disk backends to an untrusted domain.) Of course, we believe this software is reasonably secure, and we hope it will not need patching.
+Normally, there should be few reasons for updating software in dom0. This is because there is no networking in dom0, which means that even if some bugs are discovered e.g. in the dom0 Desktop Manager, this really is not a problem for Qubes, because none of the third-party software running in dom0 is accessible from VMs or the network in any way. Some exceptions to this include: Qubes GUI daemon, Xen store daemon, and disk back-ends. (We plan move the disk backends to an untrusted domain in a future Qubes release.) Of course, we believe this software is reasonably secure, and we hope it will not need patching.
 
 However, we anticipate some other situations in which updating dom0 software might be necessary or desirable:
 
