@@ -8,7 +8,7 @@ redirect_from:
 - /wiki/QubesBuilder/
 ---
 
-**Note: The build system has been improved since this how-to was last updated. The [Archlinux template building instructions](https://www.qubes-os.org/doc/building-archlinux-template/) contain more up-to-date and detailed information on how to use the build system.**
+**Note: The build system has been improved since this how-to was last updated. The [Archlinux template building instructions](/doc/building-archlinux-template/) contain more up-to-date and detailed information on how to use the build system.**
 
 Building Qubes from scratch
 ===========================
@@ -17,7 +17,7 @@ We have a fully automated build system for Qubes, that downloads, builds and
 packages all the Qubes components, and finally should spit out a ready-to-use
 installation ISO.
 
-In order to use it one should use an rpm-based distro, like Fedora :) and should ensure the following packages are installed:
+In order to use it, one should use an rpm-based distro, like Fedora :), and should ensure the following packages are installed:
 
 -   sudo
 -   gpg

@@ -77,13 +77,13 @@ redirect_from:
 <br>
 <br>
 
-## 4:   Downloading and verifying the "Qubes Automated Build System"
+## 4: Downloading and verifying the integrity of the "Qubes Automated Build System"
 
 * Import the Qubes master key
 
-      gpg --recv-keys 0xDDFA1A3E36879494
+      gpg --keyserver pgp.mit.edu --recv-keys 0xDDFA1A3E36879494
 
-* Verify its fingerprint, set as 'trusted'. [This is described here](https://www.qubes-os.org/doc/VerifyingSignatures).
+* Verify its fingerprint, set as 'trusted'. [This is described here](/doc/VerifyingSignatures).
 
 * Download the Qubes developers' keys.
 
@@ -98,9 +98,10 @@ redirect_from:
 
 * Copy your gpg keyrings to your local copy of the repository. (Otherwise you will be asked to download the keys again.)
 
-      # Assuming qubes-builder is in your home directory
-      cp .gnupg/pubring.gpg qubes-builder/keyrings/git/
-      cp .gnupg/trustdb.gpg qubes-builder/keyrings/git/
+      # Execute the following commands in your home directory.
+      # It is assumed that the path to the repository is '~/qubes-builder'.
+      mkdir -p qubes-builder/keyrings/git 
+      cp -t qubes-builder/keyrings/git/ .gnupg/pubring.gpg .gnupg/trustdb.gpg
 
 * Verify the integrity of the downloaded repository. The last line should read `gpg: Good signature from`...
 

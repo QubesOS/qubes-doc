@@ -86,11 +86,11 @@ In dom0, make sure the `qubes-gpg-split-dom0` package is installed.
 If using templates based on Debian or Whonix, make sure you have the `qubes-gpg-split`
 package installed.
 
-    [user@debian-8 ~]$ sudo apt-get install qubes-gpg-split
+    [user@debian-8 ~]$ sudo apt install qubes-gpg-split
     
 For Fedora.
 
-    [user@fedora-25 ~]$ sudo yum install qubes-gpg-split
+    [user@fedora-25 ~]$ sudo dnf install qubes-gpg-split
 
 Start with creating a dedicated AppVM for storing your keys (the GPG backend
 domain). It is recommended that this domain be network disconnected (set its
@@ -224,6 +224,21 @@ displayed to accept this.
     [user@work ~]$ qubes-gpg-import-key ~/Downloads/marmarek.asc
 
 ![r2-split-gpg-5.png](/attachment/wiki/SplitGpg/r2-split-gpg-5.png)
+
+<br />
+
+Qubes 4.0
+---------
+New qrexec policies in Qubes R4.0 by default require the user to enter the name 
+of the domain containing GPG keys each time it is accessed.  To improve usability 
+for Thunderbird+Enigmail, in `dom0` place the following line at the top of the file 
+`/etc/qubes-rpc/policy/qubes.Gpg`:
+
+```
+work-email  work-gpg  allow
+```
+where `work-email` is the Thunderbird+Enigmail AppVM and `work-gpg` contains 
+your GPG keys.
 
 <br />
 

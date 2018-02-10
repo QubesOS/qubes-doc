@@ -78,7 +78,7 @@ File naming conventions
 **File naming in Windows systems:**
 
 -   All base qubes-related files in `C:\Program Files\Invisible Things Lab\Qubes\` (Exceptionally spaces are allowed here to adhere to Windows naming conventions)
--   Other, 3rd party files, not Qubes-specific, such as e.g. Xen PV drivers might be in different vendor subdirs, e.g. `C:\Program Files\Xen PV Drivers`
+-   Other, third-party files, not Qubes-specific, such as e.g. Xen PV drivers might be in different vendor subdirs, e.g. `C:\Program Files\Xen PV Drivers`
 
 General programming style guidelines
 ------------------------------------

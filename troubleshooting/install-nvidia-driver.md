@@ -20,8 +20,8 @@ Support for newer cards is limited until AMDGPU support in the 4.5+ kernel, whic
 
 Built in Intel graphics, Radeon graphics (between that 4000-9000 range), and perhaps some prebaked NVIDIA card support that I don't know about. Those are your best bet for great Qubes support.
 
-If you do happen to get proprietary drivers working on your Qubes system (via installing them), please take the time to go to the
-[Hardware Compatibility List (HCL)](https://www.qubes-os.org/doc/hcl/#generating-and-submitting-new-reports )
+If you do happen to get proprietary drivers working on your Qubes system (via installing them), please take the time to go to the 
+[Hardware Compatibility List (HCL)](/doc/hcl/#generating-and-submitting-new-reports )
 Add your computer, graphics card, and installation steps you did to get everything working.
 
 ## RpmFusion packages

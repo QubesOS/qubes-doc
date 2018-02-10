@@ -135,7 +135,7 @@ Please see [this thread o the qubes-devel mailing list][macbook-air-2012-5-1].
 
 [1]: https://github.com/QubesOS/qubes-issues/issues/794
 [2]: https://github.com/QubesOS/qubes-issues/issues/1261
-[3]: https://www.qubes-os.org/doc/assigning-devices/
+[3]: /doc/assigning-devices/
 [bluetooth-replacement]: https://www.ifixit.com/Guide/MacBook+Air+13-Inch+Mid+2011+AirPort-Bluetooth+Card+Replacement/6360
 [macbook-air-2012-5-1]: https://groups.google.com/d/topic/qubes-devel/uLDYGdKk_Dk/discussion
 
@@ -187,11 +187,11 @@ You can install Qubes using BIOS or UEFI:
    * unzip it and run installer, which installs rEFIind on the internal SSD
    * if installation fails due to SIP, reboot in recovery mode, open a terminal and issue command
    ~~~
-   crsutil disable
+   csrutil disable
    ~~~
    * reboot and you will see some icons
    * choose Boot EFI\BOOT\xen.efi from ANACONDA
-   * after a while the graphical installer is up and running, with keyboard and touchpad working
+   * after a while the graphical installer is up (keyboard and touchpad working)
 
 ### 3. Installation
 

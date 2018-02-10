@@ -22,6 +22,9 @@ a **"workstation"**. Qubes security architecture makes use of Whonix's isolation
 by using the gateway as a ProxyVM to route all network traffic through Tor,
 while the workstation is used for making AppVMs.
 
+Whonix in Qubes replaces the deprecated [TorVM](/doc/torvm) service used in earlier
+versions of Qubes.
+
 ## Getting Started with Whonix
 *  Note: To install Whonix in Qubes, you must already have a working Qubes machine.
 *  [Installing Whonix in Qubes](/doc/whonix/install/)

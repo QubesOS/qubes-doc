@@ -37,10 +37,9 @@ more information on required and recommended hardware.
 
 **Note:** We don't recommend installing Qubes in a virtual machine! It will
 likely not work. Please don't send emails asking about it. You can, however,
-install it on an external USB hard drive and run from it, at least for testing.
-(Bear in mind, however, that such disks are typically *orders* of magnitude
-slower than even the slowest internal hard drives). We also have a [live USB]
-option (currently in alpha).
+install it on an external USB hard drive (at least 32 GB) and run from it,
+at least for testing. Bear in mind, however, that such disks are typically
+*orders* of magnitude slower than even the slowest internal hard drives.
 
 
 Downloading the ISO
@@ -65,7 +64,7 @@ an installation medium.)
 If you prefer to use a USB drive, then you just need to copy the ISO onto the
 USB device, e.g. using `dd`:
 
-    dd if=Qubes-R3-x86_64.iso of=/dev/sdX bs=1M
+    dd if=Qubes-R3-x86_64.iso of=/dev/sdX bs=1M && sync
 
 Change `Qubes-R3-x86_64.iso` to the filename of the version you're installing,
 and change `/dev/sdX` to the correct target device (e.g., `/dev/sda`).
@@ -76,6 +75,9 @@ partition (e.g., `/dev/sda1`).
 On Windows, you can use the [Rufus] tool. Be sure to select "DD image" mode (you
 need to do that **after** selecting the Qubes ISO):
 
+**Warning:** If you do that on Windows 10, you can only install Qubes without 
+MediaTest, which isn't recommended. 
+
 <img src="/attachment/wiki/InstallationGuide/rufus-main-boxed.png" height="350">
 
 Before proceeding with the installation, you are encouraged to first read all
@@ -85,7 +87,8 @@ simple and asks very few questions. (It's actually easier to install Qubes right
 now than most other Linux distributions!)
 
 The installer loads Xen right at the beginning, so chances are high that if you
-can see the installer's graphical screen, Qubes will work on your system. :)
+can see the installer's graphical screen and you pass the compatibility check that
+runs immediately after that, Qubes will work on your system. :)
 
 
 Installing to a USB drive

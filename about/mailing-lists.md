@@ -14,6 +14,42 @@ redirect_from:
 Qubes Mailing Lists
 ===================
 
+Staying Safe
+------------
+
+The Qubes mailing lists are open to the public. The contents of the list are
+crawled by search engines and archived by third-party services outside of our
+control. Please do not send anything to the mailing lists that you are not
+comfortable seeing discussed in public. If confidentiality is a concern, please
+use PGP encryption in an off-list email.
+
+The Qubes community includes people from all walks of life and from around the
+world. Individuals differ in areas of experience and technical expertise. You
+will come into contact with others whose views and agendas differ from your own.
+Everyone is free to write what they please, as long as it doesn't violate our
+[Code of Conduct][coc]. Be friendly and open, but do not believe everything you
+read. Use good judgment, and be especially careful when following instructions
+(e.g., copying commands) given by others on the lists.
+
+All official announcements from the [Qubes team] will be signed by the PGP key
+belonging to the team member who sends the announcement. However, anyone on the
+list can choose to sign their messages, so the presence of a PGP signature does
+not indicate authority. How, then, should you sort the good advice from the bad?
+This is up to each individual to decide, but it helps to know that many members
+of our community have proven themselves knowledgeable through their
+[contributions] to the project. Typically, these individuals sign their messages
+with the same key as (or another key authenticated by) the one they use to
+[sign their contributions][code-signing].
+
+For example, you might find it easier to trust advice from someone who has a
+proven track record of [contributing software packages] or [contributing to the
+documentation]. It's unlikely that individuals who have worked hard to build
+good reputations for themselves through their contributions over the years would
+risk giving malicious advice in signed messages to public mailing lists. Since
+every contribution to the Qubes OS Project is publicly visible and
+cryptographically signed, anyone would be in a position to [verify] that these
+came from the same keyholder.
+
 Discussion list guidelines
 --------------------------
 
@@ -75,7 +111,8 @@ guidelines.
    including many who post to the lists anonymously. (Given the integration of
    Qubes with [Whonix], we understand better than most the complexities of
    privacy and anonymity, and we know that many users have no other choice but
-   to post anonymously.) You can read our project's [Code of Conduct][coc] for more information.
+   to post anonymously.) You can read our project's [Code of Conduct][coc] for
+   more information.
 
 ### Specific rules and notes ###
 
@@ -166,6 +203,7 @@ were sent directly to the list.
      interface. This has the advantage that it allows you to search and reply to
      messages which were sent prior to your subscription to the list. However, a
      Google account is required in order to post through this interface.
+ * You can also search the [traditional mail archive][qubes-users-archive]
 
 #### Gmane
 
@@ -246,6 +284,7 @@ You must be subscribed in order to post to this list.
      interface. This has the advantage that it allows you to search and reply to
      messages which were sent prior to your subscription to the list. However, a
      Google account is required in order to post through this interface.
+ * You can also search the [traditional mail archive][qubes-devel-archive]
 
 #### Gmane
 
@@ -331,8 +370,8 @@ qubes-translation
 
 ### How to use this list
 
-This list is for discussion around the localization and translation of Qubes OS, 
-its documentation, and the website. 
+This list is for discussion around the localization and translation of Qubes OS,
+its documentation, and the website.
 
 Examples of topics or question suitable for this list include:
 
@@ -360,6 +399,12 @@ You must be subscribed in order to post to this list.
      messages which were sent prior to your subscription to the list. However, a
      Google account is required in order to post through this interface.
 
+[Qubes team]: /team/
+[contributions]: /doc/contributing/
+[code-signing]: /doc/code-signing/
+[contributing software packages]: /doc/package-contributions/
+[contributing to the documentation]: /doc/doc-guidelines/
+[verify]: /security/verifying-signatures/
 [qsb]: /security/bulletins/
 [qubes-announce-web]: https://groups.google.com/group/qubes-announce
 [top-post]: https://en.wikipedia.org/wiki/Posting_style
@@ -369,9 +414,11 @@ You must be subscribed in order to post to this list.
 [HCL]: /doc/hcl/
 [Installation Guide]: /doc/installation-guide/
 [System Requirements]: /doc/system-requirements/
-[User FAQ]: /doc/user-faq/
+[User FAQ]: /faq/#users
 [documentation]: /doc/
 [thunderbird-newsgroup]: https://support.mozilla.org/en-US/kb/creating-newsgroup-account
+[qubes-users-archive]: https://www.mail-archive.com/qubes-users@googlegroups.com/
+[qubes-devel-archive]: https://www.mail-archive.com/qubes-devel@googlegroups.com/
 [qubes-users-web]: https://groups.google.com/group/qubes-users
 [qubes-devel-web]: https://groups.google.com/group/qubes-devel
 [qubes-translation-web]: https://groups.google.com/group/qubes-translation
@@ -383,3 +430,4 @@ You must be subscribed in order to post to this list.
 [localization]: https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3Alocalization
 [coc]: /code-of-conduct/
 [Transifex]: https://www.transifex.com/otf/qubes/
+

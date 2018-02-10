@@ -7,6 +7,11 @@ permalink: /doc/live-usb/
 Qubes Live USB (alpha)
 ======================
 
+NOTE: This content applies to Qubes versions earlier than R3.2. See the
+[Installation Guide](/doc/installation-guide/) for instructions and warnings
+on creating a USB boot drive for testing purposes with Qubes R3.2, R4.0, and
+higher.
+
 Qubes Live USB allows you to run and try Qubes OS without having to install it
 anywhere. Qubes Live USB is currently in alpha. If you use it, please consider
 running the [HCL reporting tool](/hcl/) and sending us the results so that we
@@ -15,7 +20,6 @@ Project by improving Qubes Live USB and integrating it with the installer,
 please consider applying for a [Google Summer of Code][gsoc-page] scholarship
 (if you are eligible) and choosing the QubesOS Project as a mentor
 organization. You can find our list of project ideas [here][project-page].
-
 
 Introduction
 ------------
@@ -117,5 +121,5 @@ Downloading and burning
    and `of` or specify an incorrect device, you could accidentally overwrite
    your primary system drive. Please be careful!
 
-[project-page]: https://www.qubes-os.org/gsoc/
+[project-page]: /gsoc/
 [gsoc-page]: https://summerofcode.withgoogle.com/organizations/6239659689508864/

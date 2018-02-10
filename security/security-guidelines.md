@@ -27,12 +27,12 @@ While your connection to the Qubes website and download mirrors is encrypted, me
 Signature verification allows us to validate for ourselves that these files were the ones authored and signed by their creators (in this case the Qubes development team). 
 
 Because it's so easy for a hacker who manages to tamper with the downloaded iso files this way to patch in malware, it is of the utmost importance that you **verify the signature of the Qubes iso** you use to install Qubes. 
-See the page on [Verifying Signatures](https://www.qubes-os.org/security/verifying-signatures/) for more information and a tutorial on how to accomplish this.
+See the page on [Verifying Signatures](/security/verifying-signatures/) for more information and a tutorial on how to accomplish this.
 
 Once you have Qubes installed, the standard program installation command for Fedora and Qubes repositories
 
 ~~~
-sudo yum install <program>
+sudo dnf install <program>
 ~~~
 
 automatically accomplishes this verification. 
@@ -79,7 +79,7 @@ qubes-hcl-report <userVM>
 
 where \<userVM\> is the name of the VM within which the report will be written (but the report will also be displayed in the Dom0 terminal). If it displays that VT-d is active, you should be able to assign **PCIe devices to an HVM** and **enjoy DMA protection** for your driver domains, so you successfully passed this step.
 
-If VT-d is not active, attempt to activate it by selecting the **VT-d flag** within the BIOS settings. If your processor/BIOS does not allow VT-d activation you still enjoy much better security than alternative systems, but you may be vulnerable to **DMA attacks**. Next time you buy a computer consult our **[HCL (Hardware Compatibility List)](https://www.qubes-os.org/hcl/)** and possibly contribute to it.
+If VT-d is not active, attempt to activate it by selecting the **VT-d flag** within the BIOS settings. If your processor/BIOS does not allow VT-d activation you still enjoy much better security than alternative systems, but you may be vulnerable to **DMA attacks**. Next time you buy a computer consult our **[HCL (Hardware Compatibility List)](/hcl/)** and possibly contribute to it.
 
 Updating Software
 -----------------
@@ -93,7 +93,7 @@ sudo qubes-dom0-update
 and run in templates and standalone VM
 
 ~~~
-sudo yum update
+sudo dnf update
 ~~~
 
 or use the equivalent items in Qubes Manager, which displays an icon when an update is available.
@@ -129,7 +129,7 @@ It is preferable to avoid using **Bluetooth** if you travel or do not trust your
 
 Many laptops allow one to disable various hardware (Camera, BT, Mic, etc) **in BIOS**. This might or might not be a dependable way of getting rid of those devices, depending on how much you trust your BIOS vendor.
 
-If the VM will not start after you have assigned a USB controller, look at [this faq](../user-faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot).
+If the VM will not start after you have assigned a USB controller, look at [this FAQ](/faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot).
 
 
 Creating and Using a USBVM
@@ -146,19 +146,13 @@ As explained [here](/getting-started/#appvms-qubes-and-templatevms), dom0 should
 1.  Secure isolation among domUs (i.e., AppVMs, StandaloneVMs, HVMs, etc.) is the *raison d'être* of Qubes. This is the primary reason that we recommend the delegation of all user activities to some number of AppVMs. In the event that any given VM is compromised, only that particular VM is compromised. (TemplateVMs are the exception to this. If a TemplateVM were compromised, then every AppVM based on it might also be compromised. Even in this case, however, the entire system would not necessarily have been compromised, since StandaloneVM(s), HVM(s), and/or multiple TemplateVMs might be in use.) By contrast, if dom0 were ever compromised, the entire system would thereby be compromised.
 2.  Due to the absence of convenience mechanisms in dom0 such as the inter-VM clipboard and inter-VM file copying, it is significantly less convenient to attempt to use dom0 for user operations (e.g., password management) in conjunction with AppVMs than it is to use another dedicated AppVM (e.g., a "vault" VM).
 3.  Dom0 has access to every VM's data in the form of its private image file, including untrusted (e.g., red-bordered) VMs. If the user were to make a mistake (or be tricked into making one) and thereby inadvertently access untrusted files from dom0, those files could exploit the application which accessed them (e.g., a file manager) and gain control over dom0 and, therefore, the entire system. Even simply displaying the data in a [terminal emulator](http://securityvulns.com/docs4128.html) can be dangerous. For example, some file managers (such as the Thunar File Manager, which is pre-installed by default in the Xfce4 version of dom0) list loop devices used by running VMs. When one of these devices is selected in the file manager, the loop device is mounted to dom0, effectively [transferring the contents](https://groups.google.com/d/msg/qubes-users/_tkjmBa9m9w/9BbKh94PVtcJ) of the home directory of a (by definition less trusted) AppVM to dom0.
-4.  There is a (hopefully small, but always non-zero) chance that any given program is malicious. Even packages by third party developers you trust might have been modified and then signed by an attacker who managed to get that developer's private key(s). For this reason, it is very important that as few programs as possible be run in dom0 in as restricted a manner as possible. For example, although GnuPG is used in dom0 for verifying updates received from the firewallvm, it does not follow that GnuPG should be used for regular user operations (e.g., key management) in dom0. This is because only a single GnuPG operation, the "verify signature" operation  (which is believed to be the most bulletproof operation in GnuPG), is used by default in dom0. No other key management operations (e.g., importing unverified keys) or any other data parsing takes place in dom0 by default.
+4.  There is a (hopefully small, but always non-zero) chance that any given program is malicious. Even packages by third-party developers you trust might have been modified and then signed by an attacker who managed to get that developer's private key(s). For this reason, it is very important that as few programs as possible be run in dom0 in as restricted a manner as possible. For example, although GnuPG is used in dom0 for verifying updates received from the firewallvm, it does not follow that GnuPG should be used for regular user operations (e.g., key management) in dom0. This is because only a single GnuPG operation, the "verify signature" operation  (which is believed to be the most bulletproof operation in GnuPG), is used by default in dom0. No other key management operations (e.g., importing unverified keys) or any other data parsing takes place in dom0 by default.
 5.  Any VM can be shut down in order to make it even more difficult for an adversary to access, and shutting down one VM does not restrict the user of other VMs. By contrast, one cannot shut down dom0 and use other VMs at the same time.
 6.  As far as we are aware, there are no special mechanisms in Xen which make dom0 more protected than any other VM, so there is no inherent security advantage to performing any user operations in dom0.
 
 
 TemplateBasedVM Directories
 ---------------------------
-
- * Whenever a TemplateBasedVM is created, the contents of its `/home`
-   directory is copied from its parent TemplateVM. From that point onward, the child TemplateBasedVM's `/home`
-   is independent from its parent TemplateVM's `/home`, which means that any
-   subsequent changes to the parent TemplateVM's `/home` will no longer affect
-   the child TemplateBasedVM's `/home`.
 
  * Once a TemplateBasedVM has been created, any changes in its `/home`,
    `/usr/local`, or `/rw/config` directories will be persistent across reboots,
@@ -167,3 +161,6 @@ TemplateBasedVM Directories
    TemplateBasedVMs persist in this manner. If you would like to make changes
    in other directories which *do* persist in this manner, you must make those
    changes in the parent TemplateVM.
+   
+ * See [here](/doc/templates) for more detail and version specific information.
+ 

@@ -36,7 +36,7 @@ ITL guarantees that the binary updates are compiled from exactly the same source
 Community Supported templates
 -----------------------------
 
-These templates are supported by the Qubes community. Some of them are available in ready-to-use binary package form (built by ITL), while others are available only in source code form. In all cases ITL, does not provide updates for these templates. However, such updates may be provided by the template maintainer.
+These templates are supported by the Qubes community. Some of them are available in ready-to-use binary package form (built by ITL), while others are available only in source code form. In all cases, ITL does not provide updates for these templates. However, such updates may be provided by the template maintainer.
 
 By installing these templates, you are trusting not only ITL and the distribution maintainers, but also the template maintainer. In addition, these templates may be somewhat less stable, since ITL does not test them.
 
@@ -45,7 +45,23 @@ By installing these templates, you are trusting not only ITL and the distributio
 * [Archlinux](/doc/templates/archlinux/)
 
 
-Important Notes
+Important Notes (R4.0)
+---------------
+
+ * Whenever a TemplateBasedVM is created, the contents of the `/home`
+   directory of its parent TemplateVM are *not* copied to the child TemplateBasedVM's
+   `/home`. The child TemplateBasedVM's `/home`
+   is always independent from its parent TemplateVM's `/home`, which means that any
+   subsequent changes to the parent TemplateVM's `/home` will not affect
+   the child TemplateBasedVM's `/home`.
+   
+ * Template VMs are created in a thin pool, making `qvm-trim-template`
+   no longer necessary.
+
+   The root filesystems in Standalone VMs can employ
+   TRIM/discard on the root fs using normal tools and configuration options.
+
+Important Notes (R3.2 and earlier)
 ---------------
 
  * Whenever a TemplateBasedVM is created, the contents of the `/home`
@@ -54,6 +70,16 @@ Important Notes
    is independent from its parent TemplateVM's `/home`, which means that any
    subsequent changes to the parent TemplateVM's `/home` will no longer affect
    the child TemplateBasedVM's `/home`.
+   
+ * Template VMs can occupy more space on the dom0 filesystem than necessary
+   because they cannot employ automatic TRIM/discard on the root fs. The
+   `qvm-trim-template` command in dom0 is used to recover this unused space.
+
+   Conversely, the root filesystems in Standalone VMs *can* employ
+   TRIM/discard on the root fs using normal tools and configuration options.
+   
+Important Notes (all versions)
+---------------
 
  * Once a TemplateBasedVM has been created, any changes in its `/home`,
    `/usr/local`, or `/rw/config` directories will be persistent across reboots,
@@ -71,18 +97,11 @@ Important Notes
    update a template from dom0 (and thereby lose any user modifications in the
    existing template), you must first uninstall the existing template from dom0:
 
-       $ sudo yum remove qubes-template-fedora-25
+       $ sudo dnf remove qubes-template-fedora-25
 
  * Standalone VMs using Template VMs as a basis can be created easily. These
    VMs receive a *copy* of the operating system and do not get automatically
    updated when Template VMs are updated--they must be updated individually.
-   
- * Template VMs can occupy more space on the dom0 filesystem than necessary
-   because they cannot employ automatic TRIM/discard on the root fs. The
-   `qvm-trim-template` command in dom0 is used to recover this unused space.
-
-   Conversely, the root filesystems in Standalone VMs *can* employ
-   TRIM/discard on the root fs using normal tools and configuration options.
  
  * On XFCE based Dom0, a manual action may be required to remove the "Start Menu"
    sub-menu of the removed TemplateVM. For example, to remove a dangling sub-menu

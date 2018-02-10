@@ -7,8 +7,6 @@ permalink: /doc/package-contributions/
 Package Contributions
 =====================
 
-**Notice:** *This is an unofficial draft. Once this information is official, this notice will be removed.*
-
 We're very grateful to the talented and hard-working community members who contribute software packages to Qubes OS.
 This page explains the inclusion criteria and procedures for such packages, as well as the roles and responsibilities of those involved.
 
@@ -23,7 +21,7 @@ In order to be accepted, packages must:
  * Have a clearly-defined use case for Qubes users.
  * Not be unduly burdensome to review.
 
-(Please note that we always reserve the right add criteria to this list.)
+(Please note that we always reserve the right to add criteria to this list.)
 
 Contribution Procedure
 ----------------------

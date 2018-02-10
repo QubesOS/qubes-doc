@@ -9,7 +9,7 @@ redirect_from:
 - /wiki/GettingStarted/
 ---
 
-<a name="already-installed"></a>Now that you've installed Qubes, let's cover some basic concepts. 
+<a name="already-installed"></a>After [installing Qubes](/doc/installation-guide/), let's cover some basic concepts.
 You might also like to refer to the [Glossary](/doc/glossary/).
 
 AppVMs (qubes) and TemplateVMs
@@ -58,7 +58,7 @@ Qubes VM Manager and Command Line Tools
 All aspects of the Qubes system can be controlled using command line tools run under a dom0 console. 
 To open a console window in dom0, either go to Start-\>System Tools-\>Konsole or press Alt-F2 and type `konsole`.
 
-Various command line tools are described as part of this guide, and the whole reference can be found [here](/doc/dom0-tools/).
+Various command line tools are described as part of this guide, and the whole reference can be found [here](/doc/tools/).
 
 ![r2b1-dom0-konsole.png](/attachment/wiki/GettingStarted/r2b1-dom0-konsole.png)
 
