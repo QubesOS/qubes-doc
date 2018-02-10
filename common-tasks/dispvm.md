@@ -23,38 +23,38 @@ While running, DispVMs will appear in Qubes VM Manager with the name `disp####`.
 See [this article](https://blog.invisiblethings.org/2010/06/01/disposable-vms.html) for more on why one would want to use a Disposable VM.
 
 
-DVM Templates
-----------
-
-Similarly to how AppVMs are based on their underlying [TemplateVM](https://www.qubes-os.org/doc/glossary/#templatevm), DispVMs are based on their underlying [DVM Template](https://www.qubes-os.org/doc/glossary/#dvm-template).
-
-On a fresh installation of Qubes, the DVM template is called `fedora-XX-dvm` (where `XX` is the Fedora version of the default TemplateVM). 
-
 Disposable VMs and Networking (R4.0 and later)
 -----------------------------
 
-R4.0 introduces the concept of multiple disposable VM templates, whereas R3.2 was limited to only one.
+Similarly to how AppVMs are based on their underlying [TemplateVM](https://www.qubes-os.org/doc/glossary/#templatevm), DispVMs are based on their underlying [DVM Template](https://www.qubes-os.org/doc/glossary/#dvm-template).
+R4.0 introduces the concept of multiple DVM Templates, whereas R3.2 was limited to only one.
+
+On a fresh installation of Qubes, the default DVM Template is called `fedora-XX-dvm` (where `XX` is the Fedora version of the default TemplateVM).
+If you have included the Whonix option in your install, there will also be a `whonix-ws-dvm` DVM Template available for your use.
+
 You can set any AppVM to have the ability to act as a DVM Template with:
 
     qvm-prefs <vmname> template_for_dispvms true
 
-The default system wide DVM template can be changed with `qubes-prefs default_dispvm`.
-By combining the two, choosing `Open in Disposable VM` from inside an AppVM will open the document in a DispVM based on the default DVM template you specified.
+The default system wide DVM Template can be changed with `qubes-prefs default_dispvm`.
+By combining the two, choosing `Open in Disposable VM` from inside an AppVM will open the document in a DispVM based on the default DVM Template you specified.
 
 You can change this behaviour for individual VMs: in the Application Menu, open Qube Settings for the VM in question and go to the "Advanced" tab. 
-Here you can edit the "Default DispVM" setting to specify which DispVM template will be used to launch DispVMs from that VM.
+Here you can edit the "Default DispVM" setting to specify which DVM Template will be used to launch DispVMs from that VM.
 This can also be changed from the command line with:
 
     qvm-prefs <vmname> default_dispvm <dvmtemplatename>
 
-You can even set an AppVM that has also been configured as a DVM template to use itself, so DispVMs launched from within the AppVM/DVM Template would inherit the same settings.
+For example, `anon-whonix` has been set to use `whonix-ws-dvm` as its `default_dispvm`, instead of the system default.
+You can even set an AppVM that has also been configured as a DVM Template to use itself, so DispVMs launched from within the AppVM/DVM Template would inherit the same settings.
 
-NetVM and firewall rules for DVM templates can be set as they can for a normal VM. 
+NetVM and firewall rules for DVM Templates can be set as they can for a normal VM. 
 By default a DispVM will inherit the NetVM and firewall settings of the DVM Template on which it is based.
-Launching a DispVM from an AppVM will result in it using the DispVM's network/firewall settings (which default to the DVM template on which it is based).
-Thus if an AppVM uses sys-net as its NetVM, but the default system DispVM uses sys-whonix, any DispVM launched from this AppVM will have sys-whonix as its NetVM.
+This is a change in behaviour from R3.2, where DispVMs would inherit the settings of the AppVM from which they were launched.
+Therefore, launching a DispVM from an AppVM will result in it using the network/firewall settings of the DVM Template on which it is based.
+For example, if an AppVM uses sys-net as its NetVM, but the default system DispVM uses sys-whonix, any DispVM launched from this AppVM will have sys-whonix as its NetVM.
 
-**Note** The opposite is also true. This means if the default system DispVM uses sys-net, launching a DispVM from inside anon-whonix will result in the DispVM using sys-net.
+**Warning:** The opposite is also true. This means if you have changed anon-whonix's `default_dispvm` to use the system default, and the system default DispVM uses sys-net, launching a DispVM from inside anon-whonix will result in the DispVM using sys-net.
 
 A Disposable VM launched from the Start Menu inherits the NetVM and firewall settings of the DVM Template on which it is based.
 Note that changing the "NetVM" setting for the system default DVM Template *does* affect the NetVM of DispVMs launched from the Start Menu.
@@ -69,7 +69,8 @@ Thus if an AppVM uses sys-net as its NetVM, any DispVM launched from this AppVM 
 You can change this behaviour for individual VMs: in Qubes VM Manager open VM Settings for the VM in question and go to the "Advanced" tab. 
 Here you can edit the "NetVM for DispVM" setting to change the NetVM of any DispVM launched from that VM.
 
-A Disposable VM launched from the Start Menu inherits the NetVM of the [DVM Template](/doc/glossary/#dvm-template).
+A Disposable VM launched from the Start Menu inherits the NetVM of the [DVM Template](/doc/glossary/#dvm-template). 
+By default the DVM template is called `fedora-XX-dvm` (where `XX` is the Fedora version of the default TemplateVM). 
 As an "internal" VM it is hidden in Qubes VM Manager, but can be shown by selecting "Show/Hide internal VMs". 
 Note that changing the "NetVM for DispVM" setting for the DVM Template does *not* affect the NetVM of DispVMs launched from the Start Menu; only changing the DVM Template's own NetVM does.
 
@@ -138,7 +139,7 @@ Customizing Disposable VMs
 --------------------------
 
 You can change the template used to generate the Disposable VMs, and change settings used in the Disposable VM savefile. 
-These changes will be reflected in every new Disposable VM spawned from that template. 
+These changes will be reflected in every new Disposable VM based on that template. 
 Full instructions can be found [here](/doc/dispvm-customization/).
 
 Disposable VMs and Local Forensics
