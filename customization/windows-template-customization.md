@@ -25,14 +25,14 @@ Only keep:
 
 *Note*: Windows search is recommended because it is a nightmare to find something in menus if it is not enabled (it removes the search bar from the start menu, from the explorer, and from the control panel).
 
-*Note*: Unselecting windows media, .Net and Internet Explorer will uninstall these components. on a new install it is generally old versions anyway and it will be quicker to install directly the new versions later.
+*Note*: Unselecting windows media, .Net and Internet Explorer will uninstall these components. On a new install they are generally old versions anyway and it will be quicker to install directly the new versions later.
 
 Windows services
 ---------------------------
 
 Disable the following services that are not required or have no sense in a VM context:
 
- * Base Filtering Engine (only required if your want to use Microsoft IPSEC)
+ * Base Filtering Engine (only required if you want to use Microsoft IPSEC)
  * DHCP Client
  * Function Discovery Provider Host
 
@@ -53,7 +53,7 @@ Disable the following services that are not required or have no sense in a VM co
 Windows update
 --------------------------
 
-I recommend disabling windows update (Never Check for Update) because checking for updates will start every time you start an AppVM if you don't started your template after some days.
+I recommend disabling windows update (Never Check for Update) because checking for updates will start every time you start an AppVM if you haven't started your template in a while.
 
 Running windows update is also apparently IO hungry.
 
@@ -62,10 +62,10 @@ Of course I recommend starting the template regularly and checking manually for 
 System properties
 ---------------------------
 
-Right click on computer and go to Properties > Advanced > Performances:
+Right click on computer and go to Properties > Advanced > Performance:
 
- * If your don't care about visual effect, in Visual Effect select "Adjust for best performance"
- * I personally tweak the page file size to win some place on my root.
+ * If you don't care about visual effect, in Visual Effect select "Adjust for best performance"
+ * I personally tweak the page file size to gain some space on my root.
 
     In Advanced>Performances>Advanced tab, change Virtual memory:
 
@@ -75,16 +75,16 @@ Right click on computer and go to Properties > Advanced > Performances:
         4. click on set
         5. click on drive d:
         6. select customer size
-        7. use an initial size of 500 and a max size of 1000. If the page file is too small, you will notify a low memory pop up when working on windows. In this case, it often means that you should extend your AppVM RAM.
+        7. use an initial size of 500 and a max size of 1000. If the page file is too small, you will notice a low memory pop up when working on windows. In this case, it often means that you should extend your AppVM RAM.
 
  * System Protection
 
-    Here you can disable Shadow Folder because it has little sense in case of Qubes because
+    Here you can disable Shadow Folder because it has little sense in the case of Qubes because
 
-      * we do backup regularly of AppVMs/TemplateVMs;
+      * we do regular backups of AppVMs/TemplateVMs;
       * we can revert at least one template change if we break something.
 
-    Select drives where system protection is enabled and click Configure. "Turn of system protection" "Delete all restore points"
+    Select drives where system protection is enabled and click Configure. "Turn off system protection" "Delete all restore points"
 
  * Remote
 
@@ -157,7 +157,7 @@ Manual tasks that can/should be started in the template
 
             > mv root.img.clean root.img
 
-    * If don't managed to fill the free space with zeros, you can follow the following  *unsafe* undocumented procedure
+    * If it doesn't manage to fill the free space with zeros, you can follow the following *unsafe* undocumented procedure
 
         1. from dom0, go to /var/lib/templates-vm/yourtemplate
         2. check the partitioning to identify the filesystem offset of root.img

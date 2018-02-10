@@ -127,7 +127,7 @@ Whenever a RPC request for service named "XYZ" is received, the first line
 in `/etc/qubes-rpc/policy/XYZ` that matches the actual `srcvm`/`destvm` is
 consulted to determine whether to allow RPC, what user account the program
 should run in target VM under, and what VM to redirect the execution to. If
-the policy file does not exits, user is prompted to create one *manually*;
+the policy file does not exist, user is prompted to create one *manually*;
 if still there is no policy file after prompting, the action is denied.
 
 On the target VM, the `/etc/qubes-rpc/XYZ` must exist, containing the file

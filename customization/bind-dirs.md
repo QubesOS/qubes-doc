@@ -8,7 +8,7 @@ redirect_from:
 
 # How to make any file in a TemplateBasedVM persistent using bind-dirs #
 
-## What is bind-dirs? ##
+## What are bind-dirs? ##
 
 With [bind-dirs](https://github.com/QubesOS/qubes-core-agent-linux/blob/master/vm-systemd/bind-dirs.sh)
 any arbitrary files or folders can be made persistent in TemplateBasedVMs.
@@ -49,7 +49,7 @@ Multiple entries are possible, each on a separate line.
 
 6. Done.
 
-If you added for example folder `/var/lib/tor` to the `binds` variable, from now any files within that folder would persist reboots. If you added for example file `/etc/tor/torrc` to the `binds` variable, from now any modifications to that file would persist reboots.
+If you added for example folder `/var/lib/tor` to the `binds` variable, from now on any files within that folder will persist reboots. If you added for example file `/etc/tor/torrc` to the `binds` variable, from now on any modifications to that file will persist reboots.
 
 ## Other Configuration Folders ##
 
@@ -89,7 +89,7 @@ For example, if you wanted to make `/var/lib/tor` non-persistant in `sys-whonix`
 binds=( "${binds[@]/'/var/lib/tor'}" )
 ~~~
 
-(Editing `/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf` directly is recommended against, since such changes get lost when that file is changed in the package on upgrades.)
+(Editing `/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf` directly is strongly discouraged, since such changes get lost when that file is changed in the package on upgrades.)
 
 ## Discussion ##
 

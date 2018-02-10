@@ -124,8 +124,8 @@ Configuration Guides
  * [How to set up a ProxyVM as a VPN Gateway](/doc/vpn/)
  * [Storing AppVMs on Secondary Drives](/doc/secondary-storage/)
  * [Multibooting](/doc/multiboot/)
- * [Resizing AppVM and HVM Disk Images](/doc/resize-disk-image/)
- * [Extending `root.img` Size](/doc/resize-root-disk-image/)
+ * [Resize Private Disk Image](/doc/resize-disk-image/)
+ * [Resize Root Disk Image](/doc/resize-root-disk-image/)
  * [RPC Policies](/doc/rpc-policy/)
  * [Installing ZFS in Qubes](/doc/zfs/)
  * [Mutt Guide](/doc/mutt/)
@@ -139,7 +139,6 @@ Configuration Guides
  * [Enabling TRIM for SSD disks](/doc/disk-trim/)
  * [Configuring a Network Printer](/doc/network-printer/)
  * [Using External Audio Devices](/doc/external-audio/)
- * [Booting with GRUB2 and GPT](https://groups.google.com/group/qubes-devel/browse_thread/thread/e4ac093cabd37d2b/d5090c20d92c4128#d5090c20d92c4128)
  * [Rxvt Guide](/doc/rxvt/)
  * [Managing VM kernel](/doc/managing-vm-kernel/)
  * [Salt management stack](/doc/salt/)
@@ -176,8 +175,10 @@ Troubleshooting
 
 Reference Pages
 ---------------
- * [Dom0 Command-Line Tools](/doc/dom0-tools/)
- * [DomU Command-Line Tools](/doc/vm-tools/)
+ * [Command-Line Tools: Qubes 3.2, dom0](/doc/tools/3.2/dom0/)
+ * [Command-Line Tools: Qubes 3.2, domU](/doc/tools/3.2/domU/)
+ * [Command-Line Tools: Qubes 4.0, dom0](/doc/tools/4.0/dom0/)
+ * [Command-Line Tools: Qubes 4.0, domU](/doc/tools/4.0/domU/)
  * [Glossary of Qubes Terminology](/doc/glossary/)
  * [Qubes Service Framework](/doc/qubes-service/)
  * [Command Execution in VMs (and Qubes RPC)](/doc/qrexec/)

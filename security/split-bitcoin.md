@@ -44,7 +44,7 @@ Important Notes
 * The private keys (xpriv) should never be moved outside of `offline-bitcoin`.
 * For copying out the public keys (xpub), Qubes provides two secure, convenient
   methods: the [inter-VM clipboard] and [inter-VM file copy] tools. Compared to
-  traditional physically air-gapped machines, these tools makes it very easy to
+  traditional physically air-gapped machines, these tools make it very easy to
   copy out public keys.
 
 [inter-VM clipboard]: /doc/copy-paste/

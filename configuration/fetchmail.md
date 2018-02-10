@@ -16,7 +16,7 @@ Fetchmail is standalone MRA (Mail Retrieval Agent) aka "IMAP/POP3 client". Its s
 Installation
 ------------
 
-`yum install fetchmail`
+`dnf install fetchmail`
 
 Configuration
 -------------

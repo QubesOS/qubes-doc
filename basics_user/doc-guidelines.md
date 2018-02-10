@@ -43,7 +43,7 @@ documentation change will be reviewed before it's published to the web. This
 allows us to maintain quality control and protect our users.
 
 As mentioned above, we keep all the documentation in a dedicated [Git
-repository][qubes-doc] hosted on [GitHub]. Thanks to GitHub's interface, you can
+repository][qubes-doc] hosted on [GitHub]. Thanks to the GitHub's interface, you can
 edit the documentation even if you don't know Git at all! The only thing you
 need is a GitHub account, which is free.
 
@@ -105,6 +105,18 @@ pull request, we'll post a comment explaining why we can't.
 ![done](/attachment/wiki/doc-edit/10-done.png)
 
 
+How to add images
+-----------------
+
+To add an image to a page, use the following syntax in the main document:
+
+```
+![Image Title](/attachment/wiki/page-title/image-filename.png)
+```
+
+Then, submit your image(s) in a separate pull request to the [qubes-attachment](https://github.com/QubesOS/qubes-attachment) repository using the same path and filename.
+
+
 Version-specific Documentation
 ------------------------------
 
@@ -156,8 +168,8 @@ When making contributions, please try to observe the following style conventions
    * [News] posts (plain text is reproduced on the [mailing lists])
    * URLs that appear inside code blocks (e.g., in comments and document templates)
    * Files like `README.md` and `CONTRIBUTING.md`
- * Insert a newline at the end of each sentence, except when the text will be reproduced outside of the Qubes website repo (see previous item for examples).
-   * Rationale: This practice is most appropriate for source that consists primarily of natural language text.
+ * Insert a newline at, and only at, the end of each sentence, except when the text will be reproduced outside of the Qubes website repo (see previous item for examples).
+   * Rationale: This practice results in one sentence per line, which is most appropriate for source that consists primarily of natural language text.
      It results in the most useful diffs and facilitates translation into other languages while mostly preserving source readability.
  * If appropriate, make numerals in numbered lists match between Markdown source and HTML output.
    * Rationale: In the event that a user is required to read the Markdown source directly, this will make it easier to follow, e.g., numbered steps in a set of instructions.

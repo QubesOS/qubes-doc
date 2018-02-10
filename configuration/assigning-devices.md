@@ -88,14 +88,14 @@ Some USB devices are not compatible with the USB pass-through method Qubes emplo
 In situations like this, you can still often get the USB device to work by passing through the entire USB controller to a qube.
 However, with this approach one cannot assign single USB devices, only the whole USB controller with whatever USB devices are connected to it. 
 More information on using and managing USB devices with qubes is available on the [USB] page. 
-If you want assign a certain USB device to a VM (by attaching the whole USB controller), you need to figure out which PCI device is the right controller. 
+If you want assign a certain USB device to a VM by attaching the whole USB controller, you need to figure out which PCI device is the right controller. 
 First, check to which USB bus the device is connected (note that these steps need to be run from a terminal inside `dom0`):
 
 ~~~
 lsusb
 ~~~
 
-For example, I want assign a broadband modem to the netvm. 
+For example, I want assign a broadband modem to the NetVM. 
 In the output of `lsusb` it can be listed as something like this. 
 (In this case, the device isn't fully identified):
 
@@ -105,7 +105,7 @@ Bus 003 Device 003: ID 413c:818d Dell Computer Corp.
 
 The device is connected to USB bus \#3. 
 Then check which other devices are connected to the same bus, since *all* of them will be assigned to the same VM.
-Now is the time to find right USB controller:
+Now is the time to find the right USB controller:
 
 ~~~
 readlink /sys/bus/usb/devices/usb3

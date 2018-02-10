@@ -15,11 +15,11 @@ For ease of use Qubes aggregates shortcuts to applications that are installed in
 
 ![dom0-menu.png"](/attachment/wiki/ManagingAppVmShortcuts/dom0-menu.png)
 
-To make newly installed applications show up in the menu, use the **qvm-sync-appmenus** command (Linux VMs does this automatically):
+To make newly installed applications show up in the menu, use the **qvm-sync-appmenus** command (Linux VMs do this automatically):
 
 `qvm-sync-appmenus vmname`
 
-After that, select the *Add more shortcuts* entry in VM's submenu to customize which applications are shown:
+After that, select the *Add more shortcuts* entry in the VM's submenu to customize which applications are shown:
 
 ![dom0-appmenu-select.png"](/attachment/wiki/ManagingAppVmShortcuts/dom0-appmenu-select.png)
 
@@ -33,7 +33,7 @@ What about applications in DispVMs?
 Behind the scenes
 -----------------
 
-The list of installed applications for each AppVM is stored in dom0's `/var/lib/qubes/vm-templates/templatename/apps.templates` (or in case of StandaloneVM: `/var/lib/qubes/appvms/vmname/apps.templates`). Each menu entry is a file that follows the [.desktop file format](https://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html) with some wildcards (*%VMNAME%*, *%VMDIR%*). Applications selected to appear in the menu are stored in `/var/lib/qubes/appvms/vmname/apps`.
+The list of installed applications for each AppVM is stored in dom0's `/var/lib/qubes/vm-templates/templatename/apps.templates` (or in the case of StandaloneVM: `/var/lib/qubes/appvms/vmname/apps.templates`). Each menu entry is a file that follows the [.desktop file format](https://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html) with some wildcards (*%VMNAME%*, *%VMDIR%*). Applications selected to appear in the menu are stored in `/var/lib/qubes/appvms/vmname/apps`.
 
 Actual command lines for the menu shortcuts involve `qvm-run` command which starts a process in another domain. Examples: `qvm-run -q --tray -a w7s 'cmd.exe /c "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Accessories\\Calculator.lnk"'` or `qvm-run -q --tray -a untrusted 'firefox %u'`
 Note that you can create a shortcut that points to a .desktop file in your AppVM with e.g. `qvm-run -q --tray -a personal -- 'qubes-desktop-run /home/user/application.desktop'`
@@ -45,4 +45,4 @@ For Linux VMs the service script is in `/etc/qubes-rpc/qubes.GetAppMenus`. In Wi
 What if my application has not been automatically included in the list of available apps?
 -----------------------------------------------------------------------------------------
 
-You can manually create new entries in the "available applications" list of shortcuts. See [Signal](/doc/signal/) for a worked example of creating a new menu item for a Chrome .desktop shortcut.
+You can manually create new entries in the "available applications" list of shortcuts. See [Signal](/doc/signal/) for a working example of creating a new menu item for a Chrome .desktop shortcut.

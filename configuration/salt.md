@@ -242,7 +242,7 @@ compromise cannot spread from one VM to another.
 
 ## Writing Your Own Configurations
 
-Let's start with quick a example:
+Let's start with a quick example:
 
     my new and shiny VM:
       qvm.present:

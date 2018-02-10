@@ -23,27 +23,27 @@ This can be configured using
 package. This package does not support sharing the same key slot with other
 applications (it will deny further authentications if you try).
 
-Contrary to instruction there, currently there is no binary packages in Qubes
-repository and you need to compile it yourself. This can change in the future.
+Contrary to instruction there, currently there is no binary package in the Qubes
+repository and you need to compile it yourself. This might change in the future.
 
-Challenge-reponse mode
+Challenge-response mode
 ----------------------
 
-In this mode, your YubiKey will generate response based on secret key, and
+In this mode, your YubiKey will generate a response based on the secret key, and
 random challenge (instead of counter). This means that it isn't possible to
-generate response in advance even when someone get access to your YubiKey. This
-makes reasonably safe to use the same YubiKey for other services (also in
+generate a response in advance even if someone gets access to your YubiKey. This
+makes it reasonably safe to use the same YubiKey for other services (also in
 challenge-response mode).
 
-Same as in OTP case, you will need to setup your YubiKey, choose separate
+Same as in the OTP case, you will need to set up your YubiKey, choose a separate
 password (other than your login password!) and apply the configuration.
 
-To use this mode you need:
+To use this mode you need to:
 
-1. Configure your YubiKey for challenge-reponse HMAC-SHA1 mode, for example
+1. Configure your YubiKey for challenge-response HMAC-SHA1 mode, for example
    [following this
    tutorial](https://www.yubico.com/products/services-software/personalization-tools/challenge-response/)
-2. Install `ykpers` package in template on which your USB VM is based.
+2. Install the `ykpers` package in template on which your USB VM is based.
 3. Create `/usr/local/bin/yubikey-auth` script in dom0:
 
        #!/bin/sh
@@ -97,26 +97,26 @@ When you want to unlock your screen...
 
 When everything is ok, your screen will be unlocked.
 
-In any case you can still use your login password, but do it in secure location
+In any case you can still use your login password, but do it in a secure location
 where no one can snoop your password.
 
 Locking the screen when YubiKey is removed
 ------------------------------------------
 
-You can setup your system to automatically lock the screen when you unplug
-YubiKey. This will require creating simple qrexec service which will expose
-ability to lock the screen to your USB VM, and then adding udev hook to
+You can setup your system to automatically lock the screen when you unplug your
+YubiKey. This will require creating a simple qrexec service which will expose
+the ability to lock the screen to your USB VM, and then adding a udev hook to
 actually call that service.
 
 In dom0:
 
 1. First configure the qrexec service. Create `/etc/qubes-rpc/custom.LockScreen`
-  with simple command to lock the screen. In case of xscreensaver (used in Xfce)
+  with a simple command to lock the screen. In the case of xscreensaver (used in Xfce)
   it would be:
 
         DISPLAY=:0 xscreensaver-command -lock
 
-2. Allow your USB VM to call that service. Assuming that its named `sys-usb` it
+2. Allow your USB VM to call that service. Assuming that it's named `sys-usb` it
 would require creating `/etc/qubes-rpc/policy/custom.LockScreen` with:
 
         sys-usb dom0 allow
@@ -124,8 +124,8 @@ would require creating `/etc/qubes-rpc/policy/custom.LockScreen` with:
 In your USB VM:
 
 3. Create udev hook. Store it in `/rw/config` to have it
-persistent across VM restarts. For example name the file
-`/rw/config/yubikey.rules`. Write there single line:
+persist across VM restarts. For example name the file
+`/rw/config/yubikey.rules`. Add the following line:
 
         ACTION=="remove", SUBSYSTEM=="usb", ENV{ID_SECURITY_TOKEN}=="1", RUN+="/usr/bin/qrexec-client-vm dom0 custom.LockScreen"
 
@@ -144,7 +144,7 @@ persistent across VM restarts. For example name the file
 
 If you use KDE, the command(s) in first step would be different:
 
-        # In case of USB VM being autostarted, it will not have direct access to D-Bus
+        # In the case of USB VM being autostarted, it will not have direct access to D-Bus
         # session bus, so find its address manually:
         kde_pid=`pidof kdeinit4`
         export `cat /proc/$kde_pid/environ|grep -ao 'DBUS_SESSION_BUS_ADDRESS=[[:graph:]]*'`

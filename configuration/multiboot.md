@@ -178,7 +178,7 @@ If you install Qubes without making any backups beforehand, don't worry.
 If you didn't overwrite the original partitions, then it is usually
 possible to recover your old systems relatively easily, as described above.
 
-If you decided to use a shared /boot and *dont* have backups of your previous
+If you decided to use a shared /boot and *don't* have backups of your previous
 grub config, it is quite easy to fix this.  
 This example may help.  
 
