@@ -39,7 +39,7 @@ Known Issues
    dom0.) Do not attempt to detach these disks. (They will automatically be
    detached when you shut down the AppVM.) [[2]]
 
-[Qubes Backup]: https://www.qubes-os.org/doc/BackupRestore/
-[TemplateVM]: https://www.qubes-os.org/doc/Templates/
+[Qubes Backup]: /doc/BackupRestore/
+[TemplateVM]: /doc/Templates/
 [1]: https://groups.google.com/d/topic/qubes-users/EITd1kBHD30/discussion
 [2]: https://groups.google.com/d/topic/qubes-users/nDrOM7dzLNE/discussion

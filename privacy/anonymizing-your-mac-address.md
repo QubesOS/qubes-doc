@@ -16,7 +16,7 @@ privacy](https://tails.boum.org/contribute/design/MAC_address/#index1h1). Curren
 
 Newer versions of Network Manager have a robust set of options for randomizing MAC addresses, and can handle the entire process across reboots, sleep/wake cycles and different connection states. In particular, versions 1.4.2 and later should be well suited for Qubes.
 
-Network Manager 1.4.2 or later is available from the Fedora 25 repository as well as the Debian 9 repository, which you can install by [upgrading a Debian 8 template to version 9.](https://www.qubes-os.org/doc/debian-template-upgrade-8/) 
+Network Manager 1.4.2 or later is available from the Fedora 25 repository as well as the Debian 9 repository, which you can install by [upgrading a Debian 8 template to version 9.](/doc/debian-template-upgrade-8/) 
 
 In the Debian 9 or Fedora 25 template you intend to use as a NetVM, check that Network Manager version is now at least 1.4.2:
 
@@ -150,7 +150,7 @@ macspoof-enp0s0  meminfo-writer   updates-proxy-setup
 ~~~
 
 Now, also within the TemplateVM, type the following commands for each hardware device that you want to randomize a MAC 
-addresses for
+address for
 
 ~~~
 sudo systemctl enable macspoof@wlp0s1

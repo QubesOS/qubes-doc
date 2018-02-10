@@ -49,7 +49,7 @@ updatevm          : sys-firewall
 Installing different kernel using Qubes kernel package
 ----------------------------------
 
-VM kernels are packages by Qubes team in `kernel-qubes-vm` packages. Generally system will keep the 3 newest available versions. You can list them with the `rpm` command:
+VM kernels are packages by Qubes team in `kernel-qubes-vm` packages. Generally the system will keep the 3 newest available versions. You can list them with the `rpm` command:
 
 ~~~
 [user@dom0 ~]$ rpm -qa 'kernel-qubes-vm*'
@@ -58,7 +58,7 @@ kernel-qubes-vm-3.18.16-3.pvops.qubes.x86_64
 kernel-qubes-vm-3.18.17-4.pvops.qubes.x86_64
 ~~~
 
-If you want more recent version, you can check `qubes-dom0-unstable` repository. As the name suggest, keep in
+If you want a more recent version, you can check `qubes-dom0-unstable` repository. As the name suggests, keep in
 mind that those packages may be less stable than the default ones.
 
 Checking available versions in `qubes-dom0-unstable` repository:
@@ -144,7 +144,7 @@ possible to use VM kernel, which is not packaged by Qubes team. This includes:
 
 To prepare such VM kernel, you need to install `qubes-kernel-vm-support`
 package in dom0 and also have matching kernel headers installed (`kernel-devel`
-package in case of Fedora kernel package). You can install required stuff using `qubes-dom0-update`:
+package in the case of Fedora kernel package). You can install required stuff using `qubes-dom0-update`:
 
 ~~~
 [user@dom0 ~]$ sudo qubes-dom0-update qubes-kernel-vm-support kernel-devel
@@ -212,7 +212,7 @@ This is possible thanks to PV GRUB2 - GRUB2 running in the VM. To make it happen
 
 1. Install PV GRUB2 in dom0 - package is named `grub2-xen`.
 2. Install kernel in the VM. As with all VM software installation - this needs to be done in TemplateVM (of StandaloneVM if you are using one).
-3. Set VM kernel to `pvgrub2` value. You can use `pvgrub2` in selected VMs, not necessary all of them, even when it's template has kernel installed. You can still use dom0-provided kernel for selected VMs.
+3. Set VM kernel to `pvgrub2` value. You can use `pvgrub2` in selected VMs, not necessary all of them, even when its template has kernel installed. You can still use dom0-provided kernel for selected VMs.
 
 **WARNING: When using kernel from within VM, `kernelopts` parameter is ignored.**
 
@@ -227,10 +227,10 @@ sudo qubes-dom0-update grub2-xen
 ### Installing kernel in Fedora VM
 
 In Fedora based VM, you need to install `qubes-kernel-vm-support` package. This
-package include required additional kernel module and initramfs addition
+package includes required additional kernel module and initramfs addition
 required to start Qubes VM (for details see
 [template implementation](/doc/template-implementation/)). Additionally you
-need some GRUB tools to create it's configuration. Note: you don't need actual
+need some GRUB tools to create its configuration. Note: you don't need actual
 grub bootloader as it is provided by dom0. But having one also shouldn't harm.
 
 ~~~
@@ -240,7 +240,7 @@ sudo yum install qubes-kernel-vm-support grub2-tools
 Then install whatever kernel you want. If you are using distribution kernel
 package (`kernel` package), initramfs and kernel module should be handled
 automatically, but you need to ensure you have `kernel-devel` package for the
-same kernel version installed. If you are using manually build kernel, you need
+same kernel version installed. If you are using a manually built kernel, you need
 to handle this on your own. Take a look at `dkms` and `dracut` documentation.
 Especially `dkms autoinstall` command may be useful.
 
@@ -265,10 +265,10 @@ start kernel configured within VM.
 ### Installing kernel in Debian VM
 
 In Debian based VM, you need to install `qubes-kernel-vm-support` package. This
-package include required additional kernel module and initramfs addition
+package includes required additional kernel module and initramfs addition
 required to start Qubes VM (for details see
 [template implementation](/doc/template-implementation/)). Additionally you
-need some GRUB tools to create it's configuration. Note: you don't need actual
+need some GRUB tools to create its configuration. Note: you don't need actual
 grub bootloader as it is provided by dom0. But having one also shouldn't harm.
 
 ~~~
@@ -326,9 +326,9 @@ When starting the VM you can safely ignore any warnings about a missing module '
 
 ### Troubleshooting
 
-In case of problems, you can access VM console (using `sudo xl console VMNAME` in dom0) to access
-GRUB menu. You need to call it just after starting VM (until `GRUB_TIMEOUT`
-expires) - for example in separate dom0 terminal window.
+In the event of a problem, you can access the VM console (using `sudo xl console VMNAME` in dom0) to access
+the GRUB menu. You need to call it just after starting VM (until `GRUB_TIMEOUT`
+expires) - for example in a separate dom0 terminal window.
 
 In any case you can later access VM logs (especially VM console log (`guest-VMNAME.log`). 
 

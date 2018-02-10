@@ -20,7 +20,7 @@ To make newly installed applications show up in the menu, use the **qvm-sync-app
 
 `qvm-sync-appmenus vmname`
 
-After that, select the *Add more shortcuts* entry in VM's submenu to customize which applications are shown:
+After that, select the *Add more shortcuts* entry in the VM's submenu to customize which applications are shown:
 
 ![dom0-appmenu-select.png"](/attachment/wiki/ManagingAppVmShortcuts/dom0-appmenu-select.png)
 
@@ -66,4 +66,5 @@ What if my application has not been automatically included in the list of availa
 -----------------------------------------------------------------------------------------
 
 You can manually create new entries in the "available applications" list of shortcuts.
-See [Signal](/doc/signal/) for a worked example of creating a new menu item for a Chrome .desktop shortcut.
+See [Signal](/doc/signal/) for a working example of creating a new menu item for a Chrome .desktop shortcut.
+

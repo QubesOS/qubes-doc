@@ -83,7 +83,7 @@ redirect_from:
 
       gpg --keyserver pgp.mit.edu --recv-keys 0xDDFA1A3E36879494
 
-* Verify its fingerprint, set as 'trusted'. [This is described here](https://www.qubes-os.org/doc/VerifyingSignatures).
+* Verify its fingerprint, set as 'trusted'. [This is described here](/doc/VerifyingSignatures).
 
 * Download the Qubes developers' keys.
 
@@ -362,7 +362,7 @@ redirect_from:
 The `qubes-mgmt-salt` repo is not currently forked under the marmarek user on
 GitHub, to whom the above instructions set the `GIT_PREFIX`.  As Archlinux is
 not yet supported by mgmt-salt, simply leave it out of the build (when building
-the Archlinux template on it's own) by appending the following to your `override.conf` file:
+the Archlinux template on its own) by appending the following to your `override.conf` file:
 
 `BUILDER_PLUGINS := $(filter-out mgmt-salt,$(BUILDER_PLUGINS))`
 
