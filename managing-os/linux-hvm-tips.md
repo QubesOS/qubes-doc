@@ -99,5 +99,5 @@ Driver malfunction after suspend
 ------------
 
 Occasionally, some drivers (such as Intel wireless NICs) may not function properly after a suspend.
-To work around the issue, add the driver (`iwlmvm` and `iwlwifi`, for example) to
-`/rw/config/suspend-module-blacklist` in your `sys-net` qube.
+To work around the issue, add the driver (`iwlmvm` and `iwlwifi`, for example) to `/rw/config/suspend-module-blacklist` in your `sys-net` qube.
+See also [wireless troubleshooting](doc/wireless-troubleshooting/).
