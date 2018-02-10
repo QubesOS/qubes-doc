@@ -24,7 +24,7 @@ You can get detailed description in [completed github issues][github-release-not
 Known issues
 ------------
 
-* [Fedora 23 reached EOL in December 2016](https://fedoraproject.org/wiki/End_of_life). There is a [manual procedure to upgrade your VMs](/news/2016/11/15/fedora-24-template-available/).
+* [Fedora 23 reached EOL in December 2016](https://fedoraproject.org/wiki/End_of_life). There is a [manual procedure to upgrade your VMs](/news/2018/01/06/fedora-26-upgrade/).
 
 * Windows Tools: `qvm-block` does not work
 
@@ -43,7 +43,7 @@ Installation instructions
 -------------------------
 
 See [Installation Guide](/doc/installation-guide/).
-After installation, [manually upgrade to Fedora 24](/news/2016/11/15/fedora-24-template-available/).
+After installation, [manually upgrade to Fedora 26](/news/2018/01/06/fedora-26-upgrade/).
 
 Upgrading
 ---------
