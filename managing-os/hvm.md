@@ -17,8 +17,14 @@ What are HVM domains?
 
 HVM domains (Hardware VM), in contrast to PV domains (Paravirtualized domains), allow one to create domains based on any OS for which one has an installation ISO.  For example, this allows one to have Windows-based VMs in Qubes.
 
-Interested readers might want to check [this article](https://blog.invisiblethings.org/2012/03/03/windows-support-coming-to-qubes.html) to learn why it took so long for Qubes OS to support HVM domains (Qubes 1 only supported Linux based PV domains). As of
-Qubes 4, every VM is HVM by default ([see here](https://blog.invisiblethings.org/2017/07/31/qubes-40-rc1.html)).
+Interested readers might want to check
+[this article](https://blog.invisiblethings.org/2012/03/03/windows-support-coming-to-qubes.html)
+to learn why it took so long for Qubes OS to support HVM domains
+(Qubes 1 only supported Linux based PV domains). As of
+Qubes 4, every VM is PVH by default, except those with attached PCI devices which are HVM.
+[See here](https://blog.invisiblethings.org/2017/07/31/qubes-40-rc1.html) for a discussion
+of the switch to HVM from R3.2's PV, and [here](/news/2018/01/11/qsb-37/)
+for changing the default to PVH.
 
 Creating an HVM domain
 ----------------------
@@ -55,7 +61,7 @@ The above command assumes the installation ISO was transferred to Dom0 (copied u
 qvm-start win7 --cdrom=/dev/cdrom
 ~~~
 
-Next, the VM will start booting from the attached CDROM device (which in the example above just happens to be a Windows 7 installation disk). Depending on the OS being installed in the VM, one might be required to start the VM several times (as is the case with Windows 7 installations), because whenever the installer wants to "reboot the system" it actually shutdowns the VM and Qubes won't automatically start it.  Several invocations of qvm-start command (as shown above) might be needed.
+Next, the VM will start booting from the attached CDROM device (which in the example above just happens to be a Windows 7 installation disk). Depending on the OS being installed in the VM, one might be required to start the VM several times (as is the case with Windows 7 installations), because whenever the installer wants to "reboot the system" it actually shuts down the VM and Qubes won't automatically start it.  Several invocations of qvm-start command (as shown above) might be needed.
 
 **Note:** If your Windows installation gets stuck at the glowing Windows logo, you might want to read [Issue 2488](https://github.com/QubesOS/qubes-issues/issues/2488) for a solution.
 
@@ -179,7 +185,7 @@ Cloning HVM domains
 
 Just like normal AppVMs, the HVM domains can also be cloned either using a command-line `qvm-clone` command or via manager's 'Clone VM' option in the right-click menu.
 
-The cloned VM will get identical root and private image and will essentially be an identical of the original VM except that it will get a different MAC address for the networking interface:
+The cloned VM will get identical root and private images and will essentially be identical to the original VM except that it will get a different MAC address for the networking interface:
 
 ~~~
 [joanna@dom0 ~]$ qvm-prefs win7

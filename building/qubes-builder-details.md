@@ -33,8 +33,8 @@ Variables for Windows build:
 -   `WIN_SIGN_CMD` Command used to sign resulting binaries. Note that default value is *sign.bat*. If you don't want to sign binaries, specify some placeholder here (eg. *true*). Check existing components (eg. vmm-xen-windows-pvdrivers) for example scripts. This command will be run with certain environment variables:
     -   `CERT_FILENAME` Path to key file (pfx format)
     -   `CERT_PASSWORD` Key password
-    -   `CERT_PUBLIC_FILENAME` Certificate path in case of self-signed cert
-    -   `CERT_CROSS_CERT_FILENAME` Certificate path in case of correct autheticode cert
+    -   `CERT_PUBLIC_FILENAME` Certificate path in the case of self-signed cert
+    -   `CERT_CROSS_CERT_FILENAME` Certificate path in the case of correct autheticode cert
     -   `SIGNTOOL` Path to signtool
 -   `WIN_PACKAGE_CMD` Command used to produce installation package (msi or msm). Default value is *wix.bat*, similar to above - use *true* if you don't want this command.
 -   `WIN_OUTPUT_HEADERS` Directory (relative to `WIN_SOURCE_SUBDIRS` element) with public headers of the package - for use in other components.

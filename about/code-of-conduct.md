@@ -27,7 +27,7 @@ Examples of unacceptable behavior by participants include:
 - Publishing others' private information, such as a physical or electronic address, without explicit permission
 - Other conduct which could reasonably be considered inappropriate in a professional setting
 
-(Please also see our [mailing list discussion guidelines](https://www.qubes-os.org/mailing-lists/#discussion-list-guidelines).)
+(Please also see our [mailing list discussion guidelines](/mailing-lists/#discussion-list-guidelines).)
 
 ## Our Responsibilities
 

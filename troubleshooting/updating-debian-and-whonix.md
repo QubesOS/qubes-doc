@@ -58,7 +58,7 @@ Sometimes if you see a message such as:
 Could not resolve 'security.debian.org'
 ~~~
 
-It helps to running the following command:
+It helps to run the following command:
 
 ~~~
 nslookup security.debian.org
@@ -135,4 +135,4 @@ Be careful. If the updated file isn't coming from Whonix specific package (some 
 How could you find out if the file is coming from a Whonix specific package or not?
 
 * Whonix specific packages are sometimes called `whonix-...`. In the example above it's saying `Setting up ifupdown ...`, so the file isn't coming from a Whonix specific package. In this case, you should press `n` as advised in the paragraph above.
-* If the package name does include `whonix-...`, it's a Whonix specific package. In that case, your safest bet should be pressing `y`, but then you would loose your customized settings. You can re-add them afterwards. Such conflicts will hopefully rarely happen, if you use [Whonix modular flexible .d style configuration folders](https://www.whonix.org/wiki/Whonix_Configuration_Files).
+* If the package name does include `whonix-...`, it's a Whonix specific package. In that case, your safest bet should be pressing `y`, but then you would lose your customized settings. You can re-add them afterwards. Such conflicts will hopefully rarely happen, if you use [Whonix modular flexible .d style configuration folders](https://www.whonix.org/wiki/Whonix_Configuration_Files).

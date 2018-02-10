@@ -7,6 +7,23 @@ permalink: /doc/uefi-troubleshooting/
 Troubleshooting UEFI related problems
 ========================================
 
+Change installer kernel parameters in UEFI
+---------------------
+
+If you've installed successfully in legacy mode but had to change some kernel parameters for it to work, you should try installing in UEFI mode with the same parameters.
+
+**Change the xen configuration on a USB media**
+01. Attach the usb disk, mount the EFI partition (second partition available on the disk) 
+02. Edit your xen config (`xen.cfg/BOOTX64.cfg`) changing the `kernel` key to add your kernel parameters on the boot entry of your choice
+03. Install using your modified boot entry
+
+**Change xen configuration directly in an iso image**
+01. Get EFI partition boundaries `parted Qubes-R4.0-rc4-x86_64.iso unit B print`
+02. Using the start address and the size of the EFI partition, setup a loop device for it `sudo losetup -o 524288 --sizelimit 30562304 /dev/loop0 Qubes-R4.0-rc4-x86_64.iso`
+03. Mount the loop device `sudo mount /dev/loop0 /mnt`
+04. Edit `EFI/BOOT/BOOTX64.cfg` to add your params to the `kernel` configuration key
+05. Save your changes, unmount and dd to usb device
+
 
 Cannot start installation, installation completes successfully but then BIOS loops at boot device selection, hangs at four penguins after choosing "Test media and install Qubes OS" in GRUB menu
 ---------------------
@@ -15,7 +32,7 @@ There is some [common bug in UEFI implementation](http://xen.markmail.org/messag
 
 01. In GRUB menu<sup id="a1-1">[1](#f1)</sup>, select "Troubleshoot", then "Boot from device", then press `e`.
 02. At the end of `chainloader` line add `/mapbs /noexitboot`.
-03. Perform installation normally, but not reboot system at the end yet.
+03. Perform installation normally, but don't reboot the system at the end yet.
 04. Go to `tty2` (Ctrl-Alt-F2).
 05. Enable `/mapbs /noexitboot` on just installed system. This step differs between Qubes releases:
    
@@ -36,7 +53,7 @@ There is some [common bug in UEFI implementation](http://xen.markmail.org/messag
 
         Boot0001* Qubes HD(1,0,00000000...0,0x0,0x0)/File(\EFI\qubes\xen.efi)p.l.a.c.e.h.o.l.d.e.r. ./.m.a.p.b.s. ./.n.o.e.x.i.t.b.o.o.t.
 
-    then try passing `/dev/sda1` or `/dev/nvme0n1p1` or whatever is your EFI partition instead of `/dev/sda` and `-p 1`.
+    then try passing `/dev/sda1` or `/dev/nvme0n1p1` or whatever your EFI partition is instead of `/dev/sda` and `-p 1`.
 
 10. Now you can reboot the system by issuing `reboot` command.
 
@@ -48,7 +65,7 @@ There is some [common bug in UEFI implementation](http://xen.markmail.org/messag
         noexitboot=1
 
     **Note:** You must add these parameters on two separate new lines (one
-    paramater on each line) at the end of each section that includes a kernel
+    parameter on each line) at the end of each section that includes a kernel
     line (i.e., all sections except the first one, since it doesn't have a
     kernel line).
 
@@ -63,7 +80,7 @@ Some Dell systems and probably others have [another bug in UEFI firmware](http:/
 
 1. In GRUB menu<sup id="a1-2">[1](#f1)</sup> press `e`.
 2. At the end of `chainloader` line add `-- efi=attr=uc`.
-3. Perform installation normally, but not reboot system at the end yet.
+3. Perform installation normally, but don't reboot the system at the end yet.
 4. Go to `tty2` (Ctrl-Alt-F2).
 5. Execute:
 
@@ -98,7 +115,7 @@ Qubes-specific EFI configuration. In such a case you need to finish those parts
 manually. You can do that just after installation (switch to `tty2` with
 Ctrl-Alt-F2), or booting from installation media in "Rescue a Qubes system" mode.
 
-1. Examine `/boot/efi/EFI/qubes` (if using Qubes installation media, it's in `/mnt/sysimage/boot/efi/EFI/qubes`). You should see there 4 files:
+1. Examine `/boot/efi/EFI/qubes` (if using Qubes installation media, it's in `/mnt/sysimage/boot/efi/EFI/qubes`). You should see 4 files there:
 
     - xen.cfg (empty, size 0)
     - xen-(xen-version).efi

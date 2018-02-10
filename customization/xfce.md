@@ -15,7 +15,7 @@ XFCE installation in dom0
 **Disclaimer: The article is obsolete for Qubes OS 3.2 and later.**
 
 Prior to R3.2, KDE was the default desktop environment in Qubes. Beginning with
-R3.2 [XFCE is the new default desktop environment](https://www.qubes-os.org/doc/releases/3.2/release-notes/) and does not require manual installation.
+R3.2 [XFCE is the new default desktop environment](/doc/releases/3.2/release-notes/) and does not require manual installation.
 
 
 Installation:

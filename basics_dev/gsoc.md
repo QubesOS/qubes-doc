@@ -36,7 +36,7 @@ Before the summer starts, there are some preparatory tasks which are highly enco
 
 ### Student proposal guidelines
 
-A project proposal is what you will be judged upon. Write a clear proposal on what you plan to do, the scope of your project, and why we should choose you to do it. Proposals are the basis of the GSoC projects and therefore one of the most important things to do well. The proposal is not only the basis of our decision of which student to choose, it has also an effect on Google's decision as to how many student slots are assigned to Qubes. 
+A project proposal is what you will be judged upon. Write a clear proposal on what you plan to do, the scope of your project, and why we should choose you to do it. Proposals are the basis of the GSoC projects and therefore one of the most important things to do well. The proposal is not only the basis of our decision of which student to choose, it has also an effect on Google's decision as to how many student slots are assigned to Qubes.
 
 Below is the application template:
 
@@ -86,49 +86,11 @@ These project ideas were contributed by our developers and may be incomplete. If
 
 **Expected results**: What is the expected result in the timeframe given
 
-**Knowledge prerequisite**: Pre-requisites for working on the project. What coding language and knowledge is needed? 
+**Knowledge prerequisite**: Pre-requisites for working on the project. What coding language and knowledge is needed?
 If applicable, links to more information or discussions
 
 **Mentor**: Name and email address.
 ```
-
-### Qubes MIME handlers
-
-**Project**: Qubes MIME handlers
-
-**Brief explanation**: [#441](https://github.com/QubesOS/qubes-issues/issues/441) (including remembering decision whether some file
-should be opened in DispVM or locally)
-
-**Expected results**:
-
- - Design mechanism for recognising which files should be opened locally and which in Disposable VM. This mechanism should:
-   - Respect default action like "by default open files in Disposable VM" (this
-     may be about files downloaded from the internet, transferred from
-     other VM etc).
-   - Allow setting persistent flag for a file that should be opened in specific
-     way ("locally"); this flag should local to the VM - it shouldn't be possible
-     to preserve (or even fabricate) the flag while transferring the file from/to
-     VM.
-   - See linked ticket for simple ideas.
- - Implement generic file handler to apply this mechanism; it should work
-   regardless of file type, and if file is chosen to be opened locally, normal
-   (XDG) rules of choosing application should apply.
- - Setting/unsetting the flag should be easy - like if once file is chosen to
-   be opened locally, it should remember that decision.
- - Preferably use generic mechanism to integrate it into file managers (XDG
-   standards). If not possible - integrate with Nautilus and Dolphin.
- - Optionally implement the same for Windows.
- - Document the mechanism (how the flag is stored, how mechanism is plugged
-   into file managers etc).
- - Write unit tests and integration tests.
-
-**Knowledge prerequisite**:
-
- - XDG standards
- - Bash or Python scripting
- - Basic knowledge of configuration/extension for file managers
-
-**Mentor**: [Marek Marczykowski-Górecki](/team/)
 
 ### Template manager, new template distribution mechanism
 
@@ -166,7 +128,7 @@ would override all the user changes there). More details:
      [#1705](https://github.com/QubesOS/qubes-issues/issues/1705) for some idea
      (this one lack integrity verification, but similar service could
      be developed with that added)
- - If new "package" format is developed, add support for it into 
+ - If new "package" format is developed, add support for it into
    [linux-template-builder](https://github.com/QubesOS/qubes-linux-template-builder).
  - Document the mechanism.
  - Write unit tests and integration tests.
@@ -180,6 +142,84 @@ would override all the user changes there). More details:
  - RPM package format, (yum) repository basics
 
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
+
+### Easy inter-VM networking configuration
+
+**Project**: Easy inter-VM networking configuration
+
+**Brief explanation**: Utility to easily configure selected VMs to be reachable (by network) from other VMs or outside network. Currently such configuration require adding iptables rules in multiple VMs manually. For exposing VM to outside network, it may be good to adopt qrexec-based TCP forwarding ([#2148](https://github.com/QubesOS/qubes-issues/issues/2148)).
+
+**Expected results**:
+
+- support firewall rules for inter-VM traffic in qubes-firewall - both VM side (qubes-firewall service) and dom0 configuration side (relevant Admin API calls)
+- mechanism for configuring firewall in target VM, especially INPUT iptables chain - currently it is hardcoded to drop new incoming connections
+- convenient tool (or modification to existing tool) for controlling above mechanisms
+- integration the above with existing GUI tools (especially VM settings)
+
+Relevant links:
+ - [Qubes networking and firewall documentation](/doc/firewall/)
+ - [qubes-firewall service code](https://github.com/QubesOS/qubes-core-agent-linux/blob/master/qubesagent/firewall.py)
+
+**Knowledge prerequisite**:
+
+- iptables
+- basics of nft
+- python3
+
+**Mentor**: [Marek Marczykowski-Górecki](/team/)
+
+### Mechanism for maintaining in-VM configuration
+
+**Project**: Mechanism for maintaining in-VM configuration
+
+**Brief explanation**: Large number of VMs is hard to maintain. Templates helps with keeping them updated, but many applications have configuration in user home directory, which is not synchronized.
+
+**Expected results**:
+
+- Design a mechanism how to _safely_ synchronize application configuration living in user home directory (`~/.config`, some other "dotfiles"). Mechanism should be resistant against malicious VM forcing its configuration on other VMs. Some approach could be a strict control which VM can send what changes (whitelist approach, not blacklist).
+- Implementation of the above mechanism.
+- Documentation how to configure it securely.
+
+
+**Knowledge prerequisite**:
+
+- shell and/or python scripting
+- Qubes OS qrexec services
+
+**Mentor**: [Marek Marczykowski-Górecki](/team/), [Wojtek Porczyk](/team/).
+
+### Wayland support in GUI agent and/or GUI daemon
+
+**Project**: Wayland support in GUI agent and/or GUI daemon
+
+**Brief explanation**: Currently both GUI agent (VM side of the GUI virtualization) and GUI daemon (dom0 side of GUI virtualization) support X11 protocol only. It may be useful to add support for Wayland there. Note that those are in fact two independent projects:
+
+1. GUI agent - make it work as Wayland compositor, instead of extracting window's composition buffers using custom X11 driver
+2. GUI daemon - act as Wayland application, showing windows retrieved from VMs, keeping zero-copy display path (window content is directly mapped from application running in VM, not copied)
+
+**Expected results**:
+
+Choose either of GUI agent, GUI daemon. Both are of similar complexity and each separately looks like a good task for GSoC time period.
+
+- design relevant GUI agent/daemon changes, the GUI protocol should not be affected
+- consider window decoration handling - VM should have no way of spoofing those, so it must be enforced by GUI daemon (either client-side - by GUI daemon itself, or server-side, based on hints given by GUI daemon)
+- implement relevant GUI agent/daemon changes
+- implement tests for new GUI handling, similar to existing tests for X11 based GUI
+
+Relevant links:
+ - [Low level GUI documentation](/doc/gui/)
+ - [qubes-gui-agent-linux](https://github.com/qubesos/qubes-gui-agent-linux)
+ - [qubes-gui-daemon](https://github.com/qubesos/qubes-gui-daemon)
+ - [Use Wayland instead of X11 to increase performance](https://github.com/qubesos/qubes-issues/issues/3366)
+
+**Knowledge prerequisite**:
+
+- Wayland architecture
+- basics of X11 (for understanding existing code)
+- C language
+- using shared memory (synchronization methods etc)
+
+**Mentor**: [Marek Marczykowski-Górecki](/team/).
 
 ### Qubes Live USB
 
@@ -231,40 +271,11 @@ details: [#1552](https://github.com/QubesOS/qubes-issues/issues/1552),
 
 **Mentor**: [Thomas Leonard](mailto:talex5@gmail.com), [Marek Marczykowski-Górecki](/team/)
 
-### IPv6 support
-**Project**: IPv6 support
-
-**Brief explanation**: Add support for native IPv6 in Qubes VMs. This should
-include IPv6 routing (+NAT...), IPv6-aware firewall, DNS configuration, dealing
-with IPv6 being available or not in directly connected network. See
-[#718](https://github.com/QubesOS/qubes-issues/issues/718) for more details.
-
-**Expected results**:
-
- - Add IPv6 handling to network configuration scripts in VMs
- - Add support for IPv6 in Qubes firewall (including CLI/GUI tools to configure it)
- - Design and implement simple mechanism to propagate information about IPv6
-   being available at all (if necessary). This should be aware of ProxyVMs
-   potentially adding/removing IPv6 support - like VPN, Tor etc.
- - Add unit tests and integration tests for both configuration scripts and UI
-   enhancements.
- - Update documentation.
-
-**Knowledge prerequisite**:
-
- - network protocols, especially IPv6, TCP, DNS, DHCPv6, ICMPv6 (including
-   autoconfiguration)
- - ip(6)tables, nftables, NAT
- - Python and Bash scripting
- - network configuration on Linux: ip tool, configuration files on Debian and
-   Fedora, NetworkManager
-
-**Mentor**: [Marek Marczykowski-Górecki](/team/)
-
 ### Thunderbird, Firefox and Chrome extensions
+
 **Project**: additional Thunderbird, Firefox and Chrome extensions
 
-**Brief explanation**: 
+**Brief explanation**:
 
 * browser/mail: open link in vm
 * browser/mail: open link in dispvm
@@ -315,31 +326,7 @@ immune to altering past entries. See
  - systemd
  - Python/Bash scripting
 
-**Mentor**: Inquire on [qubes-devel][ml-devel].
-
-### GUI improvements
-
-**Project**: GUI improvements
-
-**Brief explanation**:
-
-* GUI for enabling USB keyboard: [#2329](https://github.com/QubesOS/qubes-issues/issues/2329)
-* GUI for enabling USB passthrough: [#2328](https://github.com/QubesOS/qubes-issues/issues/2328)
-* GUI interface for /etc/qubes/guid.conf: [#2304](https://github.com/QubesOS/qubes-issues/issues/2304)
-* Improving inter-VM file copy / move UX master ticket: [#1839](https://github.com/QubesOS/qubes-issues/issues/1839)
-* and comprehensive list of GUI issues: [#1117](https://github.com/QubesOS/qubes-issues/issues/1117)
-
-**Expected results**:
-
- - Add/enhance GUI tools to configure/do things mentioned in description above.
-   Reasonable subset of those things is acceptable.
- - Write tests for added elements.
-
-**Knowledge prerequisite**:
-
- - Python, PyGTK
-
-**Mentor**: Inquire on [qubes-devel][ml-devel].
+**Mentor**: [Marek Marczykowski-Górecki](/team/)
 
 ### Xen GPU pass-through for Intel integrated GPUs
 **Project**: Xen GPU pass-through for Intel integrated GPUs (largely independent of Qubes)
@@ -379,7 +366,7 @@ details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
 
 **Brief explanation**: [T509](https://phabricator.whonix.org/T509)
 
-**Expected results**: 
+**Expected results**:
 
 - Work at upstream Tor: An older version of https://trac.torproject.org/projects/tor/wiki/doc/TransparentProxy page was the origin of Whonix. Update that page for nftables / IPv6 support without mentioning Whonix. Then discuss that on the tor-talk mailing list for wider input. - https://trac.torproject.org/projects/tor/ticket/21397
 - implement corridor feature request add IPv6 support / port to nftables - https://github.com/rustybird/corridor/issues/39
@@ -387,7 +374,11 @@ details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
 - make connections to IPv6 Tor relays work
 - make connections to IPv6 destinations work
 
-**Knowledge prerequisite**: 
+**Knowledge prerequisite**:
+
+- nftables
+- iptables
+- IPv6
 
 **Mentor**: [Patrick Schleizer](/team/)
 
@@ -413,8 +404,8 @@ details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
 
 **Mentor**: [Rafał Wojdyła](/team/)
 
-### Gui agent for Windows 8/10
-**Project**: Gui agent for Windows 8/10
+### GUI agent for Windows 8/10
+**Project**: GUI agent for Windows 8/10
 
 **Brief explanation**: Add support for Windows 8+ to the Qubes GUI agent and video driver. Starting from Windows 8, Microsoft requires all video drivers to conform to the WDDM display driver model which is incompatible with the current Qubes video driver. Unfortunately the WDDM model is much more complex than the old XPDM one and officially *requires* a physical GPU device (which may be emulated). Some progress has been made to create a full WDDM driver that *doesn't* require a GPU device, but the driver isn't working correctly yet. Alternatively, WDDM model supports display-only drivers which are much simpler but don't have access to system video memory and rendering surfaces (a key feature that would simplify seamless GUI mode). [#1861](https://github.com/QubesOS/qubes-issues/issues/1861)
 
@@ -424,27 +415,7 @@ details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
 
 **Mentor**: [Rafał Wojdyła](/team/)
 
-### Make Anti Evil Maid resistant against shoulder surfing and video surveillance
-
-**Project**: Observing the user during early boot should not be sufficient to defeat the protection offered by Anti Evil Maid.
-
-**Brief explanation**:
-
-1. Implement optional support for time-based one-time-password seed secrets. Instead of verifying a static text or picture (which the attacker can record and replay later on a compromised system), the user would verify an ephemeral six-digit code displayed on another device, e.g. a smartphone running any Google Authenticator compatible code generator app.
-
-2. Implement optional support for storing a passphrase-encrypted LUKS disk decryption key on a secondary AEM device. The attacker would then have to seize this device in order to decrypt the user's data; just recording the passphrase as it is entered would no longer be enough.
-
-**Expected results**: AEM package updates implementing both features, with fallback support in case the user does not have their smartphone or secondary AEM device at hand. Good UX and documentation for enrolling or upgrading users.
-
-**Knowledge prerequisite**:
-
-- Bash scripting
-- The AEM threat model
-- GRUB2, dracut, systemd, LUKS
-
-**Mentor**: [Rusty Bird](mailto:rustybird@openmailbox.org)
-
-### GNOME support in dom0
+### GNOME support in dom0 / GUI VM
 
 **Project**: GNOME support in dom0
 
@@ -480,6 +451,18 @@ details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
 
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
 
+### Generalize the Qubes PDF Converter to other types of files
+
+**Project**: Qubes Converters
+
+**Brief explanation**: One of the pioneering ideas of Qubes is to use disposable virtual machines to convert untrustworthy files (such as documents given to journalists by unknown and potentially malicious whistleblowers) into trusthworhty files.  See [Joanna's blog on the Qubes PDF Convert](http://theinvisiblethings.blogspot.co.uk/2013/02/converting-untrusted-pdfs-into-trusted.html) for details of the idea.  Joanna has implemented a prototype for PDF documents.  The goal of this project would be to generalize beyond the simple prototype to accommodate a wide variety of file formats, including Word documents, audio files, video files, spreadsheets, and so on.  The converters should prioritise safety over faithful conversion.  For example the Qubes PDF converter typically leads to lower quality PDFs (e.g. cut and paste is no longer possible), because this makes the conversion process safer.
+
+**Expected results**: We expect that in the timeframe, it will be possible to implement many converters for many file formats.  However, if any unexpected difficulties arise, we would prioritise a small number of safe and high quality converters over a large number of unsafe or unuseful converters.
+
+**Knowledge prerequisite**: Most of the coding will probably be implemented as shell scripts to interface with pre-existing converts (such as ImageMagick in the Qubes PDF converter).  However, shell scripts are not safe for processing untrusted data, so any extra processing will need to be implemented in another language -- probably Python.
+
+**Mentors**: Andrew Clausen and Jean-Philippe Ouellet
+
 ### Mitigate focus-stealing attacks
 **Project**: Mitigate focus-stealing attacks
 
@@ -489,14 +472,14 @@ details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
 
 **Knoledge prerequisite**: X APIs, Qubes GUI protocol, familiarity with the targeted window manager.
 
-**Mentor**:
+**Mentor**: Inquire on [qubes-devel][ml-devel].
 
 ### Progress towards reproducible builds
 **Project**: Progress towards reproducible builds
 
 **Brief explanation**: A long-term goal is to be able to build the entire OS and installation media in a completely bit-wise deterministic manner, but there are many baby steps to be taken along that path. See:
 
-- "[Security challenges for the Qubes build process](https://www.qubes-os.org/news/2016/05/30/build-security/)"
+- "[Security challenges for the Qubes build process](/news/2016/05/30/build-security/)"
 - [This mailing list post](https://groups.google.com/d/msg/qubes-devel/gq-wb9wTQV8/mdliS4P2BQAJ)
 - and [reproducible-builds.org](https://reproducible-builds.org/)
 
@@ -504,9 +487,9 @@ for more information and qubes-specific background.
 
 **Expected results**: Significant progress towards making the Qubes build process deterministic. This would likely involve cooperation with and hacking on several upstream build tools to eliminate sources of variability.
 
-**Knoledge prerequisite**: qubes-builder [[1]](https://www.qubes-os.org/doc/qubes-builder/) [[2]](https://www.qubes-os.org/doc/qubes-builder-details/) [[3]](https://github.com/QubesOS/qubes-builder/tree/master/doc), and efficient at introspecting complex systems: comfortable with tracing and debugging tools, ability to quickly identify and locate issues within a large codebase (upstream build tools), etc.
+**Knoledge prerequisite**: qubes-builder [[1]](/doc/qubes-builder/) [[2]](/doc/qubes-builder-details/) [[3]](https://github.com/QubesOS/qubes-builder/tree/master/doc), and efficient at introspecting complex systems: comfortable with tracing and debugging tools, ability to quickly identify and locate issues within a large codebase (upstream build tools), etc.
 
-**Mentor**:
+**Mentor**: [Marek Marczykowski-Górecki](/team/)
 
 ### Android development in Qubes
 
@@ -521,19 +504,8 @@ Details, reference: [#2233](https://github.com/QubesOS/qubes-issues/issues/2233)
 
 **Knowledge prerequisite**:
 
-**Mentor**:
+**Mentor**: Inquire on [qubes-devel][ml-devel].
 
-### Generalize the Qubes PDF Converter to other types of files
-
-**Project**: Qubes Converters
-
-**Brief explanation**: One of the pioneering ideas of Qubes is to use disposable virtual machines to convert untrustworthy files (such as documents given to journalists by unknown and potentially malicious whistleblowers) into trusthworhty files.  See [Joanna's blog on the Qubes PDF Convert](http://theinvisiblethings.blogspot.co.uk/2013/02/converting-untrusted-pdfs-into-trusted.html) for details of the idea.  Joanna has implemented a prototype for PDF documents.  The goal of this project would be to generalize beyond the simple prototype to accommodate a wide variety of file formats, including Word documents, audio files, video files, spreadsheets, and so on.  The converters should prioritise safety over faithful conversion.  For example the Qubes PDF converter typically leads to lower quality PDFs (e.g. cut and paste is no longer possible), because this makes the conversion process safer.
-
-**Expected results**: We expect that in the timeframe, it will be possible to implement many converters for many file formats.  However, if any unexpected difficulties arise, we would prioritise a small number of safe and high quality converters over a large number of unsafe or unuseful converters.
-
-**Knowledge prerequisite**: Most of the coding will probably be implemented as shell scripts to interface with pre-existing converts (such as ImageMagick in the Qubes PDF converter).  However, shell scripts are not safe for processing untrusted data, so any extra processing will need to be implemented in another language -- probably Python.
-
-**Mentors**: Andrew Clausen and Jean-Philippe Ouellet
 ----
 
 We adapted some of the language here about GSoC from the [KDE GSoC page](https://community.kde.org/GSoC).
@@ -541,17 +513,17 @@ We adapted some of the language here about GSoC from the [KDE GSoC page](https:/
 [2017-archive]: https://summerofcode.withgoogle.com/archive/2017/organizations/5074771758809088/
 [gsoc-qubes]: https://summerofcode.withgoogle.com/organizations/6239659689508864/
 [gsoc]: https://summerofcode.withgoogle.com/
-[team]: https://www.qubes-os.org/team/
+[team]: /team/
 [gsoc-faq]: https://developers.google.com/open-source/gsoc/faq
-[contributing]: https://www.qubes-os.org/doc/contributing/#contributing-code
-[patches]: https://www.qubes-os.org/doc/source-code/#how-to-send-patches
-[code-signing]: https://www.qubes-os.org/doc/code-signing/
-[ml-devel]: https://www.qubes-os.org/mailing-lists/#qubes-devel
+[contributing]: /doc/contributing/#contributing-code
+[patches]: /doc/source-code/#how-to-send-patches
+[code-signing]: /doc/code-signing/
+[ml-devel]: /mailing-lists/#qubes-devel
 [gsoc-participate]: https://developers.google.com/open-source/gsoc/
 [gsoc-student]: https://developers.google.com/open-source/gsoc/resources/manual#student_manual
 [how-to-gsoc]: http://teom.org/blog/kde/how-to-write-a-kick-ass-proposal-for-google-summer-of-code/
 [gsoc-submit]: https://summerofcode.withgoogle.com/
-[mailing-lists]: https://www.qubes-os.org/mailing-lists/
+[mailing-lists]: /mailing-lists/
 [qubes-issues]: https://github.com/QubesOS/qubes-issues/issues
 [qubes-issues-suggested]: https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22P%3A%20minor%22%20label%3A%22help%20wanted%22
-[qubes-builder]: https://www.qubes-os.org/doc/qubes-builder/
+[qubes-builder]: /doc/qubes-builder/

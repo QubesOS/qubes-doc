@@ -31,6 +31,13 @@ New features since 3.2
 
 You can get detailed description in [completed github issues][github-release-notes]
 
+Security Notes
+--------------
+
+* PV VMs migrated from 3.2 to 4.0-rc4 or later are automatically set to PVH mode in order to protect against Meltdown (see [QSB #37][qsb-37]).
+  However, PV VMs migrated from any earlier 4.0 release candidate (RC1, RC2, or RC3) are not automatically set to PVH mode.
+  These must be set manually.
+
 Known issues
 ------------
 
@@ -58,6 +65,7 @@ Upgrading
 There is no in-place upgrade path from earlier Qubes versions. The only
 supported option to upgrade to Qubes R4.0 is to install it from scratch and use
 [qubes backup and restore tools][backup] for migrating of all of the user VMs.
+We also provide [detailed instruction][upgrade-to-r4.0] for this procedure.
 
 
 [backup]: /doc/backup-restore/
@@ -75,5 +83,7 @@ supported option to upgrade to Qubes R4.0 is to install it from scratch and use
 [vm-interface]: /doc/vm-interface/
 [admin-api]: /news/2017/06/27/qubes-admin-api/
 [qsb-24]: https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-024-2016.txt
+[qsb-37]: https://www.qubes-os.org/news/2018/01/24/qsb-37-update/
 [backup-format]: /doc/backup-emergency-restore-v4/
 [api-doc]: https://dev.qubes-os.org/projects/qubes-core-admin/en/latest/
+[upgrade-to-r4.0]: /doc/upgrade-to-r4.0/
