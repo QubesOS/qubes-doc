@@ -35,7 +35,7 @@ Security Notes
 --------------
 
 * PV VMs migrated from 3.2 to 4.0-rc4 or later are automatically set to PVH mode in order to protect against Meltdown (see [QSB #37][qsb-37]).
-  However, PV VMs migrated from any earlier 4.0 release candidate (RC1, RC2, or RC3) are not automically set to PVH mode.
+  However, PV VMs migrated from any earlier 4.0 release candidate (RC1, RC2, or RC3) are not automatically set to PVH mode.
   These must be set manually.
 
 Known issues
