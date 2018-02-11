@@ -73,7 +73,7 @@ It is possible to change the settings of each new Disposable VM (DispVM). This c
 Adding arbitrary programs to Disposable VM Application Menu
 -----------------------------------------------------------
 
-For added convenience, arbitrary programs can be added to the Application Menu of the Disposable VM. In order to do that create (e.g.) `arbitrary.desktop` file in `/usr/share/applications` in Dom0. That file will point to the desired program. Use the following template for the file:
+For added convenience, arbitrary programs can be added to the Application Menu of the Disposable VM. In order to do that create (e.g.) `arbitrary.desktop` file in `/usr/local/share/applications` in Dom0. That file will point to the desired program. Use the following template for the file:
 
     [Desktop Entry]
     Version=1.0
