@@ -7,7 +7,7 @@ Using I2P (Invisible Internet Project) with Qubes
 Preparation - Basic
 ===============
 
-The I2P Software will be running on a Linux-based TemplateVM. Here we are using Debian 9, but you could also use the default Debian 8 Template. So at first you need to install Debian 9 as a TemplateVM. If you want, you can create a dedicated clone of the default Debian-9 TemplateVM. In the Dom0 Terminal, run the command:
+The I2P Software will be installed on a Linux-based TemplateVM. Here we are using Debian 9, but you could also use the default Debian 8 Template. So at first you need to install Debian 9 as a TemplateVM. If you want, you can create a dedicated clone of the default Debian-9 TemplateVM. In the Dom0 Terminal, run the command:
 ~~~
 qvm-clone debian-9 debian-9-i2p
 ~~~
