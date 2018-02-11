@@ -98,19 +98,22 @@ Possible options for a single rule:
  echo request, valid only together with `proto=icmp`
  - `dpi`, value: Deep Packet Inspection protocol (like: HTTP, SSL, SMB, SSH, SMTP) or the default 'NO' as no DPI, only  packet filtering
 
+Options must appear in the rule in the order listed above. Duplicated options
+are forbidden.
+
 Rule matches only when all predicates matches. Only one of `dst4`, `dst6`,
 `dstname`, `specialtarget` can be used in a single rule.
 
 If tool applying firewall encounters any parse error (unknown option, invalid
-value etc), it should drop all the traffic coming from that `SOURCE_IP`,
+value, duplicated option, etc), it should drop all the traffic coming from that `SOURCE_IP`,
 regardless of properly parsed rules.
 
 Example valid rules:
 
 - `action=accept dst4=8.8.8.8 proto=udp dstports=53-53`
 - `action=drop dst6=2a00:1450:4000::/37 proto=tcp`
-- `specialtarget=dns action=accept`
-- `specialtarget=dns action=drop proto=tcp` - drop DNS queries sent using TCP
+- `action=accept specialtarget=dns`
+- `action=drop proto=tcp specialtarget=dns` - drop DNS queries sent using TCP
 - `action=drop`
 
 ### Keys set by VM for passing info to dom0 ###
