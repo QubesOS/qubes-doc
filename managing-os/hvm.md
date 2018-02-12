@@ -53,12 +53,12 @@ libvirt.libvirtError: invalid argument: could not find capabilities for arch=x86
 Now we need to install an OS inside this VM.  This can be done by attaching an installation ISO to and starting the VM (this can currently only be done from command line, but in the future we will surely add an option to do this also from the manager):
 
 ~~~
-qvm-start win7 --cdrom=TempIsoVM:/home/user/win7.iso
+qvm-start win7 --cdrom=DispVM:/home/user/win7.iso
 or
 qvm-start win7 --cdrom=dom0:/usr/local/iso/win7_en.iso
 ~~~
 
-The above first command assumes the installation ISO was transferred to a TempIsoVM (copied using `dd` command from an installation CDROM for example). The second is for when the iso is in Dom0, which is not recommanded. If one wishes to use the actual physical media without copying it first to a file, then one can just pass `/dev/cdrom` as an argument to `--cdrom`:
+The above first command assumes the installation ISO was transferred to a DispVM (copied using `dd` command from an installation CDROM for example). The second is for when the iso is in Dom0, which is not recomended. If one wishes to use the actual physical media without copying it first to a file, then one can just pass `/dev/cdrom` as an argument to `--cdrom`:
 
 ~~~
 qvm-start win7 --cdrom=/dev/cdrom
