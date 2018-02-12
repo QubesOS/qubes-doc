@@ -16,10 +16,13 @@ By default, VMs kernels are provided by dom0. This means that:
 3. You can **not** modify any of the above from inside a VM;
 4. Installing additional kernel modules is cumbersome.
 
+*Note* In the examples below, although the specific version numbers might be old, the commands have been verified on R3.2 with debian-9 and fedora-26 templates.
+At the time of writing, there is a blocking issue for R4.0 [3563](https://github.com/QubesOS/qubes-issues/issues/3563).
+
 To select which kernel a given VM will use, you can either use Qubes Manager (VM settings, advanced tab), or the `qvm-prefs` tool:
 
 ~~~
-[user@dom0 ~]$ qvm-prefs my-appvm -s kernel
+[user@dom0 ~]$ qvm-prefs -s my-appvm kernel
 Missing kernel version argument!
 Possible values:
 1) default
@@ -29,8 +32,8 @@ Possible values:
   - 3.18.17-4
   - 3.19.fc20
   - 3.18.10-2
-[user@dom0 ~]$ qvm-prefs my-appvm -s kernel 3.18.17-4
-[user@dom0 ~]$ qvm-prefs my-appvm -s kernel default
+[user@dom0 ~]$ qvm-prefs -s my-appvm kernel 3.18.17-4
+[user@dom0 ~]$ qvm-prefs -s my-appvm kernel default
 ~~~
 
 To check/change the default kernel you can either go to "Global settings" in Qubes Manager, or use the `qubes-prefs` tool:
@@ -211,13 +214,13 @@ Using kernel installed in the VM
 
 It is possible to use a kernel installed in the VM (in most cases - TemplateVM).
 This is possible thanks to PV GRUB2 - GRUB2 running in the VM.
-To make it happen, you need to:
+To make it happen, at a high level you need to:
 
-1. Install PV GRUB2 in dom0 - package is named `grub2-xen`.
-2. Install kernel in the VM.
-   As with all VM software installation - this needs to be done in TemplateVM (of StandaloneVM if you are using one).
+1. Install PV GRUB2 (`grub2-xen`) in dom0.
+2. Install kernel in the VM (see below for Fedora and Debian steps).
+   As with all VM software installation - this needs to be done in a TemplateVM (or StandaloneVM if you are using one).
 3. Set VM kernel to `pvgrub2` value.
-   You can use `pvgrub2` in selected VMs, but it's not necessary in all of them, even when its template has a kernel installed.
+   You can use `pvgrub2` in selected VMs, but it's not necessary in all of them, even if its template has a kernel installed.
    You can still use a dom0-provided kernel for selected VMs.
 
 **WARNING: When using a kernel from within a VM, the `kernelopts` parameter is ignored.**
@@ -238,15 +241,22 @@ Additionally, you need some GRUB tools to create its configuration.
 Note: You don't need an actual grub bootloader as it is provided by dom0, but having one shouldn't hurt.
 
 ~~~
-sudo yum install qubes-kernel-vm-support grub2-tools
+sudo dnf install qubes-kernel-vm-support grub2-tools
 ~~~
 
 Then install whatever kernel you want.
-If you are using distribution kernel package (`kernel` package), the initramfs and kernel module should be handled automatically, but you need to ensure you have the `kernel-devel` package for the same kernel version installed.
-If you are using a manually built kernel, you need to handle this on your own.
-Take a look at the `dkms` and `dracut` documentation, especially the `dkms autoinstall` command may be useful.
+You need to also ensure you have the `kernel-devel` package for the same kernel version installed.
 
-When the kernel is installed, you need to create a GRUB configuration. 
+If you are using a distribution kernel package (`kernel` package), the initramfs and kernel modules may be handled automatically. 
+If you are using a manually built kernel, you need to handle this on your own.
+Take a look at the `dkms` documentation, especially the `dkms autoinstall` command may be useful.
+If you did not see the `kernel` install rebuild your initramfs, or are using a manually built kernel, you will need to rebuild it yourself with the following (replace version numbers with those appropriate for your kernel):
+
+~~~
+dracut -f /boot/initramfs-4.14.16-200.fc26.x86_64.img 4.14.16-200.fc26.x86_64
+~~~
+
+Once the kernel is installed, you need to create a GRUB configuration. 
 You may want to adjust some settings in `/etc/default/grub`; for example, lower `GRUB_TIMEOUT` to speed up VM startup. 
 Then, you need to generate the actual configuration:
 In Fedora it can be done using the `grub2-mkconfig` tool:
@@ -264,6 +274,11 @@ grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your 
 Then shutdown the VM.
 Now you can set `pvgrub2` as the VM kernel and it will start the kernel configured within your VM. 
 
+**Note:** On first boot the VM will automatically allocate swap space.
+This can take a while to complete- longer than your `qrexec_timeout` setting, which will make the VM appear to have hung on boot.
+To confirm this is the case, see [Troubleshooting](/doc/managing-vm-kernel/#troubleshooting) below or just wait for five minutes and shutdown the VM.
+It should respond normally on future boots.
+
 ### Installing kernel in Debian VM
 
 In a Debian based VM, you need to install the `qubes-kernel-vm-support` package.
@@ -272,10 +287,13 @@ Additionally, you need some GRUB tools to create its configuration.
 Note: You don't need an actual grub bootloader as it is provided by dom0, but having one shouldn't hurt.
 
 ~~~
-sudo apt-get update
-sudo apt-get install qubes-kernel-vm-support grub2-common
+sudo apt update
+sudo apt install qubes-kernel-vm-support grub2-common
 ~~~
 
+If prompted for a GRUB install device, choose `/dev/mapper/dmroot`.
+You will receive an error about GRUB failed to install to it, but just continue anyways.
+You don't need an actual grub bootloader as it is provided by dom0, but having one shouldn't hurt.
 Ignore warnings about `version '...' has bad syntax`.
 
 Then install whatever kernel you want.
@@ -321,6 +339,11 @@ Then shutdown the VM.
 Now you can set `pvgrub2` as the VM kernel and it will start the kernel configured within your VM.
 
 When starting the VM you can safely ignore any warnings about a missing module 'dummy-hcd'.
+
+**Note:** on first boot the VM will automatically allocate swap space.
+This can take a while to complete- longer than your `qrexec_timeout` setting, which will make the VM appear to have hung on boot.
+To confirm this is the case, see [Troubleshooting](/doc/managing-vm-kernel/#troubleshooting) below or just wait for five minutes and shutdown the VM.
+It should respond normally on future boots.
 
 ### Troubleshooting
 
