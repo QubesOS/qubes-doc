@@ -58,7 +58,7 @@ or
 qvm-start win7 --cdrom=dom0:/usr/local/iso/win7_en.iso
 ~~~
 
-The above first command assumes the installation ISO was transferred to a DispVM (copied using `dd` command from an installation CDROM for example). The second is for when the iso is in Dom0, which is not recomended. If one wishes to use the actual physical media without copying it first to a file, then one can just pass `/dev/cdrom` as an argument to `--cdrom`:
+The above first command assumes the installation ISO was transferred to a DispVM (copied using `dd` command from an installation CDROM for example). The second is for when the iso is in Dom0, which is not recommended. If one wishes to use the actual physical media without copying it first to a file, then one can just pass `/dev/cdrom` as an argument to `--cdrom`:
 
 ~~~
 qvm-start win7 --cdrom=/dev/cdrom
