@@ -86,6 +86,11 @@ In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be neede
 - `qubes-usb-proxy`: Required if the template is to be used for a USB qube (`sys-usb`) or for any destination qube to which USB devices are to be attached (e.g `sys-net` if using USB network adapter).   
 - `pulseaudio-qubes`: Needed to have audio on the template VM.
 
+Make sure the qubes-firewall feature is enabled if the template is used as a FirewallVM (eg. sys-firewall):
+
+~~~
+[user@dom0 ~]$ qvm-features fedora-26-minimal qubes-firewall 1
+~~~
 
 Logging
 -------
