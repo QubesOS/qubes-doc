@@ -25,7 +25,9 @@ not very convenient.
 Installation
 ------------
 
-`yum install mutt`
+`dnf install mutt cyrus-sasl-plain`
+
+`cyrus-sasl-plain` package is necessary for SMTP authentication to work.
 
 Configuration
 -------------
