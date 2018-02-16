@@ -46,7 +46,8 @@ $ gpg --import qubes-developers-keys.asc
 And if you will be building the Whonix templates:
 
 ~~~
-$ gpg --keyserver pgp.mit.edu --recv-keys 916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA
+$ wget https://github.com/QubesOS/qubes-builder-debian/blob/master/keys/whonix-developer-patrick.asc
+$ gpg --import whonix-developer-patrick.asc
 ~~~
 
 **Note** In the above process, we do *not* rely on the security of our server (keys.qubes-os.org) nor the connection (ssl, cert) -- we only rely on you getting the Qubes Master Signing Key fingerprint *somehow* and ensuring they match!
@@ -105,4 +106,16 @@ Enjoy your new ISO!
 
 **Note** Instead of using `./setup`, you can manually configure the build by doing `cp example-configs/qubes-os-master.conf builder.conf` and editing `builder.conf`.
 Take a look at `builder.conf.default` for a description of all available options.
+On manually configured builds, you may also need to:
+
+~~~
+export GNUPGHOME=~/qubes-builder/keyrings/git
+mkdir --parents "$GNUPGHOME"
+chmod --recursive 700 "$GNUPGHOME"
+echo '427F11FD0FAA4B080123F01CDDFA1A3E36879494:6:' | gpg --import-ownertrust
+~~~
+And for the Whonix templates:
+~~~
+echo '916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA:6:' | gpg --import-ownertrust
+~~~
 
