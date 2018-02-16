@@ -198,7 +198,7 @@ This is generally the same in R3.2 and R4.0 - in both cases both the old and new
 ### Technical details (R4.0)
 
 Instead of using a network connection like in R3.2, R4.0 uses RPC/qrexec. The proxy is configured in
-qrexec policy: /etc/qubes-rpc/policy/qubes.UpdatesProxy. By default this is set to
+qrexec policy: `/etc/qubes-rpc/policy/qubes.UpdatesProxy`. By default this is set to
 sys-net and/or sys-whonix, depending on firstboot choices. This new design allows for templates to be
 updated even when they are not connected to any netvm.
 
@@ -234,7 +234,7 @@ a firewall rule to intercept traffic directed to 10.137.255.254:8082:
     ~~~
 
 2.  VMs using the proxy service Startup script (updates-proxy-setup or qubes-misc-post service) configure
-dnf using /etc/yum.conf.d/qubes-proxy.conf file. It can either contain
+dnf using `/etc/yum.conf.d/qubes-proxy.conf` file. It can either contain
 
     ~~~
     proxy=http://10.137.255.254:8082/
