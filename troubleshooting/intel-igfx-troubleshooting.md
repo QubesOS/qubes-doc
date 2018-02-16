@@ -5,7 +5,7 @@ permalink: /doc/intel-igfx-troubleshooting/
 ---
 # Intel Integrated Graphics Troubleshooting #
 
-## Software Rendering or Laggy Video
+## Software Rendering or Video Lags
 
 If you are experiencing this issue, you will see extremely slow graphics updates.
 You will be able to watch the screen and elements paint slowly from top to bottom.
