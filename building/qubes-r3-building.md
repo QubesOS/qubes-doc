@@ -114,8 +114,4 @@ mkdir --parents "$GNUPGHOME"
 chmod --recursive 700 "$GNUPGHOME"
 echo '427F11FD0FAA4B080123F01CDDFA1A3E36879494:6:' | gpg --import-ownertrust
 ~~~
-And for the Whonix templates:
-~~~
-echo '916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA:6:' | gpg --import-ownertrust
-~~~
 
