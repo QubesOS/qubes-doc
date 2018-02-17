@@ -15,7 +15,7 @@ any arbitrary files or folders can be made persistent in TemplateBasedVMs.
 
 ## What is it useful for? ##
 
-In a TemplateBasedVM all of the file system comes from the template except /home and /usr/local.
+In a TemplateBasedVM all of the file system comes from the template except `/home`, `/usr/local`, and `/rw`.
 This means that changes in the rest of the filesystem are lost when the TemplateBasedVM is shutdown.
 bind-dirs provides a mechanism whereby files usually taken from the template can be persisted across reboots.
 
