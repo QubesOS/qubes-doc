@@ -11,6 +11,8 @@ redirect_from:
 DisposableVM implementation in Qubes
 ====================================
 
+**Note: The content below applies to Qubes R3.2.**
+
 DisposableVM image preparation
 ------------------------------
 
