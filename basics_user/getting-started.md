@@ -134,10 +134,6 @@ Otherwise, a compromised qube which is able to occupy the entire screen could tr
 Since a compromised qube can draw pixels within its own windows however it likes, it could draw a fake password prompt, for example, which appears to have a different colored border so that it looks like it belongs to a different qube. 
 This is why you should always drag such prompts away from other windows (or use some other means of manipulating the windows) to ensure that they belong to the qube to which they appear to belong.
 
-However, if the user makes use of an "expose-like" desktop switcher, such as the "Desktop Grid" effect that is enabled by default under KDE (default activation command: Ctrl-F8), then we can safely allow qubes to enter full screen mode, as we have assurance that we can always "preempt" them by hitting the magic key combination (e.g., Ctrl-F8), which will be consumed by the trusted window manager and not passed down to the fullscreen qube. 
-This means that the qube has no way of effectively "faking" the fullscreen view of the system, as the user can easily identify it as "just another qube." 
-Theoretically, this could be achieved even with primitive Alt-Tab like switching, which should be available on simpler Window Managers (such as Xfce4, which we also support as an alternative dom0 Desktop Environment), but this might be less obvious to the user.
-
 To allow a qube to enter full screen mode, one should edit the `/etc/qubes/guid.conf` file in dom0.
 
 To allow all qubes to enter full screen mode, set `allow_fullscreen` flag to `true` in the `global` section:
