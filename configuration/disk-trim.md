@@ -87,7 +87,7 @@ To enable TRIM support in dom0 with LUKS you need to:
       Rebuild grub config (`grub2-mkconfig -o /boot/grub2/grub.cfg`), then  
       Rebuild initrd **in hostonly mode** (`dracut -H -f`)
     * EFI: `/boot/efi/EFI/qubes/xen.cfg`, `kernel=` line(s), then  
-      Rebuild initrd (`dracut -f /boot/efi/EFI/qubes/initramfs-$(uname -r).img $(uname -r)`)
+      Rebuild initrd **in hostonly mode** (`dracut -H -f /boot/efi/EFI/qubes/initramfs-$(uname -r).img $(uname -r)`)
 
 4. Reboot the system.
 
