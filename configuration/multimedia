@@ -1,136 +1,160 @@
 ---
 layout: doc
-title: How to play multimedia content
-permalink: /doc/config/multimedia/
+title: Multimedia
+permalink: /doc/multimedia/
+redirect_from:
+- /en/doc/multimedia/
+- /doc/Multimedia/
+- /wiki/Multimedia/
 ---
 
-This short howto will explain how you can use Spotify, Netflix or Amazon Prime under Qubes OS.
-This steps have been tested by providing an own "multimedia" App VM which is based on the Qubes OS Debian 8 Template VM.
+Multimedia
+==========
 
-Listen to Spotify
-=================
-Install-Howto: https://www.spotify.com/de/download/linux/
+In order to choose Qubes OS as your primary OS it must be able to do all tasks, including playing multimedia content.
+This howto explains how to create a multimedia temmplate which can be used to play multimedia content.
+This includes:
 
-Detailed steps which must be run in the Debian 8 template VM.
-A good idea might be to clone the existing Debian 8 template and create an own debian-8-multimedia template from whoch you can then create an App-VM.
-You need to make sure that you allow networking to the internet during installation, as you need to download some data which are not from the default repositories.
+- Spotify
+- Amazon Prime
+- Netflix
+- DVDs
 
-# Become root
-su -
-# Download the Key which is used for signing the Spotify package repository
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
-#Public-Key: http://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0xD2C19886&fingerprint=on
-#Fingerprint: BBEB DCB3 18AD 50EC 6865 0906 13B0 0F1F D2C1 9886
-# Add the package repository to your list of package sources
-echo deb http://repository.spotify.com stable non-free | tee /etc/apt/sources.list.d/spotify.list
-# Make the new repository known to your system
-apt-get update
-# Install the Spotify Client
-apt-get install -y spotify-client
+Hint: This first draft of this howto was written under Qubes OS 3.2 but it should also work for Qubes 4rc4.
 
 
+Installation
+------------
 
-Play Netflix
-============
-You can play Netflix by installing a more recent version of firefox or by installing Google Chroome.
-As Google Chrome will play video from Netflx and (!) Amazon, the suggestion is to install Google Chrome.
-If you don't use Amazon Prime, Firefox will work.
+Start by cloning the default debian template in dom0.
+Hint:
+t-multimedia is just the template VM where we will install all packages.
+In the last step we will create an AppVM from this template.
 
-Install Firefox
----------------
-The built in Firefox (from the Debian Template VM) was Firefox ESR 45.3.0
-According to the "supported browser" list Mozilla Firefox >= 47.x is needed.
-I've thereoff installed Firefox v53.0.2 according to this manual:
-http://libre-software.net/how-to-install-firefox-on-ubuntu-linux-mint/
+`qvm-clone debian-9 t-multimedia`
 
-1) download firefox from https://www.mozilla.org/en-US/firefox/new/?scene=2
-direct download link:
-https://download-installer.cdn.mozilla.net/pub/firefox/releases/53.0.2/linux-x86_64/en-US/firefox-53.0.2.tar.bz2
+As we need to install some package outside of the regular repositories you need to enable networking for the Template VM.
 
-2) unpack the downloaded file
-tar -xjf firefox-53.0.2.tar.bz2
+`qvm-prefs --set t-multimedia netvm sys-firewall`
 
-3) move the unpacked folder:
-sudo mv firefox /opt/firefox53
+Launch a Terminal in the new template VM:
 
-4) Create a symlink to the new firefox version:
-if you want to use the new installed firefox as "standard firefox", rename the original link in case you want to go back to the previous version
-sudo mv /usr/bin/firefox /usr/bin/firefox-old
-Create a link to the new firefox version
-sudo ln -s /opt/firefox53/firefox /usr/bin/firefox
+`qvm-run --auto t-multimedia gnome-terminal`
 
-5) Launch firefox and open Preferences, Content and enable "Play DRM content"
-That's it, login into Netflix and enjoy.
+Important:
+Enter all the following commands in the terminal of the template VM
 
+Become the root user to run all follwoing command without the need to use sudo
 
-How to use Amazon Prime
-=======================
-Playing Video thorugh Amazon Prime via Firefox didn't work, with Google Chrome it works.
-Warning: You need to install Google Chrome, not Chromium.
+`sudo -i`
 
-Install Google Chrome
----------------------
-Launch you Debian 8 Template VM
+Installation of Spotify
+-----------------------
 
-1) Download latest .deb-package of Google Chrome
-   wget -c wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+Import GPG-Key for spotify
 
-2) Install the package
-   sudo dpkg -i google-chrome-*.deb
+`apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0DF731E45CE24F27EEEB1450EFDC8610341D9410`
 
-3) Install missing dependencies
-   sudo apt-get install -f
+> http://keyserver.ubuntu.com:11371/pks/lookup?op=vindex&search=0xEFDC8610341D9410&fingerprint=on
+> UUID: Spotify Public Repository Signing Key <tux@spotify.com>
+> Key-ID: 0x341D9410
+> Fingerprint=0DF7 31E4 5CE2 4F27 EEEB  1450 EFDC 8610 341D 9410 
 
-4) Shutdown Template VM
+Add Spotify repository to package list
 
-5) Add Google Chrome Shortcut to your multimedia App VM
+`echo deb http://repository.spotify.com stable non-free | tee /etc/apt/sources.list.d/spotify.list`
+
+Update package list
+
+`apt-get update`
+
+Install Spotify from the repositories
+
+`apt-get install -y spotify-client`
+
+Create a spotify desktop-entry
+
+`cp -p /usr/share/spotify/spotify.desktop /usr/share/applications/`
+`cp /usr/share/spotify/icons/spotify-linux-16.png /usr/share/icons/hicolor/16x16/apps/spotify.png`
 
 
+Installation of VLC
+-------------------
 
-Play DVDs
-=========
+To play DVDs you can install VLC with the needed Codecs
 
-To play DVDs within Qubes I have used my new multimedia App VM (which can also play Spotify and Netflix, see post from yesterday).
-The multimedia App-VM is based on the Debian 8 Template in Qubes 3.2
+Add Repository for libdvdcss
+(See also: http://www.videolan.org/developers/libdvdcss.html)
 
-Some suggested to install the whole desktop within the Debian Image, I don't want to install everything but only the stuff, that is really needed.
-As such I have looked at the Debian documentation
+Add GPG-Key
+`apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 8F0845FE77B16294429A79346BCA5E4DB84288D9`
 
-1) Launch Debian 8 Template VM and install the Qubes Proxy Tools, so that you can pass your (external?) DVD-Drive via sys-usb to the multimedia App-VM. Strangely the qubes-usb-proxy seems to be installed within the fedora template but not in the debian template.
-   In Debian Template VM:
-   sudo apt-get install qubes-usb-proxy
+> Public-Key: http://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0xB84288D9&fingerprint=on
+> Fingerprint: 8F08 45FE 77B1 6294 429A  7934 6BCA 5E4D B842 88D9 
 
-2) Install libdbdread4 from the default repositories:
-   In Debian Template VM:
-   apt-get install libdvdread4
-   
-3) Install libdvdcss for the decryption of CSS protected-DVDs.
-   Because of license restrictions in various countries this can't be done from the Debian repositories but needs to be installed manually.
-   (not that hard :-)).
-   Download the packaged .deb from: http://www.deb-multimedia.org/dists/stable/main/binary-amd64/package/libdvdcss2
-   In Debian Template VM:
-   wget http://www.deb-multimedia.org/pool/main/libd/libdvdcss/libdvdcss2_1.3.0-dmo1_amd64.deb
-   sudo dpkg -i libdvdcss2_1.3.0-dmo1_amd64.deb
+Add repositories to install VLC and libdvdcss
+`echo "deb http://download.videolan.org/pub/debian/stable/ /" >> /etc/apt/sources.list`
+`echo "deb-src http://download.videolan.org/pub/debian/stable/ /" >> /etc/apt/sources.list`
 
-4) I like to use VLC to playback Video/DVDs - you might want to use another player, but VLC works fine.
-   As this is not installed in the default Debian Template:
-   In Debian Template VM:
-   sudo apt-get install vlc
-   This will also install some dependencies.
+Update package repositories
+`apt-get update`
 
-5) Shutdown the Debian Template VM and launch your multimedia App VM
+Install libdvdcss and VLC
+`apt-get install -y libdvdcss2 vlc` 
 
-6) Plugin your external USB DVD-Drive (if you don't have an internal drive) and pass it to the multimedia App VM
-   In dom0:
-   qvm-usb -a multimedia sys-usb:3-6
 
-7) Launch VLC
-   qvm-run multimedia vlc
-   Warning: a window will open in the background which will ask for collecting metadata information.
-   I haven't seen the window as it was covered by the VLC main window, so that I couldn't launch any commands in this window.
+ 
+Installation Google Chrome
+--------------------------
 
-8) Open DVD within VLC:
-   Media > Open Disk
-   You can leave the defaults (/dev/sr0) and just hit play
+To play Videos with Netflix, Amazon Prime & Co using Chrome is a good option as it has all needed codecs included.
+Hint: Using Chromium will not work for some reasons.
 
-Enjoy your DVD
+
+Download Google Chrome package from the Google Debian repository
+
+`wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`
+
+FIXME: Howto verify the debian package or better adding a Google Debian package repository?
+Link: https://www.google.com/linuxrepositories/
+
+1st attempt to install the downloaded package
+
+`dpkg -i google-chrome-stable_current_amd64.deb`
+
+Installer will quit with an error message as not all dependencies are met (yet):
+
+> dpkg: dependency problems prevent configuration of google-chrome-stable:
+> google-chrome-stable depends on fonts-liberation; however:
+> Package fonts-liberation is not installed.
+> google-chrome-stable depends on libappindicator1; however:
+> Package libappindicator1 is not installed.
+> dpkg: error processing package google-chrome-stable (--install):
+> dependency problems - leaving unconfigured
+> (...)
+> Errors were encountered while processing:
+> google-chrome-stable
+
+Install the missing dependencies for Google Chrome
+
+`apt-get -f upgrade`
+
+(This will install: fonts-liberation libappindicator1 libdbusmenu-glib4 libdbusmenu-gtk4 libindicator7 libxss1)
+
+After the dependencies are installed rerun package installation of Chrome
+
+`dpkg -i google-chrome-stable_current_amd64.deb`
+
+Clean up the mess and shutdown your multimedia template VM
+
+`rm google-chrome-stable_current_amd64.deb && shutdown -h now`
+
+
+Create a Multimedia AppVM
+-------------------------
+
+After you have created the multimedia AppVM template you can create an AppVM for daily use based on it
+
+`qvm-create --template=t-multimedia --label=orange multimedia`
+
+Add Google Chrome, VLC and Spotify to the AppVM Menu via "add/remove app shortcuts"
