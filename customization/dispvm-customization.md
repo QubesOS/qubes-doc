@@ -15,7 +15,7 @@ Disposable VM Customization
 Qubes 4.0
 ----------
 
-Disposable VM in Qubes 4.0 can be based on any TemplateBasedVM. You can also choose to use different AppVMs for different Disposable VMs. To prepare AppVM to be a base for Disposable VM, you need to set `template_for_dispvms` property, for example:
+Disposable VM (DispVM) in Qubes 4.0 can be based on any TemplateBasedVM. You can also choose to use different AppVMs for different Disposable VMs. To prepare AppVM to be a base for Disposable VM, you need to set `template_for_dispvms` property, for example:
 
     [user@dom0 ~]$ qvm-prefs fedora-26-dvm template_for_dispvms True
 
@@ -45,17 +45,17 @@ If you wish to use the `fedora-minimal` template as a DVM Template, see the "DVM
 
 It is possible to change the settings for each new Disposable VM (DispVM). This can be done by customizing the base AppVM:
 
-1.  Start a terminal in the `fedora-26-dvm` qube (or another base for DispVM) by running the following command in a dom0 terminal. (If a qube have `appmenus-dispvm` feature set, there is no menu entry to start applications directly in it, instead of Disposable VM based on it).
+1.  Start a terminal in the `fedora-26-dvm` qube (or another base for DispVM) by running the following command in a dom0 terminal. (If you enable `appmenus-dispvm` feature (as explained at the top), applications menu for this VM (`fedora-26-dvm`) will be "Disposable: fedora-26-dvm" (instead of "Domain: fedora-26-dvm") and entries there will start new DispVM based on that VM (`fedora-26-dvm`). Not in that VM (`fedora-26-dvm`) itself).
 
         [user@dom0 ~]$ qvm-run -a fedora-26-dvm gnome-terminal
 
 2.  Change the qube's settings and/or applications, as desired. Some examples of changes you may want to make include:
     -   Changing Firefox's default startup settings and homepage.
-    -   Changing Nautilus' default file preview settings.
+    -   Changing default editor, image viewer.
     -   Changing the DispVM's default NetVM. For example, you may wish to set the NetVM to "none." Then, whenever you start a new DispVM, you can choose your desired ProxyVM manually (by changing the newly-started DipsVMs settings). This is useful if you sometimes wish to use a DispVM with a Whonix Gateway, for example. It is also useful if you sometimes wish to open untrusted files in a network-disconnected DispVM.
 
 4.  Shutdown the qube (either by `poweroff` from qube's terminal, or `qvm-shutdown` from dom0 terminal).
-        
+
 
 ### Adding programs to Disposable VM Application Menu ###
 
