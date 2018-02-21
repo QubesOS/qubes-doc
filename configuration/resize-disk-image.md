@@ -18,17 +18,27 @@ There are several disk images which can be easily extended, but pay attention to
 See also [OS Specific Follow-up Instructions](/doc/resize-disk-image/#os-specific-follow-up-instructions) at the end of this page.
 
 
-### Template disk image
+### Template disk image (R4.0)
+
+If you want install a lot of software in your TemplateVM, you may need to increase the amount of disk space your TemplateVM can use. 
+*Make sure changes in the TemplateVM between reboots don't exceed 10G.*
+
+1.  Resize the *root image* using Qubes version specific procedure below.
+2.  Start the template.
+3.  Resize the filesystem using OS appropriate tools (Qubes will handle this automatically under Linux).
+4.  Verify available space in the template using `df -h` or OS specific tools.
+5.  Shutdown the template.
+
+### Template disk image (R3.2)
 
 If you want install a lot of software in your TemplateVM, you may need to increase the amount of disk space your TemplateVM can use. 
 *Make sure changes in the TemplateVM between reboots don't exceed 10G.*
 
 1.  Make sure that all the VMs based on this template are shut down (including netvms etc).
 2.  Resize the *root image* using Qubes version specific procedure below.
-   You may instead resize the *private image* with the appropriate commands if your software installs to `/home` for example.
 3.  If any netvm/proxyvm used by this template is based on it, set template's netvm to none.
 4.  Start the template.
-5.  Resize the filesystem using OS appropriate tools (Qubes will handle this automatically with Linux templates).
+5.  Resize the filesystem using OS appropriate tools (Linux is `sudo resize2fs /dev/mapper/dmroot`).
 6.  Verify available space in the template using `df -h` or OS specific tools.
 7.  Shutdown the template.
 8.  Restore original netvm setting (if changed), and check firewall settings (setting netvm to none causes the firewall to reset to "block all")
@@ -67,7 +77,7 @@ Note: Size is the target size (i.e. 4096MB or 16GB, ...), not the size to add to
 
 ### Resize a StandaloneVM Root Image
 
-Another way to increase the size of is to turn your TemplateVM into a StandaloneVM.
+For more flexibility, you may also turn your TemplateVM into a StandaloneVM.
 Doing this means it will have its own root filesystem *(StandaloneVMs use a copy of the template, instead of smart sharing)*.
 To do this run `qvm-create --standalone` from `dom0` console, then perform the [OS Specific Follow-up Instructions](/doc/resize-disk-image/#os-specific-follow-up-instructions) below.
 
@@ -107,6 +117,6 @@ zpool online -e poolname ada0
 
 #### Linux
 
-Qubes will automatically grow the filesystem for you on AppVMs but not HVMs.
+Qubes will automatically grow the filesystem for you on AppVMs but not HVMs (or Template root images on R3.2).
 You will see that there is unallocated free space at the end of your primary disk.
 You can use standard linux tools like `fdisk` and `resize2fs` to make this space available.
