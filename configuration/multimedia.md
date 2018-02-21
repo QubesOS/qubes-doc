@@ -41,14 +41,26 @@ Launch a Terminal in the new template VM:
 Important:
 Enter all the following commands in the terminal of the template VM
 
-Become the root user to run all follwoing command without the need to use sudo
+Become the root user to run all following command without the need to use sudo in the multimedia template VM
 
 `sudo -i`
+
 
 Installation of Spotify
 -----------------------
 
 Import GPG-Key for spotify
+As the template VM can't connect to internet you need to get the public key file from another AppVM and copy it to the template VM. The easiest way is to use the Qubes Clipboard to copy the keys from the AppVM where you get the key to the Template VM.
+
+In an AppVM which has Internet access:
+- Open http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0xEFDC8610341D9410
+- Copy content of page to the Qubes Clipboard (Strg+C and then Shift+Strg+C)
+
+Switch to the gnome terminal in the Multimedia Template VM
+
+<DRAFT> .... CONTINUE HERE <DRAFT>
+nano spotify.pubkey
+- Paste the content from the Qubes Clipboard into nano (Shift+Strg+V and then Paste)
 
 `apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0DF731E45CE24F27EEEB1450EFDC8610341D9410`
 
