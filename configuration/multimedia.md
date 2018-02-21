@@ -67,7 +67,9 @@ Check the signature of the signing key (still in the AppVM where you downloaded 
 
 This should look like:
 > [user@my-untrusted ~]$ `gpg --with-fingerprint spotify.pubkey`
+
 > pub  4096R/341D9410 2017-07-25 Spotify Public Repository Signing Key <tux@spotify.com>
+
 >      Key fingerprint = 0DF7 31E4 5CE2 4F27 EEEB  1450 EFDC 8610 341D 9410
 
 You can (and should) lookup the fingerprint on at least one (or more) keyservers as the above information might be outdated.
@@ -120,8 +122,11 @@ Check the signature of the signing key (still in the AppVM where you downloaded 
 
 This should look like:
 > [user@my-untrusted ~]$ `gpg --with-fingerprint videolan.pubkey`
+
 > pub  2048R/B84288D9 2013-08-27 VideoLAN APT Signing Key <videolan@videolan.org>
+
 >       Key fingerprint = 8F08 45FE 77B1 6294 429A  7934 6BCA 5E4D B842 88D9
+
 > sub  2048R/288D4A2C 2013-08-27
 
 You can (and should) lookup the fingerprint on at least one (or more) keyservers as the above information might be outdated.
@@ -172,10 +177,15 @@ Check the signature of the signing key (still in the AppVM where you downloaded 
 
 This should look like:
 > [user@my-untrusted ~]$ `gpg --with-fingerprint google.pubkey`
+
 > pub  4096R/D38B4796 2016-04-12 Google Inc. (Linux Packages Signing Authority)
+
 > <linux-packages-keymaster@google.com>
+
 >       Key fingerprint = EB4C 1BFD 4F04 2F6D DDCC  EC91 7721 F63B D38B 4796
+
 > sub  4096R/640DB551 2016-04-12 [expires: 2019-04-12]
+
 > sub  4096R/997C215E 2017-01-24 [expires: 2020-01-24]
 
 You can (and should) lookup the fingerprint on at least one (or more) keyservers as the above information might be outdated.
