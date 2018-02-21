@@ -62,14 +62,18 @@ Add the public key to the repository keyring
 `apt-key add spotify.pubkey`
 
 Verify Fingerprint with
+
 `apt-key finger spotify`
+
 You can (and should) lookup the fingerprint on the keyserver:
 http://keyserver.ubuntu.com:11371/pks/lookup?op=vindex&search=0xEFDC8610341D9410&fingerprint=on
 
 Add the Spotify repository to your list of package sources:
+
 `echo deb http://repository.spotify.com stable non-free > /etc/apt/sources.list.d/spotify.list`
 
 Update the list of all known packages
+
 `apt-get update`
 
 Install Spotify
@@ -78,6 +82,7 @@ Install Spotify
 Create a spotify desktop-entry
 
 `cp -p /usr/share/spotify/spotify.desktop /usr/share/applications/`
+
 `cp /usr/share/spotify/icons/spotify-linux-16.png /usr/share/icons/hicolor/16x16/apps/spotify.png`
 
 Installation of VLC
@@ -101,18 +106,24 @@ Add the public key to the repository keyring
 `apt-key add vlc.pubkey`
 
 Verify Fingerprint with
+
 `apt-key finger VideoLAN`
+
 You can (and should) lookup the fingerprint on the keyserver:
 http://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0xB84288D9&fingerprint=on
 
 Add the new VLC package repositories to your list of sources 
+
 `echo "deb http://download.videolan.org/pub/debian/stable/ /" > /etc/apt/sources.list.d/vlc.list`
+
 `echo "deb-src http://download.videolan.org/pub/debian/stable/ /" >> /etc/apt/sources.list.d/vlc.list`
 
 Update package repositories
+
 `apt-get update`
 
 Install libdvdcss and VLC
+
 `apt-get install -y libdvdcss2 vlc`
 
 Installation Google Chrome
@@ -121,10 +132,9 @@ Installation Google Chrome
 To play Videos with Netflix, Amazon Prime & Co using Chrome is a good option as it has all needed codecs included.
 Hint: Using Chromium will not work for some reasons.
 
-
 Download the public key which signs the Google package repositories
 In an AppVM which has Internet access:
-- Open http://keys.gnupg.net/pks/lookup?op=get&search=0x7721F63BD38B4796
+- Open http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x7721F63BD38B4796
 - Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
 
 Switch to the gnome terminal in the Multimedia Template VM
@@ -135,21 +145,31 @@ Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Past
 Save the file (Ctrl+O <Enter> Ctrl+X)
 
 Add the public key to the repository keyring
+
 `apt-key add google.pubkey`
 
 Verify Fingerprint with
+
 `apt-key finger Google`
+
 You can (and should) lookup the fingerprint on the keyserver:
-http://keys.gnupg.net/pks/lookup?search=0x7721F63BD38B4796&fingerprint=on
+http://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0x7721F63BD38B4796&fingerprint=on
 or https://www.google.com/linuxrepositories/
 
 Add the Google package repositories to your list of sources 
 echo "deb http://dl.google.com/linux/chrome/deb/ stable main"> /etc/apt/sources.list.d/google.list
 
 Update package repositories
+
 `apt-get update`
 
 Install Chrome 
+
 `apt-get install google-chrome-stable`
 
+Create a Multimedia AppVM
+-------------------------
+.
+The last step is to create a multimedia AppVM (named "my-multimedia" here) based on the new multimedia template.
 
+`qvm-create --template t-multimedia --label-orange my-multimedia`
