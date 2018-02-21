@@ -183,12 +183,11 @@ Some third-party applications cannot be installed using the standard yum reposit
 Updates proxy
 -------------
 
-There are two services ([qvm-service](https://www.qubes-os.org/doc/dom0-tools/qvm-service/), [service framework](https://www.qubes-os.org/doc/qubes-service/)):
-
-Updates proxy is a service which filters http access to allow access to only something that looks like a yum or apt repository. This is meant to mitigate user errors (like using browser in the template VM), rather than some real isolation. It is done with http proxy (tinyproxy) instead of simple firewall rules because it is hard to list all the repository mirrors (and keep that list up to date). The proxy is used only to filter the traffic, not to cache anything.
+Updates proxy is a service which allows access only from package managers. This is meant to mitigate user errors (like using browser in the template VM), rather than some real isolation. It is done with http proxy (tinyproxy) instead of simple firewall rules because it is hard to list all the repository mirrors (and keep that list up to date). The proxy is used only to filter the traffic, not to cache anything.
 
 The proxy is running in selected VMs (by default all the NetVMs (1)) and intercepts traffic directed to 10.137.255.254:8082. Thanks to such configuration all the VMs can use the same proxy address, and if there is a proxy on network path, it will handle the traffic (of course when firewall rules allow that). If the VM is configured to have access to the updates proxy (2), the startup scripts will automatically configure dnf to really use the proxy (3). Also access to updates proxy is independent of any other firewall settings (VM will have access to updates proxy, even if policy is set to block all the traffic).
 
+There are two services ([qvm-service](https://www.qubes-os.org/doc/dom0-tools/qvm-service/), [service framework](https://www.qubes-os.org/doc/qubes-service/)):
 
 1. qubes-updates-proxy (and its deprecated name: qubes-yum-proxy) - a service providing a proxy for templates - by default enabled in NetVMs (especially: sys-net)
 2. updates-proxy-setup (and its deprecated name: yum-proxy-setup) - use a proxy provided by another VM (instead of downloading updates directly), enabled by default in all templates
