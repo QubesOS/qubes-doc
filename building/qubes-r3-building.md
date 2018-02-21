@@ -13,6 +13,7 @@ Building Qubes OS ISO
 
 In `dom0`, install the Fedora 26 template if you don't already have it.
 Other rpm-based operating systems may also work, but Fedora 26 has been successfully used to build Qubes R3.2 and R4.0 with the below steps.
+Travis-CI also uses Ubuntu 14.04 to perform test builds, except it can not test the `./setup` script.
 
 ~~~
 sudo qubes-dom0-update qubes-template-fedora-26
@@ -65,6 +66,7 @@ $ cd qubes-builder
 $ git tag -v `git describe`
 ~~~
 
+It's very important to check if the verification message contains "Good signature from ..." and does not contain "WARNING: This key is not certified with a trusted signature!".
 Assuming the verification went fine, we're good to go with all the rest without ever thinking more about verifying digital signatures on all the rest of the components.
 The builder will do that for us for each component, every time we build, even for all auxiliary files (e.g. Xen or Linux kernel sources).
 
@@ -98,6 +100,7 @@ Or for a fully signed build (this requires setting SIGN_KEY in the builder.conf)
 
 ~~~
 $ make sign-all
+$ make qubes
 $ make iso
 ~~~
 
@@ -105,13 +108,5 @@ Enjoy your new ISO!
 
 
 **Note** Instead of using `./setup`, you can manually configure the build by doing `cp example-configs/qubes-os-master.conf builder.conf` and editing `builder.conf`.
-Take a look at `builder.conf.default` for a description of all available options.
-On manually configured builds, you may also need to:
-
-~~~
-export GNUPGHOME=~/qubes-builder/keyrings/git
-mkdir --parents "$GNUPGHOME"
-chmod --recursive 700 "$GNUPGHOME"
-echo '427F11FD0FAA4B080123F01CDDFA1A3E36879494:6:' | gpg --import-ownertrust
-~~~
+Take a look at `doc/Configuration.md` for a description of all available options.
 
