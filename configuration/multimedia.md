@@ -54,31 +54,30 @@ As the template VM can't connect to internet you need to get the public key file
 
 In an AppVM which has Internet access:
 - Open http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0xEFDC8610341D9410
-- Copy content of page to the Qubes Clipboard (Strg+C and then Shift+Strg+C)
+- Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
 
 Switch to the gnome terminal in the Multimedia Template VM
 
-<DRAFT> .... CONTINUE HERE <DRAFT>
-nano spotify.pubkey
-- Paste the content from the Qubes Clipboard into nano (Shift+Strg+V and then Paste)
+`nano spotify.pubkey`
 
-`apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0DF731E45CE24F27EEEB1450EFDC8610341D9410`
+Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
+Save the file (Ctrl+O <Enter> Ctrl+X)
 
-> http://keyserver.ubuntu.com:11371/pks/lookup?op=vindex&search=0xEFDC8610341D9410&fingerprint=on
-> UUID: Spotify Public Repository Signing Key <tux@spotify.com>
-> Key-ID: 0x341D9410
-> Fingerprint=0DF7 31E4 5CE2 4F27 EEEB  1450 EFDC 8610 341D 9410 
+Add the public key to the repository keyring
+`apt-key add spotify.pubkey`
 
-Add Spotify repository to package list
+Verify Fingerprint with
+`apt-key finger spotify`
+You can (and should) lookup the fingerprint on the keyserver:
+http://keyserver.ubuntu.com:11371/pks/lookup?op=vindex&search=0xEFDC8610341D9410&fingerprint=on
 
-`echo deb http://repository.spotify.com stable non-free | tee /etc/apt/sources.list.d/spotify.list`
+Add the Spotify repository to your list of package sources:
+`echo deb http://repository.spotify.com stable non-free > /etc/apt/sources.list.d/spotify.list`
 
-Update package list
-
+Update the list of all known packages
 `apt-get update`
 
-Install Spotify from the repositories
-
+Install Spotify
 `apt-get install -y spotify-client`
 
 Create a spotify desktop-entry
@@ -86,33 +85,41 @@ Create a spotify desktop-entry
 `cp -p /usr/share/spotify/spotify.desktop /usr/share/applications/`
 `cp /usr/share/spotify/icons/spotify-linux-16.png /usr/share/icons/hicolor/16x16/apps/spotify.png`
 
-
 Installation of VLC
 -------------------
 
 To play DVDs you can install VLC with the needed Codecs
 
-Add Repository for libdvdcss
-(See also: http://www.videolan.org/developers/libdvdcss.html)
+Download the public key which signs the VLC package repositories
+In an AppVM which has Internet access:
+- Open http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x6BCA5E4DB84288D9
+- Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
 
-Add GPG-Key
-`apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 8F0845FE77B16294429A79346BCA5E4DB84288D9`
+Switch to the gnome terminal in the Multimedia Template VM
 
-> Public-Key: http://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0xB84288D9&fingerprint=on
-> Fingerprint: 8F08 45FE 77B1 6294 429A  7934 6BCA 5E4D B842 88D9 
+`nano vlc.pubkey`
 
-Add repositories to install VLC and libdvdcss
-`echo "deb http://download.videolan.org/pub/debian/stable/ /" >> /etc/apt/sources.list`
-`echo "deb-src http://download.videolan.org/pub/debian/stable/ /" >> /etc/apt/sources.list`
+Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
+Save the file (Ctrl+O <Enter> Ctrl+X)
+
+Add the public key to the repository keyring
+`apt-key add vlc.pubkey`
+
+Verify Fingerprint with
+`apt-key finger VideoLAN`
+You can (and should) lookup the fingerprint on the keyserver:
+http://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0xB84288D9&fingerprint=on
+
+Add the new VLC package repositories to your list of sources 
+`echo "deb http://download.videolan.org/pub/debian/stable/ /" > /etc/apt/sources.list.d/vlc.list`
+`echo "deb-src http://download.videolan.org/pub/debian/stable/ /" >> /etc/apt/sources.list.d/vlc.list`
 
 Update package repositories
 `apt-get update`
 
 Install libdvdcss and VLC
-`apt-get install -y libdvdcss2 vlc` 
+`apt-get install -y libdvdcss2 vlc`
 
-
- 
 Installation Google Chrome
 --------------------------
 
@@ -120,50 +127,34 @@ To play Videos with Netflix, Amazon Prime & Co using Chrome is a good option as 
 Hint: Using Chromium will not work for some reasons.
 
 
-Download Google Chrome package from the Google Debian repository
+Download the public key which signs the Google package repositories
+In an AppVM which has Internet access:
+- Open http://keys.gnupg.net/pks/lookup?op=get&search=0x7721F63BD38B4796
+- Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
 
-`wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`
+Switch to the gnome terminal in the Multimedia Template VM
 
-FIXME: Howto verify the debian package or better adding a Google Debian package repository?
-Link: https://www.google.com/linuxrepositories/
+`nano google.pubkey`
 
-1st attempt to install the downloaded package
+Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
+Save the file (Ctrl+O <Enter> Ctrl+X)
 
-`dpkg -i google-chrome-stable_current_amd64.deb`
+Add the public key to the repository keyring
+`apt-key add google.pubkey`
 
-Installer will quit with an error message as not all dependencies are met (yet):
+Verify Fingerprint with
+`apt-key finger Google`
+You can (and should) lookup the fingerprint on the keyserver:
+http://keys.gnupg.net/pks/lookup?search=0x7721F63BD38B4796&fingerprint=on
+or https://www.google.com/linuxrepositories/
 
-> dpkg: dependency problems prevent configuration of google-chrome-stable:
-> google-chrome-stable depends on fonts-liberation; however:
-> Package fonts-liberation is not installed.
-> google-chrome-stable depends on libappindicator1; however:
-> Package libappindicator1 is not installed.
-> dpkg: error processing package google-chrome-stable (--install):
-> dependency problems - leaving unconfigured
-> (...)
-> Errors were encountered while processing:
-> google-chrome-stable
+Add the Google package repositories to your list of sources 
+echo "deb http://dl.google.com/linux/chrome/deb/ stable main"> /etc/apt/sources.list.d/google.list
 
-Install the missing dependencies for Google Chrome
+Update package repositories
+`apt-get update`
 
-`apt-get -f upgrade`
-
-(This will install: fonts-liberation libappindicator1 libdbusmenu-glib4 libdbusmenu-gtk4 libindicator7 libxss1)
-
-After the dependencies are installed rerun package installation of Chrome
-
-`dpkg -i google-chrome-stable_current_amd64.deb`
-
-Clean up the mess and shutdown your multimedia template VM
-
-`rm google-chrome-stable_current_amd64.deb && shutdown -h now`
+Install Chrome 
+`apt-get install google-chrome-stable`
 
 
-Create a Multimedia AppVM
--------------------------
-
-After you have created the multimedia AppVM template you can create an AppVM for daily use based on it
-
-`qvm-create --template=t-multimedia --label=orange multimedia`
-
-Add Google Chrome, VLC and Spotify to the AppVM Menu via "add/remove app shortcuts"
