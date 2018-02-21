@@ -10,18 +10,15 @@ redirect_from:
 
 Multimedia
 ==========
+Note: This Howto has been written and was tested under Qubes 4rc4
 
-In order to choose Qubes OS as your primary OS it must be able to do all tasks, including playing multimedia content.
-This howto explains how to create a multimedia temmplate which can be used to play multimedia content.
+You can consolidate most of your media streaming tasks into one "multimedia" App-VM. This howto explains how to create a multimedia temmplate which can be used to play multimedia content.
 This includes:
 
 - Spotify
 - Amazon Prime
 - Netflix
 - DVDs
-
-Hint: This first draft of this howto was written under Qubes OS 3.2 but it should also work for Qubes 4rc4.
-
 
 Installation
 ------------
