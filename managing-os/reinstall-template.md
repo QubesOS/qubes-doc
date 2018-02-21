@@ -13,6 +13,15 @@ If you suspect your [TemplateVM] is broken, misconfigured, or compromised, you c
 
 The procedure varies by Qubes version and UpdateVM's distribution; see the appropriate section below.
 
+To determine your UpdateVM's distribution:
+
+1. Go to a `dom0` terminal prompt.
+2. Enter `qubes-prefs` and look for `updatevm`.
+3. Enter `qvm-prefs <UpdateVMName>` and look for `template`.
+
+This will typically be either `debian-9`, `fedora-26`, or `whonix-gw`.
+In the case of `whonix-gw`, refer to the Debian based UpdateVM method.
+ 
 
 Manual Reinstallation Method (Fedora based UpdateVM, R3.1+)
 ----------------------------
