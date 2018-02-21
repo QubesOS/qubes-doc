@@ -42,9 +42,9 @@ In Windows it's a PowerShell script located in `c:\Program Files\Invisible Thing
 
  * R4.0
  
-   The list of installed applications for each AppVM is stored in dom0's `/home/user/.local/share/qubes-appmenus/vmname/apps.templates`.
+   The list of installed applications for each AppVM is stored in dom0's `~/.local/share/qubes-appmenus/vmname/apps.templates`.
    Each menu entry is a file that follows the [.desktop file format](https://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html) with some wildcards (*%VMNAME%*, *%VMDIR%*).
-   Applications selected to appear in the menu are stored in `/home/user/.local/share/qubes-appmenus/vmname/apps`.
+   Applications selected to appear in the menu are stored in `~/.local/share/qubes-appmenus/vmname/apps`.
     
    Actual command lines for the menu shortcuts involve `qvm-run` command which starts a process in another domain. 
    Examples: `qvm-run -q -a --service -- %VMNAME% qubes.StartApp+7-Zip-7-Zip_File_Manager` or `qvm-run -q -a --service -- %VMNAME% qubes.StartApp+firefox`
