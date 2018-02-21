@@ -40,6 +40,14 @@ Become the root user to run all following command without the need to use sudo i
 
 `sudo -i`
 
+This howto assumes that you have xclip available in the AppVM where you download the Repository Signing keys.
+xclip will be used to paste the content of the clipboard to a file.
+You can install xclip via:
+
+`apt-get install xclip` on Debian
+`dnf install xclip` on Fedora
+
+You can of course install xclip just into the AppVM where you download the signing keys to have it available for this howto and it will be deleted if you reboot the AppVM. To have xclip available also after a reboot you need to install it in the Template VM on which your Internet AppVM is based (make sure to reboot the AppVM after you've installed any package in its template)  
 
 Installation of Spotify
 -----------------------
@@ -48,25 +56,34 @@ Import GPG-Key for spotify
 As the template VM can't connect to internet you need to get the public key file from another AppVM and copy it to the template VM. The easiest way is to use the Qubes Clipboard to copy the keys from the AppVM where you get the key to the Template VM.
 
 In an AppVM which has Internet access:
-- Open http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0xEFDC8610341D9410
-- Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
+- Open https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xEFDC8610341D9410
+- Copy content of page to the Clipboard (Ctrl+A and Ctrl+C)
+- open a Terminal in this AppVM and copy the content of the clipboard to a file
+  `xclip -o > spotify.pubkey`
 
-Switch to the gnome terminal in the Multimedia Template VM
+Check the signature of the signing key (still in the AppVM where you downloaded the key)
 
-`nano spotify.pubkey`
+`gpg --with-fingerprint spotify.pubkey`
 
-Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
-Save the file (Ctrl+O <Enter> Ctrl+X)
+This should look like:
+> [user@my-untrusted ~]$ `gpg --with-fingerprint spotify.pubkey`
+> pub  4096R/341D9410 2017-07-25 Spotify Public Repository Signing Key <tux@spotify.com>
+>      Key fingerprint = 0DF7 31E4 5CE2 4F27 EEEB  1450 EFDC 8610 341D 9410
+
+You can (and should) lookup the fingerprint on at least one (or more) keyservers as the above information might be outdated.
+https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0xefdc8610341d9410&fingerprint=on
+
+Copy the public signing key which you have just verified over to the multimedia template VM
+- copy the file via `qvm-copy-to-vm t-multimedia spotify.pubkey`
+- or create a new file on the Template VM and copy the content of the clipboard (the public key)
+  Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
+  Switch to the gnome terminal in the Multimedia Template VM
+  `nano spotify.pubkey`
+  Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
+  Save the file (Ctrl+O <Enter> Ctrl+X)
 
 Add the public key to the repository keyring
 `apt-key add spotify.pubkey`
-
-Verify Fingerprint with
-
-`apt-key finger spotify`
-
-You can (and should) lookup the fingerprint on the keyserver:
-http://keyserver.ubuntu.com:11371/pks/lookup?op=vindex&search=0xEFDC8610341D9410&fingerprint=on
 
 Add the Spotify repository to your list of package sources:
 
@@ -85,6 +102,7 @@ Create a spotify desktop-entry
 
 `cp /usr/share/spotify/icons/spotify-linux-16.png /usr/share/icons/hicolor/16x16/apps/spotify.png`
 
+
 Installation of VLC
 -------------------
 
@@ -92,25 +110,34 @@ To play DVDs you can install VLC with the needed Codecs
 
 Download the public key which signs the VLC package repositories
 In an AppVM which has Internet access:
-- Open http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x6BCA5E4DB84288D9
-- Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
+- Open https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x6BCA5E4DB84288D9
+- Repeat all steps to save the public signing key on the AppVM (see above / Spotify example)
+  `xclip -o > videolan.pubkey`
+  
+Check the signature of the signing key (still in the AppVM where you downloaded the key)
 
-Switch to the gnome terminal in the Multimedia Template VM
+`gpg --with-fingerprint videolan.pubkey`
 
-`nano vlc.pubkey`
+This should look like:
+> [user@my-untrusted ~]$ `gpg --with-fingerprint videolan.pubkey`
+> pub  2048R/B84288D9 2013-08-27 VideoLAN APT Signing Key <videolan@videolan.org>
+>       Key fingerprint = 8F08 45FE 77B1 6294 429A  7934 6BCA 5E4D B842 88D9
+> sub  2048R/288D4A2C 2013-08-27
 
-Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
-Save the file (Ctrl+O <Enter> Ctrl+X)
+You can (and should) lookup the fingerprint on at least one (or more) keyservers as the above information might be outdated.
+https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0x6BCA5E4DB84288D9&fingerprint=on
+
+Copy the public signing key which you have just verified over to the multimedia template VM
+- copy the file via `qvm-copy-to-vm t-multimedia videolan.pubkey`
+- or create a new file on the Template VM and copy the content of the clipboard (the public key)
+  Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
+  Switch to the gnome terminal in the Multimedia Template VM
+  `nano videolan.pubkey`
+  Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
+  Save the file (Ctrl+O <Enter> Ctrl+X)
 
 Add the public key to the repository keyring
-`apt-key add vlc.pubkey`
-
-Verify Fingerprint with
-
-`apt-key finger VideoLAN`
-
-You can (and should) lookup the fingerprint on the keyserver:
-http://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0xB84288D9&fingerprint=on
+`apt-key add videolan.pubkey`
 
 Add the new VLC package repositories to your list of sources 
 
@@ -126,6 +153,7 @@ Install libdvdcss and VLC
 
 `apt-get install -y libdvdcss2 vlc`
 
+
 Installation Google Chrome
 --------------------------
 
@@ -134,27 +162,38 @@ Hint: Using Chromium will not work for some reasons.
 
 Download the public key which signs the Google package repositories
 In an AppVM which has Internet access:
-- Open http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x7721F63BD38B4796
-- Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
+- Open https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x7721F63BD38B4796
+- Repeat all steps to save the public signing key on the AppVM (see above / Spotify example)
+  `xclip -o > google.pubkey`
 
-Switch to the gnome terminal in the Multimedia Template VM
+Check the signature of the signing key (still in the AppVM where you downloaded the key)
 
-`nano google.pubkey`
+`gpg --with-fingerprint google.pubkey`
 
-Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
-Save the file (Ctrl+O <Enter> Ctrl+X)
+This should look like:
+> [user@my-untrusted ~]$ `gpg --with-fingerprint google.pubkey`
+> pub  4096R/D38B4796 2016-04-12 Google Inc. (Linux Packages Signing Authority)
+> <linux-packages-keymaster@google.com>
+>       Key fingerprint = EB4C 1BFD 4F04 2F6D DDCC  EC91 7721 F63B D38B 4796
+> sub  4096R/640DB551 2016-04-12 [expires: 2019-04-12]
+> sub  4096R/997C215E 2017-01-24 [expires: 2020-01-24]
+
+You can (and should) lookup the fingerprint on at least one (or more) keyservers as the above information might be outdated.
+https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0x7721F63BD38B4796&fingerprint=on
+or https://www.google.com/linuxrepositories/
+
+Copy the public signing key which you have just verified over to the multimedia template VM
+- copy the file via `qvm-copy-to-vm t-multimedia google.pubkey`
+- or create a new file on the Template VM and copy the content of the clipboard (the public key)
+  Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
+  Switch to the gnome terminal in the Multimedia Template VM
+  `nano google.pubkey`
+  Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
+  Save the file (Ctrl+O <Enter> Ctrl+X)
 
 Add the public key to the repository keyring
 
 `apt-key add google.pubkey`
-
-Verify Fingerprint with
-
-`apt-key finger Google`
-
-You can (and should) lookup the fingerprint on the keyserver:
-http://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0x7721F63BD38B4796&fingerprint=on
-or https://www.google.com/linuxrepositories/
 
 Add the Google package repositories to your list of sources 
 echo "deb http://dl.google.com/linux/chrome/deb/ stable main"> /etc/apt/sources.list.d/google.list
@@ -167,9 +206,10 @@ Install Chrome
 
 `apt-get install google-chrome-stable`
 
+
 Create a Multimedia AppVM
 -------------------------
-.
+
 The last step is to create a multimedia AppVM (named "my-multimedia" here) based on the new multimedia template.
 
 `qvm-create --template t-multimedia --label-orange my-multimedia`
