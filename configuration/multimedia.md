@@ -30,17 +30,12 @@ In the last step we will create an AppVM from this template.
 
 `qvm-clone debian-9 t-multimedia`
 
-As we need to install some package outside of the regular repositories you need to enable networking for the Template VM.
-
-`qvm-prefs --set t-multimedia netvm sys-firewall`
-
 Launch a Terminal in the new template VM:
 
 `qvm-run --auto t-multimedia gnome-terminal`
 
 Important:
 Enter all the following commands in the terminal of the template VM
-
 Become the root user to run all following command without the need to use sudo in the multimedia template VM
 
 `sudo -i`
