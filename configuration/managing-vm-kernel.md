@@ -64,7 +64,8 @@ kernel-qubes-vm-3.18.17-4.pvops.qubes.x86_64
 ~~~
 
 If you want a more recent version, you can check the `qubes-dom0-unstable` repository.
-As the name suggests, keep in mind that those packages may be less stable than the default ones.
+There is also the `kernel-latest-qubes-vm` package which should provide a more recent (non-LTS) kernel, but has received much less testing.
+As the names suggest, keep in mind that those packages may be less stable than the default ones.
 
 To check available versions in the `qubes-dom0-unstable` repository:
 
@@ -132,7 +133,7 @@ Failed:
   kernel-qubes-vm.x86_64 1000:3.18.10-2.pvops.qubes
 
 Complete!
-[marmarek@dom0 ~]$
+[user@dom0 ~]$
 ~~~
 
 In the above example, it tries to remove the 3.18.10-2.pvops.qubes kernel (to keep only three installed), but since some VM uses it, it fails.
@@ -293,7 +294,7 @@ sudo apt install qubes-kernel-vm-support grub2-common
 
 If prompted for a GRUB install device, choose `/dev/mapper/dmroot`.
 You will receive an error about GRUB failed to install to it, but just continue anyways.
-You don't need an actual grub bootloader as it is provided by dom0, but having one shouldn't hurt.
+
 Ignore warnings about `version '...' has bad syntax`.
 
 Then install whatever kernel you want.
