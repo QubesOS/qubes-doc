@@ -61,21 +61,7 @@ In an AppVM which has Internet access:
 - open a Terminal in this AppVM and copy the content of the clipboard to a file
   `xclip -o > spotify.pubkey`
 
-Check the signature of the signing key (still in the AppVM where you downloaded the key)
-
-`gpg --with-fingerprint spotify.pubkey`
-
-This should look like:
-> [user@my-untrusted ~]$ `gpg --with-fingerprint spotify.pubkey`
-
-> pub  4096R/341D9410 2017-07-25 Spotify Public Repository Signing Key <tux@spotify.com>
-
->      Key fingerprint = 0DF7 31E4 5CE2 4F27 EEEB  1450 EFDC 8610 341D 9410
-
-You can (and should) lookup the fingerprint on at least one (or more) keyservers as the above information might be outdated.
-https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0xefdc8610341d9410&fingerprint=on
-
-Copy the public signing key which you have just verified over to the multimedia template VM
+Copy the public signing key over to the multimedia template VM
 - copy the file via `qvm-copy-to-vm t-multimedia spotify.pubkey`
 - or create a new file on the Template VM and copy the content of the clipboard (the public key)
   Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
@@ -83,6 +69,20 @@ Copy the public signing key which you have just verified over to the multimedia 
   `nano spotify.pubkey`
   Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
   Save the file (Ctrl+O <Enter> Ctrl+X)
+
+Check the signature of the signing key (in the multimedia Template VM)
+
+`gpg --with-fingerprint spotify.pubkey`
+
+This should look like:
+> [user@t-multimedia ~]$ `gpg --with-fingerprint spotify.pubkey`
+
+> pub  4096R/341D9410 2017-07-25 Spotify Public Repository Signing Key <tux@spotify.com>
+
+>      Key fingerprint = 0DF7 31E4 5CE2 4F27 EEEB  1450 EFDC 8610 341D 9410
+
+You can (and should) lookup the fingerprint on at least one (or more) keyservers as the above information might be outdated.
+https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0xefdc8610341d9410&fingerprint=on
 
 Add the public key to the repository keyring
 `apt-key add spotify.pubkey`
@@ -116,12 +116,21 @@ In an AppVM which has Internet access:
 - Repeat all steps to save the public signing key on the AppVM (see above / Spotify example)
   `xclip -o > videolan.pubkey`
   
-Check the signature of the signing key (still in the AppVM where you downloaded the key)
+Copy the public signing key over to the multimedia template VM
+- copy the file via `qvm-copy-to-vm t-multimedia videolan.pubkey`
+- or create a new file on the Template VM and copy the content of the clipboard (the public key)
+  Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
+  Switch to the gnome terminal in the Multimedia Template VM
+  `nano videolan.pubkey`
+  Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
+  Save the file (Ctrl+O <Enter> Ctrl+X)
+
+Check the signature of the signing key
 
 `gpg --with-fingerprint videolan.pubkey`
 
 This should look like:
-> [user@my-untrusted ~]$ `gpg --with-fingerprint videolan.pubkey`
+> [user@t-multimedia ~]$ `gpg --with-fingerprint videolan.pubkey`
 
 > pub  2048R/B84288D9 2013-08-27 VideoLAN APT Signing Key <videolan@videolan.org>
 
@@ -131,15 +140,6 @@ This should look like:
 
 You can (and should) lookup the fingerprint on at least one (or more) keyservers as the above information might be outdated.
 https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0x6BCA5E4DB84288D9&fingerprint=on
-
-Copy the public signing key which you have just verified over to the multimedia template VM
-- copy the file via `qvm-copy-to-vm t-multimedia videolan.pubkey`
-- or create a new file on the Template VM and copy the content of the clipboard (the public key)
-  Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
-  Switch to the gnome terminal in the Multimedia Template VM
-  `nano videolan.pubkey`
-  Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
-  Save the file (Ctrl+O <Enter> Ctrl+X)
 
 Add the public key to the repository keyring
 `apt-key add videolan.pubkey`
@@ -171,12 +171,21 @@ In an AppVM which has Internet access:
 - Repeat all steps to save the public signing key on the AppVM (see above / Spotify example)
   `xclip -o > google.pubkey`
 
+Copy the public signing key over to the multimedia template VM
+- copy the file via `qvm-copy-to-vm t-multimedia google.pubkey`
+- or create a new file on the Template VM and copy the content of the clipboard (the public key)
+  Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
+  Switch to the gnome terminal in the Multimedia Template VM
+  `nano google.pubkey`
+  Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
+  Save the file (Ctrl+O <Enter> Ctrl+X)
+
 Check the signature of the signing key (still in the AppVM where you downloaded the key)
 
 `gpg --with-fingerprint google.pubkey`
 
 This should look like:
-> [user@my-untrusted ~]$ `gpg --with-fingerprint google.pubkey`
+> [user@t-multimedia ~]$ `gpg --with-fingerprint google.pubkey`
 
 > pub  4096R/D38B4796 2016-04-12 Google Inc. (Linux Packages Signing Authority)
 
@@ -191,15 +200,6 @@ This should look like:
 You can (and should) lookup the fingerprint on at least one (or more) keyservers as the above information might be outdated.
 https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0x7721F63BD38B4796&fingerprint=on
 or https://www.google.com/linuxrepositories/
-
-Copy the public signing key which you have just verified over to the multimedia template VM
-- copy the file via `qvm-copy-to-vm t-multimedia google.pubkey`
-- or create a new file on the Template VM and copy the content of the clipboard (the public key)
-  Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
-  Switch to the gnome terminal in the Multimedia Template VM
-  `nano google.pubkey`
-  Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
-  Save the file (Ctrl+O <Enter> Ctrl+X)
 
 Add the public key to the repository keyring
 
