@@ -68,7 +68,7 @@ The builder will do that for us for each component, every time we build, even fo
 Build using setup script
 -----------------
 
-Let's configure the builder first (see [procedure](/doc/qubes-r3-building/#build-using-manual-steps) at bottom if you would prefer to manually configure):
+Let's configure the builder first (see [procedure](/doc/qubes-r3-building#build-using-manual-steps) at bottom if you would prefer to manually configure):
 
 ~~~
 cd ~/qubes-builder
@@ -148,6 +148,7 @@ chmod --recursive 700 "$GNUPGHOME"
 Copy one of the example configurations:
 
 ~~~
+cd ~/qubes-builder
 cp example-configs/qubes-os-master.conf builder.conf
 ~~~
 
