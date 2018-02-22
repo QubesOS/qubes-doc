@@ -43,13 +43,16 @@ Get the necessary keys to verify the sources (run these and other commands below
 wget https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
 gpg --import qubes-master-signing-key.asc 
 gpg --edit-key 36879494
-# Verify fingerprint!, set trust to *ultimate*
-# (Typical sequence is fpr, trust, 5, q)
+fpr
+# Verify fingerprint! See Note below!
+# Once verified, set trust to *ultimate*
+# (Typical sequence is trust, 5, q)
 wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
 gpg --import qubes-developers-keys.asc
 ~~~
 
 **Note** In the above process, we do *not* rely on the security of our server (keys.qubes-os.org) nor the connection (ssl, cert) -- we only rely on you getting the Qubes Master Signing Key fingerprint *somehow* and ensuring they match!
+See [Verifying Signatures](/security/verifying-signatures/#importing-qubes-signing-keys) for verification sources.
 
 Now let's bootstrap the builder. Unfortunately, the builder cannot verify itself (the classic Chicken and Egg problem), so we need to verify the signature manually:
 
@@ -61,14 +64,14 @@ git tag -v `git describe`
 
 **Note** It's very important to check if the verification message contains "Good signature from ..." and does not contain "WARNING: This key is not certified with a trusted signature!".
 
-Assuming the verification went fine, we're good to go with all the rest without ever thinking more about verifying digital signatures on all the rest of the components.
+Assuming the verification went fine, we're good to go with all the rest without ever thinking more about verifying digital signatures on all the rest of the components, apart from an additional step if doing a non-scripted build.
 The builder will do that for us for each component, every time we build, even for all auxiliary files (e.g. Xen or Linux kernel sources).
 
 
 Build using setup script
 -----------------
 
-Let's configure the builder first (see [procedure](/doc/qubes-r3-building#build-using-manual-steps) at bottom if you would prefer to manually configure):
+Let's configure the builder first (see [procedure](/doc/qubes-r3-building/#build-using-manual-steps) at bottom if you would prefer to manually configure):
 
 ~~~
 cd ~/qubes-builder
@@ -84,7 +87,7 @@ cd ~/qubes-builder
 # Select fc26, stretch, whonix-gateway, whonix-workstation (for the currently shipping templates)
 ~~~
 
-Once the download is complete, continue the build process with:
+Continue the build process with:
 
 ~~~
 make install-deps
@@ -98,7 +101,7 @@ make qubes
 make iso
 ~~~
 
-Or for a fully signed build (this requires setting SIGN_KEY in the builder.conf):
+Or for a fully signed build (this requires setting `SIGN_KEY` in `builder.conf`):
 
 ~~~
 make qubes
@@ -123,7 +126,7 @@ gpg --keyserver pgp.mit.edu --recv-keys 916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA
 gpg --fingerprint 916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA
 ~~~
 
-**Note:** It's very important to check the fingerprint displayed against other sources such as the [Whonix web site](https://www.whonix.org/wiki/Whonix_Signing_Key), etc.
+**Note:** It's very important to check the fingerprint displayed against multiple sources such as the [Whonix web site](https://www.whonix.org/wiki/Whonix_Signing_Key), etc.
 It should look something like this:
 
 ~~~
@@ -152,13 +155,14 @@ cd ~/qubes-builder
 cp example-configs/qubes-os-master.conf builder.conf
 ~~~
 
-Edit `builder.conf`, taking a look at `doc/Configuration.md` for a description of all available options.
+Edit `builder.conf`, referring to `doc/Configuration.md` for a description of all available options.
 
-continue the build process with:
+Continue the build process with:
 
 ~~~
 make install-deps
 make get-sources
+unset GNUPGHOME
 ~~~
 
 Finally, if you are making a test build, use:
@@ -168,7 +172,7 @@ make qubes
 make iso
 ~~~
 
-Or for a fully signed build (this requires setting SIGN_KEY in the builder.conf):
+Or for a fully signed build (this requires setting `SIGN_KEY` in `builder.conf`):
 
 ~~~
 make qubes
