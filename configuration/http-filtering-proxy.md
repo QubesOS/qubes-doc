@@ -10,7 +10,7 @@ How to run an HTTP filtering proxy in a FirewallVM
 Introduction
 ------------
 
-By default Qubes uses a special firewall VM that sits between the networking VM and each AppVM.
+By default, Qubes uses a special firewall VM that sits between the networking VM and each AppVM.
 This VM controls the traffic for AppVMs and can be used to restrict what AppVMs can send or receive.
 The traffic rules can be setup using the filtering rules GUI in Qubes VM manager.
 The manager translates user-defined setup into iptables rules for the firewall VM's kernel.
@@ -32,14 +32,14 @@ Warning
 -------
 
 Running an HTTP proxy in your firewall VM increases the attack surface against that VM from a compromised AppVM.
-Tinyproxy has relatively simple code and a reasonable track record to allow to certain level of trust, but one cannot exclude bugs especially in the case of a hostile proxy clients as this is a less tested scenario.
-So it is not advisable to use the proxy in a shared firewall VM against untrusted AppVM to black-list some unwanted connections such as advertisement sites.
+Tinyproxy has relatively simple code and a reasonable track record to allow to certain level of trust, but one cannot exclude bugs especially in the case of hostile proxy clients as this is a less tested scenario.
+It is not advisable to use the proxy in a shared firewall VM against untrusted AppVM to black-list some unwanted connections such as advertisement sites.
 
 A less problematic setup is to white-list possible connections for several trusted and semi-trusted AppVMs within one firewall VM.
-Still, for maximum safety one should consider running a separate firewall VM / proxy per each important AppVMs.
+Still, for maximum safety one should consider running a separate firewall VM / proxy for each important AppVMs.
 
-As a counterweight to this warning it is important to point out that an HTTP proxy decreases the attack surface of an AppVM.
-For example, with a proxy, the AppVM does not need to make direct DNS connections so a bug in the kernel or in the browser in that area would not affect the AppVM.
+As a counterpoint to this warning, it is important to note that an HTTP proxy decreases the attack surface of AppVMs.
+For example, with a proxy the AppVM does not need to make direct DNS connections, so a bug in the kernel or in the browser in that area would not affect the AppVM.
 Also, browsers typically avoid many of the latest and greatest HTTP features when connecting through proxies, minimizing exposure of new and unproven networking code.
 
 
@@ -53,7 +53,7 @@ Setup
 
 2. If necessary, adjust `/rw/config/tinyproxy/config` according to the man page for `tinyproxy.conf`.
    The included config file refuses the connection unless the host is white-listed in the filtering file, so this can be altered if one prefers to black-list connections.
-   One may also specify upstream proxies there.
+   One may also specify upstream proxies here.
    The file is a template file and the control script will replace `{name}` constructs in the file with actual parameters.
    In general, lines with `{}` should be preserved as is.
 
@@ -64,10 +64,10 @@ Setup
 
         name.ip-address-of-app-vm
 
-   The name part before the dot is arbitrary.
+   The name before the dot is arbitrary.
    For convenience, one can use an AppVM name here, but this is not required.
-   It is important to get the ip address part right as this is what the control script uses to determine on which AppVM it will apply the proxy rules.
-   One can check the IP address of AppVM in Qubes VM manager in the VM settings dialog; see the Networking session under the Basic tab.
+   It is important to get the ip address part right, as this is what the control script uses to determine to which AppVM it will apply the proxy rules.
+   One can check the IP address of an AppVM in Qubes VM manager in the VM settings dialog; see the Networking settings under the Basic tab.
 
    The attached archive includes a `tinyproxy/social.10.137.2.13` file with rules for an AppVM allowing connections to Google, Facebook, Linkedin, Livejournal, Youtube, and few other other sites.
    One can use it as an example after changing the IP addresses accordingly.
@@ -89,7 +89,7 @@ Setup
         sudo /rw/config/tinyproxy/proxyctl.py update
 
    The update command starts proxy processes and adjusts the iptable rules to allow for proxy traffic for each running AppVM from the filtering files list.
-   For each stopped AppVM the proxy is killed.
+   For each stopped AppVM, the proxy is killed.
 
    Check that proxy is started and the `pid` field of the show command is a number:
 
@@ -102,11 +102,10 @@ Setup
    In the Connection Settings dialog, select Manual proxy configuration. For the HTTP Proxy field use the IP address of the firewall gateway interface.
    Enter 8100 as the port, and select the checkbox "Use this proxy server for all protocols".
 
-   Go to some web site.
-   The browser should either load it (if it was white-listed in the filtering file), or show a page generated by
-   tinyproxy that the page was filtered out.
+   Go to a test web site.
+   The browser should either load it (if it was white-listed in the filtering file), or show a page generated by tinyproxy that the page was filtered out.
 
-   In the firewall VM see the `/run/tinyproxy/name/log` file.
+   In the firewall VM, see the `/run/tinyproxy/name/log` file.
    For each filtered out website it contains an entry, and one can adjust the filtering file to include the corresponding host.
    After changing the file, run either:
    
