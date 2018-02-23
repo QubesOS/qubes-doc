@@ -128,9 +128,9 @@ If the update process does not automatically do it (you should see it mentioned 
 from the update command), you may need to manually rebuild the EFI or grub config depending on which
 your system uses.
 
-EFI (Replace the file names with the correct versions for your updated kernel)
+EFI
 ~~~
-sudo /usr/bin/dracut -f /boot/efi/EFI/qubes/initramfs-4.4.31-11.pvops.qubes.x86_64.img 4.4.31-11.pvops.qubes.x86_64
+sudo dracut -H -f /boot/efi/EFI/qubes/initramfs-$(uname -r).img $(uname -r)
 ~~~
 
 Grub2
