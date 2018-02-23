@@ -81,11 +81,15 @@ To use this mode you need to:
 6. Paste your hashed password (other than your standard Qubes password)  into
 `/etc/qubes/yk-keys/yk-login-pass-hashed.hex` in dom0.
 
-   You can calculate your hashed password using this command:
+   You can calculate your hashed password using the following two commands.
+   First run the following command to store your password in a temporary variable `password`.
+   (This way your password will not leak to the terminal commnand history file.)
 
-       echo -n "PASSWORD" | openssl dgst -sha1
-
-   (Replace `PASSWORD` with your actual password.)
+       read password
+       
+   Now run the following command to calculate your hashed password.
+       
+       echo -n "$password" | openssl dgst -sha1
 
 7. Edit `/etc/pam.d/login` in dom0. Add this line at the beginning:
 
