@@ -431,7 +431,7 @@ The encrypted partitions are identified and the user is prompted for password on
 
 A fully encrypted drive does not appear in Nautilus.
 
-The work round is to manually decrypt and mount the drive:
+The workaround is to manually decrypt and mount the drive:
 
 1. attach usb device to qube - it should be attached as /dev/xvdi or similar.
 2. sudo cryptsetup open /dev/xvdi bk --type luks
@@ -460,6 +460,15 @@ If it seems like the issue described in [this thread](https://github.com/QubesOS
 - Q → System Tools → Window Manager Tweaks → Compositor → uncheck "Enable display compositing"
 
 Please report (via the mailing lists) if you experience this issue, and whether disabling the compositor fixes it for you or not.
+
+### My HVM in Qubes R4.0 won't let me start/install an OS
+
+I see a screen popup with SeaBios and 4 lines, last one being `Probing EDD (edd=off to disable!... ok`.
+
+From a `dom0` prompt, enter:
+
+    qvm-prefs <HVMname> kernel ""
+
 
 ----------
 

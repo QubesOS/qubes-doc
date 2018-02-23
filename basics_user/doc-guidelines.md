@@ -43,7 +43,7 @@ documentation change will be reviewed before it's published to the web. This
 allows us to maintain quality control and protect our users.
 
 As mentioned above, we keep all the documentation in a dedicated [Git
-repository][qubes-doc] hosted on [GitHub]. Thanks to GitHub's interface, you can
+repository][qubes-doc] hosted on [GitHub]. Thanks to the GitHub's interface, you can
 edit the documentation even if you don't know Git at all! The only thing you
 need is a GitHub account, which is free.
 
@@ -103,6 +103,18 @@ automatically notify you if we do.) If, for some reason, we can't accept your
 pull request, we'll post a comment explaining why we can't.
 
 ![done](/attachment/wiki/doc-edit/10-done.png)
+
+
+How to add images
+-----------------
+
+To add an image to a page, use the following syntax in the main document:
+
+```
+![Image Title](/attachment/wiki/page-title/image-filename.png)
+```
+
+Then, submit your image(s) in a separate pull request to the [qubes-attachment](https://github.com/QubesOS/qubes-attachment) repository using the same path and filename.
 
 
 Version-specific Documentation

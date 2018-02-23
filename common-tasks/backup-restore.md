@@ -215,7 +215,7 @@ Here are some things to consider when selecting a passphrase for your backups:
  For example, when you attempt to retrieve a recent backup, the adversary may instead give you a very old backup containing a compromised VM. 
  If you're concerned about this type of attack, you may wish to use a different passphrase for each backup, e.g., by appending a number or date to the passphrase.
  * If you're forced to enter your system drive decryption passphrase in plain view of others (where it can be shoulder-surfed), then you may want to use a different passphrase for your backups (even if your system drive decryption passphrase is already maximally strong).
- On the othe hand, if you're careful to avoid shoulder-surfing and/or have a passphrase that's difficult to detect via shoulder-surfing, then this may not be a problem for you.
+ On the other hand, if you're careful to avoid shoulder-surfing and/or have a passphrase that's difficult to detect via shoulder-surfing, then this may not be a problem for you.
 
 Notes
 -----

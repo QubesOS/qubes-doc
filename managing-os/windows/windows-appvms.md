@@ -102,7 +102,7 @@ Also, the inter-VM services work as usual -- e.g. to request opening a document 
 [user@work ~]$ qvm-open-in-vm work-win7 https://invisiblethingslab.com
 ~~~
 
-... just like in case of Linux AppVMs. Of course all those operations are governed by central policy engine running in Dom0 -- if the policy doesn't contain explicit rules for the source and/or target AppVM, the user will be asked for decision whether to allow or deny the operation.
+... just like in the case of Linux AppVMs. Of course all those operations are governed by central policy engine running in Dom0 -- if the policy doesn't contain explicit rules for the source and/or target AppVM, the user will be asked whether to allow or deny the operation.
 
 Inter-VM file copy and clipboard works for Windows AppVMs the same way as for Linux AppVM (except that we don't provide a command line wrapper, `qvm-copy-to-vm` in Windows VMs) -- to copy files from Windows AppVMs just right-click on the file in Explorer, and choose: Send To-\> Other AppVM.
 
@@ -124,14 +124,14 @@ Qubes allows HVM VMs to share a common root filesystem from a select Template VM
 qvm-create --hvm-template win7-x64-template -l green
 ~~~
 
-... and install Windows OS (or other OS) into this template the same way as you would install it into a normal HVM -- please see [this page](/doc/hvm-create/) instructions. However, it would make lots of sense to store the `C:\Users` directory on the 2nd disk which is automatically exposed by Qubes to all HVMs. This 2nd disk is backed by the `private.img` file in the AppVMs' and is not reset upon AppVMs reboot, so the user's directories and profiles would survive the AppVMs reboot, unlike the "root" filesystem which will be reverted to the "golden image" from the Template VM automatically. To facilitate such separation of user profiles, Qubes Windows Tools provide an option to automatically move `C:\Users` directory to the 2nd disk backed by `private.img`. It's a selectable feature of the installer, enabled by default. If that feature is selected during installation, completion of the process requires two reboots:
+... and install Windows OS (or other OS) into this template the same way as you would install it into a normal HVM -- please see instructions on [this page](/doc/hvm-create/). However, it would make lots of sense to store the `C:\Users` directory on the 2nd disk which is automatically exposed by Qubes to all HVMs. This 2nd disk is backed by the `private.img` file in the AppVMs' and is not reset upon AppVMs reboot, so the user's directories and profiles would survive the AppVMs reboot, unlike the "root" filesystem which will be reverted to the "golden image" from the Template VM automatically. To facilitate such separation of user profiles, Qubes Windows Tools provide an option to automatically move `C:\Users` directory to the 2nd disk backed by `private.img`. It's a selectable feature of the installer, enabled by default. If that feature is selected during installation, completion of the process requires two reboots:
 
 -   The private disk is initialized and formatted on the first reboot after tools installation. It can't be done **during** the installation because Xen mass storage drivers are not yet active.
 -   User profiles are moved to the private disk on the next reboot after the private disk is initialized. Reboot is required because the "mover utility" runs very early in the boot process so OS can't yet lock any files in there. This can take some time depending on the profiles' size and because the GUI agent is not yet active dom0/Qubes Manager may complain that the AppVM failed to boot. That's a false alarm (you can increase AppVM's default boot timeout using `qvm-prefs`), the VM should appear "green" in Qubes Manager shortly after.
 
-It also makes sense to disable Automatic Updates for all the template-based AppVMs -- of course this should be done in the Template VM, not in individual AppVMs, because the system-wide setting are stored in the root filesystem (which holds the system-wide registry hives). Then, periodically check for updates in the Template VM and the changes will be carried over to any child AppVMs.
+It also makes sense to disable Automatic Updates for all the template-based AppVMs -- of course this should be done in the Template VM, not in individual AppVMs, because the system-wide settings are stored in the root filesystem (which holds the system-wide registry hives). Then, periodically check for updates in the Template VM and the changes will be carried over to any child AppVMs.
 
-Once the template has been created and installed it is easy to create AppVMs based on:
+Once the template has been created and installed it is easy to create AppVMs based on it:
 
 ~~~
 qvm-create --hvm <new windows appvm name> --template <name of template vm> --label <label color>

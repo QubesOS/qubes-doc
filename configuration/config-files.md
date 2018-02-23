@@ -12,13 +12,11 @@ redirect_from:
 Qubes specific VM config files
 ==============================
 
-Those files are placed in /rw, which survives VM restart, so can be 
-used to customize single VM (not all VMs based on the same template). 
+These files are placed in /rw, which survives a VM restart.
+That way, they can be used to customize a single VM instead of all VMs based on the same template. 
 The scripts here all run as root.
 
--   `/rw/config/rc.local` - script run at VM startup. Good place to 
-change some service settings, replace config files with its copy stored 
-in /rw/config etc. Example usage:
+-   `/rw/config/rc.local` - script runs at VM startup. Good place to change some service settings, replace config files with its copy stored in /rw/config, etc. Example usage:
 
     ~~~
     # Store bluetooth keys in /rw to keep them across VM restarts
@@ -26,29 +24,24 @@ in /rw/config etc. Example usage:
     ln -s /rw/config/var-lib-bluetooth /var/lib/bluetooth
     ~~~
 
--   `/rw/config/qubes-ip-change-hook` - script run in NetVM after 
-external IP change (or connection to the network)
+-   `/rw/config/qubes-ip-change-hook` - script runs in NetVM after every external IP change and on "hardware" link status change.
 
--   `/rw/config/qubes-firewall-user-script` - script run in ProxyVM 
-after each firewall update. Good place to write own custom firewall 
-rules
+-   `/rw/config/qubes-firewall-user-script` - script runs in ProxyVM/AppVM with `qvm-features <vmname> qubes-firewall true` after each firewall update.
+    Good place to write own custom firewall rules.
 
--   `/rw/config/suspend-module-blacklist` - list of modules (one per 
-line) to be unloaded before system going to sleep. The file is used 
-only in VM with some PCI devices attached. Supposed to be used for 
-problematic device drivers.
+-   `/rw/config/suspend-module-blacklist` - list of modules (one per line) to be unloaded before system goes to sleep.
+    The file is used only in a VM with PCI devices attached.
+    Intended for use with problematic device drivers.
 
 Note that scripts need to be executable (chmod +x) to be used.
 
-Also take a look at [bind-dirs][/doc/bind-dirs] for instruction how to easily
-modify arbitrary system file in AppVM and have those changes persistent.
+Also, take a look at [bind-dirs](/doc/bind-dirs) for instructions on how to easily modify arbitrary system files in an AppVM and have those changes persist.
 
 GUI and audio configuration in dom0
 ===================================
 
-GUI configuration file `/etc/qubes/guid.conf` in one of few not managed 
-by qubes-prefs nor Qubes Manager tool. Sample config (included in 
-default installation):
+The GUI configuration file `/etc/qubes/guid.conf` in one of a few not managed by qubes-prefs or the Qubes Manager tool.
+Sample config (included in default installation):
 
 ~~~
 # Sample configuration file for Qubes GUI daemon
@@ -78,25 +71,18 @@ VM: {
 
 Currently supported settings:
 
--   `allow_fullscreen` - allow VM to request its windows to go 
-fullscreen (without any colorful frame).
+-   `allow_fullscreen` - allow VM to request its windows to go fullscreen (without any colorful frame).
 
-    **Note:** Regardless of this setting, you can always put a window into
-fullscreen mode in Xfce4 using the trusted window manager by right-clicking on
-a window's title bar and selecting "Fullscreen". This functionality should still
-be considered safe, since a VM window still can't voluntarily enter fullscreen
-mode. The user must select this option from the trusted window manager in dom0.
-To exit fullscreen mode from here, press `alt` + `space` to bring up the title
-bar menu again, then select "Leave Fullscreen".
+    **Note:** Regardless of this setting, you can always put a window into fullscreen mode in Xfce4 using the trusted window manager by right-clicking on a window's title bar and selecting "Fullscreen".
+    This functionality should still be considered safe, since a VM window still can't voluntarily enter fullscreen mode.
+    The user must select this option from the trusted window manager in dom0.
+    To exit fullscreen mode from here, press `alt` + `space` to bring up the title bar menu again, then select "Leave Fullscreen".
 
--   `allow_utf8_titles` - allow to use UTF-8 in window titles, 
-otherwise non-ASCII characters are replaced by underscore.
+-   `allow_utf8_titles` - allow the use of UTF-8 in window titles; otherwise, non-ASCII characters are replaced by an underscore.
 
--   `secure_copy_sequence` and `secure_paste_sequence` - key sequences 
-used to trigger secure copy and paste
+-   `secure_copy_sequence` and `secure_paste_sequence` - key sequences used to trigger secure copy and paste.
 
--   `windows_count_limit` - limit on concurrent windows count.
+-   `windows_count_limit` - limit on concurrent windows.
 
--   `audio_low_latency` - force low-latency audio mode (about 40ms 
-compared to 200-500ms by default). Note that this will cause much 
-higher CPU usage in dom0.
+-   `audio_low_latency` - force low-latency audio mode (about 40ms compared to 200-500ms by default).
+    Note that this will cause much higher CPU usage in dom0.

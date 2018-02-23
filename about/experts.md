@@ -7,7 +7,7 @@ permalink: /experts/
 <div class="home-content container">
   <div class="row more-top">
     <div class="col-lg-12 col-md-12">
-      <h2 class="text-center"><i class="fa fa-thumbs-o-up"></i> What the experts are saying about Qubes</h2>
+      <h2 class="text-center"><i class="fa fa-quote-left"></i> What the experts are saying about Qubes</h2>
     </div>
   </div>
   <div class="white-box more-bottom">

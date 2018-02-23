@@ -1,53 +1,41 @@
 ---
 layout: doc
-title: qvm-start
-permalink: /doc/tools/3.2/dom0/qvm-start/
+title: qvm-usb
+permalink: /doc/tools/3.2/dom0/qvm-usb/
 redirect_from:
-- /doc/dom0-tools/qvm-start/
-- /en/doc/dom0-tools/qvm-start/
-- /doc/Dom0Tools/QvmStart/
-- /wiki/Dom0Tools/QvmStart/
+- /doc/dom0-tools/qvm-usb/
+- /en/doc/dom0-tools/qvm-usb/
 ---
 
 ```
-=========
-qvm-start
-=========
+=======
+qvm-usb
+=======
 
 NAME
 ====
-qvm-start - start a specified VM
+qvm-usb - List/set VM USB devices
 
 SYNOPSIS
 ========
-| qvm-start [options] <vm-name>
+| qvm-usb -l [options]
+| qvm-usb -a [options] <vm-name> <device-vm-name>:<device>
+| qvm-usb -d [options] <device-vm-name>:<device>
 
 OPTIONS
 =======
 -h, --help
     Show this help message and exit
--q, --quiet
-    Be quiet           
---tray
-    Use tray notifications instead of stdout
---no-guid
-    Do not start the GUId (ignored)
---drive
-    Temporarily attach specified drive as CD/DVD or hard disk (can be specified with prefix 'hd' or 'cdrom:', default is cdrom)
---hddisk
-    Temporarily attach specified drive as hard disk
---cdrom
-    Temporarily attach specified drive as CD/DVD
---install-windows-tools
-    Attach Windows tools CDROM to the VM
---dvm
-    Do actions necessary when preparing DVM image
---custom-config=CUSTOM_CONFIG
-    Use custom Xen config instead of Qubes-generated one
---skip-if-running
-    Do no fail if the VM is already running
---debug
-    Enable debug mode for this VM (until its shutdown)
+-l, -list
+    List devices
+-a, --attach
+    Attach specified device to specified VM
+-d, --detach
+    Detach specified device
+--no-auto-detach
+    Fail when device already connected to other VM
+--force-root
+    Force to run, even with root privileges
 
 AUTHORS
 =======

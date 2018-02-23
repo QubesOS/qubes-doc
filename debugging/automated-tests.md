@@ -7,8 +7,11 @@ redirect_from:
 - /doc/AutomatedTests/
 ---
 
-Automatic tests
+Automated Tests
 ===============
+
+Unit and Integration Tests
+--------------------------
 
 Starting with Qubes R3 we use [python unittest][unittest] to perform automatic tests of Qubes OS. 
 Despite the name, we use it for both [unit tests](https://en.wikipedia.org/wiki/Unit_tests) and [integration tests](https://en.wikipedia.org/wiki/Integration_tests). 
@@ -96,13 +99,13 @@ Example test run:
 
 ![snapshot-tests2.png](/attachment/wiki/developers/snapshot-tests2.png)
 
-## Adding a new test to core-admin
+### Adding a new test to core-admin
 After adding a new unit test to [core-admin/tests](https://github.com/QubesOS/qubes-core-admin/tree/master/tests) you'll have to make sure of two things:
 
 1. That the test will be added to the RPM file created by [QubesBuilder](/doc/qubes-builder/). For this you need to edit the [core-admin/tests/Makefile](https://github.com/QubesOS/qubes-core-admin/tree/master/tests/Makefile)
 2. That the test will be loaded by [core-admin/tests/\_\_init\_\_.py](https://github.com/QubesOS/qubes-core-admin/tree/master/tests/__init__.py)
 
-### Editing the Makefile
+#### Editing the Makefile
 To add your tests, you must append these two lines to the end of the makefile, which will copy your test and its compiled version to the right directory in the RPM file. 
 If your test is `example.py`, the appended lines would be:
 
@@ -110,8 +113,8 @@ If your test is `example.py`, the appended lines would be:
     cp example.py[co] $(DESTDIR)$(PYTHON_TESTSPATH)
 
 
-### Editing \_\_init\_\_.py
-You'll also need to add your test at the bottom of the \_\_init\_\_.py file, in the method `def load_tests`, in the for loop with `modname`.
+#### Editing `__init__.py`
+You'll also need to add your test at the bottom of the `__init__.py` file, in the method `def load_tests`, in the for loop with `modname`.
 Again, given the hypothetical `example.py` test:
 
 ~~~python
@@ -127,4 +130,25 @@ Again, given the hypothetical `example.py` test:
             ):
 ~~~
 
+
+Installation Tests with openQA
+------------------------------
+
+**URL:** <https://openqa.qubes-os.org/>  
+**Tests:** <https://github.com/marmarek/openqa-tests-qubesos>
+
+Manually testing the installation of Qubes OS is a time-consuming process.
+We use [openQA] to automate this process.
+It works by installing Qubes in KVM and interacting with it as a user would, including simulating mouse clicks and keyboard presses.
+Then, it checks the output to see whether various tests were passed, e.g., by comparing the virtual screen output to screenshots of a successful installation.
+
+Using openQA to automatically test the Qubes installation process works as of Qubes 4.0-rc4 on 2018-01-26, provided that the versions of KVM and QEMU are new enough and the hardware has VT-x and EPT.
+KVM also supports nested virtualization, so HVM should theoretically work.
+In practice, however, either Xen or QEMU crashes when this is attempted.
+Nonetheless, PV works well, which is sufficient for automated installation testing.
+
+Thanks to an anonymous donor, our openQA system is hosted in a datacenter on hardware that meets these requirements.
+
 [unittest]: https://docs.python.org/2/library/unittest.html
+[OpenQA]: http://open.qa/
+

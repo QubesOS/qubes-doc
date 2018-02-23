@@ -95,7 +95,7 @@ nouveau E[ PGRAPH][0000:01:00.0] init failed, -16
 
 Tip: In case you only have an external monitor it is advised to attach it directly to a connector of the motherboard if it is present, this should ensure that you're using the integrated graphics card instead of the nvidia graphics card.
 
-If you're seeing this error than that means another graphics card (most likely an integrated one) acted as failsafe. Disabling nouveau has the consequences of disabling nvidia support all together. 
+If you're seeing this error then that means another graphics card (most likely an integrated one) acted as failsafe. Disabling nouveau has the consequences of disabling nvidia support altogether.
 
  1. Verify that that GRUB Boot Menu is displaying, you should be presented with two options and a progressbar/timer than goes rather fast.
 
@@ -116,7 +116,7 @@ If you're seeing this error than that means another graphics card (most likely a
     
     It is not an exact copy as it may differ from system to system.
 
-    Please note: chose the module that starts with `vmlinux`!
+    Please note: choose the module that starts with `vmlinux`!
 
  5. Press the left/right arrow keys to position the cursor at the end of kernel options line, after `rhgb quiet` in this case.
 
@@ -126,7 +126,7 @@ If you're seeing this error than that means another graphics card (most likely a
     nouveau.modeset=0 rd.driver.blacklist=nouveau video=vesa:off
     ~~~
 
-    This will tempororarily disable nouveau until boot.
+    This will temporarily disable nouveau until next boot.
 
  7. Press either the F10 key or Ctrl+X to start the boot process.
 

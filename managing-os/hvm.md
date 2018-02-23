@@ -37,10 +37,11 @@ qvm-create win7 --hvm --label green
 
 The name of the domain ("win7") as well as its label ("green") are just exemplary of course.
 
-**Note:** It is unnecessary for Qubes 4 users to pass in the `--hvm` switch. To create a StandaloneVM in Qubes 4, use the --class option, as VMs are template-based by default:
+**Note:** To create a StandaloneVM in Qubes R4, use the --class option, as VMs are template-based by default
 
 ~~~
-qvm-create win7 --class StandaloneVM --label green
+qvm-create win7 --class StandaloneVM --property virt_mode=hvm --property kernel="" --property memory=4096 --property maxmem=4096 --property debug=True --label green
+qvm-features win7 video-model cirrus
 ~~~
 
 If you receive an error like this one, then you must first enable VT-x in your BIOS:
@@ -52,16 +53,18 @@ libvirt.libvirtError: invalid argument: could not find capabilities for arch=x86
 Now we need to install an OS inside this VM.  This can be done by attaching an installation ISO to and starting the VM (this can currently only be done from command line, but in the future we will surely add an option to do this also from the manager):
 
 ~~~
-qvm-start win7 --cdrom=/usr/local/iso/win7_en.iso
+qvm-start win7 --cdrom=DispVM:/home/user/win7.iso
+or
+qvm-start win7 --cdrom=dom0:/usr/local/iso/win7_en.iso
 ~~~
 
-The above command assumes the installation ISO was transferred to Dom0 (copied using `dd` command from an installation CDROM for example). If one wishes to use the actual physical media without copying it first to a file, then one can just pass `/dev/cdrom` as an argument to `--cdrom`:
+The above first command assumes the installation ISO was transferred to a DispVM (copied using `dd` command from an installation CDROM for example). The second is for when the iso is in Dom0, which is not recommended. If one wishes to use the actual physical media without copying it first to a file, then one can just pass `/dev/cdrom` as an argument to `--cdrom`:
 
 ~~~
 qvm-start win7 --cdrom=/dev/cdrom
 ~~~
 
-Next, the VM will start booting from the attached CDROM device (which in the example above just happens to be a Windows 7 installation disk). Depending on the OS being installed in the VM, one might be required to start the VM several times (as is the case with Windows 7 installations), because whenever the installer wants to "reboot the system" it actually shutdowns the VM and Qubes won't automatically start it.  Several invocations of qvm-start command (as shown above) might be needed.
+Next, the VM will start booting from the attached CDROM device (which in the example above just happens to be a Windows 7 installation disk). Depending on the OS being installed in the VM, one might be required to start the VM several times (as is the case with Windows 7 installations), because whenever the installer wants to "reboot the system" it actually shuts down the VM and Qubes won't automatically start it.  Several invocations of qvm-start command (as shown above) might be needed.
 
 **Note:** If your Windows installation gets stuck at the glowing Windows logo, you might want to read [Issue 2488](https://github.com/QubesOS/qubes-issues/issues/2488) for a solution.
 
@@ -185,7 +188,7 @@ Cloning HVM domains
 
 Just like normal AppVMs, the HVM domains can also be cloned either using a command-line `qvm-clone` command or via manager's 'Clone VM' option in the right-click menu.
 
-The cloned VM will get identical root and private image and will essentially be an identical of the original VM except that it will get a different MAC address for the networking interface:
+The cloned VM will get identical root and private images and will essentially be identical to the original VM except that it will get a different MAC address for the networking interface:
 
 ~~~
 [joanna@dom0 ~]$ qvm-prefs win7

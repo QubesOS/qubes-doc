@@ -42,12 +42,12 @@ First, retrieve the attachment of this Wifi article in dom0. Then apply the thre
 
 Finally restart the qubes manager GUI.
 
-A new option is now available in the AppVM Settings to enable set the NetVM in bridge mode. For a bridged AppVM, you should the select a netvm instead of a firewall vm, enabled the Bridge option and restart your AppVM.
+An option is available in the AppVM Settings to enable setting the NetVM in bridge mode. For a bridged AppVM, you should then select a NetVM instead of a FirewallVM/  ProxyVM, enable the Bridge option, and restart your AppVM.
 
 NetVM patch (Qubes R2B2)
 ------------------------
 
-You need to modify manually the NetVM iptable script inside the NetVM. The reason is that by default the NetVM only accept traffic coming from network interfaces called vif\* (in our case, we will use an additional interface called bridge0. The second reason is that all trafic is NATed by default. In our case, we want to forward traffic from the bridge interface without modifying it, while NATing traffic coming from vif\* interfaces.
+You need to modify manually the NetVM iptable script inside the NetVM. The reason is that by default the NetVM only accepts traffic coming from network interfaces called vif\* (in our case, we will use an additional interface called bridge0. The second reason is that all trafic is NATed by default. In our case, we want to forward traffic from the bridge interface without modifying it, while NATing traffic coming from vif\* interfaces.
 
 Modify manually the Template you use for your NetVM (not the NetVM itself). This is by default fedora-x86\_64. Edit the file /etc/sysconfig/iptables. You need to modify two parts of the file.
 
@@ -95,7 +95,7 @@ This requires:
 
 Note: A wireless interface cannot be bridged.
 
-The bridge edition GUI is somehow buggy as it does not remember all the parameter you setup. You can fix it by editing manually the files in /etc/NetworkManager/system-connections/. Here is one example for these files:
+The bridge edition GUI is somewhat buggy as it does not remember all the parameters you set up. You can fix it by editing manually the files in /etc/NetworkManager/system-connections/. Here is one example for these files:
 
 -   Bridge-DHCP
 
@@ -137,7 +137,7 @@ Note: Do not forget to put stp=false if you bridge only eth0 because sending BPD
     slave-type=bridge
     ~~~
 
-If you do not manager to start your bridge, you can start it manually from a NetVM terminal:
+If you do not manage to start your bridge, you can start it manually from a NetVM terminal:
 
 ~~~
 $ nmcli con up id bridge0-eth0

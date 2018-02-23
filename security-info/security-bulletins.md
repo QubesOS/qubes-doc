@@ -88,4 +88,5 @@ Qubes Security Bulletins are published through the [Qubes Security Pack](/securi
 ----
 
 -   [Qubes Security Bulletin \#37](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt) (Information leaks due to processor speculative execution bugs)
+-   [Qubes Security Bulletin \#38](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-038-2018.txt) (Qrexec policy bypass and possible information leak)
 

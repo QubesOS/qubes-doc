@@ -44,7 +44,7 @@ In making software easy to use, it is crucial to be mindful of [cognitive load](
 
 ## Easy to Understand
 
-There will always be the need to communicate things to users. In these cases, an interface should aim to make this information easy to understand. The following are simple guides to help achieve this - none these are absolute maxims!
+There will always be the need to communicate things to users. In these cases, an interface should aim to make this information easy to understand. The following are simple guides to help achieve this - none of these are absolute maxims!
 
 <div class="focus">
   <i class="fa fa-times"></i> <strong>Avoid Acronyms</strong>
@@ -82,7 +82,7 @@ Technical words are usually more accurate, but they often *only* make sense to t
 - `savefile`
 - `qrexec-daemon`
 
-These are all terms that have at some point showed up in users' notification messages. Each term is very specific, but requires the user to understand virtualization to interpet.
+These are all terms that have at some point showed up in users' notification messages. Each term is very specific, but requires the user to understand virtualization to interpret.
 
 <div class="focus">
   <i class="fa fa-check"></i> <strong> Use Common Concepts</strong>
@@ -195,7 +195,7 @@ There are many cases where a user wants to perform an action on more than one fi
 3. Select proper file
 4. Complete task on file
 
-That subtle act of clicking through a file system can prove to be significant if a user needs to open more than a couples files in the same directory. We can alleviate some of the work by changing the process:
+That subtle act of clicking through a file system can prove to be significant if a user needs to open more than a couple files in the same directory. We can alleviate some of the work by changing the process:
 
 1. Click on `Open File` from a menu or button
 2. Remember last open folder/file system
