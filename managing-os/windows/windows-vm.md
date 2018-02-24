@@ -29,7 +29,7 @@ See [below](/doc/windows-vm/#command-summary) if you are only looking for a quic
 
 MS Windows versions considerations:
 
-- The instructions *may* work on other versions than Windows 7 x74 but haven't been tested.
+- The instructions *may* work on other versions than Windows 7 x64 but haven't been tested.
 - Qubes Windows Tools (QWT) only supports Windows 7 x64.
 
 
