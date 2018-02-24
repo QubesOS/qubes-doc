@@ -4,7 +4,7 @@ title: HTTP Filtering Proxy
 permalink: /doc/config/http-filtering-proxy/
 ---
 
-How to run an HTTP filtering proxy in a FirewallVM
+How to run an HTTP filtering proxy
 =================================================
 
 Introduction
@@ -25,7 +25,7 @@ Third, the initial setup of the rules is complicated as the firewall drops the c
 As a workaround, one can use a browser's network console to see what is blocked, but this is time-consuming and one can easily miss some important cases like including sites for OCSP SSL certificate verification in the firewall white-list.
 
 These drawbacks can be mitigated if one replaces iptable-based rules with a filtering HTTP proxy.
-The following describes how to setup a tinyproxy-based proxy in the firewall VM to achieve such filtering.
+The following describes how to setup a tinyproxy-based proxy in either the firewall VM or a custom proxy VM to achieve such filtering.
 
 **Note** This content only describes setup of an HTTP proxy.
 This will handle web browsing using HTTP and HTTPS, but this type of proxy does not support other protocols such as IMAP used in Thunderbird.
