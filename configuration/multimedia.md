@@ -206,7 +206,8 @@ Add the public key to the repository keyring
 `apt-key add google.pubkey`
 
 Add the Google package repositories to your list of sources 
-echo "deb http://dl.google.com/linux/chrome/deb/ stable main"> /etc/apt/sources.list.d/google.list
+
+`echo "deb http://dl.google.com/linux/chrome/deb/ stable main"> /etc/apt/sources.list.d/google.list`
 
 Update package repositories
 
@@ -222,4 +223,4 @@ Create a Multimedia AppVM
 
 The last step is to create a multimedia AppVM (named "my-multimedia" here) based on the new multimedia template.
 
-`qvm-create --template t-multimedia --label-orange my-multimedia`
+`qvm-create --template t-multimedia --label orange my-multimedia`
