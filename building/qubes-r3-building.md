@@ -82,7 +82,7 @@ cd ~/qubes-builder
 # Stable
 # No (we want a full build)
 # Select builder-fedora, builder-debian, template-whonix, mgmt-salt
-# Choose Yes to add adrelanos@riseup.net third party key
+# Choose Yes to add adrelanos's third party key
 # Yes (to download)
 # Select fc26, stretch, whonix-gateway, whonix-workstation (for the currently shipping templates)
 ~~~
