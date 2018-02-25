@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Multimedia
+title: How to Make a Multimedia TemplateVM
 permalink: /doc/multimedia/
 redirect_from:
 - /en/doc/multimedia/
@@ -8,8 +8,9 @@ redirect_from:
 - /wiki/Multimedia/
 ---
 
-Multimedia
-==========
+How to Make a Multimedia TemplateVM
+===================================
+
 Note: This Howto has been written and was tested under Qubes 4rc4
 
 You can consolidate most of your media streaming tasks into one "multimedia" App-VM. This howto explains how to create a multimedia template which can be used to play multimedia content.
