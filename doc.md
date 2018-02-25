@@ -142,6 +142,7 @@ Configuration Guides
  * [Managing VM kernel](/doc/managing-vm-kernel/)
  * [Salt management stack](/doc/salt/)
  * [Adding SSD storage cache](https://groups.google.com/d/msgid/qubes-users/a08359c9-9eb0-4d1a-ad92-a8a9bc676ea6%40googlegroups.com)
+ * [How to Make a Multimedia TemplateVM](/doc/multimedia/)
 
 
 Customization Guides
