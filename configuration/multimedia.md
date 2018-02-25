@@ -57,7 +57,7 @@ Import GPG-Key for spotify
 As the template VM can't connect to internet you need to get the public key file from another AppVM and copy it to the template VM. The easiest way is to use the Qubes Clipboard to copy the keys from the AppVM where you get the key to the Template VM.
 
 In an AppVM which has Internet access:
-- Open https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xEFDC8610341D9410
+- Open <https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xEFDC8610341D9410>
 - Copy content of page to the Clipboard (Ctrl+A and Ctrl+C)
 - open a Terminal in this AppVM and copy the content of the clipboard to a file
   `xclip -o > spotify.pubkey`
@@ -79,14 +79,16 @@ If this command doesn't show a fingerprint choose one of the other commands ment
 `gpg --with-fingerprint spotify.pubkey`
 
 This should look like:
-> [user@t-multimedia ~]$ `gpg --with-fingerprint spotify.pubkey`
 
-> pub  4096R/341D9410 2017-07-25 Spotify Public Repository Signing Key <tux@spotify.com>
+    [user@t-multimedia ~]$ `gpg --with-fingerprint spotify.pubkey`
 
->      Key fingerprint = 0DF7 31E4 5CE2 4F27 EEEB  1450 EFDC 8610 341D 9410
+    pub  4096R/341D9410 2017-07-25 Spotify Public Repository Signing Key <tux@spotify.com>
+
+         Key fingerprint = 0DF7 31E4 5CE2 4F27 EEEB  1450 EFDC 8610 341D 9410
 
 You can (and should) lookup the fingerprint on at least one (or more) keyservers as the above information might be outdated.
-https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0xefdc8610341d9410&fingerprint=on
+
+<https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0xefdc8610341d9410&fingerprint=on>
 
 Add the public key to the repository keyring
 `apt-key add spotify.pubkey`
@@ -116,7 +118,7 @@ To play DVDs you can install VLC with the needed Codecs
 
 Download the public key which signs the VLC package repositories
 In an AppVM which has Internet access:
-- Open https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x6BCA5E4DB84288D9
+- Open <https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x6BCA5E4DB84288D9>
 - Repeat all steps to save the public signing key on the AppVM (see above / Spotify example)
   `xclip -o > videolan.pubkey`
   
@@ -134,16 +136,18 @@ Check the signature of the signing key
 `gpg --with-fingerprint videolan.pubkey`
 
 This should look like:
-> [user@t-multimedia ~]$ `gpg --with-fingerprint videolan.pubkey`
 
-> pub  2048R/B84288D9 2013-08-27 VideoLAN APT Signing Key <videolan@videolan.org>
+    [user@t-multimedia ~]$ `gpg --with-fingerprint videolan.pubkey`
 
->       Key fingerprint = 8F08 45FE 77B1 6294 429A  7934 6BCA 5E4D B842 88D9
+    pub  2048R/B84288D9 2013-08-27 VideoLAN APT Signing Key <videolan@videolan.org>
 
-> sub  2048R/288D4A2C 2013-08-27
+          Key fingerprint = 8F08 45FE 77B1 6294 429A  7934 6BCA 5E4D B842 88D9
+
+    sub  2048R/288D4A2C 2013-08-27
 
 You can (and should) lookup the fingerprint on at least one (or more) keyservers as the above information might be outdated.
-https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0x6BCA5E4DB84288D9&fingerprint=on
+
+<https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0x6BCA5E4DB84288D9&fingerprint=on>
 
 Add the public key to the repository keyring
 `apt-key add videolan.pubkey`
@@ -171,7 +175,7 @@ Hint: Using Chromium will not work for some reasons.
 
 Download the public key which signs the Google package repositories
 In an AppVM which has Internet access:
-- Open https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x7721F63BD38B4796
+- Open <https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x7721F63BD38B4796>
 - Repeat all steps to save the public signing key on the AppVM (see above / Spotify example)
   `xclip -o > google.pubkey`
 
@@ -189,21 +193,26 @@ Check the signature of the signing key (still in the AppVM where you downloaded 
 `gpg --with-fingerprint google.pubkey`
 
 This should look like:
-> [user@t-multimedia ~]$ `gpg --with-fingerprint google.pubkey`
 
-> pub  4096R/D38B4796 2016-04-12 Google Inc. (Linux Packages Signing Authority)
+    [user@t-multimedia ~]$ `gpg --with-fingerprint google.pubkey`
 
-> <linux-packages-keymaster@google.com>
+    pub  4096R/D38B4796 2016-04-12 Google Inc. (Linux Packages Signing Authority)
 
->       Key fingerprint = EB4C 1BFD 4F04 2F6D DDCC  EC91 7721 F63B D38B 4796
+    <linux-packages-keymaster@google.com>
 
-> sub  4096R/640DB551 2016-04-12 [expires: 2019-04-12]
+          Key fingerprint = EB4C 1BFD 4F04 2F6D DDCC  EC91 7721 F63B D38B 4796
 
-> sub  4096R/997C215E 2017-01-24 [expires: 2020-01-24]
+    sub  4096R/640DB551 2016-04-12 [expires: 2019-04-12]
+
+    sub  4096R/997C215E 2017-01-24 [expires: 2020-01-24]
 
 You can (and should) lookup the fingerprint on at least one (or more) keyservers as the above information might be outdated.
-https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0x7721F63BD38B4796&fingerprint=on
-or https://www.google.com/linuxrepositories/
+
+<https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0x7721F63BD38B4796&fingerprint=on>
+
+or
+
+<https://www.google.com/linuxrepositories/>
 
 Add the public key to the repository keyring
 
@@ -228,3 +237,4 @@ Create a Multimedia AppVM
 The last step is to create a multimedia AppVM (named "my-multimedia" here) based on the new multimedia template.
 
 `qvm-create --template t-multimedia --label orange my-multimedia`
+
