@@ -72,7 +72,7 @@ Copy the public signing key over to the multimedia template VM
 
 Check the signature of the signing key (in the multimedia Template VM).
 Hint: depending on your installed version of GnuPG the command to show a public might slightly be different.
-See https://unix.stackexchange.com/questions/391344/gnupg-command-to-show-key-info-from-file for more information.
+See [this StackExchange question](https://unix.stackexchange.com/questions/391344/gnupg-command-to-show-key-info-from-file) for more information.
 If this command doesn't show a fingerprint choose one of the other commands mentioned in the above link.
 
 `gpg --with-fingerprint spotify.pubkey`
