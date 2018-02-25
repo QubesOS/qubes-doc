@@ -12,7 +12,7 @@ Multimedia
 ==========
 Note: This Howto has been written and was tested under Qubes 4rc4
 
-You can consolidate most of your media streaming tasks into one "multimedia" App-VM. This howto explains how to create a multimedia temmplate which can be used to play multimedia content.
+You can consolidate most of your media streaming tasks into one "multimedia" App-VM. This howto explains how to create a multimedia template which can be used to play multimedia content.
 This includes:
 
 - Spotify
@@ -70,7 +70,10 @@ Copy the public signing key over to the multimedia template VM
   Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
   Save the file (Ctrl+O <Enter> Ctrl+X)
 
-Check the signature of the signing key (in the multimedia Template VM)
+Check the signature of the signing key (in the multimedia Template VM).
+Hint: depending on your installed version of GnuPG the command to show a public might slightly be different.
+See https://unix.stackexchange.com/questions/391344/gnupg-command-to-show-key-info-from-file for more information.
+If this command doesn't show a fingerprint choose one of the other commands mentioned in the above link.
 
 `gpg --with-fingerprint spotify.pubkey`
 
