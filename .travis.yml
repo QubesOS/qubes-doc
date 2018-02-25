@@ -10,3 +10,9 @@ addons:
     - hunspell
     - pandoc
     - jq
+notifications:
+  email:
+    recipients:
+      - adw@qubes-os.org
+    on_success: never
+    on_failure: always
