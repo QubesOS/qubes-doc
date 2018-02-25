@@ -39,7 +39,6 @@ Inside your TemplateBasedVM.
 3. Edit the file 50_user.conf to append a folder or file name to the `binds` variable. (In the following example we are using folder `/var/lib/tor`. You can replace that name with a folder or file name of your choice.)
 
        binds+=( '/var/lib/tor' )
-       binds+=( '/etc/tor/torrc' )
 
 Multiple entries are possible, each on a separate line.
 

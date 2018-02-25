@@ -32,16 +32,27 @@ Configuration
 ----------
 
 In all versions of Qubes, you may want to set up a periodic job in `dom0` to trim the disk.
+This can be done with either systemd (weekly only) or cron (daily or weekly).
 
-This can be done from a terminal as root, by creating a `trim` file in `/etc/cron.daily` (or `/etc/cron.weekly`).
-Add the following contents:
+ * **Systemd**
 
-```
-#!/bin/bash
-/sbin/fstrim --all
-```
+   From a terminal as a regular user:
 
-And mark it as executable with `chmod 755 /etc/cron.daily/trim`.
+   ```
+   systemctl enable fstrim.timer
+   systemctl start fstrim.timer
+   ```
+
+ * **Cron**
+
+   This can be done from a terminal as root, by creating a `trim` file in `/etc/cron.daily` (or `/etc/cron.weekly`).
+    Add the following contents:
+
+    ```
+   #!/bin/bash
+   /sbin/fstrim --all
+   ```
+   And mark it as executable with `chmod 755 /etc/cron.daily/trim`.
 
 **Note** Although discards can be issued on every delete inside `dom0` by adding the `discard` mount option to `/etc/fstab`, this option can hurt performance so the above procedure is recommended instead.
 However, inside App and Template qubes, the `discard` mount option is on by default to notify the LVM thin pool driver (R4.0) or sparse file driver (R3.2) that the space is no longer needed and can be zeroed and re-used.
@@ -73,17 +84,13 @@ To enable TRIM support in dom0 with LUKS you need to:
 
 3. Add `rd.luks.options=discard` to kernel cmdline (follow either GRUB2 or EFI, not both): 
     * GRUB2: `/etc/default/grub`, `GRUB_CMDLINE_LINUX` line and  
-      Rebuild grub config (`grub2-mkconfig -o /boot/grub2/grub.cfg`)   
-    * EFI: `/boot/efi/EFI/qubes/xen.cfg`, `kernel=` line(s)
+      Rebuild grub config (`grub2-mkconfig -o /boot/grub2/grub.cfg`), then  
+      Rebuild initrd **in hostonly mode** (`dracut -H -f`)
+    * EFI: `/boot/efi/EFI/qubes/xen.cfg`, `kernel=` line(s), then  
+      Rebuild initrd **in hostonly mode** (`dracut -H -f /boot/efi/EFI/qubes/initramfs-$(uname -r).img $(uname -r)`)
 
-4. Rebuild initrd **in hostonly mode**:
+4. Reboot the system.
 
-    ~~~
-    dracut -H -f
-    ~~~
-
-5. Reboot the system.
-
-6. To verify if discards are enabled you may use `dmsetup table` (confirm the line for your device mentions "discards") or just run `fstrim -av` (you should see a `/` followed by the number of bytes trimmed).
+5. To verify if discards are enabled you may use `dmsetup table` (confirm the line for your device mentions "discards") or just run `fstrim -av` (you should see a `/` followed by the number of bytes trimmed).
 
 

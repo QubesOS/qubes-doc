@@ -124,8 +124,7 @@ Configuration Guides
  * [How to set up a ProxyVM as a VPN Gateway](/doc/vpn/)
  * [Storing AppVMs on Secondary Drives](/doc/secondary-storage/)
  * [Multibooting](/doc/multiboot/)
- * [Resize Private Disk Image](/doc/resize-disk-image/)
- * [Resize Root Disk Image](/doc/resize-root-disk-image/)
+ * [Resize Disk Image](/doc/resize-disk-image/)
  * [RPC Policies](/doc/rpc-policy/)
  * [Installing ZFS in Qubes](/doc/zfs/)
  * [Mutt Guide](/doc/mutt/)
@@ -143,7 +142,7 @@ Configuration Guides
  * [Managing VM kernel](/doc/managing-vm-kernel/)
  * [Salt management stack](/doc/salt/)
  * [Adding SSD storage cache](https://groups.google.com/d/msgid/qubes-users/a08359c9-9eb0-4d1a-ad92-a8a9bc676ea6%40googlegroups.com)
-  * [Howto create a template based Multimedia AppVM for Netflix, Amazon Prime, Spotify, DVD-Playback](/doc/multimedia/)
+ * [How to Make a Multimedia TemplateVM](/doc/multimedia/)
 
 
 Customization Guides
@@ -263,7 +262,7 @@ Building
 --------
  * [Building Qubes](/doc/qubes-builder/) (["API" Details](/doc/qubes-builder-details/))
  * [Development Workflow](/doc/development-workflow/)
- * [Building Qubes OS 3.0 ISO](/doc/qubes-r3-building/)
+ * [Building Qubes OS ISO](/doc/qubes-r3-building/)
  * [Building Qubes Templates](https://github.com/QubesOS/qubes-template-configs)
  * [Building a TemplateVM based on a new OS (ArchLinux example)](/doc/building-non-fedora-template/)
  * [Building the Archlinux Template](/doc/building-archlinux-template/)
