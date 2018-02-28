@@ -67,10 +67,10 @@ USB device, e.g. using `dd`:
     dd if=Qubes-R3-x86_64.iso of=/dev/sdX bs=1M && sync
 
 Change `Qubes-R3-x86_64.iso` to the filename of the version you're installing,
-and change `/dev/sdX` to the correct target device (e.g., `/dev/sda`).
+and change `/dev/sdX` to the correct target device (e.g., `/dev/sdc`).
 **Warning:** Choosing the wrong device could result in data loss. Make sure to
-write to the entire device (e.g., `/dev/sda`) rather than just a single
-partition (e.g., `/dev/sda1`).
+write to the entire device (e.g., `/dev/sdc`) rather than just a single
+partition (e.g., `/dev/sdc1`).
 
 On Windows, you can use the [Rufus] tool. Be sure to select "DD image" mode (you
 need to do that **after** selecting the Qubes ISO):
