@@ -240,9 +240,9 @@ qvm-start win7new
 qvm-prefs -s win7new memory 2000
 qvm-prefs -s win7new maxmem 2000
 cp /tmp/win7new.conf /var/lib/qubes/appvms/win7new/win7new.conf
+qvm-prefs -s win7new qrexec_timeout 300
 # with Qubes Windows Tools installed:
 qvm-prefs -s win7new debug false
-qvm-prefs -s win7new qrexec_timeout 300
 ~~~
 
 R4.0:
@@ -261,8 +261,8 @@ qvm-start win7new
 qvm-prefs win7new memory 2000
 qvm-prefs win7new maxmem 2000
 qvm-features --unset win7new video-model
+qvm-prefs win7new qrexec_timeout 300
 # with Qubes Windows Tools installed:
 qvm-prefs win7new debug false
-qvm-prefs win7new qrexec_timeout 300
 ~~~
 
