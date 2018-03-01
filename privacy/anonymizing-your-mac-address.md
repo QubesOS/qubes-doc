@@ -9,12 +9,16 @@ redirect_from:
 Anonymizing your MAC Address
 ============================
 
-Although it is not the only metadata broadcast by network hardware, changing the default [MAC Address](https://en.wikipedia.org/wiki/MAC_address) of your hardware could be [an important step in protecting 
-privacy](https://tails.boum.org/contribute/design/MAC_address/#index1h1). Currently, Qubes OS *does not* automatically "anonymize" or spoof the MAC Address, so until this is implemented by default you can randomize your MAC Address with one of the following guides using either Network Manager or macchanger...
+Although it is not the only metadata broadcast by network hardware, changing the default [MAC Address](https://en.wikipedia.org/wiki/MAC_address) of your hardware could be [an important step in protecting privacy](https://tails.boum.org/contribute/design/MAC_address/#index1h1).
+Currently, Qubes OS *does not* automatically "anonymize" or spoof the MAC Address, so unless this gets implemented by default you can randomize your MAC Address with one of the following guides using either Network Manager or macchanger.
+The Network Manager method should work with both Qubes R4.0 and R3.2.
+Macchanger is untested on R4.0, and requires Network Manager to be disabled before it will work.
+
 
 ## Upgrading and configuring Network Manager in Qubes
 
-Newer versions of Network Manager have a robust set of options for randomizing MAC addresses, and can handle the entire process across reboots, sleep/wake cycles and different connection states. In particular, versions 1.4.2 and later should be well suited for Qubes.
+Newer versions of Network Manager have a robust set of options for randomizing MAC addresses, and can handle the entire process across reboots, sleep/wake cycles and different connection states.
+In particular, versions 1.4.2 and later should be well suited for Qubes.
 
 Network Manager 1.4.2 or later is available from the Fedora 25 repository as well as the Debian 9 repository, which you can install by [upgrading a Debian 8 template to version 9.](/doc/debian-template-upgrade-8/) 
 
@@ -25,7 +29,8 @@ $ sudo NetworkManager -V
 1.4.2
 ~~~
 
-Write the settings to a new file in the `/etc/NetworkManager/conf.d/` directory, such as `mac.conf`. The following example enables Wifi and Ethernet MAC address randomization while scanning (not connected), and uses a randomly generated but persistent MAC address for each individual Wifi and Ethernet connection profile.
+Write the settings to a new file in the `/etc/NetworkManager/conf.d/` directory, such as `mac.conf`.
+The following example enables Wifi and Ethernet MAC address randomization while scanning (not connected), and uses a randomly generated but persistent MAC address for each individual Wifi and Ethernet connection profile.
 
 ~~~
 [device]
@@ -50,6 +55,9 @@ You can check the MAC address currently in use by looking at the status pages of
 
 
 ## Configuring Qubes with macchanger and scripts
+
+Note that using macchanger will require you disable NetworkManager in `sys-net` and to create and maintain network connections manually.
+If you do not want to do this, follow the NetworkManager procedure above.
 
 First thing you need to do is install **macchanger** package by opening your `fedora-23` TemplateVM and typing
 
@@ -85,7 +93,9 @@ WantedBy=multi-user.target
 
 **How random do you want your MAC address?**
 
-Note in the above line `ExecStart=/usr/bin/macchanger -e %I` we recommend the use of `macchanger` with the `-e` flag which randomizes the MAC address to an address by the same device vendor/manufacturer. There a [number of other flags](http://manpages.ubuntu.com/manpages/xenial/en/man1/macchanger.1.html) you could use instead, such as `-r` which makes a totally random MAC address, which may map to a non-existent device vendor/manufacturer and make it obvious you are spoofing your MAC address. Some reasons why we have recommended `-e` rather than `-r` are in these resources:
+Note in the above line `ExecStart=/usr/bin/macchanger -e %I` we recommend the use of `macchanger` with the `-e` flag which randomizes the MAC address to an address by the same device vendor/manufacturer.
+There a [number of other flags](http://manpages.ubuntu.com/manpages/xenial/en/man1/macchanger.1.html) you could use instead, such as `-r` which makes a totally random MAC address, which may map to a non-existent device vendor/manufacturer and make it obvious you are spoofing your MAC address.
+Some reasons why we have recommended `-e` rather than `-r` are in these resources:
 
 * <https://tails.boum.org/contribute/design/MAC_address/#index5h2>
 * <https://tails.boum.org/contribute/design/MAC_address/#limitation-only-spoof-nic-part>
@@ -93,9 +103,13 @@ Note in the above line `ExecStart=/usr/bin/macchanger -e %I` we recommend the us
 
 **Get the right iface names**
 
-It's crucial to get the correct **iface name** for the devices (ethernet and wifi) you want to randomize. To get this,
-open your `sys-net` (or wherever your device drivers are) and type in `terminal` the command `ifconfig` the printout 
-will look like:
+It's crucial to get the correct **iface name** for the devices (ethernet and wifi) you want to randomize.
+
+To get this, open your `sys-net` (or wherever your device drivers are) `terminal`.
+Stop and disable the NetworkManager service.
+Create ethernet and/or wifi interfaces manually as needed.
+Type the command `ifconfig`.
+The printout will look like:
 
 ~~~
 enp0s0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
@@ -129,11 +143,10 @@ The **iface name** values you're interested in are `enp0s0` and `wlp0s1` as thos
 devices, respectively.
 
 Also, in this printout is your **actual MAC addresses** which are needed to verify the randomizing is working correctly.  
-In this example, the ethernet and wifi addresses are `ether 9e:d6:53:02:4b:b6` and `ether 06:6d:70:a8:7b:35` 
-respectively.  *Copy these MAC addresses down somewhere for later.*
+In this example, the ethernet and wifi addresses are `ether 9e:d6:53:02:4b:b6` and `ether 06:6d:70:a8:7b:35` respectively.
+*Copy these MAC addresses down somewhere for later.*
 
-Now, go back to your `fedora-23` TemplateVM and use the `touch` command to create service files in the appropriate 
-place, note that the `iface name` values at the end:
+Now, go back to your `fedora-23` TemplateVM and use the `touch` command to create service files in the appropriate place, note that the `iface name` values at the end:
 
 ~~~
 cd /var/run/qubes-service/
@@ -141,7 +154,7 @@ sudo touch macspoof-enp0s0
 sudo touch macspoof-wlp0s1
 ~~~
 
-Verify the correct files exist in the directory
+Verify the correct files exist in the directory:
 
 ~~~
 [user@fedora-23 qubes-service]$ ls
@@ -150,7 +163,7 @@ macspoof-enp0s0  meminfo-writer   updates-proxy-setup
 ~~~
 
 Now, also within the TemplateVM, type the following commands for each hardware device that you want to randomize a MAC 
-address for
+address for:
 
 ~~~
 sudo systemctl enable macspoof@wlp0s1
@@ -186,7 +199,8 @@ Your MAC address should now randomize each time you restart your computer or res
 
 ## Usage Notes - Macchanger
 
-This approach to MAC Randomizing has been tested and used by some users as well as some of the Qubes team. Observations that are to be expected are:
+This approach to MAC Randomizing has been tested and used by some users as well as some of the Qubes team.
+Observations that are to be expected are:
 
 - This does not randomize your MAC Address on sleep and wake state (only on restarting the `sys-net` VM)
 - The `sys-net` networking VM takes longer for device drivers to start up than usual, this delayed startup may cause the first attempt of `sys-whonix` to connect to Tor to fail
