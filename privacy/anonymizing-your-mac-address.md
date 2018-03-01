@@ -10,7 +10,7 @@ Anonymizing your MAC Address
 ============================
 
 Although it is not the only metadata broadcast by network hardware, changing the default [MAC Address](https://en.wikipedia.org/wiki/MAC_address) of your hardware could be [an important step in protecting privacy](https://tails.boum.org/contribute/design/MAC_address/#index1h1).
-Currently, Qubes OS *does not* automatically "anonymize" or spoof the MAC Address, so unless this gets implemented by default you can randomize your MAC Address with one of the following guides using either Network Manager or macchanger.
+Currently, Qubes OS *does not* automatically "anonymize" or spoof the MAC Address, so unless this gets implemented by default you can randomize your MAC Address with the following guide.
 The Network Manager method should work with both Qubes R4.0 and R3.2.
 
 
