@@ -182,7 +182,7 @@ network 192.168.x.0/24.
 **1. Route packets from the outside world to the FirewallVM**
 
 From a Terminal window in sys-net VM, take note of the 'Interface name' and
-'IP address' on which you want to expose your service (i.e. eth0, 192.168.x.x)
+'IP address' on which you want to expose your service (i.e. ens5, 192.168.x.x)
 
 ` ifconfig | grep -i cast `
 
@@ -207,7 +207,7 @@ the service
 > Note: If you want to expose the service on multiple interfaces, repeat the
   steps described in part 1 for each interface
   
-> Note: On Qubes R4, nftables is also used which imply that nft rules also need to be set. Qubes OS has defined a `qubes-firewall` table with a forward chain.
+> Note: In Qubes R4, at the moment ([QubesOS/qubes-issues#3644](https://github.com/QubesOS/qubes-issues/issues/3644)), nftables is also used which imply that additional rules need to be set in a `qubes-firewall` nft table with a forward chain.
 
 `nft add rule ip qubes-firewall forward meta iifname eth0 ip daddr 10.137.0.x tcp dport 443 ct state new counter accept`
 
