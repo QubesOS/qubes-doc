@@ -98,7 +98,7 @@ R4.0:
 qvm-prefs win7new debug true
 ~~~
 
-The second part of the installation process will crash with the standard vga video adapter and the VM will stay in "transient" mode with the following error in `guest-win7new-dm.log`:
+The second part of the installation process will crash with the standard VGA video adapter and the VM will stay in "transient" mode with the following error in `guest-win7new-dm.log`:
 
 > qemu: /home/user/qubes-src/vmm-xen-stubdom-linux/build/qemu/exec.c:1187: cpu_physical_memory_snapshot_get_dirty: Assertion `start + length <= snap->end' failed.
 
@@ -160,7 +160,19 @@ R4.0:
 qvm-features --unset win7new video-model
 ~~~
 
-At that point you should have a functional Windows VM, although without updates, Xen's PV drivers nor Qubes integration. It is a good time to clone the VM again.
+Finally, increase the VM's `qrexec_timeout`: in case you happen to get a BSOD or a similar crash in the VM, utilities like chkdsk won't complete on restart before qrexec_timeout automatically halts the VM. That can really put the VM in a totally unrecoverable state, whereas with higher qrexec_timeout, chkdsk or the appropriate utility has plenty of time to fix the VM. Note that Qubes Windows Tools also require a larger timeout to move the user profiles to the private volume the first time the VM reboots after the tools' installation.
+
+R3.2:
+~~~
+qvm-prefs -s win7new qrexec_timeout 300
+~~~
+
+R4.0:
+~~~
+qvm-prefs win7new qrexec_timeout 300
+~~~
+
+At that point you should have a functional and stable Windows VM, although without updates, Xen's PV drivers nor Qubes integration. It is a good time to clone the VM again.
 
 
 Windows update
@@ -175,31 +187,23 @@ To avoid guessing the VM's state enable debugging (R3.2: `qvm-prefs -s win7new d
 Xen PV drivers + Qubes integration
 ----------------------------------
 
-If you plan to update your newly isntalled Windows VM it is recommended that you do so *before* installing Qubes Windows Tools (QWT). If QWT are installed, you should temporarily re-enable the standard VGA adapter in Windows and disable Qubes' (see the section above).
+Installing Xen's PV drivers in the VM will lower its resources usage when using network and/or I/O intensive applications, but *may* come at the price of system stability (although Xen's PV drivers on a Win7 VM are usually very stable). There are two ways of installing the drivers:
 
-Increase the VM's qrexec_timeout before installing QWT:
+1. installing the drivers independently, from Xen's [official site](https://www.xenproject.org/developers/teams/windows-pv-drivers.html)
+2. installing Qubes Windows Tools (QWT), which bundles Xen's PV drivers.
 
-- The first time the VM is run after QWT is installed, some time is needed to move the user profiles to the private volume (if you didn't disable that step in the installer, of course).
-- In case you happen to get a BSOD or a similar crash in the VM, chkdsk won't complete on restart before qrexec_timeout automatically halts the VM. That can really put the VM in a totally unrecoverable state, whereas with higher qrexec_timeout, chkdsk or the appropriate utility has plenty of time to fix the VM.
+Notes about using Xen's VBD (storage) PV driver:
+- Windows 7: installing the driver requires a fully updated VM or else you'll likely get a BSOD and a VM in an unfixable state. Updating Windows takes *hours* and for casual usage there isn't much of a performance between the disk PV driver and the default one; so there is likely no need to go through the lengthy Windows Update process if your VM doesn't have access to untrusted networks and if you don't use I/O intensive apps. If you plan to update your newly installed Windows VM it is recommended that you do so *before* installing Qubes Windows Tools (QWT). If QWT are installed, you should temporarily re-enable the standard VGA adapter in Windows and disable Qubes' (see the section above).
+- the option to install the storage PV driver is disabled by default in Qubes Windows Tools 
+- in case you already had QWT installed without the storage PV driver and you then updated tyou VM, you may then install the driver from Xen's site (xenvbd.tar).
 
-R3.2:
-~~~
-qvm-prefs -s win7new qrexec_timeout 300
-~~~
 
-R4.0:
-~~~
-qvm-prefs win7new qrexec_timeout 300
-~~~
+Installing Qubes Windows Tools:
+- on R3.2: see [this page](/doc/windows-tools/)
+- R4.0: you'll have to install QWT for Qubes R3.2. Be warned that QWT on R4.0 is a work in progress though (see [issue #3585](https://github.com/QubesOS/qubes-issues/issues/3585) for instructions and known issues).
 
-Installing QWT on R3.2: see [this page](/doc/windows-tools/)
 
-Installing QWT on R4.0: you'll have to install QWT for Qubes R3.2. See [issue #3585](https://github.com/QubesOS/qubes-issues/issues/3585) for instructions and known issues.
-
-Qubes Windows Tools install Xen's PV drivers by default so there is no need to install the [official ones](https://www.xenproject.org/developers/teams/windows-pv-drivers.html). *However*, Xen's VBD (storage) PV driver is disabled by default during QWT's setup and enabling it on a Windows 7 VM that isn't fully updated results in a BSOD and broken VM. Updating Windows takes *hours* and for casual usage there isn't much of a performance between the disk PV driver and the default one; so there is likely no need to go through the lengthy Windows Update process if your VM is isolated from the network and you don't use I/O intensive apps.
-With a fully updated Windows 7 and QWT already installed (without the storage PV driver) you can install the storage PV driver from Xen's site (xenvbd.tar).
-
-You can now turn off debugging (early graphical console):
+With Qubes Windows Tools installed the early graphical console provided in debugging mode isn't needed anymore since Qubes' display driver will be used instead of the default VGA driver:
 
 R3.2:
 ~~~
