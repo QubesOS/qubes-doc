@@ -16,7 +16,7 @@ Clicking on such shortcut runs the assigned application in its AppVM.
 
 ![dom0-menu.png"](/attachment/wiki/ManagingAppVmShortcuts/dom0-menu.png)
 
-To make newly installed applications show up in the menu, use the `qvm-sync-appmenus` command (Linux VMs do this automatically):
+To make applications newly installed via the OS's package manager show up in the menu, use the `qvm-sync-appmenus` command (Linux VMs do this automatically):
 
 `qvm-sync-appmenus vmname`
 
