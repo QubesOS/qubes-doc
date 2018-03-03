@@ -16,7 +16,7 @@ Clicking on such shortcut runs the assigned application in its AppVM.
 
 ![dom0-menu.png"](/attachment/wiki/ManagingAppVmShortcuts/dom0-menu.png)
 
-To make newly installed applications show up in the menu, use the **qvm-sync-appmenus** command (Linux VMs do this automatically):
+To make newly installed applications (via the OS package manager) show up in the menu, use the **qvm-sync-appmenus** command (Linux VMs do this automatically):
 
 `qvm-sync-appmenus vmname`
 
@@ -25,6 +25,25 @@ After that, select the *Add more shortcuts* entry in the VM's submenu to customi
 ![dom0-appmenu-select.png"](/attachment/wiki/ManagingAppVmShortcuts/dom0-appmenu-select.png)
 
 The above image shows that Windows HVMs are also supported (provided that Qubes Tools are installed).
+
+What about applications not installed by the OS's package manager?
+------------------------------------------------------------------
+
+For apps that are downloaded as tarballs or compiled from source they may not have the associated `.desktop` file that is needed.  To add a new menu item add a .desktop in the TemplateVM for the app (eg `/usr/share/applications/vuescan.desktip`), wtih the contents like:
+
+```
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Icon=/usr/share/icons/Adwaita/256x256/devices/scanner.png
+Name=VueScan
+GenericName=Scanner
+Comment=Scan Documents
+Categories=Office;Scanning;
+```
+
+And them from dom0 run `qvm-sync-appmenus vmname`.  From there you edit the Application settings for the AppVM in Qubes Manager (like above).
 
 What about applications in DispVMs?
 -----------------------------------
