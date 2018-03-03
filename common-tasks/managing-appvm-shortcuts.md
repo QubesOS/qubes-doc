@@ -41,9 +41,10 @@ Name=VueScan
 GenericName=Scanner
 Comment=Scan Documents
 Categories=Office;Scanning;
+Exec=vuescan
 ```
 
-And them from dom0 run `qvm-sync-appmenus vmname`.  From there you edit the Application settings for the AppVM in Qubes Manager (like above).
+And them from dom0 run `qvm-sync-appmenus vmname`.  From there you edit the Application settings for the AppVM in Qubes Manager (like above).  Don't forget to restart your VMs for the changes to take effect.
 
 What about applications in DispVMs?
 -----------------------------------
