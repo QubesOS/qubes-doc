@@ -136,7 +136,7 @@ The VM will shutdown after the installer completes the extraction of Windows ins
 
 The second part of Windows' installer should then be able to complete successfully. You may then perform the following post-install steps:
 
-Decrease the VM's memory to a more reasonable value (memory balancing on Wingows is unstable so keep `memory` equal to `maxmen`).
+Decrease the VM's memory to a more reasonable value (memory balancing on Windows is unstable so keep `memory` equal to `maxmen`).
 
 R3.2:
 ~~~
