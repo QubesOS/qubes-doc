@@ -53,18 +53,18 @@ Windows' installer requires a significant amount of memory or else the VM will c
 > (XEN) domain_crash called from p2m-pod.c:1218
 > (XEN) Domain 120 (vcpu#0) crashed on cpu#3:
 
-So, increase the VM's memory to 4000Mo (memory = maxmem because we don't use memory balancing).
+So, increase the VM's memory to 4096Mo (memory = maxmem because we don't use memory balancing).
 
 R3.2:
 ~~~
-qvm-prefs -s win7new memory 4000
-qvm-prefs -s win7new maxmem 4000
+qvm-prefs -s win7new memory 4096
+qvm-prefs -s win7new maxmem 4096
 ~~~
 
 R4.0:
 ~~~
-qvm-prefs win7new memory 4000
-qvm-prefs win7new maxmem 4000
+qvm-prefs win7new memory 4096
+qvm-prefs win7new maxmem 4096
 ~~~
 
 
@@ -134,18 +134,20 @@ tail -f /var/log/xen/console/guest-win7new-dm.log
 
 The VM will shutdown after the installer completes the extraction of Windows installation files. It's a good idea to clone the VM now (eg. `qvm-clone win7new win7newbkp1`). Then, (re)start the VM with `qvm-start win7new`.
 
-The second part of Windows' installer should then be able to complete successfully. You may then decrease the VM's memory to a more reasonable value:
+The second part of Windows' installer should then be able to complete successfully. You may then perform the following post-install steps:
+
+Decrease the VM's memory to a more reasonable value (memory balancing on Wingows is unstable so keep `memory` equal to `maxmen`).
 
 R3.2:
 ~~~
-qvm-prefs -s win7new memory 2000
-qvm-prefs -s win7new maxmem 2000
+qvm-prefs -s win7new memory 2048
+qvm-prefs -s win7new maxmem 2048
 ~~~
 
 R4.0:
 ~~~
-qvm-prefs win7new memory 2000
-qvm-prefs win7new maxmem 2000
+qvm-prefs win7new memory 2048
+qvm-prefs win7new maxmem 2048
 ~~~
 
 Revert to the standard VGA adapter :
@@ -231,8 +233,8 @@ Most of the commands below can be combined into only a few commands but they are
 R3.2:
 ~~~
 qvm-create win7new --hvm --label red
-qvm-prefs -s win7new memory 4000
-qvm-prefs -s win7new maxmem 4000
+qvm-prefs -s win7new memory 4096
+qvm-prefs -s win7new maxmem 4096
 qvm-grow-root win7new 25g 
 qvm-prefs -s win7new debug true
 cp /var/lib/qubes/appvms/win7new/win7new.conf /tmp
@@ -241,8 +243,8 @@ qvm-start --cdrom=untrusted:/home/user/windows_install.iso win7new
 # restart after the first part of the windows installation process ends
 qvm-start win7new
 # once Windows is installed and working
-qvm-prefs -s win7new memory 2000
-qvm-prefs -s win7new maxmem 2000
+qvm-prefs -s win7new memory 2048
+qvm-prefs -s win7new maxmem 2048
 cp /tmp/win7new.conf /var/lib/qubes/appvms/win7new/win7new.conf
 qvm-prefs -s win7new qrexec_timeout 300
 # with Qubes Windows Tools installed:
@@ -252,8 +254,8 @@ qvm-prefs -s win7new debug false
 R4.0:
 ~~~
 qvm-create --class StandaloneVM --label red --property virt_mode=hvm win7new
-qvm-prefs win7new memory 4000
-qvm-prefs win7new maxmem 4000
+qvm-prefs win7new memory 4096
+qvm-prefs win7new maxmem 4096
 qvm-prefs win7new kernel ''
 qvm-volume extend win7new:root 25g
 qvm-prefs win7new debug true
@@ -262,8 +264,8 @@ qvm-start --cdrom=untrusted:/home/user/windows_install.iso win7new
 # restart after the first part of the windows installation process ends
 qvm-start win7new
 # once Windows is installed and working
-qvm-prefs win7new memory 2000
-qvm-prefs win7new maxmem 2000
+qvm-prefs win7new memory 2048
+qvm-prefs win7new maxmem 2048
 qvm-features --unset win7new video-model
 qvm-prefs win7new qrexec_timeout 300
 # with Qubes Windows Tools installed:
