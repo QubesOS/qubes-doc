@@ -38,6 +38,19 @@ To do this:
 1. Open a terminal window to the TemplateVM.
 2. Create a custom `.desktop` file in `/usr/local/share/applications` (you may need to first create the subdirectory).
    Look in `/usr/share/applications` for existing examples, or see the full [file specification](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html).
+   It will be something like:
+   ```
+   [Desktop Entry]
+   Version=1.0
+   Type=Application
+   Terminal=false
+   Icon=/usr/share/icons/Adwaita/256x256/devices/scanner.png
+   Name=VueScan
+   GenericName=Scanner
+   Comment=Scan Documents
+   Categories=Office;Scanning;
+   Exec=vuescan
+   ```
 3. In dom0, run `qvm-sync-appmenus <TemplateVMName>`.
 4. Go to VM Settings of the AppVM(s) to which you want to add the new shortcut, then the Applications tab.
    Move the newly created shortcut to the right under selected.
@@ -83,7 +96,7 @@ In Windows it's a PowerShell script located in `c:\Program Files\Invisible Thing
    Actual command lines for the menu shortcuts involve `qvm-run` command which starts a process in another domain. 
    Examples: `qvm-run -q -a --service -- %VMNAME% qubes.StartApp+7-Zip-7-Zip_File_Manager` or `qvm-run -q -a --service -- %VMNAME% qubes.StartApp+firefox`
 
-   Note that you can create a shortcut that points to a .desktop file in your AppVM with e.g. `qvm-run -q -a --service -- personal qubes.StartApp+firefox`
+   Note that you can create a shortcut that points to a .desktop file in your AppVM with e.g. `qvm-run -q -a --service -- personal qubes.StartApp+firefox`.
 
  * R3.2
 
