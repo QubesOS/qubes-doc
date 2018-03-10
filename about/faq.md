@@ -469,6 +469,21 @@ From a `dom0` prompt, enter:
 
     qvm-prefs <HVMname> kernel ""
 
+### I keep getting "Failed to synchronize cache for repo" errors when trying to update my Fedora templates
+
+This is general Fedora issue, not a Qubes-specific issue.
+Usually, this is due to network problems (especially if downloading updates over Tor) or problems with the download mirrors.
+Often, the problem can be resolved by trying again on a different connection (a different Tor circuit, if using Tor) or waiting and trying again later.
+Here are some examples of non-Qubes reports about this problem:
+
+ - <https://ask.fedoraproject.org/en/question/88086/error-failed-to-synchronize-cache-for-repo-fedora/>
+ - <https://unix.stackexchange.com/questions/390805/repos-not-working-on-fedora-error-failed-to-synchronize-cache-for-repo-update>
+ - <https://www.reddit.com/r/Fedora/comments/74nldq/fedora_26_dnf_error_failed_to_synchronize_cache/>
+ - <https://bugzilla.redhat.com/show_bug.cgi?id=1494178>
+ - <https://stackoverflow.com/questions/45318256/error-failed-to-synchronize-cache-for-repo-updates>
+
+More examples can be found by searching for "Failed to synchronize cache for repo" (with quotation marks) on your preferred search engine.
+
 
 ----------
 
