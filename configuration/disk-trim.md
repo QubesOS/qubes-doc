@@ -59,7 +59,7 @@ However, inside App and Template qubes, the `discard` mount option is on by defa
 
 If you are using Qubes with LVM, you may also want to set `issue_discards = 1` in `/etc/lvm/lvm.conf`.
 Setting this option will permit LVM to issue discards to the SSD when logical volumes are shrunk or deleted.
-In R4.x, LVM Logical volumes are frequently deleted (every time a disposable VM is shut down, for example) so setting `issue_discards = 1` is recommended if using an SSD.
+In R4.x, LVM Logical volumes are frequently deleted (every time a disposable VM is shut down, for example) so you may want to set `issue_discards = 1` if using an SSD, but see the article linked in the first paragraph on this page.
 However, this is relatively rare in R3.x.
 
 
