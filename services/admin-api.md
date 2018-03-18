@@ -151,6 +151,8 @@ Volume properties:
  - `source`
  - `save_on_stop`
  - `snap_on_start`
+ - `revisions_to_keep`
+ - `is_outdated`
 
 Method `admin.vm.Stats` returns `vm-stats` events every `stats_interval` seconds, for every running VM. Parameters of `vm-stats` events:
 
