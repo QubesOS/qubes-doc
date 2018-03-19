@@ -101,7 +101,7 @@ default Qubes installation):
 
 Network service qubes
 --------------------------------------
-Qubes does not support running any networking services (e.g. VPN, local DNS server, IPS, ...) directly in a qube that is used to run the Qubes firewall service (usually sys-firewall) and will never do so for good reasons. In particular if one wants to ensure proper functioning of the Qubes firewall one should not not tinker with iptables or nftables rules in such qubes.
+Qubes does not support running any networking services (e.g. VPN, local DNS server, IPS, ...) directly in a qube that is used to run the Qubes firewall service (usually sys-firewall) for good reasons. In particular if one wants to ensure proper functioning of the Qubes firewall one should not not tinker with iptables or nftables rules in such qubes.
 
 Instead, one should deploy a network infrastructure such as
 ~~~
