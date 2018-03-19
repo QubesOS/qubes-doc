@@ -81,7 +81,7 @@ Alternatively, one can use the `qvm-ls -n` command to obtain the same informatio
 
 DNS servers: in R3.2 the DNS addresses are the same as the gateway's IP. In R4.0, the DNS ips are `10.139.1.1` and `10.139.1.2`.
 
-Only IPv4 networking is currently supported in Qubes.
+Qubes R3.2 only supports IPv4. Qubes R4.0 has [opt-in support](https://www.qubes-os.org/doc/networking/#ipv6) for IPv6 forwarding.
 
 Using Template-based HVM domains
 --------------------------------
