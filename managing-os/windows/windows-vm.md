@@ -55,18 +55,10 @@ Windows' installer requires a significant amount of memory or else the VM will c
 
 So, increase the VM's memory to 4096Mo (memory = maxmem because we don't use memory balancing).
 
-R3.2:
 ~~~
 qvm-prefs -s win7new memory 4096
 qvm-prefs -s win7new maxmem 4096
 ~~~
-
-R4.0:
-~~~
-qvm-prefs win7new memory 4096
-qvm-prefs win7new maxmem 4096
-~~~
-
 
 On R4.0, disable direct boot so that the VM will go through the standard cdrom/HDD boot sequence:
 
@@ -88,14 +80,8 @@ qvm-volume extend win7new:root 25g
 
 Set the debug flag in order to have a graphical console:
 
-R3.2:
 ~~~
 qvm-prefs -s win7new debug true
-~~~
-
-R4.0:
-~~~
-qvm-prefs win7new debug true
 ~~~
 
 The second part of the installation process will crash with the standard VGA video adapter and the VM will stay in "transient" mode with the following error in `guest-win7new-dm.log`:
@@ -138,16 +124,9 @@ The second part of Windows' installer should then be able to complete successful
 
 Decrease the VM's memory to a more reasonable value (memory balancing on Windows is unstable so keep `memory` equal to `maxmen`).
 
-R3.2:
 ~~~
 qvm-prefs -s win7new memory 2048
 qvm-prefs -s win7new maxmem 2048
-~~~
-
-R4.0:
-~~~
-qvm-prefs win7new memory 2048
-qvm-prefs win7new maxmem 2048
 ~~~
 
 Revert to the standard VGA adapter :
@@ -164,14 +143,8 @@ qvm-features --unset win7new video-model
 
 Finally, increase the VM's `qrexec_timeout`: in case you happen to get a BSOD or a similar crash in the VM, utilities like chkdsk won't complete on restart before qrexec_timeout automatically halts the VM. That can really put the VM in a totally unrecoverable state, whereas with higher qrexec_timeout, chkdsk or the appropriate utility has plenty of time to fix the VM. Note that Qubes Windows Tools also require a larger timeout to move the user profiles to the private volume the first time the VM reboots after the tools' installation.
 
-R3.2:
 ~~~
 qvm-prefs -s win7new qrexec_timeout 300
-~~~
-
-R4.0:
-~~~
-qvm-prefs win7new qrexec_timeout 300
 ~~~
 
 At that point you should have a functional and stable Windows VM, although without updates, Xen's PV drivers nor Qubes integration. It is a good time to clone the VM again.
@@ -183,7 +156,7 @@ Windows update
 Depending on how old your installation media is, fully updating your Windows VM may take *hours* (this isn't specific to Xen/Qubes) so make sure you clone your VM between the mandatory reboots in case something goes wrong. This [comment](https://github.com/QubesOS/qubes-issues/issues/3585#issuecomment-366471111) provides useful links on updating a Windows 7 SP1 VM.
 
 Note: if you already have Qubes Windows Tools installed the video adapter in Windows will be "Qubes video driver" and you won't be able to see the Windows Update process when the VM is being powered off because Qubes services would have been stopped by then. Depending on the size of the Windows update packs it may take a bit of time until the VM shutdowns by itself, leaving one wondering if the VM has crashed or still finalizing the updates (in dom0 a changing CPU usage - eg. shown with `xentop` - usually indicates that the VM hasn't crashed).
-To avoid guessing the VM's state enable debugging (R3.2: `qvm-prefs -s win7new debug true`, R4.0: `qvm-prefs win7new debug true`) and in Windows' device manager (My computer -> Manage / Device manager / Display adapters) temporarily re-enable the standard VGA adapter and disable "Qubes video driver". You can disable debugging and revert to Qubes' display once the VM is updated.
+To avoid guessing the VM's state enable debugging (`qvm-prefs -s win7new debug true`) and in Windows' device manager (My computer -> Manage / Device manager / Display adapters) temporarily re-enable the standard VGA adapter and disable "Qubes video driver". You can disable debugging and revert to Qubes' display once the VM is updated.
 
 
 Xen PV drivers + Qubes integration
@@ -207,14 +180,8 @@ Installing Qubes Windows Tools:
 
 With Qubes Windows Tools installed the early graphical console provided in debugging mode isn't needed anymore since Qubes' display driver will be used instead of the default VGA driver:
 
-R3.2:
 ~~~
 qvm-prefs -s win7new debug false
-~~~
-
-R4.0:
-~~~
-qvm-prefs win7new debug false
 ~~~
 
 
