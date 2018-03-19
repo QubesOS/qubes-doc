@@ -233,16 +233,16 @@ Convert vmdk to raw:
 qemu-img convert -O raw *.vmdk win10.raw
 ~~~
 
-Create new HVM in Dom0, with amount of RAM in MB you wish:
+Copy the root image file to a temporary location in Dom0:
 
 ~~~
-qvm-create --hvm win10 --label red --mem=4096
+qvm-run --pass-io untrusted 'cat "/media/user/externalhd/win10.raw"' > /home/user/win10-root.img
 ~~~
 
-Copy file to Dom0:
+Create a new HVM in Dom0 with the root image we just copied to Dom0 (change the amount of RAM in GB as you wish):
 
 ~~~
-qvm-run --pass-io untrusted 'cat "/media/user/externalhd/win10.raw"' > /var/lib/qubes/appvms/win10/root.img
+qvm-create --hvm win10 --label red --mem=4096 --root-move-from /home/user/win10-root.img
 ~~~
 
 Start win10 VM:
