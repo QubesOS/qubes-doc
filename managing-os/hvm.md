@@ -75,7 +75,7 @@ Even though we do have a small DHCP server that runs inside HVM untrusted stub d
 
 In order to manually configure networking in a VM, one should first find out the IP/netmask/gateway assigned to the particular VM by Qubes. This can be seen e.g. in the Qubes Manager in the VM's properties:
 
-[![r2b1-win7-installing.png](/attachment/wiki/HvmCreate/r2b1-win7-installing.png)](/attachment/wiki/HvmCreate/r2b1-win7-installing.png)
+![r2b1-manager-networking-config.png](/attachment/wiki/HvmCreate/r2b1-manager-networking-config.png)
 
 Alternatively, one can use the `qvm-ls -n` command to obtain the same information and configure the networking within the HVM according to those settings (IP/netmask/gateway).
 
@@ -200,7 +200,7 @@ HVM domains (including Windows VMs) can be [assigned PCI devices](/doc/assigning
 
 One problem at the moment however, is that after the whole system gets suspended into S3 sleep and subsequently resumed, some attached devices may stop working and should be restarted within the VM. This can be achieved under a Windows HVM by opening the Device Manager, selecting the actual device (such as a USB controller), 'Disabling' the device, and then 'Enabling' the device again. This is illustrated on the screenshot below:
 
-[![r2b1-my-new-vm-usb-disable.png](/attachment/wiki/HvmCreate/r2b1-my-new-vm-usb-disable.png)](/attachment/wiki/HvmCreate/r2b1-my-new-vm-usb-disable.png)
+![r2b1-win7-usb-disable.png](/attachment/wiki/HvmCreate/r2b1-win7-usb-disable.png)
 
 Converting VirtualBox VM to HVM
 -------------------------------
