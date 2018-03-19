@@ -225,11 +225,11 @@ In order to re-enable the device in dom0, either:
 or
 
  *  Go to the sysfs (`/sys/bus/pci`), find the right device, detach it from the pciback driver, and attach it back to the original driver. 
-    Replace `<BDF>` with your device, for example `00:1c.2`:
+    Replace `<BDF>` with your full device, for example `0000:00:1c.2`:
 
     ~~~
-    echo 0000:<BDF> > /sys/bus/pci/drivers/pciback/unbind
-    MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
+    echo <BDF> > /sys/bus/pci/drivers/pciback/unbind
+    MODALIAS=`cat /sys/bus/pci/devices/<BDF>/modalias`
     MOD=`modprobe -R $MODALIAS | head -n 1`
     echo <BDF> > /sys/bus/pci/drivers/$MOD/bind 
     ~~~
