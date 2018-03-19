@@ -36,7 +36,7 @@ You can manually create new entries in the "available applications" list of shor
 To do this:
 
 1. Open a terminal window to the TemplateVM.
-2. Create a custom `.desktop` file in `/usr/local/share/applications` (you may need to first create the subdirectory).
+2. Create a custom `.desktop` file in `/usr/share/applications` (you may need to first create the subdirectory).
    Look in `/usr/share/applications` for existing examples, or see the full [file specification](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html).
    It will be something like:
    ```
