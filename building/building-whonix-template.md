@@ -40,6 +40,28 @@ make install-deps
 make get-sources
 ~~~
 
+You will often need to edit/update `qubes-src/template-whonix/builder.conf` at this stage to specify the currently shipping Tor Browser version.
+Open it in your favorite editor, then look for "Extra Whonix Build Options" and add/edit the `WHONIX_TBB_VERSION` variable to specify the current version.
+For example:
+
+```
+################################################################################
+# Extra Whonix Build Options
+################################################################################
+
+# Whonix repository.
+WHONIX_APT_REPOSITORY_OPTS ?= stable
+#WHONIX_APT_REPOSITORY_OPTS = off
+
+# Use turbo mode to build template
+BUILDER_TURBO_MODE ?= 1
+
+# Enable Tor by default (0: disable; 1: enable)
+WHONIX_ENABLE_TOR ?= 0
+
+WHONIX_TBB_VERSION ?= 7.5.2
+```
+
 Finally, use:
 
 ~~~
