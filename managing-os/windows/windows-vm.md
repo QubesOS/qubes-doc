@@ -53,7 +53,7 @@ Windows' installer requires a significant amount of memory or else the VM will c
 > (XEN) domain_crash called from p2m-pod.c:1218
 > (XEN) Domain 120 (vcpu#0) crashed on cpu#3:
 
-So, increase the VM's memory to 4096Mo (memory = maxmem because we don't use memory balancing).
+So, increase the VM's memory to 4096MB (memory = maxmem because we don't use memory balancing).
 
 ~~~
 qvm-prefs -s win7new memory 4096
@@ -66,7 +66,7 @@ On R4.0, disable direct boot so that the VM will go through the standard cdrom/H
 qvm-prefs win7new kernel ''
 ~~~
 
-A typical Windows 7 installation requires between 15Go up to 19Go of disk space depending on the version (Home/Professional/...). Windows updates also end up using significant space. So, extend the root volume from the default 10Go to 25Go (note: it is straightforward to increase the root volume size after Windows is installed: simply extend the volume again in dom0 and then extend the system partition with Windows's disk manager).
+A typical Windows 7 installation requires between 15GB up to 19GB of disk space depending on the version (Home/Professional/...). Windows updates also end up using significant space. So, extend the root volume from the default 10GB to 25GB (note: it is straightforward to increase the root volume size after Windows is installed: simply extend the volume again in dom0 and then extend the system partition with Windows's disk manager).
 
 R3.2:
 ~~~
