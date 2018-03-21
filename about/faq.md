@@ -489,6 +489,18 @@ More examples can be found by searching for "Failed to synchronize cache for rep
 
 ## Developers
 
+### Are there restrictions on the software that the Qubes developers are willing to use?
+
+Yes.
+In general, the Qubes developers will not use a piece of software unless there is an *easy* way to verify both its **integrity** and **authenticity**, preferably via PGP signatures (see [Verifying Signatures](/security/verifying-signatures/)).
+Specifically:
+
+ * If PGP signatures are used, the signing key(s) should have well-publicized fingerprint(s) verifiable via multiple independent channels or be accessible to the developers through a web of trust.
+ * If the software is security-sensitive and requires communication with the outside world, a "split" implementation is highly preferred (for examples, see [Split GPG](/doc/split-gpg/) and [Split Bitcoin](/doc/split-bitcoin/)).
+ * If the software has dependencies, these should be packaged and available in repos for a [current, Qubes-supported version](/doc/supported-versions/#templatevms) of Fedora (preferred) or Debian (unless all the insecure dependencies can run in an untrusted VM in a "split" implementation).
+ * If the software must be built from source, the source code and any builders must be signed.
+   (Practically speaking, the more cumbersome and time-consuming it is to build from source, the less likely the developers are to use it.)
+
 ### Why does dom0 need to be 64-bit?
 
 Since 2013 [Xen has not supported 32-bit x86 architecture](https://wiki.xenproject.org/wiki/Xen_Project_Release_Features) and Intel VT-d, which Qubes uses to isolate devices and drivers, is available on Intel 64-bit processors only.
