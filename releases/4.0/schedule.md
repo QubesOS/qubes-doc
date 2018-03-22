@@ -26,3 +26,4 @@ This schedule is based on [Version Scheme](/doc/version-scheme/#release-schedule
 | 27 Feb 2018 | current-testing freeze before 4.0-rc5 |
 |  6 Mar 2018 | 4.0-rc5 release |
 | 20 Mar 2018 | decide whether 4.0-rc5 is the final 4.0 |
+| 28 Mar 2018 | final 4.0 release |
