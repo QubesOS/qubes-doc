@@ -102,6 +102,20 @@ This package is pulled in as part of a Recommend chain, and can be purged.
 The lesson is that you should carefully look at what is being installed to your system, particularly if you run dist-upgrade. 
 
 
+### Package installation errors in Qubes 4.0
+
+By default, templates in 4.0 only have a loopback interface.
+
+Some packages will thow an error on installation in this situation. For example, Samba expects to be configured using a network interface post installation.
+
+One solution is to add a dummy interface to allow the package to install correctly:
+
+    ip link add d0 type dummy    
+    ip addr add 192.168.0.1/24 dev d0
+    ip link set d0 up
+
+
+
 Contributing
 ----------------
 
