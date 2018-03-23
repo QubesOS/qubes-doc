@@ -56,9 +56,6 @@ See this [table](https://grox.net/utils/encoding.html).
     export http_proxy=http://proxy.example.com:8080
     export https_proxy=http://proxy.example.com:8443
     export ftp_proxy=http://proxy.example.com:10021
-    export HTTP_PROXY=http://proxy.example.com:8080
-    export HTTPS_PROXY=http://proxy.example.com:8443
-    export FTP_PROXY=http://proxy.example.com:10021
     ~~~
     Here we use the fully qualified domain names instead of the proxy IP.
 
