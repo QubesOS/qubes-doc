@@ -48,34 +48,6 @@ In order to permanently install new software, you should:
     You don't need to restart all of them at the same time -- e.g. if you just need the newly installed software to be available in your 'personal' domain, then restart only this VM.
     You can restart others whenever this will be convenient to you.
 
-### Updating over Tor ###
-
-Requires installed [Whonix](/doc/privacy/whonix/).
-
-If you set the UpdateVM to a Whonix-Gateway proxyVM (e.g sys-whonix) or an updateVM that is downstream from a  Whonix-Gateway, then template updates will run over Tor.
-
-In 3.2 you can set this in Qubes Manager:
-
-Go to Qubes VM Manager -> System -> Global Settings. See the UpdateVM setting. Choose your desired Whonix-Gateway ProxyVM from the list. For example: sys-whonix.
-
-    Qubes VM Manager -> System -> Global Settings -> UpdateVM -> sys-whonix
-
-In 4.0 use the 'qubes-global-settings' tool in dom0
-
-N.B Update checking occurs from running qubes, not from templates.
-This means that if you have a qube that is NOT attached to a Whonix-Gateway, then the check for updates will run over clearnet.
-This runs the risk of leaking information about the packages that you have installed in templates.
-You can guard against this by turning off automatic update checking:
-
-In 3.2 you can do this globally from Qubes Manager, or on qube-by-qube basis using qvm-service to disable the qubes-update-check service.
-
-    qvm-service --disable <qube> qubes-update-check
-
-In 4.0 you can do this globally using qubes-global-settings, or on qube-by-qube basis using qvm-service to disable the qubes-update-check.timer service.
-
-    qvm-service --disable <qube> qubes-update-check.timer
-
-
 Testing repositories
 --------------------
 

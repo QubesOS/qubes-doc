@@ -151,5 +151,3 @@ Requires installed [Whonix](/doc/privacy/whonix/).
 Go to Qubes VM Manager -> System -> Global Settings. See the UpdateVM setting. Choose your desired Whonix-Gateway ProxyVM from the list. For example: sys-whonix.
 
     Qubes VM Manager -> System -> Global Settings -> UpdateVM -> sys-whonix
-
-If the UpdateVM is set to sys-whonix then checks for updates to dom0 will also use sys-whonix, and will therefore be torified.
