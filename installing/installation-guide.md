@@ -52,6 +52,7 @@ so, for whatever reason. Always verify the digital signature on the downloaded
 ISO. Make sure to read our guide on [verifying signatures] for more info about
 how to download and verify our PGP keys and verify the downloaded ISO.
 
+**Note:** The Qubes R4.0 ISO is large, so if you are using R3.2 to download it you may need to [increase the private storage](https://www.qubes-os.org/doc/resize-disk-image/#expand-disk-image-r32) available to the AppVM.
 
 Copying the ISO onto the installation medium
 --------------------------------------------
