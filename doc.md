@@ -265,6 +265,7 @@ Building
  * [Building Qubes Templates](https://github.com/QubesOS/qubes-template-configs)
  * [Building a TemplateVM based on a new OS (ArchLinux example)](/doc/building-non-fedora-template/)
  * [Building the Archlinux Template](/doc/building-archlinux-template/)
+ * [Building the Whonix Templates](/doc/building-whonix-template/)
  * [How to compile kernels for dom0](https://groups.google.com/d/topic/qubes-users/yBeUJPwKwHM/discussion)
 
 Releases
