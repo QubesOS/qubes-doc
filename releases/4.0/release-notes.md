@@ -14,7 +14,7 @@ New features since 3.2
 * [Admin API][admin-api] allowing strictly controlled managing from non-dom0
 * All `qvm-*` command-line tools rewritten, some options have changed
 * Renaming VM directly is prohibited, there is GUI to clone under new name and remove old VM
-* Use [PVH][qsb-37] and [HVM][hvm-switch] by default to lower the [attack surface on Xen][qsb-24] and [mitigate Meltdown & Spectre][qsb-37]
+* Use [PVH][qsb-37] and [HVM][hvm-switch] by default to [mitigate Meltdown & Spectre][qsb-37] and lower the [attack surface on Xen][qsb-24]
 * Create USB VM by default
 * [Multiple Disposable VMs templates support][dispvm-ticket]
 * New [backup format][backup-format] using scrypt key-derivation function
@@ -26,6 +26,7 @@ New features since 3.2
 * More flexible IP addressing for VMs - [custom IP][custom-ip], [hidden from the IP][hide-ip]
 * More flexible Qubes RPC policy - [related ticket][qrexec-policy-keywords], [documentation][qrexec-doc]
 * [New Qubes RPC confirmation window][qrexec-confirm], including option to specify destination VM
+* [New storage subsystem design][storage]
 * Dom0 update to Fedora 25 for better hardware support
 * Kernel 4.9.x
 
@@ -80,6 +81,7 @@ We also provide [detailed instruction][upgrade-to-r4.0] for this procedure.
 [qrexec-policy-keywords]: https://github.com/QubesOS/qubes-issues/issues/865
 [qrexec-confirm]: https://github.com/QubesOS/qubes-issues/issues/910
 [qrexec-doc]: /doc/qrexec3/#extra-keywords-available-in-qubes-40-and-later
+[storage]: https://github.com/QubesOS/qubes-issues/issues/1842
 [vm-interface]: /doc/vm-interface/
 [admin-api]: /news/2017/06/27/qubes-admin-api/
 [qsb-24]: https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-024-2016.txt
