@@ -42,6 +42,10 @@ Security Notes
 Known issues
 ------------
 
+* Locale using coma as decimal separator [crashes qubesd][locale-bug]. Either install with different locale (English for example), or manually apply fix explained in that issue.
+
+* In the middle of installation, [keyboard layout reset to US][keyboard-layout-bug]. Be careful what is the current layout while setting default user password (see upper right screen corner).
+
 * On some laptops (for example Librem 15v2), touchpad do not work directly after installation. Reboot the system to fix the issue.
 
 * List of USB devices may contain device identifiers instead of name
@@ -89,3 +93,5 @@ We also provide [detailed instruction][upgrade-to-r4.0] for this procedure.
 [backup-format]: /doc/backup-emergency-restore-v4/
 [api-doc]: https://dev.qubes-os.org/projects/qubes-core-admin/en/latest/
 [upgrade-to-r4.0]: /doc/upgrade-to-r4.0/
+[locale-bug]: https://github.com/QubesOS/qubes-issues/issues/3753
+[keyboard-layout-bug]: https://github.com/QubesOS/qubes-issues/issues/3352
