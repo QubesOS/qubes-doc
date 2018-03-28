@@ -14,7 +14,7 @@ New features since 3.2
 * [Admin API][admin-api] allowing strictly controlled managing from non-dom0
 * All `qvm-*` command-line tools rewritten, some options have changed
 * Renaming VM directly is prohibited, there is GUI to clone under new name and remove old VM
-* [Use HVM by default][hvm-switch] to lower [attack surface on Xen][qsb-24]
+* Use [PVH][qsb-37] and [HVM][hvm-switch] by default to lower the [attack surface on Xen][qsb-24] and [mitigate Meltdown & Spectre][qsb-37]
 * Create USB VM by default
 * [Multiple Disposable VMs templates support][dispvm-ticket]
 * New [backup format][backup-format] using scrypt key-derivation function
@@ -83,7 +83,7 @@ We also provide [detailed instruction][upgrade-to-r4.0] for this procedure.
 [vm-interface]: /doc/vm-interface/
 [admin-api]: /news/2017/06/27/qubes-admin-api/
 [qsb-24]: https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-024-2016.txt
-[qsb-37]: https://www.qubes-os.org/news/2018/01/24/qsb-37-update/
+[qsb-37]: https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt
 [backup-format]: /doc/backup-emergency-restore-v4/
 [api-doc]: https://dev.qubes-os.org/projects/qubes-core-admin/en/latest/
 [upgrade-to-r4.0]: /doc/upgrade-to-r4.0/
