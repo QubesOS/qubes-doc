@@ -42,7 +42,7 @@ Security Notes
 Known issues
 ------------
 
-* Locale using coma as decimal separator [crashes qubesd][locale-bug]. Either install with different locale (English for example), or manually apply fix explained in that issue.
+* Locale using coma as decimal separator [crashes qubesd][locale-bug]. Either install with different locale (English (United States) for example), or manually apply fix explained in that issue.
 
 * In the middle of installation, [keyboard layout reset to US][keyboard-layout-bug]. Be careful what is the current layout while setting default user password (see upper right screen corner).
 
