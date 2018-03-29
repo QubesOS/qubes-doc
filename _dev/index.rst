@@ -1,15 +1,7 @@
 Welcome to Qubes OS developer's documentation!
 ==============================================
 
-Contents:
+Please choose specific repostitory:
 
-.. toctree::
-   :maxdepth: 2
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+* `core-admin </projects/core-admin>`_
+* `core-admin-client </projects/core-admin-client>`_
