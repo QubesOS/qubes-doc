@@ -22,13 +22,21 @@ You will want to complete the following instructions in both the **Whonix-Gatewa
 
 ### Configuring Whonix-Gateway
 
-Launch the `dom0` terminal app `Konsole` from your Qubes App Launcher. Then get a list of current kernel parameters.
+Launch the `dom0` terminal app `Konsole (konsole)` or `Terminal emulator (xfce4-terminal)` from your Qubes App Launcher. Then get a list of current kernel parameters.
+
+In Qubes version 3 releases you have to do this with
 
 ~~~
 qvm-prefs -l whonix-gw kernelopts
 ~~~
 
-As of Qubes Q3 RC1, this will show: `nopat`
+If you are using the new Qubes version 4 releases
+
+~~~
+qvm-prefs --g whonix-gw kernelopts
+~~~
+
+As of Qubes Q3 RC1 and Q4 RC1, this will show: `nopat`
 
 Keep those existing kernel parameters and add `apparmor=1 security=apparmor` by entering:
 
@@ -39,7 +47,11 @@ qvm-prefs -s whonix-gw kernelopts "nopat apparmor=1 security=apparmor"
 When running the command to get a list of current kernel parameters again (just hit the arrow up key twice, so you don't have to type the command again).
 
 ~~~
-qvm-prefs -l whonix-gw kernelopts
+qvm-prefs -l whonix-gw kernelopts #For releases of version 3
+~~~
+
+~~~
+qvm-prefs -g whonix-gw kernelopts #For releases of version 4
 ~~~
 
 It should show the old and the new kernel parameters. For example:
@@ -60,8 +72,16 @@ It should show: `0`
 
 In `dom0` terminal Konsole, get a list of current kernel parameters.
 
+For Qubes version 3
+
 ~~~
 qvm-prefs -l whonix-ws kernelopts
+~~~
+
+For Qubes version 4
+
+~~~
+qvm-prefs -g whonix-ws kernelopts
 ~~~
 
 In current version of Qubes, this will show `nopat` as a response. To keep those existing kernel parameters and add `apparmor=1 security=apparmor` do the following:
@@ -72,8 +92,16 @@ qvm-prefs -s whonix-ws kernelopts "nopat apparmor=1 security=apparmor"
 
 When running the command to get a list of current kernel parameters again (just hit the arrow up key twice, so you don't have to type the command again).
 
+For Qubes version 3
+
 ~~~
 qvm-prefs -l whonix-ws kernelopts
+~~~
+
+For Qubes version 4
+
+~~~
+qvm-prefs -g whonix-ws kernelopts
 ~~~
 
 It should show the old and the new kernel parameters. For example:<br />
