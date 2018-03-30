@@ -46,9 +46,13 @@ qvm-prefs -s whonix-gw kernelopts "nopat apparmor=1 security=apparmor"
 
 When running the command to get a list of current kernel parameters again (just hit the arrow up key twice, so you don't have to type the command again).
 
+For Qubes version 3
+
 ~~~
 qvm-prefs -l whonix-gw kernelopts #For releases of version 3
 ~~~
+
+For Qubes version 4
 
 ~~~
 qvm-prefs -g whonix-gw kernelopts #For releases of version 4
