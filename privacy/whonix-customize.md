@@ -33,7 +33,7 @@ qvm-prefs -l whonix-gw kernelopts
 If you are using the new Qubes version 4 releases
 
 ~~~
-qvm-prefs --g whonix-gw kernelopts
+qvm-prefs -g whonix-gw kernelopts
 ~~~
 
 As of Qubes Q3 RC1 and Q4 RC1, this will show: `nopat`
