@@ -95,15 +95,15 @@ Here are the answers for Xen 4.1 (which we use as of 2014-04-28):
 
 ### Which virtualization modes do VMs use?
 
-Here is an overview of the VM virtualization modes that correspond to each Qubes OS version (as of 2018-01-13):
+Here is an overview of the VM virtualization modes that correspond to each currently-supported Qubes OS version (as of 2018-03-28):
 
-VM type \ Qubes OS version         | 3.2 | 4.0-rc1-3 | 4.0-rc4 |
----------------------------------- | --- | --------- | ------- |
-Default VMs without PCI devices    | PV  |    HVM    |   PVH   |
-Default VMs with PCI devices       | PV  |    HVM    |   HVM   |
-Stub domains - Default VMs w/o PCI | N/A |    PV     |   N/A   |
-Stub domains - Default VMs w/ PCI  | N/A |    PV     |   PV    |
-Stub domains - HVMs                | PV  |    PV     |   PV    |
+VM type \ Qubes OS version                 | 3.2 | 4.0 |
+------------------------------------------ | --- | --- |
+Default VMs without PCI devices (most VMs) | PV  | PVH |
+Default VMs with PCI devices               | PV  | HVM |
+Stub domains - Default VMs w/o PCI devices | N/A | N/A |
+Stub domains - Default VMs w/ PCI devices  | N/A | PV  |
+Stub domains - HVMs                        | PV  | PV  |
 
 ### What's so special about Qubes' GUI virtualization?
 
