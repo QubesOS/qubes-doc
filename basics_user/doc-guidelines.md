@@ -191,8 +191,18 @@ Once you foo, make sure to close the baz before fooing the next bar.
 ```
 
 [Here][version-example] is a good example of a page that is correctly subdivided to account for version-specific differences.
-Clearly subdividing the page into clearly-labeled sections for each version has several benefits:
+Subdividing the page into clearly-labeled sections for each version has several benefits:
 
+ * It preserves good content for older (but still supported) versions.
+   Many documentation contributors are also people who prefer to use the latest version.
+   Many of them are tempted to *replace* existing content that applies to an older, supported version with content that applies only to the latest version.
+   This is somewhat understandable.
+   Since they only use the latest version, they may be focused on their own experience, and they may even regard the older version as deprecated, even when it's actually still supported.
+   However, allowing this replacement of content would do a great disservice to those who still rely on the older, supported version.
+   In many cases, these users value the stability and reliability of the older, supported version.
+   With the older, supported version, there has been more time to fix bugs and make improvements in both the software and the documentation.
+   Consequently, much of the documentation content for this version may have gone through several rounds of editing, review, and revision.
+   It would be a tragedy for this content to vanish while the very set of users who most prize stability and reliability are depending on it.
  * It's easy for readers to quickly find the information they're looking for, since they can go directly to the section that applies to their version.
  * It's hard for readers to miss information they need, since it's all in one place.
    In the incorrect example, information that the reader needs could be in any paragraph in the entire document, and there's no way to tell without reading the entire page.
