@@ -254,7 +254,7 @@ Take a look at the `dkms` documentation, especially the `dkms autoinstall` comma
 If you did not see the `kernel` install rebuild your initramfs, or are using a manually built kernel, you will need to rebuild it yourself with the following:
 
 ~~~
-sudo dracut -H -f /boot/initramfs-$(uname -r).img $(uname -r)
+sudo dracut -f /boot/initramfs-$(uname -r).img $(uname -r)
 ~~~
 
 Once the kernel is installed, you need to create a GRUB configuration. 
