@@ -11,19 +11,9 @@ How to Reinstall a TemplateVM
 
 If you suspect your [TemplateVM] is broken, misconfigured, or compromised, you can reinstall any TemplateVM that was installed from the Qubes repository.
 
-The procedure varies by Qubes version and UpdateVM's distribution; see the appropriate section below.
+The procedure varies by Qubes version; see the appropriate section below.
 
-To determine your UpdateVM's distribution:
-
-1. Go to a `dom0` terminal prompt.
-2. Enter `qubes-prefs` and look for `updatevm`.
-3. Enter `qvm-prefs <UpdateVMName>` and look for `template`.
-
-This will typically be either `debian-9`, `fedora-26`, or `whonix-gw`.
-In the case of `whonix-gw`, refer to the Debian based UpdateVM method.
- 
-
-Manual Reinstallation Method (Fedora based UpdateVM, R3.1+)
+Automated Reinstallation Method (R3.1+)
 ----------------------------
 
 First, copy any files that you wish to keep from the TemplateVM's `/home` and `/rw` folders to a safe storage location.
@@ -38,6 +28,8 @@ Only one template can be reinstalled at a time.
 Note that Qubes may initially refuse to perform the reinstall if the exact revision of the template package on your system is no longer in the Qubes online repository.
 In this case, you can specify `upgrade` as the action instead and the newer version will be used. 
 The other `dnf` package actions that are supported in addition to `reinstall` and `upgrade` are `upgrade-to` and `downgrade`.
+Note that the `upgrade`, `upgrade-to`, and `downgrade` commands are only supported under Fedora based UpdateVMs.
+If you receive a message about them being unsupported, review the manual reinstallation method below.
 
 **Reminder:** If you're trying to reinstall a template that is not in an enabled repo, you must enable that repo.
 For example:
@@ -47,7 +39,7 @@ For example:
 **Note:** VMs that are using the reinstalled template will not be affected until they are restarted.
 
 
-Manual Reinstallation Method (Debian based UpdateVM, R3.1+)
+Manual Reinstallation Method (R3.1+)
 ----------------------------
 
 In what follows, the term "target TemplateVM" refers to whichever TemplateVM you want to reinstall.
