@@ -80,24 +80,30 @@ Debian also has three Qubes VM testing repositories (where `*` denotes the Relea
 
 To enable or disable any of these repos permanently, uncomment the corresponding `deb` line in `/etc/apt/sources.list.d/qubes-r*.list`
 
-Reverting changes to a TemplateVM (R4.0)
----------------------------------
-
-Qubes 4.0 uses a CoW system that permits snapshotting.
-Reversion functionality is still being developed at the time of writing.
-See [issue #3256](https://github.com/QubesOS/qubes-issues/issues/3256) for details.
-
-Reverting changes to a TemplateVM (R3.2)
+Reverting changes to a TemplateVM
 ---------------------------------
 
 Perhaps you've just updated your TemplateVM, and the update broke your template.
 Or perhaps you've made a terrible mistake, like accidentally confirming the installation of an unsigned package that could be malicious.
-Fortunately, it's easy to revert changes to TemplateVMs using the `qvm-revert-template-changes` command.
+Fortunately, it's easy to revert changes to TemplateVMs using the command appropriate to your version of Qubes.
 
 **Important:** This command will roll back any changes made *during the last time the TemplateVM was run, but **not** before.*
 This means that if you have already restarted the TemplateVM, using this command is unlikely to help, and you'll likely want to reinstall it from the repository instead.
 On the other hand, if the template is already broken or compromised, it won't hurt to try reverting first.
 Just make sure to **back up** all of your data and changes first!
+
+**R4.0**
+
+For example, to revert changes to the `fedora-26` TemplateVM:
+
+1. Shut down all VMs based on `fedora-26`.
+2. Shut down `fedora-26`.
+   If you've already just shut it down, do **not** start it again (see above).
+3. In a dom0 terminal, type:
+
+        qvm-volume revert fedora-26:root
+
+**R3.2**
 
 For example, to revert changes to the `fedora-23` TemplateVM:
 
