@@ -19,31 +19,34 @@ You want to store a subset of your AppVMs on the HDD.
 Qubes 4.0 is more flexible than earlier versions about placing different VMs on different disks. 
 For example, you can keep templates on one disk and AppVMs on another, without messy symlinks.
 
-Assuming you have already created a separate [volume group](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/logical_volume_manager_administration/vg_admin#VG_create) and [thin pool](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/logical_volume_manager_administration/thinly_provisioned_volume_creation) (not thin volume) for your HDD, first collect some information in a dom0 terminal:
+These steps assume you have already created a separate [volume group](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/logical_volume_manager_administration/vg_admin#VG_create) and [thin pool](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/logical_volume_manager_administration/thinly_provisioned_volume_creation) (not thin volume) for your HDD.
+See also [this example](https://www.linux.com/blog/how-full-encrypt-your-linux-system-lvm-luks) if you would like to create an encrypted LVM pool (but note you can use a single logical volume if preferred, and to use the `-T` option on `lvcreate` to specify it is thin).
+
+First, collect some information in a dom0 terminal:
 
     sudo pvs
     sudo lvs
 
 Take note of the VG and thin pool names for your HDD, then register it with Qubes:
 
-    # pool_name is a freely chosen pool name
-    # vg_name is LVM volume group name
-    # thin_pool_name is LVM thin pool name
-    qvm-pool --add pool_name lvm_thin -o volume_group=vg_name,thin_pool=thin_pool_name
+    # <pool_name> is a freely chosen pool name
+    # <vg_name> is LVM volume group name
+    # <thin_pool_name> is LVM thin pool name
+    qvm-pool --add <pool_name> lvm_thin -o volume_group=<vg_name>,thin_pool=<thin_pool_name>,revisions_to_keep=2
     
 Now, you can create qubes in that pool:
 
-    qvm-create -P pool_name --label red vmname
+    qvm-create -P <pool_name> --label red <vmname>
 
 It isn't possible to directly migrate an existing qube to the new pool, but you can clone it there, then remove the old one:
 
-    qvm-clone -P pool_name old_name new_name
-    qvm-remove old_name
+    qvm-clone -P <pool_name> <sourceVMname> <cloneVMname>
+    qvm-remove <sourceVMname>
 
 If that was a template, or other qube referenced elsewhere (NetVM or such), you will need to adjust those references manually after moving.
 For example:
 
-    qvm-prefs appvm_based_on_old_name_template template new_name
+    qvm-prefs <appvmname_based_on_old_template> template <new_template_name>
 
 In theory, you can still use file-based disk images ("file" pool driver), but it lacks some features such as you won't be able to do backups without shutting down the qube.
 
@@ -51,8 +54,8 @@ In theory, you can still use file-based disk images ("file" pool driver), but it
 
 In dom0:
 
-    mv /var/lib/qubes/appvms/my-new-appvm /path/to/secondary/drive/my-new-appvm
-    ln -s /path/to/secondary/drive/my-new-appvm /var/lib/qubes/appvms/
+    mv /var/lib/qubes/appvms/<my-new-appvm> /path/to/secondary/drive/<my-new-appvm>
+    ln -s /path/to/secondary/drive/<my-new-appvm> /var/lib/qubes/appvms/
 
 Now, `my-new-appvm` will behave as if it were still stored on the primary SSD (except that it will probably be slower, since it's actually stored on the secondary HDD).
 
