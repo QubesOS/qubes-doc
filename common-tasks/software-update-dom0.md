@@ -130,7 +130,7 @@ your system uses.
 
 EFI
 ~~~
-sudo dracut -H -f /boot/efi/EFI/qubes/initramfs-$(uname -r).img $(uname -r)
+sudo dracut -f /boot/efi/EFI/qubes/initramfs-$(uname -r).img $(uname -r)
 ~~~
 
 Grub2
