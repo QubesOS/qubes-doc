@@ -66,6 +66,14 @@ Of course, command line tools are still available for accomplishing various upda
     sudo dnf downgrade package-version
     ~~~
 
+For example, to downgrade Xen to a specific older version available for Qubes R3.2, you would:
+
+~~~
+sudo qubes-dom0-update xen-libs-4.6.6-36.fc23.x86_64 xen-hypervisor-4.6.6-36.fc23.x86_64 xen-runtime-4.6.6-36.fc23.x86_64 xen-hvm-4.6.6-36.fc23.x86_64 xen-4.6.6-36.fc23.x86_64 xen-license-4.6.6-36.fc23.x86_64
+
+sudo dnf downgrade xen-libs-4.6.6-36.fc23.x86_64 xen-hypervisor-4.6.6-36.fc23.x86_64 xen-runtime-4.6.6-36.fc23.x86_64 xen-hvm-4.6.6-36.fc23.x86_64 xen-4.6.6-36.fc23.x86_64 xen-license-4.6.6-36.fc23.x86_64
+~~~
+
 ### How to re-install a package
 
 You can re-install in a similar fashion to downgrading.
