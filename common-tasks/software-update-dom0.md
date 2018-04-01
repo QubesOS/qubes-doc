@@ -52,6 +52,8 @@ Of course, command line tools are still available for accomplishing various upda
 
 ### How to downgrade a specific package
 
+**WARNING:** Downgrading a package can expose your system to security vulnerabilities.
+
 1.  Download an older version of the package:
 
     ~~~
