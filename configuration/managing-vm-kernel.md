@@ -251,10 +251,10 @@ You need to also ensure you have the `kernel-devel` package for the same kernel 
 If you are using a distribution kernel package (`kernel` package), the initramfs and kernel modules may be handled automatically. 
 If you are using a manually built kernel, you need to handle this on your own.
 Take a look at the `dkms` documentation, especially the `dkms autoinstall` command may be useful.
-If you did not see the `kernel` install rebuild your initramfs, or are using a manually built kernel, you will need to rebuild it yourself with the following (replace version numbers with those appropriate for your kernel):
+If you did not see the `kernel` install rebuild your initramfs, or are using a manually built kernel, you will need to rebuild it yourself with the following:
 
 ~~~
-dracut -f /boot/initramfs-4.14.16-200.fc26.x86_64.img 4.14.16-200.fc26.x86_64
+sudo dracut -f /boot/initramfs-$(uname -r).img $(uname -r)
 ~~~
 
 Once the kernel is installed, you need to create a GRUB configuration. 
