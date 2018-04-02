@@ -115,6 +115,10 @@ At the same time, due to the smart use of Xen shared memory, our GUI implementat
 
 Please refer to [this page](/doc/vm-sudo/).
 
+### Do you recommend coreboot as an alternative to vendor BIOS?
+
+Yes, where it is possible to use it an open source boot firmware ought to be more trustable than a closed source implementation.   [coreboot](https://www.coreboot.org/) is as a result a requirement for [Qubes Certified Hardware](https://www.qubes-os.org/news/2016/07/21/new-hw-certification-for-q4/). The number of machines coreboot currently supports is limited and the use of some vendor supplied blobs is generally still required. Where coreboot does support your machine and is not already installed, you will generally need additional hardware to flash it. Please see the coreboot website / their IRC channel for further information.
+
 ### How should I report documentation issues?
 
 Please see the [documentation guidelines](/doc/doc-guidelines).
