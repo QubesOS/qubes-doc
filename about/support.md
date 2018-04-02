@@ -1,8 +1,10 @@
 ---
 layout: sidebar
-title: Mailing Lists
-permalink: /mailing-lists/
+title: Help, Support, and Mailing Lists
+permalink: /support/
 redirect_from:
+- /help/
+- /mailing-lists/
 - /doc/mailing-lists/
 - /en/doc/mailing-lists/
 - /en/doc/qubes-lists/
@@ -11,10 +13,15 @@ redirect_from:
 - /wiki/QubesLists/
 ---
 
-Qubes Mailing Lists
-===================
+Help, Support, and Mailing Lists
+================================
 
-Staying Safe
+Help and support for Qubes OS is available from the [documentation] and the
+[mailing lists], which are explained below. The Qubes OS Project does not offer
+paid support services.
+
+
+Staying safe
 ------------
 
 The Qubes mailing lists are open to the public. The contents of the list are
@@ -49,6 +56,7 @@ risk giving malicious advice in signed messages to public mailing lists. Since
 every contribution to the Qubes OS Project is publicly visible and
 cryptographically signed, anyone would be in a position to [verify] that these
 came from the same keyholder.
+
 
 Discussion list guidelines
 --------------------------
@@ -116,6 +124,10 @@ guidelines.
 
 ### Specific rules and notes ###
 
+ * While the mailing lists are implemented as Google Group web forums, many
+   discussants treat them as conventional [mailing lists] rather than web
+   forums. The Qubes OS Project does not maintain a web forum apart from the
+   mailing lists.
  * Send your message to the correct list. Read the sections below to determine
    which list is correct for your message.
  * Do not [top-post].
@@ -401,6 +413,7 @@ You must be subscribed in order to post to this list.
      Google account is required in order to post through this interface.
 
 
+[mailing lists]: https://en.wikipedia.org/wiki/Electronic_mailing_list
 [Qubes team]: /team/
 [contributions]: /doc/contributing/
 [code-signing]: /doc/code-signing/
