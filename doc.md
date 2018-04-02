@@ -24,7 +24,7 @@ The Basics
  * [Screenshots](/screenshots/)
  * [Getting Started](/getting-started/)
  * [User FAQ](/faq/#users)
- * [Mailing Lists](/mailing-lists/)
+ * [Help, Support, and Mailing Lists](/support/)
  * [How to Contribute](/doc/contributing/)
 
 Security Information

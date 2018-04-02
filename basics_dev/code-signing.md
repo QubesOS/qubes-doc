@@ -133,6 +133,6 @@ Enigmail is a security addon for the Mozilla Thunderbird email client that allow
 
 [guide]: https://alexcabal.com/creating-the-perfect-gpg-keypair/
 [source code]: /doc/source-code/
-[mailing list]: /doc/mailing-lists/
+[mailing list]: /doc/support/
 [Enigmail]: https://www.enigmail.net/
 

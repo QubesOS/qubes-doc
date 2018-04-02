@@ -144,6 +144,6 @@ Getting Help
 [Rufus]: https://rufus.akeo.ie/
 [documentation]: /doc/
 [improving]: /doc/doc-guidelines/
-[mailing lists]: /doc/mailing-lists/
+[mailing lists]: /support/
 [help]: /help/
 

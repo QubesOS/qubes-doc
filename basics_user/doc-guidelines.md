@@ -295,7 +295,7 @@ Please try to write good commit messages, according to the
 [gh-fork]: https://guides.github.com/activities/forking/
 [gh-pull]: https://help.github.com/articles/using-pull-requests/
 [GitHub]: https://github.com/
-[mailing lists]: /mailing-lists/
+[mailing lists]: /support/
 [version-example]: /doc/template/fedora/upgrade-25-to-26/
 [version-thread]: https://groups.google.com/d/topic/qubes-users/H9BZX4K9Ptk/discussion
 [QSBs]: /security/bulletins/

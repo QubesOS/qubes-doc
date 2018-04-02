@@ -330,7 +330,7 @@ or
 [Qubes Security Pack]: /security/pack/
 [devel-master-key-msg]: https://groups.google.com/d/msg/qubes-devel/RqR9WPxICwg/kaQwknZPDHkJ
 [user-master-key-msg]: https://groups.google.com/d/msg/qubes-users/CLnB5uFu_YQ/ZjObBpz0S9UJ
-[mailing lists]: /mailing-lists/
+[mailing lists]: /support/
 [Release 3 Signing Key]: https://keys.qubes-os.org/keys/qubes-release-3-signing-key.asc
 [Qubes OS Keyserver]: https://keys.qubes-os.org/keys/
 

@@ -518,12 +518,12 @@ We adapted some of the language here about GSoC from the [KDE GSoC page](https:/
 [contributing]: /doc/contributing/#contributing-code
 [patches]: /doc/source-code/#how-to-send-patches
 [code-signing]: /doc/code-signing/
-[ml-devel]: /mailing-lists/#qubes-devel
+[ml-devel]: /support/#qubes-devel
 [gsoc-participate]: https://developers.google.com/open-source/gsoc/
 [gsoc-student]: https://developers.google.com/open-source/gsoc/resources/manual#student_manual
 [how-to-gsoc]: http://teom.org/blog/kde/how-to-write-a-kick-ass-proposal-for-google-summer-of-code/
 [gsoc-submit]: https://summerofcode.withgoogle.com/
-[mailing-lists]: /mailing-lists/
+[mailing-lists]: /support/
 [qubes-issues]: https://github.com/QubesOS/qubes-issues/issues
 [qubes-issues-suggested]: https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22P%3A%20minor%22%20label%3A%22help%20wanted%22
 [qubes-builder]: /doc/qubes-builder/
