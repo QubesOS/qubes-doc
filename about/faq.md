@@ -546,3 +546,7 @@ This has been achieved thanks to the careful use of Xen's stub domain feature.
 For more details about how we improved on Xen's native stub domain use, see [here](https://blog.invisiblethings.org/2012/03/03/windows-support-coming-to-qubes.html).
 
 [force_usb2]: https://www.systutorials.com/qa/1908/how-to-force-a-usb-3-0-port-to-work-in-usb-2-0-mode-in-linux
+
+### Is Secure Boot supported?
+
+Secure Boot is not supported out of the box as UEFI support in Xen is very basic. Arguably secure boot reliance on UEFI integrity is not the best design. The relevant binaries (shim.efi, xen.efi, kernel / initramfs) are not signed by the Qubes Team and secure boot has not been tested. Intel TXT (used in [Anti Evil Maid](/doc/anti-evil-maid/)) at least tries to avoid or limit trust in BIOS.
