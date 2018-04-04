@@ -94,6 +94,9 @@ make install-deps
 make get-sources
 ~~~
 
+When building the Whonix templates, you will often need to add/update the `WHONIX_TBB_VERSION` variable at this stage to specify the currently shipping Tor Browser version.
+See the related note under [Extra Whonix Build Options](/doc/building-whonix-template/).
+
 Finally, if you are making a test build, use:
 
 ~~~
@@ -164,6 +167,9 @@ make install-deps
 make get-sources
 unset GNUPGHOME
 ~~~
+
+When building the Whonix templates, you will often need to add/update the `WHONIX_TBB_VERSION` variable at this stage to specify the currently shipping Tor Browser version.
+See the related note under [Extra Whonix Build Options](/doc/building-whonix-template/).
 
 Finally, if you are making a test build, use:
 

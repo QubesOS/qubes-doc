@@ -62,6 +62,8 @@ WHONIX_ENABLE_TOR ?= 0
 WHONIX_TBB_VERSION ?= 7.5.2
 ```
 
+You can add/edit the `WHONIX_TBB_VERSION` variable in `~/qubes-builder/builder.conf` instead of this file if preferred.
+
 Finally, use:
 
 ~~~
