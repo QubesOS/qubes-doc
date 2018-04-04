@@ -143,3 +143,40 @@ Ctrl-Alt-F2), or booting from installation media in "Rescue a Qubes system" mode
 
        efibootmgr -v -c -u -L Qubes -l /EFI/qubes/xen.efi -d /dev/sda -p 1 "placeholder /mapbs /noexitboot"
 
+Installation freezes before getting to Anaconda
+-----------------------------------------------
+
+On some early, buggy UEFI implementations, you may need to disable EFI under Qubes completely.
+This can sometimes be done by switching to legacy mode in your BIOS/UEFI configuration.
+If that's not an option there, or legacy mode does not work either, you can try the following to add `efi=no-rs`.
+
+1. Follow the [steps above](/doc/uefi-troubleshooting/#change-installer-kernel-parameters-in-uefi) to edit the `[qubes-verbose]` section of your installer's `xen.cfg`.
+   You want to modify the `efi=attr=uc` setting and comment out the `mapbs` and `noexitboot` lines.
+   The end result should look like this:
+   ~~~
+   [qubes-verbose]
+   options=console=vga efi=no-rs
+   # noexitboot=1
+   # mapbs=1
+   kernel=vmlinuz inst.stage2=hd:LABEL=Qubes-R4.0-x86_64 i915.alpha_support=1
+   ramdisk=initrd.img
+   ~~~
+2. Boot the installer and continue to install as normal, until towards the end when you will receive a warning about being unable to create the EFI boot entry.
+   Click continue, but don't reboot the system at the end when prompted.
+3. Go to `tty2` (Ctrl-Alt-F2).
+4. Use your preferred text editor (`nano` works) to edit `/mnt/sysimage/boot/efi/EFI/qubes/xen.cfg`, adding the `efi=no-rs` option to the end of the `options=` line.
+   For example:
+   ~~~
+   [4.14.18-1.pvops.qubes.x86_64]
+   options=loglvl=all dom0_mem=min:1024M dom0_mem=max:4096M iommu=no-igfx ucode=scan efi=no-rs
+   ~~~
+5. Execute the following commands:
+   ~~~
+   cp -R /mnt/sysimage/boot/efi/EFI/qubes /mnt/sysimage/boot/efi/EFI/BOOT
+   mv /mnt/sysimage/boot/efi/EFI/BOOT/xen.efi /mnt/sysimage/boot/efi/EFI/BOOT/BOOTX64.efi
+   mv /mnt/sysimage/boot/efi/EFI/BOOT/xen.cfg /mnt/sysimage/boot/efi/EFI/BOOT/BOOTX64.cfg
+   ~~~
+6. Go back to `tty6` (Ctrl-Alt-F6) and click `Reboot`.
+7. Continue with setting up default templates and logging in to Qubes.
+
+Whenever there is a kernel or Xen update for Qubes, you will need to follow these [other steps above](/doc/uefi-troubleshooting/#boot-device-not-recognized-after-installing) because your system is using the fallback UEFI bootloader in `[...]/EFI/BOOT` instead of directly booting to the Qubes entry under `[...]/EFI/qubes`.
