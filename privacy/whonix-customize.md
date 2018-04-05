@@ -58,7 +58,7 @@ It should show: `0`
 
 ### Configuring Whonix-Workstation
 
-In `dom0` terminal Konsole, get a list of current kernel parameters.
+In `dom0` terminal Konsole or Terminal Emulator, get a list of current kernel parameters.
 
 ~~~
 qvm-prefs -g whonix-ws kernelopts
