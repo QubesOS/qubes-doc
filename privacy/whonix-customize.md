@@ -22,13 +22,13 @@ You will want to complete the following instructions in both the **Whonix-Gatewa
 
 ### Configuring Whonix-Gateway
 
-Launch the `dom0` terminal app `Konsole` from your Qubes App Launcher. Then get a list of current kernel parameters.
+Launch the `dom0` terminal app `Konsole (konsole)`or `Terminal Emulator (xfce4-terminal)` from your Qubes App Launcher. Then get a list of current kernel parameters.
 
 ~~~
-qvm-prefs -l whonix-gw kernelopts
+qvm-prefs -g whonix-gw kernelopts
 ~~~
 
-As of Qubes Q3 RC1, this will show: `nopat`
+In Qubes 3.2 and 4.0, this will show: `nopat`
 
 Keep those existing kernel parameters and add `apparmor=1 security=apparmor` by entering:
 
@@ -39,7 +39,7 @@ qvm-prefs -s whonix-gw kernelopts "nopat apparmor=1 security=apparmor"
 When running the command to get a list of current kernel parameters again (just hit the arrow up key twice, so you don't have to type the command again).
 
 ~~~
-qvm-prefs -l whonix-gw kernelopts
+qvm-prefs -g whonix-gw kernelopts
 ~~~
 
 It should show the old and the new kernel parameters. For example:
@@ -58,10 +58,10 @@ It should show: `0`
 
 ### Configuring Whonix-Workstation
 
-In `dom0` terminal Konsole, get a list of current kernel parameters.
+In `dom0` terminal Konsole or Terminal Emulator, get a list of current kernel parameters.
 
 ~~~
-qvm-prefs -l whonix-ws kernelopts
+qvm-prefs -g whonix-ws kernelopts
 ~~~
 
 In current version of Qubes, this will show `nopat` as a response. To keep those existing kernel parameters and add `apparmor=1 security=apparmor` do the following:
@@ -73,7 +73,7 @@ qvm-prefs -s whonix-ws kernelopts "nopat apparmor=1 security=apparmor"
 When running the command to get a list of current kernel parameters again (just hit the arrow up key twice, so you don't have to type the command again).
 
 ~~~
-qvm-prefs -l whonix-ws kernelopts
+qvm-prefs -g whonix-ws kernelopts
 ~~~
 
 It should show the old and the new kernel parameters. For example:<br />
