@@ -28,7 +28,7 @@ Launch the `dom0` terminal app `Konsole (konsole)`or `Terminal Emulator (xfce4-t
 qvm-prefs -g whonix-gw kernelopts
 ~~~
 
-As of Qubes Q3 RC1 and Q4, this will show: `nopat`
+In Qubes 3.2 and 4.0, this will show: `nopat`
 
 Keep those existing kernel parameters and add `apparmor=1 security=apparmor` by entering:
 
