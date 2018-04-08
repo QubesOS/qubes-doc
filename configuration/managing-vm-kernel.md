@@ -210,11 +210,11 @@ mke2fs 1.42.12 (29-Aug-2014)
 Using kernel installed in the VM (R4.0)
 --------------------------------
 
-Both debian-9 and fedora-26 templates already have grub and related tools preinstalled so if you want to use one of the distribution kernels, all you need to do is clone one to a new template, then:
+Both debian-9 and fedora-26 templates already have grub and related tools preinstalled so if you want to use one of the distribution kernels, all you need to do is clone either template to a new one, then:
 
 ~~~
-qvm-prefs <templatename> virt_mode hvm
-qvm-prefs <templatename> kernel ''
+qvm-prefs <clonetemplatename> virt_mode hvm
+qvm-prefs <clonetemplatename> kernel ''
 ~~~
 
 If you'd like to use a different kernel than default, continue reading.
