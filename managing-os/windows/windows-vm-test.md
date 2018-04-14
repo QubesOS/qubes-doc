@@ -8,8 +8,8 @@ permalink: /doc/windows-vm/
 Installing a Windows VM
 =======================
 
-Qubes 4.0: importing from R3.2
-------------------------------
+Qubes 4.0 - importing a Windows VM from R3.2
+-------------------------------------------
 
 Importing should work, simply make sure that you are not using Xen's newer linux stubdomain and that the VM is in HVM mode (these steps should be done automatically when importing the VM):
 
@@ -104,7 +104,7 @@ The VM is now ready to be started; the best practice is to use an installation I
 qvm-start --cdrom=untrusted:/home/user/windows_install.iso win7new
 ~~~
 
-Given the higher than usual memory requirements of Windows, you may get a `Not enough memory to start domain 'win7new'` error. In that case try to free memory by shutdown unneeded VMs before starting the Windows VM.
+Given the higher than usual memory requirements of Windows, you may get a `Not enough memory to start domain 'win7new'` error. In that case try to free memory by shutdowning unneeded VMs before starting the Windows VM.
 
 At this point you may open a few tabs in dom0 for debugging should something go amiss: 
 
@@ -137,7 +137,7 @@ Finally, increase the VM's `qrexec_timeout`: in case you happen to get a BSOD or
 qvm-prefs -s win7new qrexec_timeout 300
 ~~~
 
-At that point you should have a functional and stable Windows VM, although without updates, Xen's PV drivers nor Qubes integration. It is a good time to clone the VM again.
+At that point you should have a functional and stable Windows VM, although without updates, Xen's PV drivers nor Qubes integration (see sections [Windows Update](#windows-update) and [Xen PV drivers + Qubes integration](#xen-pv-drivers-and-qubes-integration) below). It is a good time to clone the VM again.
 
 
 Qubes 4.0 - Windows VM installation
@@ -189,8 +189,8 @@ Windows' installer requires a significant amount of memory or else the VM will c
 So, increase the VM's memory to 4096MB (memory = maxmem because we don't use memory balancing).
 
 ~~~
-qvm-prefs -s win7new memory 4096
-qvm-prefs -s win7new maxmem 4096
+qvm-prefs win7new memory 4096
+qvm-prefs win7new maxmem 4096
 ~~~
 
 Disable direct boot so that the VM will go through the standard cdrom/HDD boot sequence:
@@ -208,7 +208,7 @@ qvm-volume extend win7new:root 25g
 Set the debug flag in order to have a graphical console:
 
 ~~~
-qvm-prefs -s win7new debug true
+qvm-prefs win7new debug true
 ~~~
 
 The second part of the installation process will crash with the standard VGA video adapter and the VM will stay in "transient" mode with the following error in `guest-win7new-dm.log`:
@@ -227,7 +227,7 @@ The VM is now ready to be started; the best practice is to use an installation I
 qvm-start --cdrom=untrusted:/home/user/windows_install.iso win7new
 ~~~
 
-Given the higher than usual memory requirements of Windows, you may get a `Not enough memory to start domain 'win7new'` error. In that case try to free memory by shutdown unneeded VMs before starting the Windows VM.
+Given the higher than usual memory requirements of Windows, you may get a `Not enough memory to start domain 'win7new'` error. In that case try to free memory by shutdowning unneeded VMs before starting the Windows VM.
 
 At this point you may open a few tabs in dom0 for debugging should something go amiss: 
 
@@ -244,8 +244,8 @@ The second part of Windows' installer should then be able to complete successful
 Decrease the VM's memory to a more reasonable value (memory balancing on Windows is unstable so keep `memory` equal to `maxmen`).
 
 ~~~
-qvm-prefs -s win7new memory 2048
-qvm-prefs -s win7new maxmem 2048
+qvm-prefs win7new memory 2048
+qvm-prefs win7new maxmem 2048
 ~~~
 
 Revert to the standard VGA adapter :
@@ -257,10 +257,10 @@ qvm-features --unset win7new video-model
 Finally, increase the VM's `qrexec_timeout`: in case you happen to get a BSOD or a similar crash in the VM, utilities like chkdsk won't complete on restart before qrexec_timeout automatically halts the VM. That can really put the VM in a totally unrecoverable state, whereas with higher qrexec_timeout, chkdsk or the appropriate utility has plenty of time to fix the VM. Note that Qubes Windows Tools also require a larger timeout to move the user profiles to the private volume the first time the VM reboots after the tools' installation.
 
 ~~~
-qvm-prefs -s win7new qrexec_timeout 300
+qvm-prefs win7new qrexec_timeout 300
 ~~~
 
-At that point you should have a functional and stable Windows VM, although without updates, Xen's PV drivers nor Qubes integration. It is a good time to clone the VM again.
+At that point you should have a functional and stable Windows VM, although without updates, Xen's PV drivers nor Qubes integration (see sections [Windows Update](#windows-update) and [Xen PV drivers + Qubes integration](#xen-pv-drivers-and-qubes-integration) below). It is a good time to clone the VM again.
 
 
 Windows update
@@ -272,8 +272,8 @@ Note: if you already have Qubes Windows Tools installed the video adapter in Win
 To avoid guessing the VM's state enable debugging (`qvm-prefs -s win7new debug true`) and in Windows' device manager (My computer -> Manage / Device manager / Display adapters) temporarily re-enable the standard VGA adapter and disable "Qubes video driver". You can disable debugging and revert to Qubes' display once the VM is updated.
 
 
-Xen PV drivers + Qubes integration
-----------------------------------
+Xen PV drivers and Qubes integration
+------------------------------------
 
 Installing Xen's PV drivers in the VM will lower its resources usage when using network and/or I/O intensive applications, but *may* come at the price of system stability (although Xen's PV drivers on a Win7 VM are usually very stable). There are two ways of installing the drivers:
 
