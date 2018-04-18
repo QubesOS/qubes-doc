@@ -11,7 +11,7 @@ Though there are outproxies (to access the clearnet), they are rare and the I2P-
 # Transparent ProxyVM #
 The currently available I2P-software is built to provide a simple http-proxy to route trafic through the network.
 This creates problems with software that can't handle proxies or handles them badly.
-A transparent proxy allows us to take all trafic and funnle it through the I2P-network to prevent information leakage.  
+A transparent proxy allows us to take all trafic and funnel it through the I2P-network to prevent information leakage.  
 Furthermore, a transparent proxy allows us to handle traffic to the I2P-network while also handling tor-traffic.
 
 # Theory of operation #
@@ -21,7 +21,7 @@ All other tcp-requests are routed through TOR.
 
 # Tor #
 Torifying traffic allows access to tor hidden nodes.
-Assuming you want to access all kind of hidden services, not just the I2P network, it's a good idea to handle tor traffic parrell to I2P
+Assuming you want to access all kind of hidden services, not just the I2P network, it's a good idea to handle tor traffic parallel to I2P
 
 # DISCLAIMER #
 Assume I have no idea what I'm doing.
@@ -30,17 +30,17 @@ The result of this guide should be seen more adding access to I2P Hidden Service
 ## Quick Note on I2P-Over-Tor ##
 There is an excellent guide on how to use [I2P over TOR via whonix][whonix-I2P].
 However, this adds load to the tor-network.
-Since the main purpose of this guide is to access the I2P-network, the performance cost overshadowed the security benifits.
+Since the main purpose of this guide is to access the I2P-network, the performance cost overshadowed the security benefits.
 
 ## Qubes 3.2 ##
 ### TemplateVM setup ###
 This guide builds a proxyVM based on a Debian template.
 
-* **(Optional)** If you want to use a seperate vm template for your I2P-proxyVM, clone your Debian template: (run in dom0)*
+* **(Optional)** If you want to use a separate vm template for your I2P-proxyVM, clone your Debian template: (run in dom0)*
 
     qvm-clone debian-8 debian-8-gate
 
-### Install the necessarry tools in the templateVM ###
+### Install the necessary tools in the templateVM ###
 I2P install instructions can be found [here][i2p-debian-instructions].
 This guide assumes debian-8, other versions please reference the according instructions.
 TOR can be installed from default debian-repos.
@@ -55,7 +55,7 @@ tinyproxy and dnsmasq can be installed from debian-repos, but are already instal
 
       gpg --with-fingerprint i2p-debian-repo.key.asc
 
-  (this needs no keyring, so qubes-gpg-client is unnecessarry)
+  (this needs no keyring, so qubes-gpg-client is unnecessary)
   Command should yield:
 
       pub  4096R/5BCF1346 2013-10-10 I2P Debian Package Repository <killyourtv@i2pmail.org>
@@ -83,10 +83,10 @@ tinyproxy and dnsmasq can be installed from debian-repos, but are already instal
 
 
 4. Configure I2P service:
-  Generally speaking, you don't want I2P to start in every VM since it will try to open up connections with other pears and keep them alive. This will add network load and, if traffic is monitored, makes your traffic look more suspicious. So disabeling I2P globally is a good idea!
+  Generally speaking, you don't want I2P to start in every VM since it will try to open up connections with other pears and keep them alive. This will add network load and, if traffic is monitored, makes your traffic look more suspicious. So disabling I2P globally is a good idea!
 
   There are two ways to turn it on again; using a qubes-service or using `/rw/config/rc.local`.
-  If you want to use I2P exclusively in the gate, I recomand startup-scripts.  
+  If you want to use I2P exclusively in the gate, I recommend startup-scripts.  
   Otherwise create a qubes-service in order to control the service from dom0's VM-configuration.
   To disable I2P generally, in the templateVM run: (needed for both ways)
 
@@ -120,7 +120,7 @@ tinyproxy and dnsmasq can be installed from debian-repos, but are already instal
 ### Configure everything! ###
 
 *  I2P config
-  Sadly, no config can be passed to the I2P-command, so the easyest way to configure I2P is to edit the config-files in the templateVM.
+  Sadly, no config can be passed to the I2P-command, so the easiest way to configure I2P is to edit the config-files in the templateVM.
 
   If you do not want to do that but rather have VM specific configs, save a copy of your config in `/rw/config` and copy them back to their designated folders on startup:
 
@@ -172,7 +172,7 @@ tinyproxy and dnsmasq can be installed from debian-repos, but are already instal
 
 * tor config
   tor is used as is.
-  Configuration may be edited to suit your needs, please refere to the [TOR guide][tor-guide].
+  Configuration may be edited to suit your needs, please refer to the [TOR guide][tor-guide].
   (But be advised to adapt the routing according to your port configuration!)
 
 ### Startup scripts ###
@@ -203,12 +203,12 @@ code of `/rw/config/config.sh`:
     export I2P_HTTP=4444             #I2P HTTP-Proxy port
     export I2P_PORTS=7650            #I2P control-port
 
-The varibale I2P_PORTS exists for future expansion.
+The variable I2P_PORTS exists for future expansion.
 Want to use I2P-IRC? add port 6668.
 Want to use I2CP? add port 7654.
 A complete list can be found [here][i2p-ports].
 Some changes to the i2p-config may be required as well.
-Seperate ports by comma (`,`), define ranges with colon (`:`, e.g. `7560:7668`).
+Separate ports by comma (`,`), define ranges with colon (`:`, e.g. `7560:7668`).
 
 Relevant code of `/rw/config/rc.local`:
 
@@ -284,14 +284,14 @@ Relevant code of `/rw/config/qubes-firewall-user-script`:
 # Usage #
 Pick any AppVM to access the I2P network or TOR hidden services. Set it's net-vm to the I2P proxyVM.
 Access the router-console by opening a browser and visiting `router.i2p:7567`.
-(Or, truely, any `.i2p`-domain at port :7657)  
+(Or, truly, any `.i2p`-domain at port :7657)  
 Check I2P is up and has enough connections.
 Click on one of the common pages on the routers home screen, e.g. i2pwiki.i2p!
 
 # Final thoughts #
 
 ## Troubleshooting ##
-Generally, most Problems can be resolved by waiting long enogh for I2P to gether enough connections or restarting I2P.
+Generally, most Problems can be resolved by waiting long enough for I2P to gather enough connections or restarting I2P.
 
 #### 404 - tinyproxy can't reach upstream proxy ####
 I2P refuses connections.
@@ -307,7 +307,7 @@ Check your qubes-service settings. If those are in order, check
 
 Tor may be replaced with qubes-tor, I did not try that.
 
-Getting I2P to run in a whonix-gw whould be great, but I have had no time to get into the whonix routing and didn't find a simple, comprehensive explanation.
+Getting I2P to run in a whonix-gw would be great, but I have had no time to get into the whonix routing and didn't find a simple, comprehensive explanation.
 
 [I2P]:https://geti2p.net/en/about/intro
 [hidden-servies]:https://geti2p.net/en/about/intro
