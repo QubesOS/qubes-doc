@@ -104,7 +104,7 @@ The VM is now ready to be started; the best practice is to use an installation I
 qvm-start --custom-config=/tmp/win7new.conf --cdrom=untrusted:/home/user/windows_install.iso win7new
 ~~~
 
-Given the higher than usual memory requirements of Windows, you may get a `Not enough memory to start domain 'win7new'` error. In that case try to free memory by shutdowning unneeded VMs before starting the Windows VM.
+Given the higher than usual memory requirements of Windows, you may get a `Not enough memory to start domain 'win7new'` error. In that case try to shutdown unneeded VMs to free memory before starting the Windows VM.
 
 At this point you may open a tab in dom0 for debugging, in case something goes amiss:
 
@@ -231,7 +231,7 @@ The VM is now ready to be started; the best practice is to use an installation I
 qvm-start --cdrom=untrusted:/home/user/windows_install.iso win7new
 ~~~
 
-Given the higher than usual memory requirements of Windows, you may get a `Not enough memory to start domain 'win7new'` error. In that case try to free memory by shutdowning unneeded VMs before starting the Windows VM.
+Given the higher than usual memory requirements of Windows, you may get a `Not enough memory to start domain 'win7new'` error. In that case try to shutdown unneeded VMs to free memory before starting the Windows VM.
 
 At this point you may open a tab in dom0 for debugging, in case something goes amiss:
 
