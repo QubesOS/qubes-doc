@@ -129,10 +129,10 @@ qvm-prefs -s win7new memory 2048
 qvm-prefs -s win7new maxmem 2048
 ~~~
 
-Revert to the standard VGA adapter :
+We don't need to use the 'cirrus' video adapter anymore; simply starting the VM with `qvm-start win7new` will use the default XEN adapter, but to avoid any mistakes let's remove the temporary configuration file we created before:
 
 ~~~
-cp /tmp/win7new.conf /var/lib/qubes/appvms/win7new/win7new.conf
+rm /tmp/win7new.conf
 ~~~
 
 Finally, increase the VM's `qrexec_timeout`: in case you happen to get a BSOD or a similar crash in the VM, utilities like chkdsk won't complete on restart before qrexec_timeout automatically halts the VM. That can really put the VM in a totally unrecoverable state, whereas with higher qrexec_timeout, chkdsk or the appropriate utility has plenty of time to fix the VM. Note that Qubes Windows Tools also require a larger timeout to move the user profiles to the private volume the first time the VM reboots after the tools' installation.
