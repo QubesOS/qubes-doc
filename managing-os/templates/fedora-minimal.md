@@ -66,17 +66,33 @@ A comprehensive guide to customizing the minimal template is available [here][GU
 Qubes 4.0
 ---------
 
-In Qubes R4.0, sudo is not installed by default in the minimal template.  To update or install packages to it, from a dom0 terminal window:
+In Qubes R4.0 the minimal template is not configured for passwordless root.  To update or install packages to it, from a dom0 terminal window:
 
 ~~~
 [user@dom0 ~]$ qvm-run -u root fedora-26-minimal xterm
 ~~~
+to open a root terminal in the template, from which you can use dnf without sudo. You will have to do this every time if you choose not to enable passwordless root. 
+
+If you want the usual qubes `sudo dnf ...` commands, open the root terminal just this once using the above command, and in the root xterm window enter
+
+~~~
+bash-4.4# dnf install qubes-core-agent-passwordless-root polkit
+~~~
+
+Optionally check this worked: from the gui open the minimal template's xterm and give the command
+
+~~~
+[user@fed-min-clone ~]$ sudo -l
+~~~
+
+which should give you output that includes the NOPASSWD keyword.
+
 
 In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be needed to make the customized minimal template work properly. These packages are:
 
 - `qubes-core-agent-qrexec`: Qubes qrexec agent. Installed by default.
 - `qubes-core-agent-systemd`: Qubes unit files for SystemD init style. Installed by default.
-- `qubes-core-agent-passwordless-root`, `polkit`: By default the 'fedora-26-minimal' template doesn't have passwordless root. These two packages fix the situation.
+- `qubes-core-agent-passwordless-root`, `polkit`: By default the 'fedora-26-minimal' template doesn't have passwordless root. These two packages enable this feature. (Note from R4.0 a design choice was made that passwordless should be optional, so is left out of the minimal templates)
 - `qubes-core-agent-nautilus`: This package provides integration with the Nautilus file manager (without it things like "copy to VM/open in disposable VM" will not be shown in Nautilus).
 - `qubes-core-agent-sysvinit`: Qubes unit files for SysV init style or upstart.
 - `qubes-core-agent-networking`: Networking support. Required if the template is to be used for a `sys-net` or `sys-firewall` VM.
