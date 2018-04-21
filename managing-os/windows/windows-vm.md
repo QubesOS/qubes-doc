@@ -305,6 +305,4 @@ qvm-prefs -s win7new debug false
 Tweaks
 ------
 
-- Set a fixed size page file size (system properties / advanced tab / Performance settings / advanced tab / Virtual memory / Change...) 
-- Adjust for best performance (system properties / advanced tab /  Performance settings).
-
+Please see the [Customizing Windows 7 templates](/doc/windows-template-customization/) page (the instructions are generic despite the focus on templates).
