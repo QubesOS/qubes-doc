@@ -73,7 +73,7 @@ In Qubes R4.0 the minimal template is not configured for passwordless root.  To 
 ~~~
 to open a root terminal in the template, from which you can use dnf without sudo. You will have to do this every time if you choose not to enable passwordless root. 
 
-If you want the usual qubes ~sudo dnf ...~ commands, open the root terminal just this once using the above command, and in the root xterm window enter
+If you want the usual qubes `sudo dnf ...` commands, open the root terminal just this once using the above command, and in the root xterm window enter
 
 ~~~
 bash-4.4# dnf install qubes-core-agent-passwordless-root polkit
