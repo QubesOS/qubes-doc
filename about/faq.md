@@ -488,6 +488,26 @@ Here are some examples of non-Qubes reports about this problem:
 
 More examples can be found by searching for "Failed to synchronize cache for repo" (with quotation marks) on your preferred search engine.
 
+To work around the problem, change the Qubes update repositories to use HTTPS instead of HTTP. You can do that with:
+
+Edit Fedora-26 Update Location
+
+1. Click on the Qubes menu (Q in top left)
+2. Then, Template: fedora-26 > fedora-26: Terminal
+3. In the window that opens, enter `sudo gedit /etc/yum.repos.d/qubes-r4.repo`
+4. Change all instances of `http` to `https` (there are four)
+5. Click the Save button in the top right
+6. Close gedit and `sudo poweroff` the template
+
+Edit Dom0 Update Location
+
+1. Click on the Qubes menu (Q in top left)
+2. Then, Terminal Emulator
+3. In the window that opens, enter `sudo nano /etc/yum.repos.d/qubes-dom0.repo`
+4. Change all instances of `http` to `https` (there are four)
+5. Once done, hit `CTRL-X`, `y`, and then `ENTER` to save changes and exit
+6. Type `sudo qubes-dom0-update` to check for updates
+
 
 ----------
 
