@@ -12,10 +12,11 @@ redirect_from:
 How To make a VPN Gateway in Qubes
 ==================================
 
-    ## Note on new qubes-tunnel availability!
-    A streamlined VPN option is in testing phase and is recommended for most users on Qubes 3.2 and 4.0. It is currently [available here](https://github.com/tasket/qubes-doc) and qubes-users discussion is [here](https://groups.google.com/d/msgid/qubes-users/ee24f104-efbc-23f7-aca3-6be86104ddaf%40posteo.net).
+## Note on new qubes-tunnel availability!
+
+A streamlined VPN option is in testing phase and is recommended for most users on Qubes 3.2 and 4.0. It is currently [available here](https://github.com/tasket/qubes-doc) and qubes-users discussion is [here](https://groups.google.com/d/msgid/qubes-users/ee24f104-efbc-23f7-aca3-6be86104ddaf%40posteo.net).
     
-    The following instructions will be deprecated and replaced once the new solution is finalized.
+The following instructions will be deprecated and replaced once the new solution is finalized.
 
 ---
 ---
