@@ -39,6 +39,35 @@ Security Notes
   However, PV VMs migrated from any earlier 4.0 release candidate (RC1, RC2, or RC3) are not automatically set to PVH mode.
   These must be set manually.
 
+* The following steps may need to be applied in dom0 and Fedora 26 TemplateVMs in order to receive updates (see [#3737]).
+  
+  Steps for dom0 updates:
+  
+  1. Open the Qubes Menu by clicking on the "Q" icon in the top-left corner of the screen.
+  2. Select `Terminal Emulator`.
+  3. In the window that opens, enter this command:
+  
+         sudo nano /etc/yum.repos.d/qubes-dom0.repo
+  
+  4. This opens the nano text editor. Change all four instances of `http` to `https`.
+  5. Press `CTRL+X`, then `Y`, then `ENTER` to save changes and exit.
+  6. Check for updates normally.
+  
+  Steps for Fedora 26 TemplateVM updates:
+  
+  1. Open the Qubes Menu by clicking on the "Q" icon in the top-left corner of the screen.
+  2. Select `Template: fedora-26`, then `fedora-26: Terminal`.
+  3. In the window that opens, enter the command for your version:
+  
+         [Qubes 3.2] sudo gedit /etc/yum.repos.d/qubes-r3.repo
+         [Qubes 4.0] sudo gedit /etc/yum.repos.d/qubes-r4.repo
+  
+  4. This opens the gedit text editor in a window. Change all four instances of `http` to `https`.
+  5. Click the "Save" button in the top-right corner of the window.
+  6. Close the window.
+  7. Check for updates normally.
+  8. Shut down the TemplateVM.
+
 Known issues
 ------------
 
@@ -95,3 +124,4 @@ We also provide [detailed instruction][upgrade-to-r4.0] for this procedure.
 [upgrade-to-r4.0]: /doc/upgrade-to-r4.0/
 [locale-bug]: https://github.com/QubesOS/qubes-issues/issues/3753
 [keyboard-layout-bug]: https://github.com/QubesOS/qubes-issues/issues/3352
+[#3737]: https://github.com/QubesOS/qubes-issues/issues/3737
