@@ -57,6 +57,42 @@ It is possible to change the settings for each new Disposable VM (DispVM). This 
 4.  Shutdown the qube (either by `poweroff` from qube's terminal, or `qvm-shutdown` from dom0 terminal).
 
 
+### Using static Disposable VMs for sys-* ###
+
+You can use a static DispVM for `sys-*` as long as it is stateless.
+For example, a `sys-net` using DHCP or `sys-usb` will work.
+`sys-firewall` will not work unless you have no custom rules set, because per VM rules are stored in a configuration file inside that AppVM.
+To create one:
+
+~~~
+qvm-create -C DispVM -l red <sys-VMName>
+qvm-prefs <sys-VMName> virt_mode hvm
+qvm-service <sys-VMName> meminfo-writer off
+qvm-pci attach --persistent <sys-VMName> dom0:<BDF>
+qvm-prefs <sys-VMName> autostart true
+qvm-prefs <sys-VMName> netvm ''
+# optional, if this DispVM will be providing networking
+qvm-prefs <sys-VMName> provides_network true
+~~~
+
+Next, set the old `sys-` VM's autostart to false, and update any VMs that referenced the old one.
+For example, `qvm-prefs sys-firewall netvm <sys-VMName>`.
+See below for a complete example of a `sys-net` replacement:
+
+~~~
+qvm-create -C DispVM -l red sys-net2
+qvm-prefs sys-net2 virt_mode hvm
+qvm-service sys-net2 meminfo-writer off
+qvm-pci attach --persistent sys-net2 dom0:00_1a.0
+qvm-prefs sys-net2 autostart true
+qvm-prefs sys-net2 netvm ''
+qvm-prefs sys-net2 provides_network true
+qvm-prefs sys-net autostart false
+qvm-prefs sys-firewall netvm sys-net2
+~~~
+
+Note that these types of DispVMs will not show in the Application menu, but you can still get to a terminal if needed with `qvm-run <sys-VMName> gnome-terminal`.
+
 ### Adding programs to Disposable VM Application Menu ###
 
 For added convenience, arbitrary programs can be added to the Application Menu of the Disposable VM. 
