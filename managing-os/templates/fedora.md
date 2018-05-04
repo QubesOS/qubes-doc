@@ -50,6 +50,7 @@ Upgrading
 
 To upgrade your Fedora TemplateVM, please consult the guide that corresponds to your situation:
 
+ * [Upgrading the Fedora 26 Template to Fedora 27](/doc/template/fedora/upgrade-26-to-27/)
  * [Upgrading the Fedora 25 Template to Fedora 26](/doc/template/fedora/upgrade-25-to-26/)
  * [Upgrading the Fedora 24 Template to Fedora 25](/doc/template/fedora/upgrade-24-to-25/)
  * [Upgrading the Fedora 23 Template to Fedora 24](/doc/template/fedora/upgrade-23-to-24/)
