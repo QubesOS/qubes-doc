@@ -15,9 +15,10 @@ Upgrading the Fedora 26 Template to Fedora 27
 <div class="alert alert-warning" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
   <b>Notice:</b>
-  Currently, the packages for Fedora 27 are available only in the <code>current-testing</code> repositories for each version.
+  Currently, the packages for Fedora 27 are available only in the <code>current-testing</code> repository for Qubes 4.0.
   If you wish, you can help us test these instructions by using <code>--enablerepo=qubes-vm*current-testing</code>.
-  Once the packages have migrated to the stable repositories, this notice will be removed.
+  Once the packages are available for testing in Qubes 3.2, this notice will be updated.
+  Once the packages have migrated to the stable repositories for both versions, this notice will be removed.
 </div>
 
 This page provides instructions for performing an in-place upgrade of an
