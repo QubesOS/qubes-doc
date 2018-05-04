@@ -12,6 +12,14 @@ redirect_from:
 Upgrading the Fedora 26 Template to Fedora 27
 =============================================
 
+<div class="alert alert-warning" role="alert">
+  <i class="fa fa-exclamation-triangle"></i>
+  <b>Notice:</b>
+  Currently, the packages for Fedora 27 are available only in the <code>current-testing</code> repositories for each version.
+  If you wish, you can help us test these instructions by using <code>--enablerepo=qubes-vm*current-testing</code>.
+  Once the packages have migrated to the stable repositories, this notice will be removed.
+</div>
+
 This page provides instructions for performing an in-place upgrade of an
 installed Fedora 26 [TemplateVM] to Fedora 27. If you wish to install a new,
 unmodified Fedora 27 template instead of upgrading a template that is already
@@ -363,10 +371,9 @@ In this case, you have several options:
     uninstalling packages. You may then reinstalling them again after you
     finish the upgrade process, if desired). However, you may end up having to
     increase the disk image size anyway (see previous option).
- 3. Increase the `root.img` size with `qvm-grow-root`.
- 4. Do the upgrade in parts, e.g., by using package groups. (First upgrade
+ 3. Do the upgrade in parts, e.g., by using package groups. (First upgrade
     `@core` packages, then the rest.)
- 5. Do not perform an in-place upgrade. Instead, simply download and install a
+ 4. Do not perform an in-place upgrade. Instead, simply download and install a
     new template package, then redo all desired template modifications.
 
     With regard to the last option, here are some useful messages from the
