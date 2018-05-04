@@ -65,6 +65,138 @@ In order to do that, select "Qube settings" entry in selected base AppVM, go to 
 
 Note that currently only applications whose main process keeps running until you close the application (i.e. do not start a background process instead) will work. One of known examples of incompatible applications is GNOME Terminal (shown on the list as "Terminal"). Choose different terminal emulator (like XTerm) instead.
 
+### Create Custom sys-net sys-firewall and sys-usb DispVMs ###
+
+Users have the option of creating custom DispVMs which can be used for the `sys-net`, `sys-firewall` and `sys-usb` VMs. These VMs behave much like the default VMs created during Qubes installation with the exception of a non-persistent filesystem. Another similarity shared with the default service VMs is the option to use custom firewall rule sets as well as Qubes VPN scripts. This can be accomplished in spite of the fact that a fresh VM is created each time a DispVM is launched by adding rules or custom scripts to the dvm template. Users also have the option of setting the DispVMs to auto-start at system boot in addition to attaching PCI devices with the `--persistent` option. Since both of the aforementioned configuration options are required only at the initial DispVM creation. Using DispVMs in this manner is ideally suited for untrusted VMs which require persistent PCI devices such as `sys-net` and `sys-usb`.
+
+_**Note:** if the dvm is customized with a VPN or firewall rule set. A separate dvm must be created for use by each DispVM. Otherwise, if the user does not customize the dvm. Only a singular dvm is required to be created which can be used as template for all DispVMs_   
+
+ 
+
+#### Create and configure the dvm from which the DispVM will be based on ####
+
+   1. Create the dvm VM
+
+    [user@dom0 ~]$ qvm-create -P <pool_name> --template <template_name> --class AppVM --label gray <dvm-name>
+
+   2. _(optional)_ In the dvm, add custom firewall rules, VPN scripts etc
+
+    Firewall rules sets and Qubes VPN scripts can be added just like any other VM   
+    
+   3. Set the dvm as template for DispVMs
+
+    [user@dom0 ~]$ qvm-prefs <dvm_name> template_for_dispvms true
+
+#### Create the sys-net DispVM #### 
+
+  1. Create `sys-net` DispVM based on the dvm
+
+    [user@dom0 ~]$ qvm-create -P <pool_name> --template <dvm_name> --class DispVM --label red disp-sys-net
+
+  2. Set `disp-sys-net` virtualizaion mode to hvm
+
+    [user@dom0 ~]$ qvm-prefs disp-sys-net virt_mode hvm
+
+  3. Set `disp-sys-net` to provide network for other VMs
+
+    [user@dom0 ~]$ qvm-prefs disp-sys-net provides_network true
+
+  4. Set `disp-sys-net` NetVM to none
+
+    [user@dom0 ~]$ qvm-prefs disp-sys-net netvm ""
+
+  5. List all available PCI devices to determine the correct backend:BDF address(es) to assign to disp-sys-net
+
+    [user@dom0 ~]$ qvm-pci
+
+  6. Attach the network PCI device(s) to `disp-sys-net`: Finding and assigning pci devices can be found [here](/doc/assigning-devices/)
+
+    [user@dom0 ~]$ qvm-pci attach --persistent disp-sys-net <backend>:<bdf>
+
+  7. _(recommended)_ Set `disp-sys-net` to start automatically when Qubes boots
+
+    [user@dom0 ~]$ qvm-prefs disp-sys-net autostart true
+     
+
+  8. _(optional)_ Set `disp-sys-net` as the dom0 time source
+
+    [user@dom0 ~]$ qubes-prefs clockvm disp-sys-net
+
+#### Create the sys-firewall DispVM ####
+
+  1. Create `sys-firewall` DispVM
+
+    [user@dom0 ~]$ qvm-create -P appvm_pool --template <dvm_name> --class DispVM --label green disp-sys-firewall
+
+  2. Set `disp-sys-firewall` virtualization mode to hvm
+
+    [user@dom0 ~]$ qvm-prefs disp-sys-firewall virt_mode hvm  
+
+  3. Set `disp-sys-firewall` to provide network for other VMs
+
+    [user@dom0 ~]$ qvm-prefs disp-sys-firewall provides_network true
+
+  4. Set `disp-sys-net` as the NetVM for `disp-sys-firewall`
+
+    [user@dom0 ~]$ qvm-prefs disp-sys-firewall netvm disp-sys-net
+
+  5. Set `disp-sys-firewall` as NetVM for other AppVMs
+
+    [user@dom0 ~]$ qvm-prefs <vm_name> netvm disp-sys-firewall
+
+  6. _(recommended)_ Set `disp-sys-firewall` to auto-start when Qubes boots
+
+    [user@dom0 ~]$ qvm-prefs disp-sys-firewall autostart true
+
+  7. _(optional)_ Set `disp-sys-firewall` as the default NetVM
+
+    [user@dom0 ~]$ qubes-prefs default_netvm firewall-disp
+
+#### Create the sys-usb DispVM ####
+
+  1. Create the `disp-sys-usb`
+
+    [user@dom0 ~]$ qvm-create -P <pool_name> --template <dvm-name> --class DispVM --label red disp-sys-usb
+
+  2. Set the `disp-sys-usb` virtualization mode to hvm
+
+    [user@dom0 ~]$ qvm-prefs disp-sys-usb virt_mode hvm
+
+  3. Set `disp-sys-usb` NetVM to none
+
+    [user@dom0 ~]$ qvm-prefs usb-disp netvm ""
+
+  4. List all available PCI devices
+
+    [user@dom0 ~]$ qvm-pci
+
+  5. Attach the USB controller to the `disp-sys-usb` 
+ 
+    [user@dom0 ~]$ qvm-pci attach --persistent disp-sys-usb <backined>:<bdf>
+    
+  6. _(optional)_ Set `disp-sys-usb` to auto-start when Qubes boots
+  
+    [user@dom0 ~]$ qvm-prefs disp-sys-usb autostart true
+
+  7. Users should now follow instructions on [How to hide USB controllers from dom0](/doc/usb/#how-to-hide-all-usb-controllers-from-dom0)
+
+
+#### Starting the DispVMs ####
+
+Prior to starting the new VMs, users should ensure that no other VMs such as the old `sys-net` and `sys-usb` VMs are running. This is because no two VMs can share the same PCI device while both running. It is recommended that users detach the PCI devices from the old VMs without deleting them. This will allow users to reattach the PCI devices if the newly created DispVMs fail to start.  
+
+   Detach PCI device from VM
+
+    [user@dom0~]$ qvm-pci detach <vm_name> <backend>:<bdf>
+
+
+#### Troublshooting ####
+
+The `disp-sys-usb` VM does not start
+
+If the `disp-sys-usb` does not start, it could be due to a PCI passthrough problem. For more details on this issue along with possible solutions, users can look [here](/doc/assigning-devices/#pci-passthrough-issues)
+
+
 ### Deleting Disposable VM ###
 
 Deleting disposable VM is slightly peculiar. While working in a VM or disposable VM, you may want to open a document in another disposable VM. For this reason, the property `default_dispvm` may be set to the name of your disposable VM in a number of VMs:
