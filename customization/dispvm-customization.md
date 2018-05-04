@@ -72,7 +72,7 @@ qvm-prefs <sys-VMName> netvm <sys-net>
 qvm-prefs <sys-VMName> provides_network true
 ~~~
 
-Next, set the old `sys-firewall` autostart to false, and update any VMs that referenced the old one to instead point to the new.
+Next, set the old `sys-firewall` autostart to false, and update any references to the old one to instead point to the new.
 For example, with `qvm-prefs work netvm sys-firewall2`.
 
 To create one with a PCI device attached such as for `sys-net` or `sys-usb`, use the additional commands as follows.
@@ -91,7 +91,7 @@ qvm-prefs <sys-VMName> netvm ''
 qvm-prefs <sys-VMName> provides_network true
 ~~~
 
-Next, set the old `sys-` VM's autostart to false, and update any VMs that referenced the old one.
+Next, set the old `sys-` VM's autostart to false, and update any references to the old one.
 For example, `qvm-prefs sys-firewall netvm <sys-VMName>`.
 See below for a complete example of a `sys-net` replacement:
 
@@ -105,6 +105,7 @@ qvm-prefs sys-net2 netvm ''
 qvm-prefs sys-net2 provides_network true
 qvm-prefs sys-net autostart false
 qvm-prefs sys-firewall netvm sys-net2
+qubes-prefs clockvm sys-net2
 ~~~
 
 Note that these types of DispVMs will not show in the Application menu, but you can still get to a terminal if needed with `qvm-run <sys-VMName> gnome-terminal`.
