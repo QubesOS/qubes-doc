@@ -61,7 +61,8 @@ It is possible to change the settings for each new Disposable VM (DispVM). This 
 
 You can use a static DispVM for `sys-*` as long as it is stateless.
 For example, a `sys-net` using DHCP or `sys-usb` will work.
-`sys-firewall` will also work unless you have custom rules set, because per VM rules are stored in a configuration file inside the firewall AppVM.
+In most cases `sys-firewall` will also work, even if you have configured AppVM firewall rules.
+The only exception is if you require something like VM to VM communication and have manually edited `iptables` or other items directly inside the firewall AppVM.
 
 To create one that has no PCI devices attached, such as for `sys-firewall`:
 
