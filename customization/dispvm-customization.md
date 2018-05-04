@@ -61,8 +61,24 @@ It is possible to change the settings for each new Disposable VM (DispVM). This 
 
 You can use a static DispVM for `sys-*` as long as it is stateless.
 For example, a `sys-net` using DHCP or `sys-usb` will work.
-`sys-firewall` will not work unless you have no custom rules set, because per VM rules are stored in a configuration file inside that AppVM.
-To create one:
+`sys-firewall` will also work unless you have custom rules set, because per VM rules are stored in a configuration file inside the firewall AppVM.
+
+To create one that has no PCI devices attached, such as for `sys-firewall`:
+
+~~~
+qvm-create -C DispVM -l red <sys-VMName>
+qvm-prefs <sys-VMName> autostart true
+qvm-prefs <sys-VMName> netvm <sys-net>
+qvm-prefs <sys-VMName> provides_network true
+~~~
+
+Next, set the old `sys-firewall` autostart to false, and update any VMs that referenced the old one to instead point to the new.
+For example, with `qvm-prefs work netvm sys-firewall2`.
+
+To create one with a PCI device attached such as for `sys-net` or `sys-usb`, use the additional commands as follows.
+
+**Note** You can use `qvm-pci` to [determine](/doc/assigning-devices/#r40) the `<BDF>`.
+Also, you will often need to include the `-o no-strict-reset=True` [option](/doc/assigning-devices/#r40-1) with USB controllers.
 
 ~~~
 qvm-create -C DispVM -l red <sys-VMName>
