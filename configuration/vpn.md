@@ -255,7 +255,7 @@ It has been tested with Fedora 23 and Debian 8 templates.
    Save the script.
    Make it executable.
 
-       sudo chmod +x /rw/config/rc.local`
+       sudo chmod +x /rw/config/rc.local
 
 6. Restart the new VM!
    The link should then be established automatically with a popup notification to that effect.

@@ -19,14 +19,43 @@ redirect_from:
 Installation Guide
 ==================
 
-Warning
--------
+Warnings
+--------
 
 There is a set of known upstream bugs in the Fedora installer that affect Qubes 3.2 ([Bug 1170803], [Bug 1374983], and [Bug 1268700]; tracked in Qubes issue [#2835]).
 This issue is fixed in Qubes 4.0.
 On Qubes 3.2, because of these bugs, the installer will try to access all existing disk partitions, run fsck on them, and mount them.
 Therefore, we *strongly* recommended that, prior to starting the Qubes installer, you physically disconnect all disks that you do not want to be modified.
 Furthermore, if you are installing Qubes on a potentially compromised system, we *strongly* recommended that you wipe your target installation disk before starting the installer.
+
+In new installations of Qubes, the following steps may need to be applied in dom0 and Fedora 26 TemplateVMs in order to receive updates (see [#3737]).
+
+Steps for dom0 updates:
+
+1. Open the Qubes Menu by clicking on the "Q" icon in the top-left corner of the screen.
+2. Select `Terminal Emulator`.
+3. In the window that opens, enter this command:
+
+       sudo nano /etc/yum.repos.d/qubes-dom0.repo
+
+4. This opens the nano text editor. Change all four instances of `http` to `https`.
+5. Press `CTRL+X`, then `Y`, then `ENTER` to save changes and exit.
+6. Check for updates normally.
+
+Steps for Fedora 26 TemplateVM updates:
+
+1. Open the Qubes Menu by clicking on the "Q" icon in the top-left corner of the screen.
+2. Select `Template: fedora-26`, then `fedora-26: Terminal`.
+3. In the window that opens, enter the command for your version:
+
+       [Qubes 3.2] sudo gedit /etc/yum.repos.d/qubes-r3.repo
+       [Qubes 4.0] sudo gedit /etc/yum.repos.d/qubes-r4.repo
+
+4. This opens the gedit text editor in a window. Change all four instances of `http` to `https`.
+5. Click the "Save" button in the top-right corner of the window.
+6. Close the window.
+7. Check for updates normally.
+8. Shut down the TemplateVM.
 
 
 Hardware Requirements
@@ -52,6 +81,7 @@ so, for whatever reason. Always verify the digital signature on the downloaded
 ISO. Make sure to read our guide on [verifying signatures] for more info about
 how to download and verify our PGP keys and verify the downloaded ISO.
 
+**Note:** The Qubes R4.0 ISO is large, so if you are using R3.2 to download it you may need to [increase the private storage](/doc/resize-disk-image/#expand-disk-image-r32) available to the AppVM.
 
 Copying the ISO onto the installation medium
 --------------------------------------------
@@ -67,10 +97,10 @@ USB device, e.g. using `dd`:
     dd if=Qubes-R3-x86_64.iso of=/dev/sdX bs=1M && sync
 
 Change `Qubes-R3-x86_64.iso` to the filename of the version you're installing,
-and change `/dev/sdX` to the correct target device (e.g., `/dev/sda`).
+and change `/dev/sdX` to the correct target device (e.g., `/dev/sdc`).
 **Warning:** Choosing the wrong device could result in data loss. Make sure to
-write to the entire device (e.g., `/dev/sda`) rather than just a single
-partition (e.g., `/dev/sda1`).
+write to the entire device (e.g., `/dev/sdc`) rather than just a single
+partition (e.g., `/dev/sdc1`).
 
 On Windows, you can use the [Rufus] tool. Be sure to select "DD image" mode (you
 need to do that **after** selecting the Qubes ISO):
@@ -134,6 +164,7 @@ Getting Help
 [Bug 1374983]: https://bugzilla.redhat.com/show_bug.cgi?id=1374983
 [Bug 1268700]: https://bugzilla.redhat.com/show_bug.cgi?id=1268700
 [#2835]: https://github.com/QubesOS/qubes-issues/issues/2835
+[#3737]: https://github.com/QubesOS/qubes-issues/issues/3737
 [system requirements]: /doc/system-requirements/
 [Hardware Compatibility List]: /hcl/
 [live USB]: /doc/live-usb/
@@ -143,6 +174,6 @@ Getting Help
 [Rufus]: https://rufus.akeo.ie/
 [documentation]: /doc/
 [improving]: /doc/doc-guidelines/
-[mailing lists]: /doc/mailing-lists/
+[mailing lists]: /support/
 [help]: /help/
 

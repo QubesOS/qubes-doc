@@ -24,7 +24,7 @@ The Basics
  * [Screenshots](/screenshots/)
  * [Getting Started](/getting-started/)
  * [User FAQ](/faq/#users)
- * [Mailing Lists](/mailing-lists/)
+ * [Help, Support, and Mailing Lists](/support/)
  * [How to Contribute](/doc/contributing/)
 
 Security Information
@@ -142,6 +142,7 @@ Configuration Guides
  * [Managing VM kernel](/doc/managing-vm-kernel/)
  * [Salt management stack](/doc/salt/)
  * [Adding SSD storage cache](https://groups.google.com/d/msgid/qubes-users/a08359c9-9eb0-4d1a-ad92-a8a9bc676ea6%40googlegroups.com)
+ * [How to Make a Multimedia TemplateVM](/doc/multimedia/)
 
 
 Customization Guides
@@ -152,6 +153,7 @@ Customization Guides
  * [Using KDE in dom0](/doc/kde/)
  * [Installing XFCE in dom0](/doc/xfce/)
  * [Installing i3 in dom0](/doc/i3/)
+ * [Using awesome in dom0](/doc/awesome/)
  * [Language Localization](/doc/language-localization/)
  * [Dark Theme in Dom0 and DomU](/doc/dark-theme/)
  * [How to make any file in a TemplateBasedVM persistent using bind-dirs](/doc/bind-dirs/)
@@ -261,10 +263,11 @@ Building
 --------
  * [Building Qubes](/doc/qubes-builder/) (["API" Details](/doc/qubes-builder-details/))
  * [Development Workflow](/doc/development-workflow/)
- * [Building Qubes OS 3.0 ISO](/doc/qubes-r3-building/)
+ * [Building Qubes OS ISO](/doc/qubes-r3-building/)
  * [Building Qubes Templates](https://github.com/QubesOS/qubes-template-configs)
  * [Building a TemplateVM based on a new OS (ArchLinux example)](/doc/building-non-fedora-template/)
  * [Building the Archlinux Template](/doc/building-archlinux-template/)
+ * [Building the Whonix Templates](/doc/building-whonix-template/)
  * [How to compile kernels for dom0](https://groups.google.com/d/topic/qubes-users/yBeUJPwKwHM/discussion)
 
 Releases

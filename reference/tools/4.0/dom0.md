@@ -7,8 +7,8 @@ permalink: /doc/tools/4.0/dom0/
 Dom0 Command-Line Tools for Qubes 4.0
 =====================================
 
-Reference pages for these tools are being written.
-This page will be updated when they're available.
+Reference pages for these tools are available here:
 
-Tracking issue: <https://github.com/QubesOS/qubes-issues/issues/3538>
+ * <https://dev.qubes-os.org/projects/core-admin/en/latest/manpages/>
+ * <https://dev.qubes-os.org/projects/core-admin-client/en/latest/manpages/>
 

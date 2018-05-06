@@ -67,14 +67,14 @@ be grateful to [receive your patch][patch].
 [video tours]: /video-tours/
 [artwork]: https://github.com/QubesOS/qubes-artwork
 [Write and edit the documentation]: /doc/doc-guidelines
-[mailing lists]: /mailing-lists/
+[mailing lists]: /support/
 [Donate]: /donate/
 [Qubes partner]: /partners/
 [Twitter]: https://twitter.com/QubesOS
 [Reddit]: https://www.reddit.com/r/Qubes/
 [Facebook]: https://www.facebook.com/QubesOS
 [GitHub issues]: https://github.com/QubesOS/qubes-issues/issues
-[qubes-devel]: /mailing-lists/#qubes-devel
+[qubes-devel]: /support/#qubes-devel
 [Community-Developed Feature Tracker]: /qubes-issues/
 [Qubes download mirror]: /downloads/mirrors/
 

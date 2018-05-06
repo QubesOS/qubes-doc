@@ -16,7 +16,9 @@ These files are placed in /rw, which survives a VM restart.
 That way, they can be used to customize a single VM instead of all VMs based on the same template. 
 The scripts here all run as root.
 
--   `/rw/config/rc.local` - script runs at VM startup. Good place to change some service settings, replace config files with its copy stored in /rw/config, etc. Example usage:
+-   `/rw/config/rc.local` - script runs at VM startup.
+    Good place to change some service settings, replace config files with its copy stored in /rw/config, etc.
+    Example usage:
 
     ~~~
     # Store bluetooth keys in /rw to keep them across VM restarts
@@ -26,7 +28,16 @@ The scripts here all run as root.
 
 -   `/rw/config/qubes-ip-change-hook` - script runs in NetVM after every external IP change and on "hardware" link status change.
 
--   `/rw/config/qubes-firewall-user-script` - script runs in ProxyVM/AppVM with `qvm-features <vmname> qubes-firewall true` after each firewall update.
+-   (R4.0 only) in ProxyVMs/AppVMs with `qvm-features <vmname> qubes-firewall true`, scripts placed in the following directories will be executed in the listed order followed by `qubes-firewall-user-script` after each firewall update.
+    Good place to write own custom firewall rules.
+
+    ~~~
+    /etc/qubes/qubes-firewall.d
+    /rw/config/qubes-firewall.d
+    /rw/config/qubes-firewall-user-script
+    ~~~
+
+-   (R3.2 only) `/rw/config/qubes-firewall-user-script` - script runs in ProxyVM/AppVM with `qvm-features <vmname> qubes-firewall true` after each firewall update.
     Good place to write own custom firewall rules.
 
 -   `/rw/config/suspend-module-blacklist` - list of modules (one per line) to be unloaded before system goes to sleep.

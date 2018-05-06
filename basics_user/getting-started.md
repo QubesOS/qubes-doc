@@ -56,7 +56,14 @@ Qubes VM Manager and Command Line Tools
 ---------------------------------------
 
 All aspects of the Qubes system can be controlled using command line tools run under a dom0 console. 
-To open a console window in dom0, either go to Start-\>System Tools-\>Konsole or press Alt-F2 and type `konsole`.
+Opening a console window in dom0 can be done in several ways:
+
+* Go to the Start Menu and click Terminal Emulator
+* Press Alt-F3, type `xfce terminal` and press Enter twice
+* Right-click on the desktop and select Open Terminal Here
+* In previous versions of Qubes with KDE:
+    * Start → System Tools → Konsole
+    * Press Alt-F2 and type `konsole`.
 
 Various command line tools are described as part of this guide, and the whole reference can be found [here](/doc/tools/).
 
@@ -64,7 +71,7 @@ Various command line tools are described as part of this guide, and the whole re
 
 Alternatively, you can use a rather intuitive GUI tool called **Qubes VM Manager**. 
 It supports most of the functionality that command line tools provide. 
-The Qubes VM Manager starts and opens automatically when Qubes starts up, but you can also start it by going to Start-\>System Tools-\>Qubes Manager. 
+The Qubes VM Manager starts and opens automatically when Qubes starts up, but you can also start it by going to Start → System Tools → Qubes Manager.
 Once the Qubes VM Manager is running, you can open the window at any time by clicking on the Qubes tray icon, which typically resides in the bottom-right corner of the screen.
 
 ![r2b1-qubes-manager-2.png](/attachment/wiki/GettingStarted/r2b1-qubes-manager-2.png)
@@ -74,7 +81,7 @@ Starting Apps in qubes
 
 Apps can be started either by using the shortcuts in the Desktop Manager's menu or by using the command line (i.e., a console running in dom0).
 
-You can start apps directly from the start menu. 
+You can start apps directly from the Start Menu or the Application Finder (Alt-F3).
 Each qube has its own menu directory under the scheme **Domain: \<name\>**. 
 After navigating into one of these directories, simply click on the application you'd like to start:
 

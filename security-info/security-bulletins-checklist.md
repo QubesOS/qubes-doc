@@ -20,5 +20,5 @@ Announcement
 
  * Upload packages to `security-testing` and `current-testing` repositories
  * Push QSB to public repository
- * Announce on the [mailing lists](/mailing-lists/) using the [QSB Template](/security/bulletins/template/)
+ * Announce on the [mailing lists](/support/) using the [QSB Template](/security/bulletins/template/)
  * Announce on social media

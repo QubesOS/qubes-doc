@@ -80,14 +80,13 @@ update, so VM can setup a watch here to trigger rules reload.
     retrieving them). The first rule has number `0000`.
 
 Each rule is a single QubesDB entry, consisting of pairs `key=value` separated
-by space. Order of those pairs in a single rule is undefined. QubesDB enforces
-a limit on a single entry length - 3072 bytes.
+by space. QubesDB enforces limit on a single entry length - 3072 bytes.
 Possible options for a single rule:
 
  - `action`, values: `accept`, `drop`; this is present in every rule
  - `dst4`, value: destination IPv4 address with a mask; for example: `192.168.0.0/24`
  - `dst6`, value: destination IPv6 address with a mask; for example: `2000::/3`
- - `dstname`, value: DNS hostname of destination host
+ - `dsthost`, value: DNS hostname of destination host
  - `proto`, values: `tcp`, `udp`, `icmp`
  - `specialtarget`, value: One of predefined target, currently defined values:
    - `dns` - such option should match DNS traffic to default DNS server (but
@@ -101,8 +100,8 @@ Possible options for a single rule:
 Options must appear in the rule in the order listed above. Duplicated options
 are forbidden.
 
-Rule matches only when all predicates matches. Only one of `dst4`, `dst6`,
-`dstname`, `specialtarget` can be used in a single rule.
+A rule matches only when all predicates match. Only one of `dst4`, `dst6` or
+`dsthost` can be used in a single rule.
 
 If tool applying firewall encounters any parse error (unknown option, invalid
 value, duplicated option, etc), it should drop all the traffic coming from that `SOURCE_IP`,

@@ -14,15 +14,15 @@ or minor release (see [Version Scheme]). The current release and past major
 releases are always available on the [Downloads] page, while all ISOs, including
 past minor releases, are available from our [download mirrors].
 
-| Qubes OS Version | Start Date | End Date   | Status                          |
-| ---------------- | ---------- | ---------- | ------------------------------- |
-| Release 1        | 2012-09-03 | 2015-03-26 | Old, unsupported                |
-| Release 2        | 2014-09-26 | 2016-04-01 | Old, unsupported                |
-| Release 3.0      | 2015-10-01 | 2016-09-09 | Old, unsupported                |
-| Release 3.1      | 2016-03-09 | 2017-03-29 | Old, unsupported                |
-| Release 3.2      | 2016-09-29 | TBA        | Current, [extended support]     |
-| Release 3.2.1    | TBA        | TBA        | In development                  |
-| Release 4.0      | TBA        | TBA        | In development (prerelease)     |
+| Qubes OS Version | Start Date | End Date   | Status                  |
+| ---------------- | ---------- | ---------- | ----------------------- |
+| Release 1        | 2012-09-03 | 2015-03-26 | Old, unsupported        |
+| Release 2        | 2014-09-26 | 2016-04-01 | Old, unsupported        |
+| Release 3.0      | 2015-10-01 | 2016-09-09 | Old, unsupported        |
+| Release 3.1      | 2016-03-09 | 2017-03-29 | Old, unsupported        |
+| Release 3.2      | 2016-09-29 | TBA        | Old, [extended support] |
+| Release 3.2.1    | TBA        | 2019-03-28 | In development          |
+| Release 4.0      | 2018-03-28 | TBA        | Current, supported      |
 
 
 Dom0
@@ -61,8 +61,8 @@ release. Currently, only Fedora and Debian TemplateVMs are officially supported.
 | Release 3.0      | 21, 22\*, 23         | 7 ("wheezy")\*, 8 ("jessie")                  |
 | Release 3.1      | 21, 22\*, 23         | 7 ("wheezy")\*, 8 ("jessie"), 9 ("stretch")\* |
 | Release 3.2      | 23\*, 24\*, 25, 26   | 8 ("jessie"), 9 ("stretch")                   |
-| Release 3.2.1    | 23\*, 24\*, 25, 26   | 8 ("jessie"), 9 ("stretch")                   |
-| Release 4.0      | 25, 26               | 8 ("jessie"), 9 ("stretch")                   |
+| Release 3.2.1    | 26                   | 8 ("jessie"), 9 ("stretch")                   |
+| Release 4.0      | 26                   | 8 ("jessie"), 9 ("stretch")                   |
 
 \* Denotes versions for which we have published the packages but have not done
 extensive testing.
@@ -73,5 +73,5 @@ extensive testing.
 [download mirrors]: /downloads/#mirrors
 [security-critical]: /doc/security-critical-code/
 [TemplateVM]: /doc/templates/
-[extended support]: /news/2016/09/02/4-0-minimum-requirements-3-2-extended-support/
+[extended support]: /news/2018/03/28/qubes-40/#the-past-and-the-future
 

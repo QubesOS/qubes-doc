@@ -52,6 +52,8 @@ Of course, command line tools are still available for accomplishing various upda
 
 ### How to downgrade a specific package
 
+**WARNING:** Downgrading a package can expose your system to security vulnerabilities.
+
 1.  Download an older version of the package:
 
     ~~~
@@ -65,6 +67,14 @@ Of course, command line tools are still available for accomplishing various upda
     ~~~
     sudo dnf downgrade package-version
     ~~~
+
+For example, to downgrade Xen to a specific older version available for Qubes R3.2, you would:
+
+~~~
+sudo qubes-dom0-update xen-libs-4.6.6-36.fc23.x86_64 xen-hypervisor-4.6.6-36.fc23.x86_64 xen-runtime-4.6.6-36.fc23.x86_64 xen-hvm-4.6.6-36.fc23.x86_64 xen-4.6.6-36.fc23.x86_64 xen-license-4.6.6-36.fc23.x86_64
+
+sudo dnf downgrade xen-libs-4.6.6-36.fc23.x86_64 xen-hypervisor-4.6.6-36.fc23.x86_64 xen-runtime-4.6.6-36.fc23.x86_64 xen-hvm-4.6.6-36.fc23.x86_64 xen-4.6.6-36.fc23.x86_64 xen-license-4.6.6-36.fc23.x86_64
+~~~
 
 ### How to re-install a package
 
@@ -128,9 +138,9 @@ If the update process does not automatically do it (you should see it mentioned 
 from the update command), you may need to manually rebuild the EFI or grub config depending on which
 your system uses.
 
-EFI (Replace the file names with the correct versions for your updated kernel)
+EFI
 ~~~
-sudo /usr/bin/dracut -f /boot/efi/EFI/qubes/initramfs-4.4.31-11.pvops.qubes.x86_64.img 4.4.31-11.pvops.qubes.x86_64
+sudo dracut -f /boot/efi/EFI/qubes/initramfs-$(uname -r).img $(uname -r)
 ~~~
 
 Grub2

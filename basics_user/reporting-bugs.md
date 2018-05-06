@@ -94,9 +94,9 @@ Please see our guidelines on [how to contribute code].
 [documentation]: /doc/
 [website]: /
 [qubes-issues]: https://github.com/QubesOS/qubes-issues/issues
-[Mailing List]: /mailing-lists/
-[qubes-users]: /mailing-lists/#qubes-users
-[qubes-devel]: /mailing-lists/#qubes-devel
+[Mailing List]: /support/
+[qubes-users]: /support/#qubes-users
+[qubes-devel]: /support/#qubes-devel
 [How to submit a report on GitHub]: #how-to-submit-a-report-on-github
 [How to submit a report on the mailing lists]: #how-to-submit-a-report-on-the-mailing-lists
 [testing]: /doc/testing/

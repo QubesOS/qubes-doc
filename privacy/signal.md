@@ -62,4 +62,4 @@ Always obtain a trusted key fingerprint via other channels, and always check any
 [shortcut]: https://support.whispersystems.org/hc/en-us/articles/216839277-Where-is-Signal-Desktop-on-my-computer-
 [shortcut-desktop]: /doc/managing-appvm-shortcuts/#tocAnchor-1-1-1
 [message]: https://groups.google.com/d/msg/qubes-users/rMMgeR-KLbU/XXOFri26BAAJ
-[mailing list]: /mailing-lists/
+[mailing list]: /support/

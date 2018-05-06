@@ -65,6 +65,27 @@ In order to do that, select "Qube settings" entry in selected base AppVM, go to 
 
 Note that currently only applications whose main process keeps running until you close the application (i.e. do not start a background process instead) will work. One of known examples of incompatible applications is GNOME Terminal (shown on the list as "Terminal"). Choose different terminal emulator (like XTerm) instead.
 
+### Deleting Disposable VM ###
+
+Deleting disposable VM is slightly peculiar. While working in a VM or disposable VM, you may want to open a document in another disposable VM. For this reason, the property `default_dispvm` may be set to the name of your disposable VM in a number of VMs:
+
+    [user@dom0 ~]$ qvm-prefs workvm | grep default_disp
+    default_dispvm        -  custom-dvm
+
+This will prevent the deletion of the DVM. In order to fix this you need to unset the `default_disp` property:
+
+    [user@dom0 ~]$ qubes-prefs workvm default_disp ""
+
+You can then delete the DVM:
+
+    [user@dom0 ~]$ qvm-remove custom-dvm
+    This will completely remove the selected VM(s)
+      custom-dvm
+      
+If you still encounter the issue, you may have forgot to clean an entry. Looking at the system logs will help you
+
+    [user@dom0 ~]$ journalctl | tail
+
 Qubes 3.2
 ----------
 

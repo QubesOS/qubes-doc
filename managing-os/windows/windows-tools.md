@@ -1,17 +1,16 @@
 ---
 layout: doc
-title: Windows AppVms
-permalink: /doc/windows-appvms/
+title: Qubes Windows Tools
+permalink: /doc/windows-tools/
 redirect_from:
+- /doc/windows-appvms/
 - /en/doc/windows-appvms/
 - /doc/WindowsAppVms/
 - /wiki/WindowsAppVms/
 ---
 
-Installing and using Windows-based AppVMs
-=========================================
-
-Qubes provides special support for running Windows-based AppVMs. This requires the user to install Windows 7 x64 in a Qubes VM and subsequently install Qubes Windows Tools inside the VM (support for Windows 8+ is in development). This page describes this process in detail.
+What are Qubes Windows Tools ?
+==============================
 
 Qubes Windows Tools are a set of programs and drivers that provide integration of Windows AppVMs with the rest of the Qubes system. Currently the following features are available for Windows VMs after installation of those tools:
 
@@ -23,12 +22,16 @@ Qubes Windows Tools are a set of programs and drivers that provide integration o
 
 Qubes Windows Tools are open source and are distributed under a GPL license.
 
-NOTE: Currently only 64-bit versions of Windows 7 are supported by Qubes Windows Tools. Only emulated SVGA GPU is supported (although [there has been reports](https://groups.google.com/forum/#!topic/qubes-users/cmPRMOkxkdA) on working GPU pass-through). There is currently no audio support for Windows HVMs.
+NOTES:
+- Qubes Windows Tools are currently unmaintained
+- Currently only 64-bit versions of Windows 7 are supported by Qubes Windows Tools. Only emulated SVGA GPU is supported (although [there has been reports](https://groups.google.com/forum/#!topic/qubes-users/cmPRMOkxkdA) on working GPU pass-through). There is currently no audio support for Windows HVMs.
+- __This page documents the process of installing Qubes Windows Tools on versions up to R3.2.__. Installation on Qubes R4.0 is possible but is a work in progress and there are limitations/bugs (see [issue #3585](https://github.com/QubesOS/qubes-issues/issues/3585)).
+
 
 Installing Windows OS in a Qubes VM
 -----------------------------------
 
-Please refer to [this page](/doc/hvm-create/) for instructions on how to install Windows in a Qubes VM.
+Please refer to [this page](/doc/windows-vm/) for instructions on how to install Windows in a Qubes VM.
 
 NOTE: It is strongly suggested to enable autologon for any Windows HVMs that will have Qubes Tools installed. To do so, run `netplwiz` command from the `Win+R`/Start menu and uncheck the *Users must enter a user name and password to use this computer* option.
 

@@ -95,15 +95,15 @@ Here are the answers for Xen 4.1 (which we use as of 2014-04-28):
 
 ### Which virtualization modes do VMs use?
 
-Here is an overview of the VM virtualization modes that correspond to each Qubes OS version (as of 2018-01-13):
+Here is an overview of the VM virtualization modes that correspond to each currently-supported Qubes OS version (as of 2018-03-28):
 
-VM type \ Qubes OS version         | 3.2 | 4.0-rc1-3 | 4.0-rc4 |
----------------------------------- | --- | --------- | ------- |
-Default VMs without PCI devices    | PV  |    HVM    |   PVH   |
-Default VMs with PCI devices       | PV  |    HVM    |   HVM   |
-Stub domains - Default VMs w/o PCI | N/A |    PV     |   N/A   |
-Stub domains - Default VMs w/ PCI  | N/A |    PV     |   PV    |
-Stub domains - HVMs                | PV  |    PV     |   PV    |
+VM type \ Qubes OS version                 | 3.2 | 4.0 |
+------------------------------------------ | --- | --- |
+Default VMs without PCI devices (most VMs) | PV  | PVH |
+Default VMs with PCI devices               | PV  | HVM |
+Stub domains - Default VMs w/o PCI devices | N/A | N/A |
+Stub domains - Default VMs w/ PCI devices  | N/A | PV  |
+Stub domains - HVMs                        | PV  | PV  |
 
 ### What's so special about Qubes' GUI virtualization?
 
@@ -114,6 +114,10 @@ At the same time, due to the smart use of Xen shared memory, our GUI implementat
 ### Why passwordless sudo?
 
 Please refer to [this page](/doc/vm-sudo/).
+
+### Do you recommend coreboot as an alternative to vendor BIOS?
+
+Yes, where it is possible to use it an open source boot firmware ought to be more trustable than a closed source implementation.   [coreboot](https://www.coreboot.org/) is as a result a requirement for [Qubes Certified Hardware](https://www.qubes-os.org/news/2016/07/21/new-hw-certification-for-q4/). The number of machines coreboot currently supports is limited and the use of some vendor supplied blobs is generally still required. Where coreboot does support your machine and is not already installed, you will generally need additional hardware to flash it. Please see the coreboot website / their IRC channel for further information.
 
 ### How should I report documentation issues?
 
@@ -469,10 +473,37 @@ From a `dom0` prompt, enter:
 
     qvm-prefs <HVMname> kernel ""
 
+### I keep getting "Failed to synchronize cache for repo" errors when trying to update my Fedora templates
+
+This is general Fedora issue, not a Qubes-specific issue.
+Usually, this is due to network problems (especially if downloading updates over Tor) or problems with the download mirrors.
+Often, the problem can be resolved by trying again on a different connection (a different Tor circuit, if using Tor) or waiting and trying again later.
+Here are some examples of non-Qubes reports about this problem:
+
+ - <https://ask.fedoraproject.org/en/question/88086/error-failed-to-synchronize-cache-for-repo-fedora/>
+ - <https://unix.stackexchange.com/questions/390805/repos-not-working-on-fedora-error-failed-to-synchronize-cache-for-repo-update>
+ - <https://www.reddit.com/r/Fedora/comments/74nldq/fedora_26_dnf_error_failed_to_synchronize_cache/>
+ - <https://bugzilla.redhat.com/show_bug.cgi?id=1494178>
+ - <https://stackoverflow.com/questions/45318256/error-failed-to-synchronize-cache-for-repo-updates>
+
+More examples can be found by searching for "Failed to synchronize cache for repo" (with quotation marks) on your preferred search engine.
+
 
 ----------
 
 ## Developers
+
+### Are there restrictions on the software that the Qubes developers are willing to use?
+
+Yes.
+In general, the Qubes developers will not use a piece of software unless there is an *easy* way to verify both its **integrity** and **authenticity**, preferably via PGP signatures (see [Verifying Signatures](/security/verifying-signatures/)).
+Specifically:
+
+ * If PGP signatures are used, the signing key(s) should have well-publicized fingerprint(s) verifiable via multiple independent channels or be accessible to the developers through a web of trust.
+ * If the software is security-sensitive and requires communication with the outside world, a "split" implementation is highly preferred (for examples, see [Split GPG](/doc/split-gpg/) and [Split Bitcoin](/doc/split-bitcoin/)).
+ * If the software has dependencies, these should be packaged and available in repos for a [current, Qubes-supported version](/doc/supported-versions/#templatevms) of Fedora (preferred) or Debian (unless all the insecure dependencies can run in an untrusted VM in a "split" implementation).
+ * If the software must be built from source, the source code and any builders must be signed.
+   (Practically speaking, the more cumbersome and time-consuming it is to build from source, the less likely the developers are to use it.)
 
 ### Why does dom0 need to be 64-bit?
 
@@ -519,3 +550,7 @@ This has been achieved thanks to the careful use of Xen's stub domain feature.
 For more details about how we improved on Xen's native stub domain use, see [here](https://blog.invisiblethings.org/2012/03/03/windows-support-coming-to-qubes.html).
 
 [force_usb2]: https://www.systutorials.com/qa/1908/how-to-force-a-usb-3-0-port-to-work-in-usb-2-0-mode-in-linux
+
+### Is Secure Boot supported?
+
+Secure Boot is not supported out of the box as UEFI support in Xen is very basic. Arguably secure boot reliance on UEFI integrity is not the best design. The relevant binaries (shim.efi, xen.efi, kernel / initramfs) are not signed by the Qubes Team and secure boot has not been tested. Intel TXT (used in [Anti Evil Maid](/doc/anti-evil-maid/)) at least tries to avoid or limit trust in BIOS.

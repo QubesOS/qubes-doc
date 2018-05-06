@@ -92,7 +92,7 @@ If you do not act on your maintainer duties for a given package for an extended 
 [Qubes OS License]: /doc/license/
 [sig]: /doc/code-signing/
 [coding guidelines]: /doc/coding-style/
-[qubes-devel mailing list]: /mailing-lists/#qubes-devel
+[qubes-devel mailing list]: /support/#qubes-devel
 [QubesOS-contrib]: https://github.com/QubesOS-contrib
 [qubes-issues]: https://github.com/QubesOS/qubes-issues/issues/
 
