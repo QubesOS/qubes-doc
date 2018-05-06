@@ -234,7 +234,7 @@ Qubes 4.0 Instructions
 
     (Shut down TemplateVM by any normal means.)
 
-        [user@dom0 ~]$ losetup -d ${dev##*/}
+        [user@dom0 ~]$ sudo losetup -d $dev
         [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
 
 (Optional cleanup: Switch everything over to the new template and delete the old
@@ -317,7 +317,7 @@ should be entered (`@dom0` or `@fedora-27`).
 
  6. Remove the cache file, if you created one.
 
-        [user@dom0 ~]$ losetup -d ${dev##*/}
+        [user@dom0 ~]$ sudo losetup -d $dev
         [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
 
  7. (Recommended) Switch everything that was set to the old template to the new
