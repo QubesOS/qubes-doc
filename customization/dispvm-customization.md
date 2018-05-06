@@ -67,19 +67,25 @@ Note that currently only applications whose main process keeps running until you
 
 ### Create Custom sys-net sys-firewall and sys-usb DispVMs ###
 
-Users have the option of creating custom DispVMs which can be used for the `sys-net`, `sys-firewall` and `sys-usb` VMs. These VMs behave much like the default VMs created during Qubes installation with the exception of a non-persistent filesystem. Another similarity shared with the default service VMs is the option to use custom firewall rule sets as well as Qubes VPN scripts. This can be accomplished in spite of the fact that a fresh VM is created each time a DispVM is launched by adding rules or custom scripts to the dvm template. Users also have the option of setting the DispVMs to auto-start at system boot in addition to attaching PCI devices with the `--persistent` option. Since both of the aforementioned configuration options are required only at the initial DispVM creation. Using DispVMs in this manner is ideally suited for untrusted VMs which require persistent PCI devices such as `sys-net` and `sys-usb`.
+Users have the option of creating customized DispVMs for the `sys-net`, `sys-firewall` and `sys-usb` VMs. In this configuration, a fresh VM instance is created each time a DispVM is launched. Functionality is near-identical to the default VMs created following a new Qubes’ installation, except the user benefits from a non-persistent filesystem.
 
-_**Note:** if the dvm is customized with a VPN or firewall rule set. A separate dvm must be created for use by each DispVM. Otherwise, if the user does not customize the dvm. Only a singular dvm is required to be created which can be used as template for all DispVMs_   
+Functionality is not limited, users can:
 
+   * Set custom firewall rulesets and run Qubes VPN scripts. 
+   * Set DispVMs to autostart at system boot.
+   * Attach PCI devices with the `--persistent` option. 
+
+Using DispVMs in this manner is ideal for untrusted qubes which require persistent PCI devices, such as USB VMs and NetVMs.
+
+_**Note:**_ Users who want customized VPN or firewall rulesets must create a seperate dvm for use by each DispVM. If dvm customization is not needed, then a single dvm is used as a template for all DispVMs.
  
-
 #### Create and configure the dvm from which the DispVM will be based on ####
 
-   1. Create the dvm VM
+   1. Create the dvm 
 
     [user@dom0 ~]$ qvm-create -P <pool_name> --template <template_name> --class AppVM --label gray <dvm-name>
 
-   2. _(optional)_ In the dvm, add custom firewall rules, VPN scripts etc
+   2. _(optional)_ In the dvm, add custom firewall rulesets, Qubes VPN scripts etc
 
     Firewall rules sets and Qubes VPN scripts can be added just like any other VM   
     
@@ -93,7 +99,7 @@ _**Note:** if the dvm is customized with a VPN or firewall rule set. A separate 
 
     [user@dom0 ~]$ qvm-create -P <pool_name> --template <dvm_name> --class DispVM --label red disp-sys-net
 
-  2. Set `disp-sys-net` virtualizaion mode to hvm
+  2. Set `disp-sys-net` virtualizaion mode to [hvm](/doc/hvm/)
 
     [user@dom0 ~]$ qvm-prefs disp-sys-net virt_mode hvm
 
@@ -105,11 +111,11 @@ _**Note:** if the dvm is customized with a VPN or firewall rule set. A separate 
 
     [user@dom0 ~]$ qvm-prefs disp-sys-net netvm ""
 
-  5. List all available PCI devices to determine the correct backend:BDF address(es) to assign to disp-sys-net
+  5. List all available PCI devices to determine the correct _backend:BDF_ address(es) to assign to `disp-sys-net`
 
     [user@dom0 ~]$ qvm-pci
 
-  6. Attach the network PCI device(s) to `disp-sys-net`: Finding and assigning pci devices can be found [here](/doc/assigning-devices/)
+  6. Attach the network PCI device(s) to `disp-sys-net`: Finding and assigning PCI devices can be found [here](/doc/assigning-devices/)
 
     [user@dom0 ~]$ qvm-pci attach --persistent disp-sys-net <backend>:<bdf>
 
@@ -190,7 +196,7 @@ Prior to starting the new VMs, users should ensure that no other VMs such as the
     [user@dom0~]$ qvm-pci detach <vm_name> <backend>:<bdf>
 
 
-#### Troublshooting ####
+#### Troubleshooting ####
 
 The `disp-sys-usb` VM does not start
 
