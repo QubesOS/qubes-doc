@@ -39,7 +39,7 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
         vm1/whitelisted-appmenus.list.000.enc
         dom0-home/dom0user.000.enc
 
-    **Note:** For backups with multiple VM, find the VM <-> id correspondence in `qubes.xml.000.enc`, extract required files `tar -i -xvf qubes-backup-2015-06-05T123456 backup-header backup-header.hmac vm1/`.
+    **Note:** Each VM in the backup file has its path listed in `qubes.xml.000.enc` (search for the `backup-path` property). You can extract only the files necessary for your VM (vmX) with `tar -i -xvf qubes-backup-2015-06-05T123456 backup-header backup-header.hmac vmX/`.
 
  3. Set backup passhprase environment variable. While this isn't strictly required, it will be handy later and will avoid saving the passphrase into shell history.
 
