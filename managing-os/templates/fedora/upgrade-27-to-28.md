@@ -109,10 +109,10 @@ should be entered (`@dom0` or `@fedora-28`).
     **Note:** `dnf` might ask you to approve importing a new package signing
     key. For example, you might see a prompt like this one:
 
-        warning: /var/cache/dnf/fedora-d02ca361e1b58501/packages/python2-babel-2.3.4-1.fc28.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID f5282ee4: NOKEY
-        Importing GPG key 0xF5282EE4:
+        warning: /var/cache/dnf/fedora-d02ca361e1b58501/packages/python2-babel-2.3.4-1.fc28.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID 9db62fb1: NOKEY
+        Importing GPG key 0x9DB62FB1:
          Userid     : "Fedora (28) <fedora-28-primary@fedoraproject.org>"
-         Fingerprint: 860E 19B0 AFA8 00A1 7518 81A6 F55E 7430 F528 2EE4
+         Fingerprint: 128C F232 A937 1991 C8A6 5695 E08E 7E62 9DB6 2FB1
          From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-28-x86_64
         Is this ok [y/N]:
 
@@ -284,10 +284,10 @@ should be entered (`@dom0` or `@fedora-28`).
     **Note:** `dnf` might ask you to approve importing a new package signing
     key. For example, you might see a prompt like this one:
 
-        warning: /var/cache/dnf/fedora-d02ca361e1b58501/packages/python2-babel-2.3.4-1.fc28.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID f5282ee4: NOKEY
-        Importing GPG key 0xF5282EE4:
+        warning: /var/cache/dnf/fedora-d02ca361e1b58501/packages/python2-babel-2.3.4-1.fc28.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID 9db62fb1: NOKEY
+        Importing GPG key 0x9DB62FB1:
          Userid     : "Fedora (28) <fedora-28-primary@fedoraproject.org>"
-         Fingerprint: 860E 19B0 AFA8 00A1 7518 81A6 F55E 7430 F528 2EE4
+         Fingerprint: 128C F232 A937 1991 C8A6 5695 E08E 7E62 9DB6 2FB1
          From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-28-x86_64
         Is this ok [y/N]:
 
