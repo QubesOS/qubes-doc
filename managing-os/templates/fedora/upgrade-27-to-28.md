@@ -53,8 +53,9 @@ When attempting to upgrade from Fedora 26 or 27 to Fedora 28, you may encounter 
 
 To work around this error:
 
-1. Upgrade everything besides `python2-xcffib` and `qubes-core-vm` (use `-x python2-xcffib -x qubes-core-vm`).
-2. Upgrade `python2-xcffib` using `sudo dnf swap python-xcffib python2-xcffib`. This should automatically update `qubes-gui-vm` too.
+1. Upgrade while excluding the problematic packages by using `-x python2-xcffib -x qubes-gui-vm -x qubes-gui-agent`.
+2. Upgrade `python2-xcffib` using `sudo dnf swap python-xcffib python2-xcffib`.
+   (This should automatically upgrade the other excluded packages too.)
 
 
 Qubes 3.2 Instructions
