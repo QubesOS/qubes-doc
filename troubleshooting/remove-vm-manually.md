@@ -7,8 +7,8 @@ permalink: /doc/remove-vm-manually/
 How to Remove VMs Manually
 ==========================
 
-How to Remove a TemplateVM Manually
------------------------------------
+How to Remove a TemplateVM Manually (R3.2)
+-----------------------------------------
 
 All commands should be executed in a dom0 terminal.
 
