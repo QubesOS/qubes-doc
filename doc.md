@@ -230,7 +230,7 @@ System
 ------
  * [Qubes OS Architecture Overview](/doc/architecture/)
  * [Qubes OS Architecture Spec v0.3 [PDF]](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf)
- * [Security-critical elements of Qubes OS](/doc/security-critical-code/)
+ * [Security-critical Code in Qubes OS](/doc/security-critical-code/)
  * [Qubes Core Admin](https://dev.qubes-os.org/projects/core-admin/en/latest/)
  * [Qubes Core Admin Client](https://dev.qubes-os.org/projects/core-admin-client/en/latest/)
  * [Qubes Admin API](/news/2017/06/27/qubes-admin-api/)
