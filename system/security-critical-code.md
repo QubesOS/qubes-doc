@@ -75,16 +75,6 @@ In practice, we trust the software provided by the [Fedora Project].
 This software is signed by Fedora distribution keys, so it is also critical that the tools used in domains for software updates (`dnf` and `rpm`) are trustworthy.
 
 
-Cooperative Covert Channels Between Domains
--------------------------------------------
-
-Qubes does not attempt to eliminate all possible *cooperative* covert channels between domains, i.e. such channels that could be established between two *compromised* domains.
-We don't believe this is possible to achieve on x86 hardware, and we also doubt it makes any sense in practice for most users.
-After all, if the two domains are compromised, then it's already (almost) all lost anyway.
-
-For more on this topic, see [Understanding and Preventing Data Leaks].
-
-
 [Qubes Security Goals]: /security/goals/
 [Fedora Project]: https://getfedora.org/
 [Understanding and Preventing Data Leaks]: /doc/data-leaks/
