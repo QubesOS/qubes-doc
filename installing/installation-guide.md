@@ -94,7 +94,7 @@ an installation medium.)
 If you prefer to use a USB drive, then you just need to copy the ISO onto the
 USB device, e.g. using `dd`:
 
-    dd if=Qubes-R3-x86_64.iso of=/dev/sdX bs=1024 && sync
+    dd if=Qubes-R3-x86_64.iso of=/dev/sdX bs=1048576 && sync
 
 Change `Qubes-R3-x86_64.iso` to the filename of the version you're installing,
 and change `/dev/sdX` to the correct target device (e.g., `/dev/sdc`).
