@@ -21,7 +21,7 @@ Installation
 The Fedora minimal template can be installed with the following command:
 
 ~~~
-[user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-26-minimal
+[user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-27-minimal
 ~~~
 
 The download may take a while depending on your connection speed.
@@ -32,7 +32,7 @@ Duplication and first steps
 It is highly recommended to clone the original template, and make any changes in the clone instead of the original template. The following command clones the template. Replace `your-new-clone` with your desired name.
 
 ~~~
-[user@dom0 ~]$ qvm-clone fedora-26-minimal your-new-clone
+[user@dom0 ~]$ qvm-clone fedora-27-minimal your-new-clone
 ~~~
 
 You must start the template in order to customize it.
@@ -69,7 +69,7 @@ Qubes 4.0
 In Qubes R4.0 the minimal template is not configured for passwordless root.  To update or install packages to it, from a dom0 terminal window:
 
 ~~~
-[user@dom0 ~]$ qvm-run -u root fedora-26-minimal xterm
+[user@dom0 ~]$ qvm-run -u root fedora-27-minimal xterm
 ~~~
 to open a root terminal in the template, from which you can use dnf without sudo. You will have to do this every time if you choose not to enable passwordless root. 
 
@@ -92,14 +92,14 @@ In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be neede
 
 - `qubes-core-agent-qrexec`: Qubes qrexec agent. Installed by default.
 - `qubes-core-agent-systemd`: Qubes unit files for SystemD init style. Installed by default.
-- `qubes-core-agent-passwordless-root`, `polkit`: By default the 'fedora-26-minimal' template doesn't have passwordless root. These two packages enable this feature. (Note from R4.0 a design choice was made that passwordless should be optional, so is left out of the minimal templates)
+- `qubes-core-agent-passwordless-root`, `polkit`: By default the 'fedora-27-minimal' template doesn't have passwordless root. These two packages enable this feature. (Note from R4.0 a design choice was made that passwordless should be optional, so is left out of the minimal templates)
 - `qubes-core-agent-nautilus`: This package provides integration with the Nautilus file manager (without it things like "copy to VM/open in disposable VM" will not be shown in Nautilus).
 - `qubes-core-agent-sysvinit`: Qubes unit files for SysV init style or upstart.
 - `qubes-core-agent-networking`: Networking support. Required if the template is to be used for a `sys-net` or `sys-firewall` VM.
 - `qubes-core-agent-network-manager`: Integration for NetworkManager. Useful if the template is to be used for a `sys-net` VM.
 - `network-manager-applet`: Useful (together with `dejavu-sans-fonts` and `notification-daemon`) to have a system tray icon if the template is to be used for a `sys-net` VM.
 - `qubes-core-agent-dom0-updates`: Script required to handle `dom0` updates. Any template which the VM responsible for 'dom0' updates (e.g. `sys-firewall`) is based on must contain this package.
-- `qubes-usb-proxy`: Required if the template is to be used for a USB qube (`sys-usb`) or for any destination qube to which USB devices are to be attached (e.g `sys-net` if using USB network adapter).   
+- `qubes-usb-proxy`: Required if the template is to be used for a USB qube (`sys-usb`) or for any destination qube to which USB devices are to be attached (e.g `sys-net` if using USB network adapter).
 - `pulseaudio-qubes`: Needed to have audio on the template VM.
 
 

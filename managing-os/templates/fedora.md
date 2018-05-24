@@ -24,9 +24,9 @@ However, there may be times when you wish to install a fresh copy from the Qubes
 
 To install a specific Fedora TemplateVM that is not currently installed in your system, use the following command in dom0:
 
-    $ sudo qubes-dom0-update qubes-template-fedora-26
+    $ sudo qubes-dom0-update qubes-template-fedora-27
 
-(If necessary, replace `26` with your desired Fedora version.)
+(If necessary, replace `27` with your desired Fedora version.)
 
 To reinstall a Fedora TemplateVM that is already installed in your system, see [How to Reinstall a TemplateVM].
 
@@ -40,9 +40,9 @@ After installing a fresh Fedora TemplateVM, we recommend performing the followin
 2. Switch any [TemplateBasedVMs] that are based on the old TemplateVM to the new one.
 3. If desired, remove the old TemplateVM by running the following command in dom0:
 
-        $ sudo dnf remove qubes-template-fedora-26
+        $ sudo dnf remove qubes-template-fedora-27
 
-   (If necessary, replace `26` with your desired Fedora version.)
+   (If necessary, replace `27` with your desired Fedora version.)
 
 
 Upgrading
