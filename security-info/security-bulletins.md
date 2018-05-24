@@ -90,5 +90,5 @@ Qubes Security Bulletins are published through the [Qubes Security Pack](/securi
 -   [Qubes Security Bulletin \#37](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt) (Information leaks due to processor speculative execution bugs)
 -   [Qubes Security Bulletin \#38](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-038-2018.txt) (Qrexec policy bypass and possible information leak)
 -   [Qubes Security Bulletin \#39](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-039-2018.txt) (Xen vulnerability (XSA-260) and GUI daemon issue)
--   [Qubes Security Bulletin \#40](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-040-2018.txt) (Information leaks due to processor speculative store bypass)
+-   [Qubes Security Bulletin \#40](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-040-2018.txt) (Information leaks due to processor speculative store bypass (XSA-263))
 
