@@ -54,15 +54,15 @@ TemplateVMs
 The table below shows the [TemplateVM] versions supported by each Qubes OS
 release. Currently, only Fedora and Debian TemplateVMs are officially supported.
 
-| Qubes OS Version | Fedora Versions      | Debian Versions                               |
-| ---------------- | -------------------- | --------------------------------------------- |
-| Release 1        | 18, 20               | None                                          |
-| Release 2        | 21                   | None                                          |
-| Release 3.0      | 21, 22\*, 23         | 7 ("wheezy")\*, 8 ("jessie")                  |
-| Release 3.1      | 21, 22\*, 23         | 7 ("wheezy")\*, 8 ("jessie"), 9 ("stretch")\* |
-| Release 3.2      | 23\*, 24\*, 25, 26   | 8 ("jessie"), 9 ("stretch")                   |
-| Release 3.2.1    | 26                   | 8 ("jessie"), 9 ("stretch")                   |
-| Release 4.0      | 26                   | 8 ("jessie"), 9 ("stretch")                   |
+| Qubes OS Version | Fedora Versions            | Debian Versions                               |
+| ---------------- | -------------------------- | --------------------------------------------- |
+| Release 1        | 18, 20                     | None                                          |
+| Release 2        | 21                         | None                                          |
+| Release 3.0      | 21, 22\*, 23               | 7 ("wheezy")\*, 8 ("jessie")                  |
+| Release 3.1      | 21, 22\*, 23               | 7 ("wheezy")\*, 8 ("jessie"), 9 ("stretch")\* |
+| Release 3.2      | 23\*, 24\*, 25, 26, 27, 28 | 8 ("jessie"), 9 ("stretch")                   |
+| Release 3.2.1    | 26, 27, 28                 | 8 ("jessie"), 9 ("stretch")                   |
+| Release 4.0      | 26, 27, 28                 | 8 ("jessie"), 9 ("stretch")                   |
 
 \* Denotes versions for which we have published the packages but have not done
 extensive testing.
