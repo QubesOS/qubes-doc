@@ -12,14 +12,6 @@ redirect_from:
 Upgrading the Fedora 27 Template to Fedora 28
 =============================================
 
-<div class="alert alert-warning" role="alert">
-  <i class="fa fa-exclamation-triangle"></i>
-  <b>Notice:</b>
-  Currently, the packages for Fedora 28 are available in the <code>current-testing</code> repository for both Qubes 3.2 and 4.0.
-  If you wish, you can help us test these instructions by using <code>--enablerepo=qubes-vm*current-testing</code>.
-  Once the packages have migrated to the stable repositories for both versions, this notice will be removed.
-</div>
-
 This page provides instructions for performing an in-place upgrade of an
 installed Fedora 27 [TemplateVM] to Fedora 28. If you wish to install a new,
 unmodified Fedora 28 template instead of upgrading a template that is already
