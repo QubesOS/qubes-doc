@@ -100,12 +100,25 @@ Boot device not recognized after installing
 ------------------------------------------
 
 Some firmware will not recognize the default Qubes EFI configuration. As such,
-it will have to be manually edited to be bootable (this will need to be done after
-every kernel and Xen update.)
+it will have to be manually edited to be bootable. This will need to be done after
+every kernel and Xen update to ensure you use the most recently installed versions.
 
-1. Copy `/boot/efi/EFI/qubes/` to `/boot/efi/EFI/BOOT/`.
-2. Rename `/boot/efi/EFI/BOOT/xen.efi` to `/boot/efi/EFI/BOOT/BOOTX64.efi`.
-3. Rename `/boot/efi/EFI/BOOT/xen.cfg` to `/boot/efi/EFI/BOOT/BOOTX64.cfg`.
+1. Copy the `/boot/efi/EFI/qubes/` directory to `/boot/efi/EFI/BOOT/`
+(the contents of `/boot/efi/EFI/BOOT` should be identical to `/boot/efi/EFI/qubes`
+besides what is described in steps 2 and 3):
+
+       cp -r /boot/efi/EFI/qubes/. /boot/efi/EFI/BOOT
+
+2. Rename `/boot/efi/EFI/BOOT/xen.cfg` to `/boot/efi/EFI/BOOT/BOOTX64.cfg`:
+
+       mv /boot/efi/EFI/BOOT/xen.cfg /boot/efi/EFI/BOOTX64.cfg
+
+3. Copy `/boot/efi/EFI/qubes/xen-*.efi` to `/boot/efi/EFI/qubes/xen.efi`
+and `/boot/efi/EFI/BOOT/BOOTX64.efi`. For example with Xen 4.8.3
+(you may need to confirm file overwrite):
+
+       cp /boot/efi/EFI/qubes/xen-4.8.3.efi /boot/efi/EFI/qubes/xen.efi
+       cp /boot/efi/EFI/qubes/xen-4.8.3.efi /boot/efi/EFI/BOOT/BOOTX64.efi
 
 Installation finished but "Qubes" boot option is missing and xen.cfg is empty
 --------------------------------------------------------------------------------------
