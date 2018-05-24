@@ -3,6 +3,7 @@ layout: doc
 title: Templates
 permalink: /doc/templates/
 redirect_from:
+- /doc/template/
 - /en/doc/templates/
 - /doc/Templates/
 - /wiki/Templates/
