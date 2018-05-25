@@ -157,8 +157,8 @@ Ctrl-Alt-F2), or booting from installation media in "Rescue a Qubes system" mode
        efibootmgr -v -c -u -L Qubes -l /EFI/qubes/xen.efi -d /dev/sda -p 1 "placeholder /mapbs /noexitboot"
 
 
-Installation freezes before getting to Anaconda
------------------------------------------------
+Installation freezes before getting to Anaconda (Qubes 4.0)
+-----------------------------------------------------------
 
 Some systems can freeze with the default UEFI install options.
 You can try the following to remove `noexitboot` and `mapbs`.
