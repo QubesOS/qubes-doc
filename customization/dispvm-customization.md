@@ -128,7 +128,7 @@ Deleting disposable VM is slightly peculiar. While working in a VM or disposable
 
 This will prevent the deletion of the DVM. In order to fix this you need to unset the `default_disp` property:
 
-    [user@dom0 ~]$ qubes-prefs workvm default_disp ""
+    [user@dom0 ~]$ qvm-prefs workvm default_disp ""
 
 You can then delete the DVM:
 
