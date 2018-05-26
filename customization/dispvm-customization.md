@@ -71,21 +71,21 @@ Users have the option of creating customized DispVMs for the `sys-net`, `sys-fir
 
 Functionality is not limited, users can:
 
-   * Set custom firewall rulesets and run Qubes VPN scripts. 
+   * Set custom firewall rule sets and run Qubes VPN scripts. 
    * Set DispVMs to autostart at system boot.
    * Attach PCI devices with the `--persistent` option. 
 
 Using DispVMs in this manner is ideal for untrusted qubes which require persistent PCI devices, such as USB VMs and NetVMs.
 
-_**Note:**_ Users who want customized VPN or firewall rulesets must create a seperate dvm for use by each DispVM. If dvm customization is not needed, then a single dvm is used as a template for all DispVMs.
+>_**Note:**_ Users who want customized VPN or firewall rule sets must create a separate dvm for use by each DispVM. If dvm customization is not needed, then a single dvm is used as a template for all DispVMs.
  
 #### Create and configure the dvm from which the DispVM will be based on ####
 
    1. Create the dvm 
 
-    [user@dom0 ~]$ qvm-create -P <pool_name> --template <template_name> --class AppVM --label gray <dvm-name>
+    [user@dom0 ~]$ qvm-create --class AppVM --label gray <dvm-name>
 
-   2. _(optional)_ In the dvm, add custom firewall rulesets, Qubes VPN scripts etc
+   2. _(optional)_ In the dvm, add custom firewall rule sets, Qubes VPN scripts etc
 
     Firewall rules sets and Qubes VPN scripts can be added just like any other VM   
     
@@ -97,9 +97,9 @@ _**Note:**_ Users who want customized VPN or firewall rulesets must create a sep
 
   1. Create `sys-net` DispVM based on the dvm
 
-    [user@dom0 ~]$ qvm-create -P <pool_name> --template <dvm_name> --class DispVM --label red disp-sys-net
+    [user@dom0 ~]$ qvm-create --template <dvm_name> --class DispVM --label red disp-sys-net
 
-  2. Set `disp-sys-net` virtualizaion mode to [hvm](/doc/hvm/)
+  2. Set `disp-sys-net` virtualization mode to [hvm](/doc/hvm/)
 
     [user@dom0 ~]$ qvm-prefs disp-sys-net virt_mode hvm
 
@@ -132,37 +132,33 @@ _**Note:**_ Users who want customized VPN or firewall rulesets must create a sep
 
   1. Create `sys-firewall` DispVM
 
-    [user@dom0 ~]$ qvm-create -P appvm_pool --template <dvm_name> --class DispVM --label green disp-sys-firewall
+    [user@dom0 ~]$ qvm-create --template <dvm_name> --class DispVM --label green disp-sys-firewall
 
-  2. Set `disp-sys-firewall` virtualization mode to hvm
-
-    [user@dom0 ~]$ qvm-prefs disp-sys-firewall virt_mode hvm  
-
-  3. Set `disp-sys-firewall` to provide network for other VMs
+  2. Set `disp-sys-firewall` to provide network for other VMs
 
     [user@dom0 ~]$ qvm-prefs disp-sys-firewall provides_network true
 
-  4. Set `disp-sys-net` as the NetVM for `disp-sys-firewall`
+  3. Set `disp-sys-net` as the NetVM for `disp-sys-firewall`
 
     [user@dom0 ~]$ qvm-prefs disp-sys-firewall netvm disp-sys-net
 
-  5. Set `disp-sys-firewall` as NetVM for other AppVMs
+  4. Set `disp-sys-firewall` as NetVM for other AppVMs
 
     [user@dom0 ~]$ qvm-prefs <vm_name> netvm disp-sys-firewall
 
-  6. _(recommended)_ Set `disp-sys-firewall` to auto-start when Qubes boots
+  5. _(recommended)_ Set `disp-sys-firewall` to auto-start when Qubes boots
 
     [user@dom0 ~]$ qvm-prefs disp-sys-firewall autostart true
 
-  7. _(optional)_ Set `disp-sys-firewall` as the default NetVM
+  6. _(optional)_ Set `disp-sys-firewall` as the default NetVM
 
-    [user@dom0 ~]$ qubes-prefs default_netvm firewall-disp
+    [user@dom0 ~]$ qubes-prefs default_netvm disp-sys-firewall
 
 #### Create the sys-usb DispVM ####
 
   1. Create the `disp-sys-usb`
 
-    [user@dom0 ~]$ qvm-create -P <pool_name> --template <dvm-name> --class DispVM --label red disp-sys-usb
+    [user@dom0 ~]$ qvm-create --template <dvm-name> --class DispVM --label red disp-sys-usb
 
   2. Set the `disp-sys-usb` virtualization mode to hvm
 
@@ -176,8 +172,10 @@ _**Note:**_ Users who want customized VPN or firewall rulesets must create a sep
 
     [user@dom0 ~]$ qvm-pci
 
-  5. Attach the USB controller to the `disp-sys-usb` 
- 
+  5. Attach the USB controller to the `disp-sys-usb`
+  
+     >_**Note:**_ Most of the commonly used USB controllers (all Intel integrated controllers) require the `-o no-strict-reset=True` option to be set. Instructions detailing how this option is set can be found [here](/doc/assigning-devices/#r40-1).
+
     [user@dom0 ~]$ qvm-pci attach --persistent disp-sys-usb <backined>:<bdf>
     
   6. _(optional)_ Set `disp-sys-usb` to auto-start when Qubes boots
