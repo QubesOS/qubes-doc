@@ -95,7 +95,7 @@ In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be neede
 - `qubes-core-agent-passwordless-root`, `polkit`: By default the 'fedora-27-minimal' template doesn't have passwordless root. These two packages enable this feature. (Note from R4.0 a design choice was made that passwordless should be optional, so is left out of the minimal templates)
 - `qubes-core-agent-nautilus`: This package provides integration with the Nautilus file manager (without it things like "copy to VM/open in disposable VM" will not be shown in Nautilus).
 - `qubes-core-agent-sysvinit`: Qubes unit files for SysV init style or upstart.
-- `qubes-core-agent-networking`: Networking support. Required if the template is to be used for a `sys-net` or `sys-firewall` VM.
+- `qubes-core-agent-networking`: Networking support. Required for general network access and particularly if the template is to be used for a `sys-net` or `sys-firewall` VM.
 - `qubes-core-agent-network-manager`: Integration for NetworkManager. Useful if the template is to be used for a `sys-net` VM.
 - `network-manager-applet`: Useful (together with `dejavu-sans-fonts` and `notification-daemon`) to have a system tray icon if the template is to be used for a `sys-net` VM.
 - `qubes-core-agent-dom0-updates`: Script required to handle `dom0` updates. Any template which the VM responsible for 'dom0' updates (e.g. `sys-firewall`) is based on must contain this package.
