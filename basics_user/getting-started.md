@@ -129,6 +129,21 @@ You'll also be able to easily copy any files you need to the newly created qube,
 
 More paranoid people might find it worthwhile to read [this article](https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html), which describes how one of the Qubes authors partitions her digital life into security domains.
 
+Common Tasks
+------------
+
+Here are the documentation pages for some of the main actions you'll want to perform.
+A full list is available in the [Common Tasks](/doc/#common-tasks) section of the documentation.
+
+ * [Copying and Pasting Text Between Domains](/doc/copy-paste/)
+ * [Copying and Moving Files Between Domains](/doc/copying-files/)
+ * [Copying from (and to) dom0](/doc/copy-from-dom0/)
+ * [Updating Software in dom0](/doc/software-update-dom0/)
+ * [Updating and Installing Software in VMs](/doc/software-update-vm/)
+ * [Backup, Restoration, and Migration](/doc/backup-restore/)
+ * [Using Disposable VMs](/doc/dispvm/)
+ * [Using and Managing USB Devices](/doc/usb/)
+
 Running an application Full Screen
 ----------------------------------
 
