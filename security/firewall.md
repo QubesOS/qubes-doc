@@ -384,7 +384,7 @@ fi
 # In Qubes OS R4
 
 # If not already present
-if nft -nn list table ip qubes-firewall | grep "tcp dport 443 ct state new"; then
+if ! nft -nn list table ip qubes-firewall | grep "tcp dport 443 ct state new"; then
 
 # Add a filtering rule
   nft add rule ip qubes-firewall forward meta iifname eth0 ip saddr 192.168.x.0/24 ip daddr 10.137.0.y tcp dport 443 ct state new counter accept
