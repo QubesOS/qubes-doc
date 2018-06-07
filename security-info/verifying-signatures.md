@@ -37,7 +37,7 @@ By verifying all the files we download that purport to be authored by a party we
 However, for digital signatures to make any sense, we must ensure that the public keys we use for signature verification are indeed the original ones.
 Anybody can generate a GPG key pair that purports to belong to "The Qubes Project," but of course only the key pair that we (i.e., the Qubes developers) generated is the legitimate one.
 The next section explains how to verify the validity of the Qubes signing keys in the process of verifying a Qubes ISO.
-(However, the same general principles apply to all cases in which you may wish to verify a PGP signature, such as [verifying code], not just verifying ISOs.)
+(However, the same general principles apply to all cases in which you may wish to verify a PGP signature, such as [verifying repos], not just verifying ISOs.)
 
 
 How to Verify Qubes ISO Signatures
@@ -431,7 +431,7 @@ If you still have a question, please address it to the [qubes-users mailing list
 
 [website-trust]: /faq/#should-i-trust-this-website
 [Distrusting the Infrastructure]: /faq/#what-does-it-mean-to-distrust-the-infrastructure
-[verifying code]: #how-to-verify-qubes-repos
+[verifying repos]: #how-to-verify-qubes-repos
 [Qubes Master Signing Key]: https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
 [keyserver]: https://en.wikipedia.org/wiki/Key_server_%28cryptographic%29#Keyserver_examples
 [Downloads]: /downloads/
