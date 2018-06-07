@@ -37,6 +37,7 @@ By verifying all the files we download that purport to be authored by a party we
 However, for digital signatures to make any sense, we must ensure that the public keys we use for signature verification are indeed the original ones.
 Anybody can generate a GPG key pair that purports to belong to "The Qubes Project," but of course only the key pair that we (i.e., the Qubes developers) generated is the legitimate one.
 The next section explains how to verify the validity of the Qubes signing keys in the process of verifying a Qubes ISO.
+(However, the same general principles apply to all cases in which you may wish to verify a PGP signature, such as [verifying code], not just verifying ISOs.)
 
 
 How to Verify Qubes ISO Signatures
@@ -289,12 +290,14 @@ The signature is good.
 If our copy of the `Qubes OS Release X Signing Key` is being validated by the authentic Qubes Master Signing Key (see [above][QMSK]), we can be confident that these hash values came from the Qubes devs.
 
 
-How to Verify Qubes Code
-------------------------
+How to Verify Qubes Repos
+-------------------------
 
-Developers who fetch code from our Git server should always verify the PGP signature of the tag on the latest commit.
-In some cases, commits themselves may also be signed.
-Any unsigned commit that is not followed by a signed tag should not be trusted!
+Whenever you use one of the [Qubes repositories], you should verify the PGP signature in a tag on the latest commit or on the latest commit itself.
+(One or both may be present, but only one is required.)
+If there is no trusted signed tag or commit on top, any commits after the latest trusted signed tag or commit should **not** be trusted.
+If you come across a repo with any unsigned commits, you should not add any of your own signed tags or commits on top of them unless you personally vouch for the trustworthiness of the unsigned commits.
+Instead, ask the person who pushed the unsigned commits to sign them.
 
 To verify a signature on a Git tag:
 
@@ -311,6 +314,12 @@ To verify a signature on a Git commit:
 or
 
     $ git verify-commit <commit ID>
+
+You should always perform this verification on a trusted local machine with properly validated keys (which are available in the [Qubes Security Pack]) rather than relying on a third party, such as GitHub.
+While the GitHub interface may claim that a commit has a verified signature from a member of the Qubes team, this is only trustworthy if GitHub has performed the signature check correctly, the account identity is authentic, the user's key has not been replaced by an admin, GitHub's servers have not been compromised, and so on.
+Since there's no way for you to be certain that all such conditions hold, you're much better off verifying signatures yourself.
+
+Also see: [Distrusting the Infrastructure]
 
 
 Troubleshooting FAQ
@@ -422,6 +431,7 @@ If you still have a question, please address it to the [qubes-users mailing list
 
 [website-trust]: /faq/#should-i-trust-this-website
 [Distrusting the Infrastructure]: /faq/#what-does-it-mean-to-distrust-the-infrastructure
+[verifying code]: #how-to-verify-qubes-repos
 [Qubes Master Signing Key]: https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
 [keyserver]: https://en.wikipedia.org/wiki/Key_server_%28cryptographic%29#Keyserver_examples
 [Downloads]: /downloads/
@@ -435,6 +445,7 @@ If you still have a question, please address it to the [qubes-users mailing list
 [RSK]: #2-get-the-release-signing-key
 [signature file]: #3-verify-your-qubes-iso
 [digest file]: #how-to-verify-qubes-iso-digests
+[Qubes repositories]: https://github.com/QubesOS
 [GPG documentation]: https://www.gnupg.org/documentation/
 [qubes-users mailing list]: /support/#qubes-users
 
