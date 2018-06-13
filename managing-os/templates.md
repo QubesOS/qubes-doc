@@ -19,9 +19,37 @@ There are also templates available with or without certain software preinstalled
 The concept of TemplateVMs is initially described [here](/getting-started/#appvms-qubes-and-templatevms). 
 The technical details of this implementation are described in the developer documentation [here](/doc/template-implementation/).
 
-Some templates are available in ready-to-use binary form, but some of them are available only as source code, which can be built using the [Qubes Builder](/doc/qubes-builder/). In particular, some template "flavors" are available in source code form only. Take a look at the [Qubes Builder documentation](/doc/qubes-builder/) for instructions on how to compile them.
+Some templates are available in ready-to-use binary form, but some of them are available only as source code, which can be built using the [Qubes Builder](/doc/qubes-builder/).
+In particular, some template "flavors" are available in source code form only.
+Take a look at the [Qubes Builder documentation](/doc/qubes-builder/) for instructions on how to compile them.
+
+
+How to install, uninstall, and reinstall
+----------------------------------------
+
+### How to install
+
+Please refer to each TemplateVM's installation instructions below.
+Usually, the installation method is to execute the following type of command in dom0:
+
+    $ sudo qubes-dom0-update qubes-template-<name>
+
+(where `qubes-template-<name>` is the name of your TemplateVM package)
+
+### How to uninstall
+
+To uninstall a TemplateVM, execute the following type of command in dom0:
+
+    $ sudo dnf remove qubes-template-<name>
+
+(where `qubes-template-<name>` is the name of your TemplateVM package)
+
+If this doesn't work, you can [remove it manually](/doc/remove-vm-manually/).
+
+### How to reinstall
 
 To reinstall a currently installed TemplateVM, see [here](/doc/reinstall-template/).
+
 
 Invisible Things Lab (ITL) Supported templates
 -----------------------
