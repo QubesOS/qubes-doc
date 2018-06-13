@@ -111,7 +111,7 @@ besides what is described in steps 2 and 3):
 
 2. Rename `/boot/efi/EFI/BOOT/xen.cfg` to `/boot/efi/EFI/BOOT/BOOTX64.cfg`:
 
-       mv /boot/efi/EFI/BOOT/xen.cfg /boot/efi/EFI/BOOTX64.cfg
+       mv /boot/efi/EFI/BOOT/xen.cfg /boot/efi/EFI/BOOT/BOOTX64.cfg
 
 3. Copy `/boot/efi/EFI/qubes/xen-*.efi` to `/boot/efi/EFI/qubes/xen.efi`
 and `/boot/efi/EFI/BOOT/BOOTX64.efi`. For example with Xen 4.8.3
