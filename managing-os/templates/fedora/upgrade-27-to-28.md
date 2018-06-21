@@ -65,7 +65,7 @@ Qubes 3.2 Instructions
         [user@fedora-28 ~]$ sudo mkfs.ext4 /dev/xvdi
         [user@fedora-28 ~]$ sudo mount /dev/xvdi /mnt/removable
         [user@fedora-28 ~]$ sudo dnf clean all
-        [user@fedora-28 ~]$ sudo dnf --releasever=28 --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
+        [user@fedora-28 ~]$ sudo dnf --releasever=28 --setopt=cachedir=/mnt/removable --best --allowerasing -x python2-tornado distro-sync
 
     (Shut down TemplateVM by any normal means.)
 
