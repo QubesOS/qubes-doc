@@ -19,20 +19,36 @@ In order to copy file(s) from qube A to qube B, follow these steps:
 GUI
 ---
 
-1.  Open file manager in the source qube (qube A), choose file(s) that you wish to copy, and right click on the selection, and choose `Copy to another AppVM`
+1. Open file manager in the source qube (qube A), choose file(s) that you wish to copy, and right click on the selection, and choose `Copy to another AppVM`
 
-1.  A dialog box will appear asking for the name of the destination qube (qube B). 
+2. A dialog box will appear asking for the name of the destination qube (qube B). 
 
-1.  A confirmation dialog box will appear(this will be displayed by Dom0, so none of the qubes can fake your consent). After you click ok, qube B will be started if it is not already running, the file copy operation will start, and the files will be copied into the following folder in qube B:
+3. A confirmation dialog box will appear(this will be displayed by Dom0, so none of the qubes can fake your consent). After you click ok, qube B will be started if it is not already running, the file copy operation will start, and the files will be copied into the following folder in qube B:
 
--   `/home/user/QubesIncoming/<source>`
+   `/home/user/QubesIncoming/<source>`
 
-1.  You can now move them whenever you like in the qube B filesystem using the file manager there.
+4. You can now move them whenever you like in the qube B filesystem using the file manager there.
+
 
 CLI
 ---
 
-[qvm-copy-to-vm](/doc/vm-tools/qvm-copy-to-vm/)
+```
+qvm-copy-to-vm [--without-progress] dest_vmname file [file]+
+```
+
+Also see: [qvm-copy-to-vm](/doc/vm-tools/qvm-copy-to-vm/)
+
+
+Qubes 4.0
+---------
+
+In Qubes 4.0, qvm-copy-to-vm and qvm-move-to-vm are deprecated (GUI behaviour is unchanged from Qubes 3.2).  In the command line, use qvm-copy or qvm-move to avoid typing target qube name twice.
+
+```
+qvm-copy [--without-progress] file [file]+
+```
+
 
 On inter-qube file copy security
 ----------------------------------
@@ -44,3 +60,4 @@ However, one should keep in mind that performing a data transfer from *less trus
 See also [this article](https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html) for more information on this topic, and some ideas of how we might solve this problem in some future version of Qubes.
 
 You may also want to read how to [revoke "Yes to All" authorization](/doc/qrexec3/#revoking-yes-to-all-authorization)
+

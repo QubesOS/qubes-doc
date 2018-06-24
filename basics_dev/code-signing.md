@@ -126,13 +126,13 @@ your Git commits.
 Using PGP with Email
 --------------------
 
-If you're submitting a patch by emailing the developer [mailing list], simply sign your email with your PGP key. 
+If you're submitting a patch by emailing the [developer mailing list], simply sign your email with your PGP key. 
 One good way to do this is with a program like [Enigmail]. 
 Enigmail is a security addon for the Mozilla Thunderbird email client that allows you to easily digitally encrypt and sign your emails.
 
 
 [guide]: https://alexcabal.com/creating-the-perfect-gpg-keypair/
 [source code]: /doc/source-code/
-[mailing list]: /doc/mailing-lists/
+[developer mailing list]: /support/#qubes-devel
 [Enigmail]: https://www.enigmail.net/
 

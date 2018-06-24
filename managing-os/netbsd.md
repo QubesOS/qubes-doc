@@ -9,7 +9,7 @@ How to Create a NetBSD VM
 
 1. Create a StandaloneVM with the default template.
 2. Replace `vmlinuz` with the `netbsd-INSTALL_XEN3_DOMU` kernel.
-3. During setup, chose to install on the `xbd1` hard disk.
+3. During setup, choose to install on the `xbd1` hard disk.
 4. Attach the CD to the VM.
 5. Configure the networking.
 6. Optionally enable SSHD during the post-install configuration.

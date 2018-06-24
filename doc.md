@@ -23,13 +23,14 @@ The Basics
  * [Video Tours](/video-tours/)
  * [Screenshots](/screenshots/)
  * [Getting Started](/getting-started/)
- * [User FAQ](/doc/user-faq/)
- * [Mailing Lists](/mailing-lists/)
+ * [User FAQ](/faq/#users)
+ * [Help, Support, and Mailing Lists](/support/)
  * [How to Contribute](/doc/contributing/)
 
 Security Information
 --------------------
  * [Security Center](/security/)
+ * [Security FAQ](/faq/#general--security)
  * [Security Pack](/security/pack/)
  * [Security Bulletins](/security/bulletins/)
  * [Canaries](/security/canaries/)
@@ -40,12 +41,13 @@ Security Information
 Choosing Your Hardware
 ----------------------
  * [System Requirements](/doc/system-requirements/)
- * [General Hardware Information](/doc/hardware/)
+ * [Certified Hardware](/doc/certified-hardware/)
  * [Hardware Compatibility List (HCL)](/hcl/)
 
 Installing & Upgrading Qubes
 ----------------------------
  * [Qubes Downloads](/downloads/)
+ * [Qubes Download Mirrors](/downloads/mirrors/)
  * [Installation Guide](/doc/installation-guide/)
  * [Upgrade Guides](/doc/upgrade/)
  * [Why and How to Verify Signatures](/security/verifying-signatures/)
@@ -84,19 +86,11 @@ Managing Operating Systems within Qubes
  * [Pentesting: BlackArch](/doc/pentesting/blackarch/)
  * [Pentesting: Kali](/doc/pentesting/kali/)
  * [Pentesting: PTF](/doc/pentesting/ptf/)
- * [Windows: Installing and Using Windows-based AppVMs (Qubes R2 Beta 3 and later)](/doc/windows-appvms/)
- * [Windows: Creating and Using HVM and Windows Domains (Qubes R2+)](/doc/hvm/)
- * [Windows: Advanced options and troubleshooting of Qubes Tools for Windows (R3)](/doc/windows-tools-3/)
- * [Windows: Advanced options and troubleshooting of Qubes Tools for Windows (R2)](/doc/windows-tools-2/)
- * [Windows: Uninstalling Qubes Tools for Windows 2.x](/doc/uninstalling-windows-tools-2/)
- * [Fedora: Upgrading the Fedora 23 Template to Fedora 24](/doc/template/fedora/upgrade-23-to-24/)
- * [Fedora: Upgrading the Fedora 21 Template to Fedora 23](/doc/template/fedora/upgrade-21-to-23/)
- * [Fedora: Upgrading the Fedora 20 Template to Fedora 21](/doc/template/fedora/upgrade-20-to-21/)
- * [Fedora: Upgrading the Fedora 18 Template to Fedora 20](/doc/template/fedora/upgrade-18-to-20/)
- * [Debian: Upgrading the Debian 8 Template to Debian 9](/doc/template/debian/upgrade-8-to-9/)
- * [How to Reinstall a TemplateVM](/doc/reinstall-template)
+ * [Windows](/doc/windows/)
+ * [Creating and Using HVM Domains](/doc/hvm/)
  * [Tips for Using Linux in an HVM](/doc/linux-hvm-tips/)
  * [Creating a NetBSD VM](/doc/netbsd/)
+ * [How to Reinstall a TemplateVM](/doc/reinstall-template)
 
 
 Security Guides
@@ -119,9 +113,9 @@ Privacy Guides
  * [Whonix for Privacy & Anonymity](/doc/whonix/)
  * [Running Tails in Qubes](/doc/tails/)
  * [Anonymizing your MAC Address](/doc/anonymizing-your-mac-address/)
- * [TorVM](/doc/torvm/)
  * [Martus](/doc/martus/)
  * [Signal](/doc/signal/)
+ * [Reducing the fingerprint of the text-based web browser w3m](/doc/w3m/)
 
 
 Configuration Guides
@@ -130,25 +124,24 @@ Configuration Guides
  * [How to set up a ProxyVM as a VPN Gateway](/doc/vpn/)
  * [Storing AppVMs on Secondary Drives](/doc/secondary-storage/)
  * [Multibooting](/doc/multiboot/)
- * [Resizing AppVM and HVM Disk Images](/doc/resize-disk-image/)
- * [Extending `root.img` Size](/doc/resize-root-disk-image/)
+ * [Resize Disk Image](/doc/resize-disk-image/)
+ * [RPC Policies](/doc/rpc-policy/)
  * [Installing ZFS in Qubes](/doc/zfs/)
  * [Mutt Guide](/doc/mutt/)
  * [Postfix Guide](/doc/postfix/)
  * [Fetchmail Guide](/doc/fetchmail/)
  * [Creating Custom NetVMs and ProxyVMs](https://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html)
  * [How to make proxy for individual tcp connection from networkless VM](https://groups.google.com/group/qubes-devel/msg/4ca950ab6d7cd11a)
- * [Make an HTTP Filtering Proxy in a FirewallVM](/doc/config/http-filtering-proxy)
  * [Adding Bridge Support to the NetVM (EXPERIMENTAL)](/doc/network-bridge-support/)
  * [Assigning PCI Devices to AppVMs](/doc/assigning-devices/)
  * [Enabling TRIM for SSD disks](/doc/disk-trim/)
  * [Configuring a Network Printer](/doc/network-printer/)
  * [Using External Audio Devices](/doc/external-audio/)
- * [Booting with GRUB2 and GPT](https://groups.google.com/group/qubes-devel/browse_thread/thread/e4ac093cabd37d2b/d5090c20d92c4128#d5090c20d92c4128)
  * [Rxvt Guide](/doc/rxvt/)
  * [Managing VM kernel](/doc/managing-vm-kernel/)
  * [Salt management stack](/doc/salt/)
  * [Adding SSD storage cache](https://groups.google.com/d/msgid/qubes-users/a08359c9-9eb0-4d1a-ad92-a8a9bc676ea6%40googlegroups.com)
+ * [How to Make a Multimedia TemplateVM](/doc/multimedia/)
 
 
 Customization Guides
@@ -159,6 +152,7 @@ Customization Guides
  * [Using KDE in dom0](/doc/kde/)
  * [Installing XFCE in dom0](/doc/xfce/)
  * [Installing i3 in dom0](/doc/i3/)
+ * [Using awesome in dom0](/doc/awesome/)
  * [Language Localization](/doc/language-localization/)
  * [Dark Theme in Dom0 and DomU](/doc/dark-theme/)
  * [How to make any file in a TemplateBasedVM persistent using bind-dirs](/doc/bind-dirs/)
@@ -176,12 +170,15 @@ Troubleshooting
  * [Troubleshooting UEFI related problems](/doc/uefi-troubleshooting/)
  * [Fixing wireless on suspend & resume](/doc/wireless-troubleshooting/)
  * [How to remove VMs manually](/doc/remove-vm-manually/)
+ * [Intel Integrated Graphics Troubleshooting](/doc/intel-igfx-troubleshooting/)
 
 
 Reference Pages
 ---------------
- * [Dom0 Command-Line Tools](/doc/dom0-tools/)
- * [DomU Command-Line Tools](/doc/vm-tools/)
+ * [Command-Line Tools: Qubes 3.2, dom0](/doc/tools/3.2/dom0/)
+ * [Command-Line Tools: Qubes 3.2, domU](/doc/tools/3.2/domU/)
+ * [Command-Line Tools: Qubes 4.0, dom0](/doc/tools/4.0/dom0/)
+ * [Command-Line Tools: Qubes 4.0, domU](/doc/tools/4.0/domU/)
  * [Glossary of Qubes Terminology](/doc/glossary/)
  * [Qubes Service Framework](/doc/qubes-service/)
  * [Command Execution in VMs (and Qubes RPC)](/doc/qrexec/)
@@ -192,16 +189,18 @@ Presentation Slides
  * [[PDF] LinuxCon 2014 -- Qubes OS R2 Tutorial](/attachment/wiki/slides/LinuxCon_2014_Qubes_Tutorial.pdf)
  * [[PDF] LinuxCon 2014 -- Qubes OS Keynote](/attachment/wiki/slides/LinuxCon_2014_Qubes_Keynote.pdf)
  * [[PDF] RMLL 2016 -- Improving client systems security with Qubes OS](/attachment/wiki/slides/RMLL_2016_Improving-client-systems-security.pdf)
+ * [[PDF] Golem and Friends 2017 -- Towards Reasonably Secure Computing in the Decentralized World](/attachment/wiki/slides/Secure_Computing_in_Decentralized_World.pdf)
 
 Developer Documentation
 =======================
 
 The Basics
 ----------
- * [Developer FAQ](/doc/devel-faq/)
+ * [Developer FAQ](/faq/#developers)
  * [Report a Security Issue](/security/)
  * [Report a Bug](/doc/reporting-bugs/)
  * [How to Contribute](/doc/contributing/)
+ * [Package Contributions](/doc/package-contributions/)
  * [Testing new releases and updates](/doc/testing/)
  * [Source Code](/doc/source-code/)
  * [Qubes OS License](/doc/license/)
@@ -216,6 +215,7 @@ The Basics
 Security Information
 --------------------
  * [Security Center](/security/)
+ * [Security FAQ](/faq/#general--security)
  * [Security Pack](/security/pack/)
  * [Security Bulletins](/security/bulletins/)
  * [Security Bulletin Checklist](/security/bulletins/checklist/)
@@ -230,9 +230,11 @@ System
 ------
  * [Qubes OS Architecture Overview](/doc/architecture/)
  * [Qubes OS Architecture Spec v0.3 [PDF]](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf)
- * [Security-critical elements of Qubes OS](/doc/security-critical-code/)
+ * [Security-critical Code in Qubes OS](/doc/security-critical-code/)
  * [Qubes Core Admin](https://dev.qubes-os.org/projects/core-admin/en/latest/)
  * [Qubes Core Admin Client](https://dev.qubes-os.org/projects/core-admin-client/en/latest/)
+ * [Qubes Admin API](/news/2017/06/27/qubes-admin-api/)
+ * [Qubes Core Stack](/news/2017/10/03/core3/)
  * [Qrexec: command execution in VMs](/doc/qrexec3/)
  * [Qubes GUI virtualization protocol](/doc/gui/)
  * [Networking in Qubes](/doc/networking/)
@@ -246,7 +248,6 @@ Services
  * [Implementation of DisposableVMs](/doc/dvm-impl/)
  * [Article about disposable VMs](http://theinvisiblethings.blogspot.com/2010/06/disposable-vms.html)
  * [Dom0 secure update mechanism](/doc/dom0-secure-updates/)
- * VM secure update mechanism (forthcoming)
 
 Debugging
 ---------
@@ -261,21 +262,16 @@ Building
 --------
  * [Building Qubes](/doc/qubes-builder/) (["API" Details](/doc/qubes-builder-details/))
  * [Development Workflow](/doc/development-workflow/)
- * [Building Qubes OS 3.0 ISO](/doc/qubes-r3-building/)
+ * [Building Qubes OS ISO](/doc/qubes-r3-building/)
  * [Building Qubes Templates](https://github.com/QubesOS/qubes-template-configs)
  * [Building a TemplateVM based on a new OS (ArchLinux example)](/doc/building-non-fedora-template/)
  * [Building the Archlinux Template](/doc/building-archlinux-template/)
+ * [Building the Whonix Templates](/doc/building-whonix-template/)
  * [How to compile kernels for dom0](https://groups.google.com/d/topic/qubes-users/yBeUJPwKwHM/discussion)
 
 Releases
 --------
+ * [Release notes](/doc/releases/notes/)
+ * [Release schedules](/doc/releases/schedules/)
  * [Release checklist](/doc/releases/todo/)
- * [Qubes R1.0 release notes](/doc/releases/1.0/release-notes/)
- * [Qubes R2.0 release notes](/doc/releases/2.0/release-notes/)
- * [Qubes R3.0 release notes](/doc/releases/3.0/release-notes/)
- * [Qubes R3.0 release schedule](/doc/releases/3.0/schedule/)
- * [Qubes R3.1 release notes](/doc/releases/3.1/release-notes/)
- * [Qubes R3.1 release schedule](/doc/releases/3.1/schedule/)
- * [Qubes R3.2 release notes](/doc/releases/3.2/release-notes/)
- * [Qubes R3.2 release schedule](/doc/releases/3.2/schedule/)
 

@@ -14,7 +14,7 @@ Updating software in dom0
 Why would one want to update software in dom0?
 ----------------------------------------------
 
-Normally, there should be few reasons for updating software in dom0. This is because there is no networking in dom0, which means that even if some bugs are discovered e.g. in the dom0 Desktop Manager, this really is not a problem for Qubes, because none of the 3rd party software running in dom0 is accessible from VMs or the network in any way. Some exceptions to this include: Qubes GUI daemon, Xen store daemon, and disk back-ends. (We plan move the disk backends to an untrusted domain in Qubes 2.0.) Of course, we believe this software is reasonably secure, and we hope it will not need patching.
+Normally, there should be few reasons for updating software in dom0. This is because there is no networking in dom0, which means that even if some bugs are discovered e.g. in the dom0 Desktop Manager, this really is not a problem for Qubes, because none of the third-party software running in dom0 is accessible from VMs or the network in any way. Some exceptions to this include: Qubes GUI daemon, Xen store daemon, and disk back-ends. (We plan move the disk backends to an untrusted domain in a future Qubes release.) Of course, we believe this software is reasonably secure, and we hope it will not need patching.
 
 However, we anticipate some other situations in which updating dom0 software might be necessary or desirable:
 
@@ -52,19 +52,29 @@ Of course, command line tools are still available for accomplishing various upda
 
 ### How to downgrade a specific package
 
+**WARNING:** Downgrading a package can expose your system to security vulnerabilities.
+
 1.  Download an older version of the package:
 
     ~~~
     sudo qubes-dom0-update package-version
     ~~~
 
-    Yum will say that there is no update, but the package will nonetheless be downloaded to dom0.
+    Dnf will say that there is no update, but the package will nonetheless be downloaded to dom0.
 
 2.  Downgrade the package:
 
     ~~~
-    sudo yum downgrade package-version
+    sudo dnf downgrade package-version
     ~~~
+
+For example, to downgrade Xen to a specific older version available for Qubes R3.2, you would:
+
+~~~
+sudo qubes-dom0-update xen-libs-4.6.6-36.fc23.x86_64 xen-hypervisor-4.6.6-36.fc23.x86_64 xen-runtime-4.6.6-36.fc23.x86_64 xen-hvm-4.6.6-36.fc23.x86_64 xen-4.6.6-36.fc23.x86_64 xen-license-4.6.6-36.fc23.x86_64
+
+sudo dnf downgrade xen-libs-4.6.6-36.fc23.x86_64 xen-hypervisor-4.6.6-36.fc23.x86_64 xen-runtime-4.6.6-36.fc23.x86_64 xen-hvm-4.6.6-36.fc23.x86_64 xen-4.6.6-36.fc23.x86_64 xen-license-4.6.6-36.fc23.x86_64
+~~~
 
 ### How to re-install a package
 
@@ -76,21 +86,21 @@ You can re-install in a similar fashion to downgrading.
     sudo qubes-dom0-update package
     ~~~
 
-    Yum will say that there is no update, but the package will nonetheless be downloaded to dom0.
+    Dnf will say that there is no update, but the package will nonetheless be downloaded to dom0.
 
 2.  Re-install the package:
 
     ~~~
-    sudo yum reinstall package
+    sudo dnf reinstall package
     ~~~
 
-    Note that yum will only re-install if the installed and downloaded versions match. You can ensure they match by either updating the package to the latest version, or specifying the package version in the first step using the form `package-version`.
+    Note that Dnf will only re-install if the installed and downloaded versions match. You can ensure they match by either updating the package to the latest version, or specifying the package version in the first step using the form `package-version`.
 
 ### How to uninstall a package
 
 If you've installed a package such as anti-evil-maid, you can remove it with the following command:
 
-    sudo yum remove anti-evil-maid
+    sudo dnf remove anti-evil-maid
     
 ### Testing repositories
 
@@ -124,8 +134,16 @@ is needed for the VMs. (Note that the following example enables the unstable rep
 sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable kernel kernel-qubes-vm
 ~~~
 
-Rebuild grub config.
+If the update process does not automatically do it (you should see it mentioned in the CLI output
+from the update command), you may need to manually rebuild the EFI or grub config depending on which
+your system uses.
 
+EFI
+~~~
+sudo dracut -f /boot/efi/EFI/qubes/initramfs-$(uname -r).img $(uname -r)
+~~~
+
+Grub2
 ~~~
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 ~~~

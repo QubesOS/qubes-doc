@@ -215,7 +215,7 @@ In this case, you have several options:
  1. [Increase the TemplateVM's disk image size][resize-disk-image].
     This is the solution mentioned in the main instructions above.
  2. Delete files in order to free up space. One way to do this is by
-    uninstalling packages. You may then reinstalling them again after you
+    uninstalling packages. You may then reinstall them again after you
     finish the upgrade process, if desired). However, you may end up having to
     increase the disk image size anyway (see previous option).
  3. Increase the `root.img` size with `qvm-grow-root`.

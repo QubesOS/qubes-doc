@@ -26,7 +26,7 @@ All of our repositories are available under the [QubesOS GitHub account].
 To clone a repository:
 
 ~~~
-git clone https://github.com/QubesOS/<repo_name>.git <repo_name>
+git clone https://github.com/QubesOS/qubes-<repo_name>.git <repo_name>
 ~~~
 
 e.g.:
@@ -84,5 +84,5 @@ method you choose, you must [sign your code] before it can be accepted.
 [contribute code]: /doc/contributing/#contributing-code
 [sign your code]: /doc/code-signing/
 [fork & pull requests]: https://guides.github.com/activities/forking/
-[qubes-devel mailing list]: /mailing-lists/#qubes-devel
+[qubes-devel mailing list]: /support/#qubes-devel
 

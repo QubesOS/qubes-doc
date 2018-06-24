@@ -39,14 +39,17 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
         vm1/whitelisted-appmenus.list.000.enc
         dom0-home/dom0user.000.enc
 
+    **Note:** Each VM in the backup file has its path listed in `qubes.xml.000.enc` (search for the `backup-path` property). You can extract only the files necessary for your VM (vmX) with `tar -i -xvf qubes-backup-2015-06-05T123456 backup-header backup-header.hmac vmX/`.
+
  3. Set backup passhprase environment variable. While this isn't strictly required, it will be handy later and will avoid saving the passphrase into shell history.
 
         read backup_pass
 
  4. Verify integrity of `backup-header`. For compatibility reasons `backup-header.hmac` is in fact is an encrypted *and integrity protected* version of `backup-header`.
 
+        [user@restore ~]$ set +H
         [user@restore ~]$ echo "backup-header!$backup_pass" |\
-            scrypt -P dec backup-header.hmac backup-header.verified && \
+            scrypt dec -P backup-header.hmac backup-header.verified && \
             diff -qs backup-header backup-header.verified
         Files backup-header and backup-header.verified are identical
 
@@ -71,7 +74,7 @@ Recovery - format version 3](/doc/backup-emergency-restore-v3/)
         [user@restore ~]$ backup_id=20161020T123455-1234 # see backup-header above
         [user@restore ~]$ for f_enc in vm1/private.img.???.enc; do \
             f_dec=${f_enc%.enc}; \
-            echo "$backup_id!$f_dec!$backup_pass" | scrypt -P dec $f_enc $f_dec || break; \
+            echo "$backup_id!$f_dec!$backup_pass" | scrypt dec -P $f_enc $f_dec || break; \
             done
 
     **Note:** If the above fail, most likely your backup is corrupted, or been tampered with.

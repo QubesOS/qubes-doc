@@ -77,13 +77,13 @@ redirect_from:
 <br>
 <br>
 
-## 4:   Downloading and verifying the "Qubes Automated Build System"
+## 4: Downloading and verifying the integrity of the "Qubes Automated Build System"
 
 * Import the Qubes master key
 
-      gpg --recv-keys 0xDDFA1A3E36879494
+      gpg --keyserver pgp.mit.edu --recv-keys 0xDDFA1A3E36879494
 
-* Verify its fingerprint, set as 'trusted'. [This is described here](https://www.qubes-os.org/doc/VerifyingSignatures).
+* Verify its fingerprint, set as 'trusted'. [This is described here](/doc/VerifyingSignatures).
 
 * Download the Qubes developers' keys.
 
@@ -98,9 +98,10 @@ redirect_from:
 
 * Copy your gpg keyrings to your local copy of the repository. (Otherwise you will be asked to download the keys again.)
 
-      # Assuming qubes-builder is in your home directory
-      cp .gnupg/pubring.gpg qubes-builder/keyrings/git/
-      cp .gnupg/trustdb.gpg qubes-builder/keyrings/git/
+      # Execute the following commands in your home directory.
+      # It is assumed that the path to the repository is '~/qubes-builder'.
+      mkdir -p qubes-builder/keyrings/git 
+      cp -t qubes-builder/keyrings/git/ .gnupg/pubring.gpg .gnupg/trustdb.gpg
 
 * Verify the integrity of the downloaded repository. The last line should read `gpg: Good signature from`...
 
@@ -332,7 +333,7 @@ redirect_from:
 *   **Transfer the install-templates.sh script file into Dom0**
   *Note: as there is not a typical file transfer method for Dom0, for security reasons, this less than simple transfer function has to be used*
 
-    *   Swtich to Domo and open a terminal window.
+    *   Switch to Domo and open a terminal window.
 
     **Note:** Take care when entering these cmd strings.  They are very long and have a number of characters that are easy to mix '**-**' vs '**.**' '**<u>T</u>emplates** (correct) vs **<u>t</u>emplates** (wrong) or **Template_**'(also wrong)  This script will also take care of transfering the actual template.rpm to Dom0 as well.
 
@@ -361,7 +362,7 @@ redirect_from:
 The `qubes-mgmt-salt` repo is not currently forked under the marmarek user on
 GitHub, to whom the above instructions set the `GIT_PREFIX`.  As Archlinux is
 not yet supported by mgmt-salt, simply leave it out of the build (when building
-the Archlinux template on it's own) by appending the following to your `override.conf` file:
+the Archlinux template on its own) by appending the following to your `override.conf` file:
 
 `BUILDER_PLUGINS := $(filter-out mgmt-salt,$(BUILDER_PLUGINS))`
 

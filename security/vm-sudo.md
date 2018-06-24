@@ -104,15 +104,18 @@ this for extra security.**
 
 1. Adding Dom0 "VMAuth" service:
 
-        [root@dom0 /]# echo -n "/usr/bin/echo 1" >/etc/qubes-rpc/qubes.VMAuth
-        [root@dom0 /]# echo -n "\$anyvm dom0 ask" >/etc/qubes-rpc/policy/qubes.VMAuth
+        [root@dom0 /]# echo "/usr/bin/echo 1" >/etc/qubes-rpc/qubes.VMAuth
+        [root@dom0 /]# echo "\$anyvm dom0 ask,default_target=dom0" \
+        >/etc/qubes-rpc/policy/qubes.VMAuth
 
    (Note: any VMs you would like still to have password-less root access (e.g. TemplateVMs) can be specified in the second file with "\<vmname\> dom0 allow")
 
 2. Configuring Fedora TemplateVM to prompt Dom0 for any authorization request:
-    - In /etc/pam.d/system-auth, replace all lines beginning with "auth" with one line:
+    - In /etc/pam.d/system-auth, replace all lines beginning with "auth" with these lines:
 
-          auth       [success=done default=die]  pam_exec.so seteuid /usr/lib/qubes/qrexec-client-vm dom0 qubes.VMAuth /usr/bin/grep -q ^1$
+          auth  [success=1 default=ignore]  pam_exec.so seteuid /usr/lib/qubes/qrexec-client-vm dom0 qubes.VMAuth /bin/grep -q ^1$
+          auth  requisite  pam_deny.so
+          auth  required   pam_permit.so
 
     - Require authentication for sudo. Replace the first line of /etc/sudoers.d/qubes with:
 
@@ -124,9 +127,11 @@ this for extra security.**
           [root@fedora-20-x64]# rm /etc/polkit-1/localauthority/50-local.d/qubes-allow-all.pkla
 
 3. Configuring Debian/Whonix TemplateVM to prompt Dom0 for any authorization request:
-    - In /etc/pam.d/common-auth, replace all lines beginning with "auth" with one line:
+    - In /etc/pam.d/common-auth, replace all lines beginning with "auth" with these lines:
 
-          auth       [success=done default=die]  pam_exec.so seteuid /usr/lib/qubes/qrexec-client-vm dom0 qubes.VMAuth /bin/grep -q ^1$
+          auth  [success=1 default=ignore]  pam_exec.so seteuid /usr/lib/qubes/qrexec-client-vm dom0 qubes.VMAuth /bin/grep -q ^1$
+          auth  requisite  pam_deny.so
+          auth  required   pam_permit.so
 
     - Require authentication for sudo. Replace the first line of /etc/sudoers.d/qubes with:
 

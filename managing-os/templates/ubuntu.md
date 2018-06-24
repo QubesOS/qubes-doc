@@ -22,7 +22,7 @@ redistribution of a modified Ubuntu. The redistribution is not allowed by their
 Install
 -------
 
-It can built using [Qubes Builder](/doc/qubes-builder/). You can also access its
+It can be built using [Qubes Builder](/doc/qubes-builder/). You can also access its
 documentation in the [source code
 repository](https://github.com/QubesOS/qubes-builder/blob/master/README.md).
 
@@ -30,9 +30,9 @@ To quickly prepare the builder configuration, you can use the `setup` script
 available in the repository - it will interactively ask you which templates you
 want to build.
 
-The build for Ubuntu 14.4 LTS (Trusty) should be straightforward.
+The build for Ubuntu 14.04 LTS (Trusty) should be straightforward.
 
-The build for Ubuntu 16.4 LTS (Xenial) is straightforward.
+The build for Ubuntu 16.04 LTS (Xenial) is straightforward.
 
 ----------
 

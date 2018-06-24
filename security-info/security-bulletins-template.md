@@ -9,9 +9,10 @@ Security Bulletin Template
 ==========================
 
 ~~~
-Dear Qubes community,
+Dear Qubes Community,
 
-We have just published Qubes Security Bulletin (QSB) #<number>: <title>.
+We have just published Qubes Security Bulletin (QSB) #<number>:
+<title>.
 The text of this QSB is reproduced below. This QSB and its accompanying
 signatures will always be available in the Qubes Security Pack (qubes-secpack).
 

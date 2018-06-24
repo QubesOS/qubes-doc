@@ -12,7 +12,7 @@ Qubes Windows Tools: advanced settings and troubleshooting
 ==========================================================
 
 **This document only applies to Qubes R2 (tools version 2.x)**
-*Only 64-bit Windows 7 (any edition) is supported currently. Windows 8+ support is under development.*
+*Only 64-bit Windows 7 (any edition) is supported currently.*
 
 Installable components
 ----------------------

@@ -77,4 +77,19 @@ Qubes Security Bulletins are published through the [Qubes Security Pack](/securi
 
 -   [Qubes Security Bulletin \#29](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-029-2017.txt) (Critical Xen bug in PV memory virtualization code (XSA-212))
 -   [Qubes Security Bulletin \#30](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-030-2017.txt) (Critical Xen bugs related to PV memory virtualization (XSA-213, XSA-214))
+-   [Qubes Security Bulletin \#31](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-031-2017.txt) (Xen hypervisor vulnerabilities with unresearched impact (XSA 216-224))
+-   [Qubes Security Bulletin \#32](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-032-2017.txt) (Xen hypervisor and Linux kernel vulnerabilities (XSA-226 through XSA-230))
+-   [Qubes Security Bulletin \#33](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-033-2017.txt) (Xen hypervisor (XSA-231 through XSA-234))
+-   [Qubes Security Bulletin \#34](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-034-2017.txt) (GUI issue and Xen vulnerabilities (XSA-237 through XSA-244))
+-   [Qubes Security Bulletin \#35](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-035-2017.txt) (Xen hypervisor issue related to grant tables (XSA-236))
+-   [Qubes Security Bulletin \#36](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-036-2017.txt) (Xen hypervisor issue in populate-on-demand code (XSA-247))
+
+2018
+----
+
+-   [Qubes Security Bulletin \#37](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt) (Information leaks due to processor speculative execution bugs)
+-   [Qubes Security Bulletin \#38](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-038-2018.txt) (Qrexec policy bypass and possible information leak)
+-   [Qubes Security Bulletin \#39](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-039-2018.txt) (Xen vulnerability (XSA-260) and GUI daemon issue)
+-   [Qubes Security Bulletin \#40](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-040-2018.txt) (Information leaks due to processor speculative store bypass (XSA-263))
+-   [Qubes Security Bulletin \#41](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-041-2018.txt) (Speculative register leakage from lazy FPU context switching (XSA-267))
 
