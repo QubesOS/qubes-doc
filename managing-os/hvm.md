@@ -125,6 +125,7 @@ qvm-run --pass-io untrusted 'cat "/media/user/externalhd/win10.raw.tar"' > win10
 Untar the image and move to AppVM dir:
 
 ~~~
+tar -xf win10.raw.tar win10.raw
 mv win10.raw /var/lib/qubes/appvms/win10/root.img
 ~~~
 
