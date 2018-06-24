@@ -36,6 +36,88 @@ R4.0: VMs are template-based by default so the `--class StandaloneVM` option is 
 qvm-create my-new-vm --class StandaloneVM --property virt_mode=hvm 
 ~~~
 
+Next the VM will start booting from the attached CDROM device (which in the example above just happens to be a Windows 7 installation disk). Depending on the OS that is being installed in the VM one might be required to start the VM several times (as is the case with Windows 7 installations), because whenever the installer wants to "reboot the system" it actually shutdowns the VM and Qubes won't automatically start it.  Several invocations of qvm-start command (as shown above) might be needed.
+
+[![r2b1-win7-installing.png](/attachment/wiki/HvmCreate/r2b1-win7-installing.png)](/attachment/wiki/HvmCreate/r2b1-win7-installing.png)
+
+Using Installation ISOs located in other VMs
+--------------------------------------------
+
+Sometimes one wants to download the installation ISO from the Web and use it for HVM creation.  For security reasons, networking is disabled for Qubes Dom0, which makes it impossible to download an ISO within Dom0.  Qubes also does not provide any easy to use mechanisms for copying files between AppVMs and Dom0 and generally tries to discourage such actions. Due to these factors it would be inconvenient to require that the installation ISO for an HVM domain be always located in Dom0.  The good news, however, is that this is indeed not required.  One can use the following syntax when specifying the location of an installation ISO (such as the Windows 7 installation ISO):
+
+~~~
+--cdrom=[appvm]:[/path/to/iso/within/appvm]
+~~~
+
+Assuming that an installation ISO named `ubuntu-12.10-desktop-i386.iso` has been downloaded in `work-web` AppVM and is located within the `/home/user/Downloads` directory within this AppVM, one can immediately create a new HVM using this ISO as an installation media with the following command issued in Dom0:
+
+~~~
+qvm-create --hvm ubuntu --label red
+qvm-start ubuntu --cdrom=work-web:/home/user/Downloads/ubuntu-12.10-desktop-i386.iso
+~~~
+
+The AppVM where the ISO is kept must be running for this to work as this VM is now serving the ISO and acting as a disk backend.
+
+![r2b1-installing-ubuntu-1.png](/attachment/wiki/HvmCreate/r2b1-installing-ubuntu-1.png)
+
+Converting VirtualBox VM to HVM
+-------------------------------
+
+Microsoft provides [free 90 day evaluation VirtualBox VMs for browser testing](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
+
+About 60 GB of disk space is required for conversion, use external harddrive if needed. Final root.img size is 40 GB.
+
+In Debian AppVM, install qemu-utils and unzip:
+
+~~~
+sudo apt install qemu-utils unzip
+~~~
+
+Unzip VirtualBox zip file:
+
+~~~
+unzip *.zip 
+~~~
+
+Extract OVA tar archive:
+
+~~~
+tar -xvf *.ova
+~~~
+
+Convert vmdk to raw:
+
+~~~
+qemu-img convert -O raw *.vmdk win10.raw
+~~~
+
+Create new HVM in Dom0, with amount of RAM in MB you wish:
+
+~~~
+qvm-create --hvm win10 --label red --mem=4096
+~~~
+
+Because Windows image is a sparse file, tar it with -S option:
+
+~~~
+tar -Scf win10.raw.tar win10.raw
+du -h win10.raw.tar
+~~~
+
+Copy file to Dom0:
+
+~~~
+qvm-run --pass-io untrusted 'cat "/media/user/externalhd/win10.raw.tar"' > win10.raw.tar
+~~~
+
+Untar the image and move to AppVM dir:
+
+~~~
+tar -xf win10.raw.tar win10.raw
+mv win10.raw /var/lib/qubes/appvms/win10/root.img
+~~~
+
+Start win10 VM:
 If you receive an error like this one, then you must first enable VT-x in your BIOS:
 
 ~~~
