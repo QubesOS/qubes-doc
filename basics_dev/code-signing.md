@@ -81,6 +81,7 @@ sub   4096R/69B0EA85 2013-03-13
 
 Using PGP with Git
 ------------------
+[Using PGP with Git]: #using-pgp-with-git
 
 If you're submitting a patch via GitHub (or a similar Git server), please sign
 your Git commits.
@@ -109,19 +110,77 @@ your Git commits.
    git tag -s <tag_name> -m "<tag_message>"
    ~~~
 
-   You can also create an alias to make this easier:
+   You can also create an alias to make this easier.
+   Edit your `~/.gitconfig` file.
+   In the `[alias]` section, add the `stag` command to created signed tags and `spush` to create signed tags and push them.
 
    ~~~
-   stag = "!id=`git rev-parse --verify HEAD`; git tag -s tag_for_${id:0:8} -m \"Tag for commit $id\""
+   [alias]
+           stag = "!bash -c 'id=\"`git rev-parse --verify HEAD`\"; tag_name="signed_tag_for_${id:0:8}"; git tag -s "$tag_name" -m \"Tag for commit $id\"; echo \"$tag_name\"'"
+           spush = "!bash -c 'git push origin `git stag`'"
    ~~~
 
    You may also find it convenient to have an alias for verifying the tag on the
    latest commit:
 
    ~~~
-   vtag = !git tag -v `git describe`
+           vtag = !git tag -v `git describe`
    ~~~
 
+How to Contribute Signed Code
+-----------------------------
+
+The [signature-checker] checks if code contributions are signed.
+Although GitHub adds a litte green `Verified` button next to the commit, the [signature-checker] uses another algorithm.
+You may see this message:
+
+> Unable to verify (no valid key found) - [signature-checker/check-git-signature line 392](https://github.com/marmarek/signature-checker/blob/d143b8f2b4da828a9a93b91eb972dddb7e28b4f0/check-git-signature#L392)
+
+Which means that the following correct flow was not done in order or is missing steps:
+
+1. Create a signed commit.
+   If you have configured your git as in [Using PGP with Git], your commits are signed automatically.
+2. Create a new signed tag for the commit.
+   The optional part of [Using PGP with Git] uses the `stag` alias to create the signed commit.
+   ```
+   $ git stag
+   signed_tag_for_a8beed54
+   ```
+3. Push the newly created tag to your repository.
+   ```
+   git push origin signed_tag_for_a8beed54
+   ```
+   You can do this and the step before using `git spush` if you added the alias.
+4. Push the commit to the repository.
+   ```
+   git push origin branch-name
+   ```
+   This triggers the check if the commit is signed in the pull request.
+   Then, the tag is already existent and the [signature-checker] can find it.
+
+### Error Handling
+
+Now, if you get
+
+> Unable to verify (no valid key found)
+
+chances are, you did already push a commit and wonder how to sign it properly.
+You can do the following to re-trigger the signature check:
+
+1. Create a new signed commit with the same message. Add `-S` if you did not enable automatic signatures.
+   ```
+   git commit --amend
+   ```
+2. Create a tag and push it.
+   ```
+   git spush
+   ```
+4. Push the new commit replacing the old one.
+   ```
+   git push -f
+   ```
+
+[signature-checker]: https://github.com/marmarek/signature-checker
 
 Using PGP with Email
 --------------------
