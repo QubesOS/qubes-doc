@@ -131,7 +131,7 @@ How to Contribute Signed Code
 -----------------------------
 
 The [signature-checker] checks if code contributions are signed.
-Although GitHub adds a litte green `Verified` button next to the commit, the [signature-checker] uses another algorithm.
+Although GitHub adds a little green `Verified` button next to the commit, the [signature-checker] uses another algorithm.
 You may see this message:
 
 > Unable to verify (no valid key found) - [signature-checker/check-git-signature line 392](https://github.com/marmarek/signature-checker/blob/d143b8f2b4da828a9a93b91eb972dddb7e28b4f0/check-git-signature#L392)
