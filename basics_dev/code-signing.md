@@ -112,7 +112,7 @@ your Git commits.
 
    You can also create an alias to make this easier.
    Edit your `~/.gitconfig` file.
-   In the `[alias]` section, add the `stag` command to created signed tags and `spush` to create signed tags and push them.
+   In the `[alias]` section, add `stag` to create signed tags and `spush` to create signed tags and push them.
 
    ~~~
    [alias]
