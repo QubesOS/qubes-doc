@@ -50,7 +50,7 @@ Set up a ProxyVM as a VPN gateway using NetworkManager
 
 3. Set up your VPN as described in the NetworkManager documentation linked above.
 
-4. Make your VPN start automatically.
+4. (Optional) Make your VPN start automatically.
 
    Edit `/rw/config/rc.local` and add these lines:
    
@@ -68,7 +68,7 @@ Set up a ProxyVM as a VPN gateway using NetworkManager
    And substitute "XXXXXXXXXXXXXX" for the actual password.
    The contents of `passwd-file.txt` may differ depending on your VPN settings.  See the [documentation for `nmcli up`](https://www.mankier.com/1/nmcli#up).
    
-5. Make the network fail-close for the AppVMs if the connection to the VPN breaks.
+5. (Optional) Make the network fail-close for the AppVMs if the connection to the VPN breaks.
 
    Edit `/rw/config/qubes-firewall-user-script` and add these lines:
    ```bash
