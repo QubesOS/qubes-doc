@@ -104,7 +104,7 @@ your Git commits.
    commit -S
    ~~~
 
-3. Create signed tags:
+3. (Optional) Create signed tags:
 
    ~~~
    git tag -s <tag_name> -m "<tag_message>"
