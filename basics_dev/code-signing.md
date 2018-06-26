@@ -84,7 +84,8 @@ Upload the Key
 For others to find the public key, please upload it to a server.
 
 ```
-gpg --send-keys 69B0EA85
+$ gpg --send-keys --keyserver pool.sks-keyservers.net 69B0EA85
+gpg: sending key 488BA441 to hkp server pool.sks-keyservers.net
 ```
 
 Using PGP with Git
