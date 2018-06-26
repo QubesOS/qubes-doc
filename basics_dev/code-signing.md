@@ -169,14 +169,14 @@ In this case, you have several options to sign the commit:
    git spush
    ```
    Now, the signature checker needs to re-check the signature.
-   Please commit on the pull request that you would like to have the signatures checked again.
+   Please comment on the pull request that you would like to have the signatures checked again.
 
 ### Unable To Verify
 
 > policy/qubesos/code-signing — Unable to verify (no valid key found)
 
-This means that the [signature-checker] has found a signature but is not able
-to verify it using the any key available.
+This means that the [signature-checker] has found a signature for the commit
+but is not able to verify it using the any key available.
 This might be that you forgot to upload the key to a key server.
 Please upload it.
 
