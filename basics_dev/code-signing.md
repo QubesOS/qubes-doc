@@ -81,7 +81,6 @@ sub   4096R/69B0EA85 2013-03-13
 
 Using PGP with Git
 ------------------
-[Using PGP with Git]: #using-pgp-with-git
 
 If you're submitting a patch via GitHub (or a similar Git server), please sign
 your Git commits.
@@ -133,60 +132,53 @@ your Git commits.
    vtag = !git tag -v `git describe`
    ~~~
 
-How to Contribute Signed Code
------------------------------
+Code Signature Checks
+---------------------
 
 The [signature-checker] checks if code contributions are signed.
-Although GitHub adds a little green `Verified` button next to the commit, the [signature-checker] uses another algorithm.
-You may see this message:
+Although GitHub adds a little green `Verified` button next to the commit, the [signature-checker] uses this algorithm to check if a commit is currectly signed:
 
-> policy/qubesos/code-signing — Unable to verify (no valid key found) - [signature-checker/check-git-signature line 392](https://github.com/marmarek/signature-checker/blob/d143b8f2b4da828a9a93b91eb972dddb7e28b4f0/check-git-signature#L392)
+1. Is the commit signed?  
+   If the commit is not signed, you can see the message
+   > policy/qubesos/code-signing — No signature found
+2. If the commit is signed, the key is downloaded from a GPG key server.  
+   If you can see the following error message, please check if you have uploaded the key to a key server.
+   > policy/qubesos/code-signing — Unable to verify (no valid key found)
 
-Which means that the following correct flow was not done in order or is missing steps:
+### No Signature Found
 
-1. Create a signed commit.
-   If you have configured your git as in [Using PGP with Git], your commits are signed automatically.
-2. Create a new signed tag for the commit.
-   The optional part of [Using PGP with Git] uses the `stag` alias to create the signed commit.
-   ```
-   $ git stag
-   signed_tag_for_a8beed54
-   ```
-3. Push the newly created tag to your repository.
-   ```
-   git push origin signed_tag_for_a8beed54
-   ```
-   You can do this and the step before using `git spush` if you added the alias.
-4. Push the commit to the repository.
-   ```
-   git push origin branch-name
-   ```
-   This triggers the check if the commit is signed in the pull request.
-5. Then, the tag is already existent and the [signature-checker] can find it.
-   You can see a message like this:
-   > policy/qubesos/code-signing — Signed with 9BBAB2DEB1488C99 
+> policy/qubesos/code-signing — No signature found
 
-### Error Handling
+In this case, you have several options to sign the commit:
 
-Now, if you get
-
-> Unable to verify (no valid key found)
-
-chances are, you did already push a commit and wonder how to sign it properly.
-You can do the following to re-trigger the signature check:
-
-1. Create a new signed commit with the same message. Add `-S` if you did not enable automatic signatures.
+1. Amend the commit and repace it with a signed commit.  
+   You can use this command to create a new signed commit:
    ```
-   git commit --amend
+   git commit --amend -S
    ```
-2. Create a tag and push it.
-   ```
-   git spush
-   ```
-4. Push the new commit replacing the old one.
+   This also rewrites the commit so you need to push it forcefully:
    ```
    git push -f
    ```
+2. Create a signed tag for the unsigned commit.  
+   If the commit is back in history and you do not want to change it,
+   you can create a signed tag for this commit and push the signature.
+   You can use the alias from above:
+   ```
+   git checkout <commit>
+   git spush
+   ```
+   Now, the signature checker needs to re-check the signature.
+   Please commit on the pull request that you would like to have the signatures checked again.
+
+### Unable To Verify
+
+> policy/qubesos/code-signing — Unable to verify (no valid key found)
+
+This means that the [signature-checker] has found a signature but is not able
+to verify it using the any key available.
+This might be that you forgot to upload the key to a key server.
+Please upload it.
 
 
 Using PGP with Email
