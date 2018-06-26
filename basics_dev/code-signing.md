@@ -134,7 +134,7 @@ The [signature-checker] checks if code contributions are signed.
 Although GitHub adds a little green `Verified` button next to the commit, the [signature-checker] uses another algorithm.
 You may see this message:
 
-> Unable to verify (no valid key found) - [signature-checker/check-git-signature line 392](https://github.com/marmarek/signature-checker/blob/d143b8f2b4da828a9a93b91eb972dddb7e28b4f0/check-git-signature#L392)
+> policy/qubesos/code-signing — Unable to verify (no valid key found) - [signature-checker/check-git-signature line 392](https://github.com/marmarek/signature-checker/blob/d143b8f2b4da828a9a93b91eb972dddb7e28b4f0/check-git-signature#L392)
 
 Which means that the following correct flow was not done in order or is missing steps:
 
@@ -156,7 +156,9 @@ Which means that the following correct flow was not done in order or is missing 
    git push origin branch-name
    ```
    This triggers the check if the commit is signed in the pull request.
-   Then, the tag is already existent and the [signature-checker] can find it.
+5. Then, the tag is already existent and the [signature-checker] can find it.
+   You can see a message like this:
+   > policy/qubesos/code-signing — Signed with 9BBAB2DEB1488C99 
 
 ### Error Handling
 
