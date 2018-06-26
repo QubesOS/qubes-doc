@@ -104,7 +104,13 @@ your Git commits.
    commit -S
    ~~~
 
-3. (Optional) Create signed tags:
+3. (Optional) Create signed tags.  
+   Signed commits are totally sufficient to contribute to Qubes OS.
+   However, if you have commits which are not signed and you do not want to change them,
+   you can create a signed tag for the commit and push it before the check.
+
+   This is useful for example, if you have a commit back in the git history which
+   you like to sign now without rewriting the history.
 
    ~~~
    git tag -s <tag_name> -m "<tag_message>"
@@ -116,15 +122,15 @@ your Git commits.
 
    ~~~
    [alias]
-           stag = "!bash -c 'id=\"`git rev-parse --verify HEAD`\"; tag_name="signed_tag_for_${id:0:8}"; git tag -s "$tag_name" -m \"Tag for commit $id\"; echo \"$tag_name\"'"
-           spush = "!bash -c 'git push origin `git stag`'"
+   stag = "!bash -c 'id=\"`git rev-parse --verify HEAD`\"; tag_name="signed_tag_for_${id:0:8}"; git tag -s "$tag_name" -m \"Tag for commit $id\"; echo \"$tag_name\"'"
+   spush = "!bash -c 'git push origin `git stag`'"
    ~~~
 
    You may also find it convenient to have an alias for verifying the tag on the
    latest commit:
 
    ~~~
-           vtag = !git tag -v `git describe`
+   vtag = !git tag -v `git describe`
    ~~~
 
 How to Contribute Signed Code
