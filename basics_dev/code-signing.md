@@ -188,7 +188,6 @@ You can do the following to re-trigger the signature check:
    git push -f
    ```
 
-[signature-checker]: https://github.com/marmarek/signature-checker
 
 Using PGP with Email
 --------------------
@@ -202,4 +201,5 @@ Enigmail is a security addon for the Mozilla Thunderbird email client that allow
 [source code]: /doc/source-code/
 [developer mailing list]: /support/#qubes-devel
 [Enigmail]: https://www.enigmail.net/
+[signature-checker]: https://github.com/marmarek/signature-checker
 
