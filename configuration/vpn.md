@@ -68,6 +68,8 @@ Set up a ProxyVM as a VPN gateway using NetworkManager
    And substitute "XXXXXXXXXXXXXX" for the actual password.
    The contents of `passwd-file.txt` may differ depending on your VPN settings.  See the [documentation for `nmcli up`](https://www.mankier.com/1/nmcli#up).
    
+   Troubleshooting:  If you notice that the VPN doesn't autostart on hardware bootup but it does when restaring the VPN VM, try adding a slight delay in seconds in `/rw/config/rc.local` before the `nmcli` command, e.g. `sleep 2`.
+   
 5. (Optional) Make the network fail-close for the AppVMs if the connection to the VPN breaks.
 
    Edit `/rw/config/qubes-firewall-user-script` and add these lines:
