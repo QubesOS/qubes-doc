@@ -123,12 +123,12 @@ Note that currently only applications whose main process keeps running until you
 
 Deleting disposable VM is slightly peculiar. While working in a VM or disposable VM, you may want to open a document in another disposable VM. For this reason, the property `default_dispvm` may be set to the name of your disposable VM in a number of VMs:
 
-    [user@dom0 ~]$ qvm-prefs workvm | grep default_disp
+    [user@dom0 ~]$ qvm-prefs workvm | grep default_dispvm
     default_dispvm        -  custom-dvm
 
-This will prevent the deletion of the DVM. In order to fix this you need to unset the `default_disp` property:
+This will prevent the deletion of the DVM. In order to fix this you need to unset the `default_dispvm` property:
 
-    [user@dom0 ~]$ qvm-prefs workvm default_disp ""
+    [user@dom0 ~]$ qvm-prefs workvm default_dispvm ""
 
 You can then delete the DVM:
 
