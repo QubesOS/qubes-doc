@@ -55,7 +55,8 @@ Set up a ProxyVM as a VPN gateway using NetworkManager
    Edit `/rw/config/rc.local` and add these lines:
    
    ```bash
-   # Automatically connect to the VPN
+   # Automatically connect to the VPN once Internet is up
+   for i in {1..50}; do ping -c1 1.1.1.1 &> /dev/null && break; done
    nmcli connection up file-vpn-conn passwd-file /rw/config/NM-system-connections/secrets/passwd-file.txt
    ```
    You can find the actual "file-vpn-conn" in `/rw/config/NM-system-connections/`.
@@ -67,8 +68,6 @@ Set up a ProxyVM as a VPN gateway using NetworkManager
    ```
    And substitute "XXXXXXXXXXXXXX" for the actual password.
    The contents of `passwd-file.txt` may differ depending on your VPN settings.  See the [documentation for `nmcli up`](https://www.mankier.com/1/nmcli#up).
-   
-   Troubleshooting:  If you notice that the VPN doesn't autostart on hardware bootup but it does when restaring the VPN VM, try adding a slight delay in seconds in `/rw/config/rc.local` before the `nmcli` command, e.g. `sleep 2`.
    
 5. (Optional) Make the network fail-close for the AppVMs if the connection to the VPN breaks.
 
