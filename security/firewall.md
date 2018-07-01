@@ -194,6 +194,8 @@ network 192.168.x.0/24.
 
 > Note: To have all interfaces available and configured, make sure the 3 qubes are up and running
 
+> Note: [Issue #4028](https://github.com/QubesOS/qubes-issues/issues/4028) discusses adding a command to automate exposing the port.
+
 **1. Route packets from the outside world to the FirewallVM**
 
 From a Terminal window in sys-net VM, take note of the 'Interface name' and
@@ -384,7 +386,7 @@ fi
 # In Qubes OS R4
 
 # If not already present
-if nft -nn list table ip qubes-firewall | grep "tcp dport 443 ct state new"; then
+if ! nft -nn list table ip qubes-firewall | grep "tcp dport 443 ct state new"; then
 
 # Add a filtering rule
   nft add rule ip qubes-firewall forward meta iifname eth0 ip saddr 192.168.x.0/24 ip daddr 10.137.0.y tcp dport 443 ct state new counter accept

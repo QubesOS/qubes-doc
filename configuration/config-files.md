@@ -9,8 +9,11 @@ redirect_from:
 - "/wiki/UserDoc/ConfigFiles/"
 ---
 
-Qubes specific VM config files
-==============================
+Configuration Files
+===================
+
+Qubes-specific VM config files
+------------------------------
 
 These files are placed in /rw, which survives a VM restart.
 That way, they can be used to customize a single VM instead of all VMs based on the same template. 
@@ -48,8 +51,9 @@ Note that scripts need to be executable (chmod +x) to be used.
 
 Also, take a look at [bind-dirs](/doc/bind-dirs) for instructions on how to easily modify arbitrary system files in an AppVM and have those changes persist.
 
+
 GUI and audio configuration in dom0
-===================================
+-----------------------------------
 
 The GUI configuration file `/etc/qubes/guid.conf` in one of a few not managed by qubes-prefs or the Qubes Manager tool.
 Sample config (included in default installation):
@@ -97,3 +101,4 @@ Currently supported settings:
 
 -   `audio_low_latency` - force low-latency audio mode (about 40ms compared to 200-500ms by default).
     Note that this will cause much higher CPU usage in dom0.
+

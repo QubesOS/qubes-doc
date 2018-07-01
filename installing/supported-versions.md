@@ -14,30 +14,30 @@ or minor release (see [Version Scheme]). The current release and past major
 releases are always available on the [Downloads] page, while all ISOs, including
 past minor releases, are available from our [download mirrors].
 
-| Qubes OS Version | Start Date | End Date   | Status                  |
-| ---------------- | ---------- | ---------- | ----------------------- |
-| Release 1        | 2012-09-03 | 2015-03-26 | Old, unsupported        |
-| Release 2        | 2014-09-26 | 2016-04-01 | Old, unsupported        |
-| Release 3.0      | 2015-10-01 | 2016-09-09 | Old, unsupported        |
-| Release 3.1      | 2016-03-09 | 2017-03-29 | Old, unsupported        |
-| Release 3.2      | 2016-09-29 | TBA        | Old, [extended support] |
-| Release 3.2.1    | TBA        | 2019-03-28 | In development          |
-| Release 4.0      | 2018-03-28 | TBA        | Current, supported      |
+| Qubes OS      | Start Date | End Date   | Status                  |
+| ------------- | ---------- | ---------- | ----------------------- |
+| Release 1     | 2012-09-03 | 2015-03-26 | Old, unsupported        |
+| Release 2     | 2014-09-26 | 2016-04-01 | Old, unsupported        |
+| Release 3.0   | 2015-10-01 | 2016-09-09 | Old, unsupported        |
+| Release 3.1   | 2016-03-09 | 2017-03-29 | Old, unsupported        |
+| Release 3.2   | 2016-09-29 | TBA        | Old, [extended support] |
+| Release 3.2.1 | TBA        | 2019-03-28 | In development          |
+| Release 4.0   | 2018-03-28 | TBA        | Current, supported      |
 
 
 Dom0
 ----
 The table below shows the OS used for dom0 in each Qubes OS release.
 
-| Qubes OS Version | Dom0 OS   |
-| ---------------- | --------- |
-| Release 1        | Fedora 13 |
-| Release 2        | Fedora 18 |
-| Release 3.0      | Fedora 20 |
-| Release 3.1      | Fedora 20 |
-| Release 3.2      | Fedora 23 |
-| Release 3.2.1    | Fedora 23 |
-| Release 4.0      | Fedora 25 |
+| Qubes OS      | Dom0 OS   |
+| ------------- | --------- |
+| Release 1     | Fedora 13 |
+| Release 2     | Fedora 18 |
+| Release 3.0   | Fedora 20 |
+| Release 3.1   | Fedora 20 |
+| Release 3.2   | Fedora 23 |
+| Release 3.2.1 | Fedora 23 |
+| Release 4.0   | Fedora 25 |
 
 ### Note on dom0 and EOL ###
 
@@ -52,17 +52,17 @@ it has reached EOL (end-of-life).
 TemplateVMs
 -----------
 The table below shows the [TemplateVM] versions supported by each Qubes OS
-release. Currently, only Fedora and Debian TemplateVMs are officially supported.
+release. Currently, only Fedora, Debian, and Whonix TemplateVMs are officially supported.
 
-| Qubes OS Version | Fedora Versions      | Debian Versions                               |
-| ---------------- | -------------------- | --------------------------------------------- |
-| Release 1        | 18, 20               | None                                          |
-| Release 2        | 21                   | None                                          |
-| Release 3.0      | 21, 22\*, 23         | 7 ("wheezy")\*, 8 ("jessie")                  |
-| Release 3.1      | 21, 22\*, 23         | 7 ("wheezy")\*, 8 ("jessie"), 9 ("stretch")\* |
-| Release 3.2      | 23\*, 24\*, 25, 26   | 8 ("jessie"), 9 ("stretch")                   |
-| Release 3.2.1    | 26                   | 8 ("jessie"), 9 ("stretch")                   |
-| Release 4.0      | 26                   | 8 ("jessie"), 9 ("stretch")                   |
+| Qubes OS      | Fedora                     | Debian                                        | Whonix |
+| ------------- | -------------------------- | --------------------------------------------- | ------ |
+| Release 1     | 18, 20                     | None                                          | None   |
+| Release 2     | 21                         | None                                          | None   |
+| Release 3.0   | 21, 22\*, 23               | 7 ("wheezy")\*, 8 ("jessie")                  | None   |
+| Release 3.1   | 21, 22\*, 23               | 7 ("wheezy")\*, 8 ("jessie"), 9 ("stretch")\* | None   |
+| Release 3.2   | 23\*, 24\*, 25, 26, 27, 28 | 8 ("jessie"), 9 ("stretch")                   | 13     |
+| Release 3.2.1 | 26, 27, 28                 | 8 ("jessie"), 9 ("stretch")                   | 13     |
+| Release 4.0   | 26, 27, 28                 | 8 ("jessie"), 9 ("stretch")                   | 13     |
 
 \* Denotes versions for which we have published the packages but have not done
 extensive testing.

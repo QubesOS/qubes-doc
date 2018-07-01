@@ -353,11 +353,107 @@ Ensures the specified domain is running:
       qvm.running:
         - name: salt-test4
 
+
+## Virtual Machine Formulae
+
+You can use these formulae to download, install, and configure VMs in Qubes.
+These formulae use pillar data to define default VM names and configuration details.
+The default settings can be overridden in the pillar data located in:
+```
+/srv/pillar/base/qvm/init.sls
+```
+In dom0, you can apply a single state with `sudo qubesctl state.sls STATE_NAME`.
+For example, `sudo qubesctl state.sls qvm.personal` will create a `personal` VM (if it does not already exist) with all its dependencies (TemplateVM, `sys-firewall`, and `sys-net`).
+
+### Available states
+
+#### `qvm.sys-net`
+
+System NetVM
+
+#### `qvm.sys-usb`
+
+System UsbVM
+
+#### `qvm.sys-net-with-usb`
+
+System UsbVM bundled into NetVM. Do not enable together with `qvm.sys-usb`.
+
+#### `qvm.usb-keyboard`
+
+Enable USB keyboard together with USBVM, including for early system boot (for LUKS passhprase).
+This state implicitly creates a USBVM (`qvm.sys-usb` state), if not already done.
+
+#### `qvm.sys-firewall`
+
+System firewall ProxyVM
+
+#### `qvm.sys-whonix`
+
+Whonix gateway ProxyVM
+
+#### `qvm.personal`
+
+Personal AppVM
+
+#### `qvm.work`
+
+Work AppVM
+
+#### `qvm.untrusted`
+
+Untrusted AppVM
+
+#### `qvm.vault`
+
+Vault AppVM with no NetVM enabled.
+
+#### `qvm.default-dispvm`
+
+Default Disposable VM template - fedora-26-dvm AppVM
+
+#### `qvm.anon-whonix`
+
+Whonix workstation AppVM.
+
+#### `qvm.whonix-ws-dvm`
+
+Whonix workstation AppVM for Whonix Disposable VMs.
+
+#### `qvm.updates-via-whonix`
+
+Setup UpdatesProxy to route all templates updates through Tor (sys-whonix here).
+
+#### `qvm.template-fedora-21`
+
+Fedora-21 TemplateVM
+
+#### `qvm.template-fedora-21-minimal`
+
+Fedora-21 minimal TemplateVM
+
+#### `qvm.template-debian-7`
+
+Debian 7 (wheezy) TemplateVM
+
+#### `qvm.template-debian-8`
+
+Debian 8 (jessie) TemplateVM
+
+#### `qvm.template-whonix-gw`
+
+Whonix Gateway TemplateVM
+
+#### `qvm.template-whonix-ws`
+
+Whonix Workstation TemplateVM
+
+
 ## The `qubes` Pillar Module
 
-Additional pillar data is available to ease targeting configurations (for
-example all templates). 
-***Note*** List here may be subject to changes in future releases.
+Additional pillar data is available to ease targeting configurations (for example all templates). 
+
+**Note:** This list is subject to change in future releases.
 
 ### `qubes:type`
 

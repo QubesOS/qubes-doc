@@ -133,7 +133,7 @@ This website is hosted via GitHub Pages behind Cloudflare ([why?](#why-does-this
 Therefore, it is largely outside of our control.
 We don't consider this a problem, however, since we explicitly [distrust the infrastructure](#what-does-it-mean-to-distrust-the-infrastructure).
 For this reason, we don't think that anyone should place undue trust in the live version of this site on the Web.
-Instead, if you want to obtain your own, trustworthy copy of this website in a secure way, you should clone our [website repo](https://github.com/QubesOS/qubesos.github.io), [verify the PGP signatures on the commits and/or tags](/security/verifying-signatures/#verifying-qubes-code) (signed by the [doc-signing keys](https://github.com/QubesOS/qubes-secpack/tree/master/keys/doc-signing)), then either [render the site on your local machine](https://github.com/QubesOS/qubesos.github.io/blob/master/README.md#instructions) or simply read the source, the vast majority of which was [intentionally written in Markdown so as to be readable as plain text for this very reason](/doc/doc-guidelines/#markdown-conventions).
+Instead, if you want to obtain your own, trustworthy copy of this website in a secure way, you should clone our [website repo](https://github.com/QubesOS/qubesos.github.io), [verify the PGP signatures on the commits and/or tags](/security/verifying-signatures/#how-to-verify-qubes-repos) (signed by the [doc-signing keys](https://github.com/QubesOS/qubes-secpack/tree/master/keys/doc-signing)), then either [render the site on your local machine](https://github.com/QubesOS/qubesos.github.io/blob/master/README.md#instructions) or simply read the source, the vast majority of which was [intentionally written in Markdown so as to be readable as plain text for this very reason](/doc/doc-guidelines/#markdown-conventions).
 We've gone to special effort to set all of this up so that no one has to trust the infrastructure and so that the contents of this website are maximally available and accessible.
 
 ### What does it mean to "distrust the infrastructure"?
@@ -226,7 +226,7 @@ It is possible to install Qubes on a system with 2 GB of RAM, but the system wou
 
 ### Can I install Qubes 4.x on a system without VT-x or VT-d?
 
-Qubes 4.x requires Intel VT-x with EPT / AMD-V with RVI (SLAT) and Intel VT-d / AMD-Vi (aka AMD IOMMU) for proper functionality (see the [4.x System Requirements](/doc/system-requirements/#qubes-release-4x)). You may be able to install it without the required CPU features for testing purposes only, but VMs may not function correctly and there will be no security isolation. For more information, see our post on [updated requirements for Qubes-certified hardware](/news/2016/07/21/new-hw-certification-for-q4/).
+Qubes 4.x requires Intel VT-x with EPT / AMD-V with RVI (SLAT) and Intel VT-d / AMD-Vi (aka AMD IOMMU) for proper functionality (see the [4.x System Requirements](/doc/system-requirements/#qubes-release-4x)). If you are receiving an error message on install saying your "hardware lacks the features required to proceed", check to make sure the virtualization options are enabled in your BIOS/UEFI configuration. You may be able to install without the required CPU features for testing purposes only, but VMs may not function correctly and there will be no security isolation. For more information, see our post on [updated requirements for Qubes-certified hardware](/news/2016/07/21/new-hw-certification-for-q4/).
 
 ### Can I install Qubes 3.2 on a system without VT-x?
 

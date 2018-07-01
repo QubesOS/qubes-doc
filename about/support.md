@@ -79,24 +79,32 @@ and knowledgeable people who enjoy corresponding on these lists. The vast
 majority of them will be happy to help you if you follow these simple
 guidelines.
 
- * **Be polite and respectful.** Remember, no one here is under any obligation
+### Be polite and respectful ###
+
+   Remember, no one here is under any obligation
    to reply to you. Think about your readers. Most of them are coming home after
    a long, hard day at work. The last thing they need is someone's temper
    tantrum in their inboxes. If you are rude and disrespectful, you are very
    likely to be ignored.
 
- * **Be concise.** Include only essential information. Most of your readers lead
+### Be concise ###
+
+   Include only essential information. Most of your readers lead
    busy lives and have precious little time. We *want* to spend some of that
    time helping you, if we can. But if you ramble, it will be easier to skip
    over you and help someone else who gets right to the point.
 
- * **Help us help you.** Tell us what you've already tried, and which
+### Help us help you ###
+
+   Tell us what you've already tried, and which
    documentation pages you've already read. Put yourself in your readers' shoes.
    What essential information would they require in order to be able to help
    you? Make sure to include that information in your message. [Ask
    questions the smart way.][smart-questions]
 
- * **Be patient.** Do not "bump" a thread more than once every three days *at
+### Be patient ###
+
+   Do not "bump" a thread more than once every three days *at
    most*. If it seems like your messages to the mailing lists are consistently
    being ignored, make sure you're following the guidelines explained on this
    page. If you're already doing so but still not getting any replies, then it's
@@ -104,7 +112,9 @@ guidelines.
    that the devs are very busy working on Qubes. They usually only have a chance
    to answer questions on the mailing lists once every several days.
 
- * **Be a good community member.** As with any social community, members of the
+### Be a good community member ###
+
+   As with any social community, members of the
    mailing list earn different reputations for themselves over time. We want the
    mailing lists to be a friendly, productive place where information and ideas
    are exchanged for the mutual benefit of all. We understand that the best way
@@ -124,26 +134,43 @@ guidelines.
 
 ### Specific rules and notes ###
 
- * While the mailing lists are implemented as Google Group web forums, many
-   discussants treat them as conventional [mailing lists] rather than web
-   forums. The Qubes OS Project does not maintain a web forum apart from the
-   mailing lists.
- * Send your message to the correct list. Read the sections below to determine
+#### Use the correct list ####
+
+   Send your message to the correct list. Read the sections below to determine
    which list is correct for your message.
- * Do not [top-post].
- * Include a precise and informative subject line. This will allow others to
+
+#### Do not top-post ####
+
+   [Top-posting] is placing your reply above the quoted message to which you're
+   replying. Please refrain from doing this. Instead, either [interleave] your
+   reply by placing parts of your message immediately below each quoted portion
+   to which it is replying, or [bottom-post] by placing your entire reply below
+   the quoted message to which you're replying.
+
+#### Use proper subject lines ####
+
+   Include a precise and informative subject line. This will allow others to
    easily find your thread in the future and use it as a reference. (Bad: "Help!
    Qubes problems!" Good: "R2B2 Installation problem: Apple keyboard not working
    in installer.")
- * If your message is not successfully sent to the list, it probably got caught
+
+#### Do not send duplicates ####
+
+   If your message is not successfully sent to the list, it probably got caught
    in the spam filter. We check the spam filter regularly, so please be patient,
    and your message should be approved (and your email address added to the
    whitelist) within a few days.
- * Keep the mailing list CCed throughout the conversation unless there's a
+
+#### Keep the list CCed ####
+
+   Keep the mailing list CCed throughout the conversation unless there's a
    special need for privacy (in which case, use PGP encryption). This increases
    the likelihood that a greater quantity of useful information will be
    available to everyone in the future.
- * Quote appropriately. If you're replying to a thread (whether your own or
+
+#### Quote appropriately ####
+
+   If you're replying to a thread (whether your own or
    someone else's), you should make sure to quote enough from previous messages
    in the thread so that people reading your message can understand the context
    without having to find and read earlier messages from that thread. Each reply
@@ -151,13 +178,19 @@ guidelines.
    in itself. Do not quote advertisements in signatures or inline PGP signature
    blocks. (Quoting the latter interferes with the ability of programs like
    Enigmail to properly quote replies thereafter).
- * If you do not speak English, you should feel free to post in your own
+
+#### English not required ####
+
+   If you do not speak English, you should feel free to post in your own
    language. However, bear in mind that most members of the list can only read
    English. You may wish to include an automated translation in your message out
    of consideration for those readers. If you choose to write in English, please
    do not apologize for doing so poorly, as it is unnecessary. We understand and
    will ask for clarification if needed.
- * While we're generally open to hearing suggestions for new features, please
+
+#### Suggestions ####
+
+   While we're generally open to hearing suggestions for new features, please
    note that we already have a pretty well defined [roadmap], and it's rather
    unlikely that we will change our schedule in order to accommodate your
    request. If there's a particular feature you'd like to see in Qubes, a much
@@ -166,6 +199,13 @@ guidelines.
    Please note, however, that it's always a good idea to field a discussion of
    your idea on the `qubes-devel` list before putting in a lot of hard work on
    something that we may not be able or willing to accept.
+
+#### Mailing lists vs. forums ####
+
+   While the mailing lists are implemented as Google Group web forums, many
+   discussants treat them as conventional [mailing lists] rather than web
+   forums. The Qubes OS Project does not maintain a web forum apart from the
+   mailing lists.
 
 
 qubes-announce
@@ -422,7 +462,9 @@ You must be subscribed in order to post to this list.
 [verify]: /security/verifying-signatures/
 [qsb]: /security/bulletins/
 [qubes-announce-web]: https://groups.google.com/group/qubes-announce
-[top-post]: https://en.wikipedia.org/wiki/Posting_style
+[Top-posting]: https://en.wikipedia.org/wiki/Posting_style#Top-posting
+[interleave]: https://en.wikipedia.org/wiki/Posting_style#Interleaved_style
+[bottom-post]: https://en.wikipedia.org/wiki/Posting_style#Bottom-posting
 [roadmap]: https://github.com/QubesOS/qubes-issues/milestones
 [smart-questions]: http://www.catb.org/esr/faqs/smart-questions.html
 [Whonix]: /doc/whonix/

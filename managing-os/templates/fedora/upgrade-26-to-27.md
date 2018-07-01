@@ -1,83 +1,93 @@
 ---
 layout: doc
-title: Upgrading the Fedora 25 Template to Fedora 26
-permalink: /doc/template/fedora/upgrade-25-to-26/
+title: Upgrading the Fedora 26 Template to Fedora 27
+permalink: /doc/template/fedora/upgrade-26-to-27/
 redirect_from:
-- /doc/fedora-template-upgrade-25/
-- /en/doc/fedora-template-upgrade-25/
-- /doc/FedoraTemplateUpgrade25/
-- /wiki/FedoraTemplateUpgrade25/
+- /doc/fedora-template-upgrade-26/
+- /en/doc/fedora-template-upgrade-26/
+- /doc/FedoraTemplateUpgrade26/
+- /wiki/FedoraTemplateUpgrade26/
 ---
 
-Upgrading the Fedora 25 Template to Fedora 26
+Upgrading the Fedora 26 Template to Fedora 27
 =============================================
 
 This page provides instructions for performing an in-place upgrade of an
-installed Fedora 25 [TemplateVM] to Fedora 26. If you wish to install a new,
-unmodified Fedora 26 template instead of upgrading a template that is already
+installed Fedora 26 [TemplateVM] to Fedora 27. If you wish to install a new,
+unmodified Fedora 27 template instead of upgrading a template that is already
 installed in your system, please see the [Fedora TemplateVM] page instead.
 
-These instructions can also be used to upgrade a Fedora 24 TemplateVM to
-Fedora 26. Simply start by cloning `fedora-24` instead of `fedora-25` in the
+These instructions can also be used to upgrade a Fedora 25 TemplateVM to
+Fedora 27. Simply start by cloning `fedora-25` instead of `fedora-26` in the
 instructions below.
+
+
+Important information regarding RPM Fusion repos
+------------------------------------------------
+
+If your RPM Fusion repositories are **disabled** when you upgrade a TemplateVM from Fedora 26 to 27, all RPM Fusion packages and RPM Fusion repo definitions will be removed from that TemplateVM.
+If your RPM Fusion repositories are **enabled** when upgrading, all RPM Fusion packages and repo definitions will be retained and updated as expected.
+For most users, this behavior should not cause a problem, since a TemplateVM in which the RPM Fusion repos are disabled is probably a TemplateVM in which you never wish to use them.
+However, if you wish to have the RPM Fusion repo definitions after upgrading in a TemplateVM in which they are currently disabled, you may wish to temporarily enable them prior to upgrading or manually create, copy, or download them after upgrading.
+
 
 Qubes 3.2 Instructions
 ----------------------
 
-### Summary: Upgrading the Standard Fedora 25 Template to Fedora 26 ###
+### Summary: Upgrading the Standard Fedora 26 Template to Fedora 27 ###
 
 **Note:** The prompt on each line indicates where each command should be entered
-(`@dom0` or `@fedora-26`).
+(`@dom0` or `@fedora-27`).
 
-        [user@dom0 ~]$ qvm-clone fedora-25 fedora-26
+        [user@dom0 ~]$ qvm-clone fedora-26 fedora-27
         [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
-        [user@dom0 ~]$ qvm-run -a fedora-26 gnome-terminal
-        [user@dom0 ~]$ qvm-block -A fedora-26 dom0:/var/tmp/template-upgrade-cache.img
-        [user@fedora-26 ~]$ sudo mkfs.ext4 /dev/xvdi
-        [user@fedora-26 ~]$ sudo mount /dev/xvdi /mnt/removable
-        [user@fedora-26 ~]$ sudo dnf clean all
-        [user@fedora-26 ~]$ sudo dnf --releasever=26 --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
+        [user@dom0 ~]$ qvm-run -a fedora-27 gnome-terminal
+        [user@dom0 ~]$ qvm-block -A fedora-27 dom0:/var/tmp/template-upgrade-cache.img
+        [user@fedora-27 ~]$ sudo mkfs.ext4 /dev/xvdi
+        [user@fedora-27 ~]$ sudo mount /dev/xvdi /mnt/removable
+        [user@fedora-27 ~]$ sudo dnf clean all
+        [user@fedora-27 ~]$ sudo dnf --releasever=27 --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
 
     (Shut down TemplateVM by any normal means.)
 
         [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
-        [user@dom0 ~]$ qvm-trim-template fedora-26
+        [user@dom0 ~]$ qvm-trim-template fedora-27
 
 (Optional cleanup: Switch everything over to the new template and delete the old
 one. See instructions below for details.)
 
 
-### Detailed: Upgrading the Standard Fedora 25 Template to Fedora 26 ###
+### Detailed: Upgrading the Standard Fedora 26 Template to Fedora 27 ###
 
-These instructions will show you how to upgrade the standard Fedora 25
-TemplateVM to Fedora 26. The same general procedure may be used to upgrade any
-template based on the standard Fedora 25 template.
+These instructions will show you how to upgrade the standard Fedora 26
+TemplateVM to Fedora 27. The same general procedure may be used to upgrade any
+template based on the standard Fedora 26 template.
 
 **Note:** The command-line prompt on each line indicates where each command
-should be entered (`@dom0` or `@fedora-26`).
+should be entered (`@dom0` or `@fedora-27`).
 
  1. Ensure the existing template is not running.
 
-        [user@dom0 ~]$ qvm-shutdown fedora-25
+        [user@dom0 ~]$ qvm-shutdown fedora-26
 
  2. Clone the existing template and start a terminal in the new template.
 
-        [user@dom0 ~]$ qvm-clone fedora-25 fedora-26
-        [user@dom0 ~]$ qvm-run -a fedora-26 gnome-terminal
+        [user@dom0 ~]$ qvm-clone fedora-26 fedora-27
+        [user@dom0 ~]$ qvm-run -a fedora-27 gnome-terminal
 
  3. Attempt the upgrade process in the new template.
 
-        [user@fedora-26 ~]$ sudo dnf clean all
-        [user@fedora-26 ~]$ sudo dnf --releasever=26 distro-sync --best --allowerasing
+        [user@fedora-27 ~]$ sudo dnf clean all
+        [user@fedora-27 ~]$ sudo dnf --releasever=27 distro-sync --best --allowerasing
 
     **Note:** `dnf` might ask you to approve importing a new package signing
     key. For example, you might see a prompt like this one:
 
-        warning: /var/cache/dnf/fedora-d02ca361e1b58501/packages/python2-babel-2.3.4-1.fc26.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID 64dab85d: NOKEY
-        Importing GPG key 0x64DAB85D:
-         Userid     : "Fedora (26) <fedora-26-primary@fedoraproject.org>"
-         Fingerprint: E641 850B 77DF 4353 78D1 D7E2 812A 6B4B 64DA B85D
-         From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-26-x86_64
+        warning: /var/cache/dnf/fedora-d02ca361e1b58501/packages/python2-babel-2.3.4-1.fc27.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID f5282ee4: NOKEY
+        Importing GPG key 0xF5282EE4:
+         Userid     : "Fedora (27) <fedora-27-primary@fedoraproject.org>"
+         Fingerprint: 860E 19B0 AFA8 00A1 7518 81A6 F55E 7430 F528 2EE4
+         From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-27-x86_64
         Is this ok [y/N]:
 
     This key was already checked when it was installed (notice that the "From"
@@ -92,15 +102,15 @@ should be entered (`@dom0` or `@fedora-26`).
        and attach it to the template as a virtual disk.
 
            [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
-           [user@dom0 ~]$ qvm-block -A fedora-26 dom0:/var/tmp/template-upgrade-cache.img
+           [user@dom0 ~]$ qvm-block -A fedora-27 dom0:/var/tmp/template-upgrade-cache.img
 
        Then reattempt the upgrade process, but this time use the virtual disk
        as a cache.
 
-           [user@fedora-26 ~]$ sudo mkfs.ext4 /dev/xvdi
-           [user@fedora-26 ~]$ sudo mount /dev/xvdi /mnt/removable
-           [user@fedora-26 ~]$ sudo dnf clean all
-           [user@fedora-26 ~]$ sudo dnf --releasever=26 --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
+           [user@fedora-27 ~]$ sudo mkfs.ext4 /dev/xvdi
+           [user@fedora-27 ~]$ sudo mount /dev/xvdi /mnt/removable
+           [user@fedora-27 ~]$ sudo dnf clean all
+           [user@fedora-27 ~]$ sudo dnf --releasever=27 --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
 
        If this attempt is successful, proceed to step 4.
 
@@ -114,7 +124,7 @@ should be entered (`@dom0` or `@fedora-26`).
 
  4. Shut down the new TemplateVM (from the command-line or Qubes VM Manager).
 
-        [user@dom0 ~]$ qvm-shutdown fedora-26
+        [user@dom0 ~]$ qvm-shutdown fedora-27
 
  5. Remove the cache file, if you created one.
 
@@ -123,7 +133,7 @@ should be entered (`@dom0` or `@fedora-26`).
  6. Trim the new template (see [Compacting the Upgraded Template] for details
     and other options).
 
-        [user@dom0 ~]$ qvm-trim-template fedora-26
+        [user@dom0 ~]$ qvm-trim-template fedora-27
 
  7. (Recommended) Switch everything that was set to the old template to the new
     template, e.g.:
@@ -133,8 +143,8 @@ should be entered (`@dom0` or `@fedora-26`).
         Qubes Manager --> Global settings --> Default template
 
      2. Base AppVMs on the new template. In Qubes Manager, for each VM that is
-        currently based on `fedora-25` that you would like to base on
-        `fedora-26`, enter its VM settings and change the Template selection:
+        currently based on `fedora-26` that you would like to base on
+        `fedora-27`, enter its VM settings and change the Template selection:
 
         Qubes Manager --> (Select a VM) --> VM settings --> Template
 
@@ -146,12 +156,12 @@ should be entered (`@dom0` or `@fedora-26`).
 
         Otherwise:
 
-            [user@dom0 ~]$ qvm-create-default-dvm fedora-26
+            [user@dom0 ~]$ qvm-create-default-dvm fedora-27
 
- 8. (Optional) Remove the old template. (Make sure to type `fedora-25`, not
-    `fedora-26`.)
+ 8. (Optional) Remove the old template. (Make sure to type `fedora-26`, not
+    `fedora-27`.)
 
-        [user@dom0 ~]$ sudo dnf remove qubes-template-fedora-25
+        [user@dom0 ~]$ sudo dnf remove qubes-template-fedora-26
 
 
 ### Compacting the Upgraded Template ###
@@ -163,12 +173,12 @@ really necessary after upgrading.
 
 You can use the `qvm-trim-template` tool:
 
-    [user@dom0 ~]$ qvm-trim-template fedora-26
+    [user@dom0 ~]$ qvm-trim-template fedora-27
 
 
 ### Upgrading StandaloneVMs ###
 
-The procedure for upgrading a StandaloneVM from Fedora 25 to Fedora 26 is the
+The procedure for upgrading a StandaloneVM from Fedora 26 to Fedora 27 is the
 same as for a TemplateVM, except that `qvm-trim-template` does not work on
 StandaloneVMs. Instead, you should run the following command inside the
 StandaloneVM in order to compact it:
@@ -176,19 +186,19 @@ StandaloneVM in order to compact it:
     $ sudo fstrim -v -a
 
 
-### Summary: Upgrading the Minimal Fedora 25 Template to Fedora 26 ###
+### Summary: Upgrading the Minimal Fedora 26 Template to Fedora 27 ###
 
 **Note:** The prompt on each line indicates where each command should be entered
-(`@dom0` or `@fedora-26`).
+(`@dom0` or `@fedora-27`).
 
-        [user@dom0 ~]$ qvm-clone fedora-25-minimal fedora-26-minimal
-        [user@dom0 ~]$ qvm-run -u root -a fedora-26-minimal xterm
-        [root@fedora-26-minimal ~]# dnf clean all
-        [user@fedora-26-minimal ~]# dnf --releasever=26 --best --allowerasing distro-sync
+        [user@dom0 ~]$ qvm-clone fedora-26-minimal fedora-27-minimal
+        [user@dom0 ~]$ qvm-run -u root -a fedora-27-minimal xterm
+        [root@fedora-27-minimal ~]# dnf clean all
+        [user@fedora-27-minimal ~]# dnf --releasever=27 --best --allowerasing distro-sync
 
     (Shut down TemplateVM by any normal means.)
 
-        [user@dom0 ~]$ qvm-trim-template fedora-26-minimal
+        [user@dom0 ~]$ qvm-trim-template fedora-27-minimal
 
 (If you encounter insufficient space issues, you may need to use the methods
 described for the standard template above.)
@@ -197,61 +207,62 @@ described for the standard template above.)
 Qubes 4.0 Instructions
 ----------------------
 
-### Summary: Upgrading the Standard Fedora 25 Template to Fedora 26 ###
+### Summary: Upgrading the Standard Fedora 26 Template to Fedora 27 ###
 
 **Note:** The prompt on each line indicates where each command should be entered
-(`@dom0` or `@fedora-26`).
+(`@dom0` or `@fedora-27`).
 
-        [user@dom0 ~]$ qvm-clone fedora-25 fedora-26
+        [user@dom0 ~]$ qvm-clone fedora-26 fedora-27
         [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
-        [user@dom0 ~]$ qvm-run -a fedora-26 gnome-terminal
+        [user@dom0 ~]$ qvm-run -a fedora-27 gnome-terminal
         [user@dom0 ~]$ dev=$(sudo losetup -f --show /var/tmp/template-upgrade-cache.img)
-        [user@dom0 ~]$ qvm-block attach fedora-26 dom0:${dev##*/}
-        [user@fedora-26 ~]$ sudo mkfs.ext4 /dev/xvdi
-        [user@fedora-26 ~]$ sudo mount /dev/xvdi /mnt/removable
-        [user@fedora-26 ~]$ sudo dnf clean all
-        [user@fedora-26 ~]$ sudo dnf --releasever=26 --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
-        [user@fedora-26 ~]$ sudo fstrim -v /
+        [user@dom0 ~]$ qvm-block attach fedora-27 dom0:${dev##*/}
+        [user@fedora-27 ~]$ sudo mkfs.ext4 /dev/xvdi
+        [user@fedora-27 ~]$ sudo mount /dev/xvdi /mnt/removable
+        [user@fedora-27 ~]$ sudo dnf clean all
+        [user@fedora-27 ~]$ sudo dnf --releasever=27 --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
+        [user@fedora-27 ~]$ sudo fstrim -v /
 
     (Shut down TemplateVM by any normal means.)
 
+        [user@dom0 ~]$ sudo losetup -d $dev
         [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
 
 (Optional cleanup: Switch everything over to the new template and delete the old
 one. See instructions below for details.)
 
 
-### Detailed: Upgrading the Standard Fedora 25 Template to Fedora 26 ###
+### Detailed: Upgrading the Standard Fedora 26 Template to Fedora 27 ###
 
-These instructions will show you how to upgrade the standard Fedora 25
-TemplateVM to Fedora 26. The same general procedure may be used to upgrade any
-template based on the standard Fedora 25 template.
+These instructions will show you how to upgrade the standard Fedora 26
+TemplateVM to Fedora 27. The same general procedure may be used to upgrade any
+template based on the standard Fedora 26 template.
 
 **Note:** The command-line prompt on each line indicates where each command
-should be entered (`@dom0` or `@fedora-26`).
+should be entered (`@dom0` or `@fedora-27`).
 
  1. Ensure the existing template is not running.
 
-        [user@dom0 ~]$ qvm-shutdown fedora-25
+        [user@dom0 ~]$ qvm-shutdown fedora-26
 
  2. Clone the existing template and start a terminal in the new template.
 
-        [user@dom0 ~]$ qvm-clone fedora-25 fedora-26
-        [user@dom0 ~]$ qvm-run -a fedora-26 gnome-terminal
+        [user@dom0 ~]$ qvm-clone fedora-26 fedora-27
+        [user@dom0 ~]$ qvm-run -a fedora-27 gnome-terminal
 
  3. Attempt the upgrade process in the new template.
 
-        [user@fedora-26 ~]$ sudo dnf clean all
-        [user@fedora-26 ~]$ sudo dnf --releasever=26 distro-sync --best --allowerasing
+        [user@fedora-27 ~]$ sudo dnf clean all
+        [user@fedora-27 ~]$ sudo dnf --releasever=27 distro-sync --best --allowerasing
 
     **Note:** `dnf` might ask you to approve importing a new package signing
     key. For example, you might see a prompt like this one:
 
-        warning: /var/cache/dnf/fedora-d02ca361e1b58501/packages/python2-babel-2.3.4-1.fc26.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID 64dab85d: NOKEY
-        Importing GPG key 0x64DAB85D:
-         Userid     : "Fedora (26) <fedora-26-primary@fedoraproject.org>"
-         Fingerprint: E641 850B 77DF 4353 78D1 D7E2 812A 6B4B 64DA B85D
-         From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-26-x86_64
+        warning: /var/cache/dnf/fedora-d02ca361e1b58501/packages/python2-babel-2.3.4-1.fc27.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID f5282ee4: NOKEY
+        Importing GPG key 0xF5282EE4:
+         Userid     : "Fedora (27) <fedora-27-primary@fedoraproject.org>"
+         Fingerprint: 860E 19B0 AFA8 00A1 7518 81A6 F55E 7430 F528 2EE4
+         From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-27-x86_64
         Is this ok [y/N]:
 
     This key was already checked when it was installed (notice that the "From"
@@ -267,15 +278,15 @@ should be entered (`@dom0` or `@fedora-26`).
 
            [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
            [user@dom0 ~]$ dev=$(sudo losetup -f --show /var/tmp/template-upgrade-cache.img)
-           [user@dom0 ~]$ qvm-block attach fedora-26 dom0:${dev##*/}
+           [user@dom0 ~]$ qvm-block attach fedora-27 dom0:${dev##*/}
 
        Then reattempt the upgrade process, but this time use the virtual disk
        as a cache.
 
-           [user@fedora-26 ~]$ sudo mkfs.ext4 /dev/xvdi
-           [user@fedora-26 ~]$ sudo mount /dev/xvdi /mnt/removable
-           [user@fedora-26 ~]$ sudo dnf clean all
-           [user@fedora-26 ~]$ sudo dnf --releasever=26 --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
+           [user@fedora-27 ~]$ sudo mkfs.ext4 /dev/xvdi
+           [user@fedora-27 ~]$ sudo mount /dev/xvdi /mnt/removable
+           [user@fedora-27 ~]$ sudo dnf clean all
+           [user@fedora-27 ~]$ sudo dnf --releasever=27 --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
 
        If this attempt is successful, proceed to step 4.
 
@@ -289,14 +300,15 @@ should be entered (`@dom0` or `@fedora-26`).
 
  4. Trim the new template.
 
-        [user@fedora-26 ~]$ sudo fstrim -v /
+        [user@fedora-27 ~]$ sudo fstrim -v /
 
  5. Shut down the new TemplateVM (from the command-line or Qubes VM Manager).
 
-        [user@dom0 ~]$ qvm-shutdown fedora-26
+        [user@dom0 ~]$ qvm-shutdown fedora-27
 
  6. Remove the cache file, if you created one.
 
+        [user@dom0 ~]$ sudo losetup -d $dev
         [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
 
  7. (Recommended) Switch everything that was set to the old template to the new
@@ -307,40 +319,40 @@ should be entered (`@dom0` or `@fedora-26`).
         Applications Menu --> System Tools --> Qubes Global Settings --> Default template
 
      2. Base AppVMs on the new template. In Qubes Manager, for each VM that is
-        currently based on `fedora-25` that you would like to base on
-        `fedora-26`, enter its VM settings and change the Template selection:
+        currently based on `fedora-26` that you would like to base on
+        `fedora-27`, enter its VM settings and change the Template selection:
 
         Applications Menu --> (select a VM) --> VM settings --> Template
 
      3. Base the [DispVM] template on the new template.
 
-            [user@dom0 ~]$ qvm-create -l red -t fedora-26 fedora-26-dvm
-            [user@dom0 ~]$ qvm-prefs fedora-26-dvm template_for_dispvms True
-            [user@dom0 ~]$ qvm-features fedora-26-dvm appmenus-dispvm 1
-            [user@dom0 ~]$ qubes-prefs default-dispvm fedora-26-dvm
+            [user@dom0 ~]$ qvm-create -l red -t fedora-27 fedora-27-dvm
+            [user@dom0 ~]$ qvm-prefs fedora-27-dvm template_for_dispvms True
+            [user@dom0 ~]$ qvm-features fedora-27-dvm appmenus-dispvm 1
+            [user@dom0 ~]$ qubes-prefs default-dispvm fedora-27-dvm
 
- 8. (Optional) Remove the old template. (Make sure to type `fedora-25`, not
-    `fedora-26`.)
+ 8. (Optional) Remove the old template. (Make sure to type `fedora-26`, not
+    `fedora-27`.)
 
-        [user@dom0 ~]$ sudo dnf remove qubes-template-fedora-25
+        [user@dom0 ~]$ sudo dnf remove qubes-template-fedora-26
 
 
 ### Upgrading StandaloneVMs ###
 
-The procedure for upgrading a StandaloneVM from Fedora 25 to Fedora 26 is the
+The procedure for upgrading a StandaloneVM from Fedora 26 to Fedora 27 is the
 same as for a TemplateVM.
 
 
-### Summary: Upgrading the Minimal Fedora 25 Template to Fedora 26 ###
+### Summary: Upgrading the Minimal Fedora 26 Template to Fedora 27 ###
 
 **Note:** The prompt on each line indicates where each command should be entered
-(`@dom0` or `@fedora-26`).
+(`@dom0` or `@fedora-27`).
 
-        [user@dom0 ~]$ qvm-clone fedora-25-minimal fedora-26-minimal
-        [user@dom0 ~]$ qvm-run -u root -a fedora-26-minimal xterm
-        [root@fedora-26-minimal ~]# dnf clean all
-        [user@fedora-26-minimal ~]# dnf --releasever=26 --best --allowerasing distro-sync
-        [user@fedora-26-minimal ~]# fstrim -v /
+        [user@dom0 ~]$ qvm-clone fedora-26-minimal fedora-27-minimal
+        [user@dom0 ~]$ qvm-run -u root -a fedora-27-minimal xterm
+        [root@fedora-27-minimal ~]# dnf clean all
+        [user@fedora-27-minimal ~]# dnf --releasever=27 --best --allowerasing distro-sync
+        [user@fedora-27-minimal ~]# fstrim -v /
 
     (Shut down TemplateVM by any normal means.)
 
@@ -363,10 +375,9 @@ In this case, you have several options:
     uninstalling packages. You may then reinstalling them again after you
     finish the upgrade process, if desired). However, you may end up having to
     increase the disk image size anyway (see previous option).
- 3. Increase the `root.img` size with `qvm-grow-root`.
- 4. Do the upgrade in parts, e.g., by using package groups. (First upgrade
+ 3. Do the upgrade in parts, e.g., by using package groups. (First upgrade
     `@core` packages, then the rest.)
- 5. Do not perform an in-place upgrade. Instead, simply download and install a
+ 4. Do not perform an in-place upgrade. Instead, simply download and install a
     new template package, then redo all desired template modifications.
 
     With regard to the last option, here are some useful messages from the
