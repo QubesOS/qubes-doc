@@ -212,6 +212,8 @@ It has been tested with Fedora 23 and Debian 8 templates.
    #    (in case the vpn tunnel breaks):
    iptables -I FORWARD -o eth0 -j DROP
    iptables -I FORWARD -i eth0 -j DROP
+   ip6tables -I FORWARD -o eth0 -j DROP
+   ip6tables -I FORWARD -i eth0 -j DROP
    
    #    Block all outgoing traffic
    iptables -P OUTPUT DROP
