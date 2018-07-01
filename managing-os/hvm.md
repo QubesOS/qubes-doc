@@ -22,18 +22,26 @@ Interested readers might want to check [this article](https://blog.invisiblethin
 Creating an HVM domain
 ----------------------
 
-With a GUI: in Qubes Manager VM creation dialog box choose the "Standalone qube not based on a template" type. If "install system from device" is selected (which is by default), then `virt_mode` will be set to `hvm` automatically. Otherwise, open the newly created VM's Qube Settings GUI and in the "Advanced" tab select "HVM" in the virtualization mode drop-down list.
+R3.2:
+With a GUI: in Qubes Manager VM creation dialog box choose the "Standalone qube not based on a template" type.
+If "install system from device" is selected (which is by default), then `virt_mode` will be set to `hvm` automatically.
+Otherwise, open the newly created VM's Qube Settings GUI and in the "Advanced" tab select "HVM" in the virtualization mode drop-down list.
 
 Command line (the VM's name and label color are for illustration purposes):
-
-R3.2:
 ~~~
 qvm-create my-new-vm --hvm --label green
 ~~~
 
-R4.0: VMs are template-based by default so the `--class StandaloneVM` option is needed to create a StandaloneVM:
+R4.0:
+With a GUI: in Qubes Manager VM creation dialog box choose the "Standalone qube not based on a template" type.
+If "install system from device" is selected (which is by default), then `virt_mode` will be set to `hvm` automatically.
+Otherwise, open the newly created VM's Qube Settings GUI and in the "Advanced" tab select `HVM` in the virtualization mode drop-down list.
+Also, make sure "Kernel" is set to `(none)` on the same tab.
+
+Command line (name and label color are for illustration purposes.
+VMs are template-based by default so the `--class StandaloneVM` option is needed to create a StandaloneVM):
 ~~~
-qvm-create my-new-vm --class StandaloneVM --property virt_mode=hvm 
+qvm-create my-new-vm --class StandaloneVM --property virt_mode=hvm --property kernel='' --label=green
 ~~~
 
 If you receive an error like this one, then you must first enable VT-x in your BIOS:
