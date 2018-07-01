@@ -1,39 +1,84 @@
 ---
 layout: doc
-title: Emergency Backup Recovery - format version 4
+title: Emergency Backup Recovery (v4)
 permalink: /doc/backup-emergency-restore-v4/
 redirect_from:
 - /en/doc/backup-emergency-restore-v4/
 - /doc/BackupEmergencyRestoreV4/
 ---
 
-Emergency Backup Recovery without Qubes - format version 4
-==========================================================
+Emergency Backup Recovery without Qubes (v4)
+============================================
 
 This page describes how to perform an emergency restore of a backup created on
-Qubes R4.0 or later (which uses backup format version 4).
+Qubes R4.X (which uses backup format version 4).
 
 The Qubes backup system has been designed with emergency disaster recovery in
 mind. No special Qubes-specific tools are required to access data backed up by
 Qubes. In the event a Qubes system is unavailable, you can access your data on
 any GNU/Linux system with the following procedure.
 
-**Note:** The backup content is encrypted and integrity-protected with the
-[`scrypt` utility](https://www.tarsnap.com/scrypt.html). You will need a copy
-of this utility in order to access your data. For this reason, it is strongly
-recommended that you store a copy of this utility with your backups. If your
-distribution has `scrypt` packaged (e.g., Debian), you can install the package
-in the standard way using your distribution's package manager. Otherwise,
-you'll need to download a compiled binary or compile the program from source
-yourself. (Don't forget to [verify signatures](/security/verifying-signatures)
-first!) Note that versions of `scrypt` up to 1.2.0 (inclusive) do not support
-the `-P` option for easier scripting, which means you'll need to enter the
-passphrase for each file separately, instead of using `echo ... | scrypt`.
+
+Required `scrypt` Utility
+-------------------------
+
+In Qubes 4.X, backups are encrypted and integrity-protected with [scrypt]. You
+will need a copy of this utility in order to access your data.  Since `scrypt`
+is not pre-installed on every GNU/Linux system, it is strongly recommended that
+you store a copy of it with your backups. If your distribution has `scrypt`
+packaged (e.g., Debian), you can install the package in the standard way using
+your distribution's package manager. Otherwise, you'll need to obtain a
+compiled binary (instructions below) or compile the program from source
+yourself. (Don't forget to [verify signatures] first!) Note that versions of
+`scrypt` up to 1.2.0 (inclusive) do not support the `-P` option for easier
+scripting, which means you'll need to enter the passphrase for each file
+separately, instead of using `echo ... | scrypt`.
+
+Here are instructions for obtaining a compiled `scrypt` binary. This example
+uses an RPM-based system (Fedora), but the same general procedure should work on
+any GNU/Linux system.
+
+ 1. If you're not on Qubes 4.X, [get and verify the Release 4 Signing Key].
+ 2. If you're not on Qubes 4.X, import the Release 4 Signing Key:
+
+        [user@restore ~]$ sudo rpm --import qubes-release-4-signing-key.asc
+
+ 3. Download the `scrypt` RPM:
+
+        [user@restore ~]$ dnf download scrypt
+
+    or, if that doesn't work:
+
+        [user@restore ~]$ curl -O https://yum.qubes-os.org/r4.0/current/vm/fc28/rpm/scrypt-1.2.1-1.fc28.x86_64.rpm
+
+ 4. Verify the signature on the `scrypt` RPM:
+
+        [user@restore ~]$ rpm -K scrypt-*.rpm 
+        scrypt-*.rpm: digests signatures OK
+
+    The message `digests signatures OK` means that both the digest (i.e., the
+    output of a hash function) and PGP signature verification were successful.
+
+ 5. Install `rpmdevtools`:
+
+        [user@restore ~]$ sudo dnf install rpmdevtools
+
+ 6. Extract the `scrypt` binary from the RPM:
+
+        [user@restore ~]$ rpmdev-extract scrypt-*.rpm
+
+ 7. (Optional) Create an alias for the new binary:
+
+        [user@restore ~]$ alias scrypt="scrypt-*/usr/bin/scrypt"
+
+
+Emergency Recovery Instructions
+-------------------------------
 
 **Note:** In the following example, the backup file is both *encrypted* and
 *compressed*.
 
- 2. Untar the main backup file.
+ 1. Untar the main backup file.
 
         [user@restore ~]$ tar -i -xvf qubes-backup-2015-06-05T123456
         backup-header
@@ -52,13 +97,13 @@ passphrase for each file separately, instead of using `echo ... | scrypt`.
     extract only the files necessary for your VM (`vmX`) with `tar -i -xvf
     qubes-backup-2015-06-05T123456 backup-header backup-header.hmac vmX/`.
 
- 3. Set the backup passhprase environment variable. While this isn't strictly
+ 2. Set the backup passhprase environment variable. While this isn't strictly
     required, it will be handy later and will avoid saving the passphrase in
     the shell's history.
 
-        read backup_pass
+        [user@restore ~]$ read backup_pass
 
- 4. Verify the integrity of `backup-header`. For compatibility reasons,
+ 3. Verify the integrity of `backup-header`. For compatibility reasons,
     `backup-header.hmac` is an encrypted *and integrity protected*
     version of `backup-header`.
 
@@ -72,11 +117,10 @@ passphrase for each file separately, instead of using `echo ... | scrypt`.
     with or is in a different format. In the latter case, look inside
     `backup-header` at the `version` field. If it contains a value other than
     `version=4`, go to the instructions for that format version:
-    - [Emergency Backup Recovery - format version 2](/doc/backup-emergency-restore-v2/)
-    - [Emergency Backup Recovery - format version 3](/doc/backup-emergency-restore-v3/)
+    - [Emergency Backup Recovery without Qubes (v2)]
+    - [Emergency Backup Recovery without Qubes (v3)]
 
- 5. Read `backup-header`. You'll need some of this information later. The
-    file will look similar to this:
+ 4. Read `backup-header`:
 
         [user@restore ~]$ cat backup-header
         version=4
@@ -84,11 +128,14 @@ passphrase for each file separately, instead of using `echo ... | scrypt`.
         compressed=True
         compression-filter=gzip
         backup_id=20161020T123455-1234
-  
+
+ 5. Set `backup_id` to the value in the last line of `backup-header`:
+
+        [user@restore ~]$ backup_id=20161020T123455-1234
+
  6. Verify the integrity of and decrypt the `private.img` file that houses your
     data.
 
-        [user@restore ~]$ backup_id=20161020T123455-1234 # see backup-header above
         [user@restore ~]$ for f_enc in vm1/private.img.???.enc; do \
             f_dec=${f_enc%.enc}; \
             echo "$backup_id!$f_dec!$backup_pass" | scrypt dec -P $f_enc $f_dec || break; \
@@ -104,13 +151,13 @@ passphrase for each file separately, instead of using `echo ... | scrypt`.
 
     **Note:** If your backup was compressed with a program other than `gzip`,
     you must substitute the correct compression program. This information is
-    contained in the `backup-header` file (see step 3). For example, if you
-    used `bzip2`, then you should do this:
+    contained in `backup-header` (see step 4). For example, if you used `bzip2`,
+    then you should do this:
 
         [user@restore vm1]$ mv private.img.dec private.img.dec.bz2
         [user@restore vm1]$ bunzip2 private.img.dec.bz2
 
- 8. Mount the private.img file and access your data.
+ 8. Mount `private.img` and access your data.
 
         [user@restore vm1]$ sudo mkdir /mnt/img
         [user@restore vm1]$ sudo mount -o loop vm1/private.img /mnt/img/
@@ -127,4 +174,10 @@ passphrase for each file separately, instead of using `echo ... | scrypt`.
     repository:
 
         https://github.com/QubesOS/qubes-doc.git
+
+[scrypt]: https://www.tarsnap.com/scrypt.html
+[verify signatures]: https://www.qubes-os.org/security/verifying-signatures)
+[get and verify the Release 4 Signing Key]: https://www.qubes-os.org/security/verifying-signatures/#2-get-the-release-signing-key
+[Emergency Backup Recovery without Qubes (v2)]: https://www.qubes-os.org/doc/backup-emergency-restore-v2/
+[Emergency Backup Recovery without Qubes (v3)]: https://www.qubes-os.org/doc/backup-emergency-restore-v3/
 
