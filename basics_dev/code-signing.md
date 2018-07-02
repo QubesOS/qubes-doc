@@ -136,7 +136,7 @@ Code Signature Checks
 ---------------------
 
 The [signature-checker] checks if code contributions are signed.
-Although GitHub adds a little green `Verified` button next to the commit, the [signature-checker] uses this algorithm to check if a commit is currectly signed:
+Although GitHub adds a little green `Verified` button next to the commit, the [signature-checker] uses this algorithm to check if a commit is correctly signed:
 
 1. Is the commit signed?  
    If the commit is not signed, you can see the message
@@ -151,7 +151,7 @@ Although GitHub adds a little green `Verified` button next to the commit, the [s
 
 In this case, you have several options to sign the commit:
 
-1. Amend the commit and repace it with a signed commit.  
+1. Amend the commit and replace it with a signed commit.  
    You can use this command to create a new signed commit:
    ```
    git commit --amend -S
