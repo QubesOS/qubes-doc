@@ -56,7 +56,7 @@ Set up a ProxyVM as a VPN gateway using NetworkManager
    
    ```bash
    # Automatically connect to the VPN once Internet is up
-   for i in {1..50}; do ping -c1 1.1.1.1 &> /dev/null && break; done
+   nm-online --quiet --wait-for-startup
    nmcli connection up file-vpn-conn passwd-file /rw/config/NM-system-connections/secrets/passwd-file.txt
    ```
    You can find the actual "file-vpn-conn" in `/rw/config/NM-system-connections/`.
