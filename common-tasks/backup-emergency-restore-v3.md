@@ -1,14 +1,14 @@
 ---
 layout: doc
-title: Emergency Backup Recovery - format version 3
+title: Emergency Backup Recovery (v3)
 permalink: /doc/backup-emergency-restore-v3/
 redirect_from:
 - /en/doc/backup-emergency-restore-v3/
 - /doc/BackupEmergencyRestoreV3/
 ---
 
-Emergency Backup Recovery without Qubes - format version 3
-==========================================================
+Emergency Backup Recovery without Qubes (v3)
+============================================
 
 This page describes how to perform an emergency restore of a backup created on
 Qubes R2 or later (which uses backup format version 3).
