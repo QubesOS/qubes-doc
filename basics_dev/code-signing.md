@@ -103,16 +103,26 @@ your Git commits.
    commit -S
    ~~~
 
-3. (Optional) Create signed tags:
+3. (Optional) Create signed tags.  
+   Signed commits are totally sufficient to contribute to Qubes OS.
+   However, if you have commits which are not signed and you do not want to change them,
+   you can create a signed tag for the commit and push it before the check.
+
+   This is useful for example, if you have a commit back in the git history which
+   you like to sign now without rewriting the history.
 
    ~~~
    git tag -s <tag_name> -m "<tag_message>"
    ~~~
 
-   You can also create an alias to make this easier:
+   You can also create an alias to make this easier.
+   Edit your `~/.gitconfig` file.
+   In the `[alias]` section, add `stag` to create signed tags and `spush` to create signed tags and push them.
 
    ~~~
-   stag = "!id=`git rev-parse --verify HEAD`; git tag -s tag_for_${id:0:8} -m \"Tag for commit $id\""
+   [alias]
+   stag = "!bash -c 'id=\"`git rev-parse --verify HEAD`\"; tag_name="signed_tag_for_${id:0:8}"; git tag -s "$tag_name" -m \"Tag for commit $id\"; echo \"$tag_name\"'"
+   spush = "!bash -c 'git push origin `git stag`'"
    ~~~
 
    You may also find it convenient to have an alias for verifying the tag on the
@@ -121,6 +131,54 @@ your Git commits.
    ~~~
    vtag = !git tag -v `git describe`
    ~~~
+
+Code Signature Checks
+---------------------
+
+The [signature-checker] checks if code contributions are signed.
+Although GitHub adds a little green `Verified` button next to the commit, the [signature-checker] uses this algorithm to check if a commit is correctly signed:
+
+1. Is the commit signed?  
+   If the commit is not signed, you can see the message
+   > policy/qubesos/code-signing — No signature found
+2. If the commit is signed, the key is downloaded from a GPG key server.  
+   If you can see the following error message, please check if you have uploaded the key to a key server.
+   > policy/qubesos/code-signing — Unable to verify (no valid key found)
+
+### No Signature Found
+
+> policy/qubesos/code-signing — No signature found
+
+In this case, you have several options to sign the commit:
+
+1. Amend the commit and replace it with a signed commit.  
+   You can use this command to create a new signed commit:
+   ```
+   git commit --amend -S
+   ```
+   This also rewrites the commit so you need to push it forcefully:
+   ```
+   git push -f
+   ```
+2. Create a signed tag for the unsigned commit.  
+   If the commit is back in history and you do not want to change it,
+   you can create a signed tag for this commit and push the signature.
+   You can use the alias from above:
+   ```
+   git checkout <commit>
+   git spush
+   ```
+   Now, the signature checker needs to re-check the signature.
+   Please comment on the pull request that you would like to have the signatures checked again.
+
+### Unable To Verify
+
+> policy/qubesos/code-signing — Unable to verify (no valid key found)
+
+This means that the [signature-checker] has found a signature for the commit
+but is not able to verify it using the any key available.
+This might be that you forgot to upload the key to a key server.
+Please upload it.
 
 
 Using PGP with Email
@@ -135,4 +193,5 @@ Enigmail is a security addon for the Mozilla Thunderbird email client that allow
 [source code]: /doc/source-code/
 [developer mailing list]: /support/#qubes-devel
 [Enigmail]: https://www.enigmail.net/
+[signature-checker]: https://github.com/marmarek/signature-checker
 
