@@ -93,7 +93,7 @@ Important Notes (R4.0)
 |                | Inheritance (1)        | Persistence (2)
 |----------------|------------------------|------------------------------------------
 |TemplateVM      | n/a                    | Everything
-|TemplateBasedVM | `/etc/skel` to `/home` | `/rw` (includes `/home` and `bind-dirs`)
+|TemplateBasedVM | `/etc/skel` to `/home` | `/rw` (includes `/home`, `/usr/local` and `bind-dirs`)
 |DisposableVM    | `/home`                | Nothing
 
 (1) Upon creation   
