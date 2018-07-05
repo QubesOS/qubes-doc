@@ -90,6 +90,15 @@ Important Notes (R4.0)
    The root filesystems in Standalone VMs can employ
    TRIM/discard on the root fs using normal tools and configuration options.
 
+|                | Inheritance (1)        | Persistence (2)
+|----------------|------------------------|------------------------------------------
+|TemplateVM      | n/a                    | Everything
+|TemplateBasedVM | `/etc/skel` to `/home` | `/rw` (includes `/home`, `/usr/local` and `bind-dirs`)
+|DisposableVM    | `/home`                | Nothing
+
+(1) Upon creation   
+(2) Following shutdown
+
 Important Notes (R3.2 and earlier)
 ---------------
 
