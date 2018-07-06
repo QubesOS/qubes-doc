@@ -40,7 +40,7 @@ Installation
 
 4. Shutdown your TemplateVM and create an AppVM which uses your Template "debian-9-i2p" (or "debian-9" if you did not create a clone). Connect your AppVM to "sys-firewall".
 
-5. Start your newly created AppVM and open a terminal and run the following commands:
+5. Start your newly created AppVM, open a terminal and run the following commands:
 
 	~~~
 	mkdir -p /rw/config/qubes-bind-dirs.d/
