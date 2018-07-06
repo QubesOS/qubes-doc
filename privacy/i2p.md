@@ -33,43 +33,28 @@ Installation
 	sudo apt install i2p i2p-keyring
 	~~~
 	
-3. From your TemplateVM, you need to make the default i2p configuration directory persistent. This will allow I2P to save its configuration files from the AppVM which will be created later. Without this step, the I2P configuration would be lost when shutting down your AppVM. Now run these commands:
-	~~~
-	sudo su
-	mkdir -p /rw/config/qubes-bind-dirs.d
-	echo "binds+=( '/usr/share/i2p' )" > /rw/config/qubes-bind-dirs.d/50_user.conf
-	~~~
-	
-4. Then you need to change the owner of the i2p configuration directory:
+3. You also need to change the owner of the i2p configuration directory:
 	~~~
 	chown -R i2psvc:i2psvc /usr/share/i2p/
 	~~~
 
-5. Normally, I2P would automatically run from the "i2psvc" user. We need to change that. To do so, run
-	~~~
-	dpkg-reconfigure i2p
-	~~~
-	and disable the autorun function. Do not change the other options unless you know exactly what you are doing. Next you 		need to configure a custom autostart option. Run:
-	~~~
-	nano /etc/rc.local
-	~~~
-	Insert the following command right before the line which says "exit 0". This will automatically run I2P as "user".
-	~~~
-	sudo -u user i2prouter start
-	~~~
+4. Shutdown your TemplateVM and create an AppVM which uses your Template "debian-9-i2p" (or "debian-9" if you did not create a clone). Connect your AppVM to "sys-firewall".
 
-6. In case you want to use the I2P email function, type in the commands below. Otherwise I2P won't be able to save your emails.
+5. Start your newly created AppVM and open a terminal and run the following commands:
+
 	~~~
+	mkdir -p /rw/config/qubes-bind-dirs.d/
 	mkdir -p /mail
-	chown -R i2psvc:i2psvc /mail
+	echo "binds+=( '/usr/share/i2p' )" > /rw/config/qubes-bind-dirs.d/50_user.conf
 	echo "binds+=( '/mail' )" >> /rw/config/qubes-bind-dirs.d/50_user.conf
+	echo "binds+=( '/var/lib/i2p' )" >> /rw/config/qubes-bind-dirs.d/50_user.conf
 	~~~
 
-7. Shutdown your TemplateVM and create an AppVM which uses your Template "debian-9-i2p" (or "debian-9" if you did not create a clone). Connect your AppVM to "sys-firewall".
+6. Reboot your AppVM
 
-8. Start the AppVM you created. Open Firefox Web Browser and go to Preferences -> Advanced -> Network Settings. Now select "Manual Proxy Configuration" and configure the Proxy Settings: HTTP: 127.0.0.1 port 4444 - HTTPS: 127.0.0.1 port 4445 - No Proxy: localhost, 127.0.0.1
+7. In your AppVM, open the Firefox Web Browser and go to Preferences -> Advanced -> Network Settings. Now select "Manual Proxy Configuration" and configure the Proxy Settings: HTTP: 127.0.0.1 port 4444 - HTTPS: 127.0.0.1 port 4445 - No Proxy: localhost, 127.0.0.1
 
-Finally, reboot your AppVM and start browsing the I2P Network. You can reach the I2P Router Console by going to
+You can now start browsing the I2P Network. Access the I2P Router Console by going to:
 ~~~
 localhost:7657
 ~~~
