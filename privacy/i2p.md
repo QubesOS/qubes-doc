@@ -7,7 +7,7 @@ Using I2P (Invisible Internet Project) with Qubes
 Preparation - Basic
 ===============
 
-The I2P Software will be installed on a Linux-based TemplateVM. Here we are using Debian 9, but you could also use the default Debian 8 Template. So at first you need to install Debian 9 as a TemplateVM. If you want, you can create a dedicated clone of the default Debian-9 TemplateVM. In the Dom0 Terminal, run the command:
+The I2P Software will be installed on a Linux-based TemplateVM. Here we are using Debian 9, but this also works on the old Debian 8 Template. So at first you need to install Debian 9 as a TemplateVM. If you want, you can create a dedicated clone of the default Debian-9 TemplateVM. In this case, inside the Dom0 Terminal, run the command:
 ~~~
 qvm-clone debian-9 debian-9-i2p
 ~~~
@@ -16,7 +16,7 @@ qvm-clone debian-9 debian-9-i2p
 Installation
 ============
 	
-1. Next, you need to add the I2P repository and the apt key to the new template. Therefore you need Internet access for your Template. If you have an active Internet connection, start your new TemplateVM, open the firewall configuration and allow full access for 5 minutes (this is neccessary for downloading the apt key for I2P). Now run the following commands (as root):
+1. Next, you need to add the I2P repository and the apt key to the new template. Therefore you need Internet access for your Template. Provided that you have an active Internet connection, start your new TemplateVM, open the Configuration and enable networking (this is neccessary for downloading the apt key for I2P). Now run the following commands (as root):
 	~~~
 	echo 'deb https://deb.i2p2.de/ stretch main' > /etc/apt/sources.list.d/i2p.list
 	echo 'deb-src https://deb.i2p2.de/ stretch main' >> /etc/apt/sources.list.d/i2p.list
@@ -25,7 +25,7 @@ Installation
 	rm -rf i2p-debian-repo.key.asc
 	~~~
 	
-	If you are using Debian 8, replace 'stretch' with 'jessie' in the commands above.
+	If you are using Debian 8, replace 'stretch' with 'jessie' in the commands above. Now that you downloaded the Repository key, you can disable networking again.
 
 2. Then, update your package manager and install the i2p packages:
 	~~~
@@ -54,9 +54,9 @@ Installation
 
 7. In your AppVM, open the Firefox Web Browser and go to Preferences -> Advanced -> Network Settings. Now select "Manual Proxy Configuration" and configure the Proxy Settings: HTTP: 127.0.0.1 port 4444 - HTTPS: 127.0.0.1 port 4445 - No Proxy: localhost, 127.0.0.1
 
-You can now start browsing the I2P Network. Access the I2P Router Console by going to:
+You can now start browsing and using the I2P Network. Access the I2P Router Console by typing:
 ~~~
-localhost:7657
+http://localhost:7657
 ~~~
 
 For more information about I2P, please visit the [I2P Website](https://geti2p.net/).
