@@ -135,108 +135,107 @@ Using DispVMs in this manner is ideal for untrusted qubes which require persiste
  
 #### Create and configure the dvm from which the DispVM will be based on ####
 
-   1. Create the dvm 
+1. Create the dvm 
 
     [user@dom0 ~]$ qvm-create --class AppVM --label gray <dvm-name>
 
-   2. _(optional)_ In the dvm, add custom firewall rule sets, Qubes VPN scripts etc
+2. _(optional)_ In the dvm, add custom firewall rule sets, Qubes VPN scripts etc
 
     Firewall rules sets and Qubes VPN scripts can be added just like any other VM   
     
-   3. Set the dvm as template for DispVMs
+3. Set the dvm as template for DispVMs
 
     [user@dom0 ~]$ qvm-prefs <dvm_name> template_for_dispvms true
 
 #### Create the sys-net DispVM #### 
 
-  1. Create `sys-net` DispVM based on the dvm
+1. Create `sys-net` DispVM based on the dvm
 
     [user@dom0 ~]$ qvm-create --template <dvm_name> --class DispVM --label red disp-sys-net
 
-  2. Set `disp-sys-net` virtualization mode to [hvm](/doc/hvm/)
+2. Set `disp-sys-net` virtualization mode to [hvm](/doc/hvm/)
 
     [user@dom0 ~]$ qvm-prefs disp-sys-net virt_mode hvm
 
-  3. Set `disp-sys-net` to provide network for other VMs
+3. Set `disp-sys-net` to provide network for other VMs
 
     [user@dom0 ~]$ qvm-prefs disp-sys-net provides_network true
 
-  4. Set `disp-sys-net` NetVM to none
+4. Set `disp-sys-net` NetVM to none
 
     [user@dom0 ~]$ qvm-prefs disp-sys-net netvm ""
 
-  5. List all available PCI devices to determine the correct _backend:BDF_ address(es) to assign to `disp-sys-net`
+5. List all available PCI devices to determine the correct _backend:BDF_ address(es) to assign to `disp-sys-net`
 
     [user@dom0 ~]$ qvm-pci
 
-  6. Attach the network PCI device(s) to `disp-sys-net`: Finding and assigning PCI devices can be found [here](/doc/assigning-devices/)
+6. Attach the network PCI device(s) to `disp-sys-net`: Finding and assigning PCI devices can be found [here](/doc/assigning-devices/)
 
     [user@dom0 ~]$ qvm-pci attach --persistent disp-sys-net <backend>:<bdf>
 
-  7. _(recommended)_ Set `disp-sys-net` to start automatically when Qubes boots
+7. _(recommended)_ Set `disp-sys-net` to start automatically when Qubes boots
 
     [user@dom0 ~]$ qvm-prefs disp-sys-net autostart true
      
-
-  8. _(optional)_ Set `disp-sys-net` as the dom0 time source
+8. _(optional)_ Set `disp-sys-net` as the dom0 time source
 
     [user@dom0 ~]$ qubes-prefs clockvm disp-sys-net
 
 #### Create the sys-firewall DispVM ####
 
-  1. Create `sys-firewall` DispVM
+1. Create `sys-firewall` DispVM
 
     [user@dom0 ~]$ qvm-create --template <dvm_name> --class DispVM --label green disp-sys-firewall
 
-  2. Set `disp-sys-firewall` to provide network for other VMs
+2. Set `disp-sys-firewall` to provide network for other VMs
 
     [user@dom0 ~]$ qvm-prefs disp-sys-firewall provides_network true
 
-  3. Set `disp-sys-net` as the NetVM for `disp-sys-firewall`
+3. Set `disp-sys-net` as the NetVM for `disp-sys-firewall`
 
     [user@dom0 ~]$ qvm-prefs disp-sys-firewall netvm disp-sys-net
 
-  4. Set `disp-sys-firewall` as NetVM for other AppVMs
+4. Set `disp-sys-firewall` as NetVM for other AppVMs
 
     [user@dom0 ~]$ qvm-prefs <vm_name> netvm disp-sys-firewall
 
-  5. _(recommended)_ Set `disp-sys-firewall` to auto-start when Qubes boots
+5. _(recommended)_ Set `disp-sys-firewall` to auto-start when Qubes boots
 
     [user@dom0 ~]$ qvm-prefs disp-sys-firewall autostart true
 
-  6. _(optional)_ Set `disp-sys-firewall` as the default NetVM
+6. _(optional)_ Set `disp-sys-firewall` as the default NetVM
 
     [user@dom0 ~]$ qubes-prefs default_netvm disp-sys-firewall
 
 #### Create the sys-usb DispVM ####
 
-  1. Create the `disp-sys-usb`
+1. Create the `disp-sys-usb`
 
     [user@dom0 ~]$ qvm-create --template <dvm-name> --class DispVM --label red disp-sys-usb
 
-  2. Set the `disp-sys-usb` virtualization mode to hvm
+2. Set the `disp-sys-usb` virtualization mode to hvm
 
     [user@dom0 ~]$ qvm-prefs disp-sys-usb virt_mode hvm
 
-  3. Set `disp-sys-usb` NetVM to none
+3. Set `disp-sys-usb` NetVM to none
 
     [user@dom0 ~]$ qvm-prefs usb-disp netvm ""
 
-  4. List all available PCI devices
+4. List all available PCI devices
 
     [user@dom0 ~]$ qvm-pci
 
-  5. Attach the USB controller to the `disp-sys-usb`
+5. Attach the USB controller to the `disp-sys-usb`
   
      >_**Note:**_ Most of the commonly used USB controllers (all Intel integrated controllers) require the `-o no-strict-reset=True` option to be set. Instructions detailing how this option is set can be found [here](/doc/assigning-devices/#r40-1).
 
     [user@dom0 ~]$ qvm-pci attach --persistent disp-sys-usb <backined>:<bdf>
     
-  6. _(optional)_ Set `disp-sys-usb` to auto-start when Qubes boots
+6. _(optional)_ Set `disp-sys-usb` to auto-start when Qubes boots
   
     [user@dom0 ~]$ qvm-prefs disp-sys-usb autostart true
 
-  7. Users should now follow instructions on [How to hide USB controllers from dom0](/doc/usb/#how-to-hide-all-usb-controllers-from-dom0)
+7. Users should now follow instructions on [How to hide USB controllers from dom0](/doc/usb/#how-to-hide-all-usb-controllers-from-dom0)
 
 
 #### Starting the DispVMs ####
