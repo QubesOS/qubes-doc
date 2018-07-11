@@ -14,11 +14,10 @@ redirect_from:
 - /wiki/UserDoc/OpenPGP/
 ---
 
-Qubes Split GPG
-===============
+# Qubes Split GPG #
 
-What is Split GPG and why should I use it instead of the standard GPG?
-----------------------------------------------------------------------
+## What is Split GPG and why should I use it instead of the standard GPG? ##
+
 Split GPG implements a concept similar to having a smart card with your
 private GPG keys, except that the role of the "smart card" plays another Qubes
 AppVM. This way one, not-so-trusted domain, e.g. the one where Thunderbird is
@@ -76,8 +75,7 @@ could start a Disposable VM and have the to-be-signed document displayed
 there? To Be Determined.
 
 
-Configuring Split GPG
----------------------
+## Configuring Split GPG ##
 
 In dom0, make sure the `qubes-gpg-split-dom0` package is installed.
 
@@ -146,7 +144,9 @@ only `gpg2`). If you encounter trouble while trying to set up Split-GPG, make
 sure you're using `gpg2` for your configuration and testing, since keyring data
 may differ between the two installations.
 
-## Using Thunderbird + Enigmail with Split GPG ##
+## Qubes 3.2 Specifics ##
+
+### Using Thunderbird + Enigmail with Split GPG ###
 
 However, when using Thunderbird with Enigmail extension it is
 not enough, because Thunderbird doesn't preserve the environment
@@ -171,7 +171,9 @@ passphrase from your (sub)key(s) in order to get Split-GPG working correctly.
 As mentioned above, we do not believe PGP key passphrases to be significant
 from a security perspective.
 
-### Thunderbird + Enigmail in Qubes 4.0 ###
+## Qubes 4.0 Specifics ##
+
+### Using Thunderbird + Enigmail with Split GPG ###
 
 New qrexec policies in Qubes R4.0 by default require the user to enter the name 
 of the domain containing GPG keys each time it is accessed.  To improve usability 
@@ -241,8 +243,8 @@ displayed to accept this.
 <br />
 
 
-Advanced: Using Split GPG with Subkeys
---------------------------------------
+## Advanced: Using Split GPG with Subkeys ##
+
 Users with particularly high security requirements may wish to use Split
 GPG with [​subkeys]. However, this setup
 comes at a significant cost: It will be impossible to sign other people's keys
