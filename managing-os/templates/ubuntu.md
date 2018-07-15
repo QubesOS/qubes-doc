@@ -32,7 +32,8 @@ want to build.
 
 The build for Ubuntu 14.04 LTS (Trusty) should be straightforward.
 
-The build for Ubuntu 16.04 LTS (Xenial) is straightforward.
+The build for Ubuntu 16.04 LTS (Xenial) is straightforward. Note that packages perl-Digest-MD5 and perl-Digest-SHA are required for the build to succeed.
+
 
 ----------
 
