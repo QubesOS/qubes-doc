@@ -78,6 +78,15 @@ uid                  Bilbo Baggins <bilbo@shire.org>
 sub   4096R/69B0EA85 2013-03-13
 ~~~
 
+Upload the Key
+--------------
+
+For others to find the public key, please upload it to a server.
+
+```
+$ gpg --send-keys --keyserver pool.sks-keyservers.net 69B0EA85
+gpg: sending key 488BA441 to hkp server pool.sks-keyservers.net
+```
 
 Using PGP with Git
 ------------------
