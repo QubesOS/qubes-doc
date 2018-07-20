@@ -306,6 +306,10 @@ redirect_from:
                 *   **$ make gui-common-vm**
 
                 *   **$ make gui-agent-linux-vm**
+
+                *   **$ make app-linux-split-gpg**
+
+                *   **$ make app-linux-usb-proxy**
 <br>
 <br>
 
