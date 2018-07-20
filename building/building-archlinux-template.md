@@ -10,7 +10,9 @@ redirect_from:
 
 # Archlinux template building instructions
 
-**These are the instructions for Qubes 3.2. They will take you step by step through the entire process start to finish**
+**These are the instructions for Qubes 4.0. They will take you step by step through the entire process start to finish**
+
+*Note: These instructions will work with minor tweaks on Qubes 3.2.
 
 *Note: These instructions have not been tested for Qubes 3.1. However they could be working.*
 
@@ -19,13 +21,13 @@ redirect_from:
 ## 1:   Create and configure VM to use for template building
 
 *   The VM should be based on a Fedora template. It's best to use a standalone VM. I created a standalone VM based on
-    the Fedora 23 template. I named the VM “**development**”. These instructions assume a standalone VM based on a       Fedora template is being used.
+    the Fedora 26 template. I named the VM “**development**”. These instructions assume a standalone VM based on a Fedora template is being used.
 <br>
 <br>
 ![arch-template-01](/attachment/wiki/ArchlinuxTemplate/arch-template-01.png)
 <br>
 <br>
-*   Ensure there is at least 25GB preferably 30GB of free space in the private storage. I made the private storage 30GB to be safe.
+*   Ensure there is at least 5GB preferably 10GB of free space in the private storage. I made the private storage 30GB to be safe.
 <br>
 <br>
 ![arch-template-02](/attachment/wiki/ArchlinuxTemplate/arch-template-02.png)
@@ -115,17 +117,25 @@ redirect_from:
 
     *In the future this should not be needed once a change is made to the 'setup' script.*
 
-    *   Edit the '**qubes-os-r3.2.conf**' which is found in **/home/user/qubes-builder/example-configs**  Use the text editor of your choice.
+    *   Edit the '**template.conf**' which is found in **/home/user/qubes-builder/example-configs**  Use the text editor of your choice.
 
         *   **$ cd /home/user/qubes-builder/example-config/**
 
-        *   **$ nano -W qubes-os-r3.2.conf** or **$ gedit qubes-os-r3.2.conf** or etc….
+        *  **$ vim template.conf** or **$ nano -W template.conf** or **$ gedit template.conf** or etc….
+
+        *  Go to line 117 and chance `RELEASE ?= 3.2` to `RELEASE ?= 4.0`
+
+    *   Edit the '**qubes-os-r4.0.conf**' which is found in **/home/user/qubes-builder/example-configs**  Use the text editor of your choice.
+
+        *   **$ cd /home/user/qubes-builder/example-config/**
+
+        *  **$ vim qubes-os-r4.0.conf** or **$ nano -W qubes-os-r4.0.conf** or **$ gedit qubes-os-r4.0.conf** or etc….
 <br>
 <br>
 ![arch-template-06](/attachment/wiki/ArchlinuxTemplate/arch-template-06.png)
 <br>
 <br>
-        *   Go to the first line containing '**DISTS_VM ?= fc23**' it will be preceeded by line '**DIST_DOM0 ?= fc20**'.  Remove '**fc23**' or whatever is listed there leaving only '**DISTS_VM ?=**'. Then save the file and close the text editor.
+        *   Go to the first line containing '**DISTS_VM ?= fc26**' it will be preceeded by line '**DIST_DOM0 ?= fc25**'.  Remove '**fc26**' or whatever is listed there leaving only '**DISTS_VM ?=**'. Then save the file and close the text editor.
 <br>
 <br>
 ![arch-template-07](/attachment/wiki/ArchlinuxTemplate/arch-template-07.png)
@@ -333,7 +343,7 @@ redirect_from:
 *   **Transfer the install-templates.sh script file into Dom0**
   *Note: as there is not a typical file transfer method for Dom0, for security reasons, this less than simple transfer function has to be used*
 
-    *   Switch to Domo and open a terminal window.
+    *   Switch to Dom0 and open a terminal window.
 
     **Note:** Take care when entering these cmd strings.  They are very long and have a number of characters that are easy to mix '**-**' vs '**.**' '**<u>T</u>emplates** (correct) vs **<u>t</u>emplates** (wrong) or **Template_**'(also wrong)  This script will also take care of transfering the actual template.rpm to Dom0 as well.
 
