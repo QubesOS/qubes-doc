@@ -26,6 +26,8 @@ If you run `fstrim --all` inside a TemplateVM, in a worst case the `discard` can
 If discards are not supported at any one of those layers, it will not make it to the underlying physical device.
 
 There are some security implications to permitting TRIM (read for example [this article](https://asalor.blogspot.com/2011/08/trim-dm-crypt-problems.html)), but in most cases not exploitable.
+Conversely, TRIM can improve security against local forensics when using SSDs, because with TRIM enabled deleting data (usually) results in the actual data being erased quickly, rather than remaining in unallocated space indefinitely.
+However deletion is not guaranteed, and can fail to happen without warning for a variety of reasons.
 
 
 Configuration
@@ -94,3 +96,17 @@ To enable TRIM support in dom0 with LUKS you need to:
 5. To verify if discards are enabled you may use `dmsetup table` (confirm the line for your device mentions "discards") or just run `fstrim -av` (you should see a `/` followed by the number of bytes trimmed).
 
 
+Swap Space
+----------
+
+By default TRIM is not enabled for swap.
+To enable it add the `discard` flag to the options for the swap entry in `/etc/fstab`.
+This may or may not actually improve performance.
+If you only want the security against local forensics benefit of TRIM, you can use the `discard=once` option instead to only perform the TRIM operation once during at boot.
+
+To verify that TRIM is enabled, check `dmesg` for what flags were enabled when the swap space was activated.
+You should see something like the following:
+
+    Adding 32391164k swap on /dev/mapper/qubes_dom0-swap.  Priority:-2 extents:1 across:32391164k SSDscFS
+
+The `s` indicates that the entire swap device will be trimmed at boot, and `c` indicates that individual pages are trimmed after they are no longer being used.
