@@ -90,8 +90,7 @@ Set up a ProxyVM as a VPN gateway using NetworkManager
        qvm-run VPN "nmcli connection down file-vpn-conn"
    elif [ "${1}" == "post" ]; then
        # Restart VPN on resume
-       PWDFILE="/rw/config/NM-system-connections/secrets/passwd-file.txt"
-       qvm-run VPN "nmcli connection up file-vpn-conn passwd-file $PWDFILE"
+       qvm-run VPN "nmcli connection up file-vpn-conn passwd-file"
    fi
    ```
 
