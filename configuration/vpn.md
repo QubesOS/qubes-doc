@@ -79,11 +79,35 @@ Set up a ProxyVM as a VPN gateway using NetworkManager
    iptables -I FORWARD -i eth0 -j DROP
    ```
 
-6. Configure your AppVMs to use the new VM as a NetVM.
+6. (Optional) Make VPN work on suspend-resume.
+
+   [VPN session keys usually get stale while the laptop is suspended](https://serverfault.com/questions/62/why-do-vpn-connections-break-when-i-sleep-my-computer/4300#4300).  In order to automatically restart you VPN when you resume your laptop, create the file `/usr/lib/systemd/system-sleep/suspend-resume.sh` in **dom0** with the following content:
+
+   ```bash
+   #!/usr/bin/env bash
+   if [ "${1}" == "pre" ]; then
+       # Stop VPN on suspend
+       qvm-run VPN "nmcli connection down file-vpn-conn"
+   elif [ "${1}" == "post" ]; then
+       # Restart VPN on resume
+       PWDFILE="/rw/config/NM-system-connections/secrets/passwd-file.txt"
+       qvm-run VPN "nmcli connection up file-vpn-conn passwd-file $PWDFILE"
+   fi
+   ```
+
+   Where `file-vpn-conn` is, as previously, the file of your VPN connection that you can find in `/rw/config/NM-system-connections/` in the VPN qube.
+
+   Then, still in dom0, enter the command:
+
+   ```bash
+   sudo chmod 755 /usr/lib/systemd/system-sleep/suspend-resume.sh
+   ```
+
+7. Configure your AppVMs to use the new VM as a NetVM.
 
    ![Settings-NetVM.png](/attachment/wiki/VPN/Settings-NetVM.png)
 
-7. Optionally, you can install some [custom icons](https://github.com/Zrubi/qubes-artwork-proxy-vpn) for your VPN
+8. Optionally, you can install some [custom icons](https://github.com/Zrubi/qubes-artwork-proxy-vpn) for your VPN
 
 
 Set up a ProxyVM as a VPN gateway using iptables and CLI scripts
