@@ -559,7 +559,8 @@ For more details about how we improved on Xen's native stub domain use, see [her
 
 ### Is Secure Boot supported?
 
-Secure Boot is not supported out of the box as UEFI support in Xen is very basic.
+UEFI Secure Boot is not supported out of the box as UEFI support in Xen is very basic.
 Arguably secure boot reliance on UEFI integrity is not the best design.
 The relevant binaries (shim.efi, xen.efi, kernel / initramfs) are not signed by the Qubes Team and secure boot has not been tested.
 Intel TXT (used in [Anti Evil Maid](/doc/anti-evil-maid/)) at least tries to avoid or limit trust in BIOS.
+See the Heads project [[1]](https://trmm.net/Heads) [[2]](http://osresearch.net/) for a better-designed non-UEFI-based secure boot scheme with very good support for Qubes.
