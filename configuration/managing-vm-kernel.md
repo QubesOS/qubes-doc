@@ -255,9 +255,7 @@ Then shutdown the VM.
 If you require `PV` mode, install `grub2-xen` in dom0 and change the template's kernel to `pvgrub2`.
 Booting to a kernel inside the template is not supported under `PVH`.
 
-### Installing kernel in Debian VM (R4.0, Work in Progress)
-
-**Note:** It's currently not possible to install a non-default kernel in a Debian template under R4.0; see this [issue](https://github.com/QubesOS/qubes-issues/issues/3178).
+### Installing kernel in Debian VM (R4.0)
 
 Install whatever kernel you want, making sure to include the headers.
 If you are using a distribution kernel package (`linux-image-amd64` package), the initramfs and kernel modules should be handled automatically.
@@ -299,9 +297,6 @@ grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your 
 ~~~
 
 Then shutdown the VM.
-Now you can set `pvgrub2` as the VM kernel and it will start the kernel configured within your VM.
-
-When starting the VM you can safely ignore any warnings about a missing module 'dummy-hcd'.
 
 **Note:** You may also use `PV` mode instead of `HVM` but this is not recommended for security purposes.
 If you require `PV` mode, install `grub2-xen` in dom0 and change the template's kernel to `pvgrub2`.
