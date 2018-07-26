@@ -202,10 +202,17 @@ guidelines.
 
 #### Mailing lists vs. forums ####
 
-   While the mailing lists are implemented as Google Group web forums, many
-   discussants treat them as conventional [mailing lists] rather than web
-   forums. The Qubes OS Project does not maintain a web forum apart from the
-   mailing lists.
+   While the mailing lists are implemented as Google Group web forums, a Google
+   account is in no way required, expected, or encouraged. Many discussants
+   (including most members of the Qubes team) treat these lists as conventional
+   [mailing lists], interacting with them solely through plain text email with
+   [MUAs] like [Thunderbird] and [Mutt]. The Google Groups service is just
+   free infrastructure, and we [distrust the infrastructure]. This is why, for
+   example, we encourage discussants to use [Split GPG] to sign all of their
+   messages to the lists, but we do not endorse the use of these Google Groups
+   as web forums. (There have been many discussions about why the Qubes OS
+   Project does not maintain a forum. The curious can find these by searching
+   the list archives.)
 
 
 qubes-announce
@@ -283,7 +290,7 @@ were sent directly to the list.
 The mailing list is also available via Gmane, a service that provides mailing
 lists in the form of newsgroups. This makes it possible for you to subscribe
 and read all mails sent to the list without having them all sent to your normal
-mail account.  To use Gmane, you need a newsreader such as Mozilla Thunderbird.
+mail account.  To use Gmane, you need a newsreader such as [Thunderbird].
 
 To add Gmane's server to Thunderbird, follow the instructions in
 [Mozilla Thunderbird's documentation for how to add
@@ -343,7 +350,7 @@ You must be subscribed in order to post to this list.
 The mailing list is also available via Gmane, a service that provides mailing
 lists in the form of newsgroups. This makes it possible for you to subscribe
 and read all mails sent to the list without having them all sent to your normal
-mail account.  To use Gmane, you need a newsreader such as Mozilla Thunderbird.
+mail account.  To use Gmane, you need a newsreader such as [Thunderbird].
 
 To add Gmane's server to Thunderbird, follow the instructions in
 [Mozilla Thunderbird's documentation for how to add
@@ -402,7 +409,7 @@ were sent directly to the list.
 The mailing list is also available via Gmane, a service that provides mailing
 lists in the form of newsgroups. This makes it possible for you to subscribe
 and read all mails sent to the list without having them all sent to your normal
-mail account.  To use Gmane, you need a newsreader such as Mozilla Thunderbird.
+mail account.  To use Gmane, you need a newsreader such as [Thunderbird].
 
 To add Gmane's server to Thunderbird, follow the instructions in
 [Mozilla Thunderbird's documentation for how to add
@@ -473,6 +480,11 @@ You must be subscribed in order to post to this list.
 [System Requirements]: /doc/system-requirements/
 [User FAQ]: /faq/#users
 [documentation]: /doc/
+[MUAs]: https://en.wikipedia.org/wiki/Email_client
+[Thunderbird]: https://www.thunderbird.net/
+[Mutt]: http://www.mutt.org/
+[distrust the infrastructure]: /faq/#what-does-it-mean-to-distrust-the-infrastructure
+[Split GPG]: /doc/split-gpg/
 [thunderbird-newsgroup]: https://support.mozilla.org/en-US/kb/creating-newsgroup-account
 [qubes-users-archive]: https://www.mail-archive.com/qubes-users@googlegroups.com/
 [qubes-devel-archive]: https://www.mail-archive.com/qubes-devel@googlegroups.com/
