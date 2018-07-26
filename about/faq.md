@@ -135,7 +135,7 @@ Not currently, for the same reasons that [Debian is not certified](https://www.g
 
 ### Should I trust this website?
 
-This website is hosted via GitHub Pages behind Cloudflare ([why?](#why-does-this-website-use-cloudflare)).
+This website is hosted on [GitHub Pages](https://pages.github.com/) ([why?](#why-do-you-use-github)).
 Therefore, it is largely outside of our control.
 We don't consider this a problem, however, since we explicitly [distrust the infrastructure](#what-does-it-mean-to-distrust-the-infrastructure).
 For this reason, we don't think that anyone should place undue trust in the live version of this site on the Web.
@@ -155,11 +155,11 @@ Since we don't want to encourage or endorse this, we make our distrust of the in
 
 Also see: [Should I trust this website?](#should-i-trust-this-website)
 
-### Why does this website use Cloudflare?
+### Why do you use GitHub?
 
 Three main reasons:
 
-1. We [distrust the infrastructure](#what-does-it-mean-to-distrust-the-infrastructure), including Cloudflare.
+1. We [distrust the infrastructure](#what-does-it-mean-to-distrust-the-infrastructure), including GitHub (though there are aspects we're still [working on](https://github.com/QubesOS/qubes-issues/issues/3958)).
 2. It's free (as in beer). We'd have to spend either time or money to implement a solution ourselves or pay someone to do so, and we can't spare either one right now.
 3. It has low admin/overhead requirements, which is very important, given how little time we have to spare.
 
@@ -167,10 +167,10 @@ Also see: [Should I trust this website?](#should-i-trust-this-website)
 
 ### Why doesn't this website have security feature X?
 
-Although we caution users against [placing undue trust in this website](#should-i-trust-this-website) because we [distrust the infrastructure](#what-does-it-mean-to-distrust-the-infrastructure), we have no objection to enabling website security features when doing so is relatively costless and provides some marginal benefit to website visitors (e.g., HTTPS via Cloudflare page rules).
+Although we caution users against [placing undue trust in this website](#should-i-trust-this-website) because we [distrust the infrastructure](#what-does-it-mean-to-distrust-the-infrastructure), we have no objection to enabling website security features when doing so is relatively costless and provides some marginal benefit to website visitors.
 So, if feature X isn't enabled, it's most likely for one of three reasons:
 
-1. Our GitHub Pages + Cloudflare platform doesn't support it.
+1. Our GitHub Pages platform doesn't support it.
 2. Our platform supports it, but we've decided not to enable it.
 3. Our platform supports it, but we're not aware that we can enable it or have forgotten to do so.
    (If it seems like this is the case, let us know!)
