@@ -56,8 +56,11 @@ Set up a ProxyVM as a VPN gateway using NetworkManager
    
    ```bash
    # Automatically connect to the VPN once Internet is up
-   nm-online --quiet --wait-for-startup
-   nmcli connection up file-vpn-conn passwd-file /rw/config/NM-system-connections/secrets/passwd-file.txt
+   while ! ping -c 1 -W 1.1.1.1; do
+      sleep 1
+   done
+   PWDFILE="/rw/config/NM-system-connections/secrets/passwd-file.txt"
+   nmcli connection up file-vpn-conn passwd-file $PWDFILE
    ```
    You can find the actual "file-vpn-conn" in `/rw/config/NM-system-connections/`.
    
@@ -73,8 +76,8 @@ Set up a ProxyVM as a VPN gateway using NetworkManager
 
    Edit `/rw/config/qubes-firewall-user-script` and add these lines:
    ```bash
-   #    Block forwarding of connections through upstream network device
-   #    (in case the vpn tunnel breaks):
+   # Block forwarding of connections through upstream network device
+   # (in case the vpn tunnel breaks)
    iptables -I FORWARD -o eth0 -j DROP
    iptables -I FORWARD -i eth0 -j DROP
    ```
