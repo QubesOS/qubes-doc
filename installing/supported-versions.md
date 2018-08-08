@@ -60,9 +60,9 @@ release. Currently, only Fedora, Debian, and Whonix TemplateVMs are officially s
 | Release 2     | 21                         | None                                          | None   |
 | Release 3.0   | 21, 22\*, 23               | 7 ("wheezy")\*, 8 ("jessie")                  | None   |
 | Release 3.1   | 21, 22\*, 23               | 7 ("wheezy")\*, 8 ("jessie"), 9 ("stretch")\* | None   |
-| Release 3.2   | 23\*, 24\*, 25, 26, 27, 28 | 8 ("jessie"), 9 ("stretch")                   | 13     |
-| Release 3.2.1 | 26, 27, 28                 | 8 ("jessie"), 9 ("stretch")                   | 13     |
-| Release 4.0   | 26, 27, 28                 | 8 ("jessie"), 9 ("stretch")                   | 13     |
+| Release 3.2   | 23\*, 24\*, 25, 26, 27, 28 | 8 ("jessie"), 9 ("stretch")                   | 13, 14 |
+| Release 3.2.1 | 26, 27, 28                 | 8 ("jessie"), 9 ("stretch")                   | 13, 14 |
+| Release 4.0   | 26, 27, 28                 | 8 ("jessie"), 9 ("stretch")                   | 13, 14 |
 
 \* Denotes versions for which we have published the packages but have not done
 extensive testing.
