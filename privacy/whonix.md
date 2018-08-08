@@ -27,7 +27,7 @@ versions of Qubes.
 
 ## Getting Started with Whonix
 *  Note: To install Whonix in Qubes, you must already have a working Qubes machine.
-*  [Installing Whonix in Qubes](/doc/whonix/install/)
+*  [Installing Whonix in Qubes](https://www.whonix.org/wiki/Qubes/Install)
 *  [Updating Whonix in Qubes](/doc/whonix/update/)
 
 ## Customizing, Reinstalling, & Uninstalling Whonix
