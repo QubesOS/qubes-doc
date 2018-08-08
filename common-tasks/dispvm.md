@@ -34,7 +34,7 @@ If you have included the Whonix option in your install, there will also be a `wh
 
 You can set any AppVM to have the ability to act as a DVM Template with:
 
-    qvm-prefs <vmname> template_for_dispvms true
+    qvm-prefs <vmname> template_for_dispvms True
 
 The default system wide DVM Template can be changed with `qubes-prefs default_dispvm`.
 By combining the two, choosing `Open in Disposable VM` from inside an AppVM will open the document in a DispVM based on the default DVM Template you specified.
