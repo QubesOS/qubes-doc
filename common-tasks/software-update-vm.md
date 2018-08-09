@@ -189,6 +189,12 @@ In order to create a standalone VM you can use a command line like this (from co
 qvm-create <vmname> --standalone --label <label>
 ~~~
 
+or in 4.0:
+
+```
+qvm-create --class StandaloneVM --label <label> --property virt_mode=hvm <vmname>
+```
+
 ... or click appropriate options in the Qubes Manager's Create VM window.
 
 Using more than one template
