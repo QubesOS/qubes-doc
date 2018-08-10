@@ -40,14 +40,13 @@ dom0 -> Qubes VM Manager -> right click Whonix VM -> Remove AppVM
 
 ### Uninstall Whonix TemplateVM
 
-Note that if you have customized your TemplateVM, these will be lost when uninstalling the TemplateVM, so you may want to backup anything important first.
+Note that if you have customized your TemplateVM, these will be lost when uninstalling the TemplateVM, so you may want to backup anything important first or clone the TemplateVM.
 
 **Option 2a. Uninstall Whonix-Gateway TemplateVM**
 
-Open the `dom0` terminal `Konsole`
-
+Launch a Dom0 Terminal Emulator (Xfce Terminal)
 ```
-Qubes App Launcher (blue/grey "Q") -> System Tools -> Konsole
+Click the Qubes App Launcher (blue/grey "Q") and then open the Terminal Emulator (Xfce Terminal).
 ```
 
 Uninstall the qubes-template-whonix-gw template package.
@@ -58,7 +57,7 @@ sudo yum erase qubes-template-whonix-gw
 
 **Option 2b. Uninstall Whonix-Workstation TemplateVM**
 
-Open the `dom0` terminal `Konsole`
+Launch a Dom0 Terminal Emulator (Xfce Terminal)
 
 Uninstall the qubes-template-whonix-ws template package.
 
