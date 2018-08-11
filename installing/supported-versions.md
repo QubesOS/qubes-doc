@@ -23,6 +23,8 @@ past minor releases, are available from our [download mirrors].
 | Release 3.2   | 2016-09-29 | TBA        | Old, [extended support] |
 | Release 3.2.1 | TBA        | 2019-03-28 | In development          |
 | Release 4.0   | 2018-03-28 | TBA        | Current, supported      |
+| Release 4.0.1 | TBA        | TBA        | In development          |
+| Release 4.1   | TBA        | TBA        | In development          |
 
 
 Dom0
