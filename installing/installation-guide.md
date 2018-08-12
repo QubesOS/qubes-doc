@@ -19,16 +19,19 @@ redirect_from:
 Installation Guide
 ==================
 
-Warnings
---------
+Qubes 3.2 Warning
+-----------------
 
 There is a set of known upstream bugs in the Fedora installer that affect Qubes 3.2 ([Bug 1170803], [Bug 1374983], and [Bug 1268700]; tracked in Qubes issue [#2835]).
-This issue is fixed in Qubes 4.0.
-On Qubes 3.2, because of these bugs, the installer will try to access all existing disk partitions, run fsck on them, and mount them.
+Because of these bugs, the installer will try to access all existing disk partitions, run fsck on them, and mount them.
 Therefore, we *strongly* recommended that, prior to starting the Qubes installer, you physically disconnect all disks that you do not want to be modified.
 Furthermore, if you are installing Qubes on a potentially compromised system, we *strongly* recommended that you wipe your target installation disk before starting the installer.
 
-In new installations of Qubes, the following steps may need to be applied in dom0 and Fedora 26 TemplateVMs in order to receive updates (see [#3737]).
+
+Qubes 4.0 Warning
+-----------------
+
+In new installations of Qubes 4.0, the following steps may need to be applied in dom0 and Fedora 26 TemplateVMs in order to receive updates (see [#3737]).
 
 Steps for dom0 updates:
 
@@ -82,6 +85,7 @@ ISO. Make sure to read our guide on [verifying signatures] for more info about
 how to download and verify our PGP keys and verify the downloaded ISO.
 
 **Note:** The Qubes R4.0 ISO is large, so if you are using R3.2 to download it you may need to [increase the private storage](/doc/resize-disk-image/#expand-disk-image-r32) available to the AppVM.
+
 
 Copying the ISO onto the installation medium
 --------------------------------------------
