@@ -89,6 +89,7 @@ To make sure that any instances (aka Service VMs) of the Cjdns TemplateVM have t
 
 Create the a file `/etc/qubes-bind-dirs.d/10_cjdns.conf` by typing:
 ```
+user@cjdns-gw:~/cjdns$ sudo mkdir /etc/qubes-bind-dirs.d
 user@cjdns-gw:~/cjdns$ sudo echo "binds+=( '/etc/cjdroute.conf' )" > /etc/qubes-bind-dirs.d/10_cjdns.conf
 ```
 Verify the content:
