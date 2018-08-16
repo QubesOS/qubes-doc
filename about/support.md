@@ -132,6 +132,15 @@ guidelines.
    to post anonymously.) You can read our project's [Code of Conduct][coc] for
    more information.
 
+### Report issues and submit changes in the right places ###
+
+   The mailing lists a good place to ask questions and discuss bugs and feature
+   requests. However, if you're submitting a more formal report, we'd prefer
+   that you submit it to our [issue tracker] so that it doesn't get overlooked.
+   Likewise, if you see that something in the documentation should be changed,
+   don't simply point it out in an email to one of the mailing lists. Instead,
+   [submit the change][contributing to the documentation].
+
 ### Specific rules and notes ###
 
 #### Use the correct list ####
@@ -499,4 +508,5 @@ You must be subscribed in order to post to this list.
 [localization]: https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3Alocalization
 [coc]: /code-of-conduct/
 [Transifex]: https://www.transifex.com/otf/qubes/
+[issue tracker]: /doc/reporting-bugs/
 
