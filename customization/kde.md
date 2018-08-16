@@ -40,6 +40,8 @@ You can also change your default login manager (lightdm) to the new KDE default:
 
  * reboot
 
+If you encounter performance issues with KDE, try switching back to LightDM.
+
 Window Management
 -----------------
 
