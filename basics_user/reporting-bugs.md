@@ -27,18 +27,16 @@ Important
 - **Please note that many issues can be resolved by reading the [documentation].**
 
 
-Where to submit your report
----------------------------
-
-All issues pertaining to the Qubes OS Project (including auxiliary infrastructure such as the [website]) are tracked in [qubes-issues], our GitHub issues tracker.
-However, [qubes-issues] is not intended for personal, localized troubleshooting questions, such as problems that affect only a specific laptop model.
-Those questions should instead be asked in [qubes-users], where they are more likely to be answered.
-Instead, [qubes-issues] is meant for tracking more general bugs, enhancements, and tasks that affect a broad range of Qubes users.
-Please see the [`qubes-issues` guidelines] and [mailing list guidelines] below for more information.
-
-
 `qubes-issues` guidelines
 -------------------------
+
+All issues pertaining to the Qubes OS Project (including auxiliary infrastructure such as the [website]) are tracked in [qubes-issues], our GitHub issue tracker.
+
+- **Do not submit questions.**
+  [qubes-issues] is not the place to ask questions.
+  This includes, but is not limited to, troubleshooting questions and questions about how to do things with Qubes.
+  These questions should instead be asked in [qubes-users].
+  Instead, [qubes-issues] is meant for tracking more general bugs, enhancements, and tasks that affect a broad range of Qubes users.
 
 - **Every issue must be about a single, actionable thing.**
   If your issue is not actionable, please send it to the appropriate [mailing list][mailing list guidelines] instead.
@@ -67,7 +65,15 @@ Please see the [`qubes-issues` guidelines] and [mailing list guidelines] below f
   Project maintainers really appreciate thorough explanations.
   It usually helps them address the problem more quickly, so everyone wins!
 
-Once your issue is addressed, your GitHub issue may be closed.
+- **There are no guarantees that your issue will be addressed.**
+  Keep in mind that `qubes-issues` is an issue tracker, not a support system.
+  Creating a new issue is simply a way for you to submit an item for the Qubes team's consideration.
+  It is up to the Qubes team to decide whether or how to address your issue, which may include closing the issue without taking any action on it.
+  Even if your issue is kept open, however, you should not expect it to be addressed within any particular time frame, or at all.
+  At the time of this writing, there are well over one thousand open issues in `qubes-issues`.
+  The Qubes team has its own roadmap and priorities, which will govern the manner and order in which open issues are addressed.
+
+If your issue is addressed, your GitHub issue may be closed.
 After that, the package containing the fix will move to the appropriate [testing] repository, then to the appropriate stable repository.
 If you so choose, you can test the fix while it's in the [testing] repository, or you can wait for it to land in the stable repository.
 If, after testing the fix, you find that it does not really fix your bug, please leave a comment on your issue explaining the situation.
@@ -78,9 +84,7 @@ Please **do not** create a duplicate issue or attempt to contact the developers 
 Mailing list guidelines
 -----------------------
 
-Before submitting a report on the mailing lists, please check to see whether your issue has already been reported by searching through the archives.
-You can do this by visiting the Google Groups web interfaces for both [qubes-users] and [qubes-devel].
-Please see the [Mailing Lists][support] page for further information.
+Please see the [Mailing Lists][support] page.
 
 
 How to copy information out of dom0
