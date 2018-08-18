@@ -1,4 +1,4 @@
----
+qubes-doc---
 layout: doc
 title: Mesh networking / Cjdns / Hyperboria
 permalink: /doc/cjdns/
@@ -6,7 +6,7 @@ redirect_from:
 - /doc/privacy/cjdns/
 - /en/doc/cjdns/
 - /doc/CJDNS/
-- /wiki/CJDNS/
+- /wiki/CJDNS/qubes-docqubes-docqubes-docqubes-docqubes-doc
 ---
 
 How to setup a Service VM (ProxyVM) for Cjdns and Hyperboria mesh-networking
@@ -81,7 +81,13 @@ user@cjdns-gw:~/cjdns$ sudo systemctl enable cjdns
 user@cjdns-gw:~/cjdns$ sudo systemctl start cjdns
 ```
 Verify that Cjdns is running:
-1. Check that `/etc/cjdroute.conf` was created.
+1. Check that `/etc/cjdroute.conf` was created with:
+'user@cjdns-gw:~/cjdns$ su -
+ user@cjdns-gw:~/cjdns$ cd etc
+ user@cjdns-gw:~/cjdns$ stat cjdroute.conf'
+If you terminal says:
+'stat: cannot stat ‘downloads’: No such file or directory'
+Then it doesn't exist and delete the qube/start over. Otherwise move on.
 2. Check that Cjdns service is running: `sudo systemctl status cjdns`
 
 ### 5. Make Cjdns router configuration persistent
