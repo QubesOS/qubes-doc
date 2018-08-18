@@ -90,6 +90,7 @@ user@cjdns-gw:~/cjdns$ su -
 If you terminal says:
 `stat: cannot stat ‘downloads’: No such file or directory`
 Then it doesn't exist and delete the qube/start over. Otherwise move on.
+
 2. Check that Cjdns service is running: `sudo systemctl status cjdns`
 
 ### 5. Make Cjdns router configuration persistent
