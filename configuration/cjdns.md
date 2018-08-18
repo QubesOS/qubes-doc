@@ -119,7 +119,7 @@ Advanced: check 'provides network'
 ### 8. Enable IPv6 forwarding for ProxyVM (sys-cjdns)
 This feature is only available since Qubes 4.0 and a *must-requirement* for a Cjdns-ProxyVM. (See https://www.qubes-os.org/doc/networking/#ipv6 for details)
 
-Launch a terminal in `dom0` and type:
+Launch a terminal in `dom0` by clicking the `Q` in the upper left corner and selecting `Terminal Emulator` then type:
 ```
 [user@dom0 ~]$ qvm-features sys-cjdns ipv6 1
 ```
