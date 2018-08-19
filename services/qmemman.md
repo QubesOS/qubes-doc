@@ -19,7 +19,7 @@ Traditionally, Xen VMs are assigned a fixed amount of memory. It is not the opti
 The [tmem](https://oss.oracle.com/projects/tmem/) project provides a "pseudo-RAM" that is assigned on per-need basis. However this solution has some disadvantages:
 
 -   It does not provide real RAM, just an interface to copy memory to/from fast, RAM-based storage. It is perfect for swap, good for file cache, but not ideal for many tasks.
--   It is deeply integrated with the Linux kernel. When Qubes will support Windows guests natively, we would have to port *tmem* to Windows, which may be challenging.
+-   It is deeply integrated with the Linux kernel. Since Qubes supports Windows guests natively, we would have to port *tmem* to Windows, which may be challenging.
 
 Therefore, in Qubes another solution is used. There is the *qmemman* dom0 daemon. All VMs report their memory usage (via xenstore) to *qmemman*, and it makes decisions on whether to balance memory across domains. The actual mechanism to add/remove memory from a domain (*xc.domain\_set\_target\_mem*) is already supported by both PV Linux guests and Windows guests (the latter via PV drivers).
 
