@@ -85,7 +85,7 @@ Please **do not** create a duplicate issue or attempt to contact the developers 
 ## See also ##
 
 - [Help, Support, and Mailing Lists]
-- [Testing New Releases and Updates]
+- [Testing New Releases and Updates][testing]
 - [How to Contribute]
 - [Contributing Code]
 - [Package Contributions]
@@ -101,7 +101,7 @@ Please **do not** create a duplicate issue or attempt to contact the developers 
 [qubes-devel]: /support/#qubes-devel
 [updates-status]: https://github.com/QubesOS/updates-status/issues
 [how to copy information out of dom0]: /doc/copy-from-dom0/
-[Testing New Releases and Updates]: /doc/testing/
+[testing]: /doc/testing/
 [How to Contribute]: /doc/contributing/
 [Contributing Code]: /doc/contributing/#contributing-code
 [Package Contributions]: /doc/package-contributions/
