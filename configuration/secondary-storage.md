@@ -67,20 +67,25 @@ And adding this line (change both "b209..." for your device's UUID from blkid) t
 
 Reboot the computer so the new luks device appears at /dev/mapper/luks-b209... and we can then create its pool, by doing this on a dom0 terminal (substitute the b209... UUIDs with yours):
 
-    # First create the physical volume
+First create the physical volume
+
     sudo pvcreate /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde 
-    # we will use for example "qubes" as the <vg_name> (LVM volume group name)
+    
+Then create the LVM volume group, we will use for example "qubes" as the <vg_name>:
+
     sudo vgcreate qubes /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde 
-    # and then use "poolhd0" as the <thin_pool_name> (LVM thin pool name)
+
+And then use "poolhd0" as the <thin_pool_name> (LVM thin pool name):
+
     sudo lvcreate -T -n poolhd0 -l +100%FREE qubes
-    #finally we will tell Qubes to add a new pool on the just created thin pool
+   
+Finally we will tell Qubes to add a new pool on the just created thin pool
+
     sudo qvm-pool --add poolhd0_qubes lvm_thin -o volume_group=qubes,thin_pool=poolhd0,revisions_to_keep=2
 
-By default VMs will be created on the main Qubes disk, to create them on this secondary HDD do the following on a dom0 terminal:
+By default VMs will be created on the main Qubes disk (i.e. a small SSD), to create them on this secondary HDD do the following on a dom0 terminal:
 
-    #Finally we can create new VMs (here untrusted-hdd) on the secondary hard disk
     qvm-create -P poolhd0_qubes --label red unstrusted-hdd
-
 
 
 
