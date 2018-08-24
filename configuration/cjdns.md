@@ -81,7 +81,15 @@ user@cjdns-gw:~/cjdns$ sudo systemctl enable cjdns
 user@cjdns-gw:~/cjdns$ sudo systemctl start cjdns
 ```
 Verify that Cjdns is running:
-1. Check that `/etc/cjdroute.conf` was created.
+1. Check that `/etc/cjdroute.conf` was created with:
+```
+user@cjdns-gw:~/cjdns$ ls /etc/cjdroute.conf
+/etc/cjdroute.conf
+```
+If your terminal says:
+`ls: cannot access ‘/etc/cjdroute.conf’: No such file or directory`
+Then it doesn't exist and delete the qube/start over. Otherwise move on.
+
 2. Check that Cjdns service is running: `sudo systemctl status cjdns`
 
 ### 5. Make Cjdns router configuration persistent
