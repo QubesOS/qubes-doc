@@ -1,4 +1,4 @@
-qubes-doc---
+---
 layout: doc
 title: Mesh networking / Cjdns / Hyperboria
 permalink: /doc/cjdns/
@@ -6,7 +6,7 @@ redirect_from:
 - /doc/privacy/cjdns/
 - /en/doc/cjdns/
 - /doc/CJDNS/
-- /wiki/CJDNS/qubes-docqubes-docqubes-docqubes-docqubes-doc
+- /wiki/CJDNS/
 ---
 
 How to setup a Service VM (ProxyVM) for Cjdns and Hyperboria mesh-networking
