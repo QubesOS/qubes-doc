@@ -83,9 +83,8 @@ user@cjdns-gw:~/cjdns$ sudo systemctl start cjdns
 Verify that Cjdns is running:
 1. Check that `/etc/cjdroute.conf` was created with:
 ```
-user@cjdns-gw:~/cjdns$ su -
- user@cjdns-gw:~/cjdns$ cd /etc
- user@cjdns-gw:~/cjdns$ stat cjdroute.conf
+user@cjdns-gw:~/cjdns$ ls /etc/cjdroute.conf
+/etc/cjdroute.conf
 ```
 If your terminal says:
 `stat: cannot stat ‘cjdroute.conf’: No such file or directory`
