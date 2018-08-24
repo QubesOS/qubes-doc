@@ -87,8 +87,8 @@ user@cjdns-gw:~/cjdns$ su -
  user@cjdns-gw:~/cjdns$ cd /etc
  user@cjdns-gw:~/cjdns$ stat cjdroute.conf
 ```
-If you terminal says:
-`stat: cannot stat ‘downloads’: No such file or directory`
+If your terminal says:
+`stat: cannot stat ‘cjdroute.conf’: No such file or directory`
 Then it doesn't exist and delete the qube/start over. Otherwise move on.
 
 2. Check that Cjdns service is running: `sudo systemctl status cjdns`
