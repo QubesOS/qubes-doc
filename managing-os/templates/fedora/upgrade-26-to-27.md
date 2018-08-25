@@ -135,28 +135,8 @@ should be entered (`@dom0` or `@fedora-27`).
 
         [user@dom0 ~]$ qvm-trim-template fedora-27
 
- 7. (Recommended) Switch everything that was set to the old template to the new
-    template, e.g.:
-
-     1. Make the new template the default template:
-
-        Qubes Manager --> Global settings --> Default template
-
-     2. Base AppVMs on the new template. In Qubes Manager, for each VM that is
-        currently based on `fedora-26` that you would like to base on
-        `fedora-27`, enter its VM settings and change the Template selection:
-
-        Qubes Manager --> (Select a VM) --> VM settings --> Template
-
-     3. Base the [DispVM] template on the new template.
-
-        If you have set the new template as your default template:
-
-            [user@dom0 ~]$ qvm-create-default-dvm --default-template
-
-        Otherwise:
-
-            [user@dom0 ~]$ qvm-create-default-dvm fedora-27
+ 7. (Recommended) [Switch everything that was set to the old template to the new
+    template.][switching-3.2]
 
  8. (Optional) Remove the old template. (Make sure to type `fedora-26`, not
     `fedora-27`.)
@@ -311,25 +291,8 @@ should be entered (`@dom0` or `@fedora-27`).
         [user@dom0 ~]$ sudo losetup -d $dev
         [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
 
- 7. (Recommended) Switch everything that was set to the old template to the new
-    template, e.g.:
-
-     1. Make the new template the default template:
-
-        Applications Menu --> System Tools --> Qubes Global Settings --> Default template
-
-     2. Base AppVMs on the new template. In Qubes Manager, for each VM that is
-        currently based on `fedora-26` that you would like to base on
-        `fedora-27`, enter its VM settings and change the Template selection:
-
-        Applications Menu --> (select a VM) --> VM settings --> Template
-
-     3. Base the [DispVM] template on the new template.
-
-            [user@dom0 ~]$ qvm-create -l red -t fedora-27 fedora-27-dvm
-            [user@dom0 ~]$ qvm-prefs fedora-27-dvm template_for_dispvms True
-            [user@dom0 ~]$ qvm-features fedora-27-dvm appmenus-dispvm 1
-            [user@dom0 ~]$ qubes-prefs default-dispvm fedora-27-dvm
+ 7. (Recommended) [Switch everything that was set to the old template to the new
+    template.][switching-4.0]
 
  8. (Optional) Remove the old template. (Make sure to type `fedora-26`, not
     `fedora-27`.)
@@ -393,5 +356,7 @@ In this case, you have several options:
 [resize-disk-image]: /doc/resize-disk-image/
 [Additional Information]: #additional-information
 [Compacting the Upgraded Template]: #compacting-the-upgraded-template
+[switching-3.2]: /doc/templates/#how-to-switch-templates-32
+[switching-4.0]: /doc/templates/#how-to-switch-templates-40
 [DispVM]: /doc/dispvm/
 

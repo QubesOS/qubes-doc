@@ -24,8 +24,8 @@ In particular, some template "flavors" are available in source code form only.
 Take a look at the [Qubes Builder documentation](/doc/qubes-builder/) for instructions on how to compile them.
 
 
-How to install, uninstall, and reinstall
-----------------------------------------
+How to install, uninstall, reinstall, and switch
+------------------------------------------------
 
 ### How to install
 
@@ -49,6 +49,48 @@ If this doesn't work, you can [remove it manually](/doc/remove-vm-manually/).
 ### How to reinstall
 
 To reinstall a currently installed TemplateVM, see [here](/doc/reinstall-template/).
+
+### How to switch templates (3.2)
+
+When you install a new template or upgrade a clone of a template, it is recommended that you switch everything that was set to the old template to the new template:
+
+1. Make the new template the default template:
+
+        Qubes Manager --> Global settings --> Default template
+
+2. Base AppVMs on the new template.
+   In Qubes Manager, for each VM that is currently based on `old-template` that you would like to base on `new-template`, enter its VM settings and change the Template selection:
+
+        Qubes Manager --> (Select a VM) --> VM settings --> Template
+
+3. Base the [DispVM](/doc/dispvm/) template on the new template.
+   If you have set the new template as your default template:
+
+        [user@dom0 ~]$ qvm-create-default-dvm --default-template
+
+   Otherwise:
+
+        [user@dom0 ~]$ qvm-create-default-dvm new-template
+
+### How to switch templates (4.0)
+
+When you install a new template or upgrade a clone of a template, it is recommended that you switch everything that was set to the old template to the new template:
+
+1. Make the new template the default template:
+
+        Applications Menu --> System Tools --> Qubes Global Settings --> Default template
+
+2. Base AppVMs on the new template.
+   In Qubes Manager, for each VM that is currently based on `old-template` that you would like to base on `new-template`, enter its VM settings and change the Template selection:
+
+        Applications Menu --> (select a VM) --> VM settings --> Template
+
+3. Base the [DispVM](/doc/dispvm/) template on the new template.
+
+        [user@dom0 ~]$ qvm-create -l red -t new-template new-template-dvm
+        [user@dom0 ~]$ qvm-prefs new-template-dvm template_for_dispvms True
+        [user@dom0 ~]$ qvm-features new-template-dvm appmenus-dispvm 1
+        [user@dom0 ~]$ qubes-prefs default-dispvm new-template-dvm
 
 
 Invisible Things Lab (ITL) Supported templates
