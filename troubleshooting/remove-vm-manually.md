@@ -31,9 +31,6 @@ All of the following commands should be executed in a dom0 terminal.
         
        $ sudo rm /etc/xdg/menus/applications-merged/<template-name>*
 
-
-[normal method]: /doc/templates/#how-to-install-uninstall-and-reinstall
-
 ### R4.0
 
 When a template is marked as 'installed by package manager', but cannot be uninstalled there, trying to uninstall manually will result in the error "ERROR: VM installed by package manager: template-vm-name". Do as follows to be able to uninstall the template:
@@ -53,3 +50,7 @@ When a template is marked as 'installed by package manager', but cannot be unins
        $ qvm-remove template-vm-name
 
 - If `installed_by_rpm` remains `True`, reboot your computer to bring qubes.xml in sync with qubesd, and try again to remove the template.
+
+
+[normal method]: /doc/templates/#how-to-install-uninstall-reinstall-and-switch
+
