@@ -44,6 +44,7 @@ Before you submit an issue, check to see whether it has already been reported.
 Search through the existing issues -- both open and closed -- by typing your key words in the **Filters** box.
 If you find an issue that seems to be similar to yours, read through it.
 If you find an issue that is the same as or subsumes yours, leave a comment on the existing issue rather than filing a new one, even if the existing issue is closed.
+If an issue affects more than one Qubes version, we usually keep only one issue for all versions.
 The Qubes team will see your comment and reopen the issue, if appropriate.
 For example, you can leave a comment with additional information to help the maintainer debug it.
 Adding a comment will subscribe you to email notifications, which can be helpful in getting important updates regarding the issue.
