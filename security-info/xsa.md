@@ -94,7 +94,7 @@ Tracker
       {% endif %}
     {% elsif xsa.affected == "tba" %}
       {% if xsa.tba %}
-        <a href="{{ xsa.tba }}" title="To be announced. Click for more information.">TBA</a>
+        <a href="{{ xsa.tba }}" title="To be announced. Click for more information.">TBA&nbsp;<span class="fa fa-external-link"></span></a>
       {% else %}
         <span title="To be announced">TBA</span>
       {% endif %}
