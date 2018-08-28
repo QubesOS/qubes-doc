@@ -35,7 +35,7 @@ scripts_yourOSname
 
 ### 00\_prepare.sh
 
-The goal of the first script 00\_prepare.sh is to download and verify the signature of the installation cd and tools. You can use the \$CACHEDIR directory variable to store files that could be reused (such as downloaded scripts or iso files)
+The goal of the first script 00\_prepare.sh is to download and verify the signature of the installation CD and tools. You can use the \$CACHEDIR directory variable to store files that could be reused (such as downloaded scripts or iso files).
 
 ### 01\_install\_core.sh
 
@@ -43,7 +43,7 @@ The goal of this script is to install a base environment of your target OS insid
 
 ### Testing the installation process
 
-Edit the builder.conf file to change the variable DISTS\_VM to your OS name (DISTS\_VM=your\_os\_name). The try to make the template to check that at least these to first scripts are working correctly:
+Edit the builder.conf file to change the variable DISTS\_VM to your OS name (DISTS\_VM=your\_os\_name). The try to make the template to check that at least these first two scripts are working correctly:
 
 ~~~
 make linux-template-builder
@@ -84,7 +84,7 @@ These additional target need to exist once you created your first packages:
 
 ### Testing the development chroot
 
-You will be able to test these script when making the first Qubes packages. Don't forget that the first things that run when running 'make somcomponent-vm' will be these two scripts, and that you will need to debug it at this point.
+You will be able to test these scripts when making the first Qubes packages. Don't forget that the first things that run when running 'make somcomponent-vm' will be these two scripts, and that you will need to debug it at this point.
 
 Qubes packages
 --------------
@@ -109,7 +109,7 @@ scripts_yourOSname
 
 ### 02\_install\_groups.sh
 
-The goal of this script is to install all the package that you want to use in your template (eg: firefox, thunderbird, a file manager, Xorg...)
+The goal of this script is to install all the packages that you want to use in your template (eg: firefox, thunderbird, a file manager, Xorg...)
 
 ### 04\_install\_qubes.sh
 
@@ -138,9 +138,9 @@ Find the .spec file in the git repository (this is the file being used to build 
 
 Don't be afraid with the complexity of the PKGBUILD, most of the code is almost a copy/paste of required sources and patches found in the .spec file provided in the git repository.
 
-Note once the package has been successfully compiled and installed, you need to setup XEN filesystem. Add the following line to your fstab (you can create this line in your package install script): `xen                     /proc/xen               xenfs   defaults        0 0`
+Note once the package has been successfully compiled and installed, you need to setup XEN filesystem. Add the following line to your fstab (you can create this line in your package install script): `xen                     /proc/xen               xenfs   defaults        0 0`.
 
-Now install the package you built and mount /proc/xen. Verify that xenstore-read works by running: `xenstore-read name` That should give you the current name.
+Now install the package you built and mount /proc/xen. Verify that xenstore-read works by running: `xenstore-read name`. That should give you the current name.
 
 ### Qubes-OS core agents (qrexec...)
 
