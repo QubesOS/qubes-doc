@@ -27,10 +27,11 @@ Installation
 	
 	If you are using Debian 8, replace 'stretch' with 'jessie' in the commands above. Now that you downloaded the Repository key, you can disable networking again.
 
-2. Then, update your package manager and install the i2p packages:
+2. Then, update your package manager, install and configure the i2p packages:
 	~~~
 	sudo apt update
 	sudo apt install i2p i2p-keyring
+	sudo dpkg-reconfigure i2p
 	~~~
 	
 3. You also need to change the owner of the i2p configuration directory:
