@@ -208,10 +208,14 @@ If possible, use a method specific for particular device type (for example, bloc
 ### Installation of qubes-usb-proxy ###
 [installation]: #installation-of-qubes-usb-proxy
 
-To use this feature, you need to install [`qubes-usb-proxy`][qubes-usb-proxy] package in the templates used for the USB qube and qubes you want to connect USB devices to.
-Note you cannot pass through devices from dom0 (in other words: USB VM is required).
-`qubes-usb-proxy` should be installed by default in the template VM.
-However, if you receive this error: `ERROR: qubes-usb-proxy not installed in the VM`, you can install the `qubes-usb-proxy` with the package manager in the VM you want to attach the USB device to.
+Note, you cannot pass through devices from dom0 (in other words: a USB VM is required).
+
+To use this feature, you need to have the [`qubes-usb-proxy`][qubes-usb-proxy] package installed in the template used for the USB qube and in the qube to which you want to connect USB devices. ( If the qube is TemplateBased then it should be installed in the relevant template as usual. )
+If you do not have the package installed you will see this error: `ERROR: qubes-usb-proxy not installed in the VM`.
+
+`qubes-usb-proxy` should be installed by default in the standard Fedora and Debian templates.
+
+You install the `qubes-usb-proxy` package using the package manager as usual.
 
 - Fedora: `sudo dnf install qubes-usb-proxy`
 - Debian/Ubuntu: `sudo apt-get install qubes-usb-proxy`
