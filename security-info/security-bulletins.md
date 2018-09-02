@@ -93,4 +93,5 @@ Qubes Security Bulletins are published through the [Qubes Security Pack](/securi
 -   [Qubes Security Bulletin \#40](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-040-2018.txt) (Information leaks due to processor speculative store bypass (XSA-263))
 -   [Qubes Security Bulletin \#41](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-041-2018.txt) (Speculative register leakage from lazy FPU context switching (XSA-267))
 -   [Qubes Security Bulletin \#42](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-042-2018.txt) (Linux netback driver OOB access in hash handling (XSA-270))
+-   [Qubes Security Bulletin \#43](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-043-2018.txt) (L1 Terminal Fault speculative side channel (XSA-273))
 
