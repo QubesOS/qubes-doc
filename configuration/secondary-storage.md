@@ -81,7 +81,7 @@ And then use "poolhd0" as the <thin_pool_name> (LVM thin pool name):
    
 Finally we will tell Qubes to add a new pool on the just created thin pool
 
-    sudo qvm-pool --add poolhd0_qubes lvm_thin -o volume_group=qubes,thin_pool=poolhd0,revisions_to_keep=2
+    qvm-pool --add poolhd0_qubes lvm_thin -o volume_group=qubes,thin_pool=poolhd0,revisions_to_keep=2
 
 By default VMs will be created on the main Qubes disk (i.e. a small SSD), to create them on this secondary HDD do the following on a dom0 terminal:
 
