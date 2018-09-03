@@ -22,14 +22,13 @@ documentation or some way it can be improved, please [report] it! Better
 yet, you can [edit the documentation][contribute] yourself, both to add or improve existing content.
 
 
-How to Report Issues
---------------------
+Questions, problems, and improvements
+-------------------------------------
 
-To report an issue, please create one in [qubes-issues], but before you do,
-please make sure it does **not** already exist. Documentation-related
-issues will be assigned the `doc` label. Issues which have been created in
-[qubes-issues] are significantly more likely to be addressed than those sent in
-emails to the mailing lists or to individuals.
+If you have a question about something you read in the documentation, please send it to the appropriate [mailing list][support].
+If you see that something in the documentation should be fixed or improved, please [contribute] the change yourself.
+To report an issue with the documentation, please follow our standard [issue reporting guidelines][report].
+(If you report an issue with the documentation, you will likely be asked to address it, unless there is a clear indication in your report that you are not willing or able to do so.)
 
 
 How to Contribute
@@ -261,7 +260,7 @@ When making contributions, please try to observe the following style conventions
  * In order to enable offline browsing, use relative paths (e.g., `/doc/doc-guidelines/` instead of `https://www.qubes-os.org/doc/doc-guidelines/`, except when the source text will be reproduced outside of the Qubes website repo.
    Examples of exceptions:
    * [QSBs] (intended to be read as plain text)
-   * [News] posts (plain text is reproduced on the [mailing lists])
+   * [News] posts (plain text is reproduced on the [mailing lists][support])
    * URLs that appear inside code blocks (e.g., in comments and document templates)
    * Files like `README.md` and `CONTRIBUTING.md`
  * Insert a newline at, and only at, the end of each sentence, except when the text will be reproduced outside of the Qubes website repo (see previous item for examples).
@@ -289,13 +288,13 @@ Please try to write good commit messages, according to the
 
 [qubes-doc]: https://github.com/QubesOS/qubes-doc
 [glossary]: /doc/glossary/
-[report]: #how-to-report-issues
+[report]: /doc/reporting-bugs/
 [contribute]: #how-to-contribute
 [qubes-issues]: https://github.com/QubesOS/qubes-issues/issues
 [gh-fork]: https://guides.github.com/activities/forking/
 [gh-pull]: https://help.github.com/articles/using-pull-requests/
 [GitHub]: https://github.com/
-[mailing lists]: /support/
+[support]: /support/
 [version-example]: /doc/template/fedora/upgrade-25-to-26/
 [version-thread]: https://groups.google.com/d/topic/qubes-users/H9BZX4K9Ptk/discussion
 [QSBs]: /security/bulletins/
