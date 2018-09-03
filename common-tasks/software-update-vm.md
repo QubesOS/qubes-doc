@@ -168,6 +168,7 @@ However, a compromise of a template affects only a subset of all your AppVMs (in
 Also, if your AppVMs are network disconnected, even though their filesystems might get compromised due to the corresponding template compromise, it still would be difficult for the attacker to actually leak out the data stolen in an AppVM.
 Not impossible (due to existence of cover channels between VMs on x86 architecture), but difficult and slow.
 
+
 Standalone VMs (R4.0 and later)
 --------------
 Standalone VMs have their own copy of the whole filesystem, and thus can be updated and managed on their own.
@@ -189,6 +190,9 @@ qvm-create --class StandaloneVM --label <label> --property virt_mode=hvm <vmname
 ```
 
 ... or click appropriate options in the Qubes Manager's Create VM window.
+
+(Note: Technically, `virt_mode=hvm` is not necessary for every StandaloneVM. However, it makes sense if you want to use a kernel from within the VM.)
+
 
 Standalone VMs (R3.2 and earlier)
 --------------
