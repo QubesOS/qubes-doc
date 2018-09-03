@@ -168,7 +168,29 @@ However, a compromise of a template affects only a subset of all your AppVMs (in
 Also, if your AppVMs are network disconnected, even though their filesystems might get compromised due to the corresponding template compromise, it still would be difficult for the attacker to actually leak out the data stolen in an AppVM.
 Not impossible (due to existence of cover channels between VMs on x86 architecture), but difficult and slow.
 
-Standalone VMs
+Standalone VMs (R4.0 and later)
+--------------
+Standalone VMs have their own copy of the whole filesystem, and thus can be updated and managed on their own.
+But this means that they take a few GBs on disk, and also that centralized updates do not apply to them.
+
+Sometimes it might be convenient to have a VM that has its own filesystem, where you can directly introduce changes, without the need to start/stop the template VM.
+Such situations include e.g.:
+
+-   VMs used for development (devel environments require a lot of \*-devel packages and specific devel tools)
+
+-   VMs used for installing untrusted packages.
+    Normally you install digitally signed software from Red Hat/Fedora repositories, and it's reasonable that such software has non malicious *installation* scripts (rpm pre/post scripts).
+    However, when you would like to install some packages from less trusted sources, or unsigned, then using a dedicated (untrusted) standalone VM might be a better way.
+
+In order to create a standalone VM you can use a command line like this (from console in Dom0):
+
+```
+qvm-create --class StandaloneVM --label <label> --property virt_mode=hvm <vmname>
+```
+
+... or click appropriate options in the Qubes Manager's Create VM window.
+
+Standalone VMs (R3.2 and earlier)
 --------------
 
 Standalone VMs have their own copy of the whole filesystem, and thus can be updated and managed on their own.
@@ -190,6 +212,7 @@ qvm-create <vmname> --standalone --label <label>
 ~~~
 
 ... or click appropriate options in the Qubes Manager's Create VM window.
+
 
 Using more than one template
 ----------------------------
