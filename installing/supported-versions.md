@@ -51,6 +51,7 @@ regardless of the support status of the base distribution. For this reason, we
 consider it safe to continue using a given base distribution in dom0 even after
 it has reached EOL (end-of-life).
 
+
 TemplateVMs
 -----------
 The table below shows the [TemplateVM] versions supported by each Qubes OS
@@ -70,10 +71,27 @@ release. Currently, only Fedora, Debian, and Whonix TemplateVMs are officially s
 extensive testing.
 
 
+Whonix
+------
+
+[Whonix] is an advanced feature in Qubes OS.
+Those who wish to use it must stay reasonably close to the cutting edge by upgrading to new stable versions of Qubes OS and Whonix TemplateVMs within a month of their respective releases.
+To be precise:
+
+ * One month after a new stable version of Qubes OS is released, Whonix TemplateVMs will no longer be supported on any older version of Qubes OS.
+   This means that users who wish to continue using Whonix TemplateVMs on Qubes must always upgrade to the latest stable Qubes OS version within one month of its release.
+
+ * One month after new stable versions of Whonix TemplateVMs are released, older versions of Whonix TemplateVMs will no longer be supported.
+   This means that users who wish to continue using Whonix TemplateVMs on Qubes must always upgrade to the latest stable Whonix TemplateVM versions within one month of their release.
+
+We aim to announce both types of events one month in advance in order to remind users to upgrade.
+
+
 [Version Scheme]: /doc/version-scheme/
 [Downloads]: /downloads/
 [download mirrors]: /downloads/#mirrors
 [security-critical]: /doc/security-critical-code/
 [TemplateVM]: /doc/templates/
 [extended support]: /news/2018/03/28/qubes-40/#the-past-and-the-future
+[Whonix]: /doc/whonix/
 
