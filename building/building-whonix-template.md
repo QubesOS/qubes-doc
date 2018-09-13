@@ -8,7 +8,7 @@ redirect_from:
 
 ## Building Whonix Templates
 
-The Whonix templates are easily downloaded and installed by following the [procedure here](/doc/whonix/install/).
+The Whonix templates are easily downloaded and installed by following the [procedure here](https://www.whonix.org/wiki/Qubes/Install).
 However, they are integrated into `qubes-builder` so they are straight-forward to build yourself if you prefer.
 
 Many other Qubes templates can also be built by following this procedure.

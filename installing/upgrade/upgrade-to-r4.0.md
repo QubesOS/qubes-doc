@@ -100,5 +100,5 @@ Please see [Supported Versions](/doc/supported-versions/) for information on sup
 
  * [Upgrading Fedora TemplateVMs](/doc/templates/fedora/#upgrading)
  * [Upgrading Debian TemplateVMs](/doc/templates/debian/#upgrading)
- * [Updating Whonix TemplateVMs](/doc/whonix/update/)
+ * [Updating Whonix TemplateVMs](https://www.whonix.org/wiki/Qubes/Update)
 
