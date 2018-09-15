@@ -102,6 +102,7 @@ Security Guides
  * [Installing Anti Evil Maid](/doc/anti-evil-maid/)
  * [Using Multi-factor Authentication with Qubes](/doc/multifactor-authentication/)
  * [Using GPG more securely in Qubes: Split GPG](/doc/split-gpg/)
+ * [The Qubes U2F Proxy](/doc/u2f-proxy/)
  * [How to Set Up a Split Bitcoin Wallet in Qubes](/doc/split-bitcoin/)
  * [[Unofficial] Split dm-crypt](https://github.com/rustybird/qubes-split-dm-crypt)
  * [Configuring YubiKey for user authentication](/doc/yubi-key/)
