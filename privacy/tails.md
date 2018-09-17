@@ -25,6 +25,7 @@ To run Tails under Qubes:
     - In Manager, click "VM menu" and select "Create VM"
     - Name the new qube - "Tails"
     - Select "HVM"
+    - Set "initial memory" and "max memory" as the same ([official documentation](https://tails.boum.org/doc/about/requirements/index.en.html) recommends at least 2048 MB)
     - Configure networking
     - Click "OK" to create new HVM.
 
