@@ -40,22 +40,8 @@ Debian 8 (jessie) - oldstable:
 
 Debian 9 (stretch) - stable:
 
-In Qubes 4.0 -  
-
     [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-9
 
-A prebuilt template is not available in Qubes 3.2, but there are two options for
-achieving a stretch template:
-
-1. Build an experimental stretch template from source.
-
-2. Clone a `debian-8` template and then modify in the cloned template `/etc/apt/sources.list` and `/etc/apt/sources.list.d/qubes-r3.list` to pull from stretch repos rather than jessie repos. 
-Simply replace all instances of "jessie" with "stretch". 
-
-    After that, an `apt-get dist-upgrade` followed by a reboot should "just work". 
-    Unused packages will have to be removed or else it will conflict with the upgrade.
-
-    Full instructions are on [this page][stretch]
 
 Upgrading
 ---------
