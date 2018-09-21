@@ -60,6 +60,17 @@ A Disposable VM launched from the Start Menu inherits the NetVM and firewall set
 Note that changing the "NetVM" setting for the system default DVM Template *does* affect the NetVM of DispVMs launched from the Start Menu.
 Different DVM Templates with individual NetVM settings can be added to the Start Menu. 
 
+**Important Notes:**
+Some DVM Templates will automatically create a menu item to launch a DVM, if you do not see an entry and want to add one please use the command:
+
+    qvm-features deb-dvm appmenus-dispvm 1
+
+To launch a DVM from the command line, in dom0 please type the following:
+    
+    qvm-run --dispvm=NameOfDVM --service qubes.StartApp+NameOfApp
+    
+ 
+
 Disposable VMs and Networking (R3.2 and earlier)
 -----------------------------
 
