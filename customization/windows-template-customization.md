@@ -133,19 +133,19 @@ Manual tasks that can/should be started in the template
     1. Run windows drive cleaner as Administrator.
     2. Enable all the task and run the cleaner
 
- * CCleaner file cleaning
-    1. Install CCleaner free
-    2. Copy the attached ccleaner configuration file in CCleaner program file folder
-    3. Run ccleaner with all option set except "wipe free space" (it will also remove user history and preferences)
-    4. Run ccleaner only with the option "wipe free space".
-
-        It will write zeros in all unused space. This will allow you to strip the root.img file later
+ * SDelete file cleaning (Not sure whether this is usefull for R4.0 because of lvm thin provisioning)
+    1. Download SDelete from Microsoft (e.g. https://technet.microsoft.com/en-us/library/2009.08.utilityspotlight.aspx)
+    2. With the following command you overwrite free space with zeros at drive c:
+        
+           sdelete -z c:
+           
+       This will allow you to strip the root.img file later
 
  * TemplateVM stripping
 
     Ensure that you know what you are doing in this section as you may destroy by error your template root.img file.
 
-    * If you ran ccleaner with "wipe free space", follow the following procedure
+    * If you ran sdelete to overwrite free space with zeros, follow the following procedure
 
         1. from dom0, go to /var/lib/templates-vm/yourtemplate
 
