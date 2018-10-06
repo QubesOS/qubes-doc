@@ -117,7 +117,7 @@ redirect_from:
 
     *   Edit the '**qubes-os-r3.2.conf**' which is found in **/home/user/qubes-builder/example-configs**  Use the text editor of your choice.
 
-        *   **$ cd /home/user/qubes-builder/example-config/**
+        *   **$ cd /home/user/qubes-builder/example-configs/**
 
         *   **$ nano -W qubes-os-r3.2.conf** or **$ gedit qubes-os-r3.2.conf** or etc….
 <br>
