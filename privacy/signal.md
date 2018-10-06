@@ -30,13 +30,13 @@ How to install Signal in Qubes
 This website cannot guarantee that any PGP key you download from the Internet is authentic.
 Always obtain a trusted key fingerprint via other channels, and always check any key you download against your trusted copy of the fingerprint.
 
-1. (Optional)Create a TemplateVM (Debian 8)
+1. (Optional)Create a TemplateVM (Debian 9)
 
-       [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-8
+       [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-9
 
-2. Open a terminal in Debian 8
+2. Open a terminal in Debian 9
 
-       [user@dom0 ~]$ qvm-run -a debian-8 gnome-terminal
+       [user@dom0 ~]$ qvm-run -a debian-9 gnome-terminal
        
 3. Use these commands in your terminal
 
@@ -47,7 +47,7 @@ Always obtain a trusted key fingerprint via other channels, and always check any
 
 5. Shutdown the TemplateVM :
 
-        [user@dom0 ~]$ qvm-shutdown debian-8
+        [user@dom0 ~]$ qvm-shutdown debian-9
         
 6. Create an AppVM based on this TemplateVM
 7. With your mouse select the `Q` menu -> `Domain: "AppVM Name"` -> `"AppVM Name": Add more shortcuts`
