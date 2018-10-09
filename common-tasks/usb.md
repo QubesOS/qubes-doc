@@ -518,4 +518,4 @@ sys-usb dom0 ask,default_target=dom0
 [Security Warning about USB Input Devices]: #security-warning-about-usb-input-devices
 [How to hide all USB controllers from dom0]: #how-to-hide-all-usb-controllers-from-dom0
 [qubes-usb-proxy]: https://github.com/QubesOS/qubes-app-linux-usb-proxy
-[dom0-updates]: /doc/software-update-dom0/#how-to-update-software-in-dom0
+[dom0-updates]: /doc/software-update-dom0/#how-to-update-dom0
