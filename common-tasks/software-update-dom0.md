@@ -40,20 +40,16 @@ Alternatively, command-line tools are available for accomplishing various update
 
 To check and install updates for dom0 software:
 
-    ~~~
     $ sudo qubes-dom0-update
-    ~~~
 
 ### How to install a specific package
 
 To install additional packages in dom0 (usually not recommended):
 
-    ~~~
     $ sudo qubes-dom0-update anti-evil-maid
-    ~~~
 
-    You may also pass the `--enablerepo=` option in order to enable optional repositories (see yum configuration in dom0). However, this is only for advanced users who really understand what they are doing.
-    You can also pass commands to `dnf` using `--action=...`.
+You may also pass the `--enablerepo=` option in order to enable optional repositories (see yum configuration in dom0). However, this is only for advanced users who really understand what they are doing.
+You can also pass commands to `dnf` using `--action=...`.
 
 ### How to downgrade a specific package
 
