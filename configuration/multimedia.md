@@ -33,13 +33,10 @@ In the last step we will create an AppVM from this template.
 
 Launch a Terminal in the new template VM:
 
-`qvm-run --auto t-multimedia gnome-terminal`
+`qvm-run --auto --user root t-multimedia xterm`
 
 Important:
 Enter all the following commands in the terminal of the template VM
-Become the root user to run all following command without the need to use sudo in the multimedia template VM
-
-`sudo -i`
 
 This howto assumes that you have xclip available in the AppVM where you download the Repository Signing keys.
 xclip will be used to paste the content of the clipboard to a file.
@@ -57,10 +54,22 @@ Import GPG-Key for spotify
 As the template VM can't connect to internet you need to get the public key file from another AppVM and copy it to the template VM. The easiest way is to use the Qubes Clipboard to copy the keys from the AppVM where you get the key to the Template VM.
 
 In an AppVM which has Internet access:
-- Open <https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xEFDC8610341D9410>
+- Open https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xA87FF9DF48BF1C90
 - Copy content of page to the Clipboard (Ctrl+A and Ctrl+C)
 - open a Terminal in this AppVM and copy the content of the clipboard to a file
   `xclip -o > spotify.pubkey`
+
+Verify Fingerprint
+
+Check the signature of the signing key.
+Hint: depending on your installed version of GnuPG the command to show a public might slightly be different.
+See [this StackExchange question](https://unix.stackexchange.com/questions/391344/gnupg-command-to-show-key-info-from-file) for more information.
+If this command doesn't show a fingerprint choose one of the other commands mentioned in the above link.
+
+`gpg --with-fingerprint spotify.pubkey`
+
+Compare it for example to https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0xA87FF9DF48BF1C90&fingerprint=on
+You can (and should) lookup the fingerprint on at least one (or more) keyservers as the above information might be outdated.
 
 Copy the public signing key over to the multimedia template VM
 - copy the file via `qvm-copy-to-vm t-multimedia spotify.pubkey`
@@ -70,45 +79,17 @@ Copy the public signing key over to the multimedia template VM
   `nano spotify.pubkey`
   Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
   Save the file (Ctrl+O <Enter> Ctrl+X)
-
-Check the signature of the signing key (in the multimedia Template VM).
-Hint: depending on your installed version of GnuPG the command to show a public might slightly be different.
-See [this StackExchange question](https://unix.stackexchange.com/questions/391344/gnupg-command-to-show-key-info-from-file) for more information.
-If this command doesn't show a fingerprint choose one of the other commands mentioned in the above link.
-
-`gpg --with-fingerprint spotify.pubkey`
-
-This should look like:
-
-    [user@t-multimedia ~]$ `gpg --with-fingerprint spotify.pubkey`
-
-    pub  4096R/341D9410 2017-07-25 Spotify Public Repository Signing Key <tux@spotify.com>
-
-         Key fingerprint = 0DF7 31E4 5CE2 4F27 EEEB  1450 EFDC 8610 341D 9410
-
-You can (and should) lookup the fingerprint on at least one (or more) keyservers as the above information might be outdated.
-
-<https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0xefdc8610341d9410&fingerprint=on>
-
-Add the public key to the repository keyring
-`apt-key add spotify.pubkey`
-
-Add the Spotify repository to your list of package sources:
-
-`echo deb http://repository.spotify.com stable non-free > /etc/apt/sources.list.d/spotify.list`
-
-Update the list of all known packages
-
-`apt-get update`
-
-Install Spotify
-`apt-get install -y spotify-client`
-
-Create a spotify desktop-entry
-
-`cp -p /usr/share/spotify/spotify.desktop /usr/share/applications/`
-
-`cp /usr/share/spotify/icons/spotify-linux-16.png /usr/share/icons/hicolor/16x16/apps/spotify.png`
+- Add the public key to the repository keyring
+  `apt-key add spotify.pubkey`
+- Add the Spotify repository to your list of package sources:
+  `echo deb http://repository.spotify.com stable non-free > /etc/apt/sources.list.d/spotify.list`
+- Update the list of all known packages
+  `apt-get update`
+- Install Spotify
+  `apt-get install -y spotify-client`
+- Create a spotify desktop-entry
+  `cp -p /usr/share/spotify/spotify.desktop /usr/share/applications/`
+  `cp /usr/share/spotify/icons/spotify-linux-16.png /usr/share/icons/hicolor/16x16/apps/spotify.png`
 
 
 Installation of VLC
