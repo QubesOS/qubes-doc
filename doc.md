@@ -127,6 +127,7 @@ Configuration Guides
  * [Multibooting](/doc/multiboot/)
  * [Resize Disk Image](/doc/resize-disk-image/)
  * [RPC Policies](/doc/rpc-policy/)
+ * [Changing your Time Zone](/doc/change-time-zone)
  * [Installing ZFS in Qubes](/doc/zfs/)
  * [Mutt Guide](/doc/mutt/)
  * [Postfix Guide](/doc/postfix/)
