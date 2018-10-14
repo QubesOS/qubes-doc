@@ -141,6 +141,15 @@ your Git commits.
    vtag = !git tag -v `git describe`
    ~~~
 
+GitHub Signature Verification (optional)
+----------------------------------------
+
+GitHub shows a green `Verified` label indicating that the GPG signature could be
+verified using any of the contributor’s GPG keys uploaded to GitHub. You can
+upload your public key on GitHub by adding your public GPG key on the [New GPG
+key][GitHub New GPG key] under the [SSH GPG keys page][GitHub SSH GPG keys
+page].
+
 Code Signature Checks
 ---------------------
 
@@ -203,4 +212,6 @@ Enigmail is a security addon for the Mozilla Thunderbird email client that allow
 [developer mailing list]: /support/#qubes-devel
 [Enigmail]: https://www.enigmail.net/
 [signature-checker]: https://github.com/marmarek/signature-checker
+[GitHub New GPG key]: https://github.com/settings/gpg/new
+[GitHub SSH GPG keys page]: https://github.com/settings/keys
 
