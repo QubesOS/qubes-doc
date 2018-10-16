@@ -22,7 +22,8 @@ Interested readers might want to check [this article](https://blog.invisiblethin
 Creating an HVM domain
 ----------------------
 
-R3.2:
+### R3.2 ###
+
 With a GUI: in Qubes Manager VM creation dialog box choose the "Standalone qube not based on a template" type.
 If "install system from device" is selected (which is by default), then `virt_mode` will be set to `hvm` automatically.
 Otherwise, open the newly created VM's Qube Settings GUI and in the "Advanced" tab select "HVM" in the virtualization mode drop-down list.
@@ -32,7 +33,8 @@ Command line (the VM's name and label color are for illustration purposes):
 qvm-create my-new-vm --hvm --label green
 ~~~
 
-R4.0:
+### R4.0 ###
+
 With a GUI: in Qubes Manager VM creation dialog box choose the "Standalone qube not based on a template" type.
 If "install system from device" is selected (which is by default), then `virt_mode` will be set to `hvm` automatically.
 Otherwise, open the newly created VM's Qube Settings GUI and in the "Advanced" tab select `HVM` in the virtualization mode drop-down list.
