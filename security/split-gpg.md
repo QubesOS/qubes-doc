@@ -77,11 +77,11 @@ there? To Be Determined.
 - The Split GPG client will fail to sign or encrypt if the private key in the
 GnuPG backend is protected by a passphrase, it will give a *"Inappropriate ioctl
 for device"* error. Avoid setting passphrases for the private keys in the GPG
-backend domain, it won't provide extra security anyway, if an attacker gains
-access to it they will likely be able to get the passphrase too. If you have a
-private key that already has a passphrase set use `gpg2 --edit-key <key_id>`,
-then `passwd`. Be aware that `pinentry-ncurses` doesn't allow setting empty
-passphrases, so you would need to install `pinentry-gtk`.
+backend domain, it won't provide extra security anyway, as explained before. If
+you have a private key that already has a passphrase set use `gpg2 --edit-key
+<key_id>`, then `passwd` to set an empty passphrase. Be aware that
+`pinentry-ncurses` doesn't allow setting empty passphrases, so you would need to
+install `pinentry-gtk` for it to work.
 
 ## Configuring Split GPG ##
 
@@ -122,6 +122,9 @@ for key access should be valid (default 5 minutes). This is adjustable via
 `QUBES_GPG_AUTOACCEPT` variable. One can override it e.g. in `~/.bash_profile`:
 
     [user@work-gpg ~]$ echo "export QUBES_GPG_AUTOACCEPT=86400" >> ~/.bash_profile
+
+Please be aware of the caveat regarding passphrase-protected keys in the
+[Current limitations][current-limitations] section.
 
 ### Configuring the client apps to use Split GPG backend ###
 
@@ -170,14 +173,6 @@ the name of the GPG backend VM. This file survives the AppVM reboot, of course.
 
     [user@work ~]$ sudo bash
     [root@work ~]$ echo "work-gpg" > /rw/config/gpg-split-domain
-
-A note on passphrases:
-
-You may experience trouble when attempting to use a PGP key *with a passphrase*
-along with Split-GPG and Enigmail. If you do, you may need to remove the
-passphrase from your (sub)key(s) in order to get Split-GPG working correctly.
-As mentioned above, we do not believe PGP key passphrases to be significant
-from a security perspective.
 
 ## Qubes 4.0 Specifics ##
 
@@ -411,4 +406,5 @@ exercise caution and use your good judgment.)
 [cabal]: https://alexcabal.com/creating-the-perfect-gpg-keypair/
 [luck]: https://gist.github.com/abeluck/3383449
 [apapadop]: https://apapadop.wordpress.com/2013/08/21/using-gnupg-with-qubesos/
+[current-limitations]: #current-limitations
 
