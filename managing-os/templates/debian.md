@@ -25,6 +25,10 @@ can also obtain the key from [git
 repository](https://github.com/QubesOS/qubes-core-agent-linux/blob/master/misc/qubes-archive-keyring.gpg),
 which is also integrity-protected using signed git tags.
 
+If you want a debian-minimal template, this can be built using [Qubes-builder](https://www.qubes-os.org/doc/qubes-builder/),by selecting a +minimal flavour in setup, and then               
+
+    make qubes-vm && make template
+
 Installing
 ----------
 
