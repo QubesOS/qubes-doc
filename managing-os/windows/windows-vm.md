@@ -169,6 +169,8 @@ qvm-prefs win7new qrexec_timeout 300
 qvm-prefs win7new debug false
 ~~~
 
+To install Qubes Windows Tools, follow instructions [below](#xen-pv-drivers-and-qubes-windows-tools).
+
 ### Detailed instructions ###
 
 MS Windows versions considerations:
@@ -276,7 +278,7 @@ Note: if you already have Qubes Windows Tools installed the video adapter in Win
 To avoid guessing the VM's state enable debugging (`qvm-prefs -s win7new debug true`) and in Windows' device manager (My computer -> Manage / Device manager / Display adapters) temporarily re-enable the standard VGA adapter and disable "Qubes video driver". You can disable debugging and revert to Qubes' display once the VM is updated.
 
 
-Xen PV drivers and Qubes integration
+Xen PV drivers and Qubes Windows Tools
 ------------------------------------
 
 Installing Xen's PV drivers in the VM will lower its resources usage when using network and/or I/O intensive applications, but *may* come at the price of system stability (although Xen's PV drivers on a Win7 VM are usually very stable). There are two ways of installing the drivers:
