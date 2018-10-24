@@ -56,7 +56,7 @@ This package brings the ISO with Qubes Windows Tools that is passed to the VM wh
 
 Before proceeding with the installation we need to disable Windows mechanism that allows only signed drivers to be installed, because currently (beta releases) the drivers we provide as part of the Windows Tools are not digitally signed with a publicly recognizable certificate. To do that:
 
--   Start command prompt as Administrator, i.e. right click on the Command Prompt icon and choose "Run as administrator"
+-   Start command prompt as Administrator, i.e. right click on the Command Prompt icon (All Programs -> Accessories) and choose "Run as administrator"
 -   In the command prompt type `bcdedit /set testsigning on`
 -   Reboot your Windows VM
 
