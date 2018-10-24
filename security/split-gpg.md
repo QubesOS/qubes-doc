@@ -78,10 +78,10 @@ there? To Be Determined.
 GnuPG backend is protected by a passphrase, it will give a *"Inappropriate ioctl
 for device"* error. Avoid setting passphrases for the private keys in the GPG
 backend domain, it won't provide extra security anyway, as explained before. If
-you have a private key that already has a passphrase set use `gpg2 --edit-key
-<key_id>`, then `passwd` to set an empty passphrase. Be aware that
-`pinentry-ncurses` doesn't allow setting empty passphrases, so you would need to
-install `pinentry-gtk` for it to work.
+you have a private key that already has a passphrase set use
+`gpg2 --edit-key {key_id}`, then `passwd` to set an empty passphrase. Be aware
+that `pinentry-ncurses` doesn't allow setting empty passphrases, so you would need
+to install `pinentry-gtk` for it to work.
 
 ## Configuring Split GPG ##
 
