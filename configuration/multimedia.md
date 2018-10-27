@@ -36,59 +36,48 @@ Launch a Terminal in the new template VM:
 `qvm-run --auto t-multimedia gnome-terminal`
 
 Important:
-Enter all the following commands in the terminal of the template VM
-Become the root user to run all following command without the need to use sudo in the multimedia template VM
+In order to get all applications working, You need to add additional (not trusted) repositories to your template VM.
+Therefor this howto will cover how you add those repositories, check GPG signing keys and signature.
+VMs which contains packages from other repositories should only be used for specific use case, like in this case beeing able to watching netflix and listen to spotify.
+You should _not_ use those VMs to work with your personal data.
 
-`sudo -i`
+As the template VM has only limitied internet connection (to download packages) some files (like the GPG-keys) have to be downloaded in another AppVM and need to be transferred to the multimedia template.
+To simplify this, this howto will use an additional package xclip in the template VM.
+xclip can be used to copy clipboard content to a file.
+You can of course skip the xclip procedure and rely on the Qubes Copy & Paste and create the files and copy the data manually.
 
-This howto assumes that you have xclip available in the AppVM where you download the Repository Signing keys.
-xclip will be used to paste the content of the clipboard to a file.
-You can install xclip via:
+You can install xclip via `apt-get install xclip` in the multimedia template VM. make sure to run those command via sudo or from a root terminal (`qvm-run --auto --user root t-multimedia xterm`)
 
-`apt-get install xclip` on Debian
-`dnf install xclip` on Fedora
-
-You can of course install xclip just into the AppVM where you download the signing keys to have it available for this howto and it will be deleted if you reboot the AppVM. To have xclip available also after a reboot you need to install it in the Template VM on which your Internet AppVM is based (make sure to reboot the AppVM after you've installed any package in its template)  
 
 Installation of Spotify
 -----------------------
 
+Short description what needs to be done:
+
+1. Get and verify the Spotify GPG Key which is used to sign the packages
+2. Add the spotify package repository
+3. Install Spotify
+
 Import GPG-Key for spotify
-As the template VM can't connect to internet you need to get the public key file from another AppVM and copy it to the template VM. The easiest way is to use the Qubes Clipboard to copy the keys from the AppVM where you get the key to the Template VM.
+As the template VM can't connect to internet you need to get the public key file from another AppVM and copy it to the template VM. The easiest way is to use the Qubes Clipboard (Shift+Ctrl+C and Shift+Ctrl+V) to copy the keys from the AppVM where you get the key to the Template VM.
 
 In an AppVM which has Internet access:
-- Open <https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xEFDC8610341D9410>
-- Copy content of page to the Clipboard (Ctrl+A and Ctrl+C)
-- open a Terminal in this AppVM and copy the content of the clipboard to a file
-  `xclip -o > spotify.pubkey`
+- Download Spotify GPG Signing Key <https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90>
+- Copy content of page to the Clipboard (Ctrl+A and Ctrl+C) and then to Qubes-Clipboard (Ctrl+Shift+C)
+- open a Terminal in the TemplateVM and paste the Qubes Clipboard to this VM (Ctrl+Shift+V)
+- copy the content of the clipboard to a file using xclip
+  `xclip -o > spotify.pubkey` to check if copying the key worked: `cat spotify.pubkey`
 
-Copy the public signing key over to the multimedia template VM
-- copy the file via `qvm-copy-to-vm t-multimedia spotify.pubkey`
-- or create a new file on the Template VM and copy the content of the clipboard (the public key)
-  Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
-  Switch to the gnome terminal in the Multimedia Template VM
-  `nano spotify.pubkey`
-  Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
-  Save the file (Ctrl+O <Enter> Ctrl+X)
+Check the signature of the signing key (in the multimedia Template VM):
+- To create the gpg directories in a fresh template VM: `gpg --list.keys`
+- Show fingerprint: `cat spotify.pubkey | gpg --with-colons --import-options import-show --dry-run --import`
+- Verify the signature with other sources
 
-Check the signature of the signing key (in the multimedia Template VM).
 Hint: depending on your installed version of GnuPG the command to show a public might slightly be different.
-See [this StackExchange question](https://unix.stackexchange.com/questions/391344/gnupg-command-to-show-key-info-from-file) for more information.
-If this command doesn't show a fingerprint choose one of the other commands mentioned in the above link.
-
-`gpg --with-fingerprint spotify.pubkey`
-
-This should look like:
-
-    [user@t-multimedia ~]$ `gpg --with-fingerprint spotify.pubkey`
-
-    pub  4096R/341D9410 2017-07-25 Spotify Public Repository Signing Key <tux@spotify.com>
-
-         Key fingerprint = 0DF7 31E4 5CE2 4F27 EEEB  1450 EFDC 8610 341D 9410
+See [this StackExchange question](https://unix.stackexchange.com/questions/391344/gnupg-command-to-show-key-info-from-file) for more information. You can check the gpg version with `gpg --version`
 
 You can (and should) lookup the fingerprint on at least one (or more) keyservers as the above information might be outdated.
-
-<https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0xefdc8610341d9410&fingerprint=on>
+<https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0x931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90&fingerprint=on>
 
 Add the public key to the repository keyring
 `apt-key add spotify.pubkey`
@@ -106,9 +95,8 @@ Install Spotify
 
 Create a spotify desktop-entry
 
-`cp -p /usr/share/spotify/spotify.desktop /usr/share/applications/`
-
-`cp /usr/share/spotify/icons/spotify-linux-16.png /usr/share/icons/hicolor/16x16/apps/spotify.png`
+- `cp -p /usr/share/spotify/spotify.desktop /usr/share/applications/`
+- `cp /usr/share/spotify/icons/spotify-linux-16.png /usr/share/icons/hicolor/16x16/apps/spotify.png`
 
 
 Installation of VLC
@@ -119,38 +107,18 @@ To play DVDs you can install VLC with the needed Codecs
 Download the public key which signs the VLC package repositories
 In an AppVM which has Internet access:
 - Open <https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x6BCA5E4DB84288D9>
-- Repeat all steps to save the public signing key on the AppVM (see above / Spotify example)
-  `xclip -o > videolan.pubkey`
-  
-Copy the public signing key over to the multimedia template VM
-- copy the file via `qvm-copy-to-vm t-multimedia videolan.pubkey`
-- or create a new file on the Template VM and copy the content of the clipboard (the public key)
-  Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
-  Switch to the gnome terminal in the Multimedia Template VM
-  `nano videolan.pubkey`
-  Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
-  Save the file (Ctrl+O <Enter> Ctrl+X)
+- Copy content of page to the Clipboard (Ctrl+A and Ctrl+C) and then to Qubes-Clipboard (Ctrl+Shift+C)
 
-Check the signature of the signing key
+Open a Terminal in the TemplateVM and paste the Qubes Clipboard to this VM (Ctrl+Shift+V)
+Copy the content of the clipboard to a file using xclip
+`xclip -o > vlc.pubkey` to check if copying the key worked: `cat vlc.pubkey`
 
-`gpg --with-fingerprint videolan.pubkey`
-
-This should look like:
-
-    [user@t-multimedia ~]$ `gpg --with-fingerprint videolan.pubkey`
-
-    pub  2048R/B84288D9 2013-08-27 VideoLAN APT Signing Key <videolan@videolan.org>
-
-          Key fingerprint = 8F08 45FE 77B1 6294 429A  7934 6BCA 5E4D B842 88D9
-
-    sub  2048R/288D4A2C 2013-08-27
-
-You can (and should) lookup the fingerprint on at least one (or more) keyservers as the above information might be outdated.
-
-<https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0x6BCA5E4DB84288D9&fingerprint=on>
+Check the signature of the signing key (in the multimedia Template VM):
+- Show fingerprint: `cat vlc.pubkey | gpg --with-colons --import-options import-show --dry-run --import`
+- Verify the signature with other sources
 
 Add the public key to the repository keyring
-`apt-key add videolan.pubkey`
+`apt-key add vlc.pubkey`
 
 Add the new VLC package repositories to your list of sources 
 
@@ -176,49 +144,20 @@ Hint: Using Chromium will not work for some reasons.
 Download the public key which signs the Google package repositories
 In an AppVM which has Internet access:
 - Open <https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x7721F63BD38B4796>
-- Repeat all steps to save the public signing key on the AppVM (see above / Spotify example)
-  `xclip -o > google.pubkey`
+- Copy content of page to the Clipboard (Ctrl+A and Ctrl+C) and then to Qubes-Clipboard (Ctrl+Shift+C)
 
-Copy the public signing key over to the multimedia template VM
-- copy the file via `qvm-copy-to-vm t-multimedia google.pubkey`
-- or create a new file on the Template VM and copy the content of the clipboard (the public key)
-  Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
-  Switch to the gnome terminal in the Multimedia Template VM
-  `nano google.pubkey`
-  Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
-  Save the file (Ctrl+O <Enter> Ctrl+X)
+Open a Terminal in the TemplateVM and paste the Qubes Clipboard to this VM (Ctrl+Shift+V)
+Copy the content of the clipboard to a file using xclip
+`xclip -o > google.pubkey` to check if copying the key worked: `cat google.pubkey`
 
-Check the signature of the signing key (still in the AppVM where you downloaded the key)
-
-`gpg --with-fingerprint google.pubkey`
-
-This should look like:
-
-    [user@t-multimedia ~]$ `gpg --with-fingerprint google.pubkey`
-
-    pub  4096R/D38B4796 2016-04-12 Google Inc. (Linux Packages Signing Authority)
-
-    <linux-packages-keymaster@google.com>
-
-          Key fingerprint = EB4C 1BFD 4F04 2F6D DDCC  EC91 7721 F63B D38B 4796
-
-    sub  4096R/640DB551 2016-04-12 [expires: 2019-04-12]
-
-    sub  4096R/997C215E 2017-01-24 [expires: 2020-01-24]
-
-You can (and should) lookup the fingerprint on at least one (or more) keyservers as the above information might be outdated.
-
-<https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0x7721F63BD38B4796&fingerprint=on>
-
-or
-
-<https://www.google.com/linuxrepositories/>
+Check the signature of the signing key (in the multimedia Template VM):
+- Show fingerprint: `cat google.pubkey | gpg --with-colons --import-options import-show --dry-run --import`
+- Verify the signature with other sources and <https://www.google.com/linuxrepositories/>
 
 Add the public key to the repository keyring
-
 `apt-key add google.pubkey`
 
-Add the Google package repositories to your list of sources 
+Add the new VLC package repositories to your list of sources 
 
 `echo "deb http://dl.google.com/linux/chrome/deb/ stable main"> /etc/apt/sources.list.d/google.list`
 
@@ -226,9 +165,10 @@ Update package repositories
 
 `apt-get update`
 
-Install Chrome 
+Install Chrome
 
 `apt-get install google-chrome-stable`
+
 
 
 Create a Multimedia AppVM
@@ -236,5 +176,5 @@ Create a Multimedia AppVM
 
 The last step is to create a multimedia AppVM (named "my-multimedia" here) based on the new multimedia template.
 
-`qvm-create --template t-multimedia --label orange my-multimedia`
+`qvm-create --template t-multimedia --label red my-multimedia`
 
