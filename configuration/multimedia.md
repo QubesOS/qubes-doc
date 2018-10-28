@@ -47,7 +47,15 @@ xclip can be used to copy clipboard content to a file.
 You can of course skip the xclip procedure and rely on the Qubes Copy & Paste and create the files and copy the data manually.
 
 You can install xclip via `apt-get install xclip` in the multimedia template VM. make sure to run those command via sudo or from a root terminal (`qvm-run --auto --user root t-multimedia xterm`)
+Using xclip in the template VM is an easy way to copy contect from the Clipboard to a file.
+Process to copy data from an AppVM to the Template VM:
 
+1. highlight text you want to copy in the Source (App) VM
+2. Ctrl+C to copy text to the (normal) clipboard
+3. Ctrl+Shift+C to copy the (normal) clipboard to the Qubes Clipboard
+4. Change to a terminal in your Destination (Template) VM
+5. Ctrl+Shift+V to paste Qubes Clipboard to the template VM Clipboard
+6. Copy content of the Template VM Clipboard to a file `xclip -o > <FILENAME>`
 
 Installation of Spotify
 -----------------------
