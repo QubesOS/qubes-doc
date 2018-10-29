@@ -141,23 +141,27 @@ should be entered (`@dom0` or `@fedora-28`).
        image][resize-disk-image] before reattempting the upgrade process.
        (See [Additional Information] below for other options.)
 
- 4. Shut down the new TemplateVM (from the command-line or Qubes VM Manager).
+ 4. Check that you are on the correct (new) fedora release.
+ 
+        [user@fedora-28 ~]$ cat /etc/fedora-release
+
+ 5. Shut down the new TemplateVM (from the command-line or Qubes VM Manager).
 
         [user@dom0 ~]$ qvm-shutdown fedora-28
 
- 5. Remove the cache file, if you created one.
+ 6. Remove the cache file, if you created one.
 
         [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
 
- 6. Trim the new template (see [Compacting the Upgraded Template] for details
+ 7. Trim the new template (see [Compacting the Upgraded Template] for details
     and other options).
 
         [user@dom0 ~]$ qvm-trim-template fedora-28
 
- 7. (Recommended) [Switch everything that was set to the old template to the new
+ 8. (Recommended) [Switch everything that was set to the old template to the new
     template.][switching-3.2]
 
- 8. (Optional) Remove the old template. (Make sure to type `fedora-27`, not
+ 9. (Optional) Remove the old template. (Make sure to type `fedora-27`, not
     `fedora-28`.)
 
         [user@dom0 ~]$ sudo dnf remove qubes-template-fedora-27
@@ -297,23 +301,27 @@ should be entered (`@dom0` or `@fedora-28`).
        image][resize-disk-image] before reattempting the upgrade process.
        (See [Additional Information] below for other options.)
 
- 4. Trim the new template.
+ 4. Check that you are on the correct (new) fedora release.
+ 
+        [user@fedora-28 ~]$ cat /etc/fedora-release
+
+ 5. Trim the new template.
 
         [user@fedora-28 ~]$ sudo fstrim -v /
 
- 5. Shut down the new TemplateVM (from the command-line or Qubes VM Manager).
+ 6. Shut down the new TemplateVM (from the command-line or Qubes VM Manager).
 
         [user@dom0 ~]$ qvm-shutdown fedora-28
 
- 6. Remove the cache file, if you created one.
+ 7. Remove the cache file, if you created one.
 
         [user@dom0 ~]$ sudo losetup -d $dev
         [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
 
- 7. (Recommended) [Switch everything that was set to the old template to the new
+ 8. (Recommended) [Switch everything that was set to the old template to the new
     template.][switching-4.0]
 
- 8. (Optional) Remove the old template. (Make sure to type `fedora-27`, not
+ 9. (Optional) Remove the old template. (Make sure to type `fedora-27`, not
     `fedora-28`.)
 
         [user@dom0 ~]$ sudo dnf remove qubes-template-fedora-27
