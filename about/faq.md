@@ -273,6 +273,14 @@ Yes, and see [this message](http://groups.google.com/group/qubes-devel/msg/64121
 
 Some users have been able to do this, but it is neither recommended nor supported. Qubes should be installed bare-metal. (After all, it uses its own bare-metal hypervisor!)
 
+### What is a terminal?
+
+A [terminal emulator](https://en.wikipedia.org/wiki/Terminal_emulator), nowadays often referred to as just a *terminal*, is a program which provides a text window.
+Inside that window, a [shell](https://en.wikipedia.org/wiki/Shell_(computing)) is typically running in it.
+A shell provides a [command-line interface](https://en.wikipedia.org/wiki/Command-line_interface) where the user can enter and run [commands](https://en.wikipedia.org/wiki/Command_(computing)).
+
+See introductions on Wikibooks: [here](https://en.wikibooks.org/wiki/Fedora_And_Red_Hat_System_Administration/Shell_Basics), [here](https://en.wikibooks.org/wiki/A_Quick_Introduction_to_Unix) and [here](https://en.wikibooks.org/wiki/Bash_Shell_Scripting).
+
 ### Why does my network adapter not work?
 
 You may have an adapter (wired, wireless), that is not compatible with open-source drivers shipped by Qubes. There may be a binary blob, which provides drivers in the linux-firmware package.
