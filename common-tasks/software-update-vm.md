@@ -267,7 +267,7 @@ And in both cases defaults listed above are applied if the service is not explic
 ### Technical details (R4.0)
 
 Instead of using a network connection like in R3.2, R4.0 uses RPC/qrexec.
-The proxy is configured in qrexec policy: `/etc/qubes-rpc/policy/qubes.UpdatesProxy`.
+The proxy is configured in qrexec policy on dom0: `/etc/qubes-rpc/policy/qubes.UpdatesProxy`.
 By default this is set to sys-net and/or sys-whonix, depending on firstboot choices.
 This new design allows for templates to be updated even when they are not connected to any netvm.
 
