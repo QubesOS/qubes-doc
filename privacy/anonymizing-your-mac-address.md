@@ -32,6 +32,10 @@ $ sudo NetworkManager -V
 
 Right click on the Network Manager icon of your NetVM in the tray and click 'Edit Connections..'.
 
+## Notes
+
+If you choose to create a new NetVM instead of modifying sys-net you will want to follow the instructions on [Installing and updating software in VMs](https://www.qubes-os.org/doc/software-update-vm/) to tell your Template VMs which NetVM to use.
+
 Select the connection to randomize and click Edit.
 
 Select the Cloned MAC Address drop down and set to Random or Stable.
