@@ -70,7 +70,7 @@ redirect_from:
 
 *   The tools can usually be installed all together with the following terminal command string:
 
-    *   **$ sudo dnf install git createrepo rpm-build make wget rpmdevtools python2-sh dialog rpm-sign gnupg**
+    `$ sudo dnf install git createrepo rpm-build make wget rpmdevtools python2-sh dialog rpm-sign gnupg`
 <br>
 <br>
 ![arch-template-04](/attachment/wiki/ArchlinuxTemplate/arch-template-04.png)
@@ -111,15 +111,15 @@ redirect_from:
 
 ## 5:   Configuring setup script to create builder.conf file
 
-*   You will be creating the builder.conf file which tells where and what to use.   The most automated, and in this case the easiest, way to create this is to use the script that is provided in Qubes Builder.  Its named '**setup**'.  Before running the script you need to edit one file it uses.
+*   You will be creating the builder.conf file which tells where and what to use.   The most automated, and in this case the easiest, way to create this is to use the script that is provided in Qubes Builder.  Its named `setup`.  Before running the script you need to edit one file it uses.
 
     *In the future this should not be needed once a change is made to the 'setup' script.*
 
-    *   Edit the '**qubes-os-r3.2.conf**' which is found in **/home/user/qubes-builder/example-configs**  Use the text editor of your choice.
+    *   Edit the `qubes-os-r3.2.conf` which is found in `/home/user/qubes-builder/example-configs`  Use the text editor of your choice.
 
-        *   **$ cd /home/user/qubes-builder/example-configs/**
+        `$ cd /home/user/qubes-builder/example-configs/`
 
-        *   **$ nano -W qubes-os-r3.2.conf** or **$ gedit qubes-os-r3.2.conf** or etc….
+        `$ nano -W qubes-os-r3.2.conf` or `$ gedit qubes-os-r3.2.conf` or etc….
 <br>
 <br>
 ![arch-template-06](/attachment/wiki/ArchlinuxTemplate/arch-template-06.png)
@@ -135,11 +135,11 @@ redirect_from:
 
 ## 6:   Run the 'setup' script to build the builder.conf file
 
-*   Run the 'setup' script located in '**/home/user/qubes-builder/**' Make sure you are in directory '**qubes-builder**'
+*   Run the 'setup' script located in `/home/user/qubes-builder/` Make sure you are in directory `qubes-builder`
 
-    *   **$ cd /home/user/qubes-builder/**
+    `$ cd /home/user/qubes-builder/`
 
-    *   **$ ./setup**
+    `$ ./setup**`
 <br>
 <br>
 ![arch-template-08](/attachment/wiki/ArchlinuxTemplate/arch-template-08.png)
@@ -238,7 +238,7 @@ redirect_from:
 <br>
 <br>
 
-            *Note: 'Setup' will close and will output the text of the created build.conf file as well as the needed                    **make** commands to build the template*
+            *Note: 'Setup' will close and will output the text of the created build.conf file as well as the needed                    `make` commands to build the template*
 <br>
 <br>
 ![arch-template-17](/attachment/wiki/ArchlinuxTemplate/arch-template-17.png)
@@ -249,7 +249,7 @@ redirect_from:
 
 *Note: make sure you are in the “qubes-builder” directory to run the following cmds*
 
-*   **$ make install-deps**
+    $ make install-deps
 <br>
 <br>
 ![arch-template-18](/attachment/wiki/ArchlinuxTemplate/arch-template-18.png)
@@ -258,7 +258,7 @@ redirect_from:
 
 ## 8:   Get all the require sources for the build: (Note: this may take some time)
 
-*   **$ make get-sources**
+    $ make get-sources
 <br>
 <br>
 ![arch-template-19](/attachment/wiki/ArchlinuxTemplate/arch-template-19.png)
@@ -273,7 +273,7 @@ redirect_from:
 
     *   Single command to build all Qubes components together: (this command can take a long time to process depending of your pc proccessing power)
 
-        *   **$ make qubes-vm**
+        `$ make qubes-vm`
         <br>
         <br>
 ![arch-template-20](/attachment/wiki/ArchlinuxTemplate/arch-template-20.png)
@@ -283,26 +283,26 @@ redirect_from:
 
             *   These are the indivual component 'make' commands:
 
-                *   **$ make vmm-xen-vm**
+                $ make vmm-xen-vm
 
-                *   **$ make core-vchan-xen-vm**
+                $ make core-vchan-xen-vm
 
-                *   **$ make core-qubesdb-vm**
+                $ make core-qubesdb-vm
 
-                *   **$ make linux-utils-vm**
+                $ make linux-utils-vm
 
-                *   **$ make core-agent-linux-vm**
+                $ make core-agent-linux-vm
 
-                *   **$ make gui-common-vm**
+                $ make gui-common-vm
 
-                *   **$ make gui-agent-linux-vm**
+                $ make gui-agent-linux-vm
 <br>
 <br>
 
 
 ## 10:   Make the actual Archlinux template
 
-*   **$ make template**
+    `$ make template`
 <br>
 <br>
 ![arch-template-21](/attachment/wiki/ArchlinuxTemplate/arch-template-21.png)
@@ -311,19 +311,20 @@ redirect_from:
 
 ## 11:   Transfer Template into Dom0
 
-*   You need to ensure these two files are in the '**noarch**' directory
+*   You need to ensure these two files are in the `noarch` directory
 
-    *   **$ cd /home/user/qubes-builder/qubes-src/linux-template-builder/rpm/**
+    `$ cd /home/user/qubes-builder/qubes-src/linux-template-builder/rpm/`
 
-    *   **$ ls**   *(confirm the below two files are there)*
+    `$ ls`   *(confirm the below two files are there)*
 
-        *   **install-templates.sh**   (script to install template in dom0)
+    *   `noarch/`
+    *   `install-templates.sh`   (script to install template in dom0)
 
-    *   **$ cd noarch**
+    `$ cd noarch`
 
-    *   **$ ls**
+    `$ ls`
 
-        *   **qubes-template-archlinux-X.X.X-XXXXXXXXXXXX.noarch.rpm**  (this is the template package 'X' replaces version and build digits)
+        `qubes-template-archlinux-X.X.X-XXXXXXXXXXXX.noarch.rpm`  (this is the template package 'X' replaces version and build digits)
 <br>
 <br>
 ![arch-template-22](/attachment/wiki/ArchlinuxTemplate/arch-template-22.png)
@@ -333,15 +334,15 @@ redirect_from:
 *   **Transfer the install-templates.sh script file into Dom0**
   *Note: as there is not a typical file transfer method for Dom0, for security reasons, this less than simple transfer function has to be used*
 
-    *   Switch to Domo and open a terminal window.
+    *   Switch to Dom0 and open a terminal window.
 
     **Note:** Take care when entering these cmd strings.  They are very long and have a number of characters that are easy to mix '**-**' vs '**.**' '**<u>T</u>emplates** (correct) vs **<u>t</u>emplates** (wrong) or **Template_**'(also wrong)  This script will also take care of transfering the actual template.rpm to Dom0 as well.
 
-       *   **$ qvm-run --pass-io development 'cat /home/user/qubes-builder/qubes-src/linux-template-builder/rpm/install-templates.sh' > install-templates.sh**
+       `$ qvm-run --pass-io development 'cat /home/user/qubes-builder/qubes-src/linux-template-builder/rpm/install-templates.sh' > install-templates.sh`
        
-       *   **$ chmod +x install-templates.sh**
+       `$ chmod +x install-templates.sh`
        
-       *   **$ ./install-templates.sh**
+       `$ ./install-templates.sh`
 
 <br>
 <br>
