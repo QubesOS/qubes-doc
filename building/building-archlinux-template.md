@@ -331,10 +331,10 @@ redirect_from:
 
     $ cd noarch
 
-    $ ls
+    $ ls    #(confirm the below file is there)
         
         'qubes-template-archlinux-X.X.X-XXXXXXXXXXXX.noarch.rpm'
-        #(this is the template package 'X' replaces version and build digits)
+        #(this is the template package; 'X' replaces version and build digits)
     ```
 <br>
 <br>
@@ -488,7 +488,7 @@ sudo sed 's:qubes-vm-type:qubes_vm_type:g' -i /usr/bin/qubes-session
 sudo sed 's:qubes-vm-updateable:qubes_vm_updateable:g' -i /usr/bin/qubes-session
 ```
 
-Do not forgot to unmount the VM:
+Do not forget to unmount the VM:
 ```
 $ umount /mnt/vm
 ```
