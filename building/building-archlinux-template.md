@@ -364,7 +364,9 @@ redirect_from:
 <br>
 <br>
 
-* If everything went correct there should be a Archlinux template listed in your Qubes VM Manager *
+##Done!
+If nothing went wrong there should be an Archlinux template listed in your Qubes VM Manager.
+
 
 
 # Known problems in building with Qubes R3.X
