@@ -380,6 +380,9 @@ the Archlinux template on its own) by appending the following to your `override.
 ```
 BUILDER_PLUGINS := $(filter-out mgmt-salt,$(BUILDER_PLUGINS))
 ```
+## No entry for template or applications in application menu.
+
+* Follow instructions [here.](https://www.qubes-os.org/doc/managing-appvm-shortcuts/)
 
 ## The nm-applet (network manager icon) fails to start when archlinux is defined as a template-vm
 
