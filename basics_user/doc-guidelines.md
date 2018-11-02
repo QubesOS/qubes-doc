@@ -73,7 +73,9 @@ contribution.
 ![fork](/attachment/wiki/doc-edit/05-fork.png)
 
 Now you can make your modifications. You can also preview the changes to see how
-they'll be formatted by clicking the "Preview changes" tab.
+they'll be formatted by clicking the "Preview changes" tab. **Important:** If
+you're making any formatting changes, please [render the site locally] to verify
+that everything looks correct before submitting any changes.
 
 ![edit](/attachment/wiki/doc-edit/06-edit.png)
 
@@ -301,4 +303,5 @@ Please try to write good commit messages, according to the
 [News]: /news/
 [md]: https://daringfireball.net/projects/markdown/
 [git-commit]: /doc/coding-style/#commit-message-guidelines
+[render the site locally]: https://github.com/QubesOS/qubesos.github.io#instructions
 
