@@ -81,5 +81,5 @@ Please see [Why and How to Verify Signatures] for information about how to verif
 [Marek Marczykowski-Górecki]: /team/#marek-marczykowski-górecki
 [Simon Gaiser (aka HW42)]: /team/#simon-gaiser-aka-hw42
 [Joanna Rutkowska]: /team/#joanna-rutkowska
-[emeritus, canaries only]: /news/2018/11/02/qubes-security-team-update/
+[emeritus, canaries only]: /news/2018/11/05/qubes-security-team-update/
 
