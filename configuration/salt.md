@@ -519,11 +519,10 @@ The solution is to shut down the updateVM between each install:
 * [Top files][salt-doc-top]
 * [Jinja templates][jinja]
 * [Qubes specific modules][salt-qvm-doc]
-* [Formulas for default Qubes VMs][salt-virtual-machines-doc] ([and actual states][salt-virtual-machines-states])
+* [Formulas for default Qubes VMs][salt-virtual-machines-states]
 
 [salt-doc]: https://docs.saltstack.com/en/latest/
 [salt-qvm-doc]: https://github.com/QubesOS/qubes-mgmt-salt-dom0-qvm/blob/master/README.rst
-[salt-virtual-machines-doc]: https://github.com/QubesOS/qubes-mgmt-salt-dom0-virtual-machines/blob/master/README.rst
 [salt-virtual-machines-states]: https://github.com/QubesOS/qubes-mgmt-salt-dom0-virtual-machines/tree/master/qvm
 [salt-doc-states]: https://docs.saltstack.com/en/latest/ref/states/all/
 [salt-doc-states-file]: https://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html
