@@ -74,14 +74,18 @@ signed before the operation gets approved. Perhaps the GPG backend domain
 could start a Disposable VM and have the to-be-signed document displayed
 there? To Be Determined.
 
-- The Split GPG client will fail to sign or encrypt if the private key in the
-GnuPG backend is protected by a passphrase, it will give a *"Inappropriate ioctl
-for device"* error. Avoid setting passphrases for the private keys in the GPG
-backend domain, it won't provide extra security anyway, as explained before. If
-you have a private key that already has a passphrase set use
-`gpg2 --edit-key {key_id}`, then `passwd` to set an empty passphrase. Be aware
-that `pinentry-ncurses` doesn't allow setting empty passphrases, so you would need
-to install `pinentry-gtk` for it to work.
+- **Split GPG is unusable due to the following problem**:
+The Split GPG client will fail to sign or encrypt if the private key in the 
+GnuPG backend is protected by a passphrase, it will give a *"Inappropriate ioctl 
+for device"* error. Avoid setting passphrases for the private keys in the GPG 
+backend domain, it won't provide extra security anyway, as explained before. 
+Unfortunately you can set empty passphrases no matter what `pinentry-*` package 
+you are using.  If you are generating a new key pair, or if you have a private 
+key that already has a passphrase and use 
+`gpg2 --edit-key {key_id}`, then `passwd`, then pinentry won't allow setting an 
+empty passphrase.  This is true for any pinentry packages like `pinentry-ncurses` 
+and `pinentry-gtk` in Fedora, and for `pinentry-curses`, `pinentry-gtk2` and 
+`pinentry-gnome` in Debian.
 
 ## Configuring Split GPG ##
 
