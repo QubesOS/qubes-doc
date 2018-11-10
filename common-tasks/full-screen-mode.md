@@ -32,16 +32,6 @@ Enabling full screen mode for select VMs
 
 If you want to enable full screen mode for select VMs, you can do that by creating the following entry in the `/etc/qubes/guid.conf` file in Dom0:
 
-**Note:** Regardless of the settings below, you can always put a window into
-fullscreen mode in Xfce4 using the trusted window manager by right-clicking on
-a window's title bar and selecting "Fullscreen". This functionality should still
-be considered safe, since a VM window still can't voluntarily enter fullscreen
-mode. The user must select this option from the trusted window manager in dom0.
-To exit fullscreen mode from here, press `alt` + `space` to bring up the title
-bar menu again, then select "Leave Fullscreen".
-
-**Note:** There should be only one `VM: {}` block in the file (or you will [get into problems](https://groups.google.com/d/msg/qubes-users/-Yf9yNvTsVI/xXsEm8y2lrYJ))
-
 ~~~
 VM: {
   personal: {
@@ -51,6 +41,8 @@ VM: {
 ~~~
 
 The string 'personal' above is an example only and should be replaced by the actual name of the VM for which you want to enable this functionality.
+
+**Note:** There should be only one `VM: {}` block in the file (or you will [get into problems](https://groups.google.com/d/msg/qubes-users/-Yf9yNvTsVI/xXsEm8y2lrYJ))
 
 One can also enable this functionality for all the VMs globally in the same file, by modifying the 'global' section:
 
@@ -66,3 +58,13 @@ global: {
 ~~~
 
 Be sure to restart the VM(s) after modifying this file, for the changes to take effect.
+
+
+**Note:** Regardless of the settings above, you can always put a window into
+fullscreen mode in Xfce4 using the trusted window manager by right-clicking on
+a window's title bar and selecting "Fullscreen". This functionality should still
+be considered safe, since a VM window still can't voluntarily enter fullscreen
+mode. The user must select this option from the trusted window manager in dom0.
+To exit fullscreen mode from here, press `alt` + `space` to bring up the title
+bar menu again, then select "Leave Fullscreen".  
+For StandaloneHVMs, you should set the screen resolution in the qube to that of the host, (or larger), *before* setting fullscreen mode in Xfce4.
