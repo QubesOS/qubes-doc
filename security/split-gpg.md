@@ -78,8 +78,7 @@ there? To Be Determined.
 GnuPG backend is protected by a passphrase, it will give a *"Inappropriate ioctl 
 for device"* error. Avoid setting passphrases for the private keys in the GPG 
 backend domain, it won't provide extra security anyway, as explained before. 
-Unfortunately you can't set empty passphrases no matter what `pinentry-*` package 
-you are using.  If you are generating a new key pair, or if you have a private 
+If you are generating a new key pair, or if you have a private 
 key that already has a passphrase and use 
 `gpg2 --edit-key {key_id}` then `passwd`, then pinentry [might show an error when
 setting an empty passphrase but still make the change](https://unix.stackexchange.com/a/379373).
