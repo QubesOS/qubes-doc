@@ -163,6 +163,7 @@ Customization Guides
 Troubleshooting
 ---------------
  * [Home directory is out of disk space error](/doc/out-of-memory/)
+ * [Newer hardware doesn't work](/doc/newer-hardware-troubleshooting/)
  * [Installing on system with new AMD GPU (missing firmware problem)](https://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76)
  * [How to install an Nvidia driver in dom0](/doc/install-nvidia-driver/)
  * [Nvidia troubleshooting guide](/doc/nvidia-troubleshooting/)
