@@ -74,14 +74,16 @@ signed before the operation gets approved. Perhaps the GPG backend domain
 could start a Disposable VM and have the to-be-signed document displayed
 there? To Be Determined.
 
-- The Split GPG client will fail to sign or encrypt if the private key in the
-GnuPG backend is protected by a passphrase, it will give a *"Inappropriate ioctl
-for device"* error. Avoid setting passphrases for the private keys in the GPG
-backend domain, it won't provide extra security anyway, as explained before. If
-you have a private key that already has a passphrase set use
-`gpg2 --edit-key {key_id}`, then `passwd` to set an empty passphrase. Be aware
-that `pinentry-ncurses` doesn't allow setting empty passphrases, so you would need
-to install `pinentry-gtk` for it to work.
+- The Split GPG client will fail to sign or encrypt if the private key in the 
+GnuPG backend is protected by a passphrase. It will give an `Inappropriate ioctl 
+for device` error. Do not set passphrases for the private keys in the GPG
+backend domain. Doing so won't provide any extra security anyway, as explained
+[above][intro] and [below][using split GPG with subkeys].  If you are generating
+a new key pair, or if you have a private key that already has a passphrase, you
+can use  `gpg2 --edit-key <key_id>` then `passwd` to set an empty passphrase.
+Note that `pinentry` might show an error when you try to set an empty
+passphrase, but it will still make the change. (See [this StackExchange
+answer][se-pinentry] for more information.)
 
 ## Configuring Split GPG ##
 
@@ -396,6 +398,8 @@ exercise caution and use your good judgment.)
 
 [#474]: https://github.com/QubesOS/qubes-issues/issues/474
 [using split GPG with subkeys]: #advanced-using-split-gpg-with-subkeys
+[intro]: #what-is-split-gpg-and-why-should-i-use-it-instead-of-the-standard-gpg
+[se-pinentry]: https://unix.stackexchange.com/a/379373
 [​subkeys]: https://wiki.debian.org/Subkeys
 [copied]: /doc/copying-files#on-inter-qube-file-copy-security
 [pasted]: /doc/copy-paste#on-copypaste-security
