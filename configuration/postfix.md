@@ -16,11 +16,11 @@ Postfix is full featured MTA (Message Transfer Agent). Here we will configure it
 Installation
 ------------
 
-`yum install postfix procmail make cyrus-sasl cyrus-sasl-plain`
+`dnf install postfix procmail make cyrus-sasl cyrus-sasl-plain`
 
 Cyrus-sasl is installed to authenticate to remote servers. Procmail is not strictly necessary, but is useful to sort your incoming mail, for example to put each mailing list in its own directory. Make is also not necessary, but is used to keep Postfix lookup tables.
 
-You should also check `alternatives` command, to see if it is the default `mta`. It probably is not. You may need to `yum remove ssmtp` or something
+You should also check `alternatives` command, to see if it is the default `mta`. It probably is not. You may need to `dnf remove ssmtp` or something
 
 Configuration
 -------------
@@ -35,7 +35,7 @@ and run `newaliases`.
 
 This is the only thing to do in TemplateVM, as MTA configuration is AppVM specific, so we will keep it in `/usr/local` (ie. `/rw/usrlocal`) in each AppVM.
 
-Now shutdown TemplateVM, start AppVM. Create directory `/usr/local/etc/postfix` and copy `/etc/postfix/master.cf` there.
+Now shutdown TemplateVM, start AppVM. Create directory `/usr/local/etc/postfix` and copy `/etc/postfix/master.cf` and `/etc/postfix/postfix-files` there.
 
 ### Makefile
 
@@ -99,14 +99,14 @@ alias_maps = hash:/etc/aliases
 @localhost your.mail@example.com
 ~~~
 
-`/usr/local/etc/postfix/sender_relay`. This is important file. Put there all your SMTP servers. Pay attention to port (smtp/submission). Square brackets have their special meaning, they are almost certainly needed. For more info consult Postfix manual.
+`/usr/local/etc/postfix/sender_relay`. This is an important file. Put all your SMTP servers there. Pay attention to port (smtp/submission). Square brackets have their special meaning, they are almost certainly needed. For more info consult Postfix manual.
 
 ~~~
 your.mail@exmaple.com         [mail.example.com]:submission
 your.other@mail.com         [smtp.mail.com]:smtp
 ~~~
 
-`/usr/local/etc/postfix/saslpass`. Here you put passwords to above mentioned servers. It depends on provider if you need to put whole email as username or just the part before `@`.
+`/usr/local/etc/postfix/saslpass`. Here you put passwords to above mentioned servers. It depends on your provider if you need to put whole email as username or just the part before `@`.
 
 ~~~
 [mail.example.com]:submission     your.mail:y0urP4ssw0rd
@@ -152,4 +152,4 @@ mount --bind /usr/local/etc/postfix /etc/postfix
 systemctl --no-block start postfix
 ~~~
 
-Reboot your AppVM and you are done.
+Make sure `/rw/config/rc.local` is executable (i.e., `chmod a+x /rw/config/rc.local`).  Reboot your AppVM and you are done.

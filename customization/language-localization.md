@@ -14,42 +14,33 @@ Language Localization
 How to set up pinyin input in Qubes
 -----------------------------------
 
-1. Don't try to install anything in Dom0. 
+The pinyin input method will be installed in a TemplateVM to make it available after restarts and across multiple AppVMs.
 
-2. Choose a TemplateVM in which you will be using pinyin input on AppVM
-   instances thereof and open a terminal there.
+1. In a TemplateVM, install `ibus-pinyin` via the package manager or terminal.
+   If the template is Fedora-based, run `sudo dnf install ibus-pinyin`.
+   If the template is Debian-based, run `sudo apt install ibus-pinyin`
 
-3. Issue `sudo yum install ibus-pinyin` (or, for a Debian template,
-   `sudo apt-get install ibus-pinyin`). 
+2. Shut down the TemplateVM.
 
-4. Close and shut down the TemplateVM. 
+3. Start or restart an AppVM based on the template in which you installed `ibus-pinyin` and open a terminal.
 
-5. Restart an AppVM which inherits from the template and open a terminal.
- 
-6. Issue `ibus-setup`.
+4. Run `ibus-setup`.
 
-7. You will likely get the error message telling you to paste
+5. You will likely get an error message telling you to paste the following into your bashrc:
 
         export GTK_IM_MODULE=ibus
         export XMODIFIERS=@im=ibus
         export QT_IM_MODULE=ibus
 
-   into your bashrc. 
+   Copy the text into your `~/.bashrc` file with your favorite text editor.
+   You will need to do this for any AppVM in which you wish to use pinyin input.
 
-   Copy the text, and then issue: `sudo nano ~/.bashrc`
-   Paste the text into the bottom of the file and press ctrl-x to save and
-   close. 
-   You will need to do this on any AppVM in which you wish to use pinyin input.
+6. Set up ibus input as you like using the graphical menu (add pinyin or intelligent pinyin to selections).
+   You can bring the menu back by issuing `ibus-setup` from a terminal.
 
-8. Setup ibus input as you like using the graphical menu (add pinyin or
-   intelligent pinyin to selections). You can bring the menu back by issuing
-   `ibus-setup` from a terminal. 
+7. Set up your shortcut for switching between inputs.
+   By default it is super-space.
 
-9. Use super-space as you are used to using to switch between pinyin-unicode and
-   Latin character input.
+If `ibus-pinyin` is not enabled when you restart one of these AppVMs, open a terminal and run `ibus-setup` to activate ibus again.
 
-10. Whenever you restart one of these AppVMs, you will need to open a terminal
-    and issue `imsettings-switch ibus` to activate ibus. 
-
-For further discussion, see [this thread](https://groups.google.com/forum/#!searchin/qubes-users/languge/qubes-users/VcNPlhdgVQM/iF9PqSzayacJ).
-
+For further discussion, see [this qubes-users thread](https://groups.google.com/forum/#!searchin/qubes-users/languge/qubes-users/VcNPlhdgVQM/iF9PqSzayacJ).

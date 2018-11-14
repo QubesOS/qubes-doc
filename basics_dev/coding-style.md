@@ -15,39 +15,39 @@ Coding Guidelines for Qubes Developers
 Rationale
 ---------
 
-Maintaining proper coding style is very important for any larger software project, such as Qubes. Here's why:
+Maintaining proper coding style is very important for any large software project, such as Qubes. Here's why:
 
--   It eases maintenance, such as adding new functionality or generalization later,
--   It allows others (as well as the original author after some time!) to easily understand fragments of code, what they were supposed to do, and so makes it easier to later extend them with newer functionality or bug fixes,
+-   It eases maintenance tasks, such as adding new functionality or generalizing code later,
+-   It allows others (as well as the future you!) to easily understand fragments of code and what they were supposed to do, and thus makes it easier to later extend them with newer functionality or bug fixes,
 -   It allows others to easily review the code and catch various bugs,
 -   It provides for an aesthetically pleasing experience when one reads the code...
 
-Often, developers, usually smart developers, neglect the value of proper coding style, thinking that it's most important how their code works, and expecting that if it solves some problem using a nice and neat trick, then it's all that is really required. Such thinking shows, however, immaturity and is a signal that the developer, however bright and smart, might not be a good fit for any larger project. Writing a clever exploit, that is to be used at one Black Hat show is one thing, while writing a useful software that is to be used and maintained for years, is quite a different story. If you want to show off what a smart programmer you are, then you should become a researcher and write exploits. If, on the other hand, you want to be part of a team that makes real, useful software, you should ensure your coding style is impeccable. We often, at Qubes project, often took shortcuts, and often wrote nasty code, and this always back fired at us, sometime months, sometime years later, the net result being we had to spend time fixing code, rather than implementing new functionality.
+Often, developers, usually smart ones, undersell the value of proper coding style, thinking that it's much more important how their code works. These developers expect that if their code solves some problem using a nice and neat trick, then that's all that is really required. Such thinking shows, however, immaturity and is a signal that the developer, no matter how bright and smart, might not be a good fit for larger projects. Writing a clever exploit for a Black Hat show is one thing - writing useful software supposed to be used and maintained for years is quite a different story. If you want to show off what a smart programmer you are, then you should become a researcher and write exploits. If, on the other hand, you want to be part of a team that makes real, useful software, you should ensure your coding style is impeccable. At Qubes project, we often took shortcuts and wrote nasty code, and this has always back fired at us, sometime months, sometime years later, the net result being we had to spend time fixing code, rather than implementing new functionality.
 
-And here's a [link to the real case](https://groups.google.com/forum/#!msg/qubes-devel/XgTo6L8-5XA/JLOadvBqnqMJ) (one Qubes Security Bulletin) demonstrating how the above described problem lead to a real security bug. Never assume you're smart enough that you can disregard clean and rigorous coding!
+And here's a [link to the real case](https://groups.google.com/forum/#!msg/qubes-devel/XgTo6L8-5XA/JLOadvBqnqMJ) (one Qubes Security Bulletin) demonstrating how the lackadaisical coding style lead to a real security bug. Never assume you're smart enough  to disregard clean and rigorous coding!
 
 General typographic conventions
 -------------------------------
 
--   **Use space-expanded tabs that equal 4 spaces.** Yes, we know, there are many arguments for using "real" tabs, instead of space-expanded tabs, but we need to pick one convention to make the project consistent. One argument for using space-expanded tabs is that this way the programmer is in control of how the code will look like, despite how other users have configured their editors to visualize the tabs (of course, we assume any sane person uses a fixed-width font for viewing the source code). Anyway, if this makes you feel better, assume this is just an arbitrary choice.
+-   **Use space-expanded tabs that equal 4 spaces.** Yes, we know, there are many arguments for using "real" tabs instead of space-expanded tabs, but we need to pick one convention to make the project consistent. One argument for using space-expanded tabs is that this way the programmer is in control of how the code will look like, despite how other users have configured their editors to visualize the tabs (of course, we assume any sane person uses a fixed-width font for viewing the source code). If it makes you feel any better, assume this is just an arbitrary choice made to enforce a unified style.
 
--   **Maintain max. line length of 80 characters**. Even though today's monitors often are very wide and it's often not a problem to have 120 characters displayed in an editor, still maintaining shorter line lengths improves readability. It also allows to have two parallel windows open, side by side, each with different parts of the source code.
+-   **Maintain max. line length of 80 characters**. Even though today's monitors often are very wide and it's often not a problem to have 120 characters displayed in an editor, maintaining shorter line lengths improves readability. It also allows others to have two parallel windows open, side by side, each with different parts of the source code.
 
--   Class, functions, variables, and arguments naming convention for any OS other than Windows:
+-   **Naming conventions for any OS *other than Windows***:
     -   `ClassName`
     -   `some_variable`, `some_function`, `some_argument`
 
--   Class, functions, variables, and arguments naming convention for **Windows OS** -- exceptionally to preserve Windows conventions please use the following:
+-   **Naming convention *for Windows OS*** -- exceptionally to preserve Windows conventions please use the following:
     -   `ClassName`, `FunctionName`
     -   `pszArgumentOne`, `hPipe` -- use Hungarian notation for argument and variables
 
--   Horizontal spacing -- maintain at least decent amount of horizontal spacing, such as e.g. add obligatory space after `if` or before `{` in C, and similar in other languages. Whether to also use spaces within expressions, such as (x\*2+5) vs. (x \* 2 + 5) is left to the developer's judgment. Do not put spaces immediately after and before the brackets in expressions, so avoid constructs like this: `if ( condition )` and use `if (condition)` instead.
+-   **Maintain a decent amount of horizontal spacing**, e.g. add a space after `if` or before `{` in C, and similar in other languages. Whether and where to also use spaces within expressions, such as (x\*2+5) vs. (x \* 2 + 5) is left to the developer's judgment. Do not put spaces immediately after or before the brackets in expressions, so avoid constructs like this: `if ( condition )` and use ones like this: `if (condition)` instead.
 
--   **Use single new lines** ('\\n' aka LF) in any non-Windows source code. On Windows, exceptionally, use the CRLF line endings -- this will allow the source code to be easily view-able in various Windows-based programs.
+-   **Use single new lines** ('\\n' aka LF) in any non-Windows source code. On Windows, exceptionally, use the CRLF line endings (--). This will allow the source code to be easily viewable in various Windows-based programs.
 
--   **Use descriptive names for variables and functions**! Really, these days, when most editors have auto-completion feature, there is no excuse for using short variable names.
+-   **Use descriptive names for variables and functions**! Really, at a time when most editors have auto-completion features, there is no excuse for using short variable names.
 
--   Comments should be indent together with the code, e.g. like this:
+-   **Comments should be indented together with the code**, e.g. like this:
 
     ~~~
     for (...) {
@@ -78,7 +78,7 @@ File naming conventions
 **File naming in Windows systems:**
 
 -   All base qubes-related files in `C:\Program Files\Invisible Things Lab\Qubes\` (Exceptionally spaces are allowed here to adhere to Windows naming conventions)
--   Other, 3rd party files, not Qubes-specific, such as e.g. Xen PV drivers might be in different vendor subdirs, e.g. `C:\Program Files\Xen PV Drivers`
+-   Other, third-party files, not Qubes-specific, such as e.g. Xen PV drivers might be in different vendor subdirs, e.g. `C:\Program Files\Xen PV Drivers`
 
 General programming style guidelines
 ------------------------------------
@@ -97,7 +97,7 @@ General programming style guidelines
     }
     ~~~
 
--   Do **not** use comments to disable code fragments. In a production code there should really be no commented or disabled code fragments. If you really, really have a good reason to retain some fragment of unused code, use \#if or \#ifdef to disable it, e.g.:
+-   Do **not** use comments to disable code fragments. In production code there should really be no commented or disabled code fragments. If you really, really have a good reason to retain some fragment of unused code, use \#if or \#ifdef to disable it, e.g.:
 
     ~~~
     #if 0
@@ -130,7 +130,22 @@ Source Code management (Git) guidelines
     -   This creates natural boundaries between different code blocks, enforcing proper interfaces, and easing independent development to be conducted on various code parts at the same time, without the fear of running into conflicts.
     -   By maintaining relatively small git repositories, it is easy for new developers to understand the code and contribute new patches, without the need to understand all the other code.
     -   Code repositories represent also licensing boundaries. So, e.g. because `core-agent-linux` and `core-agent-windows` are maintained in two different repositories, it is possible to have the latter under a proprietary, non-GPL license, while keeping the former fully open source.
-    -   We have drastically changes the layout and naming of the code repositories shortly after Qubes OS R2 Beta 2 release. For details on the current code layout, please read [this article](http://theinvisiblethings.blogspot.com/2013/03/introducing-qubes-odyssey-framework.html).
+    -   We have drastically changed the layout and naming of the code repositories shortly after Qubes OS R2 Beta 2 release. For details on the current code layout, please read [this article](https://blog.invisiblethings.org/2013/03/21/introducing-qubes-odyssey-framework.html).
+
+Commit message guidelines
+-------------------------
+
+Please attempt to follow these conventions when writing your Git commit messages:
+
+ * Separate the subject line from the body with a blank line.
+ * Limit the subject line to approximately 50 characters.
+ * Capitalize the subject line.
+ * Do not end the subject line with a period.
+ * Use the imperative mood in the subject line.
+ * Wrap the body at 72 characters.
+ * Use the body to explain *what* and *why* rather than *how*.
+
+For details, examples, and the rationale behind each of these conventions, please see [this blog post](https://chris.beams.io/posts/git-commit/), which is the source of this list.
 
 Security coding guidelines
 --------------------------
@@ -150,7 +165,7 @@ Security coding guidelines
        height = untrusted_conf.height;
     ~~~
 
--   Use another variables, without the `untrusted_` prefix to hold the sanitized values, as shown above.
+-   Use others variables, without the `untrusted_` prefix to hold the sanitized values, as shown above.
 
 Python-specific guidelines
 --------------------------
@@ -163,7 +178,7 @@ C and C++ specific guidelines
 -   Do not place code in `*.h` files.
 -   Use `const` whenever possible, e.g. in function arguments passed via pointers.
 -   Do not mix procedural and objective code together -- if you write in C++, use classes and objects.
--   Think about classes hierarchy, before start implementing specific methods.
+-   Think about classes hierarchy, before starting to implement specific methods.
 
 Bash-specific guidelines
 ------------------------

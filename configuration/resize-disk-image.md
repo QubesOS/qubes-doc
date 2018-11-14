@@ -4,103 +4,98 @@ title: Resize Disk Image
 permalink: /doc/resize-disk-image/
 redirect_from:
 - /en/doc/resize-disk-image/
+- /en/doc/resize-root-disk-image/
 - /doc/ResizeDiskImage/
+- /doc/ResizeRootDiskImage/
 - /wiki/ResizeDiskImage/
+- /wiki/ResizeRootDiskImage/
 ---
 
 Resize Disk Image
 -----------------
 
-There are several disk images which can be easily extended. But pay attention to the overall consumed space of your sparse disk images.
+There are several disk images which can be easily extended, but pay attention to the overall consumed space of your sparse/thin disk images.
+See also [OS Specific Follow-up Instructions](/doc/resize-disk-image/#os-specific-follow-up-instructions) at the end of this page.
 
-### Private disk image
 
-1048576 MB is the maximum size which can be assigned to a private storage through qubes-manager.
+### Template disk image (R4.0)
 
-To grow the private disk image of a AppVM beyond this limit [qubes-grow-private](/doc/dom0-tools/qvm-grow-private/) can be used:
+If you want install a lot of software in your TemplateVM, you may need to increase the amount of disk space your TemplateVM can use. 
+*Make sure changes in the TemplateVM between reboots don't exceed 10G.*
+
+1.  Resize the *root image* using Qubes version specific procedure below.
+2.  Start the template.
+3.  Resize the filesystem using OS appropriate tools (Qubes will handle this automatically under Linux).
+4.  Verify available space in the template using `df -h` or OS specific tools.
+5.  Shutdown the template.
+
+### Template disk image (R3.2)
+
+If you want install a lot of software in your TemplateVM, you may need to increase the amount of disk space your TemplateVM can use. 
+*Make sure changes in the TemplateVM between reboots don't exceed 10G.*
+
+1.  Make sure that all the VMs based on this template are shut down (including netvms etc).
+2.  Resize the *root image* using Qubes version specific procedure below.
+3.  If any netvm/proxyvm used by this template is based on it, set template's netvm to none.
+4.  Start the template.
+5.  Resize the filesystem using OS appropriate tools (Linux is `sudo resize2fs /dev/mapper/dmroot`).
+6.  Verify available space in the template using `df -h` or OS specific tools.
+7.  Shutdown the template.
+8.  Restore original netvm setting (if changed), and check firewall settings (setting netvm to none causes the firewall to reset to "block all")
+
+### Expand disk image (R4.0)
+
+1048576 MiB is the maximum size which can be assigned to storage through Qube Manager.
+
+To grow the root or private disk image of an AppVM beyond this limit, `qvm-volume` can be used:
 
 ~~~
-qvm-grow-private <vm-name> <size>
+qvm-volume extend <vm_name>:root <size>
+~~~
+OR
+~~~
+qvm-volume extend <vm_name>:private <size>
 ~~~
 
 Note: Size is the target size (i.e. 4096MB or 16GB, ...), not the size to add to the existing disk.
 
-### Shrinking private disk image (Linux VM)
+### Expand disk image (R3.2)
 
-**This operation is dangerous and this is why it isn't available in standard Qubes tools. If you have enough disk space, it is safer to create new VM with smaller disk and move the data.**
+1048576 MB is the maximum size which can be assigned to storage through Qubes Manager.
 
-The basic idea is to:
-
-1.  Shrink filesystem on the private disk image.
-2.  Then shrink the image.
-
-Ext4 does not support online shrinking, so can't be done as convenient as image grown. Note that we don't want to touch the VM filesystem directly in dom0 for security reasons. First you need to start VM without `/rw` mounted. One of the possibility is to interrupt its normal startup by adding `rd.break` kernel option:
+To grow the private disk image of an AppVM beyond this limit, `qvm-grow-root` or [qvm-grow-private](/doc/dom0-tools/qvm-grow-private/) can be used:
 
 ~~~
-qvm-prefs -s <vm-name> kernelopts rd.break
-qvm-start --no-guid <vm-name>
+qvm-grow-root <vm-name> <size>
+~~~
+OR
+~~~
+qvm-grow-private <vm-name> <size>
 ~~~
 
-And wait for qrexec connect timeout (or simply press Ctrl-C). Then you can connect to VM console and shrink the filesystem:
+Note: Size is the target size (i.e. 4096MB or 16GB, ...), not the size to add to the existing disk. 
 
-~~~
-sudo xl console <vm-name>
-# you should get dracut emergency shell here
-mount --bind /dev /sysroot/dev
-chroot /sysroot
-mount /proc
-e2fsck -f /dev/xvdb
-resize2fs /dev/xvdb <new-desired-size>
-umount /proc
-exit
-umount /sysroot/dev
-poweroff
-~~~
+### Resize a StandaloneVM Root Image
 
-Now you can resize the image:
+For more flexibility, you may also turn your TemplateVM into a StandaloneVM.
+Doing this means it will have its own root filesystem *(StandaloneVMs use a copy of the template, instead of smart sharing)*.
+To do this run `qvm-create --standalone` from `dom0` console, then perform the [OS Specific Follow-up Instructions](/doc/resize-disk-image/#os-specific-follow-up-instructions) below.
 
-~~~
-truncate -s <new-desired-size> /var/lib/qubes/appvms/<vm-name>/private.img
-~~~
+### Shrinking a disk image
 
-**It is critical to use the same (or bigger for some safety margin) size in truncate call compared to resize2fs call. Otherwise you will loose your data!** Then reset kernel options back to default:
+Ext4 and most other filesystems do not support online shrinking, so it can't be done as conveniently as growing the image.
+Note that we don't want to touch the VM filesystem directly in dom0 for security reasons. 
 
-~~~
-qvm-prefs -s <vm-name> kernelopts default
-~~~
+1.  Create a new qube with smaller disk using Qube Manager or `qvm-create`
+2.  Move data to the new qube using `qvm-copy`, backup & restore, or OS utilities
+3.  Delete old qube using Qube Manager or `qvm-remove`
 
-Done.
+OS Specific Follow-up Instructions
+-----------------
 
-### Template disk image
-
-If you want install a lot of software in your TemplateVM, you may need to increase the amount of disk space your TemplateVM can use.
-
-1.  Make sure that all the VMs based on this template are shut off (including netvms etc).
-2.  Sanity check: verify that none of loop device are pointing at this template root.img: `sudo losetup -a`
-3.  Resize root.img file using `truncate -s <desired size>` (the root.img path can be obtained from qvm-prefs).
-4.  If any netvm/proxyvm used by this template is based on it, set template netvm to none.
-5.  Start the template.
-6.  Execute `sudo resize2fs /dev/mapper/dmroot` in the template.
-7.  Verify available space in the template using `df -h`
-8.  Shutdown the template.
-9.  Restore original netvm setting (if changed), check firewall settings (setting netvm to none causes firewall reset to "block all")
-
-### HVM disk image
-
-In this example we will grow the disk image of an HVM to 30GB.
-
-First, stop/shutdown the HVM.
-
-Then, from a Dom0 terminal (in KDE: System Tools -\> Terminal Emulator) do the following:
-
-~~~
-cd /var/lib/qubes/appvms/<yourHVM>/
-ls -lh root.img  (<--verify current size of disk image)
-truncate -s 30GB root.img
-ls -lh root.img  (<--verify new size of disk image)
-~~~
-
-The partition table and file-system must be adjusted after this change:
+After expanding volumes, the partition table and file-system may need to be adjusted.
+Use tools appropriate to the OS in your qube.
+Brief instructions for Windows 7, FreeBSD, and Linux are provided below.
 
 #### Windows 7
 
@@ -119,3 +114,9 @@ sysctl kern.geom.debugflags=0x10
 gpart resize -i index ada0
 zpool online -e poolname ada0
 ~~~
+
+#### Linux
+
+Qubes will automatically grow the filesystem for you on AppVMs but not HVMs (or Template root images on R3.2).
+You will see that there is unallocated free space at the end of your primary disk.
+You can use standard linux tools like `fdisk` and `resize2fs` to make this space available.

@@ -419,7 +419,7 @@ Remember to also import gpg public key using `rpm --import`.
 
 ### Deb packages - Apt repo
 
-Steps are mostly the same as in case of yum repo. Only details differs:
+Steps are mostly the same as in the case of yum repo. The only details that differ:
 
  - use [linux-deb] instead of [linux-yum] as a base - both in source and target VM
  - use different `update_repo.sh` script in source VM (below)
@@ -541,6 +541,6 @@ Usage: add this line to `/etc/apt/sources.list` on test machine (adjust host and
 deb http://local-test.lan/linux-deb/r3.1 jessie-unstable main
 ~~~
 
-[port-forwarding]: /doc/qubes-firewall/#port-forwarding-to-a-vm-from-the-outside-world
+[port-forwarding]: /doc/firewall/#port-forwarding-to-a-qube-from-the-outside-world
 [linux-yum]: https://github.com/QubesOS/qubes-linux-yum
 [linux-deb]: https://github.com/QubesOS/qubes-linux-deb

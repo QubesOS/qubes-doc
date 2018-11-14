@@ -26,7 +26,7 @@ Upgrading dom0
 
 3.  Install `qubes-release` package carrying R3.2 repository information.
 
-        sudo qubes-dom0-update --enablerepo=qubes*testing --releasever=3.2 qubes-release
+        sudo qubes-dom0-update --releasever=3.2 qubes-release
 
     If you made any manual changes to repository definitions, new definitions
     will be installed as `/etc/yum.repos.d/qubes-dom0.repo.rpmnew` (you'll see
@@ -114,13 +114,18 @@ repeated in **all** the user's Template and Standalone VMs.
 
 ### Upgrade Fedora templates: ###
 
+**Note:** This will only upgrade your Fedora template from Qubes 3.1 to Qubes
+3.2. This will *not* upgrade your Fedora template from Fedora 23 to Fedora 24.
+In order to do that, please see the
+[Fedora 23 template upgrade instructions](/doc/fedora-template-upgrade-23/).
+
 1.  Open a terminal in the TemplateVM (or StandaloneVM). (E.g., use Qubes VM
     Manager's right-click menu, choose "Run Command in VM," and type
     `gnome-terminal` there.)
 
 2.  Install the `qubes-upgrade-vm` package:
 
-        sudo dnf install --enablerepo=qubes*testing --refresh qubes-upgrade-vm
+        sudo dnf install --refresh qubes-upgrade-vm
 
 3.  Proceed with a normal upgrade in the template:
 

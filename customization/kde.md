@@ -12,7 +12,7 @@ Installation
 ------------
 
 Prior to R3.2, KDE was the default desktop environment in Qubes. Beginning with
-R3.2, however, [XFCE is the new default desktop environment](https://github.com/QubesOS/qubes-issues/issues/2119). Nonetheless, it is
+R3.2, however, [XFCE is the new default desktop environment](/doc/releases/3.2/release-notes/). Nonetheless, it is
 still possible to install KDE by issuing this command in dom0:
 
     $ sudo qubes-dom0-update @kde-desktop-qubes
@@ -39,6 +39,8 @@ You can also change your default login manager (lightdm) to the new KDE default:
 ~~~
 
  * reboot
+
+If you encounter performance issues with KDE, try switching back to LightDM.
 
 Window Management
 -----------------

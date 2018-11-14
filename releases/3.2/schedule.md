@@ -11,14 +11,6 @@ Qubes R3.2 Release Schedule
 
 This schedule is based on [Version Scheme](/doc/version-scheme/#release-schedule).
 
-<style>
-article td, article th {
-    border-width: 2px;
-    border-style: double;
-    padding: 5px;
-}
-</style>
-
 |  Date       | Stage                                   |
 | -----------:| --------------------------------------- |
 | 18 Jun 2016 | 3.2-rc1 release                         |

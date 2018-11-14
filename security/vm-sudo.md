@@ -39,8 +39,8 @@ Background ([/etc/sudoers.d/qubes](https://github.com/QubesOS/qubes-core-agent-l
     # and for sure, root/user isolation is not a mitigating factor.
     #
     # Because, really, if somebody could find and exploit a bug in the Xen
-    # hypervisor -- so far there have been only one (!) publicly disclosed
-    # exploitable bug in the Xen hypervisor from a VM, found in 2008,
+    # hypervisor -- as of 2016, there have been only three publicly disclosed
+    # exploitable bugs in the Xen hypervisor from a VM -- then it would be
     # incidentally by one of the Qubes developers (RW) -- then it would be
     # highly unlikely if that person couldn't also found a user-to-root
     # escalation in VM (which as we know from history of UNIX/Linux
@@ -104,15 +104,18 @@ this for extra security.**
 
 1. Adding Dom0 "VMAuth" service:
 
-        [root@dom0 /]# echo -n "/usr/bin/echo 1" >/etc/qubes-rpc/qubes.VMAuth
-        [root@dom0 /]# echo -n "$anyvm dom0 ask" >/etc/qubes-rpc/policy/qubes.VMAuth
+        [root@dom0 /]# echo "/usr/bin/echo 1" >/etc/qubes-rpc/qubes.VMAuth
+        [root@dom0 /]# echo "\$anyvm dom0 ask,default_target=dom0" \
+        >/etc/qubes-rpc/policy/qubes.VMAuth
 
    (Note: any VMs you would like still to have password-less root access (e.g. TemplateVMs) can be specified in the second file with "\<vmname\> dom0 allow")
 
 2. Configuring Fedora TemplateVM to prompt Dom0 for any authorization request:
-    - In /etc/pam.d/system-auth, replace all lines beginning with "auth" with one line:
+    - In /etc/pam.d/system-auth, replace all lines beginning with "auth" with these lines:
 
-          auth       [success=done default=die]  pam_exec.so seteuid /usr/lib/qubes/qrexec-client-vm dom0 qubes.VMAuth /usr/bin/grep -q ^1$
+          auth  [success=1 default=ignore]  pam_exec.so seteuid /usr/lib/qubes/qrexec-client-vm dom0 qubes.VMAuth /bin/grep -q ^1$
+          auth  requisite  pam_deny.so
+          auth  required   pam_permit.so
 
     - Require authentication for sudo. Replace the first line of /etc/sudoers.d/qubes with:
 
@@ -124,9 +127,11 @@ this for extra security.**
           [root@fedora-20-x64]# rm /etc/polkit-1/localauthority/50-local.d/qubes-allow-all.pkla
 
 3. Configuring Debian/Whonix TemplateVM to prompt Dom0 for any authorization request:
-    - In /etc/pam.d/common-auth, replace all lines beginning with "auth" with one line:
+    - In /etc/pam.d/common-auth, replace all lines beginning with "auth" with these lines:
 
-          auth       [success=done default=die]  pam_exec.so seteuid /usr/lib/qubes/qrexec-client-vm dom0 qubes.VMAuth /bin/grep -q ^1$
+          auth  [success=1 default=ignore]  pam_exec.so seteuid /usr/lib/qubes/qrexec-client-vm dom0 qubes.VMAuth /bin/grep -q ^1$
+          auth  requisite  pam_deny.so
+          auth  required   pam_permit.so
 
     - Require authentication for sudo. Replace the first line of /etc/sudoers.d/qubes with:
 
@@ -141,6 +146,13 @@ this for extra security.**
 
           auth sufficient pam_permit.so
 
+    - For Whonix, if prompts appear during boot, create /etc/sudoers.d/zz99 and add these lines:
+
+          ALL ALL=NOPASSWD: /usr/sbin/virt-what
+          ALL ALL=NOPASSWD: /usr/sbin/service whonixcheck restart
+          ALL ALL=NOPASSWD: /usr/sbin/service whonixcheck start
+          ALL ALL=NOPASSWD: /usr/sbin/service whonixcheck stop
+          ALL ALL=NOPASSWD: /usr/sbin/service whonixcheck status
 
 Dom0 password-less root access
 ------------------------------

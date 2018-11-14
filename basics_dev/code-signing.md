@@ -7,8 +7,7 @@ permalink: /doc/code-signing/
 Code Signing
 ============
 
-All contributions to the Qubes OS [source code] must be cryptographically signed
-by the author's PGP key.
+All contributions to the Qubes OS [source code] must be cryptographically signed by the author's PGP key.
 
 
 Generating a Key
@@ -79,6 +78,15 @@ uid                  Bilbo Baggins <bilbo@shire.org>
 sub   4096R/69B0EA85 2013-03-13
 ~~~
 
+Upload the Key
+--------------
+
+For others to find the public key, please upload it to a server.
+
+```
+$ gpg --send-keys --keyserver pool.sks-keyservers.net 69B0EA85
+gpg: sending key 488BA441 to hkp server pool.sks-keyservers.net
+```
 
 Using PGP with Git
 ------------------
@@ -104,16 +112,26 @@ your Git commits.
    commit -S
    ~~~
 
-3. (Optional) Create signed tags:
+3. (Optional) Create signed tags.  
+   Signed commits are totally sufficient to contribute to Qubes OS.
+   However, if you have commits which are not signed and you do not want to change them,
+   you can create a signed tag for the commit and push it before the check.
+
+   This is useful for example, if you have a commit back in the git history which
+   you like to sign now without rewriting the history.
 
    ~~~
    git tag -s <tag_name> -m "<tag_message>"
    ~~~
 
-   You can also create an alias to make this easier:
+   You can also create an alias to make this easier.
+   Edit your `~/.gitconfig` file.
+   In the `[alias]` section, add `stag` to create signed tags and `spush` to create signed tags and push them.
 
    ~~~
-   stag = "!id=`git rev-parse --verify HEAD`; git tag -s tag_for_${id:0:8} -m \"Tag for commit $id\""
+   [alias]
+   stag = "!bash -c 'id=\"`git rev-parse --verify HEAD`\"; tag_name="signed_tag_for_${id:0:8}"; git tag -s "$tag_name" -m \"Tag for commit $id\"; echo \"$tag_name\"'"
+   spush = "!bash -c 'git push origin `git stag`'"
    ~~~
 
    You may also find it convenient to have an alias for verifying the tag on the
@@ -123,17 +141,77 @@ your Git commits.
    vtag = !git tag -v `git describe`
    ~~~
 
+GitHub Signature Verification (optional)
+----------------------------------------
+
+GitHub shows a green `Verified` label indicating that the GPG signature could be
+verified using any of the contributor’s GPG keys uploaded to GitHub. You can
+upload your public key on GitHub by adding your public GPG key on the [New GPG
+key][GitHub New GPG key] under the [SSH GPG keys page][GitHub SSH GPG keys
+page].
+
+Code Signature Checks
+---------------------
+
+The [signature-checker] checks if code contributions are signed.
+Although GitHub adds a little green `Verified` button next to the commit, the [signature-checker] uses this algorithm to check if a commit is correctly signed:
+
+1. Is the commit signed?  
+   If the commit is not signed, you can see the message
+   > policy/qubesos/code-signing — No signature found
+2. If the commit is signed, the key is downloaded from a GPG key server.  
+   If you can see the following error message, please check if you have uploaded the key to a key server.
+   > policy/qubesos/code-signing — Unable to verify (no valid key found)
+
+### No Signature Found
+
+> policy/qubesos/code-signing — No signature found
+
+In this case, you have several options to sign the commit:
+
+1. Amend the commit and replace it with a signed commit.  
+   You can use this command to create a new signed commit:
+   ```
+   git commit --amend -S
+   ```
+   This also rewrites the commit so you need to push it forcefully:
+   ```
+   git push -f
+   ```
+2. Create a signed tag for the unsigned commit.  
+   If the commit is back in history and you do not want to change it,
+   you can create a signed tag for this commit and push the signature.
+   You can use the alias from above:
+   ```
+   git checkout <commit>
+   git spush
+   ```
+   Now, the signature checker needs to re-check the signature.
+   Please comment on the pull request that you would like to have the signatures checked again.
+
+### Unable To Verify
+
+> policy/qubesos/code-signing — Unable to verify (no valid key found)
+
+This means that the [signature-checker] has found a signature for the commit
+but is not able to verify it using the any key available.
+This might be that you forgot to upload the key to a key server.
+Please upload it.
+
 
 Using PGP with Email
 --------------------
 
-If you're submitting a patch via email (to the developer [mailing list]), simply
-sign your email with your PGP key. (One good way to do this is with a program
-like [Enigmail].)
+If you're submitting a patch by emailing the [developer mailing list], simply sign your email with your PGP key. 
+One good way to do this is with a program like [Enigmail]. 
+Enigmail is a security addon for the Mozilla Thunderbird email client that allows you to easily digitally encrypt and sign your emails.
 
 
 [guide]: https://alexcabal.com/creating-the-perfect-gpg-keypair/
 [source code]: /doc/source-code/
-[mailing list]: /doc/mailing-lists/
+[developer mailing list]: /support/#qubes-devel
 [Enigmail]: https://www.enigmail.net/
+[signature-checker]: https://github.com/marmarek/signature-checker
+[GitHub New GPG key]: https://github.com/settings/gpg/new
+[GitHub SSH GPG keys page]: https://github.com/settings/keys
 

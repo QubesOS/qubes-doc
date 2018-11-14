@@ -100,9 +100,10 @@ Now, when you have dom0 upgraded, you can install new templates from Qubes R3.0 
 Upgrading template on already upgraded dom0
 -------------------------------------------
 
-When for some reason you did not upgraded all the templates and standalone VMs before upgrading dom0, you can still do this, but it will be somehow more complicated. This can be a case when you restore backup done on Qubes R2.
+If for some reason you did not upgrade all the templates and standalone VMs before upgrading dom0, you can still do this, but it will be more complicated. This can be the case when you restore backup done on Qubes R2.
 
 When you start R2 template/standalone VM on R3.0, there will be some limitations:
+
 1. qrexec will not connect (you will see an error message during VM startup)
 2. GUI will not connect - you will not see any VM window
 3. VM will not be configured - especially it will not have network access

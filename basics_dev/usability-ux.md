@@ -7,26 +7,26 @@ permalink: /doc/usability-ux/
 Usability & UX
 ==============
 
-Software that is too complicated to use, is often unused. Thus, usability and user experience of Qubes OS is an utmost priority for us, as we want as many people as possible to benefit from the unique security properties of Qubes OS!
+Software that is too complicated to use, is often unused. Because we want as many people as possible to benefit from its unique security properties, the usability and user experience of Qubes OS is an utmost priority!
 
-We ask anyone developing for Qubes OS to please read through this guide to better understand the user experience we strive to achieve. Also, please review [our style guide](/doc/style-guide/) for other design related information.
+We ask anyone developing for Qubes OS to please read through this guide to better understand the user experience we strive to achieve. We also ask them to review [our style guide](/doc/style-guide/) for other design related information.
 
 ---
 
 ## Easy To Use
 
-An ideal user experience is friendly and welcomes a new user to explore the interface and in this process easily discover *how* to use the software. Additionally, security focused software has the responsibility of providing safety to a user and their data.
+An ideal user experience is friendly, and it beckons a new user to explore the interface. In this process, they can naturally discover how to use the software. Below are some guidelines that will help you design a user interface that accomplishes this goal.
 
 <div class="focus">
   <i class="fa fa-times"></i> <strong>Interfaces Should Not</strong>
 </div>
 
-- Require numerous settings to be entered before a user can *begin* doing things
+- Require extensive configuration before a user can *begin* doing things
 - Make it possible to break provided features or actions in unrecoverable ways
 - Perform actions which compromise security and data
-- Overwhelm with too much information and cognitive load
+- Overwhelm the user with too much information and cognitive load
 
-Perhaps the most common cause of mistakes is complexity. Thus, if there is a configuration setting that will significantly affect the user experience, choose a safe and smart default then tuck this setting in an `Advanced Settings` panel.
+Perhaps the most common cause of mistakes is complexity. If there is a configuration setting that will significantly affect the user's experience, choose a safe and smart default then tuck this setting in an `Advanced Settings` panel.
 
 <div class="focus">
   <i class="fa fa-check"></i> <strong>Interfaces Should</strong>
@@ -37,38 +37,38 @@ Perhaps the most common cause of mistakes is complexity. Thus, if there is a con
 - Offer the ability to easily undo mistakes
 - Choose intelligent defaults for settings
 
-A crucial thing in making software easy to use, is being mindful of [cognitive load](https://en.wikipedia.org/wiki/Cognitive_load) which dictates that *"humans are generally able to hold only seven +/-  two units of information in short-term memory."* This short-term memory limit is perhaps the most important factor in helping a user feel comfortable instead of overwhelmed.
+In making software easy to use, it is crucial to be mindful of [cognitive load](https://en.wikipedia.org/wiki/Cognitive_load) which dictates that *"humans are generally able to hold only seven +/-  two units of information in short-term memory."* Making sure your interfaces don't pass this short-term memory limit is perhaps the most important factor in helping a user feel comfortable instead of overwhelmed.
 
 
 ---
 
 ## Easy to Understand
 
-There will always be the need to communicate things to users. In these cases, an interface should aim to make this information easy to understand. The following are simple guides to help achieve this- none these are absolute maxims!
+There will always be the need to communicate things to users. In these cases, an interface should aim to make this information easy to understand. The following are simple guides to help achieve this - none of these are absolute maxims!
 
 <div class="focus">
   <i class="fa fa-times"></i> <strong>Avoid Acronyms</strong>
 </div>
 
-Acronyms are short and make good names for command line tools. Acronyms do not make graphical user interfaces more intuitive for non-technical users. Until one learns an acronyms meaning, it is otherwise meaningless. Avoid acronyms whenever possible!
+Acronyms are compact and make good names for command line tools. They do not make graphical user interfaces more intuitive for non-technical users. Until one learns an acronym's meaning, it is gibberish. Avoid acronyms in your interfaces whenever possible!
 
 - `DVM` - Disposable Virtual Machine
 - `GUID` - Global Unique Identifier
-- `PID` - Process Identification
+- `PID` - Process Identification Number
 - `NetVM` - Networking Virtual Machine
+
+Despite this rule, some acronyms like `USB` are widely used and understood due to being in common use for over a decade. It is good to use these acronyms when the full words like `Universal Serial Bus` are more likely to confuse users.
 
 <div class="focus">
   <i class="fa fa-check"></i> <strong> Use Simple Words</strong>
 </div>
 
-Use the minimum amount of words needed to be descriptive, but also informative. Go with common words that are as widely understood as possible. Sometimes, inventing a word such as `Qube` to describe a `virutal machine` in the context of Qubes OS, is a good idea.
+Use the minimum amount of words needed to be descriptive, but also informative. Go with common words that are as widely understood. Sometimes, inventing a word such as `Qube` to describe a `virtual machine` makes the life of the user much easier.
 
-- Use `Disposable Qube` instead of `DVM`
-- Use `interface` instead of `GUI`
-- Use `application` instead of `PID`
+- Use `Disposable Qube` instead of `DVM` or `Disposable Virtual Machine`
+- Use `interface` instead of `GUI` or `Graphical User Interface`
+- Use `application number` instead of `PID` or `Process Identification Number`
 - Use `Networking` or `Networking Qube` instead of `NetVM` given context
-
-However, acronyms like `USB` are widely used and understood due to being in common use for over a decade. It is good to use these acronyms, as the full words `Universal Serial Bus` is more likely to confuse users.
 
 ---
 
@@ -82,7 +82,7 @@ Technical words are usually more accurate, but they often *only* make sense to t
 - `savefile`
 - `qrexec-daemon`
 
-These are all terms that have at some point showed up in notification messages presented users. Each term is very accurate, but requires understanding virtualization
+These are all terms that have at some point showed up in users' notification messages. Each term is very specific, but requires the user to understand virtualization to interpret.
 
 <div class="focus">
   <i class="fa fa-check"></i> <strong> Use Common Concepts</strong>
@@ -90,9 +90,9 @@ These are all terms that have at some point showed up in notification messages p
 
 Large amounts of the global population have been using computers for one or two decades and have formed some mental models of how things work. Leveraging these mental models are a huge gain.
 
-- Use `disk space` instead of `root.img` while not quite accurate, it makes contextual sense
-- Use`saving` instead of `savefile` as the former is the action trying to be completed
-- Use `Qubes` instead of `qrexec-daemon` as it is the larger context what is happening
+- Use `disk space` instead of `root.img`, since while not quite accurate, it makes contextual sense
+- Use `saving` instead of `savefile` as the former is the action trying to be completed
+- Use `Qubes` instead of `qrexec-daemon` as it gives better context on what is happening
 
 These words are more abstract and user relevant- they help a user understand what is happening based on already known concepts (disk space) or start to form a mental model of something new (Qubes).
 
@@ -126,7 +126,7 @@ By using the same term throughout an interface, a user can create a mental model
   <i class="fa fa-times"></i> <strong>Avoid Duplicate Words</strong>
 </div>
 
-It is easy when trying to be descriptive and accurate to add words like `Domain` before items in a list or menu such as:
+It is easy to add words like `Domain` before items in a list or menu in an attempt to be descriptive, such as:
 
 ~~~
 Menu
@@ -135,13 +135,13 @@ Menu
 - Domain: personal
 ~~~
 
-The repeated use of the word `Domain` requires a user to read it for each item in the list, which takes extra time for the eye to parse out the relevant word like `work, banking, or personal`.  This also affects horizontal space on fixed width lines.
+The repeated use of the word `Domain` requires a user to read it for each item in the list, which makes extra work for the eye in parsing out the relevant word like `work, banking, or personal`.  This also affects horizontal space on fixed width lines.
 
 <div class="focus">
   <i class="fa fa-check"></i> <strong> Create Groups & Categories</strong>
 </div>
 
-It is more efficient to group things under headings like `Domains` as this allows the eye to easily scan the uniqueness of the items.
+It is more efficient to group things under headings instead as this allows the eye to easily scan the uniqueness of the items. (As per our previous example:)
 
 ~~~
 Domains
@@ -154,32 +154,34 @@ Domains
 
 ## Easy To Complete
 
-Lastly, expected (and unexpected) situations will happen which require user actions or input. Make resolving of these actions as easy as possible to complete the action or find.
+Lastly, expected (and unexpected) situations often require user actions or input. Make resolving these occurences as easy as possible to complete the action.
 
 <div class="focus">
-  <i class="fa fa-times"></i> <strong>Don't Leave Users Stranded</strong>
+  <i class="fa fa-times"></i><strong>Don't Leave Users Stranded</strong>
 </div>
 
-Consider the following notifications which are shown to a user:
+Consider the following notifications:
 
 - `The disk space of your Qube "Work" is full`
 - `There was an error saving Qube "Personal"`
 
+Instead of displaying solvable errors like these and neglecting to provide a fix:
+
 <div class="focus">
-  <i class="fa fa-check"></i> <strong> Offer Actionable Solutions</strong>
+  <i class="fa fa-check"></i><strong>Offer Actionable Solutions</strong>
 </div>
 
-An error message or limit such as that can be greatly improved upon by adding buttons or links to helpful information.
+Error messages and limits such as those in the previous example can be greatly improved by adding buttons or links to helpful information.
 
-- Add a button `Increase Disk Space`
-- Add a link to documentation `Troubleshoot saving data`
+- Add a button to `Increase Disk Space`
+- Add a link to a documentation page called `Troubleshoot saving data`
 
-Adhering to these principles, make undesirable situations more manageable for users instead of feeling stranded.
+In adhering to these principles, you'll make undesirable situations more manageable for users instead of feeling stranded.
 
 ---
 
 <div class="focus">
-  <i class="fa fa-times"></i> <strong>Avoid Repetitive Tasks</strong>
+  <i class="fa fa-check"></i><strong>Minimize Repetitive Steps</strong>
 </div>
 
 There are many cases where a user wants to perform an action on more than one file or folder. However in order to do the action, the user must repeat certain steps such as:
@@ -193,26 +195,24 @@ There are many cases where a user wants to perform an action on more than one fi
 3. Select proper file
 4. Complete task on file
 
-That subtle act of clicking through a file system can prove to be significant if a user needs to open more than a couples files in the same directory.
-
-<div class="focus">
-  <i class="fa fa-check"></i> <strong>Minimize Repetitive Steps</strong>
-</div>
+That subtle act of clicking through a file system can prove to be significant if a user needs to open more than a couple files in the same directory. We can alleviate some of the work by changing the process:
 
 1. Click on `Open File` from a menu or button
-2. Remember last open file system
+2. Remember last open folder/file system
 3. Select proper file
 4. Complete task
 
-Clearly, cutting out navigating through the file system can save a user quite a bit of time. Alternatively, adding a button or menu item `Open Multiple Files` could be even better, as using hot keys to select multiple files is often a thing only power users know how to do!
+Clearly, cutting out something as simple as navigating through the file system can save a user quite a bit of time. Alternatively, adding a button or menu item like `Open Multiple Files` might be even better, because remembering and using relevant hotkeys is often something only power users know how to do!
 
 ---
 
 ## GNOME, KDE, and Xfce
 
-The the desktop GUIs which QubesOS versions 1 - 3.1 offer are [KDE](https://www.kde.org), as well as [Xfce](https://xfce.org). We are currently migrating towards using [GNOME](https://www.gnome.org). We know some people prefer KDE, however, we believe the overalluser  experience of GNOME is more focused on simplicity and ease of use for average non-technical users. Xfce will always be supported, and technical users will always be able to still use KDE or other desktop environments.
+The desktop GUIs that QubesOS versions 1 - 3.1 offer are [KDE](https://www.kde.org) and [Xfce](https://xfce.org). We are currently migrating towards using [GNOME](https://www.gnome.org). We know some people prefer KDE, but we believe Gnome is easier to use for average non-technical users. Xfce will always be supported, and technical users will always have the choice to use KDE or other desktop environments.
 
-All three desktop environments have their own [human interface guidelines](https://en.wikipedia.org/wiki/Human_interface_guidelines) and we suggest you familiarize yourself with the platform you developing for.
+This change means you should use [GTK](https://www.gtk.org/) rather than Qt for new GUIs.
+
+All three of these mentioned desktop environments have their own [human interface guidelines](https://en.wikipedia.org/wiki/Human_interface_guidelines), and we suggest you familiarize yourself with the platform you developing for.
 
 - [GNOME Human Interface Guidelines](https://developer.gnome.org/hig/3.18/)
 - [KDE HIG](https://techbase.kde.org/Projects/Usability/HIG)
@@ -222,7 +222,7 @@ All three desktop environments have their own [human interface guidelines](https
 
 ## Further Learning & Inspiration
 
-Learning to make well designing intuitive interfaces and software is specialized skillset that can take years to cultivate, but if you are interested in furthering your understanding of usability and experience, we suggest the following resources.
+Learning to make well designing intuitive interfaces and software is specialized skillset that can take years to cultivate, but if you are interested in furthering your understanding, we suggest the following resources:
 
 - [Learn Design Principles](http://learndesignprinciples.com) by Melissa Mandelbaum
 - [Usability in Free Software](http://jancborchardt.net/usability-in-free-software) by Jan C. Borchardt

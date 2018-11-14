@@ -8,6 +8,8 @@ redirect_from:
 - /wiki/QubesBuilder/
 ---
 
+**Note: The build system has been improved since this how-to was last updated. The [ISO building instructions](/doc/qubes-r3-building/) contain more up-to-date information on how to use the build system.**
+
 Building Qubes from scratch
 ===========================
 
@@ -15,39 +17,47 @@ We have a fully automated build system for Qubes, that downloads, builds and
 packages all the Qubes components, and finally should spit out a ready-to-use
 installation ISO.
 
-In order to use it one should use an rpm-based distro, like Fedora :) and should ensure the following packages are installed:
+In order to use it, one should use an rpm-based distro, like Fedora :), and should ensure the following packages are installed:
 
+-   sudo
+-   gpg
 -   git
 -   createrepo
 -   rpm-build
 -   make
 -   wget
 -   rpmdevtools
--   python-sh
+-   python2-sh
 -   dialog
 -   rpm-sign
+-   dpkg-dev
+-   debootstrap
+-   PyYAML
+-   devscripts
+-   perl-Digest-MD5
+-   perl-Digest-SHA
 
-Unusually one can install those packages by just issuing:
+Usually one can install those packages by just issuing:
 
-    sudo yum install git createrepo rpm-build make wget rpmdevtools python-sh dialog rpm-sign
+    sudo dnf install gpg git createrepo rpm-build make wget rpmdevtools python2-sh dialog rpm-sign dpkg-dev debootstrap PyYAML devscripts perl-Digest-MD5 perl-Digest-SHA
 
 The build system creates build environments in chroots and so no other packages are needed on the host. All files created by the build system are contained within the qubes-builder directory. The full build requires some 25GB of free space, so keep that in mind when deciding where to place this directory.
 
-The build system is configured via builder.conf file -- one should copy the attached builder.conf.default, and modify it as needed, e.g.:
+The build system is configured via builder.conf file -- one should copy the provided default builder.conf, and modify it as needed, e.g.:
 
     cp example-configs/qubes-os-master.conf builder.conf 
     # edit the builder.conf file and set the following variables: 
     NO_SIGN=1
 
-One additional useful requirement is that 'sudo root' work without any prompt, which is default on most distros (e.g. 'sudo bash' brings you the root shell without asking for any password). This is important as the builder needs to switch to root and then back to user several times during the build process.
+One additional useful requirement is that 'sudo root' must work without any prompt, which is default on most distros (e.g. 'sudo bash' brings you the root shell without asking for any password). This is important as the builder needs to switch to root and then back to user several times during the build process.
 
-Additionally, if building with signing enabled (so NO\_SIGN is not set), one must adjust \~/.rpmmacro file so that it point to the GPG key used for package signing, e.g.:
+Additionally, if building with signing enabled (NO\_SIGN is not set), one must adjust \~/.rpmmacro file so that it points to the GPG key used for package signing, e.g.:
 
     %_signature gpg
     %_gpg_path /home/user/.gnupg
     %_gpg_name AC1BF9B3  # <-- Key ID used for signing
 
-It is also recommended to use an empty passphrase for the private key used for signing. Contrary to a popular belief, this doesn't affect your key or sources security -- if somebody compromised your system, then the game is over, whether you use additional passphrase for the key or not.
+It is also recommended to use an empty passphrase for the private key used for signing. Contrary to a popular belief, this doesn't affect your key or sources security -- if somebody compromised your system, then the game is over anyway, whether you have used an additional passphrase for the key or not.
 
 So, to build Qubes one would do:
 
@@ -89,7 +99,7 @@ You can also build selected component separately. Eg. to compile only gui virtua
 
     make gui-daemon
 
-Full list you can get from make help. For advanced use and preparing sources
+You can get a full list from make help. For advanced use and preparing sources
 for use with [QubesBuilder](/doc/qubes-builder/) take a look at [doc directory
 in QubesBuilder](https://github.com/marmarek/qubes-builder/tree/master/doc) or 
 [QubesBuilderDetails](/doc/qubes-builder-details/) page.
@@ -126,7 +136,7 @@ If you want to somehow modify sources, you can also do it, here are some basic s
         make iso
 
 Code verification keys management
-=================================
+---------------------------------
 
 [QubesBuilder](/doc/qubes-builder/) by default verifies signed tags on every downloaded code. Public keys used for that are stored in `keyrings/git`. By default Qubes developers' keys are imported automatically, but if you need some additional keys (for example your own), you can add them using:
 

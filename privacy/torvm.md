@@ -20,7 +20,7 @@ Qubes TorVM (qubes-tor)
 
 Qubes TorVM is a deprecated ProxyVM service that provides torified networking to
 all its clients. **If you are interested in TorVM, you will find the
-[Whonix implementation in Qubes](https://www.qubes-os.org/doc/privacy/whonix/) a
+[Whonix implementation in Qubes](/doc/privacy/whonix/) a
 more usable and robust solution for creating a torifying traffic proxy.**
 
 By default, any AppVM using the TorVM as its NetVM will be fully torified, so
@@ -33,7 +33,7 @@ identifying information (IP address and MAC address).
 Due to the nature of the Tor network, only IPv4 TCP and DNS traffic is allowed.
 All non-DNS UDP and IPv6 traffic is silently dropped.
 
-See [this article](http://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html) for a description of the concept, architecture, and the original implementation.
+See [this article](https://blog.invisiblethings.org/2011/09/28/playing-with-qubes-networking-for-fun.html) for a description of the concept, architecture, and the original implementation.
 
 ## Warning + Disclaimer
 
@@ -273,9 +273,9 @@ transparent torified solutions. Notably the following:
 [stream-isolation]: https://gitweb.torproject.org/torspec.git/blob/HEAD:/proposals/171-separate-streams.txt
 [stream-isolation-explained]: https://lists.torproject.org/pipermail/tor-talk/2012-May/024403.html
 [tor-threats]: https://www.torproject.org/projects/torbrowser/design/#adversary
-[qubes-net]: https://www.qubes-os.org/doc/QubesNet/
+[qubes-net]: /doc/QubesNet/
 [dns]: https://tails.boum.org/todo/support_arbitrary_dns_queries/
 [tor-browser]: https://www.torproject.org/download/download-easy.html
 [tor-verify-sig]: https://www.torproject.org/docs/verifying-signatures.html
-[dispvm]: https://www.qubes-os.org/doc/DisposableVms/
-[dispvm-customization]: https://www.qubes-os.org/doc/UserDoc/DispVMCustomization/
+[dispvm]: /doc/DisposableVms/
+[dispvm-customization]: /doc/UserDoc/DispVMCustomization/

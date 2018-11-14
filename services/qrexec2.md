@@ -127,7 +127,7 @@ Whenever a RPC request for service named "XYZ" is received, the first line
 in `/etc/qubes-rpc/policy/XYZ` that matches the actual `srcvm`/`destvm` is
 consulted to determine whether to allow RPC, what user account the program
 should run in target VM under, and what VM to redirect the execution to. If
-the policy file does not exits, user is prompted to create one *manually*;
+the policy file does not exist, user is prompted to create one *manually*;
 if still there is no policy file after prompting, the action is denied.
 
 On the target VM, the `/etc/qubes-rpc/XYZ` must exist, containing the file
@@ -216,7 +216,7 @@ appear after the invocation of this command. If we changed the policy from
 be allowed.
 
 **Note:** For a real world example of writing a qrexec service, see this
-[blog post](http://theinvisiblethings.blogspot.com/2013/02/converting-untrusted-pdfs-into-trusted.html).
+[blog post](https://blog.invisiblethings.org/2013/02/21/converting-untrusted-pdfs-into-trusted.html).
 
 ### More high-level RPCs? ###
 

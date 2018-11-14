@@ -16,12 +16,16 @@ Rxvt
 Installation
 ------------
 
-`yum install rxvt-unicode-256color-ml` will bring both base `rxvt-unicode` and extension. Let me also recommend excellent Terminus font: `yum install terminus-fonts`.
+`dnf install rxvt-unicode-256color-ml` will bring both base `rxvt-unicode` and extension.
+Let me also recommend excellent Terminus font: `dnf install terminus-fonts`.
 
 Xresources
 ----------
 
-In TemplateVM create file `/etc/X11/Xresources.urxvt` and paste config below. `!`-lines are comments and may be left out. `#`-lines are directives to CPP (C preprocessor) and are necessary. This shouldn't go to `/etc/X11/Xresources`, because that file is not preprocessed by default.
+In TemplateVM create file `/etc/X11/Xresources.urxvt` and paste config below.
+`!`-lines are comments and may be left out.
+`#`-lines are directives to CPP (C preprocessor) and are necessary.
+This shouldn't go to `/etc/X11/Xresources`, because that file is not preprocessed by default.
 
 ~~~
 ! CGA colour palette
@@ -122,13 +126,18 @@ URxvt.print-pipe:               cat > $(TMPDIR=$HOME mktemp urxvt.XXXXXX)
 ! is no need for w32-style intuition and virtually no need to "paste over".
 URxvt.perl-ext-common:          default,selection-to-clipboard
 
+! Prevent rxvt from entering Keyboard symbols entry mode whenever you press
+! ctrl+shift, e.g. to copy or paste something to/from Qubes' clipboard.
+URxvt.iso14755_52: false
+
 URxvt.insecure:                 False
 
 ! some termcap-aware software sometimes throw '$TERM too long'
 !URxvt.termName:                rxvt-256color
 ~~~
 
-Then create script to automatically merge those to xrdb. File `/etc/X11/xinit/xinitrc.d/urxvt.sh`:
+Then create script to automatically merge those to xrdb.
+File `/etc/X11/xinit/xinitrc.d/urxvt.sh`:
 
 ~~~
 #!/bin/sh
@@ -139,4 +148,5 @@ Then create script to automatically merge those to xrdb. File `/etc/X11/xinit/xi
 Shortcuts
 ---------
 
-For each AppVM, go to *Qubes Manager \> VM Settings \> Applications*. Find `rxvt-unicode` (or `rxvt-unicode (256-color) multi-language`) and add.
+For each AppVM, go to *Qubes Manager \> VM Settings \> Applications*. 
+Find `rxvt-unicode` (or `rxvt-unicode (256-color) multi-language`) and add.

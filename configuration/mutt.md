@@ -25,7 +25,9 @@ not very convenient.
 Installation
 ------------
 
-`yum install mutt`
+`dnf install mutt cyrus-sasl-plain`
+
+`cyrus-sasl-plain` package is necessary for SMTP authentication to work.
 
 Configuration
 -------------
@@ -56,7 +58,7 @@ set pgp_clearsign_command="qubes-gpg-client-wrapper --batch --armor --textmode -
 # I found no option to add Charset armor header when it is UTF-8, since this is
 # default (as specified in RFC4880). This is needed to workaround bug in
 # Enigmail, which ignores RFC and without this header Thunderbird interprets
-# plaintext as us-ascii. See http://sourceforge.net/p/enigmail/bugs/38/.
+# plaintext as us-ascii. See https://sourceforge.net/p/enigmail/bugs/38/.
 
 ### also note you must specify absolute path of pgpewrap when using debian
 ### e.g. /usr/lib/mutt/pgpewrap

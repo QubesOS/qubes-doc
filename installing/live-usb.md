@@ -7,11 +7,19 @@ permalink: /doc/live-usb/
 Qubes Live USB (alpha)
 ======================
 
+NOTE: This content applies to Qubes versions earlier than R3.2. See the
+[Installation Guide](/doc/installation-guide/) for instructions and warnings
+on creating a USB boot drive for testing purposes with Qubes R3.2, R4.0, and
+higher.
+
 Qubes Live USB allows you to run and try Qubes OS without having to install it
 anywhere. Qubes Live USB is currently in alpha. If you use it, please consider
 running the [HCL reporting tool](/hcl/) and sending us the results so that we
-can continue to improve it.
-
+can continue to improve it. If  would like to contribute to the Qubes OS
+Project by improving Qubes Live USB and integrating it with the installer,
+please consider applying for a [Google Summer of Code][gsoc-page] scholarship
+(if you are eligible) and choosing the QubesOS Project as a mentor
+organization. You can find our list of project ideas [here][project-page].
 
 Introduction
 ------------
@@ -25,7 +33,7 @@ traditional Linux distros don't have to bother with:
    version, sorry.
 2. We discovered that the Fedora liveusb-create does *not* verify signatures on
    downloaded packages. We have temporarily fixed that by creating a local repo,
-   verifying the signatures manually (ok, with a script ;) and then building
+   verifying the signatures manually (ok, with a script ;) ) and then building
    from there. Sigh.
 3. We had to solve the problem of Qubes too easily triggering an Out Of Memory
    condition in Dom0 when running as Live OS.
@@ -61,7 +69,7 @@ Live USB variant:
    A nice variant of this persistence option, especially for frequent
    travelers, would be to augment our backup tools so that it was
    possible to create a LiveUSB-hosted backups of select VMs. One could then
-   pick a few of their VMs, necessary for a specific travel, back them to a
+   pick a few of their VMs, necessary for a specific trip, back them up to a
    LiveUSB stick, and take this stick when traveling to a hostile country (not
    risking taking other, more sensitive ones for the travel). This should make
    life a bit simpler
@@ -86,7 +94,7 @@ expectations accordingly.)
 3. Currently there is no "install to disk" option. We will be adding this
    in the future.
 4. The amount of "disk" space is limited by the amount of RAM the laptop
-   has. This has a side effect of e.g. not being able to restore (even few) VMs
+   has. This has a side effect of e.g. not being able to restore (even a few) VMs
    from a large Qubes backup blob.
 5. It's easy to generate Out Of Memory (OOM) in Dom0 by creating lots of VMs
    which are writing a lot into the VMs filesystem.
@@ -112,3 +120,6 @@ Downloading and burning
    **Caution:** It is very easy to misuse the `dd` command. If you mix up `if`
    and `of` or specify an incorrect device, you could accidentally overwrite
    your primary system drive. Please be careful!
+
+[project-page]: /gsoc/
+[gsoc-page]: https://summerofcode.withgoogle.com/organizations/6239659689508864/
