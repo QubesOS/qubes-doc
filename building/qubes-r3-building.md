@@ -34,7 +34,7 @@ Last, you may want to disable memory balancing on `dev26` but keep in mind the i
 Once you've built `dev26`, open a Terminal window to it and install the necessary dependencies (see [QubesBuilder](/doc/qubes-builder/) for more info):
 
 ~~~
-$ sudo dnf install gpg git createrepo rpm-build make wget rpmdevtools python2-sh dialog rpm-sign dpkg-dev debootstrap PyYAML devscripts perl-Digest-MD5 perl-Digest-SHA
+$ sudo dnf install gnupg git createrepo rpm-build make wget rpmdevtools python2-sh dialog rpm-sign dpkg-dev debootstrap PyYAML devscripts perl-Digest-MD5 perl-Digest-SHA
 ~~~
 
 Get the necessary keys to verify the sources (run these and other commands below as a regular user, not root):
