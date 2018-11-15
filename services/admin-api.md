@@ -90,6 +90,9 @@ to set the policy using current mechanism.
 | `admin.vm.feature.List`                | vm        | -         | -                                         | `<feature>\n`                                             |
 | `admin.vm.feature.Get`                 | vm        | feature   | -                                         | value                                                     |
 | `admin.vm.feature.CheckWithTemplate`   | vm        | feature   | -                                         | value                                                     |
+| `admin.vm.feature.CheckWithNetvm`      | vm        | feature   | -                                         | value                                                     |
+| `admin.vm.feature.CheckWithAdminVM`    | vm        | feature   | -                                         | value                                                     |
+| `admin.vm.feature.CheckWithTemplateAndAdminVM`| vm | feature   | -                                         | value                                                     |
 | `admin.vm.feature.Remove`              | vm        | feature   | -                                         | -                                                         |
 | `admin.vm.feature.Set`                 | vm        | feature   | value                                     | -                                                         |
 | `admin.vm.tag.List`                    | vm        | -         | -                                         | `<tag>\n`                                                 |
