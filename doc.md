@@ -128,6 +128,7 @@ Configuration Guides
  * [Resize Disk Image](/doc/resize-disk-image/)
  * [RPC Policies](/doc/rpc-policy/)
  * [Changing your Time Zone](/doc/change-time-zone)
+ * [GUI Configuration and Troubleshooting](/doc/gui-configuration)
  * [Installing ZFS in Qubes](/doc/zfs/)
  * [Mutt Guide](/doc/mutt/)
  * [Postfix Guide](/doc/postfix/)
