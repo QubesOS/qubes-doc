@@ -227,6 +227,6 @@ Learning to make well designing intuitive interfaces and software is specialized
 - [Learn Design Principles](http://learndesignprinciples.com) by Melissa Mandelbaum
 - [Usability in Free Software](http://jancborchardt.net/usability-in-free-software) by Jan C. Borchardt
 - [Superheroes & Villains in Design](https://vimeo.com/70030549) by Aral Balkan
-- [First Rule of Usability? Don’t Listen to Users](http://www.nngroup.com/articles/first-rule-of-usability-dont-listen-to-users/) by  by Jakob Nielsen
+- [First Rule of Usability? Don’t Listen to Users](http://www.nngroup.com/articles/first-rule-of-usability-dont-listen-to-users/) by Jakob Nielsen
 - [10 Usability Heuristics for User Interface Design](https://www.nngroup.com/articles/ten-usability-heuristics/) by Jakob Nielsen
 - [Hack Design](https://hackdesign.org/) - online learning program
