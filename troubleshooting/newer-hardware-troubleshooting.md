@@ -8,7 +8,7 @@ Troubleshooting newer hardware
 ==============================
 
 By default, the kernel that is installed in dom0 comes from the `kernel` package, which is an older Linux LTS kernel.
-For most cases this works fine since the Qubes OS developers backport fixes to this kernel, but for some newer hardware, you may run into issues.
+For most cases this works fine since the Linux kernel developers backport fixes to this kernel, but for some newer hardware, you may run into issues.
 For example, the audio might not work if the sound card is too new for the LTS kernel.
 
 To fix this, you can try the `kernel-latest` package - though be aware that it's less tested!
