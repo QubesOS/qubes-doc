@@ -194,29 +194,7 @@ In `.urlview`:
 
 In `.mailcap`:
 
-    ### TODO: override most/all default mailcap settings to prevent
+    ### override all default mailcap settings to prevent
     ### opening in muttvm
-    ### is there a way to do this polymorphically? i.e. not
-    ### listing every damn mimetype by hand
-    ###
-    ### also would be convenient to use mailcap's TEST feature to
-    ### show some html in mutt pager (e.g. with w3m, links or html2text),
-    ### else open others in dispvm
-
-    # MS Word documents
-    application/msword; qvm-open-in-dvm %s
-
-    application/vnd.oasis.opendocument.spreadsheet; qvm-open-in-dvm %s
-    application/vnd.oasis.opendocument.text; qvm-open-in-dvm %s
-
-    # Images
-    image/jpg; qvm-open-in-dvm %s
-    image/jpeg; qvm-open-in-dvm %s
-    image/png; qvm-open-in-dvm %s
-    image/gif; qvm-open-in-dvm %s
-
-    # PDFs
-    application/pdf; qvm-open-in-dvm %s
-
-    # HTML
-    text/html; qvm-open-in-dvm %s
+    text/html; w3m '%s' | cat --squeeze-blank; nametemplate=%s.html; copiousoutput
+    */*; qvm-open-in-dvm xdg-open '%s'; test=test -n "$DISPLAY"
