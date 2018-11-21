@@ -196,5 +196,5 @@ In `.mailcap`:
 
     ### override all default mailcap settings to prevent
     ### opening in muttvm
-    text/html; w3m '%s' | cat --squeeze-blank; nametemplate=%s.html; copiousoutput
+    text/html; w3m -T text/html '%s' | cat --squeeze-blank; nametemplate=%s.html; copiousoutput
     */*; qvm-open-in-dvm xdg-open '%s'; test=test -n "$DISPLAY"
