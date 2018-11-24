@@ -35,7 +35,7 @@ These options can be specified using the `-o` or `--option` handle. The general 
 
 ###no-strict-reset
 Allow attaching device even if no reliable reset-method is supported.
-Switching non-resetable devices poses a security risk, as VM-isolation is weakened.
+Switching non-resettable devices poses a security risk, as VM-isolation is weakened.
 
 Possible values are `True` and `False`.
 

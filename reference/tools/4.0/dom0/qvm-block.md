@@ -47,7 +47,7 @@ Default is `False`, if read-write attachment is possible.
 ###devtype
 Type of device
 
-Possible Values are `disk` adn `cdrom`.
+Possible Values are `disk` and `cdrom`.
 
 Default: `disk`
 
@@ -59,7 +59,7 @@ In the linux-source VM run
     sudo losetup /dev/loop0 /path/to/file
 
 (Where `loop0` is just a generic device-id.)
-Afterwards, run `qvm-block` in dom0 to list known block devices. The newly created loopdevice should show up:
+Afterwards, run `qvm-block` in dom0 to list known block devices. The newly created loop-device should show up:
 
     ~]$ qvm-block
     BACKEND:DEVID  DESCRIPTION  USED BY
@@ -69,6 +69,6 @@ You can now attach the `loop0`-device to any other vm using `qvm-block` as usual
 
     qvm-block a <target-vm> <source-vm>:loop0
 
-After detaching the the device again, detach the loopdevice within the source-vm:
+After detaching the the device again, detach the loop-device within the source-vm:
 
     sudo losetup -d /dev/loop0
