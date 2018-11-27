@@ -68,7 +68,7 @@ sudo dnf upgrade --enablerepo=qubes-vm-*-security-testing
 sudo dnf upgrade --enablerepo=qubes-vm-*-unstable
 ~~~
 
-To enable or disable any of these repos permanently, change the corresponding boolean in `/etc/yum.repos.d/qubes-*.repo`.
+To enable or disable any of these repos permanently, change the corresponding `enabled` value to `1` in `/etc/yum.repos.d/qubes-*.repo`.
 
 ### Debian ###
 
