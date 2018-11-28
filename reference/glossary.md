@@ -89,6 +89,10 @@ Application Virtual Machine.
 A [VM](#vm) that is intended for running software applications. 
 Typically a TemplateBasedVM, but may be a StandaloneVM. Never a TemplateVM.
 
+TemplateBasedAppVM
+------------------
+Any [AppVM](#appvm) that depends on a TemplateVM for its root filesystem.
+
 NetVM
 -----
 Network Virtual Machine. 
@@ -104,6 +108,10 @@ ProxyVM
 Proxy Virtual Machine. 
 A type of [VM](#vm) that proxies network access for other VMs. 
 Typically, a ProxyVM sits between a NetVM and another VM (such as an AppVM or a TemplateVM) that requires network access.
+
+TempalateBasedProxyVM
+---------------------
+Any [ProxyVM](#proxyvm) that depends on a TemplateVM for its root filesystem.
 
 FirewallVM
 ----------
@@ -179,6 +187,14 @@ PVHVM
 To boost performance, fully virtualized HVM guests can use special paravirtual device drivers (PVHVM or PV-on-HVM drivers). 
 These drivers are optimized PV drivers for HVM environments and bypass the emulation for disk and network I/O, thus providing PV-like (or better) performance on HVM systems. 
 This allows for optimal performance on guest operating systems such as Windows.
+
+anon-whonix
+-----------
+A type of [TemplateBasedAppVM](#templatebasedappvm) that depends on Whonix-Workstation (`whonix-ws`) TemplateVM for its root filesystem. `anon-whonix` can be created during Qubes installation by checking the option to configure the Whonix VMs or by means of [salt]((/doc/salt) when installing/reintalling the Whonix TemplateVMs. Alternatively, users can opt to create `anon-whonix` manually from [Qube Manager](/getting-started/#qubes-vm-manager-and-command-line-tools) or dom0 terminal.
+
+sys-whonix
+----------
+A type of [TemplateBasedProxyVM](#templatebasedproxyvm) that depends on Whonix-Gateway (`whonix-gw`) TemplateVM for its root filesystem. `sys-whonix` can be created during Qubes installation by checking the option to configure the Whonix VMs or by means of [salt](/doc/salt) when installing/reintalling the Whonix TemplateVMs. Alternatively, users can opt to create `sys-whonix` manually from the [Qube Manager](/getting-started/#qubes-vm-manager-and-command-line-tools) or dom0 terminal.
 
 Windows Tools
 -----
