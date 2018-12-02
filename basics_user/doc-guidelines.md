@@ -254,6 +254,22 @@ When making contributions, please try to observe the following style conventions
    where appropriate.
  * Use underline headings (`=====` and `-----`) if possible.
    If this is not possible, use Atx-style headings on both the left and right sides (`### H3 ###`).
+ * When writing commands to be entered into a terminal:
+   * State in the text above the commands that the user shall open a terminal and run those commands. E.g.
+    ~~~markdown
+    Open a terminal in your AppVM and run
+    ```shell_session
+    $ cd test
+    $ echo Hello
+    Hello
+    ```
+    ~~~
+   * Precede each command with a non-empty prompt that fits the needs. As a minimum, the prompt should contain a trailing `#` (for the user `root`) or `$` (for other users) on Linux systems and `>` on Windows systems, respectively.
+   * Put the expected output below the command as usual or use a separate code block for that. You should write `[...]` for omitted parts of the output.
+   * Use [syntax highlighting](https://github.github.com/gfm/#info-string) where [possible](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers).
+ * When quoting (script) files:
+   * Use code blocks with [syntax highlighting](https://github.github.com/gfm/#info-string) where [possible](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers).
+   * You should write `[...]` for omitted parts.
  * Use `[reference-style][ref]` links.  
  
 `[ref]: https://daringfireball.net/projects/markdown/syntax#link`
