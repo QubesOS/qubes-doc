@@ -126,11 +126,10 @@ Important Notes (R4.0)
    subsequent changes to the parent TemplateVM's `/home` will not affect
    the child TemplateBasedVM's `/home`.
 
- * Template VMs are created in a thin pool, making `qvm-trim-template`
-   no longer necessary.
-
-   The root filesystems in Standalone VMs can employ
-   TRIM/discard on the root fs using normal tools and configuration options.
+ * All VMs are created in a thin pool by default, making `qvm-trim-template`
+   no longer necessary. You may wish to enable [TRIM/discard](/doc/disk-trim/)
+   in dom0, or use `fstrim` in dom0 monthly, but this will not impact VM free
+   space or disk usage.
 
 |                    | Inheritance (1)                                           | Persistence (2)
 |--------------------|-----------------------------------------------------------|------------------------------------------
