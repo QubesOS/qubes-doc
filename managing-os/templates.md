@@ -127,9 +127,7 @@ Important Notes (R4.0)
    the child TemplateBasedVM's `/home`.
 
  * All VMs are created in a thin pool by default, making `qvm-trim-template`
-   no longer necessary. You may wish to enable [TRIM/discard](/doc/disk-trim/)
-   in dom0, or use `fstrim` in dom0 monthly, but this will not impact VM free
-   space or disk usage.
+   no longer necessary.
 
 |                    | Inheritance (1)                                           | Persistence (2)
 |--------------------|-----------------------------------------------------------|------------------------------------------
