@@ -12,6 +12,15 @@ redirect_from:
 Disposable VM Customization
 ============================
 
+Security
+--------
+
+If a DVM Template becomes compromised, then any DisposableVM based on that DVM Template could be compromised.
+Therefore, you should not make any risky customizations (e.g., installing untrusted browser plugins) in important DVM Templates.
+In particular, the *default* DVM Template is important becuase it is used by the "Open in DispVM" feature.
+This means that it will have access to everything that you open with this feature.
+For this reason, it is strongly recommended that you base the default DVM Template on a trusted TemplateVM and refrain from making any risky customizations to it.
+
 Qubes 4.0
 ----------
 

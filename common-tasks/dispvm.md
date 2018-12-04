@@ -23,6 +23,22 @@ While running, DispVMs will appear in Qubes VM Manager with the name `disp####`.
 See [this article](https://blog.invisiblethings.org/2010/06/01/disposable-vms.html) for more on why one would want to use a Disposable VM.
 
 
+Security
+--------
+
+If a [DVM Template] becomes compromised, then any DisposableVM based on that DVM Template could be compromised.
+In particular, the *default* DVM Template is important because it is used by the "Open in DispVM" feature.
+This means that it will have access to everything that you open with this feature.
+For this reason, it is strongly recommended that you base the default DVM Template on a trusted TemplateVM.
+
+### Disposable VMs and Local Forensics ###
+
+At this time, DispVMs should not be relied upon to circumvent local forensics, as they do not run entirely in RAM. 
+For details, see [this thread](https://groups.google.com/d/topic/qubes-devel/QwL5PjqPs-4/discussion).
+
+When it is essential to avoid leaving any trace, consider using [Tails](https://tails.boum.org/).
+
+
 Disposable VMs and Networking (R4.0 and later)
 -----------------------------
 
@@ -153,10 +169,6 @@ You can change the template used to generate the Disposable VMs, and change sett
 These changes will be reflected in every new Disposable VM based on that template. 
 Full instructions can be found [here](/doc/dispvm-customization/).
 
-Disposable VMs and Local Forensics
-----------------------------------
 
-At this time, DispVMs should not be relied upon to circumvent local forensics, as they do not run entirely in RAM. 
-For details, see [this thread](https://groups.google.com/d/topic/qubes-devel/QwL5PjqPs-4/discussion).
+[DVM Template]: /doc/glossary/#dvm-template
 
-When it is essential to avoid leaving any trace, consider using [Tails](https://tails.boum.org/).
