@@ -157,7 +157,7 @@ only `gpg2`). If you encounter trouble while trying to set up Split-GPG, make
 sure you're using `gpg2` for your configuration and testing, since keyring data
 may differ between the two installations.
 
-### Using Thunderbird + Enigmail with Split GPG (Qubes 3.2 and 4.0) ###
+### Using Thunderbird + Enigmail with Split GPG ###
 
 However, when using Thunderbird with Enigmail extension it is
 not enough, because Thunderbird doesn't preserve the environment
@@ -174,13 +174,7 @@ the name of the GPG backend VM. This file survives the AppVM reboot, of course.
     [user@work ~]$ sudo bash
     [root@work ~]$ echo "work-gpg" > /rw/config/gpg-split-domain
 
-## Qubes 3.2 Specifics ##
-
-None.
-
-## Qubes 4.0 Specifics ##
-
-### Using Thunderbird + Enigmail with Split GPG ###
+#### Qubes 4.0 Specifics ####
 
 New qrexec policies in Qubes R4.0 by default require the user to enter the name 
 of the domain containing GPG keys each time it is accessed.  To improve usability 
