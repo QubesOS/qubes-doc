@@ -126,8 +126,8 @@ Important Notes (R4.0)
    subsequent changes to the parent TemplateVM's `/home` will not affect
    the child TemplateBasedVM's `/home`.
 
- * All VMs are created in a thin pool by default, making `qvm-trim-template`
-   no longer necessary.
+ * `qvm-trim-template` is not necessary. All VMs are created in a thin pool
+   and trimming is handled automatically. No user action is required.
 
 |                    | Inheritance (1)                                           | Persistence (2)
 |--------------------|-----------------------------------------------------------|------------------------------------------
