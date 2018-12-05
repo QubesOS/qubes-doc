@@ -223,6 +223,7 @@ guidelines.
    Project does not maintain a forum. The curious can find these by searching
    the list archives.)
 
+---
 
 qubes-announce
 --------------
@@ -244,6 +245,7 @@ here.
  * This list can also be browsed via an optional [Google Groups web
    interface][qubes-announce-web].
 
+---
 
 qubes-users
 -----------
@@ -314,6 +316,7 @@ In the fourth step replace `news.mozilla.org` with `news.gmane.org`.
     search for the newsgroup [`gmane.os.qubes.user`], uncheck the checkbox, and
     click on **OK**. Thunderbird will automatically remove the newsgroup.
 
+---
 
 qubes-devel
 -----------
@@ -374,6 +377,7 @@ In the fourth step replace `news.mozilla.org` with `news.gmane.org`.
     search for the newsgroup [`gmane.os.qubes.devel`], uncheck the checkbox, and
     click on **OK**. Thunderbird will automatically remove the newsgroup.
 
+---
 
 qubes-project
 -------------
@@ -433,6 +437,7 @@ In the fourth step replace `news.mozilla.org` with `news.gmane.org`.
     search for the newsgroup [`gmane.os.qubes.project`], uncheck the checkbox, and
     click on **OK**. Thunderbird will automatically remove the newsgroup.
 
+---
 
 qubes-translation
 -----------------
