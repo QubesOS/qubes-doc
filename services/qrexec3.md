@@ -361,8 +361,9 @@ qrexec v2, see [here](/doc/qrexec2/#qubes-rpc-internals).*)
 
 Qrexec framework consists of a number of processes communicating with each
 other using common IPC protocol (described in detail below). Components
-residing in the same domain use pipes as the underlying transport medium,
-while components in separate domains use vchan link.
+residing in the same domain (`qrexec-client-vm` to `qrexec-agent`, `qrexec-client` to `qrexec-daemon`) use pipes as the underlying transport medium,
+while components in separate domains (`qrexec-daemon` to `qrexec-agent`, data channel between `qrexec-agent`s) use vchan link.
+Because of [vchan limitation](https://github.com/qubesos/qubes-issues/issues/951), it is not possible to establish qrexec connection back to the source domain.
 
 
 ## Dom0 tools implementation ##
