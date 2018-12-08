@@ -17,7 +17,7 @@ redirect_from:
 
 ##Usage
 
-Please follow the [`qvm-device`](/doc/tools/4.0/dom0/qvm-device/) documentation for general usage.
+Please follow the [`qvm-device`](/doc/tools/4.0/dom0/qvm-device/) documentation for general usage. Additional information and examples can be found in the [usb handling in qubes documentation](/doc/usb/#attaching-a-single-usb-device-to-a-qube-usb-passthrough).
 
 Attaching a USB-device instead of just block-devices to a VM enables non-storage applications of USB-devices, e.g. webcams, microcontroller-programming, wifi- and bluetooth dongles, etc.
 

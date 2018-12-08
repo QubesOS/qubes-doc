@@ -42,4 +42,10 @@ Possible values are `True` and `False`.
 Default value is `False`.
 
 ###permissive
-#TODO: What's the difference to no-strict-reset?
+Allow write access to most of PCI config space, instead of only selected whitelisted registers.
+A workaround for some PCI passthrough problems, potentially unsafe though!
+
+
+Possible values are `True` and `False`.
+
+Default value is `False`.
