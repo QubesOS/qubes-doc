@@ -26,7 +26,7 @@ To install a specific Fedora TemplateVM that is not currently installed in your 
 
     $ sudo qubes-dom0-update qubes-template-fedora-XX
 
-   (Replace `XX` with the Fedora version number of the template you wish to remove.)
+   (Replace `XX` with the Fedora version number of the template you wish to install.)
 
 To reinstall a Fedora TemplateVM that is already installed in your system, see [How to Reinstall a TemplateVM].
 
