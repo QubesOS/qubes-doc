@@ -111,28 +111,32 @@ Firewall Virtual Machine.
 A type of [ProxyVM](#proxyvm) that is used to enforce network-level policies (a.k.a. "firewall rules"). 
 A FirewallVM called `sys-firewall` is created by default in most Qubes installations.
 
+DisposableVM
+------------
+[Disposable Virtual Machine]. A temporary [AppVM](#appvm) based on a [DVM Template](#dvm-template) that can quickly be created, used, and destroyed.
+
 DispVM
 ------
-[Disposable Virtual Machine]. A temporary [AppVM](#appvm) based on a [DVM Template](#dvm-template) that can quickly be created, used, and destroyed.
+An older term for [DisposableVM](#disposablevm).
 
 DVM
 ---
-An abbreviation of [DispVM](#dispvm), typically used to refer to [DVM Templates](#dvm-template).
+An abbreviation of [DisposableVM](#disposablevm), typically used to refer to [DVM Templates](#dvm-template).
 
 DVM Template
 ------------
-A type of [TemplateBasedVM](#templatebasedvm) on which [DispVMs](#dispvm) are based.
+A type of [TemplateBasedVM](#templatebasedvm) on which [DisposableVMs](#disposablevm) are based.
 By default, a DVM Template named `fedora-XX-dvm` is created on most Qubes installations (where `XX` is the Fedora version of the default TemplateVM). 
 DVM Templates are not [TemplateVMs](#templatevm), since (being TemplateBasedVMs) they do not have root filesystems of their own to provide to other VMs.
-Rather, DVM Templates are complementary to TemplateVMs insofar as DVM Templates provide their own user filesystems to the DispVMs based on them.
+Rather, DVM Templates are complementary to TemplateVMs insofar as DVM Templates provide their own user filesystems to the DisposableVMs based on them.
 There are two main kinds of DVM Templates:
 
  * **Dedicated** DVM Templates are intended neither for installing nor running software.
-   Rather, they are intended for *customizing* or *configuring* software that has already been installed on the TemplateVM on which the DVM Template is based (see [DispVM Customization]).
-   This software is then intended to be run (in its customized state) in DispVMs that are based on the DVM Template.
- * **Non-dedicated** DVM Templates are typically [AppVMs](#appvm) on which DispVMs are based.
+   Rather, they are intended for *customizing* or *configuring* software that has already been installed on the TemplateVM on which the DVM Template is based (see [DisposableVM Customization]).
+   This software is then intended to be run (in its customized state) in DisposableVMs that are based on the DVM Template.
+ * **Non-dedicated** DVM Templates are typically [AppVMs](#appvm) on which DisposableVMs are based.
    For example, an AppVM could be used to generate and store trusted data.
-   Then, a DispVM could be created based on the AppVM (thereby making the AppVM a DVM Template) so that the data can be analyzed by an untrusted program without jeopardizing the integrity of the original data.
+   Then, a DisposableVM could be created based on the AppVM (thereby making the AppVM a DVM Template) so that the data can be analyzed by an untrusted program without jeopardizing the integrity of the original data.
 
 PV
 --
@@ -188,6 +192,6 @@ QWT
 ----
 An abbreviation of Qubes [Windows Tools](#windows-tools).
 
-[Disposable Virtual Machine]: /doc/dispvm/
-[DispVM Customization]: /doc/dispvm-customization/
+[Disposable Virtual Machine]: /doc/disposablevm/
+[DisposableVM Customization]: /doc/disposablevm-customization/
 

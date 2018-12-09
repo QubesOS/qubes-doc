@@ -71,7 +71,7 @@ details and plans how to get around this problem, as well as the section on
 
 - It doesn't solve the problem of allowing the user to know what is to be
 signed before the operation gets approved. Perhaps the GPG backend domain
-could start a Disposable VM and have the to-be-signed document displayed
+could start a DisposableVM and have the to-be-signed document displayed
 there? To Be Determined.
 
 - The Split GPG client will fail to sign or encrypt if the private key in the 

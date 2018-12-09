@@ -88,7 +88,7 @@ netvm
 dispvm_netvm
     Accepted values: netvm name, ``default``, ``none``
 
-    Which NetVM should be used for Disposable VMs started by this one.
+    Which NetVM should be used for DisposableVMs started by this one.
     ``default`` is to use the same NetVM as the VM itself.
 
 maxmem

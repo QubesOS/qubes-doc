@@ -385,5 +385,5 @@ In this case, you have several options:
 [Compacting the Upgraded Template]: #compacting-the-upgraded-template
 [switching-3.2]: /doc/templates/#how-to-switch-templates-32
 [switching-4.0]: /doc/templates/#how-to-switch-templates-40
-[DispVM]: /doc/dispvm/
+[DispVM]: /doc/disposablevm/
 
