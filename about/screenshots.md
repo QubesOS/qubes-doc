@@ -85,7 +85,7 @@ Qubes also supports secure file copying between AppVMs.
 
 [![r2b2-open-in-dispvm-1.png](/attachment/wiki/QubesScreenshots/r2b2-open-in-dispvm-1.png)](/attachment/wiki/QubesScreenshots/r2b2-open-in-dispvm-1.png) [![r2b2-open-in-dispvm-3.png](/attachment/wiki/QubesScreenshots/r2b2-open-in-dispvm-3.png)](/attachment/wiki/QubesScreenshots/r2b2-open-in-dispvm-3.png)
 
-Qubes' unique Disposable VMs (DispVMs) allow the user to open any file in a disposable VM in a matter of seconds! A file can be edited in a disposable VM, and any changes are projected back onto the original file. Currently, there is no way to mark files to be automatically opened in a disposable VM (one needs to right-click on the file and choose the "Open in Disposable VM" option), but this is planned for the R2 Beta 3 release.
+Qubes' unique DisposableVMs (DispVMs) allow the user to open any file in a disposable VM in a matter of seconds! A file can be edited in a disposable VM, and any changes are projected back onto the original file. Currently, there is no way to mark files to be automatically opened in a disposable VM (one needs to right-click on the file and choose the "Open in DisposableVM" option), but this is planned for the R2 Beta 3 release.
 
 * * * * *
 

@@ -173,7 +173,7 @@ AppVMs, thus wise usage of it increases security.
 
 In Qubes 4.0, target VM can be specified also as `$dispvm:DISP_VM`, which is
 very similar to `$dispvm` but forces using a particular VM (`DISP_VM`) as a base
-VM to be started as Disposable VM. For example:
+VM to be started as DisposableVM. For example:
 
     anon-whonix $dispvm:anon-whonix-dvm allow
 

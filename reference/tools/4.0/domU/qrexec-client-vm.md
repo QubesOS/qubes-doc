@@ -43,9 +43,9 @@ OPTIONS
 
     * ``$default`` or empty string - let Qubes RPC policy decide, without giving any preference 
 
-    * ``$dispvm`` - new Disposable VM
+    * ``$dispvm`` - new DisposableVM
 
-    * ``$dispvm:dispvm-template`` - new Disposable VM based on *dispvm-template*
+    * ``$dispvm:dispvm-template`` - new DisposableVM based on *dispvm-template*
 
     This field is limited to 31 characters (alphanumeric, plus ``-_.$``).
 
