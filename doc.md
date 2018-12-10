@@ -144,7 +144,7 @@ Configuration Guides
  * [Salt management stack](/doc/salt/)
  * [Adding SSD storage cache](https://groups.google.com/d/msgid/qubes-users/a08359c9-9eb0-4d1a-ad92-a8a9bc676ea6%40googlegroups.com)
  * [How to Make a Multimedia TemplateVM](/doc/multimedia/)
- * [Safely Removing TemplateVM Packages (Example: Thunderbird)](/doc/removing-template-vm-packages/)
+ * [Safely Removing TemplateVM Packages (Example: Thunderbird)](/doc/removing-templatevm-packages/)
 
 
 Customization Guides
