@@ -38,7 +38,7 @@ Do you want to continue? [Y/n]
 ```
 
 Note all of the qubes packages are tracked as dependencies that will no longer be required. `apt remove` will only remove the packages listed, which is ok. 
-If, however you also run ``apt autoremove`` the other qubes packages necessary for TemplateVMs will be removed.
+If, however you also run `apt autoremove` the other qubes packages necessary for TemplateVMs will be removed.
 
 If you'd still like to remove one of these applications without breaking your TemplateVM you have a couple different options. 
 
