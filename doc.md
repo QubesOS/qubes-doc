@@ -158,6 +158,7 @@ Customization Guides
  * [Language Localization](/doc/language-localization/)
  * [Dark Theme in Dom0 and DomU](/doc/dark-theme/)
  * [How to make any file in a TemplateBasedVM persistent using bind-dirs](/doc/bind-dirs/)
+ * [Safely Removing TemplateVM Packages (Example: Thunderbird)](/doc/removing-templatevm-packages/)
 
 
 Troubleshooting
