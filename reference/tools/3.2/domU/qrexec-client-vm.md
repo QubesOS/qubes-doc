@@ -44,7 +44,7 @@ OPTIONS
 
     This argument, can contain VM name, or one of special values:
 
-    * ``$dispvm`` - new Disposable VM
+    * ``$dispvm`` - new DisposableVM
 
     This field is limited to 31 characters (alphanumeric, plus ``-_.$``).
 

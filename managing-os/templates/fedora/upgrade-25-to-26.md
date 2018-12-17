@@ -382,5 +382,5 @@ In this case, you have several options:
 [resize-disk-image]: /doc/resize-disk-image/
 [Additional Information]: #additional-information
 [Compacting the Upgraded Template]: #compacting-the-upgraded-template
-[DispVM]: /doc/dispvm/
+[DispVM]: /doc/disposablevm/
 

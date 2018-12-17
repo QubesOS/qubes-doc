@@ -13,16 +13,14 @@ redirect_from:
 - /wiki/QubesLists/
 ---
 
-Help, Support, and Mailing Lists
-================================
+# Help, Support, and Mailing Lists #
 
 Help and support for Qubes OS is available from the [documentation] and the
 [mailing lists], which are explained below. The Qubes OS Project does not offer
 paid support services.
 
 
-Staying safe
-------------
+## Staying safe ##
 
 The Qubes mailing lists are open to the public. The contents of the list are
 crawled by search engines and archived by third-party services outside of our
@@ -58,8 +56,7 @@ cryptographically signed, anyone would be in a position to [verify] that these
 came from the same keyholder.
 
 
-Discussion list guidelines
---------------------------
+## Discussion list guidelines ##
 
 Qubes discussions mainly take place on two mailing lists: `qubes-users` and
 `qubes-devel`, both of which are explained below. Please send all questions
@@ -81,174 +78,182 @@ guidelines.
 
 ### Be polite and respectful ###
 
-   Remember, no one here is under any obligation
-   to reply to you. Think about your readers. Most of them are coming home after
-   a long, hard day at work. The last thing they need is someone's temper
-   tantrum in their inboxes. If you are rude and disrespectful, you are very
-   likely to be ignored.
+Remember, no one here is under any obligation
+to reply to you. Think about your readers. Most of them are coming home after
+a long, hard day at work. The last thing they need is someone's temper
+tantrum in their inboxes. If you are rude and disrespectful, you are very
+likely to be ignored.
 
 ### Be concise ###
 
-   Include only essential information. Most of your readers lead
-   busy lives and have precious little time. We *want* to spend some of that
-   time helping you, if we can. But if you ramble, it will be easier to skip
-   over you and help someone else who gets right to the point.
+Include only essential information. Most of your readers lead
+busy lives and have precious little time. We *want* to spend some of that
+time helping you, if we can. But if you ramble, it will be easier to skip
+over you and help someone else who gets right to the point.
 
 ### Help us help you ###
 
-   Tell us what you've already tried, and which
-   documentation pages you've already read. Put yourself in your readers' shoes.
-   What essential information would they require in order to be able to help
-   you? Make sure to include that information in your message. [Ask
-   questions the smart way.][smart-questions]
+Tell us what you've already tried, and which
+documentation pages you've already read. Put yourself in your readers' shoes.
+What essential information would they require in order to be able to help
+you? Make sure to include that information in your message. [Ask
+questions the smart way.][smart-questions]
 
 ### Be patient ###
 
-   Do not "bump" a thread more than once every three days *at
-   most*. If it seems like your messages to the mailing lists are consistently
-   being ignored, make sure you're following the guidelines explained on this
-   page. If you're already doing so but still not getting any replies, then it's
-   likely that no one who knows the answer has had time to reply yet. Remember
-   that the devs are very busy working on Qubes. They usually only have a chance
-   to answer questions on the mailing lists once every several days.
+Do not "bump" a thread more than once every three days *at
+most*. If it seems like your messages to the mailing lists are consistently
+being ignored, make sure you're following the guidelines explained on this
+page. If you're already doing so but still not getting any replies, then it's
+likely that no one who knows the answer has had time to reply yet. Remember
+that the devs are very busy working on Qubes. They usually only have a chance
+to answer questions on the mailing lists once every several days.
 
 ### Be a good community member ###
 
-   As with any social community, members of the
-   mailing list earn different reputations for themselves over time. We want the
-   mailing lists to be a friendly, productive place where information and ideas
-   are exchanged for the mutual benefit of all. We understand that the best way
-   to achieve this is to encourage and cultivate other like-minded individuals.
-   Those who have shown themselves to be good community members through their
-   past contributions have earned our good will, and we will be especially eager
-   to help them and collaborate with them. If you are new to the community, you
-   should understand that it will take time for you to earn the good will of
-   others. This does not mean that you will not receive help. On the contrary,
-   we are fortunate to have such a helpful and understanding community that many
-   of them spend hours of their personal time helping complete strangers,
-   including many who post to the lists anonymously. (Given the integration of
-   Qubes with [Whonix], we understand better than most the complexities of
-   privacy and anonymity, and we know that many users have no other choice but
-   to post anonymously.) You can read our project's [Code of Conduct][coc] for
-   more information.
+As with any social community, members of the
+mailing list earn different reputations for themselves over time. We want the
+mailing lists to be a friendly, productive place where information and ideas
+are exchanged for the mutual benefit of all. We understand that the best way
+to achieve this is to encourage and cultivate other like-minded individuals.
+Those who have shown themselves to be good community members through their
+past contributions have earned our good will, and we will be especially eager
+to help them and collaborate with them. If you are new to the community, you
+should understand that it will take time for you to earn the good will of
+others. This does not mean that you will not receive help. On the contrary,
+we are fortunate to have such a helpful and understanding community that many
+of them spend hours of their personal time helping complete strangers,
+including many who post to the lists anonymously. (Given the integration of
+Qubes with [Whonix], we understand better than most the complexities of
+privacy and anonymity, and we know that many users have no other choice but
+to post anonymously.) You can read our project's [Code of Conduct][coc] for
+more information.
 
 ### Report issues and submit changes in the right places ###
 
-   The mailing lists a good place to ask questions and discuss bugs and feature
-   requests. However, if you're submitting a more formal report, we'd prefer
-   that you submit it to our [issue tracker] so that it doesn't get overlooked.
-   Likewise, if you see that something in the documentation should be changed,
-   don't simply point it out in an email to one of the mailing lists. Instead,
-   [submit the change][contributing to the documentation].
+The mailing lists a good place to ask questions and discuss bugs and feature
+requests. However, if you're submitting a more formal report, we'd prefer
+that you submit it to our [issue tracker] so that it doesn't get overlooked.
+Likewise, if you see that something in the documentation should be changed,
+don't simply point it out in an email to one of the mailing lists. Instead,
+[submit the change][contributing to the documentation].
+
 
 ### Specific rules and notes ###
 
 #### Use the correct list ####
 
-   Send your message to the correct list. Read the sections below to determine
-   which list is correct for your message.
+Send your message to the correct list. Read the sections below to determine
+which list is correct for your message.
 
 #### Do not top-post ####
 
-   [Top-posting] is placing your reply above the quoted message to which you're
-   replying. Please refrain from doing this. Instead, either [interleave] your
-   reply by placing parts of your message immediately below each quoted portion
-   to which it is replying, or [bottom-post] by placing your entire reply below
-   the quoted message to which you're replying.
+[Top-posting] is placing your reply above the quoted message to which you're
+replying. Please refrain from doing this. Instead, either [interleave] your
+reply by placing parts of your message immediately below each quoted portion
+to which it is replying, or [bottom-post] by placing your entire reply below
+the quoted message to which you're replying.
 
 #### Use proper subject lines ####
 
-   Include a precise and informative subject line. This will allow others to
-   easily find your thread in the future and use it as a reference. (Bad: "Help!
-   Qubes problems!" Good: "R2B2 Installation problem: Apple keyboard not working
-   in installer.")
+Include a precise and informative subject line. This will allow others to
+easily find your thread in the future and use it as a reference. (Bad: "Help!
+Qubes problems!" Good: "R2B2 Installation problem: Apple keyboard not working
+in installer.")
 
 #### Do not send duplicates ####
 
-   If your message is not successfully sent to the list, it probably got caught
-   in the spam filter. We check the spam filter regularly, so please be patient,
-   and your message should be approved (and your email address added to the
-   whitelist) within a few days.
+If your message is not successfully sent to the list, it probably got caught
+in the spam filter. We check the spam filter regularly, so please be patient,
+and your message should be approved (and your email address added to the
+whitelist) within a few days.
 
 #### Keep the list CCed ####
 
-   Keep the mailing list CCed throughout the conversation unless there's a
-   special need for privacy (in which case, use PGP encryption). This increases
-   the likelihood that a greater quantity of useful information will be
-   available to everyone in the future.
+Keep the mailing list CCed throughout the conversation unless there's a
+special need for privacy (in which case, use PGP encryption). This increases
+the likelihood that a greater quantity of useful information will be
+available to everyone in the future.
 
 #### Quote appropriately ####
 
-   If you're replying to a thread (whether your own or
-   someone else's), you should make sure to quote enough from previous messages
-   in the thread so that people reading your message can understand the context
-   without having to find and read earlier messages from that thread. Each reply
-   should continue the conversation and, ideally, be readable as a conversation
-   in itself. Do not quote advertisements in signatures or inline PGP signature
-   blocks. (Quoting the latter interferes with the ability of programs like
-   Enigmail to properly quote replies thereafter).
+If you're replying to a thread (whether your own or
+someone else's), you should make sure to quote enough from previous messages
+in the thread so that people reading your message can understand the context
+without having to find and read earlier messages from that thread. Each reply
+should continue the conversation and, ideally, be readable as a conversation
+in itself. Do not quote advertisements in signatures or inline PGP signature
+blocks. (Quoting the latter interferes with the ability of programs like
+Enigmail to properly quote replies thereafter).
 
 #### English not required ####
 
-   If you do not speak English, you should feel free to post in your own
-   language. However, bear in mind that most members of the list can only read
-   English. You may wish to include an automated translation in your message out
-   of consideration for those readers. If you choose to write in English, please
-   do not apologize for doing so poorly, as it is unnecessary. We understand and
-   will ask for clarification if needed.
+If you do not speak English, you should feel free to post in your own
+language. However, bear in mind that most members of the list can only read
+English. You may wish to include an automated translation in your message out
+of consideration for those readers. If you choose to write in English, please
+do not apologize for doing so poorly, as it is unnecessary. We understand and
+will ask for clarification if needed.
 
 #### Suggestions ####
 
-   While we're generally open to hearing suggestions for new features, please
-   note that we already have a pretty well defined [roadmap], and it's rather
-   unlikely that we will change our schedule in order to accommodate your
-   request. If there's a particular feature you'd like to see in Qubes, a much
-   more effective way to make it happen is to contribute a patch that implements
-   it. We happily accept such contributions, provided they meet our standards.
-   Please note, however, that it's always a good idea to field a discussion of
-   your idea on the `qubes-devel` list before putting in a lot of hard work on
-   something that we may not be able or willing to accept.
+While we're generally open to hearing suggestions for new features, please
+note that we already have a pretty well defined [roadmap], and it's rather
+unlikely that we will change our schedule in order to accommodate your
+request. If there's a particular feature you'd like to see in Qubes, a much
+more effective way to make it happen is to contribute a patch that implements
+it. We happily accept such contributions, provided they meet our standards.
+Please note, however, that it's always a good idea to field a discussion of
+your idea on the `qubes-devel` list before putting in a lot of hard work on
+something that we may not be able or willing to accept.
 
 #### Mailing lists vs. forums ####
 
-   While the mailing lists are implemented as Google Group web forums, a Google
-   account is in no way required, expected, or encouraged. Many discussants
-   (including most members of the Qubes team) treat these lists as conventional
-   [mailing lists], interacting with them solely through plain text email with
-   [MUAs] like [Thunderbird] and [Mutt]. The Google Groups service is just
-   free infrastructure, and we [distrust the infrastructure]. This is why, for
-   example, we encourage discussants to use [Split GPG] to sign all of their
-   messages to the lists, but we do not endorse the use of these Google Groups
-   as web forums. (There have been many discussions about why the Qubes OS
-   Project does not maintain a forum. The curious can find these by searching
-   the list archives.)
+While the mailing lists are implemented as Google Group web forums, a Google
+account is in no way required, expected, or encouraged. Many discussants
+(including most members of the Qubes team) treat these lists as conventional
+[mailing lists], interacting with them solely through plain text email with
+[MUAs] like [Thunderbird] and [Mutt]. The Google Groups service is just
+free infrastructure, and we [distrust the infrastructure]. This is why, for
+example, we encourage discussants to use [Split GPG] to sign all of their
+messages to the lists, but we do not endorse the use of these Google Groups
+as web forums. Some users prefer to interact with the mailing lists through
+their optional web interfaces. This has the advantage that it allows you to
+search and reply to messages which were sent prior to your subscription to
+the list. However, a Google account is required in order to post through the
+web interfaces. (Note: There have been many discussions about why the Qubes
+OS Project does not maintain a forum. The curious can find these by searching
+the list archives.)
+
+#### Gmane ####
+
+Qubes mailing lists are also available via Gmane, a service that provides mailing lists in the form of newsgroups.
+This makes it possible for you to subscribe and read all mails sent to the list without having them all sent to your normal mail account.
+To use Gmane, you need a newsreader such as [Thunderbird].
+To add Gmane's server to Thunderbird, follow the instructions in [Mozilla Thunderbird's documentation for how to add newsgroups][thunderbird-newsgroup].
+In the fourth step replace `news.mozilla.org` with `news.gmane.org`.
+To subscribe to a list, click **Subscribe...** and search for the newsgroup `gmane.os.qubes.<list>`, for example, [`gmane.os.qubes.user`].
+Check the box beside the name and click **OK**.
+You can now send and reply to mails the same way you would normally.
+To unsubscribe from the list, click **Subscribe...** and search for the newsgroup `gmane.os.qubes.<list>`, for example, [`gmane.os.qubes.user`].
+Uncheck the box beside the name and click **OK**.
+Thunderbird will automatically remove the newsgroup.
 
 
-qubes-announce
---------------
+## qubes-announce ##
 
 This is a read-only list for those who wish to receive only very important,
 infrequent messages. Only the core Qubes team can post to this list, and only
 [Qubes Security Bulletins (QSBs)][qsb] and new Qubes OS releases are announced
 here.
 
-### How to subscribe
-
-#### Google Groups
-
- * To subscribe to the list, send a blank email to
-   `qubes-announce+subscribe@googlegroups.com`.
-   * Note: A Gmail account is *not* required. Any email address will work.
- * To unsubscribe, send a blank email to
-   `qubes-announce+unsubscribe@googlegroups.com`.
- * This list can also be browsed via an optional [Google Groups web
-   interface][qubes-announce-web].
+To subscribe, send a blank email to `qubes-announce+subscribe@googlegroups.com`.
+(Note: A Google account is *not* required. Any email address will work.)
+To unsubscribe, send a blank email to `qubes-announce+unsubscribe@googlegroups.com`.
+This list also has an optional [Google Groups web interface][qubes-announce-web].
 
 
-qubes-users
------------
-
-### How to use this list
+## qubes-users ##
 
 This list is for helping users solve various daily problems with Qubes OS.
 Examples of topics or questions suitable for this list include:
@@ -257,8 +262,6 @@ Examples of topics or questions suitable for this list include:
  * Installation problems
  * Hardware compatibility problems
  * Questions of the form: "How do I...?"
-
-### Read these first
 
 Please try searching both the Qubes website and the archives of the mailing
 lists before sending a question. In addition, please make sure that you have
@@ -270,55 +273,17 @@ list:
  * The [User FAQ]
  * The [documentation] (for questions about how to use Qubes OS)
 
-### How to subscribe and post
-
-#### Google Groups
-
-You don't have to subscribe in order to post to this list. However, subscribing
-might nonetheless be desirable, as it ensures that your messages will not be
-eaten by the Google Groups spam filter and allows you to receive messages which
-were sent directly to the list.
-
- * To subscribe to the list, send a blank email to
-   `qubes-users+subscribe@googlegroups.com`.
-   * Note: A Gmail account is *not* required. Any email address will work.
- * To post a message to the list, address your email to
-   `qubes-users@googlegroups.com`.
-   * Note: You don't have to be subscribed in order to post.
- * To unsubscribe, send a blank email to
-   `qubes-users+unsubscribe@googlegroups.com`.
- * This list also has a [Google Groups web interface][qubes-users-web].
-   * Some users prefer to interact with the mailing list through the web
-     interface. This has the advantage that it allows you to search and reply to
-     messages which were sent prior to your subscription to the list. However, a
-     Google account is required in order to post through this interface.
- * You can also search the [traditional mail archive][qubes-users-archive]
-
-#### Gmane
-
-The mailing list is also available via Gmane, a service that provides mailing
-lists in the form of newsgroups. This makes it possible for you to subscribe
-and read all mails sent to the list without having them all sent to your normal
-mail account.  To use Gmane, you need a newsreader such as [Thunderbird].
-
-To add Gmane's server to Thunderbird, follow the instructions in
-[Mozilla Thunderbird's documentation for how to add
-newsgroups][thunderbird-newsgroup].
-In the fourth step replace `news.mozilla.org` with `news.gmane.org`.
-
-  * To subscribe to the list, click on **Subscribe...** and search for the
-    newsgroup [`gmane.os.qubes.user`]. Click on the checkbox besides the name
-    and **OK**.
-  * You send and reply to mails the same way you would normally.
-  * To unsubscribe from the list, click on **Subscribe...**
-    search for the newsgroup [`gmane.os.qubes.user`], uncheck the checkbox, and
-    click on **OK**. Thunderbird will automatically remove the newsgroup.
+You don't have to subscribe in order to post to this list.
+However, subscribing makes your messages less likely to be marked as spam and allows you to receive messages sent directly to the list.
+To subscribe to the list, send a blank email to `qubes-users+subscribe@googlegroups.com`.
+(Note: A Google account is *not* required. Any email address will work.)
+To post a message to the list, address your email to `qubes-users@googlegroups.com`.
+If your post does not appear immediately, please allow time for moderation to occur.
+To unsubscribe, send a blank email to `qubes-users+unsubscribe@googlegroups.com`.
+This list also has an optional [Google Groups web interface][qubes-users-web] and [traditional mail archive][qubes-users-archive].
 
 
-qubes-devel
------------
-
-### How to use this list
+## qubes-devel ##
 
 This list is primarily intended for people who are interested in contributing to
 Qubes or who are willing to learn more about its architecture and
@@ -332,112 +297,38 @@ implementation. Examples of topics and questions suitable for this list include:
  * Contributed code and patches.
  * Security discussions which are relevant to Qubes in some way.
 
-### How to subscribe and post
-
-#### Google Groups
-
 You must be subscribed in order to post to this list.
-
- * To subscribe to the list, send a blank email to
-   `qubes-devel+subscribe@googlegroups.com`.
-   * Note: A Gmail account is *not* required. Any email address will work.
- * To post a message to the list, address your email to
-   `qubes-devel@googlegroups.com`.
-   * Note: You must be subscribed in order to post. If your post does not
-     appear, please allow time for moderation to occur.
- * To unsubscribe, send a blank email to
-   `qubes-devel+unsubscribe@googlegroups.com`.
- * This list has a [Google Groups web interface][qubes-devel-web].
-   * Some users prefer to interact with the mailing list through the web
-     interface. This has the advantage that it allows you to search and reply to
-     messages which were sent prior to your subscription to the list. However, a
-     Google account is required in order to post through this interface.
- * You can also search the [traditional mail archive][qubes-devel-archive]
-
-#### Gmane
-
-The mailing list is also available via Gmane, a service that provides mailing
-lists in the form of newsgroups. This makes it possible for you to subscribe
-and read all mails sent to the list without having them all sent to your normal
-mail account.  To use Gmane, you need a newsreader such as [Thunderbird].
-
-To add Gmane's server to Thunderbird, follow the instructions in
-[Mozilla Thunderbird's documentation for how to add
-newsgroups][thunderbird-newsgroup].
-In the fourth step replace `news.mozilla.org` with `news.gmane.org`.
-
-  * To subscribe to the list, click on **Subscribe...** and search for the
-    newsgroup [`gmane.os.qubes.devel`]. Click on the checkbox besides the name
-    and **OK**.
-  * You send and reply to mails the same way you would normally.
-  * To unsubscribe from the list, click on **Subscribe...**
-    search for the newsgroup [`gmane.os.qubes.devel`], uncheck the checkbox, and
-    click on **OK**. Thunderbird will automatically remove the newsgroup.
+To subscribe, send a blank email to `qubes-devel+subscribe@googlegroups.com`.
+(Note: A Google account is *not* required. Any email address will work.)
+To post a message to the list, address your email to `qubes-devel@googlegroups.com`.
+If your post does not appear immediately, please allow time for moderation to occur.
+To unsubscribe, send a blank email to `qubes-devel+unsubscribe@googlegroups.com`.
+This list also has an optional [Google Groups web interface][qubes-devel-web] and [traditional mail archive][qubes-devel-archive].
 
 
-qubes-project
--------------
-
-### How to use this list
+## qubes-project ##
 
 This list is for non-technical discussion and coordination around the
 Qubes OS project.
 
 Examples of topics or question suitable for this list include:
 
-* Participation (talks, workshops, etc.) at upcoming events
-* Project funding applications and strategies
-* FOSS governance discussions
-* Most Github issues tagged "[business]"
+ * Participation (talks, workshops, etc.) at upcoming events
+ * Project funding applications and strategies
+ * FOSS governance discussions
+ * Most Github issues tagged "[business]"
 
-### How to subscribe and post
-
-#### Google Groups
-
-You don't have to subscribe in order to post to this list. However, subscribing
-might nonetheless be desirable, as it ensures that your messages will not be
-eaten by the Google Groups spam filter and allows you to receive messages which
-were sent directly to the list.
-
- * To subscribe to the list, send a blank email to
-   `qubes-project+subscribe@googlegroups.com`.
-   * Note: A Gmail account is *not* required. Any email address will work.
- * To post a message to the list, address your email to
-   `qubes-project@googlegroups.com`.
-   * Note: You don't have to be subscribed in order to post.
- * To unsubscribe, send a blank email to
-   `qubes-project+unsubscribe@googlegroups.com`.
- * This list also has a [Google Groups web interface][qubes-project-web].
-   * Some users prefer to interact with the mailing list through the web
-     interface. This has the advantage that it allows you to search and reply to
-     messages which were sent prior to your subscription to the list. However, a
-     Google account is required in order to post through this interface.
-
-#### Gmane
-
-The mailing list is also available via Gmane, a service that provides mailing
-lists in the form of newsgroups. This makes it possible for you to subscribe
-and read all mails sent to the list without having them all sent to your normal
-mail account.  To use Gmane, you need a newsreader such as [Thunderbird].
-
-To add Gmane's server to Thunderbird, follow the instructions in
-[Mozilla Thunderbird's documentation for how to add
-newsgroups][thunderbird-newsgroup].
-In the fourth step replace `news.mozilla.org` with `news.gmane.org`.
-
-  * To subscribe to the list, click on **Subscribe...** and search for the
-    newsgroup [`gmane.os.qubes.project`]. Click on the checkbox besides the name
-    and **OK**.
-  * You send and reply to mails the same way you would normally.
-  * To unsubscribe from the list, click on **Subscribe...**
-    search for the newsgroup [`gmane.os.qubes.project`], uncheck the checkbox, and
-    click on **OK**. Thunderbird will automatically remove the newsgroup.
+You don't have to subscribe in order to post to this list.
+However, subscribing makes your messages less likely to be marked as spam and allows you to receive messages sent directly to the list.
+To subscribe, send a blank email to `qubes-project+subscribe@googlegroups.com`.
+(Note: A Google account is *not* required. Any email address will work.)
+To post a message to the list, address your email to `qubes-project@googlegroups.com`.
+If your post does not appear immediately, please allow time for moderation to occur.
+To unsubscribe, send a blank email to `qubes-project+unsubscribe@googlegroups.com`.
+This list also also has an optional [Google Groups web interface][qubes-project-web].
 
 
-qubes-translation
------------------
-
-### How to use this list
+## qubes-translation ##
 
 This list is for discussion around the localization and translation of Qubes OS,
 its documentation, and the website.
@@ -448,25 +339,14 @@ Examples of topics or question suitable for this list include:
  * Who is managing localization for a given language
  * Most Github issues tagged "[localization]"
 
-### How to subscribe and post
-
-#### Google Groups
-
-You must be subscribed in order to post to this list.
-
- * To subscribe to the list, send a blank email to
-   `qubes-translation+subscribe@googlegroups.com`.
-   * Note: A Gmail account is *not* required. Any email address will work.
- * To post a message to the list, address your email to
-   `qubes-translation@googlegroups.com`.
-   * Note: You don't have to be subscribed in order to post.
- * To unsubscribe, send a blank email to
-   `qubes-translation+unsubscribe@googlegroups.com`.
- * This list also has a [Google Groups web interface][qubes-translation-web].
-   * Some users prefer to interact with the mailing list through the web
-     interface. This has the advantage that it allows you to search and reply to
-     messages which were sent prior to your subscription to the list. However, a
-     Google account is required in order to post through this interface.
+You don't have to subscribe in order to post to this list.
+However, subscribing makes your messages less likely to be marked as spam and allows you to receive messages sent directly to the list.
+To subscribe, send a blank email to `qubes-translation+subscribe@googlegroups.com`.
+(Note: A Google account is *not* required. Any email address will work.)
+To post a message to the list, address your email to `qubes-translation@googlegroups.com`.
+If your post does not appear immediately, please allow time for moderation to occur.
+To unsubscribe, send a blank email to `qubes-translation+unsubscribe@googlegroups.com`.
+This list also has an optional [Google Groups web interface][qubes-translation-web].
 
 
 [mailing lists]: https://en.wikipedia.org/wiki/Electronic_mailing_list

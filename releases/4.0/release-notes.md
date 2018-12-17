@@ -16,7 +16,7 @@ New features since 3.2
 * Renaming VM directly is prohibited, there is GUI to clone under new name and remove old VM
 * Use [PVH][qsb-37] and [HVM][hvm-switch] by default to [mitigate Meltdown & Spectre][qsb-37] and lower the [attack surface on Xen][qsb-24]
 * Create USB VM by default
-* [Multiple Disposable VMs templates support][dispvm-ticket]
+* [Multiple DisposableVMs templates support][dispvm-ticket]
 * New [backup format][backup-format] using scrypt key-derivation function
 * Non-encrypted backups no longer supported
 * [split VM packages][packages-split], for better support minimal, specialized templates

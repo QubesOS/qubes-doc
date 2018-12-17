@@ -20,7 +20,7 @@ Known issues
 
 -   Some keyboard layout set by KDE System Settings can cause [keyboard not working at all](https://groups.google.com/group/qubes-devel/browse_thread/thread/77d076b65dda7226). If you hit this issue, you can switch to console (by console login option) and manually edit `/etc/X11/xorg.conf.d/00-system-setup-keyboard.conf` (and `/etc/sysconfig/keyboard`) and place correct keyboard layout settings (details in linked thread). You can check if specific keyboard layout settings are proper using `setxkbmap` tool.
 
--   On systems with more than 8GB of RAM there is problem with Disposable VM. To fix it, limit maximum memory allocation for DispVM to 3GB
+-   On systems with more than 8GB of RAM there is problem with DisposableVM. To fix it, limit maximum memory allocation for DispVM to 3GB
 
     ~~~
     qvm-prefs -s fedora-17-x64-dvm maxmem 3072

@@ -213,7 +213,7 @@ technical details have been omitted here for the sake of presentation.
  * Ready to give Qubes a try? Head on over to the [downloads] page.
 
 
-[disposable qube]: /doc/dispvm/
+[disposable qube]: /doc/disposablevm/
 [networking]: /doc/networking/
 [firewalls]: /doc/firewall/
 [USB]: /doc/usb/

@@ -66,7 +66,7 @@ Common Tasks
  * [Installing and Updating Software in dom0](/doc/software-update-dom0/)
  * [Installing and Updating Software in VMs](/doc/software-update-vm/)
  * [Backup, Restoration, and Migration](/doc/backup-restore/)
- * [Using Disposable VMs](/doc/dispvm/)
+ * [Using DisposableVMs](/doc/disposablevm/)
  * [Using and Managing USB Devices](/doc/usb/)
  * [Recording Optical Discs](/doc/recording-optical-discs/)
  * [Managing Application Shortcuts](/doc/managing-appvm-shortcuts/)
@@ -158,6 +158,7 @@ Customization Guides
  * [Language Localization](/doc/language-localization/)
  * [Dark Theme in Dom0 and DomU](/doc/dark-theme/)
  * [How to make any file in a TemplateBasedVM persistent using bind-dirs](/doc/bind-dirs/)
+ * [Safely Removing TemplateVM Packages (Example: Thunderbird)](/doc/removing-templatevm-packages/)
 
 
 Troubleshooting
@@ -249,7 +250,7 @@ Services
  * [Inter-domain file copying](/doc/qfilecopy/) (deprecates [`qfileexchgd`](/doc/qfileexchgd/))
  * [Dynamic memory management in Qubes](/doc/qmemman/)
  * [Implementation of DisposableVMs](/doc/dvm-impl/)
- * [Article about disposable VMs](http://theinvisiblethings.blogspot.com/2010/06/disposable-vms.html)
+ * [Article about DisposableVMs](http://theinvisiblethings.blogspot.com/2010/06/disposable-vms.html)
  * [Dom0 secure update mechanism](/doc/dom0-secure-updates/)
 
 Debugging

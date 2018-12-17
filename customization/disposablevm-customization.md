@@ -1,31 +1,41 @@
 ---
 layout: doc
-title: Disposable VM Customization
-permalink: /doc/dispvm-customization/
+title: DisposableVM Customization
+permalink: /doc/disposablevm-customization/
 redirect_from:
+- /doc/dispvm-customization/
 - /en/doc/dispvm-customization/
 - /doc/DispVMCustomization/
 - /doc/UserDoc/DispVMCustomization/
 - /wiki/UserDoc/DispVMCustomization/
 ---
 
-Disposable VM Customization
+DisposableVM Customization
 ============================
+
+Security
+--------
+
+If a DVM Template becomes compromised, then any DisposableVM based on that DVM Template could be compromised.
+Therefore, you should not make any risky customizations (e.g., installing untrusted browser plugins) in important DVM Templates.
+In particular, the *default* DVM Template is important becuase it is used by the "Open in DisposableVM" feature.
+This means that it will have access to everything that you open with this feature.
+For this reason, it is strongly recommended that you base the default DVM Template on a trusted TemplateVM and refrain from making any risky customizations to it.
 
 Qubes 4.0
 ----------
 
-Disposable VM (DispVM) in Qubes 4.0 can be based on any TemplateBasedVM. You can also choose to use different AppVMs for different Disposable VMs. To prepare AppVM to be a base for Disposable VM, you need to set `template_for_dispvms` property, for example:
+A DisposableVM (previously known as a "DispVM") in Qubes 4.0 can be based on any TemplateBasedVM. You can also choose to use different AppVMs for different DisposableVMs. To prepare AppVM to be a base for DisposableVM, you need to set `template_for_dispvms` property, for example:
 
     [user@dom0 ~]$ qvm-prefs fedora-26-dvm template_for_dispvms True
 
-Additionally, if you want to have menu entries for starting applications in Disposable VM based on this AppVM (instead of in the AppVM itself), you can achieve it with `appmenus-dispvm` feature:
+Additionally, if you want to have menu entries for starting applications in DisposableVM based on this AppVM (instead of in the AppVM itself), you can achieve it with `appmenus-dispvm` feature:
 
     [user@dom0 ~]$ qvm-features fedora-26-dvm appmenus-dispvm 1
 
-### Creating new Disposable VM base AppVM ###
+### Creating new DisposableVM base AppVM ###
 
-In Qubes 4.0, you're no longer restricted to a single DVM Template. Instead, you can create as many as you want. Whenever you start a new Disposable VM, you can choose to base it on whichever DVM Template you like.
+In Qubes 4.0, you're no longer restricted to a single DVM Template. Instead, you can create as many as you want. Whenever you start a new DisposableVM, you can choose to base it on whichever DVM Template you like.
 To create new DVM Template, lets say `custom-dvm`, based on `debian-9` template, use following commands:
 
     [user@dom0 ~]$ qvm-create --template debian-9 --label red custom-dvm
@@ -36,30 +46,30 @@ Additionally you may want to set it as default DVM Template:
 
     [user@dom0 ~]$ qubes-prefs default_dispvm custom-dvm
 
-The above default is used whenever a qube request starting a new Disposable VM and do not specify which one (for example `qvm-open-in-dvm` tool). This can be also set in qube settings and will affect service calls from that qube. See [qrexec documentation](/doc/qrexec3/#extra-keywords-available-in-qubes-40-and-later) for details.
+The above default is used whenever a qube request starting a new DisposableVM and do not specify which one (for example `qvm-open-in-dvm` tool). This can be also set in qube settings and will affect service calls from that qube. See [qrexec documentation](/doc/qrexec3/#extra-keywords-available-in-qubes-40-and-later) for details.
 
 If you wish to use the `fedora-minimal` template as a DVM Template, see the "DVM Template" use case under [fedora-minimal customization](/doc/templates/fedora-minimal/#customization).
 
 
-### Customization of Disposable VM ###
+### Customization of DisposableVM ###
 
-It is possible to change the settings for each new Disposable VM (DispVM). This can be done by customizing the base AppVM:
+It is possible to change the settings for each new DisposableVM. This can be done by customizing the base AppVM:
 
-1.  Start a terminal in the `fedora-26-dvm` qube (or another base for DispVM) by running the following command in a dom0 terminal. (If you enable `appmenus-dispvm` feature (as explained at the top), applications menu for this VM (`fedora-26-dvm`) will be "Disposable: fedora-26-dvm" (instead of "Domain: fedora-26-dvm") and entries there will start new DispVM based on that VM (`fedora-26-dvm`). Not in that VM (`fedora-26-dvm`) itself).
+1.  Start a terminal in the `fedora-26-dvm` qube (or another base for DisposableVM) by running the following command in a dom0 terminal. (If you enable `appmenus-dispvm` feature (as explained at the top), applications menu for this VM (`fedora-26-dvm`) will be "Disposable: fedora-26-dvm" (instead of "Domain: fedora-26-dvm") and entries there will start new DisposableVM based on that VM (`fedora-26-dvm`). Not in that VM (`fedora-26-dvm`) itself).
 
         [user@dom0 ~]$ qvm-run -a fedora-26-dvm gnome-terminal
 
 2.  Change the qube's settings and/or applications, as desired. Some examples of changes you may want to make include:
     -   Changing Firefox's default startup settings and homepage.
     -   Changing default editor, image viewer.
-    -   Changing the DispVM's default NetVM. For example, you may wish to set the NetVM to "none." Then, whenever you start a new DispVM, you can choose your desired ProxyVM manually (by changing the newly-started DispVMs settings). This is useful if you sometimes wish to use a DispVM with a Whonix Gateway, for example. It is also useful if you sometimes wish to open untrusted files in a network-disconnected DispVM.
+    -   Changing the DisposableVM's default NetVM. For example, you may wish to set the NetVM to "none." Then, whenever you start a new DisposableVM, you can choose your desired ProxyVM manually (by changing the newly-started DisposableVMs settings). This is useful if you sometimes wish to use a DisposableVM with a Whonix Gateway, for example. It is also useful if you sometimes wish to open untrusted files in a network-disconnected DisposableVM.
 
 4.  Shutdown the qube (either by `poweroff` from qube's terminal, or `qvm-shutdown` from dom0 terminal).
 
 
-### Using static Disposable VMs for sys-* ###
+### Using static DisposableVMs for sys-* ###
 
-You can use a static DispVM for `sys-*` as long as it is stateless.
+You can use a static DisposableVM for `sys-*` as long as it is stateless.
 For example, a `sys-net` using DHCP or `sys-usb` will work.
 In most cases `sys-firewall` will also work, even if you have configured AppVM firewall rules.
 The only exception is if you require something like VM to VM communication and have manually edited `iptables` or other items directly inside the firewall AppVM.
@@ -88,7 +98,7 @@ qvm-service <sys-VMName> meminfo-writer off
 qvm-pci attach --persistent <sys-VMName> dom0:<BDF>
 qvm-prefs <sys-VMName> autostart true
 qvm-prefs <sys-VMName> netvm ''
-# optional, if this DispVM will be providing networking
+# optional, if this DisposableVM will be providing networking
 qvm-prefs <sys-VMName> provides_network true
 ~~~
 
@@ -109,31 +119,31 @@ qvm-prefs sys-firewall netvm sys-net2
 qubes-prefs clockvm sys-net2
 ~~~
 
-Note that these types of DispVMs will not show in the Application menu, but you can still get to a terminal if needed with `qvm-run <sys-VMName> gnome-terminal`.
+Note that these types of DisposableVMs will not show in the Application menu, but you can still get to a terminal if needed with `qvm-run <sys-VMName> gnome-terminal`.
 
-### Adding programs to Disposable VM Application Menu ###
+### Adding programs to DisposableVM Application Menu ###
 
-For added convenience, arbitrary programs can be added to the Application Menu of the Disposable VM. 
+For added convenience, arbitrary programs can be added to the Application Menu of the DisposableVM. 
 
 In order to do that, select "Qube settings" entry in selected base AppVM, go to "Applications" tab and select desired applications as for any other qube.
 
 Note that currently only applications whose main process keeps running until you close the application (i.e. do not start a background process instead) will work. One of known examples of incompatible applications is GNOME Terminal (shown on the list as "Terminal"). Choose different terminal emulator (like XTerm) instead.
 
-### Create Custom sys-net sys-firewall and sys-usb DispVMs ###
+### Create Custom sys-net sys-firewall and sys-usb DisposableVMs ###
 
-Users have the option of creating customized DispVMs for the `sys-net`, `sys-firewall` and `sys-usb` VMs. In this configuration, a fresh VM instance is created each time a DispVM is launched. Functionality is near-identical to the default VMs created following a new Qubes’ installation, except the user benefits from a non-persistent filesystem.
+Users have the option of creating customized DisposableVMs for the `sys-net`, `sys-firewall` and `sys-usb` VMs. In this configuration, a fresh VM instance is created each time a DisposableVM is launched. Functionality is near-identical to the default VMs created following a new Qubes’ installation, except the user benefits from a non-persistent filesystem.
 
 Functionality is not limited, users can:
 
    * Set custom firewall rule sets and run Qubes VPN scripts. 
-   * Set DispVMs to autostart at system boot.
+   * Set DisposableVMs to autostart at system boot.
    * Attach PCI devices with the `--persistent` option. 
 
-Using DispVMs in this manner is ideal for untrusted qubes which require persistent PCI devices, such as USB VMs and NetVMs.
+Using DisposableVMs in this manner is ideal for untrusted qubes which require persistent PCI devices, such as USB VMs and NetVMs.
 
->_**Note:**_ Users who want customized VPN or firewall rule sets must create a separate dvm for use by each DispVM. If dvm customization is not needed, then a single dvm is used as a template for all DispVMs.
+>_**Note:**_ Users who want customized VPN or firewall rule sets must create a separate dvm for use by each DisposableVM. If dvm customization is not needed, then a single dvm is used as a template for all DisposableVMs.
  
-#### Create and configure the dvm from which the DispVM will be based on ####
+#### Create and configure the dvm from which the DisposableVM will be based on ####
 
 1. Create the dvm 
 
@@ -143,13 +153,13 @@ Using DispVMs in this manner is ideal for untrusted qubes which require persiste
 
     Firewall rules sets and Qubes VPN scripts can be added just like any other VM   
     
-3. Set the dvm as template for DispVMs
+3. Set the dvm as template for DisposableVMs
 
     [user@dom0 ~]$ qvm-prefs <dvm_name> template_for_dispvms true
 
-#### Create the sys-net DispVM #### 
+#### Create the sys-net DisposableVM #### 
 
-1. Create `sys-net` DispVM based on the dvm
+1. Create `sys-net` DisposableVM based on the dvm
 
     [user@dom0 ~]$ qvm-create --template <dvm_name> --class DispVM --label red disp-sys-net
 
@@ -181,9 +191,9 @@ Using DispVMs in this manner is ideal for untrusted qubes which require persiste
 
     [user@dom0 ~]$ qubes-prefs clockvm disp-sys-net
 
-#### Create the sys-firewall DispVM ####
+#### Create the sys-firewall DisposableVM ####
 
-1. Create `sys-firewall` DispVM
+1. Create `sys-firewall` DisposableVM
 
     [user@dom0 ~]$ qvm-create --template <dvm_name> --class DispVM --label green disp-sys-firewall
 
@@ -207,7 +217,7 @@ Using DispVMs in this manner is ideal for untrusted qubes which require persiste
 
     [user@dom0 ~]$ qubes-prefs default_netvm disp-sys-firewall
 
-#### Create the sys-usb DispVM ####
+#### Create the sys-usb DisposableVM ####
 
 1. Create the `disp-sys-usb`
 
@@ -238,9 +248,9 @@ Using DispVMs in this manner is ideal for untrusted qubes which require persiste
 7. Users should now follow instructions on [How to hide USB controllers from dom0](/doc/usb/#how-to-hide-all-usb-controllers-from-dom0)
 
 
-#### Starting the DispVMs ####
+#### Starting the DisposableVMs ####
 
-Prior to starting the new VMs, users should ensure that no other VMs such as the old `sys-net` and `sys-usb` VMs are running. This is because no two VMs can share the same PCI device while both running. It is recommended that users detach the PCI devices from the old VMs without deleting them. This will allow users to reattach the PCI devices if the newly created DispVMs fail to start.  
+Prior to starting the new VMs, users should ensure that no other VMs such as the old `sys-net` and `sys-usb` VMs are running. This is because no two VMs can share the same PCI device while both running. It is recommended that users detach the PCI devices from the old VMs without deleting them. This will allow users to reattach the PCI devices if the newly created DisposableVMs fail to start.  
 
    Detach PCI device from VM
 
@@ -254,7 +264,7 @@ The `disp-sys-usb` VM does not start
 If the `disp-sys-usb` does not start, it could be due to a PCI passthrough problem. For more details on this issue along with possible solutions, users can look [here](/doc/assigning-devices/#pci-passthrough-issues)
 
 
-### Deleting Disposable VM ###
+### Deleting DisposableVM ###
 
 Deleting disposable VM is slightly peculiar. While working in a VM or disposable VM, you may want to open a document in another disposable VM. For this reason, the property `default_dispvm` may be set to the name of your disposable VM in a number of VMs:
 
@@ -282,15 +292,15 @@ Qubes 3.2
 
 You may want to use a non-default template the [DVM Template](/doc/glossary/#dvm-template). One example is to use a less-trusted template with some less trusted, third-party, often unsigned, applications installed, such as e.g. third-party printer drivers.
 
-In order to regenerate the Disposable VM "snapshot" (called 'savefile' on Qubes) one can use the following command in Dom0:
+In order to regenerate the DisposableVM "snapshot" (called 'savefile' on Qubes) one can use the following command in Dom0:
 
     [user@dom0 ~]$ qvm-create-default-dvm <custom-template-name>
 
-This would create a new Disposable VM savefile based on the custom template.
+This would create a new DisposableVM savefile based on the custom template.
 For example `<custom-template-name>` could be the name of the existing `debian-8` vm, which creates the disposable vm `debain-8-dvm`.
-Now, whenever one opens a file (from any AppVM) in a Disposable VM, a Disposable VM based on this template will be used.
+Now, whenever one opens a file (from any AppVM) in a DisposableVM, a DisposableVM based on this template will be used.
 
-One can easily verify if the new Disposable VM template is indeed based on a custom template (in the example below the template called "f17-yellow" was used as a basis for the Disposable VM):
+One can easily verify if the new DisposableVM template is indeed based on a custom template (in the example below the template called "f17-yellow" was used as a basis for the DisposableVM):
 
 
     [user@dom0 ~]$ ll /var/lib/qubes/dvmdata/
@@ -302,19 +312,19 @@ One can easily verify if the new Disposable VM template is indeed based on a cus
 If you wish to use the `fedora-minimal` template as a DVM Template, see the "DVM Template" use case under [fedora-minimal customization](/doc/templates/fedora-minimal/#customization).
 
 
-### Customization of Disposable VM ###
+### Customization of DisposableVM ###
 
-It is possible to change the settings of each new Disposable VM (DispVM). This can be done by customizing the DispVM template:
+It is possible to change the settings of each new DisposableVM. This can be done by customizing the DVM Template:
 
 1.  Start a terminal in the `fedora-23-dvm` TemplateVM by running the following command in a dom0 terminal. (By default, this TemplateVM is not shown in Qubes VM Manager. However, it can be shown by selecting "Show/Hide internal VMs.")
 
 
         [user@dom0 ~]$ qvm-run -a fedora-23-dvm gnome-terminal
 
-2.  Change the VM's settings and/or applications, as desired. Note that currently Qubes supports exactly one DispVM template, so any changes you make here will affect all DispVMs. Some examples of changes you may want to make include:
+2.  Change the VM's settings and/or applications, as desired. Note that currently Qubes supports exactly one DVM Template, so any changes you make here will affect all DisposableVMs. Some examples of changes you may want to make include:
     -   Changing Firefox's default startup settings and homepage.
     -   Changing Nautilus' default file preview settings.
-    -   Changing the DispVM's default NetVM. For example, you may wish to set the NetVM to "none." Then, whenever you start a new DispVM, you can choose your desired ProxyVM manually (by changing the newly-started DispVM's settings). This is useful if you sometimes wish to use a DispVM with a Whonix Gateway, for example. It is also useful if you sometimes wish to open untrusted files in a network-disconnected DispVM.
+    -   Changing the DisposableVM's default NetVM. For example, you may wish to set the NetVM to "none." Then, whenever you start a new DisposableVM, you can choose your desired ProxyVM manually (by changing the newly-started DisposableVM's settings). This is useful if you sometimes wish to use a DisposableVM with a Whonix Gateway, for example. It is also useful if you sometimes wish to open untrusted files in a network-disconnected DisposableVM.
 
 3.  Create an empty `/home/user/.qubes-dispvm-customized` file in the VM (not in dom0):
 
@@ -322,11 +332,11 @@ It is possible to change the settings of each new Disposable VM (DispVM). This c
         [user@fedora-23-dvm ~]$ touch /home/user/.qubes-dispvm-customized
 
 4.  Shutdown the VM (either by `poweroff` from VM terminal, or `qvm-shutdown` from dom0 terminal).
-5.  Regenerate the DispVM template using the default template:
+5.  Regenerate the DVM Template using the default template:
 
         [user@dom0 ~]$ qvm-create-default-dvm --default-template
         
-    Or, if you're [using a non-default template](#changing-the-dvm-template), regenerate the DispVM using your custom template:
+    Or, if you're [using a non-default template](#changing-the-dvm-template), regenerate the DVM Template using your custom template:
     
         [user@dom0 ~]$ qvm-create-default-dvm <custom-template-name>
 
@@ -334,9 +344,9 @@ It is possible to change the settings of each new Disposable VM (DispVM). This c
 **Note:** All of the above requires at least qubes-core-vm \>= 2.1.2 installed in template.
 
 
-### Adding arbitrary programs to Disposable VM Application Menu ###
+### Adding arbitrary programs to DisposableVM Application Menu ###
 
-For added convenience, arbitrary programs can be added to the Application Menu of the Disposable VM. In order to do that create (e.g.) `arbitrary.desktop` file in `/usr/local/share/applications` in Dom0. That file will point to the desired program. Use the following template for the file:
+For added convenience, arbitrary programs can be added to the Application Menu of the DisposableVM. In order to do that create (e.g.) `arbitrary.desktop` file in `/usr/local/share/applications` in Dom0. That file will point to the desired program. Use the following template for the file:
 
     [Desktop Entry]
     Version=1.0
@@ -359,4 +369,4 @@ Add a `<Filename>arbitrary.desktop</Filename>` line so that your modified file l
     <Filename>arbitrary.desktop</Filename>
     </Include>
 
-After saving the changes the new shortcut should appear in the Disposable VM Applications menu.
+After saving the changes the new shortcut should appear in the DisposableVM Applications menu.

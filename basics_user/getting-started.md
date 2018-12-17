@@ -141,7 +141,7 @@ A full list is available in the [Common Tasks](/doc/#common-tasks) section of th
  * [Updating Software in dom0](/doc/software-update-dom0/)
  * [Updating and Installing Software in VMs](/doc/software-update-vm/)
  * [Backup, Restoration, and Migration](/doc/backup-restore/)
- * [Using Disposable VMs](/doc/dispvm/)
+ * [Using DisposableVMs](/doc/disposablevm/)
  * [Using and Managing USB Devices](/doc/usb/)
 
 Running an application Full Screen
