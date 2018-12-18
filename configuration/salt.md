@@ -240,6 +240,24 @@ This way dom0 doesn't directly interact with potentially malicious target VMs;
 and in the case of a compromised Salt VM, because they are temporary, the 
 compromise cannot spread from one VM to another.
 
+In Qubes 3.2, this temporary VM is based on the default template.
+
+Beginning with Qubes 4.0 and after [QSB #45], we implemented two changes:
+
+1. Added the `management_dispvm` VM property, which specifies the DVM
+   Template that should be used for management, such as Salt
+   configuration.  TemplateBasedVMs inherit this property from their
+   parent TemplateVMs.  If the value is not set explicitly, the default
+   is taken from the global `management_dispvm` property. The
+   VM-specific property is set with the `qvm-prefs` command, while the
+   global property is set with the `qubes-prefs` command.
+
+2. Created the `default-mgmt-dvm` DVM Template, which is hidden from
+   the menu (to avoid accidental use), has networking disabled, and has
+   a black label (the same as TemplateVMs). This VM is set as the global
+   `management_dispvm`. Keep in mind that this DVM template has full control
+   over the VMs it's used to manage.
+
 ## Writing Your Own Configurations
 
 Let's start with a quick example:
@@ -410,7 +428,7 @@ Vault AppVM with no NetVM enabled.
 
 #### `qvm.default-dispvm`
 
-Default Disposable VM template - fedora-26-dvm AppVM
+Default DisposableVM template - fedora-26-dvm AppVM
 
 #### `qvm.anon-whonix`
 
@@ -418,7 +436,7 @@ Whonix workstation AppVM.
 
 #### `qvm.whonix-ws-dvm`
 
-Whonix workstation AppVM for Whonix Disposable VMs.
+Whonix workstation AppVM for Whonix DisposableVMs.
 
 #### `qvm.updates-via-whonix`
 
@@ -519,11 +537,10 @@ The solution is to shut down the updateVM between each install:
 * [Top files][salt-doc-top]
 * [Jinja templates][jinja]
 * [Qubes specific modules][salt-qvm-doc]
-* [Formulas for default Qubes VMs][salt-virtual-machines-doc] ([and actual states][salt-virtual-machines-states])
+* [Formulas for default Qubes VMs][salt-virtual-machines-states]
 
 [salt-doc]: https://docs.saltstack.com/en/latest/
 [salt-qvm-doc]: https://github.com/QubesOS/qubes-mgmt-salt-dom0-qvm/blob/master/README.rst
-[salt-virtual-machines-doc]: https://github.com/QubesOS/qubes-mgmt-salt-dom0-virtual-machines/blob/master/README.rst
 [salt-virtual-machines-states]: https://github.com/QubesOS/qubes-mgmt-salt-dom0-virtual-machines/tree/master/qvm
 [salt-doc-states]: https://docs.saltstack.com/en/latest/ref/states/all/
 [salt-doc-states-file]: https://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html
@@ -536,3 +553,4 @@ The solution is to shut down the updateVM between each install:
 [jinja]: http://jinja.pocoo.org/
 [jinja-tmp]: http://jinja.pocoo.org/docs/2.9/templates/
 [jinja-call-salt-functions]: https://docs.saltstack.com/en/getstarted/config/jinja.html#get-data-using-salt
+[QSB #45]: /news/2018/12/03/qsb-45/

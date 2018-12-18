@@ -18,7 +18,7 @@ Beware: Dragons might eat your precious data!
 Install ZFS in Dom0
 ===================
 
-Install DKMS style packages for Fedora <sup>(defunct\\ in\\ 0.6.2\\ due\\ to\\ spl/issues/284)</sup>
+Install DKMS style packages for Fedora <sup>(defunct in 0.6.2 due to spl/issues/284)</sup>
 ----------------------------------------------------------------------------------------------------
 
 Fetch and install repository for DKMS style packages for your Dom0 Fedora version [http://zfsonlinux.org/fedora.html](http://zfsonlinux.org/fedora.html):
@@ -37,7 +37,7 @@ Install DKMS style packages from git-repository
 
 Build and install your DKMS or KMOD packages as described in [http://zfsonlinux.org/generic-rpm.html](http://zfsonlinux.org/generic-rpm.html).
 
-### Prerequisites steps in AppVM <sup>(i.e.\\ disp1)</sup>
+### Prerequisites steps in AppVM <sup>(i.e. disp1)</sup>
 
 Checkout repositories for SPL and ZFS:
 

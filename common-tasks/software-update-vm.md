@@ -68,7 +68,7 @@ sudo dnf upgrade --enablerepo=qubes-vm-*-security-testing
 sudo dnf upgrade --enablerepo=qubes-vm-*-unstable
 ~~~
 
-To enable or disable any of these repos permanently, change the corresponding boolean in `/etc/yum.repos.d/qubes-*.repo`.
+To enable or disable any of these repos permanently, change the corresponding `enabled` value to `1` in `/etc/yum.repos.d/qubes-*.repo`.
 
 ### Debian ###
 
@@ -327,7 +327,7 @@ But, of course, the problem of finding malware hooks in general is hard, so this
 Also note that the user filesystem's metadata might got maliciously modified by malware in order to exploit a hypothetical bug in the AppVM kernel whenever it mounts the malformed filesystem.
 However, these exploits will automatically stop working (and so the infection might be cleared automatically) after the hypothetical bug got patched and the update applied (via template update), which is an exceptional feature of Qubes OS.
 
-Also note that Disposable VMs do not have persistent user filesystem, and so they start up completely "clean" every time.
+Also note that DisposableVMs do not have persistent user filesystem, and so they start up completely "clean" every time.
 Note the word "clean" means in this context: the same as their template filesystem, of course.
 
 RPMFusion for a Fedora TemplateVM

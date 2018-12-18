@@ -254,6 +254,33 @@ When making contributions, please try to observe the following style conventions
    where appropriate.
  * Use underline headings (`=====` and `-----`) if possible.
    If this is not possible, use Atx-style headings on both the left and right sides (`### H3 ###`).
+ * When writing code blocks, use [syntax highlighting](https://github.github.com/gfm/#info-string) where [possible](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers) and use `[...]` for anything omitted.
+ * When providing command line examples:
+   * Tell the reader where to open a terminal (dom0 or a specific domU), and show the command along with its output (if any) in a code block, e.g.:
+     ~~~markdown
+     Open a terminal in dom0 and run:
+     ```shell_session
+     $ cd test
+     $ echo Hello
+     Hello
+     ```
+     ~~~
+   * Precede each command with the appropriate command prompt:
+     At a minimum, the prompt should contain a trailing `#` (for the user `root`) or `$` (for other users) on Linux systems and `>` on Windows systems, respectively.
+   * Don't try to add comments inside the code block.
+     For example, *don't* do this:
+     ~~~markdown
+     Open a terminal in dom0 and run:
+     ```shell_session
+     # Navigate to the new directory
+     $ cd test
+     # Generate a greeting
+     $ echo Hello
+     Hello
+     ```
+     ~~~
+     The `#` symbol preceding each comment is ambiguous with a root command prompt.
+     Instead, put your comments *outside* of the code block in normal prose.
  * Use `[reference-style][ref]` links.  
  
 `[ref]: https://daringfireball.net/projects/markdown/syntax#link`

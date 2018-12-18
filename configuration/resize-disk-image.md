@@ -16,6 +16,7 @@ Resize Disk Image
 
 There are several disk images which can be easily extended, but pay attention to the overall consumed space of your sparse/thin disk images.
 See also [OS Specific Follow-up Instructions](/doc/resize-disk-image/#os-specific-follow-up-instructions) at the end of this page.
+Since a TemplateBasedVM [inherits its system filesystem from the Template on which it is based](/getting-started/#appvms-qubes-and-templatevms), it is not possible to resize the system disk for a TemplateBasedVM.
 
 
 ### Template disk image (R4.0)
