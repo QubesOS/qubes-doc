@@ -12,11 +12,11 @@ redirect_from:
 TemplateVMs
 ===========
 
-Every TemplateBasedVM in Qubes is, as the name implies, based on some TemplateVM. 
-The TemplateVM is where all the software available to TemplateBasedVMs is installed. 
-The default template is based on Fedora, but there are additional templates based on other Linux distributions. 
-There are also templates available with or without certain software preinstalled. 
-The concept of TemplateVMs is initially described [here](/getting-started/#appvms-qubes-and-templatevms). 
+Every TemplateBasedVM in Qubes is, as the name implies, based on some TemplateVM.
+The TemplateVM is where all the software available to TemplateBasedVMs is installed.
+The default template is based on Fedora, but there are additional templates based on other Linux distributions.
+There are also templates available with or without certain software preinstalled.
+The concept of TemplateVMs is initially described [here](/getting-started/#appvms-qubes-and-templatevms).
 The technical details of this implementation are described in the developer documentation [here](/doc/template-implementation/).
 
 Some templates are available in ready-to-use binary form, but some of them are available only as source code, which can be built using the [Qubes Builder](/doc/qubes-builder/).
@@ -125,12 +125,9 @@ Important Notes (R4.0)
    is always independent from its parent TemplateVM's `/home`, which means that any
    subsequent changes to the parent TemplateVM's `/home` will not affect
    the child TemplateBasedVM's `/home`.
-   
- * Template VMs are created in a thin pool, making `qvm-trim-template`
-   no longer necessary.
 
-   The root filesystems in Standalone VMs can employ
-   TRIM/discard on the root fs using normal tools and configuration options.
+ * `qvm-trim-template` is not necessary. All VMs are created in a thin pool
+   and trimming is handled automatically. No user action is required.
 
 |                    | Inheritance (1)                                           | Persistence (2)
 |--------------------|-----------------------------------------------------------|------------------------------------------
@@ -138,8 +135,8 @@ Important Notes (R4.0)
 |TemplateBasedVM (3) | `/etc/skel` to `/home`, `/usr/local.orig` to `/usr/local` | `/rw` (includes `/home`, `/usr/local` and `bind-dirs`)
 |DisposableVM        | `/rw` (includes `/home`, `/usr/local` and `bind-dirs`)    | Nothing
 
-(1) Upon creation  
-(2) Following shutdown  
+(1) Upon creation
+(2) Following shutdown
 (3) Including [DVM Templates](/doc/disposablevm/#disposablevms-and-networking-r40-and-later)
 
 Important Notes (R3.2 and earlier)
@@ -151,14 +148,14 @@ Important Notes (R3.2 and earlier)
    is independent from its parent TemplateVM's `/home`, which means that any
    subsequent changes to the parent TemplateVM's `/home` will no longer affect
    the child TemplateBasedVM's `/home`.
-   
+
  * Template VMs can occupy more space on the dom0 filesystem than necessary
    because they cannot employ automatic TRIM/discard on the root fs. The
    `qvm-trim-template` command in dom0 is used to recover this unused space.
 
    Conversely, the root filesystems in Standalone VMs *can* employ
    TRIM/discard on the root fs using normal tools and configuration options.
-   
+
 Important Notes (all versions)
 ---------------
 
@@ -183,7 +180,7 @@ Important Notes (all versions)
  * Standalone VMs using Template VMs as a basis can be created easily. These
    VMs receive a *copy* of the operating system and do not get automatically
    updated when Template VMs are updated--they must be updated individually.
- 
+
  * On XFCE based Dom0, a manual action may be required to remove the "Start Menu"
    sub-menu of the removed TemplateVM. For example, to remove a dangling sub-menu
    for a removed "fedora-25" template, open a Dom0 Terminal and type:
@@ -191,5 +188,5 @@ Important Notes (all versions)
        $ rm ~/.local/share/applications/fedora-25-*
 
    Just make sure there are no other TemplateVMs whose names start with "fedora-25"
-   or else their menu items will be removed too. 
-       
+   or else their menu items will be removed too.
+
