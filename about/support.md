@@ -245,8 +245,8 @@ Thunderbird will automatically remove the newsgroup.
 
 This is a read-only list for those who wish to receive only very important,
 infrequent messages. Only the core Qubes team can post to this list, and only
-[Qubes Security Bulletins (QSBs)][qsb] and new Qubes OS releases are announced
-here.
+[Qubes Security Bulletins (QSBs)][qsb] and new stable Qubes OS releases are
+announced here.
 
 To subscribe, send a blank email to `qubes-announce+subscribe@googlegroups.com`.
 (Note: A Google account is *not* required. Any email address will work.)
