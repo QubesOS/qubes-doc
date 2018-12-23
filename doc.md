@@ -90,7 +90,7 @@ Managing Operating Systems within Qubes
  * [Creating and Using HVM Domains](/doc/hvm/)
  * [Tips for Using Linux in an HVM](/doc/linux-hvm-tips/)
  * [Creating a NetBSD VM](/doc/netbsd/)
- * [How to Reinstall a TemplateVM](/doc/reinstall-template)
+ * [How to Reinstall a TemplateVM](/doc/reinstall-template/)
 
 
 Security Guides
@@ -127,8 +127,8 @@ Configuration Guides
  * [Multibooting](/doc/multiboot/)
  * [Resize Disk Image](/doc/resize-disk-image/)
  * [RPC Policies](/doc/rpc-policy/)
- * [Changing your Time Zone](/doc/change-time-zone)
- * [GUI Configuration and Troubleshooting](/doc/gui-configuration)
+ * [Changing your Time Zone](/doc/change-time-zone/)
+ * [GUI Configuration and Troubleshooting](/doc/gui-configuration/)
  * [Installing ZFS in Qubes](/doc/zfs/)
  * [Mutt Guide](/doc/mutt/)
  * [Postfix Guide](/doc/postfix/)
@@ -150,8 +150,8 @@ Configuration Guides
 Customization Guides
 --------------------
  * [DispVM Customization](/doc/dispvm-customization/)
- * [Customizing Fedora minimal templates](/doc/fedora-minimal-template-customization)
- * [Customizing Windows 7 templates](/doc/windows-template-customization)
+ * [Customizing Fedora minimal templates](/doc/fedora-minimal-template-customization/)
+ * [Customizing Windows 7 templates](/doc/windows-template-customization/)
  * [Using KDE in dom0](/doc/kde/)
  * [Installing XFCE in dom0](/doc/xfce/)
  * [Installing i3 in dom0](/doc/i3/)
