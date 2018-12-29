@@ -583,9 +583,8 @@ The relevant binaries (shim.efi, xen.efi, kernel / initramfs) are not signed by 
 Intel TXT (used in [Anti Evil Maid](/doc/anti-evil-maid/)) at least tries to avoid or limit trust in BIOS.
 See the Heads project [[1]](https://trmm.net/Heads) [[2]](http://osresearch.net/) for a better-designed non-UEFI-based secure boot scheme with very good support for Qubes.
 
-### Is there a way to automate tasks like with Continuous Integration / DevOps?
+### Is there a way to automate tasks for continuous integration or DevOps?
 
-Yes. Since Qubes 3.1 there is [Salt / SaltStack](/doc/salt/) support by Qubes Team.
-Also there is an [external project for Qubes 3.x that uses ansible](https://github.com/Rudd-O/ansible-qubes) . 
-With it "you can completely script the setup and maintenance of an entire network of Qubes OS machines". Though note, that this stuff is NOT from Qubes Team and managing Dom0 from qube in Qubes 3.x is against Qubes security model (you have been warned).
+Yes, Qubes natively supports automation via [Salt (SaltStack)](/doc/salt/).
+There is also the unofficial [ansible-qubes toolkit](https://github.com/Rudd-O/ansible-qubes) (which has not been reviewed or endorsed by the Qubes team).
 
