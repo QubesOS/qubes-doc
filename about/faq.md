@@ -586,5 +586,6 @@ See the Heads project [[1]](https://trmm.net/Heads) [[2]](http://osresearch.net/
 ### Is there a way to automate tasks for continuous integration or DevOps?
 
 Yes, Qubes natively supports automation via [Salt (SaltStack)](/doc/salt/).
-There is also the unofficial [ansible-qubes toolkit](https://github.com/Rudd-O/ansible-qubes) (which has not been reviewed or endorsed by the Qubes team).
+There is also the unofficial [ansible-qubes toolkit](https://github.com/Rudd-O/ansible-qubes).
+(**Warning:** Since this is an external project that has not been reviewed or endorsed by the Qubes team, [allowing it to manage dom0 may be a security risk](/doc/security-guidelines/#dom0-precautions).)
 
