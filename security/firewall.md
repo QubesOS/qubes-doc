@@ -48,9 +48,10 @@ in that VM's directory in dom0:
 
     /var/lib/qubes/appvms/<vm-name>/firewall.xml
     
-Please note that there is a 3 kB limit to the size of the `iptables` script. 
+Please note that there is a 3 kB limit to the size of the `iptables` script in Qubes versions before R4.0. 
 This equates to somewhere between 35 and 39 rules. 
 If this limit is exceeded, the qube will not start.
+The limit was removed in R4.0.
 
 It is possible to work around this limit by enforcing the rules on the qube itself
 by putting appropriate rules in `/rw/config`.
