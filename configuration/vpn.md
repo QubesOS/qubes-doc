@@ -50,11 +50,43 @@ Set up a ProxyVM as a VPN gateway using NetworkManager
 
 3. Set up your VPN as described in the NetworkManager documentation linked above.
 
-4. Configure your AppVMs to use the new VM as a NetVM.
+4. (Optional) Make your VPN start automatically.
+
+   Edit `/rw/config/rc.local` and add these lines:
+   
+   ```bash
+   # Automatically connect to the VPN once Internet is up
+   while ! ping -c 1 -W 1 1.1.1.1; do
+      sleep 1
+   done
+   PWDFILE="/rw/config/NM-system-connections/secrets/passwd-file.txt"
+   nmcli connection up file-vpn-conn passwd-file $PWDFILE
+   ```
+   You can find the actual "file-vpn-conn" in `/rw/config/NM-system-connections/`.
+   
+   Create directory `/rw/config/NM-system-connections/secrets/` (You can put your `*.crt` and `*.pem` files here too).
+   Create a new file `/rw/config/NM-system-connections/secrets/passwd-file.txt`:
+   ```
+   vpn.secrets.password:XXXXXXXXXXXXXX
+   ```
+   And substitute "XXXXXXXXXXXXXX" for the actual password.
+   The contents of `passwd-file.txt` may differ depending on your VPN settings.  See the [documentation for `nmcli up`](https://www.mankier.com/1/nmcli#up).
+   
+5. (Optional) Make the network fail-close for the AppVMs if the connection to the VPN breaks.
+
+   Edit `/rw/config/qubes-firewall-user-script` and add these lines:
+   ```bash
+   # Block forwarding of connections through upstream network device
+   # (in case the vpn tunnel breaks)
+   iptables -I FORWARD -o eth0 -j DROP
+   iptables -I FORWARD -i eth0 -j DROP
+   ```
+
+6. Configure your AppVMs to use the new VM as a NetVM.
 
    ![Settings-NetVM.png](/attachment/wiki/VPN/Settings-NetVM.png)
 
-5. Optionally, you can install some [custom icons](https://github.com/Zrubi/qubes-artwork-proxy-vpn) for your VPN
+7. Optionally, you can install some [custom icons](https://github.com/Zrubi/qubes-artwork-proxy-vpn) for your VPN
 
 
 Set up a ProxyVM as a VPN gateway using iptables and CLI scripts
@@ -212,6 +244,8 @@ It has been tested with Fedora 23 and Debian 8 templates.
    #    (in case the vpn tunnel breaks):
    iptables -I FORWARD -o eth0 -j DROP
    iptables -I FORWARD -i eth0 -j DROP
+   ip6tables -I FORWARD -o eth0 -j DROP
+   ip6tables -I FORWARD -i eth0 -j DROP
    
    #    Block all outgoing traffic
    iptables -P OUTPUT DROP

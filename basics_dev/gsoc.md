@@ -116,7 +116,7 @@ would override all the user changes there). More details:
    - ability to deploy the template into various storage mechanisms (sparse
      files, LVM thin volumes etc).
    - template metadata, templates repository - enable the user to browse
-     available templates (probably should be done in dedicated VM, or Disposable VM)
+     available templates (probably should be done in dedicated VM, or DisposableVM)
  - Implement the above mechanism:
    - tool to download named template - should perform download operation in
      some VM (as dom0 have no network access), then transfer the data to dom0,
@@ -285,7 +285,7 @@ details: [#1552](https://github.com/QubesOS/qubes-issues/issues/1552),
 **Expected results**:
 
  - Extend existing Thunderbird extension to decide on action (where to open/save attachments) based on message sender - recognized as email address, or signing key
- - Add Firefox extension to open links in Disposable VM / selected VM (right-click option and a default action for not-whitelisted URLs/domains)
+ - Add Firefox extension to open links in DisposableVM / selected VM (right-click option and a default action for not-whitelisted URLs/domains)
  - The same for Chrome
  - Add tests for above enhancements
  - Update user documentation

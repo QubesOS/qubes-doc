@@ -21,7 +21,7 @@ Installation
 The Fedora minimal template can be installed with the following command:
 
 ~~~
-[user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-26-minimal
+[user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-27-minimal
 ~~~
 
 The download may take a while depending on your connection speed.
@@ -32,7 +32,7 @@ Duplication and first steps
 It is highly recommended to clone the original template, and make any changes in the clone instead of the original template. The following command clones the template. Replace `your-new-clone` with your desired name.
 
 ~~~
-[user@dom0 ~]$ qvm-clone fedora-26-minimal your-new-clone
+[user@dom0 ~]$ qvm-clone fedora-27-minimal your-new-clone
 ~~~
 
 You must start the template in order to customize it.
@@ -49,6 +49,8 @@ As expected, the required packages are to be installed in the running template w
 [user@your-new-clone ~]$ sudo dnf install packages
 ~~~
 
+### Package table for Qubes 3.2
+
 Use case | Description | Required steps
 --- | --- | ---
 **Standard utilities** | If you need the commonly used utilities | Install the following packages: `pciutils` `vim-minimal` `less` `psmisc` `gnome-keyring`
@@ -59,6 +61,19 @@ Use case | Description | Required steps
 **USB** | If you want USB input forwarding to use this template as the basis for a [USB](/doc/usb/) qube such as `sys-usb` | Install `qubes-input-proxy-sender`
 **VPN** | You can use this template as basis for a [VPN](/doc/vpn/) qube | Use the `dnf search "NetworkManager VPN plugin"` command to look up the VPN packages you need, based on the VPN technology you'll be using, and install them. Some GNOME related packages may be needed as well. After creation of a machine based on this template, follow the [VPN howto](/doc/vpn/#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager) to configure it.
 **DVM Template** | If you want to use this VM as a [DVM Template](/doc/glossary/#dvm-template) | Install `perl-Encode`
+
+### Package table for Qubes 4.0
+
+Use case | Description | Required steps
+--- | --- | ---
+**Standard utilities** | If you need the commonly used utilities | Install the following packages: `pciutils` `vim-minimal` `less` `psmisc` `gnome-keyring`
+**Audio** | If you want sound from your VM... | Install `pulseaudio-qubes`
+**FirewallVM** | You can use the minimal template as a [FirewallVM](/doc/firewall/), such as the basis template for `sys-firewall` | Install at least `qubes-core-agent-networking`, and also `qubes-core-agent-dom0-updates` if you want to use it as the updatevm (which is normally sys-firewall).
+**NetVM** | You can use this template as the basis for a NetVM such as `sys-net` | Install the following packages:  `qubes-core-agent-networking` `qubes-core-agent-network-manager` `NetworkManager-wifi` `network-manager-applet` `wireless-tools` `dejavu-sans-fonts` `notification-daemon` `gnome-keyring` `polkit` `@hardware-support`.
+**NetVM (extra firmware)** | If your network devices need extra packages for the template to work as a network VM | Use the `lspci` command to identify the devices, then run `dnf search firmware` (replace `firmware` with the appropriate device identifier) to find the needed packages and then install them.
+**Network utilities** | If you need utilities for debugging and analyzing network connections | Install the following packages: `tcpdump` `telnet` `nmap` `nmap-ncat`
+**USB** | If you want USB input forwarding to use this template as the basis for a [USB](/doc/usb/) qube such as `sys-usb` | Install `qubes-input-proxy-sender`
+**VPN** | You can use this template as basis for a [VPN](/doc/vpn/) qube | Use the `dnf search "NetworkManager VPN plugin"` command to look up the VPN packages you need, based on the VPN technology you'll be using, and install them. Some GNOME related packages may be needed as well. After creation of a machine based on this template, follow the [VPN howto](/doc/vpn/#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager) to configure it.
  
 A comprehensive guide to customizing the minimal template is available [here][GUIDE]
 
@@ -66,24 +81,40 @@ A comprehensive guide to customizing the minimal template is available [here][GU
 Qubes 4.0
 ---------
 
-In Qubes R4.0, sudo is not installed by default in the minimal template.  To update or install packages to it, from a dom0 terminal window:
+In Qubes R4.0 the minimal template is not configured for passwordless root.  To update or install packages to it, from a dom0 terminal window:
 
 ~~~
-[user@dom0 ~]$ qvm-run -u root fedora-26-minimal xterm
+[user@dom0 ~]$ qvm-run -u root fedora-27-minimal xterm
 ~~~
+to open a root terminal in the template, from which you can use dnf without sudo. You will have to do this every time if you choose not to enable passwordless root. 
+
+If you want the usual qubes `sudo dnf ...` commands, open the root terminal just this once using the above command, and in the root xterm window enter
+
+~~~
+bash-4.4# dnf install qubes-core-agent-passwordless-root polkit
+~~~
+
+Optionally check this worked: from the gui open the minimal template's xterm and give the command
+
+~~~
+[user@fed-min-clone ~]$ sudo -l
+~~~
+
+which should give you output that includes the NOPASSWD keyword.
+
 
 In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be needed to make the customized minimal template work properly. These packages are:
 
 - `qubes-core-agent-qrexec`: Qubes qrexec agent. Installed by default.
 - `qubes-core-agent-systemd`: Qubes unit files for SystemD init style. Installed by default.
-- `qubes-core-agent-passwordless-root`, `polkit`: By default the 'fedora-26-minimal' template doesn't have passwordless root. These two packages fix the situation.
+- `qubes-core-agent-passwordless-root`, `polkit`: By default the 'fedora-27-minimal' template doesn't have passwordless root. These two packages enable this feature. (Note from R4.0 a design choice was made that passwordless should be optional, so is left out of the minimal templates)
 - `qubes-core-agent-nautilus`: This package provides integration with the Nautilus file manager (without it things like "copy to VM/open in disposable VM" will not be shown in Nautilus).
 - `qubes-core-agent-sysvinit`: Qubes unit files for SysV init style or upstart.
-- `qubes-core-agent-networking`: Networking support. Required if the template is to be used for a `sys-net` or `sys-firewall` VM.
+- `qubes-core-agent-networking`: Networking support. Required for general network access and particularly if the template is to be used for a `sys-net` or `sys-firewall` VM.
 - `qubes-core-agent-network-manager`: Integration for NetworkManager. Useful if the template is to be used for a `sys-net` VM.
 - `network-manager-applet`: Useful (together with `dejavu-sans-fonts` and `notification-daemon`) to have a system tray icon if the template is to be used for a `sys-net` VM.
 - `qubes-core-agent-dom0-updates`: Script required to handle `dom0` updates. Any template which the VM responsible for 'dom0' updates (e.g. `sys-firewall`) is based on must contain this package.
-- `qubes-usb-proxy`: Required if the template is to be used for a USB qube (`sys-usb`) or for any destination qube to which USB devices are to be attached (e.g `sys-net` if using USB network adapter).   
+- `qubes-usb-proxy`: Required if the template is to be used for a USB qube (`sys-usb`) or for any destination qube to which USB devices are to be attached (e.g `sys-net` if using USB network adapter).
 - `pulseaudio-qubes`: Needed to have audio on the template VM.
 
 

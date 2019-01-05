@@ -17,16 +17,16 @@ Installing
 The Fedora TemplateVM comes preinstalled with Qubes OS.
 However, there may be times when you wish to install a fresh copy from the Qubes repositories, e.g.:
 
-1. When a version of Fedora reaches EOL ([end-of-life]).
-2. When a new version of Fedora you wish to use becomes [supported] as a TemplateVM.
-3. When you suspect your Fedora TemplateVM has been compromised.
-4. When you have made modifications to the Fedora TemplateVM that you no longer want.
+ * When a version of Fedora reaches EOL ([end-of-life]).
+ * When a new version of Fedora you wish to use becomes [supported] as a TemplateVM.
+ * When you suspect your Fedora TemplateVM has been compromised.
+ * When you have made modifications to the Fedora TemplateVM that you no longer want.
 
 To install a specific Fedora TemplateVM that is not currently installed in your system, use the following command in dom0:
 
-    $ sudo qubes-dom0-update qubes-template-fedora-26
+    $ sudo qubes-dom0-update qubes-template-fedora-XX
 
-(If necessary, replace `26` with your desired Fedora version.)
+   (Replace `XX` with the Fedora version number of the template you wish to install.)
 
 To reinstall a Fedora TemplateVM that is already installed in your system, see [How to Reinstall a TemplateVM].
 
@@ -37,12 +37,17 @@ After Installing
 After installing a fresh Fedora TemplateVM, we recommend performing the following steps:
 
 1. [Update the TemplateVM].
-2. Switch any [TemplateBasedVMs] that are based on the old TemplateVM to the new one.
+
+2. Switch any [TemplateBasedVMs] that are based on the old TemplateVM to the new one:
+
+   * [How to switch templates (3.2)](/doc/templates/#how-to-switch-templates-32)
+   * [How to switch templates (4.0)](/doc/templates/#how-to-switch-templates-40)
+
 3. If desired, remove the old TemplateVM by running the following command in dom0:
 
-        $ sudo dnf remove qubes-template-fedora-26
+        $ sudo dnf remove qubes-template-fedora-XX
 
-   (If necessary, replace `26` with your desired Fedora version.)
+   (Replace `XX` with the Fedora version number of the template you wish to remove.)
 
 
 Upgrading
@@ -50,6 +55,8 @@ Upgrading
 
 To upgrade your Fedora TemplateVM, please consult the guide that corresponds to your situation:
 
+ * [Upgrading the Fedora 27 Template to Fedora 28](/doc/template/fedora/upgrade-27-to-28/)
+ * [Upgrading the Fedora 26 Template to Fedora 27](/doc/template/fedora/upgrade-26-to-27/)
  * [Upgrading the Fedora 25 Template to Fedora 26](/doc/template/fedora/upgrade-25-to-26/)
  * [Upgrading the Fedora 24 Template to Fedora 25](/doc/template/fedora/upgrade-24-to-25/)
  * [Upgrading the Fedora 23 Template to Fedora 24](/doc/template/fedora/upgrade-23-to-24/)

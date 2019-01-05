@@ -74,7 +74,10 @@ any template based on the standard Debian 8 template.
 
         [user@dom0 ~]$ qvm-trim-template debian-9
 
- 8. (Optional) Remove the old default template.
+ 8. (Recommended) [Switch everything that was set to the old template to the new
+    template.](/doc/templates/#how-to-switch-templates-32)
+
+ 9. (Optional) Remove the old default template.
 
         [user@dom0 ~]$ sudo yum remove qubes-template-debian-8
 	

@@ -92,6 +92,12 @@ Tracker
       {% if xsa.qsb %}
         | <a href="https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-{{ xsa.qsb }}.txt" title="Qubes Security Bulletin {{ xsa.qsb }}">QSB-{{ xsa.qsb }}&nbsp;<span class="fa fa-external-link"></span></a>
       {% endif %}
+    {% elsif xsa.affected == "tba" %}
+      {% if xsa.tba %}
+        <a href="{{ xsa.tba }}" title="To be announced. Click for more information.">TBA&nbsp;<span class="fa fa-external-link"></span></a>
+      {% else %}
+        <span title="To be announced">TBA</span>
+      {% endif %}
     {% else %}
     {% endif %}
     </td>

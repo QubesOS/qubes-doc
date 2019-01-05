@@ -59,7 +59,7 @@ redirect_from:
 
     *   rpmdevtools
 
-    *   python-sh
+    *   python2-sh
 
     *   dialog
 
@@ -70,7 +70,7 @@ redirect_from:
 
 *   The tools can usually be installed all together with the following terminal command string:
 
-    *   **$ sudo dnf install git createrepo rpm-build make wget rpmdevtools python-sh dialog rpm-sign gnupg**
+    *   **$ sudo dnf install git createrepo rpm-build make wget rpmdevtools python2-sh dialog rpm-sign gnupg**
 <br>
 <br>
 ![arch-template-04](/attachment/wiki/ArchlinuxTemplate/arch-template-04.png)
@@ -117,7 +117,7 @@ redirect_from:
 
     *   Edit the '**qubes-os-r3.2.conf**' which is found in **/home/user/qubes-builder/example-configs**  Use the text editor of your choice.
 
-        *   **$ cd /home/user/qubes-builder/example-config/**
+        *   **$ cd /home/user/qubes-builder/example-configs/**
 
         *   **$ nano -W qubes-os-r3.2.conf** or **$ gedit qubes-os-r3.2.conf** or etc….
 <br>

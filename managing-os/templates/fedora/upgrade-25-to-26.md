@@ -73,7 +73,7 @@ should be entered (`@dom0` or `@fedora-26`).
     **Note:** `dnf` might ask you to approve importing a new package signing
     key. For example, you might see a prompt like this one:
 
-        warning: /var/cache/dnf/fedora-d02ca361e1b58501/packages/python2-babel-2.3.4-1.fc26.noarch.rpm: Header V3 RSA/SHA266 Signature, key ID 64dab85d: NOKEY
+        warning: /var/cache/dnf/fedora-d02ca361e1b58501/packages/python2-babel-2.3.4-1.fc26.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID 64dab85d: NOKEY
         Importing GPG key 0x64DAB85D:
          Userid     : "Fedora (26) <fedora-26-primary@fedoraproject.org>"
          Fingerprint: E641 850B 77DF 4353 78D1 D7E2 812A 6B4B 64DA B85D
@@ -247,7 +247,7 @@ should be entered (`@dom0` or `@fedora-26`).
     **Note:** `dnf` might ask you to approve importing a new package signing
     key. For example, you might see a prompt like this one:
 
-        warning: /var/cache/dnf/fedora-d02ca361e1b58501/packages/python2-babel-2.3.4-1.fc26.noarch.rpm: Header V3 RSA/SHA266 Signature, key ID 64dab85d: NOKEY
+        warning: /var/cache/dnf/fedora-d02ca361e1b58501/packages/python2-babel-2.3.4-1.fc26.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID 64dab85d: NOKEY
         Importing GPG key 0x64DAB85D:
          Userid     : "Fedora (26) <fedora-26-primary@fedoraproject.org>"
          Fingerprint: E641 850B 77DF 4353 78D1 D7E2 812A 6B4B 64DA B85D
@@ -382,5 +382,5 @@ In this case, you have several options:
 [resize-disk-image]: /doc/resize-disk-image/
 [Additional Information]: #additional-information
 [Compacting the Upgraded Template]: #compacting-the-upgraded-template
-[DispVM]: /doc/dispvm/
+[DispVM]: /doc/disposablevm/
 

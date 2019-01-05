@@ -115,6 +115,12 @@ At the same time, due to the smart use of Xen shared memory, our GUI implementat
 
 Please refer to [this page](/doc/vm-sudo/).
 
+### Why is dom0 so old?
+
+Please see:
+- [Why would one want to update software in dom0?](/doc/software-update-dom0/#why-would-one-want-to-install-or-update-software-in-dom0)
+- [Note on dom0 and EOL](/doc/supported-versions/#note-on-dom0-and-eol)
+
 ### Do you recommend coreboot as an alternative to vendor BIOS?
 
 Yes, where it is possible to use it an open source boot firmware ought to be more trustable than a closed source implementation.   [coreboot](https://www.coreboot.org/) is as a result a requirement for [Qubes Certified Hardware](https://www.qubes-os.org/news/2016/07/21/new-hw-certification-for-q4/). The number of machines coreboot currently supports is limited and the use of some vendor supplied blobs is generally still required. Where coreboot does support your machine and is not already installed, you will generally need additional hardware to flash it. Please see the coreboot website / their IRC channel for further information.
@@ -129,11 +135,11 @@ Not currently, for the same reasons that [Debian is not certified](https://www.g
 
 ### Should I trust this website?
 
-This website is hosted via GitHub Pages behind Cloudflare ([why?](#why-does-this-website-use-cloudflare)).
+This website is hosted on [GitHub Pages](https://pages.github.com/) ([why?](#why-do-you-use-github)).
 Therefore, it is largely outside of our control.
 We don't consider this a problem, however, since we explicitly [distrust the infrastructure](#what-does-it-mean-to-distrust-the-infrastructure).
 For this reason, we don't think that anyone should place undue trust in the live version of this site on the Web.
-Instead, if you want to obtain your own, trustworthy copy of this website in a secure way, you should clone our [website repo](https://github.com/QubesOS/qubesos.github.io), [verify the PGP signatures on the commits and/or tags](/security/verifying-signatures/#verifying-qubes-code) (signed by the [doc-signing keys](https://github.com/QubesOS/qubes-secpack/tree/master/keys/doc-signing)), then either [render the site on your local machine](https://github.com/QubesOS/qubesos.github.io/blob/master/README.md#instructions) or simply read the source, the vast majority of which was [intentionally written in Markdown so as to be readable as plain text for this very reason](/doc/doc-guidelines/#markdown-conventions).
+Instead, if you want to obtain your own, trustworthy copy of this website in a secure way, you should clone our [website repo](https://github.com/QubesOS/qubesos.github.io), [verify the PGP signatures on the commits and/or tags](/security/verifying-signatures/#how-to-verify-qubes-repos) (signed by the [doc-signing keys](https://github.com/QubesOS/qubes-secpack/tree/master/keys/doc-signing)), then either [render the site on your local machine](https://github.com/QubesOS/qubesos.github.io/blob/master/README.md#instructions) or simply read the source, the vast majority of which was [intentionally written in Markdown so as to be readable as plain text for this very reason](/doc/doc-guidelines/#markdown-conventions).
 We've gone to special effort to set all of this up so that no one has to trust the infrastructure and so that the contents of this website are maximally available and accessible.
 
 ### What does it mean to "distrust the infrastructure"?
@@ -149,11 +155,11 @@ Since we don't want to encourage or endorse this, we make our distrust of the in
 
 Also see: [Should I trust this website?](#should-i-trust-this-website)
 
-### Why does this website use Cloudflare?
+### Why do you use GitHub?
 
 Three main reasons:
 
-1. We [distrust the infrastructure](#what-does-it-mean-to-distrust-the-infrastructure), including Cloudflare.
+1. We [distrust the infrastructure](#what-does-it-mean-to-distrust-the-infrastructure), including GitHub (though there are aspects we're still [working on](https://github.com/QubesOS/qubes-issues/issues/3958)).
 2. It's free (as in beer). We'd have to spend either time or money to implement a solution ourselves or pay someone to do so, and we can't spare either one right now.
 3. It has low admin/overhead requirements, which is very important, given how little time we have to spare.
 
@@ -161,10 +167,10 @@ Also see: [Should I trust this website?](#should-i-trust-this-website)
 
 ### Why doesn't this website have security feature X?
 
-Although we caution users against [placing undue trust in this website](#should-i-trust-this-website) because we [distrust the infrastructure](#what-does-it-mean-to-distrust-the-infrastructure), we have no objection to enabling website security features when doing so is relatively costless and provides some marginal benefit to website visitors (e.g., HTTPS via Cloudflare page rules).
+Although we caution users against [placing undue trust in this website](#should-i-trust-this-website) because we [distrust the infrastructure](#what-does-it-mean-to-distrust-the-infrastructure), we have no objection to enabling website security features when doing so is relatively costless and provides some marginal benefit to website visitors.
 So, if feature X isn't enabled, it's most likely for one of three reasons:
 
-1. Our GitHub Pages + Cloudflare platform doesn't support it.
+1. Our GitHub Pages platform doesn't support it.
 2. Our platform supports it, but we've decided not to enable it.
 3. Our platform supports it, but we're not aware that we can enable it or have forgotten to do so.
    (If it seems like this is the case, let us know!)
@@ -226,7 +232,7 @@ It is possible to install Qubes on a system with 2 GB of RAM, but the system wou
 
 ### Can I install Qubes 4.x on a system without VT-x or VT-d?
 
-Qubes 4.x requires Intel VT-x with EPT / AMD-V with RVI (SLAT) and Intel VT-d / AMD-Vi (aka AMD IOMMU) for proper functionality (see the [4.x System Requirements](/doc/system-requirements/#qubes-release-4x)). You may be able to install it without the required CPU features for testing purposes only, but VMs may not function correctly and there will be no security isolation. For more information, see our post on [updated requirements for Qubes-certified hardware](/news/2016/07/21/new-hw-certification-for-q4/).
+Qubes 4.x requires Intel VT-x with EPT / AMD-V with RVI (SLAT) and Intel VT-d / AMD-Vi (aka AMD IOMMU) for proper functionality (see the [4.x System Requirements](/doc/system-requirements/#qubes-release-4x)). If you are receiving an error message on install saying your "hardware lacks the features required to proceed", check to make sure the virtualization options are enabled in your BIOS/UEFI configuration. You may be able to install without the required CPU features for testing purposes only, but VMs may not function correctly and there will be no security isolation. For more information, see our post on [updated requirements for Qubes-certified hardware](/news/2016/07/21/new-hw-certification-for-q4/).
 
 ### Can I install Qubes 3.2 on a system without VT-x?
 
@@ -266,6 +272,14 @@ Yes, and see [this message](http://groups.google.com/group/qubes-devel/msg/64121
 ### Can I install Qubes in a virtual machine (e.g., on VMware)?
 
 Some users have been able to do this, but it is neither recommended nor supported. Qubes should be installed bare-metal. (After all, it uses its own bare-metal hypervisor!)
+
+### What is a terminal?
+
+A [terminal emulator](https://en.wikipedia.org/wiki/Terminal_emulator), nowadays often referred to as just a *terminal*, is a program which provides a text window.
+Inside that window, a [shell](https://en.wikipedia.org/wiki/Shell_(computing)) is typically running in it.
+A shell provides a [command-line interface](https://en.wikipedia.org/wiki/Command-line_interface) where the user can enter and run [commands](https://en.wikipedia.org/wiki/Command_(computing)).
+
+See introductions on Wikibooks: [here](https://en.wikibooks.org/wiki/Fedora_And_Red_Hat_System_Administration/Shell_Basics), [here](https://en.wikibooks.org/wiki/A_Quick_Introduction_to_Unix) and [here](https://en.wikibooks.org/wiki/Bash_Shell_Scripting).
 
 ### Why does my network adapter not work?
 
@@ -488,6 +502,16 @@ Here are some examples of non-Qubes reports about this problem:
 
 More examples can be found by searching for "Failed to synchronize cache for repo" (with quotation marks) on your preferred search engine.
 
+### Could you please make my preference the default?
+
+Wouldn't it be great if Qubes were configured just the way you like it by default with all of your favorite programs and settings?
+Then you could just install Qubes without having to install any programs in it or adjust any settings!
+You might even think that if a particular program or setting works so well for *you*, it would work well for *everyone*, so you'd actually be doing everyone a favor!
+The problem is that Qubes has [tens of thousands of different users](/statistics/) with radically different needs and purposes.
+There is no particular configuration that will be ideal for everyone (despite how much you might feel that your preference would be better for everyone), so the best we can do is to put power in the hands of users to configure their Qubes installations the way they like (subject to security constraints, of course).
+Please don't ask for your favorite program to be installed by default or for some setting that obviously varies by user preference to be changed so that it matches *your* preference.
+This is an incredibly selfish attitude that demonstrates a complete lack of consideration for the thousands of other Qubes users who don't happen to share your preferences.
+
 
 ----------
 
@@ -553,4 +577,8 @@ For more details about how we improved on Xen's native stub domain use, see [her
 
 ### Is Secure Boot supported?
 
-Secure Boot is not supported out of the box as UEFI support in Xen is very basic. Arguably secure boot reliance on UEFI integrity is not the best design. The relevant binaries (shim.efi, xen.efi, kernel / initramfs) are not signed by the Qubes Team and secure boot has not been tested. Intel TXT (used in [Anti Evil Maid](/doc/anti-evil-maid/)) at least tries to avoid or limit trust in BIOS.
+UEFI Secure Boot is not supported out of the box as UEFI support in Xen is very basic.
+Arguably secure boot reliance on UEFI integrity is not the best design.
+The relevant binaries (shim.efi, xen.efi, kernel / initramfs) are not signed by the Qubes Team and secure boot has not been tested.
+Intel TXT (used in [Anti Evil Maid](/doc/anti-evil-maid/)) at least tries to avoid or limit trust in BIOS.
+See the Heads project [[1]](https://trmm.net/Heads) [[2]](http://osresearch.net/) for a better-designed non-UEFI-based secure boot scheme with very good support for Qubes.

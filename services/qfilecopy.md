@@ -14,7 +14,7 @@ InterVM file copy design
 There are two cases when we need a mechanism to copy files between VMs:
 
 -   "regular" file copy - when user instructs file manager to copy a given files/directories to a different VM
--   DispVM copy - user selects "open in DispVM" on a file; this file must be copied to a Disposable VM, edited by user, and possibly a modified file copied back from DispVM to VM.
+-   DispVM copy - user selects "open in DispVM" on a file; this file must be copied to a DisposableVM, edited by user, and possibly a modified file copied back from DispVM to VM.
 
 Prior to Qubes Beta1, for both cases, a block device (backed by a file in dom0 with a vfat filesystem on it) was attached to VM, file(s) copied there, and then the device was detached and attached to target VM. In the DispVM case, if a edited file has been modified, another block device is passed to requester VM in order to update the source file.
 

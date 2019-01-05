@@ -4,6 +4,14 @@ title: Code of Conduct
 permalink: /code-of-conduct/
 ---
 
+## Introduction
+
+This Code of Conduct is a collaborative, evolving document that attempts to transparently set out a public set of standards regarding appropriate conduct in the Qubes OS Project.
+It is *not* intended to be a statement or endorsement, whether implicit or explicit, of any particular political or philosophical attitude, belief, or way of living.
+Rather, it is an attempt to find a reasonable middle ground among the inevitable disagreements regarding free expression that arise in a large, diverse community of people from around the world.
+It is intended to be a practical means of serving the best interests of our users, contributors, and the project itself.
+We welcome you to view the [history of changes] to this document and the [discussion] leading to its creation.
+
 ## Our Pledge
 
 The Qubes OS project creates a reasonably secure OS. In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to make participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, sexual identity and orientation, or other characteristic.
@@ -23,11 +31,11 @@ Examples of unacceptable behavior by participants include:
 - The use of sexualized language or imagery and unwelcome sexual attention or advances
 - Trolling, insulting/derogatory comments, and personal or political attacks
 - Reinforcing stereotypical models for illustration of non-technical users (e.g. our mothers/grandmothers, etc.)
-- Public or private harassment, as defined by the [Citizen Code of Conduct](http://citizencodeofconduct.org/)
+- Public or private harassment, as defined by the [Citizen Code of Conduct]
 - Publishing others' private information, such as a physical or electronic address, without explicit permission
 - Other conduct which could reasonably be considered inappropriate in a professional setting
 
-(Please also see our [mailing list discussion guidelines](/support/#discussion-list-guidelines).)
+(Please also see our [mailing list discussion guidelines].)
 
 ## Our Responsibilities
 
@@ -43,7 +51,7 @@ Instances of abusive, harassing, or otherwise unacceptable behavior may be repor
 
 Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project's leadership.
 
-## A note on trust
+## A Note on Trust
 
 Expect all contributions to be reviewed with some amount of healthy adversarial skepticism, regardless of your perceived standing in the community.
 This is a security project, and allowing ourselves to get complacent while reviewing code simply because it comes from a well-known party would not be in the best interest of the project.
@@ -51,4 +59,13 @@ Please try not to get offended if you perceive your contributions as being met w
 
 ## Attribution
 
-This Code of Conduct is adapted from the [Contributor Covenant, version 1.4](http://contributor-covenant.org/version/1/4) and the [Rust Code of Conduct](https://www.rust-lang.org/en-US/conduct.html).
+The initial published version of this Code of Conduct was adapted from the [Contributor Covenant, version 1.4] and the [Rust Code of Conduct].
+
+
+[history of changes]: https://github.com/QubesOS/qubes-doc/commits/master/about/code-of-conduct.md
+[discussion]: https://github.com/QubesOS/qubes-issues/issues/2163
+[Citizen Code of Conduct]: http://citizencodeofconduct.org/
+[mailing list discussion guidelines]: /support/#discussion-list-guidelines
+[Contributor Covenant, version 1.4]: http://contributor-covenant.org/version/1/4
+[Rust Code of Conduct]: https://www.rust-lang.org/en-US/conduct.html
+

@@ -157,11 +157,7 @@ The advantage of creating a dark themed Template VM is, that each AppVM which is
 
 6. *(Optional)* Modify Firefox
 
-    **Note:** Firefox uses GTK style settings by default. This can create side effects such as unusable forms or search fields. There are two different ways to avoid this. Either by using a add-on or by overwriting the defaults.
-
-    - use the theme [GTK+ Dark Theme Global Fixes](https://userstyles.org/styles/111694/gtk-dark-theme-global-fixes) and the [Stylish](https://addons.mozilla.org/en-US/firefox/addon/stylish/) addon
-
-    - or add the following line to `/rw/config/rc.local`
+    **Note:** Firefox uses GTK style settings by default. This can create side effects such as unusable forms or search fields. One way to avoid this is to add the following line to `/rw/config/rc.local`:
 
             sed -i.bak "s/Exec=firefox %u/Exec=bash -c 'GTK_THEME=Adwaita:light firefox %u'/g" /usr/share/applications/firefox.desktop
 

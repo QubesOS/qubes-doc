@@ -40,6 +40,8 @@ You can also change your default login manager (lightdm) to the new KDE default:
 
  * reboot
 
+If you encounter performance issues with KDE, try switching back to LightDM.
+
 Window Management
 -----------------
 
@@ -68,6 +70,16 @@ on.)
 
 This can be useful for creating a simple shell script which will set up your
 workspace the way you like.
+
+Removal
+------------
+
+If you decide to remove KDE do **not** use `dnf remove @kde-desktop-qubes`. You will almost certainly break your system.
+
+The safest way to remove (most of) KDE is:
+~~~
+sudo dnf remove kdelibs,plasma-workspace
+~~~
 
 
 Mailing List Threads

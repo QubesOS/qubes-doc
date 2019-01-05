@@ -22,14 +22,13 @@ documentation or some way it can be improved, please [report] it! Better
 yet, you can [edit the documentation][contribute] yourself, both to add or improve existing content.
 
 
-How to Report Issues
---------------------
+Questions, problems, and improvements
+-------------------------------------
 
-To report an issue, please create one in [qubes-issues], but before you do,
-please make sure it does **not** already exist. Documentation-related
-issues will be assigned the `doc` label. Issues which have been created in
-[qubes-issues] are significantly more likely to be addressed than those sent in
-emails to the mailing lists or to individuals.
+If you have a question about something you read in the documentation, please send it to the appropriate [mailing list][support].
+If you see that something in the documentation should be fixed or improved, please [contribute] the change yourself.
+To report an issue with the documentation, please follow our standard [issue reporting guidelines][report].
+(If you report an issue with the documentation, you will likely be asked to address it, unless there is a clear indication in your report that you are not willing or able to do so.)
 
 
 How to Contribute
@@ -74,7 +73,9 @@ contribution.
 ![fork](/attachment/wiki/doc-edit/05-fork.png)
 
 Now you can make your modifications. You can also preview the changes to see how
-they'll be formatted by clicking the "Preview changes" tab.
+they'll be formatted by clicking the "Preview changes" tab. **Important:** If
+you're making any formatting changes, please [render the site locally] to verify
+that everything looks correct before submitting any changes.
 
 ![edit](/attachment/wiki/doc-edit/06-edit.png)
 
@@ -224,26 +225,6 @@ Good general content that was submitted only to one branch would effectively dis
 For further discussion about version-specific documentation in Qubes, see [here][version-thread].
 
 
-Contribution Suggestions
-------------------------
-
- * If you find any inaccuracies in the documentation, please correct them!
-
- * If you find an inaccuracy but don't know how to correct it, you can still help
-   by documenting the inaccuracy. For example, if you have *thoroughly* tested
-   a set of steps in the documentation and know *for certain* that they no
-   longer work on a certain version of Qubes (maybe because the steps are
-   out-of-date), then please add a note to the documentation indicating this.
-   You may also wish to provide a link to a relevant thread on the [mailing
-   lists].
-
- * Where appropriate, specify the version of the software to which your
-   contribution applies. For example, if you're contributing a set of
-   instructions for doing something in dom0, specify the version(s) of Qubes OS
-   with which you know these instructions to work. This allows future readers to
-   more easily estimate the accuracy and applicability of information.
-
-
 Style Guidelines
 ----------------
 
@@ -261,7 +242,7 @@ When making contributions, please try to observe the following style conventions
  * In order to enable offline browsing, use relative paths (e.g., `/doc/doc-guidelines/` instead of `https://www.qubes-os.org/doc/doc-guidelines/`, except when the source text will be reproduced outside of the Qubes website repo.
    Examples of exceptions:
    * [QSBs] (intended to be read as plain text)
-   * [News] posts (plain text is reproduced on the [mailing lists])
+   * [News] posts (plain text is reproduced on the [mailing lists][support])
    * URLs that appear inside code blocks (e.g., in comments and document templates)
    * Files like `README.md` and `CONTRIBUTING.md`
  * Insert a newline at, and only at, the end of each sentence, except when the text will be reproduced outside of the Qubes website repo (see previous item for examples).
@@ -273,6 +254,33 @@ When making contributions, please try to observe the following style conventions
    where appropriate.
  * Use underline headings (`=====` and `-----`) if possible.
    If this is not possible, use Atx-style headings on both the left and right sides (`### H3 ###`).
+ * When writing code blocks, use [syntax highlighting](https://github.github.com/gfm/#info-string) where [possible](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers) and use `[...]` for anything omitted.
+ * When providing command line examples:
+   * Tell the reader where to open a terminal (dom0 or a specific domU), and show the command along with its output (if any) in a code block, e.g.:
+     ~~~markdown
+     Open a terminal in dom0 and run:
+     ```shell_session
+     $ cd test
+     $ echo Hello
+     Hello
+     ```
+     ~~~
+   * Precede each command with the appropriate command prompt:
+     At a minimum, the prompt should contain a trailing `#` (for the user `root`) or `$` (for other users) on Linux systems and `>` on Windows systems, respectively.
+   * Don't try to add comments inside the code block.
+     For example, *don't* do this:
+     ~~~markdown
+     Open a terminal in dom0 and run:
+     ```shell_session
+     # Navigate to the new directory
+     $ cd test
+     # Generate a greeting
+     $ echo Hello
+     Hello
+     ```
+     ~~~
+     The `#` symbol preceding each comment is ambiguous with a root command prompt.
+     Instead, put your comments *outside* of the code block in normal prose.
  * Use `[reference-style][ref]` links.  
  
 `[ref]: https://daringfireball.net/projects/markdown/syntax#link`
@@ -289,17 +297,18 @@ Please try to write good commit messages, according to the
 
 [qubes-doc]: https://github.com/QubesOS/qubes-doc
 [glossary]: /doc/glossary/
-[report]: #how-to-report-issues
+[report]: /doc/reporting-bugs/
 [contribute]: #how-to-contribute
 [qubes-issues]: https://github.com/QubesOS/qubes-issues/issues
 [gh-fork]: https://guides.github.com/activities/forking/
 [gh-pull]: https://help.github.com/articles/using-pull-requests/
 [GitHub]: https://github.com/
-[mailing lists]: /support/
+[support]: /support/
 [version-example]: /doc/template/fedora/upgrade-25-to-26/
 [version-thread]: https://groups.google.com/d/topic/qubes-users/H9BZX4K9Ptk/discussion
 [QSBs]: /security/bulletins/
 [News]: /news/
 [md]: https://daringfireball.net/projects/markdown/
 [git-commit]: /doc/coding-style/#commit-message-guidelines
+[render the site locally]: https://github.com/QubesOS/qubesos.github.io#instructions
 

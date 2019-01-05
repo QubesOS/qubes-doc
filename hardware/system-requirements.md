@@ -3,6 +3,7 @@ layout: doc
 title: System Requirements
 permalink: /doc/system-requirements/
 redirect_from:
+- /system-requirements/
 - /en/doc/system-requirements/
 - /doc/SystemRequirements/
 - /wiki/SystemRequirements/
@@ -32,7 +33,8 @@ redirect_from:
  * Fast SSD (strongly recommended)
  * Intel IGP (strongly preferred)
    * Nvidia GPUs may require significant [troubleshooting][nvidia].
-   * ATI GPUs have not been formally tested (but see the [Hardware Compatibility List]).
+   * AMD GPUs have not been formally tested, but Radeons (RX580 and earlier) generally work well
+   * See the [Hardware Compatibility List]
  * [Intel VT-x] or [AMD-V] (required for running HVM domains, such as Windows-based AppVMs)
  * [Intel VT-d] or [AMD-Vi (aka AMD IOMMU)] (required for effective isolation of network VMs)
  * TPM with proper BIOS support (required for [Anti Evil Maid])
@@ -52,7 +54,8 @@ redirect_from:
  * Fast SSD (strongly recommended)
  * Intel IGP (strongly preferred)
    * Nvidia GPUs may require significant [troubleshooting][nvidia].
-   * ATI GPUs have not been formally tested (but see the [Hardware Compatibility List]).
+   * AMD GPUs have not been formally tested, but Radeons (RX580 and earlier) generally work well
+   * See the [Hardware Compatibility List]
  * TPM with proper BIOS support (required for [Anti Evil Maid])
  * A non-USB keyboard or multiple USB controllers
  * Also consider the [hardware certification requirements for Qubes 4.x].

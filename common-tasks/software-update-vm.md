@@ -68,7 +68,7 @@ sudo dnf upgrade --enablerepo=qubes-vm-*-security-testing
 sudo dnf upgrade --enablerepo=qubes-vm-*-unstable
 ~~~
 
-To enable or disable any of these repos permanently, change the corresponding boolean in `/etc/yum.repos.d/qubes-*.repo`.
+To enable or disable any of these repos permanently, change the corresponding `enabled` value to `1` in `/etc/yum.repos.d/qubes-*.repo`.
 
 ### Debian ###
 
@@ -168,7 +168,33 @@ However, a compromise of a template affects only a subset of all your AppVMs (in
 Also, if your AppVMs are network disconnected, even though their filesystems might get compromised due to the corresponding template compromise, it still would be difficult for the attacker to actually leak out the data stolen in an AppVM.
 Not impossible (due to existence of cover channels between VMs on x86 architecture), but difficult and slow.
 
-Standalone VMs
+
+Standalone VMs (R4.0 and later)
+--------------
+Standalone VMs have their own copy of the whole filesystem, and thus can be updated and managed on their own.
+But this means that they take a few GBs on disk, and also that centralized updates do not apply to them.
+
+Sometimes it might be convenient to have a VM that has its own filesystem, where you can directly introduce changes, without the need to start/stop the template VM.
+Such situations include e.g.:
+
+-   VMs used for development (devel environments require a lot of \*-devel packages and specific devel tools)
+
+-   VMs used for installing untrusted packages.
+    Normally you install digitally signed software from Red Hat/Fedora repositories, and it's reasonable that such software has non malicious *installation* scripts (rpm pre/post scripts).
+    However, when you would like to install some packages from less trusted sources, or unsigned, then using a dedicated (untrusted) standalone VM might be a better way.
+
+In order to create a standalone VM you can use a command line like this (from console in Dom0):
+
+```
+qvm-create --class StandaloneVM --label <label> --property virt_mode=hvm <vmname>
+```
+
+... or click appropriate options in the Qubes Manager's Create VM window.
+
+(Note: Technically, `virt_mode=hvm` is not necessary for every StandaloneVM. However, it makes sense if you want to use a kernel from within the VM.)
+
+
+Standalone VMs (R3.2 and earlier)
 --------------
 
 Standalone VMs have their own copy of the whole filesystem, and thus can be updated and managed on their own.
@@ -190,6 +216,7 @@ qvm-create <vmname> --standalone --label <label>
 ~~~
 
 ... or click appropriate options in the Qubes Manager's Create VM window.
+
 
 Using more than one template
 ----------------------------
@@ -240,7 +267,7 @@ And in both cases defaults listed above are applied if the service is not explic
 ### Technical details (R4.0)
 
 Instead of using a network connection like in R3.2, R4.0 uses RPC/qrexec.
-The proxy is configured in qrexec policy: `/etc/qubes-rpc/policy/qubes.UpdatesProxy`.
+The proxy is configured in qrexec policy on dom0: `/etc/qubes-rpc/policy/qubes.UpdatesProxy`.
 By default this is set to sys-net and/or sys-whonix, depending on firstboot choices.
 This new design allows for templates to be updated even when they are not connected to any netvm.
 
@@ -300,7 +327,7 @@ But, of course, the problem of finding malware hooks in general is hard, so this
 Also note that the user filesystem's metadata might got maliciously modified by malware in order to exploit a hypothetical bug in the AppVM kernel whenever it mounts the malformed filesystem.
 However, these exploits will automatically stop working (and so the infection might be cleared automatically) after the hypothetical bug got patched and the update applied (via template update), which is an exceptional feature of Qubes OS.
 
-Also note that Disposable VMs do not have persistent user filesystem, and so they start up completely "clean" every time.
+Also note that DisposableVMs do not have persistent user filesystem, and so they start up completely "clean" every time.
 Note the word "clean" means in this context: the same as their template filesystem, of course.
 
 RPMFusion for a Fedora TemplateVM

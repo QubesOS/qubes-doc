@@ -34,7 +34,7 @@ Last, you may want to disable memory balancing on `dev26` but keep in mind the i
 Once you've built `dev26`, open a Terminal window to it and install the necessary dependencies (see [QubesBuilder](/doc/qubes-builder/) for more info):
 
 ~~~
-$ sudo dnf install git createrepo rpm-build make wget rpmdevtools dialog rpm-sign gnupg dpkg-dev debootstrap python2-sh
+$ sudo dnf install gnupg git createrepo rpm-build make wget rpmdevtools python2-sh dialog rpm-sign dpkg-dev debootstrap PyYAML devscripts perl-Digest-MD5 perl-Digest-SHA
 ~~~
 
 Get the necessary keys to verify the sources (run these and other commands below as a regular user, not root):
@@ -52,7 +52,7 @@ gpg --import qubes-developers-keys.asc
 ~~~
 
 **Note** In the above process, we do *not* rely on the security of our server (keys.qubes-os.org) nor the connection (ssl, cert) -- we only rely on you getting the Qubes Master Signing Key fingerprint *somehow* and ensuring they match!
-See [Verifying Signatures](/security/verifying-signatures/#importing-qubes-signing-keys) for verification sources.
+See [Verifying Signatures](/security/verifying-signatures/#1-get-the-qubes-master-signing-key-and-verify-its-authenticity) for verification sources.
 
 Now let's bootstrap the builder. Unfortunately, the builder cannot verify itself (the classic Chicken and Egg problem), so we need to verify the signature manually:
 

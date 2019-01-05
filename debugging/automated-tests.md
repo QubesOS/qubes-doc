@@ -21,7 +21,7 @@ Integration tests are written with the assumption that they will be called on de
 **Do not run these tests on installations with important data, because you might lose it.**
 Since these tests were written with this expectation, all the VMs with a name starting with `test-` on the installation are removed during the process, and all the tests are recklessly started from dom0, even when testing VM components.
 
-Most of the tests are stored in the [core-admin repository](https://github.com/QubesOS/qubes-core-admin/tree/master/tests) in the `tests` directory. 
+Most of the tests are stored in the [core-admin repository](https://github.com/QubesOS/qubes-core-admin/tree/master/qubes/tests) in the `tests` directory. 
 To start them you can use standard python unittest runner:
     python -m unittest -v qubes.tests
 Or our custom one:
@@ -98,6 +98,28 @@ For instance, to run only the tests for the fedora-21 template, you can use the 
 Example test run:
 
 ![snapshot-tests2.png](/attachment/wiki/developers/snapshot-tests2.png)
+
+### Qubes 4.0
+
+Tests on Qubes 4.0 require stopping `qubesd` service first, because special instance of it is started as part of the test run.
+Additionally, tests needs to be started as root. The full command to run the tests is:
+
+    sudo systemctl stop qubesd; sudo -E python3 -m qubes.tests.run -v ; sudo systemctl start qubesd
+
+On Qubes 4.0 tests are also compatible with nose2 test runner, so you can use this instead:
+
+    sudo systemctl stop qubesd; sudo -E nose2 -v --plugin nose2.plugins.loader.loadtests qubes.tests; sudo systemctl start qubesd
+
+This may be especially useful together with various nose2 plugins to store tests results (for example `nose2.plugins.junitxml`), to ease presenting results. This is what we use on [OpenQA].
+
+### Tests configuration
+
+Test run can be altered using environment variables:
+
+ - `DEFAULT_LVM_POOL` - LVM thin pool to use for tests, in `VolumeGroup/ThinPool` format
+ - `QUBES_TEST_PCIDEV` - PCI device to be used in PCI passthrough tests (for example sound card)
+ - `QUBES_TEST_TEMPLATES` - space separated list of templates to run tests on; if not set, all installed templates are tested
+ - `QUBES_TEST_LOAD_ALL` - load all tests (including tests for all templates) when relevant test modules are imported; this needs to be set for test runners not supporting [load_tests protocol](https://docs.python.org/3/library/unittest.html#load-tests-protocol)
 
 ### Adding a new test to core-admin
 After adding a new unit test to [core-admin/tests](https://github.com/QubesOS/qubes-core-admin/tree/master/tests) you'll have to make sure of two things:

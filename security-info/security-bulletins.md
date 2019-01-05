@@ -89,4 +89,11 @@ Qubes Security Bulletins are published through the [Qubes Security Pack](/securi
 
 -   [Qubes Security Bulletin \#37](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt) (Information leaks due to processor speculative execution bugs)
 -   [Qubes Security Bulletin \#38](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-038-2018.txt) (Qrexec policy bypass and possible information leak)
+-   [Qubes Security Bulletin \#39](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-039-2018.txt) (Xen vulnerability (XSA-260) and GUI daemon issue)
+-   [Qubes Security Bulletin \#40](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-040-2018.txt) (Information leaks due to processor speculative store bypass (XSA-263))
+-   [Qubes Security Bulletin \#41](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-041-2018.txt) (Speculative register leakage from lazy FPU context switching (XSA-267))
+-   [Qubes Security Bulletin \#42](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-042-2018.txt) (Linux netback driver OOB access in hash handling (XSA-270))
+-   [Qubes Security Bulletin \#43](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-043-2018.txt) (L1 Terminal Fault speculative side channel (XSA-273))
+-   [Qubes Security Bulletin \#44](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-044-2018.txt) (Multiple Xen vulnerabilities (XSA-275, XSA-280))
+-   [Qubes Security Bulletin \#45](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-045-2018.txt) (Insecure default Salt configuration)
 

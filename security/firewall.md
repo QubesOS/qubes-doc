@@ -48,9 +48,10 @@ in that VM's directory in dom0:
 
     /var/lib/qubes/appvms/<vm-name>/firewall.xml
     
-Please note that there is a 3 kB limit to the size of the `iptables` script. 
+Please note that there is a 3 kB limit to the size of the `iptables` script in Qubes versions before R4.0. 
 This equates to somewhere between 35 and 39 rules. 
 If this limit is exceeded, the qube will not start.
+The limit was removed in R4.0.
 
 It is possible to work around this limit by enforcing the rules on the qube itself
 by putting appropriate rules in `/rw/config`.
@@ -193,6 +194,8 @@ that we want to expose on our physical interface eth0, but only to our local
 network 192.168.x.0/24.
 
 > Note: To have all interfaces available and configured, make sure the 3 qubes are up and running
+
+> Note: [Issue #4028](https://github.com/QubesOS/qubes-issues/issues/4028) discusses adding a command to automate exposing the port.
 
 **1. Route packets from the outside world to the FirewallVM**
 
@@ -384,7 +387,7 @@ fi
 # In Qubes OS R4
 
 # If not already present
-if nft -nn list table ip qubes-firewall | grep "tcp dport 443 ct state new"; then
+if ! nft -nn list table ip qubes-firewall | grep "tcp dport 443 ct state new"; then
 
 # Add a filtering rule
   nft add rule ip qubes-firewall forward meta iifname eth0 ip saddr 192.168.x.0/24 ip daddr 10.137.0.y tcp dport 443 ct state new counter accept

@@ -17,18 +17,34 @@ The Network Manager method should work with both Qubes R4.0 and R3.2.
 ## Upgrading and configuring Network Manager in Qubes
 
 Newer versions of Network Manager have a robust set of options for randomizing MAC addresses, and can handle the entire process across reboots, sleep/wake cycles and different connection states.
-In particular, versions 1.4.2 and later should be well suited for Qubes.
+In particular, versions 1.4.2 and later should be well suited for Qubes. Qubes R4.0's default sys-net should have 1.8.2-4 by default.
 
 Network Manager 1.4.2 or later is available from the Fedora 25 repository as well as the Debian 9 repository, which you can install by [upgrading a Debian 8 template to version 9.](/doc/debian-template-upgrade-8/) 
 
-In the Debian 9 or Fedora 25 template you intend to use as a NetVM, check that Network Manager version is now at least 1.4.2:
+Check that Network Manager version is now at least 1.4.2:
 
 ~~~
 $ sudo NetworkManager -V
 1.4.2
 ~~~
 
-Write the settings to a new file in the `/etc/NetworkManager/conf.d/` directory, such as `mac.conf`.
+## Randomize a single connection
+
+Right click on the Network Manager icon of your NetVM in the tray and click 'Edit Connections..'.
+
+Select the connection to randomize and click Edit.
+
+Select the Cloned MAC Address drop down and set to Random or Stable.
+Stable will generate a random address that persists until reboot, while Random will generate an address each time a link goes up.
+![Edit Connection](/attachment/wiki/RandomizeMAC/networkmanager-mac-random.png)
+
+Save the change and reconnect the connection (click on Network Manager tray icon and click disconnect under the connection, it should automatically reconnect).
+
+## Randomize all Ethernet and Wifi connections
+
+These steps should be done inside a template to be used to create a NetVM as it relies on creating a config file that would otherwise be deleted after a reboot due to the nature of AppVMs.
+
+Write the settings to a new file in the `/etc/NetworkManager/conf.d/` directory, such as `00-macrandomize.conf`.
 The following example enables Wifi and Ethernet MAC address randomization while scanning (not connected), and uses a randomly generated but persistent MAC address for each individual Wifi and Ethernet connection profile.
 
 ~~~
@@ -46,8 +62,8 @@ connection.stable-id=${CONNECTION}/${BOOT}
 
 To see all the available configuration options, refer to the man page: `man nm-settings`
 
-Next, create a new NetVM using the new template and assign network devices to it.
+Next, create a new NetVM using the edited template and assign network devices to it.
 
 Finally, shutdown all VMs and change the settings of sys-firewall, etc. to use the new NetVM.
 
-You can check the MAC address currently in use by looking at the status pages of your router device(s), or in the NetVM with the command `sudo ip link show`.
+You can check the MAC address currently in use by looking at the status pages of your router device(s), or inside the NetVM with the command `sudo ip link show`.

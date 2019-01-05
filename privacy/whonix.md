@@ -8,6 +8,14 @@ redirect_from:
 - /en/doc/templates/whonix/
 - /doc/Templates/Whonix/
 - /wiki/Templates/Whonix/
+- /doc/whonix/customize/
+- /doc/privacy/customizing-whonix/
+- /doc/whonix/install/
+- /doc/privacy/install-whonix/
+- /doc/whonix/uninstall/
+- /doc/privacy/uninstall-whonix/
+- /doc/whonix/update/
+- /doc/privacy/updating-whonix/
 ---
 
 Whonix for Privacy & Anonymity
@@ -25,27 +33,26 @@ while the workstation is used for making AppVMs.
 Whonix in Qubes replaces the deprecated [TorVM](/doc/torvm) service used in earlier
 versions of Qubes.
 
-## Getting Started with Whonix
-*  Note: To install Whonix in Qubes, you must already have a working Qubes machine.
-*  [Installing Whonix in Qubes](/doc/whonix/install/)
-*  [Updating Whonix in Qubes](/doc/whonix/update/)
-
-## Customizing, Reinstalling, & Uninstalling Whonix
-
-*  [Customizing Whonix](/doc/whonix/customize/)
-*  [Uninstalling Whonix from Qubes](/doc/whonix/uninstall/)
-
 *The following pages are written by the Whonix developers and are located on their website.*
 
-* [Using Whonix with DisposableVMs](https://www.whonix.org/blog/qubes-whonix-dispvm)
+## Getting Started with Whonix
+
+Note: To install Whonix in Qubes, you must [install Qubes](/doc/installation-guide/) first.
+
+* [Installing Whonix in Qubes](https://www.whonix.org/wiki/Qubes/Install)
+* [Updating Whonix in Qubes](https://www.whonix.org/wiki/Qubes/Update)
+* [Uninstalling Whonix from Qubes](https://www.whonix.org/wiki/Qubes/Uninstall)
+
+## Configuring Whonix
+
+* [Using Whonix with DisposableVMs](https://www.whonix.org/wiki/Qubes/Disposable_VM)
 * [Post-Installation Security Advice](https://www.whonix.org/wiki/Post_Install_Advice)
-* [How to set up Tor Bridges in Whonix on Qubes](https://www.whonix.org/wiki/Bridges#How_to_use_bridges_in_Whonix)
+* [How to set up Tor Bridges in Whonix on Qubes](https://www.whonix.org/wiki/Bridges)
 * [Using Multiple Whonix-Workstations with Whonix on Qubes](https://www.whonix.org/wiki/Multiple_Whonix-Workstations#Qubes-Whonix)
 * [How to use Corridor (a Tor traffic whitelisting gateway) with Whonix](https://www.whonix.org/wiki/Corridor)
 
 ## Support for Whonix
 
-*The following pages are written by the Whonix developers and are located on their website.*
-
 *  [Whonix Support](https://www.whonix.org/wiki/Support) - General Whonix, Debian, Tor, etc... related issues
 *  [Whonix Qubes Forum](https://forums.whonix.org/c/qubes) - Whonix specific issues
+

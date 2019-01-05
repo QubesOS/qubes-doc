@@ -63,10 +63,10 @@ Common Tasks
  * [Copying and Pasting Text Between Domains](/doc/copy-paste/)
  * [Copying and Moving Files Between Domains](/doc/copying-files/)
  * [Copying from (and to) dom0](/doc/copy-from-dom0/)
- * [Updating Software in dom0](/doc/software-update-dom0/)
- * [Updating and Installing Software in VMs](/doc/software-update-vm/)
+ * [Installing and Updating Software in dom0](/doc/software-update-dom0/)
+ * [Installing and Updating Software in VMs](/doc/software-update-vm/)
  * [Backup, Restoration, and Migration](/doc/backup-restore/)
- * [Using Disposable VMs](/doc/dispvm/)
+ * [Using Disposable VMs](/doc/disposablevm/)
  * [Using and Managing USB Devices in R3.2](/doc/usb/)
  * [Using Block or Storage Devices in Qubes R4.0](/doc/block-devices/)
  * [Using USB  Devices in Qubes R4.0](/doc/usb-devices)
@@ -92,7 +92,7 @@ Managing Operating Systems within Qubes
  * [Creating and Using HVM Domains](/doc/hvm/)
  * [Tips for Using Linux in an HVM](/doc/linux-hvm-tips/)
  * [Creating a NetBSD VM](/doc/netbsd/)
- * [How to Reinstall a TemplateVM](/doc/reinstall-template)
+ * [How to Reinstall a TemplateVM](/doc/reinstall-template/)
 
 
 Security Guides
@@ -104,6 +104,7 @@ Security Guides
  * [Installing Anti Evil Maid](/doc/anti-evil-maid/)
  * [Using Multi-factor Authentication with Qubes](/doc/multifactor-authentication/)
  * [Using GPG more securely in Qubes: Split GPG](/doc/split-gpg/)
+ * [The Qubes U2F Proxy](/doc/u2f-proxy/)
  * [How to Set Up a Split Bitcoin Wallet in Qubes](/doc/split-bitcoin/)
  * [[Unofficial] Split dm-crypt](https://github.com/rustybird/qubes-split-dm-crypt)
  * [Configuring YubiKey for user authentication](/doc/yubi-key/)
@@ -129,6 +130,8 @@ Configuration Guides
  * [Multibooting](/doc/multiboot/)
  * [Resize Disk Image](/doc/resize-disk-image/)
  * [RPC Policies](/doc/rpc-policy/)
+ * [Changing your Time Zone](/doc/change-time-zone/)
+ * [GUI Configuration and Troubleshooting](/doc/gui-configuration/)
  * [Installing ZFS in Qubes](/doc/zfs/)
  * [Mutt Guide](/doc/mutt/)
  * [Postfix Guide](/doc/postfix/)
@@ -151,8 +154,8 @@ Configuration Guides
 Customization Guides
 --------------------
  * [DispVM Customization](/doc/dispvm-customization/)
- * [Customizing Fedora minimal templates](/doc/fedora-minimal-template-customization)
- * [Customizing Windows 7 templates](/doc/windows-template-customization)
+ * [Customizing Fedora minimal templates](/doc/fedora-minimal-template-customization/)
+ * [Customizing Windows 7 templates](/doc/windows-template-customization/)
  * [Using KDE in dom0](/doc/kde/)
  * [Installing XFCE in dom0](/doc/xfce/)
  * [Installing i3 in dom0](/doc/i3/)
@@ -160,11 +163,13 @@ Customization Guides
  * [Language Localization](/doc/language-localization/)
  * [Dark Theme in Dom0 and DomU](/doc/dark-theme/)
  * [How to make any file in a TemplateBasedVM persistent using bind-dirs](/doc/bind-dirs/)
+ * [Safely Removing TemplateVM Packages (Example: Thunderbird)](/doc/removing-templatevm-packages/)
 
 
 Troubleshooting
 ---------------
  * [Home directory is out of disk space error](/doc/out-of-memory/)
+ * [Newer hardware doesn't work](/doc/newer-hardware-troubleshooting/)
  * [Installing on system with new AMD GPU (missing firmware problem)](https://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76)
  * [How to install an Nvidia driver in dom0](/doc/install-nvidia-driver/)
  * [Nvidia troubleshooting guide](/doc/nvidia-troubleshooting/)
@@ -235,7 +240,7 @@ System
 ------
  * [Qubes OS Architecture Overview](/doc/architecture/)
  * [Qubes OS Architecture Spec v0.3 [PDF]](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf)
- * [Security-critical elements of Qubes OS](/doc/security-critical-code/)
+ * [Security-critical Code in Qubes OS](/doc/security-critical-code/)
  * [Qubes Core Admin](https://dev.qubes-os.org/projects/core-admin/en/latest/)
  * [Qubes Core Admin Client](https://dev.qubes-os.org/projects/core-admin-client/en/latest/)
  * [Qubes Admin API](/news/2017/06/27/qubes-admin-api/)
@@ -251,7 +256,7 @@ Services
  * [Inter-domain file copying](/doc/qfilecopy/) (deprecates [`qfileexchgd`](/doc/qfileexchgd/))
  * [Dynamic memory management in Qubes](/doc/qmemman/)
  * [Implementation of DisposableVMs](/doc/dvm-impl/)
- * [Article about disposable VMs](http://theinvisiblethings.blogspot.com/2010/06/disposable-vms.html)
+ * [Article about DisposableVMs](http://theinvisiblethings.blogspot.com/2010/06/disposable-vms.html)
  * [Dom0 secure update mechanism](/doc/dom0-secure-updates/)
 
 Debugging

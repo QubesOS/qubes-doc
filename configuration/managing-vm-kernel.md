@@ -16,8 +16,7 @@ By default, VMs kernels are provided by dom0. This means that:
 3. You can **not** modify any of the above from inside a VM;
 4. Installing additional kernel modules is cumbersome.
 
-*Note* In the examples below, although the specific version numbers might be old, the commands have been verified on R3.2 with debian-9 and fedora-26 templates.
-At the time of writing, there is a blocking issue for R4.0 [3563](https://github.com/QubesOS/qubes-issues/issues/3563).
+*Note* In the examples below, although the specific version numbers might be old, the commands have been verified on R3.2 and R4.0 with debian-9 and fedora-26 templates.
 
 To select which kernel a given VM will use, you can either use Qubes Manager (VM settings, advanced tab), or the `qvm-prefs` tool:
 
@@ -208,7 +207,102 @@ mke2fs 1.42.12 (29-Aug-2014)
 --> Done.
 ~~~
 
-Using kernel installed in the VM
+Using kernel installed in the VM (R4.0)
+--------------------------------
+
+Both debian-9 and fedora-26 templates already have grub and related tools preinstalled so if you want to use one of the distribution kernels, all you need to do is clone either template to a new one, then:
+
+~~~
+qvm-prefs <clonetemplatename> virt_mode hvm
+qvm-prefs <clonetemplatename> kernel ''
+~~~
+
+If you'd like to use a different kernel than default, continue reading.
+
+### Installing kernel in Fedora VM (R4.0)
+
+Install whatever kernel you want.
+You need to also ensure you have the `kernel-devel` package for the same kernel version installed.
+
+If you are using a distribution kernel package (`kernel` package), the initramfs and kernel modules may be handled automatically. 
+If you are using a manually built kernel, you need to handle this on your own.
+Take a look at the `dkms` documentation, especially the `dkms autoinstall` command may be useful.
+If you did not see the `kernel` install rebuild your initramfs, or are using a manually built kernel, you will need to rebuild it yourself.
+Replace the version numbers in the example below with the ones appropriate to the kernel you are installing:
+
+~~~
+sudo dracut -f /boot/initramfs-4.15.14-200.fc26.x86_64.img 4.15.14-200.fc26.x86_64
+~~~
+
+Once the kernel is installed, you need to create a GRUB configuration. 
+You may want to adjust some settings in `/etc/default/grub`; for example, lower `GRUB_TIMEOUT` to speed up VM startup. 
+Then, you need to generate the actual configuration:
+In Fedora it can be done using the `grub2-mkconfig` tool:
+
+~~~
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+~~~
+
+You can safely ignore this error message:
+
+~~~
+grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your device.map
+~~~
+
+Then shutdown the VM.
+
+**Note:** You may also use `PV` mode instead of `HVM` but this is not recommended for security purposes.
+If you require `PV` mode, install `grub2-xen` in dom0 and change the template's kernel to `pvgrub2`.
+Booting to a kernel inside the template is not supported under `PVH`.
+
+### Installing kernel in Debian VM (R4.0)
+
+Install whatever kernel you want, making sure to include the headers.
+If you are using a distribution kernel package (`linux-image-amd64` package), the initramfs and kernel modules should be handled automatically.
+If not, or you are building the kernel manually, do this using `dkms` and `initramfs-tools`:
+
+    sudo dkms autoinstall -k <kernel-version> # replace this <kernel-version> with actual kernel version
+    sudo update-initramfs -u
+
+The output should look like this:
+
+	$ sudo dkms autoinstall -k 3.16.0-4-amd64
+
+	u2mfn:
+	Running module version sanity check.
+	 - Original module
+	   - No original module exists within this kernel
+	 - Installation
+	   - Installing to /lib/modules/3.16.0-4-amd64/updates/dkms/
+
+	depmod....
+
+	DKMS: install completed.
+	$ sudo update-initramfs -u
+	update-initramfs: Generating /boot/initrd.img-3.16.0-4-amd64
+
+When the kernel is installed, you need to create a GRUB configuration. 
+You may want to adjust some settings in `/etc/default/grub`; for example, lower `GRUB_TIMEOUT` to speed up VM startup.
+Then, you need to generate the actual configuration with the `update-grub2` tool:
+
+~~~
+sudo mkdir /boot/grub
+sudo update-grub2
+~~~
+
+You can safely ignore this error message:
+
+~~~
+grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your device.map
+~~~
+
+Then shutdown the VM.
+
+**Note:** You may also use `PV` mode instead of `HVM` but this is not recommended for security purposes.
+If you require `PV` mode, install `grub2-xen` in dom0 and change the template's kernel to `pvgrub2`.
+Booting to a kernel inside the template is not supported under `PVH`.
+
+Using kernel installed in the VM (R3.2)
 --------------------------------
 
 **This option is available only in Qubes R3.1 or newer**
@@ -226,7 +320,7 @@ To make it happen, at a high level you need to:
 
 **WARNING: When using a kernel from within a VM, the `kernelopts` parameter is ignored.**
 
-### Installing PV GRUB2
+### Installing PV GRUB2 (R3.2)
 
 Simply execute:
 
@@ -234,7 +328,7 @@ Simply execute:
 sudo qubes-dom0-update grub2-xen
 ~~~
 
-### Installing kernel in Fedora VM
+### Installing kernel in Fedora VM (R3.2)
 
 In a Fedora based VM, you need to install the `qubes-kernel-vm-support` package.
 This package includes the additional kernel module and initramfs addition required to start a Qubes VM (for details see [template implementation](/doc/template-implementation/)).
@@ -251,10 +345,11 @@ You need to also ensure you have the `kernel-devel` package for the same kernel 
 If you are using a distribution kernel package (`kernel` package), the initramfs and kernel modules may be handled automatically. 
 If you are using a manually built kernel, you need to handle this on your own.
 Take a look at the `dkms` documentation, especially the `dkms autoinstall` command may be useful.
-If you did not see the `kernel` install rebuild your initramfs, or are using a manually built kernel, you will need to rebuild it yourself with the following:
+If you did not see the `kernel` install rebuild your initramfs, or are using a manually built kernel, you will need to rebuild it yourself.
+Replace the version numbers in the example below with the ones appropriate to the kernel you are installing:
 
 ~~~
-sudo dracut -f /boot/initramfs-$(uname -r).img $(uname -r)
+sudo dracut -f /boot/initramfs-4.15.14-200.fc26.x86_64.img 4.15.14-200.fc26.x86_64
 ~~~
 
 Once the kernel is installed, you need to create a GRUB configuration. 
@@ -280,7 +375,7 @@ This can take a while to complete- longer than your `qrexec_timeout` setting, wh
 To confirm this is the case, see [Troubleshooting](/doc/managing-vm-kernel/#troubleshooting) below or just wait for five minutes and shutdown the VM.
 It should respond normally on future boots.
 
-### Installing kernel in Debian VM
+### Installing kernel in Debian VM (R3.2)
 
 In a Debian based VM, you need to install the `qubes-kernel-vm-support` package.
 This package includes the additional kernel module and initramfs addition required to start a Qubes VM (for details see [template implementation](/doc/template-implementation/)).
