@@ -8,6 +8,9 @@ redirect_from:
 
 Block or Storage Devices in Qubes R4.0
 ======================================
+*This page is part of [device handling in qubes]*
+(In case you were looking for the [R3.2 documentation](/doc/usb/).)
+
 If you don't know what a "block device" is, just think of it as a fancy way to say "something that stores data".
 
 #Using The GUI to Attach a Drive
@@ -159,6 +162,7 @@ This option accepts `cdrom` and `disk`, default is `disk`.
 
 
 
+[device handling in qubes]: /doc/device-handling/
 [mass-storage]: https://en.wikipedia.org/wiki/USB_mass_storage_device_class
 [device manager icon]:https://raw.githubusercontent.com/hrdwrrsk/adwaita-xfce-icon-theme/master/Adwaita-Xfce/22x22/devices/media-removable.png <!--TODO: find actual icon used in qubes!-->
 [USB]:/dock/usb-devices-in-qubes-R4.0/

@@ -8,6 +8,7 @@ redirect_from:
 
 USB  Devices in Qubes R4.0
 ==========================
+*This page is part of [device handling in qubes]*
 (In case you were looking for the [R3.2 documentation](/doc/usb/).)
 
 **Important security warning:** USB passthrough comes with many security implications! Please make sure you carefully read and understood the **[security considerations]**! Especially, whenever possible, attach a [block device] instead!
@@ -126,6 +127,7 @@ Strip the leading `0000:` and pass the rest to the [`qvm-pci` tool][qvm-pci] to 
 
 
 
+[device handling in qubes]: /doc/device-handling/
 [block device]: /doc/block-devices-in-qubes-R4.0/
 [security considerations]: /doc/device-considerations/#usb-security
 [usb-challenges]: https://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html

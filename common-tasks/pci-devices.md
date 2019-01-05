@@ -7,7 +7,8 @@ redirect_from:
 ---
 
 PCI Devices in Qubes R4.0
-======================================
+=========================
+*This page is part of [device handling in qubes]*
 (In case you were looking for the [R3.2 documentation](/doc/assigning-devices/).)
 
 **Warning:** Only dom0 exposes PCI devices. Some of them are strictly required in dom0! (e.g. host bridge)
@@ -134,6 +135,7 @@ or
 <!--TODO: Is this still needed?-->
 
 
+[device handling in qubes]: /doc/device-handling/
 [security considerations]: /doc/device-considerations/#pci-security
 [block]:/doc/block-devices-in-qubes-R4.0/
 [USB]:/dock/usb-devices-in-qubes-R4.0/
