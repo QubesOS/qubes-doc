@@ -26,7 +26,7 @@ While PCI device can only be used by one powered on VM at a time, it *is* possib
 This means that you can use the device in one VM, shut that VM down, start up a different VM (to which the same device is also assigned), then use the device in that VM.
 This can be useful if, for example, you have only one USB controller, but you have multiple security domains which all require the use of different USB devices.
 
-Using the Commandline
+Using the Command Line
 ------------------------
 
 In order to assign a whole PCI(e) device to a VM, one should use the `qvm-pci` tool.
@@ -64,7 +64,7 @@ This was moved to the [current documentation][finding controller].
 
 Possible issues
 ---------------
-Please refere to the [current documentation][possible issues] for an issue description and carefully read the [security implications]!
+Please refer to the [current documentation][possible issues] for an issue description and carefully read the [security implications]!
 Return here for a guide on how to enable permissive mode and disable strict reset!
 
 Enabling permissive mode

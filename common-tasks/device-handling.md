@@ -29,7 +29,7 @@ Microphones, block devices and USB devices can be attached with the GUI-tool. PC
 
 
 #General Qubes Device Widget Behavior And Handling
-When clicking on the tray icon (looking similar to this: ![SD card and thumbdrive][device manager icon] several device-classes seperated by lines are displayed as tooltip. Block devices are displayed on top, microphones one below and USB-devices at the bottom.
+When clicking on the tray icon (looking similar to this: ![SD card and thumbdrive][device manager icon] several device-classes separated by lines are displayed as tooltip. Block devices are displayed on top, microphones one below and USB-devices at the bottom.
 
 On most laptops, integrated hardware such as cameras and fingerprint-readers are implemented as USB-devices and can be found here.
 
@@ -42,7 +42,7 @@ To detach a device, click the Qubes Devices Widget icon again. Attached devices 
 ##Attaching a Device to Several VMs
 <!--TODO: This seems like a very bad idea, but it's possible? When would I want to do that? What are the security-implications?-->
 
-#General `qvm-device` Commandline Tool Behavior
+#General `qvm-device` Command Line Tool Behavior
 All devices, including PCI-devices, may be attached from the commandline using the `qvm-device`-tools.
 
 ##Device Classes
@@ -62,14 +62,14 @@ All devices, including PCI-devices, may be attached from the commandline using t
 
 
 ##Global Options
-These three options are allways available:
+These three options are always available:
 
 - `--help`, `-h` - show help message and exit
 - `--verbose`, `-v` - increase verbosity
 - `--quiet`, `-q` - decrease verbosity
 
 
-A full command consits of one DEVICE_CLASS and one action. If no action is given, list is implied. DEVICE_CLASS however is required.
+A full command consists of one DEVICE_CLASS and one action. If no action is given, list is implied. DEVICE_CLASS however is required.
 
 **SYNOPSIS**:
 `qvm-device DEVICE_CLASS {action} [action-specific arguments] [options]`
@@ -100,7 +100,7 @@ The `attach` action assigns an exposed device to a VM. This makes the device ava
 `qvm-device DEVICE_CLASS {attach|at|a} targetVM sourceVM:deviceID [options]`
 
 ###Detaching Devices
-The `detach` action removes an assigned device from a targetVM. It won't be available afterwards anymore. Though it tries to do so gracefully, beware that data-connections might be broken unexpectedly, so close any transaction before deatching a device!
+The `detach` action removes an assigned device from a targetVM. It won't be available afterwards anymore. Though it tries to do so gracefully, beware that data-connections might be broken unexpectedly, so close any transaction before detaching a device!
 
 `detach` accepts no options.
 

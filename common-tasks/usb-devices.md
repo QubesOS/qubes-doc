@@ -16,10 +16,10 @@ USB  Devices in Qubes R4.0
 Examples for valid cases for USB-passthrough:
 
  - [microcontroller programming]
- - using [extarnal audio devices]
+ - using [external audio devices]
  - [optical drives] for recording
 
-(If you are thinking to use a two-factor-authentification device, [there is an app for that][qubes u2f proxy]. But it has some [issues][4661].)
+(If you are thinking to use a two-factor-authentication device, [there is an app for that][qubes u2f proxy]. But it has some [issues][4661].)
 
 #Attaching And Detaching a USB Device
 ##With Qubes Device Manager
@@ -66,10 +66,10 @@ When you finish, detach the device.
     sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
     sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
 
-#Maintainence And Customisation
+#Maintenance And Customisation
 
 ##Creating And Using a USB qube
-If you've selected to install a usb-qube during system installation, everything is already set up for you in `sys-usb`. If you've later decided to create a usb-qube, plese follow [this guide][USB-qube howto].
+If you've selected to install a usb-qube during system installation, everything is already set up for you in `sys-usb`. If you've later decided to create a usb-qube, please follow [this guide][USB-qube howto].
 
 ##Installation Of `qubes-usb-proxy`
 To use this feature, the[`qubes-usb-proxy`][qubes-usb-proxy] package needs to be installed in the templates used for the USB qube and qubes you want to connect USB devices to.
@@ -132,9 +132,9 @@ Strip the leading `0000:` and pass the rest to the [`qvm-pci` tool][qvm-pci] to 
 [security considerations]: /doc/device-considerations/#usb-security
 [usb-challenges]: https://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html
 [microcontroller programming]: https://www.arduino.cc/en/Main/Howto
-[extarnal audio devices]: /doc/external-audio/
+[external audio devices]: /doc/external-audio/
 [optical drives]: /doc/recording-optical-discs/
-[qubes u2f proxy]: https://www.qubes-os.org/news/2018/09/11/qubes-u2f-proxy/
+[qubes u2f proxy]: /doc/u2f-proxy/
 [4661]: https://github.com/QubesOS/qubes-issues/issues/4661
 [device manager icon]:https://raw.githubusercontent.com/hrdwrrsk/adwaita-xfce-icon-theme/master/Adwaita-Xfce/22x22/devices/media-removable.png <!--TODO: find actual icon used in qubes!-->
 [eject icon]:https://raw.githubusercontent.com/hrdwrrsk/adwaita-xfce-icon-theme/master/Adwaita-Xfce/22x22/actions/media-eject.png

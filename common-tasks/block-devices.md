@@ -49,7 +49,7 @@ If several different block-devices are attached to a single VM, the last letter 
 
 To specify this device node name, you can pass `--option frontend-dev=[custom-node-name]` to `qvm-block attach`.
 
-#Commandline Tool Guide
+#Command Line Tool Guide
 The command-line tool you may use to mount whole USB drives or their partitions is `qvm-block`, a shortcut for `qvm-device block`.
 
 `qvm-block` only sees device-nodes and may not use names you expect! So make sure to have the drive available in the sourceVM before listing available block devices (step 1.) to find out it's its ID.
@@ -108,7 +108,7 @@ To attach a file as block device to another qube, first turn it into a loopback 
 
  2. If you want to use the GUI, you're done. Click the Device Manager ![device manager icon] and select the `loop0`-device to attach it to another qube.
 
-    If you rather use the commandline, continue:
+    If you rather use the command line, continue:
 
     In dom0, run `qvm-block` to display known block devices. The newly created loop device should show up:
 
@@ -125,7 +125,7 @@ To attach a file as block device to another qube, first turn it into a loopback 
         sudo losetup -d /dev/loop0
 
 #Additional Attach Options
-Attaching a block device through the commandline offers additional customisation options, specifiable via the `--option`/`-o` option. (Yes, confusing wording, there's an [issue for that](https://github.com/QubesOS/qubes-issues/issues/4530).)
+Attaching a block device through the command line offers additional customisation options, specifiable via the `--option`/`-o` option. (Yes, confusing wording, there's an [issue for that](https://github.com/QubesOS/qubes-issues/issues/4530).)
 
 ##frontend-dev
 This option allows you to specify the name of the device node made available in the targetVM. This defaults to `xvdi` or, if already occupied, the first available device node name in alphabetical order. (The next one tried will be `xvdj`, then `xvdk`, and so on ...)

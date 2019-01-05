@@ -6,9 +6,9 @@ permalink: /doc/usb-qube-how-to/
 
 USB Qube HowTo
 ==============
-If during installation you enabled the creation of a USB-qube, your system should be setup already and none of the mentioned steps here should be necessarry. (Unless you want to [remove your USB-qube].) If for any reason no USB-qube was created during installation, this guide will show you how to do so.
+If during installation you enabled the creation of a USB-qube, your system should be setup already and none of the mentioned steps here should be necessary. (Unless you want to [remove your USB-qube].) If for any reason no USB-qube was created during installation, this guide will show you how to do so.
 
-**Caution:** If you want to use a USB-keyboard, please beware of the possiblity to lock yourself out! To avoid this problem [enable your keyboard for login]!
+**Caution:** If you want to use a USB-keyboard, please beware of the possibility to lock yourself out! To avoid this problem [enable your keyboard for login]!
 
 Creating and Using a USB qube
 -----------------------------

@@ -16,7 +16,7 @@ You may end up with an unusable system by attaching the wrong PCI device to a VM
 
 **Security warning:** PCI passthrough should be safe by default, but none-default options may be required. Please make sure you carefully read and understood the **[security considerations]** before deviating from default behavior!
 
-Unlike other devices ([USB], [block], mic), PCI devices need to be attached on VM-bootup. Similar to how you can't attach a new soundcard after your computer booted (and expect it to work properly), attaching PCI devices to already booted VMs isn't possible in any meaningful way.
+Unlike other devices ([USB], [block], mic), PCI devices need to be attached on VM-bootup. Similar to how you can't attach a new sound-card after your computer booted (and expect it to work properly), attaching PCI devices to already booted VMs isn't possible in any meaningful way.
 
 The Qubes installer attaches all network class controllers to `sys-net` and all USB controllers to `sys-usb` by default, if you chose to create the network and USB qube during install.
 While this covers most use cases, there are some occasions when you may want to manually attach one NIC to `sys-net` and another to a custom NetVM, or have some other type of PCI controller you want to manually attach.
@@ -37,12 +37,12 @@ The qube settings for a VM offers the "Devices"-tab. There you can attach PCI-de
 
      - Press Alt+F3 to open the application finder, type in the VM name, select the "![appmenu]\[VM-name\]: Qube Settings" menu entry and press enter or click "Launch"!
      - Select the VM in Qube Manager and click the settings-button or right-click the VM and select `Qube settings`.
-     - Click the Domain Manager ![device manager icon], hover the VM you want to assing a device to and select "settings" in the additional menu. (only running VMs!)
+     - Click the Domain Manager ![device manager icon], hover the VM you want to attach a device to and select "settings" in the additional menu. (only running VMs!)
 
  2. Select the "Devices" tab on the top bar.
  3. Select a device you want to attach to the qube and click the single arrow right! (`>`)
  4. You're done. If everything worked out, once the qube boots (or reboots if it's running) it will start with the pci device attached.
- 5. In case it doesn't work out, first try disabeling memory-balancing in the settings ("Advanced" tab). If that doesn't help, read on to learn how to disable the strict reset requirement!
+ 5. In case it doesn't work out, first try disabling memory-balancing in the settings ("Advanced" tab). If that doesn't help, read on to learn how to disable the strict reset requirement!
 
 #`qvm-pci` Usage
 The `qvm-pci` tool allows PCI attachment and detachment. It's a shortcut for [`qvm-device pci`][qvm-device].
@@ -68,7 +68,7 @@ For example, if `00_1a.0` is the BDF of the device you want to attach to the "wo
 
 ##DMA Buffer Size
 
-VMs with assigned PCI devices in Qubes have allocated a small buffer for DMA operations (called swiotlb).
+VMs with attached PCI devices in Qubes have allocated a small buffer for DMA operations (called swiotlb).
 By default it is 2MB, but some devices need a larger buffer.
 To change this allocation, edit VM's kernel parameters (this is expressed in 512B chunks):
 
@@ -86,7 +86,7 @@ There is a way to enable permissive mode for it.
 See also: [this thread][ml2] and the Xen wiki's [PCI passthrough] page.
 At other times, you may instead need to disable the FLR requirement on a device.
 
-Both can be acchieved during attachment with `qvm-pci` as described below.
+Both can be achieved during attachment with `qvm-pci` as described below.
 
 
 #Additional Attach Options
@@ -102,7 +102,7 @@ usage example:
     qvm-pci a work dom0:00_1a.0 --persistent -o no-strict-reset=true
 
 ##permissive
-Allow write access to full PCI config space instead of whitlisted registers. This increases attack surface and possibility of [side channel attacks].
+Allow write access to full PCI config space instead of whitelisted registers. This increases attack surface and possibility of [side channel attacks].
 
 usage example:
 
@@ -115,7 +115,7 @@ By default, when a device is detached from a VM (or when a VM with an attached P
 
 This is an intended feature.
 
-A device which was previously assigned to a VM less trusted than dom0 (which, in Qubes, is *all* of them) could attack dom0 if it were automatically reassigned there.
+A device which was previously attached to a VM less trusted than dom0 (which, in Qubes, is *all* of them) could attack dom0 if it were automatically reattached there.
 
 In order to re-enable the device in dom0, either:
 
