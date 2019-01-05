@@ -89,7 +89,7 @@ Note: you cannot pass through devices from dom0 (in other words: a [USB qube][US
 Mouse and keyboard setup are part of [setting up a USB-qube][keyboard setup].
 
 
-##Finding the right USB controller
+##Finding The Right USB Controller
 <!--TODO: This looks super old. Somebody please have a look! -->
 
 Some USB devices are not compatible with the USB pass-through method Qubes employs.

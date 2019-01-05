@@ -110,7 +110,7 @@ usage example:
 
 
 
-#Bringing PCI device back to dom0
+#Bringing PCI Devices Back to dom0
 By default, when a device is detached from a VM (or when a VM with an attached PCI device is shut down), the device is *not* automatically attached back to dom0.
 
 This is an intended feature.
