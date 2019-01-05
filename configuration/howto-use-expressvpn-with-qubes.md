@@ -76,7 +76,7 @@ Configure ExpressVPN
 - Import  the downloaded OpenVPN configuration file (QubesIncoming/...)
 - Beautify the Name, like ExpressVPN-<Locationname>
 - Copy & Paste the Username and Password from your ExpressVPN page into correct fields
-  (User key password can be left empty)
+  (User key password should also contain the password)
 - Important: Click on the right Icon in the password field and choose:
 - (X) Store the passwords for all users
 - Save the dialog
