@@ -81,9 +81,8 @@ When you install a new template or upgrade a clone of a template, it is recommen
         Applications Menu --> System Tools --> Qubes Global Settings --> Default template
 
 2. Base AppVMs on the new template.
-   In Qubes Manager, for each VM that is currently based on `old-template` that you would like to base on `new-template`, enter its VM settings and change the Template selection:
 
-        Applications Menu --> (select a VM) --> VM settings --> Template
+        Applications Menu --> System Tools --> Qubes Template Manager
 
 3. Base the [DVM Template](/doc/glossary/#dvm-template) on the new template.
 
@@ -99,7 +98,7 @@ Invisible Things Lab (ITL) Supported templates
 These are the templates ITL builds and releases updates for.
 ITL guarantees that the binary updates are compiled from exactly the same source code as we publish.
 
- * Fedora (default base template)
+ * [Fedora](/doc/templates/fedora/) (default base template)
  * [Fedora - Minimal](/doc/templates/fedora-minimal)
  * [Debian](/doc/templates/debian/)
 
