@@ -67,13 +67,12 @@ To allow USB keyboard usage (including early boot for LUKS passphrase), make sur
 The above command will take care of all required configuration, including creating USB qube if not present.
 Note that it will expose dom0 to USB devices while entering LUKS passphrase.
 Users are advised to physically disconnect other devices from the system for that time, to minimize the risk.
-<!--TODO: How to undo?-->
 
-If you wish to perform only subset of this configuration (for example do not enable USB keyboard during boot), see manual instructions below.
+To undo these changes, please follow the section on [**Removing a USB qube**][remove your USB-qube]!
+
+If you wish to perform only a subset of this configuration (for example do not enable USB keyboard during boot), see manual instructions below.
 
 ### Manual setup ###
-
-<!--TODO: What about LUKS-passphrase? At the very least I can't open a conformation-dialogue during boot?-->
 
 In order to use a USB keyboard, you must first attach it to a USB qube, then give that qube permission to pass keyboard input to dom0.
 Edit the `qubes.InputKeyboard` policy file in dom0, which is located here:
@@ -82,15 +81,17 @@ Edit the `qubes.InputKeyboard` policy file in dom0, which is located here:
 
 Add a line like this one to the top of the file:
 
-    sys-usb dom0 allow,user=root
+    sys-usb dom0 allow
 
 (Change `sys-usb` to your desired USB qube.)
 
-You can now use your USB keyboard.
+You can now use your USB keyboard to login and for LUKS decryption during boot.
 
-For a confirmation dialog each time the USB keyboard is connected, change this line to:
+For a confirmation dialog each time the USB keyboard is connected, *which will effectively disable your USB keyboard for login and LUKS decryption*, change this line to:
 
     sys-usb dom0 ask,default_target=dom0
+
+*Don't do that if you want to unlock your device with a USB keyboard!*
 
 Additionally, if you want to use USB keyboard to enter LUKS passphrase, it is incompatible with [hiding USB controllers from dom0].
 You need to revert that procedure (remove `rd.qubes.hide_all_usb` option from files mentioned there) and employ alternative protection during system boot - disconnect other devices during startup.
