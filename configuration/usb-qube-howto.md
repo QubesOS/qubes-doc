@@ -196,7 +196,7 @@ Removing a USB qube
 [enable your keyboard for login]: #enable-a-usb-keyboard-for-login
 [2270-comm23]: https://github.com/QubesOS/qubes-issues/issues/2270#issuecomment-242900312
 [PCI Devices]: /doc/pci-devices-in-qubes-R4.0/
-[usb-controller]: <!--TODO: link specific section of qvm-device on identifying correct pci device!
+[usb-controller]: /doc/usb-devices/#finding-the-right-usb-controller
 [faq]: /faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot
 [Security Warning about USB Input Devices]: /doc/device-considerations/#security-warning-on-usb-input-device
 [manual setup]: #manual-setup

@@ -52,7 +52,7 @@ To specify this device node name, you need to use the command line tool and its 
 #Command Line Tool Guide
 The command-line tool you may use to mount whole USB drives or their partitions is `qvm-block`, a shortcut for `qvm-device block`.
 
-`qvm-block` only sees device-nodes and may not use names you expect! So make sure to have the drive available in the sourceVM before listing available block devices (step 1.) to find out it's its ID.
+`qvm-block` won't recognise your device by any given name, but rather the device-node the sourceVM assigns. So make sure you have the drive available in the sourceVM, then list the available block devices (step 1.) to find the corresponding device-node.
 
 In case of a USB-drive, make sure it's attached to your computer. If you don't see anything that looks like your drive, run `sudo udevadm trigger --action=change` in your USB-qube (typically `sys-usb`)
 
