@@ -34,12 +34,12 @@ To report an issue with the documentation, please follow our standard [issue rep
 How to Contribute
 -----------------
 
-Editing the documentation is easy, so if you spot any errors, please help us
-fix them! (As mentioned above, the documentation maintainers are just volunteers
-who have day jobs of their own, so we rely heavily on the community to improve
-the documentation.) Since Qubes is a security-oriented project, every
-documentation change will be reviewed before it's published to the web. This
-allows us to maintain quality control and protect our users.
+Editing the documentation is easy, so if you see that a change should be made,
+please contribute it! (As mentioned above, the documentation maintainers are
+just volunteers who have day jobs of their own, so we rely heavily on the
+community to improve the documentation.) Since Qubes is a security-oriented
+project, every documentation change will be reviewed before it's published to
+the web. This allows us to maintain quality control and protect our users.
 
 As mentioned above, we keep all the documentation in a dedicated [Git
 repository][qubes-doc] hosted on [GitHub]. Thanks to the GitHub's interface, you can
