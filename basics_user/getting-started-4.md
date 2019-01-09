@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Get Started
-permalink: /getting-started/
+title: Get Started - Qubes 4
+permalink: /getting-started-4/
 redirect_from:
-- /doc/getting-started/
-- /en/doc/getting-started/
-- /doc/GettingStarted/
-- /wiki/GettingStarted/
+- /doc/getting-started-4/
+- /en/doc/getting-started-4/
+- /doc/GettingStarted-4/
+- /wiki/GettingStarted-4/
 ---
 
 <a name="already-installed"></a>After [installing Qubes](/doc/installation-guide/), let's cover some basic concepts.
@@ -19,11 +19,11 @@ In Qubes, you run all your programs in lightweight Virtual Machines called **qub
 Not every app runs in its own qube. 
 (That would be a big waste of resources!) 
 Instead, each qube represents a *security domain* (e.g., "work," "personal," "banking," etc.). 
-By default all qubes are based on a single, common **TemplateVM** , although you can create more TemplateVMs if you wish. 
+By default all qubes are based on a single, common **Template** , although you can create more Templates if you wish. 
 When you create a new qube, you don't copy the whole root filesystem needed for this qube to work (which would include copying all the programs). 
-Instead, each qube *shares* the root filesystem with its respective TemplateVM. 
-A qube has read-only access to the filesystem of the Template on which it's based, so a qube cannot modify a TemplateVM in any way. 
-This is important, as it means that if a qube is ever compromised, the TemplateVM on which it's based (and any other qubes based on that TemplateVM) will still be safe. 
+Instead, each qube *shares* the root filesystem with its respective Template. 
+A qube has read-only access to the filesystem of the Template on which it's based, so a qube cannot modify a Template in any way. 
+This is important, as it means that if a qube is ever compromised, the Template on which it's based (and any other qubes based on that Template) will still be safe. 
 So creating a large number of domains is cheap: each one needs only as much disk space as is necessary to store its private files (e.g., the "home" folder).
 
 If you've installed Qubes using the default options, a few qubes have already been created for you:
@@ -40,11 +40,11 @@ Personally, I find it natural to associate red with that which is untrusted and 
 I've also extended this scheme to include blue and black, which I interpret as indicating progressively more trusted domains than green, with black being ultimately trusted.
 Alternatively you might use the colors to show that qubes belong to the same domain - for example, you might use 3 or 4 qubes for work activities, and give them all the same distinct color label. It's entirely up to you.
 
-![snapshot12.png](/attachment/wiki/GettingStarted/snapshot12.png)
+![snapshot_40.png](/attachment/wiki/GettingStarted/snapshot_40.png)
 
-In addition to qubes and TemplateVMs, there's one special domain called "dom0," which is where the Desktop Manager runs. 
+In addition to qubes and Templates, there's one special domain called "dom0," where many system tools and the desktop manager run. 
 This is where you log in to the system. 
-Dom0 is more trusted than any other domain (including TemplateVMs and black-labeled qubes). 
+Dom0 is more trusted than any other domain (including Templates and black-labeled qubes). 
 If dom0 were ever compromised, it would be Game Over<sup>TM</sup>. 
 (The entire system would effectively be compromised.) 
 Due to its overarching importance, dom0 has no network connectivity and is used only for running the Window and Desktop Managers. 
@@ -52,7 +52,7 @@ Dom0 shouldn't be used for anything else.
 In particular, [you should never run user applications in dom0](/doc/security-guidelines/#dom0-precautions). 
 (That's what your qubes are for!)
 
-Qubes VM Manager and Command Line Tools
+Qubes Gui and Command Line Tools
 ---------------------------------------
 
 All aspects of the Qubes system can be controlled using command line tools run under a dom0 console. 
@@ -61,20 +61,19 @@ Opening a console window in dom0 can be done in several ways:
 * Go to the Start Menu and click Terminal Emulator
 * Press Alt-F3, type `xfce terminal` and press Enter twice
 * Right-click on the desktop and select Open Terminal Here
-* In previous versions of Qubes with KDE:
-    * Start → System Tools → Konsole
-    * Press Alt-F2 and type `konsole`.
 
 Various command line tools are described as part of this guide, and the whole reference can be found [here](/doc/tools/).
 
-![r2b1-dom0-konsole.png](/attachment/wiki/GettingStarted/r2b1-dom0-konsole.png)
+Alternatively, you can use a suite of GUI tools, most of which are always available through desktop widgets. 
+The two most important widgets are Domains Widget and Devices Widget.
+**Domains Widget** allows you to manage running qubes, turn them on or off and monitor memory usage.
+**Devices Widget** allows you to attach and detach devices - such as USB drives or cameras - to qubes.
+The **Disk Space Widget** will notify you if you're ever running out of disk space, and the **Updates Widget** will inform you that template updates are available.
 
-Alternatively, you can use a rather intuitive GUI tool called **Qubes VM Manager**. 
-It supports most of the functionality that command line tools provide. 
-The Qubes VM Manager starts and opens automatically when Qubes starts up, but you can also start it by going to Start → System Tools → Qubes Manager.
-Once the Qubes VM Manager is running, you can open the window at any time by clicking on the Qubes tray icon, which typically resides in the bottom-right corner of the screen.
+![q40_widgets.png](/attachment/wiki/GettingStarted/q40_widgets.png)
 
-![r2b1-qubes-manager-2.png](/attachment/wiki/GettingStarted/r2b1-qubes-manager-2.png)
+For an overview of the entire system, you can use **Qube Manager** (available from Start → System Tools → Qube Manager), which displays state of all qubes in your QubesOS.
+
 
 Starting Apps in qubes
 ------------------------
@@ -85,30 +84,25 @@ You can start apps directly from the Start Menu or the Application Finder (Alt-F
 Each qube has its own menu directory under the scheme **Domain: \<name\>**. 
 After navigating into one of these directories, simply click on the application you'd like to start:
 
-![r2b1-appsmenu-1.png](/attachment/wiki/GettingStarted/r2b1-appsmenu-1.png) ![r2b1-appsmenu-3.png](/attachment/wiki/GettingStarted/r2b1-appsmenu-3.png)
+![menu1.png](/attachment/wiki/GettingStarted/menu1.png.png) ![menu2.png](/attachment/wiki/GettingStarted/menu2.png)
 
 By default, each qube's menu contains only a few shortcuts. 
-If you'd like to add more, simply click **Add more shortcuts...**, select the desired applications, and click **OK**. 
-You can also add shortcuts manually. 
-(This is sometimes necessary if the desired application doesn't show up in the Qubes VM Manager window.) 
-To do this in KDE, right-click on the **Start** button and click **Menu Editor**. 
-Click the qube directory in which you'd like the menu to appear, click **New Item**, enter its name as **\<qube name\>: \<app name\>**, and provide the command for starting the app (see below). 
-Then click **Save** and wait approximately 15 seconds for the changes to propagate to the KDE menu.
+If you'd like to add more, enter the qube's **Qube Settings** and add them on the Applications tab. 
 
 To start apps from the console in dom0, type:
 
-    qvm-run -a <qube> "<app name> [arguments]"
+    qvm-run <qube> "<app name> [arguments]"
 
 e.g.:
 
-    qvm-run -a untrusted firefox
+    qvm-run untrusted firefox
     
-The -a parameter will start the qube if it is not already running.
+This command will start the qube if it is not already running.
 
 Adding, Removing, and Listing qubes
 -------------------------------------
 
-A qube can easily be added and removed by clicking on the **Add** and **Remove** buttons in the Qubes VM Manager.
+A qube can easily be added with the **Create Qubes VM** option in Start menu. If you need to add and remove more qubes, it's easiest with Qube Manager's **Add** and **Remove** buttons.
 
 A qube can also be added, removed, and qubes may be listed from the command line (i.e., a console running in dom0) using the following tools:
 
