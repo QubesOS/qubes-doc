@@ -17,13 +17,7 @@ Creating and Using a USB qube
 There are problems with doing this in an encrypted install (LUKS).
 If you find yourself in this situation, see this [issue][2270-comm23].
 
-The connection of an untrusted USB device to dom0 is a security risk since dom0, like almost every OS, reads partition tables automatically.
-The whole USB stack is put to work to parse the data presented by the USB device in order to determine if it is a USB mass storage device, to read its configuration, etc.
-This happens even if the drive is then assigned and mounted in another qube.
-
-To avoid this risk, it is possible to prepare and utilize a USB qube.
-
-A USB qube acts as a secure handler for potentially malicious USB devices, preventing them from coming into contact with dom0 (which could otherwise be fatal to the security of the whole system).
+A USB qube acts as a secure handler for potentially malicious USB devices, preventing them from coming into contact with dom0 (which could otherwise be fatal to the security of the whole system). It thereby mitigates some of the [security implications] of using USB devices.
 With a USB qube, every time you connect an untrusted USB drive to a USB port managed by that USB controller, you will have to attach it to the qube in which you wish to use it (if different from the USB qube itself), either by using Qubes VM Manager or the command line (see instructions above).
 The USB controller may be assigned on the **Devices** tab of a qube's settings page in Qubes VM Manager or by using the [qvm-pci][PCI Devices] command.
 For guidance on finding the correct USB controller, see the [according passage on PCI-devices][usb-controller].
@@ -120,9 +114,9 @@ which will ask for conformation each time a USB mouse is attached. If the file i
 
 In case you are absolutely sure you do not want to confirm mouse access from `sys-usb` to `dom0`, you may add the following line on top of the file:
 
-    sys-usb dom0 allow,user=root
+    sys-usb dom0 allow
     
-(Change `sys-usb` to your desired USB qube.) <!--TODO: Why user=root?-->
+(Change `sys-usb` to your desired USB qube.)
 
 
 How to hide all USB controllers from dom0
@@ -197,6 +191,7 @@ Removing a USB qube
 
 
 [remove your USB-qube]: #removing-a-usb-qube
+[security implications]: /doc/device-considerations/#usb-security
 [enable your keyboard for login]: #enable-a-usb-keyboard-for-login
 [2270-comm23]: https://github.com/QubesOS/qubes-issues/issues/2270#issuecomment-242900312
 [PCI Devices]: /doc/pci-devices-in-qubes-R4.0/

@@ -24,7 +24,7 @@ Examples for valid cases for USB-passthrough:
 #Attaching And Detaching a USB Device
 ##With Qubes Device Manager
 Click the device-manager-icon: ![device manager icon]  
-A list of available devices appears. USB-devices have a USB-icon to their right. <!--TODO: Where is that icon????-->
+A list of available devices appears. USB-devices have a USB-icon to their right: ![usb icon]
 
 Hover on one device to display a list of VMs you may attach it to.
 
@@ -42,6 +42,7 @@ In dom0, you can use `qvm-usb` from the commandline to attach and detach devices
 Listing available USB devices:
 
     [user@dom0 ~]$ qvm-usb
+    BACKEND:DEVID   DESCRIPTION                    USED BY
     sys-usb:2-4     04ca:300d 04ca_300d
     sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
     sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
@@ -50,10 +51,10 @@ Attaching selected USB device:
 
     [user@dom0 ~]$ qvm-usb attach work sys-usb:2-5
     [user@dom0 ~]$ qvm-usb
-    work:2-1 058f:3822 058f_USB_2.0_Camera
+    BACKEND:DEVID   DESCRIPTION                    USED BY
     sys-usb:2-4     04ca:300d 04ca_300d
-    sys-usb:2-5     058f:3822 058f_USB_2.0_Camera (attached to work)
-    sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
+    sys-usb:2-5     058f:3822 058f_USB_2.0_Camera  work
+    sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
 
 Now, you can use your USB device (camera in this case) in the `work` qube.
 If you see the error `ERROR: qubes-usb-proxy not installed in the VM` instead, please refer to the [Installation Section].
@@ -62,9 +63,10 @@ When you finish, detach the device.
 
     [user@dom0 ~]$ qvm-usb detach work sys-usb:2-5
     [user@dom0 ~]$ qvm-usb
+    BACKEND:DEVID   DESCRIPTION                    USED BY
     sys-usb:2-4     04ca:300d 04ca_300d
     sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
-    sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
+    sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
 
 #Maintenance And Customisation
 
@@ -90,7 +92,6 @@ Mouse and keyboard setup are part of [setting up a USB-qube][keyboard setup].
 
 
 ##Finding The Right USB Controller
-<!--TODO: This looks super old. Somebody please have a look! -->
 
 Some USB devices are not compatible with the USB pass-through method Qubes employs.
 In situations like these, you can try to pass through the entire USB controller to a qube as PCI device.
@@ -131,6 +132,7 @@ Strip the leading `0000:` and pass the rest to the [`qvm-pci` tool][qvm-pci] to 
 [block device]: /doc/block-devices-in-qubes-R4.0/
 [security considerations]: /doc/device-considerations/#usb-security
 [usb-challenges]: https://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html
+[usb icon]: https://raw.githubusercontent.com/QubesOS/qubes-desktop-linux-manager/master/icons/22x22/generic-usb.png
 [microcontroller programming]: https://www.arduino.cc/en/Main/Howto
 [external audio devices]: /doc/external-audio/
 [optical drives]: /doc/recording-optical-discs/

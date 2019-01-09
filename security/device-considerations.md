@@ -17,7 +17,8 @@ Attaching a full block device (e.g. `sda`) again offers more attack surface than
 
 PCI Security
 ------------
-Attaching a PCI device to a qube gives it full control of that device and is vulnerable to any bug or malicious implementation of the hardware, as well as plain security problems the hardware may pose. (For example, if you attach a USB controller, all the security implications of USB passthrough apply as well.)
+Attaching a PCI device to a qube has serious security implications. It exposes the device driver running in the qube to an external device (and sourceVM, which contains the device - e.g. `sys-usb`). In many cases a malicious device can choose what driver will be loaded (for example by manipulating device metadata like vendor and product identifiers) - even if the intended driver is sufficiently secure, the device may try to attack a different, less secure driver.
+Furthermore that VM has full controll of the device and may be able to exploit bugs or malicious implementation of the hardware, as well as plain security problems the hardware may pose. (For example, if you attach a USB controller, all the security implications of USB passthrough apply as well.)
 
 By default, Qubes requires any PCI device to be resettable from the outside (i.e. via the hypervisor), which completely reinitialises the device. This ensures that any device that was attached to a compromised VM, even if that VM was able to use bugs in the PCI device to inject malicious code, can be trusted again. (Or at least as trusted as it was when Qubes booted.)
 
@@ -28,7 +29,11 @@ See [Software Attacks on Intel VT-d] (page 7) for more details.
 
 USB Security
 ------------
-While PCI devices generally are part of your computer and thereby hard to manipulate physically, USB devices are attached all the time on the fly and thereby pose a much easier accessible attack vector.
+The connection of an untrusted USB device to dom0 is a security risk since the device can attack an arbitrary USB driver (which are included in the linux kernel), exploit bugs during partition-table-parsing or simply pretend to be a keyboard. There are many ready-to-use implementations of such attacks, e.g. a [USB Rubber Ducky][rubber duck].
+The whole USB stack is put to work to parse the data presented by the USB device in order to determine if it is a USB mass storage device, to read its configuration, etc.
+This happens even if the drive is then assigned and mounted in another qube.
+
+To avoid this risk, use a [USB qube].
 
 Attaching a USB device to a VM (USB passthrough) will **expose your target qube** to most of the [security issues][USB security] associated with the USB-stack.
 If possible, use a method specific for particular device type (for example, block devices described above), instead of this generic one.
@@ -36,7 +41,7 @@ If possible, use a method specific for particular device type (for example, bloc
 **Security Warning On USB Input Devices**
 -----------------------------------------
 If you connect USB input devices (keyboard and mouse) to a VM, that VM will effectively have control over your system.
-Because of this, the benefits of using a [USB qube] are much smaller than using a fully untrusted USB qube.<!--TODO: what's the difference? What is meant by "USB qube" vs. "fully untrusted USB qube"?-->
+Because of this, the benefits of using a [USB qube] entrusted with a keyboard or other interface device are much smaller than using a fully untrusted USB qube.
 In addition to having control over your system, such a VM can also sniff all the input you enter there (for example, passwords in the case of a USB keyboard).
 
 There is no simple way to protect against sniffing, but you can make it harder to exploit control over input devices.
@@ -53,6 +58,7 @@ One way to achieve this is to use a [YubiKey], or some other hardware token, or 
 Support for [two factor authentication][qubes u2f proxy] was recently added, though there are [issues][4661].
 
 [USB security]:https://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html "invisiblethings blog on USB security"
+[rubber duck]: https://shop.hak5.org/products/usb-rubber-ducky-deluxe
 [USB qube]: /doc/usb-qube-how-to/
 [YubiKey]: /doc/YubiKey/
 [qubes u2f proxy]: https://www.qubes-os.org/news/2018/09/11/qubes-u2f-proxy/

@@ -132,7 +132,6 @@ or
         echo <BDF> > /sys/bus/pci/drivers/$MOD/bind
 
     It is **strongly discouraged to reattach PCI devices to dom0**, especially if they don't support resetting!
-<!--TODO: Is this still needed?-->
 
 
 [device handling in qubes]: /doc/device-handling/

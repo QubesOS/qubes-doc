@@ -43,11 +43,11 @@ If not specified otherwise, block devices will show up as `/dev/xvdi*` in a linu
 where `xvdi2` needs to be replaced with the partition you want to mount.
 This will make your drive content accessible under `~/mnt`.
 
-Beware that when you attach a whole block device, partitions can be identified by their trailing integer (i.e. `/dev/xvdi2` for the second partition, `/dev/xvdi` for the whole device), whereas if you attach a single parition, the partition has *no trailing integer*. <!--TODO: really? Didn't have a drive to test this quickly.-->
+Beware that when you attach a whole block device, partitions can be identified by their trailing integer (i.e. `/dev/xvdi2` for the second partition, `/dev/xvdi` for the whole device), whereas if you attach a single parition, the partition has *no trailing integer*.
 
 If several different block-devices are attached to a single VM, the last letter of the device node name is advanced through the alphabet, so after `xvdi` the next device will be named `xvdj`, the next `xvdk`, and so on.
 
-To specify this device node name, you can pass `--option frontend-dev=[custom-node-name]` to `qvm-block attach`.
+To specify this device node name, you need to use the command line tool and its [`frontend-dev`-option][frontend-dev].
 
 #Command Line Tool Guide
 The command-line tool you may use to mount whole USB drives or their partitions is `qvm-block`, a shortcut for `qvm-device block`.
@@ -60,7 +60,7 @@ In case of a USB-drive, make sure it's attached to your computer. If you don't s
     
         qvm-block
     
-    This will list all available block devices in your system across all VMs, no matter whether hosted by a USB controller or `losetup`.
+    This will list all available block devices in your system across all VMs.
     The name of the qube hosting the block device is displayed before the colon in the device ID.
     The string after the colon is the ID of the device used within the qube, like so:
 
@@ -95,16 +95,26 @@ In case of a USB-drive, make sure it's attached to your computer. If you don't s
         qvm-block detach work sys-usb:sdb
 
  6.  You may now remove the device or attach it to another qube.
-<!--TODO: what happens if USB-device removed before detaching? How about attaching a blockdevice to two qubes?-->
+
+#Recovering From Premature Device Destruction
+If the you fail to detach the device before it's destroyed in the sourceVM (e.g. by physically detaching the thumbdrive), [there will be problems][premature removal].
+
+To recover from this error state, in dom0 run
+
+    virsh detach-disk targetVM xvdi
+
+(where `targetVM` is to be replaced with the VM name you attached the device to and `xvdi` is to be replaced with the used [frontend device node][frontend-dev].)
+
+However, if the block device originated in dom0, you will have to refer to the [old way][detach dom0 device].
 
 #Attaching a File
 To attach a file as block device to another qube, first turn it into a loopback device inside the sourceVM.
 
  1. In the linux sourceVM run
 
-        sudo losetup /dev/loop0 /path/to/file
+        sudo losetup -f --show /path/to/file
 
-    (increase the trailing integer if `loop0` is already in use or use other name. This is just a generic device-id.)
+    [This command][losetup] will create the device node `/dev/loop0` or, if that is already in use, increase the trailing integer until that name is still available. Afterwards it prints the device-node-name it found.
 
  2. If you want to use the GUI, you're done. Click the Device Manager ![device manager icon] and select the `loop0`-device to attach it to another qube.
 
@@ -165,4 +175,8 @@ This option accepts `cdrom` and `disk`, default is `disk`.
 [device handling in qubes]: /doc/device-handling/
 [mass-storage]: https://en.wikipedia.org/wiki/USB_mass_storage_device_class
 [device manager icon]:https://raw.githubusercontent.com/hrdwrrsk/adwaita-xfce-icon-theme/master/Adwaita-Xfce/22x22/devices/media-removable.png <!--TODO: find actual icon used in qubes!-->
+[frontend-dev]: #frontend-dev
+[premature removal]: https://github.com/QubesOS/qubes-issues/issues/1082
+[detach dom0 device]: /doc/usb/#what-if-i-removed-the-device-before-detaching-it-from-the-vm
+[losetup]: https://linux.die.net/man/8/losetup
 [USB]:/dock/usb-devices-in-qubes-R4.0/

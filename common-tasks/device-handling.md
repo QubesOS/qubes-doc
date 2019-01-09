@@ -23,10 +23,7 @@ There are currently four categories of devices Qubes understands:
  - USB devices
  - PCI devices
 
-Microphones, block devices and USB devices can be attached with the GUI-tool. PCI devices require the command line tool.
-
-#Security Considerations
-
+Microphones, block devices and USB devices can be attached with the GUI-tool. PCI devices can be attached using the Qube Settings, but require a VM reboot.
 
 #General Qubes Device Widget Behavior And Handling
 When clicking on the tray icon (looking similar to this: ![SD card and thumbdrive][device manager icon] several device-classes separated by lines are displayed as tooltip. Block devices are displayed on top, microphones one below and USB-devices at the bottom.
@@ -40,7 +37,9 @@ Click the tray icon. Hover on a device you want to attach to a VM. A list of run
 To detach a device, click the Qubes Devices Widget icon again. Attached devices are displayed in bold. Hover the one you want to detach. A list of VMs appears, one showing the eject symbol: ![eject icon]
 
 ##Attaching a Device to Several VMs
-<!--TODO: This seems like a very bad idea, but it's possible? When would I want to do that? What are the security-implications?-->
+Only `mic` should be attached to more than one running VM. You may *assign* a device to more than one VM (using the [`--persistent`][#attaching-devices] option), however, only one of them can be started at the same time.
+
+But be careful: There is a [bug in `qvm-device block` or `qvm-block`][i4692] which will allow you to *attach* a block device to two running VMs. Don't do that!
 
 #General `qvm-device` Command Line Tool Behavior
 All devices, including PCI-devices, may be attached from the commandline using the `qvm-device`-tools.
@@ -78,7 +77,7 @@ A full command consists of one DEVICE_CLASS and one action. If no action is give
 Actions are applicable to every DEVICE_CLASS and expose some additional options.
 
 ###Listing Devices
-The `list` action lists known devices in the system. `list` accepts VM-names to narrow down listed devices. <!--TODO: are specified VMs searched for AVAILABLE or also attached devices? Would after `qvm-usb a work sys-usb:1-1` the command `qvm-usb l work` yield any result?-->
+The `list` action lists known devices in the system. `list` accepts VM-names to narrow down listed devices. Devices available in, as well as attached to the named VMs will be listed.
 
 `list` accepts two options:
 
@@ -102,11 +101,12 @@ The `attach` action assigns an exposed device to a VM. This makes the device ava
 ###Detaching Devices
 The `detach` action removes an assigned device from a targetVM. It won't be available afterwards anymore. Though it tries to do so gracefully, beware that data-connections might be broken unexpectedly, so close any transaction before detaching a device!
 
+If no specific `sourceVM:deviceID` combination is given, *all devices of that DEVICE_CLASS will be detached.*
+
 `detach` accepts no options.
 
 **SYNOPSIS**
-`qvm-device DEVICE_CLASS {detach|dt|d} targetVM sourceVM:deviceID`
-<!--TODO: Is sourceVM:deviceID still required? -->
+`qvm-device DEVICE_CLASS {detach|dt|d} targetVM [sourceVM:deviceID]`
 
 
 [block]:/doc/block-devices-in-qubes-R4.0/
@@ -116,3 +116,4 @@ The `detach` action removes an assigned device from a targetVM. It won't be avai
 [security considerations]: /doc/device-considerations/
 [device manager icon]: https://raw.githubusercontent.com/hrdwrrsk/adwaita-xfce-icon-theme/master/Adwaita-Xfce/22x22/devices/media-removable.png <!--TODO: find actual icon used in qubes!-->
 [eject icon]: https://raw.githubusercontent.com/hrdwrrsk/adwaita-xfce-icon-theme/master/Adwaita-Xfce/22x22/actions/media-eject.png
+[i4692]: https://github.com/QubesOS/qubes-issues/issues/4692
