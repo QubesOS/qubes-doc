@@ -53,7 +53,7 @@ Order   Action              Type                    Device              Mount po
 5       Create Device       partition               sda2 on Disk
 6       Create Format       LUKS                    sda2 on Disk
 7       Create Device       luks/dm-crypt           luks-sda2
-8       Create Format       physical volume (LVM)  luks-sda2
+8       Create Format       physical volume (LVM)   luks-sda2
 9       Create Device       lvmvg                   qubes_dom0
 10      Create Device       lvmthinpool             qubes_dom0-pool00
 11      Create Device       lvmthinlv               qubes_dom0-root
