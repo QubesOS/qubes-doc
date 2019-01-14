@@ -9,15 +9,14 @@ redirect_from:
 Custom Installation
 ===================
 
-In the present context, "custom installation" refers to things like manual
-partitioning, setting up LVM and RAID, and manual LUKS encryption configuration.
+In the present context, "custom installation" refers to things like manual partitioning, setting up LVM and RAID, and manual LUKS encryption configuration.
 
 
 ## Qubes 4.0
 
 ### Installer Defaults
 
-For reference, these are the typical defaults for a single disk:
+For reference, these are the typical defaults for a single disk with legacy boot:
 
 ~~~
 Mount Point: /boot
@@ -34,7 +33,7 @@ File System: ext4
 Name: root
 
 Mount Point: (none)
-Desired Capacity: 15.37 GiB
+Desired Capacity: 10 GiB
 Device Type: LVM
 Volume Group: qubes_dom0
 File System: swap
@@ -65,9 +64,8 @@ Order   Action              Type                    Device              Mount po
 
 ### Typical Partition Schemes
 
-If you want your partition/LVM scheme to look like the Qubes default but
-with a few tweaks, follow these examples. With a single disk, the result
-should look something like this:
+If you want your partition/LVM scheme to look like the Qubes default but with a few tweaks, follow this example.
+With a single disk, the result should look something like this:
 
 ~~~
 NAME                                SIZE    TYPE    MOUNTPOINT
@@ -108,7 +106,7 @@ This means that, by default, Qubes inherits these upstream defaults:
  - `/dev/urandom`
  - probably an `iter-time` of one second
 
-If, instead, you'd like to use AES-256, SHA-512, `/dev/random`, and a longer `iter-time`, you can configure encryption manually by following the instructions below.
+If, instead, you'd like to use AES-256, SHA-512, `/dev/random`, and a longer `iter-time`, for example, you can configure encryption manually by following the instructions below.
 
 
 ### Example: Custom LUKS Configuration
@@ -119,20 +117,14 @@ Boot into the Qubes installer, then press `ctrl`+`alt`+`F2` to get a virtual con
 
         # dd if=/dev/zero of=/dev/sda bs=1M status=progress && sync
 
-2. Create partiions:
+2. Create partitions:
 
         # fdisk /dev/sda
-        n
-        p
-        1
-        +1G
-        a
-        n
-        p
-        2
-        (your choice; might want to leave overprovisioning space on an SSD)
-        p (check and confirm that everything makes sense)
-        w
+
+   Follow the steps to create two partitions:
+   
+   - ~500MiB-1GiB for `/boot`
+   - The rest for `/` (might want to leave some for overprovisioning if it's an SSD)
 
 4. Create LUKS encrypted volume:
 
