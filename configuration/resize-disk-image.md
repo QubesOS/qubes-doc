@@ -15,40 +15,19 @@ Resize Disk Image
 -----------------
 
 There are several disk images which can be easily extended, but pay attention to the overall consumed space of your sparse/thin disk images.
+In most cases, the GUI tool Qube Settings (available for every qube from the Start menu, and also in the Qube Manager) will allow you to easily increase maximum disk image size.
+
+![vm-settings-disk-image.png](/attachment/wiki/DiskSize/vm-settings-disk-image.png)
+
+In case of standalone qubes and templates, just change the Disk Storage settings above.
+In case of template-based qubes, the private storage (the /home directory and user files) can be changed in the qube's own settings, but the system root image is [inherited from the template](/getting-started/#appvms-qubes-and-templatevms), and so it must be changed in the template settings. 
+If you are increasing the disk image size for Linux-based qubes installed from Qubes OS repositories in Qubes 4.0 or later, changing the settings above is all you need to do - in other cases, you may need to do more, according to instructions below.
 See also [OS Specific Follow-up Instructions](/doc/resize-disk-image/#os-specific-follow-up-instructions) at the end of this page.
-Since a TemplateBasedVM [inherits its system filesystem from the Template on which it is based](/getting-started/#appvms-qubes-and-templatevms), it is not possible to resize the system disk for a TemplateBasedVM.
 
+### Resize disk image (R4.0)
 
-### Template disk image (R4.0)
-
-If you want install a lot of software in your TemplateVM, you may need to increase the amount of disk space your TemplateVM can use. 
-*Make sure changes in the TemplateVM between reboots don't exceed 10G.*
-
-1.  Resize the *root image* using Qubes version specific procedure below.
-2.  Start the template.
-3.  Resize the filesystem using OS appropriate tools (Qubes will handle this automatically under Linux).
-4.  Verify available space in the template using `df -h` or OS specific tools.
-5.  Shutdown the template.
-
-### Template disk image (R3.2)
-
-If you want install a lot of software in your TemplateVM, you may need to increase the amount of disk space your TemplateVM can use. 
-*Make sure changes in the TemplateVM between reboots don't exceed 10G.*
-
-1.  Make sure that all the VMs based on this template are shut down (including netvms etc).
-2.  Resize the *root image* using Qubes version specific procedure below.
-3.  If any netvm/proxyvm used by this template is based on it, set template's netvm to none.
-4.  Start the template.
-5.  Resize the filesystem using OS appropriate tools (Linux is `sudo resize2fs /dev/mapper/dmroot`).
-6.  Verify available space in the template using `df -h` or OS specific tools.
-7.  Shutdown the template.
-8.  Restore original netvm setting (if changed), and check firewall settings (setting netvm to none causes the firewall to reset to "block all")
-
-### Expand disk image (R4.0)
-
-1048576 MiB is the maximum size which can be assigned to storage through Qube Manager.
-
-To grow the root or private disk image of an AppVM beyond this limit, `qvm-volume` can be used:
+Use either GUI tool Qube Settings (`qubes-vm-settings`) or the CLI tool `qvm-volume`.
+Maximum size which can be assigned through Qube Settings is 1048576 MiB - if you need more, use `qvm-volume`:
 
 ~~~
 qvm-volume extend <vm_name>:root <size>
@@ -59,6 +38,31 @@ qvm-volume extend <vm_name>:private <size>
 ~~~
 
 Note: Size is the target size (i.e. 4096MB or 16GB, ...), not the size to add to the existing disk.
+
+If you have run out of space for software in your Template, you need to increase *root image* of the Template (not private storage!). 
+**Make sure changes in the Template between reboots don't exceed 10G.**
+It is recommended to restart (or start and then shutdown, if it is not running) the template after resizing the root image.
+
+If you are **not** using Linux in the qube, you will also need to:
+
+1.  Start the template.
+2.  Resize the filesystem using OS appropriate tools.
+3.  Verify available space in the template using `df -h` or OS specific tools.
+4.  Shutdown the template.
+
+### Template disk image (R3.2)
+
+If you want install a lot of software in your TemplateVM, you may need to increase the amount of disk space your TemplateVM can use. 
+*Make sure changes in the TemplateVM between reboots don't exceed 10G.*
+
+1.  Make sure that all the VMs based on this template are shut down (including netvms etc).
+2.  Resize the *root image* using the procedure below.
+3.  If any netvm/proxyvm used by this template is based on it, set template's netvm to none.
+4.  Start the template.
+5.  Resize the filesystem using OS appropriate tools (Linux is `sudo resize2fs /dev/mapper/dmroot`).
+6.  Verify available space in the template using `df -h` or OS specific tools.
+7.  Shutdown the template.
+8.  Restore original netvm setting (if changed), and check firewall settings (setting netvm to none causes the firewall to reset to "block all")
 
 ### Expand disk image (R3.2)
 
@@ -78,8 +82,8 @@ Note: Size is the target size (i.e. 4096MB or 16GB, ...), not the size to add to
 
 ### Resize a StandaloneVM Root Image
 
-For more flexibility, you may also turn your TemplateVM into a StandaloneVM.
-Doing this means it will have its own root filesystem *(StandaloneVMs use a copy of the template, instead of smart sharing)*.
+For more flexibility, you may also turn your Template into a Standalone qube.
+Doing this means it will have its own root filesystem *(Standalone qubes use a copy of the template, instead of smart sharing)*.
 To do this run `qvm-create --standalone` from `dom0` console, then perform the [OS Specific Follow-up Instructions](/doc/resize-disk-image/#os-specific-follow-up-instructions) below.
 
 ### Shrinking a disk image
@@ -94,7 +98,8 @@ Note that we don't want to touch the VM filesystem directly in dom0 for security
 OS Specific Follow-up Instructions
 -----------------
 
-After expanding volumes, the partition table and file-system may need to be adjusted.
+In the case of Linux-based qubes installed from Qubes repositories, no further actions are required.
+In some other cases, after expanding volumes, the partition table and file-system may need to be adjusted.
 Use tools appropriate to the OS in your qube.
 Brief instructions for Windows 7, FreeBSD, and Linux are provided below.
 
@@ -118,6 +123,6 @@ zpool online -e poolname ada0
 
 #### Linux
 
-Qubes will automatically grow the filesystem for you on AppVMs but not HVMs (or Template root images on R3.2).
-You will see that there is unallocated free space at the end of your primary disk.
+Qubes will automatically grow the filesystem for you on all AppVMs with Qubes packages installed (which are all AppVMs installed from templates, cloned from templates etc. - if you have not created an empty HVM and installed a Linux distribution in it, without using Qubes repositories, you are almost certainly safe).
+Otherwise, you will see that there is unallocated free space at the end of your primary disk.
 You can use standard linux tools like `fdisk` and `resize2fs` to make this space available.
