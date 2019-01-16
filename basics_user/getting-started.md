@@ -21,9 +21,9 @@ Not every app runs in its own qube.
 (That would be a big waste of resources!)
 Instead, each qube represents a [security domain] (e.g., "work," "personal," and "banking").
 By default, all qubes are based on a single, common [template], although you can create more templates if you wish. 
-When you create a new qube, you don't copy the whole root filesystem needed for this qube to work (which would include copying all the programs). 
-Instead, each qube *shares* the root filesystem with its respective template. 
-A qube has read-only access to the filesystem of the template on which it's based, so a qube cannot modify a template in any way. 
+When you create a new qube, you don't copy the whole system needed for this qube to work (which would include copying all the programs). 
+Instead, each qube *shares* the system with its respective template. 
+A qube has read-only access to the system of the template on which it's based, so a qube cannot modify a template in any way. 
 This is important, as it means that if a qube is ever compromised, the template on which it's based (and any other qubes based on that template) will still be safe. 
 So, creating a large number of qubes is cheap: each one needs only as much disk space as is necessary to store its private files (e.g., the "home" folder).
 
@@ -32,6 +32,7 @@ If you've installed Qubes OS using the default options, a few qubes have already
  - work
  - personal
  - untrusted
+ - vault
 
 Each qube, apart from having a distinct name, is also assigned a **label**, which is one of several predefined colors.
 The trusted window manager uses these colors in order to draw colored borders around the windows of applications running in each qube.
