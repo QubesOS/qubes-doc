@@ -15,8 +15,7 @@ All Qubes OS documentation pages are stored as plain text files in the dedicated
 By cloning and regularly pulling from this repo, users can maintain their own up-to-date offline copy of all Qubes documentation rather than relying solely on the web.
 
 The documentation is a community effort. Volunteers work hard trying to keep everything accurate and comprehensive.
-If you notice a problem with the documentation or some way it can be improved, please [report][issue] it!
-Better yet, you can [edit the documentation][contribute] yourself, both to add or improve existing content.
+If you notice a problem or some way it can be improved, please [edit the documentation][contribute]!
 
 
 Questions, problems, and improvements
