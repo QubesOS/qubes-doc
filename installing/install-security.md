@@ -75,6 +75,10 @@ Cons:
    untrusted ISO to dom0 in order to burn it to disc, which leaves only the
    other two options.)
 
+Considering the pros and cons of each, perhaps a USB drive with non-rewritable
+(or at least cryptographically-signed) firmware and a physical write-protect
+switch might be the option.
+
 
 [verify]: /security/verifying-signatures/
 [classic problem]: https://www.ece.cmu.edu/~ganger/712.fall02/papers/p761-thompson.pdf
