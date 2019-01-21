@@ -175,30 +175,29 @@ pros and cons of this approach relative to Qubes:
 [Software compartmentalization vs. physical separation][paper-compart].)
 
 <hr class="add-top more-bottom">
-  <div class="row">
+  <div class="row more-bottom">
     <div class="col-lg-4 col-md-4 col-xs-12">
-      <h2>Video Tours</h2>
+      <h3>Video Tours</h3>
       <p>Want to see Qubes OS in action? Sit back and watch a guided tour!</p>
       <a href="/video-tours/" class="btn btn-primary">
         <i class="fa fa-play-circle"></i> Video Tours
       </a>
     </div>
     <div class="col-lg-4 col-md-4 col-xs-12">
-      <h2>Screenshots</h2>
+      <h3>Screenshots</h3>
       <p>See what using Qubes actually looks like with these screenshots of various applications running in Qubes.</p>
       <a href="/screenshots/" class="btn btn-primary">
         <i class="fa fa-picture-o"></i> Screenshots
       </a>
     </div>
     <div class="col-lg-4 col-md-4 col-xs-12">
-      <h2>Getting Started</h2>
+      <h3>Getting Started</h3>
       <p>Ready to get started with Qubes? Here's what you need to know after installing.</p>
       <a href="/getting-started/" class="btn btn-primary">
         <i class="fa fa-cubes"></i> Getting Started
       </a>
     </div>
   </div>
-<hr class="more-top more-bottom">
 
 More information
 ----------------
