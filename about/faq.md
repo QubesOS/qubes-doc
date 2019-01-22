@@ -175,7 +175,6 @@ So, if feature X isn't enabled, it's most likely for one of three reasons:
 3. Our platform supports it, but we're not aware that we can enable it or have forgotten to do so.
    (If it seems like this is the case, let us know!)
 
-----------
 
 ## Users
 
@@ -512,8 +511,6 @@ There is no particular configuration that will be ideal for everyone (despite ho
 Please don't ask for your favorite program to be installed by default or for some setting that obviously varies by user preference to be changed so that it matches *your* preference.
 This is an incredibly selfish attitude that demonstrates a complete lack of consideration for the thousands of other Qubes users who don't happen to share your preferences.
 
-
-----------
 
 ## Developers
 
