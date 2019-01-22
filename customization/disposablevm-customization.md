@@ -247,6 +247,15 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 
 7. Users should now follow instructions on [How to hide USB controllers from dom0](/doc/usb/#how-to-hide-all-usb-controllers-from-dom0)
 
+8. At this point, your mouse may not work.
+   Edit the `qubes.InputMouse` policy file in dom0, which is located here:
+
+       /etc/qubes-rpc/policy/qubes.InputMouse
+
+   Add a line like this to the top of the file:
+
+       disp-sys-usb dom0 allow,user=root
+
 
 #### Starting the DisposableVMs ####
 
