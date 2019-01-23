@@ -16,13 +16,13 @@ Background
 
 Please read [this blog article](https://blog.invisiblethings.org/2011/09/07/anti-evil-maid.html).
 
-Prerequsites
+Requirements
 ----------
 
 The current package requires a TPM 1.2 interface and a working Intel TXT engine.
-If you neutered your Intel Management Engine with e.g. [me_cleaner](https://github.com/corna/me_cleaner)
+If you cleaned your Intel Management Engine with e.g. [me_cleaner](https://github.com/corna/me_cleaner)
 while installing [CoreBoot](https://www.coreboot.org/) then you are out of luck.
-So, for now, you have to choose between deblobbing your BIOS and Anti Evil Maid.
+For now you have to choose between cleaning your BIOS and deploying Anti Evil Maid.
 
 [Discussion](https://groups.google.com/d/msg/qubes-users/sEmZfOZqYXM/j5rHeex1BAAJ)
 
