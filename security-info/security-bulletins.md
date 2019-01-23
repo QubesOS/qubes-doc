@@ -97,3 +97,8 @@ Qubes Security Bulletins are published through the [Qubes Security Pack](/securi
 -   [Qubes Security Bulletin \#44](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-044-2018.txt) (Multiple Xen vulnerabilities (XSA-275, XSA-280))
 -   [Qubes Security Bulletin \#45](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-045-2018.txt) (Insecure default Salt configuration)
 
+2019
+----
+
+-   [Qubes Security Bulletin \#46](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-046-2019.txt) (APT update mechanism vulnerability)
+
