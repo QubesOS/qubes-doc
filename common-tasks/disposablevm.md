@@ -143,6 +143,20 @@ The label color will be inherited from the `dvm-template`.
 (The DisposableVM Application Launcher shortcut used for starting programs runs a very similar command to the one above.)
 
 
+#### Opening a link in a DisposableVM based on a non-default DVM Template from a qube ####
+
+Suppose that the default DVM Template for your `email` qube has no networking (e.g., so that untrusted attachments can't phone home).
+However, sometimes you want to open email links in DisposableVMs.
+Obviously, you can't use the default DVM Template, since it has no networking, so you need to be able to specify a different DVM Template.
+You can do that with this command from the `email` qube (as long as your RPC policies allow it):
+
+~~~
+$ qvm-open-in-vm @dispvm:online-dvm-template https://www.qubes-os.org
+~~~
+
+This will create a new DisposableVM based on `online-dvm-template`, open the default web browser in that DisposableVM, and navigate to `https://www.qubes-os.org`.
+
+
 ### Customizing DisposableVMs ###
 
 You can change the template used to generate the DisposableVMs, and change settings used in the DisposableVM savefile. 
