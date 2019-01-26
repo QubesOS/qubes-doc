@@ -226,20 +226,15 @@ The created DisposableVM can be accessed via other tools (such as `qvm-copy-to-v
 
 ### Starting an arbitrary application in a DisposableVM via command line (from Dom0) ###
 
-The Start Menu has shortcuts for opening a terminal and a web browser in dedicated DisposableVMs, since these are very common tasks.
-However, it is possible to start an arbitrary application in a DisposableVM directly from Dom0 by running
+The Application Launcher has shortcuts for opening a terminal and a web browser in dedicated DisposableVMs, since these are very common tasks.
+However, it is possible to start an arbitrary application in a DisposableVM directly from dom0 by running:
 
-R4.0 (border colour will be inherited from that set in the `dispvm-template`)
 ~~~
-[joanna@dom0 ~]$ qvm-run --dispvm=dispvm-template --service qubes.StartApp+xterm
-~~~
-
-R3.2 (border colour can be specified in the command)
-~~~
-[joanna@dom0 ~]$ echo xterm | /usr/lib/qubes/qfile-daemon-dvm qubes.VMShell dom0 DEFAULT red
+$ echo xterm | /usr/lib/qubes/qfile-daemon-dvm qubes.VMShell dom0 DEFAULT red
 ~~~
 
-(The DisposableVM appmenu used for starting Firefox runs a very similar command to the one above.)
+The label color will be inherited from the `dvm-template`.
+(The DisposableVM Application Launcher shortcut used for starting programs runs a very similar command to the one above.)
 
 
 ### Customizing DisposableVMs ###
