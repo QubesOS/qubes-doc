@@ -136,7 +136,7 @@ Important Notes (R4.0)
 
 (1) Upon creation
 (2) Following shutdown
-(3) Including [DVM Templates](/doc/disposablevm/#disposablevms-and-networking-r40-and-later)
+(3) Including [DVM Templates](/doc/glossary/#dvm-template)
 
 Important Notes (R3.2 and earlier)
 ---------------
