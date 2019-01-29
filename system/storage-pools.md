@@ -9,6 +9,9 @@ Storage Pools in Qubes
 
 Qubes OS R3.2 introduced the concept of storage drivers and pools.  This feature
 was a first step towards a saner storage API, which is heavily rewritten in R4.
+See [here](https://dev.qubes-os.org/projects/core-admin/en/latest/qubes-storage.html)
+for documentation on storage pools in R4.
+
 A storage driver provides a way to store VM images in a Qubes OS system.
 Currently, the default driver is `xen` which is the default way of storing
 volume images as files in a directory tree like `/var/lib/qubes/`.
