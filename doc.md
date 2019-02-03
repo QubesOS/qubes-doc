@@ -67,7 +67,7 @@ redirect_from:
  * [Backup, Restoration, and Migration](/doc/backup-restore/)
  * [Using DisposableVMs](/doc/disposablevm/)
  * [Using and Managing USB Devices](/doc/usb/)
- * [Recording Optical Discs](/doc/recording-optical-discs/)
+ * [Optical Discs](/doc/optical-discs/)
  * [Managing Application Shortcuts](/doc/managing-appvm-shortcuts/)
  * [Enabling Fullscreen Mode](/doc/full-screen-mode/)
  * [Tips and Tricks](/doc/tips-and-tricks/)
