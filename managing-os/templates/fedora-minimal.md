@@ -12,7 +12,7 @@ redirect_from:
 Fedora - minimal
 ================
 
-The template only weighs about 600 MB compressed (2 GB on disk) and has only the most vital packages installed, including a minimal X and xterm installation.
+The template only weighs about 600 MB compressed (1.6 GB on disk) and has only the most vital packages installed, including a minimal X and xterm installation.
 The minimal template, however, can be easily extended to fit your requirements. The sections below contain the instructions on duplicating the template and provide some examples for commonly desired use cases.
 
 Installation
@@ -21,7 +21,7 @@ Installation
 The Fedora minimal template can be installed with the following command:
 
 ~~~
-[user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-27-minimal
+[user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-29-minimal
 ~~~
 
 The download may take a while depending on your connection speed.
@@ -32,7 +32,7 @@ Duplication and first steps
 It is highly recommended to clone the original template, and make any changes in the clone instead of the original template. The following command clones the template. Replace `your-new-clone` with your desired name.
 
 ~~~
-[user@dom0 ~]$ qvm-clone fedora-27-minimal your-new-clone
+[user@dom0 ~]$ qvm-clone fedora-29-minimal your-new-clone
 ~~~
 
 You must start the template in order to customize it.
@@ -68,7 +68,7 @@ Use case | Description | Required steps
 --- | --- | ---
 **Standard utilities** | If you need the commonly used utilities | Install the following packages: `pciutils` `vim-minimal` `less` `psmisc` `gnome-keyring`
 **Audio** | If you want sound from your VM... | Install `pulseaudio-qubes`
-**FirewallVM** | You can use the minimal template as a [FirewallVM](/doc/firewall/), such as the basis template for `sys-firewall` | Install at least `qubes-core-agent-networking`, and also `qubes-core-agent-dom0-updates` if you want to use it as the updatevm (which is normally sys-firewall).
+**FirewallVM** | You can use the minimal template as a [FirewallVM](/doc/firewall/), such as the basis template for `sys-firewall` | Install at least `qubes-core-agent-networking` and `iproute`, and also `qubes-core-agent-dom0-updates` if you want to use it as the updatevm (which is normally sys-firewall).
 **NetVM** | You can use this template as the basis for a NetVM such as `sys-net` | Install the following packages:  `qubes-core-agent-networking` `qubes-core-agent-network-manager` `NetworkManager-wifi` `network-manager-applet` `wireless-tools` `dejavu-sans-fonts` `notification-daemon` `gnome-keyring` `polkit` `@hardware-support`.
 **NetVM (extra firmware)** | If your network devices need extra packages for the template to work as a network VM | Use the `lspci` command to identify the devices, then run `dnf search firmware` (replace `firmware` with the appropriate device identifier) to find the needed packages and then install them.
 **Network utilities** | If you need utilities for debugging and analyzing network connections | Install the following packages: `tcpdump` `telnet` `nmap` `nmap-ncat`
@@ -84,7 +84,7 @@ Qubes 4.0
 In Qubes R4.0 the minimal template is not configured for passwordless root.  To update or install packages to it, from a dom0 terminal window:
 
 ~~~
-[user@dom0 ~]$ qvm-run -u root fedora-27-minimal xterm
+[user@dom0 ~]$ qvm-run -u root fedora-29-minimal xterm
 ~~~
 to open a root terminal in the template, from which you can use dnf without sudo. You will have to do this every time if you choose not to enable passwordless root. 
 
@@ -107,7 +107,7 @@ In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be neede
 
 - `qubes-core-agent-qrexec`: Qubes qrexec agent. Installed by default.
 - `qubes-core-agent-systemd`: Qubes unit files for SystemD init style. Installed by default.
-- `qubes-core-agent-passwordless-root`, `polkit`: By default the 'fedora-27-minimal' template doesn't have passwordless root. These two packages enable this feature. (Note from R4.0 a design choice was made that passwordless should be optional, so is left out of the minimal templates)
+- `qubes-core-agent-passwordless-root`, `polkit`: By default the 'fedora-29-minimal' template doesn't have passwordless root. These two packages enable this feature. (Note from R4.0 a design choice was made that passwordless should be optional, so is left out of the minimal templates)
 - `qubes-core-agent-nautilus`: This package provides integration with the Nautilus file manager (without it things like "copy to VM/open in disposable VM" will not be shown in Nautilus).
 - `qubes-core-agent-sysvinit`: Qubes unit files for SysV init style or upstart.
 - `qubes-core-agent-networking`: Networking support. Required for general network access and particularly if the template is to be used for a `sys-net` or `sys-firewall` VM.
