@@ -550,7 +550,7 @@ for more information and qubes-specific background.
  - Xen debugging.
  - General ARM architecture knowledge.
  
-**Mentor**: Inquire on [qubes-devel][ml-devel].
+**Mentor**: [Marek Marczykowski-Górecki](/team/)
 
 ### Android development in Qubes
 
