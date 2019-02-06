@@ -211,6 +211,7 @@ redirect_from:
  * [Documentation Guidelines](/doc/doc-guidelines/)
  * [Code Signing](/doc/code-signing/)
  * [Community-Developed Feature Tracker](/qubes-issues/)
+ * [Google Summer of Code](/gsoc/)
  * [Books for Developers](/doc/devel-books/)
  * [Style Guide](/doc/style-guide/)
  * [Usability & UX](/doc/usability-ux/)
