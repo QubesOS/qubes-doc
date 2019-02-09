@@ -12,7 +12,7 @@ Assigning Devices to VMs
 ========================
 
 Sometimes you may need to assign an entire PCI or PCI Express device directly to a qube.
-This is also known as PCI pass-through.
+This is also known as PCI passthrough.
 The Qubes installer does this by default for `sys-net` (assigning all network class controllers), as well as `sys-usb` (assigning all USB controllers) if you chose to create the USB qube during install.
 While this covers most use cases, there are some occasions when you may want to manually assign one NIC to `sys-net` and another to a custom NetVM, or have some other type of PCI controller you want to manually assign.
 
@@ -84,7 +84,7 @@ This will show you a list of available devices, which you can select to be assig
 Finding the right USB controller
 --------------------------------
 
-Some USB devices are not compatible with the USB pass-through method Qubes employs.
+Some USB devices are not compatible with the USB passthrough method Qubes employs.
 In situations like this, you can still often get the USB device to work by passing through the entire USB controller to a qube.
 However, with this approach one cannot assign single USB devices, only the whole USB controller with whatever USB devices are connected to it. 
 More information on using and managing USB devices with qubes is available on the [USB] page. 
