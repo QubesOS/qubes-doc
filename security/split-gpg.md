@@ -256,7 +256,7 @@ unparalleled security for one's master secret key.
 ### Setup Description ###
 
 In this example, the following keys are stored in the following locations
-(see below for defintions of these terms):
+(see below for definitions of these terms):
 
 | PGP Key(s) | VM Name      |
 | ---------- | ------------ |
