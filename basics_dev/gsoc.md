@@ -343,8 +343,8 @@ immune to altering past entries. See
 
 **Mentor**: [Frédéric Pierret](/team/)
 
-### Xen GPU pass-through for Intel integrated GPUs
-**Project**: Xen GPU pass-through for Intel integrated GPUs (largely independent of Qubes)
+### Xen GPU passthrough for Intel integrated GPUs
+**Project**: Xen GPU passthrough for Intel integrated GPUs (largely independent of Qubes)
 
 **Brief explanation**: This project is prerequisite to full GUI domain support,
 where all desktop environment is running in dedicated VM, isolated from
