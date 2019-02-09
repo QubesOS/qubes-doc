@@ -262,7 +262,7 @@ Now, how does this apply to Qubes OS?
 The above attack requires access to a PCI device, which means that it can be performed only from NetVM / UsbVM, so someone must first break into one of those VMs. 
 But this isn't that hard, because there is a lot of complex code handling network traffic. 
 Recent bugs include DHCP client, DNS client, etc. 
-Most attacks on NetVM / UsbVM (but not all!) require being somewhat close to the target system - for example connected to the same WiFi network, or in the case of a UsbVM, having physical acccess to a USB port.
+Most attacks on NetVM / UsbVM (but not all!) require being somewhat close to the target system - for example connected to the same WiFi network, or in the case of a UsbVM, having physical access to a USB port.
 
 ### Can I use AMD-v instead of VT-x?
 
