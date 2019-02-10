@@ -145,9 +145,11 @@ Before creating the chroot, add to your builder.conf
 
 It will add the 'current' Qubes repository to your chroot environment. In that case, you can build only the packages you are interested in. If you want to use also the 'current-testing' repository, add also to your configuration
 
-    USE_QUBES_REPO_TESTING = 0
+    USE_QUBES_REPO_TESTING = 1
 
-Please note that if you have an existing chroot, this will not add the necessary configuration into the build environement. In that case, you will have to clean first your chroot.
+In case of an existing chroot, for mock-enabled builds, it works immediately because chroot is constructed each time separately. For legacy builds, it will not add the necessary configuration into the build environement unless specific builder change or configuration would force rebuilding chroot.
+
+Also, once enabled, disabling this setting will not disable repositories in relevant chroots. And even if it would, there may be left packages installed from those repos (which may or may not be desirable).
 
 Code verification keys management
 ---------------------------------
