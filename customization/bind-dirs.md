@@ -72,7 +72,7 @@ If you want to circumvent this process, you can create the relevant filestructur
 * Re-running `sudo /usr/lib/qubes/bind-dirs.sh` without a previous `sudo /usr/lib/qubes/bind-dirs.sh umount` does not work.
 * Running `sudo /usr/lib/qubes/bind-dirs.sh umount` after boot (before shutdown) is probably not sane and nothing can be done about that.
 * Many editors create a temporary file and copy it over the original file. If you have bind mounted an individual file this will break the mount.
-Any changes you make will not survive a reboot. If you think it likely you will want to edit a file, then either include the parent directory in bind-dirs.rather than the file, or perform the file operation on the file in /rw/bind-dirs.
+Any changes you make will not survive a reboot. If you think it likely you will want to edit a file, then either include the parent directory in bind-dirs rather than the file, or perform the file operation on the file in /rw/bind-dirs.
 * Some files are altered when a qube boots - e.g. /etc/hosts. If you try to use bind-dirs on such files you may break your qube in unpredictable ways.
 
 
