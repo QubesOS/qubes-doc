@@ -135,6 +135,20 @@ If you want to somehow modify sources, you can also do it, here are some basic s
 
         make iso
 
+### Use pre-build Qubes packages
+
+For building just few selected packages, it's very useful to download pre-built qubes-specific dependencies from `{yum,deb}.qubes-os.org`. This is especially true for gcc, which takes several hours to build.
+
+Before creating the chroot, add to your builder.conf
+
+    USE_QUBES_REPO_VERSION = $(RELEASE)
+
+It will add the 'current' Qubes repository to your chroot environment. In that case, you can build only the packages you are interested in. If you want to use also the 'current-testing' repository, add also to your configuration
+
+    USE_QUBES_REPO_TESTING = 0
+
+Please note that if you have an existing chroot, this will not add the necessary configuration into the build environement. In that case, you will have to clean first your chroot.
+
 Code verification keys management
 ---------------------------------
 
