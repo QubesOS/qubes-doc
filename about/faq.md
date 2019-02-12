@@ -579,3 +579,8 @@ Arguably secure boot reliance on UEFI integrity is not the best design.
 The relevant binaries (shim.efi, xen.efi, kernel / initramfs) are not signed by the Qubes Team and secure boot has not been tested.
 Intel TXT (used in [Anti Evil Maid](/doc/anti-evil-maid/)) at least tries to avoid or limit trust in BIOS.
 See the Heads project [[1]](https://trmm.net/Heads) [[2]](http://osresearch.net/) for a better-designed non-UEFI-based secure boot scheme with very good support for Qubes.
+
+### What is the canonical way to detect Qubes VM?
+
+Check `/usr/share/qubes/marker-vm` file existence. Additionally, its last line contains Qubes release version (`3.2`, `4.0` etc).
+The file was introduced after initial Qubes 3.2 and 4.0 release. If you need to support not-fully-updated systems, check `/usr/bin/qrexec-client-vm` existence.
