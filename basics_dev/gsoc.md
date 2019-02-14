@@ -552,6 +552,28 @@ for more information and qubes-specific background.
  
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
 
+### Porting Qubes to POWER9/PPC64
+
+**Project**: Porting Qubes to POWER9/PPC64
+
+**Brief explanation**: Qubes currently only supports the x86_64 CPU architecture. Xen currently has NO support for Power9/PPC64 processors, KVM related modifications needs to be done to integrate this into the Qubes virtualization abstraction layer and build process, as well as work in integrating this with the Qubes toolstack and security model. This may also be beneficial in simplifying the process of porting to other architectures. Some related discussion (porting to ppc64):
+[#4318](https://github.com/QubesOS/qubes-issues/issues/4318).
+
+**Expected results**:
+
+ - Add cross-compilation support to qubes-builder and related components.
+ - Make ppc64 specific adjustments to Qubes toolstacks/manager (including passthrough of devices from device tree to guest domains).
+ - ppc64 specific integration and unit tests.
+ - Production of generic u-boot or uefi capable image/iso for target hardware.
+
+**Knowledge prerequisite**:
+
+ - Libvirt and Qubes toolstacks (C and python languages).
+ - KVM internals
+ - General ppc64 architecture knowledge.
+ 
+**Mentor**: [Marek Marczykowski-Górecki](/team/)
+
 ### Android development in Qubes
 
 **Project**: Research running Android in Qubes VM (probably HVM) and connecting it to Android Studio
