@@ -207,6 +207,18 @@ mke2fs 1.42.12 (29-Aug-2014)
 --> Done.
 ~~~
 
+Kernel files structure
+-----------------------
+
+Kernel for a VM is stored in `/var/lib/qubes/vm-kernels/KERNEL_VERSION` directory (`KERNEL_VERSION` replaced with actual version). Qubes supports the following files there:
+
+- `vmlinuz` - kernel binary (may not be a Linux kernel)
+- `initramfs` - initramfs for the kernel to load
+- `modules.img` - ext4 filesystem image containing Linux kernel modules (to be mounted at `/lib/modules`); additionally it should contain a copy of `vmlinuz` and `initramfs` in its root directory (for loading by qemu inside stubdomain)
+- `default-kernelopts.txt` - default kernel options, in addition to those specified with `kernelopts` VM property
+
+All the files besides `vmlinuz` are optional.
+
 Using kernel installed in the VM (R4.0)
 --------------------------------
 
