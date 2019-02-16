@@ -31,13 +31,11 @@ Furthermore, if you are installing Qubes on a potentially compromised system, we
 Qubes 4.0.1 Warning
 -------------------
 
-Immediately after installing Qubes 4.0.1, please upgrade all of your APT-based (e.g., Debian and Whonix) TemplateVMs by executing the following command in a dom0 terminal for each such TemplateVM:
-
-    $ sudo qubes-dom0-update --action=upgrade <template-package-name>
-
-For example, the command for the `debian-9` TemplateVM would be:
+Immediately after installing Qubes 4.0.1, please upgrade all of your Debian and Whonix TemplateVMs by executing the following commands in a dom0 terminal, as applicable for the templates you chose to install:
 
     $ sudo qubes-dom0-update --action=upgrade qubes-template-debian-9
+    $ sudo qubes-dom0-update --enablerepo=qubes-templates-community --action=upgrade qubes-template-whonix-gw-14
+    $ sudo qubes-dom0-update --enablerepo=qubes-templates-community --action=upgrade qubes-template-whonix-ws-14
 
 These upgrades are required in order to be protected from the APT update mechanism vulnerability that was announced and patched in [QSB #46], which was after the release of Qubes 4.0.1.
 This method is simpler than the method recommended in [QSB #46], but it is just as safe and effective so long as it is performed immediately after installing Qubes OS.
