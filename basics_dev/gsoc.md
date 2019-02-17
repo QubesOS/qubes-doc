@@ -534,18 +534,17 @@ for more information and qubes-specific background.
 
 **Project**: Porting Qubes to ARM/aarch64
 
-**Brief explanation**: Qubes currently only supports the x86_64 CPU architecture. Xen currently has additional support for ARM32/ARM64 processors, however work needs to be done to integrate this into the Qubes build process, as well as work in integrating this with the Qubes toolstack and security model. This may also be beneficial in simplifying the process of porting to other architectures. Some related discussion (porting to ppc64):
+**Brief explanation**:
+Qubes currently only supports the x86_64 CPU architecture. Xen currently has additional support for ARM32/ARM64 processors, however work needs to be done to integrate this into the Qubes build process, as well as work in integrating this with the Qubes toolstack and security model. This may also be beneficial in simplifying the process of porting to other architectures. Some related discussion (porting to ppc64):
 [#4318](https://github.com/QubesOS/qubes-issues/issues/4318).
 
 **Expected results**:
-
  - Add cross-compilation support to qubes-builder and related components.
  - Make aarch64 specific adjustments to Qubes toolstacks/manager (including passthrough of devices from device tree to guest domains).
  - Aarch64 specific integration and unit tests.
  - Production of generic u-boot or uefi capable image/iso for target hardware.
 
 **Knowledge prerequisite**:
-
  - Libvirt and Qubes toolstacks (C and python languages).
  - Xen debugging.
  - General ARM architecture knowledge.
@@ -556,7 +555,8 @@ for more information and qubes-specific background.
 
 **Project**: Porting Qubes to POWER9/PPC64
 
-**Brief explanation**: Qubes currently only supports the x86_64 CPU architecture. Xen has **deprecated** support for Power9/PPC64 processors. Here are two directions to tackle this project from:
+**Brief explanation**:
+Qubes currently only supports the x86_64 CPU architecture. Xen has **deprecated** support for Power9/PPC64 processors. Here are two directions to tackle this project from:
 
 - Port Qubes to KVM then work on ppc64 specifics
 Implement some missing functionality in KVM then implement KVM support in the Qubes Hypervisor Abstraction Layer and build process. Improving the HAL will also be beneficial for simplifying the process of porting to further architectures and hypervisors.
@@ -568,14 +568,12 @@ More information and further links can be found in the related issue:
 [#4318](https://github.com/QubesOS/qubes-issues/issues/4318).
 
 **Expected results**:
-
  - Add cross-compilation support to qubes-builder and related components.
  - Make ppc64 specific adjustments to Qubes toolstacks/manager (including passthrough of devices from device tree to guest domains).
  - ppc64 specific integration and unit tests.
  - Production of generic u-boot or uefi capable image/iso for target hardware.
 
 **Knowledge prerequisite**:
-
  - Libvirt and Qubes toolstacks (C and python languages).
  - KVM or XEN internals
  - General ppc64 architecture knowledge.
