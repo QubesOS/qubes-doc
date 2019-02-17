@@ -566,11 +566,11 @@ Some related discussion:
 
 Qubes currently supports the x86_64 CPU architecture. PowerPC is desirable for security purposes as it is the only architecture where one can get performant hardware with entirely open source firmware. Xen has **deprecated** support for Power9/PPC64 processors. Here are two directions to tackle this project from:
 
-##### Port Qubes to KVM then work on ppc64 specifics
-- Implement some missing functionality in KVM then implement KVM support in the Qubes Hypervisor Abstraction Layer and build process. Improving the HAL will also be beneficial for simplifying the process of porting to further architectures and hypervisors.
+- Port Qubes to KVM then work on ppc64 specifics
+- - Implement some missing functionality in KVM then implement KVM support in the Qubes Hypervisor Abstraction Layer and build process. Improving the HAL will also be beneficial for simplifying the process of porting to further architectures and hypervisors.
 
-##### Port Xen to ppc64 then work on Qubes specifics
-- For more information on porting Xen see [this thread](https://markmail.org/message/vuk7atnyqfq52epp).
+- Port Xen to ppc64 then work on Qubes specifics
+- - For more information on porting Xen see [this thread](https://markmail.org/message/vuk7atnyqfq52epp).
 
 More information and further links can be found in the related issue:
 [#4318](https://github.com/QubesOS/qubes-issues/issues/4318).
