@@ -560,11 +560,11 @@ Some related discussion:
 
 ### Porting Qubes to POWER9/PPC64
 
-**Project**: Porting Qubes to POWER9/PPC64
+**Project**: Porting Qubes to POWER9/ppc64
 
 **Brief explanation**:
 
-Qubes currently only supports the x86_64 CPU architecture. Xen has **deprecated** support for Power9/PPC64 processors. Here are two directions to tackle this project from:
+Qubes currently supports the x86_64 CPU architecture. PowerPC is desirable for security purposes as it is the only architecture where one can get performant hardware with entirely open source firmware. Xen has **deprecated** support for Power9/PPC64 processors. Here are two directions to tackle this project from:
 
 - Port Qubes to KVM then work on ppc64 specifics
 Implement some missing functionality in KVM then implement KVM support in the Qubes Hypervisor Abstraction Layer and build process. Improving the HAL will also be beneficial for simplifying the process of porting to further architectures and hypervisors.
