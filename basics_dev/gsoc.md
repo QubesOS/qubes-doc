@@ -537,9 +537,11 @@ for more information and qubes-specific background.
 **Brief explanation**:
 
 Qubes currently only supports the x86_64 CPU architecture. Xen currently has additional support for ARM32/ARM64 processors, however work needs to be done to integrate this into the Qubes build process, as well as work in integrating this with the Qubes toolstack and security model. This may also be beneficial in simplifying the process of porting to other architectures.
+
 Some related discussion:
-[#4318](https://github.com/QubesOS/qubes-issues/issues/4318) on porting to ppc64.
-[#3894](https://github.com/QubesOS/qubes-issues/issues/3894) on porting to L4 microkernel.
+
+ - [#4318](https://github.com/QubesOS/qubes-issues/issues/4318) on porting to ppc64.
+ - [#3894](https://github.com/QubesOS/qubes-issues/issues/3894) on porting to L4 microkernel.
 
 **Expected results**:
 
