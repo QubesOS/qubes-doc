@@ -90,6 +90,22 @@ Restore from your backup
    For the TemplateVM OS versions supported in R4.0, see [Supported Versions](/doc/supported-versions/#templatevms).
    If the restore tool complains about missing templates, you can select the option to restore the AppVMs anyway, then change them afterward to use one of the default R4.0 templates.
 
+Note about additional disp-\* qubes created during restore
+----------------------------------------------------------
+
+One of differences between R3.2 and R4.0 is handling Disposable qubes.
+In R3.2, Disposable qube inherited its network settings (netvm, firewall rules) from the calling qube.
+In R4.0 it is no longer the case.
+Instead, in R4.0 it's possible to create multiple DVM templates and choose which one should be used by each qube.
+It's even possible to use different DVM templates for different operations from the same qube.
+This allows much more flexibility, as not only network settings can be differentiated, but all the qubes properties (including template, memory settings etc).
+
+Restoring a backup from R3.2 preserve the old behavior by creating separate DVM template for each network-providing VM (and also `disp-no-netvm` for network-isolated qubes).
+Then, each restored qubes are configured to use appropriate DVM template, according to its `netvm` or `dispvm_netvm` property from R3.2.
+This way, DispVMs started on R4.0 by qubes restored from R3.2 backup have the same netvm settings as they had on R3.2.
+
+If this behavior is undesired for you, or you want to configure it differently, you can remove those `disp-*` DVM templates.
+But to do so, you first need make sure they are not set for any `default_dispvm` property anywhere. Both Qubes Manager and `qvm-remove` tool will show you where such DVM template is used, so you can go there and change the setting.
 
 Upgrade all Template and Standalone VM(s)
 -----------------------------------------
