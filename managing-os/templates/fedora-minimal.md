@@ -37,6 +37,18 @@ It is highly recommended to clone the original template, and make any changes in
 
 You must start the template in order to customize it.
 
+Troubleshooting fedora-29-minimal
+---------------------------------
+
+If you're unable to interact with the fedora-29-minimal template, you may need to install `e2fsprogs`
+
+Without `e2fsprogs` installed, /rw cannot be prepared and cause applications to fail
+
+Quick workaround in a dom0 terminal:
+~~~
+qvm-run -u root --no-gui -p fedora-29-minimal 'dnf install -y e2fsprogs'
+~~~
+
 Customization
 -------------
 
