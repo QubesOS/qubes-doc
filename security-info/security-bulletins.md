@@ -101,4 +101,5 @@ Qubes Security Bulletins are published through the [Qubes Security Pack](/securi
 ----
 
 -   [Qubes Security Bulletin \#46](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-046-2019.txt) (APT update mechanism vulnerability)
+-   [Qubes Security Bulletin \#47](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-047-2019.txt) (Insecure default DisposableVM networking configuration)
 
