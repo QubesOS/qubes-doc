@@ -80,6 +80,8 @@ Set up a ProxyVM as a VPN gateway using NetworkManager
    # (in case the vpn tunnel breaks)
    iptables -I FORWARD -o eth0 -j DROP
    iptables -I FORWARD -i eth0 -j DROP
+   ip6tables -I FORWARD -o eth0 -j DROP
+   ip6tables -I FORWARD -i eth0 -j DROP
    ```
 
 6. Configure your AppVMs to use the new VM as a NetVM.
