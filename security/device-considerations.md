@@ -24,8 +24,10 @@ By default, Qubes requires any PCI device to be resettable from the outside (i.e
 
 Some devices do not implement a reset option. In these cases, Qubes by default does not allow attaching the device to any VM. If you decide to override this precaution, beware that the device may only be trusted when attached to the first VM. Afterwards, it should be **considered tainted** until the whole system is shut down. Even without malicious intent, usage data may be leaked.
 
+In case device reset is disabled for any reason, detaching the device should be considered a risk. Ideally, devices for which the `no-strict-reset` option is set are attached once to a VM which isn't shut down until the system is shut down.
+
 Additionally, Qubes restricts the config-space a VM may use to communicate with a PCI device. Only whitelisted registers are accessible. However, some devices or applications require full PCI access. In these cases, the whole config-space may be allowed. you're potentially weakening the device isolation, especially if your system is not equipped with a VT-d Interrupt Remapping unit.  This increases the VM's ability to run a [side channel attack] and vulnerability to the same. <!--TODO: really? It seems obvious, but I'm missing citation.-->
-See [Software Attacks on Intel VT-d] (page 7) for more details.
+See [Software Attacks on Intel VT-d] \(page 7) for more details.
 
 USB Security
 ------------

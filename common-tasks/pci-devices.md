@@ -14,16 +14,14 @@ PCI Devices in Qubes R4.0
 **Warning:** Only dom0 exposes PCI devices. Some of them are strictly required in dom0! (e.g. host bridge)
 You may end up with an unusable system by attaching the wrong PCI device to a VM.
 
-**Security warning:** PCI passthrough should be safe by default, but none-default options may be required. Please make sure you carefully read and understood the **[security considerations]** before deviating from default behavior!
+**Security warning:** PCI passthrough should be safe by default, but non-default options may be required. Please make sure you carefully read and understood the **[security considerations]** before deviating from default behavior!
 
-Unlike other devices ([USB], [block], mic), PCI devices need to be attached on VM-bootup. Similar to how you can't attach a new sound-card after your computer booted (and expect it to work properly), attaching PCI devices to already booted VMs isn't possible in any meaningful way.
+Unlike other devices ([USB], [block], mic), PCI devices need to be attached on VM-bootup. Similar to how you can't attach a new sound-card after your computer booted (and expect it to work properly), attaching PCI devices to already booted VMs isn't supported.
 
 The Qubes installer attaches all network class controllers to `sys-net` and all USB controllers to `sys-usb` by default, if you chose to create the network and USB qube during install.
 While this covers most use cases, there are some occasions when you may want to manually attach one NIC to `sys-net` and another to a custom NetVM, or have some other type of PCI controller you want to manually attach.
 
-Note that one can only attach full PCI or PCI Express devices by default.
-This limit is imposed by the PC and VT-d architectures.
-This means if a PCI device has multiple functions, all instances of it need to be attached to the same qube unless you have disabled the strict requirement with the `no-strict-reset` option during attachment.
+Some devices expose multiple functions with distinct BDF-numbers. Limits imposed by the PC and VT-d architectures may require all functions belonging to the same device to be attached to the same VM. This requirement can be dropped with the `no-strict-reset` option during attachment, bearing in mind the aformentioned [security considerations].
 In the steps below, you can tell if this is needed if you see the BDF for the same device listed multiple times with only the number after the "." changing.
 
 While PCI device can only be used by one powered on VM at a time, it *is* possible to *assign* the same device to more than one VM at a time. 
