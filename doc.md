@@ -148,7 +148,7 @@ redirect_from:
 
 ### Customization Guides
 
- * [DispVM Customization](/doc/dispvm-customization/)
+ * [DisposableVM Customization](/doc/dispvm-customization/)
  * [Customizing Fedora minimal templates](/doc/fedora-minimal-template-customization/)
  * [Customizing Windows 7 templates](/doc/windows-template-customization/)
  * [Using KDE in dom0](/doc/kde/)
