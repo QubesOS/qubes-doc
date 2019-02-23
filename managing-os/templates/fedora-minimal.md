@@ -13,7 +13,20 @@ Fedora - minimal
 ================
 
 The template only weighs about 600 MB compressed (1.6 GB on disk) and has only the most vital packages installed, including a minimal X and xterm installation.
-The minimal template, however, can be easily extended to fit your requirements. The sections below contain the instructions on duplicating the template and provide some examples for commonly desired use cases.
+The minimal template, however, can be easily extended to fit your requirements.
+The sections below contain the instructions on duplicating the template and provide some examples for commonly desired use cases.
+
+Important
+---------
+
+1. The Fedora minimal template is intended only for advanced users.
+   If you encounter problems with the Fedora minimal template, we recommend that you use the [default Fedora template] instead.
+
+2. If something works with the default Fedora template but not the minimal template, this is most likely due to user error (e.g., a missing package or misconfiguration) rather than a bug.
+   In such cases, you should write to [qubes-users] to ask for help rather than filing a bug report, then [contribute what you learn to the documentation][doc-guidelines].
+
+3. The Fedora minimal template is intentionally *minimal*.
+   [Do not ask for your favorite package to be added to the minimal template by default.][pref-default]
 
 Installation
 ------------
@@ -126,4 +139,10 @@ Users requiring the `rsyslog` service should install it manually.
 
 To access the `journald` log, use the `journalctl` command.
 
+
+[default Fedora template]: /doc/templates/fedora/
+[qubes-users]: /support/#qubes-users
+[doc-guidelines]: /doc/doc-guidelines/
+[pref-default]: /faq/#could-you-please-make-my-preference-the-default
 [GUIDE]: /doc/fedora-minimal-template-customization/
+
