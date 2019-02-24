@@ -11,8 +11,8 @@ VM kernel managed by dom0
 
 By default, VMs kernels are provided by dom0. This means that:
 
-1. You can select the kernel version in VM settings;
-2. You can modify kernel options in VM settings;
+1. You can select the kernel version (using GUI VM Settings tool or `qvm-prefs` commandline tool);
+2. You can modify kernel options (using `qvm-prefs` commandline tool);
 3. You can **not** modify any of the above from inside a VM;
 4. Installing additional kernel modules is cumbersome.
 
@@ -46,6 +46,14 @@ default-netvm     : sys-firewall
 default-template  : fedora-21
 updatevm          : sys-firewall
 [user@dom0 ~]$ qubes-prefs -s default-kernel 3.19.fc20
+~~~
+
+To view kernel options, you can use the GUI VM Settings tool; to view and change them, use `qvm-prefs` commandline tool:
+
+~~~
+[user@dom0 ~]$ qvm-prefs -g work kernelopts
+nopat
+[user@dom0 ~]$ qvm-prefs -s work kernelopts "nopat apparmor=1 security=apparmor"
 ~~~
 
 Installing different kernel using Qubes kernel package
