@@ -78,6 +78,7 @@ redirect_from:
  * [Templates: Fedora](/doc/templates/fedora/)
  * [Templates: Fedora Minimal](/doc/templates/fedora-minimal/)
  * [Templates: Debian](/doc/templates/debian/)
+ * [Templates: Debian Minimal](/doc/templates/debian-minimal/)
  * [Templates: Archlinux](/doc/templates/archlinux/)
  * [Templates: Ubuntu](/doc/templates/ubuntu/)
  * [Templates: Whonix](/doc/whonix/)
