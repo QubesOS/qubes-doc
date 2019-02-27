@@ -584,3 +584,10 @@ See the Heads project [[1]](https://trmm.net/Heads) [[2]](http://osresearch.net/
 
 Check `/usr/share/qubes/marker-vm` file existence. Additionally, its last line contains Qubes release version (`3.2`, `4.0` etc).
 The file was introduced after initial Qubes 3.2 and 4.0 release. If you need to support not-fully-updated systems, check `/usr/bin/qrexec-client-vm` existence.
+
+### Is there a way to automate tasks for continuous integration or DevOps?
+
+Yes, Qubes natively supports automation via [Salt (SaltStack)](/doc/salt/).
+There is also the unofficial [ansible-qubes toolkit](https://github.com/Rudd-O/ansible-qubes).
+(**Warning:** Since this is an external project that has not been reviewed or endorsed by the Qubes team, [allowing it to manage dom0 may be a security risk](/doc/security-guidelines/#dom0-precautions).)
+
