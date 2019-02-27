@@ -114,6 +114,6 @@ If no specific `sourceVM:deviceID` combination is given, *all devices of that DE
 [PCI]:/doc/pci-devices-in-qubes-R4.0/
 
 [security considerations]: /doc/device-considerations/
-[device manager icon]: https://raw.githubusercontent.com/GammaSQ/qubes-attachment/doc-device-rework/wiki/Devices/media-removable.png
+[device manager icon]: /attachment/wiki/Devices/media-removable.png
 [eject icon]: https://raw.githubusercontent.com/hrdwrrsk/adwaita-xfce-icon-theme/master/Adwaita-Xfce/22x22/actions/media-eject.png
 [i4692]: https://github.com/QubesOS/qubes-issues/issues/4692

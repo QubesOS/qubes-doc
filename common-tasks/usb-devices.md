@@ -138,7 +138,7 @@ Strip the leading `0000:` and pass the rest to the [`qvm-pci` tool][qvm-pci] to 
 [optical drives]: /doc/recording-optical-discs/
 [qubes u2f proxy]: /doc/u2f-proxy/
 [4661]: https://github.com/QubesOS/qubes-issues/issues/4661
-[device manager icon]:https://raw.githubusercontent.com/GammaSQ/qubes-attachment/doc-device-rework/wiki/Devices/media-removable.png
+[device manager icon]:/attachment/wiki/Devices/media-removable.png
 [eject icon]:https://raw.githubusercontent.com/hrdwrrsk/adwaita-xfce-icon-theme/master/Adwaita-Xfce/22x22/actions/media-eject.png
 [Installation Section]:#installation-of-qubes-usb-proxy
 [USB-qube howto]: /doc/usb-qube-howto/
