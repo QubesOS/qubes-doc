@@ -39,11 +39,11 @@ uses an RPM-based system (Fedora), but the same general procedure should work on
 any GNU/Linux system.
 
  1. If you're not on Qubes 4.X, [get and verify the Release 4 Signing Key].
- 2. If you're not on Qubes 4.X, import the Release 4 Signing Key:
+ 2. If you're not on Qubes 4.X, import the Release 4 Signing Key.
 
         [user@restore ~]$ sudo rpm --import qubes-release-4-signing-key.asc
 
- 3. Download the `scrypt` RPM:
+ 3. Download the `scrypt` RPM.
 
         [user@restore ~]$ dnf download scrypt
 
@@ -51,7 +51,7 @@ any GNU/Linux system.
 
         [user@restore ~]$ curl -O https://yum.qubes-os.org/r4.0/current/vm/fc28/rpm/scrypt-1.2.1-1.fc28.x86_64.rpm
 
- 4. Verify the signature on the `scrypt` RPM:
+ 4. Verify the signature on the `scrypt` RPM.
 
         [user@restore ~]$ rpm -K scrypt-*.rpm 
         scrypt-*.rpm: digests signatures OK
@@ -59,15 +59,15 @@ any GNU/Linux system.
     The message `digests signatures OK` means that both the digest (i.e., the
     output of a hash function) and PGP signature verification were successful.
 
- 5. Install `rpmdevtools`:
+ 5. Install `rpmdevtools`.
 
         [user@restore ~]$ sudo dnf install rpmdevtools
 
- 6. Extract the `scrypt` binary from the RPM:
+ 6. Extract the `scrypt` binary from the RPM.
 
         [user@restore ~]$ rpmdev-extract scrypt-*.rpm
 
- 7. (Optional) Create an alias for the new binary:
+ 7. (Optional) Create an alias for the new binary.
 
         [user@restore ~]$ alias scrypt="scrypt-*/usr/bin/scrypt"
 
@@ -92,12 +92,24 @@ Emergency Recovery Instructions
         vm1/whitelisted-appmenus.list.000.enc
         dom0-home/dom0user.000.enc
 
-    **Note:** Each VM in the backup file has its path listed in
-    `qubes.xml.000.enc` (search for the `backup-path` property). You can
-    extract only the files necessary for your VM (`vmX`) with `tar -i -xvf
-    qubes-backup-2015-06-05T123456 backup-header backup-header.hmac vmX/`.
+    **To extract only specific VMs:** Each VM in the backup file has its path
+    listed in `qubes.xml.000.enc`. Decrypt it. (In this example, the password is
+    `password`.)
 
- 2. Set the backup passhprase environment variable. While this isn't strictly
+        [user@restore ~]$ cat backup-header | grep backup-id
+        backup-id=20190128T123456-1234
+        [user@restore ~]$ scrypt dec -P qubes.xml.000.enc qubes.xml.000
+        Please enter passphrase: 20190128T123456-1234!qubes.xml.000!password
+        [user@restore ~]$ tar -i -xvf qubes.xml.000
+
+    Now that you have the decrypted `qubes.xml.000` file, search for the
+    `backup-path` property inside of it. With the `backup-path`, extract only
+    the files necessary for your VM (`vmX`).
+
+        [user@restore ~]$ tar -i -xvf qubes-backup-2015-06-05T123456 \
+            backup-header backup-header.hmac vmX/
+
+ 2. Set the backup passphrase environment variable. While this isn't strictly
     required, it will be handy later and will avoid saving the passphrase in
     the shell's history.
 
