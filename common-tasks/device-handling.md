@@ -110,7 +110,7 @@ If no specific `sourceVM:deviceID` combination is given, *all devices of that DE
 
 
 [block]:/doc/usb-devices-in-qubes-R4.0/
-[USB]:/dock/usb-devices-in-qubes-R4.0/
+[USB]:/doc/usb-devices-in-qubes-R4.0/
 [PCI]:/doc/pci-devices-in-qubes-R4.0/
 
 [security considerations]: /doc/device-considerations/

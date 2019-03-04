@@ -64,7 +64,7 @@ If not specified otherwise, block devices will show up as `/dev/xvdi*` in a linu
 where `xvdi2` needs to be replaced with the partition you want to mount.
 This will make your drive content accessible under `~/mnt`.
 
-Beware that when you attach a whole block device, partitions can be identified by their trailing integer (i.e. `/dev/xvdi2` for the second partition, `/dev/xvdi` for the whole device), whereas if you attach a single parition, the partition has *no trailing integer*.
+Beware that when you attach a whole block device, partitions can be identified by their trailing integer (i.e. `/dev/xvdi2` for the second partition, `/dev/xvdi` for the whole device), whereas if you attach a single partition, the partition has *no trailing integer*.
 
 If several different block-devices are attached to a single VM, the last letter of the device node name is advanced through the alphabet, so after `xvdi` the next device will be named `xvdj`, the next `xvdk`, and so on.
 
