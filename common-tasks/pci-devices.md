@@ -134,8 +134,8 @@ or
 
 [device handling in qubes]: /doc/device-handling/
 [security considerations]: /doc/device-considerations/#pci-security
-[block]:/doc/block-devices-in-qubes-R4.0/
-[USB]:/dock/usb-devices-in-qubes-R4.0/
+[block]:/dock/usb-devices-in-qubes-R4.0/#drives-and-block-devices
+[USB]:/dock/usb-devices-in-qubes-R4.0/#handling-other-usb-devices
 [appmenu]: /attachment/wiki/Devices/qubes-appmenu-select.png
 [domain manager icon]: /attachment/wiki/Devices/qubes-logo-icon.png
 [qvm-device]: /doc/device-handling-in-qubes-R4.0/#general-qubes-device-widget-behavior-and-handling
