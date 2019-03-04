@@ -11,6 +11,8 @@ USB  Devices in Qubes R4.0
 *This page is part of [device handling in qubes]*
 (In case you were looking for the [R3.2 documentation](/doc/usb/).)
 
+If you are looking to handle USB-*storage*-devices (thumbdrives or USB-drives), please have a look at [storage device handling][block-device].
+
 **Important security warning:** USB passthrough comes with many security implications! Please make sure you carefully read and understood the **[security considerations]**! Especially, whenever possible, attach a [block device] instead!
 
 Examples for valid cases for USB-passthrough:
