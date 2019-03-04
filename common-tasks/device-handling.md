@@ -109,8 +109,8 @@ If no specific `sourceVM:deviceID` combination is given, *all devices of that DE
 `qvm-device DEVICE_CLASS {detach|dt|d} targetVM [sourceVM:deviceID]`
 
 
-[block]:/doc/usb-devices-in-qubes-R4.0/#drives-and-block-devices
-[USB]:/dock/usb-devices-in-qubes-R4.0/#handling-other-usb-devices
+[block]:/doc/usb-devices-in-qubes-R4.0/
+[USB]:/dock/usb-devices-in-qubes-R4.0/
 [PCI]:/doc/pci-devices-in-qubes-R4.0/
 
 [security considerations]: /doc/device-considerations/

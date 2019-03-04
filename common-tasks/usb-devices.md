@@ -10,12 +10,17 @@ USB and Storage Devices in Qubes R4.0
 =====================================
 *This page is part of [device handling in qubes]*
 (In case you were looking for the [R3.2 documentation](/doc/usb/).)
+**Important security warning:** Attaching devices comes with many security implications! Please make sure you carefully read and understood the **[security considerations]**! Especially, whenever possible, attach a [block device] before attaching a [USB-device][USB]!
 
-Drives And Block Devices
-========================
-This part describes how to handle drives, referred to as "block device". If you don't know what a block device is, just think of it as a fancy way to say "something that stores data".
+Examples for valid cases for attaching full USB-devices:
 
-#Using The GUI to Attach a Drive
+ - [microcontroller programming]
+ - using [external audio devices]
+ - [optical drives] for recording
+
+(If you are thinking to use a two-factor-authentication device, [there is an app for that][qubes u2f proxy]. But it has some [issues][4661].)
+
+##Using The GUI to Attach a Drive
 (**Note:** In the present context, the term "USB drive" denotes any [USB mass storage device][mass-storage].
 In addition to smaller flash memory sticks, this includes things like USB external hard drives.)
 
@@ -35,6 +40,20 @@ Click on one and your USB drive will be attached!
 However, it often means the AppVM won't detect the new partition and you will need to manually mount it inside the AppVM.
 See below for more detailed steps.
 
+##Using The GUI to Attach a USB-Device
+Click the device-manager-icon: ![device manager icon]  
+A list of available devices appears. USB-devices have a USB-icon to their right: ![usb icon]
+
+Hover on one device to display a list of VMs you may attach it to.
+
+Click one of those. The USB device will be attached to it. You're done.
+
+After you finished using the USB-device, you can detach it the same way by clicking on the Devices Widget.
+You will see an entry in bold for your device such as **`sys-usb:2-5 - 058f_USB_2.0_Camera`**.
+Hover on the attached device to display a list of running VMs.
+The one to which your device is connected will have an eject button ![eject icon] next to it.
+Click that and your device will be detached.
+
 #Block Devices in VMs
 If not specified otherwise, block devices will show up as `/dev/xvdi*` in a linux VM, where `*` may be the partition-number. If a block device isn't automatically mounted after attaching, open a terminal in the VM and execute:
 
@@ -51,7 +70,7 @@ If several different block-devices are attached to a single VM, the last letter 
 
 To specify this device node name, you need to use the command line tool and its [`frontend-dev`-option][frontend-dev].
 
-#Command Line Tool Guide
+##Attaching a Drive Using The Command-Line
 The command-line tool you may use to mount whole USB drives or their partitions is `qvm-block`, a shortcut for `qvm-device block`.
 
 `qvm-block` won't recognise your device by any given name, but rather the device-node the sourceVM assigns. So make sure you have the drive available in the sourceVM, then list the available block devices (step 1.) to find the corresponding device-node.
@@ -98,46 +117,42 @@ In case of a USB-drive, make sure it's attached to your computer. If you don't s
 
  6.  You may now remove the device or attach it to another qube.
 
-#Recovering From Premature Device Destruction
-If the you fail to detach the device before it's destroyed in the sourceVM (e.g. by physically detaching the thumbdrive), [there will be problems][premature removal].
+##Attaching a Full USB-Device Using The Command-Line
+In dom0, you can use `qvm-usb` from the commandline to attach and detach devices.
 
-To recover from this error state, in dom0 run
+Listing available USB devices:
 
-    virsh detach-disk targetVM xvdi
+    [user@dom0 ~]$ qvm-usb
+    BACKEND:DEVID   DESCRIPTION                    USED BY
+    sys-usb:2-4     04ca:300d 04ca_300d
+    sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
+    sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
 
-(where `targetVM` is to be replaced with the VM name you attached the device to and `xvdi` is to be replaced with the used [frontend device node][frontend-dev].)
+Attaching selected USB device:
 
-However, if the block device originated in dom0, you will have to refer to the [old way][detach dom0 device].
+    [user@dom0 ~]$ qvm-usb attach work sys-usb:2-5
+    [user@dom0 ~]$ qvm-usb
+    BACKEND:DEVID   DESCRIPTION                    USED BY
+    sys-usb:2-4     04ca:300d 04ca_300d
+    sys-usb:2-5     058f:3822 058f_USB_2.0_Camera  work
+    sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
 
-#Attaching a File
-To attach a file as block device to another qube, first turn it into a loopback device inside the sourceVM.
+Now, you can use your USB device (camera in this case) in the `work` qube.
+If you see the error `ERROR: qubes-usb-proxy not installed in the VM` instead, please refer to the [Installation Section].
 
- 1. In the linux sourceVM run
+When you finish, detach the device.
 
-        sudo losetup -f --show /path/to/file
-
-    [This command][losetup] will create the device node `/dev/loop0` or, if that is already in use, increase the trailing integer until that name is still available. Afterwards it prints the device-node-name it found.
-
- 2. If you want to use the GUI, you're done. Click the Device Manager ![device manager icon] and select the `loop0`-device to attach it to another qube.
-
-    If you rather use the command line, continue:
-
-    In dom0, run `qvm-block` to display known block devices. The newly created loop device should show up:
-
-        ~]$ qvm-block
-        BACKEND:DEVID  DESCRIPTION  USED BY
-        sourceVM:loop0 /path/to/file
-
- 3. Attach the `loop0`-device using qvm-block as usual:
-
-        qvm-block a targetVM sourceVM:loop0
-
- 4. After detaching, destroy the loop-device inside the sourceVM as follows:
-
-        sudo losetup -d /dev/loop0
+    [user@dom0 ~]$ qvm-usb detach work sys-usb:2-5
+    [user@dom0 ~]$ qvm-usb
+    BACKEND:DEVID   DESCRIPTION                    USED BY
+    sys-usb:2-4     04ca:300d 04ca_300d
+    sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
+    sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
 
 #Additional Attach Options
 Attaching a block device through the command line offers additional customisation options, specifiable via the `--option`/`-o` option. (Yes, confusing wording, there's an [issue for that](https://github.com/QubesOS/qubes-issues/issues/4530).)
+
+Note: `qvm-usb` does currently *not* support any additional options.
 
 ##frontend-dev
 This option allows you to specify the name of the device node made available in the targetVM. This defaults to `xvdi` or, if already occupied, the first available device node name in alphabetical order. (The next one tried will be `xvdj`, then `xvdk`, and so on ...)
@@ -172,66 +187,44 @@ usage example:
 
 This option accepts `cdrom` and `disk`, default is `disk`.
 
-Handling other USB Devices
-==========================
-**Important security warning:** USB passthrough comes with many security implications! Please make sure you carefully read and understood the **[security considerations]**! Especially, whenever possible, attach a [block device] instead!
+#Miscellaneous/Customisation
+##Recovering From Premature Block-Device Destruction
+If the you fail to detach the drive before it's destroyed in the sourceVM (e.g. by physically detaching the thumbdrive), [there will be problems][premature removal].
 
-Examples for valid cases for USB-passthrough:
+To recover from this error state, in dom0 run
 
- - [microcontroller programming]
- - using [external audio devices]
- - [optical drives] for recording
+    virsh detach-disk targetVM xvdi
 
-(If you are thinking to use a two-factor-authentication device, [there is an app for that][qubes u2f proxy]. But it has some [issues][4661].)
+(where `targetVM` is to be replaced with the VM name you attached the device to and `xvdi` is to be replaced with the used [frontend device node][frontend-dev].)
 
-#Attaching And Detaching a USB Device
-##With Qubes Device Manager
-Click the device-manager-icon: ![device manager icon]  
-A list of available devices appears. USB-devices have a USB-icon to their right: ![usb icon]
+However, if the block device originated in dom0, you will have to refer to the [old way][detach dom0 device].
 
-Hover on one device to display a list of VMs you may attach it to.
+##Attaching a File
+To attach a file as block device to another qube, first turn it into a loopback device inside the sourceVM.
 
-Click one of those. The USB device will be attached to it. You're done.
+ 1. In the linux sourceVM run
 
-After you finished using the USB-device, you can detach it the same way by clicking on the Devices Widget.
-You will see an entry in bold for your device such as **`sys-usb:2-5 - 058f_USB_2.0_Camera`**.
-Hover on the attached device to display a list of running VMs.
-The one to which your device is connected will have an eject button ![eject icon] next to it.
-Click that and your device will be detached.
+        sudo losetup -f --show /path/to/file
 
-##With The Command Line Tool
-In dom0, you can use `qvm-usb` from the commandline to attach and detach devices.
+    [This command][losetup] will create the device node `/dev/loop0` or, if that is already in use, increase the trailing integer until that name is still available. Afterwards it prints the device-node-name it found.
 
-Listing available USB devices:
+ 2. If you want to use the GUI, you're done. Click the Device Manager ![device manager icon] and select the `loop0`-device to attach it to another qube.
 
-    [user@dom0 ~]$ qvm-usb
-    BACKEND:DEVID   DESCRIPTION                    USED BY
-    sys-usb:2-4     04ca:300d 04ca_300d
-    sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
-    sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
+    If you rather use the command line, continue:
 
-Attaching selected USB device:
+    In dom0, run `qvm-block` to display known block devices. The newly created loop device should show up:
 
-    [user@dom0 ~]$ qvm-usb attach work sys-usb:2-5
-    [user@dom0 ~]$ qvm-usb
-    BACKEND:DEVID   DESCRIPTION                    USED BY
-    sys-usb:2-4     04ca:300d 04ca_300d
-    sys-usb:2-5     058f:3822 058f_USB_2.0_Camera  work
-    sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
+        ~]$ qvm-block
+        BACKEND:DEVID  DESCRIPTION  USED BY
+        sourceVM:loop0 /path/to/file
 
-Now, you can use your USB device (camera in this case) in the `work` qube.
-If you see the error `ERROR: qubes-usb-proxy not installed in the VM` instead, please refer to the [Installation Section].
+ 3. Attach the `loop0`-device using qvm-block as usual:
 
-When you finish, detach the device.
+        qvm-block a targetVM sourceVM:loop0
 
-    [user@dom0 ~]$ qvm-usb detach work sys-usb:2-5
-    [user@dom0 ~]$ qvm-usb
-    BACKEND:DEVID   DESCRIPTION                    USED BY
-    sys-usb:2-4     04ca:300d 04ca_300d
-    sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
-    sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
+ 4. After detaching, destroy the loop-device inside the sourceVM as follows:
 
-#Maintenance And Customisation
+        sudo losetup -d /dev/loop0
 
 ##Creating And Using a USB qube
 If you've selected to install a usb-qube during system installation, everything is already set up for you in `sys-usb`. If you've later decided to create a usb-qube, please follow [this guide][USB-qube howto].
@@ -289,10 +282,9 @@ This should output something like:
 Now you see the BDF address in the path (right before final `usb3`).
 Strip the leading `0000:` and pass the rest to the [`qvm-pci` tool][qvm-pci] to attach the controller to the targetVM.
 
-
-
+[USB]: #using-the-gui-to-attach-a-drive
+[block device]: #using-the-gui-to-attach-a-usb-device
 [device handling in qubes]: /doc/device-handling/
-[block device]: #drives-and-block-devices
 [security considerations]: /doc/device-considerations/#usb-security
 [usb-challenges]: https://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html
 [usb icon]: /attachment/wiki/Devices/generic-usb.png
@@ -314,4 +306,3 @@ Strip the leading `0000:` and pass the rest to the [`qvm-pci` tool][qvm-pci] to 
 [premature removal]: https://github.com/QubesOS/qubes-issues/issues/1082
 [detach dom0 device]: /doc/usb/#what-if-i-removed-the-device-before-detaching-it-from-the-vm
 [losetup]: https://linux.die.net/man/8/losetup
-[USB]:/dock/usb-devices-in-qubes-R4.0/
