@@ -136,8 +136,8 @@ or
 [security considerations]: /doc/device-considerations/#pci-security
 [block]:/doc/block-devices-in-qubes-R4.0/
 [USB]:/dock/usb-devices-in-qubes-R4.0/
-[appmenu]: https://raw.githubusercontent.com/QubesOS/qubes-artwork/master/icons/32x32/apps/qubes-appmenu-select.png
-[domain manager icon]: https://raw.githubusercontent.com/QubesOS/qubes-artwork/master/icons/32x32/apps/qubes-logo-icon.png
+[appmenu]: /attachment/wiki/Devices/qubes-appmenu-select.png
+[domain manager icon]: /attachment/wiki/Devices/qubes-logo-icon.png
 [qvm-device]: /doc/device-handling-in-qubes-R4.0/#general-qubes-device-widget-behavior-and-handling
 [side channel attacks]: https://en.wikipedia.org/wiki/Side-channel_attack
 [ml1]: https://groups.google.com/group/qubes-devel/browse_thread/thread/631c4a3a9d1186e3
