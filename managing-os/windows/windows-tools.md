@@ -24,9 +24,9 @@ Qubes Windows Tools are open source and are distributed under a GPL license.
 
 NOTES:
 - Qubes Windows Tools are currently unmaintained
-- Currently only 64-bit versions of Windows 7 are supported by Qubes Windows Tools. Only emulated SVGA GPU is supported (although [there has been reports](https://groups.google.com/forum/#!topic/qubes-users/cmPRMOkxkdA) on working GPU pass-through).
+- Currently only 64-bit versions of Windows 7 are supported by Qubes Windows Tools. Only emulated SVGA GPU is supported (although [there has been reports](https://groups.google.com/forum/#!topic/qubes-users/cmPRMOkxkdA) on working GPU passthrough).
 - There is currently no audio support for Windows HVMs.
-- There is currently no USB passsthrough support for Windows HVMs.
+- There is currently no USB pass-through support for Windows HVMs.
 - __This page documents the process of installing Qubes Windows Tools on versions up to R3.2.__. Installation on Qubes R4.0 is possible but is a work in progress and there are limitations/bugs (see [issue #3585](https://github.com/QubesOS/qubes-issues/issues/3585)).
 
 

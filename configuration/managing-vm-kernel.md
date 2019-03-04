@@ -11,8 +11,8 @@ VM kernel managed by dom0
 
 By default, VMs kernels are provided by dom0. This means that:
 
-1. You can select the kernel version in VM settings;
-2. You can modify kernel options in VM settings;
+1. You can select the kernel version (using GUI VM Settings tool or `qvm-prefs` commandline tool);
+2. You can modify kernel options (using `qvm-prefs` commandline tool);
 3. You can **not** modify any of the above from inside a VM;
 4. Installing additional kernel modules is cumbersome.
 
@@ -46,6 +46,14 @@ default-netvm     : sys-firewall
 default-template  : fedora-21
 updatevm          : sys-firewall
 [user@dom0 ~]$ qubes-prefs -s default-kernel 3.19.fc20
+~~~
+
+To view kernel options, you can use the GUI VM Settings tool; to view and change them, use `qvm-prefs` commandline tool:
+
+~~~
+[user@dom0 ~]$ qvm-prefs -g work kernelopts
+nopat
+[user@dom0 ~]$ qvm-prefs -s work kernelopts "nopat apparmor=1 security=apparmor"
 ~~~
 
 Installing different kernel using Qubes kernel package
@@ -206,6 +214,18 @@ mke2fs 1.42.12 (29-Aug-2014)
 ---> Generating initramfs
 --> Done.
 ~~~
+
+Kernel files structure
+-----------------------
+
+Kernel for a VM is stored in `/var/lib/qubes/vm-kernels/KERNEL_VERSION` directory (`KERNEL_VERSION` replaced with actual version). Qubes 4.x supports the following files there:
+
+- `vmlinuz` - kernel binary (may not be a Linux kernel)
+- `initramfs` - initramfs for the kernel to load
+- `modules.img` - ext4 filesystem image containing Linux kernel modules (to be mounted at `/lib/modules`); additionally it should contain a copy of `vmlinuz` and `initramfs` in its root directory (for loading by qemu inside stubdomain)
+- `default-kernelopts-common.txt` - default kernel options, in addition to those specified with `kernelopts` qube property (can be disabled with `no-default-kernelopts` feature)
+
+All the files besides `vmlinuz` are optional.
 
 Using kernel installed in the VM (R4.0)
 --------------------------------

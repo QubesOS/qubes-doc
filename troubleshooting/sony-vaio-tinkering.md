@@ -24,7 +24,7 @@ If you think you are ready to reflash you BIOS, here are the instructions that w
 
 [http://forum.notebookreview.com/sony/473226-insyde-hacking-new-vaio-z-advanced-menu-bios.html](http://forum.notebookreview.com/sony/473226-insyde-hacking-new-vaio-z-advanced-menu-bios.html)
 
-**WARNING**: We take absolutely no responsibility that the BIOS relflashing instructions given at the referenced forum are 1) valid, 2) non-malicious, and 3) work at all. Do this step at your own risk. Keep in mind that reflashing your BIOS might yield your system unusable. If you don't feel like taking this risk (which is a reasonable state of mind), look for a different notebook, or ask Sony Support to enable this option for you.
+**WARNING**: We take absolutely no responsibility that the BIOS reflashing instructions given at the referenced forum are 1) valid, 2) non-malicious, and 3) work at all. Do this step at your own risk. Keep in mind that reflashing your BIOS might yield your system unusable. If you don't feel like taking this risk (which is a reasonable state of mind), look for a different notebook, or ask Sony Support to enable this option for you.
 
 In practice I have downloaded the BIOS-patching tools, run them in a VM on a BIOS image I extracted from my laptop, diffed the two versions, and concluded that it doesn't *seem* malicious, and then bravely applied tha patched image. If you don't know what are you doing, just get a different laptop, really!
 

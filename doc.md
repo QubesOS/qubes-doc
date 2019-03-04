@@ -14,11 +14,10 @@ redirect_from:
 - /community/
 ---
 
-User Documentation
-==================
+## User Documentation
 
-The Basics
-----------
+### The Basics
+
  * [What is Qubes OS?](/intro/)
  * [Video Tours](/video-tours/)
  * [Screenshots](/screenshots/)
@@ -27,8 +26,8 @@ The Basics
  * [Help, Support, and Mailing Lists](/support/)
  * [How to Contribute](/doc/contributing/)
 
-Security Information
---------------------
+### Security Information
+
  * [Security Center](/security/)
  * [Security FAQ](/faq/#general--security)
  * [Security Pack](/security/pack/)
@@ -38,14 +37,14 @@ Security Information
  * [Why and How to Verify Signatures](/security/verifying-signatures/)
  * [Qubes PGP Keys](https://keys.qubes-os.org/keys/)
 
-Choosing Your Hardware
-----------------------
+### Choosing Your Hardware
+
  * [System Requirements](/doc/system-requirements/)
  * [Certified Hardware](/doc/certified-hardware/)
  * [Hardware Compatibility List (HCL)](/hcl/)
 
-Installing & Upgrading Qubes
-----------------------------
+### Installing & Upgrading Qubes
+
  * [Qubes Downloads](/downloads/)
  * [Qubes Download Mirrors](/downloads/mirrors/)
  * [Installation Guide](/doc/installation-guide/)
@@ -58,29 +57,30 @@ Installing & Upgrading Qubes
  * [Custom Installation](/doc/custom-install/)
  * [Testing new releases and updates](/doc/testing/)
 
-Common Tasks
-------------
+### Common Tasks
+
  * [Copying and Pasting Text Between Domains](/doc/copy-paste/)
  * [Copying and Moving Files Between Domains](/doc/copying-files/)
  * [Copying from (and to) dom0](/doc/copy-from-dom0/)
  * [Installing and Updating Software in dom0](/doc/software-update-dom0/)
  * [Installing and Updating Software in VMs](/doc/software-update-vm/)
  * [Backup, Restoration, and Migration](/doc/backup-restore/)
- * [Using Disposable VMs](/doc/disposablevm/)
+ * [Using DisposableVMs](/doc/disposablevm/)
  * [Using and Managing USB Devices in R3.2](/doc/usb/)
  * [Using Block or Storage Devices in Qubes R4.0](/doc/block-devices/)
  * [Using USB  Devices in Qubes R4.0](/doc/usb-devices)
- * [Recording Optical Discs](/doc/recording-optical-discs/)
+ * [Optical Discs](/doc/optical-discs/)
  * [Managing Application Shortcuts](/doc/managing-appvm-shortcuts/)
  * [Enabling Fullscreen Mode](/doc/full-screen-mode/)
  * [Tips and Tricks](/doc/tips-and-tricks/)
 
-Managing Operating Systems within Qubes
----------------------------------------
+### Managing Operating Systems within Qubes
+
  * [TemplateVMs](/doc/templates/)
  * [Templates: Fedora](/doc/templates/fedora/)
  * [Templates: Fedora Minimal](/doc/templates/fedora-minimal/)
  * [Templates: Debian](/doc/templates/debian/)
+ * [Templates: Debian Minimal](/doc/templates/debian-minimal/)
  * [Templates: Archlinux](/doc/templates/archlinux/)
  * [Templates: Ubuntu](/doc/templates/ubuntu/)
  * [Templates: Whonix](/doc/whonix/)
@@ -95,8 +95,8 @@ Managing Operating Systems within Qubes
  * [How to Reinstall a TemplateVM](/doc/reinstall-template/)
 
 
-Security Guides
----------------
+### Security Guides
+
  * [Qubes OS Project Security Information](/security/)
  * [Security Guidelines](/doc/security-guidelines/)
  * [Understanding Qubes Firewall](/doc/firewall/)
@@ -112,8 +112,8 @@ Security Guides
  * [Note regarding password-less root access in VM](/doc/vm-sudo/)
 
 
-Privacy Guides
---------------
+### Privacy Guides
+
  * [Whonix for Privacy & Anonymity](/doc/whonix/)
  * [Running Tails in Qubes](/doc/tails/)
  * [Anonymizing your MAC Address](/doc/anonymizing-your-mac-address/)
@@ -122,8 +122,8 @@ Privacy Guides
  * [Reducing the fingerprint of the text-based web browser w3m](/doc/w3m/)
 
 
-Configuration Guides
---------------------
+### Configuration Guides
+
  * [Configuration Files](/doc/config-files/)
  * [How to set up a ProxyVM as a VPN Gateway](/doc/vpn/)
  * [Storing AppVMs on Secondary Drives](/doc/secondary-storage/)
@@ -151,9 +151,9 @@ Configuration Guides
  * [How to Make a Multimedia TemplateVM](/doc/multimedia/)
 
 
-Customization Guides
---------------------
- * [DispVM Customization](/doc/dispvm-customization/)
+### Customization Guides
+
+ * [DisposableVM Customization](/doc/disposablevm-customization/)
  * [Customizing Fedora minimal templates](/doc/fedora-minimal-template-customization/)
  * [Customizing Windows 7 templates](/doc/windows-template-customization/)
  * [Using KDE in dom0](/doc/kde/)
@@ -166,8 +166,8 @@ Customization Guides
  * [Safely Removing TemplateVM Packages (Example: Thunderbird)](/doc/removing-templatevm-packages/)
 
 
-Troubleshooting
----------------
+### Troubleshooting
+
  * [Home directory is out of disk space error](/doc/out-of-memory/)
  * [Newer hardware doesn't work](/doc/newer-hardware-troubleshooting/)
  * [Installing on system with new AMD GPU (missing firmware problem)](https://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76)
@@ -182,8 +182,8 @@ Troubleshooting
  * [Intel Integrated Graphics Troubleshooting](/doc/intel-igfx-troubleshooting/)
 
 
-Reference Pages
----------------
+### Reference Pages
+
  * [Command-Line Tools: Qubes 3.2, dom0](/doc/tools/3.2/dom0/)
  * [Command-Line Tools: Qubes 3.2, domU](/doc/tools/3.2/domU/)
  * [Command-Line Tools: Qubes 4.0, dom0](/doc/tools/4.0/dom0/)
@@ -194,18 +194,17 @@ Reference Pages
  * [Command Execution in VMs (and Qubes RPC)](/doc/qrexec/)
 
 
-Presentation Slides
--------------------
+### Presentation Slides
+
  * [[PDF] LinuxCon 2014 -- Qubes OS R2 Tutorial](/attachment/wiki/slides/LinuxCon_2014_Qubes_Tutorial.pdf)
  * [[PDF] LinuxCon 2014 -- Qubes OS Keynote](/attachment/wiki/slides/LinuxCon_2014_Qubes_Keynote.pdf)
  * [[PDF] RMLL 2016 -- Improving client systems security with Qubes OS](/attachment/wiki/slides/RMLL_2016_Improving-client-systems-security.pdf)
  * [[PDF] Golem and Friends 2017 -- Towards Reasonably Secure Computing in the Decentralized World](/attachment/wiki/slides/Secure_Computing_in_Decentralized_World.pdf)
 
-Developer Documentation
-=======================
+## Developer Documentation
 
-The Basics
-----------
+### The Basics
+
  * [Developer FAQ](/faq/#developers)
  * [Report a Security Issue](/security/)
  * [Report a Bug](/doc/reporting-bugs/)
@@ -218,12 +217,13 @@ The Basics
  * [Documentation Guidelines](/doc/doc-guidelines/)
  * [Code Signing](/doc/code-signing/)
  * [Community-Developed Feature Tracker](/qubes-issues/)
+ * [Google Summer of Code](/gsoc/)
  * [Books for Developers](/doc/devel-books/)
  * [Style Guide](/doc/style-guide/)
  * [Usability & UX](/doc/usability-ux/)
 
-Security Information
---------------------
+### Security Information
+
  * [Security Center](/security/)
  * [Security FAQ](/faq/#general--security)
  * [Security Pack](/security/pack/)
@@ -236,8 +236,8 @@ Security Information
  * [Why and How to Verify Signatures](/security/verifying-signatures/)
  * [Qubes PGP Keys](http://keys.qubes-os.org/keys/)
 
-System
-------
+### System
+
  * [Qubes OS Architecture Overview](/doc/architecture/)
  * [Qubes OS Architecture Spec v0.3 [PDF]](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf)
  * [Security-critical Code in Qubes OS](/doc/security-critical-code/)
@@ -251,16 +251,16 @@ System
  * [Implementation of template sharing and updating](/doc/template-implementation/)
  * [Storage Pools](/doc/storage-pools/)
 
-Services
---------
+### Services
+
  * [Inter-domain file copying](/doc/qfilecopy/) (deprecates [`qfileexchgd`](/doc/qfileexchgd/))
  * [Dynamic memory management in Qubes](/doc/qmemman/)
  * [Implementation of DisposableVMs](/doc/dvm-impl/)
  * [Article about DisposableVMs](http://theinvisiblethings.blogspot.com/2010/06/disposable-vms.html)
  * [Dom0 secure update mechanism](/doc/dom0-secure-updates/)
 
-Debugging
----------
+### Debugging
+
  * [Profiling python code](/doc/profiling/)
  * [Test environment in separate machine for automatic tests](/doc/test-bench/)
  * [Automated tests](/doc/automated-tests/)
@@ -268,8 +268,8 @@ Debugging
  * [Debugging Windows VMs](/doc/windows-debugging/)
  * [Safe Remote Dom0 Terminals](/doc/safe-remote-ttys/)
 
-Building
---------
+### Building
+
  * [Building Qubes](/doc/qubes-builder/) (["API" Details](/doc/qubes-builder-details/))
  * [Development Workflow](/doc/development-workflow/)
  * [Building Qubes OS ISO](/doc/qubes-r3-building/)
@@ -279,8 +279,8 @@ Building
  * [Building the Whonix Templates](/doc/building-whonix-template/)
  * [How to compile kernels for dom0](https://groups.google.com/d/topic/qubes-users/yBeUJPwKwHM/discussion)
 
-Releases
---------
+### Releases
+
  * [Release notes](/doc/releases/notes/)
  * [Release schedules](/doc/releases/schedules/)
  * [Release checklist](/doc/releases/todo/)

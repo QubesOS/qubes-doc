@@ -142,7 +142,7 @@ this for extra security.**
           [root@debian-8]# rm /etc/polkit-1/rules.d/00-qubes-allow-all.rules
           [root@debian-8]# rm /etc/polkit-1/localauthority/50-local.d/qubes-allow-all.pkla
 
-    - In /etc/pam.d/su, comment out this line near the bottom of the file:
+    - In /etc/pam.d/su.qubes, comment out this line near the bottom of the file:
 
           auth sufficient pam_permit.so
 

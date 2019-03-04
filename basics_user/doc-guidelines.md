@@ -11,15 +11,11 @@ redirect_from:
 Documentation Guidelines
 ========================
 
-All Qubes OS documentation pages are stored as plain text files in the
-dedicated [qubes-doc] repository. By cloning and regularly pulling from
-this repo, users can maintain their own up-to-date offline copy of all Qubes
-documentation rather than relying solely on the Web.
+All Qubes OS documentation pages are stored as plain text files in the dedicated [qubes-doc] repository.
+By cloning and regularly pulling from this repo, users can maintain their own up-to-date offline copy of all Qubes documentation rather than relying solely on the web.
 
-The documentation is a community effort. Volunteers work hard trying to
-keep everything accurate and comprehensive. If you notice a problem with the
-documentation or some way it can be improved, please [report] it! Better
-yet, you can [edit the documentation][contribute] yourself, both to add or improve existing content.
+The documentation is a community effort. Volunteers work hard trying to keep everything accurate and comprehensive.
+If you notice a problem or some way it can be improved, please [edit the documentation][contribute]!
 
 
 Questions, problems, and improvements
@@ -27,32 +23,35 @@ Questions, problems, and improvements
 
 If you have a question about something you read in the documentation, please send it to the appropriate [mailing list][support].
 If you see that something in the documentation should be fixed or improved, please [contribute] the change yourself.
-To report an issue with the documentation, please follow our standard [issue reporting guidelines][report].
+To report an issue with the documentation, please follow our standard [issue reporting guidelines][issue].
 (If you report an issue with the documentation, you will likely be asked to address it, unless there is a clear indication in your report that you are not willing or able to do so.)
 
 
 How to Contribute
 -----------------
 
-Editing the documentation is easy, so if you spot any errors, please help us
-fix them! (As mentioned above, the documentation maintainers are just volunteers
-who have day jobs of their own, so we rely heavily on the community to improve
-the documentation.) Since Qubes is a security-oriented project, every
-documentation change will be reviewed before it's published to the web. This
-allows us to maintain quality control and protect our users.
+Editing the documentation is easy, so if you see that a change should be made, please contribute it!
 
-As mentioned above, we keep all the documentation in a dedicated [Git
-repository][qubes-doc] hosted on [GitHub]. Thanks to the GitHub's interface, you can
-edit the documentation even if you don't know Git at all! The only thing you
-need is a GitHub account, which is free.
+A few notes before we get started:
 
-(Note: If you're already familiar with GitHub or wish to work from the command
-line, you can skip the rest of this section. All you need to do to contribute is
-to [fork and clone][gh-fork] the [qubes-doc] repo, make your changes, then
-[submit a pull request][gh-pull].)
+ * Since Qubes is a security-oriented project, every documentation change will be reviewed before it's accepted.
+   This allows us to maintain quality control and protect our users.
+ * We don't want you to spend time and effort on a contribution that we can't accept.
+   If your contribution would take a lot of time, please [file an issue][issue] for it first so that we can make sure we're on the same page before significant works begins.
+ * Alternatively, you may already have written content that doesn't conform to these guidelines, but you'd be willing to modify it so that it does.
+   In this case, you can still submit it by following the instructions below.
+   Just make a note in your pull request that you're aware of the changes that need to be made and that you're just asking for the content to be reviewed before you spend time making those changes.
 
-Ok, let's start. Every documentation page has an "Edit this page" button. It may
-be on the right side (in the desktop layout):
+As mentioned above, we keep all the documentation in a dedicated [Git repository][qubes-doc] hosted on [GitHub].
+Thanks to GitHub's interface, you can edit the documentation even if you don't know Git at all!
+The only thing you need is a GitHub account, which is free.
+
+(**Note:** If you're already familiar with GitHub or wish to work from the command line, you can skip the rest of this section.
+All you need to do to contribute is to [fork and clone][gh-fork] the [qubes-doc] repo, make your changes, then [submit a pull request][gh-pull].)
+
+Ok, let's start.
+Every documentation page has an "Edit this page" button.
+It may be on the side (in the desktop layout):
 
 ![edit-button-desktop](/attachment/wiki/doc-edit/03-button2.png)
 
@@ -60,48 +59,43 @@ Or at the bottom (in the mobile layout):
 
 ![edit-button-mobile](/attachment/wiki/doc-edit/02-button1.png)
 
-When you click on it, you'll be prompted for your GitHub username and password
-(if you aren't already logged in). You can also create an account from here.
+When you click on it, you'll be prompted for your GitHub username and password (if you aren't already logged in).
+You can also create an account from here.
 
 ![github-sign-in](/attachment/wiki/doc-edit/04-sign-in.png)
 
-If this is your first contribution to the documentation, you need to "fork" the
-repository (make your own copy). It's easy --- just click the big green button
-on the next page. This step is only needed the first time you make a
-contribution.
+If this is your first contribution to the documentation, you need to "fork" the repository (make your own copy). It's easy --- just click the big green button on the next page.
+This step is only needed the first time you make a contribution.
 
 ![fork](/attachment/wiki/doc-edit/05-fork.png)
 
-Now you can make your modifications. You can also preview the changes to see how
-they'll be formatted by clicking the "Preview changes" tab. **Important:** If
-you're making any formatting changes, please [render the site locally] to verify
-that everything looks correct before submitting any changes.
+Now you can make your modifications.
+You can also preview the changes to see how they'll be formatted by clicking the "Preview changes" tab.
+If you're making formatting changes, please [render the site locally] to verify that everything looks correct before submitting any changes.
 
 ![edit](/attachment/wiki/doc-edit/06-edit.png)
 
-Once you're finished, describe your changes at the bottom and click "Propose file
-change".
+Once you're finished, describe your changes at the bottom and click "Propose file change".
 
 ![commit](/attachment/wiki/doc-edit/07-commit-msg.png)
 
-After that, you'll see exactly what modifications you've made. At this stage,
-those changes are still in your own copy of the documentation ("fork"). If
-everything looks good, send those changes to us by pressing the "Create pull
-request" button.
+After that, you'll see exactly what modifications you've made.
+At this stage, those changes are still in your own copy of the documentation ("fork").
+If everything looks good, send those changes to us by pressing the "Create pull request" button.
 
 ![pull-request](/attachment/wiki/doc-edit/08-review-changes.png)
 
-You will be able to adjust the pull request message and title there. In most
-cases, the defaults are ok, so you can just confirm by pressing the "Create pull
-request" button again.
+You will be able to adjust the pull request message and title there.
+In most cases, the defaults are ok, so you can just confirm by pressing the "Create pull request" button again.
 
 ![pull-request-confirm](/attachment/wiki/doc-edit/09-create-pull-request.png)
 
-That's all! We will review your changes. If everything looks good, we'll pull
-them into the official documentation. Otherwise, we may have some questions for
-you, which we'll post in a comment on your pull request. (GitHub will
-automatically notify you if we do.) If, for some reason, we can't accept your
-pull request, we'll post a comment explaining why we can't.
+That's all!
+We will review your changes.
+If everything looks good, we'll pull them into the official documentation.
+Otherwise, we may have some questions for you, which we'll post in a comment on your pull request.
+(GitHub will automatically notify you if we do.)
+If, for some reason, we can't accept your pull request, we'll post a comment explaining why we can't.
 
 ![done](/attachment/wiki/doc-edit/10-done.png)
 
@@ -115,7 +109,7 @@ To add an image to a page, use the following syntax in the main document:
 ![Image Title](/attachment/wiki/page-title/image-filename.png)
 ```
 
-Then, submit your image(s) in a separate pull request to the [qubes-attachment](https://github.com/QubesOS/qubes-attachment) repository using the same path and filename.
+Then, submit your image(s) in a separate pull request to the [qubes-attachment] repository using the same path and filename.
 
 
 Version-specific Documentation
@@ -297,7 +291,7 @@ Please try to write good commit messages, according to the
 
 [qubes-doc]: https://github.com/QubesOS/qubes-doc
 [glossary]: /doc/glossary/
-[report]: /doc/reporting-bugs/
+[issue]: /doc/reporting-bugs/
 [contribute]: #how-to-contribute
 [qubes-issues]: https://github.com/QubesOS/qubes-issues/issues
 [gh-fork]: https://guides.github.com/activities/forking/
@@ -311,4 +305,5 @@ Please try to write good commit messages, according to the
 [md]: https://daringfireball.net/projects/markdown/
 [git-commit]: /doc/coding-style/#commit-message-guidelines
 [render the site locally]: https://github.com/QubesOS/qubesos.github.io#instructions
+[qubes-attachment]: https://github.com/QubesOS/qubes-attachment
 

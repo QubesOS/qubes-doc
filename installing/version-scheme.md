@@ -67,7 +67,7 @@ The next RC is released five weeks after the former. All packets are published
 in `current` repository and the cycle starts over. There should be no less than
 1 and no more than 3 release candidates before final release.
 
-<table border>
+<table>
     <thead>
         <tr><th>stage</th><th>time</th></tr>
     </thead>

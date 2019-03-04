@@ -18,14 +18,16 @@ Security
 
 If a DVM Template becomes compromised, then any DisposableVM based on that DVM Template could be compromised.
 Therefore, you should not make any risky customizations (e.g., installing untrusted browser plugins) in important DVM Templates.
-In particular, the *default* DVM Template is important becuase it is used by the "Open in DisposableVM" feature.
+In particular, the *default* DVM Template is important because it is used by the "Open in DisposableVM" feature.
 This means that it will have access to everything that you open with this feature.
 For this reason, it is strongly recommended that you base the default DVM Template on a trusted TemplateVM and refrain from making any risky customizations to it.
 
 Qubes 4.0
 ----------
 
-A DisposableVM (previously known as a "DispVM") in Qubes 4.0 can be based on any TemplateBasedVM. You can also choose to use different AppVMs for different DisposableVMs. To prepare AppVM to be a base for DisposableVM, you need to set `template_for_dispvms` property, for example:
+A DisposableVM (previously known as a "DispVM") in Qubes 4.0 can be based on any TemplateBasedVM.
+You can also choose to use different DVM Templates for different DisposableVMs.
+To prepare AppVM to be a DVM Template, you need to set `template_for_dispvms` property, for example:
 
     [user@dom0 ~]$ qvm-prefs fedora-26-dvm template_for_dispvms True
 
@@ -33,7 +35,7 @@ Additionally, if you want to have menu entries for starting applications in Disp
 
     [user@dom0 ~]$ qvm-features fedora-26-dvm appmenus-dispvm 1
 
-### Creating new DisposableVM base AppVM ###
+### Creating a new DVM Template ###
 
 In Qubes 4.0, you're no longer restricted to a single DVM Template. Instead, you can create as many as you want. Whenever you start a new DisposableVM, you can choose to base it on whichever DVM Template you like.
 To create new DVM Template, lets say `custom-dvm`, based on `debian-9` template, use following commands:
@@ -53,9 +55,10 @@ If you wish to use the `fedora-minimal` template as a DVM Template, see the "DVM
 
 ### Customization of DisposableVM ###
 
-It is possible to change the settings for each new DisposableVM. This can be done by customizing the base AppVM:
+It is possible to change the settings for each new DisposableVM.
+This can be done by customizing the DVM Template on which it is based:
 
-1.  Start a terminal in the `fedora-26-dvm` qube (or another base for DisposableVM) by running the following command in a dom0 terminal. (If you enable `appmenus-dispvm` feature (as explained at the top), applications menu for this VM (`fedora-26-dvm`) will be "Disposable: fedora-26-dvm" (instead of "Domain: fedora-26-dvm") and entries there will start new DisposableVM based on that VM (`fedora-26-dvm`). Not in that VM (`fedora-26-dvm`) itself).
+1.  Start a terminal in the `fedora-26-dvm` qube (or another DVM Template) by running the following command in a dom0 terminal. (If you enable `appmenus-dispvm` feature (as explained at the top), applications menu for this VM (`fedora-26-dvm`) will be "Disposable: fedora-26-dvm" (instead of "Domain: fedora-26-dvm") and entries there will start new DisposableVM based on that VM (`fedora-26-dvm`). Not in that VM (`fedora-26-dvm`) itself).
 
         [user@dom0 ~]$ qvm-run -a fedora-26-dvm gnome-terminal
 
@@ -143,7 +146,7 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 
 >_**Note:**_ Users who want customized VPN or firewall rule sets must create a separate dvm for use by each DisposableVM. If dvm customization is not needed, then a single dvm is used as a template for all DisposableVMs.
  
-#### Create and configure the dvm from which the DisposableVM will be based on ####
+#### Create and configure the DVM Template on which the DisposableVM will be based ####
 
 1. Create the dvm 
 
@@ -246,6 +249,15 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
        [user@dom0 ~]$ qvm-prefs disp-sys-usb autostart true
 
 7. Users should now follow instructions on [How to hide USB controllers from dom0](/doc/usb/#how-to-hide-all-usb-controllers-from-dom0)
+
+8. At this point, your mouse may not work.
+   Edit the `qubes.InputMouse` policy file in dom0, which is located here:
+
+       /etc/qubes-rpc/policy/qubes.InputMouse
+
+   Add a line like this to the top of the file:
+
+       disp-sys-usb dom0 allow,user=root
 
 
 #### Starting the DisposableVMs ####

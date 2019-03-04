@@ -96,11 +96,11 @@ The lesson is that you should carefully look at what is being installed to your 
 
 By default, templates in 4.0 only have a loopback interface.
 
-Some packages will thow an error on installation in this situation. For example, Samba expects to be configured using a network interface post installation.
+Some packages will throw an error on installation in this situation. For example, Samba expects to be configured using a network interface post installation.
 
 One solution is to add a dummy interface to allow the package to install correctly:
 
-    ip link add d0 type dummy    
+    ip link add d0 type dummy
     ip addr add 192.168.0.1/24 dev d0
     ip link set d0 up
 

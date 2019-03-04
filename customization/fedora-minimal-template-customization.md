@@ -156,9 +156,9 @@ Choose theme packages for each framework. I recommend the following documentatio
 
 > clearlooks-phenix-gtk2-theme clearlooks-phenix-gtk3-theme
 
-You can search for other themes using dnf search theme gtk
+You can search for other themes using `dnf search theme gtk`.
 
-You can check your currently installed theme packages (to eventually remove them) using rpm -qa | grep theme
+You can check your currently installed theme packages (to eventually remove them) using `rpm -qa | grep theme`.
 
 ### Tweaking theme and appearance
 

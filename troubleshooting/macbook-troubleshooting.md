@@ -180,7 +180,7 @@ For security reasons, you should install Qubes using the whole disk. I preferred
 Download and prepare a USB with Qubes 3.2
 
 You can install Qubes using BIOS or UEFI:
-*  BIOS/CSM/Legacy: I have not been able to install using legagy, but I did not spend a lot of time on it.
+*  BIOS/CSM/Legacy: I have not been able to install using legacy, but I did not spend a lot of time on it.
 *  UEFI plain: grub menu appears, but any gave me a quick flash and returned the main menu. I can boot it manually fixing the grub.cfg file, adding commands linuexefi and initrdefi, pointing proper files in /efi/boot. After boot, I end up with no root file system.
 *  UEFI, using rEFInd: I have been successful, despite some issues to be fixed manually, after installation completion
    * download [rEFInd] refind-bin-0.10.4.zip: this file is not signed, so decide if you trust it or not. SHA1 sum is 3d69c23b7d338419e5559a93cd6ae3ec66323b1e  
@@ -197,12 +197,12 @@ You can install Qubes using BIOS or UEFI:
 
 *  As a general rule, keep the default values proposed during installation: you can change them later on
 *  Keep English, as language, locale
-*  My macbook has a US keyboard, so I cannot say what happens if you change keyboard layout
+*  My Macbook has a US keyboard, so I cannot say what happens if you change keyboard layout
 *  DO NOT CHANGE the timezone, because it will trigger the wifi card, leading to a system freeze
 *  Choose the "installation destination": do not change anything and press DONE button
 *  Insert your password for Full Disk Encryption
 *  If you do not already have free space on internal SSD disk, you will be prompted to reclaim some space: 
-*  If you shrunk OSX partition, disk utility left an empy partition: delete useless partition (eg: if you shrunk OSX parition, diskutil created an empty partition)
+*  If you shrunk OSX partition, disk utility left an empty partition: delete useless partition (e.g.: if you shrunk OSX partition, diskutil created an empty partition)
 *  Press on "reclaim space"
 *  Press on "begin installation"
 *  create your user and password
@@ -279,7 +279,7 @@ Everything should now be ok, Qubes OS boots using EFI and you will get the last 
 
 ### 6. Fix pulseaudio, which locks CPU freezing the system often for 20 seconds
 
-My macbook has frequent freezes. Looking at journalctl output I saw that pulseaudio locks CPU for 20 seconds, very often.
+My Macbook has frequent freezes. Looking at journalctl output I saw that pulseaudio locks CPU for 20 seconds, very often.
 
 You can fix this issue, killing audio support with this quick workaround:
 *  open a dom0 terminal, as root and edit /etc/pulse/client.conf
@@ -303,7 +303,7 @@ You can fix this issue, killing audio support with this quick workaround:
    Press Fn+F2 and complete setup
 *  reboot and you finally have your Qubes OS
 *  DO NOT launch sys-net machine
-*  Open its setting and remove wifi adapter from the Selected devices, using Qubes Manager or use the following command line. Get the BFD of the adapter and remove it. On my macbook BFD is 04:00.0 and you will use it later on, also
+*  Open its setting and remove wifi adapter from the Selected devices, using Qubes Manager or use the following command line. Get the BFD of the adapter and remove it. On my Macbook BFD is 04:00.0 and you will use it later on, also
 ~~~
 qvm-pci -l sys-net
 qvm-pci -d sys-net 04:00.0
@@ -319,7 +319,7 @@ qvm-start sys-net
 xl pci-attach sys-net 04:00.0
 ~~~
 
-These latest steps are required to launch sys-net with wifi access. They can be automated in a custom systemd service
+These latest steps are required to launch sys-net with wifi access. They can be automated in a custom systemd service.
 
    
 

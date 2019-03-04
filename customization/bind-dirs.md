@@ -65,16 +65,22 @@ Creation of the file and folders in /rw/bind-dirs should be automatic the first 
 
 If you want to circumvent this process, you can create the relevant filestructure under /rw/bind-dirs and make any changes at the same time that you perform the configuration, before reboot.
 
-
 ## Limitations ##
 
 * Files that exist in the TemplateVM root image cannot be deleted in the TemplateBasedVMs root image using bind-dirs.sh.
 * Re-running `sudo /usr/lib/qubes/bind-dirs.sh` without a previous `sudo /usr/lib/qubes/bind-dirs.sh umount` does not work.
 * Running `sudo /usr/lib/qubes/bind-dirs.sh umount` after boot (before shutdown) is probably not sane and nothing can be done about that.
 * Many editors create a temporary file and copy it over the original file. If you have bind mounted an individual file this will break the mount.
-Any changes you make will not survive a reboot. If you think it likely you will want to edit a file, then either include the parent directory in bind-dirs.rather than the file, or perform the file operation on the file in /rw/bind-dirs.
-* Some files are altered when a qube boots - e.g. /etc/hosts. If you try to use bind-dirs on such files you may break your qube in unpredictable ways.
+Any changes you make will not survive a reboot. If you think it likely you will want to edit a file, then either include the parent directory in bind-dirs rather than the file, or perform the file operation on the file in /rw/bind-dirs.
+* Some files are altered when a qube boots - e.g. `/etc/hosts`. If you try to use bind-dirs on such files you may break your qube in unpredictable ways.
 
+You can add persistent rules to `/etc/hosts` file using script `/rw/config/rc.local` that is designed to override configuration in /etc, starting services and etc. For example, to make software inside some TemplateBasedVM resolving the domain `example.com` as `127.0.0.1` open `/rw/config/rc.local` inside this TemplateBasedVM and add:
+
+~~~
+echo '127.0.0.1 example.com' >> /etc/hosts
+~~~
+
+After every boot of the TemplateBasedVM `rc.local` script will add line `127.0.0.1 example.com` to `/etc/hosts` file and the software inside the TemplateBasedVM will resolve domain `example.com` accordingly. You cam add several rules to `/etc/hosts` the same way.
 
 ## How to remove binds from bind-dirs.sh? ##
 

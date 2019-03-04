@@ -65,6 +65,16 @@ If you're reporting a bug in a package that is in a [testing] repository, please
 Project maintainers really appreciate thorough explanations.
 It usually helps them address the problem more quickly, so everyone wins!
 
+### Use the provided issue template ###
+
+Please use the provided issue template.
+Do not delete it or remove parts of it.
+The issue template is carefully designed to elicit important information.
+Without this information, the issue is likely to be incomplete.
+
+It is also important to note the placement and content of the HTML comments in the issue template.
+These help us to have issues with a consistent format.
+
 ### There are no guarantees that your issue will be addressed ###
 
 Keep in mind that `qubes-issues` is an issue tracker, not a support system.

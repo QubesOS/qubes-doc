@@ -225,3 +225,13 @@ If that's not an option there, or legacy mode does not work either, you can try 
 7. Continue with setting up default templates and logging in to Qubes.
 
 Whenever there is a kernel or Xen update for Qubes, you will need to follow these [other steps above](/doc/uefi-troubleshooting/#boot-device-not-recognized-after-installing) because your system is using the fallback UEFI bootloader in `[...]/EFI/BOOT` instead of directly booting to the Qubes entry under `[...]/EFI/qubes`.
+
+Accessing installer Rescue mode on UEFI
+---------------------------------------
+
+In UEFI mode installer do not have boot menu, but starts directly the installation wizard. To get into Rescue mode, you need to switch to tty2 (Ctrl+Alt+F2) and then execute:
+
+~~~
+pkill -9 anaconda
+anaconda --rescue
+~~~

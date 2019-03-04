@@ -28,37 +28,17 @@ Therefore, we *strongly* recommended that, prior to starting the Qubes installer
 Furthermore, if you are installing Qubes on a potentially compromised system, we *strongly* recommended that you wipe your target installation disk before starting the installer.
 
 
-Qubes 4.0 Warning
------------------
+Qubes 4.0.1 Warning
+-------------------
 
-In new installations of Qubes 4.0, the following steps may need to be applied in dom0 and Fedora 26 TemplateVMs in order to receive updates (see [#3737]).
+Immediately after installing Qubes 4.0.1, please upgrade all of your Debian and Whonix TemplateVMs by executing the following commands in a dom0 terminal, as applicable for the templates you chose to install:
 
-Steps for dom0 updates:
+    $ sudo qubes-dom0-update --action=upgrade qubes-template-debian-9
+    $ sudo qubes-dom0-update --enablerepo=qubes-templates-community --action=upgrade qubes-template-whonix-gw-14
+    $ sudo qubes-dom0-update --enablerepo=qubes-templates-community --action=upgrade qubes-template-whonix-ws-14
 
-1. Open the Qubes Menu by clicking on the "Q" icon in the top-left corner of the screen.
-2. Select `Terminal Emulator`.
-3. In the window that opens, enter this command:
-
-       sudo nano /etc/yum.repos.d/qubes-dom0.repo
-
-4. This opens the nano text editor. Change all four instances of `http` to `https`.
-5. Press `CTRL+X`, then `Y`, then `ENTER` to save changes and exit.
-6. Check for updates normally.
-
-Steps for Fedora 26 TemplateVM updates:
-
-1. Open the Qubes Menu by clicking on the "Q" icon in the top-left corner of the screen.
-2. Select `Template: fedora-26`, then `fedora-26: Terminal`.
-3. In the window that opens, enter the command for your version:
-
-       [Qubes 3.2] sudo gedit /etc/yum.repos.d/qubes-r3.repo
-       [Qubes 4.0] sudo gedit /etc/yum.repos.d/qubes-r4.repo
-
-4. This opens the gedit text editor in a window. Change all four instances of `http` to `https`.
-5. Click the "Save" button in the top-right corner of the window.
-6. Close the window.
-7. Check for updates normally.
-8. Shut down the TemplateVM.
+These upgrades are required in order to be protected from the APT update mechanism vulnerability that was announced and patched in [QSB #46], which was after the release of Qubes 4.0.1.
+This method is simpler than the method recommended in [QSB #46], but it is just as safe and effective so long as it is performed immediately after installing Qubes OS.
 
 
 Hardware Requirements
@@ -168,7 +148,7 @@ Getting Help
 [Bug 1374983]: https://bugzilla.redhat.com/show_bug.cgi?id=1374983
 [Bug 1268700]: https://bugzilla.redhat.com/show_bug.cgi?id=1268700
 [#2835]: https://github.com/QubesOS/qubes-issues/issues/2835
-[#3737]: https://github.com/QubesOS/qubes-issues/issues/3737
+[QSB #46]: /news/2019/01/23/qsb-46/
 [system requirements]: /doc/system-requirements/
 [Hardware Compatibility List]: /hcl/
 [live USB]: /doc/live-usb/

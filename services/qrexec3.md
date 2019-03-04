@@ -167,6 +167,35 @@ be fatal to Qubes security. On the other hand, this mechanism allows to
 delegate processing of untrusted input to less privileged (or disposable)
 AppVMs, thus wise usage of it increases security.
 
+For example, this command will run the `firefox` command in a DisposableVM based
+on `work`:
+
+```
+$ qvm-run --dispvm=work firefox
+```
+
+By contrast, consider this command:
+
+```
+$ qvm-run --dispvm=work --service qubes.StartApp+firefox
+```
+
+This will look for a `firefox.desktop` file in a standard location in a
+DisposableVM based on `work`, then launch the application described by that
+file. The practical difference is that the bare `qvm-run` command uses the
+`qubes.VMShell` service, which allows you to run an arbitrary command with
+arbitrary arguments, essentially providing full control over the target VM. By
+contrast, the `qubes.StartApp` service allows you to run only applications that
+are advertised in `/usr/share/applications` (or other standard locations)
+*without* control over the arguments, so giving a VM access to `qubes.StartApp`
+is much safer. While there isn't much practical difference between the two
+commands above when starting an application from dom0 in Qubes 4.0, there is a
+significant security risk when launching applications from a domU (e.g., from
+a separate GUI domain). This is why `qubes.StartApp` uses our standard `qrexec`
+argument grammar to strictly filter the permissible grammar of the `Exec=` lines
+in `.desktop` files that are passed from untrusted domUs to dom0, thereby
+protecting dom0 from command injection by maliciously-crafted `.desktop` files.
+
 ### Extra keywords available in Qubes 4.0 and later
 
 **This section is about a not-yet-released version, some details may change**

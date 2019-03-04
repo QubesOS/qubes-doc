@@ -5,7 +5,7 @@ permalink: /gsoc/
 redirect_from: /GSoC/
 ---
 
-2018 Google Summer of Code
+2019 Google Summer of Code
 ================
 ## Information for Students
 
@@ -143,30 +143,71 @@ would override all the user changes there). More details:
 
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
 
-### Easy inter-VM networking configuration
+### USB passthrough to Windows qubes
 
-**Project**: Easy inter-VM networking configuration
+**Project**: USB passthrough to Windows qubes
 
-**Brief explanation**: Utility to easily configure selected VMs to be reachable (by network) from other VMs or outside network. Currently such configuration require adding iptables rules in multiple VMs manually. For exposing VM to outside network, it may be good to adopt qrexec-based TCP forwarding ([#2148](https://github.com/QubesOS/qubes-issues/issues/2148)).
+**Brief explanation**: Add ability to use individual USB devices in Windows qubes. Right now the only option to do that, is to assign the whole USB controller (PCI device), which applies to all the devices connected to it. USB passthrough on Qubes is based on USBIP project, with transport over qrexec instead of TCP/IP.
 
 **Expected results**:
 
-- support firewall rules for inter-VM traffic in qubes-firewall - both VM side (qubes-firewall service) and dom0 configuration side (relevant Admin API calls)
-- mechanism for configuring firewall in target VM, especially INPUT iptables chain - currently it is hardcoded to drop new incoming connections
-- convenient tool (or modification to existing tool) for controlling above mechanisms
-- integration the above with existing GUI tools (especially VM settings)
-
-Relevant links:
- - [Qubes networking and firewall documentation](/doc/firewall/)
- - [qubes-firewall service code](https://github.com/QubesOS/qubes-core-agent-linux/blob/master/qubesagent/firewall.py)
+ - Evaluate possible approaches (including flexibility, compatibility and performance), suggested ideas:
+   - use [USBIP for Windows](https://github.com/cezuni/usbip-win) and make it work with qrexec - similar as done for Linux
+   - use qrexec+USBIP in Linux-based stubdomain and plug it into USB emulation in qemu
+ - Choose one approach, write (very simple) design documentation
+ - Write relevant new code (applies mostly for usbip-win case)
+ - Plug the mechanism into Qubes core toolstack ([Devices API](https://dev.qubes-os.org/projects/core-admin/en/latest/qubes-devices.html))
 
 **Knowledge prerequisite**:
 
-- iptables
-- basics of nft
-- python3
+- basic USB architecture knowledge (buses, devices, interfaces, functions)
+- Python and Bash scripting
+- C
+- Windows USB stack and/or qemu USB stack
 
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
+
+### Dedicated Audio qube
+
+**Project**: Dedicated Audio qube
+
+**Brief explanation**: Moving audio subsystem from dom0 to a dedicated AudioVM and/or a preexisting VM (e.g sys-usb with attached usb audio device). This would allow using USB audio devices system-wide, without leaving a USB controller in dom0. [Relevant github issue](https://github.com/QubesOS/qubes-issues/issues/1590).
+
+**Expected results**:
+
+- Make audio virtualization components work with non-dom0 backend (in short: add configuration option for the backend, instead of assuming "dom0")
+- Possibly per-qube setting what should be used as an AudioVM
+- Make other audio-related tools work with the new setup, especially enabling/disabling microphone (`qvm-device mic`) and volume control.
+
+**Knowledge prerequisite**:
+
+- Pulseaudio
+- C
+- Python
+
+**Mentor**: [Marek Marczykowski-Górecki](/team/)
+
+### Qubes as a Vagrant provider
+
+**Project**: Qubes as a Vagrant provider
+
+**Brief explanation**: Currently using Vagrant on Qubes requires finding an image that uses Docker as isolation provider and running Docker in a qube, or downloading the Vagrantfile and manually setting up a qube according to the Vagrantfile. This project aims at simplifying this workflow. Since introduction of Admin API, it's possible for a qube to provision another qube - which is exactly what is needed for Vagrant. [Related discussion](https://groups.google.com/d/msgid/qubes-devel/535299ca-d16a-4a70-8223-a4ac6be4be41%40googlegroups.com)
+
+**Expected results**:
+
+ - Design how Vagrant Qubes provider should look like, including:
+   - [box format](https://www.vagrantup.com/docs/plugins/providers.html#box-format)
+   - method for running commands inside (ssh vs qvm-run)
+ - Write a Vagrant provider able to create/start/stop/etc a VM
+ - Document how to configure and use the provider, including required qrexec policy changes and possibly firewall rules
+ - Write integration tests
+
+**Knowledge prerequisite**:
+
+ - Ruby
+ - Vagrant concepts
+
+**Mentor**: [Wojtek Porczyk](/team/), [Marek Marczykowski-Górecki](/team/)
 
 ### Mechanism for maintaining in-VM configuration
 
@@ -186,7 +227,7 @@ Relevant links:
 - shell and/or python scripting
 - Qubes OS qrexec services
 
-**Mentor**: [Marek Marczykowski-Górecki](/team/), [Wojtek Porczyk](/team/).
+**Mentor**: [Frédéric Pierret](/team/)
 
 ### Wayland support in GUI agent and/or GUI daemon
 
@@ -253,7 +294,7 @@ details: [#1552](https://github.com/QubesOS/qubes-issues/issues/1552),
  - Python and Bash scripting
  - Filesystems and block devices: loop devices, device-mapper, tmpfs, overlayfs, sparse files.
 
-**Mentor**: [Marek Marczykowski-Górecki](/team/)
+**Mentor**: [Frédéric Pierret](/team/)
 
 ### Unikernel-based firewallvm with Qubes firewall settings support
 
@@ -270,32 +311,6 @@ details: [#1552](https://github.com/QubesOS/qubes-issues/issues/1552),
 - Qubes networking model & firewall semantics.
 
 **Mentor**: [Thomas Leonard](mailto:talex5@gmail.com), [Marek Marczykowski-Górecki](/team/)
-
-### Thunderbird, Firefox and Chrome extensions
-
-**Project**: additional Thunderbird, Firefox and Chrome extensions
-
-**Brief explanation**:
-
-* browser/mail: open link in vm
-* browser/mail: open link in dispvm
-* browser: save destination to vm
-* mail: add whitelisted senders option (address-based and signing key-based) [#845](https://github.com/QubesOS/qubes-issues/issues/845)
-
-**Expected results**:
-
- - Extend existing Thunderbird extension to decide on action (where to open/save attachments) based on message sender - recognized as email address, or signing key
- - Add Firefox extension to open links in DisposableVM / selected VM (right-click option and a default action for not-whitelisted URLs/domains)
- - The same for Chrome
- - Add tests for above enhancements
- - Update user documentation
-
-**Knowledge prerequisite**:
-
- - writing Thunderbird/Firefox extensions (XUL, javascript)
- - writing Chrome extensions (javascript)
-
-**Mentor**: Inquire on [qubes-devel][ml-devel].
 
 ### LogVM(s)
 
@@ -326,10 +341,10 @@ immune to altering past entries. See
  - systemd
  - Python/Bash scripting
 
-**Mentor**: [Marek Marczykowski-Górecki](/team/)
+**Mentor**: [Frédéric Pierret](/team/)
 
-### Xen GPU pass-through for Intel integrated GPUs
-**Project**: Xen GPU pass-through for Intel integrated GPUs (largely independent of Qubes)
+### Xen GPU passthrough for Intel integrated GPUs
+**Project**: Xen GPU passthrough for Intel integrated GPUs (largely independent of Qubes)
 
 **Brief explanation**: This project is prerequisite to full GUI domain support,
 where all desktop environment is running in dedicated VM, isolated from
@@ -415,6 +430,30 @@ details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
 
 **Mentor**: [Rafał Wojdyła](/team/)
 
+### Unattended Windows installation
+
+**Project**: Unattended Windows installation
+
+**Brief explanation**: Simplify Windows usage by providing a tool that perform unattended installation given required input data (installation image, license key, user name, etc). Similar feature is already supported in other virtualization solutions, including VMWare Workstation and VirtualBox. [Related github issue](https://github.com/QubesOS/qubes-issues/issues/4688).
+
+**Expected results**:
+
+ - A template for `autounattended.xml` file for Windows installer - the template should have placeholders for settings that need to be provided by the user.
+ - A tool for generating actual `autounattended.xml` file based on the template and user settings.
+ - A tool for launching Windows installation, given installation image and `autounattended.xml` file (can be the same as in the above point).
+ - (Optional) Unattended installation should also include Qubes Windows Tools.
+ - (Optional) A tool should be able to use Windows license embedded in ACPI tables - [related discussion](https://groups.google.com/d/msgid/qubes-devel/0b7fabae-f843-e7ce-40cf-193326cecdb0%40zrubi.hu)
+ - User documentation
+ - Automated tests (unit tests, integration tests)
+
+**Knowledge prerequisite**:
+
+ - Python scripting
+ - Linux administration, including handling loop devices, partition tables, filesystems etc
+ - For optional features, C language and x86 architecture (ACPI tables)
+
+**Mentor**: [Rafał Wojdyła](/team/), [Marek Marczykowski-Górecki](/team/)
+
 ### GNOME support in dom0 / GUI VM
 
 **Project**: GNOME support in dom0
@@ -449,28 +488,28 @@ details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
  - C language (patching metacity)
  - Probably also javascript - for modifying GNOME shell extensions
 
-**Mentor**: [Marek Marczykowski-Górecki](/team/)
+**Mentor**: [Frédéric Pierret](/team/), [Marek Marczykowski-Górecki](/team/)
 
 ### Generalize the Qubes PDF Converter to other types of files
 
 **Project**: Qubes Converters
 
-**Brief explanation**: One of the pioneering ideas of Qubes is to use disposable virtual machines to convert untrustworthy files (such as documents given to journalists by unknown and potentially malicious whistleblowers) into trusthworhty files.  See [Joanna's blog on the Qubes PDF Convert](http://theinvisiblethings.blogspot.co.uk/2013/02/converting-untrusted-pdfs-into-trusted.html) for details of the idea.  Joanna has implemented a prototype for PDF documents.  The goal of this project would be to generalize beyond the simple prototype to accommodate a wide variety of file formats, including Word documents, audio files, video files, spreadsheets, and so on.  The converters should prioritise safety over faithful conversion.  For example the Qubes PDF converter typically leads to lower quality PDFs (e.g. cut and paste is no longer possible), because this makes the conversion process safer.
+**Brief explanation**: One of the pioneering ideas of Qubes is to use disposable virtual machines to convert untrustworthy files (such as documents given to journalists by unknown and potentially malicious whistleblowers) into trustworthy files.  See [Joanna's blog on the Qubes PDF Convert](http://theinvisiblethings.blogspot.co.uk/2013/02/converting-untrusted-pdfs-into-trusted.html) for details of the idea.  Joanna has implemented a prototype for PDF documents.  The goal of this project would be to generalize beyond the simple prototype to accommodate a wide variety of file formats, including Word documents, audio files, video files, spreadsheets, and so on.  The converters should prioritise safety over faithful conversion.  For example the Qubes PDF converter typically leads to lower quality PDFs (e.g. cut and paste is no longer possible), because this makes the conversion process safer.
 
 **Expected results**: We expect that in the timeframe, it will be possible to implement many converters for many file formats.  However, if any unexpected difficulties arise, we would prioritise a small number of safe and high quality converters over a large number of unsafe or unuseful converters.
 
-**Knowledge prerequisite**: Most of the coding will probably be implemented as shell scripts to interface with pre-existing converts (such as ImageMagick in the Qubes PDF converter).  However, shell scripts are not safe for processing untrusted data, so any extra processing will need to be implemented in another language -- probably Python.
+**Knowledge prerequisite**: Most of the coding will probably be implemented as shell scripts to interface with pre-existing converters (such as ImageMagick in the Qubes PDF converter).  However, shell scripts are not safe for processing untrusted data, so any extra processing will need to be implemented in another language -- probably Python.
 
 **Mentors**: Andrew Clausen and Jean-Philippe Ouellet
 
 ### Mitigate focus-stealing attacks
 **Project**: Mitigate focus-stealing attacks
 
-**Brief explanation**: [Focus stealing attacks](https://en.wikipedia.org/wiki/Focus_stealing) have long been an issue in Qubes OS. The Qubes community has long punted the issue due to having higher priority things to work on, and it being viewed as the responsability of the window manager, but nevertheless it remains a serious issue, and an *effective* mitigation would be most welcome. Any student wishing to work on this would need to engage the community in a discussion about the effectiveness of their proposed earlier rather than later. [#1166](https://github.com/QubesOS/qubes-issues/issues/1166)
+**Brief explanation**: [Focus stealing attacks](https://en.wikipedia.org/wiki/Focus_stealing) have long been an issue in Qubes OS. The Qubes community has long punted the issue due to having higher priority things to work on, and it being viewed as the responsibility of the window manager, but nevertheless it remains a serious issue, and an *effective* mitigation would be most welcome. Any student wishing to work on this would need to engage the community in a discussion about the effectiveness of their proposed solution earlier rather than later. [#1166](https://github.com/QubesOS/qubes-issues/issues/1166)
 
 **Expected results**: Working robust focus stealing prevention for Xfce (currently the default Qubes desktop environment) or Gnome (the targeted future Qubes desktop environment).
 
-**Knoledge prerequisite**: X APIs, Qubes GUI protocol, familiarity with the targeted window manager.
+**Knowledge prerequisite**: X APIs, Qubes GUI protocol, familiarity with the targeted window manager.
 
 **Mentor**: Inquire on [qubes-devel][ml-devel].
 
@@ -487,8 +526,68 @@ for more information and qubes-specific background.
 
 **Expected results**: Significant progress towards making the Qubes build process deterministic. This would likely involve cooperation with and hacking on several upstream build tools to eliminate sources of variability.
 
-**Knoledge prerequisite**: qubes-builder [[1]](/doc/qubes-builder/) [[2]](/doc/qubes-builder-details/) [[3]](https://github.com/QubesOS/qubes-builder/tree/master/doc), and efficient at introspecting complex systems: comfortable with tracing and debugging tools, ability to quickly identify and locate issues within a large codebase (upstream build tools), etc.
+**Knowledge prerequisite**: qubes-builder [[1]](/doc/qubes-builder/) [[2]](/doc/qubes-builder-details/) [[3]](https://github.com/QubesOS/qubes-builder/tree/master/doc), and efficient at introspecting complex systems: comfortable with tracing and debugging tools, ability to quickly identify and locate issues within a large codebase (upstream build tools), etc.
 
+**Mentor**: [Marek Marczykowski-Górecki](/team/)
+
+### Porting Qubes to ARM/aarch64
+
+**Project**: Porting Qubes to ARM/aarch64
+
+**Brief explanation**:
+
+Qubes currently only supports the x86_64 CPU architecture. Xen currently has additional support for ARM32/ARM64 processors, however work needs to be done to integrate this into the Qubes build process, as well as work in integrating this with the Qubes toolstack and security model. This may also be beneficial in simplifying the process of porting to other architectures.
+
+Some related discussion:
+
+ - [#4318](https://github.com/QubesOS/qubes-issues/issues/4318) on porting to ppc64.
+ - [#3894](https://github.com/QubesOS/qubes-issues/issues/3894) on porting to L4 microkernel.
+
+**Expected results**:
+
+ - Add cross-compilation support to qubes-builder and related components.
+ - Make aarch64 specific adjustments to Qubes toolstacks/manager (including passthrough of devices from device tree to guest domains).
+ - Aarch64 specific integration and unit tests.
+ - Production of generic u-boot or uefi capable image/iso for target hardware.
+
+**Knowledge prerequisite**:
+
+ - Libvirt and Qubes toolstacks (C and python languages).
+ - Xen debugging.
+ - General ARM architecture knowledge.
+ 
+**Mentor**: [Marek Marczykowski-Górecki](/team/)
+
+### Porting Qubes to POWER9/PPC64
+
+**Project**: Porting Qubes to POWER9/ppc64
+
+**Brief explanation**:
+
+Qubes currently supports the x86_64 CPU architecture. PowerPC is desirable for security purposes as it is the only architecture where one can get performant hardware with entirely open source firmware. Xen has **deprecated** support for Power9/PPC64 processors. Here are two directions to tackle this project from:
+
+- Port Qubes to KVM then work on ppc64 specifics
+  - Implement some missing functionality in KVM then implement KVM support in the Qubes Hypervisor Abstraction Layer and build process. Improving the HAL will also be beneficial for simplifying the process of porting to further architectures and hypervisors.
+
+- Port Xen to ppc64 then work on Qubes specifics
+  - For more information on porting Xen see [this thread](https://markmail.org/message/vuk7atnyqfq52epp).
+
+More information and further links can be found in the related issue:
+[#4318](https://github.com/QubesOS/qubes-issues/issues/4318).
+
+**Expected results**:
+
+ - Add cross-compilation support to qubes-builder and related components.
+ - Make ppc64 specific adjustments to Qubes toolstacks/manager (including passthrough of devices from device tree to guest domains).
+ - ppc64 specific integration and unit tests.
+ - Production of generic u-boot or uefi capable image/iso for target hardware.
+
+**Knowledge prerequisite**:
+
+ - Libvirt and Qubes toolstacks (C and python languages).
+ - KVM or XEN internals
+ - General ppc64 architecture knowledge.
+ 
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
 
 ### Android development in Qubes

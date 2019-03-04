@@ -175,7 +175,6 @@ So, if feature X isn't enabled, it's most likely for one of three reasons:
 3. Our platform supports it, but we're not aware that we can enable it or have forgotten to do so.
    (If it seems like this is the case, let us know!)
 
-----------
 
 ## Users
 
@@ -263,7 +262,7 @@ Now, how does this apply to Qubes OS?
 The above attack requires access to a PCI device, which means that it can be performed only from NetVM / UsbVM, so someone must first break into one of those VMs. 
 But this isn't that hard, because there is a lot of complex code handling network traffic. 
 Recent bugs include DHCP client, DNS client, etc. 
-Most attacks on NetVM / UsbVM (but not all!) require being somewhat close to the target system - for example connected to the same WiFi network, or in the case of a UsbVM, having physical acccess to a USB port.
+Most attacks on NetVM / UsbVM (but not all!) require being somewhat close to the target system - for example connected to the same WiFi network, or in the case of a UsbVM, having physical access to a USB port.
 
 ### Can I use AMD-v instead of VT-x?
 
@@ -513,8 +512,6 @@ Please don't ask for your favorite program to be installed by default or for som
 This is an incredibly selfish attitude that demonstrates a complete lack of consideration for the thousands of other Qubes users who don't happen to share your preferences.
 
 
-----------
-
 ## Developers
 
 ### Are there restrictions on the software that the Qubes developers are willing to use?
@@ -582,3 +579,15 @@ Arguably secure boot reliance on UEFI integrity is not the best design.
 The relevant binaries (shim.efi, xen.efi, kernel / initramfs) are not signed by the Qubes Team and secure boot has not been tested.
 Intel TXT (used in [Anti Evil Maid](/doc/anti-evil-maid/)) at least tries to avoid or limit trust in BIOS.
 See the Heads project [[1]](https://trmm.net/Heads) [[2]](http://osresearch.net/) for a better-designed non-UEFI-based secure boot scheme with very good support for Qubes.
+
+### What is the canonical way to detect Qubes VM?
+
+Check `/usr/share/qubes/marker-vm` file existence. Additionally, its last line contains Qubes release version (`3.2`, `4.0` etc).
+The file was introduced after initial Qubes 3.2 and 4.0 release. If you need to support not-fully-updated systems, check `/usr/bin/qrexec-client-vm` existence.
+
+### Is there a way to automate tasks for continuous integration or DevOps?
+
+Yes, Qubes natively supports automation via [Salt (SaltStack)](/doc/salt/).
+There is also the unofficial [ansible-qubes toolkit](https://github.com/Rudd-O/ansible-qubes).
+(**Warning:** Since this is an external project that has not been reviewed or endorsed by the Qubes team, [allowing it to manage dom0 may be a security risk](/doc/security-guidelines/#dom0-precautions).)
+

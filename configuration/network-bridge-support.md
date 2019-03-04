@@ -47,7 +47,7 @@ An option is available in the AppVM Settings to enable setting the NetVM in brid
 NetVM patch (Qubes R2B2)
 ------------------------
 
-You need to modify manually the NetVM iptable script inside the NetVM. The reason is that by default the NetVM only accepts traffic coming from network interfaces called vif\* (in our case, we will use an additional interface called bridge0. The second reason is that all trafic is NATed by default. In our case, we want to forward traffic from the bridge interface without modifying it, while NATing traffic coming from vif\* interfaces.
+You need to modify manually the NetVM iptable script inside the NetVM. The reason is that by default the NetVM only accepts traffic coming from network interfaces called vif\* (in our case, we will use an additional interface called bridge0. The second reason is that all traffic is NATed by default. In our case, we want to forward traffic from the bridge interface without modifying it, while NATing traffic coming from vif\* interfaces.
 
 Modify manually the Template you use for your NetVM (not the NetVM itself). This is by default fedora-x86\_64. Edit the file /etc/sysconfig/iptables. You need to modify two parts of the file.
 

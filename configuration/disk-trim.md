@@ -9,7 +9,7 @@ redirect_from:
 ---
 
 Disk Trim
-----------
+=========
 
 Disk trimming is the procedure by which the operating system informs the underlying storage device of which storage blocks are no longer in use.
 It does this by issuing an `ATA_TRIM` command for the block. This is also known as a `discard`.
