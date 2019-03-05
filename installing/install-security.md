@@ -83,6 +83,6 @@ switch might be the option.
 [verify]: /security/verifying-signatures/
 [classic problem]: https://www.ece.cmu.edu/~ganger/712.fall02/papers/p761-thompson.pdf
 [solutions]: https://www.dwheeler.com/trusting-trust/
-[USB qube]: /doc/usb-qubes-howto/#creating-and-using-a-usb-qube
+[USB qube]: /doc/usb-qube-howto/#creating-and-using-a-usb-qube
 [BadUSB]: https://srlabs.de/badusb/
 

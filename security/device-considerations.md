@@ -61,7 +61,7 @@ Support for [two factor authentication][qubes u2f proxy] was recently added, tho
 
 [USB security]:https://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html "invisiblethings blog on USB security"
 [rubber duck]: https://shop.hak5.org/products/usb-rubber-ducky-deluxe
-[USB qube]: /doc/usb-qube-how-to/
+[USB qube]: /doc/usb-qube-howto/
 [YubiKey]: /doc/YubiKey/
 [qubes u2f proxy]: https://www.qubes-os.org/news/2018/09/11/qubes-u2f-proxy/
 [4661]: https://github.com/QubesOS/qubes-issues/issues/4661
