@@ -1,7 +1,7 @@
 ---
 layout: doc
 title:  USB Qube HowTo
-permalink: /doc/usb-qube-how-to/
+permalink: /doc/usb-qube-howto/
 ---
 
 USB Qube HowTo
@@ -198,9 +198,9 @@ Removing a USB qube
 [PCI Devices]: /doc/pci-devices-in-qubes-R4.0/
 [usb-controller]: /doc/usb-devices/#finding-the-right-usb-controller
 [faq]: /faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot
-[Security Warning about USB Input Devices]: /doc/device-considerations/#security-warning-on-usb-input-device
+[Security Warning about USB Input Devices]: /doc/device-considerations/#security-warning-on-usb-input-devices
 [manual setup]: #manual-setup
-[install dom0 updates]: /doc/software-update-dom0/#how-to-update-software-in-dom0
+[install dom0 updates]: /doc/software-update-dom0/#how-to-update-dom0
 [hiding USB controllers from dom0]: #how-to-hide-all-usb-controllers-from-dom0
 [AEM]: /doc/anti-evil-maid/
 [create a USB qube]: #creating-and-using-a-usb-qube

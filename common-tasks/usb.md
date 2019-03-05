@@ -198,6 +198,6 @@ Additional Reading:
 [1082]: https://github.com/QubesOS/qubes-issues/issues/1082
 [usb-challenges]: https://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html
 [YubiKey]: /doc/YubiKey/
-[Creating a USB qube]: /doc/usb-qube-how-to/
-[Using a USB keyboard]: /doc/usb-qube-how-to/#enable-a-usb-keyboard-for-login
+[Creating a USB qube]: /doc/usb-qube-howto/
+[Using a USB keyboard]: /doc/usb-qube-howto/#enable-a-usb-keyboard-for-login
 [qubes-usb-proxy]: https://github.com/QubesOS/qubes-app-linux-usb-proxy
