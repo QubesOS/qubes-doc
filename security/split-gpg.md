@@ -107,7 +107,7 @@ AppVM is named `work-gpg`, but of course it might have any other name.
 
 ### Setting up the GPG backend domain ###
 
-Make sure the gpg is installed there and there are some private keys in the
+Make sure that gpg is installed there, and there are some private keys in the
 keyring, e.g.:
 
     [user@work-gpg ~]$ gpg -K
@@ -118,12 +118,18 @@ keyring, e.g.:
     ssb   4096R/30498E2A 2012-11-15
     (...)
 
-This is pretty much all that is required. However one might also want to modify
-the default timeout which tells the backend for how long the user's approval
-for key access should be valid (default 5 minutes). This is adjustable via
-`QUBES_GPG_AUTOACCEPT` variable. One can override it e.g. in `~/.bash_profile`:
+This is pretty much all that is required. 
+However, you might want to modify the default timeout: this tells the backend for how long the user's approval for key access should be valid. 
+(The default is 5 minutes.) 
+You can change this via the `QUBES_GPG_AUTOACCEPT` variable. 
+You can override it e.g. in `~/.profile`:
 
-    [user@work-gpg ~]$ echo "export QUBES_GPG_AUTOACCEPT=86400" >> ~/.bash_profile
+    [user@work-gpg ~]$ echo "export QUBES_GPG_AUTOACCEPT=86400" >> ~/.profile
+    
+    
+Please note that at one time, this parameter was set in ~/.bash_profile.
+This will no longer work.
+If you have the parameter set in ~/.bash_profile you *must* update your configuration.
 
 Please be aware of the caveat regarding passphrase-protected keys in the
 [Current limitations][current-limitations] section.
