@@ -102,18 +102,20 @@ default Qubes installation):
 
 Network service qubes
 --------------------------------------
-Qubes does not support running any networking services (e.g. VPN, local DNS server, IPS, ...) directly in a qube that is used to run the Qubes firewall service (usually sys-firewall) for good reasons. In particular if one wants to ensure proper functioning of the Qubes firewall one should not not tinker with iptables or nftables rules in such qubes.
+Qubes does not support running any networking services (e.g. VPN, local DNS server, IPS, ...) directly in a qube that is used to run the Qubes firewall service (usually sys-firewall) for good reasons.
+In particular, if one wants to ensure proper functioning of the Qubes firewall, one should not tinker with iptables or nftables rules in such qubes.
 
 Instead, one should deploy a network infrastructure such as
 ~~~
 sys-net <--> sys-firewall-1 <--> network service qube <--> sys-firewall-2 <--> [client qubes]
 ~~~
-Thereby sys-firewall-1 is only needed if one has client qubes connected there as well or wants to manage the traffic of the local network service qube. The sys-firewall-2 proxy ensures that:
+Thereby sys-firewall-1 is only needed if one has client qubes connected there as well or wants to manage the traffic of the local network service qube.
+The sys-firewall-2 proxy ensures that:
 1. Firewall changes done in the network service qube cannot render the Qubes firewall ineffective.
-1. Changes to the Qubes firewall by the Qubes maintainers cannot lead to unwanted information leakage in combination with user rules deployed in the network service qube.
-1. A compromise of the network service qube does not compromise the Qubes firewall.
+2. Changes to the Qubes firewall by the Qubes maintainers cannot lead to unwanted information leakage in combination with user rules deployed in the network service qube.
+3. A compromise of the network service qube does not compromise the Qubes firewall.
 
-For the VPN service please also have a look at the [VPN documentation](/doc/vpn).
+For the VPN service please also look at the [VPN documentation](/doc/vpn).
 
 Enabling networking between two qubes
 --------------------------------------
