@@ -25,26 +25,26 @@ There are currently four categories of devices Qubes understands:
 
 Microphones, block devices and USB devices can be attached with the GUI-tool. PCI devices can be attached using the Qube Settings, but require a VM reboot.
 
-#General Qubes Device Widget Behavior And Handling
+# General Qubes Device Widget Behavior And Handling
 When clicking on the tray icon (looking similar to this: ![SD card and thumbdrive][device manager icon] several device-classes separated by lines are displayed as tooltip. Block devices are displayed on top, microphones one below and USB-devices at the bottom.
 
 On most laptops, integrated hardware such as cameras and fingerprint-readers are implemented as USB-devices and can be found here.
 
-##Attaching Using The Widget
+## Attaching Using The Widget
 Click the tray icon. Hover on a device you want to attach to a VM. A list of running VMs (except dom0) appears. Click on one and your device will be attached!
 
-##Detaching Using The Widget
+## Detaching Using The Widget
 To detach a device, click the Qubes Devices Widget icon again. Attached devices are displayed in bold. Hover the one you want to detach. A list of VMs appears, one showing the eject symbol: ![eject icon]
 
-##Attaching a Device to Several VMs
+## Attaching a Device to Several VMs
 Only `mic` should be attached to more than one running VM. You may *assign* a device to more than one VM (using the [`--persistent`][#attaching-devices] option), however, only one of them can be started at the same time.
 
 But be careful: There is a [bug in `qvm-device block` or `qvm-block`][i4692] which will allow you to *attach* a block device to two running VMs. Don't do that!
 
-#General `qvm-device` Command Line Tool Behavior
+# General `qvm-device` Command Line Tool Behavior
 All devices, including PCI-devices, may be attached from the commandline using the `qvm-device`-tools.
 
-##Device Classes
+## Device Classes
 `qvm-device` expects DEVICE_CLASS as first argument. DEVICE_CLASS can be one of
 
  - `pci`
@@ -52,7 +52,7 @@ All devices, including PCI-devices, may be attached from the commandline using t
  - `block`
  - `mic`
 
-##Actions
+## Actions
 `qvm-device` supports three actions:
 
  - `list` (ls, l) - list all devices of DEVICE_CLASS
@@ -60,7 +60,7 @@ All devices, including PCI-devices, may be attached from the commandline using t
  - `detach` (dt, d) - detach a specific device of DEVICE_CLASS
 
 
-##Global Options
+## Global Options
 These three options are always available:
 
 - `--help`, `-h` - show help message and exit
@@ -73,10 +73,10 @@ A full command consists of one DEVICE_CLASS and one action. If no action is give
 **SYNOPSIS**:
 `qvm-device DEVICE_CLASS {action} [action-specific arguments] [options]`
 
-##Actions
+## Actions
 Actions are applicable to every DEVICE_CLASS and expose some additional options.
 
-###Listing Devices
+### Listing Devices
 The `list` action lists known devices in the system. `list` accepts VM-names to narrow down listed devices. Devices available in, as well as attached to the named VMs will be listed.
 
 `list` accepts two options:
@@ -87,7 +87,7 @@ The `list` action lists known devices in the system. `list` accepts VM-names to 
 **SYNOPSIS**
 `qvm-device DEVICE_CLASS {list|ls|l} [--all [--exclude VM [VM [...]]] | VM [VM [...]]]`
 
-###Attaching Devices
+### Attaching Devices
 The `attach` action assigns an exposed device to a VM. This makes the device available in the VM it's attached to. Required argument are targetVM and sourceVM:deviceID. (sourceVM:deviceID can be determined from `list` output)
 
 `attach` accepts two options:
@@ -98,7 +98,7 @@ The `attach` action assigns an exposed device to a VM. This makes the device ava
 **SYNOPSIS**
 `qvm-device DEVICE_CLASS {attach|at|a} targetVM sourceVM:deviceID [options]`
 
-###Detaching Devices
+### Detaching Devices
 The `detach` action removes an assigned device from a targetVM. It won't be available afterwards anymore. Though it tries to do so gracefully, beware that data-connections might be broken unexpectedly, so close any transaction before detaching a device!
 
 If no specific `sourceVM:deviceID` combination is given, *all devices of that DEVICE_CLASS will be detached.*

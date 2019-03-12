@@ -20,7 +20,7 @@ Examples for valid cases for attaching full USB-devices:
 
 (If you are thinking to use a two-factor-authentication device, [there is an app for that][qubes u2f proxy]. But it has some [issues][4661].)
 
-##Using The GUI to Attach a Drive
+## Using The GUI to Attach a Drive
 (**Note:** In the present context, the term "USB drive" denotes any [USB mass storage device][mass-storage].
 In addition to smaller flash memory sticks, this includes things like USB external hard drives.)
 
@@ -40,7 +40,7 @@ Click on one and your USB drive will be attached!
 However, it often means the AppVM won't detect the new partition and you will need to manually mount it inside the AppVM.
 See below for more detailed steps.
 
-##Using The GUI to Attach a USB-Device
+## Using The GUI to Attach a USB-Device
 Click the device-manager-icon: ![device manager icon]  
 A list of available devices appears. USB-devices have a USB-icon to their right: ![usb icon]
 
@@ -54,7 +54,7 @@ Hover on the attached device to display a list of running VMs.
 The one to which your device is connected will have an eject button ![eject icon] next to it.
 Click that and your device will be detached.
 
-#Block Devices in VMs
+# Block Devices in VMs
 If not specified otherwise, block devices will show up as `/dev/xvdi*` in a linux VM, where `*` may be the partition-number. If a block device isn't automatically mounted after attaching, open a terminal in the VM and execute:
 
     cd ~
@@ -70,7 +70,7 @@ If several different block-devices are attached to a single VM, the last letter 
 
 To specify this device node name, you need to use the command line tool and its [`frontend-dev`-option][frontend-dev].
 
-##Attaching a Drive Using The Command-Line
+## Attaching a Drive Using The Command-Line
 The command-line tool you may use to mount whole USB drives or their partitions is `qvm-block`, a shortcut for `qvm-device block`.
 
 `qvm-block` won't recognise your device by any given name, but rather the device-node the sourceVM assigns. So make sure you have the drive available in the sourceVM, then list the available block devices (step 1.) to find the corresponding device-node.
@@ -117,7 +117,7 @@ In case of a USB-drive, make sure it's attached to your computer. If you don't s
 
  6.  You may now remove the device or attach it to another qube.
 
-##Attaching a Full USB-Device Using The Command-Line
+## Attaching a Full USB-Device Using The Command-Line
 In dom0, you can use `qvm-usb` from the commandline to attach and detach devices.
 
 Listing available USB devices:
@@ -149,12 +149,12 @@ When you finish, detach the device.
     sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
     sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
 
-#Additional Attach Options
+# Additional Attach Options
 Attaching a block device through the command line offers additional customisation options, specifiable via the `--option`/`-o` option. (Yes, confusing wording, there's an [issue for that](https://github.com/QubesOS/qubes-issues/issues/4530).)
 
 Note: `qvm-usb` does currently *not* support any additional options.
 
-##frontend-dev
+## frontend-dev
 This option allows you to specify the name of the device node made available in the targetVM. This defaults to `xvdi` or, if already occupied, the first available device node name in alphabetical order. (The next one tried will be `xvdj`, then `xvdk`, and so on ...)
 
 usage example:
@@ -163,7 +163,7 @@ usage example:
 
 This command will attach the partition `sda1` to `work` as `/dev/xvdz`.
 
-##read-only
+## read-only
 Attach device in read-only mode. Protects the block device in case you don't trust the targetVM.
 
 If the device is a read-only device, this option is forced true.
@@ -178,7 +178,7 @@ There exists a shortcut to set read-only `true`, `--ro`:
 
 The two commands are equivalent.
 
-##devtype
+## devtype
 Usually, a block device is attached as disk. In case you need to attach a block device as cdrom, this option allows that.
 
 usage example:
@@ -187,8 +187,8 @@ usage example:
 
 This option accepts `cdrom` and `disk`, default is `disk`.
 
-#Miscellaneous/Customisation
-##Recovering From Premature Block-Device Destruction
+# Miscellaneous/Customisation
+## Recovering From Premature Block-Device Destruction
 If the you fail to detach the drive before it's destroyed in the sourceVM (e.g. by physically detaching the thumbdrive), [there will be problems][premature removal].
 
 To recover from this error state, in dom0 run
@@ -199,7 +199,7 @@ To recover from this error state, in dom0 run
 
 However, if the block device originated in dom0, you will have to refer to the [old way][detach dom0 device].
 
-##Attaching a File
+## Attaching a File
 To attach a file as block device to another qube, first turn it into a loopback device inside the sourceVM.
 
  1. In the linux sourceVM run
@@ -226,10 +226,10 @@ To attach a file as block device to another qube, first turn it into a loopback 
 
         sudo losetup -d /dev/loop0
 
-##Creating And Using a USB qube
+## Creating And Using a USB qube
 If you've selected to install a usb-qube during system installation, everything is already set up for you in `sys-usb`. If you've later decided to create a usb-qube, please follow [this guide][USB-qube howto].
 
-##Installation Of `qubes-usb-proxy`
+## Installation Of `qubes-usb-proxy`
 To use this feature, the[`qubes-usb-proxy`][qubes-usb-proxy] package needs to be installed in the templates used for the USB qube and qubes you want to connect USB devices to.
 This section exists for reference or in case something broke and you need to reinstall `qubes-usb-proxy`. Under normal conditions, `qubes-usb-proxy` should already be installed and good to go.
 
@@ -241,13 +241,13 @@ Note: you cannot pass through devices from dom0 (in other words: a [USB qube][US
 - Debian/Ubuntu: `sudo apt-get install qubes-usb-proxy`
 
 
-##Using USB Keyboards And Other Input Devices
+## Using USB Keyboards And Other Input Devices
 **Warning:** especially keyboards need to be accepted by default when using them to login! Please make sure you carefully read and understood the **[security considerations]** before continuing!
 
 Mouse and keyboard setup are part of [setting up a USB-qube][keyboard setup].
 
 
-##Finding The Right USB Controller
+## Finding The Right USB Controller
 
 Some USB devices are not compatible with the USB pass-through method Qubes employs.
 In situations like these, you can try to pass through the entire USB controller to a qube as PCI device.
