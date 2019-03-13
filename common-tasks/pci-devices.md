@@ -138,7 +138,7 @@ or
 [USB]:/doc/usb-devices-in-qubes-R4.0/
 [appmenu]: /attachment/wiki/Devices/qubes-appmenu-select.png
 [domain manager icon]: /attachment/wiki/Devices/qubes-logo-icon.png
-[qvm-device]: /doc/device-handling-in-qubes-R4.0/#general-qubes-device-widget-behavior-and-handling
+[qvm-device]: /doc/device-handling/#general-qubes-device-widget-behavior-and-handling
 [side channel attacks]: https://en.wikipedia.org/wiki/Side-channel_attack
 [ml1]: https://groups.google.com/group/qubes-devel/browse_thread/thread/631c4a3a9d1186e3
 [ml2]: https://groups.google.com/forum/#!topic/qubes-users/Fs94QAc3vQI
