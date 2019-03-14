@@ -28,7 +28,7 @@ While PCI device can only be used by one powered on VM at a time, it *is* possib
 This means that you can use the device in one VM, shut that VM down, start up a different VM (to which the same device is now attached), then use the device in that VM.
 This can be useful if, for example, you have only one USB controller, but you have multiple security domains which all require the use of different USB devices.
 
-# Attaching Devices Using the GUI
+# Attaching Devices Using the GUI #
 The qube settings for a VM offers the "Devices"-tab. There you can attach PCI-devices to a qube.
 
  1. To reach the settings of any qube either
@@ -42,7 +42,7 @@ The qube settings for a VM offers the "Devices"-tab. There you can attach PCI-de
  4. You're done. If everything worked out, once the qube boots (or reboots if it's running) it will start with the pci device attached.
  5. In case it doesn't work out, first try disabling memory-balancing in the settings ("Advanced" tab). If that doesn't help, read on to learn how to disable the strict reset requirement!
 
-# `qvm-pci` Usage
+# `qvm-pci` Usage #
 The `qvm-pci` tool allows PCI attachment and detachment. It's a shortcut for [`qvm-device pci`][qvm-device].
 
 To figure out what device to attach, first list the available PCI devices by running (as user) in dom0:
@@ -62,9 +62,9 @@ For example, if `00_1a.0` is the BDF of the device you want to attach to the "wo
     qvm-pci attach work dom0:00_1a.0 --persistent
 
 
-# Possible Issues
+# Possible Issues #
 
-## DMA Buffer Size
+## DMA Buffer Size ##
 
 VMs with attached PCI devices in Qubes have allocated a small buffer for DMA operations (called swiotlb).
 By default it is 2MB, but some devices need a larger buffer.
@@ -77,7 +77,7 @@ To change this allocation, edit VM's kernel parameters (this is expressed in 512
 
 This is [known to be needed][ml1] for the Realtek RTL8111DL Gigabit Ethernet Controller.
 
-## PCI Passthrough Issues
+## PCI Passthrough Issues ##
 
 Sometimes the PCI arbitrator is too strict. 
 There is a way to enable permissive mode for it.
@@ -87,19 +87,19 @@ At other times, you may instead need to disable the FLR requirement on a device.
 Both can be achieved during attachment with `qvm-pci` as described below.
 
 
-# Additional Attach Options
+# Additional Attach Options #
 Attaching a PCI device through the commandline offers additional options, specifiable via the `--option`/`-o` option. (Yes, confusing wording, there's an [issue for that](https://github.com/QubesOS/qubes-issues/issues/4530).)
 
 `qvm-pci` exposes two additional options. Both are intended to fix device or driver specific issues, but both come with [heavy security implications][security considerations]! **Make sure you understand them before continuing!**
 
-## no-strict-reset
+## no-strict-reset ##
 Do not require PCI device to be reset before attaching it to another VM. This may leak usage data even without malicious intent!
 
 usage example:
 
     qvm-pci a work dom0:00_1a.0 --persistent -o no-strict-reset=true
 
-## permissive
+## permissive ##
 Allow write access to full PCI config space instead of whitelisted registers. This increases attack surface and possibility of [side channel attacks].
 
 usage example:
@@ -108,7 +108,7 @@ usage example:
 
 
 
-# Bringing PCI Devices Back to dom0
+# Bringing PCI Devices Back to dom0 #
 By default, when a device is detached from a VM (or when a VM with an attached PCI device is shut down), the device is *not* automatically attached back to dom0.
 
 This is an intended feature.
@@ -134,7 +134,7 @@ or
 
 [device handling in qubes]: /doc/device-handling/
 [security considerations]: /doc/device-considerations/#pci-security
-[block]:/doc/usb-devices-in-qubes-R4.0/
+[block]:/doc/block-devices-in-qubes-R4.0/
 [USB]:/doc/usb-devices-in-qubes-R4.0/
 [appmenu]: /attachment/wiki/Devices/qubes-appmenu-select.png
 [domain manager icon]: /attachment/wiki/Devices/qubes-logo-icon.png

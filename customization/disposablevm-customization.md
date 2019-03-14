@@ -182,7 +182,7 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 
        [user@dom0 ~]$ qvm-pci
 
-6. Attach the network PCI device(s) to `disp-sys-net`: Finding and assigning PCI devices can be found [here](/doc/assigning-devices/)
+6. Attach the network PCI device(s) to `disp-sys-net`: Finding and assigning PCI devices can be found [here](/doc/pci-devices/)
 
        [user@dom0 ~]$ qvm-pci attach --persistent disp-sys-net <backend>:<bdf>
 
