@@ -18,7 +18,7 @@ Attaching a full block device (e.g. `sda`) again offers more attack surface than
 PCI Security
 ------------
 Attaching a PCI device to a qube has serious security implications. It exposes the device driver running in the qube to an external device (and sourceVM, which contains the device - e.g. `sys-usb`). In many cases a malicious device can choose what driver will be loaded (for example by manipulating device metadata like vendor and product identifiers) - even if the intended driver is sufficiently secure, the device may try to attack a different, less secure driver.
-Furthermore that VM has full controll of the device and may be able to exploit bugs or malicious implementation of the hardware, as well as plain security problems the hardware may pose. (For example, if you attach a USB controller, all the security implications of USB passthrough apply as well.)
+Furthermore that VM has full control of the device and may be able to exploit bugs or malicious implementation of the hardware, as well as plain security problems the hardware may pose. (For example, if you attach a USB controller, all the security implications of USB passthrough apply as well.)
 
 By default, Qubes requires any PCI device to be resettable from the outside (i.e. via the hypervisor), which completely reinitialises the device. This ensures that any device that was attached to a compromised VM, even if that VM was able to use bugs in the PCI device to inject malicious code, can be trusted again. (Or at least as trusted as it was when Qubes booted.)
 

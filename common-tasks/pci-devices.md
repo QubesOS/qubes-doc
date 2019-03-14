@@ -21,7 +21,7 @@ Unlike other devices ([USB], [block], mic), PCI devices need to be attached on V
 The Qubes installer attaches all network class controllers to `sys-net` and all USB controllers to `sys-usb` by default, if you chose to create the network and USB qube during install.
 While this covers most use cases, there are some occasions when you may want to manually attach one NIC to `sys-net` and another to a custom NetVM, or have some other type of PCI controller you want to manually attach.
 
-Some devices expose multiple functions with distinct BDF-numbers. Limits imposed by the PC and VT-d architectures may require all functions belonging to the same device to be attached to the same VM. This requirement can be dropped with the `no-strict-reset` option during attachment, bearing in mind the aformentioned [security considerations].
+Some devices expose multiple functions with distinct BDF-numbers. Limits imposed by the PC and VT-d architectures may require all functions belonging to the same device to be attached to the same VM. This requirement can be dropped with the `no-strict-reset` option during attachment, bearing in mind the aforementioned [security considerations].
 In the steps below, you can tell if this is needed if you see the BDF for the same device listed multiple times with only the number after the "." changing.
 
 While PCI device can only be used by one powered on VM at a time, it *is* possible to *assign* the same device to more than one VM at a time. 
