@@ -25,7 +25,7 @@ Important Notes
   In fact, it is extremely unlikely that any up-to-date Qubes installations are vulnerable to any XSAs on this page, since patches are almost always published concurrently with QSBs.
   Please read the QSB (if any) for each XSA for patching details.
 * Embargoed XSAs are excluded from this tracker until they are publicly released, since the [Xen Security Policy] does not permit us to state whether Qubes is affected prior to the embargo date.
-* Unused XSA numbers are included in the tracker for the sake of completeness, but they are excluded from the [Statistics] section for the sake of accuracy.
+* Unused and withdrawn XSA numbers are included in the tracker for the sake of completeness, but they are excluded from the [Statistics] section for the sake of accuracy.
 * All dates are in UTC.
 
 
@@ -81,7 +81,7 @@ Tracker
     <td>
     {% if xsa.affected == false %}
       {% if xsa.unused %}
-        No (unused XSA number)
+        No (unused or withdrawn XSA number)
       {% elsif xsa.mitigation %}
         No (<a href="#{{ xsa.mitigation }}" title="No, the security of Qubes OS is not affected by XSA-{{ xsa.xsa }}. Click to read the explanation.">{{ xsa.mitigation }}</a>)
       {% else %}

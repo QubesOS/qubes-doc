@@ -22,7 +22,7 @@ past minor releases, are available from our [download mirrors].
 | Release 3.1   | 2016-03-09 | 2017-03-29 | Old, unsupported        |
 | Release 3.2   | 2016-09-29 | 2019-03-28 | Old, [extended support] |
 | Release 4.0   | 2018-03-28 | TBA        | Current, supported      |
-| Release 4.1   | TBA        | TBA        | In development          |
+| Release 4.1   | TBA        | TBA        | [In development][4.1]   |
 
 ### Note on point releases ###
 
@@ -62,14 +62,14 @@ TemplateVMs
 The table below shows the [TemplateVM] versions supported by each Qubes OS
 release. Currently, only Fedora, Debian, and Whonix TemplateVMs are officially supported.
 
-| Qubes OS      | Fedora                     | Debian                                        | Whonix |
-| ------------- | -------------------------- | --------------------------------------------- | ------ |
-| Release 1     | 18, 20                     | None                                          | None   |
-| Release 2     | 21                         | None                                          | None   |
-| Release 3.0   | 21, 22\*, 23               | 7 ("wheezy")\*, 8 ("jessie")                  | None   |
-| Release 3.1   | 21, 22\*, 23               | 7 ("wheezy")\*, 8 ("jessie"), 9 ("stretch")\* | None   |
+| Qubes OS      | Fedora                       | Debian                                        | Whonix |
+| ------------- | ---------------------------- | --------------------------------------------- | ------ |
+| Release 1     | 18, 20                       | None                                          | None   |
+| Release 2     | 21                           | None                                          | None   |
+| Release 3.0   | 21, 22\*, 23                 | 7 ("wheezy")\*, 8 ("jessie")                  | None   |
+| Release 3.1   | 21, 22\*, 23                 | 7 ("wheezy")\*, 8 ("jessie"), 9 ("stretch")\* | None   |
 | Release 3.2   | 23\*, 24\*, 25\*, 26, 27, 28 | 8 ("jessie"), 9 ("stretch")                   | 13, 14 |
-| Release 4.0   | 26, 27, 28, 29             | 8 ("jessie"), 9 ("stretch")                   | 13, 14 |
+| Release 4.0   | 26, 27, 28, 29               | 8 ("jessie"), 9 ("stretch")                   | 13, 14 |
 
 \* Denotes versions for which we have published the packages but have not done
 extensive testing.
@@ -97,5 +97,6 @@ We aim to announce both types of events one month in advance in order to remind 
 [security-critical]: /doc/security-critical-code/
 [TemplateVM]: /doc/templates/
 [extended support]: /news/2018/03/28/qubes-40/#the-past-and-the-future
+[4.1]: https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue+milestone%3A%22Release+4.1%22+
 [Whonix]: /doc/whonix/
 

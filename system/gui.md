@@ -138,7 +138,7 @@ This header is followed by message-specific data:
   </tr>
   <tr>
     <td>MSG_CLIPBOARD_DATA</td>
-    <td>amorphic blob (length determined by the "window" field)</td>
+    <td>amorphic blob (in protocol before 1.2, length determined by the "window" field, in 1.2 and later - by untrusted_len in the header)</td>
     <td>Store the received clipboard content (not parsing in any way)</td>
   </tr>
 <tr>
