@@ -31,7 +31,7 @@ The following patches can be applied to the Qubes Manager GUI in order to add an
 # yum reinstall qubes-manager
 ~~~
 
-First, retrieve the attachment of this Wifi article in dom0. Then apply the three patches the following way after installing the patch tool :
+First, retrieve the attachment of this [Wifi article in dom0](https://github.com/QubesOS/qubes-attachment/tree/master/wiki/NetworkBridgeSupport). Then apply the three patches the following way after installing the patch tool :
 
 ~~~
 # qubes-dom0-update patch
