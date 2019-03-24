@@ -24,6 +24,15 @@ All issues pertaining to the Qubes OS Project (including auxiliary infrastructur
 - **Please note that many issues can be resolved by reading the [documentation].**
 - **If you see something that should be changed in the documentation, [submit a change][Documentation Guidelines].**
 
+## Search Tips ##
+
+[Search both open and closed issues.][qubes-issues-all]
+For example, you may be experiencing a bug that was just fixed, in which case the report for that bug is probably closed.
+In this case, it would be useful to view [all bug reports, both open and closed, with the most recently updated sorted to the top][qubes-issues-bug-up-desc].
+
+[Search using labels.][qubes-issues-labels]
+For example, you can search issues by priority ([blocker], [critical], [major], etc.) and by component ([core], [manager/widget], [Xen], etc.).
+
 ## Issue tracker guidelines ##
 
 ### Do not submit questions ###
@@ -103,6 +112,15 @@ Please **do not** create a duplicate issue or attempt to contact the developers 
 - [Documentation Guidelines]
 
 
+[qubes-issues-all]: https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue
+[qubes-issues-bug-up-desc]: https://github.com/QubesOS/qubes-issues/issues?q=label%3Abug+sort%3Aupdated-desc
+[qubes-issues-labels]: https://github.com/QubesOS/qubes-issues/labels
+[blocker]: https://github.com/QubesOS/qubes-issues/labels/P%3A%20blocker
+[critical]: https://github.com/QubesOS/qubes-issues/labels/P%3A%20critical
+[core]: https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+core%22
+[manager/widget]: https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3A%22C%3A+manager%2Fwidget%22+
+[Xen]: https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+Xen%22
+[major]: https://github.com/QubesOS/qubes-issues/labels/P%3A%20major
 [Security]: /security/
 [documentation]: /doc/
 [website]: /
