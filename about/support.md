@@ -19,6 +19,11 @@ Help and support for Qubes OS is available from the [documentation] and the
 [mailing lists], which are explained below. The Qubes OS Project does not offer
 paid support services.
 
+If you're looking for known issues or would like to file a bug report, please
+see the [issue tracker]. These issues are constantly being updated and may
+contain workarounds for problems that you're experiencing, so it's worth
+[searching the issue tracker] as a first step.
+
 
 ## Staying safe ##
 
@@ -389,4 +394,5 @@ This list also has an optional [Google Groups web interface][qubes-translation-w
 [coc]: /code-of-conduct/
 [Transifex]: https://www.transifex.com/otf/qubes/
 [issue tracker]: /doc/reporting-bugs/
+[searching the issue tracker]: /doc/reporting-bugs/#search-tips
 
