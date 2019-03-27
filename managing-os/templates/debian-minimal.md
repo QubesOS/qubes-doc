@@ -19,7 +19,7 @@ Installation
 The Debian minimal template can be installed with the following command:
 
 ~~~
-[user@dom0 ~]$ sudo qubes-dom0-update --enable-repo qubes-templates-itl-testing qubes-template-debian-9-minimal
+[user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl-testing qubes-template-debian-9-minimal
 ~~~
 
 The download may take a while depending on your connection speed.
