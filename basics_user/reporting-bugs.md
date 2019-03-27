@@ -61,7 +61,7 @@ If you don't have anything to add but still want to receive email updates, you c
 
 ### Every issue must be of a single type ###
 
-Every issue must be exactly one of the following types: a bug report (`bug`), a feature request (`enhancement`), or a task (`task`).
+Every issue must be exactly one of the following types: a bug report (`bug`), a feature or improvement request (`enhancement`), or a task (`task`).
 Do not file multi-typed issues.
 Instead, file multiple issues of distinct types.
 The Qubes team will classify your issue according to its type.
@@ -95,12 +95,17 @@ The Qubes team has its own roadmap and priorities, which will govern the manner 
 
 ## Following up afterward ##
 
-If your issue is addressed, your GitHub issue may be closed.
+If the Qubes developers make a code change that resolves your issue, then your GitHub issue will typically be closed from the relevant patch message.
 After that, the package containing the fix will move to the appropriate [testing] repository, then to the appropriate stable repository.
 If you so choose, you can test the fix while it's in the [testing] repository, or you can wait for it to land in the stable repository.
 If, after testing the fix, you find that it does not really fix your bug, please leave a comment on your issue explaining the situation.
 When you do, we will receive a notification and respond on your issue or reopen it (or both).
 Please **do not** create a duplicate issue or attempt to contact the developers individually about your problem.
+
+In other cases, your issue may be closed with a specific resolution, such as `R: invalid`, `R: duplicate`, or `R: won't fix`.
+Each of these labels has a description that explains the label.
+We'll also leave a comment explaining why we're closing the issue with one of these specific resolutions.
+If the issue is closed without one of these specific resolutions, then it means, by default, that your reported bug was fixed or your requested enhancement was implemented.
 
 ## See also ##
 
