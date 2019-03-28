@@ -33,6 +33,10 @@ In this case, it would be useful to view [all bug reports, both open and closed,
 [Search using labels.][qubes-issues-labels]
 For example, you can search issues by priority ([blocker], [critical], [major], etc.) and by component ([core], [manager/widget], [Xen], etc.).
 
+Only Qubes team members can apply labels.
+Every issue must have exactly one **type** (`T: bug`, `T: enhancement`, or `T: task`), exactly one **priority** (e.g., `P: major`), and at least one **component** (e.g., `C: core`).
+Issues may have additional labels, if applicable (e.g., `crypto`, `ux`).
+
 ## Issue tracker guidelines ##
 
 ### Do not submit questions ###
