@@ -20,7 +20,7 @@ past minor releases, are available from our [download mirrors].
 | Release 2     | 2014-09-26 | 2016-04-01 | Old, unsupported        |
 | Release 3.0   | 2015-10-01 | 2016-09-09 | Old, unsupported        |
 | Release 3.1   | 2016-03-09 | 2017-03-29 | Old, unsupported        |
-| Release 3.2   | 2016-09-29 | 2019-03-28 | Old, [extended support] |
+| Release 3.2   | 2016-09-29 | 2019-03-28 | Old, unsupported        |
 | Release 4.0   | 2018-03-28 | TBA        | Current, supported      |
 | Release 4.1   | TBA        | TBA        | [In development][4.1]   |
 
