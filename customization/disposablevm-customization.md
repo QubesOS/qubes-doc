@@ -91,8 +91,8 @@ For example, with `qvm-prefs work netvm sys-firewall2`.
 
 To create one with a PCI device attached such as for `sys-net` or `sys-usb`, use the additional commands as follows.
 
-**Note** You can use `qvm-pci` to [determine](/doc/assigning-devices/#r40) the `<BDF>`.
-Also, you will often need to include the `-o no-strict-reset=True` [option](/doc/assigning-devices/#r40-1) with USB controllers.
+**Note** You can use `qvm-pci` to [determine](/doc/pci-devices/#qvm-pci-usage) the `<BDF>`.
+Also, you will often need to include the `-o no-strict-reset=True` [option](/doc/pci-devices/#no-strict-reset) with USB controllers.
 
 ~~~
 qvm-create -C DispVM -l red <sys-VMName>
@@ -182,7 +182,7 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 
        [user@dom0 ~]$ qvm-pci
 
-6. Attach the network PCI device(s) to `disp-sys-net`: Finding and assigning PCI devices can be found [here](/doc/assigning-devices/)
+6. Attach the network PCI device(s) to `disp-sys-net`: Finding and assigning PCI devices can be found [here](/doc/pci-devices/)
 
        [user@dom0 ~]$ qvm-pci attach --persistent disp-sys-net <backend>:<bdf>
 
@@ -240,7 +240,7 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 
 5. Attach the USB controller to the `disp-sys-usb`
   
-     >_**Note:**_ Most of the commonly used USB controllers (all Intel integrated controllers) require the `-o no-strict-reset=True` option to be set. Instructions detailing how this option is set can be found [here](/doc/assigning-devices/#r40-1).
+     >_**Note:**_ Most of the commonly used USB controllers (all Intel integrated controllers) require the `-o no-strict-reset=True` option to be set. Instructions detailing how this option is set can be found [here](/doc/pci-devices/#no-strict-reset).
 
        [user@dom0 ~]$ qvm-pci attach --persistent disp-sys-usb <backined>:<bdf>
     
@@ -248,7 +248,7 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
   
        [user@dom0 ~]$ qvm-prefs disp-sys-usb autostart true
 
-7. Users should now follow instructions on [How to hide USB controllers from dom0](/doc/usb/#how-to-hide-all-usb-controllers-from-dom0)
+7. Users should now follow instructions on [How to hide USB controllers from dom0](/doc/usb-qubes/#how-to-hide-all-usb-controllers-from-dom0)
 
 8. At this point, your mouse may not work.
    Edit the `qubes.InputMouse` policy file in dom0, which is located here:
@@ -273,7 +273,7 @@ Prior to starting the new VMs, users should ensure that no other VMs such as the
 
 The `disp-sys-usb` VM does not start
 
-If the `disp-sys-usb` does not start, it could be due to a PCI passthrough problem. For more details on this issue along with possible solutions, users can look [here](/doc/assigning-devices/#pci-passthrough-issues)
+If the `disp-sys-usb` does not start, it could be due to a PCI passthrough problem. For more details on this issue along with possible solutions, users can look [here](/doc/pci-devices/#pci-passthrough-issues)
 
 
 ### Deleting DisposableVM ###

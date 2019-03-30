@@ -66,7 +66,10 @@ redirect_from:
  * [Installing and Updating Software in VMs](/doc/software-update-vm/)
  * [Backup, Restoration, and Migration](/doc/backup-restore/)
  * [Using DisposableVMs](/doc/disposablevm/)
- * [Using and Managing USB Devices](/doc/usb/)
+ * [Block (or Storage) Devices](/doc/block-devices/)
+ * [USB Devices](/doc/usb-devices)
+ * [PCI Devices](/doc/pci-devices/)
+ * [Device Handling](/doc/device-handling/)
  * [Optical Discs](/doc/optical-discs/)
  * [Managing Application Shortcuts](/doc/managing-appvm-shortcuts/)
  * [Enabling Fullscreen Mode](/doc/full-screen-mode/)
@@ -106,6 +109,7 @@ redirect_from:
  * [How to Set Up a Split Bitcoin Wallet in Qubes](/doc/split-bitcoin/)
  * [[Unofficial] Split dm-crypt](https://github.com/rustybird/qubes-split-dm-crypt)
  * [Configuring YubiKey for user authentication](/doc/yubi-key/)
+ * [Security Considerations When Handling Devices](/doc/device-handling-security/)
  * [Note regarding password-less root access in VM](/doc/vm-sudo/)
 
 
@@ -136,7 +140,7 @@ redirect_from:
  * [Creating Custom NetVMs and ProxyVMs](https://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html)
  * [How to make proxy for individual tcp connection from networkless VM](https://groups.google.com/group/qubes-devel/msg/4ca950ab6d7cd11a)
  * [Adding Bridge Support to the NetVM (EXPERIMENTAL)](/doc/network-bridge-support/)
- * [Assigning PCI Devices to AppVMs](/doc/assigning-devices/)
+ * [USB Qubes](/doc/usb-qubes/)
  * [Enabling TRIM for SSD disks](/doc/disk-trim/)
  * [Configuring a Network Printer](/doc/network-printer/)
  * [Using External Audio Devices](/doc/external-audio/)
