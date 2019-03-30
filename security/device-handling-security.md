@@ -24,8 +24,8 @@ Some devices do not implement a reset option. In these cases, Qubes by default d
 
 In case device reset is disabled for any reason, detaching the device should be considered a risk. Ideally, devices for which the `no-strict-reset` option is set are attached once to a VM which isn't shut down until the system is shut down.
 
-Additionally, Qubes restricts the config-space a VM may use to communicate with a PCI device. Only whitelisted registers are accessible. However, some devices or applications require full PCI access. In these cases, the whole config-space may be allowed. you're potentially weakening the device isolation, especially if your system is not equipped with a VT-d Interrupt Remapping unit.  This increases the VM's ability to run a [side channel attack] and vulnerability to the same. <!--TODO: really? It seems obvious, but I'm missing citation.-->
-See [Software Attacks on Intel VT-d] \(page 7) for more details.
+Additionally, Qubes restricts the config-space a VM may use to communicate with a PCI device. Only whitelisted registers are accessible. However, some devices or applications require full PCI access. In these cases, the whole config-space may be allowed. you're potentially weakening the device isolation, especially if your system is not equipped with a VT-d Interrupt Remapping unit.  This increases the VM's ability to run a [side channel attack] and vulnerability to the same.
+See [Xen PCI Passthrough: PV guests and PCI quirks] and [Software Attacks on Intel VT-d] \(page 7) for more details.
 
 
 ## USB Security ##
@@ -67,5 +67,6 @@ Support for [two factor authentication][qubes u2f proxy] was recently added, tho
 [qubes u2f proxy]: https://www.qubes-os.org/news/2018/09/11/qubes-u2f-proxy/
 [4661]: https://github.com/QubesOS/qubes-issues/issues/4661
 [side channel attack]: https://en.wikipedia.org/wiki/Side-channel_attack
+[Xen PCI Passthrough: PV guests and PCI quirks]: https://wiki.xenproject.org/wiki/Xen_PCI_Passthrough#PV_guests_and_PCI_quirks
 [Software Attacks on Intel VT-d]: https://invisiblethingslab.com/resources/2011/Software%20Attacks%20on%20Intel%20VT-d.pdf
 
