@@ -1,21 +1,24 @@
 ---
 layout: doc
-title: Device Handling in Qubes R4.0
+title: Device Handling
 permalink: /doc/device-handling/
 redirect_from:
-- /doc/device-handling-in-qubes-R4.0/
+- /doc/external-device-mount-point/
+- /en/doc/external-device-mount-point/
+- /doc/ExternalDeviceMountPoint/
+- /wiki/ExternalDeviceMountPoint/
 ---
 
-Device Handling in Qubes R4.0
-=============================
+# Device Handling #
 
-**Note:** This is an overview for device-handling in QubesOS. For specific devices ([block], [USB] and [PCI] devices), please visit the respective page.
+This is an overview of device handling in Qubes OS. For specific devices ([block], [USB] and [PCI] devices), please visit their respective pages.
 
-**Important security warning:** Device handling comes with many security implications! Please make sure you carefully read and understood the **[security considerations]**!
+**Important security warning:** Device handling comes with many security implications. Please make sure you carefully read and understand the **[security considerations]**.
 
-----------------------
 
-The interface to deal with devices of all sorts was unified in Q4.0 with the `qvm-device` command and the Qubes Devices Widget. In Q3.X, the Qubes VM Manager dealt with attachment as well. This functionality was moved to the Qubes Device Widget, the tool tray icon with a yellow square located in the top right of your screen by default.
+## Introduction ##
+
+The interface to deal with devices of all sorts was unified in Qubes 4.0 with the `qvm-device` command and the Qubes Devices Widget. In Qubes 3.X, the Qubes VM Manager dealt with attachment as well. This functionality was moved to the Qubes Device Widget, the tool tray icon with a yellow square located in the top right of your screen by default.
 
 There are currently four categories of devices Qubes understands:
  - Microphones
@@ -25,26 +28,38 @@ There are currently four categories of devices Qubes understands:
 
 Microphones, block devices and USB devices can be attached with the GUI-tool. PCI devices can be attached using the Qube Settings, but require a VM reboot.
 
-# General Qubes Device Widget Behavior And Handling #
-When clicking on the tray icon (looking similar to this: ![SD card and thumbdrive][device manager icon] several device-classes separated by lines are displayed as tooltip. Block devices are displayed on top, microphones one below and USB-devices at the bottom.
+
+## General Qubes Device Widget Behavior And Handling ##
+
+When clicking on the tray icon (which looks similar to this): ![SD card and thumbdrive][device manager icon] several device-classes separated by lines are displayed as tooltip. Block devices are displayed on top, microphones one below and USB-devices at the bottom.
 
 On most laptops, integrated hardware such as cameras and fingerprint-readers are implemented as USB-devices and can be found here.
 
-## Attaching Using The Widget ##
+
+### Attaching Using The Widget ###
+
 Click the tray icon. Hover on a device you want to attach to a VM. A list of running VMs (except dom0) appears. Click on one and your device will be attached!
 
-## Detaching Using The Widget ##
+
+### Detaching Using The Widget ###
+
 To detach a device, click the Qubes Devices Widget icon again. Attached devices are displayed in bold. Hover the one you want to detach. A list of VMs appears, one showing the eject symbol: ![eject icon]
 
-## Attaching a Device to Several VMs ##
+
+### Attaching a Device to Several VMs ###
+
 Only `mic` should be attached to more than one running VM. You may *assign* a device to more than one VM (using the [`--persistent`][#attaching-devices] option), however, only one of them can be started at the same time.
 
 But be careful: There is a [bug in `qvm-device block` or `qvm-block`][i4692] which will allow you to *attach* a block device to two running VMs. Don't do that!
 
-# General `qvm-device` Command Line Tool Behavior #
+
+## General `qvm-device` Command Line Tool Behavior ##
+
 All devices, including PCI-devices, may be attached from the commandline using the `qvm-device`-tools.
 
-## Device Classes ##
+
+### Device Classes ###
+
 `qvm-device` expects DEVICE_CLASS as first argument. DEVICE_CLASS can be one of
 
  - `pci`
@@ -52,7 +67,9 @@ All devices, including PCI-devices, may be attached from the commandline using t
  - `block`
  - `mic`
 
-## Actions ##
+
+### Actions ###
+
 `qvm-device` supports three actions:
 
  - `list` (ls, l) - list all devices of DEVICE_CLASS
@@ -60,23 +77,27 @@ All devices, including PCI-devices, may be attached from the commandline using t
  - `detach` (dt, d) - detach a specific device of DEVICE_CLASS
 
 
-## Global Options ##
+### Global Options ###
+
 These three options are always available:
 
 - `--help`, `-h` - show help message and exit
 - `--verbose`, `-v` - increase verbosity
 - `--quiet`, `-q` - decrease verbosity
 
-
 A full command consists of one DEVICE_CLASS and one action. If no action is given, list is implied. DEVICE_CLASS however is required.
 
 **SYNOPSIS**:
 `qvm-device DEVICE_CLASS {action} [action-specific arguments] [options]`
 
+
 ## Actions ##
+
 Actions are applicable to every DEVICE_CLASS and expose some additional options.
 
+
 ### Listing Devices ###
+
 The `list` action lists known devices in the system. `list` accepts VM-names to narrow down listed devices. Devices available in, as well as attached to the named VMs will be listed.
 
 `list` accepts two options:
@@ -87,7 +108,9 @@ The `list` action lists known devices in the system. `list` accepts VM-names to 
 **SYNOPSIS**
 `qvm-device DEVICE_CLASS {list|ls|l} [--all [--exclude VM [VM [...]]] | VM [VM [...]]]`
 
+
 ### Attaching Devices ###
+
 The `attach` action assigns an exposed device to a VM. This makes the device available in the VM it's attached to. Required argument are targetVM and sourceVM:deviceID. (sourceVM:deviceID can be determined from `list` output)
 
 `attach` accepts two options:
@@ -98,7 +121,9 @@ The `attach` action assigns an exposed device to a VM. This makes the device ava
 **SYNOPSIS**
 `qvm-device DEVICE_CLASS {attach|at|a} targetVM sourceVM:deviceID [options]`
 
+
 ### Detaching Devices ###
+
 The `detach` action removes an assigned device from a targetVM. It won't be available afterwards anymore. Though it tries to do so gracefully, beware that data-connections might be broken unexpectedly, so close any transaction before detaching a device!
 
 If no specific `sourceVM:deviceID` combination is given, *all devices of that DEVICE_CLASS will be detached.*
@@ -109,11 +134,11 @@ If no specific `sourceVM:deviceID` combination is given, *all devices of that DE
 `qvm-device DEVICE_CLASS {detach|dt|d} targetVM [sourceVM:deviceID]`
 
 
-[block]:/doc/block-devices-in-qubes-R4.0/
-[USB]:/doc/usb-devices-in-qubes-R4.0/
-[PCI]:/doc/pci-devices-in-qubes-R4.0/
-
-[security considerations]: /doc/device-considerations/
+[block]:/doc/block-devices/
+[USB]:/doc/usb-devices/
+[PCI]:/doc/pci-devices/
+[security considerations]: /doc/device-handling-security/
 [device manager icon]: /attachment/wiki/Devices/media-removable.png
 [eject icon]: /attachment/wiki/Devices/media-eject.png
 [i4692]: https://github.com/QubesOS/qubes-issues/issues/4692
+

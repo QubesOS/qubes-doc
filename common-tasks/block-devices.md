@@ -1,19 +1,23 @@
 ---
 layout: doc
-title: Block or Storage Devices in Qubes R4.0
+title: Block (Storage) Devices
 permalink: /doc/block-devices/
 redirect_from:
-- /doc/block-devices-in-qubes-R4.0/
+- /doc/stick-mounting/
+- /en/doc/stick-mounting/
+- /doc/StickMounting/
+- /wiki/StickMounting/
 ---
 
-Block or Storage Devices in Qubes R4.0
-======================================
-*This page is part of [device handling in qubes]*
-(In case you were looking for the [R3.2 documentation](/doc/usb/).)
+# Block (Storage) Devices #
+
+*This page is part of [device handling in qubes].*
 
 If you don't know what a "block device" is, just think of it as a fancy way to say "something that stores data".
 
-# Using The GUI to Attach a Drive #
+
+## Using The GUI to Attach a Drive ##
+
 (**Note:** In the present context, the term "USB drive" denotes any [USB mass storage device][mass-storage].
 In addition to smaller flash memory sticks, this includes things like USB external hard drives.)
 
@@ -33,7 +37,9 @@ Click on one and your USB drive will be attached!
 However, it often means the AppVM won't detect the new partition and you will need to manually mount it inside the AppVM.
 See below for more detailed steps.
 
-# Block Devices in VMs #
+
+## Block Devices in VMs ##
+
 If not specified otherwise, block devices will show up as `/dev/xvdi*` in a linux VM, where `*` may be the partition-number. If a block device isn't automatically mounted after attaching, open a terminal in the VM and execute:
 
     cd ~
@@ -49,7 +55,9 @@ If several different block-devices are attached to a single VM, the last letter 
 
 To specify this device node name, you need to use the command line tool and its [`frontend-dev`-option][frontend-dev].
 
-# Command Line Tool Guide #
+
+## Command Line Tool Guide ##
+
 The command-line tool you may use to mount whole USB drives or their partitions is `qvm-block`, a shortcut for `qvm-device block`.
 
 `qvm-block` won't recognise your device by any given name, but rather the device-node the sourceVM assigns. So make sure you have the drive available in the sourceVM, then list the available block devices (step 1.) to find the corresponding device-node.
@@ -96,7 +104,9 @@ In case of a USB-drive, make sure it's attached to your computer. If you don't s
 
  6.  You may now remove the device or attach it to another qube.
 
-# Recovering From Premature Device Destruction #
+
+## Recovering From Premature Device Destruction ##
+
 If the you fail to detach the device before it's destroyed in the sourceVM (e.g. by physically detaching the thumbdrive), [there will be problems][premature removal].
 
 To recover from this error state, in dom0 run
@@ -107,7 +117,9 @@ To recover from this error state, in dom0 run
 
 However, if the block device originated in dom0, you will have to refer to the [old way][detach dom0 device].
 
-# Attaching a File #
+
+## Attaching a File ##
+
 To attach a file as block device to another qube, first turn it into a loopback device inside the sourceVM.
 
  1. In the linux sourceVM run
@@ -134,10 +146,14 @@ To attach a file as block device to another qube, first turn it into a loopback 
 
         sudo losetup -d /dev/loop0
 
-# Additional Attach Options #
+
+## Additional Attach Options ##
+
 Attaching a block device through the command line offers additional customisation options, specifiable via the `--option`/`-o` option. (Yes, confusing wording, there's an [issue for that](https://github.com/QubesOS/qubes-issues/issues/4530).)
 
-## frontend-dev ##
+
+### frontend-dev ###
+
 This option allows you to specify the name of the device node made available in the targetVM. This defaults to `xvdi` or, if already occupied, the first available device node name in alphabetical order. (The next one tried will be `xvdj`, then `xvdk`, and so on ...)
 
 usage example:
@@ -146,7 +162,9 @@ usage example:
 
 This command will attach the partition `sda1` to `work` as `/dev/xvdz`.
 
-## read-only ##
+
+### read-only ###
+
 Attach device in read-only mode. Protects the block device in case you don't trust the targetVM.
 
 If the device is a read-only device, this option is forced true.
@@ -161,7 +179,9 @@ There exists a shortcut to set read-only `true`, `--ro`:
 
 The two commands are equivalent.
 
-## devtype ##
+
+### devtype ###
+
 Usually, a block device is attached as disk. In case you need to attach a block device as cdrom, this option allows that.
 
 usage example:
@@ -179,4 +199,5 @@ This option accepts `cdrom` and `disk`, default is `disk`.
 [premature removal]: https://github.com/QubesOS/qubes-issues/issues/1082
 [detach dom0 device]: /doc/usb/#what-if-i-removed-the-device-before-detaching-it-from-the-vm
 [losetup]: https://linux.die.net/man/8/losetup
-[USB]:/doc/usb-devices-in-qubes-R4.0/
+[USB]:/doc/usb-devices/
+

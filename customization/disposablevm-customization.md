@@ -248,7 +248,7 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
   
        [user@dom0 ~]$ qvm-prefs disp-sys-usb autostart true
 
-7. Users should now follow instructions on [How to hide USB controllers from dom0](/doc/usb-qube-howto/#how-to-hide-all-usb-controllers-from-dom0)
+7. Users should now follow instructions on [How to hide USB controllers from dom0](/doc/usb-qubes/#how-to-hide-all-usb-controllers-from-dom0)
 
 8. At this point, your mouse may not work.
    Edit the `qubes.InputMouse` policy file in dom0, which is located here:

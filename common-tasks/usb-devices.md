@@ -1,30 +1,33 @@
 ---
 layout: doc
-title: USB Devices in Qubes R4.0
+title: USB Devices
 permalink: /doc/usb-devices/
 redirect_from:
-- /doc/usb-devices-in-qubes-R4.0/
+- /doc/usb/
 ---
 
-USB  Devices in Qubes R4.0
-==========================
-*This page is part of [device handling in qubes]*
-(In case you were looking for the [R3.2 documentation](/doc/usb/).)
+# USB Devices #
 
-If you are looking to handle USB-*storage*-devices (thumbdrives or USB-drives), please have a look at [storage device handling][block-device].
+*This page is part of [device handling in qubes].*
 
-**Important security warning:** USB passthrough comes with many security implications! Please make sure you carefully read and understood the **[security considerations]**! Especially, whenever possible, attach a [block device] instead!
+If you are looking to handle USB *storage* devices (thumbdrives or USB-drives), please have a look at the [block device] page.
 
-Examples for valid cases for USB-passthrough:
+**Important security warning:** USB passthrough comes with many security implications. Please make sure you carefully read and understand the **[security considerations]**. Whenever possible, attach a [block device] instead.
+
+Examples of valid cases for USB-passthrough:
 
  - [microcontroller programming]
- - using [external audio devices]
+ - [external audio devices]
  - [optical drives] for recording
 
 (If you are thinking to use a two-factor-authentication device, [there is an app for that][qubes u2f proxy]. But it has some [issues][4661].)
 
-# Attaching And Detaching a USB Device #
-## With Qubes Device Manager ##
+
+## Attaching And Detaching a USB Device ##
+
+
+### With Qubes Device Manager ###
+
 Click the device-manager-icon: ![device manager icon]  
 A list of available devices appears. USB-devices have a USB-icon to their right: ![usb icon]
 
@@ -38,7 +41,9 @@ Hover on the attached device to display a list of running VMs.
 The one to which your device is connected will have an eject button ![eject icon] next to it.
 Click that and your device will be detached.
 
-## With The Command Line Tool ##
+
+### With The Command Line Tool ###
+
 In dom0, you can use `qvm-usb` from the commandline to attach and detach devices.
 
 Listing available USB devices:
@@ -70,12 +75,17 @@ When you finish, detach the device.
     sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
     sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
 
-# Maintenance And Customisation #
 
-## Creating And Using a USB qube ##
+## Maintenance And Customisation ##
+
+
+### Creating And Using a USB qube ###
+
 If you've selected to install a usb-qube during system installation, everything is already set up for you in `sys-usb`. If you've later decided to create a usb-qube, please follow [this guide][USB-qube howto].
 
-## Installation Of `qubes-usb-proxy` ##
+
+### Installation Of `qubes-usb-proxy` ###
+
 To use this feature, the[`qubes-usb-proxy`][qubes-usb-proxy] package needs to be installed in the templates used for the USB qube and qubes you want to connect USB devices to.
 This section exists for reference or in case something broke and you need to reinstall `qubes-usb-proxy`. Under normal conditions, `qubes-usb-proxy` should already be installed and good to go.
 
@@ -87,13 +97,14 @@ Note: you cannot pass through devices from dom0 (in other words: a [USB qube][US
 - Debian/Ubuntu: `sudo apt-get install qubes-usb-proxy`
 
 
-## Using USB Keyboards And Other Input Devices ##
+### Using USB Keyboards And Other Input Devices ###
+
 **Warning:** especially keyboards need to be accepted by default when using them to login! Please make sure you carefully read and understood the **[security considerations]** before continuing!
 
 Mouse and keyboard setup are part of [setting up a USB-qube][keyboard setup].
 
 
-## Finding The Right USB Controller ##
+### Finding The Right USB Controller ###
 
 Some USB devices are not compatible with the USB pass-through method Qubes employs.
 In situations like these, you can try to pass through the entire USB controller to a qube as PCI device.
@@ -131,8 +142,8 @@ Strip the leading `0000:` and pass the rest to the [`qvm-pci` tool][qvm-pci] to 
 
 
 [device handling in qubes]: /doc/device-handling/
-[block device]: /doc/block-devices-in-qubes-R4.0/
-[security considerations]: /doc/device-considerations/#usb-security
+[block device]: /doc/block-devices/
+[security considerations]: /doc/device-handling-security/#usb-security
 [usb-challenges]: https://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html
 [usb icon]: /attachment/wiki/Devices/generic-usb.png
 [microcontroller programming]: https://www.arduino.cc/en/Main/Howto
@@ -143,6 +154,6 @@ Strip the leading `0000:` and pass the rest to the [`qvm-pci` tool][qvm-pci] to 
 [device manager icon]:/attachment/wiki/Devices/media-removable.png
 [eject icon]:/attachment/wiki/Devices/media-eject.png
 [Installation Section]:#installation-of-qubes-usb-proxy
-[USB-qube howto]: /doc/usb-qube-howto/
-[keyboard setup]: /doc/usb-qube-howto/#enable-a-usb-keyboard-for-login
-[qvm-pci]: /doc/pci-devices-in-qubes-R4.0/
+[USB-qube howto]: /doc/usb-qubes/
+[keyboard setup]: /doc/usb-qubes/#enable-a-usb-keyboard-for-login
+[qvm-pci]: /doc/pci-devices/

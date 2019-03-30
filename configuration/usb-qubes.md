@@ -1,17 +1,23 @@
 ---
 layout: doc
-title:  USB Qube HowTo
-permalink: /doc/usb-qube-howto/
+title:  USB Qubes
+permalink: /doc/usb-qubes/
+redirect_from:
+- /doc/usbvm/
+- /en/doc/usbvm/
+- /doc/USBVM/
+- /wiki/USBVM/
+- /doc/sys-usb/
 ---
 
-USB Qube HowTo
-==============
+# USB Qubes #
+
 If during installation you enabled the creation of a USB-qube, your system should be setup already and none of the mentioned steps here should be necessary. (Unless you want to [remove your USB-qube].) If for any reason no USB-qube was created during installation, this guide will show you how to do so.
 
 **Caution:** If you want to use a USB-keyboard, please beware of the possibility to lock yourself out! To avoid this problem [enable your keyboard for login]!
 
-Creating and Using a USB qube
------------------------------
+
+## Creating and Using a USB qube ##
 
 **Warning:** This has the potential to prevent you from connecting a keyboard to Qubes via USB.
 There are problems with doing this in an encrypted install (LUKS).
@@ -48,14 +54,14 @@ Alternatively, you can create a USB qube manually as follows:
 If the USB qube will not start, please have a look at the [faq].
 
 
-Enable a USB keyboard for login
--------------------------------
+## Enable a USB keyboard for login ##
 
 **Caution:** Please carefully read the [Security Warning about USB Input Devices] before proceeding!
 
 If you use USB keyboard, automatic USB qube creation during installation is disabled.
 Additional steps are required to avoid locking you out from the system.
 Those steps are not performed by default, because of risk explained in [Security Warning about USB Input Devices].
+
 
 ### Automatic setup ###
 R4.0 only! R3.2 users please read the [manual setup] below!
@@ -71,6 +77,7 @@ Users are advised to physically disconnect other devices from the system for tha
 To undo these changes, please follow the section on [**Removing a USB qube**][remove your USB-qube]!
 
 If you wish to perform only a subset of this configuration (for example do not enable USB keyboard during boot), see manual instructions below.
+
 
 ### Manual setup ###
 
@@ -96,8 +103,8 @@ For a confirmation dialog each time the USB keyboard is connected, *which will e
 Additionally, if you want to use USB keyboard to enter LUKS passphrase, it is incompatible with [hiding USB controllers from dom0].
 You need to revert that procedure (remove `rd.qubes.hide_all_usb` option from files mentioned there) and employ alternative protection during system boot - disconnect other devices during startup.
 
-Auto Enabling A USB Mouse
-----------------------
+
+## Auto Enabling A USB Mouse ##
 
 **Caution:** Please carefully read the [Security Warning about USB Input Devices] before proceeding.
 
@@ -120,8 +127,7 @@ In case you are absolutely sure you do not want to confirm mouse access from `sy
 (Change `sys-usb` to your desired USB qube.)
 
 
-How to hide all USB controllers from dom0
------------------------------------------
+## How to hide all USB controllers from dom0 ##
 
 (Note: Beginning with R3.2, `rd.qubes.hide_all_usb` is set automatically if you opt to create a USB qube during installation.
 This also occurs automatically if you choose to [create a USB qube] using the `qubesctl` method, which is the
@@ -162,8 +168,7 @@ The procedure to hide all USB controllers from dom0 is as follows:
  5. Reboot.
 
 
-Removing a USB qube
--------------------
+## Removing a USB qube ##
 
 **Warning:** This procedure will result in your USB controller(s) being attached directly to dom0.
 
@@ -189,18 +194,17 @@ Removing a USB qube
  7. Reboot.
 
 
-
-
 [remove your USB-qube]: #removing-a-usb-qube
-[security implications]: /doc/device-considerations/#usb-security
+[security implications]: /doc/device-handling-security/#usb-security
 [enable your keyboard for login]: #enable-a-usb-keyboard-for-login
 [2270-comm23]: https://github.com/QubesOS/qubes-issues/issues/2270#issuecomment-242900312
-[PCI Devices]: /doc/pci-devices-in-qubes-R4.0/
+[PCI Devices]: /doc/pci-devices/
 [usb-controller]: /doc/usb-devices/#finding-the-right-usb-controller
 [faq]: /faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot
-[Security Warning about USB Input Devices]: /doc/device-considerations/#security-warning-on-usb-input-devices
+[Security Warning about USB Input Devices]: /doc/device-handling-security/#security-warning-on-usb-input-devices
 [manual setup]: #manual-setup
 [install dom0 updates]: /doc/software-update-dom0/#how-to-update-dom0
 [hiding USB controllers from dom0]: #how-to-hide-all-usb-controllers-from-dom0
 [AEM]: /doc/anti-evil-maid/
 [create a USB qube]: #creating-and-using-a-usb-qube
+

@@ -1,22 +1,20 @@
 ---
 layout: doc
-title: Security Considerations When Handling Devices
-permalink: /doc/device-considerations/
+title: Device Handling Security
+permalink: /doc/device-handling-security/
 ---
 
-Security Considerations When Handling Devices
-=============================================
-General Words of Caution
-------------------------
+# Device Handling Security #
+
 Any additional ability a VM gains is additional attack surface. It's a good idea to always attach the minimum entity required in a VM.
 
-Attaching a full USB-device offers [more attack surface than attaching a single block device][USB security].  
-Attaching a full block device (e.g. `sda`) again offers more attack surface than attaching a single partition (e.g. `sda1`), since the targetVM doesn't have to parse the partition-table.
-
+For example, attaching a full USB-device offers [more attack surface than attaching a single block device][USB security], while
+attaching a full block device (e.g. `sda`) again offers more attack surface than attaching a single partition (e.g. `sda1`), since the targetVM doesn't have to parse the partition-table.
 (Attaching a full block device offers the advantage that most file-managers will mount and display them correctly, whereas they don't expect single partitions to be added and therefore don't handle them correctly.)
 
-PCI Security
-------------
+
+## PCI Security ##
+
 Attaching a PCI device to a qube has serious security implications. It exposes the device driver running in the qube to an external device (and sourceVM, which contains the device - e.g. `sys-usb`). In many cases a malicious device can choose what driver will be loaded (for example by manipulating device metadata like vendor and product identifiers) - even if the intended driver is sufficiently secure, the device may try to attack a different, less secure driver.
 Furthermore that VM has full control of the device and may be able to exploit bugs or malicious implementation of the hardware, as well as plain security problems the hardware may pose. (For example, if you attach a USB controller, all the security implications of USB passthrough apply as well.)
 
@@ -29,8 +27,9 @@ In case device reset is disabled for any reason, detaching the device should be 
 Additionally, Qubes restricts the config-space a VM may use to communicate with a PCI device. Only whitelisted registers are accessible. However, some devices or applications require full PCI access. In these cases, the whole config-space may be allowed. you're potentially weakening the device isolation, especially if your system is not equipped with a VT-d Interrupt Remapping unit.  This increases the VM's ability to run a [side channel attack] and vulnerability to the same. <!--TODO: really? It seems obvious, but I'm missing citation.-->
 See [Software Attacks on Intel VT-d] \(page 7) for more details.
 
-USB Security
-------------
+
+## USB Security ##
+
 The connection of an untrusted USB device to dom0 is a security risk since the device can attack an arbitrary USB driver (which are included in the linux kernel), exploit bugs during partition-table-parsing or simply pretend to be a keyboard. There are many ready-to-use implementations of such attacks, e.g. a [USB Rubber Ducky][rubber duck].
 The whole USB stack is put to work to parse the data presented by the USB device in order to determine if it is a USB mass storage device, to read its configuration, etc.
 This happens even if the drive is then assigned and mounted in another qube.
@@ -40,8 +39,9 @@ To avoid this risk, use a [USB qube].
 Attaching a USB device to a VM (USB passthrough) will **expose your target qube** to most of the [security issues][USB security] associated with the USB-stack.
 If possible, use a method specific for particular device type (for example, block devices described above), instead of this generic one.
 
-**Security Warning On USB Input Devices**
------------------------------------------
+
+## Security Warning On USB Input Devices 
+
 If you connect USB input devices (keyboard and mouse) to a VM, that VM will effectively have control over your system.
 Because of this, the benefits of using a [USB qube] entrusted with a keyboard or other interface device are much smaller than using a fully untrusted USB qube.
 In addition to having control over your system, such a VM can also sniff all the input you enter there (for example, passwords in the case of a USB keyboard).
@@ -59,11 +59,13 @@ One way to achieve this is to use a [YubiKey], or some other hardware token, or 
 
 Support for [two factor authentication][qubes u2f proxy] was recently added, though there are [issues][4661].
 
-[USB security]:https://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html "invisiblethings blog on USB security"
+
+[USB security]:https://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html "ITL blog post on USB security"
 [rubber duck]: https://shop.hak5.org/products/usb-rubber-ducky-deluxe
-[USB qube]: /doc/usb-qube-howto/
+[USB qube]: /doc/usb-qubes/
 [YubiKey]: /doc/YubiKey/
 [qubes u2f proxy]: https://www.qubes-os.org/news/2018/09/11/qubes-u2f-proxy/
 [4661]: https://github.com/QubesOS/qubes-issues/issues/4661
 [side channel attack]: https://en.wikipedia.org/wiki/Side-channel_attack
 [Software Attacks on Intel VT-d]: https://invisiblethingslab.com/resources/2011/Software%20Attacks%20on%20Intel%20VT-d.pdf
+
