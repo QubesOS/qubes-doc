@@ -436,7 +436,7 @@ In Qubes 4.0, this is accomplished with the Devices Widget located in the tool t
 
 In Qubes 3.2, you can use the Qubes VM Manager. Simply insert your USB drive, right-click on the desired qube in the Qubes VM Manager list, click Attach/detach block devices, and select your desired action and device.
 
-Although external media such as external hard drives or flash drives plugged in via USB are available in the USB qube, it is not recommended to access them directly from inside the USB qube. See ["How to attach USB drives"](/doc/usb/#how-to-attach-usb-drives) for more information.
+Although external media such as external hard drives or flash drives plugged in via USB are available in the USB qube, it is not recommended to access them directly from inside the USB qube. See [Block (Storage) Devices](/doc/block-devices/) for more information.
 
 ### My encrypted drive doesn't appear in Debian qube.
 
