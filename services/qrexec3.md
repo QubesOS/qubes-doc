@@ -464,11 +464,9 @@ When two peers establish connection, the server sends `MSG_HELLO` followed by
        uint32_t version; /* qrexec protocol version */
     };
 
-The client then should reply with its own `MSG_HELLO` and `peer_info`. If
-protocol versions don't match, the connection is closed.
-
-(*TODO: fallback for backwards compatibility, don't do handshake in the
-same domain?*)
+The client then should reply with its own `MSG_HELLO` and `peer_info`. The
+lower of two versions define protocol used for this connection. If either side
+does not support this version, the connection is closed.
 
 Details of all possible use cases and the messages involved are described below.
 
