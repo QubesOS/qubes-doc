@@ -38,15 +38,15 @@ Additionally, if you want to have menu entries for starting applications in Disp
 ### Creating a new DisposableVM Template ###
 
 In Qubes 4.0, you're no longer restricted to a single DisposableVM Template. Instead, you can create as many as you want. Whenever you start a new DisposableVM, you can choose to base it on whichever DisposableVM Template you like.
-To create new DisposableVM Template, lets say `custom-dvm`, based on `debian-9` template, use following commands:
+To create new DisposableVM Template, lets say `custom-disposablevm-template`, based on `debian-9` template, use following commands:
 
-    [user@dom0 ~]$ qvm-create --template debian-9 --label red custom-dvm
-    [user@dom0 ~]$ qvm-prefs custom-dvm template_for_dispvms True
-    [user@dom0 ~]$ qvm-features custom-dvm appmenus-dispvm 1
+    [user@dom0 ~]$ qvm-create --template debian-9 --label red custom-disposablevm-template
+    [user@dom0 ~]$ qvm-prefs custom-disposablevm-template template_for_dispvms True
+    [user@dom0 ~]$ qvm-features custom-disposablevm-template appmenus-dispvm 1
 
 Additionally you may want to set it as default DisposableVM Template:
 
-    [user@dom0 ~]$ qubes-prefs default_dispvm custom-dvm
+    [user@dom0 ~]$ qubes-prefs default_dispvm custom-disposablevm-template
 
 The above default is used whenever a qube request starting a new DisposableVM and do not specify which one (for example `qvm-open-in-dvm` tool). This can be also set in qube settings and will affect service calls from that qube. See [qrexec documentation](/doc/qrexec3/#extra-keywords-available-in-qubes-40-and-later) for details.
 
@@ -144,27 +144,27 @@ Functionality is not limited, users can:
 
 Using DisposableVMs in this manner is ideal for untrusted qubes which require persistent PCI devices, such as USB VMs and NetVMs.
 
->_**Note:**_ Users who want customized VPN or firewall rule sets must create a separate dvm for use by each DisposableVM. If dvm customization is not needed, then a single dvm is used as a template for all DisposableVMs.
+>_**Note:**_ Users who want customized VPN or firewall rule sets must create a separate DisposableVM Template for use by each DisposableVM. If DisposableVM Template customization is not needed, then a single DisposableVM Template is used as a template for all DisposableVMs.
  
 #### Create and configure the DisposableVM Template on which the DisposableVM will be based ####
 
-1. Create the dvm 
+1. Create the DisposableVM Template 
 
-       [user@dom0 ~]$ qvm-create --class AppVM --label gray <dvm-name>
+       [user@dom0 ~]$ qvm-create --class AppVM --label gray <DisposableVM-Template-Name>
 
-2. _(optional)_ In the dvm, add custom firewall rule sets, Qubes VPN scripts etc
+2. _(optional)_ In the DisposableVM Template, add custom firewall rule sets, Qubes VPN scripts etc
 
     Firewall rules sets and Qubes VPN scripts can be added just like any other VM   
     
-3. Set the dvm as template for DisposableVMs
+3. Set the DisposableVM Template as template for DisposableVMs
 
-       [user@dom0 ~]$ qvm-prefs <dvm_name> template_for_dispvms true
+       [user@dom0 ~]$ qvm-prefs <DisposableVM-Template-Name> template_for_dispvms true
 
 #### Create the sys-net DisposableVM #### 
 
-1. Create `sys-net` DisposableVM based on the dvm
+1. Create `sys-net` DisposableVM based on the DisposableVM Template
 
-       [user@dom0 ~]$ qvm-create --template <dvm_name> --class DispVM --label red disp-sys-net
+       [user@dom0 ~]$ qvm-create --template <DisposableVM-Template-Name> --class DispVM --label red disp-sys-net
 
 2. Set `disp-sys-net` virtualization mode to [hvm](/doc/hvm/)
 
@@ -198,7 +198,7 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 
 1. Create `sys-firewall` DisposableVM
 
-       [user@dom0 ~]$ qvm-create --template <dvm_name> --class DispVM --label green disp-sys-firewall
+       [user@dom0 ~]$ qvm-create --template <DisposableVM-Template-Name> --class DispVM --label green disp-sys-firewall
 
 2. Set `disp-sys-firewall` to provide network for other VMs
 
@@ -224,7 +224,7 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 
 1. Create the `disp-sys-usb`
 
-       [user@dom0 ~]$ qvm-create --template <dvm-name> --class DispVM --label red disp-sys-usb
+       [user@dom0 ~]$ qvm-create --template <disposablevm-template-name> --class DispVM --label red disp-sys-usb
 
 2. Set the `disp-sys-usb` virtualization mode to hvm
 
@@ -281,17 +281,17 @@ If the `disp-sys-usb` does not start, it could be due to a PCI passthrough probl
 Deleting disposable VM is slightly peculiar. While working in a VM or disposable VM, you may want to open a document in another disposable VM. For this reason, the property `default_dispvm` may be set to the name of your disposable VM in a number of VMs:
 
     [user@dom0 ~]$ qvm-prefs workvm | grep default_dispvm
-    default_dispvm        -  custom-dvm
+    default_dispvm        -  custom-disposablevm-template
 
-This will prevent the deletion of the DVM. In order to fix this you need to unset the `default_dispvm` property:
+This will prevent the deletion of the DisposableVM Template. In order to fix this you need to unset the `default_dispvm` property:
 
     [user@dom0 ~]$ qvm-prefs workvm default_dispvm ""
 
-You can then delete the DVM:
+You can then delete the DisposableVM Template:
 
-    [user@dom0 ~]$ qvm-remove custom-dvm
+    [user@dom0 ~]$ qvm-remove custom-disposablevm-template
     This will completely remove the selected VM(s)
-      custom-dvm
+      custom-disposablevm-template
       
 If you still encounter the issue, you may have forgot to clean an entry. Looking at the system logs will help you
 
@@ -348,7 +348,7 @@ It is possible to change the settings of each new DisposableVM. This can be done
 
         [user@dom0 ~]$ qvm-create-default-dvm --default-template
         
-    Or, if you're [using a non-default template](#changing-the-dvm-template), regenerate the DisposableVM Template using your custom template:
+    Or, if you're [using a non-default template](#changing-the-disosablevm-template), regenerate the DisposableVM Template using your custom template:
     
         [user@dom0 ~]$ qvm-create-default-dvm <custom-template-name>
 
