@@ -348,7 +348,7 @@ It is possible to change the settings of each new DisposableVM. This can be done
 
         [user@dom0 ~]$ qvm-create-default-dvm --default-template
         
-    Or, if you're [using a non-default template](#changing-the-disosablevm-template), regenerate the DisposableVM Template using your custom template:
+    Or, if you're [using a non-default template](#changing-the-disposablevm-template), regenerate the DisposableVM Template using your custom template:
     
         [user@dom0 ~]$ qvm-create-default-dvm <custom-template-name>
 
