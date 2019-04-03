@@ -63,7 +63,7 @@ When you install a new template or upgrade a clone of a template, it is recommen
 
         Qubes Manager --> (Select a VM) --> VM settings --> Template
 
-3. Base the [DVM Template](/doc/glossary/#dvm-template) on the new template.
+3. Base the [DisposableVM Template](/doc/glossary/#disposablevm-template) on the new template.
    If you have set the new template as your default template:
 
         [user@dom0 ~]$ qvm-create-default-dvm --default-template
@@ -84,7 +84,7 @@ When you install a new template or upgrade a clone of a template, it is recommen
 
         Applications Menu --> System Tools --> Qubes Template Manager
 
-3. Base the [DVM Template](/doc/glossary/#dvm-template) on the new template.
+3. Base the [DisposableVM Template](/doc/glossary/#disposablevm-template) on the new template.
 
         [user@dom0 ~]$ qvm-create -l red -t new-template new-template-dvm
         [user@dom0 ~]$ qvm-prefs new-template-dvm template_for_dispvms True
@@ -136,7 +136,7 @@ Important Notes (R4.0)
 
 (1) Upon creation
 (2) Following shutdown
-(3) Including [DVM Templates](/doc/glossary/#dvm-template)
+(3) Including [DisposableVM Templates](/doc/glossary/#disposablevm-template)
 
 Important Notes (R3.2 and earlier)
 ---------------

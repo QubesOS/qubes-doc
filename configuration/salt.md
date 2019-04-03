@@ -252,7 +252,7 @@ Beginning with Qubes 4.0 and after [QSB #45], we implemented two changes:
    VM-specific property is set with the `qvm-prefs` command, while the
    global property is set with the `qubes-prefs` command.
 
-2. Created the `default-mgmt-dvm` DVM Template, which is hidden from
+2. Created the `default-mgmt-dvm` DisposableVM Template, which is hidden from
    the menu (to avoid accidental use), has networking disabled, and has
    a black label (the same as TemplateVMs). This VM is set as the global
    `management_dispvm`. Keep in mind that this DVM template has full control

@@ -68,7 +68,7 @@ TemplateVMs are intended for installing and updating software applications, but 
  * Colloquially, TemplateVMs are often referred to as "templates."
  * Since every TemplateVM supplies its *own* root filesystem to at least one other VM, no TemplateVM can be based on another TemplateVM.
    In other words, no TemplateVM is a [TemplateBasedVM](#templatebasedvm).
- * Since every TemplateVM supplies its *root* filesystem to at least one other VM, no [DVM Template](#dvm-template) is a TemplateVM.
+ * Since every TemplateVM supplies its *root* filesystem to at least one other VM, no [DisposableVM Template](#disposablevm-template) is a TemplateVM.
 
 TemplateBasedVM
 ---------------
@@ -113,7 +113,7 @@ A FirewallVM called `sys-firewall` is created by default in most Qubes installat
 
 DisposableVM
 ------------
-[Disposable Virtual Machine]. A temporary [AppVM](#appvm) based on a [DVM Template](#dvm-template) that can quickly be created, used, and destroyed.
+[Disposable Virtual Machine]. A temporary [AppVM](#appvm) based on a [DisposableVM Template](#disposablevm-template) that can quickly be created, used, and destroyed.
 
 DispVM
 ------
@@ -121,22 +121,23 @@ An older term for [DisposableVM](#disposablevm).
 
 DVM
 ---
-An abbreviation of [DisposableVM](#disposablevm), typically used to refer to [DVM Templates](#dvm-template).
+An abbreviation of [DisposableVM](#disposablevm), typically used to refer to [DisposableVM Templates](#disposablevm-template).
 
-DVM Template
-------------
+DisposableVM Template
+---------------------
+(Formerly known as a "DVM Template".)
 A type of [TemplateBasedVM](#templatebasedvm) on which [DisposableVMs](#disposablevm) are based.
-By default, a DVM Template named `fedora-XX-dvm` is created on most Qubes installations (where `XX` is the Fedora version of the default TemplateVM). 
-DVM Templates are not [TemplateVMs](#templatevm), since (being TemplateBasedVMs) they do not have root filesystems of their own to provide to other VMs.
-Rather, DVM Templates are complementary to TemplateVMs insofar as DVM Templates provide their own user filesystems to the DisposableVMs based on them.
-There are two main kinds of DVM Templates:
+By default, a DisposableVM Template named `fedora-XX-dvm` is created on most Qubes installations (where `XX` is the Fedora version of the default TemplateVM). 
+DisposableVM Templates are not [TemplateVMs](#templatevm), since (being TemplateBasedVMs) they do not have root filesystems of their own to provide to other VMs.
+Rather, DisposableVM Templates are complementary to TemplateVMs insofar as DisposableVM Templates provide their own user filesystems to the DisposableVMs based on them.
+There are two main kinds of DisposableVM Templates:
 
- * **Dedicated** DVM Templates are intended neither for installing nor running software.
-   Rather, they are intended for *customizing* or *configuring* software that has already been installed on the TemplateVM on which the DVM Template is based (see [DisposableVM Customization]).
-   This software is then intended to be run (in its customized state) in DisposableVMs that are based on the DVM Template.
- * **Non-dedicated** DVM Templates are typically [AppVMs](#appvm) on which DisposableVMs are based.
+ * **Dedicated** DisposableVM Templates are intended neither for installing nor running software.
+   Rather, they are intended for *customizing* or *configuring* software that has already been installed on the TemplateVM on which the DisposableVM Template is based (see [DisposableVM Customization]).
+   This software is then intended to be run (in its customized state) in DisposableVMs that are based on the DisposableVM Template.
+ * **Non-dedicated** DisposableVM Templates are typically [AppVMs](#appvm) on which DisposableVMs are based.
    For example, an AppVM could be used to generate and store trusted data.
-   Then, a DisposableVM could be created based on the AppVM (thereby making the AppVM a DVM Template) so that the data can be analyzed by an untrusted program without jeopardizing the integrity of the original data.
+   Then, a DisposableVM could be created based on the AppVM (thereby making the AppVM a DisposableVM Template) so that the data can be analyzed by an untrusted program without jeopardizing the integrity of the original data.
 
 PV
 --
