@@ -249,6 +249,7 @@ redirect_from:
  * [Networking in Qubes](/doc/networking/)
  * [Implementation of template sharing and updating](/doc/template-implementation/)
  * [Storage Pools](/doc/storage-pools/)
+ * [Audio virtualization](/doc/audio-virtualization/)
 
 ### Services
 
