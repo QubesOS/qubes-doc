@@ -21,8 +21,6 @@ Of course the AppVM has only read-access to the template's filesystem -- it cann
 In addition to saving on the disk space, and reducing domain creation time, another advantage of such scheme is the possibility for centralized software update.
 It's just enough to do the update in the template VM, and then all the AppVMs based on this template get updates automatically after they are restarted.
 
-The default template is called **fedora-23** in Qubes R3.2 and **fedora-26** in Qubes R4.0.
-
 The side effect of this mechanism is, of course, that if you install any software in your AppVM, more specifically in any directory other than `/home`, `/usr/local`, or `/rw` then it will disappear after the AppVM reboots (as the root filesystem for this AppVM will again be "taken" from the TemplateVM).
 **This means one normally installs software in the TemplateVM, not in AppVMs.**
 
@@ -80,7 +78,7 @@ Debian also has three Qubes VM testing repositories (where `*` denotes the Relea
 
 To enable or disable any of these repos permanently, uncomment the corresponding `deb` line in `/etc/apt/sources.list.d/qubes-r*.list`
 
-Reverting changes to a TemplateVM (R4.0)
+Reverting changes to a TemplateVM
 ---------------------------------
 
 Perhaps you've just updated your TemplateVM, and the update broke your template.
@@ -99,33 +97,6 @@ For example, to revert changes to the `fedora-26` TemplateVM:
 2. In a dom0 terminal, type:
 
         qvm-volume revert fedora-26:root
-
-Reverting changes to a TemplateVM (R3.2)
----------------------------------
-
-Perhaps you've just updated your TemplateVM, and the update broke your template.
-Or perhaps you've made a terrible mistake, like accidentally confirming the installation of an unsigned package that could be malicious.
-Fortunately, it's easy to revert changes to TemplateVMs using the command appropriate to your version of Qubes.
-
-**Important:** This command will roll back any changes made *during the last time the TemplateVM was run, but **not** before.*
-This means that if you have already restarted the TemplateVM, using this command is unlikely to help, and you'll likely want to reinstall it from the repository instead.
-On the other hand, if the template is already broken or compromised, it won't hurt to try reverting first.
-Just make sure to **back up** all of your data and changes first!
-
-For example, to revert changes to the `fedora-23` TemplateVM:
-
-1. Shut down all VMs based on `fedora-23`.
-2. Shut down `fedora-23`.
-   If you've already just shut it down, do **not** start it again (see above).
-3. In a dom0 terminal, type:
-
-        qvm-revert-template-changes fedora-23
-
-   If you want to skip the confirmation check, you can add the `--force` option:
-
-        qvm-revert-template-changes --force fedora-23
-
-For the technical details about how this command works and the steps it performs, see [here](/doc/template-implementation/#rollback-template-changes).
 
 Notes on trusting your TemplateVM(s)
 -------------------------------------
@@ -168,8 +139,7 @@ However, a compromise of a template affects only a subset of all your AppVMs (in
 Also, if your AppVMs are network disconnected, even though their filesystems might get compromised due to the corresponding template compromise, it still would be difficult for the attacker to actually leak out the data stolen in an AppVM.
 Not impossible (due to existence of cover channels between VMs on x86 architecture), but difficult and slow.
 
-
-Standalone VMs (R4.0 and later)
+Standalone VMs
 --------------
 Standalone VMs have their own copy of the whole filesystem, and thus can be updated and managed on their own.
 But this means that they take a few GBs on disk, and also that centralized updates do not apply to them.
@@ -192,30 +162,6 @@ qvm-create --class StandaloneVM --label <label> --property virt_mode=hvm <vmname
 ... or click appropriate options in the Qubes Manager's Create VM window.
 
 (Note: Technically, `virt_mode=hvm` is not necessary for every StandaloneVM. However, it makes sense if you want to use a kernel from within the VM.)
-
-
-Standalone VMs (R3.2 and earlier)
---------------
-
-Standalone VMs have their own copy of the whole filesystem, and thus can be updated and managed on their own.
-But this means that they take a few GBs on disk, and also that centralized updates do not apply to them.
-
-Sometimes it might be convenient to have a VM that has its own filesystem, where you can directly introduce changes, without the need to start/stop the template VM.
-Such situations include e.g.:
-
--   VMs used for development (devel environments require a lot of \*-devel packages and specific devel tools)
-
--   VMs used for installing untrusted packages.
-    Normally you install digitally signed software from Red Hat/Fedora repositories, and it's reasonable that such software has non malicious *installation* scripts (rpm pre/post scripts).
-    However, when you would like to install some packages from less trusted sources, or unsigned, then using a dedicated (untrusted) standalone VM might be a better way.
-
-In order to create a standalone VM you can use a command line like this (from console in Dom0):
-
-~~~
-qvm-create <vmname> --standalone --label <label>
-~~~
-
-... or click appropriate options in the Qubes Manager's Create VM window.
 
 
 Using more than one template
@@ -256,17 +202,17 @@ Thanks to such configuration all the VMs can use the same proxy address, and if 
 If the VM is configured to have access to the updates proxy (2), the startup scripts will automatically configure dnf to really use the proxy (3).
 Also access to updates proxy is independent of any other firewall settings (VM will have access to updates proxy, even if policy is set to block all the traffic).
 
-There are two services ([qvm-service](https://www.qubes-os.org/doc/dom0-tools/qvm-service/), [service framework](https://www.qubes-os.org/doc/qubes-service/)):
+There are two services (`qvm-service`, [service framework](https://www.qubes-os.org/doc/qubes-service/)):
 
 1. qubes-updates-proxy (and its deprecated name: qubes-yum-proxy) - a service providing a proxy for templates - by default enabled in NetVMs (especially: sys-net)
 2. updates-proxy-setup (and its deprecated name: yum-proxy-setup) - use a proxy provided by another VM (instead of downloading updates directly), enabled by default in all templates
 
-This is generally the same in R3.2 and R4.0 - in both cases both the old and new names work.
-And in both cases defaults listed above are applied if the service is not explicitly listed in services tab.
+Both the old and new names work.
+The defaults listed above are applied if the service is not explicitly listed in the services tab.
 
-### Technical details (R4.0)
+### Technical details
 
-Instead of using a network connection like in R3.2, R4.0 uses RPC/qrexec.
+The updates proxy uses RPC/qrexec.
 The proxy is configured in qrexec policy on dom0: `/etc/qubes-rpc/policy/qubes.UpdatesProxy`.
 By default this is set to sys-net and/or sys-whonix, depending on firstboot choices.
 This new design allows for templates to be updated even when they are not connected to any netvm.
@@ -282,33 +228,6 @@ $tag:whonix-updatevm $anyvm deny
 $type:TemplateVM $default allow,target=sys-net
 $anyvm $anyvm deny
 ```
-
-### Technical details (R3.2)
-
-The proxy is running in selected VMs (by default all the NetVMs).
-Thanks to such configuration all VMs can use the same proxy address, and if there is a proxy on network path, it will handle the traffic (of course when firewall rules allow that).
-The first proxy on the network path according to the template's netvm setting will be used.
-If the VM is configured to have access to the updates proxy (1), the startup scripts will automatically configure dnf to use the proxy.
-Also access to updates proxy is independent of any other firewall settings (VM will have access to updates proxy, even if the policy is set to block all the traffic).
-
-(1) Firewall tab -\> Allow connections to Updates Proxy; this setting works immediately (once OK is clicked)
-
-1.  Updates proxy: It is running as "qubes-updates-proxy" service.
-    Startup script of this service sets up a firewall rule to intercept traffic directed to 10.137.255.254:8082:
-
-    ~~~
-    iptables -t nat -A PR-QBS-SERVICES -d 10.137.255.254/32 -i vif+ -p tcp -m tcp --dport 8082 -j REDIRECT
-    ~~~
-
-2.  VMs using the proxy service Startup script (updates-proxy-setup or qubes-misc-post service) configure
-dnf using `/etc/yum.conf.d/qubes-proxy.conf` file.
-    It can either contain
-
-    ~~~
-    proxy=http://10.137.255.254:8082/
-    ~~~
-
-    line, or be empty. Note that this file is specifically included from main yum.conf, dnf does not support real conf.d configuration style...
 
 Note on treating AppVM's root filesystem non-persistence as a security feature
 ------------------------------------------------------------------------------

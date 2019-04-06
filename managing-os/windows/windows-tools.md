@@ -9,8 +9,8 @@ redirect_from:
 - /wiki/WindowsAppVms/
 ---
 
-What are Qubes Windows Tools ?
-==============================
+Qubes Windows Tools
+===================
 
 Qubes Windows Tools are a set of programs and drivers that provide integration of Windows AppVMs with the rest of the Qubes system. Currently the following features are available for Windows VMs after installation of those tools:
 

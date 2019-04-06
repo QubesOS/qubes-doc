@@ -113,10 +113,8 @@ website compromising the browser in an attempt to bypass U2F authentication.
 
 ## Installation
 
-The Qubes U2F Proxy tool can be installed in Qubes 3.2 and 4.0. (However, the
-[Advanced usage] features are only available in 4.0.) These instructions assume
-that there is a `sys-usb` qube that holds the USB stack, which is the default
-configuration in most Qubes OS installations.
+These instructions assume that there is a `sys-usb` qube that holds the USB
+stack, which is the default configuration in most Qubes OS installations.
 
 In dom0:
 
@@ -177,8 +175,8 @@ will have access to your banking key but not your Twitter key, and your
 
 ## TemplateVM and browser support
 
-The large number of possible combinations of Qubes version (3.2, 4.0),
-TemplateVM (Fedora 27, 28; Debian 8, 9), and browser (multiple Google Chrome
+The large number of possible combinations of
+TemplateVM (Fedora 27, 28; Debian 8, 9) and browser (multiple Google Chrome
 versions, multiple Chromium versions, multiple Firefox versions) made it
 impractical for us to test every combination that users are likely to attempt
 with the Qubes U2F Proxy. In some cases, you may be the first person to try a

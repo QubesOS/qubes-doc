@@ -22,7 +22,7 @@ In most cases, the GUI tool Qube Settings (available for every qube from the Sta
 In case of standalone qubes and templates, just change the Disk Storage settings above.
 In case of template-based qubes, the private storage (the /home directory and user files) can be changed in the qube's own settings, but the system root image is [inherited from the template](/getting-started/#appvms-qubes-and-templatevms), and so it must be changed in the template settings. 
 If you are increasing the disk image size for Linux-based qubes installed from Qubes OS repositories in Qubes 4.0 or later, changing the settings above is all you need to do - in other cases, you may need to do more, according to instructions below.
-See also [OS Specific Follow-up Instructions](/doc/resize-disk-image/#os-specific-follow-up-instructions) at the end of this page.
+See also the OS-specific follow-up instructions below.
 
 ### Resize disk image
 

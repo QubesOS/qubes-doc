@@ -13,7 +13,7 @@ Select Qubes OS Screenshots
 
 [![r32-xfce-desktop.png](/attachment/wiki/QubesScreenshots/r32-xfce-desktop.png)](/attachment/wiki/QubesScreenshots/r32-xfce-desktop.png)
 
-Beginning with Qubes 3.2, the default desktop environment is Xfce4.
+The default desktop environment is Xfce4.
 
 * * * * *
 

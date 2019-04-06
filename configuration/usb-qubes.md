@@ -64,7 +64,6 @@ Those steps are not performed by default, because of risk explained in [Security
 
 
 ### Automatic setup ###
-R4.0 only! R3.2 users please read the [manual setup] below!
 
 To allow USB keyboard usage (including early boot for LUKS passphrase), make sure you have the latest `qubes-mgmt-salt-dom0-virtual-machines` package (simply [install dom0 updates]) and execute in dom0:
 
@@ -129,7 +128,7 @@ In case you are absolutely sure you do not want to confirm mouse access from `sy
 
 ## How to hide all USB controllers from dom0 ##
 
-(Note: Beginning with R3.2, `rd.qubes.hide_all_usb` is set automatically if you opt to create a USB qube during installation.
+(Note: `rd.qubes.hide_all_usb` is set automatically if you opt to create a USB qube during installation.
 This also occurs automatically if you choose to [create a USB qube] using the `qubesctl` method, which is the
 first pair of steps in the linked section.)
 
@@ -202,7 +201,6 @@ The procedure to hide all USB controllers from dom0 is as follows:
 [usb-controller]: /doc/usb-devices/#finding-the-right-usb-controller
 [faq]: /faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot
 [Security Warning about USB Input Devices]: /doc/device-handling-security/#security-warning-on-usb-input-devices
-[manual setup]: #manual-setup
 [install dom0 updates]: /doc/software-update-dom0/#how-to-update-dom0
 [hiding USB controllers from dom0]: #how-to-hide-all-usb-controllers-from-dom0
 [AEM]: /doc/anti-evil-maid/

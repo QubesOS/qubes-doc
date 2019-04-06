@@ -204,7 +204,7 @@ It accepts all the same arguments of the vanilla tool.
 
 ## Configuring a VM's System from Dom0
 
-Starting with Qubes R3.2, Salt in Qubes can be used to configure VMs from dom0.
+Salt in Qubes can be used to configure VMs from dom0.
 Simply set the VM name as the target minion name in the top file.
 You can also use the `qubes` pillar module to select VMs with a particular 
 property (see below).
@@ -239,8 +239,6 @@ Additionally, for each target VM, `salt-ssh` is started from a temporary VM.
 This way dom0 doesn't directly interact with potentially malicious target VMs; 
 and in the case of a compromised Salt VM, because they are temporary, the 
 compromise cannot spread from one VM to another.
-
-In Qubes 3.2, this temporary VM is based on the default template.
 
 Beginning with Qubes 4.0 and after [QSB #45], we implemented two changes:
 

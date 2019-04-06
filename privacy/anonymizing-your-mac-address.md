@@ -11,7 +11,6 @@ Anonymizing your MAC Address
 
 Although it is not the only metadata broadcast by network hardware, changing the default [MAC Address](https://en.wikipedia.org/wiki/MAC_address) of your hardware could be [an important step in protecting privacy](https://tails.boum.org/contribute/design/MAC_address/#index1h1).
 Currently, Qubes OS *does not* automatically "anonymize" or spoof the MAC Address, so unless this gets implemented by default you can randomize your MAC Address with the following guide.
-The Network Manager method should work with both Qubes R4.0 and R3.2.
 
 
 ## Upgrading and configuring Network Manager in Qubes
@@ -67,3 +66,4 @@ Next, create a new NetVM using the edited template and assign network devices to
 Finally, shutdown all VMs and change the settings of sys-firewall, etc. to use the new NetVM.
 
 You can check the MAC address currently in use by looking at the status pages of your router device(s), or inside the NetVM with the command `sudo ip link show`.
+

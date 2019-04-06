@@ -9,8 +9,9 @@ redirect_from:
 - /wiki/QubesFirewall/
 ---
 
-Understanding Qubes networking and firewall
-===========================================
+The Qubes Firewall
+==================
+
 
 Understanding firewalling in Qubes
 ----------------------------------
@@ -23,6 +24,7 @@ For more information, see the following:
 
 -   [https://groups.google.com/group/qubes-devel/browse\_thread/thread/9e231b0e14bf9d62](https://groups.google.com/group/qubes-devel/browse_thread/thread/9e231b0e14bf9d62)
 -   [https://blog.invisiblethings.org/2011/09/28/playing-with-qubes-networking-for-fun.html](https://blog.invisiblethings.org/2011/09/28/playing-with-qubes-networking-for-fun.html)
+
 
 How to edit rules
 -----------------
@@ -55,12 +57,13 @@ The limit was removed in R4.0.
 
 It is possible to work around this limit by enforcing the rules on the qube itself
 by putting appropriate rules in `/rw/config`.
-See the "Where to put firewall rules" sections below for [R4.0](#where-to-put-firewall-rules-r40) and [R3.2](#where-to-put-firewall-rules-r32).
+See [Where to put firewall rules](#where-to-put-firewall-rules).
 In complex cases, it might be appropriate to load a ruleset using `iptables-restore`
 called from `/rw/config/rc.local`.
 
-Reconnecting VMs after a NetVM reboot (R4.0)
-----------------------------------------
+
+Reconnecting VMs after a NetVM reboot
+-------------------------------------
 
 Normally Qubes doesn't let the user stop a NetVM if there are other qubes
 running which use it as their own NetVM. But in case the NetVM stops for
@@ -80,28 +83,10 @@ default Qubes installation):
 
 ` qvm-prefs sys-firewall netvm sys-net `
 
-Reconnecting VMs after a NetVM reboot (R3.2)
-----------------------------------------
-
-Normally Qubes doesn't let the user stop a NetVM if there are other qubes
-running which use it as their own NetVM. But in case the NetVM stops for
-whatever reason (e.g. it crashes, or the user forces its shutdown via qvm-kill
-via terminal in Dom0), then there is an easy way to restore the connection to
-the NetVM by issuing:
-
-` qvm-prefs <vm> -s netvm <netvm> `
-
-Normally qubes do not connect directly to the actual NetVM which has networking
-devices, but rather to the default sys-firewall first, and in most cases it would
-be the NetVM that will crash, e.g. in response to S3 sleep/restore or other
-issues with WiFi drivers. In that case it is only necessary to issue the above
-command once, for the sys-firewall (this assumes default VM-naming used by the
-default Qubes installation):
-
-` qvm-prefs sys-firewall -s netvm sys-net `
 
 Network service qubes
---------------------------------------
+---------------------
+
 Qubes does not support running any networking services (e.g. VPN, local DNS server, IPS, ...) directly in a qube that is used to run the Qubes firewall service (usually sys-firewall) for good reasons.
 In particular, if one wants to ensure proper functioning of the Qubes firewall, one should not tinker with iptables or nftables rules in such qubes.
 
@@ -117,8 +102,9 @@ The sys-firewall-2 proxy ensures that:
 
 For the VPN service please also look at the [VPN documentation](/doc/vpn).
 
+
 Enabling networking between two qubes
---------------------------------------
+-------------------------------------
 
 Normally any networking traffic between qubes is prohibited for security reasons.
 However, in special situations, one might want to selectively allow specific qubes
@@ -174,8 +160,9 @@ sudo iptables -I INPUT -s <IP address of A> -j ACCEPT
 [root@B user]# chmod +x /rw/config/rc.local
 ~~~
 
+
 Port forwarding to a qube from the outside world
---------------------------------------------------
+------------------------------------------------
 
 In order to allow a service present in a qube to be exposed to the outside world
 in the default setup (where the qube has sys-firewall as network VM, which in
@@ -434,7 +421,8 @@ fi
 This time testing should allow connectivity to the service as long as the
 service is up :-)
 
-Where to put firewall rules (R4.0)
+
+Where to put firewall rules
 ---------------------------
 
 Implicit in the above example [scripts](/doc/config-files/), but worth 
@@ -443,15 +431,4 @@ iptables commands should be added to the `/rw/config/rc.local` script. For
 AppVMs supplying networking (`sys-firewall` inclusive), 
 iptables commands should be added to 
 `/rw/config/qubes-firewall-user-script`.
-
-Where to put firewall rules (R3.2)
----------------------------
-
-Implicit in the above example [scripts](/doc/config-files/), but worth 
-calling attention to: for all qubes *except* ProxyVMs, iptables commands 
-should be added to the `/rw/config/rc.local` script. For ProxyVMs 
-(`sys-firewall` inclusive), iptables commands should be added to 
-`/rw/config/qubes-firewall-user-script`. This is because a ProxyVM is 
-constantly adjusting its firewall, and therefore initial settings from 
-`rc.local` do not persist.
 

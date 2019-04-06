@@ -31,7 +31,7 @@ The scripts here all run as root.
 
 -   `/rw/config/qubes-ip-change-hook` - script runs in NetVM after every external IP change and on "hardware" link status change.
 
--   (R4.0 only) in ProxyVMs (or AppVMs with `qubes-firewall` service enabled), scripts placed in the following directories will be executed in the listed order followed by `qubes-firewall-user-script` after each firewall update.
+-   In ProxyVMs (or AppVMs with `qubes-firewall` service enabled), scripts placed in the following directories will be executed in the listed order followed by `qubes-firewall-user-script` after each firewall update.
     Good place to write own custom firewall rules.
 
     ~~~
@@ -39,9 +39,6 @@ The scripts here all run as root.
     /rw/config/qubes-firewall.d
     /rw/config/qubes-firewall-user-script
     ~~~
-
--   (R3.2 only) `/rw/config/qubes-firewall-user-script` - script runs in ProxyVM (or AppVM with `qubes-firewall` service enabled) after each firewall update.
-    Good place to write own custom firewall rules.
 
 -   `/rw/config/suspend-module-blacklist` - list of modules (one per line) to be unloaded before system goes to sleep.
     The file is used only in a VM with PCI devices attached.

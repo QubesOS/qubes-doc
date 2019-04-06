@@ -19,14 +19,6 @@ redirect_from:
 Installation Guide
 ==================
 
-Qubes 3.2 Warning
------------------
-
-There is a set of known upstream bugs in the Fedora installer that affect Qubes 3.2 ([Bug 1170803], [Bug 1374983], and [Bug 1268700]; tracked in Qubes issue [#2835]).
-Because of these bugs, the installer will try to access all existing disk partitions, run fsck on them, and mount them.
-Therefore, we *strongly* recommended that, prior to starting the Qubes installer, you physically disconnect all disks that you do not want to be modified.
-Furthermore, if you are installing Qubes on a potentially compromised system, we *strongly* recommended that you wipe your target installation disk before starting the installer.
-
 
 Qubes 4.0.1 Warning
 -------------------
@@ -63,8 +55,6 @@ compromised, or just be serving compromised ISOs because their operators decided
 so, for whatever reason. Always verify the digital signature on the downloaded
 ISO. Make sure to read our guide on [verifying signatures] for more info about
 how to download and verify our PGP keys and verify the downloaded ISO.
-
-**Note:** The Qubes R4.0 ISO is large, so if you are using R3.2 to download it you may need to [increase the private storage](/doc/resize-disk-image/#expand-disk-image-r32) available to the AppVM.
 
 
 Copying the ISO onto the installation medium
@@ -139,15 +129,11 @@ Getting Help
  * If you don't find your answer in the documentation, it may be time to consult
    the [mailing lists], as well as the many other available sources of [help].
 
- * Please do not email individual developers (Marek, Joanna, etc.) with
+ * Please do not email individual developers (Marek, etc.) with
    questions about installation or other problems. Please send all such
    questions to the appropriate mailing list.
 
 
-[Bug 1170803]: https://bugzilla.redhat.com/show_bug.cgi?id=1170803
-[Bug 1374983]: https://bugzilla.redhat.com/show_bug.cgi?id=1374983
-[Bug 1268700]: https://bugzilla.redhat.com/show_bug.cgi?id=1268700
-[#2835]: https://github.com/QubesOS/qubes-issues/issues/2835
 [QSB #46]: /news/2019/01/23/qsb-46/
 [system requirements]: /doc/system-requirements/
 [Hardware Compatibility List]: /hcl/

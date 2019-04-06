@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Creating and Using HVM Domains
+title: HVM
 permalink: /doc/hvm/
 redirect_from:
 - /doc/hvm-create/
@@ -9,31 +9,21 @@ redirect_from:
 - /wiki/HvmCreate/
 ---
 
-Creating and using HVM (fully virtualized) domains
-==================================================
+HVM
+===
 
-What are HVM domains?
----------------------
+A **Hardware-assisted Virtual Machine (HVM)**, also known as a **Fully-Virtualized Virtual Machine**, utilizes the virtualization extensions of the host CPU.
+These are typically contrasted with **Paravirtualized (PV)** VMs.
 
-HVM domains (Hardware VM), in contrast to PV domains (Paravirtualized domains), allow one to create domains based on any OS for which one has an installation ISO.  For example, this allows one to have Windows-based VMs in Qubes.
+HVMs allow you to create domains based on any OS for which you have an installation ISO.
+This allows you to have Windows-based VMs in Qubes.
 
-Interested readers might want to check [this article](https://blog.invisiblethings.org/2012/03/03/windows-support-coming-to-qubes.html) to learn why it took so long for Qubes OS to support HVM domains (Qubes 1 only supported Linux based PV domains). As of Qubes 4, every VM is PVH by default, except those with attached PCI devices which are HVM. [See here](https://blog.invisiblethings.org/2017/07/31/qubes-40-rc1.html) for a discussion of the switch to HVM from R3.2's PV, and [here](/news/2018/01/11/qsb-37/) for changing the default to PVH.
+By default, every Qubes VM runs in **PVH** mode (which has security advantages over both PV and HVM) except for those with attached PCI devices, which run in HVM mode.
+See [here](https://blog.invisiblethings.org/2017/07/31/qubes-40-rc1.html) for a discussion of the switch from PV to HVM and [here](/news/2018/01/11/qsb-37/) for the announcement about changing the default to PVH.
+
 
 Creating an HVM domain
 ----------------------
-
-### R3.2 ###
-
-With a GUI: in Qubes Manager VM creation dialog box choose the "Standalone qube not based on a template" type.
-If "install system from device" is selected (which is by default), then `virt_mode` will be set to `hvm` automatically.
-Otherwise, open the newly created VM's Qube Settings GUI and in the "Advanced" tab select "HVM" in the virtualization mode drop-down list.
-
-Command line (the VM's name and label color are for illustration purposes):
-~~~
-qvm-create my-new-vm --hvm --label green
-~~~
-
-### R4.0 ###
 
 With a GUI: in Qubes Manager VM creation dialog box choose the "Standalone qube not based on a template" type.
 If "install system from device" is selected (which is by default), then `virt_mode` will be set to `hvm` automatically.
@@ -51,6 +41,7 @@ If you receive an error like this one, then you must first enable VT-x in your B
 ~~~
 libvirt.libvirtError: invalid argument: could not find capabilities for arch=x86_64
 ~~~
+
 
 Installing an OS in an HVM domain
 ---------------------------------
@@ -74,6 +65,7 @@ For security reasons you should *never* copy untrusted data to dom0. Qubes doesn
 
 Next, the VM will start booting from the attached installation media. Depending on the OS being installed in the VM, one might be required to start the VM several times (as is the case with Windows 7 installations) because whenever the installer wants to "reboot the system" it actually shuts down the VM and Qubes won't automatically start it. Several invocations of `qvm-start` command (as shown above) might be needed.
 
+
 Setting up networking for HVM domains
 -------------------------------------
 
@@ -89,14 +81,15 @@ In order to manually configure networking in a VM, one should first find out the
 
 Alternatively, one can use the `qvm-ls -n` command to obtain the same information and configure the networking within the HVM according to those settings (IP/netmask/gateway).
 
-DNS servers: in R3.2 the DNS addresses are the same as the gateway's IP. In R4.0, the DNS ips are `10.139.1.1` and `10.139.1.2`.
+The DNS IP addresses are `10.139.1.1` and `10.139.1.2`.
+There is [opt-in support](/doc/networking/#ipv6) for IPv6 forwarding.
 
-Qubes R3.2 only supports IPv4. Qubes R4.0 has [opt-in support](https://www.qubes-os.org/doc/networking/#ipv6) for IPv6 forwarding.
 
 Using Template-based HVM domains
 --------------------------------
 
 Please see our dedicated page on [installing and using Windows-based AppVMs](/doc/windows-appvms/).
+
 
 Cloning HVM domains
 -------------------
@@ -198,10 +191,12 @@ drive             : None
 timezone          : localtime
 ~~~
 
+
 Installing Qubes support tools in Windows 7 VMs
 -----------------------------------------------
 
 Windows specific steps are described on [separate page](/doc/windows-appvms/).
+
 
 Assigning PCI devices to HVM domains
 ------------------------------------
@@ -211,6 +206,7 @@ HVM domains (including Windows VMs) can be [assigned PCI devices](/doc/assigning
 One problem at the moment however, is that after the whole system gets suspended into S3 sleep and subsequently resumed, some attached devices may stop working and should be restarted within the VM. This can be achieved under a Windows HVM by opening the Device Manager, selecting the actual device (such as a USB controller), 'Disabling' the device, and then 'Enabling' the device again. This is illustrated on the screenshot below:
 
 ![r2b1-win7-usb-disable.png](/attachment/wiki/HvmCreate/r2b1-win7-usb-disable.png)
+
 
 Converting VirtualBox VM to HVM
 -------------------------------
@@ -289,3 +285,4 @@ Other documents related to HVM:
 
 -   [Windows VMs](/doc/windows-vm/)
 -   [LinuxHVMTips](/doc/linux-hvm-tips/)
+

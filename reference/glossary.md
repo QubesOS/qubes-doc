@@ -148,7 +148,7 @@ However, paravirtualized VMs require a PV-enabled kernel and PV drivers, so the 
 
 HVM
 ---
-Hardware Virtual Machine. 
+Hardware-assisted Virtual Machine. 
 Any fully virtualized, or hardware-assisted, [VM](#vm) utilizing the virtualization extensions of the host CPU. 
 Although HVMs are typically slower than paravirtualized VMs due to the required emulation, HVMs allow the user to create domains based on any operating system.
 

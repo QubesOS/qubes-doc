@@ -22,10 +22,6 @@ bind-dirs provides a mechanism whereby files usually taken from the template can
 For example, in Whonix, [Tor's data dir /var/lib/tor has been made persistent in the TemplateBased ProxyVM sys-whonix](https://github.com/Whonix/qubes-whonix/blob/8438d13d75822e9ea800b9eb6024063f476636ff/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf#L5). 
 In this way sys-whonix can benefit from the Tor anonymity feature 'persistent Tor entry guards' but does not have to be a StandaloneVM.
 
-## Minimum Qubes Version ##
-
-bind-dirs.sh works with Qubes R3.2 and above.
-
 ## How to use bind-dirs.sh? ##
 
 Inside your TemplateBasedVM.

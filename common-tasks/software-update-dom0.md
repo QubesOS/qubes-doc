@@ -34,7 +34,7 @@ How to install and update software in dom0
 
 ### How to update dom0
 
-In the Qubes VM Manager, simply select dom0 in the VM list, then click the **Update VM system** button (the blue, downward-pointing arrow). In addition, updating dom0 has been made more convenient: You will be prompted on the desktop whenever new dom0 updates are available and given the choice to run the update with a single click.
+In the Qube Manager, simply select dom0 in the VM list, then click the **Update VM system** button (the blue, downward-pointing arrow). In addition, updating dom0 has been made more convenient: You will be prompted on the desktop whenever new dom0 updates are available and given the choice to run the update with a single click.
 
 Alternatively, command-line tools are available for accomplishing various update-related tasks (some of which are not available via Qubes VM Manager). In order to update dom0 from the command line, start a console in dom0 and then run one of the following commands:
 
@@ -69,14 +69,6 @@ You can also pass commands to `dnf` using `--action=...`.
     sudo dnf downgrade package-version
     ~~~
 
-For example, to downgrade Xen to a specific older version available for Qubes R3.2, you would:
-
-~~~
-sudo qubes-dom0-update xen-libs-4.6.6-36.fc23.x86_64 xen-hypervisor-4.6.6-36.fc23.x86_64 xen-runtime-4.6.6-36.fc23.x86_64 xen-hvm-4.6.6-36.fc23.x86_64 xen-4.6.6-36.fc23.x86_64 xen-license-4.6.6-36.fc23.x86_64
-
-sudo dnf downgrade xen-libs-4.6.6-36.fc23.x86_64 xen-hypervisor-4.6.6-36.fc23.x86_64 xen-runtime-4.6.6-36.fc23.x86_64 xen-hvm-4.6.6-36.fc23.x86_64 xen-4.6.6-36.fc23.x86_64 xen-license-4.6.6-36.fc23.x86_64
-~~~
-
 ### How to re-install a package
 
 You can re-install in a similar fashion to downgrading.
@@ -95,7 +87,7 @@ You can re-install in a similar fashion to downgrading.
     sudo dnf reinstall package
     ~~~
 
-    Note that Dnf will only re-install if the installed and downloaded versions match. You can ensure they match by either updating the package to the latest version, or specifying the package version in the first step using the form `package-version`.
+    Note that `dnf` will only re-install if the installed and downloaded versions match. You can ensure they match by either updating the package to the latest version, or specifying the package version in the first step using the form `package-version`.
 
 ### How to uninstall a package
 
@@ -162,3 +154,4 @@ Requires installed [Whonix](/doc/privacy/whonix/).
 Go to Qubes VM Manager -> System -> Global Settings. See the UpdateVM setting. Choose your desired Whonix-Gateway ProxyVM from the list. For example: sys-whonix.
 
     Qubes VM Manager -> System -> Global Settings -> UpdateVM -> sys-whonix
+

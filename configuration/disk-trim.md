@@ -57,7 +57,7 @@ This can be done with either systemd (weekly only) or cron (daily or weekly).
    And mark it as executable with `chmod 755 /etc/cron.daily/trim`.
 
 **Note** Although discards can be issued on every delete inside `dom0` by adding the `discard` mount option to `/etc/fstab`, this option can hurt performance so the above procedure is recommended instead.
-However, inside App and Template qubes, the `discard` mount option is on by default to notify the LVM thin pool driver (R4.0) or sparse file driver (R3.2) that the space is no longer needed and can be zeroed and re-used.
+However, inside App and Template qubes, the `discard` mount option is on by default to notify the LVM thin pool driver that the space is no longer needed and can be zeroed and re-used.
 
 If you are using Qubes with LVM, you may also want to set `issue_discards = 1` in `/etc/lvm/lvm.conf`.
 Setting this option will permit LVM to issue discards to the SSD when logical volumes are shrunk or deleted.

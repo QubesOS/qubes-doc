@@ -74,7 +74,7 @@ Users may want to adjust their definitions and respective implementations accord
 
 #### Implementation
 
-The implementation may be specific to the awesome version you're running. This guide refers to awesome version 3.5.9 which is available to Qubes 3.2 and Qubes 4.0 users.
+The implementation may be specific to the awesome version you're running. This guide refers to awesome version 3.5.9 which is available to Qubes 4.0 users.
 
 Please keep in mind that this guide may not be conclusive. Your mileage may vary.
 

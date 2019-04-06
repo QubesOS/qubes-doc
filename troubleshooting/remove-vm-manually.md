@@ -8,30 +8,10 @@ How to Remove VMs Manually
 ==========================
 
 How to Remove a TemplateVM Manually 
-------------------------------------------
+-----------------------------------
 
-Try the [normal method] before resorting to these.
+Try the [normal method] before resorting to this.
 All of the following commands should be executed in a dom0 terminal.
-
-### R3.2
-
-1. Remove the TemplateVM's directory:
-
-       $ rm -rf /var/lib/qubes/vm-templates/<template-name>
-
-2. Remove the TemplateVM from qubes.xml:
-
-       $ qvm-remove --just-db <template-name>
-
-3. Remove the TemplateVM's `*.desktop` files from `~/.local/share/applications`:
-
-       $ rm ~/.local/share/applications/<template-name>*
-
-4. Remove the TemplateVM's Applications Menu entry:
-        
-       $ sudo rm /etc/xdg/menus/applications-merged/<template-name>*
-
-### R4.0
 
 When a template is marked as 'installed by package manager', but cannot be uninstalled there, trying to uninstall manually will result in the error "ERROR: VM installed by package manager: template-vm-name". Do as follows to be able to uninstall the template:
 

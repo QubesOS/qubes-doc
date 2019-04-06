@@ -38,16 +38,9 @@ After installing a fresh Fedora TemplateVM, we recommend performing the followin
 
 1. [Update the TemplateVM].
 
-2. Switch any [TemplateBasedVMs] that are based on the old TemplateVM to the new one:
+2. [Switch any TemplateBasedVMs that are based on the old TemplateVM to the new one][switch-templates].
 
-   * [How to switch templates (3.2)](/doc/templates/#how-to-switch-templates-32)
-   * [How to switch templates (4.0)](/doc/templates/#how-to-switch-templates-40)
-
-3. If desired, remove the old TemplateVM by running the following command in dom0:
-
-        $ sudo dnf remove qubes-template-fedora-XX
-
-   (Replace `XX` with the Fedora version number of the template you wish to remove.)
+3. If desired, [uninstall the old TemplateVM].
 
 
 Upgrading
@@ -72,6 +65,6 @@ To upgrade your Fedora TemplateVM, please consult the guide that corresponds to 
 [supported]: /doc/supported-versions/#templatevms
 [How to Reinstall a TemplateVM]: /doc/reinstall-template/
 [Update the TemplateVM]: /doc/software-update-vm/
-[TemplateBasedVMs]: /doc/glossary/#templatebasedvm
-[remove the old TemplateVM]: /doc/templates/#important-notes
+[switch-templates]: /doc/templates/#how-to-switch-templates
+[uninstall the old TemplateVM]: /doc/templates/#how-to-uninstall
 

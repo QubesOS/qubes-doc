@@ -157,7 +157,6 @@ redirect_from:
  * [Customizing Fedora minimal templates](/doc/fedora-minimal-template-customization/)
  * [Customizing Windows 7 templates](/doc/windows-template-customization/)
  * [Using KDE in dom0](/doc/kde/)
- * [Installing XFCE in dom0](/doc/xfce/)
  * [Installing i3 in dom0](/doc/i3/)
  * [Using awesome in dom0](/doc/awesome/)
  * [Language Localization](/doc/language-localization/)

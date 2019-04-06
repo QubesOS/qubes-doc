@@ -37,12 +37,12 @@ QubesDB
 -   `/qubes-netmask` - network mask (only when VM has netvm set); currently hardcoded "255.255.255.0"
 -   `/qubes-ip - IP address for this VM (only when VM has netvm set)
 -   `/qubes-gateway` - default gateway IP (only when VM has netvm set); VM should add host route to this address directly via eth0 (or whatever default interface name is)
--   `/qubes-primary-dns` - primary DNS address (only when VM has netvm set) (in Qubes 3.2 and later, previously `/qubes-gateway` was used for this purpose)
+-   `/qubes-primary-dns` - primary DNS address (only when VM has netvm set)
 -   `/qubes-secondary-dns` - secondary DNS address (only when VM has netvm set)
 -   `/qubes-netvm-gateway` - same as `qubes-gateway` in connected VMs (only when VM serves as network backend - ProxyVM and NetVM)
 -   `/qubes-netvm-netmask` - same as `qubes-netmask` in connected VMs (only when VM serves as network backend - ProxyVM and NetVM)
 -   `/qubes-netvm-network` - network address (only when VM serves as network backend - ProxyVM and NetVM); can be also calculated from qubes-netvm-gateway and qubes-netvm-netmask
--   `/qubes-netvm-primary-dns` - same as `qubes-primary-dns` in connected VMs (only when VM serves as network backend - ProxyVM and NetVM); traffic sent to this IP on port 53 should be redirected to primary DNS server (in Qubes 3.2 and later, previously `/qubes-netvm-gateway` was used for this purpose)
+-   `/qubes-netvm-primary-dns` - same as `qubes-primary-dns` in connected VMs (only when VM serves as network backend - ProxyVM and NetVM); traffic sent to this IP on port 53 should be redirected to primary DNS server
 -   `/qubes-netvm-secondary-dns` - same as `qubes-secondary-dns` in connected VMs (only when VM serves as network backend - ProxyVM and NetVM); traffic sent to this IP on port 53 should be redirected to secondary DNS server
 
 #### Firewall rules in 3.x ####
