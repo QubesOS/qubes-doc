@@ -145,7 +145,7 @@ Before creating the `chroot`, add this to your `builder.conf`:
     USE_QUBES_REPO_VERSION = $(RELEASE)
 
 It will add the 'current' Qubes repository to your `chroot` environment.
-Next, specify which components (`gcc`, for example) you do *not* want to compile:
+Next, specify which components (`gcc`, for example) you want to download instead of compiling:
 
     COMPONENTS := $(filter-out gcc,$(COMPONENTS))
 
