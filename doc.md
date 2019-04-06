@@ -269,7 +269,7 @@ redirect_from:
 
  * [Building Qubes](/doc/qubes-builder/) (["API" Details](/doc/qubes-builder-details/))
  * [Development Workflow](/doc/development-workflow/)
- * [Building Qubes OS ISO](/doc/qubes-r3-building/)
+ * [Building Qubes OS ISO](/doc/qubes-iso-building/)
  * [Building Qubes Templates](https://github.com/QubesOS/qubes-template-configs)
  * [Building a TemplateVM based on a new OS (ArchLinux example)](/doc/building-non-fedora-template/)
  * [Building the Archlinux Template](/doc/building-archlinux-template/)
