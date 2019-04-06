@@ -18,7 +18,7 @@ Although resolved in R4.0 and higher with the switch to scrypt, it is *strongly 
 With Qubes, it's easy to back up and restore your whole system, as well as to migrate between two physical machines.
 
 As of Qubes R2B3, these functions are integrated into the Qubes VM Manager GUI.
-There are also two command-line tools available which perform the same functions: [qvm-backup](/doc/dom0-tools/qvm-backup/) and [qvm-backup-restore](/doc/dom0-tools/qvm-backup-restore/).
+There are also two command-line tools available which perform the same functions: `qvm-backup` and `qvm-backup-restore`.
 
 
 Creating a Backup (R4.0 and later)

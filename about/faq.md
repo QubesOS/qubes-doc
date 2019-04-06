@@ -329,7 +329,7 @@ In your TemplateVMs, open a terminal and run `sudo dnf upgrade`.
 
 ### How do I run a Windows HVM in non-seamless mode (i.e., as a single window)?
 
-Enable "debug mode" in the qube's settings, either by checking the box labeled "Run in debug mode" in the Qubes VM Manager qube settings menu or by running the [qvm-prefs command](/doc/dom0-tools/qvm-prefs/).)
+Enable "debug mode" in the qube's settings, either by checking the box labeled "Run in debug mode" in the Qubes VM Manager qube settings menu or by running the `qvm-prefs` command.
 
 ### I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.
 
@@ -360,7 +360,7 @@ Errors suggesting this issue:
 
 Another solution would be to set the pci_strictreset option in dom0:
 
- - In Qubes R4.x, when attaching the PCI device to the VM (where `<BDF>` can be obtained from running [qvm-pci](/doc/dom0-tools/qvm-pci/)):
+ - In Qubes R4.x, when attaching the PCI device to the VM (where `<BDF>` can be obtained from running `qvm-pci`):
 
         qvm-pci attach --persistent --option no-strict-reset=true usbVM dom0:<BDF>
 
@@ -369,7 +369,7 @@ Another solution would be to set the pci_strictreset option in dom0:
         qvm-prefs usbVM -s pci_strictreset false
 
 These options allow the VM to ignore the error and the VM will start.
-Please review the notes on [this page](/doc/Dom0Tools/QvmPrefs/) and [here](/doc/assigning-devices/) and be aware of the potential risks.
+Please review the notes in the `qvm-prefs` man page and [here](/doc/assigning-devices/) and be aware of the potential risks.
 
 ### I assigned a PCI device to a qube, then unassigned it/shut down the qube. Why isn't the device available in dom0?
 
@@ -430,7 +430,7 @@ For Fedora:
 
 ### How do I access my external drive?
 
-The recommended approach is to pass only the specific partition you intend to use from [`sys-usb`](/doc/usb/) to another qube via [qvm-block](/doc/dom0-tools/qvm-block/). They will show up in the destination qube as `/dev/xvd*` and must be mounted manually. Another approach is to attach the entire USB drive to your destination qube. However, this could theoretically lead to an attack because it forces the destination qube to parse the device's partition table. If you believe your device is safe, you may proceed to attach it.
+The recommended approach is to pass only the specific partition you intend to use from [`sys-usb`](/doc/usb/) to another qube via `qvm-block`. They will show up in the destination qube as `/dev/xvd*` and must be mounted manually. Another approach is to attach the entire USB drive to your destination qube. However, this could theoretically lead to an attack because it forces the destination qube to parse the device's partition table. If you believe your device is safe, you may proceed to attach it.
 
 In Qubes 4.0, this is accomplished with the Devices Widget located in the tool tray (default top right corner, look for an icon with a yellow square). From the top part of the list, click on the drive you want to attach, then select the qube to attach it to. Although you can also attach the entire USB device to a qube by selecting it from the bottom part of the list, in general this approach should not be used because you are exposing the target qube to unnecessary additional attack surface.
 

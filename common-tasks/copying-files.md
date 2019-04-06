@@ -34,19 +34,11 @@ CLI
 ---
 
 ```
-qvm-copy-to-vm [--without-progress] dest_vmname file [file]+
-```
-
-Also see: [qvm-copy-to-vm](/doc/vm-tools/qvm-copy-to-vm/)
-
-
-Qubes 4.0
----------
-
-In Qubes 4.0, qvm-copy-to-vm and qvm-move-to-vm are deprecated (GUI behaviour is unchanged from Qubes 3.2).  In the command line, use qvm-copy or qvm-move to avoid typing target qube name twice.
-
-```
 qvm-copy [--without-progress] file [file]+
+```
+
+```
+qvm-move [--without-progress] file [file]+
 ```
 
 
