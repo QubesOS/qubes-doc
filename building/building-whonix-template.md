@@ -15,7 +15,7 @@ Many other Qubes templates can also be built by following this procedure.
 Simply choose the appropriate builder(s) and template(s) you wish to build in the `./setup` procedure below.
 Always include the `mgmt-salt` builder.
 
-First, set up the [Build Environment](/doc/qubes-r3-building/#build-environment) (follow the build environment section only).
+First, set up the [Build Environment](/doc/qubes-iso-building/#build-environment) (follow the build environment section only).
 
 Next, configure the builder:
 
