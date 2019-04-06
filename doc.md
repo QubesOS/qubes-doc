@@ -191,6 +191,7 @@ redirect_from:
  * [Glossary of Qubes Terminology](/doc/glossary/)
  * [Qubes Service Framework](/doc/qubes-service/)
  * [Command Execution in VMs (and Qubes RPC)](/doc/qrexec/)
+ * [Deprecated documentation](https://github.com/QubesOS/qubesos.github.io#deprecated-documentation)
 
 
 ### Presentation Slides
