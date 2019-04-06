@@ -95,15 +95,15 @@ Here are the answers for Xen 4.1 (which we use as of 2014-04-28):
 
 ### Which virtualization modes do VMs use?
 
-Here is an overview of the VM virtualization modes that correspond to each currently-supported Qubes OS version (as of 2018-03-28):
+Here is an overview of the VM virtualization modes:
 
-VM type \ Qubes OS version                 | 3.2 | 4.0 |
------------------------------------------- | --- | --- |
-Default VMs without PCI devices (most VMs) | PV  | PVH |
-Default VMs with PCI devices               | PV  | HVM |
-Stub domains - Default VMs w/o PCI devices | N/A | N/A |
-Stub domains - Default VMs w/ PCI devices  | N/A | PV  |
-Stub domains - HVMs                        | PV  | PV  |
+VM type                                    | Mode |
+------------------------------------------ | ---- |
+Default VMs without PCI devices (most VMs) | PVH  |
+Default VMs with PCI devices               | HVM  |
+Stub domains - Default VMs w/o PCI devices | N/A  |
+Stub domains - Default VMs w/ PCI devices  | PV   |
+Stub domains - HVMs                        | PV   |
 
 ### What's so special about Qubes' GUI virtualization?
 
@@ -233,7 +233,7 @@ It is possible to install Qubes on a system with 2 GB of RAM, but the system wou
 
 Qubes 4.x requires Intel VT-x with EPT / AMD-V with RVI (SLAT) and Intel VT-d / AMD-Vi (aka AMD IOMMU) for proper functionality (see the [4.x System Requirements](/doc/system-requirements/#qubes-release-4x)). If you are receiving an error message on install saying your "hardware lacks the features required to proceed", check to make sure the virtualization options are enabled in your BIOS/UEFI configuration. You may be able to install without the required CPU features for testing purposes only, but VMs may not function correctly and there will be no security isolation. For more information, see our post on [updated requirements for Qubes-certified hardware](/news/2016/07/21/new-hw-certification-for-q4/).
 
-### Can I install Qubes 3.2 on a system without VT-x?
+### Can I install Qubes OS on a system without VT-x?
 
 Yes. 
 Xen doesn't use VT-x (or AMD-v) for PV guest virtualization. 
@@ -241,7 +241,7 @@ Xen doesn't use VT-x (or AMD-v) for PV guest virtualization.
 However, without VT-x, you won't be able to use fully virtualized VMs (e.g., Windows-based qubes), which were introduced in Qubes 2. 
 In addition, if your system lacks VT-x, then it also lacks VT-d. (See next question.)
 
-### Can I install Qubes 3.2 on a system without VT-d?
+### Can I install Qubes OS on a system without VT-d?
 
 Yes. 
 You can even run a NetVM, but you will not benefit from DMA protection for driver domains. 
@@ -284,7 +284,7 @@ See introductions on Wikibooks: [here](https://en.wikibooks.org/wiki/Fedora_And_
 
 You may have an adapter (wired, wireless), that is not compatible with open-source drivers shipped by Qubes. There may be a binary blob, which provides drivers in the linux-firmware package.
 
-Open a terminal and run `sudo dnf install linux-firmware` (or `sudo yum install linux-firmware` in Qubes versions prior to 3.2.1) in the TemplateVM upon which your NetVM is based. You have to restart the NetVM after the TemplateVM has been shut down.
+Open a terminal and run `sudo dnf install linux-firmware` in the TemplateVM upon which your NetVM is based. You have to restart the NetVM after the TemplateVM has been shut down.
 
 ### Can I install Qubes OS together with other operating system (dual-boot/multi-boot)?
 
@@ -325,7 +325,7 @@ This can usually be fixed by updating via the command line.
 
 In dom0, open a terminal and run `sudo qubes-dom0-update`.
 
-In your TemplateVMs, open a terminal and run `sudo dnf upgrade` (or `sudo yum upgrade` for Qubes older than 3.2.1).
+In your TemplateVMs, open a terminal and run `sudo dnf upgrade`.
 
 ### How do I run a Windows HVM in non-seamless mode (i.e., as a single window)?
 
@@ -433,8 +433,6 @@ For Fedora:
 The recommended approach is to pass only the specific partition you intend to use from [`sys-usb`](/doc/usb/) to another qube via [qvm-block](/doc/dom0-tools/qvm-block/). They will show up in the destination qube as `/dev/xvd*` and must be mounted manually. Another approach is to attach the entire USB drive to your destination qube. However, this could theoretically lead to an attack because it forces the destination qube to parse the device's partition table. If you believe your device is safe, you may proceed to attach it.
 
 In Qubes 4.0, this is accomplished with the Devices Widget located in the tool tray (default top right corner, look for an icon with a yellow square). From the top part of the list, click on the drive you want to attach, then select the qube to attach it to. Although you can also attach the entire USB device to a qube by selecting it from the bottom part of the list, in general this approach should not be used because you are exposing the target qube to unnecessary additional attack surface.
-
-In Qubes 3.2, you can use the Qubes VM Manager. Simply insert your USB drive, right-click on the desired qube in the Qubes VM Manager list, click Attach/detach block devices, and select your desired action and device.
 
 Although external media such as external hard drives or flash drives plugged in via USB are available in the USB qube, it is not recommended to access them directly from inside the USB qube. See [Block (Storage) Devices](/doc/block-devices/) for more information.
 
@@ -582,8 +580,9 @@ See the Heads project [[1]](https://trmm.net/Heads) [[2]](http://osresearch.net/
 
 ### What is the canonical way to detect Qubes VM?
 
-Check `/usr/share/qubes/marker-vm` file existence. Additionally, its last line contains Qubes release version (`3.2`, `4.0` etc).
-The file was introduced after initial Qubes 3.2 and 4.0 release. If you need to support not-fully-updated systems, check `/usr/bin/qrexec-client-vm` existence.
+Check `/usr/share/qubes/marker-vm` file existence. Additionally, its last line contains Qubes release version (e.g., `4.0`).
+The file was introduced after the initial Qubes 4.0 release.
+If you need to support not-fully-updated systems, check for the existence of `/usr/bin/qrexec-client-vm`.
 
 ### Is there a way to automate tasks for continuous integration or DevOps?
 
