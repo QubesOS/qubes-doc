@@ -1,9 +1,11 @@
 ---
 layout: doc
 title: Qubes ISO Building
-permalink: /doc/qubes-r3-building/
+permalink: /doc/qubes-iso-building/
 redirect_from:
+- /doc/qubes-r3-building/
 - /en/doc/qubes-r3-building/
+- /en/doc/qubes-iso-building/
 - /doc/QubesR3Building/
 - /wiki/QubesR3Building/
 ---
@@ -14,27 +16,26 @@ Building Qubes OS ISO
 Build Environment
 -----------------
 
-Fedora 26 has been successfully used to build Qubes R3.2 and R4.0 with the below steps.
+Fedora 29 has been successfully used to build Qubes R4.0 with the below steps.
 Other rpm-based operating systems may also work.
-Travis-CI also uses Ubuntu 14.04 to perform test builds, except it can not test the `./setup` script.
+Travis-CI uses Ubuntu 14.04 to perform test builds, except it can not test the `./setup` script.
 
-In `dom0`, install the Fedora 26 template if you don't already have it.
+In `dom0`, install the Fedora 29 template if you don't already have it.
 
 ~~~
-sudo qubes-dom0-update qubes-template-fedora-26
+sudo qubes-dom0-update qubes-template-fedora-29
 ~~~
 
-Create a standalone appVM from the Fedora 26 template.
-You may choose your own name, but this document will refer to it as `dev26`.
+Create a standalone AppVM from the Fedora 29 template.
 Set private storage to at least 60 GB if you will be building only the default templates; 100 GB or more if you plan on additional.
 It's not required, but if you allocate additional CPU cores, the build process can utilize them at some steps such as the kernel build.
 Likewise, more memory (up to 16 GB) can help.
-Last, you may want to disable memory balancing on `dev26` but keep in mind the impact on your other qubes.
+Last, you may want to disable memory balancing, but keep in mind the impact on your other qubes.
 
-Once you've built `dev26`, open a Terminal window to it and install the necessary dependencies (see [QubesBuilder](/doc/qubes-builder/) for more info):
+Once you've built the development AppVM, open a Terminal window to it and install the necessary dependencies (see [QubesBuilder](/doc/qubes-builder/) for more info):
 
 ~~~
-$ sudo dnf install gnupg git createrepo rpm-build make wget rpmdevtools python2-sh dialog rpm-sign dpkg-dev debootstrap PyYAML devscripts perl-Digest-MD5 perl-Digest-SHA
+$ sudo dnf install perl-Digest-SHA rpmdevtools rpm-build dialog rpm-sign python2-sh dpkg-dev debootstrap devscripts
 ~~~
 
 Get the necessary keys to verify the sources (run these and other commands below as a regular user, not root):
@@ -71,20 +72,29 @@ The builder will do that for us for each component, every time we build, even fo
 Build using setup script
 -----------------
 
-Let's configure the builder first (see [procedure](/doc/qubes-r3-building/#build-using-manual-steps) at bottom if you would prefer to manually configure):
+Let's configure the builder first (see [procedure](/doc/qubes-iso-building/#build-using-manual-steps) at bottom if you would prefer to manually configure):
 
 ~~~
 cd ~/qubes-builder
 ./setup
 # Select Yes to add Qubes Master Signing Key
 # Select Yes to add Qubes OS Signing Key
-# Select 3.2 or 4.0 for version
+# Select 4.0 for version
 # Stable
+# Select Current (if you want to use pre-built packages instead of compiling for hours)
 # No (we want a full build)
-# Select builder-fedora, builder-debian, template-whonix, mgmt-salt
-# Choose Yes to add adrelanos's third party key
+# Select fc29 and stretch (for the currently shipping templates)
+# Select builder-rpm, builder-debian, template-whonix, mgmt-salt
 # Yes (to download)
-# Select fc26, stretch, whonix-gateway, whonix-workstation (for the currently shipping templates)
+~~~
+
+Once it completes downloading, re-run `setup` to add the Whonix templates:
+
+~~~
+./setup
+# Choose the same options as above, except at templates select:
+# fc29, stretch, whonix-gateway-14, whonix-workstation-14
+# If prompted, choose Yes to add adrelanos's third party key
 ~~~
 
 Continue the build process with:

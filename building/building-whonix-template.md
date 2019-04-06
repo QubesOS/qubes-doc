@@ -15,7 +15,7 @@ Many other Qubes templates can also be built by following this procedure.
 Simply choose the appropriate builder(s) and template(s) you wish to build in the `./setup` procedure below.
 Always include the `mgmt-salt` builder.
 
-First, set up the [Build Environment](/doc/qubes-r3-building/#build-environment) (follow the build environment section only).
+First, set up the [Build Environment](/doc/qubes-iso-building/#build-environment) (follow the build environment section only).
 
 Next, configure the builder:
 
@@ -24,15 +24,23 @@ cd ~/qubes-builder
 ./setup
 # Select Yes to add Qubes Master Signing Key
 # Select Yes to add Qubes OS Signing Key
-# Select 3.2 or 4.0 for version
+# Select 4.0 for version
 # Stable
+# Select Current (if you want to use pre-built packages instead of compiling for hours)
 # Yes (we want to build only templates)
-# Select builder-fedora, builder-debian, template-whonix, mgmt-salt (setup won't let you continue if you don't include builder-fedora, but we don't actually use it)
-# Choose Yes to add adrelanos's third party key
-# Yes (to download sources)
-# Select whonix-gateway, whonix-workstation (for the currently shipping templates)
+# Select fc29 and stretch (for the currently shipping templates)
+# Select builder-rpm, builder-debian, template-whonix, mgmt-salt
+# Yes (to download)
 ~~~
 
+Once it completes downloading, re-run `setup` to add the Whonix templates:
+
+~~~
+./setup
+# Choose the same options as above, except at templates select:
+# whonix-gateway-14, whonix-workstation-14
+# If prompted, choose Yes to add adrelanos's third party key
+~~~
 Continue the build process with:
 
 ~~~
@@ -71,7 +79,7 @@ make qubes-vm
 make template
 ~~~
  
-Once the build is complete, the install packages for your newly built templates will be located in `/qubes-builder/qubes-src/linux-template-builder/rpm/noarch`.
+Once the build is complete, the install packages for your newly built templates will be located in `~/qubes-builder/qubes-src/linux-template-builder/rpm/noarch`.
 Copy them from there to dom0 and install:
 
 ~~~
