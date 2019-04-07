@@ -19,7 +19,7 @@ Current Qubes R2 Beta 3 (R2B3) systems can be upgraded in-place to the latest R2
 Upgrade Template and Standalone VM(s)
 -------------------------------------
 
--   Qubes R2 comes with new template based on Fedora 20. You can upgrade existing template according to procedure described [here](/doc/fedora-template-upgrade-20/).
+-   Qubes R2 comes with new template based on Fedora 20. You can upgrade existing template according to procedure described [here](/doc/templates/fedora/#upgrading).
 
 -   **It also possible to download a new Fedora 20-based template from our repositories**. To do this please first upgrade the Dom0 distro as described in the section below.
 

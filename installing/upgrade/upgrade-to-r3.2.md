@@ -117,7 +117,7 @@ repeated in **all** the user's Template and Standalone VMs.
 **Note:** This will only upgrade your Fedora template from Qubes 3.1 to Qubes
 3.2. This will *not* upgrade your Fedora template from Fedora 23 to Fedora 24.
 In order to do that, please see the
-[Fedora 23 template upgrade instructions](/doc/fedora-template-upgrade-23/).
+[Fedora 23 template upgrade instructions](/doc/templates/fedora/#upgrading).
 
 1.  Open a terminal in the TemplateVM (or StandaloneVM). (E.g., use Qubes VM
     Manager's right-click menu, choose "Run Command in VM," and type

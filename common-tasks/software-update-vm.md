@@ -24,12 +24,8 @@ It's just enough to do the update in the template VM, and then all the AppVMs ba
 The side effect of this mechanism is, of course, that if you install any software in your AppVM, more specifically in any directory other than `/home`, `/usr/local`, or `/rw` then it will disappear after the AppVM reboots (as the root filesystem for this AppVM will again be "taken" from the TemplateVM).
 **This means one normally installs software in the TemplateVM, not in AppVMs.**
 
-Unlike VM private filesystems, under R3.x the template VM root filesystem does not support discard by default, so deleting files does not free the space in dom0.
-See [these instructions](/doc/template/fedora/upgrade-23-to-24/#compacting-the-upgraded-template) to recover space in dom0.
-
-In R4.0 and higher, the template root filesystem is created in a thin pool so manual trims are no longer needed.
-
-See [here](/doc/disk-trim) for further discussion on enabling discards/trim support under all versions.
+The template root filesystem is created in a thin pool, so manual trims are not necessary.
+See [here](/doc/disk-trim) for further discussion on enabling discards/trim support.
 
 Installing (or updating) software in the TemplateVM
 ----------------------------------------------------

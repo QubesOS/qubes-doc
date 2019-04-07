@@ -185,7 +185,6 @@ general `qubes-baz` command:
 Once you foo, make sure to close the baz before fooing the next bar.
 ```
 
-[Here][version-example] is a good example of a page that is correctly subdivided to account for version-specific differences.
 Subdividing the page into clearly-labeled sections for each version has several benefits:
 
  * It preserves good content for older (but still supported) versions.
