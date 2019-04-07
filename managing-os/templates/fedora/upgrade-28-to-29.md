@@ -31,8 +31,8 @@ For most users, this behavior should not cause a problem, since a TemplateVM in 
 However, if you wish to have the RPM Fusion repo definitions after upgrading in a TemplateVM in which they are currently disabled, you may wish to temporarily enable them prior to upgrading or manually create, copy, or download them after upgrading.
 
 
-Qubes 4.0 Instructions
-----------------------
+Instructions
+------------
 
 ### Summary: Upgrading the Standard Fedora 28 Template to Fedora 29 ###
 
@@ -143,7 +143,7 @@ should be entered (`@dom0` or `@fedora-29`).
         [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
 
  8. (Recommended) [Switch everything that was set to the old template to the new
-    template.][switching-4.0]
+    template.][switching]
 
  9. (Optional) Remove the old template. (Make sure to type `fedora-28`, not
     `fedora-29`.)
@@ -173,11 +173,6 @@ same as for a TemplateVM.
 (If you encounter insufficient space issues, you may need to use the methods
 described for the standard template above.)
 
-
-Qubes 3.2
----------
-
-Fedora 29 is currently not supported on Qubes 3.2. Since official support for Qubes 3.2 ends (2019-03-28) before end of support for Fedora 28 (not earlier than 2019-05-30), Qubes team does not plan to add support for Fedora 29 to Qubes 3.2.
 
 Additional Information
 ----------------------
@@ -212,7 +207,6 @@ In this case, you have several options:
 [resize-disk-image]: /doc/resize-disk-image/
 [Additional Information]: #additional-information
 [Compacting the Upgraded Template]: #compacting-the-upgraded-template
-[switching-3.2]: /doc/templates/#how-to-switch-templates-32
-[switching-4.0]: /doc/templates/#how-to-switch-templates-40
+[switching]: /doc/templates/#how-to-switch-templates
 [DispVM]: /doc/dispvm/
 

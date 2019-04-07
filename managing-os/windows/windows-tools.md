@@ -14,7 +14,7 @@ Qubes Windows Tools
 
 Qubes Windows Tools are a set of programs and drivers that provide integration of Windows AppVMs with the rest of the Qubes system. Currently the following features are available for Windows VMs after installation of those tools:
 
--   Seamless GUI mode that integrates apps windows onto the common Qubes trusted desktop (available on Qubes R2 Beta 3 and later)
+-   Seamless GUI mode that integrates apps windows onto the common Qubes trusted desktop
 -   Support for [secure clipboard copy/paste](/doc/copy-paste/) between the Windows VM and other AppVMs
 -   Support for [secure file exchange](/doc/copying-files/) between the Windows VM and other AppVMs
 -   Support for qvm-run and generic qrexec for the Windows VM (e.g. ability to run custom service within/from the Windows VM)
@@ -72,9 +72,9 @@ qvm-start lab-win7 --install-windows-tools
 
 Once the Windows VM boots, a CDROM should appear in the 'My Computer' menu (typically as `D:`) with a setup program in its main directory.
 
-After successful installation, the Windows VM must be shut down and started again, possibly a couple of times (see [this page](/doc/windows-tools-3/) for detailed configuration options).
+After successful installation, the Windows VM must be shut down and started again, possibly a couple of times.
 
-Qubes (R2 Beta 3 and later releases) will automatically detect the tools has been installed in the VM and will set appropriate properties for the VM, such as `qrexec_installed`, `guiagent_installed`, and `default_user`. This can be verified (but is not required) using qvm-prefs command:
+Qubes will automatically detect the tools has been installed in the VM and will set appropriate properties for the VM, such as `qrexec_installed`, `guiagent_installed`, and `default_user`. This can be verified (but is not required) using qvm-prefs command:
 
 ~~~
 qvm-prefs <your-appvm-name>
@@ -86,8 +86,8 @@ NOTE: it is recommended to increase the default value of Windows VM's `qrexec_ti
 qvm-prefs -s <vm-name> qrexec_timeout 300
 ~~~
 
-Using Windows AppVMs in seamless mode (Qubes R2 Beta 3 and later)
------------------------------------------------------------------
+Using Windows AppVMs in seamless mode
+-------------------------------------
 
 Once you start a Windows-based AppVM with Qubes Tools installed, you can easily start individual applications from the VM (note the `-a` switch used here, which will auto-start the VM if it is not running):
 
@@ -120,8 +120,8 @@ Changing between seamless and full desktop mode
 
 You can switch between seamless and "full desktop" mode for Windows HVMs in their settings in Qubes Manager. The latter is the default.
 
-Using template-based Windows AppVMs (Qubes R2 Beta 3 and later)
----------------------------------------------------------------
+Using template-based Windows AppVMs
+-----------------------------------
 
 Qubes allows HVM VMs to share a common root filesystem from a select Template VM, just like it is done for Linux AppVMs. This mode is not limited to Windows AppVMs, and can be used for any HVM (e.g. FreeBSD running in a HVM). In order to create a HVM TemplateVM one can use the following command:
 
@@ -142,7 +142,3 @@ Once the template has been created and installed it is easy to create AppVMs bas
 qvm-create --hvm <new windows appvm name> --template <name of template vm> --label <label color>
 ~~~
 
-Troubleshooting and advanced settings for Windows Tools
--------------------------------------------------------
-
-See [this page](/doc/windows-tools-3/) for information on troubleshooting issues with Qubes Windows Tools and advanced configuration settings.

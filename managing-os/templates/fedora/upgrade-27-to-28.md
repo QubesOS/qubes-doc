@@ -50,165 +50,8 @@ To work around this error:
    (This should automatically upgrade the other excluded packages too.)
 
 
-Qubes 3.2 Instructions
-----------------------
-
-### Summary: Upgrading the Standard Fedora 27 Template to Fedora 28 ###
-
-**Note:** The prompt on each line indicates where each command should be entered
-(`@dom0` or `@fedora-28`).
-
-        [user@dom0 ~]$ qvm-clone fedora-27 fedora-28
-        [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
-        [user@dom0 ~]$ qvm-run -a fedora-28 gnome-terminal
-        [user@dom0 ~]$ qvm-block -A fedora-28 dom0:/var/tmp/template-upgrade-cache.img
-        [user@fedora-28 ~]$ sudo mkfs.ext4 /dev/xvdi
-        [user@fedora-28 ~]$ sudo mount /dev/xvdi /mnt/removable
-        [user@fedora-28 ~]$ sudo dnf clean all
-        [user@fedora-28 ~]$ sudo dnf --releasever=28 --setopt=cachedir=/mnt/removable --best --allowerasing -x python2-tornado distro-sync
-
-    (Shut down TemplateVM by any normal means.)
-
-        [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
-        [user@dom0 ~]$ qvm-trim-template fedora-28
-
-(Optional cleanup: Switch everything over to the new template and delete the old
-one. See instructions below for details.)
-
-
-### Detailed: Upgrading the Standard Fedora 27 Template to Fedora 28 ###
-
-These instructions will show you how to upgrade the standard Fedora 27
-TemplateVM to Fedora 28. The same general procedure may be used to upgrade any
-template based on the standard Fedora 27 template.
-
-**Note:** The command-line prompt on each line indicates where each command
-should be entered (`@dom0` or `@fedora-28`).
-
- 1. Ensure the existing template is not running.
-
-        [user@dom0 ~]$ qvm-shutdown fedora-27
-
- 2. Clone the existing template and start a terminal in the new template.
-
-        [user@dom0 ~]$ qvm-clone fedora-27 fedora-28
-        [user@dom0 ~]$ qvm-run -a fedora-28 gnome-terminal
-
- 3. Attempt the upgrade process in the new template.
-
-        [user@fedora-28 ~]$ sudo dnf clean all
-        [user@fedora-28 ~]$ sudo dnf --releasever=28 distro-sync --best --allowerasing
-
-    **Note:** `dnf` might ask you to approve importing a new package signing
-    key. For example, you might see a prompt like this one:
-
-        warning: /var/cache/dnf/fedora-d02ca361e1b58501/packages/python2-babel-2.3.4-1.fc28.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID 9db62fb1: NOKEY
-        Importing GPG key 0x9DB62FB1:
-         Userid     : "Fedora (28) <fedora-28-primary@fedoraproject.org>"
-         Fingerprint: 128C F232 A937 1991 C8A6 5695 E08E 7E62 9DB6 2FB1
-         From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-28-x86_64
-        Is this ok [y/N]:
-
-    This key was already checked when it was installed (notice that the "From"
-    line refers to a location on your local disk), so you can safely say yes to
-    this prompt.
-
-    **Note:** If you encounter no errors, proceed to step 4. If you do encounter
-    errors, see the next two points first.
-
-     * If `dnf` reports that you do not have enough free disk space to proceed
-       with the upgrade process, create an empty file in dom0 to use as a cache
-       and attach it to the template as a virtual disk.
-
-           [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
-           [user@dom0 ~]$ qvm-block -A fedora-28 dom0:/var/tmp/template-upgrade-cache.img
-
-       Then reattempt the upgrade process, but this time use the virtual disk
-       as a cache.
-
-           [user@fedora-28 ~]$ sudo mkfs.ext4 /dev/xvdi
-           [user@fedora-28 ~]$ sudo mount /dev/xvdi /mnt/removable
-           [user@fedora-28 ~]$ sudo dnf clean all
-           [user@fedora-28 ~]$ sudo dnf --releasever=28 --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
-
-       If this attempt is successful, proceed to step 4.
-
-     * `dnf` may complain:
-
-           At least X MB more space needed on the / filesystem.
-
-       In this case, one option is to [resize the TemplateVM's disk
-       image][resize-disk-image] before reattempting the upgrade process.
-       (See [Additional Information] below for other options.)
-
- 4. Check that you are on the correct (new) fedora release.
- 
-        [user@fedora-28 ~]$ cat /etc/fedora-release
-
- 5. Shut down the new TemplateVM (from the command-line or Qubes VM Manager).
-
-        [user@dom0 ~]$ qvm-shutdown fedora-28
-
- 6. Remove the cache file, if you created one.
-
-        [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
-
- 7. Trim the new template (see [Compacting the Upgraded Template] for details
-    and other options).
-
-        [user@dom0 ~]$ qvm-trim-template fedora-28
-
- 8. (Recommended) [Switch everything that was set to the old template to the new
-    template.][switching-3.2]
-
- 9. (Optional) Remove the old template. (Make sure to type `fedora-27`, not
-    `fedora-28`.)
-
-        [user@dom0 ~]$ sudo dnf remove qubes-template-fedora-27
-
-
-### Compacting the Upgraded Template ###
-
-Neither `fstrim` nor the `discard` mount option works on the TemplateVM's root
-filesystem, so when a file is removed in the template, space is not freed in
-dom0. This means that the template will use about twice as much space as is
-really necessary after upgrading.
-
-You can use the `qvm-trim-template` tool:
-
-    [user@dom0 ~]$ qvm-trim-template fedora-28
-
-
-### Upgrading StandaloneVMs ###
-
-The procedure for upgrading a StandaloneVM from Fedora 27 to Fedora 28 is the
-same as for a TemplateVM, except that `qvm-trim-template` does not work on
-StandaloneVMs. Instead, you should run the following command inside the
-StandaloneVM in order to compact it:
-
-    $ sudo fstrim -v -a
-
-
-### Summary: Upgrading the Minimal Fedora 27 Template to Fedora 28 ###
-
-**Note:** The prompt on each line indicates where each command should be entered
-(`@dom0` or `@fedora-28`).
-
-        [user@dom0 ~]$ qvm-clone fedora-27-minimal fedora-28-minimal
-        [user@dom0 ~]$ qvm-run -u root -a fedora-28-minimal xterm
-        [root@fedora-28-minimal ~]# dnf clean all
-        [user@fedora-28-minimal ~]# dnf --releasever=28 --best --allowerasing distro-sync
-
-    (Shut down TemplateVM by any normal means.)
-
-        [user@dom0 ~]$ qvm-trim-template fedora-28-minimal
-
-(If you encounter insufficient space issues, you may need to use the methods
-described for the standard template above.)
-
-
-Qubes 4.0 Instructions
-----------------------
+Instructions
+------------
 
 ### Summary: Upgrading the Standard Fedora 27 Template to Fedora 28 ###
 
@@ -319,7 +162,7 @@ should be entered (`@dom0` or `@fedora-28`).
         [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
 
  8. (Recommended) [Switch everything that was set to the old template to the new
-    template.][switching-4.0]
+    template.][switching]
 
  9. (Optional) Remove the old template. (Make sure to type `fedora-27`, not
     `fedora-28`.)
@@ -383,7 +226,6 @@ In this case, you have several options:
 [resize-disk-image]: /doc/resize-disk-image/
 [Additional Information]: #additional-information
 [Compacting the Upgraded Template]: #compacting-the-upgraded-template
-[switching-3.2]: /doc/templates/#how-to-switch-templates-32
-[switching-4.0]: /doc/templates/#how-to-switch-templates-40
+[switching]: /doc/templates/#how-to-switch-templates
 [DispVM]: /doc/disposablevm/
 

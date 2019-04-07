@@ -76,7 +76,7 @@ If you only want to create a shortcut for a single AppVM, you can create a custo
 What about applications in DispVMs?
 -----------------------------------
 
-[See here](/doc/disposablevm-customization/#adding-arbitrary-programs-to-disposablevm-application-menu).
+[See here](/doc/disposablevm-customization/).
 
 Behind the scenes
 -----------------

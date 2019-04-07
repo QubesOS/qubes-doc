@@ -71,6 +71,6 @@ using](/doc/releases/3.0/release-notes/#upgrading) first, then follow the
 instructions above. This will be time consuming process.
 
 [salt-doc]: /doc/salt/
-[pvgrub-doc]: /doc/managing-vm-kernel/#using-kernel-installed-in-the-vm-r32
+[pvgrub-doc]: /doc/managing-vm-kernel/
 [input-proxy]: https://github.com/QubesOS/qubes-app-linux-input-proxy/blob/master/README.md
 [github-release-notes]: https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+3.1%22+label%3Arelease-notes+is%3Aclosed
