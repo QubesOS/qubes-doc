@@ -145,7 +145,13 @@ Before creating the `chroot`, add this to your `builder.conf`:
     USE_QUBES_REPO_VERSION = $(RELEASE)
 
 It will add the 'current' Qubes repository to your `chroot` environment.
-This way, you can build only the packages you are interested in.
+Next, specify which components (`gcc`, for example) you want to download instead of compiling:
+
+    COMPONENTS := $(filter-out gcc,$(COMPONENTS))
+
+Alternatively, edit the actual COMPONENTS list which is defined in the included version-dependent config from example-configs (see series of include directives near the beginning of `builder.conf`).
+This way, you can build only the packages in which you are interested.
+
 If you also want to use the 'current-testing' repository, add this to your configuration:
 
     USE_QUBES_REPO_TESTING = 1
