@@ -81,7 +81,7 @@ cd ~/qubes-builder
 # Select Yes to add Qubes OS Signing Key
 # Select 4.0 for version
 # Stable
-# Select Current (if you want to use pre-built packages instead of compiling for hours)
+# Select Current (if you want the option to use pre-built packages)
 # No (we want a full build)
 # Select fc29 and stretch (for the currently shipping templates)
 # Select builder-rpm, builder-debian, template-whonix, mgmt-salt
@@ -104,8 +104,11 @@ make install-deps
 make get-sources
 ~~~
 
-When building the Whonix templates, you will often need to add/update the `WHONIX_TBB_VERSION` variable at this stage to specify the currently shipping Tor Browser version.
+When building the Whonix templates, you will often need to add/update the `WHONIX_TBB_VERSION` variable in `builder.conf` at this stage to specify the currently shipping Tor Browser version.
 See the related note under [Extra Whonix Build Options](/doc/building-whonix-template/).
+
+You may also want to add `COMPONENTS := $(filter-out gcc,$(COMPONENTS))` to bypass a multiple hour compile step.
+See [QubesBuilder](/doc/qubes-builder/#use-pre-built-qubes-packages) for more detail.
 
 Finally, if you are making a test build, use:
 

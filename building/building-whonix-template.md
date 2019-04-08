@@ -26,7 +26,7 @@ cd ~/qubes-builder
 # Select Yes to add Qubes OS Signing Key
 # Select 4.0 for version
 # Stable
-# Select Current (if you want to use pre-built packages instead of compiling for hours)
+# Select Current (if you want the option to use pre-built packages)
 # Yes (we want to build only templates)
 # Select fc29 and stretch (for the currently shipping templates)
 # Select builder-rpm, builder-debian, template-whonix, mgmt-salt
