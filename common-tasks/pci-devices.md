@@ -119,7 +119,7 @@ Allow write access to full PCI config space instead of whitelisted registers. Th
 
 usage example:
 
-    qvm-pci a work dom0:00_1a.0 --persistent -o no-strict-reset=true
+    qvm-pci a work dom0:00_1a.0 --persistent -o permissive=true
 
 
 ## Bringing PCI Devices Back to dom0 ##
