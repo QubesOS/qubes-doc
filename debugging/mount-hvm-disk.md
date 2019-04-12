@@ -1,35 +1,43 @@
 ---
 layout: doc
-title: Mount HVM disk
-permalink: /doc/mount-hvm-disk/
+title: Mount LVM image
+permalink: /doc/mount-lvm-image/
 ---
 
-# How to mount HVM disk 
+# How to mount LVM image
 
-You want to read your HVM disk (ex: you did some errors and can't start the HVM ). 
-
-First, read the partition table:
-
-```bash
-sudo parted /dev/YOUR_VG/YOUR_VM unit B print
-```
-
-Example:
-
-```
-$:sudo parted /dev/windows-vg/vg-game-root unit B print
-Model: Linux device-mapper (thin) (dm)
-Disk /dev/dm-138: 314572800000B
-Sector size(logical/physical): 512B/512B
-Partition Table: msdos
-Disk Flags:
-Number       Start          End            Size           Type     File system  Flags
-1            1048576B       105906175B     104857600B     primary  ntfs         boot
-2            105906176B     314571751423B  314465845248B  primary  ntfs
-```
-
-Then mount the partition you want:
+You want to read your LVM image (ex: you did some errors and can't start the VM ). 
+ 
+1: make the image available for qubesdb. (dom0)
 
 ```bash
-sudo mount -o loop,offset=105906176 -t ntfs /dev/windows-vg/vg-game-root /mnt/
+# Example: /dev/qubes_dom0/vm-debian-9-tmp-root
+dev=$(basename $(readlink /dev/YOUR_LVM_VG/YOUR_LVM_IMAGE))
+qubesdb-write /qubes-block-devices/$dev/desc "YOUR_LVM_IMAGE"
 ```
+
+2: Create a new disposable VM (dom0)
+
+```bash
+qvm-run -v --dispvm=YOUR_DVM_TEMPLATE --service qubes.StartApp+xterm &
+```
+
+3: Mount the partition you want to, and do what you want with it (disp)
+
+```bash
+mount /dev/xvdiX /mnt/
+```
+
+4: Umount and kill the VM (disp)
+```
+umount /mnt/
+```
+
+5: Remove the image from qubesdb (dom0)
+```
+qubesdb-rm /qubes-block-devices/$dev/
+```
+
+# References
+
+https://github.com/QubesOS/qubes-issues/issues/4687#issuecomment-451626625
