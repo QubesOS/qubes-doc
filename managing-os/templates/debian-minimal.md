@@ -65,7 +65,7 @@ You will have to do this every time you want root access if you choose not to en
 If you want the usual qubes `sudo ...` commands, open the root terminal using the above command, and in the root xterm window enter
 
 ~~~
-bash-4.4# apt install qubes-core-agent-passwordless-root polkit
+bash-4.4# apt install qubes-core-agent-passwordless-root 
 ~~~
 
 Optionally check this worked: from the gui open the minimal template's xterm and give the command:
