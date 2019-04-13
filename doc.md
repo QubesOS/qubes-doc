@@ -264,6 +264,7 @@ redirect_from:
  * [VM-dom0 internal configuration interface](/doc/vm-interface/)
  * [Debugging Windows VMs](/doc/windows-debugging/)
  * [Safe Remote Dom0 Terminals](/doc/safe-remote-ttys/)
+ * [Mount LVM Image](/doc/mount-lvm-image/)
 
 ### Building
 
