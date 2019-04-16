@@ -36,7 +36,7 @@ The following **grayscale** colors are currently used on the Qubes website and d
   <div class="swatch more-bottom more-right">
     <div class="color add-bottom bg-{{color.class}}"></div>
     <strong class="add-bottom">{{color.name}}</strong>
-    <code>#{{color.hex | lower}}</code>
+    <code>#{{color.hex | downcase}}</code>
   </div>
   {% endif %}
 {% endfor %}
@@ -50,7 +50,7 @@ The following **colors** are currently being used on the Qubes website and docum
   <div class="swatch more-bottom more-right">
     <div class="color add-bottom bg-{{color.class}}"></div>
     <strong class="add-bottom">{{color.name}}</strong>
-    <code>#{{color.hex | lower}}</code>
+    <code>#{{color.hex | downcase}}</code>
   </div>
   {% endif %}
 {% endfor %}
