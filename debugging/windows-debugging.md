@@ -210,4 +210,46 @@ Things get complicated if you need to perform kernel debugging or troubleshoot p
 > System Uptime: not available
 > ~~~
 
+# Debugging HVMs in the Qubes R4.0
+
+There are two main issues to be adopted to get all things to work in the R4.0.
+
+## Add a virtual serial port ##
+
+Qemu in the stub domain with virtual serial port added in a recommended way (```<serial type="pty"/>```) fails to start (Could not open '/dev/hvc1': No such device). It seems like a lack of multiple xen consoles support/configuration. The only way that I have found is to attach serial port explicitly to the available console.
+
+1. Unpack stub domain in dom0:
+
+```shell_session
+$ mkdir stubroot
+$ cp /usr/lib/xen/boot/stubdom-linux-rootfs stubroot/stubdom-linux-rootfs.gz
+$ cd stubroot
+$ gunzip stubdom-linux-rootfs.gz
+$ cpio -i -d -H new --no-absolute-filenames < stubdom-linux-rootfs
+$ rm stubdom-linux-rootfs
+```
+2. Edit Init script to remove last loop and to add "-serial /dev/hvc0" to the qemu command line.
+
+3. Apply changes:
+```shell_session
+$ find . -print0 | cpio --null -ov --format=newc | gzip -9 > ../stubdom-linux-rootfs
+$ sudo mv ../stubdom-linux-rootfs /usr/lib/xen/boot
+```
+
+## Connect two consoles ##
+
+Run the following script:
+
+```shell
+debugname1=win7new
+debugname2=win7dbg
+id1=$(xl domid "$debugname1-dm")
+id2=$(xl domid "$debugname2-dm")
+
+tty1=$(xenstore-read /local/domain/${id1}/console/tty)
+tty2=$(xenstore-read /local/domain/${id1}/console/tty)
+
+socat tty1,raw $tty2,raw
+```
+
 Happy debugging!
