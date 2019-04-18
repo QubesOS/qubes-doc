@@ -32,6 +32,7 @@ ways in which you can help:
   * Follow us on [Twitter]
   * Join us on [Reddit]
   * Like us on [Facebook]
+  * Connect with us on [LinkedIn]
 * And last but not least, tell your friends and colleagues about how Qubes
   can help them secure their digital lives!
 
@@ -73,6 +74,7 @@ be grateful to [receive your patch][patch].
 [Twitter]: https://twitter.com/QubesOS
 [Reddit]: https://www.reddit.com/r/Qubes/
 [Facebook]: https://www.facebook.com/QubesOS
+[LinkedIn]: https://www.linkedin.com/company/qubes-os/
 [GitHub issues]: https://github.com/QubesOS/qubes-issues/issues
 [qubes-devel]: /support/#qubes-devel
 [Community-Developed Feature Tracker]: /qubes-issues/
