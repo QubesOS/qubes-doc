@@ -13,6 +13,8 @@ Thank you for your interest in participating in the [Google Season of Docs][gsod
 
 Everyone is encouraged to add ideas to this list, either by [editing this page directly][gsod.md] (preferred) or by replying to [this thread][gsod-2019-thread] (then we'll add it to this page for you). (See our [Documentation Guidelines] for general information about how to submit changes to the documentation, and see [Help, Support, and Mailing Lists] for information about our mailing lists.)
 
+We currently have [over a hundred open documentation issues][doc-issues] in our issue tracker. Please feel free to use these for project ideas, as appropriate.
+
 Here's a suggested template for adding project ideas:
 
 ```
@@ -38,4 +40,5 @@ Here's a suggested template for adding project ideas:
 [gsod-2019-thread]: https://groups.google.com/d/msgid/qubes-project/aac9b148-4081-ebd8-cb9d-9a9191033484%40qubes-os.org
 [Documentation Guidelines]: /doc/doc-guidelines/
 [Help, Support, and Mailing Lists]: /support/
+[doc-issues]: https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+doc%22
 
