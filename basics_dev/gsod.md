@@ -44,7 +44,7 @@ Here's a suggested template for adding project ideas:
 
 **Knowledge prerequisite**: 
 
- - none
+ - [Markdown][markdown]
 
 **Mentor**: [Marek Marczykowski-Górecki][team]
 
@@ -78,7 +78,8 @@ Here's a suggested template for adding project ideas:
 
 **Knowledge prerequisite**: 
 
- - none
+- basic Qubes OS knowledge
+- [Markdown][markdown]
 
 **Mentor**: [Michael Carbone][team]
 
@@ -95,7 +96,8 @@ Here's a suggested template for adding project ideas:
 
 **Knowledge prerequisite**: 
 
- - none
+- basic Qubes OS knowledge
+- [Markdown][markdown]
 
 **Mentor**: [Michael Carbone][team]
 
