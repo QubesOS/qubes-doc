@@ -30,6 +30,74 @@ Here's a suggested template for adding project ideas:
 
 **Mentor**: Name and email address.
 ```
+### Offline documentation
+
+**Project**: Offline documentation
+
+**Brief explanation**: Qubes OS has thorough documentation on the project website, however a user may find it more convenient to view documentation - especially for troubleshooting network issues -- offline on their Qubes machine. This will improve usability for new users and better support users if they need to troubleshoot anything.
+
+**Expected results**: 
+
+ - Review [past discussions on the issue](https://github.com/QubesOS/qubes-issues/issues/1019)
+ - Recommend workflow and platform for displaying offline documentation
+ - Test workflow and platform to ensure usability and functionality
+
+**Knowledge prerequisite**: 
+
+ - none
+
+**Mentor**: [Marek Marczykowski-Górecki][team]
+
+### Create guide on firstboot for new users
+
+**Project**: Create guide on firstboot for new users
+
+**Brief explanation**: When a user first boots Qubes after installing it, there is an opportunity to introduce the user to some of the unique functionality Qubes has. This could be the same content as the [Improved Getting Started page](#).
+
+**Expected results**: 
+
+ - Review [past discussions on the issue](https://github.com/QubesOS/qubes-issues/issues/1774)
+ - Provide visual mock-ups and proposed text 
+  
+**Knowledge prerequisite**: 
+
+ - some experience with Anaconda would be helpful
+
+**Mentor**: [Marek Marczykowski-Górecki][team]
+
+### Improve Qubes Intro page
+
+**Project**: Improve Qubes Intro page
+
+**Brief explanation**: The [Intro page](https://www.qubes-os.org/intro/) is the first place a prospective user goes for information about Qubes OS. It is currently text-heavy and in Question & Answer format. This project is to re-write and design the Intro page to be more appealing to prospective users.
+
+**Expected results**: 
+
+ - Review the existing page and website, similar pages for other OSes
+ - Provide visual mock-ups and proposed text 
+
+**Knowledge prerequisite**: 
+
+ - none
+
+**Mentor**: [Michael Carbone][team]
+
+### Improve Getting Started page
+
+**Project**: Improve Getting Started page
+
+**Brief explanation**: The [Getting Started page](https://www.qubes-os.org/getting-started/) is the place a new user would go to understand better how to use Qubes. It is currently has old screenshots not using the default desktop environment and could have much better flow. In addition, this improved page content may end up being served more directly to the user via [Offline documentation]() or [firstboot guide](). 
+
+**Expected results**: 
+
+ - Review the existing page and website, similar pages for other OSes
+ - Provide visual mock-ups and proposed text 
+
+**Knowledge prerequisite**: 
+
+ - none
+
+**Mentor**: [Michael Carbone][team]
 
 
 [gsod]: https://developers.google.com/season-of-docs/
