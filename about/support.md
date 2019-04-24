@@ -231,20 +231,6 @@ OS Project does not maintain an official forum. The curious can find these
 by searching the list archives. However, there is an [unofficial
 forum](https://qubes-os.info) that is synced with the mailing lists.)
 
-#### Gmane ####
-
-Qubes mailing lists are also available via Gmane, a service that provides mailing lists in the form of newsgroups.
-This makes it possible for you to subscribe and read all mails sent to the list without having them all sent to your normal mail account.
-To use Gmane, you need a newsreader such as [Thunderbird].
-To add Gmane's server to Thunderbird, follow the instructions in [Mozilla Thunderbird's documentation for how to add newsgroups][thunderbird-newsgroup].
-In the fourth step replace `news.mozilla.org` with `news.gmane.org`.
-To subscribe to a list, click **Subscribe...** and search for the newsgroup `gmane.os.qubes.<list>`, for example, [`gmane.os.qubes.user`].
-Check the box beside the name and click **OK**.
-You can now send and reply to mails the same way you would normally.
-To unsubscribe from the list, click **Subscribe...** and search for the newsgroup `gmane.os.qubes.<list>`, for example, [`gmane.os.qubes.user`].
-Uncheck the box beside the name and click **OK**.
-Thunderbird will automatically remove the newsgroup.
-
 
 ## qubes-announce ##
 
@@ -386,9 +372,6 @@ This list also has an optional [Google Groups web interface][qubes-translation-w
 [qubes-devel-web]: https://groups.google.com/group/qubes-devel
 [qubes-translation-web]: https://groups.google.com/group/qubes-translation
 [qubes-project-web]: https://groups.google.com/group/qubes-project
-[`gmane.os.qubes.user`]: http://dir.gmane.org/gmane.os.qubes.user
-[`gmane.os.qubes.devel`]: http://dir.gmane.org/gmane.os.qubes.devel
-[`gmane.os.qubes.project`]: http://dir.gmane.org/gmane.os.qubes.project
 [business]: https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3Abusiness
 [localization]: https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3Alocalization
 [coc]: /code-of-conduct/
