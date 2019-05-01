@@ -4,9 +4,9 @@ title: Google Season of Docs
 permalink: /gsod/
 ---
 
-# Google Season of Docs
+# 2019 Google Season of Docs
 
-Thank you for your interest in participating in the [Google Season of Docs][gsod] program with the [Qubes OS team][team]. You can read more about the Google Season of Docs in the official [guides][gsod-doc] and [FAQ][gsod-faq].
+Thank you for your interest in participating in the [2019 Google Season of Docs][gsod] program with the [Qubes OS team][team]. You can read more about the Google Season of Docs in the official [guides][gsod-doc] and [FAQ][gsod-faq].
 
 
 ## Project Ideas List
