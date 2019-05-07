@@ -57,7 +57,7 @@ Import GPG-Key for spotify
 As the template VM can't connect to internet you need to get the public key file from another AppVM and copy it to the template VM. The easiest way is to use the Qubes Clipboard to copy the keys from the AppVM where you get the key to the Template VM.
 
 In an AppVM which has Internet access:
-- Open <https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xEFDC8610341D9410>
+- Open <https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xA87FF9DF48BF1C90>
 - Copy content of page to the Clipboard (Ctrl+A and Ctrl+C)
 - open a Terminal in this AppVM and copy the content of the clipboard to a file
   `xclip -o > spotify.pubkey`
@@ -82,13 +82,13 @@ This should look like:
 
     [user@t-multimedia ~]$ `gpg --with-fingerprint spotify.pubkey`
 
-    pub  4096R/341D9410 2017-07-25 Spotify Public Repository Signing Key <tux@spotify.com>
+    pub  4096R/48BF1C90 2018-05-23 Spotify Public Repository Signing Key <tux@spotify.com>
 
-         Key fingerprint = 0DF7 31E4 5CE2 4F27 EEEB  1450 EFDC 8610 341D 9410
+         Key fingerprint = 931F F8E7 9F08 7613 4EDD  BDCC A87F F9DF 48BF 1C90 
 
 You can (and should) lookup the fingerprint on at least one (or more) keyservers as the above information might be outdated.
 
-<https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0xefdc8610341d9410&fingerprint=on>
+<https://keyserver.ubuntu.com/pks/lookup?op=vindex&search=0xA87FF9DF48BF1C90&fingerprint=on>
 
 Add the public key to the repository keyring
 `apt-key add spotify.pubkey`
