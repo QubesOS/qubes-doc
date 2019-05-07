@@ -85,12 +85,12 @@ should be entered (`@dom0` or `@fedora-29`).
     **Note:** `dnf` might ask you to approve importing a new package signing
     key. For example, you might see a prompt like this one:
 
-    warning: /mnt/removable/updates-0b4cc238d1aa4ffe/packages/kernel-4.18.17-300.fc29.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID 429476b4: NOKEY
-    Importing GPG key 0x429476B4:
-    Userid     : "Fedora 29 (29) <fedora-29@fedoraproject.org>"
-    Fingerprint: 5A03 B4DD 8254 ECA0 2FDA 1637 A20A A56B 4294 76B4
-    From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-29-x86_64
-    Is this ok [y/N]: y
+        warning: /mnt/removable/updates-0b4cc238d1aa4ffe/packages/kernel-4.18.17-300.fc29.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID 429476b4: NOKEY
+        Importing GPG key 0x429476B4:
+         Userid     : "Fedora 29 (29) <fedora-29@fedoraproject.org>"
+         Fingerprint: 5A03 B4DD 8254 ECA0 2FDA 1637 A20A A56B 4294 76B4
+         From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-29-x86_64
+        Is this ok [y/N]: y
 
     This key was already checked when it was installed (notice that the "From"
     line refers to a location on your local disk), so you can safely say yes to
