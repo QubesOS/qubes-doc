@@ -18,3 +18,5 @@ Currently, the only options for reading and recording optical discs (e.g., CDs, 
  3. Use a SATA optical drive attached to dom0.
     (**Caution:** This option is [potentially dangerous](/doc/security-guidelines/#dom0-precautions).)
 
+To access an optical disc via USB follow the [typical procedure for attaching a USB device](/doc/usb-devices/#with-the-command-line-tool) (using the device-manager-icon widget is buggy) then check with the device-manager-icon widget to see what device in the target qube the USB optical drive was attached to. Typically this would be "sr0". For example, if sys-usb has device 3-2 attached to work qube's sr0 you would mount it with "$ mount /dev/sr0 /mnt/removable". You could also write to a disc with "$ wodim -v dev=/dev/sr0 -eject /home/user/Qubes.iso"
+
