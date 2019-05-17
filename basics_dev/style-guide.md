@@ -68,7 +68,10 @@ Currently, all the icons on the Qubes-OS.org website are generated using [FontAw
 
 ## Logos
 
-The following is a collection of various sizes and versions of the Qubes logo used both in the OS itself and on our website. All of these files are licensed GPLv2 and the source can be [downloaded here](https://github.com/QubesOS/qubes-artwork).
+The following is a collection of various sizes and versions of the Qubes logo used both in the OS itself and on our website.
+The artwork is licensed under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
+The code is licensed under GNU GPLv2.
+GPLv2 and the source code can be [downloaded here](https://github.com/QubesOS/qubes-artwork).
 
 <div class="styleguide">
 {% for logo in site.data.styleguide.logos %}
