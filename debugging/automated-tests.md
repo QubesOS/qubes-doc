@@ -152,6 +152,59 @@ Again, given the hypothetical `example.py` test:
             ):
 ~~~
 
+### Testing PyQt applications
+
+When testing (Py)QT application, it's useful to create separate QApplication object for each test.
+But QT framework does not allow to have multiple QApplication objects in the same process at the same time.
+This means it's critical to reliably cleanup previous instance before creating the new one.
+This turns out to be non-trivial task, especially if _any_ test uses event loop.
+Failure to perform proper cleanup in many cases results in SEGV.
+Below you can find steps for the proper cleanup:
+
+~~~python
+import asyncio
+import quamash
+import unittest
+import gc
+
+class SomeTestCase(unittest.TestCase):
+    def setUp(self):
+        [...]
+
+        # force "cleanlooks" style, the default one on Xfce (GtkStyle) use
+        # static variable internally and caches pointers to later destroyed
+        # objects (result: SEGV)
+        self.qtapp = QtGui.QApplication(["test", "-style", "cleanlooks"])
+
+        # construct event loop even if this particular test doesn't use it,
+        # otherwise events with qtapp references will be queued there anyway and the
+        # first test that actually use event loop will try to dereference (already
+        # destroyed) objects, resulting in SEGV
+        self.loop = quamash.QEventLoop(self.qtapp)
+    
+    def tearDown(self):
+        [...]
+        # process any pending events before destroying the object
+        self.qtapp.processEvents()
+
+        # queue destroying the QApplication object, do that for any other QT
+        # related objects here too
+        self.qtapp.deleteLater()
+
+        # process any pending events (other than just queued destroy), just in case
+        self.qtapp.processEvents()
+
+        # execute main loop, which will process all events, _including just queued destroy_
+        self.loop.run_until_complete(asyncio.sleep(0))
+
+        # at this point it QT objects are destroyed, cleanup all remaining references;
+        # del other QT object here too
+        self.loop.close()
+        del self.qtapp
+        del self.loop
+        gc.collect()
+~~~
+
 
 Installation Tests with openQA
 ------------------------------
