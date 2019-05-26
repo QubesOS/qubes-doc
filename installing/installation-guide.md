@@ -94,6 +94,8 @@ The installer loads Xen right at the beginning, so chances are high that if you
 can see the installer's graphical screen and you pass the compatibility check that
 runs immediately after that, Qubes will work on your system. :)
 
+If you're an advanced user, and you'd like to customize your installation, please see [Custom Installation].
+
 
 Installing to a USB drive
 -------------------------
@@ -113,9 +115,7 @@ the disk(s) I selected and return me to the main menu”.
 Upgrading
 ---------
 
-For instructions in upgrading an existing installation, please see the **Release
-Notes** of the version to which you want to upgrade. All of these release notes
-are available from the main [downloads] page.
+For instructions in upgrading an existing installation, please see [Upgrade Guides].
 
 
 Getting Help
@@ -141,6 +141,8 @@ Getting Help
 [downloads]: /downloads/
 [verifying signatures]: /security/verifying-signatures/
 [security considerations]: /doc/install-security/
+[Custom Installation]: /doc/custom-install/
+[Upgrade Guides]: /doc/upgrade/
 [Rufus]: https://rufus.akeo.ie/
 [documentation]: /doc/
 [improving]: /doc/doc-guidelines/
