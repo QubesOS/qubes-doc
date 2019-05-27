@@ -191,6 +191,8 @@ Core documentation for Qubes developers and advanced users.
 
 Unofficial, third-party documentation from the Qubes community and others.
 
+ * [Qubes Community Documentation](https://github.com/Qubes-Community/Contents/tree/master/docs)
+
 ### Operating System Guides
 
  * [Template: Archlinux](/doc/templates/archlinux/)
