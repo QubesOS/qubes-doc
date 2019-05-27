@@ -1,5 +1,5 @@
 ---
-layout: security
+layout: doc
 title: Canaries
 permalink: /security/canaries/
 redirect_from: /doc/canaries/

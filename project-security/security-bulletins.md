@@ -1,5 +1,5 @@
 ---
-layout: security
+layout: doc
 title: Qubes Security Bulletins
 permalink: /security/bulletins/
 redirect_from: 

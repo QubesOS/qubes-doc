@@ -1,5 +1,5 @@
 ---
-layout: security
+layout: doc
 title: Verifying Signatures
 permalink: /security/verifying-signatures/
 redirect_from:

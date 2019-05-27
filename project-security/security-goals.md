@@ -1,5 +1,5 @@
 ---
-layout: security
+layout: doc
 title: Security Goals
 permalink: /security/goals/
 redirect_from:

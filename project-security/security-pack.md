@@ -1,5 +1,5 @@
 ---
-layout: security
+layout: doc
 title: Security Pack
 permalink: /security/pack/
 redirect_from:
