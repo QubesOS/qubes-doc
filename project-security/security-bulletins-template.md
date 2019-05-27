@@ -1,5 +1,5 @@
 ---
-layout: security
+layout: doc
 title: Security Bulletin Template
 permalink: /security/bulletins/template/
 redirect_from: /doc/security-bulletins/template/

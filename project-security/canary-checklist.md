@@ -1,5 +1,5 @@
 ---
-layout: security
+layout: doc
 title: Canary Checklist
 permalink: /security/canaries/checklist/
 ---
