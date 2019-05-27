@@ -206,6 +206,7 @@ Unofficial, third-party documentation from the Qubes community and others.
  * [Configuring YubiKey for user authentication](/doc/yubi-key/)
  * [Security Considerations When Handling Devices](/doc/device-handling-security/)
  * [Note regarding password-less root access in VM](/doc/vm-sudo/)
+ * [Using OnlyKey with Qubes OS](https://docs.crp.to/qubes.html)
 
 ### Privacy Guides
 
