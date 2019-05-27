@@ -185,7 +185,7 @@ Core documentation for Qubes developers and advanced users.
 
 Unofficial, third-party documentation from the Qubes community and others.
 
-### Managing Operating Systems within Qubes
+### Operating System Guides
 
  * [Template: Archlinux](/doc/templates/archlinux/)
  * [Template: Ubuntu](/doc/templates/ubuntu/)
@@ -264,7 +264,7 @@ Unofficial, third-party documentation from the Qubes community and others.
  * [How to remove VMs manually](/doc/remove-vm-manually/)
  * [Intel Integrated Graphics Troubleshooting](/doc/intel-igfx-troubleshooting/)
 
-### Building
+### Building Guides
 
  * [Building a TemplateVM based on a new OS (ArchLinux example)](/doc/building-non-fedora-template/)
  * [Building the Archlinux Template](/doc/building-archlinux-template/)
