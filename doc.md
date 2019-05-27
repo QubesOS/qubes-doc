@@ -87,7 +87,7 @@ Core documentation for Qubes users.
 
  * [Qubes Firewall](/doc/firewall/)
  * [Understanding and Preventing Data Leaks](/doc/data-leaks/)
- * [Password-less Root Access in VMs](/doc/vm-sudo/)
+ * [Passwordless Root Access in VMs](/doc/vm-sudo/)
  * [Device Handling Security](/doc/device-handling-security/)
  * [Anti Evil Maid](/doc/anti-evil-maid/)
  * [Split GPG](/doc/split-gpg/)

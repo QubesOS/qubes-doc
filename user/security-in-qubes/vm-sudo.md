@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: VM Sudo
+title: Passwordless Root Access in VMs
 permalink: /doc/vm-sudo/
 redirect_from:
 - /en/doc/vm-sudo/
@@ -8,7 +8,7 @@ redirect_from:
 - /wiki/VMSudo/
 ---
 
-Password-less root access in VM
+Passwordless Root Access in VMs
 ===============================
 
 Background ([/etc/sudoers.d/qubes](https://github.com/QubesOS/qubes-core-agent-linux/blob/master/misc/qubes.sudoers) in VM):
@@ -92,8 +92,8 @@ Below is a complete list of configuration made according to the above statement,
     - used for access to 'root' account from text console (xl console) - the only way to access the VM when GUI isn't working
     - can be used for easy 'su -' from user to root
 
-Replacing password-less root access with Dom0 user prompt
----------------------------------------------------------
+Replacing passwordless root access with Dom0 user prompt
+--------------------------------------------------------
 
 While ITL supports the statement above, some Qubes users may wish to enable
 user/root isolation in VMs anyway. We do not support it in any of our packages,
@@ -108,7 +108,7 @@ this for extra security.**
         [root@dom0 /]# echo "\$anyvm dom0 ask,default_target=dom0" \
         >/etc/qubes-rpc/policy/qubes.VMAuth
 
-   (Note: any VMs you would like still to have password-less root access (e.g. TemplateVMs) can be specified in the second file with "\<vmname\> dom0 allow")
+   (Note: any VMs you would like still to have passwordless root access (e.g. TemplateVMs) can be specified in the second file with "\<vmname\> dom0 allow")
 
 2. Configuring Fedora TemplateVM to prompt Dom0 for any authorization request:
     - In /etc/pam.d/system-auth, replace all lines beginning with "auth" with these lines:
@@ -154,7 +154,7 @@ this for extra security.**
           ALL ALL=NOPASSWD: /usr/sbin/service whonixcheck stop
           ALL ALL=NOPASSWD: /usr/sbin/service whonixcheck status
 
-Dom0 password-less root access
-------------------------------
+Dom0 passwordless root access
+-----------------------------
 
-There is also password-less user->root access in dom0. As stated in comment in sudo configuration there (different one than VMs one), there is really no point in user/root isolation, because all the user data (and VM management interface) is already accessible from dom0 user level, so there is nothing more to get from dom0 root account.
+There is also passwordless user->root access in dom0. As stated in comment in sudo configuration there (different one than VMs one), there is really no point in user/root isolation, because all the user data (and VM management interface) is already accessible from dom0 user level, so there is nothing more to get from dom0 root account.
