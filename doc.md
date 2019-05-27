@@ -87,9 +87,12 @@ Core documentation for Qubes users.
 
  * [Qubes Firewall](/doc/firewall/)
  * [Understanding and Preventing Data Leaks](/doc/data-leaks/)
+ * [Password-less Root Access in VMs](/doc/vm-sudo/)
+ * [Device Handling Security](/doc/device-handling-security/)
  * [Anti Evil Maid](/doc/anti-evil-maid/)
  * [Split GPG](/doc/split-gpg/)
  * [U2F Proxy](/doc/u2f-proxy/)
+ * [YubiKey](/doc/yubi-key/)
 
 ### Advanced Configuration
 
@@ -101,6 +104,9 @@ Core documentation for Qubes users.
  * [Salt management stack](/doc/salt/)
  * [DisposableVM Customization](/doc/disposablevm-customization/)
  * [How to make any file in a TemplateBasedVM persistent using bind-dirs](/doc/bind-dirs/)
+ * [KDE](/doc/kde/)
+ * [i3 Window Manager](/doc/i3/)
+ * [awesome Window Manager](/doc/awesome/)
 
 ### Reference Pages
 
@@ -203,9 +209,6 @@ Unofficial, third-party documentation from the Qubes community and others.
  * [Using Multi-factor Authentication with Qubes](/doc/multifactor-authentication/)
  * [How to Set Up a Split Bitcoin Wallet in Qubes](/doc/split-bitcoin/)
  * [Split dm-crypt](https://github.com/rustybird/qubes-split-dm-crypt)
- * [Configuring YubiKey for user authentication](/doc/yubi-key/)
- * [Security Considerations When Handling Devices](/doc/device-handling-security/)
- * [Note regarding password-less root access in VM](/doc/vm-sudo/)
  * [Using OnlyKey with Qubes OS](https://docs.crp.to/qubes.html)
 
 ### Privacy Guides
@@ -243,9 +246,6 @@ Unofficial, third-party documentation from the Qubes community and others.
 
  * [Customizing Fedora minimal templates](/doc/fedora-minimal-template-customization/)
  * [Customizing Windows 7 templates](/doc/windows-template-customization/)
- * [Using KDE in dom0](/doc/kde/)
- * [Installing i3 in dom0](/doc/i3/)
- * [Using awesome in dom0](/doc/awesome/)
  * [Language Localization](/doc/language-localization/)
  * [Dark Theme in Dom0 and DomU](/doc/dark-theme/)
  * [Safely Removing TemplateVM Packages (Example: Thunderbird)](/doc/removing-templatevm-packages/)
