@@ -11,8 +11,6 @@ redirect_from:
 
 # Qubes OS Admin API
 
-*(This page is the current draft of the proposal. It is not implemented yet.)*
-
 ## Goals
 
 The goals of the Admin API system is to provide a way for the user to manage
