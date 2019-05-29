@@ -72,15 +72,15 @@ to set the policy using current mechanism.
 | `admin.label.Index`                    | `dom0`    | label     | -                                         | `<label-index>`                                           |
 | `admin.label.Remove`                   | `dom0`    | label     | -                                         | -                                                         |
 | `admin.property.List`                  | `dom0`    | -         | -                                         | `<property>\n`                                            |
-| `admin.property.Get`                   | `dom0`    | property  | -                                         | `default={True|False} `<br/>`type={str|int|bool|vm|label} <value>`   |
-| `admin.property.GetDefault`            | `dom0`    | property  | -                                         | `type={str|int|bool|vm|label} <value>`                    |
+| `admin.property.Get`                   | `dom0`    | property  | -                                         | `default={True|False} `<br/>`type={str|int|bool|vm|label|list} <value>`   | Type `list` is added in R4.1. Values are of type `str` and each entry is suffixed with newline character.
+| `admin.property.GetDefault`            | `dom0`    | property  | -                                         | `type={str|int|bool|vm|label|list} <value>`               | Type `list` is added in R4.1. Values are of type `str` and each entry is suffixed with newline character.
 | `admin.property.Help`                  | `dom0`    | property  | -                                         | `help`                                                    |
 | `admin.property.HelpRst`               | `dom0`    | property  | -                                         | `help.rst`                                                |
 | `admin.property.Reset`                 | `dom0`    | property  | -                                         | -                                                         |
 | `admin.property.Set`                   | `dom0`    | property  | value                                     | -                                                         |
 | `admin.vm.property.List`               | vm        | -         | -                                         | `<property>\n`                                            |
-| `admin.vm.property.Get`                | vm        | property  | -                                         | `default={True|False} `<br/>`type={str|int|bool|vm|label} <value>`   |
-| `admin.vm.property.GetDefault`         | vm        | property  | -                                         | `type={str|int|bool|vm|label} <value>`                    |
+| `admin.vm.property.Get`                | vm        | property  | -                                         | `default={True|False} `<br/>`type={str|int|bool|vm|label|list} <value>`   | Type `list` is added in R4.1. Each list entry is suffixed with a newline character.
+| `admin.vm.property.GetDefault`         | vm        | property  | -                                         | `type={str|int|bool|vm|label|type} <value>`               | Type `list` is added in R4.1. Each list entry is suffixed with a newline character.
 | `admin.vm.property.Help`               | vm        | property  | -                                         | `help`                                                    |
 | `admin.vm.property.HelpRst`            | vm        | property  | -                                         | `help.rst`                                                |
 | `admin.vm.property.Reset`              | vm        | property  | -                                         | -                                                         |
