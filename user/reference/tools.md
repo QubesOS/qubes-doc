@@ -17,7 +17,7 @@ Command-Line Tools
 Dom0
 ----
 
- * [core-addmin](https://dev.qubes-os.org/projects/core-admin/en/latest/manpages/)
+ * [core-admin](https://dev.qubes-os.org/projects/core-admin/en/latest/manpages/)
  * [core-admin-client](https://dev.qubes-os.org/projects/core-admin-client/en/latest/manpages/)
 
 DomU
