@@ -41,7 +41,7 @@ See ["Copying from (and to) dom0"](/doc/copy-from-dom0/).
 Clipboard automatic policy enforcement
 --------------------------------------
 
-The Qubes clipboard policy is configurable in:
+The Qubes clipboard [RPC policy] is configurable in:
 
 ~~~
 /etc/qubes-rpc/policy/qubes.ClipboardPaste
@@ -64,3 +64,7 @@ The copy/paste shortcuts are configurable in:
 ~~~
 
 VMs need to be restarted in order for changes in `/etc/qubes/guid.conf` to take effect.
+
+
+[RPC policy]: /doc/rpc-policy/
+
