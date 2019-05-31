@@ -44,6 +44,29 @@ The scripts here all run as root.
     The file is used only in a VM with PCI devices attached.
     Intended for use with problematic device drivers.
 
+- In NetVMs/ProxyVMs, scripts placed in `/rw/config/network-hooks.d` will be ran when configuring Qubes interfaces. For each script, the `command`, `vif`, `vif_type` and `ip` is passed as arguments (see `/etc/xen/scripts/vif-route-qubes`). For example, consider an PV AppVM `work` with IP `10.137.0.100` and `sys-firewall` as NetVM. Assuming it's Xen domain id is arbitrary `12` then, the following script located at `/rw/config/network-hooks.d/hook-100.sh` in `sys-firewall`:
+    ~~~
+    #!/bin/bash
+
+    command="$1"
+    vif="$2"
+    vif_type="$3"
+    ip="$4"
+
+    if [ "$ip" == '10.137.0.100' ]; then
+        case "$command" in
+            online)
+                ip route add 192.168.0.100 via 10.137.0.100
+                ;;
+            offline)
+                ip route del 192.168.0.100
+                ;;
+        esac
+    fi
+    ~~~
+
+  will be executed with arguments `online vif12.0 vif 10.137.0.100` when starting `work`. Please note that in case of HVM, the script will be called twice - once with vif_type `vif`, then with vif_type `vif_ioemu` (and different interface names). As long as the ioemu interface exists, it should be preferred (up to the hook script). When VM decide to use PV interface (vif_type `vif`), the ioemu one will be unplugged.
+
 Note that scripts need to be executable (chmod +x) to be used.
 
 Also, take a look at [bind-dirs](/doc/bind-dirs) for instructions on how to easily modify arbitrary system files in an AppVM and have those changes persist.
