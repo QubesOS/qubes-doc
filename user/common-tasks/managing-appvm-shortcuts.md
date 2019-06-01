@@ -78,6 +78,25 @@ What about applications in DispVMs?
 
 [See here](/doc/disposablevm-customization/).
 
+
+Fixing shortcuts
+----------------
+
+First, try this in dom0:
+
+```
+$ qvm-appmenus --update --force <vm_name>
+```
+
+If that doesn't work, you can manually modify the files in `~/.local/share/applications/`.
+
+For example, suppose you've deleted `my-old-vm`, but it has a leftover Application Menu shortcut. In dom0:
+
+```
+$ rm -i ~/.local/share/applications/my-old-vm-*
+```
+
+
 Behind the scenes
 -----------------
 
