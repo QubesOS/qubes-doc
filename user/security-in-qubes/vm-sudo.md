@@ -41,7 +41,6 @@ Background ([/etc/sudoers.d/qubes](https://github.com/QubesOS/qubes-core-agent-l
     # Because, really, if somebody could find and exploit a bug in the Xen
     # hypervisor -- as of 2016, there have been only three publicly disclosed
     # exploitable bugs in the Xen hypervisor from a VM -- then it would be
-    # incidentally by one of the Qubes developers (RW) -- then it would be
     # highly unlikely if that person couldn't also found a user-to-root
     # escalation in VM (which as we know from history of UNIX/Linux
     # happens all the time).
