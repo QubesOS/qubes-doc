@@ -29,6 +29,11 @@ The scripts here all run as root.
     ln -s /rw/config/var-lib-bluetooth /var/lib/bluetooth
     ~~~
 
+    ~~~
+    # Add entry to /etc/hosts
+    echo '127.0.0.1 example.com >> /etc/hosts
+    ~~~
+
 -   `/rw/config/qubes-ip-change-hook` - script runs in NetVM after every external IP change and on "hardware" link status change.
 
 -   In ProxyVMs (or AppVMs with `qubes-firewall` service enabled), scripts placed in the following directories will be executed in the listed order followed by `qubes-firewall-user-script` after each firewall update.
