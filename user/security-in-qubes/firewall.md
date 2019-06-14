@@ -49,9 +49,9 @@ firewall rules by hand. The firewall rules for each VM are saved in an XML file
 in that VM's directory in dom0:
 
     /var/lib/qubes/appvms/<vm-name>/firewall.xml
-    
-Please note that there is a 3 kB limit to the size of the `iptables` script in Qubes versions before R4.0. 
-This equates to somewhere between 35 and 39 rules. 
+
+Please note that there is a 3 kB limit to the size of the `iptables` script in Qubes versions before R4.0.
+This equates to somewhere between 35 and 39 rules.
 If this limit is exceeded, the qube will not start.
 The limit was removed in R4.0.
 
@@ -139,7 +139,7 @@ sudo iptables -I INPUT -s <IP address of A> -j ACCEPT
   written into firewallVM's `qubes-firewall-user-script` script which is run
   on every firewall update, and A and B's `rc.local` script which is run when
   the qube is launched. The `qubes-firewall-user-script` is necessary because Qubes
-  orders every firewallVM to update all the rules whenever a new connected qube is 
+  orders every firewallVM to update all the rules whenever a new connected qube is
   started. If we didn't enter our rules into this "hook" script, then shortly
   our custom rules would disappear and inter-VM networking would stop working.
   Here's an example how to update the script (note that, by default, there is no
@@ -148,15 +148,15 @@ sudo iptables -I INPUT -s <IP address of A> -j ACCEPT
 
 ~~~
 [user@sys-firewall ~]$ sudo bash
-[root@sys-firewall user]# echo "iptables -I FORWARD 2 -s 10.137.2.25 -d 10.137.2.6 -j ACCEPT" >> /rw/config/qubes-firewall-user-script
+[root@sys-firewall user]# echo "sudo iptables -I FORWARD 2 -s 10.137.2.25 -d 10.137.2.6 -j ACCEPT" >> /rw/config/qubes-firewall-user-script
 [root@sys-firewall user]# chmod +x /rw/config/qubes-firewall-user-script
 ~~~
 
-* Here is an example how to update `rc.local`:
+* If you want to apply the same rules at qube startup, you can call `qubes-firewall-user-script` from `rc.local`.  You only need to do this once (not once-per-rule):
 
 ~~~
 [user@B ~]$ sudo bash
-[root@B user]# echo "iptables -I INPUT -s 10.137.2.25 -j ACCEPT" >> /rw/config/rc.local
+[root@B user]# echo "/rw/config/qubes-firewall-user-script" >> /rw/config/rc.local
 [root@B user]# chmod +x /rw/config/rc.local
 ~~~
 
@@ -213,7 +213,7 @@ the service
 
 > Note: If you want to expose the service on multiple interfaces, repeat the
   steps described in part 1 for each interface
-  
+
 > Note: In Qubes R4, at the moment ([QubesOS/qubes-issues#3644](https://github.com/QubesOS/qubes-issues/issues/3644)), nftables is also used which imply that additional rules need to be set in a `qubes-firewall` nft table with a forward chain.
 
 `nft add rule ip qubes-firewall forward meta iifname eth0 ip daddr 10.137.0.x tcp dport 443 ct state new counter accept`
@@ -425,10 +425,10 @@ service is up :-)
 Where to put firewall rules
 ---------------------------
 
-Implicit in the above example [scripts](/doc/config-files/), but worth 
+Implicit in the above example [scripts](/doc/config-files/), but worth
 calling attention to: for all qubes *except* AppVMs supplying networking,
 iptables commands should be added to the `/rw/config/rc.local` script. For
-AppVMs supplying networking (`sys-firewall` inclusive), 
-iptables commands should be added to 
+AppVMs supplying networking (`sys-firewall` inclusive),
+iptables commands should be added to
 `/rw/config/qubes-firewall-user-script`.
 
