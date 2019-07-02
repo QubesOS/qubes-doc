@@ -17,7 +17,7 @@ We have a fully automated build system for Qubes, that downloads, builds and
 packages all the Qubes components, and finally should spit out a ready-to-use
 installation ISO.
 
-In order to use it, one should use an rpm-based distro, like Fedora :), and should ensure the following packages are installed:
+In order to use it, you should use an rpm-based distro, like Fedora :), and should ensure the following packages are installed:
 
 -   sudo
 -   gnupg
@@ -37,29 +37,35 @@ In order to use it, one should use an rpm-based distro, like Fedora :), and shou
 -   perl-Digest-MD5
 -   perl-Digest-SHA
 
-Usually one can install those packages by just issuing:
+Usually you can install those packages by just issuing:
 
     sudo dnf install gnupg git createrepo rpm-build make wget rpmdevtools python2-sh dialog rpm-sign dpkg-dev debootstrap PyYAML devscripts perl-Digest-MD5 perl-Digest-SHA
 
-The build system creates build environments in chroots and so no other packages are needed on the host. All files created by the build system are contained within the qubes-builder directory. The full build requires some 25GB of free space, so keep that in mind when deciding where to place this directory.
+The build system creates build environments in chroots and so no other packages are needed on the host.
+All files created by the build system are contained within the qubes-builder directory.
+The full build requires some 25GB of free space, so keep that in mind when deciding where to place this directory.
 
-The build system is configured via builder.conf file -- one should copy the provided default builder.conf, and modify it as needed, e.g.:
+The build system is configured via builder.conf file.
+You can use the setup.sh script to create and modify this file.
+Alternatively, you can copy the provided default builder.conf, and modify it as needed, e.g.:
 
     cp example-configs/qubes-os-master.conf builder.conf 
     # edit the builder.conf file and set the following variables: 
     NO_SIGN=1
 
-One additional useful requirement is that 'sudo root' must work without any prompt, which is default on most distros (e.g. 'sudo bash' brings you the root shell without asking for any password). This is important as the builder needs to switch to root and then back to user several times during the build process.
+One additional useful requirement is that 'sudo root' must work without any prompt, which is default on most distros (e.g. 'sudo bash' brings you the root shell without asking for any password). 
+This is important as the builder needs to switch to root and then back to user several times during the build process.
 
-Additionally, if building with signing enabled (NO\_SIGN is not set), one must adjust \~/.rpmmacro file so that it points to the GPG key used for package signing, e.g.:
+Additionally, if building with signing enabled (NO\_SIGN is not set), you must adjust \~/.rpmmacro file so that it points to the GPG key used for package signing, e.g.:
 
     %_signature gpg
     %_gpg_path /home/user/.gnupg
     %_gpg_name AC1BF9B3  # <-- Key ID used for signing
 
-It is also recommended to use an empty passphrase for the private key used for signing. Contrary to a popular belief, this doesn't affect your key or sources security -- if somebody compromised your system, then the game is over anyway, whether you have used an additional passphrase for the key or not.
+It is also recommended that you use an empty passphrase for the private key used for signing.
+Contrary to a popular belief, this doesn't affect your key or sources security -- if somebody compromised your system, then the game is over anyway, whether you have used an additional passphrase for the key or not.
 
-So, to build Qubes one would do:
+So, to build Qubes you would do:
 
     # Import the Qubes master key 
     gpg --recv-keys 0xDDFA1A3E36879494
@@ -109,11 +115,12 @@ Making customized build
 
 ### Manual source modification
 
-If you want to somehow modify sources, you can also do it, here are some basic steps:
+You can also modify sources somehow if you wish.
+Here are some basic steps:
 
 1.  Download qubes-builder as described above (if you want to use marmarek's branches, you should also download qubes-builder from his repo - replace 'QubesOS' with 'marmarek' in above git clone command)
 2.  Edit builder.conf (still the same as above), some useful additions:
-    -   You can also set GIT\_PREFIX="marmarek/qubes-" to use my repo instead of "mainstream" - it contains newer (but less tested) versions
+    -   You can also set GIT\_PREFIX="marmarek/qubes-" to use marmarek's repo instead of "mainstream" - it contains newer (but less tested) versions
 
 3.  Download unmodified sources
 
@@ -122,8 +129,8 @@ If you want to somehow modify sources, you can also do it, here are some basic s
 4.  **Make your modifications here**
 
 5.  Build the Qubes
-     `make qubes` actually is just meta target which build all required
-     components in correct order. List of components is configured in
+     `make qubes` actually is just meta target which builds all required
+     components in correct order. The list of components is configured in
      builder.conf. You can also check the current value at the end of `make
      help`, or using `make build-info`. 
 
@@ -137,7 +144,7 @@ If you want to somehow modify sources, you can also do it, here are some basic s
 
 ### Use pre-built Qubes packages
 
-For building just few selected packages, it's very useful to download pre-built qubes-specific dependencies from `{yum,deb}.qubes-os.org`.
+For building just a few selected packages, it's very useful to download pre-built qubes-specific dependencies from `{yum,deb}.qubes-os.org`.
 This is especially true for `gcc`, which takes several hours to build.
 
 Before creating the `chroot`, add this to your `builder.conf`:
@@ -156,16 +163,22 @@ If you also want to use the 'current-testing' repository, add this to your confi
 
     USE_QUBES_REPO_TESTING = 1
 
-In the case of an existing `chroot`, for mock-enabled builds, it works immediately because `chroot` is constructed each time separately.
+In the case of an existing `chroot`, for mock-enabled builds, this works immediately because `chroot` is constructed each time separately.
 For legacy builds, it will not add the necessary configuration into the build environment unless a specific builder change or configuration would force rebuilding chroot.
 
 Also, once enabled, disabling this setting will not disable repositories in relevant chroots.
-And even if it did, there could be leftover packages installed from those repos (which may or may not be desirable).
+And even if it did, there could be some leftover packages installed from those repos (which may or may not be desirable).
+
+**Note**  
+If you are building Ubuntu templates, you cannot use this option.
+This is because Qubes does not provide official packages for Ubuntu templates.
 
 Code verification keys management
 ---------------------------------
 
-[QubesBuilder](/doc/qubes-builder/) by default verifies signed tags on every downloaded code. Public keys used for that are stored in `keyrings/git`. By default Qubes developers' keys are imported automatically, but if you need some additional keys (for example your own), you can add them using:
+[QubesBuilder](/doc/qubes-builder/) by default verifies signed tags on every downloaded code.
+Public keys used for that are stored in `keyrings/git`.
+By default Qubes developers' keys are imported automatically, but if you need some additional keys (for example your own), you can add them using:
 
     GNUPGHOME=$PWD/keyrings/git gpg --import /path/to/key.asc
     GNUPGHOME=$PWD/keyrings/git gpg --edit-key ID_OF_JUST_IMPORTED_KEY
