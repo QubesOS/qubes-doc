@@ -104,7 +104,7 @@ Also, there are packages to provide additional services:
 - `qubes-gpg-split`: For implementing split GPG.
 - `qubes-u2f`: For implementing secure forwarding of U2F messages.
 - `qubes-pdf-converter`: For implementing safe conversion of PDFs.
-- `qubes-image-converter`: For implementing safe conversion of images.
+- `qubes-img-converter`: For implementing safe conversion of images.
 - `qubes-snapd-helper`: If you want to use snaps in qubes.
 - `qubes-thunderbird`: Additional tools for use in thunderbird.
 - `qubes-app-shutdown-idle`: If you want qubes to automatically shutdown when idle.
