@@ -27,7 +27,7 @@ When this happens, you should make sure to follow the guide to upgrade to a supp
 The one exception is dom0, which [doesn't have to be upgraded][dom0-eol].
 
 
-[version of Qubes OS]: /doc/supported-versions/#qubes-os
+[supported version of Qubes OS]: /doc/supported-versions/#qubes-os
 [Upgrade Guides]: /doc/upgrade/
 [Dom0]: /doc/software-update-dom0/
 [TemplateVMs]: /doc/software-update-vm/#installing-or-updating-software-in-the-templatevm
