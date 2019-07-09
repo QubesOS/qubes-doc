@@ -61,6 +61,7 @@ Core documentation for Qubes users.
  * [Copying and Pasting Text Between Domains](/doc/copy-paste/)
  * [Copying and Moving Files Between Domains](/doc/copying-files/)
  * [Copying from (and to) Dom0](/doc/copy-from-dom0/)
+ * [Updating Qubes OS](/doc/updating-qubes-os/)
  * [Installing and Updating Software in Dom0](/doc/software-update-dom0/)
  * [Installing and Updating Software in VMs](/doc/software-update-vm/)
  * [Backup, Restoration, and Migration](/doc/backup-restore/)
