@@ -38,13 +38,23 @@ Debian 7 (wheezy) - obsolete/archive:
 
     [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-7
 
-Debian 8 (jessie) - oldstable:
+Debian 8 (jessie) - oldoldstable:
 
     [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-8
 
-Debian 9 (stretch) - stable:
+Debian 9 (stretch) - oldstable:
 
     [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-9
+
+
+A Debian-10 template is currently available from the testing repository.
+
+Debian 10 (buster) - stable:
+
+    [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl-testing qubes-template-debian-10
+
+Because this template was built *before* buster became stable, it cannot be updated without [manually accepting the change in status][5149].
+
 
 
 Upgrading
@@ -119,4 +129,4 @@ More information
 
 
 [stretch]: /doc/template/debian/upgrade-8-to-9/ 
-
+[5149]: https://github.com/QubesOS/qubes-issues/issues/5149
