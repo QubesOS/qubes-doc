@@ -15,23 +15,26 @@ HVM
 A **Hardware-assisted Virtual Machine (HVM)**, also known as a **Fully-Virtualized Virtual Machine**, utilizes the virtualization extensions of the host CPU.
 These are typically contrasted with **Paravirtualized (PV)** VMs.
 
-HVMs allow you to create domains based on any OS for which you have an installation ISO.
-This allows you to have Windows-based VMs in Qubes.
+HVMs allow you to create qubes based on any OS for which you have an installation ISO.
+So you can easily have qubes running Windows, *BSD, or any Linux distribution. You can also use HVMs to run "live" distros.
 
 By default, every Qubes VM runs in **PVH** mode (which has security advantages over both PV and HVM) except for those with attached PCI devices, which run in HVM mode.
-See [here](https://blog.invisiblethings.org/2017/07/31/qubes-40-rc1.html) for a discussion of the switch from PV to HVM and [here](/news/2018/01/11/qsb-37/) for the announcement about changing the default to PVH.
+See [here](https://blog.invisiblethings.org/2017/07/31/qubes-40-rc1.html) for a discussion of the switch from PV to HVM and [here](/news/2018/01/11/qsb-37/) for the announcement about the change to using PVH as default.
 
 
-Creating an HVM domain
+Creating an HVM qube
 ----------------------
 
-With a GUI: in Qubes Manager VM creation dialog box choose the "Standalone qube not based on a template" type.
+Using the GUI:  
+In Qube Manager, select "Create new qube" from the Qube menu, or select the "Create a new qube" button.  
+In the "create new qube" dialog box set Type to "Empty standalone qube (install your own OS)".  
 If "install system from device" is selected (which is by default), then `virt_mode` will be set to `hvm` automatically.
-Otherwise, open the newly created VM's Qube Settings GUI and in the "Advanced" tab select `HVM` in the virtualization mode drop-down list.
+Otherwise, open the newly created qube's Settings GUI and in the "Advanced" tab select `HVM` in the virtualization mode drop-down list.
 Also, make sure "Kernel" is set to `(none)` on the same tab.
 
-Command line (name and label color are for illustration purposes.
-VMs are template-based by default so the `--class StandaloneVM` option is needed to create a StandaloneVM):
+Command line:  
+qubes are template-based by default so you must set the `--class StandaloneVM` option to create a StandaloneVM:
+(name and label color are for illustration purposes).
 ~~~
 qvm-create my-new-vm --class StandaloneVM --property virt_mode=hvm --property kernel='' --label=green
 ~~~
@@ -43,10 +46,14 @@ libvirt.libvirtError: invalid argument: could not find capabilities for arch=x86
 ~~~
 
 
-Installing an OS in an HVM domain
+Make sure that you give the new qube adequate memory to install and run.
+
+
+Installing an OS in an HVM qube
 ---------------------------------
 
-You will have to boot the VM with the installation media "attached" to it. You may either use the GUI or command line instructions. That can be accomplished in three ways:
+You will have to boot the qube with the installation media "attached" to it. You may either use the GUI or use command line instructions. 
+At the command line you can do this in three ways:
 
 1. If you have the physical cdrom media and a disk drive
     ~~~
@@ -56,30 +63,37 @@ You will have to boot the VM with the installation media "attached" to it. You m
     ~~~
     qvm-start my-new-vm --cdrom=dom0:/usr/local/iso/installcd.iso
     ~~~
-3. If you have an ISO image of the installation media located in a VM (obviously the VM where the media is located must be running)
+3. If you have an ISO image of the installation media located in a qube (obviously the qube where the media is located must be running)
     ~~~
     qvm-start my-new-vm --cdrom=someVM:/home/user/installcd.iso
     ~~~
 
-For security reasons you should *never* copy untrusted data to dom0. Qubes doesn't provide any easy to use mechanism for copying files between VMs and Dom0 anyway and generally tries to discourage such actions.
+For security reasons you should *never* copy untrusted data to dom0. Qubes doesn't provide any easy to use mechanism for copying files between qubes and Dom0 and generally tries to discourage such actions.
 
-Next, the VM will start booting from the attached installation media. Depending on the OS being installed in the VM, one might be required to start the VM several times (as is the case with Windows 7 installations) because whenever the installer wants to "reboot the system" it actually shuts down the VM and Qubes won't automatically start it. Several invocations of `qvm-start` command (as shown above) might be needed.
+Next, the qube will start booting from the attached installation media, and you can start installation.
+Whenever the installer wants to "reboot the system" it actually shuts down the qube, and Qubes won't automatically start it.
+You may have to restart the qube several times in order to complete instalation, (as is the case with Windows 7 installations).
+Several invocations of `qvm-start` command (as shown above) might be needed.
 
 
 Setting up networking for HVM domains
 -------------------------------------
 
-Just like standard paravirtualized AppVMs, the HVM domains get fixed IP addresses centrally assigned by Qubes.  Normally Qubes agent scripts (or services on Windows) running within each AppVM are responsible for setting up networking within the VM according the configuration created by Qubes (through [keys](/doc/vm-interface/#qubesdb) exposed by dom0 to the VM). Such centrally managed networking infrastructure allows for [advanced networking configuration](https://blog.invisiblethings.org/2011/09/28/playing-with-qubes-networking-for-fun.html).
+Just like standard paravirtualized AppVMs, the HVM qubes get fixed IP addresses centrally assigned by Qubes.
+Normally Qubes agent scripts (or services on Windows) running within each AppVM are responsible for setting up networking within the VM according to the configuration created by Qubes (through [keys](/doc/vm-interface/#qubesdb) exposed by dom0 to the VM). 
+Such centrally managed networking infrastructure allows for [advanced networking configuration](https://blog.invisiblethings.org/2011/09/28/playing-with-qubes-networking-for-fun.html).
 
-A generic HVM domain such as a standard Windows or Ubuntu installation, however, has no Qubes agent scripts running inside it initially and thus requires manual networking configuration so that it match the values assigned by Qubes for this domain.
+A generic HVM domain such as a standard Windows or Ubuntu installation, however, has no Qubes agent scripts running inside it initially and thus requires manual configuration of networking so that it matches the values assigned by Qubes for this qube.
 
-Even though we do have a small DHCP server that runs inside HVM untrusted stub domain to make the manual network configuration not necessary for many VMs, this won't work for most modern Linux distributions which contain Xen networking PV drivers (but not Qubes tools) built in which bypass the stub-domain networking (their net frontends connect directly to the net backend in the netvm).  In this instance our DHCP server is not useful.
+Even though we do have a small DHCP server that runs inside HVM untrusted stub domain to make the manual network configuration unnecessary for many VMs, this won't work for most modern Linux distributions which contain Xen networking PV drivers (but not Qubes tools) which bypass the stub-domain networking (their net frontends connect directly to the net backend in the netvm).
+In this instance our DHCP server is not useful.
 
-In order to manually configure networking in a VM, one should first find out the IP/netmask/gateway assigned to the particular VM by Qubes. This can be seen e.g. in the Qubes Manager in the VM's properties:
+In order to manually configure networking in a VM, one should first find out the IP/netmask/gateway assigned to the particular VM by Qubes.
+This can be seen e.g. in the Qube Manager in the qube's properties:
 
 ![r2b1-manager-networking-config.png](/attachment/wiki/HvmCreate/r2b1-manager-networking-config.png)
 
-Alternatively, one can use the `qvm-ls -n` command to obtain the same information and configure the networking within the HVM according to those settings (IP/netmask/gateway).
+Alternatively, one can use the `qvm-ls -n` command to obtain the same information, (IP/netmask/gateway).
 
 The DNS IP addresses are `10.139.1.1` and `10.139.1.2`.
 There is [opt-in support](/doc/networking/#ipv6) for IPv6 forwarding.
@@ -88,13 +102,28 @@ There is [opt-in support](/doc/networking/#ipv6) for IPv6 forwarding.
 Using Template-based HVM domains
 --------------------------------
 
-Please see our dedicated page on [installing and using Windows-based AppVMs](/doc/windows-appvms/).
+Qubes allows HVM VMs to share a common root filesystem from a select Template VM, just as for Linux AppVMs.
+This mode can be used for any HVM (e.g. FreeBSD running in a HVM). 
+
+In order to create a HVM TemplateVM you use the following command, suitably adapted:
+
+~~~
+qvm-create --class TemplateVM <qube> --property virt_mode=HVM --property kernel=''  -l green
+~~~
+
+... , set memory as appropriate, and install the OS into this template in the same way you would install it into a normal HVM -- please see instructions on [this page](/doc/hvm-create/).
+Generally you should install in to the first "system" disk. (Resize it as needed before starting installation.)
+
+You can then create a new qube using the new template.
+If you use this Template as it is, then any HVMs that use it will effectively be DisposableVMs - all file system changes will be wiped when the HVM is closed down.
+
+Please see [this page](/doc/windows-appvms/) for specific advice on installing and using Windows-based Templates.
 
 
 Cloning HVM domains
 -------------------
 
-Just like normal AppVMs, the HVM domains can also be cloned either using a command-line `qvm-clone` command or via manager's 'Clone VM' option in the right-click menu.
+Just like normal AppVMs, the HVM domains can also be cloned either using the command-line `qvm-clone` or via the Qube Manager's 'Clone VM' option in the right-click menu.
 
 The cloned VM will get identical root and private images and will essentially be identical to the original VM except that it will get a different MAC address for the networking interface:
 
@@ -152,7 +181,8 @@ drive             : None
 timezone          : localtime
 ~~~
 
-Note how the MAC addresses differ between those two otherwise identical VMs. The IP addresses assigned by Qubes will also be different of course to allow networking to function properly:
+Note how the MAC addresses differ between those two otherwise identical VMs.
+The IP addresses assigned by Qubes will also be different of course to allow networking to function properly:
 
 ~~~
 [joanna@dom0 ~]$ qvm-ls -n
@@ -162,7 +192,7 @@ Note how the MAC addresses differ between those two otherwise identical VMs. The
 /.../
 ~~~
 
-If for any reason one would like to make sure that the two VMs have the same MAC address, one can use qvm-prefs to set a fixed MAC address for the VM:
+If for any reason you would like to make sure that the two VMs have the same MAC address, you can use `qvm-prefs` to set a fixed MAC address for the VM:
 
 ~~~
 [joanna@dom0 ~]$ qvm-prefs my-new-vm-copy -s mac 00:16:3E:5E:6C:05
@@ -192,18 +222,16 @@ timezone          : localtime
 ~~~
 
 
-Installing Qubes support tools in Windows 7 VMs
------------------------------------------------
-
-Windows specific steps are described on [separate page](/doc/windows-appvms/).
-
 
 Assigning PCI devices to HVM domains
 ------------------------------------
 
-HVM domains (including Windows VMs) can be [assigned PCI devices](/doc/assigning-devices/) just like normal AppVMs. E.g. one can assign one of the USB controllers to the Windows VM and should be able to use various devices that require Windows software, such as phones, electronic devices that are configured via FTDI, etc.
+HVM domains (including Windows VMs) can be [assigned PCI devices](/doc/assigning-devices/) just like normal AppVMs.
+E.g. one can assign one of the USB controllers to the Windows VM and should be able to use various devices that require Windows software, such as phones, electronic devices that are configured via FTDI, etc.
 
-One problem at the moment however, is that after the whole system gets suspended into S3 sleep and subsequently resumed, some attached devices may stop working and should be restarted within the VM. This can be achieved under a Windows HVM by opening the Device Manager, selecting the actual device (such as a USB controller), 'Disabling' the device, and then 'Enabling' the device again. This is illustrated on the screenshot below:
+One problem at the moment however, is that after the whole system gets suspended into S3 sleep and subsequently resumed, some attached devices may stop working and should be restarted within the VM.
+This can be achieved under a Windows HVM by opening the Device Manager, selecting the actual device (such as a USB controller), 'Disabling' the device, and then 'Enabling' the device again.
+This is illustrated on the screenshot below:
 
 ![r2b1-win7-usb-disable.png](/attachment/wiki/HvmCreate/r2b1-win7-usb-disable.png)
 
@@ -211,9 +239,13 @@ One problem at the moment however, is that after the whole system gets suspended
 Converting VirtualBox VM to HVM
 -------------------------------
 
-Microsoft provides [free 90 day evaluation VirtualBox VMs for browser testing](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
+You can convert any VirtualBox VMs to an HVM using this method.
 
-About 60 GB of disk space is required for conversion, use external harddrive if needed. Final root.img size is 40 GB.
+For example, Microsoft provides [free 90 day evaluation VirtualBox VMs for browser testing](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
+
+About 60 GB of disk space is required for conversion.
+Use an external harddrive if needed.
+The final root.img size is 40 GB.
 
 In Debian AppVM, install qemu-utils and unzip:
 
@@ -285,4 +317,3 @@ Other documents related to HVM:
 
 -   [Windows VMs](/doc/windows-vm/)
 -   [LinuxHVMTips](/doc/linux-hvm-tips/)
-
