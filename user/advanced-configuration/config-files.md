@@ -95,43 +95,9 @@ global: {
   #secure_paste_sequence = "Ctrl-Shift-v";
   #windows_count_limit = 500;
   #audio_low_latency = false;
-  #screen
-  #root_win
-  #root_width
-  #root_height
-  #context
-  #frame_gc
-  #tray_gc
-  #tint_h
-  #inter_appviewer_lock_fd
-  #domid
-  #target_domid
-  #agent_version
-  #cmdline_color
-  #label_color_rgb
-  #cmdline_icon
-  #icon_data
-  #icon_data_len
-  #label_index
-  #screen_window
-  #clipboard_requested
-  #windows_count
-  #log_level
-  #nofork
-  #invisible
-  #kill_on_connect
-  #allow_utf8_titles
-  #allow_fullscreen
-  #copy_seq_mask
-  #paste_seq_mask
-  #qrexec_clipboard
-  #use_kdialog
-  #audio_low_latency
-  #prefix_titles
-  #trayicon_mode
-  #trayicon_border
-  #trayicon_tint_reduce_saturation
-  #trayicon_tint_whitehack
+  #log_level = info;
+  #trayicon_mode = "border1";
+  #startup_timeout = 91;
 };
 
 # most of setting can be set per-VM basis
@@ -159,79 +125,10 @@ Currently supported settings:
 
 -   `secure_copy_sequence` and `secure_paste_sequence` - key sequences used to trigger secure copy and paste.
 
--   `windows_count_limit` - limit on concurrent windows.
-
--   `audio_low_latency` - force low-latency audio mode (about 40ms compared to 200-500ms by default).
-    Note that this will cause much higher CPU usage in dom0.
-
-- `screen` - Points on default screen
-
-- `root_win` - Root attributes
-
-- `root_width` - Size of root window
-
-- `context` - context for pixmap operations
-
-- `frame_gc` - graphics context for painting window frame
-
-- `tray_gc` - graphic context for painting tray background, only in
-	TRAY_BACKGROUND mode
-
-- `tint_h` - precomputed H and S for tray coloring - only in TRAY_TINT mode
-
-- `inter_appviewer_lock_fd` - FD of lock file used to synchronize shared memory
-	access
-
-- `domid` - Xen domain id (GUI)
-
-- `target_domid` - Xen domain id (VM) - can differ from domid when GUI is
-	stubdom
-
-- `cmdline_color` - color of frame
-
-- `label_color_rgb` - color of the frame in RGB
-
-- `cmdline_icon` - icon hint for WM
-
-- `icon_data` - loaded icon image, ready for \_NEW\_WM\_ICON property
-
-- `icon_data_len` - size of icon\_data, in sizeof(\*icon\_data) units
-
-- `label_index` - label (frame color) hint for WM
-
-- `screen_window` - window of whole VM screen
-
-- `clipboard_requested` - if clippoard content was requested by dom0
-
-- `clipboard_xevent_time` -  timestamp of keypress which triggered last
-	copy/paste
-
-- `windows_count` - created window count
-
-- `nofork` - do not fork into background - used during guid restart 
-
-- `invisible` - do not show any VM window
-
-- `kill_on_connect` - pid to kill when connection to gui agent is established
-
-- `allow_utf8_titles` - allow UTF-8 chars in window title
-
-- `copy_seq_mask` - modifiers mask for secure-copy key sequence
-
-- `paste_seq_mask` - modifiers mask for secure-paste key sequence
-
-- `qrexec_clipboard` - 0: use GUI protocol to fetch/put clipboard, 1: use qrexec
-
-- `use_kdialog` - use kdialog for prompts (default on KDE) or zenity (default on
-	non-KDE)
 
 - `trayicon_mode` - trayicon coloring mode
 
-- `trayicon_border` - position of trayicon border - 0 - no border, 1 - at the
-	edges, 2 - 1px from the edges
+- `log level` - log level defines the log options log can take. This can be
+	`ERROR`, `WARN`, `INFO`, `DEBUG`, `LOG_LEVEL_MAX`.
 
-- `trayicon_tint_reduce_saturation` - trayicon\_tint\_reduce\_saturation
-
-- `trayicon_tint_whitehack` - replace white pixels with almost-white 0xfefefe
-	(available only for "tint" mode)
-
+- `startup_timeout` - The timeout for startup.
