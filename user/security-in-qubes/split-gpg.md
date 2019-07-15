@@ -83,7 +83,9 @@ a new key pair, or if you have a private key that already has a passphrase, you
 can use  `gpg2 --edit-key <key_id>` then `passwd` to set an empty passphrase.
 Note that `pinentry` might show an error when you try to set an empty
 passphrase, but it will still make the change. (See [this StackExchange
-answer][se-pinentry] for more information.)
+answer][se-pinentry] for more information.) The Split GPG client let you use
+password-protected keys, the vault cube will show a passphrase if you are using
+R4.
 
 ## Configuring Split GPG ##
 
