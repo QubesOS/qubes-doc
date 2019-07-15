@@ -8,8 +8,8 @@ permalink: /doc/windows-vm/
 Installing a Windows VM
 =======================
 
-Simple Windows 10 install (Qubes 4.0)
--------------------------------------
+Simple Windows install
+----------------------
 
 If you just want something simple and you can live without some features.
 
