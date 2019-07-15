@@ -8,6 +8,64 @@ permalink: /doc/windows-vm/
 Installing a Windows VM
 =======================
 
+Simple Windows install
+----------------------
+
+If you just want something simple and you can live without some features.
+
+Works:
+- display (1440x900 or 1280x1024 are a nice fit onto FHD hw display)
+- keyboard (incl. correct mapping), pointing device
+- network (emulated Realtek NIC)
+
+Does not work:
+- copy & paste (the qubes way)
+- copying files into / out of the VM (the qubes way)
+- assigning USB devices (the qubes way via the tray applet)
+- audio output and input
+- PCI device 5853:0001 (Xen platform device) - no driver
+- all other features/hardware needing special tool/driver support
+
+Installation procedure:
+- Have the Windows 10 ISO image (I used the 64-bit version) downloaded in some qube.
+- Create a new Qube:
+  - Name: Win10, Color: red
+  - Standalone Qube not based on a template
+  - Networking: sys-firewall (default)
+  - Launch settings after creation: check
+  - Click "OK".
+- Settings:
+  - Basic:
+    - System storage: 30000+ MB
+  - Advanced:
+    - Include in memory balancing: uncheck
+    - Initial memory: 4096+ MB
+    - Kernel: None
+    - Mode: HVM
+  - Click "Apply".
+  - Click "Boot from CDROM":
+    - "from file in qube":
+      - Select the qube that has the ISO.
+      - Select ISO by clicking "...".
+    - Click "OK" to boot into the windows installer.
+- Windows Installer:
+  - Mostly as usual, but automatic reboots will halt the qube - just restart
+   it again and again until the installation is finished.
+  - Install on first disk.
+  - Windows license may be read from flash via root in dom0:
+
+    `strings < /sys/firmware/acpi/tables/MSDM`
+
+    Alternatively, you can also try a Windows 7 license key (as of 2018/11
+    they are still accepted for a free upgrade).
+    
+    I first installed Windows and all updates, then entered the license key.
+- Afterwards:
+  - In case you switch from `sys-network` to `sys-whonix`, you'll need a static
+    IP network configuration, DHCP won't work for `sys-whonix`.
+  - Use `powercfg -H off` and `disk cleanup` to save some disk space.
+
+
 Qubes 4.0 - importing a Windows VM from R3.2
 -------------------------------------------
 
