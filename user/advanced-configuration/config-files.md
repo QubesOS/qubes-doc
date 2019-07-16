@@ -128,13 +128,13 @@ Currently supported settings:
 
 - `trayicon_mode` - defines the trayicon coloring mode. Options are
    - `bg` - color full icon background to the VM color
-	 - `border1` - add 1px border at the icon edges
-	 - `border2` - add 1px border 1px from the icon edges
-	 - `tint` - tinttint icon to the VM color,  can be used with additional
+   - `border1` - add 1px border at the icon edges
+   - `border2` - add 1px border 1px from the icon edges
+   - `tint` - tinttint icon to the VM color,  can be used with additional
 		 modifiers (you can enable multiple of them)
-	 - `tint+border1,tint+border2` - same as tint, but also add a border
-	 - `tint+saturation50` - same as tint, but reduce icon saturation by 50%
-	 - `tint+whitehack` - same as tint, but change white pixels (0xffffff) to
+   - `tint+border1,tint+border2` - same as tint, but also add a border
+   - `tint+saturation50` - same as tint, but reduce icon saturation by 50%
+   - `tint+whitehack` - same as tint, but change white pixels (0xffffff) to
 		 almost-white (0xfefefe)
 
 - `log level` - log level defines the log options log can take. log level can
