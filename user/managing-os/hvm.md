@@ -72,7 +72,7 @@ For security reasons you should *never* copy untrusted data to dom0. Qubes doesn
 
 Next, the qube will start booting from the attached installation media, and you can start installation.
 Whenever the installer wants to "reboot the system" it actually shuts down the qube, and Qubes won't automatically start it.
-You may have to restart the qube several times in order to complete instalation, (as is the case with Windows 7 installations).
+You may have to restart the qube several times in order to complete installation, (as is the case with Windows 7 installations).
 Several invocations of `qvm-start` command (as shown above) might be needed.
 
 
