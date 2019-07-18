@@ -10,13 +10,6 @@ redirect_from:
 
 # Certified Hardware #
 
-## Important Information ##
-There is currently **no** specific hardware (e.g., specific laptop model) that the Qubes team recommends for individual users.
-However, we're working hard to make a "reasonably secure laptop" a reality, and we look forward to sharing more information about this when the time is right.
-(Note that this will be distinct from a [stateless laptop], which no one has implemented yet.)
-In the meantime, users are encouraged to make use of the [Hardware Compatibility List] and [System Requirements] as sources of information in making hardware selection decisions.
-Serious prospective business customers should [contact us] for more information.
-
 ## Hardware Certification ##
 
 ### Become Hardware Certified ###
@@ -70,20 +63,17 @@ While we are willing to troubleshoot simple issues, we will need to charge a con
 
 If you are interested in having your hardware certified, please [contact us].
 
+We aim to partner with a select few computer vendors to ensure that Qubes users have reliable hardware purchasing options. We aim for these vendors to be as diverse as possible in terms of geography, cost, and availability. Note, however, that we certify only that a particular hardware *configuration* is *supported* by Qubes. We take no responsibility for our partners' manufacturing or shipping processes, nor can we control whether physical hardware is modified (whether maliciously or otherwise) *en route* to the user.
+
 ## Qubes-certified Laptops ##
 Qubes-certified laptops are regularly tested by the Qubes developers to ensure compatibility with all of Qubes' features.
 The developers test all new major versions and updates to ensure that no regressions are introduced.
-Unfortunately, there are currently no certified laptops for Qubes R3.x or R4.x.
-This page will be updated once certified laptops are available.
-For more general information about choosing hardware for Qubes, please see the [System Requirements] and the [Hardware Compatibility List].
 
-We aim to partner with a select few computer vendors to ensure that Qubes users have reliable hardware purchasing options.
-We aim for these vendors to be as diverse as possible in terms of geography, cost, and availability.
-Note, however, that we certify only that a particular hardware *configuration* is *supported* by Qubes.
-We take no responsibility for our partners' manufacturing or shipping processes, nor can we control whether physical hardware is modified (whether maliciously or otherwise) *en route* to the user.
+### Insurgo PrivacyBeast X230 Laptop
 
-To learn more about the certification process, or if you're interested in having your company's hardware certified, please see the [Hardware Certification] section.
+![https://i0.wp.com/insurgo.ca/wp-content/uploads/2019/04/qubes-insurgo-encrypted-secure-lenovo-thinkpad-x230-2.png](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/)
 
+The [Insurgo PrivacyBeast X230] meets and exceeds our hardware certification requirements. Read our [announcement][privacybeast announcement] of the certification for further details!
 
 [stateless laptop]: https://blog.invisiblethings.org/2015/12/23/state_harmful.html
 [System Requirements]: /doc/system-requirements/
@@ -102,4 +92,5 @@ To learn more about the certification process, or if you're interested in having
 [x86_harmful]: https://blog.invisiblethings.org/papers/2015/x86_harmful.pdf
 [stateless laptop]: https://blog.invisiblethings.org/papers/2015/state_harmful.pdf
 [audio_modem]: https://github.com/romanz/amodem/
-
+[Insurgo PrivacyBeast X230]: https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/
+[privacybeast announcement]: https://www.qubes-os.org/news/2019/09/19/insurgo-privacybeast-qubes-certification.md
