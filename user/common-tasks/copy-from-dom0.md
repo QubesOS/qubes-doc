@@ -42,6 +42,13 @@ For data other than logs, there are several options:
 2.  Write the data you wish to copy into `/var/run/qubes/qubes-clipboard.bin`, then `echo -n dom0 > /var/run/qubes/qubes-clipboard.bin.source`.
     Then use Ctrl-Shift-V to paste the data to the desired VM.
 
+You can
+
+- Copy text in the clipboard in dom0.
+- Right-click the Qubes Manager icon in the system tray.
+- Click "Copy Dom0 clipboard".
+- Receive a notification that text has been copied in the inter-VM clipboard.
+- Press Ctrl + Shift + V in an AppVM to paste to the desired VM.
 
 Copying **to** Dom0
 -------------------
