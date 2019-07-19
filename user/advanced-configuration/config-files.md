@@ -95,7 +95,7 @@ global: {
   #secure_paste_sequence = "Ctrl-Shift-v";
   #windows_count_limit = 500;
   #audio_low_latency = false;
-  #log_level = info;
+  #log_level = 1;
   #trayicon_mode = "border1";
   #startup_timeout = 91;
 };
