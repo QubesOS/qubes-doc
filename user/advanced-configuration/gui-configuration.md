@@ -38,9 +38,8 @@ So, the `gui-videoram-overhead` zeroing is not strictly necessary; it only avoid
 
 You might face issues when playing video, if the video is choppy instead of
 smooth display this could be because the X server doesn't work. You can use the
-Linux terminal (Ctrl-Alt-F2) after starting the virtual machine, login. See what
-is present in `/var/log/Xorg.0.log`. This file has logs, edit the configuration
-and `systemctl restart lightdm`. As an option you can have the below config as
+Linux terminal (Ctrl-Alt-F2) after starting the virtual machine, login. You can
+look at the Xorg logs file. As an option you can have the below config as
 well present in `/etc/X11/xorg.conf.d/90-intel.conf`, depends on HD graphics
 though -
 
@@ -51,4 +50,3 @@ Section "Device"
         Option "TearFree" "true"
 EndSection
 ```
-
