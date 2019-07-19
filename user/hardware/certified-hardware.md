@@ -102,4 +102,4 @@ If you are interested in having your hardware certified, please [contact us].
 [stateless laptop]: https://blog.invisiblethings.org/papers/2015/state_harmful.pdf
 [audio_modem]: https://github.com/romanz/amodem/
 [Insurgo PrivacyBeast X230]: https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/
-[privacybeast announcement]: /news/2019/09/19/insurgo-privacybeast-qubes-certification.md
+[privacybeast announcement]: /news/2019/07/18/insurgo-privacybeast-qubes-certification/
