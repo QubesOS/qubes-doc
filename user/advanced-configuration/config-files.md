@@ -125,6 +125,9 @@ Currently supported settings:
 
 -   `secure_copy_sequence` and `secure_paste_sequence` - key sequences used to trigger secure copy and paste.
 
+-   `audio_low_latency` - force low-latency audio mode (about 40ms compared to 200-500ms by default).
+     Note that this will cause much higher CPU usage in dom0. It's enabled by
+		 default, disabling it may save CPU in dom0.
 
 - `trayicon_mode` - defines the trayicon coloring mode. Options are
       - `bg` - color full icon background to the VM color
