@@ -17,6 +17,11 @@ The procedure varies by Qubes version; see the appropriate section below.
 Automatic Method
 ----------------
 
+**Warning:** Due to a known security issue, we currently recommend against using the automatic reinstallation method.
+Instead, we recommend using the manual method described in the next section.
+An announcement will be made, and this notice will be updated, when packages fixing the automatic method are available.
+
+
 First, copy any files that you wish to keep from the TemplateVM's `/home` and `/rw` folders to a safe storage location.
 Then, in a dom0 terminal, run:
 
