@@ -17,7 +17,7 @@ The procedure varies by Qubes version; see the appropriate section below.
 Automatic Method
 ----------------
 
-**Warning:** Due to a known security issue, we currently recommend against using the automatic reinstallation method.
+**Warning:** Due to a known security issue ([QSB #050]), we currently recommend against using the automatic reinstallation method.
 Instead, we recommend using the manual method described in the next section.
 An announcement will be made, and this notice will be updated, when packages fixing the automatic method are available.
 
@@ -89,4 +89,5 @@ If you want to reinstall more than one TemplateVM, repeat these instructions for
 
 
 [TemplateVM]: /doc/templates/
+[QSB #050]: /news/2019/07/24/qsb-050/
 
