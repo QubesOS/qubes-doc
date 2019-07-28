@@ -88,9 +88,10 @@ First, try this in dom0:
 $ qvm-appmenus --update --force <vm_name>
 ```
 
-If that doesn't work, you can manually modify the files in `~/.local/share/applications/`.
+If that doesn't work, you can manually modify the files in `~/.local/share/applications/` or `/usr/local/share/applications/`.
 
-For example, suppose you've deleted `my-old-vm`, but it has a leftover Application Menu shortcut. In dom0:
+For example, suppose you've deleted `my-old-vm`, but there is a leftover Application Menu shortcut, and you find a related file in `~/.local/share/applications/`.  
+In dom0:
 
 ```
 $ rm -i ~/.local/share/applications/my-old-vm-*
