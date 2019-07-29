@@ -21,6 +21,7 @@ These instructions are taken from the [Whonix](https://whonix.org/wiki/) wiki, f
  1. Ensure the existing template(s) are not running.
 
         [user@dom0 ~]$ qvm-shutdown whonix-ws-14
+
 	[user@dom0 ~]$ qvm-shutdown whonix-gw-14
 
  2. Upgrade the software in dom0.
