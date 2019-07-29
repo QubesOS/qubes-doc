@@ -20,8 +20,10 @@ These instructions are taken from the [Whonix](https://whonix.org/wiki/) wiki, f
 
  1. Ensure the existing template(s) are not running.
 
+For Whonix 14 Workstation
         [user@dom0 ~]$ qvm-shutdown whonix-ws-14
 
+For Whonix 14 Gateway
 	[user@dom0 ~]$ qvm-shutdown whonix-gw-14
 
  2. Upgrade the software in dom0.
