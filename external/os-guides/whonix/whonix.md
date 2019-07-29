@@ -33,9 +33,16 @@ while the workstation is used for making AppVMs.
 Whonix in Qubes replaces the deprecated [TorVM](/doc/torvm) service used in earlier
 versions of Qubes.
 
-*The following pages are written by the Whonix developers and are located on their website.*
 
-## Getting Started with Whonix
+## Upgrading Whonix 14 to 15
+
+[Upgrading Whonix 14 to 15](/doc/whonix/whonix-upgrade-14-to-15)
+
+## Whonix documentation
+
+*The following pages are written by the Whonix developers are are located on their website.*
+
+### Getting Started with Whonix
 
 Note: To install Whonix in Qubes, you must [install Qubes](/doc/installation-guide/) first.
 
@@ -43,7 +50,7 @@ Note: To install Whonix in Qubes, you must [install Qubes](/doc/installation-gui
 * [Updating Whonix in Qubes](https://www.whonix.org/wiki/Qubes/Update)
 * [Uninstalling Whonix from Qubes](https://www.whonix.org/wiki/Qubes/Uninstall)
 
-## Configuring Whonix
+### Configuring Whonix
 
 * [Using Whonix with DisposableVMs](https://www.whonix.org/wiki/Qubes/Disposable_VM)
 * [Post-Installation Security Advice](https://www.whonix.org/wiki/Post_Install_Advice)
@@ -51,8 +58,7 @@ Note: To install Whonix in Qubes, you must [install Qubes](/doc/installation-gui
 * [Using Multiple Whonix-Workstations with Whonix on Qubes](https://www.whonix.org/wiki/Multiple_Whonix-Workstations#Qubes-Whonix)
 * [How to use Corridor (a Tor traffic whitelisting gateway) with Whonix](https://www.whonix.org/wiki/Corridor)
 
-## Support for Whonix
+### Support for Whonix
 
 *  [Whonix Support](https://www.whonix.org/wiki/Support) - General Whonix, Debian, Tor, etc... related issues
 *  [Whonix Qubes Forum](https://forums.whonix.org/c/qubes) - Whonix specific issues
-
