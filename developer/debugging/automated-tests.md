@@ -21,18 +21,18 @@ Integration tests are written with the assumption that they will be called on de
 **Do not run these tests on installations with important data, because you might lose it.**
 Since these tests were written with this expectation, all the VMs with a name starting with `test-` on the installation are removed during the process, and all the tests are recklessly started from dom0, even when testing VM components.
 
-Most of the tests are stored in the [core-admin repository](https://github.com/QubesOS/qubes-core-admin/tree/master/qubes/tests) in the `tests` directory. 
+Most of the tests are stored in the [core-admin repository](https://github.com/QubesOS/qubes-core-admin/tree/master/qubes/tests) in the `qubes/tests` directory. 
 To start them you can use standard python unittest runner:
-    python -m unittest -v qubes.tests
+    python3 -m unittest -v qubes.tests
 Or our custom one:
-    python -m qubes.tests.run -v
+    python3 -m qubes.tests.run -v
 
 Our test runner runs mostly the same as the standard one, but it has some nice additional features like color output and not needing the "qubes.test" prefix. 
 It also has the ability to run lone selected template tests.
 
-You can use `python -m qubes.tests.run -h` to get usage information:
+You can use `python3 -m qubes.tests.run -h` to get usage information:
 
-    [user@dom0 ~]$ python -m qubes.tests.run -h
+    [user@dom0 ~]$ python3 -m qubes.tests.run -h
     usage: run.py [-h] [--verbose] [--quiet] [--list] [--failfast] [--no-failfast]
                   [--do-not-clean] [--do-clean] [--loglevel LEVEL]
                   [--logfile FILE] [--syslog] [--no-syslog] [--kmsg] [--no-kmsg]
@@ -49,10 +49,6 @@ You can use `python -m qubes.tests.run -h` to get usage information:
       --list, -l            list all available tests and exit
       --failfast, -f        stop on the first fail, error or unexpected success
       --no-failfast         disable --failfast
-      --do-not-clean, --dnc, -D
-                            do not execute tearDown on failed tests. Implies
-                            --failfast.
-      --do-clean, -C        do execute tearDown even on failed tests.
       --loglevel LEVEL, -L LEVEL
                             logging level for file and syslog forwarding (one of:
                             NOTSET, DEBUG, INFO, WARN, WARNING, ERROR, CRITICAL;
@@ -65,6 +61,10 @@ You can use `python -m qubes.tests.run -h` to get usage information:
                             log most important things to kernel ring-buffer
       --no-kmsg, --i-am-smarter-than-kay-sievers
                             do not abuse kernel ring-buffer
+      --allow-running-along-qubesd
+                            allow running in parallel with qubesd; this is
+                            DANGEROUS and WILL RESULT IN INCONSISTENT SYSTEM STATE
+      --break-to-repl       break to REPL after tests
 
     When running only specific tests, write their names like in log, in format:
     MODULE+"/"+CLASS+"/"+FUNCTION. MODULE should omit initial "qubes.tests.".
@@ -72,7 +72,7 @@ You can use `python -m qubes.tests.run -h` to get usage information:
 
 For instance, to run only the tests for the fedora-21 template, you can use the `-l` option, then filter the list:
 
-    [user@dom0 ~]$ python -m qubes.tests.run -l | grep fedora-21
+    [user@dom0 ~]$ python3 -m qubes.tests.run -l | grep fedora-21
     network/VmNetworking_fedora-21/test_000_simple_networking
     network/VmNetworking_fedora-21/test_010_simple_proxyvm
     network/VmNetworking_fedora-21/test_020_simple_proxyvm_nm
@@ -93,7 +93,7 @@ For instance, to run only the tests for the fedora-21 template, you can use the 
     vm_qrexec_gui/TC_20_DispVM_fedora-21/test_010_simple_dvm_run
     vm_qrexec_gui/TC_20_DispVM_fedora-21/test_020_gui_app
     vm_qrexec_gui/TC_20_DispVM_fedora-21/test_030_edit_file
-    [user@dom0 ~]$ python -m qubes.tests.run -v `python -m qubes.tests.run -l | grep fedora-21`
+    [user@dom0 ~]$ python3 -m qubes.tests.run -v `python3 -m qubes.tests.run -l | grep fedora-21`
 
 Example test run:
 
@@ -122,17 +122,7 @@ Test run can be altered using environment variables:
  - `QUBES_TEST_LOAD_ALL` - load all tests (including tests for all templates) when relevant test modules are imported; this needs to be set for test runners not supporting [load_tests protocol](https://docs.python.org/3/library/unittest.html#load-tests-protocol)
 
 ### Adding a new test to core-admin
-After adding a new unit test to [core-admin/tests](https://github.com/QubesOS/qubes-core-admin/tree/master/tests) you'll have to make sure of two things:
-
-1. That the test will be added to the RPM file created by [QubesBuilder](/doc/qubes-builder/). For this you need to edit the [core-admin/tests/Makefile](https://github.com/QubesOS/qubes-core-admin/tree/master/tests/Makefile)
-2. That the test will be loaded by [core-admin/tests/\_\_init\_\_.py](https://github.com/QubesOS/qubes-core-admin/tree/master/tests/__init__.py)
-
-#### Editing the Makefile
-To add your tests, you must append these two lines to the end of the makefile, which will copy your test and its compiled version to the right directory in the RPM file. 
-If your test is `example.py`, the appended lines would be:
-
-    cp example.py $(DESTDIR)$(PYTHON_TESTSPATH)
-    cp example.py[co] $(DESTDIR)$(PYTHON_TESTSPATH)
+After adding a new unit test to [core-admin/qubes/tests](https://github.com/QubesOS/qubes-core-admin/tree/master/qubes/tests) you'll have to include it in [core-admin/qubes/tests/\_\_init\_\_.py](https://github.com/QubesOS/qubes-core-admin/tree/master/qubes/tests/__init__.py)
 
 
 #### Editing `__init__.py`
