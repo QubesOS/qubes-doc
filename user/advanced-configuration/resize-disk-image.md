@@ -14,11 +14,15 @@ redirect_from:
 Resizing Disk Images
 -----------------
 
-By default Qubes uses thin volumes for the disk images. This means that space is not actually allocated for the volume until it is used. So a 2GB private volume with 100M of files will only use 100M.  
-This explains how you can have *many* qubes with large private volumes on quite a small disk. This is called over provisioning.  
-You should keep an eye on the disk-space widget to see how much free space you actually have,
+By default Qubes uses thin volumes for the disk images.
+This means that space is not actually allocated for the volume until it is used.
+So a 2GB private volume with 100M of files will only use 100M.  
+This explains how you can have *many* qubes with large private volumes on quite a small disk.
+This is called over provisioning.  
+You should keep an eye on the disk-space widget to see how much free space you actually have.
 
-It is easy to increase the size of disk images. There are risks attached to reducing the size of an image, and in general you should not need to do this.
+It is easy to increase the size of disk images.
+There are risks attached to reducing the size of an image, and in general you should not need to do this.
 
 Increasing the size of Disk Images
 ----------------------------------
@@ -33,7 +37,7 @@ In case of template-based qubes, the private storage (the /home directory and us
 If you are increasing the disk image size for Linux-based qubes installed from Qubes OS repositories in Qubes 4.0 or later, changing the settings above is all you need to do - in other cases, you may need to do more, according to instructions below.
 See also the OS-specific follow-up instructions below.
 
-###Increasing the size of Disk Images
+### Increasing the size of Disk Images
 
 Use either GUI tool Qube Settings (`qubes-vm-settings`) or the CLI tool `qvm-volume`.
 Maximum size which can be assigned through Qube Settings is 1048576 MiB - if you need more, use `qvm-volume`:
@@ -50,7 +54,7 @@ Note: Size is the target size (i.e. 4096MB or 16GB, ...), not the size to add to
 
 If you have run out of space for software in your Template, you need to increase *root image* of the Template (not private storage!). 
 **Make sure changes in the Template between reboots don't exceed 10G.**
-It is recommended to restart (or start and then shutdown, if it is not running) the template after resizing the root image.
+It is recommended that you restart (or start and then shutdown, if it is not running) the template after resizing the root image.
 
 If you are **not** using Linux in the qube, you will also need to:
 
@@ -59,7 +63,7 @@ If you are **not** using Linux in the qube, you will also need to:
 3.  Verify available space in the template using `df -h` or OS specific tools.
 4.  Shutdown the template.
 
-#### Windows 7
+#### Windows 7 ####
 
 1.  Click Start
 2.  type "diskmgmt.msc" - this takes you to Disk Management
@@ -93,7 +97,8 @@ Remember you really dont need to do this.
 You can create a new qube, copy your files in to the new qube, and delete the old qube. (Simple and effective.)
 
 
-Or you can take the risk of reducing the size of the disk. For example, to reduce the private storage of qube1 to 1GiB:  
+Or you can take the risk of reducing the size of the disk.
+For example, to reduce the private storage of qube1 to 1GiB:  
 Open a terminal in dom0:
 ```
 qvm-shutdown qube1
