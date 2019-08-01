@@ -23,6 +23,7 @@ Templates can be built using [Qubes Builder](/doc/qubes-builder/).
 You can also access its documentation in the [source code repository](https://github.com/QubesOS/qubes-builder/blob/master/README.md).
 
 To quickly prepare the builder configuration, you can use the `setup` script available in the repository - it will interactively ask you which templates you want to build.  
+On the "Choose Pre-Built Packages Repositories" you must not select either option. This is because Qubes does not provide offical Pre-Built packages for Ubuntu.  
 Then, in the qubes-builder directory, run:
 ```
 make qubes-vm
