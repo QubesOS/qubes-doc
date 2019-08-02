@@ -45,6 +45,7 @@ Core documentation for Qubes users.
  * [System Requirements](/doc/system-requirements/)
  * [Certified Hardware](/doc/certified-hardware/)
  * [Hardware Compatibility List (HCL)](/hcl/)
+ * [Hardware Testing](/doc/hardware-testing/)
 
 ### Downloading, Installing, and Upgrading Qubes
 

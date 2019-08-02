@@ -65,6 +65,7 @@ redirect_from:
  * Please see the [Hardware Compatibility List] for a compilation of hardware reports generated and submitted by users across various Qubes versions.
    (For more information about the HCL itself, see [here][hcl-doc].)
  * See the [Certified Hardware] page.
+ * See the [Hardware Testing] page.
 
 ## Important Notes ##
 
@@ -85,6 +86,7 @@ redirect_from:
 [nvidia]: /doc/install-nvidia-driver/
 [hardware certification requirements for Qubes 4.x]: /news/2016/07/21/new-hw-certification-for-q4/
 [Certified Hardware]: /doc/certified-hardware/
+[Hardware Testing]: /doc/hardware-testing/
 [Hardware Compatibility List]: /hcl/
 [hcl-doc]: /doc/hcl/
 [hcl-report]: /doc/hcl/#generating-and-submitting-new-reports
