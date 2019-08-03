@@ -15,6 +15,9 @@ We aim for these vendors to be as diverse as possible in terms of geography, cos
 Note, however, that we certify only that a particular hardware *configuration* is *supported* by Qubes.
 We take no responsibility for our partners' manufacturing or shipping processes, nor can we control whether physical hardware is modified (whether maliciously or otherwise) *en route* to the user.
 
+There are also other hardware models on which we have tested Qubes OS.
+See [Hardware Testing] for details.
+
 
 ## Qubes-certified Laptop: Insurgo PrivacyBeast X230
 
@@ -84,6 +87,7 @@ While we are willing to troubleshoot simple issues, we will need to charge a con
 If you are interested in having your hardware certified, please [contact us].
 
 
+[Hardware Testing]: /doc/hardware-testing/
 [stateless laptop]: https://blog.invisiblethings.org/2015/12/23/state_harmful.html
 [System Requirements]: /doc/system-requirements/
 [Hardware Compatibility List]: /hcl/
