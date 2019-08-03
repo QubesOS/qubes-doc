@@ -95,6 +95,9 @@ global: {
   #secure_paste_sequence = "Ctrl-Shift-v";
   #windows_count_limit = 500;
   #audio_low_latency = false;
+  #log_level = 1;
+  #trayicon_mode = "border1";
+  #startup_timeout = 91;
 };
 
 # most of setting can be set per-VM basis
@@ -122,8 +125,22 @@ Currently supported settings:
 
 -   `secure_copy_sequence` and `secure_paste_sequence` - key sequences used to trigger secure copy and paste.
 
--   `windows_count_limit` - limit on concurrent windows.
-
 -   `audio_low_latency` - force low-latency audio mode (about 40ms compared to 200-500ms by default).
-    Note that this will cause much higher CPU usage in dom0.
+     Note that this will cause much higher CPU usage in dom0. It's enabled by
+		 default, disabling it may save CPU in dom0.
 
+- `trayicon_mode` - defines the trayicon coloring mode. Options are
+      - `bg` - color full icon background to the VM color
+      - `border1` - add 1px border at the icon edges
+      - `border2` - add 1px border 1px from the icon edges
+      - `tint` - tinttint icon to the VM color,  can be used with additional
+		     modifiers (you can enable multiple of them)
+      - `tint+border1,tint+border2` - same as tint, but also add a border
+      - `tint+saturation50` - same as tint, but reduce icon saturation by 50%
+      - `tint+whitehack` - same as tint, but change white pixels (0xffffff) to
+		     almost-white (0xfefefe)
+
+- `log level` - log level defines the log options log can take. log level can
+   have a value of 0(only errors), 1(some basic messages), 2(debug).
+
+- `startup_timeout` - The timeout for startup.
