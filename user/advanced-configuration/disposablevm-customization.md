@@ -106,6 +106,8 @@ qvm-prefs <sys-VMName> provides_network true
 ~~~
 
 Next, set the old `sys-` VM's autostart to false, and update any references to the old one.
+In particular, make sure to update `/etc/qubes-rpc/policy/qubes.UpdatesProxy` in dom0.
+
 For example, `qvm-prefs sys-firewall netvm <sys-VMName>`.
 See below for a complete example of a `sys-net` replacement:
 
