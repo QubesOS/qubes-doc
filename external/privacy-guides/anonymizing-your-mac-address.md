@@ -15,10 +15,14 @@ Currently, Qubes OS *does not* automatically "anonymize" or spoof the MAC Addres
 
 ## Upgrading and configuring Network Manager in Qubes
 
-Newer versions of Network Manager have a robust set of options for randomizing MAC addresses, and can handle the entire process across reboots, sleep/wake cycles and different connection states.
-In particular, versions 1.4.2 and later should be well suited for Qubes. Qubes R4.0's default sys-net should have 1.8.2-4 by default.
+Newer versions of Network Manager have options for randomizing MAC addresses, and can handle the entire process across reboots, sleep/wake cycles and different connection states.
+In particular, versions 1.4.2 and later should be well suited for Qubes. Qubes R4.0's default sys-net should have 1.8.2-4 by default.  
+However, use of the NetworkManager GUI to set these options is **unreliable** - there are numerous reports of changes not being saved for particular cards or interfaces.
+You should check carefully that any settings you make in the GUI are saved, before relying on this method.
+If the settings are not saved, you can use the method described below using a config file.
 
-Network Manager 1.4.2 or later is available from the Fedora 25 repository as well as the Debian 9 repository, which you can install by [upgrading a Debian 8 template to version 9.](/doc/debian-template-upgrade-8/) 
+
+Network Manager 1.4.2 or later is available from the Fedora 25 repository as well as the Debian 10 repository.
 
 Check that Network Manager version is now at least 1.4.2:
 

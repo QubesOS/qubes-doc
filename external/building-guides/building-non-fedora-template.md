@@ -15,6 +15,8 @@ If you don't like using one of the existing templates because of specific admini
 
 This article shows how to go about building a template for a different OS.
 
+You should make sure you understand the details of the BuilderPlugins API - they are explained [here][API].
+
 Qubes builder scripts
 =====================
 
@@ -161,3 +163,5 @@ Add the following line to your fstab (you can create this line in your package i
 
 Now install the package you built and mount `/proc/xen`.
 Verify that xenstore-read works by running: `xenstore-read name`. That should give you the current qube name.
+
+[API]: https://github.com/QubesOS/qubes-builder/blob/master/doc/BuilderPluginAPI.md
