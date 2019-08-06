@@ -327,7 +327,7 @@ Booting to a kernel inside the template is not supported under `PVH`.
 In case of problems, you can access the VM console using `sudo xl console VMNAME` in dom0, then access the GRUB menu.
 You need to call it just after starting the VM (until `GRUB_TIMEOUT` expires); for example, in a separate dom0 terminal window.
 
-In any case you can later access the VM's logs (especially the VM console log `guest-VMNAME.log`).
+In any case you can later access the VM's logs (especially the VM console log `/var/log/xen/console/guest-VMNAME.log`).
 
 You can always set the kernel back to some dom0-provided value to fix a VM kernel installation.
 
