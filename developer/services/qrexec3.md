@@ -32,14 +32,15 @@ It allows users and developers to use and design secure inter-VM tools.
 
 ## Qrexec basics ##
 
-Qrexec is built on top of vchan (a library providing data links between VMs).
-During domain creation a process named `qrexec-daemon` is started in dom0, and a process named `qrexec-agent` is started in the VM.
-They are connected over **vchan** channel.
-`qrexec-daemon` listens for connections from dom0 utility named `qrexec-client`.
-Typically, the first thing that a `qrexec-client` instance does is to send a request to `qrexec-daemon` to start a process (let's name it `VMprocess`) with a given command line in a specified VM (`someVM`).
-`qrexec-daemon` assigns unique vchan connection details and sends them both to `qrexec-client` (in dom0) and `qrexec-agent` (in `someVM`).
-`qrexec-client` starts a vchan server which `qrexec-agent` connects to.
-Since then, stdin/stdout/stderr from the VMprocess is passed via vchan between `qrexec-agent` and the `qrexec-client` process.
+Qrexec is built on top of *vchan*, a Xen library providing data links between VMs.
+During domain creation, a process named `qrexec-daemon` is started in dom0, and a process named `qrexec-agent` is started in the VM.
+They are connected over a **vchan** channel.
+`qrexec-daemon` listens for connections from a dom0 utility named `qrexec-client`.
+Let's say we want to start a process (call it `VMprocess`) in a VM (`someVM`).
+Typically, the first thing that a `qrexec-client` instance does is to send a request to the `qrexec-daemon`, which in turn relays it to `qrexec-agent` running in `someVM`.
+`qrexec-daemon` assigns unique vchan connection details and sends them to both `qrexec-client` (in dom0) and `qrexec-agent` (in `someVM`).
+`qrexec-client` starts a vchan server, which `qrexec-agent` then connects to.
+Once this channel is established, stdin/stdout/stderr from the VMprocess is passed between `qrexec-agent` and the `qrexec-client` process.
 
 So, for example, executing in dom0:
 
