@@ -79,7 +79,7 @@ Additionally, disposable VMs are tightly integrated -- RPC to a DisposableVM is 
 
 ## Qubes RPC administration ##
 
-(*TODO: fix for non-linux dom0*)
+<!-- (*TODO: fix for non-linux dom0*) -->
 
 In dom0, there is a bunch of files in `/etc/qubes-rpc/policy` directory, whose names describe the available RPC actions.
 Their content is the RPC access policy database.
