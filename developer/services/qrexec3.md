@@ -61,7 +61,7 @@ Number of available vchan channels is the limiting factor here, it depends on th
 
 ## Qubes RPC services ##
 
-Some tasks (like inter-vm file copy) share the same rpc-like structure: a process in one VM (say, file sender) needs to invoke and send/receive data to some process in other VM (say, file receiver).
+Some tasks (like inter-vm file copy) share the same RPC-like structure: a process in one VM (say, file sender) needs to invoke and send/receive data to some process in other VM (say, file receiver).
 Thus, the Qubes RPC framework was created, facilitating such actions.
 
 Obviously, inter-VM communication must be tightly controlled to prevent one VM from taking control over other, possibly more privileged, VM.
@@ -70,19 +70,19 @@ Then, it is natural to reuse the already-existing qrexec framework.
 
 Also, note that bare qrexec provides `VM <-> dom0` connectivity, but the command execution is always initiated by dom0.
 There are cases when VM needs to invoke and send data to a command in dom0 (e.g. to pass information on newly installed `.desktop` files).
-Thus, the framework allows dom0 to be the rpc target as well.
+Thus, the framework allows dom0 to be the RPC target as well.
 
-Thanks to the framework, RPC programs are very simple -- both rpc client and server just use their stdin/stdout to pass data.
+Thanks to the framework, RPC programs are very simple -- both RPC client and server just use their stdin/stdout to pass data.
 The framework does all the inner work to connect these processes to each other via `qrexec-daemon` and `qrexec-agent`.
-Additionally, disposable VMs are tightly integrated -- rpc to a DisposableVM is identical to rpc to a normal domain, all one needs is to pass `$dispvm` as the remote domain name.
+Additionally, disposable VMs are tightly integrated -- RPC to a DisposableVM is identical to RPC to a normal domain, all one needs is to pass `$dispvm` as the remote domain name.
 
 
 ## Qubes RPC administration ##
 
 (*TODO: fix for non-linux dom0*)
 
-In dom0, there is a bunch of files in `/etc/qubes-rpc/policy` directory, whose names describe the available rpc actions.
-Their content is the rpc access policy database.
+In dom0, there is a bunch of files in `/etc/qubes-rpc/policy` directory, whose names describe the available RPC actions.
+Their content is the RPC access policy database.
 Currently defined actions are:
 
     qubes.ClipboardPaste
@@ -111,7 +111,7 @@ These files contain lines with the following format:
 You can specify srcvm and destvm by name, or by one of `$anyvm`, `$dispvm`, `dom0` reserved keywords (note string `dom0` does not match the `$anyvm` pattern; all other names do).
 Only `$anyvm` keyword makes sense in srcvm field (service calls from dom0 are currently always allowed, `$dispvm` means "new VM created for this particular request," so it is never a source of request).
 Currently there is no way to specify source VM by type.
-Whenever a rpc request for action X is received, the first line in `/etc/qubes-rpc/policy/X` that match srcvm/destvm is consulted to determine whether to allow rpc, what user account the program should run in target VM under, and what VM to redirect the execution to.
+Whenever a RPC request for action X is received, the first line in `/etc/qubes-rpc/policy/X` that match srcvm/destvm is consulted to determine whether to allow RPC, what user account the program should run in target VM under, and what VM to redirect the execution to.
 Note that if the request is redirected (`target=` parameter), policy action remains the same - even if there is another rule which would otherwise deny such request.
 If the policy file does not exist, user is prompted to create one; if still there is no policy file after prompting, the action is denied.
 
@@ -121,15 +121,15 @@ In the src VM, one should invoke the client via:
 
     /usr/lib/qubes/qrexec-client-vm target_vm_name RPC_ACTION_NAME rpc_client_path client arguments
 
-Note that only stdin/stdout is passed between rpc server and client -- notably, no command line arguments are passed.
+Note that only stdin/stdout is passed between RPC server and client -- notably, no command line arguments are passed.
 Source VM name is specified by `QREXEC_REMOTE_DOMAIN` environment variable.
 By default, stderr of client and server is logged to respective `/var/log/qubes/qrexec.XID` files.
 It is also possible to call service without specific client program - in which case server stdin/out will be connected with the terminal:
 
     /usr/lib/qubes/qrexec-client-vm target_vm_name RPC_ACTION_NAME
 
-Be very careful when coding and adding a new rpc service.
-Unless the offered functionality equals full control over the target (it is the case with e.g. `qubes.VMShell` action), any vulnerability in an rpc server can be fatal to Qubes security.
+Be very careful when coding and adding a new RPC service.
+Unless the offered functionality equals full control over the target (it is the case with e.g. `qubes.VMShell` action), any vulnerability in an RPC server can be fatal to Qubes security.
 On the other hand, this mechanism allows to delegate processing of untrusted input to less privileged (or disposable) AppVMs, thus wise usage of it increases security.
 
 For example, this command will run the `firefox` command in a DisposableVM based on `work`:
@@ -232,19 +232,19 @@ and then remove the first line(s) (before the first `##` comment) which are the 
 
 ### Qubes RPC example ###
 
-We will show the necessary files to create an rpc call that adds two integers on the target and returns back the result to the invoker.
+We will show the necessary files to create an RPC call that adds two integers on the target and returns back the result to the invoker.
 
- * rpc client code (`/usr/bin/our_test_add_client`):
-
-       #!/bin/sh
-       echo $1 $2    # pass data to rpc server
-       exec cat >&$SAVED_FD_1 # print result to the original stdout, not to the other rpc endpoint
-
- * rpc server code (*/usr/bin/our\_test\_add\_server*)
+ * RPC client code (`/usr/bin/our_test_add_client`):
 
        #!/bin/sh
-       read arg1 arg2 # read from stdin, which is received from the rpc client
-       echo $(($arg1+$arg2)) # print to stdout - so, pass to the rpc client
+       echo $1 $2    # pass data to RPC server
+       exec cat >&$SAVED_FD_1 # print result to the original stdout, not to the other RPC endpoint
+
+ * RPC server code (*/usr/bin/our\_test\_add\_server*)
+
+       #!/bin/sh
+       read arg1 arg2 # read from stdin, which is received from the RPC client
+       echo $(($arg1+$arg2)) # print to stdout - so, pass to the RPC client
 
  * policy file in dom0 (*/etc/qubes-rpc/policy/test.Add* )
 
@@ -254,7 +254,7 @@ We will show the necessary files to create an rpc call that adds two integers on
 
        /usr/bin/our_test_add_server
 
- * invoke rpc via
+ * invoke RPC via
 
        /usr/lib/qubes/qrexec-client-vm target_vm test.Add /usr/bin/our_test_add_client 1 2
 
@@ -264,12 +264,12 @@ and we should get "3" as answer, after dom0 allows it.
 
 ### Qubes RPC example - with argument usage ###
 
-We will show the necessary files to create an rpc call that reads a specific file from a predefined directory on the target.
+We will show the necessary files to create an RPC call that reads a specific file from a predefined directory on the target.
 Besides really naive storage, it may be a very simple password manager.
 Additionally, in this example a simplified workflow will be used - server code placed directly in the service definition file (in `/etc/qubes-rpc` directory).
 And no separate client script will be used.
 
- * rpc server code (*/etc/qubes-rpc/test.File*)
+ * RPC server code (*/etc/qubes-rpc/test.File*)
 
        #!/bin/sh
        argument="$1" # service argument, also available as $QREXEC_SERVICE_ARGUMENT
@@ -294,13 +294,13 @@ And no separate client script will be used.
 
        $anyvm $anyvm deny
 
- * invoke rpc from `source_vm1` via
+ * invoke RPC from `source_vm1` via
 
        /usr/lib/qubes/qrexec-client-vm target_vm test.File+testfile1
 
    and we should get content of `/home/user/rpc-file-storage/testfile1` as answer.
 
- * also possible to invoke rpc from `source_vm2` via
+ * also possible to invoke RPC from `source_vm2` via
 
        /usr/lib/qubes/qrexec-client-vm target_vm test.File+testfile2
 
