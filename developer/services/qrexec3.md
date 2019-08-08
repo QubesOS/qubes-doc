@@ -16,16 +16,19 @@ redirect_from:
 - /wiki/Qrexec3Implementation/
 ---
 
-# Command execution in VMs #
+# Secure communication between VMs: qrexec #
 
 (*This page is about qrexec v3. For qrexec v2, see [here](/doc/qrexec2/).*)
 
 The **qrexec** framework is used by core Qubes components to implement communication between domains.
-Qubes domains are isolated by design, but there is a need for a mechanism to allow the administrative domain (dom0) to force command execution in another domain (VM).
-For instance, when user selects an application from the KDE menu, it should be started in the selected VM.
+Qubes domains are strictly isolated by design.
+However, the OS needs a mechanism to allow the administrative domain (dom0) to force command execution in another domain (VM).
+For instance, when a user selects an application from the KDE menu, it should start in the selected VM.
 Also, it is often useful to be able to pass stdin/stdout/stderr from an application running in a VM to dom0 (and the other way around).
-In specific circumstances, Qubes allows VMs to be initiators of such communications (so, for example, a VM can notify dom0 that there are updates available for it).
-
+(For example, so that a VM can notify dom0 that there are updates available for it).
+By default, Qubes allows VMs initiate such communications in specific circumstances.
+The qrexec framework generalizes this process.
+It allows users and developers to use and design secure inter-VM tools.
 
 ## Qrexec basics ##
 
