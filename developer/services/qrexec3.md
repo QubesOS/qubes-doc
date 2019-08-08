@@ -16,7 +16,7 @@ redirect_from:
 - /wiki/Qrexec3Implementation/
 ---
 
-# Qrexec: command execution in VMs #
+# Qrexec: command execution in VMs
 
 (*This page is about qrexec v3. For qrexec v2, see [here](/doc/qrexec2/).*)
 
@@ -30,7 +30,7 @@ By default, Qubes allows VMs initiate such communications in specific circumstan
 The qrexec framework generalizes this process.
 It allows users and developers to use and design secure inter-VM tools.
 
-## Qrexec basics: architecture and examples ##
+## Qrexec basics: architecture and examples
 
 Qrexec is built on top of *vchan*, a Xen library providing data links between VMs.
 During domain creation, a process named `qrexec-daemon` is started in dom0, and a process named `qrexec-agent` is started in the VM.
@@ -64,7 +64,7 @@ There can be almost arbitrary number of `qrexec-client` processes for a domain (
 Number of available vchan channels is the limiting factor here, it depends on the underlying hypervisor.
 
 
-## Qubes RPC services ##
+## Qubes RPC services
 
 Some tasks (like inter-vm file copy) share the same RPC-like structure: a process in one VM (say, file sender) needs to invoke and send/receive data to some process in other VM (say, file receiver).
 Thus, the Qubes RPC framework was created, facilitating such actions.
@@ -82,7 +82,7 @@ The framework does all the inner work to connect these processes to each other v
 Additionally, disposable VMs are tightly integrated -- RPC to a DisposableVM is identical to RPC to a normal domain, all one needs is to pass `$dispvm` as the remote domain name.
 
 
-## Qubes RPC administration ##
+## Qubes RPC administration
 
 <!-- (*TODO: fix for non-linux dom0*) -->
 
@@ -222,7 +222,7 @@ This means it is also possible to install a different script for a particular se
 
 See below for an example service using an argument.
 
-### Revoking "Yes to All" authorization ###
+### Revoking "Yes to All" authorization
 
 Qubes RPC policy supports "ask" action.
 This will prompt the user whether given RPC call should be allowed.
@@ -235,7 +235,7 @@ In order to remove such authorization, issue this command from a dom0 terminal (
 and then remove the first line(s) (before the first `##` comment) which are the "Yes to All" results.
 
 
-### Qubes RPC example ###
+### Qubes RPC example
 
 We will show the necessary files to create an RPC call that adds two integers on the target and returns back the result to the invoker.
 
@@ -267,7 +267,7 @@ and we should get "3" as answer, after dom0 allows it.
 
 **Note:** For a real world example of writing a qrexec service, see this [blog post](https://blog.invisiblethings.org/2013/02/21/converting-untrusted-pdfs-into-trusted.html).
 
-### Qubes RPC example - with argument usage ###
+### Qubes RPC example - with argument usage
 
 We will show the necessary files to create an RPC call that reads a specific file from a predefined directory on the target.
 Besides really naive storage, it may be a very simple password manager.
@@ -321,7 +321,7 @@ Components residing in the same domain (`qrexec-client-vm` to `qrexec-agent`, `q
 Because of [vchan limitation](https://github.com/qubesos/qubes-issues/issues/951), it is not possible to establish qrexec connection back to the source domain.
 
 
-## Dom0 tools implementation ##
+## Dom0 tools implementation
 
  * `/usr/lib/qubes/qrexec-daemon`: One instance is required for every active
    domain. Responsible for:
@@ -355,7 +355,7 @@ Because of [vchan limitation](https://github.com/qubesos/qubes-issues/issues/951
 **Note:** None of the above tools are designed to be used by users directly.
 
 
-## VM tools implementation ##
+## VM tools implementation
 
  * `qrexec-agent`: One instance runs in each active domain. Responsible for:
    * Handling service requests from `qrexec-client-vm` and passing them to
@@ -372,7 +372,7 @@ Because of [vchan limitation](https://github.com/qubesos/qubes-issues/issues/951
    are connected to the remote service endpoint.
 
 
-## Qrexec protocol details ##
+## Qrexec protocol details
 
 Qrexec protocol is message-based. All messages share a common header followed
 by an optional data packet.
@@ -396,7 +396,7 @@ If either side does not support this version, the connection is closed.
 Details of all possible use cases and the messages involved are described below.
 
 
-### dom0: request execution of `some_command` in domX and pass stdin/stdout ###
+### dom0: request execution of `some_command` in domX and pass stdin/stdout
 
 -   **dom0**: `qrexec-client` is invoked in **dom0** as follows:
 
@@ -462,7 +462,7 @@ associated input/output pipe.
 (**int**). `qrexec-agent` then disconnects from the data vchan.
 
 
-### domY: invoke execution of qubes service `qubes.SomeRpc` in domX and pass stdin/stdout ###
+### domY: invoke execution of qubes service `qubes.SomeRpc` in domX and pass stdin/stdout
 
 -   **domY**: `qrexec-client-vm` is invoked as follows:
 
