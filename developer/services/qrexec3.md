@@ -16,7 +16,7 @@ redirect_from:
 - /wiki/Qrexec3Implementation/
 ---
 
-# Secure communication between VMs: qrexec #
+# Qrexec: command execution in VMs #
 
 (*This page is about qrexec v3. For qrexec v2, see [here](/doc/qrexec2/).*)
 
@@ -30,7 +30,7 @@ By default, Qubes allows VMs initiate such communications in specific circumstan
 The qrexec framework generalizes this process.
 It allows users and developers to use and design secure inter-VM tools.
 
-## Qrexec basics ##
+## Qrexec basics: architecture and examples ##
 
 Qrexec is built on top of *vchan*, a Xen library providing data links between VMs.
 During domain creation, a process named `qrexec-daemon` is started in dom0, and a process named `qrexec-agent` is started in the VM.
@@ -42,14 +42,19 @@ Typically, the first thing that a `qrexec-client` instance does is to send a req
 `qrexec-client` starts a vchan server, which `qrexec-agent` then connects to.
 Once this channel is established, stdin/stdout/stderr from the VMprocess is passed between `qrexec-agent` and the `qrexec-client` process.
 
-So, for example, executing in dom0:
+The `qrexec-client` command is used to make connections to VMs from dom0.
+For example, the following command
+
+    qrexec-client -e -d someVM user:'touch hello-world.txt'
+
+creates an empty file called `hello-world.txt` in the home folder of `someVM`.
+
+The string before the colon specifies what user to run the command as.
+The `-e` flag tells `qrexec-client` to exit immediately after sending the execution request and receiving a status code from `qrexec-agent` (whether the process creation succeeded).
+With this option, no further data is passed between the domains.
+By contrast, the following command demonstrates an open channel between two VMs: in this case, a remote shell.
 
     qrexec-client -d someVM user:bash
-
-allows to work with the remote shell.
-The string before the first semicolon specifies what user to run the command as.
-Adding `-e` on the `qrexec-client` command line results in mere command execution (no data passing), and `qrexec-client` exits immediately after sending the execution request and receiving status code from `qrexec-agent` (whether the process creation succeeded).
-There is also the `-l local_program` flag -- with it, `qrexec-client` passes stdin/stdout of the remote process to the (spawned for this purpose) `local_program`, not to its own stdin/stdout.
 
 The `qvm-run` command is heavily based on `qrexec-client`.
 It also takes care of additional activities, e.g. starting the domain if it is not up yet and starting the GUI daemon.
