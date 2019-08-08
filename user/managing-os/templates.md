@@ -31,6 +31,7 @@ We guarantee that the binary updates are compiled from exactly the same source c
 
  * [Fedora](/doc/templates/fedora/) (default base template)
  * [Fedora - Minimal](/doc/templates/fedora-minimal)
+ * [Fedora - Xfce](/doc/templates/fedora-xfce)
  * [Debian](/doc/templates/debian/)
 
 
@@ -43,6 +44,7 @@ By installing these templates, you are trusting not only the Qubes developers an
 * [Whonix](/doc/templates/whonix/)
 * [Ubuntu](/doc/templates/ubuntu/)
 * [Archlinux](/doc/templates/archlinux/)
+* [CentOS](/doc/templates/centos/)
 
 
 ## How to install, uninstall, reinstall, and switch
