@@ -21,3 +21,7 @@ To install a specific Fedora Xfce TemplateVM that is not currently installed in 
 
 To reinstall a Fedora Xfce TemplateVM that is already installed in your system, see [How to Reinstall a TemplateVM](/doc/reinstall-template/).
 
+Upgrading
+---------
+
+To upgrade your Fedora TemplateVM, please see [Upgrade Fedora TemplateVM](/doc/templates/fedora/#upgrading).
