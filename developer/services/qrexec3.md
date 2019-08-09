@@ -318,34 +318,34 @@ Because of [vchan limitation](https://github.com/qubesos/qubes-issues/issues/951
 
 ## Dom0 tools implementation
 
- * `/usr/lib/qubes/qrexec-daemon`: One instance is required for every active domain. Responsible for:
-   * Handling execution and service requests from **dom0** (source: `qrexec-client`).
-   * Handling service requests from the associated domain (source: `qrexec-client-vm`, then `qrexec-agent`).
- * Command line: `qrexec-daemon domain-id domain-name [default user]`
- * `domain-id`: Numeric Qubes ID assigned to the associated domain.
- * `domain-name`: Associated domain name.
- * `default user`: Optional. If passed, `qrexec-daemon` uses this user as default for all execution requests that don't specify one.
- * `/usr/lib/qubes/qrexec-policy`: Internal program used to evaluate the RPC policy and deciding whether a RPC call should be allowed.
- * `/usr/lib/qubes/qrexec-client`: Used to pass execution and service requests to `qrexec-daemon`. Command line parameters:
-   * `-d target-domain-name`: Specifies the target for the execution/service request.
-   * `-l local-program`: Optional. If present, `local-program` is executed and its stdout/stdin are used when sending/receiving data to/from the remote peer.
-   * `-e`: Optional. If present, stdout/stdin are not connected to the remote   peer. Only process creation status code is received.
-   * `-c <request-id,src-domain-name,src-domain-id>`: used for connecting a VM-VM service request by `qrexec-policy`. Details described below in the service example.
-   * `cmdline`: Command line to pass to `qrexec-daemon` as the execution/service request. Service request format is described below in the service example.
+* `/usr/lib/qubes/qrexec-daemon`: One instance is required for every active domain. Responsible for:
+  * Handling execution and service requests from **dom0** (source: `qrexec-client`).
+  * Handling service requests from the associated domain (source: `qrexec-client-vm`, then `qrexec-agent`).
+* Command line: `qrexec-daemon domain-id domain-name [default user]`
+* `domain-id`: Numeric Qubes ID assigned to the associated domain.
+* `domain-name`: Associated domain name.
+* `default user`: Optional. If passed, `qrexec-daemon` uses this user as default for all execution requests that don't specify one.
+* `/usr/lib/qubes/qrexec-policy`: Internal program used to evaluate the RPC policy and deciding whether a RPC call should be allowed.
+* `/usr/lib/qubes/qrexec-client`: Used to pass execution and service requests to `qrexec-daemon`. Command line parameters:
+  * `-d target-domain-name`: Specifies the target for the execution/service request.
+  * `-l local-program`: Optional. If present, `local-program` is executed and its stdout/stdin are used when sending/receiving data to/from the remote peer.
+  * `-e`: Optional. If present, stdout/stdin are not connected to the remote   peer. Only process creation status code is received.
+  * `-c <request-id,src-domain-name,src-domain-id>`: used for connecting a VM-VM service request by `qrexec-policy`. Details described below in the service example.
+  * `cmdline`: Command line to pass to `qrexec-daemon` as the execution/service request. Service request format is described below in the service example.
 
 **Note:** None of the above tools are designed to be used by users directly.
 
 ## VM tools implementation
 
- * `qrexec-agent`: One instance runs in each active domain. Responsible for:
-   * Handling service requests from `qrexec-client-vm` and passing them to connected `qrexec-daemon` in dom0.
-   * Executing associated `qrexec-daemon` execution/service requests.
- * Command line parameters: none.
- * `qrexec-client-vm`: Runs in an active domain. Used to pass service requests to `qrexec-agent`.
- * Command line: `qrexec-client-vm target-domain-name service-name local-program [local program arguments]`
- * `target-domain-name`: Target domain for the service request. Source is the current domain.
- * `service-name`: Requested service name.
- * `local-program`: `local-program` is executed locally and its stdin/stdout are connected to the remote service endpoint.
+* `qrexec-agent`: One instance runs in each active domain. Responsible for:
+  * Handling service requests from `qrexec-client-vm` and passing them to connected `qrexec-daemon` in dom0.
+  * Executing associated `qrexec-daemon` execution/service requests.
+* Command line parameters: none.
+* `qrexec-client-vm`: Runs in an active domain. Used to pass service requests to `qrexec-agent`.
+* Command line: `qrexec-client-vm target-domain-name service-name local-program [local program arguments]`
+* `target-domain-name`: Target domain for the service request. Source is the current domain.
+* `service-name`: Requested service name.
+* `local-program`: `local-program` is executed locally and its stdin/stdout are connected to the remote service endpoint.
 
 ## Qrexec protocol details
 
