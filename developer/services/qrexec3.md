@@ -84,9 +84,9 @@ Additionally, disposable VMs are tightly integrated -- RPC to a DisposableVM is 
 
 <!-- (*TODO: fix for non-linux dom0*) -->
 
-In dom0, there is a bunch of files in `/etc/qubes-rpc/policy` directory, whose names describe the available RPC actions.
-Their content is the RPC access policy database.
-Currently defined actions are:
+The dom0 directory `/etc/qubes-rpc/policy/` contains a group of files for available RPC actions.
+Together their contents make up the RPC access policy database.
+Currently, the defined actions are:
 
     qubes.ClipboardPaste
     qubes.Filecopy
@@ -111,12 +111,15 @@ These files contain lines with the following format:
 
     srcvm destvm (allow|deny|ask)[,user=user_to_run_as][,target=VM_to_redirect_to]
 
-You can specify srcvm and destvm by name, or by one of `$anyvm`, `$dispvm`, `dom0` reserved keywords (note string `dom0` does not match the `$anyvm` pattern; all other names do).
-Only `$anyvm` keyword makes sense in srcvm field (service calls from dom0 are currently always allowed, `$dispvm` means "new VM created for this particular request," so it is never a source of request).
+You can specify srcvm and destvm by name or by one of three reserved keywords: `$anyvm`, `$dispvm`, and `dom0` (without the `$`).
+Only `$anyvm` keyword makes sense in srcvm field.
+(Service calls from dom0 are currently always allowed, `$dispvm` means "new VM created for this particular request," so it is never a source of request.)
 Currently there is no way to specify source VM by type.
-Whenever a RPC request for action X is received, the first line in `/etc/qubes-rpc/policy/X` that match srcvm/destvm is consulted to determine whether to allow RPC, what user account the program should run in target VM under, and what VM to redirect the execution to.
+Whenever a RPC request for an action is received, the domain checks the first matching line of the relevant file in `/etc/qubes-rpc/policy/` to determine access:
+whether to allow the request, what VM to redirect the execution to, and what user account the program should run under.
 Note that if the request is redirected (`target=` parameter), policy action remains the same - even if there is another rule which would otherwise deny such request.
-If the policy file does not exist, user is prompted to create one; if still there is no policy file after prompting, the action is denied.
+If the policy file does not exist, the user is prompted to create one.
+If still there is no policy file after prompting, the action is denied.
 
 In the target VM, the `/etc/qubes-rpc/RPC_ACTION_NAME` must exist, containing the file name of the program that will be invoked, or being that program itself - in which case it must have executable permission set (`chmod +x`).
 
