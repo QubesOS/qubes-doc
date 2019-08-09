@@ -65,10 +65,10 @@ Number of available vchan channels is the limiting factor here, it depends on th
 
 ## Qubes RPC services
 
-Some tasks (like inter-vm file copy) share the same RPC-like structure: a process in one VM (say, file sender) needs to invoke and send/receive data to some process in other VM (say, file receiver).
-Thus, the Qubes RPC framework was created, facilitating such actions.
+Some common tasks (like copying files between VMs) have an RPC-like structure: a process in one VM (say, the file sender) needs to invoke and send/receive data to some process in other VM (say, the file receiver).
+The Qubes RPC framework was created to securely facilite a range of such actions.
 
-Obviously, inter-VM communication must be tightly controlled to prevent one VM from taking control over other, possibly more privileged, VM.
+Obviously, inter-VM communication must be tightly controlled to prevent one VM from taking control of another, possibly more privileged, VM.
 Therefore the design decision was made to pass all control communication via dom0, that can enforce proper authorization.
 Then, it is natural to reuse the already-existing qrexec framework.
 
@@ -84,7 +84,7 @@ Additionally, disposable VMs are tightly integrated -- RPC to a DisposableVM is 
 
 <!-- (*TODO: fix for non-linux dom0*) -->
 
-The dom0 directory `/etc/qubes-rpc/policy/` contains a group of files for available RPC actions.
+The dom0 directory `/etc/qubes-rpc/policy/` contains files for each available RPC action.
 Together their contents make up the RPC access policy database.
 Currently, the defined actions are:
 
