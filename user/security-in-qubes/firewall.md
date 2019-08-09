@@ -160,6 +160,91 @@ sudo iptables -I INPUT -s <IP address of A> -j ACCEPT
 [root@B user]# chmod +x /rw/config/rc.local
 ~~~
 
+Opening a single TCP port to other network-isolated qube
+--------------------------------------------------------
+
+In the case where a specific TCP port needs to be exposed from a qubes to another one, it is not necessary to enable networking between them but one can use the qubes RPC service `qubes.ConnectTCP`.
+
+**1. Simple port binding**
+
+Consider the following example. `mytcp-service` qube has a TCP service running on port `444` and `untrusted` qube needs to access this service.
+
+* In dom0, add the following to `/etc/qubes-rpc/qubes.ConnectTCP`:
+~~~
+untrusted @default allow,target=mytcp-service
+~~~
+
+* In untrusted, use the Qubes tool `qvm-connect-tcp`:
+~~~
+  [user@untrusted #]$ qvm-connect-tcp 444:@default:444
+~~~
+> Note: The syntax is the same as SSH tunnel handler. The first `444` correspond to the localport destination of `unstrusted`, `@default` the remote machine and the second `444` to the remote machine port.
+
+The service of `mytcp-service` running on port `444` is now accessible in `untrusted` as `localhost:444`.
+
+Here `@default` is used to hide the destination qube which is specified in the Qubes RPC policy by `target=mytcp-service`. Equivalent call is to use the tool as follow:
+~~~
+  [user@untrusted #]$ qvm-connect-tcp ::444
+~~~
+which means to use default local port of `unstrusted` as the same of the remote port and unspecified destination qube is `@default` by default in `qrexec` call.
+
+**2. Binding remote port on another local port**
+
+Consider now the case where someone prefers to specify the destination qube and use another port in untrusted,for example `10044`. Instead of previous case, add
+~~~
+untrusted mytcp-service allow
+~~~
+in `/etc/qubes-rpc/qubes.ConnectTCP` and in untrusted, use the tool as follow:
+~~~
+  [user@untrusted #]$ qvm-connect-tcp 10444:mytcp-service:444
+~~~
+
+The service of `mytcp-service` running on port `444` is now accessible in `untrusted` as `localhost:10444`.
+
+**3. Binding to different qubes using RPC policies**
+
+One can go further than the previous examples by redirecting different ports to different qubes. For example, let assume that another qube `mytcp-service-bis` with a TCP service is running on port `445`. If someone wants `untrusted` to be able to reach this service but port `445` is reserved to `mytcp-service-bis` then, in dom0, add the following to `/etc/qubes-rpc/qubes.ConnectTCP+445`:
+~~~
+untrusted @default allow,target=mytcp-service-bis
+~~~
+In that case, calling `qvm-connect-tcp` like previous examples, will still bind TCP port `444` of `mytcp-service` to `untrusted` but now, calling it with port `445`
+~~~
+  [user@untrusted #]$ qvm-connect-tcp ::445
+~~~
+will restrict the binding to only the corresponding TCP port of `mytcp-service-bis`.
+
+**4. Permanent port binding**
+
+For creating a permanent port bind between two qubes, `systemd` can be used. We use the case of the first example. In `/rw/config` (or any place you find suitable) of qube `untrusted`, create `my-tcp-service.socket` with content:
+~~~
+[Unit]
+Description=my-tcp-service
+
+[Socket]
+ListenStream=127.0.0.1:444
+Accept=true
+
+[Install]
+WantedBy=sockets.target
+~~~
+and `my-tcp-service@.service` with content:
+~~~
+[Unit]
+Description=my-tcp-service
+
+[Service]
+ExecStart=qrexec-client-vm '' qubes.ConnectTCP+444
+StandardInput=socket
+StandardOutput=inherit
+~~~
+In `/rw/config/rc.local`, append the lines:
+~~~
+cp -r /rw/config/my-tcp-service.socket /rw/config/my-tcp-service@.service /lib/systemd/system/
+systemctl daemon-reload
+systemctl start my-tcp-service.socket
+~~~
+
+When the qube `unstrusted` has started (after a first reboot), you can directly access the service of `mytcp-service` running on port `444` as `localhost:444`.
 
 Port forwarding to a qube from the outside world
 ------------------------------------------------
