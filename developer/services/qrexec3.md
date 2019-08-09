@@ -52,7 +52,7 @@ creates an empty file called `hello-world.txt` in the home folder of `someVM`.
 The string before the colon specifies what user to run the command as.
 The `-e` flag tells `qrexec-client` to exit immediately after sending the execution request and receiving a status code from `qrexec-agent` (whether the process creation succeeded).
 With this option, no further data is passed between the domains.
-By contrast, the following command demonstrates an open channel between two VMs: in this case, a remote shell.
+By contrast, the following command demonstrates an open channel between dom0 and someVM (in this case, a remote shell):
 
     qrexec-client -d someVM user:bash
 
