@@ -237,33 +237,38 @@ and then remove the first line(s) (before the first `##` comment) which are the 
 
 ### Qubes RPC example
 
-We will show the necessary files to create an RPC call that adds two integers on the target and returns back the result to the invoker.
+As a demonstration, we can create an RPC service that adds two integers in a target domain (the server, call it "anotherVM") and returns back the result to the invoker (the client, "someVM").
+In someVM, create a file with the following contents and save it with the path `/usr/bin/our_test_add_client`:
 
- * RPC client code (`/usr/bin/our_test_add_client`):
+    #!/bin/sh
+    echo $1 $2             # pass data to RPC server
+    exec cat >&$SAVED_FD_1 # print result to the original stdout, not to the other RPC endpoint
 
-       #!/bin/sh
-       echo $1 $2    # pass data to RPC server
-       exec cat >&$SAVED_FD_1 # print result to the original stdout, not to the other RPC endpoint
+Our server will be anotherVM at `/usr/bin/our_test_add_server`.
+The code for this file is:
 
- * RPC server code (*/usr/bin/our\_test\_add\_server*)
+    #!/bin/sh
+    read arg1 arg2        # read from stdin, which is received from the RPC client
+    echo $(($arg1+$arg2)) # print to stdout, which is passed to the RPC client
 
-       #!/bin/sh
-       read arg1 arg2 # read from stdin, which is received from the RPC client
-       echo $(($arg1+$arg2)) # print to stdout - so, pass to the RPC client
+We'll need to create a service called `test.Add` with its own definition and policy file in dom0.
+In dom0 add the following test to `/etc/qubes-rpc/policy/test.Add`:
 
- * policy file in dom0 (*/etc/qubes-rpc/policy/test.Add* )
+      $anyvm $anyvm ask
 
-       $anyvm $anyvm ask
+Now we need to define what the service does.
+In this case, it should call our additing script.
+We define the service with another one-line file, `/etc/qubes-rpc/test.Add`:
 
- * server path definition ( */etc/qubes-rpc/test.Add*)
+      /usr/bin/our_test_add_server
 
-       /usr/bin/our_test_add_server
+Before we make the call, ensure that the client and server scripts have executable permissions.
+Now, invoke the RPC service!
 
- * invoke RPC via
+    qrexec-client-vm anotherVM test.Add /usr/bin/our_test_add_client 1 2
 
-       /usr/lib/qubes/qrexec-client-vm target_vm test.Add /usr/bin/our_test_add_client 1 2
-
-and we should get "3" as answer, after dom0 allows it.
+We should get "3" as answer.
+(dom0 will ask for confirmation first.)
 
 **Note:** For a real world example of writing a qrexec service, see this [blog post](https://blog.invisiblethings.org/2013/02/21/converting-untrusted-pdfs-into-trusted.html).
 
