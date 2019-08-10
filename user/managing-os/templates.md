@@ -45,6 +45,7 @@ By installing these templates, you are trusting not only the Qubes developers an
 * [Ubuntu](/doc/templates/ubuntu/)
 * [Archlinux](/doc/templates/archlinux/)
 * [CentOS](/doc/templates/centos/)
+* [CentOS Minimal](/doc/templates/centos-minimal/)
 
 
 ## How to install, uninstall, reinstall, and switch
