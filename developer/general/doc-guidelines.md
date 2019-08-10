@@ -246,7 +246,7 @@ When making contributions, please try to observe the following style conventions
  * Use hanging indentations  
    where appropriate.
  * Use underline headings (`=====` and `-----`) if possible.
-   If this is not possible, use Atx-style headings on both the left and right sides (`### H3 ###`).
+   If this is not possible, use Atx-style headings: (`### H3 ###`).
  * When writing code blocks, use [syntax highlighting](https://github.github.com/gfm/#info-string) where [possible](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers) and use `[...]` for anything omitted.
  * When providing command line examples:
    * Tell the reader where to open a terminal (dom0 or a specific domU), and show the command along with its output (if any) in a code block, e.g.:
