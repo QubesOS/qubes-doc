@@ -11,8 +11,7 @@ redirect_from:
 
 # Command execution in VMs #
 
-(*This page is about qrexec v2. For qrexec v3, see
-[here](/doc/qrexec3/).*)
+(*This page is about qrexec v2. For qrexec v3, see [here](/doc/qrexec3/).*)
 
 Qubes **qrexec** is a framework for implementing inter-VM (incl. Dom0-VM)
 services. It offers a mechanism to start programs in VMs, redirect their

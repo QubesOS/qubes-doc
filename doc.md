@@ -155,7 +155,6 @@ Core documentation for Qubes developers and advanced users.
  * [Qubes Core Admin Client](https://dev.qubes-os.org/projects/core-admin-client/en/latest/)
  * [Qubes Admin API](/news/2017/06/27/qubes-admin-api/)
  * [Qubes Core Stack](/news/2017/10/03/core3/)
- * [Qrexec: command execution in VMs](/doc/qrexec3/)
  * [Qubes GUI virtualization protocol](/doc/gui/)
  * [Networking in Qubes](/doc/networking/)
  * [Implementation of template sharing and updating](/doc/template-implementation/)
@@ -168,6 +167,8 @@ Core documentation for Qubes developers and advanced users.
  * [Dynamic memory management in Qubes](/doc/qmemman/)
  * [Implementation of DisposableVMs](/doc/dvm-impl/)
  * [Dom0 secure update mechanism](/doc/dom0-secure-updates/)
+ * [Qrexec: secure communication across domains](/doc/qrexec/)
+ * [Qubes RPC internals](/doc/qrexec-internals/)
 
 ### Debugging
 
