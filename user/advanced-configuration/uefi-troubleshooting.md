@@ -25,53 +25,6 @@ If you've installed successfully in legacy mode but had to change some kernel pa
 05. Save your changes, unmount and dd to usb device
 
 
-Cannot start installation, installation completes successfully but then BIOS loops at boot device selection, hangs at four penguins after choosing "Test media and install Qubes OS" in GRUB menu
----------------------
-
-There is some [common bug in UEFI implementation](http://xen.markmail.org/message/f6lx2ab4o2fch35r), affecting mostly Lenovo systems, but probably some others too. You can try existing workaround:
-
-01. In GRUB menu<sup id="a1-1">[1](#f1)</sup>, select "Troubleshoot", then "Boot from device", then press `e`.
-02. At the end of `chainloader` line add `/mapbs /noexitboot`.
-03. Perform installation normally, but don't reboot the system at the end yet.
-04. Go to `tty2` (Ctrl-Alt-F2).
-05. Enable `/mapbs /noexitboot` on just installed system. This step differs between Qubes releases:
-   
-    **For Qubes 3.1:**
-
-06. Execute `mount | grep boot/efi` and note device name (first column). It should be something like `/dev/sda1`.
-07. Execute `efibootmgr -v`, search for `Qubes` entry and note its number (it should be something like `Boot0001` - `0001` is an entry number).
-08. Replace existing `Qubes` entry with modified one. Replace `XXXX` with entry number from previous step, `/dev/sda` with your disk name and `-p 1` with `/boot/efi` partition number):
-
-        efibootmgr -b XXXX -B
-        efibootmgr -v -c -u -L Qubes -l /EFI/qubes/xen.efi -d /dev/sda -p 1 "placeholder /mapbs /noexitboot"
-
-09. Compare new entry with the old one (printed in step 6) - it should only differ in additional options at the end, and look probably something like this:
-
-        Boot0001* Qubes HD(1,GPT,partition-guid-here,0x800,0x64000)/File(\EFI\qubes\xen.efi)p.l.a.c.e.h.o.l.d.e.r. ./.m.a.p.b.s. ./.n.o.e.x.i.t.b.o.o.t.
-
-    If instead it looks like:
-
-        Boot0001* Qubes HD(1,0,00000000...0,0x0,0x0)/File(\EFI\qubes\xen.efi)p.l.a.c.e.h.o.l.d.e.r. ./.m.a.p.b.s. ./.n.o.e.x.i.t.b.o.o.t.
-
-    then try passing `/dev/sda1` or `/dev/nvme0n1p1` or whatever your EFI partition is instead of `/dev/sda` and `-p 1`.
-
-10. Now you can reboot the system by issuing `reboot` command.
-
-    **For Qubes 3.2 or later:**
-
-11. Edit `/mnt/sysimage/boot/efi/EFI/qubes/xen.cfg` (you can use `vi` editor) and add to every kernel section:
-            
-        mapbs=1
-        noexitboot=1
-
-    **Note:** You must add these parameters on two separate new lines (one
-    parameter on each line) at the end of each section that includes a kernel
-    line (i.e., all sections except the first one, since it doesn't have a
-    kernel line).
-
-12. Now you can reboot the system by issuing `reboot` command.
-
-
 System crash/restart when booting installer
 -------------------------------------------
 
