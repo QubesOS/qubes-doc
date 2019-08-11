@@ -86,7 +86,7 @@ Ctrl-Alt-F2), or booting from installation media in "Rescue a Qubes system" mode
        efibootmgr -v -c -u -L Qubes -l /EFI/qubes/xen.efi -d /dev/sda -p 1 "placeholder /mapbs /noexitboot"
 
 
-Installation freezes before getting to Anaconda (Qubes 4.0)
+Installation freezes before displaying installer
 -----------------------------------------------------------
 
 Some systems can freeze with the default UEFI install options.
@@ -117,7 +117,7 @@ This is also a good time to make permanent any other changes needed to get the i
 6. Continue with setting up default templates and logging in to Qubes.
 
 
-Installation freezes before getting to Anaconda / disable EFI runtime services
+Installation freezes before displaying installer / disable EFI runtime services
 ------------------------------------------------------------------------------
 
 On some early, buggy UEFI implementations, you may need to disable EFI under Qubes completely.
