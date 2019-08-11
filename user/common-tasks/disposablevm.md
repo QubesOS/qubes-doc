@@ -160,7 +160,7 @@ In dom0, add the following line to `/etc/qubes-rpc/policy/qubes.OpenURL`
 $anyvm @dispvm:online-dvm-template allow
 ~~~
 
-More information about RPC policies for disposableVM can be found here: `https://www.qubes-os.org/doc/qrexec3/#extra-keywords-available-in-qubes-40-and-later`
+More information about RPC policies for disposableVM can be found [here][qrexec3-4.0].
 
 
 ## Customizing DisposableVMs ##
@@ -171,4 +171,4 @@ Full instructions can be found [here](/doc/disposablevm-customization/).
 
 
 [DisposableVM Template]: /doc/glossary/#disposablevm-template
-
+[qrexec3-4.0]: /doc/qrexec3/#extra-keywords-available-in-qubes-40-and-later
