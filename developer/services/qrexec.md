@@ -108,9 +108,9 @@ These files contain lines with the following format:
 
     srcvm destvm (allow|deny|ask)[,user=user_to_run_as][,target=VM_to_redirect_to]
 
-You can specify srcvm and destvm by name or by one of three reserved keywords: `$anyvm`, `$dispvm`, and `dom0` (without the `$`).
-Only `$anyvm` keyword makes sense in srcvm field.
-(Service calls from dom0 are currently always allowed, `$dispvm` means "new VM created for this particular request," so it is never a source of request.)
+You can specify srcvm and destvm by name or by one of three reserved keywords: `@anyvm`, `@dispvm`, and `dom0` (without the `@`).
+Only `@anyvm` keyword makes sense in srcvm field.
+(Service calls from dom0 are currently always allowed, `@dispvm` means "new VM created for this particular request," so it is never a source of request.)
 Currently there is no way to specify source VM by type.
 Whenever a RPC request for an action is received, the domain checks the first matching line of the relevant file in `/etc/qubes-rpc/policy/` to determine access:
 whether to allow the request, what VM to redirect the execution to, and what user account the program should run under.
@@ -130,6 +130,44 @@ By default, stderr of client and server is logged to respective `/var/log/qubes/
 It is also possible to call service without specific client program - in which case server stdin/out will be connected with the terminal:
 
     /usr/lib/qubes/qrexec-client-vm target_vm_name RPC_ACTION_NAME
+
+Target VM can be specified also as `@dispvm:DISP_VM`, which is very similar to `@dispvm` but forces using a particular VM (`DISP_VM`) as a base VM to be started as DisposableVM.
+For example:
+
+    anon-whonix @dispvm:anon-whonix-dvm allow
+
+Adding such policy itself will not force usage of this particular `DISP_VM` - it will only allow it when specified by the caller.
+But `@dispvm:DISP_VM` can also be used as target in request redirection, so _it is possible_ to force particular `DISP_VM` usage, when caller didn't specify it:
+
+    anon-whonix @dispvm allow,target=@dispvm:anon-whonix-dvm
+
+Note that without redirection, this rule would allow using default Disposable VM (`default_dispvm` VM property, which itself defaults to global `default_dispvm` property).
+Also note that the request will be allowed (`allow` action) even if there is no second rule allowing calls to `@dispvm:anon-whonix-dvm`, or even if there is a rule explicitly denying it.
+This is because the redirection happens _after_ considering the action.
+
+There are also additional methods to specify source/target VM:
+
+ * `@tag:some-tag` - meaning a VM with tag `some-tag`
+ * `@type:type` - meaning a VM of `type` (like `AppVM`, `TemplateVM` etc)
+
+Target VM can be also specified as `@default`, which matches the case when calling VM didn't specified any particular target (either by using `@default` target, or empty target).
+
+The policy confirmation dialog (`ask` action) allows the user to specify target VM.
+User can choose from VMs that, according to policy, would lead to `ask` or `allow` actions.
+It is not possible to select VM that policy would deny.
+By default no VM is selected, even if the caller provided some, but policy can specify default value using `default_target=` parameter.
+For example:
+
+    work-mail work-archive allow
+    work-mail @tag:work ask,default_target=work-files
+    work-mail @default  ask,default_target=work-files
+
+The first rule allow call from `work-mail` to `work-archive`, without any confirmation.
+The second rule will ask the user about calls from `work-mail` VM to any VM with tag `work`.
+And the confirmation dialog will have `work-files` VM chosen by default, regardless of the VM specified by the caller (`work-mail` VM).
+The third rule allow the caller to not specify target VM at all and let the user choose, still - from VMs with tag `work` (and `work-archive`, regardless of tag), and with `work-files` as default.
+
+### RPC services and security
 
 Be very careful when coding and adding a new RPC service.
 Unless the offered functionality equals full control over the target (it is the case with e.g. `qubes.VMShell` action), any vulnerability in an RPC server can be fatal to Qubes security.
@@ -153,45 +191,6 @@ By contrast, the `qubes.StartApp` service allows you to run only applications th
 While there isn't much practical difference between the two commands above when starting an application from dom0 in Qubes 4.0, there is a significant security risk when launching applications from a domU (e.g., from a separate GUI domain).
 This is why `qubes.StartApp` uses our standard `qrexec` argument grammar to strictly filter the permissible grammar of the `Exec=` lines in `.desktop` files that are passed from untrusted domUs to dom0, thereby protecting dom0 from command injection by maliciously-crafted `.desktop` files.
 
-### Extra keywords available in Qubes 4.0 and later
-
-**This section is about a not-yet-released version, some details may change**
-
-In Qubes 4.0, target VM can be specified also as `$dispvm:DISP_VM`, which is very similar to `$dispvm` but forces using a particular VM (`DISP_VM`) as a base VM to be started as DisposableVM.
-For example:
-
-    anon-whonix $dispvm:anon-whonix-dvm allow
-
-Adding such policy itself will not force usage of this particular `DISP_VM` - it will only allow it when specified by the caller.
-But `$dispvm:DISP_VM` can also be used as target in request redirection, so _it is possible_ to force particular `DISP_VM` usage, when caller didn't specify it:
-
-    anon-whonix $dispvm allow,target=$dispvm:anon-whonix-dvm
-
-Note that without redirection, this rule would allow using default Disposable VM (`default_dispvm` VM property, which itself defaults to global `default_dispvm` property).
-Also note that the request will be allowed (`allow` action) even if there is no second rule allowing calls to `$dispvm:anon-whonix-dvm`, or even if there is a rule explicitly denying it.
-This is because the redirection happens _after_ considering the action.
-
-In Qubes 4.0 there are also additional methods to specify source/target VM:
-
- * `$tag:some-tag` - meaning a VM with tag `some-tag`
- * `$type:type` - meaning a VM of `type` (like `AppVM`, `TemplateVM` etc)
-
-Target VM can be also specified as `$default`, which matches the case when calling VM didn't specified any particular target (either by using `$default` target, or empty target).
-
-In Qubes 4.0 policy confirmation dialog (`ask` action) allow the user to specify target VM.
-User can choose from VMs that, according to policy, would lead to `ask` or `allow` actions.
-It is not possible to select VM that policy would deny.
-By default no VM is selected, even if the caller provided some, but policy can specify default value using `default_target=` parameter.
-For example:
-
-    work-mail work-archive allow
-    work-mail $tag:work ask,default_target=work-files
-    work-mail $default  ask,default_target=work-files
-
-The first rule allow call from `work-mail` to `work-archive`, without any confirmation.
-The second rule will ask the user about calls from `work-mail` VM to any VM with tag `work`.
-And the confirmation dialog will have `work-files` VM chosen by default, regardless of the VM specified by the caller (`work-mail` VM).
-The third rule allow the caller to not specify target VM at all and let the user choose, still - from VMs with tag `work` (and `work-archive`, regardless of tag), and with `work-files` as default.
 
 ### Service argument in policy
 
@@ -220,17 +219,7 @@ This means it is also possible to install a different script for a particular se
 
 See below for an example service using an argument.
 
-### Revoking "Yes to All" authorization
-
-Qubes RPC policy supports "ask" action.
-This will prompt the user whether given RPC call should be allowed.
-That prompt window also has a "Yes to All" option, which will allow the action and add a new entry to the policy file, which will unconditionally allow further calls for the given service-srcVM-dstVM tuple.
-
-In order to remove such authorization, issue this command from a dom0 terminal (for `qubes.Filecopy` service):
-
-    sudo nano /etc/qubes-rpc/policy/qubes.Filecopy
-
-and then remove the first line(s) (before the first `##` comment) which are the "Yes to All" results.
+<!-- TODO document "Yes to All" authorization if it is reintroduced -->
 
 ### Qubes RPC example
 
