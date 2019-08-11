@@ -14,7 +14,7 @@ If you've installed successfully in legacy mode but had to change some kernel pa
 
 **Change the xen configuration on a USB media**
 01. Attach the usb disk, mount the EFI partition (second partition available on the disk) 
-02. Edit your xen config (`xen.cfg/BOOTX64.cfg`) changing the `kernel` key to add your kernel parameters on the boot entry of your choice
+02. With `sudo`, edit your xen config (`EFI/BOOT/BOOTX64.cfg`) changing the `kernel` key to add your kernel parameters on the boot entry of your choice
 03. Install using your modified boot entry
 
 **Change xen configuration directly in an iso image**
