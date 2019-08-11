@@ -25,30 +25,6 @@ If you've installed successfully in legacy mode but had to change some kernel pa
 05. Save your changes, unmount and dd to usb device
 
 
-System crash/restart when booting installer
--------------------------------------------
-
-Some Dell systems and probably others have [another bug in UEFI firmware](http://markmail.org/message/amw5336otwhdxi76). And there is another workaround for it:
-
-
-1. In GRUB menu<sup id="a1-2">[1](#f1)</sup> press `e`.
-2. At the end of `chainloader` line add `-- efi=attr=uc`.
-3. Perform installation normally, but don't reboot the system at the end yet.
-4. Go to `tty2` (Ctrl-Alt-F2).
-5. Execute:
-
-        sed -i -e 's/^options=.*/\0 efi=attr=uc/' /mnt/sysimage/boot/efi/qubes/xen.cfg
-        
-   or if you're installing 3.2 execute:
-   
-        sed -i -e 's/^options=.*/\0 efi=attr=uc/' /mnt/sysimage/boot/efi/EFI/qubes/xen.cfg
-
-6. Now you can reboot the system by issuing `reboot` command.
-
-* * *
-<b name="f1">1</b> If you use rEFInd, you can see 3 options regarding the USB installer. Choose "Fallback Boot Loader" to enter the GRUB menu. [↩](#a1-1) [↩](#a1-2)
-
-
 Boot device not recognized after installing
 ------------------------------------------
 
