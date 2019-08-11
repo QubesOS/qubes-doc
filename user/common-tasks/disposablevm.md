@@ -153,6 +153,15 @@ $ qvm-open-in-vm @dispvm:online-dvm-template https://www.qubes-os.org
 
 This will create a new DisposableVM based on `online-dvm-template`, open the default web browser in that DisposableVM, and navigate to `https://www.qubes-os.org`.
 
+#### Example of RPC policies to allow this behavior
+
+In dom0, add the following line to `/etc/qubes-rpc/policy/qubes.OpenURL`
+~~~
+$anyvm @dispvm:online-dvm-template allow
+~~~
+
+More information about RPC policies for disposableVM can be found here: `https://www.qubes-os.org/doc/qrexec3/#extra-keywords-available-in-qubes-40-and-later`
+
 
 ## Customizing DisposableVMs ##
 
