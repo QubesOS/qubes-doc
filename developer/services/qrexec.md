@@ -17,14 +17,14 @@ redirect_from:
 
 (*This page is about qrexec v3. For qrexec v2, see [here](/doc/qrexec2/).*)
 
-The **qrexec** framework is used by core Qubes components to implement communication between domains.
+The **qrexec framework** is used by core Qubes components to implement communication between domains.
 Qubes domains are strictly isolated by design.
 However, the OS needs a mechanism to allow the administrative domain (dom0) to force command execution in another domain (VM).
 For instance, when a user selects an application from the KDE menu, it should start in the selected VM.
 Also, it is often useful to be able to pass stdin/stdout/stderr from an application running in a VM to dom0 (and the other way around).
 (For example, so that a VM can notify dom0 that there are updates available for it).
 By default, Qubes allows VMs initiate such communications in specific circumstances.
-The qrexec framework generalizes this process.
+The qrexec framework generalizes this process by providing a remote procedure call (RPC) protocol for the Qubes architecture.
 It allows users and developers to use and design secure inter-VM tools.
 
 ## Qrexec basics: architecture and examples
