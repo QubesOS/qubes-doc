@@ -155,10 +155,14 @@ This will create a new DisposableVM based on `online-dvm-template`, open the def
 
 #### Example of RPC policies to allow this behavior
 
-In dom0, add the following line to `/etc/qubes-rpc/policy/qubes.OpenURL`
+In dom0, add the following line at the beginning of the file `/etc/qubes-rpc/policy/qubes.OpenURL`
 ~~~
 $anyvm @dispvm:online-dvm-template allow
 ~~~
+This line mean: 
+- FROM: Any VM
+- TO: A DisposableVM based on the ``online-dvm-template`` Template
+- WHAT: Allow to send a "Open URL" request
 
 More information about RPC policies for disposableVM can be found [here][qrexec3-4.0].
 
