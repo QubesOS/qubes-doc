@@ -42,7 +42,7 @@ Once this channel is established, stdin/stdout/stderr from the VMprocess is pass
 The `qrexec-client` command is used to make connections to VMs from dom0.
 For example, the following command
 
-    qrexec-client -e -d someVM user:'touch hello-world.txt'
+    $ qrexec-client -e -d someVM user:'touch hello-world.txt'
 
 creates an empty file called `hello-world.txt` in the home folder of `someVM`.
 
@@ -51,7 +51,7 @@ The `-e` flag tells `qrexec-client` to exit immediately after sending the execut
 With this option, no further data is passed between the domains.
 By contrast, the following command demonstrates an open channel between dom0 and someVM (in this case, a remote shell):
 
-    qrexec-client -d someVM user:bash
+    $ qrexec-client -d someVM user:bash
 
 The `qvm-run` command is heavily based on `qrexec-client`.
 It also takes care of additional activities, e.g. starting the domain if it is not up yet and starting the GUI daemon.
@@ -121,14 +121,14 @@ In the target VM, the `/etc/qubes-rpc/RPC_ACTION_NAME` must exist, containing th
 
 In the src VM, one should invoke the client via:
 
-    /usr/lib/qubes/qrexec-client-vm target_vm_name RPC_ACTION_NAME rpc_client_path client arguments
+    $ qrexec-client-vm target_vm_name RPC_ACTION_NAME rpc_client_path client arguments
 
 Note that only stdin/stdout is passed between RPC server and client -- notably, no command line arguments are passed.
 Source VM name is specified by `QREXEC_REMOTE_DOMAIN` environment variable.
 By default, stderr of client and server is logged to respective `/var/log/qubes/qrexec.XID` files.
 It is also possible to call service without specific client program - in which case server stdin/out will be connected with the terminal:
 
-    /usr/lib/qubes/qrexec-client-vm target_vm_name RPC_ACTION_NAME
+    $ qrexec-client-vm target_vm_name RPC_ACTION_NAME
 
 Target VM can be specified also as `@dispvm:DISP_VM`, which is very similar to `@dispvm` but forces using a particular VM (`DISP_VM`) as a base VM to be started as DisposableVM.
 For example:
@@ -203,7 +203,7 @@ And generally the less choices the user must make, the lower the chance to make 
 
 The syntax is simple: when calling a service, add an argument to the service name separated with `+` sign, for example:
 
-    /usr/lib/qubes/qrexec-client-vm target_vm_name RPC_ACTION_NAME+ARGUMENT
+    $ qrexec-client-vm target_vm_name RPC_ACTION_NAME+ARGUMENT
 
 Then create a policy as usual, including the argument (`/etc/qubes-rpc/policy/RPC_ACTION_NAME+ARGUMENT`).
 If the policy for the specific argument is not set (file does not exist), then the default policy for this service is loaded (`/etc/qubes-rpc/policy/RPC_ACTION_NAME`).
