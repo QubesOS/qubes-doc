@@ -111,7 +111,6 @@ These files contain lines with the following format:
 You can specify srcvm and destvm by name or by one of three reserved keywords: `@anyvm`, `@dispvm`, and `dom0` (without the `@`).
 Only `@anyvm` keyword makes sense in srcvm field.
 (Service calls from dom0 are currently always allowed, `@dispvm` means "new VM created for this particular request," so it is never a source of request.)
-Currently there is no way to specify source VM by type.
 Whenever a RPC request for an action is received, the domain checks the first matching line of the relevant file in `/etc/qubes-rpc/policy/` to determine access:
 whether to allow the request, what VM to redirect the execution to, and what user account the program should run under.
 Note that if the request is redirected (`target=` parameter), policy action remains the same - even if there is another rule which would otherwise deny such request.
