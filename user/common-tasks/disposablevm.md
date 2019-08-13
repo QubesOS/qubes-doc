@@ -157,7 +157,7 @@ This will create a new DisposableVM based on `online-dvm-template`, open the def
 
 In dom0, add the following line at the beginning of the file `/etc/qubes-rpc/policy/qubes.OpenURL`
 ~~~
-$anyvm @dispvm:online-dvm-template allow
+@anyvm @dispvm:online-dvm-template allow
 ~~~
 This line means: 
 - FROM: Any VM
