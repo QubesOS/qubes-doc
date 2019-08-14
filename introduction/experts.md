@@ -58,12 +58,12 @@ permalink: /experts/
     </div>
     <div class="row featured-quotes">
       <div class="col-lg-3 col-md-3 text-center">
-        <a class="avatar-large" href="https://twitter.com/csoghoian/status/756212792785534976" target="_blank">
+        <a class="avatar-large" href="https://twitter.com/csoghoian" target="_blank">
           <img src="/attachment/site/expert-christopher-soghoian.jpg">
         </a>
       </div>
       <div class="col-lg-9 col-md-9 more-top">
-        <a href="https://twitter.com/csoghoian/status/756212792785534976" target="_blank">
+        <a href="https://twitter.com/csoghoian" target="_blank">
           <blockquote>"I am so much happier and less stressed out after switching to QubesOS. Can wholeheartedly recommend."
             <i class="fa fa-twitter fa-fw" aria-hidden="true"></i>
             <footer>Christopher Soghoian<cite title="Source Title">, privacy researcher, activist, and principal technologist at the ACLU</cite></footer>
