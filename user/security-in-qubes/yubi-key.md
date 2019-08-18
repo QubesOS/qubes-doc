@@ -18,14 +18,18 @@ There (at least) two possible configurations: using OTP mode and using challenge
 OTP mode
 --------
 
-This can be configured using [app-linux-yubikey](https://github.com/adubois/qubes-app-linux-yubikey) package. This package does not support sharing the same key slot with other applications (it will deny further authentications if you try).
+This can be configured using [app-linux-yubikey](https://github.com/adubois/qubes-app-linux-yubikey) package.
+This package does not support sharing the same key slot with other applications (it will deny further authentications if you try).
 
-Contrary to instruction there, currently there is no binary package in the Qubes repository and you need to compile it yourself. This might change in the future.
+Contrary to instruction there, currently there is no binary package in the Qubes repository and you need to compile it yourself.
+This might change in the future.
 
 Challenge-response mode
 ----------------------
 
-In this mode, your YubiKey will generate a response based on the secret key, and random challenge (instead of counter). This means that it isn't possible to generate a response in advance even if someone gets access to your YubiKey. This makes it reasonably safe to use the same YubiKey for other services (also in challenge-response mode).
+In this mode, your YubiKey will generate a response based on the secret key, and random challenge (instead of counter).
+This means that it isn't possible to generate a response in advance even if someone gets access to your YubiKey.
+This makes it reasonably safe to use the same YubiKey for other services (also in challenge-response mode).
 
 Same as in the OTP case, you will need to set up your YubiKey, choose a separate password (other than your login password!) and apply the configuration.
 
@@ -41,7 +45,8 @@ To use this mode you need to:
 
        sudo apt-get install yubikey-personalization yubikey-personalization-gui
 
-   Shut down your TemplateVM. Then reboot your USB VM (so changes inside the TemplateVM take effect in your TemplateBased USB VM or install the packages inside your USB VM if you would like to avoid rebooting your USB VM.
+   Shut down your TemplateVM.
+   Then reboot your USB VM (so changes inside the TemplateVM take effect in your TemplateBased USB VM or install the packages inside your USB VM if you would like to avoid rebooting your USB VM.
 
 2. Configure your YubiKey for challenge-response `HMAC-SHA1` mode, for example [following this tutorial](https://www.yubico.com/products/services-software/personalization-tools/challenge-response/).
 
@@ -78,17 +83,18 @@ To use this mode you need to:
        
        echo -n "$password" | openssl dgst -sha1
 
-7. Edit `/etc/pam.d/login` in dom0. Add this line at the beginning:
+7. Edit `/etc/pam.d/login` in dom0.
+   Add this line at the beginning:
 
        auth include yubikey
 
-8. Edit `/etc/pam.d/xscreensaver` (or appropriate file if you are using other
-   screen locker program) in dom0. Add this line at the beginning:
+8. Edit `/etc/pam.d/xscreensaver` (or appropriate file if you are using screen locker program) in dom0.
+   Add this line at the beginning:
 
         auth include yubikey
 
-9. Edit `/etc/pam.d/lightdm` (or appropriate file if you are using other
-   display manager) in dom0. Add this line at the beginning:
+9. Edit `/etc/pam.d/lightdm` (or appropriate file if you are using other display manager) in dom0.
+   Add this line at the beginning:
 
         auth include yubikey
 
@@ -114,25 +120,33 @@ Edit `/etc/pam.d/yubikey` (or appropriate file if you are using other screen loc
 Locking the screen when YubiKey is removed
 ------------------------------------------
 
-You can setup your system to automatically lock the screen when you unplug your YubiKey. This will require creating a simple qrexec service which will expose the ability to lock the screen to your USB VM, and then adding a udev hook to actually call that service.
+You can setup your system to automatically lock the screen when you unplug your YubiKey.
+This will require creating a simple qrexec service which will expose the ability to lock the screen to your USB VM, and then adding a udev hook to actually call that service.
 
 In dom0:
 
-1. First configure the qrexec service. Create `/etc/qubes-rpc/custom.LockScreen` with a simple command to lock the screen. In the case of xscreensaver (used in Xfce) it would be:
+1. First configure the qrexec service.
+   Create `/etc/qubes-rpc/custom.LockScreen` with a simple command to lock the screen.
+   In the case of xscreensaver (used in Xfce) it would be:
 
         DISPLAY=:0 xscreensaver-command -lock
 
-2. Allow your USB VM to call that service. Assuming that it's named `sys-usb` it would require creating `/etc/qubes-rpc/policy/custom.LockScreen` with:
+2. Allow your USB VM to call that service.
+   Assuming that it's named `sys-usb` it would require creating `/etc/qubes-rpc/policy/custom.LockScreen` with:
 
         sys-usb dom0 allow
 
 In your USB VM:
 
-3. Create udev hook. Store it in `/rw/config` to have it persist across VM restarts. For example name the file `/rw/config/yubikey.rules`. Add the following line:
+3. Create udev hook.
+   Store it in `/rw/config` to have it persist across VM restarts.
+   For example name the file `/rw/config/yubikey.rules`.
+   Add the following line:
 
         ACTION=="remove", SUBSYSTEM=="usb", ENV{ID_SECURITY_TOKEN}=="1", RUN+="/usr/bin/qrexec-client-vm dom0 custom.LockScreen"
 
-4. Ensure that the udev hook is placed in the right place after VM restart. Append to `/rw/config/rc.local`:
+4. Ensure that the udev hook is placed in the right place after VM restart.
+   Append to `/rw/config/rc.local`:
 
         ln -s /rw/config/yubikey.rules /etc/udev/rules.d/
         udevadm control --reload
