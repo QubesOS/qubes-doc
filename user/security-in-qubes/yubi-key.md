@@ -10,33 +10,24 @@ redirect_from:
 Using YubiKey to Qubes authentication
 =====================================
 
-You can use YubiKey to enhance Qubes user authentication, for example to mitigate
-risk of snooping the password. This can also slightly improve security when you have [USB keyboard](/doc/device-handling-security/#security-warning-on-usb-input-devices).
+You can use YubiKey to enhance Qubes user authentication, for example to mitigate risk of snooping the password.
+This can also slightly improve security when you have [USB keyboard](/doc/device-handling-security/#security-warning-on-usb-input-devices).
 
 There (at least) two possible configurations: using OTP mode and using challenge-response mode.
 
 OTP mode
 --------
 
-This can be configured using
-[app-linux-yubikey](https://github.com/adubois/qubes-app-linux-yubikey)
-package. This package does not support sharing the same key slot with other
-applications (it will deny further authentications if you try).
+This can be configured using [app-linux-yubikey](https://github.com/adubois/qubes-app-linux-yubikey) package. This package does not support sharing the same key slot with other applications (it will deny further authentications if you try).
 
-Contrary to instruction there, currently there is no binary package in the Qubes
-repository and you need to compile it yourself. This might change in the future.
+Contrary to instruction there, currently there is no binary package in the Qubes repository and you need to compile it yourself. This might change in the future.
 
 Challenge-response mode
 ----------------------
 
-In this mode, your YubiKey will generate a response based on the secret key, and
-random challenge (instead of counter). This means that it isn't possible to
-generate a response in advance even if someone gets access to your YubiKey. This
-makes it reasonably safe to use the same YubiKey for other services (also in
-challenge-response mode).
+In this mode, your YubiKey will generate a response based on the secret key, and random challenge (instead of counter). This means that it isn't possible to generate a response in advance even if someone gets access to your YubiKey. This makes it reasonably safe to use the same YubiKey for other services (also in challenge-response mode).
 
-Same as in the OTP case, you will need to set up your YubiKey, choose a separate
-password (other than your login password!) and apply the configuration.
+Same as in the OTP case, you will need to set up your YubiKey, choose a separate password (other than your login password!) and apply the configuration.
 
 To use this mode you need to:
 
@@ -50,13 +41,9 @@ To use this mode you need to:
 
        sudo apt-get install yubikey-personalization yubikey-personalization-gui
 
-   Shut down your TemplateVM. Then reboot your USB VM (so changes inside the TemplateVM take effect
-   in your TemplateBased USB VM or install the packages inside your USB VM if you would like to avoid
-   rebooting your USB VM.
+   Shut down your TemplateVM. Then reboot your USB VM (so changes inside the TemplateVM take effect in your TemplateBased USB VM or install the packages inside your USB VM if you would like to avoid rebooting your USB VM.
 
-2. Configure your YubiKey for challenge-response `HMAC-SHA1` mode, for example
-   [following this
-   tutorial](https://www.yubico.com/products/services-software/personalization-tools/challenge-response/).
+2. Configure your YubiKey for challenge-response `HMAC-SHA1` mode, for example [following this tutorial](https://www.yubico.com/products/services-software/personalization-tools/challenge-response/).
 
    On Debian, you can run the graphical user interface `yubikey-personalization-gui` from the command line.
 
@@ -116,42 +103,32 @@ When you want to unlock your screen...
 
 When everything is ok, your screen will be unlocked.
 
-In any case you can still use your login password, but do it in a secure location
-where no one can snoop your password.
+In any case you can still use your login password, but do it in a secure location where no one can snoop your password.
 
 ### Mandatory YubiKey Login
 
-Edit `/etc/pam.d/yubikey` (or appropriate file if you are using other screen locker program)
-and remove `default=ignore` so the line looks like this.
+Edit `/etc/pam.d/yubikey` (or appropriate file if you are using other screen locker program) and remove `default=ignore` so the line looks like this.
 
     auth [success=done] pam_exec.so expose_authtok quiet /usr/bin/yk-auth
 
 Locking the screen when YubiKey is removed
 ------------------------------------------
 
-You can setup your system to automatically lock the screen when you unplug your
-YubiKey. This will require creating a simple qrexec service which will expose
-the ability to lock the screen to your USB VM, and then adding a udev hook to
-actually call that service.
+You can setup your system to automatically lock the screen when you unplug your YubiKey. This will require creating a simple qrexec service which will expose the ability to lock the screen to your USB VM, and then adding a udev hook to actually call that service.
 
 In dom0:
 
-1. First configure the qrexec service. Create `/etc/qubes-rpc/custom.LockScreen`
-  with a simple command to lock the screen. In the case of xscreensaver (used in Xfce)
-  it would be:
+1. First configure the qrexec service. Create `/etc/qubes-rpc/custom.LockScreen` with a simple command to lock the screen. In the case of xscreensaver (used in Xfce) it would be:
 
         DISPLAY=:0 xscreensaver-command -lock
 
-2. Allow your USB VM to call that service. Assuming that it's named `sys-usb` it
-would require creating `/etc/qubes-rpc/policy/custom.LockScreen` with:
+2. Allow your USB VM to call that service. Assuming that it's named `sys-usb` it would require creating `/etc/qubes-rpc/policy/custom.LockScreen` with:
 
         sys-usb dom0 allow
 
 In your USB VM:
 
-3. Create udev hook. Store it in `/rw/config` to have it
-persist across VM restarts. For example name the file
-`/rw/config/yubikey.rules`. Add the following line:
+3. Create udev hook. Store it in `/rw/config` to have it persist across VM restarts. For example name the file `/rw/config/yubikey.rules`. Add the following line:
 
         ACTION=="remove", SUBSYSTEM=="usb", ENV{ID_SECURITY_TOKEN}=="1", RUN+="/usr/bin/qrexec-client-vm dom0 custom.LockScreen"
 
