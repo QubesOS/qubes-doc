@@ -62,6 +62,10 @@ This Qubes Master Signing Key was generated on and is kept only on a dedicated, 
 
 There are several ways to get the Qubes Master Signing Key.
 
+ - If you have access to an existing Qubes installation, it's available in every VM ([except dom0]):
+
+       $ gpg --import /usr/share/qubes/qubes-master-key.asc
+
  - Fetch it with GPG:
 
        $ gpg --fetch-keys https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
@@ -448,4 +452,5 @@ If you still have a question, please address it to the [qubes-users mailing list
 [Qubes repositories]: https://github.com/QubesOS
 [GPG documentation]: https://www.gnupg.org/documentation/
 [qubes-users mailing list]: /support/#qubes-users
+[except dom0]: https://github.com/QubesOS/qubes-issues/issues/2544
 
