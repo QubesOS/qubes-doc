@@ -16,9 +16,7 @@ The Qubes Firewall
 Understanding firewalling in Qubes
 ----------------------------------
 
-Every qube in Qubes is connected to the network via a FirewallVM, which is used to
-enforce network-level policies. By default there is one default FirewallVM, but
-the user is free to create more, if needed.
+Every qube in Qubes is connected to the network via a FirewallVM, which is used to enforce network-level policies. By default there is one default FirewallVM, but the user is free to create more, if needed.
 
 For more information, see the following:
 
@@ -29,24 +27,15 @@ For more information, see the following:
 How to edit rules
 -----------------
 
-In order to edit rules for a given qube, select it in the Qubes
-Manager and press the "firewall" button:
+In order to edit rules for a given qube, select it in the Qubes Manager and press the "firewall" button:
 
 ![r2b1-manager-firewall.png](/attachment/wiki/QubesFirewall/r2b1-manager-firewall.png)
 
-*R4.0 note:* ICMP and DNS are no longer accessible in the GUI, but can be changed
-via `qvm-firewall` described below. Connections to Updates Proxy are no longer made
-over network so can not be allowed or blocked with firewall rules
-(see [R4.0 Updates proxy](https://www.qubes-os.org/doc/software-update-vm/) for more detail.
+*R4.0 note:* ICMP and DNS are no longer accessible in the GUI, but can be changed via `qvm-firewall` described below. Connections to Updates Proxy are no longer made over network so can not be allowed or blocked with firewall rules (see [R4.0 Updates proxy](https://www.qubes-os.org/doc/software-update-vm/) for more detail.
 
-Note that if you specify a rule by DNS name it will be resolved to IP(s)
-*at the moment of applying the rules*, and not on the fly for each new
-connection. This means it will not work for servers using load balancing. More
-on this in the message quoted below.
+Note that if you specify a rule by DNS name it will be resolved to IP(s) *at the moment of applying the rules*, and not on the fly for each new connection. This means it will not work for servers using load balancing. More on this in the message quoted below.
 
-Alternatively, one can use the `qvm-firewall` command from Dom0 to edit the
-firewall rules by hand. The firewall rules for each VM are saved in an XML file
-in that VM's directory in dom0:
+Alternatively, one can use the `qvm-firewall` command from Dom0 to edit the firewall rules by hand. The firewall rules for each VM are saved in an XML file in that VM's directory in dom0:
 
     /var/lib/qubes/appvms/<vm-name>/firewall.xml
     
@@ -55,31 +44,17 @@ This equates to somewhere between 35 and 39 rules.
 If this limit is exceeded, the qube will not start.
 The limit was removed in R4.0.
 
-It is possible to work around this limit by enforcing the rules on the qube itself
-by putting appropriate rules in `/rw/config`.
-See [Where to put firewall rules](#where-to-put-firewall-rules).
-In complex cases, it might be appropriate to load a ruleset using `iptables-restore`
-called from `/rw/config/rc.local`.
+It is possible to work around this limit by enforcing the rules on the qube itself by putting appropriate rules in `/rw/config`. See [Where to put firewall rules](#where-to-put-firewall-rules). In complex cases, it might be appropriate to load a ruleset using `iptables-restore` called from `/rw/config/rc.local`.
 
 
 Reconnecting VMs after a NetVM reboot
 -------------------------------------
 
-Normally Qubes doesn't let the user stop a NetVM if there are other qubes
-running which use it as their own NetVM. But in case the NetVM stops for
-whatever reason (e.g. it crashes, or the user forces its shutdown via qvm-kill
-via terminal in Dom0), Qubes R4.0 will often automatically repair the
-connection. If it does not, then there is an easy way to restore the connection to
-the NetVM by issuing:
+Normally Qubes doesn't let the user stop a NetVM if there are other qubes running which use it as their own NetVM. But in case the NetVM stops for whatever reason (e.g. it crashes, or the user forces its shutdown via qvm-kill via terminal in Dom0), Qubes R4.0 will often automatically repair the connection. If it does not, then there is an easy way to restore the connection to the NetVM by issuing:
 
 ` qvm-prefs <vm> netvm <netvm> `
 
-Normally qubes do not connect directly to the actual NetVM which has networking
-devices, but rather to the default sys-firewall first, and in most cases it would
-be the NetVM that will crash, e.g. in response to S3 sleep/restore or other
-issues with WiFi drivers. In that case it is only necessary to issue the above
-command once, for the sys-firewall (this assumes default VM-naming used by the
-default Qubes installation):
+Normally qubes do not connect directly to the actual NetVM which has networking devices, but rather to the default sys-firewall first, and in most cases it would be the NetVM that will crash, e.g. in response to S3 sleep/restore or other issues with WiFi drivers. In that case it is only necessary to issue the above command once, for the sys-firewall (this assumes default VM-naming used by the default Qubes installation):
 
 ` qvm-prefs sys-firewall netvm sys-net `
 
@@ -87,8 +62,7 @@ default Qubes installation):
 Network service qubes
 ---------------------
 
-Qubes does not support running any networking services (e.g. VPN, local DNS server, IPS, ...) directly in a qube that is used to run the Qubes firewall service (usually sys-firewall) for good reasons.
-In particular, if one wants to ensure proper functioning of the Qubes firewall, one should not tinker with iptables or nftables rules in such qubes.
+Qubes does not support running any networking services (e.g. VPN, local DNS server, IPS, ...) directly in a qube that is used to run the Qubes firewall service (usually sys-firewall) for good reasons. In particular, if one wants to ensure proper functioning of the Qubes firewall, one should not tinker with iptables or nftables rules in such qubes.
 
 Instead, one should deploy a network infrastructure such as
 ~~~
@@ -106,19 +80,12 @@ For the VPN service please also look at the [VPN documentation](/doc/vpn).
 Enabling networking between two qubes
 -------------------------------------
 
-Normally any networking traffic between qubes is prohibited for security reasons.
-However, in special situations, one might want to selectively allow specific qubes
-to establish networking connectivity between each other. For example,
-this might be useful in some development work, when one wants to test
-networking code, or to allow file exchange between HVM domains (which do not
-have Qubes tools installed) via SMB/scp/NFS protocols.
+Normally any networking traffic between qubes is prohibited for security reasons. However, in special situations, one might want to selectively allow specific qubes to establish networking connectivity between each other. For example, this might be useful in some development work, when one wants to test networking code, or to allow file exchange between HVM domains (which do not have Qubes tools installed) via SMB/scp/NFS protocols.
 
 In order to allow networking between qubes A and B follow these steps:
 
-* Make sure both A and B are connected to the same firewall vm (by default all
-  VMs use the same firewall VM).
-* Note the Qubes IP addresses assigned to both qubes. This can be done using the
-  `qvm-ls -n` command, or via the Qubes Manager preferences pane for each qube.
+* Make sure both A and B are connected to the same firewall vm (by default all VMs use the same firewall VM).
+* Note the Qubes IP addresses assigned to both qubes. This can be done using the `qvm-ls -n` command, or via the Qubes Manager preferences pane for each qube.
 * Start both qubes, and also open a terminal in the firewall VM
 * In the firewall VM's terminal enter the following iptables rule:
 
@@ -132,19 +99,8 @@ sudo iptables -I FORWARD 2 -s <IP address of A> -d <IP address of B> -j ACCEPT
 sudo iptables -I INPUT -s <IP address of A> -j ACCEPT
 ~~~
 
-* Now you should be able to reach B from A -- test it using e.g. ping
-  issued from A. Note however, that this doesn't allow you to reach A from
-  B -- for this you would need two more rules, with A and B swapped.
-* If everything works as expected, then the above iptables rules should be
-  written into firewallVM's `qubes-firewall-user-script` script which is run
-  on every firewall update, and A and B's `rc.local` script which is run when
-  the qube is launched. The `qubes-firewall-user-script` is necessary because Qubes
-  orders every firewallVM to update all the rules whenever a new connected qube is 
-  started. If we didn't enter our rules into this "hook" script, then shortly
-  our custom rules would disappear and inter-VM networking would stop working.
-  Here's an example how to update the script (note that, by default, there is no
-  script file present, so we will probably be creating it, unless we had some other
-  custom rules defined earlier in this firewallVM):
+* Now you should be able to reach B from A -- test it using e.g. ping issued from A. Note however, that this doesn't allow you to reach A from B -- for this you would need two more rules, with A and B swapped.
+* If everything works as expected, then the above iptables rules should be written into firewallVM's `qubes-firewall-user-script` script which is run on every firewall update, and A and B's `rc.local` script which is run when the qube is launched. The `qubes-firewall-user-script` is necessary because Qubes orders every firewallVM to update all the rules whenever a new connected qube is started. If we didn't enter our rules into this "hook" script, then shortly our custom rules would disappear and inter-VM networking would stop working. Here's an example how to update the script (note that, by default, there is no script file present, so we will probably be creating it, unless we had some other custom rules defined earlier in this firewallVM):
 
 ~~~
 [user@sys-firewall ~]$ sudo bash
@@ -164,10 +120,7 @@ sudo iptables -I INPUT -s <IP address of A> -j ACCEPT
 Port forwarding to a qube from the outside world
 ------------------------------------------------
 
-In order to allow a service present in a qube to be exposed to the outside world
-in the default setup (where the qube has sys-firewall as network VM, which in
-turn has sys-net as network VM)
-the following needs to be done:
+In order to allow a service present in a qube to be exposed to the outside world in the default setup (where the qube has sys-firewall as network VM, which in turn has sys-net as network VM) the following needs to be done:
 
  * In the sys-net VM:
     * Route packets from the outside world to the sys-firewall VM
@@ -178,9 +131,7 @@ the following needs to be done:
  * In the qube:
     * Allow packets through the qube firewall to reach the service
 
-As an example we can take the use case of a web server listening on port 443
-that we want to expose on our physical interface eth0, but only to our local
-network 192.168.x.0/24.
+As an example we can take the use case of a web server listening on port 443 that we want to expose on our physical interface eth0, but only to our local network 192.168.x.0/24.
 
 > Note: To have all interfaces available and configured, make sure the 3 qubes are up and running
 
@@ -188,26 +139,22 @@ network 192.168.x.0/24.
 
 **1. Route packets from the outside world to the FirewallVM**
 
-From a Terminal window in sys-net VM, take note of the 'Interface name' and
-'IP address' on which you want to expose your service (i.e. ens5, 192.168.x.x)
+From a Terminal window in sys-net VM, take note of the 'Interface name' and 'IP address' on which you want to expose your service (i.e. ens5, 192.168.x.x)
 
 ` ifconfig | grep -i cast `
 
 > Note: The vifx.0 interface is the one connected to your sys-firewall VM so it
   is _not_ an outside world interface...
 
-From a Terminal window in sys-firewall VM, take note of the 'IP address' for
-interface Eth0 (10.137.1.x or 10.137.0.x in Qubes R4)
+From a Terminal window in sys-firewall VM, take note of the 'IP address' for interface Eth0 (10.137.1.x or 10.137.0.x in Qubes R4)
 
 ` ifconfig | grep -i cast `
 
-Back into the sys-net VM's Terminal, code a natting firewall rule to route
-traffic on the outside interface for the service to the sys-firewall VM
+Back into the sys-net VM's Terminal, code a natting firewall rule to route traffic on the outside interface for the service to the sys-firewall VM
 
 ` iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 192.168.x.x -j DNAT --to-destination 10.137.1.x `
 
-Code the appropriate new filtering firewall rule to allow new connections for
-the service
+Code the appropriate new filtering firewall rule to allow new connections for the service
 
 ` iptables -I FORWARD 2 -i eth0 -d 10.137.1.x -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT `
 
@@ -218,8 +165,7 @@ the service
 
 `nft add rule ip qubes-firewall forward meta iifname eth0 ip daddr 10.137.0.x tcp dport 443 ct state new counter accept`
 
-Verify you are cutting through the sys-net VM firewall by looking at its
-counters (column 2)
+Verify you are cutting through the sys-net VM firewall by looking at its counters (column 2)
 
 ` iptables -t nat -L -v -n `
 
@@ -233,8 +179,7 @@ Send a test packet by trying to connect to the service from an external device
 
 ` telnet 192.168.x.x 443 `
 
-Once you have confirmed that the counters increase, store these command in
-`/rw/config/rc.local` so they get set on sys-net start-up
+Once you have confirmed that the counters increase, store these command in `/rw/config/rc.local` so they get set on sys-net start-up
 
 ` sudo nano /rw/config/rc.local `
 
@@ -303,18 +248,15 @@ Finally make this file executable, so it runs at each boot
 
 **2. Route packets from the FirewallVM to the VM**
 
-From a Terminal window in the VM where the service to be exposed is running, take note of the 'IP address' for
-interface Eth0 (i.e. 10.137.2.y, 10.137.0.y in Qubes R4)
+From a Terminal window in the VM where the service to be exposed is running, take note of the 'IP address' for interface Eth0 (i.e. 10.137.2.y, 10.137.0.y in Qubes R4)
 
 ` ifconfig | grep -i cast `
 
-Back into the sys-firewall VM's Terminal, code a natting firewall rule to route
-traffic on its outside interface for the service to the qube
+Back into the sys-firewall VM's Terminal, code a natting firewall rule to route traffic on its outside interface for the service to the qube
 
 ` iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 10.137.1.x -j DNAT --to-destination 10.137.2.y `
 
-Code the appropriate new filtering firewall rule to allow new connections for
-the service
+Code the appropriate new filtering firewall rule to allow new connections for the service
 
 ` iptables -I FORWARD 2 -i eth0 -s 192.168.x.0/24 -d 10.137.2.y -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT `
 
@@ -392,8 +334,7 @@ sudo chmod +x /rw/config/qubes-firewall-user-script
 
 **3. Allow packets into the qube to reach the service**
 
-Here no routing is required, only filtering. Proceed in the same way as above
-but store the filtering rule in the `/rw/config/rc.local` script.
+Here no routing is required, only filtering. Proceed in the same way as above but store the filtering rule in the `/rw/config/rc.local` script.
 
 ` sudo name /rw/config/rc.local `
 
@@ -418,17 +359,11 @@ if ! iptables -n -L FORWARD | grep --quiet MY-HTTPS; then
 fi
 ~~~
 
-This time testing should allow connectivity to the service as long as the
-service is up :-)
+This time testing should allow connectivity to the service as long as the service is up :-)
 
 
 Where to put firewall rules
 ---------------------------
 
-Implicit in the above example [scripts](/doc/config-files/), but worth 
-calling attention to: for all qubes *except* AppVMs supplying networking,
-iptables commands should be added to the `/rw/config/rc.local` script. For
-AppVMs supplying networking (`sys-firewall` inclusive), 
-iptables commands should be added to 
-`/rw/config/qubes-firewall-user-script`.
+Implicit in the above example [scripts](/doc/config-files/), but worth calling attention to: for all qubes *except* AppVMs supplying networking, iptables commands should be added to the `/rw/config/rc.local` script. For AppVMs supplying networking (`sys-firewall` inclusive), iptables commands should be added to `/rw/config/qubes-firewall-user-script`.
 
