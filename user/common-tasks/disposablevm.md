@@ -68,7 +68,8 @@ This is a change in behaviour from R3.2, where DisposableVMs would inherit the s
 Therefore, launching a DisposableVM from an AppVM will result in it using the network/firewall settings of the DisposableVM Template on which it is based.
 For example, if an AppVM uses sys-net as its NetVM, but the default system DisposableVM uses sys-whonix, any DisposableVM launched from this AppVM will have sys-whonix as its NetVM.
 
-**Warning:** The opposite is also true. This means if you have changed anon-whonix's `default_dispvm` to use the system default, and the system default DisposableVM uses sys-net, launching a DisposableVM from inside anon-whonix will result in the DisposableVM using sys-net.
+**Warning:** The opposite is also true.
+This means if you have changed anon-whonix's `default_dispvm` to use the system default, and the system default DisposableVM uses sys-net, launching a DisposableVM from inside anon-whonix will result in the DisposableVM using sys-net.
 
 A DisposableVM launched from the Start Menu inherits the NetVM and firewall settings of the DisposableVM Template on which it is based.
 Note that changing the "NetVM" setting for the system default DisposableVM Template *does* affect the NetVM of DisposableVMs launched from the Start Menu.
@@ -118,7 +119,8 @@ Note that the `qvm-open-in-dvm` process will not exit until you close the applic
 
 ## Starting an arbitrary program in a DisposableVM from an AppVM ##
 
-Sometimes it can be useful to start an arbitrary program in a DisposableVM. This can be done from an AppVM by running
+Sometimes it can be useful to start an arbitrary program in a DisposableVM.
+This can be done from an AppVM by running
 
 ~~~
 [user@vault ~]$ qvm-run '$dispvm' xterm
