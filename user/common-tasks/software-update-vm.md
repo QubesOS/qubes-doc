@@ -157,7 +157,8 @@ qvm-create --class StandaloneVM --label <label> --property virt_mode=hvm <vmname
 
 ... or click appropriate options in the Qubes Manager's Create VM window.
 
-(Note: Technically, `virt_mode=hvm` is not necessary for every StandaloneVM. However, it makes sense if you want to use a kernel from within the VM.)
+(Note: Technically, `virt_mode=hvm` is not necessary for every StandaloneVM.
+However, it makes sense if you want to use a kernel from within the VM.)
 
 
 Using more than one template
