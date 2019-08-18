@@ -154,7 +154,7 @@ The filename of the Release Signing Key for your version is `qubes-release-X-sig
 There are several ways to get the Release Signing Key for your Qubes release.
 
  - If you have access to an existing Qubes installation, the release keys are available in dom0 in `/etc/pki/rpm-gpg/`.
-   These can be copied into other VMs for further use.
+   These can be [copied][copy-from-dom0] into other VMs for further use.
    In addition, every other VM contains the release key corresponding to that installation's release in `/etc/pki/rpm-gpg/`.
 
  - Fetch it with GPG:
@@ -451,6 +451,7 @@ If you still have a question, please address it to the [qubes-users mailing list
 [Troubleshooting FAQ]: #troubleshooting-faq
 [QMSK]: #1-get-the-qubes-master-signing-key-and-verify-its-authenticity
 [RSK]: #2-get-the-release-signing-key
+[copy-from-dom0]: /doc/copy-from-dom0/#copying-from-dom0
 [signature file]: #3-verify-your-qubes-iso
 [digest file]: #how-to-verify-qubes-iso-digests
 [Qubes repositories]: https://github.com/QubesOS
