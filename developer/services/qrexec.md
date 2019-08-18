@@ -30,7 +30,7 @@ It allows users and developers to use and design secure inter-VM tools.
 ## Qrexec basics: architecture and examples
 
 Qrexec is built on top of *vchan*, a Xen library providing data links between VMs.
-During domain creation, a process named `qrexec-daemon` is started in dom0, and a process named `qrexec-agent` is started in the VM.
+During domain startup , a process named `qrexec-daemon` is started in dom0, and a process named `qrexec-agent` is started in the VM.
 They are connected over a **vchan** channel.
 `qrexec-daemon` listens for connections from a dom0 utility named `qrexec-client`.
 Let's say we want to start a process (call it `VMprocess`) in a VM (`someVM`).
@@ -59,8 +59,8 @@ The `qvm-run` command is heavily based on `qrexec-client`.
 It also takes care of additional activities, e.g. starting the domain if it is not up yet and starting the GUI daemon.
 Thus, it is usually more convenient to use `qvm-run`.
 
-There can be almost arbitrary number of `qrexec-client` processes for a domain (so, connected to the same `qrexec-daemon`, same domain) -- their data is multiplexed independently.
-Number of available vchan channels is the limiting factor here, it depends on the underlying hypervisor.
+There can be an almost arbitrary number of `qrexec-client` processes for a given domain.
+The limiting factor is the number of available vchan channels, which depends on the underlying hypervisor, as well the domain's OS.
 
 ## Qubes RPC services
 
@@ -77,7 +77,7 @@ Thus, the framework allows dom0 to be the RPC target as well.
 
 Thanks to the framework, RPC programs are very simple -- both RPC client and server just use their stdin/stdout to pass data.
 The framework does all the inner work to connect these processes to each other via `qrexec-daemon` and `qrexec-agent`.
-Additionally, disposable VMs are tightly integrated -- RPC to a DisposableVM is identical to RPC to a normal domain, all one needs is to pass `$dispvm` as the remote domain name.
+Additionally, disposable VMs are tightly integrated -- RPC to a DisposableVM is identical to RPC to a normal domain, all one needs is to pass `@dispvm` as the remote domain name.
 
 ## Qubes RPC administration
 
@@ -85,37 +85,17 @@ Additionally, disposable VMs are tightly integrated -- RPC to a DisposableVM is 
 
 The dom0 directory `/etc/qubes-rpc/policy/` contains files for each available RPC action.
 Together their contents make up the RPC access policy database.
-Currently, the defined actions are:
-
-    qubes.ClipboardPaste
-    qubes.Filecopy
-    qubes.GetImageRGBA
-    qubes.GetRandomizedTime
-    qubes.Gpg
-    qubes.GpgImportKey
-    qubes.InputKeyboard
-    qubes.InputMouse
-    qubes.NotifyTools
-    qubes.NotifyUpdates
-    qubes.OpenInVM
-    qubes.OpenURL
-    qubes.PdfConvert
-    qubes.ReceiveUpdates
-    qubes.SyncAppMenus
-    qubes.USB
-    qubes.VMShell
-    qubes.WindowIconUpdater
-
 These files contain lines with the following format:
 
     srcvm destvm (allow|deny|ask)[,user=user_to_run_as][,target=VM_to_redirect_to]
 
-You can specify srcvm and destvm by name or by one of three reserved keywords: `@anyvm`, `@dispvm`, and `dom0` (without the `@`).
+You can specify srcvm and destvm by name or by one of the reserved keywords such as `@anyvm`, `@dispvm`, or `dom0`.
 Only `@anyvm` keyword makes sense in srcvm field.
 (Service calls from dom0 are currently always allowed, `@dispvm` means "new VM created for this particular request," so it is never a source of request.)
 Whenever a RPC request for an action is received, the domain checks the first matching line of the relevant file in `/etc/qubes-rpc/policy/` to determine access:
 whether to allow the request, what VM to redirect the execution to, and what user account the program should run under.
 Note that if the request is redirected (`target=` parameter), policy action remains the same - even if there is another rule which would otherwise deny such request.
+If no policy rule is matched, the action is denied.
 If the policy file does not exist, the user is prompted to create one.
 If still there is no policy file after prompting, the action is denied.
 
@@ -127,7 +107,7 @@ In the src VM, one should invoke the client via:
 
 Note that only stdin/stdout is passed between RPC server and client -- notably, no command line arguments are passed.
 Source VM name is specified by `QREXEC_REMOTE_DOMAIN` environment variable.
-By default, stderr of client and server is logged to respective `/var/log/qubes/qrexec.XID` files.
+By default, stderr of client and server is logged in the syslog/journald of the VM where the process is running.
 It is also possible to call service without specific client program - in which case server stdin/out will be connected with the terminal:
 
     $ qrexec-client-vm target_vm_name RPC_ACTION_NAME
@@ -248,7 +228,7 @@ We define the service with another one-line file, `/etc/qubes-rpc/test.Add`:
 The adminstrative domain will direct traffic based on the current RPC policies.
 In dom0, create a file at `/etc/qubes-rpc/policy/test.Add` containing the following:
 
-    $anyvm $anyvm ask
+    @anyvm @anyvm ask
 
 This will allow our client and server to communicate.
 
@@ -292,7 +272,7 @@ And no separate client script will be used.
 
  * default policy file in dom0 (*/etc/qubes-rpc/policy/test.File* )
 
-       $anyvm $anyvm deny
+       @anyvm @anyvm deny
 
  * invoke RPC from `source_vm1` via
 
