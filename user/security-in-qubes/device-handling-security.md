@@ -6,7 +6,8 @@ permalink: /doc/device-handling-security/
 
 # Device Handling Security #
 
-Any additional ability a VM gains is additional attack surface. It's a good idea to always attach the minimum entity required in a VM.
+Any additional ability a VM gains is additional attack surface.
+It's a good idea to always attach the minimum entity required in a VM.
 
 For example, attaching a full USB-device offers [more attack surface than attaching a single block device][USB security], while
 attaching a full block device (e.g. `sda`) again offers more attack surface than attaching a single partition (e.g. `sda1`), since the targetVM doesn't have to parse the partition-table.
@@ -15,22 +16,38 @@ attaching a full block device (e.g. `sda`) again offers more attack surface than
 
 ## PCI Security ##
 
-Attaching a PCI device to a qube has serious security implications. It exposes the device driver running in the qube to an external device (and sourceVM, which contains the device - e.g. `sys-usb`). In many cases a malicious device can choose what driver will be loaded (for example by manipulating device metadata like vendor and product identifiers) - even if the intended driver is sufficiently secure, the device may try to attack a different, less secure driver.
-Furthermore that VM has full control of the device and may be able to exploit bugs or malicious implementation of the hardware, as well as plain security problems the hardware may pose. (For example, if you attach a USB controller, all the security implications of USB passthrough apply as well.)
+Attaching a PCI device to a qube has serious security implications.
+It exposes the device driver running in the qube to an external device (and sourceVM, which contains the device - e.g. `sys-usb`).
+In many cases a malicious device can choose what driver will be loaded (for example by manipulating device metadata like vendor and product identifiers) - even if the intended driver is sufficiently secure, the device may try to attack a different, less secure driver.
+Furthermore that VM has full control of the device and may be able to exploit bugs or malicious implementation of the hardware, as well as plain security problems the hardware may pose.
+(For example, if you attach a USB controller, all the security implications of USB passthrough apply as well.)
 
-By default, Qubes requires any PCI device to be resettable from the outside (i.e. via the hypervisor), which completely reinitialises the device. This ensures that any device that was attached to a compromised VM, even if that VM was able to use bugs in the PCI device to inject malicious code, can be trusted again. (Or at least as trusted as it was when Qubes booted.)
+By default, Qubes requires any PCI device to be resettable from the outside (i.e. via the hypervisor), which completely reinitialises the device.
+This ensures that any device that was attached to a compromised VM, even if that VM was able to use bugs in the PCI device to inject malicious code, can be trusted again.
+(Or at least as trusted as it was when Qubes booted.)
 
-Some devices do not implement a reset option. In these cases, Qubes by default does not allow attaching the device to any VM. If you decide to override this precaution, beware that the device may only be trusted when attached to the first VM. Afterwards, it should be **considered tainted** until the whole system is shut down. Even without malicious intent, usage data may be leaked.
+Some devices do not implement a reset option.
+In these cases, Qubes by default does not allow attaching the device to any VM.
+If you decide to override this precaution, beware that the device may only be trusted when attached to the first VM.
+Afterwards, it should be **considered tainted** until the whole system is shut down.
+Even without malicious intent, usage data may be leaked.
 
-In case device reset is disabled for any reason, detaching the device should be considered a risk. Ideally, devices for which the `no-strict-reset` option is set are attached once to a VM which isn't shut down until the system is shut down.
+In case device reset is disabled for any reason, detaching the device should be considered a risk.
+Ideally, devices for which the `no-strict-reset` option is set are attached once to a VM which isn't shut down until the system is shut down.
 
-Additionally, Qubes restricts the config-space a VM may use to communicate with a PCI device. Only whitelisted registers are accessible. However, some devices or applications require full PCI access. In these cases, the whole config-space may be allowed. you're potentially weakening the device isolation, especially if your system is not equipped with a VT-d Interrupt Remapping unit.  This increases the VM's ability to run a [side channel attack] and vulnerability to the same.
+Additionally, Qubes restricts the config-space a VM may use to communicate with a PCI device.
+Only whitelisted registers are accessible.
+However, some devices or applications require full PCI access.
+In these cases, the whole config-space may be allowed.
+You're potentially weakening the device isolation, especially if your system is not equipped with a VT-d Interrupt Remapping unit.
+This increases the VM's ability to run a [side channel attack] and vulnerability to the same.
 See [Xen PCI Passthrough: PV guests and PCI quirks] and [Software Attacks on Intel VT-d] \(page 7) for more details.
 
 
 ## USB Security ##
 
-The connection of an untrusted USB device to dom0 is a security risk since the device can attack an arbitrary USB driver (which are included in the linux kernel), exploit bugs during partition-table-parsing or simply pretend to be a keyboard. There are many ready-to-use implementations of such attacks, e.g. a [USB Rubber Ducky][rubber duck].
+The connection of an untrusted USB device to dom0 is a security risk since the device can attack an arbitrary USB driver (which are included in the linux kernel), exploit bugs during partition-table-parsing or simply pretend to be a keyboard.
+There are many ready-to-use implementations of such attacks, e.g. a [USB Rubber Ducky][rubber duck].
 The whole USB stack is put to work to parse the data presented by the USB device in order to determine if it is a USB mass storage device, to read its configuration, etc.
 This happens even if the drive is then assigned and mounted in another qube.
 
