@@ -62,8 +62,8 @@ You may wish to configure this policy in order to prevent user error.
 For example, if you are certain that you never wish to paste *into* your "vault" AppVM (and it is highly recommended that you do not), then you should edit the policy as follows:
 
 ~~~
-$anyvm  vault   deny
-$anyvm  $anyvm  ask
+@anyvm  vault   deny
+@anyvm  @anyvm  ask
 ~~~
 
 Shortcut Configuration

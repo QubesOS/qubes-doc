@@ -15,10 +15,10 @@ Here's an example of an RPC policy file in dom0:
 ```
 [user@dom0 user ~]$ cat /etc/qubes-rpc/policy/qubes.FileCopy
 (...)
-$tag:work   $tag:work   allow
-$tag:work   $anyvm      deny
-$anyvm      $tag:work   deny
-$anyvm      $anyvm      ask
+@tag:work   @tag:work   allow
+@tag:work   @anyvm      deny
+@anyvm      @tag:work   deny
+@anyvm      @anyvm      ask
 ```
 
 It has three columns (from left to right): source, destination, and permission.
@@ -32,7 +32,7 @@ Now, the whole policy file is parsed from top to bottom.
 As soon as a rule is found that matches the action being evaluated, parsing stops.
 We can see what this means by looking at the second row.
 It says that we're **denied** from attempting to copy a file **from** any VM tagged with "work" **to** any VM whatsoever.
-(That's what the `$anyvm` keyword means -- literally any VM in the system).
+(That's what the `@anyvm` keyword means -- literally any VM in the system).
 But, wait a minute, didn't we just say (in the first row) that all the VMs tagged with work are **allowed** to copy files to each other?
 That's exactly right.
 The first and second rows contradict each other, but that's intentional.
@@ -46,7 +46,7 @@ Rather, it means that only VMs that match an earlier rule can do so (in this cas
 The fourth and final row says that we're **asked** (i.e., prompted) to copy files **from** any VM in the system **to** any VM in the system.
 (This rule was already in the policy file by default.
 We added the first three.)
-Note that it wouldn't make sense to add any rules after this one, since every possible pair of VMs will match the `$anyvm  $anyvm` pattern.
+Note that it wouldn't make sense to add any rules after this one, since every possible pair of VMs will match the `@anyvm  @anyvm` pattern.
 Therefore, parsing will always stop at this rule, and no rules below it will ever be evaluated.
 
 All together, the three rules we added say that all VMs tagged with "work" are allowed to copy files to each other; however, they're denied from copying files to other VMs (without the "work" tag), and other VMs (without the "work" tag) are denied from copying files to them.

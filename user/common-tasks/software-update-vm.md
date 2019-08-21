@@ -218,12 +218,12 @@ This new design allows for templates to be updated even when they are not connec
 Example policy file in R4.0 (with whonix installed, but not set as default updatevm for all templates):
 ```
 # any VM with tag `whonix-updatevm` should use `sys-whonix`; this tag is added to `whonix-gw` and `whonix-ws` during installation and is preserved during template clone
-$tag:whonix-updatevm $default allow,target=sys-whonix
-$tag:whonix-updatevm $anyvm deny
+@tag:whonix-updatevm @default allow,target=sys-whonix
+@tag:whonix-updatevm @anyvm deny
 
 # other templates use sys-net
-$type:TemplateVM $default allow,target=sys-net
-$anyvm $anyvm deny
+@type:TemplateVM @default allow,target=sys-net
+@anyvm @anyvm deny
 ```
 
 Note on treating AppVM's root filesystem non-persistence as a security feature
