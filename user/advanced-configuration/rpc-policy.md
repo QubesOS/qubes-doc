@@ -54,5 +54,8 @@ The fourth rule means that the user gets prompted for any situation not already 
 
 Further details about how this system works can be found in [Qrexec: command execution in VMs][qrexec3].
 
+(***Note**: the `$` character is deprecated in qrexec keywords -- please use `@` instead (e.g. `@anyvm`).
+For more information, see the bulletin [here](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-038-2018.txt).*)
+
 [qrexec3]: /doc/qrexec3/
 
