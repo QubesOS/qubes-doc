@@ -83,36 +83,54 @@ Additionally, disposable VMs are tightly integrated -- RPC to a DisposableVM is 
 
 <!-- (*TODO: fix for non-linux dom0*) -->
 
-The dom0 directory `/etc/qubes-rpc/policy/` contains files for each available RPC action.
-Together their contents make up the RPC access policy database.
-These files contain lines with the following format:
+### Policy files
 
-    srcvm destvm (allow|deny|ask)[,user=user_to_run_as][,target=VM_to_redirect_to]
+The dom0 directory `/etc/qubes-rpc/policy/` contains a file for each available RPC action that a VM might call.
+Together the contents of these files make up the RPC access policy database.
+Policies are defined in lines with the following format:
+
+    srcvm destvm (allow|deny|ask[,default_target=default_target_VM])[,user=user_to_run_as][,target=VM_to_redirect_to]
 
 You can specify srcvm and destvm by name or by one of the reserved keywords such as `@anyvm`, `@dispvm`, or `dom0`.
-Only `@anyvm` keyword makes sense in srcvm field.
-(Service calls from dom0 are currently always allowed, `@dispvm` means "new VM created for this particular request," so it is never a source of request.)
+(Of these three, only `@anyvm` keyword makes sense in the srcvm field.
+Service calls from dom0 are currently always allowed, and `@dispvm` means "new VM created for this particular request," so it is never a source of request.)
+Other methods using *tags* and *types* are also available (and discussed below).
+
 Whenever a RPC request for an action is received, the domain checks the first matching line of the relevant file in `/etc/qubes-rpc/policy/` to determine access:
 whether to allow the request, what VM to redirect the execution to, and what user account the program should run under.
-Note that if the request is redirected (`target=` parameter), policy action remains the same - even if there is another rule which would otherwise deny such request.
+Note that if the request is redirected (`target=` parameter), policy action remains the same -- even if there is another rule which would otherwise deny such request.
 If no policy rule is matched, the action is denied.
 If the policy file does not exist, the user is prompted to create one.
-If still there is no policy file after prompting, the action is denied.
+If there is still no policy file after prompting, the action is denied.
 
-In the target VM, the `/etc/qubes-rpc/RPC_ACTION_NAME` must exist, containing the file name of the program that will be invoked, or being that program itself - in which case it must have executable permission set (`chmod +x`).
+In the target VM, the file `/etc/qubes-rpc/RPC_ACTION_NAME` must exist, containing the file name of the program that will be invoked, or being that program itself -- in which case it must have executable permission set (`chmod +x`).
 
-In the src VM, one should invoke the client via:
+### Making an RPC call
+
+From outside of dom0, RPC calls take the following form:
 
     $ qrexec-client-vm target_vm_name RPC_ACTION_NAME rpc_client_path client arguments
 
+For example:
+
+    $ qrexec-client-vm work qubes.StartApp+firefox
+
 Note that only stdin/stdout is passed between RPC server and client -- notably, no command line arguments are passed.
-Source VM name is specified by `QREXEC_REMOTE_DOMAIN` environment variable.
 By default, stderr of client and server is logged in the syslog/journald of the VM where the process is running.
-It is also possible to call service without specific client program - in which case server stdin/out will be connected with the terminal:
+
+It is also possible to call service without specific client program -- in which case server stdin/out will be connected with the terminal:
 
     $ qrexec-client-vm target_vm_name RPC_ACTION_NAME
 
-Target VM can be specified also as `@dispvm:DISP_VM`, which is very similar to `@dispvm` but forces using a particular VM (`DISP_VM`) as a base VM to be started as DisposableVM.
+### Specifying VMs: tags, types, targets, etc.
+
+There are severals methods for specifying source/target VMs in RPC policies.
+
+ * `@tag:some-tag` - meaning a VM with tag `some-tag`
+ * `@type:type` - meaning a VM of `type` (like `AppVM`, `TemplateVM` etc)
+
+Target VM can be also specified as `@default`, which matches the case when calling VM didn't specified any particular target (either by using `@default` target, or empty target).
+For DisposableVMs, `@dispvm:DISP_VM` is very similar to `@dispvm` but forces using a particular VM (`DISP_VM`) as a base VM to be started as DisposableVM.
 For example:
 
     anon-whonix @dispvm:anon-whonix-dvm allow
@@ -125,13 +143,6 @@ But `@dispvm:DISP_VM` can also be used as target in request redirection, so _it 
 Note that without redirection, this rule would allow using default Disposable VM (`default_dispvm` VM property, which itself defaults to global `default_dispvm` property).
 Also note that the request will be allowed (`allow` action) even if there is no second rule allowing calls to `@dispvm:anon-whonix-dvm`, or even if there is a rule explicitly denying it.
 This is because the redirection happens _after_ considering the action.
-
-There are also additional methods to specify source/target VM:
-
- * `@tag:some-tag` - meaning a VM with tag `some-tag`
- * `@type:type` - meaning a VM of `type` (like `AppVM`, `TemplateVM` etc)
-
-Target VM can be also specified as `@default`, which matches the case when calling VM didn't specified any particular target (either by using `@default` target, or empty target).
 
 The policy confirmation dialog (`ask` action) allows the user to specify target VM.
 User can choose from VMs that, according to policy, would lead to `ask` or `allow` actions.
