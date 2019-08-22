@@ -20,14 +20,9 @@ Updates for these templates are provided by ITL and are signed by this key:
           Key fingerprint = 2D43 E932 54EE EA7C B31B  6A77 5E58 18AB 47FD 92FA
     uid                  Qubes OS Debian Packages Signing Key
 
-The key is already installed when you install (signed) template package. You
-can also obtain the key from [git
-repository](https://github.com/QubesOS/qubes-core-agent-linux/blob/master/misc/qubes-archive-keyring.gpg),
-which is also integrity-protected using signed git tags.
+The key is already installed when you install (signed) template package. 
+You can also obtain the key from [git repository][git] which is also integrity-protected using signed git tags.
 
-If you want a debian-minimal template, this can be built using [Qubes-builder](https://www.qubes-os.org/doc/qubes-builder/),by selecting a +minimal flavour in setup, and then               
-
-    make qubes-vm && make template
 
 Installing
 ----------
@@ -47,7 +42,15 @@ Debian 9 (stretch) - oldstable:
     [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-9
 
 
-A Debian-10 template is currently available from the testing repository.
+Debian-10 templates are currently available from the testing repository.
+
+Debian 10 (buster) - minimal:
+
+    [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl-testing qubes-template-debian-10-minimal
+
+Because this template was built *before* buster became stable, it cannot be updated without [manually accepting the change in status][5149].
+Also, to install additional Qubes packages you will have to enable the qubes-testing repository.
+
 
 Debian 10 (buster) - stable:
 
@@ -56,13 +59,10 @@ Debian 10 (buster) - stable:
 Because this template was built *before* buster became stable, it cannot be updated without [manually accepting the change in status][5149].
 
 
-
 Upgrading
 ---------
 
-To upgrade your Debian TemplateVM, please consult the guide that corresponds to your situation:
-
- * [Upgrading the Debian 8 Template to Debian 9](/doc/template/debian/upgrade-8-to-9/)
+To upgrade an existing Debian TemplateVM, please consult [this guide][Upgrading]
 
 
 Known issues
@@ -106,7 +106,8 @@ The lesson is that you should carefully look at what is being installed to your 
 
 By default, templates in 4.0 only have a loopback interface.
 
-Some packages will throw an error on installation in this situation. For example, Samba expects to be configured using a network interface post installation.
+Some packages will throw an error on installation in this situation.
+For example, Samba expects to be configured using a network interface post installation.
 
 One solution is to add a dummy interface to allow the package to install correctly:
 
@@ -119,7 +120,7 @@ One solution is to add a dummy interface to allow the package to install correct
 Contributing
 ----------------
 
-If you want to help in improving the template, feel free to [contribute](/wiki/ContributingHowto).
+If you want to help in improving the template, feel free to [contribute]
 
 
 More information
@@ -127,6 +128,8 @@ More information
 
 * [Debian wiki](https://wiki.debian.org/Qubes)
 
-
-[stretch]: /doc/template/debian/upgrade-8-to-9/ 
+[Upgrading]: /doc/template/debian/upgrade
 [5149]: https://github.com/QubesOS/qubes-issues/issues/5149
+[git]: https://github.com/QubesOS/qubes-core-agent-linux/blob/master/misc/qubes-archive-keyring.gpg
+[builder]: /doc/qubes-builder/
+[contribute]: /doc/contributing/

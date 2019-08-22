@@ -70,15 +70,20 @@ You should overwrite this file.
 
 	`sudo apt-get autoremove`
 
- 6. Compact the template.
+ 6. (optional) Clean cached packages from /var/cache/apt
+	```
+	$ sudo apt-get clean
+	```
 
- 7. Shutdown the new TemplateVM via dom0 command line or the Qube Manager.
+ 7. Compact the template.
 
- 8. (Recommended) [Switch everything that was set to the old template to the new template.][switch]
+ 8. Shutdown the new TemplateVM via dom0 command line or the Qube Manager.
 
- 9. (Optional) Change the default template to use the new template.
+ 9. (Recommended) [Switch everything that was set to the old template to the new template.][switch]
 
- 10. (Optional) Remove the old template using dom0 command line or the Qube Manager.
+ 10. (Optional) Change the global default template to use the new template.
+
+ 11. (Optional) Remove the old template using dom0 command line or the Qube Manager.
 
 
 Compacting the Upgraded Template
@@ -103,6 +108,8 @@ You should disable this by opening a terminal in the template and running:
 $ sudo systemctl disable apt-daily.{service,timer}`.
 ```
 
+Look [here][jessie] for notes specific to updating a jessie template.
+
 Relevant Discussions
 --------------------
  * [User apt commands blocked on startup][2621]
@@ -112,3 +119,4 @@ Relevant Discussions
 [switch]: /doc/templates/#how-to-switch-templates)
 [release]: https://www.debian.org/releases/buster/amd64/release-notes/ch-upgrading.en.html
 [switch]: /doc/templates/#how-to-switch-templates
+[jessie]: /doc/template/debian/upgrade-8-to-9/
