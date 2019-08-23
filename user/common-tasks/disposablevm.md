@@ -123,7 +123,7 @@ Sometimes it can be useful to start an arbitrary program in a DisposableVM.
 This can be done from an AppVM by running
 
 ~~~
-[user@vault ~]$ qvm-run '$dispvm' xterm
+[user@vault ~]$ qvm-run '@dispvm' xterm
 ~~~
 
 The created DisposableVM can be accessed via other tools (such as `qvm-copy-to-vm`) using its `disp####` name as shown in the Qubes Manager or `qvm-ls`.
