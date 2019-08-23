@@ -65,7 +65,7 @@ The limiting factor is the number of available vchan channels, which depends on 
 ## Qubes RPC services
 
 Some common tasks (like copying files between VMs) have an RPC-like structure: a process in one VM (say, the file sender) needs to invoke and send/receive data to some process in other VM (say, the file receiver).
-The Qubes RPC framework was created to securely facilite a range of such actions.
+The Qubes RPC framework was created to securely facilitate a range of such actions.
 
 Obviously, inter-VM communication must be tightly controlled to prevent one VM from taking control of another, possibly more privileged, VM.
 Therefore the design decision was made to pass all control communication via dom0, that can enforce proper authorization.
@@ -236,7 +236,7 @@ We define the service with another one-line file, `/etc/qubes-rpc/test.Add`:
 
     /usr/bin/our_test_add_server
 
-The adminstrative domain will direct traffic based on the current RPC policies.
+The administrative domain will direct traffic based on the current RPC policies.
 In dom0, create a file at `/etc/qubes-rpc/policy/test.Add` containing the following:
 
     @anyvm @anyvm ask
