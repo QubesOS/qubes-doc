@@ -57,6 +57,3 @@ It even applies to the scenario of copying files between air-gapped machines.
 So, you should always copy data only from *more trusted* to *less trusted* qubes.
 
 See also [this article](https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html) for more information on this topic, and some ideas of how we might solve this problem in some future version of Qubes.
-
-You may also want to read how to [revoke "Yes to All" authorization](/doc/qrexec3/#revoking-yes-to-all-authorization)
-
