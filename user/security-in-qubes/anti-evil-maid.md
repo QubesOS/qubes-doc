@@ -35,7 +35,7 @@ In Dom0 install anti-evil-maid:
 sudo qubes-dom0-update anti-evil-maid
 ~~~
 
-More information regarding configuration in the [README](https://github.com/QubesOS/qubes-antievilmaid/blob/master/anti-evil-maid/README) file.
+For more information, see the [qubes-antievilmaid](https://github.com/QubesOS/qubes-antievilmaid) repository, which includes a `README`.
 
 Security Considerations
 -----------------------
@@ -60,3 +60,4 @@ Known issues
 
 -   USB 3.0 isn't supported yet
 -   [AEM is not compatible with having an SSD cache](https://groups.google.com/d/msgid/qubes-users/70021590-fb3a-4f95-9ce5-4b340530ddbf%40petaramesh.org)
+
