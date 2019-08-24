@@ -82,6 +82,10 @@ Note however that you are better off creating a new Windows VM to benefit from t
 Windows VM installation
 -----------------------
 
+### qvm-create-windows-qube ###
+
+A tool for automating this process is available [here](https://github.com/crazyqube/qvm-create-windows-qube). However, if you are an expert or want to do it manually you may continue below.
+
 ### Summary ###
 
 ~~~
