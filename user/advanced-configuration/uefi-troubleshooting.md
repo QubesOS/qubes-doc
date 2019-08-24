@@ -96,17 +96,18 @@ Consider this approach as a last resort, because it will make every Xen update a
 Whenever there is a kernel or Xen update for Qubes, you will need to follow [these steps](/doc/uefi-troubleshooting/#boot-device-not-recognized-after-installing) because your system is using the fallback UEFI bootloader in `[...]/EFI/BOOT` instead of directly booting to the Qubes entry under `[...]/EFI/qubes`.
 
 
-Installation completes successfully but then BIOS loops at boot device selection
+Installation completes successfully but then boot loops at boot device selection
 ---------------------
 
-There is a [common bug in UEFI implementation](http://xen.markmail.org/message/f6lx2ab4o2fch35r), affecting mostly Lenovo systems, but probably some others too. You can try existing workaround:
+There is a [common bug in UEFI implementation](http://xen.markmail.org/message/f6lx2ab4o2fch35r) affecting mostly Lenovo systems, but probably some others too.
+While some systems need `mapbs` and/or `noexitboot` disabled to boot, others require them enabled at all times.
+Although these are enabled by default in the installer, they are disabled after the first stage of a successful install.
+You can re-enable them either as part of the install process:
 
-1. In GRUB menu<sup id="a1-1">[1](#f1)</sup>, select "Troubleshoot", then "Boot from device", then press `e`.
-2. At the end of `chainloader` line add `/mapbs /noexitboot`.
-3. Perform installation normally, but don't reboot the system at the end yet.
-4. Go to `tty2` (Ctrl-Alt-F2).
-5. Enable `/mapbs /noexitboot` on just installed system.
-6. Edit `/mnt/sysimage/boot/efi/EFI/qubes/xen.cfg` (you can use `vi` editor) and add to every kernel section:
+1. Perform installation normally, but don't reboot the system at the end yet.
+2. Go to `tty2` (Ctrl-Alt-F2).
+3. Enable `/mapbs /noexitboot` on just installed system.
+   Edit `/mnt/sysimage/boot/efi/EFI/qubes/xen.cfg` (you can use `vi` or `nano` editor) and add to every kernel section:
             
         mapbs=1
         noexitboot=1
@@ -116,30 +117,54 @@ There is a [common bug in UEFI implementation](http://xen.markmail.org/message/f
     line (i.e., all sections except the first one, since it doesn't have a
     kernel line).
 
-7. Now you can reboot the system by issuing `reboot` command.
+4. Go back to `tty6` (Ctrl-Alt-F6) and click `Reboot`.
+5. Continue with setting up default templates and logging in to Qubes.
+
+Or if you have already rebooted after the first stage install and have encountered this issue, by:
+
+1. Boot into [rescue mode](/doc/uefi-troubleshooting/#accessing-installer-rescue-mode-on-uefi).
+2. Enable `/mapbs /noexitboot` on just installed system.
+   Edit `/mnt/sysimage/boot/efi/EFI/qubes/xen.cfg` (you can use `vi` or `nano` editor) and add to every kernel section:
+            
+        mapbs=1
+        noexitboot=1
+
+    **Note:** You must add these parameters on two separate new lines (one
+    parameter on each line) at the end of each section that includes a kernel
+    line (i.e., all sections except the first one, since it doesn't have a
+    kernel line).
+    
+3. Type `reboot`.
+4. Continue with setting up default templates and logging in to Qubes.
 
 
-System crash/restart when booting installer
+Installation completes successfully but then system crash/restarts on next boot
 -------------------------------------------
 
-Some Dell systems and probably others have [another bug in UEFI firmware](http://markmail.org/message/amw5336otwhdxi76). And there is another workaround for it:
+Some Dell systems and probably others have [another bug in UEFI firmware](http://markmail.org/message/amw5336otwhdxi76).
+These systems need `efi=attr=uc` enabled at all times.
+Although this is enabled by default in the installer, it is disabled after the first stage of a successful install.
+You can re-enable it either as part of the install process:
 
+1. Perform installation normally, but don't reboot the system at the end yet.
+2. Go to `tty2` (Ctrl-Alt-F2).
+3. Execute:
 
-1. In GRUB menu<sup id="a1-2">[1](#f1)</sup> press `e`.
-2. At the end of `chainloader` line add `-- efi=attr=uc`.
-3. Perform installation normally, but don't reboot the system at the end yet.
-4. Go to `tty2` (Ctrl-Alt-F2).
-5. Execute:
-
-        sed -i -e 's/^options=.*/\0 efi=attr=uc/' /mnt/sysimage/boot/efi/qubes/xen.cfg
-        
-   or if you're installing 3.2 execute:
-   
         sed -i -e 's/^options=.*/\0 efi=attr=uc/' /mnt/sysimage/boot/efi/EFI/qubes/xen.cfg
 
-6. Now you can reboot the system by issuing `reboot` command.
+4. Go back to `tty6` (Ctrl-Alt-F6) and click `Reboot`.
+5. Continue with setting up default templates and logging in to Qubes.
 
-* * *
+Or if you have already rebooted after the first stage install and have encountered this issue, by:
+
+1. Boot into [rescue mode](/doc/uefi-troubleshooting/#accessing-installer-rescue-mode-on-uefi).
+2. Execute:
+
+        sed -i -e 's/^options=.*/\0 efi=attr=uc/' /mnt/sysimage/boot/efi/EFI/qubes/xen.cfg
+
+3. Type `reboot`.
+4. Continue with setting up default templates and logging in to Qubes.
+
 <b name="f1">1</b> If you use rEFInd, you can see 3 options regarding the USB installer. Choose "Fallback Boot Loader" to enter the GRUB menu. [↩](#a1-1) [↩](#a1-2)
 
 
