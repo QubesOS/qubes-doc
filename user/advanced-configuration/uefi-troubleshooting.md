@@ -14,7 +14,7 @@ If you've installed successfully in legacy mode but had to change some kernel pa
 
 **Change the xen configuration on a USB media**
 01. Attach the usb disk, mount the EFI partition (second partition available on the disk) 
-02. Edit your xen config (`xen.cfg/BOOTX64.cfg`) changing the `kernel` key to add your kernel parameters on the boot entry of your choice
+02. As `su`, edit your xen config (`EFI/BOOT/BOOTX64.cfg`) changing the `kernel` key to add your kernel parameters on the boot entry of your choice
 03. Install using your modified boot entry
 
 **Change xen configuration directly in an iso image**
@@ -25,14 +25,14 @@ If you've installed successfully in legacy mode but had to change some kernel pa
 05. Save your changes, unmount and dd to usb device
 
 
-Installation freezes before getting to Anaconda (Qubes 4.0)
+Installation freezes before displaying installer
 -----------------------------------------------------------
 
 Some systems can freeze with the default UEFI install options.
 You can try the following to remove `noexitboot` and `mapbs`.
 If you have an Nvidia card, see also [Nvidia Troubleshooting](/doc/nvidia-troubleshooting/#disabling-nouveau).
 
-1. Follow the [steps above](/doc/uefi-troubleshooting/#change-installer-kernel-parameters-in-uefi) to edit the `[qubes-verbose]` section of your installer's `xen.cfg`.
+1. Follow the [steps here](/doc/uefi-troubleshooting/#change-installer-kernel-parameters-in-uefi) to edit the `[qubes-verbose]` section of your installer's `BOOTX64.cfg`.
    You want to comment out the `mapbs` and `noexitboot` lines.
    The end result should look like this:
    ~~~
@@ -56,14 +56,15 @@ This is also a good time to make permanent any other changes needed to get the i
 6. Continue with setting up default templates and logging in to Qubes.
 
 
-Installation freezes before getting to Anaconda / disable EFI runtime services
+Installation freezes before displaying installer / disable EFI runtime services
 ------------------------------------------------------------------------------
 
 On some early, buggy UEFI implementations, you may need to disable EFI under Qubes completely.
 This can sometimes be done by switching to legacy mode in your BIOS/UEFI configuration.
 If that's not an option there, or legacy mode does not work either, you can try the following to add `efi=no-rs`.
+Consider this approach as a last resort, because it will make every Xen update a manual process.
 
-1. Follow the [steps above](/doc/uefi-troubleshooting/#change-installer-kernel-parameters-in-uefi) to edit the `[qubes-verbose]` section of your installer's `xen.cfg`.
+1. Follow the [steps here](/doc/uefi-troubleshooting/#change-installer-kernel-parameters-in-uefi) to edit the `[qubes-verbose]` section of your installer's `xen.cfg`.
    You want to modify the `efi=attr=uc` setting and comment out the `mapbs` and `noexitboot` lines.
    The end result should look like this:
    ~~~
@@ -92,13 +93,13 @@ If that's not an option there, or legacy mode does not work either, you can try 
 6. Go back to `tty6` (Ctrl-Alt-F6) and click `Reboot`.
 7. Continue with setting up default templates and logging in to Qubes.
 
-Whenever there is a kernel or Xen update for Qubes, you will need to follow these [other steps above](/doc/uefi-troubleshooting/#boot-device-not-recognized-after-installing) because your system is using the fallback UEFI bootloader in `[...]/EFI/BOOT` instead of directly booting to the Qubes entry under `[...]/EFI/qubes`.
+Whenever there is a kernel or Xen update for Qubes, you will need to follow [these steps](/doc/uefi-troubleshooting/#boot-device-not-recognized-after-installing) because your system is using the fallback UEFI bootloader in `[...]/EFI/BOOT` instead of directly booting to the Qubes entry under `[...]/EFI/qubes`.
 
 
-Cannot start installation, installation completes successfully but then BIOS loops at boot device selection, hangs at four penguins after choosing "Test media and install Qubes OS" in GRUB menu
+Installation completes successfully but then BIOS loops at boot device selection
 ---------------------
 
-There is some [common bug in UEFI implementation](http://xen.markmail.org/message/f6lx2ab4o2fch35r), affecting mostly Lenovo systems, but probably some others too. You can try existing workaround:
+There is a [common bug in UEFI implementation](http://xen.markmail.org/message/f6lx2ab4o2fch35r), affecting mostly Lenovo systems, but probably some others too. You can try existing workaround:
 
 01. In GRUB menu<sup id="a1-1">[1](#f1)</sup>, select "Troubleshoot", then "Boot from device", then press `e`.
 02. At the end of `chainloader` line add `/mapbs /noexitboot`.
