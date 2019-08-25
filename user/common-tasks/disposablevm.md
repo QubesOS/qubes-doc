@@ -168,7 +168,7 @@ This line means:
 
 In other words, any VM will be allowed to create a new DisposableVM based on `online-dvm-template` and open a URL inside of that DisposableVM.
 
-More information about RPC policies for DisposableVMs can be found [here][qrexec3-4.0].
+More information about RPC policies for DisposableVMs can be found [here][qrexec].
 
 
 ## Customizing DisposableVMs ##
@@ -179,4 +179,4 @@ Full instructions can be found [here](/doc/disposablevm-customization/).
 
 
 [DisposableVM Template]: /doc/glossary/#disposablevm-template
-[qrexec3-4.0]: /doc/qrexec3/#extra-keywords-available-in-qubes-40-and-later
+[qrexec]: /doc/qrexec/#qubes-rpc-administration
