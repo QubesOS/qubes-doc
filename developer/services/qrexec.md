@@ -44,7 +44,9 @@ Once this channel is established, stdin/stdout/stderr from the VMprocess is pass
 The `qrexec-client` command is used to make connections to VMs from dom0.
 For example, the following command
 
-    $ qrexec-client -e -d someVM user:'touch hello-world.txt'
+```
+$ qrexec-client -e -d someVM user:'touch hello-world.txt'
+```
 
 creates an empty file called `hello-world.txt` in the home folder of `someVM`.
 
@@ -53,7 +55,9 @@ The `-e` flag tells `qrexec-client` to exit immediately after sending the execut
 With this option, no further data is passed between the domains.
 By contrast, the following command demonstrates an open channel between dom0 and someVM (in this case, a remote shell):
 
-    $ qrexec-client -d someVM user:bash
+```
+$ qrexec-client -d someVM user:bash
+```
 
 The `qvm-run` command is heavily based on `qrexec-client`.
 It also takes care of additional activities, e.g. starting the domain if it is not up yet and starting the GUI daemon.
@@ -89,7 +93,9 @@ The dom0 directory `/etc/qubes-rpc/policy/` contains a file for each available R
 Together the contents of these files make up the RPC access policy database.
 Policies are defined in lines with the following format:
 
-    srcvm destvm (allow|deny|ask[,default_target=default_target_VM])[,user=user_to_run_as][,target=VM_to_redirect_to]
+```
+srcvm destvm (allow|deny|ask[,default_target=default_target_VM])[,user=user_to_run_as][,target=VM_to_redirect_to]
+```
 
 You can specify srcvm and destvm by name or by one of the reserved keywords such as `@anyvm`, `@dispvm`, or `dom0`.
 (Of these three, only `@anyvm` keyword makes sense in the srcvm field.
@@ -109,36 +115,46 @@ In the target VM, the file `/etc/qubes-rpc/RPC_ACTION_NAME` must exist, containi
 
 From outside of dom0, RPC calls take the following form:
 
-    $ qrexec-client-vm target_vm_name RPC_ACTION_NAME rpc_client_path client arguments
+```
+$ qrexec-client-vm target_vm_name RPC_ACTION_NAME rpc_client_path client arguments
+```
 
 For example:
 
-    $ qrexec-client-vm work qubes.StartApp+firefox
+```
+$ qrexec-client-vm work qubes.StartApp+firefox
+```
 
 Note that only stdin/stdout is passed between RPC server and client -- notably, no command line arguments are passed.
 By default, stderr of client and server is logged in the syslog/journald of the VM where the process is running.
 
 It is also possible to call service without specific client program -- in which case server stdin/out will be connected with the terminal:
 
-    $ qrexec-client-vm target_vm_name RPC_ACTION_NAME
+```
+$ qrexec-client-vm target_vm_name RPC_ACTION_NAME
+```
 
 ### Specifying VMs: tags, types, targets, etc.
 
 There are severals methods for specifying source/target VMs in RPC policies.
 
- * `@tag:some-tag` - meaning a VM with tag `some-tag`
- * `@type:type` - meaning a VM of `type` (like `AppVM`, `TemplateVM` etc)
+- `@tag:some-tag` - meaning a VM with tag `some-tag`
+- `@type:type` - meaning a VM of `type` (like `AppVM`, `TemplateVM` etc)
 
 Target VM can be also specified as `@default`, which matches the case when calling VM didn't specified any particular target (either by using `@default` target, or empty target).
 For DisposableVMs, `@dispvm:DISP_VM` is very similar to `@dispvm` but forces using a particular VM (`DISP_VM`) as a base VM to be started as DisposableVM.
 For example:
 
-    anon-whonix @dispvm:anon-whonix-dvm allow
+```
+anon-whonix @dispvm:anon-whonix-dvm allow
+```
 
 Adding such policy itself will not force usage of this particular `DISP_VM` - it will only allow it when specified by the caller.
 But `@dispvm:DISP_VM` can also be used as target in request redirection, so _it is possible_ to force particular `DISP_VM` usage, when caller didn't specify it:
 
-    anon-whonix @dispvm allow,target=@dispvm:anon-whonix-dvm
+```
+anon-whonix @dispvm allow,target=@dispvm:anon-whonix-dvm
+```
 
 Note that without redirection, this rule would allow using default Disposable VM (`default_dispvm` VM property, which itself defaults to global `default_dispvm` property).
 Also note that the request will be allowed (`allow` action) even if there is no second rule allowing calls to `@dispvm:anon-whonix-dvm`, or even if there is a rule explicitly denying it.
@@ -150,9 +166,11 @@ It is not possible to select VM that policy would deny.
 By default no VM is selected, even if the caller provided some, but policy can specify default value using `default_target=` parameter.
 For example:
 
-    work-mail work-archive allow
-    work-mail @tag:work ask,default_target=work-files
-    work-mail @default  ask,default_target=work-files
+```
+work-mail work-archive allow
+work-mail @tag:work ask,default_target=work-files
+work-mail @default  ask,default_target=work-files
+```
 
 The first rule allow call from `work-mail` to `work-archive`, without any confirmation.
 The second rule will ask the user about calls from `work-mail` VM to any VM with tag `work`.
@@ -196,15 +214,17 @@ And generally the less choices the user must make, the lower the chance to make 
 
 The syntax is simple: when calling a service, add an argument to the service name separated with `+` sign, for example:
 
-    $ qrexec-client-vm target_vm_name RPC_ACTION_NAME+ARGUMENT
+```
+$ qrexec-client-vm target_vm_name RPC_ACTION_NAME+ARGUMENT
+```
 
 Then create a policy as usual, including the argument (`/etc/qubes-rpc/policy/RPC_ACTION_NAME+ARGUMENT`).
 If the policy for the specific argument is not set (file does not exist), then the default policy for this service is loaded (`/etc/qubes-rpc/policy/RPC_ACTION_NAME`).
 
 In target VM (when the call is allowed) the service file will searched as:
 
- - `/etc/qubes-rpc/RPC_ACTION_NAME+ARGUMENT`
- - `/etc/qubes-rpc/RPC_ACTION_NAME`
+- `/etc/qubes-rpc/RPC_ACTION_NAME+ARGUMENT`
+- `/etc/qubes-rpc/RPC_ACTION_NAME`
 
 In any case, the script will receive `ARGUMENT` as its argument and additionally as `QREXEC_SERVICE_ARGUMENT` environment variable.
 This means it is also possible to install a different script for a particular service argument.
@@ -222,35 +242,45 @@ To demostrate some of the possibilities afforded by the qrexec framework, here a
 As a demonstration, we can create an RPC service that adds two integers in a target domain (the server, call it "anotherVM") and returns back the result to the invoker (the client, "someVM").
 In someVM, create a file with the following contents and save it with the path `/usr/bin/our_test_add_client`:
 
-    #!/bin/sh
-    echo $1 $2             # pass data to RPC server
-    exec cat >&$SAVED_FD_1 # print result to the original stdout, not to the other RPC endpoint
+```
+#!/bin/sh
+echo $1 $2             # pass data to RPC server
+exec cat >&$SAVED_FD_1 # print result to the original stdout, not to the other RPC endpoint
+```
 
 Our server will be anotherVM at `/usr/bin/our_test_add_server`.
 The code for this file is:
 
-    #!/bin/sh
-    read arg1 arg2        # read from stdin, which is received from the RPC client
-    echo $(($arg1+$arg2)) # print to stdout, which is passed to the RPC client
+```
+#!/bin/sh
+read arg1 arg2        # read from stdin, which is received from the RPC client
+echo $(($arg1+$arg2)) # print to stdout, which is passed to the RPC client
+```
 
 We'll need to create a service called `test.Add` with its own definition and policy file in dom0.
 Now we need to define what the service does.
 In this case, it should call our addition script.
 We define the service with another one-line file, `/etc/qubes-rpc/test.Add`:
 
-    /usr/bin/our_test_add_server
+```
+/usr/bin/our_test_add_server
+```
 
 The administrative domain will direct traffic based on the current RPC policies.
 In dom0, create a file at `/etc/qubes-rpc/policy/test.Add` containing the following:
 
-    @anyvm @anyvm ask
+```
+@anyvm @anyvm ask
+```
 
 This will allow our client and server to communicate.
 
 Before we make the call, ensure that the client and server scripts have executable permissions.
 Finally, invoke the RPC service.
 
-    $ qrexec-client-vm anotherVM test.Add /usr/bin/our_test_add_client 1 2
+```
+$ qrexec-client-vm anotherVM test.Add /usr/bin/our_test_add_client 1 2
+```
 
 We should get "3" as answer.
 (dom0 will ask for confirmation first.)
@@ -266,13 +296,15 @@ And no separate client script will be used.
 
 RPC server code (*/etc/qubes-rpc/test.File*)
 
-    #!/bin/sh
-    argument="$1" # service argument, also available as $QREXEC_SERVICE_ARGUMENT
-    if [ -z "$argument" ]; then
-        echo "ERROR: No argument given!"
-        exit 1
-    fi
-    cat "/home/user/rpc-file-storage/$argument"
+```
+#!/bin/sh
+argument="$1" # service argument, also available as $QREXEC_SERVICE_ARGUMENT
+if [ -z "$argument" ]; then
+    echo "ERROR: No argument given!"
+    exit 1
+fi
+cat "/home/user/rpc-file-storage/$argument"
+```
 
 (The service argument is already sanitized by qrexec framework. It is guaranteed to not contain any spaces or slashes, so there sould be no need for additional path sanitization.)
 
@@ -286,12 +318,16 @@ We'll create three policy files in dom0:
 
 invoke RPC from `source_vm1` via
 
-    /usr/lib/qubes/qrexec-client-vm target_vm test.File+testfile1
+```
+qrexec-client-vm target_vm test.File+testfile1
+```
 
 and we should get content of `/home/user/rpc-file-storage/testfile1` as answer.
 
 also possible to invoke RPC from `source_vm2` via
 
-    /usr/lib/qubes/qrexec-client-vm target_vm test.File+testfile2
+```
+qrexec-client-vm target_vm test.File+testfile2
+```
 
 But when invoked with other argument or from different VM, it should be denied.
