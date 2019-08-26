@@ -73,5 +73,5 @@ the instructions above. This will be time consuming process.
 [upgrade-r3.1]: /doc/releases/3.1/release-notes/#upgrading
 [backup]: /doc/backup-restore/
 [qrexec-argument]: https://github.com/QubesOS/qubes-issues/issues/1876
-[qrexec-doc]: /doc/qrexec/#service-argument-in-policy
+[qrexec-doc]: /doc/qrexec/#service-policies-with-arguments
 [github-release-notes]: https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+3.2%22+label%3Arelease-notes+is%3Aclosed

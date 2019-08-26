@@ -85,8 +85,6 @@ Additionally, disposable VMs are tightly integrated -- RPC to a DisposableVM is 
 
 ## Qubes RPC administration
 
-<!-- (*TODO: fix for non-linux dom0*) -->
-
 ### Policy files
 
 The dom0 directory `/etc/qubes-rpc/policy/` contains a file for each available RPC action that a VM might call.
@@ -201,35 +199,34 @@ By contrast, the `qubes.StartApp` service allows you to run only applications th
 While there isn't much practical difference between the two commands above when starting an application from dom0 in Qubes 4.0, there is a significant security risk when launching applications from a domU (e.g., from a separate GUI domain).
 This is why `qubes.StartApp` uses our standard `qrexec` argument grammar to strictly filter the permissible grammar of the `Exec=` lines in `.desktop` files that are passed from untrusted domUs to dom0, thereby protecting dom0 from command injection by maliciously-crafted `.desktop` files.
 
+### Service policies with arguments
 
-### Service argument in policy
+Sometimes a service name alone isn't enough to make reasonable qrexec policy.
+One example of such a situation is [qrexec-based USB passthrough](https://www.qubes-os.org/doc/usb-devices/).
+Using just a service name would make it difficult to express the policy "allow access to devices X and Y, but deny to all others."
+It isn't feasible to create a separate service for every device: we would need to change the code in multiple files any time we wanted to update the service.
 
-Sometimes just service name isn't enough to make reasonable qrexec policy.
-One example of such a situation is [qrexec-based USB passthrough](https://github.com/qubesos/qubes-issues/issues/531) - using just service name isn't possible to express the policy "allow access to device X and deny to others".
-It also isn't feasible to create a separate service for every device...
+For this reason it is possible to specify a service argument, which will be subject to a policy.
+A service argument can make service policies more fine-grained.
+With arguments, it is easier to write more precise policies using the "allow" and "deny" actions, instead of relying on the "ask" method.
+(Writing too many "ask" policies offloads additional decisions to the user.
+Generally, the fewer choices the user must make, the lower the chance to make a mistake.)
 
-For this reason, starting with Qubes 3.2, it is possible to specify a service argument, which will be subject to policy.
-Besides the above example of USB passthrough, a service argument can make many service policies more fine-grained and easier to write precise policy with "allow" and "deny" actions, instead of "ask" (offloading additional decisions to the user).
-And generally the less choices the user must make, the lower the chance to make a mistake.
+Each specific argument that we want to use needs its own policy in dom0 at a path like `/etc/qubes-rpc/policy/RPC_ACTION_NAME+ARGUMENT`.
+So for instance, we might have policies called `test.Device`, `test.Device+device1` and `test.Device+device2`.
+If the policy for the specific argument is not set (that is, if no file exists for `RPC_ACTION_NAME+ARGUMENT`), then dom0 uses the default policy with no argument for this service.
 
-The syntax is simple: when calling a service, add an argument to the service name separated with `+` sign, for example:
+When calling a service that takes an argument, just add the argument to the service name separated with `+`.
 
 ```
 $ qrexec-client-vm target_vm_name RPC_ACTION_NAME+ARGUMENT
 ```
 
-Then create a policy as usual, including the argument (`/etc/qubes-rpc/policy/RPC_ACTION_NAME+ARGUMENT`).
-If the policy for the specific argument is not set (file does not exist), then the default policy for this service is loaded (`/etc/qubes-rpc/policy/RPC_ACTION_NAME`).
+The script will receive `ARGUMENT` as its argument.
+The argument will also become available as the `QREXEC_SERVICE_ARGUMENT` environment variable.
+This means it is possible to install a different script for a particular service argument.
 
-In target VM (when the call is allowed) the service file will searched as:
-
-- `/etc/qubes-rpc/RPC_ACTION_NAME+ARGUMENT`
-- `/etc/qubes-rpc/RPC_ACTION_NAME`
-
-In any case, the script will receive `ARGUMENT` as its argument and additionally as `QREXEC_SERVICE_ARGUMENT` environment variable.
-This means it is also possible to install a different script for a particular service argument.
-
-See below for an example service using an argument.
+See [below](#rpc-service-with-argument-file-reader) for an example of an RPC service using an argument.
 
 <!-- TODO document "Yes to All" authorization if it is reintroduced -->
 
@@ -290,15 +287,15 @@ We should get "3" as answer.
 ### RPC service with argument (file reader)
 
 Here we create an RPC call that reads a specific file from a predefined directory on the target.
-This example uses an [argument](#service-argument-in-policy) to the policy.
+This example uses an [argument](#service-policies-with-arguments) to the policy.
 In this example a simplified workflow will be used. The service code placed is placed directly in the service definition file on the target VM.
 No separate client script will be needed.
 
 First, on your target VM, create two files in the home directory: `testfile1` and `testfile2`.
-Have them contain two different lines (like "Hello world!" and "Hello world! (2)").
+Have them contain two different "Hello world!" lines.
 
-Now place the code below in `/etc/qubes-rpc/test.File` on that same target VM.
-This will create and define our RPC service.
+Next, we define the RPC service.
+On the target VM, place the code below at `/etc/qubes-rpc/test.File`:
 
 ```
 #!/bin/sh
@@ -310,13 +307,15 @@ fi
 cat "/home/user/$argument"
 ```
 
-(The service argument is already sanitized by qrexec framework. It is guaranteed to not contain any spaces or slashes, so there sould be no need for additional path sanitization.)
+(The service argument is already sanitized by qrexec framework.
+It is guaranteed to not contain any spaces or slashes, so there should be no need for additional path sanitization.)
 
-Now we create three policy files in dom0 (see table).
+Now we create three policy files in dom0.
+See the table below for details.
 Replace "source_vm1" and others with the names of your own chosen domains.
 
 |------------------------------------------------------------------------|
-| Path to file in `dom0`                    | Policy contents            |
+| Path to file in dom0                      | Policy contents            |
 |-------------------------------------------+----------------------------|
 | /etc/qubes-rpc/policy/test.File           | @anyvm @anyvm deny         |
 | /etc/qubes-rpc/policy/test.File+testfile1 | source_vm1 target_vm allow |
@@ -327,10 +326,10 @@ With this done, we can run some tests.
 Invoke RPC from `source_vm1` via
 
 ```
-$ qrexec-client-vm target_vm test.File+testfile1
+[user@source_vm1] $ qrexec-client-vm target_vm test.File+testfile1
 ```
 
-We should get the contents of `/home/user/rpc-file-storage/testfile1`.
+We should get the contents of `/home/user/testfile1` printed to the terminal.
 Invoking the service from `source_vm2` should work the same, and `testfile2` should also work.
 
 ```
@@ -338,4 +337,4 @@ Invoking the service from `source_vm2` should work the same, and `testfile2` sho
 [user@source_vm2] $ qrexec-client-vm target_vm test.File+testfile2
 ```
 
-But when invoked with other argument or from different VM, it should be denied.
+But when invoked with other arguments or from a different VM, it should be denied.
