@@ -235,11 +235,11 @@ See below for an example service using an argument.
 
 ## Qubes RPC examples
 
-To demostrate some of the possibilities afforded by the qrexec framework, here are two examples of custom RPC services.
+To demonstrate some of the possibilities afforded by the qrexec framework, here are two examples of custom RPC services.
 
 ### Simple RPC service (addition)
 
-As a demonstration, we can create an RPC service that adds two integers in a target domain (the server, call it "anotherVM") and returns back the result to the invoker (the client, "someVM").
+We can create an RPC service that adds two integers in a target domain (the server, call it "anotherVM") and returns back the result to the invoker (the client, "someVM").
 In someVM, create a file with the following contents and save it with the path `/usr/bin/our_test_add_client`:
 
 ```
@@ -289,12 +289,16 @@ We should get "3" as answer.
 
 ### RPC service with argument (file reader)
 
-This example uses an [argument](#service-argument-in-policy) to the policy to create an RPC call that reads a specific file from a predefined directory on the target.
-<!-- Besides really naive storage, it may be a very simple password manager. -->
-Additionally, in this example a simplified workflow will be used - server code placed directly in the service definition file (in `/etc/qubes-rpc` directory).
-And no separate client script will be used.
+Here we create an RPC call that reads a specific file from a predefined directory on the target.
+This example uses an [argument](#service-argument-in-policy) to the policy.
+In this example a simplified workflow will be used. The service code placed is placed directly in the service definition file on the target VM.
+No separate client script will be needed.
 
-RPC server code (*/etc/qubes-rpc/test.File*)
+First, on your target VM, create two files in the home directory: `testfile1` and `testfile2`.
+Have them contain two different lines (like "Hello world!" and "Hello world! (2)").
+
+Now place the code below in `/etc/qubes-rpc/test.File` on that same target VM.
+This will create and define our RPC service.
 
 ```
 #!/bin/sh
@@ -303,31 +307,35 @@ if [ -z "$argument" ]; then
     echo "ERROR: No argument given!"
     exit 1
 fi
-cat "/home/user/rpc-file-storage/$argument"
+cat "/home/user/$argument"
 ```
 
 (The service argument is already sanitized by qrexec framework. It is guaranteed to not contain any spaces or slashes, so there sould be no need for additional path sanitization.)
 
-We'll create three policy files in dom0:
+Now we create three policy files in dom0 (see table).
+Replace "source_vm1" and others with the names of your own chosen domains.
 
+|------------------------------------------------------------------------|
 | Path to file in `dom0`                    | Policy contents            |
 |-------------------------------------------+----------------------------|
 | /etc/qubes-rpc/policy/test.File           | @anyvm @anyvm deny         |
 | /etc/qubes-rpc/policy/test.File+testfile1 | source_vm1 target_vm allow |
 | /etc/qubes-rpc/policy/test.File+testfile2 | source_vm2 target_vm allow |
+|------------------------------------------------------------------------|
 
-invoke RPC from `source_vm1` via
-
-```
-qrexec-client-vm target_vm test.File+testfile1
-```
-
-and we should get content of `/home/user/rpc-file-storage/testfile1` as answer.
-
-also possible to invoke RPC from `source_vm2` via
+With this done, we can run some tests.
+Invoke RPC from `source_vm1` via
 
 ```
-qrexec-client-vm target_vm test.File+testfile2
+$ qrexec-client-vm target_vm test.File+testfile1
+```
+
+We should get the contents of `/home/user/rpc-file-storage/testfile1`.
+Invoking the service from `source_vm2` should work the same, and `testfile2` should also work.
+
+```
+[user@source_vm2] $ qrexec-client-vm target_vm test.File+testfile1
+[user@source_vm2] $ qrexec-client-vm target_vm test.File+testfile2
 ```
 
 But when invoked with other argument or from different VM, it should be denied.
