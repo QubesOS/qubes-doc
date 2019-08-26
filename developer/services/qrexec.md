@@ -213,7 +213,11 @@ See below for an example service using an argument.
 
 <!-- TODO document "Yes to All" authorization if it is reintroduced -->
 
-### Qubes RPC example
+## Qubes RPC examples
+
+To demostrate some of the possibilities afforded by the qrexec framework, here are two examples of custom RPC services.
+
+### Simple RPC service (addition)
 
 As a demonstration, we can create an RPC service that adds two integers in a target domain (the server, call it "anotherVM") and returns back the result to the invoker (the client, "someVM").
 In someVM, create a file with the following contents and save it with the path `/usr/bin/our_test_add_client`:
@@ -253,46 +257,41 @@ We should get "3" as answer.
 
 **Note:** For a real world example of writing a qrexec service, see this [blog post](https://blog.invisiblethings.org/2013/02/21/converting-untrusted-pdfs-into-trusted.html).
 
-### Qubes RPC example - with argument usage
+### RPC service with argument (file reader)
 
-We will show the necessary files to create an RPC call that reads a specific file from a predefined directory on the target.
-Besides really naive storage, it may be a very simple password manager.
+This example uses an [argument](#service-argument-in-policy) to the policy to create an RPC call that reads a specific file from a predefined directory on the target.
+<!-- Besides really naive storage, it may be a very simple password manager. -->
 Additionally, in this example a simplified workflow will be used - server code placed directly in the service definition file (in `/etc/qubes-rpc` directory).
 And no separate client script will be used.
 
- * RPC server code (*/etc/qubes-rpc/test.File*)
+RPC server code (*/etc/qubes-rpc/test.File*)
 
-       #!/bin/sh
-       argument="$1" # service argument, also available as $QREXEC_SERVICE_ARGUMENT
-       if [ -z "$argument" ]; then
-         echo "ERROR: No argument given!"
-         exit 1
-       fi
-       # service argument is already sanitized by qrexec framework and it is
-       # guaranteed to not contain any space or /, so no need for additional path
-       # sanitization
-       cat "/home/user/rpc-file-storage/$argument"
+    #!/bin/sh
+    argument="$1" # service argument, also available as $QREXEC_SERVICE_ARGUMENT
+    if [ -z "$argument" ]; then
+        echo "ERROR: No argument given!"
+        exit 1
+    fi
+    cat "/home/user/rpc-file-storage/$argument"
 
- * specific policy file in dom0 (*/etc/qubes-rpc/policy/test.File+testfile1* )
+(The service argument is already sanitized by qrexec framework. It is guaranteed to not contain any spaces or slashes, so there sould be no need for additional path sanitization.)
 
-       source_vm1 target_vm allow
+We'll create three policy files in dom0:
 
- * another specific policy file in dom0 (*/etc/qubes-rpc/policy/test.File+testfile2* )
+| Path to file in `dom0`                    | Policy contents            |
+|-------------------------------------------+----------------------------|
+| /etc/qubes-rpc/policy/test.File           | @anyvm @anyvm deny         |
+| /etc/qubes-rpc/policy/test.File+testfile1 | source_vm1 target_vm allow |
+| /etc/qubes-rpc/policy/test.File+testfile2 | source_vm2 target_vm allow |
 
-       source_vm2 target_vm allow
+invoke RPC from `source_vm1` via
 
- * default policy file in dom0 (*/etc/qubes-rpc/policy/test.File* )
+    /usr/lib/qubes/qrexec-client-vm target_vm test.File+testfile1
 
-       @anyvm @anyvm deny
+and we should get content of `/home/user/rpc-file-storage/testfile1` as answer.
 
- * invoke RPC from `source_vm1` via
+also possible to invoke RPC from `source_vm2` via
 
-       /usr/lib/qubes/qrexec-client-vm target_vm test.File+testfile1
+    /usr/lib/qubes/qrexec-client-vm target_vm test.File+testfile2
 
-   and we should get content of `/home/user/rpc-file-storage/testfile1` as answer.
-
- * also possible to invoke RPC from `source_vm2` via
-
-       /usr/lib/qubes/qrexec-client-vm target_vm test.File+testfile2
-
-   But when invoked with other argument or from different VM, it should be denied.
+But when invoked with other argument or from different VM, it should be denied.
