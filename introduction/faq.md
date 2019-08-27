@@ -118,7 +118,7 @@ Please refer to [this page](/doc/vm-sudo/).
 ### Why is dom0 so old?
 
 Please see:
-- [Why would one want to update software in dom0?](/doc/software-update-dom0/#why-would-one-want-to-install-or-update-software-in-dom0)
+- [Installing and updating software in dom0](/doc/software-update-dom0/)
 - [Note on dom0 and EOL](/doc/supported-versions/#note-on-dom0-and-eol)
 
 ### Do you recommend coreboot as an alternative to vendor BIOS?
