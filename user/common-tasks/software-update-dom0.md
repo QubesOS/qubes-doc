@@ -131,16 +131,16 @@ This section describes upgrading the kernel in dom0 and domUs.
 The packages `kernel` and `kernel-latest` are for dom0.
 
 In the `current` repository:
- - `kenrnel`: an older LTS kernel that has passed Qubes [testing] (the default dom0 kernel)
+ - `kernel`: an older LTS kernel that has passed Qubes [testing] (the default dom0 kernel)
  - `kernel-latest`: the latest release from kernel.org that has passed Qubes [testing] (useful for [troubleshooting newer hardware])
 
 In the `current-testing` repository:
- - `kenrnel`: the latest LTS kernel from kernel.org at the time it was built.
+ - `kernel`: the latest LTS kernel from kernel.org at the time it was built.
  - `kernel-latest`: the latest release from kernel.org at the time it was built.
 
 ### domU
 
-The package `kernel-qubes-vm` is for domUs.
+The packages `kernel-qubes-vm` and `kernel-latest-qubes-vm` are for domUs.
 See [Managing VM kernel] for more information.
 
 ### Example
