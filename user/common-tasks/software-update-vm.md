@@ -11,6 +11,10 @@ redirect_from:
 Installing and updating software in VMs
 =======================================
 
+Updating TemplateVMs and StandaloneVMs are two of the main steps in [Updating Qubes OS].
+It is very import to keep TemplateVMs and StandaloneVMs up-to-date with the latest [security] updates.
+Updating these VMs also allows you to receive various non-security bug fixes and enhancements both from the Qubes OS Project and from your upstream distro maintainer.
+
 How TemplateVMs work in Qubes
 ------------------------------
 
@@ -255,4 +259,8 @@ If you would like to enable the [RPM Fusion](http://rpmfusion.org/) repository, 
 sudo dnf config-manager --set-enabled rpmfusion-free rpmfusion-nonfree
 sudo dnf upgrade --refresh
 ~~~
+
+
+[Updating Qubes OS]: /doc/updating-qubes-os/
+[security]: /security/
 
