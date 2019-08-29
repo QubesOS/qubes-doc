@@ -387,3 +387,9 @@ Where to put firewall rules
 Implicit in the above example [scripts](/doc/config-files/), but worth calling attention to: for all qubes *except* AppVMs supplying networking, iptables commands should be added to the `/rw/config/rc.local` script.
 For AppVMs supplying networking (`sys-firewall` inclusive), iptables commands should be added to `/rw/config/qubes-firewall-user-script`.
 
+Firewall troubleshooting
+------------------------
+
+Firewall logs are stored in the systemd journal of the qube the firewall is running in (probably `sys-firewall`).
+You can view them by running `sudo journalctl -u qubes-firewall.service` in the relevant qube.
+Sometimes these logs can contain useful information about errors that are preventing the firewall from behaving as you would expect.
