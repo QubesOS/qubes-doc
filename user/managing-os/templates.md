@@ -155,8 +155,8 @@ No changes in any other directories in TemplateBasedVMs persist in this manner. 
 |TemplateBasedVM (3) | `/etc/skel` to `/home`, `/usr/local.orig` to `/usr/local` | `/rw` (includes `/home`, `/usr/local` and `bind-dirs`)
 |DisposableVM        | `/rw` (includes `/home`, `/usr/local` and `bind-dirs`)    | Nothing
 
-(1) Upon creation
-(2) Following shutdown
+(1) Upon creation  
+(2) Following shutdown  
 (3) Including [DisposableVM Template]s
 
 
