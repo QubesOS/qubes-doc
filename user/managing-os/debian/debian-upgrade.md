@@ -29,10 +29,6 @@ In general, upgrading a Debian TemplateVM follows the same process as [upgrading
     [user@debian-<new> ~]$ sudo apt update
     [user@debian-<new> ~]$ sudo apt upgrade
     [user@debian-<new> ~]$ sudo apt dist-upgrade
-    [user@debian-<new> ~]$ sudo fstrim -av
-    [user@dom0 ~]$ qvm-shutdown debian-<new>
-    [user@dom0 ~]$ qvm-start debian-<new>
-    [user@debian-<new> ~]$ sudo fstrim -av
     [user@dom0 ~]$ qvm-shutdown debian-<new>
 
 **Recommended:** [Switch everything that was set to the old template to the new template.][switch]
@@ -76,7 +72,9 @@ The same general procedure may be used to upgrade any template based on the stan
 
         [user@debian-<new> ~]$ sudo apt-get clean
 
- 7. (Recommended) Trim the new template.
+ 7. (Optional) Trim the new template.
+    (This should [no longer be necessary][template-notes], but it does not hurt.
+    Some users have [reported][5055] that it makes a difference.)
 
         [user@debian-<new> ~]$ sudo fstrim -av
         [user@dom0 ~]$ qvm-shutdown debian-<new>
@@ -161,4 +159,6 @@ We strongly recommend against using any Debian release that has reached [end-of-
 [buster]: https://www.debian.org/releases/buster/amd64/release-notes/ch-upgrading.en.html
 [end-of-life (EOL)]: https://wiki.debian.org/DebianReleases#Production_Releases
 [StandaloneVM]: /doc/standalone-and-hvm/
+[template-notes]: /doc/templates/#important-notes
+[5055]: https://github.com/QubesOS/qubes-issues/issues/5055
 

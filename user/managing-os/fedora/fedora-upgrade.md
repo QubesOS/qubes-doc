@@ -40,10 +40,6 @@ If you wish to install a new, unmodified Fedora TemplateVM instead of upgrading 
     [user@fedora-<new> ~]$ sudo mount /dev/xvdi /mnt/removable
     [user@fedora-<new> ~]$ sudo dnf clean all
     [user@fedora-<new> ~]$ sudo dnf --releasever=<new> --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
-    [user@fedora-<new> ~]$ sudo fstrim -av
-    [user@dom0 ~]$ qvm-shutdown fedora-<new>
-    [user@dom0 ~]$ qvm-start fedora-<new>
-    [user@fedora-<new> ~]$ sudo fstrim -av
     [user@dom0 ~]$ qvm-shutdown fedora-<new>
     [user@dom0 ~]$ sudo losetup -d $dev
     [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
@@ -115,7 +111,9 @@ The same general procedure may be used to upgrade any template based on the stan
  
         [user@fedora-<new> ~]$ cat /etc/fedora-release
 
- 5. (Recommended) Trim the new template.
+ 5. (Optional) Trim the new template.
+    (This should [no longer be necessary][template-notes], but it does not hurt.
+    Some users have [reported][5055] that it makes a difference.)
 
         [user@fedora-<new> ~]$ sudo fstrim -av
         [user@dom0 ~]$ qvm-shutdown fedora-<new>
@@ -210,4 +208,6 @@ In this case, you have several options:
 [DispVM]: /doc/dispvm/
 [end-of-life (EOL)]: https://fedoraproject.org/wiki/End_of_life
 [StandaloneVM]: /doc/standalone-and-hvm/
+[template-notes]: /doc/templates/#important-notes
+[5055]: https://github.com/QubesOS/qubes-issues/issues/5055
 
