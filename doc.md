@@ -64,7 +64,7 @@ Core documentation for Qubes users.
  * [Copying from (and to) Dom0](/doc/copy-from-dom0/)
  * [Updating Qubes OS](/doc/updating-qubes-os/)
  * [Installing and Updating Software in Dom0](/doc/software-update-dom0/)
- * [Installing and Updating Software in VMs](/doc/software-update-vm/)
+ * [Installing and Updating Software in DomUs](/doc/software-update-domu/)
  * [Backup, Restoration, and Migration](/doc/backup-restore/)
  * [DisposableVMs](/doc/disposablevm/)
  * [Block (or Storage) Devices](/doc/block-devices/)
@@ -78,12 +78,8 @@ Core documentation for Qubes users.
 ### Managing Operating Systems within Qubes
 
  * [TemplateVMs](/doc/templates/)
- * [Template: Fedora](/doc/templates/fedora/)
- * [Template: Fedora Minimal](/doc/templates/fedora-minimal/)
- * [Template: Debian](/doc/templates/debian/)
- * [Template: Debian Minimal](/doc/templates/debian-minimal/)
  * [Windows](/doc/windows/)
- * [HVM Domains](/doc/hvm/)
+ * [StandaloneVMs and HVMs](/doc/standalone-and-hvm/)
 
 ### Security in Qubes
 

@@ -32,8 +32,8 @@ The one exception is dom0, which [doesn't have to be upgraded][dom0-eol].
 [Upgrade Guides]: /doc/upgrade/
 [security]: /security/
 [Dom0]: /doc/software-update-dom0/
-[TemplateVMs]: /doc/software-update-vm/#installing-or-updating-software-in-the-templatevm
-[StandaloneVMs]: /doc/software-update-vm/#standalone-vms
+[TemplateVMs]: /doc/software-update-domu/#updating-software-in-templatevms
+[StandaloneVMs]: /doc/software-update-domu/#standalonevms
 [Fedora TemplateVM]: /doc/templates/fedora/
 [Fedora Project]: https://getfedora.org/
 [schedule]: https://fedoraproject.org/wiki/Fedora_Release_Life_Cycle#Maintenance_Schedule

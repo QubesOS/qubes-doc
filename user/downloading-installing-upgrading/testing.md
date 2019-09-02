@@ -55,7 +55,7 @@ If you [report a bug] in a package that is in a testing repository, please refer
 [Version Scheme]: /doc/version-scheme/
 [Release Checklist]: /doc/releases/todo/
 [dom0 testing repositories]: /doc/software-update-dom0/#testing-repositories
-[TemplateVM testing repositories]: /doc/software-update-vm/#testing-repositories
+[TemplateVM testing repositories]: /doc/software-update-domu/#testing-repositories
 [automated build process]: https://github.com/QubesOS/qubes-infrastructure/blob/master/README.md
 [updates-status]: https://github.com/QubesOS/updates-status/issues
 [report a bug]: /doc/reporting-bugs/

@@ -421,7 +421,7 @@ For Debian:
 For Fedora:
 
 1. (Recommended) Clone an existing Fedora TemplateVM
-2. [Enable the appropriate RPMFusion repos in the desired Fedora TemplateVM.](/doc/software-update-vm/#rpmfusion-for-a-fedora-templatevm)
+2. [Enable the appropriate RPMFusion repos in the desired Fedora TemplateVM.](/doc/software-update-domu/#rpmfusion-for-fedora-templatevms)
 3. Install VLC in that TemplateVM:
 
        $ sudo dnf install vlc
