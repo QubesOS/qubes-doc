@@ -130,6 +130,7 @@ Rather, it must be updated individually from inside the StandaloneVM.
 
 ## Important Notes
 
- * `qvm-trim-template` is not necessary. All VMs are created in a thin pool
-   and trimming is handled automatically. No user action is required.
+ * `qvm-trim-template` is no longer necessary or available in Qubes 4.0 and higher.
+   All VMs are created in a thin pool and trimming is handled automatically.
+   No user action is required.
 
