@@ -22,7 +22,7 @@ There are currently two Minimal TemplateVMs corresponding to the standard [Fedor
 ## Important
 
 1. The Minimal TemplateVMs are intended only for advanced users.
-   If you encounter problems with the Minimal TemplateVMs, we recommend that you use theird standard TemplateVM counterparts instead.
+   If you encounter problems with the Minimal TemplateVMs, we recommend that you use their standard TemplateVM counterparts instead.
 
 2. If something works with a standard TemplateVM but not the minimal version, this is most likely due to user error (e.g., a missing package or misconfiguration) rather than a bug.
    In such cases, you should write to [qubes-users] to ask for help rather than filing a bug report, then [contribute what you learn to the documentation][doc-guidelines].

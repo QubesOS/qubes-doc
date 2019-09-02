@@ -94,7 +94,7 @@ After installing a fresh TemplateVM, we recommend performing the following steps
 ## Updating
 
 Updating TemplateVMs is an important part of [Updating Qubes OS].
-Please see [Updating softare in TemplateVMs].
+Please see [Updating software in TemplateVMs].
 
 
 ## Uninstalling
@@ -257,6 +257,6 @@ Note the word "clean" means in this context: the same as their template filesyst
 [Update the TemplateVM]: #updating
 [switch]: #switching
 [uninstall the old TemplateVM]: #uninstalling
-[Updating softare in TemplateVMs]: /doc/software-update-domu/#updating-software-in-templatevms
+[Updating software in TemplateVMs]: /doc/software-update-domu/#updating-software-in-templatevms
 [How to Reinstall a TemplateVM]: /doc/reinstall-template/
 
