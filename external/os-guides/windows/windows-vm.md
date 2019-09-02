@@ -162,7 +162,7 @@ To avoid that error we temporarily have to switch the video adapter to 'cirrus':
 qvm-features win7new video-model cirrus
 ~~~
 
-The VM is now ready to be started; the best practice is to use an installation ISO [located in a VM](/doc/hvm/#installing-an-os-in-an-hvm-qube):
+The VM is now ready to be started; the best practice is to use an installation ISO [located in a VM](/doc/standalone-and-hvm/#installing-an-os-in-an-hvm):
 
 ~~~
 qvm-start --cdrom=untrusted:/home/user/windows_install.iso win7new

@@ -32,5 +32,5 @@ When a template is marked as 'installed by package manager', but cannot be unins
 - If `installed_by_rpm` remains `True`, reboot your computer to bring qubes.xml in sync with qubesd, and try again to remove the template.
 
 
-[normal method]: /doc/templates/#how-to-install-uninstall-reinstall-and-switch
+[normal method]: /doc/templates/#uninstalling
 

@@ -58,7 +58,7 @@ This section contains notes about specific Fedora releases.
 [Update the TemplateVM]: /doc/software-update-vm/
 [switch]: /doc/templates/#switching
 [uninstall the old TemplateVM]: /doc/templates/#uninstalling
-[Updating software in TemplateVMs]: /doc/software-update-domu/#updating-softare-in-templatevms
+[Updating software in TemplateVMs]: /doc/software-update-domu/#updating-software-in-templatevms
 [Upgrading Fedora TemplateVMs]: /doc/template/fedora/upgrade/
 [install]: /doc/templates/#installing
 

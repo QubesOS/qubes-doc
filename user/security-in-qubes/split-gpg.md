@@ -310,7 +310,7 @@ As always, exercise caution and use your good judgment.)
 [pasted]: /doc/copy-paste#on-copypaste-security
 [​MUA]: https://en.wikipedia.org/wiki/Mail_user_agent
 [covert channels]: /doc/data-leaks
-[trusting-templates]: /doc/software-update-vm/#notes-on-trusting-your-templatevms
+[trusting-templates]: /doc/templates/#notes-on-trusting-your-templatevms
 [openpgp-in-qubes-os]: https://groups.google.com/d/topic/qubes-users/Kwfuern-R2U/discussion
 [cabal]: https://alexcabal.com/creating-the-perfect-gpg-keypair/
 [luck]: https://gist.github.com/abeluck/3383449

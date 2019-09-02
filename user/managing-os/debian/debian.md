@@ -128,8 +128,8 @@ One solution is to add a dummy interface to allow the package to install correct
 [How to Reinstall a TemplateVM]: /doc/reinstall-template/
 [Update the TemplateVM]: /doc/software-update-vm/
 [switch]: /doc/templates/#switching
-[uninstall the old TemplateVM]: /doc/templates/#how-to-uninstall
-[Updating software in TemplateVMs]: /doc/software-update-domu/#updating-softare-in-templatevms
+[uninstall the old TemplateVM]: /doc/templates/#uninstalling
+[Updating software in TemplateVMs]: /doc/software-update-domu/#updating-software-in-templatevms
 [Upgrading Debian TemplateVMs]: /doc/template/debian/upgrade/
 [5149]: https://github.com/QubesOS/qubes-issues/issues/5149
 [install]: /doc/templates/#installing

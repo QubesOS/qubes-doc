@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: StandaloneVMs and HVMs
-permalink: /doc/standalone-and-hvm
+permalink: /doc/standalone-and-hvm/
 redirect_from:
 - /doc/hvm/
 - /doc/hvm-create/
