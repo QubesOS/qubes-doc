@@ -1,29 +1,58 @@
 ---
 layout: doc
-title: HVM
-permalink: /doc/hvm/
+title: StandaloneVMs and HVMs
+permalink: /doc/standalone-and-hvm
 redirect_from:
+- /doc/hvm/
 - /doc/hvm-create/
 - /en/doc/hvm-create/
 - /doc/HvmCreate/
 - /wiki/HvmCreate/
 ---
 
-HVM
-===
+# StandaloneVMs and HVMs
 
-A **Hardware-assisted Virtual Machine (HVM)**, also known as a **Fully-Virtualized Virtual Machine**, utilizes the virtualization extensions of the host CPU.
-These are typically contrasted with **Paravirtualized (PV)** VMs.
+A [StandaloneVM](/doc/glossary/#standalonevm) is a type of VM in Qubes that is created by cloning a [TemplateVM](/doc/templates/).
+Unlike TemplateVMs, however, StandaloneVMs do not supply their root filesystems to other VMs.
+Examples of situations in which StandaloneVMs can be useful include:
 
-HVMs allow you to create qubes based on any OS for which you have an installation ISO.
-So you can easily have qubes running Windows, *BSD, or any Linux distribution. You can also use HVMs to run "live" distros.
+ * VMs used for development (dev environments often require a lot of specific packages and tools)
+ * VMs used for installing untrusted packages.
+   Normally, you install digitally signed software from Red Hat/Fedora repositories, and it's reasonable that such software has non malicious *installation* scripts (rpm pre/post scripts).
+   However, when you would like to install some packages from less trusted sources, or unsigned, then using a dedicated (untrusted) standalone VM might be a better way.
 
-By default, every Qubes VM runs in **PVH** mode (which has security advantages over both PV and HVM) except for those with attached PCI devices, which run in HVM mode.
+Meanwhile, a [Hardware-assisted Virtual Machine (HVM)](/doc/glossary/#hvm), also known as a "Fully-Virtualized Virtual Machine," utilizes the virtualization extensions of the host CPU.
+These are typically contrasted with [Paravirtualized (PV)](/doc/glossary/#pv) VMs.
+
+HVMs allow you to create qubes based on any OS for which you have an installation ISO, so you can easily have qubes running Windows, *BSD, or any Linux distribution.
+You can also use HVMs to run "live" distros.
+
+By default, every Qubes VM runs in [PVH](/doc/glossary/#pvhvm) mode (which has security advantages over both PV and HVM) except for those with attached PCI devices, which run in HVM mode.
 See [here](https://blog.invisiblethings.org/2017/07/31/qubes-40-rc1.html) for a discussion of the switch from PV to HVM and [here](/news/2018/01/11/qsb-37/) for the announcement about the change to using PVH as default.
 
+The StandaloneVM/TemplateVM distinction and the HVM/PV/PVH distinctions are orthogonal.
+The former is about root filesystem inheritance, whereas the latter is about the virtualization mode.
+In practice, however, it is most common for StandaloneVMs to be HVMs and for HVMs to be StandaloneVMs.
+In fact, this is so common that [StandaloneHVMs](/doc/glossary/#standalonehvm) are typically just called "HVMs."
+Hence, this page covers both topics.
 
-Creating an HVM qube
-----------------------
+
+## Creating a StandaloneVM
+
+You can create a StandaloneVM in the Qube Manager by selecting the "Type" of "Standalone qube copied from a template" or "Empty standalone qube (install your own OS)."
+
+Alternatively, from the dom0 command line:
+
+
+```
+qvm-create --class StandaloneVM --label <label> --property virt_mode=hvm <vmname>
+```
+
+(Note: Technically, `virt_mode=hvm` is not necessary for every StandaloneVM.
+However, it makes sense if you want to use a kernel from within the VM.)
+
+
+## Creating an HVM
 
 Using the GUI:  
 In Qube Manager, select "Create new qube" from the Qube menu, or select the "Create a new qube" button.  
@@ -49,8 +78,7 @@ libvirt.libvirtError: invalid argument: could not find capabilities for arch=x86
 Make sure that you give the new qube adequate memory to install and run.
 
 
-Installing an OS in an HVM qube
----------------------------------
+## Installing an OS in an HVM
 
 You will have to boot the qube with the installation media "attached" to it. You may either use the GUI or use command line instructions. 
 At the command line you can do this in three ways:
@@ -76,8 +104,7 @@ You may have to restart the qube several times in order to complete installation
 Several invocations of `qvm-start` command (as shown above) might be needed.
 
 
-Setting up networking for HVM domains
--------------------------------------
+## Setting up networking for HVMs
 
 Just like standard paravirtualized AppVMs, the HVM qubes get fixed IP addresses centrally assigned by Qubes.
 Normally Qubes agent scripts (or services on Windows) running within each AppVM are responsible for setting up networking within the VM according to the configuration created by Qubes (through [keys](/doc/vm-interface/#qubesdb) exposed by dom0 to the VM). 
@@ -99,13 +126,12 @@ The DNS IP addresses are `10.139.1.1` and `10.139.1.2`.
 There is [opt-in support](/doc/networking/#ipv6) for IPv6 forwarding.
 
 
-Using Template-based HVM domains
---------------------------------
+## Using TemplateBasedHVMs
 
-Qubes allows HVM VMs to share a common root filesystem from a select Template VM, just as for Linux AppVMs.
+Qubes allows HVMs to share a common root filesystem from a select TemplateVM (see [TemplateHVM](/doc/glossary/#templatehvm) and [TemplateBasedHVM](/doc/glossary/#templatebasedhvm)).
 This mode can be used for any HVM (e.g. FreeBSD running in a HVM). 
 
-In order to create a HVM TemplateVM you use the following command, suitably adapted:
+In order to create a TemplateHVM you use the following command, suitably adapted:
 
 ~~~
 qvm-create --class TemplateVM <qube> --property virt_mode=HVM --property kernel=''  -l green
@@ -120,8 +146,7 @@ If you use this Template as it is, then any HVMs that use it will effectively be
 Please see [this page](/doc/windows-appvms/) for specific advice on installing and using Windows-based Templates.
 
 
-Cloning HVM domains
--------------------
+## Cloning HVMs
 
 Just like normal AppVMs, the HVM domains can also be cloned either using the command-line `qvm-clone` or via the Qube Manager's 'Clone VM' option in the right-click menu.
 
@@ -222,9 +247,7 @@ timezone          : localtime
 ~~~
 
 
-
-Assigning PCI devices to HVM domains
-------------------------------------
+## Assigning PCI devices to HVMs
 
 HVM domains (including Windows VMs) can be [assigned PCI devices](/doc/assigning-devices/) just like normal AppVMs.
 E.g. one can assign one of the USB controllers to the Windows VM and should be able to use various devices that require Windows software, such as phones, electronic devices that are configured via FTDI, etc.
@@ -236,10 +259,9 @@ This is illustrated on the screenshot below:
 ![r2b1-win7-usb-disable.png](/attachment/wiki/HvmCreate/r2b1-win7-usb-disable.png)
 
 
-Converting VirtualBox VM to HVM
--------------------------------
+## Converting VirtualBox VMs to Qubes HVMs
 
-You can convert any VirtualBox VMs to an HVM using this method.
+You can convert any VirtualBox VM to a Qubes HVM using this method.
 
 For example, Microsoft provides [free 90 day evaluation VirtualBox VMs for browser testing](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
 
@@ -310,10 +332,10 @@ qemu-img -h | tail -n1
 ~~~
 
 
-Further reading
----------------
+## Further reading
 
 Other documents related to HVM:
 
 -   [Windows VMs](/doc/windows-vm/)
 -   [LinuxHVMTips](/doc/linux-hvm-tips/)
+

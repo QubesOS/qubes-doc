@@ -4,25 +4,16 @@ title: The Fedora TemplateVM
 permalink: /doc/templates/fedora/
 ---
 
-The Fedora TemplateVM
-=====================
+# The Fedora TemplateVM
 
 The Fedora [TemplateVM] is the default TemplateVM in Qubes OS.
 This page is about the standard (or "full") Fedora TemplateVM.
-For the minimal version, please see the [Fedora Minimal] page.
+For the minimal version, please see the [Minimal TemplateVMs] page.
 
-Installing
-----------
 
-The Fedora TemplateVM comes preinstalled with Qubes OS.
-However, there may be times when you wish to install a fresh copy from the Qubes repositories, e.g.:
+## Installing
 
- * When a version of Fedora reaches EOL ([end-of-life]).
- * When a new version of Fedora you wish to use becomes [supported] as a TemplateVM.
- * When you suspect your Fedora TemplateVM has been compromised.
- * When you have made modifications to the Fedora TemplateVM that you no longer want.
-
-To install a specific Fedora TemplateVM that is not currently installed in your system, use the following command in dom0:
+To [install] a specific Fedora TemplateVM that is not currently installed in your system, use the following command in dom0:
 
     $ sudo qubes-dom0-update qubes-template-fedora-XX
 
@@ -31,35 +22,43 @@ To install a specific Fedora TemplateVM that is not currently installed in your 
 To reinstall a Fedora TemplateVM that is already installed in your system, see [How to Reinstall a TemplateVM].
 
 
-After Installing
-----------------
+## After Installing
 
 After installing a fresh Fedora TemplateVM, we recommend performing the following steps:
 
 1. [Update the TemplateVM].
 
-2. [Switch any TemplateBasedVMs that are based on the old TemplateVM to the new one][switch-templates].
+2. [Switch any TemplateBasedVMs that are based on the old TemplateVM to the new one][switch].
 
 3. If desired, [uninstall the old TemplateVM].
 
 
-Upgrading
----------
+## Updating
 
-To upgrade your Fedora TemplateVM, please consult the guide that corresponds to your situation:
+Please see [Updating software in TemplateVMs].
 
- * [Upgrading the Fedora 29 Template to Fedora 30](/doc/template/fedora/upgrade-29-to-30/)
- * [Upgrading the Fedora 28 Template to Fedora 29](/doc/template/fedora/upgrade-28-to-29/)
- * [Upgrading the Fedora 27 Template to Fedora 28](/doc/template/fedora/upgrade-27-to-28/)
- * [Upgrading the Fedora 26 Template to Fedora 27](/doc/template/fedora/upgrade-26-to-27/)
+
+## Upgrading
+
+Please see [Upgrading Fedora TemplateVMs].
+
+
+## Release-specific notes
+
+This section contains notes about specific Fedora releases.
+
+(There is currently no release-specific information documented.)
 
 
 [TemplateVM]: /doc/templates/
-[Fedora Minimal]: /doc/templates/fedora-minimal/
+[Minimal TemplateVMs]: /doc/templates/minimal/
 [end-of-life]: https://fedoraproject.org/wiki/Fedora_Release_Life_Cycle#Maintenance_Schedule
 [supported]: /doc/supported-versions/#templatevms
 [How to Reinstall a TemplateVM]: /doc/reinstall-template/
 [Update the TemplateVM]: /doc/software-update-vm/
-[switch-templates]: /doc/templates/#how-to-switch-templates
-[uninstall the old TemplateVM]: /doc/templates/#how-to-uninstall
+[switch]: /doc/templates/#switching
+[uninstall the old TemplateVM]: /doc/templates/#uninstalling
+[Updating software in TemplateVMs]: /doc/software-update-domu/#updating-softare-in-templatevms
+[Upgrading Fedora TemplateVMs]: /doc/template/fedora/upgrade/
+[install]: /doc/templates/#installing
 
