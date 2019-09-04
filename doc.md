@@ -79,7 +79,7 @@ Core documentation for Qubes users.
 
  * [TemplateVMs](/doc/templates/)
  * [Fedora](/doc/templates/fedora/)
- * [Debian](/doc/templates/fedora/)
+ * [Debian](/doc/templates/debian/)
  * [Minimal TemplateVMs](/doc/templates/minimal/)
  * [Windows](/doc/windows/)
  * [StandaloneVMs and HVMs](/doc/standalone-and-hvm/)
