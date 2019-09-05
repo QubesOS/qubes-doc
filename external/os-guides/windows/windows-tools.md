@@ -153,6 +153,6 @@ Then, periodically check for updates in the Template VM and the changes will be 
 Once the template has been created and installed it is easy to create AppVMs based on it:
 
 ~~~
-qvm-create --hvm <new windows appvm name> --template <name of template vm> --label <label color>
+qvm-create --property virt_mode=hvm <new windows appvm name> --template <name of template vm> --label <label color>
 ~~~
 
