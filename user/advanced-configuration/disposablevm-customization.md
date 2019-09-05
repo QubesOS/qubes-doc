@@ -200,6 +200,7 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 
        [user@dom0 ~]$ qubes-prefs clockvm disp-sys-net
 
+9. To enable Templates to be updated via disp-sys-net, we need to edit dom0 file e.g sudo nano /etc/qubes-rpc/policy/qubes.UpdatesProxy and change the target from sys-net to disp-sys-net
 
 ### Create the sys-firewall DisposableVM
 
