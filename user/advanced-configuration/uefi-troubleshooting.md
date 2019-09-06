@@ -175,8 +175,6 @@ Or if you have already rebooted after the first stage install and have encounter
 3. Type `reboot`.
 4. Continue with setting up default templates and logging in to Qubes.
 
-<b name="f1">1</b> If you use rEFInd, you can see 3 options regarding the USB installer. Choose "Fallback Boot Loader" to enter the GRUB menu. [↩](#a1-1) [↩](#a1-2)
-
 
 Boot device not recognized after installing
 ------------------------------------------
