@@ -33,6 +33,10 @@ Reporting Security Issues in Qubes OS
 If you believe you have found a security issue affecting Qubes OS, either directly or indirectly (e.g. the issue affects Xen in a configuration that is used in Qubes OS), then we would be more than happy to hear from you!
 We promise to treat any reported issue seriously and, if the investigation confirms that it affects Qubes, to patch it within a reasonable time and release a public [Qubes Security Bulletin][Security Bulletins] that describes the issue, discusses the potential impact of the vulnerability, references applicable patches or workarounds, and credits the discoverer.
 
+Security Updates
+----------------
+
+Qubes security updates are obtained by [Updating Qubes OS].
 
 The Qubes Security Team
 -----------------------
@@ -82,4 +86,6 @@ Please see [Why and How to Verify Signatures] for information about how to verif
 [Simon Gaiser (aka HW42)]: /team/#simon-gaiser-aka-hw42
 [Joanna Rutkowska]: /team/#joanna-rutkowska
 [emeritus, canaries only]: /news/2018/11/05/qubes-security-team-update/
+[Updating Qubes OS]: /doc/updating-qubes-os/
+
 

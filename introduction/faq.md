@@ -118,7 +118,7 @@ Please refer to [this page](/doc/vm-sudo/).
 ### Why is dom0 so old?
 
 Please see:
-- [Why would one want to update software in dom0?](/doc/software-update-dom0/#why-would-one-want-to-install-or-update-software-in-dom0)
+- [Installing and updating software in dom0](/doc/software-update-dom0/)
 - [Note on dom0 and EOL](/doc/supported-versions/#note-on-dom0-and-eol)
 
 ### Do you recommend coreboot as an alternative to vendor BIOS?
@@ -421,7 +421,7 @@ For Debian:
 For Fedora:
 
 1. (Recommended) Clone an existing Fedora TemplateVM
-2. [Enable the appropriate RPMFusion repos in the desired Fedora TemplateVM.](/doc/software-update-vm/#rpmfusion-for-a-fedora-templatevm)
+2. [Enable the appropriate RPMFusion repos in the desired Fedora TemplateVM.](/doc/software-update-domu/#rpmfusion-for-fedora-templatevms)
 3. Install VLC in that TemplateVM:
 
        $ sudo dnf install vlc

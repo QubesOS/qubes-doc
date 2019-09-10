@@ -58,15 +58,15 @@ permalink: /experts/
     </div>
     <div class="row featured-quotes">
       <div class="col-lg-3 col-md-3 text-center">
-        <a class="avatar-large" href="https://twitter.com/petertoddbtc/status/924981145871060996" target="_blank">
-          <img src="/attachment/site/expert-peter-todd.jpg">
+        <a class="avatar-large" href="https://twitter.com/csoghoian" target="_blank">
+          <img src="/attachment/site/expert-christopher-soghoian.jpg">
         </a>
       </div>
       <div class="col-lg-9 col-md-9 more-top">
-        <a href="https://twitter.com/petertoddbtc/status/924981145871060996" target="_blank">
-          <blockquote>"Donated a % of my consulting company's last year revenue to Qubes OS. I rely on it for all my work, and recommend it to clients too."
+        <a href="https://twitter.com/csoghoian" target="_blank">
+          <blockquote>"I am so much happier and less stressed out after switching to QubesOS. Can wholeheartedly recommend."
             <i class="fa fa-twitter fa-fw" aria-hidden="true"></i>
-            <footer>Peter Todd<cite title="Source Title">, Applied Cryptography Consultant</cite></footer>
+            <footer>Christopher Soghoian<cite title="Source Title">, privacy researcher, activist, and principal technologist at the ACLU</cite></footer>
           </blockquote>
         </a>
       </div>
@@ -88,15 +88,15 @@ permalink: /experts/
     </div>
     <div class="row featured-quotes">
       <div class="col-lg-3 col-md-3 text-center">
-        <a class="avatar-large" href="https://twitter.com/csoghoian/status/756212792785534976" target="_blank">
-          <img src="/attachment/site/expert-christopher-soghoian.jpg">
+        <a class="avatar-large" href="https://twitter.com/petertoddbtc/status/924981145871060996" target="_blank">
+          <img src="/attachment/site/expert-peter-todd.jpg">
         </a>
       </div>
       <div class="col-lg-9 col-md-9 more-top">
-        <a href="https://twitter.com/csoghoian/status/756212792785534976" target="_blank">
-          <blockquote>"I am so much happier and less stressed out after switching to QubesOS. Can wholeheartedly recommend."
+        <a href="https://twitter.com/petertoddbtc/status/924981145871060996" target="_blank">
+          <blockquote>"Donated a % of my consulting company's last year revenue to Qubes OS. I rely on it for all my work, and recommend it to clients too."
             <i class="fa fa-twitter fa-fw" aria-hidden="true"></i>
-            <footer>Christopher Soghoian<cite title="Source Title">, privacy researcher, activist, and principal technologist at the ACLU</cite></footer>
+            <footer>Peter Todd<cite title="Source Title">, Applied Cryptography Consultant</cite></footer>
           </blockquote>
         </a>
       </div>
@@ -127,6 +127,21 @@ permalink: /experts/
           <blockquote>"Periodic shout out to [Rutkowska] and the QubesOS team for *years* of hard work to improve desktop security. Qubes is the real deal."
             <i class="fa fa-twitter fa-fw" aria-hidden="true"></i>
             <footer>Kenn White<cite title="Source Title">, security researcher, Open Crypto Audit Project</cite></footer>
+          </blockquote>
+        </a>
+      </div>
+    </div>
+    <div class="row featured-quotes">
+      <div class="col-lg-3 col-md-3 text-center">
+        <a class="avatar-large" href="https://twitter.com/vitalikbuterin/status/1086465679904038912" target="_blank">
+          <img src="/attachment/site/expert-vitalik-buterin.jpg">
+        </a>
+      </div>
+      <div class="col-lg-9 col-md-9 more-top">
+        <a href="https://twitter.com/vitalikbuterin/status/1086465679904038912" target="_blank">
+          <blockquote>"Trying out Qubes OS (qubes-os.org) recently; linux distro designed around increased security by virtualizing everything and making it really convenient to hop between VMs. Surprisingly good user-friendliness!"
+            <i class="fa fa-twitter fa-fw" aria-hidden="true"></i>
+            <footer>Vitalik Buterin<cite title="Source Title">, creator of Ethereum</cite></footer>
           </blockquote>
         </a>
       </div>

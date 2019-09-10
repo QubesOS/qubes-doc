@@ -62,6 +62,10 @@ This Qubes Master Signing Key was generated on and is kept only on a dedicated, 
 
 There are several ways to get the Qubes Master Signing Key.
 
+ - If you have access to an existing Qubes installation, it's available in every VM ([except dom0]):
+
+       $ gpg --import /usr/share/qubes/qubes-master-key.asc
+
  - Fetch it with GPG:
 
        $ gpg --fetch-keys https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
@@ -148,6 +152,10 @@ Now, when you import any of the legitimate Qubes developer keys and Release Sign
 
 The filename of the Release Signing Key for your version is `qubes-release-X-signing-key.asc`, where `X` is the major version number of your Qubes release.
 There are several ways to get the Release Signing Key for your Qubes release.
+
+ - If you have access to an existing Qubes installation, the release keys are available in dom0 in `/etc/pki/rpm-gpg/`.
+   These can be [copied][copy-from-dom0] into other VMs for further use.
+   In addition, every other VM contains the release key corresponding to that installation's release in `/etc/pki/rpm-gpg/`.
 
  - Fetch it with GPG:
 
@@ -443,9 +451,11 @@ If you still have a question, please address it to the [qubes-users mailing list
 [Troubleshooting FAQ]: #troubleshooting-faq
 [QMSK]: #1-get-the-qubes-master-signing-key-and-verify-its-authenticity
 [RSK]: #2-get-the-release-signing-key
+[copy-from-dom0]: /doc/copy-from-dom0/#copying-from-dom0
 [signature file]: #3-verify-your-qubes-iso
 [digest file]: #how-to-verify-qubes-iso-digests
 [Qubes repositories]: https://github.com/QubesOS
 [GPG documentation]: https://www.gnupg.org/documentation/
 [qubes-users mailing list]: /support/#qubes-users
+[except dom0]: https://github.com/QubesOS/qubes-issues/issues/2544
 

@@ -61,7 +61,7 @@ By default, most domUs lack direct hardware access.
 
 TemplateVM
 ----------
-Template Virtual Machine. 
+[Template Virtual Machine](/doc/templates/).
 Any [VM](#vm) that supplies its root filesystem to another VM. 
 TemplateVMs are intended for installing and updating software applications, but not for running them.
 
@@ -76,7 +76,7 @@ Any [VM](#vm) that depends on a [TemplateVM](#templatevm) for its root filesyste
 
 Standalone(VM)
 --------------
-Standalone (Virtual Machine). 
+[Standalone (Virtual Machine)](/doc/standalone-and-hvm/).
 In general terms, a [VM](#vm) is described as **standalone** if and only if it does not depend on any other VM for its root filesystem. 
 (In other words, a VM is standalone if and only if it is not a TemplateBasedVM.) 
 More specifically, a **StandaloneVM** is a type of VM in Qubes that is created by cloning a TemplateVM. 
@@ -87,7 +87,8 @@ AppVM
 -----
 Application Virtual Machine. 
 A [VM](#vm) that is intended for running software applications. 
-Typically a TemplateBasedVM, but may be a StandaloneVM. Never a TemplateVM.
+Typically a TemplateBasedVM, but may be a StandaloneVM.
+Never a TemplateVM.
 
 NetVM
 -----
@@ -113,7 +114,8 @@ A FirewallVM called `sys-firewall` is created by default in most Qubes installat
 
 DisposableVM
 ------------
-[Disposable Virtual Machine]. A temporary [AppVM](#appvm) based on a [DisposableVM Template](#disposablevm-template) that can quickly be created, used, and destroyed.
+[Disposable Virtual Machine](/doc/disposablevm/).
+A temporary [AppVM](#appvm) based on a [DisposableVM Template](#disposablevm-template) that can quickly be created, used, and destroyed.
 
 DispVM
 ------
@@ -133,7 +135,7 @@ Rather, DisposableVM Templates are complementary to TemplateVMs insofar as Dispo
 There are two main kinds of DisposableVM Templates:
 
  * **Dedicated** DisposableVM Templates are intended neither for installing nor running software.
-   Rather, they are intended for *customizing* or *configuring* software that has already been installed on the TemplateVM on which the DisposableVM Template is based (see [DisposableVM Customization]).
+   Rather, they are intended for *customizing* or *configuring* software that has already been installed on the TemplateVM on which the DisposableVM Template is based (see [DisposableVM Customization](/doc/disposablevm-customization/).
    This software is then intended to be run (in its customized state) in DisposableVMs that are based on the DisposableVM Template.
  * **Non-dedicated** DisposableVM Templates are typically [AppVMs](#appvm) on which DisposableVMs are based.
    For example, an AppVM could be used to generate and store trusted data.
@@ -148,7 +150,7 @@ However, paravirtualized VMs require a PV-enabled kernel and PV drivers, so the 
 
 HVM
 ---
-Hardware-assisted Virtual Machine. 
+[Hardware-assisted Virtual Machine](/doc/standalone-and-hvm/).
 Any fully virtualized, or hardware-assisted, [VM](#vm) utilizing the virtualization extensions of the host CPU. 
 Although HVMs are typically slower than paravirtualized VMs due to the required emulation, HVMs allow the user to create domains based on any operating system.
 
@@ -192,7 +194,4 @@ Qubes Windows Tools are a set of programs and drivers that provide integration o
 QWT
 ----
 An abbreviation of Qubes [Windows Tools](#windows-tools).
-
-[Disposable Virtual Machine]: /doc/disposablevm/
-[DisposableVM Customization]: /doc/disposablevm-customization/
 

@@ -85,7 +85,9 @@ Below is a complete list of configuration made according to the above statement,
 
     - NetworkManager configuration from normal user (nm-applet)
     - updates installation (gpk-update-viewer)
-    - user can use pkexec just like sudo Note: above is needed mostly because Qubes user GUI session isn't treated by PolicyKit/logind as "local" session because of the way in which X server and session is started. Perhaps we will address this issue in the future, but this is really low priority. Patches welcomed anyway.
+    - user can use pkexec just like sudo Note: above is needed mostly because Qubes user GUI session isn't treated by PolicyKit/logind as "local" session because of the way in which X server and session is started.
+      Perhaps we will address this issue in the future, but this is really low priority.
+      Patches welcomed anyway.
 
 3.  Empty root password
     - used for access to 'root' account from text console (xl console) - the only way to access the VM when GUI isn't working
@@ -94,17 +96,16 @@ Below is a complete list of configuration made according to the above statement,
 Replacing passwordless root access with Dom0 user prompt
 --------------------------------------------------------
 
-While ITL supports the statement above, some Qubes users may wish to enable
-user/root isolation in VMs anyway. We do not support it in any of our packages,
-but of course nothing is preventing the user from modifying his or her own
-system. A list of steps to do so is provided here **without any guarantee of
-safety, accuracy, or completeness. Proceed at your own risk. Do not rely on
-this for extra security.**
+While ITL supports the statement above, some Qubes users may wish to enable user/root isolation in VMs anyway.
+We do not support it in any of our packages, but of course nothing is preventing the user from modifying his or her own system.
+A list of steps to do so is provided here **without any guarantee of safety, accuracy, or completeness.
+Proceed at your own risk.
+Do not rely on this for extra security.**
 
 1. Adding Dom0 "VMAuth" service:
 
         [root@dom0 /]# echo "/usr/bin/echo 1" >/etc/qubes-rpc/qubes.VMAuth
-        [root@dom0 /]# echo "\$anyvm dom0 ask,default_target=dom0" \
+        [root@dom0 /]# echo "\@anyvm dom0 ask,default_target=dom0" \
         >/etc/qubes-rpc/policy/qubes.VMAuth
 
    (Note: any VMs you would like still to have passwordless root access (e.g. TemplateVMs) can be specified in the second file with "\<vmname\> dom0 allow")
@@ -116,7 +117,8 @@ this for extra security.**
           auth  requisite  pam_deny.so
           auth  required   pam_permit.so
 
-    - Require authentication for sudo. Replace the first line of /etc/sudoers.d/qubes with:
+    - Require authentication for sudo.
+      Replace the first line of /etc/sudoers.d/qubes with:
 
           user ALL=(ALL) ALL
 
@@ -132,7 +134,8 @@ this for extra security.**
           auth  requisite  pam_deny.so
           auth  required   pam_permit.so
 
-    - Require authentication for sudo. Replace the first line of /etc/sudoers.d/qubes with:
+    - Require authentication for sudo.
+      Replace the first line of /etc/sudoers.d/qubes with:
 
           user ALL=(ALL) ALL
 
@@ -156,4 +159,5 @@ this for extra security.**
 Dom0 passwordless root access
 -----------------------------
 
-There is also passwordless user->root access in dom0. As stated in comment in sudo configuration there (different one than VMs one), there is really no point in user/root isolation, because all the user data (and VM management interface) is already accessible from dom0 user level, so there is nothing more to get from dom0 root account.
+There is also passwordless user->root access in dom0.
+As stated in comment in sudo configuration there (different one than VMs one), there is really no point in user/root isolation, because all the user data (and VM management interface) is already accessible from dom0 user level, so there is nothing more to get from dom0 root account.
