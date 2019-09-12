@@ -17,7 +17,7 @@ CentOS-7 can be installed with the following command:
 
     [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-centos-7
 
-To switch, reinstall and uninstall a CentOS TemplateVM that is already installed in your system, see  [How to switch, reinstall and uninstall](/doc/templates/#how-to-install-uninstall-reinstall-and-switch).
+To switch, reinstall and uninstall a CentOS TemplateVM that is already installed in your system, see *How to [switch], [reinstall] and [uninstall]*.
 
 #### After Installing
 
@@ -28,3 +28,9 @@ After a fresh install, we recommend to [Update the TemplateVM](/doc/software-upd
 *   [How can I contribute to the Qubes Project?](/doc/contributing/)
 
 *   [Guidelines for Documentation Contributors](/doc/doc-guidelines/)
+
+[switch]: /doc/templates/#switching
+[reinstall]: /doc/reinstall-template/
+[uninstall]: /doc/templates/#uninstalling
+
+

@@ -184,7 +184,7 @@ Use case | Description | Required steps
 **USB** | If you want to use this template as the basis for a [USB](/doc/usb/) qube such as `sys-usb` | Install `qubes-usb-proxy`. To use USB mouse or keyboard install `qubes-input-proxy-sender`.
 **VPN** | You can use this template as basis for a [VPN](/doc/vpn/) qube | You may need to install network-manager VPN packages, depending on the VPN technology you'll be using. After creating a machine based on this template, follow the [VPN howto](/doc/vpn/#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager) to configure it.
 **Desktop environment** | To improve desktop experience using additional packages from the `qubes-core-agent` | `qubes-menus` which defines menu layout, `qubes-desktop-linux-common` which contains icons and scripts to improve desktop experience. `qubes-core-agent-nautilus`/`qubes-core-agent-thunar`: packages providing integration with the Nautilus/Thunar file manager (without it, items like "copy to VM/open in disposable VM" will not be shown in Nautilus/Thunar).
-**Additional services** | If you need additional Qubes services | Install `qubes-gpg-split` `qubes-pdf-converter` `qubes-img-converter`("Qubes apps" implementing split GPG, trusted PDF and image convertion), `qubes-snapd-helper`(if you want to use snaps), `qubes-mgmt-\*`(if you want to use salt management on the template and qubes).
+**Additional services** | If you need additional Qubes services | Install `qubes-gpg-split` `qubes-pdf-converter` `qubes-img-converter`("Qubes apps" implementing split GPG, trusted PDF and image converter), `qubes-snapd-helper`(if you want to use snaps), `qubes-mgmt-\*`(if you want to use salt management on the template and qubes).
 
 
 [TemplateVMs]: /doc/templates/
