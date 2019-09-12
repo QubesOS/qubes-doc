@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: GUI
-permalink: /doc/gui/
 redirect_from:
+- /doc/gui/
 - /en/doc/gui/
 - /en/doc/gui-docs/
 - /doc/GUIdocs/

@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Live USB
-permalink: /doc/live-usb/
+redirect_from:
+- /doc/live-usb/
 ---
 
 Qubes Live USB (alpha)

@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: DisposableVM Customization
-permalink: /doc/disposablevm-customization/
 redirect_from:
+- /doc/disposablevm-customization/
 - /doc/dispvm-customization/
 - /en/doc/dispvm-customization/
 - /doc/DispVMCustomization/

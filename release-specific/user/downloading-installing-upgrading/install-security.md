@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Installation Security
-permalink: /doc/install-security/
 redirect_from:
+- /doc/install-security/
 - /en/doc/install-security/
 - /doc/InstallSecurity/
 - /wiki/InstallSecurity/

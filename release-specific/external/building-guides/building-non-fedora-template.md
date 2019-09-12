@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Building Non-Fedora Template
-permalink: /doc/building-non-fedora-template/
 redirect_from:
+- /doc/building-non-fedora-template/
 - /en/doc/building-non-fedora-template/
 - /doc/BuildingNonFedoraTemplate/
 - /wiki/BuildingNonFedoraTemplate/

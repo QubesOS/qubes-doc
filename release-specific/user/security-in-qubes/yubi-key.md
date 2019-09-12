@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: YubiKey in Qubes
-permalink: /doc/yubi-key/
 redirect_from:
+- /doc/yubi-key/
 - /en/doc/yubi-key/
 - /doc/YubiKey/
 ---

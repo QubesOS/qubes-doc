@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Test Bench
-permalink: /doc/test-bench/
 redirect_from:
+- /doc/test-bench/
 - /en/doc/test-bench/
 - /doc/TestBench/
 - /wiki/TestBench/

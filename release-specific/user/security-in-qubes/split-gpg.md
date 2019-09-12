@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Split GPG
-permalink: /doc/split-gpg/
 redirect_from:
+- /doc/split-gpg/
 - /en/doc/split-gpg/
 - /doc/SplitGpg/
 - /doc/UserDoc/SplitGpg/

@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Building Whonix Templates
-permalink: /doc/building-whonix-template/
 redirect_from:
+- /doc/building-whonix-template/
 - /en/doc/building-whonix-template/
 ---
 

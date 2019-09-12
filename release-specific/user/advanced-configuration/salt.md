@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Management stack
-permalink: /doc/salt/
+redirect_from:
+- /doc/salt/
 ---
 
 # Management Infrastructure

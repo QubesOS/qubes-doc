@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Get Started
-permalink: /getting-started/
 redirect_from:
+- /getting-started/
 - /doc/getting-started/
 - /en/doc/getting-started/
 - /doc/GettingStarted/

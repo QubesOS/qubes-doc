@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Installing a Windows VM
-permalink: /doc/windows-vm/
+redirect_from:
+- /doc/windows-vm/
 ---
 
 

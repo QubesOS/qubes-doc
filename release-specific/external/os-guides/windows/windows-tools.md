@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Qubes Windows Tools
-permalink: /doc/windows-tools/
 redirect_from:
+- /doc/windows-tools/
 - /doc/windows-appvms/
 - /en/doc/windows-appvms/
 - /doc/WindowsAppVms/

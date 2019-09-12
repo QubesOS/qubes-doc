@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Security Guidelines
-permalink: /doc/security-guidelines/
 redirect_from:
+- /doc/security-guidelines/
 - /en/doc/security-guidelines/
 - /doc/SecurityGuidelines/
 - /wiki/SecurityGuidelines/

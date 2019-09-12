@@ -1,8 +1,9 @@
 ---
 layout: doc-index
 title: Documentation
-permalink: /doc/
+permalink: /doc/r4/
 redirect_from:
+- /doc/
 - /en/doc/
 - /doc/UserDoc/
 - /wiki/UserDoc/

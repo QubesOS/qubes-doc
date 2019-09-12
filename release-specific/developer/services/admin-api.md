@@ -1,8 +1,8 @@
 ---
 layout: doc-full
 title: Admin API
-permalink: /doc/admin-api/
 redirect_from:
+- /doc/admin-api/
 - /doc/mgmt/
 - /doc/mgmt1/
 - /doc/mgmt-architecture/

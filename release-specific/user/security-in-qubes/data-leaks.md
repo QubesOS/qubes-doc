@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Data Leaks
-permalink: /doc/data-leaks/
 redirect_from:
+- /doc/data-leaks/
 - /en/doc/data-leaks/
 - /doc/DataLeaks/
 - /wiki/DataLeaks/

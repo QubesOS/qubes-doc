@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Updating Qubes OS
-permalink: /doc/updating-qubes-os/
+redirect_from:
+- /doc/updating-qubes-os/
 ---
 
 Updating Qubes OS

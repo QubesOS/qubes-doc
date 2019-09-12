@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: The Fedora TemplateVM
-permalink: /doc/templates/fedora/
+redirect_from:
+- /doc/templates/fedora/
 ---
 
 # The Fedora TemplateVM

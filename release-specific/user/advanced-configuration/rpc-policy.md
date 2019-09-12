@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: RPC Policies
-permalink: /doc/rpc-policy/
+redirect_from:
+- /doc/rpc-policy/
 ---
 
 RPC Policies

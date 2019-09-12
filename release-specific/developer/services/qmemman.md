@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Qmemman
-permalink: /doc/qmemman/
 redirect_from:
+- /doc/qmemman/
 - /en/doc/qmemman/
 - /doc/Qmemman/
 - /wiki/Qmemman/

@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: How to Remove VMs Manually
-permalink: /doc/remove-vm-manually/
+redirect_from:
+- /doc/remove-vm-manually/
 ---
 
 How to Remove VMs Manually

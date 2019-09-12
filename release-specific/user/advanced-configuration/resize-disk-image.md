@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Resize Disk Image
-permalink: /doc/resize-disk-image/
 redirect_from:
+- /doc/resize-disk-image/
 - /en/doc/resize-disk-image/
 - /en/doc/resize-root-disk-image/
 - /doc/ResizeDiskImage/

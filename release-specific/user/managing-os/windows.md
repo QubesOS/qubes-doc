@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Windows VMs
-permalink: /doc/windows/
+redirect_from:
+- /doc/windows/
 ---
 
 Windows VMs in Qubes OS

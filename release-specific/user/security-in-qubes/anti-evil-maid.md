@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Anti Evil Maid (AEM)
-permalink: /doc/anti-evil-maid/
 redirect_from:
+- /doc/anti-evil-maid/
 - /en/doc/anti-evil-maid/
 - /doc/AntiEvilMaid/
 - /wiki/AntiEvilMaid/

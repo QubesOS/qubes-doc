@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Installing and updating software in domUs
-permalink: /doc/software-update-domu/
 redirect_from:
+- /doc/software-update-domu/
 - /doc/software-update-vm/
 - /en/doc/software-update-vm/
 - /doc/SoftwareUpdateVM/

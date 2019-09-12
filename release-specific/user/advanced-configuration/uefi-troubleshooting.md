@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: UEFI Troubleshooting
-permalink: /doc/uefi-troubleshooting/
+redirect_from:
+- /doc/uefi-troubleshooting/
 ---
 
 Troubleshooting UEFI related problems

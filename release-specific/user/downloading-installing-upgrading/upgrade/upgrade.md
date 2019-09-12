@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Upgrade Guides
-permalink: /doc/upgrade/
+redirect_from:
+- /doc/upgrade/
 ---
 
 Qubes OS Upgrade Guides

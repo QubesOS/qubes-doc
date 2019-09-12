@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Upgrading Debian TemplateVMs
-permalink: /doc/template/debian/upgrade/
 redirect_from:
+- /doc/template/debian/upgrade/
 - /doc/template/debian/upgrade-8-to-9/
 - /doc/debian-template-upgrade-8/
 - /en/doc/debian-template-upgrade-8/

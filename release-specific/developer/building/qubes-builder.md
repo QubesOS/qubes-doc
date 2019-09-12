@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Qubes Builder
-permalink: /doc/qubes-builder/
 redirect_from:
+- /doc/qubes-builder/
 - /en/doc/qubes-builder/
 - /doc/QubesBuilder/
 - /wiki/QubesBuilder/

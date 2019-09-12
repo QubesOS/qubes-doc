@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: awesome
-permalink: /doc/awesome/
 redirect_from:
+- /doc/awesome/
 - /en/doc/awesome/
 - /doc/awesome/
 ---

@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Qrexec2
-permalink: /doc/qrexec2/
 redirect_from:
+- /doc/qrexec2/
 - /doc/qrexec2-implementation/
 - /en/doc/qrexec2-implementation/
 - /doc/Qrexec2Implementation/

@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Profiling
-permalink: /doc/profiling/
 redirect_from:
+- /doc/profiling/
 - /en/doc/profiling/
 - /doc/Profiling/
 - /wiki/Profiling/

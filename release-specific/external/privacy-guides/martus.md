@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Martus
-permalink: /doc/martus/
+redirect_from:
+- /doc/martus/
 ---
 
 Martus

@@ -1,8 +1,8 @@
 ---
 layout: doc
 title:  USB Qubes
-permalink: /doc/usb-qubes/
 redirect_from:
+- /doc/usb-qubes/
 - /doc/usbvm/
 - /en/doc/usbvm/
 - /doc/USBVM/

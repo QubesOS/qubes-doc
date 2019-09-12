@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Backup, Restoration, and Migration
-permalink: /doc/backup-restore/
 redirect_from:
+- /doc/backup-restore/
 - /en/doc/backup-restore/
 - /doc/BackupRestore/
 - /wiki/BackupRestore/

@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Networking
-permalink: /doc/networking/
 redirect_from:
+- /doc/networking/
 - /doc/qubes-net/
 - /en/doc/qubes-net/
 - /doc/QubesNet/

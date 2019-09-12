@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Copying Files between qubes
-permalink: /doc/copying-files/
 redirect_from:
+- /doc/copying-files/
 - /en/doc/copying-files/
 - /doc/CopyingFiles/
 - /wiki/CopyingFiles/

@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Installing and updating software in dom0
-permalink: /doc/software-update-dom0/
 redirect_from:
+- /doc/software-update-dom0/
 - /en/doc/software-update-dom0/
 - /doc/SoftwareUpdateDom0/
 - /wiki/SoftwareUpdateDom0/

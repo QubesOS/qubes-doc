@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: USB Devices
-permalink: /doc/usb-devices/
 redirect_from:
+- /doc/usb-devices/
 - /doc/usb/
 ---
 

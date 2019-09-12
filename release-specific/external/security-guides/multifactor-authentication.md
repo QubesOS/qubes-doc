@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Multifactor Authentication
-permalink: /doc/multifactor-authentication/
 redirect_from:
+- /doc/multifactor-authentication/
 - /en/doc/multifactor-authentication/
 - /doc/Multi-factorAuthentication/
 ---

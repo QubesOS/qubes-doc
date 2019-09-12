@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Postfix
-permalink: /doc/postfix/
 redirect_from:
+- /doc/postfix/
 - /en/doc/postfix/
 - /doc/Postfix/
 - /wiki/Postfix/

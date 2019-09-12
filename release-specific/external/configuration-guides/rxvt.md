@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Rxvt
-permalink: /doc/rxvt/
 redirect_from:
+- /doc/rxvt/
 - /en/doc/rxvt/
 - /doc/Rxvt/
 - /wiki/Rxvt/

@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Qfileexchgd
-permalink: /doc/qfileexchgd/
 redirect_from:
+- /doc/qfileexchgd/
 - /en/doc/qfileexchgd/
 - /doc/Qfileexchgd/
 - /wiki/Qfileexchgd/

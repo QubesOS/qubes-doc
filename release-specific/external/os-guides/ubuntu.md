@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Ubuntu Template
-permalink: /doc/templates/ubuntu/
 redirect_from:
+- /doc/templates/ubuntu/
 - /doc/ubuntu/
 - /en/doc/templates/ubuntu/
 - /doc/Templates/Ubuntu/

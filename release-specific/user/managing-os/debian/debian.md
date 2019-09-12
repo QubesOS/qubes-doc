@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: The Debian TemplateVM
-permalink: /doc/templates/debian/
 redirect_from:
+- /doc/templates/debian/
 - /doc/debian/
 - /en/doc/templates/debian/
 - /doc/Templates/Debian/

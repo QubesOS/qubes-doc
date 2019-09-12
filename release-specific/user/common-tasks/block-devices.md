@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Block (Storage) Devices
-permalink: /doc/block-devices/
 redirect_from:
+- /doc/block-devices/
 - /doc/stick-mounting/
 - /en/doc/stick-mounting/
 - /doc/StickMounting/

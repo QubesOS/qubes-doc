@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Fetchmail
-permalink: /doc/fetchmail/
 redirect_from:
+- /doc/fetchmail/
 - /en/doc/fetchmail/
 - /doc/Fetchmail/
 - /wiki/Fetchmail/

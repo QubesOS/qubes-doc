@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Copying from (and to) dom0
-permalink: /doc/copy-from-dom0/
 redirect_from:
+- /doc/copy-from-dom0/
 - /doc/copy-to-dom0/
 - /en/doc/copy-to-dom0/
 - /doc/CopyToDomZero/

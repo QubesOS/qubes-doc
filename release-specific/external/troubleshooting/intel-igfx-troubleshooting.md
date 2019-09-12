@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Intel Integrated Graphics Troubleshooting
-permalink: /doc/intel-igfx-troubleshooting/
+redirect_from:
+- /doc/intel-igfx-troubleshooting/
 ---
 # Intel Integrated Graphics Troubleshooting #
 

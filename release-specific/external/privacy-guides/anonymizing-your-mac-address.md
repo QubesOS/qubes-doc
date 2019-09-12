@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Anonymizing your MAC Address
-permalink: /doc/anonymizing-your-mac-address/
 redirect_from:
+- /doc/anonymizing-your-mac-address/
 - /doc/randomizing-your-mac-address/
 ---
 

@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Managing VM kernel
-permalink: /doc/managing-vm-kernel/
 redirect_from:
+- /doc/managing-vm-kernel/
 - /en/doc/managing-vm-kernel/
 ---
 

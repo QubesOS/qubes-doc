@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Device Handling Security
-permalink: /doc/device-handling-security/
+redirect_from:
+- /doc/device-handling-security/
 ---
 
 # Device Handling Security #

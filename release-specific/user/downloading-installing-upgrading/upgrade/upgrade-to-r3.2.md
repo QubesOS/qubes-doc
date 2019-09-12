@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Upgrading to R3.2
-permalink: /doc/upgrade-to-r3.2/
 redirect_from:
+- /doc/upgrade-to-r3.2/
 - /en/doc/upgrade-to-r3.2/
 - /doc/UpgradeToR3.2/
 - /doc/UpgradeToR3.2rc1/

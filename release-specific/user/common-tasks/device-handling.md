@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Device Handling
-permalink: /doc/device-handling/
 redirect_from:
+- /doc/device-handling/
 - /doc/external-device-mount-point/
 - /en/doc/external-device-mount-point/
 - /doc/ExternalDeviceMountPoint/

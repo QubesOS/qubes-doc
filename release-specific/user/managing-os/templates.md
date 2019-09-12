@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: TemplateVMs
-permalink: /doc/templates/
 redirect_from:
+- /doc/templates/
 - /doc/template/
 - /en/doc/templates/
 - /doc/Templates/

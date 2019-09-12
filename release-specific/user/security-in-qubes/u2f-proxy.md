@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: The Qubes U2F Proxy
-permalink: /doc/u2f-proxy/
+redirect_from:
+- /doc/u2f-proxy/
 ---
 
 # The Qubes U2F Proxy

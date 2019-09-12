@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Qubes Service
-permalink: /doc/qubes-service/
 redirect_from:
+- /doc/qubes-service/
 - /en/doc/qubes-service/
 - /doc/QubesService/
 - /wiki/QubesService/

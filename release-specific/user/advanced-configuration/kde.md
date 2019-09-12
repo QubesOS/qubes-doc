@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: KDE
-permalink: /doc/kde/
-redirect_from: /en/doc/kde/
+redirect_from:
+- /doc/kde/
+- /en/doc/kde/
 ---
 
 Using KDE in dom0

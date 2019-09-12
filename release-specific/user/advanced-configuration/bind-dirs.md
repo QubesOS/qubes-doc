@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: How to make any file in a TemplateBasedVM persistent using bind-dirs
-permalink: /doc/bind-dirs/
 redirect_from:
+- /doc/bind-dirs/
 - /en/doc/bind-dirs/
 ---
 

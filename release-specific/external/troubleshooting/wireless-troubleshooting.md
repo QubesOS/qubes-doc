@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Wireless Troubleshooting
-permalink: /doc/wireless-troubleshooting/
 redirect_from:
+- /doc/wireless-troubleshooting/
 - /en/doc/wireless-troubleshooting/
 ---
 

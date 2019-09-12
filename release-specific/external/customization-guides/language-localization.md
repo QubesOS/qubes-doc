@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Language Localization
-permalink: /doc/language-localization/
 redirect_from:
+- /doc/language-localization/
 - /en/doc/language-localization/
 - /doc/LanguageLocalization/
 - /wiki/LanguageLocalization/

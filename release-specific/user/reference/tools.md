@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Command-Line Tools
-permalink: /doc/tools/
 redirect_from:
+- /doc/tools/
  - /doc/tools/4.0/
  - /doc/tools/4.0/dom0/
  - /doc/tools/4.0/domU/

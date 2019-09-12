@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: ZFS
-permalink: /doc/zfs/
 redirect_from:
+- /doc/zfs/
 - /en/doc/zfs/
 - /doc/ZFS/
 - /wiki/ZFS/

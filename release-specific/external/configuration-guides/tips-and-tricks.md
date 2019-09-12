@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Tips and Tricks
-permalink: /doc/tips-and-tricks/
+redirect_from:
+- /doc/tips-and-tricks/
 ---
 
 Tips and Tricks
