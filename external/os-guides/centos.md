@@ -8,13 +8,14 @@ permalink: /doc/templates/centos/
 
 If you would like to use a stable, predictable, manageable and reproducible distribution in your AppVMs, you can install the CentOS template, provided by Qubes in ready to use binary package.
 
-For the minimal version, please see [CentOS minimal](/doc/templates/centos-minimal/).
+For the minimal version, please see [Minimal TemplateVMs](/doc/templates/minimal/)
+
 
 ## Installation
 
-Currently available from the testing repository, CentOS-7 can be installed with the following command:
+CentOS-7 can be installed with the following command:
 
-    [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community-testing qubes-template-centos-7
+    [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-centos-7
 
 To switch, reinstall and uninstall a CentOS TemplateVM that is already installed in your system, see  [How to switch, reinstall and uninstall](/doc/templates/#how-to-install-uninstall-reinstall-and-switch).
 
