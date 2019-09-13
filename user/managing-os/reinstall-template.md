@@ -84,5 +84,4 @@ If you want to reinstall more than one TemplateVM, repeat these instructions for
 
 
 [TemplateVM]: /doc/templates/
-[QSB #050]: /news/2019/07/24/qsb-050/
 
