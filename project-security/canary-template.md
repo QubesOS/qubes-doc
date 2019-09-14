@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Canary Template
-permalink: /security/canaries/template/
-redirect_from: /doc/canaries/template/
+redirect_from:
+- /security/canaries/template/
+- /doc/canaries/template/
 ---
 
 Canary Template

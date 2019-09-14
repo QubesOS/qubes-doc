@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Hardware Compatibility List (HCL)
-permalink: /doc/hcl/
 redirect_from:
+- /doc/hcl/
 - /en/doc/hcl/
 - /doc/HCL/
 - /wiki/HCL/

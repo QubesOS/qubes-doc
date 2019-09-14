@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Release Schedules
-permalink: /doc/releases/schedules/
+redirect_from:
+- /doc/releases/schedules/
 ---
 
 Release Schedules

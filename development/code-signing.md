@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Code Signing
-permalink: /doc/code-signing/
+redirect_from:
+- /doc/code-signing/
 ---
 
 Code Signing

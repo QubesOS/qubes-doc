@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Supported Versions
-permalink: /doc/supported-versions/
+redirect_from:
+- /doc/supported-versions/
 ---
 
 # Supported Versions

@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Release Notes
-permalink: /doc/releases/notes/
+redirect_from:
+- /doc/releases/notes/
 ---
 
 Release Notes

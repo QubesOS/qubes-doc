@@ -1,8 +1,8 @@
 ---
 layout: sidebar
 title: Help, Support, and Mailing Lists
-permalink: /support/
 redirect_from:
+- /support/
 - /help/
 - /mailing-lists/
 - /doc/mailing-lists/

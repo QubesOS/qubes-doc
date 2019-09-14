@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Security Goals
-permalink: /security/goals/
 redirect_from:
+- /security/goals/
 - /doc/security-goals/
 - /en/doc/security-goals/
 - /doc/SecurityGoals/

@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Security
-permalink: /security/
-redirect_from: 
+redirect_from:
+- /security/
 - /en/security/
 - /en/doc/security/
 - /en/doc/qubes-security/

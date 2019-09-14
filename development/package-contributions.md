@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Package Contributions
-permalink: /doc/package-contributions/
+redirect_from:
+- /doc/package-contributions/
 ---
 
 Package Contributions

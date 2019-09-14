@@ -1,8 +1,8 @@
 ---
 layout: intro
 title: An Introduction to Qubes OS
-permalink: /intro/
 redirect_from:
+- /intro/
 - /tour/
 - /en/tour/
 - /tour/#what-is-qubes-os

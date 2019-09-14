@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Qubes R3.0 Release Notes
-permalink: /doc/releases/3.0/release-notes/
 redirect_from:
+- /doc/releases/3.0/release-notes/
 - /en/doc/releases/3.0/release-notes/
 ---
 

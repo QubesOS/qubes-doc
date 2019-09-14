@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: System Requirements
-permalink: /doc/system-requirements/
 redirect_from:
+- /doc/system-requirements/
 - /system-requirements/
 - /en/doc/system-requirements/
 - /doc/SystemRequirements/

@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Developer Books
-permalink: /doc/devel-books/
 redirect_from:
+- /doc/devel-books/
 - /en/doc/devel-books/
 - /doc/DevelBooks/
 - /wiki/DevelBooks/

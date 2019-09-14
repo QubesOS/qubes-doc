@@ -1,7 +1,8 @@
 ---
 layout: sidebar
 title: Google Season of Docs
-permalink: /gsod/
+redirect_from:
+- /gsod/
 ---
 
 # 2019 Google Season of Docs

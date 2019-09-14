@@ -1,8 +1,8 @@
 ---
 layout: sidebar
 title: Frequently Asked Questions
-permalink: /faq/
 redirect_from:
+- /faq/
 - /doc/user-faq/
 - /en/doc/user-faq/
 - /doc/UserFaq/

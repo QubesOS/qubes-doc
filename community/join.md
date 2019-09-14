@@ -1,7 +1,8 @@
 ---
 layout: sidebar
 title: Join
-permalink: /join/
+redirect_from:
+- /join/
 ---
 
 Joining the Qubes OS Team

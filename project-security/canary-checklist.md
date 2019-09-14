@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Canary Checklist
-permalink: /security/canaries/checklist/
+redirect_from:
+- /security/canaries/checklist/
 ---
 
 Canary Checklist

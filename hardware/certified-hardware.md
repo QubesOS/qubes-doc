@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Certified Hardware
-permalink: /doc/certified-hardware/
 redirect_from:
+- /doc/certified-hardware/
  - /doc/hardware/
  - /doc/certified-laptops/
  - /hardware-certification/

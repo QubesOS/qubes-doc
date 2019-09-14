@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Qubes Security Bulletins
-permalink: /security/bulletins/
-redirect_from: 
+redirect_from:
+- /security/bulletins/
 - /doc/security-bulletins/
 - /en/doc/security-bulletins/
 - /doc/SecurityBulletins/

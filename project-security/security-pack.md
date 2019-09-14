@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Security Pack
-permalink: /security/pack/
 redirect_from:
+- /security/pack/
 - /doc/security-pack/
 - /en/doc/security-pack/
 - /doc/SecurityPack/

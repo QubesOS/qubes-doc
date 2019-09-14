@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Usability & UX
-permalink: /doc/usability-ux/
+redirect_from:
+- /doc/usability-ux/
 ---
 
 Usability & UX

@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Contributing to the Qubes OS Project
-permalink: /doc/contributing/
 redirect_from:
+- /doc/contributing/
 - /en/doc/contributing/
 - /doc/ContributingHowto/
 - /wiki/ContributingHowto/

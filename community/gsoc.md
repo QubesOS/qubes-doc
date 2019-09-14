@@ -1,8 +1,9 @@
 ---
 layout: sidebar
 title: Google Summer of Code
-permalink: /gsoc/
-redirect_from: /GSoC/
+redirect_from:
+- /gsoc/
+- /GSoC/
 ---
 
 2019 Google Summer of Code

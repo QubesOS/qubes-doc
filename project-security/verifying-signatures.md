@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Verifying Signatures
-permalink: /security/verifying-signatures/
 redirect_from:
+- /security/verifying-signatures/
 - /doc/verifying-signatures/
 - /en/doc/verifying-signatures/
 - /doc/VerifyingSignatures/

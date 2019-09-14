@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Hardware Testing
-permalink: /doc/hardware-testing/
+redirect_from:
+- /doc/hardware-testing/
 ---
 
 # Hardware Testing

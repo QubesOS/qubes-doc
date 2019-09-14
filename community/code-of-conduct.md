@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Code of Conduct
-permalink: /code-of-conduct/
+redirect_from:
+- /code-of-conduct/
 ---
 
 ## Introduction

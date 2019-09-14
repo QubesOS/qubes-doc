@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Canaries
-permalink: /security/canaries/
-redirect_from: /doc/canaries/
+redirect_from:
+- /security/canaries/
+- /doc/canaries/
 ---
 
 Qubes Canaries

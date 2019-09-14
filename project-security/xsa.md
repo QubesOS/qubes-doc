@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Xen Security Advisory (XSA) Tracker
-permalink: /security/xsa/
+redirect_from:
+- /security/xsa/
 ---
 
 Xen Security Advisory (XSA) Tracker

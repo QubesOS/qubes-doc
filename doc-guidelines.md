@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Documentation Guidelines
-permalink: /doc/doc-guidelines/
 redirect_from:
+- /doc/doc-guidelines/
 - /en/doc/doc-guidelines/
 - /wiki/DocStyle/
 - /doc/DocStyle/

@@ -1,7 +1,8 @@
 ---
 layout: doc
 title: Testing New Releases and Updates
-permalink: /doc/testing/
+redirect_from:
+- /doc/testing/
 ---
 
 Testing New Releases and Updates

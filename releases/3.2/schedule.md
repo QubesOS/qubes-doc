@@ -1,8 +1,8 @@
 ---
 layout: doc
 title: Qubes R3.2 Release Schedule
-permalink: /doc/releases/3.2/schedule/
 redirect_from:
+- /doc/releases/3.2/schedule/
 - /en/doc/releases/3.2/schedule/
 ---
 
