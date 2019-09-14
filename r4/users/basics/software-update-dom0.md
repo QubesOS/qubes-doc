@@ -155,12 +155,12 @@ If the update process does not automatically do it (you should see it mentioned 
 from the update command), you may need to manually rebuild the EFI or grub config depending on which
 your system uses.
 
-EFI: Replace the example version numbers with the one you are upgrading to.
+*EFI*: Replace the example version numbers with the one you are upgrading to.
 ~~~
 sudo dracut -f /boot/efi/EFI/qubes/initramfs-4.14.35-1.pvops.qubes.x86_64.img 4.14.35-1.pvops.qubes.x86_64
 ~~~
 
-Grub2
+*Grub2*
 ~~~
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 ~~~
@@ -170,6 +170,37 @@ Reboot required.
 If you wish to upgrade to a kernel that is not available from the repos, then
 there is no easy way to do so, but [it may still be possible if you're willing
 to do a lot of work yourself](https://groups.google.com/d/msg/qubes-users/m8sWoyV58_E/HYdReRIYBAAJ).
+
+## Changing default kernel
+
+This section describes changing the default kernel in dom0.
+It is sometimes needed if you have upgraded to a newer kernel and are having problems booting, for example.
+The procedure varies depending on if you are booting with UEFI or grub.
+On the next kernel update, the default will revert to the newest.
+
+*EFI*
+~~~
+sudo nano /boot/efi/EFI/qubes/xen.cfg
+~~~
+In the `[global]` section at the top, change the `default=` line to match one of the three boot entries listed below.
+For example,
+~~~
+default=4.19.67-1.pvops.qubes.x86_64
+~~~
+
+*Grub2*
+~~~
+sudo nano /etc/default/grub
+[update the following two lines, add if needed]
+GRUB_DISABLE_SUBMENU=false
+GRUB_SAVEDEFAULT=true
+[save and exit nano]
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+~~~
+Then, reboot.
+Once the grub menu appears, choose "Advanced Options for Qubes (with Xen hypervisor)".
+Next, the top menu item (for example, "Xen hypervisor, version 4.8.5-9.fc25").
+Select the kernel you want as default, and it will be remembered for next boot.
 
 ## Updating over Tor ###
 
