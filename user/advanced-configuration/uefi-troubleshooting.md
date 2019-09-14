@@ -106,7 +106,7 @@ Consider this approach as a last resort, because it will make every Xen update a
 Whenever there is a kernel or Xen update for Qubes, you will need to follow [these steps](/doc/uefi-troubleshooting/#boot-device-not-recognized-after-installing) because your system is using the fallback UEFI bootloader in `[...]/EFI/BOOT` instead of directly booting to the Qubes entry under `[...]/EFI/qubes`.
 
 
-Installation completes successfully but then boot loops at boot device selection
+Installation completes successfully but then boot loops or hangs on black screen
 ---------------------
 
 There is a [common bug in UEFI implementation](http://xen.markmail.org/message/f6lx2ab4o2fch35r) affecting mostly Lenovo systems, but probably some others too.
