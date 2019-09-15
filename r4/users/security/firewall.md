@@ -294,19 +294,19 @@ Once you have confirmed that the counters increase, store these command in `/rw/
 # My service routing
 
 # Create a new firewall natting chain for my service
-if iptables -t nat -N MY-HTTPS; then
+if iptables -w -t nat -N MY-HTTPS; then
 
 # Add a natting rule if it did not exit (to avoid cluter if script executed multiple times)
-  iptables -t nat -A MY-HTTPS -j DNAT --to-destination 10.137.1.x
+  iptables -w -t nat -A MY-HTTPS -j DNAT --to-destination 10.137.1.x
 
 fi
 
 
 # If no prerouting rule exist for my service
-if ! iptables -t nat -n -L PREROUTING | grep --quiet MY-HTTPS; then
+if ! iptables -w -t nat -n -L PREROUTING | grep --quiet MY-HTTPS; then
 
 # add a natting rule for the traffic (same reason)
-  iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 192.168.0.x -j MY-HTTPS
+  iptables -w -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 192.168.0.x -j MY-HTTPS
 fi
 
 
@@ -314,18 +314,18 @@ fi
 # My service filtering
 
 # Create a new firewall filtering chain for my service
-if iptables -N MY-HTTPS; then
+if iptables -w -N MY-HTTPS; then
 
 # Add a filtering rule if it did not exit (to avoid cluter if script executed multiple times)
-  iptables -A MY-HTTPS -s 192.168.x.0/24 -j ACCEPT
+  iptables -w -A MY-HTTPS -s 192.168.x.0/24 -j ACCEPT
 
 fi
 
 # If no forward rule exist for my service
-if ! iptables -n -L FORWARD | grep --quiet MY-HTTPS; then
+if ! iptables -w -n -L FORWARD | grep --quiet MY-HTTPS; then
 
 # add a forward rule for the traffic (same reason)
-  iptables -I FORWARD 2 -d 10.137.1.x -p tcp --dport 443 -m conntrack --ctstate NEW -j MY-HTTPS
+  iptables -w -I FORWARD 2 -d 10.137.1.x -p tcp --dport 443 -m conntrack --ctstate NEW -j MY-HTTPS
 
 fi
 ~~~
@@ -382,19 +382,19 @@ Once you have confirmed that the counters increase, store these command in `/rw/
 # My service routing
 
 # Create a new firewall natting chain for my service
-if iptables -t nat -N MY-HTTPS; then
+if iptables -w -t nat -N MY-HTTPS; then
 
 # Add a natting rule if it did not exit (to avoid cluter if script executed multiple times)
-  iptables -t nat -A MY-HTTPS -j DNAT --to-destination 10.137.2.y
+  iptables -w -t nat -A MY-HTTPS -j DNAT --to-destination 10.137.2.y
 
 fi
 
 
 # If no prerouting rule exist for my service
-if ! iptables -t nat -n -L PREROUTING | grep --quiet MY-HTTPS; then
+if ! iptables -w -t nat -n -L PREROUTING | grep --quiet MY-HTTPS; then
 
 # add a natting rule for the traffic (same reason)
-  iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 10.137.1.x -j MY-HTTPS
+  iptables -w -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 10.137.1.x -j MY-HTTPS
 fi
 
 
@@ -402,18 +402,18 @@ fi
 # My service filtering
 
 # Create a new firewall filtering chain for my service
-if iptables -N MY-HTTPS; then
+if iptables -w -N MY-HTTPS; then
 
 # Add a filtering rule if it did not exit (to avoid cluter if script executed multiple times)
-  iptables -A MY-HTTPS -s 192.168.x.0/24 -j ACCEPT
+  iptables -w -A MY-HTTPS -s 192.168.x.0/24 -j ACCEPT
 
 fi
 
 # If no forward rule exist for my service
-if ! iptables -n -L FORWARD | grep --quiet MY-HTTPS; then
+if ! iptables -w -n -L FORWARD | grep --quiet MY-HTTPS; then
 
 # add a forward rule for the traffic (same reason)
-  iptables -I FORWARD 4 -d 10.137.2.y -p tcp --dport 443 -m conntrack --ctstate NEW -j MY-HTTPS
+  iptables -w -I FORWARD 4 -d 10.137.2.y -p tcp --dport 443 -m conntrack --ctstate NEW -j MY-HTTPS
 
 fi
 
@@ -447,18 +447,18 @@ Proceed in the same way as above but store the filtering rule in the `/rw/config
 # My service filtering
 
 # Create a new firewall filtering chain for my service
-if iptables -N MY-HTTPS; then
+if iptables -w -N MY-HTTPS; then
 
 # Add a filtering rule if it did not exit (to avoid cluter if script executed multiple times)
-  iptables -A MY-HTTPS -j ACCEPT
+  iptables -w -A MY-HTTPS -j ACCEPT
 
 fi
 
-# If no forward rule exist for my service
-if ! iptables -n -L FORWARD | grep --quiet MY-HTTPS; then
+# If no input rule exists for my service
+if ! iptables -w -n -L INPUT | grep --quiet MY-HTTPS; then
 
 # add a forward rule for the traffic (same reason)
-  iptables -I INPUT 5 -d 10.137.2.x -p tcp --dport 443 -m conntrack --ctstate NEW -j MY-HTTPS
+  iptables -w -I INPUT 5 -d 10.137.2.x -p tcp --dport 443 -m conntrack --ctstate NEW -j MY-HTTPS
 
 fi
 ~~~
