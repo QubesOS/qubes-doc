@@ -196,7 +196,7 @@ qvm-prefs win7new memory 2048
 qvm-prefs win7new maxmem 2048
 ~~~
 
-Revert to the standard VGA adapter :
+Revert to the standard VGA adapter: the 'cirrus' adapter will limit the maximum screen resolution to 1024x768 pixels, while the default VGA adapter allows for much higher resolutions (up to 2560x1600 pixels).
 
 ~~~
 qvm-features --unset win7new video-model
