@@ -302,7 +302,7 @@ qvm-run --pass-io untrusted 'cat "/media/user/externalhd/win10.raw"' > /home/use
 Create a new HVM in Dom0 with the root image we just copied to Dom0 (change the amount of RAM in GB as you wish):
 
 ~~~
-qvm-create --hvm win10 --label red --mem=4096 --root-move-from /home/user/win10-root.img
+qvm-create --property virt_mode=hvm win10 --label red --mem=4096 --root-move-from /home/user/win10-root.img
 ~~~
 
 Start win10 VM:
