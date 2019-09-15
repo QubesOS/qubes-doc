@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Canaries
+title: Qubes Canaries
 redirect_from:
 - /security/canaries/
 - /doc/canaries/

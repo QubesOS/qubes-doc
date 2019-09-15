@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Qubes Security Bulletins
+title: Qubes Security Bulletins (QSBs)
 redirect_from:
 - /security/bulletins/
 - /doc/security-bulletins/

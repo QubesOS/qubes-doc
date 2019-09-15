@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Security
+title: Security Center
 redirect_from:
 - /security/
 - /en/security/

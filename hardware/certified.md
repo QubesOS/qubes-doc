@@ -3,9 +3,9 @@ layout: doc
 title: Certified Hardware
 redirect_from:
 - /doc/certified-hardware/
- - /doc/hardware/
- - /doc/certified-laptops/
- - /hardware-certification/
+- /doc/hardware/
+- /doc/certified-laptops/
+- /hardware-certification/
 ---
 
 # Certified Hardware
