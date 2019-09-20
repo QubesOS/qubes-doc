@@ -75,26 +75,6 @@ Debian also has three Qubes VM testing repositories (where `*` denotes the Relea
 To enable or disable any of these repos permanently, uncomment the corresponding `deb` line in `/etc/apt/sources.list.d/qubes-r*.list`
 
 
-## Reverting changes to a TemplateVM
-
-Perhaps you've just updated your TemplateVM, and the update broke your template.
-Or perhaps you've made a terrible mistake, like accidentally confirming the installation of an unsigned package that could be malicious.
-Fortunately, it's easy to revert changes to TemplateVMs using the command appropriate to your version of Qubes.
-
-**Important:** This command will roll back any changes made *during the last time the TemplateVM was run, but **not** before.*
-This means that if you have already restarted the TemplateVM, using this command is unlikely to help, and you'll likely want to reinstall it from the repository instead.
-On the other hand, if the template is already broken or compromised, it won't hurt to try reverting first.
-Just make sure to **back up** all of your data and changes first!
-
-For example, to revert changes to the `fedora-XX` TemplateVM (where `XX` is your Fedora version):
-
-1. Shut down `fedora-XX`.
-   If you've already just shut it down, do **not** start it again (see above).
-2. In a dom0 terminal, type:
-
-        qvm-volume revert fedora-XX:root
-
-
 ## StandaloneVMs
 
 When you create a [StandaloneVM] from a TemplateVM, the StandaloneVM is a complete clone of the TemplateVM, including the entire filesystem.
@@ -117,6 +97,56 @@ If you would like to enable the [RPM Fusion] repository, open a Terminal of the 
 sudo dnf config-manager --set-enabled rpmfusion-free rpmfusion-nonfree
 sudo dnf upgrade --refresh
 ~~~
+
+
+## Reverting changes to a TemplateVM
+
+Perhaps you've just updated your TemplateVM, and the update broke your template.
+Or perhaps you've made a terrible mistake, like accidentally confirming the installation of an unsigned package that could be malicious.
+If you want to undo changes to a TemplateVM, there are three basic methods:
+
+1. **Root revert.**
+   This is appropriate for misconfigurations, but not for security concerns.
+   It will preserve your customizations.
+
+2. **Reinstall the template.**
+   This is appropriate for both misconfigurations and security concerns, but you will lose all customizations.
+
+3. **Full revert.**
+   This is appropriate for both misconfigurations and security concerns, and it can preserve your customizations.
+   However, it is a bit more complex.
+
+
+### Root revert
+
+**Important:** This command will roll back any changes made *during the last time the TemplateVM was run, but **not** before.*
+This means that if you have already restarted the TemplateVM, using this command is unlikely to help, and you'll likely want to reinstall it from the repository instead.
+On the other hand, if the template is already broken or compromised, it won't hurt to try reverting first.
+Just make sure to **back up** all of your data and changes first!
+
+1. Shut down `<template>`.
+   If you've already just shut it down, do **not** start it again (see above).
+
+2. In a dom0 terminal:
+
+        qvm-volume revert <template>:root
+
+
+### Reinstall the template
+
+Please see [How to Reinstall a TemplateVM].
+
+
+### Full revert
+
+This is like the simple revert, except:
+
+ - You must also revert the private volume with `qvm-volume revert <template>:private`.
+   This requires you to have an old revision of the private volume, which does not exist with the current default config.
+   However, if you don't have anything important in the private volume (likely for a TemplateVM), then you can work around this by just resetting the private volume with `qvm-volume import --no-resize <template>:private /dev/null`.
+
+ - The saved revision of the volumes must be uncompromised.
+   With the default `revisions_to_keep=1` for the root volume, you must **not** have started the template since the compromising action.
 
 
 ### Temporarily allowing networking for software installation
@@ -177,4 +207,5 @@ Example policy file in R4.0 (with Whonix installed, but not set as default Updat
 [testing]: /doc/testing
 [RPM Fusion]: http://rpmfusion.org/
 [service framework]: /doc/qubes-service/
+[How to Reinstall a TemplateVM]: /doc/reinstall-template/
 
