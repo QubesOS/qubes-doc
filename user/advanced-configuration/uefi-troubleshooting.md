@@ -96,8 +96,8 @@ Consider this approach as a last resort, because it will make every Xen update a
 
    ~~~
    cp -R /mnt/sysimage/boot/efi/EFI/qubes /mnt/sysimage/boot/efi/EFI/BOOT
-   mv /mnt/sysimage/boot/efi/EFI/BOOT/xen.efi /mnt/sysimage/boot/efi/EFI/BOOT/BOOTX64.efi
-   mv /mnt/sysimage/boot/efi/EFI/BOOT/xen.cfg /mnt/sysimage/boot/efi/EFI/BOOT/BOOTX64.cfg
+   cp /mnt/sysimage/boot/efi/EFI/BOOT/xen-*.efi /mnt/sysimage/boot/efi/EFI/BOOT/BOOTX64.efi
+   cp /mnt/sysimage/boot/efi/EFI/BOOT/xen.cfg /mnt/sysimage/boot/efi/EFI/BOOT/BOOTX64.cfg
    ~~~
    
 6. Go back to `tty6` (Ctrl-Alt-F6) and click `Reboot`.
@@ -187,9 +187,9 @@ This will need to be done after every kernel and Xen update to ensure you use th
 
        cp -r /boot/efi/EFI/qubes/. /boot/efi/EFI/BOOT
 
-2. Rename `/boot/efi/EFI/BOOT/xen.cfg` to `/boot/efi/EFI/BOOT/BOOTX64.cfg`:
+2. Copy `/boot/efi/EFI/BOOT/xen.cfg` to `/boot/efi/EFI/BOOT/BOOTX64.cfg`:
 
-       mv /boot/efi/EFI/BOOT/xen.cfg /boot/efi/EFI/BOOT/BOOTX64.cfg
+       cp /boot/efi/EFI/BOOT/xen.cfg /boot/efi/EFI/BOOT/BOOTX64.cfg
 
 3. Copy `/boot/efi/EFI/qubes/xen-*.efi` to `/boot/efi/EFI/qubes/xen.efi` and `/boot/efi/EFI/BOOT/BOOTX64.efi`.
    For example, with Xen 4.8.3 (you may need to confirm file overwrite):
