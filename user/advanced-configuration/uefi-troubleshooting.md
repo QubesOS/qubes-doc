@@ -96,7 +96,7 @@ Consider this approach as a last resort, because it will make every Xen update a
 
    ~~~
    cp -R /mnt/sysimage/boot/efi/EFI/qubes /mnt/sysimage/boot/efi/EFI/BOOT
-   mv /mnt/sysimage/boot/efi/EFI/BOOT/xen.efi /mnt/sysimage/boot/efi/EFI/BOOT/BOOTX64.efi
+   mv /mnt/sysimage/boot/efi/EFI/BOOT/xen-*.efi /mnt/sysimage/boot/efi/EFI/BOOT/BOOTX64.efi
    mv /mnt/sysimage/boot/efi/EFI/BOOT/xen.cfg /mnt/sysimage/boot/efi/EFI/BOOT/BOOTX64.cfg
    ~~~
    
