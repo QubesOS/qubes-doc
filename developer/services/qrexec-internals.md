@@ -21,6 +21,7 @@ Because of [vchan limitation](https://github.com/qubesos/qubes-issues/issues/951
 
 ## Dom0 tools implementation
 
+### qrexec-daemon
 * `/usr/lib/qubes/qrexec-daemon`: One instance is required for every active domain. Responsible for:
   * Handling execution and service requests from **dom0** (source: `qrexec-client`).
   * Handling service requests from the associated domain (source: `qrexec-client-vm`, then `qrexec-agent`).
@@ -28,7 +29,11 @@ Because of [vchan limitation](https://github.com/qubesos/qubes-issues/issues/951
 * `domain-id`: Numeric Qubes ID assigned to the associated domain.
 * `domain-name`: Associated domain name.
 * `default user`: Optional. If passed, `qrexec-daemon` uses this user as default for all execution requests that don't specify one.
+
+### qrexec-policy
 * `/usr/lib/qubes/qrexec-policy`: Internal program used to evaluate the RPC policy and deciding whether a RPC call should be allowed.
+
+### qrexec-client
 * `/usr/lib/qubes/qrexec-client`: Used to pass execution and service requests to `qrexec-daemon`. Command line parameters:
   * `-d target-domain-name`: Specifies the target for the execution/service request.
   * `-l local-program`: Optional. If present, `local-program` is executed and its stdout/stdin are used when sending/receiving data to/from the remote peer.
@@ -40,11 +45,12 @@ Because of [vchan limitation](https://github.com/qubesos/qubes-issues/issues/951
 
 ## VM tools implementation
 
-* `qrexec-agent`: One instance runs in each active domain. Responsible for:
+### `qrexec-agent`: One instance runs in each active domain. Responsible for:
   * Handling service requests from `qrexec-client-vm` and passing them to connected `qrexec-daemon` in dom0.
   * Executing associated `qrexec-daemon` execution/service requests.
 * Command line parameters: none.
-* `qrexec-client-vm`: Runs in an active domain. Used to pass service requests to `qrexec-agent`.
+
+### `qrexec-client-vm`: Runs in an active domain. Used to pass service requests to `qrexec-agent`.
 * Command line: `qrexec-client-vm target-domain-name service-name local-program [local program arguments]`
 * `target-domain-name`: Target domain for the service request. Source is the current domain.
 * `service-name`: Requested service name.
@@ -52,7 +58,7 @@ Because of [vchan limitation](https://github.com/qubesos/qubes-issues/issues/951
 
 ## Qrexec protocol details
 
-Qrexec protocol is message-based.
+The qrexec protocol is message-based.
 All messages share a common header followed by an optional data packet.
 
     /* uniform for all peers, data type depends on message type */
