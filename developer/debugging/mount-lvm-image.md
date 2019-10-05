@@ -6,7 +6,7 @@ permalink: /doc/mount-lvm-image/
 
 # How to mount LVM image
 
-You want to read your LVM image (ex: you did some errors and can't start the VM, expept dom0). 
+You want to read your LVM image (e.g., there is a problem where you can't start any VMs except dom0). 
  
 1: make the image available for qubesdb.
 From dom0 terminal:
