@@ -105,7 +105,7 @@ Do not rely on this for extra security.**
 1. Adding Dom0 "VMAuth" service:
 
         [root@dom0 /]# echo "/usr/bin/echo 1" >/etc/qubes-rpc/qubes.VMAuth
-        [root@dom0 /]# echo "\@anyvm dom0 ask,default_target=dom0" \
+        [root@dom0 /]# echo "@anyvm dom0 ask,default_target=dom0" \
         >/etc/qubes-rpc/policy/qubes.VMAuth
 
    (Note: any VMs you would like still to have passwordless root access (e.g. TemplateVMs) can be specified in the second file with "\<vmname\> dom0 allow")
