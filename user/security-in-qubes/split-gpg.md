@@ -46,7 +46,7 @@ This way it would be easy to spot unexpected requests to decrypt documents.
 
 - Current implementation requires importing of public keys to the vault domain.
   This opens up an avenue to attack the gpg running in the backend domain via a hypothetical bug in public key importing code.
-  See ticket [#474] for more details and plans how to get around this problem, as well as the section on [using split GPG with subkeys] below.
+  See ticket [#474] for more details and plans how to get around this problem, as well as the section on [using Split GPG with subkeys] below.
 
 - It doesn't solve the problem of allowing the user to know what is to be signed before the operation gets approved.
   Perhaps the GPG backend domain could start a DisposableVM and have the to-be-signed document displayed there? To Be Determined.
@@ -54,21 +54,21 @@ This way it would be easy to spot unexpected requests to decrypt documents.
 - The Split GPG client will fail to sign or encrypt if the private key in the GnuPG backend is protected by a passphrase.
   It will give an `Inappropriate ioctl for device` error.
   Do not set passphrases for the private keys in the GPG backend domain.
-  Doing so won't provide any extra security anyway, as explained [above][intro] and [below][using split GPG with subkeys].
+  Doing so won't provide any extra security anyway, as explained [above][intro] and [below][using Split GPG with subkeys].
   If you are generating a new key pair, or if you have a private key that already has a passphrase, you can use `gpg2 --edit-key <key_id>` then `passwd` to set an empty passphrase.
   Note that `pinentry` might show an error when you try to set an empty passphrase, but it will still make the change.
-  (See [this StackExchange answer][se-pinentry] for more information.) 
+  (See [this StackExchange answer][se-pinentry] for more information.)
 
 ## Configuring Split GPG ##
 
 In dom0, make sure the `qubes-gpg-split-dom0` package is installed.
 
     [user@dom0 ~]$ sudo qubes-dom0-update qubes-gpg-split-dom0
-    
+
 If using templates based on Debian or Whonix, make sure you have the `qubes-gpg-split` package installed.
 
     [user@debian-8 ~]$ sudo apt install qubes-gpg-split
-    
+
 For Fedora.
 
     [user@fedora-25 ~]$ sudo dnf install qubes-gpg-split
@@ -95,8 +95,8 @@ However, you might want to modify the default timeout: this tells the backend fo
 You can override it e.g. in `~/.profile`:
 
     [user@work-gpg ~]$ echo "export QUBES_GPG_AUTOACCEPT=86400" >> ~/.profile
-    
-    
+
+
 Please note that at one time, this parameter was set in ~/.bash_profile.
 This will no longer work.
 If you have the parameter set in ~/.bash_profile you *must* update your configuration.
@@ -116,45 +116,46 @@ Normally it should be enough to set the `QUBES_GPG_DOMAIN` to the GPG backend do
     uid                  Qubes OS Security Team <security@qubes-os.org>
     ssb   4096R/30498E2A 2012-11-15
     (...)
-    
-    [user@work ~]$ qubes-gpg-client secret_message.txt.asc 
+
+    [user@work ~]$ qubes-gpg-client secret_message.txt.asc
     (...)
 
 Note that running normal `gpg -K` in the demo above shows no private keys stored in this AppVM.
 
 A note on `gpg` and `gpg2`:
 
-Throughout this guide, we refer to `gpg`, but note that Split-GPG uses `gpg2` under the hood for compatibility with programs like Enigmail (which now supports only `gpg2`).
-If you encounter trouble while trying to set up Split-GPG, make sure you're using `gpg2` for your configuration and testing, since keyring data may differ between the two installations.
+Throughout this guide, we refer to `gpg`, but note that Split GPG uses `gpg2` under the hood for compatibility with programs like Enigmail (which now supports only `gpg2`).
+If you encounter trouble while trying to set up Split GPG, make sure you're using `gpg2` for your configuration and testing, since keyring data may differ between the two installations.
 
-### Using Thunderbird + Enigmail with Split GPG ###
+### Advanced Configuration ###
 
-However, when using Thunderbird with Enigmail extension it is not enough, because Thunderbird doesn't preserve the environment variables.
-Instead it is recommended to use a simple script provided by `/usr/bin/qubes-gpg-client-wrapper` file by pointing Enigmail to use this script instead of the standard GnuPG binary:
-
-![tb-enigmail-split-gpg-settings-2.png](/attachment/wiki/SplitGpg/tb-enigmail-split-gpg-settings-2.png)
-
-The script also sets the `QUBES_GPG_DOMAIN` variable automatically based on the content of the file `/rw/config/gpg-split-domain`, which should be set to the name of the GPG backend VM.
-This file survives the AppVM reboot, of course.
+The `qubes-gpg-client-wrapper` script sets the `QUBES_GPG_DOMAIN` variable automatically based on the content of the file `/rw/config/gpg-split-domain`, which should be set to the name of the GPG backend VM. This file survives the AppVM reboot, of course.
 
     [user@work ~]$ sudo bash
     [root@work ~]$ echo "work-gpg" > /rw/config/gpg-split-domain
 
-#### Qubes 4.0 Specifics ####
+Split GPG's default qrexec policy requires the user to enter the name of the AppVM containing GPG keys on each invocation. To improve usability for applications like Thunderbird with Enigmail, in `dom0` place the following line at the top of the file `/etc/qubes-rpc/policy/qubes.Gpg`:
 
-New qrexec policies in Qubes R4.0 by default require the user to enter the name of the domain containing GPG keys each time it is accessed.
-To improve usability for Thunderbird+Enigmail, in `dom0` place the following line at the top of the file `/etc/qubes-rpc/policy/qubes.Gpg`: 
+    work-email  work-gpg  allow
 
-```
-work-email  work-gpg  allow
-```
+where `work-email` is the Thunderbird + Enigmail AppVM and `work-gpg` contains your GPG keys.
 
-where `work-email` is the Thunderbird+Enigmail AppVM and `work-gpg` contains your GPG keys.
+You may also edit the qrexec policy file for Split GPG in order to tell Qubes your default gpg vm (qrexec prompts will appear with the gpg vm preselected as the target, instead of the user needing to type a name in manually). To do this, append `,default_target=<vmname>` to `ask` in `/etc/qubes-rpc/policy/qubes.Gpg`. For the examples given on this page:
+
+    @anyvm  @anyvm  ask,default_target=work-gpg
+
+Note that, because this makes it easier to accept Split GPG's qrexec authorization prompts, it may decrease security if the user is not careful in reviewing presented prompts. This may also be inadvisable if there are multiple AppVMs with Split GPG set up.
+
+### Using Thunderbird + Enigmail with Split GPG ###
+
+It is recommended to set up and use `/usr/bin/qubes-gpg-client-wrapper`, as discussed above, by pointing Enigmail at this script instead of the standard GnuPG binary:
+
+![tb-enigmail-split-gpg-settings-2.png](/attachment/wiki/SplitGpg/tb-enigmail-split-gpg-settings-2.png)
 
 ## Using Git with Split GPG ##
 
-Git can be configured to used with Split-GPG, something useful if you would like to contribute to the Qubes OS Project as every commit is required to be signed.
-The most basic `~/.gitconfig` file to with working Split-GPG looks something like this.
+Git can be configured to used with Split GPG, something useful if you would like to contribute to the Qubes OS Project as every commit is required to be signed.
+The most basic `~/.gitconfig` file to with working Split GPG looks something like this.
 
     [user]
     name = YOUR NAME
@@ -169,11 +170,11 @@ In this instance, the key id is DD160C74.
 
     [user@work ~]$ qubes-gpg-client -k
     /home/user/.gnupg/pubring.kbx
-    -----------------------------   
+    -----------------------------
     pub   rsa4096/DD160C74 2016-04-26
     uid                    Qubes User
 
-To sign commits, you now add the "-S" flag to your commit command, which should prompt for Split-GPG usage.
+To sign commits, you now add the "-S" flag to your commit command, which should prompt for Split GPG usage.
 If you would like automatically sign all commits, you can add the following snippet to `~/.gitconfig`.
 
     [commit]
@@ -205,7 +206,7 @@ Of course a (safe, unspoofable) user consent dialog box is displayed to accept t
 
 Users with particularly high security requirements may wish to use Split GPG with [​subkeys].
 However, this setup comes at a significant cost: It will be impossible to sign other people's keys with the master secret key without breaking this security model.
-Nonetheless, if signing others' keys is not required, then Split GPG with subkeys offers unparalleled security for one's master secret key. 
+Nonetheless, if signing others' keys is not required, then Split GPG with subkeys offers unparalleled security for one's master secret key.
 
 ### Setup Description ###
 
@@ -302,7 +303,7 @@ As always, exercise caution and use your good judgment.)
 
 
 [#474]: https://github.com/QubesOS/qubes-issues/issues/474
-[using split GPG with subkeys]: #advanced-using-split-gpg-with-subkeys
+[using Split GPG with subkeys]: #advanced-using-split-gpg-with-subkeys
 [intro]: #what-is-split-gpg-and-why-should-i-use-it-instead-of-the-standard-gpg
 [se-pinentry]: https://unix.stackexchange.com/a/379373
 [​subkeys]: https://wiki.debian.org/Subkeys
@@ -316,4 +317,3 @@ As always, exercise caution and use your good judgment.)
 [luck]: https://gist.github.com/abeluck/3383449
 [apapadop]: https://apapadop.wordpress.com/2013/08/21/using-gnupg-with-qubesos/
 [current-limitations]: #current-limitations
-
