@@ -23,7 +23,7 @@ Because of [vchan limitation](https://github.com/qubesos/qubes-issues/issues/951
 ## Dom0 tools implementation
 
 ### qrexec-daemon
-* `/usr/lib/qubes/qrexec-daemon`: One instance is required for every active domain. Responsible for:
+* `/usr/sbin/qrexec-daemon`: One instance is required for every active domain. Responsible for:
   * Handling execution and service requests from **dom0** (source: `qrexec-client`).
   * Handling service requests from the associated domain (source: `qrexec-client-vm`, then `qrexec-agent`).
 * Command line: `qrexec-daemon domain-id domain-name [default user]`
@@ -32,10 +32,10 @@ Because of [vchan limitation](https://github.com/qubesos/qubes-issues/issues/951
 * `default user`: Optional. If passed, `qrexec-daemon` uses this user as default for all execution requests that don't specify one.
 
 ### qrexec-policy
-* `/usr/lib/qubes/qrexec-policy`: Internal program used to evaluate the RPC policy and deciding whether a RPC call should be allowed.
+* `/usr/bin/qrexec-policy`: Internal program used to evaluate the RPC policy and deciding whether a RPC call should be allowed.
 
 ### qrexec-client
-* `/usr/lib/qubes/qrexec-client`: Used to pass execution and service requests to `qrexec-daemon`. Command line parameters:
+* `/usr/bin/qrexec-client`: Used to pass execution and service requests to `qrexec-daemon`. Command line parameters:
   * `-d target-domain-name`: Specifies the target for the execution/service request.
   * `-l local-program`: Optional. If present, `local-program` is executed and its stdout/stdin are used when sending/receiving data to/from the remote peer.
   * `-e`: Optional. If present, stdout/stdin are not connected to the remote   peer. Only process creation status code is received.
