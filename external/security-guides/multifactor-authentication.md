@@ -67,26 +67,29 @@ Optional Preparation Steps
     [minimal Fedora template][FedoraMinimal]. Get it if you haven't already done
     so:
 
-        [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-26-minimal
+        [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-fedora-30-minimal
 
  2. Since we'll be making some modifications, you may want to clone the minimal
     template:
 
-        [user@dom0 ~]$ qvm-clone fedora-26-minimal fedora-26-min-mfa
+        [user@dom0 ~]$ qvm-clone fedora-30-minimal fedora-30-min-mfa
+ 
+ 3. To open a root shell on the minimal template (for details see [this page](https://www.qubes-os.org/doc/templates/minimal/#passwordless-root)), run the following command:
 
- 3. Since this is going to be a minimal environment in which we run `oathtool`
+        [user@dom0 ~]$ qvm-run -u root fedora-30-min-mfa xterm
+
+ 4. Since this is going to be a minimal environment in which we run `oathtool`
     from the command line, we'll install only a couple of packages:
 
-        [user@fedora-26-min-mfa ~]$ su -
-        [user@fedora-26-min-mfa ~]# dnf install oathtool vim-minimal
-        [user@fedora-26-min-mfa ~]$ poweroff
+        [root@fedora-30-min-mfa ~]# dnf install oathtool vim-minimal
+        [root@fedora-30-min-mfa ~]$ poweroff
 
- 4. Create an AppVM and set it to use the TemplateVM we just created:
+ 5. Create an AppVM and set it to use the TemplateVM we just created:
 
         [user@dom0 ~]$ qvm-create -l black mfa
-        [user@dom0 ~]$ qvm-prefs -s mfa template fedora-26-min-mfa
+        [user@dom0 ~]$ qvm-prefs -s mfa template fedora-30-min-mfa
 
- 5. Isolate the new AppVM from the network:
+ 6. Isolate the new AppVM from the network:
 
         [user@dom0 ~]$ qvm-prefs -s mfa netvm none
 
@@ -135,7 +138,7 @@ is largely the same.
         [user@mfa ~]$ > google
         [user@mfa ~]$ vi google
 
-        #!/bin/bash
+        #!/usr/bin/env bash
         ##My Google Account
         ##me@gmail.com
         oathtool --base32 --totp "xd2n mx5t ekg6 h6bi u74d 745k n4m7 zy3x"
