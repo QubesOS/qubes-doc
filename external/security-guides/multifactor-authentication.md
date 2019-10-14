@@ -74,7 +74,7 @@ Optional Preparation Steps
 
         [user@dom0 ~]$ qvm-clone fedora-30-minimal fedora-30-min-mfa
  
- 3. To open a root shell on the minimal template (for details see [this page](https://www.qubes-os.org/doc/templates/minimal/#passwordless-root)), run the following command:
+ 3. To open a root shell on the minimal template (for details, see [Passwordless Root]), run the following command:
 
         [user@dom0 ~]$ qvm-run -u root fedora-30-min-mfa xterm
 
@@ -187,3 +187,4 @@ is largely the same.
 [Google Authenticator]: https://en.wikipedia.org/wiki/Google_Authenticator
 [FedoraMinimal]: /doc/Templates/FedoraMinimal/
 [usage]: https://en.wikipedia.org/wiki/Google_Authenticator#Usage
+[Passwordless Root]: /doc/templates/minimal/#passwordless-root
