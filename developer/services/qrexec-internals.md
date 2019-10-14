@@ -82,6 +82,8 @@ Details of all possible use cases and the messages involved are described below.
 
 ### dom0: request execution of `some_command` in domX and pass stdin/stdout
 
+![qrexec basics diagram](/attachment/wiki/qrexec3/qrexec-internals-dom0.png)
+
 - **dom0**: `qrexec-client` is invoked in **dom0** as follows:
 
       qrexec-client -d domX [-l local_program] user:some_command`
@@ -116,6 +118,8 @@ Details of all possible use cases and the messages involved are described below.
 - When `some_command` terminates, **domX**'s `qrexec-agent` sends `MSG_DATA_EXIT_CODE` header to `qrexec-client` followed by the exit code (**int**). `qrexec-agent` then disconnects from the data vchan.
 
 ### domY: invoke execution of qubes service `qubes.SomeRpc` in domX and pass stdin/stdout
+
+![qrexec basics diagram](/attachment/wiki/qrexec3/qrexec-internals-domY.png)
 
 - **domY**: `qrexec-client-vm` is invoked as follows:
 
