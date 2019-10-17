@@ -24,6 +24,7 @@ In general, you can think of tested hardware as "unofficial recommended" hardwar
 These hardware models have been (and continue to be) tested and work well with Qubes OS:
 
  - Lenovo ThinkPad X1 Carbon Gen 5
+ - Lenovo ThinkPad x230
 
 Note: The Lenovo X and T series are similar enough to assume similar compatibility of the matching model from the other series.
 
