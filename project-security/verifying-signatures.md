@@ -52,6 +52,7 @@ There are three basic steps in this process:
 
 If you run into any problems, please consult the [Troubleshooting FAQ] below.
 
+**Note:** We strongly recommending using `gpg` ("Classic") rather than `gpg2` ("Modern") for this procedure, since `gpg2` requires [special steps][gpg2] to work correctly.
 
 ### 1. Get the Qubes Master Signing Key and verify its authenticity
 
@@ -355,7 +356,7 @@ The problem could be one or more of the following:
 ### I'm getting "bash: gpg: command not found"
 
 You don't have `gpg` installed.
-Install it, or use `gpg2` instead.
+We strongly recommending using `gpg` ("Classic") rather than `gpg2` ("Modern") for this procedure, since `gpg2` requires [special steps][gpg2] to work correctly.
 
 
 ### Why am I getting "can't open signed data `Qubes-RX-x86_64.iso' / can't hash datafile: file open error"?
@@ -458,4 +459,5 @@ If you still have a question, please address it to the [qubes-users mailing list
 [GPG documentation]: https://www.gnupg.org/documentation/
 [qubes-users mailing list]: /support/#qubes-users
 [except dom0]: https://github.com/QubesOS/qubes-issues/issues/2544
+[gpg2]: https://github.com/QubesOS/qubes-issues/issues/5404
 
