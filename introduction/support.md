@@ -228,8 +228,7 @@ search and reply to messages which were sent prior to your subscription to
 the list. However, a Google account is required in order to post through the
 web interfaces. (Note: There have been many discussions about why the Qubes
 OS Project does not maintain an official forum. The curious can find these
-by searching the list archives. However, there is an [unofficial
-forum](https://qubes-os.info) that is synced with the mailing lists.)
+by searching the list archives.)
 
 
 ## qubes-announce ##
