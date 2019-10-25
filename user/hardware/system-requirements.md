@@ -47,7 +47,7 @@ redirect_from:
  * [Intel VT-x] with [EPT] or [AMD-V] with [RVI]
  * [Intel VT-d] or [AMD-Vi (aka AMD IOMMU)]
  * 4 GB RAM
- * 32 GB disk space
+ * 32 GiB disk space
 
 ### Recommended ###
 
@@ -72,7 +72,7 @@ redirect_from:
  * Qubes **can** be installed on systems which do not meet the recommended requirements.
    Such systems will still offer significant security improvements over traditional operating systems, since things like GUI isolation and kernel protection do not require special hardware.
  * Qubes **can** be installed on a USB flash drive or external disk, and testing has shown that this works very well. A fast USB 3.0 flash drive is recommended for this.
-   (As a reminder, its capacity must be at least 32 GB.)
+   (As a reminder, its capacity must be at least 32 GiB.)
    Simply plug the flash drive into the computer before booting into the Qubes installer from a separate installation medium, choose the flash drive as the target installation disk, and proceed with the installation normally.
    After Qubes has been installed on the flash drive, it can then be plugged into other computers in order to boot into Qubes.
    In addition to the convenience of having a portable copy of Qubes, this allows users to test for hardware compatibility on multiple machines (e.g., at a brick-and-mortar computer
