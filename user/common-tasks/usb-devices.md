@@ -12,7 +12,9 @@ redirect_from:
 
 If you are looking to handle USB *storage* devices (thumbdrives or USB-drives), please have a look at the [block device] page.
 
-**Important security warning:** USB passthrough comes with many security implications. Please make sure you carefully read and understand the **[security considerations]**. Whenever possible, attach a [block device] instead.
+**Important security warning:** USB passthrough comes with many security implications.
+Please make sure you carefully read and understand the **[security considerations]**.
+Whenever possible, attach a [block device] instead.
 
 Examples of valid cases for USB-passthrough:
 
@@ -20,7 +22,8 @@ Examples of valid cases for USB-passthrough:
  - [external audio devices]
  - [optical drives] for recording
 
-(If you are thinking to use a two-factor-authentication device, [there is an app for that][qubes u2f proxy]. But it has some [issues][4661].)
+(If you are thinking to use a two-factor-authentication device, [there is an app for that][qubes u2f proxy].
+But it has some [issues][4661].)
 
 
 ## Attaching And Detaching a USB Device ##
@@ -29,11 +32,14 @@ Examples of valid cases for USB-passthrough:
 ### With Qubes Device Manager ###
 
 Click the device-manager-icon: ![device manager icon]  
-A list of available devices appears. USB-devices have a USB-icon to their right: ![usb icon]
+A list of available devices appears.
+USB-devices have a USB-icon to their right: ![usb icon]
 
 Hover on one device to display a list of VMs you may attach it to.
 
-Click one of those. The USB device will be attached to it. You're done.
+Click one of those.
+The USB device will be attached to it.
+You're done.
 
 After you finished using the USB-device, you can detach it the same way by clicking on the Devices Widget.
 You will see an entry in bold for your device such as **`sys-usb:2-5 - 058f_USB_2.0_Camera`**.
@@ -81,13 +87,15 @@ When you finish, detach the device.
 
 ### Creating And Using a USB qube ###
 
-If you've selected to install a usb-qube during system installation, everything is already set up for you in `sys-usb`. If you've later decided to create a usb-qube, please follow [this guide][USB-qube howto].
+If you've selected to install a usb-qube during system installation, everything is already set up for you in `sys-usb`.
+If you've later decided to create a usb-qube, please follow [this guide][USB-qube howto].
 
 
 ### Installation Of `qubes-usb-proxy` ###
 
 To use this feature, the[`qubes-usb-proxy`][qubes-usb-proxy] package needs to be installed in the templates used for the USB qube and qubes you want to connect USB devices to.
-This section exists for reference or in case something broke and you need to reinstall `qubes-usb-proxy`. Under normal conditions, `qubes-usb-proxy` should already be installed and good to go.
+This section exists for reference or in case something broke and you need to reinstall `qubes-usb-proxy`.
+Under normal conditions, `qubes-usb-proxy` should already be installed and good to go.
 
 If you receive this error: `ERROR: qubes-usb-proxy not installed in the VM`, you can install the `qubes-usb-proxy` with the package manager in the VM you want to attach the USB device to.
 Note: you cannot pass through devices from dom0 (in other words: a [USB qube][USB-qube howto] is required).

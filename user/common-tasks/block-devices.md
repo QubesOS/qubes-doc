@@ -26,7 +26,9 @@ Qubes OS supports the ability to attach a USB drive (or just its partitions) to 
 Attaching USB drives is integrated into the Devices Widget: ![device manager icon]  
 Simply insert your USB drive and click on the widget.
 You will see multiple entries for your USB drive; typically, `sys-usb:sda`, `sys-usb:sda1`, and `sys-usb:2-1` for example.
-Entries starting with a number (e.g. here `2-1`) are the [whole usb-device][USB]. Entries without a number (e.g. here `sda`) are the whole block-device. Other entries are partitions of that block-device (e.r. here `sda1`).
+Entries starting with a number (e.g. here `2-1`) are the [whole usb-device][USB].
+Entries without a number (e.g. here `sda`) are the whole block-device.
+Other entries are partitions of that block-device (e.r. here `sda1`).
 
 The simplest option is to attach the entire block drive.
 In our example, this is `sys-usb:sda`, so hover over it.
@@ -40,7 +42,8 @@ See below for more detailed steps.
 
 ## Block Devices in VMs ##
 
-If not specified otherwise, block devices will show up as `/dev/xvdi*` in a linux VM, where `*` may be the partition-number. If a block device isn't automatically mounted after attaching, open a terminal in the VM and execute:
+If not specified otherwise, block devices will show up as `/dev/xvdi*` in a linux VM, where `*` may be the partition-number.
+If a block device isn't automatically mounted after attaching, open a terminal in the VM and execute:
 
     cd ~
     mkdir mnt
@@ -60,9 +63,11 @@ To specify this device node name, you need to use the command line tool and its 
 
 The command-line tool you may use to mount whole USB drives or their partitions is `qvm-block`, a shortcut for `qvm-device block`.
 
-`qvm-block` won't recognise your device by any given name, but rather the device-node the sourceVM assigns. So make sure you have the drive available in the sourceVM, then list the available block devices (step 1.) to find the corresponding device-node.
+`qvm-block` won't recognise your device by any given name, but rather the device-node the sourceVM assigns.
+So make sure you have the drive available in the sourceVM, then list the available block devices (step 1.) to find the corresponding device-node.
 
-In case of a USB-drive, make sure it's attached to your computer. If you don't see anything that looks like your drive, run `sudo udevadm trigger --action=change` in your USB-qube (typically `sys-usb`)
+In case of a USB-drive, make sure it's attached to your computer.
+If you don't see anything that looks like your drive, run `sudo udevadm trigger --action=change` in your USB-qube (typically `sys-usb`)
 
  1. In a dom0 console (running as a normal user), list all available block devices:
     
@@ -154,13 +159,16 @@ To attach a file as block device to another qube, first turn it into a loopback 
 
         sudo losetup -f --show /path/to/file
 
-    [This command][losetup] will create the device node `/dev/loop0` or, if that is already in use, increase the trailing integer until that name is still available. Afterwards it prints the device-node-name it found.
+    [This command][losetup] will create the device node `/dev/loop0` or, if that is already in use, increase the trailing integer until that name is still available.
+    Afterwards it prints the device-node-name it found.
 
- 2. If you want to use the GUI, you're done. Click the Device Manager ![device manager icon] and select the `loop0`-device to attach it to another qube.
+ 2. If you want to use the GUI, you're done.
+    Click the Device Manager ![device manager icon] and select the `loop0`-device to attach it to another qube.
 
     If you rather use the command line, continue:
 
-    In dom0, run `qvm-block` to display known block devices. The newly created loop device should show up:
+    In dom0, run `qvm-block` to display known block devices.
+    The newly created loop device should show up:
 
         ~]$ qvm-block
         BACKEND:DEVID  DESCRIPTION  USED BY
@@ -177,12 +185,15 @@ To attach a file as block device to another qube, first turn it into a loopback 
 
 ## Additional Attach Options ##
 
-Attaching a block device through the command line offers additional customisation options, specifiable via the `--option`/`-o` option. (Yes, confusing wording, there's an [issue for that](https://github.com/QubesOS/qubes-issues/issues/4530).)
+Attaching a block device through the command line offers additional customisation options, specifiable via the `--option`/`-o` option.
+(Yes, confusing wording, there's an [issue for that](https://github.com/QubesOS/qubes-issues/issues/4530).)
 
 
 ### frontend-dev ###
 
-This option allows you to specify the name of the device node made available in the targetVM. This defaults to `xvdi` or, if already occupied, the first available device node name in alphabetical order. (The next one tried will be `xvdj`, then `xvdk`, and so on ...)
+This option allows you to specify the name of the device node made available in the targetVM.
+This defaults to `xvdi` or, if already occupied, the first available device node name in alphabetical order.
+(The next one tried will be `xvdj`, then `xvdk`, and so on ...)
 
 usage example:
 
@@ -193,7 +204,8 @@ This command will attach the partition `sda1` to `work` as `/dev/xvdz`.
 
 ### read-only ###
 
-Attach device in read-only mode. Protects the block device in case you don't trust the targetVM.
+Attach device in read-only mode.
+Protects the block device in case you don't trust the targetVM.
 
 If the device is a read-only device, this option is forced true.
 
@@ -210,7 +222,8 @@ The two commands are equivalent.
 
 ### devtype ###
 
-Usually, a block device is attached as disk. In case you need to attach a block device as cdrom, this option allows that.
+Usually, a block device is attached as disk.
+In case you need to attach a block device as cdrom, this option allows that.
 
 usage example:
 

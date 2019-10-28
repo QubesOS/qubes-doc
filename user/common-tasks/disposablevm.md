@@ -68,7 +68,8 @@ This is a change in behaviour from R3.2, where DisposableVMs would inherit the s
 Therefore, launching a DisposableVM from an AppVM will result in it using the network/firewall settings of the DisposableVM Template on which it is based.
 For example, if an AppVM uses sys-net as its NetVM, but the default system DisposableVM uses sys-whonix, any DisposableVM launched from this AppVM will have sys-whonix as its NetVM.
 
-**Warning:** The opposite is also true. This means if you have changed anon-whonix's `default_dispvm` to use the system default, and the system default DisposableVM uses sys-net, launching a DisposableVM from inside anon-whonix will result in the DisposableVM using sys-net.
+**Warning:** The opposite is also true.
+This means if you have changed anon-whonix's `default_dispvm` to use the system default, and the system default DisposableVM uses sys-net, launching a DisposableVM from inside anon-whonix will result in the DisposableVM using sys-net.
 
 A DisposableVM launched from the Start Menu inherits the NetVM and firewall settings of the DisposableVM Template on which it is based.
 Note that changing the "NetVM" setting for the system default DisposableVM Template *does* affect the NetVM of DisposableVMs launched from the Start Menu.
@@ -118,10 +119,11 @@ Note that the `qvm-open-in-dvm` process will not exit until you close the applic
 
 ## Starting an arbitrary program in a DisposableVM from an AppVM ##
 
-Sometimes it can be useful to start an arbitrary program in a DisposableVM. This can be done from an AppVM by running
+Sometimes it can be useful to start an arbitrary program in a DisposableVM.
+This can be done from an AppVM by running
 
 ~~~
-[user@vault ~]$ qvm-run '$dispvm' xterm
+[user@vault ~]$ qvm-run '@dispvm' xterm
 ~~~
 
 The created DisposableVM can be accessed via other tools (such as `qvm-copy-to-vm`) using its `disp####` name as shown in the Qubes Manager or `qvm-ls`.
@@ -153,6 +155,21 @@ $ qvm-open-in-vm @dispvm:online-dvm-template https://www.qubes-os.org
 
 This will create a new DisposableVM based on `online-dvm-template`, open the default web browser in that DisposableVM, and navigate to `https://www.qubes-os.org`.
 
+#### Example of RPC policies to allow this behavior
+
+In dom0, add the following line at the beginning of the file `/etc/qubes-rpc/policy/qubes.OpenURL`
+~~~
+@anyvm @dispvm:online-dvm-template allow
+~~~
+This line means: 
+- FROM: Any VM
+- TO: A DisposableVM based on the `online-dvm-template` TemplateVM
+- WHAT: Allow sending an "Open URL" request
+
+In other words, any VM will be allowed to create a new DisposableVM based on `online-dvm-template` and open a URL inside of that DisposableVM.
+
+More information about RPC policies for DisposableVMs can be found [here][qrexec].
+
 
 ## Customizing DisposableVMs ##
 
@@ -162,4 +179,4 @@ Full instructions can be found [here](/doc/disposablevm-customization/).
 
 
 [DisposableVM Template]: /doc/glossary/#disposablevm-template
-
+[qrexec]: /doc/qrexec/#qubes-rpc-administration

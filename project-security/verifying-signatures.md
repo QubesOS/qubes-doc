@@ -52,7 +52,6 @@ There are three basic steps in this process:
 
 If you run into any problems, please consult the [Troubleshooting FAQ] below.
 
-
 ### 1. Get the Qubes Master Signing Key and verify its authenticity
 
 Every file published by the Qubes Project (ISO, RPM, TGZ files and Git repositories) is digitally signed by one of the developer keys or Release Signing Keys.
@@ -62,17 +61,21 @@ This Qubes Master Signing Key was generated on and is kept only on a dedicated, 
 
 There are several ways to get the Qubes Master Signing Key.
 
+ - If you have access to an existing Qubes installation, it's available in every VM ([except dom0]):
+
+       $ gpg2 --import /usr/share/qubes/qubes-master-key.asc
+
  - Fetch it with GPG:
 
-       $ gpg --fetch-keys https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
+       $ gpg2 --fetch-keys https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
 
  - Download it as a [file][Qubes Master Signing Key], then import it with GPG:
 
-       $ gpg --import ./qubes-master-signing-key.asc 
+       $ gpg2 --import ./qubes-master-signing-key.asc 
 
  - Get it from a public [keyserver] (specified on first use with `--keyserver <URI>`, then saved in `~/.gnupg/gpg.conf`), e.g.:
 
-       $ gpg --keyserver pool.sks-keyservers.net --recv-keys 0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
+       $ gpg2 --keyserver pool.sks-keyservers.net --recv-keys 0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
 
 The Qubes Master Signing Key is also available in the [Qubes Security Pack] and in the archives of the project's [developer][devel-master-key-msg] and [user][user-master-key-msg] [mailing lists].
 
@@ -101,7 +104,7 @@ For additional security, we also publish the fingerprint of the Qubes Master Sig
 
 Once you're confident that you have the legitimate Qubes Master Signing Key, set its trust level to "ultimate" so that it can be used to automatically verify all the keys signed by the Qubes Master Signing Key (in particular, Release Signing Keys).
 
-    $ gpg --edit-key 0x36879494
+    $ gpg2 --edit-key 0x36879494
     gpg (GnuPG) 1.4.18; Copyright (C) 2014 Free Software Foundation, Inc.
     This is free software: you are free to change and redistribute it.
     There is NO WARRANTY, to the extent permitted by law.
@@ -149,20 +152,24 @@ Now, when you import any of the legitimate Qubes developer keys and Release Sign
 The filename of the Release Signing Key for your version is `qubes-release-X-signing-key.asc`, where `X` is the major version number of your Qubes release.
 There are several ways to get the Release Signing Key for your Qubes release.
 
+ - If you have access to an existing Qubes installation, the release keys are available in dom0 in `/etc/pki/rpm-gpg/`.
+   These can be [copied][copy-from-dom0] into other VMs for further use.
+   In addition, every other VM contains the release key corresponding to that installation's release in `/etc/pki/rpm-gpg/`.
+
  - Fetch it with GPG:
 
-       $ gpg --fetch-keys https://keys.qubes-os.org/keys/qubes-release-X-signing-key.asc
+       $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --fetch-keys https://keys.qubes-os.org/keys/qubes-release-X-signing-key.asc
 
  - Download it as a file.
    You can find the Release Signing Key for your Qubes version on the [Downloads] page.
    You can also download all the currently used developers' signing keys, Release Signing Keys, and the Qubes Master Signing Key from the [Qubes Security Pack] and the [Qubes OS Keyserver].
    Once you've downloaded your Release Signing Key, import it with GPG:
 
-       $ gpg --import ./qubes-release-X-signing-key.asc 
+       $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --import ./qubes-release-X-signing-key.asc 
 
 The Release Signing Key should be signed by the Qubes Master Signing Key:
 
-    $ gpg --list-sigs "Qubes OS Release X Signing Key"
+    $ gpg2 --list-sigs "Qubes OS Release X Signing Key"
     pub   rsa4096 2017-03-06 [SC]
           5817A43B283DE5A9181A522E1848792F9E2795E9
     uid           [  full  ] Qubes OS Release X Signing Key
@@ -182,7 +189,7 @@ The signature filename is always the same as the ISO filename followed by `.asc`
 
 Once you've downloaded both the ISO and its signature file, you can verify the ISO using GPG:
 
-    $ gpg -v --verify Qubes-RX-x86_64.iso.asc Qubes-RX-x86_64.iso
+    $ gpg2 -v --verify Qubes-RX-x86_64.iso.asc Qubes-RX-x86_64.iso
     gpg: armor header: Version: GnuPG v1
     gpg: Signature made Tue 08 Mar 2016 07:40:56 PM PST using RSA key ID 03FA5082
     gpg: using PGP trust model
@@ -277,7 +284,7 @@ Since `Qubes-RX-x86_64.iso.DIGESTS` is a clearsigned PGP file, we can use GPG to
  2. [Get the Release Signing Key][RSK]
  3. Verify the signature in the digest file:
 
-        $ gpg -v --verify Qubes-RX-x86_64.iso.DIGESTS 
+        $ gpg2 -v --verify Qubes-RX-x86_64.iso.DIGESTS 
         gpg: armor header: Hash: SHA256
         gpg: armor header: Version: GnuPG v2
         gpg: original file name=''
@@ -344,10 +351,10 @@ The problem could be one or more of the following:
    If you still get the same result, try downloading the ISO again from a different source, then try verifying again.
 
 
-### I'm getting "bash: gpg: command not found"
+### I'm getting "bash: gpg2: command not found"
 
-You don't have `gpg` installed.
-Install it, or use `gpg2` instead.
+You don't have `gpg2` installed.
+Please install it using the method appropriate for your environement (e.g., via your package manager).
 
 
 ### Why am I getting "can't open signed data `Qubes-RX-x86_64.iso' / can't hash datafile: file open error"?
@@ -362,7 +369,7 @@ The correct [signature file] is not in your working directory.
 
 ### Why am I getting "no valid OpenPGP data found"?
 
-Either you don't have the correct [signature file], or you inverted the arguments to `gpg`.
+Either you don't have the correct [signature file], or you inverted the arguments to `gpg2`.
 ([The signature file goes first.][signature file])
 
 
@@ -443,9 +450,11 @@ If you still have a question, please address it to the [qubes-users mailing list
 [Troubleshooting FAQ]: #troubleshooting-faq
 [QMSK]: #1-get-the-qubes-master-signing-key-and-verify-its-authenticity
 [RSK]: #2-get-the-release-signing-key
+[copy-from-dom0]: /doc/copy-from-dom0/#copying-from-dom0
 [signature file]: #3-verify-your-qubes-iso
 [digest file]: #how-to-verify-qubes-iso-digests
 [Qubes repositories]: https://github.com/QubesOS
 [GPG documentation]: https://www.gnupg.org/documentation/
 [qubes-users mailing list]: /support/#qubes-users
+[except dom0]: https://github.com/QubesOS/qubes-issues/issues/2544
 

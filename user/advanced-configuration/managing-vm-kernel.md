@@ -9,7 +9,9 @@ redirect_from:
 VM kernel managed by dom0
 =========================
 
-By default, VMs kernels are provided by dom0. This means that:
+By default, VMs kernels are provided by dom0.
+(See [here][dom0-kernel-upgrade] for information about upgrading kernels in dom0.)
+This means that:
 
 1. You can select the kernel version (using GUI VM Settings tool or `qvm-prefs` commandline tool);
 2. You can modify kernel options (using `qvm-prefs` commandline tool);
@@ -327,7 +329,10 @@ Booting to a kernel inside the template is not supported under `PVH`.
 In case of problems, you can access the VM console using `sudo xl console VMNAME` in dom0, then access the GRUB menu.
 You need to call it just after starting the VM (until `GRUB_TIMEOUT` expires); for example, in a separate dom0 terminal window.
 
-In any case you can later access the VM's logs (especially the VM console log `guest-VMNAME.log`).
+In any case you can later access the VM's logs (especially the VM console log `/var/log/xen/console/guest-VMNAME.log`).
 
 You can always set the kernel back to some dom0-provided value to fix a VM kernel installation.
+
+
+[dom0-kernel-upgrade]: /doc/software-update-dom0/#kernel-upgrade
 

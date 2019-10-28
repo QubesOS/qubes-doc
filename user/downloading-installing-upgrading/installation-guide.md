@@ -36,8 +36,10 @@ This method is simpler than the method recommended in [QSB #46], but it is just 
 Hardware Requirements
 ---------------------
 
-Please see the [system requirements] and [Hardware Compatibility List] pages for
-more information on required and recommended hardware.
+Qubes OS has very specific [system requirements].
+To ensure compatibility, we strongly recommend using [Qubes-certified hardware].
+Other hardware may require you to perform significant troubleshooting.
+You may also find it helpful to consult user submissions to the [Hardware Compatibility List].
 
 **Note:** We don't recommend installing Qubes in a virtual machine! It will
 likely not work. Please don't send emails asking about it. You can, however,
@@ -136,6 +138,7 @@ Getting Help
 
 [QSB #46]: /news/2019/01/23/qsb-46/
 [system requirements]: /doc/system-requirements/
+[Qubes-certified hardware]: /doc/certified-hardware/
 [Hardware Compatibility List]: /hcl/
 [live USB]: /doc/live-usb/
 [downloads]: /downloads/

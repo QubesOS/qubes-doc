@@ -11,8 +11,7 @@ redirect_from:
 
 # Command execution in VMs #
 
-(*This page is about qrexec v2. For qrexec v3, see
-[here](/doc/qrexec3/).*)
+(*This page is about qrexec v2. For qrexec v3, see [here](/doc/qrexec3/).*)
 
 Qubes **qrexec** is a framework for implementing inter-VM (incl. Dom0-VM)
 services. It offers a mechanism to start programs in VMs, redirect their
@@ -232,7 +231,7 @@ surfaces that are exposed to untrusted or less trusted VMs in that case.
 # Qubes RPC internals #
 
 (*This is about the implementation of qrexec v2. For the implementation of
-qrexec v3, see [here](/doc/qrexec3/#qubes-rpc-internals). Note that the user
+qrexec v3, see [here](/doc/qrexec-internals/). Note that the user
 API in v3 is backward compatible: qrexec apps written for Qubes R2 should
 run without modification on Qubes R3.*)
 

@@ -13,19 +13,24 @@ redirect_from:
 
 *This page is part of [device handling in qubes].*
 
-**Warning:** Only dom0 exposes PCI devices. Some of them are strictly required in dom0 (e.g., the host bridge).
+**Warning:** Only dom0 exposes PCI devices.
+Some of them are strictly required in dom0 (e.g., the host bridge).
 You may end up with an unusable system by attaching the wrong PCI device to a VM.
-PCI passthrough should be safe by default, but non-default options may be required. Please make sure you carefully read and understand the **[security considerations]** before deviating from default behavior.
+PCI passthrough should be safe by default, but non-default options may be required.
+Please make sure you carefully read and understand the **[security considerations]** before deviating from default behavior.
 
 
 ## Introduction ##
 
-Unlike other devices ([USB], [block], mic), PCI devices need to be attached on VM-bootup. Similar to how you can't attach a new sound-card after your computer booted (and expect it to work properly), attaching PCI devices to already booted VMs isn't supported.
+Unlike other devices ([USB], [block], mic), PCI devices need to be attached on VM-bootup.
+Similar to how you can't attach a new sound-card after your computer booted (and expect it to work properly), attaching PCI devices to already booted VMs isn't supported.
 
 The Qubes installer attaches all network class controllers to `sys-net` and all USB controllers to `sys-usb` by default, if you chose to create the network and USB qube during install.
 While this covers most use cases, there are some occasions when you may want to manually attach one NIC to `sys-net` and another to a custom NetVM, or have some other type of PCI controller you want to manually attach.
 
-Some devices expose multiple functions with distinct BDF-numbers. Limits imposed by the PC and VT-d architectures may require all functions belonging to the same device to be attached to the same VM. This requirement can be dropped with the `no-strict-reset` option during attachment, bearing in mind the aforementioned [security considerations].
+Some devices expose multiple functions with distinct BDF-numbers.
+Limits imposed by the PC and VT-d architectures may require all functions belonging to the same device to be attached to the same VM.
+This requirement can be dropped with the `no-strict-reset` option during attachment, bearing in mind the aforementioned [security considerations].
 In the steps below, you can tell if this is needed if you see the BDF for the same device listed multiple times with only the number after the "." changing.
 
 While PCI device can only be used by one powered on VM at a time, it *is* possible to *assign* the same device to more than one VM at a time. 
@@ -35,7 +40,8 @@ This can be useful if, for example, you have only one USB controller, but you ha
 
 ## Attaching Devices Using the GUI ##
 
-The qube settings for a VM offers the "Devices"-tab. There you can attach PCI-devices to a qube.
+The qube settings for a VM offers the "Devices"-tab.
+There you can attach PCI-devices to a qube.
 
  1. To reach the settings of any qube either
 
@@ -45,13 +51,16 @@ The qube settings for a VM offers the "Devices"-tab. There you can attach PCI-de
 
  2. Select the "Devices" tab on the top bar.
  3. Select a device you want to attach to the qube and click the single arrow right! (`>`)
- 4. You're done. If everything worked out, once the qube boots (or reboots if it's running) it will start with the pci device attached.
- 5. In case it doesn't work out, first try disabling memory-balancing in the settings ("Advanced" tab). If that doesn't help, read on to learn how to disable the strict reset requirement!
+ 4. You're done.
+    If everything worked out, once the qube boots (or reboots if it's running) it will start with the pci device attached.
+ 5. In case it doesn't work out, first try disabling memory-balancing in the settings ("Advanced" tab).
+    If that doesn't help, read on to learn how to disable the strict reset requirement!
 
 
 ## `qvm-pci` Usage ##
 
-The `qvm-pci` tool allows PCI attachment and detachment. It's a shortcut for [`qvm-device pci`][qvm-device].
+The `qvm-pci` tool allows PCI attachment and detachment.
+It's a shortcut for [`qvm-device pci`][qvm-device].
 
 To figure out what device to attach, first list the available PCI devices by running (as user) in dom0:
 
@@ -99,14 +108,17 @@ Both can be achieved during attachment with `qvm-pci` as described below.
 
 ## Additional Attach Options ##
 
-Attaching a PCI device through the commandline offers additional options, specifiable via the `--option`/`-o` option. (Yes, confusing wording, there's an [issue for that](https://github.com/QubesOS/qubes-issues/issues/4530).)
+Attaching a PCI device through the commandline offers additional options, specifiable via the `--option`/`-o` option.
+(Yes, confusing wording, there's an [issue for that](https://github.com/QubesOS/qubes-issues/issues/4530).)
 
-`qvm-pci` exposes two additional options. Both are intended to fix device or driver specific issues, but both come with [heavy security implications][security considerations]! **Make sure you understand them before continuing!**
+`qvm-pci` exposes two additional options.
+Both are intended to fix device or driver specific issues, but both come with [heavy security implications][security considerations]! **Make sure you understand them before continuing!**
 
 
 ### no-strict-reset ###
 
-Do not require PCI device to be reset before attaching it to another VM. This may leak usage data even without malicious intent!
+Do not require PCI device to be reset before attaching it to another VM.
+This may leak usage data even without malicious intent!
 
 usage example:
 
@@ -115,7 +127,8 @@ usage example:
 
 ### permissive ###
 
-Allow write access to full PCI config space instead of whitelisted registers. This increases attack surface and possibility of [side channel attacks].
+Allow write access to full PCI config space instead of whitelisted registers.
+This increases attack surface and possibility of [side channel attacks].
 
 usage example:
 

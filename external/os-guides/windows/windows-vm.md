@@ -82,6 +82,13 @@ Note however that you are better off creating a new Windows VM to benefit from t
 Windows VM installation
 -----------------------
 
+### qvm-create-windows-qube ###
+
+An unofficial, third-party tool for automating this process is available [here](https://github.com/crazyqube/qvm-create-windows-qube).
+(Please note that this tool has not been reviewed by the Qubes OS Project.
+Use it at your own risk.)
+However, if you are an expert or want to do it manually you may continue below.
+
 ### Summary ###
 
 ~~~
@@ -162,7 +169,7 @@ To avoid that error we temporarily have to switch the video adapter to 'cirrus':
 qvm-features win7new video-model cirrus
 ~~~
 
-The VM is now ready to be started; the best practice is to use an installation ISO [located in a VM](/doc/hvm/#installing-an-os-in-an-hvm-qube):
+The VM is now ready to be started; the best practice is to use an installation ISO [located in a VM](/doc/standalone-and-hvm/#installing-an-os-in-an-hvm):
 
 ~~~
 qvm-start --cdrom=untrusted:/home/user/windows_install.iso win7new
@@ -189,7 +196,7 @@ qvm-prefs win7new memory 2048
 qvm-prefs win7new maxmem 2048
 ~~~
 
-Revert to the standard VGA adapter :
+Revert to the standard VGA adapter: the 'cirrus' adapter will limit the maximum screen resolution to 1024x768 pixels, while the default VGA adapter allows for much higher resolutions (up to 2560x1600 pixels).
 
 ~~~
 qvm-features --unset win7new video-model

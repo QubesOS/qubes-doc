@@ -115,7 +115,7 @@ We also provide [detailed instruction][upgrade-to-r4.0] for this procedure.
 [qrexec-proxy]: https://github.com/QubesOS/qubes-issues/issues/1854
 [qrexec-policy-keywords]: https://github.com/QubesOS/qubes-issues/issues/865
 [qrexec-confirm]: https://github.com/QubesOS/qubes-issues/issues/910
-[qrexec-doc]: /doc/qrexec3/#extra-keywords-available-in-qubes-40-and-later
+[qrexec-doc]: /doc/qrexec/#specifying-vms-tags-types-targets-etc
 [storage]: https://github.com/QubesOS/qubes-issues/issues/1842
 [vm-interface]: /doc/vm-interface/
 [admin-api]: /news/2017/06/27/qubes-admin-api/

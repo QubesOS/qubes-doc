@@ -45,6 +45,7 @@ Core documentation for Qubes users.
  * [System Requirements](/doc/system-requirements/)
  * [Certified Hardware](/doc/certified-hardware/)
  * [Hardware Compatibility List (HCL)](/hcl/)
+ * [Hardware Testing](/doc/hardware-testing/)
 
 ### Downloading, Installing, and Upgrading Qubes
 
@@ -63,7 +64,7 @@ Core documentation for Qubes users.
  * [Copying from (and to) Dom0](/doc/copy-from-dom0/)
  * [Updating Qubes OS](/doc/updating-qubes-os/)
  * [Installing and Updating Software in Dom0](/doc/software-update-dom0/)
- * [Installing and Updating Software in VMs](/doc/software-update-vm/)
+ * [Installing and Updating Software in DomUs](/doc/software-update-domu/)
  * [Backup, Restoration, and Migration](/doc/backup-restore/)
  * [DisposableVMs](/doc/disposablevm/)
  * [Block (or Storage) Devices](/doc/block-devices/)
@@ -77,12 +78,11 @@ Core documentation for Qubes users.
 ### Managing Operating Systems within Qubes
 
  * [TemplateVMs](/doc/templates/)
- * [Template: Fedora](/doc/templates/fedora/)
- * [Template: Fedora Minimal](/doc/templates/fedora-minimal/)
- * [Template: Debian](/doc/templates/debian/)
- * [Template: Debian Minimal](/doc/templates/debian-minimal/)
+ * [Fedora](/doc/templates/fedora/)
+ * [Debian](/doc/templates/debian/)
+ * [Minimal TemplateVMs](/doc/templates/minimal/)
  * [Windows](/doc/windows/)
- * [HVM Domains](/doc/hvm/)
+ * [StandaloneVMs and HVMs](/doc/standalone-and-hvm/)
 
 ### Security in Qubes
 
@@ -154,7 +154,6 @@ Core documentation for Qubes developers and advanced users.
  * [Qubes Core Admin Client](https://dev.qubes-os.org/projects/core-admin-client/en/latest/)
  * [Qubes Admin API](/news/2017/06/27/qubes-admin-api/)
  * [Qubes Core Stack](/news/2017/10/03/core3/)
- * [Qrexec: command execution in VMs](/doc/qrexec3/)
  * [Qubes GUI virtualization protocol](/doc/gui/)
  * [Networking in Qubes](/doc/networking/)
  * [Implementation of template sharing and updating](/doc/template-implementation/)
@@ -167,6 +166,8 @@ Core documentation for Qubes developers and advanced users.
  * [Dynamic memory management in Qubes](/doc/qmemman/)
  * [Implementation of DisposableVMs](/doc/dvm-impl/)
  * [Dom0 secure update mechanism](/doc/dom0-secure-updates/)
+ * [Qrexec: secure communication across domains](/doc/qrexec/)
+ * [Qubes RPC internals](/doc/qrexec-internals/)
 
 ### Debugging
 

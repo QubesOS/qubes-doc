@@ -7,9 +7,10 @@ permalink: /doc/updating-qubes-os/
 Updating Qubes OS
 =================
 
-This page is about updating your system while staying on the same [supported version of Qubes OS].
-If you're instead looking to upgrade from your current version of Qubes OS to a newer version, see the [Upgrade Guides].
+*This page is about updating your system while staying on the same [supported version of Qubes OS].
+If you're instead looking to upgrade from your current version of Qubes OS to a newer version, see the [Upgrade Guides].*
 
+It is very important to keep your Qubes OS system up-to-date to ensure you have the latest [security] updates, as well as the latest non-security enhancements and bug fixes.
 Fully updating your Qubes OS system means updating:
 
  - [Dom0]
@@ -18,7 +19,7 @@ Fully updating your Qubes OS system means updating:
 
 Visit the pages above to see to how to update each one.
 
-The final step is to make sure that all of your VMs are running a supported operating system so that they're all receiving security updates.
+The final step is to make sure that all of your VMs are running a supported operating system so that they're all receiving upstream security updates.
 For example, you might be using a [Fedora TemplateVM].
 The [Fedora Project] is independent of the Qubes OS Project.
 They set their own [schedule] for when each Fedora release reaches [end-of-life] (EOL).
@@ -29,9 +30,10 @@ The one exception is dom0, which [doesn't have to be upgraded][dom0-eol].
 
 [supported version of Qubes OS]: /doc/supported-versions/#qubes-os
 [Upgrade Guides]: /doc/upgrade/
+[security]: /security/
 [Dom0]: /doc/software-update-dom0/
-[TemplateVMs]: /doc/software-update-vm/#installing-or-updating-software-in-the-templatevm
-[StandaloneVMs]: /doc/software-update-vm/#standalone-vms
+[TemplateVMs]: /doc/software-update-domu/#updating-software-in-templatevms
+[StandaloneVMs]: /doc/software-update-domu/#standalonevms
 [Fedora TemplateVM]: /doc/templates/fedora/
 [Fedora Project]: https://getfedora.org/
 [schedule]: https://fedoraproject.org/wiki/Fedora_Release_Life_Cycle#Maintenance_Schedule
