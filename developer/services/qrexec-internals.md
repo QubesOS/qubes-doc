@@ -15,21 +15,27 @@ redirect_from:
 A [general introduction](/doc/qrexec/) to qrexec is also available.
 For the implementation of qrexec2, see [here](/doc/qrexec2/#qubes-rpc-internals).*)
 
-Qrexec framework consists of a number of processes communicating with each other using common IPC protocol (described in detail below).
-Components residing in the same domain (`qrexec-client-vm` to `qrexec-agent`, `qrexec-client` to `qrexec-daemon`) use pipes as the underlying transport medium, while components in separate domains (`qrexec-daemon` to `qrexec-agent`, data channel between `qrexec-agent`s) use vchan link.
+The qrexec framework consists of a number of processes communicating with each other using common IPC protocol (described in detail below).
+Components residing in the same domain (`qrexec-client-vm` to `qrexec-agent`, `qrexec-client` to `qrexec-daemon`) use local sockets as the underlying transport medium.
+Components in separate domains (`qrexec-daemon` to `qrexec-agent`, data channel between `qrexec-agent`s) use vchan links.
 Because of [vchan limitation](https://github.com/qubesos/qubes-issues/issues/951), it is not possible to establish qrexec connection back to the source domain.
 
 ## Dom0 tools implementation
 
-* `/usr/lib/qubes/qrexec-daemon`: One instance is required for every active domain. Responsible for:
+### qrexec-daemon
+* `/usr/sbin/qrexec-daemon`: One instance is required for every active domain. Responsible for:
   * Handling execution and service requests from **dom0** (source: `qrexec-client`).
   * Handling service requests from the associated domain (source: `qrexec-client-vm`, then `qrexec-agent`).
 * Command line: `qrexec-daemon domain-id domain-name [default user]`
 * `domain-id`: Numeric Qubes ID assigned to the associated domain.
 * `domain-name`: Associated domain name.
 * `default user`: Optional. If passed, `qrexec-daemon` uses this user as default for all execution requests that don't specify one.
-* `/usr/lib/qubes/qrexec-policy`: Internal program used to evaluate the RPC policy and deciding whether a RPC call should be allowed.
-* `/usr/lib/qubes/qrexec-client`: Used to pass execution and service requests to `qrexec-daemon`. Command line parameters:
+
+### qrexec-policy
+* `/usr/bin/qrexec-policy`: Internal program used to evaluate the RPC policy and deciding whether a RPC call should be allowed.
+
+### qrexec-client
+* `/usr/bin/qrexec-client`: Used to pass execution and service requests to `qrexec-daemon`. Command line parameters:
   * `-d target-domain-name`: Specifies the target for the execution/service request.
   * `-l local-program`: Optional. If present, `local-program` is executed and its stdout/stdin are used when sending/receiving data to/from the remote peer.
   * `-e`: Optional. If present, stdout/stdin are not connected to the remote   peer. Only process creation status code is received.
@@ -40,11 +46,12 @@ Because of [vchan limitation](https://github.com/qubesos/qubes-issues/issues/951
 
 ## VM tools implementation
 
-* `qrexec-agent`: One instance runs in each active domain. Responsible for:
+### `qrexec-agent`: One instance runs in each active domain. Responsible for:
   * Handling service requests from `qrexec-client-vm` and passing them to connected `qrexec-daemon` in dom0.
   * Executing associated `qrexec-daemon` execution/service requests.
 * Command line parameters: none.
-* `qrexec-client-vm`: Runs in an active domain. Used to pass service requests to `qrexec-agent`.
+
+### `qrexec-client-vm`: Runs in an active domain. Used to pass service requests to `qrexec-agent`.
 * Command line: `qrexec-client-vm target-domain-name service-name local-program [local program arguments]`
 * `target-domain-name`: Target domain for the service request. Source is the current domain.
 * `service-name`: Requested service name.
@@ -52,7 +59,7 @@ Because of [vchan limitation](https://github.com/qubesos/qubes-issues/issues/951
 
 ## Qrexec protocol details
 
-Qrexec protocol is message-based.
+The qrexec protocol is message-based.
 All messages share a common header followed by an optional data packet.
 
     /* uniform for all peers, data type depends on message type */
