@@ -60,7 +60,8 @@ In addition, these templates may be somewhat less stable, since the Qubes develo
  * [Whonix]
  * [Ubuntu]
  * [Arch Linux]
- * [CentOS](/doc/templates/centos/)
+ * [CentOS]
+ * CentOS [Minimal]
 
 ## Installing
 
@@ -261,4 +262,3 @@ Note the word "clean" means in this context: the same as their template filesyst
 [uninstall the old TemplateVM]: #uninstalling
 [Updating software in TemplateVMs]: /doc/software-update-domu/#updating-software-in-templatevms
 [How to Reinstall a TemplateVM]: /doc/reinstall-template/
-
