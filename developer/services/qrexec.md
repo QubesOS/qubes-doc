@@ -66,6 +66,8 @@ Thus, it is usually more convenient to use `qvm-run`.
 There can be an almost arbitrary number of `qrexec-client` processes for a given domain.
 The limiting factor is the number of available vchan channels, which depends on the underlying hypervisor, as well the domain's OS.
 
+For more details on the qrexec framework and protocol, see "[Qubes RPC internals](/doc/qrexec-internals)."
+
 ## Qubes RPC services
 
 Some common tasks (like copying files between VMs) have an RPC-like structure: a process in one VM (say, the file sender) needs to invoke and send/receive data to some process in other VM (say, the file receiver).
