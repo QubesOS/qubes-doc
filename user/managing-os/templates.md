@@ -43,9 +43,9 @@ We guarantee that the binary updates are compiled from exactly the same source c
 
  * [Fedora] (default)
  * Fedora [Minimal]
+ * Fedora [Xfce]
  * [Debian]
  * Debian [Minimal]
-
 
 ## Community
 
@@ -60,7 +60,8 @@ In addition, these templates may be somewhat less stable, since the Qubes develo
  * [Whonix]
  * [Ubuntu]
  * [Arch Linux]
-
+ * [CentOS]
+ * CentOS [Minimal]
 
 ## Installing
 
@@ -242,10 +243,12 @@ Note the word "clean" means in this context: the same as their template filesyst
 [TemplateBasedVMs]: /doc/glossary/#templatebasedvm
 [Fedora]: /doc/templates/fedora/
 [Minimal]: /doc/templates/minimal/
+[Xfce]: /doc/templates/fedora-xfce
 [Debian]: /doc/templates/debian/
 [Whonix]: /doc/templates/whonix/
 [Ubuntu]: /doc/templates/ubuntu/
 [Arch Linux]: /doc/templates/archlinux/
+[CentOS]: /doc/templates/centos/
 [Qubes Builder]: /doc/qubes-builder/
 [TemplateVM Implementation]: /doc/template-implementation/
 [How to Remove VMs Manually]: /doc/remove-vm-manually/
@@ -259,4 +262,3 @@ Note the word "clean" means in this context: the same as their template filesyst
 [uninstall the old TemplateVM]: #uninstalling
 [Updating software in TemplateVMs]: /doc/software-update-domu/#updating-software-in-templatevms
 [How to Reinstall a TemplateVM]: /doc/reinstall-template/
-
