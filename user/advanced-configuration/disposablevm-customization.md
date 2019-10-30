@@ -84,6 +84,7 @@ qvm-create -C DispVM -l red <sys-VMName>
 qvm-prefs <sys-VMName> autostart true
 qvm-prefs <sys-VMName> netvm <sys-net>
 qvm-prefs <sys-VMName> provides_network true
+qvm-features <sys-VMName> appmenus-dispvm ''
 ~~~
 
 Next, set the old `sys-firewall` autostart to false, and update any references to the old one to instead point to the new.
@@ -101,6 +102,7 @@ qvm-service <sys-VMName> meminfo-writer off
 qvm-pci attach --persistent <sys-VMName> dom0:<BDF>
 qvm-prefs <sys-VMName> autostart true
 qvm-prefs <sys-VMName> netvm ''
+qvm-features <sys-VMName> appmenus-dispvm ''
 # optional, if this DisposableVM will be providing networking
 qvm-prefs <sys-VMName> provides_network true
 ~~~
@@ -118,13 +120,12 @@ qvm-service sys-net2 meminfo-writer off
 qvm-pci attach --persistent sys-net2 dom0:00_1a.0
 qvm-prefs sys-net2 autostart true
 qvm-prefs sys-net2 netvm ''
+qvm-features sys-net2 appmenus-dispvm ''
 qvm-prefs sys-net2 provides_network true
 qvm-prefs sys-net autostart false
 qvm-prefs sys-firewall netvm sys-net2
 qubes-prefs clockvm sys-net2
 ~~~
-
-Note that these types of DisposableVMs will not show in the Application menu, but you can still get to a terminal if needed with `qvm-run <sys-VMName> gnome-terminal`.
 
 
 ## Adding programs to DisposableVM Application Menu
@@ -195,12 +196,16 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 7. _(recommended)_ Set `disp-sys-net` to start automatically when Qubes boots
 
        [user@dom0 ~]$ qvm-prefs disp-sys-net autostart true
+       
+8. _(recommended)_ Disable the `appmenus-dispvm` feature: disp-sys-net is not itself a DisposableVM template. Note: this is only necessary if you enabled the `appmenus-dispvm` feature for the DisposableVM template.
+
+       [user@dom0 ~]$ qvm-features disp-sys-net appmenus-dispvm ''
      
-8. _(optional)_ Set `disp-sys-net` as the dom0 time source
+9. _(optional)_ Set `disp-sys-net` as the dom0 time source
 
        [user@dom0 ~]$ qubes-prefs clockvm disp-sys-net
 
-9. _(recommended)_ Allow templates to be updated via `disp-sys-net`. In dom0, edit `/etc/qubes-rpc/policy/qubes.UpdatesProxy` to change the target from `sys-net` to `disp-sys-net`.
+10. _(recommended)_ Allow templates to be updated via `disp-sys-net`. In dom0, edit `/etc/qubes-rpc/policy/qubes.UpdatesProxy` to change the target from `sys-net` to `disp-sys-net`.
 
 ### Create the sys-firewall DisposableVM
 
@@ -223,8 +228,12 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 5. _(recommended)_ Set `disp-sys-firewall` to auto-start when Qubes boots
 
        [user@dom0 ~]$ qvm-prefs disp-sys-firewall autostart true
+       
+6. _(recommended)_ Disable the `appmenus-dispvm` feature: disp-sys-firewall is not itself a DisposableVM template. Note: this is only necessary if you enabled the `appmenus-dispvm` feature for the DisposableVM template.
 
-6. _(optional)_ Set `disp-sys-firewall` as the default NetVM
+       [user@dom0 ~]$ qvm-features disp-sys-firewall appmenus-dispvm ''
+
+7. _(optional)_ Set `disp-sys-firewall` as the default NetVM
 
        [user@dom0 ~]$ qubes-prefs default_netvm disp-sys-firewall
 
@@ -256,10 +265,14 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 6. _(optional)_ Set `disp-sys-usb` to auto-start when Qubes boots
   
        [user@dom0 ~]$ qvm-prefs disp-sys-usb autostart true
+       
+7. _(recommended)_ Disable the `appmenus-dispvm` feature: disp-sys-usb is not itself a DisposableVM template. Note: this is only necessary if you enabled the `appmenus-dispvm` feature for the DisposableVM template.
 
-7. Users should now follow instructions on [How to hide USB controllers from dom0](/doc/usb-qubes/#how-to-hide-all-usb-controllers-from-dom0)
+       [user@dom0 ~]$ qvm-features disp-sys-usb appmenus-dispvm ''
 
-8. At this point, your mouse may not work.
+8. Users should now follow instructions on [How to hide USB controllers from dom0](/doc/usb-qubes/#how-to-hide-all-usb-controllers-from-dom0)
+
+9. At this point, your mouse may not work.
    Edit the `qubes.InputMouse` policy file in dom0, which is located here:
 
        /etc/qubes-rpc/policy/qubes.InputMouse
