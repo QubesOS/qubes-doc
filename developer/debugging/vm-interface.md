@@ -31,7 +31,8 @@ QubesDB
      - `rw-only` - only `/rw` disk
      - `none` - none
 -   `/qubes-timezone - name of timezone based on dom0 timezone. For example `Europe/Warsaw`
--   `/qubes-keyboard` - keyboard layout based on dom0 layout. Its syntax is suitable for `xkbcomp` command (after expanding escape sequences like `\n` or `\t`). This is meant only as some default value, VM can ignore this option and choose its own keyboard layout (this is what keyboard setting from Qubes Manager does). This entry is created as part of gui-daemon initialization (so not available when gui-daemon disabled, or not started yet).
+-   `/qubes-keyboard` (deprecated in R4.1) - keyboard layout based on dom0 layout. Its syntax is suitable for `xkbcomp` command (after expanding escape sequences like `\n` or `\t`). This is meant only as some default value, VM can ignore this option and choose its own keyboard layout (this is what keyboard setting from Qubes Manager does). This entry is created as part of gui-daemon initialization (so not available when gui-daemon disabled, or not started yet).
+-   `/keyboard-layout` - keyboard layout based on GuiVM layout. Its syntax can be `layout+variant+options`, `layout+variant`, `layout++options` or simply `layout`. For example, `fr+oss`, `pl++compose:caps` or `fr`. This is meant only as some default value, VM can ignore this option and choose its own keyboard layout (this is what keyboard setting from Qubes Manager does).
 -   `/qubes-debug-mode` - flag whether VM has debug mode enabled (qvm-prefs setting). One of `1`, `0`
 -   `/qubes-service/SERVICE_NAME` - subtree for VM services controlled from dom0 (using the `qvm-service` command or Qubes Manager). One of `1`, `0`. Note that not every service will be listed here, if entry is missing, it means "use VM default". A list of currently supported services is in the `qvm-service` man page.
 -   `/qubes-netmask` - network mask (only when VM has netvm set); currently hardcoded "255.255.255.0"
@@ -44,6 +45,7 @@ QubesDB
 -   `/qubes-netvm-network` - network address (only when VM serves as network backend - ProxyVM and NetVM); can be also calculated from qubes-netvm-gateway and qubes-netvm-netmask
 -   `/qubes-netvm-primary-dns` - same as `qubes-primary-dns` in connected VMs (only when VM serves as network backend - ProxyVM and NetVM); traffic sent to this IP on port 53 should be redirected to primary DNS server
 -   `/qubes-netvm-secondary-dns` - same as `qubes-secondary-dns` in connected VMs (only when VM serves as network backend - ProxyVM and NetVM); traffic sent to this IP on port 53 should be redirected to secondary DNS server
+-   `/guivm-windows-prefix` - title prefix for any window not originating from another qube. This means windows of applications running in GuiVM itself
 
 #### Firewall rules in 3.x ####
 
