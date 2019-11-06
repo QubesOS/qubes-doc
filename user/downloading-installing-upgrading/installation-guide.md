@@ -62,12 +62,11 @@ how to download and verify our PGP keys and verify the downloaded ISO.
 Copying the ISO onto the installation medium
 --------------------------------------------
 
-Once you verify this is an authentic ISO, you should copy it onto the
-installation medium of your choice, such as a DVD or a USB drive. (Please note
-that there are important [security considerations] to keep in mind when choosing
-an installation medium.)
+Once you verify this is an authentic ISO, you should copy it onto a sufficiently large installation medium, such as a USB drive, dual-layer DVD, or Blu-ray disc.
+(The size of each Qubes ISO is listed on the [downloads] page.)
+Note that there are [security considerations] to keep in mind when choosing an installation medium.
 
-If you prefer to use a USB drive, then you just need to copy the ISO onto the
+If you're using a USB drive, then you just need to copy the ISO onto the
 USB device, e.g. using `dd`:
 
     dd if=Qubes-R3-x86_64.iso of=/dev/sdX bs=1048576 && sync
