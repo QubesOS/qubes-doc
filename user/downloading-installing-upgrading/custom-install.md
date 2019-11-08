@@ -140,14 +140,17 @@ Boot into the Qubes installer, then press `ctrl`+`alt`+`F2` to get a virtual con
         # lvcreate -V1G -T qubes_dom0/pool00 -n root
         # lvextend -L <size_of_pool00> /dev/qubes_dom0/root
 
-8. Proceed with the installer.
+8. Proceed with the installer. You can do that either by pressing `ctrl`+`alt`+`F6`, or by rebooting and restarting the installation.
    At the disk selection screen, select:
 
         [x] I will configure partitioning.
         [ ] Encrypt my data.
 
-Decrypt your partition, then assign `/`, `/boot`, and `swap`.
-Proceed normally from there.
+9. Decrypt your partition. After decrypting you may assign mount points:
+   Open the Unknown list and select `qubes_dom0-root`. Check the reformat box to the right and choose `ext4` as a filesystem. Enter `/` into the Mount Point field at the top.
+   Repeat the process for `sda1` and `qubes_dom0-swap`. Those should be assigned to `/boot` and `swap` respectively.
+   The default file systems are ext4 for `/boot` and `/`, and swap for `swap`.
+   When you are finished, the Unknown list should go away, and all three mount points should be assigned. Proceed normally with the installation from there.
 
 
 [cryptsetup-faq]: https://gitlab.com/cryptsetup/cryptsetup/wikis/FrequentlyAskedQuestions
