@@ -72,6 +72,8 @@ The review procedure is as follows:
     If the pull request passes the QCR's review, the QCR pushes a [signed][sig] tag to the HEAD commit stating that it has passed review and fast-forward merges the pull request.
     If the pull request does not pass the QCR's review, the QCR leaves a comment on the pull request explaining why not, and the QCR may decide to close the pull request.
 
+In all the cases, the first condition to be validated by the QCR's review is to ensure that the current packaging (RPM, DEB, etc.) **will not** hijack any core packages of [QubesOS] and of course, none of [QubesOS-contrib] packages too.
+
 Package Maintainers
 -------------------
 If you contribute a package, we assume that you will be the maintainer of that package, unless you tell us otherwise.
@@ -93,6 +95,7 @@ If you do not act on your maintainer duties for a given package for an extended 
 [sig]: /doc/code-signing/
 [coding guidelines]: /doc/coding-style/
 [qubes-devel mailing list]: /support/#qubes-devel
+[QubesOS]: https://github.com/QubesOS
 [QubesOS-contrib]: https://github.com/QubesOS-contrib
 [qubes-issues]: https://github.com/QubesOS/qubes-issues/issues/
 
