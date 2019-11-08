@@ -62,16 +62,9 @@ Debian 10 (buster) - minimal:
 
     [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl-testing qubes-template-debian-10-minimal
 
-Because this template was built *before* buster became stable, it cannot be updated without [manually accepting the change in status][5149].
-Also, to install additional Qubes packages you will have to enable the qubes-testing repository.
-
-
 Debian 10 (buster) - stable:
 
     [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl-testing qubes-template-debian-10
-
-Because this template was built *before* buster became stable, it cannot be updated without [manually accepting the change in status][5149].
-
 
 ### Starting services
 
