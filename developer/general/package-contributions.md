@@ -78,7 +78,7 @@ In all the cases, the first condition to be validated by the QCR's review is to 
    - RPM/DEB installation scripts (e.g. looking at constraints who would hijack other packages),
    - Makefiles,
 
-and any steps which would result in partial/total compromission of legetimate components.
+and any steps which would result in partial/total compromise of legitimate components.
 
 Package Maintainers
 -------------------
