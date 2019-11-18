@@ -200,7 +200,7 @@ Example policy file in R4.0 (with Whonix installed, but not set as default Updat
 
 # Installing Snap Packages
 
-Snap packages do not use the normal update channels for Debian and Fedora (dnf and apt) and are often installed as the user rather than as root. To support these in an AppVM you need to take the following steps:
+Snap packages do not use the normal update channels for Debian and Fedora (apt and dnf) and are often installed as the user rather than as root. To support these in an AppVM you need to take the following steps:
 
 1. In the **TemplateVM** you must install snapd and qubes-snapd-helper:
 Open a terminal in TemplateVM and run:
@@ -239,7 +239,7 @@ Installed:
 Complete!
 ```
 You may see a message "Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
-/usr/sbin/semodule:  Failed!". This is expected and you cna safely continue.
+/usr/sbin/semodule:  Failed!". This is expected and you can safely continue.
 
 Shutdown the TemplateVM:
 ```shell_session
@@ -257,9 +257,9 @@ when the install is complete shutdown the AppVM:
 
 3. Refresh the Applications list for the AppVM.
 In the Qubes Menu for the **AppVM*** launch the Qube Settings.
-Then go to the Applicaitons tab and click "Refresh Applications"
+Then go to the Applications tab and click "Refresh Applications"
 
-The refresh will take a few minutes, but after it's complete the Snap app will appear in the AppVM's list of availble applications. At this point the snap will be persistant within the AppVM and will receive updates when the AppVM is running.
+The refresh will take a few minutes; after it's complete the Snap app will appear in the AppVM's list of available applications. At this point the snap will be persistent within the AppVM and will receive updates when the AppVM is running.
 
 
 [domUs]: /doc/glossary/#domu
