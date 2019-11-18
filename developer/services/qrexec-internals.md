@@ -59,9 +59,9 @@ Command line parameters:
 
 ## VM tools implementation
 
-### `qrexec-agent`
+### qrexec-agent
 
-<!-- PATH? -->
+`/usr/lib/qubes/qrexec-agrent`
 
 One instance runs in each active domain. 
 Responsible for:
@@ -69,9 +69,9 @@ Responsible for:
   * Executing associated `qrexec-daemon` execution/service requests.
 * Command line parameters: none.
 
-### `qrexec-client-vm`
+### qrexec-client-vm
 
-<!-- PATH? -->
+`/usr/bin/qrexec-client-vm`
 
 Runs in an active domain.
 Used to pass service requests to `qrexec-agent`.
