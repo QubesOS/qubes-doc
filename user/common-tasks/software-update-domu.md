@@ -250,10 +250,7 @@ Shutdown the TemplateVM:
 ```shell_session
 [user@snap-demo-AppVM ~]$ snap install <package>
 ```
-when the install is complete shutdown the AppVM:
-```shell_session
-[user@snap-demo-AppVM ~]$ sudo shutdown -h now
-```
+When the install is complete you can close the terminal window.
 
 3. Refresh the Applications list for the AppVM.
 In the Qubes Menu for the **AppVM*** launch the Qube Settings.
