@@ -198,6 +198,67 @@ Example policy file in R4.0 (with Whonix installed, but not set as default Updat
 @anyvm @anyvm deny
 ```
 
+# Installing Snap Packages
+
+Snap packages do not use the normal update channels for Debian and Fedora (apt and dnf) and are often installed as the user rather than as root. To support these in an AppVM you need to take the following steps:
+
+1. In the **TemplateVM** you must install snapd and qubes-snapd-helper:
+Open a terminal in TemplateVM and run:
+```shell_session
+[user@fedora-30-snap-demo ~]$ sudo dnf install snapd qubes-snapd-helper
+Last metadata expiration check: 0:55:39 ago on Thu Nov 14 09:26:47 2019.
+Dependencies resolved.
+========================================================================================================
+ Package                       Arch    Version                             Repository              Size
+========================================================================================================
+Installing:
+ snapd                         x86_64  2.42.1-1.fc30                       updates                 17 M
+ qubes-snapd-helper            noarch  1.0.1-1.fc30                        qubes-vm-r4.0-current   10 k
+Installing dependencies:
+[...]
+
+Transaction Summary
+========================================================================================================
+Install  20 Packages
+
+Total download size: 37 M
+Installed size: 121 M
+Is this ok [y/N]: y
+
+Downloading Packages:
+[..]
+Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
+/usr/sbin/semodule:  Failed!
+[...]
+Last metadata expiration check: 0:57:08 ago on Thu Nov 14 09:26:47 2019.
+Notifying dom0 about installed applications
+
+Installed:
+  snapd-2.42.1-1.fc30.x86_64                                              qubes-snapd-helper-1.0.1-1.fc30.noarch                           
+[...]                          
+Complete!
+```
+You may see a message "Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
+/usr/sbin/semodule:  Failed!". This is expected and you can safely continue.
+
+Shutdown the TemplateVM:
+```shell_session
+[user@fedora-30-snap-demo ~]$ sudo shutdown -h now
+```
+
+2. Now open the **AppVM** in which you would like to install the Snap application and run a terminal:
+```shell_session
+[user@snap-demo-AppVM ~]$ snap install <package>
+```
+When the install is complete you can close the terminal window.
+
+3. Refresh the Applications list for the AppVM.
+In the Qubes Menu for the **AppVM*** launch the Qube Settings.
+Then go to the Applications tab and click "Refresh Applications"
+
+The refresh will take a few minutes; after it's complete the Snap app will appear in the AppVM's list of available applications. At this point the snap will be persistent within the AppVM and will receive updates when the AppVM is running.
+
+
 [domUs]: /doc/glossary/#domu
 [TemplateVMs]: /doc/templates/
 [StandaloneVM]: /doc/standalone-and-hvm/
