@@ -92,7 +92,7 @@ As usual, the required packages are to be installed in the running template with
  - NetVM, such as the template for `sys-net`: `qubes-core-agent-networking` `qubes-core-agent-network-manager` `NetworkManager-wifi` `network-manager-applet` `wireless-tools` `notification-daemon` `gnome-keyring` `polkit` `@hardware-support`.
    If your network devices need extra packages for the template to work as a network VM, use the `lspci` command to identify the devices, then run `dnf search firmware` (replace `firmware` with the appropriate device identifier) to find the needed packages and then install them.
    If you need utilities for debugging and analyzing network connections, install `tcpdump` `telnet` `nmap` `nmap-ncat`.
- - [USB qube](/doc/usb-qubes/), such as the template for `sys-usb`: `qubes-input-proxy-sender` and `qubes-usb-proxy`.
+ - [USB qube](/doc/usb-qubes/), such as the template for `sys-usb`: `qubes-usb-proxy` to provide USB devices to other Qubes and `qubes-input-proxy-sender` to provide keyboard or mouse input to dom0.
  - [VPN qube](/doc/vpn/): Use the `dnf search "NetworkManager VPN plugin"` command to look up the VPN packages you need, based on the VPN technology you'll be using, and install them.
    Some GNOME related packages may be needed as well.
    After creation of a machine based on this template, follow the [VPN instructions](/doc/vpn/#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager) to configure it.
@@ -109,6 +109,7 @@ You may also wish to consider additional packages from the `qubes-core-agent` su
  - `network-manager-applet`: Useful `notification-daemon` to have a system tray icon if the template is to be used for a `sys-net` VM.
  - `qubes-core-agent-dom0-updates`: Script required to handle `dom0` updates. Any template which the VM responsible for 'dom0' updates (e.g. `sys-firewall`) is based on must contain this package.
  - `qubes-usb-proxy`: Required if the template is to be used for a USB qube (`sys-usb`) or for any destination qube to which USB devices are to be attached (e.g `sys-net` if using USB network adapter).
+ - `qubes-input-proxy-sender`: Provides USB keyboard and mouse input from a USB qube (`sys-usb`) to dom0.
  - `pulseaudio-qubes`: Needed to have audio on the template VM.
 
 See [here][customization] for further information on customizing `fedora-minimal`.
