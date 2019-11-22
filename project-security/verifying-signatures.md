@@ -149,8 +149,9 @@ Now, when you import any of the legitimate Qubes developer keys and Release Sign
 
 ### 2. Get the Release Signing Key
 
-The filename of the Release Signing Key for your version is `qubes-release-X-signing-key.asc`, where `X` is the major version number of your Qubes release.
-There are several ways to get the Release Signing Key for your Qubes release.
+The filename of the Release Signing Key for your version is `qubes-release-X-signing-key.asc`, where `X` is the major version number of your Qubes release. Remember to replace `X` by the major version number in the commands below. 
+
+There are several ways to get the Release Signing Key for your Qubes release:
 
  - If you have access to an existing Qubes installation, the release keys are available in dom0 in `/etc/pki/rpm-gpg/`.
    These can be [copied][copy-from-dom0] into other VMs for further use.
@@ -166,6 +167,10 @@ There are several ways to get the Release Signing Key for your Qubes release.
    Once you've downloaded your Release Signing Key, import it with GPG:
 
        $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --import ./qubes-release-X-signing-key.asc 
+       
+Now import the Release Signing Key:
+
+       $ gpg2 --import qubes-release-X-signing-key.asc
 
 The Release Signing Key should be signed by the Qubes Master Signing Key:
 
