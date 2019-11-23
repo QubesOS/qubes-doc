@@ -278,12 +278,64 @@ If you require `PV` mode, install `grub2-xen` in dom0 and change the template's 
 Booting to a kernel inside the template is not supported under `PVH`.
 
 ### Installing kernel in Debian VM
+#### Distribution kernel
+Apply the following instruction in a Debian TemplateVM or in a Debian StandaloneVM.
 
-Install whatever kernel you want, making sure to include the headers.
-If you are using a distribution kernel package (`linux-image-amd64` package), the initramfs and kernel modules should be handled automatically.
-If not, or you are building the kernel manually, do this using `dkms` and `initramfs-tools`:
+Using a distribution kernel package the initramfs and kernel modules should be handled automatically.
 
-    sudo dkms autoinstall -k <kernel-version> # replace this <kernel-version> with actual kernel version
+Create folder `/boot/grub`.
+
+~~~
+sudo mkdir -p /boot/grub
+~~~
+
+Install distribution kernel image, kernel headers and the grub configuration generator.
+
+~~~
+sudo apt install --no-install-recommends linux-image-amd64 linux-headers-amd64 grub2-common
+~~~
+
+Generate the grub configuration file.
+
+~~~
+sudo update-grub
+~~~
+
+You can safely ignore this error message:
+
+~~~
+grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your device.map
+~~~
+
+You may want to adjust some settings in `/etc/default/grub` (or better `/etc/default/grub.d`). For example, lower `GRUB_TIMEOUT` to speed up VM startup. You need to re-run `sudo update-grub` after making grub confugration changes.
+
+Then shutdown the VM.
+
+Go to Qubes VM Manger -> right click on the VM -> Qube settings -> Advanced -> choose `pvgrub2-phv` -> OK
+
+Start the VM.
+
+The process of using Qubes VM kernel with distribution kernel is complete. 
+
+**Note:** You may also use `PV` mode instead of `HVM` but this is not recommended for security purposes.
+If you require `PV` mode, install `grub2-xen` in dom0 and change the template's kernel to `pvgrub2`.
+Booting to a kernel inside the template is not supported under `PVH`.
+
+#### Custom kernel
+Any kernel can be installed. Just make sure to install kernel headers as well.
+
+If you are building the kernel manually, do this using `dkms` and `initramfs-tools`.
+
+Run DKMS. Replace this <kernel-version> with actual kernel version.
+
+    sudo dkms autoinstall -k <kernel-version>
+    
+For example.
+    
+    sudo dkms autoinstall -k 4.19.0-6-amd64
+    
+Update initramfs.
+    
     sudo update-initramfs -u
 
 The output should look like this:
@@ -303,28 +355,7 @@ The output should look like this:
 	$ sudo update-initramfs -u
 	update-initramfs: Generating /boot/initrd.img-3.16.0-4-amd64
 
-When the kernel is installed, you need to create a GRUB configuration. 
-You may want to adjust some settings in `/etc/default/grub`; for example, lower `GRUB_TIMEOUT` to speed up VM startup.
-Then, you need to generate the actual configuration with the `update-grub2` tool:
-
-~~~
-sudo mkdir /boot/grub
-sudo update-grub2
-~~~
-
-You can safely ignore this error message:
-
-~~~
-grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your device.map
-~~~
-
-Then shutdown the VM.
-
-**Note:** You may also use `PV` mode instead of `HVM` but this is not recommended for security purposes.
-If you require `PV` mode, install `grub2-xen` in dom0 and change the template's kernel to `pvgrub2`.
-Booting to a kernel inside the template is not supported under `PVH`.
-
-### Troubleshooting
+#### Troubleshooting
 
 In case of problems, you can access the VM console using `sudo xl console VMNAME` in dom0, then access the GRUB menu.
 You need to call it just after starting the VM (until `GRUB_TIMEOUT` expires); for example, in a separate dom0 terminal window.
