@@ -311,7 +311,7 @@ You may want to adjust some settings in `/etc/default/grub` (or better `/etc/def
 
 Then shutdown the VM.
 
-Go to Qubes VM Manger -> right click on the VM -> Qube settings -> Advanced -> choose `pvgrub2-phv` -> OK
+Go to Qubes VM Manger -> right click on the VM -> Qube settings -> Advanced -> choose `pvgrub2-pvh` -> OK
 
 Start the VM.
 
