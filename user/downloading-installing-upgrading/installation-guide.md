@@ -77,8 +77,7 @@ and change `/dev/sdX` to the correct target device (e.g., `/dev/sdc`).
 write to the entire device (e.g., `/dev/sdc`) rather than just a single
 partition (e.g., `/dev/sdc1`).
 
-On Windows, you can use the [Rufus] tool. Be sure to select "DD image" mode (you
-need to do that **after** selecting the Qubes ISO):
+On Windows, you can use the [Rufus] tool. Be sure to select "DD image" mode (on version 3+ of the Rufus tool, you need to do that **after** selecting the Qubes ISO and pressing START):
 
 **Warning:** If you do that on Windows 10, you can only install Qubes without 
 MediaTest, which isn't recommended. 
