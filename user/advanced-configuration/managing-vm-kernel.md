@@ -279,6 +279,7 @@ Booting to a kernel inside the template is not supported under `PVH`.
 
 ### Installing kernel in Debian VM
 #### Distribution kernel
+
 Apply the following instruction in a Debian TemplateVM or in a Debian StandaloneVM.
 
 Using a distribution kernel package the initramfs and kernel modules should be handled automatically.
@@ -302,24 +303,30 @@ sudo update-grub
 ~~~
 
 You can safely ignore this error message:
-
-~~~
-grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your device.map
-~~~
+`grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your device.map`
 
 You may want to adjust some settings in `/etc/default/grub` (or better `/etc/default/grub.d`). For example, lower `GRUB_TIMEOUT` to speed up VM startup. You need to re-run `sudo update-grub` after making grub confugration changes.
 
 Then shutdown the VM.
 
-Go to Qubes VM Manger -> right click on the VM -> Qube settings -> Advanced -> choose `pvgrub2-pvh` -> OK
+Go to dom0 -> Qubes VM Manger -> right click on the VM -> Qube settings -> Advanced
+
+Depends on `Virtualization` mode setting:
+
+* `Virtualization` mode `PV`: Use of `Virtualization` mode `PV` mode is discouraged for security purposes.
+  * If you require `Virtualization` mode `PV` mode, install `grub2-xen` in dom0. This can be done by running command `sudo qubes-dom0-update grub2-xen` in dom0.
+* `Virtualization` mode `PVH`: Booting to a kernel inside a TemplateVM is unsupported.
+* `Virtualization` mode `HVM`: Possible.
+
+The `Kernel` setting of the `Virtualization` mode setting:
+
+* If `Virtualization` is set to `PVH` -> `Kernel` -> choose `pvgrub2-pvh` -> OK 
+* If `Virtualization` is set to `PV` -> `Kernel` -> choose `pvgrub2` -> OK 
+* If `Virtualization` is set to `HVM` -> `Kernel` -> choose `none` -> OK 
 
 Start the VM.
 
 The process of using Qubes VM kernel with distribution kernel is complete. 
-
-**Note:** You may also use `PV` mode instead of `HVM` but this is not recommended for security purposes.
-If you require `PV` mode, install `grub2-xen` in dom0 and change the template's kernel to `pvgrub2`.
-Booting to a kernel inside the template is not supported under `PVH`.
 
 #### Custom kernel
 Any kernel can be installed. Just make sure to install kernel headers as well.
