@@ -56,15 +56,13 @@ This section contains notes about specific Debian releases.
 
 ### Debian 10
 
-Debian 10 templates are currently available from the testing repository.
-
 Debian 10 (buster) - minimal:
 
-    [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl-testing qubes-template-debian-10-minimal
+    [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl qubes-template-debian-10-minimal
 
 Debian 10 (buster) - stable:
 
-    [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl-testing qubes-template-debian-10
+    [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl qubes-template-debian-10
 
 ### Starting services
 
