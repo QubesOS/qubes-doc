@@ -52,7 +52,7 @@ If you'd still like to remove one of these applications without breaking your Te
 
 **Recommended but optional:** Use `apt-mark` to make `apt autoremove` safe again. 
 ```shell_session
-$ sudo apt mark-manual package-name package-name
+$ sudo apt-mark manual package-name package-name
 ```
 
 Replace package-names with actual `qubes-*` and `salt-*` packages you'd like to retain. 
