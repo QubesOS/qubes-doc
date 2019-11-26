@@ -81,6 +81,7 @@ redirect_from:
    Remember to change the devices assigned to your NetVM and USBVM if you move between different machines.
  * Installing Qubes in a virtual machine is not recommended, as it uses its own bare-metal hypervisor (Xen).
  * [Advice on finding a VT-d capable notebook][vt-d-notebook].
+ * You can check whether an Intel processor has VT-x and VT-d on [ark.intel.com](https://ark.intel.com/content/www/us/en/ark.html#@Processors)
 
 
 [nvidia]: /doc/install-nvidia-driver/
