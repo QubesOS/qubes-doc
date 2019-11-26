@@ -259,6 +259,29 @@ Then go to the Applications tab and click "Refresh Applications"
 The refresh will take a few minutes; after it's complete the Snap app will appear in the AppVM's list of available applications. At this point the snap will be persistent within the AppVM and will receive updates when the AppVM is running.
 
 
+# Autostarting Installed Applications
+
+If you want a desktop app to start automatically every time a qube starts you can create a link to it in the ~/.config/autostart directory of the **AppVM**. This might be useful for Qubes that you set to automatically start on boot or for Qubes that have a set of apps you typically use all day, such as a chat app.
+
+1. Open a terminal in the **AppVM** where you would like the app to launch
+2. List the names of the available desktop shortcuts by running the command ```ls /usr/share/applications``` and find the exact name of the shortcut to the app you want to autostart:
+```[user@example-AppVM ~]$ ls /usr/share/applications/
+bluetooth-sendto.desktop
+eog.desktop
+firefox.desktop
+...
+xterm.desktop
+yelp.desktop
+```
+3. Create the autostart directory:
+```[user@example-AppVM ~]$ mkdir -p ~/.config/autostart```
+4. Make a link to the desktop app file you'd like to start in the autostart directory. For example, the command below will link the Thunderbird app into the autostart directory:
+```[user@example-AppVM ~]$ ln -s /usr/share/applications/mozilla-thunderbird.desktop ~/.config/autostart/mozilla-thunderbird.desktop```
+
+Note that the app will autostart only when the AppVM starts. If you would like the AppVM to autostart, select the "Start qube automatically on boot" checkbox in the AppVM's Qube Settings.
+
+
+
 [domUs]: /doc/glossary/#domu
 [TemplateVMs]: /doc/templates/
 [StandaloneVM]: /doc/standalone-and-hvm/
