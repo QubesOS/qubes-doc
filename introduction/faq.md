@@ -231,11 +231,11 @@ It is possible to install Qubes on a system with 2 GB of RAM, but the system wou
 
 ### Can I install Qubes 4.x on a system without VT-x or VT-d?
 
-Qubes 4.x requires Intel VT-x with EPT / AMD-V with RVI (SLAT) and Intel VT-d / AMD-Vi (aka AMD IOMMU) for proper functionality (see the [4.x System Requirements](/doc/system-requirements/#qubes-release-4x)). If you are receiving an error message on install saying your "hardware lacks the features required to proceed", check to make sure the virtualization options are enabled in your BIOS/UEFI configuration. You may be able to install without the required CPU features for testing purposes only, but VMs may not function correctly and there will be no security isolation. For more information, see our post on [updated requirements for Qubes-certified hardware](/news/2016/07/21/new-hw-certification-for-q4/).
+Qubes 4.x requires Intel VT-x with EPT / AMD-V with RVI (SLAT) and Intel VT-d / AMD-Vi (aka AMD IOMMU) for proper functionality (see the [4.x System Requirements](/doc/system-requirements/#qubes-release-4x)). If you are receiving an error message on install saying your "hardware lacks the features required to proceed", check to make sure the virtualization options are enabled in your BIOS/UEFI configuration. You may be able to install without the required CPU features for testing purposes only, but VMs (in particular, sys-net) may not function correctly and there will be no security isolation. For more information, see our post on [updated requirements for Qubes-certified hardware](/news/2016/07/21/new-hw-certification-for-q4/).
 
 ### Can I install Qubes OS on a system without VT-x?
 
-Yes. 
+Yes, for releases 3.2.1 and below. 
 Xen doesn't use VT-x (or AMD-v) for PV guest virtualization. 
 (It uses ring0/3 separation instead.) 
 However, without VT-x, you won't be able to use fully virtualized VMs (e.g., Windows-based qubes), which were introduced in Qubes 2. 
@@ -243,7 +243,7 @@ In addition, if your system lacks VT-x, then it also lacks VT-d. (See next quest
 
 ### Can I install Qubes OS on a system without VT-d?
 
-Yes. 
+Yes, for releases 3.2.1 and below.  
 You can even run a NetVM, but you will not benefit from DMA protection for driver domains. 
 On a system without VT-d, everything should work in the same way, except there will be no real security benefit to having a separate NetVM, as an attacker could always use a simple DMA attack to go from the NetVM to Dom0. 
 **Nonetheless, all of Qubes' other security mechanisms, such as qube separation, work without VT-d. 
