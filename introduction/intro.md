@@ -75,7 +75,7 @@ What is Qubes OS?
     </div>
     <div class="col-lg-4 col-md-4 col-xs-12">
       <h3>U2F proxy</h3>
-      <p>Operate<a href="/doc/u2f-proxy/">Qubes U2F proxy</a>to use two-factor authentication</p>
+      <p>Operate <a href="/doc/u2f-proxy/">Qubes U2F proxy</a> to use two-factor authentication</p>
     </div>
     <div class="col-lg-4 col-md-4 col-xs-12">
       <h3>Open-source</h3>
