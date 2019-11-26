@@ -13,30 +13,123 @@ redirect_from:
 What is Qubes OS?
 -----------------
 
-Qubes OS is a free and open-source security-oriented operating system meant for single-user desktop computing. 
+  <div class="row">
+      <div class="col-lg-3 col-md-3 text-left">
+          <p>Qubes OS is a free and open-source security-oriented operating system meant for single-user desktop computing.</p> 
+          <p>Qubes OS leverages <a href="https://wiki.xen.org/wiki/Xen_Project_Software_Overview/">xen-based virtualization</a> to allow for the creation and management of isolated virtual machines called <a href="/doc/glossary#qube">qubes</a>. Qubes, which are also referred to as <a href="/doc/glossary#qube/">domains</a> or compartments, have specific :</p>
+          <ul>
+            <li><b>Purposes</b> : with a predefined set of one or many isolated applications, for personal or professional projects, to manage the <a href="/doc/networking/">network stack</a>, <a href="/doc/firewall/">the firewall</a>, or to fulfill other user-defined purposes.</li>
+            <li><b>Natures</b> : <a href="/doc/standalone-and-hvm/">full-fledged</a> or <a href="/getting-started/#appvms-qubes-and-templatevms">stripped-down</a> virtual machines which are based on popular operating systems such as <a href="/doc/templates/fedora">Fedora</a>, <a href="/doc/templates/debian">Debian</a> or <a href="/doc/windows/">Windows</a>.</li>
+            <li><b>Levels of trust</b> : from complete to non-existent. All windows are displayed in a unified desktop environment with <a href="https://www.qubes-os.org/getting-started/">unforgeable colored window borders</a> so different security levels are easily identifiable.</li>
+          </ul>
+      </div>
+      <div class="col-lg-9 col-md-9">
+        <h3 class="text-center add-bottom">Qubes OS Overview Example</h3>
+        <img src="/attachment/site/qubesosdiagram.png" height="600" class="center-block">
+      </div>
+  </div>
 
-Qubes OS allows you to compartmentalize various parts of your digital life into isolated domains. If one of those compartments get compromised by a malicious email attachment carrying a ransomware, other parts of your system will remain unaffected : this is one of the key benefits of the [*security by compartmentalization*](https://www.qubes-os.org/faq/) approach taken by Qubes OS.
+<div class="alert alert-info" role="alert">
+    <i class="fa fa-question-circle"></i>
+    <b>Note : </b> Head over to the <a href="/doc/glossary/">glossary</a> or the <a href="/faq">FAQ</a> for more information.  
+</div>
 
-How does Qubes OS provide security?
-------------------------------------
+<h2>Features</h2>
 
-Behind the scenes, Qubes OS leverages virtualization and more specifically the [open-source Xen hypervisor](https://wiki.xen.org/wiki/Xen_Project_Software_Overview) to allow the creation and management of well-isolated virtual machines called *qubes*. Those qubes, which are also referred simply to as *domains* or *compartments*, have specific :
+  <div class="row more-bottom">
+    <div class="col-lg-4 col-md-4 col-xs-12">
+      <h3>Strong isolation</h3>
+      <p>Isolate software as if they were installed on separate physical machines using <a href="/doc/glossary/#pv">PV</a> or <a href="/doc/glossary/#hvm">HVM</a> virtualization techniques</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-xs-12">
+      <h3>Templating system</h3>
+      <p> Allow qubes called <a href="/getting-started/#appvms-qubes-and-templatevms">AppVMs</a> to share a root file system without sacrificing security using the innovative <a href="/doc/templates/">Template system</a></p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-xs-12">
+      <h3>Multiple operating systems</h3>
+      <p> Use multiple operating systems at the same time, including <a href="/doc/templates/fedora">Fedora</a>, <a href="/doc/templates/debian">Debian</a>, or <a href="/doc/windows/">Windows</a></p>
+    </div>
+  </div>
 
-* **Purposes** : for personal or professional projects, to manage the USB or network stack.
-* **Natures** : full-fledged or stripped-down virtual machines which can be based on Fedora, Debian or even Windows.
-* **Levels of trust** : from complete to non-existent. 
+  <hr class="add-top more-bottom">
+  <div class="row more-bottom">
+    <div class="col-lg-4 col-md-4 col-xs-12">
+      <h3>Disposable VMs</h3>
+      <p>Create <a href="/doc/disposablevm/">disposable VMs</a> which are spawned quickly and destroyed when closed</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-xs-12">
+      <h3>Whonix integration</h3>
+      <p> Run Tor securely system-wide using <a href="/doc/whonix/">Whonix with Qubes</a></p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-xs-12">
+      <h3>Controller isolation</h3>
+      <p>Secure <a href="/doc/device-handling/">device handling</a> through isolation of network cards and USB controllers</p>
+    </div>
+  </div>
 
-All of these isolated qubes are integrated into a single, usable system. Programs are isolated in their own separate qubes, but all windows are displayed in a single, unified desktop environment with [unforgeable colored
-window borders][getting started] so that you can easily identify windows from different security levels. Common attack vectors like network cards and USB controllers are isolated in their own hardware qubes while their functionality
-is preserved through secure [networking], [firewalls], and [USB device management][USB]. Integrated [file] and [clipboard] copy and paste operations make it easy to work across various qubes without compromising security. The
-innovative [Template] system separates software installation from software use, allowing qubes to share a root filesystem without sacrificing security (and saving disk space, to boot). Qubes even allows you to sanitize PDFs and images in a few clicks. Users concerned about privacy will appreciate the [integration][Qubes-Whonix] of [Whonix] with Qubes, which makes it easy to use [Tor] securely, while those concerned about physical hardware attacks will
-benefit from [Anti Evil Maid].
+  <hr class="add-top more-bottom">
+  <div class="row more-bottom">
+    <div class="col-lg-4 col-md-4 col-xs-12">
+      <h3>Split GPG</h3>
+      <p>Utilise <a href="/doc/split-gpg/">Split GPG</a> to store private GPG keys in an AppVM</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-xs-12">
+      <h3>U2F proxy</h3>
+      <p>Operate<a href="/doc/u2f-proxy/">Qubes U2F proxy</a>to use two-factor authentication</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-xs-12">
+      <h3>Open-source</h3>
+      <p>Users are free to use, copy and modify Qubes OS and are encouraged to do so!</p>
+    </div>
+  </div>
 
-Qubes OS is open
-----------------
+<div class="alert alert-info" role="alert">
+    <i class="fa fa-question-circle"></i>
+    <b>Note : </b> Given the technical nature of Qubes OS, prior experience with a Linux distribution such as Ubuntu, Debian or Fedora is advisable.
+</div>
 
-Another distinct features of Qubes OS is that as a user, you are free to use, copy and modify it. In other words, Qubes OS is a free and open-source software. The source code, including the documentation, is openly available so that others can contribute to and audit it, which we strongly encourage you to do ! 
 
+Why Qubes OS ?
+--------------
+
+<h3>Physical isolation is a given safeguard that the digital world lacks</h3>
+
+  <div class="row">
+      <div class="col-lg-6 col-md-6 text-left">
+        <p>Throughout their lives, individuals engage in various activites such as going to school, working, voting, taking care of their families or visiting with friends. </p> 
+        <p>These activites are spatially and temporally bound : they happen in isolation of one another, in their own compartments, which often represent an essential safeguard, such as in the case of voting.</p> 
+        <p>In one's digital life, the situation is quite different : each activity, often intertwinded with its real-life counterpart, tends to happen on a single computing device.</p>
+      </div>
+      <div class="col-lg-6 col-md-6">
+        <img src="/attachment/wiki/GettingStarted/r2b1-qubes-manager-2.png" height="300" class="center-block">
+      </div>
+  </div>
+
+<h3>Qubes OS compartmentalizes one's digital life</h3>
+
+ <div class="row">
+      <div class="col-lg-3 col-md-3">
+        <img src="/attachment/icons/128x128/apps/qubes-logo-icon.png" height="128" class="center-block">
+      </div>
+      <div class="col-lg-9 col-md-9 text-left">
+        <p>Suprinsingly, personal computing devices aren't designed to offer means to enforce the same kind of isolation that people enjoy in the physical world.</p>
+        <p>Enter Qubes OS : Qubes OS' goal is to enforce, on a single computing device, a kind of digital compartmentalization that is almost as strong as physical isolation.</p> 
+        <p>Qubes OS allows users to compartmentalize various parts of their digital lives into well-isolated compartments.</p> 
+      </div>
+  </div>
+
+<h3>Made to support vulnerable users</h3>
+
+ <div class="row">
+    <div class="col-lg-12 col-md-12 text-left">
+        <p>Qubes allows users to do everything on the same physical computer without having to worry about a single successful cyberattack taking down their entire digital life in one fell swoop.</p>
+        <p>Thanks to Qubes OS, vulnerable or actively targeted individuals such as journalists, political activists, whistleblowers or researchers can enjoy the same benefit of using multiple computing devices at a fraction of the cost and without the associated loss of usability.</p> 
+        <p>Computing should remain a activity where mistakes can be made and where users can explore the web freely, downloading attachements and clicking on links without having to constantly evaluate a miriad of risk factors.</p> 
+        <p>Qubes OS strives to bring back this experience. It creates a place where users can feel safe.</p>
+    </div>
+ </div>
+
+ <p><img src="/attachment/wiki/GettingStarted/snapshot12.png" alt="snapshot12.png"/></p>
 
 <hr class="add-top more-bottom">
   <div class="row more-bottom">
@@ -63,17 +156,18 @@ Another distinct features of Qubes OS is that as a user, you are free to use, co
     </div>
   </div>
 
+
 More information
 ----------------
 
-This page is just a brief sketch of what Qubes is all about, and many
+This page is just a brief introduction to what Qubes is all about, and many
 technical details have been omitted here for the sake of presentation.
 
  * If you're a current or potential Qubes user, you may want to check out the
    [documentation][doc] and the [FAQ][user-faq].
  * If you're a developer, there's dedicated [documentation][system-doc]
    and an [FAQ][devel-faq] just for you.
- * Ready to give Qubes a try? Head on over to the [downloads] page.
+ * Ready to give Qubes a try? Head on over to the [downloads] page or the [installation guide].
 
 
 [disposable qube]: /doc/disposablevm/
@@ -96,4 +190,4 @@ technical details have been omitted here for the sake of presentation.
 [devel-faq]: /faq/#developers
 [downloads]: /downloads/
 [getting started]: /getting-started/
-
+[installation guide]: /doc/installation-guide/
