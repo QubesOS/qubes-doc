@@ -82,7 +82,9 @@ On Windows, you can use the [Rufus] tool. Be sure to select "DD image" mode (on 
 **Warning:** If you do that on Windows 10, you can only install Qubes without 
 MediaTest, which isn't recommended. 
 
-<img src="/attachment/wiki/InstallationGuide/rufus-main-boxed.png" height="350">
+[![Rufus Menu](/attachment/wiki/InstallationGuide/rufus-menu.png)](/attachment/wiki/InstallationGuide/rufus-menu.png)
+
+[![Rufus DD Image mode](/attachment/wiki/InstallationGuide/rufus-dd-image-mode.png)](/attachment/wiki/InstallationGuide/rufus-dd-image-mode.png)
 
 Before proceeding with the installation, you are encouraged to first read all
 the information on this page. When you're ready, boot your system from the
