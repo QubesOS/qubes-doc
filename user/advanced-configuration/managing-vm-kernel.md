@@ -305,7 +305,7 @@ sudo update-grub
 You can safely ignore this error message:
 `grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your device.map`
 
-You may want to adjust some settings in `/etc/default/grub` (or better `/etc/default/grub.d`). For example, lower `GRUB_TIMEOUT` to speed up VM startup. You need to re-run `sudo update-grub` after making grub confugration changes.
+You may want to adjust some settings in `/etc/default/grub` (or better `/etc/default/grub.d`). For example, lower `GRUB_TIMEOUT` to speed up VM startup. You need to re-run `sudo update-grub` after making grub configuration changes.
 
 Then shutdown the VM.
 
