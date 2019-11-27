@@ -293,7 +293,7 @@ sudo mkdir -p /boot/grub
 Install distribution kernel image, kernel headers and the grub configuration generator.
 
 ~~~
-sudo apt install --no-install-recommends linux-image-amd64 linux-headers-amd64 grub2-common
+sudo apt install --no-install-recommends linux-image-amd64 linux-headers-amd64 grub2-common qubes-kernel-vm-support
 ~~~
 
 Generate the grub configuration file.
