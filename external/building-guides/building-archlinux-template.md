@@ -59,7 +59,7 @@ redirect_from:
 
     *   rpmdevtools
 
-    *   python2-sh
+    *   python3-sh
 
     *   dialog
 
@@ -70,7 +70,7 @@ redirect_from:
 
 *   The tools can usually be installed all together with the following terminal command string:
 
-    *   **$ sudo dnf install git createrepo rpm-build make wget rpmdevtools python2-sh dialog rpm-sign gnupg**
+    *   **$ sudo dnf install git createrepo rpm-build make wget rpmdevtools python3-sh dialog rpm-sign gnupg**
 <br>
 <br>
 ![arch-template-04](/attachment/wiki/ArchlinuxTemplate/arch-template-04.png)
