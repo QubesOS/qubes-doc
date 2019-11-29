@@ -107,7 +107,6 @@ the same OS. This means, once again, that if your session is compromised,
 then all the data and activities performed within that same session are also
 potentially compromised.
 
-
 ### How does Qubes OS compare to running VMs in a conventional OS?
 
 Not all virtual machine software is equal when it comes to security. You may
@@ -134,9 +133,7 @@ trust levels of their respective VMs. It also allows for things like secure
 copy/paste operations between VMs, securely copying and transferring files
 between VMs, and secure networking between VMs and the Internet.
 
-
-How does Qubes OS compare to using a separate physical machine?
----------------------------------------------------------------
+### How does Qubes OS compare to using a separate physical machine?
 
 Using a separate physical computer for sensitive activities can certainly be
 more secure than using one computer with a conventional OS for everything,
