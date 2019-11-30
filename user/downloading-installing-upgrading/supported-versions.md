@@ -56,11 +56,9 @@ These components are [security-critical], and we provide updates for all of them
 For this reason, we consider it safe to continue using a given base distribution in dom0 even after it has reached EOL (end-of-life).
 
 
-## TemplateVMs
+## TemplateVM availability
 
-The table below shows the [TemplateVM] versions supported by each Qubes OS release.
-Currently, only [Fedora] and [Debian] TemplateVMs are officially supported by the Qubes OS Project.
-[Whonix] TemplateVMs are supported by our partner, the [Whonix Project].
+The table below shows the [TemplateVM] versions available for each Qubes OS release.
 
 | Qubes OS      | Fedora                       | Debian                                        | Whonix     |
 | ------------- | ---------------------------- | --------------------------------------------- | ---------- |
@@ -73,6 +71,45 @@ Currently, only [Fedora] and [Debian] TemplateVMs are officially supported by th
 
 \* Denotes versions for which we have published the packages but have not done
 extensive testing.
+
+
+## TemplateVM support status
+
+The tables below shows the support status of each [TemplateVM] provided by the Qubes OS Project.
+Currently, only [Fedora] and [Debian] TemplateVMs are officially supported by the Qubes OS Project.
+[Whonix] TemplateVMs are supported by our partner, the [Whonix Project].
+
+
+### Fedora
+
+Qubes support for each [Fedora] TemplateVM ends when that Fedora release reaches [end-of-life][fedora-eol], unless otherwise noted.
+
+| TemplateVM    | Status                  |
+| ------------- | ----------------------- |
+| Fedora 18     | Old, unsupported        |
+| Fedora 20     | Old, unsupported        |
+| Fedora 21     | Old, unsupported        |
+| Fedora 22     | Old, unsupported        |
+| Fedora 23     | Old, unsupported        |
+| Fedora 24     | Old, unsupported        |
+| Fedora 25     | Old, unsupported        |
+| Fedora 26     | Old, unsupported        |
+| Fedora 27     | Old, unsupported        |
+| Fedora 28     | Old, unsupported        |
+| Fedora 29     | Old, unsupported        |
+| Fedora 30     | Current, supported      |
+
+
+### Debian
+
+Qubes support for each [Debian] TemplateVM ends when that Debian release reaches [end-of-life][debian-eol], unless otherwise noted.
+
+| TemplateVM    | Status                  |
+| ------------- | ----------------------- |
+| Debian 7      | Old, unsupported        |
+| Debian 8      | Old, unsupported        |
+| Debian 9      | Current, supported      |
+| Debian 10     | Current, supported      |
 
 
 ### Note on Whonix support
@@ -101,6 +138,8 @@ We aim to announce both types of events one month in advance in order to remind 
 [4.1]: https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue+milestone%3A%22Release+4.1%22+
 [Fedora]: /doc/templates/fedora/
 [Debian]: /doc/templates/debian/
+[fedora-eol]: https://fedoraproject.org/wiki/End_of_life
+[debian-eol]: https://wiki.debian.org/DebianReleases
 [Whonix]: /doc/whonix/
 [Whonix Project]: https://www.whonix.org/
 
