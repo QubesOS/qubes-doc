@@ -231,7 +231,7 @@ If you wish for your system to be more lightweight, do not hesitate to un-check 
 
 <div class="alert alert-info" role="alert">
     <i class="fa fa-question-circle"></i>
-    <b> Note : </b> By default, Qubes OS comes preinstalled with the lightweight Xfce desktop environnement for dom0, the main domain. 
+    <b> Note : </b> By default, Qubes OS comes preinstalled with the lightweight Xfce desktop environment for dom0, the main domain. 
     Other desktop environments will be available to you after the installation is completed, although they may not be officially supported. 
 </div>
 
