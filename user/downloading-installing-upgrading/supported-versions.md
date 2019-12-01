@@ -16,15 +16,15 @@ or minor release (see [Version Scheme]). The current release and past major
 releases are always available on the [Downloads] page, while all ISOs, including
 past minor releases, are available from our [download mirrors].
 
-| Qubes OS      | Start Date | End Date   | Status                  |
-| ------------- | ---------- | ---------- | ----------------------- |
-| Release 1     | 2012-09-03 | 2015-03-26 | Old, unsupported        |
-| Release 2     | 2014-09-26 | 2016-04-01 | Old, unsupported        |
-| Release 3.0   | 2015-10-01 | 2016-09-09 | Old, unsupported        |
-| Release 3.1   | 2016-03-09 | 2017-03-29 | Old, unsupported        |
-| Release 3.2   | 2016-09-29 | 2019-03-28 | Old, unsupported        |
-| Release 4.0   | 2018-03-28 | TBA        | Current, supported      |
-| Release 4.1   | TBA        | TBA        | [In development][4.1]   |
+| Qubes OS      | Start Date | End Date   | Status                |
+| ------------- | ---------- | ---------- | --------------------- |
+| Release 1     | 2012-09-03 | 2015-03-26 | Unsupported           |
+| Release 2     | 2014-09-26 | 2016-04-01 | Unsupported           |
+| Release 3.0   | 2015-10-01 | 2016-09-09 | Unsupported           |
+| Release 3.1   | 2016-03-09 | 2017-03-29 | Unsupported           |
+| Release 3.2   | 2016-09-29 | 2019-03-28 | Unsupported           |
+| Release 4.0   | 2018-03-28 | TBA        | Supported             |
+| Release 4.1   | TBA        | TBA        | [In development][4.1] |
 
 
 ### Note on point releases
@@ -58,9 +58,7 @@ For this reason, we consider it safe to continue using a given base distribution
 
 ## TemplateVMs
 
-The table below shows the [TemplateVM] versions supported by each Qubes OS release.
-Currently, only [Fedora] and [Debian] TemplateVMs are officially supported by the Qubes OS Project.
-[Whonix] TemplateVMs are supported by our partner, the [Whonix Project].
+The following table shows the [TemplateVM] versions **available** for each Qubes OS release:
 
 | Qubes OS      | Fedora                       | Debian                                        | Whonix     |
 | ------------- | ---------------------------- | --------------------------------------------- | ---------- |
@@ -70,9 +68,46 @@ Currently, only [Fedora] and [Debian] TemplateVMs are officially supported by th
 | Release 3.1   | 21, 22\*, 23                 | 7 ("wheezy")\*, 8 ("jessie"), 9 ("stretch")\* | None       |
 | Release 3.2   | 23\*, 24\*, 25\*, 26, 27, 28 | 8 ("jessie"), 9 ("stretch")                   | 13, 14     |
 | Release 4.0   | 26, 27, 28, 29, 30           | 8 ("jessie"), 9 ("stretch"), 10 ("buster")    | 13, 14, 15 |
+| Release 4.1   | 26, 27, 28, 29, 30, 31       | 8 ("jessie"), 9 ("stretch"), 10 ("buster")    | 13, 14, 15 |
 
 \* Denotes versions for which we have published the packages but have not done
 extensive testing.
+
+The following tables show the **support status** of each [TemplateVM] provided by the Qubes OS Project.
+Currently, only [Fedora] and [Debian] TemplateVMs are officially supported by the Qubes OS Project.
+[Whonix] TemplateVMs are supported by our partner, the [Whonix Project].
+
+
+### Fedora
+
+Qubes support for each [Fedora] TemplateVM ends when that Fedora release reaches [end-of-life][fedora-eol], unless otherwise noted.
+
+| TemplateVM    | Status      |
+| ------------- | ----------- |
+| Fedora 18     | Unsupported |
+| Fedora 20     | Unsupported |
+| Fedora 21     | Unsupported |
+| Fedora 22     | Unsupported |
+| Fedora 23     | Unsupported |
+| Fedora 24     | Unsupported |
+| Fedora 25     | Unsupported |
+| Fedora 26     | Unsupported |
+| Fedora 27     | Unsupported |
+| Fedora 28     | Unsupported |
+| Fedora 29     | Unsupported |
+| Fedora 30     | Supported   |
+
+
+### Debian
+
+Qubes support for each [Debian] TemplateVM ends when that Debian release reaches [end-of-life][debian-eol], unless otherwise noted.
+
+| TemplateVM    | Status       |
+| ------------- | ------------ |
+| Debian 7      | Unsupported  |
+| Debian 8      | Unsupported  |
+| Debian 9      | Supported    |
+| Debian 10     | Supported    |
 
 
 ### Note on Whonix support
@@ -101,6 +136,8 @@ We aim to announce both types of events one month in advance in order to remind 
 [4.1]: https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue+milestone%3A%22Release+4.1%22+
 [Fedora]: /doc/templates/fedora/
 [Debian]: /doc/templates/debian/
+[fedora-eol]: https://fedoraproject.org/wiki/End_of_life
+[debian-eol]: https://wiki.debian.org/DebianReleases
 [Whonix]: /doc/whonix/
 [Whonix Project]: https://www.whonix.org/
 
