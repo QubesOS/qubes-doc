@@ -56,9 +56,9 @@ These components are [security-critical], and we provide updates for all of them
 For this reason, we consider it safe to continue using a given base distribution in dom0 even after it has reached EOL (end-of-life).
 
 
-## TemplateVM availability
+## TemplateVMs
 
-The table below shows the [TemplateVM] versions available for each Qubes OS release.
+The following table shows the [TemplateVM] versions **available** for each Qubes OS release:
 
 | Qubes OS      | Fedora                       | Debian                                        | Whonix     |
 | ------------- | ---------------------------- | --------------------------------------------- | ---------- |
@@ -73,10 +73,7 @@ The table below shows the [TemplateVM] versions available for each Qubes OS rele
 \* Denotes versions for which we have published the packages but have not done
 extensive testing.
 
-
-## TemplateVM support status
-
-The tables below shows the support status of each [TemplateVM] provided by the Qubes OS Project.
+The following tables show the **support status** of each [TemplateVM] provided by the Qubes OS Project.
 Currently, only [Fedora] and [Debian] TemplateVMs are officially supported by the Qubes OS Project.
 [Whonix] TemplateVMs are supported by our partner, the [Whonix Project].
 
