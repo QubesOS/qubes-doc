@@ -16,15 +16,15 @@ or minor release (see [Version Scheme]). The current release and past major
 releases are always available on the [Downloads] page, while all ISOs, including
 past minor releases, are available from our [download mirrors].
 
-| Qubes OS      | Start Date | End Date   | Status                  |
-| ------------- | ---------- | ---------- | ----------------------- |
-| Release 1     | 2012-09-03 | 2015-03-26 | Old, unsupported        |
-| Release 2     | 2014-09-26 | 2016-04-01 | Old, unsupported        |
-| Release 3.0   | 2015-10-01 | 2016-09-09 | Old, unsupported        |
-| Release 3.1   | 2016-03-09 | 2017-03-29 | Old, unsupported        |
-| Release 3.2   | 2016-09-29 | 2019-03-28 | Old, unsupported        |
-| Release 4.0   | 2018-03-28 | TBA        | Current, supported      |
-| Release 4.1   | TBA        | TBA        | [In development][4.1]   |
+| Qubes OS      | Start Date | End Date   | Status                |
+| ------------- | ---------- | ---------- | --------------------- |
+| Release 1     | 2012-09-03 | 2015-03-26 | Unsupported           |
+| Release 2     | 2014-09-26 | 2016-04-01 | Unsupported           |
+| Release 3.0   | 2015-10-01 | 2016-09-09 | Unsupported           |
+| Release 3.1   | 2016-03-09 | 2017-03-29 | Unsupported           |
+| Release 3.2   | 2016-09-29 | 2019-03-28 | Unsupported           |
+| Release 4.0   | 2018-03-28 | TBA        | Supported             |
+| Release 4.1   | TBA        | TBA        | [In development][4.1] |
 
 
 ### Note on point releases
@@ -84,32 +84,32 @@ Currently, only [Fedora] and [Debian] TemplateVMs are officially supported by th
 
 Qubes support for each [Fedora] TemplateVM ends when that Fedora release reaches [end-of-life][fedora-eol], unless otherwise noted.
 
-| TemplateVM    | Status                  |
-| ------------- | ----------------------- |
-| Fedora 18     | Old, unsupported        |
-| Fedora 20     | Old, unsupported        |
-| Fedora 21     | Old, unsupported        |
-| Fedora 22     | Old, unsupported        |
-| Fedora 23     | Old, unsupported        |
-| Fedora 24     | Old, unsupported        |
-| Fedora 25     | Old, unsupported        |
-| Fedora 26     | Old, unsupported        |
-| Fedora 27     | Old, unsupported        |
-| Fedora 28     | Old, unsupported        |
-| Fedora 29     | Old, unsupported        |
-| Fedora 30     | Current, supported      |
+| TemplateVM    | Status      |
+| ------------- | ----------- |
+| Fedora 18     | Unsupported |
+| Fedora 20     | Unsupported |
+| Fedora 21     | Unsupported |
+| Fedora 22     | Unsupported |
+| Fedora 23     | Unsupported |
+| Fedora 24     | Unsupported |
+| Fedora 25     | Unsupported |
+| Fedora 26     | Unsupported |
+| Fedora 27     | Unsupported |
+| Fedora 28     | Unsupported |
+| Fedora 29     | Unsupported |
+| Fedora 30     | Supported   |
 
 
 ### Debian
 
 Qubes support for each [Debian] TemplateVM ends when that Debian release reaches [end-of-life][debian-eol], unless otherwise noted.
 
-| TemplateVM    | Status                  |
-| ------------- | ----------------------- |
-| Debian 7      | Old, unsupported        |
-| Debian 8      | Old, unsupported        |
-| Debian 9      | Current, supported      |
-| Debian 10     | Current, supported      |
+| TemplateVM    | Status       |
+| ------------- | ------------ |
+| Debian 7      | Unsupported  |
+| Debian 8      | Unsupported  |
+| Debian 9      | Supported    |
+| Debian 10     | Supported    |
 
 
 ### Note on Whonix support
