@@ -10,7 +10,7 @@ NetworkManager configuration in AppVMs
 System connections
 ------------------
 
-In NetVMs and in VMs where the service `network-manager` is enabled, `/etc/NetworkManager/system-connections` is a symlink to /rw/config/NM-system-connections.
+In VMs where the service `network-manager` is enabled, `/etc/NetworkManager/system-connections` is a symlink to /rw/config/NM-system-connections. By default, NetVMs have this service enabled.
 
 So any modification you make in /etc/NetworkManager/system-connections is persistent.
 
