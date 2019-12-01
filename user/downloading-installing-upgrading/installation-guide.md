@@ -62,7 +62,7 @@ If those settings are not nested under the Advanced tab, you might find them und
     <i class="fa fa-info-circle"></i>
     <b>Tip : </b> It it up to the user to pick a combination of firmware and hardware that is trustworthy enough. 
     One can think of <a href="https://www.coreboot.org/">Coreboot</a> and its security-oriented implementation <a href="http://osresearch.net/">Heads</a>, or <a href="https://github.com/merge/skulls">Skulls</a>, which strives to be easy to use. 
-    At present, they are only compatible with the Lenovo Thinkpad X230. See <a href="/doc/Qubes-certified hardware">Qubes-certified hardware</a> for other ideas.   
+    At present, they are only compatible with the Lenovo Thinkpad X230. See <a href="/doc/certified-hardware">Qubes-certified hardware</a> for other ideas.   
 </div>
 
 <div class="alert alert-info" role="alert">
