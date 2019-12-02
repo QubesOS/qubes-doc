@@ -47,7 +47,7 @@ The table below shows the OS used for dom0 in each Qubes OS release.
 | Release 3.1   | Fedora 20 |
 | Release 3.2   | Fedora 23 |
 | Release 4.0   | Fedora 25 |
-| Release 4.1   | Fedora 29 |
+| Release 4.1   | Fedora 31 |
 
 
 ### Note on dom0 and EOL
