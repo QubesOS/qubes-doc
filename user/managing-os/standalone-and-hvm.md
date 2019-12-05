@@ -293,13 +293,13 @@ Convert vmdk to raw:
 qemu-img convert -O raw *.vmdk win10.raw
 ~~~
 
-Copy the root image file to a temporary location, typing this in a Dom0 terminal:
+Copy the root image file from the originating qube (here called `untrusted`) to a temporary location in dom0, typing this in a Dom0 terminal:
 
 ~~~
 qvm-run --pass-io untrusted 'cat "/media/user/externalhd/win10.raw"' > /home/user/win10-root.img
 ~~~
 
-Create a new HVM in Dom0 with the root image we just copied to Dom0 (change the amount of RAM in GB as you wish):
+From within Dom0, create a new HVM (here called `win10`) with the root image we just copied to Dom0 (change the amount of RAM in GB as you wish):
 
 ~~~
 qvm-create --property=virt_mode=hvm --property=memory=4096 --property=kernel='' --label red --standalone --root-move-from /home/user/win10-root.img win10
