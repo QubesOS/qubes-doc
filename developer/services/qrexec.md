@@ -42,13 +42,11 @@ Once this channel is established, stdin/stdout/stderr from the VMprocess is pass
 ![qrexec basics diagram](/attachment/wiki/qrexec3/qrexec3-basics.png)
 
 The `qrexec-client` command is used to make connections to VMs from dom0.
-For example, the following command
+For example, the following command creates an empty file called `hello-world.txt` in the home folder of `someVM`:
 
 ```
 $ qrexec-client -e -d someVM user:'touch hello-world.txt'
 ```
-
-creates an empty file called `hello-world.txt` in the home folder of `someVM`.
 
 The string before the colon specifies what user to run the command as.
 The `-e` flag tells `qrexec-client` to exit immediately after sending the execution request and receiving a status code from `qrexec-agent` (whether the process creation succeeded).
