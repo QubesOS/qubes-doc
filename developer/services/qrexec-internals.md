@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Qubes RPC internals
+title: "Qrexex: Qubes RPC internals"
 permalink: /doc/qrexec-internals/
 redirect_from:
 - /doc/qrexec3-implementation/
