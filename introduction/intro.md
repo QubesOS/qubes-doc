@@ -16,8 +16,8 @@ What is Qubes OS?
   <div class="row">
       <div class="col-lg-3 col-md-3 text-left">
           <p>Qubes OS is a free and open-source security-oriented operating system meant for single-user desktop computing.</p> 
-          <p>Qubes OS leverages <a href="https://wiki.xen.org/wiki/Xen_Project_Software_Overview/">xen-based virtualization</a> to allow for the creation and management of isolated virtual machines called <a href="/doc/glossary#qube">qubes</a>. 
-          Qubes, which are also referred to as <a href="/doc/glossary#qube/">domains</a> or compartments, have specific :</p>
+          <p>Qubes OS leverages <a href="https://wiki.xen.org/wiki/Xen_Project_Software_Overview">xen-based virtualization</a> to allow for the creation and management of isolated virtual machines called <a href="/doc/glossary#qube">qubes</a>. 
+          Qubes, which are also referred to as <a href="/doc/glossary#domain">domains</a> or compartments, have specific :</p>
           <ul>
             <li><b>Purposes</b> : with a predefined set of one or many isolated applications, for personal or professional projects, to manage the <a href="/doc/networking/">network stack</a>, <a href="/doc/firewall/">the firewall</a>, or to fulfill other user-defined purposes.</li>
             <li><b>Natures</b> : <a href="/doc/standalone-and-hvm/">full-fledged</a> or <a href="/getting-started/#appvms-qubes-and-templatevms">stripped-down</a> virtual machines which are based on popular operating systems such as <a href="/doc/templates/fedora">Fedora</a>, <a href="/doc/templates/debian">Debian</a> or <a href="/doc/windows/">Windows</a>.</li>
