@@ -43,7 +43,7 @@ What is Qubes OS?
       <p>Isolate software as if they were installed on separate physical machines using <a href="/doc/glossary/#pv">PV</a> or <a href="/doc/glossary/#hvm">HVM</a> virtualization techniques</p>
     </div>
     <div class="col-lg-4 col-md-4 col-xs-12">
-      <h3>Templating system</h3>
+      <h3>Template system</h3>
       <p> Allow qubes called <a href="/getting-started/#appvms-qubes-and-templatevms">AppVMs</a> to share a root file system without sacrificing security using the innovative <a href="/doc/templates/">Template system</a></p>
     </div>
     <div class="col-lg-4 col-md-4 col-xs-12">
@@ -72,7 +72,7 @@ What is Qubes OS?
   <div class="row more-bottom">
     <div class="col-lg-4 col-md-4 col-xs-12">
       <h3>Split GPG</h3>
-      <p>Utilise <a href="/doc/split-gpg/">Split GPG</a> to store private GPG keys in an AppVM</p>
+      <p>Utilize <a href="/doc/split-gpg/">Split GPG</a> to store private GPG keys in an AppVM</p>
     </div>
     <div class="col-lg-4 col-md-4 col-xs-12">
       <h3>U2F proxy</h3>
@@ -80,7 +80,7 @@ What is Qubes OS?
     </div>
     <div class="col-lg-4 col-md-4 col-xs-12">
       <h3>Open-source</h3>
-      <p>Users are free to use, copy and modify Qubes OS and are encouraged to do so!</p>
+      <p>Users are free to use, copy and modify Qubes OS and <a href="/doc/contributing/">are encouraged to do so!</a></p>
     </div>
   </div>
 
@@ -97,9 +97,9 @@ Why Qubes OS ?
 
   <div class="row">
       <div class="col-lg-6 col-md-6 text-left">
-        <p>Throughout their lives, individuals engage in various activites such as going to school, working, voting, taking care of their families or visiting with friends. </p> 
-        <p>These activites are spatially and temporally bound : they happen in isolation of one another, in their own compartments, which often represent an essential safeguard, such as in the case of voting.</p> 
-        <p>In one's digital life, the situation is quite different : each activity, often intertwinded with its real-life counterpart, tends to happen on a single computing device.</p>
+        <p>Throughout their lives, individuals engage in various activities such as going to school, working, voting, taking care of their families or visiting with friends. </p> 
+        <p>These activities are spatially and temporally bound : they happen in isolation of one another, in their own compartments, which often represent an essential safeguard, such as in the case of voting.</p> 
+        <p>In one's digital life, the situation is quite different : each activity, often intertwined with its real-life counterpart, tends to happen on a single computing device.</p>
       </div>
       <div class="col-lg-6 col-md-6">
         <img src="/attachment/wiki/GettingStarted/r2b1-qubes-manager-2.png" height="300" class="center-block">
@@ -113,7 +113,7 @@ Why Qubes OS ?
         <img src="/attachment/icons/128x128/apps/qubes-logo-icon.png" height="128" class="center-block">
       </div>
       <div class="col-lg-9 col-md-9 text-left">
-        <p>Suprinsingly, personal computing devices aren't designed to offer means to enforce the same kind of isolation that people enjoy in the physical world.</p>
+        <p> Surprisingly, personal computing devices are not designed to offer means to enforce the same kind of isolation that people enjoy in the physical world.</p>
         <p>What if there were an operating system that provided a kind of digital compartmentalization almost as strong as physical isolation?</p> 
         <p>Qubes OS allows users to compartmentalize various parts of their digital lives into well-isolated compartments.</p> 
       </div>
@@ -123,9 +123,9 @@ Why Qubes OS ?
 
  <div class="row">
     <div class="col-lg-12 col-md-12 text-left">
-        <p>Thanks to Qubes OS, vulnerable or actively targeted individuals such as journalists, political activists, whistleblowers or researchers can enjoy the same benefit of using multiple computing devices at a fraction of the cost and without the associated loss of usability.</p>
+        <p>Thanks to Qubes OS, vulnerable or actively targeted individuals such as journalists, political activists, whistleblowers or researchers can enjoy the same benefits of using multiple computing devices at a fraction of the cost and without the associated loss of usability.</p>
         <p> It allows users to do everything on the same physical computer without having to worry about a single successful cyberattack taking down their entire digital life in one fell swoop.</p>
-        <p>Computing should remain a activity where mistakes can be made and where users can explore the web freely, downloading attachements and clicking on links without having to constantly evaluate a miriad of risk factors.</p> 
+        <p>Computing should remain an activity where mistakes can be made and where users can explore the web freely, downloading attachments and clicking on links without having to constantly evaluate a myriad of risk factors.</p> 
         <p>Qubes OS strives to bring back this experience. It creates a place where users can feel safe.</p>
     </div>
  </div>
