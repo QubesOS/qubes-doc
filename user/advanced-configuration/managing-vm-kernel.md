@@ -227,7 +227,7 @@ Kernel for a VM is stored in `/var/lib/qubes/vm-kernels/KERNEL_VERSION` director
 - `modules.img` - ext4 filesystem image containing Linux kernel modules (to be mounted at `/lib/modules`); additionally it should contain a copy of `vmlinuz` and `initramfs` in its root directory (for loading by qemu inside stubdomain)
 - `default-kernelopts-common.txt` - default kernel options, in addition to those specified with `kernelopts` qube property (can be disabled with `no-default-kernelopts` feature)
 
-All the files besides `vmlinuz` are optional.
+All the files besides `vmlinuz` are optional in Qubes R4.1 or newer. In Qubes R4.0, `vmlinuz` and `initramfs` are both required to be present.
 
 Using kernel installed in the VM
 --------------------------------
