@@ -71,6 +71,7 @@ Mounting the disk
 -----------------
 
 5. Find the disk to be accessed. The `lsblk` command above may be of use. The following rules apply by default:
+
 | Disk name           			| Data type     	| Explination   			    			  |
 | ----------------------------- | ----------------- | ------------------------------------------- |
 | other\_install-root     		| dom0 root 		| The root partition of dom0. 			 	  |
