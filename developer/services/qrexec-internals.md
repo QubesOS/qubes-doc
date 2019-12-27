@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "Qrexex: Qubes RPC internals"
+title: "Qrexec: Qubes RPC internals"
 permalink: /doc/qrexec-internals/
 redirect_from:
 - /doc/qrexec3-implementation/
@@ -31,7 +31,7 @@ These tools are not designed to be used by users directly.
 `/usr/sbin/qrexec-daemon`
 
 One instance is required for every active domain.
-`qrexex-daemon` is responsible for both:
+`qrexec-daemon` is responsible for both:
 - handling execution and service requests from **dom0** (source: `qrexec-client`); and
 - handling service requests from the associated domain (source: `qrexec-client-vm`, then `qrexec-agent`).
 
@@ -74,7 +74,7 @@ Responsible for:
   * Handling service requests from `qrexec-client-vm` and passing them to connected `qrexec-daemon` in dom0.
   * Executing associated `qrexec-daemon` execution/service requests.
 
-The `qrexec-agent` command takes no paramaters.
+The `qrexec-agent` command takes no parameters.
 
 ### qrexec-client-vm
 
