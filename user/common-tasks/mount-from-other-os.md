@@ -58,14 +58,14 @@ Accessing LVM Logical Volumes
 -----------------------------
 
 3. If using an AppVM or standard Linux, LVM should automatically discover the Qubes LVM configuration. In this case, continue to step 4.
-	1. Qubes uses the default name `qubes_dom0` for it's LVM LV.
-	   This will conflict with the name of the LV of the currently installed system.
+	1. Qubes uses the default name `qubes_dom0` for it's LVM VG.
+	   This will conflict with the name of the VG of the currently installed system.
 	   To read both, you will have to rename the VG.
 	   *Note:* If this is not reversed, the Qubes install being accessed will not be bootable.
-	2. Find the UUID of the LV to be accessed using the command `lvdisplay`.
-	   This will be the LV named `qubes_dom0` which is not marked active.
-	3. The command `lvrename <UUID> other_install` will rename the LV.
-4. Run the command `lvscan` to add any new LVs to the device list.
+	2. Find the UUID of the vg to be accessed using the command `vgdisplay`.
+	   This will be the VG named `qubes_dom0` which is not marked active.
+	3. The command `vgrename <UUID> other_install` will rename the VG.
+4. Run the command `vgscan` to add any new VGs to the device list.
 
 Mounting the disk
 -----------------
@@ -74,12 +74,12 @@ Mounting the disk
 
 | Disk name           			| Data type     	| Explination   			    			  |
 | ----------------------------- | ----------------- | ------------------------------------------- |
-| other\_install-root     		| dom0 root 		| The root partition of dom0. 			 	  |
-| other\_install-<vm>-private   | VM  				| The /rw partition of the named VM. 		  |
-| other\_install-<vm>-root      | templateVM root 	| The root partition of the named TemplateVM. |
-| other\_install\_tmeta     	| LVM Metadata 		| The metadata LV of this disk. 			  |
+| other\_install/root     		| dom0 root 		| The root partition of dom0. 			 	  |
+| other\_install/<vm>-private   | VM  				| The /rw partition of the named VM. 		  |
+| other\_install/<vm>-root      | templateVM root 	| The root partition of the named TemplateVM. |
+| other\_install/pool00\_tmeta     	| LVM Metadata 		| The metadata LV of this disk. 			  |
 
-6. Mount the disk using the command `mount /dev/mapper/other_install-<lv name> <mountpoint>`.
+6. Mount the disk using the command `mount /dev/other_install/<lv name> <mountpoint>`.
    *Note:* Any compromised data which exists in the volume to be mounted will be accessible here.
    Do not mount untrusted partitions in dom0.
 
@@ -88,10 +88,10 @@ At this point, all files are available in the chosen mountpoint.
 Reverting Changes
 -----------------------------------------
 Any changes which were made to the system in the above steps will need to be reverted before the disk will properly boot.
-However, LVM will not allow an LV to be renamed to a name already in use.
+However, LVM will not allow an VG to be renamed to a name already in use.
 Thes steps must occur either in an AppVM or using recovery media.
 
 1. Unmount any disks that were accessed.
-2. Rename the LV back to qubes\_dom0 using the command `lvrename other_install qubes_dom0`.
+2. Rename the VG back to qubes\_dom0 using the command `vgrename other_install qubes_dom0`.
 
 
