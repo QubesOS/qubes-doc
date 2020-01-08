@@ -109,6 +109,7 @@ Core documentation for Qubes users.
  * [Resizing Disk Images](/doc/resize-disk-image/)
  * [Troubleshooting UEFI](/doc/uefi-troubleshooting/)
  * [Troubleshooting Newer Hardware](/doc/newer-hardware-troubleshooting/)
+ * [Mounting and Decrypting Qubes Partitions from Outside Qubes](/doc/mount-from-other-os/)
  * [KDE](/doc/kde/)
  * [i3 Window Manager](/doc/i3/)
  * [awesome Window Manager](/doc/awesome/)
