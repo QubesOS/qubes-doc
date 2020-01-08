@@ -225,7 +225,7 @@ $ mkdir stubroot
 $ cp /usr/lib/xen/boot/stubdom-linux-rootfs stubroot/stubdom-linux-rootfs.gz
 $ cd stubroot
 $ gunzip stubdom-linux-rootfs.gz
-$ cpio -i -d -H new --no-absolute-filenames < stubdom-linux-rootfs
+$ cpio -i -d -H newc --no-absolute-filenames < stubdom-linux-rootfs
 $ rm stubdom-linux-rootfs
 ```
 2. Edit Init script to remove last loop and to add "-serial /dev/hvc0" to the qemu command line.
@@ -249,7 +249,7 @@ id2=$(xl domid "$debugname2-dm")
 tty1=$(xenstore-read /local/domain/${id1}/console/tty)
 tty2=$(xenstore-read /local/domain/${id1}/console/tty)
 
-socat tty1,raw $tty2,raw
+socat $tty1,raw $tty2,raw
 ```
 
 Happy debugging!
