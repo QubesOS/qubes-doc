@@ -71,3 +71,43 @@ Finally, shutdown all VMs and change the settings of sys-firewall, etc. to use t
 
 You can check the MAC address currently in use by looking at the status pages of your router device(s), or inside the NetVM with the command `sudo ip link show`.
 
+## Randomize your hostname
+
+DHCP requests also leak your hostname to your LAN. Since your hostname is usually `sys-net`, other network users can easily spot that you're using Qubes OS.
+
+Unfortunately `NetworkManager` currently doesn't provide an option to disable that leak globally ([Gnome Bug 768076](https://bugzilla.gnome.org/show_bug.cgi?id=768076)).
+
+There however is a workaround:
+
+Create an executable file named `/etc/network/if-pre-up.d/00_hostname` with the following content inside the template VM of your `sys-net` VM:
+```.bash
+#!/bin/bash
+set -e -o pipefail
+#set a random hostname for the lifetime of the VM
+#must be placed and made executable inside /etc/network/if-pre-up.d (owner: root)
+
+vm="sys-net"
+rand="$RANDOM"
+
+#NOTE: mv is atomic on most systems
+if [[ "$(qubesdb-cmd -c read /name)" == "$vm" ]] && mv "/etc/hosts.lock" "/etc/hosts.lock.$rand" ; then
+        new="PC-$rand"
+
+        #hostnamectl set-hostname "$new"
+        echo "$new" > /etc/hostname
+        #nmcli general hostname "$new"
+    
+        #Qubes OS also configures e.g. /etc/hosts itself during VM startup
+        # --> wait some time for it to finish
+        sleep 5
+        cp -f /etc/hosts /etc/hosts.old
+        sed "s/ $vm/ $new/g" /etc/hosts.old > /etc/hosts
+fi
+exit 0
+```
+
+Execute `sudo touch /etc/hosts.lock` inside that same template VM.
+
+Your `sys-net` hostname should now be `PC-[number]` with a different `[number]` each time your `sys-net` is started.
+
+Please note that the above script should _not_ be added to [/rw/config/rc.local](/doc/config-files/)) as that is executed only _after_ the network fully started.
