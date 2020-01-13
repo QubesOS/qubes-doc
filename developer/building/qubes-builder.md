@@ -187,3 +187,28 @@ By default Qubes developers' keys are imported automatically, but if you need so
 All Qubes developers' keys are signed by the Qubes Master Signing Key (which is set as ultimately trusted key), so are trusted automatically.
 
 If you are the owner of Master key and want to revoke such signature, use the `revsig` gpg key edit command and update the key in qubes-developers-keys.asc - now the key will be no longer trusted (unless manually set as such).
+
+Build Recipies Status Matrix
+----------------------------
+
+Community contributed results in order to keep track of current real capabilites. Details might be not accurate, your mileage may vary. Please read [Documentation Guidelines](https://www.qubes-os.org/doc/doc-guidelines/), then post your results.
+
+Editing help: most of the info is taken from the rpm file names found in \[builder root directory\]/qubes-src/linux-template-builder/rpm/noarch/ . Once you completed the build process you can easily add a row to the table by cutting and pasting the different parts of the file names. If the build process failed, creating the entry in this table needs more work: have a look at the logs and search the issue tracker for previous art, then report here.
+Please, don't post the same result twice, ie: have a look at the entry date and the builder commit, if those two are similar, it may not be needed to add another result row. Or might be useful to substitute the old entry with your more recent one. Let's try to keep the table tidy: it can spare a lot of building time to new users, smooth the learning curve, and save the world!
+
+|Entry Date|Component|Result|Used Qubes Release|Builder commit|Source Repo|Bin Package Repo|Notes|
+|:----------:|:---------:|:------:|:-------------------:|:--------------:|:------------:|:----------------:|:----------------------|
+|202001111016|fedora-30|Ok|4.0.1|?|marmarek/qubes- (Stable)|current|-|
+|202001111105|fedora-30-minimal|Ok|4.0.1|?|marmarek/qubes- (Stable)|current|-|
+|202001111119|fedora-30-xfce|Ok|4.0.1|?|marmarek/qubes- (Stable)|current|-|
+|202001111119|fedora-30+fullyloaded|fail|4.0.1|?|any|any|See [#4290](https://github.com/QubesOS/qubes-issues/issues/4290)|
+|202001111530|debian-10|Ok|4.0.1|?|marmarek/qubes- (Stable)|current|-|
+|202001111557|buster-minimal|Ok|4.0.1|?|marmarek/qubes- (Stable)|current|-|
+|202001111607|buster-gnome|Ok|4.0.1|?|marmarek/qubes- (Stable)|current|-|
+|202001111655|xenial|Ok|4.0.1|?|marmarek/qubes- (Stable)|current|-|
+|202001130504|bionic|Ok|4.0.1|[4c9f61506fa2a46fcf52a2612feb1b97d8f52dd8](https://github.com/QubesOS/qubes-builder/commit/4c9f61506fa2a46fcf52a2612feb1b97d8f52dd8)|marmarek/qubes- (Stable)|current|-|
+|202001130533|bionic-desktop|Ok|4.0.1|[4c9f61506fa2a46fcf52a2612feb1b97d8f52dd8](https://github.com/QubesOS/qubes-builder/commit/4c9f61506fa2a46fcf52a2612feb1b97d8f52dd8)|marmarek/qubes- (Stable)|current|-|
+|202001131500|fedora-31 (any flavor)|fail|4.0.1|[4c9f61506fa2a46fcf52a2612feb1b97d8f52dd8](https://github.com/QubesOS/qubes-builder/commit/4c9f61506fa2a46fcf52a2612feb1b97d8f52dd8)|any|any|See [#5289](https://github.com/QubesOS/qubes-issues/issues/5289) and [#5529](https://github.com/QubesOS/qubes-issues/issues/5529)|
+|202001131500|kali|fail|4.0.1|[4c9f61506fa2a46fcf52a2612feb1b97d8f52dd8](https://github.com/QubesOS/qubes-builder/commit/4c9f61506fa2a46fcf52a2612feb1b97d8f52dd8)|any|any|Can't install qubes-core-agent and qubes-gui-agent on debian testing (bullseye), resulting in "[Makefile:64: rootimg-build] Error 100"|
+|202001131500|R4.0|?|?|[4c9f61506fa2a46fcf52a2612feb1b97d8f52dd8](https://github.com/QubesOS/qubes-builder/commit/4c9f61506fa2a46fcf52a2612feb1b97d8f52dd8)|?|?||
+|202001131500|R4.1|?|?|[4c9f61506fa2a46fcf52a2612feb1b97d8f52dd8](https://github.com/QubesOS/qubes-builder/commit/4c9f61506fa2a46fcf52a2612feb1b97d8f52dd8)|?|?||
