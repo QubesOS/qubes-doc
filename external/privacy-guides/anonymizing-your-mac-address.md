@@ -90,7 +90,7 @@ set -e -o pipefail
 #  network VM.
 # 2. Execute `sudo touch /etc/hosts.lock` inside the template VM of your network VM.
 # 3. Execute inside your network VM:
-#  `sudo bash -c 'mkdir -p /rw/config/protected-files.d/ && echo /etc/hosts'"$'\n'"'/etc/hostname > /rw/config/protected-files.d/protect_hostname.txt'`
+#  `sudo bash -c 'mkdir -p /rw/config/protected-files.d/ && echo -e "/etc/hosts\n/etc/hostname" > /rw/config/protected-files.d/protect_hostname.txt'`
 
 
 #NOTE: mv is atomic on most systems
