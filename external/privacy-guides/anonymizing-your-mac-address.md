@@ -97,6 +97,8 @@ set -e -o pipefail
 if [ -f "/rw/config/protected-files.d/protect_hostname.txt" ] && rand="$RANDOM" && mv "/etc/hosts.lock" "/etc/hosts.lock.$rand" ; then
 	name="PC-$rand"
 	echo "$name" > /etc/hostname
+	hostname "$name"
+	#NOTE: NetworkManager may set it again after us based on DHCP or /etc/hostname, cf. `man NetworkManager.conf` @hostname-mode
 	
 	#from /usr/lib/qubes/init/qubes-early-vm-config.sh
 	if [ -e /etc/debian_version ]; then
