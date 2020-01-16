@@ -127,6 +127,15 @@ To be precise:
 
 We aim to announce both types of events one month in advance in order to remind users to upgrade.
 
+### Note on custom TemplateVMs
+
+[QubesBuilder](/doc/qubes-builder/) includes both experimental TemplateVMs (ex: fc31 backported to R4.0) and community-contributed builders for custom TemplateVMs (ex: kali). They are not supported by QubesOS itself and not included in QubesOS ISOs, but can be built by experienced users.
+
+| Qubes OS      | TemplateVM    | Status       |
+| ------------- | ------------- | ------------ |
+| Release 4.0   | Fedora 31 | Fail |
+| Release 4.0   | Kali      | Fail |
+| Release 4.1   | Kali      | Builds |
 
 [Version Scheme]: /doc/version-scheme/
 [Downloads]: /downloads/
