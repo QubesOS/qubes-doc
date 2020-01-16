@@ -105,10 +105,7 @@ You can also build selected component separately. Eg. to compile only gui virtua
 
     make gui-daemon
 
-You can get a full list from make help. For advanced use and preparing sources
-for use with [QubesBuilder](/doc/qubes-builder/) take a look at [doc directory
-in QubesBuilder](https://github.com/marmarek/qubes-builder/tree/master/doc) or 
-[QubesBuilderDetails](/doc/qubes-builder-details/) page.
+You can get a full list from make help. 
 
 Making customized build
 -----------------------
@@ -187,3 +184,8 @@ By default Qubes developers' keys are imported automatically, but if you need so
 All Qubes developers' keys are signed by the Qubes Master Signing Key (which is set as ultimately trusted key), so are trusted automatically.
 
 If you are the owner of Master key and want to revoke such signature, use the `revsig` gpg key edit command and update the key in qubes-developers-keys.asc - now the key will be no longer trusted (unless manually set as such).
+
+Further information
+-------------------
+
+For advanced [QubesBuilder](/doc/qubes-builder/) use, and preparing sources, take a look at [QubesBuilderDetails](/doc/qubes-builder-details/) page, or [QubesBuilder's doc directory](https://github.com/marmarek/qubes-builder/tree/master/doc).
