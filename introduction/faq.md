@@ -653,6 +653,16 @@ Here are some examples of non-Qubes reports about this problem:
 
 More examples can be found by searching for "Failed to synchronize cache for repo" (with quotation marks) on your preferred search engine.
 
+### I see a "Failed to start Load Kernel Modules" message on boot
+
+The full message looks like:
+
+```
+[FAILED] Failed to start Load Kernel Modules.
+See 'systemctl status systemd-modules-load.service' for details.
+```
+This is cosmetic only, and can safely be ignored.
+
 ### Could you please make my preference the default?
 
 Wouldn't it be great if Qubes were configured just the way you like it by default with all of your favorite programs and settings?
