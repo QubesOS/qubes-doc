@@ -17,6 +17,7 @@ How to test upcoming Qubes OS releases:
 
  * Use [qubes-builder] to build the latest release.
  * Test the latest release candidate (RC), if any is currently available.
+ * (No support) Experiment with devel alpha ISOs found from time to time at [Qubes OpenQA](https://openqa.qubes-os.org/).
 
 See [Version Scheme] for details about release versions and schedules.
 See [Release Checklist] for details about the RC process.
