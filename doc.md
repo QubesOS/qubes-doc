@@ -202,7 +202,6 @@ Unofficial, third-party documentation from the Qubes community and others.
 
 ### Operating System Guides
 
- * [Template: Archlinux](/doc/templates/archlinux/)
  * [Template: Ubuntu](/doc/templates/ubuntu/)
  * [Template: Whonix](/doc/whonix/)
  * [Pentesting](/doc/pentesting/)
