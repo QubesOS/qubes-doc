@@ -47,3 +47,8 @@ builder.conf settings
 Most settings are documented in *builder.conf.default* file, which can be used as template the actual configuration.
 
 **TODO**
+
+Notes
+-----
+
+* For a list of custom TemplateVMs available in QubesBuilder look at [Supported Versions page](https://www.qubes-os.org/doc/supported-versions/).
