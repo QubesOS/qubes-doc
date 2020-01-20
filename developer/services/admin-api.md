@@ -131,6 +131,7 @@ to set the policy using current mechanism.
 | `admin.vm.volume.Revert`               | vm        | volume    | snapshot                                  | -                                                         | id. |
 | `admin.vm.volume.Resize`               | vm        | volume    | size_in_bytes                             | -                                                         | id. |
 | `admin.vm.volume.Import`               | vm        | volume    | raw volume data                           | -                                                         | id. |
+| `admin.vm.volume.ImportWithSize`       | vm        | volume    | `<size_in_bytes>\n<raw volume data>`      | -                                                         | new version of `admin.vm.volume.Import`, allows new volume to be different size |
 | `admin.vm.volume.CloneFrom`            | vm        | volume    | -                                         | token, to be used in `admin.vm.volume.CloneTo`            | obtain a token to copy `volume` of `vm`;<br/>the token is one time use only, it's invalidated by `admin.vm.volume.CloneTo`, even if the operation fails |
 | `admin.vm.volume.CloneTo`              | vm        | volume    | token, obtained with `admin.vm.volume.CloneFrom` | -                                                         | copy volume pointed by a token to `volume` of `vm` |
 | `admin.vm.Start`                       | vm        | -         | -                                         | -                                                         |
@@ -323,4 +324,3 @@ destination_path: ncftpput -u my-ftp-username -p my-ftp-pass -c my-ftp-server /d
 <!-- vim: set ts=4 sts=4 sw=4 et : -->
 
 [admin-api-architecture]: /attachment/wiki/AdminAPI/admin-api-architecture.svg
-
