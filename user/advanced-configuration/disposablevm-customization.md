@@ -250,7 +250,7 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 
 3. Set `disp-sys-usb` NetVM to none
 
-       [user@dom0 ~]$ qvm-prefs usb-disp netvm ""
+       [user@dom0 ~]$ qvm-prefs disp-sys-usb netvm ""
 
 4. List all available PCI devices
 
