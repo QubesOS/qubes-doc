@@ -114,16 +114,16 @@ For example, if your `banking` qube enrolls your banking key, and your `twitter`
 
 ## TemplateVM and browser support
 
-The large number of possible combinations of TemplateVM (Fedora 27, 28; Debian 8, 9) and browser (multiple Google Chrome versions, multiple Chromium versions, multiple Firefox versions) made it impractical for us to test every combination that users are likely to attempt with the Qubes U2F Proxy.
+The large number of possible combinations of TemplateVM (Fedora 27, 28; Debian 8, 9) and browser (multiple Google Chrome versions, multiple Chromium versions) made it impractical for us to test every combination that users are likely to attempt with the Qubes U2F Proxy.
 In some cases, you may be the first person to try a particular combination.
 Consequently (and as with any new feature), users will inevitably encounter bugs.
 We ask for your patience and understanding in this regard.
 As always, please [report any bugs you encounter].
 
-Please note that, in Firefox before Quantum (e.g. Firefox 52 in Debian 9), you have to install the [U2F Support Add-on][ff-u2f-addon].
-In Firefox post-Quantum you may have to enable the `security.webauth.u2f` flag in `about:config`.
-Chrome and Chromium do not require any special browser extensions.
-
+Unfortunately, the U2F protocol that Qubes U2F Proxy supports has been superseded by a newer, better-standardized protocol: Web Authentication, also known as Webauthn.
+Chrome and Chromium support U2F out of the box, but Firefox does not.
+Therefore if you want to use Qubes U2F Proxy with Firefox you need to enable `security.webauthn.u2f` in `about:config`, but this is not recommended because U2F is deprecated technology.
+Mozilla has no plans to enable this flag by default in the future, and while there are no plans to remove it, Mozilla does not guarantee that it will always be available.
 
 [Qubes U2F Proxy]: https://github.com/QubesOS/qubes-app-u2f
 [USB]: /doc/usb/
