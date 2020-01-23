@@ -69,6 +69,7 @@ redirect_from:
 
 ## Important Notes ##
 
+ * **Installing Qubes in a virtual machine is not recommended, as it uses its own bare-metal hypervisor (Xen).**
  * Qubes **can** be installed on systems which do not meet the recommended requirements.
    Such systems will still offer significant security improvements over traditional operating systems, since things like GUI isolation and kernel protection do not require special hardware.
  * Qubes **can** be installed on a USB flash drive or external disk, and testing has shown that this works very well. A fast USB 3.0 flash drive is recommended for this.
@@ -79,7 +80,6 @@ redirect_from:
    store) before deciding on which computer to purchase.
    (See [hcl-report] for advice on hardware compatibility testing.)
    Remember to change the devices assigned to your NetVM and USBVM if you move between different machines.
- * Installing Qubes in a virtual machine is not recommended, as it uses its own bare-metal hypervisor (Xen).
  * [Advice on finding a VT-d capable notebook][vt-d-notebook].
  * You can check whether an Intel processor has VT-x and VT-d on [ark.intel.com](https://ark.intel.com/content/www/us/en/ark.html#@Processors)
 
