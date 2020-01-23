@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Qrexec
+title: "Qrexec: secure communication across domains"
 permalink: /doc/qrexec/
 redirect_from:
 - /en/doc/qrexec3/
