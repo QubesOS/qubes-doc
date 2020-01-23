@@ -218,6 +218,7 @@ Unofficial, third-party documentation from the Qubes community and others.
  * [Using Multi-factor Authentication with Qubes](/doc/multifactor-authentication/)
  * [How to Set Up a Split Bitcoin Wallet in Qubes](/doc/split-bitcoin/)
  * [Split dm-crypt](https://github.com/rustybird/qubes-split-dm-crypt)
+ * [Split SSH](https://kushaldas.in/posts/using-split-ssh-in-qubesos-4-0.html)
  * [Using OnlyKey with Qubes OS](https://docs.crp.to/qubes.html)
 
 ### Privacy Guides
