@@ -213,7 +213,14 @@ It has been tested with Fedora 23 and Debian 8 templates.
    ;;
    esac
    ~~~
-
+   You can add in above script following if you want (it is not necessary)
+   
+   vpn_dns="X.X.X.X"
+   
+   addr="X.X.X.X"
+   
+   Replace X.X.X.X with DNS Addresses provided by your VPN (like 10.8.0.1 in Mullvad,10.0.254.2 in IVPN,103.86.99.100 in NordVPN etc. We do not endorse any particular VPN. These are just example to understand the concept)
+   
    Save the script.
    Make it executable.
 
@@ -303,6 +310,7 @@ It has been tested with Fedora 23 and Debian 8 templates.
    Now Run
    
    qvm-firewall [VPN VM] del --rule-no [#icmp].
+   
    Now to add the new icmp rule run the list command again, and add the  icmp rule before the final "drop" line
 Run 
    
