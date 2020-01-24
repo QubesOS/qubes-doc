@@ -193,6 +193,18 @@ Other Qrexec services installed by default:
   can send icon for the same window multiple times to replace previous one (for
   example for animated icons)
 - `qubes.VMShell` - call any command in the VM; the command(s) is passed one per line
+    - `qubes.VMShell+WaitForSession` waits for full VM startup first
+- `qubes.VMExec` - call any command in the VM, without using shell, the command
+  needs to be passed as argument and encoded as follows:
+    - the executable name and arguments are separated by `+`
+    - everything except alphanumeric characters, `.` and `_` needs to be
+      escaped
+    - bytes are escaped as `-HH` (where `HH` is hex code, capital letters only)
+    - `-` itself can be escaped as `--`
+    - example: to run `ls -a /home/user`, use
+      `qubes.VMExec+ls+--a+-2Fhome-2Fuser`
+- `qubes.VMExecGUI` - a variant of `qubes.VMExec` that waits for full VM
+  startup first
 
 Currently Qubes still calls few tools in VM directly, not using service
 abstraction. This will change in the future. Those tools are:
