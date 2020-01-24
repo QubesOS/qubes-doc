@@ -105,7 +105,7 @@ It has been tested with Fedora 23 and Debian 8 templates.
    If you enabled NetworkManager or used other methods in a previous attempt, do not re-use the old ProxyVM...
    Create a new one according to this step.
 
-   If your choice of TemplateVM doesn't already have the VPN client software, you'll need to install the software in the template before proceeding.just install openvpn in template. Default Fedora30 or higher don't need this step.
+   If your choice of TemplateVM doesn't already have the VPN client software, you'll need to install the software in the template before proceeding.just install openvpn in template. Default Fedora 30 or higher don't need this step.
    Disable any auto-starting service that comes with the software package.
    For example for OpenVPN.
 
