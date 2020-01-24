@@ -194,7 +194,7 @@ $ qvm-run --pass-io build-archlinux2 'cat /home/user/qubes-builder/qubes-src/lin
 $ chmod +x install-templates.sh
 $ ./install-templates.sh
 ```
-* If everything went correct there should be a Archlinux template listed in your Qubes VM Manager
+* If everything went correct there should be a Archlinux template listed in your Qubes Manager
 
 Debugging the build process
 ===============================
@@ -202,7 +202,7 @@ Archlinux use bleeding edge version of everything, so it is usually the
 first template to break when new software version came out.
 So an important point is to understand how to debug the template, how to fix
 it, and then do a pull request :).
-[My personal building script is just here](https://github.com/Qubes-Community/Contents/blob/master/code/OS-administration/build-archlinux.sh). 
+[My personal building script is here](https://github.com/Qubes-Community/Contents/blob/master/code/OS-administration/build-archlinux.sh). 
 
 The most important part about this script is where to add custom code that is not in the QubesOS repositories
 
