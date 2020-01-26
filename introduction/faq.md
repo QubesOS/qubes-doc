@@ -96,6 +96,12 @@ in a few clicks. Users concerned about privacy will appreciate the
 [Tor] securely, while those concerned about physical hardware attacks will
 benefit from [Anti Evil Maid].
 
+ [disposable qube]: /doc/dispvm/
+ [Template]: /doc/templates/
+ [Qubes-Whonix]: /doc/whonix/
+ [Tor]: https://www.torproject.org/
+ [Anti Evil Maid]: /doc/anti-evil-maid/
+
 ### How does Qubes OS compare to using a "live CD" OS?
 
 Booting your computer from a live CD (or DVD) when you need to perform
@@ -106,6 +112,8 @@ are still **monolithic** in the sense that all software is still running in
 the same OS. This means, once again, that if your session is compromised,
 then all the data and activities performed within that same session are also
 potentially compromised.
+
+ [Tails]: https://tails.boum.org/
 
 ### How does Qubes OS compare to running VMs in a conventional OS?
 
@@ -121,17 +129,19 @@ only as secure as the host OS itself. If the host OS is ever compromised,
 then any VMs it hosts are also effectively compromised.
 
 By contrast, Qubes uses a "Type 1" or "bare metal" hypervisor called
-[Xen]. Instead of running inside an OS, Type 1 hypervisors run directly on the
-"bare metal" of the hardware. This means that an attacker must be capable of
-subverting the hypervisor itself in order to compromise the entire system,
+[Xen]. Instead of running inside an OS, Type 1 hypervisors run directly on
+the "bare metal" of the hardware. This means that an attacker must be capable
+of subverting the hypervisor itself in order to compromise the entire system,
 which is vastly more difficult.
 
 Qubes makes it so that multiple VMs running under a Type 1 hypervisor can be
 securely used as an integrated OS. For example, it puts all of your application
-windows on the same desktop with special colored borders indicating the
-trust levels of their respective VMs. It also allows for things like secure
-copy/paste operations between VMs, securely copying and transferring files
-between VMs, and secure networking between VMs and the Internet.
+windows on the same desktop with special colored borders indicating the trust
+levels of their respective VMs. It also allows for things like secure copy/paste
+operations between VMs, securely copying and transferring files between VMs, and
+secure networking between VMs and the Internet.
+
+ [Xen]: https://www.xenproject.org/
 
 ### How does Qubes OS compare to using a separate physical machine?
 
