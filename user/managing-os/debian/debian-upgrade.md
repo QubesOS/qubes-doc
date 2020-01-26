@@ -111,6 +111,7 @@ This section contains notes about upgrading to specific releases.
 
 Please see [Debian's Buster upgrade instructions][buster].
 
+* Noticed LibreOffice being very slow to work in after upgrade, unchecked the setting Tools/Options/Libre Office/View/Use hardware acceleration 
 
 ### Debian 9 ("Stretch")
 
