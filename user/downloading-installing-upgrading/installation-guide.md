@@ -19,22 +19,9 @@ redirect_from:
 Installation Guide
 ==================
 
-### Qubes 4.0.1 Warning ###
-
-<div class="alert alert-danger" role="alert">
-    <i class="fa fa-exclamation-circle"></i>
-    <b>Attention : </b> For those using Debian and Whonix templates, a vulnerability affects the latest stable Qubes OS release. Follow the instructions below to fix it.
-</div>
-
-<p>Immediately after installing Qubes 4.0.1, upgrade all of your Debian and Whonix TemplateVMs by executing the following commands in a dom0 terminal:</p>
-
-    $ sudo qubes-dom0-update --action=upgrade qubes-template-debian-9
-    $ sudo qubes-dom0-update --enablerepo=qubes-templates-community --action=upgrade qubes-template-whonix-gw-14
-    $ sudo qubes-dom0-update --enablerepo=qubes-templates-community --action=upgrade qubes-template-whonix-ws-14
-
-These upgrades are required in order to be protected from the APT update mechanism vulnerability that was announced 
-and patched in [QSB #46], which followed the release of Qubes 4.0.1. 
-This method is simpler than the method recommended in [QSB #46], and it is just as safe/effective as long as it is performed immediately after installing Qubes OS.
+Welcome to the Qubes OS installation guide!
+This guide will walk you through the process of installing Qubes.
+Please read it carefully and thoroughly, as it contains important information for ensuring that your Qubes OS installation is functional and secure.
 
 Pre-installation
 ----------------
