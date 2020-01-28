@@ -263,7 +263,7 @@ make[1]: *** [Makefile:64: rootimg-build] Error 1
 The xorg-server package was probably updated to a version greater than 1.20.7.
 Let's search what is the current version of xorg-server... Currently, it is
 **1.20.7-1**.
-Nor a hotfix nor a minor version change is likely to break things.
+Nor a fix nor a minor version change is likely to break things.
 So let's find the dependency for "**xorg-server<1.20.7**" and change it to
 "**xorg-server<1.21**".
 ```shell_session
@@ -412,7 +412,7 @@ It is in `core/diffutils`, that, for some unknown reason, is not installed.
 Let's modify the archlinux template builder to add this package. Modify the files `qubes-builder/qubes-src/builder-archlinux/script/packages` to add the `diffutils`, and rebuild the template.
 Why this package was not installed in the first place? I am unsure. It could be that it was a dependency of the package `xf86dgaproto` that was removed few days ago, but I don't have the PKGBUILD of this package since it was deleted, so can't confirm. It can be something else too.
 I rebuild the template with those modification, and it is working as expected.
-I will send a pull request. Does someone have a better idea on "Why 'diffutils' was not installed in the first place?" ?
+I will send a pull request. Does someone have a better idea on "Why `diffutils` was not installed in the first place?" ?
 [The commit](https://github.com/neowutran/qubes-builder-archlinux/commit/09a435fcc6bdcb19144d198ea20f7a27826c1d80)
 
 Creating a archlinux repository
