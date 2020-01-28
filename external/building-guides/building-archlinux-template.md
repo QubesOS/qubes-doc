@@ -45,6 +45,12 @@ Archlinux template building instructions
 $ gpg --import /usr/share/qubes/qubes-master-key.asc
 ```
 * Verify its fingerprint, set as 'trusted'. [This is described here](/doc/VerifyingSignatures).
+* Download the Qubes developers' keys.
+```shell_session
+$ wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
+$ gpg --import qubes-developers-keys.asc
+```
+
 * Download the latest stable qubes-builder repository:
 ```shell_session
 $ git clone git://github.com/QubesOS/qubes-builder.git qubes-builder
