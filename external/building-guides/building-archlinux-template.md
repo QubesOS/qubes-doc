@@ -16,7 +16,7 @@ Archlinux template building instructions
 1:   Create and configure a qube for template building
 ------------------------------------------------------------
 *   The qube should be based on a Fedora template. I named the qube
-    “**build-archlinux2**”, based on the minimal Fedora template.
+    `build-archlinux2`, based on the minimal Fedora template.
     
 ![arch-template-01](/attachment/wiki/ArchlinuxTemplate/arch-template-01.png)
 
@@ -32,7 +32,7 @@ Archlinux template building instructions
 
 ![arch-template-03](/attachment/wiki/ArchlinuxTemplate/arch-template-03.png)
 
-3:   Install necessary packages to 'build-archlinux2' qube for "Qubes Automated Build System"
+3:   Install necessary packages to `build-archlinux2` qube for "Qubes Automated Build System"
 -----------------------------------------------------------------------------------------------
 ```shell_session
 # dnf install git make 
@@ -274,11 +274,11 @@ $ rg -iuu "xorg-server<1.20.7" ./qubes-builder/qubes-src/ 2> /dev/null
 So we need to modify the file **/archlinux/PKGBUILD** of the repository
 "qubes-gui-agent-linux".
 Let's clone "qubes-gui-agent-linux", be sure to checkout the correct
-branch (exemple: release4.0 instead of master ), and then edit the **/archlinux/PKGBUILD**
+branch (example: `release4.0` instead of master ), and then edit the **/archlinux/PKGBUILD**
 to do the modification you want to try.
 In your building script, right before the "make qubes-vm", remove the existing
 "gui-agent-linux" folder, and replace it with your own.
-Exemple, add this to the script
+Example, add this to the script
 
 ```shell_session
 $ rm -Rf "~/qubes-builder/qubes-src/gui-agent-linux/"
@@ -301,7 +301,7 @@ Question
 ------------------------------
 Hello.
 I just built archlinux template and moved to dom0 and installed the template.
-Then I tryied to open a terminal in archlinux TemplateVM, but it shows nothing.
+Then I tried to open a terminal in archlinux TemplateVM, but it shows nothing.
 Can you please check this logs and please tell me what is wrong. Thanks
 I searched the word 'Failed" and found few.
 ~~~~
@@ -377,7 +377,7 @@ The most important line we saw is:
 ~~~~
 /usr/lib/qubes/init/setup-rwdev.sh: line 16: cmp: command not found
 ~~~~
-Let's check setup-rwdev.sh:
+Let's check `setup-rwdev.sh`:
 ~~~~
 [root@disp9786 /]# cat  /usr/lib/qubes/init/setup-rwdev.sh
 #!/bin/sh
@@ -403,17 +403,17 @@ if [ -e "$dev" ] ; then
    #.................
 ~~~~
 
-That is definitely something that we want to be working. So the binary cmp is missing, let's find it:
+That is definitely something that we want to be working. So the binary `cmp` is missing, let's find it:
 
 ```shell_session
 # pacman -Fy cmp
 ```
-It is in "**core/diffutils**", that, for some unknown reason, is not installed.
-Let's modify the archlinux template builder to add this package. Modify the files **qubes-builder/qubes-src/builder-archlinux/script/packages*** to add the diffutils, and rebuild the template.
-Why this package was not installed in the first place? I am unsure. It could be that it was a dependency of the package "**xf86dgaproto**" that was removed few days ago, but I don't have the PKGBUILD of this package since it was deleted, so can't confirm. It can be something else too.
+It is in `core/diffutils`, that, for some unknown reason, is not installed.
+Let's modify the archlinux template builder to add this package. Modify the files `qubes-builder/qubes-src/builder-archlinux/script/packages` to add the `diffutils`, and rebuild the template.
+Why this package was not installed in the first place? I am unsure. It could be that it was a dependency of the package `xf86dgaproto` that was removed few days ago, but I don't have the PKGBUILD of this package since it was deleted, so can't confirm. It can be something else too.
 I rebuild the template with those modification, and it is working as expected.
 I will send a pull request. Does someone have a better idea on "Why 'diffutils' was not installed in the first place?" ?
-https://github.com/neowutran/qubes-builder-archlinux/commit/09a435fcc6bdcb19144d198ea20f7a27826c1d80
+[The commit](https://github.com/neowutran/qubes-builder-archlinux/commit/09a435fcc6bdcb19144d198ea20f7a27826c1d80)
 
 Creating a archlinux repository
 ===========================
@@ -426,7 +426,7 @@ You need to:
 
 I will assume that you already have a working http server. 
 So you need to sign the packages and transmit everything to the qubes that will upload them to your http server.
-The script "**update-remote-repo.sh**" of the qubes-builder-archlinux repository can do that.
+The script `update-remote-repo.sh` of the qubes-builder-archlinux repository can do that.
 Below, an example of code that sign the packages + template rpm file, and transmit everything to another qube.
 
 ```bash
@@ -439,8 +439,8 @@ qvm-copy $directory/qubes-packages-mirror-repo/vm-archlinux/pkgs/
 ```
 
 Upload everything to your http server, and you are good. 
-You can now modify the file "**/etc/pacman.d/99-qubes-repository-4.0.conf**" in your archlinux template to use your repository.
-Example of content for this file (replace the server url with your own): 
+You can now modify the file `/etc/pacman.d/99-qubes-repository-4.0.conf` in your archlinux template to use your repository.
+Example of content for this file (replace the server URL with your own): 
 
 ```
 [qubes]
