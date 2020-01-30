@@ -5,7 +5,7 @@ permalink: /gsoc/
 redirect_from: /GSoC/
 ---
 
-2019 Google Summer of Code
+2020 Google Summer of Code
 ================
 ## Information for Students
 
@@ -117,16 +117,19 @@ would override all the user changes there). More details:
      files, LVM thin volumes etc).
    - template metadata, templates repository - enable the user to browse
      available templates (probably should be done in dedicated VM, or DisposableVM)
+   - manual template removal by users (without it, see problems such 
+     as [#5509](https://github.com/QubesOS/qubes-issues/issues/5509)
  - Implement the above mechanism:
    - tool to download named template - should perform download operation in
      some VM (as dom0 have no network access), then transfer the data to dom0,
      verify its integrity and then create Template VM and feed it's root
      filesystem image with downloaded data.
-   - tool to browse templates repository - both CLI and GUI (preferably in (py)GTK)
+   - tool to browse templates repository - both CLI and GUI (preferably integrated 
+     with existing Template Manager tool)
    - integrate both tools - user should be able to choose some template to be
      installed from repository browsing tool - see
      [#1705](https://github.com/QubesOS/qubes-issues/issues/1705) for some idea
-     (this one lack integrity verification, but similar service could
+     (this one lacks integrity verification, but a similar service could
      be developed with that added)
  - If new "package" format is developed, add support for it into
    [linux-template-builder](https://github.com/QubesOS/qubes-linux-template-builder).
@@ -177,7 +180,7 @@ would override all the user changes there). More details:
 
 - Make audio virtualization components work with non-dom0 backend (in short: add configuration option for the backend, instead of assuming "dom0")
 - Possibly per-qube setting what should be used as an AudioVM
-- Make other audio-related tools work with the new setup, especially enabling/disabling microphone (`qvm-device mic`) and volume control.
+- Make other audio-related tools (including GUI tools) work with the new setup, especially enabling/disabling microphone (`qvm-device mic`) and volume control
 
 **Knowledge prerequisite**:
 
@@ -296,7 +299,10 @@ details: [#1552](https://github.com/QubesOS/qubes-issues/issues/1552),
 
 **Mentor**: [Frédéric Pierret](/team/)
 
+<!--
 ### Unikernel-based firewallvm with Qubes firewall settings support
+
+REMOVED as of January 2020: work is being done on this
 
 **Project**: Unikernel based firewallvm with Qubes firewall settings support
 
@@ -311,6 +317,8 @@ details: [#1552](https://github.com/QubesOS/qubes-issues/issues/1552),
 - Qubes networking model & firewall semantics.
 
 **Mentor**: [Thomas Leonard](mailto:talex5@gmail.com), [Marek Marczykowski-Górecki](/team/)
+-->
+
 
 ### LogVM(s)
 
@@ -342,6 +350,10 @@ immune to altering past entries. See
  - Python/Bash scripting
 
 **Mentor**: [Frédéric Pierret](/team/)
+
+<!--
+
+Removed as of January 2020: work done by MIM UW students
 
 ### Xen GPU passthrough for Intel integrated GPUs
 **Project**: Xen GPU passthrough for Intel integrated GPUs (largely independent of Qubes)
@@ -375,6 +387,7 @@ details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
  - Xen hypervisor architecture
 
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
+-->
 
 ### Whonix IPv6 and nftables support
 **Project**: Whonix IPv6 and nftables support
@@ -502,17 +515,6 @@ details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
 
 **Mentors**: Andrew Clausen and Jean-Philippe Ouellet
 
-### Mitigate focus-stealing attacks
-**Project**: Mitigate focus-stealing attacks
-
-**Brief explanation**: [Focus stealing attacks](https://en.wikipedia.org/wiki/Focus_stealing) have long been an issue in Qubes OS. The Qubes community has long punted the issue due to having higher priority things to work on, and it being viewed as the responsibility of the window manager, but nevertheless it remains a serious issue, and an *effective* mitigation would be most welcome. Any student wishing to work on this would need to engage the community in a discussion about the effectiveness of their proposed solution earlier rather than later. [#1166](https://github.com/QubesOS/qubes-issues/issues/1166)
-
-**Expected results**: Working robust focus stealing prevention for Xfce (currently the default Qubes desktop environment) or Gnome (the targeted future Qubes desktop environment).
-
-**Knowledge prerequisite**: X APIs, Qubes GUI protocol, familiarity with the targeted window manager.
-
-**Mentor**: Inquire on [qubes-devel][ml-devel].
-
 ### Progress towards reproducible builds
 **Project**: Progress towards reproducible builds
 
@@ -600,6 +602,11 @@ Since it's software emulation it's rather slow.
 Details, reference: [#2233](https://github.com/QubesOS/qubes-issues/issues/2233)
 
 **Expected results**:
+  - a simple way of setting up Android qubes with hardware emulation
+  (distributed as a template or as a salt, handling various modern Android versions)
+  - figuring out and implementing an easy and secure way to connect an Android 
+  qube to a development qube with Android studio
+  - documentation and tests
 
 **Knowledge prerequisite**:
 
