@@ -5,7 +5,7 @@ permalink: /gsoc/
 redirect_from: /GSoC/
 ---
 
-2019 Google Summer of Code
+2020 Google Summer of Code
 ================
 ## Information for Students
 
