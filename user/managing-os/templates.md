@@ -247,7 +247,7 @@ Note the word "clean" means in this context: the same as their template filesyst
 [Debian]: /doc/templates/debian/
 [Whonix]: /doc/templates/whonix/
 [Ubuntu]: /doc/templates/ubuntu/
-[Arch Linux]: /doc/templates/archlinux/
+[Arch Linux]: /doc/building-archlinux-template/
 [CentOS]: /doc/templates/centos/
 [Qubes Builder]: /doc/qubes-builder/
 [TemplateVM Implementation]: /doc/template-implementation/
