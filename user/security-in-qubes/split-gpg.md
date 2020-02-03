@@ -64,22 +64,26 @@ This way it would be easy to spot unexpected requests to decrypt documents.
 In dom0, make sure the `qubes-gpg-split-dom0` package is installed.
 
     [user@dom0 ~]$ sudo qubes-dom0-update qubes-gpg-split-dom0
+    
+Make sure you have the `qubes-gpg-split` package installed in the template you will use for the GPG domain.
 
-If using templates based on Debian or Whonix, make sure you have the `qubes-gpg-split` package installed.
+For Debian or Whonix:
 
     [user@debian-8 ~]$ sudo apt install qubes-gpg-split
 
-For Fedora.
+For Fedora:
 
     [user@fedora-25 ~]$ sudo dnf install qubes-gpg-split
 
-Start with creating a dedicated AppVM for storing your keys (the GPG backend domain).
+### Setting up the GPG backend domain ###
+
+First, create a dedicated AppVM for storing your keys (we will be calling it the GPG backend domain).
 It is recommended that this domain be network disconnected (set its netvm to `none`) and only used for this one purpose.
 In later examples this AppVM is named `work-gpg`, but of course it might have any other name.
 
-### Setting up the GPG backend domain ###
-
-Make sure that gpg is installed there, and there are some private keys in the keyring, e.g.:
+Make sure that gpg is installed there.
+At this stage you can add the private keys you want to store there, or you can now set up Split GPG and add the keys later.
+To check which private keys are in your GPG keyring, use:
 
     [user@work-gpg ~]$ gpg -K
     /home/user/.gnupg/secring.gpg
@@ -91,13 +95,13 @@ Make sure that gpg is installed there, and there are some private keys in the ke
 
 This is pretty much all that is required.
 However, you might want to modify the default timeout: this tells the backend for how long the user's approval for key access should be valid.
-(The default is 5 minutes.) You can change this via the `QUBES_GPG_AUTOACCEPT` variable.
+(The default is 5 minutes.) You can change this via the `QUBES_GPG_AUTOACCEPT` environment variable.
 You can override it e.g. in `~/.profile`:
 
     [user@work-gpg ~]$ echo "export QUBES_GPG_AUTOACCEPT=86400" >> ~/.profile
 
 
-Please note that at one time, this parameter was set in ~/.bash_profile.
+Please note that previously, this parameter was set in ~/.bash_profile.
 This will no longer work.
 If you have the parameter set in ~/.bash_profile you *must* update your configuration.
 
