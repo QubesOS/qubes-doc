@@ -120,11 +120,6 @@ Consequently (and as with any new feature), users will inevitably encounter bugs
 We ask for your patience and understanding in this regard.
 As always, please [report any bugs you encounter].
 
-Please note that, in Firefox before Quantum (e.g. Firefox 52 in Debian 9), you have to install the [U2F Support Add-on][ff-u2f-addon].
-In Firefox post-Quantum you may have to enable the `security.webauth.u2f` flag in `about:config`.
-Chrome and Chromium do not require any special browser extensions.
-
-
 [Qubes U2F Proxy]: https://github.com/QubesOS/qubes-app-u2f
 [USB]: /doc/usb/
 [U2F]: https://en.wikipedia.org/wiki/U2F
