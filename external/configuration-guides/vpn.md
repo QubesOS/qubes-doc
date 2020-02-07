@@ -118,7 +118,6 @@ It has been tested with Fedora 30 and Debian 10 templates.
 
        sudo mkdir /rw/config/vpn
    Now run Browser in Disposable VM and download vpn configuration files from your provider. Copy these into your VPN VM.
-   Your VPN configuration files in can be seen in QubesIncoming in VPN VM (You can extract here if its a zip file).
    Now open one of the configuration file and keep it open.
    Now run a terminal in VPN VM. Run here
    
@@ -300,14 +299,11 @@ It has been tested with Fedora 30 and Debian 10 templates.
    ~~~
 
    If you are using anything other than OpenVPN, change the `VPN_CLIENT` and `VPN_OPTIONS` variables to match your VPN software.
-   Save the script.
-   Make it executable.
+   Save the script & make it executable.
 
        sudo chmod +x /rw/config/rc.local
 
-6. Now open Qubes Manager and edit settings for VPN VM. Set Limit outgoing Internet connection to in Firewall settings.     
-
-   Add addresses from your VPN configuration file from Provider. These addresses are usually after Remote in configuration file. Click apply and save.
+6. Now open Qubes Manager and edit settings for VPN VM. Set Limit outgoing Internet connection to in Firewall settings. Add addresses from your VPN configuration file from Provider. These addresses are usually after Remote in configuration file. Click apply and save.
 
 7. Now run a terminal in Dom0 and run
 
