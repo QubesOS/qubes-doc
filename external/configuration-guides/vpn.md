@@ -95,7 +95,7 @@ Set up a ProxyVM as a VPN gateway using iptables and CLI scripts
 ----------------------------------------------------------------
 
 This method is more involved than the one above, but has anti-leak features that also make the connection _fail closed_ should it be interrupted.
-It has been tested with Fedora 23 and Debian 8 templates.
+It has been tested with Fedora 30 and Debian 10 templates.
 
 1. Create a new VM, name it, choose 'Provide network' and choose a color and template and sys-Firewall in networking.
 
@@ -105,7 +105,7 @@ It has been tested with Fedora 23 and Debian 8 templates.
    If you enabled NetworkManager or used other methods in a previous attempt, do not re-use the old ProxyVM...
    Create a new one according to this step.
 
-   If your choice of TemplateVM doesn't already have the VPN client software, you'll need to install the software in the template before proceeding.just install openvpn in template. Default Fedora 30 or higher don't need this step.
+   If your choice of TemplateVM doesn't already have the VPN client software, you'll need to install the software in the template before proceeding. Just install openvpn in template. Default Fedora 30 or higher don't need this step.
    Disable any auto-starting service that comes with the software package.
    For example for OpenVPN.
 
@@ -117,9 +117,13 @@ It has been tested with Fedora 23 and Debian 8 templates.
    Then create a new `/rw/config/vpn` folder with.
 
        sudo mkdir /rw/config/vpn
-   Now run Browser in Disposable VM and download vpn configuration files from your provider. Copy these into your VPN VM. Your VPN configuration files in can be seen in QubesIncoming in VPN VM (You can extract here if its a zip file). Now open one of the configuration file and keep it open.
-   Now run a terminal in VPN VM. run here
-   sudo gedit /rw/config/vpn/openvpn-client.ovpn
+   Now run Browser in Disposable VM and download vpn configuration files from your provider. Copy these into your VPN VM.
+   Your VPN configuration files in can be seen in QubesIncoming in VPN VM (You can extract here if its a zip file).
+   Now open one of the configuration file and keep it open.
+   Now run a terminal in VPN VM. Run here
+   
+       sudo gedit /rw/config/vpn/openvpn-client.ovpn
+   
    Now copy configuration file text into opened text editor and save it.
    Your VPN config file must be named `openvpn-client.ovpn`) so you can use the scripts below as is without modification.
    Otherwise you would have to replace the file name.
@@ -129,7 +133,7 @@ It has been tested with Fedora 23 and Debian 8 templates.
       * Files referenced in `openvpn-client.ovpn` should not use absolute paths such as `/etc/...`.
 
    The VPN scripts here are intended to work with commonly used `tun` interfaces, whereas `tap` mode is untested.
-   Also, the config should route all traffic through your VPN's interface after a connection is created; For OpenVPN the directive for this is `redirect-gateway def1`.
+   Also, the config should route all traffic through your VPN's interface after a connection is created; For OpenVPN the   directive for this is `redirect-gateway def1`.
 
        sudo gedit /rw/config/vpn/openvpn-client.ovpn
 
@@ -213,15 +217,16 @@ It has been tested with Fedora 23 and Debian 8 templates.
    ;;
    esac
    ~~~
-   You can add in above script following if you want (it is not necessary)
+   (Optional) You can add in above script following if you want 
    
    vpn_dns="X.X.X.X"
    
    addr="X.X.X.X"
    
-   Replace X.X.X.X with DNS Addresses provided by your VPN (like 10.8.0.1 in Mullvad,10.0.254.2 in IVPN,103.86.99.100 in NordVPN etc. We do not endorse any particular VPN. These are just example to understand the concept)
+   Replace X.X.X.X with DNS Addresses provided by your VPN.
    
    Save the script.
+   
    Make it executable.
 
        sudo chmod +x /rw/config/vpn/qubes-vpn-handler.sh
@@ -300,21 +305,23 @@ It has been tested with Fedora 23 and Debian 8 templates.
 
        sudo chmod +x /rw/config/rc.local
 
-6. Now open Qubes Manager and edit settings for VPN VM. Set Limit outgoing Internet connection to in Firewall settings. And        add addresses from your VPN configuration file from Provider. These addresses are usually after Remote in configuration file. Click apply and save.
+6. Now open Qubes Manager and edit settings for VPN VM. Set Limit outgoing Internet connection to in Firewall settings.     
+
+   Add addresses from your VPN configuration file from Provider. These addresses are usually after Remote in configuration file. Click apply and save.
 
 7. Now run a terminal in Dom0 and run
 
-   qvm-firewall [VPN VM] list
+       qvm-firewall [VPN VM] list
    
    You should see Lines showing Firewall rules for your VPN VM
    Now Run
    
-   qvm-firewall [VPN VM] del --rule-no [#icmp].
+       qvm-firewall [VPN VM] del --rule-no [#icmp].
    
    Now to add the new icmp rule run the list command again, and add the  icmp rule before the final "drop" line
 Run 
    
-   qvm-firewall [VPN VM] add --before [#droprule] drop proto=icmp.
+       qvm-firewall [VPN VM] add --before [#droprule] drop proto=icmp.
    
 8. Restart the new VM!
    The link should then be established automatically with a popup notification to that effect.
