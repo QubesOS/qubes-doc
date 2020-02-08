@@ -105,7 +105,10 @@ It has been tested with Fedora 30 and Debian 10 templates.
    If you enabled NetworkManager or used other methods in a previous attempt, do not re-use the old ProxyVM...
    Create a new one according to this step.
 
-   If your choice of TemplateVM doesn't already have the VPN client software, you'll need to install the software in the template before proceeding. Just install openvpn in template. Default Fedora 30 or higher don't need this step.
+   If your choice of TemplateVM doesn't already have the VPN client software, you'll need to install the software in the template before proceeding. Just install openvpn in template. Fedora 30 or higher don't need this step. For Debian, install with following command-
+   
+       sudo apt-get install openvpn
+       
    Disable any auto-starting service that comes with the software package.
    For example for OpenVPN.
 
@@ -117,8 +120,8 @@ It has been tested with Fedora 30 and Debian 10 templates.
    Then create a new `/rw/config/vpn` folder with.
 
        sudo mkdir /rw/config/vpn
-   Now run Browser in Disposable VM and download vpn configuration files from your provider. Copy these into your VPN VM.
-   Now open one of the configuration file and keep it open.
+   
+   Now download vpn configuration files from your provider. Copy these into your VPN VM. These files need to be copied into /rw/config/vpn folder. For that open one of the configuration file and keep it open.
    Now run a terminal in VPN VM. Run here
    
        sudo gedit /rw/config/vpn/openvpn-client.ovpn
@@ -218,9 +221,9 @@ It has been tested with Fedora 30 and Debian 10 templates.
    ~~~
    (Optional) You can add in above script following if you want 
    
-   vpn_dns="X.X.X.X"
+       vpn_dns="X.X.X.X"
    
-   addr="X.X.X.X"
+       addr="X.X.X.X"
    
    Replace X.X.X.X with DNS Addresses provided by your VPN.
    
