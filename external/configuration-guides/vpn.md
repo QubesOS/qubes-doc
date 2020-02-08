@@ -219,13 +219,6 @@ It has been tested with Fedora 30 and Debian 10 templates.
    ;;
    esac
    ~~~
-   (Optional) You can add in above script following if you want 
-   
-       vpn_dns="X.X.X.X"
-   
-       addr="X.X.X.X"
-   
-   Replace X.X.X.X with DNS Addresses provided by your VPN.
    
    Save the script.
    
