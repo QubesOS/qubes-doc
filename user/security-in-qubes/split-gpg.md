@@ -156,6 +156,10 @@ It is recommended to set up and use `/usr/bin/qubes-gpg-client-wrapper`, as disc
 
 ![tb-enigmail-split-gpg-settings-2.png](/attachment/wiki/SplitGpg/tb-enigmail-split-gpg-settings-2.png)
 
+**Warning:** By default, Enigmail could generate a default GPG key in `work` associated with the newly created Thunderbird account. Generally, it corresponds to the email used in
+`work-gpg` associated to your private key. In consequence, you will obtain `gpg -K` in `work` being non-empty but it _does not_ correspond to your private key in `work-gpg`.
+Comparing the `fingerprint` or `expiration date` will show that they are not the same private key. In order to prevent Enigmail using this defaut generated local key in `work`, you can safely remove it.
+
 ## Using Git with Split GPG ##
 
 Git can be configured to used with Split GPG, something useful if you would like to contribute to the Qubes OS Project as every commit is required to be signed.
