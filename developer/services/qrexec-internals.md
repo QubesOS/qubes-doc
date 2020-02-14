@@ -156,7 +156,7 @@ Details of all possible use cases and the messages involved are described below.
 
   `qrexec-agent` assigns an internal identifier to the request. It's based on a file descriptor of the connected `qrexec-client-vm`: in this case, `SOCKET11`.
 
-  `qrexec-agent` forwards the request (`MSG_TRIGGER_SERVICE`) to its corresponding `qrexec-daemon` running in dom0.
+  `qrexec-agent` forwards the request (`MSG_TRIGGER_SERVICE3`) to its corresponding `qrexec-daemon` running in dom0.
 
 - **dom0**: `qrexec-daemon` receives the request and triggers `qrexec-policy` program, passing all necessary parameters: source domain **domX**, target domain **dom0**, service `admin.Service` and identifier `SOCKET11`.
 
@@ -194,7 +194,7 @@ Details of all possible use cases and the messages involved are described below.
 
   (If `local_program` is set, it will be executed in **domX** and connected to the remote command's stdin/stdout).
 
-- The request is forwarded as `MSG_TRIGGER_SERVICE` to `qrexec-daemon` running in **dom0**, then to `qrexec-policy`, then (if allowed) to `qrexec-client`.
+- The request is forwarded as `MSG_TRIGGER_SERVICE3` to `qrexec-daemon` running in **dom0**, then to `qrexec-policy`, then (if allowed) to `qrexec-client`.
 
   This is the same as in the previous example (VM-dom0).
 
