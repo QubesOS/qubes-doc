@@ -85,18 +85,19 @@ The following list provides an overview of which packages are needed for which p
 As usual, the required packages are to be installed in the running template with the following command (replace `packages` with a space-delimited list of packages to be installed):
 
     [user@your-new-clone ~]$ sudo dnf install packages
-
- - Commonly used utilities: `pciutils` `vim-minimal` `less` `psmisc` `gnome-keyring`.
- - Audio: `pulseaudio-qubes`.
- - [FirewallVM](/doc/firewall/), such as the template for `sys-firewall`: at least `qubes-core-agent-networking` and `iproute`, and also `qubes-core-agent-dom0-updates` if you want to use it as the `UpdateVM` (which is normally `sys-firewall`).
- - NetVM, such as the template for `sys-net`: `qubes-core-agent-networking` `qubes-core-agent-network-manager` `NetworkManager-wifi` `network-manager-applet` `wireless-tools` `notification-daemon` `gnome-keyring` `polkit` `@hardware-support`.
-   If your network devices need extra packages for the template to work as a network VM, use the `lspci` command to identify the devices, then run `dnf search firmware` (replace `firmware` with the appropriate device identifier) to find the needed packages and then install them.
-   If you need utilities for debugging and analyzing network connections, install `tcpdump` `telnet` `nmap` `nmap-ncat`.
- - [USB qube](/doc/usb-qubes/), such as the template for `sys-usb`: `qubes-usb-proxy` to provide USB devices to other Qubes and `qubes-input-proxy-sender` to provide keyboard or mouse input to dom0.
- - [VPN qube](/doc/vpn/): Use the `dnf search "NetworkManager VPN plugin"` command to look up the VPN packages you need, based on the VPN technology you'll be using, and install them.
-   Some GNOME related packages may be needed as well.
-   After creation of a machine based on this template, follow the [VPN instructions](/doc/vpn/#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager) to configure it.
-
+    
+ Use case | Description | Required steps
+ --- | --- | ---
+**Standard utilities** | If you need the commonly used utilities | Install the following packages: `pciutils` `vim-minimal` `less` `psmisc` `gnome-keyring`
+**Networking** | If you want networking | Install `qubes-core-agent-networking`
+**Audio** | If you want sound from your VM... | Install `pulseaudio-qubes`
+**FirewallVM** | You can use the minimal template as a template for a [FirewallVM](/doc/firewall/), like `sys-firewall` | Install `qubes-core-agent-networking` and `iproute`. Also install `qubes-core-agent-dom0-updates` if you want to use a qube based on the template as an updateVM (normally sys-firewall).
+**NetVM** | You can use this template as the basis for a NetVM such as `sys-net` | Install the following packages:  `qubes-core-agent-networking`, `qubes-core-agent-network-manager`, `NetworkManager-wifi`, `network-manager-applet`, `wireless-tools`, `notification-daemon`, `gnome-keyring`, `polkit`, `@hardware-support`
+**NetVM (extra firmware)** | If your network devices need extra packages for a network VM | Use the `lspci` command to identify the devices, then run `dnf search firmware` (replace `firmware` with the appropriate device identifier) to find the needed packages and then install them.
+**Network utilities** | If you need utilities for debugging and analyzing network connections | Install the following packages: `tcpdump` `telnet` `nmap` `nmap-ncat`
+**USB** | If you want to use this template as the basis for a [USB](/doc/usb/) qube such as `sys-usb` | Install `qubes-usb-proxy`. To use USB mouse or keyboard install `qubes-input-proxy-sender`.
+**VPN** | You can use this template as basis for a [VPN](/doc/vpn/) qube | Use the `dnf search "NetworkManager VPN plugin"` command to look up the VPN packages you need, based on the VPN technology you'll be using, and install them. Some GNOME related packages may be needed as well. After creating a machine based on this template, follow the [VPN howto](/doc/vpn/#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager) to configure it.
+ 
 You may also wish to consider additional packages from the `qubes-core-agent` suite:
 
  - `qubes-core-agent-qrexec`: Qubes qrexec agent. Installed by default.
@@ -104,13 +105,9 @@ You may also wish to consider additional packages from the `qubes-core-agent` su
  - `qubes-core-agent-passwordless-root`, `polkit`: By default, the Fedora Minimal template doesn't have passwordless root. These two packages enable this feature.
  - `qubes-core-agent-nautilus`: This package provides integration with the Nautilus file manager (without it things like "copy to VM/open in disposable VM" will not be shown in Nautilus).
  - `qubes-core-agent-sysvinit`: Qubes unit files for SysV init style or upstart.
- - `qubes-core-agent-networking`: Networking support. Required for general network access and particularly if the template is to be used for a `sys-net` or `sys-firewall` VM.
- - `qubes-core-agent-network-manager`: Integration for NetworkManager. Useful if the template is to be used for a `sys-net` VM.
  - `network-manager-applet`: Useful `notification-daemon` to have a system tray icon if the template is to be used for a `sys-net` VM.
  - `qubes-core-agent-dom0-updates`: Script required to handle `dom0` updates. Any template which the VM responsible for 'dom0' updates (e.g. `sys-firewall`) is based on must contain this package.
  - `qubes-usb-proxy`: Required if the template is to be used for a USB qube (`sys-usb`) or for any destination qube to which USB devices are to be attached (e.g `sys-net` if using USB network adapter).
- - `qubes-input-proxy-sender`: Provides USB keyboard and mouse input from a USB qube (`sys-usb`) to dom0.
- - `pulseaudio-qubes`: Needed to have audio on the template VM.
 
 See [here][customization] for further information on customizing `fedora-minimal`.
 
@@ -133,7 +130,7 @@ For example : (Replace `packages` with a space-delimited list of packages to be 
 Use case | Description | Required steps
 --- | --- | ---
 **Standard utilities** | If you need the commonly used utilities | Install the following packages: `pciutils` `vim-minimal` `less` `psmisc` `gnome-keyring`
-**Networking** | If you want networking | Install qubes-core-agent-networking
+**Networking** | If you want networking | Install `qubes-core-agent-networking`
 **Audio** | If you want sound from your VM... | Install `pulseaudio-qubes`
 **FirewallVM** | You can use the minimal template as a template for a [FirewallVM](/doc/firewall/), like `sys-firewall` | Install `qubes-core-agent-networking`.  Also install `qubes-core-agent-dom0-updates` if you want to use a qube based on the template as an updateVM (normally sys-firewall).
 **NetVM** | You can use this template as the basis for a NetVM such as `sys-net` | Install the following packages:  `qubes-core-agent-networking`, `qubes-core-agent-network-manager`.
