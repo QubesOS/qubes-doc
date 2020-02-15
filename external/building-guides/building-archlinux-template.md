@@ -53,11 +53,11 @@ $ gpg --import qubes-developers-keys.asc
 
 * Download the latest stable qubes-builder repository:
 ```shell_session
-$ git clone git://github.com/QubesOS/qubes-builder.git qubes-builder
+$ git clone https://github.com/QubesOS/qubes-builder.git /home/user/qubes-builder/
 ```
 * Verify the integrity of the downloaded repository. The last line should read `gpg: Good signature from`...
 ```shell_session
-$ cd qubes-builder
+$ cd /home/user/qubes-builder/
 $ git tag -v $(git describe)
 ```
 * Install the remaining dependencies
