@@ -152,7 +152,11 @@ Note that, because this makes it easier to accept Split GPG's qrexec authorizati
 
 ### Using Thunderbird + Enigmail with Split GPG ###
 
-It is recommended to set up and use `/usr/bin/qubes-gpg-client-wrapper`, as discussed above, by pointing Enigmail at this script instead of the standard GnuPG binary:
+It is recommended to set up and use `/usr/bin/qubes-gpg-client-wrapper`, as discussed above, in Thunderbird thought it's Enigmail addon.
+
+**Warning:** Before adding any account, configuring Enigmail with `/usr/bin/qubes-gpg-client-wrapper` is **required**. By default, Enigmail will generate a default GPG key in `work` associated with the newly created Thunderbird account. Generally, it corresponds to the email used in `work-gpg` associated to your private key. In consequence, a new, separate private key will be stored in `work` but it _does not_ correspond to your private key in `work-gpg`. Comparing the `fingerprint` or `expiration date` will show that they are not the same private key. In order to prevent Enigmail using this default generated local key in `work`, you can safely remove it.
+
+On a fresh Enigmail install, your need to change the default `Enigmail Junior Mode`. Go to Thunderbird preferences and then privacy tab. Select `Force Enigmail to S/MIME and Enigmail`. Then, in the preferences of Enigmail, make it pointing at `/usr/bin/qubes-gpg-client-wrapper` instead of the standard GnuPG binary:
 
 ![tb-enigmail-split-gpg-settings-2.png](/attachment/wiki/SplitGpg/tb-enigmail-split-gpg-settings-2.png)
 
