@@ -1,14 +1,14 @@
 ---
 layout: doc
 title: GUI Configuration and Troubleshooting
-permalink: /doc/gui-configuration/
+permalink: /doc/gui-configuration-and-troubleshooting/
+redirect_from:
+  - /doc/gui-configuration/
 ---
 
-GUI Configuration and Troubleshooting
-=====================================
+# GUI Configuration and Troubleshooting
 
-Video RAM adjustment for high-resolution displays
--------------------------------------------------
+## Video RAM adjustment for high-resolution displays
 
 **Problem:** You have a 4K external display, and when you connect it, you can't click on anything but a small area in the upper-right corner.
 
@@ -50,3 +50,27 @@ Section "Device"
         Option "TearFree" "true"
 EndSection
 ```
+
+## GUI Troubleshooting
+
+If you can start your VM, but can't launch any applications, then you need to fix the issues from the `VM console`, accessible from xen through:
+
+```sh
+qvm-start <VMname> # Make sure the VM is started
+sudo xl console <VMname>
+```
+
+### Tips
+
+#### Disable auditd messages
+
+To disable auditd messages, you need to edit your VM kernel parameters:
+
+```sh
+previous_kernel_parameters=$(qvm-prefs --get <VMname> kernelopts) # Get current kernel parameters
+qvm-prefs --set <VMname> kernelopts "<previous_kernel_parameters> audit=0"
+```
+
+Then, restart your VM.
+
+Once your troubleshooting is done, don't forget to remove this kernel parameters, it makes troubleshooting VMs not starting easier.
