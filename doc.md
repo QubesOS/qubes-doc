@@ -225,7 +225,6 @@ Unofficial, third-party documentation from the Qubes community and others.
  * [Whonix for Privacy & Anonymity](/doc/whonix/)
  * [Running Tails in Qubes](/doc/tails/)
  * [Anonymizing your MAC Address](/doc/anonymizing-your-mac-address/)
- * [Martus](/doc/martus/)
  * [Signal](/doc/signal/)
  * [Reducing the fingerprint of the text-based web browser w3m](/doc/w3m/)
 
