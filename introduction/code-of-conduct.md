@@ -47,7 +47,7 @@ This Code of Conduct applies both within project spaces and in public spaces whe
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at `mods@qubes-os.org`. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project CoC team at `mods@qubes-os.org`. The project CoC team is the project lead [Marek Marczykowski-Górecki], community manager [Andrew David Wong], and project manager [Michael Carbone]. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident, and will ensure reporter, reported and all others impacted are regularly updated through the process. Further details of specific enforcement policies may be posted separately.
 
 Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project's leadership.
 
@@ -68,4 +68,6 @@ The initial published version of this Code of Conduct was adapted from the [Cont
 [mailing list discussion guidelines]: /support/#discussion-list-guidelines
 [Contributor Covenant, version 1.4]: http://contributor-covenant.org/version/1/4
 [Rust Code of Conduct]: https://www.rust-lang.org/en-US/conduct.html
-
+[Marek Marczykowski-Górecki]: https://www.qubes-os.org/team/#marek-marczykowski-g%C3%B3recki
+[Andrew David Wong]: https://www.qubes-os.org/team/#andrew-david-wong
+[Michael Carbone]: https://www.qubes-os.org/team/#michael-carbone
