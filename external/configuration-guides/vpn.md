@@ -119,7 +119,7 @@ Before proceeding, you will need to download a copy of your VPN provider's confi
 2. Set up and test the VPN client.
    Make sure the VPN VM and its TemplateVM is not running.
    Run a terminal (CLI) in the VPN VM -- this will start the VM.
-   Then create a new `/rw/config/vpn` folder with.
+   Then create a new `/rw/config/vpn` folder with:
 
        sudo mkdir /rw/config/vpn
 
@@ -164,7 +164,7 @@ Before proceeding, you will need to download a copy of your VPN provider's confi
 
    Watch for status messages that indicate whether the connection is successful and test from another VPN VM terminal window with `ping`.
 
-       ping 8.8.8.8
+       ping 1.1.1.1
 
    `ping` can be aborted by pressing the two keys `ctrl` + `c` at the same time.
    DNS may be tested at this point by replacing addresses in `/etc/resolv.conf` with ones appropriate for your VPN (although this file will not be used when setup is complete).
@@ -250,10 +250,9 @@ Before proceeding, you will need to download a copy of your VPN provider's confi
    ip6tables -I FORWARD -o eth0 -j DROP
    ip6tables -I FORWARD -i eth0 -j DROP
    
-   #    Block all outgoing traffic
-   iptables -P OUTPUT DROP
+   #    Accept traffic to VPN
+   iptables -P OUTPUT ACCEPT
    iptables -F OUTPUT
-   iptables -I OUTPUT -o lo -j ACCEPT
    
    #    Add the `qvpn` group to system, if it doesn't already exist
    if ! grep -q "^qvpn:" /etc/group ; then
@@ -262,6 +261,8 @@ Before proceeding, you will need to download a copy of your VPN provider's confi
    fi
    sleep 2s
    
+   #    Block non-VPN traffic to clearnet
+   iptables -I OUTPUT -o eth0 -j DROP
    #    Allow traffic from the `qvpn` group to the uplink interface (eth0);
    #    Our VPN client will run with group `qvpn`.
    iptables -I OUTPUT -p all -o eth0 -m owner --gid-owner qvpn -j ACCEPT
@@ -305,10 +306,7 @@ Configure your AppVMs to use the VPN VM as a NetVM...
 
 ![Settings-NetVM.png](/attachment/wiki/VPN/Settings-NetVM.png)
 
-If you want to update your TemplateVMs through the VPN, it will be necessary to create a separate "sys-update" or "sys-firewall-vpn" VM with the "provides network" option set and with its netvm set to use the VPN VM. Next, use `qubes-global-settings` to change the update VM to the one you created. Then enable the `qubes-updates-proxy` service in your new update VM.
-You can do this in the Services tab in Qubes VM Manager or on the command-line:
-
-    qvm-service -e <name> qubes-updates-proxy
+If you want to update your TemplateVMs through the VPN, you can enable the `qubes-updates-proxy` service for your new VPN VM and configure the [qubes-rpc policy](https://www.qubes-os.org/doc/software-update-domu/#updates-proxy).
 
 
 Troubleshooting
@@ -316,5 +314,4 @@ Troubleshooting
 
 * Always test your basic VPN connection before adding scripts.
 * Test DNS: Ping a familiar domain name from an appVM. It should print the IP address for the domain.
-* For scripting: Ping external IP addresses from inside the VPN VM using `sudo sg qvpn -c 'ping ...'`, then from an appVM using just `ping ...`. Once the firewall rules are in place, you will have to use `sudo sg` to run any IP network commands in the VPN VM.
 * Use `iptables -L -v` and `iptables -L -v -t nat` to check firewall rules. The latter shows the critical PR-QBS chain that enables DNS forwarding.
