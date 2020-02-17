@@ -69,7 +69,7 @@ Command line usage:
 
 `/usr/lib/qubes/qrexec-agrent`
 
-One instance runs in each active domain. 
+One instance runs in each active domain.
 Responsible for:
   * Handling service requests from `qrexec-client-vm` and passing them to connected `qrexec-daemon` in dom0.
   * Executing associated `qrexec-daemon` execution/service requests.
@@ -114,94 +114,118 @@ If either side does not support this version, the connection is closed.
 
 Details of all possible use cases and the messages involved are described below.
 
-### dom0: request execution of `some_command` in domX and pass stdin/stdout
+### dom0: request execution of `cmd` in domX
 
-![qrexec internals diagram dom0](/attachment/wiki/qrexec3/qrexec-internals-dom0.png)
+![qrexec internals diagram dom0-vm](/attachment/wiki/qrexec3/qrexec-dom0-vm.png)
 
 - **dom0**: `qrexec-client` is invoked in **dom0** as follows:
 
-      qrexec-client -d domX [-l local_program] user:some_command`
+      qrexec-client -d domX [-l local_program] user:cmd
 
-  `user` may be substituted with the literal `DEFAULT`. In that case, default Qubes user will be used to execute `some_command`.
-- **dom0**: `qrexec-client` sets `QREXEC_REMOTE_DOMAIN` environment variable to **domX**.
-- **dom0**: If `local_program` is set, `qrexec-client` executes it and uses that child's stdin/stdout in place of its own when exchanging data with `qrexec-agent` later.
-- **dom0**: `qrexec-client` connects to **domX**'s `qrexec-daemon`.
-- **dom0**: `qrexec-daemon` sends `MSG_HELLO` header followed by `peer_info` to `qrexec-client`.
-- **dom0**: `qrexec-client` replies with `MSG_HELLO` header followed by `peer_info` to `qrexec-daemon`.
-- **dom0**: `qrexec-client` sends `MSG_EXEC_CMDLINE` header followed by `exec_params` to `qrexec-daemon`.
+  (If `local_program` is set, `qrexec-client` executes it and uses that child's stdin/stdout in place of its own when exchanging data with `qrexec-agent` later.)
 
-        /* variable size */
-        struct exec_params {
-           uint32_t connect_domain; /* target domain id */
-           uint32_t connect_port;   /* target vchan port for i/o exchange */
-           char cmdline[0];         /* command line to execute, size = msg_header.len - sizeof(struct exec_params) */
-        };
+  `qrexec-client` translates that request into a `MSG_EXEC_CMDLINE` message sent to `qrexec-daemon`, with `connect_domain` set to 0 (connect to **dom0**) and `connect_port also set to 0 (allocate a port).
 
-    In this case, `connect_domain` and `connect_port` are set to 0.
+- **dom0**: `qrexec-daemon` allocates a free port (in this case 513), and sends a `MSG_EXEC_CMDLINE` back to the client with connection parameters (**domX** and 513) and with command field empty.
 
-- **dom0**: `qrexec-daemon` replies to `qrexec-client` with `MSG_EXEC_CMDLINE` header followed by `exec_params`, but with empty `cmdline` field. `connect_domain` is set to Qubes ID of **domX** and `connect_port` is set to a vchan port allocated by `qrexec-daemon`.
-- **dom0**: `qrexec-daemon` sends `MSG_EXEC_CMDLINE` header followed by `exec_params` to the associated **domX** `qrexec-agent` over vchan. `connect_domain` is set to 0 (**dom0**), `connect_port` is the same as sent to `qrexec-client`. `cmdline` is unchanged except that the literal `DEFAULT` is replaced with actual user name, if present.
-- **dom0**: `qrexec-client` disconnects from `qrexec-daemon`.
-- **dom0**: `qrexec-client` starts a vchan server using the details received from `qrexec-daemon` and waits for connection from **domX**'s `qrexec-agent`.
-- **domX**: `qrexec-agent` receives `MSG_EXEC_CMDLINE` header followed by `exec_params` from `qrexec-daemon` over vchan.
-- **domX**: `qrexec-agent` connects to `qrexec-client` over vchan using the details from `exec_params`.
-- **domX**: `qrexec-agent` executes `some_command` in **domX** and connects the child's stdin/stdout to the data vchan. If the process creation fails, `qrexec-agent` sends `MSG_DATA_EXIT_CODE` to `qrexec-client` followed by the status code (**int**) and disconnects from the data vchan.
-- Data read from `some_command`'s stdout is sent to the data vchan using `MSG_DATA_STDOUT` by `qrexec-agent`. `qrexec-client` passes data received as `MSG_DATA_STDOUT` to its own stdout (or to `local_program`'s stdin if used).
-- `qrexec-client` sends data read from local stdin (or `local_program`'s stdout if used) to `qrexec-agent` over the data vchan using `MSG_DATA_STDIN`. `qrexec-agent` passes data received as `MSG_DATA_STDIN` to `some_command`'s stdin.
-- `MSG_DATA_STDOUT` or `MSG_DATA_STDIN` with data `len` field set to 0 in `msg_header` is an EOF marker. Peer receiving such message should close the associated input/output pipe.
-- When `some_command` terminates, **domX**'s `qrexec-agent` sends `MSG_DATA_EXIT_CODE` header to `qrexec-client` followed by the exit code (**int**). `qrexec-agent` then disconnects from the data vchan.
+  `qrexec-client` disconnects from the daemon, starts a vchan server on port 513 and awaits connection.
 
-### domY: invoke execution of qubes service `qubes.SomeRpc` in domX and pass stdin/stdout
+  Then, `qrexec-daemon` passes on the request as `MSG_EXEC_CMDLINE` message to the `qrexec-agent` running in **domX**. In this case, the connection parameters are **dom0** and 513.
 
-![qrexec internals diagram domY](/attachment/wiki/qrexec3/qrexec-internals-domY.png)
+- **domX**: `qrexec-agent` receives `MSG_EXEC_CMDLINE`, and starts the command (`user:cmd`, or `cmd` as user `user`). If possible, this is actually delegated to a separate server (`qrexec-fork-server`) also running on domX.
 
-- **domY**: `qrexec-client-vm` is invoked as follows:
+  After starting the command, `qrexec-fork-server` connects to `qrexec-client` in **dom0** over the provided vchan port 513.
 
-      qrexec-client-vm domX qubes.SomeRpc local_program [params]
+- Data is forwarded between the `qrexec-client` in **dom0** and the command executed in **domX** using `MSG_DATA_STDIN`, `MSG_DATA_STDOUT` and `MSG_DATA_STDERR`.
 
-- **domY**: `qrexec-client-vm` connects to `qrexec-agent` (via local socket/named pipe).
-- **domY**: `qrexec-client-vm` sends `trigger_service_params` data to `qrexec-agent` (without filling the `request_id` field):
+  Empty messages (with data `len` field set to 0 in `msg_header`) are an EOF marker. Peer receiving such message should close the associated input/output pipe.
 
-         struct trigger_service_params {
-            char service_name[64];
-            char target_domain[32];
-            struct service_params request_id; /* service request id */
-         };
+  When `cmd` terminates, **domX**'s `qrexec-fork-server` sends `MSG_DATA_EXIT_CODE` header to `qrexec-client` followed by the exit code (**int**).
 
-         struct service_params {
-            char ident[32];
-        };
+### domX: request execution of service `admin.Service` in dom0
 
-- **domY**: `qrexec-agent` allocates a locally-unique (for this domain) `request_id` (let's say `13`) and fills it in the `trigger_service_params` struct received from `qrexec-client-vm`.
-- **domY**: `qrexec-agent` sends `MSG_TRIGGER_SERVICE` header followed by `trigger_service_params` to `qrexec-daemon` in **dom0** via vchan.
-- **dom0**: **domY**'s `qrexec-daemon` executes `qrexec-policy`: `qrexec-policy domY_id domY domX qubes.SomeRpc 13`.
-- **dom0**: `qrexec-policy` evaluates if the RPC should be allowed or denied. If the action is allowed it returns `0`, if the action is denied it returns `1`.
-- **dom0**: **domY**'s `qrexec-daemon` checks the exit code of `qrexec-policy`.
-    - If `qrexec-policy` returned **not** `0`: **domY**'s `qrexec-daemon` sends `MSG_SERVICE_REFUSED` header followed by `service_params` to **domY**'s `qrexec-agent`. `service_params.ident` is identical to the one received. **domY**'s `qrexec-agent` disconnects its `qrexec-client-vm` and RPC processing is finished.
-    - If `qrexec-policy` returned `0`, RPC processing continues.
-- **dom0**: if `qrexec-policy` allowed the RPC, it executed `qrexec-client -d domX -c 13,domY,domY_id user:QUBESRPC qubes.SomeRpc domY`.
-- **dom0**: `qrexec-client` sets `QREXEC_REMOTE_DOMAIN` environment variable to **domX**.
-- **dom0**: `qrexec-client` connects to **domX**'s `qrexec-daemon`.
-- **dom0**: **domX**'s `qrexec-daemon` sends `MSG_HELLO` header followed by `peer_info` to `qrexec-client`.
-- **dom0**: `qrexec-client` replies with `MSG_HELLO` header followed by `peer_info` to **domX**'s`qrexec-daemon`.
-- **dom0**: `qrexec-client` sends `MSG_EXEC_CMDLINE` header followed by `exec_params` to **domX**'s`qrexec-daemon`
+![qrexec internals diagram vm-dom0](/attachment/wiki/qrexec3/qrexec-vm-dom0.png)
 
-        /* variable size */
-        struct exec_params {
-           uint32_t connect_domain; /* target domain id */
-           uint32_t connect_port;   /* target vchan port for i/o exchange */
-           char cmdline[0];         /* command line to execute, size = msg_header.len - sizeof(struct exec_params) */
-        };
+- **domX**: `qrexec-client-vm` is invoked as follows:
 
-    In this case, `connect_domain` is set to id of **domY** (from the `-c` parameter) and `connect_port` is set to 0. `cmdline` field contains the RPC to execute, in this case `user:QUBESRPC qubes.SomeRpc domY`.
+      qrexec-client-vm dom0 admin.Service [local_program] [params]
 
-- **dom0**: **domX**'s `qrexec-daemon` replies to `qrexec-client` with `MSG_EXEC_CMDLINE` header followed by `exec_params`, but with empty `cmdline` field. `connect_domain` is set to Qubes ID of **domX** and `connect_port` is set to a vchan port allocated by **domX**'s `qrexec-daemon`.
-- **dom0**: **domX**'s `qrexec-daemon` sends `MSG_EXEC_CMDLINE` header followed by `exec_params` to **domX**'s `qrexec-agent`. `connect_domain` and `connect_port` fields are the same as in the step above. `cmdline` is set to the one received from `qrexec-client`, in this case `user:QUBESRPC qubes.SomeRpc domY`.
-- **dom0**: `qrexec-client` disconnects from **domX**'s `qrexec-daemon` after receiving connection details.
-- **dom0**: `qrexec-client` connects to **domY**'s `qrexec-daemon` and exchanges `MSG_HELLO` as usual.
-- **dom0**: `qrexec-client` sends `MSG_SERVICE_CONNECT` header followed by `exec_params` to **domY**'s `qrexec-daemon`. `connect_domain` is set to ID of **domX** (received from **domX**'s `qrexec-daemon`) and `connect_port` is the one received as well. `cmdline` is set to request ID (`13` in this case).
-- **dom0**: **domY**'s `qrexec-daemon` sends `MSG_SERVICE_CONNECT` header followed by `exec_params` to **domY**'s `qrexec-agent`. Data fields are unchanged from the step above.
-- **domY**: `qrexec-agent` starts a vchan server on the port received in the step above. It acts as a `qrexec-client` in this case because this is a VM-VM connection.
-- **domX**: `qrexec-agent` connects to the vchan server of **domY**'s `qrexec-agent` (connection details were received before from **domX**'s `qrexec-daemon`).
-- After that, connection follows the flow of the previous example (dom0-VM).
+  (If `local_program` is set, it will be executed in **domX** and connected to the remote command's stdin/stdout).
 
+  `qrexec-client-vm` connects to `qrexec-agent` and requests service execution (`admin.Service`) in **dom0**.
+
+  `qrexec-agent` assigns an internal identifier to the request. It's based on a file descriptor of the connected `qrexec-client-vm`: in this case, `SOCKET11`.
+
+  `qrexec-agent` forwards the request (`MSG_TRIGGER_SERVICE3`) to its corresponding `qrexec-daemon` running in dom0.
+
+- **dom0**: `qrexec-daemon` receives the request and triggers `qrexec-policy` program, passing all necessary parameters: source domain **domX**, target domain **dom0**, service `admin.Service` and identifier `SOCKET11`.
+
+  `qrexec-policy` evaluates if the RPC should be allowed or denied, possibly also launching a GUI confirmation prompt.
+
+  (If the RPC is denied, it returns with exit code 1, in which case `qrexec-daemon` sends a `MSG_SERVICE_REFUSED` back).
+
+- **dom0**: If the RPC is allowed, `qrexec-policy` will launch a `qrexec-client` with the right command:
+
+      qrexec-client -d dom0 -c domX,X,SOCKET11 "QUBESRPC admin.Service domX name dom0"
+
+  The `-c domX,X,SOCKET11` are parameters indicating how connect back to **domX** and pass its input/output.
+
+  The command parameter describes the RPC call: it contains service name (`admin.Service`), source domain (`domX`) and target description (`name dom0`, could also be e.g. `keyword @dispvm`). The target description is important in case the original target wasn't dom0, but the service is executing in dom0.
+
+  `qrexec-client` connects to a `qrexec-daemon` for **domX** and sends a `MSG_SERVICE_CONNECT` with connection parameters (**dom0**, and port 0, indicating a port should be allocated) and request identifier (`SOCKET11`).
+
+  `qrexec-daemon` allocates a free port (513) and sends back connection parameters to `qrexec-client` (**domX** port 513).
+
+  `qrexec-client` starts the command, and tries to connect to **domX** over the provided port 513.
+
+  Then, `qrexec-daemon` forwards the connection request (`MSG_SERVICE_CONNECT`) to `qrexec-agent` running in **domX**, with the right parameters (**dom0** port 513, request `SOCKET11`).
+
+- **dom0**: Because the command has the form `QUBESRPC: ...`, it is started through the `qubes-rpc-multiplexer` program with the provided parameters (`admin.Service domX name dom0`). That program finds and executes the necessary script in `/etc/qubes-rpc/`.
+
+- **domX**: `qrexec-agent` receives the `MSG_SERVICE_CONNECT` and passes the connection parameters back to the connected `qrexec-client-vm`. It identifies the `qrexec-client-vm` by the request identifier (`SOCKET11` means file descriptor 11).
+
+  `qrexec-client-vm` starts a vchan server on 513 and receives a connection from `qrexec-client`.
+
+- Data is forwarded between **dom0** and **domX** as in the previous example (dom0-VM).
+
+### domX: invoke execution of qubes service `qubes.Service` in domY
+
+![qrexec internals diagram vm-vm](/attachment/wiki/qrexec3/qrexec-vm-vm.png)
+
+- **domX**: `qrexec-client-vm` is invoked as follows:
+
+      qrexec-client-vm domY qubes.Service [local_program] [params]
+
+  (If `local_program` is set, it will be executed in **domX** and connected to the remote command's stdin/stdout).
+
+- The request is forwarded as `MSG_TRIGGER_SERVICE3` to `qrexec-daemon` running in **dom0**, then to `qrexec-policy`, then (if allowed) to `qrexec-client`.
+
+  This is the same as in the previous example (VM-dom0).
+
+- **dom0**: If the RPC is allowed, `qrexec-policy` will launch a `qrexec-client` with the right command:
+
+      qrexec-client -d domY -c domX,X,SOCKET11 user:cmd "DEFAULT:QUBESRPC qubes.Service domX"
+
+  The `-c domX,X,SOCKET11` are parameters indicating how connect back to **domX** and pass its input/output.
+
+  The command parameter describes the service call: it contains the username (or `DEFAULT`), service name (`qubes.Service`) and source domain (`domX`).
+
+  `qrexec-client` will then send a `MSG_EXEC_CMDLINE` message to `qrexec-daemon` for **domY**. The message will be with port number 0, requesting port allocation.
+
+  `qrexec-daemon` for **domY** will allocate a port (513) and send it back. It will also send a `MSG_EXEC_CMDLINE` to its corresponding agent. (It will also translate `DEFAULT` to the configured default username).
+
+  Then, `qrexec-client` will also send `MSG_SERVICE_CONNECT` message to **domX**'s agent, indicating that it should connect to **domY** over port 513.
+
+  Having notified both domains about a connection, `qrexec-client` now exits.
+
+- **domX**: `qrexec-agent` receives a `MSG_SERVICE_CONNECT` with connection parameters (**domY** port 513) and request identifier (`SOCKET11`). It sends the connection parameters back to the right `qrexec-client-vm`.
+
+  `qrexec-client-vm` starts a vchan server on port 513. note that this is different than in the other examples: `MSG_SERVICE_CONNECT` means you should start a server, `MSG_EXEC_CMDLINE` means you should start a client.
+
+- **domY**: `qrexec-agent` receives a `MSG_EXEC_CMDLINE` with the command to execute (`user:QUBESRPC...`) and connection parameters (**domX** port 513).
+
+  It forwards the request to `qrexec-fork-server`, which handles the command and connects to **domX** over the provided port.
+
+  Because the command is of the form `QUBESRPC ...`, `qrexec-fork-server` starts it using `qubes-rpc-multiplexer` program, which finds and executes the necessary script in `/etc/qubes-rpc/`.
+
+- After that, the data is passed between **domX** and **domY** as in the previous examples (dom0-VM, VM-dom0).
