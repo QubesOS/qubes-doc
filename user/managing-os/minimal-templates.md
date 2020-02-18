@@ -164,7 +164,9 @@ Also, there are packages to provide additional services:
 
 Documentation on all of these can be found in the [docs](/doc)
 
-You could, of course, use qubes-vm-recommended to automatically install many of these, but in that case you are well on the way to a standard Debian template.
+If you want to use interactive dialogs, (e.g file selection), you will need to add the `zenity` package. ([Here's an example](https://github.com/QubesOS/qubes-issues/issues/5202))
+
+You could, of course, use `qubes-vm-recommended` to automatically install many of these, but in that case you are well on the way to a standard Debian template.
 
 
 ### CentOS
