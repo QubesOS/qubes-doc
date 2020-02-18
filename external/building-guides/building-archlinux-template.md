@@ -447,4 +447,13 @@ Example of content for this file (replace the server URL with your own):
 Server = https://neowutran.ovh/qubes/vm-archlinux/pkgs
 ```
 
+About the package `qubes-vm-keyring`
+=====================================
+The goal of this package was to add a `pacman` source for the Qubes OS packages, and to set the maintainer gpg key as trusted.
+Currently, no one want to provide binary packages.
 
+**So this package is currently useless.**
+
+If in the future, enough people think it is better to restart providing binary packages instead of the current "Do It Yourself" way, the gpg key and fingerprint of the new maintainer should be added in the files below: 
+* https://github.com/QubesOS/qubes-core-agent-linux/blob/master/archlinux/PKGBUILD-keyring-keys
+* https://github.com/QubesOS/qubes-core-agent-linux/blob/master/archlinux/archlinux/PKGBUILD-keyring-trusted
