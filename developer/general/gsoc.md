@@ -103,7 +103,8 @@ Template VM cannot be renamed, migrated to another storage (like LVM), etc.
 Also we don't want RPM to automatically update template package itself (which
 would override all the user changes there). More details:
 [#2064](https://github.com/QubesOS/qubes-issues/issues/2064),
-[#2534](https://github.com/QubesOS/qubes-issues/issues/2534).
+[#2534](https://github.com/QubesOS/qubes-issues/issues/2534),
+[#3573](https://github.com/QubesOS/qubes-issues/issues/3573).
 
 **Expected results**:
 
