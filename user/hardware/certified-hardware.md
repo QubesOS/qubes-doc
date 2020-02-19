@@ -24,7 +24,7 @@ See [Hardware Testing] for details.
 Qubes-certified laptops are regularly tested by the Qubes developers to ensure compatibility with all of Qubes' features.
 The developers test all new major versions and updates to ensure that no regressions are introduced.
 
-[![insurgo-privacybeast-x230.png](/attachment/site/insurgo-privacybeast-x230.png)](/attachment/site/insurgo-privacybeast-x230.png)
+[![insurgo-privacybeast-x230.png](/attachment/site/insurgo-privacybeast-x230.png)](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/)
 
 The [Insurgo PrivacyBeast X230] meets and exceeds our hardware certification requirements.
 Read our [announcement][privacybeast announcement] of the certification for further details!
