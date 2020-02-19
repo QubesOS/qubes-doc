@@ -95,9 +95,11 @@ Set up a ProxyVM as a VPN gateway using iptables and CLI scripts
 ----------------------------------------------------------------
 
 This method is more involved than the one above, but has anti-leak features that also make the connection _fail closed_ should it be interrupted.
-It has been tested with Fedora 23 and Debian 8 templates.
+It has been tested with Fedora 30 and Debian 10 templates.
 
-1. Create a new VM, name it, click the ProxyVM radio button, and choose a color and template.
+Before proceeding, you will need to download a copy of your VPN provider's configuration file(s) and have your VPN login information handy.
+
+1. Create a new VM, name it, choose "provides network", and choose a color and template.
 
    ![Create\_New\_VM.png](/attachment/wiki/VPN/Create_New_VM.png)
 
@@ -105,48 +107,47 @@ It has been tested with Fedora 23 and Debian 8 templates.
    If you enabled NetworkManager or used other methods in a previous attempt, do not re-use the old ProxyVM...
    Create a new one according to this step.
 
-   If your choice of TemplateVM doesn't already have the VPN client software, you'll need to install the software in the template before proceeding.
+   If your choice of TemplateVM doesn't already have the VPN client software, you'll need to install the software in the template before proceeding. The 'openvpn' package comes installed in the Fedora template, and in Debian it can be installed with the following command:
+
+       sudo apt-get install openvpn
+
    Disable any auto-starting service that comes with the software package.
    For example for OpenVPN.
 
        sudo systemctl disable openvpn.service
 
-   You may also wish to install `nano` or another simple text editor for entering the scripts below.
-
 2. Set up and test the VPN client.
    Make sure the VPN VM and its TemplateVM is not running.
    Run a terminal (CLI) in the VPN VM -- this will start the VM.
-   Then create a new `/rw/config/vpn` folder with.
+   Then create a new `/rw/config/vpn` folder with:
 
        sudo mkdir /rw/config/vpn
 
-   Copy your VPN config files to `/rw/config/vpn`.
-   Your VPN config file should be named `openvpn-client.ovpn`) so you can use the scripts below as is without modification.
-   Otherwise you would have to replace the file name.
-   `openvpn-client.ovpn` contents:
+   Copy your VPN configuration files to `/rw/config/vpn`.
+   Your VPN config file should be named `openvpn-client.ovpn` so you can use the scripts below as is without modification. Otherwise you would have to replace the file name. Files accompanying the main config such as `*.crt` and `*.pem` should also be placed in the `/rw/config/vpn` folder.
 
-      * Files accompanying the main config such as `*.crt` and `*.pem` should also go to `/rw/config/vpn` folder.
-      * Files referenced in `openvpn-client.ovpn` should not use absolute paths such as `/etc/...`.
+   Check or modify configuration file contents using a text editor:
 
-   The VPN scripts here are intended to work with commonly used `tun` interfaces, whereas `tap` mode is untested.
-   Also, the config should route all traffic through your VPN's interface after a connection is created; For OpenVPN the directive for this is `redirect-gateway def1`.
+       sudo gedit /rw/config/vpn/openvpn-client.ovpn
 
-       sudo nano /rw/config/vpn/openvpn-client.ovpn
+   Files referenced in `openvpn-client.ovpn` should not use absolute paths such as `/etc/...`.
+
+   The config should route all traffic through your VPN's interface after a connection is created; For OpenVPN the directive for this is `redirect-gateway def1`.
 
    Make sure it already includes or add:
 
        redirect-gateway def1
 
-   The VPN client may not be able to prompt you for credentials when connecting to the server.
-   Create a file in the `/rw/config/vpn` folder with your credentials and using a directive.
-   For example for OpenVPN, add:
+   The VPN client may not be able to prompt you for credentials when connecting to the server, so we'll add a reference to a file containing the VPN username and password.
+   For example for OpenVPN, add or modify `auth-user-pass` like so:
 
        auth-user-pass pass.txt
 
-   Save file `/rw/config/vpn/openvpn-client.ovpn`.
-   Make sure a `/rw/config/vpn/pass.txt` file actually exists.
+   Save the `/rw/config/vpn/openvpn-client.ovpn` file.
 
-       sudo nano /rw/config/vpn/pass.txt
+   Now make sure a `/rw/config/vpn/pass.txt` file actually exists.
+
+       sudo gedit /rw/config/vpn/pass.txt
 
    Add:
 
@@ -163,7 +164,7 @@ It has been tested with Fedora 23 and Debian 8 templates.
 
    Watch for status messages that indicate whether the connection is successful and test from another VPN VM terminal window with `ping`.
 
-       ping 8.8.8.8
+       ping 1.1.1.1
 
    `ping` can be aborted by pressing the two keys `ctrl` + `c` at the same time.
    DNS may be tested at this point by replacing addresses in `/etc/resolv.conf` with ones appropriate for your VPN (although this file will not be used when setup is complete).
@@ -172,9 +173,9 @@ It has been tested with Fedora 23 and Debian 8 templates.
 
 3. Create the DNS-handling script.
 
-       sudo nano /rw/config/vpn/qubes-vpn-handler.sh
+       sudo gedit /rw/config/vpn/qubes-vpn-handler.sh
 
-   Edit and add:
+   Add the following:
 
    ~~~
    #!/bin/bash
@@ -221,7 +222,7 @@ It has been tested with Fedora 23 and Debian 8 templates.
 
 4. Configure client to use the DNS handling script. Using openvpn as an example, edit the config.
 
-       sudo nano /rw/config/vpn/openvpn-client.ovpn
+       sudo gedit /rw/config/vpn/openvpn-client.ovpn
 
    Add the following.
 
@@ -236,7 +237,7 @@ It has been tested with Fedora 23 and Debian 8 templates.
 5. Set up iptables anti-leak rules.
    Edit the firewall script.
 
-       sudo nano /rw/config/qubes-firewall-user-script
+       sudo gedit /rw/config/qubes-firewall-user-script
 
    Clear out the existing lines and add:
 
@@ -249,10 +250,9 @@ It has been tested with Fedora 23 and Debian 8 templates.
    ip6tables -I FORWARD -o eth0 -j DROP
    ip6tables -I FORWARD -i eth0 -j DROP
    
-   #    Block all outgoing traffic
-   iptables -P OUTPUT DROP
+   #    Accept traffic to VPN
+   iptables -P OUTPUT ACCEPT
    iptables -F OUTPUT
-   iptables -I OUTPUT -o lo -j ACCEPT
    
    #    Add the `qvpn` group to system, if it doesn't already exist
    if ! grep -q "^qvpn:" /etc/group ; then
@@ -261,6 +261,8 @@ It has been tested with Fedora 23 and Debian 8 templates.
    fi
    sleep 2s
    
+   #    Block non-VPN traffic to clearnet
+   iptables -I OUTPUT -o eth0 -j DROP
    #    Allow traffic from the `qvpn` group to the uplink interface (eth0);
    #    Our VPN client will run with group `qvpn`.
    iptables -I OUTPUT -p all -o eth0 -m owner --gid-owner qvpn -j ACCEPT
@@ -273,7 +275,7 @@ It has been tested with Fedora 23 and Debian 8 templates.
 
 5. Set up the VPN's autostart.
 
-       sudo nano /rw/config/rc.local
+       sudo gedit /rw/config/rc.local
 
    Clear out the existing lines and add:
 
@@ -304,15 +306,7 @@ Configure your AppVMs to use the VPN VM as a NetVM...
 
 ![Settings-NetVM.png](/attachment/wiki/VPN/Settings-NetVM.png)
 
-If you want to be able to use the [Qubes firewall](/doc/firewall), create a new FirewallVM (as a ProxyVM) and set it to use the VPN VM as its NetVM.
-Then, configure AppVMs to use your new FirewallVM as their NetVM.
-
-If you want to update your TemplateVMs through the VPN, enable the `qubes-updates-proxy` service in your new FirewallVM.
-You can do this in the Services tab in Qubes VM Manager or on the command-line:
-
-    qvm-service -e <name> qubes-updates-proxy
-
-Then, configure your templates to use your new FirewallVM as their NetVM.
+If you want to update your TemplateVMs through the VPN, you can enable the `qubes-updates-proxy` service for your new VPN VM and configure the [qubes-rpc policy](https://www.qubes-os.org/doc/software-update-domu/#updates-proxy).
 
 
 Troubleshooting
@@ -320,5 +314,4 @@ Troubleshooting
 
 * Always test your basic VPN connection before adding scripts.
 * Test DNS: Ping a familiar domain name from an appVM. It should print the IP address for the domain.
-* For scripting: Ping external IP addresses from inside the VPN VM using `sudo sg qvpn -c 'ping ...'`, then from an appVM using just `ping ...`. Once the firewall rules are in place, you will have to use `sudo sg` to run any IP network commands in the VPN VM.
 * Use `iptables -L -v` and `iptables -L -v -t nat` to check firewall rules. The latter shows the critical PR-QBS chain that enables DNS forwarding.
