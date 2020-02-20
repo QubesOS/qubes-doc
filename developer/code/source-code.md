@@ -35,13 +35,17 @@ e.g.:
 git clone https://github.com/QubesOS/qubes-core-admin.git core-admin
 ~~~
 
-To clone **all** of our repositories in a single command:
+To build Qubes you do not need to download all these repositories.  
+If you use [qubes builder] you can specify *what* you want to build, and download only the repositories needed to build that target.
+ 
+If you really do want to clone **all** of the repositories, you can use these commands:
 
 ~~~
 curl "https://api.github.com/orgs/QubesOS/repos?page=1&per_page=100" | grep -e 'clone_url*' | cut -d \" -f 4 | xargs -L1 git clone
+curl "https://api.github.com/orgs/QubesOS/repos?page=2&per_page=100" | grep -e 'clone_url*' | cut -d \" -f 4 | xargs -L1 git clone
 ~~~
 
-To update (git fetch) **all** of these repositories in a single command:
+To update (git fetch) **all** of these repositories :
 
 ~~~
 find . -mindepth 1 -maxdepth 1 -type d -exec git -C {} fetch --tags --recurse-submodules=on-demand --all \;
@@ -85,4 +89,4 @@ method you choose, you must [sign your code] before it can be accepted.
 [sign your code]: /doc/code-signing/
 [fork & pull requests]: https://guides.github.com/activities/forking/
 [qubes-devel mailing list]: /support/#qubes-devel
-
+[qubes builder]: /doc/QubesBuilder/
