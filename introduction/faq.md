@@ -278,7 +278,7 @@ Also see: [Should I trust this website?]
 
 ### Why doesn't this website have security feature X?
 
-Although we caution users against [placing undue trust in this website][Should I trust this website?) because we [distrust the infrastructure], we have no objection to enabling website security features when doing so is relatively costless and provides some marginal benefit to website visitors.
+Although we caution users against [placing undue trust in this website][Should I trust this website?] because we [distrust the infrastructure], we have no objection to enabling website security features when doing so is relatively costless and provides some marginal benefit to website visitors.
 So, if feature X isn't enabled, it's most likely for one of three reasons 
 
 1. Our GitHub Pages platform doesn't support it.
