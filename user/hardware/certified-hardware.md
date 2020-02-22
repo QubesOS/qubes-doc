@@ -19,15 +19,29 @@ There are also other hardware models on which we have tested Qubes OS.
 See [Hardware Testing] for details.
 
 
-## Qubes-certified Laptop: Insurgo PrivacyBeast X230
+## Qubes-certified Laptops
 
 Qubes-certified laptops are regularly tested by the Qubes developers to ensure compatibility with all of Qubes' features.
 The developers test all new major versions and updates to ensure that no regressions are introduced.
 
-[![insurgo-privacybeast-x230.png](/attachment/site/insurgo-privacybeast-x230.png)](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/)
+
+### Insurgo PrivacyBeast X230
+
+<a href="https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/">
+<img src="/attachment/site/insurgo-privacybeast-x230.png" alt="Insurgo PrivacyBeast X230" height="450">
+</a>
 
 The [Insurgo PrivacyBeast X230] meets and exceeds our hardware certification requirements.
 Read our [announcement][privacybeast announcement] of the certification for further details!
+
+
+### NitroPad X230
+
+<a href="https://shop.nitrokey.com/shop/product/nitropad-x230-67">
+<img src="/attachment/site/nitropad-x230.png" alt="NitroPad X230" height="450">
+</a>
+
+The [NitroPad X230] satisfies all hardware certification requirements, offering users extensive hardware security options.
 
 
 ## Become Hardware Certified
@@ -107,3 +121,5 @@ If you are interested in having your hardware certified, please [contact us].
 [audio_modem]: https://github.com/romanz/amodem/
 [Insurgo PrivacyBeast X230]: https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/
 [privacybeast announcement]: /news/2019/07/18/insurgo-privacybeast-qubes-certification/
+[NitroPad X230]: https://shop.nitrokey.com/shop/product/nitropad-x230-67
+
