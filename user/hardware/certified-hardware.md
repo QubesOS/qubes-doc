@@ -27,7 +27,9 @@ The developers test all new major versions and updates to ensure that no regress
 
 ### Insurgo PrivacyBeast X230
 
-[![insurgo-privacybeast-x230.png](/attachment/site/insurgo-privacybeast-x230.png)][Insurgo PrivacyBeast X230]
+<a href="https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/">
+<img src="/attachment/site/insurgo-privacybeast-x230.png" alt="Insurgo PrivacyBeast X230" height="450">
+</a>
 
 The [Insurgo PrivacyBeast X230] meets and exceeds our hardware certification requirements.
 Read our [announcement][privacybeast announcement] of the certification for further details!
@@ -35,7 +37,9 @@ Read our [announcement][privacybeast announcement] of the certification for furt
 
 ### NitroPad X230
 
-[![nitropad-x230.png](/attachment/site/nitropad-x230.png)][NitroPad X230]
+<a href="https://shop.nitrokey.com/shop/product/nitropad-x230-67">
+<img src="/attachment/site/nitropad-x230.png" alt="NitroPad X230" height="450">
+</a>
 
 The [NitroPad X230] satisfies all hardware certification requirements, offering users extensive hardware security options.
 
