@@ -16,17 +16,17 @@ Building Qubes OS ISO
 Build Environment
 -----------------
 
-Fedora 29 has been successfully used to build Qubes R4.0 with the below steps.
+Fedora 30 has been successfully used to build Qubes R4.0 with the below steps.
 Other rpm-based operating systems may also work.
 Travis-CI uses Ubuntu 14.04 to perform test builds, except it can not test the `./setup` script.
 
-In `dom0`, install the Fedora 29 template if you don't already have it.
+In `dom0`, install the Fedora 30 template if you don't already have it.
 
 ~~~
-sudo qubes-dom0-update qubes-template-fedora-29
+sudo qubes-dom0-update qubes-template-fedora-30
 ~~~
 
-Create a standalone AppVM from the Fedora 29 template.
+Create a standalone AppVM from the Fedora 30 template.
 Set private storage to at least 60 GB if you will be building only the default templates; 100 GB or more if you plan on additional.
 It's not required, but if you allocate additional CPU cores, the build process can utilize them at some steps such as the kernel build.
 Likewise, more memory (up to 16 GB) can help.
@@ -83,7 +83,7 @@ cd ~/qubes-builder
 # Stable
 # Select Current (if you want the option to use pre-built packages)
 # No (we want a full build)
-# Select fc29 and stretch (for the currently shipping templates)
+# Select fc30 and buster (for the currently shipping templates)
 # Select builder-rpm, builder-debian, template-whonix, mgmt-salt
 # Yes (to download)
 ~~~
@@ -93,7 +93,7 @@ Once it completes downloading, re-run `setup` to add the Whonix templates:
 ~~~
 ./setup
 # Choose the same options as above, except at templates select:
-# fc29, stretch, whonix-gateway-14, whonix-workstation-14
+# fc30, buster, whonix-gateway-14, whonix-workstation-14
 # If prompted, choose Yes to add adrelanos's third party key
 ~~~
 
