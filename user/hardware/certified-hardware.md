@@ -35,7 +35,7 @@ Read our [announcement][privacybeast announcement] of the certification for furt
 
 ### NitroPad X230
 
-[![nitropad-x230.png](/attachment/site/nitropad-x230.png)][NitroPad X230]
+[![nitropad-x230.jpg](/attachment/site/nitropad-x230.jpg)][NitroPad X230]
 
 The [NitroPad X230] satisfies all hardware certification requirements, offering users extensive hardware security options.
 
