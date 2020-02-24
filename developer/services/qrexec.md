@@ -257,10 +257,10 @@ echo $(($arg1+$arg2)) # print to stdout, which is passed to the RPC client
 We'll need to create a service called `test.Add` with its own definition and policy file in dom0.
 Now we need to define what the service does.
 In this case, it should call our addition script.
-We define the service with another one-line file, `/etc/qubes-rpc/test.Add`:
+We define the service with a symlink at `/etc/qubes-rpc/test.Add` pointing to our server script (the script can be also placed directly in `/etc/qubes-rpc/test.Add` - make sure the file has executable bit set!):
 
 ```
-/usr/bin/our_test_add_server
+ln -s /usr/bin/our_test_add_server /etc/qubes-rpc/test.Add
 ```
 
 The administrative domain will direct traffic based on the current RPC policies.
@@ -307,6 +307,7 @@ fi
 cat "/home/user/$argument"
 ```
 
+Make sure the file is executable!
 (The service argument is already sanitized by qrexec framework.
 It is guaranteed to not contain any spaces or slashes, so there should be no need for additional path sanitization.)
 
