@@ -62,9 +62,9 @@ sudo xl console <VMname>
 
 ### Tips
 
-#### Disable auditd messages
+#### Disable audited messages
 
-To disable auditd messages, you need to edit your VM kernel parameters:
+To disable audited messages, you need to edit your VM kernel parameters:
 
 ```sh
 previous_kernel_parameters=$(qvm-prefs --get <VMname> kernelopts) # Get current kernel parameters
