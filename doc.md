@@ -169,6 +169,7 @@ Core documentation for Qubes developers and advanced users.
  * [Dom0 secure update mechanism](/doc/dom0-secure-updates/)
  * [Qrexec: secure communication across domains](/doc/qrexec/)
  * [Qrexec: Qubes RPC internals](/doc/qrexec-internals/)
+ * [Qrexec: Socket-based services](/doc/qrexec-socket-services/)
 
 ### Debugging
 
