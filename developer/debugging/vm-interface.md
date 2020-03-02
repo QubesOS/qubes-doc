@@ -205,6 +205,12 @@ Other Qrexec services installed by default:
       `qubes.VMExec+ls+--a+-2Fhome-2Fuser`
 - `qubes.VMExecGUI` - a variant of `qubes.VMExec` that waits for full VM
   startup first
+  
+Services called in GuiVM:
+
+- `policy.Ask`, `policy.Notify` - confirmation prompt and notifications for
+Qubes RPC calls, see [qrexec-policy implementation](/doc/qrexec-internals/#qrexec-policy-implementation)
+for a detailed description.
 
 Currently Qubes still calls few tools in VM directly, not using service
 abstraction. This will change in the future. Those tools are:
