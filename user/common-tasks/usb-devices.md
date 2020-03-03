@@ -93,7 +93,7 @@ If you've later decided to create a usb-qube, please follow [this guide][USB-qub
 
 ### Installation Of `qubes-usb-proxy` ###
 
-To use this feature, the[`qubes-usb-proxy`][qubes-usb-proxy] package needs to be installed in the templates used for the USB qube and qubes you want to connect USB devices to.
+To use this feature, the `qubes-usb-proxy` package needs to be installed in the templates used for the USB qube and qubes you want to connect USB devices to.
 This section exists for reference or in case something broke and you need to reinstall `qubes-usb-proxy`.
 Under normal conditions, `qubes-usb-proxy` should already be installed and good to go.
 
