@@ -42,10 +42,10 @@ We build and release updates for these templates.
 We guarantee that the binary updates are compiled from exactly the same source code as we publish.
 
  * [Fedora] (default)
- * Fedora [Minimal]
- * Fedora [Xfce]
+ * [Fedora Minimal]
+ * [Fedora Xfce]
  * [Debian]
- * Debian [Minimal]
+ * [Debian Minimal]
 
 ## Community
 
@@ -61,7 +61,7 @@ In addition, these templates may be somewhat less stable, since the Qubes develo
  * [Ubuntu]
  * [Arch Linux]
  * [CentOS]
- * CentOS [Minimal]
+ * [CentOS Minimal]
 
 ## Installing
 
@@ -158,7 +158,7 @@ No changes in any other directories in TemplateBasedVMs persist in this manner. 
 
 (1) Upon creation  
 (2) Following shutdown  
-(3) Including [DisposableVM Template]s
+(3) Including any [DisposableVM Template]
 
 
 ### Trusting your TemplateVMs
@@ -242,13 +242,15 @@ Note the word "clean" means in this context: the same as their template filesyst
 [TemplateVMs]: /doc/glossary/#templatevm
 [TemplateBasedVMs]: /doc/glossary/#templatebasedvm
 [Fedora]: /doc/templates/fedora/
-[Minimal]: /doc/templates/minimal/
-[Xfce]: /doc/templates/fedora-xfce
+[Fedora Minimal]: /doc/templates/minimal/
+[Fedora Xfce]: /doc/templates/fedora-xfce
 [Debian]: /doc/templates/debian/
+[Debian Minimal]: /doc/templates/minimal/
 [Whonix]: /doc/templates/whonix/
 [Ubuntu]: /doc/templates/ubuntu/
 [Arch Linux]: /doc/building-archlinux-template/
 [CentOS]: /doc/templates/centos/
+[CentOS Minimal]: /doc/templates/minimal/
 [Qubes Builder]: /doc/qubes-builder/
 [TemplateVM Implementation]: /doc/template-implementation/
 [How to Remove VMs Manually]: /doc/remove-vm-manually/
