@@ -13,8 +13,8 @@ This allows Qubes RPC requests to be handled by a server running in a VM and lis
 
 ## How it works
 
-When a Qubes RPC service is invoked, such as `qubes.Service+arg`, qrexec searches for a file that handles it in the qubes-rpc directories
-(`qubes.Service+arg` or `qubes.Service`, in either `/etc/qubes-rpc` or `/usr/local/etc/qubes-rpc` directory).
+When a Qubes RPC service is invoked,
+qrexec searches for a file that handles it in the qubes-rpc directories (`/etc/qubes-rpc` or `/usr/local/etc/qubes-rpc`).
 If the file is a Unix socket, qrexec will try to connect to it.
 
 Before passing user input, the socket service will receive a null-terminated service descriptor, i.e. the part after `QUBESRPC`.
@@ -128,7 +128,7 @@ sudo ln -s /var/run/qubes/policy-agent.sock /etc/qubes-rpc/policy.Ask
 
 ### Python server with socket activation
 
-Socket activation in systemd works by starting our program with the socket file already bound at a specific FD.
+Socket activation in systemd works by starting our program with the socket file already bound at a specific file descriptor.
 It's a simple mechanism based on a few environment variables, but the canonical way is to use the `sd_listen_fds()` function from systemd library (or, in our case, its Python version).
 
 Install the Python systemd library:
