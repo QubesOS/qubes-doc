@@ -61,7 +61,7 @@ A list of VMs appears, one showing the eject symbol: ![eject icon]
 ### Attaching a Device to Several VMs ###
 
 Only `mic` should be attached to more than one running VM.
-You may *assign* a device to more than one VM (using the [`--persistent`][#attaching-devices] option), however, only one of them can be started at the same time.
+You may *assign* a device to more than one VM (using the `--persistent` option), however, only one of them can be started at the same time.
 
 But be careful: There is a [bug in `qvm-device block` or `qvm-block`][i4692] which will allow you to *attach* a block device to two running VMs.
 Don't do that!
