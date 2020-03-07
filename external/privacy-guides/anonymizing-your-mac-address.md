@@ -86,8 +86,9 @@ set -e -o pipefail
 # Set a random hostname for a VM session.
 #
 # Instructions:
-# 1. This file must be placed and made executable as the file /etc/network/if-pre-up.d/00_hostname (owner: root) inside the template VM of your
-#  network VM.
+# 1. This file must be placed and made executable (owner: root) inside the template VM of your network VM such that it will be run before your hostname is sent over a network.
+# In a Fedora template, use `/etc/NetworkManager/dispatcher.d/pre-up.d/00_hostname`.
+# In a Debian template, use `/etc/network/if-pre-up.d/00_hostname`.
 # 2. Execute `sudo touch /etc/hosts.lock` inside the template VM of your network VM.
 # 3. Execute inside your network VM:
 #  `sudo bash -c 'mkdir -p /rw/config/protected-files.d/ && echo -e "/etc/hosts\n/etc/hostname" > /rw/config/protected-files.d/protect_hostname.txt'`
