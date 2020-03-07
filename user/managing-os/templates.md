@@ -158,7 +158,7 @@ No changes in any other directories in TemplateBasedVMs persist in this manner. 
 
 (1) Upon creation  
 (2) Following shutdown  
-(3) Including any [DisposableVM Template]
+(3) Including any [DisposableVM Templates]
 
 
 ### Trusting your TemplateVMs
@@ -255,6 +255,7 @@ Note the word "clean" means in this context: the same as their template filesyst
 [TemplateVM Implementation]: /doc/template-implementation/
 [How to Remove VMs Manually]: /doc/remove-vm-manually/
 [DisposableVM Template]: /doc/glossary/#disposablevm-template
+[DisposableVM Templates]: /doc/glossary/#disposablevm-template
 [Updating Qubes OS]: /doc/updating-qubes-os/
 [Disk Trim]: /doc/disk-trim
 [Inheritance and Persistence]: #inheritance-and-persistence
