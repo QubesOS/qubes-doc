@@ -124,13 +124,11 @@ Before proceeding, you will need to download a copy of your VPN provider's confi
        sudo mkdir /rw/config/vpn
 
    Copy your VPN configuration files to `/rw/config/vpn`.
-   Your VPN config file should be named `openvpn-client.ovpn` so you can use the scripts below as is without modification. Otherwise you would have to replace the file name. Files accompanying the main config such as `*.crt` and `*.pem` should also be placed in the `/rw/config/vpn` folder.
+   Your VPN config file should be named `openvpn-client.ovpn` so you can use the scripts below as is without modification. Otherwise you would have to replace the file name. Files accompanying the main config, such as `*.crt` and `*.pem`, should also be placed in the `/rw/config/vpn` folder. Make sure to check that these accompanying files are not referenced by absolute paths such as `/etc/...` inside `openvpn-client.ovpn`.
 
    Check or modify configuration file contents using a text editor:
 
        sudo gedit /rw/config/vpn/openvpn-client.ovpn
-
-   Files referenced in `openvpn-client.ovpn` should not use absolute paths such as `/etc/...`.
 
    The config should route all traffic through your VPN's interface after a connection is created; For OpenVPN the directive for this is `redirect-gateway def1`.
 
