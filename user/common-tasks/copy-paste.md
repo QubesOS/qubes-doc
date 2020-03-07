@@ -75,6 +75,8 @@ The copy/paste shortcuts are configurable in:
 /etc/qubes/guid.conf
 ~~~
 
+If you edit a line in this file, you must uncomment it (by removing the initial `#` character), or else it will have no effect.
+
 VMs need to be restarted in order for changes in `/etc/qubes/guid.conf` to take effect.
 
 
