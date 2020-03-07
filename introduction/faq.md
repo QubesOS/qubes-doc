@@ -792,7 +792,7 @@ There is also the unofficial [ansible-qubes toolkit][ansible].
 [USB]: /doc/usb-devices
 [verify the PGP signatures on the commits and/or tags]: /security/verifying-signatures/#how-to-verify-qubes-repos
 [version]: /doc/version-scheme/#check-installed-version
-[website repo]: https://github.com/QubesOS/qubesos.github.io)
+[website repo]: https://github.com/QubesOS/qubesos.github.io
 [why?]: #why-do-you-use-github
 [Xen]: https://www.xenproject.org/
 [XSA Tracker]: /security/xsa/
