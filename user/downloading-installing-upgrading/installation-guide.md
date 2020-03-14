@@ -208,8 +208,8 @@ Go instead to the Software selection tab, where you can choose which software to
 Two Add-Ons are available :
 
 * **Debian template** : Install these templates if you wish to base some of your Qubes virtual machines on Debian instead of Fedora. 
-* **Whonix** : Install Whonix templates if you wish some of your qubes to be based on Whonix. 
-Whonix let you route your entire network traffic trough Tor if you see fit. 
+* **Whonix** : Install Whonix templates if you wish for some of your qubes to be based on Whonix. 
+Whonix lets you route all of your network traffic through Tor if you see fit. 
 For more information about Whonix, have a look at their [website](https://www.whonix.org/). 
 Depending on your threat model, you may need to install Whonix templates right away.
 
@@ -242,7 +242,7 @@ By default, Qubes OS will partition the system itself with LVM on top of LUKS en
 
 As soon as you leave the current window by pressing "Done", Qubes OS will ask you to pick a passphrase to unlock encrypted partition. 
 The passphrase should be complex. Keep it in a safe place. 
-Make sure that your keyboard layout reflects what keyboard you are actually using and click on "Done" to start the installation process !
+Make sure that your keyboard layout reflects what keyboard you are actually using and click on "Done" to start the installation process!
 
 ![Select storage passhprase](/attachment/wiki/InstallationGuide/select-storage-passphrase.png)
 
