@@ -154,54 +154,54 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 
 ### Create and configure the DisposableVM Template on which the DisposableVM will be based
 
-1. Create the DisposableVM Template 
+1. Create the DisposableVM Template:
 
        [user@dom0 ~]$ qvm-create --class AppVM --label gray <DisposableVM-Template-Name>
 
-2. _(optional)_ In the DisposableVM Template, add custom firewall rule sets, Qubes VPN scripts etc
+2. _(optional)_ In the DisposableVM Template, add custom firewall rule sets, Qubes VPN scripts, etc.
 
-    Firewall rules sets and Qubes VPN scripts can be added just like any other VM   
+    Firewall rules sets and Qubes VPN scripts can be added just like any other VM.   
     
-3. Set the DisposableVM Template as template for DisposableVMs
+3. Set the DisposableVM Template as template for DisposableVMs:
 
        [user@dom0 ~]$ qvm-prefs <DisposableVM-Template-Name> template_for_dispvms true
 
 
 ### Create the sys-net DisposableVM
 
-1. Create `sys-net` DisposableVM based on the DisposableVM Template
+1. Create `sys-net` DisposableVM based on the DisposableVM Template:
 
        [user@dom0 ~]$ qvm-create --template <DisposableVM-Template-Name> --class DispVM --label red disp-sys-net
 
-2. Set `disp-sys-net` virtualization mode to [hvm](/doc/hvm/)
+2. Set `disp-sys-net` virtualization mode to [hvm](/doc/hvm/):
 
        [user@dom0 ~]$ qvm-prefs disp-sys-net virt_mode hvm
 
-3. Set `disp-sys-net` to provide network for other VMs
+3. Set `disp-sys-net` to provide network for other VMs:
 
        [user@dom0 ~]$ qvm-prefs disp-sys-net provides_network true
 
-4. Set `disp-sys-net` NetVM to none
+4. Set `disp-sys-net` NetVM to none:
 
        [user@dom0 ~]$ qvm-prefs disp-sys-net netvm ""
 
-5. List all available PCI devices to determine the correct _backend:BDF_ address(es) to assign to `disp-sys-net`
+5. List all available PCI devices to determine the correct _backend:BDF_ address(es) to assign to `disp-sys-net`:
 
        [user@dom0 ~]$ qvm-pci
 
-6. Attach the network PCI device(s) to `disp-sys-net`: Finding and assigning PCI devices can be found [here](/doc/pci-devices/)
+6. Attach the network PCI device(s) to `disp-sys-net` (finding and assigning PCI devices can be found [here](/doc/pci-devices/):
 
        [user@dom0 ~]$ qvm-pci attach --persistent disp-sys-net <backend>:<bdf>
 
-7. _(recommended)_ Set `disp-sys-net` to start automatically when Qubes boots
+7. _(recommended)_ Set `disp-sys-net` to start automatically when Qubes boots:
 
        [user@dom0 ~]$ qvm-prefs disp-sys-net autostart true
        
-8. _(recommended)_ Disable the `appmenus-dispvm` feature: disp-sys-net is not itself a DisposableVM template. Note: this is only necessary if you enabled the `appmenus-dispvm` feature for the DisposableVM template.
+8. _(recommended)_ Disable the `appmenus-dispvm` feature, as disp-sys-net is not itself a DisposableVM template (Note: this is only necessary if you enabled the `appmenus-dispvm` feature for the DisposableVM template):
 
        [user@dom0 ~]$ qvm-features disp-sys-net appmenus-dispvm ''
      
-9. _(optional)_ Set `disp-sys-net` as the dom0 time source
+9. _(optional)_ Set `disp-sys-net` as the dom0 time source:
 
        [user@dom0 ~]$ qubes-prefs clockvm disp-sys-net
 
@@ -209,68 +209,68 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 
 ### Create the sys-firewall DisposableVM
 
-1. Create `sys-firewall` DisposableVM
+1. Create `sys-firewall` DisposableVM:
 
        [user@dom0 ~]$ qvm-create --template <DisposableVM-Template-Name> --class DispVM --label green disp-sys-firewall
 
-2. Set `disp-sys-firewall` to provide network for other VMs
+2. Set `disp-sys-firewall` to provide network for other VMs:
 
        [user@dom0 ~]$ qvm-prefs disp-sys-firewall provides_network true
 
-3. Set `disp-sys-net` as the NetVM for `disp-sys-firewall`
+3. Set `disp-sys-net` as the NetVM for `disp-sys-firewall`:
 
        [user@dom0 ~]$ qvm-prefs disp-sys-firewall netvm disp-sys-net
 
-4. Set `disp-sys-firewall` as NetVM for other AppVMs
+4. Set `disp-sys-firewall` as NetVM for other AppVMs:
 
        [user@dom0 ~]$ qvm-prefs <vm_name> netvm disp-sys-firewall
 
-5. _(recommended)_ Set `disp-sys-firewall` to auto-start when Qubes boots
+5. _(recommended)_ Set `disp-sys-firewall` to auto-start when Qubes boots:
 
        [user@dom0 ~]$ qvm-prefs disp-sys-firewall autostart true
        
-6. _(recommended)_ Disable the `appmenus-dispvm` feature: disp-sys-firewall is not itself a DisposableVM template. Note: this is only necessary if you enabled the `appmenus-dispvm` feature for the DisposableVM template.
+6. _(recommended)_ Disable the `appmenus-dispvm` feature, as disp-sys-firewall is not itself a DisposableVM template (Note: this is only necessary if you enabled the `appmenus-dispvm` feature for the DisposableVM template):
 
        [user@dom0 ~]$ qvm-features disp-sys-firewall appmenus-dispvm ''
 
-7. _(optional)_ Set `disp-sys-firewall` as the default NetVM
+7. _(optional)_ Set `disp-sys-firewall` as the default NetVM:
 
        [user@dom0 ~]$ qubes-prefs default_netvm disp-sys-firewall
 
 
 ### Create the sys-usb DisposableVM
 
-1. Create the `disp-sys-usb`
+1. Create the `disp-sys-usb`:
 
        [user@dom0 ~]$ qvm-create --template <disposablevm-template-name> --class DispVM --label red disp-sys-usb
 
-2. Set the `disp-sys-usb` virtualization mode to hvm
+2. Set the `disp-sys-usb` virtualization mode to hvm:
 
        [user@dom0 ~]$ qvm-prefs disp-sys-usb virt_mode hvm
 
-3. Set `disp-sys-usb` NetVM to none
+3. Set `disp-sys-usb` NetVM to none:
 
        [user@dom0 ~]$ qvm-prefs disp-sys-usb netvm ""
 
-4. List all available PCI devices
+4. List all available PCI devices:
 
        [user@dom0 ~]$ qvm-pci
 
-5. Attach the USB controller to the `disp-sys-usb`
+5. Attach the USB controller to the `disp-sys-usb`:
   
      >_**Note:**_ Most of the commonly used USB controllers (all Intel integrated controllers) require the `-o no-strict-reset=True` option to be set. Instructions detailing how this option is set can be found [here](/doc/pci-devices/#no-strict-reset).
 
        [user@dom0 ~]$ qvm-pci attach --persistent disp-sys-usb <backined>:<bdf>
     
-6. _(optional)_ Set `disp-sys-usb` to auto-start when Qubes boots
+6. _(optional)_ Set `disp-sys-usb` to auto-start when Qubes boots:
   
        [user@dom0 ~]$ qvm-prefs disp-sys-usb autostart true
        
-7. _(recommended)_ Disable the `appmenus-dispvm` feature: disp-sys-usb is not itself a DisposableVM template. Note: this is only necessary if you enabled the `appmenus-dispvm` feature for the DisposableVM template.
+7. _(recommended)_ Disable the `appmenus-dispvm` feature, as disp-sys-usb is not itself a DisposableVM template (Note: this is only necessary if you enabled the `appmenus-dispvm` feature for the DisposableVM template):
 
        [user@dom0 ~]$ qvm-features disp-sys-usb appmenus-dispvm ''
 
-8. Users should now follow instructions on [How to hide USB controllers from dom0](/doc/usb-qubes/#how-to-hide-all-usb-controllers-from-dom0)
+8. Users should now follow instructions on [How to hide USB controllers from dom0](/doc/usb-qubes/#how-to-hide-all-usb-controllers-from-dom0).
 
 9. At this point, your mouse may not work.
    Edit the `qubes.InputMouse` policy file in dom0, which is located here:
@@ -286,16 +286,16 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 
 Prior to starting the new VMs, users should ensure that no other VMs such as the old `sys-net` and `sys-usb` VMs are running. This is because no two VMs can share the same PCI device while both running. It is recommended that users detach the PCI devices from the old VMs without deleting them. This will allow users to reattach the PCI devices if the newly created DisposableVMs fail to start.  
 
-   Detach PCI device from VM
+   Detach PCI device from VM:
 
     [user@dom0~]$ qvm-pci detach <vm_name> <backend>:<bdf>
 
 
 ### Troubleshooting
 
-The `disp-sys-usb` VM does not start
+The `disp-sys-usb` VM does not start.
 
-If the `disp-sys-usb` does not start, it could be due to a PCI passthrough problem. For more details on this issue along with possible solutions, users can look [here](/doc/pci-devices/#pci-passthrough-issues)
+If the `disp-sys-usb` does not start, it could be due to a PCI passthrough problem. For more details on this issue along with possible solutions, users can look [here](/doc/pci-devices/#pci-passthrough-issues).
 
 
 ## Deleting DisposableVMs
@@ -316,7 +316,7 @@ You can then delete the DisposableVM Template:
     This will completely remove the selected VM(s)
       custom-disposablevm-template
       
-If you still encounter the issue, you may have forgot to clean an entry. Looking at the system logs will help you
+If you still encounter the issue, you may have forgot to clean an entry. Looking at the system logs will help you:
 
     [user@dom0 ~]$ journalctl | tail
 
