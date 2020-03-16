@@ -70,7 +70,7 @@ This is the result after applying the steps described here.
 
         ![result black Qubes Manager](/attachment/wiki/Dark-Theme/kde-black-qubes-manager.png)
 
-**Note:** Changing the `Window Decorations` from `Plastik for Qubes` will remove the border color and the VM name. The problem with `Plastik for Qubes` is, that it does not overwrite the background and text color for Minimize, Maximize and Close buttons. The three button are therefore hard to read.
+**Note:** Changing the `Window Decorations` from `Plastik for Qubes` will remove the border color and the VM name. The problem with `Plastik for Qubes` is that it does not overwrite the background and text color for Minimize, Maximize and Close buttons. The three buttons are therefore hard to read.
 
 Dark XCFE in Dom0
 -----------------
@@ -116,7 +116,7 @@ Using "Gnome-Tweak-Tool"
 
 The advantage of creating a dark themed Template VM is, that each AppVM which is derived from the Template VM will be dark themed by default.
 
-**Note:** Gnome-Tweak-Tool crashes under Archlinux. A workaround is to assign the AppVM to another TemplateVM (Debian, Fedora) which has Gnome-Tweak-Tool installed. Start the AppVM and configure the settings. Shutdown the machine and switch the template VM back to Archlinux.
+**Note:** Gnome-Tweak-Tool crashes under Archlinux. A workaround is to assign the AppVM to another TemplateVM (Debian, Fedora) which has Gnome-Tweak-Tool installed. Start the AppVM and configure the settings. Shutdown the machine and switch the TemplateVM back to Archlinux.
 
 1. Start VM
 
@@ -132,7 +132,7 @@ The advantage of creating a dark themed Template VM is, that each AppVM which is
 
             sudo apt-get install gnome-tweak-tool
 
-3. *(Only AppVM)* Stop template and start AppVM
+3. *(Only AppVM)* Stop TemplateVM and start AppVM
 
 4. Add `Gnome-Tweak-Tool` to the Application Menu
 
@@ -161,7 +161,7 @@ The advantage of creating a dark themed Template VM is, that each AppVM which is
 
             sed -i.bak "s/Exec=firefox %u/Exec=bash -c 'GTK_THEME=Adwaita:light firefox %u'/g" /usr/share/applications/firefox.desktop
 
-7. Restart VM or all application
+7. Restart VM or all applications
 
 Manually
 --------
@@ -179,9 +179,9 @@ Manually works for Debian, Fedora and Archlinux.
         cd gtk-3.0/
         touch settings.ini
 
-    add the following lines to `settings.ini`
+    Add the following lines to `settings.ini`
 
         [Settings]
         gtk-application-prefer-dark-theme=1
 
-3. follow step 6 and 7 in: Using `Gnome-Tweak-Tool`
+3. Follow steps 6 and 7 in: Using `Gnome-Tweak-Tool`
