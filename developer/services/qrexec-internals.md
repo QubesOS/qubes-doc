@@ -43,12 +43,6 @@ Command line usage:
 * `domain-name`: Associated domain name.
 * `default user`: Optional. If passed, `qrexec-daemon` uses this user as default for all execution requests that don't specify one.
 
-### qrexec-policy
-
-`/usr/bin/qrexec-policy`
-
-Internal program used to evaluate the RPC policy and decide whether an RPC call should be allowed.
-
 ### qrexec-client
 
 `/usr/bin/qrexec-client`
@@ -229,3 +223,28 @@ Details of all possible use cases and the messages involved are described below.
   Because the command is of the form `QUBESRPC ...`, `qrexec-fork-server` starts it using `qubes-rpc-multiplexer` program, which finds and executes the necessary script in `/etc/qubes-rpc/`.
 
 - After that, the data is passed between **domX** and **domY** as in the previous examples (dom0-VM, VM-dom0).
+
+## `qrexec-policy` implementation
+
+`qrexec-policy` is a mechanism for evaluating whether an RPC call should be allowed. For introduction, see [Qubes RPC administration](/doc/qrexec/#qubes-rpc-administration).
+
+### `qrexec-policy-daemon`
+
+This is a service running in dom0. It is called by `qrexec-daemon` and is responsible for evaluating the request and possibly launching an action.
+
+The daemon listens on a socket (`/var/run/qubes/policy.sock`). It accepts requests in the format described in [qrexec-policy-daemon.rst](https://github.com/QubesOS/qubes-core-qrexec/blob/master/Documentation/qrexec-policy-daemon.rst) and replies with `result=allow/deny`.
+
+A standalone version is called `qrexec-policy-exec` and is available as a fallback.
+
+### `qrexec-policy-agent`
+
+This is a service running in the GuiVM. It is called by `qrexec-policy-daemon` in order to display prompts and notifications to the user.
+
+It is a [socket-based Qubes RPC service](/doc/qrexec-socket-services/). Requests are in JSON format, and response is simple ASCII.
+
+There are two endpoints:
+
+- `policy.Ask` - ask the user about whether to execute a given action
+- `policy.Notify` - notify the user about about an action.
+
+See [qrexec-policy-agent.rst](https://github.com/QubesOS/qubes-core-qrexec/blob/master/Documentation/qrexec-policy-agent.rst) for protocol details.
