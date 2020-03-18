@@ -19,7 +19,7 @@ could be maliciously modified by the other OS, possibly leading to Qubes
 itself being maliciously modified.
 
 The other problem is firmware security - for example the other system
-could infect BIOS firmware, which might enable compromise or spying on
+could infect the BIOS firmware, which might enable compromise or spying on
 the Qubes system.
 
 You can use [Anti Evil Maid](/doc/anti-evil-maid/), which would inform
@@ -38,7 +38,7 @@ Back up the MBR.
 Back up /boot.  
 If you are really paranoid clone your disc.
 
-Make sure you have install discs to hand for the existing operating system.
+Make sure you have install discs on hand for the existing operating system.
 
 Qubes by default does not include other systems in the generated grub menu, 
 because handling of other systems has been disabled. This means
@@ -47,7 +47,7 @@ that you will have to manually add grub entries for any other OS.
 The general approach is:
 
 * Enable legacy boot mode
-* Ensure current OS boots in legacy mode.  
+* Ensure current OS boots in legacy mode  
 * Install Qubes
 * Manually add boot stanzas to /etc/grub.d/40_custom
 * Update grub
@@ -69,14 +69,14 @@ At this stage you can install Qubes.
 As noted above the default configuration will not add an entry for Windows to
 the grub menu, so you will need to add one.
 
-1. Boot into Qubes.
+1. Boot into Qubes
 
-2. Identify the Windows system partition that has /bootmgr 
+2. Identify the Windows system partition that has /bootmgr: 
 
     In blkid output, the system partition is the one with LABEL='SYSTEM
     RESERVED' or LABEL='SYSTEM' and is only about 100 to 200 MB in size
 
-3. Add this stanza to /etc/grub.d/40_custom,
+3. Add this stanza to /etc/grub.d/40_custom:
 
 ~~~
 menuentry "Windows" {
@@ -182,10 +182,10 @@ If you decided to use a shared /boot and *don't* have backups of your previous
 grub config, it is quite easy to fix this.  
 This example may help.  
 
-* Boot into Qubes.  
+* Boot into Qubes  
 * Back up (at a minimum) /boot/grub2  
-* Identify the partition containing the other OS.  
-* Then mount the other OS and chroot in to it.  
+* Identify the partition containing the other OS 
+* Then mount the other OS and chroot in to it: 
 
 ~~~
 sudo mount /dev/sdX /mnt
@@ -204,9 +204,9 @@ sudo chroot /mnt
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg.new
 ~~~
 
-* Exit out the chroot, and reverse the mounts.  
+* Exit out the chroot, and reverse the mounts
 * Copy the relevant sections from /boot/grub2/grub.cfg.new in to
-/etc/grub.d/40_custom.
+/etc/grub.d/40_custom
 * Update the grub config:
 
 ~~~
