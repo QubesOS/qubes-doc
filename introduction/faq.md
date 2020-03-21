@@ -319,7 +319,7 @@ See [Admin API] and [Core Stack] for more details.
 
 ### What are the system requirements for Qubes OS?
 
-See the [System Requirements]
+See the [System Requirements].
 
 ### Is there a list of hardware that is compatible with Qubes OS?
 
@@ -395,7 +395,7 @@ A [terminal emulator], nowadays often referred to as just a *terminal*, is a pro
 Inside that window, a [shell] is typically running in it.
 A shell provides a [command-line interface] where the user can enter and run [commands].
 
-See introductions on Wikibooks: [here][intro1] [here][intro2] and [here][intro3]
+See introductions on Wikibooks: [here][intro1], [here][intro2] and [here][intro3].
 
 ### Why does my network adapter not work?
 
@@ -541,12 +541,12 @@ For Debian:
 
        $ sudo apt install vlc
 
-3. Use VLC to play your video files
+3. Use VLC to play your video files.
 
 For Fedora:
 
 1. (Recommended) Clone an existing Fedora TemplateVM
-2. [Enable the appropriate RPMFusion repos in the desired Fedora TemplateVM.][Enable RPMFusion].
+2. [Enable the appropriate RPMFusion repos in the desired Fedora TemplateVM][Enable RPMFusion].
 3. Install VLC in that TemplateVM:
 
        $ sudo dnf install vlc
@@ -580,16 +580,16 @@ A fully encrypted drive does not appear in Nautilus.
 
 The workaround is to manually decrypt and mount the drive:
 
-1. attach usb device to qube - it should be attached as /dev/xvdi or similar.
-2. sudo cryptsetup open /dev/xvdi bk --type luks
-3. sudo cryptsetup status /dev/mapper/bk [Shows useful status]
-4. sudo mount /dev/mapper/bk /mnt
+1. Attach usb device to qube - it should be attached as `/dev/xvdi` or similar.
+2. `sudo cryptsetup open /dev/xvdi bk --type luks`
+3. `sudo cryptsetup status /dev/mapper/bk` (Shows useful status info.)
+4. `sudo mount /dev/mapper/bk /mnt`
 
 The decrypted device is now available at `/mnt` - when you have finished using it unmount and close the drive.
 
-1. sudo umount /mnt
-2. sudo cryptsetup close bk --type luks
-3. remove usb from qube
+1. `sudo umount /mnt`
+2. `sudo cryptsetup close bk --type luks`
+3. Remove usb from qube.
 
 ### Windows Update is stuck.
 
