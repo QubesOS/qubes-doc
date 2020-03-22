@@ -284,23 +284,14 @@ Apply the following instruction in a Debian TemplateVM or in a Debian Standalone
 
 Using a distribution kernel package the initramfs and kernel modules should be handled automatically.
 
-Create folder `/boot/grub`.
+Install distribution kernel image, kernel headers and the grub.
 
 ~~~
-sudo mkdir -p /boot/grub
+sudo apt install linux-image-amd64 linux-headers-amd64 grub2 qubes-kernel-vm-support
 ~~~
 
-Install distribution kernel image, kernel headers and the grub configuration generator.
+If you are doing that on a qube based on "Debian Minimal" template, a grub gui will popup during the installation, asking you where you want to install the grub loader. You must select /dev/xvda (check the box using the "Spacebar", and validate your choice with "Enter".)
 
-~~~
-sudo apt install --no-install-recommends linux-image-amd64 linux-headers-amd64 grub2-common qubes-kernel-vm-support
-~~~
-
-Generate the grub configuration file.
-
-~~~
-sudo update-grub
-~~~
 
 You can safely ignore this error message:
 `grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your device.map`
