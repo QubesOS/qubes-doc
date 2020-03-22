@@ -290,7 +290,7 @@ Install distribution kernel image, kernel headers and the grub.
 sudo apt install linux-image-amd64 linux-headers-amd64 grub2 qubes-kernel-vm-support
 ~~~
 
-If you are doing that on a qube based on "Debian Minimal" template, a grub gui will popup during the installation, asking you where you want to install the grub loader. You must select /dev/xvda (check the box using the "Spacebar", and validate your choice with "Enter".)
+If you are doing that on a qube based on "Debian Minimal" template, a grub gui will popup during the installation, asking you where you want to install the grub loader. You must select /dev/xvda (check the box using the space bar, and validate your choice with "Enter".)
 
 
 You can safely ignore this error message:
