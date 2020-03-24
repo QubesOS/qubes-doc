@@ -364,7 +364,7 @@ The output should look like this:
 
 #### Troubleshooting
 
-In case of problems, you can access the VM console using `sudo xl console VMNAME` in dom0, then access the GRUB menu.
+In case of problems, you can access the VM console using `qvm-console-dispvm VMNAME` in dom0, then access the GRUB menu.
 You need to call it just after starting the VM (until `GRUB_TIMEOUT` expires); for example, in a separate dom0 terminal window.
 
 In any case you can later access the VM's logs (especially the VM console log `/var/log/xen/console/guest-VMNAME.log`).
