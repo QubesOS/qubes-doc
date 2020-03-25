@@ -57,7 +57,7 @@ If you can start your VM, but can't launch any applications, then you need to fi
 
 ```sh
 qvm-start <VMname> # Make sure the VM is started
-sudo xl console <VMname>
+qvm-console-dispvm <VMname>
 ```
 
 ### Tips
