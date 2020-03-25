@@ -90,7 +90,7 @@ Below is a complete list of configuration made according to the above statement,
       Patches welcomed anyway.
 
 3.  Empty root password
-    - used for access to 'root' account from text console (xl console) - the only way to access the VM when GUI isn't working
+    - used for access to 'root' account from text console (qvm-console-dispvm) - the only way to access the VM when GUI isn't working
     - can be used for easy 'su -' from user to root
 
 Replacing passwordless root access with Dom0 user prompt
