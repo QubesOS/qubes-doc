@@ -14,7 +14,7 @@ A system that's out of space should be able to boot, but may be unable to load a
 
 ~~~
 qvm-start <VMname>
-sudo xl console <VMname>
+qvm-console-dispvm <VMname>
 ~~~
 
 If this does not work, check the size of /var/lib/qubes/qubes.xml. If it is zero, you'll need to use one of the file backup (stored in /var/lib/qubes/backup), hopefully you have the current data there. Find the most recent one and place in /var/lib/qubes/qubes.xml instead of the empty file.
