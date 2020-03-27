@@ -36,7 +36,7 @@ If you wish to open this tool directly, you can find it in the System Tools area
 
 You can also update TemplateVMs individually.
 In the Qube Manager, select the desired TemplateVM, then click **Update qube**.
-Advanced users can execute the standard update command for that operating system from the command line, e.g., `dnf update` in Fedora and `apt-get update` in Debian.
+Advanced users can execute the standard update command for that operating system from the command line, e.g. `dnf update` in Fedora and `apt-get update` in Debian.
 
 
 ## Testing repositories
@@ -72,7 +72,7 @@ Debian also has three Qubes VM testing repositories (where `*` denotes the Relea
 * `*-securitytesting` -- a subset of `*-testing` that contains packages that qualify as security fixes
 * `*-unstable` -- packages that are not intended to land in the stable repository; mostly experimental debugging packages
 
-To enable or disable any of these repos permanently, uncomment the corresponding `deb` line in `/etc/apt/sources.list.d/qubes-r*.list`
+To enable or disable any of these repos permanently, uncomment the corresponding `deb` line in `/etc/apt/sources.list.d/qubes-r*.list`.
 
 
 ## StandaloneVMs
@@ -172,8 +172,8 @@ Also access to updates proxy is independent of any other firewall settings (VM w
 
 There are two services (`qvm-service`, [service framework]):
 
-1. qubes-updates-proxy (and its deprecated name: qubes-yum-proxy) - a service providing a proxy for templates - by default enabled in NetVMs (especially: sys-net)
-2. updates-proxy-setup (and its deprecated name: yum-proxy-setup) - use a proxy provided by another VM (instead of downloading updates directly), enabled by default in all templates
+1. `qubes-updates-proxy` (and its deprecated name: `qubes-yum-proxy`) - a service providing a proxy for templates - by default enabled in NetVMs (especially: sys-net)
+2. `updates-proxy-setup` (and its deprecated name: `yum-proxy-setup`) - use a proxy provided by another VM (instead of downloading updates directly), enabled by default in all templates
 
 Both the old and new names work.
 The defaults listed above are applied if the service is not explicitly listed in the services tab.
@@ -182,7 +182,7 @@ The defaults listed above are applied if the service is not explicitly listed in
 #### Technical details
 
 The updates proxy uses RPC/qrexec.
-The proxy is configured in qrexec policy on dom0: `/etc/qubes-rpc/policy/qubes.UpdatesProxy`.
+The proxy is configured in qrexec policy in dom0: `/etc/qubes-rpc/policy/qubes.UpdatesProxy`.
 By default this is set to sys-net and/or sys-whonix, depending on firstboot choices.
 This new design allows for templates to be updated even when they are not connected to any NetVM.
 
@@ -202,8 +202,9 @@ Example policy file in R4.0 (with Whonix installed, but not set as default Updat
 
 Snap packages do not use the normal update channels for Debian and Fedora (apt and dnf) and are often installed as the user rather than as root. To support these in an AppVM you need to take the following steps:
 
-1. In the **TemplateVM** you must install snapd and qubes-snapd-helper:
+1. In the **TemplateVM** you must install `snapd` and `qubes-snapd-helper`:
 Open a terminal in TemplateVM and run:
+
 ```shell_session
 [user@fedora-30-snap-demo ~]$ sudo dnf install snapd qubes-snapd-helper
 Last metadata expiration check: 0:55:39 ago on Thu Nov 14 09:26:47 2019.
@@ -238,15 +239,24 @@ Installed:
 [...]                          
 Complete!
 ```
-You may see a message "Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
-/usr/sbin/semodule:  Failed!". This is expected and you can safely continue.
+
+You may see the following message:
+
+```
+Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
+/usr/sbin/semodule:  Failed!
+```
+
+This is expected and you can safely continue.
 
 Shutdown the TemplateVM:
+
 ```shell_session
 [user@fedora-30-snap-demo ~]$ sudo shutdown -h now
 ```
 
 2. Now open the **AppVM** in which you would like to install the Snap application and run a terminal:
+
 ```shell_session
 [user@snap-demo-AppVM ~]$ snap install <package>
 ```
@@ -261,11 +271,13 @@ The refresh will take a few minutes; after it's complete the Snap app will appea
 
 # Autostarting Installed Applications
 
-If you want a desktop app to start automatically every time a qube starts you can create a link to it in the ~/.config/autostart directory of the **AppVM**. This might be useful for Qubes that you set to automatically start on boot or for Qubes that have a set of apps you typically use all day, such as a chat app.
+If you want a desktop app to start automatically every time a qube starts you can create a link to it in the `~/.config/autostart` directory of the **AppVM**. This might be useful for Qubes that you set to automatically start on boot or for Qubes that have a set of apps you typically use all day, such as a chat app.
 
-1. Open a terminal in the **AppVM** where you would like the app to launch
-2. List the names of the available desktop shortcuts by running the command ```ls /usr/share/applications``` and find the exact name of the shortcut to the app you want to autostart:
-```[user@example-AppVM ~]$ ls /usr/share/applications/
+1. Open a terminal in the **AppVM** where you would like the app to launch.
+2. List the names of the available desktop shortcuts by running the command `ls /usr/share/applications` and find the exact name of the shortcut to the app you want to autostart:
+
+```shell_session
+[user@example-AppVM ~]$ ls /usr/share/applications/
 bluetooth-sendto.desktop
 eog.desktop
 firefox.desktop
@@ -273,10 +285,18 @@ firefox.desktop
 xterm.desktop
 yelp.desktop
 ```
+
 3. Create the autostart directory:
-```[user@example-AppVM ~]$ mkdir -p ~/.config/autostart```
+
+```shell_session
+[user@example-AppVM ~]$ mkdir -p ~/.config/autostart
+```
+
 4. Make a link to the desktop app file you'd like to start in the autostart directory. For example, the command below will link the Thunderbird app into the autostart directory:
-```[user@example-AppVM ~]$ ln -s /usr/share/applications/mozilla-thunderbird.desktop ~/.config/autostart/mozilla-thunderbird.desktop```
+
+```
+[user@example-AppVM ~]$ ln -s /usr/share/applications/mozilla-thunderbird.desktop ~/.config/autostart/mozilla-thunderbird.desktop
+```
 
 Note that the app will autostart only when the AppVM starts. If you would like the AppVM to autostart, select the "Start qube automatically on boot" checkbox in the AppVM's Qube Settings.
 
