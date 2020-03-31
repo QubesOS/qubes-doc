@@ -255,11 +255,20 @@ struct msg_window_hints {
   <td>MSG_WINDOW_FLAGS</td>
   <td><pre>
 struct msg_window_flags { 
-      uint32_t flags_set; 
+     uint32_t flags_set;
      uint32_t flags_unset;
 };
 </pre> </td>
  <td>Change window state request; fields contains bitmask which flags request to be set and which unset</td>
+</tr>
+<tr>
+  <td>MSG_CURSOR</td>
+  <td><pre>
+struct msg_cursor {
+     uint32_t cursor;
+};
+</pre> </td>
+ <td>Update cursor pointer for a window. Supported cursor IDs are default cursor (0) and <a href="https://tronche.com/gui/x/xlib/appendix/b/">X Font cursors</a> (with 0x100 bit set).</td>
 </tr>
 </table>
 
