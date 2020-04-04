@@ -164,7 +164,7 @@ On a fresh Enigmail install, your need to change the default `Enigmail Junior Mo
 
 Keybase, a security focused messaging and file-sharing app with GPG integration, can be configured to use Split GPG.
 
-The Keybase service does not preserve/pass the `QUBES_GPG_DOMAIN` environment variable through to underlying GPG processes, so it **must** be configured to use `/usr/bin/qubes-gpg-client-wrapper` (as discussed aboved) rather than `/usr/bin/qubes-gpg-client`.
+The Keybase service does not preserve/pass the `QUBES_GPG_DOMAIN` environment variable through to underlying GPG processes, so it **must** be configured to use `/usr/bin/qubes-gpg-client-wrapper` (as discussed above) rather than `/usr/bin/qubes-gpg-client`.
 
 The following command will configure Keybase to use `/usr/bin/qubes-gpg-client-wrapper` instead of its built-in GPG client:
 
