@@ -202,7 +202,7 @@ Example policy file in R4.0 (with Whonix installed, but not set as default Updat
 
 Snap packages do not use the normal update channels for Debian and Fedora (apt and dnf) and are often installed as the user rather than as root. To support these in an AppVM you need to take the following steps:
 
-1. In the **TemplateVM** you must install `snapd` and `qubes-snapd-helper`. Open a terminal in TemplateVM and run:
+1. In the **TemplateVM** you must install `snapd` and `qubes-snapd-helper`. Open a terminal in the TemplateVM and run:
 
 ```shell_session
 [user@fedora-30-snap-demo ~]$ sudo dnf install snapd qubes-snapd-helper
