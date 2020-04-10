@@ -160,6 +160,20 @@ On a fresh Enigmail install, your need to change the default `Enigmail Junior Mo
 
 ![tb-enigmail-split-gpg-settings-2.png](/attachment/wiki/SplitGpg/tb-enigmail-split-gpg-settings-2.png)
 
+### Using Keybase with Split GPG ###
+
+Keybase, a security focused messaging and file-sharing app with GPG integration, can be configured to use Split GPG.
+
+The Keybase service does not preserve/pass the `QUBES_GPG_DOMAIN` environment variable through to underlying GPG processes, so it **must** be configured to use `/usr/bin/qubes-gpg-client-wrapper` (as discussed above) rather than `/usr/bin/qubes-gpg-client`.
+
+The following command will configure Keybase to use `/usr/bin/qubes-gpg-client-wrapper` instead of its built-in GPG client:
+
+```
+$ keybase config set gpg.command /usr/bin/qubes-gpg-client-wrapper
+```
+
+Now that Keybase is configured to use `qubes-gpg-client-wrapper`, you will be able to use `keybase pgp select` to choose a GPG key from your backend GPG AppVM and link that key to your Keybase identity.
+
 ## Using Git with Split GPG ##
 
 Git can be configured to used with Split GPG, something useful if you would like to contribute to the Qubes OS Project as every commit is required to be signed.
