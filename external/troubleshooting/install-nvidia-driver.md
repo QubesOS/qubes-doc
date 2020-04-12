@@ -24,6 +24,11 @@ If you do happen to get proprietary drivers working on your Qubes system (via in
 [Hardware Compatibility List (HCL)](/doc/hcl/#generating-and-submitting-new-reports )
 Add your computer, graphics card, and installation steps you did to get everything working.
 
+Before continuing, you may wish to try the `kernel-latest` package from the `current` repository. This kernel may better support your card and if so, you would not have to rely on proprietary drivers. This can be installed from dom0 with:
+~~~
+sudo qubes-dom0-update kernel-latest
+~~~
+
 ## RpmFusion packages
 
 There are rpm packages with all necessary software on rpmfusion. The only package you have to compile is the kernel module (but there is a ready built src.rpm package).
