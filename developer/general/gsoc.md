@@ -618,7 +618,7 @@ Details, reference: [#2233](https://github.com/QubesOS/qubes-issues/issues/2233)
 We adapted some of the language here about GSoC from the [KDE GSoC page](https://community.kde.org/GSoC).
 
 [2017-archive]: https://summerofcode.withgoogle.com/archive/2017/organizations/5074771758809088/
-[gsoc-qubes]: https://summerofcode.withgoogle.com/organizations/6239659689508864/
+[gsoc-qubes]: https://summerofcode.withgoogle.com/organizations/4675790572093440/
 [gsoc]: https://summerofcode.withgoogle.com/
 [team]: /team/
 [gsoc-faq]: https://developers.google.com/open-source/gsoc/faq
