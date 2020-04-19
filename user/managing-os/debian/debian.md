@@ -73,14 +73,14 @@ So be very careful when installing software in Templates - if the daemon spawns 
 
 In general, a reasonable approach would be, (using ssh as example):
 - Install the ssh service.
-- systemctl stop ssh
-- systemctl disable ssh
-- systemctl mask ssh
+- `systemctl stop ssh`
+- `systemctl disable ssh`
+- `systemctl mask ssh`
 - Close down template
 
 Now the ssh service will **NOT** start in qubes based on this template.
 
-Where you **DO** want the service to run, put this in /rw/config/rc.local:
+Where you **DO** want the service to run, put this in `/rw/config/rc.local`:
 
     systemctl unmask ssh
     systemctl start ssh
@@ -90,11 +90,11 @@ Don't forget to make the file executable.
 
 ### Unattended Upgrades
 
-Some users have noticed that on upgrading to Stretch, the unattended-upgrade package is installed.
+Some users have noticed that on upgrading to Stretch, the `unattended-upgrade` package is installed.
 
 This package is pulled in as part of a Recommend chain, and can be purged.
 
-The lesson is that you should carefully look at what is being installed to your system, particularly if you run dist-upgrade. 
+The lesson is that you should carefully look at what is being installed to your system, particularly if you run `dist-upgrade`. 
 
 
 ### Package installation errors in Qubes 4.0
