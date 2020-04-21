@@ -54,15 +54,15 @@ However, it makes sense if you want to use a kernel from within the VM.)
 
 ## Creating an HVM
 
-Using the GUI:  
+### Using the GUI:  
 In Qube Manager, select "Create new qube" from the Qube menu, or select the "Create a new qube" button.  
 In the "create new qube" dialog box set Type to "Empty standalone qube (install your own OS)".  
 If "install system from device" is selected (which is by default), then `virt_mode` will be set to `hvm` automatically.
 Otherwise, open the newly created qube's Settings GUI and in the "Advanced" tab select `HVM` in the virtualization mode drop-down list.
 Also, make sure "Kernel" is set to `(none)` on the same tab.
 
-Command line:  
-qubes are template-based by default so you must set the `--class StandaloneVM` option to create a StandaloneVM:
+### Command line:  
+Qubes are template-based by default so you must set the `--class StandaloneVM` option to create a StandaloneVM:
 (name and label color are for illustration purposes).
 ~~~
 qvm-create my-new-vm --class StandaloneVM --property virt_mode=hvm --property kernel='' --label=green
@@ -137,7 +137,7 @@ In order to create a TemplateHVM you use the following command, suitably adapted
 qvm-create --class TemplateVM <qube> --property virt_mode=HVM --property kernel=''  -l green
 ~~~
 
-... , set memory as appropriate, and install the OS into this template in the same way you would install it into a normal HVM -- please see instructions on [this page](/doc/hvm-create/).
+Set memory as appropriate, and install the OS into this template in the same way you would install it into a normal HVM -- please see instructions on [this page](/doc/hvm-create/).
 Generally you should install in to the first "system" disk. (Resize it as needed before starting installation.)
 
 You can then create a new qube using the new template.
@@ -269,7 +269,7 @@ About 60 GB of disk space is required for conversion.
 Use an external harddrive if needed.
 The final root.img size is 40 GB.
 
-In Debian AppVM, install qemu-utils and unzip:
+In Debian AppVM, install `qemu-utils` and `unzip`:
 
 ~~~
 sudo apt install qemu-utils unzip
