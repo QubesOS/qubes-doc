@@ -1,11 +1,11 @@
 ---
 layout: doc
 title: Volume Backup and Revert
-permalink: /doc/volume-management/
+permalink: /doc/volume-backup-revert/
 redirect_from:
-- /en/doc/volume-management/
-- /doc/VolumeManagement/
-- /wiki/VolumeManagement/
+- /en/doc/volume-backup-revert/
+- /doc/VolumeBackupRevert/
+- /wiki/VolumeBackupRevert/
 ---
 
 Qubes Volume Backup and Revert

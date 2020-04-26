@@ -66,7 +66,7 @@ Core documentation for Qubes users.
  * [Installing and Updating Software in Dom0](/doc/software-update-dom0/)
  * [Installing and Updating Software in DomUs](/doc/software-update-domu/)
  * [Backup, Restoration, and Migration](/doc/backup-restore/)
- * [Volume Backup and Revert](/doc/volume-management/)
+ * [Volume Backup and Revert](/doc/volume-backup-revert/)
  * [DisposableVMs](/doc/disposablevm/)
  * [Block (or Storage) Devices](/doc/block-devices/)
  * [USB Devices](/doc/usb-devices)
