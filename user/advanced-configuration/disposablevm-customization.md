@@ -293,8 +293,6 @@ Prior to starting the new VMs, users should ensure that no other VMs such as the
 
 ### Troubleshooting
 
-The `disp-sys-usb` VM does not start.
-
 If the `disp-sys-usb` does not start, it could be due to a PCI passthrough problem. For more details on this issue along with possible solutions, users can look [here](/doc/pci-devices/#pci-passthrough-issues).
 
 
