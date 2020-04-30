@@ -29,7 +29,7 @@ For now you have to choose between cleaning your BIOS and deploying Anti Evil Ma
 Installing
 ----------
 
-In Dom0 install anti-evil-maid:
+In Dom0 install `anti-evil-maid`:
 
 ~~~
 sudo qubes-dom0-update anti-evil-maid
