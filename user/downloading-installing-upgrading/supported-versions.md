@@ -68,7 +68,7 @@ The following table shows the [TemplateVM] versions **available** for each Qubes
 | Release 3.0   | 21, 22\*, 23                 | 7 ("wheezy")\*, 8 ("jessie")                  | None       |
 | Release 3.1   | 21, 22\*, 23                 | 7 ("wheezy")\*, 8 ("jessie"), 9 ("stretch")\* | None       |
 | Release 3.2   | 23\*, 24\*, 25\*, 26, 27, 28 | 8 ("jessie"), 9 ("stretch")                   | 13, 14     |
-| Release 4.0   | 26, 27, 28, 29, 30           | 8 ("jessie"), 9 ("stretch"), 10 ("buster")    | 13, 14, 15 |
+| Release 4.0   | 26, 27, 28, 29, 30, 31       | 8 ("jessie"), 9 ("stretch"), 10 ("buster")    | 13, 14, 15 |
 | Release 4.1   | 26, 27, 28, 29, 30, 31       | 8 ("jessie"), 9 ("stretch"), 10 ("buster")    | 13, 14, 15 |
 
 \* Denotes versions for which we have published the packages but have not done
@@ -97,6 +97,7 @@ Qubes support for each [Fedora] TemplateVM ends when that Fedora release reaches
 | Fedora 28     | Unsupported |
 | Fedora 29     | Unsupported |
 | Fedora 30     | Supported   |
+| Fedora 31     | Supported   |
 
 
 ### Debian
