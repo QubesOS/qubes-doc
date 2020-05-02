@@ -26,7 +26,7 @@ What is Qubes OS?
       </div>
       <div class="col-lg-9 col-md-9">
         <h3 class="text-center add-bottom">Qubes OS Overview Example</h3>
-        <img src="/attachment/site/qubesosdiagram.png" height="600" class="center-block">
+        <img src="/attachment/site/qubesosdiagram.png" class="center-block">
       </div>
   </div>
 
