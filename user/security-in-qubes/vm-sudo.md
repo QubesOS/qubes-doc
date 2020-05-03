@@ -61,7 +61,7 @@ Background ([/etc/sudoers.d/qubes](https://github.com/QubesOS/qubes-core-agent-l
 
 Below is a complete list of configuration made according to the above statement, with (not necessary complete) list of mechanisms depending on each of them:
 
-1.  sudo (/etc/sudoers.d/qubes):
+1.  sudo (`/etc/sudoers.d/qubes`):
 
         user ALL=(ALL) NOPASSWD: ALL
         (...)
@@ -69,12 +69,12 @@ Below is a complete list of configuration made according to the above statement,
     - easy user->root access (main option for the user)
     - qvm-usb (not really working, as of R2)
 
-2.  PolicyKit (/etc/polkit-1/rules.d/00-qubes-allow-all.rules):
+2.  PolicyKit (`/etc/polkit-1/rules.d/00-qubes-allow-all.rules`):
 
         //allow any action, detailed reasoning in sudoers.d/qubes
         polkit.addRule(function(action,subject) { return polkit.Result.YES; });
 
-    and /etc/polkit-1/localauthority/50-local.d/qubes-allow-all.pkla:
+    and `/etc/polkit-1/localauthority/50-local.d/qubes-allow-all.pkla`:
 
         [Qubes allow all]
         Identity=*
@@ -90,7 +90,7 @@ Below is a complete list of configuration made according to the above statement,
       Patches welcomed anyway.
 
 3.  Empty root password
-    - used for access to 'root' account from text console (qvm-console-dispvm) - the only way to access the VM when GUI isn't working
+    - used for access to 'root' account from text console (`qvm-console-dispvm`) - the only way to access the VM when GUI isn't working
     - can be used for easy 'su -' from user to root
 
 Replacing passwordless root access with Dom0 user prompt
@@ -111,14 +111,14 @@ Do not rely on this for extra security.**
    (Note: any VMs you would like still to have passwordless root access (e.g. TemplateVMs) can be specified in the second file with "\<vmname\> dom0 allow")
 
 2. Configuring Fedora TemplateVM to prompt Dom0 for any authorization request:
-    - In /etc/pam.d/system-auth, replace all lines beginning with "auth" with these lines:
+    - In `/etc/pam.d/system-auth`, replace all lines beginning with "auth" with these lines:
 
           auth  [success=1 default=ignore]  pam_exec.so seteuid /usr/lib/qubes/qrexec-client-vm dom0 qubes.VMAuth /bin/grep -q ^1$
           auth  requisite  pam_deny.so
           auth  required   pam_permit.so
 
     - Require authentication for sudo.
-      Replace the first line of /etc/sudoers.d/qubes with:
+      Replace the first line of `/etc/sudoers.d/qubes` with:
 
           user ALL=(ALL) ALL
 
@@ -128,14 +128,14 @@ Do not rely on this for extra security.**
           [root@fedora-20-x64]# rm /etc/polkit-1/localauthority/50-local.d/qubes-allow-all.pkla
 
 3. Configuring Debian/Whonix TemplateVM to prompt Dom0 for any authorization request:
-    - In /etc/pam.d/common-auth, replace all lines beginning with "auth" with these lines:
+    - In `/etc/pam.d/common-auth`, replace all lines beginning with "auth" with these lines:
 
           auth  [success=1 default=ignore]  pam_exec.so seteuid /usr/lib/qubes/qrexec-client-vm dom0 qubes.VMAuth /bin/grep -q ^1$
           auth  requisite  pam_deny.so
           auth  required   pam_permit.so
 
     - Require authentication for sudo.
-      Replace the first line of /etc/sudoers.d/qubes with:
+      Replace the first line of `/etc/sudoers.d/qubes` with:
 
           user ALL=(ALL) ALL
 
@@ -144,11 +144,11 @@ Do not rely on this for extra security.**
           [root@debian-8]# rm /etc/polkit-1/rules.d/00-qubes-allow-all.rules
           [root@debian-8]# rm /etc/polkit-1/localauthority/50-local.d/qubes-allow-all.pkla
 
-    - In /etc/pam.d/su.qubes, comment out this line near the bottom of the file:
+    - In `/etc/pam.d/su.qubes`, comment out this line near the bottom of the file:
 
           auth sufficient pam_permit.so
 
-    - For Whonix, if prompts appear during boot, create /etc/sudoers.d/zz99 and add these lines:
+    - For Whonix, if prompts appear during boot, create `/etc/sudoers.d/zz99` and add these lines:
 
           ALL ALL=NOPASSWD: /usr/sbin/virt-what
           ALL ALL=NOPASSWD: /usr/sbin/service whonixcheck restart
