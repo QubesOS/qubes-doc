@@ -66,8 +66,8 @@ Below is a complete list of configuration made according to the above statement,
         user ALL=(ALL) NOPASSWD: ALL
         (...)
 
-    - easy user->root access (main option for the user)
-    - qvm-usb (not really working, as of R2)
+    - Easy user -> root access (main option for the user).
+    - `qvm-usb` (not really working, as of R2).
 
 2.  PolicyKit (`/etc/polkit-1/rules.d/00-qubes-allow-all.rules`):
 
@@ -83,15 +83,15 @@ Below is a complete list of configuration made according to the above statement,
         ResultInactive=yes
         ResultActive=yes
 
-    - NetworkManager configuration from normal user (nm-applet)
-    - updates installation (gpk-update-viewer)
-    - user can use pkexec just like sudo Note: above is needed mostly because Qubes user GUI session isn't treated by PolicyKit/logind as "local" session because of the way in which X server and session is started.
+    - NetworkManager configuration from normal user (`nm-applet`).
+    - Updates installation (`gpk-update-viewer`).
+    - User can use pkexec just like sudo Note: above is needed mostly because Qubes user GUI session isn't treated by PolicyKit/logind as "local" session because of the way in which X server and session is started.
       Perhaps we will address this issue in the future, but this is really low priority.
       Patches welcomed anyway.
 
-3.  Empty root password
-    - used for access to 'root' account from text console (`qvm-console-dispvm`) - the only way to access the VM when GUI isn't working
-    - can be used for easy 'su -' from user to root
+3.  Empty root password:
+    - Used for access to 'root' account from text console (`qvm-console-dispvm`) - the only way to access the VM when GUI isn't working.
+    - Can be used for easy 'su -' from user to root.
 
 Replacing passwordless root access with Dom0 user prompt
 --------------------------------------------------------
