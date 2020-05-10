@@ -106,6 +106,10 @@ set crypt_replysignencrypted=yes
 # automatically verify the sign of a message when opened
 set crypt_verify_sig=yes
 
+# disable use of gpgme, which interferes with Split-GPG
+# and defaults to 'yes' on Debian 9 and higher
+set crypt_use_gpgme=no
+
 send-hook "~A" set pgp_autoinline=no crypt_autoencrypt=no
 send-hook "~t @invisiblethingslab\.com" set crypt_autoencrypt=yes
 
