@@ -66,24 +66,6 @@ Here's a suggested template for adding project ideas:
 
 **Mentor**: [Marek Marczykowski-Górecki][team]
 
-### Improve Getting Started page
-
-**Project**: Improve Getting Started page
-
-**Brief explanation**: The [Getting Started page](https://www.qubes-os.org/getting-started/) is the place a new user would go to understand better how to use Qubes. It is currently has old screenshots not using the default desktop environment and could have much better flow. In addition, this improved page content may end up being served more directly to the user via the [offline documentation](#offline-documentation) or the [firstboot guide](#create-guide-on-firstboot-for-new-users). 
-
-**Expected results**: 
-
- - Review the existing page and website, similar pages for other OSes
- - Provide visual mock-ups and proposed text 
-
-**Knowledge prerequisite**: 
-
-- basic Qubes OS knowledge
-- [Markdown][markdown]
-
-**Mentor**: [Michael Carbone][team]
-
 ### Improve Disposable VMs documentation
 
 **Project**: Improve Disposable VMs documentation
@@ -102,27 +84,6 @@ Additionally, terminology is used inconsistently.
 **Knowledge prerequisite**:
 
 - basic Qubes OS knowledge - [intro], [getting started]
-- [Markdown][markdown]
-
-**Mentor**: [Marek Marczykowski-Górecki][team]
-
-### Rewrite qrexec documentation
-
-**Project**: Rewrite qrexec documentation
-
-**Brief explanation**: Current qrexec (qubes remote exec) documentation is hard to follow, important informations are hidden within a wall of text.
-Some parts are split into multiple sections, for example version specific to avoid duplication, but it doesn't help reading it.
-Additionally, protocol documentation describes only few specific use cases, instead of being clear and precise protocol specification.
-Fixing this last point may require very close cooperation with developers, as the current documentation doesn't multiple corner cases (that's one of the issue with its current shape).
-
-**Expected results**:
-
-- Review existing [qrexec documentation](https://www.qubes-os.org/doc/qrexec3/) and an [issue about it](https://github.com/QubesOS/qubes-issues/issues/1392)
-- Propose updated, consolidated admin documentation (policy writing, adding services)
-- Propose consolidated protocol specification, based on the current documentation, and cooperation with developers
-
-**Knowledge prerequisite**:
-
 - [Markdown][markdown]
 
 **Mentor**: [Marek Marczykowski-Górecki][team]
