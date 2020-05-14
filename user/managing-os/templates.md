@@ -139,7 +139,7 @@ When you install a new template or upgrade a clone of a template, it is recommen
 
 4. Updating the template for sys-usb if peripheral devices are dependent upon the VM
     
-    If you are running Qubes on a desktop or other device where the peripheral devices such as keyboard / mouse / trackpad are dependant upon the sys-usb appVM then updating the template is a challenge. In this situation, you can use the following commands in a dom0 terminal window to update the templateVM.
+    If you are running Qubes on a desktop or other device where the peripheral devices such as keyboard / mouse / trackpad are dependent upon the sys-usb appVM then updating the template is a challenge. In this situation, you can use the following commands in a dom0 terminal window to update the templateVM.
     
         $ qvm-shutdown --wait sys-usb; qvm-prefs sys-usb template fedora-31; qvm-start sys-usb 
     
