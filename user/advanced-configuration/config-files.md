@@ -15,12 +15,12 @@ Configuration Files
 Qubes-specific VM config files
 ------------------------------
 
-These files are placed in /rw, which survives a VM restart.
+These files are placed in `/rw`, which survives a VM restart.
 That way, they can be used to customize a single VM instead of all VMs based on the same template. 
 The scripts here all run as root.
 
 -   `/rw/config/rc.local` - script runs at VM startup.
-    Good place to change some service settings, replace config files with its copy stored in /rw/config, etc.
+    Good place to change some service settings, replace config files with its copy stored in `/rw/config`, etc.
     Example usage:
 
     ~~~
@@ -72,7 +72,7 @@ The scripts here all run as root.
 
   will be executed with arguments `online vif12.0 vif 10.137.0.100` when starting `work`. Please note that in case of HVM, the script will be called twice - once with vif_type `vif`, then with vif_type `vif_ioemu` (and different interface names). As long as the ioemu interface exists, it should be preferred (up to the hook script). When VM decide to use PV interface (vif_type `vif`), the ioemu one will be unplugged.
 
-Note that scripts need to be executable (chmod +x) to be used.
+Note that scripts need to be executable (`chmod +x`) to be used.
 
 Also, take a look at [bind-dirs](/doc/bind-dirs) for instructions on how to easily modify arbitrary system files in an AppVM and have those changes persist.
 
@@ -80,7 +80,7 @@ Also, take a look at [bind-dirs](/doc/bind-dirs) for instructions on how to easi
 GUI and audio configuration in dom0
 -----------------------------------
 
-The GUI configuration file `/etc/qubes/guid.conf` in one of a few not managed by qubes-prefs or the Qubes Manager tool.
+The GUI configuration file `/etc/qubes/guid.conf` in one of a few not managed by `qubes-prefs` or the Qubes Manager tool.
 Sample config (included in default installation):
 
 ~~~
