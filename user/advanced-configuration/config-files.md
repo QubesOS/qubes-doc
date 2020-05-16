@@ -37,7 +37,7 @@ The scripts here all run as root.
 -   `/rw/config/qubes-ip-change-hook` - script runs in NetVM after every external IP change and on "hardware" link status change.
 
 -   In ProxyVMs (or AppVMs with `qubes-firewall` service enabled), scripts placed in the following directories will be executed in the listed order followed by `qubes-firewall-user-script` after each firewall update.
-    Good place to write own custom firewall rules.
+    Good place to write custom firewall rules.
 
     ~~~
     /etc/qubes/qubes-firewall.d
@@ -49,7 +49,7 @@ The scripts here all run as root.
     The file is used only in a VM with PCI devices attached.
     Intended for use with problematic device drivers.
 
-- In NetVMs/ProxyVMs, scripts placed in `/rw/config/network-hooks.d` will be ran when configuring Qubes interfaces. For each script, the `command`, `vif`, `vif_type` and `ip` is passed as arguments (see `/etc/xen/scripts/vif-route-qubes`). For example, consider an PV AppVM `work` with IP `10.137.0.100` and `sys-firewall` as NetVM. Assuming it's Xen domain id is arbitrary `12` then, the following script located at `/rw/config/network-hooks.d/hook-100.sh` in `sys-firewall`:
+- In NetVMs/ProxyVMs, scripts placed in `/rw/config/network-hooks.d` will be ran when configuring Qubes interfaces. For each script, the `command`, `vif`, `vif_type` and `ip` is passed as arguments (see `/etc/xen/scripts/vif-route-qubes`). For example, consider a PV AppVM `work` with IP `10.137.0.100` and `sys-firewall` as NetVM. Assuming it's Xen domain id is arbitrary `12` then, the following script located at `/rw/config/network-hooks.d/hook-100.sh` in `sys-firewall`:
     ~~~
     #!/bin/bash
 
@@ -70,7 +70,7 @@ The scripts here all run as root.
     fi
     ~~~
 
-  will be executed with arguments `online vif12.0 vif 10.137.0.100` when starting `work`. Please note that in case of HVM, the script will be called twice - once with vif_type `vif`, then with vif_type `vif_ioemu` (and different interface names). As long as the ioemu interface exists, it should be preferred (up to the hook script). When VM decide to use PV interface (vif_type `vif`), the ioemu one will be unplugged.
+  will be executed with arguments `online vif12.0 vif 10.137.0.100` when starting `work`. Please note that in case of an HVM, the script will be called twice - once with vif_type `vif`, then with vif_type `vif_ioemu` (and different interface names). As long as the ioemu interface exists, it should be preferred (up to the hook script). When the VM decides to use a PV interface (vif_type `vif`), the ioemu one will be unplugged.
 
 Note that scripts need to be executable (`chmod +x`) to be used.
 
@@ -140,7 +140,7 @@ Currently supported settings:
       - `tint+whitehack` - same as tint, but change white pixels (0xffffff) to
 		     almost-white (0xfefefe)
 
-- `log level` - log level defines the log options log can take. log level can
-   have a value of 0(only errors), 1(some basic messages), 2(debug).
+- `log level` - defines the log options logs can take. It can
+   have a value of 0 (only errors), 1 (some basic messages), and 2 (debug).
 
 - `startup_timeout` - The timeout for startup.
