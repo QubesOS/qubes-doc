@@ -53,7 +53,7 @@ Here's a suggested template for adding project ideas:
 
 **Project**: Create guide on firstboot for new users
 
-**Brief explanation**: When a user first boots Qubes after installing it, there is an opportunity to introduce the user to some of the unique functionality Qubes has. This could be the same content as the [improved getting started page](#improve-getting-started-page).
+**Brief explanation**: When a user first boots Qubes after installing it, there is an opportunity to introduce the user to some of the unique functionality Qubes has. This could be the same content as the [improved getting started page](https://www.qubes-os.org/getting-started/).
 
 **Expected results**: 
 
