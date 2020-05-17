@@ -26,7 +26,7 @@ Decrypting the Disk
 1. Find the disk to be accessed:
 	1. Open a Linux terminal in either dom0 or the AppVM the disk was passed through to and enter `lsblk`, which will result in an output similar to the following.
 	   In this example, the currently booted Qubes system is installed on `sda` and the qubes system to be accessed is on `nvme0n1p2`.
-	```
+```
 	sda                                                                   8:0    0 111.8G  0 disk
 	├─sda1                                                                8:1    0   200M  0 part  /boot/efi
 	├─sda2                                                                8:2    0     1G  0 part  /boot
@@ -50,8 +50,8 @@ Decrypting the Disk
 	nvme0n1                                                             259:0    0 465.8G  0 disk
 	├─nvme0n1p1                                                         259:1    0     1G  0 part
 	└─nvme0n1p2                                                         259:2    0 464.8G  0 part
+```
 
-	```
 2. Decrypt the disk using the command `cryptsetup luksOpen /dev/<disk>`.
 
 Accessing LVM Logical Volumes
