@@ -147,7 +147,7 @@ Now you see the path and the text between `/pci0000:00/0000:` and `/usb3` i.e. `
 
 For example, On R 4.0 the command would look something like
 
-`qvm-pci attach --persistent personal dom0:00:1a.0`
+`qvm-pci attach --persistent personal dom0:00_1a.0`
 
 
 [device handling in qubes]: /doc/device-handling/
