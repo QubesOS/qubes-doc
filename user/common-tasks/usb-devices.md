@@ -100,7 +100,6 @@ This section exists for reference or in case something broke and you need to rei
 Under normal conditions, `qubes-usb-proxy` should already be installed and good to go.
 
 If you receive this error: `ERROR: qubes-usb-proxy not installed in the VM`, you can install the `qubes-usb-proxy` with the package manager in the VM you want to attach the USB device to.
-`qubes-usb-proxy` should be installed by default in the template VM.
 
 - Fedora: `sudo dnf install qubes-usb-proxy`
 - Debian/Ubuntu: `sudo apt-get install qubes-usb-proxy`
