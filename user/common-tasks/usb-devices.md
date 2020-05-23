@@ -12,6 +12,8 @@ redirect_from:
 
 If you are looking to handle USB *storage* devices (thumbdrives or USB-drives), please have a look at the [block device] page.
 
+**Note:** you cannot pass through devices from dom0 (in other words: a [USB qube][USB-qube howto] is required).
+
 **Important security warning:** USB passthrough comes with many security implications.
 Please make sure you carefully read and understand the **[security considerations]**.
 Whenever possible, attach a [block device] instead.
@@ -98,7 +100,6 @@ This section exists for reference or in case something broke and you need to rei
 Under normal conditions, `qubes-usb-proxy` should already be installed and good to go.
 
 If you receive this error: `ERROR: qubes-usb-proxy not installed in the VM`, you can install the `qubes-usb-proxy` with the package manager in the VM you want to attach the USB device to.
-Note: you cannot pass through devices from dom0 (in other words: a [USB qube][USB-qube howto] is required).
 `qubes-usb-proxy` should be installed by default in the template VM.
 
 - Fedora: `sudo dnf install qubes-usb-proxy`
