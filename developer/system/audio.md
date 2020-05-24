@@ -45,6 +45,7 @@ This is the dom0 (or Audio VM) part of the audio virtualization.
 It is responsible for transferring audio samples between the PulseAudio daemon in dom0/Audio VM (which has access to the actual audio hardware) and a VM playing/recording sounds.
 A separate `pacat-simple-vchan` process runs in dom0 for each VM with audio.
 Each of them opens separate input and output streams to their local PulseAudio, which allows for controlling the volume of each VM separately (using the `pavucontrol` tool, for example).
+In order to (re)create a stream for a VM in dom0, `pacat-simple-vchan` can be used. In order to find the needed parameters, domid and domain name, the command `xl list` can be used.
 
 Audio input to the VM is not sent by default.
 It needs to be both requested by the VM part and explicitly enabled in `pacat-simple-vchan`.
