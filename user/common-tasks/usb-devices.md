@@ -12,7 +12,7 @@ redirect_from:
 
 If you are looking to handle USB *storage* devices (thumbdrives or USB-drives), please have a look at the [block device] page.
 
-**Note:** you cannot pass through devices from dom0 (in other words: a [USB qube][USB-qube howto] is required).
+**Note:** Attaching USB devices to VMs requires a [USB qube][USB-qube howto].
 
 **Important security warning:** USB passthrough comes with many security implications.
 Please make sure you carefully read and understand the **[security considerations]**.
