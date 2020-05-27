@@ -6,10 +6,10 @@ Zoom is a fairly widely-used video conferencing application that runs on a varie
 By running Zoom alone in a Disposable VM, we can improve the safety of using the application. DispVMs ensure that even if a Zoom exploit leads to the entire DispVM being compromised, it is *contained* to the DispVM which is destroyed once you shutdown the Qube or exit Zoom. No persistence, limited attack surface, and zero trust. 
 
 ## Step 0: Clone a TemplateVM
-1. Open `Qubes Manager`.
-2. Right-click on the `debian-10` TemplateVM.
-3. Click `Clone Qube`.
-4. Name the cloned qube `videoconferencing`.
+1. Open `Qubes Manager`
+2. Right-click on the `debian-10` TemplateVM
+3. Click `Clone Qube`
+4. Name the cloned qube `videoconferencing`
 
 *Alternatively:*
 
@@ -28,7 +28,10 @@ By running Zoom alone in a Disposable VM, we can improve the safety of using the
 1. Download Zoom using `wget`:
 	`wget "https://zoom.us/client/latest/zoom_amd64.deb"`
 2. Verify `zoom_amd64.deb`:
-	`gpg --verify zoom_amd64.deb`
+	* `sudo apt install -y dpkg-sig`: `Install dpkg-sig` so we can verify `zoom_amd64.deb`
+	* `dpkg-sig zoom_amd64.deb`: Verify `zoom_amd64.deb`. 
+	* Expected output should include indicate a good signature, for example here's what I got running the command: 
+	`GOODSIG _gpgbuilder 396060CADD8A75220BFCB369B903BF1861A7C71D 1590375377`	
 3. Copy `zoom_amd64.deb` to TemplateVM `videoconferencing`:
 	`qvm-copy zoom_amd64.deb`
 4. Select the `videoconferencing` TemplateVM as the destination to copy `zoom_amd64.deb` to.
@@ -56,9 +59,11 @@ By running Zoom alone in a Disposable VM, we can improve the safety of using the
 5. Choose `sys-firewall` for networking. 
 6. Click `OK`.
 
-## Step 4: Add Zoom to the AppVM's list of applications
+## Step 4: Add Zoom to the AppVM's list of applications & enable DispVM
 1. Open `Qube Manager`
 2. `Search` for the `videoconferencing` TemplateVM. Right-click it and select `Qube Settings`
 3. Click the `Applications` tab. 
 4. Click `Zoom` to highlight it, then click the `>` button to add it to the AppVM's application list.
-5. Click `OK`.  
+5. Click the `Advanced` tab.
+6. Under the `Other` section, check the box labeled `Disposable VM Template`
+7. Click `OK`.  
