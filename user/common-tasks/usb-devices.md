@@ -143,10 +143,11 @@ This should output something like:
 
     ../../../devices/pci-0/pci0000:00/0000:00:1a.0/usb3
 
+Now you see the path and the text between `/pci0000:00/0000:` and `/usb3` i.e. `00:1a.0` is the BDF address. Strip the address and pass it to the [`qvm-pci` tool][qvm-pci] to attach the controller to the targetVM.
 
-Now you see the BDF address in the path (right before final `usb3`).
-Strip the leading `0000:` and pass the rest to the [`qvm-pci` tool][qvm-pci] to attach the controller to the targetVM.
+For example, On R 4.0 the command would look something like
 
+`qvm-pci attach --persistent personal dom0:00_1a.0`
 
 
 [device handling in qubes]: /doc/device-handling/
