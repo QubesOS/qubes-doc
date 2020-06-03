@@ -105,6 +105,10 @@ Consider this approach as a last resort, because it will make every Xen update a
 
 Whenever there is a kernel or Xen update for Qubes, you will need to follow [these steps](/doc/uefi-troubleshooting/#boot-device-not-recognized-after-installing) because your system is using the fallback UEFI bootloader in `[...]/EFI/BOOT` instead of directly booting to the Qubes entry under `[...]/EFI/qubes`.
 
+Installation from USB stick hangs on black screen
+---------------------
+
+Some laptops cannot read from an external boot device larger than 8GB. If you encounter a black screen when performing an installation from a USB stick, ensure you are using a USB drive less than 8GB, or a partition on that USB lesser than 8GB and of format fat32. 
 
 Installation completes successfully but then boot loops or hangs on black screen
 ---------------------
