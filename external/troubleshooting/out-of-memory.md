@@ -19,29 +19,28 @@ qvm-console-dispvm <VMname>
 
 If this does not work, check the size of /var/lib/qubes/qubes.xml. If it is zero, you'll need to use one of the file backup (stored in /var/lib/qubes/backup), hopefully you have the current data there. Find the most recent one and place in /var/lib/qubes/qubes.xml instead of the empty file.
 
-In any case you'll need some disk space to start the VM. Check `df -h` output if you have some. If not, some hints how to free some disk space:
+In any case you'll need some disk space to start the VM. Check `df -h` output if you have some. If not, here are some hints how to free some disk space:
 
-1.  Clean yum cache:
+1.  Clean yum cache.
 
 ~~~
 sudo yum clean all
 ~~~
 
-1.  Delete .img files of a less important VM, that can be found in
-
-/var/lib/qubes/appvms/. Then, when the system is working again, cleanup the rest with:
+2.  Delete `.img` files of a less important VM, which can be found in `/var/lib/qubes/appvms/`.
+    Then, when the system is working again, clean up the rest.
 
 ~~~
 qvm-remove <VMname>
 ~~~
 
-With this method you lose the data of one VM, but it'll work more reliably.
+With this method, you lose the data of one VM, but it'll work more reliably.
 
-1.  Decrease filesystem safety margin (5% by default):
+3.  Decrease the filesystem safety margin (5% by default).
 
 ~~~
 sudo tune2fs -m 4 /dev/mapper/vg_dom0-lv_root
 ~~~
 
-1.  Remove some unneeded files in dom0 home (if you have any, most likely not).
+4.  Remove some unneeded files in dom0 home (if you have any, most likely not).
 
