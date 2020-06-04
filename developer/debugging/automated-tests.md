@@ -22,10 +22,13 @@ Integration tests are written with the assumption that they will be called on de
 Since these tests were written with this expectation, all the VMs with a name starting with `test-` on the installation are removed during the process, and all the tests are recklessly started from dom0, even when testing VM components.
 
 Most of the tests are stored in the [core-admin repository](https://github.com/QubesOS/qubes-core-admin/tree/master/qubes/tests) in the `qubes/tests` directory. 
-To start them you can use standard python unittest runner:
-    python3 -m unittest -v qubes.tests
+To start them you can use the standard python unittest runner:
+
+`python3 -m unittest -v qubes.tests`
+    
 Or our custom one:
-    python3 -m qubes.tests.run -v
+
+`python3 -m qubes.tests.run -v`
 
 Our test runner runs mostly the same as the standard one, but it has some nice additional features like color output and not needing the "qubes.test" prefix. 
 It also has the ability to run lone selected template tests.
@@ -101,7 +104,7 @@ Example test run:
 
 ### Qubes 4.0
 
-Tests on Qubes 4.0 require stopping `qubesd` service first, because special instance of it is started as part of the test run.
+Tests on Qubes 4.0 require stopping the `qubesd` service first, because a special instance of it is started as part of the test run.
 Additionally, tests needs to be started as root. The full command to run the tests is:
 
     sudo systemctl stop qubesd; sudo -E python3 -m qubes.tests.run -v ; sudo systemctl start qubesd
@@ -144,10 +147,10 @@ Again, given the hypothetical `example.py` test:
 
 ### Testing PyQt applications
 
-When testing (Py)QT application, it's useful to create separate QApplication object for each test.
-But QT framework does not allow to have multiple QApplication objects in the same process at the same time.
-This means it's critical to reliably cleanup previous instance before creating the new one.
-This turns out to be non-trivial task, especially if _any_ test uses event loop.
+When testing (Py)QT applications, it's useful to create a separate QApplication object for each test.
+But QT framework does not allow multiple QApplication objects in the same process at the same time.
+This means it's critical to reliably cleanup the previous instance before creating a new one.
+This turns out to be a non-trivial task, especially if _any_ test uses the event loop.
 Failure to perform proper cleanup in many cases results in SEGV.
 Below you can find steps for the proper cleanup:
 
@@ -205,7 +208,7 @@ Installation Tests with openQA
 Manually testing the installation of Qubes OS is a time-consuming process.
 We use [openQA] to automate this process.
 It works by installing Qubes in KVM and interacting with it as a user would, including simulating mouse clicks and keyboard presses.
-Then, it checks the output to see whether various tests were passed, e.g., by comparing the virtual screen output to screenshots of a successful installation.
+Then, it checks the output to see whether various tests were passed, e.g. by comparing the virtual screen output to screenshots of a successful installation.
 
 Using openQA to automatically test the Qubes installation process works as of Qubes 4.0-rc4 on 2018-01-26, provided that the versions of KVM and QEMU are new enough and the hardware has VT-x and EPT.
 KVM also supports nested virtualization, so HVM should theoretically work.
