@@ -23,24 +23,24 @@ In any case you'll need some disk space to start the VM. Check `df -h` output if
 
 1.  Clean yum cache.
 
-~~~
-sudo yum clean all
-~~~
+    ~~~
+    sudo yum clean all
+    ~~~
 
 2.  Delete `.img` files of a less important VM, which can be found in `/var/lib/qubes/appvms/`.
     Then, when the system is working again, clean up the rest.
 
-~~~
-qvm-remove <VMname>
-~~~
+    ~~~
+    qvm-remove <VMname>
+    ~~~
 
-With this method, you lose the data of one VM, but it'll work more reliably.
+    With this method, you lose the data of one VM, but it'll work more reliably.
 
 3.  Decrease the filesystem safety margin (5% by default).
 
-~~~
-sudo tune2fs -m 4 /dev/mapper/vg_dom0-lv_root
-~~~
+    ~~~
+    sudo tune2fs -m 4 /dev/mapper/vg_dom0-lv_root
+    ~~~
 
 4.  Remove some unneeded files in dom0 home (if you have any, most likely not).
 
