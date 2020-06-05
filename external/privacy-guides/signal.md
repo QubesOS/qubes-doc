@@ -30,7 +30,7 @@ How to install Signal in Qubes
 This website cannot guarantee that any PGP key you download from the Internet is authentic.
 Always obtain a trusted key fingerprint via other channels, and always check any key you download against your trusted copy of the fingerprint.
 
-1. (Optional)Create a TemplateVM (Debian, 9 is used as an examle but feel free to use any more updated by changing the 9 to a 10, etc.)
+1. (Optional)Create a TemplateVM (Debian, 9 is used as an example but feel free to use any more updated by changing the 9 to a 10, etc.)
 
        [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-9
 
