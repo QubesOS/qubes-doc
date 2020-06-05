@@ -339,6 +339,15 @@ To unsubscribe, send a blank email to `qubes-translation+unsubscribe@googlegroup
 This list also has an optional [Google Groups web interface][qubes-translation-web].
 
 
+## Unofficial chat channels ##
+
+The following unofficial chat channels are maintained by the community:
+
+ * Matrix, Qubes-related: <https://matrix.to/#/#cybersec-qubes_os:matrix.org>
+ * Matrix, strictly Qubes: <https://matrix.to/#/#Qubes-OS:matrix.org>
+ * `#qubes` channel on freenode.net via traditional IRC clients or: <https://webchat.freenode.net/>
+
+
 [mailing lists]: https://en.wikipedia.org/wiki/Electronic_mailing_list
 [Qubes team]: /team/
 [contributions]: /doc/contributing/
