@@ -50,7 +50,7 @@ Always obtain a trusted key fingerprint via other channels, and always check any
         [user@dom0 ~]$ qvm-shutdown debian-9
         
 6. Create an AppVM based on this TemplateVM
-7. With your mouse select the `Q` menu -> `Domain: "AppVM Name"` ->  'Qube Settings' -> OK -> 'Applications'
+7. With your mouse select the `Q` menu -> `Domain: "AppVM Name"` ->  'AppVM name: Qube Settings' -> OK -> 'Applications'
 (or `"AppVM Name": VM Settings` -> `Applications`). 
    Select `Signal` from the left `Available` column, move it to the right `Selected` column by clicking the `>` button and then `OK` to apply the changes and close the window.
 
