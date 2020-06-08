@@ -64,7 +64,7 @@ This can be done by customizing the DisposableVM Template on which it is based:
 
 2.  Change the qube's settings and/or applications, as desired. Some examples of changes you may want to make include:
     -   Changing Firefox's default startup settings and homepage.
-    -   Changing default editor, image viewer.
+    -   Changing default editor, image viewer. In Debian-based templates this can be done with the `mimeopen` command.
     -   Changing the DisposableVM's default NetVM. For example, you may wish to set the NetVM to "none." Then, whenever you start a new DisposableVM, you can choose your desired ProxyVM manually (by changing the newly-started DisposableVMs settings). This is useful if you sometimes wish to use a DisposableVM with a Whonix Gateway, for example. It is also useful if you sometimes wish to open untrusted files in a network-disconnected DisposableVM.
 
 4.  Shutdown the qube (either by `poweroff` from qube's terminal, or `qvm-shutdown` from dom0 terminal).
