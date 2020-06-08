@@ -57,11 +57,8 @@ This way it would be easy to spot unexpected requests to decrypt documents.
   Doing so won't provide any extra security anyway, as explained [above][intro] and [below][using Split GPG with subkeys].
   If you are generating a new key pair, or if you have a private key that already has a passphrase, you can use `gpg2 --edit-key <key_id>` then `passwd` to set an empty passphrase.
   Note that `pinentry` might show an error when you try to set an empty passphrase, but it will still make the change.
-<<<<<<< HEAD
-  (See [this StackExchange answer][se-pinentry] for more information.) Note: The error shows only if you **do not** have graphical pinentry installed. 
-=======
-  (See [this StackExchange answer][se-pinentry] for more information.) Note: The error shows only if you **do not** have graphical pinentry installed. The Split GPG client lets you use password-protected keys, and the vault qube will show the passphrase. 
->>>>>>> c7309fe6150dee28787ffd8fc584fa3114d10179
+  (See [this StackExchange answer][se-pinentry] for more information.) 
+  Note: The error shows only if you **do not** have graphical pinentry installed. 
 
 ## Configuring Split GPG ##
 
