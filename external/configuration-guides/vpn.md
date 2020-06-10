@@ -74,15 +74,13 @@ Set up a ProxyVM as a VPN gateway using NetworkManager
    
 5. (Optional) Make the network fail-close for the AppVMs if the connection to the VPN breaks.
 
-   Edit `/rw/config/qubes-firewall-user-script` and add these lines:
-   ```bash
-   # Block forwarding of connections through upstream network device
-   # (in case the vpn tunnel breaks)
-   iptables -I FORWARD -o eth0 -j DROP
+   Edit iptables rules and make them persistent with the following.
+   sudo su -c 'iptables -I FORWARD -o eth0 -j DROP
    iptables -I FORWARD -i eth0 -j DROP
    ip6tables -I FORWARD -o eth0 -j DROP
-   ip6tables -I FORWARD -i eth0 -j DROP
-   ```
+   ip6tables -I FORWARD -i eth0 -j DROP'
+   sudo iptables-save -f /rw/config/iptables.config
+   echo 'iptables-restore /rw/config/iptables.config' >> /rw/config/rc.local
 
 6. Configure your AppVMs to use the new VM as a NetVM.
 
@@ -235,43 +233,33 @@ Before proceeding, you will need to download a copy of your VPN provider's confi
    **Restart the client and test the connection again** ...this time from an AppVM!
 
 5. Set up iptables anti-leak rules.
-   Edit the firewall script.
-
-       sudo gedit /rw/config/qubes-firewall-user-script
-
-   Clear out the existing lines and add:
+   Make the rules persistent.
 
    ~~~
-   #!/bin/bash
    #    Block forwarding of connections through upstream network device
    #    (in case the vpn tunnel breaks):
-   iptables -I FORWARD -o eth0 -j DROP
+   su - -c 'iptables -I FORWARD -o eth0 -j DROP
    iptables -I FORWARD -i eth0 -j DROP
    ip6tables -I FORWARD -o eth0 -j DROP
-   ip6tables -I FORWARD -i eth0 -j DROP
+   ip6tables -I FORWARD -i eth0 -j DROP'
    
    #    Accept traffic to VPN
-   iptables -P OUTPUT ACCEPT
-   iptables -F OUTPUT
+   su - -c 'iptables -P OUTPUT ACCEPT
+   iptables -F OUTPUT'
    
-   #    Add the `qvpn` group to system, if it doesn't already exist
-   if ! grep -q "^qvpn:" /etc/group ; then
-        groupadd -rf qvpn
-        sync
-   fi
-   sleep 2s
+   #    Ensure the `qvpn` group exists
+   sudo groupadd -rf qvpn ; sync ; sleep 2s
    
    #    Block non-VPN traffic to clearnet
-   iptables -I OUTPUT -o eth0 -j DROP
+   sudo iptables -I OUTPUT -o eth0 -j DROP
    #    Allow traffic from the `qvpn` group to the uplink interface (eth0);
    #    Our VPN client will run with group `qvpn`.
-   iptables -I OUTPUT -p all -o eth0 -m owner --gid-owner qvpn -j ACCEPT
+   sudo iptables -I OUTPUT -p all -o eth0 -m owner --gid-owner qvpn -j ACCEPT
    ~~~
 
-   Save the script.
-   Make it executable.
+   Save the iptables rules
 
-       sudo chmod +x /rw/config/qubes-firewall-user-script
+       sudo iptables-save -f /rw/config/iptables.config
 
 5. Set up the VPN's autostart.
 
@@ -283,7 +271,7 @@ Before proceeding, you will need to download a copy of your VPN provider's confi
    #!/bin/bash
    VPN_CLIENT='openvpn'
    VPN_OPTIONS='--cd /rw/config/vpn/ --config openvpn-client.ovpn --daemon'
-   
+   su - -c 'iptables-restore /rw/config/iptables.config'
    su - -c 'notify-send "$(hostname): Starting $VPN_CLIENT..." --icon=network-idle' user
    groupadd -rf qvpn ; sleep 2s
    sg qvpn -c "$VPN_CLIENT $VPN_OPTIONS"
