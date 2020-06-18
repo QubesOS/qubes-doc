@@ -13,9 +13,9 @@ For the minimal version, please see [Minimal TemplateVMs](/doc/templates/minimal
 
 ## Installation
 
-CentOS-7 can be installed with the following command:
+The standard CentOS TemplateVM can be installed with the following command in dom0, where `X` is the desired version number:
 
-    [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-centos-7
+    [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-centos-X
 
 To switch, reinstall and uninstall a CentOS TemplateVM that is already installed in your system, see *How to [switch], [reinstall] and [uninstall]*.
 
