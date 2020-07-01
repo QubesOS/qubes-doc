@@ -37,7 +37,7 @@ Even on supported hardware, you must ensure that [IOMMU-based virtualization](ht
 Without it, Qubes OS won't be able to enforce isolation. 
 For Intel-based boards, this setting is called Intel Virtualization for Directed I/O (**Intel VT-d**) and for AMD-based boards, it is called  AMD I/O Virtualization Technology (or simply **AMD-Vi**). 
 This parameter should be activated in your computer's BIOS, alongside the standard Virtualization (**Intel VT-x**) and AMD Virtualization (**AMD-V**) extensions. 
-This [external guide](https://www.intel.in/content/www/in/en/support/articles/000007139/server-products.html) made for Intel-based boards can help you figure out how to enter your BIOS to locate and activate those settings. 
+This [external guide](https://web.archive.org/web/20200112220913/https://www.intel.in/content/www/in/en/support/articles/000007139/server-products.html) made for Intel-based boards can help you figure out how to enter your BIOS to locate and activate those settings. 
 If those settings are not nested under the Advanced tab, you might find them under the Security tab.
 
 <div class="alert alert-info" role="alert">
