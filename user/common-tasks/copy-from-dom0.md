@@ -21,16 +21,16 @@ To copy a file from dom0 to a VM (domU), simply use `qvm-copy-to-vm`:
 qvm-copy-to-vm <dest-vm> <file>
 ~~~
 
-The file will arrive in your destination VM in the `~/QubesIncoming/dom0/` directory.
+The file will arrive in your destination VM in the `~/PedOSIncoming/dom0/` directory.
 
 ### Copying logs from dom0 ###
 
 In order to easily copy/paste the contents of logs from dom0 to the inter-VM clipboard, you can simply:
 
-1.  Right-click on the desired VM in the Qubes VM Manager.
+1.  Right-click on the desired VM in the PedOS VM Manager.
 2.  Click "Logs."
 3.  Click on the desired log.
-4.  Click "Copy to Qubes clipboard."
+4.  Click "Copy to PedOS clipboard."
 
 You may now paste the log contents to any VM as you normally would (i.e., Ctrl-Shift-V, then Ctrl-V).
 
@@ -38,21 +38,21 @@ You may now paste the log contents to any VM as you normally would (i.e., Ctrl-S
 
 For data other than logs, there are several options:
 
-1.  Use the **Qubes Clipboard** widget:
+1.  Use the **PedOS Clipboard** widget:
     - Copy text to the clipboard normally in dom0.
-    - Click the **Qubes Clipboard** icon in the Notification Area.
+    - Click the **PedOS Clipboard** icon in the Notification Area.
     - Click "Copy dom0 clipboard".
-    - Receive a notification that text has been copied to the inter-qube clipboard.
-    - Press Ctrl + Shift + V in a qube to paste into the desired qube's clipboard.
-    - Paste normally within that qube.
+    - Receive a notification that text has been copied to the inter-PedOS VM clipboard.
+    - Press Ctrl + Shift + V in a PedOS VM to paste into the desired PedOS VM's clipboard.
+    - Paste normally within that PedOS VM.
 2.  Copy it as a file (see above)
-3.  Write the data you wish to copy into `/var/run/qubes/qubes-clipboard.bin`, then `echo -n dom0 > /var/run/qubes/qubes-clipboard.bin.source`.
+3.  Write the data you wish to copy into `/var/run/PedOS/PedOS-clipboard.bin`, then `echo -n dom0 > /var/run/PedOS/PedOS-clipboard.bin.source`.
     Then use Ctrl-Shift-V to paste the data to the desired VM.
 
 Copying **to** dom0
 -------------------
 
-Copying anything into dom0 is not advised, since doing so can compromise the security of your Qubes system.
+Copying anything into dom0 is not advised, since doing so can compromise the security of your PedOS system.
 For this reason, there is no simple means of copying anything into dom0, unlike [copying from dom0](#copying-from-dom0) and [copying files between VMs](/doc/copying-files/).
 
 There should normally be few reasons for the user to want to copy anything from VMs to dom0, as dom0 only acts as a "thin trusted terminal", and no user applications run there.

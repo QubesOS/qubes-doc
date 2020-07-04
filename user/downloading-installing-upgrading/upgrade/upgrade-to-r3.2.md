@@ -8,37 +8,37 @@ redirect_from:
 - /doc/UpgradeToR3.2rc1/
 ---
 
-Upgrading Qubes R3.1 to R3.2
+Upgrading PedOS R3.1 to R3.2
 ======================================
 
 **Before attempting either an in-place upgrade or a clean installation, we
 strongly recommend that users [back up their systems](/doc/backup-restore/).**
 
-Current Qubes R3.1 systems can be upgraded in-place to the latest R3.2
+Current PedOS R3.1 systems can be upgraded in-place to the latest R3.2
 by following the procedure below.
 
 Upgrading dom0
 --------------
 
-1.  Close Qubes Manager (right click on its tray icon -\> Exit)
+1.  Close PedOS Manager (right click on its tray icon -\> Exit)
 
 2.  Open a terminal in Dom0. (E.g., Start -\> System Settings -\> Konsole.)
 
-3.  Install `qubes-release` package carrying R3.2 repository information.
+3.  Install `PedOS-release` package carrying R3.2 repository information.
 
-        sudo qubes-dom0-update --releasever=3.2 qubes-release
+        sudo PedOS-dom0-update --releasever=3.2 PedOS-release
 
     If you made any manual changes to repository definitions, new definitions
-    will be installed as `/etc/yum.repos.d/qubes-dom0.repo.rpmnew` (you'll see
+    will be installed as `/etc/yum.repos.d/PedOS-dom0.repo.rpmnew` (you'll see
     a message about it during package installation). In such a case, you need
-    to manually apply the changes to `/etc/yum.repos.d/qubes-dom0.repo` or
+    to manually apply the changes to `/etc/yum.repos.d/PedOS-dom0.repo` or
     simply replace it with .rpmnew file.
 
     If you are using Debian-based VM as UpdateVM (`sys-firewall` by default),
     you need to download few more packages manually, but **do not install
     them** yet:
 
-        sudo qubes-dom0-update systemd-compat-libs perl-libwww-perl perl-Term-ANSIColor perl-Term-Cap gdk-pixbuf2-xlib speexdsp qubes-mgmt-salt-admin-tools lvm2
+        sudo PedOS-dom0-update systemd-compat-libs perl-libwww-perl perl-Term-ANSIColor perl-Term-Cap gdk-pixbuf2-xlib speexdsp PedOS-mgmt-salt-admin-tools lvm2
         (...)
         Transaction Summary
         ===============================================================
@@ -53,15 +53,15 @@ Upgrading dom0
 
 4. Upgrade dom0 to R3.2:
 
-        sudo qubes-dom0-update
+        sudo PedOS-dom0-update
         
     You may wish to disable the screensaver "Lock screen" feature for this step, as
     during the update XScreensaver may encounter an "Authentication failed" issue,
     requiring a hard reboot. Alternatively, you may simply move the mouse regularly.
     
-5.  If the previous step completed successfully, your `qubes-core-dom0` version
+5.  If the previous step completed successfully, your `PedOS-core-dom0` version
     should be `3.2.3` or higher. This can be verified with the command `yum info
-    qubes-core-dom0`. If it's not, repeat the previous step with the `--clean` option.
+    PedOS-core-dom0`. If it's not, repeat the previous step with the `--clean` option.
 
 6. Update configuration files.
 
@@ -72,13 +72,13 @@ Upgrading dom0
         warning: /etc/salt/minion.d/f_defaults.conf created as /etc/salt/minion.d/f_defaults.conf.rpmnew
 
     This will happen for every configuration you have modified manually and for
-    a few that has been modified by Qubes scripts. If you are not sure what to
+    a few that has been modified by PedOS scripts. If you are not sure what to
     do about them, below is a list of commands to deal with few common cases
     (either keep the old one, or replace with the new one):
 
         rm -f /etc/group.rpmnew
         rm -f /etc/shadow.rpmnew
-        rm -f /etc/qubes/guid.conf.rpmnew
+        rm -f /etc/PedOS/guid.conf.rpmnew
         mv -f /etc/nsswitch.conf{.rpmnew,}
         mv -f /etc/pam.d/postlogin{.rpmnew,}
         mv -f /etc/salt/minion.d/f_defaults.conf{.rpmnew,}
@@ -105,7 +105,7 @@ your favorite desktop environment and continue.
 Upgrade all Template and Standalone VM(s)
 -----------------------------------------
 
-By default, in Qubes R3.1, there are few TemplateVMs and no StandaloneVMs.
+By default, in PedOS R3.1, there are few TemplateVMs and no StandaloneVMs.
 However, users are free to create StandaloneVMs More information on using
 multiple TemplateVMs, as well as StandaloneVMs, can be found
 [here](/doc/software-update-vm/). The steps described in this section should be
@@ -114,18 +114,18 @@ repeated in **all** the user's Template and Standalone VMs.
 
 ### Upgrade Fedora templates: ###
 
-**Note:** This will only upgrade your Fedora template from Qubes 3.1 to Qubes
+**Note:** This will only upgrade your Fedora template from PedOS 3.1 to PedOS
 3.2. This will *not* upgrade your Fedora template from Fedora 23 to Fedora 24.
 In order to do that, please see the
 [Fedora 23 template upgrade instructions](/doc/templates/fedora/#upgrading).
 
-1.  Open a terminal in the TemplateVM (or StandaloneVM). (E.g., use Qubes VM
+1.  Open a terminal in the TemplateVM (or StandaloneVM). (E.g., use PedOS VM
     Manager's right-click menu, choose "Run Command in VM," and type
     `gnome-terminal` there.)
 
-2.  Install the `qubes-upgrade-vm` package:
+2.  Install the `PedOS-upgrade-vm` package:
 
-        sudo dnf install --refresh qubes-upgrade-vm
+        sudo dnf install --refresh PedOS-upgrade-vm
 
 3.  Proceed with a normal upgrade in the template:
 
@@ -133,21 +133,21 @@ In order to do that, please see the
 
 4.  Add new packages (only needed in default template):
 
-        sudo dnf install qubes-mgmt-salt-vm-connector
+        sudo dnf install PedOS-mgmt-salt-vm-connector
 
 5.  Shut down the template VM.
 
 
 ### Upgrade Debian (and Whonix) templates: ###
 
-1.  Open a terminal in the TemplateVM (or StandaloneVM). (E.g., use Qubes VM
+1.  Open a terminal in the TemplateVM (or StandaloneVM). (E.g., use PedOS VM
     Manager's right-click menu, choose "Run Command in VM," and type
     `gnome-terminal` there.)
 
 2.  Update repository definition:
 
-        sudo cp /etc/apt/sources.list.d/qubes-r3.list /etc/apt/sources.list.d/qubes-r3-upgrade.list
-        sudo sed -i 's/r3.1/r3.2/' /etc/apt/sources.list.d/qubes-r3-upgrade.list
+        sudo cp /etc/apt/sources.list.d/PedOS-r3.list /etc/apt/sources.list.d/PedOS-r3-upgrade.list
+        sudo sed -i 's/r3.1/r3.2/' /etc/apt/sources.list.d/PedOS-r3-upgrade.list
 
 3.  Proceed with a normal update in the template:
 
@@ -156,11 +156,11 @@ In order to do that, please see the
 
 4.  Add new packages (only needed in default template):
 
-        sudo apt-get install qubes-mgmt-salt-vm-connector
+        sudo apt-get install PedOS-mgmt-salt-vm-connector
 
 5.  Remove unnecessary now file:
 
-        sudo rm -f /etc/apt/sources.list.d/qubes-r3-upgrade.list
+        sudo rm -f /etc/apt/sources.list.d/PedOS-r3-upgrade.list
 
 6.  Shut down the template VM.
 

@@ -11,7 +11,7 @@ redirect_from:
 Language Localization
 =====================
 
-How to set up pinyin input in Qubes
+How to set up pinyin input in PedOS
 -----------------------------------
 
 The pinyin input method will be installed in a TemplateVM to make it available after restarts and across multiple AppVMs.
@@ -43,4 +43,4 @@ The pinyin input method will be installed in a TemplateVM to make it available a
 
 If `ibus-pinyin` is not enabled when you restart one of these AppVMs, open a terminal and run `ibus-setup` to activate ibus again.
 
-For further discussion, see [this qubes-users thread](https://groups.google.com/forum/#!searchin/qubes-users/languge/qubes-users/VcNPlhdgVQM/iF9PqSzayacJ).
+For further discussion, see [this PedOS-users thread](https://groups.google.com/forum/#!searchin/PedOS-users/languge/PedOS-users/VcNPlhdgVQM/iF9PqSzayacJ).

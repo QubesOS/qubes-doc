@@ -25,7 +25,7 @@ There are currently three Minimal TemplateVMs corresponding to the standard [Fed
    If you encounter problems with the Minimal TemplateVMs, we recommend that you use their standard TemplateVM counterparts instead.
 
 2. If something works with a standard TemplateVM but not the minimal version, this is most likely due to user error (e.g., a missing package or misconfiguration) rather than a bug.
-   In such cases, you should write to [qubes-users] to ask for help rather than filing a bug report, then [contribute what you learn to the documentation][doc-guidelines].
+   In such cases, you should write to [PedOS-users] to ask for help rather than filing a bug report, then [contribute what you learn to the documentation][doc-guidelines].
 
 3. The Minimal TemplateVMs are intentionally *minimal*.
    [Do not ask for your favorite package to be added to the minimal template by default.][pref-default]
@@ -35,16 +35,16 @@ There are currently three Minimal TemplateVMs corresponding to the standard [Fed
 
 The Minimal TemplateVMs can be installed with the following command (where `X` is your desired distro and version number):
 
-    [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-X-minimal
+    [user@dom0 ~]$ sudo PedOS-dom0-update PedOS-template-X-minimal
 
 If your desired version is not found, it may still be in [testing].
 You may wish to try again with the testing repository enabled:
 
-    [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl-testing qubes-template-X-minimal
+    [user@dom0 ~]$ sudo PedOS-dom0-update --enablerepo=PedOS-templates-itl-testing PedOS-template-X-minimal
 
 If you would like to install a community distribution, try the install command by enabling the community repository:
 
-    [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-X-minimal
+    [user@dom0 ~]$ sudo PedOS-dom0-update --enablerepo=PedOS-templates-community PedOS-template-X-minimal
 
 The download may take a while depending on your connection speed.
 
@@ -60,7 +60,7 @@ To update or install packages, execute the following command in dom0 (where `X` 
 This opens a root terminal in the Minimal TemplateVM, from which you can use execute root commands without `sudo`.
 You will have to do this every time if you choose not to enable passwordless root. 
 
-If you want to be able to use `sudo` inside a Minimal TemplateVM (or TemplateBasedVMs based on a Minimal TemplateVM), open a root terminal as just instructed, then install the `qubes-core-agent-passwordless-root` package.
+If you want to be able to use `sudo` inside a Minimal TemplateVM (or TemplateBasedVMs based on a Minimal TemplateVM), open a root terminal as just instructed, then install the `PedOS-core-agent-passwordless-root` package.
 
 Optionally, verify that passwordless root now works by opening a normal (non-root) xterm window in the Minimal TemplateVM, then issue the command `sudo -l`.
 This should give you output that includes the `NOPASSWD` keyword.
@@ -87,37 +87,37 @@ As usual, the required packages are to be installed in the running template with
     [user@your-new-clone ~]$ sudo dnf install packages
 
  - Commonly used utilities: `pciutils` `vim-minimal` `less` `psmisc` `gnome-keyring`.
- - Audio: `pulseaudio-qubes`.
- - [FirewallVM](/doc/firewall/), such as the template for `sys-firewall`: at least `qubes-core-agent-networking` and `iproute`, and also `qubes-core-agent-dom0-updates` if you want to use it as the `UpdateVM` (which is normally `sys-firewall`).
- - NetVM, such as the template for `sys-net`: `qubes-core-agent-networking` `qubes-core-agent-network-manager` `NetworkManager-wifi` `network-manager-applet` `wireless-tools` `notification-daemon` `gnome-keyring` `polkit` `@hardware-support`. If your network devices need extra packages for the template to work as a network VM, use the `lspci` command to identify the devices, then run `dnf search firmware` (replace `firmware` with the appropriate device identifier) to find the needed packages and then install them. If you need utilities for debugging and analyzing network connections, install `tcpdump` `telnet` `nmap` `nmap-ncat`.
- - [USB qube](/doc/usb-qubes/), such as the template for `sys-usb`: `qubes-usb-proxy` to provide USB devices to other Qubes and `qubes-input-proxy-sender` to provide keyboard or mouse input to dom0.
- - [VPN qube](/doc/vpn/): Use the `dnf search "NetworkManager VPN plugin"` command to look up the VPN packages you need, based on the VPN technology you'll be using, and install them. Some GNOME related packages may be needed as well. After creation of a machine based on this template, follow the [VPN instructions](/doc/vpn/#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager) to configure it.
+ - Audio: `pulseaudio-PedOS`.
+ - [FirewallVM](/doc/firewall/), such as the template for `sys-firewall`: at least `PedOS-core-agent-networking` and `iproute`, and also `PedOS-core-agent-dom0-updates` if you want to use it as the `UpdateVM` (which is normally `sys-firewall`).
+ - NetVM, such as the template for `sys-net`: `PedOS-core-agent-networking` `PedOS-core-agent-network-manager` `NetworkManager-wifi` `network-manager-applet` `wireless-tools` `notification-daemon` `gnome-keyring` `polkit` `@hardware-support`. If your network devices need extra packages for the template to work as a network VM, use the `lspci` command to identify the devices, then run `dnf search firmware` (replace `firmware` with the appropriate device identifier) to find the needed packages and then install them. If you need utilities for debugging and analyzing network connections, install `tcpdump` `telnet` `nmap` `nmap-ncat`.
+ - [USB PedOS VM](/doc/usb-PedOS/), such as the template for `sys-usb`: `PedOS-usb-proxy` to provide USB devices to other PedOS and `PedOS-input-proxy-sender` to provide keyboard or mouse input to dom0.
+ - [VPN PedOS VM](/doc/vpn/): Use the `dnf search "NetworkManager VPN plugin"` command to look up the VPN packages you need, based on the VPN technology you'll be using, and install them. Some GNOME related packages may be needed as well. After creation of a machine based on this template, follow the [VPN instructions](/doc/vpn/#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager) to configure it.
 
-In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be needed to make the customized minimal template work properly. 
+In PedOS 4.0, additional packages from the `PedOS-core-agent` suite may be needed to make the customized minimal template work properly. 
 These packages are:
 
-- `qubes-core-agent-nautilus`: This package provides integration with the Nautilus file manager (without it, items like "copy to VM/open in disposable VM" will not be shown in Nautilus).
-- `qubes-core-agent-thunar`: This package provides integration with the thunar file manager (without it, items like "copy to VM/open in disposable VM" will not be shown in thunar).
-- `qubes-core-agent-dom0-updates`: Script required to handle `dom0` updates. Any template on which the qube responsible for 'dom0' updates (e.g. `sys-firewall`) is based must contain this package.
-- `qubes-menus`: Defines menu layout.
-- `qubes-desktop-linux-common`: Contains icons and scripts to improve desktop experience.
-- `qubes-core-agent-qrexec`: Qubes qrexec agent. Installed by default.
-- `qubes-core-agent-systemd`: Qubes unit files for SystemD init style. Installed by default.
-- `qubes-core-agent-passwordless-root`, `polkit`: By default, the Fedora Minimal template doesn't have passwordless root. These two packages enable this feature.
-- `qubes-core-agent-sysvinit`: Qubes unit files for SysV init style or upstart.
+- `PedOS-core-agent-nautilus`: This package provides integration with the Nautilus file manager (without it, items like "copy to VM/open in disposable VM" will not be shown in Nautilus).
+- `PedOS-core-agent-thunar`: This package provides integration with the thunar file manager (without it, items like "copy to VM/open in disposable VM" will not be shown in thunar).
+- `PedOS-core-agent-dom0-updates`: Script required to handle `dom0` updates. Any template on which the PedOS VM responsible for 'dom0' updates (e.g. `sys-firewall`) is based must contain this package.
+- `PedOS-menus`: Defines menu layout.
+- `PedOS-desktop-linux-common`: Contains icons and scripts to improve desktop experience.
+- `PedOS-core-agent-qrexec`: PedOS qrexec agent. Installed by default.
+- `PedOS-core-agent-systemd`: PedOS unit files for SystemD init style. Installed by default.
+- `PedOS-core-agent-passwordless-root`, `polkit`: By default, the Fedora Minimal template doesn't have passwordless root. These two packages enable this feature.
+- `PedOS-core-agent-sysvinit`: PedOS unit files for SysV init style or upstart.
 
 Also, there are packages to provide additional services:
 
-- `qubes-gpg-split`: For implementing split GPG.
-- `qubes-u2f`: For implementing secure forwarding of U2F messages.
-- `qubes-pdf-converter`: For implementing safe conversion of PDFs.
-- `qubes-img-converter`: For implementing safe conversion of images.
-- `qubes-snapd-helper`: If you want to use snaps in qubes.
-- `qubes-thunderbird`: Additional tools for use in thunderbird.
-- `qubes-app-shutdown-idle`: If you want qubes to automatically shutdown when idle.
-- `qubes-mgmt-salt-vm-connector`: If you want to use salt management on the template and qubes.
+- `PedOS-gpg-split`: For implementing split GPG.
+- `PedOS-u2f`: For implementing secure forwarding of U2F messages.
+- `PedOS-pdf-converter`: For implementing safe conversion of PDFs.
+- `PedOS-img-converter`: For implementing safe conversion of images.
+- `PedOS-snapd-helper`: If you want to use snaps in PedOS.
+- `PedOS-thunderbird`: Additional tools for use in thunderbird.
+- `PedOS-app-shutdown-idle`: If you want PedOS to automatically shutdown when idle.
+- `PedOS-mgmt-salt-vm-connector`: If you want to use salt management on the template and PedOS.
 
-You may also wish to consider additional packages from the `qubes-core-agent` suite:
+You may also wish to consider additional packages from the `PedOS-core-agent` suite:
 
 See [here][customization] for further information on customizing `fedora-minimal`.
 
@@ -138,37 +138,37 @@ As usual, the required packages are to be installed in the running template with
     [user@your-new-clone ~]$ sudo apt install packages
 
 - Commonly used utilities: `pciutils` `vim-minimal` `less` `psmisc` `gnome-keyring`
-- Audio: `pulseaudio-qubes`
-- [FirewallVM](/doc/firewall/), such as the template for `sys-firewall`: at least `qubes-core-agent-networking`, and also `qubes-core-agent-dom0-updates` if you want to use it as the `UpdateVM` (which is normally `sys-firewall`).
-- NetVM, such as the template for `sys-net`: `qubes-core-agent-networking` `qubes-core-agent-network-manager`. If your network devices need extra packages for a network VM, use the `lspci` command to identify the devices, then find the package that provides necessary firmware and install it. If you need utilities for debugging and analyzing network connections, install the following packages: `tcpdump` `telnet` `nmap` `nmap-ncat`.
-- [USB qube](/doc/usb-qubes/), such as the template for `sys-usb`: `qubes-usb-proxy` to provide USB devices to other Qubes and `qubes-input-proxy-sender` to provide keyboard or mouse input to dom0.
-- [VPN qube](/doc/vpn/): You may need to install network-manager VPN packages, depending on the VPN technology you'll be using. After creating a machine based on this template, follow the [VPN howto](/doc/vpn/#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager) to configure it.
+- Audio: `pulseaudio-PedOS`
+- [FirewallVM](/doc/firewall/), such as the template for `sys-firewall`: at least `PedOS-core-agent-networking`, and also `PedOS-core-agent-dom0-updates` if you want to use it as the `UpdateVM` (which is normally `sys-firewall`).
+- NetVM, such as the template for `sys-net`: `PedOS-core-agent-networking` `PedOS-core-agent-network-manager`. If your network devices need extra packages for a network VM, use the `lspci` command to identify the devices, then find the package that provides necessary firmware and install it. If you need utilities for debugging and analyzing network connections, install the following packages: `tcpdump` `telnet` `nmap` `nmap-ncat`.
+- [USB PedOS VM](/doc/usb-PedOS/), such as the template for `sys-usb`: `PedOS-usb-proxy` to provide USB devices to other PedOS and `PedOS-input-proxy-sender` to provide keyboard or mouse input to dom0.
+- [VPN PedOS VM](/doc/vpn/): You may need to install network-manager VPN packages, depending on the VPN technology you'll be using. After creating a machine based on this template, follow the [VPN howto](/doc/vpn/#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager) to configure it.
  
-In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be needed to make the customized minimal template work properly. 
+In PedOS 4.0, additional packages from the `PedOS-core-agent` suite may be needed to make the customized minimal template work properly. 
 These packages are:
 
-- `qubes-core-agent-nautilus`: This package provides integration with the Nautilus file manager (without it, items like "copy to VM/open in disposable VM" will not be shown in Nautilus).
-- `qubes-core-agent-thunar`: This package provides integration with the thunar file manager (without it, items like "copy to VM/open in disposable VM" will not be shown in thunar).
-- `qubes-core-agent-dom0-updates`: Script required to handle `dom0` updates. Any template on which the qube responsible for 'dom0' updates (e.g. `sys-firewall`) is based must contain this package.
-- `qubes-menus`: Defines menu layout.
-- `qubes-desktop-linux-common`: Contains icons and scripts to improve desktop experience.
+- `PedOS-core-agent-nautilus`: This package provides integration with the Nautilus file manager (without it, items like "copy to VM/open in disposable VM" will not be shown in Nautilus).
+- `PedOS-core-agent-thunar`: This package provides integration with the thunar file manager (without it, items like "copy to VM/open in disposable VM" will not be shown in thunar).
+- `PedOS-core-agent-dom0-updates`: Script required to handle `dom0` updates. Any template on which the PedOS VM responsible for 'dom0' updates (e.g. `sys-firewall`) is based must contain this package.
+- `PedOS-menus`: Defines menu layout.
+- `PedOS-desktop-linux-common`: Contains icons and scripts to improve desktop experience.
 
 Also, there are packages to provide additional services:
 
-- `qubes-gpg-split`: For implementing split GPG.
-- `qubes-u2f`: For implementing secure forwarding of U2F messages.
-- `qubes-pdf-converter`: For implementing safe conversion of PDFs.
-- `qubes-img-converter`: For implementing safe conversion of images.
-- `qubes-snapd-helper`: If you want to use snaps in qubes.
-- `qubes-thunderbird`: Additional tools for use in thunderbird.
-- `qubes-app-shutdown-idle`: If you want qubes to automatically shutdown when idle.
-- `qubes-mgmt-salt-vm-connector`: If you want to use salt management on the template and qubes.
+- `PedOS-gpg-split`: For implementing split GPG.
+- `PedOS-u2f`: For implementing secure forwarding of U2F messages.
+- `PedOS-pdf-converter`: For implementing safe conversion of PDFs.
+- `PedOS-img-converter`: For implementing safe conversion of images.
+- `PedOS-snapd-helper`: If you want to use snaps in PedOS.
+- `PedOS-thunderbird`: Additional tools for use in thunderbird.
+- `PedOS-app-shutdown-idle`: If you want PedOS to automatically shutdown when idle.
+- `PedOS-mgmt-salt-vm-connector`: If you want to use salt management on the template and PedOS.
 
 Documentation on all of these can be found in the [docs](/doc)
 
-If you want to use interactive dialogs, (e.g file selection), you will need to add the `zenity` package. ([Here's an example](https://github.com/QubesOS/qubes-issues/issues/5202))
+If you want to use interactive dialogs, (e.g file selection), you will need to add the `zenity` package. ([Here's an example](https://github.com/PedOS/PedOS-issues/issues/5202))
 
-You could, of course, use `qubes-vm-recommended` to automatically install many of these, but in that case you are well on the way to a standard Debian template.
+You could, of course, use `PedOS-vm-recommended` to automatically install many of these, but in that case you are well on the way to a standard Debian template.
 
 
 ### CentOS
@@ -179,39 +179,39 @@ As usual, the required packages are to be installed in the running template with
     [user@your-new-clone ~]$ sudo yum install packages
 
 - Commonly used utilities: `pciutils` `vim-minimal` `less` `psmisc` `gnome-keyring`
-- Audio: `pulseaudio-qubes`.
-- [FirewallVM](/doc/firewall/), such as the template for `sys-firewall`: at least `qubes-core-agent-networking`, and also `qubes-core-agent-dom0-updates` if you want to use it as the `UpdateVM` (which is normally `sys-firewall`).
-- NetVM, such as the template for `sys-net`: `qubes-core-agent-networking` `qubes-core-agent-network-manager` `NetworkManager-wifi` `network-manager-applet` `wireless-tools` `notification-daemon` `gnome-keyring`. If your network devices need extra packages for a network VM, use the `lspci` command to identify the devices, then find the package that provides necessary firnware and install it. If you need utilities for debugging and analyzing network connections, install the following packages: `tcpdump` `telnet` `nmap` `nmap-ncat`
-- [USB qube](/doc/usb-qubes/), such as the template for `sys-usb`: `qubes-usb-proxy` to provide USB devices to other Qubes and `qubes-input-proxy-sender` to provide keyboard or mouse input to dom0.
-- [VPN qube](/doc/vpn/): You may need to install network-manager VPN packages, depending on the VPN technology you'll be using. After creating a machine based on this template, follow the [VPN howto](/doc/vpn/#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager) to configure it.
+- Audio: `pulseaudio-PedOS`.
+- [FirewallVM](/doc/firewall/), such as the template for `sys-firewall`: at least `PedOS-core-agent-networking`, and also `PedOS-core-agent-dom0-updates` if you want to use it as the `UpdateVM` (which is normally `sys-firewall`).
+- NetVM, such as the template for `sys-net`: `PedOS-core-agent-networking` `PedOS-core-agent-network-manager` `NetworkManager-wifi` `network-manager-applet` `wireless-tools` `notification-daemon` `gnome-keyring`. If your network devices need extra packages for a network VM, use the `lspci` command to identify the devices, then find the package that provides necessary firnware and install it. If you need utilities for debugging and analyzing network connections, install the following packages: `tcpdump` `telnet` `nmap` `nmap-ncat`
+- [USB PedOS VM](/doc/usb-PedOS/), such as the template for `sys-usb`: `PedOS-usb-proxy` to provide USB devices to other PedOS and `PedOS-input-proxy-sender` to provide keyboard or mouse input to dom0.
+- [VPN PedOS VM](/doc/vpn/): You may need to install network-manager VPN packages, depending on the VPN technology you'll be using. After creating a machine based on this template, follow the [VPN howto](/doc/vpn/#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager) to configure it.
 
-In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be needed to make the customized minimal template work properly. 
+In PedOS 4.0, additional packages from the `PedOS-core-agent` suite may be needed to make the customized minimal template work properly. 
 These packages are:
 
-- `qubes-core-agent-nautilus`: This package provides integration with the Nautilus file manager (without it, items like "copy to VM/open in disposable VM" will not be shown in Nautilus).
-- `qubes-core-agent-thunar`: This package provides integration with the thunar file manager (without it, items like "copy to VM/open in disposable VM" will not be shown in thunar).
-- `qubes-core-agent-dom0-updates`: Script required to handle `dom0` updates. Any template on which the qube responsible for 'dom0' updates (e.g. `sys-firewall`) is based must contain this package.
-- `qubes-menus`: Defines menu layout.
-- `qubes-desktop-linux-common`: Contains icons and scripts to improve desktop experience.
+- `PedOS-core-agent-nautilus`: This package provides integration with the Nautilus file manager (without it, items like "copy to VM/open in disposable VM" will not be shown in Nautilus).
+- `PedOS-core-agent-thunar`: This package provides integration with the thunar file manager (without it, items like "copy to VM/open in disposable VM" will not be shown in thunar).
+- `PedOS-core-agent-dom0-updates`: Script required to handle `dom0` updates. Any template on which the PedOS VM responsible for 'dom0' updates (e.g. `sys-firewall`) is based must contain this package.
+- `PedOS-menus`: Defines menu layout.
+- `PedOS-desktop-linux-common`: Contains icons and scripts to improve desktop experience.
 
 Also, there are packages to provide additional services:
 
-- `qubes-gpg-split`: For implementing split GPG.
-- `qubes-pdf-converter`: For implementing safe conversion of PDFs.
-- `qubes-img-converter`: For implementing safe conversion of images.
-- `qubes-snapd-helper`: If you want to use snaps in qubes.
-- `qubes-mgmt-salt-vm-connector`: If you want to use salt management on the template and qubes.
+- `PedOS-gpg-split`: For implementing split GPG.
+- `PedOS-pdf-converter`: For implementing safe conversion of PDFs.
+- `PedOS-img-converter`: For implementing safe conversion of images.
+- `PedOS-snapd-helper`: If you want to use snaps in PedOS.
+- `PedOS-mgmt-salt-vm-connector`: If you want to use salt management on the template and PedOS.
 
 Documentation on all of these can be found in the [docs](/doc)
 
-You could, of course, use `qubes-vm-recommended` to automatically install many of these, but in that case you are well on the way to a standard Debian template.
+You could, of course, use `PedOS-vm-recommended` to automatically install many of these, but in that case you are well on the way to a standard Debian template.
 
 
 [TemplateVMs]: /doc/templates/
 [Fedora]: /doc/templates/fedora/
 [Debian]: /doc/templates/debian/
 [CentOS]: /doc/templates/centos/
-[qubes-users]: /support/#qubes-users
+[PedOS-users]: /support/#PedOS-users
 [doc-guidelines]: /doc/doc-guidelines/
 [pref-default]: /faq/#could-you-please-make-my-preference-the-default
 [testing]: /doc/testing/

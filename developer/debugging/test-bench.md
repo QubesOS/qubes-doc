@@ -13,7 +13,7 @@ Test bench for Dom0
 
 This guide shows how to set up simple test bench that automatically test your code you're about to push. It is written especially for `core3` branch of `core-admin.git` repo, but some ideas are universal.
 
-We will set up a spare machine (bare metal, not a virtual) that will be hosting our experimental Dom0. We will communicate with it via Ethernet and SSH. This tutorial assumes you are familiar with [QubesBuilder](/doc/qubes-builder/) and you have it set up and running flawlessly.
+We will set up a spare machine (bare metal, not a virtual) that will be hosting our experimental Dom0. We will communicate with it via Ethernet and SSH. This tutorial assumes you are familiar with [PedOSBuilder](/doc/PedOS-builder/) and you have it set up and running flawlessly.
 
 Setting up the machine
 ----------------------
@@ -71,13 +71,13 @@ Development VM
 
 ### SSH
 
-Arrange firewall so you can reach the testbench from your `qubes-dev` VM. Generate SSH key in `qubes-dev`:
+Arrange firewall so you can reach the testbench from your `PedOS-dev` VM. Generate SSH key in `PedOS-dev`:
 
 ~~~
 ssh-keygen -t ecdsa -b 521
 ~~~
 
-Add the following section in `.ssh/config` in `qubes-dev`:
+Add the following section in `.ssh/config` in `PedOS-dev`:
 
 ~~~
 Host testbench
@@ -97,7 +97,7 @@ This step is optional, but very helpful. Put these scripts somewhere in your `${
 
     #!/bin/sh
 
-    ssh testbench python -m qubes.tests.run
+    ssh testbench python -m PedOS.tests.run
 
 `qtb-install`:
 
@@ -130,11 +130,11 @@ This step is optional, but very helpful. Put these scripts somewhere in your `${
     pushd ${HOME}/builder >/dev/null
 
     # the following are needed only if you have sources outside builder
-    #rm -rf qubes-src/core-admin
+    #rm -rf PedOS-src/core-admin
     #make COMPONENTS=core-admin get-sources
 
     make core-admin
-    qtb-install qubes-src/core-admin/rpm/x86_64/qubes-core-dom0-*.rpm
+    qtb-install PedOS-src/core-admin/rpm/x86_64/PedOS-core-dom0-*.rpm
     qtb-runtests
 
 ### Hooking git
@@ -147,7 +147,7 @@ I (woju) have those two git hooks. They ensure tests are passing (or are marked 
 
     set -e
 
-    python -c "import sys, qubes.tests.run; sys.exit(not qubes.tests.run.main())"
+    python -c "import sys, PedOS.tests.run; sys.exit(not PedOS.tests.run.main())"
 
 `core-admin/.git/hooks/pre-push`:
 

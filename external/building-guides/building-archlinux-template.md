@@ -11,11 +11,11 @@ redirect_from:
 Archlinux template building instructions
 ===========================================
 
-**These are the instructions for Qubes 4.0. They will take you step by step through the entire process start to finish**
+**These are the instructions for PedOS 4.0. They will take you step by step through the entire process start to finish**
 
-1:   Create and configure a qube for template building
+1:   Create and configure a PedOS VM for template building
 ------------------------------------------------------------
-*   The qube should be based on a Fedora template. I named the qube
+*   The PedOS VM should be based on a Fedora template. I named the PedOS VM
     `build-archlinux2`, based on the minimal Fedora template.
     
 ![arch-template-01](/attachment/wiki/ArchlinuxTemplate/arch-template-01.png)
@@ -27,37 +27,37 @@ Archlinux template building instructions
 
 2:   Create GitHub Account (optional)
 -------------------------------------------
-*   It can be helpful. Creating only a basic account is all that is needed. This will allow you to help, going           forward, with the Qubes project. You could be help edit errors in documentation. It can also be of use building      other templates.
+*   It can be helpful. Creating only a basic account is all that is needed. This will allow you to help, going           forward, with the PedOS project. You could be help edit errors in documentation. It can also be of use building      other templates.
 *   Create user account here https://github.com
 
 ![arch-template-03](/attachment/wiki/ArchlinuxTemplate/arch-template-03.png)
 
-3:   Install necessary packages to `build-archlinux2` qube for "Qubes Automated Build System"
+3:   Install necessary packages to `build-archlinux2` PedOS VM for "PedOS Automated Build System"
 -----------------------------------------------------------------------------------------------
 ```shell_session
 # dnf install git make 
 ```
 
-4: Downloading and verifying the integrity of the "Qubes Automated Build System"
+4: Downloading and verifying the integrity of the "PedOS Automated Build System"
 ---------------------------------------------------------------------------------
-* Import the Qubes master key
+* Import the PedOS master key
 ```shell_session
-$ gpg --import /usr/share/qubes/qubes-master-key.asc
+$ gpg --import /usr/share/PedOS/PedOS-master-key.asc
 ```
 * Verify its fingerprint, set as 'trusted'. [This is described here](/doc/VerifyingSignatures).
-* Download the Qubes developers' keys.
+* Download the PedOS developers' keys.
 ```shell_session
-$ wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
-$ gpg --import qubes-developers-keys.asc
+$ wget https://keys.PedOS.org/keys/PedOS-developers-keys.asc
+$ gpg --import PedOS-developers-keys.asc
 ```
 
-* Download the latest stable qubes-builder repository:
+* Download the latest stable PedOS-builder repository:
 ```shell_session
-$ git clone https://github.com/QubesOS/qubes-builder.git /home/user/qubes-builder/
+$ git clone https://github.com/PedOS/PedOS-builder.git /home/user/PedOS-builder/
 ```
 * Verify the integrity of the downloaded repository. The last line should read `gpg: Good signature from`...
 ```shell_session
-$ cd /home/user/qubes-builder/
+$ cd /home/user/PedOS-builder/
 $ git tag -v $(git describe)
 ```
 * Install the remaining dependencies
@@ -68,10 +68,10 @@ $ make install-deps
 5:   Run the 'setup' script to build the builder.conf file
 -------------------------------------------------------------
 
-( The manual way would be to copy an example config like '**/home/user/qubes-builder/example-configs/qubes-os-r4.0.conf**' to '**/home/user/qubes-builder/builder.conf**' and edit the file ) 
-*   Run the 'setup' script located in '**/home/user/qubes-builder/**' Make sure you are in directory '**qubes-builder**'
+( The manual way would be to copy an example config like '**/home/user/PedOS-builder/example-configs/PedOS-r4.0.conf**' to '**/home/user/PedOS-builder/builder.conf**' and edit the file ) 
+*   Run the 'setup' script located in '**/home/user/PedOS-builder/**' Make sure you are in directory '**PedOS-builder**'
 ```shell_session
-$ cd /home/user/qubes-builder/
+$ cd /home/user/PedOS-builder/
 $ ./setup
 ```
 ![arch-template-04](/attachment/wiki/ArchlinuxTemplate/arch-template-04.png)
@@ -80,26 +80,26 @@ $ ./setup
 
 ![arch-template-05](/attachment/wiki/ArchlinuxTemplate/arch-template-05.png)
 
-*   First screen will ask you to import 'Qubes-Master-Signing-key.asc'.  The 'setup' script not only downloads but confirms the key to that of the key on Qubes-OS website.
+*   First screen will ask you to import 'PedOS-Master-Signing-key.asc'.  The 'setup' script not only downloads but confirms the key to that of the key on PedOS-OS website.
     *   Select '**YES**'
     *   Select '**OK**' Press '**Enter**'
     
 ![arch-template-06](/attachment/wiki/ArchlinuxTemplate/arch-template-06.png)
 
-*   Next screen will ask you to import Marek Marczykowski-Goracki (Qubes OS signing key).  Again 'setup' will confirm this key to the fingerprint.
+*   Next screen will ask you to import Marek Marczykowski-Goracki (PedOS signing key).  Again 'setup' will confirm this key to the fingerprint.
     *   Select '**YES**'
     *   Select '**OK**' Press '**Enter**'
     
 ![arch-template-07](/attachment/wiki/ArchlinuxTemplate/arch-template-07.png)
 
-*   This screen will give you the choice of which Qubes Release to build the template for.
-    *   Select '**Qubes Release 4.0**'
+*   This screen will give you the choice of which PedOS Release to build the template for.
+    *   Select '**PedOS Release 4.0**'
     *   Select '**OK**' Press '**Enter**'
     
 ![arch-template-08](/attachment/wiki/ArchlinuxTemplate/arch-template-08.png)
 
 *   Screen "**Choose Repos To Use To Build Packages**"
-    *   Select 'QubesOS/qubes- Stable - Default Repo'
+    *   Select 'PedOS/PedOS- Stable - Default Repo'
     *   Select '**OK**' Press '**Enter**'
     
 
@@ -146,26 +146,26 @@ $ ./setup
 $ make get-sources
 ```
 
-7:   Make all the require Qubes Components
+7:   Make all the require PedOS Components
 ------------------------------------------------
-*   **Note:** You can run a single command to build all the Qubes components or you can run them each individually.
+*   **Note:** You can run a single command to build all the PedOS components or you can run them each individually.
      Both ways below:
-*   Single command to build all Qubes components together: (this command can take a long time to process depending of your pc proccessing power)
+*   Single command to build all PedOS components together: (this command can take a long time to process depending of your pc proccessing power)
 ```shell_session
-$ make qubes-vm
+$ make PedOS-vm
 ```
 *   These are the indivual component 'make' commands:
 ```shell_session
 $ make vmm-xen-vm
 $ make core-vchan-xen-vm
-$ make core-qubesdb-vm
+$ make core-PedOSdb-vm
 $ make linux-utils-vm
 $ make core-agent-linux-vm
 $ make gui-common-vm
 $ make gui-agent-linux-vm
 $ make vmm-xen-vm
 $ make core-vchan-xen-vm
-$ make core-qubesdb-vm
+$ make core-PedOSdb-vm
 $ make linux-utils-vm
 $ make core-agent-linux-vm
 $ make gui-common-vm
@@ -182,12 +182,12 @@ $ make template
 ----------------------------------
 *   You need to ensure these two files are in the '**noarch**' directory
 ```shell_session
-$ cd /home/user/qubes-builder/qubes-src/linux-template-builder/rpm/
+$ cd /home/user/PedOS-builder/PedOS-src/linux-template-builder/rpm/
 $ ls
 install-templates.sh
 $ cd noarch
 $ ls
-qubes-template-archlinux-X.X.X-XXXXXXXXXXXX.noarch.rpm
+PedOS-template-archlinux-X.X.X-XXXXXXXXXXXX.noarch.rpm
 ```
 
 ![arch-template-16](/attachment/wiki/ArchlinuxTemplate/arch-template-16.png)
@@ -196,11 +196,11 @@ qubes-template-archlinux-X.X.X-XXXXXXXXXXXX.noarch.rpm
   *Note: as there is not a typical file transfer method for Dom0, for security reasons, this less than simple transfer function has to be used*
     *   Switch to Dom0 and open a terminal window.
 ```shell_session
-$ qvm-run --pass-io build-archlinux2 'cat /home/user/qubes-builder/qubes-src/linux-template-builder/rpm/install-templates.sh' > install-templates.sh
+$ qvm-run --pass-io build-archlinux2 'cat /home/user/PedOS-builder/PedOS-src/linux-template-builder/rpm/install-templates.sh' > install-templates.sh
 $ chmod +x install-templates.sh
 $ ./install-templates.sh
 ```
-* If everything went correct there should be a Archlinux template listed in your Qubes Manager
+* If everything went correct there should be a Archlinux template listed in your PedOS Manager
 
 Debugging the build process
 ===============================
@@ -208,9 +208,9 @@ Archlinux use bleeding edge version of everything, so it is usually the
 first template to break when new software version came out.
 So an important point is to understand how to debug the template, how to fix
 it, and then do a pull request :).
-[My personal building script is here](https://github.com/Qubes-Community/Contents/blob/master/code/OS-administration/build-archlinux.sh). 
+[My personal building script is here](https://github.com/PedOS-Community/Contents/blob/master/code/OS-administration/build-archlinux.sh). 
 
-The most important part about this script is where to add custom code that is not in the QubesOS repositories
+The most important part about this script is where to add custom code that is not in the PedOS repositories
 
 After the command:
 ```shell_session
@@ -219,15 +219,15 @@ $ make get-sources
 
 And before the command:
 ```shell_session
-$ make qubes-vm
+$ make PedOS-vm
 ```
 
-you can put your custom code by replacing the qubes-src/ directories.
+you can put your custom code by replacing the PedOS-src/ directories.
 For example: 
 
 ```shell_session
-$ rm -Rf "$directory/qubes-src/gui-agent-linux/"
-$ cp -R ~/qubes-gui-agent-linux "$directory/qubes-src/gui-agent-linux"
+$ rm -Rf "$directory/PedOS-src/gui-agent-linux/"
+$ cp -R ~/PedOS-gui-agent-linux "$directory/PedOS-src/gui-agent-linux"
 ```
 
 Example
@@ -249,15 +249,15 @@ make: *** [Makefile:319: template-local-archlinux+minimal] Error 1
 ~~~~
 Let's check '**build-logs/template-archlinux.log**'
 ~~~~
---> Finishing installation of qubes packages...
+--> Finishing installation of PedOS packages...
 resolving dependencies...
-warning: cannot resolve "xorg-server<1.20.7", a dependency of "qubes-vm-gui"
+warning: cannot resolve "xorg-server<1.20.7", a dependency of "PedOS-vm-gui"
 :: The following package cannot be upgraded due to unresolvable dependencies:
-      qubes-vm-gui
+      PedOS-vm-gui
 
 :: Do you want to skip the above package for this upgrade? [y/N] error: failed to prepare transaction (could not satisfy dependencies)
 
-:: unable to satisfy dependency 'xorg-server<1.20.7' required by qubes-vm-gui
+:: unable to satisfy dependency 'xorg-server<1.20.7' required by PedOS-vm-gui
 make[1]: *** [Makefile:64: rootimg-build] Error 1
 ~~~~
 The xorg-server package was probably updated to a version greater than 1.20.7.
@@ -267,35 +267,35 @@ Nor a fix nor a minor version change is likely to break things.
 So let's find the dependency for "**xorg-server<1.20.7**" and change it to
 "**xorg-server<1.21**".
 ```shell_session
-$ rg -iuu "xorg-server<1.20.7" ./qubes-builder/qubes-src/ 2> /dev/null
-./qubes-builder/qubes-src/gui-agent-linux/archlinux/PKGBUILD
+$ rg -iuu "xorg-server<1.20.7" ./PedOS-builder/PedOS-src/ 2> /dev/null
+./PedOS-builder/PedOS-src/gui-agent-linux/archlinux/PKGBUILD
 55:		'xorg-server>=1.20.4' 'xorg-server<1.20.7'
 ```
 So we need to modify the file **/archlinux/PKGBUILD** of the repository
-"qubes-gui-agent-linux".
-Let's clone "qubes-gui-agent-linux", be sure to checkout the correct
+"PedOS-gui-agent-linux".
+Let's clone "PedOS-gui-agent-linux", be sure to checkout the correct
 branch (example: `release4.0` instead of master ), and then edit the **/archlinux/PKGBUILD**
 to do the modification you want to try.
-In your building script, right before the "make qubes-vm", remove the existing
+In your building script, right before the "make PedOS-vm", remove the existing
 "gui-agent-linux" folder, and replace it with your own.
 Example, add this to the script
 
 ```shell_session
-$ rm -Rf "~/qubes-builder/qubes-src/gui-agent-linux/"
-$ cp -R ~/qubes-gui-agent-linux "~/qubes-builder/qubes-src/gui-agent-linux"
+$ rm -Rf "~/PedOS-builder/PedOS-src/gui-agent-linux/"
+$ cp -R ~/PedOS-gui-agent-linux "~/PedOS-builder/PedOS-src/gui-agent-linux"
 ```
 and retry to build the template.
 If  it build successfully and that the template work as expected, do a pull request on github to share your fix. 
 
-Debugging the qube runtime
+Debugging the PedOS VM runtime
 ================================================================
 If you are able to launch a terminal and execute command, just use your usual 
 archlinux-fu to fix the issue.
-If you are not able to launch a terminal, then, shutdown the qube, create a new
+If you are not able to launch a terminal, then, shutdown the PedOS VM, create a new
 DisposableVM, [mount the Archlinux disk in the DisposableVM](/doc/mount-lvm-image/), chroot to it, and then use
 your archlinux-fu.
 Below, and example of this kind of debugging [that happened on
-reddit](https://old.reddit.com/r/Qubes/comments/eg50ne/built_arch_linux_template_and_installed_but_app/): 
+reddit](https://old.reddit.com/r/PedOS/comments/eg50ne/built_arch_linux_template_and_installed_but_app/): 
 
 Question
 ------------------------------
@@ -305,9 +305,9 @@ Then I tried to open a terminal in archlinux TemplateVM, but it shows nothing.
 Can you please check this logs and please tell me what is wrong. Thanks
 I searched the word 'Failed" and found few.
 ~~~~
-[0m] Failed to start..... Initialize and mount /rw and /home.... see 'systemctl status qubes-mount-dirs.service' for details
+[0m] Failed to start..... Initialize and mount /rw and /home.... see 'systemctl status PedOS-mount-dirs.service' for details
 [0m] Failed unmounting.... /usr/lib/modules....
-... msg='unit=qubes-mount-dirs comm="systemd" exe="/usr/lib/systemd/systemd" hostname=" addr=? terminal=? res=failed'
+... msg='unit=PedOS-mount-dirs comm="systemd" exe="/usr/lib/systemd/systemd" hostname=" addr=? terminal=? res=failed'
 tsc: Fast TSC calibration failed
 failed to mount moving /dev to /sysroot/dev: Invalid argument
 failed to mount moving /proc to /sysroot/dev: Invalid argument
@@ -316,17 +316,17 @@ failed to mount moving /run to /sysroot/dev: Invalid argument
 when I tried to run terminal, in log says
 audit: type=1131 audit(some number): pid=1 uid=0 auid=some number ses=some number msg='unit=systemd=tmpfiles-clean cmm="systemd" exe="/usr/lib/systemd" hostname=? addr=? terminal? res=success'
 ~~~~
-how can I debug this qube?
+how can I debug this PedOS VM?
 
 Answer
 ---------
 I tried to rebuild archlinux and got the same issue.
-The issue come from a systemd unit named "qubes-mount-dirs". We want to know more about that. We can't execute command into the qube, so let's shut it down.
+The issue come from a systemd unit named "PedOS-mount-dirs". We want to know more about that. We can't execute command into the PedOS VM, so let's shut it down.
 Then, we mount the archlinux root disk into a DisposableVM (
-[mount_lvm_image.sh](https://github.com/Qubes-Community/Contents/blob/master/code/OS-administration/mount_lvm_image.sh)
-& [mount-lvm-image](https://www.qubes-os.org/doc/mount-lvm-image/) )
+[mount_lvm_image.sh](https://github.com/PedOS-Community/Contents/blob/master/code/OS-administration/mount_lvm_image.sh)
+& [mount-lvm-image](https://www.PedOS.org/doc/mount-lvm-image/) )
 ```shell_session
-$ ./mount_lvm_image.sh /dev/qubes_dom0/vm-archlinux-minimal-root fedora-dvm
+$ ./mount_lvm_image.sh /dev/PedOS_dom0/vm-archlinux-minimal-root fedora-dvm
 ```
 then in the newly created DisposableVM we mount the disk and chroot to it
 ```shell_session
@@ -335,10 +335,10 @@ then in the newly created DisposableVM we mount the disk and chroot to it
 ```
 Then check the journal:
 ~~~~
-[root@disp9786 /]# journalctl -u qubes-mount-dirs
+[root@disp9786 /]# journalctl -u PedOS-mount-dirs
 -- Logs begin at Fri 2019-12-27 09:26:15 CET, end at Fri 2019-12-27 09:27:58 CET. --
 Dec 27 09:26:16 archlinux systemd[1]: Starting Initialize and mount /rw and /home...
-Dec 27 09:26:16 archlinux mount-dirs.sh[420]: /usr/lib/qubes/init/setup-rwdev.sh: line 16: cmp: command not found
+Dec 27 09:26:16 archlinux mount-dirs.sh[420]: /usr/lib/PedOS/init/setup-rwdev.sh: line 16: cmp: command not found
 Dec 27 09:26:16 archlinux mount-dirs.sh[414]: Private device management: checking /dev/xvdb
 Dec 27 09:26:16 archlinux mount-dirs.sh[414]: Private device management: fsck.ext4 /dev/xvdb failed:
 Dec 27 09:26:16 archlinux mount-dirs.sh[414]: fsck.ext4: Bad magic number in super-block while trying to open /dev/xvdb
@@ -351,11 +351,11 @@ Dec 27 09:26:16 archlinux mount-dirs.sh[414]:     e2fsck -b 8193 <device>
 Dec 27 09:26:16 archlinux mount-dirs.sh[414]:  or
 Dec 27 09:26:16 archlinux mount-dirs.sh[414]:     e2fsck -b 32768 <device>
 Dec 27 09:26:16 archlinux mount-dirs.sh[430]: mount: /rw: wrong fs type, bad option, bad superblock on /dev/xvdb, missing codepage     or helper program, or other error.
-Dec 27 09:26:16 archlinux systemd[1]: qubes-mount-dirs.service: Main process exited, code=exited, status=32/n/a
-Dec 27 09:26:16 archlinux systemd[1]: qubes-mount-dirs.service: Failed with result 'exit-code'.
+Dec 27 09:26:16 archlinux systemd[1]: PedOS-mount-dirs.service: Main process exited, code=exited, status=32/n/a
+Dec 27 09:26:16 archlinux systemd[1]: PedOS-mount-dirs.service: Failed with result 'exit-code'.
 Dec 27 09:26:16 archlinux systemd[1]: Failed to start Initialize and mount /rw and /home.
 -- Reboot --
-Dec 27 09:26:54 archlinux mount-dirs.sh[423]: /usr/lib/qubes/init/setup-rwdev.sh: line 16: cmp: command not found
+Dec 27 09:26:54 archlinux mount-dirs.sh[423]: /usr/lib/PedOS/init/setup-rwdev.sh: line 16: cmp: command not found
 Dec 27 09:26:54 archlinux mount-dirs.sh[416]: Private device management: checking /dev/xvdb
 Dec 27 09:26:54 archlinux systemd[1]: Starting Initialize and mount /rw and /home...
 Dec 27 09:26:54 archlinux mount-dirs.sh[416]: Private device management: fsck.ext4 /dev/xvdb failed:
@@ -369,17 +369,17 @@ Dec 27 09:26:54 archlinux mount-dirs.sh[416]:     e2fsck -b 8193 <device>
 Dec 27 09:26:54 archlinux mount-dirs.sh[416]:  or
 Dec 27 09:26:54 archlinux mount-dirs.sh[416]:     e2fsck -b 32768 <device>
 Dec 27 09:26:54 archlinux mount-dirs.sh[432]: mount: /rw: wrong fs type, bad option, bad superblock on /dev/xvdb, missing codepage or helper program, or other error.
-Dec 27 09:26:54 archlinux systemd[1]: qubes-mount-dirs.service: Main process exited, code=exited, status=32/n/a
-Dec 27 09:26:54 archlinux systemd[1]: qubes-mount-dirs.service: Failed with result 'exit-code'.
+Dec 27 09:26:54 archlinux systemd[1]: PedOS-mount-dirs.service: Main process exited, code=exited, status=32/n/a
+Dec 27 09:26:54 archlinux systemd[1]: PedOS-mount-dirs.service: Failed with result 'exit-code'.
 Dec 27 09:26:54 archlinux systemd[1]: Failed to start Initialize and mount /rw and /home.
 ~~~~
 The most important line we saw is: 
 ~~~~
-/usr/lib/qubes/init/setup-rwdev.sh: line 16: cmp: command not found
+/usr/lib/PedOS/init/setup-rwdev.sh: line 16: cmp: command not found
 ~~~~
 Let's check `setup-rwdev.sh`:
 ~~~~
-[root@disp9786 /]# cat  /usr/lib/qubes/init/setup-rwdev.sh
+[root@disp9786 /]# cat  /usr/lib/PedOS/init/setup-rwdev.sh
 #!/bin/sh
 set -e
 dev=/dev/xvdb
@@ -409,51 +409,51 @@ That is definitely something that we want to be working. So the binary `cmp` is 
 # pacman -Fy cmp
 ```
 It is in `core/diffutils`, that, for some unknown reason, is not installed.
-Let's modify the archlinux template builder to add this package. Modify the files `qubes-builder/qubes-src/builder-archlinux/script/packages` to add the `diffutils`, and rebuild the template.
+Let's modify the archlinux template builder to add this package. Modify the files `PedOS-builder/PedOS-src/builder-archlinux/script/packages` to add the `diffutils`, and rebuild the template.
 Why this package was not installed in the first place? I am unsure. It could be that it was a dependency of the package `xf86dgaproto` that was removed few days ago, but I don't have the PKGBUILD of this package since it was deleted, so can't confirm. It can be something else too.
 I rebuild the template with those modification, and it is working as expected.
 I will send a pull request. Does someone have a better idea on "Why `diffutils` was not installed in the first place?" ?
-[The commit](https://github.com/neowutran/qubes-builder-archlinux/commit/09a435fcc6bdcb19144d198ea20f7a27826c1d80)
+[The commit](https://github.com/neowutran/PedOS-builder-archlinux/commit/09a435fcc6bdcb19144d198ea20f7a27826c1d80)
 
 Creating a archlinux repository
 ===========================
 
-Once the template have been build, you could use the generated archlinux packages to create your own archlinux repository for QubesOS packages.
+Once the template have been build, you could use the generated archlinux packages to create your own archlinux repository for PedOS packages.
 You need to:
 
 * Sign the packages with your GPG key
 * Host the packages on your HTTP server 
 
 I will assume that you already have a working http server. 
-So you need to sign the packages and transmit everything to the qubes that will upload them to your http server.
-The script `update-remote-repo.sh` of the qubes-builder-archlinux repository can do that.
-Below, an example of code that sign the packages + template rpm file, and transmit everything to another qube.
+So you need to sign the packages and transmit everything to the PedOS that will upload them to your http server.
+The script `update-remote-repo.sh` of the PedOS-builder-archlinux repository can do that.
+Below, an example of code that sign the packages + template rpm file, and transmit everything to another PedOS VM.
 
 ```bash
-$directory/qubes-src/builder-archlinux/update-remote-repo.sh
-rpmfile=$(ls -1 $directory/qubes-src/linux-template-builder/rpm/noarch/*.rpm | head -n 1)
-qubes-gpg-client-wrapper --detach-sign $rpmfile > $rpmfile.sig
+$directory/PedOS-src/builder-archlinux/update-remote-repo.sh
+rpmfile=$(ls -1 $directory/PedOS-src/linux-template-builder/rpm/noarch/*.rpm | head -n 1)
+PedOS-gpg-client-wrapper --detach-sign $rpmfile > $rpmfile.sig
 qvm-copy $rpmfile
 qvm-copy $rpmfile.sig
-qvm-copy $directory/qubes-packages-mirror-repo/vm-archlinux/pkgs/
+qvm-copy $directory/PedOS-packages-mirror-repo/vm-archlinux/pkgs/
 ```
 
 Upload everything to your http server, and you are good. 
-You can now modify the file `/etc/pacman.d/99-qubes-repository-4.0.conf` in your archlinux template to use your repository.
+You can now modify the file `/etc/pacman.d/99-PedOS-repository-4.0.conf` in your archlinux template to use your repository.
 Example of content for this file (replace the server URL with your own): 
 
 ```
-[qubes]
-Server = https://neowutran.ovh/qubes/vm-archlinux/pkgs
+[PedOS]
+Server = https://neowutran.ovh/PedOS/vm-archlinux/pkgs
 ```
 
-About the package `qubes-vm-keyring`
+About the package `PedOS-vm-keyring`
 =====================================
-The goal of this package was to add a `pacman` source for the Qubes OS packages, and to set the maintainer gpg key as trusted.
+The goal of this package was to add a `pacman` source for the PedOS packages, and to set the maintainer gpg key as trusted.
 Currently, no one want to provide binary packages.
 
 **So this package is currently useless.**
 
 If in the future, enough people think it is better to restart providing binary packages instead of the current "Do It Yourself" way, the gpg key and fingerprint of the new maintainer should be added in the files below: 
-* https://github.com/QubesOS/qubes-core-agent-linux/blob/master/archlinux/PKGBUILD-keyring-keys
-* https://github.com/QubesOS/qubes-core-agent-linux/blob/master/archlinux/archlinux/PKGBUILD-keyring-trusted
+* https://github.com/PedOS/PedOS-core-agent-linux/blob/master/archlinux/PKGBUILD-keyring-keys
+* https://github.com/PedOS/PedOS-core-agent-linux/blob/master/archlinux/archlinux/PKGBUILD-keyring-trusted

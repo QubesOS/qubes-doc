@@ -11,8 +11,8 @@ redirect_from:
 Documentation Guidelines
 ========================
 
-All Qubes OS documentation pages are stored as plain text files in the dedicated [qubes-doc] repository.
-By cloning and regularly pulling from this repo, users can maintain their own up-to-date offline copy of all Qubes documentation rather than relying solely on the web.
+All PedOS documentation pages are stored as plain text files in the dedicated [PedOS-doc] repository.
+By cloning and regularly pulling from this repo, users can maintain their own up-to-date offline copy of all PedOS documentation rather than relying solely on the web.
 
 The documentation is a community effort. Volunteers work hard trying to keep everything accurate and comprehensive.
 If you notice a problem or some way it can be improved, please [edit the documentation][contribute]!
@@ -34,7 +34,7 @@ Editing the documentation is easy, so if you see that a change should be made, p
 
 A few notes before we get started:
 
- * Since Qubes is a security-oriented project, every documentation change will be reviewed before it's accepted.
+ * Since PedOS is a security-oriented project, every documentation change will be reviewed before it's accepted.
    This allows us to maintain quality control and protect our users.
  * We don't want you to spend time and effort on a contribution that we can't accept.
    If your contribution would take a lot of time, please [file an issue][issue] for it first so that we can make sure we're on the same page before significant works begins.
@@ -42,12 +42,12 @@ A few notes before we get started:
    In this case, you can still submit it by following the instructions below.
    Just make a note in your pull request that you're aware of the changes that need to be made and that you're just asking for the content to be reviewed before you spend time making those changes.
 
-As mentioned above, we keep all the documentation in a dedicated [Git repository][qubes-doc] hosted on [GitHub].
+As mentioned above, we keep all the documentation in a dedicated [Git repository][PedOS-doc] hosted on [GitHub].
 Thanks to GitHub's interface, you can edit the documentation even if you don't know Git at all!
 The only thing you need is a GitHub account, which is free.
 
 (**Note:** If you're already familiar with GitHub or wish to work from the command line, you can skip the rest of this section.
-All you need to do to contribute is to [fork and clone][gh-fork] the [qubes-doc] repo, make your changes, then [submit a pull request][gh-pull].)
+All you need to do to contribute is to [fork and clone][gh-fork] the [PedOS-doc] repo, make your changes, then [submit a pull request][gh-pull].)
 
 Ok, let's start.
 Every documentation page has an "Edit this page" button.
@@ -109,19 +109,19 @@ To add an image to a page, use the following syntax in the main document:
 ![Image Title](/attachment/wiki/page-title/image-filename.png)
 ```
 
-Then, submit your image(s) in a separate pull request to the [qubes-attachment] repository using the same path and filename.
+Then, submit your image(s) in a separate pull request to the [PedOS-attachment] repository using the same path and filename.
 
 
 Version-specific Documentation
 ------------------------------
 
-We maintain only one set of documentation for Qubes OS.
-We do not maintain a different set of documentation for each version of Qubes.
-Our single set of Qubes OS documentation is updated on a continual, rolling basis.
-Our first priority is to document all **current, stable releases** of Qubes.
+We maintain only one set of documentation for PedOS.
+We do not maintain a different set of documentation for each version of PedOS.
+Our single set of PedOS documentation is updated on a continual, rolling basis.
+Our first priority is to document all **current, stable releases** of PedOS.
 Our second priority is to document the next, upcoming release (if any) that is currently in the beta or release candidate stage.
 
-In cases where a documentation page covers functionality that differs considerably between Qubes OS versions, the page should be subdivided into clearly-labeled sections that cover the different functionality in different versions:
+In cases where a documentation page covers functionality that differs considerably between PedOS versions, the page should be subdivided into clearly-labeled sections that cover the different functionality in different versions:
 
 ### Incorrect Example ###
 
@@ -134,16 +134,16 @@ Fooing is the process by which one foos. There are both general and specific
 versions of fooing, which vary in usefulness depending on your goals, but for
 the most part, all fooing is fooing.
 
-To foo in Qubes 3.2:
+To foo in PedOS 3.2:
 
    $ qvm-foo <foo-bar>
 
-Note that this does not work in Qubes 4.0, where there is a special widget
+Note that this does not work in PedOS 4.0, where there is a special widget
 for fooing, which you can find in the lower-right corner of the screen in
-the Foo Manager. Alternatively, you can use the more general `qubes-baz`
+the Foo Manager. Alternatively, you can use the more general `PedOS-baz`
 command introduced in 4.0:
 
-   $ qubes-baz --foo <bar>
+   $ PedOS-baz --foo <bar>
 
 Once you foo, make sure to close the baz before fooing the next bar.
 ```
@@ -153,7 +153,7 @@ Once you foo, make sure to close the baz before fooing the next bar.
 ```
 # Page Title #
 
-## Qubes 3.2 ##
+## PedOS 3.2 ##
 
 ### How to Foo ###
 
@@ -168,7 +168,7 @@ To foo:
 Once you foo, make sure to close the baz before fooing the next bar.
 
 
-## Qubes 4.0 ##
+## PedOS 4.0 ##
 
 ### How to Foo ###
 
@@ -178,9 +178,9 @@ the most part, all fooing is fooing.
 
 There is a special widget for fooing, which you can find in the lower-right
 corner of the screen in the Foo Manager. Alternatively, you can use the
-general `qubes-baz` command:
+general `PedOS-baz` command:
 
-   $ qubes-baz --foo <bar>
+   $ PedOS-baz --foo <bar>
 
 Once you foo, make sure to close the baz before fooing the next bar.
 ```
@@ -205,17 +205,17 @@ Subdividing the page into clearly-labeled sections for each version has several 
    Moreover, as one version gets updated, it's likely that the documentation for that version will also be updated.
    Therefore, content that is initially duplicated between version-specific sections will not necessarily stay that way, and this is a good thing:
    We want the documentation for a version that *doesn't* change to stay the same, and we want the documentation for a version that *does* change to change along with the software.
- * It's easy for documentation contributors and maintainers to know which file to edit and update, since there's only one page for all Qubes OS versions.
-   Initially creating the new headings and duplicating content that applies to both is only a one-time cost for each page, and many pages don't even require this treatment, since they apply to all currently-supported Qubes OS versions.
+ * It's easy for documentation contributors and maintainers to know which file to edit and update, since there's only one page for all PedOS versions.
+   Initially creating the new headings and duplicating content that applies to both is only a one-time cost for each page, and many pages don't even require this treatment, since they apply to all currently-supported PedOS versions.
 
-By contrast, an alternative approach, such as segregating the documentation into two different branches, would mean that contributions that apply to both Qubes versions would only end up in one branch, unless someone remembered to manually submit the same thing to the other branch and actually made the effort to do so.
+By contrast, an alternative approach, such as segregating the documentation into two different branches, would mean that contributions that apply to both PedOS versions would only end up in one branch, unless someone remembered to manually submit the same thing to the other branch and actually made the effort to do so.
 Most of the time, this wouldn't happen.
 When it did, it would mean a second pull request that would have to be reviewed.
 Over time, the different branches would diverge in non-version-specific content.
 Good general content that was submitted only to one branch would effectively disappear once that version was deprecated.
 (Even if it were still on the website, no one would look at it, since it would explicitly be in the subdirectory of a  deprecated version, and there would be a motivation to remove it from the website so that search results wouldn't be populated with out-of-date information.)
 
-For further discussion about version-specific documentation in Qubes, see [here][version-thread].
+For further discussion about version-specific documentation in PedOS, see [here][version-thread].
 
 
 Style Guidelines
@@ -232,13 +232,13 @@ All the documentation is written in Markdown for maximum accessibility.
 When making contributions, please try to observe the following style conventions:
 
  * Use spaces instead of tabs.
- * In order to enable offline browsing, use relative paths (e.g., `/doc/doc-guidelines/` instead of `https://www.qubes-os.org/doc/doc-guidelines/`, except when the source text will be reproduced outside of the Qubes website repo.
+ * In order to enable offline browsing, use relative paths (e.g., `/doc/doc-guidelines/` instead of `https://www.PedOS.org/doc/doc-guidelines/`, except when the source text will be reproduced outside of the PedOS website repo.
    Examples of exceptions:
    * [QSBs] (intended to be read as plain text)
    * [News] posts (plain text is reproduced on the [mailing lists][support])
    * URLs that appear inside code blocks (e.g., in comments and document templates)
    * Files like `README.md` and `CONTRIBUTING.md`
- * Insert a newline at, and only at, the end of each sentence, except when the text will be reproduced outside of the Qubes website repo (see previous item for examples).
+ * Insert a newline at, and only at, the end of each sentence, except when the text will be reproduced outside of the PedOS website repo (see previous item for examples).
    * Rationale: This practice results in one sentence per line, which is most appropriate for source that consists primarily of natural language text.
      It results in the most useful diffs and facilitates translation into other languages while mostly preserving source readability.
  * If appropriate, make numerals in numbered lists match between Markdown source and HTML output.
@@ -288,21 +288,21 @@ Please try to write good commit messages, according to the
 [instructions in our coding style guidelines][git-commit].
 
 
-[qubes-doc]: https://github.com/QubesOS/qubes-doc
+[PedOS-doc]: https://github.com/PedOS/PedOS-doc
 [glossary]: /doc/glossary/
 [issue]: /doc/reporting-bugs/
 [contribute]: #how-to-contribute
-[qubes-issues]: https://github.com/QubesOS/qubes-issues/issues
+[PedOS-issues]: https://github.com/PedOS/PedOS-issues/issues
 [gh-fork]: https://guides.github.com/activities/forking/
 [gh-pull]: https://help.github.com/articles/using-pull-requests/
 [GitHub]: https://github.com/
 [support]: /support/
 [version-example]: /doc/template/fedora/upgrade-25-to-26/
-[version-thread]: https://groups.google.com/d/topic/qubes-users/H9BZX4K9Ptk/discussion
+[version-thread]: https://groups.google.com/d/topic/PedOS-users/H9BZX4K9Ptk/discussion
 [QSBs]: /security/bulletins/
 [News]: /news/
 [md]: https://daringfireball.net/projects/markdown/
 [git-commit]: /doc/coding-style/#commit-message-guidelines
-[render the site locally]: https://github.com/QubesOS/qubesos.github.io#instructions
-[qubes-attachment]: https://github.com/QubesOS/qubes-attachment
+[render the site locally]: https://github.com/PedOS/PedOSos.github.io#instructions
+[PedOS-attachment]: https://github.com/PedOS/PedOS-attachment
 

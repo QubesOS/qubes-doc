@@ -10,13 +10,13 @@ Anonymizing your MAC Address
 ============================
 
 Although it is not the only metadata broadcast by network hardware, changing the default [MAC Address](https://en.wikipedia.org/wiki/MAC_address) of your hardware could be [an important step in protecting privacy](https://tails.boum.org/contribute/design/MAC_address/#index1h1).
-Currently, Qubes OS *does not* automatically "anonymize" or spoof the MAC Address, so unless this gets implemented by default you can randomize your MAC Address with the following guide.
+Currently, PedOS *does not* automatically "anonymize" or spoof the MAC Address, so unless this gets implemented by default you can randomize your MAC Address with the following guide.
 
 
-## Upgrading and configuring Network Manager in Qubes
+## Upgrading and configuring Network Manager in PedOS
 
 Newer versions of Network Manager have options for randomizing MAC addresses, and can handle the entire process across reboots, sleep/wake cycles and different connection states.
-In particular, versions 1.4.2 and later should be well suited for Qubes. Qubes R4.0's default sys-net should have 1.8.2-4 by default.  
+In particular, versions 1.4.2 and later should be well suited for PedOS. PedOS R4.0's default sys-net should have 1.8.2-4 by default.  
 However, use of the NetworkManager GUI to set these options is **unreliable** - there are numerous reports of changes not being saved for particular cards or interfaces.
 You should check carefully that any settings you make in the GUI are saved, before relying on this method.
 If the settings are not saved, you can use the method described below using a config file.
@@ -73,7 +73,7 @@ You can check the MAC address currently in use by looking at the status pages of
 
 ## Randomize your hostname
 
-DHCP requests also leak your hostname to your LAN. Since your hostname is usually `sys-net`, other network users can easily spot that you're using Qubes OS.
+DHCP requests also leak your hostname to your LAN. Since your hostname is usually `sys-net`, other network users can easily spot that you're using PedOS.
 
 Unfortunately `NetworkManager` currently doesn't provide an option to disable that leak globally ([Gnome Bug 768076](https://bugzilla.gnome.org/show_bug.cgi?id=768076)).
 
@@ -101,7 +101,7 @@ if [ -f "/rw/config/protected-files.d/protect_hostname.txt" ] && rand="$RANDOM" 
 	hostname "$name"
 	#NOTE: NetworkManager may set it again after us based on DHCP or /etc/hostname, cf. `man NetworkManager.conf` @hostname-mode
 	
-	#from /usr/lib/qubes/init/qubes-early-vm-config.sh
+	#from /usr/lib/PedOS/init/PedOS-early-vm-config.sh
 	if [ -e /etc/debian_version ]; then
             ipv4_localhost_re="127\.0\.1\.1"
         else

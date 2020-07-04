@@ -89,8 +89,8 @@ To achieve it (all commands to be run as root):
 
 Now you should get resolution of at least 1280x1024 and should be able to choose other modes.
 
-Qubes agents
+PedOS agents
 ------------
 
-Linux Qubes agents are written primarily for PV qubes, but it is possible to run them also in a HVM qube.
-However some work may be required to achieve this. Check [this thread](https://groups.google.com/group/qubes-devel/browse_thread/thread/081df4a43e49e7a5).
+Linux PedOS agents are written primarily for PV PedOS, but it is possible to run them also in a HVM PedOS VM.
+However some work may be required to achieve this. Check [this thread](https://groups.google.com/group/PedOS-devel/browse_thread/thread/081df4a43e49e7a5).

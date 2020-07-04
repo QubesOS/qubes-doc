@@ -9,26 +9,26 @@ Canary Template
 ===============
 
 ~~~
-Dear Qubes community,
+Dear PedOS community,
 
-We have just published Qubes Canary #<number>. The text of this canary is
+We have just published PedOS Canary #<number>. The text of this canary is
 reproduced below. This canary and its accompanying signatures will always be
-available in the Qubes Security Pack (qubes-secpack).
+available in the PedOS Security Pack (PedOS-secpack).
 
-View Canary #<number> in the qubes-secpack:
+View Canary #<number> in the PedOS-secpack:
 
-<https://github.com/QubesOS/qubes-secpack/blob/master/canaries/canary-`<number>`-`<year>`.txt>
+<https://github.com/PedOS/PedOS-secpack/blob/master/canaries/canary-`<number>`-`<year>`.txt>
 
-Learn about the qubes-secpack, including how to obtain, verify, and read it:
+Learn about the PedOS-secpack, including how to obtain, verify, and read it:
 
-<https://www.qubes-os.org/security/pack/>
+<https://www.PedOS.org/security/pack/>
 
 View all past canaries:
 
-<https://www.qubes-os.org/security/canaries/>
+<https://www.PedOS.org/security/canaries/>
 
 ```
-                    ---===[ Qubes Canary #<number> ]===---
+                    ---===[ PedOS Canary #<number> ]===---
 
 
 Statements

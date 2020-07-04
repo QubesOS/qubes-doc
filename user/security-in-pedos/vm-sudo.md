@@ -11,13 +11,13 @@ redirect_from:
 Passwordless Root Access in VMs
 ===============================
 
-Background ([/etc/sudoers.d/qubes](https://github.com/QubesOS/qubes-core-agent-linux/blob/master/misc/qubes.sudoers) in VM):
+Background ([/etc/sudoers.d/PedOS](https://github.com/PedOS/PedOS-core-agent-linux/blob/master/misc/PedOS.sudoers) in VM):
 
     user ALL=(ALL) NOPASSWD: ALL
 
     # WTF?! Have you lost your mind?!
     #
-    # In Qubes VMs there is no point in isolating the root account from
+    # In PedOS VMs there is no point in isolating the root account from
     # the user account. This is because all the user data is already
     # accessible from the user account, so there is no direct benefit for
     # the attacker if she could escalate to root (there is even no benefit
@@ -61,7 +61,7 @@ Background ([/etc/sudoers.d/qubes](https://github.com/QubesOS/qubes-core-agent-l
 
 Below is a complete list of configuration made according to the above statement, with (not necessary complete) list of mechanisms depending on each of them:
 
-1.  sudo (`/etc/sudoers.d/qubes`):
+1.  sudo (`/etc/sudoers.d/PedOS`):
 
         user ALL=(ALL) NOPASSWD: ALL
         (...)
@@ -69,14 +69,14 @@ Below is a complete list of configuration made according to the above statement,
     - Easy user -> root access (main option for the user).
     - `qvm-usb` (not really working, as of R2).
 
-2.  PolicyKit (`/etc/polkit-1/rules.d/00-qubes-allow-all.rules`):
+2.  PolicyKit (`/etc/polkit-1/rules.d/00-PedOS-allow-all.rules`):
 
-        //allow any action, detailed reasoning in sudoers.d/qubes
+        //allow any action, detailed reasoning in sudoers.d/PedOS
         polkit.addRule(function(action,subject) { return polkit.Result.YES; });
 
-    and `/etc/polkit-1/localauthority/50-local.d/qubes-allow-all.pkla`:
+    and `/etc/polkit-1/localauthority/50-local.d/PedOS-allow-all.pkla`:
 
-        [Qubes allow all]
+        [PedOS allow all]
         Identity=*
         Action=*
         ResultAny=yes
@@ -85,7 +85,7 @@ Below is a complete list of configuration made according to the above statement,
 
     - NetworkManager configuration from normal user (`nm-applet`).
     - Updates installation (`gpk-update-viewer`).
-    - User can use pkexec just like sudo Note: above is needed mostly because Qubes user GUI session isn't treated by PolicyKit/logind as "local" session because of the way in which X server and session is started.
+    - User can use pkexec just like sudo Note: above is needed mostly because PedOS user GUI session isn't treated by PolicyKit/logind as "local" session because of the way in which X server and session is started.
       Perhaps we will address this issue in the future, but this is really low priority.
       Patches welcomed anyway.
 
@@ -96,7 +96,7 @@ Below is a complete list of configuration made according to the above statement,
 Replacing passwordless root access with Dom0 user prompt
 --------------------------------------------------------
 
-While ITL supports the statement above, some Qubes users may wish to enable user/root isolation in VMs anyway.
+While ITL supports the statement above, some PedOS users may wish to enable user/root isolation in VMs anyway.
 We do not support it in any of our packages, but of course nothing is preventing the user from modifying his or her own system.
 A list of steps to do so is provided here **without any guarantee of safety, accuracy, or completeness.
 Proceed at your own risk.
@@ -104,47 +104,47 @@ Do not rely on this for extra security.**
 
 1. Adding Dom0 "VMAuth" service:
 
-        [root@dom0 /]# echo "/usr/bin/echo 1" >/etc/qubes-rpc/qubes.VMAuth
+        [root@dom0 /]# echo "/usr/bin/echo 1" >/etc/PedOS-rpc/PedOS.VMAuth
         [root@dom0 /]# echo "@anyvm dom0 ask,default_target=dom0" \
-        >/etc/qubes-rpc/policy/qubes.VMAuth
+        >/etc/PedOS-rpc/policy/PedOS.VMAuth
 
    (Note: any VMs you would like still to have passwordless root access (e.g. TemplateVMs) can be specified in the second file with "\<vmname\> dom0 allow")
 
 2. Configuring Fedora TemplateVM to prompt Dom0 for any authorization request:
     - In `/etc/pam.d/system-auth`, replace all lines beginning with "auth" with these lines:
 
-          auth  [success=1 default=ignore]  pam_exec.so seteuid /usr/lib/qubes/qrexec-client-vm dom0 qubes.VMAuth /bin/grep -q ^1$
+          auth  [success=1 default=ignore]  pam_exec.so seteuid /usr/lib/PedOS/qrexec-client-vm dom0 PedOS.VMAuth /bin/grep -q ^1$
           auth  requisite  pam_deny.so
           auth  required   pam_permit.so
 
     - Require authentication for sudo.
-      Replace the first line of `/etc/sudoers.d/qubes` with:
+      Replace the first line of `/etc/sudoers.d/PedOS` with:
 
           user ALL=(ALL) ALL
 
     - Disable PolKit's default-allow behavior:
 
-          [root@fedora-20-x64]# rm /etc/polkit-1/rules.d/00-qubes-allow-all.rules
-          [root@fedora-20-x64]# rm /etc/polkit-1/localauthority/50-local.d/qubes-allow-all.pkla
+          [root@fedora-20-x64]# rm /etc/polkit-1/rules.d/00-PedOS-allow-all.rules
+          [root@fedora-20-x64]# rm /etc/polkit-1/localauthority/50-local.d/PedOS-allow-all.pkla
 
 3. Configuring Debian/Whonix TemplateVM to prompt Dom0 for any authorization request:
     - In `/etc/pam.d/common-auth`, replace all lines beginning with "auth" with these lines:
 
-          auth  [success=1 default=ignore]  pam_exec.so seteuid /usr/lib/qubes/qrexec-client-vm dom0 qubes.VMAuth /bin/grep -q ^1$
+          auth  [success=1 default=ignore]  pam_exec.so seteuid /usr/lib/PedOS/qrexec-client-vm dom0 PedOS.VMAuth /bin/grep -q ^1$
           auth  requisite  pam_deny.so
           auth  required   pam_permit.so
 
     - Require authentication for sudo.
-      Replace the first line of `/etc/sudoers.d/qubes` with:
+      Replace the first line of `/etc/sudoers.d/PedOS` with:
 
           user ALL=(ALL) ALL
 
     - Disable PolKit's default-allow behavior:
 
-          [root@debian-8]# rm /etc/polkit-1/rules.d/00-qubes-allow-all.rules
-          [root@debian-8]# rm /etc/polkit-1/localauthority/50-local.d/qubes-allow-all.pkla
+          [root@debian-8]# rm /etc/polkit-1/rules.d/00-PedOS-allow-all.rules
+          [root@debian-8]# rm /etc/polkit-1/localauthority/50-local.d/PedOS-allow-all.pkla
 
-    - In `/etc/pam.d/su.qubes`, comment out this line near the bottom of the file:
+    - In `/etc/pam.d/su.PedOS`, comment out this line near the bottom of the file:
 
           auth sufficient pam_permit.so
 

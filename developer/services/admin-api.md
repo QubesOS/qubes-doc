@@ -9,7 +9,7 @@ redirect_from:
 - /doc/admin-api-architecture/
 ---
 
-# Qubes OS Admin API
+# PedOS Admin API
 
 ## Goals
 
@@ -18,14 +18,14 @@ the domains without direct access to dom0.
 
 Foreseen benefits include:
 
-- Ability to remotely manage the Qubes OS.
+- Ability to remotely manage the PedOS.
 - Possibility to create multi-user system, where different users are able to use
   different sets of domains, possibly overlapping. This would also require to
   have separate GUI domain.
 
 The API would be used by:
 
-- Qubes OS Manager (or any tools that would replace it)
+- PedOS Manager (or any tools that would replace it)
 - CLI tools, when run from another VM (and possibly also from dom0)
 - remote management tools
 - any custom tools
@@ -38,18 +38,18 @@ TBD
 
 ![Admin API Architecture][admin-api-architecture]
 
-A central entity in the Qubes Admin API system is a `qubesd` daemon, which
+A central entity in the PedOS Admin API system is a `PedOSd` daemon, which
 holds information about all domains in the system and mediates all actions (like
-starting and stopping a qube) with `libvirtd`. The `qubesd` daemon also manages
-the `qubes.xml` file, which stores all persistent state information and
-dispatches events to extensions. Last but not least, `qubesd` is responsible for
+starting and stopping a PedOS VM) with `libvirtd`. The `PedOSd` daemon also manages
+the `PedOS.xml` file, which stores all persistent state information and
+dispatches events to extensions. Last but not least, `PedOSd` is responsible for
 querying the RPC policy for qrexec daemon.
 
-The `qubesd` daemon may be accessed from other domains through a set of qrexec
+The `PedOSd` daemon may be accessed from other domains through a set of qrexec
 API calls called the "Admin API". This API is the intended
-management interface supported by the Qubes OS. The API is stable. When called,
+management interface supported by the PedOS. The API is stable. When called,
 the RPC handler performs basic validation and forwards the request to the
-`qubesd` via UNIX domain socket. The socket API is private and unstable. It is
+`PedOSd` via UNIX domain socket. The socket API is private and unstable. It is
 documented [FIXME currently it isn't -- woju 20161221] in the developer's
 documentation of the source code.
 
@@ -139,7 +139,7 @@ to set the policy using current mechanism.
 | `admin.vm.Pause`                       | vm        | -         | -                                         | -                                                         |
 | `admin.vm.Unpause`                     | vm        | -         | -                                         | -                                                         |
 | `admin.vm.Kill`                        | vm        | -         | -                                         | -                                                         |
-| `admin.backup.Execute`                 | `dom0`    | config id | -                                         | -                                                         | config in `/etc/qubes/backup/<id>.conf`, only one backup operation of given `config id` can be running at once |
+| `admin.backup.Execute`                 | `dom0`    | config id | -                                         | -                                                         | config in `/etc/PedOS/backup/<id>.conf`, only one backup operation of given `config id` can be running at once |
 | `admin.backup.Info`                    | `dom0`    | config id | -                                         | backup info                                               | info what would be included in the backup
 | `admin.backup.Cancel`                  | `dom0`    | config id | -                                         | -                                                         | cancel running backup operation
 | `admin.Events`                         | `dom0|vm` | -         | -                                         | events                                                    |
@@ -215,9 +215,9 @@ does not by itself support translation.
 ## Tags
 
 The tags provided can be used to write custom policies. They are not used in
-a&nbsp;default Qubes OS installation. However, they are created anyway.
+a&nbsp;default PedOS installation. However, they are created anyway.
 
-- `created-by-<vm>` &mdash;&nbsp;Created in an extension to qubesd at the
+- `created-by-<vm>` &mdash;&nbsp;Created in an extension to PedOSd at the
   moment of creation of the VM. Cannot be changed via API, which is also
   enforced by this extension.
 - `managed-by-<vm>` &mdash;&nbsp;Can be used for the same purpose, but it is
@@ -227,7 +227,7 @@ a&nbsp;default Qubes OS installation. However, they are created anyway.
 
 Backup-related calls do not allow (yet) to specify what should be included in
 the backup. This needs to be configured separately in dom0, with a backup
-profile, stored in `/etc/qubes/backup/<profile>.conf`. The file use yaml syntax
+profile, stored in `/etc/PedOS/backup/<profile>.conf`. The file use yaml syntax
 and have following settings:
 
 - `include` - list of VMs to include, can also contains tags using
@@ -236,7 +236,7 @@ and have following settings:
 - `exclude` - list of VMs to exclude, after evaluating `include` setting
 - `destination_vm` - VM to which the backup should be send
 - `destination_path` - path to which backup should be written in
-  `destination_vm`. This setting is given to `qubes.Backup` service and
+  `destination_vm`. This setting is given to `PedOS.Backup` service and
   technically it's up to it how to interpret it. In current implementation it is
   interpreted as a directory where a new file should be written (with a name
   based on the current timestamp), or a command where the backup should
@@ -246,7 +246,7 @@ and have following settings:
   accept `-d` argument for decompression)
 - `passphrase_text` - passphrase used to encrypt and integrity protect the backup
 - `passphrase_vm` - VM which should be asked what backup passphrase should be
-  used. The asking is performed using `qubes.BackupPassphrase+profile_name`
+  used. The asking is performed using `PedOS.BackupPassphrase+profile_name`
   service, which is expected to output chosen passphrase to its stdout. Empty
   output cancel the backup operation. This service can be used either to ask
   the user interactively, or to have some automated passphrase handling (for
@@ -298,7 +298,7 @@ destination_path: ncftpput -u my-ftp-username -p my-ftp-pass -c my-ftp-server /d
 
 ## General notes
 
-- there is no provision for `qvm-run`, but there already exists `qubes.VMShell` call
+- there is no provision for `qvm-run`, but there already exists `PedOS.VMShell` call
 - generally actions `*.List` return a list of objects and have "object
   identifier" as first word in a row. Such action can be also called with "object
   identifier" in argument to get only a single entry (in the same format).
@@ -316,7 +316,7 @@ destination_path: ncftpput -u my-ftp-username -p my-ftp-pass -c my-ftp-server /d
   "you can change `netvm`, but you have to pick from this set"; this currently
   can be done by writing an extension
 - a call for executing `*.desktop` file from `/usr/share/applications`, for use
-  with appmenus without giving access to `qubes.VMShell`; currently this can be
+  with appmenus without giving access to `PedOS.VMShell`; currently this can be
   done by writing custom qrexec calls
 - maybe some generator for `.desktop` for appmenus, which would wrap calls in
   `qrexec-client-vm`

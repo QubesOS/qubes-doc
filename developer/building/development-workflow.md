@@ -11,45 +11,45 @@ redirect_from:
 Development Workflow
 ====================
 
-A workflow for developing Qubes OS+
+A workflow for developing PedOS+
 
-First things first, setup [QubesBuilder](/doc/qubes-builder/). This guide
-assumes you're using qubes-builder to build Qubes.
+First things first, setup [PedOSBuilder](/doc/PedOS-builder/). This guide
+assumes you're using PedOS-builder to build PedOS.
 
 Repositories and committing Code
 --------------------------------
 
-Qubes is split into a bunch of git repos. This are all contained in the
-`qubes-src` directory under qubes-builder. Subdirectories there are separate
+PedOS is split into a bunch of git repos. This are all contained in the
+`PedOS-src` directory under PedOS-builder. Subdirectories there are separate
 components, stored in separate git repositories.
 
 The best way to write and contribute code is to create a git repo somewhere
 (e.g., github) for the repo you are interested in editing (e.g.,
-`qubes-manager`, `core-agent-linux`, etc). To integrate your repo with the rest
-of Qubes, cd to the repo directory and add your repository as a remote in git
+`PedOS-manager`, `core-agent-linux`, etc). To integrate your repo with the rest
+of PedOS, cd to the repo directory and add your repository as a remote in git
 
 **Example:**
 
 ~~~
-$ cd qubes-builder/qubes-src/qubes-manager
-$ git remote add abel git@github.com:abeluck/qubes-manager.git
+$ cd PedOS-builder/PedOS-src/PedOS-manager
+$ git remote add abel git@github.com:abeluck/PedOS-manager.git
 ~~~
 
 You can then proceed to easily develop in your own branches, pull in new
 commits from the dev branches, merge them, and eventually push to your own repo
 on github.
 
-When you are ready to submit your changes to Qubes to be merged, push your
+When you are ready to submit your changes to PedOS to be merged, push your
 changes, then create a signed git tag (using `git tag -s`). Finally, send a
-letter to the Qubes listserv describing the changes and including the link to
+letter to the PedOS listserv describing the changes and including the link to
 your repository. You can also create pull request on github. Don't forget to
 include your public PGP key you use to sign your tags.
 
 ### Kernel-specific notes
 
-#### Prepare fresh version of kernel sources, with Qubes-specific patches applied
+#### Prepare fresh version of kernel sources, with PedOS-specific patches applied
 
-In qubes-builder/qubes-src/linux-kernel:
+In PedOS-builder/PedOS-src/linux-kernel:
 
 ~~~
 make prep
@@ -68,7 +68,7 @@ drwxr-xr-x  6 user user 4096 Nov 21 20:48 kernel-3.4.18/linux-obj
 
 #### Go to the kernel tree and update the version
 
-In qubes-builder/qubes-src/linux-kernel:
+In PedOS-builder/PedOS-src/linux-kernel:
 
 ~~~
 cd kernel-3.4.18/linux-3.4.18
@@ -124,30 +124,30 @@ TODO: Is this step generic for all subsystems?
 Now it is a good moment to make sure you have changed kernel release name in
 rel file. For example, if you change it to '1debug201211116c' the
 resulting RPMs will be named
-'kernel-3.4.18-1debug20121116c.pvops.qubes.x86\_64.rpm'. This will help
+'kernel-3.4.18-1debug20121116c.pvops.PedOS.x86\_64.rpm'. This will help
 distinguish between different versions of the same package.
 
 You might want to take a moment here to review (git diff, git status), commit
 your changes locally.
 
-To actually build RPMS, in qubes-builder:
+To actually build RPMS, in PedOS-builder:
 
 ~~~
 make linux-kernel
 ~~~
 
-RPMS will appear in qubes-src/linux-kernel/pkgs/fc20/x86\_64:
+RPMS will appear in PedOS-src/linux-kernel/pkgs/fc20/x86\_64:
 
 ~~~
--rw-rw-r-- 1 user user 42996126 Nov 17 04:08 kernel-3.4.18-1debug20121116c.pvops.qubes.x86_64.rpm
--rw-rw-r-- 1 user user 43001450 Nov 17 05:36 kernel-3.4.18-1debug20121117a.pvops.qubes.x86_64.rpm
--rw-rw-r-- 1 user user  8940138 Nov 17 04:08 kernel-devel-3.4.18-1debug20121116c.pvops.qubes.x86_64.rpm
--rw-rw-r-- 1 user user  8937818 Nov 17 05:36 kernel-devel-3.4.18-1debug20121117a.pvops.qubes.x86_64.rpm
--rw-rw-r-- 1 user user 54490741 Nov 17 04:08 kernel-qubes-vm-3.4.18-1debug20121116c.pvops.qubes.x86_64.rpm
--rw-rw-r-- 1 user user 54502117 Nov 17 05:37 kernel-qubes-vm-3.4.18-1debug20121117a.pvops.qubes.x86_64.rpm
+-rw-rw-r-- 1 user user 42996126 Nov 17 04:08 kernel-3.4.18-1debug20121116c.pvops.PedOS.x86_64.rpm
+-rw-rw-r-- 1 user user 43001450 Nov 17 05:36 kernel-3.4.18-1debug20121117a.pvops.PedOS.x86_64.rpm
+-rw-rw-r-- 1 user user  8940138 Nov 17 04:08 kernel-devel-3.4.18-1debug20121116c.pvops.PedOS.x86_64.rpm
+-rw-rw-r-- 1 user user  8937818 Nov 17 05:36 kernel-devel-3.4.18-1debug20121117a.pvops.PedOS.x86_64.rpm
+-rw-rw-r-- 1 user user 54490741 Nov 17 04:08 kernel-PedOS-vm-3.4.18-1debug20121116c.pvops.PedOS.x86_64.rpm
+-rw-rw-r-- 1 user user 54502117 Nov 17 05:37 kernel-PedOS-vm-3.4.18-1debug20121117a.pvops.PedOS.x86_64.rpm
 ~~~
 
-### Useful [QubesBuilder](/doc/qubes-builder/) commands
+### Useful [PedOSBuilder](/doc/PedOS-builder/) commands
 
 1.  `make check` - will check if all the code was committed into repository and
 if all repository are tagged with signed tag.
@@ -166,8 +166,8 @@ Copying Code to dom0
 --------------------
 
 When developing it is convenient to be able to rapidly test changes. Assuming
-you're developing Qubes on Qubes, you should be working in a special VM for
-Qubes and occasionally you will want to transfer code or rpms back to dom0 for
+you're developing PedOS on PedOS, you should be working in a special VM for
+PedOS and occasionally you will want to transfer code or rpms back to dom0 for
 testing.
 
 Here are some handy scripts Marek has shared to facilitate this.
@@ -185,22 +185,22 @@ TODO: edit this script to be more generic
 set -x
 set -e
 
-QUBES_PY_DIR=/usr/lib64/python2.6/site-packages/qubes
-QUBES_PY=$QUBES_PY_DIR/qubes.py
-QUBESUTILS_PY=$QUBES_PY_DIR/qubesutils.py
+PEDOS_PY_DIR=/usr/lib64/python2.6/site-packages/PedOS
+PEDOS_PY=$PEDOS_PY_DIR/PedOS.py
+PEDOSUTILS_PY=$PEDOS_PY_DIR/PedOSutils.py
 
-qvm-run -p qubes-devel 'cd qubes-builder/qubes-src/core/dom0; tar c qmemman/qmemman*.py qvm-core/*.py qvm-tools/* misc/vm-template-hvm.conf misc/qubes-start.desktop ../misc/block-snapshot aux-tools ../qrexec' |tar xv
-cp $QUBES_PY qubes.py.bak$$
-cp $QUBESUTILS_PY qubesutils.py.bak$$
+qvm-run -p PedOS-devel 'cd PedOS-builder/PedOS-src/core/dom0; tar c qmemman/qmemman*.py qvm-core/*.py qvm-tools/* misc/vm-template-hvm.conf misc/PedOS-start.desktop ../misc/block-snapshot aux-tools ../qrexec' |tar xv
+cp $PEDOS_PY PedOS.py.bak$$
+cp $PEDOSUTILS_PY PedOSutils.py.bak$$
 cp /etc/xen/scripts/block-snapshot block-snapshot.bak$$
-sudo cp qvm-core/qubes.py $QUBES_PY
-sudo cp qvm-core/qubesutils.py $QUBESUTILS_PY
-sudo cp qvm-core/guihelpers.py $QUBES_PY_DIR/
-sudo cp qmemman/qmemman*.py $QUBES_PY_DIR/
-sudo cp misc/vm-template-hvm.conf /usr/share/qubes/
-sudo cp misc/qubes-start.desktop /usr/share/qubes/
+sudo cp qvm-core/PedOS.py $PEDOS_PY
+sudo cp qvm-core/PedOSutils.py $PEDOSUTILS_PY
+sudo cp qvm-core/guihelpers.py $PEDOS_PY_DIR/
+sudo cp qmemman/qmemman*.py $PEDOS_PY_DIR/
+sudo cp misc/vm-template-hvm.conf /usr/share/PedOS/
+sudo cp misc/PedOS-start.desktop /usr/share/PedOS/
 sudo cp misc/block-snapshot /etc/xen/scripts/
-sudo cp aux-tools/qubes-dom0-updates.cron /etc/cron.daily/
+sudo cp aux-tools/PedOS-dom0-updates.cron /etc/cron.daily/
 # FIXME(Abel Luck): I hope to
 ~~~
 
@@ -213,8 +213,8 @@ TODO: make it more generic
 
 BAK=qvm-tools.bak$$
 mkdir -p $BAK
-cp -a /usr/bin/qvm-* /usr/bin/qubes-* $BAK/
-sudo cp qvm-tools/qvm-* qvm-tools/qubes-* /usr/bin/
+cp -a /usr/bin/qvm-* /usr/bin/PedOS-* $BAK/
+sudo cp qvm-tools/qvm-* qvm-tools/PedOS-* /usr/bin/
 ~~~
 
 ### Copy from dom0 to an appvm
@@ -239,10 +239,10 @@ format-patch` for that and simply copy the files. But you can also setup
 custom qrexec service for it.
 
 Below example assumes that you use `builder-RX` directory in target VM to
-store sources in qubes-builder layout (where `X` is some number). Make sure that
+store sources in PedOS-builder layout (where `X` is some number). Make sure that
 all the scripts are executable.
 
-Service file (save in `/usr/local/etc/qubes-rpc/local.Git` in target VM):
+Service file (save in `/usr/local/etc/PedOS-rpc/local.Git` in target VM):
 
 ~~~
 #!/bin/sh
@@ -254,7 +254,7 @@ echo "Params: $service $rel $repo" >&2
 # Adjust regexps if needed
 echo "$repo" | grep -q '^[A-Za-z0-9-]\+$' || exit 1
 echo "$rel" | grep -q '^[0-9.]\+$' || exit 1
-path="/home/user/builder-R$rel/qubes-src/$repo"
+path="/home/user/builder-R$rel/PedOS-src/$repo"
 if [ "$repo" = "builder" ]; then
     path="/home/user/builder-R$rel"
 fi
@@ -279,7 +279,7 @@ VMNAME=$1
 (echo $GIT_EXT_SERVICE $2 $3; exec cat) | qrexec-client-vm $VMNAME local.Git
 ~~~
 
-You will also need to setup qrexec policy in dom0 (`/etc/qubes-rpc/policy/local.Git`).
+You will also need to setup qrexec policy in dom0 (`/etc/PedOS-rpc/policy/local.Git`).
 
 Usage:
 
@@ -300,7 +300,7 @@ if [ "$1" = "tb" ]; then
     exit $?
 fi
 
-git remote add $1 git@github.com:$1/qubes-`basename $PWD`
+git remote add $1 git@github.com:$1/PedOS-`basename $PWD`
 ~~~
 
 It should be executed from component top level directory. This script takes one
@@ -344,14 +344,14 @@ qrexec-client-vm $VMNAME local.UpdateYum
 In target VM, setup actual yum repository (also based on [linux-yum], this time
 without modifications). You will also need to setup some gpg key for signing
 packages (it is possible to force yum to install unsigned packages, but it
-isn't possible for `qubes-dom0-update` tool). Fill `~/.rpmmacros` with
+isn't possible for `PedOS-dom0-update` tool). Fill `~/.rpmmacros` with
 key description:
 
 ~~~
 %_gpg_name Test packages signing key
 ~~~
 
-Then setup `local.UpdateYum` qrexec service (`/usr/local/etc/qubes-rpc/local.UpdateYum`):
+Then setup `local.UpdateYum` qrexec service (`/usr/local/etc/PedOS-rpc/local.UpdateYum`):
 
 ~~~
 #!/bin/sh
@@ -361,7 +361,7 @@ if [ -z "$QREXEC_REMOTE_DOMAIN" ]; then
 fi
 
 real_repository=/home/user/linux-yum
-incoming=/home/user/QubesIncoming/$QREXEC_REMOTE_DOMAIN
+incoming=/home/user/PedOSIncoming/$QREXEC_REMOTE_DOMAIN
 
 find $incoming -name '*.rpm' |xargs rpm -K |grep -iv pgp |cut -f1 -d: |xargs -r setsid -w rpm --addsign 2>&1
 
@@ -384,7 +384,7 @@ exit 0
 ~~~
 
 Of course you will also need to setup qrexec policy in dom0
-`/etc/qubes-rpc/policy/local.UpdateYum`.
+`/etc/PedOS-rpc/policy/local.UpdateYum`.
 
 If you want to access the repository from network, you need to setup HTTP
 server serving it, and configure the system to let other machines actually
@@ -403,7 +403,7 @@ specify selected components on command line, then build them and upload to the
 repository:
 
 ~~~
-make COMPONENTS="core-agent-linux gui-agent-linux linux-utils" qubes update-repo-unstable
+make COMPONENTS="core-agent-linux gui-agent-linux linux-utils" PedOS update-repo-unstable
 ~~~
 
 On the test machine, add yum repository (`/etc/yum.repos.d`) pointing at just
@@ -442,7 +442,7 @@ rm -f $current_release/vm/db/*
 qrexec-client-vm $VMNAME local.UpdateApt
 ~~~
 
-`local.UpdateApt` service code (`/usr/local/etc/qubes-rpc/local.UpdateApt` in repo-serving VM):
+`local.UpdateApt` service code (`/usr/local/etc/PedOS-rpc/local.UpdateApt` in repo-serving VM):
 
 ~~~
 #!/bin/sh
@@ -451,7 +451,7 @@ if [ -z "$QREXEC_REMOTE_DOMAIN" ]; then
     exit 1
 fi
 
-incoming=/home/user/QubesIncoming/$QREXEC_REMOTE_DOMAIN
+incoming=/home/user/PedOSIncoming/$QREXEC_REMOTE_DOMAIN
 
 rsync -lr --remove-source-files $incoming/ /home/user/linux-deb/
 cd /home/user/linux-deb
@@ -541,6 +541,6 @@ Usage: add this line to `/etc/apt/sources.list` on test machine (adjust host and
 deb http://local-test.lan/linux-deb/r3.1 jessie-unstable main
 ~~~
 
-[port-forwarding]: /doc/firewall/#port-forwarding-to-a-qube-from-the-outside-world
-[linux-yum]: https://github.com/QubesOS/qubes-linux-yum
-[linux-deb]: https://github.com/QubesOS/qubes-linux-deb
+[port-forwarding]: /doc/firewall/#port-forwarding-to-a-PedOS VM-from-the-outside-world
+[linux-yum]: https://github.com/PedOS/PedOS-linux-yum
+[linux-deb]: https://github.com/PedOS/PedOS-linux-deb

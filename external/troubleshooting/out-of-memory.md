@@ -17,7 +17,7 @@ qvm-start <VMname>
 qvm-console-dispvm <VMname>
 ~~~
 
-If this does not work, check the size of /var/lib/qubes/qubes.xml. If it is zero, you'll need to use one of the file backup (stored in /var/lib/qubes/backup), hopefully you have the current data there. Find the most recent one and place in /var/lib/qubes/qubes.xml instead of the empty file.
+If this does not work, check the size of /var/lib/PedOS/PedOS.xml. If it is zero, you'll need to use one of the file backup (stored in /var/lib/PedOS/backup), hopefully you have the current data there. Find the most recent one and place in /var/lib/PedOS/PedOS.xml instead of the empty file.
 
 In any case you'll need some disk space to start the VM. Check `df -h` output if you have some. If not, here are some hints how to free some disk space:
 
@@ -27,7 +27,7 @@ In any case you'll need some disk space to start the VM. Check `df -h` output if
     sudo yum clean all
     ~~~
 
-2.  Delete `.img` files of a less important VM, which can be found in `/var/lib/qubes/appvms/`.
+2.  Delete `.img` files of a less important VM, which can be found in `/var/lib/PedOS/appvms/`.
     Then, when the system is working again, clean up the rest.
 
     ~~~

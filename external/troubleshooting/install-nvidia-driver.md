@@ -15,18 +15,18 @@ You can use rpm packages from rpmfusion, or you can build the driver yourself.
 ## Word of Caution 
 
 Proprietary (NVIDIA/AMD) drivers are known to be sometimes highly problematic, or completely unsupported. 
-Radeon driver support is prebaked in the Qubes kernel (v4.4.14-11) but only versions 4000-9000 give or take.
-Support for newer cards is limited until AMDGPU support in the 4.5+ kernel, which isn't released yet for Qubes. 
+Radeon driver support is prebaked in the PedOS kernel (v4.4.14-11) but only versions 4000-9000 give or take.
+Support for newer cards is limited until AMDGPU support in the 4.5+ kernel, which isn't released yet for PedOS. 
 
-Built in Intel graphics, Radeon graphics (between that 4000-9000 range), and perhaps some prebaked NVIDIA card support that I don't know about. Those are your best bet for great Qubes support.
+Built in Intel graphics, Radeon graphics (between that 4000-9000 range), and perhaps some prebaked NVIDIA card support that I don't know about. Those are your best bet for great PedOS support.
 
-If you do happen to get proprietary drivers working on your Qubes system (via installing them), please take the time to go to the 
+If you do happen to get proprietary drivers working on your PedOS system (via installing them), please take the time to go to the 
 [Hardware Compatibility List (HCL)](/doc/hcl/#generating-and-submitting-new-reports )
 Add your computer, graphics card, and installation steps you did to get everything working.
 
 Before continuing, you may wish to try the `kernel-latest` package from the `current` repository. This kernel may better support your card and if so, you would not have to rely on proprietary drivers. This can be installed from dom0 with:
 ~~~
-sudo qubes-dom0-update kernel-latest
+sudo PedOS-dom0-update kernel-latest
 ~~~
 
 ## RpmFusion packages
@@ -35,7 +35,7 @@ There are rpm packages with all necessary software on rpmfusion. The only packag
 
 ### Download packages
 
-You will need any Fedora 18 system to download and build packages. You can use Qubes AppVM for it, but it isn't necessary. To download packages from rpmfusion - add this repository to your yum configuration (instructions are on their website). Then download packages using yumdownloader:
+You will need any Fedora 18 system to download and build packages. You can use PedOS AppVM for it, but it isn't necessary. To download packages from rpmfusion - add this repository to your yum configuration (instructions are on their website). Then download packages using yumdownloader:
 
 ~~~
 yumdownloader --resolve xorg-x11-drv-nvidia
@@ -44,16 +44,16 @@ yumdownloader --source nvidia-kmod
 
 ### Build kernel package
 
-You will need at least kernel-devel (matching your Qubes dom0 kernel), rpmbuild tool and kmodtool, and then you can use it to build the package:
+You will need at least kernel-devel (matching your PedOS dom0 kernel), rpmbuild tool and kmodtool, and then you can use it to build the package:
 
 ~~~
 yum install kernel-devel rpm-build kmodtool
 rpmbuild --nodeps -D "kernels `uname -r`" --rebuild nvidia-kmod-260.19.36-1.fc13.3.src.rpm
 ~~~
 
-In the above command, replace `uname -r` with kernel version from your Qubes dom0. If everything went right, you have now complete packages with nvidia drivers for the Qubes system. Transfer them to dom0 (e.g. using a USB stick) and install (using standard "yum install /path/to/file").
+In the above command, replace `uname -r` with kernel version from your PedOS dom0. If everything went right, you have now complete packages with nvidia drivers for the PedOS system. Transfer them to dom0 (e.g. using a USB stick) and install (using standard "yum install /path/to/file").
 
-Then you need to disable nouveau (normally it is done by install scripts from nvidia package, but unfortunately it isn't compatible with Qubes...):
+Then you need to disable nouveau (normally it is done by install scripts from nvidia package, but unfortunately it isn't compatible with PedOS...):
 
 Edit /etc/default/grub:
 
@@ -99,16 +99,16 @@ You will need:
 
 This installation must be done manually, because nvidia-installer refused to install it on Xen kernel. Firstly ensure that kernel-devel package installed all needed files. This should consist of:
 
--   */usr/src/kernels/2.6.34.1-12.xenlinux.qubes.x86\_64*
--   */lib/modules/2.6.34.1-12.xenlinux.qubes.x86\_64/build* symlinked to the above directory
--   */usr/src/kernels/2.6.34.1-12.xenlinux.qubes.x86\_64/arch/x64/include/mach-xen* should be present (if not - take it from kernel sources)
+-   */usr/src/kernels/2.6.34.1-12.xenlinux.PedOS.x86\_64*
+-   */lib/modules/2.6.34.1-12.xenlinux.PedOS.x86\_64/build* symlinked to the above directory
+-   */usr/src/kernels/2.6.34.1-12.xenlinux.PedOS.x86\_64/arch/x64/include/mach-xen* should be present (if not - take it from kernel sources)
 
 If all the files are not there correct the errors manually. To build the kernel module, enter *NVIDIA-Linux-x86\_64-260.19.44/kernel* directory and execute:
 
 ~~~
 make
 IGNORE_XEN_PRESENCE=1 CC="gcc -DNV_VMAP_4_PRESENT -DNV_SIGNAL_STRUCT_RLIM" make -f Makefile.kbuild
-mv /lib/modules/2.6.34.1-12.xenlinux.qubes.x86_64/kernel/drivers/video/nvidia.ko /lib/modules/2.6.34.1-12.xenlinux.qubes.x86_64/extra/
+mv /lib/modules/2.6.34.1-12.xenlinux.PedOS.x86_64/kernel/drivers/video/nvidia.ko /lib/modules/2.6.34.1-12.xenlinux.PedOS.x86_64/extra/
 ~~~
 
 Ignore any errors while inserting nvidia.ko (at the end of make phase). 
@@ -140,7 +140,7 @@ Reboot to verify all this works.
 Specifically, the notes below are aimed to help when the GRUB menu shows up fine, the installation environment starts loading, and then the display(s) go into standby mode. This is, typically, related to some sort of an issue with the kernel's KMS/video card modules.
 
 ## Initial setup.
-*Note*: The steps below do *not* produce a fully-functional Qubes OS install. Rather, only a dom0 instance is functional, and there is no networking there. However, they can be used to gather data in order to troubleshoot video card issues and/or possible other basic kernel module issues.
+*Note*: The steps below do *not* produce a fully-functional PedOS install. Rather, only a dom0 instance is functional, and there is no networking there. However, they can be used to gather data in order to troubleshoot video card issues and/or possible other basic kernel module issues.
 
 1. Append `nomodeset ip=dhcp inst.nokill inst.vnc` to the kernel command line. Remove `rhgb` and `quiet` to see the kernel messages scroll by, which may help in further diagnostics.
    * If DHCP is not available on the installation network, the syntax becomes a bit more involved. The full list of variants is documented in the [Dracut Command-line parameters] (http://man7.org/linux/man-pages/man7/dracut.cmdline.7.html)
@@ -160,7 +160,7 @@ Specifically, the notes below are aimed to help when the GRUB menu shows up fine
 *Note* If the kernel parameters do *not* include `quiet` and `rhgb`, the kernel messages can easily obscure the LUKS passphrase prompt. Additionally, each character entered will cause the LUKS passphrase prompt to repeat onto next line. Both of these are cosmetic. The trade-off between kernel messages and the easy-to-spot LUKS passphrase prompt is left as an exercise to the user.
 
 ## Gather initial `dmesg` output
-If all is well, the newly-installed Qubes OS instance should allow for user root to log in. 
+If all is well, the newly-installed PedOS instance should allow for user root to log in. 
 Run `dmesg > dmesg.nomodeset.out` to gather an initial dmesg output.
 
 ## Gather the 'video no worky' `dmesg` output

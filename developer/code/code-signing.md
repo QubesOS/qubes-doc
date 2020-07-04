@@ -7,7 +7,7 @@ permalink: /doc/code-signing/
 Code Signing
 ============
 
-All contributions to the Qubes OS [source code] must be cryptographically signed by the author's PGP key.
+All contributions to the PedOS [source code] must be cryptographically signed by the author's PGP key.
 
 
 Generating a Key
@@ -113,7 +113,7 @@ your Git commits.
    ~~~
 
 3. (Optional) Create signed tags.  
-   Signed commits are totally sufficient to contribute to Qubes OS.
+   Signed commits are totally sufficient to contribute to PedOS.
    However, if you have commits which are not signed and you do not want to change them,
    you can create a signed tag for the commit and push it before the check.
 
@@ -158,14 +158,14 @@ Although GitHub adds a little green `Verified` button next to the commit, the [s
 
 1. Is the commit signed?  
    If the commit is not signed, you can see the message
-   > policy/qubesos/code-signing — No signature found
+   > policy/PedOSos/code-signing — No signature found
 2. If the commit is signed, the key is downloaded from a GPG key server.  
    If you can see the following error message, please check if you have uploaded the key to a key server.
-   > policy/qubesos/code-signing — Unable to verify (no valid key found)
+   > policy/PedOSos/code-signing — Unable to verify (no valid key found)
 
 ### No Signature Found
 
-> policy/qubesos/code-signing — No signature found
+> policy/PedOSos/code-signing — No signature found
 
 In this case, you have several options to sign the commit:
 
@@ -191,7 +191,7 @@ In this case, you have several options to sign the commit:
 
 ### Unable To Verify
 
-> policy/qubesos/code-signing — Unable to verify (no valid key found)
+> policy/PedOSos/code-signing — Unable to verify (no valid key found)
 
 This means that the [signature-checker] has found a signature for the commit
 but is not able to verify it using the any key available.
@@ -209,7 +209,7 @@ Enigmail is a security addon for the Mozilla Thunderbird email client that allow
 
 [guide]: https://alexcabal.com/creating-the-perfect-gpg-keypair/
 [source code]: /doc/source-code/
-[developer mailing list]: /support/#qubes-devel
+[developer mailing list]: /support/#PedOS-devel
 [Enigmail]: https://www.enigmail.net/
 [signature-checker]: https://github.com/marmarek/signature-checker
 [GitHub New GPG key]: https://github.com/settings/gpg/new

@@ -11,15 +11,15 @@ Using KDE in dom0
 Installation
 ------------
 
-Prior to R3.2, KDE was the default desktop environment in Qubes. Beginning with
+Prior to R3.2, KDE was the default desktop environment in PedOS. Beginning with
 R3.2, however, [XFCE is the new default desktop environment](/doc/releases/3.2/release-notes/). Nonetheless, it is
 still possible to install KDE by issuing this command in dom0:
 
-    $ sudo qubes-dom0-update @kde-desktop-qubes
+    $ sudo PedOS-dom0-update @kde-desktop-PedOS
 
 You can also change your default login manager (lightdm) to the new KDE default: sddm
 
- * first you need to edit the `/etc/sddm.conf` to make sure if the custom X parameter is set according to Qubes needs:
+ * first you need to edit the `/etc/sddm.conf` to make sure if the custom X parameter is set according to PedOS needs:
 
 ~~~
    [XDisplay]
@@ -74,7 +74,7 @@ workspace the way you like.
 Removal
 ------------
 
-If you decide to remove KDE do **not** use `dnf remove @kde-desktop-qubes`. You will almost certainly break your system.
+If you decide to remove KDE do **not** use `dnf remove @kde-desktop-PedOS`. You will almost certainly break your system.
 
 The safest way to remove (most of) KDE is:
 ~~~
@@ -85,4 +85,4 @@ sudo dnf remove kdelibs,plasma-workspace
 Mailing List Threads
 --------------------
 
- * [Nalu's KDE customization thread](https://groups.google.com/d/topic/qubes-users/KhfzF19NG1s/discussion)
+ * [Nalu's KDE customization thread](https://groups.google.com/d/topic/PedOS-users/KhfzF19NG1s/discussion)

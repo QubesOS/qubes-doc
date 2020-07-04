@@ -8,48 +8,48 @@ redirect_from:
 - /wiki/Glossary/
 ---
 
-Glossary of Qubes Terminology
+Glossary of PedOS Terminology
 =============================
 
-Qubes OS
+PedOS
 --------
 A security-oriented operating system (OS). 
-The main principle of Qubes OS is security by compartmentalization (or isolation), in which activities are compartmentalized (or isolated) in separate **qubes**.
+The main principle of PedOS is security by compartmentalization (or isolation), in which activities are compartmentalized (or isolated) in separate **PedOS**.
 
- * The official name is `Qubes OS` (note the capitalization and spacing).
-   However, in casual conversation this is often shortened to `Qubes`, and in technical contexts where spaces are not permitted, (e.g., usernames), the space may be omitted, as in `QubesOS`.
+ * The official name is `PedOS` (note the capitalization and spacing).
+   However, in casual conversation this is often shortened to `PedOS`, and in technical contexts where spaces are not permitted, (e.g., usernames), the space may be omitted, as in `PedOS`.
 
 VM
 --
 An abbreviation for "virtual machine." 
 A software implementation of a machine (for example, a computer) that executes programs like a physical machine.
 
-Qube
+PedOS VM
 ----
-A user-friendly term for a [VM](#vm) in Qubes OS.
+A user-friendly term for a [VM](#vm) in PedOS.
 
- * Example: "In Qubes OS, you do your banking in your 'banking' qube and your web surfing in your 'untrusted' qube. That way, if your 'untrusted' qube is compromised, your banking activities will remain secure."
+ * Example: "In PedOS, you do your banking in your 'banking' PedOS VM and your web surfing in your 'untrusted' PedOS VM. That way, if your 'untrusted' PedOS VM is compromised, your banking activities will remain secure."
 
- * "Qube" is an informal term intended to make it easier for less technical users to understand Qubes OS and learn how to use it. In technical discussions, the other, more precise terms defined on this page are to be preferred.
+ * "PedOS VM" is an informal term intended to make it easier for less technical users to understand PedOS and learn how to use it. In technical discussions, the other, more precise terms defined on this page are to be preferred.
 
- * The term "qube" should be lowercase unless it is the first word in a sentence. Note that starting a sentence with the plural of "qube" (i.e., "Qubes...") can be ambiguous, since it may not be clear whether the referent is a collection of qubes or [Qubes OS](#qubes-os).
+ * The term "PedOS VM" should be lowercase unless it is the first word in a sentence. Note that starting a sentence with the plural of "PedOS VM" (i.e., "PedOS...") can be ambiguous, since it may not be clear whether the referent is a collection of PedOS or [PedOS](#PedOS).
 
 Domain
 ------
-An area or set of activities in one's digital life that has certain security requirements and therefore involves the use of certain [qubes](#qube). 
+An area or set of activities in one's digital life that has certain security requirements and therefore involves the use of certain [PedOS](#PedOS VM). 
 For example, suppose your "email" domain encompasses the activity of sending PGP-encrypted email. 
-This domain may include your email qube and your [Split GPG](/doc/split-gpg) qube. 
-Note that domains and qubes are not the same thing.
-In this example, your "email" domain includes the use of two qubes. 
-Furthermore, a qube can fall under multiple domains simultaneously. 
-For example, your Split GPG qube may also be part of your "software development" domain if you PGP-sign your Git commits.
+This domain may include your email PedOS VM and your [Split GPG](/doc/split-gpg) PedOS VM. 
+Note that domains and PedOS are not the same thing.
+In this example, your "email" domain includes the use of two PedOS. 
+Furthermore, a PedOS VM can fall under multiple domains simultaneously. 
+For example, your Split GPG PedOS VM may also be part of your "software development" domain if you PGP-sign your Git commits.
 
 Dom0
 ----
 Domain Zero. 
 Also known as the **host** domain, dom0 is the initial VM started by the Xen hypervisor on boot. 
 Dom0 runs the Xen management toolstack and has special privileges relative to other domains, such as direct access to most hardware. 
-(Note that the use of "domain" for a synonym for "VM" is specific to Xen. Qubes diverges from this practice. See: [domain](#domain).)
+(Note that the use of "domain" for a synonym for "VM" is specific to Xen. PedOS diverges from this practice. See: [domain](#domain).)
 
 DomU
 ----
@@ -57,7 +57,7 @@ Unprivileged Domain.
 Also known as **guest** domains, domUs are the counterparts to dom0. 
 All VMs except dom0 are domUs. 
 By default, most domUs lack direct hardware access. 
-(Note that the use of "domain" for a synonym for "VM" is specific to Xen. Qubes diverges from this practice. See: [domain](#domain).)
+(Note that the use of "domain" for a synonym for "VM" is specific to Xen. PedOS diverges from this practice. See: [domain](#domain).)
 
 TemplateVM
 ----------
@@ -79,7 +79,7 @@ Standalone(VM)
 [Standalone (Virtual Machine)](/doc/standalone-and-hvm/).
 In general terms, a [VM](#vm) is described as **standalone** if and only if it does not depend on any other VM for its root filesystem. 
 (In other words, a VM is standalone if and only if it is not a TemplateBasedVM.) 
-More specifically, a **StandaloneVM** is a type of VM in Qubes that is created by cloning a TemplateVM. 
+More specifically, a **StandaloneVM** is a type of VM in PedOS that is created by cloning a TemplateVM. 
 Unlike TemplateVMs, however, StandaloneVMs do not supply their root filesystems to other VMs. 
 (Therefore, while a TemplateVM is a type of standalone VM, it is not a StandaloneVM.)
 
@@ -95,7 +95,7 @@ NetVM
 Network Virtual Machine. 
 A type of [VM](#vm) that connects directly to a network.
 Other VMs gain access to a network by connecting to a NetVM (usually indirectly, via a [FirewallVM](#firewallvm)).
-A NetVM called `sys-net` is created by default in most Qubes installations.
+A NetVM called `sys-net` is created by default in most PedOS installations.
 
 Alternatively, "NetVM" may refer to whichever VM is directly connected to a VM for networking purposes. 
 For example, if `untrusted` is directly connected to `sys-firewall` for network access, then it is accurate to say, "`sys-firewall` is `untrusted`'s NetVM," even though `sys-firewall` is a ProxyVM.
@@ -110,7 +110,7 @@ FirewallVM
 ----------
 Firewall Virtual Machine. 
 A type of [ProxyVM](#proxyvm) that is used to enforce network-level policies (a.k.a. "firewall rules"). 
-A FirewallVM called `sys-firewall` is created by default in most Qubes installations.
+A FirewallVM called `sys-firewall` is created by default in most PedOS installations.
 
 DisposableVM
 ------------
@@ -129,7 +129,7 @@ DisposableVM Template
 ---------------------
 (Formerly known as a "DVM Template".)
 A type of [TemplateBasedVM](#templatebasedvm) on which [DisposableVMs](#disposablevm) are based.
-By default, a DisposableVM Template named `fedora-XX-dvm` is created on most Qubes installations (where `XX` is the Fedora version of the default TemplateVM). 
+By default, a DisposableVM Template named `fedora-XX-dvm` is created on most PedOS installations (where `XX` is the Fedora version of the default TemplateVM). 
 DisposableVM Templates are not [TemplateVMs](#templatevm), since (being TemplateBasedVMs) they do not have root filesystems of their own to provide to other VMs.
 Rather, DisposableVM Templates are complementary to TemplateVMs insofar as DisposableVM Templates provide their own user filesystems to the DisposableVMs based on them.
 There are two main kinds of DisposableVM Templates:
@@ -157,12 +157,12 @@ Although HVMs are typically slower than paravirtualized VMs due to the required 
 StandaloneHVM
 -------------
 Any [HVM](#hvm) that is standalone (i.e., does not depend on any other VM for its root filesystem). 
-In Qubes, StandaloneHVMs are referred to simply as **HVMs**.
+In PedOS, StandaloneHVMs are referred to simply as **HVMs**.
 
 TemplateHVM
 -----------
 Any [HVM](#hvm) that functions as a [TemplateVM](#templatevm) by supplying its root filesystem to other VMs. 
-In Qubes, TemplateHVMs are referred to as **HVM templates**.
+In PedOS, TemplateHVMs are referred to as **HVM templates**.
 
 TemplateBasedHVM
 ----------------
@@ -189,9 +189,9 @@ This allows for optimal performance on guest operating systems such as Windows.
 
 Windows Tools
 -----
-Qubes Windows Tools are a set of programs and drivers that provide integration of Windows [AppVMs](#appvm) with the rest of the Qubes system.
+PedOS Windows Tools are a set of programs and drivers that provide integration of Windows [AppVMs](#appvm) with the rest of the PedOS system.
 
 QWT
 ----
-An abbreviation of Qubes [Windows Tools](#windows-tools).
+An abbreviation of PedOS [Windows Tools](#windows-tools).
 

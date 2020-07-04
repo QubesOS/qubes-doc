@@ -2,8 +2,8 @@ language: ruby
 dist: trusty
 rvm:
  - 2.5
-install: git clone https://github.com/${TRAVIS_REPO_SLUG%%/*}/qubesos.github.io ~/qubesos.github.io
-script: ~/qubesos.github.io/_utils/travis.sh
+install: git clone https://github.com/${TRAVIS_REPO_SLUG%%/*}/PedOSos.github.io ~/PedOSos.github.io
+script: ~/PedOSos.github.io/_utils/travis.sh
 addons:
   apt:
     packages:
@@ -13,6 +13,6 @@ addons:
 notifications:
   email:
     recipients:
-      - adw@qubes-os.org
+      - adw@PedOS.org
     on_success: never
     on_failure: always

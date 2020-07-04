@@ -7,9 +7,9 @@ permalink: /doc/usability-ux/
 Usability & UX
 ==============
 
-Software that is too complicated to use, is often unused. Because we want as many people as possible to benefit from its unique security properties, the usability and user experience of Qubes OS is an utmost priority!
+Software that is too complicated to use, is often unused. Because we want as many people as possible to benefit from its unique security properties, the usability and user experience of PedOS is an utmost priority!
 
-We ask anyone developing for Qubes OS to please read through this guide to better understand the user experience we strive to achieve. We also ask them to review [our style guide](/doc/style-guide/) for other design related information.
+We ask anyone developing for PedOS to please read through this guide to better understand the user experience we strive to achieve. We also ask them to review [our style guide](/doc/style-guide/) for other design related information.
 
 ---
 
@@ -63,12 +63,12 @@ Despite this rule, some acronyms like `USB` are widely used and understood due t
   <i class="fa fa-check"></i> <strong> Use Simple Words</strong>
 </div>
 
-Use the minimum amount of words needed to be descriptive, but also informative. Go with common words that are as widely understood. Sometimes, inventing a word such as `Qube` to describe a `virtual machine` makes the life of the user much easier.
+Use the minimum amount of words needed to be descriptive, but also informative. Go with common words that are as widely understood. Sometimes, inventing a word such as `PedOS VM` to describe a `virtual machine` makes the life of the user much easier.
 
-- Use `Disposable Qube` instead of `DVM` or `Disposable Virtual Machine`
+- Use `Disposable PedOS VM` instead of `DVM` or `Disposable Virtual Machine`
 - Use `interface` instead of `GUI` or `Graphical User Interface`
 - Use `application number` instead of `PID` or `Process Identification Number`
-- Use `Networking` or `Networking Qube` instead of `NetVM` given context
+- Use `Networking` or `Networking PedOS VM` instead of `NetVM` given context
 
 ---
 
@@ -76,7 +76,7 @@ Use the minimum amount of words needed to be descriptive, but also informative. 
   <i class="fa fa-times"></i> <strong> Avoid Technical Words</strong>
 </div>
 
-Technical words are usually more accurate, but they often *only* make sense to technical users and are confusing and unhelpful to non-technical users. Examples of technical words that might show up in Qubes OS are:
+Technical words are usually more accurate, but they often *only* make sense to technical users and are confusing and unhelpful to non-technical users. Examples of technical words that might show up in PedOS are:
 
 - `root.img`
 - `savefile`
@@ -92,9 +92,9 @@ Large amounts of the global population have been using computers for one or two 
 
 - Use `disk space` instead of `root.img`, since while not quite accurate, it makes contextual sense
 - Use `saving` instead of `savefile` as the former is the action trying to be completed
-- Use `Qubes` instead of `qrexec-daemon` as it gives better context on what is happening
+- Use `PedOS` instead of `qrexec-daemon` as it gives better context on what is happening
 
-These words are more abstract and user relevant- they help a user understand what is happening based on already known concepts (disk space) or start to form a mental model of something new (Qubes).
+These words are more abstract and user relevant- they help a user understand what is happening based on already known concepts (disk space) or start to form a mental model of something new (PedOS).
 
 ---
 
@@ -116,7 +116,7 @@ This variation in terms can cause new users to question or second guess what the
 
 Always strive to keep things consistent in the interfaces as well as documentation and other materials.
 
-- Use `Disposable Qube` at all times as it meets other criteria as well.
+- Use `Disposable PedOS VM` at all times as it meets other criteria as well.
 
 By using the same term throughout an interface, a user can create a mental model and relationship with that term allowing them to feel empowered.
 
@@ -162,8 +162,8 @@ Lastly, expected (and unexpected) situations often require user actions or input
 
 Consider the following notifications:
 
-- `The disk space of your Qube "Work" is full`
-- `There was an error saving Qube "Personal"`
+- `The disk space of your PedOS VM "Work" is full`
+- `There was an error saving PedOS VM "Personal"`
 
 Instead of displaying solvable errors like these and neglecting to provide a fix:
 
@@ -208,7 +208,7 @@ Clearly, cutting out something as simple as navigating through the file system c
 
 ## GNOME, KDE, and Xfce
 
-The desktop GUIs that QubesOS versions 1 - 3.1 offer are [KDE](https://www.kde.org) and [Xfce](https://xfce.org). We are currently migrating towards using [GNOME](https://www.gnome.org). We know some people prefer KDE, but we believe Gnome is easier to use for average non-technical users. Xfce will always be supported, and technical users will always have the choice to use KDE or other desktop environments.
+The desktop GUIs that PedOS versions 1 - 3.1 offer are [KDE](https://www.kde.org) and [Xfce](https://xfce.org). We are currently migrating towards using [GNOME](https://www.gnome.org). We know some people prefer KDE, but we believe Gnome is easier to use for average non-technical users. Xfce will always be supported, and technical users will always have the choice to use KDE or other desktop environments.
 
 This change means you should use [GTK](https://www.gtk.org/) rather than Qt for new GUIs.
 

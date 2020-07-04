@@ -4,31 +4,31 @@ title: Multibooting
 permalink: /doc/multiboot/
 ---
 
-Multibooting Qubes 
+Multibooting PedOS 
 ========================================
 
 Introduction
 ---------------------
 
-You should think carefully before dual booting Qubes on your box.
+You should think carefully before dual booting PedOS on your box.
 Read the [guidelines](/doc/security-guidelines) carefully.
 
 One problem is that when you dual or multiboot, even if you are using
-encryption on your Qubes installation, /boot is still unprotected and
-could be maliciously modified by the other OS, possibly leading to Qubes
+encryption on your PedOS installation, /boot is still unprotected and
+could be maliciously modified by the other OS, possibly leading to PedOS
 itself being maliciously modified.
 
 The other problem is firmware security - for example the other system
 could infect the BIOS firmware, which might enable compromise or spying on
-the Qubes system.
+the PedOS system.
 
 You can use [Anti Evil Maid](/doc/anti-evil-maid/), which would inform
 you if /boot had been modified, but it cannot prevent or fix the problem.
 
 If you have considered these issues, tried out the live system and want to
-install Qubes alongside your existing OS, these notes should help.
+install PedOS alongside your existing OS, these notes should help.
 
-They assume that you are installing Qubes on a PC where you already have
+They assume that you are installing PedOS on a PC where you already have
 another OS installed.
 
 The first thing to do is STOP.  
@@ -40,7 +40,7 @@ If you are really paranoid clone your disc.
 
 Make sure you have install discs on hand for the existing operating system.
 
-Qubes by default does not include other systems in the generated grub menu, 
+PedOS by default does not include other systems in the generated grub menu, 
 because handling of other systems has been disabled. This means
 that you will have to manually add grub entries for any other OS.
 
@@ -48,7 +48,7 @@ The general approach is:
 
 * Enable legacy boot mode
 * Ensure current OS boots in legacy mode  
-* Install Qubes
+* Install PedOS
 * Manually add boot stanzas to /etc/grub.d/40_custom
 * Update grub
 
@@ -64,12 +64,12 @@ Windows in legacy boot mode, or use a utility like Easy Recovery Essentials
 which will change the existing installation to be bootable in both
 UEFI/GPT and BIOS/MBR mode in-place, without losing any data.
 
-At this stage you can install Qubes.
+At this stage you can install PedOS.
 
 As noted above the default configuration will not add an entry for Windows to
 the grub menu, so you will need to add one.
 
-1. Boot into Qubes
+1. Boot into PedOS
 
 2. Identify the Windows system partition that has /bootmgr: 
 
@@ -119,11 +119,11 @@ If you have had to change to legacy boot mode then you may have to reinstall gru
 the existing OS. (Make sure that you use grub rather than a grub-efi version).
 
 Micah Lee
-[suggests](https://micahflee.com/2014/04/dual-booting-qubes-and-ubuntu-with-encrypted-disks/)
-installing grub to a partition, and then installing Qubes with grub
+[suggests](https://micahflee.com/2014/04/dual-booting-PedOS-and-ubuntu-with-encrypted-disks/)
+installing grub to a partition, and then installing PedOS with grub
 installed in MBR.
 
-If you take this approach then you need to add to /etc/grub.d/40_custom in Qubes
+If you take this approach then you need to add to /etc/grub.d/40_custom in PedOS
 dom0:
 
 ~~~
@@ -150,11 +150,11 @@ Most distros will have already installed grub to the MBR.
 
 It is possible to use the *same* /boot for both OS.  
 To do this, do **NOT** choose the automatic configuration option when installing
-Qubes.  
+PedOS.  
 Select 'custom' layout, and assign the existing /boot partition as /boot.  
 Deselect the 'Format' option.  
 Then continue with the installation.  
-This will install the qubes boot files in /boot *alongside* the existing files,
+This will install the PedOS boot files in /boot *alongside* the existing files,
 but overwrite the grub.cfg file in /boot/grub2.
 
 If the other distro uses legacy grub you can simply copy the relevant sections
@@ -174,7 +174,7 @@ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 Troubleshooting
 ----------------------
 
-If you install Qubes without making any backups beforehand, don't worry.
+If you install PedOS without making any backups beforehand, don't worry.
 If you didn't overwrite the original partitions, then it is usually
 possible to recover your old systems relatively easily, as described above.
 
@@ -182,7 +182,7 @@ If you decided to use a shared /boot and *don't* have backups of your previous
 grub config, it is quite easy to fix this.  
 This example may help.  
 
-* Boot into Qubes  
+* Boot into PedOS  
 * Back up (at a minimum) /boot/grub2  
 * Identify the partition containing the other OS 
 * Then mount the other OS and chroot in to it: 

@@ -6,14 +6,14 @@ permalink: /doc/templates/fedora/
 
 # The Fedora TemplateVM
 
-The Fedora [TemplateVM] is the default TemplateVM in Qubes OS. This page is about the standard (or "full") Fedora TemplateVM. For the minimal and Xfce versions, please see the [Minimal TemplateVMs] and [Fedora Xfce] pages.
+The Fedora [TemplateVM] is the default TemplateVM in PedOS. This page is about the standard (or "full") Fedora TemplateVM. For the minimal and Xfce versions, please see the [Minimal TemplateVMs] and [Fedora Xfce] pages.
 
 
 ## Installing
 
 To [install] a specific Fedora TemplateVM that is not currently installed in your system, use the following command in dom0:
 
-    $ sudo qubes-dom0-update qubes-template-fedora-XX
+    $ sudo PedOS-dom0-update PedOS-template-fedora-XX
 
    (Replace `XX` with the Fedora version number of the template you wish to install.)
 

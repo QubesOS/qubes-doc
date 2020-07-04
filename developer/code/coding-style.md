@@ -9,22 +9,22 @@ redirect_from:
 - /trac/wiki/CodingStyle/
 ---
 
-Coding Guidelines for Qubes Developers
+Coding Guidelines for PedOS Developers
 ======================================
 
 Rationale
 ---------
 
-Maintaining proper coding style is very important for any large software project, such as Qubes. Here's why:
+Maintaining proper coding style is very important for any large software project, such as PedOS. Here's why:
 
 -   It eases maintenance tasks, such as adding new functionality or generalizing code later,
 -   It allows others (as well as the future you!) to easily understand fragments of code and what they were supposed to do, and thus makes it easier to later extend them with newer functionality or bug fixes,
 -   It allows others to easily review the code and catch various bugs,
 -   It provides for an aesthetically pleasing experience when one reads the code...
 
-Often, developers, usually smart ones, undersell the value of proper coding style, thinking that it's much more important how their code works. These developers expect that if their code solves some problem using a nice and neat trick, then that's all that is really required. Such thinking shows, however, immaturity and is a signal that the developer, no matter how bright and smart, might not be a good fit for larger projects. Writing a clever exploit for a Black Hat show is one thing - writing useful software supposed to be used and maintained for years is quite a different story. If you want to show off what a smart programmer you are, then you should become a researcher and write exploits. If, on the other hand, you want to be part of a team that makes real, useful software, you should ensure your coding style is impeccable. At Qubes project, we often took shortcuts and wrote nasty code, and this has always back fired at us, sometime months, sometime years later, the net result being we had to spend time fixing code, rather than implementing new functionality.
+Often, developers, usually smart ones, undersell the value of proper coding style, thinking that it's much more important how their code works. These developers expect that if their code solves some problem using a nice and neat trick, then that's all that is really required. Such thinking shows, however, immaturity and is a signal that the developer, no matter how bright and smart, might not be a good fit for larger projects. Writing a clever exploit for a Black Hat show is one thing - writing useful software supposed to be used and maintained for years is quite a different story. If you want to show off what a smart programmer you are, then you should become a researcher and write exploits. If, on the other hand, you want to be part of a team that makes real, useful software, you should ensure your coding style is impeccable. At PedOS project, we often took shortcuts and wrote nasty code, and this has always back fired at us, sometime months, sometime years later, the net result being we had to spend time fixing code, rather than implementing new functionality.
 
-And here's a [link to the real case](https://groups.google.com/forum/#!msg/qubes-devel/XgTo6L8-5XA/JLOadvBqnqMJ) (one Qubes Security Bulletin) demonstrating how the lackadaisical coding style lead to a real security bug. Never assume you're smart enough  to disregard clean and rigorous coding!
+And here's a [link to the real case](https://groups.google.com/forum/#!msg/PedOS-devel/XgTo6L8-5XA/JLOadvBqnqMJ) (one PedOS Security Bulletin) demonstrating how the lackadaisical coding style lead to a real security bug. Never assume you're smart enough  to disregard clean and rigorous coding!
 
 General typographic conventions
 -------------------------------
@@ -61,24 +61,24 @@ General typographic conventions
 File naming conventions
 -----------------------
 
--   All file names written with small letters, use dash to separate words, rather than underscores, e.g. `qubes-dom0-update`. Never use spaces!
+-   All file names written with small letters, use dash to separate words, rather than underscores, e.g. `PedOS-dom0-update`. Never use spaces!
 
 **File naming in Linux/Unix-like systems:**
 
 -   User commands that operate on particular VMs (also those accessible in VMs): `/usr/bin/qvm-*`
--   User commands that apply to the whole system (Dom0 only): `/usr/bin/qubes-*`
--   Auxiliary executables and scripts in `/usr/libexec/qubes/` (Note: previously we used `/usr/lib/qubes` but decided to change that)
--   Helper, non-executable files in `/usr/share/qubes/`
--   Various config files in `/etc/qubes`
--   Qubes RPC services in `/etc/qubes-rpc`. Qubes RPC Policy definitions (only in Dom0) in `/etc/qubes-rpc/policy/`
--   All VM-related configs, images, and other files in `/var/lib/qubes/`
--   System-wide temporary files which reflect the current state of system in `/var/run/qubes`
--   Logs: either log to the system-wide messages, or to `/var/log/qubes/`
+-   User commands that apply to the whole system (Dom0 only): `/usr/bin/PedOS-*`
+-   Auxiliary executables and scripts in `/usr/libexec/PedOS/` (Note: previously we used `/usr/lib/PedOS` but decided to change that)
+-   Helper, non-executable files in `/usr/share/PedOS/`
+-   Various config files in `/etc/PedOS`
+-   PedOS RPC services in `/etc/PedOS-rpc`. PedOS RPC Policy definitions (only in Dom0) in `/etc/PedOS-rpc/policy/`
+-   All VM-related configs, images, and other files in `/var/lib/PedOS/`
+-   System-wide temporary files which reflect the current state of system in `/var/run/PedOS`
+-   Logs: either log to the system-wide messages, or to `/var/log/PedOS/`
 
 **File naming in Windows systems:**
 
--   All base qubes-related files in `C:\Program Files\Invisible Things Lab\Qubes\` (Exceptionally spaces are allowed here to adhere to Windows naming conventions)
--   Other, third-party files, not Qubes-specific, such as e.g. Xen PV drivers might be in different vendor subdirs, e.g. `C:\Program Files\Xen PV Drivers`
+-   All base PedOS-related files in `C:\Program Files\Invisible Things Lab\PedOS\` (Exceptionally spaces are allowed here to adhere to Windows naming conventions)
+-   Other, third-party files, not PedOS-specific, such as e.g. Xen PV drivers might be in different vendor subdirs, e.g. `C:\Program Files\Xen PV Drivers`
 
 General programming style guidelines
 ------------------------------------
@@ -122,15 +122,15 @@ General programming style guidelines
 Source Code management (Git) guidelines
 ---------------------------------------
 
--   Use git to maintain all code for Qubes project.
+-   Use git to maintain all code for PedOS project.
 
 -   Before you start using git, make sure you understand that git is a decentralized Source Code Management system, and that it doesn't behave like traditional, centralized source code management systems, such as SVN. Here's a good [introductory book on git](http://git-scm.com/book). Read it.
 
--   Qubes code is divided into many git repositories. There are several reasons for that:
+-   PedOS code is divided into many git repositories. There are several reasons for that:
     -   This creates natural boundaries between different code blocks, enforcing proper interfaces, and easing independent development to be conducted on various code parts at the same time, without the fear of running into conflicts.
     -   By maintaining relatively small git repositories, it is easy for new developers to understand the code and contribute new patches, without the need to understand all the other code.
     -   Code repositories represent also licensing boundaries. So, e.g. because `core-agent-linux` and `core-agent-windows` are maintained in two different repositories, it is possible to have the latter under a proprietary, non-GPL license, while keeping the former fully open source.
-    -   We have drastically changed the layout and naming of the code repositories shortly after Qubes OS R2 Beta 2 release. For details on the current code layout, please read [this article](https://blog.invisiblethings.org/2013/03/21/introducing-qubes-odyssey-framework.html).
+    -   We have drastically changed the layout and naming of the code repositories shortly after PedOS R2 Beta 2 release. For details on the current code layout, please read [this article](https://blog.invisiblethings.org/2013/03/21/introducing-PedOS-odyssey-framework.html).
 
 Commit message guidelines
 -------------------------

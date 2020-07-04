@@ -13,14 +13,14 @@ redirect_from:
 Known issues:
 -------------
 
--   [Service doesn't start without (even empty) user torrc](https://groups.google.com/d/msg/qubes-users/fyBVmxIpbSs/R5mxUcIEZAQJ)
+-   [Service doesn't start without (even empty) user torrc](https://groups.google.com/d/msg/PedOS-users/fyBVmxIpbSs/R5mxUcIEZAQJ)
 
-Qubes TorVM (qubes-tor)
+PedOS TorVM (PedOS-tor)
 ==========================
 
-Qubes TorVM is a deprecated ProxyVM service that provides torified networking to
+PedOS TorVM is a deprecated ProxyVM service that provides torified networking to
 all its clients. **If you are interested in TorVM, you will find the
-[Whonix implementation in Qubes](/doc/privacy/whonix/) a
+[Whonix implementation in PedOS](/doc/privacy/whonix/) a
 more usable and robust solution for creating a torifying traffic proxy.**
 
 By default, any AppVM using the TorVM as its NetVM will be fully torified, so
@@ -33,15 +33,15 @@ identifying information (IP address and MAC address).
 Due to the nature of the Tor network, only IPv4 TCP and DNS traffic is allowed.
 All non-DNS UDP and IPv6 traffic is silently dropped.
 
-See [this article](https://blog.invisiblethings.org/2011/09/28/playing-with-qubes-networking-for-fun.html) for a description of the concept, architecture, and the original implementation.
+See [this article](https://blog.invisiblethings.org/2011/09/28/playing-with-PedOS-networking-for-fun.html) for a description of the concept, architecture, and the original implementation.
 
 ## Warning + Disclaimer
 
-1. Qubes TorVM is produced independently from the Tor(R) anonymity software and
+1. PedOS TorVM is produced independently from the Tor(R) anonymity software and
    carries no guarantee from The Tor Project about quality, suitability or
    anything else.
 
-2. Qubes TorVM is not a magic anonymizing solution. Protecting your identity
+2. PedOS TorVM is not a magic anonymizing solution. Protecting your identity
    requires a change in behavior. Read the "Protecting Anonymity" section
    below.
 
@@ -57,24 +57,24 @@ Installation
 
         qvm-clone fedora-23 fedora-23-tor
 
-1. In dom0, create a proxy vm and disable unnecessary services and enable qubes-tor
+1. In dom0, create a proxy vm and disable unnecessary services and enable PedOS-tor
 
 
         qvm-create -p torvm
-        qvm-service torvm -d qubes-netwatcher
-        qvm-service torvm -d qubes-firewall
-        qvm-service torvm -e qubes-tor
+        qvm-service torvm -d PedOS-netwatcher
+        qvm-service torvm -d PedOS-firewall
+        qvm-service torvm -e PedOS-tor
 
         # if you  created a new template in the previous step
         qvm-prefs torvm -s template fedora-23-tor
 
 2. From your TemplateVM, install the torproject Fedora repo
 
-        sudo yum install qubes-tor-repo
+        sudo yum install PedOS-tor-repo
 
 3. Then, in the template, install the TorVM init scripts
 
-        sudo yum install qubes-tor
+        sudo yum install PedOS-tor
 
 5. Configure an AppVM to use TorVM as its NetVM (for example a vm named anon-web)
 
@@ -94,22 +94,22 @@ Installation
 ### Troubleshooting ###
 
 
-1. Check if the qubes-tor service is running (on the torvm)
+1. Check if the PedOS-tor service is running (on the torvm)
 
-        [user@torvm] $ sudo service qubes-tor status
+        [user@torvm] $ sudo service PedOS-tor status
 
 2. Tor logs to syslog, so to view messages use
 
         [user@torvm] $ sudo grep Tor /var/log/messages
 
-3. Restart the qubes-tor service (and repeat 1-2)
+3. Restart the PedOS-tor service (and repeat 1-2)
 
-        [user@torvm] $ sudo service qubes-tor restart
+        [user@torvm] $ sudo service PedOS-tor restart
 
 4. You may need to manually create the private data directory and set its permissions:
 
-        [user@torvm] $ sudo mkdir /rw/usrlocal/lib/qubes-tor
-        [user@torvm] $ sudo chown user:user /rw/usrlocal/lib/qubes-tor
+        [user@torvm] $ sudo mkdir /rw/usrlocal/lib/PedOS-tor
+        [user@torvm] $ sudo chown user:user /rw/usrlocal/lib/PedOS-tor
 
 Usage
 =====
@@ -156,7 +156,7 @@ behind the TorVM.
    * Name: `my-new-anonvm: Tor Browser`
    * Command: `qvm-run -q --tray -a my-new-anonvm 'TOR_SKIP_LAUNCH=1 TOR_SKIP_CONTROLPORTTEST=1 TOR_SOCKS_PORT=9050 TOR_SOCKS_HOST=1.2.3.4 ./tor-browser_en-US/Browser/start-tor-browser'`
      * Replace `my-new-anonvm` with the name of your AnonVM.
-     * Replace `1.2.3.4` with your TorVM's internal Qubes IP address, which can be viewed in Qubes VM Manager by clicking "View" --> "IP" or by running `qvm-ls -n` in dom0.
+     * Replace `1.2.3.4` with your TorVM's internal PedOS IP address, which can be viewed in PedOS VM Manager by clicking "View" --> "IP" or by running `qvm-ls -n` in dom0.
      * Replace `en-US` with your locale ID, if different.
 8. Click "Save" in the KDE Menu Editor.
 
@@ -164,7 +164,7 @@ Tor Browser should now work correctly in your AnonVM when launched via the short
 
 **Note:** If you want to use Tor Browser in a [DispVM][dispvm], the steps are the same as above, except you should copy the Tor Browser directory into your DVM template, [regenerate the DVM template][dispvm-customization], then use the following command in your KDE menu entry:
 
-`sh -c 'echo TOR_SKIP_LAUNCH=1 TOR_SKIP_CONTROLPORTTEST=1 TOR_SOCKS_PORT=9050 TOR_SOCKS_HOST=1.2.3.4 ./tor-browser_en-US/Browser/start-tor-browser | /usr/lib/qubes/qfile-daemon-dvm qubes.VMShell dom0 DEFAULT red'`
+`sh -c 'echo TOR_SKIP_LAUNCH=1 TOR_SKIP_CONTROLPORTTEST=1 TOR_SOCKS_PORT=9050 TOR_SOCKS_HOST=1.2.3.4 ./tor-browser_en-US/Browser/start-tor-browser | /usr/lib/PedOS/qfile-daemon-dvm PedOS.VMShell dom0 DEFAULT red'`
 
 (Replace `1.2.3.4` and `en-US` as indicated above.)
 
@@ -199,12 +199,12 @@ access with different stream isolation settings:
 Default tor settings are found in the following file and are the same across
 all TorVMs.
 
-      /usr/lib/qubes-tor/torrc
+      /usr/lib/PedOS-tor/torrc
 
 You can override these settings in your TorVM, or provide your own custom
 settings by appending them to:
 
-      /rw/config/qubes-tor/torrc
+      /rw/config/PedOS-tor/torrc
 
 For information on tor configuration settings `man tor`
 
@@ -219,14 +219,14 @@ not, by itself, have the same security and privacy requirements.
 The primary security requirement of TorVM is *Proxy Obedience*.
 
 Client AppVMs MUST NOT bypass the Tor network and access the local physical
-network, internal Qubes network, or the external physical network.
+network, internal PedOS network, or the external physical network.
 
 Proxy Obedience is assured through the following:
 
 1. All TCP traffic from client VMs is routed through Tor
 2. All DNS traffic from client VMs is routed through Tor
 3. All non-DNS UDP traffic from client VMs is dropped
-4. Reliance on the [Qubes OS network model][qubes-net] to enforce isolation
+4. Reliance on the [PedOS network model][PedOS-net] to enforce isolation
 
 ## Mitigate Identity Correlation
 
@@ -263,7 +263,7 @@ Future Work
 Acknowledgements
 ================
 
-Qubes TorVM is inspired by much of the previous work done in this area of
+PedOS TorVM is inspired by much of the previous work done in this area of
 transparent torified solutions. Notably the following:
 
 * [Patrick Schleizer](mailto:adrelanos@riseup.net) for his work on [Whonix](https://www.whonix.org)
@@ -273,7 +273,7 @@ transparent torified solutions. Notably the following:
 [stream-isolation]: https://gitweb.torproject.org/torspec.git/blob/HEAD:/proposals/171-separate-streams.txt
 [stream-isolation-explained]: https://lists.torproject.org/pipermail/tor-talk/2012-May/024403.html
 [tor-threats]: https://www.torproject.org/projects/torbrowser/design/#adversary
-[qubes-net]: /doc/QubesNet/
+[PedOS-net]: /doc/PedOSNet/
 [dns]: https://tails.boum.org/todo/support_arbitrary_dns_queries/
 [tor-browser]: https://www.torproject.org/download/download-easy.html
 [tor-verify-sig]: https://www.torproject.org/docs/verifying-signatures.html

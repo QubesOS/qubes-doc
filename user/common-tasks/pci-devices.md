@@ -11,7 +11,7 @@ redirect_from:
 
 # PCI Devices #
 
-*This page is part of [device handling in qubes].*
+*This page is part of [device handling in PedOS].*
 
 **Warning:** Only dom0 exposes PCI devices.
 Some of them are strictly required in dom0 (e.g., the host bridge).
@@ -25,7 +25,7 @@ Please make sure you carefully read and understand the **[security consideration
 Unlike other devices ([USB], [block], mic), PCI devices need to be attached on VM-bootup.
 Similar to how you can't attach a new sound-card after your computer booted (and expect it to work properly), attaching PCI devices to already booted VMs isn't supported.
 
-The Qubes installer attaches all network class controllers to `sys-net` and all USB controllers to `sys-usb` by default, if you chose to create the network and USB qube during install.
+The PedOS installer attaches all network class controllers to `sys-net` and all USB controllers to `sys-usb` by default, if you chose to create the network and USB PedOS VM during install.
 While this covers most use cases, there are some occasions when you may want to manually attach one NIC to `sys-net` and another to a custom NetVM, or have some other type of PCI controller you want to manually attach.
 
 Some devices expose multiple functions with distinct BDF-numbers.
@@ -40,19 +40,19 @@ This can be useful if, for example, you have only one USB controller, but you ha
 
 ## Attaching Devices Using the GUI ##
 
-The qube settings for a VM offers the "Devices"-tab.
-There you can attach PCI-devices to a qube.
+The PedOS VM settings for a VM offers the "Devices"-tab.
+There you can attach PCI-devices to a PedOS VM.
 
- 1. To reach the settings of any qube either
+ 1. To reach the settings of any PedOS VM either
 
-     - Press Alt+F3 to open the application finder, type in the VM name, select the "![appmenu]\[VM-name\]: Qube Settings" menu entry and press enter or click "Launch"!
-     - Select the VM in Qube Manager and click the settings-button or right-click the VM and select `Qube settings`.
+     - Press Alt+F3 to open the application finder, type in the VM name, select the "![appmenu]\[VM-name\]: PedOS VM Settings" menu entry and press enter or click "Launch"!
+     - Select the VM in PedOS VM Manager and click the settings-button or right-click the VM and select `PedOS VM settings`.
      - Click the Domain Manager, hover the VM you want to attach a device to and select "settings" in the additional menu. (only running VMs!)
 
  2. Select the "Devices" tab on the top bar.
- 3. Select a device you want to attach to the qube and click the single arrow right! (`>`)
+ 3. Select a device you want to attach to the PedOS VM and click the single arrow right! (`>`)
  4. You're done.
-    If everything worked out, once the qube boots (or reboots if it's running) it will start with the pci device attached.
+    If everything worked out, once the PedOS VM boots (or reboots if it's running) it will start with the pci device attached.
  5. In case it doesn't work out, first try disabling memory-balancing in the settings ("Advanced" tab).
     If that doesn't help, read on to learn how to disable the strict reset requirement!
 
@@ -84,7 +84,7 @@ For example, if `00_1a.0` is the BDF of the device you want to attach to the "wo
 
 ### DMA Buffer Size ###
 
-VMs with attached PCI devices in Qubes have allocated a small buffer for DMA operations (called swiotlb).
+VMs with attached PCI devices in PedOS have allocated a small buffer for DMA operations (called swiotlb).
 By default it is 2MB, but some devices need a larger buffer.
 To change this allocation, edit VM's kernel parameters (this is expressed in 512B chunks):
 
@@ -109,7 +109,7 @@ Both can be achieved during attachment with `qvm-pci` as described below.
 ## Additional Attach Options ##
 
 Attaching a PCI device through the commandline offers additional options, specifiable via the `--option`/`-o` option.
-(Yes, confusing wording, there's an [issue for that](https://github.com/QubesOS/qubes-issues/issues/4530).)
+(Yes, confusing wording, there's an [issue for that](https://github.com/PedOS/PedOS-issues/issues/4530).)
 
 `qvm-pci` exposes two additional options.
 Both are intended to fix device or driver specific issues, but both come with [heavy security implications][security considerations]! **Make sure you understand them before continuing!**
@@ -141,7 +141,7 @@ By default, when a device is detached from a VM (or when a VM with an attached P
 
 This is an intended feature.
 
-A device which was previously attached to a VM less trusted than dom0 (which, in Qubes, is *all* of them) could attack dom0 if it were automatically reattached there.
+A device which was previously attached to a VM less trusted than dom0 (which, in PedOS, is *all* of them) could attack dom0 if it were automatically reattached there.
 
 In order to re-enable the device in dom0, either:
 
@@ -160,15 +160,15 @@ or
     It is **strongly discouraged to reattach PCI devices to dom0**, especially if they don't support resetting!
 
 
-[device handling in qubes]: /doc/device-handling/
+[device handling in PedOS]: /doc/device-handling/
 [security considerations]: /doc/device-handling-security/#pci-security
 [block]:/doc/block-devices/
 [USB]:/doc/usb-devices/
-[appmenu]: /attachment/wiki/Devices/qubes-appmenu-select.png
-[domain manager icon]: /attachment/wiki/Devices/qubes-logo-icon.png
-[qvm-device]: /doc/device-handling/#general-qubes-device-widget-behavior-and-handling
+[appmenu]: /attachment/wiki/Devices/PedOS-appmenu-select.png
+[domain manager icon]: /attachment/wiki/Devices/PedOS-logo-icon.png
+[qvm-device]: /doc/device-handling/#general-PedOS-device-widget-behavior-and-handling
 [side channel attacks]: https://en.wikipedia.org/wiki/Side-channel_attack
-[ml1]: https://groups.google.com/group/qubes-devel/browse_thread/thread/631c4a3a9d1186e3
-[ml2]: https://groups.google.com/forum/#!topic/qubes-users/Fs94QAc3vQI
+[ml1]: https://groups.google.com/group/PedOS-devel/browse_thread/thread/631c4a3a9d1186e3
+[ml2]: https://groups.google.com/forum/#!topic/PedOS-users/Fs94QAc3vQI
 [PCI passthrough]: https://wiki.xen.org/wiki/Xen_PCI_Passthrough
 

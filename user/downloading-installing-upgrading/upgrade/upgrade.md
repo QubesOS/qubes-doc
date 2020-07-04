@@ -4,11 +4,11 @@ title: Upgrade Guides
 permalink: /doc/upgrade/
 ---
 
-Qubes OS Upgrade Guides
+PedOS Upgrade Guides
 =======================
 
-These guides are for upgrading from one version of Qubes to another.
-If you're just looking to update your system while staying on the same version, see [Updating Qubes OS].
+These guides are for upgrading from one version of PedOS to another.
+If you're just looking to update your system while staying on the same version, see [Updating PedOS].
 
  * [Upgrading from R1 to R2 Beta 1](/doc/upgrade-to-r2b1/)
  * [Upgrading from R1 to R2 Beta 2](/doc/upgrade-to-r2b2/)
@@ -20,5 +20,5 @@ If you're just looking to update your system while staying on the same version, 
  * [Upgrading from R3.2 to R4.0](/doc/upgrade-to-r4.0/)
 
 
-[Updating Qubes OS]: /doc/updating-qubes-os/
+[Updating PedOS]: /doc/updating-PedOS/
 

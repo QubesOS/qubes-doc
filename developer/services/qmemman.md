@@ -8,7 +8,7 @@ redirect_from:
 - /wiki/Qmemman/
 ---
 
-qmemman, Qubes memory manager
+qmemman, PedOS memory manager
 =============================
 
 Rationale
@@ -19,9 +19,9 @@ Traditionally, Xen VMs are assigned a fixed amount of memory. It is not the opti
 The [tmem](https://oss.oracle.com/projects/tmem/) project provides a "pseudo-RAM" that is assigned on per-need basis. However this solution has some disadvantages:
 
 -   It does not provide real RAM, just an interface to copy memory to/from fast, RAM-based storage. It is perfect for swap, good for file cache, but not ideal for many tasks.
--   It is deeply integrated with the Linux kernel. When Qubes will support Windows guests natively, we would have to port *tmem* to Windows, which may be challenging.
+-   It is deeply integrated with the Linux kernel. When PedOS will support Windows guests natively, we would have to port *tmem* to Windows, which may be challenging.
 
-Therefore, in Qubes another solution is used. There is the *qmemman* dom0 daemon. All VMs report their memory usage (via xenstore) to *qmemman*, and it makes decisions on whether to balance memory across domains. The actual mechanism to add/remove memory from a domain (*xc.domain\_set\_target\_mem*) is already supported by both PV Linux guests and Windows guests (the latter via PV drivers).
+Therefore, in PedOS another solution is used. There is the *qmemman* dom0 daemon. All VMs report their memory usage (via xenstore) to *qmemman*, and it makes decisions on whether to balance memory across domains. The actual mechanism to add/remove memory from a domain (*xc.domain\_set\_target\_mem*) is already supported by both PV Linux guests and Windows guests (the latter via PV drivers).
 
 Similarly, when there is need for Xen free memory (for instance, in order to create a new VM), traditionally the memory is obtained from dom0 only. When *qmemman* is running, it offers an interface to obtain memory from all domains.
 
@@ -43,8 +43,8 @@ Interface
 *qmemman* listens for the following events:
 
 -   writes to `/local/domain/domid/memory/meminfo` xenstore keys by *meminfo-writer* process in VM. The content of this key is taken from the VM's `/proc/meminfo` pseudofile ; *meminfo-writer* just strips some unused lines from it. Note that *meminfo-writer* writes its xenstore key only if the VM memory usage has changed significantly enough since the last update (by default 30MB), to prevent flooding with almost identical data
--   commands issued over Unix socket `/var/run/qubes/qmemman.sock`. Currently, the only command recognized is to free the specified amount of memory. The QMemmanClient class implements the protocol.
--   if the `/var/run/qubes/do-not-membalance` file exists, *qmemman* suspends memory balancing. It is primarily used when allocating memory for a to-be-created domain, to prevent using up the free Xen memory by the balancing algorithm before the domain creation is completed.
+-   commands issued over Unix socket `/var/run/PedOS/qmemman.sock`. Currently, the only command recognized is to free the specified amount of memory. The QMemmanClient class implements the protocol.
+-   if the `/var/run/PedOS/do-not-membalance` file exists, *qmemman* suspends memory balancing. It is primarily used when allocating memory for a to-be-created domain, to prevent using up the free Xen memory by the balancing algorithm before the domain creation is completed.
 
 Algorithms basics
 -----------------

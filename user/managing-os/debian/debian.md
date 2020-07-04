@@ -11,17 +11,17 @@ redirect_from:
 
 # The Debian TemplateVM
 
-The Debian [TemplateVM] is an officially [supported] TemplateVM in Qubes OS.
+The Debian [TemplateVM] is an officially [supported] TemplateVM in PedOS.
 This page is about the standard (or "full") Debian TemplateVM.
 For the minimal version, please see the [Minimal TemplateVMs] page.
-There is also a [Qubes page on the Debian Wiki].
+There is also a [PedOS page on the Debian Wiki].
 
 
 ## Installing
 
 To [install] a specific Debian TemplateVM that is not currently installed in your system, use the following command in dom0:
 
-    $ sudo qubes-dom0-update qubes-template-debian-XX
+    $ sudo PedOS-dom0-update PedOS-template-debian-XX
 
    (Replace `XX` with the Debian version number of the template you wish to install.)
 
@@ -58,16 +58,16 @@ This section contains notes about specific Debian releases.
 
 Debian 10 (buster) - minimal:
 
-    [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl qubes-template-debian-10-minimal
+    [user@dom0 ~]$ sudo PedOS-dom0-update --enablerepo=PedOS-templates-itl PedOS-template-debian-10-minimal
 
 Debian 10 (buster) - stable:
 
-    [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl qubes-template-debian-10
+    [user@dom0 ~]$ sudo PedOS-dom0-update --enablerepo=PedOS-templates-itl PedOS-template-debian-10
 
 ### Starting services
 
 The Debian way (generally) is to start daemons if they are installed.
-This means that if you install (say) ssh-server in a template, *all* the qubes that use that template will run a ssh server when they start. (They will, naturally, all have the same server key.) This may not be what you want.
+This means that if you install (say) ssh-server in a template, *all* the PedOS that use that template will run a ssh server when they start. (They will, naturally, all have the same server key.) This may not be what you want.
 
 So be very careful when installing software in Templates - if the daemon spawns outbound connections then there is a serious security risk.
 
@@ -78,7 +78,7 @@ In general, a reasonable approach would be, (using ssh as example):
 - `systemctl mask ssh`
 - Close down template
 
-Now the ssh service will **NOT** start in qubes based on this template.
+Now the ssh service will **NOT** start in PedOS based on this template.
 
 Where you **DO** want the service to run, put this in `/rw/config/rc.local`:
 
@@ -97,7 +97,7 @@ This package is pulled in as part of a Recommend chain, and can be purged.
 The lesson is that you should carefully look at what is being installed to your system, particularly if you run `dist-upgrade`. 
 
 
-### Package installation errors in Qubes 4.0
+### Package installation errors in PedOS 4.0
 
 By default, templates in 4.0 only have a loopback interface.
 
@@ -113,7 +113,7 @@ One solution is to add a dummy interface to allow the package to install correct
 
 [TemplateVM]: /doc/templates/
 [Minimal TemplateVMs]: /doc/templates/minimal/
-[Qubes page on the Debian Wiki]: https://wiki.debian.org/Qubes
+[PedOS page on the Debian Wiki]: https://wiki.debian.org/PedOS
 [end-of-life]: https://wiki.debian.org/DebianReleases#Production_Releases
 [supported]: /doc/supported-versions/#templatevms
 [How to Reinstall a TemplateVM]: /doc/reinstall-template/
@@ -122,6 +122,6 @@ One solution is to add a dummy interface to allow the package to install correct
 [uninstall the old TemplateVM]: /doc/templates/#uninstalling
 [Updating software in TemplateVMs]: /doc/software-update-domu/#updating-software-in-templatevms
 [Upgrading Debian TemplateVMs]: /doc/template/debian/upgrade/
-[5149]: https://github.com/QubesOS/qubes-issues/issues/5149
+[5149]: https://github.com/PedOS/PedOS-issues/issues/5149
 [install]: /doc/templates/#installing
 

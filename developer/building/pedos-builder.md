@@ -1,20 +1,20 @@
 ---
 layout: doc
-title: Qubes Builder
-permalink: /doc/qubes-builder/
+title: PedOS Builder
+permalink: /doc/PedOS-builder/
 redirect_from:
-- /en/doc/qubes-builder/
-- /doc/QubesBuilder/
-- /wiki/QubesBuilder/
+- /en/doc/PedOS-builder/
+- /doc/PedOSBuilder/
+- /wiki/PedOSBuilder/
 ---
 
-**Note: See [ISO building instructions](/doc/qubes-iso-building/) for a streamlined overview on how to use the build system.**
+**Note: See [ISO building instructions](/doc/PedOS-iso-building/) for a streamlined overview on how to use the build system.**
 
-Building Qubes from scratch
+Building PedOS from scratch
 ===========================
 
-We have a fully automated build system for Qubes, that downloads, builds and
-packages all the Qubes components, and finally should spit out a ready-to-use
+We have a fully automated build system for PedOS, that downloads, builds and
+packages all the PedOS components, and finally should spit out a ready-to-use
 installation ISO.
 
 In order to use it, you should use an rpm-based distro, like Fedora :), and should ensure the following packages are installed:
@@ -42,14 +42,14 @@ Usually you can install those packages by just issuing:
     sudo dnf install gnupg git createrepo rpm-build make wget rpmdevtools python3-sh dialog rpm-sign dpkg-dev debootstrap PyYAML devscripts perl-Digest-MD5 perl-Digest-SHA
 
 The build system creates build environments in chroots and so no other packages are needed on the host.
-All files created by the build system are contained within the qubes-builder directory.
+All files created by the build system are contained within the PedOS-builder directory.
 The full build requires some 25GB of free space, so keep that in mind when deciding where to place this directory.
 
 The build system is configured via builder.conf file.
 You can use the setup.sh script to create and modify this file.
 Alternatively, you can copy the provided default builder.conf, and modify it as needed, e.g.:
 
-    cp example-configs/qubes-os-master.conf builder.conf 
+    cp example-configs/PedOS-master.conf builder.conf 
     # edit the builder.conf file and set the following variables: 
     NO_SIGN=1
 
@@ -65,25 +65,25 @@ Additionally, if building with signing enabled (NO\_SIGN is not set), you must a
 It is also recommended that you use an empty passphrase for the private key used for signing.
 Contrary to a popular belief, this doesn't affect your key or sources security -- if somebody compromised your system, then the game is over anyway, whether you have used an additional passphrase for the key or not.
 
-So, to build Qubes you would do:
+So, to build PedOS you would do:
 
-    # Import the Qubes master key 
+    # Import the PedOS master key 
     gpg --recv-keys 0xDDFA1A3E36879494
     
     # Verify its fingerprint, set as 'trusted'. 
     # This is described here: 
-    # https://www.qubes-os.org/doc/VerifyingSignatures
+    # https://www.PedOS.org/doc/VerifyingSignatures
     
-    wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
-    gpg --import qubes-developers-keys.asc 
+    wget https://keys.PedOS.org/keys/PedOS-developers-keys.asc
+    gpg --import PedOS-developers-keys.asc 
     
-    git clone git://github.com/QubesOS/qubes-builder.git qubes-builder 
-    cd qubes-builder 
+    git clone git://github.com/PedOS/PedOS-builder.git PedOS-builder 
+    cd PedOS-builder 
 
     # Verify its integrity:
     git tag -v `git describe`
     
-    cp example-configs/qubes-os-master.conf builder.conf 
+    cp example-configs/PedOS-master.conf builder.conf 
     # edit the builder.conf file and set the following variables: 
     # NO_SIGN="1"
     
@@ -91,9 +91,9 @@ So, to build Qubes you would do:
     
     make get-sources
     
-    # And now to build all Qubes rpms (this will take a few hours): 
+    # And now to build all PedOS rpms (this will take a few hours): 
     
-    make qubes 
+    make PedOS 
     
     # ... and then to build the ISO 
     
@@ -115,9 +115,9 @@ Making customized build
 You can also modify sources somehow if you wish.
 Here are some basic steps:
 
-1.  Download qubes-builder as described above (if you want to use marmarek's branches, you should also download qubes-builder from his repo - replace 'QubesOS' with 'marmarek' in above git clone command)
+1.  Download PedOS-builder as described above (if you want to use marmarek's branches, you should also download PedOS-builder from his repo - replace 'PedOS' with 'marmarek' in above git clone command)
 2.  Edit builder.conf (still the same as above), some useful additions:
-    -   You can also set GIT\_PREFIX="marmarek/qubes-" to use marmarek's repo instead of "mainstream" - it contains newer (but less tested) versions
+    -   You can also set GIT\_PREFIX="marmarek/PedOS-" to use marmarek's repo instead of "mainstream" - it contains newer (but less tested) versions
 
 3.  Download unmodified sources
 
@@ -125,30 +125,30 @@ Here are some basic steps:
 
 4.  **Make your modifications here**
 
-5.  Build the Qubes
-     `make qubes` actually is just meta target which builds all required
+5.  Build the PedOS
+     `make PedOS` actually is just meta target which builds all required
      components in correct order. The list of components is configured in
      builder.conf. You can also check the current value at the end of `make
      help`, or using `make build-info`. 
 
 6. `get-sources` is already done, so continue with the next one. You can skip `sign-all` if you've disabled signing
 
-        make vmm-xen core-admin linux-kernel gui-daemon template desktop-linux-kde installer-qubes-os manager linux-dom0-updates
+        make vmm-xen core-admin linux-kernel gui-daemon template desktop-linux-kde installer-PedOS manager linux-dom0-updates
 
 1.  build iso installation image
 
         make iso
 
-### Use pre-built Qubes packages
+### Use pre-built PedOS packages
 
-For building just a few selected packages, it's very useful to download pre-built qubes-specific dependencies from `{yum,deb}.qubes-os.org`.
+For building just a few selected packages, it's very useful to download pre-built PedOS-specific dependencies from `{yum,deb}.PedOS.org`.
 This is especially true for `gcc`, which takes several hours to build.
 
 Before creating the `chroot`, add this to your `builder.conf`:
 
-    USE_QUBES_REPO_VERSION = $(RELEASE)
+    USE_PEDOS_REPO_VERSION = $(RELEASE)
 
-It will add the 'current' Qubes repository to your `chroot` environment.
+It will add the 'current' PedOS repository to your `chroot` environment.
 Next, specify which components (`gcc`, for example) you want to download instead of compiling:
 
     COMPONENTS := $(filter-out gcc,$(COMPONENTS))
@@ -158,7 +158,7 @@ This way, you can build only the packages in which you are interested.
 
 If you also want to use the 'current-testing' repository, add this to your configuration:
 
-    USE_QUBES_REPO_TESTING = 1
+    USE_PEDOS_REPO_TESTING = 1
 
 In the case of an existing `chroot`, for mock-enabled builds, this works immediately because `chroot` is constructed each time separately.
 For legacy builds, it will not add the necessary configuration into the build environment unless a specific builder change or configuration would force rebuilding chroot.
@@ -168,24 +168,24 @@ And even if it did, there could be some leftover packages installed from those r
 
 **Note**  
 If you are building Ubuntu templates, you cannot use this option.
-This is because Qubes does not provide official packages for Ubuntu templates.
+This is because PedOS does not provide official packages for Ubuntu templates.
 
 Code verification keys management
 ---------------------------------
 
-[QubesBuilder](/doc/qubes-builder/) by default verifies signed tags on every downloaded code.
+[PedOSBuilder](/doc/PedOS-builder/) by default verifies signed tags on every downloaded code.
 Public keys used for that are stored in `keyrings/git`.
-By default Qubes developers' keys are imported automatically, but if you need some additional keys (for example your own), you can add them using:
+By default PedOS developers' keys are imported automatically, but if you need some additional keys (for example your own), you can add them using:
 
     GNUPGHOME=$PWD/keyrings/git gpg --import /path/to/key.asc
     GNUPGHOME=$PWD/keyrings/git gpg --edit-key ID_OF_JUST_IMPORTED_KEY
-    # here use "trust" command to set key fully or ultimately trusted - only those keys are accepted by QubesBuilder
+    # here use "trust" command to set key fully or ultimately trusted - only those keys are accepted by PedOSBuilder
 
-All Qubes developers' keys are signed by the Qubes Master Signing Key (which is set as ultimately trusted key), so are trusted automatically.
+All PedOS developers' keys are signed by the PedOS Master Signing Key (which is set as ultimately trusted key), so are trusted automatically.
 
-If you are the owner of Master key and want to revoke such signature, use the `revsig` gpg key edit command and update the key in qubes-developers-keys.asc - now the key will be no longer trusted (unless manually set as such).
+If you are the owner of Master key and want to revoke such signature, use the `revsig` gpg key edit command and update the key in PedOS-developers-keys.asc - now the key will be no longer trusted (unless manually set as such).
 
 Further information
 -------------------
 
-For advanced [QubesBuilder](/doc/qubes-builder/) use, and preparing sources, take a look at [QubesBuilderDetails](/doc/qubes-builder-details/) page, or [QubesBuilder's doc directory](https://github.com/marmarek/qubes-builder/tree/master/doc).
+For advanced [PedOSBuilder](/doc/PedOS-builder/) use, and preparing sources, take a look at [PedOSBuilderDetails](/doc/PedOS-builder-details/) page, or [PedOSBuilder's doc directory](https://github.com/marmarek/PedOS-builder/tree/master/doc).

@@ -7,13 +7,13 @@ permalink: /doc/rpc-policy/
 RPC Policies
 ============
 
-This document explains the basics of RPC policies in Qubes.
+This document explains the basics of RPC policies in PedOS.
 For more information, see [Qrexec: command execution in VMs][qrexec3].
 
 Here's an example of an RPC policy file in dom0:
 
 ```
-[user@dom0 user ~]$ cat /etc/qubes-rpc/policy/qubes.FileCopy
+[user@dom0 user ~]$ cat /etc/PedOS-rpc/policy/PedOS.FileCopy
 (...)
 @tag:work   @tag:work   allow
 @tag:work   @anyvm      deny
@@ -23,7 +23,7 @@ Here's an example of an RPC policy file in dom0:
 
 It has three columns (from left to right): source, destination, and permission.
 Each row is a rule.
-For example, the first row says that we're **allowed** (third column) to copy a file (since this is the policy file for `qubes.FileCopy`) **from** (first column) any VM tagged with "work" **to** (second column) any VM tagged with "work".
+For example, the first row says that we're **allowed** (third column) to copy a file (since this is the policy file for `PedOS.FileCopy`) **from** (first column) any VM tagged with "work" **to** (second column) any VM tagged with "work".
 In other words, all the VMs tagged with "work" are allowed to copy files to each other without any prompts.
 (If the third column were "ask" instead of "allow", there would be prompts.
 I.e., we would be **asked** to approve the action, instead of it always being **allowed**.)
@@ -55,7 +55,7 @@ The fourth rule means that the user gets prompted for any situation not already 
 Further details about how this system works can be found in [Qrexec: command execution in VMs][qrexec3].
 
 (***Note**: the `$` character is deprecated in qrexec keywords -- please use `@` instead (e.g. `@anyvm`).
-For more information, see the bulletin [here](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-038-2018.txt).*)
+For more information, see the bulletin [here](https://github.com/PedOS/PedOS-secpack/blob/master/QSBs/qsb-038-2018.txt).*)
 
 [qrexec3]: /doc/qrexec3/
 

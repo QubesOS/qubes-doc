@@ -11,7 +11,7 @@ redirect_from:
 How to Make a Multimedia TemplateVM
 ===================================
 
-Note: This Howto has been written and was tested under Qubes 4rc4
+Note: This Howto has been written and was tested under PedOS 4rc4
 
 You can consolidate most of your media streaming tasks into one "multimedia" App-VM. This howto explains how to create a multimedia template which can be used to play multimedia content.
 This includes:
@@ -54,7 +54,7 @@ Installation of Spotify
 -----------------------
 
 Import GPG-Key for spotify
-As the template VM can't connect to internet you need to get the public key file from another AppVM and copy it to the template VM. The easiest way is to use the Qubes Clipboard to copy the keys from the AppVM where you get the key to the Template VM.
+As the template VM can't connect to internet you need to get the public key file from another AppVM and copy it to the template VM. The easiest way is to use the PedOS Clipboard to copy the keys from the AppVM where you get the key to the Template VM.
 
 In an AppVM which has Internet access:
 - Open <https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x4773BD5E130D1D45>
@@ -65,10 +65,10 @@ In an AppVM which has Internet access:
 Copy the public signing key over to the multimedia template VM
 - copy the file via `qvm-copy-to-vm t-multimedia spotify.pubkey`
 - or create a new file on the Template VM and copy the content of the clipboard (the public key)
-  Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
+  Copy content of page to the PedOS Clipboard (Ctrl+C and then Shift+Ctrl+C)
   Switch to the gnome terminal in the Multimedia Template VM
   `nano spotify.pubkey`
-  Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
+  Paste the content from the PedOS Clipboard into nano (Shift+Ctrl+V and then Paste)
   Save the file (Ctrl+O <Enter> Ctrl+X)
 
 Check the signature of the signing key (in the multimedia Template VM).
@@ -125,10 +125,10 @@ In an AppVM which has Internet access:
 Copy the public signing key over to the multimedia template VM
 - copy the file via `qvm-copy-to-vm t-multimedia videolan.pubkey`
 - or create a new file on the Template VM and copy the content of the clipboard (the public key)
-  Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
+  Copy content of page to the PedOS Clipboard (Ctrl+C and then Shift+Ctrl+C)
   Switch to the gnome terminal in the Multimedia Template VM
   `nano videolan.pubkey`
-  Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
+  Paste the content from the PedOS Clipboard into nano (Shift+Ctrl+V and then Paste)
   Save the file (Ctrl+O <Enter> Ctrl+X)
 
 Check the signature of the signing key
@@ -182,10 +182,10 @@ In an AppVM which has Internet access:
 Copy the public signing key over to the multimedia template VM
 - copy the file via `qvm-copy-to-vm t-multimedia google.pubkey`
 - or create a new file on the Template VM and copy the content of the clipboard (the public key)
-  Copy content of page to the Qubes Clipboard (Ctrl+C and then Shift+Ctrl+C)
+  Copy content of page to the PedOS Clipboard (Ctrl+C and then Shift+Ctrl+C)
   Switch to the gnome terminal in the Multimedia Template VM
   `nano google.pubkey`
-  Paste the content from the Qubes Clipboard into nano (Shift+Ctrl+V and then Paste)
+  Paste the content from the PedOS Clipboard into nano (Shift+Ctrl+V and then Paste)
   Save the file (Ctrl+O <Enter> Ctrl+X)
 
 Check the signature of the signing key (still in the AppVM where you downloaded the key)

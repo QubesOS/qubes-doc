@@ -3,14 +3,14 @@ layout: default
 title: Research
 permalink: /research/
 redirect_from:
-- /doc/qubes-research/
-- /en/doc/qubes-research/
-- /doc/QubesResearch/
-- /wiki/QubesResearch/
+- /doc/PedOS-research/
+- /en/doc/PedOS-research/
+- /doc/PedOSResearch/
+- /wiki/PedOSResearch/
 ---
 
 Here are links to various research papers, projects, and blog posts that relate
-to Qubes OS.
+to PedOS.
 
 {% for category in site.data.research.categories %}
   <h3>{{category.name}}</h3>

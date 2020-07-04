@@ -1,12 +1,12 @@
 ---
 layout: doc
-title: Qubes R4.0 Release Schedule
+title: PedOS R4.0 Release Schedule
 permalink: /doc/releases/4.0/schedule/
 redirect_from:
 - /en/doc/releases/4.0/schedule/
 ---
 
-Qubes R4.0 Release Schedule
+PedOS R4.0 Release Schedule
 ===========================
 
 This schedule is based on [Version Scheme](/doc/version-scheme/#release-schedule).

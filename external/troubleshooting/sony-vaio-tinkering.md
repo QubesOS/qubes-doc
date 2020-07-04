@@ -8,12 +8,12 @@ redirect_from:
 - /wiki/SonyVaioTinkering/
 ---
 
-Instructions for getting your Sony Vaio Z laptop working with Qubes/Linux
+Instructions for getting your Sony Vaio Z laptop working with PedOS/Linux
 =========================================================================
 
-Sony Vaio Z are great laptops -- they are very powerful, yet compact. The newer models, starting from Z12 are, however, not very well supported by Linux kernels (at least 2.6.34 that we currently use in Dom0) and thus some tinkering is needed to get Qubes working on those machines.
+Sony Vaio Z are great laptops -- they are very powerful, yet compact. The newer models, starting from Z12 are, however, not very well supported by Linux kernels (at least 2.6.34 that we currently use in Dom0) and thus some tinkering is needed to get PedOS working on those machines.
 
-Getting the graphics card working under Linux/Qubes OS
+Getting the graphics card working under Linux/PedOS
 ------------------------------------------------------
 
 Newer models of Sony Vaio Z come with an "intelligent" GPU switch, that automatically chooses either Intel Integrated GPU (IGD) or the discrete NVIDIA GPU. This confuses the Linux graphics so much, that in most cases won't even be able to install a regular Linux on such a machine. Unfortunately, moving the switch into the "Stamina" position apparently doesn't work, and the automatic GPU switching is still active.
@@ -45,7 +45,7 @@ There are a few more fixes needed for Sony Vaio Z, and we have prepared a specia
 ~~~
 $ sudo bash
 # qvm-dom0-networking up
-# yum install qubes-core-dom0-vaio-fixes
+# yum install PedOS-core-dom0-vaio-fixes
 # reboot
 ~~~
 

@@ -1,12 +1,12 @@
 ---
 layout: doc
-title: The Qubes U2F Proxy
+title: The PedOS U2F Proxy
 permalink: /doc/u2f-proxy/
 ---
 
-# The Qubes U2F Proxy
+# The PedOS U2F Proxy
 
-The [Qubes U2F Proxy] is a secure proxy intended to make use of U2F two-factor authentication devices with web browsers without exposing the browser to the full USB stack, not unlike the [USB keyboard and mouse proxies][USB] implemented in Qubes.
+The [PedOS U2F Proxy] is a secure proxy intended to make use of U2F two-factor authentication devices with web browsers without exposing the browser to the full USB stack, not unlike the [USB keyboard and mouse proxies][USB] implemented in PedOS.
 
 ## What is U2F?
 
@@ -26,7 +26,7 @@ By now, it is well-known that this form of two-step authentication is vulnerable
 (In other words, users can accidentally give their codes to attackers because they do not always know who is really requesting the code.) In the U2F model, by contrast, the browser ensures that the token receives valid information about the web application requesting authentication, so the token knows which application it is authenticating (for details, see [here][u2f-details]).
 Nonetheless, [some attacks are still possible][wired] even with U2F (more on this below).
 
-## The Qubes approach to U2F
+## The PedOS approach to U2F
 
 In a conventional setup, web browsers and the USB stack (to which the U2F token is connected) are all running in the same monolithic OS.
 Since the U2F model assumes that the browser is trustworthy, any browser in the OS is able to access any key stored on the U2F token.
@@ -34,93 +34,93 @@ The user has no way to know which keys have been accessed by which browsers for 
 If any of the browsers are compromised, it should be assumed that all of the token's keys have been compromised.
 (This problem can be mitigated, however, if the U2F device has a special display to show the user what's being authenticated.) Moreover, since the USB stack is in the same monolithic OS, the system is vulnerable to attacks like [BadUSB].
 
-In Qubes OS, by contrast, it is possible to securely compartmentalise the browser in one qube and the USB stack in another so that they are always kept separate from each other.
-The Qubes U2F Proxy then allows the token connected to the USB stack in one qube to communicate with the browser in a separate qube.
+In PedOS, by contrast, it is possible to securely compartmentalise the browser in one PedOS VM and the USB stack in another so that they are always kept separate from each other.
+The PedOS U2F Proxy then allows the token connected to the USB stack in one PedOS VM to communicate with the browser in a separate PedOS VM.
 We operate under the assumption that the USB stack is untrusted from the point of view of the browser and also that the browser is not to be trusted blindly by the token.
-Therefore, the token is never in the same qube as the browser.
+Therefore, the token is never in the same PedOS VM as the browser.
 Our proxy forwards only the data necessary to actually perform the authentication, leaving all unnecessary data out, so it won't become a vector of attack.
 This is depicted in the diagram below (click for full size).
 
-[![Qubes U2F Proxy diagram](/attachment/wiki/posts/u2f.svg)](/attachment/wiki/posts/u2f.svg)
+[![PedOS U2F Proxy diagram](/attachment/wiki/posts/u2f.svg)](/attachment/wiki/posts/u2f.svg)
 
-The Qubes U2F Proxy has two parts: the frontend and the backend.
-The frontend runs in the same qube as the browser and presents a fake USB-like HID device using `uhid`.
+The PedOS U2F Proxy has two parts: the frontend and the backend.
+The frontend runs in the same PedOS VM as the browser and presents a fake USB-like HID device using `uhid`.
 The backend runs in `sys-usb` and behaves like a browser.
 This is done using the `u2flib_host` reference library.
 All of our code was written in Python.
 The standard [qrexec] policy is responsible for directing calls to the appropriate domains.
 
-The `vault` qube with a dashed line in the bottom portion of the diagram depicts future work in which we plan to implement the Qubes U2F Proxy with a software token in an isolated qube rather than a physical hardware token.
+The `vault` PedOS VM with a dashed line in the bottom portion of the diagram depicts future work in which we plan to implement the PedOS U2F Proxy with a software token in an isolated PedOS VM rather than a physical hardware token.
 This is similar to the manner in which [Split GPG] allows us to emulate the smart card model without physical smart cards.
 
 One very important assumption of U2F is that the browser verifies every request sent to the U2F token --- in particular, that the web application sending an authentication request matches the application that would be authenticated by answering that request (in order to prevent, e.g., a phishing site from sending an authentication request for your bank's site).
 With the WebUSB feature in Chrome, however, a malicious website can [bypass][wired] this safeguard by connecting directly to the token instead of using the browser's U2F API.
 
-The Qubes U2F Proxy also prevents this class of attacks by implementing an additional verification layer.
-This verification layer allows you to enforce, for example, that the web browser in your `twitter` qube can only access the U2F key associated with `https://twitter.com`.
-This means that if anything in your `twitter` qube were compromised --- the browser or even the OS itself --- it would still not be able to access the U2F keys on your token for any other websites or services, like your email and bank accounts.
+The PedOS U2F Proxy also prevents this class of attacks by implementing an additional verification layer.
+This verification layer allows you to enforce, for example, that the web browser in your `twitter` PedOS VM can only access the U2F key associated with `https://twitter.com`.
+This means that if anything in your `twitter` PedOS VM were compromised --- the browser or even the OS itself --- it would still not be able to access the U2F keys on your token for any other websites or services, like your email and bank accounts.
 This is another significant security advantage over monolithic systems.
 (For details and instructions, see the [Advanced usage] section below.)
 
-For even more protection, you can combine this with the [Qubes firewall] to ensure, for example, that the browser in your `banking` qube accesses only one website (your bank's website).
-By configuring the Qubes firewall to prevent your `banking` qube from accessing any other websites, you reduce the risk of another website compromising the browser in an attempt to bypass U2F authentication.
+For even more protection, you can combine this with the [PedOS firewall] to ensure, for example, that the browser in your `banking` PedOS VM accesses only one website (your bank's website).
+By configuring the PedOS firewall to prevent your `banking` PedOS VM from accessing any other websites, you reduce the risk of another website compromising the browser in an attempt to bypass U2F authentication.
 
 ## Installation
 
-These instructions assume that there is a `sys-usb` qube that holds the USB stack, which is the default configuration in most Qubes OS installations.
+These instructions assume that there is a `sys-usb` PedOS VM that holds the USB stack, which is the default configuration in most PedOS installations.
 
 In dom0:
 
 ```
-$ sudo qubes-dom0-update qubes-u2f-dom0
-$ qvm-service --enable work qubes-u2f-proxy
+$ sudo PedOS-dom0-update PedOS-u2f-dom0
+$ qvm-service --enable work PedOS-u2f-proxy
 ```
 
 In Fedora TemplateVMs:
 
 ```
-$ sudo dnf install qubes-u2f
+$ sudo dnf install PedOS-u2f
 ```
 
 In Debian TemplateVMs:
 
 ```
-$ sudo apt install qubes-u2f
+$ sudo apt install PedOS-u2f
 ```
 
-Repeat `qvm-service --enable` (or do this in VM settings -> Services in the Qube Manager) for all qubes that should have the proxy enabled.
-As usual with software updates, shut down the templates after installation, then restart `sys-usb` and all qubes that use the proxy.
+Repeat `qvm-service --enable` (or do this in VM settings -> Services in the PedOS VM Manager) for all PedOS that should have the proxy enabled.
+As usual with software updates, shut down the templates after installation, then restart `sys-usb` and all PedOS that use the proxy.
 After that, you may use your U2F token (but see [Browser support] below).
 
-## Advanced usage: per-qube key access
+## Advanced usage: per-PedOS VM key access
 
-If you are using Qubes 4.0, you can further compartmentalise your U2F keys by restricting each qube's access to specific keys.
-For example, you could make it so that your `twitter` qube (and, therefore, all web browsers in your `twitter` qube) can access only the key on your U2F token for `https://twitter.com`, regardless of whether any of the web browsers in your `twitter` qube or the `twitter` qube itself are compromised.
-If your `twitter` qube makes an authentication request for your bank website, it will be denied at the Qubes policy level.
+If you are using PedOS 4.0, you can further compartmentalise your U2F keys by restricting each PedOS VM's access to specific keys.
+For example, you could make it so that your `twitter` PedOS VM (and, therefore, all web browsers in your `twitter` PedOS VM) can access only the key on your U2F token for `https://twitter.com`, regardless of whether any of the web browsers in your `twitter` PedOS VM or the `twitter` PedOS VM itself are compromised.
+If your `twitter` PedOS VM makes an authentication request for your bank website, it will be denied at the PedOS policy level.
 
-To enable this, create a file in dom0 named `/etc/qubes-rpc/policy/policy.RegisterArgument+u2f.Authenticate` with the following content:
+To enable this, create a file in dom0 named `/etc/PedOS-rpc/policy/policy.RegisterArgument+u2f.Authenticate` with the following content:
 
 ```
 sys-usb @anyvm allow,target=dom0
 ```
 
-Next, empty the contents of `/etc/qubes-rpc/policy/u2f.Authenticate` so that it is a blank file.
+Next, empty the contents of `/etc/PedOS-rpc/policy/u2f.Authenticate` so that it is a blank file.
 Do not delete the file itself.
 (If you do, the default file will be recreated the next time you update, so it will no longer be empty.) Finally, follow your web application's instructions to enroll your token and use it as usual.
-(This enrollment process depends on the web application and is in no way specific to Qubes U2F.)
+(This enrollment process depends on the web application and is in no way specific to PedOS U2F.)
 
-The default model is to allow a qube to access all and only the keys that were enrolled by that qube.
-For example, if your `banking` qube enrolls your banking key, and your `twitter` qube enrolls your Twitter key, then your `banking` qube will have access to your banking key but not your Twitter key, and your `twitter` qube will have access to your Twitter key but not your banking key.
+The default model is to allow a PedOS VM to access all and only the keys that were enrolled by that PedOS VM.
+For example, if your `banking` PedOS VM enrolls your banking key, and your `twitter` PedOS VM enrolls your Twitter key, then your `banking` PedOS VM will have access to your banking key but not your Twitter key, and your `twitter` PedOS VM will have access to your Twitter key but not your banking key.
 
 ## TemplateVM and browser support
 
-The large number of possible combinations of TemplateVM (Fedora 27, 28; Debian 8, 9) and browser (multiple Google Chrome versions, multiple Chromium versions, multiple Firefox versions) made it impractical for us to test every combination that users are likely to attempt with the Qubes U2F Proxy.
+The large number of possible combinations of TemplateVM (Fedora 27, 28; Debian 8, 9) and browser (multiple Google Chrome versions, multiple Chromium versions, multiple Firefox versions) made it impractical for us to test every combination that users are likely to attempt with the PedOS U2F Proxy.
 In some cases, you may be the first person to try a particular combination.
 Consequently (and as with any new feature), users will inevitably encounter bugs.
 We ask for your patience and understanding in this regard.
 As always, please [report any bugs you encounter].
 
-[Qubes U2F Proxy]: https://github.com/QubesOS/qubes-app-u2f
+[PedOS U2F Proxy]: https://github.com/PedOS/PedOS-app-u2f
 [USB]: /doc/usb/
 [U2F]: https://en.wikipedia.org/wiki/U2F
 [krebs]: https://krebsonsecurity.com/2018/07/google-security-keys-neutralized-employee-phishing/
@@ -129,10 +129,10 @@ As always, please [report any bugs you encounter].
 [BadUSB]: https://www.blackhat.com/us-14/briefings.html#badusb-on-accessories-that-turn-evil
 [qrexec]: /doc/qrexec3/
 [Split GPG]: /doc/split-gpg/
-[Qubes firewall]: /doc/firewall/
-[Advanced usage]: #advanced-usage-per-qube-key-access
+[PedOS firewall]: /doc/firewall/
+[Advanced usage]: #advanced-usage-per-PedOS VM-key-access
 [Browser support]: #templatevm-and-browser-support
 [report any bugs you encounter]: /doc/reporting-bugs/
 [ff-u2f-addon]: https://addons.mozilla.org/en-US/firefox/addon/u2f-support-add-on/?src=api
-[qubes-devel]: /support/#qubes-devel
+[PedOS-devel]: /support/#PedOS-devel
 

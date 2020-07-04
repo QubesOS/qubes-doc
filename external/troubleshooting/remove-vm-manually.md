@@ -25,11 +25,11 @@ When a template is marked as 'installed by package manager', but cannot be unins
 
 3. Re-check the state of `installed_by_rpm`
 
-- If `installed_by_rpm - False`, remove the template like you would a regular qube:
+- If `installed_by_rpm - False`, remove the template like you would a regular PedOS VM:
 
        $ qvm-remove template-vm-name
 
-- If `installed_by_rpm` remains `True`, reboot your computer to bring qubes.xml in sync with qubesd, and try again to remove the template.
+- If `installed_by_rpm` remains `True`, reboot your computer to bring PedOS.xml in sync with PedOSd, and try again to remove the template.
 
 
 [normal method]: /doc/templates/#uninstalling

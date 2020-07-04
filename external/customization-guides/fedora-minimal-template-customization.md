@@ -13,12 +13,12 @@ FEDORA Packages Recommendations
 Template installation
 ------------------------------
 
-> [dom0]#qubes-dom0-update qubes-template-fedora-26-minimal
+> [dom0]#PedOS-dom0-update PedOS-template-fedora-26-minimal
 
 
 *Note*: If you have doubts about a set of tools or package you want to install, start installing and testing it in an AppVM. 
 You can then reproduce it later in your TemplateVM if you are satisfied.
-That is the template philosophy in QubesOS.
+That is the template philosophy in PedOS.
 
 For more information on the uses of a minimal template read [this page][Minimal].
 
@@ -30,13 +30,13 @@ Administration (documented)
 
 > sudo pciutils vim-minimal less tcpdump telnet psmisc nmap nmap-ncat usbutils
 
-*Notes*: nmap can be used to discover hosts on a network (nmap -sP [network]), especially if you are inside a Microsoft network, because your AppVM will be protected/NATted behind the Qubes firewall.
+*Notes*: nmap can be used to discover hosts on a network (nmap -sP [network]), especially if you are inside a Microsoft network, because your AppVM will be protected/NATted behind the PedOS firewall.
 (Microsoft / home networks make heavy use of autodiscovery technologies which require clients to be in the same local network (no firewall/no NAT), eg: your printer.)
 
 Some recommendations here: check your current network using the Network manager applet (eg: 192.168.1.65). 
 Then run nmap in your current AppVM/TemplateVM to search for the selected printer/equipment: 
 	nmap -sP 192.168.1.-. 
-Don't forget to temporarily allow traffic via the Qubes Firewall if you are doing this in a TemplateVM.
+Don't forget to temporarily allow traffic via the PedOS Firewall if you are doing this in a TemplateVM.
 
 Administration (undocumented)
 -------------------------------------------------
@@ -101,7 +101,7 @@ Manual operations
 
 - Don't forget to restart your TemplateVM or only the cups service when you installed cups (systemctl start cups)
 
-- First you need to search for your printer. If you don't know its name or IP, search for it using nmap: check your current network using the Network manager applet (eg: 192.168.1.65). Then run nmap in your current AppVM/TemplateVM to search for the selected printer/equipement: nmap -sP 192.168.1.-. Don't forget to temporarily allow traffic via the Qubes Firewall if you are inside a TemplateVM.
+- First you need to search for your printer. If you don't know its name or IP, search for it using nmap: check your current network using the Network manager applet (eg: 192.168.1.65). Then run nmap in your current AppVM/TemplateVM to search for the selected printer/equipement: nmap -sP 192.168.1.-. Don't forget to temporarily allow traffic via the PedOS Firewall if you are inside a TemplateVM.
 
 - Once you identified your printer, run system-config-printer GUI to install your printer
 
@@ -136,7 +136,7 @@ Miscellaneous packages
 *pycairo* package is needed for file's contextual menu "Send to VM" to function (to actually popup dialog box and enter VM's name where the file will be sent to).
 
 *pinentry-gtk* package is responsible for pop-up dialog window where you enter password for your password protected gpg key. 
-Install this package in the qube holding your password protected gpg keys. 
+Install this package in the PedOS VM holding your password protected gpg keys. 
 If you do not use password protected gpg keys, there is no need to install this package.
 
 GUI themes
@@ -213,9 +213,9 @@ This can be done for gtk themes by creating dconf global settings. I recommend r
 
  * Setup global config file:
 
-   > mkdir /etc/dconf/db/qubes.d
+   > mkdir /etc/dconf/db/PedOS.d
 
-   Edit/Create the following file: /etc/dconf/db/qubes.d/10-global-theme-settings:
+   Edit/Create the following file: /etc/dconf/db/PedOS.d/10-global-theme-settings:
 
    ~~~
    [org/gnome/desktop/interface]
@@ -236,7 +236,7 @@ This can be done for gtk themes by creating dconf global settings. I recommend r
 
    ~~~
    user-db:user
-   system-db:qubes
+   system-db:PedOS
    ~~~
 
 #### Locking configuration
@@ -247,9 +247,9 @@ User dconf settings can be browsed using dconf-editor GUI.
 
 If you want to force specific settings to be applied for all user (so in our case for all AppVMs depending on the template), you need to create locks:
 
-> mkdir /etc/dconf/db/qubes.d/locks
+> mkdir /etc/dconf/db/PedOS.d/locks
 
-Edit/Create the following file: /etc/dconf/db/qubes.d/locks/theme.lock:
+Edit/Create the following file: /etc/dconf/db/PedOS.d/locks/theme.lock:
 
 ~~~
 /org/gnome/desktop/interface/gtk-theme
@@ -277,9 +277,9 @@ Two case:
 
 [3GMODEM]: https://www.codeenigma.com/community/blog/installing-3g-usb-modems-linux
 
-[OPENVPNSETUP]: https://groups.google.com/forum/#!searchin/qubes-users/openvpn$20setup/qubes-users/UbY4-apKScE/lhB_ouTnAwAJ
+[OPENVPNSETUP]: https://groups.google.com/forum/#!searchin/PedOS-users/openvpn$20setup/PedOS-users/UbY4-apKScE/lhB_ouTnAwAJ
 
-[THEMEPACKAGES]: https://groups.google.com/forum/#!search/appvm$20theme/qubes-users/RyVeDiEZ6D0/YR4ITjgdYX0J
+[THEMEPACKAGES]: https://groups.google.com/forum/#!search/appvm$20theme/PedOS-users/RyVeDiEZ6D0/YR4ITjgdYX0J
 
 [DCONF1]: http://www.mattfischer.com/blog/?p=431
 

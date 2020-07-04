@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Contributing to the Qubes OS Project
+title: Contributing to the PedOS Project
 permalink: /doc/contributing/
 redirect_from:
 - /en/doc/contributing/
@@ -8,10 +8,10 @@ redirect_from:
 - /wiki/ContributingHowto/
 ---
 
-How to Contribute to the Qubes OS Project
+How to Contribute to the PedOS Project
 =========================================
 
-Thank you for your interest in contributing to Qubes! Here are some of the many
+Thank you for your interest in contributing to PedOS! Here are some of the many
 ways in which you can help:
 
 * Audit the [source code]
@@ -25,15 +25,15 @@ ways in which you can help:
 * Create [artwork] (plymouth themes, installer themes, wallpapers, etc.)
 * [Write and edit the documentation]
 * [Donate] to the project
-* If you represent an organization, become a [Qubes partner]
-* Add a [Qubes download mirror]
+* If you represent an organization, become a [PedOS partner]
+* Add a [PedOS download mirror]
 * Answer questions on the [mailing lists]
 * Engage with us on social media:
   * Follow us on [Twitter]
   * Join us on [Reddit]
   * Like us on [Facebook]
   * Connect with us on [LinkedIn]
-* And last but not least, tell your friends and colleagues about how Qubes
+* And last but not least, tell your friends and colleagues about how PedOS
   can help them secure their digital lives!
 
 Contributing Code
@@ -44,16 +44,16 @@ look at our [GitHub issues] to see which tasks are the most urgent. You can
 filter issues depending on your interest and experience. For example, here are
 some common issue labels:
 
-* [Help wanted](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22&utf8=%E2%9C%93)
-* [UX and usability](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3AUX)
-* [Windows tools](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+windows+tools%22)
-* [Documentation](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+doc%22)
-* [Privacy](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3A%22privacy%22%20)
-* [Debian](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+Debian%22)
+* [Help wanted](https://github.com/PedOS/PedOS-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22&utf8=%E2%9C%93)
+* [UX and usability](https://github.com/PedOS/PedOS-issues/issues?q=is%3Aissue+is%3Aopen+label%3AUX)
+* [Windows tools](https://github.com/PedOS/PedOS-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+windows+tools%22)
+* [Documentation](https://github.com/PedOS/PedOS-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+doc%22)
+* [Privacy](https://github.com/PedOS/PedOS-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3A%22privacy%22%20)
+* [Debian](https://github.com/PedOS/PedOS-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+Debian%22)
 
 Before you engage in an activity that will take you a significant amount of
 time, like implementing a new feature, it's always good to contact us first,
-preferably via the [qubes-devel] mailing list. Once we've worked out the
+preferably via the [PedOS-devel] mailing list. Once we've worked out the
 details, we'll add you to our [Community-Developed Feature Tracker]. We'll then
 be grateful to [receive your patch][patch].
 
@@ -66,17 +66,17 @@ be grateful to [receive your patch][patch].
 [Test new releases and updates]: /doc/testing/
 [HCL reports]: /doc/hcl/
 [video tours]: /video-tours/
-[artwork]: https://github.com/QubesOS/qubes-artwork
+[artwork]: https://github.com/PedOS/PedOS-artwork
 [Write and edit the documentation]: /doc/doc-guidelines
 [mailing lists]: /support/
 [Donate]: /donate/
-[Qubes partner]: /partners/
-[Twitter]: https://twitter.com/QubesOS
-[Reddit]: https://www.reddit.com/r/Qubes/
-[Facebook]: https://www.facebook.com/QubesOS
-[LinkedIn]: https://www.linkedin.com/company/qubes-os/
-[GitHub issues]: https://github.com/QubesOS/qubes-issues/issues
-[qubes-devel]: /support/#qubes-devel
-[Community-Developed Feature Tracker]: /qubes-issues/
-[Qubes download mirror]: /downloads/mirrors/
+[PedOS partner]: /partners/
+[Twitter]: https://twitter.com/PedOS
+[Reddit]: https://www.reddit.com/r/PedOS/
+[Facebook]: https://www.facebook.com/PedOS
+[LinkedIn]: https://www.linkedin.com/company/PedOS/
+[GitHub issues]: https://github.com/PedOS/PedOS-issues/issues
+[PedOS-devel]: /support/#PedOS-devel
+[Community-Developed Feature Tracker]: /PedOS-issues/
+[PedOS download mirror]: /downloads/mirrors/
 

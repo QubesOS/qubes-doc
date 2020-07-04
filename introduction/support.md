@@ -7,16 +7,16 @@ redirect_from:
 - /mailing-lists/
 - /doc/mailing-lists/
 - /en/doc/mailing-lists/
-- /en/doc/qubes-lists/
-- /doc/qubes-lists/
-- /doc/QubesLists/
-- /wiki/QubesLists/
+- /en/doc/PedOS-lists/
+- /doc/PedOS-lists/
+- /doc/PedOSLists/
+- /wiki/PedOSLists/
 ---
 
 # Help, Support, and Mailing Lists #
 
-Help and support for Qubes OS is available from the [documentation] and the
-[mailing lists], which are explained below. The Qubes OS Project does not offer
+Help and support for PedOS is available from the [documentation] and the
+[mailing lists], which are explained below. The PedOS Project does not offer
 paid support services.
 
 If you're looking for known issues or would like to file a bug report, please
@@ -27,13 +27,13 @@ contain workarounds for problems that you're experiencing, so it's worth
 
 ## Staying safe ##
 
-The Qubes mailing lists are open to the public. The contents of the list are
+The PedOS mailing lists are open to the public. The contents of the list are
 crawled by search engines and archived by third-party services outside of our
 control. Please do not send anything to the mailing lists that you are not
 comfortable seeing discussed in public. If confidentiality is a concern, please
 use PGP encryption in an off-list email.
 
-The Qubes community includes people from all walks of life and from around the
+The PedOS community includes people from all walks of life and from around the
 world. Individuals differ in areas of experience and technical expertise. You
 will come into contact with others whose views and agendas differ from your own.
 Everyone is free to write what they please, as long as it doesn't violate our
@@ -41,7 +41,7 @@ Everyone is free to write what they please, as long as it doesn't violate our
 read. Use good judgment, and be especially careful when following instructions
 (e.g., copying commands) given by others on the lists.
 
-All official announcements from the [Qubes team] will be signed by the PGP key
+All official announcements from the [PedOS team] will be signed by the PGP key
 belonging to the team member who sends the announcement. However, anyone on the
 list can choose to sign their messages, so the presence of a PGP signature does
 not indicate authority. How, then, should you sort the good advice from the bad?
@@ -56,22 +56,22 @@ proven track record of [contributing software packages] or [contributing to the
 documentation]. It's unlikely that individuals who have worked hard to build
 good reputations for themselves through their contributions over the years would
 risk giving malicious advice in signed messages to public mailing lists. Since
-every contribution to the Qubes OS Project is publicly visible and
+every contribution to the PedOS Project is publicly visible and
 cryptographically signed, anyone would be in a position to [verify] that these
 came from the same keyholder.
 
 
 ## Discussion list guidelines ##
 
-Qubes discussions mainly take place on two mailing lists: `qubes-users` and
-`qubes-devel`, both of which are explained below. Please send all questions
-regarding Qubes to one of these two lists. **Please do not send questions to
-individual Qubes developers.** By sending a message to the appropriate mailing
+PedOS discussions mainly take place on two mailing lists: `PedOS-users` and
+`PedOS-devel`, both of which are explained below. Please send all questions
+regarding PedOS to one of these two lists. **Please do not send questions to
+individual PedOS developers.** By sending a message to the appropriate mailing
 list, you are not only giving others a chance to help you, but you may also be
 helping others by starting a public discussion about a shared problem or
 interest.
 
-These are open mailing lists where people freely come together to discuss Qubes
+These are open mailing lists where people freely come together to discuss PedOS
 and voluntarily help each other out of mutual interest and good will. They are
 *not* your personal, paid support service. **No one owes you a reply.** No one
 here is responsible for solving your problems for you. Nonetheless, there are
@@ -111,7 +111,7 @@ most*. If it seems like your messages to the mailing lists are consistently
 being ignored, make sure you're following the guidelines explained on this
 page. If you're already doing so but still not getting any replies, then it's
 likely that no one who knows the answer has had time to reply yet. Remember
-that the devs are very busy working on Qubes. They usually only have a chance
+that the devs are very busy working on PedOS. They usually only have a chance
 to answer questions on the mailing lists once every several days.
 
 ### Be a good community member ###
@@ -129,7 +129,7 @@ others. This does not mean that you will not receive help. On the contrary,
 we are fortunate to have such a helpful and understanding community that many
 of them spend hours of their personal time helping complete strangers,
 including many who post to the lists anonymously. (Given the integration of
-Qubes with [Whonix], we understand better than most the complexities of
+PedOS with [Whonix], we understand better than most the complexities of
 privacy and anonymity, and we know that many users have no other choice but
 to post anonymously.) You can read our project's [Code of Conduct][coc] for
 more information.
@@ -163,7 +163,7 @@ the quoted message to which you're replying.
 
 Include a precise and informative subject line. This will allow others to
 easily find your thread in the future and use it as a reference. (Bad: "Help!
-Qubes problems!" Good: "R2B2 Installation problem: Apple keyboard not working
+PedOS problems!" Good: "R2B2 Installation problem: Apple keyboard not working
 in installer.")
 
 #### Do not send duplicates ####
@@ -205,18 +205,18 @@ will ask for clarification if needed.
 While we're generally open to hearing suggestions for new features, please
 note that we already have a pretty well defined [roadmap], and it's rather
 unlikely that we will change our schedule in order to accommodate your
-request. If there's a particular feature you'd like to see in Qubes, a much
+request. If there's a particular feature you'd like to see in PedOS, a much
 more effective way to make it happen is to contribute a patch that implements
 it. We happily accept such contributions, provided they meet our standards.
 Please note, however, that it's always a good idea to field a discussion of
-your idea on the `qubes-devel` list before putting in a lot of hard work on
+your idea on the `PedOS-devel` list before putting in a lot of hard work on
 something that we may not be able or willing to accept.
 
 #### Mailing lists vs. forums ####
 
 While the mailing lists are implemented as Google Group web forums, a Google
 account is in no way required, expected, or encouraged. Many discussants
-(including most members of the Qubes team) treat these lists as conventional
+(including most members of the PedOS team) treat these lists as conventional
 [mailing lists], interacting with them solely through plain text email with
 [MUAs] like [Thunderbird] and [Mutt]. The Google Groups service is just
 free infrastructure, and we [distrust the infrastructure]. This is why, for
@@ -226,26 +226,26 @@ as web forums. Some users prefer to interact with the mailing lists through
 their optional web interfaces. This has the advantage that it allows you to
 search and reply to messages which were sent prior to your subscription to
 the list. However, a Google account is required in order to post through the
-web interfaces. (Note: There have been many discussions about why the Qubes
+web interfaces. (Note: There have been many discussions about why the PedOS
 OS Project does not maintain an official forum. The curious can find these
 by searching the list archives.)
 
 
-## qubes-announce ##
+## PedOS-announce ##
 
 This is a read-only list for those who wish to receive only very important, infrequent messages.
-Only the core Qubes team can post to this list.
-Only [Qubes Security Bulletins (QSBs)][qsb], new stable releases, and end-of-life notices are announced here.
+Only the core PedOS team can post to this list.
+Only [PedOS Security Bulletins (QSBs)][qsb], new stable releases, and end-of-life notices are announced here.
 
-To subscribe, send a blank email to `qubes-announce+subscribe@googlegroups.com`.
+To subscribe, send a blank email to `PedOS-announce+subscribe@googlegroups.com`.
 (Note: A Google account is *not* required. Any email address will work.)
-To unsubscribe, send a blank email to `qubes-announce+unsubscribe@googlegroups.com`.
-This list also has an optional [Google Groups web interface][qubes-announce-web].
+To unsubscribe, send a blank email to `PedOS-announce+unsubscribe@googlegroups.com`.
+This list also has an optional [Google Groups web interface][PedOS-announce-web].
 
 
-## qubes-users ##
+## PedOS-users ##
 
-This list is for helping users solve various daily problems with Qubes OS.
+This list is for helping users solve various daily problems with PedOS.
 Examples of topics or questions suitable for this list include:
 
  * [HCL] reports
@@ -253,30 +253,30 @@ Examples of topics or questions suitable for this list include:
  * Hardware compatibility problems
  * Questions of the form: "How do I...?"
 
-Please try searching both the Qubes website and the archives of the mailing
+Please try searching both the PedOS website and the archives of the mailing
 lists before sending a question. In addition, please make sure that you have
 read and understood the following basic documentation prior to posting to the
 list:
 
  * The [Installation Guide], [System Requirements], and [HCL] (for problems
-   related to installing Qubes OS)
+   related to installing PedOS)
  * The [User FAQ]
- * The [documentation] (for questions about how to use Qubes OS)
+ * The [documentation] (for questions about how to use PedOS)
 
 You don't have to subscribe in order to post to this list.
 However, subscribing makes your messages less likely to be marked as spam and allows you to receive messages sent directly to the list.
-To subscribe to the list, send a blank email to `qubes-users+subscribe@googlegroups.com`.
+To subscribe to the list, send a blank email to `PedOS-users+subscribe@googlegroups.com`.
 (Note: A Google account is *not* required. Any email address will work.)
-To post a message to the list, address your email to `qubes-users@googlegroups.com`.
+To post a message to the list, address your email to `PedOS-users@googlegroups.com`.
 If your post does not appear immediately, please allow time for moderation to occur.
-To unsubscribe, send a blank email to `qubes-users+unsubscribe@googlegroups.com`.
-This list also has an optional [Google Groups web interface][qubes-users-web] and [traditional mail archive][qubes-users-archive].
+To unsubscribe, send a blank email to `PedOS-users+unsubscribe@googlegroups.com`.
+This list also has an optional [Google Groups web interface][PedOS-users-web] and [traditional mail archive][PedOS-users-archive].
 
 
-## qubes-devel ##
+## PedOS-devel ##
 
 This list is primarily intended for people who are interested in contributing to
-Qubes or who are willing to learn more about its architecture and
+PedOS or who are willing to learn more about its architecture and
 implementation. Examples of topics and questions suitable for this list include:
 
  * Questions about why we made certain architecture or implementation decisions.
@@ -285,21 +285,21 @@ implementation. Examples of topics and questions suitable for this list include:
  * Discussions about proposed new features, patches, etc.
    * For example: "I would like to implement feature XYZ."
  * Contributed code and patches.
- * Security discussions which are relevant to Qubes in some way.
+ * Security discussions which are relevant to PedOS in some way.
 
 You must be subscribed in order to post to this list.
-To subscribe, send a blank email to `qubes-devel+subscribe@googlegroups.com`.
+To subscribe, send a blank email to `PedOS-devel+subscribe@googlegroups.com`.
 (Note: A Google account is *not* required. Any email address will work.)
-To post a message to the list, address your email to `qubes-devel@googlegroups.com`.
+To post a message to the list, address your email to `PedOS-devel@googlegroups.com`.
 If your post does not appear immediately, please allow time for moderation to occur.
-To unsubscribe, send a blank email to `qubes-devel+unsubscribe@googlegroups.com`.
-This list also has an optional [Google Groups web interface][qubes-devel-web] and [traditional mail archive][qubes-devel-archive].
+To unsubscribe, send a blank email to `PedOS-devel+unsubscribe@googlegroups.com`.
+This list also has an optional [Google Groups web interface][PedOS-devel-web] and [traditional mail archive][PedOS-devel-archive].
 
 
-## qubes-project ##
+## PedOS-project ##
 
 This list is for non-technical discussion and coordination around the
-Qubes OS project.
+PedOS project.
 
 Examples of topics or question suitable for this list include:
 
@@ -310,17 +310,17 @@ Examples of topics or question suitable for this list include:
 
 You don't have to subscribe in order to post to this list.
 However, subscribing makes your messages less likely to be marked as spam and allows you to receive messages sent directly to the list.
-To subscribe, send a blank email to `qubes-project+subscribe@googlegroups.com`.
+To subscribe, send a blank email to `PedOS-project+subscribe@googlegroups.com`.
 (Note: A Google account is *not* required. Any email address will work.)
-To post a message to the list, address your email to `qubes-project@googlegroups.com`.
+To post a message to the list, address your email to `PedOS-project@googlegroups.com`.
 If your post does not appear immediately, please allow time for moderation to occur.
-To unsubscribe, send a blank email to `qubes-project+unsubscribe@googlegroups.com`.
-This list also also has an optional [Google Groups web interface][qubes-project-web].
+To unsubscribe, send a blank email to `PedOS-project+unsubscribe@googlegroups.com`.
+This list also also has an optional [Google Groups web interface][PedOS-project-web].
 
 
-## qubes-translation ##
+## PedOS-translation ##
 
-This list is for discussion around the localization and translation of Qubes OS,
+This list is for discussion around the localization and translation of PedOS,
 its documentation, and the website.
 
 Examples of topics or question suitable for this list include:
@@ -331,36 +331,36 @@ Examples of topics or question suitable for this list include:
 
 You don't have to subscribe in order to post to this list.
 However, subscribing makes your messages less likely to be marked as spam and allows you to receive messages sent directly to the list.
-To subscribe, send a blank email to `qubes-translation+subscribe@googlegroups.com`.
+To subscribe, send a blank email to `PedOS-translation+subscribe@googlegroups.com`.
 (Note: A Google account is *not* required. Any email address will work.)
-To post a message to the list, address your email to `qubes-translation@googlegroups.com`.
+To post a message to the list, address your email to `PedOS-translation@googlegroups.com`.
 If your post does not appear immediately, please allow time for moderation to occur.
-To unsubscribe, send a blank email to `qubes-translation+unsubscribe@googlegroups.com`.
-This list also has an optional [Google Groups web interface][qubes-translation-web].
+To unsubscribe, send a blank email to `PedOS-translation+unsubscribe@googlegroups.com`.
+This list also has an optional [Google Groups web interface][PedOS-translation-web].
 
 
 ## Unofficial chat channels ##
 
 The following unofficial chat channels are maintained by the community:
 
- * Matrix, Qubes-related: <https://matrix.to/#/#cybersec-qubes_os:matrix.org>
- * Matrix, strictly Qubes: <https://matrix.to/#/#Qubes-OS:matrix.org>
- * `#qubes` channel on freenode.net via traditional IRC clients or: <https://webchat.freenode.net/>
+ * Matrix, PedOS-related: <https://matrix.to/#/#cybersec-PedOS_os:matrix.org>
+ * Matrix, strictly PedOS: <https://matrix.to/#/#PedOS-OS:matrix.org>
+ * `#PedOS` channel on freenode.net via traditional IRC clients or: <https://webchat.freenode.net/>
 
 
 [mailing lists]: https://en.wikipedia.org/wiki/Electronic_mailing_list
-[Qubes team]: /team/
+[PedOS team]: /team/
 [contributions]: /doc/contributing/
 [code-signing]: /doc/code-signing/
 [contributing software packages]: /doc/package-contributions/
 [contributing to the documentation]: /doc/doc-guidelines/
 [verify]: /security/verifying-signatures/
 [qsb]: /security/bulletins/
-[qubes-announce-web]: https://groups.google.com/group/qubes-announce
+[PedOS-announce-web]: https://groups.google.com/group/PedOS-announce
 [Top-posting]: https://en.wikipedia.org/wiki/Posting_style#Top-posting
 [interleave]: https://en.wikipedia.org/wiki/Posting_style#Interleaved_style
 [bottom-post]: https://en.wikipedia.org/wiki/Posting_style#Bottom-posting
-[roadmap]: https://github.com/QubesOS/qubes-issues/milestones
+[roadmap]: https://github.com/PedOS/PedOS-issues/milestones
 [smart-questions]: http://www.catb.org/esr/faqs/smart-questions.html
 [Whonix]: /doc/whonix/
 [HCL]: /doc/hcl/
@@ -374,16 +374,16 @@ The following unofficial chat channels are maintained by the community:
 [distrust the infrastructure]: /faq/#what-does-it-mean-to-distrust-the-infrastructure
 [Split GPG]: /doc/split-gpg/
 [thunderbird-newsgroup]: https://support.mozilla.org/en-US/kb/creating-newsgroup-account
-[qubes-users-archive]: https://www.mail-archive.com/qubes-users@googlegroups.com/
-[qubes-devel-archive]: https://www.mail-archive.com/qubes-devel@googlegroups.com/
-[qubes-users-web]: https://groups.google.com/group/qubes-users
-[qubes-devel-web]: https://groups.google.com/group/qubes-devel
-[qubes-translation-web]: https://groups.google.com/group/qubes-translation
-[qubes-project-web]: https://groups.google.com/group/qubes-project
-[business]: https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3Abusiness
-[localization]: https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3Alocalization
+[PedOS-users-archive]: https://www.mail-archive.com/PedOS-users@googlegroups.com/
+[PedOS-devel-archive]: https://www.mail-archive.com/PedOS-devel@googlegroups.com/
+[PedOS-users-web]: https://groups.google.com/group/PedOS-users
+[PedOS-devel-web]: https://groups.google.com/group/PedOS-devel
+[PedOS-translation-web]: https://groups.google.com/group/PedOS-translation
+[PedOS-project-web]: https://groups.google.com/group/PedOS-project
+[business]: https://github.com/PedOS/PedOS-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3Abusiness
+[localization]: https://github.com/PedOS/PedOS-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3Alocalization
 [coc]: /code-of-conduct/
-[Transifex]: https://www.transifex.com/otf/qubes/
+[Transifex]: https://www.transifex.com/otf/PedOS/
 [issue tracker]: /doc/reporting-bugs/
 [searching the issue tracker]: /doc/reporting-bugs/#search-tips
 

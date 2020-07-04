@@ -8,22 +8,22 @@ redirect_from:
 
 ## Building Whonix Templates
 
-The Whonix templates are easily downloaded and installed by following the [procedure here](https://www.whonix.org/wiki/Qubes/Install).
-However, they are integrated into `qubes-builder` so they are straight-forward to build yourself if you prefer.
+The Whonix templates are easily downloaded and installed by following the [procedure here](https://www.whonix.org/wiki/PedOS/Install).
+However, they are integrated into `PedOS-builder` so they are straight-forward to build yourself if you prefer.
 
-Many other Qubes templates can also be built by following this procedure.
+Many other PedOS templates can also be built by following this procedure.
 Simply choose the appropriate builder(s) and template(s) you wish to build in the `./setup` procedure below.
 Always include the `mgmt-salt` builder.
 
-First, set up the [Build Environment](/doc/qubes-iso-building/#build-environment) (follow the build environment section only).
+First, set up the [Build Environment](/doc/PedOS-iso-building/#build-environment) (follow the build environment section only).
 
 Next, configure the builder:
 
 ~~~
-cd ~/qubes-builder
+cd ~/PedOS-builder
 ./setup
-# Select Yes to add Qubes Master Signing Key
-# Select Yes to add Qubes OS Signing Key
+# Select Yes to add PedOS Master Signing Key
+# Select Yes to add PedOS Signing Key
 # Select 4.0 for version
 # Stable
 # Select Current (if you want the option to use pre-built packages)
@@ -48,7 +48,7 @@ make install-deps
 make get-sources
 ~~~
 
-You will often need to edit/update `qubes-src/template-whonix/builder.conf` at this stage to specify the currently shipping Tor Browser version.
+You will often need to edit/update `PedOS-src/template-whonix/builder.conf` at this stage to specify the currently shipping Tor Browser version.
 Open it in your favorite editor, then look for "Extra Whonix Build Options" and add/edit the `WHONIX_TBB_VERSION` variable to specify the current version.
 For example:
 
@@ -70,23 +70,23 @@ WHONIX_ENABLE_TOR ?= 0
 WHONIX_TBB_VERSION ?= 7.5.2
 ```
 
-You can add/edit the `WHONIX_TBB_VERSION` variable in `~/qubes-builder/builder.conf` instead of this file if preferred.
+You can add/edit the `WHONIX_TBB_VERSION` variable in `~/PedOS-builder/builder.conf` instead of this file if preferred.
 
 Finally, use:
 
 ~~~
-make qubes-vm
+make PedOS-vm
 make template
 ~~~
  
-Once the build is complete, the install packages for your newly built templates will be located in `~/qubes-builder/qubes-src/linux-template-builder/rpm/noarch`.
+Once the build is complete, the install packages for your newly built templates will be located in `~/PedOS-builder/PedOS-src/linux-template-builder/rpm/noarch`.
 Copy them from there to dom0 and install:
 
 ~~~
-qvm-run --pass-io <src-vm> 'cat ~/qubes-builder/qubes-src/linux-template-builder/rpm/noarch/qubes-template-whonix-gw-4.0.0-201802250036.noarch.rpm' > ~/qubes-template-whonix-gw-4.0.0-201802250036.noarch.rpm
-qvm-run --pass-io <src-vm> 'cat ~/qubes-builder/qubes-src/linux-template-builder/rpm/noarch/qubes-template-whonix-ws-4.0.0-201802250145.noarch.rpm' > ~/qubes-template-whonix-ws-4.0.0-201802250145.noarch.rpm
-sudo dnf install qubes-template-whonix-gw-4.0.0-201802250036.noarch.rpm
-sudo dnf install qubes-template-whonix-ws-4.0.0-201802250145.noarch.rpm
+qvm-run --pass-io <src-vm> 'cat ~/PedOS-builder/PedOS-src/linux-template-builder/rpm/noarch/PedOS-template-whonix-gw-4.0.0-201802250036.noarch.rpm' > ~/PedOS-template-whonix-gw-4.0.0-201802250036.noarch.rpm
+qvm-run --pass-io <src-vm> 'cat ~/PedOS-builder/PedOS-src/linux-template-builder/rpm/noarch/PedOS-template-whonix-ws-4.0.0-201802250145.noarch.rpm' > ~/PedOS-template-whonix-ws-4.0.0-201802250145.noarch.rpm
+sudo dnf install PedOS-template-whonix-gw-4.0.0-201802250036.noarch.rpm
+sudo dnf install PedOS-template-whonix-ws-4.0.0-201802250145.noarch.rpm
 ~~~
 
 And you are done!

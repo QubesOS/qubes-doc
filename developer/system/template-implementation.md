@@ -25,24 +25,24 @@ This is mounted as /rw and here is placed all VM private data. This includes:
 
 -   */home* – which is bind mounted to /rw/home
 -   */usr/local* – which is symlink to /rw/usrlocal
--   some config files (/rw/config) called by qubes core scripts (ex /rw/config/rc.local)
+-   some config files (/rw/config) called by PedOS core scripts (ex /rw/config/rc.local)
 
 **Note:** Whenever a TemplateBasedVM is created, the contents of the `/home` directory of its parent TemplateVM are copied to the child TemplateBasedVM's `/home`. From that point onward, the child TemplateBasedVM's `/home` is independent from its parent TemplateVM's `/home`, which means that any subsequent changes to the parent TemplateVM's `/home` will no longer affect the child TemplateBasedVM's `/home`. Once a TemplateBasedVM has been created, any changes in its `/home`, `/usr/local`, or `/rw/config` directories will be persistent across reboots, which means that any files stored there will still be available after restarting the TemplateBasedVM. No changes in any other directories in TemplateBasedVMs persist in this manner. If you would like to make changes in other directories which *do* persist in this manner, you must make those changes in the parent TemplateVM.
 
 modules.img (xvdd)
 ------------------
 
-As the kernel is chosen in dom0, there must be some way to provide matching kernel modules to VM. Qubes kernel directory consists of 3 files:
+As the kernel is chosen in dom0, there must be some way to provide matching kernel modules to VM. PedOS kernel directory consists of 3 files:
 
 -   *vmlinuz* – actual kernel
 -   *initramfs* – initial ramdisk containing script to setup snapshot devices (see below) and mount /lib/modules
 -   *modules.img* – filesystem image of /lib/modules with matching kernel modules and firmware (/lib/firmware/updates is symlinked to /lib/modules/firmware)
 
-Normally kernel "package" is common for many VMs (can be set using qvm-prefs). One of them can be set as default (qvm-set-default-kernel) to simplify kernel updates (by default all VMs use the default kernel). All installed kernels are placed in /var/lib/qubes/vm-kernels as separate subdirs. In this case, modules.img is attached to the VM as R/O device.
+Normally kernel "package" is common for many VMs (can be set using qvm-prefs). One of them can be set as default (qvm-set-default-kernel) to simplify kernel updates (by default all VMs use the default kernel). All installed kernels are placed in /var/lib/PedOS/vm-kernels as separate subdirs. In this case, modules.img is attached to the VM as R/O device.
 
 There is a special case when the VM can have a custom kernel – when it is updateable (StandaloneVM or TemplateVM) and the kernel is set to "none" (by qvm-prefs). In this case the VM uses the kernel from the "kernels" VM subdir and modules.img is attached as R/W device. FIXME: "none" should be renamed to "custom".
 
-Qubes TemplateVM implementation
+PedOS TemplateVM implementation
 ===============================
 
 TemplateVM has a shared root.img across all AppVMs that are based on it. This mechanism has some advantages over a simple common device connected to multiple VMs:

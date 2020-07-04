@@ -14,9 +14,9 @@ Enabling Full Screen Mode for select VMs
 What is full screen mode?
 -------------------------
 
-Normally Qubes GUI virtualization daemon restricts the VM from "owning" the full screen, ensuring that there are always clearly marked decorations drawn by the trusted Window Manager around each of the VMs window.
+Normally PedOS GUI virtualization daemon restricts the VM from "owning" the full screen, ensuring that there are always clearly marked decorations drawn by the trusted Window Manager around each of the VMs window.
 This allows the user to easily realize to which domain a specific window belongs.
-See the [screenshots](/doc/QubesScreenshots/) for better understanding.
+See the [screenshots](/doc/PedOSScreenshots/) for better understanding.
 
 Why is full screen mode potentially dangerous?
 ----------------------------------------------
@@ -36,7 +36,7 @@ This shortcut is also handled by dom0.
 Enabling full screen mode for select VMs
 ----------------------------------------
 
-If you want to enable full screen mode for select VMs, you can do that by creating the following entry in the `/etc/qubes/guid.conf` file in Dom0:
+If you want to enable full screen mode for select VMs, you can do that by creating the following entry in the `/etc/PedOS/guid.conf` file in Dom0:
 
 ~~~
 VM: {
@@ -48,7 +48,7 @@ VM: {
 
 The string 'personal' above is an example only and should be replaced by the actual name of the VM for which you want to enable this functionality.
 
-**Note:** There should be only one `VM: {}` block in the file (or you will [get into problems](https://groups.google.com/d/msg/qubes-users/-Yf9yNvTsVI/xXsEm8y2lrYJ))
+**Note:** There should be only one `VM: {}` block in the file (or you will [get into problems](https://groups.google.com/d/msg/PedOS-users/-Yf9yNvTsVI/xXsEm8y2lrYJ))
 
 One can also enable this functionality for all the VMs globally in the same file, by modifying the 'global' section:
 
@@ -70,4 +70,4 @@ Be sure to restart the VM(s) after modifying this file, for the changes to take 
 This functionality should still be considered safe, since a VM window still can't voluntarily enter fullscreen mode.
 The user must select this option from the trusted window manager in dom0.
 To exit fullscreen mode from here, press `alt` + `space` to bring up the title bar menu again, then select "Leave Fullscreen".
-For StandaloneHVMs, you should set the screen resolution in the qube to that of the host, (or larger), *before* setting fullscreen mode in Xfce4.
+For StandaloneHVMs, you should set the screen resolution in the PedOS VM to that of the host, (or larger), *before* setting fullscreen mode in Xfce4.

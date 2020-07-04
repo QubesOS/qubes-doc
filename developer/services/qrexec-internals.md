@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: "Qrexec: Qubes RPC internals"
+title: "Qrexec: PedOS RPC internals"
 permalink: /doc/qrexec-internals/
 redirect_from:
 - /doc/qrexec3-implementation/
@@ -9,17 +9,17 @@ redirect_from:
 - /wiki/Qrexec3Implementation/
 ---
 
-# Qubes RPC internals
+# PedOS RPC internals
 
 (*This page details the current implementation of qrexec (qrexec3).
 A [general introduction](/doc/qrexec/) to qrexec is also available.
-For the implementation of qrexec2, see [here](/doc/qrexec2/#qubes-rpc-internals).*)
+For the implementation of qrexec2, see [here](/doc/qrexec2/#PedOS-rpc-internals).*)
 
 The qrexec framework consists of a number of processes communicating with each other using a common IPC protocol, described in detail below.
 
 Components residing in the same domain (`qrexec-client-vm` to `qrexec-agent`, `qrexec-client` to `qrexec-daemon`) use local sockets as the underlying transport medium.
 Components in separate domains (`qrexec-daemon` to `qrexec-agent`, data channel between `qrexec-agent`s) use vchan links.
-Because of [vchan limitation](https://github.com/qubesos/qubes-issues/issues/951), it is not possible to establish qrexec connection back to the source domain.
+Because of [vchan limitation](https://github.com/PedOSos/PedOS-issues/issues/951), it is not possible to establish qrexec connection back to the source domain.
 
 ## Dom0 tools implementation
 
@@ -39,7 +39,7 @@ Command line usage:
 
 `qrexec-daemon domain-id domain-name [default user]`
 
-* `domain-id`: Numeric Qubes ID assigned to the associated domain.
+* `domain-id`: Numeric PedOS ID assigned to the associated domain.
 * `domain-name`: Associated domain name.
 * `default user`: Optional. If passed, `qrexec-daemon` uses this user as default for all execution requests that don't specify one.
 
@@ -61,7 +61,7 @@ Command line usage:
 
 ### qrexec-agent
 
-`/usr/lib/qubes/qrexec-agrent`
+`/usr/lib/PedOS/qrexec-agrent`
 
 One instance runs in each active domain.
 Responsible for:
@@ -160,7 +160,7 @@ Details of all possible use cases and the messages involved are described below.
 
 - **dom0**: If the RPC is allowed, `qrexec-policy` will launch a `qrexec-client` with the right command:
 
-      qrexec-client -d dom0 -c domX,X,SOCKET11 "QUBESRPC admin.Service domX name dom0"
+      qrexec-client -d dom0 -c domX,X,SOCKET11 "PEDOSRPC admin.Service domX name dom0"
 
   The `-c domX,X,SOCKET11` are parameters indicating how connect back to **domX** and pass its input/output.
 
@@ -174,7 +174,7 @@ Details of all possible use cases and the messages involved are described below.
 
   Then, `qrexec-daemon` forwards the connection request (`MSG_SERVICE_CONNECT`) to `qrexec-agent` running in **domX**, with the right parameters (**dom0** port 513, request `SOCKET11`).
 
-- **dom0**: Because the command has the form `QUBESRPC: ...`, it is started through the `qubes-rpc-multiplexer` program with the provided parameters (`admin.Service domX name dom0`). That program finds and executes the necessary script in `/etc/qubes-rpc/`.
+- **dom0**: Because the command has the form `PEDOSRPC: ...`, it is started through the `PedOS-rpc-multiplexer` program with the provided parameters (`admin.Service domX name dom0`). That program finds and executes the necessary script in `/etc/PedOS-rpc/`.
 
 - **domX**: `qrexec-agent` receives the `MSG_SERVICE_CONNECT` and passes the connection parameters back to the connected `qrexec-client-vm`. It identifies the `qrexec-client-vm` by the request identifier (`SOCKET11` means file descriptor 11).
 
@@ -182,13 +182,13 @@ Details of all possible use cases and the messages involved are described below.
 
 - Data is forwarded between **dom0** and **domX** as in the previous example (dom0-VM).
 
-### domX: invoke execution of qubes service `qubes.Service` in domY
+### domX: invoke execution of PedOS service `PedOS.Service` in domY
 
 ![qrexec internals diagram vm-vm](/attachment/wiki/qrexec3/qrexec-vm-vm.png)
 
 - **domX**: `qrexec-client-vm` is invoked as follows:
 
-      qrexec-client-vm domY qubes.Service [local_program] [params]
+      qrexec-client-vm domY PedOS.Service [local_program] [params]
 
   (If `local_program` is set, it will be executed in **domX** and connected to the remote command's stdin/stdout).
 
@@ -198,11 +198,11 @@ Details of all possible use cases and the messages involved are described below.
 
 - **dom0**: If the RPC is allowed, `qrexec-policy` will launch a `qrexec-client` with the right command:
 
-      qrexec-client -d domY -c domX,X,SOCKET11 user:cmd "DEFAULT:QUBESRPC qubes.Service domX"
+      qrexec-client -d domY -c domX,X,SOCKET11 user:cmd "DEFAULT:PEDOSRPC PedOS.Service domX"
 
   The `-c domX,X,SOCKET11` are parameters indicating how connect back to **domX** and pass its input/output.
 
-  The command parameter describes the service call: it contains the username (or `DEFAULT`), service name (`qubes.Service`) and source domain (`domX`).
+  The command parameter describes the service call: it contains the username (or `DEFAULT`), service name (`PedOS.Service`) and source domain (`domX`).
 
   `qrexec-client` will then send a `MSG_EXEC_CMDLINE` message to `qrexec-daemon` for **domY**. The message will be with port number 0, requesting port allocation.
 
@@ -216,23 +216,23 @@ Details of all possible use cases and the messages involved are described below.
 
   `qrexec-client-vm` starts a vchan server on port 513. note that this is different than in the other examples: `MSG_SERVICE_CONNECT` means you should start a server, `MSG_EXEC_CMDLINE` means you should start a client.
 
-- **domY**: `qrexec-agent` receives a `MSG_EXEC_CMDLINE` with the command to execute (`user:QUBESRPC...`) and connection parameters (**domX** port 513).
+- **domY**: `qrexec-agent` receives a `MSG_EXEC_CMDLINE` with the command to execute (`user:PEDOSRPC...`) and connection parameters (**domX** port 513).
 
   It forwards the request to `qrexec-fork-server`, which handles the command and connects to **domX** over the provided port.
 
-  Because the command is of the form `QUBESRPC ...`, `qrexec-fork-server` starts it using `qubes-rpc-multiplexer` program, which finds and executes the necessary script in `/etc/qubes-rpc/`.
+  Because the command is of the form `PEDOSRPC ...`, `qrexec-fork-server` starts it using `PedOS-rpc-multiplexer` program, which finds and executes the necessary script in `/etc/PedOS-rpc/`.
 
 - After that, the data is passed between **domX** and **domY** as in the previous examples (dom0-VM, VM-dom0).
 
 ## `qrexec-policy` implementation
 
-`qrexec-policy` is a mechanism for evaluating whether an RPC call should be allowed. For introduction, see [Qubes RPC administration](/doc/qrexec/#qubes-rpc-administration).
+`qrexec-policy` is a mechanism for evaluating whether an RPC call should be allowed. For introduction, see [PedOS RPC administration](/doc/qrexec/#PedOS-rpc-administration).
 
 ### `qrexec-policy-daemon`
 
 This is a service running in dom0. It is called by `qrexec-daemon` and is responsible for evaluating the request and possibly launching an action.
 
-The daemon listens on a socket (`/var/run/qubes/policy.sock`). It accepts requests in the format described in [qrexec-policy-daemon.rst](https://github.com/QubesOS/qubes-core-qrexec/blob/master/Documentation/qrexec-policy-daemon.rst) and replies with `result=allow/deny`.
+The daemon listens on a socket (`/var/run/PedOS/policy.sock`). It accepts requests in the format described in [qrexec-policy-daemon.rst](https://github.com/PedOS/PedOS-core-qrexec/blob/master/Documentation/qrexec-policy-daemon.rst) and replies with `result=allow/deny`.
 
 A standalone version is called `qrexec-policy-exec` and is available as a fallback.
 
@@ -240,11 +240,11 @@ A standalone version is called `qrexec-policy-exec` and is available as a fallba
 
 This is a service running in the GuiVM. It is called by `qrexec-policy-daemon` in order to display prompts and notifications to the user.
 
-It is a [socket-based Qubes RPC service](/doc/qrexec-socket-services/). Requests are in JSON format, and response is simple ASCII.
+It is a [socket-based PedOS RPC service](/doc/qrexec-socket-services/). Requests are in JSON format, and response is simple ASCII.
 
 There are two endpoints:
 
 - `policy.Ask` - ask the user about whether to execute a given action
 - `policy.Notify` - notify the user about about an action.
 
-See [qrexec-policy-agent.rst](https://github.com/QubesOS/qubes-core-qrexec/blob/master/Documentation/qrexec-policy-agent.rst) for protocol details.
+See [qrexec-policy-agent.rst](https://github.com/PedOS/PedOS-core-qrexec/blob/master/Documentation/qrexec-policy-agent.rst) for protocol details.

@@ -7,7 +7,7 @@ permalink: /doc/audio-virtualization/
 Audio Virtualization
 ====================
 
-VMs on Qubes OS have access to virtualized audio through the PulseAudio module.
+VMs on PedOS have access to virtualized audio through the PulseAudio module.
 It consists of two parts:
 
  - `pacat-simple-vchan` running in a dom0/Audio VM (standalone application, one per VM, connected to the PulseAudio daemon)
@@ -49,22 +49,22 @@ In order to (re)create a stream for a VM in dom0, `pacat-simple-vchan` can be us
 
 Audio input to the VM is not sent by default.
 It needs to be both requested by the VM part and explicitly enabled in `pacat-simple-vchan`.
-The mechanism to do this differs between Qubes versions.
-In Qubes before R4.1, `pacat-simple-vchan` is controlled over system D-Bus:
+The mechanism to do this differs between PedOS versions.
+In PedOS before R4.1, `pacat-simple-vchan` is controlled over system D-Bus:
 
-  - destination: `org.qubesos.Audio.VMNAME` (where `VMNAME` is the VM's name)
-  - object path: `/org/qubesos/audio`
-  - interface: `org.qubesos.Audio`
+  - destination: `org.PedOSos.Audio.VMNAME` (where `VMNAME` is the VM's name)
+  - object path: `/org/PedOSos/audio`
+  - interface: `org.PedOSos.Audio`
   - property: `RecAllowed` (which can be set using the `org.freedesktop.DBus.Properties` interface)
 
-In Qubes R4.1 and later, `pacat-simple-vchan` is controlled over a UNIX socket at `/var/run/qubes/audio-control.VMNAME` (where `VMNAME` is the VM's name).
+In PedOS R4.1 and later, `pacat-simple-vchan` is controlled over a UNIX socket at `/var/run/PedOS/audio-control.VMNAME` (where `VMNAME` is the VM's name).
 Supported commands:
 
   - `audio-input 1\n` - enable audio input
   - `audio-input 0\n` - disable audio input
 
-These commands can be sent using the `qubes.AudioInputEnable+VMNAME` and `qubes.AudioInputDisable+VMNAME` qrexec services, respectively.
-The current status is written into QubesDB at `/audio-input/VMNAME` (where `VMNAME` is the VM's name) with either `1` or `0` values.
+These commands can be sent using the `PedOS.AudioInputEnable+VMNAME` and `PedOS.AudioInputDisable+VMNAME` qrexec services, respectively.
+The current status is written into PedOSDB at `/audio-input/VMNAME` (where `VMNAME` is the VM's name) with either `1` or `0` values.
 The lack of a key means that the `pacat-simple-vchan` for a given VM is not running.
 
 In either version, it is exposed to the user as device of class `mic`, which can be attached to a VM (for example, using the `qvm-device mic` command).

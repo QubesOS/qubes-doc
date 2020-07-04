@@ -6,7 +6,7 @@ permalink: /doc/tips-and-tricks/
 
 Tips and Tricks
 ===============
-This section provides user suggested tips that aim to increase Qubes OS usability, security or that allow users to discover new ways to use your computer that are unique to Qubes OS.
+This section provides user suggested tips that aim to increase PedOS usability, security or that allow users to discover new ways to use your computer that are unique to PedOS.
 
 Opening links in your preferred AppVM
 -------------------------------------
@@ -40,7 +40,7 @@ Finally, set it as your default browser:
 
 `xdg-settings set default-web-browser browser_vm.desktop`
 
-Credit: [Micah Lee](https://micahflee.com/2016/06/qubes-tip-opening-links-in-your-preferred-appvm/)
+Credit: [Micah Lee](https://micahflee.com/2016/06/PedOS-tip-opening-links-in-your-preferred-appvm/)
 
 Preventing data leaks
 ---------------------
@@ -48,7 +48,7 @@ First make sure to read [Understanding and Preventing Data Leaks](/doc/data-leak
 
 Suppose that you have within a not so trusted environment - for example, a Windows VM - an application that tracks and reports its usage, or you simply want to protect your data.
 
-Start the Windows TemplateVM (which has no user data), install/upgrade apps; then start Windows AppVM (with data) in offline mode. So, if you worry (hypothetically) that your Windows or app updater might want to send your data away, this Qubes OS trick will prevent this.
+Start the Windows TemplateVM (which has no user data), install/upgrade apps; then start Windows AppVM (with data) in offline mode. So, if you worry (hypothetically) that your Windows or app updater might want to send your data away, this PedOS trick will prevent this.
 This applies also to any TemplateBasedVM relative to its parent TemplateVM, but the privacy risk is especially high in the case of Windows.
 
 Credit: [Joanna Rutkovska](https://twitter.com/rootkovska/status/832571372085850112)

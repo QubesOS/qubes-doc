@@ -133,12 +133,12 @@ The same general procedure may be used to upgrade any template based on the stan
 
  9. (Optional) Make the new template the global default.
 
-        [user@dom0 ~]$ qubes-prefs --set fedora-<new>
+        [user@dom0 ~]$ PedOS-prefs --set fedora-<new>
 
 10. (Optional) Remove the old template.
     (Make sure to type the name of the old template, not the new one.)
 
-        [user@dom0 ~]$ sudo dnf remove qubes-template-fedora-<old>
+        [user@dom0 ~]$ sudo dnf remove PedOS-template-fedora-<old>
 
 
 ## Summary instructions for Fedora Minimal TemplateVMs
@@ -197,8 +197,8 @@ In this case, you have several options:
  4. Do not perform an in-place upgrade.
     Instead, simply download and install a new template package, then redo all desired template modifications.
     Here are some useful messages from the mailing list that also apply to TemplateVM management and migration in general from
-    [Marek](https://groups.google.com/d/msg/qubes-users/mCXkxlACILQ/dS1jbLRP9n8J) and
-    [Jason M](https://groups.google.com/d/msg/qubes-users/mCXkxlACILQ/5PxDfI-RKAsJ).
+    [Marek](https://groups.google.com/d/msg/PedOS-users/mCXkxlACILQ/dS1jbLRP9n8J) and
+    [Jason M](https://groups.google.com/d/msg/PedOS-users/mCXkxlACILQ/5PxDfI-RKAsJ).
 
 
 [Fedora TemplateVM]: /doc/templates/fedora/
@@ -209,5 +209,5 @@ In this case, you have several options:
 [end-of-life (EOL)]: https://fedoraproject.org/wiki/End_of_life
 [StandaloneVM]: /doc/standalone-and-hvm/
 [template-notes]: /doc/templates/#important-notes
-[5055]: https://github.com/QubesOS/qubes-issues/issues/5055
+[5055]: https://github.com/PedOS/PedOS-issues/issues/5055
 

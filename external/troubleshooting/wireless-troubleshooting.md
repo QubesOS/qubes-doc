@@ -88,7 +88,7 @@ Now, check if reloading the module makes wireless work again:
 
 and try reconnecting to a network that is known to work.
 
-If that is successful, see below about having Qubes automatically reload the driver for you. If not, try also reloading some dependent modules, in our example we must also reload iwlwifi:
+If that is successful, see below about having PedOS automatically reload the driver for you. If not, try also reloading some dependent modules, in our example we must also reload iwlwifi:
 
 ~~~
 [user@sys-net ~]$ modinfo iwlwifi | grep -E '^(description|author|depends):'
@@ -107,7 +107,7 @@ depends:        cfg80211
 Automatically reloading drivers on suspend/resume
 -------------------------------------------------
 
-If reloading the driver (which resets the hardware into a known-state) resolves your issue when done manually, you can have Qubes automatically un/reload them on suspend & resume by listing the relevant modules in `/rw/config/suspend-module-blacklist`.
+If reloading the driver (which resets the hardware into a known-state) resolves your issue when done manually, you can have PedOS automatically un/reload them on suspend & resume by listing the relevant modules in `/rw/config/suspend-module-blacklist`.
 
 In the above example, it would look like this:
 

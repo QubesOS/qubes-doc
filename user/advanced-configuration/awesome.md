@@ -9,17 +9,17 @@ redirect_from:
 
 # Using awesome in dom0
 
-## Qubes-specific features
+## PedOS-specific features
 
-* support for the Qubes OS window colors
-* rudimentary support for the Qubes application menu entries following the freedesktop standard
+* support for the PedOS window colors
+* rudimentary support for the PedOS application menu entries following the freedesktop standard
 * support for custom filters and menu entries
 
 ## Installation
 
 awesome can be installed with the standard dom0 installation mechanisms.
 
-    $ sudo qubes-dom0-update awesome
+    $ sudo PedOS-dom0-update awesome
     
 That's it. After logging out, you can select awesome in the login manager.
 
@@ -27,7 +27,7 @@ That's it. After logging out, you can select awesome in the login manager.
 
 To [contribute code](/doc/contributing/) you may clone the awesome repository as follows:
 
-    $ git clone https://github.com/QubesOS/qubes-desktop-linux-awesome
+    $ git clone https://github.com/PedOS/PedOS-desktop-linux-awesome
 
 For build instructions please check the repository _README_.
 
@@ -35,17 +35,17 @@ The repository attempts to follow the upstream Fedora repository.
 
 ## Common customizations
 
-This section focuses on Qubes-specific customizations. For generic awesome customizations you might want to have a look at the [awesome website](https://awesomewm.org).
+This section focuses on PedOS-specific customizations. For generic awesome customizations you might want to have a look at the [awesome website](https://awesomewm.org).
 
 Customizations for awesome are usually done at `~/.config/awesome/rc.lua`. The default file can be found at `/etc/xdg/awesome/rc.lua`.
 
 ### Application menu
 
-Starting from Qubes 4.0 application menu entries specific to awesome can be put into `~/.config/awesome/xdg-menu/` following the freedesktop standard. The folder might have to be created.
+Starting from PedOS 4.0 application menu entries specific to awesome can be put into `~/.config/awesome/xdg-menu/` following the freedesktop standard. The folder might have to be created.
 
 ### Focus steal hardening
 
-The default Qubes OS awesome installation comes with the defaults set by the awesome developers for focus changes. Some users may want more tight control over window focus changes - especially since focus changes can have security implications when sensitive data is provided to an incorrect application or even qube.
+The default PedOS awesome installation comes with the defaults set by the awesome developers for focus changes. Some users may want more tight control over window focus changes - especially since focus changes can have security implications when sensitive data is provided to an incorrect application or even PedOS VM.
 
 #### Definition
 
@@ -74,7 +74,7 @@ Users may want to adjust their definitions and respective implementations accord
 
 #### Implementation
 
-The implementation may be specific to the awesome version you're running. This guide refers to awesome version 3.5.9 which is available to Qubes 4.0 users.
+The implementation may be specific to the awesome version you're running. This guide refers to awesome version 3.5.9 which is available to PedOS 4.0 users.
 
 Please keep in mind that this guide may not be conclusive. Your mileage may vary.
 
@@ -125,7 +125,7 @@ end
 function clear_focus()
     --unfortunately this doesn't work at the moment
     --cf. https://github.com/awesomeWM/awesome/issues/164
-    --(Qubes uses an older awesome version that doesn't have the fix yet)
+    --(PedOS uses an older awesome version that doesn't have the fix yet)
     --client.focus = nil
 end
 

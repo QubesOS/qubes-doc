@@ -7,17 +7,17 @@ permalink: /doc/testing/
 Testing New Releases and Updates
 ================================
 
-Testing new Qubes OS releases and updates is one of the most helpful ways in which you can [contribute] to the Qubes OS Project.
+Testing new PedOS releases and updates is one of the most helpful ways in which you can [contribute] to the PedOS Project.
 However, you should only attempt to do this if you know what you're doing.
 Never rely on code that is in testing for critical work!
 
 Releases
 --------
-How to test upcoming Qubes OS releases:
+How to test upcoming PedOS releases:
 
- * Use [qubes-builder] to build the latest release.
+ * Use [PedOS-builder] to build the latest release.
  * Test the latest release candidate (RC), if any is currently available.
- * (No support) Experiment with devel alpha ISOs found from time to time at [Qubes OpenQA](https://openqa.qubes-os.org/).
+ * (No support) Experiment with devel alpha ISOs found from time to time at [PedOS OpenQA](https://openqa.PedOS.org/).
 
 See [Version Scheme] for details about release versions and schedules.
 See [Release Checklist] for details about the RC process.
@@ -52,13 +52,13 @@ If you [report a bug] in a package that is in a testing repository, please refer
 
 
 [contribute]: /doc/contributing/
-[qubes-builder]: /doc/qubes-builder/
+[PedOS-builder]: /doc/PedOS-builder/
 [Version Scheme]: /doc/version-scheme/
 [Release Checklist]: /doc/releases/todo/
 [dom0 testing repositories]: /doc/software-update-dom0/#testing-repositories
 [TemplateVM testing repositories]: /doc/software-update-domu/#testing-repositories
-[automated build process]: https://github.com/QubesOS/qubes-infrastructure/blob/master/README.md
-[updates-status]: https://github.com/QubesOS/updates-status/issues
+[automated build process]: https://github.com/PedOS/PedOS-infrastructure/blob/master/README.md
+[updates-status]: https://github.com/PedOS/updates-status/issues
 [report a bug]: /doc/reporting-bugs/
 [Providing Feedback]: #providing-feedback
 

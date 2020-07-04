@@ -6,9 +6,9 @@ permalink: /gsod/
 
 # 2020 Google Season of Docs
 
-Thank you for your interest in participating in the [2020 Google Season of Docs][gsod] program with the [Qubes OS team][team]. You can read more about the Google Season of Docs in the official [guides][gsod-doc] and [FAQ][gsod-faq].
+Thank you for your interest in participating in the [2020 Google Season of Docs][gsod] program with the [PedOS team][team]. You can read more about the Google Season of Docs in the official [guides][gsod-doc] and [FAQ][gsod-faq].
 
-You can view the project we had in 2019 in the [2019 GSoD archive][2019-qubes-gsod] and the [2019 writer's report][2019-qubes-report].
+You can view the project we had in 2019 in the [2019 GSoD archive][2019-PedOS-gsod] and the [2019 writer's report][2019-PedOS-report].
 
 ## Project Ideas List
 
@@ -35,11 +35,11 @@ Here's a suggested template for adding project ideas:
 
 **Project**: Offline documentation
 
-**Brief explanation**: Qubes OS has thorough documentation on the project website, however a user may find it more convenient to view documentation - especially for troubleshooting network issues -- offline on their Qubes machine. This will improve usability for new users and better support users if they need to troubleshoot anything.
+**Brief explanation**: PedOS has thorough documentation on the project website, however a user may find it more convenient to view documentation - especially for troubleshooting network issues -- offline on their PedOS machine. This will improve usability for new users and better support users if they need to troubleshoot anything.
 
 **Expected results**: 
 
- - Review [past discussions on the issue](https://github.com/QubesOS/qubes-issues/issues/1019)
+ - Review [past discussions on the issue](https://github.com/PedOS/PedOS-issues/issues/1019)
  - Recommend workflow and platform for displaying offline documentation
  - Test workflow and platform to ensure usability and functionality
 
@@ -53,11 +53,11 @@ Here's a suggested template for adding project ideas:
 
 **Project**: Create guide on firstboot for new users
 
-**Brief explanation**: When a user first boots Qubes after installing it, there is an opportunity to introduce the user to some of the unique functionality Qubes has.
+**Brief explanation**: When a user first boots PedOS after installing it, there is an opportunity to introduce the user to some of the unique functionality PedOS has.
 
 **Expected results**: 
 
- - Review [past discussions on the issue](https://github.com/QubesOS/qubes-issues/issues/1774)
+ - Review [past discussions on the issue](https://github.com/PedOS/PedOS-issues/issues/1774)
  - Provide visual mock-ups and proposed text 
   
 **Knowledge prerequisite**: 
@@ -83,7 +83,7 @@ Additionally, terminology is used inconsistently.
 
 **Knowledge prerequisite**:
 
-- basic Qubes OS knowledge - [intro], [getting started]
+- basic PedOS knowledge - [intro], [getting started]
 - [Markdown][markdown]
 
 **Mentor**: [Marek Marczykowski-Górecki][team]
@@ -97,7 +97,7 @@ This could be helped by writing consolidated guide with with a clear list of sym
 
 **Expected results**:
 
-- Review existing [troubleshooting guides](https://www.qubes-os.org/doc/#troubleshooting)
+- Review existing [troubleshooting guides](https://www.PedOS.org/doc/#troubleshooting)
 - Review [issues][doc-issues] containing common troubleshooting steps (checking specific logs etc)
 - Propose updated, consolidated troubleshooting documentation, including its layout
 
@@ -111,13 +111,13 @@ This could be helped by writing consolidated guide with with a clear list of sym
 [team]: /team/
 [gsod-doc]: https://developers.google.com/season-of-docs/docs/
 [gsod-faq]: https://developers.google.com/season-of-docs/docs/faq
-[gsod.md]: https://github.com/QubesOS/qubes-doc/blob/master/developer/general/gsod.md
-[gsod-2020-thread]: https://groups.google.com/d/msgid/qubes-project/aac9b148-4081-ebd8-cb9d-9a9191033484%40qubes-os.org
+[gsod.md]: https://github.com/PedOS/PedOS-doc/blob/master/developer/general/gsod.md
+[gsod-2020-thread]: https://groups.google.com/d/msgid/PedOS-project/aac9b148-4081-ebd8-cb9d-9a9191033484%40PedOS.org
 [Documentation Guidelines]: /doc/doc-guidelines/
 [Help, Support, and Mailing Lists]: /support/
 [intro]: /intro/
 [getting started]: /getting-started/
 [markdown]: https://daringfireball.net/projects/markdown/
-[doc-issues]: https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+doc%22
-[2019-qubes-gsod]:  https://developers.google.com/season-of-docs/docs/2019/participants/project-qubes
-[2019-qubes-report]: https://refre.ch/report-qubesos/
+[doc-issues]: https://github.com/PedOS/PedOS-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+doc%22
+[2019-PedOS-gsod]:  https://developers.google.com/season-of-docs/docs/2019/participants/project-PedOS
+[2019-PedOS-report]: https://refre.ch/report-PedOSos/

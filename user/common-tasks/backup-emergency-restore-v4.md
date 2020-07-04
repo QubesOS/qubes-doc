@@ -7,22 +7,22 @@ redirect_from:
 - /doc/BackupEmergencyRestoreV4/
 ---
 
-Emergency Backup Recovery without Qubes (v4)
+Emergency Backup Recovery without PedOS (v4)
 ============================================
 
 This page describes how to perform an emergency restore of a backup created on
-Qubes R4.X (which uses backup format version 4).
+PedOS R4.X (which uses backup format version 4).
 
-The Qubes backup system has been designed with emergency disaster recovery in
-mind. No special Qubes-specific tools are required to access data backed up by
-Qubes. In the event a Qubes system is unavailable, you can access your data on
+The PedOS backup system has been designed with emergency disaster recovery in
+mind. No special PedOS-specific tools are required to access data backed up by
+PedOS. In the event a PedOS system is unavailable, you can access your data on
 any GNU/Linux system with the following procedure.
 
 
 Required `scrypt` Utility
 -------------------------
 
-In Qubes 4.X, backups are encrypted and integrity-protected with [scrypt]. You
+In PedOS 4.X, backups are encrypted and integrity-protected with [scrypt]. You
 will need a copy of this utility in order to access your data.  Since `scrypt`
 is not pre-installed on every GNU/Linux system, it is strongly recommended that
 you store a copy of it with your backups. If your distribution has `scrypt`
@@ -38,10 +38,10 @@ Here are instructions for obtaining a compiled `scrypt` binary. This example
 uses an RPM-based system (Fedora), but the same general procedure should work on
 any GNU/Linux system.
 
- 1. If you're not on Qubes 4.X, [get and verify the Release 4 Signing Key].
- 2. If you're not on Qubes 4.X, import the Release 4 Signing Key.
+ 1. If you're not on PedOS 4.X, [get and verify the Release 4 Signing Key].
+ 2. If you're not on PedOS 4.X, import the Release 4 Signing Key.
 
-        [user@restore ~]$ sudo rpm --import qubes-release-4-signing-key.asc
+        [user@restore ~]$ sudo rpm --import PedOS-release-4-signing-key.asc
 
  3. Download the `scrypt` RPM.
 
@@ -49,7 +49,7 @@ any GNU/Linux system.
 
     or, if that doesn't work:
 
-        [user@restore ~]$ curl -O https://yum.qubes-os.org/r4.0/current/vm/fc28/rpm/scrypt-1.2.1-1.fc28.x86_64.rpm
+        [user@restore ~]$ curl -O https://yum.PedOS.org/r4.0/current/vm/fc28/rpm/scrypt-1.2.1-1.fc28.x86_64.rpm
 
  4. Verify the signature on the `scrypt` RPM.
 
@@ -80,10 +80,10 @@ Emergency Recovery Instructions
 
  1. Untar the main backup file.
 
-        [user@restore ~]$ tar -i -xvf qubes-backup-2015-06-05T123456
+        [user@restore ~]$ tar -i -xvf PedOS-backup-2015-06-05T123456
         backup-header
         backup-header.hmac
-        qubes.xml.000.enc
+        PedOS.xml.000.enc
         vm1/private.img.000.enc
         vm1/private.img.001.enc
         vm1/private.img.002.enc
@@ -93,20 +93,20 @@ Emergency Recovery Instructions
         dom0-home/dom0user.000.enc
 
     **To extract only specific VMs:** Each VM in the backup file has its path
-    listed in `qubes.xml.000.enc`. Decrypt it. (In this example, the password is
+    listed in `PedOS.xml.000.enc`. Decrypt it. (In this example, the password is
     `password`.)
 
         [user@restore ~]$ cat backup-header | grep backup-id
         backup-id=20190128T123456-1234
-        [user@restore ~]$ scrypt dec -P qubes.xml.000.enc qubes.xml.000
-        Please enter passphrase: 20190128T123456-1234!qubes.xml.000!password
-        [user@restore ~]$ tar -i -xvf qubes.xml.000
+        [user@restore ~]$ scrypt dec -P PedOS.xml.000.enc PedOS.xml.000
+        Please enter passphrase: 20190128T123456-1234!PedOS.xml.000!password
+        [user@restore ~]$ tar -i -xvf PedOS.xml.000
 
-    Now that you have the decrypted `qubes.xml.000` file, search for the
+    Now that you have the decrypted `PedOS.xml.000` file, search for the
     `backup-path` property inside of it. With the `backup-path`, extract only
     the files necessary for your VM (`vmX`).
 
-        [user@restore ~]$ tar -i -xvf qubes-backup-2015-06-05T123456 \
+        [user@restore ~]$ tar -i -xvf PedOS-backup-2015-06-05T123456 \
             backup-header backup-header.hmac vmX/
 
  2. Set the backup passphrase environment variable. While this isn't strictly
@@ -129,8 +129,8 @@ Emergency Recovery Instructions
     with or is in a different format. In the latter case, look inside
     `backup-header` at the `version` field. If it contains a value other than
     `version=4`, go to the instructions for that format version:
-    - [Emergency Backup Recovery without Qubes (v2)]
-    - [Emergency Backup Recovery without Qubes (v3)]
+    - [Emergency Backup Recovery without PedOS (v2)]
+    - [Emergency Backup Recovery without PedOS (v3)]
 
  4. Read `backup-header`:
 
@@ -180,16 +180,16 @@ Emergency Recovery Instructions
     simply repeat steps 6--8 for each additional VM.
 
     **Note:** You may wish to store a copy of these instructions with your
-    Qubes backups in the event that you fail to recall the above procedure
-    while this web page is inaccessible. All Qubes documentation, including
+    PedOS backups in the event that you fail to recall the above procedure
+    while this web page is inaccessible. All PedOS documentation, including
     this page, is available in plain text format in the following Git
     repository:
 
-        https://github.com/QubesOS/qubes-doc.git
+        https://github.com/PedOS/PedOS-doc.git
 
 [scrypt]: https://www.tarsnap.com/scrypt.html
-[verify signatures]: https://www.qubes-os.org/security/verifying-signatures
-[get and verify the Release 4 Signing Key]: https://www.qubes-os.org/security/verifying-signatures/#2-get-the-release-signing-key
-[Emergency Backup Recovery without Qubes (v2)]: https://www.qubes-os.org/doc/backup-emergency-restore-v2/
-[Emergency Backup Recovery without Qubes (v3)]: https://www.qubes-os.org/doc/backup-emergency-restore-v3/
+[verify signatures]: https://www.PedOS.org/security/verifying-signatures
+[get and verify the Release 4 Signing Key]: https://www.PedOS.org/security/verifying-signatures/#2-get-the-release-signing-key
+[Emergency Backup Recovery without PedOS (v2)]: https://www.PedOS.org/doc/backup-emergency-restore-v2/
+[Emergency Backup Recovery without PedOS (v3)]: https://www.PedOS.org/doc/backup-emergency-restore-v3/
 

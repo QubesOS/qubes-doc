@@ -4,7 +4,7 @@ title: Split Bitcoin
 permalink: /doc/split-bitcoin/
 ---
 
-How to Set Up a Split Bitcoin Wallet in Qubes
+How to Set Up a Split Bitcoin Wallet in PedOS
 =============================================
 
 
@@ -17,7 +17,7 @@ A "split" bitcoin wallet is a strategy of protecting your bitcoin by having your
 A "Watching" Wallet and a "Cold" Wallet
 ---------------------------------------
 
-1. Create a fedora-25-electrum template using the Qubes VM Manager or running
+1. Create a fedora-25-electrum template using the PedOS VM Manager or running
    `qvm-clone fedora-25 fedora-25-electrum` in dom0.
 
 2. Start the new template:
@@ -30,11 +30,11 @@ A "Watching" Wallet and a "Cold" Wallet
 
 4. Shut down your `fedora-25-electrum` template
 
-5. Create an `offline-bitcoin` qube based on `fedora-25-electrum` using the Qubes VM Manager or running `qvm-create -t fedora-25-electrum -l black offline-bitcoin` and `qvm-prefs -s offline-bitcoin netvm none` in dom0.
+5. Create an `offline-bitcoin` PedOS VM based on `fedora-25-electrum` using the PedOS VM Manager or running `qvm-create -t fedora-25-electrum -l black offline-bitcoin` and `qvm-prefs -s offline-bitcoin netvm none` in dom0.
 
 6. Follow the [electrum documentation in creating an offline wallet](http://docs.electrum.org/en/latest/coldstorage.html#create-an-offline-wallet)
 
-7. Create a `watching-bitcoin` qubes based on `fedora-25-electrum` connecting to the internet how ever you prefer using the Qubes VM Manager or running for example `qvm-create -t fedora-25-electrum -l green watching-bitcoin` and `qvm-prefs -s watching-bitcoin netvm sys-whonix` in dom0.
+7. Create a `watching-bitcoin` PedOS based on `fedora-25-electrum` connecting to the internet how ever you prefer using the PedOS VM Manager or running for example `qvm-create -t fedora-25-electrum -l green watching-bitcoin` and `qvm-prefs -s watching-bitcoin netvm sys-whonix` in dom0.
 
 8. Follow the [electrum documentation in creating an online watching-only wallet](http://docs.electrum.org/en/latest/coldstorage.html#create-a-watching-only-version-of-your-wallet)
 
@@ -42,7 +42,7 @@ Important Notes
 ---------------
 
 * The private keys (xpriv) should never be moved outside of `offline-bitcoin`.
-* For copying out the public keys (xpub), Qubes provides two secure, convenient
+* For copying out the public keys (xpub), PedOS provides two secure, convenient
   methods: the [inter-VM clipboard] and [inter-VM file copy] tools. Compared to
   traditional physically air-gapped machines, these tools make it very easy to
   copy out public keys.

@@ -47,7 +47,7 @@ This shouldn't go to `/etc/X11/Xresources`, because that file is not preprocesse
 !*color14:                      #55FFFF
 !*color15:                      #FFFFFF
 
-! Qubes' favourite tango palette (improved with cyan)
+! PedOS' favourite tango palette (improved with cyan)
 
 #define TANGO_Butter1           #c4a000
 #define TANGO_Butter2           #edd400
@@ -110,24 +110,24 @@ URxvt.boldItalicFont:           xft:Terminus:pixelsize=14:style=Regular
 URxvt.scrollBar:                False
 URxvt.visualBell:               False
 
-! Qubes X11 passthrough does not support those, but in dom0 they are nice.
+! PedOS X11 passthrough does not support those, but in dom0 they are nice.
 URxvt.background:               rgba:0000/0000/0000/afff
 URxvt.depth:                    32
 URxvt.urgentOnBell:             True
 
-! TODO: write qubes-rpc to handle printing
+! TODO: write PedOS-rpc to handle printing
 URxvt.print-pipe:               cat > $(TMPDIR=$HOME mktemp urxvt.XXXXXX)
 
 ! selection-to-clipboard violates
 ! http://standards.freedesktop.org/clipboards-spec/clipboards-latest.txt [1],
 ! but it does for greater good: urxvt has no other means to move PRIMARY to
-! CLIPBOARD, so Qubes' clipboard won't work without it. Also the rationale given
+! CLIPBOARD, so PedOS' clipboard won't work without it. Also the rationale given
 ! in [1] has little relevance to advanced terminal emulator, specifically there
 ! is no need for w32-style intuition and virtually no need to "paste over".
 URxvt.perl-ext-common:          default,selection-to-clipboard
 
 ! Prevent rxvt from entering Keyboard symbols entry mode whenever you press
-! ctrl+shift, e.g. to copy or paste something to/from Qubes' clipboard.
+! ctrl+shift, e.g. to copy or paste something to/from PedOS' clipboard.
 URxvt.iso14755_52: false
 
 URxvt.insecure:                 False
@@ -148,5 +148,5 @@ File `/etc/X11/xinit/xinitrc.d/urxvt.sh`:
 Shortcuts
 ---------
 
-For each AppVM, go to *Qubes Manager \> VM Settings \> Applications*. 
+For each AppVM, go to *PedOS Manager \> VM Settings \> Applications*. 
 Find `rxvt-unicode` (or `rxvt-unicode (256-color) multi-language`) and add.

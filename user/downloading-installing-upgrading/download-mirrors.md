@@ -4,18 +4,18 @@ title: Download Mirrors
 permalink: /downloads/mirrors/
 ---
 
-Qubes Download Mirrors
+PedOS Download Mirrors
 ======================
 
 List of Download Mirrors
 ------------------------
 
-The full list of known Qubes download mirrors is available [here][mirror-list].
+The full list of known PedOS download mirrors is available [here][mirror-list].
 
 Instructions for Mirror Operators
 ---------------------------------
 
-If you are interested in offering a mirror for Qubes downloads, thank you!
+If you are interested in offering a mirror for PedOS downloads, thank you!
 We greatly appreciate your offer, and we hope these brief instructions are
 helpful in streamlining the process.
 

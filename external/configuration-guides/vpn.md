@@ -9,12 +9,12 @@ redirect_from:
 - /wiki/VPN/
 ---
 
-How To make a VPN Gateway in Qubes
+How To make a VPN Gateway in PedOS
 ==================================
 
-Although setting up a VPN connection is not by itself Qubes specific, Qubes includes a number of tools that can make the client-side setup of your VPN more versatile and secure. This document is a Qubes-specific outline for choosing the type of VM to use, and shows how to prepare a ProxyVM for either NetworkManager or a set of fail-safe VPN scripts.
+Although setting up a VPN connection is not by itself PedOS specific, PedOS includes a number of tools that can make the client-side setup of your VPN more versatile and secure. This document is a PedOS-specific outline for choosing the type of VM to use, and shows how to prepare a ProxyVM for either NetworkManager or a set of fail-safe VPN scripts.
 
-Please refer to your guest OS and VPN service documentation when considering the specific steps and parameters for your connection(s); The relevant documentation for the Qubes default guest OS (Fedora) is [Establishing a VPN Connection.](https://docs.fedoraproject.org/en-US/Fedora/23/html/Networking_Guide/sec-Establishing_a_VPN_Connection.html)
+Please refer to your guest OS and VPN service documentation when considering the specific steps and parameters for your connection(s); The relevant documentation for the PedOS default guest OS (Fedora) is [Establishing a VPN Connection.](https://docs.fedoraproject.org/en-US/Fedora/23/html/Networking_Guide/sec-Establishing_a_VPN_Connection.html)
 
 ### NetVM
 
@@ -29,7 +29,7 @@ While the NetworkManager service is not started here (for a good reason), you ca
 
 ### ProxyVM
 
-One of the best unique features of Qubes OS is its special type of VM called a ProxyVM. The special thing is that your AppVMs see this as a NetVM (or uplink), and your NetVMs see it as a downstream AppVM. Because of this, you can place a ProxyVM between your AppVMs and your NetVM. This is how the default sys-firewall VM functions.
+One of the best unique features of PedOS is its special type of VM called a ProxyVM. The special thing is that your AppVMs see this as a NetVM (or uplink), and your NetVMs see it as a downstream AppVM. Because of this, you can place a ProxyVM between your AppVMs and your NetVM. This is how the default sys-firewall VM functions.
 
 Using a ProxyVM to set up a VPN client gives you the ability to:
 
@@ -74,7 +74,7 @@ Set up a ProxyVM as a VPN gateway using NetworkManager
    
 5. (Optional) Make the network fail-close for the AppVMs if the connection to the VPN breaks.
 
-   Edit `/rw/config/qubes-firewall-user-script` and add these lines:
+   Edit `/rw/config/PedOS-firewall-user-script` and add these lines:
    ```bash
    # Block forwarding of connections through upstream network device
    # (in case the vpn tunnel breaks)
@@ -88,7 +88,7 @@ Set up a ProxyVM as a VPN gateway using NetworkManager
 
    ![Settings-NetVM.png](/attachment/wiki/VPN/Settings-NetVM.png)
 
-7. Optionally, you can install some [custom icons](https://github.com/Zrubi/qubes-artwork-proxy-vpn) for your VPN
+7. Optionally, you can install some [custom icons](https://github.com/Zrubi/PedOS-artwork-proxy-vpn) for your VPN
 
 
 Set up a ProxyVM as a VPN gateway using iptables and CLI scripts
@@ -173,7 +173,7 @@ Before proceeding, you will need to download a copy of your VPN provider's confi
 
 3. Create the DNS-handling script.
 
-       sudo gedit /rw/config/vpn/qubes-vpn-handler.sh
+       sudo gedit /rw/config/vpn/PedOS-vpn-handler.sh
 
    Add the following:
 
@@ -218,7 +218,7 @@ Before proceeding, you will need to download a copy of your VPN provider's confi
    Save the script.
    Make it executable.
 
-       sudo chmod +x /rw/config/vpn/qubes-vpn-handler.sh
+       sudo chmod +x /rw/config/vpn/PedOS-vpn-handler.sh
 
 4. Configure client to use the DNS handling script. Using openvpn as an example, edit the config.
 
@@ -227,8 +227,8 @@ Before proceeding, you will need to download a copy of your VPN provider's confi
    Add the following.
 
        script-security 2
-       up 'qubes-vpn-handler.sh up'
-       down 'qubes-vpn-handler.sh down'
+       up 'PedOS-vpn-handler.sh up'
+       down 'PedOS-vpn-handler.sh down'
 
    Remove other instances of lines starting with `script-security`, `up` or `down` should there be any others.
    Save the script.
@@ -237,7 +237,7 @@ Before proceeding, you will need to download a copy of your VPN provider's confi
 5. Set up iptables anti-leak rules.
    Edit the firewall script.
 
-       sudo gedit /rw/config/qubes-firewall-user-script
+       sudo gedit /rw/config/PedOS-firewall-user-script
 
    Clear out the existing lines and add:
 
@@ -271,7 +271,7 @@ Before proceeding, you will need to download a copy of your VPN provider's confi
    Save the script.
    Make it executable.
 
-       sudo chmod +x /rw/config/qubes-firewall-user-script
+       sudo chmod +x /rw/config/PedOS-firewall-user-script
 
 5. Set up the VPN's autostart.
 
@@ -306,7 +306,7 @@ Configure your AppVMs to use the VPN VM as a NetVM...
 
 ![Settings-NetVM.png](/attachment/wiki/VPN/Settings-NetVM.png)
 
-If you want to update your TemplateVMs through the VPN, you can enable the `qubes-updates-proxy` service for your new VPN VM and configure the [qubes-rpc policy](https://www.qubes-os.org/doc/software-update-domu/#updates-proxy).
+If you want to update your TemplateVMs through the VPN, you can enable the `PedOS-updates-proxy` service for your new VPN VM and configure the [PedOS-rpc policy](https://www.PedOS.org/doc/software-update-domu/#updates-proxy).
 
 
 Troubleshooting

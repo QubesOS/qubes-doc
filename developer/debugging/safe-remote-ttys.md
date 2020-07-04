@@ -14,7 +14,7 @@ If you do not have working graphics in Dom0, then using a terminal can be quite 
 This was the case for the author while trying to debug PCI-passthrough of a machine's primary (only) GPU.
 
 Your first thought might be to just allow network access to Dom0, enable ssh, and connect in remotely.
-But, this gravely violates the Qubes security model.
+But, this gravely violates the PedOS security model.
 
 Instead, a better solution is to split the input and output paths of using a terminal.
 Use your normal keyboard for input, but have the output go to a remote machine in a unidirectional manner.

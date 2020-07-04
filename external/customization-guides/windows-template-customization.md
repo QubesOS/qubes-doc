@@ -36,7 +36,7 @@ Disable the following services that are not required or have no sense in a VM co
  * DHCP Client
  * Function Discovery Provider Host
 
-    this will not work anyway because SSDP discovery uses multicast - need to be on the same network which is not the case because of Qubes firewall
+    this will not work anyway because SSDP discovery uses multicast - need to be on the same network which is not the case because of PedOS firewall
  * Peer Name Resolution Protocol
  * Peer Netwoking Grouping
  * Peer Networking Identity Manager
@@ -48,7 +48,7 @@ Disable the following services that are not required or have no sense in a VM co
  * Windows defender
  * Windows Firewall
 
-*Notes*: IP Helper is required as it is used by Qubes Agent to configure the IP address.
+*Notes*: IP Helper is required as it is used by PedOS Agent to configure the IP address.
 
 Windows update
 --------------------------
@@ -79,7 +79,7 @@ Right click on computer and go to Properties > Advanced > Performance:
 
  * System Protection
 
-    Here you can disable Shadow Folder because it has little sense in the case of Qubes because
+    Here you can disable Shadow Folder because it has little sense in the case of PedOS because
 
       * we do regular backups of AppVMs/TemplateVMs;
       * we can revert at least one template change if we break something.

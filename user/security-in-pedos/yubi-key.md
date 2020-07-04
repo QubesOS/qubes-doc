@@ -1,16 +1,16 @@
 ---
 layout: doc
-title: YubiKey in Qubes
+title: YubiKey in PedOS
 permalink: /doc/yubi-key/
 redirect_from:
 - /en/doc/yubi-key/
 - /doc/YubiKey/
 ---
 
-Using YubiKey to Qubes authentication
+Using YubiKey to PedOS authentication
 =====================================
 
-You can use a YubiKey to enhance Qubes user authentication, for example to mitigate risk of someone snooping the password.
+You can use a YubiKey to enhance PedOS user authentication, for example to mitigate risk of someone snooping the password.
 This can also slightly improve security when you have a [USB keyboard](/doc/device-handling-security/#security-warning-on-usb-input-devices).
 
 There are (at least) two possible configurations: using OTP mode and using challenge-response mode.
@@ -18,10 +18,10 @@ There are (at least) two possible configurations: using OTP mode and using chall
 OTP mode
 --------
 
-This can be configured using the [app-linux-yubikey](https://github.com/adubois/qubes-app-linux-yubikey) package.
+This can be configured using the [app-linux-yubikey](https://github.com/adubois/PedOS-app-linux-yubikey) package.
 This package does not support sharing the same key slot with other applications (it will deny further authentications if you try).
 
-Contrary to instruction there, currently there is no binary package in the Qubes repository and you need to compile it yourself.
+Contrary to instruction there, currently there is no binary package in the PedOS repository and you need to compile it yourself.
 This might change in the future.
 
 Challenge-response mode
@@ -61,17 +61,17 @@ To use this mode you need to:
       - Consider keeping a backup of your `AESKEY` on paper and storing it in a safe place.
       - If you have multiple YubiKeys for backup purposes (in case a yubikey gets lost, stolen or breaks) you can write the same settings into other YubiKeys.
 
-3. Install [qubes-app-yubikey](https://github.com/QubesOS/qubes-app-yubikey) in dom0.
+3. Install [PedOS-app-yubikey](https://github.com/PedOS/PedOS-app-yubikey) in dom0.
 
-       sudo qubes-dom0-update qubes-yubikey-dom0
+       sudo PedOS-dom0-update PedOS-yubikey-dom0
 
 4. Adjust the USB VM name in case you are using something other than the default
-   `sys-usb` by editing `/etc/qubes/yk-keys/yk-vm` in dom0.
+   `sys-usb` by editing `/etc/PedOS/yk-keys/yk-vm` in dom0.
 
-5. Paste your `AESKEY` from step 2 into `/etc/qubes/yk-keys/yk-secret-key.hex` in dom0.
+5. Paste your `AESKEY` from step 2 into `/etc/PedOS/yk-keys/yk-secret-key.hex` in dom0.
 
-6. Paste your hashed password (other than your standard Qubes password)  into
-`/etc/qubes/yk-keys/yk-login-pass-hashed.hex` in dom0.
+6. Paste your hashed password (other than your standard PedOS password)  into
+`/etc/PedOS/yk-keys/yk-login-pass-hashed.hex` in dom0.
 
    You can calculate your hashed password using the following two commands.
    First run the following command to store your password in a temporary variable `password`.
@@ -123,13 +123,13 @@ This will require creating a simple qrexec service which will expose the ability
 In dom0:
 
 1. First configure the qrexec service.
-   Create `/etc/qubes-rpc/custom.LockScreen` with a simple command to lock the screen.
+   Create `/etc/PedOS-rpc/custom.LockScreen` with a simple command to lock the screen.
    In the case of xscreensaver (used in Xfce) it would be:
 
         DISPLAY=:0 xscreensaver-command -lock
 
 2. Allow your USB VM to call that service.
-   Assuming that it's named `sys-usb` it would require creating `/etc/qubes-rpc/policy/custom.LockScreen` with:
+   Assuming that it's named `sys-usb` it would require creating `/etc/PedOS-rpc/policy/custom.LockScreen` with:
 
         sys-usb dom0 allow
 

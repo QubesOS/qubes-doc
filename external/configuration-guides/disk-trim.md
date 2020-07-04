@@ -18,7 +18,7 @@ In this way, the storage device can perform garbage collection of the unused blo
 In a Linux system running on bare metal, this is relatively straight-forward. 
 When instructed by the operating system, discards are issued by the file-system driver directly to the storage driver and then to the SSD.
 
-In Qubes, this gets more complex due to virtualization, LUKS, and LVM (and thin pools on R4.0 and up).
+In PedOS, this gets more complex due to virtualization, LUKS, and LVM (and thin pools on R4.0 and up).
 If you run `fstrim --all` inside a TemplateVM, in a worst case the `discard` can follow a path like:
 
     OS -> File-system Driver -> Virtual Storage Driver -> Backend Storage Driver -> LVM Storage Driver -> LUKS Driver -> Physical Storage Driver -> Physical Storage Device
@@ -33,7 +33,7 @@ However deletion is not guaranteed, and can fail to happen without warning for a
 Configuration
 ----------
 
-In all versions of Qubes, you may want to set up a periodic job in `dom0` to trim the disk.
+In all versions of PedOS, you may want to set up a periodic job in `dom0` to trim the disk.
 This can be done with either systemd (weekly only) or cron (daily or weekly).
 
  * **Systemd**
@@ -57,9 +57,9 @@ This can be done with either systemd (weekly only) or cron (daily or weekly).
    And mark it as executable with `chmod 755 /etc/cron.daily/trim`.
 
 **Note** Although discards can be issued on every delete inside `dom0` by adding the `discard` mount option to `/etc/fstab`, this option can hurt performance so the above procedure is recommended instead.
-However, inside App and Template qubes, the `discard` mount option is on by default to notify the LVM thin pool driver that the space is no longer needed and can be zeroed and re-used.
+However, inside App and Template PedOS, the `discard` mount option is on by default to notify the LVM thin pool driver that the space is no longer needed and can be zeroed and re-used.
 
-If you are using Qubes with LVM, you may also want to set `issue_discards = 1` in `/etc/lvm/lvm.conf`.
+If you are using PedOS with LVM, you may also want to set `issue_discards = 1` in `/etc/lvm/lvm.conf`.
 Setting this option will permit LVM to issue discards to the SSD when logical volumes are shrunk or deleted.
 In R4.x, LVM Logical volumes are frequently deleted (every time a disposable VM is shut down, for example) so you may want to set `issue_discards = 1` if using an SSD, but see the article linked in the first section of this page.
 However, this is relatively rare in R3.x.
@@ -88,8 +88,8 @@ To enable TRIM support in dom0 with LUKS you need to:
     * GRUB2: `/etc/default/grub`, `GRUB_CMDLINE_LINUX` line and  
       Rebuild grub config (`grub2-mkconfig -o /boot/grub2/grub.cfg`), then  
       Rebuild initrd (`dracut -f`)
-    * EFI: `/boot/efi/EFI/qubes/xen.cfg`, `kernel=` line(s), then  
-      Rebuild initrd (`dracut -f /boot/efi/EFI/qubes/initramfs-$(uname -r).img $(uname -r)`)
+    * EFI: `/boot/efi/EFI/PedOS/xen.cfg`, `kernel=` line(s), then  
+      Rebuild initrd (`dracut -f /boot/efi/EFI/PedOS/initramfs-$(uname -r).img $(uname -r)`)
 
 4. Reboot the system.
 
@@ -107,6 +107,6 @@ If you only want the security against local forensics benefit of TRIM, you can u
 To verify that TRIM is enabled, check `dmesg` for what flags were enabled when the swap space was activated.
 You should see something like the following:
 
-    Adding 32391164k swap on /dev/mapper/qubes_dom0-swap.  Priority:-2 extents:1 across:32391164k SSDscFS
+    Adding 32391164k swap on /dev/mapper/PedOS_dom0-swap.  Priority:-2 extents:1 across:32391164k SSDscFS
 
 The `s` indicates that the entire swap device will be trimmed at boot, and `c` indicates that individual pages are trimmed after they are no longer being used.

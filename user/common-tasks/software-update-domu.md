@@ -11,9 +11,9 @@ redirect_from:
 
 # Installing and updating software in domUs
 
-Updating [domUs], especially [TemplateVMs] and [StandaloneVMs][StandaloneVM] are important steps in [Updating Qubes OS].
+Updating [domUs], especially [TemplateVMs] and [StandaloneVMs][StandaloneVM] are important steps in [Updating PedOS].
 It is very import to keep domUs up-to-date with the latest [security] updates.
-Updating these VMs also allows you to receive various non-security bug fixes and enhancements both from the Qubes OS Project and from your upstream distro maintainer.
+Updating these VMs also allows you to receive various non-security bug fixes and enhancements both from the PedOS Project and from your upstream distro maintainer.
 
 
 ## Installing software in TemplateVMs
@@ -29,13 +29,13 @@ To permanently install new software in a TemplateVM:
 
 ## Updating software in TemplateVMs
 
-The recommended way to update your TemplateVMs is to use the **Qubes Update** tool.
+The recommended way to update your TemplateVMs is to use the **PedOS Update** tool.
 By default, the icon for this tool will appear in your Notification Area when updates are available.
 Simply click on it and follow the guided steps.
 If you wish to open this tool directly, you can find it in the System Tools area of the Applications menu.
 
 You can also update TemplateVMs individually.
-In the Qube Manager, select the desired TemplateVM, then click **Update qube**.
+In the PedOS VM Manager, select the desired TemplateVM, then click **Update PedOS VM**.
 Advanced users can execute the standard update command for that operating system from the command line, e.g. `dnf update` in Fedora and `apt-get update` in Debian.
 
 
@@ -46,33 +46,33 @@ If you wish to install updates that are still in [testing], you must enable the 
 
 ### Fedora
 
-There are three Qubes VM testing repositories (where `*` denotes the Release):
+There are three PedOS VM testing repositories (where `*` denotes the Release):
 
-* `qubes-vm-*-current-testing` -- testing packages that will eventually land in the stable (`current`) repository
-* `qubes-vm-*-security-testing` -- a subset of `qubes-vm-*-current-testing` that contains packages that qualify as security fixes
-* `qubes-vm-*-unstable` -- packages that are not intended to land in the stable (`qubes-vm-*-current`) repository; mostly experimental debugging packages
+* `PedOS-vm-*-current-testing` -- testing packages that will eventually land in the stable (`current`) repository
+* `PedOS-vm-*-security-testing` -- a subset of `PedOS-vm-*-current-testing` that contains packages that qualify as security fixes
+* `PedOS-vm-*-unstable` -- packages that are not intended to land in the stable (`PedOS-vm-*-current`) repository; mostly experimental debugging packages
 
 To temporarily enable any of these repos, use the `--enablerepo=<repo-name>` option.
 Example commands:
 
 ~~~
-sudo dnf upgrade --enablerepo=qubes-vm-*-current-testing
-sudo dnf upgrade --enablerepo=qubes-vm-*-security-testing
-sudo dnf upgrade --enablerepo=qubes-vm-*-unstable
+sudo dnf upgrade --enablerepo=PedOS-vm-*-current-testing
+sudo dnf upgrade --enablerepo=PedOS-vm-*-security-testing
+sudo dnf upgrade --enablerepo=PedOS-vm-*-unstable
 ~~~
 
-To enable or disable any of these repos permanently, change the corresponding `enabled` value to `1` in `/etc/yum.repos.d/qubes-*.repo`.
+To enable or disable any of these repos permanently, change the corresponding `enabled` value to `1` in `/etc/yum.repos.d/PedOS-*.repo`.
 
 
 ### Debian
 
-Debian also has three Qubes VM testing repositories (where `*` denotes the Release):
+Debian also has three PedOS VM testing repositories (where `*` denotes the Release):
 
 * `*-testing` -- testing packages that will eventually land in the stable (`current`) repository
 * `*-securitytesting` -- a subset of `*-testing` that contains packages that qualify as security fixes
 * `*-unstable` -- packages that are not intended to land in the stable repository; mostly experimental debugging packages
 
-To enable or disable any of these repos permanently, uncomment the corresponding `deb` line in `/etc/apt/sources.list.d/qubes-r*.list`.
+To enable or disable any of these repos permanently, uncomment the corresponding `deb` line in `/etc/apt/sources.list.d/PedOS-r*.list`.
 
 
 ## StandaloneVMs
@@ -172,7 +172,7 @@ Also access to updates proxy is independent of any other firewall settings (VM w
 
 There are two services (`qvm-service`, [service framework]):
 
-1. `qubes-updates-proxy` (and its deprecated name: `qubes-yum-proxy`) - a service providing a proxy for templates - by default enabled in NetVMs (especially: sys-net)
+1. `PedOS-updates-proxy` (and its deprecated name: `PedOS-yum-proxy`) - a service providing a proxy for templates - by default enabled in NetVMs (especially: sys-net)
 2. `updates-proxy-setup` (and its deprecated name: `yum-proxy-setup`) - use a proxy provided by another VM (instead of downloading updates directly), enabled by default in all templates
 
 Both the old and new names work.
@@ -182,7 +182,7 @@ The defaults listed above are applied if the service is not explicitly listed in
 #### Technical details
 
 The updates proxy uses RPC/qrexec.
-The proxy is configured in qrexec policy in dom0: `/etc/qubes-rpc/policy/qubes.UpdatesProxy`.
+The proxy is configured in qrexec policy in dom0: `/etc/PedOS-rpc/policy/PedOS.UpdatesProxy`.
 By default this is set to sys-net and/or sys-whonix, depending on firstboot choices.
 This new design allows for templates to be updated even when they are not connected to any NetVM.
 
@@ -202,10 +202,10 @@ Example policy file in R4.0 (with Whonix installed, but not set as default Updat
 
 Snap packages do not use the normal update channels for Debian and Fedora (apt and dnf) and are often installed as the user rather than as root. To support these in an AppVM you need to take the following steps:
 
-1. In the **TemplateVM** you must install `snapd` and `qubes-snapd-helper`. Open a terminal in the TemplateVM and run:
+1. In the **TemplateVM** you must install `snapd` and `PedOS-snapd-helper`. Open a terminal in the TemplateVM and run:
 
 ```shell_session
-[user@fedora-30-snap-demo ~]$ sudo dnf install snapd qubes-snapd-helper
+[user@fedora-30-snap-demo ~]$ sudo dnf install snapd PedOS-snapd-helper
 Last metadata expiration check: 0:55:39 ago on Thu Nov 14 09:26:47 2019.
 Dependencies resolved.
 ========================================================================================================
@@ -213,7 +213,7 @@ Dependencies resolved.
 ========================================================================================================
 Installing:
  snapd                         x86_64  2.42.1-1.fc30                       updates                 17 M
- qubes-snapd-helper            noarch  1.0.1-1.fc30                        qubes-vm-r4.0-current   10 k
+ PedOS-snapd-helper            noarch  1.0.1-1.fc30                        PedOS-vm-r4.0-current   10 k
 Installing dependencies:
 [...]
 
@@ -234,7 +234,7 @@ Last metadata expiration check: 0:57:08 ago on Thu Nov 14 09:26:47 2019.
 Notifying dom0 about installed applications
 
 Installed:
-  snapd-2.42.1-1.fc30.x86_64                                              qubes-snapd-helper-1.0.1-1.fc30.noarch                           
+  snapd-2.42.1-1.fc30.x86_64                                              PedOS-snapd-helper-1.0.1-1.fc30.noarch                           
 [...]                          
 Complete!
 ```
@@ -262,7 +262,7 @@ Shutdown the TemplateVM:
 When the install is complete you can close the terminal window.
 
 3. Refresh the Applications list for the AppVM.
-In the Qubes Menu for the **AppVM*** launch the Qube Settings.
+In the PedOS Menu for the **AppVM*** launch the PedOS VM Settings.
 Then go to the Applications tab and click "Refresh Applications"
 
 The refresh will take a few minutes; after it's complete the Snap app will appear in the AppVM's list of available applications. At this point the snap will be persistent within the AppVM and will receive updates when the AppVM is running.
@@ -270,7 +270,7 @@ The refresh will take a few minutes; after it's complete the Snap app will appea
 
 # Autostarting Installed Applications
 
-If you want a desktop app to start automatically every time a qube starts you can create a link to it in the `~/.config/autostart` directory of the **AppVM**. This might be useful for Qubes that you set to automatically start on boot or for Qubes that have a set of apps you typically use all day, such as a chat app.
+If you want a desktop app to start automatically every time a PedOS VM starts you can create a link to it in the `~/.config/autostart` directory of the **AppVM**. This might be useful for PedOS that you set to automatically start on boot or for PedOS that have a set of apps you typically use all day, such as a chat app.
 
 1. Open a terminal in the **AppVM** where you would like the app to launch.
 2. List the names of the available desktop shortcuts by running the command `ls /usr/share/applications` and find the exact name of the shortcut to the app you want to autostart:
@@ -297,18 +297,18 @@ yelp.desktop
 [user@example-AppVM ~]$ ln -s /usr/share/applications/mozilla-thunderbird.desktop ~/.config/autostart/mozilla-thunderbird.desktop
 ```
 
-Note that the app will autostart only when the AppVM starts. If you would like the AppVM to autostart, select the "Start qube automatically on boot" checkbox in the AppVM's Qube Settings.
+Note that the app will autostart only when the AppVM starts. If you would like the AppVM to autostart, select the "Start PedOS VM automatically on boot" checkbox in the AppVM's PedOS VM Settings.
 
 
 
 [domUs]: /doc/glossary/#domu
 [TemplateVMs]: /doc/templates/
 [StandaloneVM]: /doc/standalone-and-hvm/
-[Updating Qubes OS]: /doc/updating-qubes-os/
+[Updating PedOS]: /doc/updating-PedOS/
 [security]: /security/
 [TemplateBasedVMs]: /doc/glossary/#templatebasedvm
 [testing]: /doc/testing
 [RPM Fusion]: http://rpmfusion.org/
-[service framework]: /doc/qubes-service/
+[service framework]: /doc/PedOS-service/
 [How to Reinstall a TemplateVM]: /doc/reinstall-template/
 

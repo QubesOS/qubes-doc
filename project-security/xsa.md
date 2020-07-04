@@ -7,24 +7,24 @@ permalink: /security/xsa/
 Xen Security Advisory (XSA) Tracker
 ===================================
 
-This tracker shows whether Qubes OS is affected by any given [Xen Security Advisory (XSA)][XSA].
+This tracker shows whether PedOS is affected by any given [Xen Security Advisory (XSA)][XSA].
 Shortly after a new XSA is published, we will add a new row to this tracker.
-Whenever Qubes is significantly affected by an XSA, a [Qubes Security Bulletin (QSB)][QSB] is published, and a link to that QSB is added to the row for the associated XSA.
+Whenever PedOS is significantly affected by an XSA, a [PedOS Security Bulletin (QSB)][QSB] is published, and a link to that QSB is added to the row for the associated XSA.
 
-Under the "Is Qubes Affected?" column, there are two possible values: **Yes** or **No**.
+Under the "Is PedOS Affected?" column, there are two possible values: **Yes** or **No**.
 
-* **Yes** means that the *security* of Qubes OS *is* affected.
-* **No** means that the *security* of Qubes OS is *not* affected.
+* **Yes** means that the *security* of PedOS *is* affected.
+* **No** means that the *security* of PedOS is *not* affected.
 
 
 Important Notes
 ---------------
-* For the purpose of this tracker, we do *not* classify mere [denial-of-service (DoS) attacks][DoS] as affecting the *security* of Qubes OS.
-  Therefore, if an XSA pertains *only* to DoS attacks against Qubes, the value in the "Is Qubes Affected?" column will be **No**.
-* For simplicity, we use the present tense ("is affected") throughout this page, but this does **not** necessarily mean that up-to-date Qubes installations are *currently* affected by any particular XSA.
-  In fact, it is extremely unlikely that any up-to-date Qubes installations are vulnerable to any XSAs on this page, since patches are almost always published concurrently with QSBs.
+* For the purpose of this tracker, we do *not* classify mere [denial-of-service (DoS) attacks][DoS] as affecting the *security* of PedOS.
+  Therefore, if an XSA pertains *only* to DoS attacks against PedOS, the value in the "Is PedOS Affected?" column will be **No**.
+* For simplicity, we use the present tense ("is affected") throughout this page, but this does **not** necessarily mean that up-to-date PedOS installations are *currently* affected by any particular XSA.
+  In fact, it is extremely unlikely that any up-to-date PedOS installations are vulnerable to any XSAs on this page, since patches are almost always published concurrently with QSBs.
   Please read the QSB (if any) for each XSA for patching details.
-* Embargoed XSAs are excluded from this tracker until they are publicly released, since the [Xen Security Policy] does not permit us to state whether Qubes is affected prior to the embargo date.
+* Embargoed XSAs are excluded from this tracker until they are publicly released, since the [Xen Security Policy] does not permit us to state whether PedOS is affected prior to the embargo date.
 * Unused and withdrawn XSA numbers are included in the tracker for the sake of completeness, but they are excluded from the [Statistics] section for the sake of accuracy.
 * All dates are in UTC.
 
@@ -53,8 +53,8 @@ Statistics
 
 * Total time span: **{{ timespan_human }} years** ({{ date_first }} to {{ date_last }})
 * Total XSAs published: **{{ xsa_used | round }}**
-* Total XSAs affecting Qubes OS: **{{ xsa_affected | round }}**
-* Percentage of XSAs affecting Qubes OS: **{{ affected_percentage }}%**
+* Total XSAs affecting PedOS: **{{ xsa_affected | round }}**
+* Percentage of XSAs affecting PedOS: **{{ affected_percentage }}%**
 
 Tracker
 -------
@@ -63,7 +63,7 @@ Tracker
     <th title="Anchor Link"><span class="fa fa-link"></span></th>
     <th>Date</th>
     <th title="Xen Security Advisory">XSA</th>
-    <th>Is Qubes Affected?</th>
+    <th>Is PedOS Affected?</th>
   </tr>
 {% for xsa in site.data.xsa reversed %}
   <tr id="{{ xsa.xsa }}">
@@ -83,14 +83,14 @@ Tracker
       {% if xsa.unused %}
         No (unused or withdrawn XSA number)
       {% elsif xsa.mitigation %}
-        No (<a href="#{{ xsa.mitigation }}" title="No, the security of Qubes OS is not affected by XSA-{{ xsa.xsa }}. Click to read the explanation.">{{ xsa.mitigation }}</a>)
+        No (<a href="#{{ xsa.mitigation }}" title="No, the security of PedOS is not affected by XSA-{{ xsa.xsa }}. Click to read the explanation.">{{ xsa.mitigation }}</a>)
       {% else %}
-        <span title="No, the security of Qubes OS is not affected by XSA-{{ xsa.xsa }}.">No</span>
+        <span title="No, the security of PedOS is not affected by XSA-{{ xsa.xsa }}.">No</span>
       {% endif %}
     {% elsif xsa.affected == true %}
-      <span title="Yes, the security of Qubes OS is affected by XSA-{{ xsa.xsa }}.">Yes</span>
+      <span title="Yes, the security of PedOS is affected by XSA-{{ xsa.xsa }}.">Yes</span>
       {% if xsa.qsb %}
-        | <a href="https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-{{ xsa.qsb }}.txt" title="Qubes Security Bulletin {{ xsa.qsb }}">QSB-{{ xsa.qsb }}&nbsp;<span class="fa fa-external-link"></span></a>
+        | <a href="https://github.com/PedOS/PedOS-secpack/blob/master/QSBs/qsb-{{ xsa.qsb }}.txt" title="PedOS Security Bulletin {{ xsa.qsb }}">QSB-{{ xsa.qsb }}&nbsp;<span class="fa fa-external-link"></span></a>
       {% endif %}
     {% elsif xsa.affected == "tba" %}
       {% if xsa.tba %}

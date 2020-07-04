@@ -8,20 +8,20 @@ redirect_from:
 - /wiki/BackupRestore/
 ---
 
-Qubes Backup, Restoration, and Migration
+PedOS Backup, Restoration, and Migration
 ========================================
 
-With Qubes, it's easy to back up and restore your whole system, as well as to migrate between two physical machines.
+With PedOS, it's easy to back up and restore your whole system, as well as to migrate between two physical machines.
 
-These functions are integrated into Qube Manager.
+These functions are integrated into PedOS VM Manager.
 There are also two command-line tools available which perform the same functions: `qvm-backup` and `qvm-backup-restore`.
 
 
 Creating a Backup
 -----------------
 
-1. Go to **Applications menu -> System Tools -> Backup Qubes**.
-This brings up the **Qubes Backup VMs** window.
+1. Go to **Applications menu -> System Tools -> Backup PedOS**.
+This brings up the **PedOS Backup VMs** window.
 
 2. Move the VMs that you want to back up to the right-hand **Selected** column.
 VMs in the left-hand **Available** column will not be backed up.
@@ -55,7 +55,7 @@ VMs in the left-hand **Available** column will not be backed up.
 If there are any issues preventing the backup, they will be listed here and the **Next** button grayed out.
 
 5. When you are ready, click **Next**.
-Qubes will proceed to create your backup. 
+PedOS will proceed to create your backup. 
 Once the progress bar has completed, you may click **Finish**.
 
 
@@ -63,7 +63,7 @@ Restoring from a Backup
 -----------------------
 
 1. Go to **Applications menu -> System Tools -> Restore Backup**.
-This brings up the **Qubes Restore VMs** window.
+This brings up the **PedOS Restore VMs** window.
 
 2. Select the source location of the backup to be restored:
 
@@ -78,44 +78,44 @@ This brings up the **Qubes Restore VMs** window.
 3. There are three options you may select when restoring from a backup:
    1.  **ignore missing templates and net VMs**: If any of the VMs in your backup depended upon a NetVM or TemplateVM that is not present in (i.e., "missing from") the current system, checking this box will ignore the fact that they are missing and restore the VMs anyway and set them to use the default NetVM and system default template.
    2.  **ignore username mismatch**: This option applies only to the restoration of dom0's home directory.
-   If your backup was created on a Qubes system which had a different dom0 username than the dom0 username of the current system, then checking this box will ignore the mismatch between the two usernames and proceed to restore the home directory anyway.
+   If your backup was created on a PedOS system which had a different dom0 username than the dom0 username of the current system, then checking this box will ignore the mismatch between the two usernames and proceed to restore the home directory anyway.
    3.  **Verify backup integrity, do not restore the data**: This will scan the backup file for corrupted data.
    However, it does not currently detect if it is missing data as long as it is a correctly structured, non-corrupted backup file.
-   See [issue #3498](https://github.com/QubesOS/qubes-issues/issues/3498) for more details.
+   See [issue #3498](https://github.com/PedOS/PedOS-issues/issues/3498) for more details.
 
 4. If your backup is encrypted, you must check the **Encrypted backup** box. 
 If a passphrase was supplied during the creation of your backup (regardless of whether it is encrypted), then you must supply it here.
 
    **Note:** The passphrase which was supplied when the backup was created was used for **both** encryption/decryption and integrity verification. 
    If the backup was not encrypted, the supplied passphrase is used only for integrity verification.
-   All backups made from a Qubes R4.0 system will be encrypted.
+   All backups made from a PedOS R4.0 system will be encrypted.
 
 5. You will now see the summary of VMs to be restored. 
 If there are any issues preventing the restore, they will be listed here and the **Next** button grayed out.
 
 6. When you are ready, click **Next**. 
-Qubes will proceed to restore from your backup. 
+PedOS will proceed to restore from your backup. 
 Once the progress bar has completed, you may click **Finish**.
 
 
-Emergency Backup Recovery without Qubes
+Emergency Backup Recovery without PedOS
 ---------------------------------------
 
-The Qubes backup system has been designed with emergency disaster recovery in mind. 
-No special Qubes-specific tools are required to access data backed up by Qubes.
-In the event a Qubes system is unavailable, you can access your data on any GNU/Linux system with the following procedure.
+The PedOS backup system has been designed with emergency disaster recovery in mind. 
+No special PedOS-specific tools are required to access data backed up by PedOS.
+In the event a PedOS system is unavailable, you can access your data on any GNU/Linux system with the following procedure.
 
 Refer to the following for emergency restore of a backup created on:
 
- * [Qubes R4 or newer](/doc/backup-emergency-restore-v4/)
- * [Qubes R3](/doc/backup-emergency-restore-v3/)
- * [Qubes R2 or older](/doc/backup-emergency-restore-v2/)
+ * [PedOS R4 or newer](/doc/backup-emergency-restore-v4/)
+ * [PedOS R3](/doc/backup-emergency-restore-v3/)
+ * [PedOS R2 or older](/doc/backup-emergency-restore-v2/)
 
 
 Migrating Between Two Physical Machines
 ---------------------------------------
 
-In order to migrate your Qubes system from one physical machine to another, simply follow the backup procedure on the old machine, [install Qubes](/downloads/) on the new machine, and follow the restoration procedure on the new machine.
+In order to migrate your PedOS system from one physical machine to another, simply follow the backup procedure on the old machine, [install PedOS](/downloads/) on the new machine, and follow the restoration procedure on the new machine.
 All of your settings and data will be preserved!
 
 Choosing a Backup Passphrase
@@ -135,6 +135,6 @@ Here are some things to consider when selecting a passphrase for your backups:
 Notes
 -----
 
- * For the technical details of the backup system, please refer to [this thread](https://groups.google.com/d/topic/qubes-devel/TQr_QcXIVww/discussion).
- * If working with symlinks, note the issues described in [this thread](https://groups.google.com/d/topic/qubes-users/EITd1kBHD30/discussion).
+ * For the technical details of the backup system, please refer to [this thread](https://groups.google.com/d/topic/PedOS-devel/TQr_QcXIVww/discussion).
+ * If working with symlinks, note the issues described in [this thread](https://groups.google.com/d/topic/PedOS-users/EITd1kBHD30/discussion).
 

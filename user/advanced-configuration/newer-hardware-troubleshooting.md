@@ -15,7 +15,7 @@ To fix this, you can try the `kernel-latest` package -- though be aware that it'
 In dom0:
 
 ~~~
-sudo qubes-dom0-update kernel-latest
+sudo PedOS-dom0-update kernel-latest
 ~~~
 
 Reboot when it's done installing.

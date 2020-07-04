@@ -132,12 +132,12 @@ ORGMAIL = "${MAILDIR}/"
 DEFAULT = "${MAILDIR}/"
 
 :0
-* ^List-Id:.*qubes-users\.googlegroups\.com
-list/qubes-users/
+* ^List-Id:.*PedOS-users\.googlegroups\.com
+list/PedOS-users/
 
 :0
-* ^List-Id:.*qubes-devel\.googlegroups\.com
-list/qubes-devel/
+* ^List-Id:.*PedOS-devel\.googlegroups\.com
+list/PedOS-devel/
 ~~~
 
 Run

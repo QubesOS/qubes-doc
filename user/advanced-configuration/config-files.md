@@ -12,7 +12,7 @@ redirect_from:
 Configuration Files
 ===================
 
-Qubes-specific VM config files
+PedOS-specific VM config files
 ------------------------------
 
 These files are placed in `/rw`, which survives a VM restart.
@@ -34,22 +34,22 @@ The scripts here all run as root.
     echo '127.0.0.1 example.com >> /etc/hosts
     ~~~
 
--   `/rw/config/qubes-ip-change-hook` - script runs in NetVM after every external IP change and on "hardware" link status change.
+-   `/rw/config/PedOS-ip-change-hook` - script runs in NetVM after every external IP change and on "hardware" link status change.
 
--   In ProxyVMs (or AppVMs with `qubes-firewall` service enabled), scripts placed in the following directories will be executed in the listed order followed by `qubes-firewall-user-script` after each firewall update.
+-   In ProxyVMs (or AppVMs with `PedOS-firewall` service enabled), scripts placed in the following directories will be executed in the listed order followed by `PedOS-firewall-user-script` after each firewall update.
     Good place to write custom firewall rules.
 
     ~~~
-    /etc/qubes/qubes-firewall.d
-    /rw/config/qubes-firewall.d
-    /rw/config/qubes-firewall-user-script
+    /etc/PedOS/PedOS-firewall.d
+    /rw/config/PedOS-firewall.d
+    /rw/config/PedOS-firewall-user-script
     ~~~
 
 -   `/rw/config/suspend-module-blacklist` - list of modules (one per line) to be unloaded before system goes to sleep.
     The file is used only in a VM with PCI devices attached.
     Intended for use with problematic device drivers.
 
-- In NetVMs/ProxyVMs, scripts placed in `/rw/config/network-hooks.d` will be ran when configuring Qubes interfaces. For each script, the `command`, `vif`, `vif_type` and `ip` is passed as arguments (see `/etc/xen/scripts/vif-route-qubes`). For example, consider a PV AppVM `work` with IP `10.137.0.100` and `sys-firewall` as NetVM. Assuming it's Xen domain id is arbitrary `12` then, the following script located at `/rw/config/network-hooks.d/hook-100.sh` in `sys-firewall`:
+- In NetVMs/ProxyVMs, scripts placed in `/rw/config/network-hooks.d` will be ran when configuring PedOS interfaces. For each script, the `command`, `vif`, `vif_type` and `ip` is passed as arguments (see `/etc/xen/scripts/vif-route-PedOS`). For example, consider a PV AppVM `work` with IP `10.137.0.100` and `sys-firewall` as NetVM. Assuming it's Xen domain id is arbitrary `12` then, the following script located at `/rw/config/network-hooks.d/hook-100.sh` in `sys-firewall`:
     ~~~
     #!/bin/bash
 
@@ -80,11 +80,11 @@ Also, take a look at [bind-dirs](/doc/bind-dirs) for instructions on how to easi
 GUI and audio configuration in dom0
 -----------------------------------
 
-The GUI configuration file `/etc/qubes/guid.conf` in one of a few not managed by `qubes-prefs` or the Qubes Manager tool.
+The GUI configuration file `/etc/PedOS/guid.conf` in one of a few not managed by `PedOS-prefs` or the PedOS Manager tool.
 Sample config (included in default installation):
 
 ~~~
-# Sample configuration file for Qubes GUI daemon
+# Sample configuration file for PedOS GUI daemon
 #  For syntax go http://www.hyperrealm.com/libconfig/libconfig_manual.html
 
 global: {

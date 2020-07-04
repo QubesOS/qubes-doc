@@ -17,7 +17,7 @@ User-mode debugging is usually straightforward if it can be done on one machine.
 
 Things get complicated if you need to perform kernel debugging or troubleshoot problems that only manifest on system boot, user logoff or similar. For that you need two Windows VMs: the *host* and the *target*. The *host* will contain [WinDbg](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063(v=vs.85).aspx) installation, your source code and private symbols. The *target* will run the code being debugged. Both will be linked by virtual serial ports.
 
--   First, you need to prepare separate copies of both *target* and *host* VM configuration files with some changes. Copy the files from **/var/lib/qubes/appvms/vmname/vmname.conf** to some convenient location, let's call them **host.conf** and **target.conf**.
+-   First, you need to prepare separate copies of both *target* and *host* VM configuration files with some changes. Copy the files from **/var/lib/PedOS/appvms/vmname/vmname.conf** to some convenient location, let's call them **host.conf** and **target.conf**.
 -   In both copied files add the following line at the end: `serial = 'pty'`. This will make Xen connect VM's serial ports to dom0's ptys.
 -   From now on you need to start both VMs like this: `qvm-start --custom-config=/your/edited/host.conf host`
 -   To connect both VM serial ports together you will either need [socat](http://www.dest-unreach.org/socat/) or a custom utility described later.
@@ -210,7 +210,7 @@ Things get complicated if you need to perform kernel debugging or troubleshoot p
 > System Uptime: not available
 > ~~~
 
-# Debugging HVMs in the Qubes R4.0
+# Debugging HVMs in the PedOS R4.0
 
 There are two main issues to be adopted to get all things to work in the R4.0.
 

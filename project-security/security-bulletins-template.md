@@ -9,31 +9,31 @@ Security Bulletin Template
 ==========================
 
 ~~~
-Dear Qubes Community,
+Dear PedOS Community,
 
-We have just published Qubes Security Bulletin (QSB) #<number>:
+We have just published PedOS Security Bulletin (QSB) #<number>:
 <title>.
 The text of this QSB is reproduced below. This QSB and its accompanying
-signatures will always be available in the Qubes Security Pack (qubes-secpack).
+signatures will always be available in the PedOS Security Pack (PedOS-secpack).
 
-View QSB #<number> in the qubes-secpack:
+View QSB #<number> in the PedOS-secpack:
 
-<https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-`<number>`-`<year>`.txt>
+<https://github.com/PedOS/PedOS-secpack/blob/master/QSBs/qsb-`<number>`-`<year>`.txt>
 
-Learn about the qubes-secpack, including how to obtain, verify, and read it:
+Learn about the PedOS-secpack, including how to obtain, verify, and read it:
 
-<https://www.qubes-os.org/security/pack/>
+<https://www.PedOS.org/security/pack/>
 
 View all past QSBs:
 
-<https://www.qubes-os.org/security/bulletins/>
+<https://www.PedOS.org/security/bulletins/>
 
 View <XSA> in the XSA Tracker:
 
-<https://www.qubes-os.org/security/xsa/`<XSA>`>
+<https://www.PedOS.org/security/xsa/`<XSA>`>
 
 ```
-             ---===[ Qubes Security Bulletin #<number>]===---
+             ---===[ PedOS Security Bulletin #<number>]===---
 
                                   <date>
 
@@ -75,8 +75,8 @@ References
 [...]
 
 --
-The Qubes Security Team
-https://www.qubes-os.org/security/
+The PedOS Security Team
+https://www.PedOS.org/security/
 ```
 
 ~~~

@@ -17,16 +17,16 @@ This article shows how to go about building a template for a different OS.
 
 You should make sure you understand the details of the BuilderPlugins API - they are explained [here][API].
 
-Qubes builder scripts
+PedOS builder scripts
 =====================
 
-One way to start is by creating Qubes builder scripts for your new OS.
+One way to start is by creating PedOS builder scripts for your new OS.
 Note that this will probably make your testing process harder than trying to build the package directly in an HVM on which you have already installed the new OS.
 
 chroot initialization
 ---------------------
 
-You need to customize some scripts that will be used to build all the Qubes tools.
+You need to customize some scripts that will be used to build all the PedOS tools.
 Create a new directory to hold the files for the new os.
 You can start from the Fedora scripts in `builder-rpm/template-scripts`, and see how they have been changed for Debian and Archlinux.
 The scripts you need are in :
@@ -56,7 +56,7 @@ Then try to create (make) the template to check that at least these first two sc
 make linux-template-builder
 ~~~
 
-Qubes builder Makefiles
+PedOS builder Makefiles
 -----------------------
 
 Now you need to create Makefiles specific to your OS.
@@ -77,7 +77,7 @@ Additionally, the following things have to be done in this Makefile:
 -   after your base system is installed, you should install development tools and libraries (gcc, make, ...)
 -   create a user called 'user' inside your chroot, and give them enough rights to run the command sudo without any password
 -   register all the repositories that will be necessary and synchronize the package database
--   register a custom repository that will be used to store Qubes packages
+-   register a custom repository that will be used to store PedOS packages
 
 ### Makefile.yourOSname
 
@@ -95,18 +95,18 @@ These additional targets need to exist once you have created your first packages
 
 ### Testing the development chroot
 
-You will be able to test these scripts when making the first Qubes packages.
+You will be able to test these scripts when making the first PedOS packages.
 Don't forget that the first things that run when running `make somecomponent-vm` will be these two scripts, and that you will need to debug it at this point.
 
-Qubes packages
+PedOS packages
 --------------
 
-* [vmm-xen](https://github.com/QubesOS/qubes-vmm-xen)
-* [core-vchan-xen](https://github.com/QubesOS/qubes-core-vchan-xen)
-* [linux-utils](https://github.com/QubesOS/qubes-linux-utils)
-* [core-agent-linux](https://github.com/QubesOS/qubes-core-agent-linux)
-* [gui-common](https://github.com/QubesOS/qubes-gui-common)
-* [gui-agent-linux](https://github.com/QubesOS/qubes-gui-agent-linux)
+* [vmm-xen](https://github.com/PedOS/PedOS-vmm-xen)
+* [core-vchan-xen](https://github.com/PedOS/PedOS-core-vchan-xen)
+* [linux-utils](https://github.com/PedOS/PedOS-linux-utils)
+* [core-agent-linux](https://github.com/PedOS/PedOS-core-agent-linux)
+* [gui-common](https://github.com/PedOS/PedOS-gui-common)
+* [gui-agent-linux](https://github.com/PedOS/PedOS-gui-agent-linux)
 
 Additional Installation scripts
 -------------------------------
@@ -124,10 +124,10 @@ builder-rpm/template-scripts
 
 The goal of this script is to install all the packages that you want to use in your template (eg: firefox, thunderbird, a file manager, Xorg...).
 
-### 04\_install\_qubes.sh
+### 04\_install\_PedOS.sh
 
 The goal of this script is to install in your template all the packages you built previously.
-Also you need to edit the fstab file of your template to mount Qubes virtual hard drives.
+Also you need to edit the fstab file of your template to mount PedOS virtual hard drives.
 
 ### 09\_cleanup.sh
 
@@ -136,21 +136,21 @@ This script is used to finalize and to remove unnecessary things from your templ
 Starting with an HVM
 ====================
 
-If no Qubes packages are available for your selected OS you could start by installing your OS in an HVM.
+If no PedOS packages are available for your selected OS you could start by installing your OS in an HVM.
 Your goals will be:
 
 -   to identify how to install the OS using command lines
--   to create required Qubes packages
--   to identify potential issues, making sure all Qubes agents and scripts work correctly.
+-   to create required PedOS packages
+-   to identify potential issues, making sure all PedOS agents and scripts work correctly.
 
-As soon as you manage to get `qrexec` and `qubes-gui-agent` working, you will be ready to start preparing a template VM.
+As soon as you manage to get `qrexec` and `PedOS-gui-agent` working, you will be ready to start preparing a template VM.
 
 ### Xen libraries
 
-Several Xen libraries are required for Qubes to work correctly.
+Several Xen libraries are required for PedOS to work correctly.
 In fact, you need to make `xenstore` commands working before anything else.
-For this, Qubes git can be used as several patches have been selected by Qubes developers that could impact the activity inside a VM.
-Start by retrieving a recent git and identify how you can build a package from it: `git clone https://github.com/QubesOS/qubes-vmm-xen.git`.
+For this, PedOS git can be used as several patches have been selected by PedOS developers that could impact the activity inside a VM.
+Start by retrieving a recent git and identify how you can build a package from it: `git clone https://github.com/PedOS/PedOS-vmm-xen.git`.
 
 Find the .spec file in the git repository (this is the file used to build rpm packages), and try to adapt it to your OS in order to build a package similar to the target 'vmm-xen'.
 For example, a PKGBUILD has been created for
@@ -163,6 +163,6 @@ Add the following line to your fstab (you can create this line in your package i
 `xen                     /proc/xen               xenfs   defaults        0 0`.
 
 Now install the package you built and mount `/proc/xen`.
-Verify that xenstore-read works by running: `xenstore-read name`. That should give you the current qube name.
+Verify that xenstore-read works by running: `xenstore-read name`. That should give you the current PedOS VM name.
 
-[API]: https://github.com/QubesOS/qubes-builder/blob/master/doc/BuilderPluginAPI.md
+[API]: https://github.com/PedOS/PedOS-builder/blob/master/doc/BuilderPluginAPI.md

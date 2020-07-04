@@ -1,7 +1,7 @@
 ---
 layout: doc
-title:  USB Qubes
-permalink: /doc/usb-qubes/
+title:  USB PedOS
+permalink: /doc/usb-PedOS/
 redirect_from:
 - /doc/usbvm/
 - /en/doc/usbvm/
@@ -10,86 +10,86 @@ redirect_from:
 - /doc/sys-usb/
 ---
 
-# USB Qubes #
+# USB PedOS #
 
-If during installation you enabled the creation of a USB-qube, your system should be setup already and none of the mentioned steps here should be necessary. (Unless you want to [remove your USB-qube].) If for any reason no USB-qube was created during installation, this guide will show you how to do so.
+If during installation you enabled the creation of a USB-PedOS VM, your system should be setup already and none of the mentioned steps here should be necessary. (Unless you want to [remove your USB-PedOS VM].) If for any reason no USB-PedOS VM was created during installation, this guide will show you how to do so.
 
 **Caution:** If you want to use a USB-keyboard, please beware of the possibility to lock yourself out! To avoid this problem [enable your keyboard for login]!
 
 
-## Creating and Using a USB qube ##
+## Creating and Using a USB PedOS VM ##
 
-**Warning:** This has the potential to prevent you from connecting a keyboard to Qubes via USB.
+**Warning:** This has the potential to prevent you from connecting a keyboard to PedOS via USB.
 There are problems with doing this in an encrypted install (LUKS).
 If you find yourself in this situation, see this [issue][2270-comm23].
 
-A USB qube acts as a secure handler for potentially malicious USB devices, preventing them from coming into contact with dom0 (which could otherwise be fatal to the security of the whole system). It thereby mitigates some of the [security implications] of using USB devices.
-With a USB qube, every time you connect an untrusted USB drive to a USB port managed by that USB controller, you will have to attach it to the qube in which you wish to use it (if different from the USB qube itself), either by using Qubes VM Manager or the command line (see instructions above).
-The USB controller may be assigned on the **Devices** tab of a qube's settings page in Qubes VM Manager or by using the [qvm-pci][PCI Devices] command.
+A USB PedOS VM acts as a secure handler for potentially malicious USB devices, preventing them from coming into contact with dom0 (which could otherwise be fatal to the security of the whole system). It thereby mitigates some of the [security implications] of using USB devices.
+With a USB PedOS VM, every time you connect an untrusted USB drive to a USB port managed by that USB controller, you will have to attach it to the PedOS VM in which you wish to use it (if different from the USB PedOS VM itself), either by using PedOS VM Manager or the command line (see instructions above).
+The USB controller may be assigned on the **Devices** tab of a PedOS VM's settings page in PedOS VM Manager or by using the [qvm-pci][PCI Devices] command.
 For guidance on finding the correct USB controller, see the [according passage on PCI-devices][usb-controller].
-You can create a USB qube using the management stack by performing the following steps as root in dom0:
+You can create a USB PedOS VM using the management stack by performing the following steps as root in dom0:
 
-    sudo qubesctl state.sls qvm.sys-usb
+    sudo PedOSctl state.sls qvm.sys-usb
 
-Alternatively, you can create a USB qube manually as follows:
+Alternatively, you can create a USB PedOS VM manually as follows:
 
  1.  Read the [PCI Devices] page to learn how to list and identify your USB controllers.
-     Carefully check whether you have a USB controller that would be appropriate to assign to a USB qube.
+     Carefully check whether you have a USB controller that would be appropriate to assign to a USB PedOS VM.
      Note that it should be free of input devices, programmable devices, and any other devices that must be directly available to dom0.
      If you find a free controller, note its name and proceed to step 2.
- 2.  Create a new qube.
+ 2.  Create a new PedOS VM.
      Give it an appropriate name and color label (recommended: `sys-usb`, red).
- 3.  In the qube's settings, go to the "Devices" tab.
+ 3.  In the PedOS VM's settings, go to the "Devices" tab.
      Find the USB controller that you identified in step 1 in the "Available" list.
      Move it to the "Selected" list by highlighting it and clicking the single arrow `>` button.
 
-     **Caution:** By assigning a USB controller to a USB qube, it will no longer be available to dom0.
-     This can make your system unusable if, for example, you have only one USB controller, and you are running Qubes off of a USB drive.
+     **Caution:** By assigning a USB controller to a USB PedOS VM, it will no longer be available to dom0.
+     This can make your system unusable if, for example, you have only one USB controller, and you are running PedOS off of a USB drive.
 
  4.  Click `OK`.
-     Restart the qube.
+     Restart the PedOS VM.
  5.  Recommended: Check the box on the "Basic" tab which says "Start VM automatically on boot".
      (This will help to mitigate attacks in which someone forces your system to reboot, then plugs in a malicious USB device.)
 
-If the USB qube will not start, please have a look at the [faq].
+If the USB PedOS VM will not start, please have a look at the [faq].
 
 
 ## Enable a USB keyboard for login ##
 
 **Caution:** Please carefully read the [Security Warning about USB Input Devices] before proceeding!
 
-If you use USB keyboard, automatic USB qube creation during installation is disabled.
+If you use USB keyboard, automatic USB PedOS VM creation during installation is disabled.
 Additional steps are required to avoid locking you out from the system.
 Those steps are not performed by default, because of risk explained in [Security Warning about USB Input Devices].
 
 
 ### Automatic setup ###
 
-To allow USB keyboard usage (including early boot for LUKS passphrase), make sure you have the latest `qubes-mgmt-salt-dom0-virtual-machines` package (simply [install dom0 updates]) and execute in dom0:
+To allow USB keyboard usage (including early boot for LUKS passphrase), make sure you have the latest `PedOS-mgmt-salt-dom0-virtual-machines` package (simply [install dom0 updates]) and execute in dom0:
 
-    sudo qubesctl state.sls qvm.usb-keyboard
+    sudo PedOSctl state.sls qvm.usb-keyboard
 
-The above command will take care of all required configuration, including creating USB qube if not present.
+The above command will take care of all required configuration, including creating USB PedOS VM if not present.
 Note that it will expose dom0 to USB devices while entering LUKS passphrase.
 Users are advised to physically disconnect other devices from the system for that time, to minimize the risk.
 
-To undo these changes, please follow the section on [**Removing a USB qube**][remove your USB-qube]!
+To undo these changes, please follow the section on [**Removing a USB PedOS VM**][remove your USB-PedOS VM]!
 
 If you wish to perform only a subset of this configuration (for example do not enable USB keyboard during boot), see manual instructions below.
 
 
 ### Manual setup ###
 
-In order to use a USB keyboard, you must first attach it to a USB qube, then give that qube permission to pass keyboard input to dom0.
-Edit the `qubes.InputKeyboard` policy file in dom0, which is located here:
+In order to use a USB keyboard, you must first attach it to a USB PedOS VM, then give that PedOS VM permission to pass keyboard input to dom0.
+Edit the `PedOS.InputKeyboard` policy file in dom0, which is located here:
 
-    /etc/qubes-rpc/policy/qubes.InputKeyboard
+    /etc/PedOS-rpc/policy/PedOS.InputKeyboard
 
 Add a line like this one to the top of the file:
 
     sys-usb dom0 allow
 
-(Change `sys-usb` to your desired USB qube.)
+(Change `sys-usb` to your desired USB PedOS VM.)
 
 You can now use your USB keyboard to login and for LUKS decryption during boot.
 
@@ -100,7 +100,7 @@ For a confirmation dialog each time the USB keyboard is connected, *which will e
 *Don't do that if you want to unlock your device with a USB keyboard!*
 
 Additionally, if you want to use USB keyboard to enter LUKS passphrase, it is incompatible with [hiding USB controllers from dom0].
-You need to revert that procedure (remove `rd.qubes.hide_all_usb` option from files mentioned there) and employ alternative protection during system boot - disconnect other devices during startup.
+You need to revert that procedure (remove `rd.PedOS.hide_all_usb` option from files mentioned there) and employ alternative protection during system boot - disconnect other devices during startup.
 
 
 ## Auto Enabling A USB Mouse ##
@@ -109,34 +109,34 @@ You need to revert that procedure (remove `rd.qubes.hide_all_usb` option from fi
 
 Handling a USB mouse isn't as critical as handling a keyboard, since you can login using the keyboard and accept the popup dialogue using your keyboard alone.
 
-If you want to attach the USB mouse automatically anyway, you have to edit the `qubes.InputMouse` policy file in dom0, located at:
+If you want to attach the USB mouse automatically anyway, you have to edit the `PedOS.InputMouse` policy file in dom0, located at:
 
-    /etc/qubes-rpc/policy/qubes.InputMouse
+    /etc/PedOS-rpc/policy/PedOS.InputMouse
 
 The first line should read similar to:
 
     sys-usb dom0 ask,default_target=dom0
 
-which will ask for conformation each time a USB mouse is attached. If the file is empty or does not exist, maybe something went wrong during setup, try to rerun `qubesctl state.sls qvm.sys-usb` in dom0.
+which will ask for conformation each time a USB mouse is attached. If the file is empty or does not exist, maybe something went wrong during setup, try to rerun `PedOSctl state.sls qvm.sys-usb` in dom0.
 
 In case you are absolutely sure you do not want to confirm mouse access from `sys-usb` to `dom0`, you may add the following line on top of the file:
 
     sys-usb dom0 allow
     
-(Change `sys-usb` to your desired USB qube.)
+(Change `sys-usb` to your desired USB PedOS VM.)
 
 
 ## How to hide all USB controllers from dom0 ##
 
-(Note: `rd.qubes.hide_all_usb` is set automatically if you opt to create a USB qube during installation.
-This also occurs automatically if you choose to [create a USB qube] using the `qubesctl` method, which is the
+(Note: `rd.PedOS.hide_all_usb` is set automatically if you opt to create a USB PedOS VM during installation.
+This also occurs automatically if you choose to [create a USB PedOS VM] using the `PedOSctl` method, which is the
 first pair of steps in the linked section.)
 
 **Warning:** A USB keyboard cannot be used to type the disk passphrase if USB controllers were hidden from dom0.
 Before hiding USB controllers, make sure your laptop keyboard is not internally connected via USB (by checking output of the `lsusb` command) or that you have a PS/2 keyboard at hand (if using a desktop PC).
 Failure to do so will render your system unusable.
 
-If you create a USB qube manually, there will be a brief period of time during the boot process when dom0 will be exposed to your USB controllers (and any attached devices).
+If you create a USB PedOS VM manually, there will be a brief period of time during the boot process when dom0 will be exposed to your USB controllers (and any attached devices).
 This is a potential security risk, since even brief exposure to a malicious USB device could result in dom0 being compromised.
 There are two approaches to this problem:
 
@@ -153,50 +153,50 @@ The procedure to hide all USB controllers from dom0 is as follows:
 
  1. Open the file `/etc/default/grub` in dom0.
  2. Find the line that begins with `GRUB_CMDLINE_LINUX`.
- 3. Add `rd.qubes.hide_all_usb` to that line.
+ 3. Add `rd.PedOS.hide_all_usb` to that line.
  4. Save and close the file.
  5. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
  6. Reboot.
 
  * EFI
  
- 1. Open the file `/boot/efi/EFI/qubes/xen.cfg` in dom0.
+ 1. Open the file `/boot/efi/EFI/PedOS/xen.cfg` in dom0.
  2. Find the lines that begin with `kernel=`. There may be more than one.
- 3. Add `rd.qubes.hide_all_usb` to those lines.
+ 3. Add `rd.PedOS.hide_all_usb` to those lines.
  4. Save and close the file.
  5. Reboot.
 
 
-## Removing a USB qube ##
+## Removing a USB PedOS VM ##
 
 **Warning:** This procedure will result in your USB controller(s) being attached directly to dom0.
 
  * GRUB2
  
- 1. Shut down the USB qube.
- 2. In Qubes Manager, right-click on the USB qube and select "Remove VM."
+ 1. Shut down the USB PedOS VM.
+ 2. In PedOS Manager, right-click on the USB PedOS VM and select "Remove VM."
  3. Open the file `/etc/default/grub` in dom0.
  4. Find the line(s) that begins with `GRUB_CMDLINE_LINUX`.
- 5. If `rd.qubes.hide_all_usb` appears anywhere in those lines, remove it.
+ 5. If `rd.PedOS.hide_all_usb` appears anywhere in those lines, remove it.
  6. Save and close the file.
  7. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
  8. Reboot.
 
  * EFI
  
- 1. Shut down the USB qube.
- 2. In Qubes Manager, right-click on the USB qube and select "Remove VM."
- 3. Open the file `/boot/efi/EFI/qubes/xen.cfg` in dom0.
+ 1. Shut down the USB PedOS VM.
+ 2. In PedOS Manager, right-click on the USB PedOS VM and select "Remove VM."
+ 3. Open the file `/boot/efi/EFI/PedOS/xen.cfg` in dom0.
  4. Find the line(s) that begins with `kernel=`.
- 5. If `rd.qubes.hide_all_usb` appears anywhere in those lines, remove it.
+ 5. If `rd.PedOS.hide_all_usb` appears anywhere in those lines, remove it.
  6. Save and close the file.
  7. Reboot.
 
 
-[remove your USB-qube]: #removing-a-usb-qube
+[remove your USB-PedOS VM]: #removing-a-usb-PedOS VM
 [security implications]: /doc/device-handling-security/#usb-security
 [enable your keyboard for login]: #enable-a-usb-keyboard-for-login
-[2270-comm23]: https://github.com/QubesOS/qubes-issues/issues/2270#issuecomment-242900312
+[2270-comm23]: https://github.com/PedOS/PedOS-issues/issues/2270#issuecomment-242900312
 [PCI Devices]: /doc/pci-devices/
 [usb-controller]: /doc/usb-devices/#finding-the-right-usb-controller
 [faq]: /faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot
@@ -204,5 +204,5 @@ The procedure to hide all USB controllers from dom0 is as follows:
 [install dom0 updates]: /doc/software-update-dom0/#how-to-update-dom0
 [hiding USB controllers from dom0]: #how-to-hide-all-usb-controllers-from-dom0
 [AEM]: /doc/anti-evil-maid/
-[create a USB qube]: #creating-and-using-a-usb-qube
+[create a USB PedOS VM]: #creating-and-using-a-usb-PedOS VM
 

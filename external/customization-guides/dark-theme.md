@@ -22,7 +22,7 @@ This is the result after applying the steps described here.
 
     1. Open the `Workspace Appearance` window
 
-            Qubes Menu -> System Tools -> System Settings -> Workspace Appearance
+            PedOS Menu -> System Tools -> System Settings -> Workspace Appearance
 
         ![Workspace Appearance](/attachment/wiki/Dark-Theme/kde-app-appearance-menu-style.png)
 
@@ -38,7 +38,7 @@ This is the result after applying the steps described here.
 
     1. Adjust Oxygen `Details`
 
-            Qubes Menu -> System Tools -> System Settings -> Workspace Appearance -> Desktop Theme -> Details (Tab)
+            PedOS Menu -> System Tools -> System Settings -> Workspace Appearance -> Desktop Theme -> Details (Tab)
 
     2. Select `Oxygen`
 
@@ -54,7 +54,7 @@ This is the result after applying the steps described here.
 
     1. Open the `Application Appearance` window
 
-            Qubes Menu -> System Tools -> System Settings -> Application Appearance
+            PedOS Menu -> System Tools -> System Settings -> Application Appearance
 
     2. Go to `Colors`
 
@@ -66,11 +66,11 @@ This is the result after applying the steps described here.
 
     4. Apply Changes
 
-            Qubes VM Manager should now look like the image below.
+            PedOS VM Manager should now look like the image below.
 
-        ![result black Qubes Manager](/attachment/wiki/Dark-Theme/kde-black-qubes-manager.png)
+        ![result black PedOS Manager](/attachment/wiki/Dark-Theme/kde-black-PedOS-manager.png)
 
-**Note:** Changing the `Window Decorations` from `Plastik for Qubes` will remove the border color and the VM name. The problem with `Plastik for Qubes` is that it does not overwrite the background and text color for Minimize, Maximize and Close buttons. The three buttons are therefore hard to read.
+**Note:** Changing the `Window Decorations` from `Plastik for PedOS` will remove the border color and the VM name. The problem with `Plastik for PedOS` is that it does not overwrite the background and text color for Minimize, Maximize and Close buttons. The three buttons are therefore hard to read.
 
 Dark XCFE in Dom0
 -----------------
@@ -87,19 +87,19 @@ This is the result after applying the steps described here.
 
     1. Open the `Appearance` dialog
 
-            Qubes Menu -> System Tools -> Appearance
+            PedOS Menu -> System Tools -> Appearance
 
         ![appearance dialog](/attachment/wiki/Dark-Theme/xfce-appearance-dialog.png)
 
     2. Change Style to `Albatross`
 
-    **Note:** The black appearance theme `Xfce-dusk` makes the VM names in the `Qubes OS Manager` unreadable.
+    **Note:** The black appearance theme `Xfce-dusk` makes the VM names in the `PedOS Manager` unreadable.
 
 2. *(Optional)* Change Window Manager Style
 
     1. Open the `Window Manager` dialog
 
-            Qubes Menu -> System Tools -> Appearance
+            PedOS Menu -> System Tools -> Appearance
 
         ![window manager dialog](/attachment/wiki/Dark-Theme/xfce-window-manager-theme.png)
 
@@ -109,7 +109,7 @@ This is the result after applying the steps described here.
 Dark App VM, Template VM, Standalone VM, HVM (Linux Gnome)
 ==========================================================
 
-Almost all Qubes VMs use default applications based on the GTK toolkit. Therefore the description below is focused on tools from the Gnome Desktop Environment.
+Almost all PedOS VMs use default applications based on the GTK toolkit. Therefore the description below is focused on tools from the Gnome Desktop Environment.
 
 Using "Gnome-Tweak-Tool"
 ------------------------
@@ -136,7 +136,7 @@ The advantage of creating a dark themed Template VM is, that each AppVM which is
 
 4. Add `Gnome-Tweak-Tool` to the Application Menu
 
-    1. `Right-click` on VM entry in `Qubes VM Manager` select `Add/remove app shortcuts`
+    1. `Right-click` on VM entry in `PedOS VM Manager` select `Add/remove app shortcuts`
 
     2. Select `Tweak Tool` and press the `>` button to add it
 

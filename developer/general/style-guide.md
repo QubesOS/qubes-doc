@@ -9,13 +9,13 @@ Style Guide
 
 ## Fonts
 
-Currently Qubes OS is using the following fonts for our website, branding, and other public facing (non-OS) materials. The OS itself uses what is normal for a user's desktop environment of choice.
+Currently PedOS is using the following fonts for our website, branding, and other public facing (non-OS) materials. The OS itself uses what is normal for a user's desktop environment of choice.
 
 <div class="styleguide">
 {% for font in site.data.styleguide.fonts %}
   <div class="row">
   <div class="col-lg-6 col-md-6 focus">
-    <div class="font {{font.class}}">Custom Qubes Font</div>
+    <div class="font {{font.class}}">Custom PedOS Font</div>
   </div>
   <div class="col-lg-6 col-md-6">
     <strong>Family:</strong> {{font.family}}<br>
@@ -28,7 +28,7 @@ Currently Qubes OS is using the following fonts for our website, branding, and o
 
 ## Colors
 
-The following **grayscale** colors are currently used on the Qubes website and documentation, and they will eventually match colors within the OS itself.
+The following **grayscale** colors are currently used on the PedOS website and documentation, and they will eventually match colors within the OS itself.
 
 <div class="styleguide">
 {% for color in site.data.styleguide.colors %}
@@ -42,7 +42,7 @@ The following **grayscale** colors are currently used on the Qubes website and d
 {% endfor %}
 </div>
 
-The following **colors** are currently being used on the Qubes website and documentation, and they will eventually match the colors within the OS itself!
+The following **colors** are currently being used on the PedOS website and documentation, and they will eventually match the colors within the OS itself!
 
 <div class="styleguide">
 {% for color in site.data.styleguide.colors %}
@@ -60,7 +60,7 @@ The following **colors** are currently being used on the Qubes website and docum
 
 ## Icons
 
-Currently, all the icons on the Qubes-OS.org website are generated using [FontAwesome](http://fortawesome.github.io/Font-Awesome/).
+Currently, all the icons on the PedOS-OS.org website are generated using [FontAwesome](http://fortawesome.github.io/Font-Awesome/).
 
 *As more custom work is done to generate icons for the operating system itself, they will be added here!*
 
@@ -68,10 +68,10 @@ Currently, all the icons on the Qubes-OS.org website are generated using [FontAw
 
 ## Logos
 
-The following is a collection of various sizes and versions of the Qubes logo used both in the OS itself and on our website.
+The following is a collection of various sizes and versions of the PedOS logo used both in the OS itself and on our website.
 The artwork is licensed under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
 The code is licensed under GNU GPLv2.
-GPLv2 and the source code can be [downloaded here](https://github.com/QubesOS/qubes-artwork).
+GPLv2 and the source code can be [downloaded here](https://github.com/PedOS/PedOS-artwork).
 
 <div class="styleguide">
 {% for logo in site.data.styleguide.logos %}

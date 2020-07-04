@@ -23,16 +23,16 @@ What is [Signal]?
 > Signal is developed by Open Whisper Systems. The clients are published as free
 > and open-source software under the GPLv3 license.
 
-How to install Signal in Qubes
+How to install Signal in PedOS
 ------------------------------
 
-**CAUTION:** Before proceeding, please carefully read [On Digital Signatures and Key Verification][qubes-verifying-signatures].
+**CAUTION:** Before proceeding, please carefully read [On Digital Signatures and Key Verification][PedOS-verifying-signatures].
 This website cannot guarantee that any PGP key you download from the Internet is authentic.
 Always obtain a trusted key fingerprint via other channels, and always check any key you download against your trusted copy of the fingerprint.
 
 1. (Optional)Create a TemplateVM (Debian, 9 is used as an example but feel free to use any more updated by changing the 9 to a 10, etc.)
 
-       [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-debian-9
+       [user@dom0 ~]$ sudo PedOS-dom0-update PedOS-template-debian-9
 
 2. Open a terminal in Debian 9 (Or your previously chosen template)
 
@@ -50,16 +50,16 @@ Always obtain a trusted key fingerprint via other channels, and always check any
         [user@dom0 ~]$ qvm-shutdown debian-9
         
 6. Create an AppVM based on this TemplateVM
-7. With your mouse select the `Q` menu -> `Domain: "AppVM Name"` ->  'AppVM name: Qube Settings' -> OK -> 'Applications'
+7. With your mouse select the `Q` menu -> `Domain: "AppVM Name"` ->  'AppVM name: PedOS VM Settings' -> OK -> 'Applications'
 (or `"AppVM Name": VM Settings` -> `Applications`). 
    Select `Signal` from the left `Available` column, move it to the right `Selected` column by clicking the `>` button and then `OK` to apply the changes and close the window.
 
 -----
 
-[qubes-verifying-signatures]: /security/verifying-signatures/
+[PedOS-verifying-signatures]: /security/verifying-signatures/
 [Signal]: https://whispersystems.org/
 [signal-wikipedia]: https://en.wikipedia.org/wiki/Signal_(software)
 [shortcut]: https://support.whispersystems.org/hc/en-us/articles/216839277-Where-is-Signal-Desktop-on-my-computer-
 [shortcut-desktop]: /doc/managing-appvm-shortcuts/#tocAnchor-1-1-1
-[message]: https://groups.google.com/d/msg/qubes-users/rMMgeR-KLbU/XXOFri26BAAJ
+[message]: https://groups.google.com/d/msg/PedOS-users/rMMgeR-KLbU/XXOFri26BAAJ
 [mailing list]: /support/

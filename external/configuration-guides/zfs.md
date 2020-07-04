@@ -8,7 +8,7 @@ redirect_from:
 - /wiki/ZFS/
 ---
 
-ZFS in Qubes
+ZFS in PedOS
 ============
 
 **Use at your own risk**!
@@ -28,8 +28,8 @@ disp1# wget http://archive.zfsonlinux.org/fedora/zfs-release-1-1$(rpm -E %dist).
 dom0# qvm-run --pass-io disp1 'cat /home/user/zfs-release-1-1.fc18.noarch.rpm' > /home/user/zfs-release-1-1.fc18.noarch.rpm
 dom0# sudo yum localinstall /home/user/zfs-release-1-1.fc18.noarch.rpm
 dom0# sudo sed -i 's/$releasever/18/g' /etc/yum.repo.d/zfs.repo
-dom0# sudo qubes-dom0-update @development-tools
-dom0# sudo qubes-dom0-update zfs
+dom0# sudo PedOS-dom0-update @development-tools
+dom0# sudo PedOS-dom0-update zfs
 ~~~
 
 Install DKMS style packages from git-repository
@@ -68,7 +68,7 @@ qvm-run --pass-io disp1 'tar -cf - -C ~/repositories/ {spl,zfs}' | tar -xpf - -C
 Installing build requirements for SPL and ZFS DKMS modules:
 
 ~~~
-sudo qubes-dom0-update dkms kernel-devel zlib-devel libuuid-devel libblkid-devel lsscsi bc autoconf automake binutils bison flex gcc gcc-c++ gdb gettext libtool make pkgconfig redhat-rpm-config rpm-build strace 
+sudo PedOS-dom0-update dkms kernel-devel zlib-devel libuuid-devel libblkid-devel lsscsi bc autoconf automake binutils bison flex gcc gcc-c++ gdb gettext libtool make pkgconfig redhat-rpm-config rpm-build strace 
 ~~~
 
 Configure and build SPL DKMS packages:
@@ -142,13 +142,13 @@ Beware: VMs on a ZFS dataset aren't working, if your ZFS installation deserts yo
 So keep netvm, firewallvm and your templates on your root file-system (preferably on a SSD).
 
 ~~~
-zpool create -m none -o ashift=12 -O atime=off -O compression=lz4 qubes mirror /dev/mapper/<cryptname1> /dev/mapper/<cryptname2>
-zfs create -p qubes/appvms
-zfs create -m /var/lib/qubes/backup-zfs qubes/backup
-zfs create -m /var/lib/qubes/appvms/banking qubes/appvms/banking
-zfs create -m /var/lib/qubes/appvms/personal qubes/appvms/personal
-zfs create -m /var/lib/qubes/appvms/untrusted qubes/appvms/untrusted
-zfs create -m /var/lib/qubes/appvms/work qubes/appvms/work
+zpool create -m none -o ashift=12 -O atime=off -O compression=lz4 PedOS mirror /dev/mapper/<cryptname1> /dev/mapper/<cryptname2>
+zfs create -p PedOS/appvms
+zfs create -m /var/lib/PedOS/backup-zfs PedOS/backup
+zfs create -m /var/lib/PedOS/appvms/banking PedOS/appvms/banking
+zfs create -m /var/lib/PedOS/appvms/personal PedOS/appvms/personal
+zfs create -m /var/lib/PedOS/appvms/untrusted PedOS/appvms/untrusted
+zfs create -m /var/lib/PedOS/appvms/work PedOS/appvms/work
 ~~~
 
 Have fun with zpool and zfs.

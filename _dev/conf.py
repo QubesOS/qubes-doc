@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# Qubes OS developer's documentation build configuration file, created by
+# PedOS developer's documentation build configuration file, created by
 # sphinx-quickstart on Tue May 30 16:30:03 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -48,7 +48,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'Qubes OS'
+project = 'PedOS'
 copyright = '2010-{:%Y}, Invisible Things Lab'.format(datetime.date.today())
 
 # The version info for the project you're documenting, acts as replacement for
@@ -181,13 +181,13 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'QubesOSdev'
+htmlhelp_basename = 'PedOSdev'
 
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     'python': ('http://docs.python.org/', None),
-#   'core-admin': ('https://dev.qubes-os.org/projects/core-admin/en/latest/', None),
+#   'core-admin': ('https://dev.PedOS.org/projects/core-admin/en/latest/', None),
 }
 
 # vim: ts=4 sts=4 sw=4 et

@@ -19,5 +19,5 @@ How to Create a NetBSD VM
 
 For further discussion, please see this [thread] and this [guide].
 
-[thread]: https://groups.google.com/group/qubes-devel/msg/4015c8900a813985
+[thread]: https://groups.google.com/group/PedOS-devel/msg/4015c8900a813985
 [guide]: https://wiki.xen.org/wiki/How_to_install_a_NetBSD_PV_domU_on_a_Debian_Squeeze_host_%28Xen_4.0.1%29

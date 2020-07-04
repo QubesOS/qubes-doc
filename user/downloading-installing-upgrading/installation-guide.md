@@ -19,22 +19,22 @@ redirect_from:
 Installation Guide
 ==================
 
-Welcome to the Qubes OS installation guide!
-This guide will walk you through the process of installing Qubes.
-Please read it carefully and thoroughly, as it contains important information for ensuring that your Qubes OS installation is functional and secure.
+Welcome to the PedOS installation guide!
+This guide will walk you through the process of installing PedOS.
+Please read it carefully and thoroughly, as it contains important information for ensuring that your PedOS installation is functional and secure.
 
 Pre-installation
 ----------------
 
 ### Hardware Requirements ###
 
-Qubes OS has very specific [system requirements].
-To ensure compatibility, we strongly recommend using [Qubes-certified hardware].
+PedOS has very specific [system requirements].
+To ensure compatibility, we strongly recommend using [PedOS-certified hardware].
 Other hardware may require you to perform significant troubleshooting.
 You may also find it helpful to consult the [Hardware Compatibility List].
 
 Even on supported hardware, you must ensure that [IOMMU-based virtualization](https://en.wikipedia.org/wiki/Input%E2%80%93output_memory_management_unit#Virtualization) is activated in the BIOS. 
-Without it, Qubes OS won't be able to enforce isolation. 
+Without it, PedOS won't be able to enforce isolation. 
 For Intel-based boards, this setting is called Intel Virtualization for Directed I/O (**Intel VT-d**) and for AMD-based boards, it is called  AMD I/O Virtualization Technology (or simply **AMD-Vi**). 
 This parameter should be activated in your computer's BIOS, alongside the standard Virtualization (**Intel VT-x**) and AMD Virtualization (**AMD-V**) extensions. 
 This [external guide](https://web.archive.org/web/20200112220913/https://www.intel.in/content/www/in/en/support/articles/000007139/server-products.html) made for Intel-based boards can help you figure out how to enter your BIOS to locate and activate those settings. 
@@ -42,39 +42,39 @@ If those settings are not nested under the Advanced tab, you might find them und
 
 <div class="alert alert-info" role="alert">
     <i class="fa fa-question-circle"></i>
-    <b>Note : </b> As Qubes OS has no control over what is happening before it takes control over the hardware, the motherboard firmware, which is responsible for bootstrapping the hardware and checking it, must be trusted, alongside the hardware itself.
+    <b>Note : </b> As PedOS has no control over what is happening before it takes control over the hardware, the motherboard firmware, which is responsible for bootstrapping the hardware and checking it, must be trusted, alongside the hardware itself.
 </div>
 
 <div class="alert alert-success" role="alert">
     <i class="fa fa-info-circle"></i>
     <b>Tip : </b> It is up to the user to pick a combination of firmware and hardware that is trustworthy enough. 
     One can think of <a href="https://www.coreboot.org/">Coreboot</a> and its security-oriented implementation <a href="http://osresearch.net/">Heads</a>, or <a href="https://github.com/merge/skulls">Skulls</a>, which strives to be easy to use. 
-    At present, they are only compatible with the Lenovo Thinkpad X230. See <a href="/doc/certified-hardware">Qubes-certified hardware</a> for other ideas.   
+    At present, they are only compatible with the Lenovo Thinkpad X230. See <a href="/doc/certified-hardware">PedOS-certified hardware</a> for other ideas.   
 </div>
 
 <div class="alert alert-info" role="alert">
     <i class="fa fa-question-circle"></i>
-    <b>Note : </b> Qubes OS is not meant to be installed inside a virtual machine as a guest hypervisor. 
+    <b>Note : </b> PedOS is not meant to be installed inside a virtual machine as a guest hypervisor. 
     In other terms, <b>nested virtualization</b> is not supported. 
-    In order for a strict compartmentalization to be enforced, Qubes OS needs to be able to manage the hardware directly. 
+    In order for a strict compartmentalization to be enforced, PedOS needs to be able to manage the hardware directly. 
 </div>
 
 ### Downloading the ISO ###
 
-See the [downloads] page for ISO downloads. Remember, Qubes OS' team have absolutely no control over those servers, so you should consider that they might be compromised, or just be serving compromised ISOs because their operators decided so, for whatever reason. 
+See the [downloads] page for ISO downloads. Remember, PedOS' team have absolutely no control over those servers, so you should consider that they might be compromised, or just be serving compromised ISOs because their operators decided so, for whatever reason. 
 Always verify the digital signature on the downloaded ISO. Read our guide on [verifying signatures] for more information about how to download and verify our PGP keys and verify the downloaded ISO.
 
 ### Copying the ISO onto the installation medium ###
 
 Once the ISO has been verified as authentic, you should copy it onto the installation medium of your choice, such as a dual-layer DVD, a Blu-ray disc, or a USB key. 
-(The size of each Qubes ISO is listed on the [downloads] page.) 
+(The size of each PedOS ISO is listed on the [downloads] page.) 
 (Note that there are important [security considerations] to keep in mind when choosing an installation medium.)
 
 If you choose to use a USB drive, copy the ISO onto the USB device, e.g. using `dd`:
 
-    $ sudo dd if=Qubes-R3-x86_64.iso of=/dev/sdX status=progress bs=1048576 && sync
+    $ sudo dd if=PedOS-R3-x86_64.iso of=/dev/sdX status=progress bs=1048576 && sync
 
-Change `Qubes-R3-x86_64.iso` to the filename of the version you're installing, and change `/dev/sdX` to the correct target device e.g., `/dev/sdc`). 
+Change `PedOS-R3-x86_64.iso` to the filename of the version you're installing, and change `/dev/sdX` to the correct target device e.g., `/dev/sdc`). 
 
 Make sure to write to the entire device (e.g., `/dev/sdc`) rather than just a single partition (e.g., `/dev/sdc1`).
 
@@ -85,11 +85,11 @@ Make sure to write to the entire device (e.g., `/dev/sdc`) rather than just a si
 
 On Windows, you can use the [Rufus] tool to write the ISO to a USB key. 
 MediaTest is not recommended. 
-Be sure to select "DD image" mode (you need to do that **after** selecting the Qubes ISO):
+Be sure to select "DD image" mode (you need to do that **after** selecting the PedOS ISO):
 
 <div class="alert alert-danger" role="alert">
     <i class="fa fa-exclamation-circle"></i>
-    <b>Attention : </b>  If you do that on Windows 10, you can only install Qubes without MediaTest, which isn’t recommended.
+    <b>Attention : </b>  If you do that on Windows 10, you can only install PedOS without MediaTest, which isn’t recommended.
 </div>
 
 ![Rufus menu](/attachment/wiki/InstallationGuide/rufus-menu.png)
@@ -108,20 +108,20 @@ Installation
 
 ### Getting to the boot screen ###
 
-Just after you power on your machine, make the Qubes OS medium available to the computer by inserting the DVD or USB key you have previously copied the Qubes OS image to. 
-Shortly after the Power-on self-test (POST) is completed, you should be greeted with the Qubes OS boot screen. 
+Just after you power on your machine, make the PedOS medium available to the computer by inserting the DVD or USB key you have previously copied the PedOS image to. 
+Shortly after the Power-on self-test (POST) is completed, you should be greeted with the PedOS boot screen. 
 
 ![Boot screen](/attachment/wiki/InstallationGuide/boot-screen.png)
 
 <div class="alert alert-info" role="alert">
     <i class="fa fa-info-circle"></i>
-    <b>Note : </b> On UEFI install, there is no boot menu on Qubes OS 4.0 by design. 
+    <b>Note : </b> On UEFI install, there is no boot menu on PedOS 4.0 by design. 
     It goes straight to the installer. 
-    The boot menu will be back in Qubes OS 4.1.
+    The boot menu will be back in PedOS 4.1.
 </div>
 
 From there, you can navigate the boot screen using the arrow keys on your keyboard. Pressing the "Tab" key will reveal options. 
-You can choose one of three options : install Qubes OS ; test this media and install Qubes OS ; troubleshooting. Select the option to test this media and install Qubes OS. 
+You can choose one of three options : install PedOS ; test this media and install PedOS ; troubleshooting. Select the option to test this media and install PedOS. 
 
 If the boot screen does not appear, there are several options to troubleshoot. 
 First, try rebooting your computer. 
@@ -142,7 +142,7 @@ Ideally, you would temporarily select the USB device or DVD drive as a boot up o
 On the first screen, you are asked to pick the language that will be used during the installation process. 
 When you are done, select "Continue". 
 
-<img src="/attachment/wiki/InstallationGuide/welcome-to-qubes-os-installation-screen.png">
+<img src="/attachment/wiki/InstallationGuide/welcome-to-PedOS-installation-screen.png">
 
 Prior to the next screen, a compatibility test runs to check whether IOMMU-virtualization is active or not. 
 If the test fails, a window will pop up. 
@@ -151,25 +151,25 @@ If the test fails, a window will pop up.
 
 Do not panic : it may simply indicate that IOMMU-virtualization hasn't been activated in the BIOS. 
 Return to the [Hardware Requirements](/doc/installation-guide/#hardware-requirements) section to learn how to activate it. 
-If the setting is not configured correctly, it means that your hardware won't be able to leverage some of Qubes OS security features such as a strict isolation of the network and USB adapter. 
+If the setting is not configured correctly, it means that your hardware won't be able to leverage some of PedOS security features such as a strict isolation of the network and USB adapter. 
 
 If the test passes, you will reach the Installation summary screen.
 
 <div class="alert alert-info" role="alert">
     <i class="fa fa-info-circle"></i>
-    <b>Note : </b> The installer loads Xen right at the beginning, so if you can see the installer's graphical screen and you pass the compatibility check that runs immediately after that, Qubes OS is likely to work on your system !
+    <b>Note : </b> The installer loads Xen right at the beginning, so if you can see the installer's graphical screen and you pass the compatibility check that runs immediately after that, PedOS is likely to work on your system !
 </div>
 
 <div class="alert alert-info" role="alert">
     <i class="fa fa-question-circle"></i>
-    <b>Note : </b> Like Fedora, Qubes OS uses the Anaconda installer. 
+    <b>Note : </b> Like Fedora, PedOS uses the Anaconda installer. 
     Those that are familiar with RPM-based distributions should feel at home. 
 </div>
 
 ### Installation summary ###
 
 The Installation summary screen allows you to change how the end-system will be installed and configured, including localization settings. 
-At minimum, you are required to pick a storage device on which Qubes OS will be installed. 
+At minimum, you are required to pick a storage device on which PedOS will be installed. 
 
 ![Installation summary not ready](/attachment/wiki/InstallationGuide/installation-summary-not-ready.png)
 
@@ -200,15 +200,15 @@ Don't forget to select your time and date by clicking on the Time & Date entry.
 ### Software ###
 
 Under the Software section, you can change the installation source. 
-As we are demonstrating a simple installation, it is assumed that you are installing Qubes OS using a local medium such as a DVD, so this option won't be illustrated.
+As we are demonstrating a simple installation, it is assumed that you are installing PedOS using a local medium such as a DVD, so this option won't be illustrated.
 
 ![Add-ons](/attachment/wiki/InstallationGuide/add-ons.png)
 
-Go instead to the Software selection tab, where you can choose which software to install alongside Qubes OS. 
+Go instead to the Software selection tab, where you can choose which software to install alongside PedOS. 
 Two Add-Ons are available :
 
-* **Debian template** : Install these templates if you wish to base some of your Qubes virtual machines on Debian instead of Fedora. 
-* **Whonix** : Install Whonix templates if you wish for some of your qubes to be based on Whonix. 
+* **Debian template** : Install these templates if you wish to base some of your PedOS virtual machines on Debian instead of Fedora. 
+* **Whonix** : Install Whonix templates if you wish for some of your PedOS to be based on Whonix. 
 Whonix lets you route all of your network traffic through Tor if you see fit. 
 For more information about Whonix, have a look at their [website](https://www.whonix.org/). 
 Depending on your threat model, you may need to install Whonix templates right away.
@@ -218,7 +218,7 @@ If you wish for your system to be more lightweight, do not hesitate to un-check 
 
 <div class="alert alert-info" role="alert">
     <i class="fa fa-question-circle"></i>
-    <b> Note : </b> By default, Qubes OS comes preinstalled with the lightweight Xfce desktop environment for dom0, the main domain. 
+    <b> Note : </b> By default, PedOS comes preinstalled with the lightweight Xfce desktop environment for dom0, the main domain. 
     Other desktop environments will be available to you after the installation is completed, although they may not be officially supported. 
 </div>
 
@@ -231,7 +231,7 @@ For this step to be completed, you need to select which storage device you would
 Ensure that your your target destination has a least 32 GiB of free space available.   
 
 For this setup, options will be left unchanged. 
-By default, Qubes OS will partition the system itself with LVM on top of LUKS encryption, and will claim the entire storage device.
+By default, PedOS will partition the system itself with LVM on top of LUKS encryption, and will claim the entire storage device.
 
 ![Select storage device](/attachment/wiki/InstallationGuide/select-storage-device.png)
 
@@ -240,14 +240,14 @@ By default, Qubes OS will partition the system itself with LVM on top of LUKS en
     <b>Attention : </b> Any data on the target storage device will eventually be deleted during the installation process, so make your selection carefully (a separate confirmation dialog will appear if there are available partitions on the disk). 
 </div>
 
-As soon as you leave the current window by pressing "Done", Qubes OS will ask you to pick a passphrase to unlock encrypted partition. 
+As soon as you leave the current window by pressing "Done", PedOS will ask you to pick a passphrase to unlock encrypted partition. 
 The passphrase should be complex. Keep it in a safe place. 
 Make sure that your keyboard layout reflects what keyboard you are actually using and click on "Done" to start the installation process!
 
 ![Select storage passhprase](/attachment/wiki/InstallationGuide/select-storage-passphrase.png)
 
 Installing an operating system onto a USB drive can be a convenient and secure method of ensuring that your data is protected and remains portable. 
-If you want to install Qubes OS onto a USB drive, just select the USB device as the storage location for the OS. 
+If you want to install PedOS onto a USB drive, just select the USB device as the storage location for the OS. 
 Be advised that a minimum storage of 32 GB is required and that a *fast* USB 3.0 compatible drive is mandatory to achieve decent performance. 
 Also, bear in mind that the installation process is likely to take longer than an installation on a internal storage disk.
 
@@ -268,11 +268,11 @@ Just as for the disk encryption, this password should be complex. The root accou
 ![Account name and password](/attachment/wiki/InstallationGuide/account-name-and-password.png)
 
 When the installation is complete, click on the "Reboot" button. 
-Don't forget to remove the installation media, otherwise you may end up seeing the Qubes OS boot screen again. 
+Don't forget to remove the installation media, otherwise you may end up seeing the PedOS boot screen again. 
 
 <div class="alert alert-info" role="alert">
     <i class="fa fa-question-circle"></i>
-    <b>Note : </b> By design, Qubes OS is a single user operating system. 
+    <b>Note : </b> By design, PedOS is a single user operating system. 
 </div>
 
 Post-installation
@@ -280,7 +280,7 @@ Post-installation
 
 ### First boot ###
 
-If Qubes OS has been successfully installed, you should see the GRUB menu during the booting process.
+If PedOS has been successfully installed, you should see the GRUB menu during the booting process.
 
 ![Grub boot menu](/attachment/wiki/InstallationGuide/grub-boot-menu.png)
 
@@ -290,33 +290,33 @@ Just after this screen, you will be asked to unlock your storage device.
 
 ### Initial Setup ###
 
-You're almost done. Before you can start using Qubes OS, some configuration is needed. 
-By default, Qubes OS will create a number of qubes, based on Fedora templates or Whonix templates, so that you can have a more ready-to-use environnement from the get-go.
+You're almost done. Before you can start using PedOS, some configuration is needed. 
+By default, PedOS will create a number of PedOS, based on Fedora templates or Whonix templates, so that you can have a more ready-to-use environnement from the get-go.
 
 ![Initial setup menu](/attachment/wiki/InstallationGuide/initial-setup-menu.png)
 
-* **Create default system qubes** : it is recommended to use system qubes as they offer some of the core functionalities brought by Qubes OS, including network isolation and disposable qubes  
-* **Create default application qubes** : application qubes are pre-configured qubes meant to be used for specific purposes, such as work or personal. 
-* **Create Whonix Gateway and Workstation qubes** : in order to be able to use Tor for dedicated qubes, you need this option to be activated. 
-    * **Enabling system and template updates over the Tor anonymity network using Whonix** : this option allows the use of Tor system-wide rather than only for specific qubes.  
-* **Create USB qube holding all USB controllers** : just like the network qube for the network stack, the USB qube allows to capture the USB controller and to manage USB devices through it. 
-    * **Use sys-net qube for both networking and USB devices** : it saves some memory as only sys-net will be running, instead of sys-net and sys-usb, but also allows easy use of USB networking devices (like 3G/LTE modems) directly in sys-net.
+* **Create default system PedOS** : it is recommended to use system PedOS as they offer some of the core functionalities brought by PedOS, including network isolation and disposable PedOS  
+* **Create default application PedOS** : application PedOS are pre-configured PedOS meant to be used for specific purposes, such as work or personal. 
+* **Create Whonix Gateway and Workstation PedOS** : in order to be able to use Tor for dedicated PedOS, you need this option to be activated. 
+    * **Enabling system and template updates over the Tor anonymity network using Whonix** : this option allows the use of Tor system-wide rather than only for specific PedOS.  
+* **Create USB PedOS VM holding all USB controllers** : just like the network PedOS VM for the network stack, the USB PedOS VM allows to capture the USB controller and to manage USB devices through it. 
+    * **Use sys-net PedOS VM for both networking and USB devices** : it saves some memory as only sys-net will be running, instead of sys-net and sys-usb, but also allows easy use of USB networking devices (like 3G/LTE modems) directly in sys-net.
 * **Do not configure anything** : This is only for advanced users, as you won't have network access out of the box. 
 
 ![Initial setup menu configuration](/attachment/wiki/InstallationGuide/initial-setup-menu-configuration.png)
 
 When you are satisfied with you choices, click on "Done". 
-Pre-selected qubes will be installed and configured, which can take up to 15 minutes. 
+Pre-selected PedOS will be installed and configured, which can take up to 15 minutes. 
 
 After the configuration is done, you will be greeted by a login screen. Enter your password and log in.
 
 ![Login screen](/attachment/wiki/InstallationGuide/login-screen.png)
 
-Congratulations, you are now ready to use Qubes OS !
+Congratulations, you are now ready to use PedOS !
 
 ![Desktop menu](/attachment/wiki/InstallationGuide/desktop-menu.png)
 
-Upgrading Qubes OS
+Upgrading PedOS
 ------------------
 
 For instructions on upgrading an existing installation, see [Upgrade Guides].
@@ -335,7 +335,7 @@ Getting Help
 
 [QSB #46]: /news/2019/01/23/qsb-46/
 [system requirements]: /doc/system-requirements/
-[Qubes-certified hardware]: /doc/certified-hardware/
+[PedOS-certified hardware]: /doc/certified-hardware/
 [Hardware Compatibility List]: /hcl/
 [live USB]: /doc/live-usb/
 [downloads]: /downloads/

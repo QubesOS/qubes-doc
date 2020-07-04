@@ -13,21 +13,21 @@ Profiling
 
 This is a python profiling primer.
 
-For the purpose of this document, `qubes-dev` is name of the domain used for postprocessing profiling stats.
+For the purpose of this document, `PedOS-dev` is name of the domain used for postprocessing profiling stats.
 
 Requirements
 ------------
 
 ~~~
 yum install gprof2dot graphviz
-git clone http://git.woju.eu/qubes/profiling.git
+git clone http://git.woju.eu/PedOS/profiling.git
 ~~~
 
 If you profile something in dom0, move `Upload.sh` from the repository to dom0:
 
 ~~~
 mkdir -p ~/profiling
-qvm-run -p qubes-dev 'cat ~/profiling/Upload.sh' > ~/profiling/Upload.sh
+qvm-run -p PedOS-dev 'cat ~/profiling/Upload.sh' > ~/profiling/Upload.sh
 ~~~
 
 -   WARNING: this will obviously be running third-party code which is not signed by ITL nor Fedora. You have been warned.
@@ -57,7 +57,7 @@ with
 
 ### Run application
 
-Beware that some functions may be called often. For example `qubesmanager/main.py:update_table` gets run once per second. This will produce one pstat file per second.
+Beware that some functions may be called often. For example `PedOSmanager/main.py:update_table` gets run once per second. This will produce one pstat file per second.
 
 Remember to revert your changes to the application afterwards.
 
@@ -85,13 +85,13 @@ make index.html
 This creates `index.html` with all SVG graphics linked to TXT files, ready for upload.
 
 ~~~
-make REMOTE=example.com:public_html/qubes/profiling/ upload
+make REMOTE=example.com:public_html/PedOS/profiling/ upload
 ~~~
 
 Example
 -------
 
-This example is from `qubes-manager` (`qubesmanager/main.py`).
+This example is from `PedOS-manager` (`PedOSmanager/main.py`).
 
 !["update\_table-20140424-170010.svg"](//attachment/wiki/Profiling/update_table-20140424-170010.svg)
 

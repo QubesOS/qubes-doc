@@ -1,39 +1,39 @@
 ---
 layout: doc
-title: The Qubes Firewall
+title: The PedOS Firewall
 permalink: /doc/firewall/
 redirect_from:
-- /doc/qubes-firewall/
-- /en/doc/qubes-firewall/
-- /doc/QubesFirewall/
-- /wiki/QubesFirewall/
+- /doc/PedOS-firewall/
+- /en/doc/PedOS-firewall/
+- /doc/PedOSFirewall/
+- /wiki/PedOSFirewall/
 ---
 
-The Qubes Firewall
+The PedOS Firewall
 ==================
 
 
-Understanding firewalling in Qubes
+Understanding firewalling in PedOS
 ----------------------------------
 
-Every qube in Qubes is connected to the network via a FirewallVM, which is used to enforce network-level policies.
+Every PedOS VM in PedOS is connected to the network via a FirewallVM, which is used to enforce network-level policies.
 By default there is one default FirewallVM, but the user is free to create more, if needed.
 
 For more information, see the following:
 
--   [https://groups.google.com/group/qubes-devel/browse\_thread/thread/9e231b0e14bf9d62](https://groups.google.com/group/qubes-devel/browse_thread/thread/9e231b0e14bf9d62)
--   [https://blog.invisiblethings.org/2011/09/28/playing-with-qubes-networking-for-fun.html](https://blog.invisiblethings.org/2011/09/28/playing-with-qubes-networking-for-fun.html)
+-   [https://groups.google.com/group/PedOS-devel/browse\_thread/thread/9e231b0e14bf9d62](https://groups.google.com/group/PedOS-devel/browse_thread/thread/9e231b0e14bf9d62)
+-   [https://blog.invisiblethings.org/2011/09/28/playing-with-PedOS-networking-for-fun.html](https://blog.invisiblethings.org/2011/09/28/playing-with-PedOS-networking-for-fun.html)
 
 
 How to edit rules
 -----------------
 
-In order to edit rules for a given qube, select it in the Qubes Manager and press the "firewall" button:
+In order to edit rules for a given PedOS VM, select it in the PedOS Manager and press the "firewall" button:
 
-![r2b1-manager-firewall.png](/attachment/wiki/QubesFirewall/r2b1-manager-firewall.png)
+![r2b1-manager-firewall.png](/attachment/wiki/PedOSFirewall/r2b1-manager-firewall.png)
 
 *R4.0 note:* ICMP and DNS are no longer accessible in the GUI, but can be changed via `qvm-firewall` described below.
-Connections to Updates Proxy are no longer made over network so can not be allowed or blocked with firewall rules (see [R4.0 Updates proxy](https://www.qubes-os.org/doc/software-update-vm/) for more detail.
+Connections to Updates Proxy are no longer made over network so can not be allowed or blocked with firewall rules (see [R4.0 Updates proxy](https://www.PedOS.org/doc/software-update-vm/) for more detail.
 
 Note that if you specify a rule by DNS name it will be resolved to IP(s) *at the moment of applying the rules*, and not on the fly for each new connection.
 This means it will not work for servers using load balancing.
@@ -42,14 +42,14 @@ More on this in the message quoted below.
 Alternatively, one can use the `qvm-firewall` command from Dom0 to edit the firewall rules by hand.
 The firewall rules for each VM are saved in an XML file in that VM's directory in dom0:
 
-    /var/lib/qubes/appvms/<vm-name>/firewall.xml
+    /var/lib/PedOS/appvms/<vm-name>/firewall.xml
     
-Please note that there is a 3 kB limit to the size of the `iptables` script in Qubes versions before R4.0. 
+Please note that there is a 3 kB limit to the size of the `iptables` script in PedOS versions before R4.0. 
 This equates to somewhere between 35 and 39 rules. 
-If this limit is exceeded, the qube will not start.
+If this limit is exceeded, the PedOS VM will not start.
 The limit was removed in R4.0.
 
-It is possible to work around this limit by enforcing the rules on the qube itself by putting appropriate rules in `/rw/config`.
+It is possible to work around this limit by enforcing the rules on the PedOS VM itself by putting appropriate rules in `/rw/config`.
 See [Where to put firewall rules](#where-to-put-firewall-rules).
 In complex cases, it might be appropriate to load a ruleset using `iptables-restore` called from `/rw/config/rc.local`.
 
@@ -57,57 +57,57 @@ In complex cases, it might be appropriate to load a ruleset using `iptables-rest
 Reconnecting VMs after a NetVM reboot
 -------------------------------------
 
-Normally Qubes doesn't let the user stop a NetVM if there are other qubes running which use it as their own NetVM.
-But in case the NetVM stops for whatever reason (e.g. it crashes, or the user forces its shutdown via qvm-kill via terminal in Dom0), Qubes R4.0 will often automatically repair the connection.
+Normally PedOS doesn't let the user stop a NetVM if there are other PedOS running which use it as their own NetVM.
+But in case the NetVM stops for whatever reason (e.g. it crashes, or the user forces its shutdown via qvm-kill via terminal in Dom0), PedOS R4.0 will often automatically repair the connection.
 If it does not, then there is an easy way to restore the connection to the NetVM by issuing:
 
 ` qvm-prefs <vm> netvm <netvm> `
 
-Normally qubes do not connect directly to the actual NetVM which has networking devices, but rather to the default sys-firewall first, and in most cases it would be the NetVM that will crash, e.g. in response to S3 sleep/restore or other issues with WiFi drivers.
-In that case it is only necessary to issue the above command once, for the sys-firewall (this assumes default VM-naming used by the default Qubes installation):
+Normally PedOS do not connect directly to the actual NetVM which has networking devices, but rather to the default sys-firewall first, and in most cases it would be the NetVM that will crash, e.g. in response to S3 sleep/restore or other issues with WiFi drivers.
+In that case it is only necessary to issue the above command once, for the sys-firewall (this assumes default VM-naming used by the default PedOS installation):
 
 ` qvm-prefs sys-firewall netvm sys-net `
 
 
-Network service qubes
+Network service PedOS
 ---------------------
 
-Qubes does not support running any networking services (e.g. VPN, local DNS server, IPS, ...) directly in a qube that is used to run the Qubes firewall service (usually sys-firewall) for good reasons.
-In particular, if one wants to ensure proper functioning of the Qubes firewall, one should not tinker with iptables or nftables rules in such qubes.
+PedOS does not support running any networking services (e.g. VPN, local DNS server, IPS, ...) directly in a PedOS VM that is used to run the PedOS firewall service (usually sys-firewall) for good reasons.
+In particular, if one wants to ensure proper functioning of the PedOS firewall, one should not tinker with iptables or nftables rules in such PedOS.
 
 Instead, one should deploy a network infrastructure such as
 ~~~
-sys-net <--> sys-firewall-1 <--> network service qube <--> sys-firewall-2 <--> [client qubes]
+sys-net <--> sys-firewall-1 <--> network service PedOS VM <--> sys-firewall-2 <--> [client PedOS]
 ~~~
-Thereby sys-firewall-1 is only needed if one has client qubes connected there as well or wants to manage the traffic of the local network service qube.
+Thereby sys-firewall-1 is only needed if one has client PedOS connected there as well or wants to manage the traffic of the local network service PedOS VM.
 The sys-firewall-2 proxy ensures that:
-1. Firewall changes done in the network service qube cannot render the Qubes firewall ineffective.
-2. Changes to the Qubes firewall by the Qubes maintainers cannot lead to unwanted information leakage in combination with user rules deployed in the network service qube.
-3. A compromise of the network service qube does not compromise the Qubes firewall.
+1. Firewall changes done in the network service PedOS VM cannot render the PedOS firewall ineffective.
+2. Changes to the PedOS firewall by the PedOS maintainers cannot lead to unwanted information leakage in combination with user rules deployed in the network service PedOS VM.
+3. A compromise of the network service PedOS VM does not compromise the PedOS firewall.
 
 For the VPN service please also look at the [VPN documentation](/doc/vpn).
 
 
-Enabling networking between two qubes
+Enabling networking between two PedOS
 -------------------------------------
 
-Normally any networking traffic between qubes is prohibited for security reasons.
-However, in special situations, one might want to selectively allow specific qubes to establish networking connectivity between each other.
-For example, this might be useful in some development work, when one wants to test networking code, or to allow file exchange between HVM domains (which do not have Qubes tools installed) via SMB/scp/NFS protocols.
+Normally any networking traffic between PedOS is prohibited for security reasons.
+However, in special situations, one might want to selectively allow specific PedOS to establish networking connectivity between each other.
+For example, this might be useful in some development work, when one wants to test networking code, or to allow file exchange between HVM domains (which do not have PedOS tools installed) via SMB/scp/NFS protocols.
 
-In order to allow networking between qubes A and B follow these steps:
+In order to allow networking between PedOS A and B follow these steps:
 
 * Make sure both A and B are connected to the same firewall vm (by default all VMs use the same firewall VM).
-* Note the Qubes IP addresses assigned to both qubes.
-  This can be done using the `qvm-ls -n` command, or via the Qubes Manager preferences pane for each qube.
-* Start both qubes, and also open a terminal in the firewall VM
+* Note the PedOS IP addresses assigned to both PedOS.
+  This can be done using the `qvm-ls -n` command, or via the PedOS Manager preferences pane for each PedOS VM.
+* Start both PedOS, and also open a terminal in the firewall VM
 * In the firewall VM's terminal enter the following iptables rule:
 
 ~~~
 sudo iptables -I FORWARD 2 -s <IP address of A> -d <IP address of B> -j ACCEPT
 ~~~
 
-* In qube B's terminal enter the following iptables rule:
+* In PedOS VM B's terminal enter the following iptables rule:
 
 ~~~
 sudo iptables -I INPUT -s <IP address of A> -j ACCEPT
@@ -115,15 +115,15 @@ sudo iptables -I INPUT -s <IP address of A> -j ACCEPT
 
 * Now you should be able to reach B from A -- test it using e.g. ping issued from A.
   Note however, that this doesn't allow you to reach A from B -- for this you would need two more rules, with A and B swapped.
-* If everything works as expected, then the above iptables rules should be written into firewallVM's `qubes-firewall-user-script` script which is run on every firewall update, and A and B's `rc.local` script which is run when the qube is launched.
-  The `qubes-firewall-user-script` is necessary because Qubes orders every firewallVM to update all the rules whenever a new connected qube is started.
+* If everything works as expected, then the above iptables rules should be written into firewallVM's `PedOS-firewall-user-script` script which is run on every firewall update, and A and B's `rc.local` script which is run when the PedOS VM is launched.
+  The `PedOS-firewall-user-script` is necessary because PedOS orders every firewallVM to update all the rules whenever a new connected PedOS VM is started.
   If we didn't enter our rules into this "hook" script, then shortly our custom rules would disappear and inter-VM networking would stop working.
   Here's an example how to update the script (note that, by default, there is no script file present, so we will probably be creating it, unless we had some other custom rules defined earlier in this firewallVM):
 
 ~~~
 [user@sys-firewall ~]$ sudo bash
-[root@sys-firewall user]# echo "iptables -I FORWARD 2 -s 10.137.2.25 -d 10.137.2.6 -j ACCEPT" >> /rw/config/qubes-firewall-user-script
-[root@sys-firewall user]# chmod +x /rw/config/qubes-firewall-user-script
+[root@sys-firewall user]# echo "iptables -I FORWARD 2 -s 10.137.2.25 -d 10.137.2.6 -j ACCEPT" >> /rw/config/PedOS-firewall-user-script
+[root@sys-firewall user]# chmod +x /rw/config/PedOS-firewall-user-script
 ~~~
 
 * Here is an example how to update `rc.local`:
@@ -134,21 +134,21 @@ sudo iptables -I INPUT -s <IP address of A> -j ACCEPT
 [root@B user]# chmod +x /rw/config/rc.local
 ~~~
 
-Opening a single TCP port to other network-isolated qube
+Opening a single TCP port to other network-isolated PedOS VM
 --------------------------------------------------------
 
-In the case where a specific TCP port needs to be exposed from a qubes to another one, it is not necessary to enable networking between them but one can use the qubes RPC service `qubes.ConnectTCP`.
+In the case where a specific TCP port needs to be exposed from a PedOS to another one, it is not necessary to enable networking between them but one can use the PedOS RPC service `PedOS.ConnectTCP`.
 
 **1. Simple port binding**
 
-Consider the following example. `mytcp-service` qube has a TCP service running on port `444` and `untrusted` qube needs to access this service.
+Consider the following example. `mytcp-service` PedOS VM has a TCP service running on port `444` and `untrusted` PedOS VM needs to access this service.
 
-* In dom0, add the following to `/etc/qubes-rpc/policy/qubes.ConnectTCP`:
+* In dom0, add the following to `/etc/PedOS-rpc/policy/PedOS.ConnectTCP`:
 ~~~
 untrusted @default allow,target=mytcp-service
 ~~~
 
-* In untrusted, use the Qubes tool `qvm-connect-tcp`:
+* In untrusted, use the PedOS tool `qvm-connect-tcp`:
 ~~~
   [user@untrusted #]$ qvm-connect-tcp 444:@default:444
 ~~~
@@ -156,28 +156,28 @@ untrusted @default allow,target=mytcp-service
 
 The service of `mytcp-service` running on port `444` is now accessible in `untrusted` as `localhost:444`.
 
-Here `@default` is used to hide the destination qube which is specified in the Qubes RPC policy by `target=mytcp-service`. Equivalent call is to use the tool as follow:
+Here `@default` is used to hide the destination PedOS VM which is specified in the PedOS RPC policy by `target=mytcp-service`. Equivalent call is to use the tool as follow:
 ~~~
   [user@untrusted #]$ qvm-connect-tcp ::444
 ~~~
-which means to use default local port of `unstrusted` as the same of the remote port and unspecified destination qube is `@default` by default in `qrexec` call.
+which means to use default local port of `unstrusted` as the same of the remote port and unspecified destination PedOS VM is `@default` by default in `qrexec` call.
 
 **2. Binding remote port on another local port**
 
-Consider now the case where someone prefers to specify the destination qube and use another port in untrusted,for example `10044`. Instead of previous case, add
+Consider now the case where someone prefers to specify the destination PedOS VM and use another port in untrusted,for example `10044`. Instead of previous case, add
 ~~~
 untrusted mytcp-service allow
 ~~~
-in `/etc/qubes-rpc/policy/qubes.ConnectTCP` and in untrusted, use the tool as follow:
+in `/etc/PedOS-rpc/policy/PedOS.ConnectTCP` and in untrusted, use the tool as follow:
 ~~~
   [user@untrusted #]$ qvm-connect-tcp 10444:mytcp-service:444
 ~~~
 
 The service of `mytcp-service` running on port `444` is now accessible in `untrusted` as `localhost:10444`.
 
-**3. Binding to different qubes using RPC policies**
+**3. Binding to different PedOS using RPC policies**
 
-One can go further than the previous examples by redirecting different ports to different qubes. For example, let assume that another qube `mytcp-service-bis` with a TCP service is running on port `445`. If someone wants `untrusted` to be able to reach this service but port `445` is reserved to `mytcp-service-bis` then, in dom0, add the following to `/etc/qubes-rpc/policy/qubes.ConnectTCP+445`:
+One can go further than the previous examples by redirecting different ports to different PedOS. For example, let assume that another PedOS VM `mytcp-service-bis` with a TCP service is running on port `445`. If someone wants `untrusted` to be able to reach this service but port `445` is reserved to `mytcp-service-bis` then, in dom0, add the following to `/etc/PedOS-rpc/policy/PedOS.ConnectTCP+445`:
 ~~~
 untrusted @default allow,target=mytcp-service-bis
 ~~~
@@ -189,7 +189,7 @@ will restrict the binding to only the corresponding TCP port of `mytcp-service-b
 
 **4. Permanent port binding**
 
-For creating a permanent port bind between two qubes, `systemd` can be used. We use the case of the first example. In `/rw/config` (or any place you find suitable) of qube `untrusted`, create `my-tcp-service.socket` with content:
+For creating a permanent port bind between two PedOS, `systemd` can be used. We use the case of the first example. In `/rw/config` (or any place you find suitable) of PedOS VM `untrusted`, create `my-tcp-service.socket` with content:
 ~~~
 [Unit]
 Description=my-tcp-service
@@ -207,7 +207,7 @@ and `my-tcp-service@.service` with content:
 Description=my-tcp-service
 
 [Service]
-ExecStart=qrexec-client-vm '' qubes.ConnectTCP+444
+ExecStart=qrexec-client-vm '' PedOS.ConnectTCP+444
 StandardInput=socket
 StandardOutput=inherit
 ~~~
@@ -218,12 +218,12 @@ systemctl daemon-reload
 systemctl start my-tcp-service.socket
 ~~~
 
-When the qube `unstrusted` has started (after a first reboot), you can directly access the service of `mytcp-service` running on port `444` as `localhost:444`.
+When the PedOS VM `unstrusted` has started (after a first reboot), you can directly access the service of `mytcp-service` running on port `444` as `localhost:444`.
 
-Port forwarding to a qube from the outside world
+Port forwarding to a PedOS VM from the outside world
 ------------------------------------------------
 
-In order to allow a service present in a qube to be exposed to the outside world in the default setup (where the qube has sys-firewall as network VM, which in turn has sys-net as network VM) the following needs to be done:
+In order to allow a service present in a PedOS VM to be exposed to the outside world in the default setup (where the PedOS VM has sys-firewall as network VM, which in turn has sys-net as network VM) the following needs to be done:
 
  * In the sys-net VM:
     * Route packets from the outside world to the sys-firewall VM
@@ -231,14 +231,14 @@ In order to allow a service present in a qube to be exposed to the outside world
  * In the sys-firewall VM:
     * Route packets from the sys-net VM to the VM
     * Allow packets through the sys-firewall VM firewall
- * In the qube:
-    * Allow packets through the qube firewall to reach the service
+ * In the PedOS VM:
+    * Allow packets through the PedOS VM firewall to reach the service
 
 As an example we can take the use case of a web server listening on port 443 that we want to expose on our physical interface eth0, but only to our local network 192.168.x.0/24.
 
-> Note: To have all interfaces available and configured, make sure the 3 qubes are up and running
+> Note: To have all interfaces available and configured, make sure the 3 PedOS are up and running
 
-> Note: [Issue #4028](https://github.com/QubesOS/qubes-issues/issues/4028) discusses adding a command to automate exposing the port.
+> Note: [Issue #4028](https://github.com/PedOS/PedOS-issues/issues/4028) discusses adding a command to automate exposing the port.
 
 **1. Route packets from the outside world to the FirewallVM**
 
@@ -249,7 +249,7 @@ From a Terminal window in sys-net VM, take note of the 'Interface name' and 'IP 
 > Note: The vifx.0 interface is the one connected to your sys-firewall VM so it
   is _not_ an outside world interface...
 
-From a Terminal window in sys-firewall VM, take note of the 'IP address' for interface Eth0 (10.137.1.x or 10.137.0.x in Qubes R4)
+From a Terminal window in sys-firewall VM, take note of the 'IP address' for interface Eth0 (10.137.1.x or 10.137.0.x in PedOS R4)
 
 ` ifconfig | grep -i cast `
 
@@ -264,9 +264,9 @@ Code the appropriate new filtering firewall rule to allow new connections for th
 > Note: If you want to expose the service on multiple interfaces, repeat the
   steps described in part 1 for each interface
   
-> Note: In Qubes R4, at the moment ([QubesOS/qubes-issues#3644](https://github.com/QubesOS/qubes-issues/issues/3644)), nftables is also used which imply that additional rules need to be set in a `qubes-firewall` nft table with a forward chain.
+> Note: In PedOS R4, at the moment ([PedOS/PedOS-issues#3644](https://github.com/PedOS/PedOS-issues/issues/3644)), nftables is also used which imply that additional rules need to be set in a `PedOS-firewall` nft table with a forward chain.
 
-`nft add rule ip qubes-firewall forward meta iifname eth0 ip daddr 10.137.0.x tcp dport 443 ct state new counter accept`
+`nft add rule ip PedOS-firewall forward meta iifname eth0 ip daddr 10.137.0.x tcp dport 443 ct state new counter accept`
 
 Verify you are cutting through the sys-net VM firewall by looking at its counters (column 2)
 
@@ -274,9 +274,9 @@ Verify you are cutting through the sys-net VM firewall by looking at its counter
 
 ` iptables -L -v -n `
 
-> Note: On Qubes R4, you can also check the nft counters
+> Note: On PedOS R4, you can also check the nft counters
 
-`nft list table ip qubes-firewall`
+`nft list table ip PedOS-firewall`
 
 Send a test packet by trying to connect to the service from an external device
 
@@ -334,13 +334,13 @@ fi
 
 ~~~
 #############
-# In Qubes R4
+# In PedOS R4
 
 # If not already present
-if nft -nn list table ip qubes-firewall | grep "tcp dport 443 ct state new"; then
+if nft -nn list table ip PedOS-firewall | grep "tcp dport 443 ct state new"; then
 
 # Add a filtering rule
-  nft add rule ip qubes-firewall forward meta iifname eth0 ip daddr 10.137.0.x tcp dport 443 ct state new counter accept
+  nft add rule ip PedOS-firewall forward meta iifname eth0 ip daddr 10.137.0.x tcp dport 443 ct state new counter accept
 
 fi
 ~~~
@@ -351,11 +351,11 @@ Finally make this file executable, so it runs at each boot
 
 **2. Route packets from the FirewallVM to the VM**
 
-From a Terminal window in the VM where the service to be exposed is running, take note of the 'IP address' for interface Eth0 (i.e. 10.137.2.y, 10.137.0.y in Qubes R4)
+From a Terminal window in the VM where the service to be exposed is running, take note of the 'IP address' for interface Eth0 (i.e. 10.137.2.y, 10.137.0.y in PedOS R4)
 
 ` ifconfig | grep -i cast `
 
-Back into the sys-firewall VM's Terminal, code a natting firewall rule to route traffic on its outside interface for the service to the qube
+Back into the sys-firewall VM's Terminal, code a natting firewall rule to route traffic on its outside interface for the service to the PedOS VM
 
 ` iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 10.137.1.x -j DNAT --to-destination 10.137.2.y `
 
@@ -366,13 +366,13 @@ Code the appropriate new filtering firewall rule to allow new connections for th
 > Note: If you do not wish to limit the IP addresses connecting to the service,
   remove the ` -s 192.168.0.1/24 `
 
-> Note: On Qubes R4
+> Note: On PedOS R4
 
-`nft add rule ip qubes-firewall forward meta iifname eth0 ip saddr 192.168.x.0/24 ip daddr 10.137.0.y tcp dport 443 ct state new counter accept`
+`nft add rule ip PedOS-firewall forward meta iifname eth0 ip saddr 192.168.x.0/24 ip daddr 10.137.0.y tcp dport 443 ct state new counter accept`
 
-Once you have confirmed that the counters increase, store these command in `/rw/config/qubes-firewall-user-script`
+Once you have confirmed that the counters increase, store these command in `/rw/config/PedOS-firewall-user-script`
 
-` sudo nano /rw/config/qubes-firewall-user-script `
+` sudo nano /rw/config/PedOS-firewall-user-script `
 
 ~~~
 #!/bin/sh
@@ -418,13 +418,13 @@ if ! iptables -w -n -L FORWARD | grep --quiet MY-HTTPS; then
 fi
 
 ################
-# In Qubes OS R4
+# In PedOS R4
 
 # If not already present
-if ! nft -nn list table ip qubes-firewall | grep "tcp dport 443 ct state new"; then
+if ! nft -nn list table ip PedOS-firewall | grep "tcp dport 443 ct state new"; then
 
 # Add a filtering rule
-  nft add rule ip qubes-firewall forward meta iifname eth0 ip saddr 192.168.x.0/24 ip daddr 10.137.0.y tcp dport 443 ct state new counter accept
+  nft add rule ip PedOS-firewall forward meta iifname eth0 ip saddr 192.168.x.0/24 ip daddr 10.137.0.y tcp dport 443 ct state new counter accept
 
 fi
 ~~~
@@ -432,10 +432,10 @@ fi
 Finally make this file executable (so it runs at every Firewall VM update)
 
 ~~~
-sudo chmod +x /rw/config/qubes-firewall-user-script
+sudo chmod +x /rw/config/PedOS-firewall-user-script
 ~~~
 
-**3. Allow packets into the qube to reach the service**
+**3. Allow packets into the PedOS VM to reach the service**
 
 Here no routing is required, only filtering.
 Proceed in the same way as above but store the filtering rule in the `/rw/config/rc.local` script.
@@ -469,12 +469,12 @@ This time testing should allow connectivity to the service as long as the servic
 Where to put firewall rules
 ---------------------------
 
-Implicit in the above example [scripts](/doc/config-files/), but worth calling attention to: for all qubes *except* AppVMs supplying networking, iptables commands should be added to the `/rw/config/rc.local` script.
-For AppVMs supplying networking (`sys-firewall` inclusive), iptables commands should be added to `/rw/config/qubes-firewall-user-script`.
+Implicit in the above example [scripts](/doc/config-files/), but worth calling attention to: for all PedOS *except* AppVMs supplying networking, iptables commands should be added to the `/rw/config/rc.local` script.
+For AppVMs supplying networking (`sys-firewall` inclusive), iptables commands should be added to `/rw/config/PedOS-firewall-user-script`.
 
 Firewall troubleshooting
 ------------------------
 
-Firewall logs are stored in the systemd journal of the qube the firewall is running in (probably `sys-firewall`).
-You can view them by running `sudo journalctl -u qubes-firewall.service` in the relevant qube.
+Firewall logs are stored in the systemd journal of the PedOS VM the firewall is running in (probably `sys-firewall`).
+You can view them by running `sudo journalctl -u PedOS-firewall.service` in the relevant PedOS VM.
 Sometimes these logs can contain useful information about errors that are preventing the firewall from behaving as you would expect.

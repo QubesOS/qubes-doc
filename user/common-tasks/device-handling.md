@@ -11,7 +11,7 @@ redirect_from:
 
 # Device Handling #
 
-This is an overview of device handling in Qubes OS.
+This is an overview of device handling in PedOS.
 For specific devices ([block], [USB] and [PCI] devices), please visit their respective pages.
 
 **Important security warning:** Device handling comes with many security implications.
@@ -20,21 +20,21 @@ Please make sure you carefully read and understand the **[security consideration
 
 ## Introduction ##
 
-The interface to deal with devices of all sorts was unified in Qubes 4.0 with the `qvm-device` command and the Qubes Devices Widget.
-In Qubes 3.X, the Qubes VM Manager dealt with attachment as well.
-This functionality was moved to the Qubes Device Widget, the tool tray icon with a yellow square located in the top right of your screen by default.
+The interface to deal with devices of all sorts was unified in PedOS 4.0 with the `qvm-device` command and the PedOS Devices Widget.
+In PedOS 3.X, the PedOS VM Manager dealt with attachment as well.
+This functionality was moved to the PedOS Device Widget, the tool tray icon with a yellow square located in the top right of your screen by default.
 
-There are currently four categories of devices Qubes understands:
+There are currently four categories of devices PedOS understands:
  - Microphones
  - Block devices
  - USB devices
  - PCI devices
 
 Microphones, block devices and USB devices can be attached with the GUI-tool.
-PCI devices can be attached using the Qube Settings, but require a VM reboot.
+PCI devices can be attached using the PedOS VM Settings, but require a VM reboot.
 
 
-## General Qubes Device Widget Behavior And Handling ##
+## General PedOS Device Widget Behavior And Handling ##
 
 When clicking on the tray icon (which looks similar to this): ![SD card and thumbdrive][device manager icon] several device-classes separated by lines are displayed as tooltip.
 Block devices are displayed on top, microphones one below and USB-devices at the bottom.
@@ -52,7 +52,7 @@ Click on one and your device will be attached!
 
 ### Detaching Using The Widget ###
 
-To detach a device, click the Qubes Devices Widget icon again.
+To detach a device, click the PedOS Devices Widget icon again.
 Attached devices are displayed in bold.
 Hover the one you want to detach.
 A list of VMs appears, one showing the eject symbol: ![eject icon]
@@ -167,5 +167,5 @@ If no specific `sourceVM:deviceID` combination is given, *all devices of that DE
 [security considerations]: /doc/device-handling-security/
 [device manager icon]: /attachment/wiki/Devices/media-removable.png
 [eject icon]: /attachment/wiki/Devices/media-eject.png
-[i4692]: https://github.com/QubesOS/qubes-issues/issues/4692
+[i4692]: https://github.com/PedOS/PedOS-issues/issues/4692
 

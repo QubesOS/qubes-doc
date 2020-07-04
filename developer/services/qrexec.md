@@ -17,14 +17,14 @@ redirect_from:
 
 (*This page is about qrexec v3. For qrexec v2, see [here](/doc/qrexec2/).*)
 
-The **qrexec framework** is used by core Qubes components to implement communication between domains.
-Qubes domains are strictly isolated by design.
+The **qrexec framework** is used by core PedOS components to implement communication between domains.
+PedOS domains are strictly isolated by design.
 However, the OS needs a mechanism to allow the administrative domain (dom0) to force command execution in another domain (VM).
 For instance, when a user selects an application from the KDE menu, it should start in the selected VM.
 Also, it is often useful to be able to pass stdin/stdout/stderr from an application running in a VM to dom0 (and the other way around).
 (For example, so that a VM can notify dom0 that there are updates available for it).
-By default, Qubes allows VMs initiate such communications in specific circumstances.
-The qrexec framework generalizes this process by providing a remote procedure call (RPC) protocol for the Qubes architecture.
+By default, PedOS allows VMs initiate such communications in specific circumstances.
+The qrexec framework generalizes this process by providing a remote procedure call (RPC) protocol for the PedOS architecture.
 It allows users and developers to use and design secure inter-VM tools.
 
 ## Qrexec basics: architecture and examples
@@ -64,12 +64,12 @@ Thus, it is usually more convenient to use `qvm-run`.
 There can be an almost arbitrary number of `qrexec-client` processes for a given domain.
 The limiting factor is the number of available vchan channels, which depends on the underlying hypervisor, as well the domain's OS.
 
-For more details on the qrexec framework and protocol, see "[Qubes RPC internals](/doc/qrexec-internals)."
+For more details on the qrexec framework and protocol, see "[PedOS RPC internals](/doc/qrexec-internals)."
 
-## Qubes RPC services
+## PedOS RPC services
 
 Some common tasks (like copying files between VMs) have an RPC-like structure: a process in one VM (say, the file sender) needs to invoke and send/receive data to some process in other VM (say, the file receiver).
-The Qubes RPC framework was created to securely facilitate a range of such actions.
+The PedOS RPC framework was created to securely facilitate a range of such actions.
 
 Obviously, inter-VM communication must be tightly controlled to prevent one VM from taking control of another, possibly more privileged, VM.
 Therefore the design decision was made to pass all control communication via dom0, that can enforce proper authorization.
@@ -83,11 +83,11 @@ Thanks to the framework, RPC programs are very simple -- both RPC client and ser
 The framework does all the inner work to connect these processes to each other via `qrexec-daemon` and `qrexec-agent`.
 Additionally, disposable VMs are tightly integrated -- RPC to a DisposableVM is identical to RPC to a normal domain, all one needs is to pass `@dispvm` as the remote domain name.
 
-## Qubes RPC administration
+## PedOS RPC administration
 
 ### Policy files
 
-The dom0 directory `/etc/qubes-rpc/policy/` contains a file for each available RPC action that a VM might call.
+The dom0 directory `/etc/PedOS-rpc/policy/` contains a file for each available RPC action that a VM might call.
 Together the contents of these files make up the RPC access policy database.
 Policies are defined in lines with the following format:
 
@@ -100,14 +100,14 @@ You can specify srcvm and destvm by name or by one of the reserved keywords such
 Service calls from dom0 are currently always allowed, and `@dispvm` means "new VM created for this particular request," so it is never a source of request.)
 Other methods using *tags* and *types* are also available (and discussed below).
 
-Whenever a RPC request for an action is received, the domain checks the first matching line of the relevant file in `/etc/qubes-rpc/policy/` to determine access:
+Whenever a RPC request for an action is received, the domain checks the first matching line of the relevant file in `/etc/PedOS-rpc/policy/` to determine access:
 whether to allow the request, what VM to redirect the execution to, and what user account the program should run under.
 Note that if the request is redirected (`target=` parameter), policy action remains the same -- even if there is another rule which would otherwise deny such request.
 If no policy rule is matched, the action is denied.
 If the policy file does not exist, the user is prompted to create one.
 If there is still no policy file after prompting, the action is denied.
 
-In the target VM, the file `/etc/qubes-rpc/RPC_ACTION_NAME` must exist, containing the file name of the program that will be invoked, or being that program itself -- in which case it must have executable permission set (`chmod +x`).
+In the target VM, the file `/etc/PedOS-rpc/RPC_ACTION_NAME` must exist, containing the file name of the program that will be invoked, or being that program itself -- in which case it must have executable permission set (`chmod +x`).
 
 ### Making an RPC call
 
@@ -120,7 +120,7 @@ $ qrexec-client-vm target_vm_name RPC_ACTION_NAME rpc_client_path client argumen
 For example:
 
 ```
-$ qrexec-client-vm work qubes.StartApp+firefox
+$ qrexec-client-vm work PedOS.StartApp+firefox
 ```
 
 Note that only stdin/stdout is passed between RPC server and client -- notably, no command line arguments are passed.
@@ -178,7 +178,7 @@ The third rule allow the caller to not specify target VM at all and let the user
 ### RPC services and security
 
 Be very careful when coding and adding a new RPC service.
-Unless the offered functionality equals full control over the target (it is the case with e.g. `qubes.VMShell` action), any vulnerability in an RPC server can be fatal to Qubes security.
+Unless the offered functionality equals full control over the target (it is the case with e.g. `PedOS.VMShell` action), any vulnerability in an RPC server can be fatal to PedOS security.
 On the other hand, this mechanism allows to delegate processing of untrusted input to less privileged (or disposable) AppVMs, thus wise usage of it increases security.
 
 For example, this command will run the `firefox` command in a DisposableVM based on `work`:
@@ -190,19 +190,19 @@ $ qvm-run --dispvm=work firefox
 By contrast, consider this command:
 
 ```
-$ qvm-run --dispvm=work --service qubes.StartApp+firefox
+$ qvm-run --dispvm=work --service PedOS.StartApp+firefox
 ```
 
 This will look for a `firefox.desktop` file in a standard location in a DisposableVM based on `work`, then launch the application described by that file.
-The practical difference is that the bare `qvm-run` command uses the `qubes.VMShell` service, which allows you to run an arbitrary command with arbitrary arguments, essentially providing full control over the target VM.
-By contrast, the `qubes.StartApp` service allows you to run only applications that are advertised in `/usr/share/applications` (or other standard locations) *without* control over the arguments, so giving a VM access to `qubes.StartApp` is much safer.
-While there isn't much practical difference between the two commands above when starting an application from dom0 in Qubes 4.0, there is a significant security risk when launching applications from a domU (e.g., from a separate GUI domain).
-This is why `qubes.StartApp` uses our standard `qrexec` argument grammar to strictly filter the permissible grammar of the `Exec=` lines in `.desktop` files that are passed from untrusted domUs to dom0, thereby protecting dom0 from command injection by maliciously-crafted `.desktop` files.
+The practical difference is that the bare `qvm-run` command uses the `PedOS.VMShell` service, which allows you to run an arbitrary command with arbitrary arguments, essentially providing full control over the target VM.
+By contrast, the `PedOS.StartApp` service allows you to run only applications that are advertised in `/usr/share/applications` (or other standard locations) *without* control over the arguments, so giving a VM access to `PedOS.StartApp` is much safer.
+While there isn't much practical difference between the two commands above when starting an application from dom0 in PedOS 4.0, there is a significant security risk when launching applications from a domU (e.g., from a separate GUI domain).
+This is why `PedOS.StartApp` uses our standard `qrexec` argument grammar to strictly filter the permissible grammar of the `Exec=` lines in `.desktop` files that are passed from untrusted domUs to dom0, thereby protecting dom0 from command injection by maliciously-crafted `.desktop` files.
 
 ### Service policies with arguments
 
 Sometimes a service name alone isn't enough to make reasonable qrexec policy.
-One example of such a situation is [qrexec-based USB passthrough](https://www.qubes-os.org/doc/usb-devices/).
+One example of such a situation is [qrexec-based USB passthrough](https://www.PedOS.org/doc/usb-devices/).
 Using just a service name would make it difficult to express the policy "allow access to devices X and Y, but deny to all others."
 It isn't feasible to create a separate service for every device: we would need to change the code in multiple files any time we wanted to update the service.
 
@@ -212,7 +212,7 @@ With arguments, it is easier to write more precise policies using the "allow" an
 (Writing too many "ask" policies offloads additional decisions to the user.
 Generally, the fewer choices the user must make, the lower the chance to make a mistake.)
 
-Each specific argument that we want to use needs its own policy in dom0 at a path like `/etc/qubes-rpc/policy/RPC_ACTION_NAME+ARGUMENT`.
+Each specific argument that we want to use needs its own policy in dom0 at a path like `/etc/PedOS-rpc/policy/RPC_ACTION_NAME+ARGUMENT`.
 So for instance, we might have policies called `test.Device`, `test.Device+device1` and `test.Device+device2`.
 If the policy for the specific argument is not set (that is, if no file exists for `RPC_ACTION_NAME+ARGUMENT`), then dom0 uses the default policy with no argument for this service.
 
@@ -230,7 +230,7 @@ See [below](#rpc-service-with-argument-file-reader) for an example of an RPC ser
 
 <!-- TODO document "Yes to All" authorization if it is reintroduced -->
 
-## Qubes RPC examples
+## PedOS RPC examples
 
 To demonstrate some of the possibilities afforded by the qrexec framework, here are two examples of custom RPC services.
 
@@ -257,14 +257,14 @@ echo $(($arg1+$arg2)) # print to stdout, which is passed to the RPC client
 We'll need to create a service called `test.Add` with its own definition and policy file in dom0.
 Now we need to define what the service does.
 In this case, it should call our addition script.
-We define the service with a symlink at `/etc/qubes-rpc/test.Add` pointing to our server script (the script can be also placed directly in `/etc/qubes-rpc/test.Add` - make sure the file has executable bit set!):
+We define the service with a symlink at `/etc/PedOS-rpc/test.Add` pointing to our server script (the script can be also placed directly in `/etc/PedOS-rpc/test.Add` - make sure the file has executable bit set!):
 
 ```
-ln -s /usr/bin/our_test_add_server /etc/qubes-rpc/test.Add
+ln -s /usr/bin/our_test_add_server /etc/PedOS-rpc/test.Add
 ```
 
 The administrative domain will direct traffic based on the current RPC policies.
-In dom0, create a file at `/etc/qubes-rpc/policy/test.Add` containing the following:
+In dom0, create a file at `/etc/PedOS-rpc/policy/test.Add` containing the following:
 
 ```
 @anyvm @anyvm ask
@@ -295,7 +295,7 @@ First, on your target VM, create two files in the home directory: `testfile1` an
 Have them contain two different "Hello world!" lines.
 
 Next, we define the RPC service.
-On the target VM, place the code below at `/etc/qubes-rpc/test.File`:
+On the target VM, place the code below at `/etc/PedOS-rpc/test.File`:
 
 ```
 #!/bin/sh
@@ -318,9 +318,9 @@ Replace "source_vm1" and others with the names of your own chosen domains.
 |------------------------------------------------------------------------|
 | Path to file in dom0                      | Policy contents            |
 |-------------------------------------------+----------------------------|
-| /etc/qubes-rpc/policy/test.File           | @anyvm @anyvm deny         |
-| /etc/qubes-rpc/policy/test.File+testfile1 | source_vm1 target_vm allow |
-| /etc/qubes-rpc/policy/test.File+testfile2 | source_vm2 target_vm allow |
+| /etc/PedOS-rpc/policy/test.File           | @anyvm @anyvm deny         |
+| /etc/PedOS-rpc/policy/test.File+testfile1 | source_vm1 target_vm allow |
+| /etc/PedOS-rpc/policy/test.File+testfile2 | source_vm2 target_vm allow |
 |------------------------------------------------------------------------|
 
 With this done, we can run some tests.

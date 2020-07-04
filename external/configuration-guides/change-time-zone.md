@@ -6,7 +6,7 @@ permalink: /doc/change-time-zone/
 
 # Changing your Time Zone #
 
-## Qubes 4.0 ##
+## PedOS 4.0 ##
 
 ### Command line ###
 

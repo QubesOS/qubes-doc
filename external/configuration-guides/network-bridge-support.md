@@ -11,40 +11,40 @@ redirect_from:
 Network Bridge Support (EXPERIMENTAL and UNSUPPORTED)
 =====================================================
 
-The Qubes development team does not support bridging the network interfaces found in NetVM and don't plan to support it at all. Several reasons for that:
+The PedOS development team does not support bridging the network interfaces found in NetVM and don't plan to support it at all. Several reasons for that:
 
 -   Using a bridged VM is almost only necessary for developers testing or working on OSI layer 2 or layer 3 tools (MAC or routing protocols). If not for testing, such tools are almost only used directly on routers ...).
 -   Most of these tools can be anyway used directly inside the NetVM, which has direct access to the network card.
 -   It is also possible to use a secondary network card plugged into a specific development VM.
--   Such a setup could break security features of Qubes such as AppVM firewalling.
+-   Such a setup could break security features of PedOS such as AppVM firewalling.
 
 Now if you really want to work with OSI layer2 / layer 3 tools, that you don't have a secondary network card, or that you want to completely expose services of a given AppVM (at your own risk), a bridged setup may help you.
 
-Qubes manager patch (Qubes R2B2)
+PedOS manager patch (PedOS R2B2)
 --------------------------------
 
-The following patches can be applied to the Qubes Manager GUI in order to add an option to easily bridge a VM. Use it at your own risk. If the patch breaks the Qubes Manager, you can try to restore the Qubes packages:
+The following patches can be applied to the PedOS Manager GUI in order to add an option to easily bridge a VM. Use it at your own risk. If the patch breaks the PedOS Manager, you can try to restore the PedOS packages:
 
 ~~~
-# qubes-dom-update qubes-core-dom0 qubes-manager
-# yum reinstall qubes-core-dom0
-# yum reinstall qubes-manager
+# PedOS-dom-update PedOS-core-dom0 PedOS-manager
+# yum reinstall PedOS-core-dom0
+# yum reinstall PedOS-manager
 ~~~
 
 First, retrieve the attachment of this Wifi article in dom0. Then apply the three patches the following way after installing the patch tool :
 
 ~~~
-# qubes-dom0-update patch
-# patch /usr/lib64/python2.7/site-package/qubes/qubes.py < qubes.py-bridge.diff
-# patch /usr/lib64/python2.7/site-package/qubesmanager/settings.py < settings.py-bridge.diff
-# patch /usr/lib64/python2.7/site-package/qubesmanager/ui_settingsdlg.py < ui_settingsdlg.py-bridge.diff
+# PedOS-dom0-update patch
+# patch /usr/lib64/python2.7/site-package/PedOS/PedOS.py < PedOS.py-bridge.diff
+# patch /usr/lib64/python2.7/site-package/PedOSmanager/settings.py < settings.py-bridge.diff
+# patch /usr/lib64/python2.7/site-package/PedOSmanager/ui_settingsdlg.py < ui_settingsdlg.py-bridge.diff
 ~~~
 
-Finally restart the qubes manager GUI.
+Finally restart the PedOS manager GUI.
 
 An option is available in the AppVM Settings to enable setting the NetVM in bridge mode. For a bridged AppVM, you should then select a NetVM instead of a FirewallVM/  ProxyVM, enable the Bridge option, and restart your AppVM.
 
-NetVM patch (Qubes R2B2)
+NetVM patch (PedOS R2B2)
 ------------------------
 
 You need to modify manually the NetVM iptable script inside the NetVM. The reason is that by default the NetVM only accepts traffic coming from network interfaces called vif\* (in our case, we will use an additional interface called bridge0. The second reason is that all traffic is NATed by default. In our case, we want to forward traffic from the bridge interface without modifying it, while NATing traffic coming from vif\* interfaces.
@@ -75,7 +75,7 @@ Modify manually the Template you use for your NetVM (not the NetVM itself). This
     -A FORWARD -j DROP
     ~~~
 
-Ensure that the IP addresses used by default in Qubes are in the form 10.137.1.\* or 10.137.2.\* by running ifconfig. Of course, this setup won't work with IPv6.
+Ensure that the IP addresses used by default in PedOS are in the form 10.137.1.\* or 10.137.2.\* by running ifconfig. Of course, this setup won't work with IPv6.
 
 Now you need to restart the NetVM and FirewallVM or only iptables in both VMs if you prefer:
 

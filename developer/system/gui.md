@@ -9,28 +9,28 @@ redirect_from:
 - /wiki/GUIdocs/
 ---
 
-Qubes GUI protocol
+PedOS GUI protocol
 ==================
 
-qubes_gui and qubes_guid processes
+PedOS_gui and PedOS_guid processes
 ------------------------------------
 
 All AppVM X applications connect to local (running in AppVM) Xorg servers that use the following "hardware" drivers:
 
 -   *dummyqsb_drv* - video driver, that paints onto a framebuffer located in RAM, not connected to real hardware
--   *qubes_drv* - it provides a virtual keyboard and mouse (in fact, more, see below)
+-   *PedOS_drv* - it provides a virtual keyboard and mouse (in fact, more, see below)
 
-For each AppVM, there is a pair of *qubes_gui* (running in AppVM) and *qubes_guid* (running in dom0) processes connected over vchan. 
-The main responsibilities of *qubes_gui* are:
+For each AppVM, there is a pair of *PedOS_gui* (running in AppVM) and *PedOS_guid* (running in dom0) processes connected over vchan. 
+The main responsibilities of *PedOS_gui* are:
 
 -   call XCompositeRedirectSubwindows on the root window, so that each window has its own composition buffer
 -   instruct the local Xorg server to notify it about window creation, configuration and damage events; pass information on these events to dom0
--   receive information about keyboard and mouse events from dom0, tell *qubes_drv* to fake appropriate events
+-   receive information about keyboard and mouse events from dom0, tell *PedOS_drv* to fake appropriate events
 -   receive information about window size/position change, apply them to the local window
 
-The main responsibilities of *qubes_guid* are:
+The main responsibilities of *PedOS_guid* are:
 
--   create a window in dom0 whenever an information on window creation in AppVM is received from *qubes_gui*
+-   create a window in dom0 whenever an information on window creation in AppVM is received from *PedOS_gui*
 -   whenever the local window receives XEvent, pass information on it to AppVM (particularly, mouse and keyboard data)
 -   whenever AppVM signals damage event, tell local Xorg server to repaint a given window fragment
 -   receive information about window size/position change, apply them to the local window
@@ -43,21 +43,21 @@ Window content updates implementation
 
 Typical remote desktop applications, like *vnc*, pass information on all changed window content in-band (say, over tcp). 
 As that channel has limited throughput, this impacts video performance. 
-In the case of Qubes, *qubes_gui* does not transfer all changed pixels via vchan. Instead, for each window, upon its creation or size change, *qubes_gui*
+In the case of PedOS, *PedOS_gui* does not transfer all changed pixels via vchan. Instead, for each window, upon its creation or size change, *PedOS_gui*
 
--   asks *qubes_drv* driver for the list of physical memory frames that hold the composition buffer of a window
--   passes this information via `MFNDUMP` message to *qubes_guid* in dom0
+-   asks *PedOS_drv* driver for the list of physical memory frames that hold the composition buffer of a window
+-   passes this information via `MFNDUMP` message to *PedOS_guid* in dom0
 
-Now, *qubes_guid* has to tell the dom0 Xorg server about the location of the buffer. 
+Now, *PedOS_guid* has to tell the dom0 Xorg server about the location of the buffer. 
 There is no supported way (e.g. Xorg extension) to do this zero-copy style. 
-The following method is used in Qubes:
+The following method is used in PedOS:
 
 -   in dom0, the Xorg server is started with *LD_PRELOAD*-ed library named *shmoverride.so*. This library hooks all function calls related to shared memory.
--   *qubes_guid* creates a shared memory segment, and then tells Xorg to attach it via *MIT-SHM* extension
+-   *PedOS_guid* creates a shared memory segment, and then tells Xorg to attach it via *MIT-SHM* extension
 -   when Xorg tries to attach the segment (via glibc *shmat*) *shmoverride.so* intercepts this call and instead maps AppVM memory via *xc_map_foreign_pages*
 -   since then, we can use MIT-SHM functions, e.g. *XShmPutImage* to draw onto a dom0 window. *XShmPutImage* will paint with DRAM speed; actually, many drivers use DMA for this.
 
-The important detail is that *xc_map_foreign_pages* verifies that a given mfn range actually belongs to a given domain id (and the latter is provided by trusted *qubes_guid*). 
+The important detail is that *xc_map_foreign_pages* verifies that a given mfn range actually belongs to a given domain id (and the latter is provided by trusted *PedOS_guid*). 
 Therefore, rogue AppVM cannot gain anything by passing crafted mnfs in the `MFNDUMP` message.
 
 To sum up, this solution has the following benefits:
@@ -73,7 +73,7 @@ Security markers on dom0 windows
 
 It is important that the user knows which AppVM a given window belongs to. This prevents a rogue AppVM from painting a window pretending to belong to other AppVM or dom0 and trying to steal, for example, passwords.
 
-In Qubes, a custom window decorator is used that paints a colourful frame (the colour is determined during AppVM creation) around decorated windows. Additionally, the window title always starts with **[name of the AppVM]**. If a window has an *override_redirect* attribute, meaning that it should not be treated by a window manager (typical case is menu windows), *qubes_guid* draws a two-pixel colourful frame around it manually.
+In PedOS, a custom window decorator is used that paints a colourful frame (the colour is determined during AppVM creation) around decorated windows. Additionally, the window title always starts with **[name of the AppVM]**. If a window has an *override_redirect* attribute, meaning that it should not be treated by a window manager (typical case is menu windows), *PedOS_guid* draws a two-pixel colourful frame around it manually.
 
 Clipboard sharing implementation
 --------------------------------
@@ -81,14 +81,14 @@ Clipboard sharing implementation
 Certainly, it would be insecure to allow AppVM to read/write the clipboards of other AppVMs unconditionally. 
 Therefore, the following mechanism is used:
 
--   there is a "qubes clipboard" in dom0 - its contents are stored in a regular file in dom0.
--   if the user wants to copy local AppVM clipboard to qubes clipboard, she must focus on any window belonging to this AppVM, and press **Ctrl-Shift-C**. This combination is trapped by *qubes-guid*, and `CLIPBOARD_REQ` message is sent to AppVM. *qubes-gui* responds with *CLIPBOARD_DATA* message followed by clipboard contents.
--   the user focuses on other AppVM window, presses **Ctrl-Shift-V**. This combination is trapped by *qubes-guid*, and `CLIPBOARD_DATA` message followed by qubes clipboard contents is sent to AppVM; *qubes_gui* copies data to the local clipboard, and then user can paste its contents to local applications normally.
+-   there is a "PedOS clipboard" in dom0 - its contents are stored in a regular file in dom0.
+-   if the user wants to copy local AppVM clipboard to PedOS clipboard, she must focus on any window belonging to this AppVM, and press **Ctrl-Shift-C**. This combination is trapped by *PedOS-guid*, and `CLIPBOARD_REQ` message is sent to AppVM. *PedOS-gui* responds with *CLIPBOARD_DATA* message followed by clipboard contents.
+-   the user focuses on other AppVM window, presses **Ctrl-Shift-V**. This combination is trapped by *PedOS-guid*, and `CLIPBOARD_DATA` message followed by PedOS clipboard contents is sent to AppVM; *PedOS_gui* copies data to the local clipboard, and then user can paste its contents to local applications normally.
 
 This way, the user can quickly copy clipboards between AppVMs. 
 This action is fully controlled by the user, it cannot be triggered/forced by any AppVM.
 
-*qubes_gui* and *qubes_guid* code notes
+*PedOS_gui* and *PedOS_guid* code notes
 -----------------------------------------
 
 Both applications are structured similarly. They use *select* function to wait for any of these two event sources:
@@ -98,9 +98,9 @@ Both applications are structured similarly. They use *select* function to wait f
 
 The XEvents are handled by the *handle_xevent_eventname* function, and messages are handled by *handle_messagename* function. One should be very careful when altering the actual *select* loop, because both XEvents and vchan messages are buffered, and  *select* will not wake for each message.
 
-If one changes the number/order/signature of messages, one should increase the *QUBES_GUID_PROTOCOL_VERSION* constant in *messages.h* include file.
+If one changes the number/order/signature of messages, one should increase the *PEDOS_GUID_PROTOCOL_VERSION* constant in *messages.h* include file.
 
-*qubes_guid* writes debugging information to */var/log/qubes/qubes.domain_id.log* file; *qubes_gui* writes debugging information to */var/log/qubes/gui_agent.log*. 
+*PedOS_guid* writes debugging information to */var/log/PedOS/PedOS.domain_id.log* file; *PedOS_gui* writes debugging information to */var/log/PedOS/gui_agent.log*. 
 Include these files when reporting a bug.
 
 AppVM -> dom0 messages
@@ -205,7 +205,7 @@ struct shm_cmd {
 </pre></td>
  <td>Retrieve the array of mfns that constitute the composition buffer of a remote window.
 
- The "num_mfn" 32bit integers follow the shm_cmd structure; "off" is the offset of the composite buffer start in the first frame; "shmid" and "domid" parameters are just placeholders (to be filled by *qubes_guid*), so that we can use the same structure when talking to *shmoverride.so*|
+ The "num_mfn" 32bit integers follow the shm_cmd structure; "off" is the offset of the composite buffer start in the first frame; "shmid" and "domid" parameters are just placeholders (to be filled by *PedOS_guid*), so that we can use the same structure when talking to *shmoverride.so*|
  </td>
 </tr>
 <tr>
@@ -305,7 +305,7 @@ struct msg_keypress {
   uint32_t keycode;  
 };
 </pre> </td>
- <td>Tell *qubes_drv* driver to generate a keypress</td>
+ <td>Tell *PedOS_drv* driver to generate a keypress</td>
 </tr>
 <tr>
   <td>MSG_BUTTON</td>
@@ -318,7 +318,7 @@ struct msg_button {
   uint32_t button;  
 };
 </pre> </td>
- <td>Tell *qubes_drv* driver to generate mouseclick</td>
+ <td>Tell *PedOS_drv* driver to generate mouseclick</td>
 </tr>
 <tr>
   <td>MSG_MOTION</td>
@@ -330,7 +330,7 @@ struct msg_motion {
   uint32_t is_hint;  
 };
 </pre> </td>
- <td>Tell *qubes_drv* driver to generate motion event</td>
+ <td>Tell *PedOS_drv* driver to generate motion event</td>
 </tr>
 <tr>
   <td>MSG_CONFIGURE</td>

@@ -37,7 +37,7 @@ For this reason, it is strongly recommended that you base the default Disposable
 
 ## Creating a new DisposableVM Template
 
-In Qubes 4.0, you're no longer restricted to a single DisposableVM Template. Instead, you can create as many as you want. Whenever you start a new DisposableVM, you can choose to base it on whichever DisposableVM Template you like.
+In PedOS 4.0, you're no longer restricted to a single DisposableVM Template. Instead, you can create as many as you want. Whenever you start a new DisposableVM, you can choose to base it on whichever DisposableVM Template you like.
 To create new DisposableVM Template, lets say `custom-disposablevm-template`, based on `debian-9` template, use following commands:
 
     [user@dom0 ~]$ qvm-create --template debian-9 --label red custom-disposablevm-template
@@ -46,9 +46,9 @@ To create new DisposableVM Template, lets say `custom-disposablevm-template`, ba
 
 Additionally you may want to set it as default DisposableVM Template:
 
-    [user@dom0 ~]$ qubes-prefs default_dispvm custom-disposablevm-template
+    [user@dom0 ~]$ PedOS-prefs default_dispvm custom-disposablevm-template
 
-The above default is used whenever a qube request starting a new DisposableVM and do not specify which one (for example `qvm-open-in-dvm` tool). This can be also set in qube settings and will affect service calls from that qube. See [qrexec documentation](/doc/qrexec/#specifying-vms-tags-types-targets-etc) for details.
+The above default is used whenever a PedOS VM request starting a new DisposableVM and do not specify which one (for example `qvm-open-in-dvm` tool). This can be also set in PedOS VM settings and will affect service calls from that PedOS VM. See [qrexec documentation](/doc/qrexec/#specifying-vms-tags-types-targets-etc) for details.
 
 If you wish to use a [Minimal TemplateVM](/doc/templates/minimal/) as a DisposableVM Template, please see the [Minimal TemplateVM](/doc/templates/minimal/) page.
 
@@ -58,16 +58,16 @@ If you wish to use a [Minimal TemplateVM](/doc/templates/minimal/) as a Disposab
 It is possible to change the settings for each new DisposableVM.
 This can be done by customizing the DisposableVM Template on which it is based:
 
-1.  Start a terminal in the `fedora-26-dvm` qube (or another DisposableVM Template) by running the following command in a dom0 terminal. (If you enable `appmenus-dispvm` feature (as explained at the top), applications menu for this VM (`fedora-26-dvm`) will be "Disposable: fedora-26-dvm" (instead of "Domain: fedora-26-dvm") and entries there will start new DisposableVM based on that VM (`fedora-26-dvm`). Not in that VM (`fedora-26-dvm`) itself).
+1.  Start a terminal in the `fedora-26-dvm` PedOS VM (or another DisposableVM Template) by running the following command in a dom0 terminal. (If you enable `appmenus-dispvm` feature (as explained at the top), applications menu for this VM (`fedora-26-dvm`) will be "Disposable: fedora-26-dvm" (instead of "Domain: fedora-26-dvm") and entries there will start new DisposableVM based on that VM (`fedora-26-dvm`). Not in that VM (`fedora-26-dvm`) itself).
 
         [user@dom0 ~]$ qvm-run -a fedora-26-dvm gnome-terminal
 
-2.  Change the qube's settings and/or applications, as desired. Some examples of changes you may want to make include:
+2.  Change the PedOS VM's settings and/or applications, as desired. Some examples of changes you may want to make include:
     -   Changing Firefox's default startup settings and homepage.
     -   Changing default editor, image viewer. In Debian-based templates this can be done with the `mimeopen` command.
     -   Changing the DisposableVM's default NetVM. For example, you may wish to set the NetVM to "none." Then, whenever you start a new DisposableVM, you can choose your desired ProxyVM manually (by changing the newly-started DisposableVMs settings). This is useful if you sometimes wish to use a DisposableVM with a Whonix Gateway, for example. It is also useful if you sometimes wish to open untrusted files in a network-disconnected DisposableVM.
 
-4.  Shutdown the qube (either by `poweroff` from qube's terminal, or `qvm-shutdown` from dom0 terminal).
+4.  Shutdown the PedOS VM (either by `poweroff` from PedOS VM's terminal, or `qvm-shutdown` from dom0 terminal).
 
 
 ## Using static DisposableVMs for sys-*
@@ -108,7 +108,7 @@ qvm-prefs <sys-VMName> provides_network true
 ~~~
 
 Next, set the old `sys-` VM's autostart to false, and update any references to the old one.
-In particular, make sure to update `/etc/qubes-rpc/policy/qubes.UpdatesProxy` in dom0.
+In particular, make sure to update `/etc/PedOS-rpc/policy/PedOS.UpdatesProxy` in dom0.
 
 For example, `qvm-prefs sys-firewall netvm <sys-VMName>`.
 See below for a complete example of a `sys-net` replacement:
@@ -124,7 +124,7 @@ qvm-features sys-net2 appmenus-dispvm ''
 qvm-prefs sys-net2 provides_network true
 qvm-prefs sys-net autostart false
 qvm-prefs sys-firewall netvm sys-net2
-qubes-prefs clockvm sys-net2
+PedOS-prefs clockvm sys-net2
 ~~~
 
 
@@ -132,22 +132,22 @@ qubes-prefs clockvm sys-net2
 
 For added convenience, arbitrary programs can be added to the Application Menu of the DisposableVM. 
 
-In order to do that, select "Qube settings" entry in selected base AppVM, go to "Applications" tab and select desired applications as for any other qube.
+In order to do that, select "PedOS VM settings" entry in selected base AppVM, go to "Applications" tab and select desired applications as for any other PedOS VM.
 
 Note that currently only applications whose main process keeps running until you close the application (i.e. do not start a background process instead) will work. One of known examples of incompatible applications is GNOME Terminal (shown on the list as "Terminal"). Choose different terminal emulator (like XTerm) instead.
 
 
 ## Create Custom sys-net sys-firewall and sys-usb DisposableVMs
 
-Users have the option of creating customized DisposableVMs for the `sys-net`, `sys-firewall` and `sys-usb` VMs. In this configuration, a fresh VM instance is created each time a DisposableVM is launched. Functionality is near-identical to the default VMs created following a new Qubes’ installation, except the user benefits from a non-persistent filesystem.
+Users have the option of creating customized DisposableVMs for the `sys-net`, `sys-firewall` and `sys-usb` VMs. In this configuration, a fresh VM instance is created each time a DisposableVM is launched. Functionality is near-identical to the default VMs created following a new PedOS’ installation, except the user benefits from a non-persistent filesystem.
 
 Functionality is not limited, users can:
 
-   * Set custom firewall rule sets and run Qubes VPN scripts. 
+   * Set custom firewall rule sets and run PedOS VPN scripts. 
    * Set DisposableVMs to autostart at system boot.
    * Attach PCI devices with the `--persistent` option. 
 
-Using DisposableVMs in this manner is ideal for untrusted qubes which require persistent PCI devices, such as USB VMs and NetVMs.
+Using DisposableVMs in this manner is ideal for untrusted PedOS which require persistent PCI devices, such as USB VMs and NetVMs.
 
 >_**Note:**_ Users who want customized VPN or firewall rule sets must create a separate DisposableVM Template for use by each DisposableVM. If DisposableVM Template customization is not needed, then a single DisposableVM Template is used as a template for all DisposableVMs.
  
@@ -158,9 +158,9 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 
        [user@dom0 ~]$ qvm-create --class AppVM --label gray <DisposableVM-Template-Name>
 
-2. _(optional)_ In the DisposableVM Template, add custom firewall rule sets, Qubes VPN scripts, etc.
+2. _(optional)_ In the DisposableVM Template, add custom firewall rule sets, PedOS VPN scripts, etc.
 
-    Firewall rules sets and Qubes VPN scripts can be added just like any other VM.   
+    Firewall rules sets and PedOS VPN scripts can be added just like any other VM.   
     
 3. Set the DisposableVM Template as template for DisposableVMs:
 
@@ -193,7 +193,7 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 
        [user@dom0 ~]$ qvm-pci attach --persistent disp-sys-net <backend>:<bdf>
 
-7. _(recommended)_ Set `disp-sys-net` to start automatically when Qubes boots:
+7. _(recommended)_ Set `disp-sys-net` to start automatically when PedOS boots:
 
        [user@dom0 ~]$ qvm-prefs disp-sys-net autostart true
        
@@ -203,9 +203,9 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
      
 9. _(optional)_ Set `disp-sys-net` as the dom0 time source:
 
-       [user@dom0 ~]$ qubes-prefs clockvm disp-sys-net
+       [user@dom0 ~]$ PedOS-prefs clockvm disp-sys-net
 
-10. _(recommended)_ Allow templates to be updated via `disp-sys-net`. In dom0, edit `/etc/qubes-rpc/policy/qubes.UpdatesProxy` to change the target from `sys-net` to `disp-sys-net`.
+10. _(recommended)_ Allow templates to be updated via `disp-sys-net`. In dom0, edit `/etc/PedOS-rpc/policy/PedOS.UpdatesProxy` to change the target from `sys-net` to `disp-sys-net`.
 
 ### Create the sys-firewall DisposableVM
 
@@ -225,7 +225,7 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 
        [user@dom0 ~]$ qvm-prefs <vm_name> netvm disp-sys-firewall
 
-5. _(recommended)_ Set `disp-sys-firewall` to auto-start when Qubes boots:
+5. _(recommended)_ Set `disp-sys-firewall` to auto-start when PedOS boots:
 
        [user@dom0 ~]$ qvm-prefs disp-sys-firewall autostart true
        
@@ -235,7 +235,7 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 
 7. _(optional)_ Set `disp-sys-firewall` as the default NetVM:
 
-       [user@dom0 ~]$ qubes-prefs default_netvm disp-sys-firewall
+       [user@dom0 ~]$ PedOS-prefs default_netvm disp-sys-firewall
 
 
 ### Create the sys-usb DisposableVM
@@ -262,7 +262,7 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 
        [user@dom0 ~]$ qvm-pci attach --persistent disp-sys-usb <backined>:<bdf>
     
-6. _(optional)_ Set `disp-sys-usb` to auto-start when Qubes boots:
+6. _(optional)_ Set `disp-sys-usb` to auto-start when PedOS boots:
   
        [user@dom0 ~]$ qvm-prefs disp-sys-usb autostart true
        
@@ -270,12 +270,12 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 
        [user@dom0 ~]$ qvm-features disp-sys-usb appmenus-dispvm ''
 
-8. Users should now follow instructions on [How to hide USB controllers from dom0](/doc/usb-qubes/#how-to-hide-all-usb-controllers-from-dom0).
+8. Users should now follow instructions on [How to hide USB controllers from dom0](/doc/usb-PedOS/#how-to-hide-all-usb-controllers-from-dom0).
 
 9. At this point, your mouse may not work.
-   Edit the `qubes.InputMouse` policy file in dom0, which is located here:
+   Edit the `PedOS.InputMouse` policy file in dom0, which is located here:
 
-       /etc/qubes-rpc/policy/qubes.InputMouse
+       /etc/PedOS-rpc/policy/PedOS.InputMouse
 
    Add a line like this to the top of the file:
 

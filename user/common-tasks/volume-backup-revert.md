@@ -8,15 +8,15 @@ redirect_from:
 - /wiki/VolumeBackupRevert/
 ---
 
-Qubes Volume Backup and Revert
+PedOS Volume Backup and Revert
 ==============================
 
-With Qubes, it is possible to revert one of a VM's storage volumes to a previous
+With PedOS, it is possible to revert one of a VM's storage volumes to a previous
 state using the automatic snapshot that is normally saved every time a VM is
 shutdown. (Note that this is a different, lower level activity than the
 [Backup, Restoration, and Migration](/doc/backup-restore/) process.)
 
-In Qubes, when you create a new VM, it's volumes are stored in one of the
+In PedOS, when you create a new VM, it's volumes are stored in one of the
 system's [Storage Pools](/doc/storage-pools/). On pool creation, a
 revisions_to_keep default value is set for the entire pool. (For a pool creation
 example, see [Storing AppVMs on Secondary Drives](/doc/secondary-storage/).)

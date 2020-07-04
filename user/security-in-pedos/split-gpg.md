@@ -14,11 +14,11 @@ redirect_from:
 - /wiki/UserDoc/OpenPGP/
 ---
 
-# Qubes Split GPG #
+# PedOS Split GPG #
 
 ## What is Split GPG and why should I use it instead of the standard GPG? ##
 
-Split GPG implements a concept similar to having a smart card with your private GPG keys, except that the role of the "smart card" plays another Qubes AppVM.
+Split GPG implements a concept similar to having a smart card with your private GPG keys, except that the role of the "smart card" plays another PedOS AppVM.
 This way one, not-so-trusted domain, e.g. the one where Thunderbird is running, can delegate all crypto operations, such as encryption/decryption and signing to another, more trusted, network-isolated, domain.
 This way the compromise of your domain where Thunderbird or another client app is running -- arguably a not-so-unthinkable scenario -- does not allow the attacker to automatically also steal all your keys.
 (We should make a rather obvious comment here that the so-often-used passphrases on private keys are pretty meaningless because the attacker can easily set up a simple backdoor which would wait until the user enters the passphrase and steal the key then.)
@@ -36,7 +36,7 @@ In other words, while protecting the user's private key is an important task, we
 (Similarly the smart card doesn't make the process of digitally signing a document or a transaction in any way more secure -- the user cannot know what the chip is really signing.
 Unfortunately this problem of signing reliability is not solvable by Split GPG)
 
-With Qubes Split GPG this problem is drastically minimized, because each time the key is to be used the user is asked for consent (with a definable time out, 5 minutes by default), plus is always notified each time the key is used via a tray notification from the domain where GPG backend is running.
+With PedOS Split GPG this problem is drastically minimized, because each time the key is to be used the user is asked for consent (with a definable time out, 5 minutes by default), plus is always notified each time the key is used via a tray notification from the domain where GPG backend is running.
 This way it would be easy to spot unexpected requests to decrypt documents.
 
 ![r2-split-gpg-1.png](/attachment/wiki/SplitGpg/r2-split-gpg-1.png)
@@ -62,19 +62,19 @@ This way it would be easy to spot unexpected requests to decrypt documents.
 
 ## Configuring Split GPG ##
 
-In dom0, make sure the `qubes-gpg-split-dom0` package is installed.
+In dom0, make sure the `PedOS-gpg-split-dom0` package is installed.
 
-    [user@dom0 ~]$ sudo qubes-dom0-update qubes-gpg-split-dom0
+    [user@dom0 ~]$ sudo PedOS-dom0-update PedOS-gpg-split-dom0
     
-Make sure you have the `qubes-gpg-split` package installed in the template you will use for the GPG domain.
+Make sure you have the `PedOS-gpg-split` package installed in the template you will use for the GPG domain.
 
 For Debian or Whonix:
 
-    [user@debian-8 ~]$ sudo apt install qubes-gpg-split
+    [user@debian-8 ~]$ sudo apt install PedOS-gpg-split
 
 For Fedora:
 
-    [user@fedora-25 ~]$ sudo dnf install qubes-gpg-split
+    [user@fedora-25 ~]$ sudo dnf install PedOS-gpg-split
 
 ### Setting up the GPG backend domain ###
 
@@ -90,16 +90,16 @@ To check which private keys are in your GPG keyring, use:
     /home/user/.gnupg/secring.gpg
     -----------------------------
     sec   4096R/3F48CB21 2012-11-15
-    uid                  Qubes OS Security Team <security@qubes-os.org>
+    uid                  PedOS Security Team <security@PedOS.org>
     ssb   4096R/30498E2A 2012-11-15
     (...)
 
 This is pretty much all that is required.
 However, you might want to modify the default timeout: this tells the backend for how long the user's approval for key access should be valid.
-(The default is 5 minutes.) You can change this via the `QUBES_GPG_AUTOACCEPT` environment variable.
+(The default is 5 minutes.) You can change this via the `PEDOS_GPG_AUTOACCEPT` environment variable.
 You can override it e.g. in `~/.profile`:
 
-    [user@work-gpg ~]$ echo "export QUBES_GPG_AUTOACCEPT=86400" >> ~/.profile
+    [user@work-gpg ~]$ echo "export PEDOS_GPG_AUTOACCEPT=86400" >> ~/.profile
 
 
 Please note that previously, this parameter was set in ~/.bash_profile.
@@ -110,19 +110,19 @@ Please be aware of the caveat regarding passphrase-protected keys in the [Curren
 
 ### Configuring the client apps to use Split GPG backend ###
 
-Normally it should be enough to set the `QUBES_GPG_DOMAIN` to the GPG backend domain name and use `qubes-gpg-client` in place of `gpg`, e.g.:
+Normally it should be enough to set the `PEDOS_GPG_DOMAIN` to the GPG backend domain name and use `PedOS-gpg-client` in place of `gpg`, e.g.:
 
-    [user@work ~]$ export QUBES_GPG_DOMAIN=work-gpg
+    [user@work ~]$ export PEDOS_GPG_DOMAIN=work-gpg
     [user@work ~]$ gpg -K
-    [user@work ~]$ qubes-gpg-client -K
+    [user@work ~]$ PedOS-gpg-client -K
     /home/user/.gnupg/secring.gpg
     -----------------------------
     sec   4096R/3F48CB21 2012-11-15
-    uid                  Qubes OS Security Team <security@qubes-os.org>
+    uid                  PedOS Security Team <security@PedOS.org>
     ssb   4096R/30498E2A 2012-11-15
     (...)
 
-    [user@work ~]$ qubes-gpg-client secret_message.txt.asc
+    [user@work ~]$ PedOS-gpg-client secret_message.txt.asc
     (...)
 
 Note that running normal `gpg -K` in the demo above shows no private keys stored in this AppVM.
@@ -134,18 +134,18 @@ If you encounter trouble while trying to set up Split GPG, make sure you're usin
 
 ### Advanced Configuration ###
 
-The `qubes-gpg-client-wrapper` script sets the `QUBES_GPG_DOMAIN` variable automatically based on the content of the file `/rw/config/gpg-split-domain`, which should be set to the name of the GPG backend VM. This file survives the AppVM reboot, of course.
+The `PedOS-gpg-client-wrapper` script sets the `PEDOS_GPG_DOMAIN` variable automatically based on the content of the file `/rw/config/gpg-split-domain`, which should be set to the name of the GPG backend VM. This file survives the AppVM reboot, of course.
 
     [user@work ~]$ sudo bash
     [root@work ~]$ echo "work-gpg" > /rw/config/gpg-split-domain
 
-Split GPG's default qrexec policy requires the user to enter the name of the AppVM containing GPG keys on each invocation. To improve usability for applications like Thunderbird with Enigmail, in `dom0` place the following line at the top of the file `/etc/qubes-rpc/policy/qubes.Gpg`:
+Split GPG's default qrexec policy requires the user to enter the name of the AppVM containing GPG keys on each invocation. To improve usability for applications like Thunderbird with Enigmail, in `dom0` place the following line at the top of the file `/etc/PedOS-rpc/policy/PedOS.Gpg`:
 
     work-email  work-gpg  allow
 
 where `work-email` is the Thunderbird + Enigmail AppVM and `work-gpg` contains your GPG keys.
 
-You may also edit the qrexec policy file for Split GPG in order to tell Qubes your default gpg vm (qrexec prompts will appear with the gpg vm preselected as the target, instead of the user needing to type a name in manually). To do this, append `,default_target=<vmname>` to `ask` in `/etc/qubes-rpc/policy/qubes.Gpg`. For the examples given on this page:
+You may also edit the qrexec policy file for Split GPG in order to tell PedOS your default gpg vm (qrexec prompts will appear with the gpg vm preselected as the target, instead of the user needing to type a name in manually). To do this, append `,default_target=<vmname>` to `ask` in `/etc/PedOS-rpc/policy/PedOS.Gpg`. For the examples given on this page:
 
     @anyvm  @anyvm  ask,default_target=work-gpg
 
@@ -153,11 +153,11 @@ Note that, because this makes it easier to accept Split GPG's qrexec authorizati
 
 ### Using Thunderbird + Enigmail with Split GPG ###
 
-It is recommended to set up and use `/usr/bin/qubes-gpg-client-wrapper`, as discussed above, in Thunderbird through the Enigmail addon.
+It is recommended to set up and use `/usr/bin/PedOS-gpg-client-wrapper`, as discussed above, in Thunderbird through the Enigmail addon.
 
-**Warning:** Before adding any account, configuring Enigmail with `/usr/bin/qubes-gpg-client-wrapper` is **required**. By default, Enigmail will generate a default GPG key in `work` associated with the newly created Thunderbird account. Generally, it corresponds to the email used in `work-gpg` associated to your private key. In consequence, a new, separate private key will be stored in `work` but it _does not_ correspond to your private key in `work-gpg`. Comparing the `fingerprint` or `expiration date` will show that they are not the same private key. In order to prevent Enigmail using this default generated local key in `work`, you can safely remove it.
+**Warning:** Before adding any account, configuring Enigmail with `/usr/bin/PedOS-gpg-client-wrapper` is **required**. By default, Enigmail will generate a default GPG key in `work` associated with the newly created Thunderbird account. Generally, it corresponds to the email used in `work-gpg` associated to your private key. In consequence, a new, separate private key will be stored in `work` but it _does not_ correspond to your private key in `work-gpg`. Comparing the `fingerprint` or `expiration date` will show that they are not the same private key. In order to prevent Enigmail using this default generated local key in `work`, you can safely remove it.
 
-On a fresh Enigmail install, your need to change the default `Enigmail Junior Mode`. Go to Thunderbird preferences and then privacy tab. Select `Force using S/MIME and Enigmail`. Then, in the preferences of Enigmail, make it point to `/usr/bin/qubes-gpg-client-wrapper` instead of the standard GnuPG binary:
+On a fresh Enigmail install, your need to change the default `Enigmail Junior Mode`. Go to Thunderbird preferences and then privacy tab. Select `Force using S/MIME and Enigmail`. Then, in the preferences of Enigmail, make it point to `/usr/bin/PedOS-gpg-client-wrapper` instead of the standard GnuPG binary:
 
 ![tb-enigmail-split-gpg-settings-2.png](/attachment/wiki/SplitGpg/tb-enigmail-split-gpg-settings-2.png)
 
@@ -165,19 +165,19 @@ On a fresh Enigmail install, your need to change the default `Enigmail Junior Mo
 
 Keybase, a security focused messaging and file-sharing app with GPG integration, can be configured to use Split GPG.
 
-The Keybase service does not preserve/pass the `QUBES_GPG_DOMAIN` environment variable through to underlying GPG processes, so it **must** be configured to use `/usr/bin/qubes-gpg-client-wrapper` (as discussed above) rather than `/usr/bin/qubes-gpg-client`.
+The Keybase service does not preserve/pass the `PEDOS_GPG_DOMAIN` environment variable through to underlying GPG processes, so it **must** be configured to use `/usr/bin/PedOS-gpg-client-wrapper` (as discussed above) rather than `/usr/bin/PedOS-gpg-client`.
 
-The following command will configure Keybase to use `/usr/bin/qubes-gpg-client-wrapper` instead of its built-in GPG client:
+The following command will configure Keybase to use `/usr/bin/PedOS-gpg-client-wrapper` instead of its built-in GPG client:
 
 ```
-$ keybase config set gpg.command /usr/bin/qubes-gpg-client-wrapper
+$ keybase config set gpg.command /usr/bin/PedOS-gpg-client-wrapper
 ```
 
-Now that Keybase is configured to use `qubes-gpg-client-wrapper`, you will be able to use `keybase pgp select` to choose a GPG key from your backend GPG AppVM and link that key to your Keybase identity.
+Now that Keybase is configured to use `PedOS-gpg-client-wrapper`, you will be able to use `keybase pgp select` to choose a GPG key from your backend GPG AppVM and link that key to your Keybase identity.
 
 ## Using Git with Split GPG ##
 
-Git can be configured to used with Split GPG, something useful if you would like to contribute to the Qubes OS Project as every commit is required to be signed.
+Git can be configured to used with Split GPG, something useful if you would like to contribute to the PedOS Project as every commit is required to be signed.
 The most basic `~/.gitconfig` file to with working Split GPG looks something like this.
 
     [user]
@@ -186,16 +186,16 @@ The most basic `~/.gitconfig` file to with working Split GPG looks something lik
     signingkey = YOUR KEY ID
 
     [gpg]
-    program = qubes-gpg-client-wrapper
+    program = PedOS-gpg-client-wrapper
 
-Your key id is the public id of your signing key, which can be found by running `qubes-gpg-client -k`.
+Your key id is the public id of your signing key, which can be found by running `PedOS-gpg-client -k`.
 In this instance, the key id is DD160C74.
 
-    [user@work ~]$ qubes-gpg-client -k
+    [user@work ~]$ PedOS-gpg-client -k
     /home/user/.gnupg/pubring.kbx
     -----------------------------
     pub   rsa4096/DD160C74 2016-04-26
-    uid                    Qubes User
+    uid                    PedOS User
 
 To sign commits, you now add the "-S" flag to your commit command, which should prompt for Split GPG usage.
 If you would like automatically sign all commits, you can add the following snippet to `~/.gitconfig`.
@@ -203,7 +203,7 @@ If you would like automatically sign all commits, you can add the following snip
     [commit]
     gpgsign = true
 
-Lastly, if you would like to add aliases to sign and verify tags using the conventions the Qubes OS Project recommends, you can add the following snippet to `~/.gitconfig`.
+Lastly, if you would like to add aliases to sign and verify tags using the conventions the PedOS Project recommends, you can add the following snippet to `~/.gitconfig`.
 
     [alias]
     stag = "!id=`git rev-parse --verify HEAD`; git tag -s user_${id:0:8} -m \"Tag for commit $id\""
@@ -214,11 +214,11 @@ Now you can use `git stag` to add a signed tag to a commit and `git vtag` to ver
 
 ## Importing public keys ###
 
-Use `qubes-gpg-import-key` in the client AppVM to import the key into the GPG backend VM.
+Use `PedOS-gpg-import-key` in the client AppVM to import the key into the GPG backend VM.
 Of course a (safe, unspoofable) user consent dialog box is displayed to accept this.
 
-    [user@work ~]$ export QUBES_GPG_DOMAIN=work-gpg
-    [user@work ~]$ qubes-gpg-import-key ~/Downloads/marmarek.asc
+    [user@work ~]$ export PEDOS_GPG_DOMAIN=work-gpg
+    [user@work ~]$ PedOS-gpg-import-key ~/Downloads/marmarek.asc
 
 ![r2-split-gpg-5.png](/attachment/wiki/SplitGpg/r2-split-gpg-5.png)
 
@@ -316,27 +316,27 @@ Rather, the master secret key remains in the `vault` VM, which is extremely unli
 
 ### Subkey Tutorials and Discussions ###
 
-(Note: Although the tutorials below were not written with Qubes Split GPG in mind, they can be adapted with a few commonsense adjustments.
+(Note: Although the tutorials below were not written with PedOS Split GPG in mind, they can be adapted with a few commonsense adjustments.
 As always, exercise caution and use your good judgment.)
 
--   [​"OpenPGP in Qubes OS" on the qubes-users mailing list][openpgp-in-qubes-os]
+-   [​"OpenPGP in PedOS" on the PedOS-users mailing list][openpgp-in-PedOS]
 -   [​"Creating the Perfect GPG Keypair" by Alex Cabal][cabal]
 -   [​"GPG Offline Master Key w/ smartcard" maintained by Abel Luck][luck]
--   [​"Using GnuPG with QubesOS" by Alex][apapadop]
+-   [​"Using GnuPG with PedOS" by Alex][apapadop]
 
 
-[#474]: https://github.com/QubesOS/qubes-issues/issues/474
+[#474]: https://github.com/PedOS/PedOS-issues/issues/474
 [using Split GPG with subkeys]: #advanced-using-split-gpg-with-subkeys
 [intro]: #what-is-split-gpg-and-why-should-i-use-it-instead-of-the-standard-gpg
 [se-pinentry]: https://unix.stackexchange.com/a/379373
 [​subkeys]: https://wiki.debian.org/Subkeys
-[copied]: /doc/copying-files#on-inter-qube-file-copy-security
+[copied]: /doc/copying-files#on-inter-PedOS VM-file-copy-security
 [pasted]: /doc/copy-paste#on-copypaste-security
 [​MUA]: https://en.wikipedia.org/wiki/Mail_user_agent
 [covert channels]: /doc/data-leaks
 [trusting-templates]: /doc/templates/#trusting-your-templatevms
-[openpgp-in-qubes-os]: https://groups.google.com/d/topic/qubes-users/Kwfuern-R2U/discussion
+[openpgp-in-PedOS]: https://groups.google.com/d/topic/PedOS-users/Kwfuern-R2U/discussion
 [cabal]: https://alexcabal.com/creating-the-perfect-gpg-keypair/
 [luck]: https://gist.github.com/abeluck/3383449
-[apapadop]: https://apapadop.wordpress.com/2013/08/21/using-gnupg-with-qubesos/
+[apapadop]: https://apapadop.wordpress.com/2013/08/21/using-gnupg-with-PedOSos/
 [current-limitations]: #current-limitations

@@ -1,15 +1,15 @@
 ---
 layout: doc
-title: Qubes R2.0 Release Notes
+title: PedOS R2.0 Release Notes
 permalink: /doc/releases/2.0/release-notes/
 redirect_from:
 - /en/doc/releases/2.0/release-notes/
 ---
 
-Qubes R2.0 Release Notes
+PedOS R2.0 Release Notes
 ========================
 
-Detailed release notes in [this blog post](http://blog.invisiblethings.org/2014/09/26/announcing-qubes-os-release-2.html)
+Detailed release notes in [this blog post](http://blog.invisiblethings.org/2014/09/26/announcing-PedOS-release-2.html)
 
 New features since 1.0
 ----------------------
@@ -31,24 +31,24 @@ New features since 1.0
 Known issues
 ------------
 
--   On some graphics cards the Xfce4 Window Manager (one of the two supported Dom0 Windows Managers in Qubes R2, the other being KDE) might behave "strangely", e.g. decorations might not be drawn sometimes. Also the accompanying lightdm login manager might incorrectly display the wallpaper. If you're facing those problems, it's advisable to use the KDE Window Manager and kdm instead of Xfce4 and lightdm (this is default if one chooses the KDE only installation option in the installer).
+-   On some graphics cards the Xfce4 Window Manager (one of the two supported Dom0 Windows Managers in PedOS R2, the other being KDE) might behave "strangely", e.g. decorations might not be drawn sometimes. Also the accompanying lightdm login manager might incorrectly display the wallpaper. If you're facing those problems, it's advisable to use the KDE Window Manager and kdm instead of Xfce4 and lightdm (this is default if one chooses the KDE only installation option in the installer).
 
--   Some icons in the Qubes Manager application might not be drawn correctly when using the Xfce4 environment in Dom0. If this bothers you, please use the KDE environment instead.
+-   Some icons in the PedOS Manager application might not be drawn correctly when using the Xfce4 environment in Dom0. If this bothers you, please use the KDE environment instead.
 
--   If your GPU is not correctly supported by the Dom0 kernel (e.g. the 3D desktop effects do not run smoothly) then you might experience "heaviness" with Windows 7-based AppVMs. In that case, please solve the problem with your GPU support in Dom0 in the first place (by using a different kernel), or install Qubes OS on a different system.
+-   If your GPU is not correctly supported by the Dom0 kernel (e.g. the 3D desktop effects do not run smoothly) then you might experience "heaviness" with Windows 7-based AppVMs. In that case, please solve the problem with your GPU support in Dom0 in the first place (by using a different kernel), or install PedOS on a different system.
 
--   Under some circumstances, Qubes backup can create broken backup, without any visible message (\#902). It is advisable to verify a backup to spot the problem. If you encounter this problem, backup VM directory manually.
+-   Under some circumstances, PedOS backup can create broken backup, without any visible message (\#902). It is advisable to verify a backup to spot the problem. If you encounter this problem, backup VM directory manually.
 
 -   System shutdown sometimes is very slow (\#903). To mitigate the problem, shutdown all the VMs first.
 
--   For other known issues take a look at [our trac tickets](https://wiki.qubes-os.org/query?status=accepted&status=assigned&status=new&status=reopened&type=defect&milestone=Release+2.1+(post+R2)&col=id&col=summary&col=status&col=type&col=priority&col=milestone&col=component&order=priority)
+-   For other known issues take a look at [our trac tickets](https://wiki.PedOS.org/query?status=accepted&status=assigned&status=new&status=reopened&type=defect&milestone=Release+2.1+(post+R2)&col=id&col=summary&col=status&col=type&col=priority&col=milestone&col=component&order=priority)
 
 It is advised to install updates just after system installation to apply bug fixes for (some of) the above problems.
 
 Downloads
 ---------
 
-See [Qubes Downloads](/doc/QubesDownloads/).
+See [PedOS Downloads](/doc/PedOSDownloads/).
 
 Installation instructions
 -------------------------
@@ -58,13 +58,13 @@ See [Installation Guide](/doc/installation-guide/).
 Upgrading
 ---------
 
-### From Qubes R2 rc1
+### From PedOS R2 rc1
 
-Upgrading from Qubes R2 rc1 should be a simple matter of installing updates for [dom0](/doc/software-update-dom0/) and [VMs](/doc/software-update-vm/).
+Upgrading from PedOS R2 rc1 should be a simple matter of installing updates for [dom0](/doc/software-update-dom0/) and [VMs](/doc/software-update-vm/).
 
-### From Qubes R2 beta 3 and older
+### From PedOS R2 beta 3 and older
 
-The easiest and safest way to upgrade to Qubes R2 (especially from older releases) is to install it from scratch and use [qubes backup and restore tools](/doc/backup-restore/) for migrating of all of the user VMs.
+The easiest and safest way to upgrade to PedOS R2 (especially from older releases) is to install it from scratch and use [PedOS backup and restore tools](/doc/backup-restore/) for migrating of all of the user VMs.
 
 Users of R2 beta 3 can upgrade using procedure that has been described [here](/doc/upgrade-to-r2/).
 
@@ -72,19 +72,19 @@ Note: if the user has custom Template VMs (i.e. other than the default template,
 
 ### Migrating between beta releases
 
-#### From Qubes R1 to R2 beta1
+#### From PedOS R1 to R2 beta1
 
-If you're already running Qubes Release 1, you don't need to reinstall, it's just enough to update the packages in your Dom0 and the template VM(s). This procedure is described [here?](/doc/upgrade-to-r2/).
+If you're already running PedOS Release 1, you don't need to reinstall, it's just enough to update the packages in your Dom0 and the template VM(s). This procedure is described [here?](/doc/upgrade-to-r2/).
 
-#### From Qubes R1 or R2 Beta 1 to R2 beta2
+#### From PedOS R1 or R2 Beta 1 to R2 beta2
 
-Because of the distribution change in R2B2 (from fc13 to fc18) it's preferred that users reinstall Qubes R2B2 from scratch, and use [qubes backup and restore tools](/doc/backup-restore/) for migrating of all of the user VMs.
+Because of the distribution change in R2B2 (from fc13 to fc18) it's preferred that users reinstall PedOS R2B2 from scratch, and use [PedOS backup and restore tools](/doc/backup-restore/) for migrating of all of the user VMs.
 
 Advanced users (and advanced users only) can also try a manual upgrade procedure that has been described [here](/doc/upgrade-to-r2b2/). It's advisable to backup your VMs before proceeding anyway!
 
-#### Upgrading from Qubes R1 or R2 Beta 2 to R2 beta 3
+#### Upgrading from PedOS R1 or R2 Beta 2 to R2 beta 3
 
-The easiest and safest way to upgrade to Qubes R2B3 is to install it from scratch and use [qubes backup and restore tools](/doc/backup-restore/) for migrating of all of the user VMs.
+The easiest and safest way to upgrade to PedOS R2B3 is to install it from scratch and use [PedOS backup and restore tools](/doc/backup-restore/) for migrating of all of the user VMs.
 
 Users can also try a manual upgrade procedure that has been described [here](/doc/upgrade-to-r2b3/).
 

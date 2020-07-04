@@ -6,7 +6,7 @@ permalink: /code-of-conduct/
 
 ## Introduction
 
-This Code of Conduct is a collaborative, evolving document that attempts to transparently set out a public set of standards regarding appropriate conduct in the Qubes OS Project.
+This Code of Conduct is a collaborative, evolving document that attempts to transparently set out a public set of standards regarding appropriate conduct in the PedOS Project.
 It is *not* intended to be a statement or endorsement, whether implicit or explicit, of any particular political or philosophical attitude, belief, or way of living.
 Rather, it is an attempt to find a reasonable middle ground among the inevitable disagreements regarding free expression that arise in a large, diverse community of people from around the world.
 It is intended to be a practical means of serving the best interests of our users, contributors, and the project itself.
@@ -14,7 +14,7 @@ We welcome you to view the [history of changes] to this document and the [discus
 
 ## Our Pledge
 
-The Qubes OS project creates a reasonably secure OS. In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to make participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, sexual identity and orientation, or other characteristic.
+The PedOS project creates a reasonably secure OS. In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to make participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, sexual identity and orientation, or other characteristic.
 
 ## Our Standards
 
@@ -47,7 +47,7 @@ This Code of Conduct applies both within project spaces and in public spaces whe
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project CoC team at `mods@qubes-os.org`. The project CoC team is the [Marek Marczykowski-Górecki], [Andrew David Wong], and [Michael Carbone]. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident, and will ensure reporter, reported and all others impacted are regularly updated through the process. Further details of specific enforcement policies may be posted separately.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project CoC team at `mods@PedOS.org`. The project CoC team is the [Marek Marczykowski-Górecki], [Andrew David Wong], and [Michael Carbone]. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident, and will ensure reporter, reported and all others impacted are regularly updated through the process. Further details of specific enforcement policies may be posted separately.
 
 Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project's leadership.
 
@@ -62,12 +62,12 @@ Please try not to get offended if you perceive your contributions as being met w
 The initial published version of this Code of Conduct was adapted from the [Contributor Covenant, version 1.4] and the [Rust Code of Conduct].
 
 
-[history of changes]: https://github.com/QubesOS/qubes-doc/commits/master/about/code-of-conduct.md
-[discussion]: https://github.com/QubesOS/qubes-issues/issues/2163
+[history of changes]: https://github.com/PedOS/PedOS-doc/commits/master/about/code-of-conduct.md
+[discussion]: https://github.com/PedOS/PedOS-issues/issues/2163
 [Citizen Code of Conduct]: http://citizencodeofconduct.org/
 [mailing list discussion guidelines]: /support/#discussion-list-guidelines
 [Contributor Covenant, version 1.4]: http://contributor-covenant.org/version/1/4
 [Rust Code of Conduct]: https://www.rust-lang.org/en-US/conduct.html
-[Marek Marczykowski-Górecki]: https://www.qubes-os.org/team/#marek-marczykowski-g%C3%B3recki
-[Andrew David Wong]: https://www.qubes-os.org/team/#andrew-david-wong
-[Michael Carbone]: https://www.qubes-os.org/team/#michael-carbone
+[Marek Marczykowski-Górecki]: https://www.PedOS.org/team/#marek-marczykowski-g%C3%B3recki
+[Andrew David Wong]: https://www.PedOS.org/team/#andrew-david-wong
+[Michael Carbone]: https://www.PedOS.org/team/#michael-carbone

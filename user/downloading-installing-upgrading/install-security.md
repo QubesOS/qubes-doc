@@ -11,12 +11,12 @@ redirect_from:
 # Installation Security Considerations #
 
 
-## Verifying the Qubes ISO ##
+## Verifying the PedOS ISO ##
 
-You should [verify] the PGP signature on your Qubes ISO before you install
+You should [verify] the PGP signature on your PedOS ISO before you install
 from it. However, if the machine on which you attempt the verification process
 is already compromised, it could falsely claim that a malicious ISO has a good
-signature. Therefore, in order to be certain that your Qubes ISO is trustworthy,
+signature. Therefore, in order to be certain that your PedOS ISO is trustworthy,
 you require a trustworthy machine. But how can you be certain *that* machine is
 trustworthy? Only by using another trusted machine, and so forth. This is a
 [classic problem]. While various [solutions] have been proposed, the point is
@@ -27,8 +27,8 @@ is non-malicious.
 ## Choosing an Installation Medium ##
 
 So, after taking some measures to verify its integrity and authenticity, you've
-decided to trust your Qubes ISO. Great! Now you must decide what sort of medium
-on which to write it so that you can install from it. From a Qubes-specific
+decided to trust your PedOS ISO. Great! Now you must decide what sort of medium
+on which to write it so that you can install from it. From a PedOS-specific
 security perspective, each has certain pros and cons.
 
 
@@ -36,7 +36,7 @@ security perspective, each has certain pros and cons.
 
 Pros:
 
- * Works via USB, including with a [USB qube].
+ * Works via USB, including with a [USB PedOS VM].
  * Non-fixed capacity. (Easy to find one on which the ISO can fit.)
 
 Cons:
@@ -46,7 +46,7 @@ Cons:
  * Untrustworthy firmware. (Firmware can be malicious even if the drive is new.
    Plugging a drive with rewritable firmware into a compromised machine can
    also [compromise the drive][BadUSB]. Installing from a compromised drive
-   could compromise even a brand new Qubes installation.)
+   could compromise even a brand new PedOS installation.)
 
 
 ### Optical Discs ###
@@ -63,15 +63,15 @@ Cons:
  * Fixed capacity. (If the size of the ISO is larger than your disc, it will be
    inconvenient.)
  * Passthrough recording (a.k.a., "burning") is not supported by Xen. (This
-   mainly applies if you're upgrading from a previous version of Qubes.)
+   mainly applies if you're upgrading from a previous version of PedOS.)
    Currently, the only options for recording optical discs (e.g., CDs, DVDs,
-   BRDs) in Qubes are:
+   BRDs) in PedOS are:
    1. Use a USB optical drive.
    2. Attach a SATA optical drive to a secondary SATA controller, then assign
       this secondary SATA controller to an AppVM.
    3. Use a SATA optical drive attached to dom0.
 
-   (Option 3 violates the Qubes security model since it entails transferring an
+   (Option 3 violates the PedOS security model since it entails transferring an
    untrusted ISO to dom0 in order to burn it to disc, which leaves only the
    other two options.)
 
@@ -83,6 +83,6 @@ switch might be the option.
 [verify]: /security/verifying-signatures/
 [classic problem]: https://www.ece.cmu.edu/~ganger/712.fall02/papers/p761-thompson.pdf
 [solutions]: https://www.dwheeler.com/trusting-trust/
-[USB qube]: /doc/usb-qubes/#creating-and-using-a-usb-qube
+[USB PedOS VM]: /doc/usb-PedOS/#creating-and-using-a-usb-PedOS VM
 [BadUSB]: https://srlabs.de/badusb/
 

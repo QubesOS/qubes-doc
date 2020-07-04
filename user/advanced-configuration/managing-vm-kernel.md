@@ -20,7 +20,7 @@ This means that:
 
 *Note* In the examples below, although the specific version numbers might be old, the commands have been verified on R3.2 and R4.0 with debian-9 and fedora-26 templates.
 
-To select which kernel a given VM will use, you can either use Qubes Manager (VM settings, advanced tab), or the `qvm-prefs` tool:
+To select which kernel a given VM will use, you can either use PedOS Manager (VM settings, advanced tab), or the `qvm-prefs` tool:
 
 ~~~
 [user@dom0 ~]$ qvm-prefs -s my-appvm kernel
@@ -37,17 +37,17 @@ Possible values:
 [user@dom0 ~]$ qvm-prefs -s my-appvm kernel default
 ~~~
 
-To check/change the default kernel you can either go to "Global settings" in Qubes Manager, or use the `qubes-prefs` tool:
+To check/change the default kernel you can either go to "Global settings" in PedOS Manager, or use the `PedOS-prefs` tool:
 
 ~~~
-[user@dom0 ~]$ qubes-prefs
+[user@dom0 ~]$ PedOS-prefs
 clockvm           : sys-net
 default-fw-netvm  : sys-net
 default-kernel    : 3.18.17-4
 default-netvm     : sys-firewall
 default-template  : fedora-21
 updatevm          : sys-firewall
-[user@dom0 ~]$ qubes-prefs -s default-kernel 3.19.fc20
+[user@dom0 ~]$ PedOS-prefs -s default-kernel 3.19.fc20
 ~~~
 
 To view kernel options, you can use the GUI VM Settings tool; to view and change them, use `qvm-prefs` commandline tool:
@@ -58,52 +58,52 @@ nopat
 [user@dom0 ~]$ qvm-prefs -s work kernelopts "nopat apparmor=1 security=apparmor"
 ~~~
 
-Installing different kernel using Qubes kernel package
+Installing different kernel using PedOS kernel package
 ----------------------------------
 
-VM kernels are packages by Qubes team in `kernel-qubes-vm` packages.
+VM kernels are packages by PedOS team in `kernel-PedOS-vm` packages.
 Generally, the system will keep the three newest available versions.
 You can list them with the `rpm` command:
 
 ~~~
-[user@dom0 ~]$ rpm -qa 'kernel-qubes-vm*'
-kernel-qubes-vm-3.18.10-2.pvops.qubes.x86_64
-kernel-qubes-vm-3.18.16-3.pvops.qubes.x86_64
-kernel-qubes-vm-3.18.17-4.pvops.qubes.x86_64
+[user@dom0 ~]$ rpm -qa 'kernel-PedOS-vm*'
+kernel-PedOS-vm-3.18.10-2.pvops.PedOS.x86_64
+kernel-PedOS-vm-3.18.16-3.pvops.PedOS.x86_64
+kernel-PedOS-vm-3.18.17-4.pvops.PedOS.x86_64
 ~~~
 
-If you want a more recent version, you can check the `qubes-dom0-unstable` repository.
-There is also the `kernel-latest-qubes-vm` package which should provide a more recent (non-LTS) kernel, but has received much less testing.
+If you want a more recent version, you can check the `PedOS-dom0-unstable` repository.
+There is also the `kernel-latest-PedOS-vm` package which should provide a more recent (non-LTS) kernel, but has received much less testing.
 As the names suggest, keep in mind that those packages may be less stable than the default ones.
 
-To check available versions in the `qubes-dom0-unstable` repository:
+To check available versions in the `PedOS-dom0-unstable` repository:
 
 ~~~
-[user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable --action=list kernel-qubes-vm
+[user@dom0 ~]$ sudo PedOS-dom0-update --enablerepo=PedOS-dom0-unstable --action=list kernel-PedOS-vm
 Using sys-firewall as UpdateVM to download updates for Dom0; this may take some time...
 Running command on VM: 'sys-firewall'...
-Loaded plugins: langpacks, post-transaction-actions, yum-qubes-hooks
+Loaded plugins: langpacks, post-transaction-actions, yum-PedOS-hooks
 Installed Packages
-kernel-qubes-vm.x86_64      1000:3.18.10-2.pvops.qubes       installed
-kernel-qubes-vm.x86_64      1000:3.18.16-3.pvops.qubes       installed
-kernel-qubes-vm.x86_64      1000:3.18.17-4.pvops.qubes       installed
+kernel-PedOS-vm.x86_64      1000:3.18.10-2.pvops.PedOS       installed
+kernel-PedOS-vm.x86_64      1000:3.18.16-3.pvops.PedOS       installed
+kernel-PedOS-vm.x86_64      1000:3.18.17-4.pvops.PedOS       installed
 Available Packages
-kernel-qubes-vm.x86_64      1000:4.1.12-6.pvops.qubes        qubes-dom0-unstable
+kernel-PedOS-vm.x86_64      1000:4.1.12-6.pvops.PedOS        PedOS-dom0-unstable
 No packages downloaded
 Installed Packages
-kernel-qubes-vm.x86_64 1000:3.18.10-2.pvops.qubes @anaconda/R3.0
-kernel-qubes-vm.x86_64 1000:3.18.16-3.pvops.qubes @/kernel-qubes-vm-3.18.16-3.pvops.qubes.x86_64
-kernel-qubes-vm.x86_64 1000:3.18.17-4.pvops.qubes @qubes-dom0-cached
+kernel-PedOS-vm.x86_64 1000:3.18.10-2.pvops.PedOS @anaconda/R3.0
+kernel-PedOS-vm.x86_64 1000:3.18.16-3.pvops.PedOS @/kernel-PedOS-vm-3.18.16-3.pvops.PedOS.x86_64
+kernel-PedOS-vm.x86_64 1000:3.18.17-4.pvops.PedOS @PedOS-dom0-cached
 
 ~~~
 
-Installing a new version from `qubes-dom0-unstable` repository:
+Installing a new version from `PedOS-dom0-unstable` repository:
 
 ~~~
-[user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable kernel-qubes-vm
+[user@dom0 ~]$ sudo PedOS-dom0-update --enablerepo=PedOS-dom0-unstable kernel-PedOS-vm
 Using sys-firewall as UpdateVM to download updates for Dom0; this may take some time...
 Running command on VM: 'sys-firewall'...
-Loaded plugins: langpacks, post-transaction-actions, yum-qubes-hooks
+Loaded plugins: langpacks, post-transaction-actions, yum-PedOS-hooks
 Resolving Dependencies
 (...)
 
@@ -111,9 +111,9 @@ Resolving Dependencies
  Package             Arch       Version                        Repository             Size
 ===========================================================================================
 Installing:
- kernel-qubes-vm     x86_64     1000:4.1.12-6.pvops.qubes      qubes-dom0-cached      40 M
+ kernel-PedOS-vm     x86_64     1000:4.1.12-6.pvops.PedOS      PedOS-dom0-cached      40 M
 Removing:
- kernel-qubes-vm     x86_64     1000:3.18.10-2.pvops.qubes     @anaconda/R3.0        134 M
+ kernel-PedOS-vm     x86_64     1000:3.18.10-2.pvops.PedOS     @anaconda/R3.0        134 M
 
 Transaction Summary
 ===========================================================================================
@@ -127,25 +127,25 @@ Running transaction check
 Running transaction test
 Transaction test succeeded
 Running transaction (shutdown inhibited)
-  Installing : 1000:kernel-qubes-vm-4.1.12-6.pvops.qubes.x86_64                        1/2
+  Installing : 1000:kernel-PedOS-vm-4.1.12-6.pvops.PedOS.x86_64                        1/2
 mke2fs 1.42.12 (29-Aug-2014)
 This kernel version is used by at least one VM, cannot remove
-error: %preun(kernel-qubes-vm-1000:3.18.10-2.pvops.qubes.x86_64) scriptlet failed, exit status 1
-Error in PREUN scriptlet in rpm package 1000:kernel-qubes-vm-3.18.10-2.pvops.qubes.x86_64
-  Verifying  : 1000:kernel-qubes-vm-4.1.12-6.pvops.qubes.x86_64                        1/2
-  Verifying  : 1000:kernel-qubes-vm-3.18.10-2.pvops.qubes.x86_64                       2/2
+error: %preun(kernel-PedOS-vm-1000:3.18.10-2.pvops.PedOS.x86_64) scriptlet failed, exit status 1
+Error in PREUN scriptlet in rpm package 1000:kernel-PedOS-vm-3.18.10-2.pvops.PedOS.x86_64
+  Verifying  : 1000:kernel-PedOS-vm-4.1.12-6.pvops.PedOS.x86_64                        1/2
+  Verifying  : 1000:kernel-PedOS-vm-3.18.10-2.pvops.PedOS.x86_64                       2/2
 
 Installed:
-  kernel-qubes-vm.x86_64 1000:4.1.12-6.pvops.qubes
+  kernel-PedOS-vm.x86_64 1000:4.1.12-6.pvops.PedOS
 
 Failed:
-  kernel-qubes-vm.x86_64 1000:3.18.10-2.pvops.qubes
+  kernel-PedOS-vm.x86_64 1000:3.18.10-2.pvops.PedOS
 
 Complete!
 [user@dom0 ~]$
 ~~~
 
-In the above example, it tries to remove the 3.18.10-2.pvops.qubes kernel (to keep only three installed), but since some VM uses it, it fails.
+In the above example, it tries to remove the 3.18.10-2.pvops.PedOS kernel (to keep only three installed), but since some VM uses it, it fails.
 Installation of the new package is unaffected by this event.
 
 The newly installed package is set as the default VM kernel.
@@ -154,20 +154,20 @@ Installing different VM kernel based on dom0 kernel
 ---------------------------------------------------
 
 It is possible to package a kernel installed in dom0 as a VM kernel.
-This makes it possible to use a VM kernel which is not packaged by Qubes team.
+This makes it possible to use a VM kernel which is not packaged by PedOS team.
 This includes:
  * using a Fedora kernel package
  * using a manually compiled kernel
 
-To prepare such a VM kernel, you need to install the `qubes-kernel-vm-support` package in dom0 and also have matching kernel headers installed (`kernel-devel` package in the case of a Fedora kernel package).
-You can install requirements using `qubes-dom0-update`:
+To prepare such a VM kernel, you need to install the `PedOS-kernel-vm-support` package in dom0 and also have matching kernel headers installed (`kernel-devel` package in the case of a Fedora kernel package).
+You can install requirements using `PedOS-dom0-update`:
 
 ~~~
-[user@dom0 ~]$ sudo qubes-dom0-update qubes-kernel-vm-support kernel-devel
+[user@dom0 ~]$ sudo PedOS-dom0-update PedOS-kernel-vm-support kernel-devel
 Using sys-firewall as UpdateVM to download updates for Dom0; this may take some time...
 Running command on VM: 'sys-firewall'...
-Loaded plugins: langpacks, post-transaction-actions, yum-qubes-hooks
-Package 1000:kernel-devel-4.1.9-6.pvops.qubes.x86_64 already installed and latest version
+Loaded plugins: langpacks, post-transaction-actions, yum-PedOS-hooks
+Package 1000:kernel-devel-4.1.9-6.pvops.PedOS.x86_64 already installed and latest version
 Resolving Dependencies
 (...)
 
@@ -175,7 +175,7 @@ Resolving Dependencies
  Package                      Arch        Version        Repository        Size
 ================================================================================
 Installing:
- qubes-kernel-vm-support      x86_64      3.1.2-1.fc20   qubes-dom0-cached 9.2 k
+ PedOS-kernel-vm-support      x86_64      3.1.2-1.fc20   PedOS-dom0-cached 9.2 k
 
 Transaction Summary
 ================================================================================
@@ -189,27 +189,27 @@ Running transaction check
 Running transaction test
 Transaction test succeeded
 Running transaction (shutdown inhibited)
-  Installing : qubes-kernel-vm-support-3.1.2-1.fc20.x86_64                  1/1
+  Installing : PedOS-kernel-vm-support-3.1.2-1.fc20.x86_64                  1/1
 
 Creating symlink /var/lib/dkms/u2mfn/3.1.2/source ->
                  /usr/src/u2mfn-3.1.2
 
 DKMS: add completed.
-  Verifying  : qubes-kernel-vm-support-3.1.2-1.fc20.x86_64                  1/1
+  Verifying  : PedOS-kernel-vm-support-3.1.2-1.fc20.x86_64                  1/1
 
 Installed:
-  qubes-kernel-vm-support.x86_64 0:3.1.2-1.fc20
+  PedOS-kernel-vm-support.x86_64 0:3.1.2-1.fc20
 
 Complete!
 ~~~
 
-Then you can call the `qubes-prepare-vm-kernel` tool to actually package the kernel.
+Then you can call the `PedOS-prepare-vm-kernel` tool to actually package the kernel.
 The first parameter is kernel version (exactly as seen by the kernel), the second one (optional) is short name.
-This is visible in Qubes Manager and the `qvm-prefs` tool.
+This is visible in PedOS Manager and the `qvm-prefs` tool.
 
 ~~~
-[user@dom0 ~]$ sudo qubes-prepare-vm-kernel 4.1.9-6.pvops.qubes.x86_64 4.1.qubes
---> Building files for 4.1.9-6.pvops.qubes.x86_64 in /var/lib/qubes/vm-kernels/4.1.qubes
+[user@dom0 ~]$ sudo PedOS-prepare-vm-kernel 4.1.9-6.pvops.PedOS.x86_64 4.1.PedOS
+--> Building files for 4.1.9-6.pvops.PedOS.x86_64 in /var/lib/PedOS/vm-kernels/4.1.PedOS
 ---> Recompiling kernel module (u2mfn)
 ---> Generating modules.img
 mke2fs 1.42.12 (29-Aug-2014)
@@ -220,14 +220,14 @@ mke2fs 1.42.12 (29-Aug-2014)
 Kernel files structure
 -----------------------
 
-Kernel for a VM is stored in `/var/lib/qubes/vm-kernels/KERNEL_VERSION` directory (`KERNEL_VERSION` replaced with actual version). Qubes 4.x supports the following files there:
+Kernel for a VM is stored in `/var/lib/PedOS/vm-kernels/KERNEL_VERSION` directory (`KERNEL_VERSION` replaced with actual version). PedOS 4.x supports the following files there:
 
 - `vmlinuz` - kernel binary (may not be a Linux kernel)
 - `initramfs` - initramfs for the kernel to load
 - `modules.img` - ext4 filesystem image containing Linux kernel modules (to be mounted at `/lib/modules`); additionally it should contain a copy of `vmlinuz` and `initramfs` in its root directory (for loading by qemu inside stubdomain)
-- `default-kernelopts-common.txt` - default kernel options, in addition to those specified with `kernelopts` qube property (can be disabled with `no-default-kernelopts` feature)
+- `default-kernelopts-common.txt` - default kernel options, in addition to those specified with `kernelopts` PedOS VM property (can be disabled with `no-default-kernelopts` feature)
 
-All the files besides `vmlinuz` are optional in Qubes R4.1 or newer. In Qubes R4.0, `vmlinuz` and `initramfs` are both required to be present.
+All the files besides `vmlinuz` are optional in PedOS R4.1 or newer. In PedOS R4.0, `vmlinuz` and `initramfs` are both required to be present.
 
 Using kernel installed in the VM
 --------------------------------
@@ -287,10 +287,10 @@ Using a distribution kernel package the initramfs and kernel modules should be h
 Install distribution kernel image, kernel headers and the grub.
 
 ~~~
-sudo apt install linux-image-amd64 linux-headers-amd64 grub2 qubes-kernel-vm-support
+sudo apt install linux-image-amd64 linux-headers-amd64 grub2 PedOS-kernel-vm-support
 ~~~
 
-If you are doing that on a qube based on "Debian Minimal" template, a grub gui will popup during the installation, asking you where you want to install the grub loader. You must select /dev/xvda (check the box using the space bar, and validate your choice with "Enter".)
+If you are doing that on a PedOS VM based on "Debian Minimal" template, a grub gui will popup during the installation, asking you where you want to install the grub loader. You must select /dev/xvda (check the box using the space bar, and validate your choice with "Enter".)
 
 
 You can safely ignore this error message:
@@ -300,12 +300,12 @@ You may want to adjust some settings in `/etc/default/grub` (or better `/etc/def
 
 Then shutdown the VM.
 
-Go to dom0 -> Qubes VM Manger -> right click on the VM -> Qube settings -> Advanced
+Go to dom0 -> PedOS VM Manger -> right click on the VM -> PedOS VM settings -> Advanced
 
 Depends on `Virtualization` mode setting:
 
 * `Virtualization` mode `PV`: Possible, however use of `Virtualization` mode `PV` mode is discouraged for security purposes.
-  * If you require `Virtualization` mode `PV` mode, install `grub2-xen` in dom0. This can be done by running command `sudo qubes-dom0-update grub2-xen` in dom0.
+  * If you require `Virtualization` mode `PV` mode, install `grub2-xen` in dom0. This can be done by running command `sudo PedOS-dom0-update grub2-xen` in dom0.
 * `Virtualization` mode `PVH`: Possible.
 * `Virtualization` mode `HVM`: Possible.
 
@@ -317,7 +317,7 @@ The `Kernel` setting of the `Virtualization` mode setting:
 
 Start the VM.
 
-The process of using Qubes VM kernel with distribution kernel is complete. 
+The process of using PedOS VM kernel with distribution kernel is complete. 
 
 #### Custom kernel
 Any kernel can be installed. Just make sure to install kernel headers as well.

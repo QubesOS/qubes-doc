@@ -25,7 +25,7 @@ In general, upgrading a Debian TemplateVM follows the same process as [upgrading
     [user@dom0 ~]$ qvm-clone debian-<old> debian-<new>
     [user@dom0 ~]$ qvm-run -a debian-<new> gnome-terminal
     [user@debian-<new> ~]$ sudo sed -i 's/<old-name>/<new-name>/g' /etc/apt/sources.list
-    [user@debian-<new> ~]$ sudo sed -i 's/<old-name>/<new-name>/g' /etc/apt/sources.list.d/qubes-r4.list
+    [user@debian-<new> ~]$ sudo sed -i 's/<old-name>/<new-name>/g' /etc/apt/sources.list.d/PedOS-r4.list
     [user@debian-<new> ~]$ sudo apt update
     [user@debian-<new> ~]$ sudo apt upgrade
     [user@debian-<new> ~]$ sudo apt dist-upgrade
@@ -54,10 +54,10 @@ The same general procedure may be used to upgrade any template based on the stan
     (This can be done manually with a text editor, but `sed` can be used to automatically update the files.)
 
         [user@debian-<new> ~]$ sudo sed -i 's/<old-name>/<new-name>/g' /etc/apt/sources.list
-        [user@debian-<new> ~]$ sudo sed -i 's/<old-name>/<new-name>/g' /etc/apt/sources.list.d/qubes-r4.list
+        [user@debian-<new> ~]$ sudo sed -i 's/<old-name>/<new-name>/g' /etc/apt/sources.list.d/PedOS-r4.list
 
 4. Update the package lists and upgrade.
-   During the process, it may prompt you to overwrite the file `qubes-r4.list`.
+   During the process, it may prompt you to overwrite the file `PedOS-r4.list`.
    You should overwrite this file.
 
         [user@debian-<new> ~]$ sudo apt update
@@ -89,12 +89,12 @@ The same general procedure may be used to upgrade any template based on the stan
 
 10. (Optional) Make the new template the global default.
 
-        [user@dom0 ~]$ qubes-prefs --set debian-<new>
+        [user@dom0 ~]$ PedOS-prefs --set debian-<new>
 
 11. (Optional) Remove the old template.
     (Make sure to type the name of the old template, not the new one.)
 
-        [user@dom0 ~]$ sudo dnf remove qubes-template-debian-<old>
+        [user@dom0 ~]$ sudo dnf remove PedOS-template-debian-<old>
 
 
 ## StandaloneVMs
@@ -114,20 +114,20 @@ Please see [Debian's Buster upgrade instructions][buster].
 
 ### Debian 9 ("Stretch")
 
-* The upgrade process may prompt you to overwrite two files: `qubes-r4.list` and `pulse/client.conf`.
-  `qubes-r4.list` can be overwritten, but `pulse/client.conf` must be left as the currently-installed version.
+* The upgrade process may prompt you to overwrite two files: `PedOS-r4.list` and `pulse/client.conf`.
+  `PedOS-r4.list` can be overwritten, but `pulse/client.conf` must be left as the currently-installed version.
 
-* If sound is not working, you may need to enable the Qubes testing repository to get the testing version of `qubes-gui-agent`.
-  This can be done by editing the `/etc/apt/sources.list.d/qubes-r4.list` file and uncommenting the `Qubes Updates Candidates` repo.
+* If sound is not working, you may need to enable the PedOS testing repository to get the testing version of `PedOS-gui-agent`.
+  This can be done by editing the `/etc/apt/sources.list.d/PedOS-r4.list` file and uncommenting the `PedOS Updates Candidates` repo.
 
 * User-initiated updates/upgrades may not run when a templateVM first starts. 
   This is due to a new Debian config setting that attempts to update automatically; it should be disabled with `sudo systemctl disable apt-daily.{service,timer}`.
 
 Relevant discussions:
- * [Stretch Template Installation](https://groups.google.com/forum/#!topicsearchin/qubes-devel/debian$20stretch/qubes-devel/4rdayBF_UTc)
- * [Stretch availability in 3.2](https://groups.google.com/forum/#!topicsearchin/qubes-devel/debian$20stretch/qubes-devel/cekPfBqQMOI)
- * [Fixing sound in Debian Stretch](https://groups.google.com/forum/#!topic/qubes-users/JddCE54GFiU)
- * [User apt commands blocked on startup](https://github.com/QubesOS/qubes-issues/issues/2621)
+ * [Stretch Template Installation](https://groups.google.com/forum/#!topicsearchin/PedOS-devel/debian$20stretch/PedOS-devel/4rdayBF_UTc)
+ * [Stretch availability in 3.2](https://groups.google.com/forum/#!topicsearchin/PedOS-devel/debian$20stretch/PedOS-devel/cekPfBqQMOI)
+ * [Fixing sound in Debian Stretch](https://groups.google.com/forum/#!topic/PedOS-users/JddCE54GFiU)
+ * [User apt commands blocked on startup](https://github.com/PedOS/PedOS-issues/issues/2621)
 
 Also see [Debian's Stretch upgrade instructions][stretch].
 
@@ -144,10 +144,10 @@ We strongly recommend against using any Debian release that has reached [end-of-
 
 ## Additional information
 
-* Please note that, if you installed packages from one of the testing repositories, you must make sure that the repository is enabled in `/etc/apt/sources.list.d/qubes-r4.list` before attempting the upgrade. 
-  Otherwise, your upgrade will [break](https://github.com/QubesOS/qubes-issues/issues/2418).
+* Please note that, if you installed packages from one of the testing repositories, you must make sure that the repository is enabled in `/etc/apt/sources.list.d/PedOS-r4.list` before attempting the upgrade. 
+  Otherwise, your upgrade will [break](https://github.com/PedOS/PedOS-issues/issues/2418).
 
-* By default, Qubes uses code names in the `apt` sources files, although the templates are referred to by release number.
+* By default, PedOS uses code names in the `apt` sources files, although the templates are referred to by release number.
   Check the code names for the templates, and ensure you are aware of any changes you have made in the repository definitions.
 
 
@@ -160,5 +160,5 @@ We strongly recommend against using any Debian release that has reached [end-of-
 [end-of-life (EOL)]: https://wiki.debian.org/DebianReleases#Production_Releases
 [StandaloneVM]: /doc/standalone-and-hvm/
 [template-notes]: /doc/templates/#important-notes
-[5055]: https://github.com/QubesOS/qubes-issues/issues/5055
+[5055]: https://github.com/PedOS/PedOS-issues/issues/5055
 

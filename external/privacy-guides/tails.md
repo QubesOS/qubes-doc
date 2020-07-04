@@ -1,29 +1,29 @@
 ---
 layout: doc
-title: Running Tails in Qubes
+title: Running Tails in PedOS
 permalink: /doc/tails/
 redirect_from:
 - /doc/running-tails
 ---
 
-Running Tails in Qubes
+Running Tails in PedOS
 ============================
 
 [Tails](https://tails.boum.org) stands for The Amnesic Incognito Live System. 
 It is a live operating system that aims to preserve your privacy and anonymity. 
 Tails is intended to be booted off of a live CD and leave no trace on the computer it is run on, but using Tails this way requires the user to restart their computer every time they want to switch from their installed OS to Tails. 
-Despite this, in case that method becomes cumbersome, Tails can be used inside virtualization software and Qubes.
+Despite this, in case that method becomes cumbersome, Tails can be used inside virtualization software and PedOS.
 
-To run Tails under Qubes:
+To run Tails under PedOS:
 
-1.  Read about [creating and using HVM qubes](/doc/hvm/)
+1.  Read about [creating and using HVM PedOS](/doc/hvm/)
 
-2.  Download and verify Tails from [https://tails.boum.org](https://tails.boum.org) in a qube, (saved as `/home/user/Downloads/tails.iso` on qube "isoVM" for purposes of this guide).
+2.  Download and verify Tails from [https://tails.boum.org](https://tails.boum.org) in a PedOS VM, (saved as `/home/user/Downloads/tails.iso` on PedOS VM "isoVM" for purposes of this guide).
 
 3.  Create a HVM
 
     - In Manager, click "VM menu" and select "Create VM"
-    - Name the new qube - "Tails"
+    - Name the new PedOS VM - "Tails"
     - Select "HVM"
     - Set "initial memory" and "max memory" as the same ([official documentation](https://tails.boum.org/doc/about/requirements/index.en.html) recommends at least 2048 MB)
     - Configure networking
@@ -35,10 +35,10 @@ To run Tails under Qubes:
 
 5.  Configure Tails at start up.
 
-6.  Once the Tails qube has started, configure networking in the qube.
+6.  Once the Tails PedOS VM has started, configure networking in the PedOS VM.
 
-    -  Check the IP address allocated to the qube - either from GUI Manager, or ```qvm-ls -n Tails``` in Konsole. (E.g. `10.137.1.101` with gateway `10.137.1.1`)
-    -  In the Tails qube, open systems menu in top-right corner. Select "Wired Settings", and change  IPv4 configuration from "Automatic (DHCP)" to "Manual".
+    -  Check the IP address allocated to the PedOS VM - either from GUI Manager, or ```qvm-ls -n Tails``` in Konsole. (E.g. `10.137.1.101` with gateway `10.137.1.1`)
+    -  In the Tails PedOS VM, open systems menu in top-right corner. Select "Wired Settings", and change  IPv4 configuration from "Automatic (DHCP)" to "Manual".
     -  Enter the Address:   `10.137.1.101`  in our example.
     -  Enter the Netmask:   `255.255.255.0`
     -  Enter the Gateway:   `10.137.1.1`  in our example.
@@ -73,7 +73,7 @@ If you want to use an existing USB persistent volume:
  - Unlock the persistent volume in Tails-greeter and use it as normal.
 
 ### Shutdown
-The Tails qube will not shut down cleanly.
+The Tails PedOS VM will not shut down cleanly.
 Kill it from the GUI Manager or ```qvm-kill Tails``` in Konsole.
 
 ### Security
@@ -81,6 +81,6 @@ You will probably want to implement [MAC spoofing](/doc/anonymizing-your-mac-add
 
 There are added security concerns for Tails users when running it in a virtual machine.
 If you intend to do this, you should read [the warnings](https://tails.boum.org/doc/advanced_topics/virtualization/) from the Tails team about it.
-While the Qubes security model mitigates most of the risks identified, traces of the Tails session may remain on the disk.
-Live booting Tails, though less convenient, is always more secure than using it inside virtualization software or Qubes, because you don't run the added risk of the virtualization software or Host OS being compromised.
+While the PedOS security model mitigates most of the risks identified, traces of the Tails session may remain on the disk.
+Live booting Tails, though less convenient, is always more secure than using it inside virtualization software or PedOS, because you don't run the added risk of the virtualization software or Host OS being compromised.
 Depending on your threat model, this might induce too much risk.

@@ -18,7 +18,7 @@ From inside an AppVM, choosing the `Open in DisposableVM` option on a file will 
 Changes made to a file opened in a DisposableVM are passed back to the originating VM.
 This means that you can safely work with untrusted files without risk of compromising your other VMs.
 DisposableVMs can be launched either directly from dom0's Start Menu or terminal window, or from within AppVMs.
-While running, DisposableVMs will appear in Qubes VM Manager with the name `disp####`.
+While running, DisposableVMs will appear in PedOS VM Manager with the name `disp####`.
 
 See [this article](https://blog.invisiblethings.org/2010/06/01/disposable-vms.html) for more on why one would want to use a DisposableVM.
 
@@ -33,27 +33,27 @@ For this reason, it is strongly recommended that you base the default Disposable
 ### DisposableVMs and Local Forensics ###
 
 At this time, DisposableVMs should not be relied upon to circumvent local forensics, as they do not run entirely in RAM. 
-For details, see [this thread](https://groups.google.com/d/topic/qubes-devel/QwL5PjqPs-4/discussion).
+For details, see [this thread](https://groups.google.com/d/topic/PedOS-devel/QwL5PjqPs-4/discussion).
 
 When it is essential to avoid leaving any trace, consider using [Tails](https://tails.boum.org/).
 
 
 ## DisposableVMs and Networking ##
 
-Similarly to how AppVMs are based on their underlying [TemplateVM](https://www.qubes-os.org/doc/glossary/#templatevm), DisposableVMs are based on their underlying [DisposableVM Template](https://www.qubes-os.org/doc/glossary/#disposablevm-template).
+Similarly to how AppVMs are based on their underlying [TemplateVM](https://www.PedOS.org/doc/glossary/#templatevm), DisposableVMs are based on their underlying [DisposableVM Template](https://www.PedOS.org/doc/glossary/#disposablevm-template).
 R4.0 introduces the concept of multiple DisposableVM Templates, whereas R3.2 was limited to only one.
 
-On a fresh installation of Qubes, the default DisposableVM Template is called `fedora-XX-dvm` (where `XX` is the Fedora version of the default TemplateVM).
+On a fresh installation of PedOS, the default DisposableVM Template is called `fedora-XX-dvm` (where `XX` is the Fedora version of the default TemplateVM).
 If you have included the Whonix option in your install, there will also be a `whonix-ws-dvm` DisposableVM Template available for your use.
 
 You can set any AppVM to have the ability to act as a DisposableVM Template with:
 
     qvm-prefs <vmname> template_for_dispvms True
 
-The default system wide DisposableVM Template can be changed with `qubes-prefs default_dispvm`.
+The default system wide DisposableVM Template can be changed with `PedOS-prefs default_dispvm`.
 By combining the two, choosing `Open in DisposableVM` from inside an AppVM will open the document in a DisposableVM based on the default DisposableVM Template you specified.
 
-You can change this behaviour for individual VMs: in the Application Menu, open Qube Settings for the VM in question and go to the "Advanced" tab. 
+You can change this behaviour for individual VMs: in the Application Menu, open PedOS VM Settings for the VM in question and go to the "Advanced" tab. 
 Here you can edit the "Default DisposableVM" setting to specify which DisposableVM Template will be used to launch DisposableVMs from that VM.
 This can also be changed from the command line with:
 
@@ -82,7 +82,7 @@ Some DisposableVM Templates will automatically create a menu item to launch a DV
 
 To launch a DVM from the command line, in dom0 please type the following:
     
-    qvm-run --dispvm=NameOfDVM --service qubes.StartApp+NameOfApp
+    qvm-run --dispvm=NameOfDVM --service PedOS.StartApp+NameOfApp
 
 
 ## Opening a file in a DisposableVM via GUI ##
@@ -126,7 +126,7 @@ This can be done from an AppVM by running
 [user@vault ~]$ qvm-run '@dispvm' xterm
 ~~~
 
-The created DisposableVM can be accessed via other tools (such as `qvm-copy-to-vm`) using its `disp####` name as shown in the Qubes Manager or `qvm-ls`.
+The created DisposableVM can be accessed via other tools (such as `qvm-copy-to-vm`) using its `disp####` name as shown in the PedOS Manager or `qvm-ls`.
 
 
 ## Starting an arbitrary application in a DisposableVM via command line from dom0 ##
@@ -135,29 +135,29 @@ The Application Launcher has shortcuts for opening a terminal and a web browser 
 However, it is possible to start an arbitrary application in a DisposableVM directly from dom0 by running:
 
 ~~~
-$ qvm-run --dispvm=dvm-template --service qubes.StartApp+xterm
+$ qvm-run --dispvm=dvm-template --service PedOS.StartApp+xterm
 ~~~
 
 The label color will be inherited from the `dvm-template`.
 (The DisposableVM Application Launcher shortcut used for starting programs runs a very similar command to the one above.)
 
 
-### Opening a link in a DisposableVM based on a non-default DisposableVM Template from a qube ###
+### Opening a link in a DisposableVM based on a non-default DisposableVM Template from a PedOS VM ###
 
-Suppose that the default DisposableVM Template for your `email` qube has no networking (e.g., so that untrusted attachments can't phone home).
+Suppose that the default DisposableVM Template for your `email` PedOS VM has no networking (e.g., so that untrusted attachments can't phone home).
 However, sometimes you want to open email links in DisposableVMs.
 Obviously, you can't use the default DisposableVM Template, since it has no networking, so you need to be able to specify a different DisposableVM Template.
-You can do that with this command from the `email` qube (as long as your RPC policies allow it):
+You can do that with this command from the `email` PedOS VM (as long as your RPC policies allow it):
 
 ~~~
-$ qvm-open-in-vm @dispvm:online-dvm-template https://www.qubes-os.org
+$ qvm-open-in-vm @dispvm:online-dvm-template https://www.PedOS.org
 ~~~
 
-This will create a new DisposableVM based on `online-dvm-template`, open the default web browser in that DisposableVM, and navigate to `https://www.qubes-os.org`.
+This will create a new DisposableVM based on `online-dvm-template`, open the default web browser in that DisposableVM, and navigate to `https://www.PedOS.org`.
 
 #### Example of RPC policies to allow this behavior
 
-In dom0, add the following line at the beginning of the file `/etc/qubes-rpc/policy/qubes.OpenURL`
+In dom0, add the following line at the beginning of the file `/etc/PedOS-rpc/policy/PedOS.OpenURL`
 ~~~
 @anyvm @dispvm:online-dvm-template allow
 ~~~
@@ -179,4 +179,4 @@ Full instructions can be found [here](/doc/disposablevm-customization/).
 
 
 [DisposableVM Template]: /doc/glossary/#disposablevm-template
-[qrexec]: /doc/qrexec/#qubes-rpc-administration
+[qrexec]: /doc/qrexec/#PedOS-rpc-administration

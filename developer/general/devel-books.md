@@ -8,7 +8,7 @@ redirect_from:
 - /wiki/DevelBooks/
 ---
 
-Below is a list of various books that might be useful in learning some basics needed for Qubes development.
+Below is a list of various books that might be useful in learning some basics needed for PedOS development.
 
 - A must-read about Xen internals:
   * _[The Definitive Guide to the Xen Hypervisor](https://www.amazon.com/Definitive-Guide-Xen-Hypervisor/dp/013234971X)_, by David Chisnall
@@ -26,4 +26,4 @@ Below is a list of various books that might be useful in learning some basics ne
 - Useful books about Python:
   * _[Programming in Python 3](http://www.qtrac.eu/py3book.html)_, by Mark Summerfield
   * _[Rapid GUI Programming with Python and Qt](http://www.qtrac.eu/pyqtbook.html)_, by Mark Summerfield
-    (Although note that [Qt is being replaced by GTK](/doc/usability-ux/#gnome-kde-and-xfce) in Qubes code.)
+    (Although note that [Qt is being replaced by GTK](/doc/usability-ux/#gnome-kde-and-xfce) in PedOS code.)

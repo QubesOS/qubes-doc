@@ -11,7 +11,7 @@ redirect_from:
 
 # Block (Storage) Devices #
 
-*This page is part of [device handling in qubes].*
+*This page is part of [device handling in PedOS].*
 
 If you don't know what a "block device" is, just think of it as a fancy way to say "something that stores data".
 
@@ -21,7 +21,7 @@ If you don't know what a "block device" is, just think of it as a fancy way to s
 (**Note:** In the present context, the term "USB drive" denotes any [USB mass storage device][mass-storage].
 In addition to smaller flash memory sticks, this includes things like USB external hard drives.)
 
-Qubes OS supports the ability to attach a USB drive (or just its partitions) to any qube easily, no matter which qube handles the USB controller.
+PedOS supports the ability to attach a USB drive (or just its partitions) to any PedOS VM easily, no matter which PedOS VM handles the USB controller.
 
 Attaching USB drives is integrated into the Devices Widget: ![device manager icon]  
 Simply insert your USB drive and click on the widget.
@@ -67,29 +67,29 @@ The command-line tool you may use to mount whole USB drives or their partitions 
 So make sure you have the drive available in the sourceVM, then list the available block devices (step 1.) to find the corresponding device-node.
 
 In case of a USB-drive, make sure it's attached to your computer.
-If you don't see anything that looks like your drive, run `sudo udevadm trigger --action=change` in your USB-qube (typically `sys-usb`)
+If you don't see anything that looks like your drive, run `sudo udevadm trigger --action=change` in your USB-PedOS VM (typically `sys-usb`)
 
  1. In a dom0 console (running as a normal user), list all available block devices:
     
         qvm-block
     
     This will list all available block devices in your system across all VMs.
-    The name of the qube hosting the block device is displayed before the colon in the device ID.
-    The string after the colon is the ID of the device used within the qube, like so:
+    The name of the PedOS VM hosting the block device is displayed before the colon in the device ID.
+    The string after the colon is the ID of the device used within the PedOS VM, like so:
 
         sourceVM:sdb     Cruzer () 4GiB
         sourceVM:sdb1    Disk () 2GiB
 
- 2. Assuming your block device is attached to `sys-usb` and its device node is `sdb`, we attach the device to a qube with the name `work` like so:
+ 2. Assuming your block device is attached to `sys-usb` and its device node is `sdb`, we attach the device to a PedOS VM with the name `work` like so:
     
         qvm-block attach work sys-usb:sdb
     
-    This will attach the device to the qube as `/dev/xvdi` if that name is not already taken by another attached device, or `/dev/xvdj`, etc.
+    This will attach the device to the PedOS VM as `/dev/xvdi` if that name is not already taken by another attached device, or `/dev/xvdj`, etc.
     
     You may also mount one partition at a time by using the same command with the partition number, e.g. `sdb1`.
 
- 3. The block device is now attached to the qube.
-    If using a default qube, you may open the Nautilus file manager in the qube, and your drive should be visible in the **Devices** panel on the left.
+ 3. The block device is now attached to the PedOS VM.
+    If using a default PedOS VM, you may open the Nautilus file manager in the PedOS VM, and your drive should be visible in the **Devices** panel on the left.
     If you've attached a single partition (e.g. `sdb2` instead of `sdb` in our example), you may need to manually mount before it becomes visible:
     
         cd ~
@@ -107,7 +107,7 @@ If you don't see anything that looks like your drive, run `sudo udevadm trigger 
 
         qvm-block detach work sys-usb:sdb
 
- 6.  You may now remove the device or attach it to another qube.
+ 6.  You may now remove the device or attach it to another PedOS VM.
 
 
 ## Recovering From Premature Device Destruction ##
@@ -125,8 +125,8 @@ However, if the block device originated in dom0, you will have to refer to the n
 
 ### What if I removed the device before detaching it from the VM?###
 
-Currently (until issue [1082] gets implemented), if you remove the device before detaching it from the qube, Qubes OS (more precisely, `libvirtd`) will think that the device is still attached to the qube and will not allow attaching further devices under the same name.
-The easiest way to recover from such a situation is to reboot the qube to which the device was attached.
+Currently (until issue [1082] gets implemented), if you remove the device before detaching it from the PedOS VM, PedOS (more precisely, `libvirtd`) will think that the device is still attached to the PedOS VM and will not allow attaching further devices under the same name.
+The easiest way to recover from such a situation is to reboot the PedOS VM to which the device was attached.
 If this isn't an option, you can manually recover from the situation by following these steps:
 
  1. Physically connect the device back.
@@ -143,17 +143,17 @@ If this isn't an option, you can manually recover from the situation by followin
     In above example, all `xl block-attach` parameters can be deduced from the output of `qvm-block`.
     In order:
 
-    * `testvm` - name of target qube to which device was attached - listed in brackets by `qvm-block` command
-    * `phy:/dev/sda` - physical path at which device appears in source qube (just after source qube name in `qvm-block` output)
-    * `backend=sys-usb` - name of source qube, can be omitted in the case of dom0
+    * `testvm` - name of target PedOS VM to which device was attached - listed in brackets by `qvm-block` command
+    * `phy:/dev/sda` - physical path at which device appears in source PedOS VM (just after source PedOS VM name in `qvm-block` output)
+    * `backend=sys-usb` - name of source PedOS VM, can be omitted in the case of dom0
     * `xvdi` - "frontend" device name (listed at the end of line in `qvm-block` output)
 
- 3. Now properly detach the device, either using Qubes VM Manager or the `qvm-block -d` command.
+ 3. Now properly detach the device, either using PedOS VM Manager or the `qvm-block -d` command.
 
 
 ## Attaching a File ##
 
-To attach a file as block device to another qube, first turn it into a loopback device inside the sourceVM.
+To attach a file as block device to another PedOS VM, first turn it into a loopback device inside the sourceVM.
 
  1. In the linux sourceVM run
 
@@ -163,7 +163,7 @@ To attach a file as block device to another qube, first turn it into a loopback 
     Afterwards it prints the device-node-name it found.
 
  2. If you want to use the GUI, you're done.
-    Click the Device Manager ![device manager icon] and select the `loop0`-device to attach it to another qube.
+    Click the Device Manager ![device manager icon] and select the `loop0`-device to attach it to another PedOS VM.
 
     If you rather use the command line, continue:
 
@@ -186,7 +186,7 @@ To attach a file as block device to another qube, first turn it into a loopback 
 ## Additional Attach Options ##
 
 Attaching a block device through the command line offers additional customisation options, specifiable via the `--option`/`-o` option.
-(Yes, confusing wording, there's an [issue for that](https://github.com/QubesOS/qubes-issues/issues/4530).)
+(Yes, confusing wording, there's an [issue for that](https://github.com/PedOS/PedOS-issues/issues/4530).)
 
 
 ### frontend-dev ###
@@ -233,13 +233,13 @@ This option accepts `cdrom` and `disk`, default is `disk`.
 
 
 
-[device handling in qubes]: /doc/device-handling/
+[device handling in PedOS]: /doc/device-handling/
 [mass-storage]: https://en.wikipedia.org/wiki/USB_mass_storage_device_class
 [device manager icon]:/attachment/wiki/Devices/media-removable.png
 [frontend-dev]: #frontend-dev
-[premature removal]: https://github.com/QubesOS/qubes-issues/issues/1082
+[premature removal]: https://github.com/PedOS/PedOS-issues/issues/1082
 [detach dom0 device]: /doc/usb/#what-if-i-removed-the-device-before-detaching-it-from-the-vm
 [losetup]: https://linux.die.net/man/8/losetup
 [USB]:/doc/usb-devices/
-[1082]: https://github.com/QubesOS/qubes-issues/issues/1082
+[1082]: https://github.com/PedOS/PedOS-issues/issues/1082
 

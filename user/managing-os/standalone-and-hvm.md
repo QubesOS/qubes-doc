@@ -12,7 +12,7 @@ redirect_from:
 
 # StandaloneVMs and HVMs
 
-A [StandaloneVM](/doc/glossary/#standalonevm) is a type of VM in Qubes that is created by cloning a [TemplateVM](/doc/templates/).
+A [StandaloneVM](/doc/glossary/#standalonevm) is a type of VM in PedOS that is created by cloning a [TemplateVM](/doc/templates/).
 Unlike TemplateVMs, however, StandaloneVMs do not supply their root filesystems to other VMs.
 Examples of situations in which StandaloneVMs can be useful include:
 
@@ -24,11 +24,11 @@ Examples of situations in which StandaloneVMs can be useful include:
 Meanwhile, a [Hardware-assisted Virtual Machine (HVM)](/doc/glossary/#hvm), also known as a "Fully-Virtualized Virtual Machine," utilizes the virtualization extensions of the host CPU.
 These are typically contrasted with [Paravirtualized (PV)](/doc/glossary/#pv) VMs.
 
-HVMs allow you to create qubes based on any OS for which you have an installation ISO, so you can easily have qubes running Windows, *BSD, or any Linux distribution.
+HVMs allow you to create PedOS based on any OS for which you have an installation ISO, so you can easily have PedOS running Windows, *BSD, or any Linux distribution.
 You can also use HVMs to run "live" distros.
 
-By default, every Qubes VM runs in [PVH](/doc/glossary/#pvhvm) mode (which has security advantages over both PV and HVM) except for those with attached PCI devices, which run in HVM mode.
-See [here](https://blog.invisiblethings.org/2017/07/31/qubes-40-rc1.html) for a discussion of the switch from PV to HVM and [here](/news/2018/01/11/qsb-37/) for the announcement about the change to using PVH as default.
+By default, every PedOS VM runs in [PVH](/doc/glossary/#pvhvm) mode (which has security advantages over both PV and HVM) except for those with attached PCI devices, which run in HVM mode.
+See [here](https://blog.invisiblethings.org/2017/07/31/PedOS-40-rc1.html) for a discussion of the switch from PV to HVM and [here](/news/2018/01/11/qsb-37/) for the announcement about the change to using PVH as default.
 
 The StandaloneVM/TemplateVM distinction and the HVM/PV/PVH distinctions are orthogonal.
 The former is about root filesystem inheritance, whereas the latter is about the virtualization mode.
@@ -39,7 +39,7 @@ Hence, this page covers both topics.
 
 ## Creating a StandaloneVM
 
-You can create a StandaloneVM in the Qube Manager by selecting the "Type" of "Standalone qube copied from a template" or "Empty standalone qube (install your own OS)."
+You can create a StandaloneVM in the PedOS VM Manager by selecting the "Type" of "Standalone PedOS VM copied from a template" or "Empty standalone PedOS VM (install your own OS)."
 
 Alternatively, from the dom0 command line:
 
@@ -55,14 +55,14 @@ However, it makes sense if you want to use a kernel from within the VM.)
 ## Creating an HVM
 
 ### Using the GUI:  
-In Qube Manager, select "Create new qube" from the Qube menu, or select the "Create a new qube" button.  
-In the "create new qube" dialog box set Type to "Empty standalone qube (install your own OS)".  
+In PedOS VM Manager, select "Create new PedOS VM" from the PedOS VM menu, or select the "Create a new PedOS VM" button.  
+In the "create new PedOS VM" dialog box set Type to "Empty standalone PedOS VM (install your own OS)".  
 If "install system from device" is selected (which is by default), then `virt_mode` will be set to `hvm` automatically.
-Otherwise, open the newly created qube's Settings GUI and in the "Advanced" tab select `HVM` in the virtualization mode drop-down list.
+Otherwise, open the newly created PedOS VM's Settings GUI and in the "Advanced" tab select `HVM` in the virtualization mode drop-down list.
 Also, make sure "Kernel" is set to `(none)` on the same tab.
 
 ### Command line:  
-Qubes are template-based by default so you must set the `--class StandaloneVM` option to create a StandaloneVM:
+PedOS are template-based by default so you must set the `--class StandaloneVM` option to create a StandaloneVM:
 (name and label color are for illustration purposes).
 ~~~
 qvm-create my-new-vm --class StandaloneVM --property virt_mode=hvm --property kernel='' --label=green
@@ -75,12 +75,12 @@ libvirt.libvirtError: invalid argument: could not find capabilities for arch=x86
 ~~~
 
 
-Make sure that you give the new qube adequate memory to install and run.
+Make sure that you give the new PedOS VM adequate memory to install and run.
 
 
 ## Installing an OS in an HVM
 
-You will have to boot the qube with the installation media "attached" to it. You may either use the GUI or use command line instructions. 
+You will have to boot the PedOS VM with the installation media "attached" to it. You may either use the GUI or use command line instructions. 
 At the command line you can do this in three ways:
 
 1. If you have the physical cdrom media and a disk drive
@@ -91,32 +91,32 @@ At the command line you can do this in three ways:
     ~~~
     qvm-start my-new-vm --cdrom=dom0:/usr/local/iso/installcd.iso
     ~~~
-3. If you have an ISO image of the installation media located in a qube (obviously the qube where the media is located must be running)
+3. If you have an ISO image of the installation media located in a PedOS VM (obviously the PedOS VM where the media is located must be running)
     ~~~
     qvm-start my-new-vm --cdrom=someVM:/home/user/installcd.iso
     ~~~
 
-For security reasons you should *never* copy untrusted data to dom0. Qubes doesn't provide any easy to use mechanism for copying files between qubes and Dom0 and generally tries to discourage such actions.
+For security reasons you should *never* copy untrusted data to dom0. PedOS doesn't provide any easy to use mechanism for copying files between PedOS and Dom0 and generally tries to discourage such actions.
 
-Next, the qube will start booting from the attached installation media, and you can start installation.
-Whenever the installer wants to "reboot the system" it actually shuts down the qube, and Qubes won't automatically start it.
-You may have to restart the qube several times in order to complete installation, (as is the case with Windows 7 installations).
+Next, the PedOS VM will start booting from the attached installation media, and you can start installation.
+Whenever the installer wants to "reboot the system" it actually shuts down the PedOS VM, and PedOS won't automatically start it.
+You may have to restart the PedOS VM several times in order to complete installation, (as is the case with Windows 7 installations).
 Several invocations of `qvm-start` command (as shown above) might be needed.
 
 
 ## Setting up networking for HVMs
 
-Just like standard paravirtualized AppVMs, the HVM qubes get fixed IP addresses centrally assigned by Qubes.
-Normally Qubes agent scripts (or services on Windows) running within each AppVM are responsible for setting up networking within the VM according to the configuration created by Qubes (through [keys](/doc/vm-interface/#qubesdb) exposed by dom0 to the VM). 
-Such centrally managed networking infrastructure allows for [advanced networking configuration](https://blog.invisiblethings.org/2011/09/28/playing-with-qubes-networking-for-fun.html).
+Just like standard paravirtualized AppVMs, the HVM PedOS get fixed IP addresses centrally assigned by PedOS.
+Normally PedOS agent scripts (or services on Windows) running within each AppVM are responsible for setting up networking within the VM according to the configuration created by PedOS (through [keys](/doc/vm-interface/#PedOSdb) exposed by dom0 to the VM). 
+Such centrally managed networking infrastructure allows for [advanced networking configuration](https://blog.invisiblethings.org/2011/09/28/playing-with-PedOS-networking-for-fun.html).
 
-A generic HVM domain such as a standard Windows or Ubuntu installation, however, has no Qubes agent scripts running inside it initially and thus requires manual configuration of networking so that it matches the values assigned by Qubes for this qube.
+A generic HVM domain such as a standard Windows or Ubuntu installation, however, has no PedOS agent scripts running inside it initially and thus requires manual configuration of networking so that it matches the values assigned by PedOS for this PedOS VM.
 
-Even though we do have a small DHCP server that runs inside HVM untrusted stub domain to make the manual network configuration unnecessary for many VMs, this won't work for most modern Linux distributions which contain Xen networking PV drivers (but not Qubes tools) which bypass the stub-domain networking (their net frontends connect directly to the net backend in the netvm).
+Even though we do have a small DHCP server that runs inside HVM untrusted stub domain to make the manual network configuration unnecessary for many VMs, this won't work for most modern Linux distributions which contain Xen networking PV drivers (but not PedOS tools) which bypass the stub-domain networking (their net frontends connect directly to the net backend in the netvm).
 In this instance our DHCP server is not useful.
 
-In order to manually configure networking in a VM, one should first find out the IP/netmask/gateway assigned to the particular VM by Qubes.
-This can be seen e.g. in the Qube Manager in the qube's properties:
+In order to manually configure networking in a VM, one should first find out the IP/netmask/gateway assigned to the particular VM by PedOS.
+This can be seen e.g. in the PedOS VM Manager in the PedOS VM's properties:
 
 ![r2b1-manager-networking-config.png](/attachment/wiki/HvmCreate/r2b1-manager-networking-config.png)
 
@@ -128,19 +128,19 @@ There is [opt-in support](/doc/networking/#ipv6) for IPv6 forwarding.
 
 ## Using TemplateBasedHVMs
 
-Qubes allows HVMs to share a common root filesystem from a select TemplateVM (see [TemplateHVM](/doc/glossary/#templatehvm) and [TemplateBasedHVM](/doc/glossary/#templatebasedhvm)).
+PedOS allows HVMs to share a common root filesystem from a select TemplateVM (see [TemplateHVM](/doc/glossary/#templatehvm) and [TemplateBasedHVM](/doc/glossary/#templatebasedhvm)).
 This mode can be used for any HVM (e.g. FreeBSD running in a HVM). 
 
 In order to create a TemplateHVM you use the following command, suitably adapted:
 
 ~~~
-qvm-create --class TemplateVM <qube> --property virt_mode=HVM --property kernel=''  -l green
+qvm-create --class TemplateVM <PedOS VM> --property virt_mode=HVM --property kernel=''  -l green
 ~~~
 
 Set memory as appropriate, and install the OS into this template in the same way you would install it into a normal HVM -- please see instructions on [this page](/doc/hvm-create/).
 Generally you should install in to the first "system" disk. (Resize it as needed before starting installation.)
 
-You can then create a new qube using the new template.
+You can then create a new PedOS VM using the new template.
 If you use this Template as it is, then any HVMs that use it will effectively be DisposableVMs - all file system changes will be wiped when the HVM is closed down.
 
 Please see [this page](/doc/windows-appvms/) for specific advice on installing and using Windows-based Templates.
@@ -148,7 +148,7 @@ Please see [this page](/doc/windows-appvms/) for specific advice on installing a
 
 ## Cloning HVMs
 
-Just like normal AppVMs, the HVM domains can also be cloned either using the command-line `qvm-clone` or via the Qube Manager's 'Clone VM' option in the right-click menu.
+Just like normal AppVMs, the HVM domains can also be cloned either using the command-line `qvm-clone` or via the PedOS VM Manager's 'Clone VM' option in the right-click menu.
 
 The cloned VM will get identical root and private images and will essentially be identical to the original VM except that it will get a different MAC address for the networking interface:
 
@@ -161,11 +161,11 @@ netvm             : firewallvm
 updateable?       : True
 installed by RPM? : False
 include in backups: False
-dir               : /var/lib/qubes/appvms/my-new-vm
-config            : /var/lib/qubes/appvms/my-new-vm/my-new-vm.conf
+dir               : /var/lib/PedOS/appvms/my-new-vm
+config            : /var/lib/PedOS/appvms/my-new-vm/my-new-vm.conf
 pcidevs           : []
-root img          : /var/lib/qubes/appvms/my-new-vm/root.img
-private img       : /var/lib/qubes/appvms/my-new-vm/private.img
+root img          : /var/lib/PedOS/appvms/my-new-vm/root.img
+private img       : /var/lib/PedOS/appvms/my-new-vm/private.img
 vcpus             : 4
 memory            : 512
 maxmem            : 512
@@ -189,11 +189,11 @@ netvm             : firewallvm
 updateable?       : True
 installed by RPM? : False
 include in backups: False
-dir               : /var/lib/qubes/appvms/my-new-vm-copy
-config            : /var/lib/qubes/appvms/my-new-vm-copy/my-new-vm-copy.conf
+dir               : /var/lib/PedOS/appvms/my-new-vm-copy
+config            : /var/lib/PedOS/appvms/my-new-vm-copy/my-new-vm-copy.conf
 pcidevs           : []
-root img          : /var/lib/qubes/appvms/my-new-vm-copy/root.img
-private img       : /var/lib/qubes/appvms/my-new-vm-copy/private.img
+root img          : /var/lib/PedOS/appvms/my-new-vm-copy/root.img
+private img       : /var/lib/PedOS/appvms/my-new-vm-copy/private.img
 vcpus             : 4
 memory            : 512
 maxmem            : 512
@@ -207,7 +207,7 @@ timezone          : localtime
 ~~~
 
 Note how the MAC addresses differ between those two otherwise identical VMs.
-The IP addresses assigned by Qubes will also be different of course to allow networking to function properly:
+The IP addresses assigned by PedOS will also be different of course to allow networking to function properly:
 
 ~~~
 [joanna@dom0 ~]$ qvm-ls -n
@@ -229,11 +229,11 @@ netvm             : firewallvm
 updateable?       : True
 installed by RPM? : False
 include in backups: False
-dir               : /var/lib/qubes/appvms/my-new-vm-copy
-config            : /var/lib/qubes/appvms/my-new-vm-copy/my-new-vm-copy.conf
+dir               : /var/lib/PedOS/appvms/my-new-vm-copy
+config            : /var/lib/PedOS/appvms/my-new-vm-copy/my-new-vm-copy.conf
 pcidevs           : []
-root img          : /var/lib/qubes/appvms/my-new-vm-copy/root.img
-private img       : /var/lib/qubes/appvms/my-new-vm-copy/private.img
+root img          : /var/lib/PedOS/appvms/my-new-vm-copy/root.img
+private img       : /var/lib/PedOS/appvms/my-new-vm-copy/private.img
 vcpus             : 4
 memory            : 512
 maxmem            : 512
@@ -259,9 +259,9 @@ This is illustrated on the screenshot below:
 ![r2b1-win7-usb-disable.png](/attachment/wiki/HvmCreate/r2b1-win7-usb-disable.png)
 
 
-## Converting VirtualBox VMs to Qubes HVMs
+## Converting VirtualBox VMs to PedOS HVMs
 
-You can convert any VirtualBox VM to a Qubes HVM using this method.
+You can convert any VirtualBox VM to a PedOS HVM using this method.
 
 For example, Microsoft provides [free 90 day evaluation VirtualBox VMs for browser testing](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
 
@@ -293,7 +293,7 @@ Convert vmdk to raw:
 qemu-img convert -O raw *.vmdk win10.raw
 ~~~
 
-Copy the root image file from the originating qube (here called `untrusted`) to a temporary location in dom0, typing this in a Dom0 terminal:
+Copy the root image file from the originating PedOS VM (here called `untrusted`) to a temporary location in dom0, typing this in a Dom0 terminal:
 
 ~~~
 qvm-run --pass-io untrusted 'cat "/media/user/externalhd/win10.raw"' > /home/user/win10-root.img

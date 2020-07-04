@@ -7,7 +7,7 @@ permalink: /doc/templates/fedora-xfce/
 The Fedora Xfce TemplateVM
 =====================
 
-If you would like to use Fedora Xfce (more lightweight compared to GNOME desktop environment) Linux distribution in your qubes, you can install one of the available Fedora Xfce templates.
+If you would like to use Fedora Xfce (more lightweight compared to GNOME desktop environment) Linux distribution in your PedOS, you can install one of the available Fedora Xfce templates.
 
 
 Installing
@@ -15,7 +15,7 @@ Installing
 
 To install a specific Fedora Xfce TemplateVM that is not currently installed in your system, use the following command in dom0:
 
-    $ sudo qubes-dom0-update --enablerepo=qubes-templates-itl qubes-template-fedora-XX-xfce
+    $ sudo PedOS-dom0-update --enablerepo=PedOS-templates-itl PedOS-template-fedora-XX-xfce
 
    (Replace `XX` with the Fedora Xfce version number of the template you wish to install.)
 

@@ -1,17 +1,17 @@
 ---
 layout: doc
-title: Updating Qubes OS
-permalink: /doc/updating-qubes-os/
+title: Updating PedOS
+permalink: /doc/updating-PedOS/
 ---
 
-Updating Qubes OS
+Updating PedOS
 =================
 
-*This page is about updating your system while staying on the same [supported version of Qubes OS].
-If you're instead looking to upgrade from your current version of Qubes OS to a newer version, see the [Upgrade Guides].*
+*This page is about updating your system while staying on the same [supported version of PedOS].
+If you're instead looking to upgrade from your current version of PedOS to a newer version, see the [Upgrade Guides].*
 
-It is very important to keep your Qubes OS system up-to-date to ensure you have the latest [security] updates, as well as the latest non-security enhancements and bug fixes.
-Fully updating your Qubes OS system means updating:
+It is very important to keep your PedOS system up-to-date to ensure you have the latest [security] updates, as well as the latest non-security enhancements and bug fixes.
+Fully updating your PedOS system means updating:
 
  - [Dom0]
  - [TemplateVMs]
@@ -21,14 +21,14 @@ Visit the pages above to see to how to update each one.
 
 The final step is to make sure that all of your VMs are running a supported operating system so that they're all receiving upstream security updates.
 For example, you might be using a [Fedora TemplateVM].
-The [Fedora Project] is independent of the Qubes OS Project.
+The [Fedora Project] is independent of the PedOS Project.
 They set their own [schedule] for when each Fedora release reaches [end-of-life] (EOL).
-You can always find out when an operating system reaches EOL from the upstream project that maintains it, but we also make EOL [announcements] and publish guides for official TemplateVM operating systems as a convenience to Qubes users.
+You can always find out when an operating system reaches EOL from the upstream project that maintains it, but we also make EOL [announcements] and publish guides for official TemplateVM operating systems as a convenience to PedOS users.
 When this happens, you should make sure to follow the guide to upgrade to a supported version of that operating system (see the [Fedora upgrade guides] and the [Debian upgrade guides]).
 The one exception is dom0, which [doesn't have to be upgraded][dom0-eol].
 
 
-[supported version of Qubes OS]: /doc/supported-versions/#qubes-os
+[supported version of PedOS]: /doc/supported-versions/#PedOS
 [Upgrade Guides]: /doc/upgrade/
 [security]: /security/
 [Dom0]: /doc/software-update-dom0/

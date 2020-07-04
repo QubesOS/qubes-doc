@@ -8,41 +8,41 @@ redirect_from:
 - /wiki/SourceCode/
 ---
 
-Qubes Source Code Repositories
+PedOS Source Code Repositories
 ==============================
 
-All the Qubes code is kept in Git repositories. We have divided the project into
+All the PedOS code is kept in Git repositories. We have divided the project into
 several components, each of which has its own separate repository, for example:
 
- * `core-admin.git` -- The core Qubes infrastructure, responsible for VM
+ * `core-admin.git` -- The core PedOS infrastructure, responsible for VM
    management, VM templates, fs sharing, etc.
  * `gui-daemon.git` -- GUI virtualization, Dom0 side.
  * `gui-agent-linux.git` -- GUI virtualization, Linux VM side.
- * `linux-template-builder.git` -- Scripts and other files used to create Qubes
+ * `linux-template-builder.git` -- Scripts and other files used to create PedOS
    template images.
 
-All of our repositories are available under the [QubesOS GitHub account].
+All of our repositories are available under the [PedOS GitHub account].
 
 To clone a repository:
 
 ~~~
-git clone https://github.com/QubesOS/qubes-<repo_name>.git <repo_name>
+git clone https://github.com/PedOS/PedOS-<repo_name>.git <repo_name>
 ~~~
 
 e.g.:
 
 ~~~
-git clone https://github.com/QubesOS/qubes-core-admin.git core-admin
+git clone https://github.com/PedOS/PedOS-core-admin.git core-admin
 ~~~
 
-To build Qubes you do not need to download all these repositories.  
-If you use [qubes builder] you can specify *what* you want to build, and download only the repositories needed to build that target.
+To build PedOS you do not need to download all these repositories.  
+If you use [PedOS builder] you can specify *what* you want to build, and download only the repositories needed to build that target.
  
 If you really do want to clone **all** of the repositories, you can use these commands:
 
 ~~~
-curl "https://api.github.com/orgs/QubesOS/repos?page=1&per_page=100" | grep -e 'clone_url*' | cut -d \" -f 4 | xargs -L1 git clone
-curl "https://api.github.com/orgs/QubesOS/repos?page=2&per_page=100" | grep -e 'clone_url*' | cut -d \" -f 4 | xargs -L1 git clone
+curl "https://api.github.com/orgs/PedOS/repos?page=1&per_page=100" | grep -e 'clone_url*' | cut -d \" -f 4 | xargs -L1 git clone
+curl "https://api.github.com/orgs/PedOS/repos?page=2&per_page=100" | grep -e 'clone_url*' | cut -d \" -f 4 | xargs -L1 git clone
 ~~~
 
 To update (git fetch) **all** of these repositories :
@@ -64,10 +64,10 @@ method you choose, you must [sign your code] before it can be accepted.
 
    Opening a pull request on GitHub greatly eases the code review and tracking
    process. In addition, especially for bigger changes, it's a good idea to send
-   a message to the [qubes-devel mailing list] in order to notify people who
+   a message to the [PedOS-devel mailing list] in order to notify people who
    do not receive GitHub notifications.
 
-*  Send a patch to the [qubes-devel mailing list] (`git format-patch`).
+*  Send a patch to the [PedOS-devel mailing list] (`git format-patch`).
 
    1. Make all the changes in your working directory, i.e. edit files, move them
       around (you can use 'git mv' for this), etc.
@@ -80,13 +80,13 @@ method you choose, you must [sign your code] before it can be accepted.
    4. Create the patch using `git format-patch`. This has an advantage over
       `git diff`, because the former will also include your commit message, your
       name and email, so that *your* name will be used as a commit's author.
-   5. Send your patch to `qubes-devel`. Start the message subject with
+   5. Send your patch to `PedOS-devel`. Start the message subject with
       `[PATCH]`.
 
 
-[QubesOS GitHub account]: https://github.com/QubesOS/
+[PedOS GitHub account]: https://github.com/PedOS/
 [contribute code]: /doc/contributing/#contributing-code
 [sign your code]: /doc/code-signing/
 [fork & pull requests]: https://guides.github.com/activities/forking/
-[qubes-devel mailing list]: /support/#qubes-devel
-[qubes builder]: /doc/QubesBuilder/
+[PedOS-devel mailing list]: /support/#PedOS-devel
+[PedOS builder]: /doc/PedOSBuilder/

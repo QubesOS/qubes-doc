@@ -7,15 +7,15 @@ redirect_from:
 - /doc/BackupEmergencyRestoreV2/
 ---
 
-Emergency Backup Recovery without Qubes (v2)
+Emergency Backup Recovery without PedOS (v2)
 ============================================
 
-This page describes how to perform emergency restore of backup created on Qubes
+This page describes how to perform emergency restore of backup created on PedOS
 R2 Beta3 or earlier (which uses backup format 2).
 
-The Qubes backup system has been designed with emergency disaster recovery in
-mind. No special Qubes-specific tools are required to access data backed up by
-Qubes. In the event a Qubes system is unavailable, you can access your data on
+The PedOS backup system has been designed with emergency disaster recovery in
+mind. No special PedOS-specific tools are required to access data backed up by
+PedOS. In the event a PedOS system is unavailable, you can access your data on
 any GNU/Linux system with the following procedure.
 
 **Note:** In the following example, the backup file is assumed to be both
@@ -24,11 +24,11 @@ encrypted and compressed.
 1.  Untar the main backup file.
 
     ~~~
-    [user@restore ~]$ tar -i -xvf qubes-backup-2013-12-26-123456
+    [user@restore ~]$ tar -i -xvf PedOS-backup-2013-12-26-123456
     backup-header
     backup-header.hmac
-    qubes.xml.000
-    qubes.xml.000.hmac
+    PedOS.xml.000
+    PedOS.xml.000.hmac
     vm1/private.img.000
     vm1/private.img.000.hmac
     vm1/icon.png.000
@@ -121,8 +121,8 @@ encrypted and compressed.
     ~~~
 
   **Note:** You may wish to store a plain text copy of these instructions with
-  your Qubes backups in the event that you fail to recall the above procedure
+  your PedOS backups in the event that you fail to recall the above procedure
   while this web page is inaccessible. You may obtain a plaintext version of
   this file in Git repository housing all the documentation at:
 
-    https://github.com/QubesOS/qubes-doc.git
+    https://github.com/PedOS/PedOS-doc.git

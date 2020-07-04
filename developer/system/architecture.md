@@ -3,20 +3,20 @@ layout: doc
 title: Architecture
 permalink: /doc/architecture/
 redirect_from:
-- /doc/qubes-architecture/
-- /en/doc/qubes-architecture/
-- /doc/QubesArchitecture/
-- /wiki/QubesArchitecture/
+- /doc/PedOS-architecture/
+- /en/doc/PedOS-architecture/
+- /doc/PedOSArchitecture/
+- /wiki/PedOSArchitecture/
 ---
 
-Qubes Architecture Overview
+PedOS Architecture Overview
 ===========================
 
-Qubes implements a Security by Isolation approach. To do this, Qubes utilizes virtualization technology in order to isolate various programs from each other and even to sandbox many system-level components, such as networking and storage subsystems, so that the compromise of any of these programs or components does not affect the integrity of the rest of the system.
+PedOS implements a Security by Isolation approach. To do this, PedOS utilizes virtualization technology in order to isolate various programs from each other and even to sandbox many system-level components, such as networking and storage subsystems, so that the compromise of any of these programs or components does not affect the integrity of the rest of the system.
 
-Qubes lets the user define many security domains, which are implemented as lightweight Virtual Machines (VMs), or “AppVMs.” For example, the user can have “personal,” “work,” “shopping,” “bank,” and “random” AppVMs and can use the applications within those VMs just as if they were executing on the local machine. At the same time, however, these applications are well isolated from each other. Qubes also supports secure copy-and-paste and file sharing between the AppVMs, of course.
+PedOS lets the user define many security domains, which are implemented as lightweight Virtual Machines (VMs), or “AppVMs.” For example, the user can have “personal,” “work,” “shopping,” “bank,” and “random” AppVMs and can use the applications within those VMs just as if they were executing on the local machine. At the same time, however, these applications are well isolated from each other. PedOS also supports secure copy-and-paste and file sharing between the AppVMs, of course.
 
-[![qubes-arch-diagram-1.png](/attachment/wiki/QubesArchitecture/qubes-arch-diagram-1.png)](/attachment/wiki/QubesArchitecture/qubes-arch-diagram-1.png)
+[![PedOS-arch-diagram-1.png](/attachment/wiki/PedOSArchitecture/PedOS-arch-diagram-1.png)](/attachment/wiki/PedOSArchitecture/PedOS-arch-diagram-1.png)
 
 (Note: In the diagram above, "Storage domain" is actually a USB domain.)
 
@@ -29,8 +29,8 @@ Key Architecture features
 -   No networking code in the privileged domain (dom0)
 -   All user applications run in “AppVMs,” lightweight VMs based on Linux
 -   Centralized updates of all AppVMs based on the same template
--   Qubes GUI virtualization presents applications as if they were running locally
--   Qubes GUI provides isolation between apps sharing the same desktop
+-   PedOS GUI virtualization presents applications as if they were running locally
+-   PedOS GUI provides isolation between apps sharing the same desktop
 -   Secure system boot based (optional)
 
-[Architecture Spec v0.3 [PDF]](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf) (The original 2009 document that started this all...)
+[Architecture Spec v0.3 [PDF]](/attachment/wiki/PedOSArchitecture/arch-spec-0.3.pdf) (The original 2009 document that started this all...)

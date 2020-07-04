@@ -8,11 +8,11 @@ redirect_from:
 
 # USB Devices #
 
-*This page is part of [device handling in qubes].*
+*This page is part of [device handling in PedOS].*
 
 If you are looking to handle USB *storage* devices (thumbdrives or USB-drives), please have a look at the [block device] page.
 
-**Note:** Attaching USB devices to VMs requires a [USB qube][USB-qube howto].
+**Note:** Attaching USB devices to VMs requires a [USB PedOS VM][USB-PedOS VM howto].
 
 **Important security warning:** USB passthrough comes with many security implications.
 Please make sure you carefully read and understand the **[security considerations]**.
@@ -24,14 +24,14 @@ Examples of valid cases for USB-passthrough:
  - [external audio devices]
  - [optical drives] for recording
 
-(If you are thinking to use a two-factor-authentication device, [there is an app for that][qubes u2f proxy].
+(If you are thinking to use a two-factor-authentication device, [there is an app for that][PedOS u2f proxy].
 But it has some [issues][4661].)
 
 
 ## Attaching And Detaching a USB Device ##
 
 
-### With Qubes Device Manager ###
+### With PedOS Device Manager ###
 
 Click the device-manager-icon: ![device manager icon]  
 A list of available devices appears.
@@ -71,8 +71,8 @@ Attaching selected USB device:
     sys-usb:2-5     058f:3822 058f_USB_2.0_Camera  work
     sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
 
-Now, you can use your USB device (camera in this case) in the `work` qube.
-If you see the error `ERROR: qubes-usb-proxy not installed in the VM` instead, please refer to the [Installation Section].
+Now, you can use your USB device (camera in this case) in the `work` PedOS VM.
+If you see the error `ERROR: PedOS-usb-proxy not installed in the VM` instead, please refer to the [Installation Section].
 
 When you finish, detach the device.
 
@@ -87,40 +87,40 @@ When you finish, detach the device.
 ## Maintenance And Customisation ##
 
 
-### Creating And Using a USB qube ###
+### Creating And Using a USB PedOS VM ###
 
-If you've selected to install a usb-qube during system installation, everything is already set up for you in `sys-usb`.
-If you've later decided to create a usb-qube, please follow [this guide][USB-qube howto].
+If you've selected to install a usb-PedOS VM during system installation, everything is already set up for you in `sys-usb`.
+If you've later decided to create a usb-PedOS VM, please follow [this guide][USB-PedOS VM howto].
 
 
-### Installation Of `qubes-usb-proxy` ###
+### Installation Of `PedOS-usb-proxy` ###
 
-To use this feature, the `qubes-usb-proxy` package needs to be installed in the templates used for the USB qube and qubes you want to connect USB devices to.
-This section exists for reference or in case something broke and you need to reinstall `qubes-usb-proxy`.
-Under normal conditions, `qubes-usb-proxy` should already be installed and good to go.
+To use this feature, the `PedOS-usb-proxy` package needs to be installed in the templates used for the USB PedOS VM and PedOS you want to connect USB devices to.
+This section exists for reference or in case something broke and you need to reinstall `PedOS-usb-proxy`.
+Under normal conditions, `PedOS-usb-proxy` should already be installed and good to go.
 
-If you receive this error: `ERROR: qubes-usb-proxy not installed in the VM`, you can install the `qubes-usb-proxy` with the package manager in the VM you want to attach the USB device to.
+If you receive this error: `ERROR: PedOS-usb-proxy not installed in the VM`, you can install the `PedOS-usb-proxy` with the package manager in the VM you want to attach the USB device to.
 
-- Fedora: `sudo dnf install qubes-usb-proxy`
-- Debian/Ubuntu: `sudo apt-get install qubes-usb-proxy`
+- Fedora: `sudo dnf install PedOS-usb-proxy`
+- Debian/Ubuntu: `sudo apt-get install PedOS-usb-proxy`
 
 
 ### Using USB Keyboards And Other Input Devices ###
 
 **Warning:** especially keyboards need to be accepted by default when using them to login! Please make sure you carefully read and understood the **[security considerations]** before continuing!
 
-Mouse and keyboard setup are part of [setting up a USB-qube][keyboard setup].
+Mouse and keyboard setup are part of [setting up a USB-PedOS VM][keyboard setup].
 
 
 ### Finding The Right USB Controller ###
 
-Some USB devices are not compatible with the USB pass-through method Qubes employs.
-In situations like these, you can try to pass through the entire USB controller to a qube as PCI device.
+Some USB devices are not compatible with the USB pass-through method PedOS employs.
+In situations like these, you can try to pass through the entire USB controller to a PedOS VM as PCI device.
 However, with this approach one cannot attach single USB devices but has to attach the whole USB controller with whatever USB devices are connected to it.
 
 If you have multiple USB controllers, you must first figure out which PCI device is the right controller.
 
-First, find out which USB bus the device is connected to (note that these steps need to be run from a terminal inside your USB qube):
+First, find out which USB bus the device is connected to (note that these steps need to be run from a terminal inside your USB PedOS VM):
 
     lsusb
 
@@ -150,7 +150,7 @@ For example, On R 4.0 the command would look something like
 `qvm-pci attach --persistent personal dom0:00_1a.0`
 
 
-[device handling in qubes]: /doc/device-handling/
+[device handling in PedOS]: /doc/device-handling/
 [block device]: /doc/block-devices/
 [security considerations]: /doc/device-handling-security/#usb-security
 [usb-challenges]: https://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html
@@ -158,11 +158,11 @@ For example, On R 4.0 the command would look something like
 [microcontroller programming]: https://www.arduino.cc/en/Main/Howto
 [external audio devices]: /doc/external-audio/
 [optical drives]: /doc/recording-optical-discs/
-[qubes u2f proxy]: /doc/u2f-proxy/
-[4661]: https://github.com/QubesOS/qubes-issues/issues/4661
+[PedOS u2f proxy]: /doc/u2f-proxy/
+[4661]: https://github.com/PedOS/PedOS-issues/issues/4661
 [device manager icon]:/attachment/wiki/Devices/media-removable.png
 [eject icon]:/attachment/wiki/Devices/media-eject.png
-[Installation Section]:#installation-of-qubes-usb-proxy
-[USB-qube howto]: /doc/usb-qubes/
-[keyboard setup]: /doc/usb-qubes/#enable-a-usb-keyboard-for-login
+[Installation Section]:#installation-of-PedOS-usb-proxy
+[USB-PedOS VM howto]: /doc/usb-PedOS/
+[keyboard setup]: /doc/usb-PedOS/#enable-a-usb-keyboard-for-login
 [qvm-pci]: /doc/pci-devices/

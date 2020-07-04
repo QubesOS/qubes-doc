@@ -25,14 +25,14 @@ Name: (none)
 Mount Point: /
 Desired Capacity: (your choice)
 Device Type: LVM Thin Provisioning
-Volume Group: qubes_dom0
+Volume Group: PedOS_dom0
 File System: ext4
 Name: root
 
 Mount Point: (none)
 Desired Capacity: 10 GiB
 Device Type: LVM
-Volume Group: qubes_dom0
+Volume Group: PedOS_dom0
 File System: swap
 Name: swap
 ~~~
@@ -50,18 +50,18 @@ Order   Action              Type                    Device              Mount po
 6       Create Format       LUKS                    sda2 on Disk
 7       Create Device       luks/dm-crypt           luks-sda2
 8       Create Format       physical volume (LVM)   luks-sda2
-9       Create Device       lvmvg                   qubes_dom0
-10      Create Device       lvmthinpool             qubes_dom0-pool00
-11      Create Device       lvmthinlv               qubes_dom0-root
-12      Create Device       lvmlv                   qubes_dom0-swap
-13      Create Format       swap                    qubes_dom0-swap
-14      Create Format       ext4                    qubes_dom0-root     /
+9       Create Device       lvmvg                   PedOS_dom0
+10      Create Device       lvmthinpool             PedOS_dom0-pool00
+11      Create Device       lvmthinlv               PedOS_dom0-root
+12      Create Device       lvmlv                   PedOS_dom0-swap
+13      Create Format       swap                    PedOS_dom0-swap
+14      Create Format       ext4                    PedOS_dom0-root     /
 ~~~
 
 
 ## Typical Partition Schemes
 
-If you want your partition/LVM scheme to look like the Qubes default but with a few tweaks, follow this example.
+If you want your partition/LVM scheme to look like the PedOS default but with a few tweaks, follow this example.
 With a single disk, the result should look something like this:
 
 ~~~
@@ -70,9 +70,9 @@ sda                                         disk
 ├──sda1                               1G    part    /boot
 └──sda2                                     part
    └──luks-<UUID>                           crypt
-      ├──qubes_dom0-pool00_tmeta            lvm
-      ├──qubes_dom0-pool00_tdata            lvm
-      └──qubes_dom0-swap                    lvm     [SWAP]
+      ├──PedOS_dom0-pool00_tmeta            lvm
+      ├──PedOS_dom0-pool00_tdata            lvm
+      └──PedOS_dom0-swap                    lvm     [SWAP]
 ~~~
 
 
@@ -96,7 +96,7 @@ Default compiled-in device cipher parameters:
         LUKS1: aes-xts-plain64, Key: 256 bits, LUKS header hashing: sha256, RNG: /dev/urandom
 ~~~
 
-This means that, by default, Qubes inherits these upstream defaults:
+This means that, by default, PedOS inherits these upstream defaults:
 
  - AES-128 [[1]][cryptsetup-faq][[2]][dm-crypt][[3]][tomb-238]
  - SHA-256
@@ -108,7 +108,7 @@ If, instead, you'd like to use AES-256, SHA-512, `/dev/random`, and a longer `it
 
 ## Example: Custom LUKS Configuration
 
-Boot into the Qubes installer, then press `ctrl`+`alt`+`F2` to get a virtual console.
+Boot into the PedOS installer, then press `ctrl`+`alt`+`F2` to get a virtual console.
 
 1. (Optional) Wipe the disk:
 
@@ -134,11 +134,11 @@ Boot into the Qubes installer, then press `ctrl`+`alt`+`F2` to get a virtual con
 6. Create LVM volumes:
 
         # pvcreate /dev/mapper/luks
-        # vgcreate qubes_dom0 /dev/mapper/luks
-        # lvcreate -n swap -L 10G qubes_dom0
-        # lvcreate -T -l +100%FREE qubes_dom0/pool00
-        # lvcreate -V1G -T qubes_dom0/pool00 -n root
-        # lvextend -L <size_of_pool00> /dev/qubes_dom0/root
+        # vgcreate PedOS_dom0 /dev/mapper/luks
+        # lvcreate -n swap -L 10G PedOS_dom0
+        # lvcreate -T -l +100%FREE PedOS_dom0/pool00
+        # lvcreate -V1G -T PedOS_dom0/pool00 -n root
+        # lvextend -L <size_of_pool00> /dev/PedOS_dom0/root
 
 8. Proceed with the installer. You can do that either by pressing `ctrl`+`alt`+`F6`, or by rebooting and restarting the installation.
    At the disk selection screen, select:
@@ -147,8 +147,8 @@ Boot into the Qubes installer, then press `ctrl`+`alt`+`F2` to get a virtual con
         [ ] Encrypt my data.
 
 9. Decrypt your partition. After decrypting you may assign mount points:
-   Open the Unknown list and select `qubes_dom0-root`. Check the reformat box to the right and choose `ext4` as a filesystem. Enter `/` into the Mount Point field at the top.
-   Repeat the process for `sda1` and `qubes_dom0-swap`. Those should be assigned to `/boot` and `swap` respectively.
+   Open the Unknown list and select `PedOS_dom0-root`. Check the reformat box to the right and choose `ext4` as a filesystem. Enter `/` into the Mount Point field at the top.
+   Repeat the process for `sda1` and `PedOS_dom0-swap`. Those should be assigned to `/boot` and `swap` respectively.
    The default file systems are ext4 for `/boot` and `/`, and swap for `swap`.
    When you are finished, the Unknown list should go away, and all three mount points should be assigned. Proceed normally with the installation from there.
 

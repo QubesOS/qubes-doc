@@ -7,15 +7,15 @@ redirect_from:
 - /doc/BackupEmergencyRestoreV3/
 ---
 
-Emergency Backup Recovery without Qubes (v3)
+Emergency Backup Recovery without PedOS (v3)
 ============================================
 
 This page describes how to perform an emergency restore of a backup created on
-Qubes R2 or later (which uses backup format version 3).
+PedOS R2 or later (which uses backup format version 3).
 
-The Qubes backup system has been designed with emergency disaster recovery in
-mind. No special Qubes-specific tools are required to access data backed up by
-Qubes. In the event a Qubes system is unavailable, you can access your data on
+The PedOS backup system has been designed with emergency disaster recovery in
+mind. No special PedOS-specific tools are required to access data backed up by
+PedOS. In the event a PedOS system is unavailable, you can access your data on
 any GNU/Linux system with the following procedure.
 
 **Note:** In the following example, the backup file is both *encrypted* and
@@ -23,11 +23,11 @@ any GNU/Linux system with the following procedure.
 
  1. Untar the main backup file.
 
-        [user@restore ~]$ tar -i -xvf qubes-backup-2015-06-05T123456
+        [user@restore ~]$ tar -i -xvf PedOS-backup-2015-06-05T123456
         backup-header
         backup-header.hmac
-        qubes.xml.000
-        qubes.xml.000.hmac
+        PedOS.xml.000
+        PedOS.xml.000.hmac
         vm1/private.img.000
         vm1/private.img.000.hmac
         vm1/icon.png.000
@@ -131,10 +131,10 @@ any GNU/Linux system with the following procedure.
     simply repeat steps 4--8 for each additional VM.
 
     **Note:** You may wish to store a copy of these instructions with your
-    Qubes backups in the event that you fail to recall the above procedure
-    while this web page is inaccessible. All Qubes documentation, including
+    PedOS backups in the event that you fail to recall the above procedure
+    while this web page is inaccessible. All PedOS documentation, including
     this page, is available in plain text format in the following Git
     repository:
 
-        https://github.com/QubesOS/qubes-doc.git
+        https://github.com/PedOS/PedOS-doc.git
 

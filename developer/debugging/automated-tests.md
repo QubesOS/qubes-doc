@@ -13,7 +13,7 @@ Automated Tests
 Unit and Integration Tests
 --------------------------
 
-Starting with Qubes R3 we use [python unittest][unittest] to perform automatic tests of Qubes OS. 
+Starting with PedOS R3 we use [python unittest][unittest] to perform automatic tests of PedOS. 
 Despite the name, we use it for both [unit tests](https://en.wikipedia.org/wiki/Unit_tests) and [integration tests](https://en.wikipedia.org/wiki/Integration_tests). 
 The main purpose is, of course, to deliver much more stable releases.
 
@@ -21,21 +21,21 @@ Integration tests are written with the assumption that they will be called on de
 **Do not run these tests on installations with important data, because you might lose it.**
 Since these tests were written with this expectation, all the VMs with a name starting with `test-` on the installation are removed during the process, and all the tests are recklessly started from dom0, even when testing VM components.
 
-Most of the tests are stored in the [core-admin repository](https://github.com/QubesOS/qubes-core-admin/tree/master/qubes/tests) in the `qubes/tests` directory. 
+Most of the tests are stored in the [core-admin repository](https://github.com/PedOS/PedOS-core-admin/tree/master/PedOS/tests) in the `PedOS/tests` directory. 
 To start them you can use the standard python unittest runner:
 
-`python3 -m unittest -v qubes.tests`
+`python3 -m unittest -v PedOS.tests`
     
 Or our custom one:
 
-`python3 -m qubes.tests.run -v`
+`python3 -m PedOS.tests.run -v`
 
-Our test runner runs mostly the same as the standard one, but it has some nice additional features like color output and not needing the "qubes.test" prefix. 
+Our test runner runs mostly the same as the standard one, but it has some nice additional features like color output and not needing the "PedOS.test" prefix. 
 It also has the ability to run lone selected template tests.
 
-You can use `python3 -m qubes.tests.run -h` to get usage information:
+You can use `python3 -m PedOS.tests.run -h` to get usage information:
 
-    [user@dom0 ~]$ python3 -m qubes.tests.run -h
+    [user@dom0 ~]$ python3 -m PedOS.tests.run -h
     usage: run.py [-h] [--verbose] [--quiet] [--list] [--failfast] [--no-failfast]
                   [--do-not-clean] [--do-clean] [--loglevel LEVEL]
                   [--logfile FILE] [--syslog] [--no-syslog] [--kmsg] [--no-kmsg]
@@ -64,18 +64,18 @@ You can use `python3 -m qubes.tests.run -h` to get usage information:
                             log most important things to kernel ring-buffer
       --no-kmsg, --i-am-smarter-than-kay-sievers
                             do not abuse kernel ring-buffer
-      --allow-running-along-qubesd
-                            allow running in parallel with qubesd; this is
+      --allow-running-along-PedOSd
+                            allow running in parallel with PedOSd; this is
                             DANGEROUS and WILL RESULT IN INCONSISTENT SYSTEM STATE
       --break-to-repl       break to REPL after tests
 
     When running only specific tests, write their names like in log, in format:
-    MODULE+"/"+CLASS+"/"+FUNCTION. MODULE should omit initial "qubes.tests.".
+    MODULE+"/"+CLASS+"/"+FUNCTION. MODULE should omit initial "PedOS.tests.".
     Example: basic/TC_00_Basic/test_000_create
 
 For instance, to run only the tests for the fedora-21 template, you can use the `-l` option, then filter the list:
 
-    [user@dom0 ~]$ python3 -m qubes.tests.run -l | grep fedora-21
+    [user@dom0 ~]$ python3 -m PedOS.tests.run -l | grep fedora-21
     network/VmNetworking_fedora-21/test_000_simple_networking
     network/VmNetworking_fedora-21/test_010_simple_proxyvm
     network/VmNetworking_fedora-21/test_020_simple_proxyvm_nm
@@ -96,22 +96,22 @@ For instance, to run only the tests for the fedora-21 template, you can use the 
     vm_qrexec_gui/TC_20_DispVM_fedora-21/test_010_simple_dvm_run
     vm_qrexec_gui/TC_20_DispVM_fedora-21/test_020_gui_app
     vm_qrexec_gui/TC_20_DispVM_fedora-21/test_030_edit_file
-    [user@dom0 ~]$ python3 -m qubes.tests.run -v `python3 -m qubes.tests.run -l | grep fedora-21`
+    [user@dom0 ~]$ python3 -m PedOS.tests.run -v `python3 -m PedOS.tests.run -l | grep fedora-21`
 
 Example test run:
 
 ![snapshot-tests2.png](/attachment/wiki/developers/snapshot-tests2.png)
 
-### Qubes 4.0
+### PedOS 4.0
 
-Tests on Qubes 4.0 require stopping the `qubesd` service first, because a special instance of it is started as part of the test run.
+Tests on PedOS 4.0 require stopping the `PedOSd` service first, because a special instance of it is started as part of the test run.
 Additionally, tests needs to be started as root. The full command to run the tests is:
 
-    sudo systemctl stop qubesd; sudo -E python3 -m qubes.tests.run -v ; sudo systemctl start qubesd
+    sudo systemctl stop PedOSd; sudo -E python3 -m PedOS.tests.run -v ; sudo systemctl start PedOSd
 
-On Qubes 4.0 tests are also compatible with nose2 test runner, so you can use this instead:
+On PedOS 4.0 tests are also compatible with nose2 test runner, so you can use this instead:
 
-    sudo systemctl stop qubesd; sudo -E nose2 -v --plugin nose2.plugins.loader.loadtests qubes.tests; sudo systemctl start qubesd
+    sudo systemctl stop PedOSd; sudo -E nose2 -v --plugin nose2.plugins.loader.loadtests PedOS.tests; sudo systemctl start PedOSd
 
 This may be especially useful together with various nose2 plugins to store tests results (for example `nose2.plugins.junitxml`), to ease presenting results. This is what we use on [OpenQA].
 
@@ -120,12 +120,12 @@ This may be especially useful together with various nose2 plugins to store tests
 Test run can be altered using environment variables:
 
  - `DEFAULT_LVM_POOL` - LVM thin pool to use for tests, in `VolumeGroup/ThinPool` format
- - `QUBES_TEST_PCIDEV` - PCI device to be used in PCI passthrough tests (for example sound card)
- - `QUBES_TEST_TEMPLATES` - space separated list of templates to run tests on; if not set, all installed templates are tested
- - `QUBES_TEST_LOAD_ALL` - load all tests (including tests for all templates) when relevant test modules are imported; this needs to be set for test runners not supporting [load_tests protocol](https://docs.python.org/3/library/unittest.html#load-tests-protocol)
+ - `PEDOS_TEST_PCIDEV` - PCI device to be used in PCI passthrough tests (for example sound card)
+ - `PEDOS_TEST_TEMPLATES` - space separated list of templates to run tests on; if not set, all installed templates are tested
+ - `PEDOS_TEST_LOAD_ALL` - load all tests (including tests for all templates) when relevant test modules are imported; this needs to be set for test runners not supporting [load_tests protocol](https://docs.python.org/3/library/unittest.html#load-tests-protocol)
 
 ### Adding a new test to core-admin
-After adding a new unit test to [core-admin/qubes/tests](https://github.com/QubesOS/qubes-core-admin/tree/master/qubes/tests) you'll have to include it in [core-admin/qubes/tests/\_\_init\_\_.py](https://github.com/QubesOS/qubes-core-admin/tree/master/qubes/tests/__init__.py)
+After adding a new unit test to [core-admin/PedOS/tests](https://github.com/PedOS/PedOS-core-admin/tree/master/PedOS/tests) you'll have to include it in [core-admin/PedOS/tests/\_\_init\_\_.py](https://github.com/PedOS/PedOS-core-admin/tree/master/PedOS/tests/__init__.py)
 
 
 #### Editing `__init__.py`
@@ -134,14 +134,14 @@ Again, given the hypothetical `example.py` test:
 
 ~~~python
     for modname in (
-            'qubes.tests.basic',
-            'qubes.tests.dom0_update',
-            'qubes.tests.network',
-            'qubes.tests.vm_qrexec_gui',
-            'qubes.tests.backup',
-            'qubes.tests.backupcompatibility',
-            'qubes.tests.regressions',
-            'qubes.tests.example', # This is our newly added test
+            'PedOS.tests.basic',
+            'PedOS.tests.dom0_update',
+            'PedOS.tests.network',
+            'PedOS.tests.vm_qrexec_gui',
+            'PedOS.tests.backup',
+            'PedOS.tests.backupcompatibility',
+            'PedOS.tests.regressions',
+            'PedOS.tests.example', # This is our newly added test
             ):
 ~~~
 
@@ -202,15 +202,15 @@ class SomeTestCase(unittest.TestCase):
 Installation Tests with openQA
 ------------------------------
 
-**URL:** <https://openqa.qubes-os.org/>  
-**Tests:** <https://github.com/marmarek/openqa-tests-qubesos>
+**URL:** <https://openqa.PedOS.org/>  
+**Tests:** <https://github.com/marmarek/openqa-tests-PedOSos>
 
-Manually testing the installation of Qubes OS is a time-consuming process.
+Manually testing the installation of PedOS is a time-consuming process.
 We use [openQA] to automate this process.
-It works by installing Qubes in KVM and interacting with it as a user would, including simulating mouse clicks and keyboard presses.
+It works by installing PedOS in KVM and interacting with it as a user would, including simulating mouse clicks and keyboard presses.
 Then, it checks the output to see whether various tests were passed, e.g. by comparing the virtual screen output to screenshots of a successful installation.
 
-Using openQA to automatically test the Qubes installation process works as of Qubes 4.0-rc4 on 2018-01-26, provided that the versions of KVM and QEMU are new enough and the hardware has VT-x and EPT.
+Using openQA to automatically test the PedOS installation process works as of PedOS 4.0-rc4 on 2018-01-26, provided that the versions of KVM and QEMU are new enough and the hardware has VT-x and EPT.
 KVM also supports nested virtualization, so HVM should theoretically work.
 In practice, however, either Xen or QEMU crashes when this is attempted.
 Nonetheless, PV works well, which is sufficient for automated installation testing.

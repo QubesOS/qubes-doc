@@ -6,7 +6,7 @@ permalink: /doc/salt/
 
 # Management Infrastructure
 
-Since the Qubes R3.1 release we have included the Salt (also called SaltStack)
+Since the PedOS R3.1 release we have included the Salt (also called SaltStack)
 management engine in dom0 as default (with some states already configured).
 Salt allows administrators to easily configure their systems.
 In this guide we will show how it is set up and how you can modify it for your 
@@ -30,7 +30,7 @@ Salt is a client-server model, where the server (called *master*) manages
 its clients (called *minions*).
 In typical situations, it is intended that the administrator interacts only 
 with the master and keeps the configurations there.
-In Qubes, we don't have a master.
+In PedOS, we don't have a master.
 Instead we have one minion which resides in `dom0` and manages domains from 
 there.
 This setup is also supported by Salt.
@@ -157,21 +157,21 @@ with a `.` in their name.
 Now, because we use custom extensions to manage top files (instead of just
 enabling them all), to enable a particular top file you should issue command:
 
-    $ qubesctl top.enable my-new-vm
+    $ PedOSctl top.enable my-new-vm
 
 To list all enabled top files:
 
-    $ qubesctl top.enabled
+    $ PedOSctl top.enabled
 
 And to disable one:
 
-    $ qubesctl top.disable my-new-vm
+    $ PedOSctl top.disable my-new-vm
 
 To apply the states to dom0 and all VMs:
 
-    $ qubesctl --all state.highstate
+    $ PedOSctl --all state.highstate
 
-(More information on the `qubesctl` command further down.)
+(More information on the `PedOSctl` command further down.)
 
 ### Template Files
 
@@ -187,30 +187,30 @@ Documentation about using Jinja to directly call Salt functions and get data
 about your system can be found in the official 
 [Salt documentation][jinja-call-salt-functions].
 
-## Salt Configuration, QubesOS layout
+## Salt Configuration, PedOS layout
 
 All Salt configuration files are in the `/srv/` directory, as usual.
 The main directory is `/srv/salt/` where all state files reside.
 States are contained in `*.sls` files.
-However, the states that are part of the standard Qubes distribution are mostly 
+However, the states that are part of the standard PedOS distribution are mostly 
 templates and the configuration is done in pillars from formulas.
 
 The formulas are in `/srv/formulas`, including stock formulas for domains in
 `/srv/formulas/dom0/virtual-machines-formula/qvm`, which are used by firstboot.
 
 Because we use some code that is not found in older versions of Salt, there is
-a tool called `qubesctl` that should be run instead of `salt-call --local`.
+a tool called `PedOSctl` that should be run instead of `salt-call --local`.
 It accepts all the same arguments of the vanilla tool.
 
 ## Configuring a VM's System from Dom0
 
-Salt in Qubes can be used to configure VMs from dom0.
+Salt in PedOS can be used to configure VMs from dom0.
 Simply set the VM name as the target minion name in the top file.
-You can also use the `qubes` pillar module to select VMs with a particular 
+You can also use the `PedOS` pillar module to select VMs with a particular 
 property (see below).
-If you do so, then you need to pass additional arguments to the `qubesctl` tool:
+If you do so, then you need to pass additional arguments to the `PedOSctl` tool:
 
-    usage: qubesctl [-h] [--show-output] [--force-color] [--skip-dom0]
+    usage: PedOSctl [-h] [--show-output] [--force-color] [--skip-dom0]
                     [--targets TARGETS | --templates | --app | --all]
                     ...
 
@@ -229,7 +229,7 @@ If you do so, then you need to pass additional arguments to the `qubesctl` tool:
       --all              Target all non-disposable VMs (TemplateVMs and AppVMs)
 
 
-To apply a state to all templates, call `qubesctl --templates state.highstate`.
+To apply a state to all templates, call `PedOSctl --templates state.highstate`.
 
 The actual configuration is applied using `salt-ssh` (running over `qrexec` 
 instead of `ssh`).
@@ -240,7 +240,7 @@ This way dom0 doesn't directly interact with potentially malicious target VMs;
 and in the case of a compromised Salt VM, because they are temporary, the 
 compromise cannot spread from one VM to another.
 
-Beginning with Qubes 4.0 and after [QSB #45], we implemented two changes:
+Beginning with PedOS 4.0 and after [QSB #45], we implemented two changes:
 
 1. Added the `management_dispvm` VM property, which specifies the DVM
    Template that should be used for management, such as Salt
@@ -248,7 +248,7 @@ Beginning with Qubes 4.0 and after [QSB #45], we implemented two changes:
    parent TemplateVMs.  If the value is not set explicitly, the default
    is taken from the global `management_dispvm` property. The
    VM-specific property is set with the `qvm-prefs` command, while the
-   global property is set with the `qubes-prefs` command.
+   global property is set with the `PedOS-prefs` command.
 
 2. Created the `default-mgmt-dvm` DisposableVM Template, which is hidden from
    the menu (to avoid accidental use), has networking disabled, and has
@@ -270,7 +270,7 @@ Let's start with a quick example:
         - flags:
           - proxy
 
-It uses the Qubes-specific `qvm.present` state, which ensures that the domain is
+It uses the PedOS-specific `qvm.present` state, which ensures that the domain is
 present (if not, it creates it).
 
 * The `name` flag informs Salt that the domain should be named `salt-test` (not 
@@ -297,11 +297,11 @@ without the `.sls` extension.
 
 To enable the particular top file you should issue the command:
 
-    $ qubesctl top.enable my-new-vm
+    $ PedOSctl top.enable my-new-vm
 
 To apply the state:
 
-    $ qubesctl state.highstate
+    $ PedOSctl state.highstate
 
 ### Example of Configuring a VM's System from Dom0
 
@@ -315,19 +315,19 @@ Similar to the previous example, you need to create a state file
 Then the appropriate top file (`/srv/salt/mc-everywhere.top`):
 
     base:
-     qubes:type:template:
+     PedOS:type:template:
         - match: pillar
         - mc-everywhere
 
 Now you need to enable the top file:
 
-    $ qubesctl top.enable mc-everywhere
+    $ PedOSctl top.enable mc-everywhere
 
 And apply the configuration:
 
-    $ qubesctl --all state.highstate
+    $ PedOSctl --all state.highstate
 
-## All Qubes-specific States
+## All PedOS-specific States
 
 ### `qvm.present`
 
@@ -372,14 +372,14 @@ Ensures the specified domain is running:
 
 ## Virtual Machine Formulae
 
-You can use these formulae to download, install, and configure VMs in Qubes.
+You can use these formulae to download, install, and configure VMs in PedOS.
 These formulae use pillar data to define default VM names and configuration details.
 The default settings can be overridden in the pillar data located in:
 ```
 /srv/pillar/base/qvm/init.sls
 ```
-In dom0, you can apply a single state with `sudo qubesctl state.sls STATE_NAME`.
-For example, `sudo qubesctl state.sls qvm.personal` will create a `personal` VM (if it does not already exist) with all its dependencies (TemplateVM, `sys-firewall`, and `sys-net`).
+In dom0, you can apply a single state with `sudo PedOSctl state.sls STATE_NAME`.
+For example, `sudo PedOSctl state.sls qvm.personal` will create a `personal` VM (if it does not already exist) with all its dependencies (TemplateVM, `sys-firewall`, and `sys-net`).
 
 ### Available states
 
@@ -465,13 +465,13 @@ Whonix Gateway TemplateVM
 Whonix Workstation TemplateVM
 
 
-## The `qubes` Pillar Module
+## The `PedOS` Pillar Module
 
 Additional pillar data is available to ease targeting configurations (for example all templates). 
 
 **Note:** This list is subject to change in future releases.
 
-### `qubes:type`
+### `PedOS:type`
 
 VM type. Possible values:
 
@@ -480,27 +480,27 @@ VM type. Possible values:
  - `standalone` - Standalone VM
  - `app` - Template based AppVM
 
-### `qubes:template`
+### `PedOS:template`
 
 Template name on which a given VM is based (if any).
 
-### `qubes:netvm`
+### `PedOS:netvm`
 
 VM which provides network to the given VM
 
 ## Debugging
 
-The output for each VM is logged in `/var/log/qubes/mgmt-VM_NAME.log`.
+The output for each VM is logged in `/var/log/PedOS/mgmt-VM_NAME.log`.
 
 If the log does not contain useful information:
-1. Run `sudo qubesctl --skip-dom0 --target=VM_NAME state.highstate`
-2. When your VM is being started (yellow) press Ctrl-z on qubesctl.
+1. Run `sudo PedOSctl --skip-dom0 --target=VM_NAME state.highstate`
+2. When your VM is being started (yellow) press Ctrl-z on PedOSctl.
 3. Open terminal in disp-mgmt-VM_NAME.
-4. Look at /etc/qubes-rpc/qubes.SaltLinuxVM - this is what is 
+4. Look at /etc/PedOS-rpc/PedOS.SaltLinuxVM - this is what is 
    executed in the management VM.
 5. Get the last two lines:
 
-    $ export PATH="/usr/lib/qubes-vm-connector/ssh-wrapper:$PATH"
+    $ export PATH="/usr/lib/PedOS-vm-connector/ssh-wrapper:$PATH"
     $ salt-ssh "$target_vm" $salt_command
 
   Adjust $target_vm (VM_NAME) and $salt_command (state.highstate).
@@ -525,7 +525,7 @@ The solution is to shut down the updateVM between each install:
 
     install template and shutdown updateVM:
       cmd.run:
-      - name: sudo qubes-dom0-update -y fedora-24; qvm-shutdown {% raw %}{{ salt.cmd.run(qubes-prefs updateVM) }}{% endraw %}
+      - name: sudo PedOS-dom0-update -y fedora-24; qvm-shutdown {% raw %}{{ salt.cmd.run(PedOS-prefs updateVM) }}{% endraw %}
 
 ## Further Reading
 
@@ -534,12 +534,12 @@ The solution is to shut down the updateVM between each install:
   [packages][salt-doc-states-pkg], [ordering][salt-doc-states-order])
 * [Top files][salt-doc-top]
 * [Jinja templates][jinja]
-* [Qubes specific modules][salt-qvm-doc]
-* [Formulas for default Qubes VMs][salt-virtual-machines-states]
+* [PedOS specific modules][salt-qvm-doc]
+* [Formulas for default PedOS VMs][salt-virtual-machines-states]
 
 [salt-doc]: https://docs.saltstack.com/en/latest/
-[salt-qvm-doc]: https://github.com/QubesOS/qubes-mgmt-salt-dom0-qvm/blob/master/README.rst
-[salt-virtual-machines-states]: https://github.com/QubesOS/qubes-mgmt-salt-dom0-virtual-machines/tree/master/qvm
+[salt-qvm-doc]: https://github.com/PedOS/PedOS-mgmt-salt-dom0-qvm/blob/master/README.rst
+[salt-virtual-machines-states]: https://github.com/PedOS/PedOS-mgmt-salt-dom0-virtual-machines/tree/master/qvm
 [salt-doc-states]: https://docs.saltstack.com/en/latest/ref/states/all/
 [salt-doc-states-file]: https://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html
 [salt-doc-states-pkg]: https://docs.saltstack.com/en/latest/ref/states/all/salt.states.pkg.html

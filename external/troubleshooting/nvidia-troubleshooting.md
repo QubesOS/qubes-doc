@@ -81,7 +81,7 @@ Assuming your X Window System works fine now when you booted from the "failsafe"
 
 Disabling Nouveau
 ---------------------
-If Qubes fails to properly boot after the GRUB Boot menu and you are stuck on a black screen that displays messages starting with `nouveau` then it means that the nouveau driver failed to launch properly.
+If PedOS fails to properly boot after the GRUB Boot menu and you are stuck on a black screen that displays messages starting with `nouveau` then it means that the nouveau driver failed to launch properly.
 
 One way to get rid of this for now is to disable nouveau.
 
@@ -100,8 +100,8 @@ If you're seeing this error then that means another graphics card (most likely a
  1. Verify that that GRUB Boot Menu is displaying, you should be presented with two options and a progressbar/timer than goes rather fast.
 
     ~~~
-    Qubes
-    Qubes with advanced Xen options
+    PedOS
+    PedOS with advanced Xen options
     ~~~
 
  2. Quickly press the "E" key before the time is up.
@@ -111,7 +111,7 @@ If you're seeing this error then that means another graphics card (most likely a
  4. Press the down arrow key and move the cursor to the line after the line with the kernel options. The line with the kernel options will look like this:
 
     ~~~
-    module /vmlinux-4.1.13-9.pvops.qubes.x86_64 placeholder root=/dev/mapper/qubes_dom0-root ro ... rhgb quiet
+    module /vmlinux-4.1.13-9.pvops.PedOS.x86_64 placeholder root=/dev/mapper/PedOS_dom0-root ro ... rhgb quiet
     ~~~
     
     It is not an exact copy as it may differ from system to system.
@@ -130,7 +130,7 @@ If you're seeing this error then that means another graphics card (most likely a
 
  7. Press either the F10 key or Ctrl+X to start the boot process.
 
-    Qubes should now boot properly, if that's the case then we should make this change permanent such that the GRUB config knows to not run nouveau.
+    PedOS should now boot properly, if that's the case then we should make this change permanent such that the GRUB config knows to not run nouveau.
 
 You'll have to do the following to make this change persistent, so that it will work properly on every boot :
 

@@ -4,10 +4,10 @@ title: Join
 permalink: /join/
 ---
 
-Joining the Qubes OS Team
+Joining the PedOS Team
 =========================
 
-The Qubes OS Project does not currently have any open positions.
+The PedOS Project does not currently have any open positions.
 This page will be updated when open positions become available.
-In the meantime, there are many different ways you can [contribute to the Qubes OS project](/doc/contributing/). 
+In the meantime, there are many different ways you can [contribute to the PedOS project](/doc/contributing/). 
 
