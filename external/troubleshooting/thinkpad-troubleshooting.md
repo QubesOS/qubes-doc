@@ -16,9 +16,9 @@ redirect_from:
 # Lenovo ThinkPad Troubleshooting #
 
 ## Instructions to create USB installation medium for newer (UEFI-only) ThinkPads ##
-Newer ThinkPads (e.g. T470, T470p, ThinkPad 25) are likely to fail installation attempts made from a USB stick that was created with dd or Rufus, and even from a DVD burned using official ISO images - if the ThinkPad is configured for UEFI boot. If you don't want to use Legacy Mode as a workaround, the following instructions should help you create a Qubes Installation USB stick that works in UEFI-only mode.
+Some newer ThinkPads (e.g. T470, T470p, [P51](https://www.svensemmler.org/blog/2017/12/17/qubes-on-thinkpad-p51.html), ThinkPad 25, but not the [P53](https://github.com/QubesOS/qubes-issues/issues/5851)) are likely to fail installation attempts made from a USB stick that was created with dd or Rufus, and even from a DVD burned using official ISO images - if the ThinkPad is configured for UEFI boot. If you don't want to use Legacy Mode as a workaround, the following instructions should help you create a Qubes Installation USB stick that works in UEFI-only mode.
 
-In a nutshell, you need to use the Fedora livecd-tools to make a Qubes Installation USB Stick from the Qubes ISO image, then update the label on the partition of that USB stick to "BOOT", and then update the BOOT/EFI/xen.cfg file on the USB stick so that all labels point to BOOT. In more detail:
+In a nutshell, you need to use the Fedora livecd-tools to make a Qubes Installation USB Stick from the Qubes ISO image, then update the label on the partition of that USB stick to "BOOT", and then update the BOOT/EFI/BOOTX64.cfg file on the USB stick so that all labels point to BOOT. In more detail:
 
 1. On your ThinkPad, enter the UEFI setup (press F1 at startup) and make sure to set at least the following options:
    - *USB UEFI BIOS Support: Enabled*
@@ -37,7 +37,7 @@ In a nutshell, you need to use the Fedora livecd-tools to make a Qubes Installat
 
    ``# mount /dev/sdd1 /mnt/qinst/``
 
-10. Use your favorite editor to edit the file */mnt/qinst/EFI/BOOT/xen.cfg*: Replace all instances of ``LABEL=Qubes-R4.0-rc3-x86_64`` with ``LABEL=BOOT``. There is typically no space in front of ``LABEL``, but there is a space at the end of the portion you replace.
+10. Use your favorite editor to edit the file */mnt/qinst/EFI/BOOT/BOOTX64.cfg*: Replace all instances of ``LABEL=Qubes-R4.0-rc3-x86_64`` with ``LABEL=BOOT``. There is typically no space in front of ``LABEL``, but there is a space at the end of the portion you replace.
 11. Unmount the Qubes Installation USB stick: ``# umount /dev/sdd*`` and disconnect it.
 
 That's it! You can now reboot the machine with the Qubes USB Installation stick attached, and press F12 to select it as the boot device at startup. Proceed to install Qubes OS normally. Enjoy!
