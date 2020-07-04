@@ -75,6 +75,7 @@ In dom0:
 $ sudo qubes-dom0-update qubes-u2f-dom0
 $ qvm-service --enable work qubes-u2f-proxy
 ```
+The above assumes a `work` qube in which you would like to enable u2f. Repeat the `qvm-service` command for all qubes that should have the proxy enabled.  Alternatively, you can add `qubes-u2f-proxy` in VM settings -> Services in the Qube Manager of each qube you would like to enable the service.
 
 In Fedora TemplateVMs:
 
@@ -88,7 +89,6 @@ In Debian TemplateVMs:
 $ sudo apt install qubes-u2f
 ```
 
-Repeat `qvm-service --enable` (or do this in VM settings -> Services in the Qube Manager) for all qubes that should have the proxy enabled.
 As usual with software updates, shut down the templates after installation, then restart `sys-usb` and all qubes that use the proxy.
 After that, you may use your U2F token (but see [Browser support] below).
 
