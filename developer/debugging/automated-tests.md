@@ -17,21 +17,34 @@ Starting with Qubes R3 we use [python unittest][unittest] to perform automatic t
 Despite the name, we use it for both [unit tests](https://en.wikipedia.org/wiki/Unit_tests) and [integration tests](https://en.wikipedia.org/wiki/Integration_tests). 
 The main purpose is, of course, to deliver much more stable releases.
 
-Integration tests are written with the assumption that they will be called on dedicated hardware. 
-**Do not run these tests on installations with important data, because you might lose it.**
-Since these tests were written with this expectation, all the VMs with a name starting with `test-` on the installation are removed during the process, and all the tests are recklessly started from dom0, even when testing VM components.
+The integration tests must be run in dom0, but some unit tests can run inside a VM as well.
 
-Most of the tests are stored in the [core-admin repository](https://github.com/QubesOS/qubes-core-admin/tree/master/qubes/tests) in the `qubes/tests` directory. 
-To start them you can use the standard python unittest runner:
+### Integration & unit testing in dom0
 
-`python3 -m unittest -v qubes.tests`
-    
-Or our custom one:
+Integration tests are written with the assumption that they will be executed on dedicated hardware and must be run in dom0. All other unit tests can also be run in dom0.
 
-`python3 -m qubes.tests.run -v`
+**Do not run the tests on installations with important data, because you might lose it.**
 
-Our test runner runs mostly the same as the standard one, but it has some nice additional features like color output and not needing the "qubes.test" prefix. 
-It also has the ability to run lone selected template tests.
+All the VMs with a name starting with `test-` on the installation are removed during the process, and all the tests are recklessly started from dom0, even when testing (& possibly breaking) VM components.
+
+First you need to build all packages that you want to test. Please do not mix branches as this will inevitably lead to failures. Then setup Qubes OS with these packages installed.
+
+For testing you'll have to stop the `qubesd` service as the tests will use its own custom variant of the service:
+`sudo systemctl stop qubesd`
+
+Don't forget to start it after testing again.
+
+To start testing you can then use the standard python unittest runner:
+
+`sudo -E python3 -m unittest -v qubes.tests`
+
+It'll execute the tests installed as part of the `qubes-core-admin` package.
+
+Alternatively, use the custom Qubes OS test runner:
+
+`sudo -E python3 -m qubes.tests.run -v`
+
+Our test runner runs mostly the same as the standard one, but it has some nice additional features like colored output and not needing the "qubes.test" prefix.
 
 You can use `python3 -m qubes.tests.run -h` to get usage information:
 
@@ -96,28 +109,46 @@ For instance, to run only the tests for the fedora-21 template, you can use the 
     vm_qrexec_gui/TC_20_DispVM_fedora-21/test_010_simple_dvm_run
     vm_qrexec_gui/TC_20_DispVM_fedora-21/test_020_gui_app
     vm_qrexec_gui/TC_20_DispVM_fedora-21/test_030_edit_file
-    [user@dom0 ~]$ python3 -m qubes.tests.run -v `python3 -m qubes.tests.run -l | grep fedora-21`
+    [user@dom0 ~]$ sudo -E python3 -m qubes.tests.run -v `python3 -m qubes.tests.run -l | grep fedora-21`
 
 Example test run:
 
 ![snapshot-tests2.png](/attachment/wiki/developers/snapshot-tests2.png)
 
-### Qubes 4.0
-
-Tests on Qubes 4.0 require stopping the `qubesd` service first, because a special instance of it is started as part of the test run.
-Additionally, tests needs to be started as root. The full command to run the tests is:
-
-    sudo systemctl stop qubesd; sudo -E python3 -m qubes.tests.run -v ; sudo systemctl start qubesd
-
-On Qubes 4.0 tests are also compatible with nose2 test runner, so you can use this instead:
+Tests are also compatible with nose2 test runner, so you can use this instead:
 
     sudo systemctl stop qubesd; sudo -E nose2 -v --plugin nose2.plugins.loader.loadtests qubes.tests; sudo systemctl start qubesd
 
 This may be especially useful together with various nose2 plugins to store tests results (for example `nose2.plugins.junitxml`), to ease presenting results. This is what we use on [OpenQA].
 
+
+### Unit testing inside a VM
+
+Many unit tests will also work inside a VM. However all of the tests requiring a dedicated VM to be run (mostly the integration tests) will be skipped.
+
+As minimal requirements for testing, you'll have to clone the [qubes-core-admin](https://github.com/QubesOS/qubes-core-admin) and [qubes-core-qrexec](https://github.com/QubesOS/qubes-core-qrexec) repositories.
+
+The below example however will assume that you set up a build environment as described in the [Qubes Builder documentation](/doc/qubes-builder/).
+
+Assuming you cloned the `qubes-builder` repository to your home directory inside a fedora VM, you can use the following commands to run the unit tests:
+```{.bash}
+sudo dnf install python3-pip lvm2 python35 python3-virtualenv
+virtualenv -p /usr/bin/python35 python35
+source python35/bin/activate
+python3 -V #should be 3.5.x / mostly identical to the dom0 python version
+cd ~/qubes-builder/qubes-src/core-admin
+pip3 install -r ci/requirements.txt
+export PYTHONPATH=../core-qrexec:test-packages
+./run-tests
+```
+
+To run only the tests related to e.g. `lvm`, you may use:
+
+`./run-tests -v $(python3 -m qubes.tests.run -l | grep lvm)`
+
 ### Tests configuration
 
-Test run can be altered using environment variables:
+Test runs can be altered using environment variables:
 
  - `DEFAULT_LVM_POOL` - LVM thin pool to use for tests, in `VolumeGroup/ThinPool` format
  - `QUBES_TEST_PCIDEV` - PCI device to be used in PCI passthrough tests (for example sound card)
@@ -217,6 +248,6 @@ Nonetheless, PV works well, which is sufficient for automated installation testi
 
 Thanks to an anonymous donor, our openQA system is hosted in a datacenter on hardware that meets these requirements.
 
-[unittest]: https://docs.python.org/2/library/unittest.html
+[unittest]: https://docs.python.org/3/library/unittest.html
 [OpenQA]: http://open.qa/
 
