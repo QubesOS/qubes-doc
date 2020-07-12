@@ -38,8 +38,6 @@ To start testing you can then use the standard python unittest runner:
 
 `sudo -E python3 -m unittest -v qubes.tests`
 
-It'll execute the tests installed as part of the `qubes-core-admin` package.
-
 Alternatively, use the custom Qubes OS test runner:
 
 `sudo -E python3 -m qubes.tests.run -v`
@@ -126,16 +124,20 @@ This may be especially useful together with various nose2 plugins to store tests
 
 Many unit tests will also work inside a VM. However all of the tests requiring a dedicated VM to be run (mostly the integration tests) will be skipped.
 
-As minimal requirements for testing, you'll have to clone the [qubes-core-admin](https://github.com/QubesOS/qubes-core-admin) and [qubes-core-qrexec](https://github.com/QubesOS/qubes-core-qrexec) repositories.
+Whereas integration tests are mostly stored in the [qubes-core-admin](https://github.com/QubesOS/qubes-core-admin) repository, unit tests can be found in each of the Qubes OS repositories.
+
+To for example run the `qubes-core-admin` unit tests, you currently have to clone at least [qubes-core-admin](https://github.com/QubesOS/qubes-core-admin) and
+its dependency [qubes-core-qrexec](https://github.com/QubesOS/qubes-core-qrexec) repository in the branches that you want to test.
 
 The below example however will assume that you set up a build environment as described in the [Qubes Builder documentation](/doc/qubes-builder/).
 
 Assuming you cloned the `qubes-builder` repository to your home directory inside a fedora VM, you can use the following commands to run the unit tests:
 ```{.bash}
+cd ~
 sudo dnf install python3-pip lvm2 python35 python3-virtualenv
 virtualenv -p /usr/bin/python35 python35
 source python35/bin/activate
-python3 -V #should be 3.5.x / mostly identical to the dom0 python version
+python3 -V
 cd ~/qubes-builder/qubes-src/core-admin
 pip3 install -r ci/requirements.txt
 export PYTHONPATH=../core-qrexec:test-packages
@@ -145,6 +147,12 @@ export PYTHONPATH=../core-qrexec:test-packages
 To run only the tests related to e.g. `lvm`, you may use:
 
 `./run-tests -v $(python3 -m qubes.tests.run -l | grep lvm)`
+
+You can later re-use the created virtual environment including all of the via `pip3` installed packages with `source ~/python35/bin/activate`.
+
+We recommend to run the unit tests with the Python version that the code is meant to be run with in dom0 (3.5 was just an example above). For instance, the `release4.0` (Qubes 4.0) branch is intended
+to be run with Python 3.5 whereas the Qubes 4.1 branch (`master` as of 2020-07) is intended to be run with Python 3.7 or higher. You can always check your dom0 installation for the Python version of
+the current stable branch.
 
 ### Tests configuration
 
