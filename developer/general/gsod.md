@@ -107,6 +107,23 @@ This could be helped by writing consolidated guide with with a clear list of sym
 
 **Mentor**: [Marek Marczykowski-Górecki][team]
 
+### Installation Guide for Qubes OS on Virtual Machines
+
+**Project**: Installation Guide for Qubes OS on Virtual Machines.
+
+**Brief explanation**: The Qubes OS is missing an installation guide for virtual machines. Users are installing an outdated and unsupported version of Qubes OS (3.2) instead of the supported version. There is unofficial [existing installation guide] for Qubes OS on a virtual box but it is misleading and lacks documentation. Usually, users face some errors and bugs while installing Qubes OS on a virtual machine.[virtual box issue]
+
+**Expected results**: 
+ -Provide a new option of installation guide for users working on virtual machines.
+ -Review existing problems and provide solutions to them.
+ -Giving a warning for using outdated versions.
+
+**Knowledge prerequisite**: 
+ - Experience in virtual boxes and machines.
+ - Basic Knowledge about Fedora linux architecture.
+ - [Markdown][markdown]
+**Mentor**: [Marek Marczykowski-Górecki][team]
+
 [gsod]: https://developers.google.com/season-of-docs/
 [team]: /team/
 [gsod-doc]: https://developers.google.com/season-of-docs/docs/
@@ -121,3 +138,5 @@ This could be helped by writing consolidated guide with with a clear list of sym
 [doc-issues]: https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+doc%22
 [2019-qubes-gsod]:  https://developers.google.com/season-of-docs/docs/2019/participants/project-qubes
 [2019-qubes-report]: https://refre.ch/report-qubesos/
+[existing installation guide]: https://www.youtube.com/watch?v=mATI8Lht0Js
+[virtual box issue]: https://www.virtualbox.org/ticket/16771
