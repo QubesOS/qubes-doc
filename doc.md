@@ -141,6 +141,8 @@ Core documentation for Qubes users.
  * [KDE](/doc/kde/)
  * [i3 Window Manager](/doc/i3/)
  * [awesome Window Manager](/doc/awesome/)
+ * [PPTP connections](/doc/pptp-connections/)
+
 
 ### Reference Pages
 
