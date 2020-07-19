@@ -122,6 +122,7 @@ This could be helped by writing consolidated guide with with a clear list of sym
  - Experience in virtual boxes and machines.
  - Basic Knowledge about Fedora linux architecture.
  - [Markdown][markdown]
+ 
 **Mentor**: [Marek Marczykowski-Górecki][team]
 
 [gsod]: https://developers.google.com/season-of-docs/
