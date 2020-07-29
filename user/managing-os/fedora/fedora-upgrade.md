@@ -23,11 +23,16 @@ redirect_from:
 
 # Upgrading Fedora TemplateVMs
 
-This page provides instructions for performing an in-place upgrade of an installed [Fedora TemplateVM].
-If you wish to install a new, unmodified Fedora TemplateVM instead of upgrading a template that is already installed in your system, please see the [Fedora TemplateVM] page instead.
+There are two ways to upgrade a TemplateVM. The easiest way is to install a new, unmodified [Fedora TemplateVM], then redo all desired template modifications. You can also do an in-place upgrade of an installed [Fedora TemplateVM].
 
+## Upgrading using a new TemplateVM
 
-## Summary instructions for standard Fedora TemplateVMs
+1. Please see the [Fedora TemplateVM] page on how to install the TemplateVM with the Fedora version you want to upgrade to. 
+2. **Recommended:** [Switch everything that was set to the old template to the new template.][switch]
+
+To make the upgrade process as efficient as possible, document modifications to your TemplateVMs in a textfile. If you do not have this documentation yet, open a terminal in the old Fedora TemplateVM, and use the `history` command. (There is currently no other way to gain a list of explicitly installed packages. Methods like `dnf repoquery --userinstalled` and `rpm -qa` all include packages that have been installed as dependencies.)
+    
+## Summary instructions for in-place upgrade of standard Fedora TemplateVMs
 
 **Note:** The prompt on each line indicates where each command should be entered: `dom0`, `fedora-<old>`, or `fedora-<new>`, where `<old>` is the Fedora version number *from* which you are upgrading, and `<new>` is the Fedora version number *to* which you are upgrading.
 
@@ -47,7 +52,7 @@ If you wish to install a new, unmodified Fedora TemplateVM instead of upgrading 
 **Recommended:** [Switch everything that was set to the old template to the new template.][switch]
 
 
-## Detailed instructions for standard Fedora TemplateVMs
+## Detailed instructions for in-place upgrade of standard Fedora TemplateVMs
 
 These instructions will show you how to upgrade the standard Fedora TemplateVM.
 The same general procedure may be used to upgrade any template based on the standard Fedora TemplateVM.
@@ -141,7 +146,7 @@ The same general procedure may be used to upgrade any template based on the stan
         [user@dom0 ~]$ sudo dnf remove qubes-template-fedora-<old>
 
 
-## Summary instructions for Fedora Minimal TemplateVMs
+## Summary instructions for in-place upgrade of Fedora Minimal TemplateVMs
 
 **Note:** The prompt on each line indicates where each command should be entered: `dom0`, `fedora-<old>`, or `fedora-<new>`, where `<old>` is the Fedora version number *from* which you are upgrading, and `<new>` is the Fedora version number *to* which you are upgrading.
 
@@ -194,11 +199,6 @@ In this case, you have several options:
     However, you may end up having to increase the disk image size anyway (see previous option).
  3. Do the upgrade in parts, e.g., by using package groups.
     (First upgrade `@core` packages, then the rest.)
- 4. Do not perform an in-place upgrade.
-    Instead, simply download and install a new template package, then redo all desired template modifications.
-    Here are some useful messages from the mailing list that also apply to TemplateVM management and migration in general from
-    [Marek](https://groups.google.com/d/msg/qubes-users/mCXkxlACILQ/dS1jbLRP9n8J) and
-    [Jason M](https://groups.google.com/d/msg/qubes-users/mCXkxlACILQ/5PxDfI-RKAsJ).
 
 
 [Fedora TemplateVM]: /doc/templates/fedora/
