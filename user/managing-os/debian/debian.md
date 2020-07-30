@@ -41,10 +41,14 @@ After installing a fresh Debian TemplateVM, we recommend performing the followin
 
 ## Updating
 
+Routine daily updates within a given release.
+
 Please see [Updating software in TemplateVMs].
 
 
 ## Upgrading
+
+Upgrading from your current release to a newer release.
 
 Please see [Upgrading Debian TemplateVMs].
 
