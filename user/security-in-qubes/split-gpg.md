@@ -25,7 +25,7 @@ This way the compromise of your domain where Thunderbird or another client app i
 
 The diagram below presents the big picture of Split GPG architecture.
 
-![split-gpg-diagram.png](/attachment/wiki/SplitGpg/split-gpg-diagram.png)
+[![split-gpg-diagram.png](/attachment/wiki/SplitGpg/split-gpg-diagram.png)](/attachment/wiki/SplitGpg/split-gpg-diagram.png)
 
 ### Advantages of Split GPG vs. traditional GPG with a smart card ###
 
@@ -39,8 +39,8 @@ Unfortunately this problem of signing reliability is not solvable by Split GPG)
 With Qubes Split GPG this problem is drastically minimized, because each time the key is to be used the user is asked for consent (with a definable time out, 5 minutes by default), plus is always notified each time the key is used via a tray notification from the domain where GPG backend is running.
 This way it would be easy to spot unexpected requests to decrypt documents.
 
-![r2-split-gpg-1.png](/attachment/wiki/SplitGpg/r2-split-gpg-1.png)
-![r2-split-gpg-3.png](/attachment/wiki/SplitGpg/r2-split-gpg-3.png)
+[![r2-split-gpg-1.png](/attachment/wiki/SplitGpg/r2-split-gpg-1.png)](/attachment/wiki/SplitGpg/r2-split-gpg-1.png)
+[![r2-split-gpg-3.png](/attachment/wiki/SplitGpg/r2-split-gpg-3.png)](/attachment/wiki/SplitGpg/r2-split-gpg-3.png)
 
 ### Current limitations ###
 
@@ -159,7 +159,7 @@ It is recommended to set up and use `/usr/bin/qubes-gpg-client-wrapper`, as disc
 
 On a fresh Enigmail install, your need to change the default `Enigmail Junior Mode`. Go to Thunderbird preferences and then privacy tab. Select `Force using S/MIME and Enigmail`. Then, in the preferences of Enigmail, make it point to `/usr/bin/qubes-gpg-client-wrapper` instead of the standard GnuPG binary:
 
-![tb-enigmail-split-gpg-settings-2.png](/attachment/wiki/SplitGpg/tb-enigmail-split-gpg-settings-2.png)
+[![tb-enigmail-split-gpg-settings-2.png](/attachment/wiki/SplitGpg/tb-enigmail-split-gpg-settings-2.png)](/attachment/wiki/SplitGpg/tb-enigmail-split-gpg-settings-2.png)
 
 ### Using Keybase with Split GPG ###
 
@@ -220,7 +220,7 @@ Of course a (safe, unspoofable) user consent dialog box is displayed to accept t
     [user@work ~]$ export QUBES_GPG_DOMAIN=work-gpg
     [user@work ~]$ qubes-gpg-import-key ~/Downloads/marmarek.asc
 
-![r2-split-gpg-5.png](/attachment/wiki/SplitGpg/r2-split-gpg-5.png)
+[![r2-split-gpg-5.png](/attachment/wiki/SplitGpg/r2-split-gpg-5.png)](/attachment/wiki/SplitGpg/r2-split-gpg-5.png)
 
 <br />
 
