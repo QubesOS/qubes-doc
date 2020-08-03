@@ -306,7 +306,7 @@ As always, exercise caution and use your good judgment.)
 
 - Current implementation requires importing of public keys to the vault domain.
   This opens up an avenue to attack the gpg running in the backend domain via a hypothetical bug in public key importing code.
-  See ticket [#474] for more details and plans how to get around this problem, as well as the section on [using Split GPG with subkeys] below.
+  See ticket [#474] for more details and plans how to get around this problem, as well as the section on [using Split GPG with subkeys].
 
 - It doesn't solve the problem of allowing the user to know what is to be signed before the operation gets approved.
   Perhaps the GPG backend domain could start a DisposableVM and have the to-be-signed document displayed there? To Be Determined.
@@ -314,7 +314,7 @@ As always, exercise caution and use your good judgment.)
 - The Split GPG client will fail to sign or encrypt if the private key in the GnuPG backend is protected by a passphrase.
   It will give an `Inappropriate ioctl for device` error.
   Do not set passphrases for the private keys in the GPG backend domain.
-  Doing so won't provide any extra security anyway, as explained [above][intro] and [below][using Split GPG with subkeys].
+  Doing so won't provide any extra security anyway, as explained in the introduction and in [using Split GPG with subkeys].
   If you are generating a new key pair, or if you have a private key that already has a passphrase, you can use `gpg2 --edit-key <key_id>` then `passwd` to set an empty passphrase.
   Note that `pinentry` might show an error when you try to set an empty passphrase, but it will still make the change.
   (See [this StackExchange answer][se-pinentry] for more information.) 
