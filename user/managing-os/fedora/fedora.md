@@ -33,6 +33,8 @@ After installing a fresh Fedora TemplateVM, we recommend performing the followin
 
 ## Updating
 
+Routine daily updates within a given release.
+
 Please see [Updating software in TemplateVMs].
 
 
@@ -42,12 +44,6 @@ There are two ways to upgrade a TemplateVM. The easiest way is to [install] the 
 
 You can also do an in-place upgrade of an installed Fedora TemplateVM. Please see [Upgrading Fedora TemplateVMs].
 
-
-## Release-specific notes
-
-This section contains notes about specific Fedora releases.
-
-(There is currently no release-specific information documented.)
 
 
 [TemplateVM]: /doc/templates/
@@ -62,3 +58,4 @@ This section contains notes about specific Fedora releases.
 [Updating software in TemplateVMs]: /doc/software-update-domu/#updating-software-in-templatevms
 [Upgrading Fedora TemplateVMs]: /doc/template/fedora/upgrade/
 [install]: /doc/templates/#installing
+
