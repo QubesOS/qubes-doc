@@ -46,7 +46,9 @@ Please see [Updating software in TemplateVMs].
 
 ## Upgrading
 
-Please see [Upgrading Debian TemplateVMs].
+There are two ways to upgrade a TemplateVM. The easiest way is to [install] the new Debian TemplateVM next to the Debian TemplateVM you are currently using. Then redo all desired template modifications, and switch everything that was set to the old template to the new template.To make this process as efficient as possible, document modifications to your TemplateVMs in a textfile. If you do not have this documentation yet, open a terminal in the old Debian TemplateVM, and use the `history` command. (There is currently no other way to gain a list of explicitly installed packages. Methods like `apt list --installed`, `dpkg -l` and `aptitude search '~i!~M'` all include packages that have been installed as dependencies.)
+
+You can also do an in-place upgrade of an installed Debian TemplateVM. Please see [Upgrading Debian TemplateVMs].
 
 
 ## Release-specific notes
