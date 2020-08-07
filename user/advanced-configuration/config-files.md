@@ -31,7 +31,7 @@ The scripts here all run as root.
 
     ~~~
     # Add entry to /etc/hosts
-    echo '127.0.0.1 example.com >> /etc/hosts
+    echo '127.0.0.1 example.com' >> /etc/hosts
     ~~~
 
 -   `/rw/config/qubes-ip-change-hook` - script runs in NetVM after every external IP change and on "hardware" link status change.
