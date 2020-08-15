@@ -12,7 +12,7 @@ redirect_from:
 
 # Upgrading Debian TemplateVMs
 
-[Should I upgrade using a fresh installation or an in-place upgrade?][Upgrading Fedora TemplateVMs]
+[Should I upgrade using a fresh installation or an in-place upgrade?][Upgrading Debian TemplateVMs]
 
 This page provides instructions for performing an in-place upgrade of an installed [Debian TemplateVM].
 If you wish to install a new, unmodified Debian TemplateVM instead of upgrading a template that is already installed in your system, please see the [Debian TemplateVM] page instead.
