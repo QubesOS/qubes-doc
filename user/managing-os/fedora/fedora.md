@@ -33,17 +33,16 @@ After installing a fresh Fedora TemplateVM, we recommend performing the followin
 
 ## Updating
 
-Routine daily updates within a given release.
-
-Please see [Updating software in TemplateVMs].
+For routine daily updates within a given release, see [Updating software in TemplateVMs].
 
 
 ## Upgrading
 
-There are two ways to upgrade a TemplateVM. The easiest way is to [install] the new Fedora TemplateVM next to the Fedora TemplateVM you are currently using. Then redo all desired template modifications, and switch everything that was set to the old template to the new template.To make this process as efficient as possible, document modifications to your TemplateVMs in a text file. If you do not have this documentation yet, open a terminal in the old Fedora TemplateVM, and use the `history` command. (There is currently no other way to gain a list of explicitly installed packages. Methods like `dnf repoquery --userinstalled` and `rpm -qa` all include packages that have been installed as dependencies.)
+There are two ways to upgrade your TemplateVM to a new Fedora release:
 
-You can also do an in-place upgrade of an installed Fedora TemplateVM. Please see [Upgrading Fedora TemplateVMs].
+ - [Install a fresh template to replace the existing one.](#installing) This option may be simpler for less experienced users. After you install the new template, redo all desired template modifications and [switch everything that was set to the old template to the new template][switch]. You may want to write down the modifications you make to your templates so that you remember what to redo on each fresh install. To see a log of package manager actions, open a terminal in the old Fedora template and use the `dnf history` command.
 
+ - [Perform an in-place upgrade of an existing Fedora template.][Upgrading Fedora TemplateVMs] This option will preserve any modifications you've made to the template, but it may be more complicated for less experienced users.
 
 
 [TemplateVM]: /doc/templates/

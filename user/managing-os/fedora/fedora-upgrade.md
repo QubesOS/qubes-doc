@@ -23,10 +23,8 @@ redirect_from:
 
 # Upgrading Fedora TemplateVMs
 
-[Should I upgrade using a fresh installation or an in-place upgrade?][Upgrading Fedora TemplateVMs]
-
 This page provides instructions for performing an in-place upgrade of an installed [Fedora TemplateVM].
-If you wish to install a new, unmodified Fedora TemplateVM instead of upgrading a template that is already installed in your system, please see the [Fedora TemplateVM] page instead.
+If you wish to install a new, unmodified Fedora TemplateVM instead of upgrading a template that is already installed in your system, please see the [Fedora TemplateVM] page instead. ([Learn more about the two options.][Fedora TemplateVM Upgrade])
 
 
 ## Summary instructions for standard Fedora TemplateVMs
@@ -200,6 +198,7 @@ In this case, you have several options:
 
 
 [Fedora TemplateVM]: /doc/templates/fedora/
+[Fedora TemplateVM Upgrade]: /doc/templates/fedora/#upgrading
 [resize-disk-image]: /doc/resize-disk-image/
 [Additional Information]: #additional-information
 [switch]: /doc/templates/#switching
