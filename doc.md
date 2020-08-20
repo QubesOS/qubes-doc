@@ -48,7 +48,7 @@ redirect_from:
  * [Screenshots](/screenshots/)
  * [User FAQ](/faq/#users)
  * [Reporting Bugs and Other Issues](/doc/reporting-bugs/)
- * [Help, Support, and Mailing Lists](/support/)
+ * [Help, Support, Mailing Lists, and Forum](/support/)
  * [How to Contribute](/doc/contributing/)
 
 ## Project Security

@@ -1,6 +1,6 @@
 ---
 layout: sidebar
-title: Help, Support, and Mailing Lists
+title: Help, Support, Mailing Lists, and Forum
 permalink: /support/
 redirect_from:
 - /help/
@@ -13,11 +13,11 @@ redirect_from:
 - /wiki/QubesLists/
 ---
 
-# Help, Support, and Mailing Lists #
+# Help, Support, Mailing Lists, and Forum #
 
-Help and support for Qubes OS is available from the [documentation] and the
-[mailing lists], which are explained below. The Qubes OS Project does not offer
-paid support services.
+Help and support for Qubes OS is available from the [documentation], the
+[mailing lists], and our [forum] which are explained below. The Qubes OS
+Project does not offer paid support services.
 
 If you're looking for known issues or would like to file a bug report, please
 see the [issue tracker]. These issues are constantly being updated and may
@@ -27,11 +27,11 @@ contain workarounds for problems that you're experiencing, so it's worth
 
 ## Staying safe ##
 
-The Qubes mailing lists are open to the public. The contents of the list are
+The Qubes mailing lists and forum are open to the public. The contents are
 crawled by search engines and archived by third-party services outside of our
-control. Please do not send anything to the mailing lists that you are not
-comfortable seeing discussed in public. If confidentiality is a concern, please
-use PGP encryption in an off-list email.
+control. Please do not send or post anything that you are not comfortable seeing
+discussed in public. If confidentiality is a concern, please use PGP encryption
+in an off-list email.
 
 The Qubes community includes people from all walks of life and from around the
 world. Individuals differ in areas of experience and technical expertise. You
@@ -41,11 +41,12 @@ Everyone is free to write what they please, as long as it doesn't violate our
 read. Use good judgment, and be especially careful when following instructions
 (e.g., copying commands) given by others on the lists.
 
-All official announcements from the [Qubes team] will be signed by the PGP key
-belonging to the team member who sends the announcement. However, anyone on the
-list can choose to sign their messages, so the presence of a PGP signature does
-not indicate authority. How, then, should you sort the good advice from the bad?
-This is up to each individual to decide, but it helps to know that many members
+All official announcements from the [Qubes team] to a mailing list will be
+signed by the PGP key belonging to the team member who sends the announcement.
+However, anyone on a mailing list can choose to sign their messages, so the
+presence of a PGP signature does not indicate authority. How, then, should you
+sort the good advice from the bad?
+ This is up to each individual to decide, but it helps to know that many members
 of our community have proven themselves knowledgeable through their
 [contributions] to the project. Typically, these individuals sign their messages
 with the same key as (or another key authenticated by) the one they use to
@@ -61,17 +62,16 @@ cryptographically signed, anyone would be in a position to [verify] that these
 came from the same keyholder.
 
 
-## Discussion list guidelines ##
+## Discussion guidelines ##
 
-Qubes discussions mainly take place on two mailing lists: `qubes-users` and
-`qubes-devel`, both of which are explained below. Please send all questions
-regarding Qubes to one of these two lists. **Please do not send questions to
-individual Qubes developers.** By sending a message to the appropriate mailing
-list, you are not only giving others a chance to help you, but you may also be
-helping others by starting a public discussion about a shared problem or
-interest.
+Qubes discussions mainly take place on `qubes-users`, `qubes-devel`, and our
+[forum], all of which are explained below. Most questions should be directed to
+`qubes-users` or the [forum]. **Please do not send questions to individual
+Qubes developers.** By sending a message to the appropriate mailing list, you
+are not only giving others a chance to help you, but you may also be helping
+others by starting a public discussion about a shared problem or interest.
 
-These are open mailing lists where people freely come together to discuss Qubes
+These are open venues where people freely come together to discuss Qubes
 and voluntarily help each other out of mutual interest and good will. They are
 *not* your personal, paid support service. **No one owes you a reply.** No one
 here is responsible for solving your problems for you. Nonetheless, there are
@@ -86,7 +86,7 @@ guidelines.
 Remember, no one here is under any obligation
 to reply to you. Think about your readers. Most of them are coming home after
 a long, hard day at work. The last thing they need is someone's temper
-tantrum in their inboxes. If you are rude and disrespectful, you are very
+tantrum. If you are rude and disrespectful, you are very
 likely to be ignored.
 
 ### Be concise ###
@@ -116,35 +116,34 @@ to answer questions on the mailing lists once every several days.
 
 ### Be a good community member ###
 
-As with any social community, members of the
-mailing list earn different reputations for themselves over time. We want the
-mailing lists to be a friendly, productive place where information and ideas
-are exchanged for the mutual benefit of all. We understand that the best way
-to achieve this is to encourage and cultivate other like-minded individuals.
-Those who have shown themselves to be good community members through their
-past contributions have earned our good will, and we will be especially eager
-to help them and collaborate with them. If you are new to the community, you
-should understand that it will take time for you to earn the good will of
-others. This does not mean that you will not receive help. On the contrary,
-we are fortunate to have such a helpful and understanding community that many
-of them spend hours of their personal time helping complete strangers,
-including many who post to the lists anonymously. (Given the integration of
-Qubes with [Whonix], we understand better than most the complexities of
-privacy and anonymity, and we know that many users have no other choice but
-to post anonymously.) You can read our project's [Code of Conduct][coc] for
-more information.
+As with any social community, members earn different reputations for themselves
+over time. We want these discussion venues to be friendly, productive places
+where information and ideas are exchanged for the mutual benefit of all. We
+understand that the best way to achieve this is to encourage and cultivate
+other like-minded individuals. Those who have shown themselves to be good
+community members through their past contributions have earned our good will,
+and we will be especially eager to help them and collaborate with them. If you
+are new to the community, you should understand that it may take time for you
+to earn the good will of others. This does not mean that you will not receive
+help. On the contrary, we are fortunate to have such a helpful and
+understanding community that many of them spend hours of their personal time
+helping complete strangers, including many who post anonymously. (Given the
+integration of Qubes with [Whonix], we understand better than most the
+complexities of privacy and anonymity, and we know that many users have no
+other choice but to post anonymously.) You can read our project's [Code of
+Conduct][coc] for more information.
 
 ### Report issues and submit changes in the right places ###
 
-The mailing lists a good place to ask questions and discuss bugs and feature
-requests. However, if you're submitting a more formal report, we'd prefer
-that you submit it to our [issue tracker] so that it doesn't get overlooked.
-Likewise, if you see that something in the documentation should be changed,
-don't simply point it out in an email to one of the mailing lists. Instead,
-[submit the change][contributing to the documentation].
+The mailing lists are a good place to ask questions and discuss bugs and
+feature requests. However, if you're submitting a more formal report, we'd
+prefer that you submit it to our [issue tracker] so that it doesn't get
+overlooked. Likewise, if you see that something in the documentation should be
+changed, don't simply point it out in a discussion venue. Instead, [submit the
+change][contributing to the documentation].
 
 
-### Specific rules and notes ###
+### Specific mailing list rules and notes ###
 
 #### Use the correct list ####
 
@@ -212,7 +211,7 @@ Please note, however, that it's always a good idea to field a discussion of
 your idea on the `qubes-devel` list before putting in a lot of hard work on
 something that we may not be able or willing to accept.
 
-#### Mailing lists vs. forums ####
+#### Google Groups ####
 
 While the mailing lists are implemented as Google Group web forums, a Google
 account is in no way required, expected, or encouraged. Many discussants
@@ -222,28 +221,30 @@ account is in no way required, expected, or encouraged. Many discussants
 free infrastructure, and we [distrust the infrastructure]. This is why, for
 example, we encourage discussants to use [Split GPG] to sign all of their
 messages to the lists, but we do not endorse the use of these Google Groups
-as web forums. Some users prefer to interact with the mailing lists through
-their optional web interfaces. This has the advantage that it allows you to
-search and reply to messages which were sent prior to your subscription to
-the list. However, a Google account is required in order to post through the
-web interfaces. (Note: There have been many discussions about why the Qubes
-OS Project does not maintain an official forum. The curious can find these
-by searching the list archives.)
+as web forums. For that, we have a separate, dedicated [forum].
 
 
-## qubes-announce ##
+## Mailing lists ##
 
-This is a read-only list for those who wish to receive only very important, infrequent messages.
-Only the core Qubes team can post to this list.
-Only [Qubes Security Bulletins (QSBs)][qsb], new stable releases, and end-of-life notices are announced here.
-
-To subscribe, send a blank email to `qubes-announce+subscribe@googlegroups.com`.
-(Note: A Google account is *not* required. Any email address will work.)
-To unsubscribe, send a blank email to `qubes-announce+unsubscribe@googlegroups.com`.
-This list also has an optional [Google Groups web interface][qubes-announce-web].
+This section covers each of our individual mailing lists, with details about
+the purpose of each list and how to use it.
 
 
-## qubes-users ##
+### qubes-announce ###
+
+This is a read-only list for those who wish to receive only very important,
+infrequent messages. Only the core Qubes team can post to this list. Only
+[Qubes Security Bulletins (QSBs)][qsb], new stable releases, and end-of-life
+notices are announced here.
+
+To subscribe, send a blank email to
+`qubes-announce+subscribe@googlegroups.com`. (Note: A Google account is *not*
+required. Any email address will work.) To unsubscribe, send a blank email to
+`qubes-announce+unsubscribe@googlegroups.com`. This list also has an optional
+[Google Groups web interface][qubes-announce-web].
+
+
+### qubes-users ###
 
 This list is for helping users solve various daily problems with Qubes OS.
 Examples of topics or questions suitable for this list include:
@@ -263,17 +264,19 @@ list:
  * The [User FAQ]
  * The [documentation] (for questions about how to use Qubes OS)
 
-You don't have to subscribe in order to post to this list.
-However, subscribing makes your messages less likely to be marked as spam and allows you to receive messages sent directly to the list.
-To subscribe to the list, send a blank email to `qubes-users+subscribe@googlegroups.com`.
-(Note: A Google account is *not* required. Any email address will work.)
-To post a message to the list, address your email to `qubes-users@googlegroups.com`.
-If your post does not appear immediately, please allow time for moderation to occur.
-To unsubscribe, send a blank email to `qubes-users+unsubscribe@googlegroups.com`.
-This list also has an optional [Google Groups web interface][qubes-users-web] and [traditional mail archive][qubes-users-archive].
+You don't have to subscribe in order to post to this list. However, subscribing
+makes your messages less likely to be marked as spam and allows you to receive
+messages sent directly to the list. To subscribe to the list, send a blank
+email to `qubes-users+subscribe@googlegroups.com`. (Note: A Google account is
+*not* required. Any email address will work.) To post a message to the list,
+address your email to `qubes-users@googlegroups.com`. If your post does not
+appear immediately, please allow time for moderation to occur. To unsubscribe,
+send a blank email to `qubes-users+unsubscribe@googlegroups.com`. This list
+also has an optional [Google Groups web interface][qubes-users-web] and
+[traditional mail archive][qubes-users-archive].
 
 
-## qubes-devel ##
+### qubes-devel ###
 
 This list is primarily intended for people who are interested in contributing to
 Qubes or who are willing to learn more about its architecture and
@@ -287,16 +290,17 @@ implementation. Examples of topics and questions suitable for this list include:
  * Contributed code and patches.
  * Security discussions which are relevant to Qubes in some way.
 
-You must be subscribed in order to post to this list.
-To subscribe, send a blank email to `qubes-devel+subscribe@googlegroups.com`.
-(Note: A Google account is *not* required. Any email address will work.)
-To post a message to the list, address your email to `qubes-devel@googlegroups.com`.
-If your post does not appear immediately, please allow time for moderation to occur.
-To unsubscribe, send a blank email to `qubes-devel+unsubscribe@googlegroups.com`.
-This list also has an optional [Google Groups web interface][qubes-devel-web] and [traditional mail archive][qubes-devel-archive].
+You must be subscribed in order to post to this list. To subscribe, send a
+blank email to `qubes-devel+subscribe@googlegroups.com`. (Note: A Google
+account is *not* required. Any email address will work.) To post a message to
+the list, address your email to `qubes-devel@googlegroups.com`. If your post
+does not appear immediately, please allow time for moderation to occur. To
+unsubscribe, send a blank email to `qubes-devel+unsubscribe@googlegroups.com`.
+This list also has an optional [Google Groups web interface][qubes-devel-web]
+and [traditional mail archive][qubes-devel-archive].
 
 
-## qubes-project ##
+### qubes-project ###
 
 This list is for non-technical discussion and coordination around the
 Qubes OS project.
@@ -308,17 +312,18 @@ Examples of topics or question suitable for this list include:
  * FOSS governance discussions
  * Most Github issues tagged "[business]"
 
-You don't have to subscribe in order to post to this list.
-However, subscribing makes your messages less likely to be marked as spam and allows you to receive messages sent directly to the list.
-To subscribe, send a blank email to `qubes-project+subscribe@googlegroups.com`.
-(Note: A Google account is *not* required. Any email address will work.)
-To post a message to the list, address your email to `qubes-project@googlegroups.com`.
-If your post does not appear immediately, please allow time for moderation to occur.
-To unsubscribe, send a blank email to `qubes-project+unsubscribe@googlegroups.com`.
-This list also also has an optional [Google Groups web interface][qubes-project-web].
+You don't have to subscribe in order to post to this list. However, subscribing
+makes your messages less likely to be marked as spam and allows you to receive
+messages sent directly to the list. To subscribe, send a blank email to
+`qubes-project+subscribe@googlegroups.com`. (Note: A Google account is *not*
+required. Any email address will work.) To post a message to the list, address
+your email to `qubes-project@googlegroups.com`. If your post does not appear
+immediately, please allow time for moderation to occur. To unsubscribe, send a
+blank email to `qubes-project+unsubscribe@googlegroups.com`. This list also
+also has an optional [Google Groups web interface][qubes-project-web].
 
 
-## qubes-translation ##
+### qubes-translation ###
 
 This list is for discussion around the localization and translation of Qubes OS,
 its documentation, and the website.
@@ -329,14 +334,66 @@ Examples of topics or question suitable for this list include:
  * Who is managing localization for a given language
  * Most Github issues tagged "[localization]"
 
-You don't have to subscribe in order to post to this list.
-However, subscribing makes your messages less likely to be marked as spam and allows you to receive messages sent directly to the list.
-To subscribe, send a blank email to `qubes-translation+subscribe@googlegroups.com`.
-(Note: A Google account is *not* required. Any email address will work.)
-To post a message to the list, address your email to `qubes-translation@googlegroups.com`.
-If your post does not appear immediately, please allow time for moderation to occur.
-To unsubscribe, send a blank email to `qubes-translation+unsubscribe@googlegroups.com`.
-This list also has an optional [Google Groups web interface][qubes-translation-web].
+You don't have to subscribe in order to post to this list. However, subscribing
+makes your messages less likely to be marked as spam and allows you to receive
+messages sent directly to the list. To subscribe, send a blank email to
+`qubes-translation+subscribe@googlegroups.com`. (Note: A Google account is
+*not* required. Any email address will work.) To post a message to the list,
+address your email to `qubes-translation@googlegroups.com`. If your post does
+not appear immediately, please allow time for moderation to occur. To
+unsubscribe, send a blank email to
+`qubes-translation+unsubscribe@googlegroups.com`. This list also has an
+optional [Google Groups web interface][qubes-translation-web].
+
+
+## Forum ##
+
+We have a community forum for Qubes OS users:
+
+<https://qubes-os.discourse.group>
+
+This is an official user forum where you can ask questions, get help, share
+tips and experiences, and more! For a long time, members of our community have
+sought a privacy-respecting forum experience with modern features that
+traditional mailing lists do not support. The open-source [Discourse] platform
+fills this need for us, as it does for many other open-source projects. Thanks
+to their generous [free hosting for open source projects], we're pleased to be
+able to create this space for our community.
+
+### Why was this forum created? ###
+
+Previously, the only option for a forum-like experience was to interact with
+our mailing lists via Google Groups, but we understand all too well that the
+privacy implications and user experience were unacceptable for many members of
+our community, especially with the recent addition of a sign-in requirement to
+view threads. Many of you value the lower barrier to entry, organization,
+ease-of-use, and modern social features that today's forums support. Moreover,
+Discourse features email integration for those who still prefer the traditional
+mailing list format.
+
+### How is this different from our mailing lists? ###
+
+To be clear, this is *not* a replacement for the mailing lists. This forum is
+simply an *additional* place for discussion. Certain types of discussions
+naturally lend themselves more to mailing lists or to forums, and different
+types of users prefer different venues. We've heard from some users who find
+the mailing lists to be a bit intimidating or who may feel that their message
+isn't important enough to merit creating a new email that lands in thousands of
+inboxes. Others want more selective control over topic notifications. Some
+users simply appreciate the ability to add a "reaction" to a message instead of
+having to add an entirely new reply. Whatever your reasons, it's up to you to
+decide where and how you want to join the conversation.
+
+### Does this split the community? ###
+
+Many open-source projects (such as Fedora and Debian) have both mailing lists
+and forums (and additional discussion venues). In fact, Qubes already had
+non-mailing-list discussion venues such as [IRC] and [Reddit] before this forum
+was introduced. We believe that this additional venue fosters the continued
+growth of community participation and improves everyone's experience. In
+addition, we fully expect that many community members -- especially the most
+active ones -- will choose to participate in both venues. (Again, for those who
+still prefer interacting via email, Discourse supports that too!)
 
 
 ## Unofficial chat channels ##
@@ -386,4 +443,9 @@ The following unofficial chat channels are maintained by the community:
 [Transifex]: https://www.transifex.com/otf/qubes/
 [issue tracker]: /doc/reporting-bugs/
 [searching the issue tracker]: /doc/reporting-bugs/#search-tips
+[forum]: #forum
+[Discourse]: https://www.discourse.org/
+[free hosting for open source projects]: https://blog.discourse.org/2018/11/free-hosting-for-open-source-v2/
+[IRC]: #unofficial-chat-channels
+[Reddit]: https://www.reddit.com/r/Qubes/
 
