@@ -25,7 +25,9 @@ There are currently three Minimal TemplateVMs corresponding to the standard [Fed
    If you encounter problems with the Minimal TemplateVMs, we recommend that you use their standard TemplateVM counterparts instead.
 
 2. If something works with a standard TemplateVM but not the minimal version, this is most likely due to user error (e.g., a missing package or misconfiguration) rather than a bug.
-   In such cases, you should write to [qubes-users] to ask for help rather than filing a bug report, then [contribute what you learn to the documentation][doc-guidelines].
+   In such cases, please do *not* file a bug report.
+   Instead, please see [Help, Support, Mailing Lists, and Forum] for the appropriate place to ask for help.
+   Once you have learned how to solve your problem, please [contribute what you learned to the documentation][doc-guidelines].
 
 3. The Minimal TemplateVMs are intentionally *minimal*.
    [Do not ask for your favorite package to be added to the minimal template by default.][pref-default]
@@ -211,7 +213,7 @@ You could, of course, use `qubes-vm-recommended` to automatically install many o
 [Fedora]: /doc/templates/fedora/
 [Debian]: /doc/templates/debian/
 [CentOS]: /doc/templates/centos/
-[qubes-users]: /support/#qubes-users
+[Help, Support, Mailing Lists, and Forum]: /support/
 [doc-guidelines]: /doc/doc-guidelines/
 [pref-default]: /faq/#could-you-please-make-my-preference-the-default
 [testing]: /doc/testing/

@@ -325,13 +325,14 @@ Getting Help
 ------------
 
  * We work very hard to make the [documentation] accurate, comprehensive useful and user friendly. 
- We urge you to read it! It may very well contain the answers to your questions. 
- (Since the documentation is a community effort, we'd also greatly appreciate your help in [improving] it!)
+   We urge you to read it! It may very well contain the answers to your questions. 
+   (Since the documentation is a community effort, we'd also greatly appreciate your help in [improving] it!)
 
- * If you don't find your answer in the documentation, it may be time to consult the [mailing lists], as well as the many other available sources of [help].
+ * If you don't find your answer in the documentation, please see [Help, Support, Mailing Lists, and Forum] for places to ask.
 
- * Please do not email individual developers (Marek, etc.) with questions about installation or other problems. 
- Please send all such questions to the appropriate mailing list.
+ * Please do **not** email individual members of the Qubes team with questions about installation or other problems. 
+   Instead, please see [Help, Support, Mailing Lists, and Forum] for appropriate places to ask questions.
+
 
 [QSB #46]: /news/2019/01/23/qsb-46/
 [system requirements]: /doc/system-requirements/
@@ -346,6 +347,5 @@ Getting Help
 [Rufus]: https://rufus.akeo.ie/
 [documentation]: /doc/
 [improving]: /doc/doc-guidelines/
-[mailing lists]: /support/
-[help]: /help/
+[Help, Support, Mailing Lists, and Forum]: /support/
 
