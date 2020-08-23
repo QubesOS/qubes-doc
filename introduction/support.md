@@ -216,8 +216,8 @@ something that we may not be able or willing to accept.
 While the mailing lists are implemented as Google Group web forums, a Google
 account is in no way required, expected, or encouraged. Many discussants
 (including most members of the Qubes team) treat these lists as conventional
-[mailing lists], interacting with them solely through plain text email with
-[MUAs] like [Thunderbird] and [Mutt]. The Google Groups service is just
+[mailing lists][wiki-ml], interacting with them solely through plain text email
+with [MUAs] like [Thunderbird] and [Mutt]. The Google Groups service is just
 free infrastructure, and we [distrust the infrastructure]. This is why, for
 example, we encourage discussants to use [Split GPG] to sign all of their
 messages to the lists, but we do not endorse the use of these Google Groups
@@ -226,8 +226,8 @@ as web forums. For that, we have a separate, dedicated [forum].
 
 ## Mailing lists ##
 
-This section covers each of our individual mailing lists, with details about
-the purpose of each list and how to use it.
+This section covers each of our individual [mailing lists][wiki-ml], with
+details about the purpose of each list and how to use it.
 
 
 ### qubes-announce ###
@@ -404,8 +404,8 @@ The following unofficial chat channels are maintained by the community:
  * Matrix, strictly Qubes: <https://matrix.to/#/#Qubes-OS:matrix.org>
  * `#qubes` channel on freenode.net via traditional IRC clients or: <https://webchat.freenode.net/>
 
-
-[mailing lists]: https://en.wikipedia.org/wiki/Electronic_mailing_list
+[mailing lists]: #mailing-lists
+[wiki-ml]: https://en.wikipedia.org/wiki/Electronic_mailing_list
 [Qubes team]: /team/
 [contributions]: /doc/contributing/
 [code-signing]: /doc/code-signing/
