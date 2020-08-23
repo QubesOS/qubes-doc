@@ -251,7 +251,7 @@ If a specific component is malfunctioning, you can increase its log verbosity as
 Updates
 -------
 
-When we publish new QWT version (which is announced on `qubes-users` Google Group) it's usually pushed to the `current-testing` or `unstable` repository first. To use versions from current-testing, run this in dom0:
+When we publish new QWT version, it's usually pushed to the `current-testing` or `unstable` repository first. To use versions from current-testing, run this in dom0:
 
 `qubes-dom0-update --enablerepo=qubes-dom0-current-testing qubes-windows-tools`
 

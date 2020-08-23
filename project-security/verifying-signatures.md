@@ -440,7 +440,8 @@ The correct ISO is not in your working directory.
 Carefully read this page again to be certain that you didn't skip any steps.
 In particular, make sure you have the [Qubes Master Signing Key][QMSK], the [Release Signing Key][RSK], *and* the [signature file] and/or [digest file] all for the *correct* Qubes OS version.
 If your question is about GPG, please see the [GPG documentation].
-If you still have a question, please address it to the [qubes-users mailing list].
+Still have question?
+Please see [Help, Support, Mailing Lists, and Forum] for places where you can ask!
 
 
 [website-trust]: /faq/#should-i-trust-this-website
@@ -462,6 +463,6 @@ If you still have a question, please address it to the [qubes-users mailing list
 [digest file]: #how-to-verify-qubes-iso-digests
 [Qubes repositories]: https://github.com/QubesOS
 [GPG documentation]: https://www.gnupg.org/documentation/
-[qubes-users mailing list]: /support/#qubes-users
+[Help, Support, Mailing Lists, and Forum]: /support/
 [except dom0]: https://github.com/QubesOS/qubes-issues/issues/2544
 
