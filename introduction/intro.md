@@ -23,8 +23,8 @@ What is Qubes OS?
           <p>These qubes, which are implemented as <a href="/doc/glossary#vm">virtual machines (VMs)</a>, have specific:</p>
           <ul>
             <li class="more-bottom"><b>Purposes:</b> with a predefined set of one or many isolated applications, for personal or professional projects, to manage the <a href="/doc/networking/">network stack</a>, <a href="/doc/firewall/">the firewall</a>, or to fulfill other user-defined purposes.</li>
-            <li class="more-bottom"><b>Natures:</b> <a href="/doc/standalone-and-hvm/">full-fledged</a> or <a href="/getting-started/#appvms-qubes-and-templatevms">stripped-down</a> virtual machines which are based on popular operating systems such as <a href="/doc/templates/fedora">Fedora</a>, <a href="/doc/templates/debian">Debian</a> or <a href="/doc/windows/">Windows</a>.</li>
-            <li class="more-bottom"><b>Levels of trust:</b> from complete to non-existent. All windows are displayed in a unified desktop environment with <a href="https://www.qubes-os.org/getting-started/">unforgeable colored window borders</a> so different security levels are easily identifiable.</li>
+            <li class="more-bottom"><b>Natures:</b> <a href="/doc/standalone-and-hvm/">full-fledged</a> or <a href="/getting-started/#appvms-qubes-and-templatevms">stripped-down</a> virtual machines based on popular operating systems, such as <a href="/doc/templates/fedora">Fedora</a>, <a href="/doc/templates/debian">Debian</a>, and <a href="/doc/windows/">Windows</a>.</li>
+            <li class="more-bottom"><b>Levels of trust:</b> from complete to non-existent. All windows are displayed in a unified desktop environment with <a href="https://www.qubes-os.org/getting-started/">unforgeable colored window borders</a> so that different security levels are easily identifiable.</li>
           </ul>
       </div>
       <div class="col-lg-9 col-md-9">
@@ -88,7 +88,7 @@ What is Qubes OS?
 
 <div class="alert alert-info more-bottom" role="alert">
     <i class="fa fa-question-circle"></i>
-    <b>Note:</b> Given the technical nature of Qubes OS, prior experience with a Linux distribution such as Ubuntu, Debian, or Fedora can be helpful.
+    <b>Note:</b> Given the technical nature of Qubes OS, prior experience with Linux can be helpful.
 </div>
 
 
@@ -98,9 +98,9 @@ What is Qubes OS?
 
   <div class="row">
       <div class="col-lg-6 col-md-6 text-left">
-        <p>Throughout our lives, we engage in various activities, such as going to school, working, voting, taking care of our families, and visiting with friends. These activities are spatially and temporally bound: They happen in isolation from one another, in their own compartments, which often represent an essential safeguard, such as in the case of voting.</p>
-        <p>In our digital lives, the situation is quite different: All of our activities typically happen on a single device. This causes us to worry about whether it's safe to click on a link or install an app.</p>
-        <p>Qubes removes this worry by allowing us to divide a device into many compartments, much like we divide a physical building into many rooms. Better yet, it allows us to create new compartments whenever we need them and gives us sophisticated tools for using them for different activites and in concert with one another.</p>
+        <p>Throughout our lives, we engage in various activities, such as going to school, working, voting, taking care of our families, and visiting with friends. These activities are spatially and temporally bound: They happen in isolation from one another, in their own compartments, which often represent an essential safeguard, as in the case of voting.</p>
+        <p>In our digital lives, the situation is quite different: All of our activities typically happen on a single device. This causes us to worry about whether it's safe to click on a link or install an app, since being hacked imperils our entire digital existence.</p>
+        <p>Qubes eliminates this concern by allowing us to divide a device into many compartments, much as we divide a physical building into many rooms. Better yet, it allows us to create new compartments whenever we need them, and it gives us sophisticated tools for securely managing our activities and data across these compartments.</p>
       </div>
       <div class="col-lg-6 col-md-6">
         <a href="/attachment/wiki/GettingStarted/r2b1-qubes-manager-2.png"><img src="/attachment/wiki/GettingStarted/r2b1-qubes-manager-2.png" height="330" class="center-block more-bottom"></a>
@@ -163,8 +163,8 @@ This page is just a brief introduction to what Qubes is all about, and many tech
 
  * If you're a current or potential Qubes user, you may want to check out the [documentation][doc] and the [user FAQ][user-faq].
  * If you're a developer, there's dedicated [developer documentation] and an [developer FAQ][devel-faq] just for you.
- * Ready to give Qubes a try? Head on over to the [downloads] page or the [installation guide].
- * Need help? Learn more about getting [help and support on our mailing lists and forum][support].
+ * Ready to give Qubes a try? Head on over to the [downloads] page, and read the [installation guide].
+ * Need help, or just want to join the conversation? Learn more about [help, support, the mailing lists, and the forum][support].
 
 
 [disposable qube]: /doc/disposablevm/
