@@ -135,7 +135,7 @@ Conduct][coc] for more information.
 
 ### Report issues and submit changes in the right places ###
 
-The mailing lists are a good place to ask questions and discuss bugs and
+The mailing lists or the forum are a good place to ask questions and discuss bugs and
 feature requests. However, if you're submitting a more formal report, we'd
 prefer that you submit it to our [issue tracker] so that it doesn't get
 overlooked. Likewise, if you see that something in the documentation should be
