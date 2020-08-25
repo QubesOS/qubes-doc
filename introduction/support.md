@@ -135,11 +135,11 @@ Conduct][coc] for more information.
 
 ### Report issues and submit changes in the right places ###
 
-The mailing lists are a good place to ask questions and discuss bugs and
-feature requests. However, if you're submitting a more formal report, we'd
-prefer that you submit it to our [issue tracker] so that it doesn't get
-overlooked. Likewise, if you see that something in the documentation should be
-changed, don't simply point it out in a discussion venue. Instead, [submit the
+The mailing lists and [forum] are good places to ask questions and discuss
+things. However, if you're submitting a more formal report, we'd prefer that
+you submit it to our [issue tracker] so that it doesn't get overlooked.
+Likewise, if you see that something in the documentation should be changed,
+don't simply point it out in a discussion venue. Instead, [submit the
 change][contributing to the documentation].
 
 
