@@ -306,9 +306,39 @@ destination_path: ncftpput -u my-ftp-username -p my-ftp-pass -c my-ftp-server /d
 - closing qrexec connection normally does _not_ interrupt running operation; this is important to avoid leaving the system in inconsistent state
 - actual operation starts only after caller send all the parameters (including a payload), signaled by sending EOF mark; there is no support for interactive protocols, to keep the protocol reasonable simple
 
+## Policy admin API
+
+There is also an API to view and update [Qubes RPC policy files](/doc/qrexec) in dom0. All of the following calls have dom0 as destination:
+
+| call                                       | argument | inside               | return                  |
+| ---------------------------------------------- | ---- | -------------------- | ----------------------- |
+| `policy.List` <br> `policy.include.List`       | -    | -                    | `<name1>\n<name2>\n...` |
+| `policy.Get` <br> `policy.include.Get`         | name | -                    | `<token>\n<content>`    |
+| `policy.Replace` <br> `policy.include.Replace` | name | `<token>\n<content>` | -                       |
+| `policy.Remove` <br> `policy.include.Remove`   | name | `<token>`            | -                       |
+
+The `policy.*` calls refer to main policy files (`/etc/qubes/policy.d/`), and
+the `policy.include.*` calls refer to the include directory
+(`/etc/qubes/policy.d/include/`). The `.policy` extension for files in the main
+directory is always omitted.
+
+The responses do not follow admin API protocol, but signal error using an exit
+code and a message on stdout.
+
+The changes are validated before saving, so that the policy cannot end up in an
+invalid state (e.g. syntax error, missing include file).
+
+In addition, there is a mechanism to prevent concurrent modifications of the policy files:
+- A `*.Get` call returns a file along with a *token* (currently implemented as
+  a hash of the file).
+- When calling `Replace` or `Remove`, you need to include the current token as
+  first line. If the token does not match, the modification will fail.
+- When adding a new file using `Replace`, pass `new` as token. This will ensure
+  that the file does not exist before adding.
+- To skip the check, pass `any` as token.
+
 ## TODO
 
-- something to configure/update policy
 - notifications
   - how to constrain the events?
   - how to pass the parameters? maybe XML, since this is trusted anyway and
