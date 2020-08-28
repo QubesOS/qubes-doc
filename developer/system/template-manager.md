@@ -1,3 +1,9 @@
+---
+layout: doc
+title: Template Manager
+permalink: /doc/template-manager/
+---
+
 Template Manager Design
 =======================
 
