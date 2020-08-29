@@ -150,7 +150,7 @@ Most of the fields should be fairly self-explanatory.
 - `netvm-menu-items`
   - The `*menu-items` entries store the contents of `var/lib/qubes/vm-templates/${template_name}/whitelisted-appmenus.list`, `var/lib/qubes/vm-templates/${template_name}/vm-whitelisted-appmenus.list`, `var/lib/qubes/vm-templates/${template_name}/netvm-whitelisted-appmenus.list` respectively.
   - Note that newlines are converted to spaces, again for it to work better with existing tools.
-    This should not cause ambiguity as [the FreeDesktop specifications](freedesktop-spec) forbid spaces from the names of desktop files.
+    This should not cause ambiguity as [the FreeDesktop specifications][freedesktop-spec] forbid spaces from the names of desktop files.
 
 [freedesktop-spec]: https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html
 
