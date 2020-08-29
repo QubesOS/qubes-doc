@@ -26,29 +26,17 @@ To tackle these issues, `qvm-template` is created.
 It strives to provide not only a better mechanism for handling template installation but also a consistent user-facing interface to deal with template management.
 
 [#996]: https://github.com/QubesOS/qubes-issues/issues/996
-
 [#1647]: https://github.com/QubesOS/qubes-issues/issues/1647
-
 [#2061]: https://github.com/QubesOS/qubes-issues/issues/2061
-
 [#839]: https://github.com/QubesOS/qubes-issues/issues/839
-
 [#5509]: https://github.com/QubesOS/qubes-issues/issues/5509
-
 [#1385]: https://github.com/QubesOS/qubes-issues/issues/1385
-
 [#1453]: https://github.com/QubesOS/qubes-issues/issues/1453
-
 [#1403]: https://github.com/QubesOS/qubes-issues/issues/1403
-
 [#4518]: https://github.com/QubesOS/qubes-issues/issues/4518
-
 [#2062]: https://github.com/QubesOS/qubes-issues/issues/2062
-
 [#2064]: https://github.com/QubesOS/qubes-issues/issues/2064
-
 [#2534]: https://github.com/QubesOS/qubes-issues/issues/2534
-
 [#3040]: https://github.com/QubesOS/qubes-issues/issues/3040
 
 [discussion thread 1]: https://groups.google.com/forum/#!topic/qubes-devel/rwc2_miCNNE/discussion
@@ -246,12 +234,15 @@ Further Reading
 ---------------
 
 Initial Google Summer of Code (2020) project proposal:
+
 - <https://hackmd.io/aYauztkGR0iOIoh8fJLecw>
 
 Previous design document:
+
 - <https://gist.github.com/WillyPillow/b8a643ddbd9235a97bc187e6e44b16e4>
 
 Discussion threads:
+
 - <https://groups.google.com/forum/#!topic/qubes-devel/6Zb_WLy3GY4>
 - <https://groups.google.com/forum/#!topic/qubes-devel/PyJogqT1TUg>
 - <https://groups.google.com/forum/#!topic/qubes-devel/2XaMP4Us3kg>
