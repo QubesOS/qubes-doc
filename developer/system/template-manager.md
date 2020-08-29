@@ -7,6 +7,12 @@ permalink: /doc/template-manager/
 Template Manager
 ================
 
+Introduction
+------------
+
+This document discusses the designs and technical details of `qvm-template`, a template manager application proposed in the 2020 Google Summer of Code program.
+The goals of the project is to design a new mechanism for TemplateVM distribution and a unified tool for template management.
+
 Motivation
 ----------
 
