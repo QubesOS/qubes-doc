@@ -44,9 +44,7 @@ It strives to provide not only a better mechanism for handling template installa
 [#2064]: https://github.com/QubesOS/qubes-issues/issues/2064
 [#2534]: https://github.com/QubesOS/qubes-issues/issues/2534
 [#3040]: https://github.com/QubesOS/qubes-issues/issues/3040
-
 [discussion thread 1]: https://groups.google.com/forum/#!topic/qubes-devel/rwc2_miCNNE/discussion
-
 [discussion thread 2]: https://groups.google.com/forum/#!topic/qubes-users/uQEUpv4THsY/discussion
 
 Features
@@ -117,9 +115,7 @@ Namely, there should be the following files in the package:
     See the section below for details.
 
 [QSB-28]: https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-028-2016.txt
-
 [qvm-prefs]: https://dev.qubes-os.org/projects/core-admin-client/en/stable/manpages/qvm-prefs.html#common-properties
-
 [qvm-features]: https://dev.qubes-os.org/projects/core-admin-client/en/stable/manpages/qvm-features.html#list-of-known-features
 
 Metadata Storage
@@ -183,7 +179,7 @@ The following qrexec calls that list and download templates are thus proposed.
 
 Both calls accept the following format from standard input:
 
-```
+``` text
 arg1
 arg2
 ...
