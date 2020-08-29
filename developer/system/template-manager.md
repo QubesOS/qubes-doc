@@ -10,7 +10,7 @@ Template Manager
 Motivation
 ----------
 
-Previously, template VMs were distributed by RPM packages and managed by `yum`/`dnf`.
+Previously, TemplateVMs were distributed by RPM packages and managed by `yum`/`dnf`.
 However, tracking inherently dynamic VM images with a package manager suited for static files creates some challenges.
 For example, users may accidentally update the images, overriding local changes ([#996], [#1647]).
 (Or in the case of [#2061], want to specifically override the changes.)
