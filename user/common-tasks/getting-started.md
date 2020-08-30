@@ -52,8 +52,8 @@ Dom0 shouldn't be used for anything else.
 In particular, [you should never run user applications in dom0](/doc/security-guidelines/#dom0-precautions). 
 (That's what your qubes are for!)
 
-Qubes VM Manager and Command Line Tools
----------------------------------------
+Qube Manager and command-line tools
+-----------------------------------
 
 All aspects of the Qubes system can be controlled using command line tools run under a dom0 console. 
 Opening a console window in dom0 can be done in several ways:
@@ -76,8 +76,8 @@ Once the Qubes VM Manager is running, you can open the window at any time by cli
 
 ![r2b1-qubes-manager-2.png](/attachment/wiki/GettingStarted/r2b1-qubes-manager-2.png)
 
-Starting Apps in qubes
-------------------------
+Starting applications
+---------------------
 
 Apps can be started either by using the shortcuts in the Desktop Manager's menu or by using the command line (i.e., a console running in dom0).
 
@@ -105,8 +105,8 @@ e.g.:
     
 The -a parameter will start the qube if it is not already running.
 
-Adding, Removing, and Listing qubes
--------------------------------------
+Adding, removing, and listing qubes
+-----------------------------------
 
 A qube can easily be added and removed by clicking on the **Add** and **Remove** buttons in the Qubes VM Manager.
 
@@ -116,8 +116,8 @@ A qube can also be added, removed, and qubes may be listed from the command line
 -   `qvm-remove`
 -   `qvm-ls`
 
-How Many Qubes Do I Need?
----------------------------
+How many qubes do I need?
+-------------------------
 
 That's a great question, but there's no one-size-fits-all answer. 
 It depends on the structure of your digital life, and this is at least a little different for everyone. 
@@ -129,7 +129,7 @@ You'll also be able to easily copy any files you need to the newly created qube,
 
 More paranoid people might find it worthwhile to read [this article](https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html), which describes how one of the Qubes authors partitions her digital life into security domains.
 
-Common Tasks
+Common tasks
 ------------
 
 Here are the documentation pages for some of the main actions you'll want to perform.
@@ -144,8 +144,8 @@ A full list is available in the [Common Tasks](/doc/#common-tasks) section of th
  * [Using DisposableVMs](/doc/disposablevm/)
  * [Using and Managing USB Devices](/doc/usb/)
 
-Running an application Full Screen
-----------------------------------
+Running an application in full-screen mode
+------------------------------------------
 
 By default, Qubes doesn't allow any application window to occupy the entire screen such that its window name (which includes the name of the qube to which it belongs) and colored window border are no longer visible. 
 This is a security precaution designed to prevent a situation in which an application which has been allowed to enter full screen mode begins to emulate the entire Qubes system. 
