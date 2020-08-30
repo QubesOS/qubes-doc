@@ -46,7 +46,9 @@ If you are a hardware vendor, you can have your hardware certified as compatible
 The benefits of hardware certification include:
 
 * Your customers can purchase with confidence, knowing that they can take full advantage of Qubes OS on your hardware for a specific major version.
-* Your hardware will continue to be compatible with Qubes OS as it further develops within that major version.
+* We will continue testing your hardware to ensure compatibility with the supported major version.
+  In the course of this testing, we will also test your hardware against upcoming versions, which can help with future planning.
+* Your hardware will continue to be compatible with Qubes OS as it further develops within that major version, and we will work with you toward preserving compatibility and certification in future releases.
 * You can support the development of Qubes OS.
 
 
