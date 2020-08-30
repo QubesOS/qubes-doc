@@ -69,5 +69,5 @@ Be sure to restart the VM(s) after modifying this file, for the changes to take 
 **Note:** Regardless of the settings above, you can always put a window into fullscreen mode in Xfce4 using the trusted window manager by right-clicking on a window's title bar and selecting "Fullscreen" or pressing `alt` + `f11`.
 This functionality should still be considered safe, since a VM window still can't voluntarily enter fullscreen mode.
 The user must select this option from the trusted window manager in dom0.
-To exit fullscreen mode from here, press `alt` + `space` to bring up the title bar menu again, then select "Leave Fullscreen".
+To exit fullscreen mode from here, press `alt` + `space` to bring up the title bar menu again, then select "Leave Fullscreen" or simply press `alt` + `f11`.
 For StandaloneHVMs, you should set the screen resolution in the qube to that of the host, (or larger), *before* setting fullscreen mode in Xfce4.
