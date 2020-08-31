@@ -316,6 +316,16 @@ Congratulations, you are now ready to use Qubes OS !
 
 ![Desktop menu](/attachment/wiki/InstallationGuide/desktop-menu.png)
 
+### Updating ###
+
+Next, [update] your installation to ensure you have the latest security updates.
+Frequently updating is one of the best ways to remain secure against new threats.
+
+### Backups ###
+
+It is extremely important to make regular backups so that you don't lose your data unexpectedly.
+The [Qubes backup system] allows you to do this securely and easily.
+
 Upgrading Qubes OS
 ------------------
 
@@ -348,4 +358,6 @@ Getting Help
 [documentation]: /doc/
 [improving]: /doc/doc-guidelines/
 [Help, Support, Mailing Lists, and Forum]: /support/
+[update]: /doc/updating-qubes-os/
+[Qubes backup system]: /doc/backup-restore/
 
