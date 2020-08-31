@@ -10,6 +10,19 @@ redirect_from:
 
 # Installation Security Considerations #
 
+There are several security matters to consider before and during the Qubes
+installation process.
+
+
+## Trusting your Hardware ##
+
+No operating system, not even Qubes, can help you if you're installing it on
+hardware that is already compromised. This includes CPUs, GPUs, SSDs, HDDs, and
+BIOS/EFI/UEFI. Unfortunately, in today's world of undetectable supply chain
+attacks, there are no easy solutions. (Tools like [Anti Evil Maid (AEM)][AEM]
+can help with *maintaining* the trustworthiness of your hardware, but not with
+establishing it in the first place.)
+
 
 ## Verifying the Qubes ISO ##
 
@@ -80,6 +93,7 @@ Considering the pros and cons of each, perhaps a USB drive with non-rewritable
 switch might be the option.
 
 
+[AEM]: /doc/anti-evil-maid/
 [verify]: /security/verifying-signatures/
 [classic problem]: https://www.ece.cmu.edu/~ganger/712.fall02/papers/p761-thompson.pdf
 [solutions]: https://www.dwheeler.com/trusting-trust/
