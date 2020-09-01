@@ -6,10 +6,12 @@ permalink: /doc/template-manager/
 
 # Template Manager
 
-This document discusses the designs and technical details of `qvm-template`, a template manager application proposed in the 2020 Google Summer of Code program.
+This document discusses the designs and technical details of `qvm-template`, the template manager application in Qubes OS.
 The goals of the project is to design a new mechanism for TemplateVM distribution and a unified tool for template management.
 
 ## Motivation
+
+This project was originally proposed in the 2020 Google Summer of Code program.
 
 Previously, TemplateVMs were distributed by RPM packages and managed by `yum`/`dnf`.
 However, tracking inherently dynamic VM images with a package manager suited for static files creates some challenges.
