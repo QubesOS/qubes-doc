@@ -154,7 +154,6 @@ Core documentation for Qubes developers and advanced users.
 ### System
 
  * [Qubes OS Architecture Overview](/doc/architecture/)
- * [Qubes OS Architecture Spec v0.3 [PDF]](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf)
  * [Security-critical Code in Qubes OS](/doc/security-critical-code/)
  * [Qubes Core Admin](https://dev.qubes-os.org/projects/core-admin/en/latest/)
  * [Qubes Core Admin Client](https://dev.qubes-os.org/projects/core-admin-client/en/latest/)
