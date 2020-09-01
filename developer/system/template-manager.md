@@ -4,14 +4,12 @@ title: Template Manager
 permalink: /doc/template-manager/
 ---
 
-Template Manager
-================
+# Template Manager
 
 This document discusses the designs and technical details of `qvm-template`, a template manager application proposed in the 2020 Google Summer of Code program.
 The goals of the project is to design a new mechanism for TemplateVM distribution and a unified tool for template management.
 
-Motivation
-----------
+## Motivation
 
 Previously, TemplateVMs were distributed by RPM packages and managed by `yum`/`dnf`.
 However, tracking inherently dynamic VM images with a package manager suited for static files creates some challenges.
@@ -44,8 +42,7 @@ It strives to provide not only a better mechanism for handling template installa
 [discussion thread 1]: https://groups.google.com/forum/#!topic/qubes-devel/rwc2_miCNNE/discussion
 [discussion thread 2]: https://groups.google.com/forum/#!topic/qubes-users/uQEUpv4THsY/discussion
 
-Features
---------
+## Features
 
 - Install/reinstall/downgrade/upgrade templates, either from local packages or remote repositories
   - Ability to install templates in alternative pools
@@ -61,8 +58,7 @@ Features
 - Command-line interface with DNF-like usage
 - A graphical interface also available
 
-Package Format
---------------
+## Package Format
 
 The RPM package format is still used.
 However, the contents are manually extracted instead of installing the whole package.
@@ -115,8 +111,7 @@ Namely, there should be the following files in the package:
 [qvm-prefs]: https://dev.qubes-os.org/projects/core-admin-client/en/stable/manpages/qvm-prefs.html#common-properties
 [qvm-features]: https://dev.qubes-os.org/projects/core-admin-client/en/stable/manpages/qvm-features.html#list-of-known-features
 
-Metadata Storage
-----------------
+## Metadata Storage
 
 The template manager needs to keep metadata of installed templates such as versions and origin.
 This data can be stored via `qvm-features` to keep things consistent when, e.g., `qvm-remove` is used.
@@ -124,7 +119,7 @@ Besides, backups are also more easily handled this way.
 
 Also, the fields can serve as an indicator of whether a template is installed by `qvm-template`.
 
-### Fields ###
+### Fields
 
 Most of the fields should be fairly self-explanatory.
 
@@ -151,8 +146,7 @@ Most of the fields should be fairly self-explanatory.
 
 [freedesktop-spec]: https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html
 
-Repository Management
----------------------
+## Repository Management
 
 For UpdateVMs to access repository configuration, the package [qubes-repo-templates] is created with the following contents:
 
@@ -163,8 +157,7 @@ As template keys may be less trusted, they are *not* added to the system RPM key
 
 [qubes-repo-templates]: https://github.com/WillyPillow/qubes-repo-templates
 
-Qrexec Protocol
----------------
+## Qrexec Protocol
 
 Dom0 and management VMs without network access also need to interact with template repositories.
 The following qrexec calls that list and download templates are thus proposed.
@@ -172,7 +165,7 @@ The following qrexec calls that list and download templates are thus proposed.
 - `qubes.TemplateSearch`: wraps `dnf repoquery`
 - `qubes.TemplateDownload`: wraps `dnf download`
 
-### Input ###
+### Input
 
 Both calls accept the following format from standard input:
 
@@ -202,7 +195,7 @@ For the exact definition of `package-file-spec`, refer to the DNF documentation.
 
 The second part contains the repository configurations in `yum.repos.d` format.
 
-### Output ###
+### Output
 
 `qubes.TemplateSearch` prints each package in `%{name}|%{epoch}|%{version}|%{release}|%{reponame}|%{downloadsize}|%{buildtime}|%{license}|%{url}|%{summary}|%{description}|` format to standard output, separated by newlines.
 Note that there is a `|` at the end of the line.
@@ -211,26 +204,23 @@ This is because `%{description}` may contain newlines, and doing so allows us to
 
 `qubes.TemplateDownload`, on the other hand, directly outputs the downloaded content to standard output.
 
-Machine-readable Output
------------------------
+## Machine-readable Output
 
 The commands `qvm-template list` and `qvm-template info` provide machine-readable output in both pipe(`|`)-separated and JSON format.
 See the `qvm-template` man page for details.
 
-Interactions with Existing Tools
---------------------------------
+## Interactions with Existing Tools
 
-### `qvm-remove` ###
+### `qvm-remove`
 
 Should work straightforwardly.
 
-### Renaming / Cloning ###
+### Renaming / Cloning
 
 A template is treated as non-manager-installed once renamed or cloned.
 However, relevant metadata in the VM features is still retained for future extension and to serve as a hint for the user.
 
-Further Reading
----------------
+## Further Reading
 
 Initial Google Summer of Code (2020) project proposal:
 
