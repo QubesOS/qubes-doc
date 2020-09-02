@@ -250,7 +250,7 @@ This website is hosted on [GitHub Pages][] ([why?][]).
 Therefore, it is largely outside of our control.
 We don't consider this a problem, however, since we explicitly [distrust the infrastructure].
 For this reason, we don't think that anyone should place undue trust in the live version of this site on the Web.
-Instead, if you want to obtain your own, trustworthy copy of this website in a secure way, you should clone our [website repo], [verify the PGP signatures on the commits and/or tags] signed by the [doc-signing keys], then either [render the site on your local machine][render] or simply read the source, the vast majority of which was [intentionally written in Markdown so as to be readable as plain text for this very reason][Markdown].
+Instead, if you want to obtain your own trustworthy copy of this website in a secure way, you should clone our [website repo], [verify the PGP signatures on the commits and/or tags] signed by the [doc-signing keys], then either [render the site on your local machine][render] or simply read the source, the vast majority of which was [intentionally written in Markdown so as to be readable as plain text for this very reason][Markdown].
 We've gone to special effort to set all of this up so that no one has to trust the infrastructure and so that the contents of this website are maximally available and accessible.
 
 ### What does it mean to "distrust the infrastructure"?
@@ -279,12 +279,13 @@ Also see: [Should I trust this website?]
 ### Why doesn't this website have security feature X?
 
 Although we caution users against [placing undue trust in this website][Should I trust this website?] because we [distrust the infrastructure], we have no objection to enabling website security features when doing so is relatively costless and provides some marginal benefit to website visitors.
-So, if feature X isn't enabled, it's most likely for one of three reasons 
+So, if feature X isn't enabled, it's most likely for one of three reasons:
 
 1. Our GitHub Pages platform doesn't support it.
 2. Our platform supports it, but we've decided not to enable it.
 3. Our platform supports it, but we're not aware that we can enable it or have forgotten to do so.
-   (If it seems like this is the case, let us know!)
+
+If it seems like a feature that we can and should enable, please [let us know][reporting-bugs]!
 
 
 ## Users
@@ -796,3 +797,4 @@ There is also the unofficial [ansible-qubes toolkit][ansible].
 [why?]: #why-do-you-use-github
 [Xen]: https://www.xenproject.org/
 [XSA Tracker]: /security/xsa/
+[reporting-bugs]: /doc/reporting-bugs/
