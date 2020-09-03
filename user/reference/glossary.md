@@ -135,7 +135,7 @@ Rather, DisposableVM Templates are complementary to TemplateVMs insofar as Dispo
 There are two main kinds of DisposableVM Templates:
 
  * **Dedicated** DisposableVM Templates are intended neither for installing nor running software.
-   Rather, they are intended for *customizing* or *configuring* software that has already been installed on the TemplateVM on which the DisposableVM Template is based (see [DisposableVM Customization](/doc/disposablevm-customization/).
+   Rather, they are intended for *customizing* or *configuring* software that has already been installed on the TemplateVM on which the DisposableVM Template is based (see [DisposableVM Customization](/doc/disposablevm-customization/)).
    This software is then intended to be run (in its customized state) in DisposableVMs that are based on the DisposableVM Template.
  * **Non-dedicated** DisposableVM Templates are typically [AppVMs](#appvm) on which DisposableVMs are based.
    For example, an AppVM could be used to generate and store trusted data.
