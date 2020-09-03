@@ -238,4 +238,4 @@ Discussion threads:
 - <https://groups.google.com/forum/#!topic/qubes-devel/PyJogqT1TUg>
 - <https://groups.google.com/forum/#!topic/qubes-devel/2XaMP4Us3kg>
 - <https://groups.google.com/forum/#!topic/qubes-devel/wF_84b1BR0A>
-- <https://groups.google.com/g/qubes-devel/c/pYHnihVCBM0>
+- <https://groups.google.com/forum/#!topic/qubes-devel/pYHnihVCBM0>
