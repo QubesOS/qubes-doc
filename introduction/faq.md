@@ -65,8 +65,26 @@ Common attack vectors like network cards and USB controllers are isolated in the
 Integrated [file] and [clipboard] copy and paste operations make it easy to work across various qubes without compromising security.
 The innovative [Template] system separates software installation from software use, allowing qubes to share a root filesystem without sacrificing security (and saving disk space, to boot).
 Qubes even allows you to sanitize PDFs and images in a few clicks.
-Users concerned about privacy will appreciate the [integration of Whonix][Qubes-Whonix] with Qubes, which makes it easy to use [Tor] securely, while those concerned about physical hardware attacks will benefit from [Anti Evil Maid].
+Those concerned about physical hardware attacks will benefit from [Anti Evil Maid].
 
+### How does Qubes OS provide privacy?
+
+Users concerned about privacy will appreciate the integration of [Whonix][Qubes-Whonix] into Qubes, which makes it easy to use [Tor] securely.
+
+### What about privacy in non-Whonix qubes?
+
+Non-[Whonix][Qubes-Whonix] qubes do not claim to provide any special privacy (as opposed to security) properties.
+This includes [DisposableVMs][disposable].
+
+Privacy is far more difficult than is commonly understood.
+In addition to the [web browser](https://www.torproject.org/projects/torbrowser/design/), there is also [VM fingerprinting](https://www.whonix.org/wiki/VM_Fingerprinting) and [advanced deanonymization attacks](https://www.whonix.org/wiki/Advanced_Deanonymization_Attacks) that most users have never considered (and this is just to mention a few examples).
+The Whonix Project specializes in [protecting against these risks](https://www.whonix.org/wiki/Protocol-Leak-Protection_and_Fingerprinting-Protection).
+
+In order to achieve the same results in non-Whonix qubes (including DisposableVMs), one would have to reinvent Whonix.
+Such duplication of effort makes no sense when Whonix already exists and is already integrated into Qubes OS.
+
+When you need privacy, use Whonix.
+When you use a non-Whonix qube, do not expect it.
 
 ### How does Qubes OS compare to using a "live CD" OS?
 
