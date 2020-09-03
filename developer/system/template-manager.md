@@ -6,7 +6,7 @@ permalink: /doc/template-manager/
 
 # Template Manager
 
-This document discusses the designs and technical details of `qvm-template`, the template manager application in Qubes OS.
+This document discusses the designs and technical details of `qvm-template`, a soon-to-be template manager application currently in development for Qubes OS.
 The goals of the project is to design a new mechanism for TemplateVM distribution and a unified tool for template management.
 
 ## Motivation
