@@ -85,10 +85,9 @@ Unlike TemplateVMs, however, StandaloneVMs do not supply their root filesystems 
 
 AppVM
 -----
-Application Virtual Machine. 
-A [VM](#vm) that is intended for running software applications. 
-Typically a TemplateBasedVM, but may be a StandaloneVM.
-Never a TemplateVM.
+Application Virtual Machine.
+A [VM](#vm) class.
+Synonymous with [TemplateBasedVM](#templatebasedvm).
 
 NetVM
 -----
@@ -132,14 +131,6 @@ A type of [TemplateBasedVM](#templatebasedvm) on which [DisposableVMs](#disposab
 By default, a DisposableVM Template named `fedora-XX-dvm` is created on most Qubes installations (where `XX` is the Fedora version of the default TemplateVM). 
 DisposableVM Templates are not [TemplateVMs](#templatevm), since (being TemplateBasedVMs) they do not have root filesystems of their own to provide to other VMs.
 Rather, DisposableVM Templates are complementary to TemplateVMs insofar as DisposableVM Templates provide their own user filesystems to the DisposableVMs based on them.
-There are two main kinds of DisposableVM Templates:
-
- * **Dedicated** DisposableVM Templates are intended neither for installing nor running software.
-   Rather, they are intended for *customizing* or *configuring* software that has already been installed on the TemplateVM on which the DisposableVM Template is based (see [DisposableVM Customization](/doc/disposablevm-customization/)).
-   This software is then intended to be run (in its customized state) in DisposableVMs that are based on the DisposableVM Template.
- * **Non-dedicated** DisposableVM Templates are typically [AppVMs](#appvm) on which DisposableVMs are based.
-   For example, an AppVM could be used to generate and store trusted data.
-   Then, a DisposableVM could be created based on the AppVM (thereby making the AppVM a DisposableVM Template) so that the data can be analyzed by an untrusted program without jeopardizing the integrity of the original data.
 
 PV
 --
