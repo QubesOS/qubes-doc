@@ -146,7 +146,7 @@ As usual, the required packages are to be installed in the running template with
 - NetVM, such as the template for `sys-net`: `qubes-core-agent-networking` `qubes-core-agent-network-manager`. If your network devices need extra packages for a network VM, use the `lspci` command to identify the devices, then find the package that provides necessary firmware and install it. If you need utilities for debugging and analyzing network connections, install the following packages: `tcpdump` `telnet` `nmap` `nmap-ncat`.
 - [USB qube](/doc/usb-qubes/), such as the template for `sys-usb`: `qubes-usb-proxy` to provide USB devices to other Qubes and `qubes-input-proxy-sender` to provide keyboard or mouse input to dom0.
 - [VPN qube](/doc/vpn/): You may need to install network-manager VPN packages, depending on the VPN technology you'll be using. After creating a machine based on this template, follow the [VPN howto](/doc/vpn/#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager) to configure it.
-- Default-mgmt-dvm, will need `qubes-core-agent-passwordless-root` and `qubes-mgmt-salt-vm-connector`.
+- `default-mgmt-dvm`: requires `qubes-core-agent-passwordless-root` and `qubes-mgmt-salt-vm-connector`.
 
 In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be needed to make the customized minimal template work properly. 
 These packages are:
@@ -188,7 +188,7 @@ As usual, the required packages are to be installed in the running template with
 - NetVM, such as the template for `sys-net`: `qubes-core-agent-networking` `qubes-core-agent-network-manager` `NetworkManager-wifi` `network-manager-applet` `wireless-tools` `notification-daemon` `gnome-keyring`. If your network devices need extra packages for a network VM, use the `lspci` command to identify the devices, then find the package that provides necessary firnware and install it. If you need utilities for debugging and analyzing network connections, install the following packages: `tcpdump` `telnet` `nmap` `nmap-ncat`
 - [USB qube](/doc/usb-qubes/), such as the template for `sys-usb`: `qubes-usb-proxy` to provide USB devices to other Qubes and `qubes-input-proxy-sender` to provide keyboard or mouse input to dom0.
 - [VPN qube](/doc/vpn/): You may need to install network-manager VPN packages, depending on the VPN technology you'll be using. After creating a machine based on this template, follow the [VPN howto](/doc/vpn/#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager) to configure it.
-- Default-mgmt-dvm, will need `qubes-core-agent-passwordless-root` and `qubes-mgmt-salt-vm-connector`.
+- `default-mgmt-dvm`: requires `qubes-core-agent-passwordless-root` and `qubes-mgmt-salt-vm-connector`.
 
 In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be needed to make the customized minimal template work properly. 
 These packages are:
