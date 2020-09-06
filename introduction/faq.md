@@ -61,7 +61,7 @@ In this way, Qubes allows you to do everything on the same physical computer wit
 
 Moreover, all of these isolated qubes are integrated into a single, usable system.
 Programs are isolated in their own separate qubes, but all windows are displayed in a single, unified desktop environment with unforgeable colored window borders so that you can easily identify windows from different security levels.
-Common attack vectors like network cards and USB controllers are isolated in their own hardware qubes while their functionality is preserved through secure [networking][network] , [firewalls], and [USB device management][USB].
+Common attack vectors like network cards and USB controllers are isolated in their own hardware qubes while their functionality is preserved through secure [networking][network], [firewalls], and [USB device management][USB].
 Integrated [file] and [clipboard] copy and paste operations make it easy to work across various qubes without compromising security.
 The innovative [Template] system separates software installation from software use, allowing qubes to share a root filesystem without sacrificing security (and saving disk space, to boot).
 Qubes even allows you to sanitize PDFs and images in a few clicks.
@@ -69,22 +69,32 @@ Those concerned about physical hardware attacks will benefit from [Anti Evil Mai
 
 ### How does Qubes OS provide privacy?
 
+There can be no privacy without security, since security vulnerabilities allow privacy measures to be circumvented.
+This makes Qubes exceptionally well-suited for implementing effective privacy tools.
+
 Users concerned about privacy will appreciate the integration of [Whonix][Qubes-Whonix] into Qubes, which makes it easy to use [Tor] securely.
+For more information about how to use this powerful tool correctly and safely, please see [Whonix][Qubes-Whonix].
 
 ### What about privacy in non-Whonix qubes?
 
-Non-[Whonix][Qubes-Whonix] qubes do not claim to provide any special privacy (as opposed to security) properties.
+Qubes OS does not claim to provide special privacy (as opposed to security) properties in non-[Whonix][Qubes-Whonix] qubes.
 This includes [DisposableVMs][disposable].
+
+For example, a standard [Fedora](/doc/templates/fedora/) qube is expected to have basically the same privacy properties as that upstream Fedora distribution, enhanced to some degree by the control Qubes provides over that qube.
+For most users, this level of privacy may be good enough for many common activities.
+However, users seeking more advanced privacy features should use [Whonix][Qubes-Whonix] qubes.
 
 Privacy is far more difficult than is commonly understood.
 In addition to the [web browser](https://www.torproject.org/projects/torbrowser/design/), there is also [VM fingerprinting](https://www.whonix.org/wiki/VM_Fingerprinting) and [advanced deanonymization attacks](https://www.whonix.org/wiki/Advanced_Deanonymization_Attacks) that most users have never considered (and this is just to mention a few examples).
-The Whonix Project specializes in [protecting against these risks](https://www.whonix.org/wiki/Protocol-Leak-Protection_and_Fingerprinting-Protection).
+The [Whonix Project](https://www.whonix.org/) specializes in [protecting against these risks](https://www.whonix.org/wiki/Protocol-Leak-Protection_and_Fingerprinting-Protection).
 
 In order to achieve the same results in non-Whonix qubes (including DisposableVMs), one would have to reinvent Whonix.
 Such duplication of effort makes no sense when Whonix already exists and is already integrated into Qubes OS.
 
-When you need privacy, use Whonix.
-When you use a non-Whonix qube, do not expect it.
+Therefore, when you need privacy, you should use Whonix qubes.
+Remember, though, that privacy is difficult to achieve and maintain.
+Whonix is a powerful tool, but no tool is perfect.
+Read the [documentation](https://www.whonix.org/wiki/Documentation) thoroughly and exercise care when using it.
 
 ### How does Qubes OS compare to using a "live CD" OS?
 
