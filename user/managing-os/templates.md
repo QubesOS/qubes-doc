@@ -78,8 +78,8 @@ Usually, the installation method is to execute the following type of command in 
 
     $ sudo qubes-dom0-update qubes-template-<name>
 
-(where `qubes-template-<name>` is the name of your TemplateVM package)
-
+where `qubes-template-<name>` is the name of your TemplateVM package.
+If you receive the message that no match is found for `qubes-template-<name>`, see [here][no-match].
 
 ## After Installing
 
@@ -274,3 +274,4 @@ Note the word "clean" means in this context: the same as their template filesyst
 [uninstall the old TemplateVM]: #uninstalling
 [Updating software in TemplateVMs]: /doc/software-update-domu/#updating-software-in-templatevms
 [How to Reinstall a TemplateVM]: /doc/reinstall-template/
+[no-match]: /faq/#when-i-try-to-install-a-templatevm-it-says-no-match-is-found

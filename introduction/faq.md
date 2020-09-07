@@ -645,6 +645,22 @@ From a `dom0` prompt, enter:
 
     qvm-prefs <HVMname> kernel ""
 
+### When I try to install a TemplateVM, it says no match is found.
+
+For example:
+
+```
+[user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl qubes-template-debian-10
+Using sys-whonix as UpdateVM to download updates for Dom0; this may take some time...
+No Match for argument qubes-template-debian-10
+Nothing to download
+```
+
+This normally means you already have the template installed.
+It may be that you have the matching package installed, but you removed or renamed the template.
+Check `rpm -q qubes-template-<name>`.
+If it lists the package, but you don't really have the template present (`qvm-ls` doesn't list it), you need to clean up leftovers of the package with `rpm -e --noscripts qubes-template-<name>`, then install it normally.
+
 ### I keep getting "Failed to synchronize cache for repo" errors when trying to update my Fedora templates
 
 This is general Fedora issue, not a Qubes-specific issue.
