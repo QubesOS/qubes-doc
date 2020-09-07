@@ -94,7 +94,8 @@ The following sections cover advanced topics pertaining to installing and updati
 If you would like to enable the [RPM Fusion] repository, open a Terminal of the TemplateVM and type the following commands: 
 
 ~~~
-sudo dnf config-manager --set-enabled rpmfusion-free rpmfusion-nonfree
+sudo dnf config-manager --set-enabled rpmfusion-free rpmfusion-free-updates
+sudo dnf config-manager --set-enabled rpmfusion-nonfree rpmfusion-nonfree-updates
 sudo dnf upgrade --refresh
 ~~~
 
