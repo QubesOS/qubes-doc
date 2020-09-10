@@ -25,7 +25,7 @@ If you've installed successfully in legacy mode but had to change some kernel pa
 05. Save your changes, unmount and dd to usb device
 
 
-Installation freezes before displaying installer
+Installation freezes before displaying installer #1
 -----------------------------------------------------------
 
 Some systems can freeze with the default UEFI install options.
@@ -58,6 +58,28 @@ This is also a good time to make permanent any other changes needed to get the i
    
 5. Go back to `tty6` (Ctrl-Alt-F6) and click `Reboot`.
 6. Continue with setting up default templates and logging in to Qubes.
+
+
+Installation freezes before displaying installer #2
+-----------------------------------------------------------
+If Method #1 did not help, you can try the following:
+Change the `options=console=` parameter to `none`.
+(clean solution to [here](https://github.com/QubesOS/qubes-issues/issues/5383))
+
+1. Follow the [steps here](/doc/uefi-troubleshooting/#change-installer-kernel-parameters-in-uefi) to edit the `[qubes-verbose]` section of your installer's `BOOTX64.cfg`.
+   You want to change `options=console=vga` to `options=console=none`.
+   The end result should look like this:
+   
+   ~~~
+   [qubes-verbose]
+   options=console=none efi=attr=uc
+   noexitboot=1
+   mapbs=1
+   kernel=vmlinuz inst.stage2=hd:LABEL=Qubes-R4.0-x86_64 i915.alpha_support=1
+   ramdisk=initrd.img
+   ~~~
+   
+2. Boot the installer and continue to install as normal
 
 
 Installation freezes before displaying installer / disable EFI runtime services
