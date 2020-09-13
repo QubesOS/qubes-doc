@@ -91,10 +91,13 @@ The following sections cover advanced topics pertaining to installing and updati
 
 ### RPMFusion for Fedora TemplateVMs
 
-If you would like to enable the [RPM Fusion] repository, open a Terminal of the TemplateVM and type the following commands: 
+If you would like to enable the [RPM Fusion] repositories, open a Terminal of the TemplateVM and type the following commands, depending on which RPM Fusion repositories you wish to enable (see [RPM Fusion] for details): 
 
 ~~~
-sudo dnf config-manager --set-enabled rpmfusion-free rpmfusion-nonfree
+sudo dnf config-manager --set-enabled rpmfusion-free
+sudo dnf config-manager --set-enabled rpmfusion-free-updates
+sudo dnf config-manager --set-enabled rpmfusion-nonfree
+sudo dnf config-manager --set-enabled rpmfusion-nonfree-updates
 sudo dnf upgrade --refresh
 ~~~
 
