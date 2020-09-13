@@ -9,112 +9,118 @@ redirect_from:
 - /wiki/GettingStarted/
 ---
 
-<a name="already-installed"></a>After [installing Qubes](/doc/installation-guide/), let's cover some basic concepts.
-You might also like to refer to the [Glossary](/doc/glossary/).
+<a name="already-installed"></a>After [downloading] and [installing] Qubes OS, let's cover some basic concepts.
 
-AppVMs (qubes) and TemplateVMs
---------------------------------
+Introduction
+------------
 
-In Qubes, you run all your programs in lightweight Virtual Machines called **qubes**. 
-Not every app runs in its own qube. 
-(That would be a big waste of resources!) 
-Instead, each qube represents a *security domain* (e.g., "work," "personal," "banking," etc.). 
-By default all qubes are based on a single, common **TemplateVM** , although you can create more TemplateVMs if you wish. 
-When you create a new qube, you don't copy the whole root filesystem needed for this qube to work (which would include copying all the programs). 
-Instead, each qube *shares* the root filesystem with its respective TemplateVM. 
-A qube has read-only access to the filesystem of the Template on which it's based, so a qube cannot modify a TemplateVM in any way. 
-This is important, as it means that if a qube is ever compromised, the TemplateVM on which it's based (and any other qubes based on that TemplateVM) will still be safe. 
-So creating a large number of domains is cheap: each one needs only as much disk space as is necessary to store its private files (e.g., the "home" folder).
+In Qubes OS, you run all your programs in lightweight [virtual machines (VMs)] called [qubes].
+Not every app runs in its own qube.
+(That would be a big waste of resources!)
+Instead, each qube represents a [security domain] (e.g., "work," "personal," and "banking").
+By default, all qubes are based on a single, common [template], although you can create more templates if you wish. 
+When you create a new qube, you don't copy the whole system needed for this qube to work (which would include copying all the programs). 
+Instead, each qube *shares* the system with its respective template. 
+A qube has read-only access to the system of the template on which it's based, so a qube cannot modify a template in any way. 
+This is important, as it means that if a qube is ever compromised, the template on which it's based (and any other qubes based on that template) will still be safe. 
+So, creating a large number of qubes is cheap: each one needs only as much disk space as is necessary to store its private files (e.g., the "home" folder).
 
-If you've installed Qubes using the default options, a few qubes have already been created for you:
+If you've installed Qubes OS using the default options, a few qubes have already been created for you:
 
--   work
--   personal
--   untrusted
+ - work
+ - personal
+ - untrusted
+ - vault
 
-Each qube, apart from having a distinct name, is also assigned a **label**, which is one of several pre-defined colors. 
-The trusted window manager uses these colors in order to draw window decorations (color frames) around the windows of applications running in each qube. 
-It's totally up to you how you'd like to interpret these colors. 
-You might like to use them to quickly and easily identify the trust level of a given window at a glance. 
-Personally, I find it natural to associate red with that which is untrusted and dangerous (the “red light” -- stop! danger!), green with that which is safe and trusted, and yellow and orange with things in the middle. 
-I've also extended this scheme to include blue and black, which I interpret as indicating progressively more trusted domains than green, with black being ultimately trusted.
-Alternatively you might use the colors to show that qubes belong to the same domain - for example, you might use 3 or 4 qubes for work activities, and give them all the same distinct color label. It's entirely up to you.
+Each qube, apart from having a distinct name, is also assigned a **label**, which is one of several predefined colors.
+The trusted window manager uses these colors in order to draw colored borders around the windows of applications running in each qube.
+This is designed to allow you to quickly and easily identify the trust level of a given window at a glance.
+Most Qubes OS users associate red with what's untrusted and dangerous (like a red light -- stop! danger!), green with what's safe and trusted, and yellow and orange with things in the middle. 
+This color scheme also extends to include blue and black, which are usually interpreted as indicating progressively more trusted domains than green, with black being ultimately trusted.
+However, it's totally up to you how you'd like to interpret these colors.
+Qubes OS doesn't assume anything about these colors.
+When you make a new qube, the system doesn't do anything special to it depending on whether it's black or red, for example.
+The only difference is which color you see and the meaning you assign to that color in your mind.
+For example, you could use the colors to show that qubes belong to the same domain.
+You might use three or four qubes for work activities and give them all the same distinct color label, for instance.
+It's entirely up to you.
 
-![snapshot12.png](/attachment/wiki/GettingStarted/snapshot12.png)
+![snapshot_40.png](/attachment/wiki/GettingStarted/snapshot_40.png)
 
-In addition to qubes and TemplateVMs, there's one special domain called "dom0," which is where the Desktop Manager runs. 
-This is where you log in to the system. 
-Dom0 is more trusted than any other domain (including TemplateVMs and black-labeled qubes). 
-If dom0 were ever compromised, it would be Game Over<sup>TM</sup>. 
-(The entire system would effectively be compromised.) 
-Due to its overarching importance, dom0 has no network connectivity and is used only for running the Window and Desktop Managers. 
-Dom0 shouldn't be used for anything else. 
-In particular, [you should never run user applications in dom0](/doc/security-guidelines/#dom0-precautions). 
+In addition to qubes and templates, there's one special domain called [dom0], where many system tools and the desktop manager run.
+This is where you log in to the system.
+Dom0 is more trusted than any other domain (including templates and black-labeled qubes).
+If dom0 were ever compromised, it would be "game over."
+(The entire system would effectively be compromised.)
+Due to its overarching importance, dom0 has no network connectivity and is used only for running the window and desktop managers.
+Dom0 shouldn't be used for anything else.
+In particular, [you should never run user applications in dom0][dom0-precautions].
 (That's what your qubes are for!)
 
-Qube Manager and command-line tools
------------------------------------
 
-All aspects of the Qubes system can be controlled using command line tools run under a dom0 console. 
-Opening a console window in dom0 can be done in several ways:
+GUI and command-line tools
+--------------------------
 
-* Go to the Start Menu and click Terminal Emulator
-* Press Alt-F3, type `xfce terminal` and press Enter twice
-* Right-click on the desktop and select Open Terminal Here
-* In previous versions of Qubes with KDE:
-    * Start → System Tools → Konsole
-    * Press Alt-F2 and type `konsole`.
+All aspects of Qubes OS can be controlled using command-line tools run in a dom0 terminal. 
+Opening a terminal in dom0 can be done in several ways:
 
-Various command line tools are described as part of this guide, and the whole reference can be found [here](/doc/tools/).
+ - Go to the Application Launcher and click **Terminal Emulator**.
+ - Press `Alt+F3`, type `xfce terminal` and press Enter twice.
+ - Right-click on the desktop and select **Open Terminal Here**.
 
-![r2b1-dom0-konsole.png](/attachment/wiki/GettingStarted/r2b1-dom0-konsole.png)
+Various command-line tools are described as part of this guide, and the whole reference can be found [here][tools].
 
-Alternatively, you can use a rather intuitive GUI tool called **Qubes VM Manager**. 
-It supports most of the functionality that command line tools provide. 
-The Qubes VM Manager starts and opens automatically when Qubes starts up, but you can also start it by going to Start → System Tools → Qubes Manager.
-Once the Qubes VM Manager is running, you can open the window at any time by clicking on the Qubes tray icon, which typically resides in the bottom-right corner of the screen.
+Alternatively, you can use a suite of GUI tools, most of which are available through desktop widgets:
 
-![r2b1-qubes-manager-2.png](/attachment/wiki/GettingStarted/r2b1-qubes-manager-2.png)
+ - The **Domains Widget** allows you to manage running qubes, turn them on and off, and monitor memory usage.
+ - The **Devices Widget** allows you to attach and detach devices -- such as USB drives and cameras -- to qubes.
+ - The **Disk Space Widget** will notify you if you're ever running out of disk space.
+ - The **Updates Widget** will inform you when template updates are available.
 
-Starting applications
----------------------
+![q40_widgets.png](/attachment/wiki/GettingStarted/q40_widgets.png)
 
-Apps can be started either by using the shortcuts in the Desktop Manager's menu or by using the command line (i.e., a console running in dom0).
+For an overview of the entire system, you can use the **Qube Manager** (go to the Application Launcher → System Tools → Qube Manager), which displays the states of all the qubes in your system.
 
-You can start apps directly from the Start Menu or the Application Finder (Alt-F3).
-Each qube has its own menu directory under the scheme **Domain: \<name\>**. 
+
+Starting apps
+-------------
+
+Apps can be started either by using the shortcuts in the Application Launcher menu or by using the command line (i.e., a terminal running in dom0).
+
+You can start apps directly from the Application Launcher or the Application Finder (`Alt+F3`).
+Each qube has its own menu directory under the scheme `Domain: <name>`. 
 After navigating into one of these directories, simply click on the application you'd like to start:
 
-![r2b1-appsmenu-1.png](/attachment/wiki/GettingStarted/r2b1-appsmenu-1.png) ![r2b1-appsmenu-3.png](/attachment/wiki/GettingStarted/r2b1-appsmenu-3.png)
+![menu1.png](/attachment/wiki/GettingStarted/menu1.png)
+
+![menu2.png](/attachment/wiki/GettingStarted/menu2.png)
 
 By default, each qube's menu contains only a few shortcuts. 
-If you'd like to add more, simply click **Add more shortcuts...**, select the desired applications, and click **OK**. 
-You can also add shortcuts manually. 
-(This is sometimes necessary if the desired application doesn't show up in the Qubes VM Manager window.) 
-To do this in KDE, right-click on the **Start** button and click **Menu Editor**. 
-Click the qube directory in which you'd like the menu to appear, click **New Item**, enter its name as **\<qube name\>: \<app name\>**, and provide the command for starting the app (see below). 
-Then click **Save** and wait approximately 15 seconds for the changes to propagate to the KDE menu.
+If you'd like to add more, enter the qube's **Qube Settings** and add them on the Applications tab. 
 
-To start apps from the console in dom0, type:
+To start apps from the terminal in dom0, type:
 
-    qvm-run -a <qube> "<app name> [arguments]"
+    $ qvm-run <qube_name> <app_command> [arguments]
 
 e.g.:
 
-    qvm-run -a untrusted firefox
+    $ qvm-run untrusted firefox
     
-The -a parameter will start the qube if it is not already running.
+This command will start the qube if it is not already running.
+
 
 Adding, removing, and listing qubes
 -----------------------------------
 
-A qube can easily be added and removed by clicking on the **Add** and **Remove** buttons in the Qubes VM Manager.
+You can easily create a new qube with the **Create Qubes VM** option in the Application Launcher.
+If you need to add or remove qubes, simply use the Qube Manager's **Add** and **Remove** buttons.
 
-A qube can also be added, removed, and qubes may be listed from the command line (i.e., a console running in dom0) using the following tools:
+You can also add, remove, and list qubes from the command line using the following tools:
 
--   `qvm-create`
--   `qvm-remove`
--   `qvm-ls`
+ - `qvm-create`
+ - `qvm-remove`
+ - `qvm-ls`
+
 
 How many qubes do I need?
 -------------------------
@@ -124,85 +130,78 @@ It depends on the structure of your digital life, and this is at least a little 
 If you plan on using your system for work, then it also depends on what kind of job you do.
 
 It's a good idea to start out with the three qubes created automatically by the installer: work, personal, and untrusted. 
-Then, if and when you start to feel that some activity just doesn't fit into any of your existing qubes, or you want to partition some part of your life, you can easily create a new qube for it. 
-You'll also be able to easily copy any files you need to the newly created qube, as explained [here](/doc/copying-files/).
+If and when you start to feel that some activity just doesn't fit into any of your existing qubes, or you want to partition some part of your life, you can easily create a new qube for it. 
+You'll also be able to easily [copy][copy-files] any files you need to the newly created qube.
 
-More paranoid people might find it worthwhile to read [this article](https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html), which describes how one of the Qubes authors partitions her digital life into security domains.
+Still not sure?
+You might find it helpful to read [this article][partitioning], which describes how one of the Qubes OS architects partitions her digital life into security domains.
+
 
 Common tasks
 ------------
 
 Here are the documentation pages for some of the main actions you'll want to perform.
-A full list is available in the [Common Tasks](/doc/#common-tasks) section of the documentation.
+A full list is available in the [Common Tasks] section of the documentation.
 
- * [Copying and Pasting Text Between Domains](/doc/copy-paste/)
- * [Copying and Moving Files Between Domains](/doc/copying-files/)
- * [Copying from (and to) dom0](/doc/copy-from-dom0/)
- * [Updating Software in dom0](/doc/software-update-dom0/)
- * [Updating and Installing Software in VMs](/doc/software-update-vm/)
- * [Backup, Restoration, and Migration](/doc/backup-restore/)
- * [Using DisposableVMs](/doc/disposablevm/)
- * [Using and Managing USB Devices](/doc/usb/)
+ * [Copying and Pasting Text Between Domains][copy-paste]
+ * [Copying and Moving Files Between Domains][copy-files]
+ * [Copying from (and to) dom0]
+ * [Updating Software in dom0]
+ * [Updating and Installing Software in VMs]
+ * [Backup, Restoration, and Migration]
+ * [Enabling Fullscreen Mode]
+ * [Using DisposableVMs]
+ * [Using and Managing USB Devices]
 
-Running an application in full-screen mode
-------------------------------------------
+If you encounter any problems, please visit the [Help, Support, and Mailing Lists] page.
 
-By default, Qubes doesn't allow any application window to occupy the entire screen such that its window name (which includes the name of the qube to which it belongs) and colored window border are no longer visible. 
-This is a security precaution designed to prevent a situation in which an application which has been allowed to enter full screen mode begins to emulate the entire Qubes system. 
-The user should always be able to identify which qube is displaying any given window. 
-Otherwise, a compromised qube which is able to occupy the entire screen could trick the user into thinking that she is interacting with a variety of different qubes (including dom0), when in fact she is interacting with only a single, compromised qube pretending to be the whole system.
 
-**Note:** A similar attack is possible even *without* fullscreen mode. 
-Since a compromised qube can draw pixels within its own windows however it likes, it could draw a fake password prompt, for example, which appears to have a different colored border so that it looks like it belongs to a different qube. 
-This is why you should always drag such prompts away from other windows (or use some other means of manipulating the windows) to ensure that they belong to the qube to which they appear to belong.
+[getting-started-32]: /getting-started-32/
+[downloading]: /downloads/
+[installing]: /doc/installation-guide/
+[virtual machines (VMs)]: /doc/glossary/#vm
+[qubes]: /doc/glossary/#qube
+[security domain]: /doc/glossary/#domain
+[template]: /doc/glossary/#templatevm
+[dom0]: /doc/glossary/#dom0
+[dom0-precautions]: /doc/security-guidelines/#dom0-precautions
+[tools]: /doc/tools/
+[partitioning]: https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html
+[Common Tasks]: /doc/#common-tasks
+[copy-files]: /doc/copying-files/
+[copy-paste]: /doc/copy-paste/
+[Copying from (and to) dom0]: /doc/copy-from-dom0/
+[Updating Software in dom0]: /doc/software-update-dom0/
+[Updating and Installing Software in VMs]: /doc/software-update-vm/
+[Backup, Restoration, and Migration]: /doc/backup-restore/
+[Enabling Fullscreen Mode]: /doc/full-screen-mode/
+[Using DisposableVMs]: /doc/disposablevm/
+[Using and Managing USB Devices]: /doc/usb/
+[Help, Support, and Mailing Lists]: /support/
 
-To allow a qube to enter full screen mode, one should edit the `/etc/qubes/guid.conf` file in dom0.
 
-To allow all qubes to enter full screen mode, set `allow_fullscreen` flag to `true` in the `global` section:
-
-    global: {
-      # default values
-      allow_fullscreen = false;
-      #allow_utf8_titles = false;
-      #secure_copy_sequence = "Ctrl-Shift-c";
-      #secure_paste_sequence = "Ctrl-Shift-v";
-      #windows_count_limit = 500;
-    };
-
-To allow only select qubes to enter full screen mode, create a per-VM section, and set `allow_fullscreen` flag there to `true`:
-
-    VM: {
-      work: {
-       allow_fullscreen = true;
-      };
-
-    };
-
-In order for the changes to take effect, restart the qube(s).
-
-More details can be found [here](/doc/full-screen-mode/).
-
+<hr class="more-top more-bottom">
 <div class="row">
   <div class="col-lg-4 col-md-4">
     <h2>Compatible Hardware</h2>
-    <p>Ready to install Qubes? Make sure your hardware is compatible, as Qubes cannot run on every type of computer. Also, check out <a href="/doc/certified-laptops/">Qubes-certified Laptops</a>.</p>
+    <p>Make sure your hardware is compatible, as Qubes OS cannot run on every type of computer. Also, check out <a href="/doc/certified-laptops/">Qubes-certified Laptops</a>.</p>
     <a href="/hcl/" class="btn btn-primary">
       <i class="fa fa-laptop"></i> Hardware Compatibility List
     </a>
   </div>
   <div class="col-lg-4 col-md-4">
     <h2>Downloads</h2>
-    <p>Download an ISO, learn how to verify its authenticity and integrity, and follow our guides to install Qubes. Looking for the source code? You'll find it on <a href="https://github.com/QubesOS">GitHub</a>.</p>
+    <p>Download an ISO, learn how to verify its authenticity and integrity, and follow our guides to install Qubes OS. Looking for the source code? You'll find it on <a href="https://github.com/QubesOS">GitHub</a>.</p>
     <a href="/downloads/" class="btn btn-primary">
       <i class="fa fa-download"></i> Downloads
     </a>
   </div>
   <div class="col-lg-4 col-md-4">
     <h2>Documentation</h2>
-    <p>Peruse our extensive library of documentation for users and developers of Qubes. You can even help us <a href="/doc/doc-guidelines/">improve</a> it!</p>
+    <p>Peruse our extensive library of documentation for users and developers of Qubes OS. You can even help us <a href="/doc/doc-guidelines/">improve</a> it!</p>
     <a href="/doc/" class="btn btn-primary">
       <i class="fa fa-book"></i> Documentation
     </a>
   </div>
 </div>
-<hr class="more-top more-bottom">
+
