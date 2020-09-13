@@ -206,21 +206,21 @@ In `.mailcap`:
     ### also would be convenient to use mailcap's TEST feature to
     ### show some html in mutt pager (e.g. with w3m, links or html2text),
     ### else open others in dispvm
-
+    
     # MS Word documents
     application/msword; qvm-open-in-dvm %s
-
     application/vnd.oasis.opendocument.spreadsheet; qvm-open-in-dvm %s
     application/vnd.oasis.opendocument.text; qvm-open-in-dvm %s
-
+    
     # Images
     image/jpg; qvm-open-in-dvm %s
     image/jpeg; qvm-open-in-dvm %s
     image/png; qvm-open-in-dvm %s
     image/gif; qvm-open-in-dvm %s
-
+    
     # PDFs
     application/pdf; qvm-open-in-dvm %s
-
+    
     # HTML
+    text/html; w3m -T text/html '%s' | cat --squeeze-blank; nametemplate=%s.html; copiousoutput
     text/html; qvm-open-in-dvm %s
