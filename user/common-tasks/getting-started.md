@@ -137,21 +137,24 @@ Still not sure?
 You might find it helpful to read [this article][partitioning], which describes how one of the Qubes OS architects partitions her digital life into security domains.
 
 
-Common tasks
-------------
+Important tasks
+---------------
 
-Here are the documentation pages for some of the main actions you'll want to perform.
-A full list is available in the [Common Tasks] section of the documentation.
+It's very important to [keep Qubes updated][update] to ensure you have the latest security updates.
+Frequently updating is one of the best ways to remain secure against new threats.
+
+It's also very important to make regular backups so that you don't lose your data unexpectedly.
+The [Qubes backup system] allows you to do this securely and easily.
+
+Here are some other tasks you're likely to want to perform.
+(A full list is available in the [Common Tasks] section of the documentation.)
 
  * [Copying and Pasting Text Between Domains][copy-paste]
  * [Copying and Moving Files Between Domains][copy-files]
  * [Copying from (and to) dom0]
- * [Updating Software in dom0]
- * [Updating and Installing Software in VMs]
- * [Backup, Restoration, and Migration]
- * [Enabling Fullscreen Mode]
- * [Using DisposableVMs]
- * [Using and Managing USB Devices]
+ * [Fullscreen Mode]
+ * [DisposableVMs]
+ * [Device Handling] (block, USB, and PCI devices)
 
 If you encounter any problems, please visit the [Help, Support, and Mailing Lists] page.
 
@@ -167,16 +170,15 @@ If you encounter any problems, please visit the [Help, Support, and Mailing List
 [dom0-precautions]: /doc/security-guidelines/#dom0-precautions
 [tools]: /doc/tools/
 [partitioning]: https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html
+[update]: /doc/updating-qubes-os/
+[Qubes backup system]: /doc/backup-restore/
 [Common Tasks]: /doc/#common-tasks
 [copy-files]: /doc/copying-files/
 [copy-paste]: /doc/copy-paste/
 [Copying from (and to) dom0]: /doc/copy-from-dom0/
-[Updating Software in dom0]: /doc/software-update-dom0/
-[Updating and Installing Software in VMs]: /doc/software-update-vm/
-[Backup, Restoration, and Migration]: /doc/backup-restore/
-[Enabling Fullscreen Mode]: /doc/full-screen-mode/
-[Using DisposableVMs]: /doc/disposablevm/
-[Using and Managing USB Devices]: /doc/usb/
+[Fullscreen Mode]: /doc/full-screen-mode/
+[DisposableVMs]: /doc/disposablevm/
+[Device Handling]: /doc/device-handling/
 [Help, Support, and Mailing Lists]: /support/
 
 

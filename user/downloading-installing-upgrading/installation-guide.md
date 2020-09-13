@@ -348,7 +348,9 @@ Frequently updating is one of the best ways to remain secure against new threats
 It is extremely important to make regular backups so that you don't lose your data unexpectedly.
 The [Qubes backup system] allows you to do this securely and easily.
 
-Read more about [Common Tasks] and [Managing Operating Systems within Qubes].
+### Get Started
+
+[Get Started] with Qubes, and read more about [Common Tasks] and [Managing Operating Systems within Qubes].
 
 ## Getting help
 
@@ -390,4 +392,5 @@ Read more about [Common Tasks] and [Managing Operating Systems within Qubes].
 [Tor]: https://www.torproject.org/
 [TemplateVMs]: /doc/templates/
 [advanced configuration]: /doc/#advanced-configuration
+[Get Started]: /getting-started/
 
