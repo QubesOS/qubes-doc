@@ -55,6 +55,8 @@ If you wish to use a [Minimal TemplateVM](/doc/templates/minimal/) as a Disposab
 
 ## Customization of DisposableVM
 
+_**Note:** If you are trying to customize Tor Browser in a Whonix DisposableVM, please consult the [Whonix documentation](https://www.whonix.org/wiki/Tor_Browser/Advanced_Users#DVM_Template_Customization)._
+
 It is possible to change the settings for each new DisposableVM.
 This can be done by customizing the DisposableVM Template on which it is based:
 
