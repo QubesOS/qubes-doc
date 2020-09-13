@@ -55,10 +55,10 @@ If you wish to use a [Minimal TemplateVM](/doc/templates/minimal/) as a Disposab
 
 ## Customization of DisposableVM
 
+_**Note:** If you are trying to customize Tor Browser in a Whonix DisposableVM, please consult the [Whonix documentation](https://www.whonix.org/wiki/Tor_Browser/Advanced_Users#DVM_Template_Customization)._
+
 It is possible to change the settings for each new DisposableVM.
 This can be done by customizing the DisposableVM Template on which it is based:
-
-**Note:** If you are trying to customize Tor Browser in a Whonix DisposableVM, please consult the [Whonix documentation](https://www.whonix.org/wiki/Tor_Browser/Advanced_Users#DVM_Template_Customization).
 
 1.  Start a terminal in the `fedora-26-dvm` qube (or another DisposableVM Template) by running the following command in a dom0 terminal. (If you enable `appmenus-dispvm` feature (as explained at the top), applications menu for this VM (`fedora-26-dvm`) will be "Disposable: fedora-26-dvm" (instead of "Domain: fedora-26-dvm") and entries there will start new DisposableVM based on that VM (`fedora-26-dvm`). Not in that VM (`fedora-26-dvm`) itself).
 
