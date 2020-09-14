@@ -133,7 +133,7 @@ Most of the fields should be fairly self-explanatory.
 - `template-reponame`
 - `template-buildtime`
 - `template-installtime`
-  - The times are in ISO 8601 format, and can be parsed in Python with `datetime.datetime.fromisoformat()`.
+  - The times are in UTC, and are of the format `YYYY-MM-DD HH:MM:SS`.
 - `template-licence`
 - `template-url`
 - `template-summary`
