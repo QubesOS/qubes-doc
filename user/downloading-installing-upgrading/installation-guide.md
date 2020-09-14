@@ -14,6 +14,7 @@ redirect_from:
 - /doc/InstallationGuideR2rc2/
 - /doc/InstallationGuideR3.0rc1/
 - /doc/InstallationGuideR3.0rc2/
+- /doc/live-usb/
 ---
 
 # Installation guide
