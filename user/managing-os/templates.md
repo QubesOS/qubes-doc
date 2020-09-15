@@ -112,6 +112,10 @@ If the Applications Menu entry doesn't go away after you uninstall a TemplateVM,
 
     $ rm ~/.local/share/applications/<template-vm-name>
 
+Applications Menu entries for backups of removed VMs can also be found in `/usr/local/share/applications/` of dom0.
+
+    $ rm /usr/local/share/applications/<template-vm-name>
+
 
 ## Reinstalling
 
