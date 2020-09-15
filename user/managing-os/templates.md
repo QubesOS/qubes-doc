@@ -112,6 +112,9 @@ If the Applications Menu entry doesn't go away after you uninstall a TemplateVM,
 
     $ rm ~/.local/share/applications/<template-vm-name>
 
+Applications Menu entries for backups of removed VMs can also be found in `/usr/local/share/applications/` of dom0.
+
+    $ rm /usr/local/share/applications/<template-vm-name>
 
 ## Reinstalling
 
@@ -138,11 +141,11 @@ When you install a new template or upgrade a clone of a template, it is recommen
         [user@dom0 ~]$ qubes-prefs default-dispvm new-template-dvm
 
 4. Updating the template for sys-usb if peripheral devices are dependent upon the VM
-    
+
     If you are running Qubes on a desktop or other device where the peripheral devices such as keyboard / mouse / trackpad are dependent upon the sys-usb appVM then updating the template is a challenge. In this situation, you can use the following commands in a dom0 terminal window to update the templateVM.
-    
-        $ qvm-shutdown --wait sys-usb; qvm-prefs sys-usb template fedora-31; qvm-start sys-usb 
-    
+
+        $ qvm-shutdown --wait sys-usb; qvm-prefs sys-usb template fedora-31; qvm-start sys-usb
+
     Be careful to run this set of commands as shown above (3 commands in a single line) because if the sys-usb VM does not start back up you may be locked out of your machine.
 
 
@@ -165,8 +168,8 @@ No changes in any other directories in TemplateBasedVMs persist in this manner. 
 |TemplateBasedVM (3) | `/etc/skel` to `/home`, `/usr/local.orig` to `/usr/local` | `/rw` (includes `/home`, `/usr/local` and `bind-dirs`)
 |DisposableVM        | `/rw` (includes `/home`, `/usr/local` and `bind-dirs`)    | Nothing
 
-(1) Upon creation  
-(2) Following shutdown  
+(1) Upon creation
+(2) Following shutdown
 (3) Including any [DisposableVM Templates]
 
 
