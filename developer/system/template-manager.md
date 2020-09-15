@@ -53,7 +53,7 @@ It strives to provide not only a better mechanism for handling template installa
   - Machine-readable output for easy extension
 - Search for templates
 - Remove templates
-  - Ability to disassociate or remove VMs based on the template to be removed
+  - Optionally, VMs based on the template to be removed can be either removed or "disassociated" -- namely, have their templates changed to a "dummy" one.
 - Show available repositories
 - Works in both dom0 and management VMs by utilizing the Admin API
 - Works well with existing tools
@@ -69,9 +69,8 @@ We can also avoid the burden of dealing with verification, reducing the risk of 
 
 The package name should be in the form `qubes-template-${template_name}`.
 
-For the package metadata (e.g., summary, description), one needs to ensure that the character `|` does not appear.
-This is because we use the character as a separator internally.
-Failing to do so may result in `qvm-template` to fail with cryptic error messages.
+The package metadata (summary, description, etc.) should not contain the `|` character to avoid possibly cryptic errors.
+This is because of its use as an internal separator.
 Note that as we already consider the repository metadata untrusted, this should not result in security issues.
 
 The file structure should be quite similar to previous template RPMs.
@@ -89,16 +88,16 @@ Namely, there should be the following files in the package:
       - Setting this to `pv` requires user confirmation.
     - `kernel`
       - Only allowed to be set to "", i.e., "none", for PVGrub.
-    - `no-monitor-layout`
-    - `pci-e820-host`
-    - `linux-stubdom`
-    - `gui`
-    - `gui-emulated`
-    - `qrexec`
-      - These six flags are only allowed to be set to "1" or "0", denoting "true" and "false" respectively.
     - `net.fake-ip`
     - `net.fake-gateway`
     - `net.fake-netmask`
+    - Boolean flags: (Permitted values are "1" and "0", denoting "true" and "false" respectively.)
+      - `no-monitor-layout`
+      - `pci-e820-host`
+      - `linux-stubdom`
+      - `gui`
+      - `gui-emulated`
+      - `qrexec`
 - `var/lib/qubes/vm-templates/${template_name}/whitelisted-appmenus.list`
   - Contains default app menu entries of the template itself.
 - `var/lib/qubes/vm-templates/${template_name}/vm-whitelisted-appmenus.list`
@@ -144,7 +143,7 @@ Most of the fields should be fairly self-explanatory.
 - `netvm-menu-items`
   - The `*menu-items` entries store the contents of `var/lib/qubes/vm-templates/${template_name}/whitelisted-appmenus.list`, `var/lib/qubes/vm-templates/${template_name}/vm-whitelisted-appmenus.list`, `var/lib/qubes/vm-templates/${template_name}/netvm-whitelisted-appmenus.list` respectively.
   - Note that newlines are converted to spaces, again for it to work better with existing tools.
-    This should not cause ambiguity as [the FreeDesktop specifications][freedesktop-spec] forbid spaces from the names of desktop files.
+    This should not cause ambiguity as [the FreeDesktop specifications][freedesktop-spec] forbid spaces in .desktop file names.
 
 [freedesktop-spec]: https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html
 
@@ -215,7 +214,10 @@ See the `qvm-template` man page for details.
 
 ### `qvm-remove`
 
-Should work straightforwardly.
+The existing `qvm-remove` tool should behave identically to `qvm-template remove` -- albeit without fancy features like disassociation.
+This is unlike the previous situation where `qvm-remove` cannot remove RPM-installed templates.
+
+Notably, the metadata needs no special handling as it is stored in VM features and thus automatically consistent.
 
 ### Renaming / Cloning
 
