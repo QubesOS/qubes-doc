@@ -82,7 +82,7 @@ The only exception is if you require something like VM to VM communication and h
 To create one that has no PCI devices attached, such as for `sys-firewall`:
 
 ~~~
-qvm-create -C DispVM -l red <sys-VMName>
+qvm-create -C DispVM -l green <sys-VMName>
 qvm-prefs <sys-VMName> autostart true
 qvm-prefs <sys-VMName> netvm <sys-net>
 qvm-prefs <sys-VMName> provides_network true
