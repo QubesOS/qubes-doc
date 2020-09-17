@@ -36,28 +36,30 @@ A user-friendly term for a [VM](#vm) in Qubes OS.
 
 Domain
 ------
-An area or set of activities in one's digital life that has certain security requirements and therefore involves the use of certain [qubes](#qube). 
-For example, suppose your "email" domain encompasses the activity of sending PGP-encrypted email. 
-This domain may include your email qube and your [Split GPG](/doc/split-gpg) qube. 
+**In Qubes OS:** An area or set of activities in one's digital life that has certain security requirements and therefore involves the use of certain [qubes](#qube).
+For example, suppose your "email" domain encompasses the activity of sending PGP-encrypted email.
+This domain may include your email qube and your [Split GPG](/doc/split-gpg) qube.
 Note that domains and qubes are not the same thing.
-In this example, your "email" domain includes the use of two qubes. 
-Furthermore, a qube can fall under multiple domains simultaneously. 
+In this example, your "email" domain includes the use of two qubes.
+Furthermore, a qube can fall under multiple domains simultaneously.
 For example, your Split GPG qube may also be part of your "software development" domain if you PGP-sign your Git commits.
 
-Dom0
+**In Xen:** A synonym for [VM](#vm). See [Domain on the Xen Wiki](https://wiki.xenproject.org/wiki/Domain).
+
+dom0
 ----
 Domain Zero. 
 Also known as the **host** domain, dom0 is the initial VM started by the Xen hypervisor on boot. 
 Dom0 runs the Xen management toolstack and has special privileges relative to other domains, such as direct access to most hardware. 
-(Note that the use of "domain" for a synonym for "VM" is specific to Xen. Qubes diverges from this practice. See: [domain](#domain).)
+(Note that the use of [domain](#domain) for a synonym for [VM](#vm) is specific to Xen. Qubes diverges from this practice. See: [domain](#domain).)
 
-DomU
+domU
 ----
 Unprivileged Domain. 
 Also known as **guest** domains, domUs are the counterparts to dom0. 
 All VMs except dom0 are domUs. 
 By default, most domUs lack direct hardware access. 
-(Note that the use of "domain" for a synonym for "VM" is specific to Xen. Qubes diverges from this practice. See: [domain](#domain).)
+(Note that the use of [domain](#domain) for a synonym for [VM](#vm) is specific to Xen. Qubes diverges from this practice. See: [domain](#domain).)
 
 TemplateVM
 ----------
