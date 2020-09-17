@@ -1,15 +1,15 @@
 ---
 layout: default
 title: Get Started
-permalink: /getting-started/
+permalink: /doc/getting-started/
 redirect_from:
-- /doc/getting-started/
+- /getting-started/
 - /en/doc/getting-started/
 - /doc/GettingStarted/
 - /wiki/GettingStarted/
 ---
 
-<a name="already-installed"></a>After [downloading] and [installing] Qubes OS, let's cover some basic concepts.
+After [downloading] and [installing] Qubes OS, let's cover some basic concepts.
 
 Introduction
 ------------
