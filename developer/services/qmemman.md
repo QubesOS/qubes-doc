@@ -75,3 +75,8 @@ Whenever *qmemman* is asked to return X megabytes of memory to Xen free pool, th
 4.  wait BALOON\_DELAY (0.1s)
 5.  if some domain have not given back any memory, remove it from the donors list, and go to step 2, unless we already did MAX\_TRIES (20) iterations (then return error).
 
+
+Notes
+-----
+
+Conventional means of viewing the memory available to Qubes will give incorrect values for `dom0` since commands such as `free` will only show the memory allocated for `dom0`. Run the `xl info` command in `dom0` and read the `total_memory` field to see the total memory available to Qubes.
