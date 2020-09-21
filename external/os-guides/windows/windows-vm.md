@@ -119,7 +119,7 @@ MS Windows versions considerations:
 
 - The instructions *may* work on other versions than Windows 7 x64 but haven't been tested. 
 - Qubes Windows Tools (QWT) only supports Windows 7 x64. Note that there are [known issues](https://github.com/QubesOS/qubes-issues/issues/3585) with QWT on Qubes 4.x
-- For Windows 10 under Qubes 4.0, a way to install QWT 4.0.1.3, which has worked in serverel instances, is described below.
+- For Windows 10 under Qubes 4.0, a way to install QWT 4.0.1.3, which has worked in serveral instances, is described below.
 
 Create a VM named win7new in [HVM](/doc/hvm/) mode (Xen's current PVH limitations precludes from using PVH):
 
@@ -219,14 +219,14 @@ If the Xen bus and storage drivers version 9.0.0 are installed in a Windows 10 s
 - Extract `qubes-tools-4.0.1.3.exe` from the QWT installation media, and store it on the Windows system disk.
 - Install `xenvbd` and `xenbus` version 9.0.0.
 - After installation, reboot. without the installation disk.
-- Install Qubes Windows Tools 4.0.1.3 by starting `qubes-tools-4.0.1.3.exe`, unselecting the Xen storage driver and the `Move of user data to Drive D` (which would probably lead to problems in Windows, anyhow).
+- Install Qubes Windows Tools 4.0.1.3 by starting `qubes-tools-4.0.1.3.exe`, not selecting the Xen storage driver and the `Move of user data to Drive D` (which would probably lead to problems in Windows, anyhow).
 - Shut down Windows.
 - Set `qvm-features win10new gui 1`
 - Reboot Windows. The VM starts, but does not show any window.
 - Shutdown Windows from the Qube manager.
 - Reboot Windows once more. Now the system is up, with QWT running correctly.
 
-For me, this sequence worked for Windows 10 as template VM, and a correspondig AppVM worked too.
+For me, this sequence worked for Windows 10 as template VM, and a corresponding AppVM worked too.
 
 File copy operations to a Windows 10 VM are possible, if the Qubes OS `default_user` property is set to the user name used for access to that VM, which can be done via the command
 ~~~
@@ -250,7 +250,7 @@ when creating the VM. To have the user data stored in AppVMs depending on this t
 
 -  For Windows 7, the option to move the user directories from drive `C` to drive `D` works and causes any user data to be stored in the AppVMs based on this template, and not in the template itself.
 
--  After installation of Windows 10 as a TemplateVM, the Windows disk manager may be used to add the private volume as disk `D:`, and you may, using the doumented Windows operations, move the user directories `C:\users\<username>\Documents` to this new disk, allowing depending AppVMs to have their own private volumes. Moving the hidden application directories `AppData`, however, is likely to invite trouble - the same trouble that occurs if, during QWT installation, the option `Move of user data to drive D` is selected.
+-  After installation of Windows 10 as a TemplateVM, the Windows disk manager may be used to add the private volume as disk `D:`, and you may, using the documented Windows operations, move the user directories `C:\users\<username>\Documents` to this new disk, allowing depending AppVMs to have their own private volumes. Moving the hidden application directories `AppData`, however, is likely to invite trouble - the same trouble that occurs if, during QWT installation, the option `Move of user data to drive D` is selected.
 
 For Windows 10, configuration data like those stored in directories like `AppData` still remain in the TemplateVM, such that their changes are lost each time the AppVM shuts down. In order to make permanent changes to these configuration data, they have to be changed in the TemplateVM, meaning that applications have to be started there, which violates and perhaps even endangers the security of the TemplateVM. Such changes should be done only if absolutely necessary and with great care. It is a good idea to test them first in a cloned TemplateVM before applying them in the production VM.
 
