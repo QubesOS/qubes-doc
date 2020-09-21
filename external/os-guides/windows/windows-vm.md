@@ -119,7 +119,7 @@ MS Windows versions considerations:
 
 - The instructions *may* work on other versions than Windows 7 x64 but haven't been tested. 
 - Qubes Windows Tools (QWT) only supports Windows 7 x64. Note that there are [known issues](https://github.com/QubesOS/qubes-issues/issues/3585) with QWT on Qubes 4.x
-- For Windows 10 under Qubes 4.0, a way to install QWT 4.0.1.3, which has worked in serveral instances, is described below.
+- For Windows 10 under Qubes 4.0, a way to install QWT 4.0.1.3, which has worked in several instances, is described below.
 
 Create a VM named win7new in [HVM](/doc/hvm/) mode (Xen's current PVH limitations precludes from using PVH):
 
