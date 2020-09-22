@@ -263,6 +263,12 @@ On starting the AppVM, sometimes a message is displayed that the Xen PV Network 
 
 **Caution:** These AppVMs must not be started while the corresponding TemplateVM is running, because they share the TemplateVM's license data. Even if this could work sometimes, it would be a violation of the license terms.
 
+### Windows 10 Usage According to GDPR
+
+If Windows 10 is used in the EU to process personal data, according to GDPR no automatic data transfer to countries outside the EU is allowed without explicit consent of the person(s) concerned, or other legal consent, as applicable. Since no reliable way is found to completely control the sending of telemetry from Windows 10, the system containing personal data must be completely shielded from the internet.
+
+This can be achieved by installing Windows 10 on a TemplateVM with the user data directory moved to a separate drive (usually `D:`). Personal data must not be stored within the TemplateVM, but only in AppVMs depending on this TemplateVM. Network access by these AppVMs must be restricted to the local network and perhaps additional selected servers within the EU. Any data exchange of the AppVMs must be restricted to file and clipboard operations to and from other VMs in the same Qubes system.
+
 Windows update
 --------------
 
