@@ -16,17 +16,17 @@ Building Qubes OS ISO
 Build Environment
 -----------------
 
-Fedora 30 has been successfully used to build Qubes R4.0 with the below steps.
+Fedora 32 has been successfully used to build Qubes R4.0 with the below steps.
 Other rpm-based operating systems may also work.
-Travis-CI uses Ubuntu 14.04 to perform test builds, except it can not test the `./setup` script.
+Travis-CI uses Ubuntu 18.04 to perform test builds, except it can not test the `./setup` script.
 
-In `dom0`, install the Fedora 30 template if you don't already have it.
+In `dom0`, install the Fedora 32 template if you don't already have it.
 
 ~~~
-sudo qubes-dom0-update qubes-template-fedora-30
+sudo qubes-dom0-update qubes-template-fedora-32
 ~~~
 
-Create a standalone AppVM from the Fedora 30 template.
+Create a standalone AppVM from the Fedora 32 template.
 Set private storage to at least 60 GB if you will be building only the default templates; 100 GB or more if you plan on additional.
 It's not required, but if you allocate additional CPU cores, the build process can utilize them at some steps such as the kernel build.
 Likewise, more memory (up to 16 GB) can help.
@@ -35,7 +35,7 @@ Last, you may want to disable memory balancing, but keep in mind the impact on y
 Once you've built the development AppVM, open a Terminal window to it and install the necessary dependencies (see [QubesBuilder](/doc/qubes-builder/) for more info):
 
 ~~~
-$ sudo dnf install perl-Digest-SHA rpmdevtools rpm-build dialog rpm-sign python2-sh dpkg-dev debootstrap devscripts
+$ sudo dnf install git createrepo rpm-build rpm-sign make python3-sh rpmdevtools rpm-sign dialog perl-open python3-pyyaml perl-Digest-MD5 perl-Digest-SHA
 ~~~
 
 Get the necessary keys to verify the sources (run these and other commands below as a regular user, not root):
@@ -81,11 +81,13 @@ cd ~/qubes-builder
 # Select Yes to add Qubes OS Signing Key
 # Select 4.0 for version
 # Stable
+# Select Yes for fast Git cloning
 # Select Current (if you want the option to use pre-built packages)
-# No (we want a full build)
+# Select No (we want a full build)
 # Select fc30 and buster (for the currently shipping templates)
 # Select builder-rpm, builder-debian, template-whonix, mgmt-salt
-# Yes (to download)
+# Select Yes to add adrelanos's third party key
+# Select Yes (to download)
 ~~~
 
 Once it completes downloading, re-run `setup` to add the Whonix templates:
@@ -93,8 +95,7 @@ Once it completes downloading, re-run `setup` to add the Whonix templates:
 ~~~
 ./setup
 # Choose the same options as above, except at templates select:
-# fc30, buster, whonix-gateway-14, whonix-workstation-14
-# If prompted, choose Yes to add adrelanos's third party key
+# fc30, buster, whonix-gateway-15, whonix-workstation-15
 ~~~
 
 Continue the build process with:
