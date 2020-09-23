@@ -218,6 +218,7 @@ For more, please see [Qubes Community Documentation](https://github.com/Qubes-Co
 ### Security Guides
 
  * [Security Guidelines](/doc/security-guidelines/)
+ * [Screenlockers](/doc/screenlockers/)
  * [Using Multi-factor Authentication with Qubes](/doc/multifactor-authentication/)
  * [How to Set Up a Split Bitcoin Wallet in Qubes](/doc/split-bitcoin/)
  * [Split dm-crypt](https://github.com/rustybird/qubes-split-dm-crypt)
