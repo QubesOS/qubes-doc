@@ -215,10 +215,12 @@ At that point you should have a functional and stable Windows VM, although witho
 
 If the Xen bus and storage drivers version 9.0.0 are installed in a Windows 10 system without Qubes Windows Tools, and QWT 4.0.1.3 are installed after the Xen installation has finished, the Qubes interface works correctly. Files can be exchanged with other VMs, and the common clipboard works in both directions. So to get a working Windows 10 system (Standalone or Template VM) under Qubes R4.0, the following steps should be performed:
 
-- Copy the installation kits of `xenvbd` and `xenbus` Version 9.0.0 from the Xen web site and Qubes Windows Tools 4.0.1.3 to the Windows system drive (normally `C:\`.)
-- Extract `qubes-tools-4.0.1.3.exe` from the QWT installation media, and store it on the Windows system disk.
-- Install `xenvbd` and `xenbus` version 9.0.0.
-- After installation, reboot. without the installation disk.
+- Install Qubes Windows Tools in dom0: `sudo qubes-dom0-update qubes-windows-tools`. The iso will be the file `/usr/lib/qubes/qubes-windows-tools-4.0.1.3.iso`.
+- Copy this file to some AppVM: `qvm-copy-to-vm VMname /usr/lib/qubes/qubes-windows-tools-4.0.1.3.iso`.
+- In this VM, extract the file `qubes-tools-4.0.1.3.exe` from the iso, using the archive manager.
+- Copy the installation kits of `xenvbd` and `xenbus` Version 9.0.0 (two Zip-files) from the Xen web site and the file `qubes-tools-4.0.1.3.exe` to the Windows system drive (normally `C:\`.)
+- Install `xenvbd` and `xenbus` version 9.0.0 by starting the file `dpinst.exe` from the `x64` directories of the Zip-file.
+- After installation, reboot.
 - Install Qubes Windows Tools 4.0.1.3 by starting `qubes-tools-4.0.1.3.exe`, not selecting the Xen storage driver and the `Move of user data to Drive D` (which would probably lead to problems in Windows, anyhow).
 - Shut down Windows.
 - Set `qvm-features win10new gui 1`
