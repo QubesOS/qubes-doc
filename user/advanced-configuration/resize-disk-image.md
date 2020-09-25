@@ -109,7 +109,50 @@ If you have a SSD see [here][fstrim] for information on using fstrim.
 
 [fstrim]: /doc/disk-trim
 
+Troubleshooting Disk Resize
+---------------------------
 
+Generally in QubesOS a resize of a private volume is very straight-forward. 
+However, sometimes in the GUI, the resize looks like it worked, but it 
+in fact fails fails silently. If you then try the same operation in the 
+dom0 console with a qvm-volume extend, and it fails with an error that 
+that looks something like "resize2fs: Permission denied to resize 
+filesystem" you have probably run into something that requires more 
+extensive manual intervention.
 
+What has probably happened is that there are file system errors, which 
+means that a resize2fs will not work until fsck is run first. QubesOS 
+utilities cannot yet handle this case. To fix:
 
+In the dom0 terminal get a root console on the vm (eg. sys-usb) with
 
+~~~
+sudo xl console -t pv sys-usb
+~~~
+
+Then umount everything mounted on the private volume /dev/xvdb partition. 
+(There are typically several mounts listed in /etc/mtab.) At least one 
+of them,
+
+~~~
+umount /home
+~~~
+
+will throw an error because there are processes using the /home directory. 
+Get a list of those processes with
+
+~~~
+fuser -m /home
+~~~
+
+Kill these process until they are all gone. Then
+
+~~~
+umount /home
+fsck /dev/xvdb
+resize2fs /dev/xvdb
+~~~
+
+This should square everything away, now restart your VM and observe that 
+the private volume size shown externally in the VM's settings GUI is the 
+same as that seen within the VM.
