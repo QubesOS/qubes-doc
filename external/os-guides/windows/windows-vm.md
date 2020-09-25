@@ -213,7 +213,11 @@ At that point you should have a functional and stable Windows VM, although witho
 
 ### Installing Qubes Windows Tools on Windows 10
 
-If the Xen bus and storage drivers version 9.0.0 are installed in a Windows 10 system without Qubes Windows Tools, and QWT 4.0.1.3 are installed after the Xen installation has finished, the Qubes interface works correctly. Files can be exchanged with other VMs, and the common clipboard works in both directions. So to get a working Windows 10 system (Standalone or Template VM) under Qubes R4.0, the following steps should be performed:
+If the Xen bus and storage drivers version 9.0.0 are installed in a Windows 10 system without Qubes Windows Tools, and QWT 4.0.1.3 are installed after the Xen installation has finished, the Qubes interface works correctly. Files can be exchanged with other VMs, and the common clipboard works in both directions.
+
+The installation of Qubes Windows Tools should **not** be done by using the parameter `--install-windows-tools`or by directly specifying `--cdrom=...`when starting the Windows VM, as this is bound to crash the VM on booting, showing the error `INACCESSIBLE BOOT DEVICE`- which makes no sense, but does happen.
+
+So to get a working Windows 10 system (Standalone or Template VM) under Qubes R4.0, the following steps should be performed:
 
 - Install Qubes Windows Tools in dom0: `sudo qubes-dom0-update qubes-windows-tools`. The iso will be the file `/usr/lib/qubes/qubes-windows-tools-4.0.1.3.iso`.
 - Copy this file to some AppVM: `qvm-copy-to-vm VMname /usr/lib/qubes/qubes-windows-tools-4.0.1.3.iso`.
