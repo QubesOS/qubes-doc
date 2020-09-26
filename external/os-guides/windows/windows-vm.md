@@ -117,7 +117,7 @@ To install Qubes Windows Tools, follow instructions [below](#xen-pv-drivers-and-
 
 MS Windows versions considerations:
 
-- The instructions *may* work on other versions than Windows 7 x64 but haven't been tested. 
+- The instructions *may* work on other versions than Windows 7 x64 but haven't been tested.
 - Qubes Windows Tools (QWT) only supports Windows 7 x64. Note that there are [known issues](https://github.com/QubesOS/qubes-issues/issues/3585) with QWT on Qubes 4.x
 - For Windows 10 under Qubes 4.0, a way to install QWT 4.0.1.3, which has worked in several instances, is described below.
 
@@ -227,7 +227,7 @@ So to get a working Windows 10 system (Standalone or Template VM) under Qubes R4
 **end of replaced text**
 
 **new text**
-- In the Windows 10 VM, download the installation kits of `xenvbd` and `xenbus` Version 9.0.0 (two files`xenvbd.zip`and `xenbus.zip`) from the Xen web site and the file `qubes-tools-4.0.1.3.exe` from https://www.qubes-os.org/doc/windows-tools/ **enter the final url** and store them on the Windows system drive (normally `C:\`.)
+- In the Windows 10 VM, download the installation kits of `xenvbd` and `xenbus` Version 9.0.0 (two files`xenvbd.tar`and `xenbus.tar`) from the Xen web site and the file `qubes-tools-4.0.1.3.exe` from https://www.qubes-os.org/doc/windows-tools/ **enter the final url** and store them on the Windows system drive (normally `C:\`.) In order to extract the contents from the tar-archives, you will need an external utility like 7zip.
 **end of new text**
 
 - Check the integrity of the file `qubes-tools-4.0.1.3.exe`by comparing its hash checksum. This can be done using the Windows command `certutil` specifying an appropriate hash algorithm like:
@@ -236,9 +236,9 @@ certutil --hashfile qubes-tools-4.0.1.3.exe SHA256
 ~~~
 This utility supports the algorithms MD5, SHA1, SHA256 and SHA512 (to be entered in uppercase!). The correct hash values can be retrieved from the Qubes website: https://www.qubes-os.org/doc/windows-tools/ **enter the final url**
 
-- Install `xenvbd` and `xenbus` version 9.0.0 by starting the file `dpinst.exe` from the `x64` directories of the Zip-file.
+- Install `xenvbd` and `xenbus` version 9.0.0 by starting the file `dpinst.exe` from the `x64` directories of the extracted tar-files. If during installation, the Xen driver requests a reboot, select "No" and let the installation continue.
 - After installation, reboot.
-- Install Qubes Windows Tools 4.0.1.3 by starting `qubes-tools-4.0.1.3.exe`, not selecting the Xen storage driver and the `Move of user data to Drive D` (which would probably lead to problems in Windows, anyhow).
+- Install Qubes Windows Tools 4.0.1.3 by starting `qubes-tools-4.0.1.3.exe`, not selecting the `Xen PV disk drivers` and the `Move user profiles` (which would probably lead to problems in Windows, anyhow). If during installation, the Xen driver requests a reboot, select "No" and let the installation continue - the system will be rebooted later.
 - Shut down Windows.
 - Set `qvm-features win10new gui 1`
 - Reboot Windows. The VM starts, but does not show any window.
@@ -269,7 +269,7 @@ when creating the VM. To have the user data stored in AppVMs depending on this t
 
 -  For Windows 7, the option to move the user directories from drive `C` to drive `D` works and causes any user data to be stored in the AppVMs based on this template, and not in the template itself.
 
--  After installation of Windows 10 as a TemplateVM, the Windows disk manager may be used to add the private volume as disk `D:`, and you may, using the documented Windows operations, move the user directories `C:\users\<username>\Documents` to this new disk, allowing depending AppVMs to have their own private volumes. Moving the hidden application directories `AppData`, however, is likely to invite trouble - the same trouble that occurs if, during QWT installation, the option `Move of user data to drive D` is selected.
+-  After installation of Windows 10 as a TemplateVM, the Windows disk manager may be used to add the private volume as disk `D:`, and you may, using the documented Windows operations, move the user directories `C:\users\<username>\Documents` to this new disk, allowing depending AppVMs to have their own private volumes. Moving the hidden application directories `AppData`, however, is likely to invite trouble - the same trouble that occurs if, during QWT installation, the option `Move user profiles` is selected.
 
 For Windows 10, configuration data like those stored in directories like `AppData` still remain in the TemplateVM, such that their changes are lost each time the AppVM shuts down. In order to make permanent changes to these configuration data, they have to be changed in the TemplateVM, meaning that applications have to be started there, which violates and perhaps even endangers the security of the TemplateVM. Such changes should be done only if absolutely necessary and with great care. It is a good idea to test them first in a cloned TemplateVM before applying them in the production VM.
 
