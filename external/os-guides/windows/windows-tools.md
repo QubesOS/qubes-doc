@@ -19,21 +19,33 @@ Qubes Windows Tools
 
 Qubes Windows Tools are a set of programs and drivers that provide integration of Windows AppVMs with the rest of the Qubes system. Currently the following features are available for Windows VMs after installation of those tools:
 
--   Seamless GUI mode that integrates apps windows onto the common Qubes trusted desktop
--   Support for [secure clipboard copy/paste](/doc/copy-paste/) between the Windows VM and other AppVMs
--   Support for [secure file exchange](/doc/copying-files/) between the Windows VM and other AppVMs
--   Support for qvm-run and generic qrexec for the Windows VM (e.g. ability to run custom service within/from the Windows VM)
--   Xen PV drivers for Windows that increase performance compared to qemu emulated devices
+-   **Qubes Video Driver** - provides for the Seamless GUI mode that integrates apps windows onto the common Qubes trusted desktop
+-   **File sender/receiver** - Support for [secure clipboard copy/paste](/doc/copy-paste/) between the Windows VM and other AppVMs
+-   ***File sender/receiver** - Support for [secure file exchange](/doc/copying-files/) between the Windows VM and other AppVMs
+-   **Copy/Edit in Dipostable VM** - Support for editing files in DisposableVMs as well as for qvm-run and generic qrexec for the Windows VM (e.g. ability to run custom service within/from the Windows VM)
+-   **Xen PV drivers** for Windows that increase performance compared to qemu emulated devices
+
+Bellow is a breakdown of the feature availablility depending on the windows version:
+
+|             Feature                  |  Windows 7 x64 | Windows 10 x64 |
+| ------------------------------------ | :------------: | :------------: |
+| Qubes Video Driver                   |        +       |       -        |
+| Qubes Network Setup                  |        +       |       +        |
+| Private Volume Setup (move profiles) |        +       |       +        |
+| File sender/receiver                 |        +       |       +        |
+| Clipboard Copy/Paste                 |        +       |       +        |
+| Application shortcuts                |        +       |       +        |
+| Copy/Edit in Disposible VM           |        +       |       +        |
+| Block device                         |        +       |       +        |
+| USB device                           |        -       |       -        |
+| Audio                                |        -       |       -        |
 
 Qubes Windows Tools are open source and are distributed under a GPL license.
 
 NOTES:
 - Qubes Windows Tools are currently unmaintained
 - Currently only 64-bit versions of Windows 7 are supported by Qubes Windows Tools. Only emulated SVGA GPU is supported (although [there has been reports](https://groups.google.com/forum/#!topic/qubes-users/cmPRMOkxkdA) on working GPU passthrough).
-- There is currently no audio support for Windows HVMs.
-- There is currently no USB pass-through support for Windows HVMs.
 - __This page documents the process of installing Qubes Windows Tools on versions up to R3.2.__. Installation on Qubes R4.0 is possible but is a work in progress and there are limitations/bugs (see [issue #3585](https://github.com/QubesOS/qubes-issues/issues/3585)).
-
 
 Installing Windows OS in a Qubes VM
 -----------------------------------
@@ -41,6 +53,51 @@ Installing Windows OS in a Qubes VM
 Please refer to [this page](/doc/windows-vm/) for instructions on how to install Windows in a Qubes VM.
 
 NOTE: It is strongly suggested to enable autologon for any Windows HVMs that will have Qubes Tools installed. To do so, run `netplwiz` command from the `Win+R`/Start menu and uncheck the *Users must enter a user name and password to use this computer* option.
+
+Installing Qubes guest tools in Windows 10 VMs
+----------------------------------------------
+
+This will allow you to installs the Qubes Windows Tools on Windows 10 both as a StandaloneVM as well as a template VM and a corresponding AppVM. But some features are not available:
+
+TODO available features
+
+ 1. In the Windows 10 VM, download from the [XEN website](https://xenproject.org/downloads/windows-pv-drivers/windows-pv-drivers-9-series/windows-pv-drivers-9-0-0/) the installation kits for Xen bus (`xenbus`) and storage drivers (`xenvbd`) Version 9.0.0 (two files`xenvbd.tar`and `xenbus.tar`).
+ 
+ 2. Use an archive extractor like [7-zip](https://www.7-zip.org/) to extract the contents of the `.tar` files.
+ 
+ 3. - Install `xenvbd` and `xenbus` by starting the file `dpinst.exe` from the `x64` directories of the extracted tar-files. If during installation, the Xen driver requests a reboot, select "No" and let the installation continue.
+ 
+ 4. After installation, reboot.
+
+ 5. Download the Qubes Windows Tools (`qubes-tools-4.0.1.3.exe`) from [the qubes FTP server](TODO add ftp link) and move it to `C:\`.
+ 
+ 6. Check the integrity of the file `qubes-tools-4.0.1.3.exe`by comparing its hash checksum. This can be done using the Windows command `certutil` on the windows command prompt (`cmd.exe`) and specifying an appropriate hash algorithm like:
+        
+		certutil --hashfile C:\qubes-tools-4.0.1.3.exe SHA256
+
+	And compare it the value to `148A2A993F0C746B48FA6C5C9A5D1B504E09A7CFBA3FB931A4DCF86FDA4EC9B1` (**it has to exactly match for security reasons**). If it matches, feel free to continue the installation. If not, repeat the download to make sure it was not corrupted due to a network problem. If keeps on not matching it might be an attacker attempting to do something nasty to your system -- Ask for support.
+
+    > **Note**: this is a workaround for installing the qubes windows tools on windows 10 since the standard way is broken.
+
+ 7. Install Qubes Windows Tools 4.0.1.3 by starting `qubes-tools-4.0.1.3.exe`, not selecting the `Xen PV disk drivers` and the `Move user profiles` (which would probably lead to problems in Windows, anyhow). If during installation, the Xen driver requests a reboot, select "No" and let the installation continue - the system will be rebooted later.
+
+ 8. Shut down Windows.
+
+ 9. On a `dom0` terminal write: *(where `<VMname>` is the name of your Windows 10 VM)*
+  
+		`qvm-features <VMname> gui 1`
+
+ 10. Reboot Windows. If the VM starts, but does not show any window then shutdown Windows from the Qube manager and reboot Windows once more.
+ 
+ 11. Now the system should be up, with QWT running correctly.
+ 
+ 12. Lastly to enable file copy operations to a Windows 10 VM the `default_user` property should be set the `<username>` that you use to login to the Windows VM. This can be done via the following command on a `dom0` terminal: *(where `<VMname>` is the name of your Windows 10 VM)*
+
+		qvm-prefs win10 default_user <username>
+
+     > **Note:** If this property is not set or set to a wrong value, files copied to this VM are stored in the folder `C:\Windows\System32\config\systemprofile\Documents\QubesIncoming\<source_VM>`.
+	 > If the target VM is an AppVM, this has the consequence that the files are stored in the corresponding TemplateVM and so are lost on AppVM shutdown.
+
 
 Installing Qubes guest tools in Windows 7 VMs
 ---------------------------------------------
@@ -93,6 +150,8 @@ qvm-prefs -s <vm-name> qrexec_timeout 300
 
 Using Windows AppVMs in seamless mode
 -------------------------------------
+
+> **Note:** This feature is only available for Windows 7
 
 Once you start a Windows-based AppVM with Qubes Tools installed, you can easily start individual applications from the VM (note the `-a` switch used here, which will auto-start the VM if it is not running):
 

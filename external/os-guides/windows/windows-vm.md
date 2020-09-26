@@ -211,51 +211,6 @@ qvm-prefs win7new qrexec_timeout 300
 
 At that point you should have a functional and stable Windows VM, although without updates, Xen's PV drivers nor Qubes integration (see sections [Windows Update](#windows-update) and [Xen PV drivers and Qubes Windows Tools](#xen-pv-drivers-and-qubes-windows-tools) below). It is a good time to clone the VM again.
 
-### Installing Qubes Windows Tools on Windows 10
-
-If the Xen bus and storage drivers version 9.0.0 are installed in a Windows 10 system without Qubes Windows Tools, and QWT 4.0.1.3 are installed after the Xen installation has finished, the Qubes interface works correctly. Files can be exchanged with other VMs, and the common clipboard works in both directions.
-
-The installation of Qubes Windows Tools should **not** be done by using the parameter `--install-windows-tools`or by directly specifying `--cdrom=...`when starting the Windows VM, as this is bound to crash the VM on booting, showing the error `INACCESSIBLE BOOT DEVICE`- which makes no sense, but does happen.
-
-So to get a working Windows 10 system (Standalone or Template VM) under Qubes R4.0, the following steps should be performed:
-
-**to be replaced**
-- Install Qubes Windows Tools in dom0: `sudo qubes-dom0-update qubes-windows-tools`. The iso will be the file `/usr/lib/qubes/qubes-windows-tools-4.0.1.3.iso`.
-- Copy this file to some AppVM: `qvm-copy-to-vm VMname /usr/lib/qubes/qubes-windows-tools-4.0.1.3.iso`.
-- In this VM, extract the file `qubes-tools-4.0.1.3.exe` from the iso, using the archive manager.
-- Copy the installation kits of `xenvbd` and `xenbus` Version 9.0.0 (two Zip-files) from the Xen web site and the file `qubes-tools-4.0.1.3.exe` to the Windows system drive (normally `C:\`.)
-**end of replaced text**
-
-**new text**
-- In the Windows 10 VM, download the installation kits of `xenvbd` and `xenbus` Version 9.0.0 (two files`xenvbd.tar`and `xenbus.tar`) from the Xen web site and the file `qubes-tools-4.0.1.3.exe` from https://www.qubes-os.org/doc/windows-tools/ **enter the final url** and store them on the Windows system drive (normally `C:\`.) In order to extract the contents from the tar-archives, you will need an external utility like 7zip.
-**end of new text**
-
-- Check the integrity of the file `qubes-tools-4.0.1.3.exe`by comparing its hash checksum. This can be done using the Windows command `certutil` specifying an appropriate hash algorithm like:
-~~~
-certutil --hashfile qubes-tools-4.0.1.3.exe SHA256
-~~~
-This utility supports the algorithms MD5, SHA1, SHA256 and SHA512 (to be entered in uppercase!). The correct hash values can be retrieved from the Qubes website: https://www.qubes-os.org/doc/windows-tools/ **enter the final url**
-
-- Install `xenvbd` and `xenbus` version 9.0.0 by starting the file `dpinst.exe` from the `x64` directories of the extracted tar-files. If during installation, the Xen driver requests a reboot, select "No" and let the installation continue.
-- After installation, reboot.
-- Install Qubes Windows Tools 4.0.1.3 by starting `qubes-tools-4.0.1.3.exe`, not selecting the `Xen PV disk drivers` and the `Move user profiles` (which would probably lead to problems in Windows, anyhow). If during installation, the Xen driver requests a reboot, select "No" and let the installation continue - the system will be rebooted later.
-- Shut down Windows.
-- Set `qvm-features win10new gui 1`
-- Reboot Windows. The VM starts, but does not show any window.
-- Shutdown Windows from the Qube manager.
-- Reboot Windows once more. Now the system is up, with QWT running correctly.
-
-For me, this sequence worked for Windows 10 as template VM, and a corresponding AppVM worked too.
-
-File copy operations to a Windows 10 VM are possible, if the Qubes OS `default_user` property is set to the user name used for access to that VM, which can be done via the command
-~~~
-qvm-prefs <VMname> default_user <username>
-~~~
-If this property is not set or set to a wrong value, files copied to this VM are stored in the folder
-~~~
-C:\Windows\System32\config\systemprofile\Documents\QubesIncoming\<source_VM>
-~~~
-If the target VM is an AppVM, this has the consequence that the files are stored in the corresponding TemplateVM and so are lost on AppVM shutdown.
 
 Windows as TemplateVM
 ---------------------
