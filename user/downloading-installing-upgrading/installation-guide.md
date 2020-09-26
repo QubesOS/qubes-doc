@@ -226,13 +226,28 @@ Press **Done** to go back to the installation summary screen.
 
 Under the System section, you must choose the installation destination.
 Select the storage device on which you would like to install Qubes OS.
-Ensure that your your target destination has a least 32 GiB of free space available.
 
 <div class="alert alert-danger" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
   <b>Warning:</b> Be careful to choose the correct installation target, or you may lose data.
   We strongly recommended making a full backup before proceeding.
 </div>
+
+
+Your installation destination can be an internal or external storage drive, such as an SSD, HDD, or USB drive.
+The installation destination must have a least 32 GiB of free space available.
+
+<div class="alert alert-warning" role="alert">
+  <i class="fa fa-exclamation-circle"></i>
+  <b>Note:</b> If you're installing Qubes OS <em>from</em> a USB drive <em>onto</em> a USB drive, they must be two distinct USB drives, and they must both be plugged into your computer at the same time.
+</div>
+
+Installing an operating system onto a USB drive can be a convenient way to try Qubes.
+However, USB drives are typically much slower than internal SSDs.
+We recommend a very fast USB 3.0 drive for decent performance.
+Please note that a minimum storage of 32 GiB is required.
+If you want to install Qubes OS onto a USB drive, just select the USB device as the target installation device. 
+Bear in mind that the installation process is likely to take longer than it would on an internal storage device.
 
 ![Select storage device](/attachment/wiki/InstallationGuide/select-storage-device.png)
 
@@ -252,13 +267,6 @@ When you're finished, press **Done**.
 </div>
 
 ![Select storage passhprase](/attachment/wiki/InstallationGuide/select-storage-passphrase.png)
-
-Installing an operating system onto a USB drive can be a convenient way to try out Qubes OS.
-However, USB drivers are typically much slower than internal SSDs.
-We recommend a very fast USB 3.0 drive for decent performance.
-Please note that a minimum storage of 32 GiB is required.
-If you want to install Qubes OS onto a USB drive, just select the USB device as the target installation device. 
-Bear in mind that the installation process is likely to take longer than it would on an internal storage device.
 
 When you're ready, press **Begin Installation**.
 
