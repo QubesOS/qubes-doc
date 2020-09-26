@@ -252,36 +252,6 @@ Note: if you already have Qubes Windows Tools installed the video adapter in Win
 To avoid guessing the VM's state enable debugging (`qvm-prefs -s win7new debug true`) and in Windows' device manager (My computer -> Manage / Device manager / Display adapters) temporarily re-enable the standard VGA adapter and disable "Qubes video driver". You can disable debugging and revert to Qubes' display once the VM is updated.
 
 
-Xen PV drivers and Qubes Windows Tools
-------------------------------------
-
-Installing Xen's PV drivers in the VM will lower its resources usage when using network and/or I/O intensive applications, but *may* come at the price of system stability (although Xen's PV drivers on a Win7 VM are usually very stable). There are two ways of installing the drivers:
-
-1. installing the drivers independently, from Xen's [official site](https://www.xenproject.org/developers/teams/windows-pv-drivers.html)
-2. installing Qubes Windows Tools (QWT), which bundles Xen's PV drivers.
-
-Notes about using Xen's VBD (storage) PV driver:
-- **Windows 7:** installing the driver requires a fully updated VM or else you'll likely get a BSOD and a VM in a difficult to fix state. Updating Windows takes *hours* and for casual usage there isn't much of a performance between the disk PV driver and the default one; so there is likely no need to go through the lengthy Windows Update process if your VM doesn't have access to untrusted networks and if you don't use I/O intensive apps. If you plan to update your newly installed Windows VM it is recommended that you do so *before* installing Qubes Windows Tools (QWT). If QWT are installed, you should temporarily re-enable the standard VGA adapter in Windows and disable Qubes' (see the section above).
-- the option to install the storage PV driver is disabled by default in Qubes Windows Tools 
-- in case you already had QWT installed without the storage PV driver and you then updated the VM, you may then install the driver from Xen's site (xenvbd.tar).
-
-**Caution:** Installing the version 9.0.0 Xen drivers on Windows 7 (a system without QWT - QWT uninstalled) leads to an unbootable system. The drivers install without error, but after reboot, the system aborts the reboot saying ´Missing driver xenbus.sys´.
-
-- **Windows 10:** The version 9.0.0 Xen drivers have to be installed before installing Qubes Windows Tools. Installing them on a system with QWT installed is likely to produce a system which crashes or has the tools in a non-functional state. Even if the tools were installed and then removed before installing the Xen drivers, they probably will not work as expected.
-
-
-Installing Qubes Windows Tools:
-- on R3.2: see [this page](/doc/windows-tools/)
-- R4.0: you'll have to install QWT for Qubes R3.2. Be warned that QWT on R4.0 is a work in progress though (see [issue #3585](https://github.com/QubesOS/qubes-issues/issues/3585) for instructions and known issues).
-
-
-With Qubes Windows Tools installed the early graphical console provided in debugging mode isn't needed anymore since Qubes' display driver will be used instead of the default VGA driver:
-
-~~~
-qvm-prefs -s win7new debug false
-~~~
-
-
 Further customization
 ---------------------
 
