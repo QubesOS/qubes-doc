@@ -239,7 +239,7 @@ The installation destination must have a least 32 GiB of free space available.
 
 <div class="alert alert-warning" role="alert">
   <i class="fa fa-exclamation-circle"></i>
-  <b>Note:</b> If you're installing Qubes OS <em>from</em> a USB drive <em>onto</em> a USB drive, they must be two distinct USB drives, and they must both be plugged into your computer at the same time.
+  <b>Note:</b> The installation destination cannot be the same as the installation medium. For example, if you're installing Qubes OS <em>from</em> a USB drive <em>onto</em> a USB drive, they must be two distinct USB drives, and they must both be plugged into your computer at the same time. (Note: This may not apply to advanced users who partition their devices appropriately.)
 </div>
 
 Installing an operating system onto a USB drive can be a convenient way to try Qubes.
