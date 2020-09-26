@@ -85,7 +85,7 @@ TODO available features
 
  9. On a `dom0` terminal write: *(where `<VMname>` is the name of your Windows 10 VM)*
   
-		`qvm-features <VMname> gui 1`
+		qvm-features <VMname> gui 1
 
  10. Reboot Windows. If the VM starts, but does not show any window then shutdown Windows from the Qube manager and reboot Windows once more.
  
