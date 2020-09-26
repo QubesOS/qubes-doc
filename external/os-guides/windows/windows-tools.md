@@ -65,7 +65,7 @@ TODO available features
  
  2. Use an archive extractor like [7-zip](https://www.7-zip.org/) to extract the contents of the `.tar` files.
  
- 3. - Install `xenvbd` and `xenbus` by starting the file `dpinst.exe` from the `x64` directories of the extracted tar-files. If during installation, the Xen driver requests a reboot, select "No" and let the installation continue.
+ 3. Install `xenvbd` and `xenbus` by starting the file `dpinst.exe` from the `x64` directories of the extracted tar-files. If during installation, the Xen driver requests a reboot, select "No" and let the installation continue.
  
  4. After installation, reboot.
 
