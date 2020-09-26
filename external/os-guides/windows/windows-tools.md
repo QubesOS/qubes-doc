@@ -166,11 +166,6 @@ Notes about using Xen's VBD (storage) PV driver:
 - **Windows 10:** The version 9.0.0 Xen drivers have to be installed before installing Qubes Windows Tools. Installing them on a system with QWT installed is likely to produce a system which crashes or has the tools in a non-functional state. Even if the tools were installed and then removed before installing the Xen drivers, they probably will not work as expected.
 
 
-Installing Qubes Windows Tools:
-- on R3.2: see [this page](/doc/windows-tools/)
-- R4.0: you'll have to install QWT for Qubes R3.2. Be warned that QWT on R4.0 is a work in progress though (see [issue #3585](https://github.com/QubesOS/qubes-issues/issues/3585) for instructions and known issues).
-
-
 With Qubes Windows Tools installed the early graphical console provided in debugging mode isn't needed anymore since Qubes' display driver will be used instead of the default VGA driver:
 
 ~~~
