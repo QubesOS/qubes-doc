@@ -219,10 +219,23 @@ The installation of Qubes Windows Tools should **not** be done by using the para
 
 So to get a working Windows 10 system (Standalone or Template VM) under Qubes R4.0, the following steps should be performed:
 
+**to be replaced**
 - Install Qubes Windows Tools in dom0: `sudo qubes-dom0-update qubes-windows-tools`. The iso will be the file `/usr/lib/qubes/qubes-windows-tools-4.0.1.3.iso`.
 - Copy this file to some AppVM: `qvm-copy-to-vm VMname /usr/lib/qubes/qubes-windows-tools-4.0.1.3.iso`.
 - In this VM, extract the file `qubes-tools-4.0.1.3.exe` from the iso, using the archive manager.
 - Copy the installation kits of `xenvbd` and `xenbus` Version 9.0.0 (two Zip-files) from the Xen web site and the file `qubes-tools-4.0.1.3.exe` to the Windows system drive (normally `C:\`.)
+**end of replaced text**
+
+**new text**
+- In the Windows 10 VM, download the installation kits of `xenvbd` and `xenbus` Version 9.0.0 (two files`xenvbd.zip`and `xenbus.zip`) from the Xen web site and the file `qubes-tools-4.0.1.3.exe` from https://www.qubes-os.org/doc/windows-tools/ **enter the final url** and store them on the Windows system drive (normally `C:\`.)
+**end of new text**
+
+- Check the integrity of the file `qubes-tools-4.0.1.3.exe`by comparing its hash checksum. This can be done using the Windows command `certutil` specifying an appropriate hash algorithm like:
+~~~
+certutil --hashfile qubes-tools-4.0.1.3.exe SHA256
+~~~
+This utility supports the algorithms MD5, SHA1, SHA256 and SHA512 (to be entered in uppercase!). The correct hash values can be retrieved from the Qubes website: https://www.qubes-os.org/doc/windows-tools/ **enter the final url**
+
 - Install `xenvbd` and `xenbus` version 9.0.0 by starting the file `dpinst.exe` from the `x64` directories of the Zip-file.
 - After installation, reboot.
 - Install Qubes Windows Tools 4.0.1.3 by starting `qubes-tools-4.0.1.3.exe`, not selecting the Xen storage driver and the `Move of user data to Drive D` (which would probably lead to problems in Windows, anyhow).
