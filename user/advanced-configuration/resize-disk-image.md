@@ -112,16 +112,16 @@ If you have a SSD see [here][fstrim] for information on using fstrim.
 Troubleshooting Disk Resize
 ---------------------------
 
-Generally in QubesOS a resize of a private volume is very straight-forward. 
+Generally in Qubes OS a resize of a private volume is very straight-forward. 
 However, sometimes in the GUI, the resize looks like it worked, but it 
-in fact fails fails silently. If you then try the same operation in the 
+in fact fails silently. If you then try the same operation in the 
 dom0 console with a qvm-volume extend, and it fails with an error that 
 that looks something like "resize2fs: Permission denied to resize 
 filesystem" you have probably run into something that requires more 
 extensive manual intervention.
 
 What has probably happened is that there are file system errors, which 
-means that a resize2fs will not work until fsck is run first. QubesOS 
+means that a resize2fs will not work until fsck is run first. Qubes OS 
 utilities cannot yet handle this case. To fix:
 
 In the dom0 terminal get a root console on the vm (eg. sys-usb) with
