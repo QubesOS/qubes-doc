@@ -62,10 +62,8 @@ In addition, these templates may be somewhat less stable, since the Qubes develo
  * [Arch Linux]
  * [CentOS]
  * [CentOS Minimal]
- * [CentOS Xfce]
  * [Gentoo]
  * [Gentoo Minimal]
- * [Gentoo Xfce]
 
 ## Installing
 
