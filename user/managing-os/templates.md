@@ -265,7 +265,7 @@ Note the word "clean" means in this context: the same as their template filesyst
 [TemplateBasedVMs]: /doc/glossary/#templatebasedvm
 [Fedora]: /doc/templates/fedora/
 [Fedora Minimal]: /doc/templates/minimal/
-[Fedora Xfce]: /doc/templates/fedora-xfce
+[Fedora Xfce]: /doc/templates/xfce
 [Debian]: /doc/templates/debian/
 [Debian Minimal]: /doc/templates/minimal/
 [Whonix]: /doc/templates/whonix/
@@ -273,8 +273,10 @@ Note the word "clean" means in this context: the same as their template filesyst
 [Arch Linux]: /doc/building-archlinux-template/
 [CentOS]: /doc/templates/centos/
 [CentOS Minimal]: /doc/templates/minimal/
+[CentOS Xfce]: /doc/templates/xfce
 [Gentoo]: /doc/templates/gentoo/
 [Gentoo Minimal]: /doc/templates/minimal/
+[Gentoo Xfce]: /doc/templates/xfce
 [Qubes Builder]: /doc/qubes-builder/
 [TemplateVM Implementation]: /doc/template-implementation/
 [How to Remove VMs Manually]: /doc/remove-vm-manually/
