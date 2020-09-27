@@ -59,7 +59,7 @@ Installing Qubes guest tools in Windows 10 VMs
 
 This will allow you to install the Qubes Windows Tools on Windows 10 both as a StandaloneVM as well as a Template VM and a corresponding AppVM. But some features are not available:
 
-TODO available features - **not available: seamless mode - others?**
+> **Note:** seamless mode is currently not available for windows. Please check the top of this document for the full feature availability breakdown.
 
  1. In the Windows 10 VM, download from the [XEN website](https://xenproject.org/downloads/windows-pv-drivers/windows-pv-drivers-9-series/windows-pv-drivers-9-0-0/) the installation kits for Xen bus (`xenbus`) and storage drivers (`xenvbd`) Version 9.0.0 (two files`xenvbd.tar`and `xenbus.tar`).
  
