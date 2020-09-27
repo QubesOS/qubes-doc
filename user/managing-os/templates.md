@@ -83,6 +83,11 @@ Usually, the installation method is to execute the following type of command in 
     $ sudo qubes-dom0-update qubes-template-<name>
 
 where `qubes-template-<name>` is the name of your TemplateVM package.
+
+If you wish to install a community template, you must enable the community template repo:
+
+    $ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-<name>
+
 If you receive the message that no match is found for `qubes-template-<name>`, see [here][no-match].
 
 ## After Installing
