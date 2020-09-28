@@ -116,7 +116,7 @@ Also, there are packages to provide additional services:
 - `qubes-pdf-converter`: For implementing safe conversion of PDFs.
 - `qubes-img-converter`: For implementing safe conversion of images.
 - `qubes-snapd-helper`: If you want to use snaps in qubes.
-- `qubes-thunderbird`: Additional tools for use in thunderbird.
+- `thunderbird-qubes`: Additional tools for use in thunderbird.
 - `qubes-app-shutdown-idle`: If you want qubes to automatically shutdown when idle.
 - `qubes-mgmt-salt-vm-connector`: If you want to use salt management on the template and qubes.
 
