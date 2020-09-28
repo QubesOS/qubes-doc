@@ -25,7 +25,7 @@ Qubes Windows Tools are a set of programs and drivers that provide integration o
 -   **Copy/Edit in Dipostable VM** - Support for editing files in DisposableVMs as well as for qvm-run and generic qrexec for the Windows VM (e.g. ability to run custom service within/from the Windows VM)
 -   **Xen PV drivers** for Windows that increase performance compared to qemu emulated devices
 
-Bellow is a breakdown of the feature availablility depending on the windows version:
+Below is a breakdown of the feature availablility depending on the windows version:
 
 |             Feature                  |  Windows 7 x64 | Windows 10 x64 |
 | ------------------------------------ | :------------: | :------------: |
@@ -69,7 +69,7 @@ This will allow you to install the Qubes Windows Tools on Windows 10 both as a S
  
  4. After installation, reboot.
 
- 5. Download the Qubes Windows Tools (`qubes-tools-4.0.1.3.exe`) from [the qubes FTP server](TODO add ftp link) and move it to `C:\`.
+ 5. Download the Qubes Windows Tools (`qubes-tools-4.0.1.3.exe`) from [the qubes FTP server](https://ftp.qubes-os.org/qubes-windows-tools/) and move it to `C:\`.
  
  6. Check the integrity of the file `qubes-tools-4.0.1.3.exe`by comparing its hash checksum. This can be done using the Windows command `certutil` on the windows command prompt (`cmd.exe`) and specifying an appropriate hash algorithm like:
         
