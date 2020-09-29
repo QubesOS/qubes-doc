@@ -140,10 +140,10 @@ In `work-email`, use the Thunderbird config editor (found at the bottom of prefe
 
 Open the Account Settings and open the End-to-End Encryption tab of the respective email account. Click the "Add Key" button. You'll be offered the choice "Use your external key through GnuPG". Select it and click Continue.
 
-You need to obtain your key ID which should be **exactly 16 characters**. For that in `work-gpg`, enter the command `gpg -K --keyid-format long`:
+You need to obtain your key ID which should be **exactly 16 characters**. Enter the command `qubes-gpg-client-wrapper -K --keyid-format long`:
 
 ```
-[user@work-gpg ~]$ gpg -K --keyid-format long
+[user@work-email ~]$ qubes-gpg-client-wrapper -K --keyid-format long
 /home/user/.gnupg/pubring.kbx
 -----------------------------
 sec   rsa2048/777402E6D301615C 2020-09-05 [SC] [expires: 2022-09-05]
@@ -154,14 +154,13 @@ ssb   rsa2048/370CE932085BA13B 2020-09-05 [E] [expires: 2022-09-05]
 
 The key ID reference you would need here is `777402E6D301615C`. Now paste or type the ID of the secret key that you would like to use. Be careful to enter it correctly, because your input isn't verified. Confirm to save this key ID.
 
-This key ID will be used to digitally sign or send an encrypted message with your account. For this to work, Thunderbird needs a copy of your public key. At this time, Thunderbird doesn't fetch the public key from `/usr/bin/qubes-gpg-client-wrapper`, you must manually import it. In `work-gpg`, export the key as follow (assuming the key ID would be `777402E6D301615C`):
+This key ID will be used to digitally sign or send an encrypted message with your account. For this to work, Thunderbird needs a copy of your public key. At this time, Thunderbird doesn't fetch the public key from `/usr/bin/qubes-gpg-client-wrapper`, you must manually import it. Export the key as follow (assuming the key ID would be `777402E6D301615C`):
 
 ```
-[user@work-gpg ~]$ gpg --armor --export 777402E6D301615C > 777402E6D301615C.asc
-[user@work-gpg ~]$ qvm-move 777402E6D301615C.asc
+[user@work-email ~]$ qubes-gpg-client-wrapper --armor --export 777402E6D301615C > 777402E6D301615C.asc
 ```
 
-Select `work-email` as target in dom0/GuiVM popup and accept. In `work-email`, use Thunderbird's Tools menu to open OpenPGP Key Management. In that window, use the File menu to access the Import Public Key command. Open the file with your public key. After the import was successfull, you must open the key details, and you must mark your own key as **accepted**.
+Use Thunderbird's Tools menu to open OpenPGP Key Management. In that window, use the File menu to access the Import Public Key command. Open the file with your public key. After the import was successfull, you must open the key details, and you must mark your own key as **accepted**.
 
 Once this is done, you should be able to send an encrypted and signed email. You can try it by sending an email to yourself.
 
