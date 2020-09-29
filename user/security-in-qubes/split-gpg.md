@@ -50,11 +50,11 @@ Make sure you have the `qubes-gpg-split` package installed in the template you w
 
 For Debian or Whonix:
 
-    [user@debian-8 ~]$ sudo apt install qubes-gpg-split
+    [user@debian-10 ~]$ sudo apt install qubes-gpg-split
 
 For Fedora:
 
-    [user@fedora-25 ~]$ sudo dnf install qubes-gpg-split
+    [user@fedora-32 ~]$ sudo dnf install qubes-gpg-split
 
 ### Setting up the GPG backend domain ###
 
