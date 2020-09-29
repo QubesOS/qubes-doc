@@ -173,7 +173,7 @@ This key ID will be used to digitally sign or send an encrypted message with you
 [![tb78-8.png](/attachment/wiki/SplitGpg/tb78-8.png)](/attachment/wiki/SplitGpg/tb78-8.png)
 [![tb78-9.png](/attachment/wiki/SplitGpg/tb78-9.png)](/attachment/wiki/SplitGpg/tb78-9.png)
 
-Use Thunderbird's Tools menu to open *OpenPGP Key Management*. In that window, use the File menu to access the *Import Public Key(s) From File* command. Open the file with your public key. After the import was successfull, right click on the imported key in the list and select *Key Properties*. You must mark your own key as *Yes, I've verified in person this key has the correct fingerprint*.
+Use Thunderbird's Tools menu to open *OpenPGP Key Management*. In that window, use the File menu to access the *Import Public Key(s) From File* command. Open the file with your public key. After the import was successful, right click on the imported key in the list and select *Key Properties*. You must mark your own key as *Yes, I've verified in person this key has the correct fingerprint*.
 
 Once this is done, you should be able to send an encrypted and signed email by selecting *Require Encryption* or *Digitally Sign This Message* in the compose menu *Options* or *Security* toolbar button. You can try it by sending an email to yourself.
 
