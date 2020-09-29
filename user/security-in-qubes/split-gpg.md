@@ -133,8 +133,9 @@ Note that, because this makes it easier to accept Split GPG's qrexec authorizati
 
 ## Using Thunderbird ##
 
-### Built-in PGP feature (Thunderbird >= 78)
+### Thunderbird 78 and higher
 
+Starting with version 78, Thunderbird has a built-in PGP feature.
 In `work-email`, use the Thunderbird config editor (found at the bottom of preferences/options), and search for `mail.openpgp.allow_external_gnupg`. Switch the value to true. Still in config editor, search for `mail.openpgp.alternative_gpg_path`. Set its value to `/usr/bin/qubes-gpg-client-wrapper`. Restart Thunderbird after this change.
 
 Open the Account Settings and open the End-to-End Encryption tab of the respective email account. Click the "Add Key" button. You'll be offered the choice "Use your external key through GnuPG". Select it and click Continue.
@@ -166,8 +167,9 @@ Once this is done, you should be able to send an encrypted and signed email. You
 
 For more details about using Smartcards/Split GPG with Thunderbird PGP feature, please see [Thunderbird:OpenPGP:Smartcards] from which the above documentation is inspired.
 
-### Enigmail with Split GPG (Thunderbird < 78)
+### Older Thunderbird versions
 
+For Thunderbird versions below 78, the traditional Enigmail + Split GPG setup is required.
 It is recommended to set up and use `/usr/bin/qubes-gpg-client-wrapper`, as discussed above, in Thunderbird through the Enigmail addon.
 
 **Warning:** Before adding any account, configuring Enigmail with `/usr/bin/qubes-gpg-client-wrapper` is **required**. By default, Enigmail will generate a default GPG key in `work-email` associated with the newly created Thunderbird account. Generally, it corresponds to the email used in `work-gpg` associated to your private key. In consequence, a new, separate private key will be stored in `work-email` but it _does not_ correspond to your private key in `work-gpg`. Comparing the `fingerprint` or `expiration date` will show that they are not the same private key. In order to prevent Enigmail using this default generated local key in `work-email`, you can safely remove it.
