@@ -179,7 +179,7 @@ Once this is done, you should be able to send an encrypted and signed email by s
 
 [![tb78-10.png](/attachment/wiki/SplitGpg/tb78-10.png)](/attachment/wiki/SplitGpg/tb78-10.png)
 
-For more details about using Smartcards/Split GPG with Thunderbird PGP feature, please see [Thunderbird:OpenPGP:Smartcards] from which the above documentation is inspired.
+For more details about using smart cards/Split GPG with Thunderbird PGP feature, please see [Thunderbird:OpenPGP:Smartcards] from which the above documentation is inspired.
 
 ### Older Thunderbird versions
 
