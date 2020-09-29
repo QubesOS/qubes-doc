@@ -92,9 +92,9 @@ Please be aware of the caveat regarding passphrase-protected keys in the [Curren
 
 Normally it should be enough to set the `QUBES_GPG_DOMAIN` to the GPG backend domain name and use `qubes-gpg-client` in place of `gpg`, e.g.:
 
-    [user@work ~]$ export QUBES_GPG_DOMAIN=work-gpg
-    [user@work ~]$ gpg -K
-    [user@work ~]$ qubes-gpg-client -K
+    [user@work-email ~]$ export QUBES_GPG_DOMAIN=work-gpg
+    [user@work-email ~]$ gpg -K
+    [user@work-email ~]$ qubes-gpg-client -K
     /home/user/.gnupg/secring.gpg
     -----------------------------
     sec   4096R/3F48CB21 2012-11-15
@@ -102,7 +102,7 @@ Normally it should be enough to set the `QUBES_GPG_DOMAIN` to the GPG backend do
     ssb   4096R/30498E2A 2012-11-15
     (...)
 
-    [user@work ~]$ qubes-gpg-client secret_message.txt.asc
+    [user@work-email ~]$ qubes-gpg-client secret_message.txt.asc
     (...)
 
 Note that running normal `gpg -K` in the demo above shows no private keys stored in this AppVM.
@@ -116,8 +116,8 @@ If you encounter trouble while trying to set up Split GPG, make sure you're usin
 
 The `qubes-gpg-client-wrapper` script sets the `QUBES_GPG_DOMAIN` variable automatically based on the content of the file `/rw/config/gpg-split-domain`, which should be set to the name of the GPG backend VM. This file survives the AppVM reboot, of course.
 
-    [user@work ~]$ sudo bash
-    [root@work ~]$ echo "work-gpg" > /rw/config/gpg-split-domain
+    [user@work-email ~]$ sudo bash
+    [root@work-email ~]$ echo "work-gpg" > /rw/config/gpg-split-domain
 
 Split GPG's default qrexec policy requires the user to enter the name of the AppVM containing GPG keys on each invocation. To improve usability for applications like Thunderbird with Enigmail, in `dom0` place the following line at the top of the file `/etc/qubes-rpc/policy/qubes.Gpg`:
 
@@ -170,7 +170,7 @@ For more details about using Smartcards/Split GPG with Thunderbird PGP feature, 
 
 It is recommended to set up and use `/usr/bin/qubes-gpg-client-wrapper`, as discussed above, in Thunderbird through the Enigmail addon.
 
-**Warning:** Before adding any account, configuring Enigmail with `/usr/bin/qubes-gpg-client-wrapper` is **required**. By default, Enigmail will generate a default GPG key in `work` associated with the newly created Thunderbird account. Generally, it corresponds to the email used in `work-gpg` associated to your private key. In consequence, a new, separate private key will be stored in `work` but it _does not_ correspond to your private key in `work-gpg`. Comparing the `fingerprint` or `expiration date` will show that they are not the same private key. In order to prevent Enigmail using this default generated local key in `work`, you can safely remove it.
+**Warning:** Before adding any account, configuring Enigmail with `/usr/bin/qubes-gpg-client-wrapper` is **required**. By default, Enigmail will generate a default GPG key in `work-email` associated with the newly created Thunderbird account. Generally, it corresponds to the email used in `work-gpg` associated to your private key. In consequence, a new, separate private key will be stored in `work-email` but it _does not_ correspond to your private key in `work-gpg`. Comparing the `fingerprint` or `expiration date` will show that they are not the same private key. In order to prevent Enigmail using this default generated local key in `work-email`, you can safely remove it.
 
 On a fresh Enigmail install, your need to change the default `Enigmail Junior Mode`. Go to Thunderbird preferences and then privacy tab. Select `Force using S/MIME and Enigmail`. Then, in the preferences of Enigmail, make it point to `/usr/bin/qubes-gpg-client-wrapper` instead of the standard GnuPG binary:
 
@@ -206,7 +206,7 @@ The most basic `~/.gitconfig` file to with working Split GPG looks something lik
 Your key id is the public id of your signing key, which can be found by running `qubes-gpg-client -k`.
 In this instance, the key id is DD160C74.
 
-    [user@work ~]$ qubes-gpg-client -k
+    [user@work-email ~]$ qubes-gpg-client -k
     /home/user/.gnupg/pubring.kbx
     -----------------------------
     pub   rsa4096/DD160C74 2016-04-26
@@ -231,8 +231,8 @@ Now you can use `git stag` to add a signed tag to a commit and `git vtag` to ver
 
 Use `qubes-gpg-import-key` in the client AppVM to import the key into the GPG backend VM.
 
-    [user@work ~]$ export QUBES_GPG_DOMAIN=work-gpg
-    [user@work ~]$ qubes-gpg-import-key ~/Downloads/marmarek.asc
+    [user@work-email ~]$ export QUBES_GPG_DOMAIN=work-gpg
+    [user@work-email ~]$ qubes-gpg-import-key ~/Downloads/marmarek.asc
 
 A safe, unspoofable user consent dialog box is displayed.
 
