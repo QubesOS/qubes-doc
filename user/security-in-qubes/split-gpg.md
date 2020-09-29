@@ -131,7 +131,42 @@ You may also edit the qrexec policy file for Split GPG in order to tell Qubes yo
 
 Note that, because this makes it easier to accept Split GPG's qrexec authorization prompts, it may decrease security if the user is not careful in reviewing presented prompts. This may also be inadvisable if there are multiple AppVMs with Split GPG set up.
 
-## Using Thunderbird + Enigmail with Split GPG ##
+## Using Thunderbird ##
+
+### Built-in PGP feature (Thunderbird >= 78)
+
+In `work-email`, use the Thunderbird config editor (found at the bottom of preferences/options), and search for `mail.openpgp.allow_external_gnupg`. Switch the value to true. Still in config editor, search for `mail.openpgp.alternative_gpg_path`. Set its value to `/usr/bin/qubes-gpg-client-wrapper`. Restart Thunderbird after this change.
+
+Open the Account Settings and open the End-to-End Encryption tab of the respective email account. Click the "Add Key" button. You'll be offered the choice "Use your external key through GnuPG". Select it and click Continue.
+
+You need to obtain your key ID which should be **exactly 16 characters**. For that in `work-gpg`, enter the command `gpg -K --keyid-format long`:
+
+```
+[user@work-gpg ~]$ gpg -K --keyid-format long
+/home/user/.gnupg/pubring.kbx
+-----------------------------
+sec   rsa2048/777402E6D301615C 2020-09-05 [SC] [expires: 2022-09-05]
+      F7D2D4E922DFB7B2589AF3E9777402E6D301615C
+uid                 [ultimate] Qubes test <user@localhost>
+ssb   rsa2048/370CE932085BA13B 2020-09-05 [E] [expires: 2022-09-05]
+```
+
+The key ID reference you would need here is `777402E6D301615C`. Now paste or type the ID of the secret key that you would like to use. Be careful to enter it correctly, because your input isn't verified. Confirm to save this key ID.
+
+This key ID will be used to digitally sign or send an encrypted message with your account. For this to work, Thunderbird needs a copy of your public key. At this time, Thunderbird doesn't fetch the public key from `/usr/bin/qubes-gpg-client-wrapper`, you must manually import it. In `work-gpg`, export the key as follow (assuming the key ID would be `777402E6D301615C`):
+
+```
+[user@work-gpg ~]$ gpg --armor --export 777402E6D301615C > 777402E6D301615C.asc
+[user@work-gpg ~]$ qvm-move 777402E6D301615C.asc
+```
+
+Select `work-email` as target in dom0/GuiVM popup and accept. In `work-email`, use Thunderbird's Tools menu to open OpenPGP Key Management. In that window, use the File menu to access the Import Public Key command. Open the file with your public key. After the import was successfull, you must open the key details, and you must mark your own key as **accepted**.
+
+Once this is done, you should be able to send an encrypted and signed email. You can try it by sending an email to yourself.
+
+For more details about using Smartcards/Split GPG with Thunderbird PGP feature, please see [Thunderbird:OpenPGP:Smartcards] from which the above documentation is inspired.
+
+### Enigmail with Split GPG (Thunderbird < 78)
 
 It is recommended to set up and use `/usr/bin/qubes-gpg-client-wrapper`, as discussed above, in Thunderbird through the Enigmail addon.
 
@@ -337,4 +372,5 @@ As always, exercise caution and use your good judgment.)
 [apapadop]: https://apapadop.wordpress.com/2013/08/21/using-gnupg-with-qubesos/
 [current-limitations]: #current-limitations
 [RPC Policy]: /doc/rpc-policy/
+[Thunderbird:OpenPGP:Smartcards]: https://wiki.mozilla.org/Thunderbird:OpenPGP:Smartcards
 
