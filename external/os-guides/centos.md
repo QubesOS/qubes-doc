@@ -6,9 +6,7 @@ permalink: /doc/templates/centos/
 
 # CentOS Template
 
-If you would like to use a stable, predictable, manageable and reproducible distribution in your AppVMs, you can install the CentOS template, provided by Qubes in ready to use binary package.
-
-For the minimal version, please see [Minimal TemplateVMs](/doc/templates/minimal/)
+If you would like to use a stable, predictable, manageable and reproducible distribution in your AppVMs, you can install the CentOS template, provided by Qubes in ready to use binary package. For the minimal and Xfce versions, please see the [Minimal TemplateVMs] and [Xfce TemplateVMs] pages.
 
 
 ## Installation
@@ -32,5 +30,5 @@ After a fresh install, we recommend to [Update the TemplateVM](/doc/software-upd
 [switch]: /doc/templates/#switching
 [reinstall]: /doc/reinstall-template/
 [uninstall]: /doc/templates/#uninstalling
-
-
+[Minimal TemplateVMs]: /doc/templates/minimal/
+[Xfce TemplateVMs]: /doc/templates/xfce/
