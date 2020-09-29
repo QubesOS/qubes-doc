@@ -6,7 +6,7 @@ permalink: /doc/templates/fedora/
 
 # The Fedora TemplateVM
 
-The Fedora [TemplateVM] is the default TemplateVM in Qubes OS. This page is about the standard (or "full") Fedora TemplateVM. For the minimal and Xfce versions, please see the [Minimal TemplateVMs] and [Fedora Xfce] pages.
+The Fedora [TemplateVM] is the default TemplateVM in Qubes OS. This page is about the standard (or "full") Fedora TemplateVM. For the minimal and Xfce versions, please see the [Minimal TemplateVMs] and [Xfce TemplateVMs] pages.
 
 
 ## Installing
@@ -46,8 +46,8 @@ There are two ways to upgrade your TemplateVM to a new Fedora release:
 
 
 [TemplateVM]: /doc/templates/
-[Fedora Xfce]: /doc/templates/fedora-xfce/
 [Minimal TemplateVMs]: /doc/templates/minimal/
+[Xfce TemplateVMs]: /doc/templates/xfce/
 [end-of-life]: https://fedoraproject.org/wiki/Fedora_Release_Life_Cycle#Maintenance_Schedule
 [supported]: /doc/supported-versions/#templatevms
 [How to Reinstall a TemplateVM]: /doc/reinstall-template/
