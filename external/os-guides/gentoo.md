@@ -19,7 +19,7 @@ To switch, reinstall and uninstall a Gentoo TemplateVM that is already installed
 
 #### After Installing
 
-After a fresh install, we recommend to [Update the TemplateVM](/doc/software-update-vm/).
+After a fresh install, we recommend to [Update the TemplateVM](/doc/software-update-vm/). We highlight that the template memory/CPU allocation certainly need to be adjusted in some cases. As Gentoo is a *linux source distribution*, the template needs resources to perform updates or installing any packages. By default, each TemplateVM has *2 VCPUs* for *4000 MB Max memory* allocated. If needed, double those values, *4 VCPUs* for *8000 MB Max memory*. For example, it has been observed failing updates or builds with *4 VCPUs* for *4000 MB Max memory* due to out of memory issue. For more general considerations, we refer to the official [Gentoo Handbook].
 
 ## Want to contribute?
 
@@ -32,3 +32,4 @@ After a fresh install, we recommend to [Update the TemplateVM](/doc/software-upd
 [uninstall]: /doc/templates/#uninstalling
 [Minimal TemplateVMs]: /doc/templates/minimal/
 [Xfce TemplateVMs]: /doc/templates/xfce/
+[Gentoo Handbook]: https://wiki.gentoo.org/wiki/Handbook:AMD64
