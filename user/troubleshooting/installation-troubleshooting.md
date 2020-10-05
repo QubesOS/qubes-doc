@@ -5,7 +5,7 @@ permalink: /doc/installation-troubleshooting/
 ---
 # Installation Troubleshooting #
 
-## "An unknown error has occured" error during installation ##
+## "An unknown error has occurred" error during installation ##
 
 Some people have encountered this error message when trying to install Qubes on drives that already have data on them. 
 The solution is to exit the installer, wipe all data or delete all partitions, then restart the Qubes installation. 
@@ -18,9 +18,11 @@ There are a variety of other problems that could arise when using a USB installa
 
 * **Use a different USB drive:** 
 If possible, try several drives of different sizes and formats. 
-This determines whether the problem stems from the flash drive or Qubes installer. 
+This determines whether the problem stems from the flash drive or Qubes installer.
 Some laptops cannot read from an external boot device larger than 8GB. 
 If you encounter a black screen when performing an installation from a USB stick, ensure you are using a USB drive less than 8GB, or a partition on that USB less than 8GB and of format FAT32.
+Note that the Qubes installation image is over 4GB, so it may not fit on a smaller USB. 
+If a machine can not boot from a bigger USB, it may be too old to run Qubes. 
 * **Verify your Qubes ISO:** 
 Errors will occur if the Qubes installer is corrupted. 
 Ensure that the installer is correct and complete before writing it to a flash drive by [verifying the ISO](/security/verifying-signatures/#how-to-verify-qubes-iso-signatures). 
