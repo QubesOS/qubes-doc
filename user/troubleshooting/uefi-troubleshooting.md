@@ -12,8 +12,12 @@ If you've installed successfully in legacy mode but had to change some kernel pa
 
 **Change the xen configuration on a USB media**
 01. Attach the usb disk, mount the EFI partition (second partition available on the disk) 
-02. As `su`, edit your xen config (`EFI/BOOT/BOOTX64.cfg`) changing the `kernel` key to add your kernel parameters on the boot entry of your choice
-03. Install using your modified boot entry
+02. Open a terminal and enter the command `sudo su -`. Use your preferred text editor (e.g `nano`) to edit your xen config (`EFI/BOOT/BOOTX64.cfg`):
+   ~~~
+   nano EFI/BOOT/BOOTX64.cfg
+   ~~~
+03. Change the `kernel` key to add your kernel parameters on the boot entry of your choice
+04. Install using your modified boot entry
 
 **Change xen configuration directly in an iso image**
 01. Get EFI partition boundaries `parted Qubes-R4.0-rc4-x86_64.iso unit B print`
