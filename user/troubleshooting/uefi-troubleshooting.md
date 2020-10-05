@@ -32,7 +32,7 @@ If you have an Nvidia card, see also [Nvidia Troubleshooting](/doc/nvidia-troubl
 Some systems can freeze with the default UEFI install options.
 You can try the following to remove `noexitboot` and `mapbs`.
 
-1. Follow the [steps here](/doc/uefi-troubleshooting/#change-installer-kernel-parameters-in-uefi) to edit the `[qubes-verbose]` section of your installer's `BOOTX64.cfg`.
+1. Follow the [steps here](/doc/uefi-troubleshooting/#successfully-installed-in-legacy-mode-but-had-to-change-some-kernel-parameters) to edit the `[qubes-verbose]` section of your installer's `BOOTX64.cfg`.
    You want to comment out the `mapbs` and `noexitboot` lines.
    The end result should look like this:
    
@@ -63,7 +63,7 @@ This is also a good time to make permanent any other changes needed to get the i
 
 If removing `noexitboot` and `mapbs` did not help, you can try changing the `options=console=` parameter to `none`. The detailed solution can be found in the comments of [this GitHub issue](https://github.com/QubesOS/qubes-issues/issues/5383)
 
-1. Follow the [steps here](/doc/uefi-troubleshooting/#change-installer-kernel-parameters-in-uefi) to edit the `[qubes-verbose]` section of your installer's `BOOTX64.cfg`.
+1. Follow the [steps here](/doc/uefi-troubleshooting/#successfully-installed-in-legacy-mode-but-had-to-change-some-kernel-parameters) to edit the `[qubes-verbose]` section of your installer's `BOOTX64.cfg`.
    You want to change `options=console=vga` to `options=console=none`.
    The end result should look like this:
 
@@ -85,7 +85,7 @@ This can sometimes be done by switching to legacy mode in your BIOS/UEFI configu
 If that's not an option there, or legacy mode does not work either, you can try the following to add `efi=no-rs`.
 Consider this approach as a last resort, because it will make every Xen update a manual process.
 
-1. Follow the [steps here](/doc/uefi-troubleshooting/#change-installer-kernel-parameters-in-uefi) to edit the `[qubes-verbose]` section of your installer's `xen.cfg`.
+1. Follow the [steps here](/doc/uefi-troubleshooting/#successfully-installed-in-legacy-mode-but-had-to-change-some-kernel-parameters) to edit the `[qubes-verbose]` section of your installer's `xen.cfg`.
    You want to modify the `efi=attr=uc` setting and comment out the `mapbs` and `noexitboot` lines.
    The end result should look like this:
    
