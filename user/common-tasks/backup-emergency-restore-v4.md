@@ -148,7 +148,7 @@ Emergency Recovery Instructions
  6. Verify the integrity of and decrypt the `private.img` file that houses your
     data.
 
-        [user@restore ~]$ for f_enc in vm1/private.img.???.enc; do \
+        [user@restore ~]$ find vm1 -name 'private.img.*.enc' | sort -V | while read f_enc; do \
             f_dec=${f_enc%.enc}; \
             echo "$backup_id!$f_dec!$backup_pass" | scrypt dec -P $f_enc $f_dec || break; \
             done
@@ -158,7 +158,7 @@ Emergency Recovery Instructions
 
  7. Decompress and untar the decrypted `private.img` file.
 
-        [user@restore ~]$ cat vm1/private.img.??? | gzip -d | tar -xv
+        [user@restore ~]$ find vm1 -name 'private.img.*[0-9]' | sort -V | xargs cat | gzip -d | tar -xv
         vm1/private.img
 
     **Note:** If your backup was compressed with a program other than `gzip`,
