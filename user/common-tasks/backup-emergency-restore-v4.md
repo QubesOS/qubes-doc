@@ -163,11 +163,7 @@ Emergency Recovery Instructions
 
     **Note:** If your backup was compressed with a program other than `gzip`,
     you must substitute the correct compression program. This information is
-    contained in `backup-header` (see step 4). For example, if you used `bzip2`,
-    then you should do this:
-
-        [user@restore vm1]$ mv private.img.dec private.img.dec.bz2
-        [user@restore vm1]$ bunzip2 private.img.dec.bz2
+    contained in `backup-header` (see step 4).
 
  8. Mount `private.img` and access your data.
 
