@@ -157,8 +157,10 @@ Emergency Recovery Instructions
     been tampered with.
 
     **Note:** If your backup was compressed with a program other than `gzip`,
-    you must substitute the correct compression program. This information is
-    contained in `backup-header` (see step 4).
+    you must substitute the correct compression program in the command above.
+    This information is contained in `backup-header` (see step 4). For example,
+    if your backup is compressed with `bzip2`, use `bzip2 -d` instead in the
+    command above.
 
  7. Mount `private.img` and access your data.
 
