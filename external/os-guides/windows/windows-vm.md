@@ -119,6 +119,7 @@ MS Windows versions considerations:
 
 - The instructions *may* work on other versions than Windows 7 x64 but haven't been tested.
 - Qubes Windows Tools (QWT) only supports Windows 7 x64. Note that there are [known issues](https://github.com/QubesOS/qubes-issues/issues/3585) with QWT on Qubes 4.x
+- For Windows 10 under Qubes 4.0, a way to install QWT 4.0.1.3, which has worked in several instances, is described below.
 
 Create a VM named win7new in [HVM](/doc/hvm/) mode (Xen's current PVH limitations precludes from using PVH):
 
@@ -210,6 +211,82 @@ qvm-prefs win7new qrexec_timeout 300
 
 At that point you should have a functional and stable Windows VM, although without updates, Xen's PV drivers nor Qubes integration (see sections [Windows Update](#windows-update) and [Xen PV drivers and Qubes Windows Tools](#xen-pv-drivers-and-qubes-windows-tools) below). It is a good time to clone the VM again.
 
+### Installing Qubes Windows Tools on Windows 10
+
+If the Xen bus and storage drivers version 9.0.0 are installed in a Windows 10 system without Qubes Windows Tools, and QWT 4.0.1.3 are installed after the Xen installation has finished, the Qubes interface works correctly. Files can be exchanged with other VMs, and the common clipboard works in both directions.
+
+The installation of Qubes Windows Tools should **not** be done by using the parameter `--install-windows-tools`or by directly specifying `--cdrom=...`when starting the Windows VM, as this is bound to crash the VM on booting, showing the error `INACCESSIBLE BOOT DEVICE`- which makes no sense, but does happen.
+
+So to get a working Windows 10 system (Standalone or Template VM) under Qubes R4.0, the following steps should be performed:
+
+**to be replaced**
+- Install Qubes Windows Tools in dom0: `sudo qubes-dom0-update qubes-windows-tools`. The iso will be the file `/usr/lib/qubes/qubes-windows-tools-4.0.1.3.iso`.
+- Copy this file to some AppVM: `qvm-copy-to-vm VMname /usr/lib/qubes/qubes-windows-tools-4.0.1.3.iso`.
+- In this VM, extract the file `qubes-tools-4.0.1.3.exe` from the iso, using the archive manager.
+- Copy the installation kits of `xenvbd` and `xenbus` Version 9.0.0 (two Zip-files) from the Xen web site and the file `qubes-tools-4.0.1.3.exe` to the Windows system drive (normally `C:\`.)
+**end of replaced text**
+
+**new text**
+- In the Windows 10 VM, download the installation kits of `xenvbd` and `xenbus` Version 9.0.0 (two files`xenvbd.tar`and `xenbus.tar`) from the Xen web site and the file `qubes-tools-4.0.1.3.exe` from https://www.qubes-os.org/doc/windows-tools/ **enter the final url** and store them on the Windows system drive (normally `C:\`.) In order to extract the contents from the tar-archives, you will need an external utility like 7zip.
+**end of new text**
+
+- Check the integrity of the file `qubes-tools-4.0.1.3.exe`by comparing its hash checksum. This can be done using the Windows command `certutil` specifying an appropriate hash algorithm like:
+~~~
+certutil --hashfile qubes-tools-4.0.1.3.exe SHA256
+~~~
+This utility supports the algorithms MD5, SHA1, SHA256 and SHA512 (to be entered in uppercase!). The correct hash values can be retrieved from the Qubes website: https://www.qubes-os.org/doc/windows-tools/ **enter the final url**
+
+- Install `xenvbd` and `xenbus` version 9.0.0 by starting the file `dpinst.exe` from the `x64` directories of the extracted tar-files. If during installation, the Xen driver requests a reboot, select "No" and let the installation continue.
+- After installation, reboot.
+- Install Qubes Windows Tools 4.0.1.3 by starting `qubes-tools-4.0.1.3.exe`, not selecting the `Xen PV disk drivers` and the `Move user profiles` (which would probably lead to problems in Windows, anyhow). If during installation, the Xen driver requests a reboot, select "No" and let the installation continue - the system will be rebooted later.
+- Shut down Windows.
+- Set `qvm-features win10new gui 1`
+- Reboot Windows. The VM starts, but does not show any window.
+- Shutdown Windows from the Qube manager.
+- Reboot Windows once more. Now the system is up, with QWT running correctly.
+
+For me, this sequence worked for Windows 10 as template VM, and a corresponding AppVM worked too.
+
+File copy operations to a Windows 10 VM are possible, if the Qubes OS `default_user` property is set to the user name used for access to that VM, which can be done via the command
+~~~
+qvm-prefs <VMname> default_user <username>
+~~~
+If this property is not set or set to a wrong value, files copied to this VM are stored in the folder
+~~~
+C:\Windows\System32\config\systemprofile\Documents\QubesIncoming\<source_VM>
+~~~
+If the target VM is an AppVM, this has the consequence that the files are stored in the corresponding TemplateVM and so are lost on AppVM shutdown.
+
+Windows as TemplateVM
+---------------------
+
+Windows 7 and 10 can be installed as TemplateVM by selecting
+~~~
+qvm-create --class TemplateVM --property virt_mode=HVM --property kernel='' --label black Windows-7
+qvm-create --class TemplateVM --property virt_mode=HVM --property kernel='' --label black Windows-10
+~~~
+when creating the VM. To have the user data stored in AppVMs depending on this template, Windows 7 and 10 have to be treated differently:
+
+-  For Windows 7, the option to move the user directories from drive `C` to drive `D` works and causes any user data to be stored in the AppVMs based on this template, and not in the template itself.
+
+-  After installation of Windows 10 as a TemplateVM, the Windows disk manager may be used to add the private volume as disk `D:`, and you may, using the documented Windows operations, move the user directories `C:\users\<username>\Documents` to this new disk, allowing depending AppVMs to have their own private volumes. Moving the hidden application directories `AppData`, however, is likely to invite trouble - the same trouble that occurs if, during QWT installation, the option `Move user profiles` is selected.
+
+For Windows 10, configuration data like those stored in directories like `AppData` still remain in the TemplateVM, such that their changes are lost each time the AppVM shuts down. In order to make permanent changes to these configuration data, they have to be changed in the TemplateVM, meaning that applications have to be started there, which violates and perhaps even endangers the security of the TemplateVM. Such changes should be done only if absolutely necessary and with great care. It is a good idea to test them first in a cloned TemplateVM before applying them in the production VM.
+
+AppVMs based on these templates can be created the normal way by using the Qube Manager or by specifying
+~~~
+qvm-create --class=AppVM --template=<VMname> 
+~~~
+
+On starting the AppVM, sometimes a message is displayed that the Xen PV Network Class needs to restart the system. This message can be safely ignored and closed by selecting "No".
+
+**Caution:** These AppVMs must not be started while the corresponding TemplateVM is running, because they share the TemplateVM's license data. Even if this could work sometimes, it would be a violation of the license terms.
+
+### Windows 10 Usage According to GDPR
+
+If Windows 10 is used in the EU to process personal data, according to GDPR no automatic data transfer to countries outside the EU is allowed without explicit consent of the person(s) concerned, or other legal consent, as applicable. Since no reliable way is found to completely control the sending of telemetry from Windows 10, the system containing personal data must be completely shielded from the internet.
+
+This can be achieved by installing Windows 10 on a TemplateVM with the user data directory moved to a separate drive (usually `D:`). Personal data must not be stored within the TemplateVM, but only in AppVMs depending on this TemplateVM. Network access by these AppVMs must be restricted to the local network and perhaps additional selected servers within the EU. Any data exchange of the AppVMs must be restricted to file and clipboard operations to and from other VMs in the same Qubes system.
 
 Windows update
 --------------
@@ -229,9 +306,13 @@ Installing Xen's PV drivers in the VM will lower its resources usage when using 
 2. installing Qubes Windows Tools (QWT), which bundles Xen's PV drivers.
 
 Notes about using Xen's VBD (storage) PV driver:
-- Windows 7: installing the driver requires a fully updated VM or else you'll likely get a BSOD and a VM in a difficult to fix state. Updating Windows takes *hours* and for casual usage there isn't much of a performance between the disk PV driver and the default one; so there is likely no need to go through the lengthy Windows Update process if your VM doesn't have access to untrusted networks and if you don't use I/O intensive apps. If you plan to update your newly installed Windows VM it is recommended that you do so *before* installing Qubes Windows Tools (QWT). If QWT are installed, you should temporarily re-enable the standard VGA adapter in Windows and disable Qubes' (see the section above).
+- **Windows 7:** installing the driver requires a fully updated VM or else you'll likely get a BSOD and a VM in a difficult to fix state. Updating Windows takes *hours* and for casual usage there isn't much of a performance between the disk PV driver and the default one; so there is likely no need to go through the lengthy Windows Update process if your VM doesn't have access to untrusted networks and if you don't use I/O intensive apps. If you plan to update your newly installed Windows VM it is recommended that you do so *before* installing Qubes Windows Tools (QWT). If QWT are installed, you should temporarily re-enable the standard VGA adapter in Windows and disable Qubes' (see the section above).
 - the option to install the storage PV driver is disabled by default in Qubes Windows Tools 
 - in case you already had QWT installed without the storage PV driver and you then updated the VM, you may then install the driver from Xen's site (xenvbd.tar).
+
+**Caution:** Installing the version 9.0.0 Xen drivers on Windows 7 (a system without QWT - QWT uninstalled) leads to an unbootable system. The drivers install without error, but after reboot, the system aborts the reboot saying ´Missing driver xenbus.sys´.
+
+- **Windows 10:** The version 9.0.0 Xen drivers have to be installed before installing Qubes Windows Tools. Installing them on a system with QWT installed is likely to produce a system which crashes or has the tools in a non-functional state. Even if the tools were installed and then removed before installing the Xen drivers, they probably will not work as expected.
 
 
 Installing Qubes Windows Tools:
