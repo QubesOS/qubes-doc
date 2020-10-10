@@ -32,14 +32,14 @@ In order to use it, you should use an rpm-based distro, like Fedora :), and shou
 -   rpm-sign
 -   dpkg-dev
 -   debootstrap
--   PyYAML
+-   python3-pyyaml
 -   devscripts
 -   perl-Digest-MD5
 -   perl-Digest-SHA
 
 Usually you can install those packages by just issuing:
 
-    sudo dnf install gnupg git createrepo rpm-build make wget rpmdevtools python3-sh dialog rpm-sign dpkg-dev debootstrap PyYAML devscripts perl-Digest-MD5 perl-Digest-SHA
+    sudo dnf install gnupg git createrepo rpm-build make wget rpmdevtools python3-sh dialog rpm-sign dpkg-dev debootstrap python3-pyyaml devscripts perl-Digest-MD5 perl-Digest-SHA
 
 The build system creates build environments in chroots and so no other packages are needed on the host.
 All files created by the build system are contained within the qubes-builder directory.
