@@ -9,7 +9,7 @@ redirect_from:
 
 # Troubleshooting problems relating to suspend/resume #
 
-## Network-Manager says “Device not ready” after suspend/resume ##
+## Network-Manager says “Device not ready” on suspend/resume ##
 
 These instructions may help with suspend/resume issues for more devices than just wireless cards, that is just the (unfortunately not uncommon) example used here.
 
@@ -118,7 +118,7 @@ iwlmvm
 iwlwifi
 ~~~
 
-## Power consumption increases after suspend/resume ##
+## Power consumption increases on suspend/resume ##
 
 This problem is related to the software method used to disable sibling threads and how it interacts with suspend/resume. 
 To solve the problem, disable hyperthreading in the BIOS. This [external guide](https://www.pcmag.com/news/how-to-disable-hyperthreading) explains how to disable hyperthreading. 
