@@ -22,7 +22,7 @@ Qubes Windows Tools are a set of programs and drivers that provide integration o
 -   **Qubes Video Driver** - provides for the Seamless GUI mode that integrates apps windows onto the common Qubes trusted desktop
 -   **File sender/receiver** - Support for [secure clipboard copy/paste](/doc/copy-paste/) between the Windows VM and other AppVMs
 -   ***File sender/receiver** - Support for [secure file exchange](/doc/copying-files/) between the Windows VM and other AppVMs
--   **Copy/Edit in Diposable VM** - Support for editing files in DisposableVMs as well as for qvm-run and generic qrexec for the Windows VM (e.g. ability to run custom service within/from the Windows VM)
+-   **Copy/Edit in Disposable VM** - Support for editing files in DisposableVMs as well as for qvm-run and generic qrexec for the Windows VM (e.g. ability to run custom service within/from the Windows VM)
 -   **Xen PV drivers** for Windows that increase performance compared to qemu emulated devices
 
 Below is a breakdown of the feature availability depending on the windows version:
