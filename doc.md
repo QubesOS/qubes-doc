@@ -135,12 +135,19 @@ Core documentation for Qubes users.
  * [Making Any File Persistent Using `bind-dirs`](/doc/bind-dirs/)
  * [GUI Configuration](/doc/gui-configuration/)
  * [Resizing Disk Images](/doc/resize-disk-image/)
- * [Troubleshooting UEFI](/doc/uefi-troubleshooting/)
  * [Troubleshooting Newer Hardware](/doc/newer-hardware-troubleshooting/)
  * [Mounting and Decrypting Qubes Partitions from Outside Qubes](/doc/mount-from-other-os/)
  * [KDE](/doc/kde/)
  * [i3 Window Manager](/doc/i3/)
  * [awesome Window Manager](/doc/awesome/)
+
+### Troubleshooting
+
+ * [Installation Troubleshooting](/doc/installation-troubleshooting/)
+ * [UEFI Troubleshooting](/doc/uefi-troubleshooting/)
+ * [Suspend/Resume Troubleshooting](/doc/suspend-resume-troubleshooting/)
+ * [VM Troubleshooting](/doc/vm-troubleshooting/)
+ * [HVM Troubleshooting](/doc/hvm-troubleshooting/)
 
 ### Reference Pages
 
@@ -294,8 +301,6 @@ Unofficial, third-party documentation from the Qubes community and others.
  * [Lenovo ThinkPad Troubleshooting](/doc/thinkpad-troubleshooting/)
  * [Apple MacBook Troubleshooting](/doc/macbook-troubleshooting/)
  * [Getting Sony Vaio Z laptop to work with Qubes](/doc/sony-vaio-tinkering/)
- * [Fixing wireless on suspend & resume](/doc/wireless-troubleshooting/)
- * [How to remove VMs manually](/doc/remove-vm-manually/)
  * [Intel Integrated Graphics Troubleshooting](/doc/intel-igfx-troubleshooting/)
 
 ### Building Guides
