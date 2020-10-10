@@ -145,39 +145,32 @@ Emergency Recovery Instructions
 
         [user@restore ~]$ backup_id=20161020T123455-1234
 
- 6. Verify the integrity of and decrypt the `private.img` file that houses your
-    data.
+ 6. Verify the integrity of your data, decrypt, decompress, and extract `private.img`:
 
-        [user@restore ~]$ for f_enc in vm1/private.img.???.enc; do \
+        [user@restore ~]$ find vm1 -name 'private.img.*.enc' | sort -V | while read f_enc; do \
             f_dec=${f_enc%.enc}; \
-            echo "$backup_id!$f_dec!$backup_pass" | scrypt dec -P $f_enc $f_dec || break; \
-            done
-
-    **Note:** If this command fails, it is likely that the backup is corrupted
-    or has been tampered with.
-
- 7. Decompress and untar the decrypted `private.img` file.
-
-        [user@restore ~]$ cat vm1/private.img.??? | gzip -d | tar -xv
+            echo "$backup_id!$f_dec!$backup_pass" | scrypt dec -P $f_enc || break; \
+            done | gzip -d | tar -xv
         vm1/private.img
 
+    If this pipeline fails, it is likely that the backup is corrupted or has
+    been tampered with.
+
     **Note:** If your backup was compressed with a program other than `gzip`,
-    you must substitute the correct compression program. This information is
-    contained in `backup-header` (see step 4). For example, if you used `bzip2`,
-    then you should do this:
+    you must substitute the correct compression program in the command above.
+    This information is contained in `backup-header` (see step 4). For example,
+    if your backup is compressed with `bzip2`, use `bzip2 -d` instead in the
+    command above.
 
-        [user@restore vm1]$ mv private.img.dec private.img.dec.bz2
-        [user@restore vm1]$ bunzip2 private.img.dec.bz2
-
- 8. Mount `private.img` and access your data.
+ 7. Mount `private.img` and access your data.
 
         [user@restore vm1]$ sudo mkdir /mnt/img
         [user@restore vm1]$ sudo mount -o loop vm1/private.img /mnt/img/
         [user@restore vm1]$ cat /mnt/img/home/user/your_data.txt
         This data has been successfully recovered!
 
- 9. Success! If you wish to recover data from more than one VM in your backup,
-    simply repeat steps 6--8 for each additional VM.
+ 8. Success! If you wish to recover data from more than one VM in your backup,
+    simply repeat steps 6 and 7 for each additional VM.
 
     **Note:** You may wish to store a copy of these instructions with your
     Qubes backups in the event that you fail to recall the above procedure
