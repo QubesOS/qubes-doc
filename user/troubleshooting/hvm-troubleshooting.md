@@ -2,9 +2,7 @@
 layout: doc
 title: HVM Troubleshooting
 permalink: /doc/hvm-troubleshooting/
-redirect_from:
-- /en/doc/wireless-troubleshooting/
-- /doc/wireless-troubleshooting/
+
 ---
 
 # HVM Troubleshooting #
