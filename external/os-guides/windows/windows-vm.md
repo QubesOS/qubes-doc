@@ -111,7 +111,7 @@ qvm-prefs win7new qrexec_timeout 300
 qvm-prefs win7new debug false
 ~~~
 
-To install Qubes Windows Tools, follow instructions [below](#xen-pv-drivers-and-qubes-windows-tools).
+To install Qubes Windows Tools, follow instructions in [Qubes Windows Tools](/doc/windows-tools/).
 
 ### Detailed instructions ###
 
