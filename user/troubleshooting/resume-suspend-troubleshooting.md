@@ -121,5 +121,5 @@ iwlwifi
 ## Power consumption increases on suspend/resume ##
 
 This problem is related to the software method used to disable sibling threads and how it interacts with suspend/resume. 
-To solve the problem, disable hyperthreading in the BIOS. This [external guide](https://www.pcmag.com/news/how-to-disable-hyperthreading) explains how to disable hyperthreading. 
+To solve the problem, disable hyper-threading in the BIOS. This [external guide](https://www.pcmag.com/news/how-to-disable-hyperthreading) explains how to disable hyper-threading. 
 Since Qubes does disable hyperthreading by default (by not using secondary threads), you won't pay any performance cost.
