@@ -143,7 +143,6 @@ Core documentation for Qubes users.
 
 ### Troubleshooting
 
- * [Installation Troubleshooting](/doc/installation-troubleshooting/)
  * [UEFI Troubleshooting](/doc/uefi-troubleshooting/)
  * [Suspend/Resume Troubleshooting](/doc/suspend-resume-troubleshooting/)
 
