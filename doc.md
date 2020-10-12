@@ -135,7 +135,7 @@ Core documentation for Qubes users.
  * [Making Any File Persistent Using `bind-dirs`](/doc/bind-dirs/)
  * [GUI Configuration](/doc/gui-configuration/)
  * [Resizing Disk Images](/doc/resize-disk-image/)
- * [Troubleshooting UEFI](/doc/uefi-troubleshooting/) 
+ * [Troubleshooting UEFI](/doc/uefi-troubleshooting/)
  * [Troubleshooting Newer Hardware](/doc/newer-hardware-troubleshooting/)
  * [Mounting and Decrypting Qubes Partitions from Outside Qubes](/doc/mount-from-other-os/)
  * [KDE](/doc/kde/)
