@@ -112,6 +112,17 @@ Do not delete the file itself.
 The default model is to allow a qube to access all and only the keys that were enrolled by that qube.
 For example, if your `banking` qube enrolls your banking key, and your `twitter` qube enrolls your Twitter key, then your `banking` qube will have access to your banking key but not your Twitter key, and your `twitter` qube will have access to your Twitter key but not your banking key.
 
+## Non-default USB qube name
+
+If your USB qube is named differently than `sys-usb`, then do the following in the appropriate template(s):
+
+```
+systemctl enable qubes-u2fproxy@USB_QUBE.service
+systemctl disable qubes-u2fproxy@sys-usb.service
+```
+
+Replace `USB_QUBE` with the actual USB qube name.
+
 ## TemplateVM and browser support
 
 The large number of possible combinations of TemplateVM (Fedora 27, 28; Debian 8, 9) and browser (multiple Google Chrome versions, multiple Chromium versions, multiple Firefox versions) made it impractical for us to test every combination that users are likely to attempt with the Qubes U2F Proxy.
