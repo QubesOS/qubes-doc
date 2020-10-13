@@ -4,18 +4,20 @@ title: UEFI Troubleshooting
 permalink: /doc/uefi-troubleshooting/
 ---
 
-Troubleshooting UEFI related problems
-========================================
+# Troubleshooting UEFI related problems #
 
-Change installer kernel parameters in UEFI
----------------------
+## Successfully installed in legacy mode, but had to change some kernel parameters ##
 
 If you've installed successfully in legacy mode but had to change some kernel parameters for it to work, you should try installing in UEFI mode with the same parameters.
 
 **Change the xen configuration on a USB media**
 01. Attach the usb disk, mount the EFI partition (second partition available on the disk) 
-02. As `su`, edit your xen config (`EFI/BOOT/BOOTX64.cfg`) changing the `kernel` key to add your kernel parameters on the boot entry of your choice
-03. Install using your modified boot entry
+02. Open a terminal and enter the command `sudo su -`. Use your preferred text editor (e.g `nano`) to edit your xen config (`EFI/BOOT/BOOTX64.cfg`):
+   ~~~
+   nano EFI/BOOT/BOOTX64.cfg
+   ~~~
+03. Change the `kernel` key to add your kernel parameters on the boot entry of your choice
+04. Install using your modified boot entry
 
 **Change xen configuration directly in an iso image**
 01. Get EFI partition boundaries `parted Qubes-R4.0-rc4-x86_64.iso unit B print`
@@ -25,14 +27,16 @@ If you've installed successfully in legacy mode but had to change some kernel pa
 05. Save your changes, unmount and dd to usb device
 
 
-Installation freezes before displaying installer
------------------------------------------------------------
+## Installation freezes before displaying installer ##
+
+If you have an Nvidia card, see also [Nvidia Troubleshooting](/doc/nvidia-troubleshooting/#disabling-nouveau).
+
+### Removing `noexitboot` and `mapbs` ###
 
 Some systems can freeze with the default UEFI install options.
 You can try the following to remove `noexitboot` and `mapbs`.
-If you have an Nvidia card, see also [Nvidia Troubleshooting](/doc/nvidia-troubleshooting/#disabling-nouveau).
 
-1. Follow the [steps here](/doc/uefi-troubleshooting/#change-installer-kernel-parameters-in-uefi) to edit the `[qubes-verbose]` section of your installer's `BOOTX64.cfg`.
+1. Follow the [steps here](/doc/uefi-troubleshooting/#successfully-installed-in-legacy-mode-but-had-to-change-some-kernel-parameters) to edit the `[qubes-verbose]` section of your installer's `BOOTX64.cfg`.
    You want to comment out the `mapbs` and `noexitboot` lines.
    The end result should look like this:
    
@@ -59,16 +63,33 @@ This is also a good time to make permanent any other changes needed to get the i
 5. Go back to `tty6` (Ctrl-Alt-F6) and click `Reboot`.
 6. Continue with setting up default templates and logging in to Qubes.
 
+### Changing `options=console=` parameter to `none` ###
 
-Installation freezes before displaying installer / disable EFI runtime services
-------------------------------------------------------------------------------
+If removing `noexitboot` and `mapbs` did not help, you can try changing the `options=console=` parameter to `none`. The detailed solution can be found in the comments of [this GitHub issue](https://github.com/QubesOS/qubes-issues/issues/5383)
+
+1. Follow the [steps here](/doc/uefi-troubleshooting/#successfully-installed-in-legacy-mode-but-had-to-change-some-kernel-parameters) to edit the `[qubes-verbose]` section of your installer's `BOOTX64.cfg`.
+   You want to change `options=console=vga` to `options=console=none`.
+   The end result should look like this:
+
+   ~~~
+   [qubes-verbose]
+   options=console=none efi=attr=uc
+   noexitboot=1
+   mapbs=1
+   kernel=vmlinuz inst.stage2=hd:LABEL=Qubes-R4.0-x86_64 i915.alpha_support=1
+   ramdisk=initrd.img
+   ~~~
+
+2. Boot the installer and continue to install as normal
+
+### Disable EFI runtime services ###
 
 On some early, buggy UEFI implementations, you may need to disable EFI under Qubes completely.
 This can sometimes be done by switching to legacy mode in your BIOS/UEFI configuration.
 If that's not an option there, or legacy mode does not work either, you can try the following to add `efi=no-rs`.
 Consider this approach as a last resort, because it will make every Xen update a manual process.
 
-1. Follow the [steps here](/doc/uefi-troubleshooting/#change-installer-kernel-parameters-in-uefi) to edit the `[qubes-verbose]` section of your installer's `xen.cfg`.
+1. Follow the [steps here](/doc/uefi-troubleshooting/#successfully-installed-in-legacy-mode-but-had-to-change-some-kernel-parameters) to edit the `[qubes-verbose]` section of your installer's `xen.cfg`.
    You want to modify the `efi=attr=uc` setting and comment out the `mapbs` and `noexitboot` lines.
    The end result should look like this:
    
@@ -105,13 +126,11 @@ Consider this approach as a last resort, because it will make every Xen update a
 
 Whenever there is a kernel or Xen update for Qubes, you will need to follow [these steps](/doc/uefi-troubleshooting/#boot-device-not-recognized-after-installing) because your system is using the fallback UEFI bootloader in `[...]/EFI/BOOT` instead of directly booting to the Qubes entry under `[...]/EFI/qubes`.
 
-Installation from USB stick hangs on black screen
----------------------
+## Installation from USB stick hangs on black screen ##
 
-Some laptops cannot read from an external boot device larger than 8GB. If you encounter a black screen when performing an installation from a USB stick, ensure you are using a USB drive less than 8GB, or a partition on that USB lesser than 8GB and of format fat32. 
+Some laptops cannot read from an external boot device larger than 8GB. If you encounter a black screen when performing an installation from a USB stick, ensure you are using a USB drive less than 8GB, or a partition on that USB lesser than 8GB and of format FAT32. 
 
-Installation completes successfully but then boot loops or hangs on black screen
----------------------
+## Installation completes successfully but then boot loops or hangs on black screen ##
 
 There is a [common bug in UEFI implementation](http://xen.markmail.org/message/f6lx2ab4o2fch35r) affecting mostly Lenovo systems, but probably some others too.
 While some systems need `mapbs` and/or `noexitboot` disabled to boot, others require them enabled at all times.
@@ -152,8 +171,7 @@ Or if you have already rebooted after the first stage install and have encounter
 4. Continue with setting up default templates and logging in to Qubes.
 
 
-Installation completes successfully but then system crash/restarts on next boot
--------------------------------------------
+## Installation completes successfully but then system crash/restarts on next boot ##
 
 Some Dell systems and probably others have [another bug in UEFI firmware](http://markmail.org/message/amw5336otwhdxi76).
 These systems need `efi=attr=uc` enabled at all times.
@@ -180,8 +198,7 @@ Or if you have already rebooted after the first stage install and have encounter
 4. Continue with setting up default templates and logging in to Qubes.
 
 
-Boot device not recognized after installing
-------------------------------------------
+## Boot device not recognized after installing ##
 
 Some firmware will not recognize the default Qubes EFI configuration.
 As such, it will have to be manually edited to be bootable.
@@ -202,8 +219,7 @@ This will need to be done after every kernel and Xen update to ensure you use th
        cp /boot/efi/EFI/qubes/xen-4.8.3.efi /boot/efi/EFI/BOOT/BOOTX64.efi
 
 
-Installation finished but "Qubes" boot option is missing and xen.cfg is empty
---------------------------------------------------------------------------------------
+## Installation finished but "Qubes" boot option is missing and xen.cfg is empty / Installation fails with "failed to set new efi boot target" ##
 
 In some cases installer fails to finish EFI setup and leave the system without a Qubes-specific EFI configuration.
 In such a case you need to finish those parts manually.
@@ -237,8 +253,7 @@ You can do that just after installation (switch to `tty2` with Ctrl-Alt-F2), or 
        efibootmgr -v -c -u -L Qubes -l /EFI/qubes/xen.efi -d /dev/sda -p 1 "placeholder /mapbs /noexitboot"
 
 
-Accessing installer Rescue mode on UEFI
----------------------------------------
+## Accessing installer Rescue mode on UEFI ##
 
 In UEFI mode, the installer does not have a boot menu, but boots directly into the installation wizard.
 To get into Rescue mode, you need to switch to tty2 (Ctrl+Alt+F2) and then execute:

@@ -114,7 +114,7 @@ If the issue is closed without one of these specific resolutions, then it means,
 
 ## See also ##
 
-- [Help, Support, and Mailing Lists]
+- [Help, Support, Mailing Lists, and Forum]
 - [Testing New Releases and Updates][testing]
 - [How to Contribute]
 - [Contributing Code]
