@@ -162,7 +162,7 @@ Services called by dom0 to provide some VM configuration:
 Other Qrexec services installed by default:
 
 - `qubes.Backup` - store Qubes backup. The service receives location chosen by
-  the user (one line, terminated by '\n'), the backup archive ([description of
+  the user (one line, terminated by `\n`), the backup archive ([description of
   backup format](/doc/BackupEmergencyRestoreV2/))
 - `qubes.DetachPciDevice` - service called in reaction to `qvm-pci -d` call on
   running VM. The service receives one word - BDF of device to detach. When the
@@ -175,7 +175,7 @@ Other Qrexec services installed by default:
   This service is used by both `qvm-open-in-vm` and `qvm-open-in-dvm` tools. When
   called in DispVM, service termination will trigger DispVM cleanup.
 - `qubes.Restore` - retrieve Qubes backup. The service receives backup location
-  entered by the user (one line, terminated by '\n'), then should output backup
+  entered by the user (one line, terminated by `\n`), then should output backup
   archive in [qfile format](/doc/qfilecopy/) (core-agent-linux component contains
   `tar2qfile` utility to do the conversion)
 - `qubes.SelectDirectory`, `qubes.SelectFile` - services which should show

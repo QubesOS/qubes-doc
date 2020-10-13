@@ -16,6 +16,7 @@ redirect_from:
 # Reporting bugs and other issues #
 
 All issues pertaining to the Qubes OS Project (including auxiliary infrastructure such as the [website]) are tracked in [qubes-issues], our GitHub issue tracker.
+If you're looking for help, please see [Help, Support, Mailing Lists, and Forum].
 
 ## Important ##
 
@@ -43,12 +44,12 @@ Issues may have additional labels, if applicable (e.g., `crypto`, `ux`).
 
 [qubes-issues] is not the place to ask questions.
 This includes, but is not limited to, troubleshooting questions and questions about how to do things with Qubes.
-These questions should instead be asked in [qubes-users].
+Instead, see [Help, Support, Mailing Lists, and Forum] for appropriate place to ask questions.
 By contrast, [qubes-issues] is meant for tracking more general bugs, enhancements, and tasks that affect a broad range of Qubes users.
 
 ### Every issue must be about a single, actionable thing ###
 
-If your issue is not actionable, please send it to the appropriate [mailing list][Help, Support, and Mailing Lists] instead.
+If your issue is not actionable, please see [Help, Support, Mailing Lists, and Forum] for the appropriate place to post it.
 If your issue would be about more than one thing, file them as separate issues instead.
 
 ### New issues should not be duplicates of existing issues ###
@@ -113,7 +114,7 @@ If the issue is closed without one of these specific resolutions, then it means,
 
 ## See also ##
 
-- [Help, Support, and Mailing Lists]
+- [Help, Support, Mailing Lists, and Forum]
 - [Testing New Releases and Updates][testing]
 - [How to Contribute]
 - [Contributing Code]
@@ -134,9 +135,7 @@ If the issue is closed without one of these specific resolutions, then it means,
 [documentation]: /doc/
 [website]: /
 [qubes-issues]: https://github.com/QubesOS/qubes-issues/issues
-[Help, Support, and Mailing Lists]: /support/
-[qubes-users]: /support/#qubes-users
-[qubes-devel]: /support/#qubes-devel
+[Help, Support, Mailing Lists, and Forum]: /support/
 [updates-status]: https://github.com/QubesOS/updates-status/issues
 [how to copy information out of dom0]: /doc/copy-from-dom0/
 [testing]: /doc/testing/

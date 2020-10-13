@@ -1,5 +1,5 @@
 ---
-layout: doc-index
+layout: doc
 title: Documentation
 permalink: /doc/
 redirect_from:
@@ -13,33 +13,10 @@ redirect_from:
 - /en/community/
 - /community/
 ---
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Project Security](#project-security)
-3. [User Documentation](#user-documentation)  
-   3.1. [Choosing Your Hardware](#choosing-your-hardware)  
-   3.2. [Downloading, Installing, and Upgrading Qubes](#downloading-installing-and-upgrading-qubes)  
-   3.3. [Common Tasks](#common-tasks)  
-   3.4. [Managing Operating Systems within Qubes](#managing-operating-systems-within-qubes)  
-   3.5. [Security in Qubes](#security-in-qubes)  
-   3.6. [Advanced Configuration](#advanced-configuration)  
-   3.7. [Reference Pages](#reference-pages)
-4. [Developer Documentation](#developer-documentation)  
-   4.1. [General](#general)  
-   4.2. [Code](#code)  
-   4.3. [System](#system)  
-   4.4. [Services](#services)  
-   4.5. [Debugging](#debugging)  
-   4.6. [Building](#building)  
-   4.7. [Releases](#releases)
-5. [External Documentation](#external-documentation)  
-   5.1. [Operating System Guides](#operating-system-guides)  
-   5.2. [Security Guides](#security-guides)  
-   5.3. [Privacy Guides](#privacy-guides)  
-   5.4. [Configuration Guides](#configuration-guides)  
-   5.5. [Customization Guides](#customization-guides)  
-   5.6. [Troubleshooting](#troubleshooting)  
-   5.7. [Building Guides](#building-guides)
+
+# Qubes OS Documentation
+
+Welcome to the Qubes OS documentation!
 
 ## Introduction
 
@@ -48,7 +25,7 @@ redirect_from:
  * [Screenshots](/screenshots/)
  * [User FAQ](/faq/#users)
  * [Reporting Bugs and Other Issues](/doc/reporting-bugs/)
- * [Help, Support, and Mailing Lists](/support/)
+ * [Help, Support, Mailing Lists, and Forum](/support/)
  * [How to Contribute](/doc/contributing/)
 
 ## Project Security
@@ -143,6 +120,7 @@ Core documentation for Qubes users.
 
 ### Troubleshooting
 
+ * [Installation Troubleshooting](/doc/installation-troubleshooting)
  * [UEFI Troubleshooting](/doc/uefi-troubleshooting/)
  * [Suspend/Resume Troubleshooting](/doc/suspend-resume-troubleshooting/)
 
@@ -181,7 +159,6 @@ Core documentation for Qubes developers and advanced users.
 ### System
 
  * [Qubes OS Architecture Overview](/doc/architecture/)
- * [Qubes OS Architecture Spec v0.3 [PDF]](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf)
  * [Security-critical Code in Qubes OS](/doc/security-critical-code/)
  * [Qubes Core Admin](https://dev.qubes-os.org/projects/core-admin/en/latest/)
  * [Qubes Core Admin Client](https://dev.qubes-os.org/projects/core-admin-client/en/latest/)
@@ -230,8 +207,7 @@ Core documentation for Qubes developers and advanced users.
 ## External Documentation
 
 Unofficial, third-party documentation from the Qubes community and others.
-
- * [Qubes Community Documentation](https://github.com/Qubes-Community/Contents/tree/master/docs)
+For more, please see [Qubes Community Documentation](https://github.com/Qubes-Community/Contents/tree/master/docs).
 
 ### Operating System Guides
 

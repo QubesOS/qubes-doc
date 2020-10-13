@@ -613,6 +613,30 @@ Details, reference: [#2233](https://github.com/QubesOS/qubes-issues/issues/2233)
 
 **Mentor**: Inquire on [qubes-devel][ml-devel].
 
+### Admin API Fuzzer
+
+**Project**: Develop a [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) for the
+[Qubes OS Admin API](https://www.qubes-os.org/doc/admin-api/).
+
+**Brief explanation**: The [Qubes OS Admin API](https://www.qubes-os.org/doc/admin-api/)
+enables VMs to execute privileged actions on other VMs or dom0 - if allowed by the Qubes OS RPC policy.
+Programming errors in the Admin API however may cause these access rights to be more permissive
+than anticipated by the programmer.
+
+Since the Admin API is continuously growing and changing, continuous security assessments are required.
+A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of these assessments.
+
+**Expected results**:
+  - fully automated & extensible Fuzzer for parts of the Admin API
+  - user & developer documentation
+
+**Prerequisites**:
+  - basic Python understanding
+  - some knowledge about fuzzing & existing fuzzing frameworks (e.g. [oss-fuzz](https://github.com/google/oss-fuzz/tree/master/projects/qubes-os))
+  - a hacker's curiosity
+
+**Mentor**: Inquire on [qubes-devel][ml-devel].
+
 ----
 
 We adapted some of the language here about GSoC from the [KDE GSoC page](https://community.kde.org/GSoC).

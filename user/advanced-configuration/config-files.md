@@ -31,7 +31,7 @@ The scripts here all run as root.
 
     ~~~
     # Add entry to /etc/hosts
-    echo '127.0.0.1 example.com >> /etc/hosts
+    echo '127.0.0.1 example.com' >> /etc/hosts
     ~~~
 
 -   `/rw/config/qubes-ip-change-hook` - script runs in NetVM after every external IP change and on "hardware" link status change.
@@ -85,29 +85,30 @@ Sample config (included in default installation):
 
 ~~~
 # Sample configuration file for Qubes GUI daemon
-#  For syntax go http://www.hyperrealm.com/libconfig/libconfig_manual.html
+#  For syntax go https://www.hyperrealm.com/libconfig/libconfig_manual.html
 
 global: {
   # default values
   #allow_fullscreen = false;
+  #override_redirect_protection = true;
   #allow_utf8_titles = false;
   #secure_copy_sequence = "Ctrl-Shift-c";
   #secure_paste_sequence = "Ctrl-Shift-v";
   #windows_count_limit = 500;
-  #audio_low_latency = false;
+  #audio_low_latency = true;
   #log_level = 1;
   #trayicon_mode = "border1";
-  #startup_timeout = 91;
+  #startup_timeout = 45;
 };
 
 # most of setting can be set per-VM basis
 
 VM: {
   work: {
-    #allow_utf8_titles = true;
+    allow_utf8_titles = true;
   };
   video-vm: {
-    #allow_fullscreen = true;
+    allow_fullscreen = true;
   };
 };
 ~~~

@@ -12,6 +12,12 @@ redirect_from:
 How To make a VPN Gateway in Qubes
 ==================================
 
+<div class="alert alert-info" role="alert">
+  <i class="fa fa-info-circle"></i>
+  <b>Note:</b> If you seek to enhance your privacy, you may also wish to consider <a href="/doc/whonix/">Whonix</a>.
+  You should also be aware of <a href="https://www.whonix.org/wiki/Tunnels/Introduction">the potential risks of VPNs</a>.
+</div>
+
 Although setting up a VPN connection is not by itself Qubes specific, Qubes includes a number of tools that can make the client-side setup of your VPN more versatile and secure. This document is a Qubes-specific outline for choosing the type of VM to use, and shows how to prepare a ProxyVM for either NetworkManager or a set of fail-safe VPN scripts.
 
 Please refer to your guest OS and VPN service documentation when considering the specific steps and parameters for your connection(s); The relevant documentation for the Qubes default guest OS (Fedora) is [Establishing a VPN Connection.](https://docs.fedoraproject.org/en-US/Fedora/23/html/Networking_Guide/sec-Establishing_a_VPN_Connection.html)

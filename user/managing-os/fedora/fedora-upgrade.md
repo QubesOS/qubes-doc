@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Upgrading Fedora TemplateVMs
+title: In-place upgrade of Fedora TemplateVMs
 permalink: /doc/template/fedora/upgrade/
 redirect_from:
 - /doc/template/fedora/upgrade-26-to-27/
@@ -24,7 +24,7 @@ redirect_from:
 # Upgrading Fedora TemplateVMs
 
 This page provides instructions for performing an in-place upgrade of an installed [Fedora TemplateVM].
-If you wish to install a new, unmodified Fedora TemplateVM instead of upgrading a template that is already installed in your system, please see the [Fedora TemplateVM] page instead.
+If you wish to install a new, unmodified Fedora TemplateVM instead of upgrading a template that is already installed in your system, please see the [Fedora TemplateVM] page instead. ([Learn more about the two options.][Fedora TemplateVM Upgrade])
 
 
 ## Summary instructions for standard Fedora TemplateVMs
@@ -194,14 +194,11 @@ In this case, you have several options:
     However, you may end up having to increase the disk image size anyway (see previous option).
  3. Do the upgrade in parts, e.g., by using package groups.
     (First upgrade `@core` packages, then the rest.)
- 4. Do not perform an in-place upgrade.
-    Instead, simply download and install a new template package, then redo all desired template modifications.
-    Here are some useful messages from the mailing list that also apply to TemplateVM management and migration in general from
-    [Marek](https://groups.google.com/d/msg/qubes-users/mCXkxlACILQ/dS1jbLRP9n8J) and
-    [Jason M](https://groups.google.com/d/msg/qubes-users/mCXkxlACILQ/5PxDfI-RKAsJ).
+ 4. Do not perform an in-place upgrade, see [Upgrading Fedora TemplateVMs].
 
 
 [Fedora TemplateVM]: /doc/templates/fedora/
+[Fedora TemplateVM Upgrade]: /doc/templates/fedora/#upgrading
 [resize-disk-image]: /doc/resize-disk-image/
 [Additional Information]: #additional-information
 [switch]: /doc/templates/#switching

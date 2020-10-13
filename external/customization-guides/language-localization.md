@@ -11,6 +11,11 @@ redirect_from:
 Language Localization
 =====================
 
+Enable UTF-8 in dom0 title bars
+-------------------------
+
+You can enable UTF-8 characters in the title bar for all qubes or on a per-qube basis. Follow the instructions [here](https://www.qubes-os.org/doc/config-files/#gui-and-audio-configuration-in-dom0) for further information.
+
 How to set up pinyin input in Qubes
 -----------------------------------
 

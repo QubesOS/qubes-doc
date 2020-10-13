@@ -35,7 +35,7 @@ Examples of unacceptable behavior by participants include:
 - Publishing others' private information, such as a physical or electronic address, without explicit permission
 - Other conduct which could reasonably be considered inappropriate in a professional setting
 
-(Please also see our [mailing list discussion guidelines].)
+(Please also see our [discussion guidelines].)
 
 ## Our Responsibilities
 
@@ -65,7 +65,7 @@ The initial published version of this Code of Conduct was adapted from the [Cont
 [history of changes]: https://github.com/QubesOS/qubes-doc/commits/master/about/code-of-conduct.md
 [discussion]: https://github.com/QubesOS/qubes-issues/issues/2163
 [Citizen Code of Conduct]: http://citizencodeofconduct.org/
-[mailing list discussion guidelines]: /support/#discussion-list-guidelines
+[discussion guidelines]: /support/#discussion-guidelines
 [Contributor Covenant, version 1.4]: http://contributor-covenant.org/version/1/4
 [Rust Code of Conduct]: https://www.rust-lang.org/en-US/conduct.html
 [Marek Marczykowski-Górecki]: https://www.qubes-os.org/team/#marek-marczykowski-g%C3%B3recki

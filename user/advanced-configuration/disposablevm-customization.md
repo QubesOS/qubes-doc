@@ -55,6 +55,8 @@ If you wish to use a [Minimal TemplateVM](/doc/templates/minimal/) as a Disposab
 
 ## Customization of DisposableVM
 
+_**Note:** If you are trying to customize Tor Browser in a Whonix DisposableVM, please consult the [Whonix documentation](https://www.whonix.org/wiki/Tor_Browser/Advanced_Users#DVM_Template_Customization)._
+
 It is possible to change the settings for each new DisposableVM.
 This can be done by customizing the DisposableVM Template on which it is based:
 
@@ -64,7 +66,7 @@ This can be done by customizing the DisposableVM Template on which it is based:
 
 2.  Change the qube's settings and/or applications, as desired. Some examples of changes you may want to make include:
     -   Changing Firefox's default startup settings and homepage.
-    -   Changing default editor, image viewer.
+    -   Changing default editor, image viewer. In Debian-based templates this can be done with the `mimeopen` command.
     -   Changing the DisposableVM's default NetVM. For example, you may wish to set the NetVM to "none." Then, whenever you start a new DisposableVM, you can choose your desired ProxyVM manually (by changing the newly-started DisposableVMs settings). This is useful if you sometimes wish to use a DisposableVM with a Whonix Gateway, for example. It is also useful if you sometimes wish to open untrusted files in a network-disconnected DisposableVM.
 
 4.  Shutdown the qube (either by `poweroff` from qube's terminal, or `qvm-shutdown` from dom0 terminal).
@@ -80,7 +82,7 @@ The only exception is if you require something like VM to VM communication and h
 To create one that has no PCI devices attached, such as for `sys-firewall`:
 
 ~~~
-qvm-create -C DispVM -l red <sys-VMName>
+qvm-create -C DispVM -l green <sys-VMName>
 qvm-prefs <sys-VMName> autostart true
 qvm-prefs <sys-VMName> netvm <sys-net>
 qvm-prefs <sys-VMName> provides_network true

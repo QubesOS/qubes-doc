@@ -68,7 +68,7 @@ encrypted and compressed.
   **Note:** For multi-part files, a loop can be used:
  
   ~~~
-  for f in private.img.*; do
+  find -name 'private.img.*' | sort -V | while read f; do
     openssl enc -d -pass pass:your_passphrase -aes-256-cbc -in $f -out
   ${f/.img/.img.dec}
   done

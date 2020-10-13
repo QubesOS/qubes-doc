@@ -17,18 +17,32 @@ Starting with Qubes R3 we use [python unittest][unittest] to perform automatic t
 Despite the name, we use it for both [unit tests](https://en.wikipedia.org/wiki/Unit_tests) and [integration tests](https://en.wikipedia.org/wiki/Integration_tests). 
 The main purpose is, of course, to deliver much more stable releases.
 
-Integration tests are written with the assumption that they will be called on dedicated hardware. 
-**Do not run these tests on installations with important data, because you might lose it.**
-Since these tests were written with this expectation, all the VMs with a name starting with `test-` on the installation are removed during the process, and all the tests are recklessly started from dom0, even when testing VM components.
+The integration tests must be run in dom0, but some unit tests can run inside a VM as well.
 
-Most of the tests are stored in the [core-admin repository](https://github.com/QubesOS/qubes-core-admin/tree/master/qubes/tests) in the `qubes/tests` directory. 
-To start them you can use standard python unittest runner:
-    python3 -m unittest -v qubes.tests
-Or our custom one:
-    python3 -m qubes.tests.run -v
+### Integration & unit testing in dom0
 
-Our test runner runs mostly the same as the standard one, but it has some nice additional features like color output and not needing the "qubes.test" prefix. 
-It also has the ability to run lone selected template tests.
+Integration tests are written with the assumption that they will be executed on dedicated hardware and must be run in dom0. All other unit tests can also be run in dom0.
+
+**Do not run the tests on installations with important data, because you might lose it.**
+
+All the VMs with a name starting with `test-` on the installation are removed during the process, and all the tests are recklessly started from dom0, even when testing (& possibly breaking) VM components.
+
+First you need to build all packages that you want to test. Please do not mix branches as this will inevitably lead to failures. Then setup Qubes OS with these packages installed.
+
+For testing you'll have to stop the `qubesd` service as the tests will use its own custom variant of the service:
+`sudo systemctl stop qubesd`
+
+Don't forget to start it after testing again.
+
+To start testing you can then use the standard python unittest runner:
+
+`sudo -E python3 -m unittest -v qubes.tests`
+
+Alternatively, use the custom Qubes OS test runner:
+
+`sudo -E python3 -m qubes.tests.run -v`
+
+Our test runner runs mostly the same as the standard one, but it has some nice additional features like colored output and not needing the "qubes.test" prefix.
 
 You can use `python3 -m qubes.tests.run -h` to get usage information:
 
@@ -93,28 +107,56 @@ For instance, to run only the tests for the fedora-21 template, you can use the 
     vm_qrexec_gui/TC_20_DispVM_fedora-21/test_010_simple_dvm_run
     vm_qrexec_gui/TC_20_DispVM_fedora-21/test_020_gui_app
     vm_qrexec_gui/TC_20_DispVM_fedora-21/test_030_edit_file
-    [user@dom0 ~]$ python3 -m qubes.tests.run -v `python3 -m qubes.tests.run -l | grep fedora-21`
+    [user@dom0 ~]$ sudo -E python3 -m qubes.tests.run -v `python3 -m qubes.tests.run -l | grep fedora-21`
 
 Example test run:
 
 ![snapshot-tests2.png](/attachment/wiki/developers/snapshot-tests2.png)
 
-### Qubes 4.0
-
-Tests on Qubes 4.0 require stopping `qubesd` service first, because special instance of it is started as part of the test run.
-Additionally, tests needs to be started as root. The full command to run the tests is:
-
-    sudo systemctl stop qubesd; sudo -E python3 -m qubes.tests.run -v ; sudo systemctl start qubesd
-
-On Qubes 4.0 tests are also compatible with nose2 test runner, so you can use this instead:
+Tests are also compatible with nose2 test runner, so you can use this instead:
 
     sudo systemctl stop qubesd; sudo -E nose2 -v --plugin nose2.plugins.loader.loadtests qubes.tests; sudo systemctl start qubesd
 
 This may be especially useful together with various nose2 plugins to store tests results (for example `nose2.plugins.junitxml`), to ease presenting results. This is what we use on [OpenQA].
 
+
+### Unit testing inside a VM
+
+Many unit tests will also work inside a VM. However all of the tests requiring a dedicated VM to be run (mostly the integration tests) will be skipped.
+
+Whereas integration tests are mostly stored in the [qubes-core-admin](https://github.com/QubesOS/qubes-core-admin) repository, unit tests can be found in each of the Qubes OS repositories.
+
+To for example run the `qubes-core-admin` unit tests, you currently have to clone at least [qubes-core-admin](https://github.com/QubesOS/qubes-core-admin) and
+its dependency [qubes-core-qrexec](https://github.com/QubesOS/qubes-core-qrexec) repository in the branches that you want to test.
+
+The below example however will assume that you set up a build environment as described in the [Qubes Builder documentation](/doc/qubes-builder/).
+
+Assuming you cloned the `qubes-builder` repository to your home directory inside a fedora VM, you can use the following commands to run the unit tests:
+```{.bash}
+cd ~
+sudo dnf install python3-pip lvm2 python35 python3-virtualenv
+virtualenv -p /usr/bin/python35 python35
+source python35/bin/activate
+python3 -V
+cd ~/qubes-builder/qubes-src/core-admin
+pip3 install -r ci/requirements.txt
+export PYTHONPATH=../core-qrexec:test-packages
+./run-tests
+```
+
+To run only the tests related to e.g. `lvm`, you may use:
+
+`./run-tests -v $(python3 -m qubes.tests.run -l | grep lvm)`
+
+You can later re-use the created virtual environment including all of the via `pip3` installed packages with `source ~/python35/bin/activate`.
+
+We recommend to run the unit tests with the Python version that the code is meant to be run with in dom0 (3.5 was just an example above). For instance, the `release4.0` (Qubes 4.0) branch is intended
+to be run with Python 3.5 whereas the Qubes 4.1 branch (`master` as of 2020-07) is intended to be run with Python 3.7 or higher. You can always check your dom0 installation for the Python version of
+the current stable branch.
+
 ### Tests configuration
 
-Test run can be altered using environment variables:
+Test runs can be altered using environment variables:
 
  - `DEFAULT_LVM_POOL` - LVM thin pool to use for tests, in `VolumeGroup/ThinPool` format
  - `QUBES_TEST_PCIDEV` - PCI device to be used in PCI passthrough tests (for example sound card)
@@ -144,10 +186,10 @@ Again, given the hypothetical `example.py` test:
 
 ### Testing PyQt applications
 
-When testing (Py)QT application, it's useful to create separate QApplication object for each test.
-But QT framework does not allow to have multiple QApplication objects in the same process at the same time.
-This means it's critical to reliably cleanup previous instance before creating the new one.
-This turns out to be non-trivial task, especially if _any_ test uses event loop.
+When testing (Py)QT applications, it's useful to create a separate QApplication object for each test.
+But QT framework does not allow multiple QApplication objects in the same process at the same time.
+This means it's critical to reliably cleanup the previous instance before creating a new one.
+This turns out to be a non-trivial task, especially if _any_ test uses the event loop.
 Failure to perform proper cleanup in many cases results in SEGV.
 Below you can find steps for the proper cleanup:
 
@@ -205,7 +247,7 @@ Installation Tests with openQA
 Manually testing the installation of Qubes OS is a time-consuming process.
 We use [openQA] to automate this process.
 It works by installing Qubes in KVM and interacting with it as a user would, including simulating mouse clicks and keyboard presses.
-Then, it checks the output to see whether various tests were passed, e.g., by comparing the virtual screen output to screenshots of a successful installation.
+Then, it checks the output to see whether various tests were passed, e.g. by comparing the virtual screen output to screenshots of a successful installation.
 
 Using openQA to automatically test the Qubes installation process works as of Qubes 4.0-rc4 on 2018-01-26, provided that the versions of KVM and QEMU are new enough and the hardware has VT-x and EPT.
 KVM also supports nested virtualization, so HVM should theoretically work.
@@ -214,6 +256,6 @@ Nonetheless, PV works well, which is sufficient for automated installation testi
 
 Thanks to an anonymous donor, our openQA system is hosted in a datacenter on hardware that meets these requirements.
 
-[unittest]: https://docs.python.org/2/library/unittest.html
+[unittest]: https://docs.python.org/3/library/unittest.html
 [OpenQA]: http://open.qa/
 
