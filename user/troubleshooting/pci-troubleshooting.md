@@ -25,7 +25,7 @@ There is a way to enable permissive mode for it.
 See also: [this thread](https://groups.google.com/forum/#!topic/qubes-users/Fs94QAc3vQI) and the Xen wiki's [PCI passthrough](https://wiki.xen.org/wiki/Xen_PCI_Passthrough) page.
 Other times, you may instead need to disable the FLR requirement on a device.
 
-Both can be achieved during attachment with `qvm-pci` as described [PCI Devices documentaton](/doc/pci-devices/#additional-attach-options).
+Both can be achieved during attachment with `qvm-pci` as described [PCI Devices documentation](/doc/pci-devices/#additional-attach-options).
 
 ## "Unable to reset PCI device" errors ##
 
@@ -35,7 +35,7 @@ After running `qvm-start sys-net`, you may encounter an error message which begi
 
 This issue is likely to occur if you have the same device assigned to more than one
 VM. 
-When you try to start sys-net with the `qvm-start sys-net` command, there is already a VM running (e.g., autostarting) with one or more of the same devices as those assigned to sys-net. 
+When you try to start sys-net with the `qvm-start sys-net` command, there is already a VM running (e.g., auto-starting) with one or more of the same devices as those assigned to sys-net. 
 
 To fix the error, remove the offending PCI device.
 
@@ -131,9 +131,9 @@ You can fix the problem by going to the sys-net VM's settings and changing the V
 After the whole system gets suspended into S3 sleep and subsequently resumed, some attached devices may stop working. 
 Refer to [Suspend/Resume Troubleshooting](/doc/suspend-resume-troubleshooting/#attached-devices-in-Windows-HVM-stop-working-on-suspendresume) for a solution.
 
-## PCI device not available in dom0 after unassigning from a qube ##
+## PCI device not available in dom0 after being unassigned from a qube ##
 
-After assigning a PCI device to a qube, then unassigning it/shutting down the qube, the device is not available in dom0.
+After you assign a PCI device to a qube, then unassign it/shut down the qube, the device is not available in dom0.
 This is an intended feature. 
 A device which was previously assigned to a less trusted qube could attack dom0 if it were automatically reassigned there. 
 Look at the [FAQs](/faq/#i-assigned-a-pci-device-to-a-qube-then-unassigned-itshut-down-the-qube-why-isnt-the-device-available-in-dom0) to learn how to re-enable the device in dom0. 
