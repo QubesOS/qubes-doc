@@ -122,6 +122,7 @@ Core documentation for Qubes users.
 
  * [Installation Troubleshooting](/doc/installation-troubleshooting)
  * [UEFI Troubleshooting](/doc/uefi-troubleshooting/)
+ * [PCI Troubleshooting](/doc/pci-troubleshooting/)
  * [Home directory is out of disk space error](/doc/out-of-memory/)
  * [Installing on system with new AMD GPU (missing firmware problem)](https://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76)
  * [How to install an Nvidia driver in dom0](/doc/install-nvidia-driver/)
