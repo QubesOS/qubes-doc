@@ -112,7 +112,6 @@ Core documentation for Qubes users.
  * [Making Any File Persistent Using `bind-dirs`](/doc/bind-dirs/)
  * [GUI Configuration](/doc/gui-configuration/)
  * [Resizing Disk Images](/doc/resize-disk-image/)
- * [Troubleshooting UEFI](/doc/uefi-troubleshooting/)
  * [Troubleshooting Newer Hardware](/doc/newer-hardware-troubleshooting/)
  * [Mounting and Decrypting Qubes Partitions from Outside Qubes](/doc/mount-from-other-os/)
  * [KDE](/doc/kde/)
@@ -122,7 +121,8 @@ Core documentation for Qubes users.
 ### Troubleshooting
 
  * [Installation Troubleshooting](/doc/installation-troubleshooting)
- * [Home directory is out of disk space error](/doc/out-of-memory/)
+ * [UEFI Troubleshooting](/doc/uefi-troubleshooting/)
+ * [Disk Troubleshooting](/doc/disk-troubleshooting/)
  * [Installing on system with new AMD GPU (missing firmware problem)](https://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76)
  * [How to install an Nvidia driver in dom0](/doc/install-nvidia-driver/)
  * [Nvidia troubleshooting guide](/doc/nvidia-troubleshooting/)
