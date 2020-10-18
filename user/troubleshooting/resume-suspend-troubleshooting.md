@@ -124,7 +124,7 @@ This problem is related to the software method used to disable sibling threads a
 To solve the problem, disable hyper-threading in the BIOS. This [external guide](https://www.pcmag.com/news/how-to-disable-hyperthreading) explains how to disable hyper-threading. 
 Since Qubes does disable hyperthreading by default (by not using secondary threads), you won't pay any performance cost.
 
-## Attached devices in HVM stop working on suspend/resume ##
+## Attached devices in Windows HVM stop working on suspend/resume ##
 
 After the whole system gets suspended into S3 sleep and subsequently resumed, some attached devices may stop working. To make the devices work, they should be restarted within the VM.
 This can be achieved under a Windows HVM by opening the Device Manager, selecting the actual device (such as a USB controller), 'Disabling' the device, and then 'Enabling' the device again.
