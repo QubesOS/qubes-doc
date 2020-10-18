@@ -138,3 +138,10 @@ This is an intended feature.
 A device which was previously assigned to a less trusted qube could attack dom0 if it were automatically reassigned there. 
 Look at the [FAQs](/faq/#i-assigned-a-pci-device-to-a-qube-then-unassigned-itshut-down-the-qube-why-isnt-the-device-available-in-dom0) to learn how to re-enable the device in dom0. 
 
+## Network adapter does not work ##
+
+You may have an adapter (wired, wireless), that is not compatible with open-source drivers shipped by Qubes.
+You may need to install a binary blob, which provides drivers, from the linux-firmware package.
+
+Open a terminal and run `sudo dnf install linux-firmware` in the TemplateVM upon which your NetVM is based.
+You have to restart the NetVM after the TemplateVM has been shut down.
