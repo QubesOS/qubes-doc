@@ -487,62 +487,7 @@ Enable "debug mode" in the qube's settings, either by checking the box labeled "
 ### I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.
 
 This is probably because one of the controllers does not support reset. 
-In Qubes R2 any such errors were ignored. In Qubes R3.x they are not.
-In R4.x, devices that are automatically added to sys-net and sys-usb on install but do not support FLR will be attached with the no-strict-reset option, but see the related warning in the last sentence in this answer.
-
-A device that does not support reset is not ideal and generally should not be assigned to a VM.
-
-Most likely the offending controller is a USB 3.0 device. 
-You can remove this controller from the usbVM, and see if this allows the VM to boot.
-Alternatively you may be able to disable USB 3.0 in the BIOS.  
-If the BIOS does not have the option to disable USB 3.0, try running the following command in dom0 to [force USB 2.0 modes for the USB ports][force_usb2]:
-
-        lspci -nn | grep USB | cut -d '[' -f3 | cut -d ']' -f1 | xargs -I@ setpci -H1 -d @ d0.l=0
-
-
-Errors suggesting this issue:
-
- - in `xl dmesg` output:
-
-        (XEN) [VT-D] It's disallowed to assign 0000:00:1a.0 with shared RMRR at dbe9a000 for Dom19.
-        (XEN) XEN_DOMCTL_assign_device: assign 0000:00:1a.0 to dom19 failed (-1)
-
- - during `qvm-start sys-usb`:
-
-        internal error: Unable to reset PCI device [...]  no FLR, PM reset or bus reset available.
-
-
-Another solution would be to set the pci_strictreset option in dom0:
-
- - In Qubes R4.x, when attaching the PCI device to the VM (where `<BDF>` can be obtained from running `qvm-pci`):
-
-        qvm-pci attach --persistent --option no-strict-reset=true usbVM dom0:<BDF>
-
- - In Qubes R3.x, by modifying the VM's properties:
-
-        qvm-prefs usbVM -s pci_strictreset false
-
-These options allow the VM to ignore the error and the VM will start.
-Please review the notes in the `qvm-prefs` man page and [here][assign_devices] and be aware of the potential risks.
-
-### I assigned a PCI device to a qube, then unassigned it/shut down the qube. Why isn't the device available in dom0?
-
-This is an intended feature. 
-A device which was previously assigned to a less trusted qube could attack dom0 if it were automatically reassigned there. 
-In order to re-enable the device in dom0, either:
-
- * Reboot the physical machine.
-
-or
-
- * Go to the sysfs (`/sys/bus/pci`), find the right device, detach it from the pciback driver and attach back to the original driver. Replace `<BDF>` with your device, for example `00:1c.2`:
-
-        echo 0000:<BDF> > /sys/bus/pci/drivers/pciback/unbind
-        MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
-        MOD=`modprobe -R $MODALIAS | head -n 1`
-        echo 0000:<BDF> > /sys/bus/pci/drivers/$MOD/bind
-
-See also [here][assign_devices].
+See the [USB Troublshooting guide](/doc/usb-troubleshooting/usbVM-does-not-boot-after-creating-and-assigning-USB-controllers-to-it). 
 
 ### How do I install Flash in a Debian qube?
 
