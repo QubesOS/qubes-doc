@@ -487,7 +487,7 @@ Enable "debug mode" in the qube's settings, either by checking the box labeled "
 ### I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.
 
 This is probably because one of the controllers does not support reset. 
-See the [USB Troubleshooting guide](/doc/usb-troubleshooting/usbVM-does-not-boot-after-creating-and-assigning-USB-controllers-to-it). 
+See the [USB Troubleshooting guide](/doc/usb-troubleshooting/#usbVM-does-not-boot-after-creating-and-assigning-USB-controllers-to-it). 
 
 ### How do I install Flash in a Debian qube?
 
