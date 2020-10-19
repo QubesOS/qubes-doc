@@ -23,7 +23,7 @@ If this isn't an option, you can manually recover from the situation by followin
 ## "Device attach failed" error
 
 Upon trying to attach a USB device using the `qvm-usb -a vm-name device-vm-name:device` command, you may face the error `Device attach failed: no device info received, connection failed, check backend side for details`. 
-This error mainly arises due to problems specific to the particular device (including things like a broken cable, but also device incompatible with qvm-usb
+This error mainly arises due to problems specific to the particular device, such as the device being incompatible with qvm-usb or a broken cable.
 
 ## usbVM does not boot after creating and assigning USB controllers to it ## 
 
