@@ -62,4 +62,4 @@ To give the VM a RAM of 2GB, open a terminal in `dom0` and enter:
 
 ## Attached devices in Windows HVM stop working on suspend/resume ##
 
-After the whole system gets suspended into S3 sleep and subsequently resumed, some attached devices may stop working. To know how to make the devices work, see [Suspend/resume Troubleshooting](/doc/suspend-resume-troubleshooting/).
+After the whole system gets suspended into S3 sleep and subsequently resumed, some attached devices may stop working. To know how to make the devices work, see [Suspend/resume Troubleshooting](/doc/suspend-resume-troubleshooting/#attached-devices-in-windows-hvm-stop-working-on-suspendresume).
