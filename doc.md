@@ -123,6 +123,7 @@ Core documentation for Qubes users.
  * [Installation Troubleshooting](/doc/installation-troubleshooting)
  * [UEFI Troubleshooting](/doc/uefi-troubleshooting/)
  * [Suspend/Resume Troubleshooting](/doc/suspend-resume-troubleshooting/)
+ * [VM Troubleshooting](/doc/vm-troubleshooting/)
 
 ### Reference Pages
 
@@ -274,7 +275,6 @@ For more, please see [Qubes Community Documentation](https://github.com/Qubes-Co
  * [Lenovo ThinkPad Troubleshooting](/doc/thinkpad-troubleshooting/)
  * [Apple MacBook Troubleshooting](/doc/macbook-troubleshooting/)
  * [Getting Sony Vaio Z laptop to work with Qubes](/doc/sony-vaio-tinkering/)
- * [How to remove VMs manually](/doc/remove-vm-manually/)
  * [Intel Integrated Graphics Troubleshooting](/doc/intel-igfx-troubleshooting/)
 
 ### Building Guides
