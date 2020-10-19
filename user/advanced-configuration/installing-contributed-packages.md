@@ -29,12 +29,22 @@ In a Debian-based template, use `apt`:
 
     sudo apt update && sudo apt install qubes-repo-contrib
 
+The new repository definition will be in the usual location for your distro, and it will follow the naming pattern `qubes-contrib-*`, depending on your Qubes release and whether it is in dom0 or a TemplateVM.
+For example, in a Fedora TemplateVM on Qubes 4.0, the new repository definition would be:
+
+    /etc/yum.repos.d/qubes-contrib-vm-r4.0.repo
+
 ## Installing packages
 
 After you've installed the repositories, you can install contributed packages.
+
+**Note:** The first time you install a contrib package in dom0, you must use the `--clean` flag.
+
 For example, to install `qvm-screenshot-tool` in dom0:
 
     sudo qubes-dom0-update --clean qvm-screenshot-tool
+
+Please see the package's README for specific installation and setup instructions.
 
 [package contributions]: /doc/package-contributions/
 [QubesOS-contrib]: https://github.com/QubesOS-contrib/
