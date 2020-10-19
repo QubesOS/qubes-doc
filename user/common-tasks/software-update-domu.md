@@ -91,15 +91,18 @@ The following sections cover advanced topics pertaining to installing and updati
 
 ### RPMFusion for Fedora TemplateVMs
 
-If you would like to enable the [RPM Fusion] repository, open a Terminal of the TemplateVM and type the following commands: 
+If you would like to enable the [RPM Fusion] repositories, open a Terminal of the TemplateVM and type the following commands, depending on which RPM Fusion repositories you wish to enable (see [RPM Fusion] for details): 
 
 ~~~
-sudo dnf config-manager --set-enabled rpmfusion-free rpmfusion-nonfree
+sudo dnf config-manager --set-enabled rpmfusion-free
+sudo dnf config-manager --set-enabled rpmfusion-free-updates
+sudo dnf config-manager --set-enabled rpmfusion-nonfree
+sudo dnf config-manager --set-enabled rpmfusion-nonfree-updates
 sudo dnf upgrade --refresh
 ~~~
 
 
-## Reverting changes to a TemplateVM
+### Reverting changes to a TemplateVM
 
 Perhaps you've just updated your TemplateVM, and the update broke your template.
 Or perhaps you've made a terrible mistake, like accidentally confirming the installation of an unsigned package that could be malicious.
@@ -117,7 +120,7 @@ If you want to undo changes to a TemplateVM, there are three basic methods:
    However, it is a bit more complex.
 
 
-### Root revert
+#### Root revert
 
 **Important:** This command will roll back any changes made *during the last time the TemplateVM was run, but **not** before.*
 This means that if you have already restarted the TemplateVM, using this command is unlikely to help, and you'll likely want to reinstall it from the repository instead.
@@ -132,12 +135,12 @@ Just make sure to **back up** all of your data and changes first!
         qvm-volume revert <template>:root
 
 
-### Reinstall the template
+#### Reinstall the template
 
 Please see [How to Reinstall a TemplateVM].
 
 
-### Full revert
+#### Full revert
 
 This is like the simple revert, except:
 
@@ -198,7 +201,7 @@ Example policy file in R4.0 (with Whonix installed, but not set as default Updat
 @anyvm @anyvm deny
 ```
 
-# Installing Snap Packages
+### Installing Snap Packages
 
 Snap packages do not use the normal update channels for Debian and Fedora (apt and dnf) and are often installed as the user rather than as root. To support these in an AppVM you need to take the following steps:
 
@@ -268,7 +271,7 @@ Then go to the Applications tab and click "Refresh Applications"
 The refresh will take a few minutes; after it's complete the Snap app will appear in the AppVM's list of available applications. At this point the snap will be persistent within the AppVM and will receive updates when the AppVM is running.
 
 
-# Autostarting Installed Applications
+### Autostarting Installed Applications
 
 If you want a desktop app to start automatically every time a qube starts you can create a link to it in the `~/.config/autostart` directory of the **AppVM**. This might be useful for Qubes that you set to automatically start on boot or for Qubes that have a set of apps you typically use all day, such as a chat app.
 

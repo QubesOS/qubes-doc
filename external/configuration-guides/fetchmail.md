@@ -90,4 +90,18 @@ for rc in /usr/local/etc/fetchmail/*.rc; do
 done
 ~~~
 
+Make sure the folder '/rw/config/qubes-bind-dirs.d' exists.
+
+~~~
+sudo mkdir -p /rw/config/qubes-bind-dirs.d
+~~~
+
+Create the file '/rw/config/qubes-bind-dirs.d/50_user.conf' with root rights.
+
+Now edit it to append the '/var/spool/mail/' directory to the binds variable.
+
+~~~
+binds+=( '/var/spool/mail' )
+~~~
+
 Now reboot your AppVM and you are done.

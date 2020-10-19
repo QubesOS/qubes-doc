@@ -62,6 +62,8 @@ In addition, these templates may be somewhat less stable, since the Qubes develo
  * [Arch Linux]
  * [CentOS]
  * [CentOS Minimal]
+ * [Gentoo]
+ * [Gentoo Minimal]
 
 ## Installing
 
@@ -78,8 +80,13 @@ Usually, the installation method is to execute the following type of command in 
 
     $ sudo qubes-dom0-update qubes-template-<name>
 
-(where `qubes-template-<name>` is the name of your TemplateVM package)
+where `qubes-template-<name>` is the name of your TemplateVM package.
 
+If you wish to install a community template, you must enable the community template repo:
+
+    $ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-<name>
+
+If you receive the message that no match is found for `qubes-template-<name>`, see [here][no-match].
 
 ## After Installing
 
@@ -111,6 +118,10 @@ If this doesn't work, please see [How to Remove VMs Manually].
 If the Applications Menu entry doesn't go away after you uninstall a TemplateVM, execute the following type of command in dom0:
 
     $ rm ~/.local/share/applications/<template-vm-name>
+
+Applications Menu entries for backups of removed VMs can also be found in `/usr/local/share/applications/` of dom0.
+
+    $ rm /usr/local/share/applications/<template-vm-name>
 
 
 ## Reinstalling
@@ -252,7 +263,7 @@ Note the word "clean" means in this context: the same as their template filesyst
 [TemplateBasedVMs]: /doc/glossary/#templatebasedvm
 [Fedora]: /doc/templates/fedora/
 [Fedora Minimal]: /doc/templates/minimal/
-[Fedora Xfce]: /doc/templates/fedora-xfce
+[Fedora Xfce]: /doc/templates/xfce
 [Debian]: /doc/templates/debian/
 [Debian Minimal]: /doc/templates/minimal/
 [Whonix]: /doc/templates/whonix/
@@ -260,6 +271,10 @@ Note the word "clean" means in this context: the same as their template filesyst
 [Arch Linux]: /doc/building-archlinux-template/
 [CentOS]: /doc/templates/centos/
 [CentOS Minimal]: /doc/templates/minimal/
+[CentOS Xfce]: /doc/templates/xfce
+[Gentoo]: /doc/templates/gentoo/
+[Gentoo Minimal]: /doc/templates/minimal/
+[Gentoo Xfce]: /doc/templates/xfce
 [Qubes Builder]: /doc/qubes-builder/
 [TemplateVM Implementation]: /doc/template-implementation/
 [How to Remove VMs Manually]: /doc/remove-vm-manually/
@@ -274,3 +289,4 @@ Note the word "clean" means in this context: the same as their template filesyst
 [uninstall the old TemplateVM]: #uninstalling
 [Updating software in TemplateVMs]: /doc/software-update-domu/#updating-software-in-templatevms
 [How to Reinstall a TemplateVM]: /doc/reinstall-template/
+[no-match]: /faq/#when-i-try-to-install-a-templatevm-it-says-no-match-is-found

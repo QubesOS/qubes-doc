@@ -21,15 +21,15 @@ See [Hardware Testing] for details.
 
 ## Qubes-certified Laptops
 
-Qubes-certified laptops are regularly tested by the Qubes developers to ensure compatibility with all of Qubes' features.
-The developers test all new major versions and updates to ensure that no regressions are introduced.
+Qubes-certified laptops are certified for a [major version][version-scheme] and regularly tested by the Qubes developers to ensure compatibility with all of Qubes' features within that major version.
+The developers test all new updates within that major version to ensure that no regressions are introduced.
 
 
 ### Insurgo PrivacyBeast X230
 
 [![insurgo-privacybeast-x230.png](/attachment/site/insurgo-privacybeast-x230.png)][Insurgo PrivacyBeast X230]
 
-The [Insurgo PrivacyBeast X230] meets and exceeds our hardware certification requirements.
+The [Insurgo PrivacyBeast X230] meets and exceeds our hardware certification requirements for Qubes 4.
 Read our [announcement][privacybeast announcement] of the certification for further details!
 
 
@@ -37,7 +37,7 @@ Read our [announcement][privacybeast announcement] of the certification for furt
 
 [![nitropad-x230.jpg](/attachment/site/nitropad-x230.jpg)][NitroPad X230]
 
-The [NitroPad X230] satisfies all hardware certification requirements, offering users extensive hardware security options.
+The [NitroPad X230] satisfies all hardware certification requirements for Qubes 4, offering users extensive hardware security options.
 
 
 ## Become Hardware Certified
@@ -45,15 +45,17 @@ The [NitroPad X230] satisfies all hardware certification requirements, offering 
 If you are a hardware vendor, you can have your hardware certified as compatible with Qubes OS.
 The benefits of hardware certification include:
 
-* Your customers can purchase with confidence, knowing that they can take full advantage of Qubes OS on your hardware.
-* Your hardware will continue to be compatible with Qubes OS as it further develops.
+* Your customers can purchase with confidence, knowing that they can take full advantage of Qubes OS on your hardware for a specific major version.
+* We will continue testing your hardware to ensure compatibility with the supported major version.
+  In the course of this testing, we will also test your hardware against upcoming versions, which can help with future planning.
+* Your hardware will continue to be compatible with Qubes OS as it further develops within that major version, and we will work with you toward preserving compatibility and certification in future releases.
 * You can support the development of Qubes OS.
 
 
 ## Hardware Certification Requirements
 
-(Please note that these are the requirements for hardware *certification*, *not* the requirements for *running* Qubes 4.x.
-For the latter, please see the [system requirements for Qubes 4.x].)
+(Please note that these are the requirements for hardware *certification*, *not* the requirements for *running* Qubes 4.
+For the latter, please see the [system requirements for Qubes 4].)
 
 One of the most important security improvements introduced with the release of Qubes 4.0 was to replace paravirtualization (PV) technology with **hardware-enforced memory virtualization**, which recent processors have made possible thanks to so-called Second Level Address Translation ([SLAT]), also known as [EPT][EPT-enabled CPUs] in Intel parlance.
 SLAT (EPT) is an extension to Intel VT-x virtualization, which originally was capable of only CPU virtualization but not memory virtualization and hence required a complex Shadow Page Tables approach.
@@ -97,12 +99,13 @@ While we are willing to troubleshoot simple issues, we will need to charge a con
 If you are interested in having your hardware certified, please [contact us].
 
 
+[version-scheme]: /doc/version-scheme/
 [Hardware Testing]: /doc/hardware-testing/
 [stateless laptop]: https://blog.invisiblethings.org/2015/12/23/state_harmful.html
 [System Requirements]: /doc/system-requirements/
 [Hardware Compatibility List]: /hcl/
 [Hardware Certification]: #hardware-certification
-[system requirements for Qubes 4.x]: /doc/system-requirements/#qubes-release-4x
+[system requirements for Qubes 4]: /doc/system-requirements/#qubes-release-4x
 [contact us]: mailto:business@qubes-os.org
 [SLAT]: https://en.wikipedia.org/wiki/Second_Level_Address_Translation
 [EPT-enabled CPUs]: https://ark.intel.com/Search/FeatureFilter?productType=processors&ExtendedPageTables=true&MarketSegment=Mobile

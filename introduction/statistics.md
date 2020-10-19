@@ -6,8 +6,10 @@ redirect_from:
 - /counter/
 ---
 
-<div style="text-align: center; margin-bottom: 3em;">
-  <img src="https://tools.qubes-os.org/counter/stats.png" alt="Estimated Qubes OS userbase graph"/>
+<div class="center-block more-bottom">
+  <a href="https://tools.qubes-os.org/counter/stats.png">
+    <img src="https://tools.qubes-os.org/counter/stats.png" alt="Estimated Qubes OS userbase graph"/>
+  </a>
 </div>
 
 FAQ

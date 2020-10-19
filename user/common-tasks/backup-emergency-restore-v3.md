@@ -93,7 +93,7 @@ any GNU/Linux system with the following procedure.
 
  5. Decrypt the `private.img` file.
 
-        [user@restore vm1]$ cat private.img.??? | openssl enc -d -pass pass:your_passphrase -aes-256-cbc -out private.img.dec
+        [user@restore vm1]$ find -name 'private.img.*[0-9]' | sort -V | xargs cat | openssl enc -d -pass pass:your_passphrase -aes-256-cbc -out private.img.dec
 
     **Note:** If your backup was encrypted with a cipher algorithm other than
     `aes-256-cbc`, you must substitute the correct cipher command. This
