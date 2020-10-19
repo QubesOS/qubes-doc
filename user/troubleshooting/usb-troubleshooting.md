@@ -12,15 +12,18 @@ For more details on this issue along with possible solutions, look at [PCI passt
 
 ## Can't attach a USB device / USB device not showing in qvm-usb  ##
 
-Upon trying to attach a USB device using the `qvm-usb -a vm-name device-vm-name:device` command, you may face the error `Device attach failed: no device info received, connection failed, check backend side for details`. 
-This issue mainly arise when you do not have a sys-usb VM set up. 
 To successfully attach a USB device, you require a VM dedicated to handling the USB input and output. 
 For guidance setting up a USB qube, see the [USB documentation](/doc/usb-devices/#creating-and-using-a-usb-qube). 
 
 Currently (until issue [1082](https://github.com/QubesOS/qubes-issues/issues/1082) gets implemented), if you remove the device before detaching it from the qube, Qubes OS (more precisely, `libvirtd`) will think that the device is still attached to the qube and will not allow attaching further devices under the same name. 
 This may be characterized by VM manager crashes and the error message: `Houston, we have a problem`.
 The easiest way to recover from such a situation is to reboot the qube to which the device was attached.
-If this isn't an option, you can manually recover from the situation by following the at the [Block Devices documentation](/doc/block-devices/#what-if-i-removed-the-device-before-detaching-it-from-the-vm)
+If this isn't an option, you can manually recover from the situation by following the instructions at the [Block Devices documentation](/doc/block-devices/#what-if-i-removed-the-device-before-detaching-it-from-the-vm)
+
+## "Device attach failed" error
+
+Upon trying to attach a USB device using the `qvm-usb -a vm-name device-vm-name:device` command, you may face the error `Device attach failed: no device info received, connection failed, check backend side for details`. 
+This error mainly arises due to problems specific to the particular device (including things like a broken cable, but also device incompatible with qvm-usb
 
 ## usbVM does not boot after creating and assigning USB controllers to it ## 
 
