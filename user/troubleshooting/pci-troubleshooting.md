@@ -18,6 +18,8 @@ To change this allocation, edit VM's kernel parameters (this is expressed in 512
     kernelopts       : iommu=soft swiotlb=2048 (default)
     # qvm-prefs -s netvm kernelopts "iommu=soft swiotlb=8192"
 
+The `8192` value is the default value and some devices may require a larger value (like `16384`).
+
 ## PCI Passthrough Issues ##
 
 Sometimes the PCI arbitrator is too strict, which may cause errors such as `Unable to reset PCI device` and other PCI-related errors. 
