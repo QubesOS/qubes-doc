@@ -101,6 +101,7 @@ Do you really want to remove and DISCARD active logical volume qubes_dom0/vm-d10
 
 After freeing some intial space, it may be possible to recover more space by deleting files in a userVM after connecting to the userVM terminal:
 
+~~~
 qvm-start <VMname>
 qvm-console-dispvm <VMname>
 ~~~
