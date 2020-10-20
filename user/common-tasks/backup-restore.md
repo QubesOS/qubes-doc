@@ -11,20 +11,25 @@ redirect_from:
 Qubes Backup, Restoration, and Migration
 ========================================
 
-With Qubes, it's easy to back up and restore your whole system, as well as to migrate between two physical machines.
+With Qubes, it's easy and secure to back up and restore your whole system, as well as to migrate between two physical machines.
 
-These functions are integrated into Qube Manager.
-There are also two command-line tools available which perform the same functions: `qvm-backup` and `qvm-backup-restore`.
+These functions are integrated into the Qube Manager.
+There are also two command-line tools available that perform the same functions: `qvm-backup` and `qvm-backup-restore`.
+
+It's extremely important to make regular backups of all the data you care about.
+This is true of all computing, not just the use of Qubes.
+Data loss can and does occur in myriad and unexpected ways.
+A standard recommendation is to make backups at least weekly: three copies in two different formats, one off-site.
 
 
 Creating a Backup
 -----------------
 
 1. Go to **Applications menu -> System Tools -> Backup Qubes**.
-This brings up the **Qubes Backup VMs** window.
+   This brings up the **Qubes Backup VMs** window.
 
 2. Move the VMs that you want to back up to the right-hand **Selected** column.
-VMs in the left-hand **Available** column will not be backed up.
+   VMs in the left-hand **Available** column will not be backed up.
 
    You may choose whether to compress backups by checking or unchecking the **Compress the backup** box.
    Normally this should be left on unless you have a specific reason otherwise.
@@ -52,11 +57,16 @@ VMs in the left-hand **Available** column will not be backed up.
    **Warning: Saving the settings will result in your backup passphrase being saved in plaintext in dom0, so consider your threat model before checking this box.**
 
 4. You will now see the summary of VMs to be backed up.
-If there are any issues preventing the backup, they will be listed here and the **Next** button grayed out.
+   If there are any issues preventing the backup, they will be listed here and the **Next** button grayed out.
 
 5. When you are ready, click **Next**.
-Qubes will proceed to create your backup. 
-Once the progress bar has completed, you may click **Finish**.
+   Qubes will proceed to create your backup.
+   Once the progress bar has completed, you may click **Finish**.
+
+6. Test restore your backup.
+   Follow the [restore procedure](#restoring-from-a-backup), selecting **Verify backup integrity, do not restore the data**.
+   This step is optional but strongly recommended.
+   A backup is useless if you can't restore your data from it, and you can't be sure that your backup is good until you try to restore.
 
 
 Restoring from a Backup

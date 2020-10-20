@@ -7,6 +7,9 @@ permalink: /doc/package-contributions/
 Package Contributions
 =====================
 
+_This page is for developers who wish to contribute packages.
+If you want to install contributed packages, please see [installing contributed packages]._
+
 We're very grateful to the talented and hard-working community members who contribute software packages to Qubes OS.
 This page explains the inclusion criteria and procedures for such packages, as well as the roles and responsibilities of those involved.
 
@@ -29,7 +32,7 @@ Before you start putting serious work into a package, we recommend that you disc
 Once you have a package that's ready to become part of Qubes OS, please follow this procedure:
 
  1. Ensure that your package satisfies the [Inclusion Criteria].
- 2. If your code isn't already on GitHub, create a GitHub repo that contains your code.
+ 2. If your code isn't already on GitHub, create a GitHub repo that contains your code. You can have a look to an example package called [qubes-skeleton].
  3. If you haven't already, [sign your code][sig].
  4. Create an issue in [qubes-issues] with the title `[Contribution] your-package-name`.
     Include a link to your repo, a brief description of your package, and a brief explanation of why you think it should be included in Qubes.
@@ -80,7 +83,7 @@ In all the cases, the first condition to be validated by the QCR's review is to 
    - Makefiles,
    - Package build [reproducible]
 
-and any steps which would result in partial/total compromise of legitimate components.
+and any steps which would result in partial/total compromise of legitimate components. For this part, you can have a look to an example package called [qubes-skeleton].
 
 Package Maintainers
 -------------------
@@ -94,6 +97,7 @@ If you do not wish to be the maintainer of your package, please let us know.
 If you do not act on your maintainer duties for a given package for an extended period of time and after at least one reminder, we will assume that you no longer wish to be the maintainer for that package.
 
 
+[installing contributed packages]: /doc/installing-contributed-packages/
 [Inclusion Criteria]: #inclusion-criteria
 [Contribution Procedure]: #contribution-procedure
 [Update Procedure]: #update-procedure
@@ -107,3 +111,4 @@ If you do not act on your maintainer duties for a given package for an extended 
 [QubesOS-contrib]: https://github.com/QubesOS-contrib
 [qubes-issues]: https://github.com/QubesOS/qubes-issues/issues/
 [reproducible]: https://reproducible-builds.org/
+[qubes-skeleton]: https://github.com/QubesOS-contrib/qubes-skeleton

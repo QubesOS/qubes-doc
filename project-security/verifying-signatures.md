@@ -169,15 +169,22 @@ There are several ways to get the Release Signing Key for your Qubes release.
 
 The Release Signing Key should be signed by the Qubes Master Signing Key:
 
-    $ gpg2 --list-sigs "Qubes OS Release X Signing Key"
+    $ gpg2 --check-signatures "Qubes OS Release X Signing Key"
     pub   rsa4096 2017-03-06 [SC]
           5817A43B283DE5A9181A522E1848792F9E2795E9
     uid           [  full  ] Qubes OS Release X Signing Key
-    sig 3        1848792F9E2795E9 2017-03-06  Qubes OS Release X Signing Key
-    sig          DDFA1A3E36879494 2017-03-08  Qubes Master Signing Key
+    sig!3        1848792F9E2795E9 2017-03-06  Qubes OS Release X Signing Key
+    sig!         DDFA1A3E36879494 2017-03-08  Qubes Master Signing Key
+
+    gpg: 2 good signatures
 
 This is just an example, so the output you receive will not look exactly the same.
-What matters is that the last line shows that this key is signed by the Qubes Master Signing Key, which verifies the authenticity of the Release Signing Key.
+What matters is the line that shows that this key is signed by the Qubes Master
+Signing Key with a `sig!` prefix.  This verifies the authenticity of the
+Release Signing Key.  Note that the `!` flag after the `sig` tag is important
+because it means that the key signature is valid.  A `sig-` prefix would
+indicate a bad signature and `sig%` would mean that gpg encountered an error
+while verifying the signature.
 It is not necessary to independently verify the authenticity of the Release Signing Key.
 
 
@@ -433,7 +440,8 @@ The correct ISO is not in your working directory.
 Carefully read this page again to be certain that you didn't skip any steps.
 In particular, make sure you have the [Qubes Master Signing Key][QMSK], the [Release Signing Key][RSK], *and* the [signature file] and/or [digest file] all for the *correct* Qubes OS version.
 If your question is about GPG, please see the [GPG documentation].
-If you still have a question, please address it to the [qubes-users mailing list].
+Still have question?
+Please see [Help, Support, Mailing Lists, and Forum] for places where you can ask!
 
 
 [website-trust]: /faq/#should-i-trust-this-website
@@ -455,6 +463,6 @@ If you still have a question, please address it to the [qubes-users mailing list
 [digest file]: #how-to-verify-qubes-iso-digests
 [Qubes repositories]: https://github.com/QubesOS
 [GPG documentation]: https://www.gnupg.org/documentation/
-[qubes-users mailing list]: /support/#qubes-users
+[Help, Support, Mailing Lists, and Forum]: /support/
 [except dom0]: https://github.com/QubesOS/qubes-issues/issues/2544
 

@@ -1,18 +1,17 @@
 ---
 layout: doc
-title: Wireless Troubleshooting
-permalink: /doc/wireless-troubleshooting/
+title: Suspend/Resume Troubleshooting
+permalink: /doc/suspend-resume-troubleshooting/
 redirect_from:
 - /en/doc/wireless-troubleshooting/
+- /doc/wireless-troubleshooting/
 ---
 
-Wireless Troubleshooting Guide
-==============================
+# Troubleshooting problems relating to suspend/resume #
+
+## Network-Manager says “Device not ready” on suspend/resume ##
 
 These instructions may help with suspend/resume issues for more devices than just wireless cards, that is just the (unfortunately not uncommon) example used here.
-
-Resetting wireless cards by reloading drivers
----------------------------------------------
 
 If your wireless card works, but after suspending and resuming your computer, the Network-Manager applet just says "Device not ready", then try un-loading and re-loading the driver.
 
@@ -104,8 +103,7 @@ depends:        cfg80211
 [user@sys-net ~]$ sudo modprobe iwlmvm
 ~~~
 
-Automatically reloading drivers on suspend/resume
--------------------------------------------------
+## Drivers do not reload automatically on suspend/resume ##
 
 If reloading the driver (which resets the hardware into a known-state) resolves your issue when done manually, you can have Qubes automatically un/reload them on suspend & resume by listing the relevant modules in `/rw/config/suspend-module-blacklist`.
 
@@ -119,3 +117,18 @@ In the above example, it would look like this:
 iwlmvm
 iwlwifi
 ~~~
+
+## Power consumption increases on suspend/resume ##
+
+This problem is related to the software method used to disable sibling threads and how it interacts with suspend/resume. 
+To solve the problem, disable hyper-threading in the BIOS. This [external guide](https://www.pcmag.com/news/how-to-disable-hyperthreading) explains how to disable hyper-threading. 
+Since Qubes does disable hyperthreading by default (by not using secondary threads), you won't pay any performance cost.
+
+## Attached devices in Windows HVM stop working on suspend/resume ##
+
+After the whole system gets suspended into S3 sleep and subsequently resumed, some attached devices may stop working. To make the devices work, they should be restarted within the VM.
+This can be achieved under a Windows HVM by opening the Device Manager, selecting the actual device (such as a USB controller), 'Disabling' the device, and then 'Enabling' the device again.
+This is illustrated on the screenshot below:
+
+![r2b1-win7-usb-disable.png](/attachment/wiki/HvmCreate/r2b1-win7-usb-disable.png)
+

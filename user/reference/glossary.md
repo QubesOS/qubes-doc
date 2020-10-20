@@ -36,28 +36,30 @@ A user-friendly term for a [VM](#vm) in Qubes OS.
 
 Domain
 ------
-An area or set of activities in one's digital life that has certain security requirements and therefore involves the use of certain [qubes](#qube). 
-For example, suppose your "email" domain encompasses the activity of sending PGP-encrypted email. 
-This domain may include your email qube and your [Split GPG](/doc/split-gpg) qube. 
+**In Qubes OS:** An area or set of activities in one's digital life that has certain security requirements and therefore involves the use of certain [qubes](#qube).
+For example, suppose your "email" domain encompasses the activity of sending PGP-encrypted email.
+This domain may include your email qube and your [Split GPG](/doc/split-gpg) qube.
 Note that domains and qubes are not the same thing.
-In this example, your "email" domain includes the use of two qubes. 
-Furthermore, a qube can fall under multiple domains simultaneously. 
+In this example, your "email" domain includes the use of two qubes.
+Furthermore, a qube can fall under multiple domains simultaneously.
 For example, your Split GPG qube may also be part of your "software development" domain if you PGP-sign your Git commits.
 
-Dom0
+**In Xen:** A synonym for [VM](#vm). See [Domain on the Xen Wiki](https://wiki.xenproject.org/wiki/Domain).
+
+dom0
 ----
 Domain Zero. 
 Also known as the **host** domain, dom0 is the initial VM started by the Xen hypervisor on boot. 
 Dom0 runs the Xen management toolstack and has special privileges relative to other domains, such as direct access to most hardware. 
-(Note that the use of "domain" for a synonym for "VM" is specific to Xen. Qubes diverges from this practice. See: [domain](#domain).)
+(Note that the use of [domain](#domain) for a synonym for [VM](#vm) is specific to Xen. Qubes diverges from this practice. See: [domain](#domain).)
 
-DomU
+domU
 ----
 Unprivileged Domain. 
 Also known as **guest** domains, domUs are the counterparts to dom0. 
 All VMs except dom0 are domUs. 
 By default, most domUs lack direct hardware access. 
-(Note that the use of "domain" for a synonym for "VM" is specific to Xen. Qubes diverges from this practice. See: [domain](#domain).)
+(Note that the use of [domain](#domain) for a synonym for [VM](#vm) is specific to Xen. Qubes diverges from this practice. See: [domain](#domain).)
 
 TemplateVM
 ----------
@@ -85,14 +87,16 @@ Unlike TemplateVMs, however, StandaloneVMs do not supply their root filesystems 
 
 AppVM
 -----
-Application Virtual Machine. 
-A [VM](#vm) that is intended for running software applications. 
-Typically a TemplateBasedVM, but may be a StandaloneVM.
-Never a TemplateVM.
+Application Virtual Machine.
+A [VM](#vm) class.
+Synonymous with [TemplateBasedVM](#templatebasedvm).
 
 NetVM
 -----
-Network Virtual Machine. 
+*This is an old definition from before Qubes 4.0.
+NetVMs, as defined here, no longer exist in Qubes 4.0 or later (see [here][pr-748] for technical details).*
+
+Network Virtual Machine.
 A type of [VM](#vm) that connects directly to a network.
 Other VMs gain access to a network by connecting to a NetVM (usually indirectly, via a [FirewallVM](#firewallvm)).
 A NetVM called `sys-net` is created by default in most Qubes installations.
@@ -102,12 +106,18 @@ For example, if `untrusted` is directly connected to `sys-firewall` for network 
 
 ProxyVM
 -------
+*This is an old definition from before Qubes 4.0.
+ProxyVMs, as defined here, no longer exist in Qubes 4.0 or later (see [here][pr-748] for technical details).*
+
 Proxy Virtual Machine. 
 A type of [VM](#vm) that proxies network access for other VMs. 
 Typically, a ProxyVM sits between a NetVM and another VM (such as an AppVM or a TemplateVM) that requires network access.
 
 FirewallVM
 ----------
+*This is an old definition from before Qubes 4.0.
+FirewallVMs, as defined here, no longer exist in Qubes 4.0 or later (see [here][pr-748] for technical details).*
+
 Firewall Virtual Machine. 
 A type of [ProxyVM](#proxyvm) that is used to enforce network-level policies (a.k.a. "firewall rules"). 
 A FirewallVM called `sys-firewall` is created by default in most Qubes installations.
@@ -132,14 +142,6 @@ A type of [TemplateBasedVM](#templatebasedvm) on which [DisposableVMs](#disposab
 By default, a DisposableVM Template named `fedora-XX-dvm` is created on most Qubes installations (where `XX` is the Fedora version of the default TemplateVM). 
 DisposableVM Templates are not [TemplateVMs](#templatevm), since (being TemplateBasedVMs) they do not have root filesystems of their own to provide to other VMs.
 Rather, DisposableVM Templates are complementary to TemplateVMs insofar as DisposableVM Templates provide their own user filesystems to the DisposableVMs based on them.
-There are two main kinds of DisposableVM Templates:
-
- * **Dedicated** DisposableVM Templates are intended neither for installing nor running software.
-   Rather, they are intended for *customizing* or *configuring* software that has already been installed on the TemplateVM on which the DisposableVM Template is based (see [DisposableVM Customization](/doc/disposablevm-customization/).
-   This software is then intended to be run (in its customized state) in DisposableVMs that are based on the DisposableVM Template.
- * **Non-dedicated** DisposableVM Templates are typically [AppVMs](#appvm) on which DisposableVMs are based.
-   For example, an AppVM could be used to generate and store trusted data.
-   Then, a DisposableVM could be created based on the AppVM (thereby making the AppVM a DisposableVM Template) so that the data can be analyzed by an untrusted program without jeopardizing the integrity of the original data.
 
 PV
 --
@@ -194,4 +196,8 @@ Qubes Windows Tools are a set of programs and drivers that provide integration o
 QWT
 ----
 An abbreviation of Qubes [Windows Tools](#windows-tools).
+
+
+[pr-748]: https://github.com/QubesOS/qubes-doc/pull/748
+
 

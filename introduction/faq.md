@@ -61,12 +61,40 @@ In this way, Qubes allows you to do everything on the same physical computer wit
 
 Moreover, all of these isolated qubes are integrated into a single, usable system.
 Programs are isolated in their own separate qubes, but all windows are displayed in a single, unified desktop environment with unforgeable colored window borders so that you can easily identify windows from different security levels.
-Common attack vectors like network cards and USB controllers are isolated in their own hardware qubes while their functionality is preserved through secure [networking][network] , [firewalls], and [USB device management][USB].
+Common attack vectors like network cards and USB controllers are isolated in their own hardware qubes while their functionality is preserved through secure [networking][network], [firewalls], and [USB device management][USB].
 Integrated [file] and [clipboard] copy and paste operations make it easy to work across various qubes without compromising security.
 The innovative [Template] system separates software installation from software use, allowing qubes to share a root filesystem without sacrificing security (and saving disk space, to boot).
 Qubes even allows you to sanitize PDFs and images in a few clicks.
-Users concerned about privacy will appreciate the [integration of Whonix][Qubes-Whonix] with Qubes, which makes it easy to use [Tor] securely, while those concerned about physical hardware attacks will benefit from [Anti Evil Maid].
+Those concerned about physical hardware attacks will benefit from [Anti Evil Maid].
 
+### How does Qubes OS provide privacy?
+
+There can be no privacy without security, since security vulnerabilities allow privacy measures to be circumvented.
+This makes Qubes exceptionally well-suited for implementing effective privacy tools.
+
+Users concerned about privacy will appreciate the integration of [Whonix][Qubes-Whonix] into Qubes, which makes it easy to use [Tor] securely.
+For more information about how to use this powerful tool correctly and safely, please see [Whonix][Qubes-Whonix].
+
+### What about privacy in non-Whonix qubes?
+
+Qubes OS does not claim to provide special privacy (as opposed to security) properties in non-[Whonix][Qubes-Whonix] qubes.
+This includes [DisposableVMs][disposable].
+
+For example, a standard [Fedora](/doc/templates/fedora/) qube is expected to have basically the same privacy properties as that upstream Fedora distribution, enhanced to some degree by the control Qubes provides over that qube.
+For most users, this level of privacy may be good enough for many common activities.
+However, users seeking more advanced privacy features should use [Whonix][Qubes-Whonix] qubes.
+
+Privacy is far more difficult than is commonly understood.
+In addition to the [web browser](https://www.torproject.org/projects/torbrowser/design/), there is also [VM fingerprinting](https://www.whonix.org/wiki/VM_Fingerprinting) and [advanced deanonymization attacks](https://www.whonix.org/wiki/Advanced_Deanonymization_Attacks) that most users have never considered (and this is just to mention a few examples).
+The [Whonix Project](https://www.whonix.org/) specializes in [protecting against these risks](https://www.whonix.org/wiki/Protocol-Leak-Protection_and_Fingerprinting-Protection).
+
+In order to achieve the same results in non-Whonix qubes (including DisposableVMs), one would have to reinvent Whonix.
+Such duplication of effort makes no sense when Whonix already exists and is already integrated into Qubes OS.
+
+Therefore, when you need privacy, you should use Whonix qubes.
+Remember, though, that privacy is difficult to achieve and maintain.
+Whonix is a powerful tool, but no tool is perfect.
+Read the [documentation](https://www.whonix.org/wiki/Documentation) thoroughly and exercise care when using it.
 
 ### How does Qubes OS compare to using a "live CD" OS?
 
@@ -250,7 +278,7 @@ This website is hosted on [GitHub Pages][] ([why?][]).
 Therefore, it is largely outside of our control.
 We don't consider this a problem, however, since we explicitly [distrust the infrastructure].
 For this reason, we don't think that anyone should place undue trust in the live version of this site on the Web.
-Instead, if you want to obtain your own, trustworthy copy of this website in a secure way, you should clone our [website repo], [verify the PGP signatures on the commits and/or tags] signed by the [doc-signing keys], then either [render the site on your local machine][render] or simply read the source, the vast majority of which was [intentionally written in Markdown so as to be readable as plain text for this very reason][Markdown].
+Instead, if you want to obtain your own trustworthy copy of this website in a secure way, you should clone our [website repo], [verify the PGP signatures on the commits and/or tags] signed by the [doc-signing keys], then either [render the site on your local machine][render] or simply read the source, the vast majority of which was [intentionally written in Markdown so as to be readable as plain text for this very reason][Markdown].
 We've gone to special effort to set all of this up so that no one has to trust the infrastructure and so that the contents of this website are maximally available and accessible.
 
 ### What does it mean to "distrust the infrastructure"?
@@ -279,12 +307,13 @@ Also see: [Should I trust this website?]
 ### Why doesn't this website have security feature X?
 
 Although we caution users against [placing undue trust in this website][Should I trust this website?] because we [distrust the infrastructure], we have no objection to enabling website security features when doing so is relatively costless and provides some marginal benefit to website visitors.
-So, if feature X isn't enabled, it's most likely for one of three reasons 
+So, if feature X isn't enabled, it's most likely for one of three reasons:
 
 1. Our GitHub Pages platform doesn't support it.
 2. Our platform supports it, but we've decided not to enable it.
 3. Our platform supports it, but we're not aware that we can enable it or have forgotten to do so.
-   (If it seems like this is the case, let us know!)
+
+If it seems like a feature that we can and should enable, please [let us know][reporting-bugs]!
 
 
 ## Users
@@ -616,6 +645,22 @@ From a `dom0` prompt, enter:
 
     qvm-prefs <HVMname> kernel ""
 
+### When I try to install a TemplateVM, it says no match is found.
+
+For example:
+
+```
+[user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl qubes-template-debian-10
+Using sys-whonix as UpdateVM to download updates for Dom0; this may take some time...
+No Match for argument qubes-template-debian-10
+Nothing to download
+```
+
+This normally means you already have the template installed.
+It may be that you have the matching package installed, but you removed or renamed the template.
+Check `rpm -q qubes-template-<name>`.
+If it lists the package, but you don't really have the template present (`qvm-ls` doesn't list it), you need to clean up leftovers of the package with `rpm -e --noscripts qubes-template-<name>`, then install it normally.
+
 ### I keep getting "Failed to synchronize cache for repo" errors when trying to update my Fedora templates
 
 This is general Fedora issue, not a Qubes-specific issue.
@@ -796,3 +841,4 @@ There is also the unofficial [ansible-qubes toolkit][ansible].
 [why?]: #why-do-you-use-github
 [Xen]: https://www.xenproject.org/
 [XSA Tracker]: /security/xsa/
+[reporting-bugs]: /doc/reporting-bugs/

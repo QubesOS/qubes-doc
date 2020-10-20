@@ -41,12 +41,16 @@ After installing a fresh Debian TemplateVM, we recommend performing the followin
 
 ## Updating
 
-Please see [Updating software in TemplateVMs].
+For routine daily TemplateVM updates within a given Debian release, see [Updating software in TemplateVMs].
 
 
 ## Upgrading
 
-Please see [Upgrading Debian TemplateVMs].
+There are two ways to upgrade your TemplateVM to a new Debian release:
+
+ - [Install a fresh template to replace the existing one.](#installing) This option may be simpler for less experienced users. After you install the new template, redo all desired template modifications and [switch everything that was set to the old template to the new template][switch]. You may want to write down the modifications you make to your templates so that you remember what to redo on each fresh install. In the old Debian template, see `/var/log/dpkg.log` and `/var/log/apt/history.log` for logs of package manager actions.
+
+ - [Perform an in-place upgrade of an existing Debian template.][Upgrading Debian TemplateVMs] This option will preserve any modifications you've made to the template, but it may be more complicated for less experienced users.
 
 
 ## Release-specific notes
@@ -99,17 +103,7 @@ The lesson is that you should carefully look at what is being installed to your 
 
 ### Package installation errors in Qubes 4.0
 
-By default, templates in 4.0 only have a loopback interface.
-
-Some packages will throw an error on installation in this situation.
-For example, Samba expects to be configured using a network interface post installation.
-
-One solution is to add a dummy interface to allow the package to install correctly:
-
-    ip link add d0 type dummy
-    ip addr add 192.168.0.1/24 dev d0
-    ip link set d0 up
-
+If some packages throw installation errors, see [this guide.](/doc/vm-troubleshooting/#fixing-package-installation-errors)
 
 [TemplateVM]: /doc/templates/
 [Minimal TemplateVMs]: /doc/templates/minimal/

@@ -111,7 +111,7 @@ qvm-prefs win7new qrexec_timeout 300
 qvm-prefs win7new debug false
 ~~~
 
-To install Qubes Windows Tools, follow instructions [below](#xen-pv-drivers-and-qubes-windows-tools).
+To install Qubes Windows Tools, follow instructions in [Qubes Windows Tools](/doc/windows-tools/).
 
 ### Detailed instructions ###
 
@@ -119,6 +119,7 @@ MS Windows versions considerations:
 
 - The instructions *may* work on other versions than Windows 7 x64 but haven't been tested.
 - Qubes Windows Tools (QWT) only supports Windows 7 x64. Note that there are [known issues](https://github.com/QubesOS/qubes-issues/issues/3585) with QWT on Qubes 4.x
+- For Windows 10 under Qubes 4.0, a way to install QWT 4.0.1.3, which has worked in several instances, is described in [Qubes Windows Tools](/doc/windows-tools/).
 
 Create a VM named win7new in [HVM](/doc/hvm/) mode (Xen's current PVH limitations precludes from using PVH):
 
@@ -208,8 +209,38 @@ Finally, increase the VM's `qrexec_timeout`: in case you happen to get a BSOD or
 qvm-prefs win7new qrexec_timeout 300
 ~~~
 
-At that point you should have a functional and stable Windows VM, although without updates, Xen's PV drivers nor Qubes integration (see sections [Windows Update](#windows-update) and [Xen PV drivers and Qubes Windows Tools](#xen-pv-drivers-and-qubes-windows-tools) below). It is a good time to clone the VM again.
+At that point you should have a functional and stable Windows VM, although without updates, Xen's PV drivers nor Qubes integration (see sections [Windows Update](#windows-update) and [Xen PV drivers and Qubes Windows Tools](/doc/windows-tools/#xen-pv-drivers-and-qubes-windows-tools)). It is a good time to clone the VM again.
 
+
+Windows as TemplateVM
+---------------------
+
+Windows 7 and 10 can be installed as TemplateVM by selecting
+~~~
+qvm-create --class TemplateVM --property virt_mode=HVM --property kernel='' --label black Windows-template
+~~~
+when creating the VM. To have the user data stored in AppVMs depending on this template, Windows 7 and 10 have to be treated differently:
+
+-  For Windows 7, the option to move the user directories from drive `C` to drive `D` works and causes any user data to be stored in the AppVMs based on this template, and not in the template itself.
+
+-  After installation of Windows 10 as a TemplateVM, the Windows disk manager may be used to add the private volume as disk `D:`, and you may, using the documented Windows operations, move the user directories `C:\users\<username>\Documents` to this new disk, allowing depending AppVMs to have their own private volumes. Moving the hidden application directories `AppData`, however, is likely to invite trouble - the same trouble that occurs if, during QWT installation, the option `Move user profiles` is selected.
+
+For Windows 10, configuration data like those stored in directories like `AppData` still remain in the TemplateVM, such that their changes are lost each time the AppVM shuts down. In order to make permanent changes to these configuration data, they have to be changed in the TemplateVM, meaning that applications have to be started there, which violates and perhaps even endangers the security of the TemplateVM. Such changes should be done only if absolutely necessary and with great care. It is a good idea to test them first in a cloned TemplateVM before applying them in the production VM.
+
+AppVMs based on these templates can be created the normal way by using the Qube Manager or by specifying
+~~~
+qvm-create --class=AppVM --template=<VMname> 
+~~~
+
+On starting the AppVM, sometimes a message is displayed that the Xen PV Network Class needs to restart the system. This message can be safely ignored and closed by selecting "No".
+
+**Caution:** These AppVMs must not be started while the corresponding TemplateVM is running, because they share the TemplateVM's license data. Even if this could work sometimes, it would be a violation of the license terms.
+
+### Windows 10 Usage According to GDPR
+
+If Windows 10 is used in the EU to process personal data, according to GDPR no automatic data transfer to countries outside the EU is allowed without explicit consent of the person(s) concerned, or other legal consent, as applicable. Since no reliable way is found to completely control the sending of telemetry from Windows 10, the system containing personal data must be completely shielded from the internet.
+
+This can be achieved by installing Windows 10 on a TemplateVM with the user data directory moved to a separate drive (usually `D:`). Personal data must not be stored within the TemplateVM, but only in AppVMs depending on this TemplateVM. Network access by these AppVMs must be restricted to the local network and perhaps additional selected servers within the EU. Any data exchange of the AppVMs must be restricted to file and clipboard operations to and from other VMs in the same Qubes system.
 
 Windows update
 --------------
@@ -218,32 +249,6 @@ Depending on how old your installation media is, fully updating your Windows VM 
 
 Note: if you already have Qubes Windows Tools installed the video adapter in Windows will be "Qubes video driver" and you won't be able to see the Windows Update process when the VM is being powered off because Qubes services would have been stopped by then. Depending on the size of the Windows update packs it may take a bit of time until the VM shutdowns by itself, leaving one wondering if the VM has crashed or still finalizing the updates (in dom0 a changing CPU usage - eg. shown with `xentop` - usually indicates that the VM hasn't crashed).
 To avoid guessing the VM's state enable debugging (`qvm-prefs -s win7new debug true`) and in Windows' device manager (My computer -> Manage / Device manager / Display adapters) temporarily re-enable the standard VGA adapter and disable "Qubes video driver". You can disable debugging and revert to Qubes' display once the VM is updated.
-
-
-Xen PV drivers and Qubes Windows Tools
-------------------------------------
-
-Installing Xen's PV drivers in the VM will lower its resources usage when using network and/or I/O intensive applications, but *may* come at the price of system stability (although Xen's PV drivers on a Win7 VM are usually very stable). There are two ways of installing the drivers:
-
-1. installing the drivers independently, from Xen's [official site](https://www.xenproject.org/developers/teams/windows-pv-drivers.html)
-2. installing Qubes Windows Tools (QWT), which bundles Xen's PV drivers.
-
-Notes about using Xen's VBD (storage) PV driver:
-- Windows 7: installing the driver requires a fully updated VM or else you'll likely get a BSOD and a VM in a difficult to fix state. Updating Windows takes *hours* and for casual usage there isn't much of a performance between the disk PV driver and the default one; so there is likely no need to go through the lengthy Windows Update process if your VM doesn't have access to untrusted networks and if you don't use I/O intensive apps. If you plan to update your newly installed Windows VM it is recommended that you do so *before* installing Qubes Windows Tools (QWT). If QWT are installed, you should temporarily re-enable the standard VGA adapter in Windows and disable Qubes' (see the section above).
-- the option to install the storage PV driver is disabled by default in Qubes Windows Tools 
-- in case you already had QWT installed without the storage PV driver and you then updated the VM, you may then install the driver from Xen's site (xenvbd.tar).
-
-
-Installing Qubes Windows Tools:
-- on R3.2: see [this page](/doc/windows-tools/)
-- R4.0: you'll have to install QWT for Qubes R3.2. Be warned that QWT on R4.0 is a work in progress though (see [issue #3585](https://github.com/QubesOS/qubes-issues/issues/3585) for instructions and known issues).
-
-
-With Qubes Windows Tools installed the early graphical console provided in debugging mode isn't needed anymore since Qubes' display driver will be used instead of the default VGA driver:
-
-~~~
-qvm-prefs -s win7new debug false
-~~~
 
 
 Further customization

@@ -20,7 +20,9 @@ This means that you can safely work with untrusted files without risk of comprom
 DisposableVMs can be launched either directly from dom0's Start Menu or terminal window, or from within AppVMs.
 While running, DisposableVMs will appear in Qubes VM Manager with the name `disp####`.
 
-See [this article](https://blog.invisiblethings.org/2010/06/01/disposable-vms.html) for more on why one would want to use a DisposableVM.
+[![disposablevm-example.png](/attachment/wiki/DisposableVms/disposablevm-example.png)](/attachment/wiki/DisposableVms/disposablevm-example.png)
+
+This diagram provides a general example of how DisposableVMs can be used to safely open untrusted links and attachments in DisposableVMs. See [this article](https://blog.invisiblethings.org/2010/06/01/disposable-vms.html) for more on why one would want to use a DisposableVM.
 
 
 ## Security ##

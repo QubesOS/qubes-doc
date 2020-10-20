@@ -464,6 +464,26 @@ Whonix Gateway TemplateVM
 
 Whonix Workstation TemplateVM
 
+#### `update.qubes-dom0`
+
+Updates dom0
+
+#### `update.qubes-vm`
+
+Updates domUs. Example to update all TemplateVMs:
+
+    sudo qubesctl --skip-dom0 --templates state.sls update.qubes-vm
+
+Useful options:
+
+ - `--max-concurrency` --- Limits how many templates are updated at the same time.
+   Adjust to your available RAM.
+   The default is 4, and the GUI updater sets it to 1.
+ - `--targets=vm1,vm2,...` --- Limit to specific VMs, instead of all of them.
+   (Use instead of `--templates` or `--standalones`.)
+ - `--show-output` --- Show an update summary instead of just OK/FAIL.
+
+For other options, see `qubesctl --help`.
 
 ## The `qubes` Pillar Module
 
@@ -487,6 +507,7 @@ Template name on which a given VM is based (if any).
 ### `qubes:netvm`
 
 VM which provides network to the given VM
+
 
 ## Debugging
 

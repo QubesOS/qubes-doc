@@ -47,7 +47,7 @@ The table below shows the OS used for dom0 in each Qubes OS release.
 | Release 3.1   | Fedora 20 |
 | Release 3.2   | Fedora 23 |
 | Release 4.0   | Fedora 25 |
-| Release 4.1   | Fedora 31 |
+| Release 4.1   | Fedora 32 |
 
 
 ### Note on dom0 and EOL
@@ -68,8 +68,8 @@ The following table shows the [TemplateVM] versions **available** for each Qubes
 | Release 3.0   | 21, 22\*, 23                 | 7 ("wheezy")\*, 8 ("jessie")                  | None       |
 | Release 3.1   | 21, 22\*, 23                 | 7 ("wheezy")\*, 8 ("jessie"), 9 ("stretch")\* | None       |
 | Release 3.2   | 23\*, 24\*, 25\*, 26, 27, 28 | 8 ("jessie"), 9 ("stretch")                   | 13, 14     |
-| Release 4.0   | 26, 27, 28, 29, 30, 31       | 8 ("jessie"), 9 ("stretch"), 10 ("buster")    | 13, 14, 15 |
-| Release 4.1   | 26, 27, 28, 29, 30, 31       | 8 ("jessie"), 9 ("stretch"), 10 ("buster")    | 13, 14, 15 |
+| Release 4.0   | 26, 27, 28, 29, 30, 31, 32   | 8 ("jessie"), 9 ("stretch"), 10 ("buster")    | 13, 14, 15 |
+| Release 4.1   | 32                           | 10 ("buster")                                 | 15         |
 
 \* Denotes versions for which we have published the packages but have not done
 extensive testing.
@@ -96,8 +96,9 @@ Qubes support for each [Fedora] TemplateVM ends when that Fedora release reaches
 | Fedora 27     | Unsupported |
 | Fedora 28     | Unsupported |
 | Fedora 29     | Unsupported |
-| Fedora 30     | Supported   |
+| Fedora 30     | Unsupported |
 | Fedora 31     | Supported   |
+| Fedora 32     | Supported   |
 
 
 ### Debian

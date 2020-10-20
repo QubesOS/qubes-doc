@@ -355,12 +355,7 @@ The output should look like this:
 
 #### Troubleshooting
 
-In case of problems, you can access the VM console using `qvm-console-dispvm VMNAME` in dom0, then access the GRUB menu.
-You need to call it just after starting the VM (until `GRUB_TIMEOUT` expires); for example, in a separate dom0 terminal window.
-
-In any case you can later access the VM's logs (especially the VM console log `/var/log/xen/console/guest-VMNAME.log`).
-
-You can always set the kernel back to some dom0-provided value to fix a VM kernel installation.
+In case of problems, visit the [VM Troubleshooting guide](/doc/vm-troubleshooting/#vm-kernel-troubleshooting) to learn how to access the VM console, view logs and fix a VM kernel installation. 
 
 
 [dom0-kernel-upgrade]: /doc/software-update-dom0/#kernel-upgrade
