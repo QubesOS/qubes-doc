@@ -124,6 +124,8 @@ Core documentation for Qubes users.
  * [UEFI Troubleshooting](/doc/uefi-troubleshooting/)
  * [Suspend/Resume Troubleshooting](/doc/suspend-resume-troubleshooting/)
  * [VM Troubleshooting](/doc/vm-troubleshooting/)
+ * [HVM Troubleshooting](/doc/hvm-troubleshooting/)
+
 
 ### Reference Pages
 
