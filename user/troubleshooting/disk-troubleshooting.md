@@ -13,8 +13,6 @@ redirect_from:
 
 ## "Out of disk space" error ##
 
-VMs (especially templates) use pre-allocated space. 
-The default private storage max size is 2 GB, but it's very easy to increase as needed. 
 If the disk is completely full, you will get an `Out of disk space` error that may crash your system because Dom0 does not have enough disk space to work. 
 So it's good practice to regularly check disk space usage. 
 Running the `df -h` command in dom0 terminal will show some information, but not include all the relevant details.
