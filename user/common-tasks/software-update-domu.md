@@ -43,6 +43,9 @@ Advanced users can execute the standard update command for that operating system
 
 If you wish to install updates that are still in [testing], you must enable the appropriate testing repositories.
 
+## Contributed package repository
+
+Please see [installing contributed packages].
 
 ### Fedora
 
@@ -314,4 +317,5 @@ Note that the app will autostart only when the AppVM starts. If you would like t
 [RPM Fusion]: http://rpmfusion.org/
 [service framework]: /doc/qubes-service/
 [How to Reinstall a TemplateVM]: /doc/reinstall-template/
+[installing contributed packages]: /doc/installing-contributed-packages/
 
