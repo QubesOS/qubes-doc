@@ -21,11 +21,11 @@ The solution to this problem is to increase the minimum size of the video RAM bu
 
 ## Screen blanks / Weird computer glitches like turning partially black or black boxes ##
 
-You may encountering seemingly random screen blanking while using Qubes, where the screen will black and shows the logon screen, yet, only the active window will show when you move the mouse or use the keyboard. Sometimes, you will get random black screen or black boxes. 
+You may encountering seemingly random screen blanking while using Qubes, where the screen will black and shows the logon screen, yet, only the active window will show when you move the mouse or use the keyboard. Sometimes, you will get random black screens or black boxes. 
 
 Similarly, while working, the XScreenSaver dialog may pop up (indicating the screen is locked) and the screen goes black. However, the screen is not locked, and you have to move a window to redraw the screen. 
 
-If you are experiencing the any of the above sypmtoms, try disabling the window compositor:
+If you are experiencing the any of the above symptoms, try disabling the window compositor:
 
     Q → System Tools → Window Manager Tweaks → Compositor → uncheck “Enable display compositing”
 
