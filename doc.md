@@ -125,7 +125,7 @@ Core documentation for Qubes users.
  * [Suspend/Resume Troubleshooting](/doc/suspend-resume-troubleshooting/)
  * [VM Troubleshooting](/doc/vm-troubleshooting/)
  * [HVM Troubleshooting](/doc/hvm-troubleshooting/)
-
+ * [Disk Troubleshooting](/doc/disk-troubleshooting/)
 
 ### Reference Pages
 
@@ -270,7 +270,6 @@ For more, please see [Qubes Community Documentation](https://github.com/Qubes-Co
 
 ### Troubleshooting
 
- * [Home directory is out of disk space error](/doc/out-of-memory/)
  * [Installing on system with new AMD GPU (missing firmware problem)](https://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76)
  * [How to install an Nvidia driver in dom0](/doc/install-nvidia-driver/)
  * [Nvidia troubleshooting guide](/doc/nvidia-troubleshooting/)
