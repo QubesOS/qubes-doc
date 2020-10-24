@@ -39,6 +39,8 @@ To fix the problem, use your preferred text editor (`nano` works) to edit `/mnt/
 options=loglvl=all dom0_mem=min:1024M dom0_mem=max:4096M iommu=no-igfx ucode=scan efi=no-rs
 ~~~
 
+Note the `/mnt/sysimage/boot/efi/EFI/qubes/xen.cfg` path applies when running from the installer (either directly after installation, before the reboot, or by starting the installer again in recovery mode). On the actual installed system, the file to edit is `/boot/efi/EFI/qubes/xen.cfg` -- but it may be hard to access directly when your system won't boot.
+
 ## Can start VM, but can't launch any applications ##
 
 If you can start your VM, but can't launch any applications, then you need to fix the issues from the `VM console`, accessible from xen through:
@@ -47,6 +49,15 @@ If you can start your VM, but can't launch any applications, then you need to fi
 qvm-start <VMname> # Make sure the VM is started
 qvm-console-dispvm <VMname>
 ```
+After launching a VM console using `qvm-console-dispvm`, you may look at the `qubes-gui-agent` service state with:
+
+~~~
+systemctl status -l qubes-gui-agent
+~~~
+
+If the service is in a failed state, you should see some messages on why it failed. 
+
+Another helpful place to look into is `/home/user/.xsession-errors`, which may also contain some hints what is wrong.
 
 ### Disable audited messages ###
 During troubleshooting, you may be getting a lot of 'audit' messages which make the log very noisy.
