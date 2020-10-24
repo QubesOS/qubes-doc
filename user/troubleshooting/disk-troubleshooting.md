@@ -97,7 +97,7 @@ Do you really want to remove and DISCARD active logical volume qubes_dom0/vm-d10
   Logical volume "vm-d10test-standalone-root-1580772439-back" successfully removed
 ~~~
 
-After freeing some intial space, it may be possible to recover more space by deleting files in a userVM after connecting to the userVM terminal:
+After freeing some initial space, it may be possible to recover more space by deleting files in a userVM after connecting to the userVM terminal:
 
 ~~~
 qvm-start <VMname>
