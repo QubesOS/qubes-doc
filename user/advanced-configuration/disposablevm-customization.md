@@ -286,7 +286,7 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
 
 ### Starting the DisposableVMs
 
-Prior to starting the new VMs, users should ensure that no other VMs such as the old `sys-net` and `sys-usb` VMs are running. This is because no two VMs can share the same PCI device while both running. It is recommended that users detach the PCI devices from the old VMs without deleting them. This will allow users to reattach the PCI devices if the newly created DisposableVMs fail to start.  
+Prior to starting the new VMs, users should ensure that no other VMs such as the old `sys-net` and `sys-usb` VMs are running. This is because no two VMs can share the same PCI device while both running. It is recommended that users detach the PCI devices from the old VMs without deleting them. This will allow users to reattach the PCI devices if the newly created DisposableVMs fail to start. 
 
    Detach PCI device from VM:
 
@@ -295,7 +295,7 @@ Prior to starting the new VMs, users should ensure that no other VMs such as the
 
 ### Troubleshooting
 
-If the `disp-sys-usb` does not start, it could be due to a PCI passthrough problem. For more details on this issue along with possible solutions, users can look [here](/doc/pci-devices/#pci-passthrough-issues).
+If the `disp-sys-usb` does not start, it could be due to a PCI passthrough problem. For more details on this issue along with possible solutions, users can look [here](/doc/pci-troubleshooting/#pci-passthrough-issues).
 
 
 ## Deleting DisposableVMs

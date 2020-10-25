@@ -81,30 +81,7 @@ For example, if `00_1a.0` is the BDF of the device you want to attach to the "wo
 
 ## Possible Issues ##
 
-
-### DMA Buffer Size ###
-
-VMs with attached PCI devices in Qubes have allocated a small buffer for DMA operations (called swiotlb).
-By default it is 2MB, but some devices need a larger buffer.
-To change this allocation, edit VM's kernel parameters (this is expressed in 512B chunks):
-
-    # qvm-prefs netvm |grep kernelopts
-    kernelopts       : iommu=soft swiotlb=2048 (default)
-    # qvm-prefs -s netvm kernelopts "iommu=soft swiotlb=8192"
-
-
-This is [known to be needed][ml1] for the Realtek RTL8111DL Gigabit Ethernet Controller.
-
-
-### PCI Passthrough Issues ###
-
-Sometimes the PCI arbitrator is too strict. 
-There is a way to enable permissive mode for it.
-See also: [this thread][ml2] and the Xen wiki's [PCI passthrough] page.
-At other times, you may instead need to disable the FLR requirement on a device.
-
-Both can be achieved during attachment with `qvm-pci` as described below.
-
+Visit the [PCI Troubleshooting guide](/doc/pci-troubleshooting/) to see issues that may arise due to PCI devices and how to troubleshoot them. 
 
 ## Additional Attach Options ##
 
@@ -168,7 +145,4 @@ or
 [domain manager icon]: /attachment/wiki/Devices/qubes-logo-icon.png
 [qvm-device]: /doc/device-handling/#general-qubes-device-widget-behavior-and-handling
 [side channel attacks]: https://en.wikipedia.org/wiki/Side-channel_attack
-[ml1]: https://groups.google.com/group/qubes-devel/browse_thread/thread/631c4a3a9d1186e3
-[ml2]: https://groups.google.com/forum/#!topic/qubes-users/Fs94QAc3vQI
-[PCI passthrough]: https://wiki.xen.org/wiki/Xen_PCI_Passthrough
 
