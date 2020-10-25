@@ -39,7 +39,7 @@ To fix the problem, use your preferred text editor (`nano` works) to edit `/mnt/
 options=loglvl=all dom0_mem=min:1024M dom0_mem=max:4096M iommu=no-igfx ucode=scan efi=no-rs
 ~~~
 
-Note the `/mnt/sysimage/boot/efi/EFI/qubes/xen.cfg` path applies when running from the installer (either directly after installation, before the reboot, or by starting the installer again in recovery mode). On the actual installed system, the file to edit is `/boot/efi/EFI/qubes/xen.cfg` -- but it may be hard to access directly when your system won't boot.
+Note that the `/mnt/sysimage/boot/efi/EFI/qubes/xen.cfg` path applies when running from the installer (either directly after installation, before the reboot, or by starting the installer again in recovery mode). On the actual installed system, the file to edit is `/boot/efi/EFI/qubes/xen.cfg` -- but it may be hard to access directly when your system won't boot.
 
 ## Can start VM, but can't launch any applications ##
 
