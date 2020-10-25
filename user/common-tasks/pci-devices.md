@@ -143,7 +143,6 @@ or
 [USB]:/doc/usb-devices/
 [appmenu]: /attachment/wiki/Devices/qubes-appmenu-select.png
 [domain manager icon]: /attachment/wiki/Devices/qubes-logo-icon.png
-[pci-troubleshoot]:/doc/pci-troubleshooting
 [qvm-device]: /doc/device-handling/#general-qubes-device-widget-behavior-and-handling
 [side channel attacks]: https://en.wikipedia.org/wiki/Side-channel_attack
 
