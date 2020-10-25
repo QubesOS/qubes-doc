@@ -131,7 +131,7 @@ You can fix the problem by going to the sys-net VM's settings and changing the V
 ## Attached devices in Windows HVM stop working on suspend/resume ##
 
 After the whole system gets suspended into S3 sleep and subsequently resumed, some attached devices may stop working. 
-Refer to [Suspend/Resume Troubleshooting](/doc/suspend-resume-troubleshooting/#attached-devices-in-Windows-HVM-stop-working-on-suspendresume) for a solution.
+Refer to [Suspend/Resume Troubleshooting](/doc/suspend-resume-troubleshooting/#attached-devices-in-windows-hvm-stop-working-on-suspendresume) for a solution.
 
 ## PCI device not available in dom0 after being unassigned from a qube ##
 

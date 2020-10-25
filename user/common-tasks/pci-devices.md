@@ -81,7 +81,7 @@ For example, if `00_1a.0` is the BDF of the device you want to attach to the "wo
 
 ## Possible Issues ##
 
-Visit the [PCI Troubleshooting guide](pci-troubleshoot) to see issues that may arise due to PCI devices and how to troubleshoot them. 
+Visit the [PCI Troubleshooting guide](/doc/pci-troubleshooting/) to see issues that may arise due to PCI devices and how to troubleshoot them. 
 
 ## Additional Attach Options ##
 
