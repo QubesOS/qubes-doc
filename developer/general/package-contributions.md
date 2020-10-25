@@ -7,6 +7,9 @@ permalink: /doc/package-contributions/
 Package Contributions
 =====================
 
+_This page is for developers who wish to contribute packages.
+If you want to install contributed packages, please see [installing contributed packages]._
+
 We're very grateful to the talented and hard-working community members who contribute software packages to Qubes OS.
 This page explains the inclusion criteria and procedures for such packages, as well as the roles and responsibilities of those involved.
 
@@ -94,6 +97,7 @@ If you do not wish to be the maintainer of your package, please let us know.
 If you do not act on your maintainer duties for a given package for an extended period of time and after at least one reminder, we will assume that you no longer wish to be the maintainer for that package.
 
 
+[installing contributed packages]: /doc/installing-contributed-packages/
 [Inclusion Criteria]: #inclusion-criteria
 [Contribution Procedure]: #contribution-procedure
 [Update Procedure]: #update-procedure
