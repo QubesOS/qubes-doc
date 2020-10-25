@@ -30,7 +30,7 @@ How to edit rules
 
 In order to edit rules for a given qube, select it in the Qubes Manager and press the "firewall" button:
 
-![r2b1-manager-firewall.png](/attachment/wiki/QubesFirewall/r2b1-manager-firewall.png)
+![r4.1-manager-firewall.png](/attachment/wiki/QubesFirewall/r4.1-manager-firewall.png)
 
 *R4.0 note:* ICMP and DNS are no longer accessible in the GUI, but can be changed via `qvm-firewall` described below.
 Connections to Updates Proxy are no longer made over network so can not be allowed or blocked with firewall rules (see [R4.0 Updates proxy](https://www.qubes-os.org/doc/software-update-vm/) for more detail.
