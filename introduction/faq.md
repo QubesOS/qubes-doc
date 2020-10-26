@@ -487,7 +487,26 @@ Enable "debug mode" in the qube's settings, either by checking the box labeled "
 ### I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.
 
 This is probably because one of the controllers does not support reset. 
-See the [USB Troubleshooting guide](/doc/usb-troubleshooting/#usbVM-does-not-boot-after-creating-and-assigning-USB-controllers-to-it). 
+See the [USB Troubleshooting guide](/doc/usb-troubleshooting/#usbvm-does-not-boot-after-creating-and-assigning-usb-controllers-to-it). 
+
+### I assigned a PCI device to a qube, then unassigned it/shut down the qube. Why isn't the device available in dom0?
+
+This is an intended feature. 
+A device which was previously assigned to a less trusted qube could attack dom0 if it were automatically reassigned there. 
+In order to re-enable the device in dom0, either:
+
+ * Reboot the physical machine.
+
+or
+
+ * Go to the sysfs (`/sys/bus/pci`), find the right device, detach it from the pciback driver and attach back to the original driver. Replace `<BDF>` with your device, for example `00:1c.2`:
+
+        echo 0000:<BDF> > /sys/bus/pci/drivers/pciback/unbind
+        MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
+        MOD=`modprobe -R $MODALIAS | head -n 1`
+        echo 0000:<BDF> > /sys/bus/pci/drivers/$MOD/bind
+
+See also [here][assign_devices].
 
 ### How do I install Flash in a Debian qube?
 
