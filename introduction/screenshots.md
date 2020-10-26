@@ -59,10 +59,9 @@ Qubes is all about seamless integration from the user’s point of view. Here yo
 
 * * * * *
 
-[![r2b2-manager-and-netvm-network-prompt.png](/attachment/wiki/QubesScreenshots/r4.1-manager-and-sysnet-network-prompt.png)](/attachment/wiki/QubesScreenshots/r4.1-manager-and-sysnet-network-prompt.png)
+[![r4.1-manager-and-sysnet-network-prompt.png](/attachment/wiki/QubesScreenshots/r4.1-manager-and-sysnet-network-prompt.png)](/attachment/wiki/QubesScreenshots/r4.1-manager-and-sysnet-network-prompt.png)
 
-All the networking runs in a special, unprivileged NetVM. (Notice the red frame around the Network Manager dialog box on the screen above.) This means that in the event that your network card driver, Wi-Fi stack, or DHCP client is compromised, the integrity of the rest of the system will not be affected! This feature requires Intel VT-d or AMD IOMMU hardware (e.g., Core i5/i7 systems).
-
+All the networking runs in a special, unprivileged NetVM. (Notice the red frame around the Network Manager dialog box on the screen above.) This means that in the event that your network card driver, Wi-Fi stack, or DHCP client is compromised, the integrity of the rest of the system will not be affected! This feature requires Intel VT-d or AMD IOMMU hardware (e.g., Core i5/i7 systems4.1
 * * * * *
 
 [![r4.1-software-update.png](/attachment/wiki/QubesScreenshots/r4.1-software-update.png)](/attachment/wiki/QubesScreenshots/r4.1-software-update.png)
@@ -89,7 +88,7 @@ Qubes' unique DisposableVMs (DispVMs) allow the user to open any file in a dispo
 
 * * * * *
 
-[![r4.1-convert-to-trusted-pdf.png](/attachment/wiki/QubesScreenshots/r4.1-convert-to-trusted-pdf.png)](/attachment/wiki/QubesScreenshots/r4.1-convert-to-trusted-pdf.png) [![r4.1-converting-pdf.png](/attachment/wiki/QubesScreenshots/r4.1-converting-pdf.png)](/attachment/wiki/QubesScreenshots/r4.1-converting-pdf.png)
+[![r4.1-convert-to-trusted-pdf-1.png](/attachment/wiki/QubesScreenshots/r4.1-convert-to-trusted-pdf-1.png)](/attachment/wiki/QubesScreenshots/r4.1-convert-to-trusted-pdf-1.png) [![r4.1-converting-pdf.png](/attachment/wiki/QubesScreenshots/r4.1-converting-pdf.png)](/attachment/wiki/QubesScreenshots/r4.1-converting-pdf.png)
 
 Qubes provides an advanced infrastructure for programming inter-VM services, such as a PDF converter for untrusted files (which is described in [this article](https://blog.invisiblethings.org/2013/02/21/converting-untrusted-pdfs-into-trusted.html)).
 
