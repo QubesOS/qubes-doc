@@ -109,15 +109,3 @@ And some more screenshots:
 
 [![r2b3-windows-seamless-2.png](/attachment/wiki/QubesScreenshots/r2b3-windows-seamless-2.png)](/attachment/wiki/QubesScreenshots/r2b3-windows-seamless-2.png)
 
-* * * * *
-
-The following screenshots, [courtesy of Qubes user nalu](https://groups.google.com/d/topic/qubes-users/KhfzF19NG1s/discussion), demonstrate some of the ways in which KDE can be customized to work with Qubes:
-
-[![r3rc1-nalu-desktop-1.png](/attachment/wiki/QubesScreenshots/r3rc1-nalu-desktop-1.png)](/attachment/wiki/QubesScreenshots/r3rc1-nalu-desktop-1.png)
-
-[![r3rc1-nalu-desktop-2.png](/attachment/wiki/QubesScreenshots/r3rc1-nalu-desktop-2.png)](/attachment/wiki/QubesScreenshots/r3rc1-nalu-desktop-2.png)
-
-[![r3rc1-nalu-desktop-3.png](/attachment/wiki/QubesScreenshots/r3rc1-nalu-desktop-3.png)](/attachment/wiki/QubesScreenshots/r3rc1-nalu-desktop-3.png)
-
-[![r3rc1-nalu-desktop-4.png](/attachment/wiki/QubesScreenshots/r3rc1-nalu-desktop-4.png)](/attachment/wiki/QubesScreenshots/r3rc1-nalu-desktop-4.png)
-
