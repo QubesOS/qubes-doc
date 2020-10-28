@@ -126,6 +126,8 @@ Core documentation for Qubes users.
  * [VM Troubleshooting](/doc/vm-troubleshooting/)
  * [HVM Troubleshooting](/doc/hvm-troubleshooting/)
  * [Disk Troubleshooting](/doc/disk-troubleshooting/)
+ * [PCI Troubleshooting](/doc/pci-troubleshooting/)
+ * [USB Troubleshooting](/doc/usb-troubleshooting/)
  * [GUI Troubleshooting](/doc/gui-troubleshooting/)
 
 ### Reference Pages
