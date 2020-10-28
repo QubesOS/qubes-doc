@@ -18,6 +18,22 @@ The documentation is a community effort. Volunteers work hard trying to keep eve
 If you notice a problem or some way it can be improved, please [edit the documentation][contribute]!
 
 
+Security
+--------
+
+All pull requests against [qubes-doc] must pass review prior to be merged, except in the case of [external documentation] (see [#4693]).
+This process is designed to ensure that contributed text is accurate and non-malicious.
+This process is a best effort that should provide a reasonable degree of assurance, but it is not foolproof.
+For example, all text characters are checked for ANSI escape sequences.
+However, binaries, such as images, are simply checked to ensure they appear or function the way they should when the website is rendered.
+They are not further analyzed in an attempt to determine whether they are malicious.
+
+Once a pull request passes review, the reviewer should add a signed comment stating, "Passed review as of `<latest_commit>`" (or similar).
+The documentation maintainer then verifies that the pull request is mechanically sound (no merge conflicts, broken links, ANSI escapes, etc.).
+If so, the documentation maintainer then merges the pull request, adds a PGP-signed tag to the latest commit (usually the merge commit), then pushes to the remote.
+In cases in which another reviewer is not required, the documentation maintainer may review the pull request (in which case no signed comment is necessary, since it would be redundant with the signed tag).
+
+
 Questions, problems, and improvements
 -------------------------------------
 
@@ -304,4 +320,5 @@ Please try to write good commit messages, according to the
 [git-commit]: /doc/coding-style/#commit-message-guidelines
 [render the site locally]: https://github.com/QubesOS/qubesos.github.io#instructions
 [qubes-attachment]: https://github.com/QubesOS/qubes-attachment
-
+[external documentation]: /doc/#external-documentation
+[#4693]: https://github.com/QubesOS/qubes-issues/issues/4693

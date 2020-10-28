@@ -278,7 +278,7 @@ This website is hosted on [GitHub Pages][] ([why?][]).
 Therefore, it is largely outside of our control.
 We don't consider this a problem, however, since we explicitly [distrust the infrastructure].
 For this reason, we don't think that anyone should place undue trust in the live version of this site on the Web.
-Instead, if you want to obtain your own trustworthy copy of this website in a secure way, you should clone our [website repo], [verify the PGP signatures on the commits and/or tags] signed by the [doc-signing keys], then either [render the site on your local machine][render] or simply read the source, the vast majority of which was [intentionally written in Markdown so as to be readable as plain text for this very reason][Markdown].
+Instead, if you want to obtain your own trustworthy copy of this website in a secure way, you should clone our [website repo], [verify the PGP signatures on the commits and/or tags] signed by the [doc-signing keys] (which indicates that the content has undergone review per our [documentation guidelines]), then either [render the site on your local machine][render] or simply read the source, the vast majority of which was [intentionally written in Markdown so as to be readable as plain text for this very reason][Markdown].
 We've gone to special effort to set all of this up so that no one has to trust the infrastructure and so that the contents of this website are maximally available and accessible.
 
 ### What does it mean to "distrust the infrastructure"?
