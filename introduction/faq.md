@@ -650,6 +650,13 @@ See 'systemctl status systemd-modules-load.service' for details.
 ```
 This is cosmetic only, and can safely be ignored.
 
+### Why is Qubes so slow and how can I make it faster?
+
+During boot, Qubes starts several virtual machines. 
+Having so many qubes running at once inevitably strains the resources of your computer and causes slowness. 
+The most effective way to speed up Qubes is to get more powerful hardware -- a fast CPU, a lot of memory and fast SSDs. 
+Qubes is slower when reading from the disk because of the VM overhead, which is why we recommend installing it on a fast SSD.
+
 ### Could you please make my preference the default?
 
 Wouldn't it be great if Qubes were configured just the way you like it by default with all of your favorite programs and settings?
