@@ -43,10 +43,6 @@ Advanced users can execute the standard update command for that operating system
 
 If you wish to install updates that are still in [testing], you must enable the appropriate testing repositories.
 
-## Contributed package repository
-
-Please see [installing contributed packages].
-
 ### Fedora
 
 There are three Qubes VM testing repositories (where `*` denotes the Release):
@@ -76,6 +72,11 @@ Debian also has three Qubes VM testing repositories (where `*` denotes the Relea
 * `*-unstable` -- packages that are not intended to land in the stable repository; mostly experimental debugging packages
 
 To enable or disable any of these repos permanently, uncomment the corresponding `deb` line in `/etc/apt/sources.list.d/qubes-r*.list`.
+
+
+## Contributed package repository
+
+Please see [installing contributed packages].
 
 
 ## StandaloneVMs
