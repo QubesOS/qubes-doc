@@ -1,24 +1,22 @@
 ---
 layout: doc
-title: GUI Configuration and Troubleshooting
-permalink: /doc/gui-configuration-and-troubleshooting/
+title: GUI Configuration
+permalink: /doc/gui-configuration/
 redirect_from:
   - /doc/gui-configuration/
 ---
 
-# GUI Configuration and Troubleshooting
+# GUI Configuration
 
 ## Video RAM adjustment for high-resolution displays
-
-**Problem:** You have a 4K external display, and when you connect it, you can't click on anything but a small area in the upper-right corner.
 
 When a qube starts, a fixed amount of RAM is allocated to the graphics buffer called video RAM.
 This buffer needs to be at least as big as the whole desktop, accounting for all displays that are or will be connected to the machine.
 By default, it is as much as needed for the current display and an additional full HD (FHD) display (1920×1080 8 bit/channel RGBA).
 This logic fails when the machine has primary display in FHD resolution and, after starting some qubes, a 4K display is connected.
-The buffer is too small, and internal desktop resize fails.
+If the buffer is too small, and internal desktop resize fails.
 
-**Solution:** Increase the minimum size of the video RAM buffer.
+To increase the minimum size of the video RAM buffer:
 
 ```sh
 qvm-features dom0 gui-videoram-min $(($WIDTH * $HEIGHT * 4 / 1024))
@@ -53,24 +51,5 @@ EndSection
 
 ## GUI Troubleshooting
 
-If you can start your VM, but can't launch any applications, then you need to fix the issues from the `VM console`, accessible from xen through:
+See [GUI Troubleshooting](/doc/gui-troubleshooting) for issues relating to the Qubes graphical user interface and how to fix them. 
 
-```sh
-qvm-start <VMname> # Make sure the VM is started
-qvm-console-dispvm <VMname>
-```
-
-### Tips
-
-#### Disable audited messages
-
-To disable audited messages, you need to edit your VM kernel parameters:
-
-```sh
-previous_kernel_parameters=$(qvm-prefs --get <VMname> kernelopts) # Get current kernel parameters
-qvm-prefs --set <VMname> kernelopts "<previous_kernel_parameters> audit=0"
-```
-
-Then, restart your VM.
-
-Once your troubleshooting is done, don't forget to remove this kernel parameters, it makes troubleshooting VMs not starting easier.
