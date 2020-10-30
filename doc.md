@@ -263,6 +263,7 @@ For more, please see [Qubes Community Documentation](https://github.com/Qubes-Co
  * [Rxvt Guide](/doc/rxvt/)
  * [Adding SSD storage cache](https://groups.google.com/d/msgid/qubes-users/a08359c9-9eb0-4d1a-ad92-a8a9bc676ea6%40googlegroups.com)
  * [How to Make a Multimedia TemplateVM](/doc/multimedia/)
+ * [How to install an Nvidia driver in dom0](/doc/install-nvidia-driver/)
 
 ### Customization Guides
 
@@ -272,22 +273,9 @@ For more, please see [Qubes Community Documentation](https://github.com/Qubes-Co
  * [Dark Theme in Dom0 and DomU](/doc/dark-theme/)
  * [Safely Removing TemplateVM Packages (Example: Thunderbird)](/doc/removing-templatevm-packages/)
  
- ### Troubleshooting
-
- * [Installing on system with new AMD GPU (missing firmware problem)](https://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76)
- * [How to install an Nvidia driver in dom0](/doc/install-nvidia-driver/)
- * [Nvidia troubleshooting guide](/doc/nvidia-troubleshooting/)
- * [Lenovo ThinkPad Troubleshooting](/doc/thinkpad-troubleshooting/)
- * [Apple MacBook Troubleshooting](/doc/macbook-troubleshooting/)
- * [Getting Sony Vaio Z laptop to work with Qubes](/doc/sony-vaio-tinkering/)
- * [Intel Integrated Graphics Troubleshooting](/doc/intel-igfx-troubleshooting/)
-
-
 ### Troubleshooting
-
+ * [Nvidia Troubleshooting](/doc/nvidia-troubleshooting/)
  * [Installing on system with new AMD GPU (missing firmware problem)](https://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76)
- * [How to install an Nvidia driver in dom0](/doc/install-nvidia-driver/)
- * [Nvidia troubleshooting guide](/doc/nvidia-troubleshooting/)
  * [Lenovo ThinkPad Troubleshooting](/doc/thinkpad-troubleshooting/)
  * [Apple MacBook Troubleshooting](/doc/macbook-troubleshooting/)
  * [Getting Sony Vaio Z laptop to work with Qubes](/doc/sony-vaio-tinkering/)
