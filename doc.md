@@ -130,6 +130,7 @@ Core documentation for Qubes users.
  * [USB Troubleshooting](/doc/usb-troubleshooting/)
  * [GUI Troubleshooting](/doc/gui-troubleshooting/)
  * [Media Troubleshooting](/doc/media-troubleshooting/)
+ * [VPN Troubleshooting](/doc/vpn-troubleshooting/)
 
 ### Reference Pages
 
@@ -271,17 +272,6 @@ For more, please see [Qubes Community Documentation](https://github.com/Qubes-Co
  * [Language Localization](/doc/language-localization/)
  * [Dark Theme in Dom0 and DomU](/doc/dark-theme/)
  * [Safely Removing TemplateVM Packages (Example: Thunderbird)](/doc/removing-templatevm-packages/)
- 
- ### Troubleshooting
-
- * [Installing on system with new AMD GPU (missing firmware problem)](https://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76)
- * [How to install an Nvidia driver in dom0](/doc/install-nvidia-driver/)
- * [Nvidia troubleshooting guide](/doc/nvidia-troubleshooting/)
- * [Lenovo ThinkPad Troubleshooting](/doc/thinkpad-troubleshooting/)
- * [Apple MacBook Troubleshooting](/doc/macbook-troubleshooting/)
- * [Getting Sony Vaio Z laptop to work with Qubes](/doc/sony-vaio-tinkering/)
- * [Intel Integrated Graphics Troubleshooting](/doc/intel-igfx-troubleshooting/)
-
 
 ### Troubleshooting
 

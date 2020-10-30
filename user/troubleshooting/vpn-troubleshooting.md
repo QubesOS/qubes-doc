@@ -1,0 +1,28 @@
+---
+layout: doc
+title: VPN Troubleshooting
+permalink: /doc/vpn-troubleshooting/
+---
+
+# VPN Troubleshooting Guide #
+
+## Tips 
+
+* Check the VPN service's log in the VPN VM by running:
+    ~~~
+    sudo journalctl -u qubes-vpn-handler
+    ~~~
+* Always test your basic VPN connection before adding scripts. 
+
+* Test DNS: Ping a familiar domain name from an appVM. It should print the IP address for the domain.
+
+* Use `iptables -L -v` and `iptables -L -v -t nat` to check firewall rules. The latter shows the critical PR-QBS chain that enables DNS forwarding.
+
+## VPN does not reconnect after suspend 
+After suspend/resume, your VPN may not automatically reconnect. In order to get it to work, you must kill your VPN system and restart it. 
+
+## VPN stuck at "Ready to start link" 
+
+After setting up your VPN system and restarting the VM, you may be repeatedly getting the popup "Ready to start link", but the VPN isn't connected. 
+
+To figure out the root of the problem, check the VPN logs in `/var/logs/syslog`. The log may reveal issues like missing libraries, which you can then install. 
