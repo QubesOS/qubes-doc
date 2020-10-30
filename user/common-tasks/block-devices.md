@@ -123,7 +123,7 @@ To recover from this error state, in dom0 run
 However, if the block device originated in dom0, you will have to refer to the next section.
 
 
-### What if I removed the device before detaching it from the VM?###
+### What if I removed the device before detaching it from the VM? ###
 
 Currently (until issue [1082] gets implemented), if you remove the device before detaching it from the qube, Qubes OS (more precisely, `libvirtd`) will think that the device is still attached to the qube and will not allow attaching further devices under the same name.
 The easiest way to recover from such a situation is to reboot the qube to which the device was attached.
