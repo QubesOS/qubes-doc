@@ -133,7 +133,7 @@ The same general procedure may be used to upgrade any template based on the stan
 
  9. (Optional) Make the new template the global default.
 
-        [user@dom0 ~]$ qubes-prefs --set fedora-<new>
+        [user@dom0 ~]$ qubes-prefs --set default_template fedora-<new>
 
 10. (Optional) Remove the old template.
     (Make sure to type the name of the old template, not the new one.)
