@@ -115,9 +115,9 @@ If you're seeing this error then that means another graphics card (most likely a
     nouveau.modeset=0 rd.driver.blacklist=nouveau video=vesa:off
     ~~~
 
-    This will temporarily disable nouveau until next boot.
+    This will disable nouveau until the option is manually edited back to its original state.
 
- 5. Press either the `Ctrl+X` keys, then `y` to save changes. 
+ 5. Press the `Ctrl+X` keys, then `y` to save changes. 
    
  6. Reboot 
 
