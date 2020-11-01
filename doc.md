@@ -130,6 +130,7 @@ Core documentation for Qubes users.
  * [USB Troubleshooting](/doc/usb-troubleshooting/)
  * [GUI Troubleshooting](/doc/gui-troubleshooting/)
  * [Media Troubleshooting](/doc/media-troubleshooting/)
+ * [Firewall Troubleshooting](/doc/firewall/#firewall-troubleshooting)
  * [VPN Troubleshooting](/doc/vpn-troubleshooting/)
 
 ### Reference Pages
