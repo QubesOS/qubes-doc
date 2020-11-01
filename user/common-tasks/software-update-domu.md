@@ -26,6 +26,7 @@ To permanently install new software in a TemplateVM:
  4. Shut down the TemplateVM.
  5. Restart all [TemplateBasedVMs] based on the TemplateVM.
 
+After this you may want to add an icon of this application to the start menu of an AppVM based on this template (like your `personal` qube). See how to do this on [Managing shortcuts to applications in AppVMs](https://www.qubes-os.org/doc/managing-appvm-shortcuts/)
 
 ## Updating software in TemplateVMs
 
