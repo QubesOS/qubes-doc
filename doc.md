@@ -77,7 +77,6 @@ Core documentation for Qubes users.
  * [PCI Devices](/doc/pci-devices/)
  * [Device Handling](/doc/device-handling/)
  * [Optical Discs](/doc/optical-discs/)
- * [Application Shortcuts](/doc/managing-appvm-shortcuts/)
  * [Fullscreen Mode](/doc/full-screen-mode/)
 
 ### Managing Operating Systems within Qubes
@@ -123,6 +122,7 @@ Core documentation for Qubes users.
  * [Installation Troubleshooting](/doc/installation-troubleshooting)
  * [UEFI Troubleshooting](/doc/uefi-troubleshooting/)
  * [Suspend/Resume Troubleshooting](/doc/suspend-resume-troubleshooting/)
+ * [Application Shortcut Troubleshooting](/doc/managing-appvm-shortcuts/)
  * [VM Troubleshooting](/doc/vm-troubleshooting/)
  * [HVM Troubleshooting](/doc/hvm-troubleshooting/)
  * [Disk Troubleshooting](/doc/disk-troubleshooting/)
