@@ -122,7 +122,9 @@ Note that the `qvm-open-in-dvm` process will not exit until you close the applic
 ## Starting an arbitrary program in a DisposableVM from an AppVM ##
 
 Sometimes it can be useful to start an arbitrary program in a DisposableVM.
-This can be done from an AppVM by running
+The DisposableVM will stay running so long as the process which started the DisposableVM has not exited. 
+Some applications, such as GNOME Terminal, do not wait for the application to close before the process exits (details [here](https://github.com/QubesOS/qubes-issues/issues/2581#issuecomment-272664009)).
+Starting an arbitrary program can be done from an AppVM by running
 
 ~~~
 [user@vault ~]$ qvm-run '@dispvm' xterm
@@ -134,7 +136,9 @@ The created DisposableVM can be accessed via other tools (such as `qvm-copy-to-v
 ## Starting an arbitrary application in a DisposableVM via command line from dom0 ##
 
 The Application Launcher has shortcuts for opening a terminal and a web browser in dedicated DisposableVMs, since these are very common tasks.
-However, it is possible to start an arbitrary application in a DisposableVM directly from dom0 by running:
+The DisposableVM will stay running so long as the process which started the DisposableVM has not exited. 
+Some applications, such as GNOME Terminal, do not wait for the application to close before the process exits (details [here](https://github.com/QubesOS/qubes-issues/issues/2581#issuecomment-272664009)).
+It is possible to start an arbitrary application in a DisposableVM directly from dom0 by running:
 
 ~~~
 $ qvm-run --dispvm=dvm-template --service qubes.StartApp+xterm
