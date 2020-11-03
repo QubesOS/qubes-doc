@@ -367,6 +367,8 @@ The [Qubes backup system] allows you to do this securely and easily.
    We urge you to read it! It may very well contain the answers to your questions. 
    (Since the documentation is a community effort, we'd also greatly appreciate your help in [improving] it!)
 
+ * If issues arise during installation, see the [Installation Troubleshooting](/doc/installation-troubleshooting) guide. 
+
  * If you don't find your answer in the documentation, please see [Help, Support, Mailing Lists, and Forum] for places to ask.
 
  * Please do **not** email individual members of the Qubes team with questions about installation or other problems. 
