@@ -110,6 +110,10 @@ sudo dnf config-manager --set-enabled rpmfusion-nonfree-updates
 sudo dnf upgrade --refresh
 ~~~
 
+This will permanently enable the RPM Fusion repos.
+If you install software from here, it's important to keep these repos enabled so that you can receiving future updates.
+If you only enable these repos temporarily to install a package the Qubes update mechanism may persistently notify you that updates are available, since it cannot download them.
+
 
 ### Reverting changes to a TemplateVM
 
