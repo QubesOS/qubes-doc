@@ -50,7 +50,9 @@ There are three basic steps in this process:
  2. [Get the Release Signing Key][RSK]
  3. [Verify your Qubes ISO][signature file]
 
-If you run into any problems, please consult the [Troubleshooting FAQ] below.
+If you run into any problems, please consult the [Troubleshooting FAQ] below. 
+
+If you are using windows these instructions do not apply.
 
 ### 1. Get the Qubes Master Signing Key and verify its authenticity
 
