@@ -52,6 +52,24 @@ There are three basic steps in this process:
 
 If you run into any problems, please consult the [Troubleshooting FAQ] below.
 
+
+### Preparation
+
+Before we begin, you'll need a program that can verify PGP signatures.
+Any such program will do, but here are some examples for popular operating systems:
+
+**Windows:** [Gpg4win](https://gpg4win.org/download.html).
+Use the Windows command line (`cmd.exe`) to enter commands.
+
+**Mac:** [GPG Suite](https://gpgtools.org/).
+Open a terminal to enter commands.
+
+**Linux:** `gpg2` from your package manager or from [gnupg.org](https://gnupg.org/download/index.html).
+Open a terminal to enter commands.
+
+The commands below will use `gpg2`, but if that doesn't work for you, try `gpg` instead.
+
+
 ### 1. Get the Qubes Master Signing Key and verify its authenticity
 
 Every file published by the Qubes Project (ISO, RPM, TGZ files and Git repositories) is digitally signed by one of the developer keys or Release Signing Keys.
