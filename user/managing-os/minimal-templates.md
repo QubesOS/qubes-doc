@@ -32,6 +32,7 @@ There are currently three Minimal TemplateVMs corresponding to the standard [Fed
 3. The Minimal TemplateVMs are intentionally *minimal*.
    [Do not ask for your favorite package to be added to the minimal template by default.][pref-default]
 
+4. In order to reduce unnecessary risk, unused repositories have been disabled by default. Check if you should enable some of them if some package fails to install but it works fine in the standard TemplateVM.
 
 ## Installation
 
