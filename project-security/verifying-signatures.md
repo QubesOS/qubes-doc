@@ -58,16 +58,17 @@ If you run into any problems, please consult the [Troubleshooting FAQ] below.
 Before we begin, you'll need a program that can verify PGP signatures.
 Any such program will do, but here are some examples for popular operating systems:
 
-**Windows:** [Gpg4win](https://gpg4win.org/download.html).
+**Windows:** [Gpg4win](https://gpg4win.org/download.html) ([documentation](https://www.gpg4win.org/documentation.html)).
 Use the Windows command line (`cmd.exe`) to enter commands.
 
-**Mac:** [GPG Suite](https://gpgtools.org/).
+**Mac:** [GPG Suite](https://gpgtools.org/) ([documentation](https://gpgtools.tenderapp.com/kb)).
 Open a terminal to enter commands.
 
-**Linux:** `gpg2` from your package manager or from [gnupg.org](https://gnupg.org/download/index.html).
+**Linux:** `gpg2` from your package manager or from [gnupg.org](https://gnupg.org/download/index.html) ([documentation](https://www.gnupg.org/documentation/)).
 Open a terminal to enter commands.
 
 The commands below will use `gpg2`, but if that doesn't work for you, try `gpg` instead.
+If that still doesn't work, please consult the documentation for your specific program (see links above).
 
 
 ### 1. Get the Qubes Master Signing Key and verify its authenticity
