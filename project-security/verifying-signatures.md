@@ -124,8 +124,8 @@ That's why we strongly suggest obtaining the fingerprint from *multiple, indepen
 Here are some ideas for how to do that:
 
  - Download the key from different keyservers.
- - Use different search engines to search for the fingerprint.
- - Check the fingerprint on various websites (e.g., [mailing lists](https://groups.google.com/g/qubes-users/c/CLnB5uFu_YQ/m/ZjObBpz0S9UJ), [discussion forums](https://qubes-os.discourse.group/t/there-is-no-way-to-validate-qubes-master-signing-key/1441/9?u=adw), [social media posts](https://twitter.com/rootkovska/status/496976187491876864), [personal websites](https://andrewdavidwong.com/fingerprints.txt)).
+ - Use different search engines to [search](https://duckduckgo.com/?q=%22427F+11FD+0FAA+4B08+0123+F01C+DDFA+1A3E+3687+9494%22) for the fingerprint.
+ - Check the fingerprint on various websites (e.g., [mailing lists](https://groups.google.com/g/qubes-users/c/CLnB5uFu_YQ/m/ZjObBpz0S9UJ), [discussion forums](https://qubes-os.discourse.group/t/there-is-no-way-to-validate-qubes-master-signing-key/1441/9?u=adw), [social](https://twitter.com/rootkovska/status/496976187491876864) [media](https://www.reddit.com/r/Qubes/comments/5bme9n/fingerprint_verification/), [personal websites](https://andrewdavidwong.com/fingerprints.txt)).
  - Check against PDFs, photographs, and videos in which the fingerprint appears
    (e.g., [slides from a talk](https://hyperelliptic.org/PSC/slides/psc2015_qubesos.pdf), on a [T-shirt](https://twitter.com/legind/status/813847907858337793/photo/2), or in the [recording of a presentation](https://youtu.be/S0TVw7U3MkE?t=2563)).
  - Download old Qubes ISOs from different sources and check the included Qubes Master Signing Key.
