@@ -6,6 +6,83 @@ permalink: /doc/macbook-troubleshooting/
 
 # Apple MacBook Troubleshooting
 
+## System freezes after attaching Broadcom BCM43602 Wi-Fi card
+
+You may experience system freezes or crashes after attaching a Broadcom Wi-Fi adapter to the sys-net VM. This issue has been reported to exist on both Qubes 3.2 and 4.0. 
+
+### Qubes 3.2
+
+To fix this issue on Qubes 3.2:
+
+1. During VM setup, force a reboot and press `OPTION` key.
+
+2. You will reach the grub shell
+   ~~~
+   configfile /EFI/qubes/grub.cfg
+   ~~~
+
+3. Press Fn+F10 to boot without XEN support.
+
+4. Once booted, press Fn+CTRL+ALT+F4 to open a shell.
+
+5. Log into the system
+   ~~~
+   sudo su -
+   systemctl disable qubes-netvm
+   ~~~
+
+6. Press Fn+F2 and complete the setup.
+7. Reboot Qubes.
+8. DO NOT launch the sys-net qube.
+Rather, open its setting and remove the Wi-Fi adapter from the Selected devices using the Qubes Manager. 
+You can also remove it from the command line, if you know the BDF of the adapter. 
+You can see the list of devices attached to sys-net and their associated BDFs by running:
+    ~~~
+    qvm-pci -l sys-net
+    ~~~
+For a device with a BDF of `04:00.0`, you can remove it with:
+    ~~~
+    qvm-pci -d sys-net 04:00.0
+    ~~~
+9. In a dom0 terminal, run:
+    ~~~
+    sudo su -
+    xl pci-assignable-list
+    echo 04:00.0 > /sys/bus/pci/drivers/pciback/permissive
+    qvm-start sys-net
+    xl pci-attach sys-net DEVICE_BDF
+    ~~~
+Be sure to replace "DEVICE_BDF" with the actual BDF of the Wi-Fi adapter. 
+
+After following the above steps, you should be able to launch sys-net with Wi-Fi access. These steps can be automated in a custom `systemd` service.
+
+### Qubes 4.0
+
+For Qubes 4.0, you may have to remove the wireless card from sys-net or replace it, as described in the [PCI Troubleshooting](/doc/pci-troubleshooting/#broadcom-bcm43602-wi-fi-card-causes-system-freeze) guide. 
+
+It is a bit tricky to execute, but you may be able to successfully attach a Broadcom BCM43602 to sys-net by executing the `attach` command immediately after starting sys-net. Follow these steps:
+
+1. Disable "Start qube automatically on boot" for sys-net and sys-firewall in the Qubes Manager.
+2. Manually start sys-net using the `qvm-start sys-net` command. 
+3. Immediately (About 2 seconds later) after stating sys-net, attach the device to sys-net using permissive mode:
+`sudo xl pci-attach sys-net 'DEVICE_BDF,permissive=1`
+Replace `DEVICE_BDF,` with the BDF of your wireless card. If you can immediately attach the device to sys-net while it is still starting up, it could work. If it is attached too late, the VM doesn't seem to detect it. 
+
+You can use the following script to do the above steps quickly after each boot:
+
+~~~
+#!/bin/bash
+qvm-start sys-net &
+sleep 3
+sudo xl pci-attach sys-net '03:00.0,permissive=1'
+~~~
+
+## Broadcom BCM4360 doesn't work in a Fedora-based qube
+
+Several people have been unable use the Broadcom BCM4360 Wireless card on a Fedora-based qube. This issue appears to be [related to Fedora](https://ask.fedoraproject.org/t/cant-connect-to-wifi-after-update-bcm4360-with-broadcom-wl-driver/482?page=2), not Qubes. 
+
+To get internet access in sys-net, try shutting down all your VMs, then changing sys-net to use the Debian 10 template. Finally, install the [broadcom-sta-dkms](https://pkgs.org/download/broadcom-sta-dkms) package. 
+
 ## Boot freezes at "Setting up networking"
 
 After installing Qubes 3.2 on a MacBook Air 13" mid-2011 (MacBookAir 4,2), it may freeze at "Setting up networking" during booting. This issue is caused by the Broadcom Wireless adapter, if you have one.
@@ -159,53 +236,6 @@ To fix this issue, kill audio support with this quick workaround:
 2. Edit `/etc/pulse/client.conf` and add `autospawn = no`
 3. As normal user, kill pulseaudio with the command `pulseaudio --kill`
 
-## System freezes after attaching Broadcom BCM43602 Wi-Fi card
-
-You may experience system freezes or crashes after attaching a Broadcom Wi-Fi adapter to the sys-net VM. This issue has been reported to exist on both Qubes 3.2 and 4.0. For Qubes 4.0, you may have to replace the Wi-Fi card, as described in the [PCI Troubleshooting](/doc/pci-troubleshooting/#broadcom-bcm43602-wi-fi-card-causes-system-freeze) guide. 
-
-The following troubleshoot is known to work on Qubes 3.2: 
-
-1. During VM setup, force a reboot and press `OPTION` key.
-
-2. You will reach the grub shell
-   ~~~
-   configfile /EFI/qubes/grub.cfg
-   ~~~
-
-3. Press Fn+F10 to boot without XEN support.
-
-4. Once booted, press Fn+CTRL+ALT+F4 to open a shell.
-
-5. Log into the system
-   ~~~
-   sudo su -
-   systemctl disable qubes-netvm
-   ~~~
-
-6. Press Fn+F2 and complete the setup.
-7. Reboot Qubes.
-8. DO NOT launch the sys-net qube.
-Rather, open its setting and remove the Wi-Fi adapter from the Selected devices using the Qubes Manager. 
-You can also remove it from the command line, if you know the BDF of the adapter. 
-You can see the list of devices attached to sys-net and their associated BDFs by running:
-    ~~~
-    qvm-pci -l sys-net
-    ~~~
-For a device with a BDF of `04:00.0`, you can remove it with:
-    ~~~
-    qvm-pci -d sys-net 04:00.0
-    ~~~
-9. In a dom0 terminal, run:
-    ~~~
-    sudo su -
-    xl pci-assignable-list
-    echo 04:00.0 > /sys/bus/pci/drivers/pciback/permissive
-    qvm-start sys-net
-    xl pci-attach sys-net DEVICE_BDF
-    ~~~
-Be sure to replace "DEVICE_BDF" with the actual BDF of the Wi-Fi adapter. 
-
-After following the above steps, you should be able to launch sys-net with Wi-Fi access. These steps can be automated in a custom `systemd` service.
 
 [bluetooth-replacement]: https://www.ifixit.com/Guide/MacBook+Air+13-Inch+Mid+2011+AirPort-Bluetooth+Card+Replacement/6360
 [rEFInd]: http://www.rodsbooks.com/refind/getting.html
