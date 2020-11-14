@@ -279,7 +279,7 @@ For more, please see [Qubes Community Documentation](https://github.com/Qubes-Co
  * [How to install an Nvidia driver in dom0](/doc/install-nvidia-driver/)
  * [Nvidia troubleshooting guide](/doc/nvidia-troubleshooting/)
  * [Apple MacBook Troubleshooting](/doc/macbook-troubleshooting/)
- * [Getting Sony Vaio Z laptop to work with Qubes](/doc/sony-vaio-tinkering/)
+ * [Sony Vaio Troubleshooting](/doc/sony-vaio-tinkering/)
  * [Intel Integrated Graphics Troubleshooting](/doc/intel-igfx-troubleshooting/)
 
 ### Building Guides
