@@ -111,7 +111,6 @@ Core documentation for Qubes users.
  * [Making Any File Persistent Using `bind-dirs`](/doc/bind-dirs/)
  * [GUI Configuration](/doc/gui-configuration/)
  * [Resizing Disk Images](/doc/resize-disk-image/)
- * [Troubleshooting Newer Hardware](/doc/newer-hardware-troubleshooting/)
  * [Mounting and Decrypting Qubes Partitions from Outside Qubes](/doc/mount-from-other-os/)
  * [KDE](/doc/kde/)
  * [i3 Window Manager](/doc/i3/)
@@ -131,6 +130,7 @@ Core documentation for Qubes users.
  * [GUI Troubleshooting](/doc/gui-troubleshooting/)
  * [Media Troubleshooting](/doc/media-troubleshooting/)
  * [Firewall Troubleshooting](/doc/firewall/#firewall-troubleshooting)
+ * [Hardware Troubleshooting](/doc/hardware-troubleshooting/)
 
 ### Reference Pages
 
