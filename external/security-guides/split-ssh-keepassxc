@@ -1,0 +1,249 @@
+qubes-doc/external/security-guides/split-ssh-keepassxc
+
+---
+layout: doc
+title: Split SSH with KeepassXC
+permalink: /doc/split-ssh-keepassxc/
+---
+
+How to set up a split SSH with KeePassXC in Qubes OS ?
+======================================================
+
+Prepare your system
+-----------------------
+
+0. **Optionally**: it is advisable to take a system snapshot before you start tuning your system or do any major installations. To perform a Qubes OS backup please read and follow this guide [CreateBackup:][CreateBackup]
+
+1. Fedora 32 has been used for this guide but is should also work with updated version of Fedora. Make sure your **Fedora Template VM** (Template: fedora-32) is up to date.
+
+`[user@fedora-32 ~]$ sudo dnf update && sudo dnf upgrade -y`
+
+KeePassXC 2.6.1 has been used for this guide but is should also work with updated version of KeePassXC. [KeePassXC:][KeePassXC] is installed by default. If you do not have KeePassXC installed you can install it in your Fedora Template VM simply by:
+
+`sudo dnf install keepassxc`
+
+Remark: Make sure that you use **KeePassXC**, not KeePassX, not KeePass. See [KeePassXC FAQ:][KeePassXC FAQ].
+
+2. Double check qube isolation and make KeePassXC available
+
+With the Qubes OS default installation a VaultVM has been already created for you. Therefore, we will simply use this **VaultVM** (valut) for this guide to setup and store your SSH keys. Make sure that the VaultVM has **no network connection** and KeePassXC has been in selected in the Applications tab: Click on the "Q" launcher and check the qube settings "Domain: valut" > "valut: Qube Settings"
+
+3. Generate a KeePassXC database and make a new entry for your SSH keys
+
+Launch KeePassXC in your **Vault VM** (vault).
+
+**Remark**: You can securely disable auto-updates for KeePassXC since this ValutVM has no network connection. Take your time make a secure but also rememberable password (hint: [Password:][Password]). Furthermore, since this *.kdbx-file stores your sensitive data it is recommended to add additional layer of security to it. KeePassXC offers Decryption Time, Key File and YubiKey Challenge-Response to add addition protection to your database (*.kdbx-file).
+
+Generate a new database (*.kdbx-file). In your database make a new folder “SSH keys” and make one entry for your key(s) “myserver-ssh-key” (folder and entry names are just placeholder, pick any name you prefer). Use the KeePassXC’s password generator to make a very strong password or passphrase. Confirm your entry and save your database by clicking OK. Afterwards, go to KeePassXC Settings > SSH Agent > check the box for Enable SSH Agent integration and confirm again with OK.
+
+Close KeePassXC (take care that it is closed not just minimized) afterwards reopen your database. Now, KeePassXC shows a “SSH Agent connection is working!” in the SSH Agent settings. Keep it open and continue with the SSH key generation or import your SSH keys if you have them already.
+
+4. Generate a SSH key pair and upload to KeePassXC
+
+Open a Terminal in your **VaultVM** (vault) and generate a SSH key pair by command:
+
+`ssh-keygen -t ed25519 -a 500 -f ~/.ssh/myssh_key`
+
+**Remark**: You can generate a key by simply command `ssh-keygen` in the terminal. In this example above several options and a customized name has been chosen to reference to this “myssh_key” easily. Feel free to use the default name and key settings or modify the key settings as you want.
+
+Follow the instructions and use the password or passphrase you generated in your “myserver-ssh-key” entry before.
+
+Back in KeePassXC select the “myserver-ssh-key” entry and upload your keys in Advanced > Attachments > Add.
+
+**Remark**: When adding the keys you may not see them since they are defined as hidden files. Simply check the box “Show Hidden Files” in your File Browser view. Mandatory is the private key (myssh_key) only but to simplify your key backup it is recommended to add also the public key (myssh_key.pub).
+
+In your “myserver-ssh-key” entry select the "SSH Agent settings".
+* Check “Add key to agent when database is opened/unlocked”
+* Check “Remove key from agent when database is closed/locked”
+In “Private key” select "Attachment" and add your **private key** (myssh_key)
+Finally, save and close KeePassXC.
+
+5. Intermediate checks (within VaultVM)
+
+Open a Terminal in your **VaultVM** (vault) and command:
+
+`ssh-add -L`
+
+it should return:
+
+`The agent has no identities.`
+
+Afterwards, open your KeePassXC database and command again:
+
+`ssh-add -L`
+
+now, it should return:
+
+`ssh-ed25519 <public key string>`
+
+With this confirmation KeePassXC is ready to be used as SSH key valut. Next step is to setup a channel from other AppVMs to this VaultVM. Actually, to the key(s) within KeePassXC.
+
+6. Prepare Template VM
+
+This guide is based on Fedora for both the VaultVM and the AppVMs which will be used to use the SSH key(s). Needless to say, it also works with other or a mixed OS setup. Here, to keep it simple we continue using Fedora only.
+
+Open a Terminal in your **Fedora Template VM** (fedora-32) and install **nmap-ncat**:
+
+`sudo dnf install nmap-ncat`
+
+**Optionally**: Afterwards install **nano**. Here, again if you prefer other tools feel free to make your choice. When you want to exactly follow this guide's commands please ensure that nano is available in your **Fedora Template VM**:
+
+`sudo dnf install nano`
+
+Preparation done. Let’s continue with the Qubes magic.
+
+7. Define the SSH socket and notification
+
+Continue in the **Fedora Template VM** (fedora-32) terminal by creating a new file **qubes.SshAgent** in the /etc/qubes-rpc directory:
+
+`sudo nano /etc/qubes-rpc/qubes.SshAgent`
+
+Copy and paste the following content:
+
+```
+#!/bin/sh
+# Qubes OS Split SSH Script
+# safeguard - Qubes notification bubble for each SSH request
+notify-send "[`qubesdb-read /name`] SSH agent access from: $QREXEC_REMOTE_DOMAIN"
+# SSH connection
+ncat -U $SSH_AUTH_SOCK
+```
+Double check directory, file name and content.
+Save and close the file with: ctrl.+o > enter > ctrl.+x.
+
+This code is meant for the vault VM and does two things:
+* The first command is sort of a safeguard. It will show a message bubble every time an AppVM requests access to your SSH key(s).
+* The second command creates a connection to the SSH socket. This connection will be used to send the client request to the appropriate program (KeePassXC, in our case).
+
+The **Fedora Template VM** (fedora-32) is now ready so we can shut it down by executing in the terminal:
+
+`shutdown now`
+
+8. Configure RPC requests in dom0
+
+Continue in the **dom0** terminal by creating a new file **qubes.SshAgent** in the /etc/qubes-rpc/policy directory:
+
+`sudo nano /etc/qubes-rpc/policy/qubes.SshAgent`
+
+Write (copy&paste is not support in dom0) the following line:
+
+`$anyvm $anyvm ask`
+
+This allows any AppVM to be the SSH client and the SSH agent. We want to be informed every time (“ask”) by dom0 when this RPC request is about to happen and can then decide whether or not we want to allow it.
+
+Alternatively, if you have only one SSH client (i.e. “ssh-client”) and only one SSH agent (i.e. vault) you can define it more strict with:
+
+`ssh-client vault ask`
+
+**Remark**: There are many ways to fine-tune this policy. For more details on policy files see [PolicyFilesQubesOS:][PolicyFilesQubesOS]
+
+Save and close the file with: ctrl.+o > enter > ctrl.+x.
+
+The **dom0** is now ready so we can close the window or type `exit` in the terminal.
+
+9. Configure the SSH client
+
+Lastly, the configuration of the **SSH client VM** (ssh-client). Again, you can select any existing AppVM and define any name you want. Here, for consistency we use **SSH client VM** (ssh-client).
+
+**Remark**: Theoretically, you can use any AppVM but to increase security it is recommended to create a dedicated AppVM for your SSH connections. Furthermore, you can set for each VM different firewall rules i.e. for intranet and internet connection which also provides additional protection.
+
+Open a terminal in the **SSH client VM** (ssh-client) and create a new file named **rc.local** in the directory /rw/config/:
+
+`sudo nano /rw/config/rc.local`
+
+Copy and paste the following content:
+
+```
+# Qubes OS Split SSH Configuration
+# for ssh client VM (ssh-client)
+SSH_VAULT_VM="vault"
+if [ "$SSH_VAULT_VM" != "" ]; then
+  export SSH_SOCK=~user/.SSH_AGENT_$SSH_VAULT_VM
+  rm -f "$SSH_SOCK"
+ sudo -u user /bin/sh -c "umask 177 && ncat -k -l -U '$SSH_SOCK' -c 'qrexec-client-vm $SSH_VAULT_VM qubes.SshAgent' &"
+fi
+```
+
+Double check directory, file name and content.
+Save and close the file with: ctrl.+o > enter > ctrl.+x.
+
+Keep the **SSH client VM** (ssh-client) terminal open prepare the next **.bashrc’** file in the home directory.
+
+`nano ~/.bashrc`
+
+Copy and paste the following content:
+
+```
+# Qubes OS Split SSH Configuration
+SSH_VAULT_VM="vault"
+
+if [ "$SSH_VAULT_VM" != "" ]; then
+    export SSH_AUTH_SOCK=~user/.SSH_AGENT_$SSH_VAULT_VM
+fi
+```
+
+Double check directory, file name and content.
+Save and close the file with: ctrl.+o > enter > ctrl.+x.
+
+Amost done. The **SSH client VM** (ssh-client) is now also ready. Shut down the **SSH client VM** (ssh-client):
+
+`shutdown now`
+
+10. Final checks (in the SSH client VM)
+
+Open a Terminal in your **SSH client VM** (ssh-client) and command:
+
+`ssh-add -L`
+
+it should return:
+
+`The agent has no identities.`
+
+Afterwards, open KeePassXC database in your **VaultVM** (vault) and command again in your **SSH client VM** (ssh-client):
+
+`ssh-add -L`
+
+now it should return:
+
+`ssh-ed25519 <public key string>`
+
+Congratulation, now you have one of the most secure SSH configurations!
+
+Again, backup time you can again start a system backup [CreateBackup:][CreateBackup] and additionally backup your *.kdbx-file.
+
+Tips for the *.kdbx-file backup (outside of Qubes OS):
+* hide the *.kdbx file by simply renaming the file extension (i.e. *.zip)
+* add an additional security layer by adding second encryption layer (i.e. VeraCrypt, *.7z with password)
+* upload the *.kdbx to an end-to-end-encrypted email box (i.e. tutanota, protonmail)
+
+Want more Qubes split magic?
+Check this out: [Split-GPG:][Split-GPG]
+
+
+
+This guide has been inspired by:
+
+Qubes Split SSH (Github: Jason Hennessey - henn)
+https://github.com/henn/qubes-app-split-ssh
+ 
+Using split ssh in QubesOS 4.0 (Kushal Das)
+https://kushaldas.in/posts/using-split-ssh-in-qubesos-4-0.html
+
+Using Split-SSH in Qubes 4 (Denis Zanin)
+https://deniszanin.com/using-split-ssh-gpg-in-qubes-os/
+
+R.I.S.K.S.
+https://19hundreds.github.io/risks-workflow/ssh-split-setup
+
+Qubes Community: Phil (phl), deeplow, whoami
+https://qubes-os.discourse.group/
+
+-----
+
+[CreateBackup]:https://www.qubes-os.org/doc/backup-restore/#creating-a-backup
+[KeePassXC]: https://keepassxc.org/project
+[KeePassXCFedoraPackageSource]:https://src.fedoraproject.org/rpms/keepassxc
+[KeePassXC FAQ]: https://keepassxc.org/docs
+[Password]:https://xkcd.com/936
+[PolicyFilesQubesOS]:[https://www.qubes-os.org/doc/qrexec/#policy-files]
+[Split-GPG]:https://www.qubes-os.org/doc/split-gpg
