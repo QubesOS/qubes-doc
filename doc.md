@@ -281,6 +281,7 @@ For more, please see [Qubes Community Documentation](https://github.com/Qubes-Co
  * [Apple MacBook Troubleshooting](/doc/macbook-troubleshooting/)
  * [Sony Vaio Troubleshooting](/doc/sony-vaio-tinkering/)
  * [Intel Integrated Graphics Troubleshooting](/doc/intel-igfx-troubleshooting/)
+ * [Multiboot Troubleshooting](/doc/multiboot/#troubleshooting)
 
 ### Building Guides
 
