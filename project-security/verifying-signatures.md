@@ -104,8 +104,9 @@ You also should not rely on any single website, not even over HTTPS.
 
 So, what *should* you do?
 One option is to use the PGP [Web of Trust](https://en.wikipedia.org/wiki/Web_of_trust).
-In addition, some operating systems have built-in keyrings containing keys capable of validating the Qubes Master Signing Key.
-For example, if you have a Debian system, then your keyring may already contain the necessary keys.
+In addition, some operating systems include the means to acquire the Qubes Master Signing Key in a secure way.
+For example, on Fedora, `dnf install distribution-gpg-keys` will get you the Qubes Master Signing Key along with several other Qubes keys.
+On Debian, your keyring may already contain the necessary keys.
 
 Another option is to rely on the key's fingerprint.
 Every PGP key has a fingerprint that uniquely identifies it among all PGP keys (viewable with `gpg2 --fingerprint <KEY_ID>`).
