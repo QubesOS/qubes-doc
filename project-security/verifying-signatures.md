@@ -84,6 +84,12 @@ There are several ways to get the Qubes Master Signing Key.
 
        $ gpg2 --import /usr/share/qubes/qubes-master-key.asc
 
+ - If you're on Fedora, you can get it in the `distribution-gpg-keys` package:
+
+       $ dnf install distribution-gpg-keys
+
+ - If you're on Debian, it may already be included in your keyring.
+
  - Fetch it with GPG:
 
        $ gpg2 --fetch-keys https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
