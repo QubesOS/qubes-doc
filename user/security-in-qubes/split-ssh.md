@@ -1,6 +1,6 @@
 # Qubes Split SSH with KeePassXC
 
-These Qubes scripts allow one to keep ssh private keys in a separate VM (an "ssh-vault"), allowing other VMs to use them only after being authorized. This is done by using Qubes's qrexec framework to connect a local SSH Agent socket from an AppVM to the SSH Agent socket within the ssh-vault VM. The protections for the ssh private key should be similar to running ssh -A into the client AppVM.
+These Qubes setup allows you to keep ssh private keys in a vault VM and the Client SSH VM to use them only after being authorized. This is done by using Qubes's qrexec framework to connect a local SSH Agent socket from an AppVM to the SSH Agent socket within the vault VM. 
 
 ## Creating the Vault and connector AppVMs
 
