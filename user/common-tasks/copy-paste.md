@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Copy and Paste
+title: Copying and pasting text between qubes
 permalink: /doc/copy-paste/
 redirect_from:
 - /en/doc/copy-paste/
@@ -8,51 +8,49 @@ redirect_from:
 - /wiki/CopyPaste/
 ---
 
-Copy and Paste between domains
-==============================
+Copying and pasting text between qubes
+======================================
 
-Qubes fully supports secure copy and paste operation between domains.
-In order to copy a clipboard from domain A to domain B, follow those steps:
+*This page is about copying and pasting plain text.
+If you wish to copy more complex data, such as rich text or images, see [copying and moving files between qubes](/doc/copying-files/).
+For dom0, see [copying from (and to) dom0](/doc/copy-from-dom0/).*
 
-1.  Click on the application window in domain A where you have selected text for copying.
-    Then use the *app-specific* hot-key (or menu option) to copy this into domain's local clipboard (in other words: do the copy operation as usual, in most cases by pressing Ctrl-C).
-2.  Then (when the app in domain A is still in focus) press Ctrl-Shift-C magic hot-key.
-    This will tell Qubes that we want to select this domain's clipboard for *global copy* between domains.
-3.  Now select the destination app, running in domain B, and press Ctrl-Shift-V, another magic hot-key that will tell Qubes to make the clipboard marked in the previous step available to apps running in domain B.
-    This step is necessary because it ensures that only domain B will get access to the clipboard copied from domain A, and not any other domain that might be running in the system.
-4.  Now, in the destination app use the app-specific key combination (usually Ctrl-V) for pasting the clipboard.
+Qubes OS features a secure inter-qube clipboard that allows you to copy and paste text between qubes.
 
-Note that the global clipboard will be cleared after step \#3, to prevent accidental leakage to another domain, if the user accidentally pressed Ctrl-Shift-V later.
+In order to copy text from qube A to qube B:
 
-This 4-step process might look complex, but after some little practice it really is very easy and fast.
-At the same time it provides the user with full control over who has access to the clipboard.
+ 1. Select text from the source app in qube A, then copy it normally (e.g., by pressing Ctrl+C).
 
-Note that only simple plain text copy/paste is supported between AppVMs.
-This is discussed in a bit more detail in [this message](https://groups.google.com/group/qubes-devel/msg/57fe6695eb8ec8cd).
+ 2. With the source app in qube A still in focus, press Ctrl+Shift+C.
+    This copies the text from qube A's clipboard to the inter-qube clipboard.
 
-On Copy/Paste Security
-----------------------
+ 3. Select the target app in qube B and press Ctrl+Shift+V.
+    This copies the text from the inter-qube clipboard to qube B's clipboard and clears the inter-qube clipboard, ensuring that only qube B will have access to the copied text.
 
-The scheme is *secure* because it doesn't allow other VMs to steal the content of the clipboard.
-However, one should keep in mind that performing a copy and paste operation from *less trusted* to *more trusted* domain can always be potentially insecure, because the data that we insert might potentially try to exploit some hypothetical bug in the destination VM (e.g.
-the seemingly innocent link that we copy from untrusted domain, might turn out to be, in fact, a large buffer of junk that, when pasted into the destination VM's word processor could exploit a hypothetical bug in the undo buffer).
-This is a general problem and applies to any data transfer between *less trusted to more trusted* domains.
-It even applies to copying files between physically separate machines (air-gapped) systems.
-So, you should always copy clipboard and data only from *more trusted* to *less trusted* domains.
+ 4. Paste the text in the target app in qube B normally (e.g., by pressing Ctrl+V).
 
-See also [this article](https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html) for more information on this topic, and some ideas of how we might solve this problem in some future version of Qubes.
+This process might look complicated at first glance, but in practice it is actually very easy and fast once you get used to it.
+At the same time, it provides you with full control over exactly which qube receives the content of the inter-qube clipboard every time.
 
-And [this message](https://groups.google.com/group/qubes-devel/msg/48b4b532cee06e01) from qubes-devel.
+Security
+--------
 
-Copy/Paste between dom0 and other domains
------------------------------------------
+The inter-qube clipboard system is secure because it doesn't allow any qube other than your selected target to steal any contents from the inter-qube clipboard.
+Without such a system in place, any password you were to copy from the password manager in your vault qube to another qube, for example, would immediately be leaked to every other running qube in the system, including qubes that are untrusted by default, such as `sys-net`.
+By giving you precise control over exactly which qube receives the inter-qube clipboard content, then immediately wiping the inter-qube clipboard afterward, Qubes OS protects the confidentiality of the text being copied.
 
-See ["Copying from (and to) dom0"](/doc/copy-from-dom0/).
+However, one should keep in mind that performing a copy and paste operation from *less trusted* to *more trusted* qube is always potentially insecure, since the data that we copy could exploit some hypothetical bug in the target qube.
+For example, the seemingly-innocent link that we copy from an untrusted qube could turn out to be a large buffer of junk that, when pasted into the target qube's word processor, could exploit a hypothetical bug in the undo buffer.
+This is a general problem and applies to any data transfer from *less trusted* to *more trusted* qubes.
+It even applies to copying files between physically separate (air-gapped) machines.
+Therefore, you should always copy clipboard data only from *more trusted* to *less trusted* qubes.
+
+See also [this article](https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html) for more information on this topic, and some ideas of how we might solve this problem in some future version of Qubes, as well as [this message](https://groups.google.com/group/qubes-devel/msg/48b4b532cee06e01) from qubes-devel.
 
 Clipboard automatic policy enforcement
 --------------------------------------
 
-The Qubes clipboard [RPC policy] is configurable in:
+The Qubes clipboard [RPC policy](/doc/rpc-policy/) is configurable in:
 
 ~~~
 /etc/qubes-rpc/policy/qubes.ClipboardPaste
@@ -66,7 +64,7 @@ For example, if you are certain that you never wish to paste *into* your "vault"
 @anyvm  @anyvm  ask
 ~~~
 
-Shortcut Configuration
+Shortcut configuration
 ----------------------
 
 The copy/paste shortcuts are configurable in:
@@ -78,7 +76,3 @@ The copy/paste shortcuts are configurable in:
 If you edit a line in this file, you must uncomment it (by removing the initial `#` character), or else it will have no effect.
 
 VMs need to be restarted in order for changes in `/etc/qubes/guid.conf` to take effect.
-
-
-[RPC policy]: /doc/rpc-policy/
-
