@@ -45,7 +45,7 @@ This is a general problem and applies to any data transfer from *less trusted* t
 It even applies to copying files between physically separate (air-gapped) machines.
 Therefore, you should always copy clipboard data only from *more trusted* to *less trusted* qubes.
 
-See also [this article](https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html) for more information on this topic, and some ideas of how we might solve this problem in some future version of Qubes, as wlel as [this message](https://groups.google.com/group/qubes-devel/msg/48b4b532cee06e01) from qubes-devel.
+See also [this article](https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html) for more information on this topic, and some ideas of how we might solve this problem in some future version of Qubes, as well as [this message](https://groups.google.com/group/qubes-devel/msg/48b4b532cee06e01) from qubes-devel.
 
 Clipboard automatic policy enforcement
 --------------------------------------
