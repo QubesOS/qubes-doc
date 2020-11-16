@@ -378,8 +378,8 @@ As always, exercise caution and use your good judgment.)
 [intro]: #what-is-split-gpg-and-why-should-i-use-it-instead-of-the-standard-gpg
 [se-pinentry]: https://unix.stackexchange.com/a/379373
 [​subkeys]: https://wiki.debian.org/Subkeys
-[copied]: /doc/copying-files#on-inter-qube-file-copy-security
-[pasted]: /doc/copy-paste#on-copypaste-security
+[copied]: /doc/copying-files#security
+[pasted]: /doc/copy-paste#security
 [​MUA]: https://en.wikipedia.org/wiki/Mail_user_agent
 [covert channels]: /doc/data-leaks
 [trusting-templates]: /doc/templates/#trusting-your-templatevms
