@@ -39,6 +39,8 @@ This Qubes setup allows you to keep SSH private keys in a vault VM (`vault`) and
    For Debian templates:
 
    `user@debian-10:~$ sudo apt-get install nmap ncat`
+   
+3. If you don't plan to use KeePassXC, install `ssh-askpass`.
 
 ## [Creating AppVMs][appvm create]
 
@@ -54,7 +56,9 @@ If you’ve installed Qubes OS using the default options, a few qubes including 
 
 ## Setting up SSH
 
-1. Open a vaultVM Terminal and generate an SSH key pair. Skip this step if you already have your keys.
+Perform the next steps in a vault VM terminal.
+
+1. Generate an SSH key pair. Skip this step if you already have your keys.
 
       ```shell_prompt
       [user@vault ~]$ ssh-keygen -t ed25519 -a 500
@@ -86,12 +90,39 @@ If you’ve installed Qubes OS using the default options, a few qubes including 
     Please note that the key fingerprint and the randomart image will differ.
     
     For more information about `ssh-keygen`, run `man ssh-keygen`.
-     
+    
+2. Make a new directory `~/.config/autostart`
+
+3. Create the file `ssh-add.desktop` in `~/.config/autostart`
+
+      - Open the file with e.g. `nano`
+
+        ```shell_prompt
+        [user@fedora-32 ~]$ nano ~/.config/autostart/ssh-add.desktop
+        ```
+
+      - Paste the following contents:
+
+        ```shell_prompt
+        [Desktop Entry]
+        Name=ssh-add
+        Exec=ssh-add
+        Type=Application
+        ```
+        
+      - Save and exit.
+      
+      **Note:** If you've specified a custom name for your key using *-f*, you should adjust `Exec=ssh-add` to `Exec=ssh-add <path-to-your-key-file>`.
+
+With this configuration you'll be prompted for a password the first time you start your vault VM to  be able to make use of your SSH key. 
+
+For easier handling and better security see the "Using KeePassXC" section below.
+
 ## Setting Up VM Interconnection
 
-### In the TemplateVM:
+### In the TemplateVM to your vault VM:
 
-2. Create the file `qubes.SshAgent` in `/etc/qubes-rpc`
+1. Create the file `qubes.SshAgent` in `/etc/qubes-rpc`
 
    - Open the file with e.g. `nano`
 
@@ -114,7 +145,7 @@ If you’ve installed Qubes OS using the default options, a few qubes including 
 
    - Save and exit.
 
-3. Shutdown the template VM.
+2. Shutdown the template VM.
 
 ### In `dom0`:
 
@@ -180,7 +211,7 @@ If you’ve installed Qubes OS using the default options, a few qubes including 
    - Open the file with your editor of choice (e.g. `nano`).
 
      ```shell_prompt
-     [user@ssh-client ~]$ sudo nano ~/.bashrc
+     [user@ssh-client ~]$ nano ~/.bashrc
      ```
 
    - Add the following to the bottom of the file:
@@ -260,7 +291,7 @@ If you’ve installed Qubes OS using the default options, a few qubes including 
 11. Check the SSH Agent Integration status.
 
    ![check integration status](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/2ef14b195947d2190306b500298379458d6194da.png)
-   
+
 12. Select your private key in the "SSH Agent" section.
 
    ![select private key](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/optimized/1X/0d19ae6f3545a154823a8b3f8c89d52f6e0d6b68_2_594x500.png)
