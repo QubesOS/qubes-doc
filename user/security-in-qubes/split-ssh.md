@@ -31,19 +31,35 @@ These Qubes setup allows you to keep ssh private keys in a vault VM and the Clie
    
 2. Open the vaultVM Terminal and generate an SSH key pair. Skip this step if you already have your keys.
 
-    ```shell_prompt
-    [user@vault-keepassxc ~]$ ssh-keygen -t ed25519 -a 500 -f ~/.ssh/myssh_key
-    Generating public/private ed25519 key pair.
-    Enter passphrase (empty for no passphrase):
-    Enter same passphrase again:
-    Your identification has been saved in /home/user/.ssh/myssh_key
-    Your public key has been saved in /home/user/.ssh/myssh_key.pub
-    The key fingerprint is:
-    SHA256:<this part will be different for everyone> user@vault-keepassxc
-    The key's randomart image is:
-    <This part will differ from key to key>
-    ```
-
+      ```shell_prompt
+      user@vault-keepassxc:~$ ssh-keygen -t ed25519 -a 500 -f ~/.ssh/myssh_key
+      Generating public/private ed25519 key pair.
+      Created directory '/home/user/.ssh'.
+      Enter passphrase (empty for no passphrase): 
+      Enter same passphrase again: 
+      Your identification has been saved in /home/user/.ssh/myssh_key.
+      Your public key has been saved in /home/user/.ssh/myssh_key.pub.
+      The key fingerprint is:
+      SHA256:faJ3kBECVKMwNERj2t5ZVE2yz9YqsFGI3uE3vq7JeRI user@vault-keepassxc
+      The key's randomart image is:
+      +--[ED25519 256]--+
+      |   +X.oo=.+o.    |
+      |   + = + + +.    |
+      |  . . o + +      |
+      |   . o = + = .   |
+      |    . + S B = .  |
+      |        EB * .   |
+      |        o.+ o    |
+      |       ..+.+     |
+      |        ==o      |
+      +----[SHA256]-----+
+      ```
+    **-t**: type
+    **-a**: num_trials
+    **-f**: file
+    Please note that the key fingerprint and the randomart image will differ.
+    For more information about `ssh-keygen`, run `man ssh-keygen`.
+    
 ## Setting up KeePassXC.
 
 1. Deny auto updates since there is no network active.
