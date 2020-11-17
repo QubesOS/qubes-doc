@@ -10,6 +10,13 @@ redirect_from:
 
 These Qubes setup allows you to keep ssh private keys in a vault VM and the Client SSH VM to use them only after being authorized. This is done by using Qubes's qrexec framework to connect a local SSH Agent socket from an AppVM to the SSH Agent socket within the vault VM. 
 
+## Prepare Your System
+0. (Optional) Take a system snapshot before you start tuning your system or do any major installations. To perform a Qubes OS backup please read and follow this guide [CreateBackup:][CreateBackup]
+
+1. Fedora 32 has been used for this guide but is should also work with updated version of Fedora. Make sure your **Fedora Template VM** (Template: fedora-32) is up to date.
+
+   `[user@fedora-32 ~]$ sudo dnf update && sudo dnf upgrade -y`
+
 ## Creating the Vault  AppVM
 
 1. Create a new vault AppVM based on your chosen template. Set networking to `(none)`.
