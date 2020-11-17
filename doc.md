@@ -131,6 +131,7 @@ Core documentation for Qubes users.
  * [GUI Troubleshooting](/doc/gui-troubleshooting/)
  * [Media Troubleshooting](/doc/media-troubleshooting/)
  * [Firewall Troubleshooting](/doc/firewall/#firewall-troubleshooting)
+ * [VPN Troubleshooting](/doc/vpn-troubleshooting/)
 
 ### Reference Pages
 
