@@ -304,7 +304,7 @@ https://deniszanin.com/using-split-ssh-gpg-in-qubes-os/
 R.I.S.K.S.
 https://19hundreds.github.io/risks-workflow/ssh-split-setup
 
-Qubes Community: Phil (phl), deeplow, whoami
+Qubes Community: Phil (phl), deeplow, whoami, santorihelix
 https://qubes-os.discourse.group/
 
 
