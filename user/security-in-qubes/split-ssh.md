@@ -233,7 +233,7 @@ If you’ve installed Qubes OS using the default options, a few qubes including 
 
    ![encryption settings](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/optimized/1X/8537b07f453a0950d72cb51b9b5339e0f7bfc3c4_2_690x472.png)
    
-5. Enter a strong password for your database.
+5. Enter a password for your database. Take your time make a secure but also rememberable password. ([hint][Hint])
 
    ![password screen](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/413a9bbe68395ae07d1e2989735c9af53409071f.png)
 
@@ -350,7 +350,7 @@ https://qubes-os.discourse.group/
 [KeePassXCFedoraPackageSource]:https://src.fedoraproject.org/rpms/keepassxc
 [KeePassXC download page]: https://keepassxc.org/download/
 [KeePassXC FAQ]: https://keepassxc.org/docs
-[Password]:https://xkcd.com/936
+[Hint]:https://xkcd.com/936
 [PolicyFilesQubesOS]:https://www.qubes-os.org/doc/qrexec/#policy-files
 [Split-GPG]:https://www.qubes-os.org/doc/split-gpg
 
