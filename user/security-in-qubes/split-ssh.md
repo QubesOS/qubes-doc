@@ -14,10 +14,10 @@ This Qubes setup allows you to keep SSH private keys in a vault VM (`vault`) and
 
 1. Make sure the TemplateVM you plan to use is up to date and `nmap` and `ncat` is installed.
 2. Create `vault` and `ssh-client` AppVMs.
-3. Create an ssh key in your `vault` AppVM.
-4. (Strongly Encouraged) Create a KeePassXC Database and set up SSH Agent Integration in KeePassXC.
-   or set up
-5. Set up VM interconnection
+3. Create an ssh key in your `vault` AppVM and set up automatic key adding prompt.
+4. Set up VM interconnection
+5. (Strongly Encouraged) Create a KeePassXC Database and set up SSH Agent Integration in KeePassXC.
+
 
 ## Prepare Your System
 0. (Optional) Take a system snapshot before you start tuning your system or do any major installations. To perform a Qubes OS backup please read and follow this guide in the [User Documentation][CreateBackup].
