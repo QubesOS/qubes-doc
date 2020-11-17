@@ -237,6 +237,11 @@ Remarks: You only need to add the private key (here myssh_key) but if you want t
 If you're getting your public ssh key, congrats! You've successfully completed this tutorial.
 
 
+Want more Qubes split magic?
+Check this out: [Split-GPG:][Split-GPG]
+
+
+
 This guide has been inspired by:
 
 Qubes Split SSH (Github: Jason Hennessey - henn)
@@ -263,4 +268,3 @@ https://qubes-os.discourse.group/
 [Password]:https://xkcd.com/936
 [PolicyFilesQubesOS]:[https://www.qubes-os.org/doc/qrexec/#policy-files]
 [Split-GPG]:https://www.qubes-os.org/doc/split-gpg
-
