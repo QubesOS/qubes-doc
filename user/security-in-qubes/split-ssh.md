@@ -48,11 +48,11 @@ If you’ve installed Qubes OS using the default options, a few qubes including 
 
 1. Create a new vault AppVM (`vault`) based on your chosen template. Set networking to `(none)`.
 
-   ![vault creation](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/72bd43ce6a17475c5e356bcd351b8b4ad86370a5.png)
+   ![vault creation](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/80fad13c2d72b4f6ac4c03cd30d15ebd2c08a927.png)
    
 2. Create a SSH Client AppVM (`ssh-client`). This VM will be used to make the SSH connection to your remote machine.
 
-   ![server-connector creation](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/e390f796135eb964c9c70dc962a23197d87defe7.png)
+   ![ssh-client creation](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/ff7c5d239b53906b8d1396381810b291d4364900.png)
 
 ## Setting up SSH
 
@@ -206,37 +206,53 @@ If you’ve installed Qubes OS using the default options, a few qubes including 
 
 1. Add KeepasXC to the Applications menu of the newly created AppVM for ease of access.
 
-   ![vault adding keepass](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/optimized/1X/b98c57e05e304414567e87d694f4b7890b65531a_2_598x500.png)
+   ![vault adding keepass](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/optimized/1X/e20e988e356ea63feda6760dca6a88fcd2a650c6_2_602x500.png)
 
-2. Deny auto updates since there is no network active.
+Note: Since the vault VM has no internet connection, you can safely deny automatic updates.
 
-   ![deny auto update](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/38d8cede2df66e68f2aea6f6f07605677d5a45bc.png)
+2. Create a new database.
 
-3. Follow the wizard and adjust security settings.
+   ![create database](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/a25e16fca7d5a394e9a9acdc017c9a02f7e6f4f4.png)
 
-   ![continue](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/0f8584bc907e7f18b44f1fc51233f2d45613e1c2.png)
+3. Enter a name for your database and continue.
 
-4. Set password to your SSH key passphrase.
+   ![naming screen](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/0925cd8e469b6194f80b1e46e51d7f137a01dd74.png)
 
-   ![setting passphrase](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/optimized/1X/21a2a38f54852126adefb4f6170b7e77b59863bf_2_594x500.png)
+4. Adjust the encryption settings. Check the [KeePassXC User Guide][KeePassXC User Guide] for more information about these settings.
 
-5. Go into "Advanced" and add your keys.  
+   ![encryption settings](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/optimized/1X/8537b07f453a0950d72cb51b9b5339e0f7bfc3c4_2_690x472.png)
+   
+5. Enter a strong password for your database.
 
-   ![add keys](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/0f4a9b160ab40773c5341d6437acb6b7b4666e6d.png)
+   ![password screen](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/413a9bbe68395ae07d1e2989735c9af53409071f.png)
 
-Remarks: You only need to add the private key (here myssh_key) but if you want to be able to simply back up both your private and public key (myssh_key.pub) by backing up your KeePassXC database (\*.kdbx-file) you can add that too. 
+6. Add a new entry.
 
-5. Enable "SSH Agent Integration" within the Application Settings.
+   ![adding new entry](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/a5a6c74aac781f95db2909ce43058971e08e5407.png)
+   
+7. Set password to your SSH key passphrase.
 
-   ![enable ssh agent integration](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/optimized/1X/ad4700e7ed11682dfe9278d088af2f5381b0f286_2_594x500.png)
+   ![enter passphrase](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/881340d19c2e78e10374555a1a8867040b713cd2.png)
+   
+8. Go into the Advanced section and add your keys.
 
-6. Restart KeePassXC and check the SSH Agent Integration status. 
+   ![adding keys](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/ff4a1197826ee69740251dbf8204d90b6cf4c6c8.png)
 
-   ![checking](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/77103ff4f1088efa4664f2c4cedd6fcf819e5fbd.png)
+   Note: You only need to add the private key (`id_25519` here) but if you want to be able to simply back up both your private and public key (myssh_key.pub) by backing up your KeePassXC database (\*.kdbx file) you can add that too.
 
-7. Select your private key in the "SSH Agent" section. 
+9. Enable "SSH Agent Integration" within the Application Settings.
 
-   ![select private key](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/optimized/1X/e24ed462d471d4b8a5bdb47be1278d246de7d208_2_537x500.png)
+   ![enable ssh agent integration](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/optimized/1X/29dba9a7d44729cd8dce261cfecbbb63db3f4a70_2_594x500.png)
+   
+10. Restart KeePassXC
+
+11. Check the SSH Agent Integration status.
+
+   ![check integration status](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/2ef14b195947d2190306b500298379458d6194da.png)
+   
+12. Select your private key in the "SSH Agent" section.
+
+   ![select private key](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/optimized/1X/0d19ae6f3545a154823a8b3f8c89d52f6e0d6b68_2_594x500.png)
 
 ### Testing the KeePassXC Setup
 
@@ -289,7 +305,7 @@ Check if it returns `ssh-ed25519 <public key string>`
 ### System Backup
 Start a system backup as per the [User Documentation][CreateBackup].
 ### KeePassXC Database Backup
-You can also only back up your \*.kdbx-file.
+You can also only back up your \*.kdbx file.
 
 Depending on your threat model you can:
 * Hide the \*.kdbx file by simply renaming the file extension (e.g. \*.zip)
@@ -330,4 +346,4 @@ https://qubes-os.discourse.group/
 [qrexec]: https://www.qubes-os.org/doc/qrexec/
 [update]: https://www.qubes-os.org/doc/software-update-domu/#updating-software-in-templatevms
 [appvm create]: https://www.qubes-os.org/doc/getting-started/#adding-removing-and-listing-qubes
-
+[KeePassXC User Guide]: https://keepassxc.org/docs/KeePassXC_UserGuide.html#_database_settings
