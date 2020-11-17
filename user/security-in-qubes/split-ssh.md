@@ -91,7 +91,7 @@ Perform the next steps in a vault VM terminal.
     
     For more information about `ssh-keygen`, run `man ssh-keygen`.
     
-**Notice:** You can skip these steps if you plan on using KeePassXC.  
+**Notice:** You can skip the following steps if you plan on using KeePassXC.  
 
 2. Make a new directory `~/.config/autostart`
 
