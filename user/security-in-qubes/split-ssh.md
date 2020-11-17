@@ -6,26 +6,54 @@ redirect_from:
 
 ---
 
-# Qubes Split SSH with KeePassXC
+# Qubes Split SSH
 
 **Warning:** This guide is for setting up *KeePassXC*, not KeePassX or KeePass. See the [KeePassXC FAQ][KeePassXC FAQ].
 
-These Qubes setup allows you to keep ssh private keys in a vault VM and the Client SSH VM to use them only after being authorized. This is done by using Qubes's qrexec framework to connect a local SSH Agent socket from an AppVM to the SSH Agent socket within the vault VM. 
+This Qubes setup allows you to keep SSH private keys in a vault VM (`vault`) and SSH Client VM (`ssh-client`) to use them only after being authorized. This is done by using Qubes's [qrexec][qrexec] framework to connect a local SSH Agent socket from an AppVM to the SSH Agent socket within the vault VM. 
+
+## Overview
+
+1. Make sure the TemplateVM you plan to use is up to date and `nmap` and `ncat` is installed.
+2. Create `vault` and `ssh-client` AppVMs.
+3. Create an ssh key in your `vault` AppVM.
+4. (Strongly Encouraged) Create a KeePassXC Database and set up SSH Agent Integration in KeePassXC.
+5. Set up VM interconnection
 
 ## Prepare Your System
-0. (Optional) Take a system snapshot before you start tuning your system or do any major installations. To perform a Qubes OS backup please read and follow this guide the [User Documentation][CreateBackup]
+0. (Optional) Take a system snapshot before you start tuning your system or do any major installations. To perform a Qubes OS backup please read and follow this guide in the [User Documentation][CreateBackup].
 
-1. Fedora 32 has been used for this guide but is should also work with updated version of Fedora. Make sure your **Fedora Template VM** (Template: fedora-32) is up to date.
+1. Make sure the TemplateVM you plan to use is [up to date][update].
 
+   For Fedora templates:
+   
    `[user@fedora-32 ~]$ sudo dnf update && sudo dnf upgrade -y`
+   
+   For Debian templates:
+   
+   `user@debian-10:~$ sudo apt-get update && sudo apt-get upgrade`
+   
+2. Make sure `nmap` and `ncat` is installed in your TemplateVM
 
-## Creating the Vault  AppVM
+   For Fedora templates:
 
-If you’ve installed Qubes OS using the default options, a few qubes including a vault AppVM has been created for you. Skip this part if you don't wish to create another vault.
+   `[user@fedora-32 ~]$ sudo dnf install nmap-ncat`
 
-1. Create a new vault AppVM based on your chosen template. Set networking to `(none)`.
+   For Debian templates:
+
+   `user@debian-10:~$ sudo apt-get install nmap ncat`
+
+## [Creating AppVMs][appvm create]
+
+If you’ve installed Qubes OS using the default options, a few qubes including a vault AppVM has been created for you. Skip the first step if you don't wish to create another vault.
+
+1. Create a new vault AppVM (`vault`) based on your chosen template. Set networking to `(none)`.
 
    ![vault creation](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/72bd43ce6a17475c5e356bcd351b8b4ad86370a5.png)
+   
+2. Create a SSH Client AppVM (`ssh-client`). This VM will be used to make the SSH connection to your remote machine.
+
+   ![server-connector creation](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/e390f796135eb964c9c70dc962a23197d87defe7.png)
 
 ## Generating an SSH key pair
 
@@ -76,7 +104,7 @@ If you’ve installed Qubes OS using the default options, a few qubes including 
 
    ![continue](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/0f8584bc907e7f18b44f1fc51233f2d45613e1c2.png)
 
-3. Set password to your ssh key passphrase.
+3. Set password to your SSH key passphrase.
 
    ![setting passphrase](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/optimized/1X/21a2a38f54852126adefb4f6170b7e77b59863bf_2_594x500.png)
 
@@ -84,13 +112,13 @@ If you’ve installed Qubes OS using the default options, a few qubes including 
 
    ![add keys](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/0f4a9b160ab40773c5341d6437acb6b7b4666e6d.png)
 
-Remarks: You only need to add the private key (here myssh_key) but if you want to use it to simple backup all-in-one you can also add the public key (myssh_key.pub). 
+Remarks: You only need to add the private key (here myssh_key) but if you want to be able to simply back up both your private and public key (myssh_key.pub) by backing up your KeePassXC database (\*.kdbx-file) you can add that too. 
 
 5. Enable "SSH Agent Integration" within the Application Settings.
 
    ![enable ssh agent integration](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/optimized/1X/ad4700e7ed11682dfe9278d088af2f5381b0f286_2_594x500.png)
 
-6. Restart KeePassXC and check the SSH Agent Integration status.
+6. Restart KeePassXC and check the SSH Agent Integration status. 
 
    ![checking](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/77103ff4f1088efa4664f2c4cedd6fcf819e5fbd.png)
 
@@ -98,37 +126,26 @@ Remarks: You only need to add the private key (here myssh_key) but if you want t
 
    ![select private key](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/optimized/1X/e24ed462d471d4b8a5bdb47be1278d246de7d208_2_537x500.png)
 
-## Testing KeePassXC Setup
+## Testing the KeePassXC Setup
 
-1. Close your KeePassXC database and run `ssh-add -L`. It should output `The agent has no identities.`
+1. Close your KeePassXC database and run `ssh-add -L`. It should return `The agent has no identities.`
 
     ```shell_prompt
     [user@vault-keepassxc ~]$ ssh-add -L
     The agent has no identities.
     ```
 
-2. Unlock your KeePassXC database and run `ssh-add -L` again. This time it should output your public key.
+2. Unlock your KeePassXC database and run `ssh-add -L` again. This time it should return your public key.
 
     ```shell_prompt
     [user@vault-keepassxc ~]$ ssh-add -L
-    ssh-ed25519 <public key here> user@vault-keepassxc
+    ssh-ed25519 <public key string> user@vault-keepassxc
     ```
 ## Setting Up VM Interconnection
 
-1. Create a client SSH AppVM. This VM will be used to make the SSH connection to your remote machine.
+### In the TemplateVM:
 
-   ![server-connector creation](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/e390f796135eb964c9c70dc962a23197d87defe7.png)
-
-### In the Template VM to your Client SSH AppVM
-
-1. Make sure `nmap-ncat` is installed.
-
-    ```shell_prompt
-    [user@vault-keepassxc ~]$ sudo dnf install nmap-ncat
-    Fedora bla bla
-    ```
-
-2. Generate the file `qubes.SshAgent` in `/etc/qubes-rpc`
+2. Create the file `qubes.SshAgent` in `/etc/qubes-rpc`
 
    - Open the file with e.g. `nano`
 
@@ -136,8 +153,8 @@ Remarks: You only need to add the private key (here myssh_key) but if you want t
       [user@fedora-32] sudo nano /etc/qubes-rpc/qubes.SshAgent
       ```
       
-   - Paste the following content:
-  
+   - Paste the following contents:
+    
       ```shell_prompt
       #!/bin/sh
       # Qubes App Split SSH Script
@@ -151,32 +168,30 @@ Remarks: You only need to add the private key (here myssh_key) but if you want t
       
    - Save and exit.
 
-     
 3. Shutdown the template VM.
 
-### In a `dom0` Terminal
+### In `dom0`:
 
-1. Generate the file `qubes.SshAgent` in `/etc/qubes-rpc`
+1. Create the file `qubes.SshAgent` in `/etc/qubes-rpc`
 
    - Open the file with your editor of choice (e.g. `nano`).
 
       ```shell_prompt
-      [user@fedora-32] sudo nano /etc/qubes-rpc/qubes.SshAgent
+      [user@fedora-32 ~]$ sudo nano /etc/qubes-rpc/qubes.SshAgent
       ```
       
-   - If you want to explicitly allow only this connection, paste the following content:
-  
+   - If you want to explicitly allow only this connection, add the following line:
+    
       ```shell_prompt
-      # explicitly allow only this connection
-      server-connector vault-keepassxc ask
+      ssh-client vault ask
       ```
-   - If you want to allow all VMs to connect, paste the following content:
-      
+   - If you want to allow all VMs to connect, add the following line:
+     
       ```shell_prompt
       $anyvm $anyvm ask
       ```
    - Save and exit.
-
+   
 2. Close the terminal. **Do not shutdown `dom0`.**
 
 ### In a Client SSH AppVM terminal
@@ -186,15 +201,15 @@ Remarks: You only need to add the private key (here myssh_key) but if you want t
    - Open the file with your editor of choice (e.g. `nano`).
    
       ```shell_prompt
-      [user@server-connector ~]$ sudo nano /rw/config/rc.local
+      [user@ssh-client ~]$ sudo nano /rw/config/rc.local
       ```
      
    - Add the following to the bottom of the file:
    
       ```shell_prompt
       # SPLIT SSH CONFIGURATION >>>
-      # replace "vault-keepassxc" with your AppVM name which stores the ssh private key(s)
-      SSH_VAULT_VM="vault-keepassxc"
+      # replace "vault" with your AppVM name which stores the ssh private key(s)
+      SSH_VAULT_VM="vault"
 
       if [ "$SSH_VAULT_VM" != "" ]; then
         export SSH_SOCK=~user/.SSH_AGENT_$SSH_VAULT_VM
@@ -211,18 +226,18 @@ Remarks: You only need to add the private key (here myssh_key) but if you want t
    - Open the file with your editor of choice (e.g. `nano`).
    
       ```shell_prompt
-      [user@server-connector ~]$ sudo nano ~/.bashrc
+      [user@ssh-client ~]$ sudo nano ~/.bashrc
       ```
 
    - Add the following to the bottom of the file:
    
       ```shell_prompt
       # SPLIT SSH CONFIGURATION >>>
-      # replace "vault-keepassxc" with your AppVM name which stores the ssh private key(s)
-      SSH_VAULT_VM="vault-keepassxc"
+      # replace "vault" with your AppVM name which stores the ssh private key(s)
+      SSH_VAULT_VM="vault"
 
       if [ "$SSH_VAULT_VM" != "" ]; then
-          export SSH_AUTH_SOCK=~user/.SSH_AGENT_$SSH_VAULT_VM
+          export SSH_AUTH_SOCK=${HOME}/.SSH_AGENT_$SSH_VAULT_VM
       fi
       # <<< SPLIT SSH CONFIGURATION
       ```
@@ -230,32 +245,32 @@ Remarks: You only need to add the private key (here myssh_key) but if you want t
    - Save and exit.
    
 ### Test your configuration
- 
+
  1. Shutdown your vaultVM.
- 
+
  2. Try fetching your identities on the Client SSH VM. 
- 
+
      ```shell_prompt
      [user@server-connector ~]$ ssh-add -L
      ```
  3. Allow operation execution
- 
+
     ![operation execution](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/a4c234f61064d16820a21e1ddaf305bf959735c1.png)
- 
+
  Check if it returns `error fetching identities: communication with agent failed`
- 
+
  4. Start your vaultVM and unlock your KeePassXC database.
- 
+
 5. Try fetching your identities on the Client SSH VM. 
- 
+
     ```shell_prompt
     [user@server-connector ~]$ ssh-add -L
     ```
- 
+
 6. Allow operation execution
- 
+
     ![operation execution](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/a4c234f61064d16820a21e1ddaf305bf959735c1.png)
- 
+
 Check if it returns `ssh-ed25519 <public key string>`
 
 ## (Optional) Backing Up the Configuration
@@ -297,5 +312,10 @@ https://qubes-os.discourse.group/
 [KeePassXCFedoraPackageSource]:https://src.fedoraproject.org/rpms/keepassxc
 [KeePassXC FAQ]: https://keepassxc.org/docs
 [Password]:https://xkcd.com/936
-[PolicyFilesQubesOS]:[https://www.qubes-os.org/doc/qrexec/#policy-files]
+[PolicyFilesQubesOS]:https://www.qubes-os.org/doc/qrexec/#policy-files
 [Split-GPG]:https://www.qubes-os.org/doc/split-gpg
+
+[qrexec]: https://www.qubes-os.org/doc/qrexec/
+[update]: https://www.qubes-os.org/doc/software-update-domu/#updating-software-in-templatevms
+[appvm create]: https://www.qubes-os.org/doc/getting-started/#adding-removing-and-listing-qubes
+
