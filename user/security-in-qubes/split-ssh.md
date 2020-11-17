@@ -55,9 +55,13 @@ These Qubes setup allows you to keep ssh private keys in a vault VM and the Clie
       +----[SHA256]-----+
       ```
     **-t**: type
+    
     **-a**: num_trials
+    
     **-f**: file
+    
     Please note that the key fingerprint and the randomart image will differ.
+    
     For more information about `ssh-keygen`, run `man ssh-keygen`.
     
 ## Setting up KeePassXC.
