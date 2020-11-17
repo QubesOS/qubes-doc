@@ -96,7 +96,7 @@ If you’ve installed Qubes OS using the default options, a few qubes including 
    - Open the file with e.g. `nano`
 
      ```shell_prompt
-     [user@fedora-32] sudo nano /etc/qubes-rpc/qubes.SshAgent
+     [user@fedora-32 ~]$ sudo nano /etc/qubes-rpc/qubes.SshAgent
      ```
 
    - Paste the following contents:
@@ -198,9 +198,22 @@ If you’ve installed Qubes OS using the default options, a few qubes including 
 
    - Save and exit.
 
-## Using KeePassXC.
+## Using [KeePassXC][KeePassXC]
 
 **Warning:** This part is for setting up *KeePassXC*, not KeePassX or KeePass. See the [KeePassXC FAQ][KeePassXC FAQ].
+
+0. KeePassXC should be installed by default in both Fedora and Debian TemplateVMs. If this changes in the future and you find that it isn't, it can be installed with:
+   
+   For Fedora templates:<br/>
+   ```shell_prompt
+   [user@fedora-32 ~]$ sudo dnf install keepassxc
+   ```
+   For Debian templates:<br/>
+   ```shell_prompt
+   user@vault-deb:~$ sudo apt-get install keepassxc
+   ```
+   
+   If you have another template check the [KeePassXC download page][https://keepassxc.org/download/] for instructions.
 
 1. Add KeepasXC to the Applications menu of the newly created AppVM for ease of access.
 
@@ -257,14 +270,14 @@ If you’ve installed Qubes OS using the default options, a few qubes including 
 1. Close your KeePassXC database and run `ssh-add -L`. It should return `The agent has no identities.`
 
     ```shell_prompt
-    [user@vault-keepassxc ~]$ ssh-add -L
+    [user@vault ~]$ ssh-add -L
     The agent has no identities.
     ```
 
 2. Unlock your KeePassXC database and run `ssh-add -L` again. This time it should return your public key.
 
     ```shell_prompt
-    [user@vault-keepassxc ~]$ ssh-add -L
+    [user@vault ~]$ ssh-add -L
     ssh-ed25519 <public key string> user@vault-keepassxc
     ```
 
