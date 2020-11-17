@@ -220,7 +220,7 @@ Remarks: You only need to add the private key (here myssh_key) but if you want t
  
     ![operation execution](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/a4c234f61064d16820a21e1ddaf305bf959735c1.png)
  
- You should be getting `error fetching identities: communication with agent failed`
+ Check if it returns `error fetching identities: communication with agent failed`
  
  4. Start your vaultVM and unlock your KeePassXC database.
  
@@ -234,8 +234,18 @@ Remarks: You only need to add the private key (here myssh_key) but if you want t
  
     ![operation execution](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/a4c234f61064d16820a21e1ddaf305bf959735c1.png)
  
-If you're getting your public ssh key, congrats! You've successfully completed this tutorial.
+Check if it returns `ssh-ed25519 <public key string>`
 
+## (Optional) Backing Up the Configuration
+### System Backup
+Start a system backup as per the [User Documentation][CreateBackup].
+### KeePassXC Database Backup
+Additionally you can backup your \*.kdbx-file.
+
+Depending on your threat model you can:
+* Hide the \*.kdbx file by simply renaming the file extension (e.g. \*.zip)
+* Add an additional security layer by adding a second encryption layer (e.g. VeraCrypt, \*.7z with password)
+* Upload the \*.kdbx to an end-to-end-encrypted email box (e.g. Tutanota, ProtonMail)
 
 Want more Qubes split magic?
 Check this out: [Split-GPG:][Split-GPG]
