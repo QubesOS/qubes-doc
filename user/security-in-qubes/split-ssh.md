@@ -18,6 +18,7 @@ This Qubes setup allows you to keep SSH private keys in a vault VM (`vault`) and
 2. Create `vault` and `ssh-client` AppVMs.
 3. Create an ssh key in your `vault` AppVM.
 4. (Strongly Encouraged) Create a KeePassXC Database and set up SSH Agent Integration in KeePassXC.
+   or set up
 5. Set up VM interconnection
 
 ## Prepare Your System
@@ -188,7 +189,7 @@ Remarks: You only need to add the private key (here myssh_key) but if you want t
    - If you want to allow all VMs to connect, add the following line:
      
       ```shell_prompt
-      $anyvm $anyvm ask
+      @anyvm vault ask
       ```
    - Save and exit.
    
@@ -212,7 +213,7 @@ Remarks: You only need to add the private key (here myssh_key) but if you want t
       SSH_VAULT_VM="vault"
 
       if [ "$SSH_VAULT_VM" != "" ]; then
-        export SSH_SOCK=~user/.SSH_AGENT_$SSH_VAULT_VM
+        export SSH_SOCK=${HOME}/.SSH_AGENT_$SSH_VAULT_VM
         rm -f "$SSH_SOCK"
        sudo -u user /bin/sh -c "umask 177 && ncat -k -l -U '$SSH_SOCK' -c 'qrexec-client-vm $SSH_VAULT_VM qubes.SshAgent' &"
       fi
