@@ -213,7 +213,7 @@ If you’ve installed Qubes OS using the default options, a few qubes including 
    user@vault-deb:~$ sudo apt-get install keepassxc
    ```
    
-   If you have another template check the [KeePassXC download page][https://keepassxc.org/download/] for instructions.
+   If you have another template check the [KeePassXC download page][KeePassXC download page] for instructions.
 
 1. Add KeepasXC to the Applications menu of the newly created AppVM for ease of access.
 
@@ -348,6 +348,7 @@ https://qubes-os.discourse.group/
 [CreateBackup]:https://www.qubes-os.org/doc/backup-restore/#creating-a-backup
 [KeePassXC]: https://keepassxc.org/project
 [KeePassXCFedoraPackageSource]:https://src.fedoraproject.org/rpms/keepassxc
+[KeePassXC download page]: https://keepassxc.org/download/
 [KeePassXC FAQ]: https://keepassxc.org/docs
 [Password]:https://xkcd.com/936
 [PolicyFilesQubesOS]:https://www.qubes-os.org/doc/qrexec/#policy-files
