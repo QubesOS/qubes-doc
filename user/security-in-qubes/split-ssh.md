@@ -248,10 +248,10 @@ Remarks: You only need to add the private key (here myssh_key) but if you want t
 
  1. Shutdown your vaultVM.
 
- 2. Try fetching your identities on the Client SSH VM. 
+ 2. Try fetching your identities on the SSH Client VM. 
 
      ```shell_prompt
-     [user@server-connector ~]$ ssh-add -L
+     [user@ssh-client ~]$ ssh-add -L
      ```
  3. Allow operation execution
 
@@ -261,10 +261,10 @@ Remarks: You only need to add the private key (here myssh_key) but if you want t
 
  4. Start your vaultVM and unlock your KeePassXC database.
 
-5. Try fetching your identities on the Client SSH VM. 
+5. Try fetching your identities on the SSH Client VM. 
 
     ```shell_prompt
-    [user@server-connector ~]$ ssh-add -L
+    [user@ssh-client ~]$ ssh-add -L
     ```
 
 6. Allow operation execution
