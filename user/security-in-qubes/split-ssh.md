@@ -91,6 +91,8 @@ Perform the next steps in a vault VM terminal.
     
     For more information about `ssh-keygen`, run `man ssh-keygen`.
     
+**Notice:** You can skip these steps if you plan on using KeePassXC.  
+
 2. Make a new directory `~/.config/autostart`
 
 3. Create the file `ssh-add.desktop` in `~/.config/autostart`
@@ -115,8 +117,6 @@ Perform the next steps in a vault VM terminal.
       **Note:** If you've specified a custom name for your key using *-f*, you should adjust `Exec=ssh-add` to `Exec=ssh-add <path-to-your-key-file>`.
 
 With this configuration you'll be prompted for a password the first time you start your vault VM to  be able to make use of your SSH key. 
-
-For easier handling and better security see the "Using KeePassXC" section below.
 
 ## Setting Up VM Interconnection
 
