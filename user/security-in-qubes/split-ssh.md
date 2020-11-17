@@ -8,6 +8,8 @@ redirect_from:
 
 # Qubes Split SSH with KeePassXC
 
+**Warning:** This guide is for setting up *KeePassXC*, not KeePassX or KeePass. See the [KeePassXC FAQ][KeePassXC FAQ].
+
 These Qubes setup allows you to keep ssh private keys in a vault VM and the Client SSH VM to use them only after being authorized. This is done by using Qubes's qrexec framework to connect a local SSH Agent socket from an AppVM to the SSH Agent socket within the vault VM. 
 
 ## Prepare Your System
@@ -18,6 +20,8 @@ These Qubes setup allows you to keep ssh private keys in a vault VM and the Clie
    `[user@fedora-32 ~]$ sudo dnf update && sudo dnf upgrade -y`
 
 ## Creating the Vault  AppVM
+
+If you’ve installed Qubes OS using the default options, a few qubes including a vault AppVM has been created for you. Skip this part if you don't wish to create another vault.
 
 1. Create a new vault AppVM based on your chosen template. Set networking to `(none)`.
 
