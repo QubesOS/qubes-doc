@@ -213,7 +213,7 @@ Remarks: You only need to add the private key (here myssh_key) but if you want t
       SSH_VAULT_VM="vault"
 
       if [ "$SSH_VAULT_VM" != "" ]; then
-        export SSH_SOCK="${HOME}/.SSH_AGENT_$SSH_VAULT_VM"
+        export SSH_SOCK="/home/user/.SSH_AGENT_$SSH_VAULT_VM"
         rm -f "$SSH_SOCK"
         sudo -u user /bin/sh -c "umask 177 && ncat -k -l -U '$SSH_SOCK' -c 'qrexec-client-vm $SSH_VAULT_VM qubes.SshAgent' &"
       fi
@@ -238,7 +238,7 @@ Remarks: You only need to add the private key (here myssh_key) but if you want t
       SSH_VAULT_VM="vault"
 
       if [ "$SSH_VAULT_VM" != "" ]; then
-          export SSH_AUTH_SOCK=${HOME}/.SSH_AGENT_$SSH_VAULT_VM
+          export SSH_AUTH_SOCK="/home/user/.SSH_AGENT_$SSH_VAULT_VM"
       fi
       # <<< SPLIT SSH CONFIGURATION
       ```
