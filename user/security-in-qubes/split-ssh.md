@@ -219,7 +219,7 @@ If you’ve installed Qubes OS using the default options, a few qubes including 
 
    ![vault adding keepass](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/optimized/1X/e20e988e356ea63feda6760dca6a88fcd2a650c6_2_602x500.png)
 
-   **Note:** Since the vault VM has no internet connection, you can safely deny automatic updates.
+**Note:** Since the vault VM has no internet connection, you can safely deny automatic updates.
 
 2. Create a new database.
 
