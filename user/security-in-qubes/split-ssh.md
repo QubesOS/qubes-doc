@@ -155,7 +155,7 @@ Remarks: You only need to add the private key (here myssh_key) but if you want t
       ```
       
    - Paste the following contents:
-    
+   
       ```shell_prompt
       #!/bin/sh
       # Qubes App Split SSH Script
@@ -182,7 +182,7 @@ Remarks: You only need to add the private key (here myssh_key) but if you want t
       ```
       
    - If you want to explicitly allow only this connection, add the following line:
-    
+   
       ```shell_prompt
       ssh-client vault ask
       ```
@@ -213,9 +213,9 @@ Remarks: You only need to add the private key (here myssh_key) but if you want t
       SSH_VAULT_VM="vault"
 
       if [ "$SSH_VAULT_VM" != "" ]; then
-        export SSH_SOCK=${HOME}/.SSH_AGENT_$SSH_VAULT_VM
+        export SSH_SOCK="${HOME}/.SSH_AGENT_$SSH_VAULT_VM"
         rm -f "$SSH_SOCK"
-       sudo -u user /bin/sh -c "umask 177 && ncat -k -l -U '$SSH_SOCK' -c 'qrexec-client-vm $SSH_VAULT_VM qubes.SshAgent' &"
+        sudo -u user /bin/sh -c "umask 177 && ncat -k -l -U '$SSH_SOCK' -c 'qrexec-client-vm $SSH_VAULT_VM qubes.SshAgent' &"
       fi
       # <<< SPLIT SSH CONFIGURATION
       ```
