@@ -240,22 +240,18 @@ If you're getting your public ssh key, congrats! You've successfully completed t
 Want more Qubes split magic?
 Check this out: [Split-GPG:][Split-GPG]
 
-
+-
 
 This guide has been inspired by:
 
 Qubes Split SSH (Github: Jason Hennessey - henn)
 https://github.com/henn/qubes-app-split-ssh
-
 Using split ssh in QubesOS 4.0 (Kushal Das)
 https://kushaldas.in/posts/using-split-ssh-in-qubesos-4-0.html
-
 Using Split-SSH in Qubes 4 (Denis Zanin)
 https://deniszanin.com/using-split-ssh-gpg-in-qubes-os/
-
 R.I.S.K.S.
 https://19hundreds.github.io/risks-workflow/ssh-split-setup
-
 Qubes Community: Phil (phl), deeplow, whoami
 https://qubes-os.discourse.group/
 
