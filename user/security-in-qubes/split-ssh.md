@@ -54,9 +54,9 @@ These Qubes setup allows you to keep ssh private keys in a vault VM and the Clie
       |        ==o      |
       +----[SHA256]-----+
       ```
-    **-t**: type
-    **-a**: num_trials
-    **-f**: file
+    **-t**: type<br/>
+    **-a**: num_trials<br/>
+    **-f**: file<br/>
     
     Please note that the key fingerprint and the randomart image will differ.
     
