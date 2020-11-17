@@ -208,7 +208,7 @@ If you’ve installed Qubes OS using the default options, a few qubes including 
 
    ![vault adding keepass](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/optimized/1X/e20e988e356ea63feda6760dca6a88fcd2a650c6_2_602x500.png)
 
-Note: Since the vault VM has no internet connection, you can safely deny automatic updates.
+   **Note:** Since the vault VM has no internet connection, you can safely deny automatic updates.
 
 2. Create a new database.
 
@@ -238,7 +238,7 @@ Note: Since the vault VM has no internet connection, you can safely deny automat
 
    ![adding keys](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/ff4a1197826ee69740251dbf8204d90b6cf4c6c8.png)
 
-   Note: You only need to add the private key (`id_25519` here) but if you want to be able to simply back up both your private and public key (myssh_key.pub) by backing up your KeePassXC database (\*.kdbx file) you can add that too.
+   **Note:** You only need to add the private key (`id_25519` here) but if you want to be able to simply back up both your private and public key (myssh_key.pub) by backing up your KeePassXC database (\*.kdbx file) you can add that too.
 
 9. Enable "SSH Agent Integration" within the Application Settings.
 
@@ -269,25 +269,24 @@ Note: Since the vault VM has no internet connection, you can safely deny automat
     [user@vault-keepassxc ~]$ ssh-add -L
     ssh-ed25519 <public key string> user@vault-keepassxc
     ```
-1. - 
 
 ## Test Your Configuration
 
- 1. Shutdown your vaultVM.
+1. Shutdown your vaultVM.
 
- 2. Try fetching your identities on the SSH Client VM. 
+2. Try fetching your identities on the SSH Client VM. 
 
     ```shell_prompt
     [user@ssh-client ~]$ ssh-add -L
     ```
 
- 3. Allow operation execution
+3. Allow operation execution
 
     ![operation execution](https://aws1.discourse-cdn.com/free1/uploads/qubes_os/original/1X/a4c234f61064d16820a21e1ddaf305bf959735c1.png)
 
- Check if it returns `error fetching identities: communication with agent failed`
+Check if it returns `error fetching identities: communication with agent failed`
 
- 4. Start your vaultVM and unlock your KeePassXC database.
+4. Start your vaultVM and unlock your KeePassXC database.
 
 5. Try fetching your identities on the SSH Client VM. 
 
