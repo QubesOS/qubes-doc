@@ -237,3 +237,30 @@ Remarks: You only need to add the private key (here myssh_key) but if you want t
 If you're getting your public ssh key, congrats! You've successfully completed this tutorial.
 
 
+This guide has been inspired by:
+
+Qubes Split SSH (Github: Jason Hennessey - henn)
+https://github.com/henn/qubes-app-split-ssh
+
+Using split ssh in QubesOS 4.0 (Kushal Das)
+https://kushaldas.in/posts/using-split-ssh-in-qubesos-4-0.html
+
+Using Split-SSH in Qubes 4 (Denis Zanin)
+https://deniszanin.com/using-split-ssh-gpg-in-qubes-os/
+
+R.I.S.K.S.
+https://19hundreds.github.io/risks-workflow/ssh-split-setup
+
+Qubes Community: Phil (phl), deeplow, whoami
+https://qubes-os.discourse.group/
+
+-----
+
+[CreateBackup]:https://www.qubes-os.org/doc/backup-restore/#creating-a-backup
+[KeePassXC]: https://keepassxc.org/project
+[KeePassXCFedoraPackageSource]:https://src.fedoraproject.org/rpms/keepassxc
+[KeePassXC FAQ]: https://keepassxc.org/docs
+[Password]:https://xkcd.com/936
+[PolicyFilesQubesOS]:[https://www.qubes-os.org/doc/qrexec/#policy-files]
+[Split-GPG]:https://www.qubes-os.org/doc/split-gpg
+
