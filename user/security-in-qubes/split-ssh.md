@@ -56,7 +56,7 @@ If you’ve installed Qubes OS using the default options, a few qubes including 
 
 ## Setting up SSH
 
-2. Open a vaultVM Terminal and generate an SSH key pair. Skip this step if you already have your keys.
+1. Open a vaultVM Terminal and generate an SSH key pair. Skip this step if you already have your keys.
 
       ```shell_prompt
       [user@vault ~]$ ssh-keygen -t ed25519 -a 500
@@ -88,8 +88,7 @@ If you’ve installed Qubes OS using the default options, a few qubes including 
     Please note that the key fingerprint and the randomart image will differ.
     
     For more information about `ssh-keygen`, run `man ssh-keygen`.
-    
-2. Make 
+     
 ## Setting Up VM Interconnection
 
 ### In the TemplateVM:
