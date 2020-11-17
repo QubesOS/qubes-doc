@@ -240,7 +240,7 @@ Check if it returns `ssh-ed25519 <public key string>`
 ### System Backup
 Start a system backup as per the [User Documentation][CreateBackup].
 ### KeePassXC Database Backup
-Additionally you can backup your \*.kdbx-file.
+You can also only back up your \*.kdbx-file.
 
 Depending on your threat model you can:
 * Hide the \*.kdbx file by simply renaming the file extension (e.g. \*.zip)
