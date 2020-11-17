@@ -133,7 +133,7 @@ Perform the next steps in a vault VM terminal.
         ```
    **Note:** If you've specified a custom name for your key using *-f*, you should adjust `Exec=ssh-add` to `Exec=ssh-add <path-to-your-key-file>`.
   
-  - Save and exit.
+   - Save and exit.
 
 With this configuration you'll be prompted for a password the first time you start your vault VM to  be able to make use of your SSH key. 
 
