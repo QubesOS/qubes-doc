@@ -111,15 +111,19 @@ Perform the next steps in a vault VM terminal.
 
 2. Make a new directory `~/.config/autostart`
 
+      ```shell_prompt
+      [user@fedora-32 ~]$ mkdir -p ~/.config/autostart
+      ```
+      
 3. Create the file `ssh-add.desktop` in `~/.config/autostart`
 
-      - Open the file with e.g. `nano`
+   - Open the file with e.g. `nano`
 
         ```shell_prompt
         [user@fedora-32 ~]$ nano ~/.config/autostart/ssh-add.desktop
         ```
 
-      - Paste the following contents:
+   - Paste the following contents:
 
         ```shell_prompt
         [Desktop Entry]
@@ -127,10 +131,9 @@ Perform the next steps in a vault VM terminal.
         Exec=ssh-add
         Type=Application
         ```
-        
-      - Save and exit.
-      
-      **Note:** If you've specified a custom name for your key using *-f*, you should adjust `Exec=ssh-add` to `Exec=ssh-add <path-to-your-key-file>`.
+   **Note:** If you've specified a custom name for your key using *-f*, you should adjust `Exec=ssh-add` to `Exec=ssh-add <path-to-your-key-file>`.
+  
+  - Save and exit.
 
 With this configuration you'll be prompted for a password the first time you start your vault VM to  be able to make use of your SSH key. 
 
