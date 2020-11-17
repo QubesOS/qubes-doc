@@ -32,15 +32,19 @@ This Qubes setup allows you to keep SSH private keys in a vault VM (`vault`) and
    
 2. Make sure `nmap` and `ncat` is installed in your TemplateVM
 
-   For Fedora templates:
-
+   For Fedora templates:<br/>
    `[user@fedora-32 ~]$ sudo dnf install nmap-ncat`
 
-   For Debian templates:
-
+   For Debian templates:<br/>
    `user@debian-10:~$ sudo apt-get install nmap ncat`
    
 3. If you don't plan to use KeePassXC, install `ssh-askpass`.
+
+   For Fedora templates:<br/>
+   `[user@fedora-32 ~]$ sudo dnf install openssh-askpass`
+
+   For Debian templates:<br/>
+   `user@debian-10:~$ sudo apt-get install ssh-askpass`
 
 ## [Creating AppVMs][appvm create]
 
