@@ -240,7 +240,7 @@ If you're getting your public ssh key, congrats! You've successfully completed t
 Want more Qubes split magic?
 Check this out: [Split-GPG:][Split-GPG]
 
--
+-------------------------------
 
 This guide has been inspired by:
 
@@ -259,7 +259,6 @@ https://19hundreds.github.io/risks-workflow/ssh-split-setup
 Qubes Community: Phil (phl), deeplow, whoami
 https://qubes-os.discourse.group/
 
------
 
 [CreateBackup]:https://www.qubes-os.org/doc/backup-restore/#creating-a-backup
 [KeePassXC]: https://keepassxc.org/project
