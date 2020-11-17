@@ -24,12 +24,10 @@ This Qubes setup allows you to keep SSH private keys in a vault VM (`vault`) and
 
 1. Make sure the TemplateVM you plan to use is [up to date][update].
 
-   For Fedora templates:
-   
+   For Fedora templates:<br/>
    `[user@fedora-32 ~]$ sudo dnf update && sudo dnf upgrade -y`
    
-   For Debian templates:
-   
+   For Debian templates:<br/>
    `user@debian-10:~$ sudo apt-get update && sudo apt-get upgrade`
    
 2. Make sure `nmap` and `ncat` is installed in your TemplateVM
