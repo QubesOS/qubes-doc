@@ -58,16 +58,17 @@ If you run into any problems, please consult the [Troubleshooting FAQ] below.
 Before we begin, you'll need a program that can verify PGP signatures.
 Any such program will do, but here are some examples for popular operating systems:
 
-**Windows:** [Gpg4win](https://gpg4win.org/download.html).
+**Windows:** [Gpg4win](https://gpg4win.org/download.html) ([documentation](https://www.gpg4win.org/documentation.html)).
 Use the Windows command line (`cmd.exe`) to enter commands.
 
-**Mac:** [GPG Suite](https://gpgtools.org/).
+**Mac:** [GPG Suite](https://gpgtools.org/) ([documentation](https://gpgtools.tenderapp.com/kb)).
 Open a terminal to enter commands.
 
-**Linux:** `gpg2` from your package manager or from [gnupg.org](https://gnupg.org/download/index.html).
+**Linux:** `gpg2` from your package manager or from [gnupg.org](https://gnupg.org/download/index.html) ([documentation](https://www.gnupg.org/documentation/)).
 Open a terminal to enter commands.
 
 The commands below will use `gpg2`, but if that doesn't work for you, try `gpg` instead.
+If that still doesn't work, please consult the documentation for your specific program (see links above).
 
 
 ### 1. Get the Qubes Master Signing Key and verify its authenticity
@@ -83,6 +84,12 @@ There are several ways to get the Qubes Master Signing Key.
 
        $ gpg2 --import /usr/share/qubes/qubes-master-key.asc
 
+ - If you're on Fedora, you can get it in the `distribution-gpg-keys` package:
+
+       $ dnf install distribution-gpg-keys
+
+ - If you're on Debian, it may already be included in your keyring.
+
  - Fetch it with GPG:
 
        $ gpg2 --fetch-keys https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
@@ -91,38 +98,55 @@ There are several ways to get the Qubes Master Signing Key.
 
        $ gpg2 --import ./qubes-master-signing-key.asc 
 
- - Get it from a public [keyserver] (specified on first use with `--keyserver <URI>`, then saved in `~/.gnupg/gpg.conf`), e.g.:
+ - Get it from a public [keyserver] (specified on first use with `--keyserver <URI>` along with keyserver options to include key signatures), e.g.:
 
-       $ gpg2 --keyserver pool.sks-keyservers.net --recv-keys 0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
+       $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --keyserver hkp://pool.sks-keyservers.net:11371 --recv-keys 0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
 
 The Qubes Master Signing Key is also available in the [Qubes Security Pack] and in the archives of the project's [developer][devel-master-key-msg] and [user][user-master-key-msg] [mailing lists].
 
-Once you have obtained the Qubes Master Signing Key, you should verify the fingerprint of this key very carefully by obtaining copies of the fingerprint from multiple independent sources and comparing them to the downloaded key's fingerprint to ensure they match.
-Here are some ideas:
+Once you have obtained the Qubes Master Signing Key, you must verify that it is authentic rather than a forgery.
+Anyone can create a PGP key with the name "Qubes Master Signing Key," so you cannot rely on the name alone.
+You also should not rely on any single website, not even over HTTPS.
 
- - Use the PGP Web of Trust.
- - Check the key against different keyservers.
- - Use different search engines to search for the fingerprint.
- - Use Tor to view and search for the fingerprint on various websites.
- - Use various VPNs and proxy servers.
- - Use different Wi-Fi networks (work, school, internet cafe, etc.).
- - Ask people to post the fingerprint in various forums and chat rooms.
- - Check against PDFs and photographs in which the fingerprint appears
-   (e.g., slides from a talk or on a T-shirt).
- - Repeat all of the above from different computers and devices.
+So, what *should* you do?
+One option is to use the PGP [Web of Trust](https://en.wikipedia.org/wiki/Web_of_trust).
+In addition, some operating systems include the means to acquire the Qubes Master Signing Key in a secure way.
+For example, on Fedora, `dnf install distribution-gpg-keys` will get you the Qubes Master Signing Key along with several other Qubes keys.
+On Debian, your keyring may already contain the necessary keys.
 
-In addition, some operating systems have built-in keyrings containing keys capable of validating the Qubes Master Signing Key.
-For example, if you have a Debian system, then your keyring may already contain the necessary keys.
+Another option is to rely on the key's fingerprint.
+Every PGP key has a fingerprint that uniquely identifies it among all PGP keys (viewable with `gpg2 --fingerprint <KEY_ID>`).
+Therefore, if you know the genuine Qubes Master Signing Key fingerprint, then you always have an easy way to confirm whether any purported copy of it is authentic, simply by comparing the fingerprints.
 
-For additional security, we also publish the fingerprint of the Qubes Master Signing Key here (but [remember not to blindly trust the live version of this website][website-trust]):
+For example, here is the Qubes Master Signing Key fingerprint:
 
     pub   4096R/36879494 2010-04-01
           Key fingerprint = 427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
     uid   Qubes Master Signing Key
 
-Once you're confident that you have the legitimate Qubes Master Signing Key, set its trust level to "ultimate" so that it can be used to automatically verify all the keys signed by the Qubes Master Signing Key (in particular, Release Signing Keys).
+But how do you know that this is the real fingerprint?
+After all, [this website could be compromised][website-trust], so the fingerprint you see here may not be genuine.
+That's why we strongly suggest obtaining the fingerprint from *multiple, independent sources in several different ways*.
 
-    $ gpg2 --edit-key 0x36879494
+Here are some ideas for how to do that:
+
+ - Check the fingerprint on various websites (e.g., [mailing lists](https://groups.google.com/g/qubes-devel/c/RqR9WPxICwg/m/kaQwknZPDHkJ), [discussion forums](https://qubes-os.discourse.group/t/there-is-no-way-to-validate-qubes-master-signing-key/1441/9?u=adw), [social](https://twitter.com/rootkovska/status/496976187491876864) [media](https://www.reddit.com/r/Qubes/comments/5bme9n/fingerprint_verification/), [personal websites](https://andrewdavidwong.com/fingerprints.txt)).
+ - Check against PDFs, photographs, and videos in which the fingerprint appears
+   (e.g., [slides from a talk](https://hyperelliptic.org/PSC/slides/psc2015_qubesos.pdf), on a [T-shirt](https://twitter.com/legind/status/813847907858337793/photo/2), or in the [recording of a presentation](https://youtu.be/S0TVw7U3MkE?t=2563)).
+ - Download old Qubes ISOs from different sources and check the included Qubes Master Signing Key.
+ - Ask people to post the fingerprint on various mailing lists, forums, and chat rooms.
+ - Repeat the above over Tor.
+ - Repeat the above over various VPNs and proxy servers.
+ - Repeat the above on different networks (work, school, internet cafe, etc.).
+ - Text, email, call, video chat, snail mail, or meet up with people you know to confirm the fingerprint.
+ - Repeat the above from different computers and devices.
+
+Once you've obtained the fingerprint from enough independent sources in enough different ways that you feel confident that you know the genuine fingerprint, keep it in a safe place.
+Every time you need to check whether a key claiming to be the Qubes Master Signing Key is authentic, compare that key's fingerprint to your trusted copy and confirm they match.
+
+Now that you've imported the authentic Qubes Master Signing Key, set its trust level to "ultimate" so that it can be used to automatically verify all the keys signed by the Qubes Master Signing Key (in particular, Release Signing Keys).
+
+    $ gpg2 --edit-key 0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
     gpg (GnuPG) 1.4.18; Copyright (C) 2014 Free Software Foundation, Inc.
     This is free software: you are free to change and redistribute it.
     There is NO WARRANTY, to the extent permitted by law.

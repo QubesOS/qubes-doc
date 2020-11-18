@@ -10,7 +10,7 @@ redirect_from:
 
 # Installing and updating software in dom0
 
-Updating dom0 is one of the main steps in [Updating Qubes OS].
+Updating [dom0] is one of the main steps in [Updating Qubes OS].
 It is very important to keep dom0 up-to-date with the latest [security] updates.
 We also publish dom0 updates for various non-security bug fixes and enhancements to Qubes components.
 In addition, you may wish to update the kernel, drivers, or libraries in dom0 when [troubleshooting newer hardware].
@@ -218,6 +218,7 @@ For example: sys-whonix.
     Qubes VM Manager -> System -> Global Settings -> UpdateVM -> sys-whonix
 
 
+[dom0]: /doc/glossary/#dom0
 [Updating Qubes OS]: /doc/updating-qubes-os/
 [security]: /security/
 [testing]: /doc/testing/

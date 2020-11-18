@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Copying Files between qubes
+title: Copying and moving files between qubes
 permalink: /doc/copying-files/
 redirect_from:
 - /en/doc/copying-files/
@@ -8,31 +8,34 @@ redirect_from:
 - /wiki/CopyingFiles/
 ---
 
-Copying files and folders between qubes
-=============================
+Copying and moving files between qubes
+======================================
 
-Qubes also supports secure copying of files and folders between qubes.
-These instructions refer to file(s) but equally apply to copying folders.
+*This page is about copying and moving files.
+If you wish to simply copy and paste text, that can be done more easily using the inter-qube clipboard.
+See [copying and pasting text between qubes](/doc/copy-paste/).
+For dom0, see [copying from (and to) dom0](/doc/copy-from-dom0/).*
 
-In order to copy file(s) from qube A to qube B, follow these steps:
+Qubes OS supports the secure copying and moving of files and directories (folders) between qubes.
 
-GUI
----
+For simplicity, these instructions will refer to copying/moving a single file, but they apply equally well to groups of files and directories, which are copied recursively.
 
-1. Open file manager in the source qube (qube A), choose file(s) that you wish to copy, and right click on the selection, and choose `Copy to another AppVM`
+ 1. Open a file manager in the qube containing the file you wish to copy (the source qube), right-click on the file you wish to copy or move, and select `Copy to Other AppVM...` or `Move to Other AppVM...`.
 
-2. A dialog box will appear asking for the name of the destination qube (qube B). 
+ 2. A dialog box will appear in dom0 asking for the name of the target qube (qube B). 
+    Enter or select the desired destination qube name.
 
-3. A confirmation dialog box will appear(this will be displayed by Dom0, so none of the qubes can fake your consent).
-   After you click ok, qube B will be started if it is not already running, the file copy operation will start, and the files will be copied into the following folder in qube B:
+ 3. If the target qube is not already running, it will be started automatically, and the file will be copied there.
+    It will show up in this directory (which will automatically be created if it does not already exist):
 
-   `/home/user/QubesIncoming/<source>`
+        /home/user/QubesIncoming/<source_qube>/<filename>
 
-4. You can now move them whenever you like in the qube B filesystem using the file manager there.
+    If you selected **Move** rather than **Copy**, the original file in the source qube will be deleted.
+    (Moving a file is equivalent to copying the file, then deleting the original.)
 
+ 4. If you wish, you may now move the file in the target qube to a different directory and delete the `/home/user/QubesIncoming/` directory when no longer needed.
 
-CLI
----
+The same operations are also available via these command-line tools:
 
 ```
 qvm-copy [--without-progress] file [file]+
@@ -42,18 +45,21 @@ qvm-copy [--without-progress] file [file]+
 qvm-move [--without-progress] file [file]+
 ```
 
+Security
+--------
 
-On inter-qube file copy security
-----------------------------------
-
-The scheme is *secure* because it doesn't allow other qubes to steal the files that are being copied, and also doesn't allow the source qube to overwrite arbitrary files on the destination qube.
-Also, Qubes's file copy scheme doesn't use any sort of virtual block devices for file copy -- instead we use Xen shared memory, which eliminates lots of processing of untrusted data.
+The inter-qube file copy system is secure because it doesn't allow other qubes to steal the files that are being copied, and it doesn't allow the source qube to overwrite arbitrary files on the destination qube.
+Moreover, this system doesn't use any sort of virtual block device for file copy.
+Instead, we use Xen shared memory, which eliminates a lot of processing of untrusted data.
 For example, the receiving qube is *not* forced to parse untrusted partitions or file systems.
-In this respect our file copy mechanism provides even more security than file copy between two physically separated (air-gapped) machines!
+In this respect, the inter-qube file copy system provides even more security than file copy between two physically separated (air-gapped) machines!
+(See [Software compartmentalization vs. physical separation](https://invisiblethingslab.com/resources/2014/Software_compartmentalization_vs_physical_separation.pdf) for more on this.)
 
-However, one should keep in mind that performing a data transfer from *less trusted* to *more trusted* qubes can always be potentially insecure, because the data that we insert might potentially try to exploit some hypothetical bug in the destination qube (e.g. a seemingly innocent JPEG that we copy from an untrusted qube might contain a specially crafted exploit for a bug in JPEG parsing application in the destination qube).
-This is a general problem and applies to any data transfer between *less trusted to more trusted* qubes.
+However, one should keep in mind that performing a data transfer from *less trusted* to *more trusted* qubes is always potentially insecure if the data will be parsed in the target qube.
+This is because the data that we copy could try to exploit some hypothetical bug in software running in the target qube.
+For example, a seemingly-innocent JPEG that we copy from an untrusted qube might contain a specially-crafted exploit for a bug in a JPEG-parsing application in the target qube.
+This is a general problem and applies to any data transfer from *less trusted* to *more trusted* qubes.
 It even applies to the scenario of copying files between air-gapped machines.
-So, you should always copy data only from *more trusted* to *less trusted* qubes.
+Therefore, you should always copy data only from *more trusted* to *less trusted* qubes.
 
 See also [this article](https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html) for more information on this topic, and some ideas of how we might solve this problem in some future version of Qubes.
