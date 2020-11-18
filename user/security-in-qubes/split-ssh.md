@@ -195,10 +195,14 @@ With this configuration you'll be prompted for a password the first time you sta
      ```
 
    - Save and exit.
+   
+   **Note:** There are many ways to fine-tune this policy. For more details see [Qubes qrexec documentation][PolicyFilesQubesOS]. 
 
 2. Close the terminal. **Do not shutdown `dom0`.**
 
 ### In a Client SSH AppVM terminal
+
+Theoretically, you can use any AppVM but to increase security it is advised to create a dedicated AppVM for your SSH connections. Furthermore, you can set different firewall rules for each VM (i.e. for intranet and internet connections) which also provides additional protection.
 
 1. Edit `/rw/config/rc.local`
 
