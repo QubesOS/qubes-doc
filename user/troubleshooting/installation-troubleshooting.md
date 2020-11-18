@@ -88,4 +88,8 @@ This error message indicates that IOMMU-virtualization hasn’t been activated i
 Return to the [hardware requirements][hardware-reqs] section to learn how to activate it. 
 If the setting is not configured correctly, it means that your hardware won’t be able to leverage some Qubes security features, such as a strict isolation of the networking and USB hardware.
 
+In Qubes 4.0, the default installation won't function properly without IOMMU, as default sys-net and sys-usb qubes require IOMMU. It is possible to configure them to reduce isolation and not use IOMMU by changing virtualization mode of these two VMs to "PV".
+
+In Qubes 4.1, IOMMU is strictly required, even when the virtualization mode of a VM is changed to "PV"; it is not possible to use Qubes on a system without IOMMU.
+
 [hardware-reqs]: /doc/installation-guide/#hardware-requirements
