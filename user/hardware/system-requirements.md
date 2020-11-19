@@ -9,7 +9,7 @@ redirect_from:
 - /wiki/SystemRequirements/
 ---
 
-# System Requirements #
+# System Requirements
 
 <div class="alert alert-warning" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
@@ -19,29 +19,7 @@ redirect_from:
   We strongly recommend consulting the <a href="/hcl/">Hardware Compatibility List</a> to verify that Qubes can install and run on your specific model in the ways you need it to.
 </div>
 
-## Qubes Release 3.x ##
-
-### Minimum ###
-
- * 64-bit Intel or AMD processor (x86\_64 aka x64 aka AMD64)
- * 4 GB RAM
- * 32 GB disk space
- * Legacy boot mode (required for R3.0 and earlier; UEFI is supported beginning with R3.1)
-
-### Recommended ###
-
- * Fast SSD (strongly recommended)
- * Intel IGP (strongly preferred)
-   * Nvidia GPUs may require significant [troubleshooting][nvidia].
-   * AMD GPUs have not been formally tested, but Radeons (RX580 and earlier) generally work well
-   * See the [Hardware Compatibility List]
- * [Intel VT-x] or [AMD-V] (required for running HVM domains, such as Windows-based AppVMs)
- * [Intel VT-d] or [AMD-Vi (aka AMD IOMMU)] (required for effective isolation of network VMs)
- * TPM with proper BIOS support (required for [Anti Evil Maid])
-
-## Qubes Release 4.x ##
-
-### Minimum ###
+## Minimum
 
  * 64-bit Intel or AMD processor (x86\_64 aka x64 aka AMD64)
  * [Intel VT-x] with [EPT] or [AMD-V] with [RVI]
@@ -49,7 +27,7 @@ redirect_from:
  * 4 GB RAM
  * 32 GiB disk space
 
-### Recommended ###
+## Recommended
 
  * Fast SSD (strongly recommended)
  * Intel IGP (strongly preferred)
@@ -60,14 +38,14 @@ redirect_from:
  * A non-USB keyboard or multiple USB controllers
  * Also consider the [hardware certification requirements for Qubes 4.x].
 
-## Choosing Hardware ##
+## Choosing Hardware
 
  * Please see the [Hardware Compatibility List] for a compilation of hardware reports generated and submitted by users across various Qubes versions.
    (For more information about the HCL itself, see [here][hcl-doc].)
  * See the [Certified Hardware] page.
  * See the [Hardware Testing] page.
 
-## Important Notes ##
+## Important Notes
 
  * **Installing Qubes in a virtual machine is not recommended, as it uses its own bare-metal hypervisor (Xen).**
  * Qubes **can** be installed on systems which do not meet the recommended requirements.
