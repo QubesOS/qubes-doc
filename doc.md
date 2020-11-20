@@ -77,7 +77,6 @@ Core documentation for Qubes users.
  * [PCI Devices](/doc/pci-devices/)
  * [Device Handling](/doc/device-handling/)
  * [Optical Discs](/doc/optical-discs/)
- * [Application Shortcuts](/doc/managing-appvm-shortcuts/)
  * [Fullscreen Mode](/doc/full-screen-mode/)
 
 ### Managing Operating Systems within Qubes
@@ -123,6 +122,7 @@ Core documentation for Qubes users.
  * [Installation Troubleshooting](/doc/installation-troubleshooting)
  * [UEFI Troubleshooting](/doc/uefi-troubleshooting/)
  * [Suspend/Resume Troubleshooting](/doc/suspend-resume-troubleshooting/)
+ * [Application Shortcut Troubleshooting](/doc/managing-appvm-shortcuts/)
  * [VM Troubleshooting](/doc/vm-troubleshooting/)
  * [HVM Troubleshooting](/doc/hvm-troubleshooting/)
  * [Disk Troubleshooting](/doc/disk-troubleshooting/)
@@ -130,6 +130,8 @@ Core documentation for Qubes users.
  * [USB Troubleshooting](/doc/usb-troubleshooting/)
  * [GUI Troubleshooting](/doc/gui-troubleshooting/)
  * [Media Troubleshooting](/doc/media-troubleshooting/)
+ * [Firewall Troubleshooting](/doc/firewall/#firewall-troubleshooting)
+ * [VPN Troubleshooting](/doc/vpn-troubleshooting/)
 
 ### Reference Pages
 
@@ -275,11 +277,11 @@ For more, please see [Qubes Community Documentation](https://github.com/Qubes-Co
  
 ### Troubleshooting
  * [Nvidia Troubleshooting](/doc/nvidia-troubleshooting/)
- * [Installing on system with new AMD GPU (missing firmware problem)](https://groups.google.com/group/qubes-devel/browse_thread/thread/e27a57b0eda62f76)
  * [Lenovo ThinkPad Troubleshooting](/doc/thinkpad-troubleshooting/)
  * [Apple MacBook Troubleshooting](/doc/macbook-troubleshooting/)
- * [Getting Sony Vaio Z laptop to work with Qubes](/doc/sony-vaio-tinkering/)
+ * [Sony Vaio Troubleshooting](/doc/sony-vaio-tinkering/)
  * [Intel Integrated Graphics Troubleshooting](/doc/intel-igfx-troubleshooting/)
+ * [Multiboot Troubleshooting](/doc/multiboot/#troubleshooting)
 
 ### Building Guides
 

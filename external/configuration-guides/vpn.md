@@ -318,6 +318,4 @@ If you want to update your TemplateVMs through the VPN, you can enable the `qube
 Troubleshooting
 ---------------
 
-* Always test your basic VPN connection before adding scripts.
-* Test DNS: Ping a familiar domain name from an appVM. It should print the IP address for the domain.
-* Use `iptables -L -v` and `iptables -L -v -t nat` to check firewall rules. The latter shows the critical PR-QBS chain that enables DNS forwarding.
+See the [VPN Troubleshooting](/doc/vpn-troubleshooting/) guide for tips on how to fix common VPN issues. 

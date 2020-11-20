@@ -117,11 +117,11 @@ If this doesn't work, please see [How to Remove VMs Manually].
 
 If the Applications Menu entry doesn't go away after you uninstall a TemplateVM, execute the following type of command in dom0:
 
-    $ rm ~/.local/share/applications/<template-vm-name>
+    $ rm ~/.local/share/applications/<template_vm_name>
 
 Applications Menu entries for backups of removed VMs can also be found in `/usr/local/share/applications/` of dom0.
 
-    $ rm /usr/local/share/applications/<template-vm-name>
+    $ rm /usr/local/share/applications/<template_vm_name>
 
 
 ## Reinstalling
@@ -137,24 +137,22 @@ When you install a new template or upgrade a clone of a template, it is recommen
 
         Applications Menu --> System Tools --> Qubes Global Settings --> Default template
 
-2. Base AppVMs on the new template.
+2. If your keyboard or mouse is connected through `sys-usb`, switch `sys-usb` to the new template.
+   (Note that this is a single command to ensure that `sys-usb` restarts.
+   If it does not, you will not be able to use your USB keyboard or mouse.)
+
+        [user@dom0 ~]$ qvm-shutdown --wait sys-usb; qvm-prefs sys-usb template <new_template>; qvm-start sys-usb
+
+3. Base AppVMs on the new template.
 
         Applications Menu --> System Tools --> Qubes Template Manager
 
-3. Base the [DisposableVM Template] on the new template.
+4. Base the [DisposableVM Template] on the new template.
 
-        [user@dom0 ~]$ qvm-create -l red -t new-template new-template-dvm
-        [user@dom0 ~]$ qvm-prefs new-template-dvm template_for_dispvms True
-        [user@dom0 ~]$ qvm-features new-template-dvm appmenus-dispvm 1
-        [user@dom0 ~]$ qubes-prefs default-dispvm new-template-dvm
-
-4. Updating the template for sys-usb if peripheral devices are dependent upon the VM
-    
-    If you are running Qubes on a desktop or other device where the peripheral devices such as keyboard / mouse / trackpad are dependent upon the sys-usb appVM then updating the template is a challenge. In this situation, you can use the following commands in a dom0 terminal window to update the templateVM.
-    
-        $ qvm-shutdown --wait sys-usb; qvm-prefs sys-usb template fedora-31; qvm-start sys-usb 
-    
-    Be careful to run this set of commands as shown above (3 commands in a single line) because if the sys-usb VM does not start back up you may be locked out of your machine.
+        [user@dom0 ~]$ qvm-create -l red -t <new_template> <new_template_dvm>
+        [user@dom0 ~]$ qvm-prefs <new_template_dvm> template_for_dispvms True
+        [user@dom0 ~]$ qvm-features <new_template_dvm> appmenus-dispvm 1
+        [user@dom0 ~]$ qubes-prefs default-dispvm <new_template_dvm>
 
 
 ## Advanced

@@ -119,8 +119,9 @@ FirewallVM
 FirewallVMs, as defined here, no longer exist in Qubes 4.0 or later (see [here][pr-748] for technical details).*
 
 Firewall Virtual Machine. 
-A type of [ProxyVM](#proxyvm) that is used to enforce network-level policies (a.k.a. "firewall rules"). 
+A type of [ProxyVM](#proxyvm) that is used to enforce network-level policies (a.k.a. "firewall rules").
 A FirewallVM called `sys-firewall` is created by default in most Qubes installations.
+Also see [Qubes Firewall](/doc/firewall/).
 
 DisposableVM
 ------------
@@ -191,7 +192,8 @@ This allows for optimal performance on guest operating systems such as Windows.
 
 Windows Tools
 -----
-Qubes Windows Tools are a set of programs and drivers that provide integration of Windows [AppVMs](#appvm) with the rest of the Qubes system.
+[Qubes Windows Tools](/doc/windows-tools/) (QWT) are a set of programs and drivers that provide integration of Windows [AppVMs](#appvm) with the rest of the Qubes system.
+Also see [Windows](/doc/windows/).
 
 QWT
 ----

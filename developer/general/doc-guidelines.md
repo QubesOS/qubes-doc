@@ -126,6 +126,8 @@ To add an image to a page, use the following syntax in the main document:
 ```
 
 Then, submit your image(s) in a separate pull request to the [qubes-attachment] repository using the same path and filename.
+This is the only permitted way to include images.
+Do not link to images on other websites.
 
 
 Version-specific Documentation
@@ -248,6 +250,11 @@ All the documentation is written in Markdown for maximum accessibility.
 When making contributions, please try to observe the following style conventions:
 
  * Use spaces instead of tabs.
+ * Do not write HTML inside Markdown documents (except in rare, unavoidable cases, such as alerts).
+   In particular, never include HTML or CSS for styling, formatting, or white space control.
+   That belongs in the (S)CSS files instead.
+ * Link only to images in [qubes-attachment] (see [instructions above](#how-to-add-images)).
+   Do not link to images on other websites.
  * In order to enable offline browsing, use relative paths (e.g., `/doc/doc-guidelines/` instead of `https://www.qubes-os.org/doc/doc-guidelines/`, except when the source text will be reproduced outside of the Qubes website repo.
    Examples of exceptions:
    * [QSBs] (intended to be read as plain text)

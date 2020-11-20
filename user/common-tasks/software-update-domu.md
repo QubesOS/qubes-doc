@@ -25,6 +25,11 @@ To permanently install new software in a TemplateVM:
  3. Install software as normally instructed inside that operating system (e.g. using `dnf`, or the dedicated GUI application).
  4. Shut down the TemplateVM.
  5. Restart all [TemplateBasedVMs] based on the TemplateVM.
+ 6. (Optional) In the relevant [TemplateBasedVMs]' **Qube Settings**, go to the **Applications** tab, select the new application(s) from the list, and press OK.
+    These new shortcuts will appear in the Applications Menu.
+    (If you encounter problems, see [here][shortcuts] for troubleshooting.)
+
+![[The Applications tab in Qube Settings](/attachment/wiki/ManagingAppVmShortcuts/r4.1-dom0-appmenu-select.png)](/attachment/wiki/ManagingAppVmShortcuts/r4.1-dom0-appmenu-select.png)
 
 
 ## Updating software in TemplateVMs
@@ -104,6 +109,10 @@ sudo dnf config-manager --set-enabled rpmfusion-nonfree
 sudo dnf config-manager --set-enabled rpmfusion-nonfree-updates
 sudo dnf upgrade --refresh
 ~~~
+
+This will permanently enable the RPM Fusion repos.
+If you install software from here, it's important to keep these repos enabled so that you can receiving future updates.
+If you only enable these repos temporarily to install a package the Qubes update mechanism may persistently notify you that updates are available, since it cannot download them.
 
 
 ### Reverting changes to a TemplateVM
@@ -319,4 +328,5 @@ Note that the app will autostart only when the AppVM starts. If you would like t
 [service framework]: /doc/qubes-service/
 [How to Reinstall a TemplateVM]: /doc/reinstall-template/
 [installing contributed packages]: /doc/installing-contributed-packages/
+[shortcuts]: /doc/managing-appvm-shortcuts/
 
