@@ -400,10 +400,16 @@ The problem could be one or more of the following:
    If you still get the same result, try downloading the ISO again from a different source, then try verifying again.
 
 
-### I'm getting "bash: gpg2: command not found"
+### Why am I getting "bash: gpg2: command not found"?
 
 You don't have `gpg2` installed.
-Please install it using the method appropriate for your environement (e.g., via your package manager).
+Please install it using the method appropriate for your environment (e.g., via your package manager).
+
+
+### Why am I getting "No such file or directory"?
+
+Your working directory does not contain the required files.
+Go back and follow the instructions more carefully, making sure that you put all required files in the same directory *and* navigate to that directory.
 
 
 ### Why am I getting "can't open signed data `Qubes-RX-x86_64.iso' / can't hash datafile: file open error"?
