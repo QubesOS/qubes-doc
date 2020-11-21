@@ -348,7 +348,7 @@ See [Admin API] and [Core Stack] for more details.
 
 ### What are the system requirements for Qubes OS?
 
-See the [System Requirements].
+See the [system requirements].
 
 ### Is there a list of hardware that is compatible with Qubes OS?
 
@@ -367,46 +367,43 @@ This also means that it is possible to update the software for several qubes sim
 
 ### How much memory is recommended for Qubes?
 
-At least 6 GB, but 8 GB is more realistic. 
-It is possible to install Qubes on a system with 4 GB of RAM, but the system would probably not be able to run more than three qubes at a time.
+Please see the [system requirements].
 
-### Can I install Qubes 4.x on a system without VT-x or VT-d?
+### Can I install Qubes on a system without VT-x/AMD-V or VT-d/ADM-Vi/AMD IOMMU?
 
-Qubes 4.x requires Intel VT-x with EPT / AMD-V with RVI (SLAT) and Intel VT-d / AMD-Vi (aka AMD IOMMU) for proper functionality (see the [4.x System Requirements]).
+Please see the [system requirements] for the latest information.
 If you are receiving an error message on install saying your "hardware lacks the features required to proceed", check to make sure the virtualization options are enabled in your BIOS/UEFI configuration.
 You may be able to install without the required CPU features for testing purposes only, but VMs (in particular, sys-net) may not function correctly and there will be no security isolation. 
-For more information, see our post on [updated requirements for Qubes-certified hardware](/news/2016/07/21/new-hw-certification-for-q4/).
+For more information, see [Qubes-certified hardware](/doc/certified-hardware/).
 
-### Can I install Qubes OS on a system without VT-x?
+### Why is VT-x/AMD-V important?
 
-Yes, for releases 3.2.1 and below. 
-Xen doesn't use VT-x (or AMD-v) for PV guest virtualization. 
+Xen doesn't use VT-x/AMD-V for PV guest virtualization. 
 (It uses ring0/3 separation instead.) 
-However, without VT-x, you won't be able to use fully virtualized VMs (e.g., Windows-based qubes), which were introduced in Qubes 2. 
-In addition, if your system lacks VT-x, then it also lacks VT-d. (See next question.)
+However, without VT-x/AMD-V, you won't be able to use fully virtualized VMs (e.g., Windows-based qubes). 
+In addition, if your system lacks VT-x/AMD-V, then it also lacks VT-d/ADM-Vi/AMD IOMMU.
+(See next question.)
 
-### Can I install Qubes OS on a system without VT-d?
-
-Yes, for releases 3.2.1 and below.  
-You can even run a NetVM, but you will not benefit from DMA protection for driver domains. 
-On a system without VT-d, everything should work in the same way, except there will be no real security benefit to having a separate NetVM, as an attacker could always use a simple DMA attack to go from the NetVM to Dom0. 
-**Nonetheless, all of Qubes' other security mechanisms, such as qube separation, work without VT-d. 
-Therefore, a system running Qubes will still be significantly more secure than one running Windows, Mac, or Linux, even if it lacks VT-d.**
+### Why is VT-d/ADM-Vi/AMD IOMMU important?
+ 
+On a system without VT-d/ADM-Vi/AMD IOMMU, there will be no real security benefit to having a separate NetVM, as an attacker could always use a simple [DMA attack](#what-is-a-dma-attack) to go from the NetVM to Dom0. 
+Nonetheless, all of Qubes' other security mechanisms, such as qube separation, work without VT-d/ADM-Vi/AMD IOMMU. 
+Therefore, a system running Qubes without VT-d/ADM-Vi/AMD IOMMU would still be significantly more secure than one running Windows, Mac, or Linux.
 
 ### What is a DMA attack?
 
-DMA is mechanism for PCI devices to access system memory (read/write).
-Without VT-d, any PCI device can access all the memory, regardless to which VM it is assigned (or if it is left in dom0). 
+Direct Memory Access (DMA) is mechanism for PCI devices to access system memory (read/write).
+Without VT-d/ADM-Vi/AMD IOMMU, any PCI device can access all the memory, regardless of the VM to which it is assigned (or if it is left in dom0). 
 Most PCI devices allow the driver to request an arbitrary DMA operation (like "put received network packets at this address in memory", or "get this memory area and send it to the network"). 
-So, without VT-d, it gives unlimited access to the whole system. 
+So, without VT-d/ADM-Vi/AMD IOMMU, it gives unlimited access to the whole system. 
 Now, it is only a matter of knowing where to read/write to take over the system, instead of just crashing. 
 But since you can read the whole memory, it isn't that hard.
 
 Now, how does this apply to Qubes OS? 
-The above attack requires access to a PCI device, which means that it can be performed only from NetVM / UsbVM, so someone must first break into one of those VMs. 
+The above attack requires access to a PCI device, which means that it can be performed only from the NetVM or USB VM, so someone must first break into one of those VMs. 
 But this isn't that hard, because there is a lot of complex code handling network traffic. 
-Recent bugs include DHCP client, DNS client, etc. 
-Most attacks on NetVM / UsbVM (but not all!) require being somewhat close to the target system - for example connected to the same WiFi network, or in the case of a UsbVM, having physical access to a USB port.
+There is a history of bugs in DHCP clients, DNS clients, etc. 
+Most attacks on the NetVM and USB VM (but not all of them!) require being somewhat close to the target system, for example, being connected to the same Wi-Fi network, or in the case of a USB VM, having physical access to a USB port.
 
 ### Can I use AMD-v instead of VT-x?
 
@@ -798,7 +795,7 @@ There is also the unofficial [ansible-qubes toolkit][ansible].
 [shell]: https://en.wikipedia.org/wiki/Shell_(computing)
 [Should I trust this website?]: #should-i-trust-this-website
 [storage]: /doc/block-devices/
-[System Requirements]: /doc/system-requirements/
+[system requirements]: /doc/system-requirements/
 [Tails]: https://tails.boum.org/
 [Template]: /doc/template-implementation 
 [terminal emulator]: https://en.wikipedia.org/wiki/Terminal_emulator
