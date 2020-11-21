@@ -29,8 +29,9 @@ You can open LibreOffice as a larger window using this workaround:
     ~~~
 
 2. Find the lines containing `ooSetupFactoryWindowAttributes`. It will look like this:
-~~~
-<item oor:path="/org.openoffice.Setup/Office/Factories/org.openoffice.Setup:Factory['com.sun.star.sheet.SpreadsheetDocument']"><prop oor:name="ooSetupFactoryWindowAttributes" oor:op="fuse"><value>61,61,1807,982;5;38,56,1807,982;</value></prop></item>
+    ~~~
+    <item oor:path="/org.openoffice.Setup/Office/Factories/org.openoffice.Setup:Factory['com.sun.star.sheet.SpreadsheetDocument']"><prop oor:name="ooSetupFactoryWindowAttributes" oor:op="fuse"><value>61,61,1807,982;5;38,56,1807,982;</value></prop></item>
+    ~~~
 
 3. We are interested in the values between the `<value>` tag. These window position values are specified as: `x-pos,y-pos,width,height ; window-state ; maximized-x-pos,maximized-y-pos,maximized-width,maximized-height`. Edit the third and fourth values to your desired width and height (for example, to 1800 and 900).
 4. Do this once for every template and the program will always open at this size.
