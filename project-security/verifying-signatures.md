@@ -188,15 +188,29 @@ Now that you've imported the authentic Qubes Master Signing Key, set its trust l
 
 Now, when you import any of the legitimate Qubes developer keys and Release Signing Keys used to sign ISOs, RPMs, TGZs, Git tags, and Git commits, they will already be trusted in virtue of being signed by the Qubes Master Signing Key.
 
+Before proceeding to the next step, make sure the Qubes Master Signing Key is in your keyring with the correct trust level.
+(Note: We have already verified the authenticity of the key, so this final check is not about security.
+Rather, it's just a sanity check to make sure that we've imported the key into our keyring correctly.)
+
+    $ gpg2 -k "Qubes Master Signing Key"
+    pub   rsa4096 2010-04-01 [SC]
+          427F11FD0FAA4B080123F01CDDFA1A3E36879494
+    uid           [ultimate] Qubes Master Signing Key
+
+If you don't see the Qubes Master Signing Key here with a trust level of "ultimate," go back and follow the instructions in this section carefully.
+
 
 ### 2. Get the Release Signing Key
 
-The filename of the Release Signing Key for your version is `qubes-release-X-signing-key.asc`, where `X` is the major version number of your Qubes release.
+The filename of the Release Signing Key for your version is usually `qubes-release-X-signing-key.asc`, where `X` is the major version number of your Qubes release.
 There are several ways to get the Release Signing Key for your Qubes release.
 
- - If you have access to an existing Qubes installation, the release keys are available in dom0 in `/etc/pki/rpm-gpg/`.
+ - If you have access to an existing Qubes installation, the release keys are available in dom0 in `/etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-*`.
    These can be [copied][copy-from-dom0] into other VMs for further use.
-   In addition, every other VM contains the release key corresponding to that installation's release in `/etc/pki/rpm-gpg/`.
+   In addition, every other VM contains the release key corresponding to that installation's release in `/etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-*`.
+   If you wish to use one of these keys, make sure to import it into your keyring, e.g.:
+
+       $ gpg2 --import /etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-*
 
  - Fetch it with GPG:
 
@@ -221,13 +235,19 @@ The Release Signing Key should be signed by the Qubes Master Signing Key:
     gpg: 2 good signatures
 
 This is just an example, so the output you receive will not look exactly the same.
-What matters is the line that shows that this key is signed by the Qubes Master
-Signing Key with a `sig!` prefix.  This verifies the authenticity of the
-Release Signing Key.  Note that the `!` flag after the `sig` tag is important
-because it means that the key signature is valid.  A `sig-` prefix would
-indicate a bad signature and `sig%` would mean that gpg encountered an error
-while verifying the signature.
-It is not necessary to independently verify the authenticity of the Release Signing Key.
+What matters is the line that shows that this key is signed by the Qubes Master Signing Key with a `sig!` prefix.
+This verifies the authenticity of the Release Signing Key.
+Note that the `!` flag after the `sig` tag is important because it means that the key signature is valid.
+A `sig-` prefix would indicate a bad signature and `sig%` would mean that gpg encountered an error while verifying the signature.
+It is not necessary to independently verify the authenticity of the Release Signing Key, since you already verified the authenticity of the Qubes Master Signing Key.
+Before proceeding to the next step, make sure the Release Signing Key is in your keyring:
+
+    $ gpg2 -k "Qubes OS Release"
+    pub   rsa4096 2017-03-06 [SC]
+          5817A43B283DE5A9181A522E1848792F9E2795E9
+    uid           [  full  ] Qubes OS Release X Signing Key
+
+If you don't see the correct Release Signing Key here, go back and follow the instructions in this section carefully.
 
 
 ### 3. Verify your Qubes ISO
@@ -236,7 +256,9 @@ Every Qubes ISO is released with a detached PGP signature file, which you can fi
 If the filename of your ISO is `Qubes-RX-x86_64.iso`, then the name of the signature file for that ISO is `Qubes-RX-x86_64.iso.asc`, where `X` is a specific version of Qubes.
 The signature filename is always the same as the ISO filename followed by `.asc`.
 
-Once you've downloaded both the ISO and its signature file, you can verify the ISO using GPG:
+Download both the ISO and its signature file.
+Put both of them in the same directory, then navigate to that directory.
+Now, you can verify the ISO by executing this GPG command in the directory that contains both files:
 
     $ gpg2 -v --verify Qubes-RX-x86_64.iso.asc Qubes-RX-x86_64.iso
     gpg: armor header: Version: GnuPG v1
@@ -325,8 +347,8 @@ Another way is to use `openssl` to compute each hash value, then compare them to
 
 (Notice that the outputs match the values from the digest file.)
 
-However, it is possible that an attacker replaced `Qubes-RX-x86_64.iso` with a malicious ISO, computed the hash values for that ISO, and replaced the values in `Qubes-RX-x86_64.iso.DIGESTS` with his own set of values.
-Therefore, ideally, we should also verify the authenticity of the listed hash values.
+However, it is possible that an attacker replaced `Qubes-RX-x86_64.iso` with a malicious ISO, computed the hash values for that malicious ISO, and replaced the values in `Qubes-RX-x86_64.iso.DIGESTS` with his own set of values.
+Therefore, we should also verify the authenticity of the listed hash values.
 Since `Qubes-RX-x86_64.iso.DIGESTS` is a clearsigned PGP file, we can use GPG to verify it from the command line:
 
  1. [Get the Qubes Master Signing Key and verify its authenticity][QMSK]
