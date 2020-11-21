@@ -54,8 +54,8 @@ The benefits of hardware certification include:
 
 ## Hardware Certification Requirements
 
-(Please note that these are the requirements for hardware *certification*, *not* the requirements for *running* Qubes 4.
-For the latter, please see the [system requirements for Qubes 4].)
+(Please note that these are the requirements for hardware *certification*, *not* the requirements for *running* Qubes.
+For the latter, please see the [system requirements].)
 
 One of the most important security improvements introduced with the release of Qubes 4.0 was to replace paravirtualization (PV) technology with **hardware-enforced memory virtualization**, which recent processors have made possible thanks to so-called Second Level Address Translation ([SLAT]), also known as [EPT][EPT-enabled CPUs] in Intel parlance.
 SLAT (EPT) is an extension to Intel VT-x virtualization, which originally was capable of only CPU virtualization but not memory virtualization and hence required a complex Shadow Page Tables approach.
@@ -102,10 +102,9 @@ If you are interested in having your hardware certified, please [contact us].
 [version-scheme]: /doc/version-scheme/
 [Hardware Testing]: /doc/hardware-testing/
 [stateless laptop]: https://blog.invisiblethings.org/2015/12/23/state_harmful.html
-[System Requirements]: /doc/system-requirements/
 [Hardware Compatibility List]: /hcl/
 [Hardware Certification]: #hardware-certification
-[system requirements for Qubes 4]: /doc/system-requirements/#qubes-release-4x
+[system requirements]: /doc/system-requirements/
 [contact us]: mailto:business@qubes-os.org
 [SLAT]: https://en.wikipedia.org/wiki/Second_Level_Address_Translation
 [EPT-enabled CPUs]: https://ark.intel.com/Search/FeatureFilter?productType=processors&ExtendedPageTables=true&MarketSegment=Mobile
