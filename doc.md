@@ -284,6 +284,7 @@ For more, please see [Qubes Community Documentation](https://github.com/Qubes-Co
  * [Intel Integrated Graphics Troubleshooting](/doc/intel-igfx-troubleshooting/)
  * [Multiboot Troubleshooting](/doc/multiboot/#troubleshooting)
  * [Application Troubleshooting](/doc/application-troubleshooting/)
+ * [Tails Troubleshooting](/doc/tails-troubleshooting/)
 
 ### Building Guides
 
