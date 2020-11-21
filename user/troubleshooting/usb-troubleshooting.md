@@ -81,3 +81,13 @@ Note that this procedure will attach your USB controllers to dom0, so do this on
 
 If your computer has a PS/2 port, you may instead use a PS/2 keyboard to enter the LUKS password. 
 
+## "qubes-usb-proxy not installed in the VM" error ##
+
+When trying to [create and use a USB qube](/doc/usb-devices/#creating-and-using-a-usb-qube) with the `qubes-usb-proxy` package, you may receive this error: `ERROR: qubes-usb-proxy not installed in the VM`.
+
+If you encounter this error, you can install the `qubes-usb-proxy` with the package manager in the VM you want to attach the USB device to.
+Depending on your operating system, open a terminal in the TemplateVM and enter one of the following commands:
+
+* Fedora: `sudo dnf install qubes-usb-proxy`
+* Debian/Ubuntu: `sudo apt-get install qubes-usb-proxy`
+
