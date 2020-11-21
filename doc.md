@@ -283,6 +283,7 @@ For more, please see [Qubes Community Documentation](https://github.com/Qubes-Co
  * [Sony Vaio Troubleshooting](/doc/sony-vaio-tinkering/)
  * [Intel Integrated Graphics Troubleshooting](/doc/intel-igfx-troubleshooting/)
  * [Multiboot Troubleshooting](/doc/multiboot/#troubleshooting)
+ * [Tails Troubleshooting](/doc/tails-troubleshooting/)
 
 ### Building Guides
 
