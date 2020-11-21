@@ -378,9 +378,8 @@ For more information, see [Qubes-certified hardware](/doc/certified-hardware/).
 
 ### Why is VT-x/AMD-V important?
 
-Xen doesn't use VT-x/AMD-V for PV guest virtualization. 
-(It uses ring0/3 separation instead.) 
-However, without VT-x/AMD-V, you won't be able to use fully virtualized VMs (e.g., Windows-based qubes). 
+By default, Qubes uses Xen's PVH and HVM virtualization modes, which require VT-x/AMD-V.
+This means that, without VT-x/AMD-V, no VMs will start in a default Qubes installation.
 In addition, if your system lacks VT-x/AMD-V, then it also lacks VT-d/ADM-Vi/AMD IOMMU.
 (See next question.)
 
