@@ -311,7 +311,7 @@ When making contributions, please try to observe the following style conventions
      Instead, put your comments *outside* of the code block in normal prose.
  * Use `[reference-style][ref]` links.  
  
-`[ref]: https://daringfireball.net/projects/markdown/syntax#link`
+   `[ref]: https://daringfireball.net/projects/markdown/syntax#link`
 
 ([This][md] is a great source for learning about Markdown.)
 
