@@ -241,6 +241,19 @@ Style Guidelines
 
  * Familiarize yourself with the terms defined in the [glossary]. Use these
    terms consistently and accurately throughout your writing.
+ * Syntactically distinguish variables in commands.
+   For example, this is ambiguous:
+
+       $ qvm-run --dispvm=dvm-template --service qubes.StartApp+xterm
+
+   It should instead be:
+
+       $ qvm-run --dispvm=<DVM_TEMPLATE> --service qubes.StartApp+xterm
+
+   Note that we syntactically distinguish variables in three ways:
+   1. Surrounding them in angled brackets (`< >`)
+   2. Using underscores (`_`) between words
+   3. Using all capital letters
 
 
 Markdown Conventions
