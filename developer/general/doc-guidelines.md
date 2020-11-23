@@ -309,9 +309,6 @@ When making contributions, please try to observe the following style conventions
      ~~~
      The `#` symbol preceding each comment is ambiguous with a root command prompt.
      Instead, put your comments *outside* of the code block in normal prose.
- * Use `[reference-style][ref]` links.  
- 
-`[ref]: https://daringfireball.net/projects/markdown/syntax#link`
 
 ([This][md] is a great source for learning about Markdown.)
 
