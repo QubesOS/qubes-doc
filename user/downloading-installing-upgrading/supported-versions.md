@@ -97,7 +97,7 @@ Qubes support for each [Fedora] TemplateVM ends when that Fedora release reaches
 | Fedora 28     | Unsupported |
 | Fedora 29     | Unsupported |
 | Fedora 30     | Unsupported |
-| Fedora 31     | Supported   |
+| Fedora 31     | Unsupported |
 | Fedora 32     | Supported   |
 
 
