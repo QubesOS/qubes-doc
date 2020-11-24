@@ -35,7 +35,8 @@ For details, see the qubes-users mailing list threads [here](https://groups.goog
 ## Windows update is stuck ##
 
 This has nothing to do with Qubes. 
-[It's a longstanding Windows bug.](https://superuser.com/questions/951960/windows-7-sp1-windows-update-stuck-checking-for-updates)
+It's a longstanding Windows bug.
+More information about this issue and solutions can be found [here](https://superuser.com/questions/951960/windows-7-sp1-windows-update-stuck-checking-for-updates).
 
 ## Dom0 and/or TemplateVM update stalls when updating via the GUI tool
 
@@ -43,5 +44,8 @@ This can usually be fixed by updating via the command line.
 
 In dom0, open a terminal and run `sudo qubes-dom0-update`.
 
-In your TemplateVMs, open a terminal and run `sudo dnf upgrade`.
+Depending on your operating system, open a terminal in the TemplateVMs and run:
+* Fedora: `sudo dnf upgrade`
+* Debian: `apt-get update && apt-get dist-upgrade`
+
 
