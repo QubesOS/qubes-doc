@@ -30,7 +30,7 @@ past minor releases, are available from our [download mirrors].
 ### Note on point releases
 
 Please note that point releases, such as 3.2.1 and 4.0.1, do not designate separate, new versions of Qubes OS.
-Rather, they designate their respective major or minor releases, such as 4.0 and 3.2, inclusive of all package updates up to a certain point.
+Rather, they designate their respective major or minor releases, such as 3.2 and 4.0, inclusive of all package updates up to a certain point.
 For example, installing Release 4.0 and fully updating it results in the same system as installing Release 4.0.1.
 Therefore, point releases are not displayed as separate rows on any of the tables on this page.
 
