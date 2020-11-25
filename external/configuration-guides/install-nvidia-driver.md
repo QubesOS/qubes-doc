@@ -135,43 +135,7 @@ mv /root/xorg.conf.new /etc/X11/xorg.conf
 
 Reboot to verify all this works.
 
-# Troubleshooting lack of video output during installation
+## Troubleshooting lack of video output during installation
 
-Specifically, the notes below are aimed to help when the GRUB menu shows up fine, the installation environment starts loading, and then the display(s) go into standby mode. This is, typically, related to some sort of an issue with the kernel's KMS/video card modules.
+The GRUB menu may show up fine, the installation environment starts loading, and then the display(s) go into standby mode. This is, typically, related to some sort of an issue with the kernel's KMS/video card modules. See the [Nvidia Troubleshooting](/doc/nvidia-troubleshooting/#lack-of-video-output-during-nvidia-driver-installation) guide for troubleshooting steps. 
 
-## Initial setup.
-*Note*: The steps below do *not* produce a fully-functional Qubes OS install. Rather, only a dom0 instance is functional, and there is no networking there. However, they can be used to gather data in order to troubleshoot video card issues and/or possible other basic kernel module issues.
-
-1. Append `nomodeset ip=dhcp inst.nokill inst.vnc` to the kernel command line. Remove `rhgb` and `quiet` to see the kernel messages scroll by, which may help in further diagnostics.
-   * If DHCP is not available on the installation network, the syntax becomes a bit more involved. The full list of variants is documented in the [Dracut Command-line parameters] (http://man7.org/linux/man-pages/man7/dracut.cmdline.7.html)
-2. The VGA console should switch into the installer's multi-virtual-terminal display. VNC may take a number of minutes to start, please be patient.
-   * Using the anaconda installer interface, switch to the "shell" TTY (ALT-F2), and use `ip a` command to display the IP addresses.
-3. Using the Connect to the IP (remember the :1) using a VNC viewer.
-4. Follow the installation UI. 
-   * Since this won't be a usable install, skipping LUKS encryption is an option which will simplify this troubleshooting process.
-   * Do *not* reboot at the end of the installation.
-5. Once the installation completes, use the local VGA console switch to TTY2 via ALT-F2
-   * Switch to the chroot of the newly-installed system via `chroot /mnt/sysinstall`
-   * Set the root password (this will also enable the root account login)
-   * Double-check that `/boot/grub2/grub.cfg` contains a `nomodeset` kernel parameter.
-   * Exit out of the chroot environment (`exit` or CTRL-D)
-6. Reboot
-
-*Note* If the kernel parameters do *not* include `quiet` and `rhgb`, the kernel messages can easily obscure the LUKS passphrase prompt. Additionally, each character entered will cause the LUKS passphrase prompt to repeat onto next line. Both of these are cosmetic. The trade-off between kernel messages and the easy-to-spot LUKS passphrase prompt is left as an exercise to the user.
-
-## Gather initial `dmesg` output
-If all is well, the newly-installed Qubes OS instance should allow for user root to log in. 
-Run `dmesg > dmesg.nomodeset.out` to gather an initial dmesg output.
-
-## Gather the 'video no worky' `dmesg` output
-1. Reboot and interrupt the Grub2's process, modifying the kernel parameters to no longer contain `nomodeset`.
-   * If the LUKS passphrase was set, blindly enter it.
-2. Wait for the system to finish booting (about 5 minutes, typically).
-3. Blindly switch to a TTY via CTRL-ALT-F2.
-4. Blindly log in as user root
-5. Blindly run `dmesg > dmesg.out`
-6. Blindly run `reboot` (this will also serve to confirm that logging in as root, and running commands blindly is possible rather than, say, the kernel having hung or some such).
-   * Should this step fail, perhaps by the time step #3 was undertaken, the OS hasn't finished coming up yet. Please retry, possibly with a different TTY (say, 3 or 4 - so CTRL-ALT-F3?)
-
-## Exfiltrate the dmesg outputs
-Allow the system to boot normally, log in as user root, and sneakernet the files off the system for analysis, review, bug logging, et cetera.
