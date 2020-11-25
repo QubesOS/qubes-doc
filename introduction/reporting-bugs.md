@@ -74,7 +74,9 @@ The Qubes team will classify your issue according to its type.
 ### New issues should include all relevant information ###
 
 When you file a new issue, you should be sure to include the version of Qubes you're using, as well as versions of related software packages ([how to copy information out of dom0]).
-If your issue is related to hardware, provide as many details as possible about the hardware, which could include using command-line tools such as `lspci`.
+If your issue is related to hardware, provide as many details as possible about the hardware.
+A great way to do this is by [generating and submitting a Hardware Compatibility List (HCL) report][hcl-howto], then linking to it in your issue.
+You may also need to use command-line tools such as `lspci`.
 If you're reporting a bug in a package that is in a [testing] repository, please reference the appropriate issue in the [updates-status] repository.
 Project maintainers really appreciate thorough explanations.
 It usually helps them address the problem more quickly, so everyone wins!
@@ -143,4 +145,5 @@ If the issue is closed without one of these specific resolutions, then it means,
 [Contributing Code]: /doc/contributing/#contributing-code
 [Package Contributions]: /doc/package-contributions/
 [Documentation Guidelines]: /doc/doc-guidelines/
+[hcl-howto]: /doc/hcl/#generating-and-submitting-new-reports
 
