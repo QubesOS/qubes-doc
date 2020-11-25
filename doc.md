@@ -132,6 +132,7 @@ Core documentation for Qubes users.
  * [Media Troubleshooting](/doc/media-troubleshooting/)
  * [Firewall Troubleshooting](/doc/firewall/#firewall-troubleshooting)
  * [VPN Troubleshooting](/doc/vpn-troubleshooting/)
+ * [Update Troubleshooting](/doc/update-troubleshooting/)
 
 ### Reference Pages
 
