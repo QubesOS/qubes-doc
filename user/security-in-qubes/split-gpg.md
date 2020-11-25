@@ -16,8 +16,8 @@ redirect_from:
 
 # Qubes Split GPG #
 
-Split GPG implements a concept similar to having a smart card with your private GPG keys, except that the role of the "smart card" plays another Qubes AppVM.
-This way one, not-so-trusted domain, e.g. the one where Thunderbird is running, can delegate all crypto operations, such as encryption/decryption and signing to another, more trusted, network-isolated, domain.
+Split GPG implements a concept similar to having a smart card with your private GPG keys, except that the role of the "smart card" is played by another Qubes AppVM.
+This way one not-so-trusted domain, e.g. the one where Thunderbird is running, can delegate all crypto operations -- such as encryption/decryption and signing -- to another, more trusted, network-isolated domain.
 This way the compromise of your domain where Thunderbird or another client app is running -- arguably a not-so-unthinkable scenario -- does not allow the attacker to automatically also steal all your keys.
 (We should make a rather obvious comment here that the so-often-used passphrases on private keys are pretty meaningless because the attacker can easily set up a simple backdoor which would wait until the user enters the passphrase and steal the key then.)
 
@@ -378,8 +378,8 @@ As always, exercise caution and use your good judgment.)
 [intro]: #what-is-split-gpg-and-why-should-i-use-it-instead-of-the-standard-gpg
 [se-pinentry]: https://unix.stackexchange.com/a/379373
 [​subkeys]: https://wiki.debian.org/Subkeys
-[copied]: /doc/copying-files#on-inter-qube-file-copy-security
-[pasted]: /doc/copy-paste#on-copypaste-security
+[copied]: /doc/copying-files#security
+[pasted]: /doc/copy-paste#security
 [​MUA]: https://en.wikipedia.org/wiki/Mail_user_agent
 [covert channels]: /doc/data-leaks
 [trusting-templates]: /doc/templates/#trusting-your-templatevms

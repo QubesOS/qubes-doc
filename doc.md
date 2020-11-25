@@ -131,6 +131,8 @@ Core documentation for Qubes users.
  * [GUI Troubleshooting](/doc/gui-troubleshooting/)
  * [Media Troubleshooting](/doc/media-troubleshooting/)
  * [Firewall Troubleshooting](/doc/firewall/#firewall-troubleshooting)
+ * [VPN Troubleshooting](/doc/vpn-troubleshooting/)
+ * [Update Troubleshooting](/doc/update-troubleshooting/)
 
 ### Reference Pages
 
@@ -264,6 +266,7 @@ For more, please see [Qubes Community Documentation](https://github.com/Qubes-Co
  * [Rxvt Guide](/doc/rxvt/)
  * [Adding SSD storage cache](https://groups.google.com/d/msgid/qubes-users/a08359c9-9eb0-4d1a-ad92-a8a9bc676ea6%40googlegroups.com)
  * [How to Make a Multimedia TemplateVM](/doc/multimedia/)
+ * [How to install an Nvidia driver in dom0](/doc/install-nvidia-driver/)
 
 ### Customization Guides
 
@@ -272,15 +275,16 @@ For more, please see [Qubes Community Documentation](https://github.com/Qubes-Co
  * [Language Localization](/doc/language-localization/)
  * [Dark Theme in Dom0 and DomU](/doc/dark-theme/)
  * [Safely Removing TemplateVM Packages (Example: Thunderbird)](/doc/removing-templatevm-packages/)
-
+ 
 ### Troubleshooting
-
+ * [Nvidia Troubleshooting](/doc/nvidia-troubleshooting/)
  * [Lenovo ThinkPad Troubleshooting](/doc/thinkpad-troubleshooting/)
- * [Intel Integrated Graphics Troubleshooting](/doc/intel-igfx-troubleshooting/)
- * [How to install an Nvidia driver in dom0](/doc/install-nvidia-driver/)
- * [Nvidia troubleshooting guide](/doc/nvidia-troubleshooting/)
  * [Apple MacBook Troubleshooting](/doc/macbook-troubleshooting/)
- * [Getting Sony Vaio Z laptop to work with Qubes](/doc/sony-vaio-tinkering/)
+ * [Sony Vaio Troubleshooting](/doc/sony-vaio-tinkering/)
+ * [Intel Integrated Graphics Troubleshooting](/doc/intel-igfx-troubleshooting/)
+ * [Multiboot Troubleshooting](/doc/multiboot/#troubleshooting)
+ * [Application Troubleshooting](/doc/application-troubleshooting/)
+ * [Tails Troubleshooting](/doc/tails-troubleshooting/)
 
 ### Building Guides
 

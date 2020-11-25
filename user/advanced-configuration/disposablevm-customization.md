@@ -15,9 +15,9 @@ redirect_from:
 
 ## Introduction
 
-A DisposableVM (previously known as a "DispVM") in can be based on any TemplateBasedVM.
-You can also choose to use different DisposableVM Templates for different DisposableVMs.
-To prepare AppVM to be a DisposableVM Template, you need to set `template_for_dispvms` property, for example:
+A [DisposableVM](/doc/disposablevm) can be based on any [TemplateBasedVM](/doc/glossary/#templatebasedvm).
+You can also choose to use different [DisposableVM Templates](/doc/glossary/#disposablevm-template) for different DisposableVMs.
+To prepare an AppVM to be a DisposableVM Template, you need to set `template_for_dispvms` property, for example:
 
     [user@dom0 ~]$ qvm-prefs fedora-26-dvm template_for_dispvms True
 

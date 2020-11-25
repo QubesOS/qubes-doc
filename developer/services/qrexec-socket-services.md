@@ -223,8 +223,8 @@ echo -e 'policy.Ask dom0\0<input data>' | nc -U /etc/qubes-rpc/policy.Ask
 
 ## Further reading
 
-* [Qrexec overview][qrexec](/doc/qrexec/)
-* [Qrexec internals][qrexec](/doc/qrexec-internals/)
+* [Qrexec overview](/doc/qrexec/)
+* [Qrexec internals](/doc/qrexec-internals/)
 * [qubes-core-qrexec](https://github.com/QubesOS/qubes-core-qrexec/) repository - contains the above example
 * [systemd.socket](https://www.freedesktop.org/software/systemd/man/systemd.socket.html) - socket unit configuration
 * [Streams in Python asyncio](https://docs.python.org/3/library/asyncio-stream.html)
