@@ -101,8 +101,10 @@ over you and help someone else who gets right to the point.
 Tell us what you've already tried, and which
 documentation pages you've already read. Put yourself in your readers' shoes.
 What essential information would they require in order to be able to help
-you? Make sure to include that information in your message. [Ask
-questions the smart way.][smart-questions]
+you? Make sure to include that information in your message. A great way to
+provide your hardware details is by [generating and submitting a Hardware
+Compatibility List (HCL) report][hcl-howto], then linking to it in your
+message. [Ask questions the smart way.][smart-questions]
 
 ### Be patient ###
 
@@ -448,4 +450,5 @@ The following unofficial chat channels are maintained by the community:
 [free hosting for open source projects]: https://blog.discourse.org/2018/11/free-hosting-for-open-source-v2/
 [IRC]: #unofficial-chat-channels
 [Reddit]: https://www.reddit.com/r/Qubes/
+[hcl-howto]: /doc/hcl/#generating-and-submitting-new-report
 
