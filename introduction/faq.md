@@ -441,12 +441,9 @@ It begins with an explanation of the risks with such a setup.
 
 See [here][version].
 
-### My qubes lost Internet access after a TemplateVM update. What should I do?
+### My qubes lost internet access after a TemplateVM update. What should I do?
 
-Run `systemctl enable NetworkManager-dispatcher.service` in the TemplateVM upon which your NetVM is based. 
-You may have to reboot afterward for the change to take effect. 
-(Note: This is an upstream problem. See [here](https://bugzilla.redhat.com/show_bug.cgi?id=974811)). 
-For details, see the qubes-users mailing list threads [here](https://groups.google.com/d/topic/qubes-users/xPLGsAJiDW4/discussion) and [here](https://groups.google.com/d/topic/qubes-users/uN9G8hjKrGI/discussion).)
+See [Update Troubleshooting](/doc/update-troubleshooting/#lost-internet-access-after-a-templatevm-update).
 
 ### My keyboard layout settings are not behaving correctly. What should I do?
 
@@ -607,34 +604,11 @@ From a `dom0` prompt, enter:
 
 ### When I try to install a TemplateVM, it says no match is found.
 
-For example:
-
-```
-[user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl qubes-template-debian-10
-Using sys-whonix as UpdateVM to download updates for Dom0; this may take some time...
-No Match for argument qubes-template-debian-10
-Nothing to download
-```
-
-This normally means you already have the template installed.
-It may be that you have the matching package installed, but you removed or renamed the template.
-Check `rpm -q qubes-template-<name>`.
-If it lists the package, but you don't really have the template present (`qvm-ls` doesn't list it), you need to clean up leftovers of the package with `rpm -e --noscripts qubes-template-<name>`, then install it normally.
+See [VM Troubleshooting](/doc/vm-troubleshooting/#no-match-found-when-trying-to-install-a-templatevm).
 
 ### I keep getting "Failed to synchronize cache for repo" errors when trying to update my Fedora templates
 
-This is general Fedora issue, not a Qubes-specific issue.
-Usually, this is due to network problems (especially if downloading updates over Tor) or problems with the download mirrors.
-Often, the problem can be resolved by trying again on a different connection (a different Tor circuit, if using Tor) or waiting and trying again later.
-Here are some examples of non-Qubes reports about this problem:
-
- - <https://ask.fedoraproject.org/en/question/88086/error-failed-to-synchronize-cache-for-repo-fedora/>
- - <https://unix.stackexchange.com/questions/390805/repos-not-working-on-fedora-error-failed-to-synchronize-cache-for-repo-update>
- - <https://www.reddit.com/r/Fedora/comments/74nldq/fedora_26_dnf_error_failed_to_synchronize_cache/>
- - <https://bugzilla.redhat.com/show_bug.cgi?id=1494178>
- - <https://stackoverflow.com/questions/45318256/error-failed-to-synchronize-cache-for-repo-updates>
-
-More examples can be found by searching for "Failed to synchronize cache for repo" (with quotation marks) on your preferred search engine.
+See [Update Troubleshooting](/doc/update-troubleshooting/#failed-to-synchronize-cache-for-repo-errors-when-updating-fedora-templates).
 
 ### I see a "Failed to start Load Kernel Modules" message on boot
 
