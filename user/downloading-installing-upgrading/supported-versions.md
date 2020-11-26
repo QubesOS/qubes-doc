@@ -16,15 +16,15 @@ or minor release (see [Version Scheme]). The current release and past major
 releases are always available on the [Downloads] page, while all ISOs, including
 past minor releases, are available from our [download mirrors].
 
-| Qubes OS      | Start Date | End Date   | Status                |
-| ------------- | ---------- | ---------- | --------------------- |
-| Release 1     | 2012-09-03 | 2015-03-26 | Unsupported           |
-| Release 2     | 2014-09-26 | 2016-04-01 | Unsupported           |
-| Release 3.0   | 2015-10-01 | 2016-09-09 | Unsupported           |
-| Release 3.1   | 2016-03-09 | 2017-03-29 | Unsupported           |
-| Release 3.2   | 2016-09-29 | 2019-03-28 | Unsupported           |
-| Release 4.0   | 2018-03-28 | TBA        | Supported             |
-| Release 4.1   | TBA        | TBA        | [In development][4.1] |
+| Qubes OS    | Start Date | End Date   | Status                |
+| ----------- | ---------- | ---------- | --------------------- |
+| Release 1.0 | 2012-09-03 | 2015-03-26 | Unsupported           |
+| Release 2.0 | 2014-09-26 | 2016-04-01 | Unsupported           |
+| Release 3.0 | 2015-10-01 | 2016-09-09 | Unsupported           |
+| Release 3.1 | 2016-03-09 | 2017-03-29 | Unsupported           |
+| Release 3.2 | 2016-09-29 | 2019-03-28 | Unsupported           |
+| Release 4.0 | 2018-03-28 | TBA        | Supported             |
+| Release 4.1 | TBA        | TBA        | [In development][4.1] |
 
 
 ### Note on point releases
@@ -39,78 +39,40 @@ Therefore, point releases are not displayed as separate rows on any of the table
 
 The table below shows the OS used for dom0 in each Qubes OS release.
 
-| Qubes OS      | Dom0 OS   |
-| ------------- | --------- |
-| Release 1     | Fedora 13 |
-| Release 2     | Fedora 18 |
-| Release 3.0   | Fedora 20 |
-| Release 3.1   | Fedora 20 |
-| Release 3.2   | Fedora 23 |
-| Release 4.0   | Fedora 25 |
-| Release 4.1   | Fedora 32 |
+| Qubes OS    | Dom0 OS   |
+| ----------- | --------- |
+| Release 1.0 | Fedora 13 |
+| Release 2.0 | Fedora 18 |
+| Release 3.0 | Fedora 20 |
+| Release 3.1 | Fedora 20 |
+| Release 3.2 | Fedora 23 |
+| Release 4.0 | Fedora 25 |
+| Release 4.1 | Fedora 32 |
 
 
 ### Note on dom0 and EOL
 
 Dom0 is isolated from domUs. DomUs can access only a few interfaces, such as Xen, device backends (in the dom0 kernel and in other VMs, such as the NetVM), and Qubes tools (gui-daemon, qrexec-daemon, etc.).
 These components are [security-critical], and we provide updates for all of them (when necessary), regardless of the support status of the base distribution.
-For this reason, we consider it safe to continue using a given base distribution in dom0 even after it has reached EOL (end-of-life).
+For this reason, we consider it safe to continue using a given base distribution in dom0 even after it has reached end-of-life (EOL).
 
 
 ## TemplateVMs
 
-The following table shows the [TemplateVM] versions **available** for each Qubes OS release:
-
-| Qubes OS      | Fedora                       | Debian                                        | Whonix     |
-| ------------- | ---------------------------- | --------------------------------------------- | ---------- |
-| Release 1     | 18, 20                       | None                                          | None       |
-| Release 2     | 21                           | None                                          | None       |
-| Release 3.0   | 21, 22\*, 23                 | 7 ("wheezy")\*, 8 ("jessie")                  | None       |
-| Release 3.1   | 21, 22\*, 23                 | 7 ("wheezy")\*, 8 ("jessie"), 9 ("stretch")\* | None       |
-| Release 3.2   | 23\*, 24\*, 25\*, 26, 27, 28 | 8 ("jessie"), 9 ("stretch")                   | 13, 14     |
-| Release 4.0   | 26, 27, 28, 29, 30, 31, 32   | 8 ("jessie"), 9 ("stretch"), 10 ("buster")    | 13, 14, 15 |
-| Release 4.1   | 32                           | 10 ("buster")                                 | 15         |
-
-\* Denotes versions for which we have published the packages but have not done
-extensive testing.
-
-The following tables show the **support status** of each [TemplateVM] provided by the Qubes OS Project.
+The following table shows select [TemplateVM] versions that are currently supported.
 Currently, only [Fedora] and [Debian] TemplateVMs are officially supported by the Qubes OS Project.
 [Whonix] TemplateVMs are supported by our partner, the [Whonix Project].
+Qubes support for each TemplateVM ends when that upstream release reaches end-of-life (EOL), unless otherwise noted.
+In the case of Debian, support ends at regular EOL, not [LTS][Debian-LTS] EOL, unless otherwise noted.
+See [below](#note-on-whonix-support) for Whonix support details.
+For upstream EOL information, see [Fedora EOL][fedora-eol] and [Debian EOL][debian-eol].
 
+| Qubes OS    | Fedora | Debian                       | Whonix |
+| ----------- | ------ | ---------------------------- | ------ |
+| Release 4.0 | 32     | 9 ("stretch"), 10 ("buster") | 15     |
+| Release 4.1 | 32     | 10 ("buster")                | 15     |
 
-### Fedora
-
-Qubes support for each [Fedora] TemplateVM ends when that Fedora release reaches [end-of-life][fedora-eol], unless otherwise noted.
-
-| TemplateVM    | Status      |
-| ------------- | ----------- |
-| Fedora 18     | Unsupported |
-| Fedora 20     | Unsupported |
-| Fedora 21     | Unsupported |
-| Fedora 22     | Unsupported |
-| Fedora 23     | Unsupported |
-| Fedora 24     | Unsupported |
-| Fedora 25     | Unsupported |
-| Fedora 26     | Unsupported |
-| Fedora 27     | Unsupported |
-| Fedora 28     | Unsupported |
-| Fedora 29     | Unsupported |
-| Fedora 30     | Unsupported |
-| Fedora 31     | Unsupported |
-| Fedora 32     | Supported   |
-
-
-### Debian
-
-Qubes support for each [Debian] TemplateVM ends when that Debian release (the regular release, not [LTS][Debian-LTS]) reaches [end-of-life][debian-eol], unless otherwise noted.
-
-| TemplateVM    | Status       |
-| ------------- | ------------ |
-| Debian 7      | Unsupported  |
-| Debian 8      | Unsupported  |
-| Debian 9      | Supported    |
-| Debian 10     | Supported    |
+\* Denotes versions for which we have published the packages but have not done extensive testing.
 
 
 ### Note on Whonix support
