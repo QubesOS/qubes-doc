@@ -103,7 +103,7 @@ Qubes support for each [Fedora] TemplateVM ends when that Fedora release reaches
 
 ### Debian
 
-Qubes support for each [Debian] TemplateVM ends when that Debian release reaches [end-of-life][debian-eol], unless otherwise noted.
+Qubes support for each [Debian] TemplateVM ends when that Debian release (the regular release, not [LTS][Debian-LTS]) reaches [end-of-life][debian-eol], unless otherwise noted.
 
 | TemplateVM    | Status       |
 | ------------- | ------------ |
@@ -143,4 +143,5 @@ We aim to announce both types of events one month in advance in order to remind 
 [debian-eol]: https://wiki.debian.org/DebianReleases
 [Whonix]: /doc/whonix/
 [Whonix Project]: https://www.whonix.org/
+[Debian-LTS]: https://wiki.debian.org/LTS
 
