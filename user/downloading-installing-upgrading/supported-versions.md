@@ -18,8 +18,8 @@ past minor releases, are available from our [download mirrors].
 
 | Qubes OS    | Start Date | End Date   | Status                |
 | ----------- | ---------- | ---------- | --------------------- |
-| Release 1.0 | 2012-09-03 | 2015-03-26 | Unsupported           |
-| Release 2.0 | 2014-09-26 | 2016-04-01 | Unsupported           |
+| Release 1   | 2012-09-03 | 2015-03-26 | Unsupported           |
+| Release 2   | 2014-09-26 | 2016-04-01 | Unsupported           |
 | Release 3.0 | 2015-10-01 | 2016-09-09 | Unsupported           |
 | Release 3.1 | 2016-03-09 | 2017-03-29 | Unsupported           |
 | Release 3.2 | 2016-09-29 | 2019-03-28 | Unsupported           |
@@ -41,8 +41,8 @@ The table below shows the OS used for dom0 in each Qubes OS release.
 
 | Qubes OS    | Dom0 OS   |
 | ----------- | --------- |
-| Release 1.0 | Fedora 13 |
-| Release 2.0 | Fedora 18 |
+| Release 1   | Fedora 13 |
+| Release 2   | Fedora 18 |
 | Release 3.0 | Fedora 20 |
 | Release 3.1 | Fedora 20 |
 | Release 3.2 | Fedora 23 |
