@@ -450,5 +450,5 @@ The following unofficial chat channels are maintained by the community:
 [free hosting for open source projects]: https://blog.discourse.org/2018/11/free-hosting-for-open-source-v2/
 [IRC]: #unofficial-chat-channels
 [Reddit]: https://www.reddit.com/r/Qubes/
-[hcl-howto]: /doc/hcl/#generating-and-submitting-new-report
+[hcl-howto]: /doc/hcl/#generating-and-submitting-new-reports
 
