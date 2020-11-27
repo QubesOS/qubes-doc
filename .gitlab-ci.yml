@@ -1,5 +1,6 @@
 include:
-  - https://raw.githubusercontent.com/QubesOS/qubes-continuous-integration/master/gitlab-website.yml
+  - project: 'QubesOS/qubes-continuous-integration'
+    file: '/gitlab-website.yml'
 
 build:doc:
   extends: .website
