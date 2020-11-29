@@ -19,7 +19,7 @@ If you notice a problem or some way it can be improved, please [edit the documen
 
 ## Security
 
-*Also see: [Should I trust this website?]()*
+*Also see: [Should I trust this website?](/faq/#should-i-trust-this-website)*
 
 All pull requests against [qubes-doc] must pass review prior to be merged, except in the case of [external documentation] (see [#4693]).
 This process is designed to ensure that contributed text is accurate and non-malicious.
