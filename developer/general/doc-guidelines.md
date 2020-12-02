@@ -145,7 +145,7 @@ There are some exceptions to this policy (e.g., information that is certain not 
 *See [#4693](https://github.com/QubesOS/qubes-issues/issues/4693) for more information.*
 
 Core documentation resides in the [Qubes OS Project's official repositories](https://github.com/QubesOS/), mainly in [qubes-doc].
-External documentation can be anywhere else (such as fan websites and personal blogs), but there is an especially large collection in the [Qubes Community](https://github.com/Qubes-Community) project.
+External documentation can be anywhere else (such as forums, community websites, and blogs), but there is an especially large collection in the [Qubes Community](https://github.com/Qubes-Community) project.
 External documentation should not be submitted to [qubes-doc].
 If you've written a piece of documentation that is not appropriate for [qubes-doc], we encourage you to submit it to the [Qubes Community](https://github.com/Qubes-Community) project instead.
 At the time of this writing, there is also a section of external documentation in [qubes-doc] that is in the process of being moved to the [Qubes Community](https://github.com/Qubes-Community) project (see [#4693](https://github.com/QubesOS/qubes-issues/issues/4693)).
@@ -155,7 +155,7 @@ The purpose of this distinction is to keep the core docs maintainable and high-q
 In other words, we take responsibility for documenting all of the software we put out into the world, but it doesn't make sense for us to take on the responsibility of documenting or maintaining documentation for anything else.
 For example, Qubes OS may use a popular Linux distribution for an official [TemplateVM](/doc/templates/).
 However, it would not make sense for a comparatively small project like ours, with modest funding and a lean workforce, to attempt to document software belonging to a large, richly-funded project with an army of paid and volunteer contributors, especially when they probably already have documentation of their own.
-This is particular true when it comes to Linux in general.
+This is particularly true when it comes to Linux in general.
 Although many users who are new to Qubes are also new to Linux, it makes absolutely no sense for our comparatively tiny project to try to document Linux in general when there is already a plethora of documentation out there.
 
 Many contributors do not realize that the there is a significant amount of work involved in *maintaining* documentation after it has been written.
