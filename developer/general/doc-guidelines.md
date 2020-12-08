@@ -311,10 +311,9 @@ When making contributions, please try to observe the following style conventions
    That belongs in the (S)CSS files instead.
  * Link only to images in [qubes-attachment] (see [instructions above](#how-to-add-images)).
    Do not link to images on other websites.
- * In order to enable offline browsing, use relative paths (e.g., `/doc/doc-guidelines/` instead of `https://www.qubes-os.org/doc/doc-guidelines/`, except when the source text will be reproduced outside of the Qubes website repo.
+ * In order to enable offline browsing and automatic onion redirection, always use relative (rather than absolute) links, e.g., `/doc/doc-guidelines/` instead of `https://www.qubes-os.org/doc/doc-guidelines/`.
    Examples of exceptions:
-   * [QSBs] (intended to be read as plain text)
-   * [News] posts (plain text is reproduced on the [mailing lists][support])
+   * The signed plain text portions of [QSBs] and [Canaries]
    * URLs that appear inside code blocks (e.g., in comments and document templates)
    * Files like `README.md` and `CONTRIBUTING.md`
  * Insert a newline at, and only at, the end of each sentence, except when the text will be reproduced outside of the Qubes website repo (see previous item for examples).
@@ -374,6 +373,7 @@ Please try to write good commit messages, according to the
 [version-example]: /doc/template/fedora/upgrade-25-to-26/
 [version-thread]: https://groups.google.com/d/topic/qubes-users/H9BZX4K9Ptk/discussion
 [QSBs]: /security/bulletins/
+[Canaries]: /security/canaries/
 [News]: /news/
 [md]: https://daringfireball.net/projects/markdown/
 [git-commit]: /doc/coding-style/#commit-message-guidelines
