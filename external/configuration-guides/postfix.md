@@ -144,13 +144,3 @@ list/qubes-devel/
 Run
 ---
 
-Open `/rw/config/rc.local` and add those two lines (before fetchmail lines, if you have them):
-
-~~~
-#!/bin/sh
-
-mount --bind /usr/local/etc/postfix /etc/postfix
-systemctl --no-block start postfix
-~~~
-
-Make sure `/rw/config/rc.local` is executable (i.e., `chmod a+x /rw/config/rc.local`).  Reboot your AppVM and you are done.
