@@ -181,8 +181,8 @@ Emergency Recovery Instructions
         https://github.com/QubesOS/qubes-doc.git
 
 [scrypt]: https://www.tarsnap.com/scrypt.html
-[verify signatures]: https://www.qubes-os.org/security/verifying-signatures
-[get and verify the Release 4 Signing Key]: https://www.qubes-os.org/security/verifying-signatures/#2-get-the-release-signing-key
-[Emergency Backup Recovery without Qubes (v2)]: https://www.qubes-os.org/doc/backup-emergency-restore-v2/
-[Emergency Backup Recovery without Qubes (v3)]: https://www.qubes-os.org/doc/backup-emergency-restore-v3/
+[verify signatures]: /security/verifying-signatures
+[get and verify the Release 4 Signing Key]: /security/verifying-signatures/#2-get-the-release-signing-key
+[Emergency Backup Recovery without Qubes (v2)]: /doc/backup-emergency-restore-v2/
+[Emergency Backup Recovery without Qubes (v3)]: /doc/backup-emergency-restore-v3/
 

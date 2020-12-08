@@ -81,7 +81,7 @@ Support for [two factor authentication][qubes u2f proxy] was recently added, tho
 [rubber duck]: https://shop.hak5.org/products/usb-rubber-ducky-deluxe
 [USB qube]: /doc/usb-qubes/
 [YubiKey]: /doc/YubiKey/
-[qubes u2f proxy]: https://www.qubes-os.org/news/2018/09/11/qubes-u2f-proxy/
+[qubes u2f proxy]: /news/2018/09/11/qubes-u2f-proxy/
 [4661]: https://github.com/QubesOS/qubes-issues/issues/4661
 [side channel attack]: https://en.wikipedia.org/wiki/Side-channel_attack
 [Xen PCI Passthrough: PV guests and PCI quirks]: https://wiki.xenproject.org/wiki/Xen_PCI_Passthrough#PV_guests_and_PCI_quirks

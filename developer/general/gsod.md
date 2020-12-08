@@ -97,7 +97,7 @@ This could be helped by writing consolidated guide with with a clear list of sym
 
 **Expected results**:
 
-- Review existing [troubleshooting guides](https://www.qubes-os.org/doc/#troubleshooting)
+- Review existing [troubleshooting guides](/doc/#troubleshooting)
 - Review [issues][doc-issues] containing common troubleshooting steps (checking specific logs etc)
 - Propose updated, consolidated troubleshooting documentation, including its layout
 

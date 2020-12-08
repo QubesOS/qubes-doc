@@ -42,7 +42,7 @@ When it is essential to avoid leaving any trace, consider using [Tails](https://
 
 ## DisposableVMs and Networking ##
 
-Similarly to how AppVMs are based on their underlying [TemplateVM](https://www.qubes-os.org/doc/glossary/#templatevm), DisposableVMs are based on their underlying [DisposableVM Template](https://www.qubes-os.org/doc/glossary/#disposablevm-template).
+Similarly to how AppVMs are based on their underlying [TemplateVM](/doc/glossary/#templatevm), DisposableVMs are based on their underlying [DisposableVM Template](/doc/glossary/#disposablevm-template).
 R4.0 introduces the concept of multiple DisposableVM Templates, whereas R3.2 was limited to only one.
 
 On a fresh installation of Qubes, the default DisposableVM Template is called `fedora-XX-dvm` (where `XX` is the Fedora version of the default TemplateVM).
