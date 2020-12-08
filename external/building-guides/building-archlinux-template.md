@@ -326,7 +326,7 @@ I tried to rebuild archlinux and got the same issue.
 The issue come from a systemd unit named "qubes-mount-dirs". We want to know more about that. We can't execute command into the qube, so let's shut it down.
 Then, we mount the archlinux root disk into a DisposableVM (
 [mount_lvm_image.sh](https://github.com/Qubes-Community/Contents/blob/master/code/OS-administration/mount_lvm_image.sh)
-& [mount-lvm-image](https://www.qubes-os.org/doc/mount-lvm-image/) )
+& [mount-lvm-image](/doc/mount-lvm-image/) )
 ```shell_session
 $ ./mount_lvm_image.sh /dev/qubes_dom0/vm-archlinux-minimal-root fedora-dvm
 ```

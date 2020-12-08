@@ -761,7 +761,7 @@ There is also the unofficial [ansible-qubes toolkit][ansible].
 [network]: /doc/networking/
 [Note on dom0 and EOL]: /doc/supported-versions/#note-on-dom0-and-eol
 [paper-compart]: https://invisiblethingslab.com/resources/2014/Software_compartmentalization_vs_physical_separation.pdf
-[Qubes Certified Hardware]: https://www.qubes-os.org/news/2016/07/21/new-hw-certification-for-q4/
+[Qubes Certified Hardware]: /news/2016/07/21/new-hw-certification-for-q4/
 [Qubes-Whonix]: /doc/whonix/
 [render]: https://github.com/QubesOS/qubesos.github.io/blob/master/README.md#instructions
 [Salt]: /doc/salt/

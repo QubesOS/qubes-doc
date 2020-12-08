@@ -616,9 +616,9 @@ Details, reference: [#2233](https://github.com/QubesOS/qubes-issues/issues/2233)
 ### Admin API Fuzzer
 
 **Project**: Develop a [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) for the
-[Qubes OS Admin API](https://www.qubes-os.org/doc/admin-api/).
+[Qubes OS Admin API](/doc/admin-api/).
 
-**Brief explanation**: The [Qubes OS Admin API](https://www.qubes-os.org/doc/admin-api/)
+**Brief explanation**: The [Qubes OS Admin API](/doc/admin-api/)
 enables VMs to execute privileged actions on other VMs or dom0 - if allowed by the Qubes OS RPC policy.
 Programming errors in the Admin API however may cause these access rights to be more permissive
 than anticipated by the programmer.

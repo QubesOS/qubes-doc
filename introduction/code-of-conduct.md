@@ -68,6 +68,6 @@ The initial published version of this Code of Conduct was adapted from the [Cont
 [discussion guidelines]: /support/#discussion-guidelines
 [Contributor Covenant, version 1.4]: http://contributor-covenant.org/version/1/4
 [Rust Code of Conduct]: https://www.rust-lang.org/en-US/conduct.html
-[Marek Marczykowski-Górecki]: https://www.qubes-os.org/team/#marek-marczykowski-g%C3%B3recki
-[Andrew David Wong]: https://www.qubes-os.org/team/#andrew-david-wong
-[Michael Carbone]: https://www.qubes-os.org/team/#michael-carbone
+[Marek Marczykowski-Górecki]: /team/#marek-marczykowski-g%C3%B3recki
+[Andrew David Wong]: /team/#andrew-david-wong
+[Michael Carbone]: /team/#michael-carbone
