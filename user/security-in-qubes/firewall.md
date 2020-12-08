@@ -85,7 +85,7 @@ The sys-firewall-2 proxy ensures that:
 2. Changes to the Qubes firewall by the Qubes maintainers cannot lead to unwanted information leakage in combination with user rules deployed in the network service qube.
 3. A compromise of the network service qube does not compromise the Qubes firewall.
 
-For the VPN service please also look at the [VPN documentation](/doc/vpn).
+For the VPN service please also look at the [VPN documentation](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md).
 
 
 Enabling networking between two qubes
