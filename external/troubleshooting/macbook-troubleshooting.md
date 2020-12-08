@@ -1,7 +1,9 @@
 ---
 layout: doc
 title: Apple MacBook Troubleshooting
-permalink: /doc/macbook-troubleshooting/
+redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/macbook-troubleshooting.md
+redirect_from:
+- /doc/macbook-troubleshooting/
 ---
 
 # Apple MacBook Troubleshooting

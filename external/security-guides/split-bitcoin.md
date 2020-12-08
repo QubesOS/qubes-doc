@@ -1,7 +1,9 @@
 ---
 layout: doc
 title: Split Bitcoin
-permalink: /doc/split-bitcoin/
+redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/security/split-bitcoin.md
+redirect_from:
+- /doc/split-bitcoin/
 ---
 
 How to Set Up a Split Bitcoin Wallet in Qubes

@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Linux HVM Tips
-permalink: /doc/linux-hvm-tips/
+redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/os/linux-hvm-tips.md
 redirect_from:
+- /doc/linux-hvm-tips/
 - /en/doc/linux-hvm-tips/
 - /doc/LinuxHVMTips/
 - /wiki/LinuxHVMTips/

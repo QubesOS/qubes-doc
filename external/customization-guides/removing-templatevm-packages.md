@@ -1,7 +1,9 @@
 ---
 layout: doc
 title: Removing TemplateVM Packages
-permalink: /doc/removing-templatevm-packages/
+redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/customization/removing-templatevm-packages.md
+redirect_from:
+- /doc/removing-templatevm-packages/
 ---
 
 # Removing TemplateVM Packages

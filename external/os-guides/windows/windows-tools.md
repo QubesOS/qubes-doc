@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Qubes Windows Tools
-permalink: /doc/windows-tools/
+redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows-tools.md
 redirect_from:
+- /doc/windows-tools/
 - /doc/windows-appvms/
 - /en/doc/windows-appvms/
 - /doc/WindowsAppVms/

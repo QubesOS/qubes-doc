@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: TorVM
-permalink: /doc/torvm/
+redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/privacy/torvm.md
 redirect_from:
+- /doc/torvm/
 - /doc/privacy/torvm/
 - /en/doc/torvm/
 - /doc/TorVM/

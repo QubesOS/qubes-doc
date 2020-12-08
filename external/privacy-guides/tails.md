@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Running Tails in Qubes
-permalink: /doc/tails/
+redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/privacy/tails.md
 redirect_from:
+- /doc/tails/
 - /doc/running-tails
 ---
 

@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Lenovo ThinkPad Troubleshooting
-permalink: /doc/thinkpad-troubleshooting/
+redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/thinkpad-troubleshooting.md
 redirect_from:
+- /doc/thinkpad-troubleshooting/
 - /doc/thinkpad_x201/
 - /en/doc/thinkpad_x201/
 - /doc/Thinkpad_X201/

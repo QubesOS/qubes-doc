@@ -1,7 +1,9 @@
 ---
 layout: doc
 title: Multibooting
-permalink: /doc/multiboot/
+redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/multiboot.md
+redirect_from:
+- /doc/multiboot/
 ---
 
 Multibooting Qubes 

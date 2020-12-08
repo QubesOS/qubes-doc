@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Whonix for Privacy & Anonymity
-permalink: /doc/whonix/
+redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/privacy/whonix.md
 redirect_from:
+- /doc/whonix/
 - /doc/privacy/whonix/
 - /doc/templates/whonix/
 - /en/doc/templates/whonix/

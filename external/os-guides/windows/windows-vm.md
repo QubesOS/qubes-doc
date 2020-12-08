@@ -1,7 +1,9 @@
 ---
 layout: doc
 title: Installing a Windows VM
-permalink: /doc/windows-vm/
+redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows-vm.md
+redirect_from:
+- /doc/windows-vm/
 ---
 
 

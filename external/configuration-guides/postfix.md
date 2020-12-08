@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Postfix
-permalink: /doc/postfix/
+redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/postfix.md
 redirect_from:
+- /doc/postfix/
 - /en/doc/postfix/
 - /doc/Postfix/
 - /wiki/Postfix/

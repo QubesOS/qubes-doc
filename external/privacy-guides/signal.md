@@ -1,7 +1,9 @@
 ---
 layout: doc
 title: Signal
-permalink: /doc/signal/
+redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/privacy/signal.md
+redirect_from:
+- /doc/signal/
 ---
 
 Signal

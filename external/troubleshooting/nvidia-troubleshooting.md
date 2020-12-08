@@ -1,8 +1,9 @@
 ---
 layout: doc
 title: Nvidia Troubleshooting
-permalink: /doc/nvidia-troubleshooting/
+redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/nvidia-troubleshooting.md
 redirect_from:
+- /doc/nvidia-troubleshooting/
 - /en/doc/nvidia-troubleshooting/
 - /doc/NvidiaTroubleshooting/
 - /wiki/NvidiaTroubleshooting/
