@@ -115,7 +115,7 @@ You can also configure strict reset directly from the Qubes interface by followi
 
 ## Broadcom BCM43602 Wi-Fi card causes system freeze ##
 
-You may face the problem where the BCM43602 Wi-Fi chip causes a system freeze whenever it is attached to a VM. To fix this problem on a Macbook, follow the steps in [Macbook Troubleshooting](/doc/macbook-troubleshooting/#system-freezes-after-attaching-broadcom-bcm43602-wi-fi-card). 
+You may face the problem where the BCM43602 Wi-Fi chip causes a system freeze whenever it is attached to a VM. To fix this problem on a Macbook, follow the steps in [Macbook Troubleshooting](https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/macbook-troubleshooting.md#system-freezes-after-attaching-broadcom-bcm43602-wi-fi-card). 
 
 For other non-Macbook machines, it is advisable to replace the Broadcom BCM43602 with one known to work on Qubes, such as the Atheros AR9462. 
 

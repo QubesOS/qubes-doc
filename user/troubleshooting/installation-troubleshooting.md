@@ -61,12 +61,12 @@ These errors may also occur due to an incompatible Nvidia graphics card. If you 
    
        noexitboot=1 modprobe.blacklist=nouveau rd.driver.blacklist=nouveau --- intitrd.img
 
-For more information, look at the [Nvidia Troubleshooting guide](/doc/nvidia-troubleshooting/#disabling-nouveau).
+For more information, look at the [Nvidia Troubleshooting guide](https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/nvidia-troubleshooting.md#disabling-nouveau).
  
 
 ## Installation freezes at "Setting up Networking" ##
  
-If you are facing this problem on an Apple computer, check out the [Macbook Troubleshooting guide](/doc/macbook-troubleshooting/).
+If you are facing this problem on an Apple computer, check out the [Macbook Troubleshooting guide](https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/macbook-troubleshooting.md).
 
 This issue occurs due to the network card, which may be missing some drivers or is incompatible with Qubes. 
 

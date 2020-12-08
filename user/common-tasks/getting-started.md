@@ -167,7 +167,7 @@ If you encounter any problems, please visit the [Help, Support, and Mailing List
 [security domain]: /doc/glossary/#domain
 [template]: /doc/glossary/#templatevm
 [dom0]: /doc/glossary/#dom0
-[dom0-precautions]: /doc/security-guidelines/#dom0-precautions
+[dom0-precautions]: https://github.com/Qubes-Community/Contents/blob/master/docs/security/security-guidelines.md#dom0-precautions
 [tools]: /doc/tools/
 [partitioning]: https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html
 [update]: /doc/updating-qubes-os/
