@@ -79,7 +79,7 @@ Known issues
 
 * List of USB devices may contain device identifiers instead of name
 
-* With R4.0.1, which ships kernel-4.19, you may never reach the anaconda startup and be block on an idle black screen with blinking cursor. You can try to add `plymouth.ignore-serial-consoles` in the grub installer boot menu right after `quiet rhgb`. With legacy mode, you can do it directly when booting the DVD or USB key. In UEFI mode, follow the same procedure described for [disabling](/doc/uefi-troubleshooting/#installation-freezes-before-getting-to-anaconda-qubes-40) `nouveau` module (related [solved issue](https://github.com/QubesOS/qubes-issues/issues/3849) in further version of Qubes).
+* With R4.0.1, which ships kernel-4.19, you may never reach the anaconda startup and be block on an idle black screen with blinking cursor. You can try to add `plymouth.ignore-serial-consoles` in the grub installer boot menu right after `quiet rhgb`. With legacy mode, you can do it directly when booting the DVD or USB key. In UEFI mode, follow the same procedure described for [disabling](/doc/uefi-troubleshooting/#installation-freezes-before-displaying-installer) `nouveau` module (related [solved issue](https://github.com/QubesOS/qubes-issues/issues/3849) in further version of Qubes).
 
 * For other known issues take a look at [our tickets](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Release+4.0%22+label%3Abug)
 
