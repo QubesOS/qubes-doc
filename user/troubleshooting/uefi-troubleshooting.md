@@ -29,7 +29,7 @@ If you've installed successfully in legacy mode but had to change some kernel pa
 
 ## Installation freezes before displaying installer ##
 
-If you have an Nvidia card, see also [Nvidia Troubleshooting](/doc/nvidia-troubleshooting/#disabling-nouveau).
+If you have an Nvidia card, see also [Nvidia Troubleshooting](https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/nvidia-troubleshooting.md#disabling-nouveau).
 
 ### Removing `noexitboot` and `mapbs` ###
 

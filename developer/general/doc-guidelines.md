@@ -143,13 +143,11 @@ There are some exceptions to this policy (e.g., information that is certain not 
 
 ### Core vs. external documentation
 
-*See [#4693](https://github.com/QubesOS/qubes-issues/issues/4693) for more information.*
-
 Core documentation resides in the [Qubes OS Project's official repositories](https://github.com/QubesOS/), mainly in [qubes-doc].
 External documentation can be anywhere else (such as forums, community websites, and blogs), but there is an especially large collection in the [Qubes Community](https://github.com/Qubes-Community) project.
 External documentation should not be submitted to [qubes-doc].
 If you've written a piece of documentation that is not appropriate for [qubes-doc], we encourage you to submit it to the [Qubes Community](https://github.com/Qubes-Community) project instead.
-At the time of this writing, there is also a section of external documentation in [qubes-doc] that is in the process of being moved to the [Qubes Community](https://github.com/Qubes-Community) project (see [#4693](https://github.com/QubesOS/qubes-issues/issues/4693)).
+However, *linking* to external documentation from [qubes-doc] is perfectly fine.
 
 The main difference between **core** (or **official**) and **external** (or **community** or **unofficial**) documentation is whether it documents software that is officially written and maintained by the Qubes OS Project.
 The purpose of this distinction is to keep the core docs maintainable and high-quality by limiting them to the software output by the Qubes OS Project.
@@ -173,6 +171,8 @@ On the positive side, we consider the existence of community documentation to be
 The community is better positioned to write and maintain documentation that applies, combines, and simplifies the official documentation, e.g., tutorials that explain how to install and use various programs in Qubes, how to create custom VM setups, and introductory tutorials that teach basic Linux concepts and commands in the context of Qubes.
 In addition, just because the Qubes OS Project has officially written and maintains some flexible framework, such as `qrexec`, it does not make sense to include every tutorial that says "here's how to do something cool with `qrexec`" in the core docs.
 Such tutorials generally also belong in the community documentation.
+
+See [#4693](https://github.com/QubesOS/qubes-issues/issues/4693) for more background information.
 
 ### Version-specific documentation
 
