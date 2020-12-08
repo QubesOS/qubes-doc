@@ -89,7 +89,7 @@ To launch a DisposableVM Template from the command line, in dom0 please type the
 
 ## Opening a file in a DisposableVM via GUI ##
 
-In an AppVM's file manager, right click on the file you wish to open in a DisposableVM, then choose "Open in DisposableVM". 
+In an AppVM's file manager, right click on the file you wish to open in a DisposableVM, then choose "View in DisposableVM" or "Edit in DisposableVM". 
 Wait a few seconds and the default application for this file type should appear displaying the file content. 
 This app is running in its own dedicated VM -- a DisposableVM created for the purpose of viewing or editing this very file. 
 Once you close the viewing application the whole DisposableVM will be destroyed. 
