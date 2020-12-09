@@ -31,9 +31,7 @@ In this example, the word processor runs in the “work” domain, which has bee
 
 [![r2b3-windows-seamless-1.png](/attachment/wiki/QubesScreenshots/r2b3-windows-seamless-1.png)](/attachment/wiki/QubesScreenshots/r2b3-windows-seamless-1.png)
 
-Qubes Release 2 can also run Windows AppVMs in seamless mode, integrated onto the common Qubes trusted desktop, just like Linux AppVMs! The seamless GUI integration has been introduced in Qubes R2 Beta 3. This requires our dedicated Qubes Windows Support Tools to be installed in the Windows VMs first. The Qubes Windows Tools are proprietary but we distribute the binaries for free with current Qubes OS releases. 
-
-Update note: Noone is currently working on Qubes Windows Tools and they are therefore not guaranteed to work with current versions of Qubes and Windows.
+Qubes Release 2 can also run Windows AppVMs in seamless mode, integrated onto the common Qubes trusted desktop, just like Linux AppVMs! The seamless GUI integration has been introduced in Qubes R2 Beta 3. This requires [Qubes Windows Tools](https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows-tools.md) to be installed in the Windows VMs first.
 
 * * * * *
 
@@ -51,7 +49,7 @@ Here we see Xfce4.14 Window Manager running in Dom0 (instead of KDE as on previo
 
 [![r4.1-password-prompt.png](/attachment/wiki/QubesScreenshots/r4.1-password-prompt.png)](/attachment/wiki/QubesScreenshots/r4.1-password-prompt.png)
 
-It is always clearly visible to which domain a given window belongs. Here it’s immediately clear that the passphrase-prompting window belongs to some domain with the “blue” label. When we look at the titlebar, we see “[qubes]”, which is the name of the actual domain. Theoretically, the untrusted application (here, the "disp7757" Tor Browser) beneath the prompt window could draw a similar looking window within its contents. In practice, this would be very hard, because it doesn’t know, e.g., the exact decoration style that is in use. However, if this is a concern, the user can simply try to move the more trusted window onto some empty space on the desktop such that no other window is present beneath it. Or, better yet, use the Expose-like effect (available via a hot-key). A malicious application from an untrusted domain cannot spoof the whole desktop because the trusted Window Manager will never let any domain “own” the whole screen. Its titlebar will always be visible.
+It is always clearly visible to which domain a given window belongs. Here it’s immediately clear that the passphrase-prompting window belongs to some domain with the “blue” label. When we look at the titlebar, we see “[qubes]”, which is the name of the actual domain. Theoretically, the untrusted application (here, the red Tor Browser running in a DisposableVM) beneath the prompt window could draw a similar looking window within its contents. In practice, this would be very hard, because it doesn’t know, e.g., the exact decoration style that is in use. However, if this is a concern, the user can simply try to move the more trusted window onto some empty space on the desktop such that no other window is present beneath it. Or, better yet, use the Expose-like effect (available via a hot-key). A malicious application from an untrusted domain cannot spoof the whole desktop because the trusted Window Manager will never let any domain “own” the whole screen. Its titlebar will always be visible.
 
 * * * * *
 
