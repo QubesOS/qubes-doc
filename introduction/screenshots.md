@@ -25,13 +25,13 @@ Starting applications from different domains (AppVMs) is very easy.
 
 [![r4.1-xfce-three-domains-at-work.png](/attachment/wiki/QubesScreenshots/r4.1-xfce-three-domains-at-work.png)](/attachment/wiki/QubesScreenshots/r4.1-xfce-three-domains-at-work.png)
 
-In this example, the word processor runs in the “work” domain, which has been assigned the “green” label. It is fully isolated from other domains, such as the “untrusted” domain (assigned the “red” label -- “Watch out!”, “Danger!”) used for random Web browsing, news reading, as well as from the "work-web" domain (assigned the "yellow" label), which is used for work-related Web browsing that is not security critical. Apps from different domains run in different AppVMs and have different X servers, filesystems, etc. Notice the different color frames (labels) and VM names in the titlebars. These are drawn by the trusted Window Manager running in Dom0, and apps running in domains cannot fake them:
+In this example, the word processor runs in the “work” domain, which has been assigned the “blue” label. It is fully isolated from other domains, such as the “untrusted” domain (assigned the “red” label -- “Watch out!”, “Danger!”) used for random Web browsing, news reading, as well as from the "work-web" domain (assigned the "yellow" label), which is used for work-related Web browsing that is not security critical. Apps from different domains run in different AppVMs and have different X servers, filesystems, etc. Notice the different color frames (labels) and VM names in the titlebars. These are drawn by the trusted Window Manager running in Dom0, and apps running in domains cannot fake them:
 
 * * * * *
 
 [![r2b3-windows-seamless-1.png](/attachment/wiki/QubesScreenshots/r2b3-windows-seamless-1.png)](/attachment/wiki/QubesScreenshots/r2b3-windows-seamless-1.png)
 
-Qubes Release 2 can also run Windows AppVMs in seamless mode, integrated onto the common Qubes trusted desktop, just like Linux AppVMs! The seamless GUI integration has been introduced in Qubes R2 Beta 3. This requires our dedicated Qubes Windows Support Tools to be installed in the Windows VMs first. The Qubes Windows Tools are proprietary but we distribute the binaries for free with current Qubes OS releases.
+Qubes Release 2 can also run Windows AppVMs in seamless mode, integrated onto the common Qubes trusted desktop, just like Linux AppVMs! The seamless GUI integration has been introduced in Qubes R2 Beta 3. This requires [Qubes Windows Tools](https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows-tools.md) to be installed in the Windows VMs first.
 
 * * * * *
 
@@ -43,19 +43,19 @@ Windows AppVMs are fully integrated with the rest of the Qubes OS system, which 
 
 [![r4.1-xfce-programmers-desktop.png](/attachment/wiki/QubesScreenshots/r4.1-xfce-programmers-desktop.png)](/attachment/wiki/QubesScreenshots/r4.1-xfce-programmers-desktop.png)
 
-Here we see Xfce4.10 Window Manager running in Dom0 (instead of KDE as on previous screens). Qubes supports customized Xfce4 in dom0 beginning with R2 Beta 2!
+Here we see Xfce4.14 Window Manager running in Dom0 (instead of KDE as on previous versions). Qubes supports customized Xfce4 in dom0 beginning with R2 Beta 2!
 
 * * * * *
 
 [![r4.1-password-prompt.png](/attachment/wiki/QubesScreenshots/r4.1-password-prompt.png)](/attachment/wiki/QubesScreenshots/r4.1-password-prompt.png)
 
-It is always clearly visible to which domain a given window belongs. Here it’s immediately clear that the passphrase-prompting window belongs to some domain with the “green” label. When we look at the titlebar, we see “[work]”, which is the name of the actual domain. Theoretically, the untrusted application (here, the “red” Firefox) beneath the prompt window could draw a similar looking window within its contents. In practice, this would be very hard, because it doesn’t know, e.g., the exact decoration style that is in use. However, if this is a concern, the user can simply try to move the more trusted window onto some empty space on the desktop such that no other window is present beneath it. Or, better yet, use the Expose-like effect (available via a hot-key). A malicious application from an untrusted domain cannot spoof the whole desktop because the trusted Window Manager will never let any domain “own” the whole screen. Its titlebar will always be visible.
+It is always clearly visible to which domain a given window belongs. Here it’s immediately clear that the passphrase-prompting window belongs to some domain with the “blue” label. When we look at the titlebar, we see “[qubes]”, which is the name of the actual domain. Theoretically, the untrusted application (here, the red Tor Browser running in a DisposableVM) beneath the prompt window could draw a similar looking window within its contents. In practice, this would be very hard, because it doesn’t know, e.g., the exact decoration style that is in use. However, if this is a concern, the user can simply try to move the more trusted window onto some empty space on the desktop such that no other window is present beneath it. Or, better yet, use the Expose-like effect (available via a hot-key). A malicious application from an untrusted domain cannot spoof the whole desktop because the trusted Window Manager will never let any domain “own” the whole screen. Its titlebar will always be visible.
 
 * * * * *
 
 [![r4.1-xfce-tray-icons.png](/attachment/wiki/QubesScreenshots/r4.1-xfce-tray-icons.png)](/attachment/wiki/QubesScreenshots/r4.1-xfce-tray-icons.png)
 
-Qubes is all about seamless integration from the user’s point of view. Here you can see how it virtualizes tray icons from other domains. Notice the network icon in a red frame. This icon is in fact managed by the Network Manager running in a separate NetVM. The notes icon (with the green frame around it) has been drawn by the note-taking app running in the work domain (which has the "green" label).
+Qubes is all about seamless integration from the user’s point of view. Here you can see how it virtualizes tray icons from other domains. Notice the network icon is in red. This icon is in fact managed by the Network Manager running in a separate NetVM.
 
 * * * * *
 
@@ -84,7 +84,7 @@ Qubes also supports secure file copying between AppVMs.
 
 [![r4.1-open-in-dispvm-1.png](/attachment/wiki/QubesScreenshots/r4.1-open-in-dispvm-1.png)](/attachment/wiki/QubesScreenshots/r4.1-open-in-dispvm-1.png) [![r4.1-open-in-dispvm-2.png](/attachment/wiki/QubesScreenshots/r4.1-open-in-dispvm-2.png)](/attachment/wiki/QubesScreenshots/r4.1-open-in-dispvm-2.png)
 
-Qubes' unique DisposableVMs (DispVMs) allow the user to open any file in a disposable VM in a matter of seconds! A file can be edited in a disposable VM, and any changes are projected back onto the original file. Currently, there is no way to mark files to be automatically opened in a disposable VM (one needs to right-click on the file and choose the "Open in DisposableVM" option), but this is planned for the R2 Beta 3 release.
+Qubes' unique DisposableVMs (DispVMs) allow the user to open any file in a disposable VM in a matter of seconds! A file can be edited in a disposable VM, and any changes are projected back onto the original file. Currently, there is no way to mark files to be automatically opened in a disposable VM (one needs to right-click on the file and choose the "View in DisposableVM" or "Edit in DisposableVM" option), but this is planned for the R2 Beta 3 release.
 
 * * * * *
 
@@ -101,8 +101,6 @@ Qubes provides a dedicated firewall that itself runs in an isolated FirewallVM.
 * * * * *
 
 And some more screenshots:
-
-[![r4.1-xfce-start-menu.png](/attachment/wiki/QubesScreenshots/r4.1-xfce-start-menu.png)](/attachment/wiki/QubesScreenshots/r4.1-xfce-start-menu.png)
 
 [![r4.1-xfce-red-and-green-terminals.png](/attachment/wiki/QubesScreenshots/r4.1-xfce-red-and-green-terminals.png)](/attachment/wiki/QubesScreenshots/r4.1-xfce-red-and-green-terminals.png)
 
