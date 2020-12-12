@@ -3,9 +3,9 @@ layout: doc
 title: VPN
 redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md
 redirect_from:
-- https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md
+- /doc/vpn/
 - /doc/privacy/vpn/
-- /enhttps://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md
+- /en/doc/vpn/
 - /doc/VPN/
 - /wiki/VPN/
 ---
