@@ -322,12 +322,13 @@ If it seems like a feature that we can and should enable, please [let us know][r
 
 Absolutely.
 
-### Can I run applications, like games, which require 3D support?
+### Can I run applications, like games, which require hardware acceleration?
 
 Those won’t fly. 
-We do not provide OpenGL virtualization for Qubes. 
+We do not provide GPU virtualization for Qubes. 
 This is mostly a security decision, as implementing such a feature would most likely introduce a great deal of complexity into the GUI virtualization infrastructure. 
-However, Qubes does allow for the use of accelerated graphics (OpenGL) in Dom0’s Window Manager, so all the fancy desktop effects should still work.
+However, Qubes does allow for the use of accelerated graphics (e.g. OpenGL) in Dom0’s Window Manager, so all the fancy desktop effects should still work.
+AppVMs use a software-only (CPU-based) implementation of OpenGL, which may be good enough for basic games and applications.
 
 For further discussion about the potential for GPU passthrough on Xen/Qubes, please see the following threads:
 
