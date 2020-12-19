@@ -107,6 +107,12 @@ If there are any issues preventing the restore, they will be listed here and the
 Qubes will proceed to restore from your backup. 
 Once the progress bar has completed, you may click **Finish**.
 
+**Note:** When restoring from a dom0 backup, a new directory will be created in the current dom0 home directory, and the contents from the backup will be placed inside this new directory.
+This is intentional, as it allows users to have explicit control over which files and settings get applied in dom0.
+If the contents from the dom0 backup were instead to overwrite the existing files in dom0's home directory, unexpected and undesired configuration changes could occur.
+However, if you do wish to move all files from the dom0 backup out of the subdirectory into your current dom0 home directory (overwriting any existing files in the process), you may do so by following the instructions [here](https://stackoverflow.com/questions/20192070/how-to-move-all-files-including-hidden-files-into-parent-directory-via).
+Just remember that this can cause unexpected and desired configuration changes in dom0, depending on exactly which files you're adding and replacing.
+
 
 Emergency Backup Recovery without Qubes
 ---------------------------------------
