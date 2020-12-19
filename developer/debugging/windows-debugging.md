@@ -44,7 +44,7 @@ Things get complicated if you need to perform kernel debugging or troubleshoot p
     ...but there is a catch. Xen seems to process the traffic that goes through serial ports and changes all **0x0a** bytes into **0x0d, 0x0a** pairs (newline conversion). I didn't find a way to turn that off (setting ptys to raw mode didn't change anything) and it's not mentioned anywhere on the Internet, so maybe it's something on my system. If the above script works for you then you don't need anything more in dom0.
 
 -   On the *target* system, run `bcdedit /set debug on` on the console to turn on kernel debugging. It defaults to the first serial port.
--   On the *host* system, install [WinDbg](http://msdn.microsoft.com/en-us/library/windows/hardware/ff551063(v=vs.85).aspx) and start the kernel debug (Ctrl-K), choose **com1** as the debug port.
+-   On the *host* system, install [WinDbg](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063%28v=vs.85%29.aspx) and start the kernel debug (Ctrl-K), choose **com1** as the debug port.
 -   Reboot the *target* VM.
 -   Run the above shell script in dom0.
 -   If everything is fine you should see the proper kernel debugging output in WinDbg. However, if you see something like that:

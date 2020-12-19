@@ -60,7 +60,7 @@ The following **colors** are currently being used on the Qubes website and docum
 
 ## Icons
 
-Currently, all the icons on the Qubes-OS.org website are generated using [FontAwesome](http://fortawesome.github.io/Font-Awesome/).
+Currently, all the icons on the Qubes-OS.org website are generated using [FontAwesome](https://fortawesome.github.io/Font-Awesome/).
 
 *As more custom work is done to generate icons for the operating system itself, they will be added here!*
 
