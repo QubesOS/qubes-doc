@@ -324,7 +324,7 @@ Note that the app will autostart only when the AppVM starts. If you would like t
 [security]: /security/
 [TemplateBasedVMs]: /doc/glossary/#templatebasedvm
 [testing]: /doc/testing
-[RPM Fusion]: http://rpmfusion.org/
+[RPM Fusion]: https://rpmfusion.org/
 [service framework]: /doc/qubes-service/
 [How to Reinstall a TemplateVM]: /doc/reinstall-template/
 [installing contributed packages]: /doc/installing-contributed-packages/

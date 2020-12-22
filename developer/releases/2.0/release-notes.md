@@ -9,7 +9,7 @@ redirect_from:
 Qubes R2.0 Release Notes
 ========================
 
-Detailed release notes in [this blog post](http://blog.invisiblethings.org/2014/09/26/announcing-qubes-os-release-2.html)
+Detailed release notes in [this blog post](https://blog.invisiblethings.org/2014/09/26/announcing-qubes-os-release-2.html)
 
 New features since 1.0
 ----------------------
