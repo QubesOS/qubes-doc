@@ -442,7 +442,7 @@ The following unofficial chat channels are maintained by the community:
 [business]: https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3Abusiness
 [localization]: https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3Alocalization
 [coc]: /code-of-conduct/
-[Transifex]: https://www.transifex.com/otf/qubes/
+[Transifex]: https://www.transifex.com/
 [issue tracker]: /doc/reporting-bugs/
 [searching the issue tracker]: /doc/reporting-bugs/#search-tips
 [forum]: #forum
