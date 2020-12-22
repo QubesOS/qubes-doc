@@ -66,7 +66,7 @@ The initial published version of this Code of Conduct was adapted from the [Cont
 [discussion]: https://github.com/QubesOS/qubes-issues/issues/2163
 [Citizen Code of Conduct]: http://citizencodeofconduct.org/
 [discussion guidelines]: /support/#discussion-guidelines
-[Contributor Covenant, version 1.4]: http://contributor-covenant.org/version/1/4
+[Contributor Covenant, version 1.4]: https://contributor-covenant.org/version/1/4
 [Rust Code of Conduct]: https://www.rust-lang.org/en-US/conduct.html
 [Marek Marczykowski-Górecki]: /team/#marek-marczykowski-g%C3%B3recki
 [Andrew David Wong]: /team/#andrew-david-wong

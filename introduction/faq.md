@@ -772,7 +772,7 @@ There is also the unofficial [ansible-qubes toolkit][ansible].
 [Tails]: https://tails.boum.org/
 [Template]: /doc/template-implementation 
 [terminal emulator]: https://en.wikipedia.org/wiki/Terminal_emulator
-[this message]: http://groups.google.com/group/qubes-devel/msg/6412170cfbcb4cc5
+[this message]: https://groups.google.com/group/qubes-devel/msg/6412170cfbcb4cc5
 [this page]: /doc/vm-sudo/
 [Tor]: https://www.torproject.org/
 [USB]: /doc/usb-devices
