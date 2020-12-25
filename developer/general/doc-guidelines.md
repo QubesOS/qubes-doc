@@ -148,6 +148,7 @@ External documentation can be anywhere else (such as forums, community websites,
 External documentation should not be submitted to [qubes-doc].
 If you've written a piece of documentation that is not appropriate for [qubes-doc], we encourage you to submit it to the [Qubes Community](https://github.com/Qubes-Community) project instead.
 However, *linking* to external documentation from [qubes-doc] is perfectly fine.
+Indeed, the maintainers of the [Qubes Community](https://github.com/Qubes-Community) project regularly submit PRs against [qubes-doc] to add and update links in the table of contents pointing to [Qubes Community](https://github.com/Qubes-Community) pages.
 
 The main difference between **core** (or **official**) and **external** (or **community** or **unofficial**) documentation is whether it documents software that is officially written and maintained by the Qubes OS Project.
 The purpose of this distinction is to keep the core docs maintainable and high-quality by limiting them to the software output by the Qubes OS Project.
