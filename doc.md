@@ -238,7 +238,7 @@ For more, please see [Qubes Community Documentation](https://github.com/Qubes-Co
  * [Using Multi-factor Authentication with Qubes](https://github.com/Qubes-Community/Contents/blob/master/docs/security/multifactor-authentication.md)
  * [How to Set Up a Split Bitcoin Wallet in Qubes](https://github.com/Qubes-Community/Contents/blob/master/docs/security/split-bitcoin.md)
  * [Split dm-crypt](https://github.com/rustybird/qubes-split-dm-crypt)
- * [Split SSH](https://kushaldas.in/posts/using-split-ssh-in-qubesos-4-0.html)
+ * [Split SSH](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/split-ssh.md)
  * [Using OnlyKey with Qubes OS](https://docs.crp.to/qubes.html)
 
 ### Privacy Guides
