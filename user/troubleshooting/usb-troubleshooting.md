@@ -25,6 +25,12 @@ If this isn't an option, you can manually recover from the situation by followin
 Upon trying to attach a USB device using the `qvm-usb -a vm-name device-vm-name:device` command, you may face the error `Device attach failed: no device info received, connection failed, check backend side for details`. 
 This error mainly arises due to problems specific to the particular device, such as the device being incompatible with qvm-usb or a broken cable.
 
+## Attaching device to a qube works, but the device disconnects or disappears upon usage
+
+After attaching a device to a qube, upon attempting to use the device results in the device disappearing or disconnecting. This may be observed by the device no longer existing in the Devices widget or the application within the attached qube indicating the device is no longer found.
+
+As a first line of defense, increase the amount of memory given to the USB VM (sys-usb). High-bandwidth devices such as webcams have been [observed](https://github.com/QubesOS/qubes-issues/issues/6200) to need more memory in sys-usb. If increasing the amount of memory does not resolve the issue, check kernel logs within sys-usb as well as the attached qube for errors before filing a bug report.
+
 ## usbVM does not boot after creating and assigning USB controllers to it ## 
 
 This is probably because one of the controllers does not support reset. 
