@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Qubes Security Bulletins
+title: Qubes Security Bulletins (QSBs)
 permalink: /security/bulletins/
 redirect_from: 
 - /doc/security-bulletins/
@@ -13,7 +13,8 @@ redirect_from:
 Qubes Security Bulletins (QSBs)
 ===============================
 
-Qubes Security Bulletins (QSBs) are published through the [Qubes Security Pack](/security/pack/).
+A Qubes Security Bulletin (QSB) is a security announcement issued by the Qubes OS Project, typically providing a summary and impact analysis of one or more recently discovered software vulnerabilities, including details about patching to address them.
+QSBs are published through the [Qubes Security Pack (qubes-secpack)](/security/pack/).
 
 <table>
   <tr>
