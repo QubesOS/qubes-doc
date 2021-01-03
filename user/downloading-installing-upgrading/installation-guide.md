@@ -359,9 +359,10 @@ It is important to make sure that you receive all QSBs in a timely manner so tha
 (While [updating](#updating) will handle most security needs, there may be cases in which additional action from you is required.)
 For this reason, we strongly recommend that every Qubes user subscribe to the [qubes-announce](/support/#qubes-announce) mailing list.
 
-In addition to QSBs, the Qubes OS Project also publishes [Canaries](/security/canaries/) and other items of interest to Qubes users.
+In addition to QSBs, the Qubes OS Project also publishes [Canaries](/security/canaries/), XSA summaries, TemplateVM releases and end-of-life notices, and other items of interest to Qubes users.
 Since these are not essential for all Qubes users to read, they are not sent to [qubes-announce](/support/#qubes-announce) in order to keep the volume on that list low.
-If you are interested in these additional items, we encourage you to subscribe to the [Qubes News RSS feed](/feed.xml) or join one of our other [venues](/support/), where these news items are syndicated.
+However, we expect that most users, especially novice users, will find them helpful.
+If you are interested in these additional items, we encourage you to subscribe to the [Qubes News RSS feed](/feed.xml) or join one of our other [venues](/support/), where these news items are also announced.
 
 For more information about Qubes OS Project security, please see the [security center](/security/).
 
