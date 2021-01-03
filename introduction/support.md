@@ -144,6 +144,12 @@ Likewise, if you see that something in the documentation should be changed,
 don't simply point it out in a discussion venue. Instead, [submit the
 change][contributing to the documentation].
 
+### Moderation ###
+
+The moderation team aims to enforce our [Code of Conduct][coc].
+Beyond this, users should not expect any specific action from the moderation team.
+Specifically, users should not request that posts or messages be deleted or edited by a moderator.
+Users are reminded that, in most venues, anything posted will be sent out as an email to other others, and these emails cannot be deleted from others' inboxes.
 
 ### Specific mailing list rules and notes ###
 
