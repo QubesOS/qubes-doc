@@ -352,6 +352,19 @@ Congratulations, you are now ready to use Qubes OS!
 Next, [update] your installation to ensure you have the latest security updates.
 Frequently updating is one of the best ways to remain secure against new threats.
 
+### Security
+
+The Qubes OS Project occasionally issues [Qubes Security Bulletins (QSBs)](/security/bulletins/) as part of the [Qubes Security Pack (qubes-secpack)](/security/pack/).
+It is important to make sure that you receive all QSBs in a timely manner so that you can take action to keep your system secure.
+(While [updating](#updating) will handle most security needs, there may be cases in which additional action from you is required.)
+For this reason, we strongly recommend that every Qubes user subscribe to the [qubes-announce](/support/#qubes-announce) mailing list.
+
+In addition to QSBs, the Qubes OS Project also publishes [Canaries](/security/canaries/) and other items of interest to Qubes users.
+Since these are not essential for all Qubes users to read, they are not sent to [qubes-announce](/support/#qubes-announce) in order to keep the volume on that list low.
+If you are interested in these additional items, we encourage you to subscribe to the [Qubes News RSS feed](/feed.xml) or join one of our other [venues](/support/), where these news items are syndicated.
+
+For more information about Qubes OS Project security, please see the [security center](/security/).
+
 ### Backups
 
 It is extremely important to make regular backups so that you don't lose your data unexpectedly.

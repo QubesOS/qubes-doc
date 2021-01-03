@@ -398,6 +398,21 @@ active ones -- will choose to participate in both venues. (Again, for those who
 still prefer interacting via email, Discourse supports that too!)
 
 
+## Social media ##
+
+The Qubes OS Project has a presence on several social media platforms, including:
+
+* [Twitter](https://twitter.com/QubesOS)
+* [Reddit](https://www.reddit.com/r/Qubes/)
+* [Facebook](https://www.facebook.com/QubesOS/)
+* [LinkedIn](https://www.linkedin.com/company/qubes-os/)
+
+Generally speaking, these are not intended to be primary support venues.
+(Those would be [qubes-users](#qubes-users) and the [forum](#forum).)
+Rather, these are primarily intended to be a way to more widely disseminate items published on the [news](/news/) page.
+If you use one of these platforms, you may find it convenient to follow the Qubes OS Project there as a way of receiving Qubes news.
+
+
 ## Unofficial chat channels ##
 
 The following unofficial chat channels are maintained by the community:
@@ -405,6 +420,7 @@ The following unofficial chat channels are maintained by the community:
  * Matrix, Qubes-related: <https://matrix.to/#/#cybersec-qubes_os:matrix.org>
  * Matrix, strictly Qubes: <https://matrix.to/#/#Qubes-OS:matrix.org>
  * `#qubes` channel on freenode.net via traditional IRC clients or: <https://webchat.freenode.net/>
+
 
 [mailing lists]: #mailing-lists
 [wiki-ml]: https://en.wikipedia.org/wiki/Electronic_mailing_list
