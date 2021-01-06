@@ -232,7 +232,7 @@ Details of all possible use cases and the messages involved are described below.
 
 This is a service running in dom0. It is called by `qrexec-daemon` and is responsible for evaluating the request and possibly launching an action.
 
-The daemon listens on a socket (`/var/run/qubes/policy.sock`). It accepts requests in the format described in [qrexec-policy-daemon.rst](https://github.com/QubesOS/qubes-core-qrexec/blob/master/Documentation/qrexec-policy-daemon.rst) and replies with `result=allow/deny`.
+The daemon listens on a socket (`/var/run/qubes/policy.sock`). It accepts requests in the format described in [qrexec-policy-daemon.rst](https://github.com/QubesOS/qubes-core-qrexec/blob/master/doc/qrexec-policy-daemon.rst) and replies with `result=allow/deny`.
 
 A standalone version is called `qrexec-policy-exec` and is available as a fallback.
 
