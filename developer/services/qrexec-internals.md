@@ -247,4 +247,4 @@ There are two endpoints:
 - `policy.Ask` - ask the user about whether to execute a given action
 - `policy.Notify` - notify the user about about an action.
 
-See [qrexec-policy-agent.rst](https://github.com/QubesOS/qubes-core-qrexec/blob/master/doc/qrexec-policy-agent.rst) for protocol details.
+See [qrexec-policy-agent.rst](https://github.com/QubesOS/qubes-core-qrexec/blob/master/Documentation/qrexec-policy-agent.rst) for protocol details.
