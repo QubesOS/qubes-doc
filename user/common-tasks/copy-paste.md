@@ -47,6 +47,15 @@ Therefore, you should always copy clipboard data only from *more trusted* to *le
 
 See also [this article](https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html) for more information on this topic, and some ideas of how we might solve this problem in some future version of Qubes, as well as [this message](https://groups.google.com/group/qubes-devel/msg/48b4b532cee06e01) from qubes-devel.
 
+### Focus stealing
+
+The above discussion assumes that you control which window is focused in dom0 at the time of the paste.
+However, if your dom0 window manager is configured to give focus to newly created windows (which, as of Qubes 4.0, is true in the default install with Xfce), then a malicious qube could "steal the focus" by creating a window just before you press Ctrl+Shift+V, and it would receive the data instead of your intended target.
+(Focus stealing is a risk any time you are typing confidential data, but a Qubes clipboard paste probably presents the greatest risk of leaking an entire password before you have time to react.)
+You may be able to mitigate this risk by changing the window manager configuration.
+For example, with Xfce, you could run `xfwm4-settings` in dom0, go to the "Focus" tab, and un-check "Automatically give focus to newly created windows".
+However, we have not confirmed whether such settings are sufficient to prevent a malicious qube from stealing the focus in all cases.
+
 Clipboard automatic policy enforcement
 --------------------------------------
 
