@@ -25,7 +25,7 @@ Additionally, if you want to have menu entries for starting applications in Disp
 
     [user@dom0 ~]$ qvm-features fedora-26-dvm appmenus-dispvm 1
 
-Note: application shortcuts that existed before setting this feature will not be updated automatically. Please go the the "Applications" tab in the qube's "Settings" dialog and unselect all existing shortcuts by clicking "<<", then click "Apply" and finally re-select all the shortcuts you want to see in the menu.
+Note: application shortcuts that existed before setting this feature will not be updated automatically. Please go the the "Applications" tab in the qube's "Settings" dialog and unselect all existing shortcuts by clicking "<<", then click "OK" and close the dialog. Give it a few seconds time and then reopen and re-select all the shortcuts you want to see in the menu. See [this page](/doc/managing-appvm-shortcuts) for background information.
 
 ## Security
 
