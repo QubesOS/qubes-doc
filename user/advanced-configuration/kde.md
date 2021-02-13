@@ -78,7 +78,7 @@ If you decide to remove KDE do **not** use `dnf remove @kde-desktop-qubes`. You 
 
 The safest way to remove (most of) KDE is:
 ~~~
-sudo dnf remove kdelibs,plasma-workspace
+sudo dnf remove kdelibs plasma-workspace
 ~~~
 
 
