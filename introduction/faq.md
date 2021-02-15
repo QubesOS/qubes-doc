@@ -448,23 +448,7 @@ See [Update Troubleshooting](/doc/update-troubleshooting/#lost-internet-access-a
 
 ### My keyboard layout settings are not behaving correctly. What should I do?
 
-The best approach is to choose the right keyboard layout during the installation process.
-But if you want to change things afterwards, you can try this workaround.
-
-Assuming XFCE desktop: in `Q` → `System Tools` → `Keyboard` → `Layout`, leave the checkbox "`Use system defaults`" checked. Do not customize the keyboard layout here.
-
-Set the system-wide layout and options for `xorg` with the `localectl` command in `dom0`. You can use `localectl --help` as a starting point.
-
-Example: `localectl set-x11-keymap us dell ,qwerty compose:caps`.
-
-This generates the appropriate configuration in `/etc/X11/xorg.conf.d/00-keyboard.conf`.
-This file is auto-generated.
-Do not edit it by hand, unless you know what you are doing.
-
-Restarting `xorg` is required.
-The most straightforward way is to reboot the system.
-
-More information in [this discussion][layout_discussion] and [this issue][layout_issue].
+See [Hardware Troubleshooting](/doc/hardware-troubleshooting/#keyboard-layout-settings-not-behaving-correctly).
 
 ### My dom0 and/or TemplateVM update stalls when attempting to update via the GUI tool. What should I do?
 
@@ -755,8 +739,6 @@ There is also the unofficial [ansible-qubes toolkit][ansible].
 [intro1]: https://en.wikibooks.org/wiki/Fedora_And_Red_Hat_System_Administration/Shell_Basics
 [intro2]: https://en.wikibooks.org/wiki/A_Quick_Introduction_to_Unix
 [intro3]: https://en.wikibooks.org/wiki/Bash_Shell_Scripting
-[layout_discussion]: https://groups.google.com/d/topic/qubes-devel/d8ZQ_62asKI/discussion
-[layout_issue]: https://github.com/QubesOS/qubes-issues/issues/1396
 [LUKS]: https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup
 [Markdown]: /doc/doc-guidelines/#markdown-conventions
 [network]: /doc/networking/
