@@ -288,7 +288,7 @@ We should get "3" as answer.
 
 Here we create an RPC call that reads a specific file from a predefined directory on the target.
 This example uses an [argument](#service-policies-with-arguments) to the policy.
-In this example a simplified workflow will be used. The service code placed is placed directly in the service definition file on the target VM.
+In this example a simplified workflow will be used. The service code is placed directly in the service definition file on the target VM.
 No separate client script will be needed.
 
 First, on your target VM, create two files in the home directory: `testfile1` and `testfile2`.
