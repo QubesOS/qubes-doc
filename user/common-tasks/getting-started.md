@@ -45,7 +45,7 @@ For example, you could use the colors to show that qubes belong to the same doma
 You might use three or four qubes for work activities and give them all the same distinct color label, for instance.
 It's entirely up to you.
 
-![snapshot_40.png](/attachment/wiki/GettingStarted/r4.1-snapshot_40.png)
+![snapshot_40.png](/attachment/wiki/GettingStarted/r4.0-snapshot_40.png)
 
 In addition to qubes and templates, there's one special domain called [dom0], where many system tools and the desktop manager run.
 This is where you log in to the system.
@@ -77,7 +77,7 @@ Alternatively, you can use a suite of GUI tools, most of which are available thr
  - The **Disk Space Widget** will notify you if you're ever running out of disk space.
  - The **Updates Widget** will inform you when template updates are available.
 
-![q40_widgets.png](/attachment/wiki/GettingStarted/r4.1-q40_widgets.png)
+![q40_widgets.png](/attachment/wiki/GettingStarted/r4.0-q40_widgets.png)
 
 For an overview of the entire system, you can use the **Qube Manager** (go to the Application Launcher → System Tools → Qube Manager), which displays the states of all the qubes in your system.
 
@@ -91,9 +91,9 @@ You can start apps directly from the Application Launcher or the Application Fin
 Each qube has its own menu directory under the scheme `Domain: <name>`. 
 After navigating into one of these directories, simply click on the application you'd like to start:
 
-![menu1.png](/attachment/wiki/GettingStarted/r4.1-menu1.png)
+![menu1.png](/attachment/wiki/GettingStarted/r4.0-menu1.png)
 
-![menu2.png](/attachment/wiki/GettingStarted/r4.1-menu2.png)
+![menu2.png](/attachment/wiki/GettingStarted/r4.0-menu2.png)
 
 By default, each qube's menu contains only a few shortcuts. 
 If you'd like to add more, enter the qube's **Qube Settings** and add them on the Applications tab. 

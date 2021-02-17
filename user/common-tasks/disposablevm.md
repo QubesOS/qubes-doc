@@ -95,7 +95,7 @@ This app is running in its own dedicated VM -- a DisposableVM created for the pu
 Once you close the viewing application the whole DisposableVM will be destroyed. 
 If you have edited the file and saved the changes, the changed file will be saved back to the original AppVM, overwriting the original.
 
-![r4.1-open-in-dispvm-1.png](/attachment/wiki/DisposableVms/r4.1-open-in-dispvm-1.png) ![r4.1-open-in-dispvm-2.png](/attachment/wiki/DisposableVms/r4.1-open-in-dispvm-2.png)
+![r4.0-open-in-dispvm-1.png](/attachment/wiki/DisposableVms/r4.0-open-in-dispvm-1.png) ![r4.0-open-in-dispvm-2.png](/attachment/wiki/DisposableVms/r4.0-open-in-dispvm-2.png)
 
 
 ## Opening a fresh web browser instance in a new DisposableVM ##
@@ -105,7 +105,7 @@ This can be done easily using the Start Menu: just go to **Application Menu -\> 
 Wait a few seconds until a web browser starts. 
 Once you close the viewing application the whole DisposableVM will be destroyed. 
 
-![r4.1-open-in-dispvm-3.png](/attachment/wiki/DisposableVms/r4.1-open-in-dispvm-3.png)
+![r4.0-open-in-dispvm-3.png](/attachment/wiki/DisposableVms/r4.0-open-in-dispvm-3.png)
 
 
 ## Opening a file in a DisposableVM via command line (from AppVM) ##
