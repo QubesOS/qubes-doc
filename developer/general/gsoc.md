@@ -5,7 +5,7 @@ permalink: /gsoc/
 redirect_from: /GSoC/
 ---
 
-2020 Google Summer of Code
+2021 Google Summer of Code
 ================
 ## Information for Students
 
@@ -16,8 +16,6 @@ Being accepted as a Google Summer of Code student is quite competitive. Students
 You don't have to be a proven developer -- in fact, this whole program is meant to facilitate joining Qubes and other free and open source communities. The Qubes community maintains information about [contributing to Qubes development][contributing] and [how to send patches][patches]. In order to contribute code to the Qubes project, you must be able to [sign your code][code-signing].
 
 You should start learning the components that you plan on working on before the start date. Qubes developers are available on the [mailing lists][ml-devel] for help. The GSoC timeline reserves a lot of time for bonding with the project -- use that time wisely. Good communication is key, you should plan to communicate with your team daily and formally report progress and plans weekly. Students who neglect active communication will be failed.
-
-You can view the projects we had in 2017 in the [GSoC archive here][2017-archive].
 
 ### Overview of Steps
 
@@ -91,61 +89,6 @@ If applicable, links to more information or discussions
 
 **Mentor**: Name and email address.
 ```
-
-### Template manager, new template distribution mechanism
-
-**Project**: Template manager, new template distribution mechanism
-
-**Brief explanation**: Template VMs currently are distributed using RPM
-packages. There are multiple problems with that, mostly related to static
-nature of RPM package (what files belong to the package). This means such
-Template VM cannot be renamed, migrated to another storage (like LVM), etc.
-Also we don't want RPM to automatically update template package itself (which
-would override all the user changes there). More details:
-[#2064](https://github.com/QubesOS/qubes-issues/issues/2064),
-[#2534](https://github.com/QubesOS/qubes-issues/issues/2534),
-[#3573](https://github.com/QubesOS/qubes-issues/issues/3573).
-
-**Expected results**:
-
- - Design new mechanism for distributing templates (possibly including some
-   package format - either reuse something already existing, or design
-   new one). The mechanism needs to handle:
-   - integrity protection (digital signatures), not parsing any data in dom0
-     prior to signature verification
-   - efficient handling of large sparse files
-   - ability to deploy the template into various storage mechanisms (sparse
-     files, LVM thin volumes etc).
-   - template metadata, templates repository - enable the user to browse
-     available templates (probably should be done in dedicated VM, or DisposableVM)
-   - manual template removal by users (without it, see problems such 
-     as [#5509](https://github.com/QubesOS/qubes-issues/issues/5509)
- - Implement the above mechanism:
-   - tool to download named template - should perform download operation in
-     some VM (as dom0 have no network access), then transfer the data to dom0,
-     verify its integrity and then create Template VM and feed it's root
-     filesystem image with downloaded data.
-   - tool to browse templates repository - both CLI and GUI (preferably integrated 
-     with existing Template Manager tool)
-   - integrate both tools - user should be able to choose some template to be
-     installed from repository browsing tool - see
-     [#1705](https://github.com/QubesOS/qubes-issues/issues/1705) for some idea
-     (this one lacks integrity verification, but a similar service could
-     be developed with that added)
- - If new "package" format is developed, add support for it into
-   [linux-template-builder](https://github.com/QubesOS/qubes-linux-template-builder).
- - Document the mechanism.
- - Write unit tests and integration tests.
-
-**Knowledge prerequisite**:
-
- - Large files (disk images) handling (sparse files, archive formats)
- - Bash and Python scripting
- - Data integrity handling - digital signatures (gpg2, gpgv2)
- - PyGTK
- - RPM package format, (yum) repository basics
-
-**Mentor**: [Marek Marczykowski-Górecki](/team/)
 
 ### USB passthrough to Windows qubes
 
@@ -637,11 +580,73 @@ A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of
 
 **Mentor**: Inquire on [qubes-devel][ml-devel].
 
+## Past Projects
+
+You can view the projects we had in 2017 in the [GSoC 2017 archive][2017-archive]. We also participated in GSoC 2020, and you can see the project in the [GSoC 2020 archive][2020-archive]. 
+
+Here are some successful projects which have been implemented in the past by Google Summer of Code participants.
+
+### Template manager, new template distribution mechanism
+
+**Project**: Template manager, new template distribution mechanism
+
+**Brief explanation**: Template VMs currently are distributed using RPM
+packages. There are multiple problems with that, mostly related to static
+nature of RPM package (what files belong to the package). This means such
+Template VM cannot be renamed, migrated to another storage (like LVM), etc.
+Also we don't want RPM to automatically update template package itself (which
+would override all the user changes there). More details:
+[#2064](https://github.com/QubesOS/qubes-issues/issues/2064),
+[#2534](https://github.com/QubesOS/qubes-issues/issues/2534),
+[#3573](https://github.com/QubesOS/qubes-issues/issues/3573).
+
+**Expected results**:
+
+ - Design new mechanism for distributing templates (possibly including some
+   package format - either reuse something already existing, or design
+   new one). The mechanism needs to handle:
+   - integrity protection (digital signatures), not parsing any data in dom0
+     prior to signature verification
+   - efficient handling of large sparse files
+   - ability to deploy the template into various storage mechanisms (sparse
+     files, LVM thin volumes etc).
+   - template metadata, templates repository - enable the user to browse
+     available templates (probably should be done in dedicated VM, or DisposableVM)
+   - manual template removal by users (without it, see problems such 
+     as [#5509](https://github.com/QubesOS/qubes-issues/issues/5509)
+ - Implement the above mechanism:
+   - tool to download named template - should perform download operation in
+     some VM (as dom0 have no network access), then transfer the data to dom0,
+     verify its integrity and then create Template VM and feed it's root
+     filesystem image with downloaded data.
+   - tool to browse templates repository - both CLI and GUI (preferably integrated 
+     with existing Template Manager tool)
+   - integrate both tools - user should be able to choose some template to be
+     installed from repository browsing tool - see
+     [#1705](https://github.com/QubesOS/qubes-issues/issues/1705) for some idea
+     (this one lacks integrity verification, but a similar service could
+     be developed with that added)
+ - If new "package" format is developed, add support for it into
+   [linux-template-builder](https://github.com/QubesOS/qubes-linux-template-builder).
+ - Document the mechanism.
+ - Write unit tests and integration tests.
+
+**Knowledge prerequisite**:
+
+ - Large files (disk images) handling (sparse files, archive formats)
+ - Bash and Python scripting
+ - Data integrity handling - digital signatures (gpg2, gpgv2)
+ - PyGTK
+ - RPM package format, (yum) repository basics
+
+**Mentor**: [Marek Marczykowski-Górecki](/team/)
+
 ----
 
 We adapted some of the language here about GSoC from the [KDE GSoC page](https://community.kde.org/GSoC).
 
 [2017-archive]: https://summerofcode.withgoogle.com/archive/2017/organizations/5074771758809088/
+[2020-archive]: https://summerofcode.withgoogle.com/archive/2020/organizations/4924517870206976/
 [gsoc-qubes]: https://summerofcode.withgoogle.com/organizations/4675790572093440/
 [gsoc]: https://summerofcode.withgoogle.com/
 [team]: /team/
