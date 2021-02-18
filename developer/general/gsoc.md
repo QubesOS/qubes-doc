@@ -485,6 +485,40 @@ A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of
 
 **Mentor**: Inquire on [qubes-devel][ml-devel].
 
+
+### Secure Boot support
+
+**Project**: Add support for protecting boot binaries with Secure Boot technology, using user-generated keys.
+
+**Brief explanation**: Since recently, Xen supports "unified EFI boot" which allows to sign not only Xen binary itself, but also dom0 kernel and their parameters. While the base technology is there, enabling it is a painful and complex process. The goal of this project is to integrate configuration of this feature into Qubes, automating as much as possible. See discussion in [issue #4371](https://github.com/QubesOS/qubes-issues/issues/4371)
+
+**Expected results**:
+ - a tool to prepare relevant boot files for unified Xen EFI boot - this includes collecting Xen, dom0 kernel, initramfs, config file, and possibly few more (ucode update?); the tool should then sign the file with user provided key (preferably propose to generate it too)
+ - integrate it with updates mechanism, so new Xen or dom0 kernel will be picked up automatically
+ - include a fallback configuration that can be used for troubleshooting (main unified Xen EFI intentionally does not allow to manipulate parameters at boot time)
+
+**Knowledge prerequisite**:
+ - basic understanding of Secure Boot
+ - Bash and Python scripting
+
+**Mentor**: [Marek Marczykowski-Górecki](/team/)
+
+
+### Reduce logging of Disposable VMs
+
+**Project**: Reduce logging of Disposable VMs
+
+**Brief explanation**: Partial metadata of a DisposableVM is stored in the dom0 filesystem. This applies to various logs, GUI status files etc. There should be an option to hide as much of that as possible - including bypassing some logging, and removing various state files, or at the very least obfuscating any hints what is running inside DisposableVM. More details at [issue #4972](https://github.com/QubesOS/qubes-issues/issues/4972)
+
+**Expected results**: A DisposableVM should not leave logs hinting what was running inside.
+
+**Knowledge prerequisite**:
+ - Python scripting
+ - Basic knowledge of Linux system services management (systemd, syslog etc)
+
+**Mentor**: [Marek Marczykowski-Górecki](/team/)
+
+
 ## Past Projects
 
 You can view the projects we had in 2017 in the [GSoC 2017 archive][2017-archive]. We also participated in GSoC 2020, and you can see the project in the [GSoC 2020 archive][2020-archive]. 
