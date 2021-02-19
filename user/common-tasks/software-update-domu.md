@@ -24,7 +24,7 @@ To permanently install new software in a TemplateVM:
  2. Start either a terminal (e.g. `gnome-terminal`) or a dedicated software management application, such as `gpk-application`.
  3. Install software as normally instructed inside that operating system (e.g. `sudo dnf install <PACKAGE_NAME>` on Fedora, `sudo apt install <PACKAGE_NAME>` on Debian).
  4. Shut down the TemplateVM.
- 5. Restart all [TemplateBasedVMs] based on the TemplateVM.
+ 5. Restart all [TemplateBasedVMs] based on the TemplateVM so the changes can take effect.
  6. (Optional) In the relevant [TemplateBasedVMs]' **Qube Settings**, go to the **Applications** tab, select the new application(s) from the list, and press OK.
     These new shortcuts will appear in the Applications Menu.
     (If you encounter problems, see [here][shortcuts] for troubleshooting.)
