@@ -165,13 +165,7 @@ The procedure for upgrading a Fedora [StandaloneVM] is the same as for a Templat
 
 This section contains notes about upgrading to specific releases.
 
-
-### Fedora 30
-
-If your RPM Fusion repositories are **disabled** when you upgrade a TemplateVM to 30, all RPM Fusion packages and RPM Fusion repo definitions will be removed from that TemplateVM.
-If your RPM Fusion repositories are **enabled** when upgrading, all RPM Fusion packages and repo definitions will be retained and updated as expected.
-For most users, this behavior should not cause a problem, since a TemplateVM in which the RPM Fusion repos are disabled is probably a TemplateVM in which you never wish to use them.
-However, if you wish to have the RPM Fusion repo definitions after upgrading in a TemplateVM in which they are currently disabled, you may wish to temporarily enable them prior to upgrading or manually create, copy, or download them after upgrading.
+ - (None)
 
 
 ### End-of-life (EOL) releases
