@@ -163,14 +163,13 @@ The procedure for upgrading a Fedora [StandaloneVM] is the same as for a Templat
 
 ## Release-specific notes
 
-This section contains notes about upgrading to specific releases.
-
- - (None)
+See the [news] announcement for each specific TemplateVM release for any important notices about that particular release.
 
 
 ### End-of-life (EOL) releases
 
 We strongly recommend against using any Fedora release that has reached [end-of-life (EOL)].
+Also see [supported versions].
 
 
 ## Additional information
@@ -201,4 +200,6 @@ In this case, you have several options:
 [StandaloneVM]: /doc/standalone-and-hvm/
 [template-notes]: /doc/templates/#important-notes
 [5055]: https://github.com/QubesOS/qubes-issues/issues/5055
+[supported versions]: /doc/supported-versions/
+[news]: /news/
 
