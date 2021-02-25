@@ -69,8 +69,8 @@ For upstream EOL information, see [Fedora EOL][fedora-eol] and [Debian EOL][debi
 
 | Qubes OS    | Fedora | Debian                       | Whonix |
 | ----------- | ------ | ---------------------------- | ------ |
-| Release 4.0 | 32     | 9 ("stretch"), 10 ("buster") | 15     |
-| Release 4.1 | 32     | 10 ("buster")                | 15     |
+| Release 4.0 | 32, 33 | 9 ("stretch"), 10 ("buster") | 15     |
+| Release 4.1 | 32, 33 | 10 ("buster")                | 15     |
 
 \* Denotes versions for which we have published the packages but have not done extensive testing.
 
