@@ -24,7 +24,7 @@ DomU
 ----
 
  * [qrexec-client-vm](https://github.com/QubesOS/qubes-core-qrexec/blob/master/agent/qrexec-client-vm.rst)
- * [qvm-copy-to-vm](https://github.com/QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-copy-to-vm.rst)
+ * [qvm-copy](https://github.com/QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-copy.rst)
  * [qvm-open-in-dvm](https://github.com/QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-open-in-dvm.rst)
  * [qvm-open-in-vm](https://github.com/QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-open-in-vm.rst)
  * [qvm-run-vm](https://github.com/QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-run-vm.rst)
