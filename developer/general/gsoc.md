@@ -90,50 +90,6 @@ If applicable, links to more information or discussions
 **Mentor**: Name and email address.
 ```
 
-### USB passthrough to Windows qubes
-
-**Project**: USB passthrough to Windows qubes
-
-**Brief explanation**: Add ability to use individual USB devices in Windows qubes. Right now the only option to do that, is to assign the whole USB controller (PCI device), which applies to all the devices connected to it. USB passthrough on Qubes is based on USBIP project, with transport over qrexec instead of TCP/IP.
-
-**Expected results**:
-
- - Evaluate possible approaches (including flexibility, compatibility and performance), suggested ideas:
-   - use [USBIP for Windows](https://github.com/cezuni/usbip-win) and make it work with qrexec - similar as done for Linux
-   - use qrexec+USBIP in Linux-based stubdomain and plug it into USB emulation in qemu
- - Choose one approach, write (very simple) design documentation
- - Write relevant new code (applies mostly for usbip-win case)
- - Plug the mechanism into Qubes core toolstack ([Devices API](https://dev.qubes-os.org/projects/core-admin/en/latest/qubes-devices.html))
-
-**Knowledge prerequisite**:
-
-- basic USB architecture knowledge (buses, devices, interfaces, functions)
-- Python and Bash scripting
-- C
-- Windows USB stack and/or qemu USB stack
-
-**Mentor**: [Marek Marczykowski-Górecki](/team/)
-
-### Dedicated Audio qube
-
-**Project**: Dedicated Audio qube
-
-**Brief explanation**: Moving audio subsystem from dom0 to a dedicated AudioVM and/or a preexisting VM (e.g sys-usb with attached usb audio device). This would allow using USB audio devices system-wide, without leaving a USB controller in dom0. [Relevant github issue](https://github.com/QubesOS/qubes-issues/issues/1590).
-
-**Expected results**:
-
-- Make audio virtualization components work with non-dom0 backend (in short: add configuration option for the backend, instead of assuming "dom0")
-- Possibly per-qube setting what should be used as an AudioVM
-- Make other audio-related tools (including GUI tools) work with the new setup, especially enabling/disabling microphone (`qvm-device mic`) and volume control
-
-**Knowledge prerequisite**:
-
-- Pulseaudio
-- C
-- Python
-
-**Mentor**: [Marek Marczykowski-Górecki](/team/)
-
 ### Qubes as a Vagrant provider
 
 **Project**: Qubes as a Vagrant provider
@@ -295,43 +251,6 @@ immune to altering past entries. See
 
 **Mentor**: [Frédéric Pierret](/team/)
 
-<!--
-
-Removed as of January 2020: work done by MIM UW students
-
-### Xen GPU passthrough for Intel integrated GPUs
-**Project**: Xen GPU passthrough for Intel integrated GPUs (largely independent of Qubes)
-
-**Brief explanation**: This project is prerequisite to full GUI domain support,
-where all desktop environment is running in dedicated VM, isolated from
-dom0. There is already some support for GPU passthrough in Xen, but needs to be
-integrated in to Qubes and probably really make working, even when using qemu
-in stubdomain. GUI domain should be a HVM domain (not PV).
-This should be done without compromising Qubes security features, especially:
-using VT-d for protection against DMA attacks, using stubdomain for sandboxing
-qemu process (if needed) - qemu running in dom0 is not acceptable.  More
-details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
-
-**Expected results**:
-
- - Ability to start a VM with GPU connected. VM should be able to handle video
-   output (both laptop internal display, and external monitors if apply). That
-   VM also should be able to use hardware acceleration.
- - This project may require patching any/all of Xen hypervisor, Libvirt, Qemu,
-   Linux. In such a case, patches should be submitted to appropriate upstream
-   project.
- - It's ok to focus on a specific, relatively new Intel-based system with Intel
-   integrated GPU.
-
-**Knowledge prerequisite**:
-
- - C language
- - Kernel/hypervisor debugging
- - Basics of x86_64 architecture, PCIe devices handling (DMA, MMIO, interrupts), IOMMU (aka VT-d)
- - Xen hypervisor architecture
-
-**Mentor**: [Marek Marczykowski-Górecki](/team/)
--->
 
 ### Whonix IPv6 and nftables support
 **Project**: Whonix IPv6 and nftables support
@@ -354,27 +273,6 @@ details in [#2618](https://github.com/QubesOS/qubes-issues/issues/2618).
 
 **Mentor**: [Patrick Schleizer](/team/)
 
-### Audio support for Qubes Windows Tools
-**Project**: Audio support for Qubes Windows Tools
-
-**Brief explanation**: Add audio support for Windows HVMs via Qubes Windows Tools. [#2624](https://github.com/QubesOS/qubes-issues/issues/2624)
-
-**Expected results**: Windows HVMs should have an audio device that supports playback and recording.
-
-**Knowledge prerequisite**: C/C++ languages, familiarity with Windows API, possibly familiarity with Windows audio stack on the driver level.
-
-**Mentor**: [Rafał Wojdyła](/team/)
-
-### Improve Windows GUI agent performance and stability
-**Project**: Improve Windows GUI agent performance and stability
-
-**Brief explanation**: Previous profiling has shown that the Windows GUI agent uses significant portion of VM's CPU time for mouse input simulation. This can be improved, as well as agent's stability in some cases (desktop/user switching, logon/logoff, domain-joined VMs, multiple monitors). Seamless GUI experience can be significantly improved, but that may require changes in the Qubes video driver. [#1044](https://github.com/QubesOS/qubes-issues/issues/1044) [#1045](https://github.com/QubesOS/qubes-issues/issues/1045) [#1500](https://github.com/QubesOS/qubes-issues/issues/1500) [#2138](https://github.com/QubesOS/qubes-issues/issues/2138) [#2487](https://github.com/QubesOS/qubes-issues/issues/2487) [#2589](https://github.com/QubesOS/qubes-issues/issues/2589)
-
-**Expected results**: Reduction of agent's CPU usage, improved stability.
-
-**Knowledge prerequisite**: C language, Familiarity with Windows API, especially the windowing stack. Familiarity with profiling and debugging tools for Windows.
-
-**Mentor**: [Rafał Wojdyła](/team/)
 
 ### GUI agent for Windows 8/10
 **Project**: GUI agent for Windows 8/10
@@ -504,6 +402,11 @@ Some related discussion:
  
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
 
+
+<!--
+
+REMOVED as of February 2021: work is being done on this
+
 ### Porting Qubes to POWER9/PPC64
 
 **Project**: Porting Qubes to POWER9/ppc64
@@ -535,6 +438,8 @@ More information and further links can be found in the related issue:
  - General ppc64 architecture knowledge.
  
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
+
+-->
 
 ### Android development in Qubes
 
@@ -579,6 +484,40 @@ A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of
   - a hacker's curiosity
 
 **Mentor**: Inquire on [qubes-devel][ml-devel].
+
+
+### Secure Boot support
+
+**Project**: Add support for protecting boot binaries with Secure Boot technology, using user-generated keys.
+
+**Brief explanation**: Since recently, Xen supports "unified EFI boot" which allows to sign not only Xen binary itself, but also dom0 kernel and their parameters. While the base technology is there, enabling it is a painful and complex process. The goal of this project is to integrate configuration of this feature into Qubes, automating as much as possible. See discussion in [issue #4371](https://github.com/QubesOS/qubes-issues/issues/4371)
+
+**Expected results**:
+ - a tool to prepare relevant boot files for unified Xen EFI boot - this includes collecting Xen, dom0 kernel, initramfs, config file, and possibly few more (ucode update?); the tool should then sign the file with user provided key (preferably propose to generate it too)
+ - integrate it with updates mechanism, so new Xen or dom0 kernel will be picked up automatically
+ - include a fallback configuration that can be used for troubleshooting (main unified Xen EFI intentionally does not allow to manipulate parameters at boot time)
+
+**Knowledge prerequisite**:
+ - basic understanding of Secure Boot
+ - Bash and Python scripting
+
+**Mentor**: [Marek Marczykowski-Górecki](/team/)
+
+
+### Reduce logging of Disposable VMs
+
+**Project**: Reduce logging of Disposable VMs
+
+**Brief explanation**: Partial metadata of a DisposableVM is stored in the dom0 filesystem. This applies to various logs, GUI status files etc. There should be an option to hide as much of that as possible - including bypassing some logging, and removing various state files, or at the very least obfuscating any hints what is running inside DisposableVM. More details at [issue #4972](https://github.com/QubesOS/qubes-issues/issues/4972)
+
+**Expected results**: A DisposableVM should not leave logs hinting what was running inside.
+
+**Knowledge prerequisite**:
+ - Python scripting
+ - Basic knowledge of Linux system services management (systemd, syslog etc)
+
+**Mentor**: [Marek Marczykowski-Górecki](/team/)
+
 
 ## Past Projects
 
