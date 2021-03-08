@@ -80,7 +80,7 @@ Different DisposableVM Templates with individual NetVM settings can be added to 
 **Important Notes:**
 Some DisposableVM Templates will automatically create a menu item to launch a DVM, if you do not see an entry and want to add one please use the command:
 
-    qvm-features deb-dvm appmenus-dispvm 1
+    qvm-features <DISPOSABLEVM> appmenus-dispvm 1
 
 To launch a DisposableVM Template from the command line, in dom0 please type the following:
     
