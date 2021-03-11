@@ -11,13 +11,19 @@ Updating Qubes OS
 If you're instead looking to upgrade from your current version of Qubes OS to a newer version, see the [Upgrade Guides].*
 
 It is very important to keep your Qubes OS system up-to-date to ensure you have the latest [security] updates, as well as the latest non-security enhancements and bug fixes.
+
 Fully updating your Qubes OS system means updating:
 
  - [Dom0]
  - [TemplateVMs]
  - [StandaloneVMs] (if you have any)
 
-Visit the pages above to see to how to update each one.
+You can accomplish this using the **Qubes Update** tool.
+By default, the Qubes Update tool will appear as an icon in the Notification Area when updates are available, but you can also start the tool manually by selecting it in the Applications Menu under "System Tools."
+Even if no updates have been detected, you can use this tool to check for updates manually at any time by selecting "Enable updates for qubes without known available updates," then selecting all desired items from the list and clicking "Next."
+
+As an alterntaive to the Qubes Update tool, advanced users can update each of the three types of VMs manually.
+Visit the pages linked above for details about updating each type.
 
 The final step is to make sure that all of your VMs are running a supported operating system so that they're all receiving upstream security updates.
 For example, you might be using a [Fedora TemplateVM].
