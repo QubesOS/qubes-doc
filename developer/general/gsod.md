@@ -4,11 +4,9 @@ title: Google Season of Docs
 permalink: /gsod/
 ---
 
-# 2020 Google Season of Docs
+# 2021 Google Season of Docs
 
-Thank you for your interest in participating in the [2020 Google Season of Docs][gsod] program with the [Qubes OS team][team]. You can read more about the Google Season of Docs in the official [guides][gsod-doc] and [FAQ][gsod-faq].
-
-You can view the project we had in 2019 in the [2019 GSoD archive][2019-qubes-gsod] and the [2019 writer's report][2019-qubes-report].
+Thank you for your interest in participating in the [2021 Google Season of Docs][gsod] program with the [Qubes OS team][team]. You can read more about the Google Season of Docs in the official [guides][gsod-doc] and [FAQ][gsod-faq].
 
 ## Project Ideas List
 
@@ -88,6 +86,32 @@ Additionally, terminology is used inconsistently.
 
 **Mentor**: [Marek Marczykowski-Górecki][team]
 
+### Installation Guide for Qubes OS on Virtual Machines
+
+**Project**: Installation Guide for Qubes OS on Virtual Machines.
+
+**Brief explanation**: The Qubes OS is missing an installation guide for virtual machines. Users are installing an outdated and unsupported version of Qubes OS (3.2) instead of the supported version. There is unofficial [existing installation guide] for Qubes OS on a virtual box but it is misleading and lacks documentation. Usually, users face some errors and bugs while installing Qubes OS on a virtual machine.[virtual box issue]
+
+**Expected results**: 
+ -Provide a new option of installation guide for users working on virtual machines.
+ -Review existing problems and provide solutions to them.
+ -Giving a warning for using outdated versions.
+
+**Knowledge prerequisite**: 
+ - Experience in virtual boxes and machines.
+ - Basic Knowledge about Fedora linux architecture.
+ - [Markdown][markdown]
+ 
+**Mentor**: [Marek Marczykowski-Górecki][team]
+
+## Past Projects
+
+You can view the project we had in 2019 in the [2019 GSoD archive][2019-qubes-gsod] and the [2019 writer's report][2019-qubes-report].
+
+You can also view the project we had in 2020 in the [2020 GSoD archive][2020-qubes-gsod] and the [2020 writer's report][2020-qubes-report].
+
+Here are some successful projects which have been implemented in the past by Google Season of Docs participants. 
+
 ### Consolidate troubleshooting guides
 
 **Project**: Consolidate troubleshooting guides
@@ -107,23 +131,45 @@ This could be helped by writing consolidated guide with with a clear list of sym
 
 **Mentor**: [Marek Marczykowski-Górecki][team]
 
-### Installation Guide for Qubes OS on Virtual Machines
+### Improve Getting Started page
 
-**Project**: Installation Guide for Qubes OS on Virtual Machines.
+**Project**: Improve Getting Started page
 
-**Brief explanation**: The Qubes OS is missing an installation guide for virtual machines. Users are installing an outdated and unsupported version of Qubes OS (3.2) instead of the supported version. There is unofficial [existing installation guide] for Qubes OS on a virtual box but it is misleading and lacks documentation. Usually, users face some errors and bugs while installing Qubes OS on a virtual machine.[virtual box issue]
+**Brief explanation**: The [Getting Started page](https://www.qubes-os.org/getting-started/) is the place a new user would go to understand better how to use Qubes. It is currently has old screenshots not using the default desktop environment and could have much better flow. In addition, this improved page content may end up being served more directly to the user via the [offline documentation](#offline-documentation) or the [firstboot guide](#create-guide-on-firstboot-for-new-users). 
 
 **Expected results**: 
- -Provide a new option of installation guide for users working on virtual machines.
- -Review existing problems and provide solutions to them.
- -Giving a warning for using outdated versions.
+
+ - Review the existing page and website, similar pages for other OSes
+ - Provide visual mock-ups and proposed text 
 
 **Knowledge prerequisite**: 
- - Experience in virtual boxes and machines.
- - Basic Knowledge about Fedora linux architecture.
- - [Markdown][markdown]
- 
+
+- basic Qubes OS knowledge
+- [Markdown][markdown]
+
+**Mentor**: [Michael Carbone][team]
+
+### Rewrite qrexec documentation
+
+**Project**: Rewrite qrexec documentation
+
+**Brief explanation**: Current qrexec (qubes remote exec) documentation is hard to follow, important informations are hidden within a wall of text.
+Some parts are split into multiple sections, for example version specific to avoid duplication, but it doesn't help reading it.
+Additionally, protocol documentation describes only few specific use cases, instead of being clear and precise protocol specification.
+Fixing this last point may require very close cooperation with developers, as the current documentation doesn't multiple corner cases (that's one of the issue with its current shape).
+
+**Expected results**:
+
+- Review existing [qrexec documentation](https://www.qubes-os.org/doc/qrexec3/) and an [issue about it](https://github.com/QubesOS/qubes-issues/issues/1392)
+- Propose updated, consolidated admin documentation (policy writing, adding services)
+- Propose consolidated protocol specification, based on the current documentation, and cooperation with developers
+
+**Knowledge prerequisite**:
+
+- [Markdown][markdown]
+
 **Mentor**: [Marek Marczykowski-Górecki][team]
+
 
 [gsod]: https://developers.google.com/season-of-docs/
 [team]: /team/
@@ -139,5 +185,7 @@ This could be helped by writing consolidated guide with with a clear list of sym
 [doc-issues]: https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+doc%22
 [2019-qubes-gsod]:  https://developers.google.com/season-of-docs/docs/2019/participants/project-qubes
 [2019-qubes-report]: https://refre.ch/report-qubesos/
+[2020-qubes-gsod]: https://developers.google.com/season-of-docs/docs/2020/participants/project-qubesos-c1e0
+[2020-qubes-report]: https://gist.github.com/PROTechThor/bfe9b8b28295d88c438b6f6c754ae733
 [existing installation guide]: https://www.youtube.com/watch?v=mATI8Lht0Js
 [virtual box issue]: https://www.virtualbox.org/ticket/16771
