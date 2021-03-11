@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Backup, Restoration, and Migration
+title: Backup, restoration, and migration
 permalink: /doc/backup-restore/
 redirect_from:
 - /en/doc/backup-restore/
@@ -8,8 +8,8 @@ redirect_from:
 - /wiki/BackupRestore/
 ---
 
-Qubes Backup, Restoration, and Migration
-========================================
+Backup, restoration, and migration
+==================================
 
 With Qubes, it's easy and secure to back up and restore your whole system, as well as to migrate between two physical machines.
 
@@ -21,8 +21,23 @@ This is true of all computing, not just the use of Qubes.
 Data loss can and does occur in myriad and unexpected ways.
 A standard recommendation is to make backups at least weekly: three copies in two different formats, one off-site.
 
+Backing up changes to dom0
+--------------------------
 
-Creating a Backup
+When backing up dom0 using the Qubes backup tool (explained below), only the home directory is backed up.
+Therefore, if there are files outside of the home directory you wish to save, you should copy them into the home directory prior to creating a backup. 
+Here is an example of how to back up Qubes config files and RPC policies:
+
+    $ mkdir -p ~/backup/etc/qubes/
+    $ cp -a /etc/qubes/* ~/backup/etc/qubes/
+    $ mkdir ~/backup/etc/qubes-rpc/
+    $ cp -a /etc/qubes-rpc/* ~/systemfiles/etc/qubes-rpc/
+
+To restore these files, move them from the restored directory in dom0's home back to their appropriate locations in `/etc/`.
+Please note that any packages installed via the package manager in dom0 will not be backed up.
+Such packages will have to be reinstalled through the package manager when restoring on a fresh installation.
+
+Creating a backup
 -----------------
 
 1. Go to **Applications menu -> System Tools -> Backup Qubes**.
@@ -69,7 +84,7 @@ Creating a Backup
    A backup is useless if you can't restore your data from it, and you can't be sure that your backup is good until you try to restore.
 
 
-Restoring from a Backup
+Restoring from a backup
 -----------------------
 
 1. Go to **Applications menu -> System Tools -> Restore Backup**.
@@ -114,7 +129,7 @@ However, if you do wish to move all files from the dom0 backup out of the subdir
 Just remember that this can cause unexpected and desired configuration changes in dom0, depending on exactly which files you're adding and replacing.
 
 
-Emergency Backup Recovery without Qubes
+Emergency backup recovery without Qubes
 ---------------------------------------
 
 The Qubes backup system has been designed with emergency disaster recovery in mind. 
@@ -128,13 +143,13 @@ Refer to the following for emergency restore of a backup created on:
  * [Qubes R2 or older](/doc/backup-emergency-restore-v2/)
 
 
-Migrating Between Two Physical Machines
+Migrating between two physical machines
 ---------------------------------------
 
 In order to migrate your Qubes system from one physical machine to another, simply follow the backup procedure on the old machine, [install Qubes](/downloads/) on the new machine, and follow the restoration procedure on the new machine.
 All of your settings and data will be preserved!
 
-Choosing a Backup Passphrase
+Choosing a backup passphrase
 ----------------------------
 
 Here are some things to consider when selecting a passphrase for your backups:
