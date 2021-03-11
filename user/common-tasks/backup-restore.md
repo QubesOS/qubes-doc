@@ -21,6 +21,23 @@ This is true of all computing, not just the use of Qubes.
 Data loss can and does occur in myriad and unexpected ways.
 A standard recommendation is to make backups at least weekly: three copies in two different formats, one off-site.
 
+Backing up changes to Dom0
+--------------------------
+NOTE: If you use the Backup Qubes tool to backup Dom0, it only backs up files in the home directory.
+If you have files in Dom0 that you want to save, you should put copies of them in your home directory before running Backup Qubes per the instructions below. 
+An example of how to back up files from /etc/ if you created qrexec policies (named *local.mysql*, *local.ssh*) and altered *guid.conf* would look like the following:
+
+    yourname@dom0 ~]$mkdir ~/systemfiles
+    yourname@dom0 ~]$mkdir ~/systemfiles/etc
+    yourname@dom0 ~]$mkdir ~/systemfiles/etc/qubes-rpc
+    yourname@dom0 ~]$mkdir ~/systemfiles/etc/qubes-rpc/policy
+    yourname@dom0 ~]$cp /etc/qubes-rpc/policy/local.* ~/systemfiles/etc/qubes-rpc/policy/
+    yourname@dom0 ~]$mkdir systemfiles/etc/qubes
+    yourname@dom0 ~]$cp /etc/qubes/guid.conf ~/systemfiles/etc/qubes/guid.conf
+
+To restore these files you would have to move them from the restored directory in your home back to their appropriate locations in /etc/ after the restore as described below.
+
+If you are rebuilding your system from a fresh install and you had installed additional packages in your dom0 you will need to reinstall the packages into your new dom0.
 
 Creating a Backup
 -----------------
