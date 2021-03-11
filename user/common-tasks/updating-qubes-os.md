@@ -11,6 +11,14 @@ Updating Qubes OS
 If you're instead looking to upgrade from your current version of Qubes OS to a newer version, see the [Upgrade Guides].*
 
 It is very important to keep your Qubes OS system up-to-date to ensure you have the latest [security] updates, as well as the latest non-security enhancements and bug fixes.
+
+Qubes update (on tray menu) » Launch updater » Next (leave all selected).
+
+[add image]
+
+Updating the system for advanced users
+--------------------------------------
+
 Fully updating your Qubes OS system means updating:
 
  - [Dom0]
