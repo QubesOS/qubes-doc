@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc-full
 permalink: /doc/admin-api/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /doc/mgmt1/
 - /doc/mgmt-architecture/
 - /doc/admin-api-architecture/
+ref: 36
 title: Admin API
 ---
 

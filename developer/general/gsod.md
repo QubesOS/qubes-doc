@@ -1,6 +1,8 @@
 ---
+lang: en
 layout: sidebar
 permalink: /gsod/
+ref: 28
 title: Google Season of Docs
 ---
 

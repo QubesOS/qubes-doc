@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: default
 permalink: /screenshots/
 redirect_from:
 - /media/
 - /doc/QubesScreenshots/
 - /wiki/QubesScreenshots/
+ref: 123
 title: Screenshots
 ---
 

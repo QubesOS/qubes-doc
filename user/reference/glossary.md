@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/glossary/
 redirect_from:
 - /en/doc/glossary/
 - /doc/Glossary/
 - /wiki/Glossary/
+ref: 140
 title: Glossary
 ---
 

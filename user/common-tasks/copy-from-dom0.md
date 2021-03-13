@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/copy-from-dom0/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /en/doc/copy-to-dom0/
 - /doc/CopyToDomZero/
 - /wiki/CopyToDomZero/
+ref: 198
 title: Copying from (and to) dom0
 ---
 

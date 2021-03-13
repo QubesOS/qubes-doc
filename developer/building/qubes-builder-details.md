@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/qubes-builder-details/
 redirect_from:
 - /en/doc/qubes-builder-details/
 - /doc/QubesBuilderDetails/
 - /wiki/QubesBuilderDetails/
+ref: 65
 title: Qubes Builder Details
 ---
 

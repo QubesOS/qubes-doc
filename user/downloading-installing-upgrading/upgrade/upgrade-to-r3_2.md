@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/upgrade-to-r3.2/
 redirect_from:
 - /en/doc/upgrade-to-r3.2/
 - /doc/UpgradeToR3.2/
 - /doc/UpgradeToR3.2rc1/
+ref: 161
 title: Upgrading to R3.2
 ---
 

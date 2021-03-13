@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/doc-guidelines/
 redirect_from:
 - /en/doc/doc-guidelines/
 - /wiki/DocStyle/
 - /doc/DocStyle/
+ref: 30
 title: Documentation Guidelines
 ---
 

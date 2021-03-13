@@ -1,6 +1,8 @@
 ---
+lang: en
 layout: doc
 permalink: /security/xsa/
+ref: 214
 title: Xen Security Advisory (XSA) Tracker
 ---
 

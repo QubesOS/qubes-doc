@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/templates/xfce/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /en/doc/templates/xfce/
 - /doc/Templates/Xfce/
 - /wiki/Templates/Xfce/
+ref: 222
 title: Xfce TemplateVMs
 ---
 

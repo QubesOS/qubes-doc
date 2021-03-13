@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/coding-style/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /doc/CodingStyle/
 - /wiki/CodingStyle/
 - /trac/wiki/CodingStyle/
+ref: 53
 title: Coding Style
 ---
 

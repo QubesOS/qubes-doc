@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /security/
 redirect_from:
@@ -11,6 +12,7 @@ redirect_from:
 - /doc/SecurityPage/
 - /wiki/SecurityPage/
 - /trac/wiki/SecurityPage/
+ref: 217
 title: Security
 ---
 

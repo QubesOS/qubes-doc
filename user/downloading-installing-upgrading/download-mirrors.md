@@ -1,6 +1,8 @@
 ---
+lang: en
 layout: sidebar
 permalink: /downloads/mirrors/
+ref: 148
 title: Download Mirrors
 ---
 

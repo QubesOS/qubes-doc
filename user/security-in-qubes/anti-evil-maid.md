@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/anti-evil-maid/
 redirect_from:
 - /en/doc/anti-evil-maid/
 - /doc/AntiEvilMaid/
 - /wiki/AntiEvilMaid/
+ref: 164
 title: Anti Evil Maid (AEM)
 ---
 

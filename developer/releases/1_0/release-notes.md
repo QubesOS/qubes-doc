@@ -1,8 +1,10 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/releases/1.0/release-notes/
 redirect_from:
 - /en/doc/releases/1.0/release-notes/
+ref: 18
 title: Qubes R1.0 Release Notes
 ---
 

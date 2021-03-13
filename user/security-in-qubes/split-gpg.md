@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/split-gpg/
 redirect_from:
@@ -11,6 +12,7 @@ redirect_from:
 - /doc/OpenPGP/
 - /doc/UserDoc/OpenPGP/
 - /wiki/UserDoc/OpenPGP/
+ref: 168
 title: Split GPG
 ---
 

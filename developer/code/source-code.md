@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/source-code/
 redirect_from:
 - /en/doc/source-code/
 - /doc/SourceCode/
 - /wiki/SourceCode/
+ref: 54
 title: Source Code
 ---
 

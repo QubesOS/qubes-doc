@@ -1,9 +1,11 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/backup-emergency-restore-v4/
 redirect_from:
 - /en/doc/backup-emergency-restore-v4/
 - /doc/BackupEmergencyRestoreV4/
+ref: 192
 title: Emergency Backup Recovery (v4)
 ---
 

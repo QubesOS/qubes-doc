@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/architecture/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /en/doc/qubes-architecture/
 - /doc/QubesArchitecture/
 - /wiki/QubesArchitecture/
+ref: 56
 title: Architecture
 ---
 

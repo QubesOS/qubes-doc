@@ -1,8 +1,10 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/usb-devices/
 redirect_from:
 - /doc/usb/
+ref: 195
 title: USB Devices
 ---
 

@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /security/pack/
 redirect_from:
@@ -12,6 +13,7 @@ redirect_from:
 - /doc/qsp/
 - /doc/sec-pack/
 - /doc/secpack/
+ref: 213
 title: Security Pack
 ---
 

@@ -1,6 +1,8 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/rpc-policy/
+ref: 178
 title: RPC Policies
 ---
 

@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/test-bench/
 redirect_from:
 - /en/doc/test-bench/
 - /doc/TestBench/
 - /wiki/TestBench/
+ref: 44
 title: Test Bench
 ---
 

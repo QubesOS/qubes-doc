@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/qmemman/
 redirect_from:
 - /en/doc/qmemman/
 - /doc/Qmemman/
 - /wiki/Qmemman/
+ref: 41
 title: Qmemman
 ---
 

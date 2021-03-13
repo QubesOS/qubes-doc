@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/system-requirements/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /en/doc/system-requirements/
 - /doc/SystemRequirements/
 - /wiki/SystemRequirements/
+ref: 142
 title: System Requirements
 ---
 

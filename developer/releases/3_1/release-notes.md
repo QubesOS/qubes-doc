@@ -1,6 +1,8 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/releases/3.1/release-notes/
+ref: 16
 title: Qubes R3.1 release notes
 ---
 

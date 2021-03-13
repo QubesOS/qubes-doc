@@ -1,6 +1,8 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/update-troubleshooting/
+ref: 239
 title: Update Troubleshooting
 ---
 

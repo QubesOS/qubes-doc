@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 redirect_from:
 - /doc/windows-tools/
@@ -12,5 +13,6 @@ redirect_from:
 - /doc/WindowsTools/
 - /wiki/WindowsTools/
 redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows-tools.md
+ref: 86
 title: Qubes Windows Tools
 ---

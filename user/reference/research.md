@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: default
 permalink: /research/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /en/doc/qubes-research/
 - /doc/QubesResearch/
 - /wiki/QubesResearch/
+ref: 139
 title: Research
 ---
 

@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /security/bulletins/
 redirect_from:
@@ -7,6 +8,7 @@ redirect_from:
 - /doc/SecurityBulletins/
 - /wiki/SecurityBulletins/
 - /trac/wiki/SecurityBulletins/
+ref: 218
 title: Qubes Security Bulletins (QSBs)
 ---
 

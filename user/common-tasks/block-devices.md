@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/block-devices/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /en/doc/stick-mounting/
 - /doc/StickMounting/
 - /wiki/StickMounting/
+ref: 193
 title: Block (Storage) Devices
 ---
 

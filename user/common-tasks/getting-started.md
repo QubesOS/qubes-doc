@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: default
 permalink: /doc/getting-started/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /en/doc/getting-started/
 - /doc/GettingStarted/
 - /wiki/GettingStarted/
+ref: 190
 title: Get Started
 ---
 

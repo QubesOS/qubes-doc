@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/templates/debian/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /en/doc/templates/debian/
 - /doc/Templates/Debian/
 - /wiki/Templates/Debian/
+ref: 134
 title: The Debian TemplateVM
 ---
 

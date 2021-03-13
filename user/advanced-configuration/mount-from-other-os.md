@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/mount-from-other-os/
 redirect_from:
 - /en/doc/mount-from-other-os/
 - /doc/MountFromOtherOs/
 - /wiki/MountFromOtherOs/
+ref: 175
 title: Mounting and Decrypting Qubes Partitions from Outside Qubes
 ---
 

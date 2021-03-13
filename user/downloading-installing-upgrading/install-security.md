@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/install-security/
 redirect_from:
 - /en/doc/install-security/
 - /doc/InstallSecurity/
 - /wiki/InstallSecurity/
+ref: 149
 title: Installation security
 ---
 

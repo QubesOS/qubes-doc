@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/qubes-service/
 redirect_from:
 - /en/doc/qubes-service/
 - /doc/QubesService/
 - /wiki/QubesService/
+ref: 138
 title: Qubes Service
 ---
 

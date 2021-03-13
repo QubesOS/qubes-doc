@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/backup-restore/
 redirect_from:
 - /en/doc/backup-restore/
 - /doc/BackupRestore/
 - /wiki/BackupRestore/
+ref: 199
 title: Backup, restoration, and migration
 ---
 

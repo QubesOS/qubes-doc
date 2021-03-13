@@ -1,6 +1,8 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/hardware-testing/
+ref: 145
 title: Hardware Testing
 ---
 

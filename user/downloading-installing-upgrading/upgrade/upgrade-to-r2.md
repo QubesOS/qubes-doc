@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/upgrade-to-r2/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /doc/UpgradeToR2/
 - /doc/UpgradeToR2rc1/
 - /wiki/UpgradeToR2rc1/
+ref: 156
 title: Upgrading to R2
 ---
 

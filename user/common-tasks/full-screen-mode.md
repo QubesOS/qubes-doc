@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/full-screen-mode/
 redirect_from:
 - /en/doc/full-screen-mode/
 - /doc/FullScreenMode/
 - /wiki/FullScreenMode/
+ref: 205
 title: Full Screen Mode
 ---
 

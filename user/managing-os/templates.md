@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/templates/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /en/doc/templates/
 - /doc/Templates/
 - /wiki/Templates/
+ref: 131
 title: TemplateVMs
 ---
 

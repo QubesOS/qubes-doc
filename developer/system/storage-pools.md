@@ -1,6 +1,8 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/storage-pools/
+ref: 57
 title: Storage Pools
 ---
 

@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/device-handling/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /en/doc/external-device-mount-point/
 - /doc/ExternalDeviceMountPoint/
 - /wiki/ExternalDeviceMountPoint/
+ref: 188
 title: Device Handling
 ---
 

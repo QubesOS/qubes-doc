@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/disk-troubleshooting/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /doc/OutOfmemory/
 - /wiki/OutOfmemory/
 - /doc/out-of-memory/
+ref: 231
 title: Disk Troubleshooting
 ---
 

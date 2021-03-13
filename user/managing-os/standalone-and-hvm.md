@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/standalone-and-hvm/
 redirect_from:
@@ -7,6 +8,7 @@ redirect_from:
 - /en/doc/hvm-create/
 - /doc/HvmCreate/
 - /wiki/HvmCreate/
+ref: 130
 title: StandaloneVMs and HVMs
 ---
 

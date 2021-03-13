@@ -1,7 +1,9 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/gui-configuration/
 redirect_from: []
+ref: 184
 title: GUI Configuration
 ---
 

@@ -1,6 +1,8 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/testing/
+ref: 147
 title: Testing New Releases and Updates
 ---
 

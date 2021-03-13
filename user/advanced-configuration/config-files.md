@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/config-files/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /doc/ConfigFiles/
 - /doc/UserDoc/ConfigFiles/
 - /wiki/UserDoc/ConfigFiles/
+ref: 180
 title: Config Files
 ---
 

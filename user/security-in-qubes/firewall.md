@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/firewall/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /en/doc/qubes-firewall/
 - /doc/QubesFirewall/
 - /wiki/QubesFirewall/
+ref: 166
 title: The Qubes Firewall
 ---
 

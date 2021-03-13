@@ -1,6 +1,8 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/releases/schedules/
+ref: 15
 title: Release Schedules
 ---
 

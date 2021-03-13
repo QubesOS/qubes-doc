@@ -1,7 +1,9 @@
 ---
+lang: en
 layout: doc
 permalink: /security/bulletins/checklist/
 redirect_from: /doc/security-bulletins/checklist/
+ref: 215
 title: Security Bulletin Checklist
 ---
 

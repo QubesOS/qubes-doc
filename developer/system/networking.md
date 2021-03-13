@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/networking/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /en/doc/qubes-net/
 - /doc/QubesNet/
 - /wiki/QubesNet/
+ref: 59
 title: Networking
 ---
 

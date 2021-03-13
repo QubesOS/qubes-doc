@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/qrexec2/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /en/doc/qrexec2-implementation/
 - /doc/Qrexec2Implementation/
 - /wiki/Qrexec2Implementation/
+ref: 38
 title: Qrexec2
 ---
 

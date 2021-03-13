@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /security/verifying-signatures/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /en/doc/verifying-signatures/
 - /doc/VerifyingSignatures/
 - /wiki/VerifyingSignatures/
+ref: 211
 title: Verifying Signatures
 ---
 

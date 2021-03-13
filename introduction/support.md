@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: sidebar
 permalink: /support/
 redirect_from:
@@ -10,6 +11,7 @@ redirect_from:
 - /doc/qubes-lists/
 - /doc/QubesLists/
 - /wiki/QubesLists/
+ref: 122
 title: Help, Support, Mailing Lists, and Forum
 ---
 

@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/profiling/
 redirect_from:
 - /en/doc/profiling/
 - /doc/Profiling/
 - /wiki/Profiling/
+ref: 48
 title: Profiling
 ---
 

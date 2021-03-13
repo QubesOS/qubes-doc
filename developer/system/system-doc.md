@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/system-doc/
 redirect_from:
@@ -7,5 +8,6 @@ redirect_from:
 - /wiki/SystemDoc/
 redirect_to:
 - /doc/#developer-documentation
+ref: 62
 title: System Documentation
 ---

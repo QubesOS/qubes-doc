@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 redirect_from:
 - /doc/torvm/
@@ -8,5 +9,6 @@ redirect_from:
 - /doc/UserDoc/TorVM/
 - /wiki/UserDoc/TorVM/
 redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/privacy/torvm.md
+ref: 68
 title: TorVM
 ---

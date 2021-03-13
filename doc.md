@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc-index
 permalink: /doc/
 redirect_from:
@@ -11,5 +12,6 @@ redirect_from:
 - /en/help/
 - /en/community/
 - /community/
+ref: 12
 title: Documentation
 ---

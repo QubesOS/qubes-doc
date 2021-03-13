@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/qfilecopy/
 redirect_from:
 - /en/doc/qfilecopy/
 - /doc/Qfilecopy/
 - /wiki/Qfilecopy/
+ref: 35
 title: Qfilecopy
 ---
 

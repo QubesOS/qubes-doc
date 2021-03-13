@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/usb-qubes/
 redirect_from:
@@ -7,6 +8,7 @@ redirect_from:
 - /doc/USBVM/
 - /wiki/USBVM/
 - /doc/sys-usb/
+ref: 181
 title: USB Qubes
 ---
 

@@ -1,9 +1,11 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/yubi-key/
 redirect_from:
 - /en/doc/yubi-key/
 - /doc/YubiKey/
+ref: 169
 title: YubiKey in Qubes
 ---
 

@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/security-critical-code/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /doc/SecurityCriticalCode/
 - /wiki/SecurityCriticalCode/
 - /trac/wiki/SecurityCriticalCode/
+ref: 55
 title: Security-critical Code
 ---
 

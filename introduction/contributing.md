@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/contributing/
 redirect_from:
 - /en/doc/contributing/
 - /doc/ContributingHowto/
 - /wiki/ContributingHowto/
+ref: 125
 title: Contributing to the Qubes OS Project
 ---
 

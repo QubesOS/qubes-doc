@@ -1,6 +1,8 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/code-signing/
+ref: 51
 title: Code Signing
 ---
 

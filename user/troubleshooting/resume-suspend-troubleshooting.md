@@ -1,9 +1,11 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/suspend-resume-troubleshooting/
 redirect_from:
 - /en/doc/wireless-troubleshooting/
 - /doc/wireless-troubleshooting/
+ref: 94
 title: Suspend/Resume Troubleshooting
 ---
 

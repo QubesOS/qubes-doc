@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 redirect_from:
 - /doc/thinkpad-troubleshooting/
@@ -11,5 +12,6 @@ redirect_from:
 - /doc/Lenovo450Tinkering/
 - /wiki/Lenovo450Tinkering/
 redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/thinkpad-troubleshooting.md
+ref: 95
 title: Lenovo ThinkPad Troubleshooting
 ---

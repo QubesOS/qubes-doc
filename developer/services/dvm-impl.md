@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/dvm-impl/
 redirect_from:
 - /en/doc/dvm-impl/
 - /doc/DVMimpl/
 - /wiki/DVMimpl/
+ref: 34
 title: DVMimpl
 ---
 

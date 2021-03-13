@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/upgrade-to-r2b3/
 redirect_from:
 - /en/doc/upgrade-to-r2b3/
 - /doc/UpgradeToR2B3/
 - /wiki/UpgradeToR2B3/
+ref: 157
 title: Upgrading to R2B3
 ---
 

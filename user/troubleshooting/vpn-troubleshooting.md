@@ -1,6 +1,8 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/vpn-troubleshooting/
+ref: 240
 title: VPN Troubleshooting
 ---
 

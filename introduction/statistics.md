@@ -1,8 +1,10 @@
 ---
+lang: en
 layout: default
 permalink: /statistics/
 redirect_from:
 - /counter/
+ref: 127
 title: Statistics
 ---
 

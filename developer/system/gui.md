@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/gui/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /en/doc/gui-docs/
 - /doc/GUIdocs/
 - /wiki/GUIdocs/
+ref: 61
 title: GUI
 ---
 

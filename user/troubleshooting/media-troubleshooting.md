@@ -1,6 +1,8 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/media-troubleshooting/
+ref: 235
 title: Media Troubleshooting
 ---
 

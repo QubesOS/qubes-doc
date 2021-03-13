@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/secondary-storage/
 redirect_from:
 - /en/doc/secondary-storage/
 - /doc/SecondaryStorage/
 - /wiki/SecondaryStorage/
+ref: 187
 title: Secondary Storage
 ---
 

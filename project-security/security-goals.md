@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /security/goals/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /en/doc/security-goals/
 - /doc/SecurityGoals/
 - /wiki/SecurityGoals/
+ref: 210
 title: Security Goals
 ---
 

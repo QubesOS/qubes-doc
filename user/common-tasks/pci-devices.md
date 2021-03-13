@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/pci-devices/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /en/doc/assigning-devices/
 - /doc/AssigningDevices/
 - /wiki/AssigningDevices/
+ref: 197
 title: PCI Devices
 ---
 

@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/hcl/
 redirect_from:
@@ -7,6 +8,7 @@ redirect_from:
 - /wiki/HCL/
 - /wiki/HCLR1/
 - /wiki/HCL-R2B2/
+ref: 146
 title: Hardware Compatibility List (HCL)
 ---
 

@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/reporting-bugs/
 redirect_from:
@@ -10,6 +11,7 @@ redirect_from:
 - /bugs/
 - /bug-report/
 - /bug-reports/
+ref: 121
 title: Reporting bugs and other issues
 ---
 

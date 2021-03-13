@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 redirect_from:
 - /doc/whonix/
@@ -16,5 +17,6 @@ redirect_from:
 - /doc/whonix/update/
 - /doc/privacy/updating-whonix/
 redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/privacy/whonix.md
+ref: 69
 title: Whonix for Privacy & Anonymity
 ---

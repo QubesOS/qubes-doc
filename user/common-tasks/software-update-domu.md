@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/software-update-domu/
 redirect_from:
@@ -6,6 +7,7 @@ redirect_from:
 - /en/doc/software-update-vm/
 - /doc/SoftwareUpdateVM/
 - /wiki/SoftwareUpdateVM/
+ref: 189
 title: Installing and updating software in domUs
 ---
 

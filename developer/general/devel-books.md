@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/devel-books/
 redirect_from:
 - /en/doc/devel-books/
 - /doc/DevelBooks/
 - /wiki/DevelBooks/
+ref: 32
 title: Developer Books
 ---
 

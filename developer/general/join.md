@@ -1,6 +1,8 @@
 ---
+lang: en
 layout: sidebar
 permalink: /join/
+ref: 26
 title: Join
 ---
 

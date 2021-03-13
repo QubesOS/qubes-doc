@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/upgrade-to-r4.0/
 redirect_from:
 - /en/doc/upgrade-to-r4.0/
 - /doc/UpgradeToR4.0/
 - /doc/UpgradeToR4.0rc1/
+ref: 162
 title: Upgrading to R4.0
 ---
 

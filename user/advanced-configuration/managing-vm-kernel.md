@@ -1,8 +1,10 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/managing-vm-kernel/
 redirect_from:
 - /en/doc/managing-vm-kernel/
+ref: 173
 title: Managing VM kernel
 ---
 

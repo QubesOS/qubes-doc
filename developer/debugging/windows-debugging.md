@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
 permalink: /doc/windows-debugging/
 redirect_from:
 - /en/doc/windows-debugging/
 - /doc/WindowsDebugging/
 - /wiki/WindowsDebugging/
+ref: 50
 title: Windows Debugging
 ---
 
