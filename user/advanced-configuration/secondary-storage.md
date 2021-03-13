@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Secondary Storage
 permalink: /doc/secondary-storage/
 redirect_from:
 - /en/doc/secondary-storage/
 - /doc/SecondaryStorage/
 - /wiki/SecondaryStorage/
+title: Secondary Storage
 ---
 
 # Storing AppVMs on Secondary Drives

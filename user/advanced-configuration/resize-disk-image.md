@@ -1,6 +1,5 @@
 ---
 layout: doc
-title: Resize Disk Image
 permalink: /doc/resize-disk-image/
 redirect_from:
 - /en/doc/resize-disk-image/
@@ -9,6 +8,7 @@ redirect_from:
 - /doc/ResizeRootDiskImage/
 - /wiki/ResizeDiskImage/
 - /wiki/ResizeRootDiskImage/
+title: Resize Disk Image
 ---
 
 ## Resizing Disk Images

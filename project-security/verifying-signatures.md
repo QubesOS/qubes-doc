@@ -1,12 +1,12 @@
 ---
 layout: doc
-title: Verifying Signatures
 permalink: /security/verifying-signatures/
 redirect_from:
 - /doc/verifying-signatures/
 - /en/doc/verifying-signatures/
 - /doc/VerifyingSignatures/
 - /wiki/VerifyingSignatures/
+title: Verifying Signatures
 ---
 
 # On Digital Signatures and Key Verification

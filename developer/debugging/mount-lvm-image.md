@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Mount LVM image
 permalink: /doc/mount-lvm-image/
+title: Mount LVM image
 ---
 
 # How to mount LVM image

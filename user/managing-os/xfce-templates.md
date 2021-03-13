@@ -1,13 +1,12 @@
 ---
 layout: doc
-title: Xfce TemplateVMs
 permalink: /doc/templates/xfce/
 redirect_from:
-- /doc/templates/xfce/
 - /doc/xfce/
 - /en/doc/templates/xfce/
 - /doc/Templates/Xfce/
 - /wiki/Templates/Xfce/
+title: Xfce TemplateVMs
 ---
 
 # Xfce TemplateVMs

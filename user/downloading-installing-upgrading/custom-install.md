@@ -1,9 +1,9 @@
 ---
 layout: doc
-title: Custom Installation
 permalink: /doc/custom-install/
 redirect_from:
- - /doc/encryption-config/
+- /doc/encryption-config/
+title: Custom Installation
 ---
 
 # Custom Installation

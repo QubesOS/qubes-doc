@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Data Leaks
 permalink: /doc/data-leaks/
 redirect_from:
 - /en/doc/data-leaks/
 - /doc/DataLeaks/
 - /wiki/DataLeaks/
+title: Data Leaks
 ---
 
 Understanding and Preventing Data Leaks

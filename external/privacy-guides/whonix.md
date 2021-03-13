@@ -1,7 +1,5 @@
 ---
 layout: doc
-title: Whonix for Privacy & Anonymity
-redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/privacy/whonix.md
 redirect_from:
 - /doc/whonix/
 - /doc/privacy/whonix/
@@ -17,5 +15,6 @@ redirect_from:
 - /doc/privacy/uninstall-whonix/
 - /doc/whonix/update/
 - /doc/privacy/updating-whonix/
+redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/privacy/whonix.md
+title: Whonix for Privacy & Anonymity
 ---
-

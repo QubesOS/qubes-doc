@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Code Signing
 permalink: /doc/code-signing/
+title: Code Signing
 ---
 
 # Code Signing

@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Version Scheme
 permalink: /doc/version-scheme/
 redirect_from:
 - /en/doc/version-scheme/
 - /doc/VersionScheme/
 - /wiki/VersionScheme/
+title: Version Scheme
 ---
 
 Version Scheme

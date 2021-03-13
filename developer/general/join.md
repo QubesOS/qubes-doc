@@ -1,7 +1,7 @@
 ---
 layout: sidebar
-title: Join
 permalink: /join/
+title: Join
 ---
 
 Joining the Qubes OS Team

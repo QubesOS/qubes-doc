@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: RPC Policies
 permalink: /doc/rpc-policy/
+title: RPC Policies
 ---
 
 RPC Policies

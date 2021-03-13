@@ -1,9 +1,9 @@
 ---
 layout: doc
-title: Managing VM kernel
 permalink: /doc/managing-vm-kernel/
 redirect_from:
 - /en/doc/managing-vm-kernel/
+title: Managing VM kernel
 ---
 
 # VM kernel managed by dom0

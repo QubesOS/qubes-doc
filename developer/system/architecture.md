@@ -1,12 +1,12 @@
 ---
 layout: doc
-title: Architecture
 permalink: /doc/architecture/
 redirect_from:
 - /doc/qubes-architecture/
 - /en/doc/qubes-architecture/
 - /doc/QubesArchitecture/
 - /wiki/QubesArchitecture/
+title: Architecture
 ---
 
 Qubes Architecture Overview
@@ -71,4 +71,3 @@ And all these components are "glued together" by the Qubes Core Stack.
 This diagram illustrates the location of all these components in the overall
 system architecture. Unlike the other Qubes architecture diagram above, this one
 takes an AppVM-centric approach.
-

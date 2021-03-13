@@ -1,8 +1,7 @@
 ---
 layout: doc
-title: HVM Troubleshooting
 permalink: /doc/hvm-troubleshooting/
-
+title: HVM Troubleshooting
 ---
 
 # HVM Troubleshooting

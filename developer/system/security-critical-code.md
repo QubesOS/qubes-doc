@@ -1,12 +1,12 @@
 ---
 layout: doc
-title: Security-critical Code
 permalink: /doc/security-critical-code/
 redirect_from:
 - /en/doc/security-critical-code/
 - /doc/SecurityCriticalCode/
 - /wiki/SecurityCriticalCode/
 - /trac/wiki/SecurityCriticalCode/
+title: Security-critical Code
 ---
 
 Security-critical Code in Qubes OS

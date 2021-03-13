@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Release Schedules
 permalink: /doc/releases/schedules/
+title: Release Schedules
 ---
 
 Release Schedules

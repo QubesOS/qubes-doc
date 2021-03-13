@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Storage Pools
 permalink: /doc/storage-pools/
+title: Storage Pools
 ---
 
 Storage Pools in Qubes

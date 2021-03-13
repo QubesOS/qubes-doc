@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Windows Debugging
 permalink: /doc/windows-debugging/
 redirect_from:
 - /en/doc/windows-debugging/
 - /doc/WindowsDebugging/
 - /wiki/WindowsDebugging/
+title: Windows Debugging
 ---
 
 # Debugging Windows HVMs

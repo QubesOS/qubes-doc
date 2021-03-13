@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Backup, restoration, and migration
 permalink: /doc/backup-restore/
 redirect_from:
 - /en/doc/backup-restore/
 - /doc/BackupRestore/
 - /wiki/BackupRestore/
+title: Backup, restoration, and migration
 ---
 
 Backup, restoration, and migration

@@ -1,12 +1,12 @@
 ---
 layout: doc
-title: Copying from (and to) dom0
 permalink: /doc/copy-from-dom0/
 redirect_from:
 - /doc/copy-to-dom0/
 - /en/doc/copy-to-dom0/
 - /doc/CopyToDomZero/
 - /wiki/CopyToDomZero/
+title: Copying from (and to) dom0
 ---
 
 # Copying from (and to) dom0

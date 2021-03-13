@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Qfilecopy
 permalink: /doc/qfilecopy/
 redirect_from:
 - /en/doc/qfilecopy/
 - /doc/Qfilecopy/
 - /wiki/Qfilecopy/
+title: Qfilecopy
 ---
 
 InterVM file copy design

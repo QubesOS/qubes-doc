@@ -1,6 +1,5 @@
 ---
 layout: doc
-title: Documentation
 permalink: /doc/
 redirect_from:
 - /en/doc/
@@ -12,6 +11,7 @@ redirect_from:
 - /en/help/
 - /en/community/
 - /community/
+title: Documentation
 ---
 
 # Qubes OS Documentation
@@ -295,4 +295,3 @@ For more, please see [Qubes Community Documentation](https://github.com/Qubes-Co
  * [Building the Archlinux Template](https://github.com/Qubes-Community/Contents/blob/master/docs/building/building-archlinux-template.md)
  * [Building the Whonix Templates](https://github.com/Qubes-Community/Contents/blob/master/docs/building/building-whonix-template.md)
  * [How to compile kernels for dom0](https://groups.google.com/d/topic/qubes-users/yBeUJPwKwHM/discussion)
-

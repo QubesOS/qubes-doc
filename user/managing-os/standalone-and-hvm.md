@@ -1,6 +1,5 @@
 ---
 layout: doc
-title: StandaloneVMs and HVMs
 permalink: /doc/standalone-and-hvm/
 redirect_from:
 - /doc/hvm/
@@ -8,6 +7,7 @@ redirect_from:
 - /en/doc/hvm-create/
 - /doc/HvmCreate/
 - /wiki/HvmCreate/
+title: StandaloneVMs and HVMs
 ---
 
 # StandaloneVMs and HVMs

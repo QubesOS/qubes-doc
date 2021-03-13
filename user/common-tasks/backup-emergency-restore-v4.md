@@ -1,10 +1,10 @@
 ---
 layout: doc
-title: Emergency Backup Recovery (v4)
 permalink: /doc/backup-emergency-restore-v4/
 redirect_from:
 - /en/doc/backup-emergency-restore-v4/
 - /doc/BackupEmergencyRestoreV4/
+title: Emergency Backup Recovery (v4)
 ---
 
 Emergency Backup Recovery without Qubes (v4)

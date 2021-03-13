@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: VPN Troubleshooting
 permalink: /doc/vpn-troubleshooting/
+title: VPN Troubleshooting
 ---
 
 # VPN Troubleshooting Guide

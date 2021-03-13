@@ -1,12 +1,12 @@
 ---
 layout: doc
-title: TemplateVMs
 permalink: /doc/templates/
 redirect_from:
 - /doc/template/
 - /en/doc/templates/
 - /doc/Templates/
 - /wiki/Templates/
+title: TemplateVMs
 ---
 
 # TemplateVMs

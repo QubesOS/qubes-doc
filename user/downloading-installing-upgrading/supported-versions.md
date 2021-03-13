@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Supported Versions
 permalink: /doc/supported-versions/
+title: Supported Versions
 ---
 
 # Supported Versions

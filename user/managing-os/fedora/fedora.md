@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: The Fedora TemplateVM
 permalink: /doc/templates/fedora/
+title: The Fedora TemplateVM
 ---
 
 # The Fedora TemplateVM

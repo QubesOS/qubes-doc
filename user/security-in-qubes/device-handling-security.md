@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Device Handling Security
 permalink: /doc/device-handling-security/
+title: Device Handling Security
 ---
 
 # Device Handling Security

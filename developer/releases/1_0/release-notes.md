@@ -1,9 +1,9 @@
 ---
 layout: doc
-title: Qubes R1.0 Release Notes
 permalink: /doc/releases/1.0/release-notes/
 redirect_from:
 - /en/doc/releases/1.0/release-notes/
+title: Qubes R1.0 Release Notes
 ---
 
 # Qubes R1.0 Release Notes

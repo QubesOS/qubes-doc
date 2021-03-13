@@ -1,10 +1,10 @@
 ---
 layout: doc
-title: Automated Tests
 permalink: /doc/automated-tests/
 redirect_from:
 - /en/doc/automated-tests/
 - /doc/AutomatedTests/
+title: Automated Tests
 ---
 
 # Automated Tests

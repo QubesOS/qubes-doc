@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Developer Books
 permalink: /doc/devel-books/
 redirect_from:
 - /en/doc/devel-books/
 - /doc/DevelBooks/
 - /wiki/DevelBooks/
+title: Developer Books
 ---
 
 Below is a list of various books that might be useful in learning some basics needed for Qubes development.

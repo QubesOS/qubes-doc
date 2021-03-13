@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Upgrade Guides
 permalink: /doc/upgrade/
+title: Upgrade Guides
 ---
 
 Qubes OS Upgrade Guides

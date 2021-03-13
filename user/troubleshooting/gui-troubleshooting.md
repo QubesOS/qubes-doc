@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: GUI Troubleshooting
 permalink: /doc/gui-troubleshooting/
+title: GUI Troubleshooting
 ---
 
 # GUI Troubleshooting

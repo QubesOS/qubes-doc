@@ -1,12 +1,12 @@
 ---
 layout: doc
-title: Networking
 permalink: /doc/networking/
 redirect_from:
 - /doc/qubes-net/
 - /en/doc/qubes-net/
 - /doc/QubesNet/
 - /wiki/QubesNet/
+title: Networking
 ---
 
 # VM network in Qubes

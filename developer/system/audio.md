@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Audio Virtualization
 permalink: /doc/audio-virtualization/
+title: Audio Virtualization
 ---
 
 Audio Virtualization

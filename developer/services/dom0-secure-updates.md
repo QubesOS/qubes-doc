@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Dom0 Secure Updates
 permalink: /doc/dom0-secure-updates/
 redirect_from:
 - /en/doc/dom0-secure-updates/
 - /doc/Dom0SecureUpdates/
 - /wiki/Dom0SecureUpdates/
+title: Dom0 Secure Updates
 ---
 
 Qubes Dom0 secure update procedure

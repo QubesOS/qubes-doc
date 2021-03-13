@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Updating Qubes OS
 permalink: /doc/updating-qubes-os/
+title: Updating Qubes OS
 ---
 
 Updating Qubes OS

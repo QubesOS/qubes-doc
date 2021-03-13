@@ -1,6 +1,5 @@
 ---
 layout: doc
-title: Hardware Compatibility List (HCL)
 permalink: /doc/hcl/
 redirect_from:
 - /en/doc/hcl/
@@ -8,6 +7,7 @@ redirect_from:
 - /wiki/HCL/
 - /wiki/HCLR1/
 - /wiki/HCL-R2B2/
+title: Hardware Compatibility List (HCL)
 ---
 
 Hardware Compatibility List (HCL) for All Qubes OS Releases
@@ -50,4 +50,3 @@ Please consider sending the **HCL Support Files** `.cpio.gz` file as well. To ge
 
 [Certified Hardware]: /doc/certified-hardware/
 [Hardware Testing]: /doc/hardware-testing/
-

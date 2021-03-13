@@ -1,10 +1,9 @@
 ---
 layout: doc
-title: awesome
 permalink: /doc/awesome/
 redirect_from:
 - /en/doc/awesome/
-- /doc/awesome/
+title: awesome
 ---
 
 # Using awesome in dom0

@@ -1,6 +1,5 @@
 ---
 layout: doc
-title: Installation guide
 permalink: /doc/installation-guide/
 redirect_from:
 - /en/doc/installation-guide/
@@ -15,6 +14,7 @@ redirect_from:
 - /doc/InstallationGuideR3.0rc1/
 - /doc/InstallationGuideR3.0rc2/
 - /doc/live-usb/
+title: Installation guide
 ---
 
 # Installation guide

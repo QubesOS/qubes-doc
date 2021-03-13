@@ -1,7 +1,7 @@
 ---
 layout: home
-title: Experts
 permalink: /experts/
+title: Experts
 ---
 
 <div class="home-content container">

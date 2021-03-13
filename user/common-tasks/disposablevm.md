@@ -1,12 +1,12 @@
 ---
 layout: doc
-title: DisposableVMs
 permalink: /doc/disposablevm/
 redirect_from:
 - /doc/dispvm/
 - /en/doc/dispvm/
 - /doc/DisposableVms/
 - /wiki/DisposableVMs/
+title: DisposableVMs
 ---
 
 # DisposableVMs

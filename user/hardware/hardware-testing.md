@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Hardware Testing
 permalink: /doc/hardware-testing/
+title: Hardware Testing
 ---
 
 # Hardware Testing

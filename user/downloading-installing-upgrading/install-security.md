@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Installation security
 permalink: /doc/install-security/
 redirect_from:
 - /en/doc/install-security/
 - /doc/InstallSecurity/
 - /wiki/InstallSecurity/
+title: Installation security
 ---
 
 # Installation security
@@ -86,4 +86,3 @@ Considering the pros and cons of each, perhaps a USB drive with non-rewritable (
 [Coreboot]: https://www.coreboot.org/
 [Heads]: http://osresearch.net/
 [Skulls]: https://github.com/merge/skulls
-

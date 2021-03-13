@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Glossary
 permalink: /doc/glossary/
 redirect_from:
 - /en/doc/glossary/
 - /doc/Glossary/
 - /wiki/Glossary/
+title: Glossary
 ---
 
 Glossary of Qubes Terminology

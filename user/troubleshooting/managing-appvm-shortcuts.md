@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Managing AppVm Shortcuts
 permalink: /doc/managing-appvm-shortcuts/
 redirect_from:
 - /en/doc/managing-appvm-shortcuts/
 - /doc/ManagingAppVmShortcuts/
 - /wiki/ManagingAppVmShortcuts/
+title: Managing AppVm Shortcuts
 ---
 
 Managing shortcuts to applications in AppVMs

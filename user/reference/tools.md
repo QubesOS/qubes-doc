@@ -1,14 +1,14 @@
 ---
 layout: doc
-title: Command-Line Tools
 permalink: /doc/tools/
 redirect_from:
- - /doc/tools/4.0/
- - /doc/tools/4.0/dom0/
- - /doc/tools/4.0/domU/
- - /doc/tools/3.2/
- - /doc/tools/3.2/dom0/
- - /doc/tools/3.2/domU/
+- /doc/tools/4.0/
+- /doc/tools/4.0/dom0/
+- /doc/tools/4.0/domU/
+- /doc/tools/3.2/
+- /doc/tools/3.2/dom0/
+- /doc/tools/3.2/domU/
+title: Command-Line Tools
 ---
 
 Command-Line Tools

@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: PCI Troubleshooting
 permalink: /doc/pci-troubleshooting/
+title: PCI Troubleshooting
 ---
 
 # PCI troubleshooting

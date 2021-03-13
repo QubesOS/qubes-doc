@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Copying and pasting text between qubes
 permalink: /doc/copy-paste/
 redirect_from:
 - /en/doc/copy-paste/
 - /doc/CopyPaste/
 - /wiki/CopyPaste/
+title: Copying and pasting text between qubes
 ---
 
 Copying and pasting text between qubes

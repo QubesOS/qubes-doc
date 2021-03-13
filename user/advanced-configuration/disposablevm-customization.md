@@ -1,6 +1,5 @@
 ---
 layout: doc
-title: DisposableVM Customization
 permalink: /doc/disposablevm-customization/
 redirect_from:
 - /doc/dispvm-customization/
@@ -8,6 +7,7 @@ redirect_from:
 - /doc/DispVMCustomization/
 - /doc/UserDoc/DispVMCustomization/
 - /wiki/UserDoc/DispVMCustomization/
+title: DisposableVM Customization
 ---
 
 # DisposableVM Customization

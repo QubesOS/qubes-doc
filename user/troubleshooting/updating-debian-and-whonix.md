@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Updating Debian and Whonix
 permalink: /doc/troubleshooting/updating-debian-and-whonix/
+title: Updating Debian and Whonix
 ---
 
 # Updating Debian and Whonix

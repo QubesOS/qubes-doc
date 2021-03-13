@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: "Qrexec: Socket-based services"
 permalink: /doc/qrexec-socket-services/
+title: 'Qrexec: Socket-based services'
 ---
 
 # Qrexec: Socket-based services

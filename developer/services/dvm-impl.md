@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: DVMimpl
 permalink: /doc/dvm-impl/
 redirect_from:
 - /en/doc/dvm-impl/
 - /doc/DVMimpl/
 - /wiki/DVMimpl/
+title: DVMimpl
 ---
 
 DisposableVM implementation in Qubes

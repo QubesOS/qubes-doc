@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: USB Troubleshooting
 permalink: /doc/usb-troubleshooting/
+title: USB Troubleshooting
 ---
 
 # USB troubleshooting

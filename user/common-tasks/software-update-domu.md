@@ -1,12 +1,12 @@
 ---
 layout: doc
-title: Installing and updating software in domUs
 permalink: /doc/software-update-domu/
 redirect_from:
 - /doc/software-update-vm/
 - /en/doc/software-update-vm/
 - /doc/SoftwareUpdateVM/
 - /wiki/SoftwareUpdateVM/
+title: Installing and updating software in domUs
 ---
 
 # Installing and updating software in domUs

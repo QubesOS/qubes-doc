@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Installation Troubleshooting
 permalink: /doc/installation-troubleshooting/
+title: Installation Troubleshooting
 ---
 
 # Installation Troubleshooting 

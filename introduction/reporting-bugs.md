@@ -1,6 +1,5 @@
 ---
 layout: doc
-title: Reporting bugs and other issues
 permalink: /doc/reporting-bugs/
 redirect_from:
 - /en/doc/reporting-bugs/
@@ -11,6 +10,7 @@ redirect_from:
 - /bugs/
 - /bug-report/
 - /bug-reports/
+title: Reporting bugs and other issues
 ---
 
 # Reporting bugs and other issues #

@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Code of Conduct
 permalink: /code-of-conduct/
+title: Code of Conduct
 ---
 
 ## Introduction

@@ -1,6 +1,5 @@
 ---
 layout: doc
-title: Security Pack
 permalink: /security/pack/
 redirect_from:
 - /doc/security-pack/
@@ -13,6 +12,7 @@ redirect_from:
 - /doc/qsp/
 - /doc/sec-pack/
 - /doc/secpack/
+title: Security Pack
 ---
 
 Qubes Security Pack

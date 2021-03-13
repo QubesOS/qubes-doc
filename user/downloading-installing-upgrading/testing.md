@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Testing New Releases and Updates
 permalink: /doc/testing/
+title: Testing New Releases and Updates
 ---
 
 Testing New Releases and Updates

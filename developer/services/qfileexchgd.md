@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Qfileexchgd
 permalink: /doc/qfileexchgd/
 redirect_from:
 - /en/doc/qfileexchgd/
 - /doc/Qfileexchgd/
 - /wiki/Qfileexchgd/
+title: Qfileexchgd
 ---
 
 **This mechanism is obsolete as of Qubes Beta 1!**

@@ -1,9 +1,9 @@
 ---
 layout: doc
-title: VM Troubleshooting
 permalink: /doc/vm-troubleshooting/
 redirect_from:
 - /doc/remove-vm-manually/
+title: VM Troubleshooting
 ---
 
 # VM troubleshooting

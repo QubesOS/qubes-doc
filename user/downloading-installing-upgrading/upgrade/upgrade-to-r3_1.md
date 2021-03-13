@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Upgrading to R3.1
 permalink: /doc/upgrade-to-r3.1/
 redirect_from:
 - /en/doc/upgrade-to-r3.1/
 - /doc/UpgradeToR3.1/
 - /doc/UpgradeToR3.1rc1/
+title: Upgrading to R3.1
 ---
 
 # Upgrading Qubes R3.0 to R3.1

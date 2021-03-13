@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Management stack
 permalink: /doc/salt/
+title: Management stack
 ---
 
 # Management Infrastructure

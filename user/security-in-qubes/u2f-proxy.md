@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: The Qubes U2F Proxy
 permalink: /doc/u2f-proxy/
+title: The Qubes U2F Proxy
 ---
 
 # The Qubes U2F Proxy

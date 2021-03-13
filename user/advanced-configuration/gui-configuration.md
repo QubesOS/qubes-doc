@@ -1,9 +1,8 @@
 ---
 layout: doc
-title: GUI Configuration
 permalink: /doc/gui-configuration/
-redirect_from:
-  - /doc/gui-configuration/
+redirect_from: []
+title: GUI Configuration
 ---
 
 # GUI Configuration

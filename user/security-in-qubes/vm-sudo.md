@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Passwordless Root Access in VMs
 permalink: /doc/vm-sudo/
 redirect_from:
 - /en/doc/vm-sudo/
 - /doc/VMSudo/
 - /wiki/VMSudo/
+title: Passwordless Root Access in VMs
 ---
 
 Passwordless Root Access in VMs

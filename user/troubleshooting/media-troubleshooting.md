@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Media Troubleshooting
 permalink: /doc/media-troubleshooting/
+title: Media Troubleshooting
 ---
 
 # Video and Audio Troubleshooting

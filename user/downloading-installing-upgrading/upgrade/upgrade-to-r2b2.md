@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Upgrading to R2B2
 permalink: /doc/upgrade-to-r2b2/
 redirect_from:
 - /en/doc/upgrade-to-r2b2/
 - /doc/UpgradeToR2B2/
 - /wiki/UpgradeToR2B2/
+title: Upgrading to R2B2
 ---
 
 Upgrading Qubes R1 to R2 (beta2)

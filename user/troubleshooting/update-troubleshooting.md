@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Update Troubleshooting
 permalink: /doc/update-troubleshooting/
+title: Update Troubleshooting
 ---
 
 # Fixing issues that arise during updating

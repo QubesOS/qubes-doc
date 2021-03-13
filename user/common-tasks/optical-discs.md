@@ -1,10 +1,10 @@
 ---
 layout: doc
-title: Optical Discs
 permalink: /doc/optical-discs/
 redirect_from:
- - /doc/recording-optical-discs/
- - /en/doc/recording-optical-discs/
+- /doc/recording-optical-discs/
+- /en/doc/recording-optical-discs/
+title: Optical Discs
 ---
 
 Optical Discs

@@ -1,12 +1,12 @@
 ---
 layout: doc
-title: Disk Troubleshooting
 permalink: /doc/disk-troubleshooting/
 redirect_from:
 - /en/doc/out-of-memory/
 - /doc/OutOfmemory/
 - /wiki/OutOfmemory/
 - /doc/out-of-memory/
+title: Disk Troubleshooting
 ---
 
 # Disk Troubleshooting Guide #

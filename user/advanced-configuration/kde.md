@@ -1,8 +1,8 @@
 ---
 layout: doc
-title: KDE
 permalink: /doc/kde/
 redirect_from: /en/doc/kde/
+title: KDE
 ---
 
 Using KDE in dom0

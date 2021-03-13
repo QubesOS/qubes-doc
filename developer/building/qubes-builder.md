@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Qubes Builder
 permalink: /doc/qubes-builder/
 redirect_from:
 - /en/doc/qubes-builder/
 - /doc/QubesBuilder/
 - /wiki/QubesBuilder/
+title: Qubes Builder
 ---
 
 **Note: See [ISO building instructions](/doc/qubes-iso-building/) for a streamlined overview on how to use the build system.**

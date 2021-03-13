@@ -1,8 +1,8 @@
 ---
 layout: doc
-title: Security Bulletin Checklist
 permalink: /security/bulletins/checklist/
 redirect_from: /doc/security-bulletins/checklist/
+title: Security Bulletin Checklist
 ---
 
 # Security Bulletin Checklist

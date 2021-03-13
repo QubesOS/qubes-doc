@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Package Contributions
 permalink: /doc/package-contributions/
+title: Package Contributions
 ---
 
 Package Contributions

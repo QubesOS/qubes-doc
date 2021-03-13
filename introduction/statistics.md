@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Statistics
 permalink: /statistics/
 redirect_from:
 - /counter/
+title: Statistics
 ---
 
 <div class="center-block more-bottom">

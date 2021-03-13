@@ -1,6 +1,5 @@
 ---
 layout: doc
-title: Minimal TemplateVMs
 permalink: /doc/templates/minimal/
 redirect_from:
 - /doc/templates/fedora-minimal/
@@ -9,6 +8,7 @@ redirect_from:
 - /doc/Templates/FedoraMinimal/
 - /wiki/Templates/FedoraMinimal/
 - /doc/templates/debian-minimal/
+title: Minimal TemplateVMs
 ---
 
 # Minimal TemplateVMs

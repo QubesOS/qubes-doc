@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Usability & UX
 permalink: /doc/usability-ux/
+title: Usability & UX
 ---
 
 # Usability & UX

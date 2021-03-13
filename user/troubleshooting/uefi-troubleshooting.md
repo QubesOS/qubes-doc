@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: UEFI Troubleshooting
 permalink: /doc/uefi-troubleshooting/
+title: UEFI Troubleshooting
 ---
 
 # Troubleshooting UEFI related problems

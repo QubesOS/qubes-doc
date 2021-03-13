@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Get Started
 permalink: /doc/getting-started/
 redirect_from:
 - /getting-started/
 - /en/doc/getting-started/
 - /doc/GettingStarted/
 - /wiki/GettingStarted/
+title: Get Started
 ---
 
 After [downloading] and [installing] Qubes OS, let's cover some basic concepts.
@@ -205,4 +205,3 @@ If you encounter any problems, please visit the [Help, Support, and Mailing List
     </a>
   </div>
 </div>
-

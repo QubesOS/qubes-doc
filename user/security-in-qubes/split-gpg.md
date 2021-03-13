@@ -1,6 +1,5 @@
 ---
 layout: doc
-title: Split GPG
 permalink: /doc/split-gpg/
 redirect_from:
 - /en/doc/split-gpg/
@@ -12,6 +11,7 @@ redirect_from:
 - /doc/OpenPGP/
 - /doc/UserDoc/OpenPGP/
 - /wiki/UserDoc/OpenPGP/
+title: Split GPG
 ---
 
 # Qubes Split GPG

@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Canary Checklist
 permalink: /security/canaries/checklist/
+title: Canary Checklist
 ---
 
 # Canary Checklist

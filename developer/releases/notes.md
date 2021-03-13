@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Release Notes
 permalink: /doc/releases/notes/
+title: Release Notes
 ---
 
 Release Notes

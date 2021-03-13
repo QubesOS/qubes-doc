@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Installing and updating software in dom0
 permalink: /doc/software-update-dom0/
 redirect_from:
 - /en/doc/software-update-dom0/
 - /doc/SoftwareUpdateDom0/
 - /wiki/SoftwareUpdateDom0/
+title: Installing and updating software in dom0
 ---
 
 # Installing and updating software in dom0

@@ -1,6 +1,5 @@
 ---
 layout: doc
-title: Qubes ISO Building
 permalink: /doc/qubes-iso-building/
 redirect_from:
 - /doc/qubes-r3-building/
@@ -8,6 +7,7 @@ redirect_from:
 - /en/doc/qubes-iso-building/
 - /doc/QubesR3Building/
 - /wiki/QubesR3Building/
+title: Qubes ISO Building
 ---
 
 Building Qubes OS ISO

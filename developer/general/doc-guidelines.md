@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Documentation Guidelines
 permalink: /doc/doc-guidelines/
 redirect_from:
 - /en/doc/doc-guidelines/
 - /wiki/DocStyle/
 - /doc/DocStyle/
+title: Documentation Guidelines
 ---
 
 # Documentation guidelines

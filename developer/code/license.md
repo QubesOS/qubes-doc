@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: License
 permalink: /doc/license/
 redirect_from:
 - /en/doc/license/
 - /doc/QubesLicensing/
 - /wiki/QubesLicensing/
+title: License
 ---
 
 Qubes OS License

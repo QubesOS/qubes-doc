@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Copying and moving files between qubes
 permalink: /doc/copying-files/
 redirect_from:
 - /en/doc/copying-files/
 - /doc/CopyingFiles/
 - /wiki/CopyingFiles/
+title: Copying and moving files between qubes
 ---
 
 Copying and moving files between qubes

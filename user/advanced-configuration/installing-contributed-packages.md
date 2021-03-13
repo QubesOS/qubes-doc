@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Installing contributed packages
 permalink: /doc/installing-contributed-packages/
+title: Installing contributed packages
 ---
 
 # Installing contributed packages

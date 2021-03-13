@@ -1,9 +1,9 @@
 ---
 layout: doc
-title: USB Devices
 permalink: /doc/usb-devices/
 redirect_from:
 - /doc/usb/
+title: USB Devices
 ---
 
 # USB Devices

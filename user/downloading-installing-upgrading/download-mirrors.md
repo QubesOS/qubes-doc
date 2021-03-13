@@ -1,7 +1,7 @@
 ---
 layout: sidebar
-title: Download Mirrors
 permalink: /downloads/mirrors/
+title: Download Mirrors
 ---
 
 Qubes Download Mirrors

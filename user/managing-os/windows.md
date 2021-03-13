@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Windows VMs
 permalink: /doc/windows/
+title: Windows VMs
 ---
 
 Windows VMs in Qubes OS

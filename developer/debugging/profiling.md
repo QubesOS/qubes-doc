@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Profiling
 permalink: /doc/profiling/
 redirect_from:
 - /en/doc/profiling/
 - /doc/Profiling/
 - /wiki/Profiling/
+title: Profiling
 ---
 
 # Profiling

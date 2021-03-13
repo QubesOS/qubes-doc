@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Upgrading to R4.0
 permalink: /doc/upgrade-to-r4.0/
 redirect_from:
 - /en/doc/upgrade-to-r4.0/
 - /doc/UpgradeToR4.0/
 - /doc/UpgradeToR4.0rc1/
+title: Upgrading to R4.0
 ---
 
 Upgrading Qubes R3.2 to R4.0

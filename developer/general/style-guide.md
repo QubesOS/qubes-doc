@@ -1,7 +1,7 @@
 ---
 layout: doc
-title: Style-guide
 permalink: /doc/style-guide/
+title: Style-guide
 ---
 
 Style Guide

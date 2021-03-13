@@ -1,11 +1,11 @@
 ---
 layout: doc
-title: Qubes Service
 permalink: /doc/qubes-service/
 redirect_from:
 - /en/doc/qubes-service/
 - /doc/QubesService/
 - /wiki/QubesService/
+title: Qubes Service
 ---
 
 Usage documentation is in the `qvm-service` man page. There are also described predefined services.
