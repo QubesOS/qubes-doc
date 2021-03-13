@@ -17,7 +17,6 @@ Qubes **qrexec** is a framework for implementing inter-VM (incl. Dom0-VM)
 services. It offers a mechanism to start programs in VMs, redirect their
 stdin/stdout, and a policy framework to control this all.
 
-
 ## Qrexec basics ##
 
 During each domain creation a process named `qrexec-daemon` is started in
@@ -31,7 +30,9 @@ the stdin/stdout/stderr from this remote process will be passed to the
 
 E.g., to start a primitive shell in a VM type the following in Dom0 console:
 
+```shell_session
     [user@dom0 ~]$ /usr/lib/qubes/qrexec-client -d <vm name> user:bash
+```
 
 The string before first semicolon specifies what user to run the command as.
 
@@ -54,7 +55,6 @@ their data is multiplexed independently.
 There is a similar command line utility available inside Linux AppVMs (note
 the `-vm` suffix): `qrexec-client-vm` that will be described in subsequent
 sections.
-
 
 ## Qubes RPC services ##
 
@@ -90,7 +90,6 @@ themselves. Qrexec framework is careful about connecting the stdin/stdout
 of the server process with the corresponding stdin/stdout of the requesting
 process in the requesting VM (see example Hello World service described below).
 
-
 ## Qubes RPC administration ##
 
 Besides each VM needing to provide explicit programs to serve each supported
@@ -100,6 +99,7 @@ In dom0, there is a bunch of files in `/etc/qubes-rpc/policy/` directory,
 whose names describe the available RPC actions; their content is the RPC
 access policy database. Some example of the default services in Qubes are:
 
+```
     qubes.Filecopy
     qubes.OpenInVM
     qubes.ReceiveUpdates
@@ -109,10 +109,13 @@ access policy database. Some example of the default services in Qubes are:
     qubes.Gpg
     qubes.NotifyUpdates
     qubes.PdfConvert
+```
 
 These files contain lines with the following format:
 
+```
     srcvm destvm (allow|deny|ask)[,user=user_to_run_as][,target=VM_to_redirect_to]
+```
 
 You can specify `srcvm` and `destvm` by name, or by one of `$anyvm`,
 `$dispvm`, `dom0` reserved keywords (note string `dom0` does not match the
@@ -132,12 +135,13 @@ if still there is no policy file after prompting, the action is denied.
 On the target VM, the `/etc/qubes-rpc/XYZ` must exist, containing the file
 name of the program that will be invoked.
 
-
 ### Requesting VM-VM (and VM-Dom0) services execution ###
 
 In a src VM, one should invoke the qrexec client via the following command:
 
+```
     /usr/lib/qubes/qrexec-client-vm <target vm name> <service name> <local program path> [local program arguments]
+```
 
 Note that only stdin/stdout is passed between RPC server and client --
 notably, no cmdline argument are passed.
@@ -169,7 +173,9 @@ to the policy file, which will unconditionally allow further calls for given
 In order to remove such authorization, issue this command from a Dom0 terminal
 (example below for `qubes.Filecopy` service):
 
+```shell_session
     sudo nano /etc/qubes-rpc/policy/qubes.Filecopy
+```
 
 and then remove any line(s) ending in "allow" (before the first `##` comment)
 which are the "Yes to All" results.
@@ -178,35 +184,44 @@ A user might also want to set their own policies in this section. This may
 mostly serve to prevent the user from mistakenly copying files or text from
 a trusted to untrusted domain, or vice-versa.
 
-
 ### Qubes RPC "Hello World" service ###
 
 We will show the necessary files to create a simple RPC call that adds two
 integers on the target VM and returns back the result to the invoking VM.
 
- * Client code on source VM (`/usr/bin/our_test_add_client`)
+* Client code on source VM (`/usr/bin/our_test_add_client`)
 
+```bash
         #!/bin/sh
         echo $1 $2    # pass data to rpc server
         exec cat >&$SAVED_FD_1 # print result to the original stdout, not to the other rpc endpoint
+```
 
- * Server code on target VM (`/usr/bin/our_test_add_server`)
+* Server code on target VM (`/usr/bin/our_test_add_server`)
 
+```bash
         #!/bin/sh
         read arg1 arg2 # read from stdin, which is received from the rpc client
         echo $(($arg1+$arg2)) # print to stdout - so, pass to the rpc client
+```
 
- * Policy file in dom0 (`/etc/qubes-rpc/policy/test.Add`)
+* Policy file in dom0 (`/etc/qubes-rpc/policy/test.Add`)
 
+```shell_session
         $anyvm $anyvm ask
+```
 
- * Server path definition on target VM (`/etc/qubes-rpc/test.Add`)
+* Server path definition on target VM (`/etc/qubes-rpc/test.Add`)
 
+```
         /usr/bin/our_test_add_server
+```
 
- * To test this service, run the following in the source VM:
+* To test this service, run the following in the source VM:
 
+```
         /usr/lib/qubes/qrexec-client-vm <target VM> test.Add /usr/bin/our_test_add_client 1 2
+```
 
 and we should get "3" as answer, provided dom0 policy allows the call to pass
 through, which would happen after we click "Yes" in the popup that should
@@ -227,7 +242,6 @@ users/app developers are always free to run more high-level RPC protocols on
 top of qrexec. Care should be taken, however, to consider potential attack
 surfaces that are exposed to untrusted or less trusted VMs in that case.
 
-
 # Qubes RPC internals #
 
 (*This is about the implementation of qrexec v2. For the implementation of
@@ -235,51 +249,47 @@ qrexec v3, see [here](/doc/qrexec-internals/). Note that the user
 API in v3 is backward compatible: qrexec apps written for Qubes R2 should
 run without modification on Qubes R3.*)
 
-
 ## Dom0 tools implementation ##
 
 Players:
 
- * `/usr/lib/qubes/qrexec-daemon`: started by mgmt stack (qubes.py) when a
+* `/usr/lib/qubes/qrexec-daemon`: started by mgmt stack (qubes.py) when a
  VM is started.
- * `/usr/lib/qubes/qrexec-policy`: internal program used to evaluate the
+* `/usr/lib/qubes/qrexec-policy`: internal program used to evaluate the
  policy file and making the 2nd half of the connection.
- * `/usr/lib/qubes/qrexec-client`: raw command line tool that talks to the
+* `/usr/lib/qubes/qrexec-client`: raw command line tool that talks to the
  daemon via unix socket (`/var/run/qubes/qrexec.XID`)
 
 **Note:** None of the above tools are designed to be used by users.
-
 
 ## Linux VMs implementation ##
 
 Players:
 
- * `/usr/lib/qubes/qrexec-agent`: started by VM bootup scripts, a daemon.
- * `/usr/lib/qubes/qubes-rpc-multiplexer`: executes the actual service program,
+* `/usr/lib/qubes/qrexec-agent`: started by VM bootup scripts, a daemon.
+* `/usr/lib/qubes/qubes-rpc-multiplexer`: executes the actual service program,
  as specified in VM's `/etc/qubes-rpc/qubes.XYZ`.
- * `/usr/lib/qubes/qrexec-client-vm`: raw command line tool that talks to
+* `/usr/lib/qubes/qrexec-client-vm`: raw command line tool that talks to
  the agent.
 
 **Note:** None of the above tools are designed to be used by
 users. `qrexec-client-vm` is designed to be wrapped up by Qubes apps.
-
 
 ## Windows VMs implementation ##
 
 `%QUBES_DIR%` is the installation path (`c:\Program Files\Invisible Things
 Lab\Qubes OS Windows Tools` by default).
 
- * `%QUBES_DIR%\bin\qrexec-agent.exe`: runs as a system service. Responsible
+* `%QUBES_DIR%\bin\qrexec-agent.exe`: runs as a system service. Responsible
  both for raw command execution and interpreting RPC service requests.
- * `%QUBES_DIR%\qubes-rpc`: directory with `qubes.XYZ` files that contain
+* `%QUBES_DIR%\qubes-rpc`: directory with `qubes.XYZ` files that contain
  commands for executing RPC services. Binaries for the services are contained
  in `%QUBES_DIR%\qubes-rpc-services`.
- * `%QUBES_DIR%\bin\qrexec-client-vm`: raw command line tool that talks to
+* `%QUBES_DIR%\bin\qrexec-client-vm`: raw command line tool that talks to
  the agent.
 
 **Note:** None of the above tools are designed to be used by
 users. `qrexec-client-vm` is designed to be wrapped up by Qubes apps.
-
 
 ## All the pieces together at work ##
 
@@ -298,30 +308,30 @@ vchan connections.
 When a user in a source VM executes `qrexec-client-vm` utility, the following
 steps are taken:
 
- * `qrexec-client-vm` connects to `qrexec-agent`'s
+* `qrexec-client-vm` connects to `qrexec-agent`'s
  `/var/run/qubes/qrexec-agent-fdpass` unix socket 3 times. Reads 4 bytes from
  each of them, which is the fd number of the accepted socket in agent. These
  3 integers, in text, concatenated, form "connection identifier" (CID)
- * `qrexec-client-vm` writes to `/var/run/qubes/qrexec-agent` fifo a blob,
+* `qrexec-client-vm` writes to `/var/run/qubes/qrexec-agent` fifo a blob,
  consisting of target vmname, rpc action, and CID
- * `qrexec-client-vm` executes the rpc client, passing the above mentioned
+* `qrexec-client-vm` executes the rpc client, passing the above mentioned
  unix sockets as process stdin/stdout, and optionally stderr (if the
  `PASS_LOCAL_STDERR` env variable is set)
- * `qrexec-agent` passes the blob to `qrexec-daemon`, via
+* `qrexec-agent` passes the blob to `qrexec-daemon`, via
  `MSG_AGENT_TO_SERVER_TRIGGER_CONNECT_EXISTING` message over vchan
- * `qrexec-daemon` executes `qrexec-policy`, passing source vmname, target
+* `qrexec-daemon` executes `qrexec-policy`, passing source vmname, target
  vmname, rpc action, and CID as cmdline arguments
- * `qrexec-policy` evaluates the policy file. If successful, creates a pair of
+* `qrexec-policy` evaluates the policy file. If successful, creates a pair of
  `qrexec-client` processes, whose stdin/stdout are cross-connected.
-   * The first `qrexec-client` connects to the src VM, using the `-c ClientID`
+  * The first `qrexec-client` connects to the src VM, using the `-c ClientID`
    parameter, which results in not creating a new process, but connecting to
    the existing process file descriptors (these are the fds of unix socket
    created in step 1).
-   * The second `qrexec-client` connects to the target VM, and executes
+  * The second `qrexec-client` connects to the target VM, and executes
    `qubes-rpc-multiplexer` command there with the rpc action as the cmdline
    argument. Finally, `qubes-rpc-multiplexer` executes the correct rpc server
    on the target.
- * In the above step, if the target VM is `$dispvm`, the DispVM is created
+* In the above step, if the target VM is `$dispvm`, the DispVM is created
  via the `qfile-daemon-dvm` program. The latter waits for the `qrexec-client`
  process to exit, and then destroys the DispVM.
 

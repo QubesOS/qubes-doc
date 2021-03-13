@@ -6,13 +6,11 @@ redirect_from:
 - /en/doc/releases/3.0/release-notes/
 ---
 
-Qubes R3.0 Release Notes
-========================
+### Qubes R3.0 Release Notes
 
 This Qubes OS release is dedicated to the memory of Caspar Bowden.
 
-New features since 2.0
-----------------------
+## New features since 2.0
 
 * HAL (Hypervisor Abstraction Layer) - based on libvirt, opens a whole new
   possibilities of using different hypervisors. Currently Qubes OS uses Xen.
@@ -27,8 +25,7 @@ New features since 2.0
   templates using DispVM.
 * Automated tests - makes much easier to find bugs, before its even shipped to users
 
-Known issues
-------------
+## Known issues
 
 * Windows Tools: `qvm-block` does not work
 
@@ -42,18 +39,15 @@ Known issues
 
 It is advised to install updates just after system installation to apply bug fixes for (some of) the above problems.
 
-Downloads
----------
+## Downloads
 
 See [Qubes Downloads](/doc/QubesDownloads/).
 
-Installation instructions
--------------------------
+## Installation instructions
 
 See [Installation Guide](/doc/installation-guide/).
 
-Upgrading
----------
+## Upgrading
 
 ### From R3.0 release candidate
 
@@ -64,4 +58,3 @@ If you are using Qubes R3.0rc1, R3.0rc2 or R3.0rc3, just install system updates,
 The easiest and safest way to upgrade to Qubes R3.0 is to install it from scratch and use [qubes backup and restore tools](/doc/backup-restore/) for migrating of all of the user VMs.
 
 Users of Qubes R2 can upgrade using [experimental procedure](/doc/upgrade-to-r3.0/).
-

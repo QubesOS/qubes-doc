@@ -4,11 +4,9 @@ title: Qubes R3.2 release notes
 permalink: /doc/releases/3.2/release-notes/
 ---
 
-Qubes R3.2 release notes
-========================
+# Qubes R3.2 release notes
 
-New features since 3.1
-----------------------
+## New features since 3.1
 
 * Management Stack extended to support in-VM configuration - [documentation][salt-doc]
 * PV USB - [documentation][usb]
@@ -21,8 +19,7 @@ New features since 3.1
 
 You can get detailed description in [completed github issues][github-release-notes]
 
-Known issues
-------------
+## Known issues
 
 * [Fedora 23 reached EOL in December 2016](https://fedoraproject.org/wiki/End_of_life). There is a [manual procedure to upgrade your VMs](/news/2018/01/06/fedora-26-upgrade/).
 
@@ -34,19 +31,16 @@ Known issues
 
 It is advised to install updates just after system installation to apply bug fixes for (some of) the above problems.
 
-Downloads
----------
+## Downloads
 
 See [Qubes Downloads](/downloads/).
 
-Installation instructions
--------------------------
+## Installation instructions
 
 See [Installation Guide](/doc/installation-guide/).
 After installation, [manually upgrade to Fedora 26](/news/2018/01/06/fedora-26-upgrade/).
 
-Upgrading
----------
+## Upgrading
 
 ### From R3.1
 

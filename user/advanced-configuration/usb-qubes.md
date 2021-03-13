@@ -16,7 +16,6 @@ If during installation you enabled the creation of a USB-qube, your system shoul
 
 **Caution:** If you want to use a USB-keyboard, please beware of the possibility to lock yourself out! To avoid this problem [enable your keyboard for login]!
 
-
 ## Creating and Using a USB qube ##
 
 **Warning:** This has the potential to prevent you from connecting a keyboard to Qubes via USB.
@@ -29,30 +28,31 @@ The USB controller may be assigned on the **Devices** tab of a qube's settings p
 For guidance on finding the correct USB controller, see the [according passage on PCI-devices][usb-controller].
 You can create a USB qube using the management stack by performing the following steps as root in dom0:
 
-    sudo qubesctl state.sls qvm.sys-usb
+```
+sudo qubesctl state.sls qvm.sys-usb
+```
 
 Alternatively, you can create a USB qube manually as follows:
 
- 1.  Read the [PCI Devices] page to learn how to list and identify your USB controllers.
-     Carefully check whether you have a USB controller that would be appropriate to assign to a USB qube.
-     Note that it should be free of input devices, programmable devices, and any other devices that must be directly available to dom0.
-     If you find a free controller, note its name and proceed to step 2.
- 2.  Create a new qube.
-     Give it an appropriate name and color label (recommended: `sys-usb`, red).
- 3.  In the qube's settings, go to the "Devices" tab.
-     Find the USB controller that you identified in step 1 in the "Available" list.
-     Move it to the "Selected" list by highlighting it and clicking the single arrow `>` button.
+1. Read the [PCI Devices] page to learn how to list and identify your USB controllers.
+   Carefully check whether you have a USB controller that would be appropriate to assign to a USB qube.
+   Note that it should be free of input devices, programmable devices, and any other devices that must be directly available to dom0.
+   If you find a free controller, note its name and proceed to step 2.
+2. Create a new qube.
+   Give it an appropriate name and color label (recommended: `sys-usb`, red).
+3. In the qube's settings, go to the "Devices" tab.
+   Find the USB controller that you identified in step 1 in the "Available" list.
+   Move it to the "Selected" list by highlighting it and clicking the single arrow `>` button.
 
-     **Caution:** By assigning a USB controller to a USB qube, it will no longer be available to dom0.
-     This can make your system unusable if, for example, you have only one USB controller, and you are running Qubes off of a USB drive.
+   **Caution:** By assigning a USB controller to a USB qube, it will no longer be available to dom0.
+   This can make your system unusable if, for example, you have only one USB controller, and you are running Qubes off of a USB drive.
 
- 4.  Click `OK`.
-     Restart the qube.
- 5.  Recommended: Check the box on the "Basic" tab which says "Start VM automatically on boot".
-     (This will help to mitigate attacks in which someone forces your system to reboot, then plugs in a malicious USB device.)
+4. Click `OK`.
+   Restart the qube.
+5. Recommended: Check the box on the "Basic" tab which says "Start VM automatically on boot".
+   (This will help to mitigate attacks in which someone forces your system to reboot, then plugs in a malicious USB device.)
 
 If the USB qube will not start, please have a look at the [faq].
-
 
 ## Enable a USB keyboard for login ##
 
@@ -62,12 +62,13 @@ If you use USB keyboard, automatic USB qube creation during installation is disa
 Additional steps are required to avoid locking you out from the system.
 Those steps are not performed by default, because of risk explained in [Security Warning about USB Input Devices].
 
-
 ### Automatic setup ###
 
 To allow USB keyboard usage (including early boot for LUKS passphrase), make sure you have the latest `qubes-mgmt-salt-dom0-virtual-machines` package (simply [install dom0 updates]) and execute in dom0:
 
-    sudo qubesctl state.sls qvm.usb-keyboard
+```
+sudo qubesctl state.sls qvm.usb-keyboard
+```
 
 The above command will take care of all required configuration, including creating USB qube if not present.
 Note that it will expose dom0 to USB devices while entering LUKS passphrase.
@@ -77,17 +78,20 @@ To undo these changes, please follow the section on [**Removing a USB qube**][re
 
 If you wish to perform only a subset of this configuration (for example do not enable USB keyboard during boot), see manual instructions below.
 
-
 ### Manual setup ###
 
 In order to use a USB keyboard, you must first attach it to a USB qube, then give that qube permission to pass keyboard input to dom0.
 Edit the `qubes.InputKeyboard` policy file in dom0, which is located here:
 
-    /etc/qubes-rpc/policy/qubes.InputKeyboard
+```
+/etc/qubes-rpc/policy/qubes.InputKeyboard
+```
 
 Add a line like this one to the top of the file:
 
-    sys-usb dom0 allow
+```
+sys-usb dom0 allow
+```
 
 (Change `sys-usb` to your desired USB qube.)
 
@@ -95,13 +99,14 @@ You can now use your USB keyboard to login and for LUKS decryption during boot.
 
 For a confirmation dialog each time the USB keyboard is connected, *which will effectively disable your USB keyboard for login and LUKS decryption*, change this line to:
 
-    sys-usb dom0 ask,default_target=dom0
+```
+sys-usb dom0 ask,default_target=dom0
+```
 
 *Don't do that if you want to unlock your device with a USB keyboard!*
 
 Additionally, if you want to use USB keyboard to enter LUKS passphrase, it is incompatible with [hiding USB controllers from dom0].
 You need to revert that procedure (remove `rd.qubes.hide_all_usb` option from files mentioned there) and employ alternative protection during system boot - disconnect other devices during startup.
-
 
 ## Auto Enabling A USB Mouse ##
 
@@ -111,20 +116,25 @@ Handling a USB mouse isn't as critical as handling a keyboard, since you can log
 
 If you want to attach the USB mouse automatically anyway, you have to edit the `qubes.InputMouse` policy file in dom0, located at:
 
-    /etc/qubes-rpc/policy/qubes.InputMouse
+```
+/etc/qubes-rpc/policy/qubes.InputMouse
+```
 
 The first line should read similar to:
 
-    sys-usb dom0 ask,default_target=dom0
+```
+sys-usb dom0 ask,default_target=dom0
+```
 
 which will ask for conformation each time a USB mouse is attached. If the file is empty or does not exist, maybe something went wrong during setup, try to rerun `qubesctl state.sls qvm.sys-usb` in dom0.
 
 In case you are absolutely sure you do not want to confirm mouse access from `sys-usb` to `dom0`, you may add the following line on top of the file:
 
-    sys-usb dom0 allow
-    
-(Change `sys-usb` to your desired USB qube.)
+```
+sys-usb dom0 allow
+```
 
+(Change `sys-usb` to your desired USB qube.)
 
 ## How to hide all USB controllers from dom0 ##
 
@@ -149,49 +159,47 @@ If dom0 cannot read your USB AEM device, AEM will hang.
 
 The procedure to hide all USB controllers from dom0 is as follows:
 
- * GRUB2
+* GRUB2
 
- 1. Open the file `/etc/default/grub` in dom0.
- 2. Find the line that begins with `GRUB_CMDLINE_LINUX`.
- 3. Add `rd.qubes.hide_all_usb` to that line.
- 4. Save and close the file.
- 5. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
- 6. Reboot.
+  1. Open the file `/etc/default/grub` in dom0.
+  2. Find the line that begins with `GRUB_CMDLINE_LINUX`.
+  3. Add `rd.qubes.hide_all_usb` to that line.
+  4. Save and close the file.
+  5. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
+  6. Reboot.
 
- * EFI
- 
- 1. Open the file `/boot/efi/EFI/qubes/xen.cfg` in dom0.
- 2. Find the lines that begin with `kernel=`. There may be more than one.
- 3. Add `rd.qubes.hide_all_usb` to those lines.
- 4. Save and close the file.
- 5. Reboot.
+* EFI
 
+  1. Open the file `/boot/efi/EFI/qubes/xen.cfg` in dom0.
+  2. Find the lines that begin with `kernel=`. There may be more than one.
+  3. Add `rd.qubes.hide_all_usb` to those lines.
+  4. Save and close the file.
+  5. Reboot.
 
 ## Removing a USB qube ##
 
 **Warning:** This procedure will result in your USB controller(s) being attached directly to dom0.
 
- * GRUB2
- 
- 1. Shut down the USB qube.
- 2. In Qubes Manager, right-click on the USB qube and select "Remove VM."
- 3. Open the file `/etc/default/grub` in dom0.
- 4. Find the line(s) that begins with `GRUB_CMDLINE_LINUX`.
- 5. If `rd.qubes.hide_all_usb` appears anywhere in those lines, remove it.
- 6. Save and close the file.
- 7. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
- 8. Reboot.
+* GRUB2
 
- * EFI
- 
- 1. Shut down the USB qube.
- 2. In Qubes Manager, right-click on the USB qube and select "Remove VM."
- 3. Open the file `/boot/efi/EFI/qubes/xen.cfg` in dom0.
- 4. Find the line(s) that begins with `kernel=`.
- 5. If `rd.qubes.hide_all_usb` appears anywhere in those lines, remove it.
- 6. Save and close the file.
- 7. Reboot.
+  1. Shut down the USB qube.
+  2. In Qubes Manager, right-click on the USB qube and select "Remove VM."
+  3. Open the file `/etc/default/grub` in dom0.
+  4. Find the line(s) that begins with `GRUB_CMDLINE_LINUX`.
+  5. If `rd.qubes.hide_all_usb` appears anywhere in those lines, remove it.
+  6. Save and close the file.
+  7. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
+  8. Reboot.
 
+* EFI
+
+  1. Shut down the USB qube.
+  2. In Qubes Manager, right-click on the USB qube and select "Remove VM."
+  3. Open the file `/boot/efi/EFI/qubes/xen.cfg` in dom0.
+  4. Find the line(s) that begins with `kernel=`.
+  5. If `rd.qubes.hide_all_usb` appears anywhere in those lines, remove it.
+  6. Save and close the file.
+  7. Reboot.
 
 [remove your USB-qube]: #removing-a-usb-qube
 [security implications]: /doc/device-handling-security/#usb-security

@@ -29,21 +29,22 @@ Here's a suggested template for adding project ideas:
 
 **Mentor**: Name and email address.
 ```
+
 ### Offline documentation
 
 **Project**: Offline documentation
 
 **Brief explanation**: Qubes OS has thorough documentation on the project website, however a user may find it more convenient to view documentation - especially for troubleshooting network issues -- offline on their Qubes machine. This will improve usability for new users and better support users if they need to troubleshoot anything.
 
-**Expected results**: 
+**Expected results**:
 
- - Review [past discussions on the issue](https://github.com/QubesOS/qubes-issues/issues/1019)
- - Recommend workflow and platform for displaying offline documentation
- - Test workflow and platform to ensure usability and functionality
+- Review [past discussions on the issue](https://github.com/QubesOS/qubes-issues/issues/1019)
+- Recommend workflow and platform for displaying offline documentation
+- Test workflow and platform to ensure usability and functionality
 
-**Knowledge prerequisite**: 
+**Knowledge prerequisite**:
 
- - [Markdown][markdown]
+- [Markdown][markdown]
 
 **Mentor**: [Marek Marczykowski-Górecki][team]
 
@@ -53,14 +54,14 @@ Here's a suggested template for adding project ideas:
 
 **Brief explanation**: When a user first boots Qubes after installing it, there is an opportunity to introduce the user to some of the unique functionality Qubes has.
 
-**Expected results**: 
+**Expected results**:
 
- - Review [past discussions on the issue](https://github.com/QubesOS/qubes-issues/issues/1774)
- - Provide visual mock-ups and proposed text 
-  
-**Knowledge prerequisite**: 
+- Review [past discussions on the issue](https://github.com/QubesOS/qubes-issues/issues/1774)
+- Provide visual mock-ups and proposed text
 
- - some experience with Anaconda would be helpful
+**Knowledge prerequisite**:
+
+- some experience with Anaconda would be helpful
 
 **Mentor**: [Marek Marczykowski-Górecki][team]
 
@@ -92,16 +93,16 @@ Additionally, terminology is used inconsistently.
 
 **Brief explanation**: The Qubes OS is missing an installation guide for virtual machines. Users are installing an outdated and unsupported version of Qubes OS (3.2) instead of the supported version. There is unofficial [existing installation guide] for Qubes OS on a virtual box but it is misleading and lacks documentation. Usually, users face some errors and bugs while installing Qubes OS on a virtual machine.[virtual box issue]
 
-**Expected results**: 
+**Expected results**:
  -Provide a new option of installation guide for users working on virtual machines.
  -Review existing problems and provide solutions to them.
  -Giving a warning for using outdated versions.
 
-**Knowledge prerequisite**: 
+**Knowledge prerequisite**:
  - Experience in virtual boxes and machines.
  - Basic Knowledge about Fedora linux architecture.
  - [Markdown][markdown]
- 
+
 **Mentor**: [Marek Marczykowski-Górecki][team]
 
 ## Past Projects
@@ -110,7 +111,7 @@ You can view the project we had in 2019 in the [2019 GSoD archive][2019-qubes-gs
 
 You can also view the project we had in 2020 in the [2020 GSoD archive][2020-qubes-gsod] and the [2020 writer's report][2020-qubes-report].
 
-Here are some successful projects which have been implemented in the past by Google Season of Docs participants. 
+Here are some successful projects which have been implemented in the past by Google Season of Docs participants.
 
 ### Consolidate troubleshooting guides
 
@@ -135,14 +136,14 @@ This could be helped by writing consolidated guide with with a clear list of sym
 
 **Project**: Improve Getting Started page
 
-**Brief explanation**: The [Getting Started page](https://www.qubes-os.org/getting-started/) is the place a new user would go to understand better how to use Qubes. It is currently has old screenshots not using the default desktop environment and could have much better flow. In addition, this improved page content may end up being served more directly to the user via the [offline documentation](#offline-documentation) or the [firstboot guide](#create-guide-on-firstboot-for-new-users). 
+**Brief explanation**: The [Getting Started page](https://www.qubes-os.org/getting-started/) is the place a new user would go to understand better how to use Qubes. It is currently has old screenshots not using the default desktop environment and could have much better flow. In addition, this improved page content may end up being served more directly to the user via the [offline documentation](#offline-documentation) or the [firstboot guide](#create-guide-on-firstboot-for-new-users).
 
-**Expected results**: 
+**Expected results**:
 
  - Review the existing page and website, similar pages for other OSes
- - Provide visual mock-ups and proposed text 
+ - Provide visual mock-ups and proposed text
 
-**Knowledge prerequisite**: 
+**Knowledge prerequisite**:
 
 - basic Qubes OS knowledge
 - [Markdown][markdown]

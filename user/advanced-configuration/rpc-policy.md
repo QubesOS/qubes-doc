@@ -58,4 +58,3 @@ Further details about how this system works can be found in [Qrexec: command exe
 For more information, see the bulletin [here](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-038-2018.txt).*)
 
 [qrexec3]: /doc/qrexec3/
-

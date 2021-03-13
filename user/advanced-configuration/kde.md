@@ -15,30 +15,32 @@ Prior to R3.2, KDE was the default desktop environment in Qubes. Beginning with
 R3.2, however, [XFCE is the new default desktop environment](/doc/releases/3.2/release-notes/). Nonetheless, it is
 still possible to install KDE by issuing this command in dom0:
 
-    $ sudo qubes-dom0-update @kde-desktop-qubes
+```shell_session
+$ sudo qubes-dom0-update @kde-desktop-qubes
+```
 
 You can also change your default login manager (lightdm) to the new KDE default: sddm
 
- * first you need to edit the `/etc/sddm.conf` to make sure if the custom X parameter is set according to Qubes needs:
+* first you need to edit the `/etc/sddm.conf` to make sure if the custom X parameter is set according to Qubes needs:
 
-~~~
+    ~~~
    [XDisplay]
    ServerArguments=-nolisten tcp -background none
-~~~
+    ~~~
 
- * disable the lightdm service:
+* disable the lightdm service:
 
-~~~  
+    ~~~
    $ sudo systemctl disable lightdm
-~~~  
+    ~~~
 
- * enable the sddm service:
+* enable the sddm service:
 
-~~~
+    ~~~
     $ sudo systemctl enable sddm
-~~~
+    ~~~
 
- * reboot
+* reboot
 
 If you encounter performance issues with KDE, try switching back to LightDM.
 
@@ -77,12 +79,12 @@ Removal
 If you decide to remove KDE do **not** use `dnf remove @kde-desktop-qubes`. You will almost certainly break your system.
 
 The safest way to remove (most of) KDE is:
+
 ~~~
 sudo dnf remove kdelibs plasma-workspace
 ~~~
 
-
 Mailing List Threads
 --------------------
 
- * [Nalu's KDE customization thread](https://groups.google.com/d/topic/qubes-users/KhfzF19NG1s/discussion)
+* [Nalu's KDE customization thread](https://groups.google.com/d/topic/qubes-users/KhfzF19NG1s/discussion)

@@ -44,7 +44,7 @@ any GNU/Linux system with the following procedure.
 
         [user@restore ~]$ openssl dgst -sha512 -hmac "your_passphrase" backup-header
         HMAC-SHA512(backup-header)= 5b266783e116fe3b2601a54c249ca5f5f96d421dfe6828eeaeb2dcd014e9e945c27b3d7b0f952f5d55c927318906d9c360f387b0e1f069bb8195e96543e2969c
-        [user@restore ~]$ cat backup-header.hmac 
+        [user@restore ~]$ cat backup-header.hmac
         (stdin)= 5b266783e116fe3b2601a54c249ca5f5f96d421dfe6828eeaeb2dcd014e9e945c27b3d7b0f952f5d55c927318906d9c360f387b0e1f069bb8195e96543e2969c
 
     **Note:** The hash values should match. If they do not match, then the
@@ -69,7 +69,7 @@ any GNU/Linux system with the following procedure.
         encrypted=True
         compressed=True
         compression-filter=gzip
-  
+
     **Note:** If you see `version=2` here, go to [Emergency Backup Recovery -
     format version 2](/doc/backup-emergency-restore-v2/) instead.
 
@@ -78,7 +78,7 @@ any GNU/Linux system with the following procedure.
         [user@restore ~]$ cd vm1/
         [user@restore vm1]$ openssl dgst -sha512 -hmac "your_passphrase" private.img.000
         HMAC-SHA512(private.img.000)= cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
-        [user@restore vm1]$ cat private.img.000.hmac 
+        [user@restore vm1]$ cat private.img.000.hmac
         (stdin)= cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
 
     **Note:** The hash values should match. If they do not match, then the
@@ -137,4 +137,3 @@ any GNU/Linux system with the following procedure.
     repository:
 
         https://github.com/QubesOS/qubes-doc.git
-

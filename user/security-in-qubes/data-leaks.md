@@ -41,17 +41,17 @@ Types of Data Leaks
 
 In order to understand and attempt to prevent data leaks in Qubes, we must distinguish among three different types of relevant data leaks:
 
-1.  **Intentional leaks.** Malicious software which actively tries to leak data out of an AppVM, perhaps via cooperative covert channels established with other malicious software in another AppVM or on some server via networking, if networking, even limited, is allowed for the AppVM.
+1. **Intentional leaks.** Malicious software which actively tries to leak data out of an AppVM, perhaps via cooperative covert channels established with other malicious software in another AppVM or on some server via networking, if networking, even limited, is allowed for the AppVM.
 
-2.  **Intentional sniffing.** Malicious software trying to use side channels to, e.g., actively guess some key material used in another VM by some non-malicious software there (e.g., non-leak-proof GPG accidentally leaking out bits of the private key by generating some timing patterns when using this key for some crypto operation).
+2. **Intentional sniffing.** Malicious software trying to use side channels to, e.g., actively guess some key material used in another VM by some non-malicious software there (e.g., non-leak-proof GPG accidentally leaking out bits of the private key by generating some timing patterns when using this key for some crypto operation).
 Such attacks have been described in the academic literature, but it is doubtful that they would succeed in practice in a moderately busy general purpose system like Qubes OS where the attacker normally has no way to trigger the target crypto operation explicitly and it is normally required that the attacker trigger many such operations.
 
-3.  **Unintentional leaks.** Non-malicious software which is either buggy or doesn't maintain the privacy of user data, whether by design or accident.
-    For example, software which automatically sends error reports to a remote server, where these reports contain details about the system which the user did not want to share.
+3. **Unintentional leaks.** Non-malicious software which is either buggy or doesn't maintain the privacy of user data, whether by design or accident.
+   For example, software which automatically sends error reports to a remote server, where these reports contain details about the system which the user did not want to share.
 
-    Both Qubes firewall and an empty NetVM (i.e., setting the NetVM of an AppVM to "none") can fully protect against leaks of type 3.
-    However, neither Qubes firewall nor an empty NetVM are guaranteed to protect against leaks of types 1 and 2.
-    There are few effective, practical policy measures available to end-users today to stop the leaks of type 1.
-    It is likely that the only way to fully protect against leaks of type 2 is to either pause or shut down all other VMs while performing sensitive operations in the target VM(s) (such as key generation).
+   Both Qubes firewall and an empty NetVM (i.e., setting the NetVM of an AppVM to "none") can fully protect against leaks of type 3.
+   However, neither Qubes firewall nor an empty NetVM are guaranteed to protect against leaks of types 1 and 2.
+   There are few effective, practical policy measures available to end-users today to stop the leaks of type 1.
+   It is likely that the only way to fully protect against leaks of type 2 is to either pause or shut down all other VMs while performing sensitive operations in the target VM(s) (such as key generation).
 
 For further discussion, see [this thread](https://groups.google.com/d/topic/qubes-users/t0cmNfuVduw/discussion).

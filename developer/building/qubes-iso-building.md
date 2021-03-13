@@ -42,7 +42,7 @@ Get the necessary keys to verify the sources (run these and other commands below
 
 ~~~
 wget https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
-gpg --import qubes-master-signing-key.asc 
+gpg --import qubes-master-signing-key.asc
 gpg --edit-key 36879494
 fpr
 # Verify fingerprint! See Note below!
@@ -67,7 +67,6 @@ git tag -v `git describe`
 
 Assuming the verification went fine, we're good to go with all the rest without ever thinking more about verifying digital signatures on all the rest of the components, apart from an additional step if doing a non-scripted build.
 The builder will do that for us for each component, every time we build, even for all auxiliary files (e.g. Xen or Linux kernel sources).
-
 
 Build using setup script
 -----------------
@@ -127,7 +126,6 @@ make iso
 ~~~
 
 Enjoy your new ISO!
-
 
 Build using manual steps
 -----------------

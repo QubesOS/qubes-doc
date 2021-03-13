@@ -3,14 +3,15 @@ layout: doc
 title: Installation Troubleshooting
 permalink: /doc/installation-troubleshooting/
 ---
-# Installation Troubleshooting #
 
-## "An unknown error has occurred" error during installation ##
+# Installation Troubleshooting 
+
+## "An unknown error has occurred" error during installation 
 
 Some people have encountered this error message when trying to install Qubes on drives that already have data on them. 
 The solution is to exit the installer, wipe all data or delete all partitions, then restart the Qubes installation. 
 
-## Trouble installing from USB stick ##
+## Trouble installing from USB stick 
 
 If you are facing issues when booting using UEFI mode, see the [UEFI troubleshooting guide](/doc/uefi-troubleshooting/). 
 
@@ -32,7 +33,7 @@ If installation fails after using one tool, try a different one.
 For example, if you are facing trouble installing Qubes after writing the ISO using Rufus, then try using other tools like balenaEtcher or the ``dd`` command. 
 In case the boot partition is not set to "active" after copying the ISO, you can use some other tool like `gparted` on a Linux system to activate it. 
 
-## Boot screen does not appear / system does not detect your installation medium ##
+## Boot screen does not appear / system does not detect your installation medium 
 
 If the boot screen does not appear, there are several options to troubleshoot.
 First, try rebooting your computer. 
@@ -43,7 +44,7 @@ The process to change the boot order varies depending on the currently installed
 If **Windows 10** is installed on your machine, you may need to follow specific instructions to change the boot order. 
 This may require an [advanced reboot](https://support.microsoft.com/en-us/help/4026206/windows-10-find-safe-mode-and-other-startup-settings).
 
-## "Not asking for VNC because we don't have a network" / "X startup failed, aborting installation" / "Pane is dead" error during installation ##
+## "Not asking for VNC because we don't have a network" / "X startup failed, aborting installation" / "Pane is dead" error during installation 
 
 The boot mode in use may be causing these error messages. 
 Try to install after enabling both UEFI and legacy boot modes. 
@@ -55,16 +56,19 @@ These errors may also occur due to an incompatible Nvidia graphics card. If you 
 2. Enter GRUB, move the selection to the first choice, and then press the Tab key. 
 3. Now, you are in edit mode. Move the text cursor with your arrow key and after ``kernel=`` line, add:
 
-       nouveau.modeset=0 rd.driver.blacklist=nouveau video=vesa:off
-   
-   If the above code doesn't fix the problem, replace it with:
-   
-       noexitboot=1 modprobe.blacklist=nouveau rd.driver.blacklist=nouveau --- intitrd.img
+    ```
+    nouveau.modeset=0 rd.driver.blacklist=nouveau video=vesa:off
+    ```
+
+    If the above code doesn't fix the problem, replace it with:
+
+    ```   
+    noexitboot=1 modprobe.blacklist=nouveau rd.driver.blacklist=nouveau --- intitrd.img
+    ```
 
 For more information, look at the [Nvidia Troubleshooting guide](https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/nvidia-troubleshooting.md#disabling-nouveau).
- 
 
-## Installation freezes at "Setting up Networking" ##
+## Installation freezes at "Setting up Networking" 
  
 If you are facing this problem on an Apple computer, check out the [Macbook Troubleshooting guide](https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/macbook-troubleshooting.md).
 

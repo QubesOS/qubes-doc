@@ -16,16 +16,16 @@ Qubes-specific VM config files
 ------------------------------
 
 These files are placed in `/rw`, which survives a VM restart.
-That way, they can be used to customize a single VM instead of all VMs based on the same template. 
+That way, they can be used to customize a single VM instead of all VMs based on the same template.
 The scripts here all run as root.
 
--   `/rw/config/rc.local` - script runs at VM startup.
+- `/rw/config/rc.local` - script runs at VM startup.
     Good place to change some service settings, replace config files with its copy stored in `/rw/config`, etc.
     Example usage:
 
     ~~~
     # Store bluetooth keys in /rw to keep them across VM restarts
-    rm -rf /var/lib/bluetooth 
+    rm -rf /var/lib/bluetooth
     ln -s /rw/config/var-lib-bluetooth /var/lib/bluetooth
     ~~~
 
@@ -34,10 +34,10 @@ The scripts here all run as root.
     echo '127.0.0.1 example.com' >> /etc/hosts
     ~~~
 
--   `/rw/config/qubes-ip-change-hook` - script runs in NetVM after every external IP change and on "hardware" link status change.
+- `/rw/config/qubes-ip-change-hook` - script runs in NetVM after every external IP change and on "hardware" link status change.
 
--   In ProxyVMs (or AppVMs with `qubes-firewall` service enabled), scripts placed in the following directories will be executed in the listed order followed by `qubes-firewall-user-script` at start up.
-    Good place to write custom firewall rules.
+- In ProxyVMs (or AppVMs with `qubes-firewall` service enabled), scripts placed in the following directories will be executed in the listed order followed by `qubes-firewall-user-script` at start up.
+  Good place to write custom firewall rules.
 
     ~~~
     /etc/qubes/qubes-firewall.d
@@ -45,11 +45,12 @@ The scripts here all run as root.
     /rw/config/qubes-firewall-user-script
     ~~~
 
--   `/rw/config/suspend-module-blacklist` - list of modules (one per line) to be unloaded before system goes to sleep.
-    The file is used only in a VM with PCI devices attached.
-    Intended for use with problematic device drivers.
+- `/rw/config/suspend-module-blacklist` - list of modules (one per line) to be unloaded before system goes to sleep.
+  The file is used only in a VM with PCI devices attached.
+  Intended for use with problematic device drivers.
 
 - In NetVMs/ProxyVMs, scripts placed in `/rw/config/network-hooks.d` will be ran when configuring Qubes interfaces. For each script, the `command`, `vif`, `vif_type` and `ip` is passed as arguments (see `/etc/xen/scripts/vif-route-qubes`). For example, consider a PV AppVM `work` with IP `10.137.0.100` and `sys-firewall` as NetVM. Assuming it's Xen domain id is arbitrary `12` then, the following script located at `/rw/config/network-hooks.d/hook-100.sh` in `sys-firewall`:
+
     ~~~
     #!/bin/bash
 
@@ -75,7 +76,6 @@ The scripts here all run as root.
 Note that scripts need to be executable (`chmod +x`) to be used.
 
 Also, take a look at [bind-dirs](/doc/bind-dirs) for instructions on how to easily modify arbitrary system files in an AppVM and have those changes persist.
-
 
 GUI and audio configuration in dom0
 -----------------------------------
@@ -115,31 +115,31 @@ VM: {
 
 Currently supported settings:
 
--   `allow_fullscreen` - allow VM to request its windows to go fullscreen (without any colorful frame).
+- `allow_fullscreen` - allow VM to request its windows to go fullscreen (without any colorful frame).
 
     **Note:** Regardless of this setting, you can always put a window into fullscreen mode in Xfce4 using the trusted window manager by right-clicking on a window's title bar and selecting "Fullscreen".
     This functionality should still be considered safe, since a VM window still can't voluntarily enter fullscreen mode.
     The user must select this option from the trusted window manager in dom0.
     To exit fullscreen mode from here, press `alt` + `space` to bring up the title bar menu again, then select "Leave Fullscreen".
 
--   `allow_utf8_titles` - allow the use of UTF-8 in window titles; otherwise, non-ASCII characters are replaced by an underscore.
+- `allow_utf8_titles` - allow the use of UTF-8 in window titles; otherwise, non-ASCII characters are replaced by an underscore.
 
--   `secure_copy_sequence` and `secure_paste_sequence` - key sequences used to trigger secure copy and paste.
+- `secure_copy_sequence` and `secure_paste_sequence` - key sequences used to trigger secure copy and paste.
 
--   `audio_low_latency` - force low-latency audio mode (about 40ms compared to 200-500ms by default).
-     Note that this will cause much higher CPU usage in dom0. It's enabled by
-		 default, disabling it may save CPU in dom0.
+- `audio_low_latency` - force low-latency audio mode (about 40ms compared to 200-500ms by default).
+  Note that this will cause much higher CPU usage in dom0. It's enabled by
+  default, disabling it may save CPU in dom0.
 
 - `trayicon_mode` - defines the trayicon coloring mode. Options are
       - `bg` - color full icon background to the VM color
       - `border1` - add 1px border at the icon edges
       - `border2` - add 1px border 1px from the icon edges
       - `tint` - tinttint icon to the VM color,  can be used with additional
-		     modifiers (you can enable multiple of them)
+         modifiers (you can enable multiple of them)
       - `tint+border1,tint+border2` - same as tint, but also add a border
       - `tint+saturation50` - same as tint, but reduce icon saturation by 50%
       - `tint+whitehack` - same as tint, but change white pixels (0xffffff) to
-		     almost-white (0xfefefe)
+         almost-white (0xfefefe)
 
 - `log level` - defines the log options logs can take. It can
    have a value of 0 (only errors), 1 (some basic messages), and 2 (debug).

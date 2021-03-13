@@ -18,12 +18,10 @@ We take no responsibility for our partners' manufacturing or shipping processes,
 There are also other hardware models on which we have tested Qubes OS.
 See [Hardware Testing] for details.
 
-
 ## Qubes-certified Laptops
 
 Qubes-certified laptops are certified for a [major version][version-scheme] and regularly tested by the Qubes developers to ensure compatibility with all of Qubes' features within that major version.
 The developers test all new updates within that major version to ensure that no regressions are introduced.
-
 
 ### Insurgo PrivacyBeast X230
 
@@ -32,13 +30,11 @@ The developers test all new updates within that major version to ensure that no 
 The [Insurgo PrivacyBeast X230] meets and exceeds our hardware certification requirements for Qubes 4.
 Read our [announcement][privacybeast announcement] of the certification for further details!
 
-
 ### NitroPad X230
 
 [![nitropad-x230.jpg](/attachment/site/nitropad-x230.jpg)][NitroPad X230]
 
 The [NitroPad X230] satisfies all hardware certification requirements for Qubes 4, offering users extensive hardware security options.
-
 
 ## Become Hardware Certified
 
@@ -50,7 +46,6 @@ The benefits of hardware certification include:
   In the course of this testing, we will also test your hardware against upcoming versions, which can help with future planning.
 * Your hardware will continue to be compatible with Qubes OS as it further develops within that major version, and we will work with you toward preserving compatibility and certification in future releases.
 * You can support the development of Qubes OS.
-
 
 ## Hardware Certification Requirements
 
@@ -83,7 +78,6 @@ Users who plan on using Qubes in an air-gap scenario would do best if they manua
 
 We hope these hardware requirements will encourage the development of more secure and trustworthy devices.
 
-
 ## Hardware Certification Process
 
 To have hardware certified, the vendor must:
@@ -97,7 +91,6 @@ This could be done by consulting the [Hardware Compatibility List] or trying to 
 While we are willing to troubleshoot simple issues, we will need to charge a consulting fee for more in-depth work.
 
 If you are interested in having your hardware certified, please [contact us].
-
 
 [version-scheme]: /doc/version-scheme/
 [Hardware Testing]: /doc/hardware-testing/
@@ -120,4 +113,3 @@ If you are interested in having your hardware certified, please [contact us].
 [Insurgo PrivacyBeast X230]: https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/
 [privacybeast announcement]: /news/2019/07/18/insurgo-privacybeast-qubes-certification/
 [NitroPad X230]: https://shop.nitrokey.com/shop/product/nitropad-x230-67
-

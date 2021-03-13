@@ -2,7 +2,7 @@
 layout: default
 title: Statistics
 permalink: /statistics/
-redirect_from: 
+redirect_from:
 - /counter/
 ---
 
@@ -12,8 +12,7 @@ redirect_from:
   </a>
 </div>
 
-FAQ
----
+## FAQ
 
 ### How often is this graph updated?
 
@@ -39,10 +38,11 @@ tor_users = tor_requests * (plain_users / plain_requests)
 ```
 
 Where:
- - `tor_users` is the estimated number of Qubes users who download updates via Tor each month.
- - `tor_requests` is the total number of requests the Qubes update servers receive from Tor exit nodes each month.
- - `plain_users` is the number of unique clearnet IPv4 addresses that connect to the Qubes update servers each month.
- - `plain_requests` is the total number of requests the Qubes update servers receive from clearnet IPv4 addresses each month.
+
+- `tor_users` is the estimated number of Qubes users who download updates via Tor each month.
+- `tor_requests` is the total number of requests the Qubes update servers receive from Tor exit nodes each month.
+- `plain_users` is the number of unique clearnet IPv4 addresses that connect to the Qubes update servers each month.
+- `plain_requests` is the total number of requests the Qubes update servers receive from clearnet IPv4 addresses each month.
 
 We cross-reference the list of connecting IP addresses with [TorDNSEL's exit lists] in order to distinguish Tor and clearnet IPs and requests.
 For this purpose, we count an IP address as belonging to a Tor exit node if there was a Tor exit node active for that address within the 24-hour periods before or after it connected to the Qubes update servers.
@@ -51,9 +51,9 @@ For this purpose, we count an IP address as belonging to a Tor exit node if ther
 
 We collect:
 
- - The IPv4 addresses that connect to the Qubes update servers
- - The number of requests from each IPv4 address
- - Standard server access and error logs
+- The IPv4 addresses that connect to the Qubes update servers
+- The number of requests from each IPv4 address
+- Standard server access and error logs
 
 We do not collect any other kinds of data about Qubes users.
 
@@ -64,9 +64,7 @@ The raw data is available [here][raw-data].
 Please note that the format of this data is not documented and may change any time if the developers feel the need to include something else.
 The source code is available [here][source-code].
 
-
 [tor-methodology]: #how-has-the-methodology-for-counting-tor-users-changed
 [TorDNSEL's exit lists]: https://metrics.torproject.org/collector.html#type-tordnsel
 [raw-data]: https://tools.qubes-os.org/counter/stats.json
 [source-code]: https://github.com/woju/qubes-stats
-

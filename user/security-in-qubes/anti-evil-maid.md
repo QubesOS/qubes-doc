@@ -58,6 +58,5 @@ For more information, please see [this discussion thread](https://groups.google.
 Known issues
 ------------
 
--   USB 3.0 isn't supported yet
--   [AEM is not compatible with having an SSD cache](https://groups.google.com/d/msgid/qubes-users/70021590-fb3a-4f95-9ce5-4b340530ddbf%40petaramesh.org)
-
+- USB 3.0 isn't supported yet
+- [AEM is not compatible with having an SSD cache](https://groups.google.com/d/msgid/qubes-users/70021590-fb3a-4f95-9ce5-4b340530ddbf%40petaramesh.org)

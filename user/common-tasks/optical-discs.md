@@ -22,4 +22,3 @@ To access an optical disc via USB follow the [typical procedure for attaching a 
 Typically this would be `sr0`.
 For example, if `sys-usb` has device `3-2` attached to the `work` qube's `sr0`, you would mount it with `mount /dev/sr0 /mnt/removable`.
 You could also write to a disc with `wodim -v dev=/dev/sr0 -eject /home/user/Qubes.iso`.
-

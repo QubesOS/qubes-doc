@@ -51,5 +51,4 @@ EndSection
 
 ## GUI Troubleshooting
 
-See [GUI Troubleshooting](/doc/gui-troubleshooting) for issues relating to the Qubes graphical user interface and how to fix them. 
-
+See [GUI Troubleshooting](/doc/gui-troubleshooting) for issues relating to the Qubes graphical user interface and how to fix them.

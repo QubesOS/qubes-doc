@@ -4,11 +4,9 @@ title: Qubes R3.1 release notes
 permalink: /doc/releases/3.1/release-notes/
 ---
 
-Qubes R3.1 release notes
-========================
+# Qubes R3.1 release notes
 
-New features since 3.0
-----------------------
+## New features since 3.0
 
 * Management Stack based of Salt Stack in dom0 - [documentation][salt-doc]
 * Out of the box Whonix setup
@@ -23,8 +21,7 @@ New features since 3.0
 
 You can get detailed description in [completed github issues][github-release-notes]
 
-Known issues
-------------
+## Known issues
 
 * Installation image does not fit on DVD, requires either DVD DL, or USB stick (5GB or more)
 
@@ -38,18 +35,15 @@ Known issues
 
 It is advised to install updates just after system installation to apply bug fixes for (some of) the above problems.
 
-Downloads
----------
+## Downloads
 
 See [Qubes Downloads](/downloads/).
 
-Installation instructions
--------------------------
+## Installation instructions
 
 See [Installation Guide](/doc/installation-guide/).
 
-Upgrading
----------
+## Upgrading
 
 ### From R3.0
 

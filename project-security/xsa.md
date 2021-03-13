@@ -16,9 +16,9 @@ Under the "Is Qubes Affected?" column, there are two possible values: **Yes** or
 * **Yes** means that the *security* of Qubes OS *is* affected.
 * **No** means that the *security* of Qubes OS is *not* affected.
 
-
 Important Notes
 ---------------
+
 * For the purpose of this tracker, we do *not* classify mere [denial-of-service (DoS) attacks][DoS] as affecting the *security* of Qubes OS.
   Therefore, if an XSA pertains *only* to DoS attacks against Qubes, the value in the "Is Qubes Affected?" column will be **No**.
 * For simplicity, we use the present tense ("is affected") throughout this page, but this does **not** necessarily mean that up-to-date Qubes installations are *currently* affected by any particular XSA.

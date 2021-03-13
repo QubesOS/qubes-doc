@@ -10,8 +10,8 @@ Audio Virtualization
 VMs on Qubes OS have access to virtualized audio through the PulseAudio module.
 It consists of two parts:
 
- - `pacat-simple-vchan` running in a dom0/Audio VM (standalone application, one per VM, connected to the PulseAudio daemon)
- - `module-vchan-sink` running in a VM (loaded into the PulseAudio process)
+- `pacat-simple-vchan` running in a dom0/Audio VM (standalone application, one per VM, connected to the PulseAudio daemon)
+- `module-vchan-sink` running in a VM (loaded into the PulseAudio process)
 
 Protocol
 --------
@@ -33,10 +33,10 @@ Each such notification is a 4-byte number in little-endian format.
 
 List of defined codes:
 
- - `0x00010001` -- VM wants to receive audio input (some process is listening); prior to this message, `pacat-simple-vchan` will not send any audio samples to the VM.
- - `0x00010000` -- VM does not want to receive audio input (no process is listening anymore); after this message, `pacat-simple-vchan` will not send any audio samples to the VM.
- - `0x00020000` -- VM does not want to send audio output; informational for dom0, to avoid buffer under runs (may affect PulseAudio calculated delays).
- - `0x00020001` -- VM does want to send audio output.
+- `0x00010001` -- VM wants to receive audio input (some process is listening); prior to this message, `pacat-simple-vchan` will not send any audio samples to the VM.
+- `0x00010000` -- VM does not want to receive audio input (no process is listening anymore); after this message, `pacat-simple-vchan` will not send any audio samples to the VM.
+- `0x00020000` -- VM does not want to send audio output; informational for dom0, to avoid buffer under runs (may affect PulseAudio calculated delays).
+- `0x00020001` -- VM does want to send audio output.
 
 pacat-simple-vchan
 ------------------
@@ -52,20 +52,19 @@ It needs to be both requested by the VM part and explicitly enabled in `pacat-si
 The mechanism to do this differs between Qubes versions.
 In Qubes before R4.1, `pacat-simple-vchan` is controlled over system D-Bus:
 
-  - destination: `org.qubesos.Audio.VMNAME` (where `VMNAME` is the VM's name)
-  - object path: `/org/qubesos/audio`
-  - interface: `org.qubesos.Audio`
-  - property: `RecAllowed` (which can be set using the `org.freedesktop.DBus.Properties` interface)
+- destination: `org.qubesos.Audio.VMNAME` (where `VMNAME` is the VM's name)
+- object path: `/org/qubesos/audio`
+- interface: `org.qubesos.Audio`
+- property: `RecAllowed` (which can be set using the `org.freedesktop.DBus.Properties` interface)
 
 In Qubes R4.1 and later, `pacat-simple-vchan` is controlled over a UNIX socket at `/var/run/qubes/audio-control.VMNAME` (where `VMNAME` is the VM's name).
 Supported commands:
 
-  - `audio-input 1\n` - enable audio input
-  - `audio-input 0\n` - disable audio input
+- `audio-input 1\n` - enable audio input
+- `audio-input 0\n` - disable audio input
 
 These commands can be sent using the `qubes.AudioInputEnable+VMNAME` and `qubes.AudioInputDisable+VMNAME` qrexec services, respectively.
 The current status is written into QubesDB at `/audio-input/VMNAME` (where `VMNAME` is the VM's name) with either `1` or `0` values.
 The lack of a key means that the `pacat-simple-vchan` for a given VM is not running.
 
 In either version, it is exposed to the user as device of class `mic`, which can be attached to a VM (for example, using the `qvm-device mic` command).
-

@@ -20,7 +20,9 @@ Since dom0 is special, the processes are different from [copying and pasting tex
 
 To copy a file from dom0 to a VM, simply use `qvm-copy-to-vm`:
 
-    qvm-copy-to-vm <target_vm> <file>
+```
+qvm-copy-to-vm <target_vm> <file>
+```
 
 The file will arrive in the target VM in the `/home/user/QubesIncoming/dom0/` directory.
 
@@ -71,9 +73,12 @@ If you are determined to copy some files to dom0 anyway, you can use the followi
 (If you want to copy text, first save it into a text file.)
 Run this command in a dom0 terminal:
 
-    qvm-run --pass-io <src-vm> 'cat /path/to/file_in_src_domain' > /path/to/file_name_in_dom0
+```
+qvm-run --pass-io <src-vm> 'cat /path/to/file_in_src_domain' > /path/to/file_name_in_dom0
+```
 
 Note that you can use the same method to copy files from dom0 to domUs (if, for some reason, you don't want to use `qvm-copy-to-vm`):
 
-    cat /path/to/file_in_dom0 | qvm-run --pass-io <dest-vm> 'cat > /path/to/file_name_in_appvm'
-
+```
+cat /path/to/file_in_dom0 | qvm-run --pass-io <dest-vm> 'cat > /path/to/file_name_in_appvm'
+```

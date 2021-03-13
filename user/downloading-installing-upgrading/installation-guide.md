@@ -81,7 +81,9 @@ The size of each Qubes ISO is available on the [downloads] page by hovering over
 
 If you choose to use a USB drive, copy the ISO onto the USB device, e.g. using `dd`:
 
-    $ sudo dd if=Qubes-RX-x86_64.iso of=/dev/sdY status=progress bs=1048576 && sync
+```
+$ sudo dd if=Qubes-RX-x86_64.iso of=/dev/sdY status=progress bs=1048576 && sync
+```
 
 Change `Qubes-RX-x86_64.iso` to the filename of the version you're installing, and change `/dev/sdY` to the correct target device e.g., `/dev/sdc`).
 Make sure to write to the entire device (e.g., `/dev/sdc`) rather than just a single partition (e.g., `/dev/sdc1`).
@@ -124,9 +126,9 @@ From here, you can navigate the boot screen using the arrow keys on your keyboar
 Pressing the "Tab" key will reveal options. 
 You can choose one of three options:
 
- * Install Qubes OS
- * Test this media and install Qubes OS
- * Troubleshooting
+* Install Qubes OS
+* Test this media and install Qubes OS
+* Troubleshooting
  
 Select the option to test this media and install Qubes OS. 
 
@@ -207,8 +209,8 @@ Don't forget to select your time and date by clicking on the Time & Date entry.
 On the software selection tab, you can choose which software to install in Qubes OS. 
 Two options are available:
 
- * **Debian:** Select this option if you would like to use [Debian] qubes in addition to the default Fedora qubes.
- * **Whonix:** Select this option if you would like to use [Whonix] qubes.
+* **Debian:** Select this option if you would like to use [Debian] qubes in addition to the default Fedora qubes.
+* **Whonix:** Select this option if you would like to use [Whonix] qubes.
    Whonix allows you to use [Tor] securely within Qubes.
 
 Whonix lets you route some or all of your network traffic through Tor for greater privacy.
@@ -232,7 +234,6 @@ Select the storage device on which you would like to install Qubes OS.
   <b>Warning:</b> Be careful to choose the correct installation target, or you may lose data.
   We strongly recommended making a full backup before proceeding.
 </div>
-
 
 Your installation destination can be an internal or external storage drive, such as an SSD, HDD, or USB drive.
 The installation destination must have a least 32 GiB of free space available.
@@ -314,24 +315,24 @@ These are designed to give you a more ready-to-use environment from the get-go.
 
 Let's briefly go over the options:
 
- * **Create default system qubes:**
-   These are the core components of the system, required for things like internet access.
- * **Create default application qubes:**
-   These are how you compartmentalize your digital life.
-   There's nothing special about the ones the installer creates.
-   They're just suggestions that apply to most people.
-   If you decide you don't want them, you can always delete them later, and you can always create your own.
- * **Create Whonix Gateway and Workstation qubes:**
-   If you want to use Whonix, you should select this option.
-   * **Enabling system and template updates over the Tor anonymity network using Whonix:**
-   If you select this option, then whenever you install or update software in dom0 or a TemplateVM, the internet traffic will go through Tor.
- * **Create USB qube holding all USB controllers:**
-   Just like the network qube for the network stack, the USB qube isolates the USB controllers.
-   * **Use sys-net qube for both networking and USB devices:**
-   You should select this option if you rely on a USB device for network access, such as a USB modem or a USB Wi-Fi adapter.
- * **Do not configure anything:**
-   This is for very advanced users only.
-   If you select this option, you'll have to set everything up manually afterward.
+* **Create default system qubes:**
+  These are the core components of the system, required for things like internet access.
+* **Create default application qubes:**
+  These are how you compartmentalize your digital life.
+  There's nothing special about the ones the installer creates.
+  They're just suggestions that apply to most people.
+  If you decide you don't want them, you can always delete them later, and you can always create your own.
+* **Create Whonix Gateway and Workstation qubes:**
+  If you want to use Whonix, you should select this option.
+  * **Enabling system and template updates over the Tor anonymity network using Whonix:**
+  If you select this option, then whenever you install or update software in dom0 or a TemplateVM, the internet traffic will go through Tor.
+* **Create USB qube holding all USB controllers:**
+  Just like the network qube for the network stack, the USB qube isolates the USB controllers.
+  * **Use sys-net qube for both networking and USB devices:**
+  You should select this option if you rely on a USB device for network access, such as a USB modem or a USB Wi-Fi adapter.
+* **Do not configure anything:**
+  This is for very advanced users only.
+  If you select this option, you'll have to set everything up manually afterward.
 
 When you're satisfied with you choices, press **Done**. 
 This configuration process may take a while, depending on the speed and compatibility of your system.
@@ -381,17 +382,16 @@ Consider giving back to the Qubes community and helping other users by [generati
 
 ## Getting help
 
- * We work very hard to make the [documentation] accurate, comprehensive useful and user friendly. 
-   We urge you to read it! It may very well contain the answers to your questions. 
-   (Since the documentation is a community effort, we'd also greatly appreciate your help in [improving] it!)
+* We work very hard to make the [documentation] accurate, comprehensive useful and user friendly. 
+  We urge you to read it! It may very well contain the answers to your questions. 
+  (Since the documentation is a community effort, we'd also greatly appreciate your help in [improving] it!)
 
- * If issues arise during installation, see the [Installation Troubleshooting](/doc/installation-troubleshooting) guide. 
+* If issues arise during installation, see the [Installation Troubleshooting](/doc/installation-troubleshooting) guide. 
 
- * If you don't find your answer in the documentation, please see [Help, Support, Mailing Lists, and Forum] for places to ask.
+* If you don't find your answer in the documentation, please see [Help, Support, Mailing Lists, and Forum] for places to ask.
 
- * Please do **not** email individual members of the Qubes team with questions about installation or other problems. 
+* Please do **not** email individual members of the Qubes team with questions about installation or other problems. 
    Instead, please see [Help, Support, Mailing Lists, and Forum] for appropriate places to ask questions.
-
 
 [QSB #46]: /news/2019/01/23/qsb-46/
 [system requirements]: /doc/system-requirements/
@@ -423,4 +423,3 @@ Consider giving back to the Qubes community and helping other users by [generati
 [advanced configuration]: /doc/#advanced-configuration
 [hcl-howto]: /doc/hcl/#generating-and-submitting-new-reports
 [Get Started]: /getting-started/
-

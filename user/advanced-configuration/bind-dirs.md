@@ -49,8 +49,10 @@ From now on any files within the `/var/lib/tor` folder will persist across reboo
 You can make make many files or folders persist, simply by making multiple entries in the `50_user.conf` file, each on a separate line.
 For example, if you added the file `/etc/tor/torrc` to the `binds` variable, any modifications to *that* file will persist across reboots.
 
-       binds+=( '/var/lib/tor' )
-       binds+=( '/etc/tor/torrc' )
+```
+binds+=( '/var/lib/tor' )
+binds+=( '/etc/tor/torrc' )
+```
 
 ## Other Configuration Folders ##
 
@@ -67,7 +69,6 @@ Creation of the files and folders in `/rw/bind-dirs` should be automatic the fir
 
 If you want to circumvent this process, you can create the relevant file structure under `/rw/bind-dirs` and make any changes at the same time that you perform the configuration, before reboot.
 Note that you must create the full folder structure under `/rw/bind-dirs` - e.g you would have to create `/rw/bind-dirs/var/lib/tor`
-
 
 ## Limitations ##
 

@@ -42,13 +42,17 @@ In order to update dom0 from the command line, start a console in dom0 and then 
 
 To check and install updates for dom0 software:
 
-    $ sudo qubes-dom0-update
+```
+$ sudo qubes-dom0-update
+```
 
 ## How to install a specific package
 
 To install additional packages in dom0 (usually not recommended):
 
-    $ sudo qubes-dom0-update anti-evil-maid
+```
+$ sudo qubes-dom0-update anti-evil-maid
+```
 
 You may also pass the `--enablerepo=` option in order to enable optional repositories (see yum configuration in dom0).
 However, this is only for advanced users who really understand what they are doing.
@@ -58,7 +62,7 @@ You can also pass commands to `dnf` using `--action=...`.
 
 **WARNING:** Downgrading a package can expose your system to security vulnerabilities.
 
-1.  Download an older version of the package:
+1. Download an older version of the package:
 
     ~~~
     sudo qubes-dom0-update package-version
@@ -66,7 +70,7 @@ You can also pass commands to `dnf` using `--action=...`.
 
     Dnf will say that there is no update, but the package will nonetheless be downloaded to dom0.
 
-2.  Downgrade the package:
+2. Downgrade the package:
 
     ~~~
     sudo dnf downgrade package-version
@@ -76,7 +80,7 @@ You can also pass commands to `dnf` using `--action=...`.
 
 You can re-install in a similar fashion to downgrading.
 
-1.  Download the package:
+1. Download the package:
 
     ~~~
     sudo qubes-dom0-update package
@@ -84,7 +88,7 @@ You can re-install in a similar fashion to downgrading.
 
     Dnf will say that there is no update, but the package will nonetheless be downloaded to dom0.
 
-2.  Re-install the package:
+2. Re-install the package:
 
     ~~~
     sudo dnf reinstall package
@@ -97,17 +101,19 @@ You can re-install in a similar fashion to downgrading.
 
 If you've installed a package such as anti-evil-maid, you can remove it with the following command:
 
-    sudo dnf remove anti-evil-maid
-    
+```
+sudo dnf remove anti-evil-maid
+```
+
 ## Testing repositories
 
 There are three Qubes dom0 [testing] repositories:
 
-* `qubes-dom0-current-testing` -- testing packages that will eventually land in the stable
+- `qubes-dom0-current-testing` -- testing packages that will eventually land in the stable
   (`current`) repository
-* `qubes-dom0-security-testing` -- a subset of `qubes-dom0-current-testing` that contains packages
+- `qubes-dom0-security-testing` -- a subset of `qubes-dom0-current-testing` that contains packages
   that qualify as security fixes
-* `qubes-dom0-unstable` -- packages that are not intended to land in the stable (`qubes-dom0-current`)
+- `qubes-dom0-unstable` -- packages that are not intended to land in the stable (`qubes-dom0-current`)
   repository; mostly experimental debugging packages
 
 To temporarily enable any of these repos, use the `--enablerepo=<repo-name>` option.
@@ -135,12 +141,14 @@ This section describes upgrading the kernel in dom0 and domUs.
 The packages `kernel` and `kernel-latest` are for dom0.
 
 In the `current` repository:
- - `kernel`: an older LTS kernel that has passed Qubes [testing] (the default dom0 kernel)
- - `kernel-latest`: the latest release from kernel.org that has passed Qubes [testing] (useful for [troubleshooting newer hardware])
+
+- `kernel`: an older LTS kernel that has passed Qubes [testing] (the default dom0 kernel)
+- `kernel-latest`: the latest release from kernel.org that has passed Qubes [testing] (useful for [troubleshooting newer hardware])
 
 In the `current-testing` repository:
- - `kernel`: the latest LTS kernel from kernel.org at the time it was built.
- - `kernel-latest`: the latest release from kernel.org at the time it was built.
+
+- `kernel`: the latest LTS kernel from kernel.org at the time it was built.
+- `kernel-latest`: the latest release from kernel.org at the time it was built.
 
 ### domU
 
@@ -160,11 +168,13 @@ from the update command), you may need to manually rebuild the EFI or grub confi
 your system uses.
 
 *EFI*: Replace the example version numbers with the one you are upgrading to.
+
 ~~~
 sudo dracut -f /boot/efi/EFI/qubes/initramfs-4.14.35-1.pvops.qubes.x86_64.img 4.14.35-1.pvops.qubes.x86_64
 ~~~
 
 *Grub2*
+
 ~~~
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 ~~~
@@ -183,16 +193,20 @@ The procedure varies depending on if you are booting with UEFI or grub.
 On the next kernel update, the default will revert to the newest.
 
 *EFI*
+
 ~~~
 sudo nano /boot/efi/EFI/qubes/xen.cfg
 ~~~
+
 In the `[global]` section at the top, change the `default=` line to match one of the three boot entries listed below.
 For example,
+
 ~~~
 default=4.19.67-1.pvops.qubes.x86_64
 ~~~
 
 *Grub2*
+
 ~~~
 sudo nano /etc/default/grub
 [update the following two lines, add if needed]
@@ -201,12 +215,13 @@ GRUB_SAVEDEFAULT=true
 [save and exit nano]
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 ~~~
+
 Then, reboot.
 Once the grub menu appears, choose "Advanced Options for Qubes (with Xen hypervisor)".
 Next, the top menu item (for example, "Xen hypervisor, version 4.8.5-9.fc25").
 Select the kernel you want as default, and it will be remembered for next boot.
 
-## Updating over Tor ###
+## Updating over Tor
 
 Requires installed [Whonix](/doc/privacy/whonix/).
 
@@ -215,8 +230,9 @@ See the UpdateVM setting.
 Choose your desired Whonix-Gateway ProxyVM from the list.
 For example: sys-whonix.
 
-    Qubes VM Manager -> System -> Global Settings -> UpdateVM -> sys-whonix
-
+`
+Qubes VM Manager -> System -> Global Settings -> UpdateVM -> sys-whonix
+`
 
 [dom0]: /doc/glossary/#dom0
 [Updating Qubes OS]: /doc/updating-qubes-os/
@@ -225,4 +241,3 @@ For example: sys-whonix.
 [troubleshooting newer hardware]: /doc/newer-hardware-troubleshooting/
 [Managing VM kernel]: /doc/managing-vm-kernel/
 [installing contributed packages]: /doc/installing-contributed-packages/
-

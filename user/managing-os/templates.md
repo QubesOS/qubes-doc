@@ -18,10 +18,10 @@ TemplateBasedVMs are where you run your software and store your data.
 
 The TemplateVM system has significant benefits:
 
- * **Security:** Each qube has read-only access to the TemplateVM on which it's based, so if a qube is compromised, it cannot infect its TemplateVM or any of the other qubes based on that TemplateVM.
- * **Storage:** Each qube based on a TemplateVM uses only the disk space required to store its own data (i.e., your files in its home directory), which dramatically saves on disk space.
- * **Speed:** It is extremely fast to create new TemplateBasedVMs, since the root filesystem already exists in the TemplateVM.
- * **Updates:** Updates are naturally centralized, since updating a TemplateVM means that all qubes based on it will automatically use those updates after they're restarted.
+* **Security:** Each qube has read-only access to the TemplateVM on which it's based, so if a qube is compromised, it cannot infect its TemplateVM or any of the other qubes based on that TemplateVM.
+* **Storage:** Each qube based on a TemplateVM uses only the disk space required to store its own data (i.e., your files in its home directory), which dramatically saves on disk space.
+* **Speed:** It is extremely fast to create new TemplateBasedVMs, since the root filesystem already exists in the TemplateVM.
+* **Updates:** Updates are naturally centralized, since updating a TemplateVM means that all qubes based on it will automatically use those updates after they're restarted.
 
 An important side effect of this system is that any software installed in a TemplateBasedVM (rather than in the TemplateVM on which it is based) will disappear after the TemplateBasedVM reboots (see [Inheritance and Persistence]).
 For this reason, we recommend installing most of your software in TemplateVMs, not TemplateBasedVMs.
@@ -30,10 +30,9 @@ The default TemplateVM in Qubes is based on Fedora, but there are additional tem
 There are also templates available with or without certain software preinstalled.
 You may find it useful to have multiple TemplateVMs installed in order to provide:
 
- * Different security levels (e.g., more or less trusted software installed)
- * Different environments (e.g., Fedora, Debian, Whonix)
- * Different tools (e.g., office, media, development, hardware drivers)
-
+* Different security levels (e.g., more or less trusted software installed)
+* Different environments (e.g., Fedora, Debian, Whonix)
+* Different tools (e.g., office, media, development, hardware drivers)
 
 ## Official
 
@@ -41,11 +40,11 @@ These are the official Qubes OS Project templates.
 We build and release updates for these templates.
 We guarantee that the binary updates are compiled from exactly the same source code as we publish.
 
- * [Fedora] (default)
- * [Fedora Minimal]
- * [Fedora Xfce]
- * [Debian]
- * [Debian Minimal]
+* [Fedora] (default)
+* [Fedora Minimal]
+* [Fedora Xfce]
+* [Debian]
+* [Debian Minimal]
 
 ## Community
 
@@ -57,34 +56,38 @@ However, such updates may be provided by the template maintainer.
 By installing these templates, you are trusting not only the Qubes developers and the distribution maintainers, but also the template maintainer.
 In addition, these templates may be somewhat less stable, since the Qubes developers do not test them.
 
- * [Whonix]
- * [Ubuntu]
- * [Arch Linux]
- * [CentOS]
- * [CentOS Minimal]
- * [Gentoo]
- * [Gentoo Minimal]
+* [Whonix]
+* [Ubuntu]
+* [Arch Linux]
+* [CentOS]
+* [CentOS Minimal]
+* [Gentoo]
+* [Gentoo Minimal]
 
 ## Installing
 
 Certain TemplateVMs come preinstalled with Qubes OS.
 However, there may be times when you wish to install a fresh TemplateVM from the Qubes repositories, e.g.:
 
- * When a TemplateVM version you're using reaches [end-of-life][supported].
- * When a new version of a TemplateVM that you wish to use becomes [supported].
- * When you suspect your TemplateVM has been compromised.
- * When you have made modifications to your TemplateVM that you no longer want.
+* When a TemplateVM version you're using reaches [end-of-life][supported].
+* When a new version of a TemplateVM that you wish to use becomes [supported].
+* When you suspect your TemplateVM has been compromised.
+* When you have made modifications to your TemplateVM that you no longer want.
 
 Please refer to each TemplateVM's installation instructions.
 Usually, the installation method is to execute the following type of command in dom0:
 
-    $ sudo qubes-dom0-update qubes-template-<name>
+```
+$ sudo qubes-dom0-update qubes-template-<name>
+```
 
 where `qubes-template-<name>` is the name of your TemplateVM package.
 
 If you wish to install a community template, you must enable the community template repo:
 
-    $ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-<name>
+```
+$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-<name>
+```
 
 If you receive the message that no match is found for `qubes-template-<name>`, see [here][no-match].
 
@@ -98,12 +101,10 @@ After installing a fresh TemplateVM, we recommend performing the following steps
 
 3. If desired, [uninstall the old TemplateVM].
 
-
 ## Updating
 
 Updating TemplateVMs is an important part of [Updating Qubes OS].
 Please see [Updating software in TemplateVMs].
-
 
 ## Uninstalling
 
@@ -138,17 +139,19 @@ If this uninstallation command doesn't work, please see [How to Remove VMs Manua
 
 If the Applications Menu entry doesn't go away after you uninstall a TemplateVM, execute the following type of command in dom0:
 
-    $ rm ~/.local/share/applications/<template_vm_name>
+```
+$ rm ~/.local/share/applications/<template_vm_name>
+```
 
 Applications Menu entries for backups of removed VMs can also be found in `/usr/local/share/applications/` of dom0.
 
-    $ rm /usr/local/share/applications/<template_vm_name>
-
+```
+$ rm /usr/local/share/applications/<template_vm_name>
+```
 
 ## Reinstalling
 
 Please see [How to Reinstall a TemplateVM].
-
 
 ## Switching
 
@@ -156,30 +159,36 @@ When you install a new template or upgrade a clone of a template, it is recommen
 
 1. Make the new template the default template.
 
-        Applications Menu --> System Tools --> Qubes Global Settings --> Default template
+    `
+    Applications Menu --> System Tools --> Qubes Global Settings --> Default template
+    `
 
 2. If your keyboard or mouse is connected through `sys-usb`, switch `sys-usb` to the new template.
    (Note that this is a single command to ensure that `sys-usb` restarts.
    If it does not, you will not be able to use your USB keyboard or mouse.)
 
-        [user@dom0 ~]$ qvm-shutdown --wait sys-usb; qvm-prefs sys-usb template <new_template>; qvm-start sys-usb
+    ```
+    [user@dom0 ~]$ qvm-shutdown --wait sys-usb; qvm-prefs sys-usb template <new_template>; qvm-start sys-usb
+    ```
 
 3. Base AppVMs on the new template.
 
-        Applications Menu --> System Tools --> Qubes Template Manager
+    `
+    Applications Menu --> System Tools --> Qubes Template Manager
+    `
 
 4. Base the [DisposableVM Template] on the new template.
 
-        [user@dom0 ~]$ qvm-create -l red -t <new_template> <new_template_dvm>
-        [user@dom0 ~]$ qvm-prefs <new_template_dvm> template_for_dispvms True
-        [user@dom0 ~]$ qvm-features <new_template_dvm> appmenus-dispvm 1
-        [user@dom0 ~]$ qubes-prefs default-dispvm <new_template_dvm>
-
+    ```
+    [user@dom0 ~]$ qvm-create -l red -t <new_template> <new_template_dvm>
+    [user@dom0 ~]$ qvm-prefs <new_template_dvm> template_for_dispvms True
+    [user@dom0 ~]$ qvm-features <new_template_dvm> appmenus-dispvm 1
+    [user@dom0 ~]$ qubes-prefs default-dispvm <new_template_dvm>
+    ```
 
 ## Advanced
 
 The following sections cover advanced topics pertaining to TemplateVMs.
-
 
 ### Inheritance and Persistence
 
@@ -195,10 +204,9 @@ No changes in any other directories in TemplateBasedVMs persist in this manner. 
 |TemplateBasedVM (3) | `/etc/skel` to `/home`, `/usr/local.orig` to `/usr/local` | `/rw` (includes `/home`, `/usr/local` and `bind-dirs`)
 |DisposableVM        | `/rw` (includes `/home`, `/usr/local` and `bind-dirs`)    | Nothing
 
-(1) Upon creation  
-(2) Following shutdown  
+(1) Upon creation
+(2) Following shutdown
 (3) Including any [DisposableVM Templates]
-
 
 ### Trusting your TemplateVMs
 
@@ -207,13 +215,13 @@ In other words, if your template VM gets compromised, e.g. because you installed
 
 There are several ways to deal with this problem:
 
- * Only install packages from trusted sources -- e.g. from the pre-configured Fedora repositories.
-   All those packages are signed by Fedora, and we expect that at least the package's installation scripts are not malicious.
-   This is enforced by default (at the [firewall VM level](/doc/firewall/)), by not allowing any networking connectivity in the default template VM, except for access to the Fedora repos.
+* Only install packages from trusted sources -- e.g. from the pre-configured Fedora repositories.
+  All those packages are signed by Fedora, and we expect that at least the package's installation scripts are not malicious.
+  This is enforced by default (at the [firewall VM level](/doc/firewall/)), by not allowing any networking connectivity in the default template VM, except for access to the Fedora repos.
 
- * Use *standalone VMs* (see below) for installation of untrusted software packages.
+* Use *standalone VMs* (see below) for installation of untrusted software packages.
 
- * Use multiple templates (see below) for different classes of domains, e.g. a less trusted template, used for creation of less trusted AppVMs, would get various packages from less trusted vendors, while the template used for more trusted AppVMs will only get packages from the standard Fedora repos.
+* Use multiple templates (see below) for different classes of domains, e.g. a less trusted template, used for creation of less trusted AppVMs, would get various packages from less trusted vendors, while the template used for more trusted AppVMs will only get packages from the standard Fedora repos.
 
 Some popular questions:
 
@@ -240,7 +248,6 @@ However, a compromise of a template affects only a subset of all your AppVMs (in
 Also, if your AppVMs are network disconnected, even though their filesystems might get compromised due to the corresponding template compromise, it still would be difficult for the attacker to actually leak out the data stolen in an AppVM.
 Not impossible (due to existence of cover channels between VMs on x86 architecture), but difficult and slow.
 
-
 ### Note on treating TemplateBasedVMs' root filesystem non-persistence as a security feature
 
 Any TemplateBasedVM that is based on a TemplateVM has its root filesystem non-persistent across VM reboots.
@@ -260,22 +267,20 @@ However, these exploits will automatically stop working (and so the infection mi
 Also note that DisposableVMs do not have persistent user filesystem, and so they start up completely "clean" every time.
 Note the word "clean" means in this context: the same as their template filesystem, of course.
 
-
 ### Important Notes
 
- * `qvm-trim-template` is no longer necessary or available in Qubes 4.0 and higher.
-   All VMs are created in a thin pool and trimming is handled automatically.
-   No user action is required.
-   See [Disk Trim] for more information.
+* `qvm-trim-template` is no longer necessary or available in Qubes 4.0 and higher.
+  All VMs are created in a thin pool and trimming is handled automatically.
+  No user action is required.
+  See [Disk Trim] for more information.
 
- * RPM-installed templates are "system managed" and therefore cannot be backed up using Qubes' built-in backup function.
-   In order to ensure the preservation of your custom settings and the availability of a "known-good" backup template, you may wish to clone the default system template and use your clone as the default template for your AppVMs.
+* RPM-installed templates are "system managed" and therefore cannot be backed up using Qubes' built-in backup function.
+  In order to ensure the preservation of your custom settings and the availability of a "known-good" backup template, you may wish to clone the default system template and use your clone as the default template for your AppVMs.
 
- * Some templates are available in ready-to-use binary form, but some of them are available only as source code, which can be built using the [Qubes Builder].
-   In particular, some template "flavors" are available in source code form only.
-   For the technical details of the template system, please see [TemplateVM Implementation].
-   Take a look at the [Qubes Builder] documentation for instructions on how to compile them.
-
+* Some templates are available in ready-to-use binary form, but some of them are available only as source code, which can be built using the [Qubes Builder].
+  In particular, some template "flavors" are available in source code form only.
+  For the technical details of the template system, please see [TemplateVM Implementation].
+  Take a look at the [Qubes Builder] documentation for instructions on how to compile them.
 
 [Getting Started]: /getting-started/
 [TemplateVMs]: /doc/glossary/#templatevm

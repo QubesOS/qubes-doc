@@ -98,17 +98,17 @@ If applicable, links to more information or discussions
 
 **Expected results**:
 
- - Design how Vagrant Qubes provider should look like, including:
-   - [box format](https://www.vagrantup.com/docs/plugins/providers.html#box-format)
-   - method for running commands inside (ssh vs qvm-run)
- - Write a Vagrant provider able to create/start/stop/etc a VM
- - Document how to configure and use the provider, including required qrexec policy changes and possibly firewall rules
- - Write integration tests
+- Design how Vagrant Qubes provider should look like, including:
+  - [box format](https://www.vagrantup.com/docs/plugins/providers.html#box-format)
+  - method for running commands inside (ssh vs qvm-run)
+- Write a Vagrant provider able to create/start/stop/etc a VM
+- Document how to configure and use the provider, including required qrexec policy changes and possibly firewall rules
+- Write integration tests
 
 **Knowledge prerequisite**:
 
- - Ruby
- - Vagrant concepts
+- Ruby
+- Vagrant concepts
 
 **Mentor**: [Wojtek Porczyk](/team/), [Marek Marczykowski-Górecki](/team/)
 
@@ -123,7 +123,6 @@ If applicable, links to more information or discussions
 - Design a mechanism how to _safely_ synchronize application configuration living in user home directory (`~/.config`, some other "dotfiles"). Mechanism should be resistant against malicious VM forcing its configuration on other VMs. Some approach could be a strict control which VM can send what changes (whitelist approach, not blacklist).
 - Implementation of the above mechanism.
 - Documentation how to configure it securely.
-
 
 **Knowledge prerequisite**:
 
@@ -151,10 +150,11 @@ Choose either of GUI agent, GUI daemon. Both are of similar complexity and each 
 - implement tests for new GUI handling, similar to existing tests for X11 based GUI
 
 Relevant links:
- - [Low level GUI documentation](/doc/gui/)
- - [qubes-gui-agent-linux](https://github.com/qubesos/qubes-gui-agent-linux)
- - [qubes-gui-daemon](https://github.com/qubesos/qubes-gui-daemon)
- - [Use Wayland instead of X11 to increase performance](https://github.com/qubesos/qubes-issues/issues/3366)
+
+- [Low level GUI documentation](/doc/gui/)
+- [qubes-gui-agent-linux](https://github.com/qubesos/qubes-gui-agent-linux)
+- [qubes-gui-daemon](https://github.com/qubesos/qubes-gui-daemon)
+- [Use Wayland instead of X11 to increase performance](https://github.com/qubesos/qubes-issues/issues/3366)
 
 **Knowledge prerequisite**:
 
@@ -181,21 +181,21 @@ details: [#1552](https://github.com/QubesOS/qubes-issues/issues/1552),
 
 **Expected results**:
 
- - Adjust set of VMs and templates included in live edition.
- - Update and fix build scripts for recent Qubes OS version.
- - Update startup script to mount appropriate directories as either
-   copy-on-write (device-mapper snapshot), or tmpfs.
- - Optimize memory usage: should be possible to run sys-net, sys-firewall, and
-   at least two more VMs on 4GB machine. This include minimizing writes to
-   copy-on-write layer and tmpfs (disable logging etc).
- - Research option to install the system from live image. If feasible add
-   this option.
+- Adjust set of VMs and templates included in live edition.
+- Update and fix build scripts for recent Qubes OS version.
+- Update startup script to mount appropriate directories as either
+  copy-on-write (device-mapper snapshot), or tmpfs.
+- Optimize memory usage: should be possible to run sys-net, sys-firewall, and
+  at least two more VMs on 4GB machine. This include minimizing writes to
+  copy-on-write layer and tmpfs (disable logging etc).
+- Research option to install the system from live image. If feasible add
+  this option.
 
 **Knowledge prerequisite**:
 
- - System startup sequence: bootloaders (isolinux, syslinux, grub, UEFI), initramfs, systemd.
- - Python and Bash scripting
- - Filesystems and block devices: loop devices, device-mapper, tmpfs, overlayfs, sparse files.
+- System startup sequence: bootloaders (isolinux, syslinux, grub, UEFI), initramfs, systemd.
+- Python and Bash scripting
+- Filesystems and block devices: loop devices, device-mapper, tmpfs, overlayfs, sparse files.
 
 **Mentor**: [Frédéric Pierret](/team/)
 
@@ -219,7 +219,6 @@ REMOVED as of January 2020: work is being done on this
 **Mentor**: [Thomas Leonard](mailto:talex5@gmail.com), [Marek Marczykowski-Górecki](/team/)
 -->
 
-
 ### LogVM(s)
 
 **Project**: LogVM(s)
@@ -232,35 +231,36 @@ immune to altering past entries. See
 
 **Expected results**:
 
- - Design a _simple_ protocol for transferring logs. The less metadata (parsed
-   in log-collecting VM) the better.
- - Implement log collecting service. Besides logs itself, should save
-   information about logs origin (VM name) and timestamp. The service should
-   _not_ trust sending VM in any of those.
- - Implement log forwarder compatible with systemd-journald and rsyslog. A
-   mechanism (service/plugin) fetching logs in real time from those and sending
-   to log-collecting VM over qrexec service.
- - Document the protocol.
- - Write unit tests and integration tests.
+- Design a _simple_ protocol for transferring logs. The less metadata (parsed
+  in log-collecting VM) the better.
+- Implement log collecting service. Besides logs itself, should save
+  information about logs origin (VM name) and timestamp. The service should
+  _not_ trust sending VM in any of those.
+- Implement log forwarder compatible with systemd-journald and rsyslog. A
+  mechanism (service/plugin) fetching logs in real time from those and sending
+  to log-collecting VM over qrexec service.
+- Document the protocol.
+- Write unit tests and integration tests.
 
 **Knowledge prerequisite**:
 
- - syslog
- - systemd
- - Python/Bash scripting
+- syslog
+- systemd
+- Python/Bash scripting
 
 **Mentor**: [Frédéric Pierret](/team/)
 
 
 ### Whonix IPv6 and nftables support
+
 **Project**: Whonix IPv6 and nftables support
 
 **Brief explanation**: [T509](https://phabricator.whonix.org/T509)
 
 **Expected results**:
 
-- Work at upstream Tor: An older version of https://trac.torproject.org/projects/tor/wiki/doc/TransparentProxy page was the origin of Whonix. Update that page for nftables / IPv6 support without mentioning Whonix. Then discuss that on the tor-talk mailing list for wider input. - https://trac.torproject.org/projects/tor/ticket/21397
-- implement corridor feature request add IPv6 support / port to nftables - https://github.com/rustybird/corridor/issues/39
+- Work at upstream Tor: An older version of [TransparentProxy](https://trac.torproject.org/projects/tor/wiki/doc/TransparentProxy) page was the origin of Whonix. Update that page for nftables / IPv6 support without mentioning Whonix. Then discuss that on the tor-talk mailing list for wider input. [here](https://trac.torproject.org/projects/tor/ticket/21397)
+- implement corridor feature request add IPv6 support / port to nftables - [issue](https://github.com/rustybird/corridor/issues/39)
 - port [whonix-firewall](https://github.com/Whonix/whonix-firewall) to nftables
 - make connections to IPv6 Tor relays work
 - make connections to IPv6 destinations work
@@ -293,19 +293,19 @@ immune to altering past entries. See
 
 **Expected results**:
 
- - A template for `autounattended.xml` file for Windows installer - the template should have placeholders for settings that need to be provided by the user.
- - A tool for generating actual `autounattended.xml` file based on the template and user settings.
- - A tool for launching Windows installation, given installation image and `autounattended.xml` file (can be the same as in the above point).
- - (Optional) Unattended installation should also include Qubes Windows Tools.
- - (Optional) A tool should be able to use Windows license embedded in ACPI tables - [related discussion](https://groups.google.com/d/msgid/qubes-devel/0b7fabae-f843-e7ce-40cf-193326cecdb0%40zrubi.hu)
- - User documentation
- - Automated tests (unit tests, integration tests)
+- A template for `autounattended.xml` file for Windows installer - the template should have placeholders for settings that need to be provided by the user.
+- A tool for generating actual `autounattended.xml` file based on the template and user settings.
+- A tool for launching Windows installation, given installation image and `autounattended.xml` file (can be the same as in the above point).
+- (Optional) Unattended installation should also include Qubes Windows Tools.
+- (Optional) A tool should be able to use Windows license embedded in ACPI tables - [related discussion](https://groups.google.com/d/msgid/qubes-devel/0b7fabae-f843-e7ce-40cf-193326cecdb0%40zrubi.hu)
+- User documentation
+- Automated tests (unit tests, integration tests)
 
 **Knowledge prerequisite**:
 
- - Python scripting
- - Linux administration, including handling loop devices, partition tables, filesystems etc
- - For optional features, C language and x86 architecture (ACPI tables)
+- Python scripting
+- Linux administration, including handling loop devices, partition tables, filesystems etc
+- For optional features, C language and x86 architecture (ACPI tables)
 
 **Mentor**: [Rafał Wojdyła](/team/), [Marek Marczykowski-Górecki](/team/)
 
@@ -315,33 +315,33 @@ immune to altering past entries. See
 
 **Brief explanation**: Integrating GNOME into Qubes dom0. This include:
 
- - patching window manager to add colorful borders
- - removing stuff not needed in dom0 (file manager(s), indexing services etc)
- - adjusting menu for easy navigation (same applications in different VMs and such problems, dom0-related entries in one place)
- - More info: [#1806](https://github.com/QubesOS/qubes-issues/issues/1806)
+- patching window manager to add colorful borders
+- removing stuff not needed in dom0 (file manager(s), indexing services etc)
+- adjusting menu for easy navigation (same applications in different VMs and such problems, dom0-related entries in one place)
+- More info: [#1806](https://github.com/QubesOS/qubes-issues/issues/1806)
 
 **Expected results**:
 
- - Review existing support for other desktop environments (KDE, Xfce4, i3, awesome).
- - Patch window manager to draw colorful borders (we use only server-side
-   decorations), there is already very similar patch in
-   [Cappsule project](https://github.com/cappsule/cappsule-gui).
- - Configure GNOME to not make use of dom0 user home in visible way (no search
-   in files there, no file manager, etc).
- - Configure GNOME to not look into external devices plugged in (no auto
-   mounting, device notifications etc).
- - Package above modifications as rpms, preferably as extra configuration files
-   and/or plugins than overwriting existing files. Exceptions to this rule may
-   apply if no other option.
- - Adjust comps.xml (in installer-qubes-os repo) to define package group with
-   all required packages.
- - Document installation procedure.
+- Review existing support for other desktop environments (KDE, Xfce4, i3, awesome).
+- Patch window manager to draw colorful borders (we use only server-side
+  decorations), there is already very similar patch in
+  [Cappsule project](https://github.com/cappsule/cappsule-gui).
+- Configure GNOME to not make use of dom0 user home in visible way (no search
+  in files there, no file manager, etc).
+- Configure GNOME to not look into external devices plugged in (no auto
+  mounting, device notifications etc).
+- Package above modifications as rpms, preferably as extra configuration files
+  and/or plugins than overwriting existing files. Exceptions to this rule may
+  apply if no other option.
+- Adjust comps.xml (in installer-qubes-os repo) to define package group with
+  all required packages.
+- Document installation procedure.
 
 **Knowledge prerequisite**:
 
- - GNOME architecture
- - C language (patching metacity)
- - Probably also javascript - for modifying GNOME shell extensions
+- GNOME architecture
+- C language (patching metacity)
+- Probably also javascript - for modifying GNOME shell extensions
 
 **Mentor**: [Frédéric Pierret](/team/), [Marek Marczykowski-Górecki](/team/)
 
@@ -358,6 +358,7 @@ immune to altering past entries. See
 **Mentors**: Andrew Clausen and Jean-Philippe Ouellet
 
 ### Progress towards reproducible builds
+
 **Project**: Progress towards reproducible builds
 
 **Brief explanation**: A long-term goal is to be able to build the entire OS and installation media in a completely bit-wise deterministic manner, but there are many baby steps to be taken along that path. See:
@@ -384,22 +385,22 @@ Qubes currently only supports the x86_64 CPU architecture. Xen currently has add
 
 Some related discussion:
 
- - [#4318](https://github.com/QubesOS/qubes-issues/issues/4318) on porting to ppc64.
- - [#3894](https://github.com/QubesOS/qubes-issues/issues/3894) on porting to L4 microkernel.
+- [#4318](https://github.com/QubesOS/qubes-issues/issues/4318) on porting to ppc64.
+- [#3894](https://github.com/QubesOS/qubes-issues/issues/3894) on porting to L4 microkernel.
 
 **Expected results**:
 
- - Add cross-compilation support to qubes-builder and related components.
- - Make aarch64 specific adjustments to Qubes toolstacks/manager (including passthrough of devices from device tree to guest domains).
- - Aarch64 specific integration and unit tests.
- - Production of generic u-boot or uefi capable image/iso for target hardware.
+- Add cross-compilation support to qubes-builder and related components.
+- Make aarch64 specific adjustments to Qubes toolstacks/manager (including passthrough of devices from device tree to guest domains).
+- Aarch64 specific integration and unit tests.
+- Production of generic u-boot or uefi capable image/iso for target hardware.
 
 **Knowledge prerequisite**:
 
- - Libvirt and Qubes toolstacks (C and python languages).
- - Xen debugging.
- - General ARM architecture knowledge.
- 
+- Libvirt and Qubes toolstacks (C and python languages).
+- Xen debugging.
+- General ARM architecture knowledge.
+
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
 
 
@@ -426,17 +427,17 @@ More information and further links can be found in the related issue:
 
 **Expected results**:
 
- - Add cross-compilation support to qubes-builder and related components.
- - Make ppc64 specific adjustments to Qubes toolstacks/manager (including passthrough of devices from device tree to guest domains).
- - ppc64 specific integration and unit tests.
- - Production of generic u-boot or uefi capable image/iso for target hardware.
+- Add cross-compilation support to qubes-builder and related components.
+- Make ppc64 specific adjustments to Qubes toolstacks/manager (including passthrough of devices from device tree to guest domains).
+- ppc64 specific integration and unit tests.
+- Production of generic u-boot or uefi capable image/iso for target hardware.
 
 **Knowledge prerequisite**:
 
- - Libvirt and Qubes toolstacks (C and python languages).
- - KVM or XEN internals
- - General ppc64 architecture knowledge.
- 
+- Libvirt and Qubes toolstacks (C and python languages).
+- KVM or XEN internals
+- General ppc64 architecture knowledge.
+
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
 
 -->
@@ -451,11 +452,12 @@ Since it's software emulation it's rather slow.
 Details, reference: [#2233](https://github.com/QubesOS/qubes-issues/issues/2233)
 
 **Expected results**:
-  - a simple way of setting up Android qubes with hardware emulation
+
+- a simple way of setting up Android qubes with hardware emulation
   (distributed as a template or as a salt, handling various modern Android versions)
-  - figuring out and implementing an easy and secure way to connect an Android 
+- figuring out and implementing an easy and secure way to connect an Android
   qube to a development qube with Android studio
-  - documentation and tests
+- documentation and tests
 
 **Knowledge prerequisite**:
 
@@ -521,7 +523,7 @@ A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of
 
 ## Past Projects
 
-You can view the projects we had in 2017 in the [GSoC 2017 archive][2017-archive]. We also participated in GSoC 2020, and you can see the project in the [GSoC 2020 archive][2020-archive]. 
+You can view the projects we had in 2017 in the [GSoC 2017 archive][2017-archive]. We also participated in GSoC 2020, and you can see the project in the [GSoC 2020 archive][2020-archive].
 
 Here are some successful projects which have been implemented in the past by Google Summer of Code participants.
 
@@ -551,14 +553,14 @@ would override all the user changes there). More details:
      files, LVM thin volumes etc).
    - template metadata, templates repository - enable the user to browse
      available templates (probably should be done in dedicated VM, or DisposableVM)
-   - manual template removal by users (without it, see problems such 
+   - manual template removal by users (without it, see problems such
      as [#5509](https://github.com/QubesOS/qubes-issues/issues/5509)
  - Implement the above mechanism:
    - tool to download named template - should perform download operation in
      some VM (as dom0 have no network access), then transfer the data to dom0,
      verify its integrity and then create Template VM and feed it's root
      filesystem image with downloaded data.
-   - tool to browse templates repository - both CLI and GUI (preferably integrated 
+   - tool to browse templates repository - both CLI and GUI (preferably integrated
      with existing Template Manager tool)
    - integrate both tools - user should be able to choose some template to be
      installed from repository browsing tool - see
