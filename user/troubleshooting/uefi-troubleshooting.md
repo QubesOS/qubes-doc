@@ -20,12 +20,11 @@ If you've installed successfully in legacy mode but had to change some kernel pa
 04. Install using your modified boot entry
 
 **Change xen configuration directly in an iso image**
-01. Get EFI partition boundaries `parted Qubes-R4.0-rc4-x86_64.iso unit B print`
-02. Find the offset for your ISO (see [here](https://unix.stackexchange.com/questions/270171/why-offset-specific-in-loop-mount)).
-03. Using the start address and the size of the EFI partition, setup a loop device for it. This depends on the offset you found in the previous step and is specific to your ISO. Here is an example command using a specific Qubes ISO (if your ISO is different, you will have to adjust the command accordingly): `sudo losetup -o 524288 --sizelimit 30562304 /dev/loop0 Qubes-R4.0-rc4-x86_64.iso`
-04. Mount the loop device `sudo mount /dev/loop0 /mnt`
-05. Edit `EFI/BOOT/BOOTX64.cfg` to add your params to the `kernel` configuration key
-06. Save your changes, unmount and dd to usb device
+01. Get EFI partition boundaries (replacing `X` with your ISO's version name): `parted Qubes-RX-x86_64.iso unit B print`
+02. Set up a loop device (replacing `X` with your ISO's version name): `losetup -P /dev/loop0 Qubes-RX-x86_64.iso`
+03. Mount the loop device: `sudo mount /dev/loop0 /mnt`
+04. Edit `EFI/BOOT/BOOTX64.cfg` to add your params to the `kernel` configuration key
+05. Save your changes, unmount and dd to usb device
 
 
 ## Installation freezes before displaying installer ##
