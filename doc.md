@@ -261,6 +261,7 @@ For more, please see [Qubes Community Documentation](https://github.com/Qubes-Co
  * [Fetchmail Guide](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/fetchmail.md)
  * [Creating Custom NetVMs and ProxyVMs](https://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html)
  * [How to make proxy for individual tcp connection from networkless VM](https://groups.google.com/group/qubes-devel/msg/4ca950ab6d7cd11a)
+ * [Screen Sharing](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/screen-share.md)
  * [Adding Bridge Support to the NetVM (EXPERIMENTAL)](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/network-bridge-support.md)
  * [Enabling TRIM for SSD disks](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/disk-trim.md)
  * [Configuring a Network Printer](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/network-printer.md)
