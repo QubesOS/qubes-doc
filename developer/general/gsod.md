@@ -8,101 +8,81 @@ permalink: /gsod/
 
 Thank you for your interest in participating in the [2021 Google Season of Docs][gsod] program with the [Qubes OS team][team]. You can read more about the Google Season of Docs in the official [guides][gsod-doc] and [FAQ][gsod-faq].
 
-## Project Ideas List
+## 2021 Project Idea 
 
-Everyone is encouraged to add ideas to this list, either by [editing this page directly][gsod.md] (preferred) or by replying to [this thread][gsod-2020-thread] (then we'll add it to this page for you). (See our [Documentation Guidelines] for general information about how to submit changes to the documentation, and see [Help, Support, and Mailing Lists] for information about our mailing lists.)
+### Qubes OS on Virtual Machines and Disposable VMs documentation - Qubes OS
 
-We currently have [over a hundred open documentation issues][doc-issues] in our issue tracker. Please feel free to use these for project ideas, as appropriate.
+#### About your organization
 
-Here's a suggested template for adding project ideas:
+Qubes OS is a free and open source operating system uniquely designed to protect the security and privacy of the user. Its architecture is built to enable a user to define different security environments ("qubes") on their computer and visually manage their interaction with each other and the world.
 
-```
-### Adding a Proposal
+Qubes OS was launched in 2011 and has [received praise from security experts](https://www.qubes-os.org/experts/) like Edward Snowden, Bill Buddington (EFF), Isis Lovecruft (Tor Project), and Kenn White (Open Crypto Audit), and has over [30,000 active users](https://www.qubes-os.org/statistics/).
 
-**Project**: Something that you're totally excited about.
+From network-level to software-level protections, as well as protections against firmware and hardware attacks, Qubes OS is trying to protect the user from the most significant attacks they encounter so that they can get their work done, safely.
 
-**Brief explanation**: What is the project?
+#### The Project
 
-**Expected results**: What is the expected result in the timeframe given?
+The goal of the project is to improve the documentation related to Disposable VMs and installing Qubes OS on Virtual Machines.
 
-**Knowledge prerequisite**: Pre-requisites for working on the project. What knowledge or resources are needed? If applicable, links to more information or discussions.
+The current Disposable VMs documentation is scarce, inconsistent in places and is scattered across multiple pages, sometimes hard to find. This project involves consolidating it into one or few easy to find pages, covering all related subjects. It should be written in way easy to follow and understand, clearly separating basic use cases, advanced ones and internal details. The terminology should also be used consistently.
 
-**Mentor**: Name and email address.
-```
-### Offline documentation
+Additionally, Qubes OS is missing an installation guide for virtual machines. Users are installing an outdated and unsupported version of Qubes OS (3.2) instead of the supported version. There is unofficial existing installation guide for Qubes OS on a virtual box but it is misleading and lacks documentation. Usually, users face some errors and bugs while installing Qubes OS on a virtual machine. This project also involves writing an installation guide that details how to install Qubes on virtual machines, and how to troubleshoot any issues that may arise. 
 
-**Project**: Offline documentation
+#### Project’s scope
 
-**Brief explanation**: Qubes OS has thorough documentation on the project website, however a user may find it more convenient to view documentation - especially for troubleshooting network issues -- offline on their Qubes machine. This will improve usability for new users and better support users if they need to troubleshoot anything.
+The technical writer will:
 
-**Expected results**: 
+    Review existing Disposable VM documentation
 
- - Review [past discussions on the issue](https://github.com/QubesOS/qubes-issues/issues/1019)
- - Recommend workflow and platform for displaying offline documentation
- - Test workflow and platform to ensure usability and functionality
+    Propose new documentation layout, including split between pages
 
-**Knowledge prerequisite**: 
+    Propose updated and clarified content
 
- - [Markdown][markdown]
+    Provide a new option of installation guide for users working on virtual machines. 
 
-**Mentor**: [Marek Marczykowski-Górecki][team]
+    Review existing problems and provide solutions to them. 
 
-### Create guide on firstboot for new users
+    Giving a warning for using outdated versions of Qubes.
 
-**Project**: Create guide on firstboot for new users
 
-**Brief explanation**: When a user first boots Qubes after installing it, there is an opportunity to introduce the user to some of the unique functionality Qubes has.
+Knowledge prerequisites:
 
-**Expected results**: 
+    Basic Qubes OS knowledge - intro, getting started.
 
- - Review [past discussions on the issue](https://github.com/QubesOS/qubes-issues/issues/1774)
- - Provide visual mock-ups and proposed text 
-  
-**Knowledge prerequisite**: 
+    Markdown.
 
- - some experience with Anaconda would be helpful
+    Experience in virtual boxes and machines.
 
-**Mentor**: [Marek Marczykowski-Górecki][team]
+    Basic knowledge about Fedora Linux architecture.
 
-### Improve Disposable VMs documentation
 
-**Project**: Improve Disposable VMs documentation
+The project is estimated to need around 6 months, with a part-time (20hr/week) workload. Qubes OS team members focused on documentation (Michael Carbone, Andrew David Wong, Marek Marczykowski-Górecki) have committed to supporting the project.
 
-**Brief explanation**: Current Disposable VMs documentation is scarce, inconsistent in places and in scattered across multiple pages, sometimes hard to find.
-This project is about consolidating it into one or few easy to find pages, covering all related subjects.
-And written in way easy to follow and understand, clearly separating basic use cases, advanced ones and internal details.
-Additionally, terminology is used inconsistently.
+#### Measuring the project’s success
 
-**Expected results**:
+We will consider the project successful if, after publication of the new documentation:
 
-- Review existing Disposable VM documentation
-- Propose new documentation layout, including split between pages
-- Propose updated and clarified content
+    The Disposable VM documentation is consilidated into a few pages and easier to find.
 
-**Knowledge prerequisite**:
+    Disposable VM terminology is consistent across all pages
 
-- basic Qubes OS knowledge - [intro], [getting started]
-- [Markdown][markdown]
+    There is a new installation guide detailing how to install Qubes on virtual machines (VirtualBox), complete with screenshots and troubleshooting steps where necessary. 
 
-**Mentor**: [Marek Marczykowski-Górecki][team]
+    There is a decrease (by ~20%) in the number of issues and questions raised for topics covered in the documentation, whether in the official Github issues tracker, the Qubes mailing list, or the Qubes community forum.
 
-### Installation Guide for Qubes OS on Virtual Machines
+#### Budget
 
-**Project**: Installation Guide for Qubes OS on Virtual Machines.
+| Budget item | Amount | Running total | Note / Justification |
+|-|-|-|-|
+| Technical writer audit, update, and write new documentation | $12000 | $12000 | based on a 20hr/week for 6 months at 25$/hr |
+| TOTAL |  | $12000 |  |
 
-**Brief explanation**: The Qubes OS is missing an installation guide for virtual machines. Users are installing an outdated and unsupported version of Qubes OS (3.2) instead of the supported version. There is unofficial [existing installation guide] for Qubes OS on a virtual box but it is misleading and lacks documentation. Usually, users face some errors and bugs while installing Qubes OS on a virtual machine.[virtual box issue]
+#### Additional information 
+Qubes OS regularly participates in the Google Summer of Code and Google Season of Docs. This is our third time in a row participating in Google Season of Docs. Our mentorships for GSoD 2019 and 2020 were successes and both projects were completed 
+within the times allotted. The past Google Season of Docs projects have given us experience in working with technical writers, and has helped us to understand the benefits of technical writers can to our project
 
-**Expected results**: 
- -Provide a new option of installation guide for users working on virtual machines.
- -Review existing problems and provide solutions to them.
- -Giving a warning for using outdated versions.
-
-**Knowledge prerequisite**: 
- - Experience in virtual boxes and machines.
- - Basic Knowledge about Fedora linux architecture.
- - [Markdown][markdown]
- 
-**Mentor**: [Marek Marczykowski-Górecki][team]
+You can view the project we had in 2019 in the [2019 GSoD archive](https://developers.google.com/season-of-docs/docs/2019/participants/project-qubes) and the [2019 writer’s report](https://refre.ch/report-qubesos/).
+You can also view the project we had in 2020 in the [2020 GSoD archive](https://developers.google.com/season-of-docs/docs/2020/participants/project-qubesos-c1e0) and the [2020 writer’s report](https://gist.github.com/PROTechThor/bfe9b8b28295d88c438b6f6c754ae733).
 
 ## Past Projects
 
