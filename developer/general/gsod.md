@@ -32,29 +32,27 @@ Additionally, Qubes OS is missing an installation guide for virtual machines. Us
 
 The technical writer will:
 
-    Review existing Disposable VM documentation
+* Review existing Disposable VM documentation
 
-    Propose new documentation layout, including split between pages
+* Propose new documentation layout, including split between pages
 
-    Propose updated and clarified content
+* Propose updated and clarified content
 
-    Provide a new option of installation guide for users working on virtual machines. 
+* Provide a new option of installation guide for users working on virtual machines. 
 
-    Review existing problems and provide solutions to them. 
+* Review existing problems and provide solutions to them. 
 
-    Giving a warning for using outdated versions of Qubes.
-
+* Giving a warning for using outdated versions of Qubes.
 
 Knowledge prerequisites:
 
-    Basic Qubes OS knowledge - intro, getting started.
+* Basic Qubes OS knowledge - intro, getting started.
 
-    Markdown.
+* Markdown.
 
-    Experience in virtual boxes and machines.
+* Experience in virtual boxes and machines.
 
-    Basic knowledge about Fedora Linux architecture.
-
+* Basic knowledge about Fedora Linux architecture.
 
 The project is estimated to need around 6 months, with a part-time (20hr/week) workload. Qubes OS team members focused on documentation (Michael Carbone, Andrew David Wong, Marek Marczykowski-Górecki) have committed to supporting the project.
 
@@ -62,13 +60,13 @@ The project is estimated to need around 6 months, with a part-time (20hr/week) w
 
 We will consider the project successful if, after publication of the new documentation:
 
-    The Disposable VM documentation is consilidated into a few pages and easier to find.
+* The Disposable VM documentation is consilidated into a few pages and easier to find.
 
-    Disposable VM terminology is consistent across all pages
+* Disposable VM terminology is consistent across all pages
 
-    There is a new installation guide detailing how to install Qubes on virtual machines (VirtualBox), complete with screenshots and troubleshooting steps where necessary. 
+* There is a new installation guide detailing how to install Qubes on virtual machines (VirtualBox), complete with screenshots and troubleshooting steps where necessary. 
 
-    There is a decrease (by ~20%) in the number of issues and questions raised for topics covered in the documentation, whether in the official Github issues tracker, the Qubes mailing list, or the Qubes community forum.
+* There is a decrease (by ~20%) in the number of issues and questions raised for topics covered in the documentation, whether in the official Github issues tracker, the Qubes mailing list, or the Qubes community forum.
 
 #### Budget
 
@@ -80,9 +78,6 @@ We will consider the project successful if, after publication of the new documen
 #### Additional information 
 Qubes OS regularly participates in the Google Summer of Code and Google Season of Docs. This is our third time in a row participating in Google Season of Docs. Our mentorships for GSoD 2019 and 2020 were successes and both projects were completed 
 within the times allotted. The past Google Season of Docs projects have given us experience in working with technical writers, and has helped us to understand the benefits of technical writers can to our project
-
-You can view the project we had in 2019 in the [2019 GSoD archive](https://developers.google.com/season-of-docs/docs/2019/participants/project-qubes) and the [2019 writer’s report](https://refre.ch/report-qubesos/).
-You can also view the project we had in 2020 in the [2020 GSoD archive](https://developers.google.com/season-of-docs/docs/2020/participants/project-qubesos-c1e0) and the [2020 writer’s report](https://gist.github.com/PROTechThor/bfe9b8b28295d88c438b6f6c754ae733).
 
 ## Past Projects
 
