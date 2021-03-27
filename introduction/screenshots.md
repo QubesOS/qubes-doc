@@ -1,11 +1,13 @@
 ---
+lang: en
 layout: default
-title: Screenshots
 permalink: /screenshots/
 redirect_from:
 - /media/
 - /doc/QubesScreenshots/
 - /wiki/QubesScreenshots/
+ref: 123
+title: Screenshots
 ---
 
 Select Qubes OS Screenshots
@@ -105,4 +107,3 @@ And some more screenshots:
 [![r4.0-xfce-red-and-green-terminals.png](/attachment/wiki/QubesScreenshots/r4.0-xfce-red-and-green-terminals.png)](/attachment/wiki/QubesScreenshots/r4.0-xfce-red-and-green-terminals.png)
 
 [![r2b3-windows-seamless-2.png](/attachment/wiki/QubesScreenshots/r2b3-windows-seamless-2.png)](/attachment/wiki/QubesScreenshots/r2b3-windows-seamless-2.png)
-

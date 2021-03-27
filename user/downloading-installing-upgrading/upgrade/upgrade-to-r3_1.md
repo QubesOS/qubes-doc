@@ -1,15 +1,16 @@
 ---
+lang: en
 layout: doc
-title: Upgrading to R3.1
 permalink: /doc/upgrade-to-r3.1/
 redirect_from:
 - /en/doc/upgrade-to-r3.1/
 - /doc/UpgradeToR3.1/
 - /doc/UpgradeToR3.1rc1/
+ref: 155
+title: Upgrading to R3.1
 ---
 
-Upgrading Qubes R3.0 to R3.1
-======================================
+# Upgrading Qubes R3.0 to R3.1
 
 **Before attempting either an in-place upgrade or a clean installation, we
 strongly recommend that users [back up their systems](/doc/backup-restore/).**
@@ -17,9 +18,7 @@ strongly recommend that users [back up their systems](/doc/backup-restore/).**
 Current Qubes R3.0 systems can be upgraded in-place to the latest R3.1
 by following the procedure below.
 
-
-Upgrade all Template and Standalone VM(s)
------------------------------------------
+## Upgrade all Template and Standalone VM(s)
 
 By default, in Qubes R3.0, there is only one TemplateVM. However, users are
 free to create more TemplateVMs for special purposes, as well as StandaloneVMs.
@@ -27,49 +26,55 @@ More information on using multiple TemplateVMs, as well as StandaloneVMs, can be
 found [here](/doc/software-update-vm/). The steps described in this
 section should be repeated in **all** the user's Template and Standalone VMs.
 
+### Upgrade Fedora templates:
 
-### Upgrade Fedora templates: ###
-
-1.  Open a terminal in the TemplateVM (or StandaloneVM). (E.g., use Qubes VM
+1. Open a terminal in the TemplateVM (or StandaloneVM). (E.g., use Qubes VM
     Manager's right-click menu, choose "Run Command in VM," and type
     `gnome-terminal` there.)
 
-2.  Install the `qubes-upgrade-vm` package:
+2. Install the `qubes-upgrade-vm` package:
 
-        sudo yum install qubes-upgrade-vm
+    ```
+    sudo yum install qubes-upgrade-vm
+    ```
 
-3.  Proceed with a normal upgrade in the template:
+3. Proceed with a normal upgrade in the template:
 
-        sudo yum upgrade
+    ```
+    sudo yum upgrade
+    ```
 
-4.  Shut down the template VM.
+4. Shut down the template VM.
 
+### Upgrade Debian (and Whonix) templates:
 
-### Upgrade Debian (and Whonix) templates: ###
-
-1.  Open a terminal in the TemplateVM (or StandaloneVM). (E.g., use Qubes VM
+1. Open a terminal in the TemplateVM (or StandaloneVM). (E.g., use Qubes VM
     Manager's right-click menu, choose "Run Command in VM," and type
     `gnome-terminal` there.)
 
-2.  Update repository definition:
+2. Update repository definition:
 
-        sudo cp /etc/apt/sources.list.d/qubes-r3.list /etc/apt/sources.list.d/qubes-r3-upgrade.list
-        sudo sed -i 's/r3.0/r3.1/' /etc/apt/sources.list.d/qubes-r3-upgrade.list
+    ```
+    sudo cp /etc/apt/sources.list.d/qubes-r3.list /etc/apt/sources.list.d/qubes-r3-upgrade.list
+    sudo sed -i 's/r3.0/r3.1/' /etc/apt/sources.list.d/qubes-r3-upgrade.list
+    ```
 
-3.  Proceed with a normal update in the template:
+3. Proceed with a normal update in the template:
 
-        sudo apt-get update
-        sudo apt-get dist-upgrade
+    ```
+    sudo apt-get update
+    sudo apt-get dist-upgrade
+    ```
 
-4.  Remove unnecessary now file:
+4. Remove unnecessary now file:
 
-        sudo rm -f /etc/apt/sources.list.d/qubes-r3-upgrade.list
+    ```
+    sudo rm -f /etc/apt/sources.list.d/qubes-r3-upgrade.list
+    ```
 
-5.  Shut down the template VM.
+5. Shut down the template VM.
 
-
-Upgrading dom0
---------------
+## Upgrading dom0
 
 **Important:** Do not perform the steps described in this section until **all**
 your Template and Standalone VMs have been upgraded as described in the previous
@@ -77,20 +82,22 @@ section. Also, do not shut down `sys-net` or `sys-firewall`, since you will not
 be able to start them again until after the entire in-place upgrade procedure is
 complete.
 
-1.  Open a terminal in Dom0. (E.g., Start -\> System Settings -\> Konsole.)
+1. Open a terminal in Dom0. (E.g., Start -\> System Settings -\> Konsole.)
 
-2.  Upgrade dom0 to R3.1:
+2. Upgrade dom0 to R3.1:
 
-        sudo qubes-dom0-update --releasever=3.1
+    ```
+    sudo qubes-dom0-update --releasever=3.1
+    ```
 
     At this point, most of the `qvm-*` tools will stop working until after you
     reboot the system.
 
-3.  If the previous step completed successfully, your `qubes-core-dom0` version
+3. If the previous step completed successfully, your `qubes-core-dom0` version
     should be `3.1.4` or higher. If it's not, repeat the previous step with the
     `--clean` option.
 
-4.  Reboot dom0.
+4. Reboot dom0.
     
     The system may hang during the reboot. If that happens, do not panic. All
     the filesystems will have already been unmounted at this stage, so you can
@@ -113,5 +120,6 @@ for details.
 Once you have upgraded dom0, you can install new templates from Qubes R3.1
 repositories, in particular the new default Fedora 23 template:
 
-    sudo qubes-dom0-update qubes-template-fedora-23
-
+```
+sudo qubes-dom0-update qubes-template-fedora-23
+```

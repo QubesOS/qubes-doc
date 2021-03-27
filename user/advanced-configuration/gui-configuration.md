@@ -1,9 +1,10 @@
 ---
+lang: en
 layout: doc
-title: GUI Configuration
 permalink: /doc/gui-configuration/
-redirect_from:
-  - /doc/gui-configuration/
+redirect_from: []
+ref: 184
+title: GUI Configuration
 ---
 
 # GUI Configuration
@@ -51,5 +52,4 @@ EndSection
 
 ## GUI Troubleshooting
 
-See [GUI Troubleshooting](/doc/gui-troubleshooting) for issues relating to the Qubes graphical user interface and how to fix them. 
-
+See [GUI Troubleshooting](/doc/gui-troubleshooting) for issues relating to the Qubes graphical user interface and how to fix them.

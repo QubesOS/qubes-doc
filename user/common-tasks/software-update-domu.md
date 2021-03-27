@@ -1,12 +1,14 @@
 ---
+lang: en
 layout: doc
-title: Installing and updating software in domUs
 permalink: /doc/software-update-domu/
 redirect_from:
 - /doc/software-update-vm/
 - /en/doc/software-update-vm/
 - /doc/SoftwareUpdateVM/
 - /wiki/SoftwareUpdateVM/
+ref: 189
+title: Installing and updating software in domUs
 ---
 
 # Installing and updating software in domUs
@@ -15,22 +17,20 @@ Updating [domUs], especially [TemplateVMs] and [StandaloneVMs][StandaloneVM] are
 It is very import to keep domUs up-to-date with the latest [security] updates.
 Updating these VMs also allows you to receive various non-security bug fixes and enhancements both from the Qubes OS Project and from your upstream distro maintainer.
 
-
 ## Installing software in TemplateVMs
 
 To permanently install new software in a TemplateVM:
 
- 1. Start the TemplateVM.
- 2. Start either a terminal (e.g. `gnome-terminal`) or a dedicated software management application, such as `gpk-application`.
- 3. Install software as normally instructed inside that operating system (e.g. `sudo dnf install <PACKAGE_NAME>` on Fedora, `sudo apt install <PACKAGE_NAME>` on Debian).
- 4. Shut down the TemplateVM.
- 5. Restart all [TemplateBasedVMs] based on the TemplateVM so the changes can take effect.
- 6. (Optional) In the relevant [TemplateBasedVMs]' **Qube Settings**, go to the **Applications** tab, select the new application(s) from the list, and press OK.
+1. Start the TemplateVM.
+2. Start either a terminal (e.g. `gnome-terminal`) or a dedicated software management application, such as `gpk-application`.
+3. Install software as normally instructed inside that operating system (e.g. `sudo dnf install <PACKAGE_NAME>` on Fedora, `sudo apt install <PACKAGE_NAME>` on Debian).
+4. Shut down the TemplateVM.
+5. Restart all [TemplateBasedVMs] based on the TemplateVM so the changes can take effect.
+6. (Optional) In the relevant [TemplateBasedVMs]' **Qube Settings**, go to the **Applications** tab, select the new application(s) from the list, and press OK.
     These new shortcuts will appear in the Applications Menu.
     (If you encounter problems, see [here][shortcuts] for troubleshooting.)
 
 ![[The Applications tab in Qube Settings](/attachment/wiki/ManagingAppVmShortcuts/r4.1-dom0-appmenu-select.png)](/attachment/wiki/ManagingAppVmShortcuts/r4.1-dom0-appmenu-select.png)
-
 
 ## Updating software in TemplateVMs
 
@@ -43,7 +43,6 @@ You can also update TemplateVMs individually.
 In the Qube Manager, select the desired TemplateVM, then click **Update qube**.
 Advanced users can execute the standard update command for that operating system from the command line, e.g. `dnf update` in Fedora and `apt-get update` in Debian.
 
-
 ## Testing repositories
 
 If you wish to install updates that are still in [testing], you must enable the appropriate testing repositories.
@@ -52,9 +51,9 @@ If you wish to install updates that are still in [testing], you must enable the 
 
 There are three Qubes VM testing repositories (where `*` denotes the Release):
 
-* `qubes-vm-*-current-testing` -- testing packages that will eventually land in the stable (`current`) repository
-* `qubes-vm-*-security-testing` -- a subset of `qubes-vm-*-current-testing` that contains packages that qualify as security fixes
-* `qubes-vm-*-unstable` -- packages that are not intended to land in the stable (`qubes-vm-*-current`) repository; mostly experimental debugging packages
+- `qubes-vm-*-current-testing` -- testing packages that will eventually land in the stable (`current`) repository
+- `qubes-vm-*-security-testing` -- a subset of `qubes-vm-*-current-testing` that contains packages that qualify as security fixes
+- `qubes-vm-*-unstable` -- packages that are not intended to land in the stable (`qubes-vm-*-current`) repository; mostly experimental debugging packages
 
 To temporarily enable any of these repos, use the `--enablerepo=<repo-name>` option.
 Example commands:
@@ -67,22 +66,19 @@ sudo dnf upgrade --enablerepo=qubes-vm-*-unstable
 
 To enable or disable any of these repos permanently, change the corresponding `enabled` value to `1` in `/etc/yum.repos.d/qubes-*.repo`.
 
-
 ### Debian
 
 Debian also has three Qubes VM testing repositories (where `*` denotes the Release):
 
-* `*-testing` -- testing packages that will eventually land in the stable (`current`) repository
-* `*-securitytesting` -- a subset of `*-testing` that contains packages that qualify as security fixes
-* `*-unstable` -- packages that are not intended to land in the stable repository; mostly experimental debugging packages
+- `*-testing` -- testing packages that will eventually land in the stable (`current`) repository
+- `*-securitytesting` -- a subset of `*-testing` that contains packages that qualify as security fixes
+- `*-unstable` -- packages that are not intended to land in the stable repository; mostly experimental debugging packages
 
 To enable or disable any of these repos permanently, uncomment the corresponding `deb` line in `/etc/apt/sources.list.d/qubes-r*.list`.
-
 
 ## Contributed package repository
 
 Please see [installing contributed packages].
-
 
 ## StandaloneVMs
 
@@ -92,15 +88,13 @@ Therefore, it will not be updated when the TemplateVM is updated.
 Rather, it must be updated individually.
 The process for installing and updating software in StandaloneVMs is the same as described above for TemplateVMs.
 
-
 ## Advanced
 
 The following sections cover advanced topics pertaining to installing and updating software in domUs.
 
-
 ### RPMFusion for Fedora TemplateVMs
 
-If you would like to enable the [RPM Fusion] repositories, open a Terminal of the TemplateVM and type the following commands, depending on which RPM Fusion repositories you wish to enable (see [RPM Fusion] for details): 
+If you would like to enable the [RPM Fusion] repositories, open a Terminal of the TemplateVM and type the following commands, depending on which RPM Fusion repositories you wish to enable (see [RPM Fusion] for details):
 
 ~~~
 sudo dnf config-manager --set-enabled rpmfusion-free
@@ -113,7 +107,6 @@ sudo dnf upgrade --refresh
 This will permanently enable the RPM Fusion repos.
 If you install software from here, it's important to keep these repos enabled so that you can receiving future updates.
 If you only enable these repos temporarily to install a package the Qubes update mechanism may persistently notify you that updates are available, since it cannot download them.
-
 
 ### Reverting changes to a TemplateVM
 
@@ -132,7 +125,6 @@ If you want to undo changes to a TemplateVM, there are three basic methods:
    This is appropriate for both misconfigurations and security concerns, and it can preserve your customizations.
    However, it is a bit more complex.
 
-
 #### Root revert
 
 **Important:** This command will roll back any changes made *during the last time the TemplateVM was run, but **not** before.*
@@ -145,25 +137,24 @@ Just make sure to **back up** all of your data and changes first!
 
 2. In a dom0 terminal:
 
+```
         qvm-volume revert <template>:root
-
+```
 
 #### Reinstall the template
 
 Please see [How to Reinstall a TemplateVM].
 
-
 #### Full revert
 
 This is like the simple revert, except:
 
- - You must also revert the private volume with `qvm-volume revert <template>:private`.
-   This requires you to have an old revision of the private volume, which does not exist with the current default config.
-   However, if you don't have anything important in the private volume (likely for a TemplateVM), then you can work around this by just resetting the private volume with `qvm-volume import --no-resize <template>:private /dev/null`.
+- You must also revert the private volume with `qvm-volume revert <template>:private`.
+  This requires you to have an old revision of the private volume, which does not exist with the current default config.
+  However, if you don't have anything important in the private volume (likely for a TemplateVM), then you can work around this by just resetting the private volume with `qvm-volume import --no-resize <template>:private /dev/null`.
 
- - The saved revision of the volumes must be uncompromised.
-   With the default `revisions_to_keep=1` for the root volume, you must **not** have started the template since the compromising action.
-
+- The saved revision of the volumes must be uncompromised.
+  With the default `revisions_to_keep=1` for the root volume, you must **not** have started the template since the compromising action.
 
 ### Temporarily allowing networking for software installation
 
@@ -172,7 +163,6 @@ When the installation requires internet connection to access third-party reposit
 So it is necessary to modify firewall rules to allow less restrictive internet access for the time of the installation, if one really wants to install those applications into a template.
 As soon as software installation is completed, firewall rules should be returned back to the default state.
 The user should decide by themselves whether such third-party applications should be equally trusted as the ones that come from the standard Fedora signed repositories and whether their installation will not compromise the default Template VM, and potentially consider installing them into a separate template or a standalone VM (in which case the problem of limited networking access doesn't apply by default), as described above.
-
 
 ### Updates proxy
 
@@ -194,7 +184,6 @@ There are two services (`qvm-service`, [service framework]):
 Both the old and new names work.
 The defaults listed above are applied if the service is not explicitly listed in the services tab.
 
-
 #### Technical details
 
 The updates proxy uses RPC/qrexec.
@@ -202,9 +191,9 @@ The proxy is configured in qrexec policy in dom0: `/etc/qubes-rpc/policy/qubes.U
 By default this is set to sys-net and/or sys-whonix, depending on firstboot choices.
 This new design allows for templates to be updated even when they are not connected to any NetVM.
 
-
 Example policy file in R4.0 (with Whonix installed, but not set as default UpdateVM for all templates):
-```
+
+```shell_session
 # any VM with tag `whonix-updatevm` should use `sys-whonix`; this tag is added to `whonix-gw` and `whonix-ws` during installation and is preserved during template clone
 @tag:whonix-updatevm @default allow,target=sys-whonix
 @tag:whonix-updatevm @anyvm deny
@@ -250,8 +239,8 @@ Last metadata expiration check: 0:57:08 ago on Thu Nov 14 09:26:47 2019.
 Notifying dom0 about installed applications
 
 Installed:
-  snapd-2.42.1-1.fc30.x86_64                                              qubes-snapd-helper-1.0.1-1.fc30.noarch                           
-[...]                          
+  snapd-2.42.1-1.fc30.x86_64                                              qubes-snapd-helper-1.0.1-1.fc30.noarch
+[...]
 Complete!
 ```
 
@@ -275,6 +264,7 @@ Shutdown the TemplateVM:
 ```shell_session
 [user@snap-demo-AppVM ~]$ snap install <package>
 ```
+
 When the install is complete you can close the terminal window.
 
 3. Refresh the Applications list for the AppVM.
@@ -282,7 +272,6 @@ In the Qubes Menu for the **AppVM*** launch the Qube Settings.
 Then go to the Applications tab and click "Refresh Applications"
 
 The refresh will take a few minutes; after it's complete the Snap app will appear in the AppVM's list of available applications. At this point the snap will be persistent within the AppVM and will receive updates when the AppVM is running.
-
 
 ### Autostarting Installed Applications
 
@@ -303,7 +292,7 @@ yelp.desktop
 
 3. Create the autostart directory:
 
-```shell_session
+```
 [user@example-AppVM ~]$ mkdir -p ~/.config/autostart
 ```
 
@@ -314,8 +303,6 @@ yelp.desktop
 ```
 
 Note that the app will autostart only when the AppVM starts. If you would like the AppVM to autostart, select the "Start qube automatically on boot" checkbox in the AppVM's Qube Settings.
-
-
 
 [domUs]: /doc/glossary/#domu
 [TemplateVMs]: /doc/templates/
@@ -329,4 +316,3 @@ Note that the app will autostart only when the AppVM starts. If you would like t
 [How to Reinstall a TemplateVM]: /doc/reinstall-template/
 [installing contributed packages]: /doc/installing-contributed-packages/
 [shortcuts]: /doc/managing-appvm-shortcuts/
-

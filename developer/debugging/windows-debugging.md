@@ -1,15 +1,16 @@
 ---
+lang: en
 layout: doc
-title: Windows Debugging
 permalink: /doc/windows-debugging/
 redirect_from:
 - /en/doc/windows-debugging/
 - /doc/WindowsDebugging/
 - /wiki/WindowsDebugging/
+ref: 50
+title: Windows Debugging
 ---
 
-Debugging Windows HVMs
-======================
+# Debugging Windows HVMs
 
 Debugging Windows code can be tricky in a virtualized environment. The guide below assumes Xen hypervisor and Windows 7 VMs.
 
@@ -17,22 +18,25 @@ User-mode debugging is usually straightforward if it can be done on one machine.
 
 Things get complicated if you need to perform kernel debugging or troubleshoot problems that only manifest on system boot, user logoff or similar. For that you need two Windows VMs: the *host* and the *target*. The *host* will contain [WinDbg](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063(v=vs.85).aspx) installation, your source code and private symbols. The *target* will run the code being debugged. Both will be linked by virtual serial ports.
 
--   First, you need to prepare separate copies of both *target* and *host* VM configuration files with some changes. Copy the files from **/var/lib/qubes/appvms/vmname/vmname.conf** to some convenient location, let's call them **host.conf** and **target.conf**.
--   In both copied files add the following line at the end: `serial = 'pty'`. This will make Xen connect VM's serial ports to dom0's ptys.
--   From now on you need to start both VMs like this: `qvm-start --custom-config=/your/edited/host.conf host`
--   To connect both VM serial ports together you will either need [socat](http://www.dest-unreach.org/socat/) or a custom utility described later.
--   To determine which dom0 pty corresponds to VM's serial port you need to read xenstore, example script below:
+- First, you need to prepare separate copies of both *target* and *host* VM configuration files with some changes. Copy the files from **/var/lib/qubes/appvms/vmname/vmname.conf** to some convenient location, let's call them **host.conf** and **target.conf**.
+- In both copied files add the following line at the end: `serial = 'pty'`. This will make Xen connect VM's serial ports to dom0's ptys.
+- From now on you need to start both VMs like this: `qvm-start --custom-config=/your/edited/host.conf host`
+- To connect both VM serial ports together you will either need [socat](http://www.dest-unreach.org/socat/) or a custom utility described later.
+- To determine which dom0 pty corresponds to VM's serial port you need to read xenstore, example script below:
 
+```bash
         #!/bin/sh
 
         id1=$(xl domid "$1-dm")
         tty1=$(xenstore-read /local/domain/${id1}/device/console/3/tty)
         echo $tty1
+```
 
-    Pass it a running VM name and it will output the corresponding pty name.
+Pass it a running VM name and it will output the corresponding pty name.
 
--   To connect both ptys you can use [socat](http://www.dest-unreach.org/socat/) like that:
+- To connect both ptys you can use [socat](http://www.dest-unreach.org/socat/) like that:
 
+```bash
         #!/bin/sh
 
         id1=$(xl domid "$1-dm")
@@ -40,14 +44,15 @@ Things get complicated if you need to perform kernel debugging or troubleshoot p
         tty1=$(xenstore-read /local/domain/${id1}/device/console/3/tty)
         tty2=$(xenstore-read /local/domain/${id2}/device/console/3/tty)
         socat $tty1,raw $tty2,raw
+```
 
-    ...but there is a catch. Xen seems to process the traffic that goes through serial ports and changes all **0x0a** bytes into **0x0d, 0x0a** pairs (newline conversion). I didn't find a way to turn that off (setting ptys to raw mode didn't change anything) and it's not mentioned anywhere on the Internet, so maybe it's something on my system. If the above script works for you then you don't need anything more in dom0.
+...but there is a catch. Xen seems to process the traffic that goes through serial ports and changes all **0x0a** bytes into **0x0d, 0x0a** pairs (newline conversion). I didn't find a way to turn that off (setting ptys to raw mode didn't change anything) and it's not mentioned anywhere on the Internet, so maybe it's something on my system. If the above script works for you then you don't need anything more in dom0.
 
--   On the *target* system, run `bcdedit /set debug on` on the console to turn on kernel debugging. It defaults to the first serial port.
--   On the *host* system, install [WinDbg](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063%28v=vs.85%29.aspx) and start the kernel debug (Ctrl-K), choose **com1** as the debug port.
--   Reboot the *target* VM.
--   Run the above shell script in dom0.
--   If everything is fine you should see the proper kernel debugging output in WinDbg. However, if you see something like that:
+- On the *target* system, run `bcdedit /set debug on` on the console to turn on kernel debugging. It defaults to the first serial port.
+- On the *host* system, install [WinDbg](http://msdn.microsoft.com/en-us/library/windows/hardware/ff551063(v=vs.85).aspx) and start the kernel debug (Ctrl-K), choose **com1** as the debug port.
+- Reboot the *target* VM.
+- Run the above shell script in dom0.
+- If everything is fine you should see the proper kernel debugging output in WinDbg. However, if you see something like that:
 
     ~~~
     Opened \\.\com1
@@ -55,7 +60,7 @@ Things get complicated if you need to perform kernel debugging or troubleshoot p
     Connected to Windows 7 7601 x64 target at (Wed Mar 19 20:35:43.262 2014 (UTC + 1:00)), ptr64 TRUE
     Kernel Debugger connection established.
     Symbol search path is: srv*c:\symbols*http://msdl.microsoft.com/download/symbols
-    Executable search path is: 
+    Executable search path is:
     ... Retry sending the same data packet for 64 times.
     The transport connection between host kernel debugger and target Windows seems lost.
     please try resync with target, recycle the host debugger, or reboot the target Windows.
@@ -73,6 +78,7 @@ Things get complicated if you need to perform kernel debugging or troubleshoot p
 
     ...then you're most likely a victim of the CRLF issue mentioned above. To get around it I wrote a small utility that basically does what socat would do and additionally corrects those replaced bytes in the stream. It's not pretty but it works:
 
+```c
         #include <errno.h>
         #include <stdio.h>
         #include <fcntl.h>
@@ -85,11 +91,11 @@ Things get complicated if you need to perform kernel debugging or troubleshoot p
         {
             static int count = 0;
             static unsigned char buf[17] = {0};
-            
+
             // relay to ouptput port
             write(fd2, &c, 1);
             fprintf(stderr, "%c", mark);
-            
+
             /* dump all data going over the line
             if (count == 0)
                 fprintf(stderr, "%c", mark);
@@ -112,13 +118,13 @@ Things get complicated if you need to perform kernel debugging or troubleshoot p
             unsigned char c = 0;
             struct termios tio;
             ssize_t size;
-            
+
             if (argc < 3)
             {
                 fprintf(stderr, "Usage: %s pty1 pty2 [mark character]\n", argv[0]);
                 return EINVAL;
             }
-            
+
             fd1 = open(argv[1], O_RDONLY | O_NOCTTY);
             if (fd1 <= 0)
             {
@@ -182,6 +188,7 @@ Things get complicated if you need to perform kernel debugging or troubleshoot p
             close(fd2);
             return 0;
         }
+```
 
 > This utility is a unidirectional relay so you need to run two instances to get duplex communication, like:
 >
@@ -202,7 +209,7 @@ Things get complicated if you need to perform kernel debugging or troubleshoot p
 > Connected to Windows 7 7601 x64 target at (Wed Mar 19 20:56:31.371 2014 (UTC + 1:00)), ptr64 TRUE
 > Kernel Debugger connection established.
 > Symbol search path is: srv*c:\symbols*http://msdl.microsoft.com/download/symbols
-> Executable search path is: 
+> Executable search path is:
 > Windows 7 Kernel Version 7601 MP (1 procs) Free x64
 > Built by: 7601.18247.amd64fre.win7sp1_gdr.130828-1532
 > Machine Name:
@@ -214,7 +221,7 @@ Things get complicated if you need to perform kernel debugging or troubleshoot p
 
 There are two main issues to be adopted to get all things to work in the R4.0.
 
-## Add a virtual serial port ##
+## Add a virtual serial port
 
 Qemu in the stub domain with virtual serial port added in a recommended way (```<serial type="pty"/>```) fails to start (Could not open '/dev/hvc1': No such device). It seems like a lack of multiple xen consoles support/configuration. The only way that I have found is to attach serial port explicitly to the available console.
 
@@ -228,15 +235,17 @@ $ gunzip stubdom-linux-rootfs.gz
 $ cpio -i -d -H newc --no-absolute-filenames < stubdom-linux-rootfs
 $ rm stubdom-linux-rootfs
 ```
+
 2. Edit Init script to remove last loop and to add "-serial /dev/hvc0" to the qemu command line.
 
 3. Apply changes:
+
 ```shell_session
 $ find . -print0 | cpio --null -ov --format=newc | gzip -9 > ../stubdom-linux-rootfs
 $ sudo mv ../stubdom-linux-rootfs /usr/lib/xen/boot
 ```
 
-## Connect two consoles ##
+## Connect two consoles
 
 Run the following script:
 

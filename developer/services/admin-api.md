@@ -1,12 +1,14 @@
 ---
+lang: en
 layout: doc-full
-title: Admin API
 permalink: /doc/admin-api/
 redirect_from:
 - /doc/mgmt/
 - /doc/mgmt1/
 - /doc/mgmt-architecture/
 - /doc/admin-api-architecture/
+ref: 36
+title: Admin API
 ---
 
 # Qubes OS Admin API
@@ -148,23 +150,22 @@ to set the policy using current mechanism.
 
 Volume properties:
 
- - `pool`
- - `vid`
- - `size`
- - `usage`
- - `rw`
- - `source`
- - `save_on_stop`
- - `snap_on_start`
- - `revisions_to_keep`
- - `is_outdated`
+- `pool`
+- `vid`
+- `size`
+- `usage`
+- `rw`
+- `source`
+- `save_on_stop`
+- `snap_on_start`
+- `revisions_to_keep`
+- `is_outdated`
 
 Method `admin.vm.Stats` returns `vm-stats` events every `stats_interval` seconds, for every running VM. Parameters of `vm-stats` events:
 
- - `memory_kb` - memory usage in kB
- - `cpu_time` - absolute CPU time (in milliseconds) spent by the VM since its startup, normalized for one CPU
- - `cpu_usage` - CPU usage in percents
-
+- `memory_kb` - memory usage in kB
+- `cpu_time` - absolute CPU time (in milliseconds) spent by the VM since its startup, normalized for one CPU
+- `cpu_usage` - CPU usage in percents
 
 ## Returned messages
 
@@ -329,6 +330,7 @@ The changes are validated before saving, so that the policy cannot end up in an
 invalid state (e.g. syntax error, missing include file).
 
 In addition, there is a mechanism to prevent concurrent modifications of the policy files:
+
 - A `*.Get` call returns a file along with a *token* (currently implemented as
   a hash of the file).
 - When calling `Replace` or `Remove`, you need to include the current token as

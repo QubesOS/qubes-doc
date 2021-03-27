@@ -1,13 +1,15 @@
 ---
+lang: en
 layout: doc
-title: Mount LVM image
 permalink: /doc/mount-lvm-image/
+ref: 46
+title: Mount LVM image
 ---
 
 # How to mount LVM image
 
-You want to read your LVM image (e.g., there is a problem where you can't start any VMs except dom0). 
- 
+You want to read your LVM image (e.g., there is a problem where you can't start any VMs except dom0).
+
 1: make the image available for qubesdb.
 From dom0 terminal:
 
@@ -25,7 +27,8 @@ From dom0 terminal:
 
 3: Attach the device to your newly created disp VM
 
-From the GUI, or from the command line: 
+From the GUI, or from the command line:
+
 ```bash
 [user@dom0]$ qvm-block attach NEWLY_CREATED_DISPVM dom0:$dev
 ```
@@ -37,15 +40,19 @@ From the GUI, or from the command line:
 ```
 
 5: Umount and kill the VM
-```
+
+```bash
 [user@dispXXXX]$ umount /mnt/
 ```
 
 6: Remove the image from qubesdb
-```
+
+```bash
 [user@dom0]$ qubesdb-rm /qubes-block-devices/$dev/
 ```
 
 # References
 
-https://github.com/QubesOS/qubes-issues/issues/4687#issuecomment-451626625
+Please consult this issue's [comment].
+
+[comment]: https://github.com/QubesOS/qubes-issues/issues/4687#issuecomment-451626625

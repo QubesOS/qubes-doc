@@ -1,12 +1,14 @@
 ---
+lang: en
 layout: doc
-title: GUI
 permalink: /doc/gui/
 redirect_from:
 - /en/doc/gui/
 - /en/doc/gui-docs/
 - /doc/GUIdocs/
 - /wiki/GUIdocs/
+ref: 61
+title: GUI
 ---
 
 Qubes GUI protocol
@@ -17,23 +19,23 @@ qubes_gui and qubes_guid processes
 
 All AppVM X applications connect to local (running in AppVM) Xorg servers that use the following "hardware" drivers:
 
--   *dummyqsb_drv* - video driver, that paints onto a framebuffer located in RAM, not connected to real hardware
--   *qubes_drv* - it provides a virtual keyboard and mouse (in fact, more, see below)
+- *dummyqsb_drv* - video driver, that paints onto a framebuffer located in RAM, not connected to real hardware
+- *qubes_drv* - it provides a virtual keyboard and mouse (in fact, more, see below)
 
-For each AppVM, there is a pair of *qubes_gui* (running in AppVM) and *qubes_guid* (running in dom0) processes connected over vchan. 
+For each AppVM, there is a pair of *qubes_gui* (running in AppVM) and *qubes_guid* (running in dom0) processes connected over vchan.
 The main responsibilities of *qubes_gui* are:
 
--   call XCompositeRedirectSubwindows on the root window, so that each window has its own composition buffer
--   instruct the local Xorg server to notify it about window creation, configuration and damage events; pass information on these events to dom0
--   receive information about keyboard and mouse events from dom0, tell *qubes_drv* to fake appropriate events
--   receive information about window size/position change, apply them to the local window
+- call XCompositeRedirectSubwindows on the root window, so that each window has its own composition buffer
+- instruct the local Xorg server to notify it about window creation, configuration and damage events; pass information on these events to dom0
+- receive information about keyboard and mouse events from dom0, tell *qubes_drv* to fake appropriate events
+- receive information about window size/position change, apply them to the local window
 
 The main responsibilities of *qubes_guid* are:
 
--   create a window in dom0 whenever an information on window creation in AppVM is received from *qubes_gui*
--   whenever the local window receives XEvent, pass information on it to AppVM (particularly, mouse and keyboard data)
--   whenever AppVM signals damage event, tell local Xorg server to repaint a given window fragment
--   receive information about window size/position change, apply them to the local window
+- create a window in dom0 whenever an information on window creation in AppVM is received from *qubes_gui*
+- whenever the local window receives XEvent, pass information on it to AppVM (particularly, mouse and keyboard data)
+- whenever AppVM signals damage event, tell local Xorg server to repaint a given window fragment
+- receive information about window size/position change, apply them to the local window
 
 Note that keyboard and mouse events are passed to AppVM only if a window belonging to this AppVM has focus.
 AppVM has no way to get information on keystrokes fed to other AppVMs (e.g. XTEST extension will report the status of local AppVM keyboard only) or synthesize and pass events to other AppVMs.
@@ -41,30 +43,30 @@ AppVM has no way to get information on keystrokes fed to other AppVMs (e.g. XTES
 Window content updates implementation
 -------------------------------------
 
-Typical remote desktop applications, like *vnc*, pass information on all changed window content in-band (say, over tcp). 
-As that channel has limited throughput, this impacts video performance. 
+Typical remote desktop applications, like *vnc*, pass information on all changed window content in-band (say, over tcp).
+As that channel has limited throughput, this impacts video performance.
 In the case of Qubes, *qubes_gui* does not transfer all changed pixels via vchan. Instead, for each window, upon its creation or size change, *qubes_gui*
 
--   asks *qubes_drv* driver for the list of physical memory frames that hold the composition buffer of a window
--   passes this information via `MFNDUMP` message to *qubes_guid* in dom0
+- asks *qubes_drv* driver for the list of physical memory frames that hold the composition buffer of a window
+- passes this information via `MFNDUMP` message to *qubes_guid* in dom0
 
-Now, *qubes_guid* has to tell the dom0 Xorg server about the location of the buffer. 
-There is no supported way (e.g. Xorg extension) to do this zero-copy style. 
+Now, *qubes_guid* has to tell the dom0 Xorg server about the location of the buffer.
+There is no supported way (e.g. Xorg extension) to do this zero-copy style.
 The following method is used in Qubes:
 
--   in dom0, the Xorg server is started with *LD_PRELOAD*-ed library named *shmoverride.so*. This library hooks all function calls related to shared memory.
--   *qubes_guid* creates a shared memory segment, and then tells Xorg to attach it via *MIT-SHM* extension
--   when Xorg tries to attach the segment (via glibc *shmat*) *shmoverride.so* intercepts this call and instead maps AppVM memory via *xc_map_foreign_pages*
--   since then, we can use MIT-SHM functions, e.g. *XShmPutImage* to draw onto a dom0 window. *XShmPutImage* will paint with DRAM speed; actually, many drivers use DMA for this.
+- in dom0, the Xorg server is started with *LD_PRELOAD*-ed library named *shmoverride.so*. This library hooks all function calls related to shared memory.
+- *qubes_guid* creates a shared memory segment, and then tells Xorg to attach it via *MIT-SHM* extension
+- when Xorg tries to attach the segment (via glibc *shmat*) *shmoverride.so* intercepts this call and instead maps AppVM memory via *xc_map_foreign_pages*
+- since then, we can use MIT-SHM functions, e.g. *XShmPutImage* to draw onto a dom0 window. *XShmPutImage* will paint with DRAM speed; actually, many drivers use DMA for this.
 
-The important detail is that *xc_map_foreign_pages* verifies that a given mfn range actually belongs to a given domain id (and the latter is provided by trusted *qubes_guid*). 
+The important detail is that *xc_map_foreign_pages* verifies that a given mfn range actually belongs to a given domain id (and the latter is provided by trusted *qubes_guid*).
 Therefore, rogue AppVM cannot gain anything by passing crafted mnfs in the `MFNDUMP` message.
 
 To sum up, this solution has the following benefits:
 
--   window updates at DRAM speed
--   no changes to Xorg code
--   minimal size of the supporting code
+- window updates at DRAM speed
+- no changes to Xorg code
+- minimal size of the supporting code
 
 ![gui.png](/attachment/wiki/GUIdocs/gui.png)
 
@@ -78,14 +80,14 @@ In Qubes, a custom window decorator is used that paints a colourful frame (the c
 Clipboard sharing implementation
 --------------------------------
 
-Certainly, it would be insecure to allow AppVM to read/write the clipboards of other AppVMs unconditionally. 
+Certainly, it would be insecure to allow AppVM to read/write the clipboards of other AppVMs unconditionally.
 Therefore, the following mechanism is used:
 
--   there is a "qubes clipboard" in dom0 - its contents are stored in a regular file in dom0.
--   if the user wants to copy local AppVM clipboard to qubes clipboard, she must focus on any window belonging to this AppVM, and press **Ctrl-Shift-C**. This combination is trapped by *qubes-guid*, and `CLIPBOARD_REQ` message is sent to AppVM. *qubes-gui* responds with *CLIPBOARD_DATA* message followed by clipboard contents.
--   the user focuses on other AppVM window, presses **Ctrl-Shift-V**. This combination is trapped by *qubes-guid*, and `CLIPBOARD_DATA` message followed by qubes clipboard contents is sent to AppVM; *qubes_gui* copies data to the local clipboard, and then user can paste its contents to local applications normally.
+- there is a "qubes clipboard" in dom0 - its contents are stored in a regular file in dom0.
+- if the user wants to copy local AppVM clipboard to qubes clipboard, she must focus on any window belonging to this AppVM, and press **Ctrl-Shift-C**. This combination is trapped by *qubes-guid*, and `CLIPBOARD_REQ` message is sent to AppVM. *qubes-gui* responds with *CLIPBOARD_DATA* message followed by clipboard contents.
+- the user focuses on other AppVM window, presses **Ctrl-Shift-V**. This combination is trapped by *qubes-guid*, and `CLIPBOARD_DATA` message followed by qubes clipboard contents is sent to AppVM; *qubes_gui* copies data to the local clipboard, and then user can paste its contents to local applications normally.
 
-This way, the user can quickly copy clipboards between AppVMs. 
+This way, the user can quickly copy clipboards between AppVMs.
 This action is fully controlled by the user, it cannot be triggered/forced by any AppVM.
 
 *qubes_gui* and *qubes_guid* code notes
@@ -93,20 +95,20 @@ This action is fully controlled by the user, it cannot be triggered/forced by an
 
 Both applications are structured similarly. They use *select* function to wait for any of these two event sources:
 
--   messages from the local X server
--   messages from the vchan connecting to the remote party
+- messages from the local X server
+- messages from the vchan connecting to the remote party
 
 The XEvents are handled by the *handle_xevent_eventname* function, and messages are handled by *handle_messagename* function. One should be very careful when altering the actual *select* loop, because both XEvents and vchan messages are buffered, and  *select* will not wake for each message.
 
 If one changes the number/order/signature of messages, one should increase the *QUBES_GUID_PROTOCOL_VERSION* constant in *messages.h* include file.
 
-*qubes_guid* writes debugging information to */var/log/qubes/qubes.domain_id.log* file; *qubes_gui* writes debugging information to */var/log/qubes/gui_agent.log*. 
+*qubes_guid* writes debugging information to */var/log/qubes/qubes.domain_id.log* file; *qubes_gui* writes debugging information to */var/log/qubes/gui_agent.log*.
 Include these files when reporting a bug.
 
 AppVM -> dom0 messages
 -----------------------
 
-Proper handling of the below messages is security-critical. 
+Proper handling of the below messages is security-critical.
 Observe that beside two messages (`CLIPBOARD` and `MFNDUMP`) the rest have fixed size, so the parsing code can be small.
 
 The *override_redirect* window attribute is explained at [Override Redirect Flag](https://tronche.com/gui/x/xlib/window/attributes/override-redirect.html). The *transient_for* attribute is explained at [Transient_for attribute](https://tronche.com/gui/x/icccm/sec-4.html#WM_TRANSIENT_FOR).
@@ -115,8 +117,8 @@ Window manager hints and flags are described in the [Extended Window Manager Hin
 
 Each message starts with the following header:
 
-~~~
-struct msghdr {   
+```c
+struct msghdr {
         uint32_t type;
         uint32_t window;
         /* This field is intended for use by gui_agents to skip unknown
@@ -126,7 +128,7 @@ struct msghdr {
          * whatever it wants! */
         uint32_t untrusted_len;
 };
-~~~
+```
 
 This header is followed by message-specific data:
 
@@ -164,9 +166,9 @@ struct msg_create {
 <tr>
   <td>MSG_MAP</td>
   <td><pre>
-struct msg_map_info { 
-  uint32_t transient_for; 
-  uint32_t override_redirect; 
+struct msg_map_info {
+  uint32_t transient_for;
+  uint32_t override_redirect;
 };
 </pre></td>
  <td>Map a window with given parameters</td>
@@ -179,12 +181,12 @@ struct msg_map_info {
 <tr>
   <td>MSG_CONFIGURE</td>
   <td><pre>
-struct msg_configure { 
-  uint32_t x; 
-  uint32_t y; 
-  uint32_t width; 
-  uint32_t height; 
-  uint32_t override_redirect; 
+struct msg_configure {
+  uint32_t x;
+  uint32_t y;
+  uint32_t width;
+  uint32_t height;
+  uint32_t override_redirect;
 };
 </pre></td>
  <td>Change window position/size/type</td>
@@ -192,15 +194,15 @@ struct msg_configure {
 <tr>
   <td>MSG_MFNDUMP</td>
   <td><pre>
-struct shm_cmd { 
-  uint32_t shmid; 
-  uint32_t width; 
-  uint32_t height; 
-  uint32_t bpp; 
-  uint32_t off; 
-  uint32_t num_mfn; 
-  uint32_t domid; 
-  uint32_t mfns[0]; 
+struct shm_cmd {
+  uint32_t shmid;
+  uint32_t width;
+  uint32_t height;
+  uint32_t bpp;
+  uint32_t off;
+  uint32_t num_mfn;
+  uint32_t domid;
+  uint32_t mfns[0];
 };
 </pre></td>
  <td>Retrieve the array of mfns that constitute the composition buffer of a remote window.
@@ -211,8 +213,8 @@ struct shm_cmd {
 <tr>
   <td>MSG_SHMIMAGE</td>
   <td><pre>
-struct msg_shmimage { 
-     uint32_t x; 
+struct msg_shmimage {
+     uint32_t x;
      uint32_t y;
      uint32_t width;
      uint32_t height;
@@ -223,8 +225,8 @@ struct msg_shmimage {
 <tr>
   <td>MSG_WMNAME</td>
   <td><pre>
-struct msg_wmname { 
-  char data[128]; 
+struct msg_wmname {
+  char data[128];
 };
 </pre></td>
  <td>Set the window name; only printable characters are allowed</td>
@@ -237,16 +239,16 @@ struct msg_wmname {
 <tr>
   <td>MSG_WINDOW_HINTS</td>
   <td><pre>
-struct msg_window_hints { 
-     uint32_t flags; 
-     uint32_t min_width; 
-     uint32_t min_height; 
-     uint32_t max_width; 
-     uint32_t max_height; 
-     uint32_t width_inc; 
-     uint32_t height_inc; 
-     uint32_t base_width; 
-     uint32_t base_height; 
+struct msg_window_hints {
+     uint32_t flags;
+     uint32_t min_width;
+     uint32_t min_height;
+     uint32_t max_width;
+     uint32_t max_height;
+     uint32_t width_inc;
+     uint32_t height_inc;
+     uint32_t base_width;
+     uint32_t base_height;
 };
 </pre> </td>
  <td>Size hints for window manager</td>
@@ -254,7 +256,7 @@ struct msg_window_hints {
 <tr>
   <td>MSG_WINDOW_FLAGS</td>
   <td><pre>
-struct msg_window_flags { 
+struct msg_window_flags {
      uint32_t flags_set;
      uint32_t flags_unset;
 };
@@ -279,12 +281,12 @@ Proper handling of the below messages is NOT security-critical.
 
 Each message starts with the following header
 
-~~~
-struct msghdr {   
+```c
+struct msghdr {
         uint32_t type;
         uint32_t window;
 };
-~~~
+```
 
 The header is followed by message-specific data:
 
@@ -297,12 +299,12 @@ The header is followed by message-specific data:
 <tr>
   <td>MSG_KEYPRESS</td>
   <td><pre>
-struct msg_keypress {  
-  uint32_t type;  
-  uint32_t x;  
-  uint32_t y;  
-  uint32_t state;  
-  uint32_t keycode;  
+struct msg_keypress {
+  uint32_t type;
+  uint32_t x;
+  uint32_t y;
+  uint32_t state;
+  uint32_t keycode;
 };
 </pre> </td>
  <td>Tell *qubes_drv* driver to generate a keypress</td>
@@ -310,12 +312,12 @@ struct msg_keypress {
 <tr>
   <td>MSG_BUTTON</td>
   <td><pre>
-struct msg_button {  
-  uint32_t type;  
-  uint32_t x;  
-  uint32_t y;  
-  uint32_t state;  
-  uint32_t button;  
+struct msg_button {
+  uint32_t type;
+  uint32_t x;
+  uint32_t y;
+  uint32_t state;
+  uint32_t button;
 };
 </pre> </td>
  <td>Tell *qubes_drv* driver to generate mouseclick</td>
@@ -323,11 +325,11 @@ struct msg_button {
 <tr>
   <td>MSG_MOTION</td>
   <td><pre>
-struct msg_motion {  
-  uint32_t x;  
-  uint32_t y;  
-  uint32_t state;  
-  uint32_t is_hint;  
+struct msg_motion {
+  uint32_t x;
+  uint32_t y;
+  uint32_t state;
+  uint32_t is_hint;
 };
 </pre> </td>
  <td>Tell *qubes_drv* driver to generate motion event</td>
@@ -335,12 +337,12 @@ struct msg_motion {
 <tr>
   <td>MSG_CONFIGURE</td>
   <td><pre>
-struct msg_configure { 
-  uint32_t x; 
-  uint32_t y; 
-  uint32_t width; 
-  uint32_t height; 
-  uint32_t override_redirect; 
+struct msg_configure {
+  uint32_t x;
+  uint32_t y;
+  uint32_t width;
+  uint32_t height;
+  uint32_t override_redirect;
 };
 </pre> </td>
  <td>Change window position/size/type</td>
@@ -348,9 +350,9 @@ struct msg_configure {
 <tr>
   <td>MSG_MAP</td>
   <td><pre>
-struct msg_map_info { 
-  uint32_t transient_for; 
-  uint32_t override_redirect; 
+struct msg_map_info {
+  uint32_t transient_for;
+  uint32_t override_redirect;
 };
 </pre> </td>
  <td>Map a window with given parameters</td>
@@ -363,14 +365,14 @@ struct msg_map_info {
 <tr>
   <td>MSG_CROSSING</td>
   <td><pre>
-struct msg_crossing { 
-  uint32_t type; 
-  uint32_t x; 
-  uint32_t y; 
-  uint32_t state; 
-  uint32_t mode; 
-  uint32_t detail; 
-  uint32_t focus; 
+struct msg_crossing {
+  uint32_t type;
+  uint32_t x;
+  uint32_t y;
+  uint32_t state;
+  uint32_t mode;
+  uint32_t detail;
+  uint32_t focus;
 };
 </pre> </td>
  <td>Notify window about enter/leave event</td>
@@ -378,10 +380,10 @@ struct msg_crossing {
 <tr>
   <td>MSG_FOCUS</td>
   <td><pre>
-struct msg_focus {  
-  uint32_t type;  
-  uint32_t mode;  
-  uint32_t detail;  
+struct msg_focus {
+  uint32_t type;
+  uint32_t mode;
+  uint32_t detail;
 };
 </pre> </td>
  <td>Raise a window, XSetInputFocus</td>
@@ -409,8 +411,8 @@ struct msg_focus {
 <tr>
   <td>MSG_WINDOW_FLAGS</td>
   <td><pre>
-struct msg_window_flags { 
-      uint32_t flags_set; 
+struct msg_window_flags {
+      uint32_t flags_set;
      uint32_t flags_unset;
 };
 </pre> </td>

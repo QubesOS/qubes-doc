@@ -1,15 +1,17 @@
 ---
+lang: en
 layout: doc
-title: Device Handling
 permalink: /doc/device-handling/
 redirect_from:
 - /doc/external-device-mount-point/
 - /en/doc/external-device-mount-point/
 - /doc/ExternalDeviceMountPoint/
 - /wiki/ExternalDeviceMountPoint/
+ref: 188
+title: Device Handling
 ---
 
-# Device Handling #
+# Device Handling
 
 This is an overview of device handling in Qubes OS.
 For specific devices ([block], [USB] and [PCI] devices), please visit their respective pages.
@@ -107,13 +109,11 @@ DEVICE_CLASS however is required.
 **SYNOPSIS**:
 `qvm-device DEVICE_CLASS {action} [action-specific arguments] [options]`
 
-
-## Actions ##
+## Actions
 
 Actions are applicable to every DEVICE_CLASS and expose some additional options.
 
-
-### Listing Devices ###
+### Listing Devices
 
 The `list` action lists known devices in the system.
 `list` accepts VM-names to narrow down listed devices.
@@ -121,16 +121,15 @@ Devices available in, as well as attached to the named VMs will be listed.
 
 `list` accepts two options:
 
- - `--all` - equivalent to specifying every VM name after `list`.
+- `--all` - equivalent to specifying every VM name after `list`.
 No VM-name implies `--all`.
- - `--exclude` - exclude VMs from `--all`.
+- `--exclude` - exclude VMs from `--all`.
 Requires `--all`.
 
 **SYNOPSIS**
 `qvm-device DEVICE_CLASS {list|ls|l} [--all [--exclude VM [VM [...]]] | VM [VM [...]]]`
 
-
-### Attaching Devices ###
+### Attaching Devices
 
 The `attach` action assigns an exposed device to a VM.
 This makes the device available in the VM it's attached to.
@@ -139,15 +138,14 @@ Required argument are targetVM and sourceVM:deviceID.
 
 `attach` accepts two options:
 
- - `--persistent` - attach device on targetVM-boot.
+- `--persistent` - attach device on targetVM-boot.
 If the device is unavailable (physically missing or sourceVM not started), booting the targetVM fails.
- - `--option`, `-o` - set additional options specific to DEVICE_CLASS.
+- `--option`, `-o` - set additional options specific to DEVICE_CLASS.
 
 **SYNOPSIS**
 `qvm-device DEVICE_CLASS {attach|at|a} targetVM sourceVM:deviceID [options]`
 
-
-### Detaching Devices ###
+### Detaching Devices
 
 The `detach` action removes an assigned device from a targetVM.
 It won't be available afterwards anymore.
@@ -160,7 +158,6 @@ If no specific `sourceVM:deviceID` combination is given, *all devices of that DE
 **SYNOPSIS**
 `qvm-device DEVICE_CLASS {detach|dt|d} targetVM [sourceVM:deviceID]`
 
-
 [block]:/doc/block-devices/
 [USB]:/doc/usb-devices/
 [PCI]:/doc/pci-devices/
@@ -168,4 +165,3 @@ If no specific `sourceVM:deviceID` combination is given, *all devices of that DE
 [device manager icon]: /attachment/wiki/Devices/media-removable.png
 [eject icon]: /attachment/wiki/Devices/media-eject.png
 [i4692]: https://github.com/QubesOS/qubes-issues/issues/4692
-

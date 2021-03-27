@@ -1,6 +1,6 @@
 ---
+lang: en
 layout: doc
-title: Reporting bugs and other issues
 permalink: /doc/reporting-bugs/
 redirect_from:
 - /en/doc/reporting-bugs/
@@ -11,6 +11,8 @@ redirect_from:
 - /bugs/
 - /bug-report/
 - /bug-reports/
+ref: 121
+title: Reporting bugs and other issues
 ---
 
 # Reporting bugs and other issues #
@@ -123,7 +125,6 @@ If the issue is closed without one of these specific resolutions, then it means,
 - [Package Contributions]
 - [Documentation Guidelines]
 
-
 [qubes-issues-all]: https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue
 [qubes-issues-bug-up-desc]: https://github.com/QubesOS/qubes-issues/issues?q=label%3Abug+sort%3Aupdated-desc
 [qubes-issues-labels]: https://github.com/QubesOS/qubes-issues/labels
@@ -146,4 +147,3 @@ If the issue is closed without one of these specific resolutions, then it means,
 [Package Contributions]: /doc/package-contributions/
 [Documentation Guidelines]: /doc/doc-guidelines/
 [hcl-howto]: /doc/hcl/#generating-and-submitting-new-reports
-
