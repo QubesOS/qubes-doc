@@ -1,20 +1,20 @@
 ---
+lang: en
 layout: doc
-title: YubiKey in Qubes
 permalink: /doc/yubi-key/
 redirect_from:
 - /en/doc/yubi-key/
 - /doc/YubiKey/
+ref: 169
+title: YubiKey in Qubes
 ---
 
-Using YubiKey to Qubes authentication
-=====================================
+# Using YubiKey to Qubes authentication
 
 You can use a YubiKey to enhance Qubes user authentication, for example to mitigate risk of someone snooping the password.
 This can also slightly improve security when you have a [USB keyboard](/doc/device-handling-security/#security-warning-on-usb-input-devices).
 
-Challenge-response mode
-----------------------
+## Challenge-response mode
 
 In this mode, your YubiKey will generate a response based on the secret key, and a random challenge (instead of counter).
 This means that it isn't possible to generate a response in advance even if someone gets access to your YubiKey.
@@ -28,11 +28,15 @@ To use this mode you need to:
 
    For Fedora.
 
-       sudo dnf install ykpers yubikey-personalization-gui
+    ```
+    sudo dnf install ykpers yubikey-personalization-gui
+    ```
 
    For Debian.
 
-       sudo apt-get install yubikey-personalization yubikey-personalization-gui
+    ```
+    sudo apt-get install yubikey-personalization yubikey-personalization-gui
+    ```
 
    Shut down your TemplateVM.
    Then, either reboot your USB VM (so changes inside the TemplateVM take effect in your USB TemplateBasedVM) or install the packages inside your USB VM if you would like to avoid rebooting it.
@@ -46,13 +50,15 @@ To use this mode you need to:
    - Note: Different from the above video, use the following settings select
    `HMAC-SHA1 mode`: `fixed 64 bit input`.
    - We will refer the `Secret Key (20 bytes hex)` as `AESKEY`.
-      - It is recommended to keep a backup of your `AESKEY` in an offline VM used as a vault.
-      - Consider keeping a backup of your `AESKEY` on paper and storing it in a safe place.
-      - If you have multiple YubiKeys for backup purposes (in case a yubikey gets lost, stolen or breaks) you can write the same settings into other YubiKeys.
+     - It is recommended to keep a backup of your `AESKEY` in an offline VM used as a vault.
+     - Consider keeping a backup of your `AESKEY` on paper and storing it in a safe place.
+     - If you have multiple YubiKeys for backup purposes (in case a yubikey gets lost, stolen or breaks) you can write the same settings into other YubiKeys.
 
 3. Install [qubes-app-yubikey](https://github.com/QubesOS/qubes-app-yubikey) in dom0.
 
-       sudo qubes-dom0-update qubes-yubikey-dom0
+    ```
+    sudo qubes-dom0-update qubes-yubikey-dom0
+    ```
 
 4. Adjust the USB VM name in case you are using something other than the default
    `sys-usb` by editing `/etc/qubes/yk-keys/yk-vm` in dom0.
@@ -62,27 +68,37 @@ To use this mode you need to:
 6. Paste your hashed password (other than your standard Qubes password)  into
 `/etc/qubes/yk-keys/yk-login-pass-hashed.hex` in dom0.
 
-   You can calculate your hashed password using the following two commands.
-   First run the following command to store your password in a temporary variable `password`.
-   (This way your password will not leak to the terminal command history file.)
+    You can calculate your hashed password using the following two commands.
+    First run the following command to store your password in a temporary variable `password`.
+    (This way your password will not leak to the terminal command history file.)
 
-       read password
-       
-   Now run the following command to calculate your hashed password.
-       
-       echo -n "$password" | openssl dgst -sha1
+    ```
+    read password
+    ```
+
+    Now run the following command to calculate your hashed password.
+
+    ```
+    echo -n "$password" | openssl dgst -sha1
+    ```
 
 7. Edit `/etc/pam.d/login` in dom0, adding this line at the beginning:
 
-       auth include yubikey
+    ```
+    auth include yubikey
+    ```
 
 8. Edit `/etc/pam.d/xscreensaver` (or appropriate file if you are using another screen locker program) in dom0, adding this line at the beginning:
 
-        auth include yubikey
+    ```
+    auth include yubikey
+    ```
 
 9. Edit `/etc/pam.d/lightdm` (or appropriate file if you are using another display manager) in dom0, adding this line at the beginning:
 
-        auth include yubikey
+    ```
+    auth include yubikey
+    ```
 
 ### Usage
 
@@ -101,10 +117,11 @@ In any case you can still use your login password, but do it in a secure locatio
 
 Edit `/etc/pam.d/yubikey` (or appropriate file if you are using other screen locker program) and remove `default=ignore` so the line looks like this.
 
-    auth [success=done] pam_exec.so expose_authtok quiet /usr/bin/yk-auth
+```
+auth [success=done] pam_exec.so expose_authtok quiet /usr/bin/yk-auth
+```
 
-Locking the screen when YubiKey is removed
-------------------------------------------
+## Locking the screen when YubiKey is removed
 
 You can setup your system to automatically lock the screen when you unplug your YubiKey.
 This will require creating a simple qrexec service which will expose the ability to lock the screen to your USB VM, and then adding a udev hook to actually call that service.
@@ -115,12 +132,16 @@ In dom0:
    Create `/etc/qubes-rpc/custom.LockScreen` with a simple command to lock the screen.
    In the case of xscreensaver (used in Xfce) it would be:
 
-        DISPLAY=:0 xscreensaver-command -lock
+   ```
+   DISPLAY=:0 xscreensaver-command -lock
+   ```
 
 2. Allow your USB VM to call that service.
    Assuming that it's named `sys-usb` it would require creating `/etc/qubes-rpc/policy/custom.LockScreen` with:
 
-        sys-usb dom0 allow
+   ```
+   sys-usb dom0 allow
+   ```
 
 In your USB VM:
 
@@ -129,26 +150,36 @@ In your USB VM:
    For example name the file `/rw/config/yubikey.rules`.
    Add the following line:
 
-        ACTION=="remove", SUBSYSTEM=="usb", ENV{ID_SECURITY_TOKEN}=="1", RUN+="/usr/bin/qrexec-client-vm dom0 custom.LockScreen"
+   ```
+   ACTION=="remove", SUBSYSTEM=="usb", ENV{ID_SECURITY_TOKEN}=="1", RUN+="/usr/bin/qrexec-client-vm dom0 custom.LockScreen"
+   ```
 
 4. Ensure that the udev hook is placed in the right place after VM restart.
    Append to `/rw/config/rc.local`:
 
-        ln -s /rw/config/yubikey.rules /etc/udev/rules.d/
-        udevadm control --reload
+   ```
+   ln -s /rw/config/yubikey.rules /etc/udev/rules.d/
+   udevadm control --reload
+   ```
 
 5. Then make `/rw/config/rc.local` executable.
 
-        sudo chmod +x /rw/config/rc.local
+   ```
+   sudo chmod +x /rw/config/rc.local
+   ```
 
 6. For changes to take effect, you need to call this script manually for the first time.
 
-        sudo /rw/config/rc.local
+   ```
+   sudo /rw/config/rc.local
+   ```
 
 If you use KDE, the command(s) in first step would be different:
 
-        # In the case of USB VM being autostarted, it will not have direct access to D-Bus
-        # session bus, so find its address manually:
-        kde_pid=`pidof kdeinit4`
-        export `cat /proc/$kde_pid/environ|grep -ao 'DBUS_SESSION_BUS_ADDRESS=[[:graph:]]*'`
-        qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock
+```
+# In the case of USB VM being autostarted, it will not have direct access to D-Bus
+# session bus, so find its address manually:
+kde_pid=`pidof kdeinit4`
+export `cat /proc/$kde_pid/environ|grep -ao 'DBUS_SESSION_BUS_ADDRESS=[[:graph:]]*'`
+qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock
+```

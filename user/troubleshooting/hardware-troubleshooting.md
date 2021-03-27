@@ -1,9 +1,11 @@
 ---
+lang: en
 layout: doc
-title: Hardware Troubleshooting
 permalink: /doc/hardware-troubleshooting/
 redirect_from:
 - /doc/newer-hardware-troubleshooting/
+ref: 97
+title: Hardware Troubleshooting
 ---
 
 # Troubleshooting hardware-related issues
@@ -56,4 +58,3 @@ More information in [this discussion][layout_discussion] and [this GitHub issue]
 [hardware-reqs]: /doc/installation-guide/#hardware-requirements
 [layout_discussion]: https://groups.google.com/d/topic/qubes-devel/d8ZQ_62asKI/discussion
 [layout_issue]: https://github.com/QubesOS/qubes-issues/issues/1396
-

@@ -1,12 +1,14 @@
 ---
+lang: en
 layout: doc
-title: GUI Troubleshooting
 permalink: /doc/gui-troubleshooting/
+ref: 233
+title: GUI Troubleshooting
 ---
 
 # GUI Troubleshooting
 
-## Can't click on anything after connecting 4k external display ##
+## Can't click on anything after connecting 4k external display
 
 When you connect a 4K external display, you may be unable to click on anything but a small area in the upper-right corner.
 
@@ -16,22 +18,23 @@ By default, it is as much as needed for the current display and an additional fu
 This logic fails when the machine has primary display in FHD resolution and, after starting some qubes, a 4K display is connected.
 If the buffer is too small, and internal desktop resize fails.
 
-The solution to this problem is to increase the minimum size of the video RAM buffer, as explained in [GUI Configuration](/doc/gui-configuration/#video-ram-adjustment-for-high-resolution-displays). 
+The solution to this problem is to increase the minimum size of the video RAM buffer, as explained in [GUI Configuration](/doc/gui-configuration/#video-ram-adjustment-for-high-resolution-displays).
 
+## Screen blanks / Weird computer glitches like turning partially black or black boxes
 
-## Screen blanks / Weird computer glitches like turning partially black or black boxes ##
+You may encountering seemingly random screen blanking while using Qubes, where the screen will black and shows the logon screen, yet, only the active window will show when you move the mouse or use the keyboard. Sometimes, you will get random black screens or black boxes.
 
-You may encountering seemingly random screen blanking while using Qubes, where the screen will black and shows the logon screen, yet, only the active window will show when you move the mouse or use the keyboard. Sometimes, you will get random black screens or black boxes. 
-
-Similarly, while working, the XScreenSaver dialog may pop up (indicating the screen is locked) and the screen goes black. However, the screen is not locked, and you have to move a window to redraw the screen. 
+Similarly, while working, the XScreenSaver dialog may pop up (indicating the screen is locked) and the screen goes black. However, the screen is not locked, and you have to move a window to redraw the screen.
 
 If you are experiencing the any of the above symptoms, try disabling the window compositor:
 
+`
     Q → System Tools → Window Manager Tweaks → Compositor → uncheck “Enable display compositing”
+`
 
-## Post installation, screen goes black and freezes following LUKS decryption ##
+## Post installation, screen goes black and freezes following LUKS decryption
 
-After installing Qubes, you may experience a black screen after entering your LUKS decryption password. 
+After installing Qubes, you may experience a black screen after entering your LUKS decryption password.
 To fix the problem, use your preferred text editor (`nano` works) to edit `/mnt/sysimage/boot/efi/EFI/qubes/xen.cfg`, adding the `efi=no-rs` option to the end of the `options= line`. For example:
 
 ~~~
@@ -41,7 +44,7 @@ options=loglvl=all dom0_mem=min:1024M dom0_mem=max:4096M iommu=no-igfx ucode=sca
 
 Note that the `/mnt/sysimage/boot/efi/EFI/qubes/xen.cfg` path applies when running from the installer (either directly after installation, before the reboot, or by starting the installer again in recovery mode). On the actual installed system, the file to edit is `/boot/efi/EFI/qubes/xen.cfg` -- but it may be hard to access directly when your system won't boot.
 
-## Can start VM, but can't launch any applications ##
+## Can start VM, but can't launch any applications
 
 If you can start your VM, but can't launch any applications, then you need to fix the issues from the `VM console`, accessible from xen through:
 
@@ -49,17 +52,19 @@ If you can start your VM, but can't launch any applications, then you need to fi
 qvm-start <VMname> # Make sure the VM is started
 qvm-console-dispvm <VMname>
 ```
+
 After launching a VM console using `qvm-console-dispvm`, you may look at the `qubes-gui-agent` service state with:
 
 ~~~
 systemctl status -l qubes-gui-agent
 ~~~
 
-If the service is in a failed state, you should see some messages on why it failed. 
+If the service is in a failed state, you should see some messages on why it failed.
 
 Another helpful place to look into is `/home/user/.xsession-errors`, which may also contain some hints what is wrong.
 
-### Disable audited messages ###
+### Disable audited messages
+
 During troubleshooting, you may be getting a lot of 'audit' messages which make the log very noisy.
 To disable audited messages, you need to edit your VM kernel parameters:
 

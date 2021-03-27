@@ -1,7 +1,9 @@
 ---
+lang: en
 layout: doc
-title: "Qrexec: Socket-based services"
 permalink: /doc/qrexec-socket-services/
+ref: 42
+title: 'Qrexec: Socket-based services'
 ---
 
 # Qrexec: Socket-based services
@@ -20,11 +22,15 @@ If the file is a Unix socket, qrexec will try to connect to it.
 Before passing user input, the socket service will receive a null-terminated service descriptor, i.e. the part after `QUBESRPC`.
 When running in a VM, this is:
 
+```
     <service_name> <source>\0
+```
 
 When running in dom0, it is:
 
+```
     <service_name> <source> <target_type> <target>\0
+```
 
 (The target type can be `name`, in which case target is a domain name, or `keyword`, in which the target is a keyword like `@dispvm`).
 

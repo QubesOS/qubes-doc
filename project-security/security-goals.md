@@ -1,12 +1,14 @@
 ---
+lang: en
 layout: doc
-title: Security Goals
 permalink: /security/goals/
 redirect_from:
 - /doc/security-goals/
 - /en/doc/security-goals/
 - /doc/SecurityGoals/
 - /wiki/SecurityGoals/
+ref: 210
+title: Security Goals
 ---
 
 Qubes Security Goals

@@ -1,11 +1,13 @@
 ---
+lang: en
 layout: doc
-title: Upgrading to R4.0
 permalink: /doc/upgrade-to-r4.0/
 redirect_from:
 - /en/doc/upgrade-to-r4.0/
 - /doc/UpgradeToR4.0/
 - /doc/UpgradeToR4.0rc1/
+ref: 162
+title: Upgrading to R4.0
 ---
 
 Upgrading Qubes R3.2 to R4.0
@@ -17,14 +19,12 @@ Current Qubes R3.2 systems cannot be upgraded in-place to R4.0.
 A full backup, clean 4.0 install, and restore is required.
 This can be done by following the procedure below.
 
-
 Preparation
 -----------
 
 1. Go to [downloads](/downloads/) and prepare a USB drive or DVD with the R4.0 installer.
 
 2. If this is your only computer, and you do not have a R3.2 installer, you should also create a separate R3.2 USB drive or DVD installer at this time.
-
 
 Backup R3.2
 -----------
@@ -46,7 +46,6 @@ Backup R3.2
    If it does not, **stop**.
    Go back and repeat the backup steps, review the documentation, and ask for [help].
 
-
 Install R4.0
 ------------
 
@@ -67,7 +66,6 @@ For further details, please see the [installation guide](/doc/installation-guide
 4. If you are unable to successfully install R4.0 on your system, all is not lost.
    Use the R3.2 installer to reinstall R3.2, then restore from your backup.
 
-
 Restore from your backup
 ------------------------
 
@@ -77,7 +75,9 @@ Restore from your backup
 
 2. Since patches may have been released since your installation image was created, update Qubes R4.0 by going to the dom0 command line (**Qubes menu -> Terminal Emulator**) then running:
 
-       sudo qubes-dom0-update
+    ```
+    sudo qubes-dom0-update
+    ```
 
 3. Reboot dom0.
 
@@ -115,10 +115,8 @@ We strongly recommend that you update **all** TemplateVMs and StandaloneVMs befo
 In addition, if the default templates have reached EOL (end-of-life) by the time you install R4.0, we strongly recommend that you upgrade them before use.
 Please see [Supported Versions](/doc/supported-versions/) for information on supported OS versions and consult the guides below for specific upgrade instructions:
 
- * [Upgrading Fedora TemplateVMs](/doc/templates/fedora/#upgrading)
- * [Upgrading Debian TemplateVMs](/doc/templates/debian/#upgrading)
- * [Updating Whonix TemplateVMs](https://www.whonix.org/wiki/Qubes/Update)
-
+* [Upgrading Fedora TemplateVMs](/doc/templates/fedora/#upgrading)
+* [Upgrading Debian TemplateVMs](/doc/templates/debian/#upgrading)
+* [Updating Whonix TemplateVMs](https://www.whonix.org/wiki/Qubes/Update)
 
 [help]: /support/
-

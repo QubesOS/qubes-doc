@@ -1,11 +1,13 @@
 ---
+lang: en
 layout: doc
-title: Contributing to the Qubes OS Project
 permalink: /doc/contributing/
 redirect_from:
 - /en/doc/contributing/
 - /doc/ContributingHowto/
 - /wiki/ContributingHowto/
+ref: 125
+title: Contributing to the Qubes OS Project
 ---
 
 How to Contribute to the Qubes OS Project
@@ -57,7 +59,6 @@ preferably via the [qubes-devel] mailing list. Once we've worked out the
 details, we'll add you to our [Community-Developed Feature Tracker]. We'll then
 be grateful to [receive your patch][patch].
 
-
 [source code]: /doc/source-code/
 [Report security issues]: /security/
 [patch]: /doc/source-code/#how-to-send-patches
@@ -79,4 +80,3 @@ be grateful to [receive your patch][patch].
 [qubes-devel]: /support/#qubes-devel
 [Community-Developed Feature Tracker]: /qubes-issues/
 [Qubes download mirror]: /downloads/mirrors/
-

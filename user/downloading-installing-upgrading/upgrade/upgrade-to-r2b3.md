@@ -1,11 +1,13 @@
 ---
+lang: en
 layout: doc
-title: Upgrading to R2B3
 permalink: /doc/upgrade-to-r2b3/
 redirect_from:
 - /en/doc/upgrade-to-r2b3/
 - /doc/UpgradeToR2B3/
 - /wiki/UpgradeToR2B3/
+ref: 157
+title: Upgrading to R2B3
 ---
 
 Upgrading Qubes R2 Beta 2 to R2 Beta 3
@@ -24,34 +26,34 @@ By default, in Qubes R2, there is only one Template VM, however users are free t
 
 It is critical to complete this step **before** proceeding to dom0 upgrade. Otherwise you will most likely ends with unusable system.
 
-1.  Open terminal in the template VM (or standalone VM). E.g. use the Qubes Manager's right-click menu and choose Run Command in VM and type `gnome-terminal` there.
-2.  Proceed with normal update in the template:
+1. Open terminal in the template VM (or standalone VM). E.g. use the Qubes Manager's right-click menu and choose Run Command in VM and type `gnome-terminal` there.
+2. Proceed with normal update in the template:
 
     ~~~
     sudo yum update
     ~~~
 
-3.  Ensure that you've got qubes-core-vm package version 2.1.13-3.fc18:
+3. Ensure that you've got qubes-core-vm package version 2.1.13-3.fc18:
 
     ~~~
     rpm -q qubes-core-vm
     ~~~
 
-4.  Update the system to R2 beta3 packages:
+4. Update the system to R2 beta3 packages:
 
     ~~~
     sudo yum --enablerepo=qubes-vm-r2b3-current update
     ~~~
 
-5.  **Do not** shutdown the VM.
+5. **Do not** shutdown the VM.
 
 Upgrading dom0
 --------------
 
 Be sure to do steps described in this section after *all* your template and standalone VMs got updated as described in the section above. Also make sure you haven't shutdown any of: netvm, firewallvm, fedora-18-x64 (or to be more precise: template which your netvm and firewallvm is based on).
 
-1.  Open terminal in Dom0. E.g. Start-\>System Settings-\>Konsole.
-2.  Upgrade the `qubes-release` package to the latest version which brings in new repo definitions and R2 signing keys:
+1. Open terminal in Dom0. E.g. Start-\>System Settings-\>Konsole.
+2. Upgrade the `qubes-release` package to the latest version which brings in new repo definitions and R2 signing keys:
 
     ~~~
     sudo qubes-dom0-update qubes-release
@@ -59,19 +61,19 @@ Be sure to do steps described in this section after *all* your template and stan
 
     This should install `qubes-release-2-3.1` in your Dom0.
 
-3.  Upgrade dom0 to R2 beta3:
+3. Upgrade dom0 to R2 beta3:
 
     ~~~
     sudo qubes-dom0-update --enablerepo=qubes-dom0-r2b3-current
     ~~~
 
-4.  If above step completed successfully you should have qubes-core-dom0 at least 2.1.34. If not, repeat above step with additional `--clean` option.
-5.  Now is the time to shutdown all the VMs:
+4. If above step completed successfully you should have qubes-core-dom0 at least 2.1.34. If not, repeat above step with additional `--clean` option.
+5. Now is the time to shutdown all the VMs:
 
     ~~~
     qvm-shutdown --all --wait
     ~~~
 
-6.  Reboot the system.
+6. Reboot the system.
 
 Please note that if you use Anti Evil Maid, then it won't be able to unseal the passphrase this time, because the Xen, kernel, and initramfs binaries have changed. Once the system boots up again, you could reseal your Anti Evil Maid's passphrase to the new configuration. Please consult Anti Evil Maid documentation for explanation on how to do that.

@@ -1,7 +1,9 @@
 ---
+lang: en
 layout: sidebar
-title: Download Mirrors
 permalink: /downloads/mirrors/
+ref: 148
+title: Download Mirrors
 ---
 
 Qubes Download Mirrors
@@ -19,12 +21,11 @@ If you are interested in offering a mirror for Qubes downloads, thank you!
 We greatly appreciate your offer, and we hope these brief instructions are
 helpful in streamlining the process.
 
- * We are happy to provide rsync or HTTP master.
- * Our preferred frequency is **once every 24 hours**, but anything up to once
-   every 6-8 hours is fine.
- * For technical accommodations, please contact [Wojtek] or [Marek].
- * For website updates and fixes, please contact [Andrew].
-
+* We are happy to provide rsync or HTTP master.
+* Our preferred frequency is **once every 24 hours**, but anything up to once
+  every 6-8 hours is fine.
+* For technical accommodations, please contact [Wojtek] or [Marek].
+* For website updates and fixes, please contact [Andrew].
 
 [mirror-list]: /downloads/#mirrors
 [Wojtek]: /team/#wojtek-porczyk

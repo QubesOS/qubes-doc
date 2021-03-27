@@ -1,7 +1,9 @@
 ---
+lang: en
 layout: default
-title: Code of Conduct
 permalink: /code-of-conduct/
+ref: 118
+title: Code of Conduct
 ---
 
 ## Introduction

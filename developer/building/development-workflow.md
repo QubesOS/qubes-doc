@@ -1,23 +1,23 @@
 ---
+lang: en
 layout: doc
-title: Development Workflow
 permalink: /doc/development-workflow/
 redirect_from:
 - /en/doc/development-workflow/
 - /doc/DevelopmentWorkflow/
 - /wiki/DevelopmentWorkflow/
+ref: 66
+title: Development Workflow
 ---
 
-Development Workflow
-====================
+# Development Workflow
 
 A workflow for developing Qubes OS+
 
 First things first, setup [QubesBuilder](/doc/qubes-builder/). This guide
 assumes you're using qubes-builder to build Qubes.
 
-Repositories and committing Code
---------------------------------
+# Repositories and committing Code
 
 Qubes is split into a bunch of git repos. This are all contained in the
 `qubes-src` directory under qubes-builder. Subdirectories there are separate
@@ -149,21 +149,20 @@ RPMS will appear in qubes-src/linux-kernel/pkgs/fc20/x86\_64:
 
 ### Useful [QubesBuilder](/doc/qubes-builder/) commands
 
-1.  `make check` - will check if all the code was committed into repository and
+1. `make check` - will check if all the code was committed into repository and
 if all repository are tagged with signed tag.
-2.  `make show-vtags` - show version of each component (based on git tags) -
+2. `make show-vtags` - show version of each component (based on git tags) -
 mostly useful just before building ISO. **Note:** this will not show version
 for components containing changes since last version tag
-3.  `make push` - push change from **all** repositories to git server. You must
+3. `make push` - push change from **all** repositories to git server. You must
 set proper remotes (see above) for all repositories first.
-4.  `make prepare-merge` - fetch changes from remote repositories (can be
+4. `make prepare-merge` - fetch changes from remote repositories (can be
 specified on commandline via GIT\_SUBDIR or GIT\_REMOTE vars), (optionally)
 verify tags and show the changes. This do not merge the changes - there are
 left for review as FETCH\_HEAD ref. You can merge them using `git merge
 FETCH_HEAD` (in each repo directory). Or `make do-merge` to merge all of them.
 
-Copying Code to dom0
---------------------
+## Copying Code to dom0
 
 When developing it is convenient to be able to rapidly test changes. Assuming
 you're developing Qubes on Qubes, you should be working in a special VM for
@@ -309,7 +308,6 @@ to `testbuilder` VM. Otherwise it creates remote pointing at github account of
 the same name. In any case it points at repository matching current directory
 name.
 
-
 ## Sending packages to different VM
 
 Other useful script(s) can be used to setup local package repository hosted in
@@ -421,10 +419,10 @@ Remember to also import gpg public key using `rpm --import`.
 
 Steps are mostly the same as in the case of yum repo. The only details that differ:
 
- - use [linux-deb] instead of [linux-yum] as a base - both in source and target VM
- - use different `update_repo.sh` script in source VM (below)
- - use `local.UpdateApt` qrexec service in target VM (code below)
- - in target VM additionally place `update-local-repo.sh` script in repository dir (code below)
+- use [linux-deb] instead of [linux-yum] as a base - both in source and target VM
+- use different `update_repo.sh` script in source VM (below)
+- use `local.UpdateApt` qrexec service in target VM (code below)
+- in target VM additionally place `update-local-repo.sh` script in repository dir (code below)
 
 `update_repo.sh` script:
 

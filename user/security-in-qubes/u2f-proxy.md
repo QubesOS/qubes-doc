@@ -1,7 +1,9 @@
 ---
+lang: en
 layout: doc
-title: The Qubes U2F Proxy
 permalink: /doc/u2f-proxy/
+ref: 167
+title: The Qubes U2F Proxy
 ---
 
 # The Qubes U2F Proxy
@@ -75,6 +77,7 @@ In dom0:
 $ sudo qubes-dom0-update qubes-u2f-dom0
 $ qvm-service --enable work qubes-u2f-proxy
 ```
+
 The above assumes a `work` qube in which you would like to enable u2f. Repeat the `qvm-service` command for all qubes that should have the proxy enabled.  Alternatively, you can add `qubes-u2f-proxy` in VM settings -> Services in the Qube Manager of each qube you would like to enable the service.
 
 In Fedora TemplateVMs:
@@ -146,4 +149,3 @@ As always, please [report any bugs you encounter].
 [report any bugs you encounter]: /doc/reporting-bugs/
 [ff-u2f-addon]: https://addons.mozilla.org/en-US/firefox/addon/u2f-support-add-on/?src=api
 [qubes-devel]: /support/#qubes-devel
-

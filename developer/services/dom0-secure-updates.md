@@ -1,11 +1,13 @@
 ---
+lang: en
 layout: doc
-title: Dom0 Secure Updates
 permalink: /doc/dom0-secure-updates/
 redirect_from:
 - /en/doc/dom0-secure-updates/
 - /doc/Dom0SecureUpdates/
 - /wiki/Dom0SecureUpdates/
+ref: 43
+title: Dom0 Secure Updates
 ---
 
 Qubes Dom0 secure update procedure
@@ -18,9 +20,9 @@ Normally there should be few reasons for updating software in Dom0. This is beca
 
 However, we anticipate some other situations when updating Dom0 software might be required:
 
--   Updating drivers/libs for new hardware support
--   Correcting non-security related bugs (e.g. new buttons for qubes manager)
--   Adding new features (e.g. GUI backup tool)
+- Updating drivers/libs for new hardware support
+- Correcting non-security related bugs (e.g. new buttons for qubes manager)
+- Adding new features (e.g. GUI backup tool)
 
 Problems with traditional network-based update mechanisms
 ---------------------------------------------------------

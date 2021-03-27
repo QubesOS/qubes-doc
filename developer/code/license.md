@@ -1,11 +1,13 @@
 ---
+lang: en
 layout: doc
-title: License
 permalink: /doc/license/
 redirect_from:
 - /en/doc/license/
 - /doc/QubesLicensing/
 - /wiki/QubesLicensing/
+ref: 52
+title: License
 ---
 
 Qubes OS License

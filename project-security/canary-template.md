@@ -1,8 +1,10 @@
 ---
+lang: en
 layout: doc
-title: Canary Template
 permalink: /security/canaries/template/
 redirect_from: /doc/canaries/template/
+ref: 212
+title: Canary Template
 ---
 
 Canary Template
@@ -58,4 +60,3 @@ Footnotes
 ```
 
 ~~~
-

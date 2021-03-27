@@ -1,10 +1,11 @@
 ---
+lang: en
 layout: doc
-title: awesome
 permalink: /doc/awesome/
 redirect_from:
 - /en/doc/awesome/
-- /doc/awesome/
+ref: 179
+title: awesome
 ---
 
 # Using awesome in dom0
@@ -19,15 +20,19 @@ redirect_from:
 
 awesome can be installed with the standard dom0 installation mechanisms.
 
-    $ sudo qubes-dom0-update awesome
-    
+```shell_session
+$ sudo qubes-dom0-update awesome
+```
+
 That's it. After logging out, you can select awesome in the login manager.
 
 ## Development
 
 To [contribute code](/doc/contributing/) you may clone the awesome repository as follows:
 
-    $ git clone https://github.com/QubesOS/qubes-desktop-linux-awesome
+```shell_session
+$ git clone https://github.com/QubesOS/qubes-desktop-linux-awesome
+```
 
 For build instructions please check the repository _README_.
 
@@ -66,6 +71,7 @@ In particular the following events are not meant to cause a focus change:
 * mouse move without click (sloppy focus)
 
 For the below example other requests from applications to the window manager are meant to be ignored in general as well, e.g.:
+
 * windows shouldn't be able to maximize themselves without the user giving a respective command to the WM (simple test: Firefox F11 next to another window)
 * windows shouldn't be able to change their size themselves
 * windows shouldn't be able to modify their borders in any way
@@ -184,4 +190,3 @@ client.disconnect_signal("request::tag", ewmh.tag)
 ```
 
 The signal names may change across awesome versions.
-

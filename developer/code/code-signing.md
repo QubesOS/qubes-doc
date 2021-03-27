@@ -1,17 +1,16 @@
 ---
+lang: en
 layout: doc
-title: Code Signing
 permalink: /doc/code-signing/
+ref: 51
+title: Code Signing
 ---
 
-Code Signing
-============
+# Code Signing
 
 All contributions to the Qubes OS [source code] must be cryptographically signed by the author's PGP key.
 
-
-Generating a Key
-----------------
+## Generating a Key
 
 (Note: If you already have a PGP key, you may skip this step.)
 
@@ -56,7 +55,7 @@ Real name: Bilbo Baggins
 
 E-mail address: bilbo@shire.org
 
-Comment: 
+Comment:
 You selected this USER-ID:
     "Bilbo Baggins <bilbo@shire.org>"
 
@@ -78,8 +77,7 @@ uid                  Bilbo Baggins <bilbo@shire.org>
 sub   4096R/69B0EA85 2013-03-13
 ~~~
 
-Upload the Key
---------------
+## Upload the Key
 
 For others to find the public key, please upload it to a server.
 
@@ -88,8 +86,7 @@ $ gpg --send-keys --keyserver pool.sks-keyservers.net 69B0EA85
 gpg: sending key 488BA441 to hkp server pool.sks-keyservers.net
 ```
 
-Using PGP with Git
-------------------
+## Using PGP with Git
 
 If you're submitting a patch via GitHub (or a similar Git server), please sign
 your Git commits.
@@ -112,7 +109,7 @@ your Git commits.
    commit -S
    ~~~
 
-3. (Optional) Create signed tags.  
+3. (Optional) Create signed tags.
    Signed commits are totally sufficient to contribute to Qubes OS.
    However, if you have commits which are not signed and you do not want to change them,
    you can create a signed tag for the commit and push it before the check.
@@ -141,8 +138,7 @@ your Git commits.
    vtag = !git tag -v `git describe`
    ~~~
 
-GitHub Signature Verification (optional)
-----------------------------------------
+## GitHub Signature Verification (optional)
 
 GitHub shows a green `Verified` label indicating that the GPG signature could be
 verified using any of the contributor’s GPG keys uploaded to GitHub. You can
@@ -150,16 +146,15 @@ upload your public key on GitHub by adding your public GPG key on the [New GPG
 key][GitHub New GPG key] under the [SSH GPG keys page][GitHub SSH GPG keys
 page].
 
-Code Signature Checks
----------------------
+## Code Signature Checks
 
 The [signature-checker] checks if code contributions are signed.
 Although GitHub adds a little green `Verified` button next to the commit, the [signature-checker] uses this algorithm to check if a commit is correctly signed:
 
-1. Is the commit signed?  
+1. Is the commit signed?
    If the commit is not signed, you can see the message
    > policy/qubesos/code-signing — No signature found
-2. If the commit is signed, the key is downloaded from a GPG key server.  
+2. If the commit is signed, the key is downloaded from a GPG key server.
    If you can see the following error message, please check if you have uploaded the key to a key server.
    > policy/qubesos/code-signing — Unable to verify (no valid key found)
 
@@ -169,23 +164,29 @@ Although GitHub adds a little green `Verified` button next to the commit, the [s
 
 In this case, you have several options to sign the commit:
 
-1. Amend the commit and replace it with a signed commit.  
+1. Amend the commit and replace it with a signed commit.
    You can use this command to create a new signed commit:
+
    ```
    git commit --amend -S
    ```
+
    This also rewrites the commit so you need to push it forcefully:
+
    ```
    git push -f
    ```
-2. Create a signed tag for the unsigned commit.  
+
+2. Create a signed tag for the unsigned commit.
    If the commit is back in history and you do not want to change it,
    you can create a signed tag for this commit and push the signature.
    You can use the alias from above:
+
    ```
    git checkout <commit>
    git spush
    ```
+
    Now, the signature checker needs to re-check the signature.
    Please comment on the pull request that you would like to have the signatures checked again.
 
@@ -198,14 +199,11 @@ but is not able to verify it using the any key available.
 This might be that you forgot to upload the key to a key server.
 Please upload it.
 
+## Using PGP with Email
 
-Using PGP with Email
---------------------
-
-If you're submitting a patch by emailing the [developer mailing list], simply sign your email with your PGP key. 
-One good way to do this is with a program like [Enigmail]. 
+If you're submitting a patch by emailing the [developer mailing list], simply sign your email with your PGP key.
+One good way to do this is with a program like [Enigmail].
 Enigmail is a security addon for the Mozilla Thunderbird email client that allows you to easily digitally encrypt and sign your emails.
-
 
 [guide]: https://alexcabal.com/creating-the-perfect-gpg-keypair/
 [source code]: /doc/source-code/
@@ -214,4 +212,3 @@ Enigmail is a security addon for the Mozilla Thunderbird email client that allow
 [signature-checker]: https://github.com/marmarek/signature-checker
 [GitHub New GPG key]: https://github.com/settings/gpg/new
 [GitHub SSH GPG keys page]: https://github.com/settings/keys
-

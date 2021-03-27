@@ -1,10 +1,12 @@
 ---
+lang: en
 layout: doc
-title: Emergency Backup Recovery (v4)
 permalink: /doc/backup-emergency-restore-v4/
 redirect_from:
 - /en/doc/backup-emergency-restore-v4/
 - /doc/BackupEmergencyRestoreV4/
+ref: 192
+title: Emergency Backup Recovery (v4)
 ---
 
 Emergency Backup Recovery without Qubes (v4)
@@ -17,7 +19,6 @@ The Qubes backup system has been designed with emergency disaster recovery in
 mind. No special Qubes-specific tools are required to access data backed up by
 Qubes. In the event a Qubes system is unavailable, you can access your data on
 any GNU/Linux system with the following procedure.
-
 
 Required `scrypt` Utility
 -------------------------
@@ -53,7 +54,7 @@ any GNU/Linux system.
 
  4. Verify the signature on the `scrypt` RPM.
 
-        [user@restore ~]$ rpm -K scrypt-*.rpm 
+        [user@restore ~]$ rpm -K scrypt-*.rpm
         scrypt-*.rpm: digests signatures OK
 
     The message `digests signatures OK` means that both the digest (i.e., the
@@ -70,7 +71,6 @@ any GNU/Linux system.
  7. (Optional) Create an alias for the new binary.
 
         [user@restore ~]$ alias scrypt="scrypt-*/usr/bin/scrypt"
-
 
 Emergency Recovery Instructions
 -------------------------------
@@ -185,4 +185,3 @@ Emergency Recovery Instructions
 [get and verify the Release 4 Signing Key]: /security/verifying-signatures/#2-get-the-release-signing-key
 [Emergency Backup Recovery without Qubes (v2)]: /doc/backup-emergency-restore-v2/
 [Emergency Backup Recovery without Qubes (v3)]: /doc/backup-emergency-restore-v3/
-

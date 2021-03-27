@@ -1,14 +1,15 @@
 ---
+lang: en
 layout: doc
-title: Installing contributed packages
 permalink: /doc/installing-contributed-packages/
+ref: 225
+title: Installing contributed packages
 ---
 
 # Installing contributed packages
 
 _This page is for users who wish to install contributed packages.
 If you want to contribute a package, please see [package contributions]._
-
 
 Qubes OS contributed packages are available under the [QubesOS-contrib] GitHub Project.
 This is a place where our community can [contribute Qubes OS related packages, additions and various customizations][package contributions].
@@ -19,20 +20,28 @@ If you want to install one of these packages, first you need to enable the repos
 
 In dom0, use `qubes-dom0-update`:
 
-    sudo qubes-dom0-update qubes-repo-contrib
+```bash_session
+sudo qubes-dom0-update qubes-repo-contrib
+```
 
 In a Fedora-based template, use `dnf`:
 
-    sudo dnf install qubes-repo-contrib
+```bash_session
+sudo dnf install qubes-repo-contrib
+```
 
 In a Debian-based template, use `apt`:
 
-    sudo apt update && sudo apt install qubes-repo-contrib
+```bash_session
+sudo apt update && sudo apt install qubes-repo-contrib
+```
 
 The new repository definition will be in the usual location for your distro, and it will follow the naming pattern `qubes-contrib-*`, depending on your Qubes release and whether it is in dom0 or a TemplateVM.
 For example, in a Fedora TemplateVM on Qubes 4.0, the new repository definition would be:
 
-    /etc/yum.repos.d/qubes-contrib-vm-r4.0.repo
+```
+/etc/yum.repos.d/qubes-contrib-vm-r4.0.repo
+```
 
 ## Installing packages
 
@@ -42,10 +51,11 @@ After you've installed the repositories, you can install contributed packages.
 
 For example, to install `qvm-screenshot-tool` in dom0:
 
-    sudo qubes-dom0-update --clean qvm-screenshot-tool
+```bash_session
+sudo qubes-dom0-update --clean qvm-screenshot-tool
+```
 
 Please see the package's README for specific installation and setup instructions.
 
 [package contributions]: /doc/package-contributions/
 [QubesOS-contrib]: https://github.com/QubesOS-contrib/
-
