@@ -47,70 +47,70 @@ Our test runner runs mostly the same as the standard one, but it has some nice a
 You can use `python3 -m qubes.tests.run -h` to get usage information:
 
 ```
-    [user@dom0 ~]$ python3 -m qubes.tests.run -h
-    usage: run.py [-h] [--verbose] [--quiet] [--list] [--failfast] [--no-failfast]
-                  [--do-not-clean] [--do-clean] [--loglevel LEVEL]
-                  [--logfile FILE] [--syslog] [--no-syslog] [--kmsg] [--no-kmsg]
-                  [TESTNAME [TESTNAME ...]]
+[user@dom0 ~]$ python3 -m qubes.tests.run -h
+usage: run.py [-h] [--verbose] [--quiet] [--list] [--failfast] [--no-failfast]
+              [--do-not-clean] [--do-clean] [--loglevel LEVEL]
+              [--logfile FILE] [--syslog] [--no-syslog] [--kmsg] [--no-kmsg]
+              [TESTNAME [TESTNAME ...]]
 
-    positional arguments:
-      TESTNAME              list of tests to run named like in description
-                            (default: run all tests)
+positional arguments:
+  TESTNAME              list of tests to run named like in description
+                        (default: run all tests)
 
-    optional arguments:
-      -h, --help            show this help message and exit
-      --verbose, -v         increase console verbosity level
-      --quiet, -q           decrease console verbosity level
-      --list, -l            list all available tests and exit
-      --failfast, -f        stop on the first fail, error or unexpected success
-      --no-failfast         disable --failfast
-      --loglevel LEVEL, -L LEVEL
-                            logging level for file and syslog forwarding (one of:
-                            NOTSET, DEBUG, INFO, WARN, WARNING, ERROR, CRITICAL;
-                            default: DEBUG)
-      --logfile FILE, -o FILE
-                            if set, test run will be also logged to file
-      --syslog              reenable logging to syslog
-      --no-syslog           disable logging to syslog
-      --kmsg, --very-brave-or-very-stupid
-                            log most important things to kernel ring-buffer
-      --no-kmsg, --i-am-smarter-than-kay-sievers
-                            do not abuse kernel ring-buffer
-      --allow-running-along-qubesd
-                            allow running in parallel with qubesd; this is
-                            DANGEROUS and WILL RESULT IN INCONSISTENT SYSTEM STATE
-      --break-to-repl       break to REPL after tests
+optional arguments:
+  -h, --help            show this help message and exit
+  --verbose, -v         increase console verbosity level
+  --quiet, -q           decrease console verbosity level
+  --list, -l            list all available tests and exit
+  --failfast, -f        stop on the first fail, error or unexpected success
+  --no-failfast         disable --failfast
+  --loglevel LEVEL, -L LEVEL
+                        logging level for file and syslog forwarding (one of:
+                        NOTSET, DEBUG, INFO, WARN, WARNING, ERROR, CRITICAL;
+                        default: DEBUG)
+  --logfile FILE, -o FILE
+                        if set, test run will be also logged to file
+  --syslog              reenable logging to syslog
+  --no-syslog           disable logging to syslog
+  --kmsg, --very-brave-or-very-stupid
+                        log most important things to kernel ring-buffer
+  --no-kmsg, --i-am-smarter-than-kay-sievers
+                        do not abuse kernel ring-buffer
+  --allow-running-along-qubesd
+                        allow running in parallel with qubesd; this is
+                        DANGEROUS and WILL RESULT IN INCONSISTENT SYSTEM STATE
+  --break-to-repl       break to REPL after tests
 
-    When running only specific tests, write their names like in log, in format:
-    MODULE+"/"+CLASS+"/"+FUNCTION. MODULE should omit initial "qubes.tests.".
-    Example: basic/TC_00_Basic/test_000_create
+When running only specific tests, write their names like in log, in format:
+MODULE+"/"+CLASS+"/"+FUNCTION. MODULE should omit initial "qubes.tests.".
+Example: basic/TC_00_Basic/test_000_create
 ```
 
 For instance, to run only the tests for the fedora-21 template, you can use the `-l` option, then filter the list:
 
 ```
-    [user@dom0 ~]$ python3 -m qubes.tests.run -l | grep fedora-21
-    network/VmNetworking_fedora-21/test_000_simple_networking
-    network/VmNetworking_fedora-21/test_010_simple_proxyvm
-    network/VmNetworking_fedora-21/test_020_simple_proxyvm_nm
-    network/VmNetworking_fedora-21/test_030_firewallvm_firewall
-    network/VmNetworking_fedora-21/test_040_inter_vm
-    vm_qrexec_gui/TC_00_AppVM_fedora-21/test_000_start_shutdown
-    vm_qrexec_gui/TC_00_AppVM_fedora-21/test_010_run_gui_app
-    vm_qrexec_gui/TC_00_AppVM_fedora-21/test_050_qrexec_simple_eof
-    vm_qrexec_gui/TC_00_AppVM_fedora-21/test_051_qrexec_simple_eof_reverse
-    vm_qrexec_gui/TC_00_AppVM_fedora-21/test_052_qrexec_vm_service_eof
-    vm_qrexec_gui/TC_00_AppVM_fedora-21/test_053_qrexec_vm_service_eof_reverse
-    vm_qrexec_gui/TC_00_AppVM_fedora-21/test_060_qrexec_exit_code_dom0
-    vm_qrexec_gui/TC_00_AppVM_fedora-21/test_065_qrexec_exit_code_vm
-    vm_qrexec_gui/TC_00_AppVM_fedora-21/test_100_qrexec_filecopy
-    vm_qrexec_gui/TC_00_AppVM_fedora-21/test_110_qrexec_filecopy_deny
-    vm_qrexec_gui/TC_00_AppVM_fedora-21/test_120_qrexec_filecopy_self
-    vm_qrexec_gui/TC_20_DispVM_fedora-21/test_000_prepare_dvm
-    vm_qrexec_gui/TC_20_DispVM_fedora-21/test_010_simple_dvm_run
-    vm_qrexec_gui/TC_20_DispVM_fedora-21/test_020_gui_app
-    vm_qrexec_gui/TC_20_DispVM_fedora-21/test_030_edit_file
-    [user@dom0 ~]$ sudo -E python3 -m qubes.tests.run -v `python3 -m qubes.tests.run -l | grep fedora-21`
+[user@dom0 ~]$ python3 -m qubes.tests.run -l | grep fedora-21
+network/VmNetworking_fedora-21/test_000_simple_networking
+network/VmNetworking_fedora-21/test_010_simple_proxyvm
+network/VmNetworking_fedora-21/test_020_simple_proxyvm_nm
+network/VmNetworking_fedora-21/test_030_firewallvm_firewall
+network/VmNetworking_fedora-21/test_040_inter_vm
+vm_qrexec_gui/TC_00_AppVM_fedora-21/test_000_start_shutdown
+vm_qrexec_gui/TC_00_AppVM_fedora-21/test_010_run_gui_app
+vm_qrexec_gui/TC_00_AppVM_fedora-21/test_050_qrexec_simple_eof
+vm_qrexec_gui/TC_00_AppVM_fedora-21/test_051_qrexec_simple_eof_reverse
+vm_qrexec_gui/TC_00_AppVM_fedora-21/test_052_qrexec_vm_service_eof
+vm_qrexec_gui/TC_00_AppVM_fedora-21/test_053_qrexec_vm_service_eof_reverse
+vm_qrexec_gui/TC_00_AppVM_fedora-21/test_060_qrexec_exit_code_dom0
+vm_qrexec_gui/TC_00_AppVM_fedora-21/test_065_qrexec_exit_code_vm
+vm_qrexec_gui/TC_00_AppVM_fedora-21/test_100_qrexec_filecopy
+vm_qrexec_gui/TC_00_AppVM_fedora-21/test_110_qrexec_filecopy_deny
+vm_qrexec_gui/TC_00_AppVM_fedora-21/test_120_qrexec_filecopy_self
+vm_qrexec_gui/TC_20_DispVM_fedora-21/test_000_prepare_dvm
+vm_qrexec_gui/TC_20_DispVM_fedora-21/test_010_simple_dvm_run
+vm_qrexec_gui/TC_20_DispVM_fedora-21/test_020_gui_app
+vm_qrexec_gui/TC_20_DispVM_fedora-21/test_030_edit_file
+[user@dom0 ~]$ sudo -E python3 -m qubes.tests.run -v `python3 -m qubes.tests.run -l | grep fedora-21`
 ```
 
 Example test run:
@@ -120,7 +120,7 @@ Example test run:
 Tests are also compatible with nose2 test runner, so you can use this instead:
 
 ```bash
-    sudo systemctl stop qubesd; sudo -E nose2 -v --plugin nose2.plugins.loader.loadtests qubes.tests; sudo systemctl start qubesd
+sudo systemctl stop qubesd; sudo -E nose2 -v --plugin nose2.plugins.loader.loadtests qubes.tests; sudo systemctl start qubesd
 ```
 
 This may be especially useful together with various nose2 plugins to store tests results (for example `nose2.plugins.junitxml`), to ease presenting results. This is what we use on [OpenQA].
@@ -179,16 +179,16 @@ You'll also need to add your test at the bottom of the `__init__.py` file, in th
 Again, given the hypothetical `example.py` test:
 
 ~~~python
-    for modname in (
-            'qubes.tests.basic',
-            'qubes.tests.dom0_update',
-            'qubes.tests.network',
-            'qubes.tests.vm_qrexec_gui',
-            'qubes.tests.backup',
-            'qubes.tests.backupcompatibility',
-            'qubes.tests.regressions',
-            'qubes.tests.example', # This is our newly added test
-            ):
+for modname in (
+        'qubes.tests.basic',
+        'qubes.tests.dom0_update',
+        'qubes.tests.network',
+        'qubes.tests.vm_qrexec_gui',
+        'qubes.tests.backup',
+        'qubes.tests.backupcompatibility',
+        'qubes.tests.regressions',
+        'qubes.tests.example', # This is our newly added test
+        ):
 ~~~
 
 ### Testing PyQt applications

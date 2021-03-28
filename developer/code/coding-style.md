@@ -157,14 +157,14 @@ Security coding guidelines
 - Use `untrusted_` prefix for all variables that hold values read from untrusted party and which have not yet been verified to be decent, e.g.:
 
     ~~~
-       read_struct(untrusted_conf);
-       /* sanitize start */
-       if (untrusted_conf.width > MAX_WINDOW_WIDTH)
-           untrusted_conf.width = MAX_WINDOW_WIDTH;
-       if (untrusted_conf.height > MAX_WINDOW_HEIGHT)
-           untrusted_conf.height = MAX_WINDOW_HEIGHT;
-       width = untrusted_conf.width;
-       height = untrusted_conf.height;
+    read_struct(untrusted_conf);
+    /* sanitize start */
+    if (untrusted_conf.width > MAX_WINDOW_WIDTH)
+        untrusted_conf.width = MAX_WINDOW_WIDTH;
+    if (untrusted_conf.height > MAX_WINDOW_HEIGHT)
+        untrusted_conf.height = MAX_WINDOW_HEIGHT;
+    width = untrusted_conf.width;
+    height = untrusted_conf.height;
     ~~~
 
 - Use others variables, without the `untrusted_` prefix to hold the sanitized values, as shown above.

@@ -113,7 +113,7 @@ And this should produce a shiny new ISO.
 You can also build selected component separately. Eg. to compile only gui virtualization agent/daemon:
 
 ```shell
-    make gui-daemon
+make gui-daemon
 ```
 
 You can get a full list from make help.

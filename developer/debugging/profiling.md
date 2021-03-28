@@ -43,19 +43,19 @@ You have to select the area in which you suspect less than optimal performance. 
 Replace
 
 ```python
-    def foo(self, bar):
-        # function content
+def foo(self, bar):
+    # function content
 ```
 
 with
 
 ```python
-    def foo(self, *args, **kwargs):
-        profile.runctx('self.real_foo(*args, **kwargs)', globals(), locals(),
-            time.strftime('/home/user/profiling/foo-%Y%m%d-%H%M%S.pstats'))
+def foo(self, *args, **kwargs):
+    profile.runctx('self.real_foo(*args, **kwargs)', globals(), locals(),
+        time.strftime('/home/user/profiling/foo-%Y%m%d-%H%M%S.pstats'))
 
-    def real_foo(self, bar):
-        # function content
+def real_foo(self, bar):
+    # function content
 ```
 
 ### Run application
