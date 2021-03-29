@@ -1,7 +1,9 @@
 ---
+lang: en
 layout: sidebar
-title: Google Season of Docs
 permalink: /gsod/
+ref: 242
+title: Google Season of Docs
 ---
 
 # 2021 Google Season of Docs
