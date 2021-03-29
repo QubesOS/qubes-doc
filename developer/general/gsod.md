@@ -110,7 +110,7 @@ This could be helped by writing consolidated guide with with a clear list of sym
 
 **Project**: Improve Getting Started page
 
-**Brief explanation**: The [Getting Started page](https://www.qubes-os.org/getting-started/) is the place a new user would go to understand better how to use Qubes. It is currently has old screenshots not using the default desktop environment and could have much better flow. In addition, this improved page content may end up being served more directly to the user via the [offline documentation](#offline-documentation) or the [firstboot guide](#create-guide-on-firstboot-for-new-users). 
+**Brief explanation**: The [Getting Started page](https://www.qubes-os.org/getting-started/) is the place a new user would go to understand better how to use Qubes. It is currently has old screenshots not using the default desktop environment and could have much better flow. In addition, this improved page content may end up being served more directly to the user via the [offline documentation](https://github.com/QubesOS/qubes-issues/issues/1019) or the firstboot guide. 
 
 **Expected results**: 
 
