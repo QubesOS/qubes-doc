@@ -119,14 +119,14 @@ Each message starts with the following header:
 
 ```c
 struct msghdr {
-        uint32_t type;
-        uint32_t window;
-        /* This field is intended for use by gui_agents to skip unknown
-         * messages from the (trusted) guid. Guid, on the other hand,
-         * should never rely on this field to calculate the actual len of
-         * message to be read, as the (untrusted) agent can put here
-         * whatever it wants! */
-        uint32_t untrusted_len;
+    uint32_t type;
+    uint32_t window;
+    /* This field is intended for use by gui_agents to skip unknown
+     * messages from the (trusted) guid. Guid, on the other hand,
+     * should never rely on this field to calculate the actual len of
+     * message to be read, as the (untrusted) agent can put here
+     * whatever it wants! */
+    uint32_t untrusted_len;
 };
 ```
 
@@ -412,8 +412,8 @@ struct msg_focus {
   <td>MSG_WINDOW_FLAGS</td>
   <td><pre>
 struct msg_window_flags {
-      uint32_t flags_set;
-     uint32_t flags_unset;
+  uint32_t flags_set;
+  uint32_t flags_unset;
 };
 </pre> </td>
  <td>Window state change confirmation</td>

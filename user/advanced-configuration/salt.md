@@ -73,9 +73,11 @@ state of the system with the administrator's configuration/desires.
 The smallest unit of configuration is a state.
 A state is written in YAML and looks like this:
 
-    stateid:
-      cmd.run:  #this is the execution module. in this case it will execute a command on the shell
-      - name: echo 'hello world' #this is a parameter of the state.
+```
+stateid:
+  cmd.run:  #this is the execution module. in this case it will execute a command on the shell
+  - name: echo 'hello world' #this is a parameter of the state.
+```
 
 The stateid has to be unique throughout all states running for a minion and can
 be used to order the execution of the references state.
@@ -96,24 +98,26 @@ With these three states you can define most of the configuration of a VM.
 
 You can also [order the execution][salt-doc-states-order] of your states:
 
-    D:
-      cmd.run:
-      - name: echo 1
-      - order: last
-    C:
-      cmd.run:
-      - name: echo 1
-    B:
-      cmd.run:
-      - name: echo 1
-      - require:
-        - cmd: A
-      - require_in:
-        - cmd:C
-    A:
-      cmd.run:
-      - name: echo 1
-      - order: 1
+```
+D:
+  cmd.run:
+  - name: echo 1
+  - order: last
+C:
+  cmd.run:
+  - name: echo 1
+B:
+  cmd.run:
+  - name: echo 1
+  - require:
+    - cmd: A
+  - require_in:
+    - cmd:C
+A:
+  cmd.run:
+  - name: echo 1
+  - order: 1
+```
 
 The order of execution will be `A, B, C, D`.
 The official documentation has more details on the
@@ -132,10 +136,12 @@ After you have several state files, you need something to assign them to a VM.
 This is done by `*.top` files ([official documentation][salt-doc-top]).
 Their structure looks like this:
 
-    environment:
-      target_matching_clause:
-      - statefile1
-      - folder2.statefile2
+```
+environment:
+  target_matching_clause:
+  - statefile1
+  - folder2.statefile2
+```
 
 In most cases, the environment will be called `base`.
 The `target_matching_clause` will be used to select your minions (VMs).
@@ -143,10 +149,12 @@ It can be either the name of a VM or a regular expression.
 If you are using a regular expressions, you need to give Salt a hint you are
 doing so:
 
-    environment:
-      ^app-(work|(?!mail).*)$:
-      - match: pcre
-      - statefile
+```
+environment:
+  ^app-(work|(?!mail).*)$:
+  - match: pcre
+  - statefile
+```
 
 For each target you can write a list of state files.
 Each line is a path to a state file (without the `.sls` extension) relative to
@@ -220,23 +228,25 @@ You can also use the `qubes` pillar module to select VMs with a particular
 property (see below).
 If you do so, then you need to pass additional arguments to the `qubesctl` tool:
 
-    usage: qubesctl [-h] [--show-output] [--force-color] [--skip-dom0]
-                    [--targets TARGETS | --templates | --app | --all]
-                    ...
+```
+usage: qubesctl [-h] [--show-output] [--force-color] [--skip-dom0]
+                [--targets TARGETS | --templates | --app | --all]
+                ...
 
-    positional arguments:
-      command            Salt command to execute (e.g., state.highstate)
+positional arguments:
+  command            Salt command to execute (e.g., state.highstate)
 
-    optional arguments:
-      -h, --help         show this help message and exit
-      --show-output      Show output of management commands
-      --force-color      Force color output, allow control characters from VM,
-                         UNSAFE
-      --skip-dom0        Skip dom0 configuration (VM creation etc)
-      --targets TARGETS  Coma separated list of VMs to target
-      --templates        Target all templates
-      --app              Target all AppVMs
-      --all              Target all non-disposable VMs (TemplateVMs and AppVMs)
+optional arguments:
+  -h, --help         show this help message and exit
+  --show-output      Show output of management commands
+  --force-color      Force color output, allow control characters from VM,
+                     UNSAFE
+  --skip-dom0        Skip dom0 configuration (VM creation etc)
+  --targets TARGETS  Coma separated list of VMs to target
+  --templates        Target all templates
+  --app              Target all AppVMs
+  --all              Target all non-disposable VMs (TemplateVMs and AppVMs)
+```
 
 To apply a state to all templates, call `qubesctl --templates state.highstate`.
 
@@ -269,15 +279,17 @@ Beginning with Qubes 4.0 and after [QSB #45], we implemented two changes:
 
 Let's start with a quick example:
 
-    my new and shiny VM:
-      qvm.present:
-        - name: salt-test # can be omitted when same as ID
-        - template: fedora-21
-        - label: yellow
-        - mem: 2000
-        - vcpus: 4
-        - flags:
-          - proxy
+```
+my new and shiny VM:
+  qvm.present:
+    - name: salt-test # can be omitted when same as ID
+    - template: fedora-21
+    - label: yellow
+    - mem: 2000
+    - vcpus: 4
+    - flags:
+      - proxy
+```
 
 It uses the Qubes-specific `qvm.present` state, which ensures that the domain is
 present (if not, it creates it).
@@ -297,9 +309,11 @@ As you will notice, the options are the same (or very similar) to those used in
 This should be put in `/srv/salt/my-new-vm.sls` or another `.sls` file.
 A separate `*.top` file should be also written:
 
-    base:
-      dom0:
-        - my-new-vm
+```
+base:
+  dom0:
+    - my-new-vm
+```
 
 **Note** The third line should contain the name of the previous state file,
 without the `.sls` extension.
@@ -322,15 +336,19 @@ Lets make sure that the `mc` package is installed in all templates.
 Similar to the previous example, you need to create a state file
 (`/srv/salt/mc-everywhere.sls`):
 
-    mc:
-      pkg.installed: []
+```
+mc:
+  pkg.installed: []
+```
 
 Then the appropriate top file (`/srv/salt/mc-everywhere.top`):
 
-    base:
-     qubes:type:template:
-        - match: pillar
-        - mc-everywhere
+```
+base:
+ qubes:type:template:
+    - match: pillar
+    - mc-everywhere
+```
 
 Now you need to enable the top file:
 
@@ -354,27 +372,31 @@ As in the example above, it creates a domain and sets its properties.
 
 You can set properties of an existing domain:
 
-    my preferences:
-      qvm.prefs:
-        - name: salt-test2
-        - netvm: sys-firewall
+```
+my preferences:
+  qvm.prefs:
+    - name: salt-test2
+    - netvm: sys-firewall
+```
 
 ***Note*** The `name:` option will not change the name of a domain, it will only
 be used to match a domain to apply the configurations to it.
 
 ### `qvm.service`
 
-    services in my domain:
-      qvm.service:
-        - name: salt-test3
-        - enable:
-          - service1
-          - service2
-        - disable:
-          - service3
-          - service4
-        - default:
-          - service5
+```
+services in my domain:
+  qvm.service:
+    - name: salt-test3
+    - enable:
+      - service1
+      - service2
+    - disable:
+      - service3
+      - service4
+    - default:
+      - service5
+```
 
 This enables, disables, or sets to default, services as in `qvm-service`.
 
@@ -382,9 +404,11 @@ This enables, disables, or sets to default, services as in `qvm-service`.
 
 Ensures the specified domain is running:
 
-    domain is running:
-      qvm.running:
-        - name: salt-test4
+```
+domain is running:
+  qvm.running:
+    - name: salt-test4
+```
 
 ## Virtual Machine Formulae
 
@@ -567,9 +591,11 @@ Having the `-p` flag is important when using a state with `cmd.run`.
 If you install multiple templates you may encounter this error.
 The solution is to shut down the updateVM between each install:
 
-    install template and shutdown updateVM:
-      cmd.run:
-      - name: sudo qubes-dom0-update -y fedora-24; qvm-shutdown {% raw %}{{ salt.cmd.run(qubes-prefs updateVM) }}{% endraw %}
+```
+install template and shutdown updateVM:
+  cmd.run:
+  - name: sudo qubes-dom0-update -y fedora-24; qvm-shutdown {% raw %}{{ salt.cmd.run(qubes-prefs updateVM) }}{% endraw %}
+```
 
 ## Further Reading
 

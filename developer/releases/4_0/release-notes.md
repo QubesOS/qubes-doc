@@ -49,7 +49,9 @@ Security Notes
   2. Select `Terminal Emulator`.
   3. In the window that opens, enter this command:
 
-         sudo nano /etc/yum.repos.d/qubes-dom0.repo
+     ```
+     sudo nano /etc/yum.repos.d/qubes-dom0.repo
+     ```
 
   4. This opens the nano text editor. Change all four instances of `http` to `https`.
   5. Press `CTRL+X`, then `Y`, then `ENTER` to save changes and exit.
@@ -61,8 +63,10 @@ Security Notes
   2. Select `Template: fedora-26`, then `fedora-26: Terminal`.
   3. In the window that opens, enter the command for your version:
 
-         [Qubes 3.2] sudo gedit /etc/yum.repos.d/qubes-r3.repo
-         [Qubes 4.0] sudo gedit /etc/yum.repos.d/qubes-r4.repo
+     ```
+     [Qubes 3.2] sudo gedit /etc/yum.repos.d/qubes-r3.repo
+     [Qubes 4.0] sudo gedit /etc/yum.repos.d/qubes-r4.repo
+     ```
 
   4. This opens the gedit text editor in a window. Change all four instances of `http` to `https`.
   5. Click the "Save" button in the top-right corner of the window.

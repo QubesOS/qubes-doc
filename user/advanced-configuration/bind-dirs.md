@@ -32,13 +32,17 @@ Inside the TemplateBasedVM.
 
 1. Make sure folder `/rw/config/qubes-bind-dirs.d` exists.
 
-       sudo mkdir -p /rw/config/qubes-bind-dirs.d
+   ```
+   sudo mkdir -p /rw/config/qubes-bind-dirs.d
+   ```
 
 2. Create a file `/rw/config/qubes-bind-dirs.d/50_user.conf` with root rights.
 
 3. Edit the file 50_user.conf to append a folder or file name to the `binds` variable.
 
-       binds+=( '/var/lib/tor' )
+   ```
+   binds+=( '/var/lib/tor' )
+   ```
 
 4. Save.
 

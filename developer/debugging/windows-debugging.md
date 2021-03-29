@@ -25,11 +25,11 @@ Things get complicated if you need to perform kernel debugging or troubleshoot p
 - To determine which dom0 pty corresponds to VM's serial port you need to read xenstore, example script below:
 
 ```bash
-        #!/bin/sh
+#!/bin/sh
 
-        id1=$(xl domid "$1-dm")
-        tty1=$(xenstore-read /local/domain/${id1}/device/console/3/tty)
-        echo $tty1
+id1=$(xl domid "$1-dm")
+tty1=$(xenstore-read /local/domain/${id1}/device/console/3/tty)
+echo $tty1
 ```
 
 Pass it a running VM name and it will output the corresponding pty name.
@@ -37,13 +37,13 @@ Pass it a running VM name and it will output the corresponding pty name.
 - To connect both ptys you can use [socat](http://www.dest-unreach.org/socat/) like that:
 
 ```bash
-        #!/bin/sh
+#!/bin/sh
 
-        id1=$(xl domid "$1-dm")
-        id2=$(xl domid "$2-dm")
-        tty1=$(xenstore-read /local/domain/${id1}/device/console/3/tty)
-        tty2=$(xenstore-read /local/domain/${id2}/device/console/3/tty)
-        socat $tty1,raw $tty2,raw
+id1=$(xl domid "$1-dm")
+id2=$(xl domid "$2-dm")
+tty1=$(xenstore-read /local/domain/${id1}/device/console/3/tty)
+tty2=$(xenstore-read /local/domain/${id2}/device/console/3/tty)
+socat $tty1,raw $tty2,raw
 ```
 
 ...but there is a catch. Xen seems to process the traffic that goes through serial ports and changes all **0x0a** bytes into **0x0d, 0x0a** pairs (newline conversion). I didn't find a way to turn that off (setting ptys to raw mode didn't change anything) and it's not mentioned anywhere on the Internet, so maybe it's something on my system. If the above script works for you then you don't need anything more in dom0.
@@ -79,115 +79,115 @@ Pass it a running VM name and it will output the corresponding pty name.
     ...then you're most likely a victim of the CRLF issue mentioned above. To get around it I wrote a small utility that basically does what socat would do and additionally corrects those replaced bytes in the stream. It's not pretty but it works:
 
 ```c
-        #include <errno.h>
-        #include <stdio.h>
-        #include <fcntl.h>
-        #include <termios.h>
+#include <errno.h>
+#include <stdio.h>
+#include <fcntl.h>
+#include <termios.h>
 
-        int fd1, fd2;
-        char mark = ' ';
+int fd1, fd2;
+char mark = ' ';
 
-        void out(unsigned char c)
+void out(unsigned char c)
+{
+    static int count = 0;
+    static unsigned char buf[17] = {0};
+
+    // relay to ouptput port
+    write(fd2, &c, 1);
+    fprintf(stderr, "%c", mark);
+
+    /* dump all data going over the line
+    if (count == 0)
+        fprintf(stderr, "%c", mark);
+    fprintf(stderr, "%02x ", c);
+    if (c >= 0x20 && c < 0x80)
+        buf[count] = c;
+    else
+        buf[count] = '.';
+    count++;
+    if (count == 0x10)
+    {
+        count = 0;
+        fprintf(stderr, " %s\n", buf);
+    }
+    */
+}
+
+int main(int argc, char* argv[])
+{
+    unsigned char c = 0;
+    struct termios tio;
+    ssize_t size;
+
+    if (argc < 3)
+    {
+        fprintf(stderr, "Usage: %s pty1 pty2 [mark character]\n", argv[0]);
+        return EINVAL;
+    }
+
+    fd1 = open(argv[1], O_RDONLY | O_NOCTTY);
+    if (fd1 <= 0)
+    {
+        perror("open fd1");
+        return errno;
+    }
+    fd2 = open(argv[2], O_WRONLY | O_NOCTTY);
+    if (fd2 <= 0)
+    {
+        perror("open fd2");
+        return errno;
+    }
+/*
+    // This doesn't make any difference which supports the theory
+    // that it's Xen who corrupts the byte stream.
+    cfmakeraw(&tio);
+    if (tcsetattr(fd1, TCSANOW, &tio) < 0)
+    {
+        perror("tcsetattr 1");
+        return errno;
+    }
+    if (tcsetattr(fd2, TCSANOW, &tio) < 0)
+    {
+        perror("tcsetattr 2");
+        return errno;
+    }
+*/
+    if (argc == 4)
+        mark = argv[3][0];
+
+    while (1)
+    {
+        size = read(fd1, &c, 1);
+        if (size <= 0)
+            break;
+
+parse:
+        if (c == 0x0d)
         {
-            static int count = 0;
-            static unsigned char buf[17] = {0};
-
-            // relay to ouptput port
-            write(fd2, &c, 1);
-            fprintf(stderr, "%c", mark);
-
-            /* dump all data going over the line
-            if (count == 0)
-                fprintf(stderr, "%c", mark);
-            fprintf(stderr, "%02x ", c);
-            if (c >= 0x20 && c < 0x80)
-                buf[count] = c;
+            size = read(fd1, &c, 1);
+            if (size <= 0)
+            {
+                out(0x0d);
+                break;
+            }
+            if (c == 0x0a)
+            {
+                out(0x0a);
+            }
             else
-                buf[count] = '.';
-            count++;
-            if (count == 0x10)
             {
-                count = 0;
-                fprintf(stderr, " %s\n", buf);
+                out(0x0d);
+                goto parse;
             }
-            */
         }
+        else
+            out(c);
+    }
 
-        int main(int argc, char* argv[])
-        {
-            unsigned char c = 0;
-            struct termios tio;
-            ssize_t size;
-
-            if (argc < 3)
-            {
-                fprintf(stderr, "Usage: %s pty1 pty2 [mark character]\n", argv[0]);
-                return EINVAL;
-            }
-
-            fd1 = open(argv[1], O_RDONLY | O_NOCTTY);
-            if (fd1 <= 0)
-            {
-                perror("open fd1");
-                return errno;
-            }
-            fd2 = open(argv[2], O_WRONLY | O_NOCTTY);
-            if (fd2 <= 0)
-            {
-                perror("open fd2");
-                return errno;
-            }
-        /*
-            // This doesn't make any difference which supports the theory
-            // that it's Xen who corrupts the byte stream.
-            cfmakeraw(&tio);
-            if (tcsetattr(fd1, TCSANOW, &tio) < 0)
-            {
-                perror("tcsetattr 1");
-                return errno;
-            }
-            if (tcsetattr(fd2, TCSANOW, &tio) < 0)
-            {
-                perror("tcsetattr 2");
-                return errno;
-            }
-        */
-            if (argc == 4)
-                mark = argv[3][0];
-
-            while (1)
-            {
-                size = read(fd1, &c, 1);
-                if (size <= 0)
-                    break;
-
-        parse:
-                if (c == 0x0d)
-                {
-                    size = read(fd1, &c, 1);
-                    if (size <= 0)
-                    {
-                        out(0x0d);
-                        break;
-                    }
-                    if (c == 0x0a)
-                    {
-                        out(0x0a);
-                    }
-                    else
-                    {
-                        out(0x0d);
-                        goto parse;
-                    }
-                }
-                else
-                    out(c);
-            }
-
-            close(fd1);
-            close(fd2);
-            return 0;
-        }
+    close(fd1);
+    close(fd2);
+    return 0;
+}
 ```
 
 > This utility is a unidirectional relay so you need to run two instances to get duplex communication, like:
