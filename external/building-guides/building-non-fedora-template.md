@@ -10,4 +10,3 @@ redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/buildi
 ref: 117
 title: Building Non-Fedora Template
 ---
-
