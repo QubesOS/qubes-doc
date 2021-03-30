@@ -42,7 +42,7 @@ and run `qubes-hcl-report <vm-name>`, where `<vm-name>` is the name of the VM to
 
 You are encouraged to submit your HCL report for the benefit of further Qubes development and other users.
 When submitting reports, test the hardware yourself, if possible.
-If you would like to submit your HCL report, please send the **HCL Info** `.yml` file to [\`qubes-users@googlegroups.com\`](/support/#qubes-users) with the subject `HCL - <your machine model name>`.
+If you would like to submit your HCL report, please send the **HCL Info** `.yml` file to [\`qubes-users@googlegroups.com\`](/support/#qubes-users) with the subject `HCL - <your machine model name>`. Alternatively you can also create a post in the [HCL Reports category](https://qubes-os.discourse.group/c/user-support/hcl-reports/23) of the forum.
 Please include any useful information about any Qubes features you may have tested (see the legend below), as well as general machine compatibility (video, networking, sleep, etc.).
 Please consider sending the **HCL Support Files** `.cpio.gz` file as well. To generate these add the `-s` or `--support` command line option.
 
