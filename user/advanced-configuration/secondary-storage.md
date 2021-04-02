@@ -22,11 +22,11 @@ For example, you can keep templates on one disk and AppVMs on another, without m
 
 You can query qvm-pool to list available storage drivers.
 
-```
+``` shell_session
 qvm-pool --help-drivers
 ```
 qvm-pool driver explaination :
-```
+```shell_session
 <file> refers to using a simple file for image storage and lacks a few features.
 <file-reflink> refers to storing images on a filesystem supporting copy on write.
 <linux-kernel> refers to a directory holding kernel images.
@@ -43,7 +43,7 @@ See also [this example](https://www.linux.com/blog/how-full-encrypt-your-linux-s
 
 First, collect some information in a dom0 terminal:
 
-```
+```shell_session
 sudo pvs
 sudo lvs
 ```
@@ -62,7 +62,7 @@ Theses steps assume you have already created a separate Btrfs filesystem for you
 
 
 It is possible to use already available Btrfs storage if it is configured. In dom0, available Btrfs storage can be displayed using :
-```
+```shell_session
 mount -t btrfs
 ```
 To register the storage to qubes :
@@ -77,13 +77,13 @@ qvm-pool --add <pool_name> file-reflink -o dir_path=<dir_path>,revisions_to_keep
 
 Now, you can create qubes in that pool:
 
-```
+```shell_session
 qvm-create -P <pool_name> --label red <vmname>
 ```
 
 It isn't possible to directly migrate an existing qube to the new pool, but you can clone it there, then remove the old one:
 
-```
+```shell_session
 qvm-clone -P <pool_name> <sourceVMname> <cloneVMname>
 qvm-remove <sourceVMname>
 ```
@@ -91,7 +91,7 @@ qvm-remove <sourceVMname>
 If that was a template, or other qube referenced elsewhere (NetVM or such), you will need to adjust those references manually after moving.
 For example:
 
-```
+```shell_session
 qvm-prefs <appvmname_based_on_old_template> template <new_template_name>
 ```
 
@@ -99,20 +99,20 @@ qvm-prefs <appvmname_based_on_old_template> template <new_template_name>
 
 Assuming the secondary hard disk is at /dev/sdb (it will be completely erased), you can set it up for encryption by doing in a dom0 terminal (use the same passphrase as the main Qubes disk to avoid a second password prompt at boot):
 
-```
+```shell_session
 sudo cryptsetup luksFormat --hash=sha512 --key-size=512 --cipher=aes-xts-plain64 --verify-passphrase /dev/sdb
 sudo blkid /dev/sdb
 ```
 
 Note the device's UUID (in this example "b209..."), we will use it as its luks name for auto-mounting at boot, by doing:
 
-```
+```shell_session
 sudo nano /etc/crypttab
 ```
 
 And adding this line (change both "b209..." for your device's UUID from blkid) to crypttab:
 
-```
+```shell_session
 luks-b20975aa-8318-433d-8508-6c23982c6cde UUID=b20975aa-8318-433d-8508-6c23982c6cde none
 ```
 
@@ -122,39 +122,39 @@ Reboot the computer so the new luks device appears at /dev/mapper/luks-b209... a
 
 First create the physical volume
 
-```
+```shell_session
 sudo pvcreate /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde
 ```
 
 Then create the LVM volume group, we will use for example "qubes" as the <vg_name>:
 
-```
+```shell_session
 sudo vgcreate qubes /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde
 ```
 
 And then use "poolhd0" as the <thin_pool_name> (LVM thin pool name):
 
-```
+```shell_session
 sudo lvcreate -T -n poolhd0 -l +100%FREE qubes
 ```
 
 Finally we will tell Qubes to add a new pool on the just created thin pool
 
-```
+```shell_session
 qvm-pool --add poolhd0_qubes lvm_thin -o volume_group=qubes,thin_pool=poolhd0,revisions_to_keep=2
 ```
 #### For Btrfs
 
 First create the physical volume
 
-```
+```shell_session
 # <label> Btrfs Label
 sudo mkfs.btrfs -L <label> /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde
 ```
 
 Then mount the new Btrfs to a temporary path
 
-```
+```shell_session
 sudo mount /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde /mnt/new_qube_storage
 ```
 Create a subvolume to hold the data. 
@@ -162,11 +162,11 @@ Create a subvolume to hold the data.
 sudo btrfs subvolume create /mnt/new_qube_storage/qubes
 ```
 Unmount the temporary Btrfs filesystem
-```
+```shell_session
 sudo umount /mnt/new_qube_storage
 ```
 Mount the subvolume with compression enabled if desired
-```
+```shell_session
 # <compression> zlib|lzo|zstd
 # <subvol> btrfs subvolume "qubes" in this example
 sudo mount /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde /var/lib/qubes_newpool -o compress=<compression>,subvol=qubes
@@ -174,13 +174,13 @@ sudo mount /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde /var/lib/qubes_
 
 Finally we will tell Qubes to add a new pool on the just created Btrfs subvolume
 
-```
+```shell_session
 qvm-pool --add poolhd0_qubes file-reflink -o dir_path=/var/lib/qubes_newpool,revisions_to_keep=2
 ```
 
 By default VMs will be created on the main Qubes disk (i.e. a small SSD), to create them on this secondary HDD do the following on a dom0 terminal:
 
-```
+```shell_session
 qvm-create -P poolhd0_qubes --label red unstrusted-hdd
 ```
 
