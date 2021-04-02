@@ -34,7 +34,7 @@ qvm-pool driver explaination :
 ```
 In theory, you can still use file-based disk images ("file" pool driver), but it lacks some features such as you won't be able to do backups without shutting down the qube.
 
-Additionnal storage can also be added on a Btrfs filesystem. A unique feature of Btrfs over LVM is that data can be compressed transparently. The subvolume can also be backuped using snapshots for an other layer protection and Btrfs supports different level of redundancy and is able to be expanded/shrinked easily. Revelant information will be provided after LVM section.
+Additionnal storage can also be added on a Btrfs filesystem. A unique feature of Btrfs over LVM is that data can be compressed transparently. The subvolume can also be backuped using snapshots for an additionnal layer of protection; Btrfs supports differents level of redundancy; it has parity checksum; it is able to be expanded/shrinked. Starting/stoping a VM has less impact and less chances of causing slowdown of the system as some have noted with LVM. Revelant information for general btrfs configuration will be provided after LVM section.
 
 ### LVM storage
 
