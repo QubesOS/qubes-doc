@@ -64,6 +64,7 @@ Theses steps assume you have already created a separate Btrfs filesystem for you
 It is possible to use already available Btrfs storage if it is configured. In dom0, available Btrfs storage can be displayed using :
 ```shell_session
 mount -t btrfs
+btrfs show filesystem
 ```
 To register the storage to qubes :
 
