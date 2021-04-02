@@ -20,12 +20,12 @@ You want to store a subset of your AppVMs on the HDD.
 Qubes 4.0 is more flexible than earlier versions about placing different VMs on different disks.
 For example, you can keep templates on one disk and AppVMs on another, without messy symlinks.
 
-You can query qvm-pool to list available storage drivers.
+You can query qvm-pool to list available storage drivers:
 
 ``` shell_session
 qvm-pool --help-drivers
 ```
-qvm-pool driver explaination :
+qvm-pool driver explaination:
 ```shell_session
 <file> refers to using a simple file for image storage and lacks a few features.
 <file-reflink> refers to storing images on a filesystem supporting copy on write.
@@ -61,12 +61,12 @@ qvm-pool --add <pool_name> lvm_thin -o volume_group=<vg_name>,thin_pool=<thin_po
 Theses steps assume you have already created a separate Btrfs filesystem for your HDD, that it is encrypted with LUKS and it is mounted. It is recommended to use a subvolume as it enables compression and excess storage can be use for other things.
 
 
-It is possible to use already available Btrfs storage if it is configured. In dom0, available Btrfs storage can be displayed using :
+It is possible to use already available Btrfs storage if it is configured. In dom0, available Btrfs storage can be displayed using:
 ```shell_session
 mount -t btrfs
 btrfs show filesystem
 ```
-To register the storage to qubes :
+To register the storage to qubes:
 
 ```shell_session
 # <pool_name> is a freely chosen pool name
@@ -121,8 +121,7 @@ Reboot the computer so the new luks device appears at /dev/mapper/luks-b209... a
 
 ##### For LVM
 
-First create the physical volume
-
+First create the physical volume:
 ```shell_session
 sudo pvcreate /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde
 ```
@@ -139,41 +138,43 @@ And then use "poolhd0" as the <thin_pool_name> (LVM thin pool name):
 sudo lvcreate -T -n poolhd0 -l +100%FREE qubes
 ```
 
-Finally we will tell Qubes to add a new pool on the just created thin pool
+Finally we will tell Qubes to add a new pool on the just created thin pool:
 
 ```shell_session
 qvm-pool --add poolhd0_qubes lvm_thin -o volume_group=qubes,thin_pool=poolhd0,revisions_to_keep=2
 ```
 #### For Btrfs
 
-First create the physical volume
+First create the physical volume:
 
 ```shell_session
 # <label> Btrfs Label
 sudo mkfs.btrfs -L <label> /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde
 ```
 
-Then mount the new Btrfs to a temporary path
+Then mount the new Btrfs to a temporary path:
 
 ```shell_session
+sudo mkdir -p /mnt/new_qube_storage
 sudo mount /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde /mnt/new_qube_storage
 ```
-Create a subvolume to hold the data. 
+Create a subvolume to hold the data:
 ```
 sudo btrfs subvolume create /mnt/new_qube_storage/qubes
 ```
-Unmount the temporary Btrfs filesystem
+Unmount the temporary Btrfs filesystem:
 ```shell_session
 sudo umount /mnt/new_qube_storage
+rmdir /mnt/new_qube_storage
 ```
-Mount the subvolume with compression enabled if desired
+Mount the subvolume with compression enabled if desired:
 ```shell_session
 # <compression> zlib|lzo|zstd
 # <subvol> btrfs subvolume "qubes" in this example
 sudo mount /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde /var/lib/qubes_newpool -o compress=<compression>,subvol=qubes
 ```
 
-Finally we will tell Qubes to add a new pool on the just created Btrfs subvolume
+Finally we will tell Qubes to add a new pool on the just created Btrfs subvolume:
 
 ```shell_session
 qvm-pool --add poolhd0_qubes file-reflink -o dir_path=/var/lib/qubes_newpool,revisions_to_keep=2
