@@ -64,7 +64,7 @@ If an issue affects more than one Qubes version, we usually keep only one issue 
 The Qubes team will see your comment and reopen the issue, if appropriate.
 For example, you can leave a comment with additional information to help the maintainer debug it.
 Adding a comment will subscribe you to email notifications, which can be helpful in getting important updates regarding the issue.
-If you don't have anything to add but still want to receive email updates, you can click the "watch" button at the bottom of the comments.
+If you don't have anything to add but still want to receive email updates, you can click the "Subscribe" button at the side or bottom of the comments.
 
 ### Every issue must be of a single type ###
 
