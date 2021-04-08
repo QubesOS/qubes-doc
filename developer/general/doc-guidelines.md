@@ -350,6 +350,24 @@ When making contributions, please try to observe the following style conventions
 
      The `#` symbol preceding each comment is ambiguous with a root command prompt.
      Instead, put your comments *outside* of the code block in normal prose.
+* Use full reference links like this
+
+  ```
+  Visit [our website][website].
+
+  [website]: https://example.com/
+  ```
+
+  over shortcut reference links and collapsed reference links like these
+
+  ```
+  Visit [our website].
+  Visit [our website][].
+
+  [our website]: https://example.com/
+  ```
+
+  * Rationale: This makes translations into other languages with different linguistic cases easier.
 
 ([This][md] is a great source for learning about Markdown.)
 
