@@ -350,6 +350,8 @@ When making contributions, please try to observe the following style conventions
 
      The `#` symbol preceding each comment is ambiguous with a root command prompt.
      Instead, put your comments *outside* of the code block in normal prose.
+* Use non-reference-style links like `[website](https://example.com/)`.
+  Do *not* use reference links like `[website][example]`, `[website][]` or `[website]`.
 
 ([This][md] is a great source for learning about Markdown.)
 
