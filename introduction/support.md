@@ -24,7 +24,8 @@ Project does not offer paid support services.
 If you're looking for known issues or would like to file a bug report, please
 see the [issue tracker]. These issues are constantly being updated and may
 contain workarounds for problems that you're experiencing, so it's worth
-[searching the issue tracker] as a first step.
+[searching the issue tracker] as a first step. However, please note that
+[the issue tracker is not a discussion forum](/doc/reporting-bugs/#the-issue-tracker-is-not-a-discussion-forum).
 
 ## Staying safe
 
@@ -140,6 +141,7 @@ Conduct][coc] for more information.
 The mailing lists and [forum] are good places to ask questions and discuss
 things. However, if you're submitting a more formal report, we'd prefer that
 you submit it to our [issue tracker] so that it doesn't get overlooked.
+(However, please remember that [the issue tracker is not a discussion forum](/doc/reporting-bugs/#the-issue-tracker-is-not-a-discussion-forum).)
 Likewise, if you see that something in the documentation should be changed,
 don't simply point it out in a discussion venue. Instead, [submit the
 change][contributing to the documentation].
