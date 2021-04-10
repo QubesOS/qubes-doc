@@ -63,7 +63,7 @@ Another important requirement is that Qubes-certified hardware should run only *
 The only exception is the use of (properly authenticated) CPU-vendor-provided blobs for silicon and memory initialization (see [Intel FSP](https://firmware.intel.com/learn/fsp/about-intel-fsp)) as well as other internal operations (see [Intel ME](https://www.apress.com/9781430265719)).
 However, we specifically require all code used for and dealing with the System Management Mode (SMM) to be open-source.
 
-While we [recognize](https://blog.invisiblethings.org/papers/2015/x86_harmful.pdf) the potential problems that proprietary CPU-vendor code can cause, we are also pragmatic enough to realize that we need to take smaller steps first, before we can implement even stronger countermeasures such as a [stateless laptop].
+While we [recognize](https://blog.invisiblethings.org/papers/2015/x86_harmful.pdf) the potential problems that proprietary CPU-vendor code can cause, we are also pragmatic enough to realize that we need to take smaller steps first, before we can implement even stronger countermeasures such as a [stateless laptop](https://blog.invisiblethings.org/papers/2015/state_harmful.pdf).
 A switch to open source boot firmware is one such important step.
 To be compatible with Qubes OS, the BIOS must properly expose all the VT-x, VT-d, and SLAT functionality that the underlying hardware offers (and which we require).
 Among other things, this implies **proper DMAR ACPI table** construction.
@@ -94,5 +94,3 @@ While we are willing to troubleshoot simple issues, we will need to charge a con
 
 If you are interested in having your hardware certified, please [contact us](mailto:business@qubes-os.org).
 
-[stateless laptop]: https://blog.invisiblethings.org/2015/12/23/state_harmful.html
-[stateless laptop]: https://blog.invisiblethings.org/papers/2015/state_harmful.pdf
