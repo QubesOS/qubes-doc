@@ -42,6 +42,13 @@ Issues may have additional labels, if applicable (e.g., `crypto`, `ux`).
 
 ## Issue tracker guidelines ##
 
+### The issue tracker is not a discussion forum ###
+
+The issue tracker is a tool to help the developers be more productive and efficient in their work.
+It is not a place for discussion.
+If you wish to discuss something in the issue tracker, please do so on the forum or mailing lists (see [Help, Support, Mailing Lists, and Forum]).
+You can simply link to the relevant issue in your discussion post.
+
 ### Do not submit questions ###
 
 [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) is not the place to ask questions.
