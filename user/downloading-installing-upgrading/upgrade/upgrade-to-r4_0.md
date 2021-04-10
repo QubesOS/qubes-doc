@@ -44,7 +44,7 @@ Backup R3.2
 
 7. If your backup verifies successfully, proceed to the next section.
    If it does not, **stop**.
-   Go back and repeat the backup steps, review the documentation, and ask for [help].
+   Go back and repeat the backup steps, review the documentation, and ask for [help](/support/).
 
 Install R4.0
 ------------
@@ -61,7 +61,7 @@ For further details, please see the [installation guide](/doc/installation-guide
    If you did not successfully verify your backup in the previous section, cancel the installation, and go back to do that now. 
 
 3. Complete the R4.0 installation.
-   Ask for [help] if you run into trouble.
+   Ask for [help](/support/) if you run into trouble.
 
 4. If you are unable to successfully install R4.0 on your system, all is not lost.
    Use the R3.2 installer to reinstall R3.2, then restore from your backup.
@@ -119,4 +119,3 @@ Please see [Supported Versions](/doc/supported-versions/) for information on sup
 * [Upgrading Debian TemplateVMs](/doc/templates/debian/#upgrading)
 * [Updating Whonix TemplateVMs](https://www.whonix.org/wiki/Qubes/Update)
 
-[help]: /support/

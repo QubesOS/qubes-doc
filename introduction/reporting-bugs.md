@@ -17,24 +17,24 @@ title: Reporting bugs and other issues
 
 # Reporting bugs and other issues #
 
-All issues pertaining to the Qubes OS Project (including auxiliary infrastructure such as the [website]) are tracked in [qubes-issues], our GitHub issue tracker.
-If you're looking for help, please see [Help, Support, Mailing Lists, and Forum].
+All issues pertaining to the Qubes OS Project (including auxiliary infrastructure such as the [website](/)) are tracked in [qubes-issues](https://github.com/QubesOS/qubes-issues/issues), our GitHub issue tracker.
+If you're looking for help, please see [Help, Support, Mailing Lists, and Forum](/support/).
 
 ## Important ##
 
-- **To disclose a security issue confidentially, please see the [Security] page.**
+- **To disclose a security issue confidentially, please see the [Security](/security/) page.**
 - **In all other cases, please do not email individual developers about issues.**
-- **Please note that many issues can be resolved by reading the [documentation].**
-- **If you see something that should be changed in the documentation, [submit a change][Documentation Guidelines].**
+- **Please note that many issues can be resolved by reading the [documentation](/doc/).**
+- **If you see something that should be changed in the documentation, [submit a change](/doc/doc-guidelines/).**
 
 ## Search Tips ##
 
-[Search both open and closed issues.][qubes-issues-all]
+[Search both open and closed issues.](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue)
 For example, you may be experiencing a bug that was just fixed, in which case the report for that bug is probably closed.
-In this case, it would be useful to view [all bug reports, both open and closed, with the most recently updated sorted to the top][qubes-issues-bug-up-desc].
+In this case, it would be useful to view [all bug reports, both open and closed, with the most recently updated sorted to the top](https://github.com/QubesOS/qubes-issues/issues?q=label%3Abug+sort%3Aupdated-desc).
 
-[Search using labels.][qubes-issues-labels]
-For example, you can search issues by priority ([blocker], [critical], [major], etc.) and by component ([core], [manager/widget], [Xen], etc.).
+[Search using labels.](https://github.com/QubesOS/qubes-issues/labels)
+For example, you can search issues by priority ([blocker](https://github.com/QubesOS/qubes-issues/labels/P%3A%20blocker), [critical](https://github.com/QubesOS/qubes-issues/labels/P%3A%20critical), [major](https://github.com/QubesOS/qubes-issues/labels/P%3A%20major), etc.) and by component ([core](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+core%22), [manager/widget](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3A%22C%3A+manager%2Fwidget%22+), [Xen](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+Xen%22), etc.).
 
 Only Qubes team members can apply labels.
 Every issue must have exactly one **type** (`T: bug`, `T: enhancement`, or `T: task`), exactly one **priority** (e.g., `P: major`), and at least one **component** (e.g., `C: core`).
@@ -44,14 +44,14 @@ Issues may have additional labels, if applicable (e.g., `crypto`, `ux`).
 
 ### Do not submit questions ###
 
-[qubes-issues] is not the place to ask questions.
+[qubes-issues](https://github.com/QubesOS/qubes-issues/issues) is not the place to ask questions.
 This includes, but is not limited to, troubleshooting questions and questions about how to do things with Qubes.
-Instead, see [Help, Support, Mailing Lists, and Forum] for appropriate place to ask questions.
-By contrast, [qubes-issues] is meant for tracking more general bugs, enhancements, and tasks that affect a broad range of Qubes users.
+Instead, see [Help, Support, Mailing Lists, and Forum](/support/) for appropriate place to ask questions.
+By contrast, [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) is meant for tracking more general bugs, enhancements, and tasks that affect a broad range of Qubes users.
 
 ### Every issue must be about a single, actionable thing ###
 
-If your issue is not actionable, please see [Help, Support, Mailing Lists, and Forum] for the appropriate place to post it.
+If your issue is not actionable, please see [Help, Support, Mailing Lists, and Forum](/support/) for the appropriate place to post it.
 If your issue would be about more than one thing, file them as separate issues instead.
 
 ### New issues should not be duplicates of existing issues ###
@@ -75,11 +75,11 @@ The Qubes team will classify your issue according to its type.
 
 ### New issues should include all relevant information ###
 
-When you file a new issue, you should be sure to include the version of Qubes you're using, as well as versions of related software packages ([how to copy information out of dom0]).
+When you file a new issue, you should be sure to include the version of Qubes you're using, as well as versions of related software packages ([how to copy information out of dom0](/doc/copy-from-dom0/)).
 If your issue is related to hardware, provide as many details as possible about the hardware.
-A great way to do this is by [generating and submitting a Hardware Compatibility List (HCL) report][hcl-howto], then linking to it in your issue.
+A great way to do this is by [generating and submitting a Hardware Compatibility List (HCL) report](/doc/hcl/#generating-and-submitting-new-reports), then linking to it in your issue.
 You may also need to use command-line tools such as `lspci`.
-If you're reporting a bug in a package that is in a [testing] repository, please reference the appropriate issue in the [updates-status] repository.
+If you're reporting a bug in a package that is in a [testing](/doc/testing/) repository, please reference the appropriate issue in the [updates-status](https://github.com/QubesOS/updates-status/issues) repository.
 Project maintainers really appreciate thorough explanations.
 It usually helps them address the problem more quickly, so everyone wins!
 
@@ -105,8 +105,8 @@ The Qubes team has its own roadmap and priorities, which will govern the manner 
 ## Following up afterward ##
 
 If the Qubes developers make a code change that resolves your issue, then your GitHub issue will typically be closed from the relevant patch message.
-After that, the package containing the fix will move to the appropriate [testing] repository, then to the appropriate stable repository.
-If you so choose, you can test the fix while it's in the [testing] repository, or you can wait for it to land in the stable repository.
+After that, the package containing the fix will move to the appropriate [testing](/doc/testing/) repository, then to the appropriate stable repository.
+If you so choose, you can test the fix while it's in the [testing](/doc/testing/) repository, or you can wait for it to land in the stable repository.
 If, after testing the fix, you find that it does not really fix your bug, please leave a comment on your issue explaining the situation.
 When you do, we will receive a notification and respond on your issue or reopen it (or both).
 Please **do not** create a duplicate issue or attempt to contact the developers individually about your problem.
@@ -118,32 +118,10 @@ If the issue is closed without one of these specific resolutions, then it means,
 
 ## See also ##
 
-- [Help, Support, Mailing Lists, and Forum]
-- [Testing New Releases and Updates][testing]
-- [How to Contribute]
-- [Contributing Code]
-- [Package Contributions]
-- [Documentation Guidelines]
+- [Help, Support, Mailing Lists, and Forum](/support/)
+- [Testing New Releases and Updates](/doc/testing/)
+- [How to Contribute](/doc/contributing/)
+- [Contributing Code](/doc/contributing/#contributing-code)
+- [Package Contributions](/doc/package-contributions/)
+- [Documentation Guidelines](/doc/doc-guidelines/)
 
-[qubes-issues-all]: https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue
-[qubes-issues-bug-up-desc]: https://github.com/QubesOS/qubes-issues/issues?q=label%3Abug+sort%3Aupdated-desc
-[qubes-issues-labels]: https://github.com/QubesOS/qubes-issues/labels
-[blocker]: https://github.com/QubesOS/qubes-issues/labels/P%3A%20blocker
-[critical]: https://github.com/QubesOS/qubes-issues/labels/P%3A%20critical
-[core]: https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+core%22
-[manager/widget]: https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3A%22C%3A+manager%2Fwidget%22+
-[Xen]: https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+Xen%22
-[major]: https://github.com/QubesOS/qubes-issues/labels/P%3A%20major
-[Security]: /security/
-[documentation]: /doc/
-[website]: /
-[qubes-issues]: https://github.com/QubesOS/qubes-issues/issues
-[Help, Support, Mailing Lists, and Forum]: /support/
-[updates-status]: https://github.com/QubesOS/updates-status/issues
-[how to copy information out of dom0]: /doc/copy-from-dom0/
-[testing]: /doc/testing/
-[How to Contribute]: /doc/contributing/
-[Contributing Code]: /doc/contributing/#contributing-code
-[Package Contributions]: /doc/package-contributions/
-[Documentation Guidelines]: /doc/doc-guidelines/
-[hcl-howto]: /doc/hcl/#generating-and-submitting-new-reports

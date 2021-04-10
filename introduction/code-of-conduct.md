@@ -12,7 +12,7 @@ This Code of Conduct is a collaborative, evolving document that attempts to tran
 It is *not* intended to be a statement or endorsement, whether implicit or explicit, of any particular political or philosophical attitude, belief, or way of living.
 Rather, it is an attempt to find a reasonable middle ground among the inevitable disagreements regarding free expression that arise in a large, diverse community of people from around the world.
 It is intended to be a practical means of serving the best interests of our users, contributors, and the project itself.
-We welcome you to view the [history of changes] to this document and the [discussion] leading to its creation.
+We welcome you to view the [history of changes](https://github.com/QubesOS/qubes-doc/commits/master/about/code-of-conduct.md) to this document and the [discussion](https://github.com/QubesOS/qubes-issues/issues/2163) leading to its creation.
 
 ## Our Pledge
 
@@ -33,11 +33,11 @@ Examples of unacceptable behavior by participants include:
 - The use of sexualized language or imagery and unwelcome sexual attention or advances
 - Trolling, insulting/derogatory comments, and personal or political attacks
 - Reinforcing stereotypical models for illustration of non-technical users (e.g. our mothers/grandmothers, etc.)
-- Public or private harassment, as defined by the [Citizen Code of Conduct]
+- Public or private harassment, as defined by the [Citizen Code of Conduct](http://citizencodeofconduct.org/)
 - Publishing others' private information, such as a physical or electronic address, without explicit permission
 - Other conduct which could reasonably be considered inappropriate in a professional setting
 
-(Please also see our [discussion guidelines].)
+(Please also see our [discussion guidelines](/support/#discussion-guidelines).)
 
 ## Our Responsibilities
 
@@ -49,7 +49,7 @@ This Code of Conduct applies both within project spaces and in public spaces whe
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project CoC team at `mods@qubes-os.org`. The project CoC team is the [Marek Marczykowski-Górecki], [Andrew David Wong], and [Michael Carbone]. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident, and will ensure reporter, reported and all others impacted are regularly updated through the process. Further details of specific enforcement policies may be posted separately.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project CoC team at `mods@qubes-os.org`. The project CoC team is the [Marek Marczykowski-Górecki](/team/#marek-marczykowski-g%C3%B3recki), [Andrew David Wong](/team/#andrew-david-wong), and [Michael Carbone](/team/#michael-carbone). All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident, and will ensure reporter, reported and all others impacted are regularly updated through the process. Further details of specific enforcement policies may be posted separately.
 
 Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project's leadership.
 
@@ -61,15 +61,5 @@ Please try not to get offended if you perceive your contributions as being met w
 
 ## Attribution
 
-The initial published version of this Code of Conduct was adapted from the [Contributor Covenant, version 1.4] and the [Rust Code of Conduct].
+The initial published version of this Code of Conduct was adapted from the [Contributor Covenant, version 1.4](https://contributor-covenant.org/version/1/4) and the [Rust Code of Conduct](https://www.rust-lang.org/en-US/conduct.html).
 
-
-[history of changes]: https://github.com/QubesOS/qubes-doc/commits/master/about/code-of-conduct.md
-[discussion]: https://github.com/QubesOS/qubes-issues/issues/2163
-[Citizen Code of Conduct]: http://citizencodeofconduct.org/
-[discussion guidelines]: /support/#discussion-guidelines
-[Contributor Covenant, version 1.4]: https://contributor-covenant.org/version/1/4
-[Rust Code of Conduct]: https://www.rust-lang.org/en-US/conduct.html
-[Marek Marczykowski-Górecki]: /team/#marek-marczykowski-g%C3%B3recki
-[Andrew David Wong]: /team/#andrew-david-wong
-[Michael Carbone]: /team/#michael-carbone

@@ -14,7 +14,7 @@ title: Xfce TemplateVMs
 # Xfce TemplateVMs
 
 If you would like to use Xfce (more lightweight compared to GNOME desktop environment) Linux distribution in your qubes,
-you can install one of the available Xfce templates for [Fedora], [CentOS] or [Gentoo].
+you can install one of the available Xfce templates for [Fedora](/doc/templates/fedora/), [CentOS](/doc/templates/centos/) or [Gentoo](/doc/templates/gentoo/).
 
 ## Installation
 
@@ -24,7 +24,7 @@ The Fedora Xfce TemplateVMs can be installed with the following command (where `
 [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-X-xfce
 ```
 
-If your desired version is not found, it may still be in [testing].
+If your desired version is not found, it may still be in [testing](/doc/testing/).
 You may wish to try again with the testing repository enabled:
 
 ```
@@ -37,7 +37,7 @@ If you would like to install a community distribution, like CentOS or Gentoo, tr
 [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-X-xfce
 ```
 
-If your desired version is not found, it may still be in [testing].
+If your desired version is not found, it may still be in [testing](/doc/testing/).
 You may wish to try again with the testing repository enabled:
 
 ```
@@ -46,12 +46,5 @@ You may wish to try again with the testing repository enabled:
 
 The download may take a while depending on your connection speed.
 
-To reinstall a Xfce TemplateVM that is already installed in your system, see [How to Reinstall a TemplateVM].
+To reinstall a Xfce TemplateVM that is already installed in your system, see [How to Reinstall a TemplateVM](/doc/reinstall-template/).
 
-[How to Reinstall a TemplateVM]: /doc/reinstall-template/
-[TemplateVMs]: /doc/templates/
-[Fedora]: /doc/templates/fedora/
-[Debian]: /doc/templates/debian/
-[CentOS]: /doc/templates/centos/
-[Gentoo]: /doc/templates/gentoo/
-[testing]: /doc/testing/

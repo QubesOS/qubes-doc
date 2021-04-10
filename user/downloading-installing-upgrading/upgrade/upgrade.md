@@ -10,7 +10,7 @@ Qubes OS Upgrade Guides
 =======================
 
 These guides are for upgrading from one version of Qubes to another.
-If you're just looking to update your system while staying on the same version, see [Updating Qubes OS].
+If you're just looking to update your system while staying on the same version, see [Updating Qubes OS](/doc/updating-qubes-os/).
 
 * [Upgrading from R1 to R2 Beta 1](/doc/upgrade-to-r2b1/)
 * [Upgrading from R1 to R2 Beta 2](/doc/upgrade-to-r2b2/)
@@ -21,4 +21,3 @@ If you're just looking to update your system while staying on the same version, 
 * [Upgrading from R3.1 to R3.2](/doc/upgrade-to-r3.2/)
 * [Upgrading from R3.2 to R4.0](/doc/upgrade-to-r4.0/)
 
-[Updating Qubes OS]: /doc/updating-qubes-os/

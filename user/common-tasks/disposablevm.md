@@ -28,7 +28,7 @@ This diagram provides a general example of how DisposableVMs can be used to safe
 
 ## Security
 
-If a [DisposableVM Template] becomes compromised, then any DisposableVM based on that DisposableVM Template could be compromised.
+If a [DisposableVM Template](/doc/glossary/#disposablevm-template) becomes compromised, then any DisposableVM based on that DisposableVM Template could be compromised.
 In particular, the *default* DisposableVM Template is important because it is used by the "Open in DisposableVM" feature.
 This means that it will have access to everything that you open with this feature.
 For this reason, it is strongly recommended that you base the default DisposableVM Template on a trusted TemplateVM.
@@ -180,7 +180,7 @@ This line means:
 
 In other words, any VM will be allowed to create a new DisposableVM based on `<ONLINE_DISPOSABLEVM_TEMPLATE>` and open a URL inside of that DisposableVM.
 
-More information about RPC policies for DisposableVMs can be found [here][qrexec].
+More information about RPC policies for DisposableVMs can be found [here](/doc/qrexec/#qubes-rpc-administration).
 
 ## Customizing DisposableVMs
 
@@ -188,5 +188,3 @@ You can change the template used to generate the DisposableVMs, and change setti
 These changes will be reflected in every new DisposableVM based on that template.
 Full instructions can be found [here](/doc/disposablevm-customization/).
 
-[DisposableVM Template]: /doc/glossary/#disposablevm-template
-[qrexec]: /doc/qrexec/#qubes-rpc-administration

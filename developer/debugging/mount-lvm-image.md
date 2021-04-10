@@ -53,6 +53,5 @@ From the GUI, or from the command line:
 
 # References
 
-Please consult this issue's [comment].
+Please consult this issue's [comment](https://github.com/QubesOS/qubes-issues/issues/4687#issuecomment-451626625).
 
-[comment]: https://github.com/QubesOS/qubes-issues/issues/4687#issuecomment-451626625

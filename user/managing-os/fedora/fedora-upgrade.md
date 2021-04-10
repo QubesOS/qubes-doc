@@ -25,8 +25,8 @@ title: In-place upgrade of Fedora TemplateVMs
 
 # Upgrading Fedora TemplateVMs
 
-This page provides instructions for performing an in-place upgrade of an installed [Fedora TemplateVM].
-If you wish to install a new, unmodified Fedora TemplateVM instead of upgrading a template that is already installed in your system, please see the [Fedora TemplateVM] page instead. ([Learn more about the two options.][Fedora TemplateVM Upgrade])
+This page provides instructions for performing an in-place upgrade of an installed [Fedora TemplateVM](/doc/templates/fedora/).
+If you wish to install a new, unmodified Fedora TemplateVM instead of upgrading a template that is already installed in your system, please see the [Fedora TemplateVM](/doc/templates/fedora/) page instead. ([Learn more about the two options.](/doc/templates/fedora/#upgrading))
 
 ## Summary instructions for standard Fedora TemplateVMs
 
@@ -47,7 +47,7 @@ If you wish to install a new, unmodified Fedora TemplateVM instead of upgrading 
 [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
 ```
 
-**Recommended:** [Switch everything that was set to the old template to the new template.][switch]
+**Recommended:** [Switch everything that was set to the old template to the new template.](/doc/templates/#switching)
 
 ## Detailed instructions for standard Fedora TemplateVMs
 
@@ -120,8 +120,8 @@ The same general procedure may be used to upgrade any template based on the stan
         At least X MB more space needed on the / filesystem.
         `
 
-       In this case, one option is to [resize the TemplateVM's disk image][resize-disk-image] before reattempting the upgrade process.
-       (See [Additional Information] below for other options.)
+       In this case, one option is to [resize the TemplateVM's disk image](/doc/resize-disk-image/) before reattempting the upgrade process.
+       (See [Additional Information](#additional-information) below for other options.)
 
 4. Check that you are on the correct (new) Fedora release.
 
@@ -130,8 +130,8 @@ The same general procedure may be used to upgrade any template based on the stan
     ```
 
 5. (Optional) Trim the new template.
-    (This should [no longer be necessary][template-notes], but it does not hurt.
-    Some users have [reported][5055] that it makes a difference.)
+    (This should [no longer be necessary](/doc/templates/#important-notes), but it does not hurt.
+    Some users have [reported](https://github.com/QubesOS/qubes-issues/issues/5055) that it makes a difference.)
 
     ```
     [user@fedora-<new> ~]$ sudo fstrim -av
@@ -153,7 +153,7 @@ The same general procedure may be used to upgrade any template based on the stan
     [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
     ```
 
-8. (Recommended) [Switch everything that was set to the old template to the new template.][switch]
+8. (Recommended) [Switch everything that was set to the old template to the new template.](/doc/templates/#switching)
 
 9. (Optional) Make the new template the global default.
 
@@ -186,18 +186,18 @@ The same general procedure may be used to upgrade any template based on the stan
 
 ## StandaloneVMs
 
-The procedure for upgrading a Fedora [StandaloneVM] is the same as for a TemplateVM.
+The procedure for upgrading a Fedora [StandaloneVM](/doc/standalone-and-hvm/) is the same as for a TemplateVM.
 
 
 ## Release-specific notes
 
-See the [news] announcement for each specific TemplateVM release for any important notices about that particular release.
+See the [news](/news/) announcement for each specific TemplateVM release for any important notices about that particular release.
 
 
 ### End-of-life (EOL) releases
 
-We strongly recommend against using any Fedora release that has reached [end-of-life (EOL)].
-Also see [supported versions].
+We strongly recommend against using any Fedora release that has reached [end-of-life (EOL)](https://fedoraproject.org/wiki/End_of_life).
+Also see [supported versions](/doc/supported-versions/).
 
 
 ## Additional information
@@ -210,7 +210,7 @@ At least X MB more space needed on the / filesystem.
 
 In this case, you have several options:
 
-1. [Increase the TemplateVM's disk image size][resize-disk-image].
+1. [Increase the TemplateVM's disk image size](/doc/resize-disk-image/).
    This is the solution mentioned in the main instructions above.
 2. Delete files in order to free up space. One way to do this is by uninstalling packages.
    You may then reinstall them again after you finish the upgrade process, if desired).
@@ -219,15 +219,3 @@ In this case, you have several options:
    (First upgrade `@core` packages, then the rest.)
 4. Do not perform an in-place upgrade, see [Upgrading Fedora TemplateVMs].
 
-[Fedora TemplateVM]: /doc/templates/fedora/
-[Fedora TemplateVM Upgrade]: /doc/templates/fedora/#upgrading
-[resize-disk-image]: /doc/resize-disk-image/
-[Additional Information]: #additional-information
-[switch]: /doc/templates/#switching
-[DispVM]: /doc/dispvm/
-[end-of-life (EOL)]: https://fedoraproject.org/wiki/End_of_life
-[StandaloneVM]: /doc/standalone-and-hvm/
-[template-notes]: /doc/templates/#important-notes
-[5055]: https://github.com/QubesOS/qubes-issues/issues/5055
-[supported versions]: /doc/supported-versions/
-[news]: /news/

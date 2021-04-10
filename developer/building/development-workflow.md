@@ -323,7 +323,7 @@ current and current-testing).
 
 ### RPM packages - yum repo
 
-In source VM, grab [linux-yum] repository (below is assumed you've made it in
+In source VM, grab [linux-yum](https://github.com/QubesOS/qubes-linux-yum) repository (below is assumed you've made it in
 `~/repo-yum-upload` directory) and replace `update_repo.sh` script with:
 
 ~~~
@@ -339,7 +339,7 @@ find -type f -name '*.rpm' -delete
 qrexec-client-vm $VMNAME local.UpdateYum
 ~~~
 
-In target VM, setup actual yum repository (also based on [linux-yum], this time
+In target VM, setup actual yum repository (also based on [linux-yum](https://github.com/QubesOS/qubes-linux-yum), this time
 without modifications). You will also need to setup some gpg key for signing
 packages (it is possible to force yum to install unsigned packages, but it
 isn't possible for `qubes-dom0-update` tool). Fill `~/.rpmmacros` with
@@ -387,7 +387,7 @@ Of course you will also need to setup qrexec policy in dom0
 If you want to access the repository from network, you need to setup HTTP
 server serving it, and configure the system to let other machines actually
 reach this HTTP server. You can use for example using [port
-forwarding][port-forwarding] or setting up Tor hidden service. Configuration
+forwarding](/doc/firewall/#port-forwarding-to-a-qube-from-the-outside-world) or setting up Tor hidden service. Configuration
 details of those services are outside of the scope of this page.
 
 Usage: setup `builder.conf` in source VM to use your dummy-uploader repository:
@@ -419,7 +419,7 @@ Remember to also import gpg public key using `rpm --import`.
 
 Steps are mostly the same as in the case of yum repo. The only details that differ:
 
-- use [linux-deb] instead of [linux-yum] as a base - both in source and target VM
+- use [linux-deb](https://github.com/QubesOS/qubes-linux-deb) instead of [linux-yum](https://github.com/QubesOS/qubes-linux-yum) as a base - both in source and target VM
 - use different `update_repo.sh` script in source VM (below)
 - use `local.UpdateApt` qrexec service in target VM (code below)
 - in target VM additionally place `update-local-repo.sh` script in repository dir (code below)
@@ -539,6 +539,3 @@ Usage: add this line to `/etc/apt/sources.list` on test machine (adjust host and
 deb http://local-test.lan/linux-deb/r3.1 jessie-unstable main
 ~~~
 
-[port-forwarding]: /doc/firewall/#port-forwarding-to-a-qube-from-the-outside-world
-[linux-yum]: https://github.com/QubesOS/qubes-linux-yum
-[linux-deb]: https://github.com/QubesOS/qubes-linux-deb

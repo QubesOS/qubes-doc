@@ -15,10 +15,10 @@ title: Minimal TemplateVMs
 
 # Minimal TemplateVMs
 
-The Minimal [TemplateVMs] are lightweight versions of their standard TemplateVM counterparts.
+The Minimal [TemplateVMs](/doc/templates/) are lightweight versions of their standard TemplateVM counterparts.
 They have only the most vital packages installed, including a minimal X and xterm installation.
 The sections below contain instructions for using the template and provide some examples for common use cases.
-There are currently three Minimal TemplateVMs corresponding to the standard [Fedora], [Debian], [CentOS] and [Gentoo] TemplateVMs.
+There are currently three Minimal TemplateVMs corresponding to the standard [Fedora](/doc/templates/fedora/), [Debian](/doc/templates/debian/), [CentOS](/doc/templates/centos/) and [Gentoo](/doc/templates/gentoo/) TemplateVMs.
 
 ## Important
 
@@ -27,11 +27,11 @@ There are currently three Minimal TemplateVMs corresponding to the standard [Fed
 
 2. If something works with a standard TemplateVM but not the minimal version, this is most likely due to user error (e.g., a missing package or misconfiguration) rather than a bug.
    In such cases, please do *not* file a bug report.
-   Instead, please see [Help, Support, Mailing Lists, and Forum] for the appropriate place to ask for help.
-   Once you have learned how to solve your problem, please [contribute what you learned to the documentation][doc-guidelines].
+   Instead, please see [Help, Support, Mailing Lists, and Forum](/support/) for the appropriate place to ask for help.
+   Once you have learned how to solve your problem, please [contribute what you learned to the documentation](/doc/doc-guidelines/).
 
 3. The Minimal TemplateVMs are intentionally *minimal*.
-   [Do not ask for your favorite package to be added to the minimal template by default.][pref-default]
+   [Do not ask for your favorite package to be added to the minimal template by default.](/faq/#could-you-please-make-my-preference-the-default)
 
 4. In order to reduce unnecessary risk, unused repositories have been disabled by default.
    If you wish to install or update any packages from those repositories, you must enable them.
@@ -44,7 +44,7 @@ The Minimal TemplateVMs can be installed with the following command (where `X` i
 [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-X-minimal
 ```
 
-If your desired version is not found, it may still be in [testing].
+If your desired version is not found, it may still be in [testing](/doc/testing/).
 You may wish to try again with the testing repository enabled:
 
 ```
@@ -61,7 +61,7 @@ The download may take a while depending on your connection speed.
 
 ## Passwordless root
 
-It is an intentional design choice for [Passwordless Root Access in VMs] to be optional in Minimal TemplateVMs.
+It is an intentional design choice for [Passwordless Root Access in VMs](/doc/vm-sudo/) to be optional in Minimal TemplateVMs.
 Since the Minimal TemplateVMs are *minimal*, they are not configured for passwordless root by default.
 To update or install packages, execute the following command in dom0 (where `X` is your distro and version number):
 
@@ -131,7 +131,7 @@ Also, there are packages to provide additional services:
 
 You may also wish to consider additional packages from the `qubes-core-agent` suite:
 
-See [here][customization] for further information on customizing `fedora-minimal`.
+See [here](https://github.com/Qubes-Community/Contents/blob/master/docs/customization/fedora-minimal-template-customization.md) for further information on customizing `fedora-minimal`.
 
 #### Logging
 
@@ -221,14 +221,3 @@ Documentation on all of these can be found in the [docs](/doc)
 
 You could, of course, use `qubes-vm-recommended` to automatically install many of these, but in that case you are well on the way to a standard Debian template.
 
-[TemplateVMs]: /doc/templates/
-[Fedora]: /doc/templates/fedora/
-[Debian]: /doc/templates/debian/
-[CentOS]: /doc/templates/centos/
-[Gentoo]: /doc/templates/gentoo/
-[Help, Support, Mailing Lists, and Forum]: /support/
-[doc-guidelines]: /doc/doc-guidelines/
-[pref-default]: /faq/#could-you-please-make-my-preference-the-default
-[testing]: /doc/testing/
-[customization]: https://github.com/Qubes-Community/Contents/blob/master/docs/customization/fedora-minimal-template-customization.md
-[Passwordless Root Access in VMs]: /doc/vm-sudo/

@@ -10,32 +10,32 @@ title: USB Devices
 
 # USB Devices
 
-*This page is part of [device handling in qubes].*
+*This page is part of [device handling in qubes](/doc/device-handling/).*
 
-If you are looking to handle USB *storage* devices (thumbdrives or USB-drives), please have a look at the [block device] page.
+If you are looking to handle USB *storage* devices (thumbdrives or USB-drives), please have a look at the [block device](/doc/block-devices/) page.
 
-**Note:** Attaching USB devices to VMs requires a [USB qube][USB-qube howto].
+**Note:** Attaching USB devices to VMs requires a [USB qube](/doc/usb-qubes/).
 
 **Important security warning:** USB passthrough comes with many security implications.
-Please make sure you carefully read and understand the **[security considerations]**.
-Whenever possible, attach a [block device] instead.
+Please make sure you carefully read and understand the **[security considerations](/doc/device-handling-security/#usb-security)**.
+Whenever possible, attach a [block device](/doc/block-devices/) instead.
 
 Examples of valid cases for USB-passthrough:
 
-- [microcontroller programming]
-- [external audio devices]
-- [optical drives] for recording
+- [microcontroller programming](https://www.arduino.cc/en/Main/Howto)
+- [external audio devices](/doc/external-audio/)
+- [optical drives](/doc/recording-optical-discs/) for recording
 
-(If you are thinking to use a two-factor-authentication device, [there is an app for that][qubes u2f proxy].
-But it has some [issues][4661].)
+(If you are thinking to use a two-factor-authentication device, [there is an app for that](/doc/u2f-proxy/).
+But it has some [issues](https://github.com/QubesOS/qubes-issues/issues/4661).)
 
 ## Attaching And Detaching a USB Device
 
 ### With Qubes Device Manager
 
-Click the device-manager-icon: ![device manager icon]
+Click the device-manager-icon: ![device manager icon](/attachment/wiki/Devices/media-removable.png)
 A list of available devices appears.
-USB-devices have a USB-icon to their right: ![usb icon]
+USB-devices have a USB-icon to their right: ![usb icon](/attachment/wiki/Devices/generic-usb.png)
 
 Hover on one device to display a list of VMs you may attach it to.
 
@@ -46,7 +46,7 @@ You're done.
 After you finished using the USB-device, you can detach it the same way by clicking on the Devices Widget.
 You will see an entry in bold for your device such as **`sys-usb:2-5 - 058f_USB_2.0_Camera`**.
 Hover on the attached device to display a list of running VMs.
-The one to which your device is connected will have an eject button ![eject icon] next to it.
+The one to which your device is connected will have an eject button ![eject icon](/attachment/wiki/Devices/media-eject.png) next to it.
 Click that and your device will be detached.
 
 ### With The Command Line Tool
@@ -75,7 +75,7 @@ sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
 ```
 
 Now, you can use your USB device (camera in this case) in the `work` qube.
-If you see the error `ERROR: qubes-usb-proxy not installed in the VM` instead, please refer to the [Installation Section].
+If you see the error `ERROR: qubes-usb-proxy not installed in the VM` instead, please refer to the [Installation Section](#installation-of-qubes-usb-proxy).
 
 When you finish, detach the device.
 
@@ -93,7 +93,7 @@ sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
 ### Creating And Using a USB qube
 
 If you've selected to install a usb-qube during system installation, everything is already set up for you in `sys-usb`.
-If you've later decided to create a usb-qube, please follow [this guide][USB-qube howto].
+If you've later decided to create a usb-qube, please follow [this guide](/doc/usb-qubes/).
 
 ### Installation Of `qubes-usb-proxy`
 
@@ -108,9 +108,9 @@ If you receive this error: `ERROR: qubes-usb-proxy not installed in the VM`, you
 
 ### Using USB Keyboards And Other Input Devices
 
-**Warning:** especially keyboards need to be accepted by default when using them to login! Please make sure you carefully read and understood the **[security considerations]** before continuing!
+**Warning:** especially keyboards need to be accepted by default when using them to login! Please make sure you carefully read and understood the **[security considerations](/doc/device-handling-security/#usb-security)** before continuing!
 
-Mouse and keyboard setup are part of [setting up a USB-qube][keyboard setup].
+Mouse and keyboard setup are part of [setting up a USB-qube](/doc/usb-qubes/#enable-a-usb-keyboard-for-login).
 
 ### Finding The Right USB Controller
 
@@ -150,25 +150,9 @@ This should output something like:
 ../../../devices/pci-0/pci0000:00/0000:00:1a.0/usb3
 ```
 
-Now you see the path and the text between `/pci0000:00/0000:` and `/usb3` i.e. `00:1a.0` is the BDF address. Strip the address and pass it to the [`qvm-pci` tool][qvm-pci] to attach the controller to the targetVM.
+Now you see the path and the text between `/pci0000:00/0000:` and `/usb3` i.e. `00:1a.0` is the BDF address. Strip the address and pass it to the [`qvm-pci` tool](/doc/pci-devices/) to attach the controller to the targetVM.
 
 For example, On R 4.0 the command would look something like
 
 `qvm-pci attach --persistent personal dom0:00_1a.0`
 
-[device handling in qubes]: /doc/device-handling/
-[block device]: /doc/block-devices/
-[security considerations]: /doc/device-handling-security/#usb-security
-[usb-challenges]: https://blog.invisiblethings.org/2011/05/31/usb-security-challenges.html
-[usb icon]: /attachment/wiki/Devices/generic-usb.png
-[microcontroller programming]: https://www.arduino.cc/en/Main/Howto
-[external audio devices]: /doc/external-audio/
-[optical drives]: /doc/recording-optical-discs/
-[qubes u2f proxy]: /doc/u2f-proxy/
-[4661]: https://github.com/QubesOS/qubes-issues/issues/4661
-[device manager icon]:/attachment/wiki/Devices/media-removable.png
-[eject icon]:/attachment/wiki/Devices/media-eject.png
-[Installation Section]:#installation-of-qubes-usb-proxy
-[USB-qube howto]: /doc/usb-qubes/
-[keyboard setup]: /doc/usb-qubes/#enable-a-usb-keyboard-for-login
-[qvm-pci]: /doc/pci-devices/

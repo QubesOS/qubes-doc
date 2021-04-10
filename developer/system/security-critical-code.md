@@ -21,7 +21,7 @@ One of the main goals of the project is to keep the TCB to an absolute minimum.
 The size of the current TCB is on the order order of hundreds of thousands of lines of C code, which is several orders of magnitude less than other OSes.
 (In Windows, Linux, and Mac OSes, the amount of trusted code is typically on the order of tens of *millions* of lines of C code.)
 
-For more information, see [Qubes Security Goals].
+For more information, see [Qubes Security Goals](/security/goals/).
 
 Security-critical Qubes-specific Components
 -------------------------------------------
@@ -69,9 +69,6 @@ In that case, only network-isolated domains would be somewhat trustworthy.
 
 This means that we must trust at least some of the vendors that supply the code we run inside our domains.
 (We don't have to trust *all* of them, but we at least have to trust the few that provide the apps we use in the most critical domains.)
-In practice, we trust the software provided by the [Fedora Project].
+In practice, we trust the software provided by the [Fedora Project](https://getfedora.org/).
 This software is signed by Fedora distribution keys, so it is also critical that the tools used in domains for software updates (`dnf` and `rpm`) are trustworthy.
 
-[Qubes Security Goals]: /security/goals/
-[Fedora Project]: https://getfedora.org/
-[Understanding and Preventing Data Leaks]: /doc/data-leaks/
