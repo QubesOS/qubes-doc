@@ -46,7 +46,7 @@ Issues may have additional labels, if applicable (e.g., `crypto`, `ux`).
 
 The issue tracker is a tool to help the developers be more productive and efficient in their work.
 It is not a place for discussion.
-If you wish to discuss something in the issue tracker, please do so on the forum or mailing lists (see [Help, Support, Mailing Lists, and Forum]).
+If you wish to discuss something in the issue tracker, please do so on the forum or mailing lists (see [Help, Support, Mailing Lists, and Forum](/support/)).
 You can simply link to the relevant issue in your discussion post.
 
 ### Do not submit questions ###
