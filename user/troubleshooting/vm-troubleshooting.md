@@ -29,7 +29,6 @@ This issue has been seen to occur if a dom0 update is interrupted halfway throug
 
 ## Can not uninstall a VM / “ERROR: VM installed by package manager: template-vm-name”
 
-Try the [normal method] before resorting to this method to remove a VM manually.
 All of the following commands should be executed in a dom0 terminal.
 
 When a template is marked as 'installed by package manager', but cannot be uninstalled there, trying to uninstall manually will result in the error "ERROR: VM installed by package manager: template-vm-name". Do as follows to be able to uninstall the template:

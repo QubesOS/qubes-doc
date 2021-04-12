@@ -51,9 +51,8 @@ The `qubesd` daemon may be accessed from other domains through a set of qrexec
 API calls called the "Admin API". This API is the intended
 management interface supported by the Qubes OS. The API is stable. When called,
 the RPC handler performs basic validation and forwards the request to the
-`qubesd` via UNIX domain socket. The socket API is private and unstable. It is
-documented [FIXME currently it isn't -- woju 20161221] in the developer's
-documentation of the source code.
+`qubesd` via UNIX domain socket. The socket API is private, unstable, and not
+yet documented.
 
 ## The calls
 
