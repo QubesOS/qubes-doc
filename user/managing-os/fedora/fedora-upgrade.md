@@ -217,5 +217,5 @@ In this case, you have several options:
    However, you may end up having to increase the disk image size anyway (see previous option).
 3. Do the upgrade in parts, e.g., by using package groups.
    (First upgrade `@core` packages, then the rest.)
-4. Do not perform an in-place upgrade, see [Upgrading Fedora TemplateVMs].
+4. Do not perform an in-place upgrade, see [Upgrading Fedora TemplateVMs](/doc/templates/fedora/#upgrading).
 
