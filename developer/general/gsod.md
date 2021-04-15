@@ -8,7 +8,7 @@ title: Google Season of Docs
 
 # 2021 Google Season of Docs
 
-Thank you for your interest in participating in the [2021 Google Season of Docs][gsod] program with the [Qubes OS team][team]. You can read more about the Google Season of Docs in the official [guides][gsod-doc] and [FAQ][gsod-faq].
+Thank you for your interest in participating in the [2021 Google Season of Docs](https://developers.google.com/season-of-docs/) program with the [Qubes OS team](/team/). You can read more about the Google Season of Docs in the official [guides](https://developers.google.com/season-of-docs/docs/) and [FAQ](https://developers.google.com/season-of-docs/docs/faq).
 
 ## 2021 Project Idea 
 
@@ -83,9 +83,9 @@ within the times allotted. The past Google Season of Docs projects have given us
 
 ## Past Projects
 
-You can view the project we had in 2019 in the [2019 GSoD archive][2019-qubes-gsod] and the [2019 writer's report][2019-qubes-report].
+You can view the project we had in 2019 in the [2019 GSoD archive](https://developers.google.com/season-of-docs/docs/2019/participants/project-qubes) and the [2019 writer's report](https://refre.ch/report-qubesos/).
 
-You can also view the project we had in 2020 in the [2020 GSoD archive][2020-qubes-gsod] and the [2020 writer's report][2020-qubes-report].
+You can also view the project we had in 2020 in the [2020 GSoD archive](https://developers.google.com/season-of-docs/docs/2020/participants/project-qubesos-c1e0) and the [2020 writer's report](https://gist.github.com/PROTechThor/bfe9b8b28295d88c438b6f6c754ae733).
 
 Here are some successful projects which have been implemented in the past by Google Season of Docs participants. 
 
@@ -99,14 +99,14 @@ This could be helped by writing consolidated guide with with a clear list of sym
 **Expected results**:
 
 - Review existing [troubleshooting guides](/doc/#troubleshooting)
-- Review [issues][doc-issues] containing common troubleshooting steps (checking specific logs etc)
+- Review [issues](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+doc%22) containing common troubleshooting steps (checking specific logs etc)
 - Propose updated, consolidated troubleshooting documentation, including its layout
 
 **Knowledge prerequisite**:
 
-- [Markdown][markdown]
+- [Markdown](https://daringfireball.net/projects/markdown/)
 
-**Mentor**: [Marek Marczykowski-Górecki][team]
+**Mentor**: [Marek Marczykowski-Górecki](/team/)
 
 ### Improve Getting Started page
 
@@ -122,9 +122,9 @@ This could be helped by writing consolidated guide with with a clear list of sym
 **Knowledge prerequisite**: 
 
 - basic Qubes OS knowledge
-- [Markdown][markdown]
+- [Markdown](https://daringfireball.net/projects/markdown/)
 
-**Mentor**: [Michael Carbone][team]
+**Mentor**: [Michael Carbone](/team/)
 
 ### Rewrite qrexec documentation
 
@@ -143,26 +143,7 @@ Fixing this last point may require very close cooperation with developers, as th
 
 **Knowledge prerequisite**:
 
-- [Markdown][markdown]
+- [Markdown](https://daringfireball.net/projects/markdown/)
 
-**Mentor**: [Marek Marczykowski-Górecki][team]
+**Mentor**: [Marek Marczykowski-Górecki](/team/)
 
-
-[gsod]: https://developers.google.com/season-of-docs/
-[team]: /team/
-[gsod-doc]: https://developers.google.com/season-of-docs/docs/
-[gsod-faq]: https://developers.google.com/season-of-docs/docs/faq
-[gsod.md]: https://github.com/QubesOS/qubes-doc/blob/master/developer/general/gsod.md
-[gsod-2020-thread]: https://groups.google.com/d/msgid/qubes-project/aac9b148-4081-ebd8-cb9d-9a9191033484%40qubes-os.org
-[Documentation Guidelines]: /doc/doc-guidelines/
-[Help, Support, and Mailing Lists]: /support/
-[intro]: /intro/
-[getting started]: /getting-started/
-[markdown]: https://daringfireball.net/projects/markdown/
-[doc-issues]: https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+doc%22
-[2019-qubes-gsod]:  https://developers.google.com/season-of-docs/docs/2019/participants/project-qubes
-[2019-qubes-report]: https://refre.ch/report-qubesos/
-[2020-qubes-gsod]: https://developers.google.com/season-of-docs/docs/2020/participants/project-qubesos-c1e0
-[2020-qubes-report]: https://gist.github.com/PROTechThor/bfe9b8b28295d88c438b6f6c754ae733
-[existing installation guide]: https://www.youtube.com/watch?v=mATI8Lht0Js
-[virtual box issue]: https://www.virtualbox.org/ticket/16771

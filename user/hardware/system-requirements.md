@@ -24,32 +24,32 @@ title: System Requirements
 ## Minimum
 
 - **CPU:** 64-bit Intel or AMD processor (also known as `x86_64`, `x64`, and `AMD64`)
-  - [Intel VT-x] with [EPT] or [AMD-V] with [RVI]
-  - [Intel VT-d] or [AMD-Vi (also known as AMD IOMMU)]
+  - [Intel VT-x](https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29) with [EPT](https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Extended_Page_Tables) or [AMD-V](https://en.wikipedia.org/wiki/X86_virtualization#AMD_virtualization_.28AMD-V.29) with [RVI](https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Rapid_Virtualization_Indexing)
+  - [Intel VT-d](https://en.wikipedia.org/wiki/X86_virtualization#Intel-VT-d) or [AMD-Vi (also known as AMD IOMMU)](https://en.wikipedia.org/wiki/X86_virtualization#I.2FO_MMU_virtualization_.28AMD-Vi_and_Intel_VT-d.29)
 - **Memory:** 4 GB RAM
 - **Storage:** 32 GB free space
 
 ## Recommended
 
 - **CPU:** 64-bit Intel or AMD processor (also known as `x86_64`, `x64`, and `AMD64`)
-  - [Intel VT-x] with [EPT] or [AMD-V] with [RVI]
-  - [Intel VT-d] or [AMD-Vi (also known as AMD IOMMU)]
+  - [Intel VT-x](https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29) with [EPT](https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Extended_Page_Tables) or [AMD-V](https://en.wikipedia.org/wiki/X86_virtualization#AMD_virtualization_.28AMD-V.29) with [RVI](https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Rapid_Virtualization_Indexing)
+  - [Intel VT-d](https://en.wikipedia.org/wiki/X86_virtualization#Intel-VT-d) or [AMD-Vi (also known as AMD IOMMU)](https://en.wikipedia.org/wiki/X86_virtualization#I.2FO_MMU_virtualization_.28AMD-Vi_and_Intel_VT-d.29)
 - **Memory:** 16 GB RAM
 - **Storage:** 128 GB free space
   - High-speed solid-state drive strongly recommended
 - **Graphics:** Intel integrated graphics processor (IGP) strongly recommended
-  - Nvidia GPUs may require significant [troubleshooting][nvidia]
+  - Nvidia GPUs may require significant [troubleshooting](/doc/install-nvidia-driver/)
   - AMD GPUs have not been formally tested, but Radeons (especially RX580 and earlier) generally work well
 - **Peripherals:** A non-USB keyboard or multiple USB controllers
-- **TPM:** Trusted Platform Module (TPM) with proper BIOS support (required for [Anti Evil Maid])
-- **Other:** Satisfaction of all [hardware certification requirements for Qubes 4.x]
+- **TPM:** Trusted Platform Module (TPM) with proper BIOS support (required for [Anti Evil Maid](/doc/anti-evil-maid/))
+- **Other:** Satisfaction of all [hardware certification requirements for Qubes 4.x](/news/2016/07/21/new-hw-certification-for-q4/)
 
 ## Choosing Hardware
 
-- Please see the [Hardware Compatibility List] for a compilation of hardware reports generated and submitted by users across various Qubes versions.
-  (For more information about the HCL itself, see [here][hcl-doc].)
-- See the [Certified Hardware] page.
-- See the [Hardware Testing] page.
+- Please see the [Hardware Compatibility List](/hcl/) for a compilation of hardware reports generated and submitted by users across various Qubes versions.
+  (For more information about the HCL itself, see [here](/doc/hcl/).)
+- See the [Certified Hardware](/doc/certified-hardware/) page.
+- See the [Hardware Testing](/doc/hardware-testing/) page.
 
 ## Important Notes
 
@@ -62,23 +62,8 @@ title: System Requirements
   After Qubes has been installed on the flash drive, it can then be plugged into other computers in order to boot into Qubes.
   In addition to the convenience of having a portable copy of Qubes, this allows users to test for hardware compatibility on multiple machines (e.g., at a brick-and-mortar computer
   store) before deciding on which computer to purchase.
-  (See [hcl-report] for advice on hardware compatibility testing.)
+  (See [hcl-report](/doc/hcl/#generating-and-submitting-new-reports) for advice on hardware compatibility testing.)
   Remember to change the devices assigned to your NetVM and USBVM if you move between different machines.
-- [Advice on finding a VT-d capable notebook][vt-d-notebook].
+- [Advice on finding a VT-d capable notebook](https://groups.google.com/d/msg/qubes-users/Sz0Nuhi4N0o/ZtpJdoc0OY8J).
 - You can check whether an Intel processor has VT-x and VT-d on [ark.intel.com](https://ark.intel.com/content/www/us/en/ark.html#@Processors).
 
-[nvidia]: /doc/install-nvidia-driver/
-[hardware certification requirements for Qubes 4.x]: /news/2016/07/21/new-hw-certification-for-q4/
-[Certified Hardware]: /doc/certified-hardware/
-[Hardware Testing]: /doc/hardware-testing/
-[Hardware Compatibility List]: /hcl/
-[hcl-doc]: /doc/hcl/
-[hcl-report]: /doc/hcl/#generating-and-submitting-new-reports
-[Anti Evil Maid]: /doc/anti-evil-maid/
-[vt-d-notebook]: https://groups.google.com/d/msg/qubes-users/Sz0Nuhi4N0o/ZtpJdoc0OY8J
-[Intel VT-x]: https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29
-[AMD-V]: https://en.wikipedia.org/wiki/X86_virtualization#AMD_virtualization_.28AMD-V.29
-[Intel VT-d]: https://en.wikipedia.org/wiki/X86_virtualization#Intel-VT-d
-[AMD-Vi (also known as AMD IOMMU)]: https://en.wikipedia.org/wiki/X86_virtualization#I.2FO_MMU_virtualization_.28AMD-Vi_and_Intel_VT-d.29
-[EPT]: https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Extended_Page_Tables
-[RVI]: https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Rapid_Virtualization_Indexing

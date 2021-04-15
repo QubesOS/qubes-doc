@@ -12,17 +12,17 @@ title: Documentation Guidelines
 
 # Documentation guidelines
 
-All Qubes OS documentation pages are stored as plain text files in the dedicated [qubes-doc] repository.
+All Qubes OS documentation pages are stored as plain text files in the dedicated [qubes-doc](https://github.com/QubesOS/qubes-doc) repository.
 By cloning and regularly pulling from this repo, users can maintain their own up-to-date offline copy of all Qubes documentation rather than relying solely on the web.
 
 The documentation is a community effort. Volunteers work hard trying to keep everything accurate and comprehensive.
-If you notice a problem or some way it can be improved, please [edit the documentation][contribute]!
+If you notice a problem or some way it can be improved, please [edit the documentation](#how-to-contribute)!
 
 ## Security
 
 *Also see: [Should I trust this website?](/faq/#should-i-trust-this-website)*
 
-All pull requests against [qubes-doc] must pass review prior to be merged, except in the case of [external documentation] (see [#4693]).
+All pull requests against [qubes-doc](https://github.com/QubesOS/qubes-doc) must pass review prior to be merged, except in the case of [external documentation](/doc/#external-documentation) (see [#4693](https://github.com/QubesOS/qubes-issues/issues/4693)).
 This process is designed to ensure that contributed text is accurate and non-malicious.
 This process is a best effort that should provide a reasonable degree of assurance, but it is not foolproof.
 For example, all text characters are checked for ANSI escape sequences.
@@ -36,9 +36,9 @@ In cases in which another reviewer is not required, the documentation maintainer
 
 ## Questions, problems, and improvements
 
-If you have a question about something you read in the documentation, please send it to the appropriate [mailing list][support].
-If you see that something in the documentation should be fixed or improved, please [contribute] the change yourself.
-To report an issue with the documentation, please follow our standard [issue reporting guidelines][issue].
+If you have a question about something you read in the documentation, please send it to the appropriate [mailing list](/support/).
+If you see that something in the documentation should be fixed or improved, please [contribute](#how-to-contribute) the change yourself.
+To report an issue with the documentation, please follow our standard [issue reporting guidelines](/doc/reporting-bugs/).
 (If you report an issue with the documentation, you will likely be asked to address it, unless there is a clear indication in your report that you are not willing or able to do so.)
 
 ## How to contribute
@@ -50,17 +50,17 @@ A few notes before we get started:
 * Since Qubes is a security-oriented project, every documentation change will be reviewed before it's accepted.
    This allows us to maintain quality control and protect our users.
 * We don't want you to spend time and effort on a contribution that we can't accept.
-   If your contribution would take a lot of time, please [file an issue][issue] for it first so that we can make sure we're on the same page before significant works begins.
+   If your contribution would take a lot of time, please [file an issue](/doc/reporting-bugs/) for it first so that we can make sure we're on the same page before significant works begins.
 * Alternatively, you may already have written content that doesn't conform to these guidelines, but you'd be willing to modify it so that it does.
    In this case, you can still submit it by following the instructions below.
    Just make a note in your pull request that you're aware of the changes that need to be made and that you're just asking for the content to be reviewed before you spend time making those changes.
 
-As mentioned above, we keep all the documentation in a dedicated [Git repository][qubes-doc] hosted on [GitHub].
+As mentioned above, we keep all the documentation in a dedicated [Git repository](https://github.com/QubesOS/qubes-doc) hosted on [GitHub](https://github.com/).
 Thanks to GitHub's interface, you can edit the documentation even if you don't know Git at all!
 The only thing you need is a GitHub account, which is free.
 
 (**Note:** If you're already familiar with GitHub or wish to work from the command line, you can skip the rest of this section.
-All you need to do to contribute is to [fork and clone][gh-fork] the [qubes-doc] repo, make your changes, then [submit a pull request][gh-pull].)
+All you need to do to contribute is to [fork and clone](https://guides.github.com/activities/forking/) the [qubes-doc](https://github.com/QubesOS/qubes-doc) repo, make your changes, then [submit a pull request](https://help.github.com/articles/using-pull-requests/).)
 
 Ok, let's start.
 Every documentation page has an "Edit this page" button.
@@ -84,7 +84,7 @@ This step is only needed the first time you make a contribution.
 
 Now you can make your modifications.
 You can also preview the changes to see how they'll be formatted by clicking the "Preview changes" tab.
-If you're making formatting changes, please [render the site locally] to verify that everything looks correct before submitting any changes.
+If you're making formatting changes, please [render the site locally](https://github.com/QubesOS/qubesos.github.io#instructions) to verify that everything looks correct before submitting any changes.
 
 [![edit](/attachment/wiki/doc-edit/06-edit.png)](/attachment/wiki/doc-edit/06-edit.png)
 
@@ -121,7 +121,7 @@ This will make the image a hyperlink to the image file, allowing the reader to c
 [![Image Title](/attachment/wiki/page-title/image-filename.png)](/attachment/wiki/page-title/image-filename.png)
 ```
 
-Then, submit your image(s) in a separate pull request to the [qubes-attachment] repository using the same path and filename.
+Then, submit your image(s) in a separate pull request to the [qubes-attachment](https://github.com/QubesOS/qubes-attachment) repository using the same path and filename.
 This is the only permitted way to include images.
 Do not link to images on other websites.
 
@@ -140,11 +140,11 @@ There are some exceptions to this policy (e.g., information that is certain not 
 
 ### Core vs. external documentation
 
-Core documentation resides in the [Qubes OS Project's official repositories](https://github.com/QubesOS/), mainly in [qubes-doc].
+Core documentation resides in the [Qubes OS Project's official repositories](https://github.com/QubesOS/), mainly in [qubes-doc](https://github.com/QubesOS/qubes-doc).
 External documentation can be anywhere else (such as forums, community websites, and blogs), but there is an especially large collection in the [Qubes Community](https://github.com/Qubes-Community) project.
-External documentation should not be submitted to [qubes-doc].
-If you've written a piece of documentation that is not appropriate for [qubes-doc], we encourage you to submit it to the [Qubes Community](https://github.com/Qubes-Community) project instead.
-However, *linking* to external documentation from [qubes-doc] is perfectly fine.
+External documentation should not be submitted to [qubes-doc](https://github.com/QubesOS/qubes-doc).
+If you've written a piece of documentation that is not appropriate for [qubes-doc](https://github.com/QubesOS/qubes-doc), we encourage you to submit it to the [Qubes Community](https://github.com/Qubes-Community) project instead.
+However, *linking* to external documentation from [qubes-doc](https://github.com/QubesOS/qubes-doc) is perfectly fine.
 Indeed, the maintainers of the [Qubes Community](https://github.com/Qubes-Community) project should regularly submit PRs against [this file](https://github.com/QubesOS/qubesos.github.io/blob/master/_data/index.yml) to add and update Qubes Community links in the "External Documentation" section of the documentation table of contents.
 
 The main difference between **core** (or **official**) and **external** (or **community** or **unofficial**) documentation is whether it documents software that is officially written and maintained by the Qubes OS Project.
@@ -275,11 +275,11 @@ Over time, the different branches would diverge in non-version-specific content.
 Good general content that was submitted only to one branch would effectively disappear once that version was deprecated.
 (Even if it were still on the website, no one would look at it, since it would explicitly be in the subdirectory of a  deprecated version, and there would be a motivation to remove it from the website so that search results wouldn't be populated with out-of-date information.)
 
-For further discussion about version-specific documentation in Qubes, see [here][version-thread].
+For further discussion about version-specific documentation in Qubes, see [here](https://groups.google.com/d/topic/qubes-users/H9BZX4K9Ptk/discussion).
 
 ## Style guidelines
 
-* Familiarize yourself with the terms defined in the [glossary]. Use these
+* Familiarize yourself with the terms defined in the [glossary](/doc/glossary/). Use these
    terms consistently and accurately throughout your writing.
  * Syntactically distinguish variables in commands.
    For example, this is ambiguous:
@@ -304,11 +304,11 @@ When making contributions, please try to observe the following style conventions
  * Do not write HTML inside Markdown documents (except in rare, unavoidable cases, such as alerts).
    In particular, never include HTML or CSS for styling, formatting, or white space control.
    That belongs in the (S)CSS files instead.
- * Link only to images in [qubes-attachment] (see [instructions above](#how-to-add-images)).
+ * Link only to images in [qubes-attachment](https://github.com/QubesOS/qubes-attachment) (see [instructions above](#how-to-add-images)).
    Do not link to images on other websites.
  * In order to enable offline browsing and automatic onion redirection, always use relative (rather than absolute) links, e.g., `/doc/doc-guidelines/` instead of `https://www.qubes-os.org/doc/doc-guidelines/`.
    Examples of exceptions:
-   * The signed plain text portions of [QSBs] and [Canaries]
+   * The signed plain text portions of [QSBs](/security/bulletins/) and [Canaries](/security/canaries/)
    * URLs that appear inside code blocks (e.g., in comments and document templates)
    * Files like `README.md` and `CONTRIBUTING.md`
  * Insert a newline at, and only at, the end of each sentence, except when the text will be reproduced outside of the Qubes website repo (see previous item for examples).
@@ -353,30 +353,10 @@ When making contributions, please try to observe the following style conventions
 * Use non-reference-style links like `[website](https://example.com/)`.
   Do *not* use reference links like `[website][example]`, `[website][]` or `[website]`.
 
-([This][md] is a great source for learning about Markdown.)
+([This](https://daringfireball.net/projects/markdown/) is a great source for learning about Markdown.)
 
 ## Git conventions
 
 Please try to write good commit messages, according to the
-[instructions in our coding style guidelines][git-commit].
+[instructions in our coding style guidelines](/doc/coding-style/#commit-message-guidelines).
 
-[qubes-doc]: https://github.com/QubesOS/qubes-doc
-[glossary]: /doc/glossary/
-[issue]: /doc/reporting-bugs/
-[contribute]: #how-to-contribute
-[qubes-issues]: https://github.com/QubesOS/qubes-issues/issues
-[gh-fork]: https://guides.github.com/activities/forking/
-[gh-pull]: https://help.github.com/articles/using-pull-requests/
-[GitHub]: https://github.com/
-[support]: /support/
-[version-example]: /doc/template/fedora/upgrade-25-to-26/
-[version-thread]: https://groups.google.com/d/topic/qubes-users/H9BZX4K9Ptk/discussion
-[QSBs]: /security/bulletins/
-[Canaries]: /security/canaries/
-[News]: /news/
-[md]: https://daringfireball.net/projects/markdown/
-[git-commit]: /doc/coding-style/#commit-message-guidelines
-[render the site locally]: https://github.com/QubesOS/qubesos.github.io#instructions
-[qubes-attachment]: https://github.com/QubesOS/qubes-attachment
-[external documentation]: /doc/#external-documentation
-[#4693]: https://github.com/QubesOS/qubes-issues/issues/4693

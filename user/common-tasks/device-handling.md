@@ -14,10 +14,10 @@ title: Device Handling
 # Device Handling
 
 This is an overview of device handling in Qubes OS.
-For specific devices ([block], [USB] and [PCI] devices), please visit their respective pages.
+For specific devices ([block](/doc/block-devices/), [USB](/doc/usb-devices/) and [PCI](/doc/pci-devices/) devices), please visit their respective pages.
 
 **Important security warning:** Device handling comes with many security implications.
-Please make sure you carefully read and understand the **[security considerations]**.
+Please make sure you carefully read and understand the **[security considerations](/doc/device-handling-security/)**.
 
 
 ## Introduction ##
@@ -38,7 +38,7 @@ PCI devices can be attached using the Qube Settings, but require a VM reboot.
 
 ## General Qubes Device Widget Behavior And Handling ##
 
-When clicking on the tray icon (which looks similar to this): ![SD card and thumbdrive][device manager icon] several device-classes separated by lines are displayed as tooltip.
+When clicking on the tray icon (which looks similar to this): ![SD card and thumbdrive](/attachment/wiki/Devices/media-removable.png) several device-classes separated by lines are displayed as tooltip.
 Block devices are displayed on top, microphones one below and USB-devices at the bottom.
 
 On most laptops, integrated hardware such as cameras and fingerprint-readers are implemented as USB-devices and can be found here.
@@ -57,7 +57,7 @@ Click on one and your device will be attached!
 To detach a device, click the Qubes Devices Widget icon again.
 Attached devices are displayed in bold.
 Hover the one you want to detach.
-A list of VMs appears, one showing the eject symbol: ![eject icon]
+A list of VMs appears, one showing the eject symbol: ![eject icon](/attachment/wiki/Devices/media-eject.png)
 
 
 ### Attaching a Device to Several VMs ###
@@ -65,7 +65,7 @@ A list of VMs appears, one showing the eject symbol: ![eject icon]
 Only `mic` should be attached to more than one running VM.
 You may *assign* a device to more than one VM (using the `--persistent` option), however, only one of them can be started at the same time.
 
-But be careful: There is a [bug in `qvm-device block` or `qvm-block`][i4692] which will allow you to *attach* a block device to two running VMs.
+But be careful: There is a [bug in `qvm-device block` or `qvm-block`](https://github.com/QubesOS/qubes-issues/issues/4692) which will allow you to *attach* a block device to two running VMs.
 Don't do that!
 
 
@@ -158,10 +158,3 @@ If no specific `sourceVM:deviceID` combination is given, *all devices of that DE
 **SYNOPSIS**
 `qvm-device DEVICE_CLASS {detach|dt|d} targetVM [sourceVM:deviceID]`
 
-[block]:/doc/block-devices/
-[USB]:/doc/usb-devices/
-[PCI]:/doc/pci-devices/
-[security considerations]: /doc/device-handling-security/
-[device manager icon]: /attachment/wiki/Devices/media-removable.png
-[eject icon]: /attachment/wiki/Devices/media-eject.png
-[i4692]: https://github.com/QubesOS/qubes-issues/issues/4692

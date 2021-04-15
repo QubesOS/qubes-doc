@@ -12,36 +12,36 @@ Qubes R4.0 release notes
 New features since 3.2
 ----------------------
 
-* Core management scripts rewrite with better structure and extensibility, [API documentation][api-doc]
-* [Admin API][admin-api] allowing strictly controlled managing from non-dom0
+* Core management scripts rewrite with better structure and extensibility, [API documentation](https://dev.qubes-os.org/projects/qubes-core-admin/en/latest/)
+* [Admin API](/news/2017/06/27/qubes-admin-api/) allowing strictly controlled managing from non-dom0
 * All `qvm-*` command-line tools rewritten, some options have changed
 * Renaming VM directly is prohibited, there is GUI to clone under new name and remove old VM
-* Use [PVH][qsb-37] and [HVM][hvm-switch] by default to [mitigate Meltdown & Spectre][qsb-37] and lower the [attack surface on Xen][qsb-24]
+* Use [PVH](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt) and [HVM](https://github.com/QubesOS/qubes-issues/issues/2185) by default to [mitigate Meltdown & Spectre](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt) and lower the [attack surface on Xen](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-024-2016.txt)
 * Create USB VM by default
-* [Multiple DisposableVMs templates support][dispvm-ticket]
-* New [backup format][backup-format] using scrypt key-derivation function
+* [Multiple DisposableVMs templates support](https://github.com/QubesOS/qubes-issues/issues/2253)
+* New [backup format](/doc/backup-emergency-restore-v4/) using scrypt key-derivation function
 * Non-encrypted backups no longer supported
-* [split VM packages][packages-split], for better support minimal, specialized templates
-* [Qubes Manager decomposition][manager-ticket] - domains and devices widgets instead of full Qubes Manager; devices widget support also USB
-* [More flexible firewall interface][vm-interface] for ease unikernel integration
-* Template VMs do not have network interface by default, [qrexec-based updates proxy][qrexec-proxy] is used instead
-* More flexible IP addressing for VMs - [custom IP][custom-ip], [hidden from the IP][hide-ip]
-* More flexible Qubes RPC policy - [related ticket][qrexec-policy-keywords], [documentation][qrexec-doc]
-* [New Qubes RPC confirmation window][qrexec-confirm], including option to specify destination VM
-* [New storage subsystem design][storage]
+* [split VM packages](https://github.com/QubesOS/qubes-issues/issues/2771), for better support minimal, specialized templates
+* [Qubes Manager decomposition](https://github.com/QubesOS/qubes-issues/issues/2132) - domains and devices widgets instead of full Qubes Manager; devices widget support also USB
+* [More flexible firewall interface](/doc/vm-interface/) for ease unikernel integration
+* Template VMs do not have network interface by default, [qrexec-based updates proxy](https://github.com/QubesOS/qubes-issues/issues/1854) is used instead
+* More flexible IP addressing for VMs - [custom IP](https://github.com/QubesOS/qubes-issues/issues/1477), [hidden from the IP](https://github.com/QubesOS/qubes-issues/issues/1143)
+* More flexible Qubes RPC policy - [related ticket](https://github.com/QubesOS/qubes-issues/issues/865), [documentation](/doc/qrexec/#specifying-vms-tags-types-targets-etc)
+* [New Qubes RPC confirmation window](https://github.com/QubesOS/qubes-issues/issues/910), including option to specify destination VM
+* [New storage subsystem design](https://github.com/QubesOS/qubes-issues/issues/1842)
 * Dom0 update to Fedora 25 for better hardware support
 * Kernel 4.9.x
 
-You can get detailed description in [completed github issues][github-release-notes]
+You can get detailed description in [completed github issues](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.0%22+label%3Arelease-notes+is%3Aclosed)
 
 Security Notes
 --------------
 
-* PV VMs migrated from 3.2 to 4.0-rc4 or later are automatically set to PVH mode in order to protect against Meltdown (see [QSB #37][qsb-37]).
+* PV VMs migrated from 3.2 to 4.0-rc4 or later are automatically set to PVH mode in order to protect against Meltdown (see [QSB #37](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt)).
   However, PV VMs migrated from any earlier 4.0 release candidate (RC1, RC2, or RC3) are not automatically set to PVH mode.
   These must be set manually.
 
-* The following steps may need to be applied in dom0 and Fedora 26 TemplateVMs in order to receive updates (see [#3737]).
+* The following steps may need to be applied in dom0 and Fedora 26 TemplateVMs in order to receive updates (see [#3737](https://github.com/QubesOS/qubes-issues/issues/3737)).
 
   Steps for dom0 updates:
 
@@ -77,9 +77,9 @@ Security Notes
 Known issues
 ------------
 
-* Locale using coma as decimal separator [crashes qubesd][locale-bug]. Either install with different locale (English (United States) for example), or manually apply fix explained in that issue.
+* Locale using coma as decimal separator [crashes qubesd](https://github.com/QubesOS/qubes-issues/issues/3753). Either install with different locale (English (United States) for example), or manually apply fix explained in that issue.
 
-* In the middle of installation, [keyboard layout reset to US][keyboard-layout-bug]. Be careful what is the current layout while setting default user password (see upper right screen corner).
+* In the middle of installation, [keyboard layout reset to US](https://github.com/QubesOS/qubes-issues/issues/3352). Be careful what is the current layout while setting default user password (see upper right screen corner).
 
 * On some laptops (for example Librem 15v2), touchpad do not work directly after installation. Reboot the system to fix the issue.
 
@@ -106,29 +106,6 @@ Upgrading
 
 There is no in-place upgrade path from earlier Qubes versions. The only
 supported option to upgrade to Qubes R4.0 is to install it from scratch and use
-[qubes backup and restore tools][backup] for migrating of all of the user VMs.
-We also provide [detailed instruction][upgrade-to-r4.0] for this procedure.
+[qubes backup and restore tools](/doc/backup-restore/) for migrating of all of the user VMs.
+We also provide [detailed instruction](/doc/upgrade-to-r4.0/) for this procedure.
 
-[backup]: /doc/backup-restore/
-[github-release-notes]: https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.0%22+label%3Arelease-notes+is%3Aclosed
-[custom-ip]: https://github.com/QubesOS/qubes-issues/issues/1477
-[hide-ip]: https://github.com/QubesOS/qubes-issues/issues/1143
-[packages-split]: https://github.com/QubesOS/qubes-issues/issues/2771
-[hvm-switch]: https://github.com/QubesOS/qubes-issues/issues/2185
-[manager-ticket]: https://github.com/QubesOS/qubes-issues/issues/2132
-[dispvm-ticket]: https://github.com/QubesOS/qubes-issues/issues/2253
-[qrexec-proxy]: https://github.com/QubesOS/qubes-issues/issues/1854
-[qrexec-policy-keywords]: https://github.com/QubesOS/qubes-issues/issues/865
-[qrexec-confirm]: https://github.com/QubesOS/qubes-issues/issues/910
-[qrexec-doc]: /doc/qrexec/#specifying-vms-tags-types-targets-etc
-[storage]: https://github.com/QubesOS/qubes-issues/issues/1842
-[vm-interface]: /doc/vm-interface/
-[admin-api]: /news/2017/06/27/qubes-admin-api/
-[qsb-24]: https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-024-2016.txt
-[qsb-37]: https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt
-[backup-format]: /doc/backup-emergency-restore-v4/
-[api-doc]: https://dev.qubes-os.org/projects/qubes-core-admin/en/latest/
-[upgrade-to-r4.0]: /doc/upgrade-to-r4.0/
-[locale-bug]: https://github.com/QubesOS/qubes-issues/issues/3753
-[keyboard-layout-bug]: https://github.com/QubesOS/qubes-issues/issues/3352
-[#3737]: https://github.com/QubesOS/qubes-issues/issues/3737

@@ -9,14 +9,14 @@ title: Installing contributed packages
 # Installing contributed packages
 
 _This page is for users who wish to install contributed packages.
-If you want to contribute a package, please see [package contributions]._
+If you want to contribute a package, please see [package contributions](/doc/package-contributions/)._
 
-Qubes OS contributed packages are available under the [QubesOS-contrib] GitHub Project.
-This is a place where our community can [contribute Qubes OS related packages, additions and various customizations][package contributions].
+Qubes OS contributed packages are available under the [QubesOS-contrib](https://github.com/QubesOS-contrib/) GitHub Project.
+This is a place where our community can [contribute Qubes OS related packages, additions and various customizations](/doc/package-contributions/).
 
 ## Installing the repositories
 
-If you want to install one of these packages, first you need to enable the repository in your system (dom0 and/or templates). This can be done by installing the `qubes-repo-contrib` package. This package includes the repository definition and keys necessary to download, verify, and install [QubesOS-contrib] packages.
+If you want to install one of these packages, first you need to enable the repository in your system (dom0 and/or templates). This can be done by installing the `qubes-repo-contrib` package. This package includes the repository definition and keys necessary to download, verify, and install [QubesOS-contrib](https://github.com/QubesOS-contrib/) packages.
 
 In dom0, use `qubes-dom0-update`:
 
@@ -57,5 +57,3 @@ sudo qubes-dom0-update --clean qvm-screenshot-tool
 
 Please see the package's README for specific installation and setup instructions.
 
-[package contributions]: /doc/package-contributions/
-[QubesOS-contrib]: https://github.com/QubesOS-contrib/

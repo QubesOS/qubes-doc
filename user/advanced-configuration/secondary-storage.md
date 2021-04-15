@@ -114,5 +114,3 @@ By default VMs will be created on the main Qubes disk (i.e. a small SSD), to cre
 qvm-create -P poolhd0_qubes --label red unstrusted-hdd
 ```
 
-[Qubes Backup]: /doc/BackupRestore/
-[TemplateVM]: /doc/Templates/

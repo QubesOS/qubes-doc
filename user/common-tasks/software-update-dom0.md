@@ -12,10 +12,10 @@ title: Installing and updating software in dom0
 
 # Installing and updating software in dom0
 
-Updating [dom0] is one of the main steps in [Updating Qubes OS].
-It is very important to keep dom0 up-to-date with the latest [security] updates.
+Updating [dom0](/doc/glossary/#dom0) is one of the main steps in [Updating Qubes OS](/doc/updating-qubes-os/).
+It is very important to keep dom0 up-to-date with the latest [security](/security/) updates.
 We also publish dom0 updates for various non-security bug fixes and enhancements to Qubes components.
-In addition, you may wish to update the kernel, drivers, or libraries in dom0 when [troubleshooting newer hardware].
+In addition, you may wish to update the kernel, drivers, or libraries in dom0 when [troubleshooting newer hardware](/doc/newer-hardware-troubleshooting/).
 
 ## Security
 
@@ -109,7 +109,7 @@ sudo dnf remove anti-evil-maid
 
 ## Testing repositories
 
-There are three Qubes dom0 [testing] repositories:
+There are three Qubes dom0 [testing](/doc/testing/) repositories:
 
 - `qubes-dom0-current-testing` -- testing packages that will eventually land in the stable
   (`current`) repository
@@ -132,7 +132,7 @@ To enable or disable any of these repos permanently, change the corresponding `e
 
 ## Contributed package repository
 
-Please see [installing contributed packages].
+Please see [installing contributed packages](/doc/installing-contributed-packages/).
 
 ## Kernel upgrade
 
@@ -144,8 +144,8 @@ The packages `kernel` and `kernel-latest` are for dom0.
 
 In the `current` repository:
 
-- `kernel`: an older LTS kernel that has passed Qubes [testing] (the default dom0 kernel)
-- `kernel-latest`: the latest release from kernel.org that has passed Qubes [testing] (useful for [troubleshooting newer hardware])
+- `kernel`: an older LTS kernel that has passed Qubes [testing](/doc/testing/) (the default dom0 kernel)
+- `kernel-latest`: the latest release from kernel.org that has passed Qubes [testing](/doc/testing/) (useful for [troubleshooting newer hardware](/doc/newer-hardware-troubleshooting/))
 
 In the `current-testing` repository:
 
@@ -155,7 +155,7 @@ In the `current-testing` repository:
 ### domU
 
 The packages `kernel-qubes-vm` and `kernel-latest-qubes-vm` are for domUs.
-See [Managing VM kernel] for more information.
+See [Managing VM kernel](/doc/managing-vm-kernel/) for more information.
 
 ### Example
 
@@ -236,10 +236,3 @@ For example: sys-whonix.
 Qubes VM Manager -> System -> Global Settings -> UpdateVM -> sys-whonix
 `
 
-[dom0]: /doc/glossary/#dom0
-[Updating Qubes OS]: /doc/updating-qubes-os/
-[security]: /security/
-[testing]: /doc/testing/
-[troubleshooting newer hardware]: /doc/newer-hardware-troubleshooting/
-[Managing VM kernel]: /doc/managing-vm-kernel/
-[installing contributed packages]: /doc/installing-contributed-packages/

@@ -11,7 +11,7 @@ title: Managing VM kernel
 # VM kernel managed by dom0
 
 By default, VMs kernels are provided by dom0.
-(See [here][dom0-kernel-upgrade] for information about upgrading kernels in dom0.)
+(See [here](/doc/software-update-dom0/#kernel-upgrade) for information about upgrading kernels in dom0.)
 This means that:
 
 1. You can select the kernel version (using GUI VM Settings tool or `qvm-prefs` commandline tool);
@@ -363,4 +363,3 @@ update-initramfs: Generating /boot/initrd.img-3.16.0-4-amd64
 
 In case of problems, visit the [VM Troubleshooting guide](/doc/vm-troubleshooting/#vm-kernel-troubleshooting) to learn how to access the VM console, view logs and fix a VM kernel installation.
 
-[dom0-kernel-upgrade]: /doc/software-update-dom0/#kernel-upgrade

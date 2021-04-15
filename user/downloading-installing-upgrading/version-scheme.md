@@ -42,7 +42,7 @@ When enough development has been made, we announce the first stable version,
 like e.g. `3.0.0` (i.e. without `-rc`). This version is considered stable and
 we support it for some period. Core components are branched at this moment and
 bugfixes are backported from master branch. Please see [Help, Support, Mailing
-Lists, and Forum] for places to ask questions about stable releases. No major
+Lists, and Forum](/support/) for places to ask questions about stable releases. No major
 features and interface incompatibilities are to be included in this release. We
 release bugfixes as `3.0.1`, `3.0.2` and so on, while new features come into the
 next release e.g. `3.1-rcX`.
@@ -158,4 +158,3 @@ Check installed version
 If you want to know which version you are running, for example to report
 an issue, you can either check in the Qubes Manager menu under About / Qubes OS  or in the file /etc/qubes-release in dom0. For the latter you can use a command like `cat /etc/qubes-release` in a dom0 terminal.
 
-[Help, Support, Mailing Lists, and Forum]: /support/

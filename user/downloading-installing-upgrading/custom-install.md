@@ -97,7 +97,7 @@ Default compiled-in device cipher parameters:
 
 This means that, by default, Qubes inherits these upstream defaults:
 
-- AES-128 [[1]][cryptsetup-faq][[2]][dm-crypt][[3]][tomb-238]
+- AES-128 [[1]](https://gitlab.com/cryptsetup/cryptsetup/wikis/FrequentlyAskedQuestions)[[2]](https://wiki.archlinux.org/index.php/dm-crypt/Device_encryption)[[3]](https://github.com/dyne/Tomb/issues/238)
 - SHA-256
 - `/dev/urandom`
 - probably an `iter-time` of one second
@@ -162,6 +162,3 @@ Boot into the Qubes installer, then press `ctrl`+`alt`+`F2` to get a virtual con
    The default file systems are ext4 for `/boot` and `/`, and swap for `swap`.
    When you are finished, the Unknown list should go away, and all three mount points should be assigned. Proceed normally with the installation from there.
 
-[cryptsetup-faq]: https://gitlab.com/cryptsetup/cryptsetup/wikis/FrequentlyAskedQuestions
-[dm-crypt]: https://wiki.archlinux.org/index.php/dm-crypt/Device_encryption
-[tomb-238]: https://github.com/dyne/Tomb/issues/238

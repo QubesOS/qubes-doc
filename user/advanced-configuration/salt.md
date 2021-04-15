@@ -22,7 +22,7 @@ In the current form the **API is provisional** and subject to change between
 This document is not meant to be comprehensive Salt documentation; however,
 before writing anything it is required you have at least *some* understanding of
 basic Salt-related vocabulary.
-For more exhaustive documentation, visit [official site][salt-doc], though we
+For more exhaustive documentation, visit [official site](https://docs.saltstack.com/en/latest/), though we
 must warn you that it is not easy to read if you just start working with Salt
 and know nothing.
 
@@ -86,17 +86,17 @@ It executes a command on behalf of the administrator.
 `name: echo 'hello world'` is a parameter for the execution module `cmd.run`.
 The module used defines which parameters can be passed to it.
 
-There is a list of [officially available states][salt-doc-states].
+There is a list of [officially available states](https://docs.saltstack.com/en/latest/ref/states/all/).
 There are many very useful states:
 
-- For [managing files][salt-doc-states-file]: Use this to create files or
+- For [managing files](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html): Use this to create files or
   directories and change them (append lines, replace text, set their content etc.)
-- For [installing and uninstalling][salt-doc-states-pkg] packages.
-- For [executing shell commands][salt-doc-states-cmd].
+- For [installing and uninstalling](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.pkg.html) packages.
+- For [executing shell commands](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html).
 
 With these three states you can define most of the configuration of a VM.
 
-You can also [order the execution][salt-doc-states-order] of your states:
+You can also [order the execution](https://docs.saltstack.com/en/latest/ref/states/ordering.html) of your states:
 
 ```
 D:
@@ -121,7 +121,7 @@ A:
 
 The order of execution will be `A, B, C, D`.
 The official documentation has more details on the
-[require][salt-doc-states-req] and [order][salt-doc-states-ord] arguments.
+[require](https://docs.saltstack.com/en/latest/ref/states/requisites.html) and [order](https://docs.saltstack.com/en/latest/ref/states/ordering.html#the-order-option) arguments.
 
 #### State Files
 
@@ -133,7 +133,7 @@ configuration (e.g., a state file `mail.sls` could setup a VM for e-mail).
 #### Top Files
 
 After you have several state files, you need something to assign them to a VM.
-This is done by `*.top` files ([official documentation][salt-doc-top]).
+This is done by `*.top` files ([official documentation](https://docs.saltstack.com/en/latest/ref/states/top.html)).
 Their structure looks like this:
 
 ```
@@ -195,15 +195,15 @@ $ qubesctl --all state.highstate
 
 You will sometimes find yourself writing repetitive states.
 To solve this, there is the ability to template files or states.
-This is most commonly done with [Jinja][jinja].
+This is most commonly done with [Jinja](http://jinja.pocoo.org/).
 Jinja is similar to Python and in many cases behaves in a similar fashion, but
 there are sometimes differences when, for example, you set some variable inside
 a loop: the variable outside will not get changed.
 Instead, to get this behavior, you would use a `do` statement.
-So you should take a look at the [Jinja API documentation][jinja-tmp].
+So you should take a look at the [Jinja API documentation](http://jinja.pocoo.org/docs/2.9/templates/).
 Documentation about using Jinja to directly call Salt functions and get data
 about your system can be found in the official
-[Salt documentation][jinja-call-salt-functions].
+[Salt documentation](https://docs.saltstack.com/en/getstarted/config/jinja.html#get-data-using-salt).
 
 ## Salt Configuration, QubesOS layout
 
@@ -259,7 +259,7 @@ This way dom0 doesn't directly interact with potentially malicious target VMs;
 and in the case of a compromised Salt VM, because they are temporary, the
 compromise cannot spread from one VM to another.
 
-Beginning with Qubes 4.0 and after [QSB #45], we implemented two changes:
+Beginning with Qubes 4.0 and after [QSB #45](/news/2018/12/03/qsb-45/), we implemented two changes:
 
 1. Added the `management_dispvm` VM property, which specifies the DVM
    Template that should be used for management, such as Salt
@@ -599,26 +599,11 @@ install template and shutdown updateVM:
 
 ## Further Reading
 
-- [Salt documentation][salt-doc]
-- [Salt states][salt-doc-states] ([files][salt-doc-states-file], [commands][salt-doc-states-cmd],
-  [packages][salt-doc-states-pkg], [ordering][salt-doc-states-order])
-- [Top files][salt-doc-top]
-- [Jinja templates][jinja]
-- [Qubes specific modules][salt-qvm-doc]
-- [Formulas for default Qubes VMs][salt-virtual-machines-states]
+- [Salt documentation](https://docs.saltstack.com/en/latest/)
+- [Salt states](https://docs.saltstack.com/en/latest/ref/states/all/) ([files](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html), [commands](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html),
+  [packages](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.pkg.html), [ordering](https://docs.saltstack.com/en/latest/ref/states/ordering.html))
+- [Top files](https://docs.saltstack.com/en/latest/ref/states/top.html)
+- [Jinja templates](http://jinja.pocoo.org/)
+- [Qubes specific modules](https://github.com/QubesOS/qubes-mgmt-salt-dom0-qvm/blob/master/README.rst)
+- [Formulas for default Qubes VMs](https://github.com/QubesOS/qubes-mgmt-salt-dom0-virtual-machines/tree/master/qvm)
 
-[salt-doc]: https://docs.saltstack.com/en/latest/
-[salt-qvm-doc]: https://github.com/QubesOS/qubes-mgmt-salt-dom0-qvm/blob/master/README.rst
-[salt-virtual-machines-states]: https://github.com/QubesOS/qubes-mgmt-salt-dom0-virtual-machines/tree/master/qvm
-[salt-doc-states]: https://docs.saltstack.com/en/latest/ref/states/all/
-[salt-doc-states-file]: https://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html
-[salt-doc-states-pkg]: https://docs.saltstack.com/en/latest/ref/states/all/salt.states.pkg.html
-[salt-doc-states-cmd]: https://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html
-[salt-doc-states-order]: https://docs.saltstack.com/en/latest/ref/states/ordering.html
-[salt-doc-states-req]: https://docs.saltstack.com/en/latest/ref/states/requisites.html
-[salt-doc-states-ord]: https://docs.saltstack.com/en/latest/ref/states/ordering.html#the-order-option
-[salt-doc-top]:https://docs.saltstack.com/en/latest/ref/states/top.html
-[jinja]: http://jinja.pocoo.org/
-[jinja-tmp]: http://jinja.pocoo.org/docs/2.9/templates/
-[jinja-call-salt-functions]: https://docs.saltstack.com/en/getstarted/config/jinja.html#get-data-using-salt
-[QSB #45]: /news/2018/12/03/qsb-45/

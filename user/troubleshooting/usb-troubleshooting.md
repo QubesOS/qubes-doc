@@ -62,9 +62,9 @@ Errors suggesting this issue:
 
 - during `qvm-start sys-usb`:
 
-    `
+    ```
     internal error: Unable to reset PCI device [...]  no FLR, PM reset or bus reset available.
-    `
+    ```
 
 Another solution would be to set the pci_strictreset option in dom0:
 

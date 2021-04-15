@@ -13,8 +13,8 @@ title: Installing and updating software in domUs
 
 # Installing and updating software in domUs
 
-Updating [domUs], especially [TemplateVMs] and [StandaloneVMs][StandaloneVM] are important steps in [Updating Qubes OS].
-It is very import to keep domUs up-to-date with the latest [security] updates.
+Updating [domUs](/doc/glossary/#domu), especially [TemplateVMs](/doc/templates/) and [StandaloneVMs](/doc/standalone-and-hvm/) are important steps in [Updating Qubes OS](/doc/updating-qubes-os/).
+It is very import to keep domUs up-to-date with the latest [security](/security/) updates.
 Updating these VMs also allows you to receive various non-security bug fixes and enhancements both from the Qubes OS Project and from your upstream distro maintainer.
 
 ## Installing software in TemplateVMs
@@ -25,10 +25,10 @@ To permanently install new software in a TemplateVM:
 2. Start either a terminal (e.g. `gnome-terminal`) or a dedicated software management application, such as `gpk-application`.
 3. Install software as normally instructed inside that operating system (e.g. `sudo dnf install <PACKAGE_NAME>` on Fedora, `sudo apt install <PACKAGE_NAME>` on Debian).
 4. Shut down the TemplateVM.
-5. Restart all [TemplateBasedVMs] based on the TemplateVM so the changes can take effect.
-6. (Optional) In the relevant [TemplateBasedVMs]' **Qube Settings**, go to the **Applications** tab, select the new application(s) from the list, and press OK.
+5. Restart all [TemplateBasedVMs](/doc/glossary/#templatebasedvm) based on the TemplateVM so the changes can take effect.
+6. (Optional) In the relevant [TemplateBasedVMs](/doc/glossary/#templatebasedvm)' **Qube Settings**, go to the **Applications** tab, select the new application(s) from the list, and press OK.
     These new shortcuts will appear in the Applications Menu.
-    (If you encounter problems, see [here][shortcuts] for troubleshooting.)
+    (If you encounter problems, see [here](/doc/managing-appvm-shortcuts/) for troubleshooting.)
 
 ![[The Applications tab in Qube Settings](/attachment/wiki/ManagingAppVmShortcuts/r4.1-dom0-appmenu-select.png)](/attachment/wiki/ManagingAppVmShortcuts/r4.1-dom0-appmenu-select.png)
 
@@ -45,7 +45,7 @@ Advanced users can execute the standard update command for that operating system
 
 ## Testing repositories
 
-If you wish to install updates that are still in [testing], you must enable the appropriate testing repositories.
+If you wish to install updates that are still in [testing](/doc/testing), you must enable the appropriate testing repositories.
 
 ### Fedora
 
@@ -78,11 +78,11 @@ To enable or disable any of these repos permanently, uncomment the corresponding
 
 ## Contributed package repository
 
-Please see [installing contributed packages].
+Please see [installing contributed packages](/doc/installing-contributed-packages/).
 
 ## StandaloneVMs
 
-When you create a [StandaloneVM] from a TemplateVM, the StandaloneVM is a complete clone of the TemplateVM, including the entire filesystem.
+When you create a [StandaloneVM](/doc/standalone-and-hvm/) from a TemplateVM, the StandaloneVM is a complete clone of the TemplateVM, including the entire filesystem.
 After the moment of creation, the StandaloneVM is completely independent from the TemplateVM.
 Therefore, it will not be updated when the TemplateVM is updated.
 Rather, it must be updated individually.
@@ -94,7 +94,7 @@ The following sections cover advanced topics pertaining to installing and updati
 
 ### RPMFusion for Fedora TemplateVMs
 
-If you would like to enable the [RPM Fusion] repositories, open a Terminal of the TemplateVM and type the following commands, depending on which RPM Fusion repositories you wish to enable (see [RPM Fusion] for details):
+If you would like to enable the [RPM Fusion](https://rpmfusion.org/) repositories, open a Terminal of the TemplateVM and type the following commands, depending on which RPM Fusion repositories you wish to enable (see [RPM Fusion](https://rpmfusion.org/) for details):
 
 ~~~
 sudo dnf config-manager --set-enabled rpmfusion-free
@@ -143,7 +143,7 @@ Just make sure to **back up** all of your data and changes first!
 
 #### Reinstall the template
 
-Please see [How to Reinstall a TemplateVM].
+Please see [How to Reinstall a TemplateVM](/doc/reinstall-template/).
 
 #### Full revert
 
@@ -176,7 +176,7 @@ Thanks to such configuration all the VMs can use the same proxy address, and if 
 If the VM is configured to have access to the updates proxy (2), the startup scripts will automatically configure dnf to really use the proxy (3).
 Also access to updates proxy is independent of any other firewall settings (VM will have access to updates proxy, even if policy is set to block all the traffic).
 
-There are two services (`qvm-service`, [service framework]):
+There are two services (`qvm-service`, [service framework](/doc/qubes-service/)):
 
 1. `qubes-updates-proxy` (and its deprecated name: `qubes-yum-proxy`) - a service providing a proxy for templates - by default enabled in NetVMs (especially: sys-net)
 2. `updates-proxy-setup` (and its deprecated name: `yum-proxy-setup`) - use a proxy provided by another VM (instead of downloading updates directly), enabled by default in all templates
@@ -304,15 +304,3 @@ yelp.desktop
 
 Note that the app will autostart only when the AppVM starts. If you would like the AppVM to autostart, select the "Start qube automatically on boot" checkbox in the AppVM's Qube Settings.
 
-[domUs]: /doc/glossary/#domu
-[TemplateVMs]: /doc/templates/
-[StandaloneVM]: /doc/standalone-and-hvm/
-[Updating Qubes OS]: /doc/updating-qubes-os/
-[security]: /security/
-[TemplateBasedVMs]: /doc/glossary/#templatebasedvm
-[testing]: /doc/testing
-[RPM Fusion]: https://rpmfusion.org/
-[service framework]: /doc/qubes-service/
-[How to Reinstall a TemplateVM]: /doc/reinstall-template/
-[installing contributed packages]: /doc/installing-contributed-packages/
-[shortcuts]: /doc/managing-appvm-shortcuts/
