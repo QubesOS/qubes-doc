@@ -21,7 +21,7 @@ In a TemplateBasedVM all of the file system comes from the template except `/hom
 This means that changes in the rest of the filesystem are lost when the TemplateBasedVM is shutdown.
 bind-dirs provides a mechanism whereby files usually taken from the template can be persisted across reboots.
 
-For example, in Whonix, [Tor's data dir `/var/lib/tor` has been made persistent in the TemplateBased ProxyVM sys-whonix][whonix]
+For example, in Whonix, [Tor's data dir `/var/lib/tor` has been made persistent in the TemplateBased ProxyVM sys-whonix](https://github.com/Whonix/qubes-whonix/blob/8438d13d75822e9ea800b9eb6024063f476636ff/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf#L5)
 In this way sys-whonix can benefit from the Tor anonymity feature 'persistent Tor entry guards' but does not have to be a StandaloneVM.
 
 ## How to use bind-dirs.sh? ##
@@ -85,7 +85,7 @@ Note that you must create the full folder structure under `/rw/bind-dirs` - e.g 
 Any changes you make will not survive a reboot. If you think it likely you will want to edit a file, then either include the parent directory in bind-dirs rather than the file, or perform the file operation on the file in `/rw/bind-dirs`.
 * Some files are altered when a qube boots - e.g. `/etc/hosts`.
 If you try to use bind-dirs on such files you may break your qube in unpredictable ways.
-You can add persistent rules to `/etc/hosts` using [`/rw/config/rc.local`][config-file]
+You can add persistent rules to `/etc/hosts` using [`/rw/config/rc.local`](/doc/config-files)
 
 ## How to remove binds from bind-dirs.sh? ##
 
@@ -105,5 +105,3 @@ binds=( "${binds[@]/'/var/lib/tor'}" )
 
 [TemplateBasedVMs: make selected files and folders located in the root image persistent- review bind-dirs.sh](https://groups.google.com/forum/#!topic/qubes-devel/tcYQ4eV-XX4/discussion)
 
-[config-file]: /doc/config-files
-[whonix]: https://github.com/Whonix/qubes-whonix/blob/8438d13d75822e9ea800b9eb6024063f476636ff/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf#L5

@@ -11,28 +11,28 @@ title: Google Summer of Code
 ================
 ## Information for Students
 
-Thank you for your interest in participating in the [Google Summer of Code program][gsoc-qubes] with the [Qubes OS team][team]. You can read more about the Google Summer of Code program at the [official website][gsoc] and the [official FAQ][gsoc-faq].
+Thank you for your interest in participating in the [Google Summer of Code program](https://summerofcode.withgoogle.com/organizations/4675790572093440/) with the [Qubes OS team](/team/). You can read more about the Google Summer of Code program at the [official website](https://summerofcode.withgoogle.com/) and the [official FAQ](https://developers.google.com/open-source/gsoc/faq).
 
 Being accepted as a Google Summer of Code student is quite competitive. Students wishing to participate in the Summer of Code must be aware that you will be required to produce code for Qubes OS for 3 months. Your mentors, Qubes developers, will dedicate a portion of their time towards mentoring you. Therefore, we seek candidates who are committed to helping Qubes long-term and are willing to do quality work and be proactive in communicating with your mentor.
 
-You don't have to be a proven developer -- in fact, this whole program is meant to facilitate joining Qubes and other free and open source communities. The Qubes community maintains information about [contributing to Qubes development][contributing] and [how to send patches][patches]. In order to contribute code to the Qubes project, you must be able to [sign your code][code-signing].
+You don't have to be a proven developer -- in fact, this whole program is meant to facilitate joining Qubes and other free and open source communities. The Qubes community maintains information about [contributing to Qubes development](/doc/contributing/#contributing-code) and [how to send patches](/doc/source-code/#how-to-send-patches). In order to contribute code to the Qubes project, you must be able to [sign your code](/doc/code-signing/).
 
-You should start learning the components that you plan on working on before the start date. Qubes developers are available on the [mailing lists][ml-devel] for help. The GSoC timeline reserves a lot of time for bonding with the project -- use that time wisely. Good communication is key, you should plan to communicate with your team daily and formally report progress and plans weekly. Students who neglect active communication will be failed.
+You should start learning the components that you plan on working on before the start date. Qubes developers are available on the [mailing lists](/support/#qubes-devel) for help. The GSoC timeline reserves a lot of time for bonding with the project -- use that time wisely. Good communication is key, you should plan to communicate with your team daily and formally report progress and plans weekly. Students who neglect active communication will be failed.
 
 ### Overview of Steps
 
-- Join the [qubes-devel list][ml-devel] and introduce yourself, and meet your fellow developers
-- Read [Google's instructions for participating][gsoc-participate] and the [GSoC Student Manual][gsoc-student]
+- Join the [qubes-devel list](/support/#qubes-devel) and introduce yourself, and meet your fellow developers
+- Read [Google's instructions for participating](https://developers.google.com/open-source/gsoc/) and the [GSoC Student Manual](https://developers.google.com/open-source/gsoc/resources/manual#student_manual)
 - Take a look at the list of ideas below
 - Come up with a project that you are interested in (and feel free to propose your own! Don't feel limited by the list below.)
 - Read the Student Proposal guidelines below
 - Write a first draft proposal and send it to the qubes-devel mailing list for review
-- Submit proposal using [Google's web interface][gsoc-submit] ahead of the deadline (this requires a Google Account!)
+- Submit proposal using [Google's web interface](https://summerofcode.withgoogle.com/) ahead of the deadline (this requires a Google Account!)
 - Submit proof of enrollment well ahead of the deadline
 
 Coming up with an interesting idea that you can realistically achieve in the time available to you (one summer) is probably the most difficult part. We strongly recommend getting involved in advance of the beginning of GSoC, and we will look favorably on applications from students who have already started to act like free and open source developers.
 
-Before the summer starts, there are some preparatory tasks which are highly encouraged. First, if you aren't already, definitely start using Qubes as your primary OS as soon as possible! Also, it is encouraged that you become familiar and comfortable with the Qubes development workflow sooner than later. A good way to do this (and also a great way to stand out as an awesome applicant and make us want to accept you!) might be to pick up some issues from [qubes-issues][qubes-issues] (our issue-tracking repo) and submit some patches addressing them. Some suitable issues might be those with tags ["help wanted" and "P: minor"][qubes-issues-suggested] (although more significant things are also welcome, of course). Doing this will get you some practice with [qubes-builder][qubes-builder], our code-signing policies, and some familiarity with our code base in general so you are ready to hit the ground running come summer.
+Before the summer starts, there are some preparatory tasks which are highly encouraged. First, if you aren't already, definitely start using Qubes as your primary OS as soon as possible! Also, it is encouraged that you become familiar and comfortable with the Qubes development workflow sooner than later. A good way to do this (and also a great way to stand out as an awesome applicant and make us want to accept you!) might be to pick up some issues from [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) (our issue-tracking repo) and submit some patches addressing them. Some suitable issues might be those with tags ["help wanted" and "P: minor"](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22P%3A%20minor%22%20label%3A%22help%20wanted%22) (although more significant things are also welcome, of course). Doing this will get you some practice with [qubes-builder](/doc/qubes-builder/), our code-signing policies, and some familiarity with our code base in general so you are ready to hit the ground running come summer.
 
 ### Student proposal guidelines
 
@@ -75,7 +75,7 @@ Other things to think about:
 
 ## Project Ideas
 
-These project ideas were contributed by our developers and may be incomplete. If you are interested in submitting a proposal based on these ideas, you should contact the [qubes-devel mailing list][ml-devel] and associated GitHub issue to learn more about the idea.
+These project ideas were contributed by our developers and may be incomplete. If you are interested in submitting a proposal based on these ideas, you should contact the [qubes-devel mailing list](/support/#qubes-devel) and associated GitHub issue to learn more about the idea.
 
 ```
 ### Adding a Proposal
@@ -463,7 +463,7 @@ Details, reference: [#2233](https://github.com/QubesOS/qubes-issues/issues/2233)
 
 **Knowledge prerequisite**:
 
-**Mentor**: Inquire on [qubes-devel][ml-devel].
+**Mentor**: Inquire on [qubes-devel](/support/#qubes-devel).
 
 ### Admin API Fuzzer
 
@@ -487,7 +487,7 @@ A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of
   - some knowledge about fuzzing & existing fuzzing frameworks (e.g. [oss-fuzz](https://github.com/google/oss-fuzz/tree/master/projects/qubes-os))
   - a hacker's curiosity
 
-**Mentor**: Inquire on [qubes-devel][ml-devel].
+**Mentor**: Inquire on [qubes-devel](/support/#qubes-devel).
 
 
 ### Secure Boot support
@@ -525,7 +525,7 @@ A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of
 
 ## Past Projects
 
-You can view the projects we had in 2017 in the [GSoC 2017 archive][2017-archive]. We also participated in GSoC 2020, and you can see the project in the [GSoC 2020 archive][2020-archive].
+You can view the projects we had in 2017 in the [GSoC 2017 archive](https://summerofcode.withgoogle.com/archive/2017/organizations/5074771758809088/). We also participated in GSoC 2020, and you can see the project in the [GSoC 2020 archive](https://summerofcode.withgoogle.com/archive/2020/organizations/4924517870206976/).
 
 Here are some successful projects which have been implemented in the past by Google Summer of Code participants.
 
@@ -588,21 +588,3 @@ would override all the user changes there). More details:
 
 We adapted some of the language here about GSoC from the [KDE GSoC page](https://community.kde.org/GSoC).
 
-[2017-archive]: https://summerofcode.withgoogle.com/archive/2017/organizations/5074771758809088/
-[2020-archive]: https://summerofcode.withgoogle.com/archive/2020/organizations/4924517870206976/
-[gsoc-qubes]: https://summerofcode.withgoogle.com/organizations/4675790572093440/
-[gsoc]: https://summerofcode.withgoogle.com/
-[team]: /team/
-[gsoc-faq]: https://developers.google.com/open-source/gsoc/faq
-[contributing]: /doc/contributing/#contributing-code
-[patches]: /doc/source-code/#how-to-send-patches
-[code-signing]: /doc/code-signing/
-[ml-devel]: /support/#qubes-devel
-[gsoc-participate]: https://developers.google.com/open-source/gsoc/
-[gsoc-student]: https://developers.google.com/open-source/gsoc/resources/manual#student_manual
-[how-to-gsoc]: http://teom.org/blog/kde/how-to-write-a-kick-ass-proposal-for-google-summer-of-code/
-[gsoc-submit]: https://summerofcode.withgoogle.com/
-[mailing-lists]: /support/
-[qubes-issues]: https://github.com/QubesOS/qubes-issues/issues
-[qubes-issues-suggested]: https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22P%3A%20minor%22%20label%3A%22help%20wanted%22
-[qubes-builder]: /doc/qubes-builder/

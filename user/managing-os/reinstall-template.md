@@ -11,7 +11,7 @@ title: How to Reinstall a TemplateVM
 How to Reinstall a TemplateVM
 =============================
 
-If you suspect your [TemplateVM] is broken, misconfigured, or compromised, you can reinstall any TemplateVM that was installed from the Qubes repository.
+If you suspect your [TemplateVM](/doc/templates/) is broken, misconfigured, or compromised, you can reinstall any TemplateVM that was installed from the Qubes repository.
 
 Automatic Method
 ----------------
@@ -92,4 +92,3 @@ If you want to reinstall more than one TemplateVM, repeat these instructions for
    You can do this in Qubes Manager by right-clicking on the VM and clicking **Remove VM**, or you can use the
    command `qvm-remove <vm-name>` in dom0.
 
-[TemplateVM]: /doc/templates/

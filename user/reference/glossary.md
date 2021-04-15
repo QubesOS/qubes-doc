@@ -107,7 +107,7 @@ NetVM
 -----
 
 *This is an old definition from before Qubes 4.0.
-NetVMs, as defined here, no longer exist in Qubes 4.0 or later (see [here][pr-748] for technical details).*
+NetVMs, as defined here, no longer exist in Qubes 4.0 or later (see [here](https://github.com/QubesOS/qubes-doc/pull/748) for technical details).*
 
 Network Virtual Machine.
 A type of [VM](#vm) that connects directly to a network.
@@ -121,7 +121,7 @@ ProxyVM
 -------
 
 *This is an old definition from before Qubes 4.0.
-ProxyVMs, as defined here, no longer exist in Qubes 4.0 or later (see [here][pr-748] for technical details).*
+ProxyVMs, as defined here, no longer exist in Qubes 4.0 or later (see [here](https://github.com/QubesOS/qubes-doc/pull/748) for technical details).*
 
 Proxy Virtual Machine.
 A type of [VM](#vm) that proxies network access for other VMs.
@@ -131,7 +131,7 @@ FirewallVM
 ----------
 
 *This is an old definition from before Qubes 4.0.
-FirewallVMs, as defined here, no longer exist in Qubes 4.0 or later (see [here][pr-748] for technical details).*
+FirewallVMs, as defined here, no longer exist in Qubes 4.0 or later (see [here](https://github.com/QubesOS/qubes-doc/pull/748) for technical details).*
 
 Firewall Virtual Machine.
 A type of [ProxyVM](#proxyvm) that is used to enforce network-level policies (a.k.a. "firewall rules").
@@ -228,4 +228,3 @@ QWT
 
 An abbreviation of Qubes [Windows Tools](#windows-tools).
 
-[pr-748]: https://github.com/QubesOS/qubes-doc/pull/748

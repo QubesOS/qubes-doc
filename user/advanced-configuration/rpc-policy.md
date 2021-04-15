@@ -10,7 +10,7 @@ RPC Policies
 ============
 
 This document explains the basics of RPC policies in Qubes.
-For more information, see [Qrexec: command execution in VMs][qrexec3].
+For more information, see [Qrexec: command execution in VMs](/doc/qrexec3/).
 
 Here's an example of an RPC policy file in dom0:
 
@@ -54,9 +54,8 @@ Therefore, parsing will always stop at this rule, and no rules below it will eve
 All together, the three rules we added say that all VMs tagged with "work" are allowed to copy files to each other; however, they're denied from copying files to other VMs (without the "work" tag), and other VMs (without the "work" tag) are denied from copying files to them.
 The fourth rule means that the user gets prompted for any situation not already covered.
 
-Further details about how this system works can be found in [Qrexec: command execution in VMs][qrexec3].
+Further details about how this system works can be found in [Qrexec: command execution in VMs](/doc/qrexec3/).
 
 (***Note**: the `$` character is deprecated in qrexec keywords -- please use `@` instead (e.g. `@anyvm`).
 For more information, see the bulletin [here](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-038-2018.txt).*)
 
-[qrexec3]: /doc/qrexec3/

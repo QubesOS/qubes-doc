@@ -37,16 +37,16 @@ Please read it carefully and thoroughly, as it contains important information fo
   See <a href="/doc/install-security/">installation security</a> for more information.
 </div>
 
-Qubes OS has very specific [system requirements].
-To ensure compatibility, we strongly recommend using [Qubes-certified hardware].
+Qubes OS has very specific [system requirements](/doc/system-requirements/).
+To ensure compatibility, we strongly recommend using [Qubes-certified hardware](/doc/certified-hardware/).
 Other hardware may require you to perform significant troubleshooting.
-You may also find it helpful to consult the [Hardware Compatibility List].
+You may also find it helpful to consult the [Hardware Compatibility List](/hcl/).
 
-Even on supported hardware, you must ensure that [IOMMU-based virtualization] is activated in the BIOS. 
+Even on supported hardware, you must ensure that [IOMMU-based virtualization](https://en.wikipedia.org/wiki/Input%E2%80%93output_memory_management_unit#Virtualization) is activated in the BIOS. 
 Without it, Qubes OS won't be able to enforce isolation. 
 For Intel-based boards, this setting is called Intel Virtualization for Directed I/O (**Intel VT-d**) and for AMD-based boards, it is called  AMD I/O Virtualization Technology (or simply **AMD-Vi**). 
 This parameter should be activated in your computer's BIOS, alongside the standard Virtualization (**Intel VT-x**) and AMD Virtualization (**AMD-V**) extensions. 
-This [external guide][intel-guide] made for Intel-based boards can help you figure out how to enter your BIOS to locate and activate those settings. 
+This [external guide](https://web.archive.org/web/20200112220913/https://www.intel.in/content/www/in/en/support/articles/000007139/server-products.html) made for Intel-based boards can help you figure out how to enter your BIOS to locate and activate those settings. 
 If those settings are not nested under the Advanced tab, you might find them under the Security tab.
 
 <div class="alert alert-warning" role="alert">
@@ -58,7 +58,7 @@ If those settings are not nested under the Advanced tab, you might find them und
 
 ### Copying the ISO onto the installation medium
 
-Start by [downloading][downloads] a Qubes ISO.
+Start by [downloading](/downloads/) a Qubes ISO.
 
 <div class="alert alert-danger" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
@@ -68,7 +68,7 @@ Start by [downloading][downloads] a Qubes ISO.
 </div>
 
 Once the ISO has been verified as authentic, you should copy it onto the installation medium of your choice, such as a dual-layer DVD, a Blu-ray disc, or a USB drive.
-The size of each Qubes ISO is available on the [downloads] page by hovering over the download button.
+The size of each Qubes ISO is available on the [downloads](/downloads/) page by hovering over the download button.
 
 <div class="alert alert-warning" role="alert">
   <i class="fa fa-exclamation-circle"></i>
@@ -90,7 +90,7 @@ $ sudo dd if=Qubes-RX-x86_64.iso of=/dev/sdY status=progress bs=1048576 && sync
 Change `Qubes-RX-x86_64.iso` to the filename of the version you're installing, and change `/dev/sdY` to the correct target device e.g., `/dev/sdc`).
 Make sure to write to the entire device (e.g., `/dev/sdc`) rather than just a single partition (e.g., `/dev/sdc1`).
 
-On Windows, you can use the [Rufus] tool to write the ISO to a USB key. 
+On Windows, you can use the [Rufus](https://rufus.akeo.ie/) tool to write the ISO to a USB key. 
 MediaTest is not recommended. 
 Be sure to select "DD image" mode (*after* selecting the Qubes ISO):
 
@@ -103,7 +103,7 @@ Be sure to select "DD image" mode (*after* selecting the Qubes ISO):
 
 ![Rufus DD image mode](/attachment/wiki/InstallationGuide/rufus-dd-image-mode.png)
 
-If you are an advanced user, and you would like to customize your installation, please see [custom installation].
+If you are an advanced user, and you would like to customize your installation, please see [custom installation](/doc/custom-install/).
 Otherwise, follow the instructions below.
 
 ## Installation
@@ -139,7 +139,7 @@ First, try rebooting your computer.
 If it still loads your currently installed operating system or does not detect your installation medium, make sure the boot order is set up appropriately. 
 The process to change the boot order varies depending on the currently installed system and the motherboard manufacturer. 
 If **Windows 10** is installed on your machine, you may need to follow specific instructions to change the boot order.
-This may require an [advanced reboot].
+This may require an [advanced reboot](https://support.microsoft.com/en-us/help/4026206/windows-10-find-safe-mode-and-other-startup-settings).
 
 After the POST, you may have a chance to choose a boot device. 
 You may wish to select the USB drive or DVD drive as a temporary boot option so that the next time you boot, your internal storage device will be selected first. 
@@ -160,7 +160,7 @@ If the test fails, a window will pop up.
 
 Do not panic.
 It may simply indicate that IOMMU-virtualization hasn't been activated in the BIOS. 
-Return to the [hardware requirements] section to learn how to activate it. 
+Return to the [hardware requirements](#hardware-requirements) section to learn how to activate it. 
 If the setting is not configured correctly, it means that your hardware won't be able to leverage some Qubes security features, such as a strict isolation of the networking and USB hardware. 
 
 If the test passes, you will reach the installation summary screen.
@@ -211,18 +211,18 @@ Don't forget to select your time and date by clicking on the Time & Date entry.
 On the software selection tab, you can choose which software to install in Qubes OS. 
 Two options are available:
 
-* **Debian:** Select this option if you would like to use [Debian] qubes in addition to the default Fedora qubes.
-* **Whonix:** Select this option if you would like to use [Whonix] qubes.
-   Whonix allows you to use [Tor] securely within Qubes.
+* **Debian:** Select this option if you would like to use [Debian](/doc/templates/debian/) qubes in addition to the default Fedora qubes.
+* **Whonix:** Select this option if you would like to use [Whonix](/doc/whonix/) qubes.
+   Whonix allows you to use [Tor](https://www.torproject.org/) securely within Qubes.
 
 Whonix lets you route some or all of your network traffic through Tor for greater privacy.
 Depending on your threat model, you may need to install Whonix templates right away.
 
-Regardless of your choices on this screen, you will always be able to install these and other [TemplateVMs] later.
+Regardless of your choices on this screen, you will always be able to install these and other [TemplateVMs](/doc/templates/) later.
 If you're short on disk space, you may wish to deselect these options.
 
 By default, Qubes OS comes preinstalled with the lightweight Xfce4 desktop environment.
-Other desktop environments will be available to you after the installation is completed, though they may not be officially supported (see [advanced configuration]).
+Other desktop environments will be available to you after the installation is completed, though they may not be officially supported (see [advanced configuration](/doc/#advanced-configuration)).
 
 Press **Done** to go back to the installation summary screen.
 
@@ -352,7 +352,7 @@ Congratulations, you are now ready to use Qubes OS!
 
 ### Updating
 
-Next, [update] your installation to ensure you have the latest security updates.
+Next, [update](/doc/updating-qubes-os/) your installation to ensure you have the latest security updates.
 Frequently updating is one of the best ways to remain secure against new threats.
 
 ### Security
@@ -372,56 +372,26 @@ For more information about Qubes OS Project security, please see the [security c
 ### Backups
 
 It is extremely important to make regular backups so that you don't lose your data unexpectedly.
-The [Qubes backup system] allows you to do this securely and easily.
+The [Qubes backup system](/doc/backup-restore/) allows you to do this securely and easily.
 
 ### Submit your HCL report
 
-Consider giving back to the Qubes community and helping other users by [generating and submitting a Hardware Compatibility List (HCL) report][hcl-howto].
+Consider giving back to the Qubes community and helping other users by [generating and submitting a Hardware Compatibility List (HCL) report](/doc/hcl/#generating-and-submitting-new-reports).
 
 ### Get Started
 
-[Get Started] with Qubes, and read more about [Common Tasks] and [Managing Operating Systems within Qubes].
+[Get Started](/getting-started/) with Qubes, and read more about [Common Tasks](/doc/#common-tasks) and [Managing Operating Systems within Qubes](/doc/#managing-operating-systems-within-qubes).
 
 ## Getting help
 
-* We work very hard to make the [documentation] accurate, comprehensive useful and user friendly. 
+* We work very hard to make the [documentation](/doc/) accurate, comprehensive useful and user friendly. 
   We urge you to read it! It may very well contain the answers to your questions. 
-  (Since the documentation is a community effort, we'd also greatly appreciate your help in [improving] it!)
+  (Since the documentation is a community effort, we'd also greatly appreciate your help in [improving](/doc/doc-guidelines/) it!)
 
 * If issues arise during installation, see the [Installation Troubleshooting](/doc/installation-troubleshooting) guide. 
 
-* If you don't find your answer in the documentation, please see [Help, Support, Mailing Lists, and Forum] for places to ask.
+* If you don't find your answer in the documentation, please see [Help, Support, Mailing Lists, and Forum](/support/) for places to ask.
 
 * Please do **not** email individual members of the Qubes team with questions about installation or other problems. 
-   Instead, please see [Help, Support, Mailing Lists, and Forum] for appropriate places to ask questions.
+   Instead, please see [Help, Support, Mailing Lists, and Forum](/support/) for appropriate places to ask questions.
 
-[QSB #46]: /news/2019/01/23/qsb-46/
-[system requirements]: /doc/system-requirements/
-[Qubes-certified hardware]: /doc/certified-hardware/
-[Hardware Compatibility List]: /hcl/
-[live USB]: /doc/live-usb/
-[downloads]: /downloads/
-[verifying signatures]: /security/verifying-signatures/
-[security considerations]: /doc/install-security/
-[Custom Installation]: /doc/custom-install/
-[Upgrade Guides]: /doc/upgrade/
-[Rufus]: https://rufus.akeo.ie/
-[documentation]: /doc/
-[improving]: /doc/doc-guidelines/
-[Help, Support, Mailing Lists, and Forum]: /support/
-[update]: /doc/updating-qubes-os/
-[Qubes backup system]: /doc/backup-restore/
-[Common Tasks]: /doc/#common-tasks
-[Managing Operating Systems within Qubes]: /doc/#managing-operating-systems-within-qubes
-[installation security]: /doc/install-security/
-[IOMMU-based virtualization]: https://en.wikipedia.org/wiki/Input%E2%80%93output_memory_management_unit#Virtualization
-[intel-guide]: https://web.archive.org/web/20200112220913/https://www.intel.in/content/www/in/en/support/articles/000007139/server-products.html
-[advanced reboot]: https://support.microsoft.com/en-us/help/4026206/windows-10-find-safe-mode-and-other-startup-settings
-[hardware requirements]: #hardware-requirements
-[Debian]: /doc/templates/debian/
-[Whonix]: /doc/whonix/
-[Tor]: https://www.torproject.org/
-[TemplateVMs]: /doc/templates/
-[advanced configuration]: /doc/#advanced-configuration
-[hcl-howto]: /doc/hcl/#generating-and-submitting-new-reports
-[Get Started]: /getting-started/

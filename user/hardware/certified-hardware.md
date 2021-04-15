@@ -18,25 +18,25 @@ Note, however, that we certify only that a particular hardware *configuration* i
 We take no responsibility for our partners' manufacturing or shipping processes, nor can we control whether physical hardware is modified (whether maliciously or otherwise) *en route* to the user.
 
 There are also other hardware models on which we have tested Qubes OS.
-See [Hardware Testing] for details.
+See [Hardware Testing](/doc/hardware-testing/) for details.
 
 ## Qubes-certified Laptops
 
-Qubes-certified laptops are certified for a [major version][version-scheme] and regularly tested by the Qubes developers to ensure compatibility with all of Qubes' features within that major version.
+Qubes-certified laptops are certified for a [major version](/doc/version-scheme/) and regularly tested by the Qubes developers to ensure compatibility with all of Qubes' features within that major version.
 The developers test all new updates within that major version to ensure that no regressions are introduced.
 
 ### Insurgo PrivacyBeast X230
 
-[![insurgo-privacybeast-x230.png](/attachment/site/insurgo-privacybeast-x230.png)][Insurgo PrivacyBeast X230]
+[![insurgo-privacybeast-x230.png](/attachment/site/insurgo-privacybeast-x230.png)](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/)
 
-The [Insurgo PrivacyBeast X230] meets and exceeds our hardware certification requirements for Qubes 4.
-Read our [announcement][privacybeast announcement] of the certification for further details!
+The [Insurgo PrivacyBeast X230](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/) meets and exceeds our hardware certification requirements for Qubes 4.
+Read our [announcement](/news/2019/07/18/insurgo-privacybeast-qubes-certification/) of the certification for further details!
 
 ### NitroPad X230
 
-[![nitropad-x230.jpg](/attachment/site/nitropad-x230.jpg)][NitroPad X230]
+[![nitropad-x230.jpg](/attachment/site/nitropad-x230.jpg)](https://shop.nitrokey.com/shop/product/nitropad-x230-67)
 
-The [NitroPad X230] satisfies all hardware certification requirements for Qubes 4, offering users extensive hardware security options.
+The [NitroPad X230](https://shop.nitrokey.com/shop/product/nitropad-x230-67) satisfies all hardware certification requirements for Qubes 4, offering users extensive hardware security options.
 
 ## Become Hardware Certified
 
@@ -52,18 +52,18 @@ The benefits of hardware certification include:
 ## Hardware Certification Requirements
 
 (Please note that these are the requirements for hardware *certification*, *not* the requirements for *running* Qubes.
-For the latter, please see the [system requirements].)
+For the latter, please see the [system requirements](/doc/system-requirements/).)
 
-One of the most important security improvements introduced with the release of Qubes 4.0 was to replace paravirtualization (PV) technology with **hardware-enforced memory virtualization**, which recent processors have made possible thanks to so-called Second Level Address Translation ([SLAT]), also known as [EPT][EPT-enabled CPUs] in Intel parlance.
+One of the most important security improvements introduced with the release of Qubes 4.0 was to replace paravirtualization (PV) technology with **hardware-enforced memory virtualization**, which recent processors have made possible thanks to so-called Second Level Address Translation ([SLAT](https://en.wikipedia.org/wiki/Second_Level_Address_Translation)), also known as [EPT](https://ark.intel.com/Search/FeatureFilter?productType=processors&ExtendedPageTables=true&MarketSegment=Mobile) in Intel parlance.
 SLAT (EPT) is an extension to Intel VT-x virtualization, which originally was capable of only CPU virtualization but not memory virtualization and hence required a complex Shadow Page Tables approach.
-We hope that embracing SLAT-based memory virtualization will allow us to prevent disastrous security bugs, such as the infamous [XSA-148], which --- unlike many other major Xen bugs --- regrettably did [affect][QSB 22] Qubes OS.
+We hope that embracing SLAT-based memory virtualization will allow us to prevent disastrous security bugs, such as the infamous [XSA-148](https://xenbits.xen.org/xsa/advisory-148.html), which --- unlike many other major Xen bugs --- regrettably did [affect](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-022-2015.txt) Qubes OS.
 Consequently, we require SLAT support of all certified hardware beginning with Qubes OS 4.0.
 
-Another important requirement is that Qubes-certified hardware should run only **open-source boot firmware** (aka "the BIOS"), such as [coreboot].
-The only exception is the use of (properly authenticated) CPU-vendor-provided blobs for silicon and memory initialization (see [Intel FSP]) as well as other internal operations (see [Intel ME]).
+Another important requirement is that Qubes-certified hardware should run only **open-source boot firmware** (aka "the BIOS"), such as [coreboot](https://www.coreboot.org/).
+The only exception is the use of (properly authenticated) CPU-vendor-provided blobs for silicon and memory initialization (see [Intel FSP](https://firmware.intel.com/learn/fsp/about-intel-fsp)) as well as other internal operations (see [Intel ME](https://www.apress.com/9781430265719)).
 However, we specifically require all code used for and dealing with the System Management Mode (SMM) to be open-source.
 
-While we [recognize][x86_harmful] the potential problems that proprietary CPU-vendor code can cause, we are also pragmatic enough to realize that we need to take smaller steps first, before we can implement even stronger countermeasures such as a [stateless laptop].
+While we [recognize](https://blog.invisiblethings.org/papers/2015/x86_harmful.pdf) the potential problems that proprietary CPU-vendor code can cause, we are also pragmatic enough to realize that we need to take smaller steps first, before we can implement even stronger countermeasures such as a [stateless laptop](https://blog.invisiblethings.org/papers/2015/state_harmful.pdf).
 A switch to open source boot firmware is one such important step.
 To be compatible with Qubes OS, the BIOS must properly expose all the VT-x, VT-d, and SLAT functionality that the underlying hardware offers (and which we require).
 Among other things, this implies **proper DMAR ACPI table** construction.
@@ -76,7 +76,7 @@ The rest of the time, they should be outside the reach of malware.
 While we also recommend a physical kill switch on the built-in camera (or, if possible, not to have a built-in camera), we also recognize this isn't a critical requirement, because users who are concerned about it can easily cover it a piece of tape (something that, regrettably, is far less effective on a microphone).
 
 Similarly, we don't consider physical kill switches on Wi-Fi and Bluetooth devices to be mandatory.
-Users who plan on using Qubes in an air-gap scenario would do best if they manually remove all such devices persistently (as well as the builtin [speakers][audio_modem]!), rather than rely on easy-to-flip-by-mistake switches, while others should benefit from the Qubes default sandboxing of all networking devices in dedicated VMs.
+Users who plan on using Qubes in an air-gap scenario would do best if they manually remove all such devices persistently (as well as the builtin [speakers](https://github.com/romanz/amodem/)!), rather than rely on easy-to-flip-by-mistake switches, while others should benefit from the Qubes default sandboxing of all networking devices in dedicated VMs.
 
 We hope these hardware requirements will encourage the development of more secure and trustworthy devices.
 
@@ -89,29 +89,8 @@ To have hardware certified, the vendor must:
 3. Pay the Qubes team a flat monthly rate, to be agreed upon between the hardware vendor and the Qubes team.
 
 It is the vendor's responsibility to ensure the hardware they wish to have certified can run Qubes OS, at the very least the latest stable version.
-This could be done by consulting the [Hardware Compatibility List] or trying to install it themselves before shipping any units to us.
+This could be done by consulting the [Hardware Compatibility List](/hcl/) or trying to install it themselves before shipping any units to us.
 While we are willing to troubleshoot simple issues, we will need to charge a consulting fee for more in-depth work.
 
-If you are interested in having your hardware certified, please [contact us].
+If you are interested in having your hardware certified, please [contact us](mailto:business@qubes-os.org).
 
-[version-scheme]: /doc/version-scheme/
-[Hardware Testing]: /doc/hardware-testing/
-[stateless laptop]: https://blog.invisiblethings.org/2015/12/23/state_harmful.html
-[Hardware Compatibility List]: /hcl/
-[Hardware Certification]: #hardware-certification
-[system requirements]: /doc/system-requirements/
-[contact us]: mailto:business@qubes-os.org
-[SLAT]: https://en.wikipedia.org/wiki/Second_Level_Address_Translation
-[EPT-enabled CPUs]: https://ark.intel.com/Search/FeatureFilter?productType=processors&ExtendedPageTables=true&MarketSegment=Mobile
-[XSA-148]: https://xenbits.xen.org/xsa/advisory-148.html
-[QSB 22]: https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-022-2015.txt
-[pvh_ticket]: https://github.com/QubesOS/qubes-issues/issues/2185
-[coreboot]: https://www.coreboot.org/
-[Intel FSP]: https://firmware.intel.com/learn/fsp/about-intel-fsp
-[Intel ME]: https://www.apress.com/9781430265719
-[x86_harmful]: https://blog.invisiblethings.org/papers/2015/x86_harmful.pdf
-[stateless laptop]: https://blog.invisiblethings.org/papers/2015/state_harmful.pdf
-[audio_modem]: https://github.com/romanz/amodem/
-[Insurgo PrivacyBeast X230]: https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/
-[privacybeast announcement]: /news/2019/07/18/insurgo-privacybeast-qubes-certification/
-[NitroPad X230]: https://shop.nitrokey.com/shop/product/nitropad-x230-67

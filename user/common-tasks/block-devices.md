@@ -13,21 +13,21 @@ title: Block (Storage) Devices
 
 # Block (Storage) Devices
 
-*This page is part of [device handling in qubes].*
+*This page is part of [device handling in qubes](/doc/device-handling/).*
 
 If you don't know what a "block device" is, just think of it as a fancy way to say "something that stores data".
 
 ## Using The GUI to Attach a Drive
 
-(**Note:** In the present context, the term "USB drive" denotes any [USB mass storage device][mass-storage].
+(**Note:** In the present context, the term "USB drive" denotes any [USB mass storage device](https://en.wikipedia.org/wiki/USB_mass_storage_device_class).
 In addition to smaller flash memory sticks, this includes things like USB external hard drives.)
 
 Qubes OS supports the ability to attach a USB drive (or just its partitions) to any qube easily, no matter which qube handles the USB controller.
 
-Attaching USB drives is integrated into the Devices Widget: ![device manager icon]
+Attaching USB drives is integrated into the Devices Widget: ![device manager icon](/attachment/wiki/Devices/media-removable.png)
 Simply insert your USB drive and click on the widget.
 You will see multiple entries for your USB drive; typically, `sys-usb:sda`, `sys-usb:sda1`, and `sys-usb:2-1` for example.
-Entries starting with a number (e.g. here `2-1`) are the [whole usb-device][USB].
+Entries starting with a number (e.g. here `2-1`) are the [whole usb-device](/doc/usb-devices/).
 Entries without a number (e.g. here `sda`) are the whole block-device.
 Other entries are partitions of that block-device (e.r. here `sda1`).
 
@@ -58,7 +58,7 @@ Beware that when you attach a whole block device, partitions can be identified b
 
 If several different block-devices are attached to a single VM, the last letter of the device node name is advanced through the alphabet, so after `xvdi` the next device will be named `xvdj`, the next `xvdk`, and so on.
 
-To specify this device node name, you need to use the command line tool and its [`frontend-dev`-option][frontend-dev].
+To specify this device node name, you need to use the command line tool and its [`frontend-dev`-option](#frontend-dev).
 
 ## Command Line Tool Guide
 
@@ -123,7 +123,7 @@ If you don't see anything that looks like your drive, run `sudo udevadm trigger 
 
 ## Recovering From Premature Device Destruction
 
-If the you fail to detach the device before it's destroyed in the sourceVM (e.g. by physically detaching the thumbdrive), [there will be problems][premature removal].
+If the you fail to detach the device before it's destroyed in the sourceVM (e.g. by physically detaching the thumbdrive), [there will be problems](https://github.com/QubesOS/qubes-issues/issues/1082).
 
 To recover from this error state, in dom0 run
 
@@ -131,13 +131,13 @@ To recover from this error state, in dom0 run
 virsh detach-disk targetVM xvdi
 ```
 
-(where `targetVM` is to be replaced with the VM name you attached the device to and `xvdi` is to be replaced with the used [frontend device node][frontend-dev].)
+(where `targetVM` is to be replaced with the VM name you attached the device to and `xvdi` is to be replaced with the used [frontend device node](#frontend-dev).)
 
 However, if the block device originated in dom0, you will have to refer to the next section.
 
 ### What if I removed the device before detaching it from the VM?
 
-Currently (until issue [1082] gets implemented), if you remove the device before detaching it from the qube, Qubes OS (more precisely, `libvirtd`) will think that the device is still attached to the qube and will not allow attaching further devices under the same name.
+Currently (until issue [1082](https://github.com/QubesOS/qubes-issues/issues/1082) gets implemented), if you remove the device before detaching it from the qube, Qubes OS (more precisely, `libvirtd`) will think that the device is still attached to the qube and will not allow attaching further devices under the same name.
 The easiest way to recover from such a situation is to reboot the qube to which the device was attached.
 If this isn't an option, you can manually recover from the situation by following these steps:
 
@@ -174,11 +174,11 @@ To attach a file as block device to another qube, first turn it into a loopback 
     sudo losetup -f --show /path/to/file
     ```
 
-    [This command][losetup] will create the device node `/dev/loop0` or, if that is already in use, increase the trailing integer until that name is still available.
+    [This command](https://linux.die.net/man/8/losetup) will create the device node `/dev/loop0` or, if that is already in use, increase the trailing integer until that name is still available.
     Afterwards it prints the device-node-name it found.
 
 2. If you want to use the GUI, you're done.
-    Click the Device Manager ![device manager icon] and select the `loop0`-device to attach it to another qube.
+    Click the Device Manager ![device manager icon](/attachment/wiki/Devices/media-removable.png) and select the `loop0`-device to attach it to another qube.
 
     If you rather use the command line, continue:
 
@@ -256,12 +256,3 @@ qvm-block a work sys-usb:sda1 -o devtype=cdrom
 
 This option accepts `cdrom` and `disk`, default is `disk`.
 
-[device handling in qubes]: /doc/device-handling/
-[mass-storage]: https://en.wikipedia.org/wiki/USB_mass_storage_device_class
-[device manager icon]:/attachment/wiki/Devices/media-removable.png
-[frontend-dev]: #frontend-dev
-[premature removal]: https://github.com/QubesOS/qubes-issues/issues/1082
-[detach dom0 device]: /doc/usb/#what-if-i-removed-the-device-before-detaching-it-from-the-vm
-[losetup]: https://linux.die.net/man/8/losetup
-[USB]:/doc/usb-devices/
-[1082]: https://github.com/QubesOS/qubes-issues/issues/1082

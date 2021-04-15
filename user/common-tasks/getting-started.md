@@ -11,16 +11,16 @@ ref: 190
 title: Get Started
 ---
 
-After [downloading] and [installing] Qubes OS, let's cover some basic concepts.
+After [downloading](/downloads/) and [installing](/doc/installation-guide/) Qubes OS, let's cover some basic concepts.
 
 Introduction
 ------------
 
-In Qubes OS, you run all your programs in lightweight [virtual machines (VMs)] called [qubes].
+In Qubes OS, you run all your programs in lightweight [virtual machines (VMs)](/doc/glossary/#vm) called [qubes](/doc/glossary/#qube).
 Not every app runs in its own qube.
 (That would be a big waste of resources!)
-Instead, each qube represents a [security domain] (e.g., "work," "personal," and "banking").
-By default, all qubes are based on a single, common [template], although you can create more templates if you wish.
+Instead, each qube represents a [security domain](/doc/glossary/#domain) (e.g., "work," "personal," and "banking").
+By default, all qubes are based on a single, common [template](/doc/glossary/#templatevm), although you can create more templates if you wish.
 When you create a new qube, you don't copy the whole system needed for this qube to work (which would include copying all the programs).
 Instead, each qube *shares* the system with its respective template.
 A qube has read-only access to the system of the template on which it's based, so a qube cannot modify a template in any way.
@@ -49,14 +49,14 @@ It's entirely up to you.
 
 ![snapshot_40.png](/attachment/wiki/GettingStarted/r4.0-snapshot_40.png)
 
-In addition to qubes and templates, there's one special domain called [dom0], where many system tools and the desktop manager run.
+In addition to qubes and templates, there's one special domain called [dom0](/doc/glossary/#dom0), where many system tools and the desktop manager run.
 This is where you log in to the system.
 Dom0 is more trusted than any other domain (including templates and black-labeled qubes).
 If dom0 were ever compromised, it would be "game over."
 (The entire system would effectively be compromised.)
 Due to its overarching importance, dom0 has no network connectivity and is used only for running the window and desktop managers.
 Dom0 shouldn't be used for anything else.
-In particular, [you should never run user applications in dom0][dom0-precautions].
+In particular, [you should never run user applications in dom0](https://github.com/Qubes-Community/Contents/blob/master/docs/security/security-guidelines.md#dom0-precautions).
 (That's what your qubes are for!)
 
 GUI and command-line tools
@@ -69,7 +69,7 @@ Opening a terminal in dom0 can be done in several ways:
 - Press `Alt+F3`, type `xfce terminal` and press Enter twice.
 - Right-click on the desktop and select **Open Terminal Here**.
 
-Various command-line tools are described as part of this guide, and the whole reference can be found [here][tools].
+Various command-line tools are described as part of this guide, and the whole reference can be found [here](/doc/tools/).
 
 Alternatively, you can use a suite of GUI tools, most of which are available through desktop widgets:
 
@@ -133,54 +133,31 @@ If you plan on using your system for work, then it also depends on what kind of 
 
 It's a good idea to start out with the three qubes created automatically by the installer: work, personal, and untrusted.
 If and when you start to feel that some activity just doesn't fit into any of your existing qubes, or you want to partition some part of your life, you can easily create a new qube for it.
-You'll also be able to easily [copy][copy-files] any files you need to the newly created qube.
+You'll also be able to easily [copy](/doc/copying-files/) any files you need to the newly created qube.
 
 Still not sure?
-You might find it helpful to read [this article][partitioning], which describes how one of the Qubes OS architects partitions her digital life into security domains.
+You might find it helpful to read [this article](https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html), which describes how one of the Qubes OS architects partitions her digital life into security domains.
 
 Important tasks
 ---------------
 
-It's very important to [keep Qubes updated][update] to ensure you have the latest security updates.
+It's very important to [keep Qubes updated](/doc/updating-qubes-os/) to ensure you have the latest security updates.
 Frequently updating is one of the best ways to remain secure against new threats.
 
 It's also very important to make regular backups so that you don't lose your data unexpectedly.
-The [Qubes backup system] allows you to do this securely and easily.
+The [Qubes backup system](/doc/backup-restore/) allows you to do this securely and easily.
 
 Here are some other tasks you're likely to want to perform.
-(A full list is available in the [Common Tasks] section of the documentation.)
+(A full list is available in the [Common Tasks](/doc/#common-tasks) section of the documentation.)
 
-- [Copying and Pasting Text Between Domains][copy-paste]
-- [Copying and Moving Files Between Domains][copy-files]
-- [Copying from (and to) dom0]
-- [Fullscreen Mode]
-- [DisposableVMs]
-- [Device Handling] (block, USB, and PCI devices)
+- [Copying and Pasting Text Between Domains](/doc/copy-paste/)
+- [Copying and Moving Files Between Domains](/doc/copying-files/)
+- [Copying from (and to) dom0](/doc/copy-from-dom0/)
+- [Fullscreen Mode](/doc/full-screen-mode/)
+- [DisposableVMs](/doc/disposablevm/)
+- [Device Handling](/doc/device-handling/) (block, USB, and PCI devices)
 
-If you encounter any problems, please visit the [Help, Support, and Mailing Lists] page.
-
-
-[getting-started-32]: /getting-started-32/
-[downloading]: /downloads/
-[installing]: /doc/installation-guide/
-[virtual machines (VMs)]: /doc/glossary/#vm
-[qubes]: /doc/glossary/#qube
-[security domain]: /doc/glossary/#domain
-[template]: /doc/glossary/#templatevm
-[dom0]: /doc/glossary/#dom0
-[dom0-precautions]: https://github.com/Qubes-Community/Contents/blob/master/docs/security/security-guidelines.md#dom0-precautions
-[tools]: /doc/tools/
-[partitioning]: https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html
-[update]: /doc/updating-qubes-os/
-[Qubes backup system]: /doc/backup-restore/
-[Common Tasks]: /doc/#common-tasks
-[copy-files]: /doc/copying-files/
-[copy-paste]: /doc/copy-paste/
-[Copying from (and to) dom0]: /doc/copy-from-dom0/
-[Fullscreen Mode]: /doc/full-screen-mode/
-[DisposableVMs]: /doc/disposablevm/
-[Device Handling]: /doc/device-handling/
-[Help, Support, and Mailing Lists]: /support/
+If you encounter any problems, please visit the [Help, Support, and Mailing Lists](/support/) page.
 
 
 <hr class="more-top more-bottom">

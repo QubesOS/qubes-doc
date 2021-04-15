@@ -8,13 +8,13 @@ title: Code Signing
 
 # Code Signing
 
-All contributions to the Qubes OS [source code] must be cryptographically signed by the author's PGP key.
+All contributions to the Qubes OS [source code](/doc/source-code/) must be cryptographically signed by the author's PGP key.
 
 ## Generating a Key
 
 (Note: If you already have a PGP key, you may skip this step.)
 
-Alex Cabal has written an excellent [guide] on creating a PGP keypair.
+Alex Cabal has written an excellent [guide](https://alexcabal.com/creating-the-perfect-gpg-keypair/) on creating a PGP keypair.
 Below, we reproduce just the minimum steps in generating a keypair using GnuPG.
 Please read Cabal's full guide for further important details.
 
@@ -143,13 +143,12 @@ your Git commits.
 GitHub shows a green `Verified` label indicating that the GPG signature could be
 verified using any of the contributor’s GPG keys uploaded to GitHub. You can
 upload your public key on GitHub by adding your public GPG key on the [New GPG
-key][GitHub New GPG key] under the [SSH GPG keys page][GitHub SSH GPG keys
-page].
+key](https://github.com/settings/gpg/new) under the [SSH GPG keys page](https://github.com/settings/keys).
 
 ## Code Signature Checks
 
-The [signature-checker] checks if code contributions are signed.
-Although GitHub adds a little green `Verified` button next to the commit, the [signature-checker] uses this algorithm to check if a commit is correctly signed:
+The [signature-checker](https://github.com/marmarek/signature-checker) checks if code contributions are signed.
+Although GitHub adds a little green `Verified` button next to the commit, the [signature-checker](https://github.com/marmarek/signature-checker) uses this algorithm to check if a commit is correctly signed:
 
 1. Is the commit signed?
    If the commit is not signed, you can see the message
@@ -194,21 +193,14 @@ In this case, you have several options to sign the commit:
 
 > policy/qubesos/code-signing — Unable to verify (no valid key found)
 
-This means that the [signature-checker] has found a signature for the commit
+This means that the [signature-checker](https://github.com/marmarek/signature-checker) has found a signature for the commit
 but is not able to verify it using the any key available.
 This might be that you forgot to upload the key to a key server.
 Please upload it.
 
 ## Using PGP with Email
 
-If you're submitting a patch by emailing the [developer mailing list], simply sign your email with your PGP key.
-One good way to do this is with a program like [Enigmail].
+If you're submitting a patch by emailing the [developer mailing list](/support/#qubes-devel), simply sign your email with your PGP key.
+One good way to do this is with a program like [Enigmail](https://www.enigmail.net/).
 Enigmail is a security addon for the Mozilla Thunderbird email client that allows you to easily digitally encrypt and sign your emails.
 
-[guide]: https://alexcabal.com/creating-the-perfect-gpg-keypair/
-[source code]: /doc/source-code/
-[developer mailing list]: /support/#qubes-devel
-[Enigmail]: https://www.enigmail.net/
-[signature-checker]: https://github.com/marmarek/signature-checker
-[GitHub New GPG key]: https://github.com/settings/gpg/new
-[GitHub SSH GPG keys page]: https://github.com/settings/keys

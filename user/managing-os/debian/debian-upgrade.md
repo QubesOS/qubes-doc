@@ -14,10 +14,10 @@ title: In-place upgrade of Debian TemplateVMs
 
 # Upgrading Debian TemplateVMs
 
-This page provides instructions for performing an in-place upgrade of an installed [Debian TemplateVM].
-If you wish to install a new, unmodified Debian TemplateVM instead of upgrading a template that is already installed in your system, please see the [Debian TemplateVM] page instead. ([Learn more about the two options.][Debian TemplateVM Upgrade])
+This page provides instructions for performing an in-place upgrade of an installed [Debian TemplateVM](/doc/templates/debian/).
+If you wish to install a new, unmodified Debian TemplateVM instead of upgrading a template that is already installed in your system, please see the [Debian TemplateVM](/doc/templates/debian/) page instead. ([Learn more about the two options.](/doc/templates/debian/#upgrading))
 
-In general, upgrading a Debian TemplateVM follows the same process as [upgrading a native Debian system][upgrade].
+In general, upgrading a Debian TemplateVM follows the same process as [upgrading a native Debian system](https://wiki.debian.org/DebianUpgrade).
 
 ## Summary instructions for Debian TemplateVMs
 
@@ -34,7 +34,7 @@ In general, upgrading a Debian TemplateVM follows the same process as [upgrading
 [user@dom0 ~]$ qvm-shutdown debian-<new>
 ```
 
-**Recommended:** [Switch everything that was set to the old template to the new template.][switch]
+**Recommended:** [Switch everything that was set to the old template to the new template.](/doc/templates/#switching)
 
 ## Detailed instructions for Debian TemplateVMs
 
@@ -87,8 +87,8 @@ The same general procedure may be used to upgrade any template based on the stan
     ```
 
 7. (Optional) Trim the new template.
-    (This should [no longer be necessary][template-notes], but it does not hurt.
-    Some users have [reported][5055] that it makes a difference.)
+    (This should [no longer be necessary](/doc/templates/#important-notes), but it does not hurt.
+    Some users have [reported](https://github.com/QubesOS/qubes-issues/issues/5055) that it makes a difference.)
 
     ```
     [user@debian-<new> ~]$ sudo fstrim -av
@@ -103,7 +103,7 @@ The same general procedure may be used to upgrade any template based on the stan
     [user@dom0 ~]$ qvm-shutdown debian-<new>
     ```
 
-9. (Recommended) [Switch everything that was set to the old template to the new template.][switch]
+9. (Recommended) [Switch everything that was set to the old template to the new template.](/doc/templates/#switching)
 
 10. (Optional) Make the new template the global default.
 
@@ -120,7 +120,7 @@ The same general procedure may be used to upgrade any template based on the stan
 
 ## StandaloneVMs
 
-The procedure for upgrading a Debian [StandaloneVM] is the same as for a TemplateVM.
+The procedure for upgrading a Debian [StandaloneVM](/doc/standalone-and-hvm/) is the same as for a TemplateVM.
 
 ## Release-specific notes
 
@@ -128,7 +128,7 @@ This section contains notes about upgrading to specific releases.
 
 ### Debian 10 ("Buster")
 
-Please see [Debian's Buster upgrade instructions][buster].
+Please see [Debian's Buster upgrade instructions](https://www.debian.org/releases/buster/amd64/release-notes/ch-upgrading.en.html).
 
 ### Debian 9 ("Stretch")
 
@@ -148,15 +148,15 @@ Relevant discussions:
 * [Fixing sound in Debian Stretch](https://groups.google.com/forum/#!topic/qubes-users/JddCE54GFiU)
 * [User apt commands blocked on startup](https://github.com/QubesOS/qubes-issues/issues/2621)
 
-Also see [Debian's Stretch upgrade instructions][stretch].
+Also see [Debian's Stretch upgrade instructions](https://www.debian.org/releases/stretch/amd64/release-notes/ch-upgrading.en.html).
 
 ### Debian 8 ("Jessie")
 
-Please see [Debian's Jessie upgrade instructions][jessie].
+Please see [Debian's Jessie upgrade instructions](https://www.debian.org/releases/jessie/amd64/release-notes/ch-upgrading.en.html).
 
 ### End-of-life (EOL) releases
 
-We strongly recommend against using any Debian release that has reached [end-of-life (EOL)].
+We strongly recommend against using any Debian release that has reached [end-of-life (EOL)](https://wiki.debian.org/DebianReleases#Production_Releases).
 
 ## Additional information
 
@@ -166,14 +166,3 @@ We strongly recommend against using any Debian release that has reached [end-of-
 * By default, Qubes uses code names in the `apt` sources files, although the templates are referred to by release number.
   Check the code names for the templates, and ensure you are aware of any changes you have made in the repository definitions.
 
-[Debian TemplateVM]: /doc/templates/debian/
-[Debian TemplateVM Upgrade]: /doc/templates/debian/#upgrading
-[upgrade]: https://wiki.debian.org/DebianUpgrade
-[switch]: /doc/templates/#switching
-[jessie]: https://www.debian.org/releases/jessie/amd64/release-notes/ch-upgrading.en.html
-[stretch]: https://www.debian.org/releases/stretch/amd64/release-notes/ch-upgrading.en.html
-[buster]: https://www.debian.org/releases/buster/amd64/release-notes/ch-upgrading.en.html
-[end-of-life (EOL)]: https://wiki.debian.org/DebianReleases#Production_Releases
-[StandaloneVM]: /doc/standalone-and-hvm/
-[template-notes]: /doc/templates/#important-notes
-[5055]: https://github.com/QubesOS/qubes-issues/issues/5055

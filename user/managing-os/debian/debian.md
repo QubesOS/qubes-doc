@@ -13,14 +13,14 @@ title: The Debian TemplateVM
 
 # The Debian TemplateVM
 
-The Debian [TemplateVM] is an officially [supported] TemplateVM in Qubes OS.
+The Debian [TemplateVM](/doc/templates/) is an officially [supported](/doc/supported-versions/#templatevms) TemplateVM in Qubes OS.
 This page is about the standard (or "full") Debian TemplateVM.
-For the minimal version, please see the [Minimal TemplateVMs] page.
-There is also a [Qubes page on the Debian Wiki].
+For the minimal version, please see the [Minimal TemplateVMs](/doc/templates/minimal/) page.
+There is also a [Qubes page on the Debian Wiki](https://wiki.debian.org/Qubes).
 
 ## Installing
 
-To [install] a specific Debian TemplateVM that is not currently installed in your system, use the following command in dom0:
+To [install](/doc/templates/#installing) a specific Debian TemplateVM that is not currently installed in your system, use the following command in dom0:
 
 ```
 $ sudo qubes-dom0-update qubes-template-debian-XX
@@ -28,29 +28,29 @@ $ sudo qubes-dom0-update qubes-template-debian-XX
 
    (Replace `XX` with the Debian version number of the template you wish to install.)
 
-To reinstall a Debian TemplateVM that is already installed in your system, see [How to Reinstall a TemplateVM].
+To reinstall a Debian TemplateVM that is already installed in your system, see [How to Reinstall a TemplateVM](/doc/reinstall-template/).
 
 ## After Installing
 
 After installing a fresh Debian TemplateVM, we recommend performing the following steps:
 
-1. [Update the TemplateVM].
+1. [Update the TemplateVM](/doc/software-update-vm/).
 
-2. [Switch any TemplateBasedVMs that are based on the old TemplateVM to the new one][switch].
+2. [Switch any TemplateBasedVMs that are based on the old TemplateVM to the new one](/doc/templates/#switching).
 
-3. If desired, [uninstall the old TemplateVM].
+3. If desired, [uninstall the old TemplateVM](/doc/templates/#uninstalling).
 
 ## Updating
 
-For routine daily TemplateVM updates within a given Debian release, see [Updating software in TemplateVMs].
+For routine daily TemplateVM updates within a given Debian release, see [Updating software in TemplateVMs](/doc/software-update-domu/#updating-software-in-templatevms).
 
 ## Upgrading
 
 There are two ways to upgrade your TemplateVM to a new Debian release:
 
-- [Install a fresh template to replace the existing one.](#installing) This option may be simpler for less experienced users. After you install the new template, redo all desired template modifications and [switch everything that was set to the old template to the new template][switch]. You may want to write down the modifications you make to your templates so that you remember what to redo on each fresh install. In the old Debian template, see `/var/log/dpkg.log` and `/var/log/apt/history.log` for logs of package manager actions.
+- [Install a fresh template to replace the existing one.](#installing) This option may be simpler for less experienced users. After you install the new template, redo all desired template modifications and [switch everything that was set to the old template to the new template](/doc/templates/#switching). You may want to write down the modifications you make to your templates so that you remember what to redo on each fresh install. In the old Debian template, see `/var/log/dpkg.log` and `/var/log/apt/history.log` for logs of package manager actions.
 
-- [Perform an in-place upgrade of an existing Debian template.][Upgrading Debian TemplateVMs] This option will preserve any modifications you've made to the template, but it may be more complicated for less experienced users.
+- [Perform an in-place upgrade of an existing Debian template.](/doc/template/debian/upgrade/) This option will preserve any modifications you've made to the template, but it may be more complicated for less experienced users.
 
 ## Release-specific notes
 
@@ -108,16 +108,3 @@ The lesson is that you should carefully look at what is being installed to your 
 
 If some packages throw installation errors, see [this guide.](/doc/vm-troubleshooting/#fixing-package-installation-errors)
 
-[TemplateVM]: /doc/templates/
-[Minimal TemplateVMs]: /doc/templates/minimal/
-[Qubes page on the Debian Wiki]: https://wiki.debian.org/Qubes
-[end-of-life]: https://wiki.debian.org/DebianReleases#Production_Releases
-[supported]: /doc/supported-versions/#templatevms
-[How to Reinstall a TemplateVM]: /doc/reinstall-template/
-[Update the TemplateVM]: /doc/software-update-vm/
-[switch]: /doc/templates/#switching
-[uninstall the old TemplateVM]: /doc/templates/#uninstalling
-[Updating software in TemplateVMs]: /doc/software-update-domu/#updating-software-in-templatevms
-[Upgrading Debian TemplateVMs]: /doc/template/debian/upgrade/
-[5149]: https://github.com/QubesOS/qubes-issues/issues/5149
-[install]: /doc/templates/#installing
