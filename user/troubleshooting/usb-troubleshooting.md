@@ -55,30 +55,30 @@ Errors suggesting this issue:
 
 - in `xl dmesg` output:
 
-    ```
-    (XEN) [VT-D] It's disallowed to assign 0000:00:1a.0 with shared RMRR at dbe9a000 for Dom19.
-    (XEN) XEN_DOMCTL_assign_device: assign 0000:00:1a.0 to dom19 failed (-1)
-    ```
+  ```
+  (XEN) [VT-D] It's disallowed to assign 0000:00:1a.0 with shared RMRR at dbe9a000 for Dom19.
+  (XEN) XEN_DOMCTL_assign_device: assign 0000:00:1a.0 to dom19 failed (-1)
+  ```
 
 - during `qvm-start sys-usb`:
 
-    ```
-    internal error: Unable to reset PCI device [...]  no FLR, PM reset or bus reset available.
-    ```
+  ```
+  internal error: Unable to reset PCI device [...]  no FLR, PM reset or bus reset available.
+  ```
 
 Another solution would be to set the pci_strictreset option in dom0:
 
 - In Qubes R4.x, when attaching the PCI device to the VM (where `<BDF>` can be obtained from running `qvm-pci`):
 
-    ```
-    qvm-pci attach --persistent --option no-strict-reset=true usbVM dom0:<BDF>
-    ```
+  ```
+  qvm-pci attach --persistent --option no-strict-reset=true usbVM dom0:<BDF>
+  ```
 
 - In Qubes R3.x, by modifying the VM's properties:
 
-    ```
-    qvm-prefs usbVM -s pci_strictreset false
-    ```
+  ```
+  qvm-prefs usbVM -s pci_strictreset false
+  ```
 
 These options allow the VM to ignore the error and the VM will start.
 Please review the notes in the `qvm-prefs` man page and [here](/doc/device-handling/) and be aware of the potential risks.
