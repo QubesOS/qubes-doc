@@ -114,7 +114,7 @@ This brings up the **Qubes Restore VMs** window.
 4. If your backup is encrypted, you must check the **Encrypted backup** box.
 If a passphrase was supplied during the creation of your backup (regardless of whether it is encrypted), then you must supply it here.
 
-   **Note:** The passphrase which was supplied when the backup was created was used for **both** encryption/decryption and integrity verification.
+   **Note:** The passphrase which was supplied when the backup was created is used for **both** encryption/decryption and integrity verification.
    If the backup was not encrypted, the supplied passphrase is used only for integrity verification.
    All backups made from a Qubes R4.0 system will be encrypted.
 

@@ -19,7 +19,7 @@ assumes you're using qubes-builder to build Qubes.
 
 # Repositories and committing Code
 
-Qubes is split into a bunch of git repos. This are all contained in the
+Qubes is split into a bunch of git repos. These are all contained in the
 `qubes-src` directory under qubes-builder. Subdirectories there are separate
 components, stored in separate git repositories.
 
@@ -153,7 +153,7 @@ RPMS will appear in qubes-src/linux-kernel/pkgs/fc20/x86\_64:
 if all repository are tagged with signed tag.
 2. `make show-vtags` - show version of each component (based on git tags) -
 mostly useful just before building ISO. **Note:** this will not show version
-for components containing changes since last version tag
+for components containing changes since last version tag.
 3. `make push` - push change from **all** repositories to git server. You must
 set proper remotes (see above) for all repositories first.
 4. `make prepare-merge` - fetch changes from remote repositories (can be
