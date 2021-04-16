@@ -64,7 +64,7 @@ Command line usage:
 
 ### qrexec-agent
 
-`/usr/lib/qubes/qrexec-agrent`
+`/usr/lib/qubes/qrexec-agent`
 
 One instance runs in each active domain.
 Responsible for:
