@@ -554,7 +554,7 @@ A fully encrypted drive does not appear in Nautilus.
 
 The workaround is to manually decrypt and mount the drive:
 
-1. Attach usb device to qube - it should be attached as `/dev/xvdi` or similar.
+1. Attach USB device to qube - it should be attached as `/dev/xvdi` or similar.
 2. `sudo cryptsetup open /dev/xvdi bk --type luks`
 3. `sudo cryptsetup status /dev/mapper/bk` (Shows useful status info.)
 4. `sudo mount /dev/mapper/bk /mnt`
@@ -563,7 +563,7 @@ The decrypted device is now available at `/mnt` - when you have finished using i
 
 1. `sudo umount /mnt`
 2. `sudo cryptsetup close bk --type luks`
-3. Remove usb from qube.
+3. Remove USB from qube.
 
 ### Windows Update is stuck.
 
