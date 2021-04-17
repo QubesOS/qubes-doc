@@ -34,7 +34,7 @@ After attaching a device to a qube, upon attempting to use the device results in
 
 As a first line of defense, increase the amount of memory given to the USB VM (sys-usb). High-bandwidth devices such as webcams have been [observed](https://github.com/QubesOS/qubes-issues/issues/6200) to need more memory in sys-usb. If increasing the amount of memory does not resolve the issue, check kernel logs within sys-usb as well as the attached qube for errors before filing a bug report.
 
-## usbVM does not boot after creating and assigning USB controllers to it
+## USB VM does not boot after creating and assigning USB controllers to it
 
 This is probably because one of the controllers does not support reset.
 In Qubes R2 any such errors were ignored. In Qubes R3.x they are not.
@@ -43,7 +43,7 @@ In R4.x, devices that are automatically added to sys-net and sys-usb on install 
 A device that does not support reset is not ideal and generally should not be assigned to a VM.
 
 Most likely the offending controller is a USB 3.0 device.
-You can remove this controller from the usbVM, and see if this allows the VM to boot.
+You can remove this controller from the USB VM, and see if this allows the VM to boot.
 Alternatively you may be able to disable USB 3.0 in the BIOS.
 If the BIOS does not have the option to disable USB 3.0, try running the following command in dom0 to force USB 2.0 modes for the USB ports:
 

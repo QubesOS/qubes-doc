@@ -459,10 +459,10 @@ In your TemplateVMs, open a terminal and run `sudo dnf upgrade`.
 
 Enable "debug mode" in the qube's settings, either by checking the box labeled "Run in debug mode" in the Qubes VM Manager qube settings menu or by running the `qvm-prefs` command.
 
-### I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.
+### I created a USB VM and assigned USB controllers to it. Now the USB VM won't boot.
 
 This is probably because one of the controllers does not support reset.
-See the [USB Troubleshooting guide](/doc/usb-troubleshooting/#usbvm-does-not-boot-after-creating-and-assigning-usb-controllers-to-it).
+See the [USB Troubleshooting guide](/doc/usb-troubleshooting/#usb-vm-does-not-boot-after-creating-and-assigning-usb-controllers-to-it).
 
 ### I assigned a PCI device to a qube, then unassigned it/shut down the qube. Why isn't the device available in dom0?
 
