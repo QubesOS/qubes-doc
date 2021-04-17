@@ -155,7 +155,7 @@ However, it would not make sense for a comparatively small project like ours, wi
 This is particularly true when it comes to Linux in general.
 Although many users who are new to Qubes are also new to Linux, it makes absolutely no sense for our comparatively tiny project to try to document Linux in general when there is already a plethora of documentation out there.
 
-Many contributors do not realize that the there is a significant amount of work involved in *maintaining* documentation after it has been written.
+Many contributors do not realize that there is a significant amount of work involved in *maintaining* documentation after it has been written.
 They may wish to write documentation and submit it to the core docs, but they see only their own writing process and fail to consider that it will have to be kept up-to-date and consistent with the rest of the docs for years afterward.
 Submissions to the core docs also have to go through a review process to ensure accuracy before being merged (see [security](#security)), which takes up valuable time from the team.
 We aim to maintain high quality standards for the core docs (style and mechanics, formatting), which also takes up a lot of time.
