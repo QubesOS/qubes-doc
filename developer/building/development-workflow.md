@@ -117,7 +117,7 @@ cd ../..
 vi series.conf
 ~~~
 
-#### Building RPMS
+#### Building RPMs
 
 TODO: Is this step generic for all subsystems?
 
@@ -130,13 +130,13 @@ distinguish between different versions of the same package.
 You might want to take a moment here to review (git diff, git status), commit
 your changes locally.
 
-To actually build RPMS, in qubes-builder:
+To actually build RPMs, in qubes-builder:
 
 ~~~
 make linux-kernel
 ~~~
 
-RPMS will appear in qubes-src/linux-kernel/pkgs/fc20/x86\_64:
+RPMs will appear in qubes-src/linux-kernel/pkgs/fc20/x86\_64:
 
 ~~~
 -rw-rw-r-- 1 user user 42996126 Nov 17 04:08 kernel-3.4.18-1debug20121116c.pvops.qubes.x86_64.rpm
@@ -166,7 +166,7 @@ FETCH_HEAD` (in each repo directory). Or `make do-merge` to merge all of them.
 
 When developing it is convenient to be able to rapidly test changes. Assuming
 you're developing Qubes on Qubes, you should be working in a special VM for
-Qubes and occasionally you will want to transfer code or rpms back to dom0 for
+Qubes and occasionally you will want to transfer code or RPMs back to dom0 for
 testing.
 
 Here are some handy scripts Marek has shared to facilitate this.

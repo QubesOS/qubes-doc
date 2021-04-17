@@ -332,7 +332,7 @@ immune to altering past entries. See
   in files there, no file manager, etc).
 - Configure GNOME to not look into external devices plugged in (no auto
   mounting, device notifications etc).
-- Package above modifications as rpms, preferably as extra configuration files
+- Package above modifications as RPMs, preferably as extra configuration files
   and/or plugins than overwriting existing files. Exceptions to this rule may
   apply if no other option.
 - Adjust comps.xml (in installer-qubes-os repo) to define package group with

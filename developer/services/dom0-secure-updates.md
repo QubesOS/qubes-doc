@@ -44,7 +44,7 @@ The qubes-receive-updates script processes the untrusted input from Update VM: i
 
 Once qubes-receive-updates finished unpacking and verifying the updates, the updates are placed in ``qubes-receive-updates`` directory in Dom0 filesystem. Those updates are now trusted. Dom0 is configured (see /etc/yum.conf in Dom0) to use this directory as a default (and only) [yum repository](https://github.com/QubesOS/qubes-core-admin-linux/blob/release2/dom0-updates/qubes-cached.repo).
 
-Finally, qubes-dom0-update runs ``yum update`` that fetches the rpms from qubes-cached repo and installs them as usual.
+Finally, qubes-dom0-update runs ``yum update`` that fetches the RPMs from qubes-cached repo and installs them as usual.
 
 Security benefit of our update mechanism
 ----------------------------------------

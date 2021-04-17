@@ -99,7 +99,7 @@ cp example-configs/qubes-os-master.conf builder.conf
 
 make get-sources
 
-# And now to build all Qubes rpms (this will take a few hours):
+# And now to build all Qubes RPMs (this will take a few hours):
 
 make qubes
 
