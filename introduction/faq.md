@@ -114,7 +114,7 @@ These programs are popular because they're designed primarily to be easy to use 
 However, the fact that Type 2 hypervisors run under the host OS means that they're really only as secure as the host OS itself.
 If the host OS is ever compromised, then any VMs it hosts are also effectively compromised.
 
-By contrast, Qubes uses a "Type 1" or "bare metal" hypervisor called [Xen](https://www.xenproject.org/).
+By contrast, Qubes uses a "Type 1" or "bare-metal" hypervisor called [Xen](https://www.xenproject.org/).
 Instead of running inside an OS, Type 1 hypervisors run directly on the "bare metal" of the hardware.
 This means that an attacker must be capable of subverting the hypervisor itself in order to compromise the entire system, which is vastly more difficult.
 
