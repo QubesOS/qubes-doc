@@ -114,7 +114,7 @@ Maid passphrase to the new configuration. Please consult the Anti Evil Maid
 
 If you use USB VM, you may encounter problem with starting it on updated Xen
 version (because of strict default settings). Take a look at 
-[User FAQ](/faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot)
+[User FAQ](/faq/#i-created-a-usb-vm-and-assigned-usb-controllers-to-it-now-the-usb-vm-wont-boot)
 for details.
 
 Once you have upgraded dom0, you can install new templates from Qubes R3.1

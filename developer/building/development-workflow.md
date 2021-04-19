@@ -19,7 +19,7 @@ assumes you're using qubes-builder to build Qubes.
 
 # Repositories and committing Code
 
-Qubes is split into a bunch of git repos. This are all contained in the
+Qubes is split into a bunch of git repos. These are all contained in the
 `qubes-src` directory under qubes-builder. Subdirectories there are separate
 components, stored in separate git repositories.
 
@@ -117,7 +117,7 @@ cd ../..
 vi series.conf
 ~~~
 
-#### Building RPMS
+#### Building RPMs
 
 TODO: Is this step generic for all subsystems?
 
@@ -130,13 +130,13 @@ distinguish between different versions of the same package.
 You might want to take a moment here to review (git diff, git status), commit
 your changes locally.
 
-To actually build RPMS, in qubes-builder:
+To actually build RPMs, in qubes-builder:
 
 ~~~
 make linux-kernel
 ~~~
 
-RPMS will appear in qubes-src/linux-kernel/pkgs/fc20/x86\_64:
+RPMs will appear in qubes-src/linux-kernel/pkgs/fc20/x86\_64:
 
 ~~~
 -rw-rw-r-- 1 user user 42996126 Nov 17 04:08 kernel-3.4.18-1debug20121116c.pvops.qubes.x86_64.rpm
@@ -153,7 +153,7 @@ RPMS will appear in qubes-src/linux-kernel/pkgs/fc20/x86\_64:
 if all repository are tagged with signed tag.
 2. `make show-vtags` - show version of each component (based on git tags) -
 mostly useful just before building ISO. **Note:** this will not show version
-for components containing changes since last version tag
+for components containing changes since last version tag.
 3. `make push` - push change from **all** repositories to git server. You must
 set proper remotes (see above) for all repositories first.
 4. `make prepare-merge` - fetch changes from remote repositories (can be
@@ -166,7 +166,7 @@ FETCH_HEAD` (in each repo directory). Or `make do-merge` to merge all of them.
 
 When developing it is convenient to be able to rapidly test changes. Assuming
 you're developing Qubes on Qubes, you should be working in a special VM for
-Qubes and occasionally you will want to transfer code or rpms back to dom0 for
+Qubes and occasionally you will want to transfer code or RPMs back to dom0 for
 testing.
 
 Here are some handy scripts Marek has shared to facilitate this.

@@ -94,7 +94,7 @@ Here are some successful projects which have been implemented in the past by Goo
 **Project**: Consolidate troubleshooting guides
 
 **Brief explanation**: Troubleshooting guides are scattered across many pages and sometimes incomplete, leading to repeatedly posting the same instruction over and over when helping users to diagnose problems.
-This could be helped by writing consolidated guide with with a clear list of symptom-action layout.
+This could be helped by writing a consolidated guide with a clear list of symptom-action layout.
 
 **Expected results**:
 

@@ -114,7 +114,7 @@ These programs are popular because they're designed primarily to be easy to use 
 However, the fact that Type 2 hypervisors run under the host OS means that they're really only as secure as the host OS itself.
 If the host OS is ever compromised, then any VMs it hosts are also effectively compromised.
 
-By contrast, Qubes uses a "Type 1" or "bare metal" hypervisor called [Xen](https://www.xenproject.org/).
+By contrast, Qubes uses a "Type 1" or "bare-metal" hypervisor called [Xen](https://www.xenproject.org/).
 Instead of running inside an OS, Type 1 hypervisors run directly on the "bare metal" of the hardware.
 This means that an attacker must be capable of subverting the hypervisor itself in order to compromise the entire system, which is vastly more difficult.
 
@@ -459,10 +459,10 @@ In your TemplateVMs, open a terminal and run `sudo dnf upgrade`.
 
 Enable "debug mode" in the qube's settings, either by checking the box labeled "Run in debug mode" in the Qubes VM Manager qube settings menu or by running the `qvm-prefs` command.
 
-### I created a usbVM and assigned usb controllers to it. Now the usbVM wont boot.
+### I created a USB VM and assigned USB controllers to it. Now the USB VM won't boot.
 
 This is probably because one of the controllers does not support reset.
-See the [USB Troubleshooting guide](/doc/usb-troubleshooting/#usbvm-does-not-boot-after-creating-and-assigning-usb-controllers-to-it).
+See the [USB Troubleshooting guide](/doc/usb-troubleshooting/#usb-vm-does-not-boot-after-creating-and-assigning-usb-controllers-to-it).
 
 ### I assigned a PCI device to a qube, then unassigned it/shut down the qube. Why isn't the device available in dom0?
 
@@ -554,7 +554,7 @@ A fully encrypted drive does not appear in Nautilus.
 
 The workaround is to manually decrypt and mount the drive:
 
-1. Attach usb device to qube - it should be attached as `/dev/xvdi` or similar.
+1. Attach USB device to qube - it should be attached as `/dev/xvdi` or similar.
 2. `sudo cryptsetup open /dev/xvdi bk --type luks`
 3. `sudo cryptsetup status /dev/mapper/bk` (Shows useful status info.)
 4. `sudo mount /dev/mapper/bk /mnt`
@@ -563,7 +563,7 @@ The decrypted device is now available at `/mnt` - when you have finished using i
 
 1. `sudo umount /mnt`
 2. `sudo cryptsetup close bk --type luks`
-3. Remove usb from qube.
+3. Remove USB from qube.
 
 ### Windows Update is stuck.
 
