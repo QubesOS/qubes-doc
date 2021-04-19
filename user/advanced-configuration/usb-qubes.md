@@ -54,7 +54,7 @@ Alternatively, you can create a USB qube manually as follows:
 5. Recommended: Check the box on the "Basic" tab which says "Start VM automatically on boot".
    (This will help to mitigate attacks in which someone forces your system to reboot, then plugs in a malicious USB device.)
 
-If the USB qube will not start, please have a look at the [faq](/faq/#i-created-a-usbvm-and-assigned-usb-controllers-to-it-now-the-usbvm-wont-boot).
+If the USB qube will not start, please have a look at the [faq](/faq/#i-created-a-usb-vm-and-assigned-usb-controllers-to-it-now-the-usb-vm-wont-boot).
 
 ## Enable a USB keyboard for login ##
 

@@ -53,7 +53,7 @@ Therefore, it is up to each individual Qubes user to evaluate the relative risk 
 For example, a user who frequently travels with a Qubes laptop holding sensitive data may be at a much higher risk of Evil Maid attacks than a home user with a stationary Qubes desktop.
 If the frequent traveler judges her risk of an Evil Maid attack to be higher than the risk of a malicious USB device, she might reasonably opt to install and use AEM.
 On the other hand, the home user might deem the probability of an Evil Maid attack occurring in her own home to be so low that there is a higher probability that any USB drive she purchases is already compromised, in which case she might reasonably opt never to attach any USB devices directly to dom0.
-(In either case, users can--and should--secure dom0 against further USB-related attacks through the use of a [USBVM](https://github.com/Qubes-Community/Contents/blob/master/docs/security/security-guidelines.md#creating-and-using-a-usbvm).)
+(In either case, users can--and should--secure dom0 against further USB-related attacks through the use of a [USB VM](https://github.com/Qubes-Community/Contents/blob/master/docs/security/security-guidelines.md#creating-and-using-a-usbvm).)
 
 For more information, please see [this discussion thread](https://groups.google.com/d/msg/qubes-devel/EBc4to5IBdg/n1hfsHSfbqsJ).
 
