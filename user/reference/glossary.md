@@ -100,7 +100,7 @@ AppVM
 -----
 
 Application Virtual Machine.
-A [VM](#vm) class.
+A type of [VM](#vm).
 Synonymous with [TemplateBasedVM](#templatebasedvm).
 
 NetVM
