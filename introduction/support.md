@@ -351,17 +351,8 @@ optional [Google Groups web interface](https://groups.google.com/group/qubes-tra
 
 ## Forum
 
-We have a community forum for Qubes OS users:
-
-<https://qubes-os.discourse.group>
-
-This is an official user forum where you can ask questions, get help, share
-tips and experiences, and more! For a long time, members of our community have
-sought a privacy-respecting forum experience with modern features that
-traditional mailing lists do not support. The open-source [Discourse](https://www.discourse.org/) platform
-fills this need for us, as it does for many other open-source projects. Thanks
-to their generous [free hosting for open source projects](https://blog.discourse.org/2018/11/free-hosting-for-open-source-v2/), we're pleased to be
-able to create this space for our community.
+The official [Qubes Forum](https://qubes-os.discourse.group) is a place where you can ask questions, get help, share tips and experiences, and more! For a long time, members of our community have sought a privacy-respecting forum experience with modern features that traditional mailing lists do not support. The open-source [Discourse](https://www.discourse.org/) platform fills this need for us, as it does for many other open-source projects. Thanks
+to their generous [free hosting for open source projects](https://blog.discourse.org/2018/11/free-hosting-for-open-source-v2/), we're pleased to be able to create this space for our community.
 
 ### Why was this forum created?
 
