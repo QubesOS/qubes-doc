@@ -17,10 +17,10 @@ Qubes OS
 --------
 
 A security-oriented operating system (OS).
-The main principle of Qubes OS is security by compartmentalization (or isolation), in which activities are compartmentalized (or isolated) in separate **qubes**.
+The main principle of Qubes OS is security by compartmentalization (or isolation), in which activities are compartmentalized (or isolated) in separate [qubes](#qube).
 
-* The official name is `Qubes OS` (note the capitalization and spacing).
-  However, in casual conversation this is often shortened to `Qubes`, and in technical contexts where spaces are not permitted, (e.g., usernames), the space may be omitted, as in `QubesOS`.
+* The official name is "Qubes OS" (note the capitalization and spacing).
+  However, in casual conversation this is often shortened to "Qubes," and in technical contexts where spaces are not permitted (e.g., usernames), the space may be omitted, as in `QubesOS`.
 
 VM
 --
