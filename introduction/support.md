@@ -21,6 +21,9 @@ Help and support for Qubes OS is available from the [documentation](/doc/), the
 [mailing lists](#mailing-lists), and our [forum](#forum) which are explained below. The Qubes OS
 Project does not offer paid support services.
 
+Before asking for help, please check the [troubleshooting](/doc/#troubleshooting) section, the [FAQ](/faq/), and the rest of the [documentation](/doc/).
+Your question may already be answered there.
+
 If you're looking for known issues or would like to file a bug report, please
 see the [issue tracker](/doc/reporting-bugs/). These issues are constantly being updated and may
 contain workarounds for problems that you're experiencing, so it's worth
