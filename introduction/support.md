@@ -365,8 +365,8 @@ privacy implications and user experience were unacceptable for many members of
 our community, especially with the recent addition of a sign-in requirement to
 view threads. Many of you value the lower barrier to entry, organization,
 ease-of-use, and modern social features that today's forums support. Moreover,
-Discourse features email integration for those who still prefer the traditional
-mailing list format.
+Discourse [features email integration](https://qubes-os.discourse.group/t/using-the-forum-via-email/533/1)
+for those who still prefer the traditional mailing list format.
 
 ### How is this different from our mailing lists?
 
