@@ -508,14 +508,18 @@ Whonix Workstation TemplateVM
 
 #### `update.qubes-dom0`
 
-Updates dom0
+Updates dom0. Example:
+
+```
+sudo qubesctl --show-output state.sls update.qubes-dom0
+```
 
 #### `update.qubes-vm`
 
 Updates domUs. Example to update all TemplateVMs:
 
 ```
-sudo qubesctl --skip-dom0 --templates state.sls update.qubes-vm
+sudo qubesctl --show-output --skip-dom0 --templates state.sls update.qubes-vm
 ```
 
 Useful options:
