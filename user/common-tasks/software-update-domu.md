@@ -34,14 +34,7 @@ To permanently install new software in a TemplateVM:
 
 ## Updating software in TemplateVMs
 
-The recommended way to update your TemplateVMs is to use the **Qubes Update** tool.
-By default, the icon for this tool will appear in your Notification Area when updates are available.
-Simply click on it and follow the guided steps.
-If you wish to open this tool directly, you can find it in the System Tools area of the Applications menu.
-
-You can also update TemplateVMs individually.
-In the Qube Manager, select the desired TemplateVM, then click **Update qube**.
-Advanced users can execute the standard update command for that operating system from the command line, e.g. `dnf update` in Fedora and `apt-get update` in Debian.
+See [Updating Qubes OS](/doc/updating-qubes-os/).
 
 ## Testing repositories
 

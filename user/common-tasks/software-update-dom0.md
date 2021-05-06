@@ -36,17 +36,7 @@ While we could, in theory, write a custom solution, it would only be effective i
 
 ## How to update dom0
 
-In the Qube Manager, simply select dom0 in the VM list, then click the **Update VM system** button (the blue, downward-pointing arrow).
-In addition, updating dom0 has been made more convenient: You will be prompted on the desktop whenever new dom0 updates are available and given the choice to run the update with a single click.
-
-Alternatively, command-line tools are available for accomplishing various update-related tasks (some of which are not available via Qubes VM Manager).
-In order to update dom0 from the command line, start a console in dom0 and then run one of the following commands:
-
-To check and install updates for dom0 software:
-
-```
-$ sudo qubes-dom0-update
-```
+See [Updating Qubes OS](/doc/updating-qubes-os/).
 
 ## How to install a specific package
 
