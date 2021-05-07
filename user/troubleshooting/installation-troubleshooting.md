@@ -35,6 +35,15 @@ If installation fails after using one tool, try a different one.
 For example, if you are facing trouble installing Qubes after writing the ISO using Rufus, then try using other tools like balenaEtcher or the ``dd`` command. 
 In case the boot partition is not set to "active" after copying the ISO, you can use some other tool like `gparted` on a Linux system to activate it. 
 
+## "Warning: dracut-initqueue timeout - starting timeout scripts" during installation
+
+This error message is related to the faulty creation of the USB installation medium.  If you receive this error message during installation, please make sure you have followed the instructions on [how to write your ISO to a USB key](/doc/installation-guide/#copying-the-iso-onto-the-installation-medium).  Specifically, the ``dd`` command listed on that page has been verified to solve this issue on multiple Qubes installation versions. 
+```
+$ sudo dd if=Qubes-RX-x86_64.iso of=/dev/sdY status=progress bs=1048576 && sync
+```
+
+See [here](https://github.com/QubesOS/qubes-issues/issues/6447) for a discussion of this error message.
+
 ## Boot screen does not appear / system does not detect your installation medium 
 
 If the boot screen does not appear, there are several options to troubleshoot.
