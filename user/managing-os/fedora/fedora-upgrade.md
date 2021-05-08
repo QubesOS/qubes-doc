@@ -204,9 +204,9 @@ Also see [supported versions](/doc/supported-versions/).
 
 As mentioned above, you may encounter the following `dnf` error:
 
-`
+```
 At least X MB more space needed on the / filesystem.
-`
+```
 
 In this case, you have several options:
 
