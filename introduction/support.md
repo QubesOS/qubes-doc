@@ -390,7 +390,7 @@ was introduced. We believe that this additional venue fosters the continued
 growth of community participation and improves everyone's experience. In
 addition, we fully expect that many community members -- especially the most
 active ones -- will choose to participate in both venues. (Again, for those who
-still prefer interacting via email, [Discourse supports that too](https://qubes-os.discourse.group/t/using-the-forum-via-email/533)!)
+still prefer interacting via email, [Discourse supports that too](https://qubes-os.discourse.group/t/using-the-forum-via-email/533/1)!)
 
 
 ## Social media ##
