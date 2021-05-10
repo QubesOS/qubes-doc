@@ -40,7 +40,7 @@ Even if no updates have been detected, you can use this tool to check for update
 
 <div class="alert alert-info" role="alert">
   <i class="fa fa-info-circle"></i>
-  <b>Note:</b> For the command-line equivalents of using the <b>Qubes Update</b> tool, see the Salt formulae <a href="/doc/salt/#updatequbes-dom0"><code>update.qubes-dom0</code></a> and <a href="/doc/salt/#updatequbes-vm"><code>update.qubes-vm</code></a>.
+  <b>Advanced users and developers:</b> For the command-line equivalents of using the <b>Qubes Update</b> tool, see the Salt formulae <a href="/doc/salt/#updatequbes-dom0"><code>update.qubes-dom0</code></a> and <a href="/doc/salt/#updatequbes-vm"><code>update.qubes-vm</code></a>.
 </div>
 
 The final step is to make sure that all of your VMs are running a supported operating system so that they're all receiving upstream security updates.
