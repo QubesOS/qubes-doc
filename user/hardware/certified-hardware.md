@@ -14,8 +14,12 @@ title: Certified Hardware
 
 The Qubes OS Project aims to partner with a select few computer vendors to ensure that Qubes users have reliable hardware purchasing options.
 We aim for these vendors to be as diverse as possible in terms of geography, cost, and availability.
-Note, however, that we certify only that a particular hardware *configuration* is *supported* by Qubes.
-We take no responsibility for our partners' manufacturing or shipping processes, nor can we control whether physical hardware is modified (whether maliciously or otherwise) *en route* to the user.
+
+<div class="alert alert-danger" role="alert">
+  <i class="fa fa-exclamation-triangle"></i>
+  <b>Warning:</b> The Qubes OS Project certifies only that a particular hardware <em>configuration</em> is <em>supported</em> by Qubes OS.
+  We take no responsibility for any vendor's manufacturing, shipping, payment, or other practices; nor can we control whether physical hardware is modified (whether maliciously or otherwise) <i>en route</i> to the user.
+</div>
 
 There are also other hardware models on which we have tested Qubes OS.
 See [Hardware Testing](/doc/hardware-testing/) for details.
