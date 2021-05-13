@@ -111,12 +111,8 @@ The same general procedure may be used to upgrade any template based on the stan
     [user@dom0 ~]$ qubes-prefs --set debian-<new>
     ```
 
-11. (Optional) Remove the old template.
-    (Make sure to type the name of the old template, not the new one.)
-
-    ```
-    [user@dom0 ~]$ sudo dnf remove qubes-template-debian-<old>
-    ```
+11. (Optional) [Uninstall the old template.](/doc/templates/#uninstalling)
+    Make sure that the template you're uninstalling is the old one, not the new one!
 
 ## StandaloneVMs
 
