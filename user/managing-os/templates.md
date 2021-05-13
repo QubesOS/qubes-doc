@@ -105,8 +105,7 @@ After installing a fresh TemplateVM, we recommend performing the following steps
 
 ## Updating
 
-Updating TemplateVMs is an important part of [Updating Qubes OS](/doc/updating-qubes-os/).
-Please see [Updating software in TemplateVMs](/doc/software-update-domu/#updating-software-in-templatevms).
+Please see [Updating Qubes OS](/doc/updating-qubes-os/).
 
 ## Uninstalling
 
