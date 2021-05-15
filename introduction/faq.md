@@ -485,19 +485,6 @@ or
 
 See also [here](/doc/assigning-devices/).
 
-### How do I install Flash in a Debian qube?
-
-The Debian way is to install the flashplugin-nonfree package.
-Download this in a qubes, and copy it to a Debian template.
-This will make Flash available to every qube using that template.
-
-If you only want Flash available in one qube:
-
-- download the Flash Player for linux (64 bit) .tar.gz from [Adobe](https://get.adobe.com/flashplayer/otherversions).
-- untar the downloaded file ```tar xf install_flash_player_11_linux.x86_64.tar.gz```
-- create `~/.mozilla/plugins` if it does not exist
-- move `libflashhplayer.so` to `~/.mozilla/plugins`, and restart iceweasel.
-
 ### How do I play video files?
 
 If you're having trouble playing a video file in a qube, you're probably missing the required codecs.
