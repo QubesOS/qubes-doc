@@ -21,14 +21,6 @@ title: System Requirements
   We strongly recommend consulting the <a href="/hcl/">Hardware Compatibility List</a> to verify that Qubes can install and run on your specific model in the ways you need it to.
 </div>
 
-## Minimum
-
-- **CPU:** 64-bit Intel or AMD processor (also known as `x86_64`, `x64`, and `AMD64`)
-  - [Intel VT-x](https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29) with [EPT](https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Extended_Page_Tables) or [AMD-V](https://en.wikipedia.org/wiki/X86_virtualization#AMD_virtualization_.28AMD-V.29) with [RVI](https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Rapid_Virtualization_Indexing)
-  - [Intel VT-d](https://en.wikipedia.org/wiki/X86_virtualization#Intel-VT-d) or [AMD-Vi (also known as AMD IOMMU)](https://en.wikipedia.org/wiki/X86_virtualization#I.2FO_MMU_virtualization_.28AMD-Vi_and_Intel_VT-d.29)
-- **Memory:** 4 GB RAM
-- **Storage:** 32 GB free space
-
 ## Recommended
 
 - **CPU:** 64-bit Intel or AMD processor (also known as `x86_64`, `x64`, and `AMD64`)
@@ -43,6 +35,14 @@ title: System Requirements
 - **Peripherals:** A non-USB keyboard or multiple USB controllers
 - **TPM:** Trusted Platform Module (TPM) with proper BIOS support (required for [Anti Evil Maid](/doc/anti-evil-maid/))
 - **Other:** Satisfaction of all [hardware certification requirements for Qubes 4.x](/news/2016/07/21/new-hw-certification-for-q4/)
+
+## Minimum
+
+- **CPU:** 64-bit Intel or AMD processor (also known as `x86_64`, `x64`, and `AMD64`)
+  - [Intel VT-x](https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29) with [EPT](https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Extended_Page_Tables) or [AMD-V](https://en.wikipedia.org/wiki/X86_virtualization#AMD_virtualization_.28AMD-V.29) with [RVI](https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Rapid_Virtualization_Indexing)
+  - [Intel VT-d](https://en.wikipedia.org/wiki/X86_virtualization#Intel-VT-d) or [AMD-Vi (also known as AMD IOMMU)](https://en.wikipedia.org/wiki/X86_virtualization#I.2FO_MMU_virtualization_.28AMD-Vi_and_Intel_VT-d.29)
+- **Memory:** 4 GB RAM
+- **Storage:** 32 GB free space
 
 ## Choosing Hardware
 
