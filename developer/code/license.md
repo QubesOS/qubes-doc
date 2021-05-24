@@ -13,8 +13,8 @@ title: License
 Qubes OS License
 ================
 
-Qubes OS is a compilation of software packages, each under its own license. The compilation is made available under the GNU General Public License version 2.
+Qubes OS is a compilation of software packages, each under its own license. The compilation is made available under the GNU General Public License version 2 (GPLv2).
 
-The source code of Qubes OS (all repositories listed on the [@QubesOS](https://github.com/QubesOS) account on github) is made available under the same license, unless a file `LICENSE` in the root of the repoistory specifies a different license.
+The source code of Qubes OS is contained in repositories under the [@QubesOS](https://github.com/QubesOS) account on GitHub. This source code is made available under GPLv2, unless there is a `LICENSE` file in the root of the containing repository that specifies a different license.
 
-The full text of the GPL v2 license can be found [here](https://www.gnu.org/licenses/gpl-2.0.html).
+The full text of the GPLv2 license can be found [here](https://www.gnu.org/licenses/gpl-2.0.html).
