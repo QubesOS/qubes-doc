@@ -29,7 +29,7 @@ ways in which you can help:
 * [Donate](/donate/) to the project
 * If you represent an organization, become a [Qubes partner](/partners/)
 * Add a [Qubes download mirror](/downloads/mirrors/)
-* Answer questions on the [mailing lists](/support/)
+* Answer questions and discuss Qubes on the [mailing lists](/support/) and [forum](/support/#forum)
 * Engage with us on social media:
   * Follow us on [Twitter](https://twitter.com/QubesOS)
   * Join us on [Reddit](https://www.reddit.com/r/Qubes/)
