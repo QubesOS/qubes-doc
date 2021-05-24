@@ -49,7 +49,7 @@ It is not a place for discussion.
 If you wish to discuss something in the issue tracker, please do so on the forum or mailing lists (see [Help, Support, Mailing Lists, and Forum](/support/)).
 You can simply link to the relevant issue in your discussion post.
 
-This guideline is important for keeping issues focused on *actionable information*, which helps the develpers to stay focused on their work.
+This guideline is important for keeping issues focused on *actionable information*, which helps the developers to stay focused on their work.
 When developers come back to an issue to work on it, we do not want them to have to sift through a large number of unnecessary comments before they can get started.
 In many cases, an issue that gets "too big" essentially becomes more trouble than it's worth, and no developer will touch it (also see [every issue must be about a single, actionable thing](#every-issue-must-be-about-a-single-actionable-thing)).
 In these cases, we sometimes have to close the issue and open a new one.
