@@ -413,5 +413,5 @@ The following unofficial chat channels are maintained by the community:
 
 * Matrix, Qubes-related: <https://matrix.to/#/#cybersec-qubes_os:matrix.org>
 * Matrix, strictly Qubes: <https://matrix.to/#/#Qubes-OS:matrix.org>
-* `#qubes` channel on freenode.net via traditional IRC clients or: <https://webchat.freenode.net/>
+* `#qubes` channel on libera.chat via traditional IRC clients
 
