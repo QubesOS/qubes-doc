@@ -46,7 +46,7 @@ title: System Requirements
 
 ## Choosing Hardware
 
-Before acquiring a computer you should be aware that not all computers are compatible with Qubes. Satifying the above requirements does not guarantee Qubes will run on it. So it is generally a good idea to choose a laptop which has been released 2+ years ago and checking the resources below.
+Beyond the advice at the top of the page, it is generally a good idea to choose a laptop which has been released 2+ years ago.
 
 - Please see the [Hardware Compatibility List](/hcl/) for a compilation of hardware reports generated and submitted by users across various Qubes versions.
   (For more information about the HCL itself, see [here](/doc/hcl/).)
