@@ -62,6 +62,18 @@ This includes, but is not limited to, troubleshooting questions and questions ab
 Instead, see [Help, Support, Mailing Lists, and Forum](/support/) for appropriate place to ask questions.
 By contrast, [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) is meant for tracking more general bugs, enhancements, and tasks that affect a broad range of Qubes users.
 
+### Use the issue template ###
+
+When you open a new issue, an issue template is provided for you.
+Please use it.
+Do not delete it.
+The issue template is carefully designed to elicit important information.
+Without this information, the issue is likely to be incomplete.
+(If certain sections are not applicable, you may remove them, but please do so only sparingly and only if they are *truly* not applicable.)
+
+It is also important to note the placement and content of the HTML comments in the issue template.
+These help us to have issues with a consistent format.
+
 ### Every issue must be about a single, actionable thing ###
 
 If your issue is not actionable, please see [Help, Support, Mailing Lists, and Forum](/support/) for the appropriate place to post it.
@@ -101,16 +113,6 @@ You may also need to use command-line tools such as `lspci`.
 If you're reporting a bug in a package that is in a [testing](/doc/testing/) repository, please reference the appropriate issue in the [updates-status](https://github.com/QubesOS/updates-status/issues) repository.
 Project maintainers really appreciate thorough explanations.
 It usually helps them address the problem more quickly, so everyone wins!
-
-### Use the provided issue template ###
-
-Please use the provided issue template.
-Do not delete it or remove parts of it.
-The issue template is carefully designed to elicit important information.
-Without this information, the issue is likely to be incomplete.
-
-It is also important to note the placement and content of the HTML comments in the issue template.
-These help us to have issues with a consistent format.
 
 ### There are no guarantees that your issue will be addressed ###
 
