@@ -45,11 +45,11 @@ This is how we create a policy that says: "VMs tagged with 'work' are allowed to
 When an operation is initiated with a specific target, e.g. `qvm-copy-to-vm other_work_vm some_file` the policy mechanism looks for a row
 matching `source_work_vm other_work_vm PERMISSION`. In this case, assuming both VMs have the `work` tag, the second row would match, and
 the operation would be `allow`ed without any prompts. When an operation is initiated without a specific target, e.g. `qvm-copy some_file`,
-the policy mechanism looks for a row matching `source_work_vm $default PERMISSION`. In this case, the first row indicates that the user
+the policy mechanism looks for a row matching `source_work_vm @default PERMISSION`. In this case, the first row indicates that the user
 should be prompted for the destination. The list of destination VMs in the prompt is filtered to only include VMs that are valid as per
 the policy (so in this example, only other work VMs would be listed). If the first row was commented out, the second row would not match
-(the `$default` placeholder is not included in `$tag:work`) but the third row would match (the `$default` placeholder is included in
-`$anyvm`). The `qvm-copy` operation would therefore terminate immediately with the message `Request refused`, without prompting the user
+(the `@default` placeholder is not included in `@tag:work`) but the third row would match (the `@default` placeholder is included in
+`@anyvm`). The `qvm-copy` operation would therefore terminate immediately with the message `Request refused`, without prompting the user
 with a list of valid destination VMs, and only `qvm-copy-to-vm` operations with valid destinations would be allowed.
 
 The fourth row says that we're **denied** from copying files **from** any VM in the system **to** any VM tagged with "work".
