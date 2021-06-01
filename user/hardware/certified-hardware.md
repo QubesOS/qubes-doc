@@ -41,6 +41,15 @@ Read our [announcement](/news/2019/07/18/insurgo-privacybeast-qubes-certificatio
 [![nitropad-x230.jpg](/attachment/site/nitropad-x230.jpg)](https://shop.nitrokey.com/shop/product/nitropad-x230-67)
 
 The [NitroPad X230](https://shop.nitrokey.com/shop/product/nitropad-x230-67) satisfies all hardware certification requirements for Qubes 4, offering users extensive hardware security options.
+Read our [announcement](/news/2020/03/04/nitropad-x230-qubes-certification/) of the certification for further details!
+
+### NitroPad T430
+
+[![nitropad-t-430.jpg](/attachment/site/nitropad-t430.jpg)](https://shop.nitrokey.com/shop/product/nitropad-t430-119)
+
+The [NitroPad T430](https://shop.nitrokey.com/shop/product/nitropad-t430-119) satisfies all hardware certification requirements for Qubes 4, offering users extensive hardware security options.
+Read our [announcement](/news/2021/06/01/nitropad-t430-qubes-certification/) of the certification for further details!
+
 
 ## Become Hardware Certified
 
