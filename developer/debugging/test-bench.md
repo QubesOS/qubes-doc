@@ -15,12 +15,8 @@ This guide shows how to set up simple test bench that automatically test your co
 
 We will set up a spare machine (bare metal, not a virtual) that will be hosting our experimental Dom0. We will communicate with it via Ethernet and SSH. This tutorial assumes you are familiar with [QubesBuilder](/doc/qubes-builder/) and you have it set up and running flawlessly.
 
-<div class="alert alert-warning" role="alert">
-  <i class="fa fa-exclamation-triangle"></i>
-  <b>Notice:</b>
-  This setup intentionally weakens some security properties in the testing system. So make sure you understand the risks and use exclusively for testing.
-</div>
-
+> **Notice:**
+> This setup intentionally weakens some security properties in the testing system. So make sure you understand the risks and use exclusively for testing.
 
 ## Setting up the Machine
 
@@ -68,8 +64,9 @@ Internet access is intentionally disabled by default in dom0. But to ease the de
 
     pciunbind ${BDF}
     pcibind ${BDF} ${DRIVER}
-
-    sudo dhclient
+    
+    sleep 1
+    dhclient
     ```
 
 4. Configure your DHCP server so your testbench gets static IP and connect your machine to your local network. You should ensure that your testbench can reach the Internet.
