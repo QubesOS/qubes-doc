@@ -27,9 +27,11 @@ First, do a clean install from the `.iso` [you built](/doc/qubes-iso-building/) 
 
 Internet access is intentionally disabled by default in dom0. But to ease the deployment process we will give it access. The following steps should be done in `dom0`.
 
+> **Note:** the following assume you have only one network card. If you have two, pick one and leave the other attached to `sys-net`.
+
 1. Remove the network card (PCI device) from `sys-net`
 2. Restart your computer (for the removal to take effect)
-3. The following script should enable your network card in dom0. *Be sure to adjust the script's variables to suit your needs.*
+3. The following script should enable your network card in dom0. *Be sure to adjust the script's variables to suit your needs.* You'll need to run this at every startup (TODO: describe how to run this at every startup).
 
     ```bash
     #!/bin/sh
@@ -77,7 +79,7 @@ Internet access is intentionally disabled by default in dom0. But to ease the de
     sudo dnf install openssh-server
     ~~~
 
-**Note:** You'll need to run the at every startup (TODO: describe how to run this at every startup)
+> **Note:** If you want to install additional software in dom0 and your only network card was assigned to dom0, then instead of the usual `sudo qubes-dom0-update install <PACKAGE>` you run `sudo dnf --setopt=reposdir=/etc/yum.repos.d`.
 
 ## Development VM
 
