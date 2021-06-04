@@ -128,7 +128,7 @@ fi
 set -e
 
 ssh testbench mkdir -p "${TMPDIR}"
-scp "${@}" testbench:"${TMPDIR}"
+scp "${@}" testbench:"${TMPDIR}" || echo "check if you have 'scp' installed on your testbench"
 
 while [ $# -gt 0 ]; do
         ssh testbench sudo rpm -i --replacepkgs --replacefiles "${TMPDIR}/$(basename ${1})"
