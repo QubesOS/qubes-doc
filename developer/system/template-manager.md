@@ -86,11 +86,13 @@ Namely, there should be the following files in the package:
   - Fields (corresponding to [qvm-prefs]/[qvm-features] tags with the same names)
     - `virt_mode`
       - Setting this to `pv` requires user confirmation.
+      - Permitted values: `pv`, `pvh`, `hvm`.
     - `kernel`
-      - Only allowed to be set to "", i.e., "none", for PVGrub.
-    - `net.fake-ip`
-    - `net.fake-gateway`
-    - `net.fake-netmask`
+      - Only allowed to be set to "" (without quotes), i.e., "none", for PVGrub.
+    - Network-related flags: (Must be set to IPv4 addresses in the form of `x.x.x.x`.)
+      - `net.fake-ip`
+      - `net.fake-gateway`
+      - `net.fake-netmask`
     - Boolean flags: (Permitted values are "1" and "0", denoting "true" and "false" respectively.)
       - `no-monitor-layout`
       - `pci-e820-host`
