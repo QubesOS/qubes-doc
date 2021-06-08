@@ -30,3 +30,5 @@ DomU
 * [qvm-open-in-dvm](https://github.com/QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-open-in-dvm.rst)
 * [qvm-open-in-vm](https://github.com/QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-open-in-vm.rst)
 * [qvm-run-vm](https://github.com/QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-run-vm.rst)
+* [qvm-convert-pdf](https://github.com/QubesOS/qubes-app-linux-pdf-converter/blob/master/README.md)
+* [qvm-convert-img](https://github.com/QubesOS/qubes-app-linux-img-converter/blob/master/README.md)
