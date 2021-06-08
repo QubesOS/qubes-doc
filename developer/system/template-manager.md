@@ -133,7 +133,7 @@ Most of the fields should be fairly self-explanatory.
 - `template-buildtime`
 - `template-installtime`
   - The times are in UTC, and are of the format `YYYY-MM-DD HH:MM:SS`.
-- `template-licence`
+- `template-license`
 - `template-url`
 - `template-summary`
 - `template-description`
