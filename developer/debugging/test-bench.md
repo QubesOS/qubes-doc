@@ -101,7 +101,9 @@ Host testbench
     HostName 192.168.123.45
 ~~~
 
-Then connect to your testbench and paste newly generated `id_ecdsa.pub` to `.ssh/authorized_keys` on testbench so you can log in without entering password every time.
+#### Passwordless SSH Login
+
+To log to your testbench without entering password every time, copy your newly generated public key (`id_ecdsa.pub`) to `~/.ssh/authorized_keys` on your testbench. You can do this easily by running this command on `qubes-dev`: `ssh-copy-id -i ~/.ssh/id_ecdsa.pub user@192.168.123.45` (substituting with the actual username address of your testbench).
 
 ### Scripting
 
