@@ -151,8 +151,8 @@ Most of the fields should be fairly self-explanatory.
 
 For UpdateVMs to access repository configuration, the package [qubes-repo-templates] is created with the following contents:
 
-- `/usr/share/qubes/repo-templates/*.repo`: repository configuration
-- `/usr/share/qubes/repo-templates/keys`: PGP keys
+- `/etc/qubes/repo-templates/*.repo`: repository configuration
+- `/etc/qubes/repo-templates/keys`: PGP keys
 
 As template keys may be less trusted, they are *not* added to the system RPM keychain but instead managed separately.
 
@@ -170,7 +170,7 @@ The following qrexec calls that list and download templates are thus proposed.
 
 Both calls accept the following format from standard input:
 
-``` text
+```text
 arg1
 arg2
 ...
