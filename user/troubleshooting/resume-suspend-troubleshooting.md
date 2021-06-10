@@ -9,6 +9,9 @@ ref: 94
 title: Suspend/Resume Troubleshooting
 ---
 
+First check if there are any remarks for similar devices in the [Hardware
+Compatibility List (HCL)](/hcl/).
+
 ## Network-Manager says “Device not ready” on suspend/resume 
 
 These instructions may help with suspend/resume issues for more devices than just wireless cards, that is just the (unfortunately not uncommon) example used here.
@@ -130,3 +133,13 @@ This can be achieved under a Windows HVM by opening the Device Manager, selectin
 This is illustrated on the screenshot below:
 
 ![r2b1-win7-usb-disable.png](/attachment/doc/r2b1-win7-usb-disable.png)
+
+## Suspend turns off the screen and gets stuck
+
+On some devices suspend-to-RAM does not work and a hard power-off is needed to
+recover, because the system does not go into deep sleep. To get suspend to
+work, you need to add `mem_sleep_default=deep` kernel option. For legacy boot,
+or UEFI/legacy in R4.1+, add it to the `GRUB_CMDLINE_LINUX` setting in
+`/etc/default/grub`, update the grub config, and reboot. In R4.0 with UEFI
+boot, you need to add it to every `kernel=` line in
+`/boot/efi/EFI/qubes/xen.cfg` and reboot.
