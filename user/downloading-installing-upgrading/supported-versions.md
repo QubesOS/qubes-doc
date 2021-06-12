@@ -59,17 +59,28 @@ For this reason, we consider it safe to continue using a given base distribution
 The following table shows select [TemplateVM](/doc/templates/) versions that are currently supported.
 Currently, only [Fedora](/doc/templates/fedora/) and [Debian](/doc/templates/debian/) TemplateVMs are officially supported by the Qubes OS Project.
 [Whonix](/doc/whonix/) TemplateVMs are supported by our partner, the [Whonix Project](https://www.whonix.org/).
-Qubes support for each TemplateVM ends when that upstream release reaches end-of-life (EOL), unless otherwise noted.
-In the case of Debian, support ends at regular EOL, not [LTS](https://wiki.debian.org/LTS) EOL, unless otherwise noted.
-See [below](#note-on-whonix-support) for Whonix support details.
-For upstream EOL information, see [Fedora EOL](https://fedoraproject.org/wiki/End_of_life) and [Debian EOL](https://wiki.debian.org/DebianReleases).
+Qubes support for each TemplateVM ends when that upstream release reaches end-of-life (EOL).
+Please see below for distribution-specific notes.
 
-| Qubes OS    | Fedora | Debian                       | Whonix |
-| ----------- | ------ | ---------------------------- | ------ |
-| Release 4.0 | 33     | 9 ("stretch"), 10 ("buster") | 15     |
-| Release 4.1 | 33     | 10 ("buster")                | 15     |
+It is the responsibility of each distribution to clearly notify its users in advance of its own EOL dates, and it is users' responsibility to heed these notices by upgrading to supported releases.
+As a courtesy to Qubes users, we attempt to pass along any upstream EOL notices we receive for officially-supported templates, but our ability to do this reliably is dependent on the upstream distribution's practices.
+If a distribution provides a mailing list similar to [qubes-announce](/support/#qubes-announce), which allows us to receive only very important, infrequent messages, including EOL announcements, we are much more likely to be able to pass along EOL notices to Qubes users reliably.
+Qubes users can always check the EOL status of an upstream release on the upstream distribution's website (see [Fedora EOL](https://fedoraproject.org/wiki/End_of_life) and [Debian Releases](https://wiki.debian.org/DebianReleases)).
 
-\* Denotes versions for which we have published the packages but have not done extensive testing.
+| Qubes OS    | Fedora | Debian                                   | Whonix |
+| ----------- | ------ | ---------------------------------------- | ------ |
+| Release 4.0 | 33     | 9 ("stretch"),<sup>*</sup> 10 ("buster") | 15     |
+| Release 4.1 | 33     | 10 ("buster")                            | 15     |
+
+<sup>\*</sup> Although Debian 9 has reached regular EOL and is now in [LTS](https://wiki.debian.org/LTS), we continue to support it for Qubes R4.0.
+This is a *temporary* exception to our [policy](#note-on-debian-support) of ending Qubes support at each Debian release's *regular* (not LTS) EOL date, since this policy was introduced after the release of Qubes R4.0.
+In Qubes R4.1 and beyond, Qubes support for each Debian release will end when that release reaches regular EOL and will not extend into LTS.
+
+### Note on Debian support
+
+Debian releases have two EOL dates: regular and [long-term support (LTS)](https://wiki.debian.org/LTS).
+See [Debian Production Releases](https://wiki.debian.org/DebianReleases#Production_Releases) for a chart that illustrates this.
+Qubes support ends at the *regular* EOL date, *not* the LTS EOL date, unless a specific exception has been made.
 
 ### Note on Whonix support
 
