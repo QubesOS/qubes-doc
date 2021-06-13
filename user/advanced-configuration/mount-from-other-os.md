@@ -13,7 +13,7 @@ title: Mounting and Decrypting Qubes Partitions from Outside Qubes
 Mount and Decrypt Qubes Partition from Outside Qubes
 ====================================================
 
-When a QubesOS install is unbootable or booting it is otherwise undesirable, this process allows for the recovery of files stored within the system.
+When a Qubes OS install is unbootable or booting it is otherwise undesirable, this process allows for the recovery of files stored within the system.
 
 These functions are manual and do not require any Qubes specific tools. All steps assume the default Qubes install with the following components:
 - LUKS encrypted disk
