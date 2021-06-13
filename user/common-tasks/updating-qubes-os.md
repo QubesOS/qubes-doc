@@ -42,7 +42,7 @@ Even if no updates have been detected, you can use this tool to check for update
 
 <div class="alert alert-info" role="alert">
   <i class="fa fa-info-circle"></i>
-  <b>Advanced users and developers:</b> For the command-line equivalents of using the <b>Qubes Update</b> tool, see the Salt formulae <a href="/doc/salt/#updatequbes-dom0"><code>update.qubes-dom0</code></a> and <a href="/doc/salt/#updatequbes-vm"><code>update.qubes-vm</code></a>.
+  <b>Advanced users and developers:</b> For the command-line equivalents of using the <b>Qubes Update</b> tool, see the Salt formulae <a href="/doc/salt/#updatequbes-dom0"><code>update.qubes-dom0</code></a> and <a href="/doc/salt/#updatequbes-vm"><code>update.qubes-vm</code></a>. For enabling testing repos, see <a href="/doc/testing/">Testing new releases and updates</a>.
 </div>
 
 ## Upgrading to stay on a supported release
