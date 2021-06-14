@@ -14,7 +14,30 @@ ref: 190
 
 After [downloading](/downloads/) and [installing](/doc/installation-guide/) Qubes OS, let's cover some basic concepts.
 
-Introduction
+User interface
+--------------------------
+
+For technical users, all aspects of Qubes OS can be controlled using command-line tools run in a dom0 terminal.
+Opening a terminal in dom0 can be done in several ways:
+
+- Go to the Application Launcher and click **Terminal Emulator**.
+- Press `Alt+F3`, type `xfce terminal` and press Enter twice.
+- Right-click on the desktop and select **Open Terminal Here**.
+
+Various command-line tools are described as part of this guide, and the whole reference can be found [here](/doc/tools/).
+
+For less technical users and/or those prefering graphics, you can use a suite of tools, most of which are available through desktop widgets:
+
+- The **Domains** Widget allows you to manage running qubes, turn them on and off, and monitor memory usage.
+- The **Devices** Widget allows you to attach and detach devices -- such as USB drives and cameras -- to qubes.
+- The **Storage** Widget will notify you if you're ever running out of disk space.
+- The **Qubes Updater** Widget will inform you when template updates are available.
+
+![q40_widgets.png](/attachment/wiki/GettingStarted/r4.0-q40_widgets.png)
+
+For an overview of the entire system, you can use the **Qube Manager** (go to the Application Launcher → System Tools → Qube Manager), which displays the states of all the qubes in your system.
+
+Working with *qubes* and *templates*
 ------------
 
 In Qubes OS, you run all your programs in lightweight [virtual machines (VMs)](/doc/glossary/#vm) called [qubes](/doc/glossary/#qube).
@@ -59,29 +82,6 @@ Due to its overarching importance, dom0 has no network connectivity and is used 
 Dom0 shouldn't be used for anything else.
 In particular, [you should never run user applications in dom0](https://github.com/Qubes-Community/Contents/blob/master/docs/security/security-guidelines.md#dom0-precautions).
 (That's what your qubes are for!)
-
-GUI and command-line tools
---------------------------
-
-All aspects of Qubes OS can be controlled using command-line tools run in a dom0 terminal.
-Opening a terminal in dom0 can be done in several ways:
-
-- Go to the Application Launcher and click **Terminal Emulator**.
-- Press `Alt+F3`, type `xfce terminal` and press Enter twice.
-- Right-click on the desktop and select **Open Terminal Here**.
-
-Various command-line tools are described as part of this guide, and the whole reference can be found [here](/doc/tools/).
-
-Alternatively, you can use a suite of GUI tools, most of which are available through desktop widgets:
-
-- The **Domains Widget** allows you to manage running qubes, turn them on and off, and monitor memory usage.
-- The **Devices Widget** allows you to attach and detach devices -- such as USB drives and cameras -- to qubes.
-- The **Disk Space Widget** will notify you if you're ever running out of disk space.
-- The **Updates Widget** will inform you when template updates are available.
-
-![q40_widgets.png](/attachment/wiki/GettingStarted/r4.0-q40_widgets.png)
-
-For an overview of the entire system, you can use the **Qube Manager** (go to the Application Launcher → System Tools → Qube Manager), which displays the states of all the qubes in your system.
 
 Starting apps
 -------------
