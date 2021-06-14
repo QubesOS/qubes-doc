@@ -22,7 +22,7 @@ If you notice a problem or some way it can be improved, please [edit the documen
 
 *Also see: [Should I trust this website?](/faq/#should-i-trust-this-website)*
 
-All pull requests against [qubes-doc](https://github.com/QubesOS/qubes-doc) must pass review prior to be merged, except in the case of [external documentation](/doc/#external-documentation) (see [#4693](https://github.com/QubesOS/qubes-issues/issues/4693)).
+All pull requests (PRs) against [qubes-doc](https://github.com/QubesOS/qubes-doc) must pass review prior to be merged, except in the case of [external documentation](/doc/#external-documentation) (see [#4693](https://github.com/QubesOS/qubes-issues/issues/4693)).
 This process is designed to ensure that contributed text is accurate and non-malicious.
 This process is a best effort that should provide a reasonable degree of assurance, but it is not foolproof.
 For example, all text characters are checked for ANSI escape sequences.
@@ -53,7 +53,7 @@ A few notes before we get started:
    If your contribution would take a lot of time, please [file an issue](/doc/reporting-bugs/) for it first so that we can make sure we're on the same page before significant works begins.
 * Alternatively, you may already have written content that doesn't conform to these guidelines, but you'd be willing to modify it so that it does.
    In this case, you can still submit it by following the instructions below.
-   Just make a note in your pull request that you're aware of the changes that need to be made and that you're just asking for the content to be reviewed before you spend time making those changes.
+   Just make a note in your pull request (PR) that you're aware of the changes that need to be made and that you're just asking for the content to be reviewed before you spend time making those changes.
 
 As mentioned above, we keep all the documentation in a dedicated [Git repository](https://github.com/QubesOS/qubes-doc) hosted on [GitHub](https://github.com/).
 Thanks to GitHub's interface, you can edit the documentation even if you don't know Git at all!
@@ -84,6 +84,7 @@ This step is only needed the first time you make a contribution.
 
 Now you can make your modifications.
 You can also preview the changes to see how they'll be formatted by clicking the "Preview changes" tab.
+If you want to add images, please see [How to add images](#how-to-add-images).
 If you're making formatting changes, please [render the site locally](https://github.com/QubesOS/qubesos.github.io#instructions) to verify that everything looks correct before submitting any changes.
 
 [![edit](/attachment/wiki/doc-edit/06-edit.png)](/attachment/wiki/doc-edit/06-edit.png)
@@ -103,6 +104,8 @@ In most cases, the defaults are ok, so you can just confirm by pressing the "Cre
 
 [![pull-request-confirm](/attachment/wiki/doc-edit/09-create-pull-request.png)](/attachment/wiki/doc-edit/09-create-pull-request.png)
 
+If any of your changes should be reflected in the [documentation index (a.k.a. table of contents)](/doc/) --- for example, if you're adding a new page, changing the title of an existing page, or removing a page --- please see [How to edit the documentation index](#how-to-edit-the-documentation-index).
+
 That's all!
 We will review your changes.
 If everything looks good, we'll pull them into the official documentation.
@@ -111,6 +114,15 @@ Otherwise, we may have some questions for you, which we'll post in a comment on 
 If, for some reason, we can't accept your pull request, we'll post a comment explaining why we can't.
 
 [![done](/attachment/wiki/doc-edit/10-done.png)](/attachment/wiki/doc-edit/10-done.png)
+
+## How to edit the documentation index
+
+The source file for the [documentation index (a.k.a. table of contents)](/doc/) lives here:
+
+<https://github.com/QubesOS/qubesos.github.io/blob/master/_data/index.yml>
+
+Editing this file will change what appears on the documentation index.
+If your pull request (PR) adds, removes, or edits anything that should be reflected in the documentation index, please make sure you also submit an associated pull request against this file.
 
 ## How to add images
 
@@ -145,7 +157,7 @@ External documentation can be anywhere else (such as forums, community websites,
 External documentation should not be submitted to [qubes-doc](https://github.com/QubesOS/qubes-doc).
 If you've written a piece of documentation that is not appropriate for [qubes-doc](https://github.com/QubesOS/qubes-doc), we encourage you to submit it to the [Qubes Community](https://github.com/Qubes-Community) project instead.
 However, *linking* to external documentation from [qubes-doc](https://github.com/QubesOS/qubes-doc) is perfectly fine.
-Indeed, the maintainers of the [Qubes Community](https://github.com/Qubes-Community) project should regularly submit PRs against [this file](https://github.com/QubesOS/qubesos.github.io/blob/master/_data/index.yml) to add and update Qubes Community links in the "External Documentation" section of the documentation table of contents.
+Indeed, the maintainers of the [Qubes Community](https://github.com/Qubes-Community) project should regularly submit PRs against the documentation index (see [How to edit the documentation index](#how-to-edit-the-documentation-index)) to add and update Qubes Community links in the "External Documentation" section of the documentation table of contents.
 
 The main difference between **core** (or **official**) and **external** (or **community** or **unofficial**) documentation is whether it documents software that is officially written and maintained by the Qubes OS Project.
 The purpose of this distinction is to keep the core docs maintainable and high-quality by limiting them to the software output by the Qubes OS Project.
