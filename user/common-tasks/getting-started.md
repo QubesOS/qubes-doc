@@ -1,6 +1,6 @@
 ---
 lang: en
-layout: default
+layout: doc
 permalink: /doc/getting-started/
 redirect_from:
 - /getting-started/
@@ -8,8 +8,9 @@ redirect_from:
 - /doc/GettingStarted/
 - /wiki/GettingStarted/
 ref: 190
-title: Get Started
 ---
+
+# Get started
 
 After [downloading](/downloads/) and [installing](/doc/installation-guide/) Qubes OS, let's cover some basic concepts.
 
