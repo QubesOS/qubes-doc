@@ -6,8 +6,7 @@ ref: 200
 title: Updating Qubes OS
 ---
 
-Updating Qubes OS
-=================
+# Updating Qubes OS
 
 *This page is about updating your system while staying on the same [supported version of Qubes OS](/doc/supported-versions/#qubes-os).
 If you're instead looking to upgrade from your current version of Qubes OS to a newer version, see the [Upgrade Guides](/doc/upgrade/).*
@@ -19,9 +18,17 @@ If you're instead looking to upgrade from your current version of Qubes OS to a 
   (By contrast, <a href="/doc/software-update-domu/#installing-software-in-templatevms">installing</a> packages using direct package manager commands is fine.)
 </div>
 
+## Security updates
+
+Security updates are an extremely important part of keeping your Qubes installation secure.
+When there is an important security issue, we will issue a [Qubes Security Bulletin (QSB)](/security/bulletins/) via the [Qubes Security Pack (`qubes-secpack`)](/security/pack/).
+It is very important to read each new QSB and follow any user instructions it contains.
+Most of the time, simply [updating your system normally](#routine-updates) will be sufficient to obtain security updates.
+However, in some cases, special action may be required on your part, which will be explained in the QSB.
+
 ## Routine updates
 
-It is very important to keep your Qubes OS system up-to-date to ensure you have the latest security updates, as well as the latest non-security enhancements and bug fixes.
+It is important to keep your Qubes OS system up-to-date to ensure you have the latest [security updates](#security-updates), as well as the latest non-security enhancements and bug fixes.
 
 Fully updating your Qubes OS system means updating:
 
@@ -47,7 +54,7 @@ Even if no updates have been detected, you can use this tool to check for update
 
 ## Upgrading to stay on a supported release
 
-The above covers routine updates.
+The above covers updating *within* a given operating system release.
 Eventually, however, most operating system releases will reach [end-of-life (EOL)](https://fedoraproject.org/wiki/End_of_life), after which point they will no longer be supported.
 This applies to [Qubes OS itself](/doc/supported-versions/#qubes-os) as well as operating systems used for TemplateVMs and StandaloneVMs, such as [Fedora](/doc/templates/fedora/) and [Debian](/doc/templates/debian/).
 It is very important to use only supported releases, since generally only supported releases receive security updates.
