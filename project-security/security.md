@@ -18,14 +18,17 @@ title: Security
 
 # Qubes OS Project Security Center
 
-- [Security FAQ](/faq/#general--security)
-- [Security Goals](/security/goals/)
-- [Security Pack](/security/pack/)
-- [Security Bulletins](/security/bulletins/)
-- [Canaries](/security/canaries/)
+This page provides a central hub for topics pertaining to the security of the Qubes OS Project.
+For topics pertaining to software security *within* Qubes OS, see [Security in Qubes](/doc/#security-in-qubes).
+The following is a list of important project security pages:
+
+- [Qubes Security Pack (`qubes-secpack`)](/security/pack/)
+- [Qubes Security Bulletins (QSBs)](/security/bulletins/)
+- [Qubes Canaries](/security/canaries/)
 - [Xen Security Advisory (XSA) Tracker](/security/xsa/)
-- [Why and How to Verify Signatures](/security/verifying-signatures/)
-- [PGP Keys](https://keys.qubes-os.org/keys/)
+- [Verifying signatures](/security/verifying-signatures/)
+- [PGP keys](https://keys.qubes-os.org/keys/)
+- [Security FAQ](/faq/#general--security)
 
 ## Reporting Security Issues in Qubes OS
 
