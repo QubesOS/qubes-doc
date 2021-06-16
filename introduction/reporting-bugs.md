@@ -15,8 +15,6 @@ ref: 121
 title: Reporting bugs and other issues
 ---
 
-# Reporting bugs and other issues #
-
 All issues pertaining to the Qubes OS Project (including auxiliary infrastructure such as the [website](/)) are tracked in [qubes-issues](https://github.com/QubesOS/qubes-issues/issues), our GitHub issue tracker.
 If you're looking for help, please see [Help, Support, Mailing Lists, and Forum](/support/).
 
