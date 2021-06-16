@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: default
-permalink: /screenshots/
 redirect_from:
+- /screenshots/
 - /media/
 - /doc/QubesScreenshots/
 - /wiki/QubesScreenshots/

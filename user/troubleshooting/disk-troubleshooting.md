@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/disk-troubleshooting/
 redirect_from:
+- /doc/disk-troubleshooting/
 - /en/doc/out-of-memory/
 - /doc/OutOfmemory/
 - /wiki/OutOfmemory/

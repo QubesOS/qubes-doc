@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/releases/schedules/
+redirect_from:
+- /doc/releases/schedules/
 ref: 15
 ---
 

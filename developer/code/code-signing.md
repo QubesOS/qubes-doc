@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/code-signing/
+redirect_from:
+- /doc/code-signing/
 ref: 51
 ---
 

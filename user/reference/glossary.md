@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/glossary/
 redirect_from:
+- /doc/glossary/
 - /en/doc/glossary/
 - /doc/Glossary/
 - /wiki/Glossary/

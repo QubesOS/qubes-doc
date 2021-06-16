@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/usability-ux/
+redirect_from:
+- /doc/usability-ux/
 ref: 31
 ---
 

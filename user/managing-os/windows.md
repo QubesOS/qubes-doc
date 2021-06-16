@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/windows/
+redirect_from:
+- /doc/windows/
 ref: 129
 ---
 

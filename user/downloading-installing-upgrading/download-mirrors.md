@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: sidebar
-permalink: /downloads/mirrors/
+redirect_from:
+- /downloads/mirrors/
 ref: 148
 ---
 

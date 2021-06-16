@@ -1,6 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/style-guide/
+redirect_from:
+- /doc/style-guide/
 ref: 27
 ---

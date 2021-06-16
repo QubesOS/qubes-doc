@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/hvm-troubleshooting/
+redirect_from:
+- /doc/hvm-troubleshooting/
 ref: 232
 ---
 

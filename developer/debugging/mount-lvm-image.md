@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/mount-lvm-image/
+redirect_from:
+- /doc/mount-lvm-image/
 ref: 46
 ---
 

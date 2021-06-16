@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/upgrade-to-r4.0/
 redirect_from:
+- /doc/upgrade-to-r4.0/
 - /en/doc/upgrade-to-r4.0/
 - /doc/UpgradeToR4.0/
 - /doc/UpgradeToR4.0rc1/

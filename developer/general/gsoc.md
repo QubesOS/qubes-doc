@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: sidebar
-permalink: /gsoc/
 redirect_from:
+- /gsoc/
 - /GSoC/
 ref: 33
 ---

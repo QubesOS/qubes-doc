@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/hardware-troubleshooting/
 redirect_from:
+- /doc/hardware-troubleshooting/
 - /doc/newer-hardware-troubleshooting/
 ref: 97
 ---

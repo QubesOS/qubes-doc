@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /security/canaries/checklist/
+redirect_from:
+- /security/canaries/checklist/
 ref: 216
 ---
 

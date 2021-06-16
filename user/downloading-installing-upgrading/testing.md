@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/testing/
+redirect_from:
+- /doc/testing/
 ref: 147
 ---
 

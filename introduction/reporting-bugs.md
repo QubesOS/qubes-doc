@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/reporting-bugs/
 redirect_from:
+- /doc/reporting-bugs/
 - /en/doc/reporting-bugs/
 - /doc/BugReportingGuide/
 - /wiki/BugReportingGuide/

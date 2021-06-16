@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/getting-started/
 redirect_from:
+- /doc/getting-started/
 - /getting-started/
 - /en/doc/getting-started/
 - /doc/GettingStarted/

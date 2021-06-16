@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/rpc-policy/
+redirect_from:
+- /doc/rpc-policy/
 ref: 178
 ---
 

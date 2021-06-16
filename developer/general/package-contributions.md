@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/package-contributions/
+redirect_from:
+- /doc/package-contributions/
 ref: 29
 ---
 

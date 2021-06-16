@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/uefi-troubleshooting/
+redirect_from:
+- /doc/uefi-troubleshooting/
 ref: 177
 ---
 

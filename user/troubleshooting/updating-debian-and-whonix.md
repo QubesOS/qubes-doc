@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/troubleshooting/updating-debian-and-whonix/
+redirect_from:
+- /doc/troubleshooting/updating-debian-and-whonix/
 ref: 98
 ---
 

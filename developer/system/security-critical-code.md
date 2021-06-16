@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/security-critical-code/
 redirect_from:
+- /doc/security-critical-code/
 - /en/doc/security-critical-code/
 - /doc/SecurityCriticalCode/
 - /wiki/SecurityCriticalCode/

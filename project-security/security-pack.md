@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /security/pack/
 redirect_from:
+- /security/pack/
 - /doc/security-pack/
 - /en/doc/security-pack/
 - /security-pack/

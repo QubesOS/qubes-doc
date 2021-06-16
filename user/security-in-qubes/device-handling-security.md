@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/device-handling-security/
+redirect_from:
+- /doc/device-handling-security/
 ref: 170
 ---
 

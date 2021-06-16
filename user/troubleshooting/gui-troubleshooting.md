@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/gui-troubleshooting/
+redirect_from:
+- /doc/gui-troubleshooting/
 ref: 233
 ---
 

@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/updating-qubes-os/
+redirect_from:
+- /doc/updating-qubes-os/
 ref: 200
 ---
 

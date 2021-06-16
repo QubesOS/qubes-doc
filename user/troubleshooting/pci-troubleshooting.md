@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/pci-troubleshooting/
+redirect_from:
+- /doc/pci-troubleshooting/
 ref: 230
 ---
 

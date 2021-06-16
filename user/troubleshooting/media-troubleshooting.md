@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/media-troubleshooting/
+redirect_from:
+- /doc/media-troubleshooting/
 ref: 235
 ---
 

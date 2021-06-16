@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/update-troubleshooting/
+redirect_from:
+- /doc/update-troubleshooting/
 ref: 239
 ---
 

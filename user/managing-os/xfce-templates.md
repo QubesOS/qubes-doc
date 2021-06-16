@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/templates/xfce/
 redirect_from:
+- /doc/templates/xfce/
 - /doc/xfce/
 - /en/doc/templates/xfce/
 - /doc/Templates/Xfce/

@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/version-scheme/
 redirect_from:
+- /doc/version-scheme/
 - /en/doc/version-scheme/
 - /doc/VersionScheme/
 - /wiki/VersionScheme/

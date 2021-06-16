@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/certified-hardware/
 redirect_from:
+- /doc/certified-hardware/
 - /doc/hardware/
 - /doc/certified-laptops/
 - /hardware-certification/

@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: sidebar
-permalink: /gsod/
+redirect_from:
+- /gsod/
 ref: 242
 ---
 

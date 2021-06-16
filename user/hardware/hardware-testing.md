@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/hardware-testing/
+redirect_from:
+- /doc/hardware-testing/
 ref: 145
 ---
 

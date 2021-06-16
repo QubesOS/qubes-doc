@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/installing-contributed-packages/
+redirect_from:
+- /doc/installing-contributed-packages/
 ref: 225
 ---
 

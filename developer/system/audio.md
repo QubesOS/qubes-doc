@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/audio-virtualization/
+redirect_from:
+- /doc/audio-virtualization/
 ref: 60
 ---
 

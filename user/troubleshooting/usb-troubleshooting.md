@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/usb-troubleshooting/
+redirect_from:
+- /doc/usb-troubleshooting/
 ref: 234
 ---
 

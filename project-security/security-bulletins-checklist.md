@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /security/bulletins/checklist/
 redirect_from:
+- /security/bulletins/checklist/
 - /doc/security-bulletins/checklist/
 ref: 215
 ---

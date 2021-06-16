@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/reinstall-template/
 redirect_from:
+- /doc/reinstall-template/
 - /doc/whonix/reinstall/
 ref: 128
 ---

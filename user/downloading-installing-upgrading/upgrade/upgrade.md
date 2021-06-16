@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/upgrade/
+redirect_from:
+- /doc/upgrade/
 ref: 158
 ---
 

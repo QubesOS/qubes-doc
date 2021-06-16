@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/suspend-resume-troubleshooting/
 redirect_from:
+- /doc/suspend-resume-troubleshooting/
 - /en/doc/wireless-troubleshooting/
 - /doc/wireless-troubleshooting/
 ref: 94

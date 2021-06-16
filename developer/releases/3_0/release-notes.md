@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/releases/3.0/release-notes/
 redirect_from:
+- /doc/releases/3.0/release-notes/
 - /en/doc/releases/3.0/release-notes/
 ref: 19
 ---

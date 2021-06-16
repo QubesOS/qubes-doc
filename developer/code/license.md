@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/license/
 redirect_from:
+- /doc/license/
 - /en/doc/license/
 - /doc/QubesLicensing/
 - /wiki/QubesLicensing/

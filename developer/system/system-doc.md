@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/system-doc/
 redirect_from:
+- /doc/system-doc/
 - /en/doc/system-doc/
 - /doc/SystemDoc/
 - /wiki/SystemDoc/

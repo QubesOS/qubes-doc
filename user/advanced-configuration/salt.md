@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/salt/
+redirect_from:
+- /doc/salt/
 ref: 185
 ---
 

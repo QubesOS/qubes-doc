@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /security/canaries/
 redirect_from:
+- /security/canaries/
 - /doc/canaries/
 ref: 208
 ---

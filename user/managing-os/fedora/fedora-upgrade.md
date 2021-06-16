@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/template/fedora/upgrade/
 redirect_from:
+- /doc/template/fedora/upgrade/
 - /doc/template/fedora/upgrade-26-to-27/
 - /doc/fedora-template-upgrade-26/
 - /en/doc/fedora-template-upgrade-26/

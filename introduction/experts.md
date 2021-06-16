@@ -1,6 +1,7 @@
 ---
 lang: en
 layout: experts
-permalink: /experts/
+redirect_from:
+- /experts/
 ref: 119
 ---

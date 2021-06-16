@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/data-leaks/
 redirect_from:
+- /doc/data-leaks/
 - /en/doc/data-leaks/
 - /doc/DataLeaks/
 - /wiki/DataLeaks/

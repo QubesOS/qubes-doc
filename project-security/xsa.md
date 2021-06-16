@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /security/xsa/
+redirect_from:
+- /security/xsa/
 ref: 214
 ---
 

@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/devel-books/
 redirect_from:
+- /doc/devel-books/
 - /en/doc/devel-books/
 - /doc/DevelBooks/
 - /wiki/DevelBooks/

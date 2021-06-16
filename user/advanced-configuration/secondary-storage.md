@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/secondary-storage/
 redirect_from:
+- /doc/secondary-storage/
 - /en/doc/secondary-storage/
 - /doc/SecondaryStorage/
 - /wiki/SecondaryStorage/

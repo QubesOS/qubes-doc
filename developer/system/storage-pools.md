@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/storage-pools/
+redirect_from:
+- /doc/storage-pools/
 ref: 57
 ---
 

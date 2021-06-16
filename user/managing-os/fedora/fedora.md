@@ -1,7 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/templates/fedora/
+redirect_from:
+- /doc/templates/fedora/
 ref: 136
 ---
 

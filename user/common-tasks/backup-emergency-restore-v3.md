@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/backup-emergency-restore-v3/
 redirect_from:
+- /doc/backup-emergency-restore-v3/
 - /en/doc/backup-emergency-restore-v3/
 - /doc/BackupEmergencyRestoreV3/
 ref: 201
