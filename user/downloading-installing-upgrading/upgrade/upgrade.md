@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/upgrade/
 ref: 158
+title: Upgrade Guides
 ---
 
 Qubes OS Upgrade Guides

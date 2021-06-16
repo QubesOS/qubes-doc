@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/vpn-troubleshooting/
 ref: 240
+title: VPN Troubleshooting
 ---
 
 # VPN Troubleshooting Guide

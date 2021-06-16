@@ -5,6 +5,7 @@ redirect_from:
 - /doc/vm-troubleshooting/
 - /doc/remove-vm-manually/
 ref: 223
+title: VM Troubleshooting
 ---
 
 # VM troubleshooting

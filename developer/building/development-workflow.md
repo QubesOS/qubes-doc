@@ -7,6 +7,7 @@ redirect_from:
 - /doc/DevelopmentWorkflow/
 - /wiki/DevelopmentWorkflow/
 ref: 66
+title: Development Workflow
 ---
 
 # Development Workflow

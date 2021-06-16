@@ -6,6 +6,7 @@ redirect_from:
 - /en/doc/yubi-key/
 - /doc/YubiKey/
 ref: 169
+title: YubiKey in Qubes
 ---
 
 # Using YubiKey to Qubes authentication

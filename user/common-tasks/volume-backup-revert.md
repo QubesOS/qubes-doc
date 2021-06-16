@@ -7,6 +7,7 @@ redirect_from:
 - /doc/VolumeBackupRevert/
 - /wiki/VolumeBackupRevert/
 ref: 206
+title: Volume Backup and Revert
 ---
 
 Qubes Volume Backup and Revert

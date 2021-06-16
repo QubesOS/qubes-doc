@@ -8,6 +8,7 @@ redirect_from:
 - /doc/mgmt-architecture/
 - /doc/admin-api-architecture/
 ref: 36
+title: Admin API
 ---
 
 # Qubes OS Admin API

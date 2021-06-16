@@ -7,6 +7,7 @@ redirect_from:
 - /doc/UpgradeToR2B2/
 - /wiki/UpgradeToR2B2/
 ref: 160
+title: Upgrading to R2B2
 ---
 
 Upgrading Qubes R1 to R2 (beta2)

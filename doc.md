@@ -13,4 +13,5 @@ redirect_from:
 - /en/community/
 - /community/
 ref: 12
+title: Documentation
 ---

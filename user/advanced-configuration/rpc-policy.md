@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/rpc-policy/
 ref: 178
+title: RPC Policies
 ---
 
 RPC Policies

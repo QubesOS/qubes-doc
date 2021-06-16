@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/salt/
 ref: 185
+title: Management stack
 ---
 
 # Management Infrastructure

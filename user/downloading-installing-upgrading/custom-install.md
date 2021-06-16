@@ -5,6 +5,7 @@ redirect_from:
 - /doc/custom-install/
 - /doc/encryption-config/
 ref: 152
+title: Custom Installation
 ---
 
 # Custom Installation

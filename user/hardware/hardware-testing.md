@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/hardware-testing/
 ref: 145
+title: Hardware Testing
 ---
 
 # Hardware Testing

@@ -8,6 +8,7 @@ redirect_from:
 - /wiki/CodingStyle/
 - /trac/wiki/CodingStyle/
 ref: 53
+title: Coding Style
 ---
 
 Coding Guidelines for Qubes Developers

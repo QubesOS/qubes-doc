@@ -5,6 +5,7 @@ redirect_from:
 - /statistics/
 - /counter/
 ref: 127
+title: Statistics
 ---
 
 <div class="center-block more-bottom">

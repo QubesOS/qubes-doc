@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/pci-troubleshooting/
 ref: 230
+title: PCI Troubleshooting
 ---
 
 # PCI troubleshooting

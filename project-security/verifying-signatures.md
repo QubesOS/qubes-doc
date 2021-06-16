@@ -8,6 +8,7 @@ redirect_from:
 - /doc/VerifyingSignatures/
 - /wiki/VerifyingSignatures/
 ref: 211
+title: Verifying Signatures
 ---
 
 # On Digital Signatures and Key Verification

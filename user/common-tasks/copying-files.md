@@ -7,6 +7,7 @@ redirect_from:
 - /doc/CopyingFiles/
 - /wiki/CopyingFiles/
 ref: 191
+title: Copying and moving files between qubes
 ---
 
 Copying and moving files between qubes

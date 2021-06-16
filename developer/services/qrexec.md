@@ -11,6 +11,7 @@ redirect_from:
 - /doc/Qrexec/
 - /wiki/Qrexec/
 ref: 37
+title: 'Qrexec: secure communication across domains'
 ---
 
 # Qrexec: secure communication across domains

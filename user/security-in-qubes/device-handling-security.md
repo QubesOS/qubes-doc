@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/device-handling-security/
 ref: 170
+title: Device Handling Security
 ---
 
 # Device Handling Security

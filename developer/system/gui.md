@@ -8,6 +8,7 @@ redirect_from:
 - /doc/GUIdocs/
 - /wiki/GUIdocs/
 ref: 61
+title: GUI
 ---
 
 Qubes GUI protocol

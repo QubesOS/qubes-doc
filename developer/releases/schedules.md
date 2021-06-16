@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/releases/schedules/
 ref: 15
+title: Release Schedules
 ---
 
 Release Schedules

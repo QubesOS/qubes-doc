@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/releases/notes/
 ref: 13
+title: Release Notes
 ---
 
 Release Notes

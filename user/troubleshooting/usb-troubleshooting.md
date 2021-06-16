@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/usb-troubleshooting/
 ref: 234
+title: USB Troubleshooting
 ---
 
 # USB troubleshooting

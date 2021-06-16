@@ -7,6 +7,7 @@ redirect_from:
 - /doc/InstallSecurity/
 - /wiki/InstallSecurity/
 ref: 149
+title: Installation security
 ---
 
 # Installation security

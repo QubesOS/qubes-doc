@@ -10,6 +10,7 @@ redirect_from:
 - /wiki/ResizeDiskImage/
 - /wiki/ResizeRootDiskImage/
 ref: 182
+title: Resize Disk Image
 ---
 
 ## Resizing Disk Images

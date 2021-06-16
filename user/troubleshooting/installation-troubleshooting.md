@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/installation-troubleshooting/
 ref: 224
+title: Installation Troubleshooting
 ---
 
 # Installation Troubleshooting 

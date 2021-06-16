@@ -5,6 +5,7 @@ redirect_from:
 - /doc/usb-devices/
 - /doc/usb/
 ref: 195
+title: USB Devices
 ---
 
 # USB Devices

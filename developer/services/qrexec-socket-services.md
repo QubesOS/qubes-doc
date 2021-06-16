@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/qrexec-socket-services/
 ref: 42
+title: 'Qrexec: Socket-based services'
 ---
 
 # Qrexec: Socket-based services

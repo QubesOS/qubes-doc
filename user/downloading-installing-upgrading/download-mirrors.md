@@ -4,6 +4,7 @@ layout: sidebar
 redirect_from:
 - /downloads/mirrors/
 ref: 148
+title: Download Mirrors
 ---
 
 Qubes Download Mirrors

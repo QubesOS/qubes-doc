@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/hvm-troubleshooting/
 ref: 232
+title: HVM Troubleshooting
 ---
 
 # HVM Troubleshooting

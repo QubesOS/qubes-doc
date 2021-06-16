@@ -5,6 +5,7 @@ redirect_from:
 - /doc/hardware-troubleshooting/
 - /doc/newer-hardware-troubleshooting/
 ref: 97
+title: Hardware Troubleshooting
 ---
 
 # Troubleshooting hardware-related issues

@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/code-signing/
 ref: 51
+title: Code Signing
 ---
 
 # Code Signing

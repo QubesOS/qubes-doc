@@ -7,6 +7,7 @@ redirect_from:
 - /doc/SourceCode/
 - /wiki/SourceCode/
 ref: 54
+title: Source Code
 ---
 
 Qubes Source Code Repositories

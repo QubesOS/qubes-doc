@@ -5,6 +5,7 @@ redirect_from:
 - /security/canaries/
 - /doc/canaries/
 ref: 208
+title: Canaries
 ---
 
 # Qubes Canaries

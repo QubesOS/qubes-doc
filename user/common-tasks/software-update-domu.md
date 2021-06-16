@@ -8,6 +8,7 @@ redirect_from:
 - /doc/SoftwareUpdateVM/
 - /wiki/SoftwareUpdateVM/
 ref: 189
+title: Installing and updating software in domUs
 ---
 
 # Installing and updating software in domUs

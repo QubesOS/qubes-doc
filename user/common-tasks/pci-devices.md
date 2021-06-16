@@ -8,6 +8,7 @@ redirect_from:
 - /doc/AssigningDevices/
 - /wiki/AssigningDevices/
 ref: 197
+title: PCI Devices
 ---
 
 # PCI Devices

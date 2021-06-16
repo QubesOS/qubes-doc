@@ -5,6 +5,7 @@ redirect_from:
 - /doc/releases/2.0/release-notes/
 - /en/doc/releases/2.0/release-notes/
 ref: 25
+title: Qubes R2.0 Release Notes
 ---
 
 # Qubes R2.0 Release Notes

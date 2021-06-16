@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/uefi-troubleshooting/
 ref: 177
+title: UEFI Troubleshooting
 ---
 
 # Troubleshooting UEFI related problems

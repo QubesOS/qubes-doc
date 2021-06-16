@@ -7,6 +7,7 @@ redirect_from:
 - /doc/Dom0SecureUpdates/
 - /wiki/Dom0SecureUpdates/
 ref: 43
+title: Dom0 Secure Updates
 ---
 
 Qubes Dom0 secure update procedure

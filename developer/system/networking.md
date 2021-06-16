@@ -8,6 +8,7 @@ redirect_from:
 - /doc/QubesNet/
 - /wiki/QubesNet/
 ref: 59
+title: Networking
 ---
 
 # VM network in Qubes

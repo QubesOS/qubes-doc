@@ -9,6 +9,7 @@ redirect_from:
 - /doc/SecurityGoals/
 - /wiki/SecurityGoals/
 ref: 210
+title: Security Goals
 ---
 
 # Security design goals

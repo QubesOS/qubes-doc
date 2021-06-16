@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/u2f-proxy/
 ref: 167
+title: The Qubes U2F Proxy
 ---
 
 # The Qubes U2F Proxy

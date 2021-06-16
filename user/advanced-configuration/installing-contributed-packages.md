@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/installing-contributed-packages/
 ref: 225
+title: Installing contributed packages
 ---
 
 # Installing contributed packages

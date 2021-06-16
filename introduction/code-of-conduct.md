@@ -4,6 +4,7 @@ layout: default
 redirect_from:
 - /code-of-conduct/
 ref: 118
+title: Code of Conduct
 ---
 
 ## Introduction

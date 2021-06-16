@@ -8,6 +8,7 @@ redirect_from:
 - /doc/DisposableVms/
 - /wiki/DisposableVMs/
 ref: 203
+title: DisposableVMs
 ---
 
 # DisposableVMs

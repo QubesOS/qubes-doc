@@ -4,6 +4,7 @@ layout: sidebar
 redirect_from:
 - /join/
 ref: 26
+title: Join
 ---
 
 Joining the Qubes OS Team

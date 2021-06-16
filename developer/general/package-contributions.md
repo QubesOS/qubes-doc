@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/package-contributions/
 ref: 29
+title: Package Contributions
 ---
 
 Package Contributions

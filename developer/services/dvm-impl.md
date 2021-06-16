@@ -7,6 +7,7 @@ redirect_from:
 - /doc/DVMimpl/
 - /wiki/DVMimpl/
 ref: 34
+title: DVMimpl
 ---
 
 DisposableVM implementation in Qubes

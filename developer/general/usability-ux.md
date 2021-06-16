@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/usability-ux/
 ref: 31
+title: Usability & UX
 ---
 
 # Usability & UX

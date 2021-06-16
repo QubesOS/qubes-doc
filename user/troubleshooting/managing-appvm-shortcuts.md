@@ -7,6 +7,7 @@ redirect_from:
 - /doc/ManagingAppVmShortcuts/
 - /wiki/ManagingAppVmShortcuts/
 ref: 202
+title: Managing AppVm Shortcuts
 ---
 
 Managing shortcuts to applications in AppVMs

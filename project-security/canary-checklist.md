@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /security/canaries/checklist/
 ref: 216
+title: Canary Checklist
 ---
 
 # Canary Checklist

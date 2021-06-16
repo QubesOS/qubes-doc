@@ -5,6 +5,7 @@ redirect_from:
 - /doc/releases/3.0/schedule/
 - /en/doc/releases/3.0/schedule/
 ref: 20
+title: Qubes R3.0 Release Schedule
 ---
 
 Qubes R3.0 Release Schedule

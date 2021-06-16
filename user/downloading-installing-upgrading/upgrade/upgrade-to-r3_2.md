@@ -7,6 +7,7 @@ redirect_from:
 - /doc/UpgradeToR3.2/
 - /doc/UpgradeToR3.2rc1/
 ref: 161
+title: Upgrading to R3.2
 ---
 
 # Upgrading Qubes R3.1 to R3.2

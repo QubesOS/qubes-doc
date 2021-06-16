@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/troubleshooting/updating-debian-and-whonix/
 ref: 98
+title: Updating Debian and Whonix
 ---
 
 # Updating Debian and Whonix

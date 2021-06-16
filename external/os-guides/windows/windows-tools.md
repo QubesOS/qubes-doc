@@ -14,4 +14,5 @@ redirect_from:
 - /wiki/WindowsTools/
 redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows-tools.md
 ref: 86
+title: Qubes Windows Tools
 ---

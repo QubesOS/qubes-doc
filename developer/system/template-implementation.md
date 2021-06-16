@@ -7,6 +7,7 @@ redirect_from:
 - /doc/TemplateImplementation/
 - /wiki/TemplateImplementation/
 ref: 58
+title: Template Implementation
 ---
 
 # Overview of VM block devices

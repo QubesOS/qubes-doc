@@ -5,6 +5,7 @@ redirect_from:
 - /doc/releases/1.0/release-notes/
 - /en/doc/releases/1.0/release-notes/
 ref: 18
+title: Qubes R1.0 Release Notes
 ---
 
 # Qubes R1.0 Release Notes

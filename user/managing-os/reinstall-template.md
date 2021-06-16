@@ -5,6 +5,7 @@ redirect_from:
 - /doc/reinstall-template/
 - /doc/whonix/reinstall/
 ref: 128
+title: How to Reinstall a TemplateVM
 ---
 
 How to Reinstall a TemplateVM

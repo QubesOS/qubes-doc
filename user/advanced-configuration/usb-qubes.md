@@ -9,6 +9,7 @@ redirect_from:
 - /wiki/USBVM/
 - /doc/sys-usb/
 ref: 181
+title: USB Qubes
 ---
 
 # USB Qubes #

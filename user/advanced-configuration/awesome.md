@@ -5,6 +5,7 @@ redirect_from:
 - /doc/awesome/
 - /en/doc/awesome/
 ref: 179
+title: awesome
 ---
 
 # Using awesome in dom0

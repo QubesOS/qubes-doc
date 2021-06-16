@@ -5,6 +5,7 @@ redirect_from:
 - /security/bulletins/template/
 - /doc/security-bulletins/template/
 ref: 209
+title: Security Bulletin Template
 ---
 
 Security Bulletin Template

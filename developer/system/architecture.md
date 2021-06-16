@@ -8,6 +8,7 @@ redirect_from:
 - /doc/QubesArchitecture/
 - /wiki/QubesArchitecture/
 ref: 56
+title: Architecture
 ---
 
 Qubes Architecture Overview

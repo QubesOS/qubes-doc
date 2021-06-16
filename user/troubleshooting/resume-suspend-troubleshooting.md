@@ -6,6 +6,7 @@ redirect_from:
 - /en/doc/wireless-troubleshooting/
 - /doc/wireless-troubleshooting/
 ref: 94
+title: Suspend/Resume Troubleshooting
 ---
 
 # Troubleshooting problems relating to suspend/resume 

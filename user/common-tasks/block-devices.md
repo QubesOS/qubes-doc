@@ -8,6 +8,7 @@ redirect_from:
 - /doc/StickMounting/
 - /wiki/StickMounting/
 ref: 193
+title: Block (Storage) Devices
 ---
 
 # Block (Storage) Devices

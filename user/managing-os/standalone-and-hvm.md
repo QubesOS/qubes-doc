@@ -9,6 +9,7 @@ redirect_from:
 - /doc/HvmCreate/
 - /wiki/HvmCreate/
 ref: 130
+title: StandaloneVMs and HVMs
 ---
 
 # StandaloneVMs and HVMs

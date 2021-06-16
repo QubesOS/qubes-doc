@@ -7,6 +7,7 @@ redirect_from:
 - /doc/QubesService/
 - /wiki/QubesService/
 ref: 138
+title: Qubes Service
 ---
 
 Usage documentation is in the `qvm-service` man page. There are also described predefined services.

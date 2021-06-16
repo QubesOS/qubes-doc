@@ -8,6 +8,7 @@ redirect_from:
 - /wiki/OutOfmemory/
 - /doc/out-of-memory/
 ref: 231
+title: Disk Troubleshooting
 ---
 
 # Disk Troubleshooting Guide #

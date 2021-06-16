@@ -9,4 +9,5 @@ redirect_from:
 - /wiki/Templates/Ubuntu/
 redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/os/ubuntu.md
 ref: 80
+title: Ubuntu Template
 ---

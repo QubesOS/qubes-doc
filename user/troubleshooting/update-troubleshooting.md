@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/update-troubleshooting/
 ref: 239
+title: Update Troubleshooting
 ---
 
 # Fixing issues that arise during updating

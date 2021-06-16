@@ -10,6 +10,7 @@ redirect_from:
 - /wiki/Templates/FedoraMinimal/
 - /doc/templates/debian-minimal/
 ref: 132
+title: Minimal TemplateVMs
 ---
 
 # Minimal TemplateVMs

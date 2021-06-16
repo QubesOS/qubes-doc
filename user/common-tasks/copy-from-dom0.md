@@ -8,6 +8,7 @@ redirect_from:
 - /doc/CopyToDomZero/
 - /wiki/CopyToDomZero/
 ref: 198
+title: Copying from (and to) dom0
 ---
 
 # Copying from (and to) dom0

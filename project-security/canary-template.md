@@ -5,6 +5,7 @@ redirect_from:
 - /security/canaries/template/
 - /doc/canaries/template/
 ref: 212
+title: Canary Template
 ---
 
 Canary Template

@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/gui-troubleshooting/
 ref: 233
+title: GUI Troubleshooting
 ---
 
 # GUI Troubleshooting

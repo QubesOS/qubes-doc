@@ -7,6 +7,7 @@ redirect_from:
 - /doc/VersionScheme/
 - /wiki/VersionScheme/
 ref: 151
+title: Version Scheme
 ---
 
 Version Scheme

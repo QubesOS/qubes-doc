@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/supported-versions/
 ref: 154
+title: Supported Versions
 ---
 
 # Supported Versions

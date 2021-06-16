@@ -8,6 +8,7 @@ redirect_from:
 - /doc/SystemDoc/VMInterface/
 - /wiki/SystemDoc/VMInterface/
 ref: 47
+title: VM Configuration Interface
 ---
 
 # VM Configuration Interface

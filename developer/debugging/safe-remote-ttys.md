@@ -5,6 +5,7 @@ redirect_from:
 - /doc/safe-remote-ttys/
 - /en/doc/safe-remote-ttys/
 ref: 49
+title: Safe Remote Dom0 Terminals
 ---
 
 Safe Remote Dom0 Terminals

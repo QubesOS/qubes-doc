@@ -7,6 +7,7 @@ redirect_from:
 - /wiki/DocStyle/
 - /doc/DocStyle/
 ref: 30
+title: Documentation Guidelines
 ---
 
 # Documentation guidelines

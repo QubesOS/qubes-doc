@@ -5,6 +5,7 @@ redirect_from:
 - /doc/releases/todo/
 - /en/doc/releases/todo/
 ref: 14
+title: Release Checklist
 ---
 
 Release Checklist

@@ -7,6 +7,7 @@ redirect_from:
 - /doc/UpgradeToR3.0/
 - /doc/UpgradeToR3.0rc1/
 ref: 159
+title: Upgrading to R3.0
 ---
 
 # Upgrading Qubes R2 to R3.0

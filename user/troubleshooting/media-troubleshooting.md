@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/media-troubleshooting/
 ref: 235
+title: Media Troubleshooting
 ---
 
 # Video and Audio Troubleshooting

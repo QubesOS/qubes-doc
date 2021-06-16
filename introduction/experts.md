@@ -4,4 +4,5 @@ layout: experts
 redirect_from:
 - /experts/
 ref: 119
+title: Experts
 ---

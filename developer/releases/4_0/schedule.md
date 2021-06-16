@@ -5,6 +5,7 @@ redirect_from:
 - /doc/releases/4.0/schedule/
 - /en/doc/releases/4.0/schedule/
 ref: 24
+title: Qubes R4.0 Release Schedule
 ---
 
 Qubes R4.0 Release Schedule

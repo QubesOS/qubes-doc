@@ -8,6 +8,7 @@ redirect_from:
 - /doc/QubesFirewall/
 - /wiki/QubesFirewall/
 ref: 166
+title: The Qubes Firewall
 ---
 
 The Qubes Firewall

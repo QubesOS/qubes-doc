@@ -4,6 +4,7 @@ layout: doc
 redirect_from:
 - /doc/storage-pools/
 ref: 57
+title: Storage Pools
 ---
 
 Storage Pools in Qubes
