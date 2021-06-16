@@ -7,7 +7,6 @@ redirect_from:
 - /doc/SecondaryStorage/
 - /wiki/SecondaryStorage/
 ref: 187
-title: Secondary Storage
 ---
 
 # Storing AppVMs on Secondary Drives

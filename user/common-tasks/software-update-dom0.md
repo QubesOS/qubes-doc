@@ -7,7 +7,6 @@ redirect_from:
 - /doc/SoftwareUpdateDom0/
 - /wiki/SoftwareUpdateDom0/
 ref: 194
-title: Installing and updating software in dom0
 ---
 
 # Installing and updating software in dom0

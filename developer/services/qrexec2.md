@@ -8,7 +8,6 @@ redirect_from:
 - /doc/Qrexec2Implementation/
 - /wiki/Qrexec2Implementation/
 ref: 38
-title: Qrexec2
 ---
 
 # Command execution in VMs #

@@ -8,7 +8,6 @@ redirect_from:
 - /doc/QubesResearch/
 - /wiki/QubesResearch/
 ref: 139
-title: Research
 ---
 
 Here are links to various research papers, projects, and blog posts that relate

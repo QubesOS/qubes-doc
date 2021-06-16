@@ -10,7 +10,6 @@ redirect_from:
 - /doc/tools/3.2/dom0/
 - /doc/tools/3.2/domU/
 ref: 141
-title: Command-Line Tools
 ---
 
 Command-Line Tools

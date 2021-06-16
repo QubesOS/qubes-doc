@@ -8,7 +8,6 @@ redirect_from:
 - /doc/SystemRequirements/
 - /wiki/SystemRequirements/
 ref: 142
-title: System Requirements
 ---
 
 # System Requirements

@@ -7,7 +7,6 @@ redirect_from:
 - /doc/QubesBuilderDetails/
 - /wiki/QubesBuilderDetails/
 ref: 65
-title: Qubes Builder Details
 ---
 
 [QubesBuilder](/doc/qubes-builder/) "API"

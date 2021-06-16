@@ -7,7 +7,6 @@ redirect_from:
 - /doc/FullScreenMode/
 - /wiki/FullScreenMode/
 ref: 205
-title: Full Screen Mode
 ---
 
 Enabling Full Screen Mode for select VMs

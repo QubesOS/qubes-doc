@@ -7,7 +7,6 @@ redirect_from:
 - /doc/QubesBuilder/
 - /wiki/QubesBuilder/
 ref: 64
-title: Qubes Builder
 ---
 
 **Note: See [ISO building instructions](/doc/qubes-iso-building/) for a streamlined overview on how to use the build system.**

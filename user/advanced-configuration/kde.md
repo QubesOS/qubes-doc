@@ -4,7 +4,6 @@ layout: doc
 permalink: /doc/kde/
 redirect_from: /en/doc/kde/
 ref: 176
-title: KDE
 ---
 
 Using KDE in dom0
@@ -56,7 +55,6 @@ Right click title bar --> More actions --> Special window settings...
 
   Window matching tab
     Window class (application): Exact Match: <vm_name>
-    Window title: Substring Match: <partial or full program name>
 
   Size & Position tab
     [x] Position: Apply Initially: x,y

@@ -3,7 +3,6 @@ lang: en
 layout: doc
 permalink: /doc/device-handling-security/
 ref: 170
-title: Device Handling Security
 ---
 
 # Device Handling Security

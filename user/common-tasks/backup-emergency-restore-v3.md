@@ -6,7 +6,6 @@ redirect_from:
 - /en/doc/backup-emergency-restore-v3/
 - /doc/BackupEmergencyRestoreV3/
 ref: 201
-title: Emergency Backup Recovery (v3)
 ---
 
 Emergency Backup Recovery without Qubes (v3)

@@ -8,7 +8,6 @@ redirect_from:
 - /doc/Templates/Debian/
 - /wiki/Templates/Debian/
 ref: 134
-title: The Debian TemplateVM
 ---
 
 # The Debian TemplateVM

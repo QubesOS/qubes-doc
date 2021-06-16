@@ -8,7 +8,6 @@ redirect_from:
 - /doc/ExternalDeviceMountPoint/
 - /wiki/ExternalDeviceMountPoint/
 ref: 188
-title: Device Handling
 ---
 
 # Device Handling

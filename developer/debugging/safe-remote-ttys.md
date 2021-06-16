@@ -5,7 +5,6 @@ permalink: /doc/safe-remote-ttys/
 redirect_from:
 - /en/doc/safe-remote-ttys/
 ref: 49
-title: Safe Remote Dom0 Terminals
 ---
 
 Safe Remote Dom0 Terminals

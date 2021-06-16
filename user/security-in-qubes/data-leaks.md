@@ -7,7 +7,6 @@ redirect_from:
 - /doc/DataLeaks/
 - /wiki/DataLeaks/
 ref: 171
-title: Data Leaks
 ---
 
 Understanding and Preventing Data Leaks

@@ -12,7 +12,6 @@ redirect_from:
 - /doc/QubesLists/
 - /wiki/QubesLists/
 ref: 122
-title: Help, Support, Mailing Lists, and Forum
 ---
 
 # Help, Support, Mailing Lists, and Forum

@@ -7,7 +7,6 @@ redirect_from:
 - /doc/QubesScreenshots/
 - /wiki/QubesScreenshots/
 ref: 123
-title: Screenshots
 ---
 
 Select Qubes OS Screenshots

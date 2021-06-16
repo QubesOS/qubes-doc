@@ -8,7 +8,6 @@ redirect_from:
 - /wiki/SecurityCriticalCode/
 - /trac/wiki/SecurityCriticalCode/
 ref: 55
-title: Security-critical Code
 ---
 
 Security-critical Code in Qubes OS

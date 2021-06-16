@@ -9,7 +9,6 @@ redirect_from:
 - /doc/DebianTemplateUpgrade8/
 - /wiki/DebianTemplateUpgrade8/
 ref: 133
-title: In-place upgrade of Debian TemplateVMs
 ---
 
 # Upgrading Debian TemplateVMs

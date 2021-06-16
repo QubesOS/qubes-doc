@@ -5,7 +5,6 @@ permalink: /doc/managing-vm-kernel/
 redirect_from:
 - /en/doc/managing-vm-kernel/
 ref: 173
-title: Managing VM kernel
 ---
 
 # VM kernel managed by dom0

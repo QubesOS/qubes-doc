@@ -6,7 +6,6 @@ redirect_from:
 - /en/doc/automated-tests/
 - /doc/AutomatedTests/
 ref: 45
-title: Automated Tests
 ---
 
 # Automated Tests

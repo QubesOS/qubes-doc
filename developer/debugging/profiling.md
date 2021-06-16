@@ -7,7 +7,6 @@ redirect_from:
 - /doc/Profiling/
 - /wiki/Profiling/
 ref: 48
-title: Profiling
 ---
 
 # Profiling

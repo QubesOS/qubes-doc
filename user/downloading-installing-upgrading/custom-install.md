@@ -5,7 +5,6 @@ permalink: /doc/custom-install/
 redirect_from:
 - /doc/encryption-config/
 ref: 152
-title: Custom Installation
 ---
 
 # Custom Installation

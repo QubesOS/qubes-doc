@@ -13,7 +13,6 @@ redirect_from:
 - /wiki/SecurityPage/
 - /trac/wiki/SecurityPage/
 ref: 217
-title: Security
 ---
 
 # Qubes OS Project Security Center

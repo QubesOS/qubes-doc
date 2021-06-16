@@ -3,7 +3,6 @@ lang: en
 layout: doc
 permalink: /doc/mount-lvm-image/
 ref: 46
-title: Mount LVM image
 ---
 
 # How to mount LVM image

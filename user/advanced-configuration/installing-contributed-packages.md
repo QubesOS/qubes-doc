@@ -3,7 +3,6 @@ lang: en
 layout: doc
 permalink: /doc/installing-contributed-packages/
 ref: 225
-title: Installing contributed packages
 ---
 
 # Installing contributed packages

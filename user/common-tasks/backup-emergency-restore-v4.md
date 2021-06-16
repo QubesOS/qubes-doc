@@ -6,7 +6,6 @@ redirect_from:
 - /en/doc/backup-emergency-restore-v4/
 - /doc/BackupEmergencyRestoreV4/
 ref: 192
-title: Emergency Backup Recovery (v4)
 ---
 
 Emergency Backup Recovery without Qubes (v4)

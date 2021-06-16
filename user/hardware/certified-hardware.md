@@ -7,7 +7,6 @@ redirect_from:
 - /doc/certified-laptops/
 - /hardware-certification/
 ref: 144
-title: Certified Hardware
 ---
 
 # Certified Hardware

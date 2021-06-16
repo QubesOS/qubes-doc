@@ -7,7 +7,6 @@ redirect_from:
 - /doc/DevelBooks/
 - /wiki/DevelBooks/
 ref: 32
-title: Developer Books
 ---
 
 Below is a list of various books that might be useful in learning some basics needed for Qubes development.

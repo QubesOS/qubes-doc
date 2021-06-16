@@ -7,7 +7,6 @@ redirect_from:
 - /doc/CopyPaste/
 - /wiki/CopyPaste/
 ref: 196
-title: Copying and pasting text between qubes
 ---
 
 Copying and pasting text between qubes

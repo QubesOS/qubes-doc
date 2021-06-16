@@ -3,7 +3,6 @@ lang: en
 layout: sidebar
 permalink: /join/
 ref: 26
-title: Join
 ---
 
 Joining the Qubes OS Team

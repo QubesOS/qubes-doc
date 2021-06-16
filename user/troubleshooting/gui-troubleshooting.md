@@ -3,7 +3,6 @@ lang: en
 layout: doc
 permalink: /doc/gui-troubleshooting/
 ref: 233
-title: GUI Troubleshooting
 ---
 
 # GUI Troubleshooting

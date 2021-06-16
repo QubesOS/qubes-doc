@@ -3,7 +3,6 @@ lang: en
 layout: doc
 permalink: /doc/testing/
 ref: 147
-title: Testing new releases and updates
 ---
 
 Testing new releases and updates

@@ -3,7 +3,6 @@ lang: en
 layout: doc
 permalink: /doc/audio-virtualization/
 ref: 60
-title: Audio Virtualization
 ---
 
 Audio Virtualization

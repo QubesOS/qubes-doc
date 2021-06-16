@@ -3,7 +3,6 @@ lang: en
 layout: doc
 permalink: /doc/usb-troubleshooting/
 ref: 234
-title: USB Troubleshooting
 ---
 
 # USB troubleshooting

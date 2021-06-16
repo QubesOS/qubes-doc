@@ -3,7 +3,6 @@ lang: en
 layout: doc
 permalink: /doc/releases/notes/
 ref: 13
-title: Release Notes
 ---
 
 Release Notes

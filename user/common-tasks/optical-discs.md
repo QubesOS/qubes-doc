@@ -6,7 +6,6 @@ redirect_from:
 - /doc/recording-optical-discs/
 - /en/doc/recording-optical-discs/
 ref: 204
-title: Optical Discs
 ---
 
 Optical Discs

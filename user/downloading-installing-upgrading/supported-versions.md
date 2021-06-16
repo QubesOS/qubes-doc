@@ -3,7 +3,6 @@ lang: en
 layout: doc
 permalink: /doc/supported-versions/
 ref: 154
-title: Supported Versions
 ---
 
 # Supported Versions

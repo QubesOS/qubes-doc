@@ -12,7 +12,6 @@ redirect_from:
 - /bug-report/
 - /bug-reports/
 ref: 121
-title: Reporting bugs and other issues
 ---
 
 # Reporting bugs and other issues #

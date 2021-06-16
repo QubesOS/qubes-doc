@@ -3,7 +3,6 @@ lang: en
 layout: doc
 permalink: /doc/pci-troubleshooting/
 ref: 230
-title: PCI Troubleshooting
 ---
 
 # PCI troubleshooting

@@ -4,7 +4,6 @@ layout: doc
 permalink: /security/bulletins/template/
 redirect_from: /doc/security-bulletins/template/
 ref: 209
-title: Security Bulletin Template
 ---
 
 Security Bulletin Template

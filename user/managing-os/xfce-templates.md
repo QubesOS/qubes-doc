@@ -8,7 +8,6 @@ redirect_from:
 - /doc/Templates/Xfce/
 - /wiki/Templates/Xfce/
 ref: 222
-title: Xfce TemplateVMs
 ---
 
 # Xfce TemplateVMs

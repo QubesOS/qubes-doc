@@ -3,7 +3,6 @@ lang: en
 layout: doc
 permalink: /doc/windows/
 ref: 129
-title: Windows VMs
 ---
 
 Windows VMs in Qubes OS

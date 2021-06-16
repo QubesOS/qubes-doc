@@ -9,7 +9,6 @@ redirect_from:
 - /wiki/SecurityBulletins/
 - /trac/wiki/SecurityBulletins/
 ref: 218
-title: Qubes Security Bulletins (QSBs)
 ---
 
 # Qubes Security Bulletins (QSBs)

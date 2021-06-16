@@ -3,7 +3,6 @@ lang: en
 layout: doc
 permalink: /doc/upgrade/
 ref: 158
-title: Upgrade Guides
 ---
 
 Qubes OS Upgrade Guides

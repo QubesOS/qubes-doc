@@ -7,7 +7,6 @@ redirect_from:
 - /doc/Qfilecopy/
 - /wiki/Qfilecopy/
 ref: 35
-title: Qfilecopy
 ---
 
 InterVM file copy design

@@ -7,7 +7,6 @@ redirect_from:
 - /doc/TestBench/
 - /wiki/TestBench/
 ref: 44
-title: Test Bench
 ---
 
 # Test bench for Dom0

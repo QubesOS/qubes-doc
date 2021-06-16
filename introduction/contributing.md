@@ -7,7 +7,6 @@ redirect_from:
 - /doc/ContributingHowto/
 - /wiki/ContributingHowto/
 ref: 125
-title: Contributing to the Qubes OS Project
 ---
 
 How to Contribute to the Qubes OS Project

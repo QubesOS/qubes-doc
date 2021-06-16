@@ -5,7 +5,6 @@ permalink: /doc/awesome/
 redirect_from:
 - /en/doc/awesome/
 ref: 179
-title: awesome
 ---
 
 # Using awesome in dom0

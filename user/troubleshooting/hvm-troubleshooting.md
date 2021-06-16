@@ -3,7 +3,6 @@ lang: en
 layout: doc
 permalink: /doc/hvm-troubleshooting/
 ref: 232
-title: HVM Troubleshooting
 ---
 
 # HVM Troubleshooting

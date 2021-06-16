@@ -8,7 +8,6 @@ redirect_from:
 - /doc/Templates/
 - /wiki/Templates/
 ref: 131
-title: TemplateVMs
 ---
 
 # TemplateVMs
