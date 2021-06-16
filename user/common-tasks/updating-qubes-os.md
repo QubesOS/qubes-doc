@@ -7,7 +7,6 @@ ref: 200
 title: Updating Qubes OS
 ---
 
-# Updating Qubes OS
 
 *This page is about updating your system while staying on the same [supported version of Qubes OS](/doc/supported-versions/#qubes-os).
 If you're instead looking to upgrade from your current version of Qubes OS to a newer version, see the [Upgrade Guides](/doc/upgrade/).*

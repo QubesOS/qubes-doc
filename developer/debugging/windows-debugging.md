@@ -10,7 +10,6 @@ ref: 50
 title: Windows Debugging
 ---
 
-# Debugging Windows HVMs
 
 Debugging Windows code can be tricky in a virtualized environment. The guide below assumes Xen hypervisor and Windows 7 VMs.
 

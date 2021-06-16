@@ -10,7 +10,6 @@ ref: 144
 title: Certified Hardware
 ---
 
-# Certified Hardware
 
 The Qubes OS Project aims to partner with a select few computer vendors to ensure that Qubes users have reliable hardware purchasing options.
 We aim for these vendors to be as diverse as possible in terms of geography, cost, and availability.

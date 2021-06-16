@@ -8,7 +8,6 @@ ref: 179
 title: awesome
 ---
 
-# Using awesome in dom0
 
 ## Qubes-specific features
 

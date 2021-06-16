@@ -11,7 +11,6 @@ ref: 211
 title: Verifying Signatures
 ---
 
-# On Digital Signatures and Key Verification
 
 ## What Digital Signatures Can and Cannot Prove
 

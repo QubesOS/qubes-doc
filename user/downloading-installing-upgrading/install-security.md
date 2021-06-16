@@ -10,7 +10,6 @@ ref: 149
 title: Installation security
 ---
 
-# Installation security
 
 There are several security matters to consider before and during the Qubes installation process.
 

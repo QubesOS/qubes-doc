@@ -11,7 +11,6 @@ ref: 222
 title: Xfce TemplateVMs
 ---
 
-# Xfce TemplateVMs
 
 If you would like to use Xfce (more lightweight compared to GNOME desktop environment) Linux distribution in your qubes,
 you can install one of the available Xfce templates for [Fedora](/doc/templates/fedora/), [CentOS](/doc/templates/centos/) or [Gentoo](/doc/templates/gentoo/).

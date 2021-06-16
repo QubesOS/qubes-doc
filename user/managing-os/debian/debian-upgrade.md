@@ -12,7 +12,6 @@ ref: 133
 title: In-place upgrade of Debian TemplateVMs
 ---
 
-# Upgrading Debian TemplateVMs
 
 <div class="alert alert-danger" role="alert">
   <i class="fa fa-exclamation-triangle"></i>

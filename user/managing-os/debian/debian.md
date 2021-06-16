@@ -11,7 +11,6 @@ ref: 134
 title: The Debian TemplateVM
 ---
 
-# The Debian TemplateVM
 
 The Debian [TemplateVM](/doc/templates/) is an officially [supported](/doc/supported-versions/#templatevms) TemplateVM in Qubes OS.
 This page is about the standard (or "full") Debian TemplateVM.

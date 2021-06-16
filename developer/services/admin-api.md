@@ -11,7 +11,6 @@ ref: 36
 title: Admin API
 ---
 
-# Qubes OS Admin API
 
 ## Goals
 

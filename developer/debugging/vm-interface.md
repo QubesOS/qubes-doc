@@ -11,7 +11,6 @@ ref: 47
 title: VM Configuration Interface
 ---
 
-# VM Configuration Interface
 
 Qubes VM have some settings set by dom0 based on VM settings. There are multiple configuration channels, which includes:
 

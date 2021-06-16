@@ -7,7 +7,6 @@ ref: 170
 title: Device Handling Security
 ---
 
-# Device Handling Security
 
 Any additional ability a VM gains is additional attack surface.
 It's a good idea to always attach the minimum entity required in a VM.

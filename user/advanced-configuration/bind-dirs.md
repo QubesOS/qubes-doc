@@ -8,7 +8,6 @@ ref: 186
 title: How to make any file in a TemplateBasedVM persistent using bind-dirs
 ---
 
-# How to make any file in a TemplateBasedVM persistent using bind-dirs #
 
 ## What are bind-dirs? ##
 

@@ -10,7 +10,6 @@ ref: 48
 title: Profiling
 ---
 
-# Profiling
 
 This is a python profiling primer.
 

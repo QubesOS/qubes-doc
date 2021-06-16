@@ -11,7 +11,6 @@ ref: 193
 title: Block (Storage) Devices
 ---
 
-# Block (Storage) Devices
 
 *This page is part of [device handling in qubes](/doc/device-handling/).*
 

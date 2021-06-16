@@ -7,7 +7,6 @@ ref: 154
 title: Supported Versions
 ---
 
-# Supported Versions
 
 This page details the level and period of support for versions of operating systems in the Qubes ecosystem.
 

@@ -11,7 +11,6 @@ ref: 39
 title: 'Qrexec: Qubes RPC internals'
 ---
 
-# Qubes RPC internals
 
 (*This page details the current implementation of qrexec (qrexec3).
 A [general introduction](/doc/qrexec/) to qrexec is also available.

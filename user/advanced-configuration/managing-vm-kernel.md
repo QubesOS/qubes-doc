@@ -8,7 +8,6 @@ ref: 173
 title: Managing VM kernel
 ---
 
-# VM kernel managed by dom0
 
 By default, VMs kernels are provided by dom0.
 (See [here](/doc/software-update-dom0/#kernel-upgrade) for information about upgrading kernels in dom0.)

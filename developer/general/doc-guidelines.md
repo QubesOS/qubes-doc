@@ -10,7 +10,6 @@ ref: 30
 title: Documentation Guidelines
 ---
 
-# Documentation guidelines
 
 All Qubes OS documentation pages are stored as plain text files in the dedicated [qubes-doc](https://github.com/QubesOS/qubes-doc) repository.
 By cloning and regularly pulling from this repo, users can maintain their own up-to-date offline copy of all Qubes documentation rather than relying solely on the web.

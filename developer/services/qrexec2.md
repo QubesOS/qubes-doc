@@ -11,7 +11,6 @@ ref: 38
 title: Qrexec2
 ---
 
-# Command execution in VMs #
 
 (*This page is about qrexec v2. For qrexec v3, see [here](/doc/qrexec3/).*)
 

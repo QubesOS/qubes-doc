@@ -10,7 +10,6 @@ ref: 66
 title: Development Workflow
 ---
 
-# Development Workflow
 
 A workflow for developing Qubes OS+
 

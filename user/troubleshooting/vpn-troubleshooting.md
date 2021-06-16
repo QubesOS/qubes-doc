@@ -7,7 +7,6 @@ ref: 240
 title: VPN Troubleshooting
 ---
 
-# VPN Troubleshooting Guide
 
 ## Tips
 

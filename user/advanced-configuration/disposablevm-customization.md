@@ -12,7 +12,6 @@ ref: 174
 title: DisposableVM Customization
 ---
 
-# DisposableVM Customization
 
 ## Introduction
 

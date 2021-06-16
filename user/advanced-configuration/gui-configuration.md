@@ -7,7 +7,6 @@ ref: 184
 title: GUI Configuration
 ---
 
-# GUI Configuration
 
 ## Video RAM adjustment for high-resolution displays
 

@@ -8,7 +8,6 @@ ref: 195
 title: USB Devices
 ---
 
-# USB Devices
 
 *This page is part of [device handling in qubes](/doc/device-handling/).*
 

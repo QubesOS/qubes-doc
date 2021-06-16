@@ -8,7 +8,6 @@ ref: 97
 title: Hardware Troubleshooting
 ---
 
-# Troubleshooting hardware-related issues
 
 ## Audio doesn't work / Troubleshooting newer hardware
 

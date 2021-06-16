@@ -10,7 +10,6 @@ ref: 58
 title: Template Implementation
 ---
 
-# Overview of VM block devices
 
 Every VM has 4 block devices connected:
 

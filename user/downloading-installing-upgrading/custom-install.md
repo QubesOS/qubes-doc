@@ -8,7 +8,6 @@ ref: 152
 title: Custom Installation
 ---
 
-# Custom Installation
 
 In the present context, "custom installation" refers to things like manual partitioning, setting up LVM and RAID, and manual LUKS encryption configuration.
 

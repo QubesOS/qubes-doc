@@ -7,7 +7,6 @@ ref: 136
 title: The Fedora TemplateVM
 ---
 
-# The Fedora TemplateVM
 
 The Fedora [TemplateVM](/doc/templates/) is the default TemplateVM in Qubes OS. This page is about the standard (or "full") Fedora TemplateVM. For the minimal and Xfce versions, please see the [Minimal TemplateVMs](/doc/templates/minimal/) and [Xfce TemplateVMs](/doc/templates/xfce/) pages.
 

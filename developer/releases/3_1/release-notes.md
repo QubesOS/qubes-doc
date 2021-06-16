@@ -7,7 +7,6 @@ ref: 16
 title: Qubes R3.1 release notes
 ---
 
-# Qubes R3.1 release notes
 
 ## New features since 3.0
 

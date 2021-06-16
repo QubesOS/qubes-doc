@@ -10,7 +10,6 @@ ref: 187
 title: Secondary Storage
 ---
 
-# Storing AppVMs on Secondary Drives
 
 Suppose you have a fast but small primary SSD and a large but slow secondary HDD.
 You want to store a subset of your AppVMs on the HDD.

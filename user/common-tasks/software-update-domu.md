@@ -11,7 +11,6 @@ ref: 189
 title: Installing and updating software in domUs
 ---
 
-# Installing and updating software in domUs
 
 Updating [domUs](/doc/glossary/#domu), especially [TemplateVMs](/doc/templates/) and [StandaloneVMs](/doc/standalone-and-hvm/) are important steps in [Updating Qubes OS](/doc/updating-qubes-os/).
 It is very import to keep domUs up-to-date with the latest [security](/security/) updates.

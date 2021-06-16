@@ -7,7 +7,6 @@ ref: 225
 title: Installing contributed packages
 ---
 
-# Installing contributed packages
 
 _This page is for users who wish to install contributed packages.
 If you want to contribute a package, please see [package contributions](/doc/package-contributions/)._

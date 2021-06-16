@@ -12,7 +12,6 @@ title: Qubes Builder
 
 **Note: See [ISO building instructions](/doc/qubes-iso-building/) for a streamlined overview on how to use the build system.**
 
-# Building Qubes from scratch
 
 We have a fully automated build system for Qubes, that downloads, builds and
 packages all the Qubes components, and finally should spit out a ready-to-use

@@ -9,7 +9,6 @@ ref: 45
 title: Automated Tests
 ---
 
-# Automated Tests
 
 ## Unit and Integration Tests
 

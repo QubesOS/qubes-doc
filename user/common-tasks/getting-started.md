@@ -10,7 +10,6 @@ redirect_from:
 ref: 190
 ---
 
-# Get started
 
 After [downloading](/downloads/) and [installing](/doc/installation-guide/) Qubes OS, let's cover some basic concepts.
 

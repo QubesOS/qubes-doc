@@ -7,7 +7,6 @@ ref: 234
 title: USB Troubleshooting
 ---
 
-# USB troubleshooting
 
 ## disp-sys-usb does not start
 

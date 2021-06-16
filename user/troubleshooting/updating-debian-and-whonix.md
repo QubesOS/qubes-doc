@@ -7,7 +7,6 @@ ref: 98
 title: Updating Debian and Whonix
 ---
 
-# Updating Debian and Whonix
 
 Despite Qubes shipping with [Debian Templates](/doc/templates/debian/), most of Qubes core components run on Fedora and thus our documentation has better coverage for Fedora. However, Qubes has been working closely with the [Whonix](https://whonix.org) project which is based on Debian.
 

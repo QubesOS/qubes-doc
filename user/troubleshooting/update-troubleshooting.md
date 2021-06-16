@@ -7,7 +7,6 @@ ref: 239
 title: Update Troubleshooting
 ---
 
-# Fixing issues that arise during updating
 
 ## “Failed to synchronize cache for repo” errors when updating Fedora templates
 

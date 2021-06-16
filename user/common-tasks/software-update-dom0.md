@@ -10,7 +10,6 @@ ref: 194
 title: Installing and updating software in dom0
 ---
 
-# Installing and updating software in dom0
 
 Updating [dom0](/doc/glossary/#dom0) is one of the main steps in [Updating Qubes OS](/doc/updating-qubes-os/).
 It is very important to keep dom0 up-to-date with the latest [security](/security/) updates.

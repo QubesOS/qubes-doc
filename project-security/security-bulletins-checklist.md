@@ -8,7 +8,6 @@ ref: 215
 title: Security Bulletin Checklist
 ---
 
-# Security Bulletin Checklist
 
 ## Preparation
 

@@ -11,7 +11,6 @@ ref: 188
 title: Device Handling
 ---
 
-# Device Handling
 
 This is an overview of device handling in Qubes OS.
 For specific devices ([block](/doc/block-devices/), [USB](/doc/usb-devices/) and [PCI](/doc/pci-devices/) devices), please visit their respective pages.

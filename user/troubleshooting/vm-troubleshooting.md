@@ -8,7 +8,6 @@ ref: 223
 title: VM Troubleshooting
 ---
 
-# VM troubleshooting
 
 ## VM Kernel troubleshooting
 

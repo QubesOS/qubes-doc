@@ -7,7 +7,6 @@ ref: 232
 title: HVM Troubleshooting
 ---
 
-# HVM Troubleshooting
 
 ## HVM pauses on boot, followed by kernel error
 

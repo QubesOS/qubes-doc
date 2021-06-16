@@ -12,7 +12,6 @@ ref: 130
 title: StandaloneVMs and HVMs
 ---
 
-# StandaloneVMs and HVMs
 
 A [StandaloneVM](/doc/glossary/#standalonevm) is a type of VM in Qubes that is created by cloning a [TemplateVM](/doc/templates/).
 Unlike TemplateVMs, however, StandaloneVMs do not supply their root filesystems to other VMs.

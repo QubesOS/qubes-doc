@@ -11,7 +11,6 @@ ref: 59
 title: Networking
 ---
 
-# VM network in Qubes
 
 ## Overall description
 

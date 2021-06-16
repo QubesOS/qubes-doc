@@ -11,7 +11,6 @@ ref: 203
 title: DisposableVMs
 ---
 
-# DisposableVMs
 
 A DisposableVM (previously known as a "DispVM") is a lightweight VM that can be created quickly and will disappear when closed.
 DisposableVMs are usually created in order to host a single application, like a viewer, editor, or web browser.

@@ -7,7 +7,6 @@ ref: 230
 title: PCI Troubleshooting
 ---
 
-# PCI troubleshooting
 
 ## DMA errors
 

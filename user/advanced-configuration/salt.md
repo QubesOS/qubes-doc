@@ -7,7 +7,6 @@ ref: 185
 title: Management stack
 ---
 
-# Management Infrastructure
 
 Since the Qubes R3.1 release we have included the Salt (also called SaltStack)
 management engine in dom0 as default (with some states already configured).

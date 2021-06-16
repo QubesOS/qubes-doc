@@ -11,7 +11,6 @@ ref: 197
 title: PCI Devices
 ---
 
-# PCI Devices
 
 *This page is part of [device handling in qubes](/doc/device-handling/).*
 

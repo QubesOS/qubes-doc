@@ -8,7 +8,6 @@ ref: 25
 title: Qubes R2.0 Release Notes
 ---
 
-# Qubes R2.0 Release Notes
 
 Detailed release notes in [this blog post](https://blog.invisiblethings.org/2014/09/26/announcing-qubes-os-release-2.html)
 

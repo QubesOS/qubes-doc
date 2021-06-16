@@ -11,7 +11,6 @@ ref: 131
 title: TemplateVMs
 ---
 
-# TemplateVMs
 
 In [Getting Started](/getting-started/), we covered the distinction in Qubes OS between where you *install* your software and where you *run* your software.
 Your software is installed in [TemplateVMs](/doc/glossary/#templatevm) (or "templates" for short).
