@@ -2,7 +2,8 @@
 lang: en
 layout: doc
 permalink: /security/canaries/
-redirect_from: /doc/canaries/
+redirect_from:
+- /doc/canaries/
 ref: 208
 ---
 

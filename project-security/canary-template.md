@@ -2,7 +2,8 @@
 lang: en
 layout: doc
 permalink: /security/canaries/template/
-redirect_from: /doc/canaries/template/
+redirect_from:
+- /doc/canaries/template/
 ref: 212
 ---
 

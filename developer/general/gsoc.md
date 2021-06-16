@@ -2,7 +2,8 @@
 lang: en
 layout: sidebar
 permalink: /gsoc/
-redirect_from: /GSoC/
+redirect_from:
+- /GSoC/
 ref: 33
 ---
 

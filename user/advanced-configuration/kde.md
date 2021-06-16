@@ -2,7 +2,8 @@
 lang: en
 layout: doc
 permalink: /doc/kde/
-redirect_from: /en/doc/kde/
+redirect_from:
+- /en/doc/kde/
 ref: 176
 ---
 

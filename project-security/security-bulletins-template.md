@@ -2,7 +2,8 @@
 lang: en
 layout: doc
 permalink: /security/bulletins/template/
-redirect_from: /doc/security-bulletins/template/
+redirect_from:
+- /doc/security-bulletins/template/
 ref: 209
 ---
 

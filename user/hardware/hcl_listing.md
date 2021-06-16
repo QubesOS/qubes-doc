@@ -3,6 +3,7 @@ lang: en
 layout: hcl
 model: all
 permalink: /hcl/
-redirect_from: /compatible-hardware/
+redirect_from:
+- /compatible-hardware/
 ref: 143
 ---
