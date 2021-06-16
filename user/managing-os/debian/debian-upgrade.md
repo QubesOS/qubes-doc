@@ -14,6 +14,12 @@ title: In-place upgrade of Debian TemplateVMs
 
 # Upgrading Debian TemplateVMs
 
+<div class="alert alert-danger" role="alert">
+  <i class="fa fa-exclamation-triangle"></i>
+  <b>Warning:</b> This page is intended for advanced users only. Most users seeking to upgrade should instead <a href="/doc/templates/debian/#installing">install a new Debian TemplateVM</a>. Learn more about the two options <a href="/doc/templates/debian/#upgrading">here</a>.
+</div>
+
+
 This page provides instructions for performing an in-place upgrade of an installed [Debian TemplateVM](/doc/templates/debian/).
 If you wish to install a new, unmodified Debian TemplateVM instead of upgrading a template that is already installed in your system, please see the [Debian TemplateVM](/doc/templates/debian/) page instead. ([Learn more about the two options.](/doc/templates/debian/#upgrading))
 

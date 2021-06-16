@@ -25,6 +25,11 @@ title: In-place upgrade of Fedora TemplateVMs
 
 # Upgrading Fedora TemplateVMs
 
+<div class="alert alert-danger" role="alert">
+  <i class="fa fa-exclamation-triangle"></i>
+  <b>Warning:</b> This page is intended for advanced users only. Most users seeking to upgrade should instead <a href="/doc/templates/fedora/#installing">install a new Fedora TemplateVM</a>. Learn more about the two options <a href="/doc/templates/fedora/#upgrading">here</a>.
+</div>
+
 This page provides instructions for performing an in-place upgrade of an installed [Fedora TemplateVM](/doc/templates/fedora/).
 If you wish to install a new, unmodified Fedora TemplateVM instead of upgrading a template that is already installed in your system, please see the [Fedora TemplateVM](/doc/templates/fedora/) page instead. ([Learn more about the two options.](/doc/templates/fedora/#upgrading))
 
