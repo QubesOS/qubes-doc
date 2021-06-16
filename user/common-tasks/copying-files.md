@@ -10,7 +10,6 @@ ref: 191
 title: Copying and moving files between qubes
 ---
 
-======================================
 
 *This page is about copying and moving files.
 If you wish to simply copy and paste text, that can be done more easily using the inter-qube clipboard.

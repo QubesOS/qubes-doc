@@ -11,7 +11,6 @@ ref: 61
 title: GUI
 ---
 
-==================
 
 qubes_gui and qubes_guid processes
 ------------------------------------

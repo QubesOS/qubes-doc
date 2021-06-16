@@ -7,7 +7,6 @@ ref: 57
 title: Storage Pools
 ---
 
-======================
 
 Qubes OS R3.2 introduced the concept of storage drivers and pools.  This feature
 was a first step towards a saner storage API, which is heavily rewritten in R4.

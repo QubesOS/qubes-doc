@@ -10,7 +10,6 @@ ref: 34
 title: DVMimpl
 ---
 
-====================================
 
 **Note: The content below applies to Qubes R3.2.**
 

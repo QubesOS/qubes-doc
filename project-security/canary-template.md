@@ -8,7 +8,6 @@ ref: 212
 title: Canary Template
 ---
 
-===============
 
 ~~~
 Dear Qubes community,

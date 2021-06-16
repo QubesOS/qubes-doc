@@ -10,7 +10,6 @@ ref: 196
 title: Copying and pasting text between qubes
 ---
 
-======================================
 
 *This page is about copying and pasting plain text.
 If you wish to copy more complex data, such as rich text or images, see [copying and moving files between qubes](/doc/copying-files/).

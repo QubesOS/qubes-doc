@@ -7,7 +7,6 @@ ref: 147
 title: Testing new releases and updates
 ---
 
-================================
 
 Testing new Qubes OS releases and updates is one of the most helpful ways in which you can [contribute](/doc/contributing/) to the Qubes OS Project.
 

@@ -7,7 +7,6 @@ ref: 23
 title: Qubes R4.0 release notes
 ---
 
-========================
 
 New features since 3.2
 ----------------------

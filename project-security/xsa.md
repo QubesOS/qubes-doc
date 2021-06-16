@@ -7,7 +7,6 @@ ref: 214
 title: Xen Security Advisory (XSA) Tracker
 ---
 
-===================================
 
 This tracker shows whether Qubes OS is affected by any given [Xen Security Advisory (XSA)](https://xenbits.xen.org/xsa/).
 Shortly after a new XSA is published, we will add a new row to this tracker.

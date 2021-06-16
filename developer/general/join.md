@@ -7,7 +7,6 @@ ref: 26
 title: Join
 ---
 
-=========================
 
 The Qubes OS Project does not currently have any open positions.
 This page will be updated when open positions become available.

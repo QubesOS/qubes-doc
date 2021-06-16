@@ -10,7 +10,6 @@ ref: 175
 title: Mounting and Decrypting Qubes Partitions from Outside Qubes
 ---
 
-====================================================
 
 When a Qubes OS install is unbootable or booting it is otherwise undesirable, this process allows for the recovery of files stored within the system.
 

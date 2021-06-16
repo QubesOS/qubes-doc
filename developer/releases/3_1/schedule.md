@@ -8,7 +8,6 @@ ref: 17
 title: Qubes R3.1 Release Schedule
 ---
 
-===========================
 
 This schedule is based on [Version Scheme](/doc/version-scheme/#release-schedule).
 

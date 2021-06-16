@@ -10,7 +10,6 @@ ref: 205
 title: Full Screen Mode
 ---
 
-========================================
 
 What is full screen mode?
 -------------------------

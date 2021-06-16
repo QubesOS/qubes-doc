@@ -11,7 +11,6 @@ ref: 166
 title: The Qubes Firewall
 ---
 
-==================
 
 Understanding firewalling in Qubes
 ----------------------------------

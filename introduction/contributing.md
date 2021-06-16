@@ -10,7 +10,6 @@ ref: 125
 title: Contributing to the Qubes OS Project
 ---
 
-=========================================
 
 Thank you for your interest in contributing to Qubes! Here are some of the many
 ways in which you can help:

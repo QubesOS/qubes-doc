@@ -14,7 +14,6 @@ title: Qfileexchgd
 
 Please see this [page](/doc/qfilecopy/) instead.
 
-==========================================
 
 Overview
 --------

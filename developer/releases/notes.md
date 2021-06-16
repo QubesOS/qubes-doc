@@ -7,7 +7,6 @@ ref: 13
 title: Release Notes
 ---
 
-=============
 
 * [Qubes R1.0 release notes](/doc/releases/1.0/release-notes/)
 * [Qubes R2.0 release notes](/doc/releases/2.0/release-notes/)

@@ -7,7 +7,6 @@ ref: 129
 title: Windows VMs
 ---
 
-=======================
 
 Like any other unmodified OSes, Windows can be installed in Qubes as an [HVM](/doc/standalone-and-hvm/) domain.
 

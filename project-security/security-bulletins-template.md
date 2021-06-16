@@ -8,8 +8,6 @@ ref: 209
 title: Security Bulletin Template
 ---
 
-==========================
-
 ~~~
 Dear Qubes Community,
 

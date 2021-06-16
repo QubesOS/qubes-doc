@@ -8,7 +8,6 @@ ref: 33
 title: Google Summer of Code
 ---
 
-================
 ## Information for Students
 
 Thank you for your interest in participating in the [Google Summer of Code program](https://summerofcode.withgoogle.com/organizations/4675790572093440/) with the [Qubes OS team](/team/). You can read more about the Google Summer of Code program at the [official website](https://summerofcode.withgoogle.com/) and the [official FAQ](https://developers.google.com/open-source/gsoc/faq).

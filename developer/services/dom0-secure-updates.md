@@ -10,7 +10,6 @@ ref: 43
 title: Dom0 Secure Updates
 ---
 
-==================================
 
 Reasons for Dom0 updates
 ------------------------

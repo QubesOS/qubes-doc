@@ -8,7 +8,6 @@ ref: 176
 title: KDE
 ---
 
-=================
 
 Installation
 ------------
