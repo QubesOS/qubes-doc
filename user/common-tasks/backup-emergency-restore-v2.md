@@ -9,7 +9,6 @@ ref: 207
 title: Emergency Backup Recovery (v2)
 ---
 
-Emergency Backup Recovery without Qubes (v2)
 ============================================
 
 This page describes how to perform emergency restore of backup created on Qubes

@@ -10,7 +10,6 @@ ref: 191
 title: Copying and moving files between qubes
 ---
 
-Copying and moving files between qubes
 ======================================
 
 *This page is about copying and moving files.

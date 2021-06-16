@@ -7,7 +7,6 @@ ref: 29
 title: Package Contributions
 ---
 
-Package Contributions
 =====================
 
 _This page is for developers who wish to contribute packages.

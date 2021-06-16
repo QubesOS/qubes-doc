@@ -10,7 +10,6 @@ ref: 41
 title: Qmemman
 ---
 
-qmemman, Qubes memory manager
 =============================
 
 Rationale

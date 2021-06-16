@@ -9,7 +9,6 @@ ref: 204
 title: Optical Discs
 ---
 
-Optical Discs
 =============
 
 Passthrough reading and recording (a.k.a., "burning") are not supported by Xen.

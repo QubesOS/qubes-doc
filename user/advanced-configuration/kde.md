@@ -8,7 +8,6 @@ ref: 176
 title: KDE
 ---
 
-Using KDE in dom0
 =================
 
 Installation

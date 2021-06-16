@@ -8,7 +8,6 @@ ref: 14
 title: Release Checklist
 ---
 
-Release Checklist
 =================
 
 *the checklist is probably unfinished*

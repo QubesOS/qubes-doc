@@ -8,7 +8,6 @@ ref: 128
 title: How to Reinstall a TemplateVM
 ---
 
-How to Reinstall a TemplateVM
 =============================
 
 If you suspect your [TemplateVM](/doc/templates/) is broken, misconfigured, or compromised, you can reinstall any TemplateVM that was installed from the Qubes repository.

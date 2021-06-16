@@ -8,7 +8,6 @@ ref: 33
 title: Google Summer of Code
 ---
 
-2021 Google Summer of Code
 ================
 ## Information for Students
 

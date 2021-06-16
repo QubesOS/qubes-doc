@@ -10,7 +10,6 @@ ref: 35
 title: Qfilecopy
 ---
 
-InterVM file copy design
 ========================
 
 There are two cases when we need a mechanism to copy files between VMs:

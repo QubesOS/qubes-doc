@@ -12,7 +12,6 @@ ref: 146
 title: Hardware Compatibility List (HCL)
 ---
 
-Hardware Compatibility List (HCL) for All Qubes OS Releases
 ===========================================================
 
 The [HCL](/hcl) is a compilation of reports generated and submitted by users across various Qubes versions about their hardware's compatibility with Qubes.

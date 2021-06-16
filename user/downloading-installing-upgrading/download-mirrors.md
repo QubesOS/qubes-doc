@@ -7,7 +7,6 @@ ref: 148
 title: Download Mirrors
 ---
 
-Qubes Download Mirrors
 ======================
 
 List of Download Mirrors

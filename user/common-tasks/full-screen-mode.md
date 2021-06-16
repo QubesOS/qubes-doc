@@ -10,7 +10,6 @@ ref: 205
 title: Full Screen Mode
 ---
 
-Enabling Full Screen Mode for select VMs
 ========================================
 
 What is full screen mode?

@@ -10,7 +10,6 @@ ref: 196
 title: Copying and pasting text between qubes
 ---
 
-Copying and pasting text between qubes
 ======================================
 
 *This page is about copying and pasting plain text.

@@ -7,7 +7,6 @@ ref: 15
 title: Release Schedules
 ---
 
-Release Schedules
 =================
 
 * [Qubes R3.0 release schedule](/doc/releases/3.0/schedule/)

@@ -7,7 +7,6 @@ ref: 178
 title: RPC Policies
 ---
 
-RPC Policies
 ============
 
 This document explains the basics of RPC policies in Qubes.

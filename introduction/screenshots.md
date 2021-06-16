@@ -10,7 +10,6 @@ ref: 123
 title: Screenshots
 ---
 
-Select Qubes OS Screenshots
 ===========================
 
 [![r4.0-xfce-desktop.png](/attachment/wiki/QubesScreenshots/r4.0-xfce-desktop.png)](/attachment/wiki/QubesScreenshots/r4.0-xfce-desktop.png)

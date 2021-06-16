@@ -9,7 +9,6 @@ ref: 192
 title: Emergency Backup Recovery (v4)
 ---
 
-Emergency Backup Recovery without Qubes (v4)
 ============================================
 
 This page describes how to perform an emergency restore of a backup created on

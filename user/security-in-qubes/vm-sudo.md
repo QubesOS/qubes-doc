@@ -10,7 +10,6 @@ ref: 165
 title: Passwordless Root Access in VMs
 ---
 
-Passwordless Root Access in VMs
 ===============================
 
 Background (`/etc/sudoers.d/qubes` in VM):

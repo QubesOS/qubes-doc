@@ -7,7 +7,6 @@ ref: 158
 title: Upgrade Guides
 ---
 
-Qubes OS Upgrade Guides
 =======================
 
 These guides are for upgrading from one version of Qubes to another.

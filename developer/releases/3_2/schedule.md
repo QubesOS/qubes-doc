@@ -8,7 +8,6 @@ ref: 22
 title: Qubes R3.2 Release Schedule
 ---
 
-Qubes R3.2 Release Schedule
 ===========================
 
 This schedule is based on [Version Scheme](/doc/version-scheme/#release-schedule).

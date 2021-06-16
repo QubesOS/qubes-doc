@@ -8,7 +8,6 @@ ref: 209
 title: Security Bulletin Template
 ---
 
-Security Bulletin Template
 ==========================
 
 ~~~

@@ -10,7 +10,6 @@ ref: 199
 title: Backup, restoration, and migration
 ---
 
-Backup, restoration, and migration
 ==================================
 
 With Qubes, it's easy and secure to back up and restore your whole system, as well as to migrate between two physical machines.

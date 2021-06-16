@@ -10,7 +10,6 @@ ref: 202
 title: Managing AppVm Shortcuts
 ---
 
-Managing shortcuts to applications in AppVMs
 ============================================
 
 For ease of use Qubes aggregates shortcuts to applications that are installed in AppVMs and shows them in one "start menu" in dom0.

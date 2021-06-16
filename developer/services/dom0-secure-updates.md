@@ -10,7 +10,6 @@ ref: 43
 title: Dom0 Secure Updates
 ---
 
-Qubes Dom0 secure update procedure
 ==================================
 
 Reasons for Dom0 updates

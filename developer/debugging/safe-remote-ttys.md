@@ -8,7 +8,6 @@ ref: 49
 title: Safe Remote Dom0 Terminals
 ---
 
-Safe Remote Dom0 Terminals
 ==========================
 
 If you do not have working graphics in Dom0, then using a terminal can be quite annoying!

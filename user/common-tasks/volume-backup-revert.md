@@ -10,7 +10,6 @@ ref: 206
 title: Volume Backup and Revert
 ---
 
-Qubes Volume Backup and Revert
 ==============================
 
 With Qubes, it is possible to revert one of a VM's storage volumes to a previous

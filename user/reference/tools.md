@@ -13,7 +13,6 @@ ref: 141
 title: Command-Line Tools
 ---
 
-Command-Line Tools
 ==================
 
 Dom0

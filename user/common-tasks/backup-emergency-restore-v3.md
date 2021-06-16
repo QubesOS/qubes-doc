@@ -9,7 +9,6 @@ ref: 201
 title: Emergency Backup Recovery (v3)
 ---
 
-Emergency Backup Recovery without Qubes (v3)
 ============================================
 
 This page describes how to perform an emergency restore of a backup created on
