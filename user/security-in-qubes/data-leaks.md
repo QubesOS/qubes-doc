@@ -10,8 +10,6 @@ ref: 171
 title: Data Leaks
 ---
 
-Understanding and Preventing Data Leaks
-=======================================
 
 The Role of the Firewall
 ------------------------

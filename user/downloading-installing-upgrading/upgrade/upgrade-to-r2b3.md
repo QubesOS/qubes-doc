@@ -10,8 +10,6 @@ ref: 157
 title: Upgrading to R2B3
 ---
 
-Upgrading Qubes R2 Beta 2 to R2 Beta 3
-======================================
 
 Current Qubes R2 Beta 2 (R2B2) systems can be upgraded in-place to the latest R2 Beta 3 (R2B3) release by following the procedure below. However, upgrading in-place is riskier than performing a clean installation, since there are more things which can go wrong. For this reason, **we strongly recommended that users perform a [clean installation](/doc/installation-guide/) of Qubes R2 Beta 3**.
 

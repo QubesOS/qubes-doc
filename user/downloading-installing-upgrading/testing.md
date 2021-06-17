@@ -3,11 +3,9 @@ lang: en
 layout: doc
 permalink: /doc/testing/
 ref: 147
-title: Testing new releases and updates
+title: Testing New Releases and Updates
 ---
 
-Testing new releases and updates
-================================
 
 Testing new Qubes OS releases and updates is one of the most helpful ways in which you can [contribute](/doc/contributing/) to the Qubes OS Project.
 
@@ -37,8 +35,8 @@ Updates
 
 How to test updates:
 
-* Enable [dom0 testing repositories](/doc/software-update-dom0/#testing-repositories).
-* Enable [TemplateVM testing repositories](/doc/software-update-domu/#testing-repositories).
+* Enable [dom0 testing repositories](/doc/how-to-install-software-in-dom0/#testing-repositories).
+* Enable [TemplateVM testing repositories](/doc/how-to-install-software/#testing-repositories).
 
 Every new update is first uploaded to the `security-testing` repository if it is a security update or `current-testing` if it is a normal update.
 The update remains in `security-testing` or `current-testing` for a minimum of one week.

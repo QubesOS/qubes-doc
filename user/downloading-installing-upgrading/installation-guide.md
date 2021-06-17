@@ -16,10 +16,8 @@ redirect_from:
 - /doc/InstallationGuideR3.0rc2/
 - /doc/live-usb/
 ref: 153
-title: Installation guide
+title: Installation Guide
 ---
-
-# Installation guide
 
 Welcome to the Qubes OS installation guide!
 This guide will walk you through the process of installing Qubes.
@@ -222,7 +220,7 @@ Regardless of your choices on this screen, you will always be able to install th
 If you're short on disk space, you may wish to deselect these options.
 
 By default, Qubes OS comes preinstalled with the lightweight Xfce4 desktop environment.
-Other desktop environments will be available to you after the installation is completed, though they may not be officially supported (see [advanced configuration](/doc/#advanced-configuration)).
+Other desktop environments will be available to you after the installation is completed, though they may not be officially supported (see [Advanced Topics](/doc/#advanced-topics)).
 
 Press **Done** to go back to the installation summary screen.
 
@@ -380,7 +378,7 @@ Consider giving back to the Qubes community and helping other users by [generati
 
 ### Get Started
 
-[Get Started](/getting-started/) with Qubes, and read more about [Common Tasks](/doc/#common-tasks) and [Managing Operating Systems within Qubes](/doc/#managing-operating-systems-within-qubes).
+[Get Started](/doc/how-to-get-started/) with Qubes, check out the [How-to Guides](/doc/#how-to-guides), and learn about [Templates](/doc/#templates).
 
 ## Getting help
 

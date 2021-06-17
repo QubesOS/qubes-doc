@@ -11,10 +11,8 @@ redirect_from:
 - /doc/Qrexec/
 - /wiki/Qrexec/
 ref: 37
-title: 'Qrexec: secure communication across domains'
+title: 'Qrexec: Secure Communication Across Domains'
 ---
-
-# Qrexec: secure communication across domains
 
 (*This page is about qrexec v3. For qrexec v2, see [here](/doc/qrexec2/).*)
 
@@ -203,7 +201,7 @@ This is why `qubes.StartApp` uses our standard `qrexec` argument grammar to stri
 ### Service policies with arguments
 
 Sometimes a service name alone isn't enough to make reasonable qrexec policy.
-One example of such a situation is [qrexec-based USB passthrough](/doc/usb-devices/).
+One example of such a situation is [qrexec-based USB passthrough](/doc/how-to-use-usb-devices/).
 Using just a service name would make it difficult to express the policy "allow access to devices X and Y, but deny to all others."
 It isn't feasible to create a separate service for every device: we would need to change the code in multiple files any time we wanted to update the service.
 

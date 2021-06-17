@@ -8,7 +8,6 @@ ref: 97
 title: Hardware Troubleshooting
 ---
 
-# Troubleshooting hardware-related issues
 
 ## Audio doesn't work / Troubleshooting newer hardware
 
@@ -16,7 +15,7 @@ By default, the kernel that is installed in dom0 comes from the `kernel` package
 For most cases this works fine since the Linux kernel developers backport fixes to this kernel, but for some newer hardware, you may run into issues.
 For example, the audio might not work if the sound card is too new for the LTS kernel.
 To fix this, you can try the `kernel-latest` package -- though be aware that it's less tested!
-(See [here](/doc/software-update-dom0/#kernel-upgrade) for more information about upgrading kernels in dom0).
+(See [here](/doc/how-to-install-software-in-dom0/#kernel-upgrade) for more information about upgrading kernels in dom0).
 In dom0:
 
 ~~~

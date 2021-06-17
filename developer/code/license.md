@@ -7,11 +7,9 @@ redirect_from:
 - /doc/QubesLicensing/
 - /wiki/QubesLicensing/
 ref: 52
-title: License
+title: Software License
 ---
 
-Qubes OS License
-================
 
 Qubes is a compilation of software packages, each under its own license. The compilation is made available under the GNU General Public License version 2.
 

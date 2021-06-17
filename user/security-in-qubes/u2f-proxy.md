@@ -3,10 +3,9 @@ lang: en
 layout: doc
 permalink: /doc/u2f-proxy/
 ref: 167
-title: The Qubes U2F Proxy
+title: U2F Proxy
 ---
 
-# The Qubes U2F Proxy
 
 The [Qubes U2F Proxy](https://github.com/QubesOS/qubes-app-u2f) is a secure proxy intended to make use of U2F two-factor authentication devices with web browsers without exposing the browser to the full USB stack, not unlike the [USB keyboard and mouse proxies](/doc/usb/) implemented in Qubes.
 

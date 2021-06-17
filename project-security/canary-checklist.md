@@ -6,7 +6,6 @@ ref: 216
 title: Canary Checklist
 ---
 
-# Canary Checklist
 
 ## Preparation
 

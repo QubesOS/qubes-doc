@@ -6,8 +6,6 @@ ref: 158
 title: Upgrade Guides
 ---
 
-Qubes OS Upgrade Guides
-=======================
 
 These guides are for upgrading from one version of Qubes to another.
 If you're just looking to update your system while staying on the same version, see [Updating Qubes OS](/doc/updating-qubes-os/).

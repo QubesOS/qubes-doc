@@ -10,7 +10,6 @@ ref: 161
 title: Upgrading to R3.2
 ---
 
-# Upgrading Qubes R3.1 to R3.2
 
 **Before attempting either an in-place upgrade or a clean installation, we
 strongly recommend that users [back up their systems](/doc/backup-restore/).**

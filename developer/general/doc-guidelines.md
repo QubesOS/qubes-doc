@@ -10,7 +10,6 @@ ref: 30
 title: Documentation Guidelines
 ---
 
-# Documentation guidelines
 
 All Qubes OS documentation pages are stored as plain text files in the dedicated [qubes-doc](https://github.com/QubesOS/qubes-doc) repository.
 By cloning and regularly pulling from this repo, users can maintain their own up-to-date offline copy of all Qubes documentation rather than relying solely on the web.
@@ -330,7 +329,8 @@ When making contributions, please try to observe the following style conventions
   * Rationale: In the event that a user is required to read the Markdown source directly, this will make it easier to follow, e.g., numbered steps in a set of instructions.
 * Use hanging indentations
    where appropriate.
-* Use Atx-style headings: `# h1`, `##h 2`, `### h3`, etc.
+* Do not use `h1` headings (single `#` or `======` underline). These are automatically generated from the `title:` line in the YAML frontmatter.
+* Use Atx-style headings: , `##h 2`, `### h3`, etc.
 * When writing code blocks, use [syntax highlighting](https://github.github.com/gfm/#info-string) where [possible](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers) and use `[...]` for anything omitted.
 * When providing command line examples:
   * Tell the reader where to open a terminal (dom0 or a specific domU), and show the command along with its output (if any) in a code block, e.g.:

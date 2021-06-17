@@ -11,7 +11,6 @@ ref: 231
 title: Disk Troubleshooting
 ---
 
-# Disk Troubleshooting Guide #
 
 ## "Out of disk space" error ##
 

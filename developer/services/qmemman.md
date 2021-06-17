@@ -7,11 +7,8 @@ redirect_from:
 - /doc/Qmemman/
 - /wiki/Qmemman/
 ref: 41
-title: Qmemman
+title: Qubes Memory Manager (qmemman)
 ---
-
-qmemman, Qubes memory manager
-=============================
 
 Rationale
 ---------

@@ -6,8 +6,6 @@ ref: 29
 title: Package Contributions
 ---
 
-Package Contributions
-=====================
 
 _This page is for developers who wish to contribute packages.
 If you want to install contributed packages, please see [installing contributed packages](/doc/installing-contributed-packages/)._

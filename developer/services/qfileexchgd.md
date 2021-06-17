@@ -7,16 +7,13 @@ redirect_from:
 - /doc/Qfileexchgd/
 - /wiki/Qfileexchgd/
 ref: 40
-title: Qfileexchgd
+title: qfileexchgd (deprecated)
 ---
 
 **This mechanism is obsolete as of Qubes Beta 1!**
-==================================================
 
 Please see this [page](/doc/qfilecopy/) instead.
 
-qfilexchgd, the Qubes file exchange daemon
-==========================================
 
 Overview
 --------

@@ -6,7 +6,6 @@ ref: 145
 title: Hardware Testing
 ---
 
-# Hardware Testing
 
 The Qubes developers test Qubes OS on certain hardware models.
 The tested hardware described on this page differs from [Qubes Certified Hardware](/doc/certified-hardware/) in a few key ways:

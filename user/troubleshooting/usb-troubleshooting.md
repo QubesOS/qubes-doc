@@ -6,7 +6,6 @@ ref: 234
 title: USB Troubleshooting
 ---
 
-# USB troubleshooting
 
 ## disp-sys-usb does not start
 
@@ -16,12 +15,12 @@ For more details on this issue along with possible solutions, look at [PCI passt
 ## Can't attach a USB device / USB device not showing in qvm-usb
 
 To successfully attach a USB device, you require a VM dedicated to handling the USB input and output.
-For guidance setting up a USB qube, see the [USB documentation](/doc/usb-devices/#creating-and-using-a-usb-qube).
+For guidance setting up a USB qube, see the [USB documentation](/doc/how-to-use-usb-devices/#creating-and-using-a-usb-qube).
 
 Currently (until issue [1082](https://github.com/QubesOS/qubes-issues/issues/1082) gets implemented), if you remove the device before detaching it from the qube, Qubes OS (more precisely, `libvirtd`) will think that the device is still attached to the qube and will not allow attaching further devices under the same name.
 This may be characterized by VM manager crashes and the error message: `Houston, we have a problem`.
 The easiest way to recover from such a situation is to reboot the qube to which the device was attached.
-If this isn't an option, you can manually recover from the situation by following the instructions at the [Block Devices documentation](/doc/block-devices/#what-if-i-removed-the-device-before-detaching-it-from-the-vm)
+If this isn't an option, you can manually recover from the situation by following the instructions at the [Block Devices documentation](/doc/how-to-use-block-storage-devices/#what-if-i-removed-the-device-before-detaching-it-from-the-vm)
 
 ## "Device attach failed" error
 
@@ -81,7 +80,7 @@ Another solution would be to set the pci_strictreset option in dom0:
   ```
 
 These options allow the VM to ignore the error and the VM will start.
-Please review the notes in the `qvm-prefs` man page and [here](/doc/device-handling/) and be aware of the potential risks.
+Please review the notes in the `qvm-prefs` man page and [here](/doc/how-to-use-devices/) and be aware of the potential risks.
 
 ## Can't use keyboard or mouse after creating sys-usb
 
@@ -99,7 +98,7 @@ If your computer has a PS/2 port, you may instead use a PS/2 keyboard to enter t
 
 ## "qubes-usb-proxy not installed in the VM" error
 
-When trying to [create and use a USB qube](/doc/usb-devices/#creating-and-using-a-usb-qube) with the `qubes-usb-proxy` package, you may receive this error: `ERROR: qubes-usb-proxy not installed in the VM`.
+When trying to [create and use a USB qube](/doc/how-to-use-usb-devices/#creating-and-using-a-usb-qube) with the `qubes-usb-proxy` package, you may receive this error: `ERROR: qubes-usb-proxy not installed in the VM`.
 
 If you encounter this error, you can install the `qubes-usb-proxy` with the package manager in the VM you want to attach the USB device to.
 Depending on your operating system, open a terminal in the TemplateVM and enter one of the following commands:

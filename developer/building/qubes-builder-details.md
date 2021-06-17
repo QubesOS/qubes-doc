@@ -10,8 +10,6 @@ ref: 65
 title: Qubes Builder Details
 ---
 
-[QubesBuilder](/doc/qubes-builder/) "API"
-========================================
 
 Components Makefile.builder file
 --------------------------------

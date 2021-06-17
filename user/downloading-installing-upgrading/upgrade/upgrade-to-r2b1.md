@@ -10,8 +10,6 @@ ref: 163
 title: Upgrading to R2B1
 ---
 
-Upgrading Qubes R1 to R2 Beta 1
-===============================
 
 **Note: Qubes R2 Beta 1 is no longer supported! Please install or upgrade to a newer Qubes R2.**
 

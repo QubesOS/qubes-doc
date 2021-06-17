@@ -10,8 +10,6 @@ ref: 140
 title: Glossary
 ---
 
-Glossary of Qubes Terminology
-=============================
 
 Qubes OS
 --------

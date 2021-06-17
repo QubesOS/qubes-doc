@@ -11,7 +11,6 @@ ref: 142
 title: System Requirements
 ---
 
-# System Requirements
 
 <div class="alert alert-warning" role="alert">
   <i class="fa fa-exclamation-triangle"></i>

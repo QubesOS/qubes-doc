@@ -11,8 +11,6 @@ ref: 53
 title: Coding Style
 ---
 
-Coding Guidelines for Qubes Developers
-======================================
 
 Rationale
 ---------

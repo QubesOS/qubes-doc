@@ -3,10 +3,9 @@ lang: en
 layout: doc
 permalink: /doc/qrexec-socket-services/
 ref: 42
-title: 'Qrexec: Socket-based services'
+title: 'Qrexec: Socket-based Services'
 ---
 
-# Qrexec: Socket-based services
 
 *This page describes how to implement and use new socket-backed services for qrexec. See [qrexec](/doc/qrexec/) for general overview of the qrexec framework.*
 

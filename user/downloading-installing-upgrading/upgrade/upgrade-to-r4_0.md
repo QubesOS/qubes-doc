@@ -10,8 +10,6 @@ ref: 162
 title: Upgrading to R4.0
 ---
 
-Upgrading Qubes R3.2 to R4.0
-============================
 
 **Before attempting either an in-place upgrade or a clean installation, we strongly recommend that users [back up their systems](/doc/backup-restore/).**
 

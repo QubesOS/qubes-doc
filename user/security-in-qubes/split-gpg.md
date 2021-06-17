@@ -16,8 +16,6 @@ ref: 168
 title: Split GPG
 ---
 
-# Qubes Split GPG
-
 Split GPG implements a concept similar to having a smart card with your private GPG keys, except that the role of the "smart card" is played by another Qubes AppVM.
 This way one not-so-trusted domain, e.g. the one where Thunderbird is running, can delegate all crypto operations -- such as encryption/decryption and signing -- to another, more trusted, network-isolated domain.
 This way the compromise of your domain where Thunderbird or another client app is running -- arguably a not-so-unthinkable scenario -- does not allow the attacker to automatically also steal all your keys.
@@ -343,14 +341,14 @@ In this example, the following keys are stored in the following locations (see b
    This is a network-isolated VM.
    The initial master keypair and subkeys are generated in this VM.
    The master secret key *never* leaves this VM under *any* circumstances.
-   No files or text is *ever* [copied](/doc/copying-files#security) or [pasted](/doc/copy-paste#security) into this VM under *any* circumstances.
+   No files or text is *ever* [copied](/doc/how-to-copy-and-move-files/#security) or [pasted](/doc/how-to-copy-and-paste-text/#security) into this VM under *any* circumstances.
 
 * `work-gpg`
 
    This is a network-isolated VM.
    This VM is used *only* as the GPG backend for `work-email`.
-   The secret subkeys (but *not* the master secret key) are [copied](/doc/copying-files#security) from the `vault` VM to this VM.
-   Files from less trusted VMs are *never* [copied](/doc/copying-files#security) into this VM under *any* circumstances.
+   The secret subkeys (but *not* the master secret key) are [copied](/doc/how-to-copy-and-move-files/#security) from the `vault` VM to this VM.
+   Files from less trusted VMs are *never* [copied](/doc/how-to-copy-and-move-files/#security) into this VM under *any* circumstances.
 
 * `work-email`
 
@@ -363,7 +361,7 @@ In this example, the following keys are stored in the following locations (see b
 In the standard Split GPG setup, there are at least two ways in which the `work-gpg` VM might be compromised.
 First, an attacker who is capable of exploiting a hypothetical bug in `work-email`'s [MUA](https://en.wikipedia.org/wiki/Mail_user_agent) could gain control of the `work-email` VM and send a malformed request which exploits a hypothetical bug in the GPG backend (running in the `work-gpg` VM), giving the attacker control of the `work-gpg` VM.
 Second, a malicious public key file which is imported into the `work-gpg` VM might exploit a hypothetical bug in the GPG backend which is running there, again giving the attacker control of the `work-gpg` VM.
-In either case, such an attacker might then be able to leak both the master secret key and its passphrase (if any is used, it would regularly be input in the work-gpg VM and therefore easily obtained by an attacker who controls this VM) back to the `work-email` VM or to another VM (e.g., the `netvm`, which is always untrusted by default) via the Split GPG protocol or other [covert channels](/doc/data-leaks).
+In either case, such an attacker might then be able to leak both the master secret key and its passphrase (if any is used, it would regularly be input in the work-gpg VM and therefore easily obtained by an attacker who controls this VM) back to the `work-email` VM or to another VM (e.g., the `netvm`, which is always untrusted by default) via the Split GPG protocol or other [covert channels](/doc/data-leaks/).
 Once the master secret key is in the `work-email` VM, the attacker could simply email it to himself (or to the world).
 
 In the alternative setup described in this section (i.e., the subkey setup), even an attacker who manages to gain access to the `work-gpg` VM will not be able to obtain the user's master secret key since it is simply not there.

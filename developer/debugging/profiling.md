@@ -7,10 +7,9 @@ redirect_from:
 - /doc/Profiling/
 - /wiki/Profiling/
 ref: 48
-title: Profiling
+title: Python Profiling
 ---
 
-# Profiling
 
 This is a python profiling primer.
 

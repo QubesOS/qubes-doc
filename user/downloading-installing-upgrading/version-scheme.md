@@ -10,8 +10,6 @@ ref: 151
 title: Version Scheme
 ---
 
-Version Scheme
-==============
 
 Beginning with R3 release, we change (and formalise) the versioning scheme.
 From now on, it will be as follows.

@@ -6,7 +6,6 @@ ref: 224
 title: Installation Troubleshooting
 ---
 
-# Installation Troubleshooting 
 
 ## "An unknown error has occurred" error during installation 
 

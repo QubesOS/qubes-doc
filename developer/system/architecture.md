@@ -11,8 +11,6 @@ ref: 56
 title: Architecture
 ---
 
-Qubes Architecture Overview
-===========================
 
 Qubes implements a Security by Isolation approach. To do this, Qubes utilizes virtualization technology in order to isolate various programs from each other and even to sandbox many system-level components, such as networking and storage subsystems, so that the compromise of any of these programs or components does not affect the integrity of the rest of the system.
 

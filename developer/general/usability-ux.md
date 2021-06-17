@@ -6,7 +6,6 @@ ref: 31
 title: Usability & UX
 ---
 
-# Usability & UX
 
 Software that is too complicated to use, is often unused. Because we want as many people as possible to benefit from its unique security properties, the usability and user experience of Qubes OS is an utmost priority!
 

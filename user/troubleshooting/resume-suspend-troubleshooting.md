@@ -9,7 +9,6 @@ ref: 94
 title: Suspend/Resume Troubleshooting
 ---
 
-# Troubleshooting problems relating to suspend/resume 
 
 ## Network-Manager says “Device not ready” on suspend/resume 
 

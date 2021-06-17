@@ -8,7 +8,6 @@ ref: 25
 title: Qubes R2.0 Release Notes
 ---
 
-# Qubes R2.0 Release Notes
 
 Detailed release notes in [this blog post](https://blog.invisiblethings.org/2014/09/26/announcing-qubes-os-release-2.html)
 
@@ -56,7 +55,7 @@ See [Installation Guide](/doc/installation-guide/).
 
 ### From Qubes R2 rc1
 
-Upgrading from Qubes R2 rc1 should be a simple matter of installing updates for [dom0](/doc/software-update-dom0/) and [VMs](/doc/software-update-vm/).
+Upgrading from Qubes R2 rc1 should be a simple matter of installing updates for [dom0](/doc/how-to-install-software-in-dom0/) and [VMs](/doc/software-update-vm/).
 
 ### From Qubes R2 beta 3 and older
 

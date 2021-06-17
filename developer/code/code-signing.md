@@ -6,7 +6,6 @@ ref: 51
 title: Code Signing
 ---
 
-# Code Signing
 
 All contributions to the Qubes OS [source code](/doc/source-code/) must be cryptographically signed by the author's PGP key.
 

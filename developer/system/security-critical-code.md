@@ -11,8 +11,6 @@ ref: 55
 title: Security-critical Code
 ---
 
-Security-critical Code in Qubes OS
-==================================
 
 Below is a list of security-critical (i.e., trusted) code components in Qubes OS.
 A successful attack against any of these components could compromise the system's security.
