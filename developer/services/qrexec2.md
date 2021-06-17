@@ -8,11 +8,10 @@ redirect_from:
 - /doc/Qrexec2Implementation/
 - /wiki/Qrexec2Implementation/
 ref: 38
-title: Qrexec2
+title: qrexec v2 (deprecated)
 ---
 
-
-(*This page is about qrexec v2. For qrexec v3, see [here](/doc/qrexec3/).*)
+(*This page is about qrexec v2. For qrexec v3, see [here](/doc/qrexec/).*)
 
 Qubes **qrexec** is a framework for implementing inter-VM (incl. Dom0-VM)
 services. It offers a mechanism to start programs in VMs, redirect their

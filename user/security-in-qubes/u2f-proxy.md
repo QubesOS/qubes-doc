@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/u2f-proxy/
 ref: 167
-title: The Qubes U2F Proxy
+title: U2F Proxy
 ---
 
 

@@ -12,7 +12,7 @@ redirect_from:
 - /bug-report/
 - /bug-reports/
 ref: 121
-title: Reporting bugs and other issues
+title: Reporting Bugs and Other Issues
 ---
 
 All issues pertaining to the Qubes OS Project (including auxiliary infrastructure such as the [website](/)) are tracked in [qubes-issues](https://github.com/QubesOS/qubes-issues/issues), our GitHub issue tracker.

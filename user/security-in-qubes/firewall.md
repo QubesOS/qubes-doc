@@ -8,9 +8,8 @@ redirect_from:
 - /doc/QubesFirewall/
 - /wiki/QubesFirewall/
 ref: 166
-title: The Qubes Firewall
+title: Firewall
 ---
-
 
 Understanding firewalling in Qubes
 ----------------------------------

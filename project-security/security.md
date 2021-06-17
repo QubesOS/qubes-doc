@@ -13,10 +13,8 @@ redirect_from:
 - /wiki/SecurityPage/
 - /trac/wiki/SecurityPage/
 ref: 217
-title: Security Center
+title: Qubes OS Project Security Center
 ---
-
-# Qubes OS Project Security Center
 
 This page provides a central hub for topics pertaining to the security of the Qubes OS Project.
 For topics pertaining to software security *within* Qubes OS, see [Security in Qubes](/doc/#security-in-qubes).

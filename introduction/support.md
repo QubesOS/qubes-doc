@@ -15,8 +15,6 @@ ref: 122
 title: Help, Support, Mailing Lists, and Forum
 ---
 
-# Help, Support, Mailing Lists, and Forum
-
 Help and support for Qubes OS is available from the [documentation](/doc/), the
 [mailing lists](#mailing-lists), and our [forum](#forum) which are explained below. The Qubes OS
 Project does not offer paid support services.

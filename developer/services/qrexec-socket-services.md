@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/qrexec-socket-services/
 ref: 42
-title: 'Qrexec: Socket-based services'
+title: 'Qrexec: Socket-based Services'
 ---
 
 

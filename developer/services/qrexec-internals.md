@@ -8,7 +8,7 @@ redirect_from:
 - /doc/Qrexec3Implementation/
 - /wiki/Qrexec3Implementation/
 ref: 39
-title: 'Qrexec: Qubes RPC internals'
+title: 'Qrexec: Qubes RPC Internals'
 ---
 
 

@@ -7,7 +7,7 @@ redirect_from:
 - /doc/TestBench/
 - /wiki/TestBench/
 ref: 44
-title: Test Bench
+title: How to Set Up a Test Bench
 ---
 
 

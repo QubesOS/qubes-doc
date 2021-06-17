@@ -7,7 +7,7 @@ redirect_from:
 - /doc/QubesLicensing/
 - /wiki/QubesLicensing/
 ref: 52
-title: License
+title: Software License
 ---
 
 

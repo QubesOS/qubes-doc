@@ -8,9 +8,8 @@ redirect_from:
 - /doc/ManagingAppVmShortcuts/
 - /wiki/ManagingAppVmShortcuts/
 ref: 202
-title: App menu shortcut troubleshooting
+title: App Menu Shortcut Troubleshooting
 ---
-
 
 For ease of use Qubes aggregates shortcuts to applications that are installed in AppVMs and shows them in one application menu (aka "app menu" or "start menu") in dom0.
 Clicking on such shortcut runs the assigned application in its AppVM.

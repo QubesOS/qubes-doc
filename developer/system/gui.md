@@ -8,9 +8,8 @@ redirect_from:
 - /doc/GUIdocs/
 - /wiki/GUIdocs/
 ref: 61
-title: GUI
+title: GUI Virtualization
 ---
-
 
 qubes_gui and qubes_guid processes
 ------------------------------------
