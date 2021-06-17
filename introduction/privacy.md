@@ -59,4 +59,4 @@ Thankfully, Qubes OS is free and open-source software, so you don't have to take
 Of course, third-party software (including other operating systems) running inside of qubes may not be as privacy-respecting, so please be mindful of what you install.
 We have no control over such third-party software.
 
-For more information, please see [FAQ: How does Qubes OS provide privacy?](/faq/#how-does-qubes-os-provide-privacy).
+For more information, please see [FAQ: How does Qubes OS provide privacy?](/faq/#how-does-qubes-os-provide-privacy)
