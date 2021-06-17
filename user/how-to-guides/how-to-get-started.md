@@ -134,7 +134,7 @@ If you plan on using your system for work, then it also depends on what kind of 
 
 It's a good idea to start out with the three qubes created automatically by the installer: work, personal, and untrusted.
 If and when you start to feel that some activity just doesn't fit into any of your existing qubes, or you want to partition some part of your life, you can easily create a new qube for it.
-You'll also be able to easily [copy](/doc/copying-files/) any files you need to the newly created qube.
+You'll also be able to easily [copy](/doc/how-to-copy-and-move-files/) any files you need to the newly created qube.
 
 Still not sure?
 You might find it helpful to read [this article](https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html), which describes how one of the Qubes OS architects partitions her digital life into security domains.
@@ -151,12 +151,12 @@ The [Qubes backup system](/doc/backup-restore/) allows you to do this securely a
 Here are some other tasks you're likely to want to perform.
 (A full list is available in the [How-to Guides](/doc/#how-to-guides) section of the documentation.)
 
-- [Copying and Pasting Text Between Domains](/doc/copy-paste/)
-- [Copying and Moving Files Between Domains](/doc/copying-files/)
-- [Copying from (and to) dom0](/doc/copy-from-dom0/)
+- [Copying and Pasting Text Between Domains](/doc/how-to-copy-and-paste-text/)
+- [Copying and Moving Files Between Domains](/doc/how-to-copy-and-move-files/)
+- [Copying from (and to) dom0](/doc/how-to-copy-from-dom0/)
 - [Fullscreen Mode](/doc/full-screen-mode/)
 - [DisposableVMs](/doc/disposablevm/)
-- [Device Handling](/doc/device-handling/) (block, USB, and PCI devices)
+- [Device Handling](/doc/how-to-use-devices/) (block, USB, and PCI devices)
 
 If you encounter any problems, please visit the [Help, Support, and Mailing Lists](/support/) page.
 

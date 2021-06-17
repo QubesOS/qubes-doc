@@ -11,7 +11,7 @@ title: VM Troubleshooting
 
 ## VM Kernel troubleshooting
 
-This troubleshoot applies to the non-default kernel choice described in the [Managing VM docs](/doc/managing-vm-kernel/#using-kernel-installed-in-the-vm).
+This troubleshoot applies to the non-default kernel choice described in the [Managing VM docs](/doc/managing-vm-kernels/#using-kernel-installed-in-the-vm).
 
 In case of problems, you can access the VM console using `qvm-console-dispvm VMNAME` in dom0, then access the GRUB menu.
 You need to call it just after starting the VM (until `GRUB_TIMEOUT` expires); for example, in a separate dom0 terminal window.

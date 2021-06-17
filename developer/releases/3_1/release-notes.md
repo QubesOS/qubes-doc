@@ -15,7 +15,7 @@ title: Qubes R3.1 release notes
 * LIVE edition (still alpha, not part of R3.1-rc1)
 * Updated GPU drivers in dom0
 * Colorful window application icons (instead of just colorful lock icon)
-* PV Grub support ([documentation](/doc/managing-vm-kernel/))
+* PV Grub support ([documentation](/doc/managing-vm-kernels/))
 * Out of the box USB VM setup, including [handling USB mouse](https://github.com/QubesOS/qubes-app-linux-input-proxy/blob/master/README.md)
 * Xen upgraded to 4.6, for better hardware support (especially Skylake platform)
 * Improve updates proxy flexibility - especially repositories served over HTTPS

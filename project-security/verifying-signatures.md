@@ -215,7 +215,7 @@ The filename of the Release Signing Key for your version is usually `qubes-relea
 There are several ways to get the Release Signing Key for your Qubes release.
 
 - If you have access to an existing Qubes installation, the release keys are available in dom0 in `/etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-*`.
-  These can be [copied](/doc/copy-from-dom0/#copying-from-dom0) into other VMs for further use.
+  These can be [copied](/doc/how-to-copy-from-dom0/#copying-from-dom0) into other VMs for further use.
   In addition, every other VM contains the release key corresponding to that installation's release in `/etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-*`.
   If you wish to use one of these keys, make sure to import it into your keyring, e.g.:
 

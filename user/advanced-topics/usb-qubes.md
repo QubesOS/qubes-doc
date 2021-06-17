@@ -26,7 +26,7 @@ If you find yourself in this situation, see this [issue](https://github.com/Qube
 A USB qube acts as a secure handler for potentially malicious USB devices, preventing them from coming into contact with dom0 (which could otherwise be fatal to the security of the whole system). It thereby mitigates some of the [security implications](/doc/device-handling-security/#usb-security) of using USB devices.
 With a USB qube, every time you connect an untrusted USB drive to a USB port managed by that USB controller, you will have to attach it to the qube in which you wish to use it (if different from the USB qube itself), either by using Qubes VM Manager or the command line (see instructions above).
 The USB controller may be assigned on the **Devices** tab of a qube's settings page in Qubes VM Manager or by using the [qvm-pci](/doc/how-to-use-pci-devices/) command.
-For guidance on finding the correct USB controller, see the [according passage on PCI-devices](/doc/usb-devices/#finding-the-right-usb-controller).
+For guidance on finding the correct USB controller, see the [according passage on PCI-devices](/doc/how-to-use-usb-devices/#finding-the-right-usb-controller).
 You can create a USB qube using the management stack by performing the following steps as root in dom0:
 
 ```
@@ -65,7 +65,7 @@ Those steps are not performed by default, because of risk explained in [Security
 
 ### Automatic setup ###
 
-To allow USB keyboard usage (including early boot for LUKS passphrase), make sure you have the latest `qubes-mgmt-salt-dom0-virtual-machines` package (simply [install dom0 updates](/doc/software-update-dom0/#how-to-update-dom0)) and execute in dom0:
+To allow USB keyboard usage (including early boot for LUKS passphrase), make sure you have the latest `qubes-mgmt-salt-dom0-virtual-machines` package (simply [install dom0 updates](/doc/how-to-install-software-in-dom0/#how-to-update-dom0)) and execute in dom0:
 
 ```
 sudo qubesctl state.sls qvm.usb-keyboard

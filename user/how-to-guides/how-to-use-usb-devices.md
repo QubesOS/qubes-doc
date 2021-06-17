@@ -10,15 +10,15 @@ title: How to Use USB Devices
 ---
 
 
-*This page is part of [device handling in qubes](/doc/device-handling/).*
+*This page is part of [device handling in qubes](/doc/how-to-use-devices/).*
 
-If you are looking to handle USB *storage* devices (thumbdrives or USB-drives), please have a look at the [block device](/doc/block-devices/) page.
+If you are looking to handle USB *storage* devices (thumbdrives or USB-drives), please have a look at the [block device](/doc/how-to-use-block-storage-devices/) page.
 
 **Note:** Attaching USB devices to VMs requires a [USB qube](/doc/usb-qubes/).
 
 **Important security warning:** USB passthrough comes with many security implications.
 Please make sure you carefully read and understand the **[security considerations](/doc/device-handling-security/#usb-security)**.
-Whenever possible, attach a [block device](/doc/block-devices/) instead.
+Whenever possible, attach a [block device](/doc/how-to-use-block-storage-devices/) instead.
 
 Examples of valid cases for USB-passthrough:
 

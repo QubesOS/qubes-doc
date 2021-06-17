@@ -41,7 +41,7 @@ After installing a fresh Debian TemplateVM, we recommend performing the followin
 
 ## Updating
 
-For routine daily TemplateVM updates within a given Debian release, see [Updating software in TemplateVMs](/doc/software-update-domu/#updating-software-in-templatevms).
+For routine daily TemplateVM updates within a given Debian release, see [Updating software in TemplateVMs](/doc/how-to-install-software/#updating-software-in-templatevms).
 
 ## Upgrading
 

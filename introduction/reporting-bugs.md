@@ -104,7 +104,7 @@ The Qubes team will classify your issue according to its type.
 
 ### New issues should include all relevant information ###
 
-When you file a new issue, you should be sure to include the version of Qubes you're using, as well as versions of related software packages ([how to copy information out of dom0](/doc/copy-from-dom0/)).
+When you file a new issue, you should be sure to include the version of Qubes you're using, as well as versions of related software packages ([how to copy information out of dom0](/doc/how-to-copy-from-dom0/)).
 If your issue is related to hardware, provide as many details as possible about the hardware.
 A great way to do this is by [generating and submitting a Hardware Compatibility List (HCL) report](/doc/hcl/#generating-and-submitting-new-reports), then linking to it in your issue.
 You may also need to use command-line tools such as `lspci`.

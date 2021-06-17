@@ -32,9 +32,9 @@ It is important to keep your Qubes OS system up-to-date to ensure you have the l
 
 Fully updating your Qubes OS system means updating:
 
-- [Dom0](/doc/software-update-dom0/)
-- [TemplateVMs](/doc/software-update-domu/#updating-software-in-templatevms)
-- [StandaloneVMs](/doc/software-update-domu/#standalonevms) (if you have any)
+- [Dom0](/doc/how-to-install-software-in-dom0/)
+- [TemplateVMs](/doc/how-to-install-software/#updating-software-in-templatevms)
+- [StandaloneVMs](/doc/how-to-install-software/#standalonevms) (if you have any)
 
 You can accomplish this using the **Qubes Update** tool.
 

@@ -55,7 +55,7 @@ See [Installation Guide](/doc/installation-guide/).
 
 ### From Qubes R2 rc1
 
-Upgrading from Qubes R2 rc1 should be a simple matter of installing updates for [dom0](/doc/software-update-dom0/) and [VMs](/doc/software-update-vm/).
+Upgrading from Qubes R2 rc1 should be a simple matter of installing updates for [dom0](/doc/how-to-install-software-in-dom0/) and [VMs](/doc/software-update-vm/).
 
 ### From Qubes R2 beta 3 and older
 

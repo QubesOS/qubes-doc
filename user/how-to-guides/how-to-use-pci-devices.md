@@ -13,7 +13,7 @@ title: How to Use PCI Devices
 ---
 
 
-*This page is part of [device handling in qubes](/doc/device-handling/).*
+*This page is part of [device handling in qubes](/doc/how-to-use-devices/).*
 
 **Warning:** Only dom0 exposes PCI devices.
 Some of them are strictly required in dom0 (e.g., the host bridge).
@@ -23,7 +23,7 @@ Please make sure you carefully read and understand the **[security consideration
 
 ## Introduction
 
-Unlike other devices ([USB](/doc/usb-devices/), [block](/doc/block-devices/), mic), PCI devices need to be attached on VM-bootup.
+Unlike other devices ([USB](/doc/how-to-use-usb-devices/), [block](/doc/how-to-use-block-storage-devices/), mic), PCI devices need to be attached on VM-bootup.
 Similar to how you can't attach a new sound-card after your computer booted (and expect it to work properly), attaching PCI devices to already booted VMs isn't supported.
 
 The Qubes installer attaches all network class controllers to `sys-net` and all USB controllers to `sys-usb` by default, if you chose to create the network and USB qube during install.
@@ -59,7 +59,7 @@ There you can attach PCI-devices to a qube.
 ## `qvm-pci` Usage
 
 The `qvm-pci` tool allows PCI attachment and detachment.
-It's a shortcut for [`qvm-device pci`](/doc/device-handling/#general-qubes-device-widget-behavior-and-handling).
+It's a shortcut for [`qvm-device pci`](/doc/how-to-use-devices/#general-qubes-device-widget-behavior-and-handling).
 
 To figure out what device to attach, first list the available PCI devices by running (as user) in dom0:
 

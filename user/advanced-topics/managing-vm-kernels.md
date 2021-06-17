@@ -11,7 +11,7 @@ title: Managing VM Kernels
 
 
 By default, VMs kernels are provided by dom0.
-(See [here](/doc/software-update-dom0/#kernel-upgrade) for information about upgrading kernels in dom0.)
+(See [here](/doc/how-to-install-software-in-dom0/#kernel-upgrade) for information about upgrading kernels in dom0.)
 This means that:
 
 1. You can select the kernel version (using GUI VM Settings tool or `qvm-prefs` commandline tool);

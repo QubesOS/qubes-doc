@@ -251,7 +251,7 @@ Please refer to [this page](/doc/vm-sudo/).
 
 Please see:
 
-- [Installing and updating software in dom0](/doc/software-update-dom0/)
+- [Installing and updating software in dom0](/doc/how-to-install-software-in-dom0/)
 - [Note on dom0 and EOL](/doc/supported-versions/#note-on-dom0-and-eol)
 
 ### Do you recommend coreboot as an alternative to vendor BIOS?
@@ -503,7 +503,7 @@ For Debian:
 For Fedora:
 
 1. (Recommended) Clone an existing Fedora TemplateVM
-2. [Enable the appropriate RPMFusion repos in the desired Fedora TemplateVM](/doc/software-update-domu/#rpmfusion-for-fedora-templatevms).
+2. [Enable the appropriate RPMFusion repos in the desired Fedora TemplateVM](/doc/how-to-install-software/#rpmfusion-for-fedora-templatevms).
 3. Install VLC in that TemplateVM:
 
     ```bash_session
@@ -525,7 +525,7 @@ From the top part of the list, click on the drive you want to attach, then selec
 Although you can also attach the entire USB device to a qube by selecting it from the bottom part of the list, in general this approach should not be used because you are exposing the target qube to unnecessary additional attack surface.
 
 Although external media such as external hard drives or flash drives plugged in via USB are available in the USB qube, it is not recommended to access them directly from inside the USB qube.
-See [Block (Storage) Devices](/doc/block-devices/) for more information.
+See [Block (Storage) Devices](/doc/how-to-use-block-storage-devices/) for more information.
 
 ### My encrypted drive doesn't appear in Debian qube.
 

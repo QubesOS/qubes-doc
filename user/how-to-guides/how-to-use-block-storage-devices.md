@@ -13,7 +13,7 @@ title: How to Use Block Storage Devices
 ---
 
 
-*This page is part of [device handling in qubes](/doc/device-handling/).*
+*This page is part of [device handling in qubes](/doc/how-to-use-devices/).*
 
 If you don't know what a "block device" is, just think of it as a fancy way to say "something that stores data".
 
@@ -27,7 +27,7 @@ Qubes OS supports the ability to attach a USB drive (or just its partitions) to 
 Attaching USB drives is integrated into the Devices Widget: ![device manager icon](/attachment/wiki/Devices/media-removable.png)
 Simply insert your USB drive and click on the widget.
 You will see multiple entries for your USB drive; typically, `sys-usb:sda`, `sys-usb:sda1`, and `sys-usb:2-1` for example.
-Entries starting with a number (e.g. here `2-1`) are the [whole usb-device](/doc/usb-devices/).
+Entries starting with a number (e.g. here `2-1`) are the [whole usb-device](/doc/how-to-use-usb-devices/).
 Entries without a number (e.g. here `sda`) are the whole block-device.
 Other entries are partitions of that block-device (e.r. here `sda1`).
 

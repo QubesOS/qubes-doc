@@ -144,7 +144,7 @@ In the `current-testing` repository:
 ### domU
 
 The packages `kernel-qubes-vm` and `kernel-latest-qubes-vm` are for domUs.
-See [Managing VM kernel](/doc/managing-vm-kernel/) for more information.
+See [Managing VM kernel](/doc/managing-vm-kernels/) for more information.
 
 ### Example
 

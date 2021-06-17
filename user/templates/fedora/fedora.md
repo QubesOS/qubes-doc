@@ -33,7 +33,7 @@ After installing a fresh Fedora TemplateVM, we recommend performing the followin
 
 ## Updating
 
-For routine daily updates within a given release, see [Updating software in TemplateVMs](/doc/software-update-domu/#updating-software-in-templatevms).
+For routine daily updates within a given release, see [Updating software in TemplateVMs](/doc/how-to-install-software/#updating-software-in-templatevms).
 
 ## Upgrading
 

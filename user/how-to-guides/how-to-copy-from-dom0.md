@@ -14,7 +14,7 @@ title: How to Copy from Dom0
 
 
 This page covers copying files and clipboard text between [dom0](/doc/glossary/#dom0) and [domUs](/doc/glossary/#domu).
-Since dom0 is special, the processes are different from [copying and pasting text between qubes](/doc/copy-paste/) and [copying and moving files between qubes](/doc/copying-files/).
+Since dom0 is special, the processes are different from [copying and pasting text between qubes](/doc/how-to-copy-and-paste-text/) and [copying and moving files between qubes](/doc/how-to-copy-and-move-files/).
 
 ## Copying **from** dom0
 
