@@ -613,6 +613,10 @@ There is no particular configuration that will be ideal for everyone (despite ho
 Please don't ask for your favorite program to be installed by default or for some setting that obviously varies by user preference to be changed so that it matches *your* preference.
 This is an incredibly selfish attitude that demonstrates a complete lack of consideration for the thousands of other Qubes users who don't happen to share your preferences.
 
+### I installed software in my qube but after restart it is gone - why?
+
+Software needs to be [installed in the template](/doc/how-to-install-software/) your qube is based on. Only data in your home directory persists through restarts.
+
 ## Developers
 
 ### Are there restrictions on the software that the Qubes developers are willing to use?
