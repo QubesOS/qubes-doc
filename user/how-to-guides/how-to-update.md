@@ -15,7 +15,7 @@ If you're instead looking to upgrade from your current version of Qubes OS to a 
   <i class="fa fa-exclamation-triangle"></i>
   <b>Warning:</b> Updating with direct commands such as <code>qubes-dom0-update</code>, <code>dnf update</code>, and <code>apt update</code> is <b>not</b> recommended, since these bypass built-in Qubes OS update security measures.
   Instead, we strongly recommend using the <b>Qubes Update</b> tool or its command-line equivalents, as described below.
-  (By contrast, <a href="/doc/software-update-domu/#installing-software-in-templatevms">installing</a> packages using direct package manager commands is fine.)
+  (By contrast, <a href="/doc/how-to-install-software/">installing</a> packages using direct package manager commands is fine.)
 </div>
 
 ## Security updates
