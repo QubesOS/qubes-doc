@@ -128,8 +128,7 @@ The same general procedure may be used to upgrade any template based on the stan
        In this case, one option is to [resize the TemplateVM's disk image](/doc/resize-disk-image/) before reattempting the upgrade process.
        (See [Additional Information](#additional-information) below for other options.)
 
-4. Check that you are on the correct (new) Fedora release.
-
+4. Check that you are on the correct (new) Fedora release. Do this check only after completing the upgrade process (number 3 above). This is NOT a troubleshooting procedure for fixing download issues from the repository. This test verifies that your clone has successfully converted from fedora-old to fedora-new.
     ```
     [user@fedora-<new> ~]$ cat /etc/fedora-release
     ```
