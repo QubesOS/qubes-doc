@@ -59,6 +59,11 @@ We collect:
 
 We do not collect any other kinds of data about Qubes users.
 
+### How long is data retained?
+
+The data is retained for up to two months so that we can re-calculate the previous month's statistics in case anything goes wrong.
+After that, the data is deleted.
+
 ### Where can I find the raw data and source code?
 
 The raw data is available [here](https://tools.qubes-os.org/counter/stats.json).
