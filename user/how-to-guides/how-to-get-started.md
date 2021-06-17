@@ -149,7 +149,7 @@ It's also very important to make regular backups so that you don't lose your dat
 The [Qubes backup system](/doc/backup-restore/) allows you to do this securely and easily.
 
 Here are some other tasks you're likely to want to perform.
-(A full list is available in the [Common Tasks](/doc/#common-tasks) section of the documentation.)
+(A full list is available in the [How-to Guides](/doc/#how-to-guides) section of the documentation.)
 
 - [Copying and Pasting Text Between Domains](/doc/copy-paste/)
 - [Copying and Moving Files Between Domains](/doc/copying-files/)
