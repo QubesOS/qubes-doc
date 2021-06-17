@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: doc
-redirect_from:
-- /doc/u2f-proxy/
+permalink: /doc/u2f-proxy/
 ref: 167
 title: The Qubes U2F Proxy
 ---

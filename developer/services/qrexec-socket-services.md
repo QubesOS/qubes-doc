@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: doc
-redirect_from:
-- /doc/qrexec-socket-services/
+permalink: /doc/qrexec-socket-services/
 ref: 42
 title: 'Qrexec: Socket-based services'
 ---

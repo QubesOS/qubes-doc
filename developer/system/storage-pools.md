@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: doc
-redirect_from:
-- /doc/storage-pools/
+permalink: /doc/storage-pools/
 ref: 57
 title: Storage Pools
 ---

@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
+permalink: /doc/optical-discs/
 redirect_from:
-- /doc/optical-discs/
 - /doc/recording-optical-discs/
 - /en/doc/recording-optical-discs/
 ref: 204

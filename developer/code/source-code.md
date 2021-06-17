@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
+permalink: /doc/source-code/
 redirect_from:
-- /doc/source-code/
 - /en/doc/source-code/
 - /doc/SourceCode/
 - /wiki/SourceCode/

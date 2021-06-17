@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: doc
-redirect_from:
-- /doc/vpn-troubleshooting/
+permalink: /doc/vpn-troubleshooting/
 ref: 240
 title: VPN Troubleshooting
 ---

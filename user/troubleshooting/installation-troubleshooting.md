@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: doc
-redirect_from:
-- /doc/installation-troubleshooting/
+permalink: /doc/installation-troubleshooting/
 ref: 224
 title: Installation Troubleshooting
 ---

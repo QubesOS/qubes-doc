@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: doc
-redirect_from:
-- /doc/releases/notes/
+permalink: /doc/releases/notes/
 ref: 13
 title: Release Notes
 ---

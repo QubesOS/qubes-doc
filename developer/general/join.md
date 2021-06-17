@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: sidebar
-redirect_from:
-- /join/
+permalink: /join/
 ref: 26
 title: Join
 ---

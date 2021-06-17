@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: sidebar
-redirect_from:
-- /downloads/mirrors/
+permalink: /downloads/mirrors/
 ref: 148
 title: Download Mirrors
 ---

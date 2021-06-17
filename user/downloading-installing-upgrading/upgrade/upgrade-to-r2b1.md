@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
+permalink: /doc/upgrade-to-r2b1/
 redirect_from:
-- /doc/upgrade-to-r2b1/
 - /en/doc/upgrade-to-r2b1/
 - /doc/UpgradeToR2B1/
 - /wiki/UpgradeToR2B1/

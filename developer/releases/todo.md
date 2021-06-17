@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
+permalink: /doc/releases/todo/
 redirect_from:
-- /doc/releases/todo/
 - /en/doc/releases/todo/
 ref: 14
 title: Release Checklist

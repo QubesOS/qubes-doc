@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: doc
-redirect_from:
-- /doc/hardware-testing/
+permalink: /doc/hardware-testing/
 ref: 145
 title: Hardware Testing
 ---

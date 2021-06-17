@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: doc
-redirect_from:
-- /doc/update-troubleshooting/
+permalink: /doc/update-troubleshooting/
 ref: 239
 title: Update Troubleshooting
 ---

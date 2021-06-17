@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
+permalink: /doc/pci-devices/
 redirect_from:
-- /doc/pci-devices/
 - /doc/assigning-devices/
 - /en/doc/assigning-devices/
 - /doc/AssigningDevices/

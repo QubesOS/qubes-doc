@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: default
-redirect_from:
-- /code-of-conduct/
+permalink: /code-of-conduct/
 ref: 118
 title: Code of Conduct
 ---

@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: default
+permalink: /research/
 redirect_from:
-- /research/
 - /doc/qubes-research/
 - /en/doc/qubes-research/
 - /doc/QubesResearch/

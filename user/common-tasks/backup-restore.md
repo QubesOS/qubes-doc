@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
+permalink: /doc/backup-restore/
 redirect_from:
-- /doc/backup-restore/
 - /en/doc/backup-restore/
 - /doc/BackupRestore/
 - /wiki/BackupRestore/

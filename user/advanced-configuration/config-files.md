@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
+permalink: /doc/config-files/
 redirect_from:
-- /doc/config-files/
 - /en/doc/config-files/
 - /doc/ConfigFiles/
 - /doc/UserDoc/ConfigFiles/

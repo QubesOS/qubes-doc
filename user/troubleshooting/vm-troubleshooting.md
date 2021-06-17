@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
+permalink: /doc/vm-troubleshooting/
 redirect_from:
-- /doc/vm-troubleshooting/
 - /doc/remove-vm-manually/
 ref: 223
 title: VM Troubleshooting

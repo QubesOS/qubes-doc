@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc-full
+permalink: /doc/admin-api/
 redirect_from:
-- /doc/admin-api/
 - /doc/mgmt/
 - /doc/mgmt1/
 - /doc/mgmt-architecture/

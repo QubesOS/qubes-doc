@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
+permalink: /doc/contributing/
 redirect_from:
-- /doc/contributing/
 - /en/doc/contributing/
 - /doc/ContributingHowto/
 - /wiki/ContributingHowto/

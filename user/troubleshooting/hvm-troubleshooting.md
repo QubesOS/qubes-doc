@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: doc
-redirect_from:
-- /doc/hvm-troubleshooting/
+permalink: /doc/hvm-troubleshooting/
 ref: 232
 title: HVM Troubleshooting
 ---

@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: doc
-redirect_from:
-- /security/canaries/checklist/
+permalink: /security/canaries/checklist/
 ref: 216
 title: Canary Checklist
 ---

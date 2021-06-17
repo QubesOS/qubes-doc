@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
+permalink: /doc/awesome/
 redirect_from:
-- /doc/awesome/
 - /en/doc/awesome/
 ref: 179
 title: awesome

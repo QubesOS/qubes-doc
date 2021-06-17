@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
+permalink: /doc/releases/3.1/schedule/
 redirect_from:
-- /doc/releases/3.1/schedule/
 - /en/doc/releases/3.1/schedule/
 ref: 17
 title: Qubes R3.1 Release Schedule

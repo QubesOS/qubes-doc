@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: doc
-redirect_from:
-- /doc/gui-configuration/
+permalink: /doc/gui-configuration/
 ref: 184
 title: GUI Configuration
 ---

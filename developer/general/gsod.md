@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: sidebar
-redirect_from:
-- /gsod/
+permalink: /gsod/
 ref: 242
 title: Google Season of Docs
 ---

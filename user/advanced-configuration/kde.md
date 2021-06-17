@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
+permalink: /doc/kde/
 redirect_from:
-- /doc/kde/
 - /en/doc/kde/
 ref: 176
 title: KDE

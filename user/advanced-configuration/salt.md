@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: doc
-redirect_from:
-- /doc/salt/
+permalink: /doc/salt/
 ref: 185
 title: Management stack
 ---

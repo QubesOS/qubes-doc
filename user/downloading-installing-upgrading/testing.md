@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: doc
-redirect_from:
-- /doc/testing/
+permalink: /doc/testing/
 ref: 147
 title: Testing new releases and updates
 ---

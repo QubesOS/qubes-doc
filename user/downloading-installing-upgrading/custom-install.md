@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
+permalink: /doc/custom-install/
 redirect_from:
-- /doc/custom-install/
 - /doc/encryption-config/
 ref: 152
 title: Custom Installation

@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: doc
-redirect_from:
-- /doc/usability-ux/
+permalink: /doc/usability-ux/
 ref: 31
 title: Usability & UX
 ---

@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
+permalink: /doc/hcl/
 redirect_from:
-- /doc/hcl/
 - /en/doc/hcl/
 - /doc/HCL/
 - /wiki/HCL/

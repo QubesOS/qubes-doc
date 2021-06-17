@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
+permalink: /doc/yubi-key/
 redirect_from:
-- /doc/yubi-key/
 - /en/doc/yubi-key/
 - /doc/YubiKey/
 ref: 169

@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
+permalink: /doc/volume-backup-revert/
 redirect_from:
-- /doc/volume-backup-revert/
 - /en/doc/volume-backup-revert/
 - /doc/VolumeBackupRevert/
 - /wiki/VolumeBackupRevert/

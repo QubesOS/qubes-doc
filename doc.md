@@ -3,7 +3,6 @@ lang: en
 layout: doc-index
 permalink: /doc/
 redirect_from:
-- /doc/
 - /en/doc/
 - /doc/UserDoc/
 - /wiki/UserDoc/

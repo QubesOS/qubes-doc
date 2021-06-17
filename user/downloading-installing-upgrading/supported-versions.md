@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: doc
-redirect_from:
-- /doc/supported-versions/
+permalink: /doc/supported-versions/
 ref: 154
 title: Supported Versions
 ---

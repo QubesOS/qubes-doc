@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
+permalink: /doc/disposablevm/
 redirect_from:
-- /doc/disposablevm/
 - /doc/dispvm/
 - /en/doc/dispvm/
 - /doc/DisposableVms/

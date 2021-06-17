@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
+permalink: /doc/templates/minimal/
 redirect_from:
-- /doc/templates/minimal/
 - /doc/templates/fedora-minimal/
 - /doc/fedora-minimal/
 - /en/doc/templates/fedora-minimal/

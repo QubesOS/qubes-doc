@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: sidebar
+permalink: /support/
 redirect_from:
-- /support/
 - /help/
 - /mailing-lists/
 - /doc/mailing-lists/

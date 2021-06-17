@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: doc
-redirect_from:
-- /doc/windows/
+permalink: /doc/windows/
 ref: 129
 title: Windows VMs
 ---

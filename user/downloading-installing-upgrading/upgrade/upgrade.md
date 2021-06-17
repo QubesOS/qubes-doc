@@ -1,8 +1,7 @@
 ---
 lang: en
 layout: doc
-redirect_from:
-- /doc/upgrade/
+permalink: /doc/upgrade/
 ref: 158
 title: Upgrade Guides
 ---

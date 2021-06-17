@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
+permalink: /doc/template-implementation/
 redirect_from:
-- /doc/template-implementation/
 - /en/doc/template-implementation/
 - /doc/TemplateImplementation/
 - /wiki/TemplateImplementation/

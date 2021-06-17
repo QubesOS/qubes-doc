@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
+permalink: /doc/copy-paste/
 redirect_from:
-- /doc/copy-paste/
 - /en/doc/copy-paste/
 - /doc/CopyPaste/
 - /wiki/CopyPaste/
