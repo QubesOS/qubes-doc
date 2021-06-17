@@ -38,7 +38,7 @@ Color and associated meanings are ultimately up to you, however. The system itse
 
 ### User Interface
 
-When you install an operating system like Windows or macOS, its desktop environment is unchangeable and part of that operating system. With Linux, any of a number of desktop environments are an option. Qubes OS is installed with XFCE as its default desktop environment, but it also supports KDE, as well as the i3 and awesome window managers.
+On Windows or macOS, the desktop environment is unchangeable and part of that operating system. With Linux, any of a number of desktop environments are an option. Qubes OS is installed with XFCE as its default desktop environment, but it also supports KDE, as well as the i3 and awesome window managers.
 
 [![r4.0-taskbar.png](/attachment/wiki/GettingStarted/r4.0-taskbar.png)](/attachment/wiki/GettingStarted/r4.0-taskbar.png)
 
