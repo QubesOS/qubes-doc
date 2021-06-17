@@ -59,10 +59,16 @@ We collect:
 
 We do not collect any other kinds of data about Qubes users.
 
-### How long is data retained?
+### How long is data about users retained?
 
 The data is retained for up to two months so that we can re-calculate the previous month's statistics in case anything goes wrong.
 After that, the data is deleted.
+
+### What do you do with data about users?
+
+We use it to create the statistics graph you see on this page.
+Nothing more.
+We do not sell or give this data to anyone.
 
 ### Where can I find the raw data and source code?
 
