@@ -12,176 +12,124 @@ ref: 190
 title: How to Get Started
 ---
 
-After [downloading](/downloads/) and [installing](/doc/installation-guide/) Qubes OS, let's cover some basic concepts.
+After [downloading](/downloads/) and [installing](/doc/installation-guide/) Qubes OS, it's time to dive in and get to work!
 
-Introduction
-------------
+## The Basics
 
-In Qubes OS, you run all your programs in lightweight [virtual machines (VMs)](/doc/glossary/#vm) called [qubes](/doc/glossary/#qube).
-Not every app runs in its own qube.
-(That would be a big waste of resources!)
-Instead, each qube represents a [security domain](/doc/glossary/#domain) (e.g., "work," "personal," and "banking").
-By default, all qubes are based on a single, common [template](/doc/glossary/#templatevm), although you can create more templates if you wish.
-When you create a new qube, you don't copy the whole system needed for this qube to work (which would include copying all the programs).
-Instead, each qube *shares* the system with its respective template.
-A qube has read-only access to the system of the template on which it's based, so a qube cannot modify a template in any way.
-This is important, as it means that if a qube is ever compromised, the template on which it's based (and any other qubes based on that template) will still be safe.
-So, creating a large number of qubes is cheap: each one needs only as much disk space as is necessary to store its private files (e.g., the "home" folder).
+Qubes OS is an operating system built out of securely-isolated compartments called **qubes**. For example, you might have a work qube, a personal qube, a banking qube, a web browsing qube, and so on. You can have as many qubes as you want!
+Most of the time, you'll be using an **app qube**, which is a qube intended for running software programs like web browsers, email clients, and word processors. Each app qube is based on a **template qube**. More than one qube can be based on the same template. Importantly, a qube cannot modify its template in any way. This means that, if a qube is ever compromised, its template and any other qubes based on that template will remain safe. This is what makes Qubes OS so secure. Even if an attack is successful, the damage is limited to a single qube.
 
-If you've installed Qubes OS using the default options, a few qubes have already been created for you:
+Suppose you want to use your favorite web browser in several different qubes. You'd install the web browser in a template, then every qube based on that template would be able to run the web browser software (while still being forbidden from modifying the template and any other qubes). This way, you only have to install the web browser a single time, and updating the template serves to update all the qubes based on it. This elegant design saves time and space while enhancing security.
 
-- work
-- personal
-- untrusted
-- vault
+There are also some "helper" qubes in your system. Each qube that connects to the Internet does so through a network-providing **service qube**. If you need to access USB devices, another service qube will do that. There's also a **management qube** that automatically handles a lot of background housekeeping. For the most part, you won't have to worry about it, but it's nice to know that it's there.
+As with app qubes, service qubes and management qubes are also based on templates. Templates are usually named after their operating system (often a [Linux distribution](https://en.wikipedia.org/wiki/Linux_distribution)) and corresponding version number. There are many ready-to-use [templates](/doc/templates) to choose from, and you can download and have as many as you like.
 
-Each qube, apart from having a distinct name, is also assigned a **label**, which is one of several predefined colors.
-The trusted window manager uses these colors in order to draw colored borders around the windows of applications running in each qube.
-This is designed to allow you to quickly and easily identify the trust level of a given window at a glance.
-Most Qubes OS users associate red with what's untrusted and dangerous (like a red light -- stop! danger!), green with what's safe and trusted, and yellow and orange with things in the middle.
-This color scheme also extends to include blue and black, which are usually interpreted as indicating progressively more trusted domains than green, with black being ultimately trusted.
-However, it's totally up to you how you'd like to interpret these colors.
-Qubes OS doesn't assume anything about these colors.
-When you make a new qube, the system doesn't do anything special to it depending on whether it's black or red, for example.
-The only difference is which color you see and the meaning you assign to that color in your mind.
-For example, you could use the colors to show that qubes belong to the same domain.
-You might use three or four qubes for work activities and give them all the same distinct color label, for instance.
-It's entirely up to you.
+Last but not least, there's a very special **admin qube** which, as the name suggests, is used to administer your entire system. There's only one admin qube, and it's called **dom0**. You can think of it as the master qube, holding ultimate power over everything that happens in Qubes OS. Dom0 is more trusted than any other qube. If dom0 were ever compromised, it would be "game over." The entire system would effectively be compromised. That's why everything in Qubes OS is specifically designed to protect dom0 and ensure that doesn't happen.
+Due to its overarching importance, dom0 has no network connectivity and is used only for running the [desktop environment](https://en.wikipedia.org/wiki/Desktop_environment) and [window manager](https://en.wikipedia.org/wiki/Window_manager). Dom0 should never be used for anything else. In particular, you should never run user applications in dom0. (That's what your app qubes are for!)
 
-![snapshot_40.png](/attachment/wiki/GettingStarted/r4.0-snapshot_40.png)
+### Color & Security
 
-In addition to qubes and templates, there's one special domain called [dom0](/doc/glossary/#dom0), where many system tools and the desktop manager run.
-This is where you log in to the system.
-Dom0 is more trusted than any other domain (including templates and black-labeled qubes).
-If dom0 were ever compromised, it would be "game over."
-(The entire system would effectively be compromised.)
-Due to its overarching importance, dom0 has no network connectivity and is used only for running the window and desktop managers.
-Dom0 shouldn't be used for anything else.
-In particular, [you should never run user applications in dom0](https://github.com/Qubes-Community/Contents/blob/master/docs/security/security-guidelines.md#dom0-precautions).
-(That's what your qubes are for!)
+You'll choose a **color** for each of your qubes out of a predefined set of colors. Each window on your desktop will have its frame colored according to the color of that qube. These colored frames help you keep track of which qube each window belongs to and how trustworthy it is. This is especially helpful when you have the same app running in multiple qubes at the same time. For example, if you're logged in to your bank account in one qube while doing some random web surfing in a different qube, you wouldn't want to accidentally enter your banking password in the latter! The colored frames help to avoid such mistakes.
 
-GUI and command-line tools
---------------------------
+[![snapshot_40.png](/attachment/wiki/GettingStarted/r4.0-snapshot_40.png)](/attachment/wiki/GettingStarted/r4.0-snapshot_40.png)
 
-All aspects of Qubes OS can be controlled using command-line tools run in a dom0 terminal.
-Opening a terminal in dom0 can be done in several ways:
+Most Qubes users associate red with what's untrusted and dangerous (like a red light: stop! danger!), green with what's safe and trusted, and yellow and orange with things in the middle. This color scheme also extends to include blue and black, which are usually interpreted as indicating progressively more trusted domains than green, with black being ultimately trusted. 
+Color and associated meanings are ultimately up to you, however. The system itself does not treat the colors differently. If you create two identical qubes --- black and red, say --- they'll be the same until you start using them differently. Feel free to use the colors in whatever way is most useful to you. For example, you might decide to use three or four qubes for work activities and give them all the same color --- or all different colors. It's entirely up to you.
 
-- Go to the Application Launcher and click **Terminal Emulator**.
-- Press `Alt+F3`, type `xfce terminal` and press Enter twice.
-- Right-click on the desktop and select **Open Terminal Here**.
+### User Interface
 
+When you install an operating system like Windows or macOS, its desktop environment is unchangeable and part of that operating system. With Linux, any of a number of desktop environments are an option. Qubes OS is installed with XFCE as its default desktop environment, but it also supports KDE, as well as the i3 and awesome window managers.
+
+[![r4.0-taskbar.png](/attachment/wiki/GettingStarted/r4.0-taskbar.png)](/attachment/wiki/GettingStarted/r4.0-taskbar.png)
+
+The bar at the top of your screen in Qubes 4.0 includes the following XFCE component areas:
+
+ - The **Tray**, where many functional widgets live.
+ - **Spaces**, an interface for [virtual desktops](https://en.wikipedia.org/wiki/Virtual_desktop). Virtual desktops do not have any inherent security isolation properties, but some users find them useful for organizing things.
+ - The **Task Bar** where buttons for open and hidden windows live.
+ - The **App Menu**, where you go to open an application within a qube, to open a dom0 terminal, to access administrative UI tools such as the Qube Manager, or to access settings panels for your desktop environment.
+
+To learn more about how to customize your desktop environment, we recommend you spend some time going through [XFCE's documentation](https://docs.xfce.org/).
+
+There are several Tray widgets that are custom to Qubes OS:
+
+ - The **Qubes Domains** widget allows you to manage running qubes, turn them on and off, and monitor memory usage.
+ - The **Qubes Devices** widget allows you to attach and detach devices --- such as USB drives and cameras --- to qubes.
+ - The **Qubes Disk Space Monitor** will notify you if you're ever running out of disk space.
+ - The **Qubes Update** tool will inform you when updates are available.
+
+[![q40_widgets.png](/attachment/wiki/GettingStarted/r4.0-q40_widgets.png)](/attachment/wiki/GettingStarted/r4.0-q40_widgets.png)
+
+To see all of your qubes at the same time, you can use the **Qube Manager** (go to the App Menu → System Tools → Qube Manager), which displays the states of all the qubes in your system, even the ones that aren't running.
+
+[![r4.0-qubes-manager.png](/attachment/wiki/GettingStarted/r4.0-qubes-manager.png)](/attachment/wiki/GettingStarted/r4.0-qubes-manager.png)
+
+#### Command-line interface
+
+All aspects of Qubes OS can be controlled using command-line tools. Opening a terminal emulator in dom0 can be done in several ways:
+
+ - Go to the App Menu and select **Terminal Emulator** at the top.
+ - Press <kbd>Alt</kbd>+<kbd>F3</kbd> and search for `xfce terminal`.
+ - Right-click on the desktop and select **Open Terminal Here**.
+
+Terminal emulators can also be run in other qubes as normal programs.
 Various command-line tools are described as part of this guide, and the whole reference can be found [here](/doc/tools/).
 
-Alternatively, you can use a suite of GUI tools, most of which are available through desktop widgets:
+## First boot
 
-- The **Domains Widget** allows you to manage running qubes, turn them on and off, and monitor memory usage.
-- The **Devices Widget** allows you to attach and detach devices -- such as USB drives and cameras -- to qubes.
-- The **Disk Space Widget** will notify you if you're ever running out of disk space.
-- The **Updates Widget** will inform you when template updates are available.
+When you install Qubes OS, a number of qubes are pre-configured for you:
 
-![q40_widgets.png](/attachment/wiki/GettingStarted/r4.0-q40_widgets.png)
+ - **Templates:** `fedora-XX` (`XX` being the version number)
+ - **Admin qube:** `dom0`
+ - **Service qubes:** `sys-usb`, `sys-net`, `sys-firewall`, and `sys-whonix`
+ - **App qubes** configured to prioritize security by compartmentalizing tasks and types of data: `work`, `personal`, `untrusted`, and `vault`. (There is nothing special about these qubes. If you were to create a black qube and name it `vault`, it would be the same as the pre-configured `vault` qube. They're just suggestions to get you started. )
 
-For an overview of the entire system, you can use the **Qube Manager** (go to the Application Launcher → System Tools → Qube Manager), which displays the states of all the qubes in your system.
+A variety of open-source applications such as file managers, command-line terminals, printer managers, text editors, and "applets" used to configure different things like audio or parts of the user interface are also installed by default—most within the templates. Most are bundled with each template.
 
-Starting apps
--------------
+### Adding, removing, and listing qubes
 
-Apps can be started either by using the shortcuts in the Application Launcher menu or by using the command line (i.e., a terminal running in dom0).
+You can easily create a new qube with the **Create Qubes VM** option in the App Menu. If you need to add or remove qubes, simply use the Qube Manager's **Add** and **Remove** buttons. You can also add, remove, and list qubes from the command line using the following tools:
 
-You can start apps directly from the Application Launcher or the Application Finder (`Alt+F3`).
-Each qube has its own menu directory under the scheme `Domain: <name>`.
-After navigating into one of these directories, simply click on the application you'd like to start:
+ - `qvm-create`
+ - `qvm-remove`
+ - `qvm-ls`
 
-![menu1.png](/attachment/wiki/GettingStarted/r4.0-menu1.png)
+### How many qubes do I need?
 
-![menu2.png](/attachment/wiki/GettingStarted/r4.0-menu2.png)
+That's a great question, but there's no one-size-fits-all answer. It depends on the structure of your digital life, and this is at least a little different for everyone. If you plan on using your system for work, then it also depends on what kind of job you do.
 
-By default, each qube's menu contains only a few shortcuts.
-If you'd like to add more, enter the qube's **Qube Settings** and add them on the Applications tab.
+It's a good idea to start out with the qubes created automatically by the installer: `work`, `personal`, `untrusted`, and `vault`. If and when you start to feel that some activity just doesn't fit into any of your existing qubes, or you want to partition some part of your life, you can easily create a new qube for it. You'll also be able to easily [copy any files](/doc/how-to-copy-and-move-files) you need to the newly-created qube.
 
-To start apps from the terminal in dom0, type:
+Still not sure? You might find it helpful to read [this article](https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html), which describes how one of the Qubes OS architects partitioned her digital life into security domains.
 
-```shell_session
-$ qvm-run <qube_name> <app_command> [arguments]
-```
+## Secure Habits
 
-e.g.:
+It is *very important* to [keep Qubes updated](/doc/how-to-update/) to ensure you have the latest security updates. Frequently updating is one of the best ways to remain secure against new threats.
 
-```shell_session
-$ qvm-run untrusted firefox
-```
+It's also *very important* to make regular backups so that you don't lose your data unexpectedly. The [Qubes backup system](/doc/how-to-back-up-restore-and-migrate/) allows you to do this securely and easily.
 
-This command will start the qube if it is not already running.
+## How-to Guides
 
-Adding, removing, and listing qubes
------------------------------------
+Here are some basic tasks you're likely to want to perform often that are unique to Qubes as a multi-environment system. A full list is available in the [How-to Guides](/doc/#how-to-guides) section in the docs.
 
-You can easily create a new qube with the **Create Qubes VM** option in the Application Launcher.
-If you need to add or remove qubes, simply use the Qube Manager's **Add** and **Remove** buttons.
+ - [How to Update](/doc/how-to-update/)
+ - [How to Back Up, Restore, and Migrate](/doc/how-to-back-up-restore-and-migrate/)
+ - [How to Copy and Paste Text](/doc/how-to-copy-and-paste-text/)
+ - [How to Copy and Move Files](/doc/how-to-copy-and-move-files/)
+ - [How to Copy from Dom0](/doc/how-to-copy-from-dom0/)
+ - [How to Install Software](/doc/how-to-install-software/)
+ - [How to Use Devices (block storage, USB, and PCI devices)](/doc/how-to-use-devices/)
 
-You can also add, remove, and list qubes from the command line using the following tools:
+If you encounter any problems, please visit the [Help, Support, Mailing Lists, and Forum](/support/) page.
 
-- `qvm-create`
-- `qvm-remove`
-- `qvm-ls`
+## Compatible Hardware
 
-How many qubes do I need?
--------------------------
+Make sure your hardware satisfies the [system requirements](/doc/system-requirements/), as Qubes OS cannot run on every type of computer. You may also want to check out [Qubes-certified Hardware](/doc/certified-hardware/) and take a look at the [Hardware Compatibility List (HCL)](/hcl/).
 
-That's a great question, but there's no one-size-fits-all answer.
-It depends on the structure of your digital life, and this is at least a little different for everyone.
-If you plan on using your system for work, then it also depends on what kind of job you do.
+## Downloads
 
-It's a good idea to start out with the three qubes created automatically by the installer: work, personal, and untrusted.
-If and when you start to feel that some activity just doesn't fit into any of your existing qubes, or you want to partition some part of your life, you can easily create a new qube for it.
-You'll also be able to easily [copy](/doc/how-to-copy-and-move-files/) any files you need to the newly created qube.
+[Download an ISO](/downloads/), learn how to [verify its authenticity](/doc/verifying-signatures/), and follow our [guide to install Qubes OS](/doc/installation-guide/). Looking for the [source code](/doc/source-code/)? You'll find it [on GitHub](https://github.com/QubesOS).
 
-Still not sure?
-You might find it helpful to read [this article](https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html), which describes how one of the Qubes OS architects partitions her digital life into security domains.
+## Documentation
 
-Important tasks
----------------
-
-It's very important to [keep Qubes updated](/doc/updating-qubes-os/) to ensure you have the latest security updates.
-Frequently updating is one of the best ways to remain secure against new threats.
-
-It's also very important to make regular backups so that you don't lose your data unexpectedly.
-The [Qubes backup system](/doc/backup-restore/) allows you to do this securely and easily.
-
-Here are some other tasks you're likely to want to perform.
-(A full list is available in the [How-to Guides](/doc/#how-to-guides) section of the documentation.)
-
-- [Copying and Pasting Text Between Domains](/doc/how-to-copy-and-paste-text/)
-- [Copying and Moving Files Between Domains](/doc/how-to-copy-and-move-files/)
-- [Copying from (and to) dom0](/doc/how-to-copy-from-dom0/)
-- [Fullscreen Mode](/doc/full-screen-mode/)
-- [DisposableVMs](/doc/disposablevm/)
-- [Device Handling](/doc/how-to-use-devices/) (block, USB, and PCI devices)
-
-If you encounter any problems, please visit the [Help, Support, and Mailing Lists](/support/) page.
-
-
-<hr class="more-top more-bottom">
-<div class="row">
-  <div class="col-lg-4 col-md-4 more-bottom">
-    <h2>Compatible Hardware</h2>
-    <p>Make sure your hardware is compatible, as Qubes OS cannot run on every type of computer. Also, check out <a href="/doc/certified-laptops/">Qubes-certified Laptops</a>.</p>
-    <a href="/hcl/" class="btn btn-primary">
-      <i class="fa fa-laptop"></i> Hardware Compatibility List
-    </a>
-  </div>
-  <div class="col-lg-4 col-md-4 more-bottom">
-    <h2>Downloads</h2>
-    <p>Download an ISO, learn how to verify its authenticity and integrity, and follow our guides to install Qubes OS. Looking for the source code? You'll find it on <a href="https://github.com/QubesOS">GitHub</a>.</p>
-    <a href="/downloads/" class="btn btn-primary">
-      <i class="fa fa-download"></i> Downloads
-    </a>
-  </div>
-  <div class="col-lg-4 col-md-4">
-    <h2>Documentation</h2>
-    <p>Peruse our extensive library of documentation for users and developers of Qubes OS. You can even help us <a href="/doc/doc-guidelines/">improve</a> it!</p>
-    <a href="/doc/" class="btn btn-primary">
-      <i class="fa fa-book"></i> Documentation
-    </a>
-  </div>
-</div>
+Peruse our extensive library of [documentation](/doc/) for users and developers of Qubes OS. You can even [help us improve it](/doc/doc-guidelines/)!
