@@ -73,13 +73,13 @@ Internet access is intentionally disabled by default in dom0. But to ease the de
 
 4. Configure your DHCP server so your testbench gets static IP and connect your machine to your local network. You should ensure that your testbench can reach the Internet.
 
-5. Install `openssh-server` on your testbench (since dom0 now has internet access the command `qubes-dom0-update` is not needed).
+5. Install `openssh-server` on your testbench.
  
     ~~~
-    sudo dnf install openssh-server
+    sudo dnf --setopt=reposdir=/etc/yum.repos.d install openssh-server
     ~~~
 
-> **Note:** If you want to install additional software in dom0 and your only network card was assigned to dom0, then instead of the usual `sudo qubes-dom0-update install <PACKAGE>` you run `sudo dnf --setopt=reposdir=/etc/yum.repos.d`.
+> **Note:** If you want to install additional software in dom0 and your only network card was assigned to dom0, then _instead_ of the usual `sudo qubes-dom0-update install <PACKAGE>` now you run `sudo dnf --setopt=reposdir=/etc/yum.repos.d install <PACKAGE>`.
 
 ## Development VM
 
