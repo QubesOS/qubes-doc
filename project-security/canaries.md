@@ -5,7 +5,7 @@ permalink: /security/canaries/
 redirect_from:
 - /doc/canaries/
 ref: 208
-title: Canaries
+title: Qubes Canaries
 ---
 
 

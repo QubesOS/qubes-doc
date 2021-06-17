@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/salt/
 ref: 185
-title: Management stack
+title: Salt management stack
 ---
 
 

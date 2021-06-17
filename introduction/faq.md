@@ -15,8 +15,6 @@ ref: 124
 title: Frequently Asked Questions
 ---
 
-# Frequently Asked Questions
-
 ## General & Security
 
 ### What is Qubes OS?

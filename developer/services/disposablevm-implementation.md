@@ -1,15 +1,15 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/dvm-impl/
+permalink: /doc/disposablevm-implementation/
 redirect_from:
+- /doc/dvm-impl/
 - /en/doc/dvm-impl/
 - /doc/DVMimpl/
 - /wiki/DVMimpl/
 ref: 34
-title: DVMimpl
+title: DisposableVM implementation
 ---
-
 
 **Note: The content below applies to Qubes R3.2.**
 

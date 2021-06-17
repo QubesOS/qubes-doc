@@ -5,7 +5,7 @@ permalink: /doc/kde/
 redirect_from:
 - /en/doc/kde/
 ref: 176
-title: KDE
+title: KDE (desktop environment)
 ---
 
 
