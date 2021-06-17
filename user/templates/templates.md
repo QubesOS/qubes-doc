@@ -12,7 +12,7 @@ title: Templates
 ---
 
 
-In [Getting Started](/getting-started/), we covered the distinction in Qubes OS between where you *install* your software and where you *run* your software.
+In [Getting Started](/doc/how-to-get-started/), we covered the distinction in Qubes OS between where you *install* your software and where you *run* your software.
 Your software is installed in [TemplateVMs](/doc/glossary/#templatevm) (or "templates" for short).
 Each TemplateVM shares its root filesystem (i.e., all of its programs and system files) with other qubes called [TemplateBasedVMs](/doc/glossary/#templatebasedvm).
 TemplateBasedVMs are where you run your software and store your data.
