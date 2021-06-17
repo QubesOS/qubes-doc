@@ -90,7 +90,7 @@ There are many very useful states:
 - For [managing files](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html): Use this to create files or
   directories and change them (append lines, replace text, set their content etc.)
 - For [installing and uninstalling](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.pkg.html) packages.
-- For [executing shell commands](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html).
+- For [executing shell commands](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.cmd.html).
 
 With these three states you can define most of the configuration of a VM.
 
@@ -602,7 +602,7 @@ install template and shutdown updateVM:
 ## Further Reading
 
 - [Salt documentation](https://docs.saltstack.com/en/latest/)
-- [Salt states](https://docs.saltstack.com/en/latest/ref/states/all/) ([files](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html), [commands](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html),
+- [Salt states](https://docs.saltstack.com/en/latest/ref/states/all/) ([files](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html), [commands](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.cmd.html),
   [packages](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.pkg.html), [ordering](https://docs.saltstack.com/en/latest/ref/states/ordering.html))
 - [Top files](https://docs.saltstack.com/en/latest/ref/states/top.html)
 - [Jinja templates](http://jinja.pocoo.org/)
