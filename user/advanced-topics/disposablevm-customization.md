@@ -102,8 +102,8 @@ For example, with `qvm-prefs work netvm sys-firewall2`.
 
 To create one with a PCI device attached such as for `sys-net` or `sys-usb`, use the additional commands as follows.
 
-**Note** You can use `qvm-pci` to [determine](/doc/pci-devices/#qvm-pci-usage) the `<BDF>`.
-Also, you will often need to include the `-o no-strict-reset=True` [option](/doc/pci-devices/#no-strict-reset) with USB controllers.
+**Note** You can use `qvm-pci` to [determine](/doc/how-to-use-pci-devices/#qvm-pci-usage) the `<BDF>`.
+Also, you will often need to include the `-o no-strict-reset=True` [option](/doc/how-to-use-pci-devices/#no-strict-reset) with USB controllers.
 
 ~~~
 qvm-create -C DispVM -l red <sys-VMName>
@@ -209,7 +209,7 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
     [user@dom0 ~]$ qvm-pci
     ```
 
-6. Attach the network PCI device(s) to `disp-sys-net` (finding and assigning PCI devices can be found [here](/doc/pci-devices/):
+6. Attach the network PCI device(s) to `disp-sys-net` (finding and assigning PCI devices can be found [here](/doc/how-to-use-pci-devices/):
 
     ```shell_session
     [user@dom0 ~]$ qvm-pci attach --persistent disp-sys-net <backend>:<bdf>
@@ -306,7 +306,7 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
     ```
 
 5. Attach the USB controller to the `disp-sys-usb`:
-   >_**Note:**_ Most of the commonly used USB controllers (all Intel integrated controllers) require the `-o no-strict-reset=True` option to be set. Instructions detailing how this option is set can be found [here](/doc/pci-devices/#no-strict-reset).
+   >_**Note:**_ Most of the commonly used USB controllers (all Intel integrated controllers) require the `-o no-strict-reset=True` option to be set. Instructions detailing how this option is set can be found [here](/doc/how-to-use-pci-devices/#no-strict-reset).
 
     ```shell_session
     [user@dom0 ~]$ qvm-pci attach --persistent disp-sys-usb <backined>:<bdf>

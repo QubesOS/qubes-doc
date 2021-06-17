@@ -14,7 +14,7 @@ title: How to Use Devices
 
 
 This is an overview of device handling in Qubes OS.
-For specific devices ([block](/doc/block-devices/), [USB](/doc/usb-devices/) and [PCI](/doc/pci-devices/) devices), please visit their respective pages.
+For specific devices ([block](/doc/block-devices/), [USB](/doc/usb-devices/) and [PCI](/doc/how-to-use-pci-devices/) devices), please visit their respective pages.
 
 **Important security warning:** Device handling comes with many security implications.
 Please make sure you carefully read and understand the **[security considerations](/doc/device-handling-security/)**.

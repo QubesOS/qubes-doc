@@ -25,7 +25,7 @@ If you find yourself in this situation, see this [issue](https://github.com/Qube
 
 A USB qube acts as a secure handler for potentially malicious USB devices, preventing them from coming into contact with dom0 (which could otherwise be fatal to the security of the whole system). It thereby mitigates some of the [security implications](/doc/device-handling-security/#usb-security) of using USB devices.
 With a USB qube, every time you connect an untrusted USB drive to a USB port managed by that USB controller, you will have to attach it to the qube in which you wish to use it (if different from the USB qube itself), either by using Qubes VM Manager or the command line (see instructions above).
-The USB controller may be assigned on the **Devices** tab of a qube's settings page in Qubes VM Manager or by using the [qvm-pci](/doc/pci-devices/) command.
+The USB controller may be assigned on the **Devices** tab of a qube's settings page in Qubes VM Manager or by using the [qvm-pci](/doc/how-to-use-pci-devices/) command.
 For guidance on finding the correct USB controller, see the [according passage on PCI-devices](/doc/usb-devices/#finding-the-right-usb-controller).
 You can create a USB qube using the management stack by performing the following steps as root in dom0:
 
@@ -35,7 +35,7 @@ sudo qubesctl state.sls qvm.sys-usb
 
 Alternatively, you can create a USB qube manually as follows:
 
-1. Read the [PCI Devices](/doc/pci-devices/) page to learn how to list and identify your USB controllers.
+1. Read the [PCI Devices](/doc/how-to-use-pci-devices/) page to learn how to list and identify your USB controllers.
    Carefully check whether you have a USB controller that would be appropriate to assign to a USB qube.
    Note that it should be free of input devices, programmable devices, and any other devices that must be directly available to dom0.
    If you find a free controller, note its name and proceed to step 2.

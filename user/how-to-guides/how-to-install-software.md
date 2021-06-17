@@ -26,7 +26,7 @@ To permanently install new software in a TemplateVM:
 5. Restart all [TemplateBasedVMs](/doc/glossary/#templatebasedvm) based on the TemplateVM so the changes can take effect.
 6. (Optional) In the relevant [TemplateBasedVMs](/doc/glossary/#templatebasedvm)' **Qube Settings**, go to the **Applications** tab, select the new application(s) from the list, and press OK.
     These new shortcuts will appear in the Applications Menu.
-    (If you encounter problems, see [here](/doc/managing-appvm-shortcuts/) for troubleshooting.)
+    (If you encounter problems, see [here](/doc/app-menu-shortcut-troubleshooting/) for troubleshooting.)
 
 ![[The Applications tab in Qube Settings](/attachment/wiki/ManagingAppVmShortcuts/r4.1-dom0-appmenu-select.png)](/attachment/wiki/ManagingAppVmShortcuts/r4.1-dom0-appmenu-select.png)
 

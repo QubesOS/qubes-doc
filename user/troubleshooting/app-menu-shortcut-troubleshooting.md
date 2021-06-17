@@ -62,7 +62,7 @@ If you only want to create a shortcut for a single AppVM, you can create a custo
 1. Open a terminal window to Dom0.
 2. Create a custom `.desktop` file in `~/.local/share/applications`.
    Look in the same directory for existing examples, or see the full [file specification](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html).
-   You may use `qvm-run` inside the `.desktop` file; see [Behind the scenes](/doc/managing-appvm-shortcuts/#behind-the-scenes) for more details.
+   You may use `qvm-run` inside the `.desktop` file; see [Behind the scenes](/doc/app-menu-shortcut-troubleshooting/#behind-the-scenes) for more details.
 3. Edit the `~/.config/menus/applications-merged/<vmname>-vm.menu` file for the AppVM.
 4. Add a custom menu entry referring to your newly created `.desktop` file.
 

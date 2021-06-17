@@ -30,7 +30,7 @@ There is a way to enable permissive mode for it.
 See also: [this thread](https://groups.google.com/forum/#!topic/qubes-users/Fs94QAc3vQI) and the Xen wiki's [PCI passthrough](https://wiki.xen.org/wiki/Xen_PCI_Passthrough) page.
 Other times, you may instead need to disable the FLR requirement on a device.
 
-Both can be achieved during attachment with `qvm-pci` as described [PCI Devices documentation](/doc/pci-devices/#additional-attach-options).
+Both can be achieved during attachment with `qvm-pci` as described [PCI Devices documentation](/doc/how-to-use-pci-devices/#additional-attach-options).
 
 ## "Unable to reset PCI device" errors
 
