@@ -52,10 +52,10 @@ We collect the following types of data:
 - Standard server access and error logs
 
 We collect this data solely for the purpose of generating [Qubes userbase
-statistics](/statistics/). The data is retained for up to two months so that we
-can re-calculate the previous month's statistics in case anything goes wrong.
-After that, the data is permanently and securely destroyed. We never sell the
-data to anyone or share it with any third party.
+statistics](/statistics/). The data is retained for up to three months so that
+we can re-calculate the previous two month's statistics in case anything goes
+wrong. After that, the data is permanently and securely destroyed. We never
+sell the data to anyone or share it with any third party.
 
 If you would like to hide your IP address from us, we strongly encourage it and
 are happy to help you do so! Simply choose the Whonix option to route all of
