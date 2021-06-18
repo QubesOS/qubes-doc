@@ -67,8 +67,8 @@ servers is not logged.
 
 ## Mirrors
 
-There are also other third-party hosted by volunteers. These are used both for
-[ISO downloads](/downloads/#mirrors) and
+There are also other third-party mirrors hosted by volunteers. These are used
+both for [ISO downloads](/downloads/#mirrors) and
 [updates](#update-servers-and-repositories). We have no control over what data
 these mirrors collect or with whom they share it. Please see the privacy policy
 of each respective mirror operator.
