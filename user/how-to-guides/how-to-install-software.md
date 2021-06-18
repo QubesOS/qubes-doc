@@ -12,33 +12,47 @@ ref: 189
 title: How to Install Software
 ---
 
-This page explains how to install software in TemplateVMs and StandaloneVMs.
+This page explains how to install software in [templates](/doc/templates/).
 Advanced users may also be interested in learning [how to install software in dom0](/doc/how-to-install-software-in-dom0).
 
-## Installing software in TemplateVMs
+## Instructions
 
-To permanently install new software in a TemplateVM:
+To permanently install new software in a template:
 
-1. Start the TemplateVM.
+1. Start the template.
+
 2. Start either a terminal (e.g. `gnome-terminal`) or a dedicated software management application, such as `gpk-application`.
+
 3. Install software as normally instructed inside that operating system (e.g. `sudo dnf install <PACKAGE_NAME>` on Fedora, `sudo apt install <PACKAGE_NAME>` on Debian).
-4. Shut down the TemplateVM.
-5. Restart all [TemplateBasedVMs](/doc/glossary/#templatebasedvm) based on the TemplateVM so the changes can take effect.
-6. (Optional) In the relevant [TemplateBasedVMs](/doc/glossary/#templatebasedvm)' **Qube Settings**, go to the **Applications** tab, select the new application(s) from the list, and press OK.
+
+4. Shut down the template.
+
+5. Restart all qubes based on the template so the changes can take effect.
+
+6. (Optional) In the relevant qubes' **Qube Settings**, go to the **Applications** tab, select the new application(s) from the list, and press OK.
     These new shortcuts will appear in the Applications Menu.
     (If you encounter problems, see [here](/doc/app-menu-shortcut-troubleshooting/) for troubleshooting.)
 
 ![[The Applications tab in Qube Settings](/attachment/wiki/ManagingAppVmShortcuts/r4.1-dom0-appmenu-select.png)](/attachment/wiki/ManagingAppVmShortcuts/r4.1-dom0-appmenu-select.png)
 
-## Updating software in TemplateVMs
+## How to update software
 
-See [Updating Qubes OS](/doc/updating-qubes-os/).
+Please see [How to Update](/doc/how-to-update/).
 
-## Testing repositories
+## Why don't templates have network access?
+
+In order to protect you from performing risky activites in templates, they do not have normal network access.
+Instead, templates use an [updates proxy](#updates-proxy) that allows you to install and update software without giving the template direct network access.
+
+## Advanced
+
+The following sections cover advanced topics pertaining to installing and updating software in domUs.
+
+### Testing repositories
 
 If you wish to install updates that are still in [testing](/doc/testing), you must enable the appropriate testing repositories.
 
-### Fedora
+#### Fedora
 
 There are three Qubes VM testing repositories (where `*` denotes the Release):
 
@@ -57,7 +71,7 @@ sudo dnf upgrade --enablerepo=qubes-vm-*-unstable
 
 To enable or disable any of these repos permanently, change the corresponding `enabled` value to `1` in `/etc/yum.repos.d/qubes-*.repo`.
 
-### Debian
+#### Debian
 
 Debian also has three Qubes VM testing repositories (where `*` denotes the Release):
 
@@ -67,25 +81,17 @@ Debian also has three Qubes VM testing repositories (where `*` denotes the Relea
 
 To enable or disable any of these repos permanently, uncomment the corresponding `deb` line in `/etc/apt/sources.list.d/qubes-r*.list`.
 
-## Contributed package repository
+### StandaloneVMs
 
-Please see [installing contributed packages](/doc/installing-contributed-packages/).
-
-## StandaloneVMs
-
-When you create a [StandaloneVM](/doc/standalone-and-hvm/) from a TemplateVM, the StandaloneVM is a complete clone of the TemplateVM, including the entire filesystem.
-After the moment of creation, the StandaloneVM is completely independent from the TemplateVM.
-Therefore, it will not be updated when the TemplateVM is updated.
+When you create a [StandaloneVM](/doc/standalone-and-hvm/) from a template, the StandaloneVM is a complete clone of the template, including the entire filesystem.
+After the moment of creation, the StandaloneVM is completely independent from the template.
+Therefore, it will not be updated when the template is updated.
 Rather, it must be updated individually.
-The process for installing and updating software in StandaloneVMs is the same as described above for TemplateVMs.
+The process for installing and updating software in StandaloneVMs is the same as described above for templates.
 
-## Advanced
+### RPMFusion for Fedora templates
 
-The following sections cover advanced topics pertaining to installing and updating software in domUs.
-
-### RPMFusion for Fedora TemplateVMs
-
-If you would like to enable the [RPM Fusion](https://rpmfusion.org/) repositories, open a Terminal of the TemplateVM and type the following commands, depending on which RPM Fusion repositories you wish to enable (see [RPM Fusion](https://rpmfusion.org/) for details):
+If you would like to enable the [RPM Fusion](https://rpmfusion.org/) repositories, open a Terminal of the template and type the following commands, depending on which RPM Fusion repositories you wish to enable (see [RPM Fusion](https://rpmfusion.org/) for details):
 
 ~~~
 sudo dnf config-manager --set-enabled rpmfusion-free
@@ -99,11 +105,11 @@ This will permanently enable the RPM Fusion repos.
 If you install software from here, it's important to keep these repos enabled so that you can receiving future updates.
 If you only enable these repos temporarily to install a package the Qubes update mechanism may persistently notify you that updates are available, since it cannot download them.
 
-### Reverting changes to a TemplateVM
+### Reverting changes to a template
 
-Perhaps you've just updated your TemplateVM, and the update broke your template.
+Perhaps you've just updated your template, and the update broke your template.
 Or perhaps you've made a terrible mistake, like accidentally confirming the installation of an unsigned package that could be malicious.
-If you want to undo changes to a TemplateVM, there are three basic methods:
+If you want to undo changes to a template, there are three basic methods:
 
 1. **Root revert.**
    This is appropriate for misconfigurations, but not for security concerns.
@@ -118,8 +124,8 @@ If you want to undo changes to a TemplateVM, there are three basic methods:
 
 #### Root revert
 
-**Important:** This command will roll back any changes made *during the last time the TemplateVM was run, but **not** before.*
-This means that if you have already restarted the TemplateVM, using this command is unlikely to help, and you'll likely want to reinstall it from the repository instead.
+**Important:** This command will roll back any changes made *during the last time the template was run, but **not** before.*
+This means that if you have already restarted the template, using this command is unlikely to help, and you'll likely want to reinstall it from the repository instead.
 On the other hand, if the template is already broken or compromised, it won't hurt to try reverting first.
 Just make sure to **back up** all of your data and changes first!
 
@@ -134,7 +140,7 @@ Just make sure to **back up** all of your data and changes first!
 
 #### Reinstall the template
 
-Please see [How to Reinstall a TemplateVM](/doc/reinstall-template/).
+Please see [How to Reinstall a template](/doc/reinstall-template/).
 
 #### Full revert
 
@@ -142,7 +148,7 @@ This is like the simple revert, except:
 
 - You must also revert the private volume with `qvm-volume revert <template>:private`.
   This requires you to have an old revision of the private volume, which does not exist with the current default config.
-  However, if you don't have anything important in the private volume (likely for a TemplateVM), then you can work around this by just resetting the private volume with `qvm-volume import --no-resize <template>:private /dev/null`.
+  However, if you don't have anything important in the private volume (likely for a template), then you can work around this by just resetting the private volume with `qvm-volume import --no-resize <template>:private /dev/null`.
 
 - The saved revision of the volumes must be uncompromised.
   With the default `revisions_to_keep=1` for the root volume, you must **not** have started the template since the compromising action.
@@ -198,7 +204,7 @@ Example policy file in R4.0 (with Whonix installed, but not set as default Updat
 
 Snap packages do not use the normal update channels for Debian and Fedora (apt and dnf) and are often installed as the user rather than as root. To support these in an AppVM you need to take the following steps:
 
-1. In the **TemplateVM** you must install `snapd` and `qubes-snapd-helper`. Open a terminal in the TemplateVM and run:
+1. In the **template** you must install `snapd` and `qubes-snapd-helper`. Open a terminal in the template and run:
 
 ```shell_session
 [user@fedora-30-snap-demo ~]$ sudo dnf install snapd qubes-snapd-helper
@@ -244,7 +250,7 @@ Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/2
 
 This is expected and you can safely continue.
 
-Shutdown the TemplateVM:
+Shutdown the template:
 
 ```shell_session
 [user@fedora-30-snap-demo ~]$ sudo shutdown -h now
