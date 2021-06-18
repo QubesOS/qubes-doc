@@ -24,7 +24,7 @@ In addition to smaller flash memory sticks, this includes things like USB extern
 
 Qubes OS supports the ability to attach a USB drive (or just its partitions) to any qube easily, no matter which qube handles the USB controller.
 
-Attaching USB drives is integrated into the Devices Widget: ![device manager icon](/attachment/doc/media-removable.png)
+Attaching USB drives is integrated into the Devices Widget: ![device manager icon](/attachment/wiki/Devices/media-removable.png)
 Simply insert your USB drive and click on the widget.
 You will see multiple entries for your USB drive; typically, `sys-usb:sda`, `sys-usb:sda1`, and `sys-usb:2-1` for example.
 Entries starting with a number (e.g. here `2-1`) are the [whole usb-device](/doc/how-to-use-usb-devices/).
@@ -178,7 +178,7 @@ To attach a file as block device to another qube, first turn it into a loopback 
     Afterwards it prints the device-node-name it found.
 
 2. If you want to use the GUI, you're done.
-    Click the Device Manager ![device manager icon](/attachment/doc/media-removable.png) and select the `loop0`-device to attach it to another qube.
+    Click the Device Manager ![device manager icon](/attachment/wiki/Devices/media-removable.png) and select the `loop0`-device to attach it to another qube.
 
     If you rather use the command line, continue:
 

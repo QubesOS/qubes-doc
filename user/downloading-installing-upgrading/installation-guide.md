@@ -97,9 +97,9 @@ Be sure to select "DD image" mode (*after* selecting the Qubes ISO):
   <b>Note:</b>  If you do this on Windows 10, you can only install Qubes without MediaTest, which is not recommended.
 </div>
 
-![Rufus menu](/attachment/doc/rufus-menu.png)
+![Rufus menu](/attachment/wiki/InstallationGuide/rufus-menu.png)
 
-![Rufus DD image mode](/attachment/doc/rufus-dd-image-mode.png)
+![Rufus DD image mode](/attachment/wiki/InstallationGuide/rufus-dd-image-mode.png)
 
 If you are an advanced user, and you would like to customize your installation, please see [custom installation](/doc/custom-install/).
 Otherwise, follow the instructions below.
@@ -113,7 +113,7 @@ This section will demonstrate a simple installation using mostly default setting
 Just after you power on your machine, make the Qubes OS medium available to the computer by inserting your DVD or USB drive.
 Shortly after the Power-on self-test (POST) is completed, you should be greeted with the Qubes OS boot screen. 
 
-![Boot screen](/attachment/doc/boot-screen.png)
+![Boot screen](/attachment/wiki/InstallationGuide/boot-screen.png)
 
 <div class="alert alert-info" role="alert">
   <i class="fa fa-info-circle"></i>
@@ -142,19 +142,19 @@ This may require an [advanced reboot](https://support.microsoft.com/en-us/help/4
 After the POST, you may have a chance to choose a boot device. 
 You may wish to select the USB drive or DVD drive as a temporary boot option so that the next time you boot, your internal storage device will be selected first. 
 
-![Boot order](/attachment/doc/boot-order.png)
+![Boot order](/attachment/wiki/InstallationGuide/boot-order.png)
 
 ### The installer home screen
 
 On the first screen, you are asked to select the language that will be used during the installation process. 
 When you are done, select **Continue**.
 
-![welcome](/attachment/doc/welcome-to-qubes-os-installation-screen.png)
+![welcome](/attachment/wiki/InstallationGuide/welcome-to-qubes-os-installation-screen.png)
 
 Prior to the next screen, a compatibility test runs to check whether IOMMU-virtualization is active or not. 
 If the test fails, a window will pop up. 
 
-![Unsupported hardware detected](/attachment/doc/unsupported-hardware-detected.png)
+![Unsupported hardware detected](/attachment/wiki/InstallationGuide/unsupported-hardware-detected.png)
 
 Do not panic.
 It may simply indicate that IOMMU-virtualization hasn't been activated in the BIOS. 
@@ -179,7 +179,7 @@ Those that are familiar with RPM-based distributions should feel at home.
 The Installation summary screen allows you to change how the system will be installed and configured, including localization settings. 
 At minimum, you are required to select the storage device on which Qubes OS will be installed. 
 
-![Installation summary not ready](/attachment/doc/installation-summary-not-ready.png)
+![Installation summary not ready](/attachment/wiki/InstallationGuide/installation-summary-not-ready.png)
 
 ### Localization
 
@@ -188,23 +188,23 @@ Go to Keyboard Layout, press the "Plus" symbol, search for "German" as indicated
 If you want it be your default language, select the "German" entry in the list and press the arrow button.
 Click on "Done" in the upper left corner, and you're ready to go!
 
-![Keyboard layout selection](/attachment/doc/keyboard-layout-selection.png)
+![Keyboard layout selection](/attachment/wiki/InstallationGuide/keyboard-layout-selection.png)
 
 The process to select a new language is similar to the process to select a new keyboard layout. 
 Follow the same process in the "Language Support" entry.
 
-![Language support selection](/attachment/doc/language-support-selection.png)
+![Language support selection](/attachment/wiki/InstallationGuide/language-support-selection.png)
 
 You can have as many keyboard layout and languages as you want. 
 Post-install, you will be able to switch between them and install others. 
 
 Don't forget to select your time and date by clicking on the Time & Date entry.
 
-![Time and date](/attachment/doc/time-and-date.png)
+![Time and date](/attachment/wiki/InstallationGuide/time-and-date.png)
 
 ### Software
 
-![Add-ons](/attachment/doc/add-ons.png)
+![Add-ons](/attachment/wiki/InstallationGuide/add-ons.png)
 
 On the software selection tab, you can choose which software to install in Qubes OS. 
 Two options are available:
@@ -250,7 +250,7 @@ Please note that a minimum storage of 32 GiB is required.
 If you want to install Qubes OS onto a USB drive, just select the USB device as the target installation device. 
 Bear in mind that the installation process is likely to take longer than it would on an internal storage device.
 
-![Select storage device](/attachment/doc/select-storage-device.png)
+![Select storage device](/attachment/wiki/InstallationGuide/select-storage-device.png)
 
 <div class="alert alert-success" role="alert">
   <i class="fa fa-check-circle"></i>
@@ -267,11 +267,11 @@ When you're finished, press **Done**.
   <b>Warning:</b> If you forget your encryption passphrase, there is no way to recover it.
 </div>
 
-![Select storage passhprase](/attachment/doc/select-storage-passphrase.png)
+![Select storage passhprase](/attachment/wiki/InstallationGuide/select-storage-passphrase.png)
 
 When you're ready, press **Begin Installation**.
 
-![Installation summary ready](/attachment/doc/installation-summary-ready.png)
+![Installation summary ready](/attachment/wiki/InstallationGuide/installation-summary-ready.png)
 
 ### Create your user account
 
@@ -284,7 +284,7 @@ Select **User Creation** to define a new user with administrator privileges and 
 Just as for the disk encryption, this password should be complex.
 The root account is deactivated and should remain as such.
 
-![Account name and password](/attachment/doc/account-name-and-password.png)
+![Account name and password](/attachment/wiki/InstallationGuide/account-name-and-password.png)
 
 When the installation is complete, press **Reboot**.
 Don't forget to remove the installation medium, or else you may end up seeing the installer boot screen again.
@@ -295,23 +295,23 @@ Don't forget to remove the installation medium, or else you may end up seeing th
 
 If the installation was successful, you should now see the GRUB menu during the boot process.
 
-![Grub boot menu](/attachment/doc/grub-boot-menu.png)
+![Grub boot menu](/attachment/wiki/InstallationGuide/grub-boot-menu.png)
 
 Just after this screen, you will be asked to enter your encryption passphrase.
 
-![Unlock storage device screen](/attachment/doc/unlock-storage-device-screen.png)
+![Unlock storage device screen](/attachment/wiki/InstallationGuide/unlock-storage-device-screen.png)
 
 ### Initial Setup
 
 You're almost done.
 Before you can start using Qubes OS, some configuration is needed. 
 
-![Initial setup menu](/attachment/doc/initial-setup-menu.png)
+![Initial setup menu](/attachment/wiki/InstallationGuide/initial-setup-menu.png)
 
 By default, the installer will create a number of qubes (depending on the options you selected during the installation process).
 These are designed to give you a more ready-to-use environment from the get-go.
 
-![Initial setup menu configuration](/attachment/doc/initial-setup-menu-configuration.png)
+![Initial setup menu configuration](/attachment/wiki/InstallationGuide/initial-setup-menu-configuration.png)
 
 Let's briefly go over the options:
 
@@ -340,11 +340,11 @@ This configuration process may take a while, depending on the speed and compatib
 After the configuration is done, you will be greeted by the login screen.
 Enter your password and log in.
 
-![Login screen](/attachment/doc/login-screen.png)
+![Login screen](/attachment/wiki/InstallationGuide/login-screen.png)
 
 Congratulations, you are now ready to use Qubes OS!
 
-![Desktop menu](/attachment/doc/desktop-menu.png)
+![Desktop menu](/attachment/wiki/InstallationGuide/desktop-menu.png)
 
 ## Next steps
 

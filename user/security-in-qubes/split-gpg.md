@@ -21,7 +21,7 @@ This way one not-so-trusted domain, e.g. the one where Thunderbird is running, c
 This way the compromise of your domain where Thunderbird or another client app is running -- arguably a not-so-unthinkable scenario -- does not allow the attacker to automatically also steal all your keys.
 (We should make a rather obvious comment here that the so-often-used passphrases on private keys are pretty meaningless because the attacker can easily set up a simple backdoor which would wait until the user enters the passphrase and steal the key then.)
 
-[![split-gpg-diagram.png](/attachment/doc/split-gpg-diagram.png)
+[![split-gpg-diagram.png](/attachment/wiki/SplitGpg/split-gpg-diagram.png)](/attachment/wiki/SplitGpg/split-gpg-diagram.png)
 
 This diagram presents an overview of the Split GPG architecture.
 
@@ -37,8 +37,8 @@ Unfortunately this problem of signing reliability is not solvable by Split GPG)
 With Qubes Split GPG this problem is drastically minimized, because each time the key is to be used the user is asked for consent (with a definable time out, 5 minutes by default), plus is always notified each time the key is used via a tray notification from the domain where GPG backend is running.
 This way it would be easy to spot unexpected requests to decrypt documents.
 
-[![r2-split-gpg-1.png](/attachment/doc/r2-split-gpg-1.png)
-[![r2-split-gpg-3.png](/attachment/doc/r2-split-gpg-3.png)
+[![r2-split-gpg-1.png](/attachment/wiki/SplitGpg/r2-split-gpg-1.png)](/attachment/wiki/SplitGpg/r2-split-gpg-1.png)
+[![r2-split-gpg-3.png](/attachment/wiki/SplitGpg/r2-split-gpg-3.png)](/attachment/wiki/SplitGpg/r2-split-gpg-3.png)
 
 ## Configuring Split GPG
 
@@ -156,9 +156,9 @@ Starting with version 78, Thunderbird has a built-in PGP feature and no longer r
 
 In `work-email`, use the Thunderbird config editor (found at the bottom of preferences/options), and search for `mail.openpgp.allow_external_gnupg`. Switch the value to true. Still in config editor, search for `mail.openpgp.alternative_gpg_path`. Set its value to `/usr/bin/qubes-gpg-client-wrapper`. Restart Thunderbird after this change.
 
-[![tb78-1.png](/attachment/doc/tb78-1.png)
-[![tb78-2.png](/attachment/doc/tb78-2.png)
-[![tb78-3.png](/attachment/doc/tb78-3.png)
+[![tb78-1.png](/attachment/wiki/SplitGpg/tb78-1.png)](/attachment/wiki/SplitGpg/tb78-1.png)
+[![tb78-2.png](/attachment/wiki/SplitGpg/tb78-2.png)](/attachment/wiki/SplitGpg/tb78-2.png)
+[![tb78-3.png](/attachment/wiki/SplitGpg/tb78-3.png)](/attachment/wiki/SplitGpg/tb78-3.png)
 
 You need to obtain your key ID which should be **exactly 16 characters**. Enter the command `qubes-gpg-client-wrapper -K --keyid-format long`:
 
@@ -178,24 +178,24 @@ ssb   rsa2048/370CE932085BA13B 2020-09-05 [E] [expires: 2022-09-05]
 
 Open the Account Settings and open the *End-to-End Encryption* tab of the respective email account. Click the *Add Key* button. You'll be offered the choice *Use your external key through GnuPG*. Select it and click Continue.
 
-[![tb78-4.png](/attachment/doc/tb78-4.png)
-[![tb78-5.png](/attachment/doc/tb78-5.png)
+[![tb78-4.png](/attachment/wiki/SplitGpg/tb78-4.png)](/attachment/wiki/SplitGpg/tb78-4.png)
+[![tb78-5.png](/attachment/wiki/SplitGpg/tb78-5.png)](/attachment/wiki/SplitGpg/tb78-5.png)
 
 The key ID reference you would need here is `777402E6D301615C`. Now paste or type the ID of the secret key that you would like to use. Be careful to enter it correctly, because your input isn't verified. Confirm to save this key ID. Now you can select the key ID to use.
 
-[![tb78-6.png](/attachment/doc/tb78-6.png)
-[![tb78-7.png](/attachment/doc/tb78-7.png)
+[![tb78-6.png](/attachment/wiki/SplitGpg/tb78-6.png)](/attachment/wiki/SplitGpg/tb78-6.png)
+[![tb78-7.png](/attachment/wiki/SplitGpg/tb78-7.png)](/attachment/wiki/SplitGpg/tb78-7.png)
 
 This key ID will be used to digitally sign or send an encrypted message with your account. For this to work, Thunderbird needs a copy of your public key. At this time, Thunderbird doesn't fetch the public key from `/usr/bin/qubes-gpg-client-wrapper`, you must manually import it. Export the key as follow (assuming the key ID would be `777402E6D301615C`):
 
-[![tb78-8.png](/attachment/doc/tb78-8.png)
-[![tb78-9.png](/attachment/doc/tb78-9.png)
+[![tb78-8.png](/attachment/wiki/SplitGpg/tb78-8.png)](/attachment/wiki/SplitGpg/tb78-8.png)
+[![tb78-9.png](/attachment/wiki/SplitGpg/tb78-9.png)](/attachment/wiki/SplitGpg/tb78-9.png)
 
 Use Thunderbird's Tools menu to open *OpenPGP Key Management*. In that window, use the File menu to access the *Import Public Key(s) From File* command. Open the file with your public key. After the import was successful, right click on the imported key in the list and select *Key Properties*. You must mark your own key as *Yes, I've verified in person this key has the correct fingerprint*.
 
 Once this is done, you should be able to send an encrypted and signed email by selecting *Require Encryption* or *Digitally Sign This Message* in the compose menu *Options* or *Security* toolbar button. You can try it by sending an email to yourself.
 
-[![tb78-10.png](/attachment/doc/tb78-10.png)
+[![tb78-10.png](/attachment/wiki/SplitGpg/tb78-10.png)](/attachment/wiki/SplitGpg/tb78-10.png)
 
 For more details about using smart cards/Split GPG with Thunderbird PGP feature, please see [Thunderbird:OpenPGP:Smartcards](https://wiki.mozilla.org/Thunderbird:OpenPGP:Smartcards) from which the above documentation is inspired.
 
@@ -208,7 +208,7 @@ It is recommended to set up and use `/usr/bin/qubes-gpg-client-wrapper`, as disc
 
 On a fresh Enigmail install, your need to change the default `Enigmail Junior Mode`. Go to Thunderbird preferences and then privacy tab. Select `Force using S/MIME and Enigmail`. Then, in the preferences of Enigmail, make it point to `/usr/bin/qubes-gpg-client-wrapper` instead of the standard GnuPG binary:
 
-[![tb-enigmail-split-gpg-settings-2.png](/attachment/doc/tb-enigmail-split-gpg-settings-2.png)
+[![tb-enigmail-split-gpg-settings-2.png](/attachment/wiki/SplitGpg/tb-enigmail-split-gpg-settings-2.png)](/attachment/wiki/SplitGpg/tb-enigmail-split-gpg-settings-2.png)
 
 ## Using Keybase with Split GPG
 
@@ -280,7 +280,7 @@ Use `qubes-gpg-import-key` in the client app qube to import the key into the GPG
 
 A safe, unspoofable user consent dialog box is displayed.
 
-[![r2-split-gpg-5.png](/attachment/doc/r2-split-gpg-5.png)
+[![r2-split-gpg-5.png](/attachment/wiki/SplitGpg/r2-split-gpg-5.png)](/attachment/wiki/SplitGpg/r2-split-gpg-5.png)
 
 Selecting "Yes to All" will add a line in the corresponding [RPC Policy](/doc/rpc-policy/) file.
 

@@ -300,7 +300,7 @@ significantly differs from what is described in this section.
 The VM-VM channels in Qubes R2 are made via "gluing" two VM-Dom0 and Dom0-VM
 vchan connections:
 
-![qrexec2-internals.png](/attachment/doc/qrexec2-internals.png)
+![qrexec2-internals.png](/attachment/wiki/Qrexec2Implementation/qrexec2-internals.png)
 
 Note that Dom0 never examines the actual data flowing in neither of the two
 vchan connections.

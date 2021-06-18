@@ -14,7 +14,7 @@ title: App Menu Shortcut Troubleshooting
 For ease of use Qubes aggregates shortcuts to applications that are installed in app qubes and shows them in one application menu (aka "app menu" or "start menu") in dom0.
 Clicking on such shortcut runs the assigned application in its app qube.
 
-![dom0-menu.png"](/attachment/doc/r4.0-dom0-menu.png)
+![dom0-menu.png"](/attachment/wiki/ManagingAppVmShortcuts/r4.0-dom0-menu.png)
 
 To make applications newly installed via the OS's package manager show up in the menu, use the `qvm-sync-appmenus` command (Linux VMs do this automatically):
 
@@ -22,7 +22,7 @@ To make applications newly installed via the OS's package manager show up in the
 
 After that, select the *Add more shortcuts* entry in the VM's submenu to customize which applications are shown:
 
-![dom0-appmenu-select.png"](/attachment/doc/r4.0-dom0-appmenu-select.png)
+![dom0-appmenu-select.png"](/attachment/wiki/ManagingAppVmShortcuts/r4.0-dom0-appmenu-select.png)
 
 The above image shows that Windows HVMs are also supported (provided that Qubes Tools are installed).
 

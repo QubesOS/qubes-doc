@@ -65,7 +65,7 @@ To sum up, this solution has the following benefits:
 - no changes to Xorg code
 - minimal size of the supporting code
 
-![gui.png](/attachment/doc/gui.png)
+![gui.png](/attachment/wiki/GUIdocs/gui.png)
 
 Security markers on dom0 windows
 --------------------------------

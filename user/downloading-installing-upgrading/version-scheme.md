@@ -84,7 +84,7 @@ should be another RC. If, based on remaining issues, the Committee decides to
 release final, then the Committee agrees upon the release date, which should be
 no later than a week after.
 
-!["Release cycle"](/attachment/doc/release-cycle.svg)
+!["Release cycle"](/attachment/wiki/VersionScheme/release-cycle.svg)
 
 Bug priorities
 --------------

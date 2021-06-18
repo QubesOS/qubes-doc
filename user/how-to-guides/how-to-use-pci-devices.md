@@ -45,7 +45,7 @@ There you can attach PCI-devices to a qube.
 
 1. To reach the settings of any qube either
 
-   - Press Alt+F3 to open the application finder, type in the VM name, select the "![appmenu](/attachment/doc/qubes-appmenu-select.png)\[VM-name\]: Qube Settings" menu entry and press enter or click "Launch"!
+   - Press Alt+F3 to open the application finder, type in the VM name, select the "![appmenu](/attachment/wiki/Devices/qubes-appmenu-select.png)\[VM-name\]: Qube Settings" menu entry and press enter or click "Launch"!
    - Select the VM in Qube Manager and click the settings-button or right-click the VM and select `Qube settings`.
    - Click the Domain Manager, hover the VM you want to attach a device to and select "settings" in the additional menu. (only running VMs!)
 

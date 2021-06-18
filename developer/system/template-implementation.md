@@ -49,7 +49,7 @@ TemplateVM has a shared root.img across all AppVMs that are based on it. This me
 
 There are two layers of the device-mapper snapshot device; the first one enables modifying root.img without stopping the AppVMs and the second one, which is contained in the AppVM, enables temporal modifications to its filesystem. These modifications will be discarded after a restart of the AppVM.
 
-![TemplateSharing2.png](/attachment/doc/TemplateSharing2.png)
+![TemplateSharing2.png](/attachment/wiki/TemplateImplementation/TemplateSharing2.png)
 
 ## Snapshot device in Dom0
 

@@ -168,7 +168,7 @@ It also has a very unique GUI virtualization infrastructure.
 ### What about safe languages and formally verified microkernels?
 
 In short: these are non-realistic solutions today.
-We discuss this in further depth in our [Architecture Specification document](/attachment/doc/arch-spec-0.3.pdf).
+We discuss this in further depth in our [Architecture Specification document](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf).
 
 ### Why does Qubes use virtualization?
 
@@ -195,7 +195,7 @@ Very paranoid users, or those who are high-profile targets, might use a dozen or
 ### Why does Qubes use Xen instead of KVM or some other hypervisor?
 
 In short: we believe the Xen architecture allows for the creation of more secure systems (i.e. with a much smaller TCB, which translates to a smaller attack surface).
-We discuss this in much greater depth in our [Architecture Specification document](/attachment/doc/arch-spec-0.3.pdf).
+We discuss this in much greater depth in our [Architecture Specification document](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf).
 
 ### How is Qubes affected by Xen Security Advisories (XSAs)?
 
