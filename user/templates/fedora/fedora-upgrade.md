@@ -25,13 +25,13 @@ title: How to Upgrade a Fedora Template In-place
 
 <div class="alert alert-danger" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
-  <b>Warning:</b> This page is intended for advanced users only. Most users seeking to upgrade should instead <a href="/doc/templates/fedora/#installing">install a new Fedora TemplateVM</a>. Learn more about the two options <a href="/doc/templates/fedora/#upgrading">here</a>.
+  <b>Warning:</b> This page is intended for advanced users only. Most users seeking to upgrade should instead <a href="/doc/templates/fedora/#installing">install a new Fedora template</a>. Learn more about the two options <a href="/doc/templates/fedora/#upgrading">here</a>.
 </div>
 
-This page provides instructions for performing an in-place upgrade of an installed [Fedora TemplateVM](/doc/templates/fedora/).
-If you wish to install a new, unmodified Fedora TemplateVM instead of upgrading a template that is already installed in your system, please see the [Fedora TemplateVM](/doc/templates/fedora/) page instead. ([Learn more about the two options.](/doc/templates/fedora/#upgrading))
+This page provides instructions for performing an in-place upgrade of an installed [Fedora Template](/doc/templates/fedora/).
+If you wish to install a new, unmodified Fedora template instead of upgrading a template that is already installed in your system, please see the [Fedora Template](/doc/templates/fedora/) page instead. ([Learn more about the two options.](/doc/templates/fedora/#upgrading))
 
-## Summary instructions for standard Fedora TemplateVMs
+## Summary instructions for standard Fedora templates
 
 **Note:** The prompt on each line indicates where each command should be entered: `dom0`, `fedora-<old>`, or `fedora-<new>`, where `<old>` is the Fedora version number *from* which you are upgrading, and `<new>` is the Fedora version number *to* which you are upgrading.
 
@@ -52,10 +52,10 @@ If you wish to install a new, unmodified Fedora TemplateVM instead of upgrading 
 
 **Recommended:** [Switch everything that was set to the old template to the new template.](/doc/templates/#switching)
 
-## Detailed instructions for standard Fedora TemplateVMs
+## Detailed instructions for standard Fedora templates
 
-These instructions will show you how to upgrade the standard Fedora TemplateVM.
-The same general procedure may be used to upgrade any template based on the standard Fedora TemplateVM.
+These instructions will show you how to upgrade the standard Fedora template.
+The same general procedure may be used to upgrade any template based on the standard Fedora template.
 
 **Note:** The prompt on each line indicates where each command should be entered: `dom0`, `fedora-<old>`, or `fedora-<new>`, where `<old>` is the Fedora version number *from* which you are upgrading, and `<new>` is the Fedora version number *to* which you are upgrading.
 
@@ -123,7 +123,7 @@ The same general procedure may be used to upgrade any template based on the stan
         At least X MB more space needed on the / filesystem.
         `
 
-       In this case, one option is to [resize the TemplateVM's disk image](/doc/resize-disk-image/) before reattempting the upgrade process.
+       In this case, one option is to [resize the template's disk image](/doc/resize-disk-image/) before reattempting the upgrade process.
        (See [Additional Information](#additional-information) below for other options.)
 
 4. Check that you are on the correct (new) Fedora release. Do this check only after completing the upgrade process. This is *not* a troubleshooting procedure for fixing download issues from the repository. This check simply verifies that your clone has successfully been upgraded.
@@ -143,7 +143,7 @@ The same general procedure may be used to upgrade any template based on the stan
     [user@fedora-<new> ~]$ sudo fstrim -av
     ```
 
-6. Shut down the new TemplateVM.
+6. Shut down the new template.
 
     ```
     [user@dom0 ~]$ qvm-shutdown fedora-<new>
@@ -167,7 +167,7 @@ The same general procedure may be used to upgrade any template based on the stan
 10. (Optional) [Uninstall the old template.](/doc/templates/#uninstalling)
     Make sure that the template you're uninstalling is the old one, not the new one!
 
-## Summary instructions for Fedora Minimal TemplateVMs
+## Summary instructions for Fedora Minimal templates
 
 **Note:** The prompt on each line indicates where each command should be entered: `dom0`, `fedora-<old>`, or `fedora-<new>`, where `<old>` is the Fedora version number *from* which you are upgrading, and `<new>` is the Fedora version number *to* which you are upgrading.
 
@@ -179,18 +179,18 @@ The same general procedure may be used to upgrade any template based on the stan
 [user@fedora-<new>-minimal ~]# fstrim -v /
 ```
 
-(Shut down TemplateVM by any normal means.)
+(Shut down template by any normal means.)
 
 (If you encounter insufficient space issues, you may need to use the methods described for the standard template above.)
 
 ## StandaloneVMs
 
-The procedure for upgrading a Fedora [StandaloneVM](/doc/standalone-and-hvm/) is the same as for a TemplateVM.
+The procedure for upgrading a Fedora [StandaloneVM](/doc/standalone-and-hvm/) is the same as for a template.
 
 
 ## Release-specific notes
 
-See the [news](/news/) announcement for each specific TemplateVM release for any important notices about that particular release.
+See the [news](/news/) announcement for each specific template release for any important notices about that particular release.
 
 
 ### End-of-life (EOL) releases
@@ -209,12 +209,12 @@ At least X MB more space needed on the / filesystem.
 
 In this case, you have several options:
 
-1. [Increase the TemplateVM's disk image size](/doc/resize-disk-image/).
+1. [Increase the template's disk image size](/doc/resize-disk-image/).
    This is the solution mentioned in the main instructions above.
 2. Delete files in order to free up space. One way to do this is by uninstalling packages.
    You may then reinstall them again after you finish the upgrade process, if desired).
    However, you may end up having to increase the disk image size anyway (see previous option).
 3. Do the upgrade in parts, e.g., by using package groups.
    (First upgrade `@core` packages, then the rest.)
-4. Do not perform an in-place upgrade, see [Upgrading Fedora TemplateVMs](/doc/templates/fedora/#upgrading).
+4. Do not perform an in-place upgrade, see [Upgrading Fedora templates](/doc/templates/fedora/#upgrading).
 

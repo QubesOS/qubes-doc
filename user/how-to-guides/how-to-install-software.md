@@ -156,15 +156,15 @@ This is like the simple revert, except:
 ### Temporarily allowing networking for software installation
 
 Some third-party applications cannot be installed using the standard repositories and need to be manually downloaded and installed.
-When the installation requires internet connection to access third-party repositories, it will naturally fail when run in a Template VM because the default firewall rules for templates only allow connections from package managers.
+When the installation requires internet connection to access third-party repositories, it will naturally fail when run in a template because the default firewall rules for templates only allow connections from package managers.
 So it is necessary to modify firewall rules to allow less restrictive internet access for the time of the installation, if one really wants to install those applications into a template.
 As soon as software installation is completed, firewall rules should be returned back to the default state.
-The user should decide by themselves whether such third-party applications should be equally trusted as the ones that come from the standard Fedora signed repositories and whether their installation will not compromise the default Template VM, and potentially consider installing them into a separate template or a standalone VM (in which case the problem of limited networking access doesn't apply by default), as described above.
+The user should decide by themselves whether such third-party applications should be equally trusted as the ones that come from the standard Fedora signed repositories and whether their installation will not compromise the default template, and potentially consider installing them into a separate template or a standalone VM (in which case the problem of limited networking access doesn't apply by default), as described above.
 
 ### Updates proxy
 
 Updates proxy is a service which allows access only from package managers.
-This is meant to mitigate user errors (like using browser in the template VM), rather than some real isolation.
+This is meant to mitigate user errors (like using browser in the template), rather than some real isolation.
 It is done with http proxy (tinyproxy) instead of simple firewall rules because it is hard to list all the repository mirrors (and keep that list up to date).
 The proxy is used only to filter the traffic, not to cache anything.
 
@@ -196,7 +196,7 @@ Example policy file in R4.0 (with Whonix installed, but not set as default Updat
 @tag:whonix-updatevm @anyvm deny
 
 # other templates use sys-net
-@type:TemplateVM @default allow,target=sys-net
+@type:template @default allow,target=sys-net
 @anyvm @anyvm deny
 ```
 

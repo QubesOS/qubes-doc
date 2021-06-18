@@ -13,22 +13,22 @@ ref: 132
 title: Minimal Templates
 ---
 
-The Minimal [TemplateVMs](/doc/templates/) are lightweight versions of their standard TemplateVM counterparts.
+The Minimal [templates](/doc/templates/) are lightweight versions of their standard template counterparts.
 They have only the most vital packages installed, including a minimal X and xterm installation.
 The sections below contain instructions for using the template and provide some examples for common use cases.
-There are currently three Minimal TemplateVMs corresponding to the standard [Fedora](/doc/templates/fedora/), [Debian](/doc/templates/debian/), [CentOS](/doc/templates/centos/) and [Gentoo](/doc/templates/gentoo/) TemplateVMs.
+There are currently three Minimal templates corresponding to the standard [Fedora](/doc/templates/fedora/), [Debian](/doc/templates/debian/), [CentOS](/doc/templates/centos/) and [Gentoo](/doc/templates/gentoo/) templates.
 
 ## Important
 
-1. The Minimal TemplateVMs are intended only for advanced users.
-   If you encounter problems with the Minimal TemplateVMs, we recommend that you use their standard TemplateVM counterparts instead.
+1. The Minimal templates are intended only for advanced users.
+   If you encounter problems with the Minimal templates, we recommend that you use their standard template counterparts instead.
 
-2. If something works with a standard TemplateVM but not the minimal version, this is most likely due to user error (e.g., a missing package or misconfiguration) rather than a bug.
+2. If something works with a standard template but not the minimal version, this is most likely due to user error (e.g., a missing package or misconfiguration) rather than a bug.
    In such cases, please do *not* file a bug report.
    Instead, please see [Help, Support, Mailing Lists, and Forum](/support/) for the appropriate place to ask for help.
    Once you have learned how to solve your problem, please [contribute what you learned to the documentation](/doc/doc-guidelines/).
 
-3. The Minimal TemplateVMs are intentionally *minimal*.
+3. The Minimal templates are intentionally *minimal*.
    [Do not ask for your favorite package to be added to the minimal template by default.](/faq/#could-you-please-make-my-preference-the-default)
 
 4. In order to reduce unnecessary risk, unused repositories have been disabled by default.
@@ -36,7 +36,7 @@ There are currently three Minimal TemplateVMs corresponding to the standard [Fed
 
 ## Installation
 
-The Minimal TemplateVMs can be installed with the following command (where `X` is your desired distro and version number):
+The Minimal templates can be installed with the following command (where `X` is your desired distro and version number):
 
 ```
 [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-X-minimal
@@ -59,20 +59,20 @@ The download may take a while depending on your connection speed.
 
 ## Passwordless root
 
-It is an intentional design choice for [Passwordless Root Access in VMs](/doc/vm-sudo/) to be optional in Minimal TemplateVMs.
-Since the Minimal TemplateVMs are *minimal*, they are not configured for passwordless root by default.
+It is an intentional design choice for [Passwordless Root Access in VMs](/doc/vm-sudo/) to be optional in Minimal templates.
+Since the Minimal templates are *minimal*, they are not configured for passwordless root by default.
 To update or install packages, execute the following command in dom0 (where `X` is your distro and version number):
 
 ```
 [user@dom0 ~]$ qvm-run -u root X-minimal xterm
 ```
 
-This opens a root terminal in the Minimal TemplateVM, from which you can use execute root commands without `sudo`.
+This opens a root terminal in the Minimal template, from which you can use execute root commands without `sudo`.
 You will have to do this every time if you choose not to enable passwordless root.
 
-If you want to be able to use `sudo` inside a Minimal TemplateVM (or app qubes based on a Minimal TemplateVM), open a root terminal as just instructed, then install the `qubes-core-agent-passwordless-root` package.
+If you want to be able to use `sudo` inside a Minimal template (or app qubes based on a Minimal template), open a root terminal as just instructed, then install the `qubes-core-agent-passwordless-root` package.
 
-Optionally, verify that passwordless root now works by opening a normal (non-root) xterm window in the Minimal TemplateVM, then issue the command `sudo -l`.
+Optionally, verify that passwordless root now works by opening a normal (non-root) xterm window in the Minimal template, then issue the command `sudo -l`.
 This should give you output that includes the `NOPASSWD` keyword.
 
 ## Customization
@@ -84,7 +84,7 @@ Customizing the template for specific use cases normally only requires installin
 
 ## Distro-specific notes
 
-This following sections provide information that is specific to a particular Minimal TemplateVM distro.
+This following sections provide information that is specific to a particular Minimal template distro.
 
 ### Fedora
 

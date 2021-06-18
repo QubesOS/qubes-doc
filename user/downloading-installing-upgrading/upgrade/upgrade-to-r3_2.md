@@ -114,9 +114,9 @@ your favorite desktop environment and continue.
 
 ## Upgrade all Template and Standalone VM(s)
 
-By default, in Qubes R3.1, there are few TemplateVMs and no StandaloneVMs.
+By default, in Qubes R3.1, there are few templates and no StandaloneVMs.
 However, users are free to create StandaloneVMs More information on using
-multiple TemplateVMs, as well as StandaloneVMs, can be found
+multiple templates, as well as StandaloneVMs, can be found
 [here](/doc/software-update-vm/). The steps described in this section should be
 repeated in **all** the user's Template and Standalone VMs.
 
@@ -127,7 +127,7 @@ repeated in **all** the user's Template and Standalone VMs.
 In order to do that, please see the
 [Fedora 23 template upgrade instructions](/doc/templates/fedora/#upgrading).
 
-1. Open a terminal in the TemplateVM (or StandaloneVM). (E.g., use Qubes VM
+1. Open a terminal in the template (or StandaloneVM). (E.g., use Qubes VM
     Manager's right-click menu, choose "Run Command in VM," and type
     `gnome-terminal` there.)
 
@@ -149,11 +149,11 @@ In order to do that, please see the
     sudo dnf install qubes-mgmt-salt-vm-connector
     ```
 
-5. Shut down the template VM.
+5. Shut down the template.
 
 ### Upgrade Debian (and Whonix) templates: 
 
-1. Open a terminal in the TemplateVM (or StandaloneVM). (E.g., use Qubes VM
+1. Open a terminal in the template (or StandaloneVM). (E.g., use Qubes VM
     Manager's right-click menu, choose "Run Command in VM," and type
     `gnome-terminal` there.)
 
@@ -183,4 +183,4 @@ In order to do that, please see the
     sudo rm -f /etc/apt/sources.list.d/qubes-r3-upgrade.list
     ```
 
-6. Shut down the template VM.
+6. Shut down the template.

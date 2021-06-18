@@ -32,10 +32,10 @@ What if my application has not been automatically included in the list of availa
 Some times applications may not have included a `.desktop` file and may not be detected by `qvm-sync-appmenus`.
 Other times, you may want to make a web shortcut available from the Qubes start menu.
 
-You can manually create new entries in the "available applications" list of shortcuts for all app qubes based on a TemplateVM.
+You can manually create new entries in the "available applications" list of shortcuts for all app qubes based on a template.
 To do this:
 
-1. Open a terminal window to the TemplateVM.
+1. Open a terminal window to the template.
 2. Create a custom `.desktop` file in `/usr/share/applications` (you may need to first create the subdirectory).
    Look in `/usr/share/applications` for existing examples, or see the full [file specification](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html).
    It will be something like:
@@ -53,7 +53,7 @@ To do this:
    Exec=vuescan
    ```
 
-3. In dom0, run `qvm-sync-appmenus <TemplateVMName>`.
+3. In dom0, run `qvm-sync-appmenus <templateName>`.
 4. Go to VM Settings of the app qube(s) to which you want to add the new shortcut, then the Applications tab.
    Move the newly created shortcut to the right under selected.
 
@@ -102,7 +102,7 @@ Behind the scenes
 -----------------
 
 `qvm-sync-appmenus` works by invoking *GetAppMenus* [Qubes service](/doc/qrexec/) in the target domain.
-This service enumerates installed applications and sends formatted info back to the dom0 script (`/usr/libexec/qubes-appmenus/qubes-receive-appmenus`) which creates .desktop files in the app qube/TemplateVM directory.
+This service enumerates installed applications and sends formatted info back to the dom0 script (`/usr/libexec/qubes-appmenus/qubes-receive-appmenus`) which creates .desktop files in the app qube/template directory.
 
 For Linux VMs the service script is in `/etc/qubes-rpc/qubes.GetAppMenus`.
 In Windows it's a PowerShell script located in `c:\Program Files\Invisible Things Lab\Qubes OS Windows Tools\qubes-rpc-services\get-appmenus.ps1` by default.

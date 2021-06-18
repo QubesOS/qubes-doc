@@ -13,8 +13,8 @@ title: StandaloneVMs and HVMs
 ---
 
 
-A [StandaloneVM](/doc/glossary/#standalonevm) is a type of VM in Qubes that is created by cloning a [TemplateVM](/doc/templates/).
-Unlike TemplateVMs, however, StandaloneVMs do not supply their root filesystems to other VMs.
+A [StandaloneVM](/doc/glossary/#standalonevm) is a type of VM in Qubes that is created by cloning a [template](/doc/templates/).
+Unlike templates, however, StandaloneVMs do not supply their root filesystems to other VMs.
 Examples of situations in which StandaloneVMs can be useful include:
 
 - VMs used for development (dev environments often require a lot of specific packages and tools)
@@ -31,7 +31,7 @@ You can also use HVMs to run "live" distros.
 By default, every Qubes VM runs in [PVH](/doc/glossary/#pvhvm) mode (which has security advantages over both PV and HVM) except for those with attached PCI devices, which run in HVM mode.
 See [here](https://blog.invisiblethings.org/2017/07/31/qubes-40-rc1.html) for a discussion of the switch from PV to HVM and [here](/news/2018/01/11/qsb-37/) for the announcement about the change to using PVH as default.
 
-The StandaloneVM/TemplateVM distinction and the HVM/PV/PVH distinctions are orthogonal.
+The StandaloneVM/template distinction and the HVM/PV/PVH distinctions are orthogonal.
 The former is about root filesystem inheritance, whereas the latter is about the virtualization mode.
 In practice, however, it is most common for StandaloneVMs to be HVMs and for HVMs to be StandaloneVMs.
 In fact, this is so common that [StandaloneHVMs](/doc/glossary/#standalonehvm) are typically just called "HVMs."
@@ -130,7 +130,7 @@ There is [opt-in support](/doc/networking/#ipv6) for IPv6 forwarding.
 
 ## Using TemplateBasedHVMs
 
-Qubes allows HVMs to share a common root filesystem from a select TemplateVM (see [TemplateHVM](/doc/glossary/#templatehvm) and [TemplateBasedHVM](/doc/glossary/#templatebasedhvm)).
+Qubes allows HVMs to share a common root filesystem from a select template (see [TemplateHVM](/doc/glossary/#templatehvm) and [TemplateBasedHVM](/doc/glossary/#templatebasedhvm)).
 This mode can be used for any HVM (e.g. FreeBSD running in a HVM).
 
 In order to create a TemplateHVM you use the following command, suitably adapted:

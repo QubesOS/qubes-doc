@@ -36,7 +36,7 @@ Updates
 How to test updates:
 
 * Enable [dom0 testing repositories](/doc/how-to-install-software-in-dom0/#testing-repositories).
-* Enable [TemplateVM testing repositories](/doc/how-to-install-software/#testing-repositories).
+* Enable [template testing repositories](/doc/how-to-install-software/#testing-repositories).
 
 Every new update is first uploaded to the `security-testing` repository if it is a security update or `current-testing` if it is a normal update.
 The update remains in `security-testing` or `current-testing` for a minimum of one week.

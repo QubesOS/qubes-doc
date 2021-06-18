@@ -103,7 +103,7 @@ This brings up the **Qubes Restore VMs** window.
    Once you've located the backup file, double-click it or select it and hit **OK**.
 
 3. There are three options you may select when restoring from a backup:
-   1. **ignore missing templates and net VMs**: If any of the VMs in your backup depended upon a NetVM or TemplateVM that is not present in (i.e., "missing from") the current system, checking this box will ignore the fact that they are missing and restore the VMs anyway and set them to use the default NetVM and system default template.
+   1. **ignore missing templates and net VMs**: If any of the VMs in your backup depended upon a NetVM or template that is not present in (i.e., "missing from") the current system, checking this box will ignore the fact that they are missing and restore the VMs anyway and set them to use the default NetVM and system default template.
    2. **ignore username mismatch**: This option applies only to the restoration of dom0's home directory.
    If your backup was created on a Qubes system which had a different dom0 username than the dom0 username of the current system, then checking this box will ignore the mismatch between the two usernames and proceed to restore the home directory anyway.
    3. **Verify backup integrity, do not restore the data**: This will scan the backup file for corrupted data.

@@ -77,7 +77,7 @@ Mounting the disk
 | ----------------------------- | ----------------- | ------------------------------------------- |
 | other\_install/root           | dom0 root         | The root partition of dom0.                 |
 | other\_install/<vm>-private   | VM                | The /rw partition of the named VM.          |
-| other\_install/<vm>-root      | templateVM root   | The root partition of the named TemplateVM. |
+| other\_install/<vm>-root      | template root   | The root partition of the named template. |
 | other\_install/pool00\_tmeta  | LVM Metadata      | The metadata LV of this disk.               |
 
 6. Mount the disk using the command `mount /dev/other_install/<lv name> <mountpoint>`.

@@ -79,20 +79,20 @@ $ qvm-service --enable work qubes-u2f-proxy
 
 The above assumes a `work` qube in which you would like to enable u2f. Repeat the `qvm-service` command for all qubes that should have the proxy enabled.  Alternatively, you can add `qubes-u2f-proxy` in VM settings -> Services in the Qube Manager of each qube you would like to enable the service.
 
-In Fedora TemplateVMs:
+In Fedora templates:
 
 ```
 $ sudo dnf install qubes-u2f
 ```
 
-In Debian TemplateVMs:
+In Debian templates:
 
 ```
 $ sudo apt install qubes-u2f
 ```
 
 As usual with software updates, shut down the templates after installation, then restart `sys-usb` and all qubes that use the proxy.
-After that, you may use your U2F token (but see [Browser support](#templatevm-and-browser-support) below).
+After that, you may use your U2F token (but see [Browser support](#template-and-browser-support) below).
 
 ## Advanced usage: per-qube key access
 
@@ -125,9 +125,9 @@ systemctl disable qubes-u2fproxy@sys-usb.service
 
 Replace `USB_QUBE` with the actual USB qube name.
 
-## TemplateVM and browser support
+## Template and browser support
 
-The large number of possible combinations of TemplateVM (Fedora 27, 28; Debian 8, 9) and browser (multiple Google Chrome versions, multiple Chromium versions, multiple Firefox versions) made it impractical for us to test every combination that users are likely to attempt with the Qubes U2F Proxy.
+The large number of possible combinations of template (Fedora 27, 28; Debian 8, 9) and browser (multiple Google Chrome versions, multiple Chromium versions, multiple Firefox versions) made it impractical for us to test every combination that users are likely to attempt with the Qubes U2F Proxy.
 In some cases, you may be the first person to try a particular combination.
 Consequently (and as with any new feature), users will inevitably encounter bugs.
 We ask for your patience and understanding in this regard.

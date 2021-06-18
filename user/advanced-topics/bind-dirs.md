@@ -77,7 +77,7 @@ Note that you must create the full folder structure under `/rw/bind-dirs` - e.g 
 
 ## Limitations ##
 
-* Files that exist in the TemplateVM root image cannot be deleted in the app qubes root image using bind-dirs.sh.
+* Files that exist in the template root image cannot be deleted in the app qubes root image using bind-dirs.sh.
 * Re-running `sudo /usr/lib/qubes/init/bind-dirs.sh` without a previous `sudo /usr/lib/qubes/init/bind-dirs.sh umount` does not work.
 * Running `sudo /usr/lib/qubes/init/bind-dirs.sh umount` after boot (before shutdown) is probably not sane and nothing can be done about that.
 * Many editors create a temporary file and copy it over the original file. If you have bind mounted an individual file this will break the mount.

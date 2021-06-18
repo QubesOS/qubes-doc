@@ -31,7 +31,7 @@ This diagram provides a general example of how disposables can be used to safely
 If a [disposable template](/doc/glossary/#disposable-template) becomes compromised, then any disposable based on that disposable template could be compromised.
 In particular, the *default* disposable template is important because it is used by the "Open in disposable" feature.
 This means that it will have access to everything that you open with this feature.
-For this reason, it is strongly recommended that you base the default disposable template on a trusted TemplateVM.
+For this reason, it is strongly recommended that you base the default disposable template on a trusted template.
 
 ### Disposables and Local Forensics
 
@@ -42,10 +42,10 @@ When it is essential to avoid leaving any trace, consider using [Tails](https://
 
 ## Disposables and Networking
 
-Similarly to how app qubes are based on their underlying [TemplateVM](/doc/glossary/#templatevm), disposables are based on their underlying [disposable template](/doc/glossary/#disposable-template).
+Similarly to how app qubes are based on their underlying [template](/doc/glossary/#template), disposables are based on their underlying [disposable template](/doc/glossary/#disposable-template).
 R4.0 introduces the concept of multiple disposable templates, whereas R3.2 was limited to only one.
 
-On a fresh installation of Qubes, the default disposable template is called `fedora-XX-dvm` (where `XX` is the Fedora version of the default TemplateVM).
+On a fresh installation of Qubes, the default disposable template is called `fedora-XX-dvm` (where `XX` is the Fedora version of the default template).
 If you have included the Whonix option in your install, there will also be a `whonix-ws-dvm` disposable template available for your use.
 
 You can set any app qube to have the ability to act as a disposable template with:

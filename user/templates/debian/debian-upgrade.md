@@ -14,16 +14,16 @@ title: How to Upgrade a Debian Template In-place
 
 <div class="alert alert-danger" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
-  <b>Warning:</b> This page is intended for advanced users only. Most users seeking to upgrade should instead <a href="/doc/templates/debian/#installing">install a new Debian TemplateVM</a>. Learn more about the two options <a href="/doc/templates/debian/#upgrading">here</a>.
+  <b>Warning:</b> This page is intended for advanced users only. Most users seeking to upgrade should instead <a href="/doc/templates/debian/#installing">install a new Debian template</a>. Learn more about the two options <a href="/doc/templates/debian/#upgrading">here</a>.
 </div>
 
 
-This page provides instructions for performing an in-place upgrade of an installed [Debian TemplateVM](/doc/templates/debian/).
-If you wish to install a new, unmodified Debian TemplateVM instead of upgrading a template that is already installed in your system, please see the [Debian TemplateVM](/doc/templates/debian/) page instead. ([Learn more about the two options.](/doc/templates/debian/#upgrading))
+This page provides instructions for performing an in-place upgrade of an installed [Debian Template](/doc/templates/debian/).
+If you wish to install a new, unmodified Debian template instead of upgrading a template that is already installed in your system, please see the [Debian Template](/doc/templates/debian/) page instead. ([Learn more about the two options.](/doc/templates/debian/#upgrading))
 
-In general, upgrading a Debian TemplateVM follows the same process as [upgrading a native Debian system](https://wiki.debian.org/DebianUpgrade).
+In general, upgrading a Debian template follows the same process as [upgrading a native Debian system](https://wiki.debian.org/DebianUpgrade).
 
-## Summary instructions for Debian TemplateVMs
+## Summary instructions for Debian templates
 
 **Note:** The prompt on each line indicates where each command should be entered: `dom0`, `debian-<old>`, or `debian-<new>`, where `<old>` is the Debian version number *from* which you are upgrading, and `<new>` is the Debian version number *to* which you are upgrading.
 
@@ -40,10 +40,10 @@ In general, upgrading a Debian TemplateVM follows the same process as [upgrading
 
 **Recommended:** [Switch everything that was set to the old template to the new template.](/doc/templates/#switching)
 
-## Detailed instructions for Debian TemplateVMs
+## Detailed instructions for Debian templates
 
-These instructions will show you how to upgrade Debian TemplateVMs.
-The same general procedure may be used to upgrade any template based on the standard Debian TemplateVM.
+These instructions will show you how to upgrade Debian templates.
+The same general procedure may be used to upgrade any template based on the standard Debian template.
 
 **Note:** The prompt on each line indicates where each command should be entered: `dom0`, `debian-<old>`, or `debian-<new>`, where `<old>` is the Debian version number *from* which you are upgrading, and `<new>` is the Debian version number *to* which you are upgrading.
 
@@ -101,7 +101,7 @@ The same general procedure may be used to upgrade any template based on the stan
     [user@debian-<new> ~]$ sudo fstrim -av
     ```
 
-8. Shut down the new TemplateVM.
+8. Shut down the new template.
 
     ```
     [user@dom0 ~]$ qvm-shutdown debian-<new>
@@ -120,7 +120,7 @@ The same general procedure may be used to upgrade any template based on the stan
 
 ## StandaloneVMs
 
-The procedure for upgrading a Debian [StandaloneVM](/doc/standalone-and-hvm/) is the same as for a TemplateVM.
+The procedure for upgrading a Debian [StandaloneVM](/doc/standalone-and-hvm/) is the same as for a template.
 
 ## Release-specific notes
 
@@ -138,7 +138,7 @@ Please see [Debian's Buster upgrade instructions](https://www.debian.org/release
 * If sound is not working, you may need to enable the Qubes testing repository to get the testing version of `qubes-gui-agent`.
   This can be done by editing the `/etc/apt/sources.list.d/qubes-r4.list` file and uncommenting the `Qubes Updates Candidates` repo.
 
-* User-initiated updates/upgrades may not run when a templateVM first starts.
+* User-initiated updates/upgrades may not run when a template first starts.
   This is due to a new Debian config setting that attempts to update automatically; it should be disabled with `sudo systemctl disable apt-daily.{service,timer}`.
 
 Relevant discussions:

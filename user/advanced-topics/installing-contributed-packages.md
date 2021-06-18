@@ -35,8 +35,8 @@ In a Debian-based template, use `apt`:
 sudo apt update && sudo apt install qubes-repo-contrib
 ```
 
-The new repository definition will be in the usual location for your distro, and it will follow the naming pattern `qubes-contrib-*`, depending on your Qubes release and whether it is in dom0 or a TemplateVM.
-For example, in a Fedora TemplateVM on Qubes 4.0, the new repository definition would be:
+The new repository definition will be in the usual location for your distro, and it will follow the naming pattern `qubes-contrib-*`, depending on your Qubes release and whether it is in dom0 or a template.
+For example, in a Fedora template on Qubes 4.0, the new repository definition would be:
 
 ```
 /etc/yum.repos.d/qubes-contrib-vm-r4.0.repo

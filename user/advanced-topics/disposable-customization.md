@@ -38,7 +38,7 @@ If a disposable template becomes compromised, then any disposable based on that 
 Therefore, you should not make any risky customizations (e.g., installing untrusted browser plugins) in important disposable templates.
 In particular, the *default* disposable template is important because it is used by the "Open in disposable" feature.
 This means that it will have access to everything that you open with this feature.
-For this reason, it is strongly recommended that you base the default disposable template on a trusted TemplateVM and refrain from making any risky customizations to it.
+For this reason, it is strongly recommended that you base the default disposable template on a trusted template and refrain from making any risky customizations to it.
 
 ## Creating a new disposable template
 
@@ -59,7 +59,7 @@ Additionally you may want to set it as default disposable template:
 
 The above default is used whenever a qube request starting a new disposable and do not specify which one (for example `qvm-open-in-dvm` tool). This can be also set in qube settings and will affect service calls from that qube. See [qrexec documentation](/doc/qrexec/#specifying-vms-tags-types-targets-etc) for details.
 
-If you wish to use a [Minimal TemplateVM](/doc/templates/minimal/) as a disposable template, please see the [Minimal TemplateVM](/doc/templates/minimal/) page.
+If you wish to use a [Minimal Template](/doc/templates/minimal/) as a disposable template, please see the [Minimal Template](/doc/templates/minimal/) page.
 
 ## Customization of disposable
 

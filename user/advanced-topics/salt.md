@@ -244,7 +244,7 @@ optional arguments:
   --targets TARGETS  Coma separated list of VMs to target
   --templates        Target all templates
   --app              Target all app qubes
-  --all              Target all non-disposables (TemplateVMs and app qubes)
+  --all              Target all non-disposables (templates and app qubes)
 ```
 
 To apply a state to all templates, call `qubesctl --templates state.highstate`.
@@ -263,14 +263,14 @@ Beginning with Qubes 4.0 and after [QSB #45](/news/2018/12/03/qsb-45/), we imple
 1. Added the `management_dispvm` VM property, which specifies the disposable
    Template that should be used for management, such as Salt
    configuration.  App qubes inherit this property from their
-   parent TemplateVMs.  If the value is not set explicitly, the default
+   parent templates.  If the value is not set explicitly, the default
    is taken from the global `management_dispvm` property. The
    VM-specific property is set with the `qvm-prefs` command, while the
    global property is set with the `qubes-prefs` command.
 
 2. Created the `default-mgmt-dvm` disposable template, which is hidden from
    the menu (to avoid accidental use), has networking disabled, and has
-   a black label (the same as TemplateVMs). This VM is set as the global
+   a black label (the same as templates). This VM is set as the global
    `management_dispvm`. Keep in mind that this disposable template has full control
    over the VMs it's used to manage.
 
@@ -420,7 +420,7 @@ The default settings can be overridden in the pillar data located in:
 ```
 
 In dom0, you can apply a single state with `sudo qubesctl state.sls STATE_NAME`.
-For example, `sudo qubesctl state.sls qvm.personal` will create a `personal` VM (if it does not already exist) with all its dependencies (TemplateVM, `sys-firewall`, and `sys-net`).
+For example, `sudo qubesctl state.sls qvm.personal` will create a `personal` VM (if it does not already exist) with all its dependencies (template, `sys-firewall`, and `sys-net`).
 
 ### Available states
 
@@ -483,27 +483,27 @@ Setup UpdatesProxy to route all templates updates through Tor (sys-whonix here).
 
 #### `qvm.template-fedora-21`
 
-Fedora-21 TemplateVM
+Fedora-21 template
 
 #### `qvm.template-fedora-21-minimal`
 
-Fedora-21 minimal TemplateVM
+Fedora-21 minimal template
 
 #### `qvm.template-debian-7`
 
-Debian 7 (wheezy) TemplateVM
+Debian 7 (wheezy) template
 
 #### `qvm.template-debian-8`
 
-Debian 8 (jessie) TemplateVM
+Debian 8 (jessie) template
 
 #### `qvm.template-whonix-gw`
 
-Whonix Gateway TemplateVM
+Whonix Gateway template
 
 #### `qvm.template-whonix-ws`
 
-Whonix Workstation TemplateVM
+Whonix Workstation template
 
 #### `update.qubes-dom0`
 
@@ -515,7 +515,7 @@ $ sudo qubesctl --show-output state.sls update.qubes-dom0
 
 #### `update.qubes-vm`
 
-Updates domUs. Example to update all TemplateVMs (executed in dom0):
+Updates domUs. Example to update all templates (executed in dom0):
 
 ```
 $ sudo qubesctl --show-output --skip-dom0 --templates state.sls update.qubes-vm
@@ -543,7 +543,7 @@ Additional pillar data is available to ease targeting configurations (for exampl
 VM type. Possible values:
 
 - `admin` - Administration domain (`dom0`)
-- `template` - Template VM
+- `template` - template
 - `standalone` - Standalone VM
 - `app` - Template based app qube
 
