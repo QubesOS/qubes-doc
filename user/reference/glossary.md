@@ -107,14 +107,14 @@ service qube
 A [qube](#qube) the primary purpose of which is to provide a service or services to other qubes.
 `sys-net` and `sys-firewall` are examples of service qubes.
 
-standalone (qube)
------------------
+standalone
+----------
 
-See [standalone qubes and HVMs](/doc/standalone-and-hvm/).
-In general terms, a [qube](#qube) is described as **standalone** if and only if it does not depend on any other qube for its root filesystem.
-(In other words, a qube is standalone if and only if it is not an app qube.)
-More specifically, a **standalone qube** is a type of qube that is created by cloning a template.
-Unlike templates, however, standalone qubes do not supply their root filesystems to other qubes.
+See [standalones and HVMs](/doc/standalone-and-hvm/).
+A type of [qube](#qube) that does not depend on any other qube for its root filesystem.
+The opposite of an app qube.
+A standalone is created by cloning a template.
+Unlike templates, however, standalones do not supply their root filesystems to other qubes.
 
 template
 --------
