@@ -91,20 +91,20 @@ Restore from your backup
 Note about additional disp-* qubes created during restore
 ---------------------------------------------------------
 
-One of differences between R3.2 and R4.0 is the handling of DisposableVMs.
-In R3.2, a DisposableVM inherited its network settings (NetVM and firewall rules) from the calling qube.
+One of differences between R3.2 and R4.0 is the handling of disposables.
+In R3.2, a disposable inherited its network settings (NetVM and firewall rules) from the calling qube.
 In R4.0, this is no longer the case.
-Instead, in R4.0 it's possible to create multiple DisposableVM Templates and choose which one should be used by each qube.
-It's even possible to use different DisposableVM Templates for different operations from the same qube.
+Instead, in R4.0 it's possible to create multiple disposable templates and choose which one should be used by each qube.
+It's even possible to use different disposable templates for different operations from the same qube.
 This allows much more flexibility, since it allows you to differentiate not only network settings, but all of a qube's properties (including its template, memory settings, etc.).
 
-Restoring a backup from R3.2 preserves the old behavior by creating separate DisposableVM Template for each network-providing qube (and also `disp-no-netvm` for network-isolated qubes).
-Then, each restored qube is configured to use the appropriate DisposableVM Template according to its `netvm` or `dispvm_netvm` property from R3.2.
-This way, DisposableVMs started on R4.0 by qubes restored from a R3.2 backup have the same NetVM settings as they had on R3.2.
+Restoring a backup from R3.2 preserves the old behavior by creating separate disposable template for each network-providing qube (and also `disp-no-netvm` for network-isolated qubes).
+Then, each restored qube is configured to use the appropriate disposable template according to its `netvm` or `dispvm_netvm` property from R3.2.
+This way, disposables started on R4.0 by qubes restored from a R3.2 backup have the same NetVM settings as they had on R3.2.
 
-If you find this behavior undesirable and want to configure it differently, you can remove those `disp-*` DisposableVM Templates.
+If you find this behavior undesirable and want to configure it differently, you can remove those `disp-*` disposable templates.
 But, to do so, you must first make sure they are not set as the value for the `default_dispvm` property on any other qube.
-Both Qubes Manager and the `qvm-remove` tool will show you where a DisposableVM Template is being used, so you can go there and change the setting.
+Both Qubes Manager and the `qvm-remove` tool will show you where a disposable template is being used, so you can go there and change the setting.
 
 Upgrade all Template and Standalone VM(s)
 -----------------------------------------

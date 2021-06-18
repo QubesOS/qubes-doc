@@ -143,7 +143,7 @@ Set memory as appropriate, and install the OS into this template in the same way
 Generally you should install in to the first "system" disk. (Resize it as needed before starting installation.)
 
 You can then create a new qube using the new template.
-If you use this Template as it is, then any HVMs that use it will effectively be DisposableVMs - all file system changes will be wiped when the HVM is closed down.
+If you use this Template as it is, then any HVMs that use it will effectively be disposables - all file system changes will be wiped when the HVM is closed down.
 
 Please see [this page](/doc/windows-appvms/) for specific advice on installing and using Windows-based Templates.
 

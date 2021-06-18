@@ -388,7 +388,7 @@ As always, exercise caution and use your good judgment.)
   See ticket [#474](https://github.com/QubesOS/qubes-issues/issues/474) for more details and plans how to get around this problem, as well as the section on [using Split GPG with subkeys](#advanced-using-split-gpg-with-subkeys).
 
 * It doesn't solve the problem of allowing the user to know what is to be signed before the operation gets approved.
-  Perhaps the GPG backend domain could start a DisposableVM and have the to-be-signed document displayed there? To Be Determined.
+  Perhaps the GPG backend domain could start a disposable and have the to-be-signed document displayed there? To Be Determined.
 
 * The Split GPG client will fail to sign or encrypt if the private key in the GnuPG backend is protected by a passphrase.
   It will give an `Inappropriate ioctl for device` error.

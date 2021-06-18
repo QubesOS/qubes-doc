@@ -244,7 +244,7 @@ optional arguments:
   --targets TARGETS  Coma separated list of VMs to target
   --templates        Target all templates
   --app              Target all app qubes
-  --all              Target all non-disposable VMs (TemplateVMs and app qubes)
+  --all              Target all non-disposables (TemplateVMs and app qubes)
 ```
 
 To apply a state to all templates, call `qubesctl --templates state.highstate`.
@@ -260,7 +260,7 @@ compromise cannot spread from one VM to another.
 
 Beginning with Qubes 4.0 and after [QSB #45](/news/2018/12/03/qsb-45/), we implemented two changes:
 
-1. Added the `management_dispvm` VM property, which specifies the DVM
+1. Added the `management_dispvm` VM property, which specifies the disposable
    Template that should be used for management, such as Salt
    configuration.  App qubes inherit this property from their
    parent TemplateVMs.  If the value is not set explicitly, the default
@@ -268,10 +268,10 @@ Beginning with Qubes 4.0 and after [QSB #45](/news/2018/12/03/qsb-45/), we imple
    VM-specific property is set with the `qvm-prefs` command, while the
    global property is set with the `qubes-prefs` command.
 
-2. Created the `default-mgmt-dvm` DisposableVM Template, which is hidden from
+2. Created the `default-mgmt-dvm` disposable template, which is hidden from
    the menu (to avoid accidental use), has networking disabled, and has
    a black label (the same as TemplateVMs). This VM is set as the global
-   `management_dispvm`. Keep in mind that this DVM template has full control
+   `management_dispvm`. Keep in mind that this disposable template has full control
    over the VMs it's used to manage.
 
 ## Writing Your Own Configurations
@@ -467,7 +467,7 @@ Vault app qube with no NetVM enabled.
 
 #### `qvm.default-dispvm`
 
-Default DisposableVM template - fedora-26-dvm app qube
+Default disposable template - fedora-26-dvm app qube
 
 #### `qvm.anon-whonix`
 
@@ -475,7 +475,7 @@ Whonix workstation app qube.
 
 #### `qvm.whonix-ws-dvm`
 
-Whonix workstation app qube for Whonix DisposableVMs.
+Whonix workstation app qube for Whonix disposables.
 
 #### `qvm.updates-via-whonix`
 

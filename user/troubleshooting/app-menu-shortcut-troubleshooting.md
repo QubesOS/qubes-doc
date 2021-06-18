@@ -78,7 +78,7 @@ If you only want to create a shortcut for a single app qube, you can create a cu
 What about applications in DispVMs?
 -----------------------------------
 
-[See here](/doc/disposablevm-customization/).
+[See here](/doc/disposable-customization/).
 
 Fixing shortcuts
 ----------------

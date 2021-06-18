@@ -106,8 +106,8 @@ As usual, the required packages are to be installed in the running template with
 In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be needed to make the customized minimal template work properly.
 These packages are:
 
-- `qubes-core-agent-nautilus`: This package provides integration with the Nautilus file manager (without it, items like "copy to VM/open in disposable VM" will not be shown in Nautilus).
-- `qubes-core-agent-thunar`: This package provides integration with the thunar file manager (without it, items like "copy to VM/open in disposable VM" will not be shown in thunar).
+- `qubes-core-agent-nautilus`: This package provides integration with the Nautilus file manager (without it, items like "copy to VM/open in disposable" will not be shown in Nautilus).
+- `qubes-core-agent-thunar`: This package provides integration with the thunar file manager (without it, items like "copy to VM/open in disposable" will not be shown in thunar).
 - `qubes-core-agent-dom0-updates`: Script required to handle `dom0` updates. Any template on which the qube responsible for 'dom0' updates (e.g. `sys-firewall`) is based must contain this package.
 - `qubes-menus`: Defines menu layout.
 - `qubes-desktop-linux-common`: Contains icons and scripts to improve desktop experience.
@@ -158,8 +158,8 @@ As usual, the required packages are to be installed in the running template with
 In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be needed to make the customized minimal template work properly.
 These packages are:
 
-- `qubes-core-agent-nautilus`: This package provides integration with the Nautilus file manager (without it, items like "copy to VM/open in disposable VM" will not be shown in Nautilus).
-- `qubes-core-agent-thunar`: This package provides integration with the thunar file manager (without it, items like "copy to VM/open in disposable VM" will not be shown in thunar).
+- `qubes-core-agent-nautilus`: This package provides integration with the Nautilus file manager (without it, items like "copy to VM/open in disposable" will not be shown in Nautilus).
+- `qubes-core-agent-thunar`: This package provides integration with the thunar file manager (without it, items like "copy to VM/open in disposable" will not be shown in thunar).
 - `qubes-core-agent-dom0-updates`: Script required to handle `dom0` updates. Any template on which the qube responsible for 'dom0' updates (e.g. `sys-firewall`) is based must contain this package.
 - `qubes-menus`: Defines menu layout.
 - `qubes-desktop-linux-common`: Contains icons and scripts to improve desktop experience.
@@ -201,8 +201,8 @@ As usual, the required packages are to be installed in the running template with
 In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be needed to make the customized minimal template work properly.
 These packages are:
 
-- `qubes-core-agent-nautilus`: This package provides integration with the Nautilus file manager (without it, items like "copy to VM/open in disposable VM" will not be shown in Nautilus).
-- `qubes-core-agent-thunar`: This package provides integration with the thunar file manager (without it, items like "copy to VM/open in disposable VM" will not be shown in thunar).
+- `qubes-core-agent-nautilus`: This package provides integration with the Nautilus file manager (without it, items like "copy to VM/open in disposable" will not be shown in Nautilus).
+- `qubes-core-agent-thunar`: This package provides integration with the thunar file manager (without it, items like "copy to VM/open in disposable" will not be shown in thunar).
 - `qubes-core-agent-dom0-updates`: Script required to handle `dom0` updates. Any template on which the qube responsible for 'dom0' updates (e.g. `sys-firewall`) is based must contain this package.
 - `qubes-menus`: Defines menu layout.
 - `qubes-desktop-linux-common`: Contains icons and scripts to improve desktop experience.
