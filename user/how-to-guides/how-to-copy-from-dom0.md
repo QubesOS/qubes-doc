@@ -69,7 +69,7 @@ For this reason, there is no simple means of copying anything into dom0, unlike 
 
 There should normally be few reasons for the user to want to copy anything from domUs to dom0, as dom0 only acts as a "thin trusted terminal", and no user applications run there.
 Sometimes, new users feel the urge to copy a desktop wallpaper image into dom0, but that is not necessary.
-A safer approach is simply to display the image in [full-screen mode](/doc/full-screen-mode/) in an AppVM, then take a screenshot from dom0, which results in exactly the image needed for a wallpaper, created securely and natively in dom0.
+A safer approach is simply to display the image in [full-screen mode](/doc/full-screen-mode/) in an app qube, then take a screenshot from dom0, which results in exactly the image needed for a wallpaper, created securely and natively in dom0.
 
 If you are determined to copy some files to dom0 anyway, you can use the following method.
 (If you want to copy text, first save it into a text file.)

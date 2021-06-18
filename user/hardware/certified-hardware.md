@@ -82,7 +82,7 @@ Among other things, this implies **proper DMAR ACPI table** construction.
 
 Finally, we require that Qubes-certified hardware does not have any built-in _USB-connected_ microphones (e.g. as part of a USB-connected built-in camera) that cannot be easily physically disabled by the user, e.g. via a convenient mechanical switch.
 Thankfully, the majority of laptops on the market that we have seen already satisfy this condition out-of-the-box, because their built-in microphones are typically connected to the internal audio device, which itself is a type of PCIe device.
-This is important, because such PCIe audio devices are --- by default --- assigned to Qubes' (trusted) dom0 and exposed through our carefully designed protocol only to select AppVMs when the user explicitly chooses to do so.
+This is important, because such PCIe audio devices are --- by default --- assigned to Qubes' (trusted) dom0 and exposed through our carefully designed protocol only to select app qubes when the user explicitly chooses to do so.
 The rest of the time, they should be outside the reach of malware.
 
 While we also recommend a physical kill switch on the built-in camera (or, if possible, not to have a built-in camera), we also recognize this isn't a critical requirement, because users who are concerned about it can easily cover it a piece of tape (something that, regrettably, is far less effective on a microphone).

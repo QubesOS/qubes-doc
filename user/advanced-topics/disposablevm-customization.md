@@ -15,15 +15,15 @@ title: DisposableVM Customization
 
 ## Introduction
 
-A [DisposableVM](/doc/disposablevm) can be based on any [TemplateBasedVM](/doc/glossary/#templatebasedvm).
+A [DisposableVM](/doc/disposablevm) can be based on any [app qube](/doc/glossary/#app-qube).
 You can also choose to use different [DisposableVM Templates](/doc/glossary/#disposablevm-template) for different DisposableVMs.
-To prepare an AppVM to be a DisposableVM Template, you need to set `template_for_dispvms` property, for example:
+To prepare an app qube to be a DisposableVM Template, you need to set `template_for_dispvms` property, for example:
 
 ```shell_session
 [user@dom0 ~]$ qvm-prefs fedora-26-dvm template_for_dispvms True
 ```
 
-Additionally, if you want to have menu entries for starting applications in DisposableVM based on this AppVM (instead of in the AppVM itself), you can achieve it with `appmenus-dispvm` feature:
+Additionally, if you want to have menu entries for starting applications in DisposableVM based on this app qube (instead of in the app qube itself), you can achieve it with `appmenus-dispvm` feature:
 
 ```shell_session
 [user@dom0 ~]$ qvm-features fedora-26-dvm appmenus-dispvm 1
@@ -84,8 +84,8 @@ This can be done by customizing the DisposableVM Template on which it is based:
 
 You can use a static DisposableVM for `sys-*` as long as it is stateless.
 For example, a `sys-net` using DHCP or `sys-usb` will work.
-In most cases `sys-firewall` will also work, even if you have configured AppVM firewall rules.
-The only exception is if you require something like VM to VM communication and have manually edited `iptables` or other items directly inside the firewall AppVM.
+In most cases `sys-firewall` will also work, even if you have configured app qube firewall rules.
+The only exception is if you require something like VM to VM communication and have manually edited `iptables` or other items directly inside the firewall app qube.
 
 To create one that has no PCI devices attached, such as for `sys-firewall`:
 
@@ -141,7 +141,7 @@ qubes-prefs clockvm sys-net2
 
 For added convenience, arbitrary programs can be added to the Application Menu of the DisposableVM. 
 
-In order to do that, select "Qube settings" entry in selected base AppVM, go to "Applications" tab and select desired applications as for any other qube.
+In order to do that, select "Qube settings" entry in selected base app qube, go to "Applications" tab and select desired applications as for any other qube.
 
 Note that currently only applications whose main process keeps running until you close the application (i.e. do not start a background process instead) will work. One of known examples of incompatible applications is GNOME Terminal (shown on the list as "Terminal"). Choose different terminal emulator (like XTerm) instead.
 
@@ -255,7 +255,7 @@ Using DisposableVMs in this manner is ideal for untrusted qubes which require pe
     [user@dom0 ~]$ qvm-prefs disp-sys-firewall netvm disp-sys-net
     ```
 
-4. Set `disp-sys-firewall` as NetVM for other AppVMs:
+4. Set `disp-sys-firewall` as NetVM for other app qubes:
 
     ```shell_session
     [user@dom0 ~]$ qvm-prefs <vm_name> netvm disp-sys-firewall

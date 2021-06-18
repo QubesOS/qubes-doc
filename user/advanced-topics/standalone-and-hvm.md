@@ -109,8 +109,8 @@ Several invocations of `qvm-start` command (as shown above) might be needed.
 
 ## Setting up networking for HVMs
 
-Just like standard paravirtualized AppVMs, the HVM qubes get fixed IP addresses centrally assigned by Qubes.
-Normally Qubes agent scripts (or services on Windows) running within each AppVM are responsible for setting up networking within the VM according to the configuration created by Qubes (through [keys](/doc/vm-interface/#qubesdb) exposed by dom0 to the VM).
+Just like standard paravirtualized app qubes, the HVM qubes get fixed IP addresses centrally assigned by Qubes.
+Normally Qubes agent scripts (or services on Windows) running within each app qube are responsible for setting up networking within the VM according to the configuration created by Qubes (through [keys](/doc/vm-interface/#qubesdb) exposed by dom0 to the VM).
 Such centrally managed networking infrastructure allows for [advanced networking configuration](https://blog.invisiblethings.org/2011/09/28/playing-with-qubes-networking-for-fun.html).
 
 A generic HVM domain such as a standard Windows or Ubuntu installation, however, has no Qubes agent scripts running inside it initially and thus requires manual configuration of networking so that it matches the values assigned by Qubes for this qube.
@@ -149,7 +149,7 @@ Please see [this page](/doc/windows-appvms/) for specific advice on installing a
 
 ## Cloning HVMs
 
-Just like normal AppVMs, the HVM domains can also be cloned either using the command-line `qvm-clone` or via the Qube Manager's 'Clone VM' option in the right-click menu.
+Just like normal app qubes, the HVM domains can also be cloned either using the command-line `qvm-clone` or via the Qube Manager's 'Clone VM' option in the right-click menu.
 
 The cloned VM will get identical root and private images and will essentially be identical to the original VM except that it will get a different MAC address for the networking interface:
 
@@ -249,7 +249,7 @@ timezone          : localtime
 
 ## Assigning PCI devices to HVMs
 
-HVM domains (including Windows VMs) can be [assigned PCI devices](/doc/assigning-devices/) just like normal AppVMs.
+HVM domains (including Windows VMs) can be [assigned PCI devices](/doc/assigning-devices/) just like normal app qubes.
 E.g. one can assign one of the USB controllers to the Windows VM and should be able to use various devices that require Windows software, such as phones, electronic devices that are configured via FTDI, etc.
 
 One problem at the moment however, is that after the whole system gets suspended into S3 sleep and subsequently resumed, some attached devices may stop working and should be restarted within the VM.
@@ -268,7 +268,7 @@ About 60 GB of disk space is required for conversion.
 Use an external harddrive if needed.
 The final root.img size is 40 GB.
 
-In Debian AppVM, install `qemu-utils` and `unzip`:
+In Debian app qube, install `qemu-utils` and `unzip`:
 
 ~~~
 sudo apt install qemu-utils unzip

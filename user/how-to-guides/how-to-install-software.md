@@ -202,7 +202,7 @@ Example policy file in R4.0 (with Whonix installed, but not set as default Updat
 
 ### Installing Snap Packages
 
-Snap packages do not use the normal update channels for Debian and Fedora (apt and dnf) and are often installed as the user rather than as root. To support these in an AppVM you need to take the following steps:
+Snap packages do not use the normal update channels for Debian and Fedora (apt and dnf) and are often installed as the user rather than as root. To support these in an app qube you need to take the following steps:
 
 1. In the **template** you must install `snapd` and `qubes-snapd-helper`. Open a terminal in the template and run:
 
@@ -256,29 +256,29 @@ Shutdown the template:
 [user@fedora-30-snap-demo ~]$ sudo shutdown -h now
 ```
 
-2. Now open the **AppVM** in which you would like to install the Snap application and run a terminal:
+2. Now open the **app qube** in which you would like to install the Snap application and run a terminal:
 
 ```shell_session
-[user@snap-demo-AppVM ~]$ snap install <package>
+[user@snap-demo-app qube ~]$ snap install <package>
 ```
 
 When the install is complete you can close the terminal window.
 
-3. Refresh the Applications list for the AppVM.
-In the Qubes Menu for the **AppVM*** launch the Qube Settings.
+3. Refresh the Applications list for the app qube.
+In the Qubes Menu for the **app qube*** launch the Qube Settings.
 Then go to the Applications tab and click "Refresh Applications"
 
-The refresh will take a few minutes; after it's complete the Snap app will appear in the AppVM's list of available applications. At this point the snap will be persistent within the AppVM and will receive updates when the AppVM is running.
+The refresh will take a few minutes; after it's complete the Snap app will appear in the app qube's list of available applications. At this point the snap will be persistent within the app qube and will receive updates when the app qube is running.
 
 ### Autostarting Installed Applications
 
-If you want a desktop app to start automatically every time a qube starts you can create a link to it in the `~/.config/autostart` directory of the **AppVM**. This might be useful for Qubes that you set to automatically start on boot or for Qubes that have a set of apps you typically use all day, such as a chat app.
+If you want a desktop app to start automatically every time a qube starts you can create a link to it in the `~/.config/autostart` directory of the **app qube**. This might be useful for Qubes that you set to automatically start on boot or for Qubes that have a set of apps you typically use all day, such as a chat app.
 
-1. Open a terminal in the **AppVM** where you would like the app to launch.
+1. Open a terminal in the **app qube** where you would like the app to launch.
 2. List the names of the available desktop shortcuts by running the command `ls /usr/share/applications` and find the exact name of the shortcut to the app you want to autostart:
 
 ```shell_session
-[user@example-AppVM ~]$ ls /usr/share/applications/
+[user@example-app qube ~]$ ls /usr/share/applications/
 bluetooth-sendto.desktop
 eog.desktop
 firefox.desktop
@@ -290,14 +290,14 @@ yelp.desktop
 3. Create the autostart directory:
 
 ```
-[user@example-AppVM ~]$ mkdir -p ~/.config/autostart
+[user@example-app qube ~]$ mkdir -p ~/.config/autostart
 ```
 
 4. Make a link to the desktop app file you'd like to start in the autostart directory. For example, the command below will link the Thunderbird app into the autostart directory:
 
 ```
-[user@example-AppVM ~]$ ln -s /usr/share/applications/mozilla-thunderbird.desktop ~/.config/autostart/mozilla-thunderbird.desktop
+[user@example-app qube ~]$ ln -s /usr/share/applications/mozilla-thunderbird.desktop ~/.config/autostart/mozilla-thunderbird.desktop
 ```
 
-Note that the app will autostart only when the AppVM starts. If you would like the AppVM to autostart, select the "Start qube automatically on boot" checkbox in the AppVM's Qube Settings.
+Note that the app will autostart only when the app qube starts. If you would like the app qube to autostart, select the "Start qube automatically on boot" checkbox in the app qube's Qube Settings.
 

@@ -56,7 +56,7 @@ Creating a backup
 
 3. Select the destination for the backup:
 
-   If you wish to send your backup to a (currently running) VM, select the VM in the drop-down box next to **Target AppVM**.
+   If you wish to send your backup to a (currently running) VM, select the VM in the drop-down box next to **Target app qube**.
    If you wish to send your backup to a [USB mass storage device](/doc/usb/), you can use the directory selection widget to mount a connected device (under "Other locations" item on the left); or first mount the device in a VM, then select the mount point inside that VM as the backup destination.
 
    You must also specify a directory on the device or in the VM, or a command to be executed in the VM as a destination for your backup.
@@ -95,7 +95,7 @@ This brings up the **Qubes Restore VMs** window.
 2. Select the source location of the backup to be restored:
 
    - If your backup is located on a [USB mass storage device](/doc/usb/), attach it first to another VM or select `sys-usb` in the next item.
-   - If your backup is located in a (currently running) VM, select the VM in the drop-down box next to **AppVM**.
+   - If your backup is located in a (currently running) VM, select the VM in the drop-down box next to **app qube**.
 
    You must also specify the directory and filename of the backup (or a command to be executed in a VM) in the **Backup file** field.
    If you followed the instructions in the previous section, "Creating a Backup," then your backup is most likely in the location you chose as the destination in step 3.

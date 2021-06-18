@@ -243,8 +243,8 @@ optional arguments:
   --skip-dom0        Skip dom0 configuration (VM creation etc)
   --targets TARGETS  Coma separated list of VMs to target
   --templates        Target all templates
-  --app              Target all AppVMs
-  --all              Target all non-disposable VMs (TemplateVMs and AppVMs)
+  --app              Target all app qubes
+  --all              Target all non-disposable VMs (TemplateVMs and app qubes)
 ```
 
 To apply a state to all templates, call `qubesctl --templates state.highstate`.
@@ -262,7 +262,7 @@ Beginning with Qubes 4.0 and after [QSB #45](/news/2018/12/03/qsb-45/), we imple
 
 1. Added the `management_dispvm` VM property, which specifies the DVM
    Template that should be used for management, such as Salt
-   configuration.  TemplateBasedVMs inherit this property from their
+   configuration.  App qubes inherit this property from their
    parent TemplateVMs.  If the value is not set explicitly, the default
    is taken from the global `management_dispvm` property. The
    VM-specific property is set with the `qvm-prefs` command, while the
@@ -451,31 +451,31 @@ Whonix gateway ProxyVM
 
 #### `qvm.personal`
 
-Personal AppVM
+Personal app qube
 
 #### `qvm.work`
 
-Work AppVM
+Work app qube
 
 #### `qvm.untrusted`
 
-Untrusted AppVM
+Untrusted app qube
 
 #### `qvm.vault`
 
-Vault AppVM with no NetVM enabled.
+Vault app qube with no NetVM enabled.
 
 #### `qvm.default-dispvm`
 
-Default DisposableVM template - fedora-26-dvm AppVM
+Default DisposableVM template - fedora-26-dvm app qube
 
 #### `qvm.anon-whonix`
 
-Whonix workstation AppVM.
+Whonix workstation app qube.
 
 #### `qvm.whonix-ws-dvm`
 
-Whonix workstation AppVM for Whonix DisposableVMs.
+Whonix workstation app qube for Whonix DisposableVMs.
 
 #### `qvm.updates-via-whonix`
 
@@ -545,7 +545,7 @@ VM type. Possible values:
 - `admin` - Administration domain (`dom0`)
 - `template` - Template VM
 - `standalone` - Standalone VM
-- `app` - Template based AppVM
+- `app` - Template based app qube
 
 ### `qubes:template`
 

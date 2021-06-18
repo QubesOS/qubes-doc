@@ -27,7 +27,7 @@ After installing a fresh Fedora TemplateVM, we recommend performing the followin
 
 1. [Update the TemplateVM](/doc/software-update-vm/).
 
-2. [Switch any TemplateBasedVMs that are based on the old TemplateVM to the new one](/doc/templates/#switching).
+2. [Switch any app qubes that are based on the old TemplateVM to the new one](/doc/templates/#switching).
 
 3. If desired, [uninstall the old TemplateVM](/doc/templates/#uninstalling).
 

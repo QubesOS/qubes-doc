@@ -16,7 +16,7 @@ ref: 168
 title: Split GPG
 ---
 
-Split GPG implements a concept similar to having a smart card with your private GPG keys, except that the role of the "smart card" is played by another Qubes AppVM.
+Split GPG implements a concept similar to having a smart card with your private GPG keys, except that the role of the "smart card" is played by another Qubes app qube.
 This way one not-so-trusted domain, e.g. the one where Thunderbird is running, can delegate all crypto operations -- such as encryption/decryption and signing -- to another, more trusted, network-isolated domain.
 This way the compromise of your domain where Thunderbird or another client app is running -- arguably a not-so-unthinkable scenario -- does not allow the attacker to automatically also steal all your keys.
 (We should make a rather obvious comment here that the so-often-used passphrases on private keys are pretty meaningless because the attacker can easily set up a simple backdoor which would wait until the user enters the passphrase and steal the key then.)
@@ -64,9 +64,9 @@ For Fedora:
 
 ### Setting up the GPG backend domain
 
-First, create a dedicated AppVM for storing your keys (we will be calling it the GPG backend domain).
+First, create a dedicated app qube for storing your keys (we will be calling it the GPG backend domain).
 It is recommended that this domain be network disconnected (set its netvm to `none`) and only used for this one purpose.
-In later examples this AppVM is named `work-gpg`, but of course it might have any other name.
+In later examples this app qube is named `work-gpg`, but of course it might have any other name.
 
 Make sure that gpg is installed there.
 At this stage you can add the private keys you want to store there, or you can now set up Split GPG and add the keys later.
@@ -116,7 +116,7 @@ ssb   4096R/30498E2A 2012-11-15
 (...)
 ```
 
-Note that running normal `gpg -K` in the demo above shows no private keys stored in this AppVM.
+Note that running normal `gpg -K` in the demo above shows no private keys stored in this app qube.
 
 A note on `gpg` and `gpg2`:
 
@@ -125,20 +125,20 @@ If you encounter trouble while trying to set up Split GPG, make sure you're usin
 
 ### Advanced Configuration
 
-The `qubes-gpg-client-wrapper` script sets the `QUBES_GPG_DOMAIN` variable automatically based on the content of the file `/rw/config/gpg-split-domain`, which should be set to the name of the GPG backend VM. This file survives the AppVM reboot, of course.
+The `qubes-gpg-client-wrapper` script sets the `QUBES_GPG_DOMAIN` variable automatically based on the content of the file `/rw/config/gpg-split-domain`, which should be set to the name of the GPG backend VM. This file survives the app qube reboot, of course.
 
 ```shell_session
 [user@work-email ~]$ sudo bash
 [root@work-email ~]$ echo "work-gpg" > /rw/config/gpg-split-domain
 ```
 
-Split GPG's default qrexec policy requires the user to enter the name of the AppVM containing GPG keys on each invocation. To improve usability for applications like Thunderbird with Enigmail, in `dom0` place the following line at the top of the file `/etc/qubes-rpc/policy/qubes.Gpg`:
+Split GPG's default qrexec policy requires the user to enter the name of the app qube containing GPG keys on each invocation. To improve usability for applications like Thunderbird with Enigmail, in `dom0` place the following line at the top of the file `/etc/qubes-rpc/policy/qubes.Gpg`:
 
 ```
 work-email  work-gpg  allow
 ```
 
-where `work-email` is the Thunderbird + Enigmail AppVM and `work-gpg` contains your GPG keys.
+where `work-email` is the Thunderbird + Enigmail app qube and `work-gpg` contains your GPG keys.
 
 You may also edit the qrexec policy file for Split GPG in order to tell Qubes your default gpg vm (qrexec prompts will appear with the gpg vm preselected as the target, instead of the user needing to type a name in manually). To do this, append `,default_target=<vmname>` to `ask` in `/etc/qubes-rpc/policy/qubes.Gpg`. For the examples given on this page:
 
@@ -146,7 +146,7 @@ You may also edit the qrexec policy file for Split GPG in order to tell Qubes yo
 @anyvm  @anyvm  ask,default_target=work-gpg
 ```
 
-Note that, because this makes it easier to accept Split GPG's qrexec authorization prompts, it may decrease security if the user is not careful in reviewing presented prompts. This may also be inadvisable if there are multiple AppVMs with Split GPG set up.
+Note that, because this makes it easier to accept Split GPG's qrexec authorization prompts, it may decrease security if the user is not careful in reviewing presented prompts. This may also be inadvisable if there are multiple app qubes with Split GPG set up.
 
 ## Using Thunderbird
 
@@ -222,7 +222,7 @@ The following command will configure Keybase to use `/usr/bin/qubes-gpg-client-w
 $ keybase config set gpg.command /usr/bin/qubes-gpg-client-wrapper
 ```
 
-Now that Keybase is configured to use `qubes-gpg-client-wrapper`, you will be able to use `keybase pgp select` to choose a GPG key from your backend GPG AppVM and link that key to your Keybase identity.
+Now that Keybase is configured to use `qubes-gpg-client-wrapper`, you will be able to use `keybase pgp select` to choose a GPG key from your backend GPG app qube and link that key to your Keybase identity.
 
 ## Using Git with Split GPG
 
@@ -271,7 +271,7 @@ Now you can use `git stag` to add a signed tag to a commit and `git vtag` to ver
 
 ## Importing public keys
 
-Use `qubes-gpg-import-key` in the client AppVM to import the key into the GPG backend VM.
+Use `qubes-gpg-import-key` in the client app qube to import the key into the GPG backend VM.
 
 ```shell_session
 [user@work-email ~]$ export QUBES_GPG_DOMAIN=work-gpg

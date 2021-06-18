@@ -36,8 +36,8 @@ In our example, this is `sys-usb:sda`, so hover over it.
 This will pop up a submenu showing running VMs to which the USB drive can be connected.
 Click on one and your USB drive will be attached!
 
-**Note:** attaching individual partitions (e.g. `sys-usb:sda1`) can be slightly more secure because it doesn't force the target AppVM to parse the partition table.
-However, it often means the AppVM won't detect the new partition and you will need to manually mount it inside the AppVM.
+**Note:** attaching individual partitions (e.g. `sys-usb:sda1`) can be slightly more secure because it doesn't force the target app qube to parse the partition table.
+However, it often means the app qube won't detect the new partition and you will need to manually mount it inside the app qube.
 See below for more detailed steps.
 
 ## Block Devices in VMs

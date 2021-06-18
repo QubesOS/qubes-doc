@@ -70,7 +70,7 @@ To update or install packages, execute the following command in dom0 (where `X` 
 This opens a root terminal in the Minimal TemplateVM, from which you can use execute root commands without `sudo`.
 You will have to do this every time if you choose not to enable passwordless root.
 
-If you want to be able to use `sudo` inside a Minimal TemplateVM (or TemplateBasedVMs based on a Minimal TemplateVM), open a root terminal as just instructed, then install the `qubes-core-agent-passwordless-root` package.
+If you want to be able to use `sudo` inside a Minimal TemplateVM (or app qubes based on a Minimal TemplateVM), open a root terminal as just instructed, then install the `qubes-core-agent-passwordless-root` package.
 
 Optionally, verify that passwordless root now works by opening a normal (non-root) xterm window in the Minimal TemplateVM, then issue the command `sudo -l`.
 This should give you output that includes the `NOPASSWD` keyword.

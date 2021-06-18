@@ -82,11 +82,11 @@ Restore from your backup
 4. Go to **Qubes menu -> System Tools -> Qubes Manager** to start it.
 
 5. Follow the **Restoring from a Backup** section in the [Backup, Restoration, and Migration](/doc/backup-restore/) guide.
-   We recommend that you restore only your [TemplateBasedVMs](/doc/glossary/#templatebasedvm) and [StandaloneVMs](/doc/glossary/#standalonevm) from R3.2.
+   We recommend that you restore only your [app qubes](/doc/glossary/#app-qube) and [StandaloneVMs](/doc/glossary/#standalonevm) from R3.2.
    Using [TemplateVMs](/doc/templates/) and [SystemVMs](/doc/glossary/#systemvm) from R3.2 is not fully supported (see [#3514](https://github.com/QubesOS/qubes-issues/issues/3514)).
    Instead, we recommend using the TemplateVMs that were created specifically for R4.0, which you can [customize](/doc/software-update-vm/) according to your needs.
    For the TemplateVM OS versions supported in R4.0, see [Supported Versions](/doc/supported-versions/#templatevms).
-   If the restore tool complains about missing templates, you can select the option to restore the AppVMs anyway, then change them afterward to use one of the default R4.0 templates.
+   If the restore tool complains about missing templates, you can select the option to restore the app qubes anyway, then change them afterward to use one of the default R4.0 templates.
 
 Note about additional disp-* qubes created during restore
 ---------------------------------------------------------

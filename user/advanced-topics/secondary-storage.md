@@ -12,12 +12,12 @@ title: Secondary Storage
 
 
 Suppose you have a fast but small primary SSD and a large but slow secondary HDD.
-You want to store a subset of your AppVMs on the HDD.
+You want to store a subset of your app qubes on the HDD.
 
 ## Instructions
 
 Qubes 4.0 is more flexible than earlier versions about placing different VMs on different disks.
-For example, you can keep templates on one disk and AppVMs on another, without messy symlinks.
+For example, you can keep templates on one disk and app qubes on another, without messy symlinks.
 
 These steps assume you have already created a separate [volume group](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/logical_volume_manager_administration/vg_admin#VG_create) and [thin pool](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/logical_volume_manager_administration/thinly_provisioned_volume_creation) (not thin volume) for your HDD.
 See also [this example](https://www.linux.com/blog/how-full-encrypt-your-linux-system-lvm-luks) if you would like to create an encrypted LVM pool (but note you can use a single logical volume if preferred, and to use the `-T` option on `lvcreate` to specify it is thin). You can find the commands for this example applied to Qubes at the bottom of this R4.0 section.

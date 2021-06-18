@@ -16,10 +16,10 @@ title: How to Use DisposableVMs
 A DisposableVM (previously known as a "DispVM") is a lightweight VM that can be created quickly and will disappear when closed.
 DisposableVMs are usually created in order to host a single application, like a viewer, editor, or web browser.
 
-From inside an AppVM, choosing the `Open in DisposableVM` option on a file will launch a DisposableVM for just that file.
+From inside an app qube, choosing the `Open in DisposableVM` option on a file will launch a DisposableVM for just that file.
 Changes made to a file opened in a DisposableVM are passed back to the originating VM.
 This means that you can safely work with untrusted files without risk of compromising your other VMs.
-DisposableVMs can be launched either directly from dom0's Start Menu or terminal window, or from within AppVMs.
+DisposableVMs can be launched either directly from dom0's Start Menu or terminal window, or from within app qubes.
 While running, DisposableVMs will appear in Qubes VM Manager with the name `disp####`.
 
 [![disposablevm-example.png](/attachment/wiki/DisposableVms/disposablevm-example.png)](/attachment/wiki/DisposableVms/disposablevm-example.png)
@@ -42,20 +42,20 @@ When it is essential to avoid leaving any trace, consider using [Tails](https://
 
 ## DisposableVMs and Networking
 
-Similarly to how AppVMs are based on their underlying [TemplateVM](/doc/glossary/#templatevm), DisposableVMs are based on their underlying [DisposableVM Template](/doc/glossary/#disposablevm-template).
+Similarly to how app qubes are based on their underlying [TemplateVM](/doc/glossary/#templatevm), DisposableVMs are based on their underlying [DisposableVM Template](/doc/glossary/#disposablevm-template).
 R4.0 introduces the concept of multiple DisposableVM Templates, whereas R3.2 was limited to only one.
 
 On a fresh installation of Qubes, the default DisposableVM Template is called `fedora-XX-dvm` (where `XX` is the Fedora version of the default TemplateVM).
 If you have included the Whonix option in your install, there will also be a `whonix-ws-dvm` DisposableVM Template available for your use.
 
-You can set any AppVM to have the ability to act as a DisposableVM Template with:
+You can set any app qube to have the ability to act as a DisposableVM Template with:
 
 ```
 qvm-prefs <vmname> template_for_dispvms True
 ```
 
 The default system wide DisposableVM Template can be changed with `qubes-prefs default_dispvm`.
-By combining the two, choosing `Open in DisposableVM` from inside an AppVM will open the document in a DisposableVM based on the default DisposableVM Template you specified.
+By combining the two, choosing `Open in DisposableVM` from inside an app qube will open the document in a DisposableVM based on the default DisposableVM Template you specified.
 
 You can change this behaviour for individual VMs: in the Application Menu, open Qube Settings for the VM in question and go to the "Advanced" tab.
 Here you can edit the "Default DisposableVM" setting to specify which DisposableVM Template will be used to launch DisposableVMs from that VM.
@@ -66,13 +66,13 @@ qvm-prefs <VM> default_dispvm <DISPOSABLEVM_TEMPLATE>
 ```
 
 For example, `anon-whonix` has been set to use `whonix-ws-dvm` as its `default_dispvm`, instead of the system default.
-You can even set an AppVM that has also been configured as a DisposableVM Template to use itself, so DisposableVMs launched from within the AppVM/DisposableVM Template would inherit the same settings.
+You can even set an app qube that has also been configured as a DisposableVM Template to use itself, so DisposableVMs launched from within the app qube/DisposableVM Template would inherit the same settings.
 
 NetVM and firewall rules for DisposableVM Templates can be set as they can for a normal VM.
 By default a DisposableVM will inherit the NetVM and firewall settings of the DisposableVM Template on which it is based.
-This is a change in behaviour from R3.2, where DisposableVMs would inherit the settings of the AppVM from which they were launched.
-Therefore, launching a DisposableVM from an AppVM will result in it using the network/firewall settings of the DisposableVM Template on which it is based.
-For example, if an AppVM uses sys-net as its NetVM, but the default system DisposableVM uses sys-whonix, any DisposableVM launched from this AppVM will have sys-whonix as its NetVM.
+This is a change in behaviour from R3.2, where DisposableVMs would inherit the settings of the app qube from which they were launched.
+Therefore, launching a DisposableVM from an app qube will result in it using the network/firewall settings of the DisposableVM Template on which it is based.
+For example, if an app qube uses sys-net as its NetVM, but the default system DisposableVM uses sys-whonix, any DisposableVM launched from this app qube will have sys-whonix as its NetVM.
 
 **Warning:** The opposite is also true.
 This means if you have changed anon-whonix's `default_dispvm` to use the system default, and the system default DisposableVM uses sys-net, launching a DisposableVM from inside anon-whonix will result in the DisposableVM using sys-net.
@@ -96,11 +96,11 @@ qvm-run --dispvm=<DISPOSABLEVM_TEMPLATE> --service qubes.StartApp+NameOfApp
 
 ## Opening a file in a DisposableVM via GUI
 
-In an AppVM's file manager, right click on the file you wish to open in a DisposableVM, then choose "View in DisposableVM" or "Edit in DisposableVM".
+In an app qube's file manager, right click on the file you wish to open in a DisposableVM, then choose "View in DisposableVM" or "Edit in DisposableVM".
 Wait a few seconds and the default application for this file type should appear displaying the file content.
 This app is running in its own dedicated VM -- a DisposableVM created for the purpose of viewing or editing this very file.
 Once you close the viewing application the whole DisposableVM will be destroyed.
-If you have edited the file and saved the changes, the changed file will be saved back to the original AppVM, overwriting the original.
+If you have edited the file and saved the changes, the changed file will be saved back to the original app qube, overwriting the original.
 
 ![r4.0-open-in-dispvm-1.png](/attachment/wiki/DisposableVms/r4.0-open-in-dispvm-1.png) ![r4.0-open-in-dispvm-2.png](/attachment/wiki/DisposableVms/r4.0-open-in-dispvm-2.png)
 
@@ -115,9 +115,9 @@ Once you close the viewing application the whole DisposableVM will be destroyed.
 ![r4.0-open-in-dispvm-3.png](/attachment/wiki/DisposableVms/r4.0-open-in-dispvm-3.png)
 
 
-## Opening a file in a DisposableVM via command line (from AppVM)
+## Opening a file in a DisposableVM via command line (from app qube)
 
-Use the `qvm-open-in-dvm` command from a terminal in your AppVM:
+Use the `qvm-open-in-dvm` command from a terminal in your app qube:
 
 ~~~
 [user@work-pub ~]$ qvm-open-in-dvm Downloads/apple-sandbox.pdf
@@ -125,12 +125,12 @@ Use the `qvm-open-in-dvm` command from a terminal in your AppVM:
 
 Note that the `qvm-open-in-dvm` process will not exit until you close the application in the DisposableVM.
 
-## Starting an arbitrary program in a DisposableVM from an AppVM
+## Starting an arbitrary program in a DisposableVM from an app qube
 
 Sometimes it can be useful to start an arbitrary program in a DisposableVM.
 The DisposableVM will stay running so long as the process which started the DisposableVM has not exited.
 Some applications, such as GNOME Terminal, do not wait for the application to close before the process exits (details [here](https://github.com/QubesOS/qubes-issues/issues/2581#issuecomment-272664009)).
-Starting an arbitrary program can be done from an AppVM by running
+Starting an arbitrary program can be done from an app qube by running
 
 ~~~
 [user@vault ~]$ qvm-run '@dispvm' xterm

@@ -17,7 +17,7 @@ Any [qube](#qube) that depends on a [template](#template) for its root filesyste
 
 * Historical note: This term originally meant "a qube intended for running user software applications" (hence the name "app").
 
-* Historical note: This is the preferred term replacing the deprecated term "TemplateBasedVM."
+* Historical note: This is the preferred term replacing the deprecated term "app qube."
 
 disposable
 ----------

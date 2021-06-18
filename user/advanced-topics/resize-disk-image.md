@@ -85,7 +85,7 @@ zpool online -e poolname ada0
 
 #### Linux
 
-Qubes will automatically grow the filesystem for you on all AppVMs with Qubes packages installed (which are all AppVMs installed from templates, cloned from templates etc. - if you have not created an empty HVM and installed a Linux distribution in it, without using Qubes repositories, you are almost certainly safe).
+Qubes will automatically grow the filesystem for you on all app qubes with Qubes packages installed (which are all app qubes installed from templates, cloned from templates etc. - if you have not created an empty HVM and installed a Linux distribution in it, without using Qubes repositories, you are almost certainly safe).
 Otherwise, you will see that there is unallocated free space at the end of your primary disk.
 You can use standard linux tools like `fdisk` and `resize2fs` to make this space available.
 
