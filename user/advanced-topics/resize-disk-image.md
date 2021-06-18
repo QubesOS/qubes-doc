@@ -30,7 +30,7 @@ There are risks attached to reducing the size of an image, and in general you sh
 There are several disk images which can be easily extended, but pay attention to the overall consumed space of your sparse/thin disk images.
 In most cases, the GUI tool Qube Settings (available for every qube from the Start menu, and also in the Qube Manager) will allow you to easily increase maximum disk image size.
 
-![vm-settings-disk-image.png](/attachment/wiki/DiskSize/r4.0-vm-settings-disk-image.png)
+![vm-settings-disk-image.png](/attachment/doc/r4.0-vm-settings-disk-image.png)
 
 In case of standalone qubes and templates, just change the Disk Storage settings above.
 In case of template-based qubes, the private storage (the /home directory and user files) can be changed in the qube's own settings, but the system root image is [inherited from the template](/doc/how-to-get-started/), and so it must be changed in the template settings.

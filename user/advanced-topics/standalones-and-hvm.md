@@ -120,7 +120,7 @@ In this instance our DHCP server is not useful.
 In order to manually configure networking in a VM, one should first find out the IP/netmask/gateway assigned to the particular VM by Qubes.
 This can be seen e.g. in the Qube Manager in the qube's properties:
 
-![r2b1-manager-networking-config.png](/attachment/wiki/HvmCreate/r2b1-manager-networking-config.png)
+![r2b1-manager-networking-config.png](/attachment/doc/r2b1-manager-networking-config.png)
 
 Alternatively, one can use the `qvm-ls -n` command to obtain the same information, (IP/netmask/gateway).
 
@@ -255,7 +255,7 @@ One problem at the moment however, is that after the whole system gets suspended
 This can be achieved under a Windows HVM by opening the Device Manager, selecting the actual device (such as a USB controller), 'Disabling' the device, and then 'Enabling' the device again.
 This is illustrated on the screenshot below:
 
-![r2b1-win7-usb-disable.png](/attachment/wiki/HvmCreate/r2b1-win7-usb-disable.png)
+![r2b1-win7-usb-disable.png](/attachment/doc/r2b1-win7-usb-disable.png)
 
 ## Converting VirtualBox VMs to Qubes HVMs
 

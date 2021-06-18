@@ -38,7 +38,7 @@ Typically, the first thing that a `qrexec-client` instance does is to send a req
 `qrexec-client` starts a vchan server, which `qrexec-agent` then connects to.
 Once this channel is established, stdin/stdout/stderr from the VMprocess is passed between `qrexec-agent` and the `qrexec-client` process.
 
-![qrexec basics diagram](/attachment/wiki/qrexec3/qrexec3-basics.png)
+![qrexec basics diagram](/attachment/doc/qrexec3-basics.png)
 
 The `qrexec-client` command is used to make connections to VMs from dom0.
 For example, the following command creates an empty file called `hello-world.txt` in the home folder of `someVM`:

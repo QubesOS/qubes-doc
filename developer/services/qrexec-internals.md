@@ -117,7 +117,7 @@ Details of all possible use cases and the messages involved are described below.
 
 ### dom0: request execution of `cmd` in domX
 
-![qrexec internals diagram dom0-vm](/attachment/wiki/qrexec3/qrexec-dom0-vm.png)
+![qrexec internals diagram dom0-vm](/attachment/doc/qrexec-dom0-vm.png)
 
 - **dom0**: `qrexec-client` is invoked in **dom0** as follows:
 
@@ -145,7 +145,7 @@ Details of all possible use cases and the messages involved are described below.
 
 ### domX: request execution of service `admin.Service` in dom0
 
-![qrexec internals diagram vm-dom0](/attachment/wiki/qrexec3/qrexec-vm-dom0.png)
+![qrexec internals diagram vm-dom0](/attachment/doc/qrexec-vm-dom0.png)
 
 - **domX**: `qrexec-client-vm` is invoked as follows:
 
@@ -191,7 +191,7 @@ Details of all possible use cases and the messages involved are described below.
 
 ### domX: invoke execution of qubes service `qubes.Service` in domY
 
-![qrexec internals diagram vm-vm](/attachment/wiki/qrexec3/qrexec-vm-vm.png)
+![qrexec internals diagram vm-vm](/attachment/doc/qrexec-vm-vm.png)
 
 - **domX**: `qrexec-client-vm` is invoked as follows:
 

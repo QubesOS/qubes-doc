@@ -27,7 +27,7 @@ How to edit rules
 
 In order to edit rules for a given qube, select it in the Qube Manager and press the "firewall" button.
 
-![r4.0-manager-firewall.png](/attachment/wiki/QubesFirewall/r4.0-manager-firewall.png)
+![r4.0-manager-firewall.png](/attachment/doc/r4.0-manager-firewall.png)
 
 If the qube is running, you can open Settings from the Qube Popup Menu.
 

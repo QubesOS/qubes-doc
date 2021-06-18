@@ -33,9 +33,9 @@ But it has some [issues](https://github.com/QubesOS/qubes-issues/issues/4661).)
 
 ### With Qubes Device Manager
 
-Click the device-manager-icon: ![device manager icon](/attachment/wiki/Devices/media-removable.png)
+Click the device-manager-icon: ![device manager icon](/attachment/doc/media-removable.png)
 A list of available devices appears.
-USB-devices have a USB-icon to their right: ![usb icon](/attachment/wiki/Devices/generic-usb.png)
+USB-devices have a USB-icon to their right: ![usb icon](/attachment/doc/generic-usb.png)
 
 Hover on one device to display a list of VMs you may attach it to.
 
@@ -46,7 +46,7 @@ You're done.
 After you finished using the USB-device, you can detach it the same way by clicking on the Devices Widget.
 You will see an entry in bold for your device such as **`sys-usb:2-5 - 058f_USB_2.0_Camera`**.
 Hover on the attached device to display a list of running VMs.
-The one to which your device is connected will have an eject button ![eject icon](/attachment/wiki/Devices/media-eject.png) next to it.
+The one to which your device is connected will have an eject button ![eject icon](/attachment/doc/media-eject.png) next to it.
 Click that and your device will be detached.
 
 ### With The Command Line Tool

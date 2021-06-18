@@ -38,7 +38,7 @@ PCI devices can be attached using the Qube Settings, but require a VM reboot.
 
 ## General Qubes Device Widget Behavior And Handling ##
 
-When clicking on the tray icon (which looks similar to this): ![SD card and thumbdrive](/attachment/wiki/Devices/media-removable.png) several device-classes separated by lines are displayed as tooltip.
+When clicking on the tray icon (which looks similar to this): ![SD card and thumbdrive](/attachment/doc/media-removable.png) several device-classes separated by lines are displayed as tooltip.
 Block devices are displayed on top, microphones one below and USB-devices at the bottom.
 
 On most laptops, integrated hardware such as cameras and fingerprint-readers are implemented as USB-devices and can be found here.
@@ -57,7 +57,7 @@ Click on one and your device will be attached!
 To detach a device, click the Qubes Devices Widget icon again.
 Attached devices are displayed in bold.
 Hover the one you want to detach.
-A list of VMs appears, one showing the eject symbol: ![eject icon](/attachment/wiki/Devices/media-eject.png)
+A list of VMs appears, one showing the eject symbol: ![eject icon](/attachment/doc/media-eject.png)
 
 
 ### Attaching a Device to Several VMs ###
