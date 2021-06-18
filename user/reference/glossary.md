@@ -19,11 +19,11 @@ filesystem.
   software applications" (hence the name "app").
 
 * Historical note: This is the preferred term replacing the deprecated term
-  "app qube."
+  "TemplateBasedVM."
 
 ## disposable
 
-See [Dispoables](/doc/how-to-use-disposables/). A temporary [app
+See [How to Use Dispoables](/doc/how-to-use-disposables/). A temporary [app
 qube](#app-qube) based on a [disposable template](#disposable-template) that
 can quickly be created, used, and destroyed.
 
@@ -46,8 +46,8 @@ qube started by the Xen hypervisor on boot. Dom0 runs the Xen management
 toolstack and has special privileges relative to other domains, such as direct
 access to most hardware.
 
-* The term "dom0" is not a proper noun and should not be capitalized (unless
-  it's the first word in a sentence, for example).
+* The term "dom0" is not a proper noun and should not be capitalized unless
+  it's the first word in a sentence.
 
 * The use of [domain](#domain) as a synonym for [VM](#vm) is specific to Xen.
   Qubes diverges from this practice. See: [domain](#domain).
@@ -124,7 +124,7 @@ qubes.
 
 ## standalone
 
-See [Standalones and HVMs](/doc/standalone-and-hvm/). A type of [qube](#qube)
+See [Standalones and HVMs](/doc/standalones-and-hvm/). A type of [qube](#qube)
 that does not depend on any other qube for its root filesystem. The opposite of
 an app qube. A standalone is created by cloning a template. Unlike templates,
 however, standalones do not supply their root filesystems to other qubes.
