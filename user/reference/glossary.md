@@ -22,7 +22,7 @@ Any [qube](#qube) that depends on a [template](#template) for its root filesyste
 disposable
 ----------
 
-See [dispoable](/doc/disposables/).
+See [Dispoables](/doc/disposables/).
 A temporary [app qube](#app-qube) based on a [disposable template](#disposable-template) that can quickly be created, used, and destroyed.
 
 
@@ -110,7 +110,7 @@ A [qube](#qube) the primary purpose of which is to provide a service or services
 standalone
 ----------
 
-See [standalones and HVMs](/doc/standalone-and-hvm/).
+See [Standalones and HVMs](/doc/standalone-and-hvm/).
 A type of [qube](#qube) that does not depend on any other qube for its root filesystem.
 The opposite of an app qube.
 A standalone is created by cloning a template.
@@ -119,7 +119,7 @@ Unlike templates, however, standalones do not supply their root filesystems to o
 template
 --------
 
-See [templates](/doc/templates/).
+See [Templates](/doc/templates/).
 Any [qube](#qube) that supplies its root filesystem to another qube.
 Templates are intended for installing and updating software applications, but not for running them.
 
