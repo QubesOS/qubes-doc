@@ -24,21 +24,24 @@ filesystem.
 
 ## disposable
 
-See [How to Use Dispoables](/doc/how-to-use-disposables/). A type of temporary
-[app qube](#app-qube) that can quickly be created, used, and destroyed. Each
-disposable is based on a [disposable template](#disposable-template).
+A type of temporary [app qube](#app-qube) that can quickly be created, used,
+and destroyed. Each disposable is based on a [disposable
+template](#disposable-template).
+
+See [How to Use Dispoables](/doc/how-to-use-disposables/).
 
 ## disposable template
 
 A type of [app qube](#app-qube) on which [disposables](#disposable) are based.
-(Not to be confused with the concept of a regular [template](#template) that is
-itself disposable, which does not exist in Qubes OS.)
+
+* Not to be confused with the concept of a regular [template](#template) that
+  is itself disposable, which does not exist in Qubes OS.
 
 * Disposable templates must be app qubes. They cannot be regular
   [templates](#template).
 
-* Each [disposables](#disposable) is based on a disposable template, which is
-  in turn based on a regular [templates](#template).
+* Each [disposable](#disposable) is based on a disposable template, which is in
+  turn based on a regular [template](#template).
 
 ## dom0
 
@@ -52,10 +55,11 @@ access to most hardware.
 
 ## domain
 
-In Xen, a synonym for [VM](#vm). See ["domain" on the Xen
-Wiki](https://wiki.xenproject.org/wiki/Domain).
+In Xen, a synonym for [VM](#vm).
 
-* This term has no official meaning in the context of Qubes OS.
+See ["domain" on the Xen Wiki](https://wiki.xenproject.org/wiki/Domain).
+
+* This term has no official meaning in Qubes OS.
 
 ## domU
 
@@ -68,11 +72,12 @@ domUs lack direct hardware access.
 
 ## HVM
 
-[Hardware-assisted Virtual Machine](/doc/standalones-and-HVM/). Any fully
-virtualized, or hardware-assisted, [VM](#vm) utilizing the virtualization
-extensions of the host CPU. Although HVMs are typically slower than
-paravirtualized qubes due to the required emulation, HVMs allow the user to
-create domains based on any operating system.
+Hardware-assisted Virtual Machine. Any fully virtualized, or hardware-assisted,
+[VM](#vm) utilizing the virtualization extensions of the host CPU. Although
+HVMs are typically slower than paravirtualized qubes due to the required
+emulation, HVMs allow the user to create domains based on any operating system.
+
+See [Standalones and HVM](/doc/standalones-and-HVM/).
 
 ## qube
 
@@ -108,11 +113,12 @@ compartmentalized (or isolated) in separate [qubes](#qube).
   shortened to "Qubes." Only in technical contexts where spaces are not
   permitted (e.g., in usernames) may the space be omitted, as in `@QubesOS`.
 
-## Qubes Windows Tools
+## Qubes Windows Tools (QWT)
 
-[Qubes Windows Tools (QWT)](/doc/windows-tools/) are a set of programs and
-drivers that provide integration of Windows qubes with the rest of the Qubes OS
-system. Also see [Windows](/doc/windows/).
+A set of programs and drivers that provide integration of Windows qubes with
+the rest of the Qubes OS system.
+
+See [Qubes Windows Tools](/doc/windows-tools/) and [Windows](/doc/windows/).
 
 ## service qube
 
@@ -122,19 +128,22 @@ qubes.
 
 ## standalone
 
-See [Standalones and HVMs](/doc/standalones-and-hvm/). Any [qube](#qube) that
-has its own root filesystem and does not share it with another qube.
-Standalones are distinct from both templates and app qubes. A standalone is
-created by cloning a template while selecting the option to make the clone
-standalone.
+Any [qube](#qube) that has its own root filesystem and does not share it with
+another qube. Standalones are distinct from both templates and app qubes. A
+standalone is created by cloning a template while selecting the option to make
+the clone standalone.
+
+See [Standalones and HVMs](/doc/standalones-and-hvm/).
 
 ## template
 
-See [Templates](/doc/templates/). Any [qube](#qube) that shares its root
-filesystem with another qube. A qube that is borrowing a template's root
-filesystem is known as an [app qube](#app-qube) and is said to be "based on"
-the template. Templates are intended for installing and updating software
-applications, but not for running them.
+Any [qube](#qube) that shares its root filesystem with another qube. A qube
+that is borrowing a template's root filesystem is known as an [app
+qube](#app-qube) and is said to be "based on" the template. Templates are
+intended for installing and updating software applications, but not for running
+them.
+
+See [Templates](/doc/templates/).
 
 * No template is an [app qube](#app-qube).
 
