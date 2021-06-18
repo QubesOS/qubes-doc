@@ -43,9 +43,9 @@ non-security enhancements and bug fixes.
 
 Fully updating your Qubes OS system means updating:
 
-- [Dom0](/doc/how-to-install-software-in-dom0/)
-- [templates](/doc/how-to-install-software/#instructions)
-- [standalones](/doc/how-to-install-software/#standalones) (if you have any)
+- [dom0](/doc/glossary/#dom0)
+- [templates](/doc/glossary/#template)
+- [standalones](/doc/glossary/#standalone) (if you have any)
 
 You can accomplish this using the **Qubes Update** tool.
 
