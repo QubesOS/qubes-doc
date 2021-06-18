@@ -36,7 +36,7 @@ The scripts here all run as root.
 
 - `/rw/config/qubes-ip-change-hook` - script runs in NetVM after every external IP change and on "hardware" link status change.
 
-- In ProxyVMs (or AppVMs with `qubes-firewall` service enabled), scripts placed in the following directories will be executed in the listed order followed by `qubes-firewall-user-script` at start up.
+- In ProxyVMs (or app qubes with `qubes-firewall` service enabled), scripts placed in the following directories will be executed in the listed order followed by `qubes-firewall-user-script` at start up.
   Good place to write custom firewall rules.
 
     ~~~
@@ -49,7 +49,7 @@ The scripts here all run as root.
   The file is used only in a VM with PCI devices attached.
   Intended for use with problematic device drivers.
 
-- In NetVMs/ProxyVMs, scripts placed in `/rw/config/network-hooks.d` will be ran when configuring Qubes interfaces. For each script, the `command`, `vif`, `vif_type` and `ip` is passed as arguments (see `/etc/xen/scripts/vif-route-qubes`). For example, consider a PV AppVM `work` with IP `10.137.0.100` and `sys-firewall` as NetVM. Assuming it's Xen domain id is arbitrary `12` then, the following script located at `/rw/config/network-hooks.d/hook-100.sh` in `sys-firewall`:
+- In NetVMs/ProxyVMs, scripts placed in `/rw/config/network-hooks.d` will be ran when configuring Qubes interfaces. For each script, the `command`, `vif`, `vif_type` and `ip` is passed as arguments (see `/etc/xen/scripts/vif-route-qubes`). For example, consider a PV app qube `work` with IP `10.137.0.100` and `sys-firewall` as NetVM. Assuming it's Xen domain id is arbitrary `12` then, the following script located at `/rw/config/network-hooks.d/hook-100.sh` in `sys-firewall`:
 
     ~~~
     #!/bin/bash
@@ -75,7 +75,7 @@ The scripts here all run as root.
 
 Note that scripts need to be executable (`chmod +x`) to be used.
 
-Also, take a look at [bind-dirs](/doc/bind-dirs) for instructions on how to easily modify arbitrary system files in an AppVM and have those changes persist.
+Also, take a look at [bind-dirs](/doc/bind-dirs) for instructions on how to easily modify arbitrary system files in an app qube and have those changes persist.
 
 GUI and audio configuration in dom0
 -----------------------------------

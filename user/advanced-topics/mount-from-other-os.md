@@ -17,14 +17,14 @@ These functions are manual and do not require any Qubes specific tools. All step
 - LUKS encrypted disk
 - LVM based VM storage
 
-Before beginning, if attempting to access one Qubes system from another, it is recommended to pass the entire encrypted Qubes disk to an isolated AppVM.
+Before beginning, if attempting to access one Qubes system from another, it is recommended to pass the entire encrypted Qubes disk to an isolated app qube.
 This can be done with the command `qvm-block attach <isolated vm> dom0:<disk>` in dom0.
 
 Decrypting the Disk
 -----------------
 
 1. Find the disk to be accessed:
-    1. Open a Linux terminal in either dom0 or the AppVM the disk was passed through to and enter `lsblk`, which will result in an output similar to the following.
+    1. Open a Linux terminal in either dom0 or the app qube the disk was passed through to and enter `lsblk`, which will result in an output similar to the following.
         In this example, the currently booted Qubes system is installed on `sda` and the qubes system to be accessed is on `nvme0n1p2`.
 
         ```
@@ -58,7 +58,7 @@ Decrypting the Disk
 Accessing LVM Logical Volumes
 -----------------------------
 
-3. If using an AppVM or standard Linux, LVM should automatically discover the Qubes LVM configuration. In this case, continue to step 4.
+3. If using an app qube or standard Linux, LVM should automatically discover the Qubes LVM configuration. In this case, continue to step 4.
     1. Qubes uses the default name `qubes_dom0` for it's LVM VG.
        This will conflict with the name of the VG of the currently installed system.
        To read both, you will have to rename the VG.
@@ -77,7 +77,7 @@ Mounting the disk
 | ----------------------------- | ----------------- | ------------------------------------------- |
 | other\_install/root           | dom0 root         | The root partition of dom0.                 |
 | other\_install/<vm>-private   | VM                | The /rw partition of the named VM.          |
-| other\_install/<vm>-root      | templateVM root   | The root partition of the named TemplateVM. |
+| other\_install/<vm>-root      | template root   | The root partition of the named template. |
 | other\_install/pool00\_tmeta  | LVM Metadata      | The metadata LV of this disk.               |
 
 6. Mount the disk using the command `mount /dev/other_install/<lv name> <mountpoint>`.
@@ -91,7 +91,7 @@ Reverting Changes
 
 Any changes which were made to the system in the above steps will need to be reverted before the disk will properly boot.
 However, LVM will not allow an VG to be renamed to a name already in use.
-Thes steps must occur either in an AppVM or using recovery media.
+Thes steps must occur either in an app qube or using recovery media.
 
 1. Unmount any disks that were accessed.
 2. Rename the VG back to qubes\_dom0 using the command `vgrename other_install qubes_dom0`.

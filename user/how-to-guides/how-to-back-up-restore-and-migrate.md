@@ -56,7 +56,7 @@ Creating a backup
 
 3. Select the destination for the backup:
 
-   If you wish to send your backup to a (currently running) VM, select the VM in the drop-down box next to **Target AppVM**.
+   If you wish to send your backup to a (currently running) VM, select the VM in the drop-down box next to **Target app qube**.
    If you wish to send your backup to a [USB mass storage device](/doc/usb/), you can use the directory selection widget to mount a connected device (under "Other locations" item on the left); or first mount the device in a VM, then select the mount point inside that VM as the backup destination.
 
    You must also specify a directory on the device or in the VM, or a command to be executed in the VM as a destination for your backup.
@@ -95,7 +95,7 @@ This brings up the **Qubes Restore VMs** window.
 2. Select the source location of the backup to be restored:
 
    - If your backup is located on a [USB mass storage device](/doc/usb/), attach it first to another VM or select `sys-usb` in the next item.
-   - If your backup is located in a (currently running) VM, select the VM in the drop-down box next to **AppVM**.
+   - If your backup is located in a (currently running) VM, select the VM in the drop-down box next to **app qube**.
 
    You must also specify the directory and filename of the backup (or a command to be executed in a VM) in the **Backup file** field.
    If you followed the instructions in the previous section, "Creating a Backup," then your backup is most likely in the location you chose as the destination in step 3.
@@ -103,7 +103,7 @@ This brings up the **Qubes Restore VMs** window.
    Once you've located the backup file, double-click it or select it and hit **OK**.
 
 3. There are three options you may select when restoring from a backup:
-   1. **ignore missing templates and net VMs**: If any of the VMs in your backup depended upon a NetVM or TemplateVM that is not present in (i.e., "missing from") the current system, checking this box will ignore the fact that they are missing and restore the VMs anyway and set them to use the default NetVM and system default template.
+   1. **ignore missing templates and net VMs**: If any of the VMs in your backup depended upon a NetVM or template that is not present in (i.e., "missing from") the current system, checking this box will ignore the fact that they are missing and restore the VMs anyway and set them to use the default NetVM and system default template.
    2. **ignore username mismatch**: This option applies only to the restoration of dom0's home directory.
    If your backup was created on a Qubes system which had a different dom0 username than the dom0 username of the current system, then checking this box will ignore the mismatch between the two usernames and proceed to restore the home directory anyway.
    3. **Verify backup integrity, do not restore the data**: This will scan the backup file for corrupted data.

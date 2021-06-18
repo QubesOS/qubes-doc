@@ -82,38 +82,38 @@ Restore from your backup
 4. Go to **Qubes menu -> System Tools -> Qubes Manager** to start it.
 
 5. Follow the **Restoring from a Backup** section in the [Backup, Restoration, and Migration](/doc/backup-restore/) guide.
-   We recommend that you restore only your [TemplateBasedVMs](/doc/glossary/#templatebasedvm) and [StandaloneVMs](/doc/glossary/#standalonevm) from R3.2.
-   Using [TemplateVMs](/doc/templates/) and [SystemVMs](/doc/glossary/#systemvm) from R3.2 is not fully supported (see [#3514](https://github.com/QubesOS/qubes-issues/issues/3514)).
-   Instead, we recommend using the TemplateVMs that were created specifically for R4.0, which you can [customize](/doc/software-update-vm/) according to your needs.
-   For the TemplateVM OS versions supported in R4.0, see [Supported Versions](/doc/supported-versions/#templatevms).
-   If the restore tool complains about missing templates, you can select the option to restore the AppVMs anyway, then change them afterward to use one of the default R4.0 templates.
+   We recommend that you restore only your [app qubes](/doc/glossary/#app-qube) and [standalones](/doc/glossary/#standalone) from R3.2.
+   Using [templates](/doc/templates/) and [service qubes](/doc/glossary/#service-qube) from R3.2 is not fully supported (see [#3514](https://github.com/QubesOS/qubes-issues/issues/3514)).
+   Instead, we recommend using the templates that were created specifically for R4.0, which you can [customize](/doc/software-update-vm/) according to your needs.
+   For the template OS versions supported in R4.0, see [Supported Versions](/doc/supported-versions/#templates).
+   If the restore tool complains about missing templates, you can select the option to restore the app qubes anyway, then change them afterward to use one of the default R4.0 templates.
 
 Note about additional disp-* qubes created during restore
 ---------------------------------------------------------
 
-One of differences between R3.2 and R4.0 is the handling of DisposableVMs.
-In R3.2, a DisposableVM inherited its network settings (NetVM and firewall rules) from the calling qube.
+One of differences between R3.2 and R4.0 is the handling of disposables.
+In R3.2, a disposable inherited its network settings (NetVM and firewall rules) from the calling qube.
 In R4.0, this is no longer the case.
-Instead, in R4.0 it's possible to create multiple DisposableVM Templates and choose which one should be used by each qube.
-It's even possible to use different DisposableVM Templates for different operations from the same qube.
+Instead, in R4.0 it's possible to create multiple disposable templates and choose which one should be used by each qube.
+It's even possible to use different disposable templates for different operations from the same qube.
 This allows much more flexibility, since it allows you to differentiate not only network settings, but all of a qube's properties (including its template, memory settings, etc.).
 
-Restoring a backup from R3.2 preserves the old behavior by creating separate DisposableVM Template for each network-providing qube (and also `disp-no-netvm` for network-isolated qubes).
-Then, each restored qube is configured to use the appropriate DisposableVM Template according to its `netvm` or `dispvm_netvm` property from R3.2.
-This way, DisposableVMs started on R4.0 by qubes restored from a R3.2 backup have the same NetVM settings as they had on R3.2.
+Restoring a backup from R3.2 preserves the old behavior by creating separate disposable template for each network-providing qube (and also `disp-no-netvm` for network-isolated qubes).
+Then, each restored qube is configured to use the appropriate disposable template according to its `netvm` or `dispvm_netvm` property from R3.2.
+This way, disposables started on R4.0 by qubes restored from a R3.2 backup have the same NetVM settings as they had on R3.2.
 
-If you find this behavior undesirable and want to configure it differently, you can remove those `disp-*` DisposableVM Templates.
+If you find this behavior undesirable and want to configure it differently, you can remove those `disp-*` disposable templates.
 But, to do so, you must first make sure they are not set as the value for the `default_dispvm` property on any other qube.
-Both Qubes Manager and the `qvm-remove` tool will show you where a DisposableVM Template is being used, so you can go there and change the setting.
+Both Qubes Manager and the `qvm-remove` tool will show you where a disposable template is being used, so you can go there and change the setting.
 
 Upgrade all Template and Standalone VM(s)
 -----------------------------------------
 
-We strongly recommend that you update **all** TemplateVMs and StandaloneVMs before use so that you have the latest security patches from upstream distributions.
+We strongly recommend that you update **all** templates and standalones before use so that you have the latest security patches from upstream distributions.
 In addition, if the default templates have reached EOL (end-of-life) by the time you install R4.0, we strongly recommend that you upgrade them before use.
 Please see [Supported Versions](/doc/supported-versions/) for information on supported OS versions and consult the guides below for specific upgrade instructions:
 
-* [Upgrading Fedora TemplateVMs](/doc/templates/fedora/#upgrading)
-* [Upgrading Debian TemplateVMs](/doc/templates/debian/#upgrading)
-* [Updating Whonix TemplateVMs](https://www.whonix.org/wiki/Qubes/Update)
+* [Upgrading Fedora templates](/doc/templates/fedora/#upgrading)
+* [Upgrading Debian templates](/doc/templates/debian/#upgrading)
+* [Updating Whonix templates](https://www.whonix.org/wiki/Qubes/Update)
 

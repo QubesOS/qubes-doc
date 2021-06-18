@@ -12,22 +12,22 @@ title: How to Make Any File Persistent (bind-dirs)
 ## What are bind-dirs? ##
 
 With [bind-dirs](https://github.com/QubesOS/qubes-core-agent-linux/blob/master/vm-systemd/bind-dirs.sh)
-any arbitrary files or folders can be made persistent in TemplateBasedVMs.
+any arbitrary files or folders can be made persistent in app qubes.
 
 ## What is it useful for? ##
 
-In a TemplateBasedVM all of the file system comes from the template except `/home`, `/usr/local`, and `/rw`.
-This means that changes in the rest of the filesystem are lost when the TemplateBasedVM is shutdown.
+In an app qube all of the file system comes from the template except `/home`, `/usr/local`, and `/rw`.
+This means that changes in the rest of the filesystem are lost when the app qube is shutdown.
 bind-dirs provides a mechanism whereby files usually taken from the template can be persisted across reboots.
 
 For example, in Whonix, [Tor's data dir `/var/lib/tor` has been made persistent in the TemplateBased ProxyVM sys-whonix](https://github.com/Whonix/qubes-whonix/blob/8438d13d75822e9ea800b9eb6024063f476636ff/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf#L5)
-In this way sys-whonix can benefit from the Tor anonymity feature 'persistent Tor entry guards' but does not have to be a StandaloneVM.
+In this way sys-whonix can benefit from the Tor anonymity feature 'persistent Tor entry guards' but does not have to be a standalone.
 
 ## How to use bind-dirs.sh? ##
 
 In this example, we want to make `/var/lib/tor` persistent.
 
-Inside the TemplateBasedVM.
+Inside the app qube.
 
 1. Make sure folder `/rw/config/qubes-bind-dirs.d` exists.
 
@@ -45,7 +45,7 @@ Inside the TemplateBasedVM.
 
 4. Save.
 
-5. Reboot the TemplateBasedVM.
+5. Reboot the app qube.
 
 6. Done.
 
@@ -67,17 +67,17 @@ binds+=( '/etc/tor/torrc' )
 
 ## How does it work? ##
 
-bind-dirs.sh is called at startup of a TemplateBasedVM, and configuration files in the above configuration folders are parsed to build a bash array.
+bind-dirs.sh is called at startup of an app qube, and configuration files in the above configuration folders are parsed to build a bash array.
 Files or folders identified in the array are copied to `/rw/bind-dirs` if they do not already exist there, and are then bind mounted over the original files/folders.
 
-Creation of the files and folders in `/rw/bind-dirs` should be automatic the first time the TemplateBasedVM is restarted after configuration.
+Creation of the files and folders in `/rw/bind-dirs` should be automatic the first time the app qube is restarted after configuration.
 
 If you want to circumvent this process, you can create the relevant file structure under `/rw/bind-dirs` and make any changes at the same time that you perform the configuration, before reboot.
 Note that you must create the full folder structure under `/rw/bind-dirs` - e.g you would have to create `/rw/bind-dirs/var/lib/tor`
 
 ## Limitations ##
 
-* Files that exist in the TemplateVM root image cannot be deleted in the TemplateBasedVMs root image using bind-dirs.sh.
+* Files that exist in the template root image cannot be deleted in the app qubes root image using bind-dirs.sh.
 * Re-running `sudo /usr/lib/qubes/init/bind-dirs.sh` without a previous `sudo /usr/lib/qubes/init/bind-dirs.sh umount` does not work.
 * Running `sudo /usr/lib/qubes/init/bind-dirs.sh umount` after boot (before shutdown) is probably not sane and nothing can be done about that.
 * Many editors create a temporary file and copy it over the original file. If you have bind mounted an individual file this will break the mount.
@@ -102,5 +102,5 @@ binds=( "${binds[@]/'/var/lib/tor'}" )
 
 ## Discussion ##
 
-[TemplateBasedVMs: make selected files and folders located in the root image persistent- review bind-dirs.sh](https://groups.google.com/forum/#!topic/qubes-devel/tcYQ4eV-XX4/discussion)
+[app qubes: make selected files and folders located in the root image persistent- review bind-dirs.sh](https://groups.google.com/forum/#!topic/qubes-devel/tcYQ4eV-XX4/discussion)
 

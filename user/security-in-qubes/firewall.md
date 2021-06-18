@@ -494,7 +494,7 @@ Where to put firewall rules
 ---------------------------
 
 Implicit in the above example [scripts](/doc/config-files/), but worth calling attention to: for all qubes *except* those supplying networking, iptables commands should be added to the `/rw/config/rc.local` script.
-For AppVMs supplying networking (`sys-firewall` inclusive), iptables commands should be added to `/rw/config/qubes-firewall-user-script`.
+For app qubes supplying networking (`sys-firewall` inclusive), iptables commands should be added to `/rw/config/qubes-firewall-user-script`.
 
 Firewall troubleshooting
 ------------------------

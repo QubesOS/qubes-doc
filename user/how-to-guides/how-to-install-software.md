@@ -81,13 +81,13 @@ Debian also has three Qubes VM testing repositories (where `*` denotes the Relea
 
 To enable or disable any of these repos permanently, uncomment the corresponding `deb` line in `/etc/apt/sources.list.d/qubes-r*.list`.
 
-### StandaloneVMs
+### Standalones
 
-When you create a [StandaloneVM](/doc/standalone-and-hvm/) from a template, the StandaloneVM is a complete clone of the template, including the entire filesystem.
-After the moment of creation, the StandaloneVM is completely independent from the template.
+When you create a [standalone](/doc/standalone-and-hvm/) from a template, the standalone is a complete clone of the template, including the entire filesystem.
+After the moment of creation, the standalone is completely independent from the template.
 Therefore, it will not be updated when the template is updated.
 Rather, it must be updated individually.
-The process for installing and updating software in StandaloneVMs is the same as described above for templates.
+The process for installing and updating software in standalones is the same as described above for templates.
 
 ### RPMFusion for Fedora templates
 
@@ -156,15 +156,15 @@ This is like the simple revert, except:
 ### Temporarily allowing networking for software installation
 
 Some third-party applications cannot be installed using the standard repositories and need to be manually downloaded and installed.
-When the installation requires internet connection to access third-party repositories, it will naturally fail when run in a Template VM because the default firewall rules for templates only allow connections from package managers.
+When the installation requires internet connection to access third-party repositories, it will naturally fail when run in a template because the default firewall rules for templates only allow connections from package managers.
 So it is necessary to modify firewall rules to allow less restrictive internet access for the time of the installation, if one really wants to install those applications into a template.
 As soon as software installation is completed, firewall rules should be returned back to the default state.
-The user should decide by themselves whether such third-party applications should be equally trusted as the ones that come from the standard Fedora signed repositories and whether their installation will not compromise the default Template VM, and potentially consider installing them into a separate template or a standalone VM (in which case the problem of limited networking access doesn't apply by default), as described above.
+The user should decide by themselves whether such third-party applications should be equally trusted as the ones that come from the standard Fedora signed repositories and whether their installation will not compromise the default template, and potentially consider installing them into a separate template or a standalone VM (in which case the problem of limited networking access doesn't apply by default), as described above.
 
 ### Updates proxy
 
 Updates proxy is a service which allows access only from package managers.
-This is meant to mitigate user errors (like using browser in the template VM), rather than some real isolation.
+This is meant to mitigate user errors (like using browser in the template), rather than some real isolation.
 It is done with http proxy (tinyproxy) instead of simple firewall rules because it is hard to list all the repository mirrors (and keep that list up to date).
 The proxy is used only to filter the traffic, not to cache anything.
 
@@ -196,13 +196,13 @@ Example policy file in R4.0 (with Whonix installed, but not set as default Updat
 @tag:whonix-updatevm @anyvm deny
 
 # other templates use sys-net
-@type:TemplateVM @default allow,target=sys-net
+@type:template @default allow,target=sys-net
 @anyvm @anyvm deny
 ```
 
 ### Installing Snap Packages
 
-Snap packages do not use the normal update channels for Debian and Fedora (apt and dnf) and are often installed as the user rather than as root. To support these in an AppVM you need to take the following steps:
+Snap packages do not use the normal update channels for Debian and Fedora (apt and dnf) and are often installed as the user rather than as root. To support these in an app qube you need to take the following steps:
 
 1. In the **template** you must install `snapd` and `qubes-snapd-helper`. Open a terminal in the template and run:
 
@@ -256,29 +256,29 @@ Shutdown the template:
 [user@fedora-30-snap-demo ~]$ sudo shutdown -h now
 ```
 
-2. Now open the **AppVM** in which you would like to install the Snap application and run a terminal:
+2. Now open the **app qube** in which you would like to install the Snap application and run a terminal:
 
 ```shell_session
-[user@snap-demo-AppVM ~]$ snap install <package>
+[user@snap-demo-app qube ~]$ snap install <package>
 ```
 
 When the install is complete you can close the terminal window.
 
-3. Refresh the Applications list for the AppVM.
-In the Qubes Menu for the **AppVM*** launch the Qube Settings.
+3. Refresh the Applications list for the app qube.
+In the Qubes Menu for the **app qube*** launch the Qube Settings.
 Then go to the Applications tab and click "Refresh Applications"
 
-The refresh will take a few minutes; after it's complete the Snap app will appear in the AppVM's list of available applications. At this point the snap will be persistent within the AppVM and will receive updates when the AppVM is running.
+The refresh will take a few minutes; after it's complete the Snap app will appear in the app qube's list of available applications. At this point the snap will be persistent within the app qube and will receive updates when the app qube is running.
 
 ### Autostarting Installed Applications
 
-If you want a desktop app to start automatically every time a qube starts you can create a link to it in the `~/.config/autostart` directory of the **AppVM**. This might be useful for Qubes that you set to automatically start on boot or for Qubes that have a set of apps you typically use all day, such as a chat app.
+If you want a desktop app to start automatically every time a qube starts you can create a link to it in the `~/.config/autostart` directory of the **app qube**. This might be useful for Qubes that you set to automatically start on boot or for Qubes that have a set of apps you typically use all day, such as a chat app.
 
-1. Open a terminal in the **AppVM** where you would like the app to launch.
+1. Open a terminal in the **app qube** where you would like the app to launch.
 2. List the names of the available desktop shortcuts by running the command `ls /usr/share/applications` and find the exact name of the shortcut to the app you want to autostart:
 
 ```shell_session
-[user@example-AppVM ~]$ ls /usr/share/applications/
+[user@example-app qube ~]$ ls /usr/share/applications/
 bluetooth-sendto.desktop
 eog.desktop
 firefox.desktop
@@ -290,14 +290,14 @@ yelp.desktop
 3. Create the autostart directory:
 
 ```
-[user@example-AppVM ~]$ mkdir -p ~/.config/autostart
+[user@example-app qube ~]$ mkdir -p ~/.config/autostart
 ```
 
 4. Make a link to the desktop app file you'd like to start in the autostart directory. For example, the command below will link the Thunderbird app into the autostart directory:
 
 ```
-[user@example-AppVM ~]$ ln -s /usr/share/applications/mozilla-thunderbird.desktop ~/.config/autostart/mozilla-thunderbird.desktop
+[user@example-app qube ~]$ ln -s /usr/share/applications/mozilla-thunderbird.desktop ~/.config/autostart/mozilla-thunderbird.desktop
 ```
 
-Note that the app will autostart only when the AppVM starts. If you would like the AppVM to autostart, select the "Start qube automatically on boot" checkbox in the AppVM's Qube Settings.
+Note that the app will autostart only when the app qube starts. If you would like the app qube to autostart, select the "Start qube automatically on boot" checkbox in the app qube's Qube Settings.
 

@@ -53,12 +53,12 @@ Dom0 is isolated from domUs. DomUs can access only a few interfaces, such as Xen
 These components are [security-critical](/doc/security-critical-code/), and we provide updates for all of them (when necessary), regardless of the support status of the base distribution.
 For this reason, we consider it safe to continue using a given base distribution in dom0 even after it has reached end-of-life (EOL).
 
-## TemplateVMs
+## Templates
 
-The following table shows select [TemplateVM](/doc/templates/) versions that are currently supported.
-Currently, only [Fedora](/doc/templates/fedora/) and [Debian](/doc/templates/debian/) TemplateVMs are officially supported by the Qubes OS Project.
-[Whonix](/doc/whonix/) TemplateVMs are supported by our partner, the [Whonix Project](https://www.whonix.org/).
-Qubes support for each TemplateVM ends when that upstream release reaches end-of-life (EOL).
+The following table shows select [template](/doc/templates/) versions that are currently supported.
+Currently, only [Fedora](/doc/templates/fedora/) and [Debian](/doc/templates/debian/) templates are officially supported by the Qubes OS Project.
+[Whonix](/doc/whonix/) templates are supported by our partner, the [Whonix Project](https://www.whonix.org/).
+Qubes support for each template ends when that upstream release reaches end-of-life (EOL).
 Please see below for distribution-specific notes.
 
 It is the responsibility of each distribution to clearly notify its users in advance of its own EOL dates, and it is users' responsibility to heed these notices by upgrading to supported releases.
@@ -83,17 +83,17 @@ Qubes support ends at the *regular* EOL date, *not* the LTS EOL date, unless a s
 
 ### Note on Whonix support
 
-[Whonix](/doc/whonix/) TemplateVMs are supported by our partner, the [Whonix Project](https://www.whonix.org/).
-The Whonix Project has set its own support policy for Whonix TemplateVMs in Qubes.
+[Whonix](/doc/whonix/) templates are supported by our partner, the [Whonix Project](https://www.whonix.org/).
+The Whonix Project has set its own support policy for Whonix templates in Qubes.
 
-This policy requires Whonix TemplateVM users to stay reasonably close to the cutting edge by upgrading to new stable versions of Qubes OS and Whonix TemplateVMs within a month of their respective releases.
+This policy requires Whonix template users to stay reasonably close to the cutting edge by upgrading to new stable versions of Qubes OS and Whonix templates within a month of their respective releases.
 To be precise:
 
-* One month after a new stable version of Qubes OS is released, Whonix TemplateVMs will no longer be supported on any older version of Qubes OS.
-  This means that users who wish to continue using Whonix TemplateVMs on Qubes must always upgrade to the latest stable Qubes OS version within one month of its release.
+* One month after a new stable version of Qubes OS is released, Whonix templates will no longer be supported on any older version of Qubes OS.
+  This means that users who wish to continue using Whonix templates on Qubes must always upgrade to the latest stable Qubes OS version within one month of its release.
 
-* One month after new stable versions of Whonix TemplateVMs are released, older versions of Whonix TemplateVMs will no longer be supported.
-  This means that users who wish to continue using Whonix TemplateVMs on Qubes must always upgrade to the latest stable Whonix TemplateVM versions within one month of their release.
+* One month after new stable versions of Whonix templates are released, older versions of Whonix templates will no longer be supported.
+  This means that users who wish to continue using Whonix templates on Qubes must always upgrade to the latest stable Whonix template versions within one month of their release.
 
 We aim to announce both types of events one month in advance in order to remind users to upgrade.
 

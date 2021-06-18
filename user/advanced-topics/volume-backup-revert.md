@@ -19,7 +19,7 @@ shutdown. (Note that this is a different, lower level activity than the
 In Qubes, when you create a new VM, it's volumes are stored in one of the
 system's [Storage Pools](/doc/storage-pools/). On pool creation, a
 revisions_to_keep default value is set for the entire pool. (For a pool creation
-example, see [Storing AppVMs on Secondary Drives](/doc/secondary-storage/).)
+example, see [Storing app qubes on Secondary Drives](/doc/secondary-storage/).)
 Thereafter, each volume associated with a VM that is stored in this pool
 inherits the pool default revisions_to_keep.
 

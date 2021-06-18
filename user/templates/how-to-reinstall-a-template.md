@@ -10,12 +10,12 @@ title: How to Reinstall a Template
 ---
 
 
-If you suspect your [TemplateVM](/doc/templates/) is broken, misconfigured, or compromised, you can reinstall any TemplateVM that was installed from the Qubes repository.
+If you suspect your [template](/doc/templates/) is broken, misconfigured, or compromised, you can reinstall any template that was installed from the Qubes repository.
 
 Automatic Method
 ----------------
 
-First, copy any files that you wish to keep from the TemplateVM's `/home` and `/rw` folders to a safe storage location.
+First, copy any files that you wish to keep from the template's `/home` and `/rw` folders to a safe storage location.
 Then, in a dom0 terminal, run:
 
 ```
@@ -44,21 +44,21 @@ $ sudo qubes-dom0-update --enablerepo=qubes-templates-community --action=reinsta
 Manual Method
 -------------
 
-In what follows, the term "target TemplateVM" refers to whichever TemplateVM you want to reinstall.
-If you want to reinstall more than one TemplateVM, repeat these instructions for each one.
+In what follows, the term "target template" refers to whichever template you want to reinstall.
+If you want to reinstall more than one template, repeat these instructions for each one.
 
-1. Clone the existing target TemplateVM.
+1. Clone the existing target template.
 
    This can be a good idea if you've customized the existing template and want to keep your customizations.
    On the other hand, if you suspect that this template is broken, misconfigured, or compromised, be certain you do not start any VMs using it in the below procedure.
 
-2. Temporarily change all VMs based on the target TemplateVM to the new clone template, or remove them.
+2. Temporarily change all VMs based on the target template to the new clone template, or remove them.
 
    This can be a good idea if you have user data in these VMs that you want to keep.
    On the other hand, if you suspect that these VMs (or the templates on which they are based) are broken, misconfigured, or compromised, you may want to remove them instead.
    You can do this in Qubes Manager by right-clicking on the VM and clicking **Remove VM**, or you can use the command `qvm-remove <vm-name>` in dom0.
 
-3. Uninstall the target TemplateVM from dom0:
+3. Uninstall the target template from dom0:
 
     ```
     $ sudo dnf remove <template-package-name>
@@ -70,7 +70,7 @@ If you want to reinstall more than one TemplateVM, repeat these instructions for
     $ sudo dnf remove qubes-template-whonix-gw
     ```
 
-4. Reinstall the target TemplateVM in dom0:
+4. Reinstall the target template in dom0:
 
     ```shell_session
     $ sudo qubes-dom0-update --enablerepo=<optional-additional-repo> \
@@ -84,8 +84,8 @@ If you want to reinstall more than one TemplateVM, repeat these instructions for
        qubes-template-whonix-gw
     ```
 
-5. If you temporarily changed all VMs based on the target TemplateVM to the clone template in step 3, change them back to the new target TemplateVM now.
-   If you instead removed all VMs based on the old target TemplateVM, you can recreate your desired VMs from the newly reinstalled target TemplateVM now.
+5. If you temporarily changed all VMs based on the target template to the clone template in step 3, change them back to the new target template now.
+   If you instead removed all VMs based on the old target template, you can recreate your desired VMs from the newly reinstalled target template now.
 
 6. Delete the cloned template.
    You can do this in Qubes Manager by right-clicking on the VM and clicking **Remove VM**, or you can use the

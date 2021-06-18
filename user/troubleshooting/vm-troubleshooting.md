@@ -76,7 +76,7 @@ Common reasons that may be revealed are: too low memory, corrupted files or a VM
 
 If the error occurs as a result of too little initial memory, increase the initial memory from 200MB to 400MB by navigating to VM settings » Advanced » Initial memory.
 
-## "No match found" when trying to install a TemplateVM
+## "No match found" when trying to install a template
 
 For example:
 

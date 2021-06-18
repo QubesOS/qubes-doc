@@ -31,7 +31,7 @@ This separation of duties significantly reduces the attack surface, since all of
 Although this update scheme is far more secure than directly downloading updates in dom0, it is not invulnerable.
 For example, there is nothing that the Qubes OS Project can feasibly do to prevent a malicious RPM from exploiting a hypothetical bug in the cryptographic signature verification operation.
 At best, we could switch to a different distro or package manager, but any of them could be vulnerable to the same (or a similar) attack.
-While we could, in theory, write a custom solution, it would only be effective if Qubes repos included all of the regular TemplateVM distro's updates, and this would be far too costly for us to maintain.
+While we could, in theory, write a custom solution, it would only be effective if Qubes repos included all of the regular template distro's updates, and this would be far too costly for us to maintain.
 
 ## How to update dom0
 

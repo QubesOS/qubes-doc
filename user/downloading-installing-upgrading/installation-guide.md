@@ -216,7 +216,7 @@ Two options are available:
 Whonix lets you route some or all of your network traffic through Tor for greater privacy.
 Depending on your threat model, you may need to install Whonix templates right away.
 
-Regardless of your choices on this screen, you will always be able to install these and other [TemplateVMs](/doc/templates/) later.
+Regardless of your choices on this screen, you will always be able to install these and other [templates](/doc/templates/) later.
 If you're short on disk space, you may wish to deselect these options.
 
 By default, Qubes OS comes preinstalled with the lightweight Xfce4 desktop environment.
@@ -325,7 +325,7 @@ Let's briefly go over the options:
 * **Create Whonix Gateway and Workstation qubes:**
   If you want to use Whonix, you should select this option.
   * **Enabling system and template updates over the Tor anonymity network using Whonix:**
-  If you select this option, then whenever you install or update software in dom0 or a TemplateVM, the internet traffic will go through Tor.
+  If you select this option, then whenever you install or update software in dom0 or a template, the internet traffic will go through Tor.
 * **Create USB qube holding all USB controllers:**
   Just like the network qube for the network stack, the USB qube isolates the USB controllers.
   * **Use sys-net qube for both networking and USB devices:**
@@ -360,7 +360,7 @@ It is important to make sure that you receive all QSBs in a timely manner so tha
 (While [updating](#updating) will handle most security needs, there may be cases in which additional action from you is required.)
 For this reason, we strongly recommend that every Qubes user subscribe to the [qubes-announce](/support/#qubes-announce) mailing list.
 
-In addition to QSBs, the Qubes OS Project also publishes [Canaries](/security/canaries/), XSA summaries, TemplateVM releases and end-of-life notices, and other items of interest to Qubes users.
+In addition to QSBs, the Qubes OS Project also publishes [Canaries](/security/canaries/), XSA summaries, template releases and end-of-life notices, and other items of interest to Qubes users.
 Since these are not essential for all Qubes users to read, they are not sent to [qubes-announce](/support/#qubes-announce) in order to keep the volume on that list low.
 However, we expect that most users, especially novice users, will find them helpful.
 If you are interested in these additional items, we encourage you to subscribe to the [Qubes News RSS feed](/feed.xml) or join one of our other [venues](/support/), where these news items are also announced.

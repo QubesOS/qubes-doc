@@ -151,5 +151,5 @@ Look at the [FAQs](/faq/#i-assigned-a-pci-device-to-a-qube-then-unassigned-itshu
 You may have an adapter (wired, wireless), that is not compatible with open-source drivers shipped by Qubes.
 You may need to install a binary blob, which provides drivers, from the linux-firmware package.
 
-Open a terminal and run `sudo dnf install linux-firmware` in the TemplateVM upon which your NetVM is based.
-You have to restart the NetVM after the TemplateVM has been shut down.
+Open a terminal and run `sudo dnf install linux-firmware` in the template upon which your NetVM is based.
+You have to restart the NetVM after the template has been shut down.
