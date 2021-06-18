@@ -577,7 +577,7 @@ From a `dom0` prompt, enter:
 qvm-prefs <HVMname> kernel ""
 ```
 
-### When I try to install a TemplateVM, it says no match is found.
+### When I try to install a template, it says no match is found.
 
 See [VM Troubleshooting](/doc/vm-troubleshooting/#no-match-found-when-trying-to-install-a-templatevm).
 

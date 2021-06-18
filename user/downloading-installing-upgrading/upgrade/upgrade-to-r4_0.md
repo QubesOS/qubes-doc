@@ -83,7 +83,7 @@ Restore from your backup
 
 5. Follow the **Restoring from a Backup** section in the [Backup, Restoration, and Migration](/doc/backup-restore/) guide.
    We recommend that you restore only your [app qubes](/doc/glossary/#app-qube) and [standalones](/doc/glossary/#standalone) from R3.2.
-   Using [templates](/doc/templates/) and [SystemVMs](/doc/glossary/#systemvm) from R3.2 is not fully supported (see [#3514](https://github.com/QubesOS/qubes-issues/issues/3514)).
+   Using [templates](/doc/templates/) and [service qubes](/doc/glossary/#service-qube) from R3.2 is not fully supported (see [#3514](https://github.com/QubesOS/qubes-issues/issues/3514)).
    Instead, we recommend using the templates that were created specifically for R4.0, which you can [customize](/doc/software-update-vm/) according to your needs.
    For the template OS versions supported in R4.0, see [Supported Versions](/doc/supported-versions/#templates).
    If the restore tool complains about missing templates, you can select the option to restore the app qubes anyway, then change them afterward to use one of the default R4.0 templates.

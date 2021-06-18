@@ -23,12 +23,12 @@ Examples of situations in which standalones can be useful include:
   However, when you would like to install some packages from less trusted sources, or unsigned, then using a dedicated (untrusted) standalone might be a better way.
 
 Meanwhile, a [Hardware-assisted Virtual Machine (HVM)](/doc/glossary/#hvm), also known as a "Fully-Virtualized Virtual Machine," utilizes the virtualization extensions of the host CPU.
-These are typically contrasted with [Paravirtualized (PV)](/doc/glossary/#pv) VMs.
+These are typically contrasted with Paravirtualized (PV) VMs.
 
 HVMs allow you to create qubes based on any OS for which you have an installation ISO, so you can easily have qubes running Windows, *BSD, or any Linux distribution.
 You can also use HVMs to run "live" distros.
 
-By default, every Qubes VM runs in [PVH](/doc/glossary/#pvhvm) mode (which has security advantages over both PV and HVM) except for those with attached PCI devices, which run in HVM mode.
+By default, every Qubes VM runs in PVH mode (which has security advantages over both PV and HVM) except for those with attached PCI devices, which run in HVM mode.
 See [here](https://blog.invisiblethings.org/2017/07/31/qubes-40-rc1.html) for a discussion of the switch from PV to HVM and [here](/news/2018/01/11/qsb-37/) for the announcement about the change to using PVH as default.
 
 The standalone/template distinction and the HVM/PV/PVH distinctions are orthogonal.
