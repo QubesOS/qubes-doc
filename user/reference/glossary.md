@@ -22,7 +22,7 @@ Any [qube](#qube) that depends on a [template](#template) for its root filesyste
 disposable
 ----------
 
-See [Dispoables](/doc/disposables/).
+See [Dispoables](/doc/how-to-use-disposables/).
 A temporary [app qube](#app-qube) based on a [disposable template](#disposable-template) that can quickly be created, used, and destroyed.
 
 
@@ -68,7 +68,7 @@ By default, most domUs lack direct hardware access.
 HVM
 ---
 
-[Hardware-assisted Virtual Machine](/doc/standalone-and-HVM/).
+[Hardware-assisted Virtual Machine](/doc/standalones-and-HVM/).
 Any fully virtualized, or hardware-assisted, [VM](#vm) utilizing the virtualization extensions of the host CPU.
 Although HVMs are typically slower than paravirtualized qubes due to the required emulation, HVMs allow the user to create domains based on any operating system.
 

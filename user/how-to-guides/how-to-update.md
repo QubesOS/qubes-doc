@@ -33,7 +33,7 @@ It is important to keep your Qubes OS system up-to-date to ensure you have the l
 Fully updating your Qubes OS system means updating:
 
 - [Dom0](/doc/how-to-install-software-in-dom0/)
-- [templates](/doc/how-to-install-software/#updating-software-in-templates)
+- [templates](/doc/how-to-install-software/#instructions)
 - [standalones](/doc/how-to-install-software/#standalones) (if you have any)
 
 You can accomplish this using the **Qubes Update** tool.

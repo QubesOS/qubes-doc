@@ -33,7 +33,7 @@ After installing a fresh Fedora template, we recommend performing the following 
 
 ## Updating
 
-For routine daily updates within a given release, see [Updating software in templates](/doc/how-to-install-software/#updating-software-in-templates).
+For routine daily updates within a given release, see [Updating software in templates](/doc/how-to-install-software/#instructions).
 
 ## Upgrading
 

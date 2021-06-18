@@ -41,7 +41,7 @@ After installing a fresh Debian template, we recommend performing the following 
 
 ## Updating
 
-For routine daily template updates within a given Debian release, see [Updating software in templates](/doc/how-to-install-software/#updating-software-in-templates).
+For routine daily template updates within a given Debian release, see [Updating software in templates](/doc/how-to-install-software/#instructions).
 
 ## Upgrading
 
