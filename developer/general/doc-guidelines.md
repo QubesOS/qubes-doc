@@ -322,17 +322,15 @@ When making contributions, please try to observe the following style conventions
    * The signed plain text portions of [QSBs](/security/bulletins/) and [Canaries](/security/canaries/)
    * URLs that appear inside code blocks (e.g., in comments and document templates)
    * Files like `README.md` and `CONTRIBUTING.md`
- * Insert a newline at, and only at, the end of each sentence, except when the text will be reproduced outside of the Qubes website repo (see previous item for examples).
-   * Rationale: This practice results in one sentence per line, which is most appropriate for source that consists primarily of natural language text.
-     It results in the most useful diffs and facilitates translation into other languages while mostly preserving source readability.
-* If appropriate, make numerals in numbered lists match between Markdown source and HTML output.
-  * Rationale: In the event that a user is required to read the Markdown source directly, this will make it easier to follow, e.g., numbered steps in a set of instructions.
-* Use hanging indentations
+ * Hard wrap Markdown lines at 80 characters, unless the line can't be broken (e.g., code or a URL).
+ * If appropriate, make numerals in numbered lists match between Markdown source and HTML output.
+   * Rationale: In the event that a user is required to read the Markdown source directly, this will make it easier to follow, e.g., numbered steps in a set of instructions.
+ * Use hanging indentations
    where appropriate.
-* Do not use `h1` headings (single `#` or `======` underline). These are automatically generated from the `title:` line in the YAML frontmatter.
-* Use Atx-style headings: , `##h 2`, `### h3`, etc.
-* When writing code blocks, use [syntax highlighting](https://github.github.com/gfm/#info-string) where [possible](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers) and use `[...]` for anything omitted.
-* When providing command line examples:
+ * Do not use `h1` headings (single `#` or `======` underline). These are automatically generated from the `title:` line in the YAML frontmatter.
+ * Use Atx-style headings: , `##h 2`, `### h3`, etc.
+ * When writing code blocks, use [syntax highlighting](https://github.github.com/gfm/#info-string) where [possible](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers) and use `[...]` for anything omitted.
+ * When providing command line examples:
   * Tell the reader where to open a terminal (dom0 or a specific domU), and show the command along with its output (if any) in a code block, e.g.:
 
      ~~~markdown
