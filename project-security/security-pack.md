@@ -18,8 +18,8 @@ ref: 213
 title: Qubes Security Pack (qubes-secpack)
 ---
 
-
-The **Qubes Security Pack** (`qubes-secpack`) is a Git repository that contains:
+The **Qubes Security Pack** (`qubes-secpack`) is a Git repository that
+contains:
 
 * [Qubes PGP keys](https://keys.qubes-os.org/keys/)
 * [Qubes Security Bulletins (QSBs)](/security/bulletins/)
@@ -31,7 +31,6 @@ While `qubes-secpack` itself is independent of any particular host, its current
 official location is:
 
 <https://github.com/QubesOS/qubes-secpack>
-
 
 ## How to obtain, verify, and read
 

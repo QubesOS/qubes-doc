@@ -4,341 +4,400 @@ layout: doc
 permalink: /doc/installation-guide/
 redirect_from:
 - /en/doc/installation-guide/
-- /doc/InstallationGuide/
-- /wiki/InstallationGuide/
-- /doc/InstallationGuideR1/
-- /doc/InstallationGuideR2B1/
-- /doc/InstallationGuideR2B2/
-- /doc/InstallationGuideR2B3/
-- /doc/InstallationGuideR2rc1/
-- /doc/InstallationGuideR2rc2/
-- /doc/InstallationGuideR3.0rc1/
-- /doc/InstallationGuideR3.0rc2/
+- /doc/installationguide/
+- /wiki/installationguide/
+- /doc/installationguider1/
+- /doc/installationguider2b1/
+- /doc/installationguider2b2/
+- /doc/installationguider2b3/
+- /doc/installationguider2rc1/
+- /doc/installationguider2rc2/
+- /doc/installationguider3.0rc1/
+- /doc/installationguider3.0rc2/
 - /doc/live-usb/
 ref: 153
-title: Installation Guide
+title: installation guide
 ---
 
-Welcome to the Qubes OS installation guide!
-This guide will walk you through the process of installing Qubes.
-Please read it carefully and thoroughly, as it contains important information for ensuring that your Qubes OS installation is functional and secure.
+welcome to the qubes os installation guide! this guide will walk you through
+the process of installing qubes. please read it carefully and thoroughly, as it
+contains important information for ensuring that your qubes os installation is
+functional and secure.
 
-## Pre-installation
+## pre-installation
 
-### Hardware requirements
+### hardware requirements
 
 <div class="alert alert-danger" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
-  <b>Warning:</b> Qubes has no control over what happens on your computer before you install it.
-  No software can provide security if it is installed on compromised hardware.
-  Do not install Qubes on a computer you don't trust.
-  See <a href="/doc/install-security/">installation security</a> for more information.
+  <b>warning:</b> qubes has no control over what happens on your computer
+  before you install it. no software can provide security if it is installed on
+  compromised hardware. do not install qubes on a computer you don't trust. see
+  <a href="/doc/install-security/">installation security</a> for more
+  information.
 </div>
 
-Qubes OS has very specific [system requirements](/doc/system-requirements/).
-To ensure compatibility, we strongly recommend using [Qubes-certified hardware](/doc/certified-hardware/).
-Other hardware may require you to perform significant troubleshooting.
-You may also find it helpful to consult the [Hardware Compatibility List](/hcl/).
+qubes os has very specific [system requirements](/doc/system-requirements/). to
+ensure compatibility, we strongly recommend using [qubes-certified
+hardware](/doc/certified-hardware/). other hardware may require you to perform
+significant troubleshooting. you may also find it helpful to consult the
+[hardware compatibility list](/hcl/).
 
-Even on supported hardware, you must ensure that [IOMMU-based virtualization](https://en.wikipedia.org/wiki/Input%E2%80%93output_memory_management_unit#Virtualization) is activated in the BIOS. 
-Without it, Qubes OS won't be able to enforce isolation. 
-For Intel-based boards, this setting is called Intel Virtualization for Directed I/O (**Intel VT-d**) and for AMD-based boards, it is called  AMD I/O Virtualization Technology (or simply **AMD-Vi**). 
-This parameter should be activated in your computer's BIOS, alongside the standard Virtualization (**Intel VT-x**) and AMD Virtualization (**AMD-V**) extensions. 
-This [external guide](https://web.archive.org/web/20200112220913/https://www.intel.in/content/www/in/en/support/articles/000007139/server-products.html) made for Intel-based boards can help you figure out how to enter your BIOS to locate and activate those settings. 
-If those settings are not nested under the Advanced tab, you might find them under the Security tab.
+even on supported hardware, you must ensure that [iommu-based
+virtualization](https://en.wikipedia.org/wiki/input%e2%80%93output_memory_management_unit#virtualization)
+is activated in the bios. without it, qubes os won't be able to enforce
+isolation. for intel-based boards, this setting is called intel virtualization
+for directed i/o (**intel vt-d**) and for amd-based boards, it is called  amd
+i/o virtualization technology (or simply **amd-vi**). this parameter should be
+activated in your computer's bios, alongside the standard virtualization
+(**intel vt-x**) and amd virtualization (**amd-v**) extensions. this [external
+guide](https://web.archive.org/web/20200112220913/https://www.intel.in/content/www/in/en/support/articles/000007139/server-products.html)
+made for intel-based boards can help you figure out how to enter your bios to
+locate and activate those settings. if those settings are not nested under the
+advanced tab, you might find them under the security tab.
 
 <div class="alert alert-warning" role="alert">
   <i class="fa fa-exclamation-circle"></i>
-  <b>Note:</b> Qubes OS is not meant to be installed inside a virtual machine as a guest hypervisor.
-  In other words, <b>nested virtualization</b> is not supported.
-  In order for a strict compartmentalization to be enforced, Qubes OS needs to be able to manage the hardware directly.
+  <b>note:</b> qubes os is not meant to be installed inside a virtual machine
+  as a guest hypervisor. in other words, <b>nested virtualization</b> is not
+  supported. in order for a strict compartmentalization to be enforced, qubes
+  os needs to be able to manage the hardware directly.
 </div>
 
-### Copying the ISO onto the installation medium
+### copying the iso onto the installation medium
 
-Start by [downloading](/downloads/) a Qubes ISO.
+start by [downloading](/downloads/) a qubes iso.
 
 <div class="alert alert-danger" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
-  <b>Warning:</b> Any file you download from the internet could be malicious, even if it appears to come from a trustworthy source.
-  Our philosophy is to <a href="/faq/#what-does-it-mean-to-distrust-the-infrastructure">distrust the infrastructure</a>.
-  Regardless of how you acquire your Qubes ISO, <a href="/security/verifying-signatures/">verify its authenticity</a> before continuing.
+  <b>warning:</b> any file you download from the internet could be malicious,
+  even if it appears to come from a trustworthy source. our philosophy is to <a
+  href="/faq/#what-does-it-mean-to-distrust-the-infrastructure">distrust the
+  infrastructure</a>. regardless of how you acquire your qubes iso, <a
+  href="/security/verifying-signatures/">verify its authenticity</a> before
+  continuing.
 </div>
 
-Once the ISO has been verified as authentic, you should copy it onto the installation medium of your choice, such as a dual-layer DVD, a Blu-ray disc, or a USB drive.
-The size of each Qubes ISO is available on the [downloads](/downloads/) page by hovering over the download button.
+once the iso has been verified as authentic, you should copy it onto the
+installation medium of your choice, such as a dual-layer dvd, a blu-ray disc,
+or a usb drive. the size of each qubes iso is available on the
+[downloads](/downloads/) page by hovering over the download button.
 
 <div class="alert alert-warning" role="alert">
   <i class="fa fa-exclamation-circle"></i>
-  <b>Note:</b> There are important <a href="/doc/install-security/">security considerations</a> to keep in mind when choosing an installation medium.
+  <b>note:</b> there are important <a href="/doc/install-security/">security
+  considerations</a> to keep in mind when choosing an installation medium.
 </div>
 
 <div class="alert alert-danger" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
-  <b>Warning:</b> Be careful to choose the correct device when copying the ISO, or you may lose data.
-  We strongly recommended making a full backup before modifying any devices.
+  <b>warning:</b> be careful to choose the correct device when copying the iso,
+  or you may lose data. we strongly recommended making a full backup before
+  modifying any devices.
 </div>
 
-If you choose to use a USB drive, copy the ISO onto the USB device, e.g. using `dd`:
+if you choose to use a usb drive, copy the iso onto the usb device, e.g. using
+`dd`:
 
 ```
-$ sudo dd if=Qubes-RX-x86_64.iso of=/dev/sdY status=progress bs=1048576 && sync
+$ sudo dd if=qubes-rx-x86_64.iso of=/dev/sdy status=progress bs=1048576 && sync
 ```
 
-Change `Qubes-RX-x86_64.iso` to the filename of the version you're installing, and change `/dev/sdY` to the correct target device e.g., `/dev/sdc`).
-Make sure to write to the entire device (e.g., `/dev/sdc`) rather than just a single partition (e.g., `/dev/sdc1`).
+change `qubes-rx-x86_64.iso` to the filename of the version you're installing,
+and change `/dev/sdy` to the correct target device e.g., `/dev/sdc`). make sure
+to write to the entire device (e.g., `/dev/sdc`) rather than just a single
+partition (e.g., `/dev/sdc1`).
 
-On Windows, you can use the [Rufus](https://rufus.akeo.ie/) tool to write the ISO to a USB key. 
-MediaTest is not recommended. 
-Be sure to select "DD image" mode (*after* selecting the Qubes ISO):
+on windows, you can use the [rufus](https://rufus.akeo.ie/) tool to write the
+iso to a usb key. mediatest is not recommended. be sure to select "dd image"
+mode (*after* selecting the qubes iso):
 
 <div class="alert alert-warning" role="alert">
   <i class="fa fa-exclamation-circle"></i>
-  <b>Note:</b>  If you do this on Windows 10, you can only install Qubes without MediaTest, which is not recommended.
+  <b>note:</b>  if you do this on windows 10, you can only install qubes
+  without mediatest, which is not recommended.
 </div>
 
-![Rufus menu](/attachment/doc/rufus-menu.png)
+![rufus menu](/attachment/doc/rufus-menu.png)
 
-![Rufus DD image mode](/attachment/doc/rufus-dd-image-mode.png)
+![rufus dd image mode](/attachment/doc/rufus-dd-image-mode.png)
 
-If you are an advanced user, and you would like to customize your installation, please see [custom installation](/doc/custom-install/).
-Otherwise, follow the instructions below.
+if you are an advanced user, and you would like to customize your installation,
+please see [custom installation](/doc/custom-install/). otherwise, follow the
+instructions below.
 
-## Installation
+## installation
 
-This section will demonstrate a simple installation using mostly default settings.
+this section will demonstrate a simple installation using mostly default
+settings.
 
-### Getting to the boot screen
+### getting to the boot screen
 
-Just after you power on your machine, make the Qubes OS medium available to the computer by inserting your DVD or USB drive.
-Shortly after the Power-on self-test (POST) is completed, you should be greeted with the Qubes OS boot screen. 
+just after you power on your machine, make the qubes os medium available to the
+computer by inserting your dvd or usb drive. shortly after the power-on
+self-test (post) is completed, you should be greeted with the qubes os boot
+screen. 
 
-![Boot screen](/attachment/doc/boot-screen.png)
+![boot screen](/attachment/doc/boot-screen.png)
 
 <div class="alert alert-info" role="alert">
   <i class="fa fa-info-circle"></i>
-  <b>Note:</b> When installing Qubes OS 4.0 on UEFI, there is intentionally no boot menu.
-  It goes straight to the installer. 
-  The boot menu will be back in Qubes OS 4.1.
+  <b>note:</b> when installing qubes os 4.0 on uefi, there is intentionally no
+  boot menu. it goes straight to the installer. the boot menu will be back in
+  qubes os 4.1.
 </div>
 
-From here, you can navigate the boot screen using the arrow keys on your keyboard.
-Pressing the "Tab" key will reveal options. 
-You can choose one of three options:
+from here, you can navigate the boot screen using the arrow keys on your
+keyboard. pressing the "tab" key will reveal options. you can choose one of
+three options:
 
-* Install Qubes OS
-* Test this media and install Qubes OS
-* Troubleshooting
+* install qubes os
+* test this media and install qubes os
+* troubleshooting
  
-Select the option to test this media and install Qubes OS. 
+select the option to test this media and install qubes os. 
 
-If the boot screen does not appear, there are several options to troubleshoot. 
-First, try rebooting your computer. 
-If it still loads your currently installed operating system or does not detect your installation medium, make sure the boot order is set up appropriately. 
-The process to change the boot order varies depending on the currently installed system and the motherboard manufacturer. 
-If **Windows 10** is installed on your machine, you may need to follow specific instructions to change the boot order.
-This may require an [advanced reboot](https://support.microsoft.com/en-us/help/4026206/windows-10-find-safe-mode-and-other-startup-settings).
+if the boot screen does not appear, there are several options to troubleshoot.
+first, try rebooting your computer. if it still loads your currently installed
+operating system or does not detect your installation medium, make sure the
+boot order is set up appropriately. the process to change the boot order varies
+depending on the currently installed system and the motherboard manufacturer.
+if **windows 10** is installed on your machine, you may need to follow specific
+instructions to change the boot order. this may require an [advanced
+reboot](https://support.microsoft.com/en-us/help/4026206/windows-10-find-safe-mode-and-other-startup-settings).
 
-After the POST, you may have a chance to choose a boot device. 
-You may wish to select the USB drive or DVD drive as a temporary boot option so that the next time you boot, your internal storage device will be selected first. 
+after the post, you may have a chance to choose a boot device. you may wish to
+select the usb drive or dvd drive as a temporary boot option so that the next
+time you boot, your internal storage device will be selected first. 
 
-![Boot order](/attachment/doc/boot-order.png)
+![boot order](/attachment/doc/boot-order.png)
 
-### The installer home screen
+### the installer home screen
 
-On the first screen, you are asked to select the language that will be used during the installation process. 
-When you are done, select **Continue**.
+on the first screen, you are asked to select the language that will be used
+during the installation process. when you are done, select **continue**.
 
 ![welcome](/attachment/doc/welcome-to-qubes-os-installation-screen.png)
 
-Prior to the next screen, a compatibility test runs to check whether IOMMU-virtualization is active or not. 
-If the test fails, a window will pop up. 
+prior to the next screen, a compatibility test runs to check whether
+iommu-virtualization is active or not. if the test fails, a window will pop up. 
 
-![Unsupported hardware detected](/attachment/doc/unsupported-hardware-detected.png)
+![unsupported hardware detected](/attachment/doc/unsupported-hardware-detected.png)
 
-Do not panic.
-It may simply indicate that IOMMU-virtualization hasn't been activated in the BIOS. 
-Return to the [hardware requirements](#hardware-requirements) section to learn how to activate it. 
-If the setting is not configured correctly, it means that your hardware won't be able to leverage some Qubes security features, such as a strict isolation of the networking and USB hardware. 
+do not panic. it may simply indicate that iommu-virtualization hasn't been
+activated in the bios. return to the [hardware
+requirements](#hardware-requirements) section to learn how to activate it. if
+the setting is not configured correctly, it means that your hardware won't be
+able to leverage some qubes security features, such as a strict isolation of
+the networking and usb hardware. 
 
-If the test passes, you will reach the installation summary screen.
-The installer loads Xen right at the beginning.
-If you can see the installer's graphical screen, and you pass the compatibility check that runs immediately afterward, Qubes OS is likely to work on your system!
+if the test passes, you will reach the installation summary screen. the
+installer loads xen right at the beginning. if you can see the installer's
+graphical screen, and you pass the compatibility check that runs immediately
+afterward, qubes os is likely to work on your system!
 
-Like Fedora, Qubes OS uses the Anaconda installer. 
-Those that are familiar with RPM-based distributions should feel at home. 
+like fedora, qubes os uses the anaconda installer. those that are familiar with
+rpm-based distributions should feel at home. 
 
-### Installation summary
+### installation summary
 
 <div class="alert alert-success" role="alert">
   <i class="fa fa-check-circle"></i>
-  <b>Did you know?</b> The Qubes OS installer is completely offline.
-  It doesn't even load any networking drivers, so there is no possibility of internet-based data leaks or attacks during the installation process.
+  <b>did you know?</b> the qubes os installer is completely offline. it doesn't
+  even load any networking drivers, so there is no possibility of
+  internet-based data leaks or attacks during the installation process.
 </div>
 
-The Installation summary screen allows you to change how the system will be installed and configured, including localization settings. 
-At minimum, you are required to select the storage device on which Qubes OS will be installed. 
+the installation summary screen allows you to change how the system will be
+installed and configured, including localization settings. at minimum, you are
+required to select the storage device on which qubes os will be installed. 
 
-![Installation summary not ready](/attachment/doc/installation-summary-not-ready.png)
+![installation summary not ready](/attachment/doc/installation-summary-not-ready.png)
 
-### Localization
+### localization
 
-Let's assume you wish to add a German keyboard layout.
-Go to Keyboard Layout, press the "Plus" symbol, search for "German" as indicated in the screenshot and press "Add".
-If you want it be your default language, select the "German" entry in the list and press the arrow button.
-Click on "Done" in the upper left corner, and you're ready to go!
+let's assume you wish to add a german keyboard layout. go to keyboard layout,
+press the "plus" symbol, search for "german" as indicated in the screenshot and
+press "add". if you want it be your default language, select the "german" entry
+in the list and press the arrow button. click on "done" in the upper left
+corner, and you're ready to go!
 
-![Keyboard layout selection](/attachment/doc/keyboard-layout-selection.png)
+![keyboard layout selection](/attachment/doc/keyboard-layout-selection.png)
 
-The process to select a new language is similar to the process to select a new keyboard layout. 
-Follow the same process in the "Language Support" entry.
+the process to select a new language is similar to the process to select a new
+keyboard layout. follow the same process in the "language support" entry.
 
-![Language support selection](/attachment/doc/language-support-selection.png)
+![language support selection](/attachment/doc/language-support-selection.png)
 
-You can have as many keyboard layout and languages as you want. 
-Post-install, you will be able to switch between them and install others. 
+you can have as many keyboard layout and languages as you want. post-install,
+you will be able to switch between them and install others. 
 
-Don't forget to select your time and date by clicking on the Time & Date entry.
+don't forget to select your time and date by clicking on the time & date entry.
 
-![Time and date](/attachment/doc/time-and-date.png)
+![time and date](/attachment/doc/time-and-date.png)
 
-### Software
+### software
 
-![Add-ons](/attachment/doc/add-ons.png)
+![add-ons](/attachment/doc/add-ons.png)
 
-On the software selection tab, you can choose which software to install in Qubes OS. 
-Two options are available:
+on the software selection tab, you can choose which software to install in
+qubes os. two options are available:
 
-* **Debian:** Select this option if you would like to use [Debian](/doc/templates/debian/) qubes in addition to the default Fedora qubes.
-* **Whonix:** Select this option if you would like to use [Whonix](/doc/whonix/) qubes.
-   Whonix allows you to use [Tor](https://www.torproject.org/) securely within Qubes.
+* **debian:** select this option if you would like to use
+  [debian](/doc/templates/debian/) qubes in addition to the default fedora
+  qubes.
+* **whonix:** select this option if you would like to use
+  [whonix](/doc/whonix/) qubes. whonix allows you to use
+  [tor](https://www.torproject.org/) securely within qubes.
 
-Whonix lets you route some or all of your network traffic through Tor for greater privacy.
-Depending on your threat model, you may need to install Whonix templates right away.
+whonix lets you route some or all of your network traffic through tor for
+greater privacy. depending on your threat model, you may need to install whonix
+templates right away.
 
-Regardless of your choices on this screen, you will always be able to install these and other [templates](/doc/templates/) later.
-If you're short on disk space, you may wish to deselect these options.
+regardless of your choices on this screen, you will always be able to install
+these and other [templates](/doc/templates/) later. if you're short on disk
+space, you may wish to deselect these options.
 
-By default, Qubes OS comes preinstalled with the lightweight Xfce4 desktop environment.
-Other desktop environments will be available to you after the installation is completed, though they may not be officially supported (see [Advanced Topics](/doc/#advanced-topics)).
+by default, qubes os comes preinstalled with the lightweight xfce4 desktop
+environment. other desktop environments will be available to you after the
+installation is completed, though they may not be officially supported (see
+[advanced topics](/doc/#advanced-topics)).
 
-Press **Done** to go back to the installation summary screen.
+press **done** to go back to the installation summary screen.
 
-### Installation destination
+### installation destination
 
-Under the System section, you must choose the installation destination.
-Select the storage device on which you would like to install Qubes OS.
+under the system section, you must choose the installation destination. select
+the storage device on which you would like to install qubes os.
 
 <div class="alert alert-danger" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
-  <b>Warning:</b> Be careful to choose the correct installation target, or you may lose data.
-  We strongly recommended making a full backup before proceeding.
+  <b>warning:</b> be careful to choose the correct installation target, or you
+  may lose data. we strongly recommended making a full backup before
+  proceeding.
 </div>
 
-Your installation destination can be an internal or external storage drive, such as an SSD, HDD, or USB drive.
-The installation destination must have a least 32 GiB of free space available.
+your installation destination can be an internal or external storage drive,
+such as an ssd, hdd, or usb drive. the installation destination must have a
+least 32 gib of free space available.
 
 <div class="alert alert-warning" role="alert">
   <i class="fa fa-exclamation-circle"></i>
-  <b>Note:</b> The installation destination cannot be the same as the installation medium. For example, if you're installing Qubes OS <em>from</em> a USB drive <em>onto</em> a USB drive, they must be two distinct USB drives, and they must both be plugged into your computer at the same time. (Note: This may not apply to advanced users who partition their devices appropriately.)
+  <b>note:</b> the installation destination cannot be the same as the
+  installation medium. for example, if you're installing qubes os <em>from</em>
+  a usb drive <em>onto</em> a usb drive, they must be two distinct usb drives,
+  and they must both be plugged into your computer at the same time. (note:
+  this may not apply to advanced users who partition their devices
+  appropriately.)
 </div>
 
-Installing an operating system onto a USB drive can be a convenient way to try Qubes.
-However, USB drives are typically much slower than internal SSDs.
-We recommend a very fast USB 3.0 drive for decent performance.
-Please note that a minimum storage of 32 GiB is required.
-If you want to install Qubes OS onto a USB drive, just select the USB device as the target installation device. 
-Bear in mind that the installation process is likely to take longer than it would on an internal storage device.
+installing an operating system onto a usb drive can be a convenient way to try
+qubes. however, usb drives are typically much slower than internal ssds. we
+recommend a very fast usb 3.0 drive for decent performance. please note that a
+minimum storage of 32 gib is required. if you want to install qubes os onto a
+usb drive, just select the usb device as the target installation device. bear
+in mind that the installation process is likely to take longer than it would on
+an internal storage device.
 
-![Select storage device](/attachment/doc/select-storage-device.png)
+![select storage device](/attachment/doc/select-storage-device.png)
 
 <div class="alert alert-success" role="alert">
   <i class="fa fa-check-circle"></i>
-  <b>Did you know?</b> Qubes OS uses full-disk AES encryption (FDE) via LUKS by default.
+  <b>did you know?</b> qubes os uses full-disk aes encryption (fde) via luks by
+  default.
 </div>
 
-As soon as you press **Done**, the installer will ask you to enter a passphrase for disk encryption.
-The passphrase should be complex.
-Make sure that your keyboard layout reflects what keyboard you are actually using.
-When you're finished, press **Done**.
+as soon as you press **done**, the installer will ask you to enter a passphrase
+for disk encryption. the passphrase should be complex. make sure that your
+keyboard layout reflects what keyboard you are actually using. when you're
+finished, press **done**.
 
 <div class="alert alert-danger" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
-  <b>Warning:</b> If you forget your encryption passphrase, there is no way to recover it.
+  <b>warning:</b> if you forget your encryption passphrase, there is no way to
+  recover it.
 </div>
 
-![Select storage passhprase](/attachment/doc/select-storage-passphrase.png)
+![select storage passhprase](/attachment/doc/select-storage-passphrase.png)
 
-When you're ready, press **Begin Installation**.
+when you're ready, press **begin installation**.
 
-![Installation summary ready](/attachment/doc/installation-summary-ready.png)
+![installation summary ready](/attachment/doc/installation-summary-ready.png)
 
-### Create your user account
+### create your user account
 
-While the installation process is running, you can create your user account.
-This is what you'll use to log in after disk decryption and when unlocking the screen locker.
-This is a purely local, offline account in dom0.
-By design, Qubes OS is a single-user operating system, so this is just for you.
+while the installation process is running, you can create your user account.
+this is what you'll use to log in after disk decryption and when unlocking the
+screen locker. this is a purely local, offline account in dom0. by design,
+qubes os is a single-user operating system, so this is just for you.
 
-Select **User Creation** to define a new user with administrator privileges and a password.
-Just as for the disk encryption, this password should be complex.
-The root account is deactivated and should remain as such.
+select **user creation** to define a new user with administrator privileges and
+a password. just as for the disk encryption, this password should be complex.
+the root account is deactivated and should remain as such.
 
-![Account name and password](/attachment/doc/account-name-and-password.png)
+![account name and password](/attachment/doc/account-name-and-password.png)
 
-When the installation is complete, press **Reboot**.
-Don't forget to remove the installation medium, or else you may end up seeing the installer boot screen again.
+when the installation is complete, press **reboot**. don't forget to remove the
+installation medium, or else you may end up seeing the installer boot screen
+again.
 
-## Post-installation
+## post-installation
 
-### First boot
+### first boot
 
-If the installation was successful, you should now see the GRUB menu during the boot process.
+if the installation was successful, you should now see the grub menu during the
+boot process.
 
-![Grub boot menu](/attachment/doc/grub-boot-menu.png)
+![grub boot menu](/attachment/doc/grub-boot-menu.png)
 
-Just after this screen, you will be asked to enter your encryption passphrase.
+just after this screen, you will be asked to enter your encryption passphrase.
 
-![Unlock storage device screen](/attachment/doc/unlock-storage-device-screen.png)
+![unlock storage device screen](/attachment/doc/unlock-storage-device-screen.png)
 
-### Initial Setup
+### initial setup
 
-You're almost done.
-Before you can start using Qubes OS, some configuration is needed. 
+you're almost done. before you can start using qubes os, some configuration is
+needed. 
 
-![Initial setup menu](/attachment/doc/initial-setup-menu.png)
+![initial setup menu](/attachment/doc/initial-setup-menu.png)
 
-By default, the installer will create a number of qubes (depending on the options you selected during the installation process).
-These are designed to give you a more ready-to-use environment from the get-go.
+by default, the installer will create a number of qubes (depending on the
+options you selected during the installation process). these are designed to
+give you a more ready-to-use environment from the get-go.
 
-![Initial setup menu configuration](/attachment/doc/initial-setup-menu-configuration.png)
+![initial setup menu configuration](/attachment/doc/initial-setup-menu-configuration.png)
 
-Let's briefly go over the options:
+let's briefly go over the options:
 
-* **Create default system qubes:**
-  These are the core components of the system, required for things like internet access.
-* **Create default application qubes:**
-  These are how you compartmentalize your digital life.
-  There's nothing special about the ones the installer creates.
-  They're just suggestions that apply to most people.
-  If you decide you don't want them, you can always delete them later, and you can always create your own.
-* **Create Whonix Gateway and Workstation qubes:**
-  If you want to use Whonix, you should select this option.
-  * **Enabling system and template updates over the Tor anonymity network using Whonix:**
-  If you select this option, then whenever you install or update software in dom0 or a template, the internet traffic will go through Tor.
-* **Create USB qube holding all USB controllers:**
-  Just like the network qube for the network stack, the USB qube isolates the USB controllers.
-  * **Use sys-net qube for both networking and USB devices:**
-  You should select this option if you rely on a USB device for network access, such as a USB modem or a USB Wi-Fi adapter.
+* **create default system qubes:**
+  these are the core components of the system, required for things like
+  internet access.
+* **create default application qubes:**
+  these are how you compartmentalize your digital life. there's nothing special
+  about the ones the installer creates. they're just suggestions that apply to
+  most people. if you decide you don't want them, you can always delete them
+  later, and you can always create your own.
+* **create whonix gateway and workstation qubes:**
+  if you want to use whonix, you should select this option.
+  * **enabling system and template updates over the tor anonymity network using whonix:**
+  if you select this option, then whenever you install or update software in
+  dom0 or a template, the internet traffic will go through tor.
+* **create usb qube holding all usb controllers:**
+  just like the network qube for the network stack, the usb qube isolates the
+  usb controllers.
+  * **use sys-net qube for both networking and usb devices:**
+  you should select this option if you rely on a usb device for network access,
+  such as a usb modem or a usb wi-fi adapter.
 * **Do not configure anything:**
-  This is for very advanced users only.
-  If you select this option, you'll have to set everything up manually afterward.
+  This is for very advanced users only. If you select this option, you'll have
+  to set everything up manually afterward.
 
-When you're satisfied with you choices, press **Done**. 
-This configuration process may take a while, depending on the speed and compatibility of your system.
+When you're satisfied with you choices, press **Done**. This configuration
+process may take a while, depending on the speed and compatibility of your
+system.
 
-After the configuration is done, you will be greeted by the login screen.
-Enter your password and log in.
+After the configuration is done, you will be greeted by the login screen. Enter
+your password and log in.
 
 ![Login screen](/attachment/doc/login-screen.png)
 
@@ -350,46 +409,68 @@ Congratulations, you are now ready to use Qubes OS!
 
 ### Updating
 
-Next, [update](/doc/updating-qubes-os/) your installation to ensure you have the latest security updates.
-Frequently updating is one of the best ways to remain secure against new threats.
+Next, [update](/doc/how-to-update/) your installation to ensure you have
+the latest security updates. Frequently updating is one of the best ways to
+remain secure against new threats.
 
 ### Security
 
-The Qubes OS Project occasionally issues [Qubes Security Bulletins (QSBs)](/security/bulletins/) as part of the [Qubes Security Pack (qubes-secpack)](/security/pack/).
-It is important to make sure that you receive all QSBs in a timely manner so that you can take action to keep your system secure.
-(While [updating](#updating) will handle most security needs, there may be cases in which additional action from you is required.)
-For this reason, we strongly recommend that every Qubes user subscribe to the [qubes-announce](/support/#qubes-announce) mailing list.
+The Qubes OS Project occasionally issues [Qubes Security Bulletins
+(QSBs)](/security/bulletins/) as part of the [Qubes Security Pack
+(qubes-secpack)](/security/pack/). It is important to make sure that you
+receive all QSBs in a timely manner so that you can take action to keep your
+system secure. (While [updating](#updating) will handle most security needs,
+there may be cases in which additional action from you is required.) For this
+reason, we strongly recommend that every Qubes user subscribe to the
+[qubes-announce](/support/#qubes-announce) mailing list.
 
-In addition to QSBs, the Qubes OS Project also publishes [Canaries](/security/canaries/), XSA summaries, template releases and end-of-life notices, and other items of interest to Qubes users.
-Since these are not essential for all Qubes users to read, they are not sent to [qubes-announce](/support/#qubes-announce) in order to keep the volume on that list low.
-However, we expect that most users, especially novice users, will find them helpful.
-If you are interested in these additional items, we encourage you to subscribe to the [Qubes News RSS feed](/feed.xml) or join one of our other [venues](/support/), where these news items are also announced.
+In addition to QSBs, the Qubes OS Project also publishes
+[Canaries](/security/canaries/), XSA summaries, template releases and
+end-of-life notices, and other items of interest to Qubes users. Since these
+are not essential for all Qubes users to read, they are not sent to
+[qubes-announce](/support/#qubes-announce) in order to keep the volume on that
+list low. However, we expect that most users, especially novice users, will
+find them helpful. If you are interested in these additional items, we
+encourage you to subscribe to the [Qubes News RSS feed](/feed.xml) or join one
+of our other [venues](/support/), where these news items are also announced.
 
-For more information about Qubes OS Project security, please see the [security center](/security/).
+For more information about Qubes OS Project security, please see the [security
+center](/security/).
 
 ### Backups
 
-It is extremely important to make regular backups so that you don't lose your data unexpectedly.
-The [Qubes backup system](/doc/backup-restore/) allows you to do this securely and easily.
+It is extremely important to make regular backups so that you don't lose your
+data unexpectedly. The [Qubes backup
+system](/doc/how-to-back-up-restore-and-migrate/) allows you to do this
+securely and easily.
 
 ### Submit your HCL report
 
-Consider giving back to the Qubes community and helping other users by [generating and submitting a Hardware Compatibility List (HCL) report](/doc/hcl/#generating-and-submitting-new-reports).
+Consider giving back to the Qubes community and helping other users by
+[generating and submitting a Hardware Compatibility List (HCL)
+report](/doc/hcl/#generating-and-submitting-new-reports).
 
 ### Get Started
 
-[Get Started](/doc/how-to-get-started/) with Qubes, check out the [How-to Guides](/doc/#how-to-guides), and learn about [Templates](/doc/#templates).
+See [How to Get Started](/doc/how-to-get-started/) with Qubes, check out the
+[How-to Guides](/doc/#how-to-guides), and learn about
+[Templates](/doc/#templates).
 
 ## Getting help
 
-* We work very hard to make the [documentation](/doc/) accurate, comprehensive useful and user friendly. 
-  We urge you to read it! It may very well contain the answers to your questions. 
-  (Since the documentation is a community effort, we'd also greatly appreciate your help in [improving](/doc/doc-guidelines/) it!)
+* We work very hard to make the [documentation](/doc/) accurate, comprehensive
+  useful and user friendly. We urge you to read it! It may very well contain
+  the answers to your questions. (Since the documentation is a community
+  effort, we'd also greatly appreciate your help in
+  [improving](/doc/doc-guidelines/) it!)
 
-* If issues arise during installation, see the [Installation Troubleshooting](/doc/installation-troubleshooting) guide. 
+* If issues arise during installation, see the [Installation
+  Troubleshooting](/doc/installation-troubleshooting) guide. 
 
-* If you don't find your answer in the documentation, please see [Help, Support, Mailing Lists, and Forum](/support/) for places to ask.
+* If you don't find your answer in the documentation, please see [Help,
+  Support, Mailing Lists, and Forum](/support/) for places to ask.
 
-* Please do **not** email individual members of the Qubes team with questions about installation or other problems. 
-   Instead, please see [Help, Support, Mailing Lists, and Forum](/support/) for appropriate places to ask questions.
+* Please do **not** email individual members of the Qubes team with questions
+  about installation or other problems. Instead, please see [Help, Support,
+  Mailing Lists, and Forum](/support/) for appropriate places to ask questions.
 
