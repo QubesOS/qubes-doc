@@ -278,7 +278,7 @@ Booting to a kernel inside the template is not supported under `PVH`.
 
 #### Distribution kernel
 
-Apply the following instruction in a Debian template or in a Debian StandaloneVM.
+Apply the following instruction in a Debian template or in a Debian standalone.
 
 Using a distribution kernel package the initramfs and kernel modules should be handled automatically.
 

@@ -114,9 +114,9 @@ your favorite desktop environment and continue.
 
 ## Upgrade all Template and Standalone VM(s)
 
-By default, in Qubes R3.1, there are few templates and no StandaloneVMs.
-However, users are free to create StandaloneVMs More information on using
-multiple templates, as well as StandaloneVMs, can be found
+By default, in Qubes R3.1, there are few templates and no standalones.
+However, users are free to create standalones More information on using
+multiple templates, as well as standalones, can be found
 [here](/doc/software-update-vm/). The steps described in this section should be
 repeated in **all** the user's Template and Standalone VMs.
 
@@ -127,7 +127,7 @@ repeated in **all** the user's Template and Standalone VMs.
 In order to do that, please see the
 [Fedora 23 template upgrade instructions](/doc/templates/fedora/#upgrading).
 
-1. Open a terminal in the template (or StandaloneVM). (E.g., use Qubes VM
+1. Open a terminal in the template (or standalone). (E.g., use Qubes VM
     Manager's right-click menu, choose "Run Command in VM," and type
     `gnome-terminal` there.)
 
@@ -153,7 +153,7 @@ In order to do that, please see the
 
 ### Upgrade Debian (and Whonix) templates: 
 
-1. Open a terminal in the template (or StandaloneVM). (E.g., use Qubes VM
+1. Open a terminal in the template (or standalone). (E.g., use Qubes VM
     Manager's right-click menu, choose "Run Command in VM," and type
     `gnome-terminal` there.)
 

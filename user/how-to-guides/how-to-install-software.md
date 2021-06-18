@@ -81,13 +81,13 @@ Debian also has three Qubes VM testing repositories (where `*` denotes the Relea
 
 To enable or disable any of these repos permanently, uncomment the corresponding `deb` line in `/etc/apt/sources.list.d/qubes-r*.list`.
 
-### StandaloneVMs
+### Standalones
 
-When you create a [StandaloneVM](/doc/standalone-and-hvm/) from a template, the StandaloneVM is a complete clone of the template, including the entire filesystem.
-After the moment of creation, the StandaloneVM is completely independent from the template.
+When you create a [standalone](/doc/standalone-and-hvm/) from a template, the standalone is a complete clone of the template, including the entire filesystem.
+After the moment of creation, the standalone is completely independent from the template.
 Therefore, it will not be updated when the template is updated.
 Rather, it must be updated individually.
-The process for installing and updating software in StandaloneVMs is the same as described above for templates.
+The process for installing and updating software in standalones is the same as described above for templates.
 
 ### RPMFusion for Fedora templates
 

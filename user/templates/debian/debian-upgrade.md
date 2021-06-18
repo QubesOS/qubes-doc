@@ -118,9 +118,9 @@ The same general procedure may be used to upgrade any template based on the stan
 11. (Optional) [Uninstall the old template.](/doc/templates/#uninstalling)
     Make sure that the template you're uninstalling is the old one, not the new one!
 
-## StandaloneVMs
+## Standalones
 
-The procedure for upgrading a Debian [StandaloneVM](/doc/standalone-and-hvm/) is the same as for a template.
+The procedure for upgrading a Debian [standalone](/doc/standalone-and-hvm/) is the same as for a template.
 
 ## Release-specific notes
 

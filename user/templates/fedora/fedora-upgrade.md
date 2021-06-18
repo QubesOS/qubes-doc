@@ -183,9 +183,9 @@ The same general procedure may be used to upgrade any template based on the stan
 
 (If you encounter insufficient space issues, you may need to use the methods described for the standard template above.)
 
-## StandaloneVMs
+## Standalones
 
-The procedure for upgrading a Fedora [StandaloneVM](/doc/standalone-and-hvm/) is the same as for a template.
+The procedure for upgrading a Fedora [standalone](/doc/standalone-and-hvm/) is the same as for a template.
 
 
 ## Release-specific notes

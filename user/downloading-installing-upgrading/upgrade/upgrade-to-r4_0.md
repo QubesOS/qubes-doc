@@ -82,7 +82,7 @@ Restore from your backup
 4. Go to **Qubes menu -> System Tools -> Qubes Manager** to start it.
 
 5. Follow the **Restoring from a Backup** section in the [Backup, Restoration, and Migration](/doc/backup-restore/) guide.
-   We recommend that you restore only your [app qubes](/doc/glossary/#app-qube) and [StandaloneVMs](/doc/glossary/#standalonevm) from R3.2.
+   We recommend that you restore only your [app qubes](/doc/glossary/#app-qube) and [standalones](/doc/glossary/#standalone) from R3.2.
    Using [templates](/doc/templates/) and [SystemVMs](/doc/glossary/#systemvm) from R3.2 is not fully supported (see [#3514](https://github.com/QubesOS/qubes-issues/issues/3514)).
    Instead, we recommend using the templates that were created specifically for R4.0, which you can [customize](/doc/software-update-vm/) according to your needs.
    For the template OS versions supported in R4.0, see [Supported Versions](/doc/supported-versions/#templates).
@@ -109,7 +109,7 @@ Both Qubes Manager and the `qvm-remove` tool will show you where a disposable te
 Upgrade all Template and Standalone VM(s)
 -----------------------------------------
 
-We strongly recommend that you update **all** templates and StandaloneVMs before use so that you have the latest security patches from upstream distributions.
+We strongly recommend that you update **all** templates and standalones before use so that you have the latest security patches from upstream distributions.
 In addition, if the default templates have reached EOL (end-of-life) by the time you install R4.0, we strongly recommend that you upgrade them before use.
 Please see [Supported Versions](/doc/supported-versions/) for information on supported OS versions and consult the guides below for specific upgrade instructions:
 

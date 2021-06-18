@@ -20,14 +20,14 @@ by following the procedure below.
 ## Upgrade all Template and Standalone VM(s)
 
 By default, in Qubes R3.0, there is only one template. However, users are
-free to create more templates for special purposes, as well as StandaloneVMs.
-More information on using multiple templates, as well as StandaloneVMs, can be
+free to create more templates for special purposes, as well as standalones.
+More information on using multiple templates, as well as standalones, can be
 found [here](/doc/software-update-vm/). The steps described in this
 section should be repeated in **all** the user's Template and Standalone VMs.
 
 ### Upgrade Fedora templates:
 
-1. Open a terminal in the template (or StandaloneVM). (E.g., use Qubes VM
+1. Open a terminal in the template (or standalone). (E.g., use Qubes VM
     Manager's right-click menu, choose "Run Command in VM," and type
     `gnome-terminal` there.)
 
@@ -47,7 +47,7 @@ section should be repeated in **all** the user's Template and Standalone VMs.
 
 ### Upgrade Debian (and Whonix) templates:
 
-1. Open a terminal in the template (or StandaloneVM). (E.g., use Qubes VM
+1. Open a terminal in the template (or standalone). (E.g., use Qubes VM
     Manager's right-click menu, choose "Run Command in VM," and type
     `gnome-terminal` there.)
 
