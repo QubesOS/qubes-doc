@@ -1,6 +1,6 @@
 ---
 lang: en
-layout: sidebar
+layout: doc
 permalink: /faq/
 redirect_from:
 - /doc/user-faq/
@@ -12,7 +12,7 @@ redirect_from:
 - /doc/DevelFaq/
 - /wiki/DevelFaq/
 ref: 124
-title: Frequently Asked Questions
+title: Frequently Asked Questions (FAQ)
 ---
 
 ## General & Security
