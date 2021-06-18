@@ -38,11 +38,11 @@ Fully updating your Qubes OS system means updating:
 
 You can accomplish this using the **Qubes Update** tool.
 
-[![Qubes Update](/attachment/wiki/QubesScreenshots/r4.0-software-update.png)](/attachment/wiki/QubesScreenshots/r4.0-software-update.png)
+[![Qubes Update](/attachment/doc/r4.0-software-update.png)](/attachment/doc/r4.0-software-update.png)
 
 By default, the Qubes Update tool will appear as an icon in the Notification Area when updates are available.
 
-[![Qube Updates Available](/attachment/wiki/QubesScreenshots/r4.0-qube-updates-available.png)](/attachment/wiki/QubesScreenshots/r4.0-qube-updates-available.png)
+[![Qube Updates Available](/attachment/doc/r4.0-qube-updates-available.png)](/attachment/doc/r4.0-qube-updates-available.png)
 
 However, you can also start the tool manually by selecting it in the Applications Menu under "System Tools."
 Even if no updates have been detected, you can use this tool to check for updates manually at any time by selecting "Enable updates for qubes without known available updates," then selecting all desired items from the list and clicking "Next."

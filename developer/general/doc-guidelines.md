@@ -65,43 +65,43 @@ Ok, let's start.
 Every documentation page has an "Edit this page" button.
 It may be on the side (in the desktop layout):
 
-[![edit-button-desktop](/attachment/wiki/doc-edit/03-button2.png)](/attachment/wiki/doc-edit/03-button2.png)
+[![edit-button-desktop](/attachment/doc/03-button2.png)](/attachment/doc/03-button2.png)
 
 Or at the bottom (in the mobile layout):
 
-[![edit-button-mobile](/attachment/wiki/doc-edit/02-button1.png)](/attachment/wiki/doc-edit/02-button1.png)
+[![edit-button-mobile](/attachment/doc/02-button1.png)](/attachment/doc/02-button1.png)
 
 When you click on it, you'll be prompted for your GitHub username and password (if you aren't already logged in).
 You can also create an account from here.
 
-[![github-sign-in](/attachment/wiki/doc-edit/04-sign-in.png)](/attachment/wiki/doc-edit/04-sign-in.png)
+[![github-sign-in](/attachment/doc/04-sign-in.png)](/attachment/doc/04-sign-in.png)
 
 If this is your first contribution to the documentation, you need to "fork" the repository (make your own copy). It's easy --- just click the big green button on the next page.
 This step is only needed the first time you make a contribution.
 
-[![fork](/attachment/wiki/doc-edit/05-fork.png)](/attachment/wiki/doc-edit/05-fork.png)
+[![fork](/attachment/doc/05-fork.png)](/attachment/doc/05-fork.png)
 
 Now you can make your modifications.
 You can also preview the changes to see how they'll be formatted by clicking the "Preview changes" tab.
 If you want to add images, please see [How to add images](#how-to-add-images).
 If you're making formatting changes, please [render the site locally](https://github.com/QubesOS/qubesos.github.io#instructions) to verify that everything looks correct before submitting any changes.
 
-[![edit](/attachment/wiki/doc-edit/06-edit.png)](/attachment/wiki/doc-edit/06-edit.png)
+[![edit](/attachment/doc/06-edit.png)](/attachment/doc/06-edit.png)
 
 Once you're finished, describe your changes at the bottom and click "Propose file change".
 
-[![commit](/attachment/wiki/doc-edit/07-commit-msg.png)](/attachment/wiki/doc-edit/07-commit-msg.png)
+[![commit](/attachment/doc/07-commit-msg.png)](/attachment/doc/07-commit-msg.png)
 
 After that, you'll see exactly what modifications you've made.
 At this stage, those changes are still in your own copy of the documentation ("fork").
 If everything looks good, send those changes to us by pressing the "Create pull request" button.
 
-[![pull-request](/attachment/wiki/doc-edit/08-review-changes.png)](/attachment/wiki/doc-edit/08-review-changes.png)
+[![pull-request](/attachment/doc/08-review-changes.png)](/attachment/doc/08-review-changes.png)
 
 You will be able to adjust the pull request message and title there.
 In most cases, the defaults are ok, so you can just confirm by pressing the "Create pull request" button again.
 
-[![pull-request-confirm](/attachment/wiki/doc-edit/09-create-pull-request.png)](/attachment/wiki/doc-edit/09-create-pull-request.png)
+[![pull-request-confirm](/attachment/doc/09-create-pull-request.png)](/attachment/doc/09-create-pull-request.png)
 
 If any of your changes should be reflected in the [documentation index (a.k.a. table of contents)](/doc/) --- for example, if you're adding a new page, changing the title of an existing page, or removing a page --- please see [How to edit the documentation index](#how-to-edit-the-documentation-index).
 
@@ -112,7 +112,7 @@ Otherwise, we may have some questions for you, which we'll post in a comment on 
 (GitHub will automatically notify you if we do.)
 If, for some reason, we can't accept your pull request, we'll post a comment explaining why we can't.
 
-[![done](/attachment/wiki/doc-edit/10-done.png)](/attachment/wiki/doc-edit/10-done.png)
+[![done](/attachment/doc/10-done.png)](/attachment/doc/10-done.png)
 
 ## How to edit the documentation index
 
@@ -129,7 +129,7 @@ To add an image to a page, use the following syntax in the main document.
 This will make the image a hyperlink to the image file, allowing the reader to click on the image in order to view the image by itself.
 
 ```
-[![Image Title](/attachment/wiki/page-title/image-filename.png)](/attachment/wiki/page-title/image-filename.png)
+[![Image Title](/attachment/doc/image-filename.png)](/attachment/doc/image-filename.png)
 ```
 
 Then, submit your image(s) in a separate pull request to the [qubes-attachment](https://github.com/QubesOS/qubes-attachment) repository using the same path and filename.

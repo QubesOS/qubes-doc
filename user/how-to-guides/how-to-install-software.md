@@ -33,7 +33,7 @@ To permanently install new software in a template:
     These new shortcuts will appear in the Applications Menu.
     (If you encounter problems, see [here](/doc/app-menu-shortcut-troubleshooting/) for troubleshooting.)
 
-![[The Applications tab in Qube Settings](/attachment/wiki/ManagingAppVmShortcuts/r4.1-dom0-appmenu-select.png)](/attachment/wiki/ManagingAppVmShortcuts/r4.1-dom0-appmenu-select.png)
+![[The Applications tab in Qube Settings](/attachment/doc/r4.1-dom0-appmenu-select.png)](/attachment/doc/r4.1-dom0-appmenu-select.png)
 
 ## How to update software
 

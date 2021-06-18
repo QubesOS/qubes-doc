@@ -56,12 +56,12 @@ qvm-features ipv4-only-qube ipv6 ''
 
 This configuration is presented below - green qubes have IPv6 access, red one does not.
 
-![ipv6-1](/attachment/wiki/IPv6/ipv6-1.png)
+![ipv6-1](/attachment/doc/ipv6-1.png)
 
 In that case, system uplink connection have native IPv6. But in some cases it may not be true. Then some tunneling solution can be used (for example teredo). The same will apply when the user is connected to VPN service providing IPv6 support, regardless of user's internet connection.
 Such configuration can be expressed by enabling `ipv6` feature only on some subset of Qubes networking, for example by creating separate qube to encapsulate IPv6 traffic and setting `ipv6` to `1` only there. See diagram below
 
-![ipv6-2](/attachment/wiki/IPv6/ipv6-2.png)
+![ipv6-2](/attachment/doc/ipv6-2.png)
 
 Besides enabling IPv6 forwarding, standard Qubes firewall can be used to limit what network resources are available to each qube. Currently only `qvm-firewall` command support adding IPv6 rules, GUI firewall editor will have this ability later.
 

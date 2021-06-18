@@ -14,7 +14,7 @@ title: Architecture
 
 Qubes implements a Security by Isolation approach. To do this, Qubes utilizes virtualization technology in order to isolate various programs from each other and even to sandbox many system-level components, such as networking and storage subsystems, so that the compromise of any of these programs or components does not affect the integrity of the rest of the system.
 
-[![qubes-schema-v2.png](/attachment/wiki/QubesArchitecture/qubes-schema-v2.png)](/attachment/wiki/QubesArchitecture/qubes-schema-v2.png)
+[![qubes-schema-v2.png](/attachment/doc/qubes-schema-v2.png)](/attachment/doc/qubes-schema-v2.png)
 
 Qubes lets the user define many security domains, which are implemented as lightweight Virtual Machines (VMs), or “AppVMs.” For example, the user can have “personal,” “work,” “shopping,” “bank,” and “random” AppVMs and can use the applications within those VMs just as if they were executing on the local machine. At the same time, however, these applications are well isolated from each other. Qubes also supports secure copy-and-paste and file sharing between the AppVMs, of course.
 
@@ -31,7 +31,7 @@ Key Architecture features
 - Qubes GUI provides isolation between apps sharing the same desktop
 - Secure system boot based (optional)
 
-(For those interested in the history of the project, [Architecture Spec v0.3 [PDF]](/attachment/wiki/QubesArchitecture/arch-spec-0.3.pdf) is the original 2009 document that started this all.
+(For those interested in the history of the project, [Architecture Spec v0.3 [PDF]](/attachment/doc/arch-spec-0.3.pdf) is the original 2009 document that started this all.
 Please note that this document is for historical interest only.
 For the latest information, please see the rest of the [System Documentation](/doc/#system).)
 
@@ -66,7 +66,7 @@ the Qubes system include:
 
 And all these components are "glued together" by the Qubes Core Stack.
 
-[![Qubes system components](/attachment/wiki/QubesArchitecture/qubes-components.png)](/attachment/wiki/QubesArchitecture/qubes-components.png)
+[![Qubes system components](/attachment/doc/qubes-components.png)](/attachment/doc/qubes-components.png)
 
 This diagram illustrates the location of all these components in the overall
 system architecture. Unlike the other Qubes architecture diagram above, this one

@@ -22,7 +22,7 @@ This means that you can safely work with untrusted files without risk of comprom
 disposables can be launched either directly from dom0's Start Menu or terminal window, or from within app qubes.
 While running, disposables will appear in Qubes VM Manager with the name `disp####`.
 
-[![disposablevm-example.png](/attachment/wiki/DisposableVms/disposablevm-example.png)](/attachment/wiki/DisposableVms/disposablevm-example.png)
+[![disposablevm-example.png](/attachment/doc/disposablevm-example.png)](/attachment/doc/disposablevm-example.png)
 
 This diagram provides a general example of how disposables can be used to safely open untrusted links and attachments in disposables. See [this article](https://blog.invisiblethings.org/2010/06/01/disposable-vms.html) for more on why one would want to use a disposable.
 
@@ -102,7 +102,7 @@ This app is running in its own dedicated VM -- a disposable created for the purp
 Once you close the viewing application the whole disposable will be destroyed.
 If you have edited the file and saved the changes, the changed file will be saved back to the original app qube, overwriting the original.
 
-![r4.0-open-in-dispvm-1.png](/attachment/wiki/DisposableVms/r4.0-open-in-dispvm-1.png) ![r4.0-open-in-dispvm-2.png](/attachment/wiki/DisposableVms/r4.0-open-in-dispvm-2.png)
+![r4.0-open-in-dispvm-1.png](/attachment/doc/r4.0-open-in-dispvm-1.png) ![r4.0-open-in-dispvm-2.png](/attachment/doc/r4.0-open-in-dispvm-2.png)
 
 
 ## Opening a fresh web browser instance in a new disposable
@@ -112,7 +112,7 @@ This can be done easily using the Start Menu: just go to **Application Menu -\> 
 Wait a few seconds until a web browser starts.
 Once you close the viewing application the whole disposable will be destroyed.
 
-![r4.0-open-in-dispvm-3.png](/attachment/wiki/DisposableVms/r4.0-open-in-dispvm-3.png)
+![r4.0-open-in-dispvm-3.png](/attachment/doc/r4.0-open-in-dispvm-3.png)
 
 
 ## Opening a file in a disposable via command line (from app qube)
