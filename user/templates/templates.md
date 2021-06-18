@@ -21,11 +21,11 @@ The template system has significant benefits:
 
 * **Security:** Each qube has read-only access to the template on which it's based, so if a qube is compromised, it cannot infect its template or any of the other qubes based on that template.
 * **Storage:** Each qube based on a template uses only the disk space required to store its own data (i.e., your files in its home directory), which dramatically saves on disk space.
-* **Speed:** It is extremely fast to create new template-based qubes, since the root filesystem already exists in the template.
+* **Speed:** It is extremely fast to create new app qubes, since the root filesystem already exists in the template.
 * **Updates:** Updates are naturally centralized, since updating a template means that all qubes based on it will automatically use those updates after they're restarted.
 
-An important side effect of this system is that any software installed in a template-based qube (rather than in the template on which it is based) will disappear after the template-based qube reboots (see [Inheritance and Persistence](#inheritance-and-persistence)).
-For this reason, we recommend installing most of your software in templates, not template-based qubes.
+An important side effect of this system is that any software installed in an app qube (rather than in the template on which it is based) will disappear after the app qube reboots (see [Inheritance and Persistence](#inheritance-and-persistence)).
+For this reason, we recommend installing most of your software in templates, not app qubes.
 
 The default template in Qubes is based on Fedora, but there are additional templates based on other Linux distributions.
 There are also templates available with or without certain software preinstalled.
@@ -98,7 +98,7 @@ After installing a fresh template, we recommend performing the following steps:
 
 1. [Update the template](#updating).
 
-2. [Switch any template-based qubes that are based on the old template to the new one](#switching).
+2. [Switch any app qubes that are based on the old template to the new one](#switching).
 
 3. If desired, [uninstall the old template](#uninstalling).
 
@@ -202,17 +202,17 @@ The following sections cover advanced topics pertaining to templates.
 
 ### Inheritance and Persistence
 
-Whenever a template-based qube is created, the contents of the `/home` directory of its parent template are *not* copied to the child template-based qube's `/home`.
-The child template-based qube's `/home` is always independent from its parent template's `/home`, which means that any subsequent changes to the parent template's `/home` will not affect the child template-based qube's `/home`.
+Whenever an app qube is created, the contents of the `/home` directory of its parent template are *not* copied to the child app qube's `/home`.
+The child app qube's `/home` is always independent from its parent template's `/home`, which means that any subsequent changes to the parent template's `/home` will not affect the child app qube's `/home`.
 
-Once a template-based qube has been created, any changes in its `/home`, `/usr/local`, or `/rw/config` directories will be persistent across reboots, which means that any files stored there will still be available after restarting the template-based qube.
-No changes in any other directories in template-based qubes persist in this manner. If you would like to make changes in other directories which *do* persist in this manner, you must make those changes in the parent template.
+Once an app qube has been created, any changes in its `/home`, `/usr/local`, or `/rw/config` directories will be persistent across reboots, which means that any files stored there will still be available after restarting the app qube.
+No changes in any other directories in app qubes persist in this manner. If you would like to make changes in other directories which *do* persist in this manner, you must make those changes in the parent template.
 
-|                        | Inheritance (1)                                           | Persistence (2)
-|------------------------|-----------------------------------------------------------|------------------------------------------
-|Template                | n/a                                                       | Everything
-|Template-based qube (3) | `/etc/skel` to `/home`, `/usr/local.orig` to `/usr/local` | `/rw` (includes `/home`, `/usr/local` and `bind-dirs`)
-|Disposable qube         | `/rw` (includes `/home`, `/usr/local` and `bind-dirs`)    | Nothing
+|                | Inheritance (1)                                           | Persistence (2)
+|----------------|-----------------------------------------------------------|------------------------------------------
+|Template        | n/a                                                       | Everything
+|App qube (3)    | `/etc/skel` to `/home`, `/usr/local.orig` to `/usr/local` | `/rw` (includes `/home`, `/usr/local` and `bind-dirs`)
+|Disposable qube | `/rw` (includes `/home`, `/usr/local` and `bind-dirs`)    | Nothing
 
 (1) Upon creation
 (2) Following shutdown
@@ -258,9 +258,9 @@ However, a compromise of a template affects only a subset of all your app qubes 
 Also, if your app qubes are network disconnected, even though their filesystems might get compromised due to the corresponding template compromise, it still would be difficult for the attacker to actually leak out the data stolen in an app qube.
 Not impossible (due to existence of cover channels between VMs on x86 architecture), but difficult and slow.
 
-### Note on treating template-based qubes' root filesystem non-persistence as a security feature
+### Note on treating app qubes' root filesystem non-persistence as a security feature
 
-Any template-based qube that is based on a template has its root filesystem non-persistent across VM reboots.
+Any app qube that is based on a template has its root filesystem non-persistent across VM reboots.
 In other words, whatever changes the VM makes (or the malware running in this VM makes) to its root filesystem, are automatically discarded whenever one restarts the VM.
 
 This might seem like an excellent anti-malware mechanism to be used inside the VM.
