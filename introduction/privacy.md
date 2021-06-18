@@ -40,22 +40,19 @@ this is still a public website, so man-in-the-middle attacks and such are
 always a possibility. Please be careful. See [FAQ: Should I trust this
 website?](/faq/#should-i-trust-this-website)
 
-## Update Servers & Repositories
+## Update Servers and Repositories
 
 We provide repositories at <https://yum.qubes-os.org> and
 <https://deb.qubes-os.org>.
 
-We collect the following types of data:
+We collect and store standard server access and error logs, which include IP
+addresses. We use this data for generating [Qubes userbase
+statistics](/statistics/) and for incident response.
 
-- The IPv4 addresses that connect to the Qubes update servers
-- The number of requests from each IPv4 address
-- Standard server access and error logs
-
-We collect this data solely for the purpose of generating [Qubes userbase
-statistics](/statistics/). The data is retained for up to three months so that
-we can re-calculate the previous two month's statistics in case anything goes
-wrong. After that, the data is permanently and securely destroyed. We never
-sell the data to anyone or share it with any third party.
+The data is retained for up to three months so that we can re-calculate the
+previous two month's statistics in case anything goes wrong. After that, the
+data is deleted. We never sell the data to anyone or share it with any third
+party.
 
 If you would like to hide your IP address from us, we strongly encourage it and
 are happy to help you do so! Simply choose the Whonix option to route all of
@@ -68,11 +65,13 @@ service](http://www.qubesosfasa4zl44o4tws22di6kepyzfeqv3tg4e3ztknltfxqrymdad.oni
 for the website and onion service mirrors of the repositories. Access to these
 servers is not logged.
 
-## Download Mirrors
+## Mirrors
 
-There are also other third-party [download mirrors](/downloads/#mirrors) hosted
-by volunteers. We have no control over or access to data collected by these
-mirrors.
+There are also other third-party hosted by volunteers. These are used both for
+[ISO downloads](/downloads/#mirrors) and
+[updates](#update-servers-and-repositories). We have no control over what data
+these mirrors collect or with whom they share it. Please see the privacy policy
+of each respective mirror operator.
 
 ## Qubes OS
 
