@@ -79,7 +79,7 @@ Internet access is intentionally disabled by default in dom0. But to ease the de
     sudo dnf --setopt=reposdir=/etc/yum.repos.d install openssh-server
     ~~~
 
-> **Note:** If you want to install additional software in dom0 and your only network card was assigned to dom0, then _instead_ of the usual `sudo qubes-dom0-update install <PACKAGE>` now you run `sudo dnf --setopt=reposdir=/etc/yum.repos.d install <PACKAGE>`.
+> **Note:** If you want to install additional software in dom0 and your only network card was assigned to dom0, then _instead_ of the usual `sudo qubes-dom0-update <PACKAGE>` now you run `sudo dnf --setopt=reposdir=/etc/yum.repos.d install <PACKAGE>`.
 
 ## Development VM
 
