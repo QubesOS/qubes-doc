@@ -20,6 +20,7 @@ redirect_from:
 - /wiki/FedoraTemplateUpgrade28/
 - /doc/template/fedora/upgrade-29-to-30/
 ref: 137
+advanced: true
 title: How to Upgrade a Fedora Template In-place
 ---
 

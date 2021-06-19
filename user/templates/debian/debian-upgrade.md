@@ -9,6 +9,7 @@ redirect_from:
 - /doc/DebianTemplateUpgrade8/
 - /wiki/DebianTemplateUpgrade8/
 ref: 133
+advanced: true
 title: How to Upgrade a Debian Template In-place
 ---
 
