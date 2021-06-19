@@ -18,6 +18,11 @@ They have only the most vital packages installed, including a minimal X and xter
 The sections below contain instructions for using the template and provide some examples for common use cases.
 There are currently three Minimal templates corresponding to the standard [Fedora](/doc/templates/fedora/), [Debian](/doc/templates/debian/), [CentOS](/doc/templates/centos/) and [Gentoo](/doc/templates/gentoo/) templates.
 
+Minimal tempaltes offer several advantages:
+   - reduced attack surface
+   - reduced memory requirements
+   - more fine-grained compartmentalization *(by having qubes dedicated to one task only (e.g my “work-mail” qube consists of a qube with only an email client)*.
+
 ## Important
 
 1. The Minimal templates are intended only for advanced users.
