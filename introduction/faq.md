@@ -21,14 +21,14 @@ title: Frequently Asked Questions (FAQ)
 
 Qubes OS is a security-oriented operating system (OS).
 The OS is the software that runs all the other programs on a computer.
-Some examples of popular OSes are Microsoft Windows, Mac OS X, Android, and iOS.
+Some examples of popular OSes are Windows, macOS, Android, and iOS.
 Qubes is free and open-source software (FOSS).
 This means that everyone is free to use, copy, and change the software in any way.
 It also means that the source code is openly available so others can contribute to and audit it.
 
 ### Why is OS security important?
 
-Most people use an operating system like Windows or OS X on their desktop and laptop computers.
+Most people use an operating system like Windows or macOS on their desktop and laptop computers.
 These OSes are popular because they tend to be easy to use and usually come pre-installed on the computers people buy.
 However, they present problems when it comes to security.
 For example, you might open an innocent-looking email attachment or website, not realizing that you're actually allowing malware (malicious software) to run on your computer.
