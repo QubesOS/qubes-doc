@@ -10,29 +10,39 @@ ref: 140
 title: Glossary
 ---
 
+## admin qube
+
+A type of [qube](#qube) used for administering Qubes OS.
+
+* Currently, the only admin qube is [dom0](#dom0).
+
 ## app qube
 
 Any [qube](#qube) that does not have a root filesystem of its own. Every app
 qube is based on a [template](#template) from which it borrows the root
 filesystem.
 
-* Technical note: This is the preferred user-facing term replacing the
-  deprecated terms "AppVM" and "TemplateBasedVM."
+* Previously known as: `AppVM`, `TemplateBasedVM`.
 
 * Historical note: This term originally meant "a qube intended for running user
   software applications" (hence the name "app").
 
 ## disposable
 
-A type of temporary [app qube](#app-qube) that can quickly be created, used,
-and destroyed. Each disposable is based on a [disposable
+A type of temporary [app qube](#app-qube) that self-destructs when its
+originating window closes. Each disposable is based on a [disposable
 template](#disposable-template).
 
 See [How to Use Dispoables](/doc/how-to-use-disposables/).
 
+* Previously known as: `DisposableVM`, `DispVM`.
+
 ## disposable template
 
-A type of [app qube](#app-qube) on which [disposables](#disposable) are based.
+Any [app qube](#app-qube) on which [disposables](#disposable) are based. A
+disposable template shares its user directories (and, indirectly, the root
+filesystem of the regular [template](#template) on which it is based) with all
+[disposables](#disposable) based on it.
 
 * Not to be confused with the concept of a regular [template](#template) that
   is itself disposable, which does not exist in Qubes OS.
@@ -40,18 +50,23 @@ A type of [app qube](#app-qube) on which [disposables](#disposable) are based.
 * Disposable templates must be app qubes. They cannot be regular
   [templates](#template).
 
-* Each [disposable](#disposable) is based on a disposable template, which is in
-  turn based on a regular [template](#template).
+* Every [disposable](#disposable) is based on a disposable template, which is
+  in turn based on a regular [template](#template).
+
+* Unlike [disposables](#disposable), disposable templates have the persistence
+  properties of normal [app qubes](#app-qube).
+
+* Previously known as: `DisposableVM Template`, `DVM Template`, `DVM`.
 
 ## dom0
 
-[Domain](#domain) zero. Also known as the **host** domain, dom0 is the initial
-qube started by the Xen hypervisor on boot. Dom0 runs the Xen management
-toolstack and has special privileges relative to other domains, such as direct
-access to most hardware.
+[Domain](#domain) zero. A type of [admin qube](#admin-qube). Also known as the
+**host** domain, dom0 is the initial qube started by the Xen hypervisor on
+boot. Dom0 runs the Xen management toolstack and has special privileges
+relative to other domains, such as direct access to most hardware.
 
-* The term "dom0" is not a proper noun. It should follow the capitalization
-  rules of common nouns.
+* The term "dom0" is a common noun and should follow the capitalization rules
+  of common nouns.
 
 ## domain
 
@@ -67,8 +82,11 @@ Unprivileged [domain](#domain). Also known as **guest** domains, domUs are the
 counterparts to dom0. In Xen, all VMs except dom0 are domUs. By default, most
 domUs lack direct hardware access.
 
-* The term "domU" is not a proper noun.  It should follow the capitalization
-  rules of common nouns.
+* The term "domU" is a common noun and should follow the capitalization rules
+  of common nouns.
+
+* Sometimes the term [VM](#vm) is used as a synonym for domU. This is
+  technically inaccurate, as [dom0](#dom0) is also a VM in Xen.
 
 ## HVM
 
@@ -79,6 +97,23 @@ emulation, HVMs allow the user to create domains based on any operating system.
 
 See [Standalones and HVM](/doc/standalones-and-HVM/).
 
+## named disposable
+
+A type of [disposable](#disposable) given a permanent name that continues to
+exist even after it is shut down and can be restarted again. Like a regular
+[disposable](#disposable), a named disposable has no persistent state: Any
+changes made are lost when it is shut down.
+
+* Only one instance of a named disposable can run at a time.
+
+* Like a regular [disposable](#disposable), a named disposable always has the
+  same state when it starts, namely that of the [disposable
+  template](#disposable-template) on which it is based.
+
+* Technical note: Named disposables are useful for certain [service
+  qubes](#service-qube), where the combination of persistent device assignment
+  and ephemeral qube state is desirable.
+
 ## qube
 
 A secure compartment in Qubes OS. Currently, qubes are implemented as Xen
@@ -86,7 +121,7 @@ A secure compartment in Qubes OS. Currently, qubes are implemented as Xen
 technology. VMs could be replaced with a different technology, and qubes would
 still be called "qubes."
 
-* **Important:** The term "qube" is not a proper noun.  It should follow the
+* **Important:** The term "qube" is a common noun and should follow the
   capitalization rules of common nouns. For example, "I have three qubes" is
   correct," while "I have three Qubes" is incorrect.
 
@@ -122,18 +157,18 @@ See [Qubes Windows Tools](/doc/windows-tools/) and [Windows](/doc/windows/).
 
 ## service qube
 
-A type of [qube](#qube) the primary purpose of which is to provide a service or
-services to other qubes. `sys-net` and `sys-firewall` are examples of service
-qubes.
+Any [app qube](#app-qube) the primary purpose of which is to provide services
+to other qubes. `sys-net` and `sys-firewall` are examples of service qubes.
 
 ## standalone
 
 Any [qube](#qube) that has its own root filesystem and does not share it with
-another qube. Standalones are distinct from both templates and app qubes. A
-standalone is created by cloning a template while selecting the option to make
-the clone standalone.
+another qube. Distinct from both [templates](#template) and [app
+qubes](#app-qube).
 
 See [Standalones and HVMs](/doc/standalones-and-hvm/).
+
+* Previously known as: `StandaloneVM`.
 
 ## template
 
@@ -151,6 +186,8 @@ See [Templates](/doc/templates/).
 
 * Regular templates cannot function as [disposable
   templates](#disposable-template). (Disposable templates must be app qubes.)
+
+* Previously known as: `TemplateVM`.
 
 ## VM
 

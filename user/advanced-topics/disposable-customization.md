@@ -81,9 +81,9 @@ This can be done by customizing the disposable template on which it is based:
 
 4. Shutdown the qube (either by `poweroff` from qube's terminal, or `qvm-shutdown` from dom0 terminal).
 
-## Using static disposables for sys-*
+## Using named disposables for sys-*
 
-You can use a static disposable for `sys-*` as long as it is stateless.
+You can use a [named disposable](/doc/glossary/#named-disposable) for `sys-*` as long as it is stateless.
 For example, a `sys-net` using DHCP or `sys-usb` will work.
 In most cases `sys-firewall` will also work, even if you have configured app qube firewall rules.
 The only exception is if you require something like VM to VM communication and have manually edited `iptables` or other items directly inside the firewall app qube.
