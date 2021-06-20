@@ -1,6 +1,6 @@
 ---
 lang: en
-layout: sidebar
+layout: doc
 permalink: /gsoc/
 redirect_from:
 - /GSoC/

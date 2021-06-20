@@ -1,6 +1,6 @@
 ---
 lang: en
-layout: default
+layout: doc
 permalink: /code-of-conduct/
 ref: 118
 title: Code of Conduct

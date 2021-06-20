@@ -1,6 +1,6 @@
 ---
 lang: en
-layout: sidebar
+layout: doc
 permalink: /support/
 redirect_from:
 - /help/

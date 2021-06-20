@@ -1,6 +1,6 @@
 ---
 lang: en
-layout: sidebar
+layout: doc
 permalink: /gsod/
 ref: 242
 title: Google Season of Docs
