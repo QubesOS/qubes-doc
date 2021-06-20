@@ -24,8 +24,7 @@ and does occur in myriad and unexpected ways. A standard recommendation is to
 make backups at least weekly: three copies in two different formats, one
 off-site.
 
-Backing up changes to dom0
---------------------------
+## Backing up changes to dom0
 
 When backing up dom0 using the Qubes backup tool (explained below), only the
 home directory is backed up. Therefore, if there are files outside of the home
@@ -46,8 +45,7 @@ installed via the package manager in dom0 will not be backed up. Such packages
 will have to be reinstalled through the package manager when restoring on a
 fresh installation.
 
-Creating a backup
------------------
+## Creating a backup
 
 1. Go to **Applications menu -> System Tools -> Backup Qubes**. This brings up
    the **Qubes Backup VMs** window.
@@ -107,8 +105,7 @@ Creating a backup
    backup is useless if you can't restore your data from it, and you can't be
    sure that your backup is good until you try to restore.
 
-Restoring from a backup
------------------------
+## Restoring from a backup
 
 1. Go to **Applications menu -> System Tools -> Restore Backup**. This brings
    up the **Qubes Restore VMs** window.
@@ -176,8 +173,7 @@ existing files in the process), you may do so by following the instructions
 Just remember that this can cause unexpected and desired configuration changes
 in dom0, depending on exactly which files you're adding and replacing.
 
-Emergency backup recovery without qubes
----------------------------------------
+## Emergency backup recovery without qubes
 
 The Qubes backup system has been designed with emergency disaster recovery in
 mind. No special Qubes-specific tools are required to access data backed up by
@@ -190,16 +186,14 @@ Refer to the following for emergency restore of a backup created on:
 - [Qubes R3](/doc/backup-emergency-restore-v3/)
 - [Qubes R2 or older](/doc/backup-emergency-restore-v2/)
 
-Migrating between two physical machines
----------------------------------------
+## Migrating between two physical machines
 
 In order to migrate your Qubes system from one physical machine to another,
 simply follow the backup procedure on the old machine, [install
 Qubes](/downloads/) on the new machine, and follow the restoration procedure on
 the new machine. All of your settings and data will be preserved!
 
-Choosing a backup passphrase
-----------------------------
+## Choosing a backup passphrase
 
 Here are some things to consider when selecting a passphrase for your backups:
 
@@ -221,7 +215,7 @@ Here are some things to consider when selecting a passphrase for your backups:
   to avoid shoulder-surfing and/or have a passphrase that's difficult to detect
   via shoulder-surfing, then this may not be a problem for you.
 
-Notes -----
+## Notes
 
 - For the technical details of the backup system, please refer to [this
   thread](https://groups.google.com/d/topic/qubes-devel/TQr_QcXIVww/discussion).
