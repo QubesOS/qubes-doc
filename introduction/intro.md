@@ -41,16 +41,16 @@ title: Introduction
         </li>
         <li class="more-bottom">
           <b>Natures:</b> <a href="/doc/standalone-and-hvm/">full-fledged</a> or
-          <a href="/getting-started/">
+          <a href="/doc/how-to-get-started/">
           stripped-down</a> virtual machines based on popular operating systems,
-          such as <a href="/doc/templates/fedora">Fedora</a>,
-          <a href="/doc/templates/debian">Debian</a>, and
+          such as <a href="/doc/templates/fedora/">Fedora</a>,
+          <a href="/doc/templates/debian/">Debian</a>, and
           <a href="/doc/windows/">Windows</a>.
         </li>
         <li class="more-bottom">
           <b>Levels of trust:</b> from complete to non-existent. All windows are
           displayed in a unified desktop environment with
-          <a href="/getting-started/">unforgeable colored window borders</a> so
+          <a href="/doc/how-to-get-started/">unforgeable colored window borders</a> so
           that different security levels are easily identifiable.
         </li>
       </ul>
@@ -83,7 +83,7 @@ title: Introduction
   <div class="col-lg-4 col-md-4 col-xs-12">
     <h3>Template system</h3>
     <p>
-      Use <a href="/getting-started/">AppVMs</a> to
+      Use <a href="/doc/glossary/#app-qube">app qubes</a> to
       share a root file system without sacrificing security using the innovative
       <a href="/doc/templates/">Template system</a>.
     </p>
@@ -92,8 +92,8 @@ title: Introduction
     <h3>Multiple operating systems</h3>
     <p>
       Use multiple operating systems at the same time, including
-      <a href="/doc/templates/fedora">Fedora</a>,
-      <a href="/doc/templates/debian">Debian</a>, and
+      <a href="/doc/templates/fedora/">Fedora</a>,
+      <a href="/doc/templates/debian/">Debian</a>, and
       <a href="/doc/windows/">Windows.</a>
     </p>
   </div>
@@ -305,7 +305,7 @@ title: Introduction
       Ready to get started with Qubes? Here's what you need to know after
       installing.
     </p>
-    <a href="/getting-started/" class="btn btn-primary more-bottom">
+    <a href="/doc/how-to-get-started/" class="btn btn-primary more-bottom">
       <i class="fa fa-cubes"></i> Getting Started
     </a>
   </div>
