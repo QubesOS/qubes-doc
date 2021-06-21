@@ -77,7 +77,7 @@ Tracking](/doc/issue-tracking/) for details.
 ### I just want to discuss Qubes!
 
 Great! Head on over to the [Qubes Forum](https://qubes-os.discourse.group/) or
-on the [`qubes-users` mailing list](#qubes-users).
+the [`qubes-users` mailing list](#qubes-users).
 
 ### How can I get involved and contribute?
 
