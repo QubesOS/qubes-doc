@@ -109,7 +109,7 @@ If you have edited the file and saved the changes, the changed file will be save
 ## Opening a fresh web browser instance in a new disposable
 
 Sometimes it is desirable to open an instance of Firefox within a new fresh disposable.
-This can be done easily using the Start Menu: just go to **Application Menu -\> disposable -\> disposable:Firefox web browser**.
+This can be done easily using the Start Menu: just go to **Application Menu -\> Disposable -\> Disposable:Firefox web browser**.
 Wait a few seconds until a web browser starts.
 Once you close the viewing application the whole disposable will be destroyed.
 
