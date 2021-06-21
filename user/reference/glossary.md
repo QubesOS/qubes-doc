@@ -181,7 +181,7 @@ Any [qube](#qube) that has its own root filesystem and does not share it with
 another qube. Distinct from both [templates](#template) and [app
 qubes](#app-qube).
 
-See [Standalones and HVMs](/doc/standalones-and-hvm/).
+See [Standalones and HVMs](/doc/standalones-and-hvms/).
 
 * Previously known as: `StandaloneVM`.
 

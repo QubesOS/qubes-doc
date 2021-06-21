@@ -1,8 +1,9 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/standalones-and-hvm/
+permalink: /doc/standalones-and-hvms/
 redirect_from:
+- /doc/standalones-and-hvm/
 - /doc/standalone-and-hvm/
 - /doc/hvm/
 - /doc/hvm-create/

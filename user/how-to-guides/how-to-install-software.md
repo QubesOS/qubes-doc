@@ -16,7 +16,7 @@ When you wish to install software in Qubes OS, you should generally install it
 in a [template](/doc/glossary/#template).
 
 Advanced users may also be interested in learning how to install software in
-[standalones](/doc/standalones-and-hvm/) and
+[standalones](/doc/standalones-and-hvms/) and
 [dom0](/doc/how-to-install-software-in-dom0).
 
 ## Instructions
@@ -54,7 +54,7 @@ If things are still not working as expected:
 - Make sure you **restart your app qube *after* shutting down your template**.
 - If your software requires special files or directories to be persistent, and
   you're an advanced user, see [Standalones and
-  HVMs](/doc/standalones-and-hvm/) and [How to Make Any File Persistent
+  HVMs](/doc/standalones-and-hvms/) and [How to Make Any File Persistent
   (bind-dirs)](/doc/bind-dirs/).
 - [Ask for help.](/doc/support/)
 
