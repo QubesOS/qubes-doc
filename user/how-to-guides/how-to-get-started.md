@@ -95,8 +95,8 @@ all the same color --- or all different colors. It's entirely up to you.
 On operating systems like Windows and macOS, the desktop environment is
 unchangeable and part of that operating system. With Linux, any of a number of
 desktop environments are an option. Qubes OS is installed with XFCE as its
-default desktop environment, but it also supports KDE, as well as the i3 and
-awesome window managers.
+default desktop environment, but it also supports [KDE](/doc/kde/), as well as
+the window managers [i3](/doc/i3/) and [AwesomeWM](/doc/awesomewm/).
 
 [![r4.0-taskbar.png](/attachment/doc/r4.0-taskbar.png)](/attachment/doc/r4.0-taskbar.png)
 
@@ -116,7 +116,7 @@ component areas:
 To learn more about how to customize your desktop environment, we recommend you
 spend some time going through [XFCE's documentation](https://docs.xfce.org/).
 
-There are several Tray widgets that are custom to Qubes OS:
+There are several Tray widgets that are unique to Qubes OS:
 
  - The **Qubes Domains** widget allows you to manage running qubes, turn them
    on and off, and monitor memory usage.
@@ -125,8 +125,11 @@ There are several Tray widgets that are custom to Qubes OS:
  - The **Qubes Disk Space Monitor** will notify you if you're ever running out
    of disk space.
  - The **Qubes Update** tool will inform you when updates are available.
+ - The **Whonix SDWDate** widget surfaces and tracks functionality unique to
+   the [Whonix project's integration with Qubes
+   OS](https://www.whonix.org/wiki/Qubes).
 
-[![q40_widgets.png](/attachment/doc/r4.0-q40_widgets.png)](/attachment/doc/r4.0-q40_widgets.png)
+[![r4.0-widgets.png](/attachment/doc/r4.0-widgets.png)](/attachment/doc/r4.0-widgets.png)
 
 To see all of your qubes at the same time, you can use the **Qube Manager** (go
 to the App Menu → System Tools → Qube Manager), which displays the states of

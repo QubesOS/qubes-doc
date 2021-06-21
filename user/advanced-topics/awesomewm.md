@@ -1,11 +1,12 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/awesome/
+permalink: /doc/awesomewm/
 redirect_from:
+- /doc/awesome/
 - /en/doc/awesome/
 ref: 179
-title: awesome (window manager)
+title: AwesomeWM (window manager)
 ---
 
 
@@ -17,17 +18,17 @@ title: awesome (window manager)
 
 ## Installation
 
-awesome can be installed with the standard dom0 installation mechanisms.
+AwesomeWM can be installed with the standard dom0 installation mechanisms.
 
 ```shell_session
 $ sudo qubes-dom0-update awesome
 ```
 
-That's it. After logging out, you can select awesome in the login manager.
+That's it. After logging out, you can select AwesomeWM in the login manager.
 
 ## Development
 
-To [contribute code](/doc/contributing/) you may clone the awesome repository as follows:
+To [contribute code](/doc/contributing/) you may clone the AwesomeWM repository as follows:
 
 ```shell_session
 $ git clone https://github.com/QubesOS/qubes-desktop-linux-awesome
@@ -39,17 +40,17 @@ The repository attempts to follow the upstream Fedora repository.
 
 ## Common customizations
 
-This section focuses on Qubes-specific customizations. For generic awesome customizations you might want to have a look at the [awesome website](https://awesomewm.org).
+This section focuses on Qubes-specific customizations. For generic AwesomeWM customizations you might want to have a look at the [AwesomeWM website](https://awesomewm.org).
 
-Customizations for awesome are usually done at `~/.config/awesome/rc.lua`. The default file can be found at `/etc/xdg/awesome/rc.lua`.
+Customizations for AwesomeWM are usually done at `~/.config/awesome/rc.lua`. The default file can be found at `/etc/xdg/awesome/rc.lua`.
 
 ### Application menu
 
-Starting from Qubes 4.0 application menu entries specific to awesome can be put into `~/.config/awesome/xdg-menu/` following the freedesktop standard. The folder might have to be created.
+Starting from Qubes 4.0 application menu entries specific to AwesomeWM can be put into `~/.config/awesome/xdg-menu/` following the freedesktop standard. The folder might have to be created.
 
 ### Focus steal hardening
 
-The default Qubes OS awesome installation comes with the defaults set by the awesome developers for focus changes. Some users may want more tight control over window focus changes - especially since focus changes can have security implications when sensitive data is provided to an incorrect application or even qube.
+The default Qubes OS AwesomeWM installation comes with the defaults set by the AwesomeWM developers for focus changes. Some users may want more tight control over window focus changes - especially since focus changes can have security implications when sensitive data is provided to an incorrect application or even qube.
 
 #### Definition
 
@@ -79,13 +80,13 @@ Users may want to adjust their definitions and respective implementations accord
 
 #### Implementation
 
-The implementation may be specific to the awesome version you're running. This guide refers to awesome version 3.5.9 which is available to Qubes 4.0 users.
+The implementation may be specific to the AwesomeWM version you're running. This guide refers to AwesomeWM version 3.5.9 which is available to Qubes 4.0 users.
 
 Please keep in mind that this guide may not be conclusive. Your mileage may vary.
 
 ##### Change the autofocus implementation
 
-The line `require("awful.autofocus")` in your _rc.lua_ implements various focus-related features for your awesome instance.
+The line `require("awful.autofocus")` in your _rc.lua_ implements various focus-related features for your AwesomeWM instance.
 
 In order to customise these, you can copy the file `/usr/share/awesome/lib/awful/autofocus.lua` to e.g. `~/.config/awesome/autofocus_custom.lua` and replace the line above with `require("autofocus_custom")`.
 
@@ -130,7 +131,7 @@ end
 function clear_focus()
     --unfortunately this doesn't work at the moment
     --cf. https://github.com/awesomeWM/awesome/issues/164
-    --(Qubes uses an older awesome version that doesn't have the fix yet)
+    --(Qubes uses an older AwesomeWM version that doesn't have the fix yet)
     --client.focus = nil
 end
 
@@ -177,9 +178,9 @@ These enable _sloppy focus_ aka focus changes on mouse movements (without clicki
 
 ##### Ignore requests from applications to the window manager
 
-Handling of such requests is currently mostly implemented by awesome in the file `/usr/share/awesome/lib/awful/ewmh.lua`. You can either comment out the respective `client.connect_singal()` lines in that file (it will change back after each awesome update though) or disconnect the signals in your _rc.lua_.
+Handling of such requests is currently mostly implemented by AwesomeWM in the file `/usr/share/awesome/lib/awful/ewmh.lua`. You can either comment out the respective `client.connect_singal()` lines in that file (it will change back after each AwesomeWM update though) or disconnect the signals in your _rc.lua_.
 
-As of awesome 3.5.9 this however is apparently only possible for signals connected to global functions, i.e. currently only the below signals can be disconnected in the _rc.lua_:
+As of AwesomeWM 3.5.9 this however is apparently only possible for signals connected to global functions, i.e. currently only the below signals can be disconnected in the _rc.lua_:
 
 ```lua
 local ewmh = require("awful.ewmh")
@@ -188,4 +189,4 @@ client.disconnect_signal("request::activate", ewmh.activate)
 client.disconnect_signal("request::tag", ewmh.tag)
 ```
 
-The signal names may change across awesome versions.
+The signal names may change across AwesomeWM versions.
