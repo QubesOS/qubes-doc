@@ -131,5 +131,5 @@ The large number of possible combinations of template (Fedora 27, 28; Debian 8, 
 In some cases, you may be the first person to try a particular combination.
 Consequently (and as with any new feature), users will inevitably encounter bugs.
 We ask for your patience and understanding in this regard.
-As always, please [report any bugs you encounter](/doc/reporting-bugs/).
+As always, please [report any bugs you encounter](/doc/issue-tracking/).
 

@@ -18,7 +18,7 @@ ways in which you can help:
 * [Send patches](/doc/source-code/#how-to-send-patches) to fix bugs or
   implement features
 * [Contribute packages](/doc/package-contributions)
-* [Report bugs](/doc/reporting-bugs/)
+* [Report bugs](/doc/issue-tracking/)
 * [Test new releases and updates](/doc/testing/)
 * Submit [HCL reports](/doc/hcl/) for your hardware
 * Record [video tours](/video-tours/)

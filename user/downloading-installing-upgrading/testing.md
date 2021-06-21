@@ -24,7 +24,7 @@ How to test upcoming Qubes OS releases:
 * (No support) Experiment with devel alpha ISOs found from time to time at
   [Qubes OpenQA](https://openqa.qubes-os.org/).
 
-Please make sure to [report any bugs you encounter](/doc/reporting-bugs/).
+Please make sure to [report any bugs you encounter](/doc/issue-tracking/).
 
 See [Version Scheme](/doc/version-scheme/) for details about release versions
 and schedules. See [Release Checklist](/doc/releases/todo/) for details about
@@ -80,6 +80,6 @@ testing repository. Even a simple <span class="fa fa-thumbs-up" title="Thumbs
 Up"></span> or <span class="fa fa-thumbs-down" title="Thumbs Down"></span> on
 the package's associated issue would help us to decide whether the package is
 ready to be migrated to a stable repository. If you [report a
-bug](/doc/reporting-bugs/) in a package that is in a testing repository, please
+bug](/doc/issue-tracking/) in a package that is in a testing repository, please
 reference the appropriate issue in
 [updates-status](https://github.com/QubesOS/updates-status/issues).
