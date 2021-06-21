@@ -306,7 +306,7 @@ title: Introduction
       installing.
     </p>
     <a href="/doc/how-to-get-started/" class="btn btn-primary more-bottom">
-      <i class="fa fa-cubes"></i> Getting Started
+      <i class="fa fa-cubes"></i> How to Get Started
     </a>
   </div>
 </div>
