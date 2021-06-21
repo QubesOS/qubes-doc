@@ -97,6 +97,11 @@ emulation, HVMs allow the user to create domains based on any operating system.
 
 See [Standalones and HVM](/doc/standalones-and-HVM/).
 
+## management qube
+
+A [qube](#qube) used for automated management of a Qubes OS installation via
+[Salt](/doc/salt/).
+
 ## named disposable
 
 A type of [disposable](#disposable) given a permanent name that continues to
