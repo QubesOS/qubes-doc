@@ -42,8 +42,8 @@ applicable patches or workarounds, and credits the discoverer.
 
 ## Security Updates
 
-Qubes security updates are obtained by [Updating Qubes
-OS](/doc/updating-qubes-os/).
+Qubes security updates are obtained by [updating Qubes
+OS](/doc/how-to-update/).
 
 ## The Qubes Security Team
 
