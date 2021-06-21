@@ -13,17 +13,6 @@ version of Qubes OS](/doc/supported-versions/#qubes-os). If you're instead
 looking to upgrade from your current version of Qubes OS to a newer version,
 see the [Upgrade Guides](/doc/upgrade/).*
 
-<div class="alert alert-danger" role="alert">
-  <i class="fa fa-exclamation-triangle"></i>
-  <b>Warning:</b> Updating with direct commands such as
-  <code>qubes-dom0-update</code>, <code>dnf update</code>, and <code>apt
-  update</code> is <b>not</b> recommended, since these bypass built-in Qubes OS
-  update security measures. Instead, we strongly recommend using the <b>Qubes
-  Update</b> tool or its command-line equivalents, as described below. (By
-  contrast, <a href="/doc/how-to-install-software/">installing</a> packages
-  using direct package manager commands is fine.)
-</div>
-
 ## Security updates
 
 Security updates are an extremely important part of keeping your Qubes
@@ -62,51 +51,61 @@ you can use this tool to check for updates manually at any time by selecting
 "Enable updates for qubes without known available updates," then selecting all
 desired items from the list and clicking "Next."
 
-<div class="alert alert-info" role="alert">
-  <i class="fa fa-info-circle"></i>
-  <b>Advanced users and developers:</b> For the command-line equivalents of
-  using the <b>Qubes Update</b> tool, see the Salt formulae <a
-  href="/doc/salt/#updatequbes-dom0"><code>update.qubes-dom0</code></a> and <a
-  href="/doc/salt/#updatequbes-vm"><code>update.qubes-vm</code></a>. For
-  enabling testing repos, see <a href="/doc/testing/">Testing new releases and
-  updates</a>.
+## Command-line interface
+
+<div class="alert alert-danger" role="alert">
+  <i class="fa fa-exclamation-triangle"></i>
+  <b>Warning:</b> Updating with direct commands such as
+  <code>qubes-dom0-update</code>, <code>dnf update</code>, and <code>apt
+  update</code> is <b>not</b> recommended, since these bypass built-in Qubes OS
+  update security measures. Instead, we strongly recommend using the <b>Qubes
+  Update</b> tool or its command-line equivalents, as described below. (By
+  contrast, <a href="/doc/how-to-install-software/">installing</a> packages
+  using direct package manager commands is fine.)
 </div>
 
-## Upgrading to stay on a supported release
+Advanced users may wish to perform updates via the command-line interface. The
+recommended way to do this is by using the command-line equivalents of the
+**Qubes Update** tool.
 
-The above covers updating *within* a given operating system release.
-Eventually, however, most operating system releases will reach [end-of-life
-(EOL)](https://fedoraproject.org/wiki/End_of_life), after which point they will
-no longer be supported. This applies to [Qubes OS
-itself](/doc/supported-versions/#qubes-os) as well as operating systems used
-for templates and standalones, such as [Fedora](/doc/templates/fedora/) and
-[Debian](/doc/templates/debian/). It is very important to use only supported
-releases, since generally only supported releases receive security updates.
-This means that you must periodically upgrade to a newer release before your
-current release reaches EOL.
+There are two Salt formulae and two corresponding `qubesctl` commands:
+ - [`update.qubes-dom0`](/doc/salt/#updatequbes-dom0)
+ - [`update.qubes-vm`](/doc/salt/#updatequbes-vm)
 
-In the case of Qubes OS itself, we will always
-[announce](/news/categories/#releases) when a given Qubes OS release is
-approaching and has reached EOL, and we will provide [instructions for
-upgrading to the next stable supported Qubes OS release](/doc/upgrade/). Again,
-you can always see the current support status for all Qubes OS releases
-[here](/doc/supported-versions/#qubes-os).
+In addition, advanced user may be interested in learning [how to enable the
+testing repos](/doc/testing/).
 
-Periodic upgrades are also important for templates and standalones. For
-example, you might be using a [Fedora Template](/doc/templates/fedora/). The
-[Fedora Project](https://getfedora.org/) is independent of the Qubes OS
-Project. They set their own
+## Upgrading to avoid EOL
+
+The above covers updating *within* a given operating system (OS) release.
+Eventually, however, most OS releases will reach **end-of-life (EOL)**, after
+which point they will no longer be supported. This applies to Qubes OS itself
+as well as OSes used in [templates](/doc/templates/) (and
+[standalones](/doc/standalones-and-hvms/), if you have any).
+
+**It's very important that you use only supported releases so that you continue
+to receive security updates.** This means that you *must* periodically upgrade
+Qubes OS and your templates before they reach EOL. You can always see which
+versions of Qubes OS and select templates are supported on the [Supported
+Versions](/doc/supported-versions/) page.
+
+In the case of Qubes OS itself, we will make an
+[announcement](/news/categories/#releases) when a supported Qubes OS release is
+approaching EOL and another when it has actually reached EOL, and we will
+provide [instructions for upgrading to the next stable supported Qubes OS
+release](/doc/upgrade/).
+
+Periodic upgrades are also important for templates. For example, you might be
+using a [Fedora template](/doc/templates/fedora/). The [Fedora
+Project](https://getfedora.org/) is independent of the Qubes OS Project. They
+set their own
 [schedule](https://fedoraproject.org/wiki/Fedora_Release_Life_Cycle#Maintenance_Schedule)
-for when each Fedora release reaches EOL. You can always find out when an
-operating system reaches EOL from the upstream project that maintains it, but
-we also make EOL [announcements](/news/categories/#announcements) and publish
-guides for official template operating systems as a convenience to Qubes users.
-When this happens, you should make sure to follow the guide to upgrade to a
-supported version of that operating system (see the [Fedora upgrade
-guides](/doc/templates/fedora/#upgrading) and the [Debian upgrade
-guides](/doc/templates/debian/#upgrading)).
+for when each Fedora release reaches EOL. You can always find out when an OS
+reaches EOL from the upstream project that maintains it. We also pass along any
+EOL notices we receive for official template OSes as a convenience to Qubes
+users (see [Supported Versions:
+Templates](/doc/supported-versions/#templates)).
 
 The one exception to all this is the specific release used for dom0 (not to be
 confused with Qubes OS as a whole), which [doesn't have to be
 upgraded](/doc/supported-versions/#note-on-dom0-and-eol).
-
