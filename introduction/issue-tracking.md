@@ -22,38 +22,53 @@ pertaining to the Qubes OS Project (including auxiliary infrastructure such as
 the [website](/)) are tracked in
 [qubes-issues](https://github.com/QubesOS/qubes-issues/issues).
 
-## I would like to report a security vulnerability
+## How to open a new issue
+
+First, let's make sure the issue tracker is the right place.
+
+### I would like to report a security vulnerability
 
 Please see [Reporting Security Issues in Qubes
 OS](/security/#reporting-security-issues-in-qubes-os).
 
-## I need help, have a question, or want to discuss something
+### I need help, have a question, or want to discuss something
 
 Please see [Help, Support, Mailing Lists, and Forum](/support/).
 
-## I see something that should be changed in the documentation
+### I see something that should be changed in the documentation
 
-Please see the [Documentation Guidelines](/doc/doc-guidelines/).
+We encourage you to submit the change yourself! Please see the [Documentation
+Guidelines](/doc/doc-guidelines/) for instructions on how to do so. If it's
+something you can't do yourself, please proceed to the next section.
 
-## How to open a new issue
+### I still want to open an issue
 
-1. Carefully read the [issue tracker guidelines](#issue-tracker-guidelines).
-2. [Search through the existing issues, both open and closed, to see if your
-   issue already exists.](#search-tips)
+1. Carefully read our issue tracking [guidelines](#guidelines). If your issue
+   would violate any of the guidelines, **stop**. Please do not submit it.
+2. [Search through the existing issues](#search-tips), both open and closed, to
+   see if your issue already exists. If it does, **stop**. [Do not open a
+   duplicate.](/doc/issue-tracking/#new-issues-should-not-be-duplicates-of-existing-issues)
+   Instead, comment on the existing issue.
 3. Go [here](https://github.com/QubesOS/qubes-issues/issues/new/choose).
 4. Select the [type](#type) of issue you want to open.
 5. Enter a descriptive title.
 6. Do not delete the provided issue template. Fill out every applicable
    section.
-7. Make sure to mention any relevant documentation and other issues you have
-   already seen. We do not know what you have seen unless you tell us. If you
-   do not list it, we will assume you haven't seen it.
+7. Make sure to mention any relevant documentation and other issues you've
+   already seen. We don't know what you've seen unless you tell us. If you
+   don't list it, we'll assume you haven't seen it.
 8. If any sections of the issue template are *truly* not applicable, you may
    remove them, **except for the documentation and related issues sections**.
 9. Submit your issue.
-10. [Follow-up afterward.](#following-up-afterward)
+10. Respond to any questions the official team asks. For example, you may be
+    asked to provide specific logs or other additional information.
 
-## Labels and milestones
+## Labels, Milestones, and Projects
+
+Labels, milestones, and projects are features of GitHub's issue tracking system
+that we use to keep `qubes-issues` organized.
+
+### Labels
 
 Only Qubes team members have permission to modify
 [labels](https://github.com/QubesOS/qubes-issues/labels) and
@@ -62,7 +77,7 @@ and milestones have descriptions on them that can be viewed either in their
 respective lists or by hovering over them. Let's go over some of the most
 important ones.
 
-### Type
+#### Type
 
 There are three **types**: `T: bug`, `T: enhancement`, and `T: task`.
 
@@ -80,7 +95,7 @@ think it should exist, then `T: enhancement`. If something already exists and
 could be improved in some way, `T: enhancement` is appropriate. `T: task` is
 for issues that fall under under neither `T: bug` nor `T: enhancement`.
 
-### Priority
+#### Priority
 
 There are several **priority** levels ranging from `P: minor` to `P: blocker`
 (see [here](https://github.com/QubesOS/qubes-issues/labels?q=P%3A) for the full
@@ -88,7 +103,7 @@ list). Every open issue should have **exactly one** priority. An open issue
 should not have more than one priority, and it should not lack a priority
 entirely.
 
-### Component
+#### Component
 
 There are many **component** labels, each beginning with `C:` (see
 [here](https://github.com/QubesOS/qubes-issues/labels?page=2&q=C%3A) for the
@@ -121,6 +136,14 @@ release cycle, including (but not limited to) website, documentation, and
 project management issues. These are issues that will never be assigned to a
 specific Qubes OS release milestone.
 
+### Projects
+
+The issue tracker has several
+[projects](https://github.com/QubesOS/qubes-issues/projects). A project is a
+way to create a group of multiple related issues. This is the preferred method
+of grouping issues, whereas trying to use normal issues as "meta-issues" or
+"epics" is discouraged.
+
 ## Search Tips
 
 [Search both open and closed
@@ -142,7 +165,9 @@ by component
 [Xen](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+Xen%22),
 etc.).
 
-## Issue tracker guidelines
+You can also try searching by [milestone](https://github.com/QubesOS/qubes-issues/milestones) and by [project](https://github.com/QubesOS/qubes-issues/projects).
+
+## Guidelines
 
 ### The issue tracker is not a discussion forum
 
@@ -254,26 +279,63 @@ this writing, there are well over one thousand open issues in `qubes-issues`.
 The Qubes team has its own roadmap and priorities, which will govern the manner
 and order in which open issues are addressed.
 
-## Following up afterward
+## How issues get closed
 
-If the Qubes developers make a code change that resolves your issue, then your
-GitHub issue will typically be closed from the relevant patch message. After
-that, the package containing the fix will move to the appropriate
-[testing](/doc/testing/) repository, then to the appropriate stable repository.
-If you so choose, you can test the fix while it's in the
+If the Qubes developers make a code change that resolves an issue, then the
+issue will typically be [closed from the relevant commit or merged pull request
+(PR)](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-issues/linking-a-pull-request-to-an-issue).
+
+### Bug reports
+
+In the case of bugs, the package containing the change will move to the
+appropriate [testing](/doc/testing/) repository, then to the appropriate stable
+repository. If you so choose, you can test the fix while it's in the
 [testing](/doc/testing/) repository, or you can wait for it to land in the
 stable repository. If, after testing the fix, you find that it does not really
-fix your bug, please leave a comment on your issue explaining the situation.
-When you do, we will receive a notification and respond on your issue or reopen
-it (or both). Please **do not** create a duplicate issue or attempt to contact
-the developers individually about your problem.
+fix the reported bug, please leave a comment on the issue explaining the
+situation. When you do, we will receive a notification and respond on the issue
+or reopen it (or both). Please **do not** create a duplicate issue or attempt
+to contact the developers individually about a problem.
 
-In other cases, your issue may be closed with a specific resolution, such as
-`R: invalid`, `R: duplicate`, or `R: won't fix`. Each of these labels has a
+### Resolution
+
+In other cases, an issue may be closed with a specific resolution, such as `R:
+invalid`, `R: duplicate`, or `R: won't fix`. Each of these labels has a
 description that explains the label. We'll also leave a comment explaining why
 we're closing the issue with one of these specific resolutions. If the issue is
 closed without one of these specific resolutions, then it means, by default,
-that your reported bug was fixed or your requested enhancement was implemented.
+that the reported bug was fixed or the requested enhancement was implemented.
+
+### Backports
+
+Issues in GitHub can only be open or closed, but, when it comes to bugs that
+affect multiple versions of Qubes OS, there are several possible states:
+
+1. Not fixed yet
+2. Fix developed but not yet committed (PR open)
+3. Fix committed (PR merged), but update not yet pushed to any repo
+4. Update pushed to testing repo for the most recent development version
+5. Update pushed to stable repo for the most recent development version
+6. Update backported to stable version(s) and pushed to the testing repo
+7. Update pushed to stable repo of stable version(s)
+
+We close issues at step 3. Then, as updates are released, the issue
+automatically gets the appropriate `current-testing` (`rX.Y-*-cur-test`) and
+`stable` (`rX.Y-*-stable`) labels. Based on these labels, it's possible to
+select issues waiting for step 6 (see [issues by
+release](https://github.com/QubesOS/qubes-issues#issues-by-release)).
+
+Therefore, if you see that an issue is closed, but the fix is not yet available
+to you, be aware that it may be at an intermediate stage of this process
+between issue closure and the update being available in whichever repos you
+have enabled in whichever version of Qubes you're using.
+
+In order to assist with this, we have a label called [backport
+pending](https://github.com/QubesOS/qubes-issues/labels/backport%20pending),
+which means, "The fix has been released for the testing release but is pending
+backport to the stable release." Our infrastructure will attempt to apply this
+label automatically, when appropriate, but it is not perfect, and the
+developers may be need to adjust it manually.
 
 ## See also
 
