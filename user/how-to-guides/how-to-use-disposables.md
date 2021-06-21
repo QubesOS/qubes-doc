@@ -6,6 +6,7 @@ redirect_from:
 - /doc/how-to-use-disposablevms/
 - /doc/disposable/
 - /doc/dispvm/
+- /doc/disposablevm
 - /en/doc/dispvm/
 - /doc/DisposableVms/
 - /wiki/disposables/
