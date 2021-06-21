@@ -18,16 +18,17 @@ Qubes OS, it's time to dive in and get to work!
 ## The Basics
 
 Qubes OS is an operating system built out of securely-isolated compartments
-called **qubes**. For example, you might have a work qube, a personal qube, a
-banking qube, a web browsing qube, and so on. You can have as many qubes as you
-want! Most of the time, you'll be using an **app qube**, which is a qube
-intended for running software programs like web browsers, email clients, and
-word processors. Each app qube is based on a **template qube**. More than one
-qube can be based on the same template. Importantly, a qube cannot modify its
-template in any way. This means that, if a qube is ever compromised, its
-template and any other qubes based on that template will remain safe. This is
-what makes Qubes OS so secure. Even if an attack is successful, the damage is
-limited to a single qube.
+called [qubes](/doc/glossary/#qube). For example, you might have a work qube, a
+personal qube, a banking qube, a web browsing qube, and so on. You can have as
+many qubes as you want! Most of the time, you'll be using an [app
+qube](/doc/glossary/#app-qube), which is a qube intended for running software
+programs like web browsers, email clients, and word processors. Each app qube
+is based on another type of qube called a [template](/doc/glossary/#template).
+More than one qube can be based on the same template. Importantly, a qube
+cannot modify its template in any way. This means that, if a qube is ever
+compromised, its template and any other qubes based on that template will
+remain safe. This is what makes Qubes OS so secure. Even if an attack is
+successful, the damage is limited to a single qube.
 
 Suppose you want to use your favorite web browser in several different qubes.
 You'd install the web browser in a template, then every qube based on that
@@ -38,21 +39,23 @@ to update all the qubes based on it. This elegant design saves time and space
 while enhancing security.
 
 There are also some "helper" qubes in your system. Each qube that connects to
-the Internet does so through a network-providing **service qube**. If you need
-to access USB devices, another service qube will do that. There's also a
-**management qube** that automatically handles a lot of background
-housekeeping. For the most part, you won't have to worry about it, but it's
-nice to know that it's there. As with app qubes, service qubes and management
-qubes are also based on templates. Templates are usually named after their
-operating system (often a [Linux
+the Internet does so through a network-providing [service
+qube](/doc/glossary/#service-qube). If you need to access USB devices, another
+service qube will do that. There's also a [management
+qube](/doc/glossary/#management-qube) that automatically handles a lot of
+background housekeeping. For the most part, you won't have to worry about it,
+but it's nice to know that it's there. As with app qubes, service qubes and
+management qubes are also based on templates. Templates are usually named after
+their operating system (often a [Linux
 distribution](https://en.wikipedia.org/wiki/Linux_distribution)) and
 corresponding version number. There are many ready-to-use
 [templates](/doc/templates) to choose from, and you can download and have as
 many as you like.
 
-Last but not least, there's a very special **admin qube** which, as the name
-suggests, is used to administer your entire system. There's only one admin
-qube, and it's called **dom0**. You can think of it as the master qube, holding
+Last but not least, there's a very special [admin
+qube](/doc/glossary/#admin-qube) which, as the name suggests, is used to
+administer your entire system. There's only one admin qube, and it's called
+[dom0](/doc/glossary/#dom0). You can think of it as the master qube, holding
 ultimate power over everything that happens in Qubes OS. Dom0 is more trusted
 than any other qube. If dom0 were ever compromised, it would be "game over."
 The entire system would effectively be compromised. That's why everything in
@@ -116,7 +119,7 @@ component areas:
 To learn more about how to customize your desktop environment, we recommend you
 spend some time going through [XFCE's documentation](https://docs.xfce.org/).
 
-There are several Tray widgets that are unique to Qubes OS:
+There are several tray widgets that are unique to Qubes OS:
 
  - The **Qubes Domains** widget allows you to manage running qubes, turn them
    on and off, and monitor memory usage.
@@ -126,8 +129,7 @@ There are several Tray widgets that are unique to Qubes OS:
    of disk space.
  - The **Qubes Update** tool will inform you when updates are available.
  - The **Whonix SDWDate** widget surfaces and tracks functionality unique to
-   the [Whonix project's integration with Qubes
-   OS](https://www.whonix.org/wiki/Qubes).
+   the [integration of Whonix into Qubes OS](https://www.whonix.org/wiki/Qubes).
 
 [![r4.0-widgets.png](/attachment/doc/r4.0-widgets.png)](/attachment/doc/r4.0-widgets.png)
 
