@@ -479,8 +479,8 @@ decide where and how you want to join the conversation.
 ### Does this split the community?
 
 Many open-source projects (such as Fedora and Debian) have both mailing lists
-and forums (and additional discussion venues). In fact, Qubes already had
-non-mailing-list discussion venues such as [IRC](#unofficial-chat-channels) and
+and forums (and additional discussion venues). In fact, the Qubes OS Project
+already had non-mailing-list discussion venues such as
 [Reddit](https://www.reddit.com/r/Qubes/) before this forum was introduced. We
 believe that this additional venue fosters the continued growth of community
 participation and improves everyone's experience. In addition, we fully expect
