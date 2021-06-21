@@ -31,9 +31,13 @@ After installing a fresh Fedora template, we recommend performing the following 
 
 3. If desired, [uninstall the old template](/doc/templates/#uninstalling).
 
+## Installing software
+
+See [How to Install Software](/doc/how-to-install-software/).
+
 ## Updating
 
-For routine daily updates within a given release, see [Updating software in templates](/doc/how-to-install-software/#instructions).
+For routine daily updates within a given release, see [How to Update](/doc/how-to-update/).
 
 ## Upgrading
 
