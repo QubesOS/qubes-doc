@@ -1,8 +1,9 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/reporting-bugs/
+permalink: /doc/issue-tracking/
 redirect_from:
+- /doc/reporting-bugs/
 - /en/doc/reporting-bugs/
 - /doc/BugReportingGuide/
 - /wiki/BugReportingGuide/
@@ -12,30 +13,115 @@ redirect_from:
 - /bug-report/
 - /bug-reports/
 ref: 121
-title: Reporting Bugs and Other Issues
+title: Issue Tracking
 ---
 
-All issues pertaining to the Qubes OS Project (including auxiliary
-infrastructure such as the [website](/)) are tracked in
-[qubes-issues](https://github.com/QubesOS/qubes-issues/issues), our GitHub
-issue tracker. If you're looking for help, please see [Help, Support, Mailing
-Lists, and Forum](/support/).
+The Qubes OS Project uses the "GitHub Issues" [issue tracking
+system](https://en.wikipedia.org/wiki/Issue_tracking_system). All issues
+pertaining to the Qubes OS Project (including auxiliary infrastructure such as
+the [website](/)) are tracked in
+[qubes-issues](https://github.com/QubesOS/qubes-issues/issues).
 
-## Important ##
+## I would like to report a security vulnerability
 
-- **To disclose a security issue confidentially, please see the
-  [Security](/security/) page.**
+Please see [Reporting Security Issues in Qubes
+OS](/security/#reporting-security-issues-in-qubes-os).
 
-- **In all other cases, please do not email individual developers about
-  issues.**
+## I need help, have a question, or want to discuss something
 
-- **Please note that many issues can be resolved by reading the
-  [documentation](/doc/).**
+Please see [Help, Support, Mailing Lists, and Forum](/support/).
 
-- **If you see something that should be changed in the documentation, [submit a
-  change](/doc/doc-guidelines/).**
+## I see something that should be changed in the documentation
 
-## Search Tips ##
+Please see the [Documentation Guidelines](/doc/doc-guidelines/).
+
+## How to open a new issue
+
+1. Carefully read the [issue tracker guidelines](#issue-tracker-guidelines).
+2. [Search through the existing issues, both open and closed, to see if your
+   issue already exists.](#search-tips)
+3. Go [here](https://github.com/QubesOS/qubes-issues/issues/new/choose).
+4. Select the [type](#type) of issue you want to open.
+5. Enter a descriptive title.
+6. Do not delete the provided issue template. Fill out every applicable
+   section.
+7. Make sure to mention any relevant documentation and other issues you have
+   already seen. We do not know what you have seen unless you tell us. If you
+   do not list it, we will assume you haven't seen it.
+8. If any sections of the issue template are *truly* not applicable, you may
+   remove them, **except for the documentation and related issues sections**.
+9. Submit your issue.
+10. [Follow-up afterward.](#following-up-afterward)
+
+## Labels and milestones
+
+Only Qubes team members have permission to modify
+[labels](https://github.com/QubesOS/qubes-issues/labels) and
+[milestones](https://github.com/QubesOS/qubes-issues/milestones). Many labels
+and milestones have descriptions on them that can be viewed either in their
+respective lists or by hovering over them. Let's go over some of the most
+important ones.
+
+### Type
+
+There are three **types**: `T: bug`, `T: enhancement`, and `T: task`.
+
+- `T: bug` --- Type: bug report. A problem or defect resulting in unintended
+  behavior in something that exists.
+- `T: enhancement` --- Type: enhancement. A new feature that does not yet exist
+  **or** improvement of existing functionality.
+- `T: task` --- Type: task. An action item that is neither a bug nor an
+  enhancement.
+
+Every open issue should have **exactly one** type. An open issue should not
+have more than one type, and it should not lack a type entirely. Bug reports
+are for things that already exist. If something doesn't exist yet, but you
+think it should exist, then `T: enhancement`. If something already exists and
+could be improved in some way, `T: enhancement` is appropriate. `T: task` is
+for issues that fall under under neither `T: bug` nor `T: enhancement`.
+
+### Priority
+
+There are several **priority** levels ranging from `P: minor` to `P: blocker`
+(see [here](https://github.com/QubesOS/qubes-issues/labels?q=P%3A) for the full
+list). Every open issue should have **exactly one** priority. An open issue
+should not have more than one priority, and it should not lack a priority
+entirely.
+
+### Component
+
+There are many **component** labels, each beginning with `C:` (see
+[here](https://github.com/QubesOS/qubes-issues/labels?page=2&q=C%3A) for the
+full list). Every open issue should have **at least one** component. An open
+issue may have more than one component, but it should not lack a component
+entirely. When no other component applies, use `C: other`.
+
+### Milestones
+
+The issue tracker has several
+[milestones](https://github.com/QubesOS/qubes-issues/milestones). Every issue
+should be assigned to **exactly one** milestone. The issue tracker does not
+allow assigning an issue to more than one milestone. If an issue is already
+assigned to a milestone, assigning it to a different one will *replace* the
+existing milestone assignment. No open issue should lack a milestone
+assignment.
+
+Most milestones correspond to specific Qubes OS releases. A bug report assigned
+to a release milestone indicates an alleged bug *in* that Qubes OS release. A
+task or enhancement assigned to a release milestone indicates that the goal is
+to implement or do that thing *in* or *for* that Qubes OS release.
+
+The `TBD` (To Be Determined) milestone is for enhancements or tasks that will
+be specific to a Qubes OS release but have yet to be assigned to a specific
+release milestone. Bug reports should never be assigned to this milestone,
+because every bug is a problem or defect in something that already exists.
+
+The `Ongoing` milestone is for issues that are independent of the Qubes OS
+release cycle, including (but not limited to) website, documentation, and
+project management issues. These are issues that will never be assigned to a
+specific Qubes OS release milestone.
+
+## Search Tips
 
 [Search both open and closed
 issues.](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue)
@@ -56,14 +142,9 @@ by component
 [Xen](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+Xen%22),
 etc.).
 
-Only Qubes team members can apply labels. Every issue must have exactly one
-**type** (`T: bug`, `T: enhancement`, or `T: task`), exactly one **priority**
-(e.g., `P: major`), and at least one **component** (e.g., `C: core`). Issues
-may have additional labels, if applicable (e.g., `crypto`, `ux`).
+## Issue tracker guidelines
 
-## Issue tracker guidelines ##
-
-### The issue tracker is not a discussion forum ###
+### The issue tracker is not a discussion forum
 
 The issue tracker is a tool to help the developers be more productive and
 efficient in their work. It is not a place for discussion. If you wish to
@@ -83,7 +164,7 @@ we sometimes have to close the issue and open a new one. This is a waste of
 energy for everyone involved, so we ask that everyone help to avoid repeating
 this pattern.
 
-### Do not submit questions ###
+### Do not submit questions
 
 [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) is not the place
 to ask questions. This includes, but is not limited to, troubleshooting
@@ -94,7 +175,7 @@ questions. By contrast,
 tracking more general bugs, enhancements, and tasks that affect a broad range
 of Qubes users.
 
-### Use the issue template ###
+### Use the issue template
 
 When you open a new issue, an issue template is provided for you. Please use
 it. Do not delete it. The issue template is carefully designed to elicit
@@ -105,7 +186,7 @@ please do so only sparingly and only if they are *truly* not applicable.)
 It is also important to note the placement and content of the HTML comments in
 the issue template. These help us to have issues with a consistent format.
 
-### Every issue must be about a single, actionable thing ###
+### Every issue must be about a single, actionable thing
 
 If your issue is not actionable, please see [Help, Support, Mailing Lists, and
 Forum](/support/) for the appropriate place to post it. If your issue would be
@@ -123,7 +204,7 @@ discussion that is simply not appropriate for a technical issue tracker (see
 [the issue tracker is not a discussion
 forum](#the-issue-tracker-is-not-a-discussion-forum)).
 
-### New issues should not be duplicates of existing issues ###
+### New issues should not be duplicates of existing issues
 
 Before you submit an issue, check to see whether it has already been reported.
 Search through the existing issues -- both open and closed -- by typing your
@@ -139,14 +220,14 @@ helpful in getting important updates regarding the issue. If you don't have
 anything to add but still want to receive email updates, you can click the
 "Subscribe" button at the side or bottom of the comments.
 
-### Every issue must be of a single type ###
+### Every issue must be of a single type
 
 Every issue must be exactly one of the following types: a bug report (`bug`), a
 feature or improvement request (`enhancement`), or a task (`task`). Do not file
 multi-typed issues. Instead, file multiple issues of distinct types. The Qubes
 team will classify your issue according to its type.
 
-### New issues should include all relevant information ###
+### New issues should include all relevant information
 
 When you file a new issue, you should be sure to include the version of Qubes
 you're using, as well as versions of related software packages ([how to copy
@@ -161,7 +242,7 @@ the [updates-status](https://github.com/QubesOS/updates-status/issues)
 repository. Project maintainers really appreciate thorough explanations. It
 usually helps them address the problem more quickly, so everyone wins!
 
-### There are no guarantees that your issue will be addressed ###
+### There are no guarantees that your issue will be addressed
 
 Keep in mind that `qubes-issues` is an issue tracker, not a support system.
 Creating a new issue is simply a way for you to submit an item for the Qubes
@@ -173,7 +254,7 @@ this writing, there are well over one thousand open issues in `qubes-issues`.
 The Qubes team has its own roadmap and priorities, which will govern the manner
 and order in which open issues are addressed.
 
-## Following up afterward ##
+## Following up afterward
 
 If the Qubes developers make a code change that resolves your issue, then your
 GitHub issue will typically be closed from the relevant patch message. After
@@ -194,7 +275,7 @@ we're closing the issue with one of these specific resolutions. If the issue is
 closed without one of these specific resolutions, then it means, by default,
 that your reported bug was fixed or your requested enhancement was implemented.
 
-## See also ##
+## See also
 
 - [Help, Support, Mailing Lists, and Forum](/support/)
 - [Testing New Releases and Updates](/doc/testing/)
