@@ -54,7 +54,7 @@ send it to the appropriate [mailing list](/support/). If you see that something
 in the documentation should be fixed or improved, please
 [contribute](#how-to-contribute) the change yourself. To report an issue with
 the documentation, please follow our standard [issue reporting
-guidelines](/doc/reporting-bugs/). (If you report an issue with the
+guidelines](/doc/issue-tracking/). (If you report an issue with the
 documentation, you will likely be asked to address it, unless there is a clear
 indication in your report that you are not willing or able to do so.)
 
@@ -70,7 +70,7 @@ A few notes before we get started:
   and protect our users.
 * We don't want you to spend time and effort on a contribution that we can't
   accept. If your contribution would take a lot of time, please [file an
-  issue](/doc/reporting-bugs/) for it first so that we can make sure we're on
+  issue](/doc/issue-tracking/) for it first so that we can make sure we're on
   the same page before significant works begins.
 * Alternatively, you may already have written content that doesn't conform to
   these guidelines, but you'd be willing to modify it so that it does. In this

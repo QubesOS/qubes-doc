@@ -311,7 +311,7 @@ So, if feature X isn't enabled, it's most likely for one of three reasons:
 2. Our platform supports it, but we've decided not to enable it.
 3. Our platform supports it, but we're not aware that we can enable it or have forgotten to do so.
 
-If it seems like a feature that we can and should enable, please [let us know](/doc/reporting-bugs/)!
+If it seems like a feature that we can and should enable, please [let us know](/doc/issue-tracking/)!
 
 ## Users
 
