@@ -49,6 +49,15 @@ qvm-create --class StandaloneVM --label <label> --property virt_mode=hvm <vmname
 (Note: Technically, `virt_mode=hvm` is not necessary for every standalone.
 However, it makes sense if you want to use a kernel from within the VM.)
 
+## Updating standalones
+
+When you create a standalone from a template, the standalone is a complete
+clone of the template, including the entire filesystem. After the moment of
+creation, the standalone becomes completely independent from the template.
+Therefore, the standalone will not be updated merely by updating the template
+from which it was originally cloned. Rather, it must be updated as an
+independent qube. See [How to Update](/doc/how-to-update/).
+
 ## Creating an HVM
 
 ### Using the GUI:

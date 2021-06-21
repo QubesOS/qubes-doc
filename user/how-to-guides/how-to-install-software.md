@@ -12,15 +12,12 @@ ref: 189
 title: How to Install Software
 ---
 
-When you install software in Qubes OS, you install it in your
-[templates](/doc/glossary/#template).
+When you wish to install software in Qubes OS, you should generally install it
+in a [template](/doc/glossary/#template).
 
-<div class="alert alert-info" role="alert">
-  <i class="fa fa-info-circle"></i>
-  <b>Note:</b> Advanced users may also be interested in learning how to install
-  software in <a href="#standalones">standalones</a> and
-  <a href="/doc/how-to-install-software-in-dom0">dom0</a>.
-</div>
+Advanced users may also be interested in learning how to install software in
+[standalones](/doc/standalones-and-hvm/) and
+[dom0](/doc/how-to-install-software-in-dom0).
 
 ## Instructions
 
@@ -31,21 +28,35 @@ To permanently install new software in a template:
 2. Start either a terminal (e.g. `gnome-terminal`) or a dedicated software
    management application, such as `gpk-application`.
 
-3. Install software as normally instructed inside that operating system (e.g.
-   `sudo dnf install <PACKAGE_NAME>` on Fedora, `sudo apt install
-   <PACKAGE_NAME>` on Debian).
+3. Install software as normally instructed inside that operating system, e.g.:
+   - Fedora: `sudo dnf install <PACKAGE_NAME>`
+   - Debian: `sudo apt install <PACKAGE_NAME>`
 
-4. Shut down the template.
+4. **Shut down the template. (Do not skip this step.)**
 
-5. Restart all qubes based on the template so the changes can take effect.
+5. **Restart all qubes based on the template. (Do not skip this step.)**
 
-6. (Optional) In the relevant qubes' **Qube Settings**, go to the
+6. (Recommended) In the relevant qubes' **Qube Settings**, go to the
    **Applications** tab, select the new application(s) from the list, and press
    OK. These new shortcuts will appear in the Applications Menu. (If you
    encounter problems, see [here](/doc/app-menu-shortcut-troubleshooting/) for
    troubleshooting.)
 
 ![[The Applications tab in Qube Settings](/attachment/doc/r4.1-dom0-appmenu-select.png)](/attachment/doc/r4.1-dom0-appmenu-select.png)
+
+## Troubleshooting
+
+If things are still not working as expected:
+
+- Review the [instructions](#instructions) very carefully, making sure you
+  follow each step.
+- Make sure you **shut down the template after installing your software**.
+- Make sure you **restart your app qube *after* shutting down your template**.
+- If your software requires special files or directories to be persistent, and
+  you're an advanced user, see [Standalones and
+  HVMs](/doc/standalones-and-hvm/) and [How to Make Any File Persistent
+  (bind-dirs)](/doc/bind-dirs/).
+- [Ask for help.](/doc/support/)
 
 ## How to update software
 
@@ -108,13 +119,10 @@ corresponding `deb` line in `/etc/apt/sources.list.d/qubes-r*.list`.
 
 ### Standalones
 
-When you create a [standalone](/doc/standalone-and-hvm/) from a template, the
-standalone is a complete clone of the template, including the entire
-filesystem. After the moment of creation, the standalone is completely
-independent from the template. Therefore, it will not be updated when the
-template is updated. Rather, it must be updated individually. The process for
-installing and updating software in standalones is the same as described above
-for templates.
+The process for installing and updating software in
+[standalones](/doc/glossary/#standalone) is the same as described above for
+templates, except no qubes are based on standalones, so there are no other
+qubes to restart.
 
 ### RPMFusion for Fedora templates
 
@@ -383,4 +391,3 @@ chat app.
 Note that the app will autostart only when the app qube starts. If you would
 like the app qube to autostart, select the "Start qube automatically on boot"
 checkbox in the app qube's Qube Settings.
-
