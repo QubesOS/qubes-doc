@@ -1,8 +1,9 @@
 ---
 lang: en
 layout: doc
-permalink: /security/bulletins/
+permalink: /security/qsb/
 redirect_from:
+- /security/bulletins/
 - /doc/security-bulletins/
 - /en/doc/security-bulletins/
 - /doc/SecurityBulletins/

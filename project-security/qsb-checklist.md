@@ -1,11 +1,12 @@
 ---
 lang: en
 layout: doc
-permalink: /security/bulletins/checklist/
+permalink: /security/qsb/checklist/
 redirect_from:
+- /security/bulletins/checklist/
 - /doc/security-bulletins/checklist/
 ref: 215
-title: Security Bulletin Checklist
+title: Qubes Security Bulletin (QSB) Checklist
 ---
 
 ## Preparation

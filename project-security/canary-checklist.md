@@ -1,9 +1,11 @@
 ---
 lang: en
 layout: doc
-permalink: /security/canaries/checklist/
+permalink: /security/canary/checklist/
+redirect_from:
+- /security/canaries/checklist/
 ref: 216
-title: Canary Checklist
+title: Qubes Canary Checklist
 ---
 
 ## Preparation
