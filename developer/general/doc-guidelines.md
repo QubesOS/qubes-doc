@@ -159,7 +159,7 @@ pull request, we'll post a comment explaining why we can't.
 The source file for the [documentation index (a.k.a. table of contents)](/doc/)
 lives here:
 
-<https://github.com/QubesOS/qubesos.github.io/blob/master/_data/index.yml>
+<https://github.com/QubesOS/qubesos.github.io/blob/master/_data/doc-index.yml>
 
 Editing this file will change what appears on the documentation index. If your
 pull request (PR) adds, removes, or edits anything that should be reflected in
