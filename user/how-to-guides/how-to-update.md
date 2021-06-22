@@ -17,7 +17,7 @@ see the [Upgrade Guides](/doc/upgrade/).*
 
 Security updates are an extremely important part of keeping your Qubes
 installation secure. When there is an important security issue, we will issue a
-[Qubes Security Bulletin (QSB)](/security/bulletins/) via the [Qubes Security
+[Qubes Security Bulletin (QSB)](/security/qsb/) via the [Qubes Security
 Pack (`qubes-secpack`)](/security/pack/). It is very important to read each new
 QSB and follow any user instructions it contains. Most of the time, simply
 [updating your system normally](#routine-updates) will be sufficient to obtain

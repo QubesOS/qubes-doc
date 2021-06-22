@@ -10,7 +10,7 @@ This tracker shows whether Qubes OS is affected by any given [Xen Security
 Advisory (XSA)](https://xenbits.xen.org/xsa/). Shortly after a new XSA is
 published, we will add a new row to this tracker. Whenever Qubes is
 significantly affected by an XSA, a [Qubes Security Bulletin
-(QSB)](/security/bulletins/) is published, and a link to that QSB is added to
+(QSB)](/security/qsb/) is published, and a link to that QSB is added to
 the row for the associated XSA.
 
 Under the "Is Qubes Affected?" column, there are two possible values: **Yes**

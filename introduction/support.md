@@ -325,7 +325,7 @@ required for any of these mailing lists.
 
 This is a read-only list for those who wish to receive only very important,
 infrequent messages. Only the core Qubes team can post to this list. Only
-[Qubes Security Bulletins (QSBs)](/security/bulletins/), new stable releases,
+[Qubes Security Bulletins (QSBs)](/security/qsb/), new stable releases,
 and end-of-life notices are announced here.
 
 To subscribe, send a blank email to

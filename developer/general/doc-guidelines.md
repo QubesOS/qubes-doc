@@ -443,7 +443,7 @@ making contributions, please try to observe the following style conventions:
   use relative (rather than absolute) links, e.g., `/doc/doc-guidelines/`
   instead of `https://www.qubes-os.org/doc/doc-guidelines/`. Examples of
   exceptions:
-  * The signed plain text portions of [QSBs](/security/bulletins/) and
+  * The signed plain text portions of [QSBs](/security/qsb/) and
     [Canaries](/security/canaries/)
   * URLs that appear inside code blocks (e.g., in comments and document
     templates)

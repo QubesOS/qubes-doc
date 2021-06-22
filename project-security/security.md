@@ -22,7 +22,7 @@ see [Security in Qubes](/doc/#security-in-qubes). The following is a list of
 important project security pages:
 
 - [Qubes Security Pack (`qubes-secpack`)](/security/pack/)
-- [Qubes Security Bulletins (QSBs)](/security/bulletins/)
+- [Qubes Security Bulletins (QSBs)](/security/qsb/)
 - [Qubes Canaries](/security/canaries/)
 - [Xen Security Advisory (XSA) Tracker](/security/xsa/)
 - [Verifying signatures](/security/verifying-signatures/)
@@ -36,7 +36,7 @@ directly or indirectly (e.g. the issue affects Xen in a configuration that is
 used in Qubes OS), then we would be more than happy to hear from you! We
 promise to treat any reported issue seriously and, if the investigation
 confirms that it affects Qubes, to patch it within a reasonable time and
-release a public [Qubes Security Bulletin](/security/bulletins/) that describes
+release a public [Qubes Security Bulletin](/security/qsb/) that describes
 the issue, discusses the potential impact of the vulnerability, references
 applicable patches or workarounds, and credits the discoverer.
 
@@ -56,7 +56,7 @@ particular, the QST is responsible for:
 - Evaluating whether [XSAs](/security/xsa/) affect the security of Qubes OS
 - Writing, applying, and/or distributing security patches to fix
   vulnerabilities in Qubes OS
-- Writing, signing, and publishing [Security Bulletins](/security/bulletins/)
+- Writing, signing, and publishing [Security Bulletins](/security/qsb/)
 - Writing, signing, and publishing [Canaries](/security/canaries/)
 - Generating, safeguarding, and using the project's [PGP
   Keys](https://keys.qubes-os.org/keys/)

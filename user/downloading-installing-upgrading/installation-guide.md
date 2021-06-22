@@ -415,7 +415,7 @@ remain secure against new threats.
 ### Security
 
 The Qubes OS Project occasionally issues [Qubes Security Bulletins
-(QSBs)](/security/bulletins/) as part of the [Qubes Security Pack
+(QSBs)](/security/qsb/) as part of the [Qubes Security Pack
 (qubes-secpack)](/security/pack/). It is important to make sure that you
 receive all QSBs in a timely manner so that you can take action to keep your
 system secure. (While [updating](#updating) will handle most security needs,
