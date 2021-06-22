@@ -95,7 +95,7 @@ Hardware-assisted Virtual Machine. Any fully virtualized, or hardware-assisted,
 HVMs are typically slower than paravirtualized qubes due to the required
 emulation, HVMs allow the user to create domains based on any operating system.
 
-See [Standalones and HVM](/doc/standalones-and-HVM/).
+See [Standalones and HVM](/doc/standalones-and-hvms/).
 
 ## management qube
 

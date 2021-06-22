@@ -59,7 +59,7 @@ Sorry to hear that! In that case, we recommend asking for help on the [Qubes
 Forum](https://qubes-os.discourse.group/) or on the [`qubes-users` mailing
 list](#qubes-users). Choose the venue you prefer, but please don't ask on both
 at the same time! Before you ask, please review our [discussion
-guidelines](#discusion-guidelines) and StackOverflow's advice on [how to ask
+guidelines](#discussion-guidelines) and StackOverflow's advice on [how to ask
 good questions](https://stackoverflow.com/help/how-to-ask). Don't forget to
 [stay safe](#staying-safe)!
 

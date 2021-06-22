@@ -56,7 +56,7 @@ If things are still not working as expected:
   you're an advanced user, see [Standalones and
   HVMs](/doc/standalones-and-hvms/) and [How to Make Any File Persistent
   (bind-dirs)](/doc/bind-dirs/).
-- [Ask for help.](/doc/support/)
+- [Ask for help.](/support/)
 
 ## How to update software
 
