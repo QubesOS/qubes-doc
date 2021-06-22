@@ -1,6 +1,6 @@
 ---
 lang: en
-layout: default
+layout: site
 permalink: /intro/
 redirect_from:
 - /tour/

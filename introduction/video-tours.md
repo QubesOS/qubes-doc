@@ -1,6 +1,6 @@
 ---
 lang: en
-layout: default
+layout: site
 permalink: /video-tours/
 ref: 226
 title: Video Tours

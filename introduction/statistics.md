@@ -1,6 +1,6 @@
 ---
 lang: en
-layout: default
+layout: site
 permalink: /statistics/
 redirect_from:
 - /counter/
