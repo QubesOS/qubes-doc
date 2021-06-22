@@ -23,7 +23,7 @@ important project security pages:
 
 - [Qubes Security Pack (`qubes-secpack`)](/security/pack/)
 - [Qubes Security Bulletins (QSBs)](/security/qsb/)
-- [Qubes Canaries](/security/canaries/)
+- [Qubes Canaries](/security/canary/)
 - [Xen Security Advisory (XSA) Tracker](/security/xsa/)
 - [Verifying signatures](/security/verifying-signatures/)
 - [PGP keys](https://keys.qubes-os.org/keys/)
@@ -57,7 +57,7 @@ particular, the QST is responsible for:
 - Writing, applying, and/or distributing security patches to fix
   vulnerabilities in Qubes OS
 - Writing, signing, and publishing [Security Bulletins](/security/qsb/)
-- Writing, signing, and publishing [Canaries](/security/canaries/)
+- Writing, signing, and publishing [Canaries](/security/canary/)
 - Generating, safeguarding, and using the project's [PGP
   Keys](https://keys.qubes-os.org/keys/)
 

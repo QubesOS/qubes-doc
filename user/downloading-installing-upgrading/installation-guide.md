@@ -424,7 +424,7 @@ reason, we strongly recommend that every Qubes user subscribe to the
 [qubes-announce](/support/#qubes-announce) mailing list.
 
 In addition to QSBs, the Qubes OS Project also publishes
-[Canaries](/security/canaries/), XSA summaries, template releases and
+[Canaries](/security/canary/), XSA summaries, template releases and
 end-of-life notices, and other items of interest to Qubes users. Since these
 are not essential for all Qubes users to read, they are not sent to
 [qubes-announce](/support/#qubes-announce) in order to keep the volume on that

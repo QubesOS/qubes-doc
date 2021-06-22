@@ -444,7 +444,7 @@ making contributions, please try to observe the following style conventions:
   instead of `https://www.qubes-os.org/doc/doc-guidelines/`. Examples of
   exceptions:
   * The signed plain text portions of [QSBs](/security/qsb/) and
-    [Canaries](/security/canaries/)
+    [Canaries](/security/canary/)
   * URLs that appear inside code blocks (e.g., in comments and document
     templates)
   * Files like `README.md` and `CONTRIBUTING.md`
