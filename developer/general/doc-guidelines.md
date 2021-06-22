@@ -493,10 +493,12 @@ making contributions, please try to observe the following style conventions:
     ```
     ~~~
 
-    The `#` symbol preceding each comment is ambiguous with a root command prompt.
-    Instead, put your comments *outside* of the code block in normal prose.
-* Use non-reference-style links like `[website](https://example.com/)`.
-  Do *not* use reference links like `[website][example]`, `[website][]` or `[website]`.
+    The `#` symbol preceding each comment is ambiguous with a root command
+    prompt. Instead, put your comments *outside* of the code block in normal
+    prose.
+* Use non-reference-style links like `[website](https://example.com/)`. Do
+  *not* use reference links like `[website][example]`, `[website][]` or
+  `[website]`.
 
 ([This](https://daringfireball.net/projects/markdown/) is a great source for
 learning about Markdown.)
@@ -504,19 +506,22 @@ learning about Markdown.)
 ## Coding conventions
 
 These conventions apply to the website as a whole, including everything written
-in HTML, CSS, YAML, and Liquid.
+in HTML, CSS, YAML, and Liquid. These conventions are intended to keep the
+codebase consistent when multiple collaborators are working on it. They should
+be understood as a practical set of rules for maintaining order in this
+specific codebase rather than as a statement of what is objectively right or
+good.
 
 * Always use spaces. Never use tabs.
 * Indent by exactly two (2) spaces.
 * Whenever you add an opening tag, indent the following line. (Exception: If
   you open and close the tag on the same line, do not indent the following
   line.)
-* Indent Liquid the same way as HTML. (This is the easiest rule for multiple
-  collaborators to all follow consistently when editing the same codebase.)
+* Indent Liquid the same way as HTML.
 * In general, the starting columns of every adjacent pair of lines should be no
   more than two spaces apart (example below).
-* No blank or empty lines. (Hint: When you feel you need one, add a comment
-  on that line instead.)
+* No blank or empty lines. (Hint: When you feel you need one, add a comment on
+  that line instead.)
 * Use comments to indicate the purposes of different blocks of code. This makes
   the file easier to understand and navigate.
 * Use descriptive variable names. Never use one or two letter variable names.
