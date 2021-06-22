@@ -1,6 +1,6 @@
 ---
 lang: en
-layout: doc-index
+layout: doc
 permalink: /doc/
 redirect_from:
 - /en/doc/
