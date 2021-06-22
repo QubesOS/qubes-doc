@@ -16,10 +16,10 @@ ref: 121
 title: Issue Tracking
 ---
 
-The Qubes OS Project uses the "GitHub Issues" [issue tracking
-system](https://en.wikipedia.org/wiki/Issue_tracking_system). All issues
-pertaining to the Qubes OS Project (including auxiliary infrastructure such as
-the [website](/)) are tracked in
+We use [GitHub Issues](https://docs.github.com/en/issues) as our [issue
+tracking system](https://en.wikipedia.org/wiki/Issue_tracking_system). All
+issues pertaining to the Qubes OS Project (including auxiliary infrastructure
+such as this website) are tracked in
 [qubes-issues](https://github.com/QubesOS/qubes-issues/issues).
 
 ## How to open a new issue
@@ -63,10 +63,15 @@ something you can't do yourself, please proceed to the next section.
 10. Respond to any questions the official team asks. For example, you may be
     asked to provide specific logs or other additional information.
 
+Eventually, your issue may be closed. See [how issues get
+closed](/doc/issue-tracking/#how-issues-get-closed) for details about when,
+why, and how this occurs.
+
 ## Labels, Milestones, and Projects
 
 Labels, milestones, and projects are features of GitHub's issue tracking system
-that we use to keep `qubes-issues` organized.
+that we use to keep
+[qubes-issues](https://github.com/QubesOS/qubes-issues/issues) organized.
 
 ### Labels
 
@@ -165,7 +170,9 @@ by component
 [Xen](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+Xen%22),
 etc.).
 
-You can also try searching by [milestone](https://github.com/QubesOS/qubes-issues/milestones) and by [project](https://github.com/QubesOS/qubes-issues/projects).
+You can also try searching by
+[milestone](https://github.com/QubesOS/qubes-issues/milestones) and by
+[project](https://github.com/QubesOS/qubes-issues/projects).
 
 ## Guidelines
 
@@ -269,13 +276,15 @@ usually helps them address the problem more quickly, so everyone wins!
 
 ### There are no guarantees that your issue will be addressed
 
-Keep in mind that `qubes-issues` is an issue tracker, not a support system.
-Creating a new issue is simply a way for you to submit an item for the Qubes
-team's consideration. It is up to the Qubes team to decide whether or how to
-address your issue, which may include closing the issue without taking any
-action on it. Even if your issue is kept open, however, you should not expect
-it to be addressed within any particular time frame, or at all. At the time of
-this writing, there are well over one thousand open issues in `qubes-issues`.
+Keep in mind that
+[qubes-issues](https://github.com/QubesOS/qubes-issues/issues) is an issue
+tracker, not a support system. Creating a new issue is simply a way for you to
+submit an item for the Qubes team's consideration. It is up to the Qubes team
+to decide whether or how to address your issue, which may include closing the
+issue without taking any action on it. Even if your issue is kept open,
+however, you should not expect it to be addressed within any particular time
+frame, or at all. At the time of this writing, there are well over one thousand
+open issues in [qubes-issues](https://github.com/QubesOS/qubes-issues/issues).
 The Qubes team has its own roadmap and priorities, which will govern the manner
 and order in which open issues are addressed.
 
@@ -345,4 +354,3 @@ developers may be need to adjust it manually.
 - [Contributing Code](/doc/contributing/#contributing-code)
 - [Package Contributions](/doc/package-contributions/)
 - [Documentation Guidelines](/doc/doc-guidelines/)
-
