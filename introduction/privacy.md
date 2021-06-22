@@ -50,13 +50,13 @@ addresses. We use this data for generating [Qubes userbase
 statistics](/statistics/) and for incident response.
 
 The data is retained for up to three months so that we can re-calculate the
-previous two month's statistics in case anything goes wrong. After that, the
+previous two months' statistics in case anything goes wrong. After that, the
 data is deleted. We never sell the data to anyone or share it with any third
 party.
 
 If you would like to hide your IP address from us, we strongly encourage it and
 are happy to help you do so! Simply choose the Whonix option to route all of
-your updates over Tor [when installing Qubes OS](/doc/installation-guide/).
+your updates over Tor when [installing Qubes OS](/doc/installation-guide/).
 
 ## Onion Services
 
@@ -81,16 +81,16 @@ not have the ability to "phone home" and is intentionally architected to forbid
 that from happening. This is mainly because we have ensured that dom0 has no
 network access.
 
-We don't want the ability collect any data directly from Qubes OS
+We don't want the ability to collect any data directly from Qubes OS
 installations, because if anyone has that power, then the system is not secure.
-We all use Qubes OS ourselves as a daily driver for our work and personal
+We use Qubes OS ourselves as a daily driver for our work and personal
 lives, so our interests are aligned with yours. We want privacy too!
 Thankfully, Qubes OS is free and open-source software, so you don't have to
 take our word for it.
 
 Of course, third-party software (including other operating systems) running
-inside of qubes may not be as privacy-respecting, so please be mindful of what
-you install. We have no control over such third-party software.
+inside of Qubes OS may not be as privacy-respecting, so please be mindful of
+what you install. We have no control over such third-party software.
 
 For more information, please see [FAQ: How does Qubes OS provide
 privacy?](/faq/#how-does-qubes-os-provide-privacy)
