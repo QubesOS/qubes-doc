@@ -412,96 +412,145 @@ For further discussion about version-specific documentation in Qubes, see
 * Familiarize yourself with the terms defined in the
   [glossary](/doc/glossary/). Use these terms consistently and accurately
   throughout your writing.
- * Syntactically distinguish variables in commands.
-   For example, this is ambiguous:
+* Syntactically distinguish variables in commands. For example, this is
+  ambiguous:
 
-       $ qvm-run --dispvm=dvm-template --service qubes.StartApp+xterm
+      $ qvm-run --dispvm=dvm-template --service qubes.StartApp+xterm
 
-   It should instead be:
+  It should instead be:
 
-       $ qvm-run --dispvm=<DVM_TEMPLATE> --service qubes.StartApp+xterm
+      $ qvm-run --dispvm=<DVM_TEMPLATE> --service qubes.StartApp+xterm
 
-   Note that we syntactically distinguish variables in three ways:
-   1. Surrounding them in angled brackets (`< >`)
-   2. Using underscores (`_`) between words
-   3. Using all capital letters
+  Note that we syntactically distinguish variables in three ways:
+  1. Surrounding them in angled brackets (`< >`)
+  2. Using underscores (`_`) between words
+  3. Using all capital letters
 
 ## Markdown conventions
 
 All the documentation is written in Markdown for maximum accessibility. When
 making contributions, please try to observe the following style conventions:
 
- * Use spaces instead of tabs.
- * Do not write HTML inside Markdown documents (except in rare, unavoidable
-   cases, such as alerts). In particular, never include HTML or CSS for
-   styling, formatting, or white space control. That belongs in the (S)CSS
-   files instead.
- * Link only to images in
-   [qubes-attachment](https://github.com/QubesOS/qubes-attachment) (see
-   [instructions above](#how-to-add-images)). Do not link to images on other
-   websites.
- * In order to enable offline browsing and automatic onion redirection, always
-   use relative (rather than absolute) links, e.g., `/doc/doc-guidelines/`
-   instead of `https://www.qubes-os.org/doc/doc-guidelines/`. Examples of
-   exceptions:
-   * The signed plain text portions of [QSBs](/security/bulletins/) and
-     [Canaries](/security/canaries/)
-   * URLs that appear inside code blocks (e.g., in comments and document
-     templates)
-   * Files like `README.md` and `CONTRIBUTING.md`
- * Hard wrap Markdown lines at 80 characters, unless the line can't be broken
-   (e.g., code or a URL).
- * If appropriate, make numerals in numbered lists match between Markdown
-   source and HTML output.
-   * Rationale: In the event that a user is required to read the Markdown
-     source directly, this will make it easier to follow, e.g., numbered steps
-     in a set of instructions.
- * Use hanging indentations
-   where appropriate.
- * Do not use `h1` headings (single `#` or `======` underline). These are
-   automatically generated from the `title:` line in the YAML frontmatter.
- * Use Atx-style headings: , `##h 2`, `### h3`, etc.
- * When writing code blocks, use [syntax
-   highlighting](https://github.github.com/gfm/#info-string) where
-   [possible](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers)
-   and use `[...]` for anything omitted.
- * When providing command line examples:
+* Use spaces instead of tabs.
+* Do not write HTML inside Markdown documents (except in rare, unavoidable
+  cases, such as alerts). In particular, never include HTML or CSS for styling,
+  formatting, or white space control. That belongs in the (S)CSS files instead.
+* Link only to images in
+  [qubes-attachment](https://github.com/QubesOS/qubes-attachment) (see
+  [instructions above](#how-to-add-images)). Do not link to images on other
+  websites.
+* In order to enable offline browsing and automatic onion redirection, always
+  use relative (rather than absolute) links, e.g., `/doc/doc-guidelines/`
+  instead of `https://www.qubes-os.org/doc/doc-guidelines/`. Examples of
+  exceptions:
+  * The signed plain text portions of [QSBs](/security/bulletins/) and
+    [Canaries](/security/canaries/)
+  * URLs that appear inside code blocks (e.g., in comments and document
+    templates)
+  * Files like `README.md` and `CONTRIBUTING.md`
+* Hard wrap Markdown lines at 80 characters, unless the line can't be broken
+  (e.g., code or a URL).
+* If appropriate, make numerals in numbered lists match between Markdown source
+  and HTML output.
+  * Rationale: In the event that a user is required to read the Markdown source
+    directly, this will make it easier to follow, e.g., numbered steps in a set
+    of instructions.
+* Use hanging indentations where appropriate.
+* Do not use `h1` headings (single `#` or `======` underline). These are
+  automatically generated from the `title:` line in the YAML frontmatter.
+* Use Atx-style headings: , `##h 2`, `### h3`, etc.
+* When writing code blocks, use [syntax
+  highlighting](https://github.github.com/gfm/#info-string) where
+  [possible](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers)
+  and use `[...]` for anything omitted.
+* When providing command line examples:
   * Tell the reader where to open a terminal (dom0 or a specific domU), and
     show the command along with its output (if any) in a code block, e.g.:
 
-     ~~~markdown
-     Open a terminal in dom0 and run:
-     ```shell_session
-     $ cd test
-     $ echo Hello
-     Hello
-     ```
-     ~~~
+    ~~~markdown
+    Open a terminal in dom0 and run:
+    ```shell_session
+    $ cd test
+    $ echo Hello
+    Hello
+    ```
+    ~~~
 
-  * Precede each command with the appropriate command prompt: At a minimum, the
-    prompt should contain a trailing `#` (for the user `root`) or `$` (for
-    other users) on Linux systems and `>` on Windows systems, respectively.
-  * Don't try to add comments inside the code block.
-     For example, *don't* do this:
+ * Precede each command with the appropriate command prompt: At a minimum, the
+   prompt should contain a trailing `#` (for the user `root`) or `$` (for
+   other users) on Linux systems and `>` on Windows systems, respectively.
+ * Don't try to add comments inside the code block. For example, *don't* do
+   this:
 
-     ~~~markdown
-     Open a terminal in dom0 and run:
-     ```shell_session
-     # Navigate to the new directory
-     $ cd test
-     # Generate a greeting
-     $ echo Hello
-     Hello
-     ```
-     ~~~
+    ~~~markdown
+    Open a terminal in dom0 and run:
+    ```shell_session
+    # Navigate to the new directory
+    $ cd test
+    # Generate a greeting
+    $ echo Hello
+    Hello
+    ```
+    ~~~
 
-     The `#` symbol preceding each comment is ambiguous with a root command prompt.
-     Instead, put your comments *outside* of the code block in normal prose.
+    The `#` symbol preceding each comment is ambiguous with a root command prompt.
+    Instead, put your comments *outside* of the code block in normal prose.
 * Use non-reference-style links like `[website](https://example.com/)`.
   Do *not* use reference links like `[website][example]`, `[website][]` or `[website]`.
 
 ([This](https://daringfireball.net/projects/markdown/) is a great source for
 learning about Markdown.)
+
+## Coding conventions
+
+These conventions apply to the website as a whole, including everything written
+in HTML, CSS, YAML, and Liquid.
+
+* Always use spaces. Never use tabs.
+* Indent by exactly two (2) spaces.
+* Whenever you add an opening tag, indent the following line. (Exception: If
+  you open and close the tag on the same line, do not indent the following
+  line.)
+* Indent Liquid the same way as HTML. (This is the easiest rule for multiple
+  collaborators to all follow consistently when editing the same codebase.)
+* In general, the starting columns of every adjacent pair of lines should be no
+  more than two spaces apart (example below).
+* No blank or empty lines. (Hint: When you feel you need one, add a comment
+  on that line instead.)
+* Use comments to indicate the purposes of different blocks of code. This makes
+  the file easier to understand and navigate.
+* Use descriptive variable names. Never use one or two letter variable names.
+  Avoid uncommon abbreviations and made-up words.
+* In general, make it easy for others to read your code. Your future self will
+  thank you, and so will your collaborators!
+* [Don't Repeat Yourself
+  (DRY)!](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) Instead of
+  repeating the same block of code multiple times, abstract it out into a
+  separate file and `include` that file where you need it.
+
+### Indentation example
+
+Here's an example that follows the indentation rules:
+
+{% raw %}
+```html
+<table>
+  <tr>
+    <th title="Anchor Link"><span class="fa fa-link"></span></th>
+    {% for item in secs.htmlsections[0].columns %}
+      <th>{{ item.title }}</th>
+    {% endfor %}
+  </tr>
+  {% for canary in site.data.sec-canary reversed %}
+    <tr id="{{ canary.canary }}">
+      <td><a href="#{{ canary.canary }}" class="fa fa-link black-icon" title="Anchor link to Qubes Canary row: Qubes Canary #{{ canary.canary }}"></a></td>
+      <td>{{ canary.date }}</td>
+      <td><a href="https://github.com/QubesOS/qubes-secpack/blob/master/canaries/canary-{{ canary.canary }}-{{ canary.date | date: '%Y' }}.txt">Qubes Canary #{{ canary.canary }}</a></td>
+    </tr>
+  {% endfor %}
+</table>
+```
+{% endraw %}
 
 ## Git conventions
 
