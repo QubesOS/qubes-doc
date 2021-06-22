@@ -121,15 +121,16 @@ spend some time going through [XFCE's documentation](https://docs.xfce.org/).
 
 There are several tray widgets that are unique to Qubes OS:
 
- - The **Qubes Domains** widget allows you to manage running qubes, turn them
-   on and off, and monitor memory usage.
- - The **Qubes Devices** widget allows you to attach and detach devices ---
-   such as USB drives and cameras --- to qubes.
- - The **Qubes Disk Space Monitor** will notify you if you're ever running out
-   of disk space.
- - The **Qubes Update** tool will inform you when updates are available.
- - The **Whonix SDWDate** widget surfaces and tracks functionality unique to
+  - The **Whonix SDWDate** widget surfaces and tracks functionality unique to
    the [integration of Whonix into Qubes OS](https://www.whonix.org/wiki/Qubes).
+ - The **Qubes Clipboard** widget surfaces activity in Qubes' inter-qube clipboard, and allows users to copy text *from* dom0.
+ - The **Qubes Devices** widget allows you to attach and detach devices ---
+   such as USB drives and cameras --- to qubes. 
+ - The **Qubes Disk Space** widget shows you how much storage you have available. It will notify you if you're ever running out
+   of disk space.   
+- The **Qubes Domains** widget allows you to manage running qubes, turn them
+   on and off, and monitor memory usage.
+ - The **Qubes Updater** widget can inform you when updates are available, and enable you to run those updates with a log to monitor progress.
 
 [![r4.0-widgets.png](/attachment/doc/r4.0-widgets.png)](/attachment/doc/r4.0-widgets.png)
 
