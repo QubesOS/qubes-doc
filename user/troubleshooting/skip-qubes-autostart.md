@@ -5,6 +5,8 @@ permalink: /doc/skip-qubes-autostart/
 title: Skip Qubes OS autostart
 ---
 
+The following instructions are valid for Qubes OS R4.0 *legacy mode* only and Qubes OS R4.1 *legacy* and *UEFI* modes. For Qubes OS R4.0 in UEFI mode, we don't have GRUB so manual boot from another operating system is needed.
+
 In several cases, it is needed to prevent `autostart=True` for qubes on boot. For example:
 
 * `sys-usb` was enabled but the only keyboard is on USB and qubes.InputKeyboard service is disabled,
