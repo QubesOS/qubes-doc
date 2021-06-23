@@ -44,7 +44,7 @@ You can create a standalone in the Qube Manager by selecting the "Type" of "Stan
 Alternatively, from the dom0 command line:
 
 ```
-qvm-create --class StandaloneVM --label <label> --property virt_mode=hvm <vmname>
+qvm-create --class StandaloneVM --label <LABEL> --property virt_mode=hvm <VMNAME>
 ```
 
 (Note: Technically, `virt_mode=hvm` is not necessary for every standalone.
@@ -145,7 +145,7 @@ This mode can be used for any HVM (e.g. FreeBSD running in a HVM).
 In order to create a TemplateHVM you use the following command, suitably adapted:
 
 ~~~
-qvm-create --class TemplateVM <qube> --property virt_mode=HVM --property kernel=''  -l green
+qvm-create --class TemplateVM <QUBE> --property virt_mode=HVM --property kernel=''  -l green
 ~~~
 
 Set memory as appropriate, and install the OS into this template in the same way you would install it into a normal HVM.
