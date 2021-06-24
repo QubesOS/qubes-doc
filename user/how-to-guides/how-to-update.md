@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/how-to-update/
 redirect_from:
- - /doc/updating-qubes-os/
+- /doc/updating-qubes-os/
 ref: 200
 title: How to Update
 ---

@@ -1,4 +1,5 @@
 ---
+advanced: true
 lang: en
 layout: doc
 permalink: /doc/templates/minimal/
@@ -10,7 +11,6 @@ redirect_from:
 - /wiki/Templates/FedoraMinimal/
 - /doc/templates/debian-minimal/
 ref: 132
-advanced: true
 title: Minimal Templates
 ---
 

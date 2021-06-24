@@ -1,9 +1,9 @@
 ---
+advanced: true
 lang: en
 layout: doc
 permalink: /doc/testing/
 ref: 147
-advanced: true
 title: Testing New Releases and Updates
 ---
 
