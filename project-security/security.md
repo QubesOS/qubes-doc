@@ -50,7 +50,7 @@ OS](/doc/how-to-update/).
 ## Qubes Security Team
 
 The **Qubes Security Team (QST)** is the subset of the [Core Qubes
-Team](/team/#core) that is responsible for ensuring the security of Qubes OS
+Team](/team/#core-team) that is responsible for ensuring the security of Qubes OS
 and the Qubes OS Project. In particular, the QST is responsible for:
 
 - Responding to [reported security
