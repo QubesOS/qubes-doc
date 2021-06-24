@@ -6,7 +6,6 @@ ref: 184
 title: GUI Configuration
 ---
 
-
 ## Video RAM adjustment for high-resolution displays
 
 When a qube starts, a fixed amount of RAM is allocated to the graphics buffer called video RAM.

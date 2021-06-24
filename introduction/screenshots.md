@@ -10,7 +10,6 @@ ref: 123
 title: Screenshots
 ---
 
-
 [![r4.0-xfce-desktop.png](/attachment/doc/r4.0-xfce-desktop.png)](/attachment/doc/r4.0-xfce-desktop.png)
 
 The default desktop environment is Xfce4.

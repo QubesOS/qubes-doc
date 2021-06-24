@@ -10,7 +10,6 @@ ref: 169
 title: YubiKey
 ---
 
-
 You can use a YubiKey to enhance Qubes user authentication, for example to mitigate risk of someone snooping the password.
 This can also slightly improve security when you have a [USB keyboard](/doc/device-handling-security/#security-warning-on-usb-input-devices).
 

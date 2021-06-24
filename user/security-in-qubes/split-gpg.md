@@ -398,4 +398,3 @@ As always, exercise caution and use your good judgment.)
   Note that `pinentry` might show an error when you try to set an empty passphrase, but it will still make the change.
   (See [this StackExchange answer](https://unix.stackexchange.com/a/379373) for more information.)
   Note: The error shows only if you **do not** have graphical pinentry installed.
-

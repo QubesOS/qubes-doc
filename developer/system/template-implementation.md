@@ -10,7 +10,6 @@ ref: 58
 title: Template Implementation
 ---
 
-
 Every VM has 4 block devices connected:
 
 - **xvda** – base root device (/) – details described below

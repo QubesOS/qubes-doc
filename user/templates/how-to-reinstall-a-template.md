@@ -9,7 +9,6 @@ ref: 128
 title: How to Reinstall a Template
 ---
 
-
 If you suspect your [template](/doc/templates/) is broken, misconfigured, or compromised, you can reinstall any template that was installed from the Qubes repository.
 
 Automatic Method
@@ -90,4 +89,3 @@ If you want to reinstall more than one template, repeat these instructions for e
 6. Delete the cloned template.
    You can do this in Qubes Manager by right-clicking on the VM and clicking **Remove VM**, or you can use the
    command `qvm-remove <vm-name>` in dom0.
-

@@ -10,7 +10,6 @@ ref: 171
 title: Data Leaks
 ---
 
-
 The Role of the Firewall
 ------------------------
 

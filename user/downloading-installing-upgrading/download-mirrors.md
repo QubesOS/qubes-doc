@@ -25,4 +25,3 @@ helpful in streamlining the process.
   every 6-8 hours is fine.
 * For technical accommodations, please contact [Wojtek](/team/#wojtek-porczyk) or [Marek](/team/#marek-marczykowski-górecki).
 * For website updates and fixes, please contact [Andrew](/team/#andrew-david-wong).
-

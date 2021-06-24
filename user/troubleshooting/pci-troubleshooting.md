@@ -6,7 +6,6 @@ ref: 230
 title: PCI Troubleshooting
 ---
 
-
 ## DMA errors
 
 VMs with attached PCI devices in Qubes have allocated a small buffer for DMA operations (called swiotlb).

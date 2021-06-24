@@ -6,7 +6,6 @@ ref: 145
 title: Hardware Testing
 ---
 
-
 The Qubes developers test Qubes OS on certain hardware models.
 The tested hardware described on this page differs from [Qubes Certified Hardware](/doc/certified-hardware/) in a few key ways:
 
@@ -38,4 +37,3 @@ If anyone is willing to lend or donate these models to us, we would be happy to 
 - Dell Latitude with Intel 8th Gen CPU and integrated graphics
 
 Note: The Lenovo X and T series are similar enough to assume similar compatibility of the matching model from the other series.
-

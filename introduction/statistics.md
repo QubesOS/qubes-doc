@@ -59,4 +59,3 @@ The raw data is available [here](https://tools.qubes-os.org/counter/stats.json).
 (This does not include any personally-identifying user data.)
 Please note that the format of this data is not documented and may change any time if the developers feel the need to include something else.
 The source code is available [here](https://github.com/woju/qubes-stats).
-

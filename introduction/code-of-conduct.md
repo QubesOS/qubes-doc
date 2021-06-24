@@ -114,4 +114,3 @@ The initial published version of this Code of Conduct was adapted from the
 [Contributor Covenant, version
 1.4](https://contributor-covenant.org/version/1/4) and the [Rust Code of
 Conduct](https://www.rust-lang.org/en-US/conduct.html).
-

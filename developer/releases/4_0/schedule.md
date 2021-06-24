@@ -8,7 +8,6 @@ ref: 24
 title: Qubes R4.0 Release Schedule
 ---
 
-
 This schedule is based on [Version Scheme](/doc/version-scheme/#release-schedule).
 
 |  Date       | Stage                                   |

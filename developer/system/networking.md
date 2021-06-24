@@ -11,7 +11,6 @@ ref: 59
 title: Networking
 ---
 
-
 ## Overall description
 
 In Qubes, the standard Xen networking is used, based on backend driver in the driver domain and frontend drivers in VMs. In order to eliminate layer 2 attacks originating from a compromised VM, routed networking is used instead of the default bridging of `vif` devices and NAT is applied at each network hop. The default *vif-route* script had some deficiencies (requires `eth0` device to be up, and sets some redundant iptables rules), therefore the custom *vif-route-qubes* script is used.

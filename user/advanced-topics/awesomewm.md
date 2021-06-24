@@ -9,7 +9,6 @@ ref: 179
 title: AwesomeWM (window manager)
 ---
 
-
 ## Qubes-specific features
 
 * support for the Qubes OS window colors

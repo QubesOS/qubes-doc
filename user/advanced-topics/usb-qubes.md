@@ -12,7 +12,6 @@ ref: 181
 title: USB Qubes
 ---
 
-
 If during installation you enabled the creation of a USB-qube, your system should be setup already and none of the mentioned steps here should be necessary. (Unless you want to [remove your USB-qube](#removing-a-usb-qube).) If for any reason no USB-qube was created during installation, this guide will show you how to do so.
 
 **Caution:** If you want to use a USB-keyboard, please beware of the possibility to lock yourself out! To avoid this problem [enable your keyboard for login](#enable-a-usb-keyboard-for-login)!
@@ -201,4 +200,3 @@ The procedure to hide all USB controllers from dom0 is as follows:
   5. If `rd.qubes.hide_all_usb` appears anywhere in those lines, remove it.
   6. Save and close the file.
   7. Reboot.
-

@@ -11,7 +11,6 @@ ref: 180
 title: Config Files
 ---
 
-
 Qubes-specific VM config files
 ------------------------------
 

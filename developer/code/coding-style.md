@@ -11,7 +11,6 @@ ref: 53
 title: Coding Style
 ---
 
-
 Rationale
 ---------
 

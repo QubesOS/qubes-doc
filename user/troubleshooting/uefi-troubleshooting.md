@@ -6,7 +6,6 @@ ref: 177
 title: UEFI Troubleshooting
 ---
 
-
 ## Successfully installed in legacy mode, but had to change some kernel parameters
 
 If you've installed successfully in legacy mode but had to change some kernel parameters for it to work, you should try installing in UEFI mode with the same parameters.

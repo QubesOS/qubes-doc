@@ -129,4 +129,3 @@ templates within a month of their respective releases. To be precise:
 
 We aim to announce both types of events one month in advance in order to remind
 users to upgrade.
-

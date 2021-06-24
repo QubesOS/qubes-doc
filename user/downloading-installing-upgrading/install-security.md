@@ -10,7 +10,6 @@ ref: 149
 title: Installation security
 ---
 
-
 There are several security matters to consider before and during the Qubes installation process.
 
 ## Trusting your hardware
@@ -77,4 +76,3 @@ Cons:
   (Option 3 violates the Qubes security model since it entails transferring an untrusted ISO to dom0 in order to burn it to disc, which leaves only the other two options.)
 
 Considering the pros and cons of each, perhaps a USB drive with non-rewritable (or at least cryptographically-signed) firmware and a physical write-protect switch might be the best option.
-

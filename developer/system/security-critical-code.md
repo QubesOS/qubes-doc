@@ -11,7 +11,6 @@ ref: 55
 title: Security-critical Code
 ---
 
-
 Below is a list of security-critical (i.e., trusted) code components in Qubes OS.
 A successful attack against any of these components could compromise the system's security.
 This code can be thought of as the Trusted Computing Base (TCB) of Qubes OS.
@@ -69,4 +68,3 @@ This means that we must trust at least some of the vendors that supply the code 
 (We don't have to trust *all* of them, but we at least have to trust the few that provide the apps we use in the most critical domains.)
 In practice, we trust the software provided by the [Fedora Project](https://getfedora.org/).
 This software is signed by Fedora distribution keys, so it is also critical that the tools used in domains for software updates (`dnf` and `rpm`) are trustworthy.
-

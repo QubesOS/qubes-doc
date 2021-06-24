@@ -11,7 +11,6 @@ ref: 231
 title: Disk Troubleshooting
 ---
 
-
 ## "Out of disk space" error ##
 
 If the disk is completely full, you will get an `Out of disk space` error that may crash your system because Dom0 does not have enough disk space to work.

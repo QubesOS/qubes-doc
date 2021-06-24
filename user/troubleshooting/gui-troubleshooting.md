@@ -6,7 +6,6 @@ ref: 233
 title: GUI Troubleshooting
 ---
 
-
 ## Can't click on anything after connecting 4k external display
 
 When you connect a 4K external display, you may be unable to click on anything but a small area in the upper-right corner.

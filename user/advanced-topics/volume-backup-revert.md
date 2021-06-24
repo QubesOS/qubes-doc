@@ -10,7 +10,6 @@ ref: 206
 title: Volume Backup and Revert
 ---
 
-
 With Qubes, it is possible to revert one of a VM's storage volumes to a previous
 state using the automatic snapshot that is normally saved every time a VM is
 shutdown. (Note that this is a different, lower level activity than the

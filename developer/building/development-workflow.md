@@ -10,7 +10,6 @@ ref: 66
 title: Development Workflow
 ---
 
-
 A workflow for developing Qubes OS+
 
 First things first, setup [QubesBuilder](/doc/qubes-builder/). This guide
@@ -537,4 +536,3 @@ Usage: add this line to `/etc/apt/sources.list` on test machine (adjust host and
 ~~~
 deb http://local-test.lan/linux-deb/r3.1 jessie-unstable main
 ~~~
-

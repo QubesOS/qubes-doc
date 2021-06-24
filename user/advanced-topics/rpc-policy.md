@@ -6,7 +6,6 @@ ref: 178
 title: RPC Policies
 ---
 
-
 This document explains the basics of RPC policies in Qubes.
 For more information, see [Qrexec: command execution in VMs](/doc/qrexec3/).
 
@@ -67,4 +66,3 @@ Further details about how this system works can be found in [Qrexec: command exe
 
 (***Note**: the `$` character is deprecated in qrexec keywords -- please use `@` instead (e.g. `@anyvm`).
 For more information, see the bulletin [here](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-038-2018.txt).*)
-

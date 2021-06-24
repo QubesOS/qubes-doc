@@ -6,7 +6,6 @@ ref: 23
 title: Qubes R4.0 release notes
 ---
 
-
 New features since 3.2
 ----------------------
 
@@ -106,4 +105,3 @@ There is no in-place upgrade path from earlier Qubes versions. The only
 supported option to upgrade to Qubes R4.0 is to install it from scratch and use
 [qubes backup and restore tools](/doc/backup-restore/) for migrating of all of the user VMs.
 We also provide [detailed instruction](/doc/upgrade-to-r4.0/) for this procedure.
-

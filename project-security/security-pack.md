@@ -270,4 +270,3 @@ Qubes binaries :/
 implement multiple signature scheme for distributed binaries.
 
 ```
-

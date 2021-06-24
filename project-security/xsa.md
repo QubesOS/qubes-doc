@@ -40,4 +40,3 @@ or **No**.
   completeness, but they are excluded from the [Statistics](#statistics)
   section for the sake of accuracy.
 * All dates are in UTC.
-

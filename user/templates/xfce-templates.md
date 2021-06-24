@@ -11,7 +11,6 @@ ref: 222
 title: XFCE Templates
 ---
 
-
 If you would like to use Xfce (more lightweight compared to GNOME desktop environment) Linux distribution in your qubes,
 you can install one of the available Xfce templates for [Fedora](/doc/templates/fedora/), [CentOS](/doc/templates/centos/) or [Gentoo](/doc/templates/gentoo/).
 
@@ -46,4 +45,3 @@ You may wish to try again with the testing repository enabled:
 The download may take a while depending on your connection speed.
 
 To reinstall a Xfce template that is already installed in your system, see [How to Reinstall a template](/doc/reinstall-template/).
-

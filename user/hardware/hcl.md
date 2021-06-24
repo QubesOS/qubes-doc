@@ -12,7 +12,6 @@ ref: 146
 title: Hardware Compatibility List (HCL)
 ---
 
-
 The [HCL](/hcl) is a compilation of reports generated and submitted by users across various Qubes versions about their hardware's compatibility with Qubes.
 
  **Note:**
@@ -46,4 +45,3 @@ Please consider sending the **HCL Support Files** `.cpio.gz` file as well. To ge
 
 **Please note:**
  The **HCL Support Files** may contain numerous hardware details, including serial numbers. If, for privacy or security reasons, you do not wish to make this information public, please **do not** send the `.cpio.gz` file to the public mailing list.
-

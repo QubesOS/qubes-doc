@@ -9,7 +9,6 @@ ref: 94
 title: Suspend/Resume Troubleshooting
 ---
 
-
 ## Network-Manager says “Device not ready” on suspend/resume 
 
 These instructions may help with suspend/resume issues for more devices than just wireless cards, that is just the (unfortunately not uncommon) example used here.

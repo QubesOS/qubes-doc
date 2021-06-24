@@ -6,7 +6,6 @@ ref: 224
 title: Installation Troubleshooting
 ---
 
-
 ## "An unknown error has occurred" error during installation 
 
 Some people have encountered this error message when trying to install Qubes on drives that already have data on them. 
@@ -105,4 +104,3 @@ If the setting is not configured correctly, it means that your hardware won’t 
 In Qubes 4.0, the default installation won't function properly without IOMMU, as default sys-net and sys-usb qubes require IOMMU. It is possible to configure them to reduce isolation and not use IOMMU by changing virtualization mode of these two VMs to "PV".
 
 In Qubes 4.1, IOMMU is strictly required, even when the virtualization mode of a VM is changed to "PV"; it is not possible to use Qubes on a system without IOMMU.
-

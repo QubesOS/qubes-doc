@@ -12,7 +12,6 @@ ref: 197
 title: How to Use PCI Devices
 ---
 
-
 *This page is part of [device handling in qubes](/doc/how-to-use-devices/).*
 
 **Warning:** Only dom0 exposes PCI devices.
@@ -142,4 +141,3 @@ or
     ```
 
 It is **strongly discouraged to reattach PCI devices to dom0**, especially if they don't support resetting!
-

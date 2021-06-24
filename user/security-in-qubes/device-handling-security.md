@@ -6,7 +6,6 @@ ref: 170
 title: Device Handling Security
 ---
 
-
 Any additional ability a VM gains is additional attack surface.
 It's a good idea to always attach the minimum entity required in a VM.
 
@@ -73,4 +72,3 @@ One possibility is to set up the screen locker to require an additional step to 
 One way to achieve this is to use a [YubiKey](/doc/YubiKey/), or some other hardware token, or even to manually enter a one-time password.
 
 Support for [two factor authentication](/news/2018/09/11/qubes-u2f-proxy/) was recently added, though there are [issues](https://github.com/QubesOS/qubes-issues/issues/4661).
-

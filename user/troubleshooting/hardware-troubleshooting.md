@@ -8,7 +8,6 @@ ref: 97
 title: Hardware Troubleshooting
 ---
 
-
 ## Audio doesn't work / Troubleshooting newer hardware
 
 By default, the kernel that is installed in dom0 comes from the `kernel` package, which is an older Linux LTS kernel.
@@ -51,4 +50,3 @@ Restarting `xorg` is required.
 The most straightforward way is to reboot the system.
 
 More information in [this discussion](https://groups.google.com/d/topic/qubes-devel/d8ZQ_62asKI/discussion) and [this GitHub issue](https://github.com/QubesOS/qubes-issues/issues/1396).
-

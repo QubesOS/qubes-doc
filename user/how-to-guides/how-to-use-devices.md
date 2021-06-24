@@ -12,7 +12,6 @@ ref: 188
 title: How to Use Devices
 ---
 
-
 This is an overview of device handling in Qubes OS.
 For specific devices ([block](/doc/how-to-use-block-storage-devices/), [USB](/doc/how-to-use-usb-devices/) and [PCI](/doc/how-to-use-pci-devices/) devices), please visit their respective pages.
 
@@ -157,4 +156,3 @@ If no specific `sourceVM:deviceID` combination is given, *all devices of that DE
 
 **SYNOPSIS**
 `qvm-device DEVICE_CLASS {detach|dt|d} targetVM [sourceVM:deviceID]`
-

@@ -218,4 +218,3 @@ In this case, you have several options:
 3. Do the upgrade in parts, e.g., by using package groups.
    (First upgrade `@core` packages, then the rest.)
 4. Do not perform an in-place upgrade, see [Upgrading Fedora templates](/doc/templates/fedora/#upgrading).
-

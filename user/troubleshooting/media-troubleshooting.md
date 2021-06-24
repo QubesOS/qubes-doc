@@ -6,7 +6,6 @@ ref: 235
 title: Media Troubleshooting
 ---
 
-
 ## Can't play media videos in a VM due to missing codecs
 
 If you’re having trouble playing a video file in a qube, you’re probably missing the required codecs.

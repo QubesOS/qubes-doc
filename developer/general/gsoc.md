@@ -586,4 +586,3 @@ would override all the user changes there). More details:
 ----
 
 We adapted some of the language here about GSoC from the [KDE GSoC page](https://community.kde.org/GSoC).
-

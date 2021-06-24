@@ -353,4 +353,3 @@ Documentation on all of these can be found in the [docs](/doc/).
 You could, of course, use `qubes-vm-recommended` to automatically install many
 of these, but in that case you are well on the way to a standard Debian
 template.
-

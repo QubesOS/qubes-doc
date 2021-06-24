@@ -10,7 +10,6 @@ ref: 144
 title: Certified Hardware
 ---
 
-
 The Qubes OS Project aims to partner with a select few computer vendors to ensure that Qubes users have reliable hardware purchasing options.
 We aim for these vendors to be as diverse as possible in terms of geography, cost, and availability.
 
@@ -105,4 +104,3 @@ This could be done by consulting the [Hardware Compatibility List](/hcl/) or try
 While we are willing to troubleshoot simple issues, we will need to charge a consulting fee for more in-depth work.
 
 If you are interested in having your hardware certified, please [contact us](mailto:business@qubes-os.org).
-

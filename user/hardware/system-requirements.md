@@ -84,4 +84,3 @@ title: System Requirements
   notebook](https://groups.google.com/d/msg/qubes-users/Sz0Nuhi4N0o/ZtpJdoc0OY8J).
 - You can check whether an Intel processor has VT-x and VT-d on
   [ark.intel.com](https://ark.intel.com/content/www/us/en/ark.html#@Processors).
-

@@ -608,4 +608,3 @@ install template and shutdown updateVM:
 - [Jinja templates](http://jinja.pocoo.org/)
 - [Qubes specific modules](https://github.com/QubesOS/qubes-mgmt-salt-dom0-qvm/blob/master/README.rst)
 - [Formulas for default Qubes VMs](https://github.com/QubesOS/qubes-mgmt-salt-dom0-virtual-machines/tree/master/qvm)
-

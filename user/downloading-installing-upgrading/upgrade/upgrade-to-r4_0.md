@@ -10,7 +10,6 @@ ref: 162
 title: Upgrading to R4.0
 ---
 
-
 **Before attempting either an in-place upgrade or a clean installation, we strongly recommend that users [back up their systems](/doc/backup-restore/).**
 
 Current Qubes R3.2 systems cannot be upgraded in-place to R4.0.
@@ -116,4 +115,3 @@ Please see [Supported Versions](/doc/supported-versions/) for information on sup
 * [Upgrading Fedora templates](/doc/templates/fedora/#upgrading)
 * [Upgrading Debian templates](/doc/templates/debian/#upgrading)
 * [Updating Whonix templates](https://www.whonix.org/wiki/Qubes/Update)
-

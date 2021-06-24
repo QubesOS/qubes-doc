@@ -9,7 +9,6 @@ ref: 45
 title: Automated Tests
 ---
 
-
 ## Unit and Integration Tests
 
 Starting with Qubes R3 we use [python unittest](https://docs.python.org/3/library/unittest.html) to perform automatic tests of Qubes OS.
@@ -260,4 +259,3 @@ In practice, however, either Xen or QEMU crashes when this is attempted.
 Nonetheless, PV works well, which is sufficient for automated installation testing.
 
 Thanks to an anonymous donor, our openQA system is hosted in a datacenter on hardware that meets these requirements.
-

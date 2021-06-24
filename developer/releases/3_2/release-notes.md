@@ -6,7 +6,6 @@ ref: 21
 title: Qubes R3.2 release notes
 ---
 
-
 ## New features since 3.1
 
 * Management Stack extended to support in-VM configuration - [documentation](/doc/salt/)
@@ -60,4 +59,3 @@ for migrating of all of the user VMs.
 
 Alternatively you can [upgrade to R3.1 using](/doc/releases/3.1/release-notes/#upgrading) first, then follow
 the instructions above. This will be time consuming process.
-

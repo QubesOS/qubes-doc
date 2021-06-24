@@ -10,7 +10,6 @@ ref: 187
 title: Secondary Storage
 ---
 
-
 Suppose you have a fast but small primary SSD and a large but slow secondary HDD.
 You want to store a subset of your app qubes on the HDD.
 
@@ -112,4 +111,3 @@ By default VMs will be created on the main Qubes disk (i.e. a small SSD), to cre
 ```
 qvm-create -P poolhd0_qubes --label red unstrusted-hdd
 ```
-

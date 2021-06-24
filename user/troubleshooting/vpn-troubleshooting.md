@@ -6,7 +6,6 @@ ref: 240
 title: VPN Troubleshooting
 ---
 
-
 ## Tips
 
 * If using qubes-vpn, check the VPN service's log in the VPN VM by running:

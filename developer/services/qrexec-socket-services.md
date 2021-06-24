@@ -6,7 +6,6 @@ ref: 42
 title: 'Qrexec: Socket-based Services'
 ---
 
-
 *This page describes how to implement and use new socket-backed services for qrexec. See [qrexec](/doc/qrexec/) for general overview of the qrexec framework.*
 
 As of Qubes 4.1, qrexec allows implementing services not only as executable files, but also as Unix sockets.

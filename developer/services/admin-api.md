@@ -274,4 +274,3 @@ In addition, there is a mechanism to prevent concurrent modifications of the pol
   `qrexec-client-vm`
 
 <!-- vim: set ts=4 sts=4 sw=4 et : -->
-

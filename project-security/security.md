@@ -87,4 +87,3 @@ about how to authenticate these keys.
 - [Marek Marczykowski-Górecki](/team/#marek-marczykowski-górecki)
 - [Simon Gaiser (aka HW42)](/team/#simon-gaiser-aka-hw42)
 - [Joanna Rutkowska](/team/#joanna-rutkowska) ([emeritus, canaries only](/news/2018/11/05/qubes-security-team-update/))
-

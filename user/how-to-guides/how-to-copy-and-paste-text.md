@@ -11,7 +11,6 @@ ref: 196
 title: How to Copy and Paste Text
 ---
 
-
 *This page is about copying and pasting plain text.
 If you wish to copy more complex data, such as rich text or images, see [copying and moving files between qubes](/doc/how-to-copy-and-move-files/).
 For dom0, see [copying from (and to) dom0](/doc/how-to-copy-from-dom0/).*

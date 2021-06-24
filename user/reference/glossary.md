@@ -213,4 +213,3 @@ See [Templates](/doc/templates/).
 
 An abbreviation for "virtual machine." A software implementation of a machine
 (for example, a computer) that executes programs like a physical machine.
-

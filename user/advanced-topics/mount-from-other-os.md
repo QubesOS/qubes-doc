@@ -10,7 +10,6 @@ ref: 175
 title: How to Mount a Qubes Partition from Another OS
 ---
 
-
 When a Qubes OS install is unbootable or booting it is otherwise undesirable, this process allows for the recovery of files stored within the system.
 
 These functions are manual and do not require any Qubes specific tools. All steps assume the default Qubes install with the following components:

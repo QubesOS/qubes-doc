@@ -6,7 +6,6 @@ ref: 232
 title: HVM Troubleshooting
 ---
 
-
 ## HVM pauses on boot, followed by kernel error
 
 The HVM may pause on boot, showing a fixed cursor.

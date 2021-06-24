@@ -6,7 +6,6 @@ ref: 239
 title: Update Troubleshooting
 ---
 
-
 ## “Failed to synchronize cache for repo” errors when updating Fedora templates
 
 This is general Fedora issue, not a Qubes-specific issue.

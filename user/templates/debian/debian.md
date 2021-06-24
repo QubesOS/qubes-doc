@@ -11,7 +11,6 @@ ref: 134
 title: Debian Templates
 ---
 
-
 The Debian [template](/doc/templates/) is an officially [supported](/doc/supported-versions/#templates) template in Qubes OS.
 This page is about the standard (or "full") Debian template.
 For the minimal version, please see the [Minimal templates](/doc/templates/minimal/) page.
@@ -110,4 +109,3 @@ The lesson is that you should carefully look at what is being installed to your 
 ### Package installation errors in Qubes 4.0
 
 If some packages throw installation errors, see [this guide.](/doc/vm-troubleshooting/#fixing-package-installation-errors)
-

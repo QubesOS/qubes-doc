@@ -9,7 +9,6 @@ ref: 173
 title: Managing VM Kernels
 ---
 
-
 By default, VMs kernels are provided by dom0.
 (See [here](/doc/how-to-install-software-in-dom0/#kernel-upgrade) for information about upgrading kernels in dom0.)
 This means that:
@@ -362,4 +361,3 @@ update-initramfs: Generating /boot/initrd.img-3.16.0-4-amd64
 #### Troubleshooting
 
 In case of problems, visit the [VM Troubleshooting guide](/doc/vm-troubleshooting/#vm-kernel-troubleshooting) to learn how to access the VM console, view logs and fix a VM kernel installation.
-

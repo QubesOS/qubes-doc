@@ -8,7 +8,6 @@ ref: 223
 title: VM Troubleshooting
 ---
 
-
 ## VM Kernel troubleshooting
 
 This troubleshoot applies to the non-default kernel choice described in the [Managing VM docs](/doc/managing-vm-kernels/#using-kernel-installed-in-the-vm).

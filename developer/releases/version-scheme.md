@@ -10,7 +10,6 @@ ref: 151
 title: Version Scheme
 ---
 
-
 Beginning with R3 release, we change (and formalise) the versioning scheme.
 From now on, it will be as follows.
 
@@ -155,4 +154,3 @@ Check installed version
 
 If you want to know which version you are running, for example to report
 an issue, you can either check in the Qubes Manager menu under About / Qubes OS  or in the file /etc/qubes-release in dom0. For the latter you can use a command like `cat /etc/qubes-release` in a dom0 terminal.
-

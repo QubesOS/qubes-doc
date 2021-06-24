@@ -6,7 +6,6 @@ ref: 16
 title: Qubes R3.1 release notes
 ---
 
-
 ## New features since 3.0
 
 * Management Stack based of Salt Stack in dom0 - [documentation](/doc/salt/)
@@ -64,4 +63,3 @@ for migrating of all of the user VMs.
 Alternatively you can [upgrade to R3.0
 using](/doc/releases/3.0/release-notes/#upgrading) first, then follow the
 instructions above. This will be time consuming process.
-

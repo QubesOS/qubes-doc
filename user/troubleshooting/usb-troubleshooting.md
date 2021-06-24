@@ -6,7 +6,6 @@ ref: 234
 title: USB Troubleshooting
 ---
 
-
 ## disp-sys-usb does not start
 
 If the disp-sys-usb does not start, it could be due to a PCI passthrough problem.

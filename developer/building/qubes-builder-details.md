@@ -10,7 +10,6 @@ ref: 65
 title: Qubes Builder Details
 ---
 
-
 Components Makefile.builder file
 --------------------------------
 

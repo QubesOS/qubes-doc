@@ -246,4 +246,3 @@ sys-whonix.
 ```
 Qubes VM Manager -> System -> Global Settings -> UpdateVM -> sys-whonix
 ```
-

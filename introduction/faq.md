@@ -694,4 +694,3 @@ If you need to support not-fully-updated systems, check for the existence of `/u
 Yes, Qubes natively supports automation via [Salt (SaltStack)](/doc/salt/).
 There is also the unofficial [ansible-qubes toolkit](https://github.com/Rudd-O/ansible-qubes).
 (**Warning:** Since this is an external project that has not been reviewed or endorsed by the Qubes team, [allowing it to manage dom0 may be a security risk](https://github.com/Qubes-Community/Contents/blob/master/docs/security/security-guidelines.md#dom0-precautions).)
-

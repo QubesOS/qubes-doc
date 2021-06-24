@@ -6,7 +6,6 @@ ref: 51
 title: Code Signing
 ---
 
-
 All contributions to the Qubes OS [source code](/doc/source-code/) must be cryptographically signed by the author's PGP key.
 
 ## Generating a Key
@@ -202,4 +201,3 @@ Please upload it.
 If you're submitting a patch by emailing the [developer mailing list](/support/#qubes-devel), simply sign your email with your PGP key.
 One good way to do this is with a program like [Enigmail](https://www.enigmail.net/).
 Enigmail is a security addon for the Mozilla Thunderbird email client that allows you to easily digitally encrypt and sign your emails.
-

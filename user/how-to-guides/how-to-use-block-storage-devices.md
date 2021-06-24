@@ -12,7 +12,6 @@ ref: 193
 title: How to Use Block Storage Devices
 ---
 
-
 *This page is part of [device handling in qubes](/doc/how-to-use-devices/).*
 
 If you don't know what a "block device" is, just think of it as a fancy way to say "something that stores data".
@@ -255,4 +254,3 @@ qvm-block a work sys-usb:sda1 -o devtype=cdrom
 ```
 
 This option accepts `cdrom` and `disk`, default is `disk`.
-

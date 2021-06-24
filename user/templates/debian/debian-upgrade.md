@@ -166,4 +166,3 @@ We strongly recommend against using any Debian release that has reached [end-of-
 
 * By default, Qubes uses code names in the `apt` sources files, although the templates are referred to by release number.
   Check the code names for the templates, and ensure you are aware of any changes you have made in the repository definitions.
-

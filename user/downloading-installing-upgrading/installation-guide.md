@@ -472,4 +472,3 @@ the other [How-to Guides](/doc/#how-to-guides), and learn about
 * Please do **not** email individual members of the Qubes team with questions
   about installation or other problems. Instead, please see [Help, Support,
   Mailing Lists, and Forum](/support/) for appropriate places to ask questions.
-

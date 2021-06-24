@@ -10,7 +10,6 @@ ref: 54
 title: Source Code
 ---
 
-
 All the Qubes code is kept in Git repositories. We have divided the project into
 several components, each of which has its own separate repository, for example:
 
@@ -81,4 +80,3 @@ method you choose, you must [sign your code](/doc/code-signing/) before it can b
       name and email, so that *your* name will be used as a commit's author.
    5. Send your patch to `qubes-devel`. Start the message subject with
       `[PATCH]`.
-

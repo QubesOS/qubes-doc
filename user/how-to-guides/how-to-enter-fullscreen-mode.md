@@ -11,7 +11,6 @@ ref: 205
 title: How to Enter Fullscreen Mode
 ---
 
-
 What is fullscreen mode?
 -------------------------
 

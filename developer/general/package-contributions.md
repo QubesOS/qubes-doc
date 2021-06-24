@@ -6,7 +6,6 @@ ref: 29
 title: Package Contributions
 ---
 
-
 _This page is for developers who wish to contribute packages.
 If you want to install contributed packages, please see [installing contributed packages](/doc/installing-contributed-packages/)._
 
@@ -101,4 +100,3 @@ As the maintainer of the package, it is your privilege and responsibility to:
 
 If you do not wish to be the maintainer of your package, please let us know.
 If you do not act on your maintainer duties for a given package for an extended period of time and after at least one reminder, we will assume that you no longer wish to be the maintainer for that package.
-

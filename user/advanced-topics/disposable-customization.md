@@ -13,7 +13,6 @@ ref: 174
 title: Disposable Customization
 ---
 
-
 ## Introduction
 
 A [disposable](/doc/disposable/) can be based on any [app qube](/doc/glossary/#app-qube).

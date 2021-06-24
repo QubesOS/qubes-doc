@@ -188,4 +188,3 @@ More information about RPC policies for disposables can be found [here](/doc/qre
 You can change the template used to generate the disposables, and change settings used in the disposable savefile.
 These changes will be reflected in every new disposable based on that template.
 Full instructions can be found [here](/doc/disposable-customization/).
-

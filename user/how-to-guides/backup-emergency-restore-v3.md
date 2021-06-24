@@ -9,7 +9,6 @@ ref: 201
 title: Emergency Backup Recovery (v3)
 ---
 
-
 This page describes how to perform an emergency restore of a backup created on
 Qubes R2 or later (which uses backup format version 3).
 

@@ -9,7 +9,6 @@ ref: 207
 title: Emergency Backup Recovery (v2)
 ---
 
-
 This page describes how to perform emergency restore of backup created on Qubes
 R2 Beta3 or earlier (which uses backup format 2).
 

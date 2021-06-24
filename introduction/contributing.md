@@ -58,4 +58,3 @@ time, like implementing a new feature, it's always good to contact us first,
 preferably via the [qubes-devel](/support/#qubes-devel) mailing list. Once
 we've worked out the details, we'll be grateful to [receive your
 patch](/doc/source-code/#how-to-send-patches).
-

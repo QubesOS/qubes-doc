@@ -561,4 +561,3 @@ Here's an example that follows the indentation rules:
 
 Please try to write good commit messages, according to the [instructions in our
 coding style guidelines](/doc/coding-style/#commit-message-guidelines).
-

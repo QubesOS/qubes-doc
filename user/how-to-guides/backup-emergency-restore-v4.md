@@ -9,7 +9,6 @@ ref: 192
 title: Emergency Backup Recovery (v4)
 ---
 
-
 This page describes how to perform an emergency restore of a backup created on
 Qubes R4.X (which uses backup format version 4).
 
@@ -179,4 +178,3 @@ Emergency Recovery Instructions
     repository:
 
         https://github.com/QubesOS/qubes-doc.git
-

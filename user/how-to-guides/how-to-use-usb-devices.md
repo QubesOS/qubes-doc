@@ -9,7 +9,6 @@ ref: 195
 title: How to Use USB Devices
 ---
 
-
 *This page is part of [device handling in qubes](/doc/how-to-use-devices/).*
 
 If you are looking to handle USB *storage* devices (thumbdrives or USB-drives), please have a look at the [block device](/doc/how-to-use-block-storage-devices/) page.
@@ -155,4 +154,3 @@ Now you see the path and the text between `/pci0000:00/0000:` and `/usb3` i.e. `
 For example, On R 4.0 the command would look something like
 
 `qvm-pci attach --persistent personal dom0:00_1a.0`
-

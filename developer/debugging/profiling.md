@@ -10,7 +10,6 @@ ref: 48
 title: Python Profiling
 ---
 
-
 This is a python profiling primer.
 
 For the purpose of this document, `qubes-dev` is name of the domain used for postprocessing profiling stats.

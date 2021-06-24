@@ -6,7 +6,6 @@ ref: 60
 title: Audio Virtualization
 ---
 
-
 VMs on Qubes OS have access to virtualized audio through the PulseAudio module.
 It consists of two parts:
 

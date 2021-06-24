@@ -8,7 +8,6 @@ ref: 186
 title: How to Make Any File Persistent (bind-dirs)
 ---
 
-
 ## What are bind-dirs? ##
 
 With [bind-dirs](https://github.com/QubesOS/qubes-core-agent-linux/blob/master/vm-systemd/bind-dirs.sh)
@@ -103,4 +102,3 @@ binds=( "${binds[@]/'/var/lib/tor'}" )
 ## Discussion ##
 
 [app qubes: make selected files and folders located in the root image persistent- review bind-dirs.sh](https://groups.google.com/forum/#!topic/qubes-devel/tcYQ4eV-XX4/discussion)
-

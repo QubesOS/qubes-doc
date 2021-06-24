@@ -10,7 +10,6 @@ ref: 50
 title: Windows Debugging
 ---
 
-
 Debugging Windows code can be tricky in a virtualized environment. The guide below assumes Xen hypervisor and Windows 7 VMs.
 
 User-mode debugging is usually straightforward if it can be done on one machine. Just duplicate your normal debugging environment in the VM.

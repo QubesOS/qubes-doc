@@ -11,7 +11,6 @@ ref: 191
 title: How to Copy and Move Files
 ---
 
-
 *This page is about copying and moving files.
 If you wish to simply copy and paste text, that can be done more easily using the inter-qube clipboard.
 See [copying and pasting text between qubes](/doc/how-to-copy-and-paste-text/).

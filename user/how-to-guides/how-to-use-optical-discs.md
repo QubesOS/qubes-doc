@@ -10,7 +10,6 @@ ref: 204
 title: How to Use Optical Discs
 ---
 
-
 Passthrough reading and recording (a.k.a., "burning") are not supported by Xen.
 Currently, the only options for reading and recording optical discs (e.g., CDs, DVDs, BRDs) in Qubes are:
 
