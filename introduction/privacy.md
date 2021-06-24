@@ -6,6 +6,7 @@ redirect_from:
 - /en/privacy/
 - /doc/privacy/
 - /wiki/privacy/
+ref: 243
 title: Privacy Policy
 ---
 
