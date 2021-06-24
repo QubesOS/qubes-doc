@@ -45,7 +45,7 @@ applicable patches or workarounds, and credits the discoverer.
 Qubes security updates are obtained by [updating Qubes
 OS](/doc/how-to-update/).
 
-## The Qubes Security Team
+## Qubes Security Team
 
 The Qubes Security Team (QST) is the subset of the [Qubes Team](/team/) that is
 responsible for ensuring the security of Qubes OS and the Qubes OS Project. In
