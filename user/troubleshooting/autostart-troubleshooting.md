@@ -1,8 +1,8 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/skip-qubes-autostart/
-title: Skip Qubes OS autostart
+permalink: /doc/autostart-troubleshooting/
+title: Autostart Troubleshooting
 ---
 
 The following instructions are valid for Qubes OS R4.0 *legacy mode* only and Qubes OS R4.1 *legacy* and *UEFI* modes. For Qubes OS R4.0 in UEFI mode, we don't have GRUB so manual boot from another operating system is needed.
