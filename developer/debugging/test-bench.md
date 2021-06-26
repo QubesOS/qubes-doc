@@ -14,57 +14,71 @@ This guide shows how to set up simple test bench that automatically test your co
 
 We will set up a spare machine (bare metal, not a virtual) that will be hosting our experimental Dom0. We will communicate with it via Ethernet and SSH. This tutorial assumes you are familiar with [QubesBuilder](/doc/qubes-builder/) and you have it set up and running flawlessly.
 
-## Setting up the machine
+> **Notice:**
+> This setup intentionally weakens some security properties in the testing system. So make sure you understand the risks and use exclusively for testing.
 
-First, do a clean install from ISO you built or grabbed elsewhere.
+## Setting up the Machine
 
-You have to fix network, because it is intentionally broken. This script should reenable your network card without depending on anything else.
+### Install ISO
+First, do a clean install from the `.iso` [you built](/doc/qubes-iso-building/) or grabbed elsewhere (for example [here](https://qubes-os.discourse.group/t/qubesos-4-1-alpha-signed-weekly-builds/3601))
 
-```bash
-#!/bin/sh
+### Enabling Network Access in Dom0
 
-# adjust this for your NIC (run lspci)
-BDF=0000:02:00.0
+Internet access is intentionally disabled by default in dom0. But to ease the deployment process we will give it access. The following steps should be done in `dom0`.
 
-prog=$(basename $0)
+> **Note:** the following assume you have only one network card. If you have two, pick one and leave the other attached to `sys-net`.
 
-pciunbind() {
-    local path
-    path=/sys/bus/pci/devices/${1}/driver/unbind
-    if ! [ -w ${path} ]; then
-        echo "${prog}: Device ${1} not bound"
-        return 1
-    fi
-    echo -n ${1} >${path}
-}
+1. Remove the network card (PCI device) from `sys-net`
+2. Restart your computer (for the removal to take effect)
+3. The following script should enable your network card in dom0. *Be sure to adjust the script's variables to suit your needs.* You'll need to run this at every startup (TODO: describe how to run this at every startup).
 
-pcibind() {
-    local path
-    path=/sys/bus/pci/drivers/${2}/bind
-    if ! [ -w ${path} ]; then
-        echo "${prog}: Driver ${2} not found"
-        return 1
-    fi
-    echo ${1} >${path}
-}
+    ```bash
+    #!/bin/sh
 
-pciunbind ${BDF}
-pcibind ${BDF} e1000e
+    # adjust this for your NIC (run lspci)
+    BDF=0000:02:00.0
 
-dhclient
-```
+    # adjust this for your network driver
+    DRIVER=e1000e
 
-TODO: describe how to run this at every startup
+    prog=$(basename $0)
+    
+    pciunbind() {
+        local path
+        path=/sys/bus/pci/devices/${1}/driver/unbind
+        if ! [ -w ${path} ]; then
+            echo "${prog}: Device ${1} not bound"
+            return 1
+        fi
+        echo -n ${1} >${path}
+    }
 
-Now configure your DHCP server so your testbench gets static IP and connect your machine to your local network. You should ensure that your testbench can reach the Internet.
+    pcibind() {
+        local path
+        path=/sys/bus/pci/drivers/${2}/bind
+        if ! [ -w ${path} ]; then
+            echo "${prog}: Driver ${2} not found"
+            return 1
+        fi
+        echo ${1} >${path}
+    }
 
-Install `openssh-server` on your testbench:
+    pciunbind ${BDF}
+    pcibind ${BDF} ${DRIVER}
+    
+    sleep 1
+    dhclient
+    ```
 
-~~~
-yum install openssh-server
-~~~
+4. Configure your DHCP server so your testbench gets static IP and connect your machine to your local network. You should ensure that your testbench can reach the Internet.
 
-Ensure that sudo works without password from your user account (it should by default).
+5. Install `openssh-server` on your testbench.
+ 
+    ~~~
+    sudo dnf --setopt=reposdir=/etc/yum.repos.d install openssh-server
+    ~~~
+
+> **Note:** If you want to install additional software in dom0 and your only network card was assigned to dom0, then _instead_ of the usual `sudo qubes-dom0-update <PACKAGE>` now you run `sudo dnf --setopt=reposdir=/etc/yum.repos.d install <PACKAGE>`.
 
 ## Development VM
 
@@ -86,7 +100,9 @@ Host testbench
     HostName 192.168.123.45
 ~~~
 
-Then connect to your testbench and paste newly generated `id_ecdsa.pub` to `.ssh/authorized_keys` on testbench so you can log in without entering password every time.
+#### Passwordless SSH Login
+
+To log to your testbench without entering password every time, copy your newly generated public key (`id_ecdsa.pub`) to `~/.ssh/authorized_keys` on your testbench. You can do this easily by running this command on `qubes-dev`: `ssh-copy-id -i ~/.ssh/id_ecdsa.pub user@192.168.123.45` (substituting with the actual username address of your testbench).
 
 ### Scripting
 
@@ -115,7 +131,7 @@ fi
 set -e
 
 ssh testbench mkdir -p "${TMPDIR}"
-scp "${@}" testbench:"${TMPDIR}"
+scp "${@}" testbench:"${TMPDIR}" || echo "check if you have 'scp' installed on your testbench"
 
 while [ $# -gt 0 ]; do
         ssh testbench sudo rpm -i --replacepkgs --replacefiles "${TMPDIR}/$(basename ${1})"
