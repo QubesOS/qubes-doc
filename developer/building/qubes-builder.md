@@ -60,7 +60,7 @@ NO_SIGN=1
 One additional useful requirement is that 'sudo root' must work without any prompt, which is default on most distros (e.g. 'sudo bash' brings you the root shell without asking for any password).
 This is important as the builder needs to switch to root and then back to user several times during the build process.
 
-Additionally, if building with signing enabled (NO\_SIGN is not set), you must adjust \~/.rpmmacro file so that it points to the GPG key used for package signing, e.g.:
+Additionally, if building with signing enabled (NO\_SIGN is not set), you must adjust `\~/.rpmmacros` file so that it points to the GPG key used for package signing, e.g.:
 
 ```bash
 %_signature gpg
