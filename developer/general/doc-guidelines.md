@@ -576,3 +576,14 @@ Here's an example that follows the indentation rules:
 
 Please try to write good commit messages, according to the [instructions in our
 coding style guidelines](/doc/coding-style/#commit-message-guidelines).
+
+## Continuous Integration (CI)
+
+The following commands may be useful as a way to interact with our CI
+infrastructure. Note that special permissions may be required to use some of
+these commands. These commands are generally issued by adding a comment to a
+pull request (PR) containing only the command.
+
+- `PipelineRetry`: Attempts to run the entire build pipeline over again. This
+  can be useful if CI incorrectly uses a stale branch instead of testing the PR
+  as if it were merged into `master`.
