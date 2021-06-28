@@ -415,16 +415,31 @@ For further discussion about version-specific documentation in Qubes, see
 * Syntactically distinguish variables in commands. For example, this is
   ambiguous:
 
-      $ qvm-run --dispvm=dvm-template --service qubes.StartApp+xterm
+      $ qvm-run --dispvm=disposable-template --service qubes.StartApp+xterm
 
   It should instead be:
 
-      $ qvm-run --dispvm=<DVM_TEMPLATE> --service qubes.StartApp+xterm
+      $ qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+xterm
 
   Note that we syntactically distinguish variables in three ways:
   1. Surrounding them in angled brackets (`< >`)
-  2. Using underscores (`_`) between words
+  2. Using underscores (`_`) instead of spaces between words
   3. Using all capital letters
+
+  We have observed that many novices make the mistake of typing the surrounding
+  angled brackets (`< >`) on the command line, even after substituting the
+  desired real value between them. Therefore, in documentation aimed at
+  novices, we also recommend clarifying that the angled brackets should not be
+  typed. This can be accomplished in one of several ways:
+  - Explicitly say something like "without the angled brackets."
+  - Provide an example command using real values that excludes the angled
+    brackets.
+  - If you know that almost all users will want to use (or should use) a
+    specific command containing all real values and no variables, you might
+    consider providing exactly that command and forgoing the version with
+    variables. Novices may not realize which parts of the command they can
+    substitute with different values, but if you've correctly judged that they
+    should use the command you've provided as is, then this shouldn't matter.
 
 ## Markdown conventions
 
