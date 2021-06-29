@@ -174,6 +174,17 @@ signatures) are provided to ensure that the system is robust (e.g., against a
 potential failure in Git tag-based verification) and to give users more options
 to verify the files.
 
+## PGP key inclusion criteria
+
+The `qubes-secpack` generally includes only those PGP keys used to sign some
+kind of official project artifact, such as Qubes release ISOs (release signing
+keys), Git tags and commits (code signing, doc signing, and security team
+keys), and the `qubes-secpack`'s own files and Git tags (security team keys
+again). This means that email keys are generally not included, even for
+official project email addresses. There is one exception to this rule: the
+official [Qubes Security Team](/security/#qubes-security-team) email address,
+which is used to report security vulnerabilities in Qubes OS to our security
+team.
 
 ## History and rationale
 
