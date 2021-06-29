@@ -588,5 +588,10 @@ pull request (PR) containing only the command.
   can be useful if CI incorrectly uses a stale branch instead of testing the PR
   as if it were merged into `master`.
 
-- `TestDeploy`: Deploys the test website (<https://wwwtest.qubes-os.org>) as if
-  this PR had been merged. Useful for previewing a PR on a live public website.
+- `TestDeploy`: Deploys a test website, which is a live version of the Qubes
+  website as if this PR had been merged. This can be useful for previewing a PR
+  on a live public website. **Note:** You must wait for the site to finish
+  building before issuing this command, or else it will deploy an empty
+  website. To find the URL of the test website, look for text similar to "This
+  branch was successfully deployed" and a button named something like "View
+  deployment."
