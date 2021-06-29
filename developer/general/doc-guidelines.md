@@ -594,4 +594,6 @@ pull request (PR) containing only the command.
   building before issuing this command, or else it will deploy an empty
   website. To find the URL of the test website, look for text similar to "This
   branch was successfully deployed" and a button named something like "View
-  deployment."
+  deployment." Note that there are two different testing sites: `wwwtest` is
+  manually updated, whereas `wwwpreview` is managed by the `TestDeploy`
+  command.
