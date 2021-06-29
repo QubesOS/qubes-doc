@@ -587,3 +587,6 @@ pull request (PR) containing only the command.
 - `PipelineRetry`: Attempts to run the entire build pipeline over again. This
   can be useful if CI incorrectly uses a stale branch instead of testing the PR
   as if it were merged into `master`.
+
+- `TestDeploy`: Deploys the test website (<https://wwwtest.qubes-os.org>) as if
+  this PR had been merged. Useful for previewing a PR on a live public website.
