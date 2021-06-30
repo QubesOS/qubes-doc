@@ -65,6 +65,17 @@ Advanced tab, you might find them under the Security tab.
 
 ### Copying the ISO onto the installation medium
 
+As you prepare to install [security-oriented](/faq/#what-is-qubes-os) Qubes
+OS, now is a good time to establish a security focus in that process. Choose
+the most secure existing computer and OS you have available for downloading
+and copying the Qubes ISO onto the installation medium. An existing Qubes OS
+installation, Linux installation, or Linux
+["live CD" OS](/faq/#how-does-qubes-os-compare-to-using-a-live-cd-os) would
+all be reasonable choices. We discourage choosing Windows for this purpose
+because of
+[complexities it introduces](https://github.com/QubesOS/qubes-issues/issues/2051)
+that conflict with our recommended installation best practices.
+
 Start by [downloading](/downloads/) a Qubes ISO.
 
 <div class="alert alert-danger" role="alert">
@@ -106,20 +117,6 @@ Change `Qubes-RX-x86_64.iso` to the filename of the version you're installing,
 and change `/dev/sdY` to the correct target device e.g., `/dev/sdc`). Make sure
 to write to the entire device (e.g., `/dev/sdc`) rather than just a single
 partition (e.g., `/dev/sdc1`).
-
-On Windows, you can use the [Rufus](https://rufus.akeo.ie/) tool to write the
-ISO to a USB key. MediaTest is not recommended. Be sure to select "DD image"
-mode (*after* selecting the Qubes ISO):
-
-<div class="alert alert-warning" role="alert">
-  <i class="fa fa-exclamation-circle"></i>
-  <b>Note:</b>  If you do this on Windows 10, you can only install Qubes
-  without MediaTest, which is not recommended.
-</div>
-
-![Rufus menu](/attachment/doc/rufus-menu.png)
-
-![Rufus DD image mode](/attachment/doc/rufus-dd-image-mode.png)
 
 If you are an advanced user, and you would like to customize your installation,
 please see [custom installation](/doc/custom-install/). Otherwise, follow the
