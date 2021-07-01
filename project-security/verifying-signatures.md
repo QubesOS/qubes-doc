@@ -190,7 +190,7 @@ Here are some ideas for how to do that:
 - Check the fingerprint on various websites (e.g., [mailing
   lists](https://groups.google.com/g/qubes-devel/c/RqR9WPxICwg/m/kaQwknZPDHkJ),
   [discussion
-  forums](https://qubes-os.discourse.group/t/there-is-no-way-to-validate-qubes-master-signing-key/1441/9?u=adw),
+  forums](https://forum.qubes-os.org/t/there-is-no-way-to-validate-qubes-master-signing-key/1441/9?u=adw),
   [social](https://twitter.com/rootkovska/status/496976187491876864)
   [media](https://www.reddit.com/r/Qubes/comments/5bme9n/fingerprint_verification/),
   [personal websites](https://andrewdavidwong.com/fingerprints.txt)).

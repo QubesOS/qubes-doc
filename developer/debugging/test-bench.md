@@ -20,7 +20,7 @@ We will set up a spare machine (bare metal, not a virtual) that will be hosting 
 ## Setting up the Machine
 
 ### Install ISO
-First, do a clean install from the `.iso` [you built](/doc/qubes-iso-building/) or grabbed elsewhere (for example [here](https://qubes-os.discourse.group/t/qubesos-4-1-alpha-signed-weekly-builds/3601))
+First, do a clean install from the `.iso` [you built](/doc/qubes-iso-building/) or grabbed elsewhere (for example [here](https://forum.qubes-os.org/t/qubesos-4-1-alpha-signed-weekly-builds/3601))
 
 ### Enabling Network Access in Dom0
 
