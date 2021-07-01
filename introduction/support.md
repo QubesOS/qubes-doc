@@ -46,7 +46,7 @@ No worries! Here's how we recommend proceeding:
    workarounds for problems you're experiencing. If there any pinned issues at
    the top, make sure to check them first!
 
-4. Try [searching the Qubes Forum](https://qubes-os.discourse.group/). There
+4. Try [searching the Qubes Forum](https://forum.qubes-os.org/). There
    may already be a matching topic.
 
 5. Try [searching the `qubes-users`
@@ -56,7 +56,7 @@ No worries! Here's how we recommend proceeding:
 ### I didn't find a solution or an answer!
 
 Sorry to hear that! In that case, we recommend asking for help on the [Qubes
-Forum](https://qubes-os.discourse.group/) or on the [`qubes-users` mailing
+Forum](https://forum.qubes-os.org/) or on the [`qubes-users` mailing
 list](#qubes-users). Choose the venue you prefer, but please don't ask on both
 at the same time! Before you ask, please review our [discussion
 guidelines](#discussion-guidelines) and StackOverflow's advice on [how to ask
@@ -76,7 +76,7 @@ Tracking](/doc/issue-tracking/) for details.
 
 ### I just want to discuss Qubes!
 
-Great! Head on over to the [Qubes Forum](https://qubes-os.discourse.group/) or
+Great! Head on over to the [Qubes Forum](https://forum.qubes-os.org/) or
 the [`qubes-users` mailing list](#qubes-users).
 
 ### How can I get involved and contribute?
@@ -452,7 +452,7 @@ interface](https://groups.google.com/group/qubes-translation).
 
 ## Forum
 
-The official [Qubes Forum](https://qubes-os.discourse.group) is a place where
+The official [Qubes Forum](https://forum.qubes-os.org) is a place where
 you can ask questions, get help, share tips and experiences, and more! For a
 long time, members of our community have sought a privacy-respecting forum
 experience with modern features that traditional mailing lists do not support.
@@ -468,7 +468,7 @@ our community, especially with the recent addition of a sign-in requirement to
 view threads. Many of you value the lower barrier to entry, organization,
 ease-of-use, and modern social features that today's forums support. Moreover,
 Discourse [features email
-integration](https://qubes-os.discourse.group/t/using-the-forum-via-email/533/1)
+integration](https://forum.qubes-os.org/t/using-the-forum-via-email/533)
 for those who still prefer the traditional mailing list format.
 
 ### How is this different from our mailing lists?
@@ -495,7 +495,7 @@ participation and improves everyone's experience. In addition, we fully expect
 that many community members -- especially the most active ones -- will choose
 to participate in both venues. (Again, for those who still prefer interacting
 via email, [Discourse supports that
-too](https://qubes-os.discourse.group/t/using-the-forum-via-email/533/1)!)
+too](https://forum.qubes-os.org/t/using-the-forum-via-email/533)!)
 
 ## Social media
 
