@@ -21,18 +21,14 @@ get the support you need, and we want to make sure our community remains a
 friendly place by ensuring we all follow the [Code of
 Conduct](/code-of-conduct/).
 
-## How to get help and support
+## Glossary of terms
+What does something mean? There may be a simple answer to that, in our [glossary of terms](https://www.qubes-os.org/doc/glossary/).
 
-First, let's see what kind of help you need.
+## Help and support
 
-### I would like to report a security vulnerability
+### Find a solution to a problem
 
-That sounds more like you helping us! Thanks! Please see [Reporting Security
-Issues in Qubes OS](/security/#reporting-security-issues-in-qubes-os).
-
-### I have a problem or a question
-
-No worries! Here's how we recommend proceeding:
+Qubes OS can be tough to learn and navigate. Here are some steps we suggest:
 
 1. Check the [documentation](/doc/). There may already be a page about it.
    Specifically, check out the [How-to Guides](/doc/#how-to-guides) and
@@ -53,33 +49,33 @@ No worries! Here's how we recommend proceeding:
    archives](https://www.mail-archive.com/qubes-users@googlegroups.com/). There
    may have already been a relevant thread.
 
-### I didn't find a solution or an answer!
+### Ask the community for help
 
-Sorry to hear that! In that case, we recommend asking for help on the [Qubes
+If you are not able to find an answer in our docs or community archives, we recommend asking for help on the [Qubes
 Forum](https://forum.qubes-os.org/) or on the [`qubes-users` mailing
 list](#qubes-users). Choose the venue you prefer, but please don't ask on both
-at the same time! Before you ask, please review our [discussion
+at the same time. Before you ask, please review our [discussion
 guidelines](#discussion-guidelines) and StackOverflow's advice on [how to ask
 good questions](https://stackoverflow.com/help/how-to-ask). Don't forget to
 [stay safe](#staying-safe)!
 
-### I don't need support, but I think I found a bug
+### Report a bug
 
 We'd be grateful if you reported it (but please make sure no one else has
 already reported it first)! Please see [Issue Tracking](/doc/issue-tracking/)
 for details.
 
-### I don't need support, but I'd like to request a feature
+### Report a security vulnerability
+
+That sounds more like you helping us! Thanks! Please see [Reporting Security
+Issues in Qubes OS](/security/#reporting-security-issues-in-qubes-os).
+
+### Request a feature
 
 No promises, but we'd be happy to consider it! Please see [Issue
 Tracking](/doc/issue-tracking/) for details.
 
-### I just want to discuss Qubes!
-
-Great! Head on over to the [Qubes Forum](https://forum.qubes-os.org/) or
-the [`qubes-users` mailing list](#qubes-users).
-
-### How can I get involved and contribute?
+### Get involved and contribute
 
 Thank you for asking! Please see [How to Contribute](/doc/contributing/) for
 all the ways you can do so.
