@@ -41,7 +41,7 @@ title: Introduction
         </li>
         <li class="more-bottom">
           <b>Natures:</b> <a href="/doc/standalone-and-hvm/">full-fledged</a> or
-          <a href="/doc/how-to-get-started/">
+          <a href="/doc/getting-started/">
           stripped-down</a> virtual machines based on popular operating systems,
           such as <a href="/doc/templates/fedora/">Fedora</a>,
           <a href="/doc/templates/debian/">Debian</a>, and
@@ -50,7 +50,7 @@ title: Introduction
         <li class="more-bottom">
           <b>Levels of trust:</b> from complete to non-existent. All windows are
           displayed in a unified desktop environment with
-          <a href="/doc/how-to-get-started/">unforgeable colored window borders</a> so
+          <a href="/doc/getting-started/">unforgeable colored window borders</a> so
           that different security levels are easily identifiable.
         </li>
       </ul>
@@ -305,8 +305,8 @@ title: Introduction
       Ready to get started with Qubes? Here's what you need to know after
       installing.
     </p>
-    <a href="/doc/how-to-get-started/" class="btn btn-primary more-bottom">
-      <i class="fa fa-cubes"></i> How to Get Started
+    <a href="/doc/getting-started/" class="btn btn-primary more-bottom">
+      <i class="fa fa-cubes"></i> Getting Started
     </a>
   </div>
 </div>

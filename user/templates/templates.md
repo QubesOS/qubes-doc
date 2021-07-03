@@ -11,7 +11,7 @@ ref: 131
 title: Templates
 ---
 
-In [How to Get Started](/doc/how-to-get-started/), we covered the distinction
+In [Getting Started](/doc/getting-started/), we covered the distinction
 in Qubes OS between where you *install* your software and where you *run* your
 software. Your software is installed in [templates](/doc/glossary/#template).
 Each template shares its root filesystem (i.e., all of its programs and system
