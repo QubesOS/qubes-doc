@@ -16,7 +16,7 @@ title: How to Use Block Storage Devices
 
 If you don't know what a "block device" is, just think of it as a fancy way to say "something that stores data".
 
-## Using The GUI to Attach a Drive
+## Using the Devices Widget to Attach a Drive
 
 (**Note:** In the present context, the term "USB drive" denotes any [USB mass storage device](https://en.wikipedia.org/wiki/USB_mass_storage_device_class).
 In addition to smaller flash memory sticks, this includes things like USB external hard drives.)
