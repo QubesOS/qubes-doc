@@ -1,15 +1,15 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/how-to-get-started/
+permalink: /doc/getting-started/
 redirect_from:
-- /doc/getting-started/
+- /doc/how-to-get-started/
 - /getting-started/
 - /en/doc/getting-started/
 - /doc/GettingStarted/
 - /wiki/GettingStarted/
 ref: 190
-title: How to Get Started
+title: Getting Started
 ---
 
 After [downloading](/downloads/) and [installing](/doc/installation-guide/)
