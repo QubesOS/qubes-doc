@@ -39,7 +39,7 @@ Click on one and your USB drive will be attached!
 However, it often means the app qube won't detect the new partition and you will need to manually mount it inside the app qube.
 See below for more detailed steps.
 
-## Block devices in VMs
+## Block Devices in VMs
 
 If not specified otherwise, block devices will show up as `/dev/xvdi*` in a linux VM, where `*` may be the partition-number.
 If a block device isn't automatically mounted after attaching, open a terminal in the VM and execute:
