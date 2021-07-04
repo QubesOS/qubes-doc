@@ -35,7 +35,7 @@ Issues in Qubes OS](/security/#reporting-security-issues-in-qubes-os).
 No worries! Here's how we recommend proceeding:
 
 1. Check the [documentation](/doc/). There may already be a page about it.
-   Specifically, check out the [How-to Guides](/doc/#how-to-guides) and
+   Specifically, check out the [How-To Guides](/doc/#how-to-guides) and
    [Troubleshooting](/doc/#troubleshooting) sections.
 
 2. Search the [FAQ](/faq/). Your question might already be answered.

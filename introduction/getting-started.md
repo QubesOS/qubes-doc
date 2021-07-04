@@ -213,11 +213,11 @@ data unexpectedly. The [Qubes backup
 system](/doc/how-to-back-up-restore-and-migrate/) allows you to do this
 securely and easily.
 
-## How-to Guides
+## How-To Guides
 
 Here are some basic tasks you're likely to want to perform often that are
 unique to Qubes as a multi-environment system. A full list is available in the
-[How-to Guides](/doc/#how-to-guides) section in the docs.
+[How-To Guides](/doc/#how-to-guides) section in the docs.
 
 - [How to Update](/doc/how-to-update/)
 - [How to Back Up, Restore, and Migrate](/doc/how-to-back-up-restore-and-migrate/)

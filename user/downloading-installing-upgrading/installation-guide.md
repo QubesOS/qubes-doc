@@ -452,7 +452,7 @@ report](/doc/hcl/#generating-and-submitting-new-reports).
 ### Get Started
 
 Find out [Getting Started](/doc/getting-started/) with Qubes, check out
-the other [How-to Guides](/doc/#how-to-guides), and learn about
+the other [How-To Guides](/doc/#how-to-guides), and learn about
 [Templates](/doc/#templates).
 
 ## Getting help
