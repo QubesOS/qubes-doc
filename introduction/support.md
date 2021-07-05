@@ -25,7 +25,7 @@ Conduct](/code-of-conduct/) and [discussion guidelines](#discussion-guidelines).
 
 First, let's see what kind of help you need.
 
-### I have a problem or a question
+### I have a problem or a question.
 
 No worries! Here's how we recommend proceeding:
 
@@ -58,13 +58,13 @@ guidelines](#discussion-guidelines) and StackOverflow's advice on [how to ask
 good questions](https://stackoverflow.com/help/how-to-ask). Don't forget to
 [stay safe](#staying-safe)!
 
-### I don't need support, but I think I found a bug
+### I don't need support, but I think I found a bug.
 
 We'd be grateful if you reported it (but please make sure no one else has
 already reported it first)! Please see [Issue Tracking](/doc/issue-tracking/)
 for details.
 
-### I don't need support, but I'd like to request a feature
+### I don't need support, but I'd like to request a feature.
 
 No promises, but we'd be happy to consider it! Please see [Issue
 Tracking](/doc/issue-tracking/) for details.
@@ -80,7 +80,7 @@ That would be the [Qubes Forum](https://forum.qubes-os.org/) and the
 Thank you for asking! Please see [How to Contribute](/doc/contributing/) for
 all the ways you can do so.
 
-### I would like to report a security vulnerability
+### I would like to report a security vulnerability.
 
 That sounds more like you helping us! Thanks! Please see [Reporting Security
 Issues in Qubes OS](/security/#reporting-security-issues-in-qubes-os).
