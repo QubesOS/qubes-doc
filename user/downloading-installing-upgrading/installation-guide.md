@@ -378,7 +378,8 @@ Let's briefly go over the options:
   later, and you can always create your own.
 * **Create Whonix Gateway and Workstation qubes:**
   If you want to use Whonix, you should select this option.
-  * **Enabling system and template updates over the Tor anonymity network using Whonix:**
+  * **Enabling system and template updates over the Tor anonymity network using
+  Whonix:**
   If you select this option, then whenever you install or update software in
   dom0 or a template, the internet traffic will go through Tor.
 * **Create USB qube holding all USB controllers:**
