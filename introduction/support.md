@@ -18,17 +18,12 @@ title: Help, Support, Mailing Lists, and Forum
 The Qubes community is here to help! Since Qubes is a security-oriented
 operating system, we want to make sure you [stay safe](#staying-safe) as you
 get the support you need, and we want to make sure our community remains a
-friendly place by ensuring we all follow the [Code of
-Conduct](/code-of-conduct/).
+friendly and productive place by ensuring we all follow the [Code of
+Conduct](/code-of-conduct/) and [discussion guidelines](#discussion-guidelines).
 
 ## How to get help and support
 
 First, let's see what kind of help you need.
-
-### I would like to report a security vulnerability
-
-That sounds more like you helping us! Thanks! Please see [Reporting Security
-Issues in Qubes OS](/security/#reporting-security-issues-in-qubes-os).
 
 ### I have a problem or a question
 
@@ -74,15 +69,21 @@ for details.
 No promises, but we'd be happy to consider it! Please see [Issue
 Tracking](/doc/issue-tracking/) for details.
 
-### I just want to discuss Qubes!
+### Where's the best place to discuss Qubes?
 
-Great! Head on over to the [Qubes Forum](https://forum.qubes-os.org/) or
-the [`qubes-users` mailing list](#qubes-users).
+That would be the [Qubes Forum](https://forum.qubes-os.org/) and the
+[`qubes-users` mailing list](#qubes-users). Please have a look at our
+[discussion guidelines](#discussion-guidelines) before diving in. Enjoy!
 
 ### How can I get involved and contribute?
 
 Thank you for asking! Please see [How to Contribute](/doc/contributing/) for
 all the ways you can do so.
+
+### I would like to report a security vulnerability
+
+That sounds more like you helping us! Thanks! Please see [Reporting Security
+Issues in Qubes OS](/security/#reporting-security-issues-in-qubes-os).
 
 ## Staying safe
 
