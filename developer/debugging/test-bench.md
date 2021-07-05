@@ -20,7 +20,7 @@ We will set up a spare machine (bare metal, not a virtual) that will be hosting 
 ## Setting up the Machine
 
 ### Install ISO
-First, do a clean install from the `.iso` [you built](/doc/qubes-iso-building/) or grabbed elsewhere (for example [here](https://forum.qubes-os.org/t/qubesos-4-1-alpha-signed-weekly-builds/3601))
+First, do a clean install from the `.iso` [you built](/doc/qubes-iso-building/) or grabbed elsewhere (for example [here](https://forum.qubes-os.org/t/qubesos-4-1-alpha-signed-weekly-builds/3601)).
 
 ### Enabling Network Access in Dom0
 
@@ -30,53 +30,55 @@ Internet access is intentionally disabled by default in dom0. But to ease the de
 
 1. Remove the network card (PCI device) from `sys-net`
 2. Restart your computer (for the removal to take effect)
-3. The following script should enable your network card in dom0. *Be sure to adjust the script's variables to suit your needs.* You'll need to run this at every startup (TODO: describe how to run this at every startup).
+3. Install `dhcp-client` and `openssh-server` on your testbench's dom0.
+4. The following script should enable your network card in dom0. *Be sure to adjust the script's variables to suit your needs.* You'll need to run this at every startup with sudo (TODO: describe how to run this at every startup).
 
-    ```bash
-    #!/bin/sh
+   ```bash
+   #!/bin/sh
 
-    # adjust this for your NIC (run lspci)
-    BDF=0000:02:00.0
+   # adjust this for your NIC (run lspci)
+   BDF=0000:02:00.0
 
-    # adjust this for your network driver
-    DRIVER=e1000e
+   # adjust this for your network driver
+   DRIVER=e1000e
 
-    prog=$(basename $0)
+   prog=$(basename $0)
+
+   pciunbind() {
+       local path
+       path=/sys/bus/pci/devices/${1}/driver/unbind
+       if ! [ -w ${path} ]; then
+           echo "${prog}: Device ${1} not bound"
+           return 1
+       fi
+       echo -n ${1} >${path}
+   }
+
+   pcibind() {
+       local path
+       path=/sys/bus/pci/drivers/${2}/bind
+       if ! [ -w ${path} ]; then
+           echo "${prog}: Driver ${2} not found"
+           return 1
+       fi
+       echo ${1} >${path}
+   }
+
+   pciunbind ${BDF}
+   pcibind ${BDF} ${DRIVER}
     
-    pciunbind() {
-        local path
-        path=/sys/bus/pci/devices/${1}/driver/unbind
-        if ! [ -w ${path} ]; then
-            echo "${prog}: Device ${1} not bound"
-            return 1
-        fi
-        echo -n ${1} >${path}
-    }
+   sleep 1
+   dhclient
+   ```
 
-    pcibind() {
-        local path
-        path=/sys/bus/pci/drivers/${2}/bind
-        if ! [ -w ${path} ]; then
-            echo "${prog}: Driver ${2} not found"
-            return 1
-        fi
-        echo ${1} >${path}
-    }
+5. Configure your DHCP server so your testbench gets static IP and connect your machine to your local network. You should ensure that your testbench can reach the Internet.
 
-    pciunbind ${BDF}
-    pcibind ${BDF} ${DRIVER}
-    
-    sleep 1
-    dhclient
-    ```
+6. Enable and start the SSH Server:
 
-4. Configure your DHCP server so your testbench gets static IP and connect your machine to your local network. You should ensure that your testbench can reach the Internet.
-
-5. Install `openssh-server` on your testbench.
- 
-    ~~~
-    sudo dnf --setopt=reposdir=/etc/yum.repos.d install openssh-server
-    ~~~
+   ```bash
+   sudo systemctl enable sshd
+   sudo systemctl start sshd
+   ```
 
 > **Note:** If you want to install additional software in dom0 and your only network card was assigned to dom0, then _instead_ of the usual `sudo qubes-dom0-update <PACKAGE>` now you run `sudo dnf --setopt=reposdir=/etc/yum.repos.d install <PACKAGE>`.
 
