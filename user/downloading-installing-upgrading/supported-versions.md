@@ -65,7 +65,7 @@ base distribution in dom0 even after it has reached end-of-life (EOL).
 The following table shows select [template](/doc/templates/) versions that are
 currently supported. Currently, only [Fedora](/doc/templates/fedora/) and
 [Debian](/doc/templates/debian/) templates are officially supported by the
-Qubes OS Project. [Whonix](/doc/whonix/) templates are supported by our
+Qubes OS Project. [Whonix](https://www.whonix.org/wiki/Qubes) templates are supported by our
 partner, the [Whonix Project](https://www.whonix.org/). Qubes support for each
 template ends when that upstream release reaches end-of-life (EOL). Please see
 below for distribution-specific notes.
@@ -107,7 +107,7 @@ chart that illustrates this. Qubes support ends at the *regular* EOL date,
 
 ### Note on Whonix support
 
-[Whonix](/doc/whonix/) templates are supported by our partner, the [Whonix
+[Whonix](https://www.whonix.org/wiki/Qubes) templates are supported by our partner, the [Whonix
 Project](https://www.whonix.org/). The Whonix Project has set its own support
 policy for Whonix templates in Qubes.
 

@@ -113,7 +113,7 @@ title: Introduction
     <h3>Whonix integration</h3>
     <p>
       Run <a href="https://www.torproject.org/">Tor</a> securely system-wide
-      using <a href="/doc/whonix/">Whonix with Qubes</a>.
+      using <a href="https://www.whonix.org/wiki/Qubes">Whonix with Qubes</a>.
     </p>
   </div>
   <div class="col-lg-4 col-md-4 col-xs-12">

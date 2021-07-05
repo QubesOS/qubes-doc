@@ -246,7 +246,7 @@ Qubes OS. Two options are available:
   [Debian](/doc/templates/debian/) qubes in addition to the default Fedora
   qubes.
 * **Whonix:** Select this option if you would like to use
-  [Whonix](/doc/whonix/) qubes. Whonix allows you to use
+  [Whonix](https://www.whonix.org/wiki/Qubes) qubes. Whonix allows you to use
   [Tor](https://www.torproject.org/) securely within Qubes.
 
 Whonix lets you route some or all of your network traffic through Tor for

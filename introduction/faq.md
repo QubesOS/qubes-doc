@@ -72,17 +72,20 @@ Those concerned about physical hardware attacks will benefit from [Anti Evil Mai
 There can be no privacy without security, since security vulnerabilities allow privacy measures to be circumvented.
 This makes Qubes exceptionally well-suited for implementing effective privacy tools.
 
-Users concerned about privacy will appreciate the integration of [Whonix](/doc/whonix/) into Qubes, which makes it easy to use [Tor](https://www.torproject.org/) securely.
-For more information about how to use this powerful tool correctly and safely, please see [Whonix](/doc/whonix/).
+Users concerned about privacy will appreciate the [integration of Whonix into Qubes](https://www.whonix.org/wiki/Qubes), which makes it easy to use [Tor](https://www.torproject.org/) securely.
+For more information about how to use this powerful tool correctly and safely, please see [Qubes-Whonix Guides](https://www.whonix.org/wiki/Qubes#Guides).
+
+For the privacy policies covering our website, repositories, Qubes OS itself, and more, please see [Privacy Policy](/privacy/).
 
 ### What about privacy in non-Whonix qubes?
 
-Qubes OS does not claim to provide special privacy (as opposed to security) properties in non-[Whonix](/doc/whonix/) qubes.
+The main way Qubes OS [provides privacy](#how-does-qubes-os-provide-privacy) is via its [integration with Whonix](https://www.whonix.org/wiki/Qubes).
+Qubes OS does not claim to provide special privacy (as opposed to security) properties in non-Whonix qubes.
 This includes [disposables](/doc/how-to-use-disposables/).
 
 For example, a standard [Fedora](/doc/templates/fedora/) qube is expected to have basically the same privacy properties as that upstream Fedora distribution, enhanced to some degree by the control Qubes provides over that qube.
 For most users, this level of privacy may be good enough for many common activities.
-However, users seeking more advanced privacy features should use [Whonix](/doc/whonix/) qubes.
+However, users seeking more advanced privacy features should use Whonix qubes.
 
 Privacy is far more difficult than is commonly understood.
 In addition to the [web browser](https://www.torproject.org/projects/torbrowser/design/), there is also [VM fingerprinting](https://www.whonix.org/wiki/VM_Fingerprinting) and [advanced deanonymization attacks](https://www.whonix.org/wiki/Advanced_Deanonymization_Attacks) that most users have never considered (and this is just to mention a few examples).

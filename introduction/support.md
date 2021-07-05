@@ -201,10 +201,10 @@ to earn the good will of others. This does not mean that you will not receive
 help. On the contrary, we are fortunate to have such a helpful and
 understanding community that many of them spend hours of their personal time
 helping complete strangers, including many who post anonymously. (Given the
-integration of Qubes with [Whonix](/doc/whonix/), we understand better than
+integration of Qubes with [Whonix](https://www.whonix.org/wiki/Qubes), we understand better than
 most the complexities of privacy and anonymity, and we know that many users
 have no other choice but to post anonymously.) You can read our project's [Code
-of Conduct](/code-of-conduct/) for more information.
+of Conduct](/code-of-conduct/) and [Privacy Policy](/privacy/) for more information.
 
 ### Report issues and submit changes in the right places
 
