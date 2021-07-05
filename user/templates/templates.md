@@ -89,7 +89,7 @@ Certain templates come preinstalled with Qubes OS. However, there may be times
 when you wish to install a fresh template from the Qubes repositories, e.g.:
 
 * When a template version you're using reaches
-  [end-of-life](/doc/supported-versions/).
+  [end-of-life](/doc/how-to-update/#upgrading-to-avoid-eol).
 * When a new version of a template that you wish to use becomes
   [supported](/doc/supported-versions/).
 * When you suspect your template has been compromised.
@@ -117,6 +117,9 @@ $ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-<
 If you receive the message that no match is found for
 `qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>`, see
 [here](/faq/#when-i-try-to-install-a-template-it-says-no-match-is-found).
+
+If you wish to install a template that is in testing, please see
+[here](/doc/testing/#templates).
 
 ## After Installing
 
@@ -242,7 +245,7 @@ new template:
 
 The following sections cover advanced topics pertaining to templates.
 
-### Inheritance and Persistence
+### Inheritance and persistence
 
 Whenever an app qube is created, the contents of the `/home` directory of its
 parent template are *not* copied to the child app qube's `/home`. The child app

@@ -65,6 +65,26 @@ older versions has been deemed stable enough. While this limitation can be
 inconvenient, the benefits outweigh the costs, since it greatly simplifies the
 testing and reporting process.
 
+## Templates
+
+How to test [templates](/doc/templates/):
+
+* For official templates, enable the `qubes-templates-itl-testing` repository,
+  then [install](/doc/templates/#installing) the desired template.
+* For community templates, enable the `qubes-templates-community-testing`
+  repository, then [install](/doc/templates/#installing) the desired template.
+
+To temporarily enable any of these repos, use the `--enablerepo=<repo-name>`
+option. Example commands:
+
+```
+sudo qubes-dom0-update --enablerepo=qubes-templates-itl-testing
+sudo qubes-dom0-update --enablerepo=qubes-templates-community-testing
+```
+
+To enable or disable any of these repos permanently, change the corresponding
+`enabled` value to `1` in `/etc/yum.repos.d/qubes-templates.repo`.
+
 ## Providing feedback
 
 Since the whole point of testing software is to discover and fix bugs, your

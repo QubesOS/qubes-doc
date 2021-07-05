@@ -13,7 +13,8 @@ title: How to Install Software
 ---
 
 When you wish to install software in Qubes OS, you should generally install it
-in a [template](/doc/glossary/#template).
+in a [template](/doc/glossary/#template). For installing templates themselves,
+see [how to install a template](/doc/templates/#installing).
 
 Advanced users may also be interested in learning how to install software in
 [standalones](/doc/standalones-and-hvms/) and
@@ -78,6 +79,10 @@ updating software in domUs.
 
 If you wish to install updates that are still in [testing](/doc/testing), you
 must enable the appropriate testing repositories.
+
+**Note:** The following repos are in templates and standalones. For dom0 testing
+repos, see [here](/doc/how-to-install-software-in-dom0/#testing-repositories).
+For testing new templates, please see [here](/doc/testing/#templates).
 
 #### Fedora
 

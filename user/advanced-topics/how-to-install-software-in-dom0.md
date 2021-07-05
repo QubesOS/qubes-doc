@@ -115,7 +115,11 @@ sudo dnf remove anti-evil-maid
 
 ## Testing repositories
 
-There are three Qubes dom0 [testing](/doc/testing/) repositories:
+If you wish to install updates that are still in [testing](/doc/testing), you
+must enable the appropriate testing repositories.
+
+**Note:** The following repos are in dom0. For template testing repos, see
+[here](/doc/how-to-install-software/#testing-repositories).
 
 - `qubes-dom0-current-testing` -- testing packages that will eventually land in
   the stable (`current`) repository
@@ -135,6 +139,8 @@ sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable
 
 To enable or disable any of these repos permanently, change the corresponding
 `enabled` value to `1` in `/etc/yum.repos.d/qubes-dom0.repo`.
+
+For testing new templates, please see [here](/doc/testing/#templates).
 
 ## Contributed package repository
 
