@@ -132,14 +132,17 @@ settings.
 
 ### Getting to the boot screen
 
-Booting is starting the computer. In this case instead of booting the computer
-normally, we'll want to tell it to boot from the USB drive to which you just
-  burned the Qubes installer.
+Booting is the process of starting your computer. In this case instead of
+booting the computer normally, we'll want to tell it to boot from the USB
+drive to which you just burned the Qubes installer. So just plug the USB
+drive into a USB port and follow the next steps.
 
 Then you'll need to power on the computer and immediately press a specific key to
-enter a special menu of your computer called the BIOS or UEFI (depending on your model).
-The key to press varies wildly from one computer to another. `Esc`, `Del` and `F10` are
-common keys. If you're not sure about the key to press you'll have to view in the
+enter a special menu of your computer called the "BIOS" or "UEFI"
+(depending on your computer model).
+
+The key to press varies from brand to brand. `Esc`, `Del` and `F10` are
+common ones. If you're not sure about the key to press you'll have to view in the
 machine's user guide or serch the web for `accessing BIOS/UEFI <COMPUTER_MODEL>` 
 (replacing with your specific computer model).
 
