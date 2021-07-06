@@ -137,7 +137,7 @@ computer by inserting your USB drive.
 
 Then you'll need to power on the computer and immediately press a specific key to
 enter what's called the "BIOS" of you computer. The key to press varies wildly from
-one computer to another. <kbd>Esc</kbd>, <kbd>Del</kbd> and <kbd>F10</kbd> are
+one computer to another. `Esc`, `Del` and `F10` are
 common keys. If you're not sure about the key to press you'll have to view in the
 machine's user guide or serch the web for `accessing BIOS <COMPUTER_MODEL>` 
 (replacing with your specific computer model).
