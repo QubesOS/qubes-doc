@@ -44,14 +44,14 @@ significant troubleshooting. You may also find it helpful to consult the
 
 Even on supported hardware, you must ensure that [IOMMU-based
 virtualization](https://en.wikipedia.org/wiki/Input%E2%80%93output_memory_management_unit#Virtualization)
-is activated in the BIOS. Without it, Qubes OS won't be able to enforce
+is activated in the BIOS/UEFI. Without it, Qubes OS won't be able to enforce
 isolation. For Intel-based boards, this setting is called Intel Virtualization
 for Directed I/O (**Intel VT-d**) and for AMD-based boards, it is called  AMD
 I/O Virtualization Technology (or simply **AMD-Vi**). This parameter should be
-activated in your computer's BIOS, alongside the standard Virtualization
+activated in your computer's BIOS/UEFI, alongside the standard Virtualization
 (**Intel VT-x**) and AMD Virtualization (**AMD-V**) extensions. This [external
 guide](https://web.archive.org/web/20200112220913/https://www.intel.in/content/www/in/en/support/articles/000007139/server-products.html)
-made for Intel-based boards can help you figure out how to enter your BIOS to
+made for Intel-based boards can help you figure out how to enter your BIOS/UEFI to
 locate and activate those settings. If those settings are not nested under the
 Advanced tab, you might find them under the Security tab.
 
@@ -197,7 +197,7 @@ IOMMU-virtualization is active or not. If the test fails, a window will pop up.
 ![Unsupported hardware detected](/attachment/doc/unsupported-hardware-detected.png)
 
 Do not panic. It may simply indicate that IOMMU-virtualization hasn't been
-activated in the BIOS. Return to the [hardware
+activated in the BIOS / UEFI. Return to the [hardware
 requirements](#hardware-requirements) section to learn how to activate it. If
 the setting is not configured correctly, it means that your hardware won't be
 able to leverage some Qubes security features, such as a strict isolation of
