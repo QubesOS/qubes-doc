@@ -132,30 +132,31 @@ settings.
 
 ### Getting to the boot screen
 
-Just after you power on your machine, make the Qubes OS medium available to the
-computer by inserting your USB drive.
+Booting is starting the computer. In this case instead of booting the computer
+normally, we'll want to tell it to boot from the USB drive to which you just
+  burned the Qubes installer.
 
 Then you'll need to power on the computer and immediately press a specific key to
-enter what's called the "BIOS" of you computer. The key to press varies wildly from
-one computer to another. `Esc`, `Del` and `F10` are
+enter a special menu of your computer called the BIOS or UEFI (depending on your model).
+The key to press varies wildly from one computer to another. `Esc`, `Del` and `F10` are
 common keys. If you're not sure about the key to press you'll have to view in the
-machine's user guide or serch the web for `accessing BIOS <COMPUTER_MODEL>` 
+machine's user guide or serch the web for `accessing BIOS/UEFI <COMPUTER_MODEL>` 
 (replacing with your specific computer model).
 
-The BIOS menu will looks something like the following pictures:
+The menu will look something like this:
 
-| ![](/attachment/doc/Thinkpad-t430-bios-main.jpg)  | |
-|----|----|
-| [CC-BY-SA-4.0 Vitaly Zdanevich](https://commons.wikimedia.org/wiki/File:Thinkpad-t430-bios-main.jpg) | ADD here UEFI
+| BIOS (older systems) | UEFI (modern systems) |
+|----------------------|-----------------------|
+| ![picture of BIOS image of Thinkpad T430](/attachment/doc/Thinkpad-t430-bios-main.jpg) | ![UEFI menu picure](/attachment/doc/uefi.jpeg)|
 
-Within the BIOS you'll navigate to the boot menu and either select to boot from your USB device or order the boot devices in such a way that the USB stick is the first one. Then save the configurations and restart your computer. After this the computer should show the Qubes boot screen:
+
+Within this you'll have to navigate to the boot menu. It can be of two types:
+* (a) **a list of devices to boot (starting) from** - in this case you select your USB drive (if you have multiple USB-looking devices, try them all until one works)
+* (b) **a list of devices in order** - here you order the boot devices in such a way that the USB drive is the first one.
+
+Then save the configurations and restart your computer. If you're successful in this step after a few seconds you'll be presented with the installer screen:
 
 ![Boot screen](/attachment/doc/boot-screen.png)
-
-<div class="alert alert-info" role="alert">
-  <i class="fa fa-info-circle"></i>
-  <b>Note:</b> Please note that there may be other thing you need to do in BIOS. *You may need to change them later* if the installer still refuses to start (deactivating secure boot can solve it) or if when installing Qubes shows an error saying you computer does not support virtualizaiton technology (where you'll need to activate virtualization technology).
-</div>
 
 <div class="alert alert-info" role="alert">
   <i class="fa fa-info-circle"></i>
