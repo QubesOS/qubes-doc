@@ -65,19 +65,25 @@ please contribute it!
 
 A few notes before we get started:
 
-* Since Qubes is a security-oriented project, every documentation change will
-  be reviewed before it's accepted. This allows us to maintain quality control
-  and protect our users.
-* We don't want you to spend time and effort on a contribution that we can't
+- Since Qubes is a security-oriented project, every documentation change will
+  be [reviewed](#security) before it's accepted. This allows us to maintain
+  quality control and protect our users.
+
+- We don't want you to spend time and effort on a contribution that we can't
   accept. If your contribution would take a lot of time, please [file an
   issue](/doc/issue-tracking/) for it first so that we can make sure we're on
   the same page before significant works begins.
-* Alternatively, you may already have written content that doesn't conform to
+
+- Alternatively, you may already have written content that doesn't conform to
   these guidelines, but you'd be willing to modify it so that it does. In this
   case, you can still submit it by following the instructions below. Just make
   a note in your pull request (PR) that you're aware of the changes that need
   to be made and that you're just asking for the content to be reviewed before
   you spend time making those changes.
+
+- Finally, if you've written something that doesn't belong in qubes-doc but that
+  would be beneficial to the Qubes community, please consider adding it to the 
+  [external documentation](/doc/doc-guidelines/#core-vs-external-documentation).
 
 As mentioned above, we keep all the documentation in a dedicated [Git
 repository](https://github.com/QubesOS/qubes-doc) hosted on
@@ -93,26 +99,29 @@ clone](https://guides.github.com/activities/forking/) the
 [submit a pull
 request](https://help.github.com/articles/using-pull-requests/).)
 
-Ok, let's start. Every documentation page has an "Edit this page" button. It
-may be on the side (in the desktop layout):
+Ok, let's start. Every documentation page has a "Page Source on GitHub" button.
+Depending on the size of your screen, it may either be on the side (larger
+screens) or on the bottom (smaller screens).
 
-[![edit-button-desktop](/attachment/doc/03-button2.png)](/attachment/doc/03-button2.png)
+[![page-source-button](/attachment/doc/doc-pr_01_page-source-button.png)](/attachment/doc/doc-pr_01_page-source-button.png)
 
-Or at the bottom (in the mobile layout):
+When you click on it, you'll be taken to the source file --- usually a Markdown
+(`.md`) file --- on GitHub. On this page, there will be a button to edit the
+file.
 
-[![edit-button-mobile](/attachment/doc/02-button1.png)](/attachment/doc/02-button1.png)
+[![github-edit](/attachment/doc/doc-pr_02_github-edit.png)](/attachment/doc/doc-pr_02_github-edit.png)
 
-When you click on it, you'll be prompted for your GitHub username and password
-(if you aren't already logged in). You can also create an account from here.
+You'll be prompted to sign in with your GitHub username and password
+(if you aren't already logged in). You can also create a free account from here.
 
-[![github-sign-in](/attachment/doc/04-sign-in.png)](/attachment/doc/04-sign-in.png)
+[![github-sign-in](/attachment/doc/doc-pr_03_sign-in.png)](/attachment/doc/doc-pr_03_sign-in.png)
 
 If this is your first contribution to the documentation, you need to "fork" the
 repository (make your own copy). It's easy --- just click the big green button
 on the next page. This step is only needed the first time you make a
 contribution.
 
-[![fork](/attachment/doc/05-fork.png)](/attachment/doc/05-fork.png)
+[![fork](/attachment/doc/doc-pr_04_fork.png)](/attachment/doc/doc-pr_04_fork.png)
 
 Now you can make your modifications. You can also preview the changes to see
 how they'll be formatted by clicking the "Preview changes" tab. If you want to
@@ -121,25 +130,27 @@ making formatting changes, please [render the site
 locally](https://github.com/QubesOS/qubesos.github.io#instructions) to verify
 that everything looks correct before submitting any changes.
 
-[![edit](/attachment/doc/06-edit.png)](/attachment/doc/06-edit.png)
+[![edit](/attachment/doc/doc-pr_05_edit.png)](/attachment/doc/doc-pr_05_edit.png)
 
 Once you're finished, describe your changes at the bottom and click "Propose
 file change".
 
-[![commit](/attachment/doc/07-commit-msg.png)](/attachment/doc/07-commit-msg.png)
+[![commit](/attachment/doc/doc-pr_06_commit-msg.png)](/attachment/doc/doc-pr_06_commit-msg.png)
 
 After that, you'll see exactly what modifications you've made. At this stage,
 those changes are still in your own copy of the documentation ("fork"). If
 everything looks good, send those changes to us by pressing the "Create pull
 request" button.
 
-[![pull-request](/attachment/doc/08-review-changes.png)](/attachment/doc/08-review-changes.png)
+[![pull-request](/attachment/doc/doc-pr_07_review-changes.png)](/attachment/doc/doc-pr_07_review-changes.png)
 
 You will be able to adjust the pull request message and title there. In most
 cases, the defaults are ok, so you can just confirm by pressing the "Create
-pull request" button again.
+pull request" button again. However, if you're not ready for your PR to be
+reviewed or merged yet, please [make a draft PR
+instead](https://github.blog/2019-02-14-introducing-draft-pull-requests/).
 
-[![pull-request-confirm](/attachment/doc/09-create-pull-request.png)](/attachment/doc/09-create-pull-request.png)
+[![pull-request-confirm](/attachment/doc/doc-pr_08_create-pull-request.png)](/attachment/doc/doc-pr_08_create-pull-request.png)
 
 If any of your changes should be reflected in the [documentation index (a.k.a.
 table of contents)](/doc/) --- for example, if you're adding a new page,
@@ -152,9 +163,9 @@ you, which we'll post in a comment on your pull request. (GitHub will
 automatically notify you if we do.) If, for some reason, we can't accept your
 pull request, we'll post a comment explaining why we can't.
 
-[![done](/attachment/doc/10-done.png)](/attachment/doc/10-done.png)
+[![done](/attachment/doc/doc-pr_09_done.png)](/attachment/doc/doc-pr_09_done.png)
 
-## How to edit the documentation index
+### How to edit the documentation index
 
 The source file for the [documentation index (a.k.a. table of contents)](/doc/)
 lives here:
@@ -166,7 +177,7 @@ pull request (PR) adds, removes, or edits anything that should be reflected in
 the documentation index, please make sure you also submit an associated pull
 request against this file.
 
-## How to add images
+### How to add images
 
 To add an image to a page, use the following syntax in the main document. This
 will make the image a hyperlink to the image file, allowing the reader to click
@@ -352,7 +363,7 @@ Once you foo, make sure to close the baz before fooing the next bar.
 Subdividing the page into clearly-labeled sections for each version has several
 benefits:
 
-* It preserves good content for older (but still supported) versions. Many
+- It preserves good content for older (but still supported) versions. Many
   documentation contributors are also people who prefer to use the latest
   version. Many of them are tempted to *replace* existing content that applies
   to an older, supported version with content that applies only to the latest
@@ -368,9 +379,9 @@ benefits:
   version may have gone through several rounds of editing, review, and
   revision. It would be a tragedy for this content to vanish while the very set
   of users who most prize stability and reliability are depending on it.
-* It's easy for readers to quickly find the information they're looking for,
+- It's easy for readers to quickly find the information they're looking for,
   since they can go directly to the section that applies to their version.
-* It's hard for readers to miss information they need, since it's all in one
+- It's hard for readers to miss information they need, since it's all in one
   place. In the incorrect example, information that the reader needs could be
   in any paragraph in the entire document, and there's no way to tell without
   reading the entire page. In the correct example, the reader can simply skim
@@ -384,7 +395,7 @@ benefits:
   documentation for a version that *doesn't* change to stay the same, and we
   want the documentation for a version that *does* change to change along with
   the software.
-* It's easy for documentation contributors and maintainers to know which file
+- It's easy for documentation contributors and maintainers to know which file
   to edit and update, since there's only one page for all Qubes OS versions.
   Initially creating the new headings and duplicating content that applies to
   both is only a one-time cost for each page, and many pages don't even require
@@ -409,146 +420,198 @@ For further discussion about version-specific documentation in Qubes, see
 
 ## Style guidelines
 
-* Familiarize yourself with the terms defined in the
-  [glossary](/doc/glossary/). Use these terms consistently and accurately
-  throughout your writing.
-* Syntactically distinguish variables in commands. For example, this is
-  ambiguous:
+### Correct use of terminology
 
-      $ qvm-run --dispvm=disposable-template --service qubes.StartApp+xterm
+Familiarize yourself with the terms defined in the [glossary](/doc/glossary/).
+Use these terms consistently and accurately throughout your writing.
 
-  It should instead be:
+### Variables in commands
 
-      $ qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+xterm
+Syntactically distinguish variables in commands. For example, this is
+ambiguous:
 
-  Note that we syntactically distinguish variables in three ways:
-  1. Surrounding them in angled brackets (`< >`)
-  2. Using underscores (`_`) instead of spaces between words
-  3. Using all capital letters
+    $ qvm-run --dispvm=disposable-template --service qubes.StartApp+xterm
 
-  We have observed that many novices make the mistake of typing the surrounding
-  angled brackets (`< >`) on the command line, even after substituting the
-  desired real value between them. Therefore, in documentation aimed at
-  novices, we also recommend clarifying that the angled brackets should not be
-  typed. This can be accomplished in one of several ways:
-  - Explicitly say something like "without the angled brackets."
-  - Provide an example command using real values that excludes the angled
-    brackets.
-  - If you know that almost all users will want to use (or should use) a
-    specific command containing all real values and no variables, you might
-    consider providing exactly that command and forgoing the version with
-    variables. Novices may not realize which parts of the command they can
-    substitute with different values, but if you've correctly judged that they
-    should use the command you've provided as is, then this shouldn't matter.
+It should instead be:
+
+    $ qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+xterm
+
+Note that we syntactically distinguish variables in three ways:
+1. Surrounding them in angled brackets (`< >`)
+2. Using underscores (`_`) instead of spaces between words
+3. Using all capital letters
+
+We have observed that many novices make the mistake of typing the surrounding
+angled brackets (`< >`) on the command line, even after substituting the
+desired real value between them. Therefore, in documentation aimed at novices,
+we also recommend clarifying that the angled brackets should not be typed. This
+can be accomplished in one of several ways:
+- Explicitly say something like "without the angled brackets."
+- Provide an example command using real values that excludes the angled
+  brackets.
+- If you know that almost all users will want to use (or should use) a specific
+  command containing all real values and no variables, you might consider
+  providing exactly that command and forgoing the version with variables.
+  Novices may not realize which parts of the command they can substitute with
+  different values, but if you've correctly judged that they should use the
+  command you've provided as is, then this shouldn't matter.
 
 ## Markdown conventions
 
 All the documentation is written in Markdown for maximum accessibility. When
-making contributions, please try to observe the following style conventions:
+making contributions, please observe the following style conventions. If you're
+not familiar with Markdown syntax,
+[this](https://daringfireball.net/projects/markdown/) is a great resource.
 
-* Use spaces instead of tabs.
-* Do not write HTML inside Markdown documents (except in rare, unavoidable
-  cases, such as alerts). In particular, never include HTML or CSS for styling,
-  formatting, or white space control. That belongs in the (S)CSS files instead.
-* Link only to images in
-  [qubes-attachment](https://github.com/QubesOS/qubes-attachment) (see
-  [instructions above](#how-to-add-images)). Do not link to images on other
-  websites.
-* In order to enable offline browsing and automatic onion redirection, always
-  use relative (rather than absolute) links, e.g., `/doc/doc-guidelines/`
-  instead of `https://www.qubes-os.org/doc/doc-guidelines/`. Examples of
-  exceptions:
-  * The signed plain text portions of [QSBs](/security/qsb/) and
-    [Canaries](/security/canary/)
-  * URLs that appear inside code blocks (e.g., in comments and document
-    templates)
-  * Files like `README.md` and `CONTRIBUTING.md`
-* Hard wrap Markdown lines at 80 characters, unless the line can't be broken
-  (e.g., code or a URL).
-* If appropriate, make numerals in numbered lists match between Markdown source
-  and HTML output.
-  * Rationale: In the event that a user is required to read the Markdown source
-    directly, this will make it easier to follow, e.g., numbered steps in a set
-    of instructions.
-* Use hanging indentations where appropriate.
-* Do not use `h1` headings (single `#` or `======` underline). These are
+### Indentation
+
+Use spaces instead of tabs. Each indentation step should be exactly two (2)
+spaces.
+
+### HTML and CSS
+
+Do not write HTML inside Markdown documents (except in rare, unavoidable cases,
+such as alerts). In particular, never include HTML or CSS for styling,
+formatting, or white space control. That belongs in the (S)CSS files instead.
+
+### Image linking
+
+Link only to images in
+[qubes-attachment](https://github.com/QubesOS/qubes-attachment) (see
+[instructions above](#how-to-add-images)). Do not link to images on other
+websites.
+
+### Relative vs. absolute links
+
+Always use relative rather than absolute paths for internal website links. For
+example, use `/doc/doc-guidelines/` instead of
+`https://www.qubes-os.org/doc/doc-guidelines/`. Places where it's fine to use
+absolute URLs:
+- External links
+- URLs that appear inside code blocks (e.g., in comments and document
+  templates, and the plain text reproductions of [QSBs](/security/qsb/) and
+  [Canaries](/security/canary/)), since they're not hyperlinks
+- Git repo files like `README.md` and `CONTRIBUTING.md`, since they're not part
+  of the website itself but rather of the auxiliary infrastructure supporting
+  the website.
+
+This rule is important, because using absolute URLs for internal website links
+is known to break the following:
+- Serving the website offline
+- Website localization
+- Generating offline documentation
+- Automatically redirecting Tor Browser visitors to the correct page on the
+  onion service mirror.
+
+### Source formatting and syntax
+
+- Do not use `h1` headings (single `#` or `======` underline). These are
   automatically generated from the `title:` line in the YAML frontmatter.
-* Use Atx-style headings: , `##h 2`, `### h3`, etc.
-* When writing code blocks, use [syntax
-  highlighting](https://github.github.com/gfm/#info-string) where
-  [possible](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers)
-  and use `[...]` for anything omitted.
-* When providing command line examples:
-  * Tell the reader where to open a terminal (dom0 or a specific domU), and
-    show the command along with its output (if any) in a code block, e.g.:
 
-    ~~~markdown
-    Open a terminal in dom0 and run:
-    ```shell_session
-    $ cd test
-    $ echo Hello
-    Hello
-    ```
-    ~~~
+- Use Atx-style headings: , `##h 2`, `### h3`, etc.
 
- * Precede each command with the appropriate command prompt: At a minimum, the
-   prompt should contain a trailing `#` (for the user `root`) or `$` (for
-   other users) on Linux systems and `>` on Windows systems, respectively.
- * Don't try to add comments inside the code block. For example, *don't* do
-   this:
-
-    ~~~markdown
-    Open a terminal in dom0 and run:
-    ```shell_session
-    # Navigate to the new directory
-    $ cd test
-    # Generate a greeting
-    $ echo Hello
-    Hello
-    ```
-    ~~~
-
-    The `#` symbol preceding each comment is ambiguous with a root command
-    prompt. Instead, put your comments *outside* of the code block in normal
-    prose.
-* Use non-reference-style links like `[website](https://example.com/)`. Do
+- Use non-reference-style links like `[website](https://example.com/)`. Do
   *not* use reference links like `[website][example]`, `[website][]` or
   `[website]`.
 
-([This](https://daringfireball.net/projects/markdown/) is a great source for
-learning about Markdown.)
+- If appropriate, make numerals in numbered lists match between Markdown source
+  and HTML output. (Rationale: In the event that a user is required to read the
+  Markdown source directly, this will make it easier to follow, e.g., numbered
+  steps in a set of instructions.)
+
+- When writing code blocks, use [syntax
+  highlighting](https://github.github.com/gfm/#info-string) where
+  [possible](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers)
+  and use `[...]` for anything omitted.
+
+- Use hanging indentations where appropriate.
+
+### Writing command-line examples
+
+When providing command line examples:
+- Tell the reader where to open a terminal (dom0 or a specific domU), and show
+  the command along with its output (if any) in a code block, e.g.:
+
+  ~~~markdown
+  Open a terminal in dom0 and run:
+  ```shell_session
+  $ cd test
+  $ echo Hello
+  Hello
+  ```
+  ~~~
+
+- Precede each command with the appropriate command prompt: At a minimum, the
+  prompt should contain a trailing `#` (for the user `root`) or `$` (for other
+  users) on Linux systems and `>` on Windows systems, respectively.
+
+- Don't try to add comments inside the code block. For example, *don't* do
+  this:
+
+   ~~~markdown
+   Open a terminal in dom0 and run:
+   ```shell_session
+   # Navigate to the new directory
+   $ cd test
+   # Generate a greeting
+   $ echo Hello
+   Hello
+   ```
+   ~~~
+
+   The `#` symbol preceding each comment is ambiguous with a root command
+   prompt. Instead, put your comments *outside* of the code block in normal
+   prose.
+
+### Line wrapping
+
+Hard wrap Markdown lines at 80 characters, unless the line can't be broken
+(e.g., code or a URL).
 
 ## Coding conventions
 
-These conventions apply to the website as a whole, including everything written
-in HTML, CSS, YAML, and Liquid. These conventions are intended to keep the
-codebase consistent when multiple collaborators are working on it. They should
-be understood as a practical set of rules for maintaining order in this
+The following conventions apply to the website as a whole, including everything
+written in HTML, CSS, YAML, and Liquid. These conventions are intended to keep
+the codebase consistent when multiple collaborators are working on it. They
+should be understood as a practical set of rules for maintaining order in this
 specific codebase rather than as a statement of what is objectively right or
 good.
 
-* Always use spaces. Never use tabs.
-* Indent by exactly two (2) spaces.
-* Whenever you add an opening tag, indent the following line. (Exception: If
-  you open and close the tag on the same line, do not indent the following
-  line.)
-* Indent Liquid the same way as HTML.
-* In general, the starting columns of every adjacent pair of lines should be no
-  more than two spaces apart (example below).
-* No blank or empty lines. (Hint: When you feel you need one, add a comment on
-  that line instead.)
-* Use comments to indicate the purposes of different blocks of code. This makes
+### General practices
+
+- Use comments to indicate the purposes of different blocks of code. This makes
   the file easier to understand and navigate.
-* Use descriptive variable names. Never use one or two letter variable names.
-  Avoid uncommon abbreviations and made-up words.
-* In general, make it easy for others to read your code. Your future self will
+
+- Use descriptive variable names. Never use one or two letter variable names.
+  Avoid obscure abbreviations and made-up words.
+
+- In general, make it easy for others to read your code. Your future self will
   thank you, and so will your collaborators!
-* [Don't Repeat Yourself
+
+- [Don't Repeat Yourself
   (DRY)!](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) Instead of
   repeating the same block of code multiple times, abstract it out into a
   separate file and `include` that file where you need it.
 
-### Indentation example
+### Whitespace
+
+- Always use spaces. Never use tabs.
+
+- Each indentation step should be exactly two (2) spaces.
+
+- Whenever you add an opening tag, indent the following line. (Exception: If
+  you open and close the tag on the same line, do not indent the following
+  line.)
+
+- Indent Liquid the same way as HTML.
+
+- In general, the starting columns of every adjacent pair of lines should be no
+  more than two spaces apart (example below).
+
+- No blank or empty lines. (Hint: When you feel you need one, add a comment on
+  that line instead.)
+
+#### Indentation example
 
 Here's an example that follows the indentation rules:
 
