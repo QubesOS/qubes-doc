@@ -31,7 +31,7 @@ Internet access is intentionally disabled by default in dom0. But to ease the de
 1. Remove the network card (PCI device) from `sys-net`
 2. Restart your computer (for the removal to take effect)
 3. Install `dhcp-client` and `openssh-server` on your testbench's dom0.
-4. The following script should enable your network card in dom0. *Be sure to adjust the script's variables to suit your needs.* You'll need to run this at every startup with sudo (TODO: describe how to run this at every startup).
+4. Save the following script in `/home/user/bin/dom0_network.sh` and make it executable. It should enable your network card in dom0. *Be sure to adjust the script's variables to suit your needs.*
 
    ```bash
    #!/bin/sh
@@ -73,11 +73,27 @@ Internet access is intentionally disabled by default in dom0. But to ease the de
 
 5. Configure your DHCP server so your testbench gets static IP and connect your machine to your local network. You should ensure that your testbench can reach the Internet.
 
-6. Enable and start the SSH Server:
+6. You'll need to run the above script on every startup. To automate this save the following systemd service `/etc/systemd/system/dom0-network-direct.service`
+
+   ```
+   [Unit]
+   Description=Connect network to dom0
+
+   [Service]
+   Type=oneshot
+   ExecStart=/home/user/bin/dom0_network.sh
+
+   [Install]
+   WantedBy=multi-user.target
+   ```
+
+6. Enable and start the SSH Server and the script on boot:
 
    ```bash
    sudo systemctl enable sshd
    sudo systemctl start sshd
+   
+   sudo systemctl enable dom0-network-direct
    ```
 
 > **Note:** If you want to install additional software in dom0 and your only network card was assigned to dom0, then _instead_ of the usual `sudo qubes-dom0-update <PACKAGE>` now you run `sudo dnf --setopt=reposdir=/etc/yum.repos.d install <PACKAGE>`.
