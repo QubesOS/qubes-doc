@@ -87,13 +87,14 @@ Internet access is intentionally disabled by default in dom0. But to ease the de
    WantedBy=multi-user.target
    ```
 
-6. Enable and start the SSH Server and the script on boot:
+7. Then, enable and start the SSH Server and the script on boot:
 
    ```bash
    sudo systemctl enable sshd
    sudo systemctl start sshd
    
    sudo systemctl enable dom0-network-direct
+   sudo systemctl start dom0-network-direct
    ```
 
 > **Note:** If you want to install additional software in dom0 and your only network card was assigned to dom0, then _instead_ of the usual `sudo qubes-dom0-update <PACKAGE>` now you run `sudo dnf --setopt=reposdir=/etc/yum.repos.d install <PACKAGE>`.
