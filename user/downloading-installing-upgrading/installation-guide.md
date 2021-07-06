@@ -184,12 +184,6 @@ If **Windows 10** is installed on your machine, you may need to follow specific
 instructions to change the boot order. This may require an [advanced
 reboot](https://support.microsoft.com/en-us/help/4026206/windows-10-find-safe-mode-and-other-startup-settings).
 
-After the POST, you may have a chance to choose a boot device. You may wish to
-select the USB drive or DVD drive as a temporary boot option so that the next
-time you boot, your internal storage device will be selected first. 
-
-![Boot order](/attachment/doc/boot-order.png)
-
 ### The installer home screen
 
 On the first screen, you are asked to select the language that will be used
