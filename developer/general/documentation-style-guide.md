@@ -116,6 +116,12 @@ Use these terms consistently and accurately throughout your writing.
 
 ### Sentence case in headings
 
+**Note:** We're looking for help with converting all page titles from title
+case to sentence case in accordance with this convention. See
+[#6769](https://github.com/QubesOS/qubes-issues/issues/6769). In the meantime,
+please continue to use title case in page titles only to maintain consistency
+until a mass conversion can be performed.
+
 Use sentence case (rather than title case) in headings for the reasons
 explained
 [here](https://www.sallybagshaw.com.au/articles/sentence-case-v-title-case/).
