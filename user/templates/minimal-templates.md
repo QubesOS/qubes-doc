@@ -34,7 +34,7 @@ templates, along with some examples of common use cases.
    bug report. Instead, please see [Help, Support, Mailing Lists, and
    Forum](/support/) for the appropriate place to ask for help. Once you have
    learned how to solve your problem, please [contribute what you learned to
-   the documentation](/doc/doc-guidelines/).
+   the documentation](/doc/how-to-edit-the-documentation/).
 
 3. The minimal templates are intentionally *minimal*. [Do not ask for your
    favorite package to be added to the minimal template by

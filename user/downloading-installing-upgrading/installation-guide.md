@@ -462,7 +462,7 @@ the other [How-To Guides](/doc/#how-to-guides), and learn about
   useful and user friendly. We urge you to read it! It may very well contain
   the answers to your questions. (Since the documentation is a community
   effort, we'd also greatly appreciate your help in
-  [improving](/doc/doc-guidelines/) it!)
+  [improving](/doc/how-to-edit-the-documentation/) it!)
 
 * If issues arise during installation, see the [Installation
   Troubleshooting](/doc/installation-troubleshooting) guide. 

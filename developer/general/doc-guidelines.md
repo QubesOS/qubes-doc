@@ -1,196 +1,203 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/doc-guidelines/
+permalink: /doc/documentation-style-guide/
 redirect_from:
+- /doc/doc-guidelines/
 - /en/doc/doc-guidelines/
 - /wiki/DocStyle/
 - /doc/DocStyle/
 ref: 30
-title: Documentation Guidelines
+title: Documentation Style Guide
 ---
 
-All Qubes OS documentation pages are stored as plain text files in the
-dedicated [qubes-doc](https://github.com/QubesOS/qubes-doc) repository. By
-cloning and regularly pulling from this repo, users can maintain their own
-up-to-date offline copy of all Qubes documentation rather than relying solely
-on the web.
+Qubes OS documentation pages are stored as plain text Markdown files in the
+[qubes-doc](https://github.com/QubesOS/qubes-doc) repository. By cloning and
+regularly pulling from this repo, users can maintain their own up-to-date
+offline copy of all Qubes documentation rather than relying solely on the web.
 
-The documentation is a community effort. Volunteers work hard trying to keep
-everything accurate and comprehensive. If you notice a problem or some way it
-can be improved, please [edit the documentation](#how-to-contribute)!
+The documentation is a volunteer community effort. People like you are
+constantly working to make it better. If you notice something that can be fixed
+or improved, please [edit the
+documentation](/doc/how-to-edit-the-documentation/)!
 
-## Security
+This page explains the standards we follow for writing, formatting, and
+organizing the documentation. Please follow these guidelines and conventions
+when editing the documentation. For the standards governing the website as a
+whole, please see the [website style guide](/doc/website-style-guide).
 
-*Also see: [Should I trust this website?](/faq/#should-i-trust-this-website)*
+## Markdown conventions
 
-All pull requests (PRs) against
-[qubes-doc](https://github.com/QubesOS/qubes-doc) must pass review prior to be
-merged, except in the case of [external
-documentation](/doc/#external-documentation) (see
-[#4693](https://github.com/QubesOS/qubes-issues/issues/4693)). This process is
-designed to ensure that contributed text is accurate and non-malicious. This
-process is a best effort that should provide a reasonable degree of assurance,
-but it is not foolproof. For example, all text characters are checked for ANSI
-escape sequences. However, binaries, such as images, are simply checked to
-ensure they appear or function the way they should when the website is
-rendered. They are not further analyzed in an attempt to determine whether they
-are malicious.
+All the documentation is written in Markdown for maximum accessibility. When
+making contributions, please observe the following style conventions. If you're
+not familiar with Markdown syntax,
+[this](https://daringfireball.net/projects/markdown/) is a great resource.
 
-Once a pull request passes review, the reviewer should add a signed comment
-stating, "Passed review as of `<latest_commit>`" (or similar). The
-documentation maintainer then verifies that the pull request is mechanically
-sound (no merge conflicts, broken links, ANSI escapes, etc.). If so, the
-documentation maintainer then merges the pull request, adds a PGP-signed tag to
-the latest commit (usually the merge commit), then pushes to the remote. In
-cases in which another reviewer is not required, the documentation maintainer
-may review the pull request (in which case no signed comment is necessary,
-since it would be redundant with the signed tag).
+### Relative vs. absolute links
 
-## Questions, problems, and improvements
+Always use relative rather than absolute paths for internal website links. For
+example, use `/doc/documentation-style-guide/` instead of
+`https://www.qubes-os.org/doc/documentation-style-guide/`. You may use absolute
+URLs in the following cases:
 
-If you have a question about something you read in the documentation, please
-send it to the appropriate [mailing list](/support/). If you see that something
-in the documentation should be fixed or improved, please
-[contribute](#how-to-contribute) the change yourself. To report an issue with
-the documentation, please follow our standard [issue reporting
-guidelines](/doc/issue-tracking/). (If you report an issue with the
-documentation, you will likely be asked to address it, unless there is a clear
-indication in your report that you are not willing or able to do so.)
+- External links
+- URLs that appear inside code blocks (e.g., in comments and document
+  templates, and the plain text reproductions of [QSBs](/security/qsb/) and
+  [Canaries](/security/canary/)), since they're not hyperlinks
+- Git repo files like `README.md` and `CONTRIBUTING.md`, since they're not part
+  of the website itself but rather of the auxiliary infrastructure supporting
+  the website.
 
-## How to contribute
+This rule is important because using absolute URLs for internal website links
+breaks:
 
-Editing the documentation is easy, so if you see that a change should be made,
-please contribute it!
+- Serving the website offline
+- Website localization
+- Generating offline documentation
+- Automatically redirecting Tor Browser visitors to the correct page on the
+  onion service mirror
 
-A few notes before we get started:
+### Image linking
 
-- Since Qubes is a security-oriented project, every documentation change will
-  be [reviewed](#security) before it's accepted. This allows us to maintain
-  quality control and protect our users.
+See [how to add images](/doc/how-to-edit-the-documentation/#how-to-add-images).
 
-- We don't want you to spend time and effort on a contribution that we can't
-  accept. If your contribution would take a lot of time, please [file an
-  issue](/doc/issue-tracking/) for it first so that we can make sure we're on
-  the same page before significant works begins.
+Link only to images in
+[qubes-attachment](https://github.com/QubesOS/qubes-attachment). Do not link to
+images on other websites.
 
-- Alternatively, you may already have written content that doesn't conform to
-  these guidelines, but you'd be willing to modify it so that it does. In this
-  case, you can still submit it by following the instructions below. Just make
-  a note in your pull request (PR) that you're aware of the changes that need
-  to be made and that you're just asking for the content to be reviewed before
-  you spend time making those changes.
+### HTML and CSS
 
-- Finally, if you've written something that doesn't belong in qubes-doc but that
-  would be beneficial to the Qubes community, please consider adding it to the 
-  [external documentation](/doc/doc-guidelines/#core-vs-external-documentation).
+Do not write HTML inside Markdown documents (except in rare, unavoidable cases,
+such as alerts). In particular, never include HTML or CSS for styling,
+formatting, or white space control. That belongs in the (S)CSS files instead.
 
-As mentioned above, we keep all the documentation in a dedicated [Git
-repository](https://github.com/QubesOS/qubes-doc) hosted on
-[GitHub](https://github.com/). Thanks to GitHub's interface, you can edit the
-documentation even if you don't know Git at all! The only thing you need is a
-GitHub account, which is free.
+### Headings
 
-(**Note:** If you're already familiar with GitHub or wish to work from the
-command line, you can skip the rest of this section. All you need to do to
-contribute is to [fork and
-clone](https://guides.github.com/activities/forking/) the
-[qubes-doc](https://github.com/QubesOS/qubes-doc) repo, make your changes, then
-[submit a pull
-request](https://help.github.com/articles/using-pull-requests/).)
+Do not use `h1` headings (single `#` or `======` underline). These are
+automatically generated from the `title:` line in the YAML frontmatter.
 
-Ok, let's start. Every documentation page has a "Page Source on GitHub" button.
-Depending on the size of your screen, it may either be on the side (larger
-screens) or on the bottom (smaller screens).
+Use Atx-style syntax for headings: `##h 2`, `### h3`, etc. Do not use
+underlining syntax (`-----`).
 
-[![page-source-button](/attachment/doc/doc-pr_01_page-source-button.png)](/attachment/doc/doc-pr_01_page-source-button.png)
+### Hyperlink syntax
 
-When you click on it, you'll be taken to the source file --- usually a Markdown
-(`.md`) file --- on GitHub. On this page, there will be a button to edit the
-file.
+Use non-reference-style links like `[website](https://example.com/)`. Do *not*
+use reference-style links like `[website][example]`, `[website][]` or
+`[website]`. This facilitates the localization process.
 
-[![github-edit](/attachment/doc/doc-pr_02_github-edit.png)](/attachment/doc/doc-pr_02_github-edit.png)
+### Indentation
 
-You'll be prompted to sign in with your GitHub username and password
-(if you aren't already logged in). You can also create a free account from here.
+Use spaces instead of tabs. Use hanging indentations where appropriate.
 
-[![github-sign-in](/attachment/doc/doc-pr_03_sign-in.png)](/attachment/doc/doc-pr_03_sign-in.png)
+### Lists
 
-If this is your first contribution to the documentation, you need to "fork" the
-repository (make your own copy). It's easy --- just click the big green button
-on the next page. This step is only needed the first time you make a
-contribution.
+If appropriate, make numerals in numbered lists match between Markdown source
+and HTML output. Some users read the Markdown source directly, and this makes
+numbered lists easier to follow.
 
-[![fork](/attachment/doc/doc-pr_04_fork.png)](/attachment/doc/doc-pr_04_fork.png)
+### Code blocks
 
-Now you can make your modifications. You can also preview the changes to see
-how they'll be formatted by clicking the "Preview changes" tab. If you want to
-add images, please see [How to add images](#how-to-add-images). If you're
-making formatting changes, please [render the site
-locally](https://github.com/QubesOS/qubesos.github.io#instructions) to verify
-that everything looks correct before submitting any changes.
+When writing code blocks, use [syntax
+highlighting](https://github.github.com/gfm/#info-string) where possible (see
+[here](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers)
+for a list of supported languages). Use `[...]` for anything omitted.
 
-[![edit](/attachment/doc/doc-pr_05_edit.png)](/attachment/doc/doc-pr_05_edit.png)
+### Line wrapping
 
-Once you're finished, describe your changes at the bottom and click "Propose
-file change".
+Hard wrap Markdown lines at 80 characters, unless the line can't be broken
+(e.g., code or a URL).
 
-[![commit](/attachment/doc/doc-pr_06_commit-msg.png)](/attachment/doc/doc-pr_06_commit-msg.png)
+## Writing guidelines
 
-After that, you'll see exactly what modifications you've made. At this stage,
-those changes are still in your own copy of the documentation ("fork"). If
-everything looks good, send those changes to us by pressing the "Create pull
-request" button.
+### Correct use of terminology
 
-[![pull-request](/attachment/doc/doc-pr_07_review-changes.png)](/attachment/doc/doc-pr_07_review-changes.png)
+Familiarize yourself with the terms defined in the [glossary](/doc/glossary/).
+Use these terms consistently and accurately throughout your writing.
 
-You will be able to adjust the pull request message and title there. In most
-cases, the defaults are ok, so you can just confirm by pressing the "Create
-pull request" button again. However, if you're not ready for your PR to be
-reviewed or merged yet, please [make a draft PR
-instead](https://github.blog/2019-02-14-introducing-draft-pull-requests/).
+### Sentence case in headings
 
-[![pull-request-confirm](/attachment/doc/doc-pr_08_create-pull-request.png)](/attachment/doc/doc-pr_08_create-pull-request.png)
+Use sentence case (rather than title case) in headings for the reasons
+explained
+[here](https://www.sallybagshaw.com.au/articles/sentence-case-v-title-case/).
+In particular, since the authorship of the Qubes documentation is decentralized
+and widely distributed among users from around the world, many contributors
+come from regions with different conventions for implementing title case, not
+to mention that there are often differing style guide recommendations even
+within a single region. It is much easier for all of us to implement sentence
+case consistently across our growing body of pages, which is very important for
+managing the ongoing maintenance burden and sustainability of the
+documentation.
 
-If any of your changes should be reflected in the [documentation index (a.k.a.
-table of contents)](/doc/) --- for example, if you're adding a new page,
-changing the title of an existing page, or removing a page --- please see [How
-to edit the documentation index](#how-to-edit-the-documentation-index).
+### Writing command-line examples
 
-That's all! We will review your changes. If everything looks good, we'll pull
-them into the official documentation. Otherwise, we may have some questions for
-you, which we'll post in a comment on your pull request. (GitHub will
-automatically notify you if we do.) If, for some reason, we can't accept your
-pull request, we'll post a comment explaining why we can't.
+When providing command-line examples:
 
-[![done](/attachment/doc/doc-pr_09_done.png)](/attachment/doc/doc-pr_09_done.png)
+- Tell the reader where to open a terminal (dom0 or a specific domU), and show
+  the command along with its output (if any) in a code block, e.g.:
 
-### How to edit the documentation index
+  ~~~markdown
+  Open a terminal in dom0 and run:
+  ```shell_session
+  $ cd test
+  $ echo Hello
+  Hello
+  ```
+  ~~~
 
-The source file for the [documentation index (a.k.a. table of contents)](/doc/)
-lives here:
+- Precede each command with the appropriate command prompt: At a minimum, the
+  prompt should contain a trailing `#` (for the user `root`) or `$` (for other
+  users) on Linux systems and `>` on Windows systems, respectively.
 
-<https://github.com/QubesOS/qubesos.github.io/blob/master/_data/doc-index.yml>
+- Don't try to add comments inside the code block. For example, *don't* do
+  this:
 
-Editing this file will change what appears on the documentation index. If your
-pull request (PR) adds, removes, or edits anything that should be reflected in
-the documentation index, please make sure you also submit an associated pull
-request against this file.
+   ~~~markdown
+   Open a terminal in dom0 and run:
+   ```shell_session
+   # Navigate to the new directory
+   $ cd test
+   # Generate a greeting
+   $ echo Hello
+   Hello
+   ```
+   ~~~
 
-### How to add images
+   The `#` symbol preceding each comment is ambiguous with a root command
+   prompt. Instead, put your comments *outside* of the code block in normal
+   prose.
 
-To add an image to a page, use the following syntax in the main document. This
-will make the image a hyperlink to the image file, allowing the reader to click
-on the image in order to view the image by itself.
+### Variable names in commands
 
-```
-[![Image Title](/attachment/doc/image.png)](/attachment/doc/image.png)
-```
+Syntactically distinguish variables in commands. For example, this is
+ambiguous:
 
-Then, submit your image(s) in a separate pull request to the
-[qubes-attachment](https://github.com/QubesOS/qubes-attachment) repository
-using the same path and filename. This is the only permitted way to include
-images. Do not link to images on other websites.
+    $ qvm-run --dispvm=disposable-template --service qubes.StartApp+xterm
+
+It should instead be:
+
+    $ qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+xterm
+
+Note that we syntactically distinguish variables in three ways:
+
+1. Surrounding them in angled brackets (`< >`)
+2. Using underscores (`_`) instead of spaces between words
+3. Using all capital letters
+
+We have observed that many novices make the mistake of typing the surrounding
+angled brackets (`< >`) on the command line, even after substituting the
+desired real value between them. Therefore, in documentation aimed at novices,
+we also recommend clarifying that the angled brackets should not be typed. This
+can be accomplished in one of several ways:
+
+- Explicitly say something like "without the angled brackets."
+- Provide an example command using real values that excludes the angled
+  brackets.
+- If you know that almost all users will want to use (or should use) a specific
+  command containing all real values and no variables, you might consider
+  providing exactly that command and forgoing the version with variables.
+  Novices may not realize which parts of the command they can substitute with
+  different values, but if you've correctly judged that they should use the
+  command you've provided as is, then this shouldn't matter.
 
 ## Organizational guidelines
 
@@ -284,7 +291,7 @@ background information.
 
 ### Version-specific documentation
 
-*See [#5308](https://github.com/QubesOS/qubes-issues/issues/5308) for potential
+*See [#5308](https://github.com/QubesOS/qubes-issues/issues/5308) for pending
 changes to this policy.*
 
 We maintain only one set of documentation for Qubes OS. We do not maintain a
@@ -418,245 +425,7 @@ search results wouldn't be populated with out-of-date information.)
 For further discussion about version-specific documentation in Qubes, see
 [here](https://groups.google.com/d/topic/qubes-users/H9BZX4K9Ptk/discussion).
 
-## Style guidelines
-
-### Correct use of terminology
-
-Familiarize yourself with the terms defined in the [glossary](/doc/glossary/).
-Use these terms consistently and accurately throughout your writing.
-
-### Variables in commands
-
-Syntactically distinguish variables in commands. For example, this is
-ambiguous:
-
-    $ qvm-run --dispvm=disposable-template --service qubes.StartApp+xterm
-
-It should instead be:
-
-    $ qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+xterm
-
-Note that we syntactically distinguish variables in three ways:
-1. Surrounding them in angled brackets (`< >`)
-2. Using underscores (`_`) instead of spaces between words
-3. Using all capital letters
-
-We have observed that many novices make the mistake of typing the surrounding
-angled brackets (`< >`) on the command line, even after substituting the
-desired real value between them. Therefore, in documentation aimed at novices,
-we also recommend clarifying that the angled brackets should not be typed. This
-can be accomplished in one of several ways:
-- Explicitly say something like "without the angled brackets."
-- Provide an example command using real values that excludes the angled
-  brackets.
-- If you know that almost all users will want to use (or should use) a specific
-  command containing all real values and no variables, you might consider
-  providing exactly that command and forgoing the version with variables.
-  Novices may not realize which parts of the command they can substitute with
-  different values, but if you've correctly judged that they should use the
-  command you've provided as is, then this shouldn't matter.
-
-## Markdown conventions
-
-All the documentation is written in Markdown for maximum accessibility. When
-making contributions, please observe the following style conventions. If you're
-not familiar with Markdown syntax,
-[this](https://daringfireball.net/projects/markdown/) is a great resource.
-
-### Indentation
-
-Use spaces instead of tabs. Each indentation step should be exactly two (2)
-spaces.
-
-### HTML and CSS
-
-Do not write HTML inside Markdown documents (except in rare, unavoidable cases,
-such as alerts). In particular, never include HTML or CSS for styling,
-formatting, or white space control. That belongs in the (S)CSS files instead.
-
-### Image linking
-
-Link only to images in
-[qubes-attachment](https://github.com/QubesOS/qubes-attachment) (see
-[instructions above](#how-to-add-images)). Do not link to images on other
-websites.
-
-### Relative vs. absolute links
-
-Always use relative rather than absolute paths for internal website links. For
-example, use `/doc/doc-guidelines/` instead of
-`https://www.qubes-os.org/doc/doc-guidelines/`. Places where it's fine to use
-absolute URLs:
-- External links
-- URLs that appear inside code blocks (e.g., in comments and document
-  templates, and the plain text reproductions of [QSBs](/security/qsb/) and
-  [Canaries](/security/canary/)), since they're not hyperlinks
-- Git repo files like `README.md` and `CONTRIBUTING.md`, since they're not part
-  of the website itself but rather of the auxiliary infrastructure supporting
-  the website.
-
-This rule is important, because using absolute URLs for internal website links
-is known to break the following:
-- Serving the website offline
-- Website localization
-- Generating offline documentation
-- Automatically redirecting Tor Browser visitors to the correct page on the
-  onion service mirror.
-
-### Source formatting and syntax
-
-- Do not use `h1` headings (single `#` or `======` underline). These are
-  automatically generated from the `title:` line in the YAML frontmatter.
-
-- Use Atx-style headings: , `##h 2`, `### h3`, etc.
-
-- Use non-reference-style links like `[website](https://example.com/)`. Do
-  *not* use reference links like `[website][example]`, `[website][]` or
-  `[website]`.
-
-- If appropriate, make numerals in numbered lists match between Markdown source
-  and HTML output. (Rationale: In the event that a user is required to read the
-  Markdown source directly, this will make it easier to follow, e.g., numbered
-  steps in a set of instructions.)
-
-- When writing code blocks, use [syntax
-  highlighting](https://github.github.com/gfm/#info-string) where
-  [possible](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers)
-  and use `[...]` for anything omitted.
-
-- Use hanging indentations where appropriate.
-
-### Writing command-line examples
-
-When providing command line examples:
-- Tell the reader where to open a terminal (dom0 or a specific domU), and show
-  the command along with its output (if any) in a code block, e.g.:
-
-  ~~~markdown
-  Open a terminal in dom0 and run:
-  ```shell_session
-  $ cd test
-  $ echo Hello
-  Hello
-  ```
-  ~~~
-
-- Precede each command with the appropriate command prompt: At a minimum, the
-  prompt should contain a trailing `#` (for the user `root`) or `$` (for other
-  users) on Linux systems and `>` on Windows systems, respectively.
-
-- Don't try to add comments inside the code block. For example, *don't* do
-  this:
-
-   ~~~markdown
-   Open a terminal in dom0 and run:
-   ```shell_session
-   # Navigate to the new directory
-   $ cd test
-   # Generate a greeting
-   $ echo Hello
-   Hello
-   ```
-   ~~~
-
-   The `#` symbol preceding each comment is ambiguous with a root command
-   prompt. Instead, put your comments *outside* of the code block in normal
-   prose.
-
-### Line wrapping
-
-Hard wrap Markdown lines at 80 characters, unless the line can't be broken
-(e.g., code or a URL).
-
-## Coding conventions
-
-The following conventions apply to the website as a whole, including everything
-written in HTML, CSS, YAML, and Liquid. These conventions are intended to keep
-the codebase consistent when multiple collaborators are working on it. They
-should be understood as a practical set of rules for maintaining order in this
-specific codebase rather than as a statement of what is objectively right or
-good.
-
-### General practices
-
-- Use comments to indicate the purposes of different blocks of code. This makes
-  the file easier to understand and navigate.
-
-- Use descriptive variable names. Never use one or two letter variable names.
-  Avoid obscure abbreviations and made-up words.
-
-- In general, make it easy for others to read your code. Your future self will
-  thank you, and so will your collaborators!
-
-- [Don't Repeat Yourself
-  (DRY)!](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) Instead of
-  repeating the same block of code multiple times, abstract it out into a
-  separate file and `include` that file where you need it.
-
-### Whitespace
-
-- Always use spaces. Never use tabs.
-
-- Each indentation step should be exactly two (2) spaces.
-
-- Whenever you add an opening tag, indent the following line. (Exception: If
-  you open and close the tag on the same line, do not indent the following
-  line.)
-
-- Indent Liquid the same way as HTML.
-
-- In general, the starting columns of every adjacent pair of lines should be no
-  more than two spaces apart (example below).
-
-- No blank or empty lines. (Hint: When you feel you need one, add a comment on
-  that line instead.)
-
-#### Indentation example
-
-Here's an example that follows the indentation rules:
-
-{% raw %}
-```html
-<table>
-  <tr>
-    <th title="Anchor Link"><span class="fa fa-link"></span></th>
-    {% for item in secs.htmlsections[0].columns %}
-      <th>{{ item.title }}</th>
-    {% endfor %}
-  </tr>
-  {% for canary in site.data.sec-canary reversed %}
-    <tr id="{{ canary.canary }}">
-      <td><a href="#{{ canary.canary }}" class="fa fa-link black-icon" title="Anchor link to Qubes Canary row: Qubes Canary #{{ canary.canary }}"></a></td>
-      <td>{{ canary.date }}</td>
-      <td><a href="https://github.com/QubesOS/qubes-secpack/blob/master/canaries/canary-{{ canary.canary }}-{{ canary.date | date: '%Y' }}.txt">Qubes Canary #{{ canary.canary }}</a></td>
-    </tr>
-  {% endfor %}
-</table>
-```
-{% endraw %}
-
 ## Git conventions
 
-Please try to write good commit messages, according to the [instructions in our
-coding style guidelines](/doc/coding-style/#commit-message-guidelines).
-
-## Continuous Integration (CI)
-
-The following commands may be useful as a way to interact with our CI
-infrastructure. Note that special permissions may be required to use some of
-these commands. These commands are generally issued by adding a comment to a
-pull request (PR) containing only the command.
-
-- `PipelineRetry`: Attempts to run the entire build pipeline over again. This
-  can be useful if CI incorrectly uses a stale branch instead of testing the PR
-  as if it were merged into `master`.
-
-- `TestDeploy`: Deploys a test website, which is a live version of the Qubes
-  website as if this PR had been merged. This can be useful for previewing a PR
-  on a live public website. **Note:** You must wait for the site to finish
-  building before issuing this command, or else it will deploy an empty
-  website. To find the URL of the test website, look for text similar to "This
-  branch was successfully deployed" and a button named something like "View
-  deployment." Note that there are two different testing sites: `wwwtest` is
-  manually updated, whereas `wwwpreview` is managed by the `TestDeploy`
-  command.
+Please follow our [Git commit message
+guidelines](/doc/coding-style/#commit-message-guidelines).

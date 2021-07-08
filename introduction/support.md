@@ -124,7 +124,7 @@ contributions](/doc/code-signing/).
 For example, you might find it easier to trust advice from someone who has a
 proven track record of [contributing software
 packages](/doc/package-contributions/) or [contributing to the
-documentation](/doc/doc-guidelines/). It's unlikely that individuals who have
+documentation](/doc/how-to-edit-the-documentation/). It's unlikely that individuals who have
 worked hard to build good reputations for themselves through their
 contributions over the years would risk giving malicious advice in signed
 messages to public mailing lists. Since every contribution to the Qubes OS
@@ -217,7 +217,7 @@ not a discussion
 forum](/doc/issue-tracking/#the-issue-tracker-is-not-a-discussion-forum).)
 Likewise, if you see that something in the documentation should be changed,
 don't simply point it out in a discussion venue. Instead, [submit the
-change](/doc/doc-guidelines/).
+change](/doc/how-to-edit-the-documentation/).
 
 ### Moderation
 

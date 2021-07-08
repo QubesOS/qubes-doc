@@ -1,7 +1,9 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/style-guide/
+permalink: /doc/visual-style-guide/
+redirect_from:
+- /doc/style-guide/
 ref: 27
-title: Style Guide
+title: Visual Style Guide
 ---
