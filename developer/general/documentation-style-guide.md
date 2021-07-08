@@ -33,12 +33,19 @@ making contributions, please observe the following style conventions. If you're
 not familiar with Markdown syntax,
 [this](https://daringfireball.net/projects/markdown/) is a great resource.
 
+### Hyperlink syntax
+
+Use non-reference-style links like `[website](https://example.com/)`. Do *not*
+use reference-style links like `[website][example]`, `[website][]` or
+`[website]`. This facilitates the localization process.
+
 ### Relative vs. absolute links
 
 Always use relative rather than absolute paths for internal website links. For
 example, use `/doc/documentation-style-guide/` instead of
-`https://www.qubes-os.org/doc/documentation-style-guide/`. You may use absolute
-URLs in the following cases:
+`https://www.qubes-os.org/doc/documentation-style-guide/`.
+
+You may use absolute URLs in the following cases:
 
 - External links
 - URLs that appear inside code blocks (e.g., in comments and document
@@ -79,12 +86,6 @@ automatically generated from the `title:` line in the YAML frontmatter.
 Use Atx-style syntax for headings: `##h 2`, `### h3`, etc. Do not use
 underlining syntax (`-----`).
 
-### Hyperlink syntax
-
-Use non-reference-style links like `[website](https://example.com/)`. Do *not*
-use reference-style links like `[website][example]`, `[website][]` or
-`[website]`. This facilitates the localization process.
-
 ### Indentation
 
 Use spaces instead of tabs. Use hanging indentations where appropriate.
@@ -116,11 +117,11 @@ Use these terms consistently and accurately throughout your writing.
 
 ### Sentence case in headings
 
-**Note:** We're looking for help with converting all page titles from title
+_**Note:** We're looking for help with converting all page titles from title
 case to sentence case in accordance with this convention. See
 [#6769](https://github.com/QubesOS/qubes-issues/issues/6769). In the meantime,
 please continue to use title case in page titles only to maintain consistency
-until a mass conversion can be performed.
+until a mass conversion can be performed._
 
 Use sentence case (rather than title case) in headings for the reasons
 explained
@@ -265,20 +266,21 @@ involved in *maintaining* documentation after it has been written. They may
 wish to write documentation and submit it to the core docs, but they see only
 their own writing process and fail to consider that it will have to be kept
 up-to-date and consistent with the rest of the docs for years afterward.
-Submissions to the core docs also have to go through a review process to ensure
-accuracy before being merged (see [security](#security)), which takes up
-valuable time from the team. We aim to maintain high quality standards for the
-core docs (style and mechanics, formatting), which also takes up a lot of time.
-If the documentation involves anything external to the Qubes OS Project (such
-as a website, platform, program, protocol, framework, practice, or even a
-reference to a version number), the documentation is likely to become outdated
-when that external thing changes. It's also important to periodically review
-and update this documentation, especially when a new Qubes release comes out.
-Periodically, there may be technical or policy changes that affect all the core
-documentation. The more documentation there is relative to maintainers, the
-harder all of this will be. Since there are many more people who are willing to
-write documentation than to maintain it, these individually small incremental
-additions amount to a significant maintenance burden for the project.
+Submissions to the core docs also have to [undergo a review
+process](/doc/how-to-edit-the-documentation#security) to ensure accuracy before
+being merged, which takes up valuable time from the team. We aim to maintain
+high quality standards for the core docs (style and mechanics, formatting),
+which also takes up a lot of time. If the documentation involves anything
+external to the Qubes OS Project (such as a website, platform, program,
+protocol, framework, practice, or even a reference to a version number), the
+documentation is likely to become outdated when that external thing changes.
+It's also important to periodically review and update this documentation,
+especially when a new Qubes release comes out. Periodically, there may be
+technical or policy changes that affect all the core documentation. The more
+documentation there is relative to maintainers, the harder all of this will be.
+Since there are many more people who are willing to write documentation than to
+maintain it, these individually small incremental additions amount to a
+significant maintenance burden for the project.
 
 On the positive side, we consider the existence of community documentation to
 be a sign of a healthy ecosystem, and this is quite common in the software
