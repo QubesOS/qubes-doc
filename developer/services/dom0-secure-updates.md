@@ -7,7 +7,7 @@ redirect_from:
 - /doc/Dom0SecureUpdates/
 - /wiki/Dom0SecureUpdates/
 ref: 43
-title: Dom0 Secure Updates
+title: Dom0 secure updates
 ---
 
 Reasons for Dom0 updates

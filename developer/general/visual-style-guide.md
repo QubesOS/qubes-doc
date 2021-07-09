@@ -5,5 +5,5 @@ permalink: /doc/visual-style-guide/
 redirect_from:
 - /doc/style-guide/
 ref: 27
-title: Visual Style Guide
+title: Visual style guide
 ---

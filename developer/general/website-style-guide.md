@@ -2,7 +2,7 @@
 lang: en
 layout: doc
 permalink: /doc/website-style-guide/
-title: Website Style Guide
+title: Website style guide
 ---
 
 This page explains the standards we follow for building and maintaining the

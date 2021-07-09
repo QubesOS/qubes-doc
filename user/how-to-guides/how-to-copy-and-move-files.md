@@ -8,7 +8,7 @@ redirect_from:
 - /doc/CopyingFiles/
 - /wiki/CopyingFiles/
 ref: 191
-title: How to Copy and Move Files
+title: How to copy and move files
 ---
 
 *This page is about copying and moving files.

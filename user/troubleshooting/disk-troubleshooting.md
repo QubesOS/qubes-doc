@@ -8,7 +8,7 @@ redirect_from:
 - /wiki/OutOfmemory/
 - /doc/out-of-memory/
 ref: 231
-title: Disk Troubleshooting
+title: Disk troubleshooting
 ---
 
 ## "Out of disk space" error ##

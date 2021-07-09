@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/installation-troubleshooting/
 ref: 224
-title: Installation Troubleshooting
+title: Installation troubleshooting
 ---
 
 ## "An unknown error has occurred" error during installation 

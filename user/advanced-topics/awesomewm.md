@@ -6,7 +6,7 @@ redirect_from:
 - /doc/awesome/
 - /en/doc/awesome/
 ref: 179
-title: AwesomeWM (window manager)
+title: Awesomewm (window manager)
 ---
 
 ## Qubes-specific features

@@ -8,7 +8,7 @@ redirect_from:
 - /doc/FullScreenMode/
 - /wiki/FullScreenMode/
 ref: 205
-title: How to Enter Fullscreen Mode
+title: How to enter fullscreen mode
 ---
 
 What is fullscreen mode?

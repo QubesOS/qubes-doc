@@ -8,7 +8,7 @@ redirect_from:
 - /wiki/SecurityCriticalCode/
 - /trac/wiki/SecurityCriticalCode/
 ref: 55
-title: Security-Critical Code
+title: Security-critical code
 ---
 
 Below is a list of security-critical (i.e., trusted) code components in Qubes OS.

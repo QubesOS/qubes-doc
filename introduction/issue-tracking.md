@@ -13,7 +13,7 @@ redirect_from:
 - /bug-report/
 - /bug-reports/
 ref: 121
-title: Issue Tracking
+title: Issue tracking
 ---
 
 We use [GitHub Issues](https://docs.github.com/en/issues) as our [issue

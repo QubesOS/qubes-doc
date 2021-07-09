@@ -5,7 +5,7 @@ permalink: /doc/bind-dirs/
 redirect_from:
 - /en/doc/bind-dirs/
 ref: 186
-title: How to Make Any File Persistent (bind-dirs)
+title: How to make any file persistent (bind-dirs)
 ---
 
 ## What are bind-dirs? ##

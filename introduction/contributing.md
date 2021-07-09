@@ -7,7 +7,7 @@ redirect_from:
 - /doc/ContributingHowto/
 - /wiki/ContributingHowto/
 ref: 125
-title: How to Contribute
+title: How to contribute
 ---
 
 Thank you for your interest in contributing to Qubes! Here are some of the many

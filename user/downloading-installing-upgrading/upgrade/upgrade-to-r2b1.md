@@ -7,7 +7,7 @@ redirect_from:
 - /doc/UpgradeToR2B1/
 - /wiki/UpgradeToR2B1/
 ref: 163
-title: Upgrading to R2B1
+title: Upgrading to r2b1
 ---
 
 **Note: Qubes R2 Beta 1 is no longer supported! Please install or upgrade to a newer Qubes R2.**

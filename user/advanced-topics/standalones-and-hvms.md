@@ -11,7 +11,7 @@ redirect_from:
 - /doc/HvmCreate/
 - /wiki/HvmCreate/
 ref: 130
-title: Standalones and HVMs
+title: Standalones and hvms
 ---
 
 A [standalone](/doc/glossary/#standalone) is a type of qube that is created by

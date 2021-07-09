@@ -12,7 +12,7 @@ redirect_from:
 - /doc/QubesLists/
 - /wiki/QubesLists/
 ref: 122
-title: Help, Support, Mailing Lists, and Forum
+title: Help, support, mailing lists, and forum
 ---
 
 The Qubes community is here to help! Since Qubes is a security-oriented

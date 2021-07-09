@@ -13,7 +13,7 @@ redirect_from:
 - /doc/UserDoc/OpenPGP/
 - /wiki/UserDoc/OpenPGP/
 ref: 168
-title: Split GPG
+title: Split gpg
 ---
 
 Split GPG implements a concept similar to having a smart card with your private GPG keys, except that the role of the "smart card" is played by another Qubes app qube.

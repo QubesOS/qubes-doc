@@ -7,7 +7,7 @@ redirect_from:
 - /doc/QubesBuilderDetails/
 - /wiki/QubesBuilderDetails/
 ref: 65
-title: Qubes Builder Details
+title: Qubes builder details
 ---
 
 Components Makefile.builder file

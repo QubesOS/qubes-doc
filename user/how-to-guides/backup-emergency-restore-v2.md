@@ -6,7 +6,7 @@ redirect_from:
 - /en/doc/backup-emergency-restore-v2/
 - /doc/BackupEmergencyRestoreV2/
 ref: 207
-title: Emergency Backup Recovery (v2)
+title: Emergency backup recovery (v2)
 ---
 
 This page describes how to perform emergency restore of backup created on Qubes

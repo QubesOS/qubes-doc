@@ -8,7 +8,7 @@ redirect_from:
 - /doc/UpgradeToR2rc1/
 - /wiki/UpgradeToR2rc1/
 ref: 156
-title: Upgrading to R2
+title: Upgrading to r2
 ---
 
 Current Qubes R2 Beta 3 (R2B3) systems can be upgraded in-place to the latest R2 (R2) release by following the procedure below.

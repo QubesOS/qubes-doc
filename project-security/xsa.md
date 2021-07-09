@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /security/xsa/
 ref: 214
-title: Xen Security Advisory (XSA) Tracker
+title: Xen security advisory (xsa) tracker
 ---
 
 This tracker shows whether Qubes OS is affected by any given [Xen Security

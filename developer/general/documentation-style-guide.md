@@ -8,7 +8,7 @@ redirect_from:
 - /wiki/DocStyle/
 - /doc/DocStyle/
 ref: 30
-title: Documentation Style Guide
+title: Documentation style guide
 ---
 
 Qubes OS documentation pages are stored as plain text Markdown files in the

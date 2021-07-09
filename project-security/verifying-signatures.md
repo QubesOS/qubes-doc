@@ -8,7 +8,7 @@ redirect_from:
 - /doc/VerifyingSignatures/
 - /wiki/VerifyingSignatures/
 ref: 211
-title: Verifying Signatures
+title: Verifying signatures
 ---
 
 ## What Digital Signatures Can and Cannot Prove

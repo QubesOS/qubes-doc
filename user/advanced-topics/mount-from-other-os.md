@@ -7,7 +7,7 @@ redirect_from:
 - /doc/MountFromOtherOs/
 - /wiki/MountFromOtherOs/
 ref: 175
-title: How to Mount a Qubes Partition from Another OS
+title: How to mount a qubes partition from another os
 ---
 
 When a Qubes OS install is unbootable or booting it is otherwise undesirable, this process allows for the recovery of files stored within the system.

@@ -9,7 +9,7 @@ redirect_from:
 - /doc/ExternalDeviceMountPoint/
 - /wiki/ExternalDeviceMountPoint/
 ref: 188
-title: How to Use Devices
+title: How to use devices
 ---
 
 This is an overview of device handling in Qubes OS.

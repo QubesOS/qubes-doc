@@ -7,7 +7,7 @@ redirect_from:
 - /doc/UpgradeToR3.1/
 - /doc/UpgradeToR3.1rc1/
 ref: 155
-title: Upgrading to R3.1
+title: Upgrading to r3.1
 ---
 
 **Before attempting either an in-place upgrade or a clean installation, we

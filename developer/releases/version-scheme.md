@@ -7,7 +7,7 @@ redirect_from:
 - /doc/VersionScheme/
 - /wiki/VersionScheme/
 ref: 151
-title: Version Scheme
+title: Version scheme
 ---
 
 Beginning with R3 release, we change (and formalise) the versioning scheme.

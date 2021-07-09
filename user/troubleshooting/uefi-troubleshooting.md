@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/uefi-troubleshooting/
 ref: 177
-title: UEFI Troubleshooting
+title: Uefi troubleshooting
 ---
 
 ## Successfully installed in legacy mode, but had to change some kernel parameters

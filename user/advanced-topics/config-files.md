@@ -8,7 +8,7 @@ redirect_from:
 - /doc/UserDoc/ConfigFiles/
 - /wiki/UserDoc/ConfigFiles/
 ref: 180
-title: Config Files
+title: Config files
 ---
 
 Qubes-specific VM config files

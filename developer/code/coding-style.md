@@ -8,7 +8,7 @@ redirect_from:
 - /wiki/CodingStyle/
 - /trac/wiki/CodingStyle/
 ref: 53
-title: Coding Style
+title: Coding style
 ---
 
 Rationale

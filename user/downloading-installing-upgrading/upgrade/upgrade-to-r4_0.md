@@ -7,7 +7,7 @@ redirect_from:
 - /doc/UpgradeToR4.0/
 - /doc/UpgradeToR4.0rc1/
 ref: 162
-title: Upgrading to R4.0
+title: Upgrading to r4.0
 ---
 
 **Before attempting either an in-place upgrade or a clean installation, we strongly recommend that users [back up their systems](/doc/backup-restore/).**

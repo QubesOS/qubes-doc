@@ -7,7 +7,7 @@ redirect_from:
 - /doc/DevelopmentWorkflow/
 - /wiki/DevelopmentWorkflow/
 ref: 66
-title: Development Workflow
+title: Development workflow
 ---
 
 A workflow for developing Qubes OS+

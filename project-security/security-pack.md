@@ -15,7 +15,7 @@ redirect_from:
 - /doc/sec-pack/
 - /doc/secpack/
 ref: 213
-title: Qubes Security Pack (qubes-secpack)
+title: Qubes security pack (qubes-secpack)
 ---
 
 The **Qubes Security Pack** (`qubes-secpack`) is a Git repository that
