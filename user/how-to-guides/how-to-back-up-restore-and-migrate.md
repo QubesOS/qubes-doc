@@ -8,7 +8,7 @@ redirect_from:
 - /doc/BackupRestore/
 - /wiki/BackupRestore/
 ref: 199
-title: How to Back Up, Restore, and Migrate
+title: How to back up, restore, and migrate
 ---
 
 With Qubes, it's easy and secure to back up and restore your whole system, as

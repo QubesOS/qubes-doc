@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /code-of-conduct/
 ref: 118
-title: Code of Conduct
+title: Code of conduct
 ---
 
 ## Introduction

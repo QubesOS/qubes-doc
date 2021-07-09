@@ -16,7 +16,7 @@ redirect_from:
 - /doc/InstallationGuideR3.0rc2/
 - /doc/live-usb/
 ref: 153
-title: Installation Guide
+title: Installation guide
 ---
 
 Welcome to the Qubes OS installation guide! This guide will walk you through

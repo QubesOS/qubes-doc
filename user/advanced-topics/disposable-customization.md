@@ -10,7 +10,7 @@ redirect_from:
 - /doc/UserDoc/DispVMCustomization/
 - /wiki/UserDoc/DispVMCustomization/
 ref: 174
-title: Disposable Customization
+title: Disposable customization
 ---
 
 ## Introduction

@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/upgrade/
 ref: 158
-title: Upgrade Guides
+title: Upgrade guides
 ---
 
 These guides are for upgrading from one version of Qubes to another.

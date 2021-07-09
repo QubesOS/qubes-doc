@@ -5,7 +5,7 @@ permalink: /doc/releases/4.0/schedule/
 redirect_from:
 - /en/doc/releases/4.0/schedule/
 ref: 24
-title: Qubes R4.0 Release Schedule
+title: Qubes r4.0 release schedule
 ---
 
 This schedule is based on [Version Scheme](/doc/version-scheme/#release-schedule).

@@ -5,7 +5,7 @@ permalink: /doc/how-to-update/
 redirect_from:
 - /doc/updating-qubes-os/
 ref: 200
-title: How to Update
+title: How to update
 ---
 
 *This page is about updating your system while staying on the same [supported

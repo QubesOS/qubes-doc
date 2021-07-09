@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/code-signing/
 ref: 51
-title: Code Signing
+title: Code signing
 ---
 
 All contributions to the Qubes OS [source code](/doc/source-code/) must be cryptographically signed by the author's PGP key.

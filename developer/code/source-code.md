@@ -7,7 +7,7 @@ redirect_from:
 - /doc/SourceCode/
 - /wiki/SourceCode/
 ref: 54
-title: Source Code
+title: Source code
 ---
 
 All the Qubes code is kept in Git repositories. We have divided the project into

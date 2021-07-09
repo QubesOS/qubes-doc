@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/supported-versions/
 ref: 154
-title: Supported Versions
+title: Supported versions
 ---
 
 This page details the level and period of support for versions of operating

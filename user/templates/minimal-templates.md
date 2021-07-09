@@ -11,7 +11,7 @@ redirect_from:
 - /wiki/Templates/FedoraMinimal/
 - /doc/templates/debian-minimal/
 ref: 132
-title: Minimal Templates
+title: Minimal templates
 ---
 
 The minimal [templates](/doc/templates/) are lightweight versions of their

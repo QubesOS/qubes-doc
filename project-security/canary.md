@@ -6,7 +6,7 @@ redirect_from:
 - /security/canaries/
 - /doc/canaries/
 ref: 208
-title: Qubes Canaries
+title: Qubes canaries
 ---
 
 A **Qubes Canary** is a security announcement periodically issued by the [Qubes

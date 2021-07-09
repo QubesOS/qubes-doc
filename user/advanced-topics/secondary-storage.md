@@ -7,7 +7,7 @@ redirect_from:
 - /doc/SecondaryStorage/
 - /wiki/SecondaryStorage/
 ref: 187
-title: Secondary Storage
+title: Secondary storage
 ---
 
 Suppose you have a fast but small primary SSD and a large but slow secondary HDD.

@@ -9,7 +9,7 @@ redirect_from:
 - /doc/AssigningDevices/
 - /wiki/AssigningDevices/
 ref: 197
-title: How to Use PCI Devices
+title: How to use pci devices
 ---
 
 *This page is part of [device handling in qubes](/doc/how-to-use-devices/).*

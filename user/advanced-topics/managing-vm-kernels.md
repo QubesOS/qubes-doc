@@ -6,7 +6,7 @@ redirect_from:
 - /doc/managing-vm-kernel/
 - /en/doc/managing-vm-kernel/
 ref: 173
-title: Managing VM Kernels
+title: Managing vm kernels
 ---
 
 By default, VMs kernels are provided by dom0.

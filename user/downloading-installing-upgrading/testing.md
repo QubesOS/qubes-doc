@@ -4,7 +4,7 @@ lang: en
 layout: doc
 permalink: /doc/testing/
 ref: 147
-title: Testing New Releases and Updates
+title: Testing new releases and updates
 ---
 
 Testing new Qubes OS releases and updates is one of the most helpful ways in

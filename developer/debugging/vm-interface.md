@@ -8,7 +8,7 @@ redirect_from:
 - /doc/SystemDoc/VMInterface/
 - /wiki/SystemDoc/VMInterface/
 ref: 47
-title: VM Configuration Interface
+title: Vm configuration interface
 ---
 
 Qubes VM have some settings set by dom0 based on VM settings. There are multiple configuration channels, which includes:

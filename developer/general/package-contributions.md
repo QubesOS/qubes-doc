@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/package-contributions/
 ref: 29
-title: Package Contributions
+title: Package contributions
 ---
 
 _This page is for developers who wish to contribute packages.

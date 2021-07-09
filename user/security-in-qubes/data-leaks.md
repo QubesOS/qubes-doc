@@ -7,7 +7,7 @@ redirect_from:
 - /doc/DataLeaks/
 - /wiki/DataLeaks/
 ref: 171
-title: Data Leaks
+title: Data leaks
 ---
 
 The Role of the Firewall

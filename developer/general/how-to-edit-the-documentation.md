@@ -2,7 +2,7 @@
 lang: en
 layout: doc
 permalink: /doc/how-to-edit-the-documentation/
-title: How to Edit the Documentation
+title: How to edit the documentation
 ---
 
 Qubes OS documentation pages are stored as plain text Markdown files in the

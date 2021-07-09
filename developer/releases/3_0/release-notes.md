@@ -5,7 +5,7 @@ permalink: /doc/releases/3.0/release-notes/
 redirect_from:
 - /en/doc/releases/3.0/release-notes/
 ref: 19
-title: Qubes R3.0 Release Notes
+title: Qubes r3.0 release notes
 ---
 
 ### Qubes R3.0 Release Notes

@@ -7,7 +7,7 @@ redirect_from:
 - /doc/QubesLicensing/
 - /wiki/QubesLicensing/
 ref: 52
-title: Software License
+title: Software license
 ---
 
 Qubes OS is a compilation of software packages, each under its own license. The

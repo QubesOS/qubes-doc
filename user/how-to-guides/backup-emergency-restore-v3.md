@@ -6,7 +6,7 @@ redirect_from:
 - /en/doc/backup-emergency-restore-v3/
 - /doc/BackupEmergencyRestoreV3/
 ref: 201
-title: Emergency Backup Recovery (v3)
+title: Emergency backup recovery (v3)
 ---
 
 This page describes how to perform an emergency restore of a backup created on

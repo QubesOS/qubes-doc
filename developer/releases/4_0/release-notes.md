@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/releases/4.0/release-notes/
 ref: 23
-title: Qubes R4.0 release notes
+title: Qubes r4.0 release notes
 ---
 
 New features since 3.2
