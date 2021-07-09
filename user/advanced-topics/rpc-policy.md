@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/rpc-policy/
 ref: 178
-title: Rpc policies
+title: RPC policies
 ---
 
 This document explains the basics of RPC policies in Qubes.

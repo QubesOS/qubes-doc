@@ -7,7 +7,7 @@ redirect_from:
 - /doc/UpgradeToR2B2/
 - /wiki/UpgradeToR2B2/
 ref: 160
-title: Upgrading to r2b2
+title: Upgrading to R2B2
 ---
 
 Existing users of Qubes R1 (but not R1 betas!) can upgrade their systems to the latest R2 beta release by following the procedure below. As usual, it is advisable to backup the system before proceeding with the upgrade. While it is possible to upgrade the system **it is strongly recommended to reinstall it**. You will preserve all your data and settings thanks to [backup and restore tools](/doc/backup-restore/).

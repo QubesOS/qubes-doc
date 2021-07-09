@@ -7,7 +7,7 @@ redirect_from:
 - /en/doc/yubi-key/
 - /doc/YubiKey/
 ref: 169
-title: Yubikey
+title: YubiKey
 ---
 
 You can use a YubiKey to enhance Qubes user authentication, for example to mitigate risk of someone snooping the password.

@@ -8,5 +8,5 @@ redirect_from:
 - /wiki/LinuxHVMTips/
 redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/os/linux-hvm-tips.md
 ref: 82
-title: Linux hvm tips
+title: Linux HVM tips
 ---

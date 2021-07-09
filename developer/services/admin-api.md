@@ -9,7 +9,7 @@ redirect_from:
 - /doc/mgmt-architecture/
 - /doc/admin-api-architecture/
 ref: 36
-title: Admin api
+title: Admin API
 ---
 
 _You may also be interested in the article

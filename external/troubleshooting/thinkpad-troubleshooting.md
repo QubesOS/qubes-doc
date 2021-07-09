@@ -13,5 +13,5 @@ redirect_from:
 - /wiki/Lenovo450Tinkering/
 redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/thinkpad-troubleshooting.md
 ref: 95
-title: Lenovo thinkpad troubleshooting
+title: Lenovo ThinkPad troubleshooting
 ---

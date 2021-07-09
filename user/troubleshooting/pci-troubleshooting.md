@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/pci-troubleshooting/
 ref: 230
-title: Pci troubleshooting
+title: PCI troubleshooting
 ---
 
 ## DMA errors

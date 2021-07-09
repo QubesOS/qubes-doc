@@ -5,7 +5,7 @@ permalink: /doc/releases/3.2/schedule/
 redirect_from:
 - /en/doc/releases/3.2/schedule/
 ref: 22
-title: Qubes r3.2 release schedule
+title: Qubes R3.2 release schedule
 ---
 
 This schedule is based on [Version Scheme](/doc/version-scheme/#release-schedule).

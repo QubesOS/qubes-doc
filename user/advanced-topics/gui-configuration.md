@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/gui-configuration/
 ref: 184
-title: Gui configuration
+title: GUI configuration
 ---
 
 ## Video RAM adjustment for high-resolution displays

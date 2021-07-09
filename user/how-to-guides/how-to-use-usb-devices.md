@@ -6,7 +6,7 @@ redirect_from:
 - /doc/usb-devices/
 - /doc/usb/
 ref: 195
-title: How to use usb devices
+title: How to use USB devices
 ---
 
 *This page is part of [device handling in qubes](/doc/how-to-use-devices/).*

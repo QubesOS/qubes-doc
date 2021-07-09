@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/usb-troubleshooting/
 ref: 234
-title: Usb troubleshooting
+title: USB troubleshooting
 ---
 
 ## disp-sys-usb does not start

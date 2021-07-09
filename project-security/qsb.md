@@ -10,7 +10,7 @@ redirect_from:
 - /wiki/SecurityBulletins/
 - /trac/wiki/SecurityBulletins/
 ref: 218
-title: Qubes security bulletins (qsbs)
+title: Qubes security bulletins (QSBs)
 ---
 
 A **Qubes Security Bulletin (QSB)** is a security announcement issued by the

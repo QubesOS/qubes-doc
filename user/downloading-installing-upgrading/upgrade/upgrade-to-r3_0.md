@@ -7,7 +7,7 @@ redirect_from:
 - /doc/UpgradeToR3.0/
 - /doc/UpgradeToR3.0rc1/
 ref: 159
-title: Upgrading to r3.0
+title: Upgrading to R3.0
 ---
 
 **This instruction is highly experimental, the official way to upgrade from R2 is to backup the data and reinstall the system. Use at your own risk!**

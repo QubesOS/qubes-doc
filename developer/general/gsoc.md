@@ -5,7 +5,7 @@ permalink: /gsoc/
 redirect_from:
 - /GSoC/
 ref: 33
-title: Google summer of code
+title: Google Summer of Code (GSoC)
 ---
 
 ## Information for Students

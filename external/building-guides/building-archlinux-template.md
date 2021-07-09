@@ -8,5 +8,5 @@ redirect_from:
 - /wiki/BuildingArchlinuxTemplate/
 redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/building/building-archlinux-template.md
 ref: 116
-title: Building archlinux template
+title: Building Arch Linux template
 ---

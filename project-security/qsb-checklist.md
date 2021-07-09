@@ -6,7 +6,7 @@ redirect_from:
 - /security/bulletins/checklist/
 - /doc/security-bulletins/checklist/
 ref: 215
-title: Qubes security bulletin (qsb) checklist
+title: Qubes security bulletin (QSB) checklist
 ---
 
 ## Preparation

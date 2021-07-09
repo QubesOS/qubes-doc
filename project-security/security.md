@@ -13,7 +13,7 @@ redirect_from:
 - /wiki/SecurityPage/
 - /trac/wiki/SecurityPage/
 ref: 217
-title: Qubes os project security center
+title: Qubes OS project security center
 ---
 
 This page provides a central hub for topics pertaining to the security of the

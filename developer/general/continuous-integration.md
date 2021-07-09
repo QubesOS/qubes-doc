@@ -2,7 +2,7 @@
 lang: en
 layout: doc
 permalink: /doc/continuous-integration/
-title: Continuous integration (ci)
+title: Continuous integration (CI)
 ---
 
 This page explains the [continuous integration

@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/gui-troubleshooting/
 ref: 233
-title: Gui troubleshooting
+title: GUI troubleshooting
 ---
 
 ## Can't click on anything after connecting 4k external display

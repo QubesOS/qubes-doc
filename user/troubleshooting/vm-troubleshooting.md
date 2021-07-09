@@ -5,7 +5,7 @@ permalink: /doc/vm-troubleshooting/
 redirect_from:
 - /doc/remove-vm-manually/
 ref: 223
-title: Vm troubleshooting
+title: Qube troubleshooting
 ---
 
 ## VM Kernel troubleshooting

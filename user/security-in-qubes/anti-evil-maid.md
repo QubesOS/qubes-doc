@@ -7,7 +7,7 @@ redirect_from:
 - /doc/AntiEvilMaid/
 - /wiki/AntiEvilMaid/
 ref: 164
-title: Anti evil maid (aem)
+title: Anti evil maid (AEM)
 ---
 
 Background

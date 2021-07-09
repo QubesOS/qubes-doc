@@ -8,5 +8,5 @@ redirect_from:
 - /wiki/SonyVaioTinkering/
 redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/sony-vaio-tinkering.md
 ref: 93
-title: Sony vaio tinkering
+title: Sony Vaio tinkering
 ---
