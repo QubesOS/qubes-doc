@@ -55,7 +55,7 @@ You may use absolute URLs in the following cases:
   [Canaries](/security/canary/)), since they're not hyperlinks
 - Git repo files like `README.md` and `CONTRIBUTING.md`, since they're not part
   of the website itself but rather of the auxiliary infrastructure supporting
-  the website.
+  the website
 
 This rule is important because using absolute URLs for internal website links
 breaks:
