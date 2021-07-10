@@ -11,6 +11,8 @@ ref: 30
 title: Documentation style guide
 ---
 
+_Also see [how to edit the documentation](/doc/how-to-edit-the-documentation/)._
+
 Qubes OS documentation pages are stored as plain text Markdown files in the
 [qubes-doc](https://github.com/QubesOS/qubes-doc) repository. By cloning and
 regularly pulling from this repo, users can maintain their own up-to-date
