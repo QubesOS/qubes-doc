@@ -33,7 +33,8 @@ functional and secure.
   <b>Warning:</b> Qubes has no control over what happens on your computer
   before you install it. No software can provide security if it is installed on
   compromised hardware. Do not install Qubes on a computer you don't trust.
-  See <a href="/doc/install-security/">installation security</a> for more information.
+  See <a href="/doc/install-security/">installation security</a> for more
+  information.
 </div>
 
 Qubes OS has very specific [system requirements](/doc/system-requirements/). To
@@ -44,16 +45,17 @@ significant troubleshooting. You may also find it helpful to consult the
 
 Even on supported hardware, you must ensure that [IOMMU-based
 virtualization](https://en.wikipedia.org/wiki/Input%E2%80%93output_memory_management_unit#Virtualization)
-is activated in the BIOS. Without it, Qubes OS won't be able to enforce
+is activated in the BIOS or UEFI. Without it, Qubes OS won't be able to enforce
 isolation. For Intel-based boards, this setting is called Intel Virtualization
 for Directed I/O (**Intel VT-d**) and for AMD-based boards, it is called  AMD
 I/O Virtualization Technology (or simply **AMD-Vi**). This parameter should be
-activated in your computer's BIOS, alongside the standard Virtualization
-(**Intel VT-x**) and AMD Virtualization (**AMD-V**) extensions. This [external
+activated in your computer's BIOS or UEFI, alongside the standard
+Virtualization (**Intel VT-x**) and AMD Virtualization (**AMD-V**) extensions.
+This [external
 guide](https://web.archive.org/web/20200112220913/https://www.intel.in/content/www/in/en/support/articles/000007139/server-products.html)
-made for Intel-based boards can help you figure out how to enter your BIOS to
-locate and activate those settings. If those settings are not nested under the
-Advanced tab, you might find them under the Security tab.
+made for Intel-based boards can help you figure out how to enter your BIOS or
+UEFI to locate and activate those settings. If those settings are not nested
+under the Advanced tab, you might find them under the Security tab.
 
 <div class="alert alert-warning" role="alert">
   <i class="fa fa-exclamation-circle"></i>
@@ -117,9 +119,9 @@ mode (*after* selecting the Qubes ISO):
   without MediaTest, which is not recommended.
 </div>
 
-![Rufus menu](/attachment/doc/rufus-menu.png)
+[![Rufus menu](/attachment/doc/rufus-menu.png)](/attachment/doc/rufus-menu.png)
 
-![Rufus DD image mode](/attachment/doc/rufus-dd-image-mode.png)
+[![Rufus DD image mode](/attachment/doc/rufus-dd-image-mode.png)](/attachment/doc/rufus-dd-image-mode.png)
 
 If you are an advanced user, and you would like to customize your installation,
 please see [custom installation](/doc/custom-install/). Otherwise, follow the
@@ -132,12 +134,59 @@ settings.
 
 ### Getting to the boot screen
 
-Just after you power on your machine, make the Qubes OS medium available to the
-computer by inserting your DVD or USB drive. Shortly after the Power-on
-self-test (POST) is completed, you should be greeted with the Qubes OS boot
-screen. 
+"Booting" is the process of starting your computer. When a computer boots up,
+it first runs low-level software before the main operating system. Depending on
+the computer, this low-level software is may be called the
+["BIOS"](https://en.wikipedia.org/wiki/BIOS) or
+["UEFI"](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface).
 
-![Boot screen](/attachment/doc/boot-screen.png)
+Since you're installing Qubes OS, you'll need to access your computer's BIOS or
+UEFI menu so that you can tell it to boot from the USB drive to which you just
+copied the Qubes installer ISO.
+
+To begin, power off your computer and plug the USB drive into a USB port, but
+don't press the power button yet. Right after you press the power button,
+you'll have to immediately press a specific key to enter the BIOS or UEFI menu.
+The key to press varies from brand to brand. `Esc`, `Del`, and `F10` are common
+ones. If you're not sure, you can search the web for `<COMPUTER_MODEL> BIOS
+key` or `<COMPUTER_MODEL> UEFI key` (replacing `<COMPUTER_MODEL>` with your
+specific computer model) or look it up in your computer's manual.
+
+Once you know the key to press, press your computer's power button, then
+repeatedly press that key until you've entered your computer's BIOS or UEFI
+menu. To give you and idea of what you should be looking for, we've provided a
+couple of example photos below.
+
+Here's an example of what the BIOS menu looks like on a ThinkPad T430:
+
+[![ThinkPad T430 BIOS menu](/attachment/doc/Thinkpad-t430-bios-main.jpg)](/attachment/doc/Thinkpad-t430-bios-main.jpg)
+
+And here's an example of what a UEFI menu looks like:
+
+[![UEFI menu](/attachment/doc/uefi.jpeg)](/attachment/doc/uefi.jpeg)
+
+Once you access your computer's BIOS or UEFI menu, you'll want to go to the
+"boot menu," which is where you tell your computer which devices to boot from.
+The goal is to tell the computer to boot from your USB drive so that you can
+run the Qubes installer. If your boot menu lets you select which device to boot
+from first, simply select your USB drive. (If you have multiple entries that
+all look similar to your USB drive, and you're not sure which one is correct,
+one option is just to try each one until it works.) If, on the other hand, your
+boot menu presents you with a list of boot devices in order, then you'll want
+to move your USB drive to the top so that the Qubes installer runs before
+anything else.
+
+Once you're done on the boot menu, save your changes. How you do this depends
+on your BIOS or UEFI, but the instructions should be displayed right there on
+the screen or in a nearby tab. (If you're not sure whether you've saved your
+changes correctly, you can always reboot your computer and go back into the
+boot menu to check whether it still reflects your changes.) Once your BIOS or
+UEFI is configured the way you want it, reboot your computer. This time, don't
+press any special keys. Instead, let the BIOS or UEFI load and let your
+computer boot from your USB drive. If you're successful in this step, after a
+few seconds you'll be presented with the Qubes installer screen:
+
+[![Boot screen](/attachment/doc/boot-screen.png)](/attachment/doc/boot-screen.png)
 
 <div class="alert alert-info" role="alert">
   <i class="fa fa-info-circle"></i>
@@ -165,26 +214,20 @@ If **Windows 10** is installed on your machine, you may need to follow specific
 instructions to change the boot order. This may require an [advanced
 reboot](https://support.microsoft.com/en-us/help/4026206/windows-10-find-safe-mode-and-other-startup-settings).
 
-After the POST, you may have a chance to choose a boot device. You may wish to
-select the USB drive or DVD drive as a temporary boot option so that the next
-time you boot, your internal storage device will be selected first. 
-
-![Boot order](/attachment/doc/boot-order.png)
-
 ### The installer home screen
 
 On the first screen, you are asked to select the language that will be used
 during the installation process. When you are done, select **Continue**.
 
-![welcome](/attachment/doc/welcome-to-qubes-os-installation-screen.png)
+[![welcome](/attachment/doc/welcome-to-qubes-os-installation-screen.png)](/attachment/doc/welcome-to-qubes-os-installation-screen.png)
 
 Prior to the next screen, a compatibility test runs to check whether
 IOMMU-virtualization is active or not. If the test fails, a window will pop up. 
 
-![Unsupported hardware detected](/attachment/doc/unsupported-hardware-detected.png)
+[![Unsupported hardware detected](/attachment/doc/unsupported-hardware-detected.png)](/attachment/doc/unsupported-hardware-detected.png)
 
 Do not panic. It may simply indicate that IOMMU-virtualization hasn't been
-activated in the BIOS. Return to the [hardware
+activated in the BIOS or UEFI. Return to the [hardware
 requirements](#hardware-requirements) section to learn how to activate it. If
 the setting is not configured correctly, it means that your hardware won't be
 able to leverage some Qubes security features, such as a strict isolation of
@@ -211,7 +254,7 @@ The Installation summary screen allows you to change how the system will be
 installed and configured, including localization settings. At minimum, you are
 required to select the storage device on which Qubes OS will be installed. 
 
-![Installation summary not ready](/attachment/doc/installation-summary-not-ready.png)
+[![Installation summary not ready](/attachment/doc/installation-summary-not-ready.png)](/attachment/doc/installation-summary-not-ready.png)
 
 ### Localization
 
@@ -221,23 +264,23 @@ press "Add". If you want it be your default language, select the "German" entry
 in the list and press the arrow button. Click on "Done" in the upper left
 corner, and you're ready to go!
 
-![Keyboard layout selection](/attachment/doc/keyboard-layout-selection.png)
+[![Keyboard layout selection](/attachment/doc/keyboard-layout-selection.png)](/attachment/doc/keyboard-layout-selection.png)
 
 The process to select a new language is similar to the process to select a new
 keyboard layout. Follow the same process in the "Language Support" entry.
 
-![Language support selection](/attachment/doc/language-support-selection.png)
+[![Language support selection](/attachment/doc/language-support-selection.png)](/attachment/doc/language-support-selection.png)
 
 You can have as many keyboard layout and languages as you want. Post-install,
 you will be able to switch between them and install others. 
 
 Don't forget to select your time and date by clicking on the Time & Date entry.
 
-![Time and date](/attachment/doc/time-and-date.png)
+[![Time and date](/attachment/doc/time-and-date.png)](/attachment/doc/time-and-date.png)
 
 ### Software
 
-![Add-ons](/attachment/doc/add-ons.png)
+[![Add-ons](/attachment/doc/add-ons.png)](/attachment/doc/add-ons.png)
 
 On the software selection tab, you can choose which software to install in
 Qubes OS. Two options are available:
@@ -298,7 +341,7 @@ USB drive, just select the USB device as the target installation device. Bear
 in mind that the installation process is likely to take longer than it would on
 an internal storage device.
 
-![Select storage device](/attachment/doc/select-storage-device.png)
+[![Select storage device](/attachment/doc/select-storage-device.png)](/attachment/doc/select-storage-device.png)
 
 <div class="alert alert-success" role="alert">
   <i class="fa fa-check-circle"></i>
@@ -317,11 +360,11 @@ finished, press **Done**.
   recover it.
 </div>
 
-![Select storage passhprase](/attachment/doc/select-storage-passphrase.png)
+[![Select storage passhprase](/attachment/doc/select-storage-passphrase.png)](/attachment/doc/select-storage-passphrase.png)
 
 When you're ready, press **Begin Installation**.
 
-![Installation summary ready](/attachment/doc/installation-summary-ready.png)
+[![Installation summary ready](/attachment/doc/installation-summary-ready.png)](/attachment/doc/installation-summary-ready.png)
 
 ### Create your user account
 
@@ -334,7 +377,7 @@ Select **User Creation** to define a new user with administrator privileges and
 a password. Just as for the disk encryption, this password should be complex.
 The root account is deactivated and should remain as such.
 
-![Account name and password](/attachment/doc/account-name-and-password.png)
+[![Account name and password](/attachment/doc/account-name-and-password.png)](/attachment/doc/account-name-and-password.png)
 
 When the installation is complete, press **Reboot**. Don't forget to remove the
 installation medium, or else you may end up seeing the installer boot screen
@@ -347,24 +390,24 @@ again.
 If the installation was successful, you should now see the GRUB menu during the
 boot process.
 
-![Grub boot menu](/attachment/doc/grub-boot-menu.png)
+[![Grub boot menu](/attachment/doc/grub-boot-menu.png)](/attachment/doc/grub-boot-menu.png)
 
 Just after this screen, you will be asked to enter your encryption passphrase.
 
-![Unlock storage device screen](/attachment/doc/unlock-storage-device-screen.png)
+[![Unlock storage device screen](/attachment/doc/unlock-storage-device-screen.png)](/attachment/doc/unlock-storage-device-screen.png)
 
 ### Initial Setup
 
 You're almost done. Before you can start using Qubes OS, some configuration is
 needed. 
 
-![Initial setup menu](/attachment/doc/initial-setup-menu.png)
+[![Initial setup menu](/attachment/doc/initial-setup-menu.png)](/attachment/doc/initial-setup-menu.png)
 
 By default, the installer will create a number of qubes (depending on the
 options you selected during the installation process). These are designed to
 give you a more ready-to-use environment from the get-go.
 
-![Initial setup menu configuration](/attachment/doc/initial-setup-menu-configuration.png)
+[![Initial setup menu configuration](/attachment/doc/initial-setup-menu-configuration.png)](/attachment/doc/initial-setup-menu-configuration.png)
 
 Let's briefly go over the options:
 
@@ -399,11 +442,11 @@ system.
 After the configuration is done, you will be greeted by the login screen. Enter
 your password and log in.
 
-![Login screen](/attachment/doc/login-screen.png)
+[![Login screen](/attachment/doc/login-screen.png)](/attachment/doc/login-screen.png)
 
 Congratulations, you are now ready to use Qubes OS!
 
-![Desktop menu](/attachment/doc/desktop-menu.png)
+[![Desktop menu](/attachment/doc/desktop-menu.png)](/attachment/doc/desktop-menu.png)
 
 ## Next steps
 
