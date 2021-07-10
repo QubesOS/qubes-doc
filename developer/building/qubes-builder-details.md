@@ -50,4 +50,4 @@ Most settings are documented in *builder.conf.default* file, which can be used a
 Notes
 -----
 
-* For a list of custom TemplateVMs available in QubesBuilder look at [Supported Versions page](/doc/supported-versions/).
+* For a list of custom TemplateVMs available in QubesBuilder look at [Supported Versions page](/doc/supported-releases/).

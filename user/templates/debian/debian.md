@@ -11,7 +11,7 @@ ref: 134
 title: Debian templates
 ---
 
-The Debian [template](/doc/templates/) is an officially [supported](/doc/supported-versions/#templates) template in Qubes OS.
+The Debian [template](/doc/templates/) is an officially [supported](/doc/supported-releases/#templates) template in Qubes OS.
 This page is about the standard (or "full") Debian template.
 For the minimal version, please see the [Minimal templates](/doc/templates/minimal/) page.
 There is also a [Qubes page on the Debian Wiki](https://wiki.debian.org/Qubes).

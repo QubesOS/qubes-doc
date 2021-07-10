@@ -197,7 +197,7 @@ See the [news](/news/) announcement for each specific template release for any i
 ### End-of-life (EOL) releases
 
 We strongly recommend against using any Fedora release that has reached [end-of-life (EOL)](https://fedoraproject.org/wiki/End_of_life).
-Also see [supported versions](/doc/supported-versions/).
+Also see [supported releases](/doc/supported-releases/).
 
 
 ## Additional information

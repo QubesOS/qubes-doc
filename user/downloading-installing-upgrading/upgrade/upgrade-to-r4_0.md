@@ -84,7 +84,7 @@ Restore from your backup
    We recommend that you restore only your [app qubes](/doc/glossary/#app-qube) and [standalones](/doc/glossary/#standalone) from R3.2.
    Using [templates](/doc/templates/) and [service qubes](/doc/glossary/#service-qube) from R3.2 is not fully supported (see [#3514](https://github.com/QubesOS/qubes-issues/issues/3514)).
    Instead, we recommend using the templates that were created specifically for R4.0, which you can [customize](/doc/software-update-vm/) according to your needs.
-   For the template OS versions supported in R4.0, see [Supported Versions](/doc/supported-versions/#templates).
+   For the template OS versions supported in R4.0, see [supported releases](/doc/supported-releases/#templates).
    If the restore tool complains about missing templates, you can select the option to restore the app qubes anyway, then change them afterward to use one of the default R4.0 templates.
 
 Note about additional disp-* qubes created during restore
@@ -110,7 +110,7 @@ Upgrade all Template and Standalone VM(s)
 
 We strongly recommend that you update **all** templates and standalones before use so that you have the latest security patches from upstream distributions.
 In addition, if the default templates have reached EOL (end-of-life) by the time you install R4.0, we strongly recommend that you upgrade them before use.
-Please see [Supported Versions](/doc/supported-versions/) for information on supported OS versions and consult the guides below for specific upgrade instructions:
+Please see [supported releases](/doc/supported-releases/) for information on supported OS versions and consult the guides below for specific upgrade instructions:
 
 * [Upgrading Fedora templates](/doc/templates/fedora/#upgrading)
 * [Upgrading Debian templates](/doc/templates/debian/#upgrading)

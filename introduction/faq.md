@@ -255,7 +255,7 @@ Please refer to [this page](/doc/vm-sudo/).
 Please see:
 
 - [Installing and updating software in dom0](/doc/how-to-install-software-in-dom0/)
-- [Note on dom0 and EOL](/doc/supported-versions/#note-on-dom0-and-eol)
+- [Note on dom0 and EOL](/doc/supported-releases/#note-on-dom0-and-eol)
 
 ### Do you recommend coreboot as an alternative to vendor BIOS?
 
@@ -632,7 +632,7 @@ Specifically:
 
 - If PGP signatures are used, the signing key(s) should have well-publicized fingerprint(s) verifiable via multiple independent channels or be accessible to the developers through a web of trust.
 - If the software is security-sensitive and requires communication with the outside world, a "split" implementation is highly preferred (for examples, see [Split GPG](/doc/split-gpg/) and [Split Bitcoin](/doc/split-bitcoin/)).
-- If the software has dependencies, these should be packaged and available in repos for a [current, Qubes-supported version](/doc/supported-versions/#templates) of Fedora (preferred) or Debian (unless all the insecure dependencies can run in an untrusted VM in a "split" implementation).
+- If the software has dependencies, these should be packaged and available in repos for a [current, Qubes-supported version](/doc/supported-releases/#templates) of Fedora (preferred) or Debian (unless all the insecure dependencies can run in an untrusted VM in a "split" implementation).
 - If the software must be built from source, the source code and any builders must be signed.
    (Practically speaking, the more cumbersome and time-consuming it is to build from source, the less likely the developers are to use it.)
 

@@ -91,7 +91,7 @@ when you wish to install a fresh template from the Qubes repositories, e.g.:
 * When a template version you're using reaches
   [end-of-life](/doc/how-to-update/#upgrading-to-avoid-eol).
 * When a new version of a template that you wish to use becomes
-  [supported](/doc/supported-versions/).
+  [supported](/doc/supported-releases/).
 * When you suspect your template has been compromised.
 * When you have made modifications to your template that you no longer want.
 
