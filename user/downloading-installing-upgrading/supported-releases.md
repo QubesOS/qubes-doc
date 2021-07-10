@@ -29,13 +29,13 @@ are available from our [download mirrors](/downloads/#mirrors).
 | Release 4.0 | 2018-03-28 | TBA        | Supported             |
 | Release 4.1 | TBA        | TBA        | [In development](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue+milestone%3A%22Release+4.1%22+) |
 
-### Note on point releases
+### Note on patch releases
 
-Please note that point releases, such as 3.2.1 and 4.0.1, do not designate
+Please note that patch releases, such as 3.2.1 and 4.0.1, do not designate
 separate, new releases of Qubes OS. Rather, they designate their respective
 major or minor releases, such as 3.2 and 4.0, inclusive of all package updates
 up to a certain point. For example, installing Release 4.0 and fully updating
-it results in the same system as installing Release 4.0.1. Therefore, point
+it results in the same system as installing Release 4.0.1. Therefore, patch
 releases are not displayed as separate rows on any of the tables on this page.
 
 ## Dom0
