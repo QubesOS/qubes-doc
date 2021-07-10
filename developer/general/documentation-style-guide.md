@@ -66,11 +66,19 @@ breaks:
 
 ### Image linking
 
-See [how to add images](/doc/how-to-edit-the-documentation/#how-to-add-images).
+See [how to add images](/doc/how-to-edit-the-documentation/#how-to-add-images)
+for the required syntax. This will make the image a hyperlink to the image
+file, allowing the reader to click on the image in order to view the full image
+by itself. This is important. Following best practices, our website has a
+responsive design, which allows the website to render appropriately across all
+screen sizes. When viewing this page on a smaller screen, such as on a mobile
+device, the image will automatically shrink down to fit the screen. If visitors
+cannot click on the image to view it in full size, then, depending on their
+device, they may have no way see the details in the image clearly.
 
-Link only to images in
-[qubes-attachment](https://github.com/QubesOS/qubes-attachment). Do not link to
-images on other websites.
+In addition, make sure to link only to images in the
+[qubes-attachment](https://github.com/QubesOS/qubes-attachment) repository. Do
+not attempt to link to images hosted on other websites.
 
 ### HTML and CSS
 
@@ -232,9 +240,10 @@ instead. However, *linking* to external documentation from
 [qubes-doc](https://github.com/QubesOS/qubes-doc) is perfectly fine. Indeed,
 the maintainers of the [Qubes Community](https://github.com/Qubes-Community)
 project should regularly submit PRs against the documentation index (see [How
-to edit the documentation index](#how-to-edit-the-documentation-index)) to add
-and update Qubes Community links in the "External Documentation" section of the
-documentation table of contents.
+to edit the documentation
+index](/doc/how-to-edit-the-documentation/#how-to-edit-the-documentation-index))
+to add and update Qubes Community links in the "External Documentation" section
+of the documentation table of contents.
 
 The main difference between **core** (or **official**) and **external** (or
 **community** or **unofficial**) documentation is whether it documents software

@@ -126,7 +126,7 @@ pull request, we'll post a comment explaining why we can't.
 
 The source file for the [documentation index (a.k.a. table of contents)](/doc/)
 is
-[_data/doc-index.yml](https://github.com/QubesOS/qubesos.github.io/blob/master/_data/doc-index.yml).
+[doc-index.yml](https://github.com/QubesOS/qubesos.github.io/blob/master/_data/doc-index.yml).
 
 Editing this file will change what appears on the documentation index. If your
 pull request (PR) adds, removes, or edits anything that should be reflected in
@@ -135,9 +135,9 @@ request against this file.
 
 ## How to add images
 
-To add an image to a page, use the following syntax in the main document. This
-will make the image a hyperlink to the image file, allowing the reader to click
-on the image in order to view the image by itself.
+To add an image to a page, use the following syntax in the main document (see
+[here](/doc/documentation-style-guide/#image-linking) for why this syntax is
+important).
 
 ```
 [![Image Title](/attachment/doc/image.png)](/attachment/doc/image.png)
