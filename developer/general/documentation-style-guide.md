@@ -320,9 +320,7 @@ versions:
 #### Incorrect Example
 
 ```
-# Page Title #
-
-## How to Foo ##
+## How to Foo
 
 Fooing is the process by which one foos. There are both general and specific
 versions of fooing, which vary in usefulness depending on your goals, but for
@@ -345,11 +343,9 @@ Once you foo, make sure to close the baz before fooing the next bar.
 #### Correct Example
 
 ```
-# Page Title #
+## Qubes 3.2
 
-## Qubes 3.2 ##
-
-### How to Foo ###
+### How to Foo
 
 Fooing is the process by which one foos. There are both general and specific
 versions of fooing, which vary in usefulness depending on your goals, but for
@@ -361,9 +357,9 @@ To foo:
 
 Once you foo, make sure to close the baz before fooing the next bar.
 
-## Qubes 4.0 ##
+## Qubes 4.0
 
-### How to Foo ###
+### How to Foo
 
 Fooing is the process by which one foos. There are both general and specific
 versions of fooing, which vary in usefulness depending on your goals, but for
