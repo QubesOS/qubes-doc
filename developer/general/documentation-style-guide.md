@@ -91,7 +91,7 @@ formatting, or white space control. That belongs in the (S)CSS files instead.
 ### Headings
 
 Do not use `h1` headings (single `#` or `======` underline). These are
-automatically generated from the `title:` line in the YAML frontmatter.
+automatically generated from the `title:` line in the YAML front matter.
 
 Use Atx-style syntax for headings: `##h2`, `### h3`, etc. Do not use
 underlining syntax (`-----`).
