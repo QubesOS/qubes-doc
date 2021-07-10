@@ -159,11 +159,11 @@ couple of example photos below.
 
 Here's an example of what the BIOS menu looks like on a ThinkPad T430:
 
-[![picture of BIOS image of ThinkPad T430](/attachment/doc/Thinkpad-t430-bios-main.jpg)](/attachment/doc/Thinkpad-t430-bios-main.jpg)
+[![ThinkPad T430 BIOS menu](/attachment/doc/Thinkpad-t430-bios-main.jpg)](/attachment/doc/Thinkpad-t430-bios-main.jpg)
 
 And here's an example of what a UEFI menu looks like:
 
-[![UEFI menu picure](/attachment/doc/uefi.jpeg)](/attachment/doc/uefi.jpeg)
+[![UEFI menu](/attachment/doc/uefi.jpeg)](/attachment/doc/uefi.jpeg)
 
 Once you access your computer's BIOS or UEFI menu, you'll want to go to the
 "boot menu," which is where you tell your computer which devices to boot from.
