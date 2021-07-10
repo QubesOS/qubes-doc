@@ -302,22 +302,22 @@ tutorials generally also belong in the community documentation.
 See [#4693](https://github.com/QubesOS/qubes-issues/issues/4693) for more
 background information.
 
-### Version-specific documentation
+### Release-specific documentation
 
 *See [#5308](https://github.com/QubesOS/qubes-issues/issues/5308) for pending
 changes to this policy.*
 
 We maintain only one set of documentation for Qubes OS. We do not maintain a
-different set of documentation for each version of Qubes. Our single set of
+different set of documentation for each release of Qubes. Our single set of
 Qubes OS documentation is updated on a continual, rolling basis. Our first
 priority is to document all **current, stable releases** of Qubes. Our second
 priority is to document the next, upcoming release (if any) that is currently
 in the beta or release candidate stage.
 
 In cases where a documentation page covers functionality that differs
-considerably between Qubes OS versions, the page should be subdivided into
+considerably between Qubes OS releases, the page should be subdivided into
 clearly-labeled sections that cover the different functionality in different
-versions:
+releases:
 
 #### Incorrect Example
 
@@ -376,62 +376,62 @@ general `qubes-baz` command:
 Once you foo, make sure to close the baz before fooing the next bar.
 ```
 
-Subdividing the page into clearly-labeled sections for each version has several
+Subdividing the page into clearly-labeled sections for each release has several
 benefits:
 
-- It preserves good content for older (but still supported) versions. Many
+- It preserves good content for older (but still supported) releases. Many
   documentation contributors are also people who prefer to use the latest
-  version. Many of them are tempted to *replace* existing content that applies
-  to an older, supported version with content that applies only to the latest
-  version. This is somewhat understandable. Since they only use the latest
-  version, they may be focused on their own experience, and they may even
-  regard the older version as deprecated, even when it's actually still
+  release. Many of them are tempted to *replace* existing content that applies
+  to an older, supported release with content that applies only to the latest
+  release. This is somewhat understandable. Since they only use the latest
+  release, they may be focused on their own experience, and they may even
+  regard the older release as deprecated, even when it's actually still
   supported. However, allowing this replacement of content would do a great
-  disservice to those who still rely on the older, supported version. In many
+  disservice to those who still rely on the older, supported release. In many
   cases, these users value the stability and reliability of the older,
-  supported version. With the older, supported version, there has been more
+  supported release. With the older, supported release, there has been more
   time to fix bugs and make improvements in both the software and the
   documentation. Consequently, much of the documentation content for this
-  version may have gone through several rounds of editing, review, and
+  release may have gone through several rounds of editing, review, and
   revision. It would be a tragedy for this content to vanish while the very set
   of users who most prize stability and reliability are depending on it.
 - It's easy for readers to quickly find the information they're looking for,
-  since they can go directly to the section that applies to their version.
+  since they can go directly to the section that applies to their release.
 - It's hard for readers to miss information they need, since it's all in one
   place. In the incorrect example, information that the reader needs could be
   in any paragraph in the entire document, and there's no way to tell without
   reading the entire page. In the correct example, the reader can simply skim
   the headings in order to know which parts of the page need to be read and
   which can be safely ignored. The fact that some content is repeated in the
-  two version-specific sections is not a problem, since no reader has to read
-  the same thing twice. Moreover, as one version gets updated, it's likely that
-  the documentation for that version will also be updated. Therefore, content
-  that is initially duplicated between version-specific sections will not
+  two release-specific sections is not a problem, since no reader has to read
+  the same thing twice. Moreover, as one release gets updated, it's likely that
+  the documentation for that release will also be updated. Therefore, content
+  that is initially duplicated between release-specific sections will not
   necessarily stay that way, and this is a good thing: We want the
-  documentation for a version that *doesn't* change to stay the same, and we
-  want the documentation for a version that *does* change to change along with
+  documentation for a release that *doesn't* change to stay the same, and we
+  want the documentation for a release that *does* change to change along with
   the software.
 - It's easy for documentation contributors and maintainers to know which file
-  to edit and update, since there's only one page for all Qubes OS versions.
+  to edit and update, since there's only one page for all Qubes OS releases.
   Initially creating the new headings and duplicating content that applies to
   both is only a one-time cost for each page, and many pages don't even require
   this treatment, since they apply to all currently-supported Qubes OS
-  versions.
+  releases.
 
 By contrast, an alternative approach, such as segregating the documentation
 into two different branches, would mean that contributions that apply to both
-Qubes versions would only end up in one branch, unless someone remembered to
+Qubes releases would only end up in one branch, unless someone remembered to
 manually submit the same thing to the other branch and actually made the effort
 to do so. Most of the time, this wouldn't happen. When it did, it would mean a
 second pull request that would have to be reviewed. Over time, the different
-branches would diverge in non-version-specific content. Good general content
+branches would diverge in non-release-specific content. Good general content
 that was submitted only to one branch would effectively disappear once that
-version was deprecated. (Even if it were still on the website, no one would
-look at it, since it would explicitly be in the subdirectory of a  deprecated
-version, and there would be a motivation to remove it from the website so that
+release was deprecated. (Even if it were still on the website, no one would
+look at it, since it would explicitly be in the subdirectory of a deprecated
+release, and there would be a motivation to remove it from the website so that
 search results wouldn't be populated with out-of-date information.)
 
-For further discussion about version-specific documentation in Qubes, see
+For further discussion about release-specific documentation in Qubes, see
 [here](https://groups.google.com/d/topic/qubes-users/H9BZX4K9Ptk/discussion).
 
 ## Git conventions
