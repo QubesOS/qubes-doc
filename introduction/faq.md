@@ -12,7 +12,7 @@ redirect_from:
 - /doc/DevelFaq/
 - /wiki/DevelFaq/
 ref: 124
-title: Frequently Asked Questions (FAQ)
+title: Frequently asked questions (FAQ)
 ---
 
 ## General & Security

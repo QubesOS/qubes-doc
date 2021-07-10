@@ -7,7 +7,7 @@ redirect_from:
 - /doc/certified-laptops/
 - /hardware-certification/
 ref: 144
-title: Certified Hardware
+title: Certified hardware
 ---
 
 The Qubes OS Project aims to partner with a select few computer vendors to ensure that Qubes users have reliable hardware purchasing options.

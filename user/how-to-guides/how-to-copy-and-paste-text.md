@@ -8,7 +8,7 @@ redirect_from:
 - /doc/CopyPaste/
 - /wiki/CopyPaste/
 ref: 196
-title: How to Copy and Paste Text
+title: How to copy and paste text
 ---
 
 *This page is about copying and pasting plain text.

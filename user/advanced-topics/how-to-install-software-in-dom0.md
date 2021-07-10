@@ -8,7 +8,7 @@ redirect_from:
 - /doc/SoftwareUpdateDom0/
 - /wiki/SoftwareUpdateDom0/
 ref: 194
-title: How to Install Software in Dom0
+title: How to install software in dom0
 ---
 
 **Warning:** Installing software in dom0 is for advanced users only. Doing so

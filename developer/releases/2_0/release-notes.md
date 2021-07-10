@@ -5,7 +5,7 @@ permalink: /doc/releases/2.0/release-notes/
 redirect_from:
 - /en/doc/releases/2.0/release-notes/
 ref: 25
-title: Qubes R2.0 Release Notes
+title: Qubes R2.0 release notes
 ---
 
 Detailed release notes in [this blog post](https://blog.invisiblethings.org/2014/09/26/announcing-qubes-os-release-2.html)

@@ -9,7 +9,7 @@ redirect_from:
 - /doc/SoftwareUpdateVM/
 - /wiki/SoftwareUpdateVM/
 ref: 189
-title: How to Install Software
+title: How to install software
 ---
 
 When you wish to install software in Qubes OS, you should generally install it

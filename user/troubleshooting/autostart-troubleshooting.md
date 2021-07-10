@@ -2,7 +2,7 @@
 lang: en
 layout: doc
 permalink: /doc/autostart-troubleshooting/
-title: Autostart Troubleshooting
+title: Autostart troubleshooting
 ---
 
 The following instructions are valid for **Qubes OS R4.0 legacy mode** and

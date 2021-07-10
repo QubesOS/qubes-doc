@@ -7,7 +7,7 @@ redirect_from:
 - /doc/TemplateImplementation/
 - /wiki/TemplateImplementation/
 ref: 58
-title: Template Implementation
+title: Template implementation
 ---
 
 Every VM has 4 block devices connected:

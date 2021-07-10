@@ -3,7 +3,7 @@ lang: en
 layout: site
 permalink: /video-tours/
 ref: 226
-title: Video Tours
+title: Video tours
 ---
 
 ## Micah Lee presents "Qubes OS: The Operating System That Can Protect You Even If You Get Hacked"

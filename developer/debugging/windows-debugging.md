@@ -7,7 +7,7 @@ redirect_from:
 - /doc/WindowsDebugging/
 - /wiki/WindowsDebugging/
 ref: 50
-title: Windows Debugging
+title: Windows debugging
 ---
 
 Debugging Windows code can be tricky in a virtualized environment. The guide below assumes Xen hypervisor and Windows 7 VMs.

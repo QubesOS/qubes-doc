@@ -9,7 +9,7 @@ redirect_from:
 - /doc/GettingStarted/
 - /wiki/GettingStarted/
 ref: 190
-title: Getting Started
+title: Getting started
 ---
 
 After [downloading](/downloads/) and [installing](/doc/installation-guide/)

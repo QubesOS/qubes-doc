@@ -8,7 +8,7 @@ redirect_from:
 - /doc/Templates/Debian/
 - /wiki/Templates/Debian/
 ref: 134
-title: Debian Templates
+title: Debian templates
 ---
 
 The Debian [template](/doc/templates/) is an officially [supported](/doc/supported-versions/#templates) template in Qubes OS.

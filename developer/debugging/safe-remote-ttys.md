@@ -5,7 +5,7 @@ permalink: /doc/safe-remote-ttys/
 redirect_from:
 - /en/doc/safe-remote-ttys/
 ref: 49
-title: Safe Remote Dom0 Terminals
+title: Safe remote dom0 terminals
 ---
 
 If you do not have working graphics in Dom0, then using a terminal can be quite annoying!

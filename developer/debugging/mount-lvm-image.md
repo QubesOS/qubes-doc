@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/mount-lvm-image/
 ref: 46
-title: How to Mount LVM Images
+title: How to mount LVM images
 ---
 
 You want to read your LVM image (e.g., there is a problem where you can't start any VMs except dom0).

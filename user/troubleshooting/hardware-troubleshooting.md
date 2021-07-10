@@ -5,7 +5,7 @@ permalink: /doc/hardware-troubleshooting/
 redirect_from:
 - /doc/newer-hardware-troubleshooting/
 ref: 97
-title: Hardware Troubleshooting
+title: Hardware troubleshooting
 ---
 
 ## Audio doesn't work / Troubleshooting newer hardware

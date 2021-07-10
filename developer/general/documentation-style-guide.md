@@ -8,7 +8,7 @@ redirect_from:
 - /wiki/DocStyle/
 - /doc/DocStyle/
 ref: 30
-title: Documentation Style Guide
+title: Documentation style guide
 ---
 
 Qubes OS documentation pages are stored as plain text Markdown files in the
@@ -116,12 +116,6 @@ Familiarize yourself with the terms defined in the [glossary](/doc/glossary/).
 Use these terms consistently and accurately throughout your writing.
 
 ### Sentence case in headings
-
-_**Note:** We're looking for help with converting all page titles from title
-case to sentence case in accordance with this convention. See
-[#6769](https://github.com/QubesOS/qubes-issues/issues/6769). In the meantime,
-please continue to use title case in page titles only to maintain consistency
-until a mass conversion can be performed._
 
 Use sentence case (rather than title case) in headings for the reasons
 explained

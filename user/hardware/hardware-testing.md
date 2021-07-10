@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/hardware-testing/
 ref: 145
-title: Hardware Testing
+title: Hardware testing
 ---
 
 The Qubes developers test Qubes OS on certain hardware models.

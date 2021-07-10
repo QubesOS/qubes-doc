@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/storage-pools/
 ref: 57
-title: Storage Pools
+title: Storage pools
 ---
 
 Qubes OS R3.2 introduced the concept of storage drivers and pools.  This feature

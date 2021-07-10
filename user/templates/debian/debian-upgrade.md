@@ -10,7 +10,7 @@ redirect_from:
 - /doc/DebianTemplateUpgrade8/
 - /wiki/DebianTemplateUpgrade8/
 ref: 133
-title: How to Upgrade a Debian Template In-place
+title: How to upgrade a Debian template in-place
 ---
 
 <div class="alert alert-danger" role="alert">

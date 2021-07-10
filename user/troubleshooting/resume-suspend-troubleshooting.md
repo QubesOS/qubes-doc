@@ -6,7 +6,7 @@ redirect_from:
 - /en/doc/wireless-troubleshooting/
 - /doc/wireless-troubleshooting/
 ref: 94
-title: Suspend/Resume Troubleshooting
+title: Suspend/resume troubleshooting
 ---
 
 First check if there are any remarks for similar devices in the [Hardware

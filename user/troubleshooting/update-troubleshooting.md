@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/update-troubleshooting/
 ref: 239
-title: Update Troubleshooting
+title: Update troubleshooting
 ---
 
 ## “Failed to synchronize cache for repo” errors when updating Fedora templates

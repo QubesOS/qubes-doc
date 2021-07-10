@@ -5,7 +5,7 @@ permalink: /security/canary/checklist/
 redirect_from:
 - /security/canaries/checklist/
 ref: 216
-title: Qubes Canary Checklist
+title: Qubes canary checklist
 ---
 
 ## Preparation

@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/releases/notes/
 ref: 13
-title: Release Notes
+title: Release notes
 ---
 
 * [Qubes R1.0 release notes](/doc/releases/1.0/release-notes/)

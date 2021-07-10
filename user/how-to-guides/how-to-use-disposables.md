@@ -11,7 +11,7 @@ redirect_from:
 - /doc/DisposableVms/
 - /wiki/DisposableVMs/
 ref: 203
-title: How to Use Disposables
+title: How to use disposables
 ---
 
 A [disposable](/doc/glossary/#disposable) is a lightweight [qube](/doc/glossary/#qube) that can be created quickly and will self-destruct when closed.

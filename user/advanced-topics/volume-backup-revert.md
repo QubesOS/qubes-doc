@@ -7,7 +7,7 @@ redirect_from:
 - /doc/VolumeBackupRevert/
 - /wiki/VolumeBackupRevert/
 ref: 206
-title: Volume Backup and Revert
+title: Volume backup and revert
 ---
 
 With Qubes, it is possible to revert one of a VM's storage volumes to a previous
