@@ -148,6 +148,13 @@ Then, submit your image(s) in a separate pull request to the
 using the same path and filename. This is the only permitted way to include
 images. Do not link to images on other websites.
 
+## Serving the website locally
+
+You can serve the website offline on your local machine by following [these
+instructions](https://github.com/QubesOS/qubesos.github.io#instructions). This
+can be useful for making sure that your changes render the way you expect,
+especially when your changes affect formatting, images, tables, styling, etc. 
+
 ## Security
 
 *Also see: [Should I trust this website?](/faq/#should-i-trust-this-website)*
