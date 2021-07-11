@@ -63,7 +63,7 @@ Advanced tab, you might find them under the Security tab.
   OS needs to be able to manage the hardware directly.
 </div>
 
-### Installation medium preparation
+### Copying the ISO onto the installation medium
 
 Pick the most secure existing computer and OS you have available for
 downloading and copying the Qubes ISO onto the installation medium.
