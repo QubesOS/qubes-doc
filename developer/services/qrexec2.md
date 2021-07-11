@@ -8,7 +8,7 @@ redirect_from:
 - /doc/Qrexec2Implementation/
 - /wiki/Qrexec2Implementation/
 ref: 38
-title: qrexec v2 (deprecated)
+title: Qrexec v2 (deprecated)
 ---
 
 (*This page is about qrexec v2. For qrexec v3, see [here](/doc/qrexec/).*)

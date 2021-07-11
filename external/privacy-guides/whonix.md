@@ -18,5 +18,5 @@ redirect_from:
 - /doc/privacy/updating-whonix/
 redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/privacy/whonix.md
 ref: 69
-title: Whonix for Privacy & Anonymity
+title: Whonix for privacy & anonymity
 ---

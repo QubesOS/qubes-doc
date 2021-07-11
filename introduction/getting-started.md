@@ -9,7 +9,7 @@ redirect_from:
 - /doc/GettingStarted/
 - /wiki/GettingStarted/
 ref: 190
-title: Getting Started
+title: Getting started
 ---
 
 After [downloading](/downloads/) and [installing](/doc/installation-guide/)
@@ -249,4 +249,4 @@ GitHub](https://github.com/QubesOS).
 ## Documentation
 
 Peruse our extensive library of [documentation](/doc/) for users and developers
-of Qubes OS. You can even [help us improve it](/doc/doc-guidelines/)!
+of Qubes OS. You can even [help us improve it](/doc/how-to-edit-the-documentation/)!

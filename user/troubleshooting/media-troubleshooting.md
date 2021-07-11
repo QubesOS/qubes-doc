@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/media-troubleshooting/
 ref: 235
-title: Media Troubleshooting
+title: Media troubleshooting
 ---
 
 ## Can't play media videos in a VM due to missing codecs

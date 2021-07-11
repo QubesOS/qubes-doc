@@ -9,7 +9,7 @@ redirect_from:
 - /doc/StickMounting/
 - /wiki/StickMounting/
 ref: 193
-title: How to Use Block Storage Devices
+title: How to use block storage devices
 ---
 
 *This page is part of [device handling in qubes](/doc/how-to-use-devices/).*

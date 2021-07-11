@@ -13,7 +13,7 @@ redirect_from:
 - /bug-report/
 - /bug-reports/
 ref: 121
-title: Issue Tracking
+title: Issue tracking
 ---
 
 We use [GitHub Issues](https://docs.github.com/en/issues) as our [issue
@@ -34,9 +34,9 @@ Support, Mailing Lists, and Forum](/support/).
 
 ### I see something that should be changed in the documentation.
 
-We encourage you to submit the change yourself! Please see the [Documentation
-Guidelines](/doc/doc-guidelines/) for instructions on how to do so. If it's
-something you can't do yourself, please proceed to open an issue.
+We encourage you to submit the change yourself! Please see the [how to edit the
+documentation](/doc/how-to-edit-the-documentation/) for instructions on how to
+do so. If it's something you can't do yourself, please proceed to open an issue.
 
 ### I would like to report a security vulnerability.
 
@@ -352,12 +352,3 @@ which means, "The fix has been released for the testing release but is pending
 backport to the stable release." Our infrastructure will attempt to apply this
 label automatically, when appropriate, but it is not perfect, and the
 developers may be need to adjust it manually.
-
-## See also
-
-- [Help, Support, Mailing Lists, and Forum](/support/)
-- [Testing New Releases and Updates](/doc/testing/)
-- [How to Contribute](/doc/contributing/)
-- [Contributing Code](/doc/contributing/#contributing-code)
-- [Package Contributions](/doc/package-contributions/)
-- [Documentation Guidelines](/doc/doc-guidelines/)

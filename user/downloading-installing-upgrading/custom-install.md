@@ -6,7 +6,7 @@ permalink: /doc/custom-install/
 redirect_from:
 - /doc/encryption-config/
 ref: 152
-title: Custom Installation
+title: Custom installation
 ---
 
 In the present context, "custom installation" refers to things like manual partitioning, setting up LVM and RAID, and manual LUKS encryption configuration.

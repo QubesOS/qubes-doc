@@ -6,7 +6,7 @@ redirect_from:
 - /doc/reinstall-template/
 - /doc/whonix/reinstall/
 ref: 128
-title: How to Reinstall a Template
+title: How to reinstall a template
 ---
 
 If you suspect your [template](/doc/templates/) is broken, misconfigured, or compromised, you can reinstall any template that was installed from the Qubes repository.

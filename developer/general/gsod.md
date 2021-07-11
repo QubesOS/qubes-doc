@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /gsod/
 ref: 242
-title: Google Season of Docs
+title: Google Season of Docs (GSoD)
 ---
 
 Thank you for your interest in participating in the [2021 Google Season of Docs](https://developers.google.com/season-of-docs/) program with the [Qubes OS team](/team/). You can read more about the Google Season of Docs in the official [guides](https://developers.google.com/season-of-docs/docs/) and [FAQ](https://developers.google.com/season-of-docs/docs/faq).

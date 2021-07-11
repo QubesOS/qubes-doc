@@ -8,7 +8,7 @@ redirect_from:
 - /doc/SystemRequirements/
 - /wiki/SystemRequirements/
 ref: 142
-title: System Requirements
+title: System requirements
 ---
 
 <div class="alert alert-warning" role="alert">

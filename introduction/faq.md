@@ -12,7 +12,7 @@ redirect_from:
 - /doc/DevelFaq/
 - /wiki/DevelFaq/
 ref: 124
-title: Frequently Asked Questions (FAQ)
+title: Frequently asked questions (FAQ)
 ---
 
 ## General & Security
@@ -255,7 +255,7 @@ Please refer to [this page](/doc/vm-sudo/).
 Please see:
 
 - [Installing and updating software in dom0](/doc/how-to-install-software-in-dom0/)
-- [Note on dom0 and EOL](/doc/supported-versions/#note-on-dom0-and-eol)
+- [Note on dom0 and EOL](/doc/supported-releases/#note-on-dom0-and-eol)
 
 ### Do you recommend coreboot as an alternative to vendor BIOS?
 
@@ -267,7 +267,9 @@ Please see the coreboot website / their IRC channel for further information.
 
 ### How should I report documentation issues?
 
-Please see the [documentation guidelines](/doc/doc-guidelines).
+If you can fix the problem yourself, please see [how to edit the
+documentation](/doc/how-to-edit-the-documentation). If not, please see [issue
+tracking](/doc/issue-tracking).
 
 ### Will Qubes seek to get certified under the GNU Free System Distribution Guidelines (GNU FSDG)?
 
@@ -279,7 +281,7 @@ This website is hosted on [GitHub Pages](https://pages.github.com/) ([why?](#why
 Therefore, it is largely outside of our control.
 We don't consider this a problem, however, since we explicitly [distrust the infrastructure](#what-does-it-mean-to-distrust-the-infrastructure).
 For this reason, we don't think that anyone should place undue trust in the live version of this site on the Web.
-Instead, if you want to obtain your own trustworthy copy of this website in a secure way, you should clone our [website repo](https://github.com/QubesOS/qubesos.github.io), [verify the PGP signatures on the commits and/or tags](/security/verifying-signatures/#how-to-verify-qubes-repos) signed by the [doc-signing keys](https://github.com/QubesOS/qubes-secpack/tree/master/keys/doc-signing) (which indicates that the content has undergone review per our [documentation guidelines](/doc/doc-guidelines)), then either [render the site on your local machine](https://github.com/QubesOS/qubesos.github.io/blob/master/README.md#instructions) or simply read the source, the vast majority of which was [intentionally written in Markdown so as to be readable as plain text for this very reason](/doc/doc-guidelines/#markdown-conventions).
+Instead, if you want to obtain your own trustworthy copy of this website in a secure way, you should clone our [website repo](https://github.com/QubesOS/qubesos.github.io), [verify the PGP signatures on the commits and/or tags](/security/verifying-signatures/#how-to-verify-qubes-repos) signed by the [doc-signing keys](https://github.com/QubesOS/qubes-secpack/tree/master/keys/doc-signing) (which indicates that the content has undergone [review](/doc/how-to-edit-the-documentation/#security)), then either [render the site on your local machine](https://github.com/QubesOS/qubesos.github.io/blob/master/README.md#instructions) or simply read the source, the vast majority of which was [intentionally written in Markdown so as to be readable as plain text for this very reason](/doc/documentation-style-guide/#markdown-conventions).
 We've gone to special effort to set all of this up so that no one has to trust the infrastructure and so that the contents of this website are maximally available and accessible.
 
 ### What does it mean to "distrust the infrastructure"?
@@ -630,7 +632,7 @@ Specifically:
 
 - If PGP signatures are used, the signing key(s) should have well-publicized fingerprint(s) verifiable via multiple independent channels or be accessible to the developers through a web of trust.
 - If the software is security-sensitive and requires communication with the outside world, a "split" implementation is highly preferred (for examples, see [Split GPG](/doc/split-gpg/) and [Split Bitcoin](/doc/split-bitcoin/)).
-- If the software has dependencies, these should be packaged and available in repos for a [current, Qubes-supported version](/doc/supported-versions/#templates) of Fedora (preferred) or Debian (unless all the insecure dependencies can run in an untrusted VM in a "split" implementation).
+- If the software has dependencies, these should be packaged and available in repos for a [current, Qubes-supported version](/doc/supported-releases/#templates) of Fedora (preferred) or Debian (unless all the insecure dependencies can run in an untrusted VM in a "split" implementation).
 - If the software must be built from source, the source code and any builders must be signed.
    (Practically speaking, the more cumbersome and time-consuming it is to build from source, the less likely the developers are to use it.)
 

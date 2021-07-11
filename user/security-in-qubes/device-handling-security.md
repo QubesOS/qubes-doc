@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/device-handling-security/
 ref: 170
-title: Device Handling Security
+title: Device handling security
 ---
 
 Any additional ability a VM gains is additional attack surface.

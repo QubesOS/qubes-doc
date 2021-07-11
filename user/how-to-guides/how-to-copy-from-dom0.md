@@ -9,7 +9,7 @@ redirect_from:
 - /doc/CopyToDomZero/
 - /wiki/CopyToDomZero/
 ref: 198
-title: How to Copy from Dom0
+title: How to copy from dom0
 ---
 
 This page covers copying files and clipboard text between [dom0](/doc/glossary/#dom0) and [domUs](/doc/glossary/#domu).

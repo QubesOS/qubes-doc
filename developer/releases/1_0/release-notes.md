@@ -5,7 +5,7 @@ permalink: /doc/releases/1.0/release-notes/
 redirect_from:
 - /en/doc/releases/1.0/release-notes/
 ref: 18
-title: Qubes R1.0 Release Notes
+title: Qubes R1.0 release notes
 ---
 
 Detailed release notes in [this blog post](https://blog.invisiblethings.org/2012/09/03/introducing-qubes-10.html).

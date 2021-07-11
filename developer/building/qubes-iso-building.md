@@ -9,7 +9,7 @@ redirect_from:
 - /doc/QubesR3Building/
 - /wiki/QubesR3Building/
 ref: 63
-title: Qubes ISO Building
+title: Qubes ISO building
 ---
 
 Build Environment

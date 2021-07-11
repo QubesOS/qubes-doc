@@ -7,7 +7,7 @@ redirect_from:
 - /doc/privacy/
 - /wiki/privacy/
 ref: 243
-title: Privacy Policy
+title: Privacy policy
 ---
 
 The short version is that we try to respect your privacy as much as possible.

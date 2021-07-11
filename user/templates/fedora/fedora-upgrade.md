@@ -21,7 +21,7 @@ redirect_from:
 - /wiki/FedoraTemplateUpgrade28/
 - /doc/template/fedora/upgrade-29-to-30/
 ref: 137
-title: How to Upgrade a Fedora Template In-place
+title: How to upgrade a Fedora template in-place
 ---
 
 <div class="alert alert-danger" role="alert">
@@ -197,7 +197,7 @@ See the [news](/news/) announcement for each specific template release for any i
 ### End-of-life (EOL) releases
 
 We strongly recommend against using any Fedora release that has reached [end-of-life (EOL)](https://fedoraproject.org/wiki/End_of_life).
-Also see [supported versions](/doc/supported-versions/).
+Also see [supported releases](/doc/supported-releases/).
 
 
 ## Additional information

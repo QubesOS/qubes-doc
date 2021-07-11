@@ -1,12 +1,14 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/supported-versions/
+permalink: /doc/supported-releases/
+redirect_from:
+- /doc/supported-versions/
 ref: 154
-title: Supported Versions
+title: Supported releases
 ---
 
-This page details the level and period of support for versions of operating
+This page details the level and period of support for releases of operating
 systems in the Qubes ecosystem.
 
 ## Qubes OS
@@ -27,14 +29,15 @@ are available from our [download mirrors](/downloads/#mirrors).
 | Release 4.0 | 2018-03-28 | TBA        | Supported             |
 | Release 4.1 | TBA        | TBA        | [In development](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue+milestone%3A%22Release+4.1%22+) |
 
-### Note on point releases
+### Note on patch releases
 
-Please note that point releases, such as 3.2.1 and 4.0.1, do not designate
-separate, new versions of Qubes OS. Rather, they designate their respective
-major or minor releases, such as 3.2 and 4.0, inclusive of all package updates
-up to a certain point. For example, installing Release 4.0 and fully updating
-it results in the same system as installing Release 4.0.1. Therefore, point
-releases are not displayed as separate rows on any of the tables on this page.
+Please note that patch releases, such as 3.2.1 and 4.0.1, do not designate
+separate, new major or minor releases of Qubes OS. Rather, they designate their
+respective major or minor releases, such as 3.2 and 4.0, inclusive of all
+package updates up to a certain point. For example, installing Release 4.0 and
+fully updating it results in the same system as installing Release 4.0.1.
+Therefore, patch releases are not displayed as separate rows on any of the
+tables on this page.
 
 ## Dom0
 
@@ -62,7 +65,7 @@ base distribution in dom0 even after it has reached end-of-life (EOL).
 
 ## Templates
 
-The following table shows select [template](/doc/templates/) versions that are
+The following table shows select [template](/doc/templates/) releases that are
 currently supported. Currently, only [Fedora](/doc/templates/fedora/) and
 [Debian](/doc/templates/debian/) templates are officially supported by the
 Qubes OS Project. [Whonix](https://www.whonix.org/wiki/Qubes) templates are
@@ -112,19 +115,19 @@ partner, the [Whonix Project](https://www.whonix.org/). The Whonix Project has
 set its own support policy for Whonix templates in Qubes.
 
 This policy requires Whonix template users to stay reasonably close to the
-cutting edge by upgrading to new stable versions of Qubes OS and Whonix
+cutting edge by upgrading to new stable releases of Qubes OS and Whonix
 templates within a month of their respective releases. To be precise:
 
 * One month after a new stable version of Qubes OS is released, Whonix
-  templates will no longer be supported on any older version of Qubes OS. This
+  templates will no longer be supported on any older release of Qubes OS. This
   means that users who wish to continue using Whonix templates on Qubes must
-  always upgrade to the latest stable Qubes OS version within one month of its
+  always upgrade to the latest stable Qubes OS release within one month of its
   release.
 
 * One month after new stable versions of Whonix templates are released, older
-  versions of Whonix templates will no longer be supported. This means that
+  releases of Whonix templates will no longer be supported. This means that
   users who wish to continue using Whonix templates on Qubes must always
-  upgrade to the latest stable Whonix template versions within one month of
+  upgrade to the latest stable Whonix template releases within one month of
   their release.
 
 We aim to announce both types of events one month in advance in order to remind

@@ -3,7 +3,7 @@ lang: en
 layout: doc
 permalink: /doc/templates/fedora/
 ref: 136
-title: Fedora Templates
+title: Fedora templates
 ---
 
 The Fedora [template](/doc/templates/) is the default template in Qubes OS. This page is about the standard (or "full") Fedora template. For the minimal and Xfce versions, please see the [Minimal templates](/doc/templates/minimal/) and [Xfce templates](/doc/templates/xfce/) pages.

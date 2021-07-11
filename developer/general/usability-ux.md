@@ -8,7 +8,7 @@ title: Usability & UX
 
 Software that is too complicated to use, is often unused. Because we want as many people as possible to benefit from its unique security properties, the usability and user experience of Qubes OS is an utmost priority!
 
-We ask anyone developing for Qubes OS to please read through this guide to better understand the user experience we strive to achieve. We also ask them to review [our style guide](/doc/style-guide/) for other design related information.
+We ask anyone developing for Qubes OS to please read through this guide to better understand the user experience we strive to achieve. We also ask them to review [our visual style guide](/doc/visual-style-guide/) for other design related information.
 
 ---
 

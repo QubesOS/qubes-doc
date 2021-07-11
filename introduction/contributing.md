@@ -7,7 +7,7 @@ redirect_from:
 - /doc/ContributingHowto/
 - /wiki/ContributingHowto/
 ref: 125
-title: How to Contribute
+title: How to contribute
 ---
 
 Thank you for your interest in contributing to Qubes! Here are some of the many
@@ -24,7 +24,7 @@ ways in which you can help:
 * Record [video tours](/video-tours/)
 * Create [artwork](https://github.com/QubesOS/qubes-artwork) (plymouth themes,
   installer themes, wallpapers, etc.)
-* [Write and edit the documentation](/doc/doc-guidelines)
+* [Write and edit the documentation](/doc/how-to-edit-the-documentation)
 * [Donate](/donate/) to the project
 * If you represent an organization, become a [Qubes partner](/partners/)
 * Add a [Qubes download mirror](/downloads/mirrors/)

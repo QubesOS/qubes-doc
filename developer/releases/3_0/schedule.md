@@ -5,7 +5,7 @@ permalink: /doc/releases/3.0/schedule/
 redirect_from:
 - /en/doc/releases/3.0/schedule/
 ref: 20
-title: Qubes R3.0 Release Schedule
+title: Qubes R3.0 release schedule
 ---
 
 |  Date       | Stage                                 |

@@ -8,7 +8,7 @@ redirect_from:
 - /doc/Templates/Xfce/
 - /wiki/Templates/Xfce/
 ref: 222
-title: XFCE Templates
+title: Xfce templates
 ---
 
 If you would like to use Xfce (more lightweight compared to GNOME desktop environment) Linux distribution in your qubes,

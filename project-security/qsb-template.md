@@ -8,5 +8,5 @@ redirect_from:
 redirect_to:
 - https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-template.txt
 ref: 209
-title: Qubes Security Bulletin (QSB) Template
+title: Qubes security bulletin (QSB) template
 ---

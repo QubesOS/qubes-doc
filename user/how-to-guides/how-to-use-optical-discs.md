@@ -7,7 +7,7 @@ redirect_from:
 - /doc/recording-optical-discs/
 - /en/doc/recording-optical-discs/
 ref: 204
-title: How to Use Optical Discs
+title: How to use optical discs
 ---
 
 Passthrough reading and recording (a.k.a., "burning") are not supported by Xen.

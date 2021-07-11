@@ -7,7 +7,7 @@ redirect_from:
 - /doc/Qfileexchgd/
 - /wiki/Qfileexchgd/
 ref: 40
-title: qfileexchgd (deprecated)
+title: Qfileexchgd (deprecated)
 ---
 
 **This mechanism is obsolete as of Qubes Beta 1!**

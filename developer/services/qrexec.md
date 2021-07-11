@@ -11,7 +11,7 @@ redirect_from:
 - /doc/Qrexec/
 - /wiki/Qrexec/
 ref: 37
-title: 'Qrexec: Secure Communication Across Domains'
+title: 'Qrexec: secure communication across domains'
 ---
 
 (*This page is about qrexec v3. For qrexec v2, see [here](/doc/qrexec2/).*)
