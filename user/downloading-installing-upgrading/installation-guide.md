@@ -124,10 +124,10 @@ the Qubes ISO and pressing "START" on the Rufus main window.
 <div class="alert alert-warning" role="alert">
   <i class="fa fa-exclamation-circle"></i>
   <b>Note:</b> Choosing this Windows+Rufus method means that you
-  [won't be able](https://github.com/QubesOS/qubes-issues/issues/2051) to choose
-  the "Test this media & install Qubes" option recommended in the Installation
-  section below. Instead, you'll only be able to choose the "Install Qubes"
-  option.
+  <a href="https://github.com/QubesOS/qubes-issues/issues/2051">won't be able</a>
+  to choose the "Test this media & install Qubes" option recommended in the
+  Installation section below. Instead, you'll only be able to choose the
+  "Install Qubes" option.
 </div>
 
 [![Rufus menu](/attachment/doc/rufus-menu.png)](/attachment/doc/rufus-menu.png)
