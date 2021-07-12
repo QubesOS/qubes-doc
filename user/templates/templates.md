@@ -11,12 +11,9 @@ ref: 131
 title: Templates
 ---
 
-In [Getting Started](/doc/getting-started/), we covered the distinction
-in Qubes OS between where you *install* your software and where you *run* your
-software. Your software is installed in [templates](/doc/glossary/#template).
-Each template shares its root filesystem (i.e., all of its programs and system
-files) with all the qubes based on it. [App qubes](/doc/glossary/#app-qube) are
-where you run your software and store your data.
+In [Getting Started](/doc/getting-started/) it was explained that each [app qube](/doc/glossary/#app-qube) is based on another type of qube called a [template](/doc/glossary/#template). Templates are usually named after their operating system (often a [Linux distribution](https://en.wikipedia.org/wiki/Linux_distribution)) and corresponding version number. "Creating" [your own template](/doc/template-implementation) is not a trivial process, and something best left to developers mindful of security best practices. There are many ready-to-use templates to choose from, however, and you can download and have as many as you like (see below). 
+
+More than one qube can be based on the same template. An app qube cannot modify its template in any way. This means that if a qube is ever compromised, its template will remain safe. For that reason, in Qubes OS the template is where you *install* your software; the app qube, conversely, is where you *run* your software and also store your files. Each template shares its root filesystem (i.e., all of its programs and system files) with all the app qubes based on it. 
 
 The template system has significant benefits:
 
@@ -50,7 +47,7 @@ to have multiple templates installed in order to provide:
 * Different environments (e.g., Fedora, Debian, Whonix)
 * Different tools (e.g., office, media, development, hardware drivers)
 
-## Official
+## Officially Supported Templates
 
 These are the official Qubes OS Project templates. We build and release updates
 for these templates. We guarantee that the binary updates are compiled from
@@ -62,7 +59,7 @@ exactly the same source code as we publish.
 * [Debian](/doc/templates/debian/)
 * [Debian Minimal](/doc/templates/minimal/)
 
-## Community
+## Community Created Templates
 
 These templates are supported by the Qubes community. Some of them are
 available in ready-to-use binary package form (built by the Qubes developers),
@@ -83,7 +80,7 @@ developers do not test them.
 * [Gentoo](/doc/templates/gentoo/)
 * [Gentoo Minimal](/doc/templates/minimal/)
 
-## Installing
+## Installing Templates
 
 Certain templates come preinstalled with Qubes OS. However, there may be times
 when you wish to install a fresh template from the Qubes repositories, e.g.:
@@ -132,7 +129,7 @@ After installing a fresh template, we recommend performing the following steps:
 
 3. If desired, [uninstall the old template](#uninstalling).
 
-## Updating
+## Updating Templates
 
 Please see [How to Update](/doc/how-to-update/).
 
@@ -140,7 +137,7 @@ Please see [How to Update](/doc/how-to-update/).
 
 Please see [How to Install Software](/doc/how-to-install-software).
 
-## Uninstalling
+## Uninstalling Template
 
 The procedure for uninstalling a template depends on how it was created.
 
@@ -200,11 +197,11 @@ Applications Menu entries for backups of removed qubes can also be found in
 $ rm /usr/local/share/applications/<TEMPLATE_NAME>
 ```
 
-## Reinstalling
+## Reinstalling Templates
 
 Please see [How to Reinstall a Template](/doc/reinstall-template/).
 
-## Switching
+## Switching Templates
 
 When you install a new template or upgrade a clone of a template, it is
 recommended that you switch everything that was set to the old template to the
@@ -241,11 +238,11 @@ new template:
     [user@dom0 ~]$ qubes-prefs default-dispvm <NEW_DISPOSABLE_TEMPLATE>
     ```
 
-## Advanced
+## Advanced Topics
 
 The following sections cover advanced topics pertaining to templates.
 
-### Inheritance and persistence
+### Inheritance and Persistence
 
 Whenever an app qube is created, the contents of the `/home` directory of its
 parent template are *not* copied to the child app qube's `/home`. The child app
@@ -270,7 +267,7 @@ manner, you must make those changes in the parent template.
 <sup>2</sup>Following shutdown  
 <sup>3</sup>Includes [disposable templates](/doc/glossary/#disposable-template)
 
-### Trusting your templates
+### Trusting Your Templates
 
 As the template is used for creating filesystems for other app qubes where you
 actually do the work, it means that the template is as trusted as the most
