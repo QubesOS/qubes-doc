@@ -82,11 +82,11 @@ downloading and copying the Qubes ISO onto the installation medium.
 </div>
 
 Once the ISO has been verified as authentic, you should copy it onto the
-installation medium of your choice, such as a dual-layer DVD, a Blu-ray disc,
-or a USB drive. The size of each Qubes ISO is available on the
+installation medium of your choice, such as a USB drive, dual-layer DVD,
+or Blu-ray disc. The size of each Qubes ISO is available on the
 [downloads](/downloads/) page by hovering over the download button. The
-instructions below assume you've chosen a USB drive as your medium... you'll
-need to adapt these instructions if you choose a different medium.
+instructions below assume you've chosen a USB drive as your medium. If you've
+chosen a different medium, please adapt the instructions accordingly.
 
 <div class="alert alert-warning" role="alert">
   <i class="fa fa-exclamation-circle"></i>
@@ -121,13 +121,12 @@ On Windows, you can use the [Rufus](https://rufus.akeo.ie/) tool to write the
 ISO to a USB key. Be sure to select "Write in DD Image mode" *after* selecting
 the Qubes ISO and pressing "START" on the Rufus main window.
 
-<div class="alert alert-warning" role="alert">
-  <i class="fa fa-exclamation-circle"></i>
-  <b>Note:</b> Choosing this Windows+Rufus method means that you
+<div class="alert alert-info" role="alert">
+  <i class="fa fa-info-circle"></i>
+  <b>Note:</b> Using Rufus to create the installation medium means that you
   <a href="https://github.com/QubesOS/qubes-issues/issues/2051">won't be able</a>
-  to choose the "Test this media & install Qubes" option recommended in the
-  Installation section below. Instead, you'll only be able to choose the
-  "Install Qubes" option.
+  to choose the "Test this media and install Qubes OS" option mentioned in the
+  example below. Instead, choose the "Install Qubes OS" option.
 </div>
 
 [![Rufus menu](/attachment/doc/rufus-menu.png)](/attachment/doc/rufus-menu.png)
