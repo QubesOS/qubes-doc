@@ -1,15 +1,9 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/hcl/
-redirect_from:
-- /en/doc/hcl/
-- /doc/HCL/
-- /wiki/HCL/
-- /wiki/HCLR1/
-- /wiki/HCL-R2B2/
+permalink: /doc/how-to-use-the-hcl/
 ref: 146
-title: Hardware compatibility list (HCL)
+title: How to use the hardware compatibility list (HCL)
 ---
 
 The [HCL](/hcl) is a compilation of reports generated and submitted by users across various Qubes versions about their hardware's compatibility with Qubes.
