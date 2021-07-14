@@ -67,7 +67,9 @@ under the Advanced tab, you might find them under the Security tab.
 
 ### Copying the ISO onto the installation medium
 
-Start by [downloading](/downloads/) a Qubes ISO.
+Pick the most secure existing computer and OS you have available for
+downloading and copying the Qubes ISO onto the installation medium.
+[Download](/downloads/) a Qubes ISO.
 
 <div class="alert alert-danger" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
@@ -80,9 +82,11 @@ Start by [downloading](/downloads/) a Qubes ISO.
 </div>
 
 Once the ISO has been verified as authentic, you should copy it onto the
-installation medium of your choice, such as a dual-layer DVD, a Blu-ray disc,
-or a USB drive. The size of each Qubes ISO is available on the
-[downloads](/downloads/) page by hovering over the download button.
+installation medium of your choice, such as a USB drive, dual-layer DVD,
+or Blu-ray disc. The size of each Qubes ISO is available on the
+[downloads](/downloads/) page by hovering over the download button. The
+instructions below assume you've chosen a USB drive as your medium. If you've
+chosen a different medium, please adapt the instructions accordingly.
 
 <div class="alert alert-warning" role="alert">
   <i class="fa fa-exclamation-circle"></i>
@@ -97,8 +101,10 @@ or a USB drive. The size of each Qubes ISO is available on the
   modifying any devices.
 </div>
 
-If you choose to use a USB drive, copy the ISO onto the USB device, e.g. using
-`dd`:
+#### Linux ISO to USB
+
+On Linux, if you choose to use a USB drive, copy the ISO onto the USB device,
+e.g. using `dd`:
 
 ```
 $ sudo dd if=Qubes-RX-x86_64.iso of=/dev/sdY status=progress bs=1048576 && sync
@@ -109,28 +115,32 @@ and change `/dev/sdY` to the correct target device e.g., `/dev/sdc`). Make sure
 to write to the entire device (e.g., `/dev/sdc`) rather than just a single
 partition (e.g., `/dev/sdc1`).
 
-On Windows, you can use the [Rufus](https://rufus.akeo.ie/) tool to write the
-ISO to a USB key. MediaTest is not recommended. Be sure to select "DD image"
-mode (*after* selecting the Qubes ISO):
+#### Windows ISO to USB
 
-<div class="alert alert-warning" role="alert">
-  <i class="fa fa-exclamation-circle"></i>
-  <b>Note:</b>  If you do this on Windows 10, you can only install Qubes
-  without MediaTest, which is not recommended.
+On Windows, you can use the [Rufus](https://rufus.akeo.ie/) tool to write the
+ISO to a USB key. Be sure to select "Write in DD Image mode" *after* selecting
+the Qubes ISO and pressing "START" on the Rufus main window.
+
+<div class="alert alert-info" role="alert">
+  <i class="fa fa-info-circle"></i>
+  <b>Note:</b> Using Rufus to create the installation medium means that you
+  <a href="https://github.com/QubesOS/qubes-issues/issues/2051">won't be able</a>
+  to choose the "Test this media and install Qubes OS" option mentioned in the
+  example below. Instead, choose the "Install Qubes OS" option.
 </div>
 
 [![Rufus menu](/attachment/doc/rufus-menu.png)](/attachment/doc/rufus-menu.png)
 
 [![Rufus DD image mode](/attachment/doc/rufus-dd-image-mode.png)](/attachment/doc/rufus-dd-image-mode.png)
 
-If you are an advanced user, and you would like to customize your installation,
-please see [custom installation](/doc/custom-install/). Otherwise, follow the
-instructions below.
-
 ## Installation
 
 This section will demonstrate a simple installation using mostly default
 settings.
+
+If you are an advanced user, and you would like to customize your installation,
+please see [custom installation](/doc/custom-install/). Otherwise, follow the
+instructions below.
 
 ### Getting to the boot screen
 
