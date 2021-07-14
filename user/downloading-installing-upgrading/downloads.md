@@ -1,8 +1,11 @@
 ---
 lang: en
-layout: doc
-permalink: /doc/downloads/
-redirect_to: /downloads/
-ref: 244
-title: Downloads
+layout: site
+permalink: /downloads/
+redirect_from:
+- /doc/QubesDownloads/
+- /wiki/QubesDownloads/
+ref: 2
+title: Download Qubes&nbsp;OS
 ---
+{% include downloads.html %}
