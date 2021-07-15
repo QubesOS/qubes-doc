@@ -108,7 +108,7 @@ Because of the above reason, some additional configurations need to be done to y
 The following commands should work for you, but do keep the provisioning scripts are designed with the OpenQA environment in mind and not your specific local system. Run the following in `dom0`:
 
    ```
-   # For future references the following commands are an adaptation of
+   # For future reference the following commands are an adaptation of
    # https://github.com/marmarek/openqa-tests-qubesos/blob/master/tests/update.pm
 
    # install git
@@ -120,7 +120,7 @@ The following commands should work for you, but do keep the provisioning scripts
    sudo cp -a system-tests/ /srv/salt/
    sudo qubesctl top.enable system-tests
 
-   # install openqa configuration
+   # install them same configuration as the one in OpenQA
    QUBES_VERSION=4.1
    PILLAR_DIR=/srv/pillar/base/update
    sudo mkdir -p $PILLAR_DIR
