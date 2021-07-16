@@ -173,8 +173,8 @@ read. Put yourself in your readers' shoes. What essential information would
 they require in order to be able to help you? Make sure to include that
 information in your message. A great way to provide your hardware details is by
 [generating and submitting a Hardware Compatibility List (HCL)
-report](/doc/hcl/#generating-and-submitting-new-reports), then linking to it in
-your message. [Ask questions the smart
+report](/doc/how-to-use-the-hcl/#generating-and-submitting-new-reports), then
+linking to it in your message. [Ask questions the smart
 way.](http://www.catb.org/esr/faqs/smart-questions.html)
 
 ### Be patient
