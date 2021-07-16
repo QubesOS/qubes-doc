@@ -501,7 +501,7 @@ securely and easily.
 
 Consider giving back to the Qubes community and helping other users by
 [generating and submitting a Hardware Compatibility List (HCL)
-report](/doc/hcl/#generating-and-submitting-new-reports).
+report](/doc/how-to-use-the-hcl/#generating-and-submitting-new-reports).
 
 ### Get Started
 
