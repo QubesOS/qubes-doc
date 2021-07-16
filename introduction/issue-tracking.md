@@ -273,9 +273,9 @@ you're using, as well as versions of related software packages ([how to copy
 information out of dom0](/doc/how-to-copy-from-dom0/)). If your issue is
 related to hardware, provide as many details as possible about the hardware. A
 great way to do this is by [generating and submitting a Hardware Compatibility
-List (HCL) report](/doc/hcl/#generating-and-submitting-new-reports), then
-linking to it in your issue. You may also need to use command-line tools such
-as `lspci`. If you're reporting a bug in a package that is in a
+List (HCL) report](/doc/how-to-use-the-hcl/#generating-and-submitting-new-reports),
+then linking to it in your issue. You may also need to use command-line tools
+such as `lspci`. If you're reporting a bug in a package that is in a
 [testing](/doc/testing/) repository, please reference the appropriate issue in
 the [updates-status](https://github.com/QubesOS/updates-status/issues)
 repository. Project maintainers really appreciate thorough explanations. It
