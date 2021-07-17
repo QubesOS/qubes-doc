@@ -101,26 +101,26 @@ Internet access is intentionally disabled by default in dom0. But to ease the de
 
 ### Install Tests and Their Dependencies
 
-A regular Qubes installation isn't ready to run the full suite of tests. For example, in order to run the [splitgpg tests](https://github.com/QubesOS/qubes-app-linux-split-gpg/blob/4bc201bb70c011119eed19df25dc5b46120d04ed/tests/splitgpg/tests.py) you need to have the `qubes-gpg-split-tests` package installed in your app qubes.
+A regular Qubes installation isn't ready to run the full suite of tests. For example, in order to run the [Split GPG tests](https://github.com/QubesOS/qubes-app-linux-split-gpg/blob/4bc201bb70c011119eed19df25dc5b46120d04ed/tests/splitgpg/tests.py) you need to have the `qubes-gpg-split-tests` package installed in your app qubes.
 
-Because of the above reason, some additional configurations need to be done to your environment. This can be done in an automated manner with the help of [staltstack](/doc/salt) configuration that provisions the [automated testing environment](/doc/automated-tests/). 
+Because of the above reason, some additional configurations need to be done to your testing environment. This can be done in an automated manner with the help of the [Salt](/doc/salt) configuration that provisions the [automated testing environment](/doc/automated-tests/). 
 
-The following commands should work for you, but do keep the provisioning scripts are designed with the OpenQA environment in mind and not your specific local system. Run the following in `dom0`:
+The following commands should work for you, but do keep in mind that the provisioning scripts are designed for [openQA environment](https://openqa.qubes-os.org/) and not your specific local testing system. Run the following in `dom0`:
 
    ```
    # For future reference the following commands are an adaptation of
    # https://github.com/marmarek/openqa-tests-qubesos/blob/master/tests/update.pm
 
-   # install git
+   # Install git
    sudo qubes-dom0-update git || sudo dnf --setopt=reposdir=/etc/yum.repos.d install git
    
-   # download the openqa automated testing environment salt configuration
+   # Download the openQA automated testing environment salt configuration
    git clone https://github.com/marmarek/openqa-tests-qubesos/
    cd openqa-tests-qubesos/extra-files
    sudo cp -a system-tests/ /srv/salt/
    sudo qubesctl top.enable system-tests
 
-   # install them same configuration as the one in OpenQA
+   # Install them same configuration as the one in openQA
    QUBES_VERSION=4.1
    PILLAR_DIR=/srv/pillar/base/update
    sudo mkdir -p $PILLAR_DIR
