@@ -507,6 +507,19 @@ signed tags or commits on top of them unless you personally vouch for the
 trustworthiness of the unsigned commits. Instead, ask the person who pushed the
 unsigned commits to sign them.
 
+You should always perform this verification on a trusted local machine with
+properly validated keys (which are available in the [Qubes Security
+Pack](/security/pack/)) rather than relying on a third party, such as GitHub.
+While the GitHub interface may claim that a commit has a verified signature
+from a member of the Qubes team, this is only trustworthy if GitHub has
+performed the signature check correctly, the account identity is authentic, the
+user's key has not been replaced by an admin, GitHub's servers have not been
+compromised, and so on. Since there's no way for you to be certain that all
+such conditions hold, you're much better off verifying signatures yourself.
+
+Also see: [Distrusting the
+Infrastructure](/faq/#what-does-it-mean-to-distrust-the-infrastructure)
+
 To verify a signature on a Git tag:
 
 ```shell_session
@@ -530,19 +543,6 @@ or
 ```shell_session
 $ git verify-commit <commit ID>
 ```
-
-You should always perform this verification on a trusted local machine with
-properly validated keys (which are available in the [Qubes Security
-Pack](/security/pack/)) rather than relying on a third party, such as GitHub.
-While the GitHub interface may claim that a commit has a verified signature
-from a member of the Qubes team, this is only trustworthy if GitHub has
-performed the signature check correctly, the account identity is authentic, the
-user's key has not been replaced by an admin, GitHub's servers have not been
-compromised, and so on. Since there's no way for you to be certain that all
-such conditions hold, you're much better off verifying signatures yourself.
-
-Also see: [Distrusting the
-Infrastructure](/faq/#what-does-it-mean-to-distrust-the-infrastructure)
 
 ## Troubleshooting FAQ
 
