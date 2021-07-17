@@ -120,7 +120,7 @@ The following commands should work for you, but do keep in mind that the provisi
    sudo cp -a system-tests/ /srv/salt/
    sudo qubesctl top.enable system-tests
 
-   # Install them same configuration as the one in openQA
+   # Install the same configuration as the one in openQA
    QUBES_VERSION=4.1
    PILLAR_DIR=/srv/pillar/base/update
    sudo mkdir -p $PILLAR_DIR
