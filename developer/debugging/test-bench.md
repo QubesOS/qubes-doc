@@ -114,7 +114,7 @@ The following commands should work for you, but do keep in mind that the provisi
    # Install git
    sudo qubes-dom0-update git || sudo dnf --setopt=reposdir=/etc/yum.repos.d install git
    
-   # Download the openQA automated testing environment salt configuration
+   # Download the openQA automated testing environment Salt configuration
    git clone https://github.com/marmarek/openqa-tests-qubesos/
    cd openqa-tests-qubesos/extra-files
    sudo cp -a system-tests/ /srv/salt/
