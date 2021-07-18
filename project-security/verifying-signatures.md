@@ -595,10 +595,13 @@ first.](#3-verify-your-qubes-iso))
 ### Why am I getting "WARNING: This key is not certified with a trusted
 signature! There is no indication that the signature belongs to the owner."?
 
-Either you don't have the [Qubes Master Signing
-Key](#1-get-the-qubes-master-signing-key-and-verify-its-authenticity), or you
-didn't [set its trust level
-correctly](#1-get-the-qubes-master-signing-key-and-verify-its-authenticity).
+Several possibilities:
+* you don't have the [Qubes Master Signing
+Key](#1-get-the-qubes-master-signing-key-and-verify-its-authenticity)
+* you didn't [set its trust level
+correctly](#1-get-the-qubes-master-signing-key-and-verify-its-authenticity)
+* in the case of verifying a Git commit or tag, you haven't yet chosen to
+place ultimate PGP trust in the individual signer's key
 
 ### Why am I getting "X signature not checked due to a missing key"?
 
