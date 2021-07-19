@@ -498,14 +498,27 @@ can be confident that these hash values came from the Qubes devs.
 ## How to Verify Qubes Repos
 
 Whenever you use one of the [Qubes repositories](https://github.com/QubesOS),
-you should verify the PGP signature in a tag on the latest commit or on the
-latest commit itself. (One or both may be present, but only one is required.)
-If there is no trusted signed tag or commit on top, any commits after the
-latest trusted signed tag or commit should **not** be trusted. If you come
+you should use Git to verify the PGP signature in a tag on the latest commit or
+on the latest commit itself. (One or both may be present, but only one is
+required.) If there is no trusted signed tag or commit on top, any commits after
+the latest trusted signed tag or commit should **not** be trusted. If you come
 across a repo with any unsigned commits, you should not add any of your own
 signed tags or commits on top of them unless you personally vouch for the
 trustworthiness of the unsigned commits. Instead, ask the person who pushed the
 unsigned commits to sign them.
+
+You should always perform this verification on a trusted local machine with
+properly validated keys (which are available in the [Qubes Security
+Pack](/security/pack/)) rather than relying on a third party, such as GitHub.
+While the GitHub interface may claim that a commit has a verified signature
+from a member of the Qubes team, this is only trustworthy if GitHub has
+performed the signature check correctly, the account identity is authentic, the
+user's key has not been replaced by an admin, GitHub's servers have not been
+compromised, and so on. Since there's no way for you to be certain that all
+such conditions hold, you're much better off verifying signatures yourself.
+
+Also see: [Distrusting the
+Infrastructure](/faq/#what-does-it-mean-to-distrust-the-infrastructure)
 
 To verify a signature on a Git tag:
 
@@ -530,19 +543,6 @@ or
 ```shell_session
 $ git verify-commit <commit ID>
 ```
-
-You should always perform this verification on a trusted local machine with
-properly validated keys (which are available in the [Qubes Security
-Pack](/security/pack/)) rather than relying on a third party, such as GitHub.
-While the GitHub interface may claim that a commit has a verified signature
-from a member of the Qubes team, this is only trustworthy if GitHub has
-performed the signature check correctly, the account identity is authentic, the
-user's key has not been replaced by an admin, GitHub's servers have not been
-compromised, and so on. Since there's no way for you to be certain that all
-such conditions hold, you're much better off verifying signatures yourself.
-
-Also see: [Distrusting the
-Infrastructure](/faq/#what-does-it-mean-to-distrust-the-infrastructure)
 
 ## Troubleshooting FAQ
 
