@@ -107,7 +107,7 @@ Because of the above reason, some additional configurations need to be done to y
 
 The following commands should work for you, but do keep in mind that the provisioning scripts are designed for the [openQA environment](https://openqa.qubes-os.org/) and not your specific local testing system. Run the following in `dom0`:
 
-   ```
+   ```bash
    # For future reference the following commands are an adaptation of
    # https://github.com/marmarek/openqa-tests-qubesos/blob/master/tests/update.pm
 
