@@ -105,7 +105,7 @@ A regular Qubes installation isn't ready to run the full suite of tests. For exa
 
 Because of the above reason, some additional configurations need to be done to your testing environment. This can be done in an automated manner with the help of the [Salt](/doc/salt) configuration that provisions the [automated testing environment](/doc/automated-tests/). 
 
-The following commands should work for you, but do keep in mind that the provisioning scripts are designed for [openQA environment](https://openqa.qubes-os.org/) and not your specific local testing system. Run the following in `dom0`:
+The following commands should work for you, but do keep in mind that the provisioning scripts are designed for the [openQA environment](https://openqa.qubes-os.org/) and not your specific local testing system. Run the following in `dom0`:
 
    ```
    # For future reference the following commands are an adaptation of
