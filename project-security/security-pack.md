@@ -83,7 +83,7 @@ software](/security/verifying-signatures/#openpgp-software).
    ```
 
 3. [Authenticate and set the trust level of the Qubes Master Signing Key
-   (QMSK).](#how-to-import-and-authenticate-the-qubes-master-signing-key)
+   (QMSK).](/security/verifying-signatures/#how-to-import-and-authenticate-the-qubes-master-signing-key)
 
    **Note:** Only some keys in the qubes-secpack are signed by the QMSK. Keys
    that are not signed directly by the QMSK are still signed indirectly by
