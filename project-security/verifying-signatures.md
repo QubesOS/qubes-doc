@@ -374,7 +374,7 @@ Before we proceed, you must first complete the following prerequisite steps:
 1. [Import and authenticate the Qubes Master Signing Key.](#how-to-import-and-authenticate-the-qubes-master-signing-key)
 2. [Import and authenticate your release signing key.](#how-to-import-and-authenticate-release-signing-keys)
 
-Each Qubes ISO is accompanied by a set of **cyrptographic hash values**
+Each Qubes ISO is accompanied by a set of **cryptographic hash values**
 contained in a plain text file ending in `.DIGESTS`, which can find on the
 [downloads](/downloads/) page alongside the ISO. This file contains the output
 of running several different cryptographic hash functions on the ISO (a process

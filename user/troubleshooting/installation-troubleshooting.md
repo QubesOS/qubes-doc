@@ -26,7 +26,7 @@ Note that the Qubes installation image is over 4GB, so it may not fit on a small
 If a machine can not boot from a bigger USB, it may be too old to run Qubes. 
 * **Verify your Qubes ISO:** 
 Errors will occur if the Qubes installer is corrupted. 
-Ensure that the installer is correct and complete before writing it to a flash drive by [verifying the ISO](/security/verifying-signatures/#how-to-verify-qubes-iso-signatures). 
+Ensure that the installer is correct and complete before writing it to a flash drive by [verifying the ISO](/security/verifying-signatures/). 
 * **Change the method you used to [write your ISO to a USB key](/doc/installation-guide/#copying-the-iso-onto-the-installation-medium):** 
 Some people use the ``dd`` command (recommended), others use tools like Rufus, balenaEtcher or the GNOME Disk Utility. 
 If installation fails after using one tool, try a different one. 
