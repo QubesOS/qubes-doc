@@ -32,10 +32,11 @@ official location is:
 
 <https://github.com/QubesOS/qubes-secpack>
 
-## How to obtain, verify, and read
+## How to obtain and authenticate
 
-The following example demonstrates one method of obtaining the qubes-secpack,
-verifying its authenticity, and reading the contents.
+The following example demonstrates one method of obtaining the qubes-secpack and
+verifying its authenticity. This requires Git and [OpenPGP
+software](/security/verifying-signatures/#openpgp-software).
 
 1. Use Git to clone the qubes-secpack repo.
 
