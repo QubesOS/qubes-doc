@@ -64,7 +64,7 @@ generate are the genuine ones. The next rest of this page explains how to
 verify the authenticity of the various keys used in the project and how to use
 those keys to verify certain important assets.
 
-## How to obtain and authenticate PGP keys
+## OpenPGP software
 
 We use [PGP](https://en.wikipedia.org/wiki/Pretty_Good_Privacy) (specifically,
 the [OpenPGP](https://en.wikipedia.org/wiki/Pretty_Good_Privacy#OpenPGP)
@@ -90,22 +90,25 @@ work for you, try `gpg` instead. If that still doesn't work, please consult the
 documentation for your specific program (see links above) and the
 [troubleshooting FAQ](#troubleshooting-faq) below.
 
-### How to import and authenticate the Qubes Master Signing Key
+## How to import and authenticate the Qubes Master Signing Key
 
 Many important Qubes OS Project assets (e.g., ISOs, RPMs, TGZs, and Git
 objects) are digitally signed by an official team member's key or by a release
-signing key (RSK). Each such key is, in turn, signed by the [Qubes Master
+signing key (RSK). Each such key is, in turn, signed by the [**Qubes Master
 Signing Key
-(QMSK)](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc)
+(QMSK)**](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc)
 (`0x427F11FD0FAA4B080123F01CDDFA1A3E36879494`). In this way, the QMSK is the
 ultimate root of trust for the Qubes OS Project.
 
 The developer signing keys are set to expire after one year, while the QMSK and
-RSKs have no expiration date. Th QMSK was generated on and is kept only on a
+RSKs have no expiration date. The QMSK was generated on and is kept only on a
 dedicated, air-gapped "vault" machine, and the private portion will (hopefully)
 never leave this isolated machine.
 
-There are several ways to get the QMSK.
+Before we proceed, you must first complete the prerequisite step of [installing
+OpenPGP software](#openpgp-software).
+
+Now, there are several ways to get the QMSK.
 
 - If you're on Qubes OS, it's available in every
   qube ([except dom0](https://github.com/QubesOS/qubes-issues/issues/2544)):
@@ -263,8 +266,8 @@ gpg> q
 Now, when you import any of the release signing keys and many Qubes team member
 keys, they will already be trusted in virtue of being signed by the QMSK.
 
-Before proceeding to the next step, let's do a final sanity check to make sure
-the QMSK is in your keyring with the correct trust level. 
+As a final sanity check, make sure the QMSK is in your keyring with the correct
+trust level. 
 
 ```
 $ gpg2 -k "Qubes Master Signing Key"
@@ -277,12 +280,15 @@ If you don't see the QMSK here with a trust level of "ultimate," go back and
 follow the instructions in this section carefully and consult the
 [troubleshooting FAQ](#troubleshooting-faq) below.
 
-### How to import and authenticate release signing keys
+## How to import and authenticate release signing keys
 
 Every Qubes OS release is signed by a **release signing key (RSK)**, which is
-in turn signed by the Qubes Master Signing Key (QMSK). Before we proceed, you
-must first [import and authenticate the Qubes Master Signing
-Key](#how-to-import-and-authenticate-the-qubes-master-signing-key).
+in turn signed by the Qubes Master Signing Key (QMSK).
+
+Before we proceed, you must first complete the following prerequisite steps:
+
+1. [Install OpenPGP software.](#openpgp-software)
+2. [Import and authenticate the Qubes Master Signing Key.](#how-to-import-and-authenticate-the-qubes-master-signing-key)
 
 The first step is to obtain the correct RSK. The filename of the RSK for your
 Qubes OS release is usually `qubes-release-X-signing-key.asc`, where `X` is the
@@ -355,13 +361,13 @@ If you don't see the correct RSK here with a trust level of "full" or higher,
 go back and follow the instructions in this section carefully, and consult the
 [troubleshooting FAQ](#troubleshooting-faq) below.
 
-### How to obtain and authenticate other signing keys
+## How to obtain and authenticate other signing keys
 
 Please see the [Qubes security pack](/security/pack/) documentation.
 
 ## How to verify the cryptographic hash values of Qubes ISOs
 
-There are two ways to verify Qubes ISO: cryptographic hash values and detached
+There are two ways to verify Qubes ISOs: cryptographic hash values and detached
 PGP signatures. Both methods are equally secure. Using just one method is
 sufficient to verify your Qubes ISO. Using both methods is not necessary, but
 you can do so if you like. One method might be more convenient than another in
@@ -371,10 +377,11 @@ on Qubes ISOs](#how-to-verify-detached-pgp-signatures-on-qubes-isos).
 
 Before we proceed, you must first complete the following prerequisite steps:
 
-1. [Import and authenticate the Qubes Master Signing Key.](#how-to-import-and-authenticate-the-qubes-master-signing-key)
-2. [Import and authenticate your release signing key.](#how-to-import-and-authenticate-release-signing-keys)
+1. [Install OpenPGP software.](#openpgp-software)
+2. [Import and authenticate the Qubes Master Signing Key.](#how-to-import-and-authenticate-the-qubes-master-signing-key)
+3. [Import and authenticate your release signing key.](#how-to-import-and-authenticate-release-signing-keys)
 
-Each Qubes ISO is accompanied by a set of **cyrptographic hash values**
+Each Qubes ISO is accompanied by a set of **cryptographic hash values**
 contained in a plain text file ending in `.DIGESTS`, which can find on the
 [downloads](/downloads/) page alongside the ISO. This file contains the output
 of running several different cryptographic hash functions on the ISO (a process
@@ -500,7 +507,7 @@ FAQ](#troubleshooting-faq) below.
 
 ## How to verify detached PGP signatures on Qubes ISOs
 
-There are two ways to verify Qubes ISO: cryptographic hash values and detached
+There are two ways to verify Qubes ISOs: cryptographic hash values and detached
 PGP signatures. Both methods are equally secure. Using just one method is
 sufficient to verify your Qubes ISO. Using both methods is not necessary, but
 you can do so if you like. One method might be more convenient than another in
@@ -511,8 +518,9 @@ ISOs](#how-to-verify-the-cryptographic-hash-values-of-qubes-isos).
 
 Before we proceed, you must first complete the following prerequisite steps:
 
-1. [Import and authenticate the Qubes Master Signing Key.](#how-to-import-and-authenticate-the-qubes-master-signing-key)
-2. [Import and authenticate your release signing key.](#how-to-import-and-authenticate-release-signing-keys)
+1. [Install OpenPGP software.](#openpgp-software)
+2. [Import and authenticate the Qubes Master Signing Key.](#how-to-import-and-authenticate-the-qubes-master-signing-key)
+3. [Import and authenticate your release signing key.](#how-to-import-and-authenticate-release-signing-keys)
 
 Every Qubes ISO is released with a **detached PGP signature** file, which you
 can find on the [downloads](/downloads/) page alongside the ISO. If the
@@ -544,6 +552,19 @@ FAQ](#troubleshooting-faq) below.
 
 ## How to verify signatures on Git repository tags and commits
 
+Before we proceed, you must first complete the following prerequisite steps:
+
+1. [Install OpenPGP software.](#openpgp-software)
+2. [Import and authenticate the Qubes Master Signing Key.](#how-to-import-and-authenticate-the-qubes-master-signing-key)
+3. [Import and authenticate keys from the Qubes security pack (qubes-secpack).](/security/pack/)
+
+   **Note:** Only some keys in the qubes-secpack are signed by the QMSK. Keys
+   that are not signed directly by the QMSK are still signed indirectly by
+   virtue of being included in the qubes-secpack, which is itself signed (via
+   Git tags and/or commits) by keys that are in turn signed by the QMSK. If a
+   key is not signed directly by the QMSK, you may need to set its trust level
+   directly.
+
 Whenever you use one of the [Qubes repositories](https://github.com/QubesOS),
 you should use Git to verify the PGP signature in a tag on the latest commit or
 on the latest commit itself. (One or both may be present, but only one is
@@ -565,18 +586,7 @@ all such conditions hold, you're much better off verifying signatures yourself.
 (Also see: [distrusting the
 infrastructure](/faq/#what-does-it-mean-to-distrust-the-infrastructure).)
 
-Before we proceed, you must first complete the following prerequisite steps:
-
-1. [Import and authenticate the Qubes Master Signing Key.](#how-to-import-and-authenticate-the-qubes-master-signing-key)
-2. [Import and authenticate keys from the Qubes security pack (qubes-secpack)](/security/pack/)
-
-**Note:** Only some keys in the qubes-secpack are signed by the QMSK. Keys that
-are not signed directly by the QMSK are still signed indirectly by virtue of
-being included in the qubes-secpack, which is itself signed (via Git tags
-and/or commits) by keys that are in turn signed by the QMSK. If a key is not
-signed directly by the QMSK, you may need to set its trust level directly.
-
-To verify a signature on a Git tag:
+**To verify a signature on a Git tag:**
 
 ```shell_session
 $ git tag -v <tag name>
@@ -588,7 +598,7 @@ or
 $ git verify-tag <tag name>
 ```
 
-To verify a signature on a Git commit:
+**To verify a signature on a Git commit:**
 
 ```shell_session
 $ git log --show-signature <commit ID>

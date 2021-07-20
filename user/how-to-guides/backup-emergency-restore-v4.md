@@ -37,12 +37,12 @@ Here are instructions for obtaining a compiled `scrypt` binary. This example
 uses an RPM-based system (Fedora), but the same general procedure should work
 on any GNU/Linux system.
 
- 1. If you're not on Qubes 4.X, [get and verify the Release 4 Signing Key](/security/verifying-signatures/#2-get-the-release-signing-key).
- 2. If you're not on Qubes 4.X, import the Release 4 Signing Key.
+ 1. If you're not on Qubes 4.X, [import and authenticate the Release 4 Signing
+    Key](/security/verifying-signatures/#how-to-import-and-authenticate-release-signing-keys).
 
         [user@restore ~]$ sudo rpm --import qubes-release-4-signing-key.asc
 
- 3. Download the `scrypt` RPM.
+ 2. Download the `scrypt` RPM.
 
         [user@restore ~]$ dnf download scrypt
 
@@ -50,7 +50,7 @@ on any GNU/Linux system.
 
         [user@restore ~]$ curl -O https://yum.qubes-os.org/r4.0/current/vm/fc28/rpm/scrypt-1.2.1-1.fc28.x86_64.rpm
 
- 4. Verify the signature on the `scrypt` RPM.
+ 3. Verify the signature on the `scrypt` RPM.
 
         [user@restore ~]$ rpm -K scrypt-*.rpm
         scrypt-*.rpm: digests signatures OK
@@ -58,15 +58,15 @@ on any GNU/Linux system.
     The message `digests signatures OK` means that both the digest (i.e., the
     output of a hash function) and PGP signature verification were successful.
 
- 5. Install `rpmdevtools`.
+ 4. Install `rpmdevtools`.
 
         [user@restore ~]$ sudo dnf install rpmdevtools
 
- 6. Extract the `scrypt` binary from the RPM.
+ 5. Extract the `scrypt` binary from the RPM.
 
         [user@restore ~]$ rpmdev-extract scrypt-*.rpm
 
- 7. (Optional) Create an alias for the new binary.
+ 6. (Optional) Create an alias for the new binary.
 
         [user@restore ~]$ alias scrypt="scrypt-*/usr/bin/scrypt"
 
