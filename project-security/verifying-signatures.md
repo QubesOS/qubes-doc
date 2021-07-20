@@ -575,13 +575,11 @@ Your working directory does not contain the required files. Go back and follow
 the instructions more carefully, making sure that you put all required files in
 the same directory *and* navigate to that directory.
 
-### Why am I getting "can't open signed data `Qubes-RX-x86_64.iso' / can't hash
-datafile: file open error"?
+### Why am I getting "can't open signed data `Qubes-RX-x86_64.iso' / can't hash datafile: file open error"?
 
 The correct ISO is not in your working directory.
 
-### Why am I getting "can't open `Qubes-RX-x86_64.iso.asc' / verify signatures
-failed: file open error"?
+### Why am I getting "can't open `Qubes-RX-x86_64.iso.asc' / verify signatures failed: file open error"?
 
 The correct [signature file](#3-verify-your-qubes-iso) is not in your working
 directory.
@@ -592,8 +590,7 @@ Either you don't have the correct [signature file](#3-verify-your-qubes-iso),
 or you inverted the arguments to `gpg2`. ([The signature file goes
 first.](#3-verify-your-qubes-iso))
 
-### Why am I getting "WARNING: This key is not certified with a trusted
-signature! There is no indication that the signature belongs to the owner."?
+### Why am I getting "WARNING: This key is not certified with a trusted signature! There is no indication that the signature belongs to the owner."?
 
 Either you don't have the [Qubes Master Signing
 Key](#1-get-the-qubes-master-signing-key-and-verify-its-authenticity), or you
@@ -608,8 +605,7 @@ Signing Key](#1-get-the-qubes-master-signing-key-and-verify-its-authenticity)
 and the [Release Signing Key](#2-get-the-release-signing-key) for your Qubes
 version.
 
-### Why am I seeing additional signatures on a key with "[User ID not found]"
-or from a revoked key?
+### Why am I seeing additional signatures on a key with "[User ID not found]" or from a revoked key?
 
 This is just a basic part of how OpenPGP works. Anyone can sign anyone else's
 public key and upload the signed public key to keyservers. Everyone is also
@@ -633,9 +629,7 @@ You're not verifying against the correct [signature
 file](#3-verify-your-qubes-iso), or the signature file has been modified. Try
 downloading it again or from a different source.
 
-### Do I have to verify the ISO against both the [signature
-file](#3-verify-your-qubes-iso) and the [digest
-file](#how-to-verify-qubes-iso-digests)?
+### Do I have to verify the ISO against both the [signature file](#3-verify-your-qubes-iso) and the [digest file](#how-to-verify-qubes-iso-digests)?
 
 No, either method is sufficient by itself.
 
