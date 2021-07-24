@@ -555,15 +555,12 @@ FAQ](#troubleshooting-faq) below.
 Before we proceed, you must first complete the following prerequisite steps:
 
 1. [Install OpenPGP software.](#openpgp-software)
-2. [Import and authenticate the Qubes Master Signing Key.](#how-to-import-and-authenticate-the-qubes-master-signing-key)
-3. [Import and authenticate keys from the Qubes security pack (qubes-secpack).](/security/pack/)
-
-   **Note:** Only some keys in the qubes-secpack are signed by the QMSK. Keys
-   that are not signed directly by the QMSK are still signed indirectly by
-   virtue of being included in the qubes-secpack, which is itself signed (via
-   Git tags and/or commits) by keys that are in turn signed by the QMSK. If a
-   key is not signed directly by the QMSK, you may need to set its trust level
-   directly.
+2. [Import and authenticate the Qubes Master Signing
+   Key.](#how-to-import-and-authenticate-the-qubes-master-signing-key)
+3. [Import and authenticate keys from the Qubes security pack
+   (qubes-secpack).](/security/pack/) Please see our [PGP key
+   policies](/security/pack/#pgp-key-policies) for important information about
+   these keys.
 
 Whenever you use one of the [Qubes repositories](https://github.com/QubesOS),
 you should use Git to verify the PGP signature in a tag on the latest commit or
@@ -586,7 +583,7 @@ all such conditions hold, you're much better off verifying signatures yourself.
 (Also see: [distrusting the
 infrastructure](/faq/#what-does-it-mean-to-distrust-the-infrastructure).)
 
-**To verify a signature on a Git tag:**
+### How to verify a signature on a Git tag
 
 ```shell_session
 $ git tag -v <tag name>
@@ -598,7 +595,7 @@ or
 $ git verify-tag <tag name>
 ```
 
-**To verify a signature on a Git commit:**
+### How to verify a signature on a Git commit
 
 ```shell_session
 $ git log --show-signature <commit ID>

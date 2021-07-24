@@ -50,7 +50,8 @@ software](/security/verifying-signatures/#openpgp-software).
    Checking connectivity... done.
    ```
 
-2. Import the included PGP keys.
+2. Import the included PGP keys. See our [PGP key policies](#pgp-key-policies)
+   for important information about these keys.
 
    ```shell_session
    $ gpg --import qubes-secpack/keys/*/*
@@ -84,11 +85,6 @@ software](/security/verifying-signatures/#openpgp-software).
 
 3. [Authenticate and set the trust level of the Qubes Master Signing Key
    (QMSK).](/security/verifying-signatures/#how-to-import-and-authenticate-the-qubes-master-signing-key)
-
-   **Note:** Only some keys in the qubes-secpack are signed by the QMSK. Keys
-   that are not signed directly by the QMSK are still signed indirectly by
-   virtue of being included in the qubes-secpack, which is itself signed (via
-   Git tags and/or commits) by keys that are in turn signed by the QMSK.
 
 4. Verify signed Git tags.
 
@@ -129,16 +125,23 @@ signatures) are provided to ensure that the system is robust (e.g., against a
 potential failure in Git tag-based verification) and to give users more options
 to verify the files.
 
-## PGP key inclusion criteria
+## PGP key policies
 
-The qubes-secpack generally includes only those PGP keys used to sign some kind
-of official project asset, such as Qubes release ISOs (release signing keys),
-Git tags and commits (code signing, doc signing, and security team keys), and
-the qubes-secpack's own files and Git tags (security team keys again). This
-means that email keys are generally not included, even for official project
-email addresses. There is one exception to this rule: the official [Qubes
-security team](/security/#qubes-security-team) email address, which is used to
-report security vulnerabilities in Qubes OS to our security team.
+- **Inclusion criteria.** The qubes-secpack generally includes only those PGP
+  keys used to sign some kind of official project asset, such as Qubes release
+  ISOs (release signing keys), Git tags and commits (code signing, doc signing,
+  and security team keys), and the qubes-secpack's own files and Git tags
+  (security team keys again). This means that email keys are generally not
+  included, even for official project email addresses. There is one exception
+  to this rule: the official [Qubes security
+  team](/security/#qubes-security-team) email address, which is used to report
+  security vulnerabilities in Qubes OS to our security team.
+
+- **Key signing (certification).** Only some keys in the qubes-secpack are
+  signed by the QMSK. Keys that are not signed directly by the QMSK are still
+  signed indirectly by virtue of being included in the qubes-secpack, which is
+  itself signed (via Git tags and/or commits) by keys that are in turn signed
+  by the QMSK.
 
 ## History and rationale
 
