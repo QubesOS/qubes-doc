@@ -81,6 +81,8 @@ For more information, look at the [Nvidia Troubleshooting guide](https://github.
  
 If you are facing this problem on an Apple computer, check out the [Macbook Troubleshooting guide](https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/macbook-troubleshooting.md).
 
+If you are installing Qubes 4.0 on an external storage device, you may have forgotten to disable `sys-usb` during the [initial setup](/doc/installation-guide/#initial-setup), which is generally required for that setup to work.
+
 This issue occurs due to the network card, which may be missing some drivers or is incompatible with Qubes. 
 
 First, install all available drivers for the card. 
