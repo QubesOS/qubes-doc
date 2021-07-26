@@ -8,8 +8,10 @@ title: Testing new releases and updates
 ---
 
 Testing new Qubes OS releases and updates is one of the most helpful ways in
-which you can [contribute](/doc/contributing/) to the Qubes OS Project. There
-are several different types of testing, which we'll cover below.
+which you can [contribute](/doc/contributing/) to the Qubes OS Project. If
+you're interested in helping with this, please [join the testing
+team](https://forum.qubes-os.org/t/joining-the-testing-team/5190). There are
+several different types of testing, which we'll cover below.
 
 **Warning:** Software testing is intended for advanced users and developers.
 You should only attempt to do this if you know what you're doing. Never rely on
