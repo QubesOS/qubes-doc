@@ -657,7 +657,7 @@ the arguments to `gpg2`. (The signature file goes first.)
 There are several possibilities:
 - You don't have the [Qubes Master Signing
   Key (QMSK)](#how-to-import-and-authenticate-the-qubes-master-signing-key).
-- You have [not set the QMSK's trust level
+- You have [not set the trust level of the QMSK
   correctly.](#how-to-import-and-authenticate-the-qubes-master-signing-key)
 - In the case of a key that is not directly signed by the QMSK,
   you have [not set that key's trust level
