@@ -41,7 +41,7 @@ decision of whether to trust any given party is beyond the scope of digital
 signatures. It's more of a social and political decision.
 
 Once we make the decision to trust certain parties, digital signatures are
-useful, because they make it possible for us to limit our trust to only those
+useful, because they make it possible for us to limit our trust only to those
 few parties we choose and not to worry about all the bad things that can happen
 between us and them, e.g., server compromises (qubes-os.org will surely be
 compromised one day, so [don't blindly trust the live version of this
@@ -656,11 +656,11 @@ the arguments to `gpg2`. (The signature file goes first.)
 
 There are several possibilities:
 - You don't have the [Qubes Master Signing
-  Key (QMSK)](#how-to-import-and-authenticate-the-qubes-master-signing-key).
-- You have [not set the trust level of the QMSK
+  Key](#how-to-import-and-authenticate-the-qubes-master-signing-key).
+- You have [not set the Qubes Master Signing Key's trust level
   correctly.](#how-to-import-and-authenticate-the-qubes-master-signing-key)
-- In the case of a key that is not directly signed by the QMSK,
-  you have [not set that key's trust level
+- In the case of a key that is not directly signed by the Qubes Master Signing
+  Key, you have [not set that key's trust level
   correctly.](#how-to-verify-signatures-on-git-repository-tags-and-commits)
 
 ### Why am I getting "X signature not checked due to a missing key"?
