@@ -60,7 +60,7 @@ However, for digital signatures to make any sense, we must ensure that the
 public keys we use for signature verification are indeed the original ones.
 Anybody can generate a cryptographic key that purports to belong to "The Qubes
 OS Project," but of course only the keys that we (the real Qubes developers)
-generate are the genuine ones. The next rest of this page explains how to
+generate are the genuine ones. The rest of this page explains how to
 verify the authenticity of the various keys used in the project and how to use
 those keys to verify certain important assets.
 
@@ -75,7 +75,7 @@ do, but here are some examples for popular operating systems:
 **Linux:** [GnuPG](https://gnupg.org/download/index.html)
 ([documentation](https://www.gnupg.org/documentation/)). Open a terminal and
 use the `gpg2` command. If you don't already have GnuPG installed, install it
-via your distro's package manager or from the website.
+via your distro's package manager or from the GnuPG website.
 
 **Mac:** [GPG Suite](https://gpgtools.org/)
 ([documentation](https://gpgtools.tenderapp.com/kb)). Open a terminal to enter
@@ -288,7 +288,7 @@ in turn signed by the Qubes Master Signing Key (QMSK).
 Before we proceed, you must first complete the following prerequisite steps:
 
 1. [Install OpenPGP software.](#openpgp-software)
-2. [Import and authenticate the Qubes Master Signing Key.](#how-to-import-and-authenticate-the-qubes-master-signing-key)
+2. [Import and authenticate the QMSK.](#how-to-import-and-authenticate-the-qubes-master-signing-key)
 
 The first step is to obtain the correct RSK. The filename of the RSK for your
 Qubes OS release is usually `qubes-release-X-signing-key.asc`, where `X` is the
@@ -339,8 +339,8 @@ gpg: 2 good signatures
 ```
 
 This is just an example, so the output you receive will not look exactly the
-same. What matters is the line that shows that this key is signed by the Qubes
-Master Signing Key with a `sig!` prefix. This verifies the authenticity of the
+same. What matters is the line that shows that this key is signed by the QMSK
+with a `sig!` prefix. This verifies the authenticity of the
 RSK. Note that the `!` flag after the `sig` tag is important because it means
 that the key signature is valid. A `sig-` prefix would indicate a bad signature
 and `sig%` would mean that gpg encountered an error while verifying the
@@ -386,7 +386,7 @@ contained in a plain text file ending in `.DIGESTS`, which can find on the
 [downloads](/downloads/) page alongside the ISO. This file contains the output
 of running several different cryptographic hash functions on the ISO (a process
 known as "hashing") in order to obtain alphanumeric outputs known as "hash
-values or "digests."
+values" or "digests."
 
 One convenient property of hash values is that they can be generated on any
 computer. This means, for example, that you can download a Qubes ISO on one
@@ -460,7 +460,7 @@ are lines for the PGP signature that the `*sum` programs do not know how to
 read. Therefore, it is safe to ignore these warning lines.
 
 Another way is to use `openssl` to compute each hash value, then compare them
-to the contents of the digest file.:
+to the contents of the digest file:
 
 ```shell_session
 $ openssl dgst -md5 Qubes-RX-x86_64.iso
@@ -480,22 +480,18 @@ malicious ISO, computed the hash values for that malicious ISO, and replaced
 the values in `Qubes-RX-x86_64.iso.DIGESTS` with his own set of values.
 Therefore, we should also verify the authenticity of the listed hash values.
 Since `Qubes-RX-x86_64.iso.DIGESTS` is a clearsigned PGP file, we can use GPG
-to verify it from the command line:
+to verify the signature in the digest file:
 
-1. [Import and authenticate the Qubes Master Signing Key.](#how-to-import-and-authenticate-the-qubes-master-signing-key)
-2. [Import and authenticate your release signing key.](#how-to-import-and-authenticate-release-signing-keys)
-3. Verify the signature in the digest file:
-
-   ```shell_session
-   $ gpg2 -v --verify Qubes-RX-x86_64.iso.DIGESTS
-   gpg: armor header: Hash: SHA256
-   gpg: armor header: Version: GnuPG v2
-   gpg: original file name=''
-   gpg: Signature made Tue 20 Sep 2016 10:37:03 AM PDT using RSA key ID 03FA5082
-   gpg: using PGP trust model
-   gpg: Good signature from "Qubes OS Release X Signing Key"
-   gpg: textmode signature, digest algorithm SHA256
-   ```
+```shell_session
+$ gpg2 -v --verify Qubes-RX-x86_64.iso.DIGESTS
+gpg: armor header: Hash: SHA256
+gpg: armor header: Version: GnuPG v2
+gpg: original file name=''
+gpg: Signature made Tue 20 Sep 2016 10:37:03 AM PDT using RSA key ID 03FA5082
+gpg: using PGP trust model
+gpg: Good signature from "Qubes OS Release X Signing Key"
+gpg: textmode signature, digest algorithm SHA256
+```
 
 This is just an example, so the output you receive will not look exactly the
 same. What matters is the line that says `Good signature from "Qubes OS Release
@@ -661,10 +657,10 @@ the arguments to `gpg2`. (The signature file goes first.)
 There are several possibilities:
 - You don't have the [Qubes Master Signing
   Key](#how-to-import-and-authenticate-the-qubes-master-signing-key).
-- [You have not set the Qubes Master Signing Key's trust level
+- You have [not set the Qubes Master Signing Key's trust level
   correctly.](#how-to-import-and-authenticate-the-qubes-master-signing-key)
-- [In the case of a key that is not directly signed by the Qubes Master Signing
-  Key, you have not set that key's trust level
+- In the case of a key that is not directly signed by the Qubes Master Signing
+  Key, you have [not set that key's trust level
   correctly.](#how-to-verify-signatures-on-git-repository-tags-and-commits)
 
 ### Why am I getting "X signature not checked due to a missing key"?
