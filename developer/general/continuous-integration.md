@@ -23,6 +23,9 @@ containing only the command.
   can be useful if CI incorrectly uses a stale branch instead of testing the PR
   as if it were merged into `master`.
 
+- `PipelineRefresh`: Like `PipelineRetry`, except it only fetches the job status
+   from GitLab. It doesn't schedule a new build.
+
 - `TestDeploy`: Deploys a test website, which is a live version of the Qubes
   website as if this PR had been merged. This can be useful for previewing a PR
   on a live public website. **Note:** You must wait for the site to finish
