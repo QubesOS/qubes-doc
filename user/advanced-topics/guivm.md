@@ -74,7 +74,7 @@ sudo qubesctl state.sls qvm.sys-gui-gpu-attach-gpu.
 
 The latter option assumes Intel graphics card (it has hardcoded PCI address). If you don't have Intel graphics card, please use the former method with `qvm-pci` (see [How to use PCI devices](/doc/how-to-use-pci-devices/)).
 
-> Note: Some platforms can have multiple GPU. For example on laptops, it is usual to have HDMI or DISPLAY port linked to the secondary GPU (generally called _discrete GPU_). In such case, you have to also attach the secondary GPU to `sys-gui-gpu` with permission option.
+> Note: Some platforms can have multiple GPU. For example on laptops, it is usual to have HDMI or DISPLAY port linked to the secondary GPU (generally called _discrete GPU_). In such case, you have to also attach the secondary GPU to `sys-gui-gpu` with permissive option.
 
 At this point, you need to reboot your Qubes OS machine in order to boot into `sys-gui-gpu`.
 
