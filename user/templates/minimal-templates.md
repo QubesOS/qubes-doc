@@ -221,6 +221,10 @@ list of packages to be installed):
 
 - Commonly used utilities: `pciutils` `vim-minimal` `less` `psmisc`
   `gnome-keyring`
+- The `zenity` package is required for interactive dialogs, e.g., file selection
+  ([#5202](https://github.com/QubesOS/qubes-issues/issues/5202)) and for using
+  the Nautilus menu option to copy some files to other qubes
+  ([#6801](https://github.com/QubesOS/qubes-issues/issues/6801)).
 - Audio: `pulseaudio-qubes`
 - [FirewallVM](/doc/firewall/), such as the template for `sys-firewall`: at
   least `qubes-core-agent-networking`, and also `qubes-core-agent-dom0-updates`
@@ -275,10 +279,6 @@ Also, there are packages to provide additional services:
   template and qubes.
 
 Documentation on all of these can be found in the [docs](/doc/).
-
-If you want to use interactive dialogs, (e.g file selection), you will need to
-add the `zenity` package
-([example](https://github.com/QubesOS/qubes-issues/issues/5202)).
 
 You could, of course, use `qubes-vm-recommended` to automatically install many
 of these, but in that case you are well on the way to a standard Debian
