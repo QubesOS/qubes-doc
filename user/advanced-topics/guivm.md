@@ -8,14 +8,14 @@ title: GuiVM Configuration
 
 ## Gui domain
 
-In this section, we describe how to setup `GuiVM` in several case as described in [GUI Domain](https://www.qubes-os.org/news/2020/03/18/gui-domain/). In all the cases, the base underlying TemplateVM used is `Fedora` with `XFCE` flavor to match current desktop choice in `dom0`. That can be adapted very easily for other desktops and templates. By default, the configured `GuiVM` is a management qube with global admin permissions `rwx` but can be adjusted to `ro` (see [Introducing the Qubes Admin API](https://www.qubes-os.org/news/2017/06/27/qubes-admin-api/)) in pillar data of the corresponding `GuiVM` to setup. Please note that each `GuiVM` has no `NetVM`.
+In this section, we describe how to setup `GuiVM` in several case as described in [GUI Domain](https://www.qubes-os.org/news/2020/03/18/gui-domain/). In all the cases, the base underlying TemplateVM used is `Fedora` with `XFCE` flavor to match current desktop choice in `dom0`. That can be adapted very easily for other desktops and templates. By default, the configured `GuiVM` is a management qube with global admin permissions `rwx` but can be adjusted to `ro` (see [Introducing the Qubes Admin API](https://www.qubes-os.org/news/2017/06/27/qubes-admin-api/)) in pillar data of the corresponding `GuiVM` to setup. For example, pillar data for `sys-gui` located at `/srv/pillar/base/qvm/sys-gui.sls`. Please note that each `GuiVM` has no `NetVM`.
 
 > Note: The setup is done using `SaltStack` formulas with the `qubesctl` tool. When executing it, apply step can take time because it needs to download latest Fedora XFCE TemplateVM and install desktop dependencies.
 
 
 ### Hybrid GuiVM `sys-gui`
 
-Here, we describe how to setup `sys-gui` that we call *hybrid mode* or referenced as a *compromised solution* in [GUI Domain](https://www.qubes-os.org/news/2020/03/18/gui-domain/#the-compromise-solution).
+Here, we describe how to setup `sys-gui` that we call *hybrid mode* or referenced as a *compromise solution* in [GUI Domain](https://www.qubes-os.org/news/2020/03/18/gui-domain/#the-compromise-solution).
 
 [![sys-gui](/attachment/posts/guivm-hybrid.png)](/attachment/posts/guivm-hybrid.png)
 
@@ -37,7 +37,7 @@ You can now disable the `sys-gui` formula:
 sudo qubesctl top.disable qvm.sys-gui
 ```
 
-At this point, you need to shutdown all your running qubes as the `default_guivm` qubes global property has been set to `sys-gui`. In order to use `sys-gui` as GuiVM, you need to logout and select `lightdm` session to *Gui Domain (sys-gui)*. Once logged, you are running `sys-gui` as fullscreen window and you can perform any operation as if you would be in `dom0` desktop.
+At this point, you need to shutdown all your running qubes as the `default_guivm` qubes global property has been set to `sys-gui`. In order to use `sys-gui` as GuiVM, you need to logout and, in the top right corner, select `lightdm` session type to *Gui Domain (sys-gui)*. Once logged, you are running `sys-gui` as fullscreen window and you can perform any operation as if you would be in `dom0` desktop.
 
 > Note: In order to go back to `dom0` desktop, you need to logout and then, select `lightdm` session to *Session Xfce*.
 
@@ -66,11 +66,21 @@ You can now disable the `sys-gui-gpu` formula:
 sudo qubesctl top.disable qvm.sys-gui-gpu
 ```
 
+One more step is needed: attaching the actual GPU to `sys-gui-gpu`. This can be done either manually via `qvm-pci` (remember to enable permissive option), or via:
+
+```bash
+sudo qubesctl state.sls qvm.sys-gui-gpu-attach-gpu.
+```
+
+The latter option assumes Intel graphics card (it has hardcoded PCI address). If you don't have Intel graphics card, please use the former method with `qvm-pci` (see [How to use PCI devices](/doc/how-to-use-pci-devices/)).
+
+> Note: Some platforms can have multiple GPU. For example on laptops, it is usual to have HDMI or DISPLAY port linked to the secondary GPU (generally called _discrete GPU_). In such case, you have to also attach the secondary GPU to `sys-gui-gpu` with permission option.
+
 At this point, you need to reboot your Qubes OS machine in order to boot into `sys-gui-gpu`.
 
-> None: For some platforms, it can be sufficient to shutdown all the running qubes and starting `sys-gui-gpu`. Unfortunately, it has been observed that detaching and attaching some GPU cards from `dom0` to `sys-gui-gpu` can freeze computer. We encourage reboot to prevent any data loss.
+> Note: For some platforms, it can be sufficient to shutdown all the running qubes and starting `sys-gui-gpu`. Unfortunately, it has been observed that detaching and attaching some GPU cards from `dom0` to `sys-gui-gpu` can freeze computer. We encourage reboot to prevent any data loss.
 
-Once, `lightdm` is started, you can log as `user` where `user` refers to the first `dom0` user in `qubes` group and with corresponding `dom0` password.
+Once, `lightdm` is started, you can log as `user` where `user` refers to the first `dom0` user in `qubes` group and with corresponding `dom0` password. A better approach for handling password is currently discussed in [QubesOS/qubes-issues#6740](https://github.com/QubesOS/qubes-issues/issues/6740).
 
 ### VNC GuiVM `sys-gui-vnc`
 
@@ -107,7 +117,14 @@ A VNC server session is running on `localhost:5900` in `sys-gui-vnc`. In order t
 
 > Note: `lightdm` session remains logged even if you disconnect your `VNC` client. Ensure to lock or log out before disconnecting your `VNC` client session.
 
+> **WARNING**: This setup raises multiple security issues: 1) Anyone who can reach the `VNC` server, can take over the control of the Qubes OS machine, 2) A second client can connect even if a connection is already active and potentially get disconnected, 3) You can get disconnected by some unrelated network issues. Generally, if this `VNC` server is exposed to open network, it must be protected with some other (cryptographic) layer like `VPN`. The setup as is, is useful only for purely testing machine.
+
+
 ### Troobleshooting
+
+#### Application menu lacks qubes entries in a fresh GuiVM
+
+See [QubesOS/qubes-issues#5804](https://github.com/QubesOS/qubes-issues/issues/5804)
 
 #### Delete GuiVM
 
@@ -132,3 +149,7 @@ You are now able to delete the GuiVM, for example `sys-gui-gpu`:
 ```bash
 qvm-remove -y sys-gui-gpu
 ```
+
+#### General issue
+
+For any general GuiVM issue, please take a loot at existing issues `QubesOS/qubes-issues` under [C: gui-domain](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+gui-domain%22) label.
