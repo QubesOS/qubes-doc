@@ -79,6 +79,15 @@ address, posting via an official social media account, or acting as an
 appointed representative at an online or offline event. Representation of a
 project may be further defined and clarified by project maintainers.
 
+In all other cases, this Code of Conduct applies only in the official project
+venues specified on [this page](/support/); it does not apply to unofficial
+venues, community-run venues, or any other public or private place. For
+example, if a Qubes user decides to create an unofficial discussion space on a
+third-party platform, and someone appears to violate this Code of Conduct in
+that space, we are not responsible for taking any action with respect to that
+behavior; the venue; the venue's creators, owners, leaders, or moderators; or
+anything else pertaining to the incident.
+
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
