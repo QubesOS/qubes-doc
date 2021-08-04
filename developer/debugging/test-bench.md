@@ -128,8 +128,6 @@ The following commands should work for you, but do keep in mind that the provisi
    printf "base:\n  '*':\n    - update\n" | sudo tee $PILLAR_DIR/init.top
    sudo qubesctl top.enable update pillar=True
 
-   sudo systemctl restart qubesd
-
    # Apply states to dom0 and VMs
    # NOTE: These commands can take several minutes (if not more) without showing output
    sudo qubesctl --show-output state.highstate
