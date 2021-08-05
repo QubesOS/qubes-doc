@@ -48,7 +48,7 @@ It strives to provide not only a better mechanism for handling template installa
 
 - Install/reinstall/downgrade/upgrade templates, either from local packages or remote repositories
   - Ability to install templates in alternative pools
-  - Possibility for the template package to specify options such as the kernel or `virt_mode` used
+  - Possibility for the template package to specify options such as kernel or `virt_mode` used by the resulting template VM
 - List and show information about local and available templates
   - Machine-readable output for easy extension
 - Search for templates
