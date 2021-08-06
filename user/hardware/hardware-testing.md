@@ -18,13 +18,14 @@ In general, you can think of tested hardware as "unofficial recommended" hardwar
 - [Qubes Certified Hardware](/doc/certified-hardware/) --- Qubes developer certified, officially recommended
 - Hardware Testing (this page) --- Qubes developer tested, unofficially recommended
 - [Hardware Compatibility List (HCL)](/hcl/) --- community test results, neither recommended nor disrecommended
+- ["Just works" for R4.0.4](https://forum.qubes-os.org/t/laptops-that-just-work-with-qubes-os-r4-0-4/5560) --- compiled & recommended by community members (unofficial)
 
 ## Tested Models
 
 These hardware models have been (and continue to be) tested and work well with Qubes OS:
 
-- Lenovo ThinkPad X1 Carbon Gen 5
-- Lenovo ThinkPad x230
+- Lenovo ThinkPad X1 Carbon Gen 5 (i7-7600U)
+- Lenovo ThinkPad x230 (i7-3520M)
 
 Note: The Lenovo X and T series are similar enough to assume similar compatibility of the matching model from the other series.
 
