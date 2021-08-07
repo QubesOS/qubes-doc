@@ -19,8 +19,7 @@ We aim for these vendors to be as diverse as possible in terms of geography, cos
   We take no responsibility for any vendor's manufacturing, shipping, payment, or other practices; nor can we control whether physical hardware is modified (whether maliciously or otherwise) <i>en route</i> to the user.
 </div>
 
-There are also other hardware models on which we have tested Qubes OS.
-See [Hardware Testing](/doc/hardware-testing/) for details.
+You may also be interested in the community-curated list of [laptops that "just work" with Qubes OS](https://forum.qubes-os.org/t/laptops-that-just-work-with-qubes-os-r4-0-4/5560).
 
 ## Qubes-certified Laptops
 

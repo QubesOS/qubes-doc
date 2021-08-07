@@ -12,5 +12,5 @@ redirect_from:
 - /wiki/HCLR1/
 - /wiki/HCL-R2B2/
 ref: 143
-title: Hardware Compatibility List (HCL)
+title: Hardware compatibility list (HCL)
 ---

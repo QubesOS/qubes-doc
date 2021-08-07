@@ -13,14 +13,12 @@ title: System requirements
 
 <div class="alert alert-warning" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
-  <b>Notice:</b>
-  The system requirements on this page are <em>necessary, but not
-  sufficient,</em> for Qubes compatibility at a minimal or recommended level.
-  In other words, just because a computer satisfies these requirements doesn't
-  mean that Qubes will successfully install and run on it. We strongly
-  recommend consulting the <a href="/hcl/">Hardware Compatibility List</a> to
-  verify that Qubes can install and run on your specific model in the ways you
-  need it to.
+  <b>Notice:</b> The system requirements on this page are <em>necessary, but
+  not sufficient,</em> for Qubes compatibility at a minimal or recommended
+  level. In other words, just because a computer satisfies these requirements
+  doesn't mean that Qubes will successfully install and run on it. We strongly
+  recommend consulting the <a href="#choosing-hardware">resources below</a>
+  when selecting hardware for Qubes.
 </div>
 
 ## Minimum
@@ -52,20 +50,28 @@ title: System requirements
 
 ## Choosing Hardware
 
-- Please see the [Hardware Compatibility List](/hcl/) for a compilation of
-  hardware reports generated and submitted by users across various Qubes
-  versions. (For more information about the HCL itself, see [here](/doc/hcl/).)
-- See the [Certified Hardware](/doc/certified-hardware/) page.
-- See the [Hardware Testing](/doc/hardware-testing/) page.
+We recommend consulting these resources when selecting hardware for Qubes OS:
+
+- [Certified hardware](/doc/certified-hardware/) --- Qubes developer certified,
+  officially recommended
+- [Hardware testing](/doc/hardware-testing/) --- Qubes developer tested,
+  unofficially recommended
+- [Laptops that "just work" with Qubes
+  OS](https://forum.qubes-os.org/t/laptops-that-just-work-with-qubes-os-r4-0-4/5560)
+  --- community-curated list, unofficially recommended
+- [Hardware compatibility list (HCL)](/hcl/) --- community test results,
+  neither recommended nor disrecommended
 
 ## Important Notes
 
 - **Installing Qubes in a virtual machine is not recommended, as it uses its
   own bare-metal hypervisor (Xen).**
-- Qubes **can** be installed on systems which do not meet the recommended
+
+- Qubes **can** be installed on many systems that do not meet the recommended
   requirements. Such systems will still offer significant security improvements
   over traditional operating systems, since things like GUI isolation and
   kernel protection do not require special hardware.
+
 - Qubes **can** be installed on a USB flash drive or external disk, and testing
   has shown that this works very well. A fast USB 3.0 flash drive is
   recommended for this. (As a reminder, its capacity must be at least 32 GiB.)
@@ -76,11 +82,11 @@ title: System requirements
   other computers in order to boot into Qubes. In addition to the convenience
   of having a portable copy of Qubes, this allows users to test for hardware
   compatibility on multiple machines (e.g., at a brick-and-mortar computer
-  store) before deciding on which computer to purchase. (See
-  [hcl-report](/doc/how-to-use-the-hcl/#generating-and-submitting-new-reports)
-  for advice on hardware compatibility testing.) Remember to change the devices
+  store) before deciding on which computer to purchase. (See [generating and
+  submitting HCL
+  reports](/doc/how-to-use-the-hcl/#generating-and-submitting-new-reports) for
+  advice on hardware compatibility testing.) Remember to change the devices
   assigned to your NetVM and USB VM if you move between different machines.
-- [Advice on finding a VT-d capable
-  notebook](https://groups.google.com/d/msg/qubes-users/Sz0Nuhi4N0o/ZtpJdoc0OY8J).
+
 - You can check whether an Intel processor has VT-x and VT-d on
   [ark.intel.com](https://ark.intel.com/content/www/us/en/ark.html#@Processors).
