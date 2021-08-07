@@ -9,9 +9,9 @@ ref: 208
 title: Qubes canaries
 ---
 
-A **Qubes Canary** is a security announcement periodically issued by the [Qubes
-Security Team](/security/#qubes-security-team) through the [Qubes Security
-Pack](/security/pack/) consisting of several statements to the effect that the
+A **Qubes canary** is a security announcement periodically issued by the [Qubes
+security team](/security/#qubes-security-team) through the [Qubes security
+pack](/security/pack/) consisting of several statements to the effect that the
 signers of the canary have not been compromised. The idea is that, as long as
 signed canaries including such statements continue to be published, all is
 well. However, if the canaries should suddenly cease, if one or more signers

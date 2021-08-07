@@ -6,10 +6,10 @@ ref: 214
 title: Xen security advisory (XSA) tracker
 ---
 
-This tracker shows whether Qubes OS is affected by any given [Xen Security
-Advisory (XSA)](https://xenbits.xen.org/xsa/). Shortly after a new XSA is
+This tracker shows whether Qubes OS is affected by any given [Xen security
+advisory (XSA)](https://xenbits.xen.org/xsa/). Shortly after a new XSA is
 published, we will add a new row to this tracker. Whenever Qubes is
-significantly affected by an XSA, a [Qubes Security Bulletin
+significantly affected by an XSA, a [Qubes security bulletin
 (QSB)](/security/qsb/) is published, and a link to that QSB is added to
 the row for the associated XSA.
 
@@ -19,7 +19,7 @@ or **No**.
 * **Yes** means that the *security* of Qubes OS *is* affected.
 * **No** means that the *security* of Qubes OS is *not* affected.
 
-## Important Notes
+## Important notes
 
 * For the purpose of this tracker, we do *not* classify mere [denial-of-service
   (DoS) attacks](https://en.wikipedia.org/wiki/Denial-of-service_attack) as
@@ -33,10 +33,10 @@ or **No**.
   any XSAs on this page, since patches are almost always published concurrently
   with QSBs. Please read the QSB (if any) for each XSA for patching details.
 * Embargoed XSAs are excluded from this tracker until they are publicly
-  released, since the [Xen Security
-  Policy](https://www.xenproject.org/security-policy.html) does not permit us
+  released, since the [Xen security
+  policy](https://www.xenproject.org/security-policy.html) does not permit us
   to state whether Qubes is affected prior to the embargo date.
 * Unused and withdrawn XSA numbers are included in the tracker for the sake of
-  completeness, but they are excluded from the [Statistics](#statistics)
+  completeness, but they are excluded from the [statistics](#statistics)
   section for the sake of accuracy.
 * All dates are in UTC.

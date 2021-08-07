@@ -13,9 +13,9 @@ ref: 218
 title: Qubes security bulletins (QSBs)
 ---
 
-A **Qubes Security Bulletin (QSB)** is a security announcement issued by the
+A **Qubes security bulletin (QSB)** is a security announcement issued by the
 [Qubes Security Team](/security/#qubes-security-team) through the [Qubes
-Security Pack](/security/pack/). A QSB typically provides a summary and impact
+security pack](/security/pack/). A QSB typically provides a summary and impact
 analysis of one or more recently-discovered software vulnerabilities, including
 details about patching to address them.
 

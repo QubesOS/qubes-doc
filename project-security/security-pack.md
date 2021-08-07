@@ -18,7 +18,7 @@ ref: 213
 title: Qubes security pack (qubes-secpack)
 ---
 
-The **Qubes Security Pack** (qubes-secpack) is a Git repository that contains:
+The **Qubes security pack (qubes-secpack)** is a Git repository that contains:
 
 - [Qubes security bulletins (QSBs)](/security/qsb/)
 - [Qubes canaries](/security/canary/)
