@@ -31,16 +31,37 @@ important project security pages:
 
 ## Reporting Security Issues in Qubes OS
 
-If you believe you have found a security issue affecting Qubes OS, either
-directly or indirectly (e.g., the issue affects Xen in a configuration that is
-used in Qubes OS), then we would be more than happy to hear from you! Please
-send a [PGP-encrypted](#security-team-pgp-key) email to the [Qubes Security
-Team](#qubes-security-team). We promise to take all reported issues seriously.
-If our investigation confirms that an issue affects Qubes, we will patch it
-within a reasonable time and release a public [Qubes Security Bulletin
-(QSB)](/security/qsb/) that describes the issue, discusses the potential impact
-of the vulnerability, references applicable patches or workarounds, and credits
-the discoverer.
+<div class="alert alert-warning" role="alert">
+  <i class="fa fa-exclamation-circle"></i>
+  <b>Please note:</b> The Qubes security team email address is intended for
+  <b>responsible disclosure</b> by security researchers and others who discover
+  legitimate security vulnerabilities. It is <b>not</b> intended for everyone
+  who suspects they've been hacked. Please <b>do not</b> attempt to contact the
+  Qubes security team unless you can <b>demonstrate</b> an actual security
+  vulnerability or unless the team will be able to take reasonable steps to
+  verify your claims.
+</div>
+
+If you've discovered a security issue affecting Qubes OS, either directly or
+indirectly (e.g., the issue affects Xen in a configuration that is used in
+Qubes OS), then we would be more than happy to hear from you! We promise to
+take all reported issues seriously. If our investigation confirms that an issue
+affects Qubes, we will patch it within a reasonable time and release a public
+[Qubes Security Bulletin (QSB)](/security/qsb/) that describes the issue,
+discusses the potential impact of the vulnerability, references applicable
+patches or workarounds, and credits the discoverer. Please use the [Qubes
+security team PGP
+key](https://keys.qubes-os.org/keys/qubes-os-security-team-key.asc) to encrypt
+your email to this address:
+
+```
+security at qubes-os dot org
+```
+
+This key is signed by the [Qubes Master Signing
+Key](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc). Please see
+[verify signatures](/security/verifying-signatures/) for information about how
+to authenticate these keys.
 
 ## Security Updates
 
@@ -66,21 +87,7 @@ and the Qubes OS Project. In particular, the QST is responsible for:
 
 As a security-oriented operating system, the QST is fundamentally important to
 Qubes, and every Qubes user implicitly trusts the members of the QST by virtue
-of the actions listed above. The Qubes Security Team can be contacted via email
-at the following address:
-
-```
-security at qubes-os dot org
-```
-
-### Security Team PGP Key
-
-Please use the [Security Team PGP
-Key](https://keys.qubes-os.org/keys/qubes-os-security-team-key.asc) to encrypt
-all emails sent to this address. This key is signed by the [Qubes Master
-Signing Key](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc).
-Please see [Verify Signatures](/security/verifying-signatures/) for information
-about how to authenticate these keys.
+of the actions listed above.
 
 ### Members of the Security Team
 
