@@ -56,9 +56,8 @@ We recommend consulting these resources when selecting hardware for Qubes OS:
   officially recommended
 - [Hardware testing](/doc/hardware-testing/) --- Qubes developer tested,
   unofficially recommended
-- [Laptops that "just work" with Qubes
-  OS](https://forum.qubes-os.org/t/laptops-that-just-work-with-qubes-os/5560)
-  --- community-curated list, unofficially recommended
+- [Community-recommended hardware](https://forum.qubes-os.org/t/5560)
+  --- list curated and maintained by the community, unofficially recommended
 - [Hardware compatibility list (HCL)](/hcl/) --- community test results,
   neither recommended nor disrecommended
 
