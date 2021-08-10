@@ -674,6 +674,84 @@ The policy is there mostly to ease maintenance, on several levels:
    Qubes-specific features - a change in one supported distribution should be
    followed also in others, including new future distributions.
 
+### Why don't you fix upstream bugs that affect Qubes OS?
+
+First, a bit of background in case you're new to the open-source software
+world: There are a huge number of different open-source projects that each
+focus on the software they create and maintain. Some focus on specific
+frameworks, libraries, and background subsystems that most users never see.
+Others focus on specific tools and apps that use these frameworks, libraries,
+and background subsystems. Still others focus on combining many different tools
+and apps. And some, like Qubes OS, are entire operating systems that include
+all kinds of other software. When one piece of software uses a different piece
+of software, the piece of software being used is said to be "upstream," while
+the piece of software using it said to be "downstream." For example, Qubes OS
+uses the Xen hypervisor, so Xen is upstream relative to Qubes, and Qubes is
+downstream relative to Xen (and likewise for the respective project that
+creates and maintains each piece of software).
+
+Many open-source operating systems, including Qubes OS, are transparent about
+the fact that they are "compilations" of upstream software. By contrast,
+proprietary, commercial operating systems like Windows and macOS tend to either
+obscure this fact or avoid using upstream software in favor of doing everything
+in-house, because they have the huge workforce and commercial revenue that
+allows them to do so. If you're accustomed to using a proprietary, commercial
+operating system, then you may need some time to get used to the fact that
+Qubes OS is a compilation of many different pieces of open-source software.
+
+Now, let's get to the original question: Why don't we fix upstream bugs that
+affect Qubes OS? This question can come up in different ways. For example, many
+people, especially those who aren't familiar with how open-source software
+development works, wonder why we sometimes close [issues](/doc/issue-tracking/)
+as "not our bug." Don't we care about the Qubes users who are affected by these
+bugs? Are we really so cold and heartless?
+
+On the contrary, it is precisely because we care so much about Qubes users that
+we do this. It's important to understand that Qubes OS combines different
+pieces of software from a very large number of upstream projects (especially
+since it includes entire separate OSes inside of itself) and that many of these
+projects have much larger workforces and much more funding than we do. They are
+better equipped to fix bugs in their own software. Not only are they the ones
+who wrote the code, they're also more familiar with how best to integrate any
+fixes into the entire code base for maintainability. Besides, they own the
+code. We can't force any other project to accept a patch, even if we sincerely
+believe it's a good bug fix. In some cases, we have to maintain our own fork of
+an upstream project, which just adds to our ongoing maintenance burden.
+
+In contrast to some of the large upstream projects whose software we use, the
+Qubes OS Project is small, lean, and focused on one goal: creating and
+maintaining a reasonably secure operating system for regular desktop users. The
+Qubes core developers are specialists. They are among the best in the world at
+virtualization security, low-level system security, and implementing
+security-by-compartmentalization at the operating-system level. There are many
+aspects of Qubes OS engineering work for which they are uniquely qualified.
+Recognizing this, it only makes sense to focus their time where it will provide
+the greatest benefit, on doing security-related work that only they can do. By
+contrast, it would be a wasteful misallocation of skill and talent (to the
+long-term detriment of Qubes users) to have them fixing bugs that are in code
+they didn't write, that doesn't belong to them, that (in some cases) belongs to
+a huge upstream project with ample time and resources, and that the upstream
+project is equally capable of fixing (and, in many cases, is *better* suited to
+fix, as that's *their* area of specialization).
+
+Moreover, the question is based on a faulty assumption in the first place,
+because we already *do* in fact fix some upstream bugs that affect Qubes OS.
+For example, the Qubes core developers have made significant upstream Xen
+contributions, particularly in the area of security, as that's where our
+developers specialize. So, the original question should really be rephrased to
+ask, "Why don't you fix *every* upstream bug that affects Qubes OS?" In light
+of the foregoing explanation, we hope you agree that this would be an
+unreasonable expectation.
+
+"Very well," you might be thinking, "but there's still an upstream bug that
+affects me! What can I do about it?" Recall what we discussed above about how
+the open-source world works. If there's a bug in some piece of upstream
+software, then there's an open-source project responsible for creating and
+maintaining that software. They're the ones who wrote the code and who are best
+equipped to fix the bug. You should file a bug report in *that* project's issue
+tracker instead. Not only will you be helping all other affected Qubes users,
+you'll also be helping *all* downstream users of that software!
+
 ### Is the I/O emulation component (QEMU) part of the Trusted Computing Base (TCB)?
 
 No. Unlike many other virtualization systems, Qubes takes special effort to keep QEMU _outside_ of the TCB.
