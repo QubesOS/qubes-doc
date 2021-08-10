@@ -752,6 +752,11 @@ equipped to fix the bug. You should file a bug report in *that* project's issue
 tracker instead. Not only will you be helping all other affected Qubes users,
 you'll also be helping *all* downstream users of that software!
 
+(Note: If you're wondering about cases in which a bug has already been fixed
+upstream but hasn't yet arrived in your Qubes OS release, please see
+[backports](/doc/issue-tracking/#backports). These are *not* cases in which an
+issue is closed as "not our bug.")
+
 ### Is the I/O emulation component (QEMU) part of the Trusted Computing Base (TCB)?
 
 No. Unlike many other virtualization systems, Qubes takes special effort to keep QEMU _outside_ of the TCB.
