@@ -74,7 +74,7 @@ Eventually, your issue may be closed. See [how issues get
 closed](/doc/issue-tracking/#how-issues-get-closed) for details about when,
 why, and how this occurs.
 
-## Labels, Milestones, and Projects
+## Labels, milestones, and projects
 
 Labels, milestones, and projects are features of GitHub's issue tracking system
 that we use to keep
@@ -138,12 +138,13 @@ to a release milestone indicates an alleged bug *in* that Qubes OS release. A
 task or enhancement assigned to a release milestone indicates that the goal is
 to implement or do that thing *in* or *for* that Qubes OS release.
 
-The `TBD` (To Be Determined) milestone is for enhancements or tasks that will
-be specific to a Qubes OS release but have yet to be assigned to a specific
-release milestone. Bug reports should never be assigned to this milestone,
-because every bug is a problem or defect in something that already exists.
+The `Release TBD` (To Be Determined) milestone is for enhancements or tasks
+that will be specific to a Qubes OS release but have yet to be assigned to a
+specific release milestone. Bug reports should never be assigned to this
+milestone, because every bug is a problem or defect in something that already
+exists.
 
-The `Ongoing` milestone is for issues that are independent of the Qubes OS
+The `Non-release` milestone is for issues that are independent of the Qubes OS
 release cycle, including (but not limited to) website, documentation, and
 project management issues. These are issues that will never be assigned to a
 specific Qubes OS release milestone.
@@ -156,7 +157,7 @@ way to create a group of multiple related issues. This is the preferred method
 of grouping issues, whereas trying to use normal issues as "meta-issues" or
 "epics" is discouraged.
 
-## Search Tips
+## Search tips
 
 [Search both open and closed
 issues.](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue)
