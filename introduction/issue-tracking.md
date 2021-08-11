@@ -65,7 +65,7 @@ follow these steps:
     already seen. We don't know what you've seen unless you tell us. If you
     don't list it, we'll assume you haven't seen it.
  8. If any sections of the issue template are *truly* not applicable, you may
-    remove them, **except for the documentation and related issues sections**.
+    remove them.
  9. Submit your issue.
 10. Respond to any questions the official team asks. For example, you may be
     asked to provide specific logs or other additional information.
