@@ -317,7 +317,11 @@ in the beta or release candidate stage.
 In cases where a documentation page covers functionality that differs
 considerably between Qubes OS releases, the page should be subdivided into
 clearly-labeled sections that cover the different functionality in different
-releases:
+releases (examples below).
+
+In general, avoid mentioning specific Qubes versions in the body text of
+documentation, as these references rapidly go out of date and become misleading
+to readers.
 
 #### Incorrect Example
 
