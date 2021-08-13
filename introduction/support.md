@@ -517,7 +517,7 @@ news.
 
 ## Unofficial venues
 
-If you find another venue on the Internet that is not listed here, it is
+If you find another venue on the Internet that is not listed above, it is
 **unofficial**, which means that the Qubes team does **not** monitor or
 moderate it. Please be especially careful in unofficial venues.
 
@@ -526,7 +526,7 @@ should not be taken as a commitment to monitor or moderate the venue. It still
 remains unofficial. Also, please make sure someone claiming to be a Qubes team
 member really is one. It could be an impostor!)
 
-For example, here are some unofficial chat channels we know about that are
+For example, here are some **unofficial** chat channels we know about that are
 maintained by the community:
 
 * Matrix, Qubes-related: <https://matrix.to/#/#cybersec-qubes_os:matrix.org>
