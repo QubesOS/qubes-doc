@@ -226,7 +226,7 @@ title: Introduction
       In light of this sobering reality, Qubes takes an eminently practical
       approach: confine, control, and contain the damage. It allows you to keep
       valuable data separate from risky activities, preventing
-      cross-contamination. This means you you can do everything on the same
+      cross-contamination. This means you can do everything on the same
       physical computer without having to worry about a single successful
       cyberattack taking down your entire digital life in one fell swoop. In
       fact, Qubes has
