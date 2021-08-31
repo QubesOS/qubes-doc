@@ -38,6 +38,19 @@ In general, upgrading a Debian template follows the same process as [upgrading a
 [user@debian-<new> ~]$ sudo apt dist-upgrade
 [user@dom0 ~]$ qvm-shutdown debian-<new>
 ```
+**Note:** when upgrading from Debian 10 "buster" to Debian 11 "bullseye" an additional `sed` command is needed before running `sudo apt update`: 
+
+```
+[user@dom0 ~]$ qvm-clone debian-<old> debian-<new>
+[user@dom0 ~]$ qvm-run -a debian-<new> gnome-terminal
+[user@debian-<new> ~]$ sudo sed -i 's/<old-name>/<new-name>/g' /etc/apt/sources.list
+[user@debian-<new> ~]$ sudo sed -i 's/debian-security bullseye\/updates/debian-security bullseye-security/g' /etc/apt/sources.list
+[user@debian-<new> ~]$ sudo sed -i 's/<old-name>/<new-name>/g' /etc/apt/sources.list.d/qubes-r4.list
+[user@debian-<new> ~]$ sudo apt update
+[user@debian-<new> ~]$ sudo apt upgrade
+[user@debian-<new> ~]$ sudo apt dist-upgrade
+[user@dom0 ~]$ qvm-shutdown debian-<new>
+```
 
 **Recommended:** [Switch everything that was set to the old template to the new template.](/doc/templates/#switching)
 
