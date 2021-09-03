@@ -1,45 +1,83 @@
 ---
 layout: doc
-title: Qubes R4.1 release notes
+title: Qubes OS 4.1 release notes
 permalink: /doc/releases/4.1/release-notes/
 ---
 
-Qubes R4.1 release notes
-========================
+## New features and improvements since Qubes 4.0
 
-New features since 4.0
-----------------------
+- Optional qubes-remote-support package now available from repositories
+  (strictly opt-in, no package installed by default; no new ports or network
+  connections open by default; requires explicit connection initiation by the
+  user, then requires sharing a code word with the remote party before a
+  connection can be established; see
+  [#6364](https://github.com/QubesOS/qubes-issues/issues/6364) for more
+  information)
+- Qubes firewall reworked to be more defensive (see
+  [#5540](https://github.com/QubesOS/qubes-issues/issues/5540) for details)
+- Xen upgraded to version 4.12
+- Dom0 operating system upgraded to Fedora 31
+- Default desktop environment upgraded to Xfce 4.14
+- Upgraded default template releases
+- Experimental support for GUI running outside of dom0 (hybrid mode GUI domain
+  without real GPU passthrough; see
+  [#5662](https://github.com/QubesOS/qubes-issues/issues/5662) for details)
+- Support for audio server running outside of dom0 ("Audio domain")
+- sys-firewall and sys-usb are now disposables by default
+- Grub in UEFI mode
+- New qrexec policy format (see
+  [#4370](https://github.com/QubesOS/qubes-issues/issues/4370) for details)
+- qrexec protocol improvements (see
+  [#4909](https://github.com/QubesOS/qubes-issues/issues/4909) for details)
+- New qrexec-policy daemon
+- Simplified using in-qube kernels
+- Clarified disposable-related terminology and properties
+- Default kernelopts can now be specified by a kernel package
+- Improved support for high-resolution displays
+- Improved notifications when a system drive runs out of free space
+- Support for different cursor shapes
+- Generic qubes qrexec RPC `/etc/qubes-rpc.d` drop-in folder
+- "Paranoid mode" backup restore option now properly supported using
+  disposables
+- Users can now choose between Debian and Fedora in the installer
+- New graphical interface for managing testing repository updates
+- New "Cute Qube" icon family (replaces padlock icons)
+- Disposable qube types now use the disposable icon
+- New Template Manager tool for installing, removing, and updating templates
+  (meanwhile, the tool previously known as the "Template Manager," which was
+  for mass template switching, has been integrated into the Qube Manager)
+- The "file" storage driver has been deprecated in Qubes 4.1 and will be
+  removed in Qubes 4.2
+- `property-del` event renamed to `property-reset` to avoid confusion
+- qrexec no longer supports non-executable files in `/etc/qubes-rpc`
+- qrexec components have been reorganized into the core-qrexec repository
+- The `qvm-pool` argument parser has been rewritten and improved
+- Removed the need for the out-of-tree u2mfn kernel module
+- Made qrexec event-driven
+- Addressed certain issues involving the mouse cursor
+- Improved template distribution mechanism
+- `/root` now stored inside of `/rw`
+- Now possible to restart qrexec-agent
+- The term "VM" has largely been replaced by "qube"
 
-* New qrexec policy format
-* Experimental support for GUI running outside of dom0 ("GUI domain")
-* Support for audio server running outside of dom0 ("Audio domain")
-* Xen 4.12
-* Updated dom0 base distribution and templates
-* Grub in UEFI mode
+For a full list, including more detailed descriptions, please see
+[here](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.1%22+label%3Arelease-notes+is%3Aclosed).
 
-You can get detailed description in [completed github issues][github-release-notes]
+## Known issues
 
-Known issues
-------------
+For a full list of known 4.1 issues with open bug reports, please see
+[here](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Release+4.1%22+label%3Abug).
+We strongly recommend [updating Qubes OS](/doc/how-to-update/) immediately
+after installation in order to apply any and all available bug fixes.
 
-* For other known issues take a look at [our tickets](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Release+4.1%22+label%3Abug)
+## Download
 
-It is advised to install updates just after system installation to apply bug fixes for (some of) the above problems.
+See [downloads](/downloads/).
 
-Downloads
----------
+## Installation instructions
 
-See [Qubes Downloads](/downloads/).
+See the [installation guide](/doc/installation-guide/).
 
-Installation instructions
--------------------------
-
-See [Installation Guide](/doc/installation-guide/).
-
-Upgrading
----------
+## Upgrading
 
 TODO
-
-[backup]: /doc/backup-restore/
-[github-release-notes]: https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.1%22+label%3Arelease-notes+is%3Aclosed
