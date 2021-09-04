@@ -54,8 +54,6 @@ We recommend consulting these resources when selecting hardware for Qubes OS:
 
 - [Certified hardware](/doc/certified-hardware/) --- Qubes developer certified,
   officially recommended
-- [Hardware testing](/doc/hardware-testing/) --- Qubes developer tested,
-  unofficially recommended
 - [Community-recommended hardware](https://forum.qubes-os.org/t/5560)
   --- list curated and maintained by the community, unofficially recommended
 - [Hardware compatibility list (HCL)](/hcl/) --- community test results,

@@ -22,7 +22,7 @@ If using the list to make a purchasing decision, we recommend that you choose ha
 -   the best achievable Qubes security level (green columns in HVM, IOMMU, TPM)
 -   and general machine compatibility (green columns in Qubes version, dom0 kernel, remarks).
 
-Also see [Certified Hardware](/doc/certified-hardware/) and [Hardware Testing](/doc/hardware-testing/).
+Also see [Certified Hardware](/doc/certified-hardware/).
 
 Generating and Submitting New Reports
 -------------------------------------
