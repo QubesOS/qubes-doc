@@ -244,7 +244,7 @@ the maintainers of the [Qubes Community](https://github.com/Qubes-Community)
 project should regularly submit PRs against the documentation index (see [How
 to edit the documentation
 index](/doc/how-to-edit-the-documentation/#how-to-edit-the-documentation-index))
-to add and update Qubes Community links in the "External Documentation" section
+to add and update Qubes Community links in the ["External Documentation"](https://www.qubes-os.org/doc/#external-documentation) section
 of the documentation table of contents.
 
 The main difference between **core** (or **official**) and **external** (or
