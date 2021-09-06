@@ -40,6 +40,8 @@ permalink: /doc/releases/4.1/release-notes/
 - "Paranoid mode" backup restore option now properly supported using
   disposables
 - Users can now choose between Debian and Fedora in the installer
+- Certain files and applications are now opened in disposables, e.g.,
+  Thunderbird email attachments
 - New graphical interface for managing testing repository updates
 - New "Cute Qube" icon family (replaces padlock icons)
 - Disposable qube types now use the disposable icon
