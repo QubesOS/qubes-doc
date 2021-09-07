@@ -10,8 +10,18 @@ ref: 151
 title: Version scheme
 ---
 
-Beginning with R3 release, we change (and formalise) the versioning scheme.
-From now on, it will be as follows.
+The Qubes OS Project uses the [semantic versioning](https://semver.org/)
+standard. Version numbers are written as `<major>.<minor>.<patch>`. When
+`<patch>` is zero, it is often omitted as a matter of convention, e.g., `4.1`.
+
+Following standard practice, **version** refers to any build that has been
+assigned a version name or number, e.g., `3.2-rc2`, `4.0.4`, `4.1-beta1`. By
+contrast, **release** refers to any version that is intended for consumption by
+the general userbase. For example, `4.0.4` was both a **version** and a
+**release**, since it was stable and intended for general public use, while
+`4.1-beta1` was a **version** but *not* a **release**, since it was not stable
+and was intended only for [testing](/doc/testing/). All **releases** are
+**versions**, but not all **versions** are **releases**.
 
 Qubes distributions and products
 --------------------------------
