@@ -113,7 +113,8 @@ There are several **priority** levels ranging from `P: minor` to `P: blocker`
 (see [here](https://github.com/QubesOS/qubes-issues/labels?q=P%3A) for the full
 list). Every open issue should have **exactly one** priority. An open issue
 should not have more than one priority, and it should not lack a priority
-entirely.
+entirely. See [here](/doc/version-scheme/#bug-priorities) for details about how
+the developers use these priorities.
 
 #### Component
 
