@@ -76,9 +76,9 @@ Advanced users may also be interested in learning [how to enable the
 testing repos](/doc/testing/).
 
 ### Qubes 4.1
-The recommendedation and relevant SALT forumulae and command from 4.0 remain the same.
+The recommendedation, commands, and SALT forumulae from 4.0 remain the same.
 
-However, backend updates to 4.1 now automatically open a terminal window in your update vm (the qube that proxies your updates, or the qube you are seeking to update if you have no proxies setup). The log from that terminal will be saved back to the VM that was updated.
+dom0 updates in 4.1 will demonstrate a new behavior. A terminal window is now opened in your update vm, from which you may observe the progress of tasks and logs as they are compiled. At the end of the process, logs are sent back to dom0. Any y/n commands you may need to respond to, should be responded to from your dom0 terminal window. 
 
 ## Upgrading to avoid EOL
 
