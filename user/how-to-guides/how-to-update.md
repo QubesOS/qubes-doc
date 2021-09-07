@@ -72,7 +72,9 @@ There are two Salt formulae and two corresponding `qubesctl` commands:
  - [`update.qubes-dom0`](/doc/salt/#updatequbes-dom0)
  - [`update.qubes-vm`](/doc/salt/#updatequbes-vm)
 
-In addition, advanced user may be interested in learning [how to enable the
+Bear in mind that when updates are performed from the command line, a terminal will be automatically opened in your update vm (the qube that proxies your updates, or the qube you are seeking to update if you have no proxies setup). The log from that terminal will be saved back to the VM that was updated.
+
+Advanced users may also be interested in learning [how to enable the
 testing repos](/doc/testing/).
 
 ## Upgrading to avoid EOL
