@@ -12,7 +12,8 @@ title: Version scheme
 
 The Qubes OS Project uses the [semantic versioning](https://semver.org/)
 standard. Version numbers are written as `<major>.<minor>.<patch>`. When
-`<patch>` is zero, it is often omitted as a matter of convention, e.g., `4.1`.
+`<patch>` is zero, it is often omitted as a matter of convention, e.g., `4.1` is
+short for `4.1.0`.
 
 In general, patch releases are for backward-compatible bug fixes, minor
 releases are for backward-compatible enhancements and new features, and major
@@ -28,11 +29,11 @@ contrast, **release** refers to any version that is intended for consumption by
 the general userbase. For example, `4.0.4` was both a **version** and a
 **release**, since it was stable and intended for general public use, while
 `4.1-beta1` was a **version** but *not* a **release**, since it was not stable
-and was intended only for [testing](/doc/testing/). All **releases** are
-**versions**, but not all **versions** are **releases**.
+and was intended only for [testing](/doc/testing/). All releases are
+versions, but not all versions are releases.
 
-The letter **R**, as in `R4.1` stands for **release**. The abbreviation **RC**,
-as in `3.2-rc2` stands for **release candidate**.
+The letter **R**, as in `R4.1`, stands for **release**. The abbreviation **RC**,
+as in `3.2-rc2`, stands for **release candidate**.
 
 ## Qubes distributions and products
 
@@ -72,35 +73,36 @@ Issues in our [issue tracker](/doc/issue-tracking/) are sorted by release
 
 ## Release schedule
 
-There is no specific schedule for releases other that more general
-roadmap. When time comes, Supreme Committee declares feature freeze and tags
-`-rc1` and releases ISO image. From this time on, no new features are accepted.
-Also a strict time schedule kicks in.
+There is no specific schedule for releases other that more general roadmap.
+When time comes, Supreme Committee declares feature freeze and tags `-rc1` and
+releases ISO image. From this time on, no new features are accepted. Also a
+strict time schedule kicks in.
 
 Each release candidate period is as follows. For the first two weeks we accept
 and assign bug reports to be fixed before next release candidate. For the next
-two weeks we generally focus on fixing assigned bug reports, so issues discovered
-during this time may be postponed until later RC. Finally after that there is
-one week of current-testing freeze, during which time no new packages are
-released, in hope that they will be installed by wider user base and tested.
+two weeks we generally focus on fixing assigned bug reports, so issues
+discovered during this time may be postponed until later RC. Finally after that
+there is one week of current-testing freeze, during which time no new packages
+are released, in hope that they will be installed by wider user base and
+tested.
 
 The next RC is released five weeks after the former. All packets are published
 in `current` repository and the cycle starts over. There should be no less than
 1 and no more than 3 release candidates before final release.
 
-| stage                    | time      |
+| Stage                    | Duration  |
 | ------------------------ | --------- |
 | initial testing          | two weeks |
 | bug fixing               | two weeks |
 | `current-testing` freeze | one week  |
 
 Starting with second cycle (that is, after `-rc1`) two weeks into the cycle
-(after primary bug-reporting period) the Supreme Committee decides whether there
-should be another RC. If, based on remaining issues, the Committee decides to
-release final, then the Committee agrees upon the release date, which should be
-no later than a week after.
+(after primary bug-reporting period) the Supreme Committee decides whether
+there should be another RC. If, based on remaining issues, the Committee
+decides to release final, then the Committee agrees upon the release date,
+which should be no later than a week after.
 
-!["Release cycle"](/attachment/doc/release-cycle.svg)
+[![Release cycle](/attachment/doc/release-cycle.svg)](/attachment/doc/release-cycle.svg)
 
 ## Bug priorities
 
