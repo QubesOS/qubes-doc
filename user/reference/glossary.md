@@ -119,20 +119,21 @@ changes made are lost when it is shut down.
   qubes](#service-qube), where the combination of persistent device assignment
   and ephemeral qube state is desirable.
 
-## netvm
+## net qube
 
-The property of a [qube](#qube) that specifies from which qube, if any, it
-receives network access. Despite the name, `netvm` is a *property* of a qube,
-not a type of VM. For example, it is common for the `netvm` of an [app
-qube](#app-qube) to be the [service qube](#service-qube) `sys-firewall`, which
-in turn uses `sys-net` as its `netvm`. 
+Internally known as `netvm`. The property of a [qube](#qube) that specifies
+from which qube, if any, it receives network access. Despite the name, "net
+qube" (or `netvm`) is a *property* of a qube, not a *type* of qube. For
+example, it is common for the net qube of an [app qube](#app-qube) to be the
+[service qube](#service-qube) `sys-firewall`, which in turn uses `sys-net` as
+its net qube. 
 
-* If a qube does not have a `netvm` (i.e., its `netvm` is set to `None`), then
+* If a qube does not have a net qube (i.e., its `netvm` is set to `None`), then
   that qube is offline. It is disconnected from all networking.
 
-* The name derives from "Networking Virtual Machine." Before Qubes 4.0, there
-  was a type of [service qube](#service-qube) called a "NetVM." The name of the
-  `netvm` property is a holdover from that era.
+* The name `netvm` derives from "Networking Virtual Machine." Before Qubes 4.0,
+  there was a type of [service qube](#service-qube) called a "NetVM." The name
+  of the `netvm` property is a holdover from that era.
 
 ## qube
 
