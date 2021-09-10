@@ -24,7 +24,9 @@ permalink: /doc/releases/4.1/release-notes/
   [#5662](https://github.com/QubesOS/qubes-issues/issues/5662) for details)
 - Support for audio server running outside of dom0 ("Audio domain")
 - sys-firewall and sys-usb are now disposables by default
-- Grub in UEFI mode
+- UEFI boot now loads GRUB, which in turn loads Xen, making the boot path
+  similar to legacy boot and allowing the user to modify boot parameters or
+  choose an alternate boot menu entry
 - New qrexec policy format (see
   [#4370](https://github.com/QubesOS/qubes-issues/issues/4370) for details)
 - qrexec protocol improvements (see
