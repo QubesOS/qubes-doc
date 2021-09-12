@@ -47,20 +47,33 @@ The build system creates build environments in chroots and so no other packages 
 All files created by the build system are contained within the qubes-builder directory.
 The full build requires some 25GB of free space, so keep that in mind when deciding where to place this directory.
 
+One additional useful requirement is that 'sudo root' must work without any prompt, which is default on most distros (e.g. 'sudo bash' brings you the root shell without asking for any password).
+This is important as the builder needs to switch to root and then back to user several times during the build process.
+
 The build system is configured via builder.conf file.
 You can use the setup.sh script to create and modify this file.
 Alternatively, you can copy the provided default builder.conf, and modify it as needed, e.g.:
 
 ```shell
 cp example-configs/qubes-os-master.conf builder.conf
-# edit the builder.conf file and set the following variables:
-NO_SIGN=1
 ```
 
-One additional useful requirement is that 'sudo root' must work without any prompt, which is default on most distros (e.g. 'sudo bash' brings you the root shell without asking for any password).
-This is important as the builder needs to switch to root and then back to user several times during the build process.
+The default configurations (as of `qubes-builder#master@b9f0322e4f3`)
+disables signing of generated packages, through `NO_SIGN ?= 1`.  This
+is [known not to
+work](https://github.com/QubesOS/qubes-issues/issues/6522) if you want
+to build a package that depends on another one you also build (that is
+necessary to build only some packages, for Fedora-based VMs, but some
+prominent ones like `linux-kernel` do have dependencies and cannot be
+built with `NO_SIGN=1`), and package signing must be enabled, by
+setting this variable to an empty value (0 will not work), by
+commenting the line or clearing it:
 
-Additionally, if building with signing enabled (NO\_SIGN is not set), you must adjust `\~/.rpmmacros` file so that it points to the GPG key used for package signing, e.g.:
+```makefile
+NO_SIGN =
+```
+
+If building with signing enabled (`NO_SIGN` is not set), you must adjust `\~/.rpmmacros` file so that it points to the GPG key used for package signing, e.g.:
 
 ```bash
 %_signature gpg
@@ -71,11 +84,15 @@ Additionally, if building with signing enabled (NO\_SIGN is not set), you must a
 It is also recommended that you use an empty passphrase for the private key used for signing.
 Contrary to a popular belief, this doesn't affect your key or sources security -- if somebody compromised your system, then the game is over anyway, whether you have used an additional passphrase for the key or not.
 
+You will need to generate each rpm-based chroot used for the build,
+and include your key in each, by running `rpm --import` in each of
+those chroots.  Signing deb packages is not yet supported.
+
 So, to build Qubes you would do:
 
 ```shell
 # Import the Qubes master key
-gpg --recv-keys 0xDDFA1A3E36879494
+gpg --keyserver keyserver.ubuntu.com --recv-keys 0xDDFA1A3E36879494
 
 # Verify its fingerprint, set as 'trusted'.
 # This is described here:
@@ -91,19 +108,35 @@ cd qubes-builder
 git tag -v `git describe`
 
 cp example-configs/qubes-os-master.conf builder.conf
-# edit the builder.conf file and set the following variables:
-# NO_SIGN="1"
+# edit the builder.conf file and comment out the following variables:
+# NO_SIGN ?= 1
 
 # Download all components:
-
 make get-sources
 
-# And now to build all Qubes RPMs (this will take a few hours):
+# Prepare the chroots so we can inject our key:
+make prepare-chroot-dom0 prepare-chroot-vm
 
+# Authorize rpm to install packaged signed by your key :
+gpg --export AC1BF9B3 --armor -o mykey.asc # <-- Key ID used for signing
+for chroot in chroot-*-fc*; do
+  sudo cp mykey.asc $chroot/
+  sudo chroot $chroot/ rpm --import /mykey.asc
+done
+
+# And now to build all Qubes RPMs:
 make qubes
 
-# ... and then to build the ISO
+# This will take a few hours and unfortunately it will fail each time
+# a new just-generated has to be used, with `Package <...>.rpm is not
+# signed`, as we must request separately for it to be signed before
+# relaunching (we request signing all generated packages to avoid
+# specifying every one of them by hand, so the signing command will
+# generate lots of errors about not-yet-generated packages), so you
+# will have to run a couple of cycles until it finally succeeds:
+make -k sign-all; make qubes
 
+# ... and then to build the ISO
 make iso
 ```
 
@@ -116,6 +149,23 @@ make gui-daemon
 ```
 
 You can get a full list from make help.
+
+## Building just the dom0 kernel
+
+To build only a dom0 kernel, you need not fetch the source trees for
+all buildable components, nor launch a full build with `make qubes`.
+However, this build has a dependency, which must be built and signed
+first.  This makes the procedure much simpler and faster than the
+general case:
+
+```shell
+make get-sources COMPONENTS="builder-rpm linux-utils linux-kernel"
+make prepare-chroot-dom0
+# import your gpg key into dom0 chroot as above
+make linux-utils-dom0
+make sign.dom0.fc32.linux-utils
+make linux-kernel-dom0
+```
 
 ## Making customized build
 
