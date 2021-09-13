@@ -158,7 +158,7 @@ stub domain to make the manual network configuration unnecessary for many
 qubes, this won't work for most modern Linux distributions, which contain Xen
 networking PV drivers (but not Qubes tools), which bypass the stub-domain
 networking. (Their net frontends connect directly to the net backend in the
-[netvm](/doc/glossary/#netvm).) In this instance, our DHCP server is not
+[net qube](/doc/glossary/#net-qube).) In this instance, our DHCP server is not
 useful.
 
 In order to manually configure networking in a qube, one should first find out
