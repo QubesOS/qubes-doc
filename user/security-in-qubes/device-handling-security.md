@@ -62,9 +62,9 @@ In addition to having control over your system, such a VM can also sniff all the
 
 There is no simple way to protect against sniffing, but you can make it harder to exploit control over input devices.
 
-If you have only a USB mouse connected to a USB qube, but the keyboard is connected directly to dom0 (using a PS/2 connector, for example), you simply need to lock the screen when you are away from your computer.
+If you have only a USB mouse connected to a USB qube, but the keyboard is connected directly to dom0 (using a PS/2 connector, for example), you simply need to lock the screen when you are away from your computer (assuming you don't use the virtual keyboard of your screen locker).
 You must do this every time you leave your computer unattended, even if there no risk of anyone else having direct physical access to your computer.
-This is because you are guarding the system not only against anyone with local access, but also against possible actions from a potentially compromised USB qube.
+This is because you are guarding the system not only against anyone with local access, but also against possible malicious input from a potentially compromised USB qube.
 
 If your keyboard is also connected to a USB qube, things are much harder.
 Locking the screen (with a traditional password) does not solve the problem, because the USB qube can simply sniff this password and later easily unlock the screen.
