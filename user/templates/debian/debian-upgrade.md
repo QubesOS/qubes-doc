@@ -26,7 +26,7 @@ In general, upgrading a Debian template follows the same process as [upgrading a
 
 ## Summary instructions for Debian templates
 
-**Note:** The prompt on each line indicates where each command should be entered: `dom0`, `debian-<old>`, or `debian-<new>`, where `<old>` is the Debian version number *from* which you are upgrading, and `<new>` is the Debian version number *to* which you are upgrading.
+**Note:** The prompt on each line indicates where each command should be entered: `dom0`, `debian-<old>`, or `debian-<new>`, where `<old>` is the Debian version number *from* which you are upgrading, and `<new>` is the Debian version number *to* which you are upgrading. When upgrading from `buster` to `bullseye` please see the [release specific notes](/doc/template/debian/upgrade/#release-specific-notes).
 
 ```
 [user@dom0 ~]$ qvm-clone debian-<old> debian-<new>
@@ -126,6 +126,24 @@ The procedure for upgrading a Debian [standalone](/doc/standalone-and-hvm/) is t
 ## Release-specific notes
 
 This section contains notes about upgrading to specific releases.
+
+### Debian 11 ("Bullseye")
+
+Please see [Debian's Bullseye upgrade instructions](https://www.debian.org/releases/bullseye/amd64/release-notes/ch-upgrading.en.html). In particular: for APT source lines referencing the security archive, the format has changed slightly along with the release name, going from buster/updates to bullseye-security; see [Section 5.1.2, “Changed security archive layout”](https://www.debian.org/releases/stable/mips64el/release-notes/ch-information.en.html#security-archive).
+
+This means that when upgrading from `buster` to `bullseye` an additional `sed` command is required:
+
+```
+[user@dom0 ~]$ qvm-clone debian-10 debian-11
+[user@dom0 ~]$ qvm-run -a debian-11 gnome-terminal
+[user@debian-<new> ~]$ sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list
+[user@debian-<new> ~]$ sudo sed -i 's/debian-security bullseye\/updates/debian-security bullseye-security/g' /etc/apt/sources.list
+[user@debian-<new> ~]$ sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list.d/qubes-r4.list
+[user@debian-<new> ~]$ sudo apt update
+[user@debian-<new> ~]$ sudo apt upgrade
+[user@debian-<new> ~]$ sudo apt dist-upgrade
+[user@dom0 ~]$ qvm-shutdown debian-11
+```
 
 ### Debian 10 ("Buster")
 
