@@ -127,8 +127,9 @@ pull request, we'll post a comment explaining why we can't.
 ## How to edit the documentation index
 
 The source file for the [documentation index (a.k.a. table of contents)](/doc/)
-is
-[doc-index.yml](https://github.com/QubesOS/qubesos.github.io/blob/master/_data/doc-index.yml).
+is `doc-index-R.yml` (where `R` is a minor release number) located in the
+[`_data`
+directory](https://github.com/QubesOS/qubesos.github.io/blob/master/_data/).
 
 Editing this file will change what appears on the documentation index. If your
 pull request (PR) adds, removes, or edits anything that should be reflected in
