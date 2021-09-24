@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/awesomewm/
+permalink: /doc/4.0/awesomewm/
 redirect_from:
 - /doc/awesome/
 - /en/doc/awesome/

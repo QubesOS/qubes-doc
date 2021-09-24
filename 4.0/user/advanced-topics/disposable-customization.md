@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/disposable-customization/
+permalink: /doc/4.0/disposable-customization/
 redirect_from:
 - /doc/disposablevm-customization/
 - /doc/dispvm-customization/

@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/how-to-use-pci-devices/
+permalink: /doc/4.1/how-to-use-pci-devices/
 redirect_from:
 - /doc/pci-devices/
 - /doc/assigning-devices/

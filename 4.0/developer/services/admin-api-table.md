@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: fullscreen
-permalink: /doc/4.0/4.0/admin-api/table/
+permalink: /doc/4.0/admin-api/table/
 ref: 249
 title: Admin API table
 ---

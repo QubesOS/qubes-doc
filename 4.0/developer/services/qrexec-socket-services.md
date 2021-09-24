@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/qrexec-socket-services/
+permalink: /doc/4.0/qrexec-socket-services/
 ref: 42
 title: 'Qrexec: socket-based services'
 ---

@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/qubes-service/
+permalink: /doc/4.1/qubes-service/
 redirect_from:
 - /en/doc/qubes-service/
 - /doc/QubesService/

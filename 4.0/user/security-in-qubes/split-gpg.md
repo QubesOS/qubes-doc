@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/split-gpg/
+permalink: /doc/4.0/split-gpg/
 redirect_from:
 - /en/doc/split-gpg/
 - /doc/SplitGpg/

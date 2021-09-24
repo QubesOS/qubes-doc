@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/
+permalink: /doc/4.0/
 redirect_from:
 - /en/doc/
 - /doc/UserDoc/

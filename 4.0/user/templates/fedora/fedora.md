@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/templates/fedora/
+permalink: /doc/4.0/templates/fedora/
 ref: 136
 title: Fedora templates
 ---

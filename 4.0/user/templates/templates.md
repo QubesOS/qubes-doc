@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/templates/
+permalink: /doc/4.0/templates/
 redirect_from:
 - /doc/template/
 - /en/doc/templates/

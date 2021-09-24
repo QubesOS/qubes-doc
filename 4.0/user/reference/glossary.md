@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/glossary/
+permalink: /doc/4.0/glossary/
 redirect_from:
 - /en/doc/glossary/
 - /doc/Glossary/

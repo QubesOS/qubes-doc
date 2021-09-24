@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/networking/
+permalink: /doc/4.1/networking/
 redirect_from:
 - /doc/qubes-net/
 - /en/doc/qubes-net/

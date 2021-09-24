@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/how-to-reinstall-a-template/
+permalink: /doc/4.0/how-to-reinstall-a-template/
 redirect_from:
 - /doc/reinstall-template/
 - /doc/whonix/reinstall/

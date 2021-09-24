@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/yubikey/
+permalink: /doc/4.0/yubikey/
 redirect_from:
 - /doc/yubi-key/
 - /en/doc/yubi-key/

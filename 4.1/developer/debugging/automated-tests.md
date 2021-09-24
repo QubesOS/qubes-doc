@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/automated-tests/
+permalink: /doc/4.1/automated-tests/
 redirect_from:
 - /en/doc/automated-tests/
 - /doc/AutomatedTests/

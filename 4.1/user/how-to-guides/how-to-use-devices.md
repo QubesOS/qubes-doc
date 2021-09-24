@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/how-to-use-devices/
+permalink: /doc/4.1/how-to-use-devices/
 redirect_from:
 - /doc/device-handling/
 - /doc/external-device-mount-point/

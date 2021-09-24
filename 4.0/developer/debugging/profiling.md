@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/profiling/
+permalink: /doc/4.0/profiling/
 redirect_from:
 - /en/doc/profiling/
 - /doc/Profiling/

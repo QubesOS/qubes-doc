@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/how-to-copy-and-paste-text/
+permalink: /doc/4.1/how-to-copy-and-paste-text/
 redirect_from:
 - /doc/copy-paste/
 - /en/doc/copy-paste/

@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/how-to-use-usb-devices/
+permalink: /doc/4.0/how-to-use-usb-devices/
 redirect_from:
 - /doc/usb-devices/
 - /doc/usb/

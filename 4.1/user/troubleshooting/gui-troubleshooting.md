@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/gui-troubleshooting/
+permalink: /doc/4.1/gui-troubleshooting/
 ref: 233
 title: GUI troubleshooting
 ---

@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/hardware-troubleshooting/
+permalink: /doc/4.0/hardware-troubleshooting/
 redirect_from:
 - /doc/newer-hardware-troubleshooting/
 ref: 97

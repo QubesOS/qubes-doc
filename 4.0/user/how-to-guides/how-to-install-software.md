@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/how-to-install-software/
+permalink: /doc/4.0/how-to-install-software/
 redirect_from:
 - /doc/software-update-domu/
 - /doc/software-update-vm/

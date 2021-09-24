@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/system-doc/
+permalink: /doc/4.1/system-doc/
 redirect_from:
 - /en/doc/system-doc/
 - /doc/SystemDoc/

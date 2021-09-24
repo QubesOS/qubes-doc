@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/rpc-policy/
+permalink: /doc/4.0/rpc-policy/
 ref: 178
 title: RPC policies
 ---

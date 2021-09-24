@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/templates/debian/
+permalink: /doc/4.0/templates/debian/
 redirect_from:
 - /doc/debian/
 - /en/doc/templates/debian/

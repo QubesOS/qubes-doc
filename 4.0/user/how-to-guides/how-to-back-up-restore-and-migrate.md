@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/how-to-back-up-restore-and-migrate/
+permalink: /doc/4.0/how-to-back-up-restore-and-migrate/
 redirect_from:
 - /doc/backup-restore/
 - /en/doc/backup-restore/

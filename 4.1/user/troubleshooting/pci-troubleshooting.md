@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/pci-troubleshooting/
+permalink: /doc/4.1/pci-troubleshooting/
 ref: 230
 title: PCI troubleshooting
 ---

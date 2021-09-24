@@ -2,7 +2,7 @@
 advanced: true
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/templates/minimal/
+permalink: /doc/4.0/templates/minimal/
 redirect_from:
 - /doc/templates/fedora-minimal/
 - /doc/fedora-minimal/

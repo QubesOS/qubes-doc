@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/architecture/
+permalink: /doc/4.0/architecture/
 redirect_from:
 - /doc/qubes-architecture/
 - /en/doc/qubes-architecture/

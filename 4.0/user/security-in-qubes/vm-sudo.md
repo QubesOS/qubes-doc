@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/vm-sudo/
+permalink: /doc/4.0/vm-sudo/
 redirect_from:
 - /en/doc/vm-sudo/
 - /doc/VMSudo/

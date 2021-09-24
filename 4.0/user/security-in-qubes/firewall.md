@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/firewall/
+permalink: /doc/4.0/firewall/
 redirect_from:
 - /doc/qubes-firewall/
 - /en/doc/qubes-firewall/

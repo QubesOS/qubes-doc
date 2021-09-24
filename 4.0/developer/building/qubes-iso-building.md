@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/qubes-iso-building/
+permalink: /doc/4.0/qubes-iso-building/
 redirect_from:
 - /doc/qubes-r3-building/
 - /en/doc/qubes-r3-building/

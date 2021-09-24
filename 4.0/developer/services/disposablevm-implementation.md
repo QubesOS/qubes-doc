@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/disposablevm-implementation/
+permalink: /doc/4.0/disposablevm-implementation/
 redirect_from:
 - /doc/dvm-impl/
 - /en/doc/dvm-impl/

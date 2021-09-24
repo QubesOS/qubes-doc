@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/windows/
+permalink: /doc/4.1/windows/
 ref: 129
 title: Windows qubes
 ---

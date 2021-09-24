@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/how-to-copy-and-move-files/
+permalink: /doc/4.1/how-to-copy-and-move-files/
 redirect_from:
 - /doc/copying-files/
 - /en/doc/copying-files/

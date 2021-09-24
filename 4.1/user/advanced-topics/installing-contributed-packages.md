@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/installing-contributed-packages/
+permalink: /doc/4.1/installing-contributed-packages/
 ref: 225
 title: Installing contributed packages
 ---

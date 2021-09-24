@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/standalones-and-hvms/
+permalink: /doc/4.0/standalones-and-hvms/
 redirect_from:
 - /doc/standalones-and-hvm/
 - /doc/standalone-and-hvm/

@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/qubes-builder-details/
+permalink: /doc/4.0/qubes-builder-details/
 redirect_from:
 - /en/doc/qubes-builder-details/
 - /doc/QubesBuilderDetails/

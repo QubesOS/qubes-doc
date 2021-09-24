@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/tools/
+permalink: /doc/4.1/tools/
 redirect_from:
 - /doc/tools/4.0/
 - /doc/tools/4.0/dom0/

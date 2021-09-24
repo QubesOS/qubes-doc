@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/anti-evil-maid/
+permalink: /doc/4.1/anti-evil-maid/
 redirect_from:
 - /en/doc/anti-evil-maid/
 - /doc/AntiEvilMaid/

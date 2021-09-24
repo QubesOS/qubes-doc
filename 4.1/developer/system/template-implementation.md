@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/template-implementation/
+permalink: /doc/4.1/template-implementation/
 redirect_from:
 - /en/doc/template-implementation/
 - /doc/TemplateImplementation/

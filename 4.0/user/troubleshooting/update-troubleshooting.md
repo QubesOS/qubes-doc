@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/update-troubleshooting/
+permalink: /doc/4.0/update-troubleshooting/
 ref: 239
 title: Update troubleshooting
 ---

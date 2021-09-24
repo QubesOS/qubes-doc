@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/admin-api/
+permalink: /doc/4.1/admin-api/
 redirect_from:
 - /doc/qubes-admin-api/
 - /doc/mgmt/

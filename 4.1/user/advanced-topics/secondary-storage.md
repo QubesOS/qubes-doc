@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/secondary-storage/
+permalink: /doc/4.1/secondary-storage/
 redirect_from:
 - /en/doc/secondary-storage/
 - /doc/SecondaryStorage/

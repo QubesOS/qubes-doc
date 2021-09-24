@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/installation-troubleshooting/
+permalink: /doc/4.0/installation-troubleshooting/
 ref: 224
 title: Installation troubleshooting
 ---

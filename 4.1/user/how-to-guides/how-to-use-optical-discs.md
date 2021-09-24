@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/how-to-use-optical-discs/
+permalink: /doc/4.1/how-to-use-optical-discs/
 redirect_from:
 - /doc/optical-discs/
 - /doc/recording-optical-discs/

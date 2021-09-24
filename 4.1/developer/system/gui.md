@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/gui/
+permalink: /doc/4.1/gui/
 redirect_from:
 - /en/doc/gui/
 - /en/doc/gui-docs/

@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/how-to-enter-fullscreen-mode/
+permalink: /doc/4.1/how-to-enter-fullscreen-mode/
 redirect_from:
 - /doc/full-screen-mode/
 - /en/doc/full-screen-mode/

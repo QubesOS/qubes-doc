@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/system-requirements/
+permalink: /doc/4.1/system-requirements/
 redirect_from:
 - /system-requirements/
 - /en/doc/system-requirements/

@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/vm-interface/
+permalink: /doc/4.1/vm-interface/
 redirect_from:
 - /en/doc/vm-interface/
 - /doc/VMInterface/

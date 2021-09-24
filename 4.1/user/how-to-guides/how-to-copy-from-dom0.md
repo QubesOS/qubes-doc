@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/how-to-copy-from-dom0/
+permalink: /doc/4.1/how-to-copy-from-dom0/
 redirect_from:
 - /doc/copy-from-dom0/
 - /doc/copy-to-dom0/

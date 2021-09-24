@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/media-troubleshooting/
+permalink: /doc/4.1/media-troubleshooting/
 ref: 235
 title: Media troubleshooting
 ---

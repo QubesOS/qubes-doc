@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/safe-remote-ttys/
+permalink: /doc/4.1/safe-remote-ttys/
 redirect_from:
 - /en/doc/safe-remote-ttys/
 ref: 49

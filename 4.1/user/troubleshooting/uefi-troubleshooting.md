@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/uefi-troubleshooting/
+permalink: /doc/4.1/uefi-troubleshooting/
 ref: 177
 title: UEFI troubleshooting
 ---

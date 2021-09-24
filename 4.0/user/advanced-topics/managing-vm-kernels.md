@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/managing-vm-kernels/
+permalink: /doc/4.0/managing-vm-kernels/
 redirect_from:
 - /doc/managing-vm-kernel/
 - /en/doc/managing-vm-kernel/

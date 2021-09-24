@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/windows-debugging/
+permalink: /doc/4.1/windows-debugging/
 redirect_from:
 - /en/doc/windows-debugging/
 - /doc/WindowsDebugging/

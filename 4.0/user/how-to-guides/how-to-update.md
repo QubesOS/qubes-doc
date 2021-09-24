@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/how-to-update/
+permalink: /doc/4.0/how-to-update/
 redirect_from:
 - /doc/updating-qubes-os/
 ref: 200

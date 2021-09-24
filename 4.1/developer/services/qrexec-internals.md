@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/qrexec-internals/
+permalink: /doc/4.1/qrexec-internals/
 redirect_from:
 - /doc/qrexec3-implementation/
 - /en/doc/qrexec3-implementation/

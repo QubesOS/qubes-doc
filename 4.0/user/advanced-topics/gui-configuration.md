@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/gui-configuration/
+permalink: /doc/4.0/gui-configuration/
 ref: 184
 title: GUI configuration
 ---

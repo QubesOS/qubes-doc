@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/autostart-troubleshooting/
+permalink: /doc/4.1/autostart-troubleshooting/
 title: Autostart troubleshooting
 ---
 

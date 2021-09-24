@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/security-design-goals/
+permalink: /doc/4.1/security-design-goals/
 redirect_from:
 - /security/goals/
 - /doc/security-goals/

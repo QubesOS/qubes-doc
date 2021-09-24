@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/vpn-troubleshooting/
+permalink: /doc/4.1/vpn-troubleshooting/
 ref: 240
 title: VPN troubleshooting
 ---

@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/test-bench/
+permalink: /doc/4.0/test-bench/
 redirect_from:
 - /en/doc/test-bench/
 - /doc/TestBench/

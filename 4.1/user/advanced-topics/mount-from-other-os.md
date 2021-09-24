@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/mount-from-other-os/
+permalink: /doc/4.1/mount-from-other-os/
 redirect_from:
 - /en/doc/mount-from-other-os/
 - /doc/MountFromOtherOs/

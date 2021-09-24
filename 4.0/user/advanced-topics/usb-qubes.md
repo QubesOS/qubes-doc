@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/usb-qubes/
+permalink: /doc/4.0/usb-qubes/
 redirect_from:
 - /doc/usbvm/
 - /en/doc/usbvm/

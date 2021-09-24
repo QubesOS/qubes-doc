@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/development-workflow/
+permalink: /doc/4.0/development-workflow/
 redirect_from:
 - /en/doc/development-workflow/
 - /doc/DevelopmentWorkflow/

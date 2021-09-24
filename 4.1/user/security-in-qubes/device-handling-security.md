@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/device-handling-security/
+permalink: /doc/4.1/device-handling-security/
 ref: 170
 title: Device handling security
 ---

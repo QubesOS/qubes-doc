@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/config-files/
+permalink: /doc/4.0/config-files/
 redirect_from:
 - /en/doc/config-files/
 - /doc/ConfigFiles/

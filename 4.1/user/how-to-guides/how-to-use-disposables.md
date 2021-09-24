@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/how-to-use-disposables/
+permalink: /doc/4.1/how-to-use-disposables/
 redirect_from:
 - /doc/how-to-use-disposablevms/
 - /doc/disposable/

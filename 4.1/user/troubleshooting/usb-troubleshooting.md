@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/usb-troubleshooting/
+permalink: /doc/4.1/usb-troubleshooting/
 ref: 234
 title: USB troubleshooting
 ---

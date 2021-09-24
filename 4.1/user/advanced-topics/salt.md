@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/salt/
+permalink: /doc/4.1/salt/
 ref: 185
 title: Salt (management software)
 ---

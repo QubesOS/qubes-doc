@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/dom0-secure-updates/
+permalink: /doc/4.1/dom0-secure-updates/
 redirect_from:
 - /en/doc/dom0-secure-updates/
 - /doc/Dom0SecureUpdates/

@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/how-to-install-software-in-dom0/
+permalink: /doc/4.1/how-to-install-software-in-dom0/
 redirect_from:
 - /doc/software-update-dom0/
 - /en/doc/software-update-dom0/

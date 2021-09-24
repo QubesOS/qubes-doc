@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/how-to-use-block-storage-devices/
+permalink: /doc/4.0/how-to-use-block-storage-devices/
 redirect_from:
 - /doc/block-devices/
 - /doc/stick-mounting/

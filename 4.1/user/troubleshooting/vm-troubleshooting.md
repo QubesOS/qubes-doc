@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/vm-troubleshooting/
+permalink: /doc/4.1/vm-troubleshooting/
 redirect_from:
 - /doc/remove-vm-manually/
 ref: 223

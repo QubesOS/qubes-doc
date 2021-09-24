@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/qmemman/
+permalink: /doc/4.0/qmemman/
 redirect_from:
 - /en/doc/qmemman/
 - /doc/Qmemman/

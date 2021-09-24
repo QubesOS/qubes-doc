@@ -2,7 +2,7 @@
 advanced: true
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/template/fedora/upgrade/
+permalink: /doc/4.0/template/fedora/upgrade/
 redirect_from:
 - /doc/template/fedora/upgrade-26-to-27/
 - /doc/fedora-template-upgrade-26/

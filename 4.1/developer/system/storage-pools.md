@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/storage-pools/
+permalink: /doc/4.1/storage-pools/
 ref: 57
 title: Storage pools
 ---

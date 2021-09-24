@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/installation-guide/
+permalink: /doc/4.1/installation-guide/
 redirect_from:
 - /en/doc/installation-guide/
 - /doc/InstallationGuide/

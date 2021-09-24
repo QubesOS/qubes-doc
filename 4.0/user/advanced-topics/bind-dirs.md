@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/bind-dirs/
+permalink: /doc/4.0/bind-dirs/
 redirect_from:
 - /en/doc/bind-dirs/
 ref: 186

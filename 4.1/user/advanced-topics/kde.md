@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/kde/
+permalink: /doc/4.1/kde/
 redirect_from:
 - /en/doc/kde/
 ref: 176

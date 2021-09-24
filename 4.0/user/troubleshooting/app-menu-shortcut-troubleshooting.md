@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/app-menu-shortcut-troubleshooting/
+permalink: /doc/4.0/app-menu-shortcut-troubleshooting/
 redirect_from:
 - /doc/managing-appvm-shortcuts/
 - /en/doc/managing-appvm-shortcuts/

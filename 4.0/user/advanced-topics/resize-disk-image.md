@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/resize-disk-image/
+permalink: /doc/4.0/resize-disk-image/
 redirect_from:
 - /en/doc/resize-disk-image/
 - /en/doc/resize-root-disk-image/

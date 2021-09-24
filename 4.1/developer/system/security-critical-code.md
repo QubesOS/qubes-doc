@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/security-critical-code/
+permalink: /doc/4.1/security-critical-code/
 redirect_from:
 - /en/doc/security-critical-code/
 - /doc/SecurityCriticalCode/

@@ -2,7 +2,7 @@
 advanced: true
 lang: en
 layout: doc
-permalink: /doc/4.0/4.0/template/debian/upgrade/
+permalink: /doc/4.0/template/debian/upgrade/
 redirect_from:
 - /doc/template/debian/upgrade-8-to-9/
 - /doc/debian-template-upgrade-8/

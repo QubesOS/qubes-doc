@@ -2,7 +2,7 @@
 advanced: true
 lang: en
 layout: doc
-permalink: /doc/4.1/4.1/custom-install/
+permalink: /doc/4.1/custom-install/
 redirect_from:
 - /doc/encryption-config/
 ref: 152
