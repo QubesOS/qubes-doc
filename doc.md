@@ -1,7 +1,5 @@
 ---
 lang: en
-release: 4.0
-reviewed: yes
 layout: doc
 permalink: /doc/
 redirect_from:
@@ -15,5 +13,5 @@ redirect_from:
 - /en/community/
 - /community/
 ref: 12
-title: Qubes 4.0 documentation
+title: Documentation
 ---
