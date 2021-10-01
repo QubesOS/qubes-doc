@@ -71,7 +71,8 @@ currently supported. Currently, only [Fedora](/doc/templates/fedora/) and
 Qubes OS Project. [Whonix](https://www.whonix.org/wiki/Qubes) templates are
 supported by our partner, the [Whonix Project](https://www.whonix.org/). Qubes
 support for each template ends when that upstream release reaches end-of-life
-(EOL). Please see below for distribution-specific notes.
+(EOL), even if that release is included in the table below. Please see below for
+distribution-specific notes.
 
 It is the responsibility of each distribution to clearly notify its users in
 advance of its own EOL dates, and it is users' responsibility to heed these
@@ -89,8 +90,8 @@ Releases](https://wiki.debian.org/DebianReleases)).
 
 | Qubes OS    | Fedora | Debian                                   | Whonix |
 | ----------- | ------ | ---------------------------------------- | ------ |
-| Release 4.0 | 33     | 9 ("stretch"),<sup>*</sup> 10 ("buster") | 15     |
-| Release 4.1 | 33     | 10 ("buster")                            | 15     |
+| Release 4.0 | 33     | 9 ("stretch"),<sup>*</sup> 10 ("buster") | 15, 16 |
+| Release 4.1 | 33     | 10 ("buster")                            | 15, 16 |
 
 <sup>\*</sup> Although Debian 9 has reached regular EOL and is now in
 [LTS](https://wiki.debian.org/LTS), we continue to support it for Qubes R4.0.
