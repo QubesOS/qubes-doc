@@ -84,4 +84,4 @@ See the [installation guide](/doc/installation-guide/).
 
 ## Upgrading
 
-Please see [upgrading to R4.1](/doc/upgrade-to-r4.1/).
+Please see [How to upgrade to Qubes 4.1](/doc/upgrade/4.1/).
