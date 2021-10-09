@@ -84,4 +84,4 @@ See the [installation guide](/doc/installation-guide/).
 
 ## Upgrading
 
-TODO
+Please see [upgrading to R4.1](/doc/upgrade-to-r4.1/).
