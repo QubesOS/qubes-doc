@@ -12,3 +12,4 @@ title: Release notes
 * [Qubes R3.1 release notes](/doc/releases/3.1/release-notes/)
 * [Qubes R3.2 release notes](/doc/releases/3.2/release-notes/)
 * [Qubes R4.0 release notes](/doc/releases/4.0/release-notes/)
+* [Qubes R4.1 release notes](/doc/releases/4.1/release-notes/)

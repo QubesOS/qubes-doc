@@ -60,8 +60,10 @@ permalink: /doc/releases/4.1/release-notes/
 - Improved template distribution mechanism
 - Now possible to restart qrexec-agent
 - The term "VM" has largely been replaced by "qube"
-- GUI daemon is now configured using `qvm-features` tool, `/etc/qubes/guid.conf` file is no longer used
-- `qvm-run` tool got `--no-shell` option to run a single command without using a shell inside the qube
+- GUI daemon is now configured using `qvm-features` tool,
+  `/etc/qubes/guid.conf` file is no longer used
+- `qvm-run` tool got `--no-shell` option to run a single command without using
+  a shell inside the qube
 
 For a full list, including more detailed descriptions, please see
 [here](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.1%22+label%3A%22release+notes%22+is%3Aclosed).
@@ -83,4 +85,4 @@ See the [installation guide](/doc/installation-guide/).
 
 ## Upgrading
 
-Please see [How to upgrade to Qubes 4.1](/doc/upgrade/4.1/).
+Please see [how to upgrade to Qubes 4.1](/doc/upgrade/4.1/).
