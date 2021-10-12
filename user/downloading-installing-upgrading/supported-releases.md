@@ -88,10 +88,10 @@ upstream release on the upstream distribution's website (see [Fedora
 EOL](https://fedoraproject.org/wiki/End_of_life) and [Debian
 Releases](https://wiki.debian.org/DebianReleases)).
 
-| Qubes OS    | Fedora | Debian                                   | Whonix |
-| ----------- | ------ | ---------------------------------------- | ------ |
-| Release 4.0 | 33     | 9 ("stretch"),<sup>*</sup> 10 ("buster") | 15, 16 |
-| Release 4.1 | 33     | 10 ("buster")                            | 15, 16 |
+| Qubes OS    | Fedora | Debian                               | Whonix |
+| ----------- | ------ | ------------------------------------ | ------ |
+| Release 4.0 | 33     | 9 (Stretch),<sup>*</sup> 10 (Buster) | 15, 16 |
+| Release 4.1 | 33, 34 | 10 (Buster), 11 (Bullseye)           | 15, 16 |
 
 <sup>\*</sup> Although Debian 9 has reached regular EOL and is now in
 [LTS](https://wiki.debian.org/LTS), we continue to support it for Qubes R4.0.
