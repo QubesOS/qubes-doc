@@ -379,7 +379,6 @@ Skip to [Create Subkey](#create-subkey) if you already have a key.
 
 In `vault`, create the master keypair, subkeys, and a revocation certificate.
 
-Create master keypair:
 ```
 [user@vault ~]$ gpg --full-generate-key
 Real name: alice
@@ -388,7 +387,10 @@ You selected this USER-ID:
     "alice <alice@example.net>"
 [...]
 ```
-Create subkey:
+
+#### Create Subkey
+Use `gpg -K` to find your key-id and name. Here the name is `alice`.
+
 ```
 [user@vault ~]$ gpg --edit-key alice
 gpg> addkey
@@ -413,11 +415,11 @@ Key expires at Wed Oct 10 00:00:00 2022 PDT
 Is this correct? (y/N) y
 Really create? (y/N) y
 ```
+
 Create revocation cert:
 ```
 [user@vault ~]$ gpg --output alice_revocation.cert --gen-revoke alice
 ```
-#### Create Subkey
 
 Backup keys and revocation cert, then shred the exported keys:
 ```
