@@ -371,7 +371,90 @@ Rather, the master secret key remains in the `vault` VM, which is extremely unli
 
 <sup>\*</sup>In order to gain access to the `vault` VM, the attacker would require the use of, e.g., a general Xen VM escape exploit or a [signed, compromised package which is already installed in the template](/doc/templates/#trusting-your-templates) upon which the `vault` VM is based.
 
-### Subkey Tutorials and Discussions
+### Implementing Split GPG with Subkeys
+
+Skip to [Create Subkey](#create-subkey) if you already have a key.
+
+#### Create master key
+
+In `vault`, create the master keypair, subkeys, and a revocation certificate.
+
+Create master keypair:
+```
+[user@vault ~]$ gpg --full-generate-key
+Real name: alice
+Email address: alice@example.net
+You selected this USER-ID:
+    "alice <alice@example.net>"
+[...]
+```
+Create subkey:
+```
+[user@vault ~]$ gpg --edit-key alice
+gpg> addkey
+Please select what kind of key you want:
+   (3) DSA (sign only)
+   (4) RSA (sign only)
+   (5) Elgamal (encrypt only)
+   (6) RSA (encrypt only)
+  (14) Existing key from card
+Your selection? 4
+RSA keys may be between 1024 and 4096 bits long.
+What keysize do you want? (3072) 4096
+Requested keysize is 4096 bits
+Please specify how long the key should be valid.
+         0 = key does not expire
+      <n>  = key expires in n days
+      <n>w = key expires in n weeks
+      <n>m = key expires in n months
+      <n>y = key expires in n years
+Key is valid for? (0) 1y
+Key expires at Wed Oct 10 00:00:00 2022 PDT
+Is this correct? (y/N) y
+Really create? (y/N) y
+```
+Create revocation cert:
+```
+[user@vault ~]$ gpg --output alice_revocation.cert --gen-revoke alice
+```
+#### Create Subkey
+
+Backup keys and revocation cert, then shred the exported keys:
+```
+[user@vault ~]$ gpg --export-secret-keys --armor alice > alice_secret.key
+[user@vault ~]$ gpg --export --armor alice > alice_public.key
+[user@vault ~]$ tar -cf backup_alice_keys.tar alice* 
+[user@vault ~]$ shred -u alice*
+```
+The master key is still in the keyring. Export its subkeys in a temp file, delete the master key from the keyring, then import the subkeys. Be sure to delete `subkeys` after importing.
+```
+[user@vault ~]$ gpg --export-secret-subkeys alice > subkeys
+[user@vault ~]$ gpg --delete-secret-key alice
+[user@vault ~]$ gpg --import subkeys
+[user@vault ~]$ shred -u subkeys
+```
+
+Export the public and secret key to `work-gpg`
+```
+[user@vault ~]$ gpg --export-secret-keys --armor alice > alice_secret.key
+[user@vault ~]$ gpg --export --armor alice > alice_public.key
+[user@vault ~]$ qvm-copy alice_*.key
+```
+At the prompt, select `work-gpg` as the destination.
+
+Now import the public and secret keys into `work-gpg`, then delete them.
+```
+[user@work-gpg ~]$ cd ~/QubesIncoming/vault
+[user@work-gpg QubesIncoming/vault]$ gpg --import alice_*.key
+[user@work-gpg QubesIncoming/vault]$ shred -u alice_*.key
+```
+Finally, in `work-email`, import the public key from `work-gpg`
+```
+[user@work-email ~]$ qubes-gpg-client-wrapper --armor --export alice > alice_public.asc
+[user@work-email ~]$ gpg --import alice_public.asc
+```
+
+### Additional Subkey Tutorials and Discussions
 
 (Note: Although the tutorials below were not written with Qubes Split GPG in mind, they can be adapted with a few commonsense adjustments.
 As always, exercise caution and use your good judgment.)
