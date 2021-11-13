@@ -14,9 +14,10 @@ title: Templates
 In [Getting Started](/doc/getting-started/), we covered the distinction
 in Qubes OS between where you *install* your software and where you *run* your
 software. Your software is installed in [templates](/doc/glossary/#template).
-Each template shares its root filesystem (i.e., all of its programs and system
-files) with all the qubes based on it. [App qubes](/doc/glossary/#app-qube) are
-where you run your software and store your data.
+
+When using Qubes OS, you will typically begin a task by opening an application in an [app qube](/doc/glossary/#app-qube). App qubes are built from a *template* qube (or more simply, just *a template*). App qubes inherit all characteristics from their template—from the template's operating stystem or distro, to installed applications, to stored data, so its "root filesystem." App qubes do not, however, persist their data back to the Template. 
+
+Templates are always built by developers, and are typically categorized by which OS or Linux distro each is based on. Qubes OS officially supports Debian and Fedora templates, and our community of developers has built and made available many more. When installing Qubes OS, officially supported templates may be installed. If you wish to add additional templates, you will need to download and install them.
 
 The template system has significant benefits:
 
