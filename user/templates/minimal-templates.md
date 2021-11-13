@@ -234,7 +234,7 @@ list of packages to be installed):
   packages for a network VM, use the `lspci` command to identify the devices,
   then find the package that provides necessary firmware and install it. If you
   need utilities for debugging and analyzing network connections, install the
-  following packages: `tcpdump` `telnet` `nmap` `nmap-ncat`.
+  following packages: `tcpdump` `telnet` `nmap` `ncat`.
 - [USB qube](/doc/usb-qubes/), such as the template for `sys-usb`:
   `qubes-usb-proxy` to provide USB devices to other Qubes and
   `qubes-input-proxy-sender` to provide keyboard or mouse input to dom0.
