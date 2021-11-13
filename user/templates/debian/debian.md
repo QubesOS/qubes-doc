@@ -16,7 +16,6 @@ This page is about the standard (or "full") Debian template.
 For the minimal version, please see the [Minimal templates](/doc/templates/minimal/) page.
 There is also a [Qubes page on the Debian Wiki](https://wiki.debian.org/Qubes).
 
-Building a template in Qubes OS is not a trivial process. Below is a (tally?) of known Debian releases, and the status of their Qubes OS templates. Release-specific installation notes, are at the bottom of the page below the general installation notes. 
 
 | Release Version        |  Initial Release Date & Status*       |  Does a Qubes OS "full" Template yet exist for this? |  Does a Qubes OS "minimal" Template yet exist for this? |
 | :---                   |  :---                                 |  :---                                                |  :---                                                  |
