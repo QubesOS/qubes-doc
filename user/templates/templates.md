@@ -13,9 +13,11 @@ title: Templates
 
 In [Getting Started](/doc/getting-started/), we covered the distinction
 in Qubes OS between where you *install* your software and where you *run* your
-software. Your software is installed in [templates](/doc/glossary/#template).
+software. Software that you use in most everyday tasks, is installed within [templates](/doc/glossary/#template).
 
-When using Qubes OS, you will typically begin a task by opening an application in an [app qube](/doc/glossary/#app-qube). App qubes are built from a *template* qube (or more simply, just *a template*). App qubes inherit all characteristics from their template—from the template's operating stystem or distro, to installed applications, to stored data, so its "[root filesystem](https://opensource.com/life/16/10/introduction-linux-filesystems)." App qubes do not, however, persist their data back to the Template. 
+When using Qubes OS, you will typically begin a task by opening an application in an [app qube](/doc/glossary/#app-qube). App qubes are built from a *template* qube (or more simply, just *a template*). As such, app qubes they _inherit_ all data from their template—from the template's OS or distro, to installed applications, to stored files—so its "[root filesystem](https://opensource.com/life/16/10/introduction-linux-filesystems)." App qubes do not, however, _persist_ their data back to the Template. 
+
+An understanding of [Inheritance and Persistence](#inheritance-and-persistence) concepts will help inform a clear understanding of this essential concept within Qubes OS. [Standalones](/doc/glossary/#standalone) are the only qubes in the Qubes OS ecosystem that neither _persist_ nor _inherit_ their filesystems to or from other qubes. 
 
 Templates are always built by developers, and are typically categorized by which OS or Linux distro each is based on. Qubes OS officially supports Debian and Fedora templates, and our community of developers has built and made available many more. When installing Qubes OS, officially supported templates may be installed. If you wish to add additional templates, you will need to download and install them.
 
@@ -38,7 +40,7 @@ The template system has significant benefits:
 
 An important side effect of this system is that any software installed in an
 app qube (rather than in the template on which it is based) will disappear
-after the app qube reboots (see [Inheritance and
+when the app qube shuts down (per [Inheritance and
 Persistence](#inheritance-and-persistence)). For this reason, we recommend
 installing most of your software in templates, not app qubes.
 
