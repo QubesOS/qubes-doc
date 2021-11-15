@@ -129,7 +129,7 @@ These enable _sloppy focus_ aka focus changes on mouse movements (without clicki
 
 ##### Ignore requests from applications to the window manager
 
-Applications and running Qube windows may request from awesome to become focused.
+Applications and running Qube windows may request from AwesomeWM to become focused.
 
 Handling of such requests is currently mostly implemented by AwesomeWM in the file `/usr/share/awesome/lib/awful/ewmh.lua`. You can either comment out the respective `client.connect_singal()` lines in that file (it will change back after each AwesomeWM update though) or disconnect the signals in your _rc.lua_ as well as use the built-in filter functionality.
 
@@ -246,14 +246,19 @@ function check_focus_mouse()
     end
 end
 
+--further delayed variant of check_focus_mouse(), required for just created windows
+local function check_focus_mouse_delayed()
+    timer.delayed_call(check_focus_mouse)
+end
+
 --make the focus follow the mouse on the below events, if nothing else is focused
-client.connect_signal("manage",              check_focus_mouse) --for empty workspaces or workspace without focused window
-client.connect_signal("unmanage",            check_focus_mouse)
-client.connect_signal("tagged",              check_focus_mouse)
-client.connect_signal("untagged",            check_focus_mouse)
-client.connect_signal("property::hidden",    check_focus_mouse)
-client.connect_signal("property::minimized", check_focus_mouse)
-client.connect_signal("property::sticky",    check_focus_mouse)
+client.connect_signal("manage",              check_focus_mouse_delayed) --for empty workspaces or workspace without focused window
+client.connect_signal("unmanage",            check_focus_mouse_delayed)
+client.connect_signal("tagged",              check_focus_mouse_delayed)
+client.connect_signal("untagged",            check_focus_mouse_delayed)
+client.connect_signal("property::hidden",    check_focus_mouse_delayed)
+client.connect_signal("property::minimized", check_focus_mouse_delayed)
+client.connect_signal("property::sticky",    check_focus_mouse_delayed)
 
 --use history on tag switch:
 tag.connect_signal("property::selected", function (t)
