@@ -142,6 +142,10 @@ Please see [How to Install Software](/doc/how-to-install-software).
 
 ## Uninstalling
 
+If you want to remove a template you must make sure that it is not being used.
+You should check that the template is not being used by any qubes,
+and also that it is not set as the default template.
+
 The procedure for uninstalling a template depends on how it was created.
 
 If the template was originaly created by cloning another template, then you can
@@ -183,8 +187,9 @@ warning: file /var/lib/qubes/vm-templates/fedora-XX: remove failed: No such file
 These are normal and expected. Nothing is wrong, and no action is required to
 address these warnings.
 
-If this uninstallation command doesn't work, please see
-[VM Troubleshooting](/doc/vm-troubleshooting/).
+If the uninstallation command doesn't work, pay close attention to
+any error message: it may tell you what qube is using the template,
+or if the template is default. In other cases, please see [VM Troubleshooting](/doc/vm-troubleshooting/).
 
 If the Applications Menu entry doesn't go away after you uninstall a template,
 execute the following type of command in dom0:
