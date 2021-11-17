@@ -129,6 +129,8 @@ list of packages to be installed):
 - Commonly used utilities: `pciutils` `vim-minimal` `less` `psmisc`
   `gnome-keyring`.
 - Audio: `pulseaudio-qubes`.
+- Networking: `qubes-core-agent-networking`, and whatever network tools
+  you want. N.B. minimal templates do not include any browser.
 - [FirewallVM](/doc/firewall/), such as the template for `sys-firewall`: at
   least `qubes-core-agent-networking` and `iproute`, and also
   `qubes-core-agent-dom0-updates` if you want to use it as the `UpdateVM`
@@ -226,6 +228,8 @@ list of packages to be installed):
   the Nautilus menu option to copy some files to other qubes
   ([#6801](https://github.com/QubesOS/qubes-issues/issues/6801)).
 - Audio: `pulseaudio-qubes`
+- Networking: `qubes-core-agent-networking`, and whatever network tools
+  you want. N.B. minimal templates do not include any browser.
 - [FirewallVM](/doc/firewall/), such as the template for `sys-firewall`: at
   least `qubes-core-agent-networking`, and also `qubes-core-agent-dom0-updates`
   if you want to use it as the `UpdateVM` (which is normally `sys-firewall`).
@@ -298,6 +302,8 @@ list of packages to be installed):
 - Commonly used utilities: `pciutils` `vim-minimal` `less` `psmisc`
   `gnome-keyring`
 - Audio: `pulseaudio-qubes`.
+- Networking: `qubes-core-agent-networking`, and whatever network tools
+  you want. N.B. minimal templates do not include any browser.
 - [FirewallVM](/doc/firewall/), such as the template for `sys-firewall`: at
   least `qubes-core-agent-networking`, and also `qubes-core-agent-dom0-updates`
   if you want to use it as the `UpdateVM` (which is normally `sys-firewall`).
