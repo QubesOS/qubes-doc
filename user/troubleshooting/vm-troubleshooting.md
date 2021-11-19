@@ -37,7 +37,7 @@ When a template is marked as 'installed by package manager', but cannot be unins
     $ qvm-prefs template-vm-name
     ```
 
-2. If `installed_by_rpm - True]`, mark the template as not installed by package manager
+2. If `installed_by_rpm - True`, mark the template as not installed by package manager
 
     ```
     $ qvm-prefs template-vm-name installed_by_rpm false
