@@ -127,6 +127,26 @@ end)
 
 These enable _sloppy focus_ aka focus changes on mouse movements (without clicking) and should be removed or commented out to disable that behaviour.
 
+##### Enable right-click focus changes
+
+In your _rc.lua_ you should find a section which enables left-click focus changes such as
+
+```lua
+    awful.button({ }, 1, function (c) 
+        c:emit_signal("request::activate", "mouse_click", {raise = true})
+    end),
+```
+
+Add the following section below to enable focus changes on right mouse clicks:
+
+```lua
+    awful.button({ }, 3, function (c) 
+        c:emit_signal("request::activate", "mouse_click", {raise = true})
+    end),
+```
+
+If you want other mouse buttons to change the focus as well, feel free to add further entries (0 = all mouse buttons).
+
 ##### Ignore requests from applications to the window manager
 
 Applications and running Qube windows may request from AwesomeWM to become focused.
