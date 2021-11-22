@@ -371,7 +371,7 @@ This also means that it is possible to update the software for several qubes sim
 
 Please see the [system requirements](/doc/system-requirements/).
 
-### Can I install Qubes on a system without VT-x/AMD-V or VT-d/ADM-Vi/AMD IOMMU?
+### Can I install Qubes on a system without VT-x/AMD-V or VT-d/AMD-Vi/AMD IOMMU?
 
 Please see the [system requirements](/doc/system-requirements/) for the latest information.
 If you are receiving an error message on install saying your "hardware lacks the features required to proceed", check to make sure the virtualization options are enabled in your BIOS/UEFI configuration.
@@ -382,21 +382,21 @@ For more information, see [Qubes-certified hardware](/doc/certified-hardware/).
 
 By default, Qubes uses Xen's PVH and HVM virtualization modes, which require VT-x/AMD-V.
 This means that, without VT-x/AMD-V, no VMs will start in a default Qubes installation.
-In addition, if your system lacks VT-x/AMD-V, then it also lacks VT-d/ADM-Vi/AMD IOMMU.
+In addition, if your system lacks VT-x/AMD-V, then it also lacks VT-d/AMD-Vi/AMD IOMMU.
 (See next question.)
 
-### Why is VT-d/ADM-Vi/AMD IOMMU important?
+### Why is VT-d/AMD-Vi/AMD IOMMU important?
 
-On a system without VT-d/ADM-Vi/AMD IOMMU, there will be no real security benefit to having a separate NetVM, as an attacker could always use a simple [DMA attack](#what-is-a-dma-attack) to go from the NetVM to Dom0.
-Nonetheless, all of Qubes' other security mechanisms, such as qube separation, work without VT-d/ADM-Vi/AMD IOMMU.
-Therefore, a system running Qubes without VT-d/ADM-Vi/AMD IOMMU would still be significantly more secure than one running Windows, Mac, or Linux.
+On a system without VT-d/AMD-Vi/AMD IOMMU, there will be no real security benefit to having a separate NetVM, as an attacker could always use a simple [DMA attack](#what-is-a-dma-attack) to go from the NetVM to Dom0.
+Nonetheless, all of Qubes' other security mechanisms, such as qube separation, work without VT-d/AMD-Vi/AMD IOMMU.
+Therefore, a system running Qubes without VT-d/AMD-Vi/AMD IOMMU would still be significantly more secure than one running Windows, Mac, or Linux.
 
 ### What is a DMA attack?
 
 Direct Memory Access (DMA) is mechanism for PCI devices to access system memory (read/write).
-Without VT-d/ADM-Vi/AMD IOMMU, any PCI device can access all the memory, regardless of the VM to which it is assigned (or if it is left in dom0).
+Without VT-d/AMD-Vi/AMD IOMMU, any PCI device can access all the memory, regardless of the VM to which it is assigned (or if it is left in dom0).
 Most PCI devices allow the driver to request an arbitrary DMA operation (like "put received network packets at this address in memory", or "get this memory area and send it to the network").
-So, without VT-d/ADM-Vi/AMD IOMMU, it gives unlimited access to the whole system.
+So, without VT-d/AMD-Vi/AMD IOMMU, it gives unlimited access to the whole system.
 Now, it is only a matter of knowing where to read/write to take over the system, instead of just crashing.
 But since you can read the whole memory, it isn't that hard.
 
