@@ -71,7 +71,7 @@ For a full list, including more detailed descriptions, please see
 ## Known issues
 
 For a full list of known 4.1 issues with open bug reports, please see
-[here](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Release+4.1%22+label%3Abug).
+[here](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Release+4.1%22+label%3A%22T%3A+bug%22).
 We strongly recommend [updating Qubes OS](/doc/how-to-update/) immediately
 after installation in order to apply any and all available bug fixes.
 
