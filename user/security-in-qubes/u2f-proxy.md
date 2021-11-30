@@ -124,6 +124,8 @@ systemctl disable qubes-u2fproxy@sys-usb.service
 
 Replace `USB_QUBE` with the actual USB qube name.
 
+Do not forget to change the sys-usb qube name in the policy `/etc/qubes-rpc/policy/u2f.Authenticate`.
+
 ## Template and browser support
 
 The large number of possible combinations of template (Fedora 27, 28; Debian 8, 9) and browser (multiple Google Chrome versions, multiple Chromium versions, multiple Firefox versions) made it impractical for us to test every combination that users are likely to attempt with the Qubes U2F Proxy.
