@@ -16,3 +16,6 @@ policy](/doc/version-scheme/#release-schedule).
 | 2021-11-08 | current-testing freeze before 4.1.0-rc2   |
 | 2021-11-15 | 4.1.0-rc2 release                         |
 | 2021-11-29 | decide whether 4.1.0-rc2 is the final 4.1 |
+| 2021-12-13 | current-testing freeze before 4.1.0-rc3   |
+| 2021-12-20 | 4.1.0-rc3 release                         |
+| 2022-01-03 | decide whether 4.1.0-rc3 is the final 4.1 |
