@@ -25,8 +25,8 @@ even if it looks trivial at first sight.
 
 Digital signatures can prove both **authenticity** and **integrity** to a
 reasonable degree of certainty. **Authenticity** ensures that a given file was
-indeed created by the person who signed it (i.e., that a
-third party did not forge it). **Integrity** ensures that the contents of the file have not been
+indeed created by the person who signed it (i.e., that a third party did not
+forge it). **Integrity** ensures that the contents of the file have not been
 tampered with (i.e., that a third party has not undetectably altered its
 contents *en route*).
 
@@ -35,9 +35,10 @@ malicious. In fact, there is nothing that could stop someone from signing a
 malicious program (and it happens from time to time in reality).
 
 The point is that we must decide who we will trust (e.g., Linus Torvalds,
-Microsoft, or the Qubes Project) and assume that if a trusted party signed a given file, then it should not be malicious or negligently buggy. The
-decision of whether to trust any given party is beyond the scope of digital
-signatures. It's more of a social and political decision.
+Microsoft, or the Qubes Project) and assume that if a trusted party signed a
+given file, then it should not be malicious or negligently buggy. The decision
+of whether to trust any given party is beyond the scope of digital signatures.
+It's more of a social and political decision.
 
 Once we decide to trust certain parties, digital signatures are
 useful, because they make it possible for us to limit our trust only to those
@@ -116,7 +117,9 @@ Now, there are several ways to get the QMSK.
   $ gpg2 --import /usr/share/qubes/qubes-master-key.asc
   ```
 
-- If you're on Fedora, you can get it in the [distribution-gpg-keys](https://github.com/xsuchy/distribution-gpg-keys) package:
+- If you're on Fedora, you can get it in the
+  [distribution-gpg-keys](https://github.com/xsuchy/distribution-gpg-keys)
+  package:
     
   ```shell_session
   $ dnf install distribution-gpg-keys
@@ -281,7 +284,7 @@ follow the instructions in this section carefully and consult the
 
 ## How to import and authenticate release signing keys
 
-Every Qubes OS release is signed by a **release signing key (RSK)**, which is
+Every Qubes OS release is signed by a **release signing key (RSK)**, which is,
 in turn, signed by the Qubes Master Signing Key (QMSK).
 
 Before we proceed, you must first complete the following prerequisite steps:
@@ -339,13 +342,14 @@ sig!         DDFA1A3E36879494 2017-03-08  Qubes Master Signing Key
 gpg: 2 good signatures
 ```
 
-This is just an example, so the output you receive will not look exactly the
-same. What matters is the line that shows that the QMSK signs this key
-with a `sig!` prefix. This verifies the authenticity of the
-RSK. Note that the `!` flag after the `sig` tag is important because it means
-that the key signature is valid. A `sig-` prefix would indicate a bad signature, and `sig%` would mean that gpg encountered an error while verifying the
-signature. It is not necessary to independently verify the authenticity of the
-RSK, since you already verified the authenticity of the QMSK.
+This is just an example, so the output you receive may not look exactly the
+same. What matters is the line with a `sig!` prefix showing that the QMSK has
+signed this key. This verifies the authenticity of the RSK. Note that the `!`
+flag after the `sig` tag is important because it means that the key signature
+is valid. A `sig-` prefix would indicate a bad signature, and `sig%` would mean
+that gpg encountered an error while verifying the signature. It is not
+necessary to independently verify the authenticity of the RSK, since you
+already verified the authenticity of the QMSK.
 
 As a final sanity check, make sure the RSK is in your keyring with the correct
 trust level:
@@ -385,13 +389,13 @@ Each Qubes ISO is accompanied by a set of **cryptographic hash values**
 contained in a plain text file ending in `.DIGESTS`, which can find on the
 [downloads](/downloads/) page alongside the ISO. This file contains the output
 of running several different cryptographic hash functions on the ISO (a process
-known as "hashing") to obtain alphanumeric outputs known as "hash
-values" or "digests."
+known as "hashing") to obtain alphanumeric outputs known as "hash values" or
+"digests."
 
 One convenient property of hash values is that they can be generated on any
 computer. This means, for example, that you can download a Qubes ISO on one
-computer, hash it, then visually compare that hash value to the one you generated
-or have saved on a different computer.
+computer, hash it, then visually compare that hash value to the one you
+generated or have saved on a different computer.
 
 In addition to the `.DIGESTS` files on the [downloads](/downloads/) page
 alongside each ISO, and you can always find all the digest files for every
