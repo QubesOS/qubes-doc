@@ -194,7 +194,7 @@ Also, there are packages to provide additional services:
   idle.
 - `qubes-mgmt-salt-vm-connector`: If you want to use salt management on the
   template and qubes.
-- `mesa-dri-drivers`: If you want to run applications (e.g. videogames)
+- `mesa-dri-drivers`: If you want to run applications (e.g. video games)
   that require OpenGL or Vulkan API without attaching a real video card
   to the qube.
 
