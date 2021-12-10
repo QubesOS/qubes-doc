@@ -371,6 +371,12 @@ In a Debian app qube, install `qemu-utils` and `unzip`:
 sudo apt install qemu-utils unzip
 ```
 
+In a Fedora app qube:
+
+```
+sudo dnf install qemu-img
+```
+
 Unzip VirtualBox zip file:
 
 ```
