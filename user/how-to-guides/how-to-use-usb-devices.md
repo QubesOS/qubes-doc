@@ -102,8 +102,14 @@ Under normal conditions, `qubes-usb-proxy` should already be installed and good 
 
 If you receive this error: `ERROR: qubes-usb-proxy not installed in the VM`, you can install the `qubes-usb-proxy` with the package manager in the VM you want to attach the USB device to.
 
-- Fedora: `sudo dnf install qubes-usb-proxy`
-- Debian/Ubuntu: `sudo apt-get install qubes-usb-proxy`
+- Fedora: 
+  ```
+  sudo dnf install qubes-usb-proxy
+  ```
+- Debian/Ubuntu: 
+  ```
+  sudo apt-get install qubes-usb-proxy
+  ```
 
 ### Using USB Keyboards And Other Input Devices
 
@@ -153,4 +159,6 @@ Now you see the path and the text between `/pci0000:00/0000:` and `/usb3` i.e. `
 
 For example, On R 4.0 the command would look something like
 
-`qvm-pci attach --persistent personal dom0:00_1a.0`
+```
+qvm-pci attach --persistent personal dom0:00_1a.0
+```
