@@ -250,14 +250,16 @@ title: Introduction
       <em>you</em> have control over your software, not the other way around.
     </p>
     <p>
-      Qubes is also powerful. Organizations like the
-      <a href="/partners/#freedom-of-the-press-foundation">Freedom of the Press
-      Foundation</a>, <a href="/partners/#mullvad">Mullvad</a>, and
-      <a href="https://twitter.com/letsencrypt/status/1239934557710737410">Let's
+      Qubes is also powerful. Organizations like the <a
+      href="https://securedrop.org/news/piloting-securedrop-workstation-qubes-os/">Freedom
+      of the Press Foundation</a>, <a
+      href="https://twitter.com/mullvadnet/status/631010362083643392">Mullvad</a>,
+      and <a
+      href="https://twitter.com/letsencrypt/status/1239934557710737410">Let's
       Encrypt</a> rely on Qubes as they build and maintain critical privacy and
       security internet technologies that are in turn relied upon by countless
-      users around the world every day. Renowned security
-      <a href="/experts/">experts</a> like Edward Snowden, Daniel J. Bernstein,
+      users around the world every day. Renowned security <a
+      href="/experts/">experts</a> like Edward Snowden, Daniel J. Bernstein,
       Micah Lee, Christopher Soghoian, Isis Agora Lovecruft, Peter Todd, Bill
       Budington, and Kenn White use and recommend Qubes.
     </p>
