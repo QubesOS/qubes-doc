@@ -8,14 +8,14 @@ title: GuiVM Configuration
 
 ## Gui domain
 
-In this section, we describe how to setup `GuiVM` in several case as described in [GUI Domain](https://www.qubes-os.org/news/2020/03/18/gui-domain/). In all the cases, the base underlying TemplateVM used is `Fedora` with `XFCE` flavor to match current desktop choice in `dom0`. That can be adapted very easily for other desktops and templates. By default, the configured `GuiVM` is a management qube with global admin permissions `rwx` but can be adjusted to `ro` (see [Introducing the Qubes Admin API](https://www.qubes-os.org/news/2017/06/27/qubes-admin-api/)) in pillar data of the corresponding `GuiVM` to setup. For example, pillar data for `sys-gui` located at `/srv/pillar/base/qvm/sys-gui.sls`. Please note that each `GuiVM` has no `NetVM`.
+In this section, we describe how to setup `GuiVM` in several case as described in [GUI Domain](/news/2020/03/18/gui-domain/). In all the cases, the base underlying TemplateVM used is `Fedora` with `XFCE` flavor to match current desktop choice in `dom0`. That can be adapted very easily for other desktops and templates. By default, the configured `GuiVM` is a management qube with global admin permissions `rwx` but can be adjusted to `ro` (see [Introducing the Qubes Admin API](/news/2017/06/27/qubes-admin-api/)) in pillar data of the corresponding `GuiVM` to setup. For example, pillar data for `sys-gui` located at `/srv/pillar/base/qvm/sys-gui.sls`. Please note that each `GuiVM` has no `NetVM`.
 
 > Note: The setup is done using `SaltStack` formulas with the `qubesctl` tool. When executing it, apply step can take time because it needs to download latest Fedora XFCE TemplateVM and install desktop dependencies.
 
 
 ### Hybrid GuiVM `sys-gui`
 
-Here, we describe how to setup `sys-gui` that we call *hybrid mode* or referenced as a *compromise solution* in [GUI Domain](https://www.qubes-os.org/news/2020/03/18/gui-domain/#the-compromise-solution).
+Here, we describe how to setup `sys-gui` that we call *hybrid mode* or referenced as a *compromise solution* in [GUI Domain](/news/2020/03/18/gui-domain/#the-compromise-solution).
 
 [![sys-gui](/attachment/posts/guivm-hybrid.png)](/attachment/posts/guivm-hybrid.png)
 
@@ -43,7 +43,7 @@ At this point, you need to shutdown all your running qubes as the `default_guivm
 
 ### GPU GuiVM `sys-gui-gpu`
 
-Here, we describe how to setup `sys-gui-gpu` which is a `GuiVM` with *GPU passthrough* in [GUI Domain](https://www.qubes-os.org/news/2020/03/18/gui-domain/#gpu-passthrough-the-perfect-world-desktop-solution).
+Here, we describe how to setup `sys-gui-gpu` which is a `GuiVM` with *GPU passthrough* in [GUI Domain](/news/2020/03/18/gui-domain/#gpu-passthrough-the-perfect-world-desktop-solution).
 
 [![sys-gui-gpu](/attachment/posts/guivm-gpu.png)](/attachment/posts/guivm-gpu.png)
 
@@ -84,7 +84,7 @@ Once, `lightdm` is started, you can log as `user` where `user` refers to the fir
 
 ### VNC GuiVM `sys-gui-vnc`
 
-Here, we describe how to setup `sys-gui-vnc` that we call a *remote* `GuiVM` or referenced as *with a virtual server* in [GUI Domain](https://www.qubes-os.org/news/2020/03/18/gui-domain/#virtual-server-the-perfect-remote-solution).
+Here, we describe how to setup `sys-gui-vnc` that we call a *remote* `GuiVM` or referenced as *with a virtual server* in [GUI Domain](/news/2020/03/18/gui-domain/#virtual-server-the-perfect-remote-solution).
 
 [![sys-gui-vnc](/attachment/posts/guivm-vnc.png)](/attachment/posts/guivm-vnc.png)
 
