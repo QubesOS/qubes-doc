@@ -113,6 +113,7 @@ Do not rely on this for extra security.**
 
     ```
     [root@dom0 /]# echo "/usr/bin/echo 1" >/etc/qubes-rpc/qubes.VMAuth
+    [root@dom0 /]# chmod 755 /etc/qubes-rpc/qubes.VMAuth
     [root@dom0 /]# echo "@anyvm dom0 ask,default_target=dom0" \
     >/etc/qubes-rpc/policy/qubes.VMAuth
     ```
@@ -129,7 +130,13 @@ Do not rely on this for extra security.**
         ```
 
     - Require authentication for sudo.
-      Replace the first line of `/etc/sudoers.d/qubes` with:
+      Replace the second line of `/etc/sudoers.d/qubes` 
+      
+        ```
+        %qubes ALL=(ALL) ROLE=unconfined_r TYPE=unconfined_t NOPASSWD: ALL
+        ```
+      
+      with:
 
         ```
         user ALL=(ALL) ALL
@@ -152,7 +159,13 @@ Do not rely on this for extra security.**
         ```
 
     - Require authentication for sudo.
-      Replace the first line of `/etc/sudoers.d/qubes` with:
+      Replace the second line of `/etc/sudoers.d/qubes`
+      
+        ```
+        %qubes ALL=(ALL) ROLE=unconfined_r TYPE=unconfined_t NOPASSWD: ALL
+        ```
+            
+      with:
 
         ```
         user ALL=(ALL) ALL
