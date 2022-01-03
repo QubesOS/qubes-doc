@@ -275,5 +275,5 @@ Some filters:
   - filter by error
   - filter by test name
 
-Chekout the script's help with `python3 openqa_investigator.py --help`
+Check out the script's help with `python3 openqa_investigator.py --help`
 to see all available options.
