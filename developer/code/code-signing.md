@@ -104,7 +104,7 @@ your Git commits.
    Alternatively, manually specify when a commit is to be signed:
 
    ~~~
-   commit -S
+   git commit -S
    ~~~
 
 3. (Optional) Create signed tags.
