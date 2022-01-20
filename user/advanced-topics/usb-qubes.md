@@ -62,7 +62,9 @@ If you use USB keyboard, automatic USB qube creation during installation is disa
 Additional steps are required to avoid locking you out from the system.
 Those steps are not performed by default, because of risk explained in [Security Warning about USB Input Devices](/doc/device-handling-security/#security-warning-on-usb-input-devices).
 
-### Automatic setup ###
+It is recommended to use separate USB controller for input devices (keyboard, mouse etc). If it is an option on a given system, please see [Enable a USB keyboard on a separate USB controller](#enable-a-usb-keyboard-on-a-separate-usb-controller) section. Otherwise continue with the section below.
+
+### Automatic setup (single USB controller) ###
 
 To allow USB keyboard usage (including early boot for LUKS passphrase), make sure you have the latest `qubes-mgmt-salt-dom0-virtual-machines` package (simply [install dom0 updates](/doc/how-to-install-software-in-dom0/#how-to-update-dom0)) and execute in dom0:
 
@@ -71,14 +73,14 @@ sudo qubesctl state.sls qvm.usb-keyboard
 ```
 
 The above command will take care of all required configuration, including creating USB qube if not present.
-Note that it will expose dom0 to USB devices while entering LUKS passphrase.
+Note that it will expose dom0 to USB devices while entering LUKS passphrase. In Qubes 4.1 (or never), only input devices (keyboards, mice etc) are initialized at this stage.
 Users are advised to physically disconnect other devices from the system for that time, to minimize the risk.
 
 To undo these changes, please follow the section on [**Removing a USB qube**](#removing-a-usb-qube)!
 
 If you wish to perform only a subset of this configuration (for example do not enable USB keyboard during boot), see manual instructions below.
 
-### Manual setup ###
+### Manual setup (single USB controller) ###
 
 In order to use a USB keyboard, you must first attach it to a USB qube, then give that qube permission to pass keyboard input to dom0.
 Edit the `qubes.InputKeyboard` policy file in dom0, which is located here:
@@ -106,7 +108,21 @@ sys-usb dom0 ask,default_target=dom0
 *Don't do that if you want to unlock your device with a USB keyboard!*
 
 Additionally, if you want to use USB keyboard to enter LUKS passphrase, it is incompatible with [hiding USB controllers from dom0](#how-to-hide-all-usb-controllers-from-dom0).
-You need to revert that procedure (remove `rd.qubes.hide_all_usb` option from files mentioned there) and employ alternative protection during system boot - disconnect other devices during startup.
+You need to revert that procedure (remove `rd.qubes.hide_all_usb` option from files mentioned there) and employ alternative protection during system boot - disconnect other devices during startup. In Qubes 4.1 (or newer), add `usbcore.authorized_default=0` option - it will prevent initializing non-input devices (Qubes ships an usbguard configuration that allows just input devices when `usbcore.authorized_default=0` is set).
+
+### Enable a USB keyboard on a separate USB controller
+
+This section assumes Qubes 4.1 or newer.
+
+When using USB keyboard on a system with multiple USB controllers, it is recommended to designate one of them for the keyboard (and possibly mouse) only, and keep other devices connected to the other controller(s). It is often an option for a desktop systems, where additional USB controller can be plugged in as a PCIe card.
+
+In this case, the designated controller for input devices should remain in dom0, but be limited to input devices only. To set it up:
+1. [Find the controller used for input devices](/doc/how-to-use-usb-devices/#finding-the-right-usb-controller).
+2. Add `usbcore.authorized_default=0 rd.qubes.dom0_usb=<BDF>` options to the kernel command line, where `<BDF>` is the USB controller identifier. See [How to hide USB controllers from dom0](#how-to-hide-usb-controllers-from-dom0) section how do to that (but use options mentioned here instead of `rd.qubes.hide_all_usb`.
+3. Restart the system
+4. Proceed with adding USB qube normally. The selected USB controller will remain in dom0.
+
+Those options can be added during installation (when the installer prompt for reboot, you can switch to tty2 and perform the steps from there, after using `chroot /mnt/sysimage` command). In that case, initial setup will create USB qube automatically, even when USB keyboard is in use (as long as it is connected to the designated controller).
 
 ## Auto Enabling A USB Mouse ##
 
@@ -136,7 +152,7 @@ sys-usb dom0 allow
 
 (Change `sys-usb` to your desired USB qube.)
 
-## How to hide all USB controllers from dom0 ##
+## How to hide USB controllers from dom0 ##
 
 (Note: `rd.qubes.hide_all_usb` is set automatically if you opt to create a USB qube during installation.
 This also occurs automatically if you choose to [create a USB qube](#creating-and-using-a-usb-qube) using the `qubesctl` method, which is the
@@ -175,6 +191,8 @@ The procedure to hide all USB controllers from dom0 is as follows:
   3. Add `rd.qubes.hide_all_usb` to those lines.
   4. Save and close the file.
   5. Reboot.
+
+In Qubes 4.1 it is possible to use `rd.qubes.dom0_usb=<BDF>` option in addition to `rd.qubes.hide_all_usb`, to keep a selected USB controller (specified as `<BDF>`) visible in dom0. This can be especially useful if one have multiple USB controllers, and designate one for connecting (only) keyboard/mouse. In such a case, adding `usbcore.authorized_default=0` option is recommended too, to really allow only input devices (see the section about USB keyboard above).
 
 ## Removing a USB qube ##
 
