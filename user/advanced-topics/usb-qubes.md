@@ -159,13 +159,13 @@ If dom0 cannot read your USB AEM device, AEM will hang.
 
 The procedure to hide all USB controllers from dom0 is as follows:
 
-* GRUB2
+* GRUB2 (legacy boot, or EFI on Qubes 4.1)
 
   1. Open the file `/etc/default/grub` in dom0.
   2. Find the line that begins with `GRUB_CMDLINE_LINUX`.
   3. Add `rd.qubes.hide_all_usb` to that line.
   4. Save and close the file.
-  5. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
+  5. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` (legacy boot) or `grub2-mkconfig -o /boot/efi/EFI/qubes/grub.cfg` (EFI) in dom0.
   6. Reboot.
 
 * EFI
