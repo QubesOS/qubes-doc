@@ -80,10 +80,11 @@ We recommend consulting these resources when selecting hardware for Qubes OS:
   of having a portable copy of Qubes, this allows users to test for hardware
   compatibility on multiple machines (e.g., at a brick-and-mortar computer
   store) before deciding on which computer to purchase. (See [generating and
-  submitting HCL
-  reports](/doc/how-to-use-the-hcl/#generating-and-submitting-new-reports) for
+  submitting HCL reports](/doc/how-to-use-the-hcl/#generating-and-submitting-new-reports) for
   advice on hardware compatibility testing.) Remember to change the devices
   assigned to your NetVM and USB VM if you move between different machines.
 
 - You can check whether an Intel processor has VT-x and VT-d on
   [ark.intel.com](https://ark.intel.com/content/www/us/en/ark.html#@Processors).
+  
+  You can also check that an Intel LPC chipset has VT-d as well over on [ark.intel.com](https://ark.intel.com/content/www/us/en/ark.html#@Processors).
