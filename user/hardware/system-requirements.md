@@ -87,4 +87,4 @@ We recommend consulting these resources when selecting hardware for Qubes OS:
 - You can check whether an Intel processor has VT-x and VT-d on
   [ark.intel.com](https://ark.intel.com/content/www/us/en/ark.html#@Processors).
   
-  You can also check that an Intel LPC chipset has VT-d as well over on [ark.intel.com](https://ark.intel.com/content/www/us/en/ark.html#@Processors).
+  You can also check that an Intel LPC chipset has VT-d as well over on [ark.intel.com](https://ark.intel.com/content/www/us/en/ark.html#@Chipsets).
