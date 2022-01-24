@@ -41,7 +41,7 @@ From a Qubes-specific security perspective, each has certain pros and cons.
 
 Pros:
 
-* Works via USB, including with a [USB qube](/doc/usb-qubes/#creating-and-using-a-usb-qube).
+* Works via USB, including with a [USB qube](/doc/usb-qubes/).
 * Non-fixed capacity.
   (Easy to find one on which the ISO can fit.)
 

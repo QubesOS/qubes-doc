@@ -89,7 +89,7 @@ On boot, the keyboard may be inactive, preventing you from entering your LUKS de
 When you enable a USB qube, it hides all the USB controllers from dom0, even before it gets started.
 So, if your only keyboard is on USB, you should undo this hiding.
 
-To solve the problem, disable the USB qube by not having it autostart, or unassigning your USB controller(s) from it. If you had created the USB qube by checking the box in the installer, then your USB controller(s) are probably hidden from dom0. To unhide them, reverse the procedure described in the [USB Qubes documentation](/doc/usb-qubes/#how-to-hide-all-usb-controllers-from-dom0) (under "How to hide all USB controllers from dom0"). That is, remove `rd.qubes.hide_all_usb`, instead of adding it.
+To solve the problem, disable the USB qube by not having it autostart, or unassigning your USB controller(s) from it. If you had created the USB qube by checking the box in the installer, then your USB controller(s) are probably hidden from dom0. To unhide them, reverse the procedure described in [how to hide USB controllers from dom0](/doc/usb-qubes/#how-to-hide-usb-controllers-from-dom0) (i.e., remove `rd.qubes.hide_all_usb` instead of adding it).
 
 Note that this procedure will attach your USB controllers to dom0, so do this only with USB devices you trust.
 

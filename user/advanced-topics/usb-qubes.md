@@ -236,7 +236,7 @@ entry](/faq/#i-created-a-usb-vm-and-assigned-usb-controllers-to-it-now-the-usb-v
 
 USB controllers are automatically hidden from dom0 if you opt to create a USB
 qube during installation. This also occurs automatically if you choose to
-[create a USB qube](#creating-and-using-a-usb-qube) using the `qubesctl`
+[create a USB qube](#how-to-create-a-usb-qube) using the `qubesctl`
 method. However, if you create a USB qube manually and do not hide USB
 controllers from dom0, there will be a brief period of time during the boot
 process when dom0 will be exposed to your USB controllers (and any attached
