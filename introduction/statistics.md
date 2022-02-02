@@ -28,11 +28,9 @@ Since the graph is updated daily, the bar for the current month will be very low
 
 We simply count the number of unique IPv4 addresses that connect to the Qubes update servers each month (except for Tor connections; see [below](#how-has-the-methodology-for-counting-tor-users-changed)).
 
-### How has the methodology for counting Tor users changed?
+### How are Tor users counted?
 
-Before, we simply counted the number of unique Tor exit node IPv4 addresses that connected to the Qubes update servers each month.
-However, this underestimated the actual number of Tor users, since many Tor users can use the same exit node.
-The new methodology is to estimate the number of Tor users as a proportion of the total number of *requests* from Tor exit nodes on the assumption that the proportion of users to requests is roughly the same for both clearnet and Tor users.
+We estimate the number of Tor users as a proportion of the total number of *requests* from Tor exit nodes on the assumption that the proportion of users to requests is roughly the same for both clearnet and Tor users.
 To be precise, the formula is:
 
 ```
