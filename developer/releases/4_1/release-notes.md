@@ -33,7 +33,10 @@ permalink: /doc/releases/4.1/release-notes/
   [#4909](https://github.com/QubesOS/qubes-issues/issues/4909) for details)
 - New qrexec-policy daemon
 - Simplified using in-qube kernels
-- Windows USB and audio support courtesy of [tabit-pro](https://github.com/tabit-pro) (see [#5802](https://github.com/QubesOS/qubes-issues/issues/5802) and [#2624](https://github.com/QubesOS/qubes-issues/issues/2624))
+- Windows USB and audio support courtesy of
+  [tabit-pro](https://github.com/tabit-pro) (see
+  [#5802](https://github.com/QubesOS/qubes-issues/issues/5802) and
+  [#2624](https://github.com/QubesOS/qubes-issues/issues/2624))
 - Clarified disposable-related terminology and properties
 - Default kernelopts can now be specified by a kernel package
 - Improved support for high-resolution displays
