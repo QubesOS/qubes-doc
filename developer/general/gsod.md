@@ -16,7 +16,7 @@ Thank you for your interest in participating in the [2021 Google Season of Docs]
 
 Qubes OS is a free and open source operating system uniquely designed to protect the security and privacy of the user. Its architecture is built to enable a user to define different security environments ("qubes") on their computer and visually manage their interaction with each other and the world.
 
-Qubes OS was launched in 2011 and has [received praise from security experts](https://www.qubes-os.org/experts/) like Edward Snowden, Bill Buddington (EFF), Isis Lovecruft (Tor Project), and Kenn White (Open Crypto Audit), and has over [30,000 active users](https://www.qubes-os.org/statistics/).
+Qubes OS was launched in 2011 and has [received praise from security experts](https://www.qubes-os.org/endorsements/) like Edward Snowden, Bill Buddington (EFF), Isis Lovecruft (Tor Project), and Kenn White (Open Crypto Audit), and has over [30,000 active users](https://www.qubes-os.org/statistics/).
 
 From network-level to software-level protections, as well as protections against firmware and hardware attacks, Qubes OS is trying to protect the user from the most significant attacks they encounter so that they can get their work done, safely.
 

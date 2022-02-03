@@ -259,7 +259,7 @@ title: Introduction
       Encrypt</a> rely on Qubes as they build and maintain critical privacy and
       security internet technologies that are in turn relied upon by countless
       users around the world every day. Renowned security <a
-      href="/experts/">experts</a> like Edward Snowden, Daniel J. Bernstein,
+      href="/endorsements/">experts</a> like Edward Snowden, Daniel J. Bernstein,
       Micah Lee, Christopher Soghoian, Isis Agora Lovecruft, Peter Todd, Bill
       Budington, and Kenn White use and recommend Qubes.
     </p>
