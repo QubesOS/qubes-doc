@@ -26,9 +26,7 @@ Since the graph is updated daily, the bar for the current month will be very low
 
 ### How is the userbase estimated?
 
-We simply count the number of unique IPv4 addresses that connect to the Qubes update servers each month (except for Tor connections; see [below](#how-has-the-methodology-for-counting-tor-users-changed)).
-
-Users who have manually configured to use a mirror (whether clearnet or onion mirrors) are not counted.
+We simply count the number of unique IPv4 addresses that connect to the Qubes update servers each month (except for Tor connections; see [below](#how-has-the-methodology-for-counting-tor-users-changed)). (Note: Users who have manually configured their systems to bypass the metalink and connect directly to a mirror are not counted.)
 
 ### How are Tor users counted?
 
