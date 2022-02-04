@@ -26,8 +26,9 @@ are available from our [download mirrors](/downloads/#mirrors).
 | Release 3.0 | 2015-10-01 | 2016-09-09 | Unsupported           |
 | Release 3.1 | 2016-03-09 | 2017-03-29 | Unsupported           |
 | Release 3.2 | 2016-09-29 | 2019-03-28 | Unsupported           |
-| Release 4.0 | 2018-03-28 | TBA        | Supported             |
-| Release 4.1 | TBA        | TBA        | [In development](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue+milestone%3A%22Release+4.1%22+) |
+| Release 4.0 | 2018-03-28 | 2022-08-04 | Supported             |
+| Release 4.1 | 2022-02-04 | TBA        | Supported             |
+| Release 4.2 | TBA        | TBA        | [In development](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue+milestone%3A%22Release+4.2%22) |
 
 ### Note on patch releases
 
