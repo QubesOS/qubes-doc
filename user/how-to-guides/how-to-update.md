@@ -64,6 +64,8 @@ desired items from the list and clicking "Next."
   using direct package manager commands is fine.)
 </div>
 
+### Qubes 4.0
+
 Advanced users may wish to perform updates via the command-line interface. The
 recommended way to do this is by using the command-line equivalents of the
 **Qubes Update** tool.
@@ -72,8 +74,17 @@ There are two Salt formulae and two corresponding `qubesctl` commands:
  - [`update.qubes-dom0`](/doc/salt/#updatequbes-dom0)
  - [`update.qubes-vm`](/doc/salt/#updatequbes-vm)
 
-In addition, advanced user may be interested in learning [how to enable the
+Advanced users may also be interested in learning [how to enable the
 testing repos](/doc/testing/).
+
+### Qubes 4.1
+
+The recommendation, commands, and Salt formulae from 4.0 remain the same.
+
+Command-line updates in dom0 behave differently in 4.1. In your update qube, a
+terminal window opens that displays the progress of operations and output as it
+is logged. At the end of the process, logs are sent back to dom0. You answer any
+yes/no prompts in your dom0 terminal window.
 
 ## Upgrading to avoid EOL
 
