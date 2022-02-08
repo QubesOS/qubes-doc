@@ -19,12 +19,14 @@ title: Frequently asked questions (FAQ)
 
 ### What is Qubes OS?
 
-Qubes OS is a security-oriented operating system (OS).
-The OS is the software that runs all the other programs on a computer.
-Some examples of popular OSes are Windows, macOS, Android, and iOS.
-Qubes is free and open-source software (FOSS).
-This means that everyone is free to use, copy, and change the software in any way.
-It also means that the source code is openly available so others can contribute to and audit it.
+Qubes OS is a security-oriented, multi-environment operating system (OS). 
+
+The most common operating systems today are single-environment systems such as Windows, Mac, and various flavors (aka [distributions](https://en.wikipedia.org/wiki/Linux_distribution)) of Linux, such as Ubuntu, Fedora, and Debian. Qubes OS is based off of the Xen [hypervisor](external-link). Hypervisors are common in the server world and among IT professionals, but not so much among regular folks. The "multiple virtual-environments on a single device" nature of Qubes, and the rich permissioning between virtual environments, is what makes Qubes OS unique.
+
+### Is Qubes really free?
+`answer:` Qubes is free and open-source software. This means that everyone is free to use, copy, and change the software in any way. "Free" speaks to copyright and ownership concepts, and the freedom for any person to do anything they desire with source code. Qubes is also free of charge to anyone that wants to download and use it, and no matter how they wish to use it. Invisible Things Lab GmbH is the business entity that maintains and licenses Qubes OS. Qubes OS is published [under the GPLv2 license](https://www.qubes-os.org/doc/license/).
+
+The source code for Qubes is also openly available, so that anyone can contribute to and audit it. Only the CTO of Invisible Things Lab has the _signing key_ to create certified packages for the public to download and install, so don't worry—it is a good thing that "just anyone" can audit and contribute to Qubes OS! Qubes is only possible, in fact, because of the large and generous community that contributes to building, auditing, and continually improving it.
 
 ### Why is OS security important?
 
@@ -36,6 +38,10 @@ Depending on what kind of malware it is, it might do anything from showing you u
 This could jeopardize all the information stored on or accessed by this computer, such as health records, confidential communications, or thoughts written in a private journal.
 Malware can also interfere with the activities you perform with your computer.
 For example, if you use your computer to conduct financial transactions, the malware might allow its creator to make fraudulent transactions in your name.
+
+### How is Qubes different from other security solutions?
+
+Please see this [article](https://blog.invisiblethings.org/2012/09/12/how-is-qubes-os-different-from.html) for a thorough discussion.
 
 ### Aren't antivirus programs and firewalls enough?
 
@@ -99,6 +105,12 @@ Remember, though, that privacy is difficult to achieve and maintain.
 Whonix is a powerful tool, but no tool is perfect.
 Read the [documentation](https://www.whonix.org/wiki/Documentation) thoroughly and exercise care when using it.
 
+### What about other approaches to security?
+
+The other two popular [approaches](https://blog.invisiblethings.org/2008/09/02/three-approaches-to-computer-security.html) are “Security by Correctness” and “Security by Obscurity.” 
+We don't believe either of these approaches are capable of providing reasonable security today, nor do we believe that they will be capable of doing so in the foreseeable future.
+
+
 ### How does Qubes OS compare to using a "live CD" OS?
 
 Booting your computer from a live CD (or DVD) when you need to perform sensitive activities can certainly be more secure than simply using your main OS, but this method still preserves many of the risks of conventional OSes.
@@ -148,18 +160,6 @@ Briefly, here are some of the main pros and cons of this approach relative to Qu
 
 (For more on this topic, please see the paper [Software compartmentalization vs. physical separation](https://invisiblethingslab.com/resources/2014/Software_compartmentalization_vs_physical_separation.pdf).)
 
-### What is the main concept behind Qubes?
-
-To build security on the "Security by Compartmentalization (or Isolation)" principle.
-
-### What about other approaches to security?
-
-The other two popular [approaches](https://blog.invisiblethings.org/2008/09/02/three-approaches-to-computer-security.html) are “Security by Correctness” and “Security by Obscurity.”
-We don't believe either of these approaches are capable of providing reasonable security today, nor do we believe that they will be capable of doing so in the foreseeable future.
-
-### How is Qubes different from other security solutions?
-
-Please see this [article](https://blog.invisiblethings.org/2012/09/12/how-is-qubes-os-different-from.html) for a thorough discussion.
 
 ### Is Qubes just another Linux distribution?
 
@@ -167,11 +167,6 @@ If you really want to call it a distribution, then it's more of a "Xen distribut
 But Qubes is much more than just Xen packaging.
 It has its own VM management infrastructure, with support for template VMs, centralized VM updating, etc.
 It also has a very unique GUI virtualization infrastructure.
-
-### What about safe languages and formally verified microkernels?
-
-In short: these are non-realistic solutions today.
-We discuss this in further depth in our [Architecture Specification document](/attachment/doc/arch-spec-0.3.pdf).
 
 ### Why does Qubes use virtualization?
 
@@ -195,14 +190,10 @@ Qubes uses lightweight VMs to create security qubes (e.g., "work," "personal," a
 A typical user would likely need around five qubes.
 Very paranoid users, or those who are high-profile targets, might use a dozen or more qubes.
 
-### Why does Qubes use Xen instead of KVM or some other hypervisor?
-
-In short: we believe the Xen architecture allows for the creation of more secure systems (i.e. with a much smaller TCB, which translates to a smaller attack surface).
-We discuss this in much greater depth in our [Architecture Specification document](/attachment/doc/arch-spec-0.3.pdf).
 
 ### How is Qubes affected by Xen Security Advisories (XSAs)?
 
-See the [XSA Tracker](/security/xsa/).
+The Qubes team pays close attention to Xen Security Advisories. Whenever Qubes is significantly affected by an XSA, a Qubes Security Bulletin (QSB) will be published, and a link to that bulletin is added to our XSA Tracker. Learn more about [XSAs and Qubes](https://www.qubes-os.org/security/xsa/).
 
 ### What about this other/new (micro)kernel/hypervisor?
 
@@ -248,7 +239,7 @@ At the same time, due to the smart use of Xen shared memory, our GUI implementat
 
 ### Why passwordless sudo?
 
-Please refer to [this page](/doc/vm-sudo/).
+We have found that there's really no point in user/root isolation, because all the user data (and VM management interface) is already accessible from dom0 user level; so, there is nothing more to get from a dom0 root account. Read more about: [Passwordless root access in Qubes](https://www.qubes-os.org/doc/vm-sudo/)
 
 ### Why is dom0 so old?
 
@@ -318,7 +309,7 @@ So, if feature X isn't enabled, it's most likely for one of three reasons:
 
 If it seems like a feature that we can and should enable, please [let us know](/doc/issue-tracking/)!
 
-## Users
+## Using Qubes
 
 ### Can I watch YouTube videos in qubes?
 
@@ -337,15 +328,14 @@ For further discussion about the potential for GPU passthrough on Xen/Qubes, ple
 - [GPU passing to HVM](https://groups.google.com/group/qubes-devel/browse_frm/thread/31f1f2da39978573?scoring=d&q=GPU&)
 - [Clarifications on GPU security](https://groups.google.com/group/qubes-devel/browse_frm/thread/31e2d8a47c8b4474?scoring=d&q=GPU&)
 
-### Is Qubes a multi-user system?
+### Can I have multiple user accounts on one Qubes machine?
 
-No.
-Qubes does not pretend to be a multi-user system.
+Qubes is not a multi-user system.
 Qubes assumes that the user who controls Dom0 controls the whole system.
 It is very difficult to **securely** implement multi-user support.
 See [here](https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06) for details.
 
-However, in Qubes 4.x we will be implementing management functionality.
+However, it is on our roadmap to include management functionality in a future release.
 See [Admin API](/news/2017/06/27/qubes-admin-api/) and [Core Stack](/news/2017/10/03/core3/) for more details.
 
 ### What are the system requirements for Qubes OS?
@@ -370,6 +360,10 @@ This also means that it is possible to update the software for several qubes sim
 ### How much memory is recommended for Qubes?
 
 Please see the [system requirements](/doc/system-requirements/).
+
+### Is "x" version of Foo compatible with "y" version of Qubes? 
+
+4+ very different versions of Qubes OS now having been deployed, we are unable to speak to technical specifics at this level of detail, sustainably, in our regular FAQ. Please consult [Qubes Documentation](https://www.qubes-os.org/doc/) or [Release Notes](https://www.qubes-os.org/downloads/) specific to the version of Qubes OS you have questions about, for release-specific compatability inquiries. 
 
 ### Can I install Qubes on a system without VT-x/AMD-V or VT-d/AMD-Vi/AMD IOMMU?
 
@@ -608,15 +602,6 @@ Having so many qubes running at once inevitably strains the resources of your co
 The most effective way to speed up Qubes is to get more powerful hardware -- a fast CPU, a lot of memory and fast SSDs.
 Qubes is slower when reading from the disk because of the VM overhead, which is why we recommend installing it on a fast SSD.
 
-### Could you please make my preference the default?
-
-Wouldn't it be great if Qubes were configured just the way you like it by default with all of your favorite programs and settings?
-Then you could just install Qubes without having to install any programs in it or adjust any settings!
-You might even think that if a particular program or setting works so well for *you*, it would work well for *everyone*, so you'd actually be doing everyone a favor!
-The problem is that Qubes has [tens of thousands of different users](/statistics/) with radically different needs and purposes.
-There is no particular configuration that will be ideal for everyone (despite how much you might feel that your preference would be better for everyone), so the best we can do is to put power in the hands of users to configure their Qubes installations the way they like (subject to security constraints, of course).
-Please don't ask for your favorite program to be installed by default or for some setting that obviously varies by user preference to be changed so that it matches *your* preference.
-This is an incredibly selfish attitude that demonstrates a complete lack of consideration for the thousands of other Qubes users who don't happen to share your preferences.
 
 ### Software installed in a qube is gone after restarting. Why?
 
