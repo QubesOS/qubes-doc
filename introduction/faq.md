@@ -31,14 +31,11 @@ The source code for Qubes is openly available so that anyone can contribute to a
 
 ### Why is OS security important?
 
-Most people use an operating system like Windows or macOS on their desktop and laptop computers.
-These OSes are popular because they tend to be easy to use and usually come pre-installed on the computers people buy.
-However, they present problems when it comes to security.
-For example, you might open an innocent-looking email attachment or website, not realizing that you're actually allowing malware (malicious software) to run on your computer.
-Depending on what kind of malware it is, it might do anything from showing you unwanted advertisements to logging your keystrokes to taking over your entire computer.
-This could jeopardize all the information stored on or accessed by this computer, such as health records, confidential communications, or thoughts written in a private journal.
-Malware can also interfere with the activities you perform with your computer.
-For example, if you use your computer to conduct financial transactions, the malware might allow its creator to make fraudulent transactions in your name.
+Most people use an operating system like Windows or macOS on their desktop and laptop computers. These OSes are popular because they tend to be easy to use and usually come pre-installed on the computers people buy. However, they present problems when it comes to security. Most common, anybody can open an innocent-looking file, email attachment, or website, not realizing that it's actually allowing malware—a catch-all phrase for any/all software created for malicious use, unbeknownst to an end user—to run on their computer.
+
+Malware can do anything from showing you unwanted advertisements, to logging your keystrokes to taking over your entire computer. If you use your computer to conduct financial transactions, malware can allow its creator to make fraudulent transactions in your name. There are many kinds of malware, made by folks and organizations from all over the world; some for targeted harm, some simply for mischief. Those are just a few examples. 
+
+The risks malware presents to an operating system, is that it can jeopardize all the information stored on or accessed by a computer; information such as one's health records, confidential communications, or thoughts written in a private journal. In the same way a virus mutates, the makers and types of malware are also changing and adapt to known software mitigations, every minute of every day. Because of that, it is literally impossible for any individual tool or maker of tools to create a "thing" one can install on their computer, to protect that device and any that may come into contact with it, from 100% of the malicious wares that can penetrate a device from the internet or other devices.
 
 
 ### Aren't antivirus programs and firewalls enough?
