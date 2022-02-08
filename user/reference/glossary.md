@@ -10,13 +10,13 @@ ref: 140
 title: Glossary
 ---
 
-## admin qube
+## Admin qube
 
 A type of [qube](#qube) used for administering Qubes OS.
 
 * Currently, the only admin qube is [dom0](#dom0).
 
-## app qube
+## App qube
 
 Any [qube](#qube) that does not have a root filesystem of its own. Every app
 qube is based on a [template](#template) from which it borrows the root
@@ -27,7 +27,7 @@ filesystem.
 * Historical note: This term originally meant "a qube intended for running user
   software applications" (hence the name "app").
 
-## disposable
+## Disposable
 
 A type of temporary [app qube](#app-qube) that self-destructs when its
 originating window closes. Each disposable is based on a [disposable
@@ -37,7 +37,7 @@ See [How to Use Dispoables](/doc/how-to-use-disposables/).
 
 * Previously known as: `DisposableVM`, `DispVM`.
 
-## disposable template
+## Disposable template
 
 Any [app qube](#app-qube) on which [disposables](#disposable) are based. A
 disposable template shares its user directories (and, indirectly, the root
@@ -68,7 +68,7 @@ relative to other domains, such as direct access to most hardware.
 * The term "dom0" is a common noun and should follow the capitalization rules
   of common nouns.
 
-## domain
+## Domain
 
 In Xen, a synonym for [VM](#vm).
 
@@ -97,12 +97,12 @@ emulation, HVMs allow the user to create domains based on any operating system.
 
 See [Standalones and HVM](/doc/standalones-and-hvms/).
 
-## management qube
+## Management qube
 
 A [qube](#qube) used for automated management of a Qubes OS installation via
 [Salt](/doc/salt/).
 
-## named disposable
+## Named disposable
 
 A type of [disposable](#disposable) given a permanent name that continues to
 exist even after it is shut down and can be restarted again. Like a regular
@@ -119,7 +119,7 @@ changes made are lost when it is shut down.
   qubes](#service-qube), where the combination of persistent device assignment
   and ephemeral qube state is desirable.
 
-## net qube
+## Net qube
 
 Internally known as `netvm`. The property of a [qube](#qube) that specifies
 from which qube, if any, it receives network access. Despite the name, "net
@@ -134,6 +134,11 @@ its net qube.
 * The name `netvm` derives from "Networking Virtual Machine." Before Qubes 4.0,
   there was a type of [service qube](#service-qube) called a "NetVM." The name
   of the `netvm` property is a holdover from that era.
+  
+## Policies
+
+In the IT world, a policy is a written document that documents anticipated threats and planned remediations to specific problems. In Qubes OS, "policies" is how many the permissioning system among qubes, powered by [Qubes' qrexec system](https://www.qubes-os.org/doc/qrexec/). A single policy is a rule applied to any single qube or a set of qubes, that governs how and when information or assets may be shared with another individual qube (or set of qubes). Policies are much of what makes Qubes OS special, and a powerful tool hypervisors. How files can be shared among qubes, and how devices are managed between qubes, are two examples of permissions managed by _policies_ in Qubes OS.
+
 
 ## qube
 
@@ -176,12 +181,12 @@ the rest of the Qubes OS system.
 
 See [Qubes Windows Tools](/doc/windows-tools/) and [Windows](/doc/windows/).
 
-## service qube
+## Service qube
 
 Any [app qube](#app-qube) the primary purpose of which is to provide services
 to other qubes. `sys-net` and `sys-firewall` are examples of service qubes.
 
-## standalone
+## Standalone
 
 Any [qube](#qube) that has its own root filesystem and does not share it with
 another qube. Distinct from both [templates](#template) and [app
@@ -191,7 +196,7 @@ See [Standalones and HVMs](/doc/standalones-and-hvms/).
 
 * Previously known as: `StandaloneVM`.
 
-## template
+## Template
 
 Any [qube](#qube) that shares its root filesystem with another qube. A qube
 that is borrowing a template's root filesystem is known as an [app
