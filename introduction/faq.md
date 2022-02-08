@@ -26,7 +26,8 @@ The most common operating systems today are single-environment systems such as W
 ### Is Qubes really free?
 `answer:` Qubes is free and open-source software. This means that everyone is free to use, copy, and change the software in any way. "Free" speaks to copyright and ownership concepts, and the freedom for any person to do anything they desire with source code. Qubes is also free of charge to anyone that wants to download and use it, and no matter how they wish to use it. Invisible Things Lab GmbH is the business entity that maintains and licenses Qubes OS. Qubes OS is published [under the GPLv2 license](https://www.qubes-os.org/doc/license/).
 
-The source code for Qubes is also openly available, so that anyone can contribute to and audit it. Only the CTO of Invisible Things Lab has the _signing key_ to create certified packages for the public to download and install, so don't worry—it is a good thing that "just anyone" can audit and contribute to Qubes OS! Qubes is only possible, in fact, because of the large and generous community that contributes to building, auditing, and continually improving it.
+### Is it safe for code to be so open like that? What about bad actors?
+The source code for Qubes is openly available so that anyone can contribute to and audit it. Only the CTO of Invisible Things Lab has the _[signing key](https://en.wikipedia.org/wiki/Code_signing)_ to create certified packages for the public to download and install. Signing code is a normal process that most organizations do, to garuntee the integrity of what users install on their machines. So, don't worry—it is a good thing that "just anyone" can audit and contribute to Qubes OS! Qubes is only possible, in fact, because of the large and generous community that contributes to building, auditing, and continually improving it.
 
 ### Why is OS security important?
 
@@ -39,9 +40,6 @@ This could jeopardize all the information stored on or accessed by this computer
 Malware can also interfere with the activities you perform with your computer.
 For example, if you use your computer to conduct financial transactions, the malware might allow its creator to make fraudulent transactions in your name.
 
-### How is Qubes different from other security solutions?
-
-Please see this [article](https://blog.invisiblethings.org/2012/09/12/how-is-qubes-os-different-from.html) for a thorough discussion.
 
 ### Aren't antivirus programs and firewalls enough?
 
@@ -107,8 +105,9 @@ Read the [documentation](https://www.whonix.org/wiki/Documentation) thoroughly a
 
 ### What about other approaches to security?
 
-The other two popular [approaches](https://blog.invisiblethings.org/2008/09/02/three-approaches-to-computer-security.html) are “Security by Correctness” and “Security by Obscurity.” 
-We don't believe either of these approaches are capable of providing reasonable security today, nor do we believe that they will be capable of doing so in the foreseeable future.
+Canonically there are two popular [approaches](https://blog.invisiblethings.org/2008/09/02/three-approaches-to-computer-security.html), apart from Security By Compartmentalization. Those are “Security by Correctness” and “Security by Obscurity.” We don't believe either of these approaches are capable of providing reasonable security today, nor do we believe that they will be capable of doing so in the foreseeable future.
+
+Many other unique approaches are touched upon in this [article](https://blog.invisiblethings.org/2012/09/12/how-is-qubes-os-different-from.html) by Joanna, for a thorough overview.
 
 
 ### How does Qubes OS compare to using a "live CD" OS?
