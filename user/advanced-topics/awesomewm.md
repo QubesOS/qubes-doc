@@ -9,6 +9,9 @@ ref: 179
 title: AwesomeWM (window manager)
 ---
 
+***This page refers to AwesomeWM in Qubes 4.1. You can find the documentation on AwesomeWM in
+Qubes 4.0 [here](https://github.com/QubesOS/qubes-doc/blob/3806ecf33878d9605054de2276d691230188a125/user/advanced-topics/awesomewm.md).***
+
 ## Qubes-specific features
 
 * support for the Qubes OS window colors
