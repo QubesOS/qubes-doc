@@ -186,10 +186,13 @@ Qubes uses lightweight VMs to create security qubes (e.g., "work," "personal," a
 A typical user would likely need around five qubes.
 Very paranoid users, or those who are high-profile targets, might use a dozen or more qubes.
 
+### Why does Qubes use Xen instead of KVM or another hypervisor?
+
+In short: we believe the Xen architecture allows for the creation of more secure systems (i.e. with a much smaller TCB, which translates to a smaller attack surface).
 
 ### How is Qubes affected by Xen Security Advisories (XSAs)?
 
-The Qubes team pays close attention to Xen Security Advisories. Whenever Qubes is significantly affected by an XSA, a Qubes Security Bulletin (QSB) will be published, and a link to that bulletin is added to our XSA Tracker. Learn more about [XSAs and Qubes](https://www.qubes-os.org/security/xsa/).
+The Qubes team pays close attention to Xen Security Advisories. Please see the [Qubes/XSA Tracker](https://www.qubes-os.org/security/xsa/).
 
 ### What about this other/new (micro)kernel/hypervisor?
 
@@ -597,6 +600,16 @@ During boot, Qubes starts several virtual machines.
 Having so many qubes running at once inevitably strains the resources of your computer and causes slowness.
 The most effective way to speed up Qubes is to get more powerful hardware -- a fast CPU, a lot of memory and fast SSDs.
 Qubes is slower when reading from the disk because of the VM overhead, which is why we recommend installing it on a fast SSD.
+
+### Could you please make my preference the default?
+
+When responding to one of our surveys or otherwise participating in structured user research, this is exactly the sort of feedback we love to hear. In the context of structured user research, this kind of feedback has a place and can be put to good use. On email lists or as discussion threads in user forums, the core team is unable to productively engage in these sorts of requests. Even if a consenssus forms in a social channel—how does that group of users measure-up to the needs of the other [**+40,000 current users of Qubes OS**](https://www.qubes-os.org/statistics/)? 
+
+Many, many, many things factor into how the core team prioritizes new features, and changes to existing features—not the least of which, are urgent security matters, things breaking, or things that have been on our minds and in active discussion for many months—if not years. We'd love to move faster, but right now that is the reality of the project's few staff resources and many volunteers, all working very, very hard. To keep ourselves sane and our GitHub manageable, GitHub Issues filed with these asks are subject to immediate closure as `wontfix`—and we ask folks to please just not create those.
+
+In 2019 we began our first structured research effort to learn more about [who's using Qubes](https://www.qubes-os.org/news/2020/11/26/qubes-survey-results/). Between that survey and follow-up interviews, we've learned that some of our users are security researchers in academia, while others are human rights workers still struggling to get their heads around using GPG; many of our users are developers, while many others are less-technically adept but still die-hard Linux and OSS enthusiasts. Many others are workers in government or enterprise environments. Some of our users can't imagine using Qubes with anything other than an i3 DE with D-Menu, while others still struggle with Qubes leaving KDE for XFCE as our default DE. 
+
+TL;DR, chances are that if thousands of users will truly benefit from something, that there's already a GitHub issue for it. That issue could be many months (or years) old, too. Or, there's a non-negotiable reason something is not the default already. We love our user community. We're just a very small, modest team, and ask for your humble understanding in not overwhelming us with what we'll never be able to meaningfully act upon. 
 
 
 ### Software installed in a qube is gone after restarting. Why?
