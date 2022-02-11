@@ -130,7 +130,7 @@ See [QubesOS/qubes-issues#5804](https://github.com/QubesOS/qubes-issues/issues/5
 
 The following commands have to be run in `dom0`.
 
-> Note: For the case of `sys-gui-gpu`, you need to prevent Qubes OS autostart of any qube to reach `dom0`. For that, you need to boot Qubes OS with [`qubes.skip_autostart`](/doc/skip-qubes-autostart/) GRUB parameter.
+> Note: For the case of `sys-gui-gpu`, you need to prevent Qubes OS autostart of any qube to reach `dom0`. For that, you need to boot Qubes OS with `qubes.skip_autostart` GRUB parameter.
 
 Set `default_guivm` as `dom0`:
 
