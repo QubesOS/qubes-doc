@@ -72,7 +72,7 @@ To use this mode you need to:
     (This way your password will not leak to the terminal command history file.)
 
     ```
-    read password
+    read -r password
     ```
 
     Now run the following command to calculate your hashed password.
