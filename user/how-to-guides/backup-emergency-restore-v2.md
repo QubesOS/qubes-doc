@@ -40,11 +40,17 @@ encrypted and compressed.
     dom0-home/dom0user.000.hmac
     ~~~
 
-2. Verify the integrity of the `private.img` file which houses your data.
+2. Set the backup passphrase environment variable. While this isn't strictly
+   required, it will be handy later and will avoid saving the passphrase in
+   the shell's history.
+
+       [user@restore ~]$ read -r backup_pass
+
+3. Verify the integrity of the `private.img` file which houses your data.
 
     ~~~
     [user@restore ~]$ cd vm1/
-    [user@restore vm1]$ openssl dgst -sha512 -hmac "your_passphrase" private.img.000
+    [user@restore vm1]$ openssl dgst -sha512 -hmac "$backup_pass" private.img.000
     HMAC-SHA512(private.img.000)= cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
     [user@restore vm1]$ cat private.img.000.hmac
     (stdin)= cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
@@ -58,17 +64,17 @@ encrypted and compressed.
   complete list of supported message digest algorithms can be found with
   `openssl list-message-digest-algorithms`.
 
-3. Decrypt the `private.img` file.
+4. Decrypt the `private.img` file.
 
     ~~~
-    [user@restore vm1]$ openssl enc -d -pass pass:your_passphrase -aes-256-cbc -in private.img.000 -out private.img.dec.000
+    [user@restore vm1]$ openssl enc -d -pass pass:"$backup_pass" -aes-256-cbc -in private.img.000 -out private.img.dec.000
     ~~~
 
   **Note:** For multi-part files, a loop can be used:
 
   ~~~
   find -name 'private.img.*' | sort -V | while read f; do
-    openssl enc -d -pass pass:your_passphrase -aes-256-cbc -in $f -out
+    openssl enc -d -pass pass:"$backup_pass" -aes-256-cbc -in $f -out
   ${f/.img/.img.dec}
   done
   ~~~
@@ -78,7 +84,7 @@ encrypted and compressed.
   list of supported cipher algorithms can be found with `openssl
   list-cipher-algorithms`.
 
-4. Decompress the decrypted `private.img` file.
+5. Decompress the decrypted `private.img` file.
 
     ~~~
     [user@restore vm1]$ zforce private.img.dec.*
@@ -88,7 +94,7 @@ encrypted and compressed.
   **Note:** If your backup was compressed with a program other than `gzip`, you
   must substitute the correct compression program.
 
-5. Untar the decrypted and decompressed `private.img` file.
+6. Untar the decrypted and decompressed `private.img` file.
 
     ~~~
     [user@restore vm1]$ tar -M -xvf private.img.dec.000
@@ -110,7 +116,7 @@ encrypted and compressed.
     3. `tar --new-volume-script=./new-volume-script -xvf private.img.dec.000`.
         (The `--new-volume-script` option enables multi-volume untaring.)
 
-6. Mount the private.img file and access your data.
+7. Mount the private.img file and access your data.
 
     ~~~
     [user@restore vm1]$ sudo mkdir /mnt/img
