@@ -75,7 +75,10 @@ do, but here are some examples for popular operating systems:
 **Linux:** [GnuPG](https://gnupg.org/download/index.html)
 ([documentation](https://www.gnupg.org/documentation/)). Open a terminal and
 use the `gpg2` command. If you don't already have GnuPG installed, install it
-via your distro's package manager or from the GnuPG website.
+via your distro's package manager or from the GnuPG website 
+  ```shell_session
+sudo apt install gnupg2
+  ```
 
 **Mac:** [GPG Suite](https://gpgtools.org/)
 ([documentation](https://gpgtools.tenderapp.com/kb)). Open a terminal to enter
