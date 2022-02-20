@@ -115,7 +115,7 @@ If you receive this error: `ERROR: qubes-usb-proxy not installed in the VM`, you
 
 **Warning:** especially keyboards need to be accepted by default when using them to login! Please make sure you carefully read and understood the **[security considerations](/doc/device-handling-security/#usb-security)** before continuing!
 
-Mouse and keyboard setup are part of [setting up a USB-qube](/doc/usb-qubes/#enable-a-usb-keyboard-for-login).
+Mouse and keyboard setup are part of [setting up a USB qube](/doc/usb-qubes/).
 
 ### Finding The Right USB Controller
 

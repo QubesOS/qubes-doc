@@ -324,7 +324,7 @@ Using disposables in this manner is ideal for untrusted qubes which require pers
     [user@dom0 ~]$ qvm-features disp-sys-usb appmenus-dispvm ''
     ```
 
-8. Users should now follow instructions on [How to hide USB controllers from dom0](/doc/usb-qubes/#how-to-hide-all-usb-controllers-from-dom0).
+8. Users should now follow instructions on [How to hide USB controllers from dom0](/doc/usb-qubes/#how-to-hide-usb-controllers-from-dom0).
 
 9. At this point, your mouse may not work.
    Edit the `qubes.InputMouse` policy file in dom0, which is located here:
