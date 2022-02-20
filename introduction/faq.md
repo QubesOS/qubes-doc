@@ -19,12 +19,17 @@ title: Frequently asked questions (FAQ)
 
 ### What is Qubes OS?
 
-Qubes OS is a security-oriented, multi-environment operating system (OS). 
+Qubes OS is an operating system that allows you to compartmentalize your data and activities into securely-isolated environments called "qubes" so that a single cyberattack can't take down your entire digital life in one fell swoop.
 
-The most common operating systems today are single-environment systems such as Windows, Mac, and various flavors (aka [distributions](https://en.wikipedia.org/wiki/Linux_distribution)) of Linux, such as Ubuntu, Fedora, and Debian. Qubes OS is based off of the Xen [hypervisor](external-link). Hypervisors are common in the server world and among IT professionals, but not so much among regular folks. The "multiple virtual-environments on a single device" nature of Qubes, and the rich permissioning between virtual environments, is what makes Qubes OS unique.
+The most common operating systems today are single-environment systems such as Windows, Mac, and various Linux [distributions](https://en.wikipedia.org/wiki/Linux_distribution) (such as Ubuntu, Fedora, and Debian). Qubes OS is different. It's more like a meta-OS that can run the aforementioned standard OSes inside of itself. This is what makes Qubes so secure: It's like having a bunch of different computers on your desk. If one gets compromised, the others are still fine. However, instead of a bunch of different *physical* machines, Qubes allows you to create and manage a bunch of different *virtual* machines (VMs).
+
+The software that manages VMs is called a *hypervisor*, but Qubes is much more than just a hypervisor. It's the embodiment of decades of security research and engineering into how the power of virtualization can be harnessed to build a secure desktop operating system that protects normal people in real-world daily use.
 
 ### Is Qubes really free?
-`answer:` Qubes is free and open-source software. This means that everyone is free to use, copy, and change the software in any way. "Free" speaks to copyright and ownership concepts, and the freedom for any person to do anything they desire with source code. Qubes is also free of charge to anyone that wants to download and use it, and no matter how they wish to use it. Invisible Things Lab GmbH is the business entity that maintains and licenses Qubes OS. Qubes OS is published [under the GPLv2 license](https://www.qubes-os.org/doc/license/).
+
+Qubes is free and open-source software [licensed under GPLv2](/doc/license/). In open-source parlance, this means that Qubes is both free "as in beer" as well as free "as in speech." In other words, Qubes costs you nothing to download, install, and use; and you're welcome to download, modify, copy, and share the software and its source code in any way you like, so long as it's compatible with the GPLv2 license.
+
+Since Qubes is free of cost, the project relies heavily on [donations](/donate/) from supporters like you to keep going. Building and maintaining Qubes is requires the time and dedication of talented developers. If you value their work, please consider donating today!
 
 ### Is it safe for code to be so open like that? What about bad actors?
 The source code for Qubes is openly available so that anyone can contribute to and audit it. Only the CTO of Invisible Things Lab has the _[signing key](https://en.wikipedia.org/wiki/Code_signing)_ to create certified packages for the public to download and install. Signing code is a normal process that most organizations do, to garuntee the integrity of what users install on their machines. So, don't worry—it is a good thing that "just anyone" can audit and contribute to Qubes OS! Qubes is only possible, in fact, because of the large and generous community that contributes to building, auditing, and continually improving it.
