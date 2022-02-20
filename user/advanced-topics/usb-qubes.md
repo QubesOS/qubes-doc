@@ -102,14 +102,14 @@ sys-usb dom0 allow
 
 (Change `sys-usb` to your desired USB qube.)
 
-You can now use your USB keyboard to log in and for LUKS decryption during
-boot.
+You can now use your USB keyboard to log in to your dom0 user account (after
+LUKS decryption).
 
 You can set up your system so that there's a confirmation prompt each time the
 USB keyboard is connected. However, this will effectively disable your USB
-keyboard for login and LUKS decryption, so **don't do this if you want to
-unlock your device with a USB keyboard!** If you're sure you wish to proceed,
-change the previous line to:
+keyboard for dom0 user account login and the screen locker, so **don't do this
+if you want to log into and unlock your device with a USB keyboard!** If you're
+sure you wish to proceed, change the previous line to:
 
 ```
 sys-usb dom0 ask,default_target=dom0
@@ -120,13 +120,16 @@ If you wish to use a USB keyboard to enter your LUKS passphrase, you cannot
 you've already hidden that USB controller from dom0, you must revert the
 procedure by removing the `rd.qubes.hide_all_usb` option and employ an
 alternative strategy for protecting your system by physically disconnecting
-other devices during startup. You should also add the
+other devices during startup.
+
+
+**Qubes 4.1 only:** You should also add the
 `usbcore.authorized_default=0` option, which prevents the initialization of
 non-input devices. (Qubes ships with a USBGuard configuration that allows only
 input devices when `usbcore.authorized_default=0` is set.)
 
 
-### How to enable a USB keyboard on a separate USB controller
+### Qubes 4.1: How to enable a USB keyboard on a separate USB controller
 
 When using a USB keyboard on a system with multiple USB controllers, we
 recommend that you designate one of them exclusively for the keyboard (and
@@ -284,7 +287,7 @@ attached directly to dom0.
 7. Run the command `grub2-mkconfig -o /boot/grub2/grub.cfg` in dom0.
 8. Reboot.
 
-### EFI
+### Qubes 4.0: EFI
 
 1. Shut down the USB qube.
 2. In Qubes Manager, right-click on the USB qube and select "Remove VM."
