@@ -113,6 +113,31 @@ If applicable, links to more information or discussions
 
 **Mentor**: [Wojtek Porczyk](/team/), [Marek Marczykowski-Górecki](/team/)
 
+### System health monitor
+
+**Project**: System health monitor
+
+**Brief explanation**: A tool that informs the user about common system and configuration issues. Some of this is already available, but scattered across different places. See related issues: [6663](https://github.com/QubesOS/qubes-issues/issues/6663), [2134](https://github.com/QubesOS/qubes-issues/issues/2134)
+
+**Expected results**:
+
+- a tool / service that checks for common issues and things needing user attention, for example:
+  - some updates to be applied (separate widget already exists)
+  - running out of disk space (separate widget already exists)
+  - insecure USB configuration (USB in dom0)
+  - some system VM crashed
+  - ...
+
+- a GUI that provides terse overview of the system state, and notifies the user if something bad happens
+
+**Knowledge prerequisite**:
+
+- Python
+- basic knowledge about systemd services
+- PyGTK (optional)
+
+**Mentor**: [Marta Marczykowska-Górecka](/team/)
+
 ### Mechanism for maintaining in-VM configuration
 
 **Project**: Mechanism for maintaining in-VM configuration
@@ -131,6 +156,10 @@ If applicable, links to more information or discussions
 - Qubes OS qrexec services
 
 **Mentor**: [Frédéric Pierret](/team/)
+
+<!--
+
+REMOVED as of February 2022: work is being done on this
 
 ### Wayland support in GUI agent and/or GUI daemon
 
@@ -165,6 +194,8 @@ Relevant links:
 - using shared memory (synchronization methods etc)
 
 **Mentor**: [Marek Marczykowski-Górecki](/team/).
+
+-->
 
 ### Qubes Live USB
 
@@ -285,30 +316,6 @@ immune to altering past entries. See
 **Knowledge prerequisite**: C/C++ languages, familiarity with Windows API, familiarity with the core Windows WDM driver model. Ideally familiarity with the WDDM display driver model.
 
 **Mentor**: [Rafał Wojdyła](/team/)
-
-### Unattended Windows installation
-
-**Project**: Unattended Windows installation
-
-**Brief explanation**: Simplify Windows usage by providing a tool that perform unattended installation given required input data (installation image, license key, user name, etc). Similar feature is already supported in other virtualization solutions, including VMWare Workstation and VirtualBox. [Related github issue](https://github.com/QubesOS/qubes-issues/issues/4688).
-
-**Expected results**:
-
-- A template for `autounattended.xml` file for Windows installer - the template should have placeholders for settings that need to be provided by the user.
-- A tool for generating actual `autounattended.xml` file based on the template and user settings.
-- A tool for launching Windows installation, given installation image and `autounattended.xml` file (can be the same as in the above point).
-- (Optional) Unattended installation should also include Qubes Windows Tools.
-- (Optional) A tool should be able to use Windows license embedded in ACPI tables - [related discussion](https://groups.google.com/d/msgid/qubes-devel/0b7fabae-f843-e7ce-40cf-193326cecdb0%40zrubi.hu)
-- User documentation
-- Automated tests (unit tests, integration tests)
-
-**Knowledge prerequisite**:
-
-- Python scripting
-- Linux administration, including handling loop devices, partition tables, filesystems etc
-- For optional features, C language and x86 architecture (ACPI tables)
-
-**Mentor**: [Rafał Wojdyła](/team/), [Marek Marczykowski-Górecki](/team/)
 
 ### GNOME support in dom0 / GUI VM
 
@@ -524,7 +531,7 @@ A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of
 
 ## Past Projects
 
-You can view the projects we had in 2017 in the [GSoC 2017 archive](https://summerofcode.withgoogle.com/archive/2017/organizations/5074771758809088/). We also participated in GSoC 2020, and you can see the project in the [GSoC 2020 archive](https://summerofcode.withgoogle.com/archive/2020/organizations/4924517870206976/).
+You can view the projects we had in 2017 in the [GSoC 2017 archive](https://summerofcode.withgoogle.com/archive/2017/organizations/5074771758809088/). We also participated in GSoC 2020 and GSoC 2021, and you can see the project in the [GSoC 2020 archive](https://summerofcode.withgoogle.com/archive/2020/organizations/4924517870206976/) and [GSoC 2021 archive](https://summerofcode.withgoogle.com/archive/2021/organizations/5682513023860736).
 
 Here are some successful projects which have been implemented in the past by Google Summer of Code participants.
 
