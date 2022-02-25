@@ -85,10 +85,15 @@ These project ideas were contributed by our developers and may be incomplete. If
 
 **Expected results**: What is the expected result in the timeframe given
 
+**Difficulty**: easy / medium / hard
+
 **Knowledge prerequisite**: Pre-requisites for working on the project. What coding language and knowledge is needed?
 If applicable, links to more information or discussions
 
+**Size of the project**: either 175 hours (medium) or 350 hours (large)
+
 **Mentor**: Name and email address.
+
 ```
 
 ### Qubes as a Vagrant provider
@@ -106,10 +111,14 @@ If applicable, links to more information or discussions
 - Document how to configure and use the provider, including required qrexec policy changes and possibly firewall rules
 - Write integration tests
 
+**Difficulty**: medium
+
 **Knowledge prerequisite**:
 
 - Ruby
 - Vagrant concepts
+
+**Size of the project**: 350 hours
 
 **Mentor**: [Wojtek Porczyk](/team/), [Marek Marczykowski-Górecki](/team/)
 
@@ -130,11 +139,15 @@ If applicable, links to more information or discussions
 
 - a GUI that provides terse overview of the system state, and notifies the user if something bad happens
 
+**Difficulty**: medium
+
 **Knowledge prerequisite**:
 
 - Python
 - basic knowledge about systemd services
 - PyGTK (optional)
+
+**Size of the project**: 350 hours
 
 **Mentor**: [Marta Marczykowska-Górecka](/team/)
 
@@ -150,10 +163,14 @@ If applicable, links to more information or discussions
 - Implementation of the above mechanism.
 - Documentation how to configure it securely.
 
+**Difficulty**: medium
+
 **Knowledge prerequisite**:
 
 - shell and/or python scripting
 - Qubes OS qrexec services
+
+**Size of the project**: 175 hours
 
 **Mentor**: [Frédéric Pierret](/team/)
 
@@ -223,11 +240,15 @@ details: [#1552](https://github.com/QubesOS/qubes-issues/issues/1552),
 - Research option to install the system from live image. If feasible add
   this option.
 
+**Difficulty**: hard
+
 **Knowledge prerequisite**:
 
 - System startup sequence: bootloaders (isolinux, syslinux, grub, UEFI), initramfs, systemd.
 - Python and Bash scripting
 - Filesystems and block devices: loop devices, device-mapper, tmpfs, overlayfs, sparse files.
+
+**Size of the project**: 350 hours
 
 **Mentor**: [Frédéric Pierret](/team/)
 
@@ -274,11 +295,15 @@ immune to altering past entries. See
 - Document the protocol.
 - Write unit tests and integration tests.
 
+**Difficulty**: easy
+
 **Knowledge prerequisite**:
 
 - syslog
 - systemd
 - Python/Bash scripting
+
+**Size of the project**: 175 hours
 
 **Mentor**: [Frédéric Pierret](/team/)
 
@@ -297,11 +322,15 @@ immune to altering past entries. See
 - make connections to IPv6 Tor relays work
 - make connections to IPv6 destinations work
 
+**Difficulty**: medium
+
 **Knowledge prerequisite**:
 
 - nftables
 - iptables
 - IPv6
+
+**Size of the project**: 175 hours
 
 **Mentor**: [Patrick Schleizer](/team/)
 
@@ -313,7 +342,11 @@ immune to altering past entries. See
 
 **Expected results**: Working display-only WDDM video driver or significant progress towards making the full WDDM driver work correctly.
 
+**Difficulty**: hard
+
 **Knowledge prerequisite**: C/C++ languages, familiarity with Windows API, familiarity with the core Windows WDM driver model. Ideally familiarity with the WDDM display driver model.
+
+**Size of the project**: 175 hours
 
 **Mentor**: [Rafał Wojdyła](/team/)
 
@@ -345,11 +378,15 @@ immune to altering past entries. See
   all required packages.
 - Document installation procedure.
 
+**Difficulty**: hard
+
 **Knowledge prerequisite**:
 
 - GNOME architecture
 - C language (patching metacity)
 - Probably also javascript - for modifying GNOME shell extensions
+
+**Size of the project**: 175 hours
 
 **Mentor**: [Frédéric Pierret](/team/), [Marek Marczykowski-Górecki](/team/)
 
@@ -361,7 +398,11 @@ immune to altering past entries. See
 
 **Expected results**: We expect that in the timeframe, it will be possible to implement many converters for many file formats.  However, if any unexpected difficulties arise, we would prioritise a small number of safe and high quality converters over a large number of unsafe or unuseful converters.
 
+**Difficulty**: easy
+
 **Knowledge prerequisite**: Most of the coding will probably be implemented as shell scripts to interface with pre-existing converters (such as ImageMagick in the Qubes PDF converter).  However, shell scripts are not safe for processing untrusted data, so any extra processing will need to be implemented in another language -- probably Python.
+
+**Size of the project**: 175 hours
 
 **Mentors**: Andrew Clausen and Jean-Philippe Ouellet
 
@@ -379,7 +420,11 @@ for more information and qubes-specific background.
 
 **Expected results**: Significant progress towards making the Qubes build process deterministic. This would likely involve cooperation with and hacking on several upstream build tools to eliminate sources of variability.
 
+**Difficulty**: medium
+
 **Knowledge prerequisite**: qubes-builder [[1]](/doc/qubes-builder/) [[2]](/doc/qubes-builder-details/) [[3]](https://github.com/QubesOS/qubes-builder/tree/master/doc), and efficient at introspecting complex systems: comfortable with tracing and debugging tools, ability to quickly identify and locate issues within a large codebase (upstream build tools), etc.
+
+**Size of the project**: 350 hours
 
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
 
@@ -403,11 +448,15 @@ Some related discussion:
 - Aarch64 specific integration and unit tests.
 - Production of generic u-boot or uefi capable image/iso for target hardware.
 
+**Difficulty**: hard
+
 **Knowledge prerequisite**:
 
 - Libvirt and Qubes toolstacks (C and python languages).
 - Xen debugging.
 - General ARM architecture knowledge.
+
+**Size of the project**: 350 hours
 
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
 
@@ -467,7 +516,11 @@ Details, reference: [#2233](https://github.com/QubesOS/qubes-issues/issues/2233)
   qube to a development qube with Android studio
 - documentation and tests
 
+**Difficulty**: hard
+
 **Knowledge prerequisite**:
+
+**Size of the project**: 350 hours
 
 **Mentor**: Inquire on [qubes-devel](/support/#qubes-devel).
 
@@ -488,10 +541,14 @@ A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of
   - fully automated & extensible Fuzzer for parts of the Admin API
   - user & developer documentation
 
+**Difficulty**: medium
+
 **Prerequisites**:
   - basic Python understanding
   - some knowledge about fuzzing & existing fuzzing frameworks (e.g. [oss-fuzz](https://github.com/google/oss-fuzz/tree/master/projects/qubes-os))
   - a hacker's curiosity
+
+**Size of the project**: 175 hours
 
 **Mentor**: Inquire on [qubes-devel](/support/#qubes-devel).
 
@@ -507,9 +564,13 @@ A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of
  - integrate it with updates mechanism, so new Xen or dom0 kernel will be picked up automatically
  - include a fallback configuration that can be used for troubleshooting (main unified Xen EFI intentionally does not allow to manipulate parameters at boot time)
 
+**Difficulty**: hard
+
 **Knowledge prerequisite**:
  - basic understanding of Secure Boot
  - Bash and Python scripting
+
+**Size of the project**: 175 hours
 
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
 
@@ -522,9 +583,13 @@ A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of
 
 **Expected results**: A DisposableVM should not leave logs hinting what was running inside.
 
+**Difficulty**: medium
+
 **Knowledge prerequisite**:
  - Python scripting
  - Basic knowledge of Linux system services management (systemd, syslog etc)
+
+**Size of the project**: 350 hours
 
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
 
