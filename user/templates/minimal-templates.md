@@ -24,9 +24,10 @@ templates, along with some examples of common use cases.
 
 ## Important
 
-1. **The minimal templates are intended only for advanced users.** If you
-   encounter problems with the minimal templates, we recommend that you use
-   their standard template counterparts instead.
+1. [The minimal templates are intended only for advanced
+   users.](https://forum.qubes-os.org/t/9717/15) If you encounter problems with
+   the minimal templates, we recommend that you use their standard template
+   counterparts instead.
 
 2. If something works with a standard template but not the minimal version,
    this is most likely due to user error (e.g., a missing package or
