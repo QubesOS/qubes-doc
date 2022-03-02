@@ -58,7 +58,7 @@ This section will explain how to create a USB qube that you can use with your
 USB keyboard. This section assumes that you have only a single USB controller.
 If you have more than one USB controller, see [how to enable a USB keyboard on
 a separate USB
-controller](#how-to-enable-a-usb-keyboard-on-a-separate-usb-controller).
+controller](#qubes-41-how-to-enable-a-usb-keyboard-on-a-separate-usb-controller).
 
 First, make sure you have the latest `qubes-mgmt-salt-dom0-virtual-machines`
 package by [updating
