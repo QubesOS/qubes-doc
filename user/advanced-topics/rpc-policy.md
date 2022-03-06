@@ -6,6 +6,8 @@ ref: 178
 title: RPC policies
 ---
 
+_Qubes OS 4.1 introduced a new qrexec policy system and policy format. Please see [this article](/news/2020/06/22/new-qrexec-policy-system/) for details._
+
 This document explains the basics of RPC policies in Qubes.
 For more information, see [Qrexec: command execution in VMs](/doc/qrexec3/).
 
