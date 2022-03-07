@@ -16,6 +16,12 @@ When you wish to install software in Qubes OS, you should generally install it
 in a [template](/doc/glossary/#template). For installing templates themselves,
 see [how to install a template](/doc/templates/#installing).
 
+The nature of how software is distributed in linux (what most templates run) 
+will mean *not all software is available by default on the templates*. 
+If that's the case of a software you're looking for,
+[this community-contributed guide](https://forum.qubes-os.org/t/9991/1) may
+help figuring out how / where else to install it.
+
 Advanced users may also be interested in learning how to install software in
 [standalones](/doc/standalones-and-hvms/) and
 [dom0](/doc/how-to-install-software-in-dom0).
