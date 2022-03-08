@@ -84,10 +84,13 @@ Please see [How to Update](/doc/how-to-update/).
 
 ## Why don't templates have network access?
 
-In order to protect you from performing risky activites in templates, they do
+In order to protect you from performing risky activities in templates, they do
 not have normal network access. Instead, templates use an [updates
 proxy](#updates-proxy) that allows you to install and update software without
-giving the template direct network access.
+giving the template direct network access. **The updates proxy is already set up
+to work automatically out-of-the-box and requires no special action from you.**
+Most users should simply follow the normal instructions for
+[installing](#instructions) and [updating](/doc/how-to-update/) software.
 
 ## Advanced
 
