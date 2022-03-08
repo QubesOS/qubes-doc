@@ -43,14 +43,14 @@ To permanently install new software in a template:
    software is distributed via
    [packages](https://en.wikipedia.org/wiki/Package_format), which are stored
    in [software
-   repositories](https://en.wikipedia.org/wiki/Software_repository) ("repos")
-   and downloaded, installed, and updated via [package
-   managers](https://en.wikipedia.org/wiki/Package_manager). (Again, none of
+   repositories](https://en.wikipedia.org/wiki/Software_repository) ("repos").
+   [Package managers](https://en.wikipedia.org/wiki/Package_manager) handle
+   downloading, installing, updating, and removing packages. (Again, none of
    this is Qubes-specific.) If you're not familiar with how software is
-   normally installed in Linux distros via package managers, the software you
-   want doesn't seem to be available in your distro's repos, or you're in some
-   other situation not covered here, please read this [community guide to
-   installing software in Qubes](https://forum.qubes-os.org/t/9991/).
+   normally installed in Linux distros via package managers or the software you
+   want doesn't seem to be available in your distro's repos (or you're in
+   another situation not covered on this page), please read this [community
+   guide to installing software in Qubes](https://forum.qubes-os.org/t/9991/).
 
 4. **Shut down the template. (Do not skip this step.)**
 
