@@ -33,7 +33,7 @@ To permanently install new software in a template:
    - Fedora: `sudo dnf install <PACKAGE_NAME>`
    - Debian: `sudo apt install <PACKAGE_NAME>`
 
-   **Note:** Qubes OS is a effectively a "meta" operating system (OS) that can
+   **Note:** Qubes OS is effectively a "meta" operating system (OS) that can
    run almost any arbitrary OS inside of itself. For example, the way software
    is normally installed in a Linux distribution ("distro") is quite different
    from the way software is normally installed in Windows. This isn't up to
