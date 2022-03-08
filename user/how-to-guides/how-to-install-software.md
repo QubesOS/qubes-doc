@@ -33,6 +33,25 @@ To permanently install new software in a template:
    - Fedora: `sudo dnf install <PACKAGE_NAME>`
    - Debian: `sudo apt install <PACKAGE_NAME>`
 
+   **Note:** Qubes OS is a effectively a "meta" operating system (OS) that can
+   run almost any arbitrary OS inside of itself. For example, the way software
+   is normally installed in a Linux distribution ("distro") is quite different
+   from the way software is normally installed in Windows. This isn't up to
+   Qubes. Qubes is just the framework in which you're running these other OSes.
+   Therefore, if you want to install software in a Linux template, for example,
+   you should do so in whatever way is normal for that Linux distro. Most Linux
+   software is distributed via
+   [packages](https://en.wikipedia.org/wiki/Package_format), which are stored
+   in [software
+   repositories](https://en.wikipedia.org/wiki/Software_repository) ("repos")
+   and downloaded, installed, and updated via [package
+   managers](https://en.wikipedia.org/wiki/Package_manager). (Again, none of
+   this is Qubes-specific.) If you're not familiar with how software is
+   normally installed in Linux distros via package managers, the software you
+   want doesn't seem to be available in your distro's repos, or you're in some
+   other situation not covered here, please read this [community guide to
+   installing software in Qubes](https://forum.qubes-os.org/t/9991/).
+
 4. **Shut down the template. (Do not skip this step.)**
 
 5. **Restart all qubes based on the template. (Do not skip this step.)**
