@@ -16,12 +16,6 @@ When you wish to install software in Qubes OS, you should generally install it
 in a [template](/doc/glossary/#template). For installing templates themselves,
 see [how to install a template](/doc/templates/#installing).
 
-The nature of how software is distributed in linux (what most templates run) 
-will mean *not all software is available by default on the templates*. 
-If that's the case of a software you're looking for,
-[this community-contributed guide](https://forum.qubes-os.org/t/9991/1) may
-help figuring out how / where else to install it.
-
 Advanced users may also be interested in learning how to install software in
 [standalones](/doc/standalones-and-hvms/) and
 [dom0](/doc/how-to-install-software-in-dom0).
@@ -38,6 +32,25 @@ To permanently install new software in a template:
 3. Install software as normally instructed inside that operating system, e.g.:
    - Fedora: `sudo dnf install <PACKAGE_NAME>`
    - Debian: `sudo apt install <PACKAGE_NAME>`
+
+   **Note:** Qubes OS is a effectively a "meta" operating system (OS) that can
+   run almost any arbitrary OS inside of itself. For example, the way software
+   is normally installed in a Linux distribution ("distro") is quite different
+   from the way software is normally installed in Windows. This isn't up to
+   Qubes. Qubes is just the framework in which you're running these other OSes.
+   Therefore, if you want to install software in a Linux template, for example,
+   you should do so in whatever way is normal for that Linux distro. Most Linux
+   software is distributed via
+   [packages](https://en.wikipedia.org/wiki/Package_format), which are stored
+   in [software
+   repositories](https://en.wikipedia.org/wiki/Software_repository) ("repos")
+   and downloaded, installed, and updated via [package
+   managers](https://en.wikipedia.org/wiki/Package_manager). (Again, none of
+   this is Qubes-specific.) If you're not familiar with how software is
+   normally installed in Linux distros via package managers, the software you
+   want doesn't seem to be available in your distro's repos, or you're in some
+   other situation not covered here, please read this [community guide to
+   installing software in Qubes](https://forum.qubes-os.org/t/9991/).
 
 4. **Shut down the template. (Do not skip this step.)**
 
