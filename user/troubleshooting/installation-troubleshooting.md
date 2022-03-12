@@ -105,4 +105,21 @@ If the setting is not configured correctly, it means that your hardware won’t 
 
 In Qubes 4.0, the default installation won't function properly without IOMMU, as default sys-net and sys-usb qubes require IOMMU. It is possible to configure them to reduce isolation and not use IOMMU by changing virtualization mode of these two VMs to "PV".
 
-In Qubes 4.1, IOMMU is strictly required, even when the virtualization mode of a VM is changed to "PV"; it is not possible to use Qubes on a system without IOMMU.
+In Qubes 4.1, the default sys-net and sys-usb qubes need additional configuration to be usable without an IOMMU. Otherwise they will fail to start with this error message:
+
+```
+Start failed: internal error: libxenlight failed to create new domain 'sys-net', see /var/log/libvirt/libxl/libxl-driver.log for details
+```
+
+To confirm that a missing IOMMU is causing this problem, check for the following error message in `/var/log/libvirt/libxl/libxl-driver.log`:
+
+```
+2022-03-01 13:27:17.117+0000: libxl: libxl_create.c:1146:libxl__domain_config_setdefault: passthrough not supported on this platform
+```
+
+Here are the steps to fix this. Note that this reduces isolation, as described in the [FAQ here](/faq/#why-is-vt-damd-viamd-iommu-important):
+
+1. Change the virtualization mode of sys-net and sys-usb to "PV"
+2. Add `qubes.enable_insecure_pv_passthrough` to `GRUB_CMDLINE_LINUX` in `/etc/default/grub`
+3. Run `sudo grub2-mkconfig -o /boot/efi/EFI/qubes/grub.cfg`
+4. Reboot
