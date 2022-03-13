@@ -135,7 +135,13 @@ In dom0:
    DISPLAY=:0 xscreensaver-command -lock
    ```
 
-2. Allow your USB VM to call that service.
+2. Then make `/etc/qubes-rpc/custom.LockScreen` executable.
+
+   ```
+   sudo chmod +x /etc/qubes-rpc/custom.LockScreen
+   ```
+
+3. Allow your USB VM to call that service.
    Assuming that it's named `sys-usb` it would require creating `/etc/qubes-rpc/policy/custom.LockScreen` with:
 
    ```
