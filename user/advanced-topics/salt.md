@@ -431,7 +431,7 @@ System NetVM
 
 System USB VM
 
-#### `qvm.sys-net-with-usb`
+#### `qvm.sys-net-as-usbvm`
 
 System USB VM bundled into NetVM. Do not enable together with `qvm.sys-usb`.
 
