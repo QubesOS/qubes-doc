@@ -84,7 +84,7 @@ gpg --recv-keys 0xDDFA1A3E36879494
 wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
 gpg --import qubes-developers-keys.asc
 
-git clone git://github.com/QubesOS/qubes-builder.git qubes-builder
+git clone https://github.com/QubesOS/qubes-builder.git qubes-builder
 cd qubes-builder
 
 # Verify its integrity:
