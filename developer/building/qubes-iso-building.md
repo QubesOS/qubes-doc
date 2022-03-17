@@ -57,7 +57,7 @@ See [verifying signatures](/security/verifying-signatures/#how-to-import-and-aut
 Now let's bootstrap the builder. Unfortunately, the builder cannot verify itself (the classic Chicken and Egg problem), so we need to verify the signature manually:
 
 ~~~
-git clone git://github.com/QubesOS/qubes-builder.git
+git clone https://github.com/QubesOS/qubes-builder.git
 cd qubes-builder
 git tag -v `git describe`
 ~~~
