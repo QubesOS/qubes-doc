@@ -134,7 +134,7 @@ instructions specific to your particular release.
 10. (Optional) Make the new template the global default.
 
     ```
-    [user@dom0 ~]$ qubes-prefs --set debian-<new>
+    [user@dom0 ~]$ qubes-prefs --set default_template debian-<new>
     ```
 
 11. (Optional) [Uninstall the old template.](/doc/templates/#uninstalling) Make
