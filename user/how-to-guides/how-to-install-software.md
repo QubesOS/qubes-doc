@@ -70,7 +70,10 @@ will appear in the Applications Menu. (If you encounter problems, see
 
 **Warning:** This method gives your template direct network access, which is
 [risky](#why-dont-templates-have-network-access). This method is **not**
-recommended for trusted templates.
+recommended for trusted templates. Moreover, depending on how you install this
+software, it may not get updated automatically when you [update Qubes
+normally](/doc/how-to-update/), which means you may have to update it manually
+yourself.
 
 Some software is not available from the default repositories and must be
 downloaded and installed from another source. This method assumes that you're
