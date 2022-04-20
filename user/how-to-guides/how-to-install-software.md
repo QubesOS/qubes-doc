@@ -54,15 +54,14 @@ repositories first.)
    - Fedora: `sudo dnf install <PACKAGE_NAME>`
    - Debian: `sudo apt install <PACKAGE_NAME>`
 
-4. **Shut down the template. (Do not skip this step.)**
+4. Shut down the template.
 
-5. **Restart all qubes based on the template. (Do not skip this step.)**
+5. Restart all qubes based on the template.
 
-6. (Recommended) In the relevant qubes' **Qube Settings**, go to the
-   **Applications** tab, select the new application(s) from the list, and press
-   OK. These new shortcuts will appear in the Applications Menu. (If you
-   encounter problems, see [here](/doc/app-menu-shortcut-troubleshooting/) for
-   troubleshooting.)
+6. (Recommended) In the relevant qubes' **Settings > Applications** tab, select
+the new application(s) from the list, and press **OK**. These new shortcuts
+will appear in the Applications Menu. (If you encounter problems, see
+[here](/doc/app-menu-shortcut-troubleshooting/) for troubleshooting.)
 
 ![[The Applications tab in Qube Settings](/attachment/doc/r4.1-dom0-appmenu-select.png)](/attachment/doc/r4.1-dom0-appmenu-select.png)
 
@@ -82,17 +81,18 @@ Qubes OS.
 1. (Recommended) Clone the desired template (since this new template will
    probably be less trusted than the original).
 
-2. (Recommended) In the new template's Basic settings, change the color label
-   from black to red (or another color that signifies to you that the template
-   is less trusted).
+2. (Recommended) In the new template's **Settings > Basic** tab, change the
+   color label from black to red (or another color that signifies to you that
+   the template is less trusted).
 
-3. In the new template's Basic settings, change the Networking value from
-   `default (none) (current)` to `sys-firewall` (or whichever network-providing
-   qube you wish to use).
+3. In the new template's **Settings > Basic** tab, change the **Networking**
+   value from `default (none) (current)` to `sys-firewall` (or whichever
+   network-providing qube you wish to use).
 
-4. (Recommended) In the new template's Firewall rules tab, select "Limit
-   outgoing Internet connections to...." and tick "Allow full access for 5
-   min." (This can help in case you forget to remove network access later.)
+4. (Recommended) In the new template's **Settings > Firewall rules** tab,
+   select "Limit outgoing Internet connections to..." and tick "Allow full
+   access for 5 min." (This can help in case you forget to remove network
+   access later.)
 
 5. Follow the normal instructions for installing your software in the new
    template. For example, open a terminal and enter the commands as instructed.
@@ -100,19 +100,19 @@ Qubes OS.
    then this can be extremely risky, and the template should be regarded as
    *completely untrusted*.
 
-6. (Recommended) In the new template's Basic settings, change the Networking
-   value from `sys-firewall (current)` (or whichever network-providing qube you
-   chose) back to `default (none)`.
+6. (Recommended) In the new template's **Settings > Basic** tab, change the
+   **Networking** value from `sys-firewall (current)` (or whichever
+   network-providing qube you chose) back to `default (none)`.
 
-7. **Shut down the template. (Do not skip this step.)**
+7. Shut down the new template.
 
-8. **Restart all qubes based on the template. (Do not skip this step.)**
+8. Create or assign your desired app qubes to use the new template. If any app
+   qubes were already assigned to the new template, restart them.
 
-9. (Recommended) In the relevant qubes' **Qube Settings**, go to the
-   **Applications** tab, select the new application(s) from the list, and press
-   OK. These new shortcuts will appear in the Applications Menu. (If you
-   encounter problems, see [here](/doc/app-menu-shortcut-troubleshooting/) for
-   troubleshooting.)
+9. (Recommended) In the relevant qubes' **Settings > Applications** tab, select
+   the new application(s) from the list, and press **OK**. These new shortcuts
+   will appear in the Applications Menu. (If you encounter problems, see
+   [here](/doc/app-menu-shortcut-troubleshooting/) for troubleshooting.)
 
 ![[The Applications tab in Qube Settings](/attachment/doc/r4.1-dom0-appmenu-select.png)](/attachment/doc/r4.1-dom0-appmenu-select.png)
 
@@ -124,6 +124,7 @@ If things are still not working as expected:
 - Review the instructions very carefully, making sure you follow each step.
 - Make sure you **shut down the template after installing your software**.
 - Make sure you **restart your app qube *after* shutting down your template**.
+- Make sure your app qube is assigned to the right template.
 - If your software requires special files or directories to be persistent, and
   you're an advanced user, see [standalones and
   HVMs](/doc/standalones-and-hvms/) and [how to make any file persistent
