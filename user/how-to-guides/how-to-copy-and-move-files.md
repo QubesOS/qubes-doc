@@ -20,7 +20,7 @@ Qubes OS supports the secure copying and moving of files and directories (folder
 
 For simplicity, these instructions will refer to copying/moving a single file, but they apply equally well to groups of files and directories, which are copied recursively.
 
- 1. Open a file manager in the qube containing the file you wish to copy (the source qube), right-click on the file you wish to copy or move, and select `Copy to Other app qube...` or `Move to Other app qube...`.
+ 1. Open a file manager in the qube containing the file you wish to copy (the source qube), right-click on the file you wish to copy or move, and select `Copy to Other AppVM...` or `Move to Other AppVM...`.
 
  2. A dialog box will appear in dom0 asking for the name of the target qube (qube B). 
     Enter or select the desired destination qube name.
