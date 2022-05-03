@@ -135,8 +135,10 @@ There are several tray widgets that are unique to Qubes OS:
 
 [![r4.1-widgets.png](/attachment/doc/r4.1-widgets.png)](/attachment/doc/r4.1-widgets.png)
 
+#### Qube Manager
+
 To see all of your qubes at the same time, you can use the **Qube Manager** (go
-to the App Menu → System Tools → Qube Manager), which displays the states of
+to the App Menu → Qubes Tools → Qube Manager), which displays the states of
 all the qubes in your system, even the ones that aren't running.
 
 [![r4.0-qubes-manager.png](/attachment/doc/r4.0-qubes-manager.png)](/attachment/doc/r4.0-qubes-manager.png)
