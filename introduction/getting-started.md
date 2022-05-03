@@ -133,7 +133,7 @@ There are several tray widgets that are unique to Qubes OS:
 - The **Qubes Updater** widget informs you when updates are available and helps
   you install them.
 
-[![r4.0-widgets.png](/attachment/doc/r4.0-widgets.png)](/attachment/doc/r4.0-widgets.png)
+[![r4.1-widgets.png](/attachment/doc/r4.1-widgets.png)](/attachment/doc/r4.1-widgets.png)
 
 To see all of your qubes at the same time, you can use the **Qube Manager** (go
 to the App Menu → System Tools → Qube Manager), which displays the states of
