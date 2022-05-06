@@ -117,7 +117,7 @@ To confirm that a missing IOMMU is causing this problem, check for the following
 2022-03-01 13:27:17.117+0000: libxl: libxl_create.c:1146:libxl__domain_config_setdefault: passthrough not supported on this platform
 ```
 
-Here are the steps to fix this. Note that this reduces isolation, as described in the [FAQ here](/faq/#why-is-vt-damd-viamd-iommu-important):
+Here are the steps to fix this. Note that this allows sys-net and sys-usb to take complete control of the system, as described in the [FAQ here](/faq/#why-is-vt-damd-viamd-iommu-important):
 
 1. Change the virtualization mode of sys-net and sys-usb to "PV"
 2. Add `qubes.enable_insecure_pv_passthrough` to `GRUB_CMDLINE_LINUX` in `/etc/default/grub`
