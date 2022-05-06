@@ -192,6 +192,7 @@ For example, the following will make the focus move to the window under the mous
 
 local client = client
 local aclient = require("awful.client")
+local ascreen = require("awful.screen")
 local timer = require("gears.timer")
 
 local function filter_sticky(c)
@@ -253,7 +254,9 @@ local glib = require("lgi").GLib
 
 --focus the window under the mouse, if nothing is focused
 --idea from https://github.com/awesomeWM/awesome/issues/2433
-function check_focus_mouse()
+--fallback: true|false - fall back to the focus history, if the mouse points
+--                       nowhere (recommended default: false)
+function check_focus_mouse(fallback)
     if not pending then
         pending = true
         glib.idle_add(glib.PRIORITY_DEFAULT_IDLE, function()
@@ -262,6 +265,13 @@ function check_focus_mouse()
                 local c = mouse.current_client
                 if c then
                     client.focus = c
+                else
+                    if fallback then
+                        local t = ascreen.focused().selected_tag
+                        if t then
+                            check_focus_tag(t)
+                        end
+                    end
                 end
             end
             return false
