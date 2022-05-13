@@ -468,6 +468,7 @@ If the service should be available to other VMs on the same system, do not forge
 
 Here no routing is required, only filtering.
 Proceed in the same way as above but store the filtering rule in the `/rw/config/rc.local` script.
+For the following example, we assume that the IP adress of sys-firewall is 10.137.1.z.
 
 ```
 sudo name /rw/config/rc.local
