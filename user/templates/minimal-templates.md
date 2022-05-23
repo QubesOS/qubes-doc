@@ -54,6 +54,8 @@ Minimal templates of the following distros are available:
  - CentOS
  - Gentoo
 
+A list of all available templates can also be obtained with the [Template Manager](/doc/template-manager/) tool.
+
 ## Installation
 
 The minimal templates can be installed with the following type of command:
