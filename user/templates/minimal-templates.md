@@ -54,10 +54,7 @@ Minimal templates of the following distros are available:
  - CentOS
  - Gentoo
 
-List of all currently available templates can be obtained with the [template manager](/doc/template-manager/):
-```
-[user@dom0 ~]$ qvm-template-gui
-```
+A list of all available templates can also be obtained with the [Template Manager](/doc/template-manager/) tool.
 
 ## Installation
 
