@@ -10,7 +10,7 @@ ref: 204
 title: How to use optical discs
 ---
 
-Passthrough reading and recording (a.k.a., "burning") are not supported by Qubes OS.  This is not a limitiation of Xen, which provides scsiback and scsifront drivers, but of Qubes OS.  It will be fixed in the future.
+Passthrough reading and recording (a.k.a., "burning") are not supported by Qubes OS.  This is not a limitation of Xen, which provides scsiback and scsifront drivers, but of Qubes OS.  It will be fixed in the future.
 
 Currently, the only options for reading and recording optical discs (e.g., CDs, DVDs, BRDs) in Qubes are:
 
