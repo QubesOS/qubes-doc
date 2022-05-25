@@ -69,7 +69,7 @@ sudo qubesctl top.disable qvm.sys-gui-gpu
 One more step is needed: attaching the actual GPU to `sys-gui-gpu`. This can be done either manually via `qvm-pci` (remember to enable permissive option), or via:
 
 ```bash
-sudo qubesctl state.sls qvm.sys-gui-gpu-attach-gpu.
+sudo qubesctl state.sls qvm.sys-gui-gpu-attach-gpu
 ```
 
 The latter option assumes Intel graphics card (it has hardcoded PCI address). If you don't have Intel graphics card, please use the former method with `qvm-pci` (see [How to use PCI devices](/doc/how-to-use-pci-devices/)).
