@@ -468,10 +468,10 @@ If the service should be available to other VMs on the same system, do not forge
 
 Here no routing is required, only filtering.
 Proceed in the same way as above but store the filtering rule in the `/rw/config/rc.local` script.
-For the following example, we assume that the IP adress of sys-firewall is 10.137.1.z.
+For the following example, we assume that the target VM running the web server has the IP address 10.137.0.xx
 
 ```
-sudo name /rw/config/rc.local
+sudo nano /rw/config/rc.local
 ```
 
 ~~~
@@ -490,7 +490,7 @@ fi
 if ! iptables -w -n -L INPUT | grep --quiet MY-HTTPS; then
 
 # add a forward rule for the traffic (same reason)
-  iptables -w -I INPUT 5 -d 10.137.1.z -p tcp --dport 443 -m conntrack --ctstate NEW -j MY-HTTPS
+  iptables -w -I INPUT 5 -d 10.137.0.xx -p tcp --dport 443 -m conntrack --ctstate NEW -j MY-HTTPS
 
 fi
 ~~~
