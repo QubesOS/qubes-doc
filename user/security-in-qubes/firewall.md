@@ -268,7 +268,7 @@ Note the IP addresses you will need.
 
 **2. Route packets from the outside world to the FirewallVM**
 
-For the following example, we assume that the physical interface eth0 in sys-net has the IP address 192.168.x.y and that the IP adress of sys-firewall is 10.137.1.z.
+For the following example, we assume that the physical interface eth0 in sys-net has the IP address 192.168.x.y and that the IP address of sys-firewall is 10.137.1.z.
 
 In the sys-net VM's Terminal, code a natting firewall rule to route traffic on the outside interface for the service to the sys-firewall VM
 
@@ -373,7 +373,7 @@ fi
 
 **3. Route packets from the FirewallVM to the VM**
 
-For the following example, we use the fact that the physical interface of sys-firewall, facing sys-net, is eth0. Furthermore, we assume that the target VM running the web server has the IP address 10.137.0.xx and that the IP adress of sys-firewall is 10.137.1.z.
+For the following example, we use the fact that the physical interface of sys-firewall, facing sys-net, is eth0. Furthermore, we assume that the target VM running the web server has the IP address 10.137.0.xx and that the IP address of sys-firewall is 10.137.1.z.
 
 In the sys-firewall VM's Terminal, code a natting firewall rule to route traffic on its outside interface for the service to the qube
 
@@ -462,7 +462,7 @@ Finally make this file executable (so it runs at every Firewall VM update)
 sudo chmod +x /rw/config/qubes-firewall-user-script
 ~~~
 
-If the service should be available to other VMs on the same system, do not forget to specifiy the additional rules described above.
+If the service should be available to other VMs on the same system, do not forget to specify the additional rules described above.
 
 **4. Allow packets into the qube to reach the service**
 
