@@ -25,7 +25,6 @@ title: System requirements
 
 - **CPU:** 64-bit Intel or AMD processor (also known as `x86_64`, `x64`, and `AMD64`)
   - [Intel VT-x](https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29) with [EPT](https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Extended_Page_Tables) or [AMD-V](https://en.wikipedia.org/wiki/X86_virtualization#AMD_virtualization_.28AMD-V.29) with [RVI](https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Rapid_Virtualization_Indexing)
-  - [Intel VT-d](https://en.wikipedia.org/wiki/X86_virtualization#Intel-VT-d) or [AMD-Vi (also known as AMD IOMMU)](https://en.wikipedia.org/wiki/X86_virtualization#I.2FO_MMU_virtualization_.28AMD-Vi_and_Intel_VT-d.29)
 - **Memory:** 6 GB RAM
 - **Storage:** 32 GB free space
 
