@@ -76,12 +76,13 @@ For example, if you are certain that you never wish to paste *into* your "vault"
 Shortcut configuration
 ----------------------
 
-The copy/paste shortcuts are configurable in:
+The copy/paste shortcuts are configurable via `qvm-features`, e.g.
 
 ~~~
-/etc/qubes/guid.conf
+qvm-features dom0 gui-default-secure-copy-sequence 'Mod4-c'
+qvm-features dom0 gui-default-secure-paste-sequence 'Mod4-v'
 ~~~
 
-If you edit a line in this file, you must uncomment it (by removing the initial `#` character), or else it will have no effect.
+would change the *copy/paste to global clipboard* to the Win key plus c for copy, or v for paste.
 
-VMs need to be restarted in order for changes in `/etc/qubes/guid.conf` to take effect.
+You need to restart Qubes for the changes to take effect.
