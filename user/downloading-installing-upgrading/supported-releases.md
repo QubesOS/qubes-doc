@@ -92,7 +92,7 @@ Releases](https://wiki.debian.org/DebianReleases)).
 | Qubes OS    | Fedora | Debian                                              | Whonix |
 | ----------- | ------ | --------------------------------------------------- | ------ |
 | Release 4.0 | 35     | 9 (Stretch),<sup>*</sup> 10 (Buster), 11 (Bullseye) | 16     |
-| Release 4.1 | 35     | 10 (Buster), 11 (Bullseye)                          | 16     |
+| Release 4.1 | 35, 36 | 10 (Buster), 11 (Bullseye)                          | 16     |
 
 <sup>\*</sup> Although Debian 9 has reached regular EOL and is now in
 [LTS](https://wiki.debian.org/LTS), we continue to support it for Qubes R4.0.
