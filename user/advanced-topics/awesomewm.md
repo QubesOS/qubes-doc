@@ -40,6 +40,12 @@ For build instructions please check the repository _README_.
 
 The repository attempts to follow the upstream Fedora repository.
 
+## Troubleshooting
+
+Issues with e.g. your `rc.lua` configuration can be identified in dom0 from the `~/.xsession-errors` log.
+
+If AwesomeWM encounters an error, it'll also either display a red notification or return you to the display manager (usually the login screen).
+
 ## Common customizations
 
 This section focuses on Qubes-specific customizations. For generic AwesomeWM customizations you might want to have a look at the [AwesomeWM website](https://awesomewm.org).
