@@ -12,8 +12,11 @@ title: Version scheme
 
 The Qubes OS Project uses the [semantic versioning](https://semver.org/)
 standard. Version numbers are written as `<major>.<minor>.<patch>`. When
-`<patch>` is zero, it is often omitted as a matter of convention, e.g., `4.1` is
-short for `4.1.0`.
+`<patch>` is omitted (e.g., `4.1`), it is usually either because `<patch>` is
+zero (as in `4.1.0`) or because we are referring to a specific minor release
+irrespective of any particular patch release within it. Similarly, the major
+release number alone (e.g., `R4`) is sometimes used to refer to an entire
+release series inclusive of all minor and patch releases within it.
 
 In general, patch releases are for backward-compatible bug fixes, minor
 releases are for backward-compatible enhancements and new features, and major
