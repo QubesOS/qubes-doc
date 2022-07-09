@@ -144,11 +144,11 @@ Please see [How to Update](/doc/how-to-update/).
 
 In order to protect you from performing risky activities in templates, they do
 not have normal network access by default. Instead, templates use an [updates
-proxy](#updates-proxy) that allows you to install and update software without
-giving the template direct network access. **The updates proxy is already set
-up to work automatically out-of-the-box and requires no special action from
-you.** Most users should simply follow the normal instructions for [installing
-software from default
+proxy](#updates-proxy) that allows you to install and update software using
+the distribution package manager without giving the template direct network
+access.**The updates proxy is already setup to work automatically
+out-of-the-box and requires no special action from you.** Most users should
+simply follow the normal instructions for [installing software from default
 repositories](#installing-software-from-default-repositories) and
 [updating](/doc/how-to-update/) software. If your software is not available in
 the default repositories, see [installing software from other
@@ -304,19 +304,23 @@ This is like the simple revert, except:
 
 ### Updates proxy
 
-Updates proxy is a service which allows access only from package managers. This
-is meant to mitigate user errors (like using browser in the template), rather
-than some real isolation. It is done with http proxy (tinyproxy) instead of
-simple firewall rules because it is hard to list all the repository mirrors
-(and keep that list up to date). The proxy is used only to filter the traffic,
-not to cache anything.
+Updates proxy is a service which allows access from package managers
+configured to use the proxy by default, but can be used by any other
+program that accepts proxy arguments.
+The purpose of the proxy, instead of direct network access, is meant to
+mitigate user errors of using applications such as the browser in the
+template. Not necessarily what part of the network they can access, but only
+to applications trusted by the user, configured to use the proxy.
+The http proxy (tinyproxy) does not filter traffic because it is hard to list
+all the repository mirrors and keep that list up to date). it also does not
+cache anything.
 
 The proxy is running in selected VMs (by default all the NetVMs (1)) and
-intercepts traffic directed to 10.137.255.254:8082. Thanks to such
+intercepts traffic directed to 127.0.0.1:8082. Thanks to such
 configuration all the VMs can use the same proxy address, and if there is a
 proxy on network path, it will handle the traffic (of course when firewall
 rules allow that). If the VM is configured to have access to the updates proxy
-(2), the startup scripts will automatically configure dnf to really use the
+(2), the startup scripts will automatically configure dnf/apt to really use the
 proxy (3). Also access to updates proxy is independent of any other firewall
 settings (VM will have access to updates proxy, even if policy is set to block
 all the traffic).
