@@ -554,7 +554,7 @@ FAQ](#troubleshooting-faq) below.
 
 _This is an optional section intended for advanced users._
 
-After you have authenticated your Qubes ISO and written it to your desired
+After you have authenticated your Qubes ISO and written it onto your desired
 medium (such as a USB drive or optical disc), you can re-verify the data that
 has been written to your medium. Why would you want to do this when you've
 already verified the original ISO? Well, it's conceivable that a sufficiently
@@ -570,14 +570,16 @@ cryptographically-signed (or both), as discussed in our [installation security
 considerations](/doc/install-security/).
 
 This section will walk through an example of re-verifying the installer on such
-a device. We begin by assuming that you have just written your desired Qubes
-ISO onto the USB drive. First, unplug your USB drive and flip the write protect
-switch so that the data on the drive can no longer be altered. If you have a
-different computer from the one you used to create the installation medium,
-consider using that computer. If not, try to at least use a fresh VM (e.g., if
-it's a Qubes system). The idea is that the original machine may have been
-compromised, and using a different one for re-verification forces your
-hypothetical adversary to compromise an additional machine in order to succeed.
+a device. We begin by assuming that you have just [written your desired Qubes
+ISO onto the USB
+drive](/doc/installation-guide/#copying-the-iso-onto-the-installation-medium).
+First, unplug your USB drive and flip the write protect switch so that the data
+on the drive can no longer be altered. If you have a different computer from
+the one you used to create the installation medium, consider using that
+computer. If not, try to at least use a fresh VM (e.g., if it's a Qubes
+system). The idea is that the original machine may have been compromised, and
+using a different one for re-verification forces your hypothetical adversary to
+compromise an additional machine in order to succeed.
 
 Now, our goal is to perform the same verification steps as we did with the
 original ISO, except, this time, we'll be reading the installer data directly

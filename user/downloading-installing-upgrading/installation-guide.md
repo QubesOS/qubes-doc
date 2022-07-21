@@ -92,6 +92,9 @@ chosen a different medium, please adapt the instructions accordingly.
   <i class="fa fa-exclamation-circle"></i>
   <b>Note:</b> There are important <a href="/doc/install-security/">security
   considerations</a> to keep in mind when choosing an installation medium.
+  Advanced users may wish to <a
+  href="/security/verifying-signatures/#how-to-re-verify-installation-media-after-writing">re-verify
+  their installation media after writing</a>.
 </div>
 
 <div class="alert alert-danger" role="alert">
