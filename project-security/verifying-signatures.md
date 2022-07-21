@@ -627,14 +627,17 @@ the illusion that the data is being read from the USB drive).
 
 Therefore, in order to make things a bit more difficult for your hypothetical
 adversary, you may instead wish to perform the re-verification in an
-environment that has never seen the original ISO (e.g., a separate offline
-computer or a fresh VM the storage space of which is too small to hold the
-ISO). In that case, you'll have to obtain the size of the ISO in bytes and
-enter it into the above command manually. You can, of course, obtain the size
-by simply using the `stat -c %s /path/to/iso` command from above on the machine
-that has the ISO. You can also obtain it from the Qubes website by hovering
-over any ISO download button on the [downloads page](/downloads/). (You can
-also view these values directly in the downloads page's [source
+environment that has never seen the original ISO, e.g., a separate offline
+computer or a fresh VM the storage space of which is too small to hold the ISO.
+(Note: If you're doing this in Qubes, you can attach the block device from
+sys-usb to a separate new qube. You don't have to perform the re-verification
+directly in sys-usb.) In that case, you'll have to obtain the size of the ISO
+in bytes and enter it into the above command manually. You can, of course,
+obtain the size by simply using the `stat -c %s /path/to/iso` command from
+above on the machine that has the ISO. You can also obtain it from the Qubes
+website by hovering over any ISO download button on the [downloads
+page](/downloads/). (You can also view these values directly in the downloads
+page's [source
 data](https://github.com/QubesOS/qubesos.github.io/blob/master/_data/downloads.yml).)
 Once you have the exact size of the ISO in bytes, simply insert it into the
 same command, for example:
