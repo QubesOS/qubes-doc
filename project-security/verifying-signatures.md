@@ -550,6 +550,130 @@ If you don't see a good signature here, go back and follow the instructions in
 this section carefully, and consult the [troubleshooting
 FAQ](#troubleshooting-faq) below.
 
+## How to re-verify installation media after writing
+
+_This is an optional section intended for advanced users._
+
+After you have authenticated your Qubes ISO and written it to your desired
+medium (such as a USB drive or optical disc), you can re-verify the data that
+has been written to your medium. Why would you want to do this when you've
+already verified the original ISO? Well, it's conceivable that a sufficiently
+sophisticated adversary might allow your initial ISO verification to succeed
+(so as not to alert you that your machine has been compromised, for example),
+then surreptitiously modify the data as it is being written onto your
+installation medium, resulting in a compromised Qubes installer. This might
+increase the odds that the attack goes undetected. One way to mitigate this
+risk is to re-verify the installer after writing it onto an installation medium
+that cannot be altered, such as a USB drive with a properly-implemented
+physical write-protect switch and firmware that is either unflashable or
+cryptographically-signed (or both), as discussed in our [installation security
+considerations](/doc/install-security/).
+
+This section will walk through an example of re-verifying the installer on such
+a device. We begin by assuming that you have just written your desired Qubes
+ISO onto the USB drive. First, unplug your USB drive and flip the write protect
+switch so that the data on the drive can no longer be altered. If you have a
+different computer from the one you used to create the installation medium,
+consider using that computer. If not, try to at least use a fresh VM (e.g., if
+it's a Qubes system). The idea is that the original machine may have been
+compromised, and using a different one for re-verification forces your
+hypothetical adversary to compromise an additional machine in order to succeed.
+
+Now, our goal is to perform the same verification steps as we did with the
+original ISO, except, this time, we'll be reading the installer data directly
+from the write-protected USB drive instead of from the original ISO file.
+First, let's compute the SHA-256 hash value of the data on the drive. (This
+assumes you're already familiar with [how to verify the cryptographic hash
+values of Qubes
+ISOs](#how-to-verify-the-cryptographic-hash-values-of-qubes-isos).) In order to
+do this, we have to know the exact size, in bytes, of the original ISO. There
+are two ways to get this information: from the ISO itself and from the Qubes
+website. Here's an example of the first way:
+
+```shell_session
+$ dd if=/dev/sdX bs=1M count=$(stat -c %s /path/to/iso) iflag=count_bytes | sha256sum
+```
+
+(Where `/dev/sdX` is your USB drive and `/path/to/iso` is the path to your Qubes
+ISO.)
+
+This command reads exactly the number of bytes of your Qubes ISO (obtained with
+`stat -c %s /path/to/iso`) from the USB drive and pipes them into `sha256sum`.
+The output should look something like this:
+
+```shell_session
+0e68dd3347b68618d9e5f3ddb580bf7ecdd2166747630859b3582803f1ca8801  -
+5523+0 records in
+5523+0 records out
+5791285248 bytes (5.8 GB, 5.4 GiB) copied, 76.3369 s, 75.9 MB/s
+```
+
+(Note that your actual SHA-256 hash value and byte number will depend on which
+Qubes ISO you're using. This is just an example.)
+
+Now, reading the number of bytes directly from the ISO is fine, but you may be
+concerned that a sufficiently sophisticated adversary may have compromised the
+machine on which you're performing this re-verification and may therefore be
+capable of feeding you a false success result. After all, if your adversary
+knows the answer you're looking for --- namely, a match to the genuine ISO ---
+and has access to that very ISO in the same re-verification environment, then
+there is little to prevent him from simply hashing the original ISO and feeding
+you that result (perhaps while also reading from the USB drive and piping it
+into `/dev/null` so that you see the light on the USB drive blinking to support
+the illusion that the data is being read from the USB drive).
+
+Therefore, in order to make things a bit more difficult for your hypothetical
+adversary, you may instead wish to perform the re-verification in an
+environment that has never seen the original ISO (e.g., a separate offline
+computer or a fresh VM the storage space of which is too small to hold the
+ISO). In that case, you'll have to obtain the size of the ISO in bytes and
+enter it into the above command manually. You can, of course, obtain the size
+by simply using the `stat -c %s /path/to/iso` command from above on the machine
+that has the ISO. You can also obtain it from the Qubes website by hovering
+over any ISO download button on the [downloads page](/downloads/). (You can
+also view these values directly in the downloads page's [source
+data](https://github.com/QubesOS/qubesos.github.io/blob/master/_data/downloads.yml).)
+Once you have the exact size of the ISO in bytes, simply insert it into the
+same command, for example:
+
+```shell_session
+$ dd if=/dev/sdX bs=1M count=5791285248 iflag=count_bytes | sha256sum
+```
+
+If you wish to compute the values of other hash functions, you can replace
+`sha256sum`, e.g., with `md5sum`, `sha1sum`, or `sha512sum`.
+
+In addition to checking hash values, you can also use GnuPG to verify the
+detached PGP signature directly against the data on the USB drive. (This
+assumes you're already familiar with [how to verify detached PGP signatures on
+Qubes ISOs](#how-to-verify-detached-pgp-signatures-on-qubes-isos).)
+
+```shell_session
+$ dd if=/dev/sdX bs=1M count=<ISO_SIZE> iflag=count_bytes | gpg -v --verify Qubes-RX-x86_64.iso.asc -
+gpg: Signature made Thu 14 Jul 2022 08:49:38 PM PDT
+gpg:                using RSA key 5817A43B283DE5A9181A522E1848792F9E2795E9
+gpg: using pgp trust model
+gpg: Good signature from "Qubes OS Release X Signing Key" [full]
+gpg: binary signature, digest algorithm SHA256, key algorithm rsa4096
+5523+0 records in
+5523+0 records out
+5791285248 bytes (5.8 GB, 5.4 GiB) copied, 76.6013 s, 75.6 MB/s
+```
+
+(Where `/dev/sdX` is your USB drive, `<ISO_SIZE>` is the size of the original
+ISO in bytes, and `Qubes-RX-x86_64.iso.asc` is the detached signature file of
+the original ISO.)
+
+This command reads the exact number of bytes from your USB drive as the size of
+the original ISO and pipes them into `gpg`. The usual form of a `gpg`
+verification command is `gpg --verify <SIGNATURE> <SIGNED_DATA>`. Our command
+is using shell redirection in order to use data from your USB drive as the
+`<SIGNED_DATA>`, which is why the `-` at the end of the command is required.
+Remember that you still must have properly imported and trusted the
+[QMSK](#how-to-import-and-authenticate-the-qubes-master-signing-key) and
+appropriate [RSK](#how-to-import-and-authenticate-release-signing-keys) in
+order for this to work.
+
 ## How to verify signatures on Git repository tags and commits
 
 Before we proceed, you must first complete the following prerequisite steps:
