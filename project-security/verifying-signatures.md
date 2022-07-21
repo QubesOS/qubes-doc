@@ -610,8 +610,9 @@ The output should look something like this:
 5791285248 bytes (5.8 GB, 5.4 GiB) copied, 76.3369 s, 75.9 MB/s
 ```
 
-(Note that your actual SHA-256 hash value and byte number will depend on which
-Qubes ISO you're using. This is just an example.)
+Note that your actual SHA-256 hash value and byte number will depend on which
+Qubes ISO you're using. This is just an example. Your SHA-256 hash value should
+match the hash value of your genuine original Qubes ISO.
 
 Now, reading the number of bytes directly from the ISO is fine, but you may be
 concerned that a sufficiently sophisticated adversary may have compromised the
@@ -674,7 +675,9 @@ is using shell redirection in order to use data from your USB drive as the
 Remember that you still must have properly imported and trusted the
 [QMSK](#how-to-import-and-authenticate-the-qubes-master-signing-key) and
 appropriate [RSK](#how-to-import-and-authenticate-release-signing-keys) in
-order for this to work.
+order for this to work. You should receive a `Good signature` message for the
+appropriate RSK, which should be signed by a copy of the QMSK that you
+previously confirmed to be genuine.
 
 ## How to verify signatures on Git repository tags and commits
 
