@@ -218,7 +218,7 @@ three options:
 * Test this media and install Qubes OS
 * Troubleshooting
  
-Select the option to test this media and install Qubes OS. 
+Select the option to test this media and install Qubes OS, or (**Advanced hard headed users ONLY**) install without any checking as you already know the hardware is safe. 
 
 If the boot screen does not appear, there are several options to troubleshoot.
 First, try rebooting your computer. If it still loads your currently installed
