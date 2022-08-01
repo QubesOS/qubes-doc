@@ -397,3 +397,6 @@ this context: the same as their template filesystem, of course.
   system, please see [Template Implementation](/doc/template-implementation/).
   Take a look at the [Qubes Builder](/doc/qubes-builder/) documentation for
   instructions on how to compile them.
+
+  * We do also have Kali Linux template. However, you can check all available 
+  templates by this command in dom0: `qvm-template-gui`

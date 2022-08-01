@@ -19,6 +19,8 @@ ref: 153
 title: Installation guide
 ---
 
+Notes to all contributors: All contributor reports are at the bottom of this page.
+
 Welcome to the Qubes OS installation guide! This guide will walk you through
 the process of installing Qubes. Please read it carefully and thoroughly, as it
 contains important information for ensuring that your Qubes OS installation is
@@ -529,3 +531,8 @@ the other [How-To Guides](/doc/#how-to-guides), and learn about
 * Please do **not** email individual members of the Qubes team with questions
   about installation or other problems. Instead, please see [Help, Support,
   Mailing Lists, and Forum](/support/) for appropriate places to ask questions.
+
+
+###### Contributor Report
+
+  1: Images are not up-to-date as R4.0 depreciated.
