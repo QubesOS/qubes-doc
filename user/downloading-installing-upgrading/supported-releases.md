@@ -26,7 +26,7 @@ are available from our [download mirrors](/downloads/#mirrors).
 | Release 3.0 | 2015-10-01 | 2016-09-09 | Unsupported           |
 | Release 3.1 | 2016-03-09 | 2017-03-29 | Unsupported           |
 | Release 3.2 | 2016-09-29 | 2019-03-28 | Unsupported           |
-| Release 4.0 | 2018-03-28 | 2022-08-04 | Supported             |
+| Release 4.0 | 2018-03-28 | 2022-08-04 | Unsupported           |
 | Release 4.1 | 2022-02-04 | TBA        | Supported             |
 | Release 4.2 | TBA        | TBA        | [In development](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue+milestone%3A%22Release+4.2%22) |
 
@@ -91,16 +91,7 @@ Releases](https://wiki.debian.org/DebianReleases)).
 
 | Qubes OS    | Fedora | Debian                                              | Whonix |
 | ----------- | ------ | --------------------------------------------------- | ------ |
-| Release 4.0 | 35     | 9 (Stretch),<sup>*</sup> 10 (Buster), 11 (Bullseye) | 16     |
 | Release 4.1 | 35, 36 | 10 (Buster), 11 (Bullseye)                          | 16     |
-
-<sup>\*</sup> Although Debian 9 has reached regular EOL and is now in
-[LTS](https://wiki.debian.org/LTS), we continue to support it for Qubes R4.0.
-This is a *temporary* exception to our [policy](#note-on-debian-support) of
-ending Qubes support at each Debian release's *regular* (not LTS) EOL date,
-since this policy was introduced after the release of Qubes R4.0. In Qubes R4.1
-and beyond, Qubes support for each Debian release will end when that release
-reaches regular EOL and will not extend into LTS.
 
 ### Note on Debian support
 
