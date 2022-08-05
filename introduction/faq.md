@@ -19,23 +19,44 @@ title: Frequently asked questions (FAQ)
 
 ### What is Qubes OS?
 
-Qubes OS is a security-oriented operating system (OS).
-The OS is the software that runs all the other programs on a computer.
-Some examples of popular OSes are Windows, macOS, Android, and iOS.
-Qubes is free and open-source software (FOSS).
-This means that everyone is free to use, copy, and change the software in any way.
-It also means that the source code is openly available so others can contribute to and audit it.
+Qubes OS is an operating system that allows you to compartmentalize your data and activities into securely-isolated environments called "qubes" so that a single cyberattack can't take down your entire digital life in one fell swoop.
+
+The most common operating systems today are single-environment systems such as Windows, Mac, and various Linux [distributions](https://en.wikipedia.org/wiki/Linux_distribution) (such as Ubuntu, Fedora, and Debian). Qubes OS is different. It's more like a meta-OS that can run the aforementioned standard OSes inside of itself. This is what makes Qubes so secure: It's like having a bunch of different computers on your desk. If one gets compromised, the others are still fine. However, instead of a bunch of different *physical* machines, Qubes allows you to create and manage a bunch of different *virtual* machines (VMs).
+
+The software that manages VMs is called a *hypervisor*, but Qubes is much more than just a hypervisor. It's the embodiment of decades of security research and engineering into how to harness the power of virtualization to build a secure desktop operating system that protects normal people in real-world daily use.
+
+### Is Qubes really free?
+
+Qubes is free and open-source software [licensed under GPLv2](/doc/license/). In open-source parlance, this means that Qubes is both free "as in beer" as well as free "as in speech." In other words, Qubes costs you nothing to download, install, and use; and you're welcome to download, modify, copy, and share the software and its source code in any way you like, so long as it's compatible with the GPLv2 license.
+
+Since Qubes is free of cost, the project relies heavily on [donations](/donate/) from supporters like you to keep going. Building and maintaining Qubes requires the time and dedication of talented developers. If you value their work, please consider donating today!
+
+### Is it safe for code to be so open like that? What about bad actors?
+
+The fact that Qubes is [open-source](/doc/source-code/) is not a security risk. On the contrary, it's a benefit.
+
+First, why it's not a problem: While anyone is free to try to [contribute code](/doc/contributing/#contributing-code) and [contribute packages](/doc/package-contributions/), we always assume that it could be a bad actor trying to insert malicious code into Qubes. That's why all such contributions undergo stringent security review (especially when it comes to [security-critical code](/doc/security-critical-code/)).
+
+In addition, we always assume that the project could be the target of a [supply-chain attack](https://en.wikipedia.org/wiki/Supply_chain_attack). (For example, a bad actor at [GitHub](#why-do-you-use-github) could insert malicious code into our repositories server-side.) That's why one the core tenets of the Qubes philosophy is to [distrust the infrastructure](#what-does-it-mean-to-distrust-the-infrastructure). We assume the infrastructure is already compromised and have designed our development process accordingly. Regardless of whether it appears to come from an allegedly-trustworthy origin, all code must be [cryptographically signed](/doc/code-signing/) by a trusted [PGP key](https://keys.qubes-os.org/keys/) in order to be included in any official Qubes build, and all ISOs are also themselves signed so that users can [verify](/security/verifying-signatures/) them prior to installing. All packages for installing and updating software inside Qubes are also signed and [securely verified](/doc/dom0-secure-updates/) prior to installation. Even our security announcements, such as [Qubes security bulletins (QSBs)](/security/qsb/) and [Qubes canaries](/security/canary/), which can be found in the [Qubes security pack (qubes-secpack)](/security/pack/), are all signed.
+
+Every aspect of the Qubes [development](/doc/development-workflow/) and [build](/doc/qubes-builder/) process is defensively designed with security as the first priority. For example, the Qubes builder assumes it is already the target of a supply-chain attack, so it downloads the data it needs over the Tor network, making it more difficult and costly for an attacker to specifically target the Qubes build process. If an attacker is considering attacking the build process by serving a malicious package to the Qubes builder, this forces him to choose between serving the malicious package to everyone (greatly increasing his exposure and the risk of being discovered) or no one (forcing him to find another means of attack). Since we also open-source the Qubes builder itself and offer it to anyone who wants to [build their own Qubes ISO](/doc/qubes-iso-building/), this security benefit accrues to everyone, not just the project itself. This is just one example of how security is the very core of our project and informs everything we do.
+
+We've established that having open-source code is not a security risk for us, but is it a benefit? This is a deep question. While we cannot provide a truly comprehensive answer here, we can offer a few thoughts. According to [Linus's law](https://en.wikipedia.org/wiki/Linus's_law), "Given enough eyeballs, all bugs are shallow." In other words, the more skilled people inspecting a codebase, the more likely it is that bugs will be discovered and fixed, which enhances user security. This suggests that open-source code might generally be more secure than closed-source code.
+
+However, there are two main objections to this line of thought. First, some object that this principle doesn't hold in practice, since bugs still slip through in popular open-source projects (and many open-source projects aren't very popular to begin with). In truth, not enough empirical research has been done for us to know precisely the extent to which and the conditions under which the principle holds. Second, some object that a public codebase also allows attackers to inspect the code in order to find vulnerabilities that they can exploit. While this is true, attackers also find and exploit vulnerabilities in closed-source, proprietary code, so preventing people from seeing the code isn't a solution either. Keeping the design or implementation of a system secret in the hope that it will deter attackers is known as ["security through obscurity"](https://en.wikipedia.org/wiki/Security_through_obscurity), and security experts widely regarded it as a mistake.
+
+Setting aside Linus's law, there are other reasons that open-source software is desirable, especially when it comes to privacy and security. With closed-source software, you can't be sure whether the code includes backdoors or ways of spying on you, since you can't inspect the code (or have someone you trust do so). While some entities, such as powerful governments, might be able to rely on legal means to ensure that this doesn't occur in the software they purchase, regular folks are generally presented with a lengthy "terms of use" agreement with the offer to "take it or leave it." The only way they get to use the software is by legally agreeing to let it do whatever it wants, as listed in the terms of use. This often includes allowing the vendor to push whatever closed-source updates it deems appropriate at any time, the consequence being that these users never really know what's running on their computers.
+
+We find this to be unacceptable from a personal security perspective. If we can't trust the software that's supposed to be safeguarding our secrets, then the game is already lost. Therefore, we believe that personal security software *must* be open-source in order to be trustworthy.
 
 ### Why is OS security important?
 
-Most people use an operating system like Windows or macOS on their desktop and laptop computers.
-These OSes are popular because they tend to be easy to use and usually come pre-installed on the computers people buy.
-However, they present problems when it comes to security.
-For example, you might open an innocent-looking email attachment or website, not realizing that you're actually allowing malware (malicious software) to run on your computer.
-Depending on what kind of malware it is, it might do anything from showing you unwanted advertisements to logging your keystrokes to taking over your entire computer.
-This could jeopardize all the information stored on or accessed by this computer, such as health records, confidential communications, or thoughts written in a private journal.
-Malware can also interfere with the activities you perform with your computer.
-For example, if you use your computer to conduct financial transactions, the malware might allow its creator to make fraudulent transactions in your name.
+Most people use an operating system like Windows or macOS on their desktop and laptop computers. These OSes are popular because they tend to be easy to use and usually come pre-installed on the computers people buy. However, they present problems when it comes to security. Most common, anybody can open an innocent-looking file, email attachment, or website, not realizing that it's actually allowing malware—a catch-all phrase for any/all software created for malicious use, unbeknownst to an end user—to run on their computer.
+
+Malware can do anything from showing you unwanted advertisements, to logging your keystrokes to taking over your entire computer. If you use your computer to conduct financial transactions, malware can allow its creator to make fraudulent transactions in your name. There are many kinds of malware, made by folks and organizations from all over the world; some for targeted harm, some more simply for passive mischief. Those are just a couple of common examples. 
+
+The specific risks malware presents to an operating system, is that it can jeopardize all the information stored on or accessed by a computer; information such as one's health records, confidential communications, or thoughts written in a private journal. In the same way a virus mutates, the makers and types of malware are also changing every minute of every day, to adapt to known software mitigations. So, considering the vulnerability of an entire operating system as one giant exposed hub to a much larger a digital ecosystem, is an important step in a reasonable approach to digital security. 
+
 
 ### Aren't antivirus programs and firewalls enough?
 
@@ -99,6 +120,13 @@ Remember, though, that privacy is difficult to achieve and maintain.
 Whonix is a powerful tool, but no tool is perfect.
 Read the [documentation](https://www.whonix.org/wiki/Documentation) thoroughly and exercise care when using it.
 
+### What about other approaches to security?
+
+Canonically there are two popular [approaches](https://blog.invisiblethings.org/2008/09/02/three-approaches-to-computer-security.html), apart from Security By Compartmentalization. Those are “Security by Correctness” and “Security by Obscurity.” We don't believe either of these approaches are capable of providing reasonable security today, nor do we believe that they will be capable of doing so in the foreseeable future.
+
+Many other unique approaches are touched upon in this [article](https://blog.invisiblethings.org/2012/09/12/how-is-qubes-os-different-from.html) by Joanna, for a thorough overview.
+
+
 ### How does Qubes OS compare to using a "live CD" OS?
 
 Booting your computer from a live CD (or DVD) when you need to perform sensitive activities can certainly be more secure than simply using your main OS, but this method still preserves many of the risks of conventional OSes.
@@ -148,18 +176,6 @@ Briefly, here are some of the main pros and cons of this approach relative to Qu
 
 (For more on this topic, please see the paper [Software compartmentalization vs. physical separation](https://invisiblethingslab.com/resources/2014/Software_compartmentalization_vs_physical_separation.pdf).)
 
-### What is the main concept behind Qubes?
-
-To build security on the "Security by Compartmentalization (or Isolation)" principle.
-
-### What about other approaches to security?
-
-The other two popular [approaches](https://blog.invisiblethings.org/2008/09/02/three-approaches-to-computer-security.html) are “Security by Correctness” and “Security by Obscurity.”
-We don't believe either of these approaches are capable of providing reasonable security today, nor do we believe that they will be capable of doing so in the foreseeable future.
-
-### How is Qubes different from other security solutions?
-
-Please see this [article](https://blog.invisiblethings.org/2012/09/12/how-is-qubes-os-different-from.html) for a thorough discussion.
 
 ### Is Qubes just another Linux distribution?
 
@@ -167,11 +183,6 @@ If you really want to call it a distribution, then it's more of a "Xen distribut
 But Qubes is much more than just Xen packaging.
 It has its own VM management infrastructure, with support for template VMs, centralized VM updating, etc.
 It also has a very unique GUI virtualization infrastructure.
-
-### What about safe languages and formally verified microkernels?
-
-In short: these are non-realistic solutions today.
-We discuss this in further depth in our [Architecture Specification document](/attachment/doc/arch-spec-0.3.pdf).
 
 ### Why does Qubes use virtualization?
 
@@ -195,14 +206,13 @@ Qubes uses lightweight VMs to create security qubes (e.g., "work," "personal," a
 A typical user would likely need around five qubes.
 Very paranoid users, or those who are high-profile targets, might use a dozen or more qubes.
 
-### Why does Qubes use Xen instead of KVM or some other hypervisor?
+### Why does Qubes use Xen instead of KVM or another hypervisor?
 
 In short: we believe the Xen architecture allows for the creation of more secure systems (i.e. with a much smaller TCB, which translates to a smaller attack surface).
-We discuss this in much greater depth in our [Architecture Specification document](/attachment/doc/arch-spec-0.3.pdf).
 
 ### How is Qubes affected by Xen Security Advisories (XSAs)?
 
-See the [XSA Tracker](/security/xsa/).
+The Qubes team pays close attention to Xen Security Advisories. Please see the [Qubes/XSA Tracker](https://www.qubes-os.org/security/xsa/).
 
 ### What about this other/new (micro)kernel/hypervisor?
 
@@ -248,7 +258,7 @@ At the same time, due to the smart use of Xen shared memory, our GUI implementat
 
 ### Why passwordless sudo?
 
-Please refer to [this page](/doc/vm-sudo/).
+We have found that there's really no point in user/root isolation, because all the user data (and VM management interface) is already accessible from dom0 user level; so, there is nothing more to get from a dom0 root account. Read more about: [Passwordless root access in Qubes](https://www.qubes-os.org/doc/vm-sudo/)
 
 ### Why is dom0 so old?
 
@@ -318,7 +328,7 @@ So, if feature X isn't enabled, it's most likely for one of three reasons:
 
 If it seems like a feature that we can and should enable, please [let us know](/doc/issue-tracking/)!
 
-## Users
+## Using Qubes
 
 ### Can I watch YouTube videos in qubes?
 
@@ -337,15 +347,14 @@ For further discussion about the potential for GPU passthrough on Xen/Qubes, ple
 - [GPU passing to HVM](https://groups.google.com/group/qubes-devel/browse_frm/thread/31f1f2da39978573?scoring=d&q=GPU&)
 - [Clarifications on GPU security](https://groups.google.com/group/qubes-devel/browse_frm/thread/31e2d8a47c8b4474?scoring=d&q=GPU&)
 
-### Is Qubes a multi-user system?
+### Can I have multiple user accounts on one Qubes machine?
 
-No.
-Qubes does not pretend to be a multi-user system.
+Qubes is not a multi-user system.
 Qubes assumes that the user who controls Dom0 controls the whole system.
 It is very difficult to **securely** implement multi-user support.
 See [here](https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06) for details.
 
-However, in Qubes 4.x we will be implementing management functionality.
+However, it is on our roadmap to include management functionality in a future release.
 See [Admin API](/news/2017/06/27/qubes-admin-api/) and [Core Stack](/news/2017/10/03/core3/) for more details.
 
 ### What are the system requirements for Qubes OS?
@@ -370,6 +379,10 @@ This also means that it is possible to update the software for several qubes sim
 ### How much memory is recommended for Qubes?
 
 Please see the [system requirements](/doc/system-requirements/).
+
+### Is "x" version of Foo compatible with "y" version of Qubes? 
+
+4+ very different versions of Qubes OS now having been deployed, we are unable to speak to technical specifics at this level of detail, sustainably, in our regular FAQ. Please consult [Qubes Documentation](https://www.qubes-os.org/doc/) or [Release Notes](https://www.qubes-os.org/downloads/) specific to the version of Qubes OS you have questions about, for release-specific compatability inquiries. 
 
 ### Can I install Qubes on a system without VT-x/AMD-V or VT-d/AMD-Vi/AMD IOMMU?
 
@@ -610,13 +623,14 @@ Qubes is slower when reading from the disk because of the VM overhead, which is 
 
 ### Could you please make my preference the default?
 
-Wouldn't it be great if Qubes were configured just the way you like it by default with all of your favorite programs and settings?
-Then you could just install Qubes without having to install any programs in it or adjust any settings!
-You might even think that if a particular program or setting works so well for *you*, it would work well for *everyone*, so you'd actually be doing everyone a favor!
-The problem is that Qubes has [tens of thousands of different users](/statistics/) with radically different needs and purposes.
-There is no particular configuration that will be ideal for everyone (despite how much you might feel that your preference would be better for everyone), so the best we can do is to put power in the hands of users to configure their Qubes installations the way they like (subject to security constraints, of course).
-Please don't ask for your favorite program to be installed by default or for some setting that obviously varies by user preference to be changed so that it matches *your* preference.
-This is an incredibly selfish attitude that demonstrates a complete lack of consideration for the thousands of other Qubes users who don't happen to share your preferences.
+When responding to one of our surveys or otherwise participating in structured user research, this is exactly the sort of feedback we love to hear. In the context of structured user research, this kind of feedback has a place and can be put to good use. On email lists or as discussion threads in user forums, the core team is unable to productively engage in these sorts of requests. Even if a consenssus forms in a social channel—how does that group of users measure-up to the needs of the other [**+40,000 current users of Qubes OS**](https://www.qubes-os.org/statistics/)? 
+
+Many, many, many things factor into how the core team prioritizes new features, and changes to existing features—not the least of which, are urgent security matters, things breaking, or things that have been on our minds and in active discussion for many months—if not years. We'd love to move faster, but right now that is the reality of the project's few staff resources and many volunteers, all working very, very hard. To keep ourselves sane and our GitHub manageable, GitHub Issues filed with these asks are subject to immediate closure as `wontfix`—and we ask folks to please just not create those.
+
+In 2019 we began our first structured research effort to learn more about [who's using Qubes](https://www.qubes-os.org/news/2020/11/26/qubes-survey-results/). Between that survey and follow-up interviews, we've learned that some of our users are security researchers in academia, while others are human rights workers still struggling to get their heads around using GPG; many of our users are developers, while many others are less-technically adept but still die-hard Linux and OSS enthusiasts. Many others are workers in government or enterprise environments. Some of our users can't imagine using Qubes with anything other than an i3 DE with D-Menu, while others still struggle with Qubes leaving KDE for XFCE as our default DE. 
+
+TL;DR, chances are that if thousands of users will truly benefit from something, that there's already a GitHub issue for it. That issue could be many months (or years) old, too. Or, there's a non-negotiable reason something is not the default already. We love our user community. We're just a very small, modest team, and ask for your humble understanding in not overwhelming us with what we'll never be able to meaningfully act upon. 
+
 
 ### Software installed in a qube is gone after restarting. Why?
 
