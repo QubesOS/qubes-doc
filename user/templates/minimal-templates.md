@@ -254,6 +254,7 @@ list of packages to be installed):
   to configure it.
 - `default-mgmt-dvm`: requires `qubes-core-agent-passwordless-root` and
   `qubes-mgmt-salt-vm-connector`.
+- [Yubikey](/doc/yubkiey/), you may need to install `xserver-xorg-input-all` for 2fa repsonses to work in web-browsers like firefox.
 
 In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be
 needed to make the customized minimal template work properly. These packages
