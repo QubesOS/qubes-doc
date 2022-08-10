@@ -24,6 +24,7 @@ Please make sure you carefully read and understand the **[security consideration
 
 Unlike other devices ([USB](/doc/how-to-use-usb-devices/), [block](/doc/how-to-use-block-storage-devices/), mic), PCI devices need to be attached on VM-bootup.
 Similar to how you can't attach a new sound-card after your computer booted (and expect it to work properly), attaching PCI devices to already booted VMs isn't supported.
+Moreover, PCI devices can be attached only to VMs running in certain virtualization modes. See [FAQ: Which virtualization modes do VMs use?](/faq/#which-virtualization-modes-do-vms-use)
 
 The Qubes installer attaches all network class controllers to `sys-net` and all USB controllers to `sys-usb` by default, if you chose to create the network and USB qube during install.
 While this covers most use cases, there are some occasions when you may want to manually attach one NIC to `sys-net` and another to a custom NetVM, or have some other type of PCI controller you want to manually attach.
