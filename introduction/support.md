@@ -526,5 +526,4 @@ For example, here are some **unofficial** chat channels we know about that are
 maintained by the community:
 
 * Matrix, Qubes-related: <https://matrix.to/#/#cybersec-qubes_os:matrix.org>
-* Matrix, strictly Qubes: <https://matrix.to/#/#Qubes-OS:matrix.org>
 * `#qubes` channel on libera.chat via traditional IRC clients
