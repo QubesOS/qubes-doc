@@ -245,6 +245,10 @@ list of packages to be installed):
 - [USB qube](/doc/usb-qubes/), such as the template for `sys-usb`:
   `qubes-usb-proxy` to provide USB devices to other Qubes and
   `qubes-input-proxy-sender` to provide keyboard or mouse input to dom0.
+- Qubes to which USB devices are attached: `libpam-systemd` (Until
+  [#7689](https://github.com/QubesOS/qubes-issues/issues/7689) is fixed, either
+  pair it with `qubes-core-agent-passwordless-root` or manually activate the
+  user session with `loginctl activate <USER_SESSION_ID>`.)
 - [VPN
   qube](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md):
   You may need to install network-manager VPN packages, depending on the VPN
