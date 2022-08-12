@@ -273,7 +273,13 @@ tracking](/doc/issue-tracking).
 
 ### Will Qubes seek to get certified under the GNU Free System Distribution Guidelines (GNU FSDG)?
 
-Not currently, for the same reasons that [Debian is not certified](https://www.gnu.org/distros/common-distros.en.html).
+We wish we could, but the unfortunate reality right now is that an operating system *cannot be secure* without a certain minimum number of proprietary closed-source "blobs" (e.g., CPU microcode updates). A 100% free operating system that excludes all such blobs is vulnerable to known exploits and is therefore unsuitable for any use case where security matters.
+
+Instead, Qubes aims to be as free as possible *without sacrificing security*. All of the code created by the Qubes OS Project itself is 100% free. However, in order for users to actually run that code securely on their hardware, we must pair it with a small number of non-free blobs, which disqualifies Qubes, [along with the vast majority of open-source Linux distributions](https://www.gnu.org/distros/common-distros.html), from GNU FSDG certification.
+
+The [four essential freedoms](https://www.gnu.org/philosophy/free-sw.html) are part of the core of our philosophy, but so is security. Together, they inform our decisions and motivate our actions. Qubes aims to maximize both security and software freedom to the extent that they are compatible in the world today.
+
+Also see the Qubes OS [software license](/doc/license/).
 
 ### Should I trust this website?
 
