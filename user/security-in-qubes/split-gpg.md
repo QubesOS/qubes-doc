@@ -259,7 +259,7 @@ If you would like to automatically sign all commits, you can add the following s
 
 ```
 [commit]
-gpgsign = true
+	gpgSign = true
 ```
 
 Lastly, if you would like to add aliases to sign and verify tags using the conventions the Qubes OS Project recommends, you can add the following snippet to `~/.gitconfig`.
