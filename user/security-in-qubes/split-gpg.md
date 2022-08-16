@@ -226,8 +226,8 @@ Now that Keybase is configured to use `qubes-gpg-client-wrapper`, you will be ab
 
 ## Using Git with Split GPG
 
-Git can be configured to used with Split GPG, something useful if you would like to contribute to the Qubes OS Project as every commit is required to be signed.
-The most basic `~/.gitconfig` file to with working Split GPG looks something like this.
+Git can be configured to utilize Split GPG, something useful if you would like to contribute to the Qubes OS Project as every commit is required to be signed.
+The most basic `~/.gitconfig` file enabling Split GPG looks something like this.
 
 ```
 [user]
@@ -251,7 +251,7 @@ uid                    Qubes User
 ```
 
 To sign commits, you now add the "-S" flag to your commit command, which should prompt for Split GPG usage.
-If you would like automatically sign all commits, you can add the following snippet to `~/.gitconfig`.
+If you would like to automatically sign all commits, you can add the following snippet to `~/.gitconfig`.
 
 ```
 [commit]
