@@ -231,12 +231,12 @@ The most basic `~/.gitconfig` file enabling Split GPG looks something like this.
 
 ```
 [user]
-name = YOUR NAME
-email = YOUR EMAIL ADDRESS
-signingkey = YOUR KEY ID
+	name = <YOUR_NAME>
+	email = <YOUR_EMAIL_ADDRESS>
+	signingKey = <YOUR_KEY_ID>
 
 [gpg]
-program = qubes-gpg-client-wrapper
+	program = qubes-gpg-client-wrapper
 ```
 
 Your key id is the public id of your signing key, which can be found by running `qubes-gpg-client -k`.
