@@ -239,15 +239,19 @@ The most basic `~/.gitconfig` file enabling Split GPG looks something like this.
 	program = qubes-gpg-client-wrapper
 ```
 
-Your key id is the public id of your signing key, which can be found by running `qubes-gpg-client -k`.
-In this instance, the key id is DD160C74.
+Your key id is the public id of your signing key, which can be found by running `qubes-gpg-client --list-keys`.
+In this instance, the key id is E142F75A6B1B610E0E8F874FB45589245791CACB.
 
 ```shell_session
-[user@work-email ~]$ qubes-gpg-client -k
+[user@work-email ~]$ qubes-gpg-client --list-keys
 /home/user/.gnupg/pubring.kbx
 -----------------------------
-pub   rsa4096/DD160C74 2016-04-26
-uid                    Qubes User
+pub   ed25519 2022-08-16 [C]
+      E142F75A6B1B610E0E8F874FB45589245791CACB
+uid           [ultimate] Qubes User <user@example.com>
+sub   ed25519 2022-08-16 [S]
+sub   cv25519 2022-08-16 [E]
+sub   ed25519 2022-08-16 [A]
 ```
 
 To sign commits, you now add the "-S" flag to your commit command, which should prompt for Split GPG usage.
