@@ -25,12 +25,12 @@ Qubes OS is a security-focused operating system that allows you to organize your
 
 Qubes OS is provided at no cost (gratis), though [donations](/donate/) are greatly appreciated.
 
-All the software created by the Qubes OS Project is free/libre and open-source software (FLOSS).
+All the software created by the Qubes OS Project is [free (libre) and open-source software (FOSS or FLOSS)](https://www.gnu.org/philosophy/floss-and-foss.en.html).
 This means that everyone is allowed to use, copy, study, and change the software in accordance with its [license](/doc/license/).
-It also means that the source code is publicly available so everyone can audit and contribute to it.
+It also means that the [source code](/doc/source-code/) is [publicly available](https://github.com/QubesOS/) so everyone can audit and contribute to it.
 
 Since Qubes OS is a security-focused operating system, it includes some non-free firmware that was not created by the Qubes OS Project (such as CPU microcode), which is necessary in order to protect against known security vulnerabilities.
-Moreover, the nature of Qubes OS as a meta-operating system means that it incorporates other software (including entire operating systems) from various upstream projects, some of which may include non-free software of their own.
+Moreover, the [architecture](/doc/architecture/) of Qubes OS as a meta-operating system means that it incorporates other software (including entire operating systems) from various upstream projects, some of which may include non-free software of their own.
 In order to make the installation process easier for a wide range of users across many different devices, standard Qubes [templates](/doc/templates/) also include some non-free firmware and drivers.
 
 Also see: [Will Qubes seek to get certified under the GNU Free System Distribution Guidelines (GNU FSDG)?](#will-qubes-seek-to-get-certified-under-the-gnu-free-system-distribution-guidelines-gnu-fsdg)
