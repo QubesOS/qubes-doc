@@ -288,7 +288,7 @@ Instead, Qubes aims to be as free as possible *without sacrificing security*. Al
 
 The [four essential freedoms](https://www.gnu.org/philosophy/free-sw.html) are part of the core of our philosophy, but so is security. Together, they inform our decisions and motivate our actions. Qubes aims to maximize both security and software freedom to the extent that they are compatible in the world today.
 
-Also see [Is Qubes free?](#is-qubes-os-free-and-open-source-software) and the Qubes OS [software license](/doc/license/).
+Also see [Is Qubes OS free and open-source software?](#is-qubes-os-free-and-open-source-software) and the Qubes OS [software license](/doc/license/).
 
 ### Should I trust this website?
 
