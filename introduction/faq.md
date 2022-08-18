@@ -676,7 +676,7 @@ See the [Qubes Source Code Repositories](/doc/source-code/) article.
 
 ### What is Qubes' attitude toward changing guest distros?
 
-We try to respect each distro's culture, where possible.
+In general, we try to respect each distro's culture, but we reserve the right to make modifications that we deem appropriate.
 See the discussion on issue [#1014](https://github.com/QubesOS/qubes-issues/issues/1014) for an example.
 
 The policy is there mostly to ease maintenance, on several levels:
