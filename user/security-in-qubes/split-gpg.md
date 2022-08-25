@@ -262,16 +262,7 @@ If you would like to automatically sign all commits, you can add the following s
 	gpgSign = true
 ```
 
-Lastly, if you would like to add aliases to sign and verify tags using the conventions the Qubes OS Project recommends, you can add the following snippet to `~/.gitconfig`.
-
-```
-[alias]
-stag = "!id=`git rev-parse --verify HEAD`; git tag -s user_${id:0:8} -m \"Tag for commit $id\""
-vtag = !git tag -v `git describe`
-```
-
-Replace `user` with your short, unique nickname.
-Now you can use `git stag` to add a signed tag to a commit and `git vtag` to verify the most recent tag that is reachable from a commit.
+Lastly, if you would like to add aliases to sign and verify tags using the conventions the Qubes OS Project recommends, refer to the [code signing documentation](/doc/code-signing/#using-pgp-with-git).
 
 ## Importing public keys
 
