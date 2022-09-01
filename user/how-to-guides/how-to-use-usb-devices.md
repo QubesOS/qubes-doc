@@ -123,6 +123,10 @@ Some USB devices are not compatible with the USB pass-through method Qubes emplo
 In situations like these, you can try to pass through the entire USB controller to a qube as PCI device.
 However, with this approach one cannot attach single USB devices but has to attach the whole USB controller with whatever USB devices are connected to it.
 
+You can find your controller and its BDF address using either of two methods described below. Using the command-line tools lsusb and readlink or by using the Qube Manager GUI. It is possible that on some system configurations the readlink method produces output which is different from the example below, while the Qube Manager method allows one to easily determine the correct controller and BDF address.
+
+#### Method 1: Using lsusb and readlink
+
 If you have multiple USB controllers, you must first figure out which PCI device is the right controller.
 
 First, find out which USB bus the device is connected to (note that these steps need to be run from a terminal inside your USB qube):
@@ -155,6 +159,8 @@ This should output something like:
 ../../../devices/pci-0/pci0000:00/0000:00:1a.0/usb3
 ```
 
+If the output format does not match this example, or you are unsure if it contains the correct BDF address, you can try finding the address using method 2 using the Qube Manager instead.
+
 Now you see the path and the text between `/pci0000:00/0000:` and `/usb3` i.e. `00:1a.0` is the BDF address. Strip the address and pass it to the [`qvm-pci` tool](/doc/how-to-use-pci-devices/) to attach the controller to the targetVM.
 
 For example, On R 4.0 the command would look something like
@@ -162,3 +168,17 @@ For example, On R 4.0 the command would look something like
 ```
 qvm-pci attach --persistent personal dom0:00_1a.0
 ```
+
+#### Method 2: Using the Qube Manager
+
+Open the Qube Manager, then right click on one of the VMs and open the settings. Go to the tab "Devices".
+
+Here you should see your available devices along with their BDF addresses. Look for the lines containing "USB controller".
+
+They should look something like: `01:00.0 USB controller: Name of manufacturer`
+
+The first part is the BDF address, in this example: `01:00.0`
+
+If, for example, you have 2 USB controllers in your system because you added one you should see 2 such lines and you can probably guess which controller is the one on the mainboard and which one you added. For example, if you have a mainboard with an Intel chipset, it is possible that all of the mainboard devices show as "Intel Corporation" while the added controller shows another name of manufacturer.
+
+Now you should be able to tell which is the correct BDF address of the mainboard USB controller or the added USB controller.
