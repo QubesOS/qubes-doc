@@ -28,9 +28,9 @@ Examples of valid cases for USB-passthrough:
 (If you are thinking to use a two-factor-authentication device, [there is an app for that](/doc/u2f-proxy/).
 But it has some [issues](https://github.com/QubesOS/qubes-issues/issues/4661).)
 
-## Attaching And Detaching a USB Device
+## Attaching and detaching a USB device
 
-### With Qubes Device Manager
+### With Qubes device manager
 
 Click the device-manager-icon: ![device manager icon](/attachment/doc/media-removable.png)
 A list of available devices appears.
@@ -48,7 +48,7 @@ Hover on the attached device to display a list of running VMs.
 The one to which your device is connected will have an eject button ![eject icon](/attachment/doc/media-eject.png) next to it.
 Click that and your device will be detached.
 
-### With The Command Line Tool
+### With the command line tool
 
 In dom0, you can use `qvm-usb` from the commandline to attach and detach devices.
 
@@ -87,14 +87,14 @@ sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
 sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
 ```
 
-## Maintenance And Customisation
+## Maintenance and customisation
 
-### Creating And Using a USB qube
+### Creating and using a USB qube
 
 If you've selected to install a usb-qube during system installation, everything is already set up for you in `sys-usb`.
 If you've later decided to create a usb-qube, please follow [this guide](/doc/usb-qubes/).
 
-### Installation Of `qubes-usb-proxy`
+### Installation of `qubes-usb-proxy`
 
 To use this feature, the `qubes-usb-proxy` package needs to be installed in the templates used for the USB qube and qubes you want to connect USB devices to.
 This section exists for reference or in case something broke and you need to reinstall `qubes-usb-proxy`.
@@ -111,13 +111,13 @@ If you receive this error: `ERROR: qubes-usb-proxy not installed in the VM`, you
   sudo apt-get install qubes-usb-proxy
   ```
 
-### Using USB Keyboards And Other Input Devices
+### Using USB keyboards and other input devices
 
 **Warning:** especially keyboards need to be accepted by default when using them to login! Please make sure you carefully read and understood the **[security considerations](/doc/device-handling-security/#usb-security)** before continuing!
 
 Mouse and keyboard setup are part of [setting up a USB qube](/doc/usb-qubes/).
 
-### Finding The Right USB Controller
+### Finding the right USB controller
 
 Some USB devices are not compatible with the USB pass-through method Qubes employs.
 In situations like these, you can try to pass through the entire USB controller to a qube as PCI device.
