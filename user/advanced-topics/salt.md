@@ -61,7 +61,7 @@ enforcing the state in a particular area.
 It exposes some *imperative* functions for the administrator.
 For example, there is a `system` module that has a `system.halt` function that,
 when issued, will immediately halt a domain.
-There is another function called `state.highstate` which will synchronize the
+There is another function called `state.apply` which will synchronize the
 state of the system with the administrator's configuration/desires.
 
 ### Configuration
@@ -184,7 +184,7 @@ $ qubesctl top.disable my-new-vm
 To apply the states to dom0 and all VMs:
 
 ```
-$ qubesctl --all state.highstate
+$ qubesctl --all state.apply
 ```
 
 (More information on the `qubesctl` command further down.)
@@ -232,7 +232,7 @@ usage: qubesctl [-h] [--show-output] [--force-color] [--skip-dom0]
                 ...
 
 positional arguments:
-  command            Salt command to execute (e.g., state.highstate)
+  command            Salt command to execute (e.g., state.apply)
 
 optional arguments:
   -h, --help         show this help message and exit
@@ -246,7 +246,7 @@ optional arguments:
   --all              Target all non-disposables (templates and app qubes)
 ```
 
-To apply a state to all templates, call `qubesctl --templates state.highstate`.
+To apply a state to all templates, call `qubesctl --templates state.apply`.
 
 The actual configuration is applied using `salt-ssh` (running over `qrexec`
 instead of `ssh`).
@@ -325,7 +325,7 @@ $ qubesctl top.enable my-new-vm
 To apply the state:
 
 ```
-$ qubesctl state.highstate
+$ qubesctl state.apply
 ```
 
 ### Example of Configuring a VM's System from Dom0
@@ -357,7 +357,7 @@ $ qubesctl top.enable mc-everywhere
 And apply the configuration:
 
 ```
-$ qubesctl --all state.highstate
+$ qubesctl --all state.apply
 ```
 
 ## All Qubes-specific States
@@ -559,7 +559,7 @@ VM which provides network to the given VM
 The output for each VM is logged in `/var/log/qubes/mgmt-VM_NAME.log`.
 
 If the log does not contain useful information:
-1. Run `sudo qubesctl --skip-dom0 --target=VM_NAME state.highstate`
+1. Run `sudo qubesctl --skip-dom0 --target=VM_NAME state.apply`
 2. When your VM is being started (yellow) press Ctrl-z on qubesctl.
 3. Open terminal in disp-mgmt-VM_NAME.
 4. Look at /etc/qubes-rpc/qubes.SaltLinuxVM - this is what is
@@ -571,7 +571,7 @@ If the log does not contain useful information:
     $ salt-ssh "$target_vm" $salt_command
     ```
 
-  Adjust $target_vm (VM_NAME) and $salt_command (state.highstate).
+  Adjust $target_vm (VM_NAME) and $salt_command (state.apply).
 6. Execute them, fix problems, repeat.
 
 ## Known Pitfalls
