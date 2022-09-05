@@ -23,13 +23,15 @@ Qubes OS is a security-focused operating system that allows you to organize your
 
 ### Is Qubes OS free and open-source software?
 
-Qubes OS is provided at no cost (gratis), though [donations](/donate/) are greatly appreciated.
+There are two distinct senses of the word "free" when it comes to free software. The difference in commonly expressed by the phrases "free as in beer" and "free as in speech."
 
-All the software created by the Qubes OS Project is [free (libre) and open-source software (FOSS or FLOSS)](https://www.gnu.org/philosophy/floss-and-foss.en.html).
+The first senses is straightforward. Qubes OS is "free as in beer," meaning that it is provided at no cost (_gratis_), though [donations](/donate/) are greatly appreciated.
+
+The second sense is more complicated. Qubes OS is *mostly* "free as in speech," but not entirely. All the software created by the Qubes OS Project *itself* is [free (libre) and open-source software (FOSS or FLOSS)](https://www.gnu.org/philosophy/floss-and-foss.en.html).
 This means that everyone is allowed to use, copy, study, and change the software in accordance with its [license](/doc/license/).
 It also means that the [source code](/doc/source-code/) is [publicly available](https://github.com/QubesOS/) so everyone can audit and contribute to it.
 
-Since Qubes OS is a security-focused operating system, it includes some non-free firmware that was not created by the Qubes OS Project (such as CPU microcode), which is necessary in order to protect against known security vulnerabilities.
+However, since Qubes OS is a security-focused operating system, it includes some non-free firmware that was not created by the Qubes OS Project (such as CPU microcode), which is necessary in order to protect against known security vulnerabilities.
 Moreover, the [architecture](/doc/architecture/) of Qubes OS as a meta-operating system means that it incorporates other software (including entire operating systems) from various upstream projects, some of which may include non-free software of their own.
 In order to make the installation process easier for a wide range of users across many different devices, standard Qubes [templates](/doc/templates/) also include some non-free firmware and drivers.
 
