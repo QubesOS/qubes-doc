@@ -27,7 +27,7 @@ There are two distinct senses of the word "free" when it comes to free software.
 
 The first senses is straightforward. Qubes OS is "free as in beer," meaning that it is provided at no cost (_gratis_), though [donations](/donate/) are greatly appreciated.
 
-The second sense is more complicated. Qubes OS is *mostly* "free as in speech," but not entirely. All the software created by the Qubes OS Project *itself* is [free (libre) and open-source software (FOSS or FLOSS)](https://www.gnu.org/philosophy/floss-and-foss.en.html).
+The second sense is more complicated. Qubes OS is *mostly* "free as in speech," but not entirely. All the software created by the Qubes OS Project *itself* is [free (or "libre")](https://www.gnu.org/philosophy/free-sw) and [open-source](https://opensource.org/docs/definition.html) software ([FOSS or FLOSS](https://www.gnu.org/philosophy/floss-and-foss.en.html)).
 This means that everyone is allowed to use, copy, study, and change the software in accordance with its [license](/doc/license/).
 It also means that the [source code](/doc/source-code/) is [publicly available](https://github.com/QubesOS/) so everyone can audit and contribute to it.
 
