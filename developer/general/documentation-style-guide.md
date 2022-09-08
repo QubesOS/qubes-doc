@@ -273,7 +273,7 @@ wish to write documentation and submit it to the core docs, but they see only
 their own writing process and fail to consider that it will have to be kept
 up-to-date and consistent with the rest of the docs for years afterward.
 Submissions to the core docs also have to [undergo a review
-process](/doc/how-to-edit-the-documentation#security) to ensure accuracy before
+process](/doc/how-to-edit-the-documentation/#security) to ensure accuracy before
 being merged, which takes up valuable time from the team. We aim to maintain
 high quality standards for the core docs (style and mechanics, formatting),
 which also takes up a lot of time. If the documentation involves anything
