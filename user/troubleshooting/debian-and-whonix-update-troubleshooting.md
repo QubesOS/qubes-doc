@@ -1,7 +1,9 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/troubleshooting/updating-debian-and-whonix/
+permalink: /doc/debian-and-whonix-update-troubleshooting/
+redirect_from:
+- /doc/troubleshooting/updating-debian-and-whonix/
 ref: 98
 title: Updating Debian and Whonix
 ---
