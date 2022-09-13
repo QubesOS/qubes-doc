@@ -108,7 +108,8 @@ never leave this isolated machine.
 Before we proceed, you must first complete the prerequisite step of [installing
 OpenPGP software](#openpgp-software).
 
-Now, there are several ways to get the QMSK.
+Once you have appropriate OpenPGP software installed, there are several ways to
+get the QMSK.
 
 - If you're on Qubes OS, it's available in every
   qube ([except dom0](https://github.com/QubesOS/qubes-issues/issues/2544)):
@@ -194,7 +195,7 @@ Here are some ideas for how to do that:
 - Check the fingerprint on various websites (e.g., [mailing
   lists](https://groups.google.com/g/qubes-devel/c/RqR9WPxICwg/m/kaQwknZPDHkJ),
   [discussion
-  forums](https://forum.qubes-os.org/t/there-is-no-way-to-validate-qubes-master-signing-key/1441/9?u=adw),
+  forums](https://forum.qubes-os.org/t/1441/9),
   [social](https://twitter.com/rootkovska/status/496976187491876864)
   [media](https://www.reddit.com/r/Qubes/comments/5bme9n/fingerprint_verification/),
   [personal websites](https://andrewdavidwong.com/fingerprints.txt)).
@@ -292,12 +293,13 @@ Before we proceed, you must first complete the following prerequisite steps:
 1. [Install OpenPGP software.](#openpgp-software)
 2. [Import and authenticate the QMSK.](#how-to-import-and-authenticate-the-qubes-master-signing-key)
 
-The first step is to obtain the correct RSK. The filename of the RSK for your
-Qubes OS release is usually `qubes-release-X-signing-key.asc`, where `X` is the
-[major version number](https://semver.org/) of your Qubes release. For example,
-if you were installing release `1.2.3`, you would replace `X` with `1`,
-resulting in `qubes-release-1-signing-key.asc`. There are several ways to get
-the RSK for your Qubes release.
+After you have completed these two prerequisite steps, the next step is to
+obtain the correct RSK. The filename of the RSK for your Qubes OS release is
+usually `qubes-release-X-signing-key.asc`, where `X` is the [major version
+number](https://semver.org/) of your Qubes release. For example, if you were
+installing release `1.2.3`, you would replace `X` with `1`, resulting in
+`qubes-release-1-signing-key.asc`. There are several ways to get the RSK for
+your Qubes release.
 
 - If you have access to an existing Qubes installation, the release keys are
   available in dom0 in `/etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-*`. These can be
