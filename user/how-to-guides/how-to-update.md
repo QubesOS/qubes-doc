@@ -46,7 +46,7 @@ Area when updates are available.
 [![Qube Updates Available](/attachment/doc/r4.0-qube-updates-available.png)](/attachment/doc/r4.0-qube-updates-available.png)
 
 However, you can also start the tool manually by selecting it in the
-Applications Menu under "System Tools." Even if no updates have been detected,
+Applications Menu under "Qubes Tools." Even if no updates have been detected,
 you can use this tool to check for updates manually at any time by selecting
 "Enable updates for qubes without known available updates," then selecting all
 desired items from the list and clicking "Next."
