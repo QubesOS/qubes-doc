@@ -65,12 +65,12 @@ desired items from the list and clicking "Next."
 </div>
 
 Advanced users may wish to perform updates via the command-line interface. The
-recommended way to do this is by using the command-line equivalents of the
-**Qubes Update** tool.
+recommended way to do this is by applying the following two Salt states.
+**Applying these two Salt states is the same as updating via the Qubes Update
+tool.**
 
-There are two Salt formulae and two corresponding `qubesctl` commands:
- - [`update.qubes-dom0`](/doc/salt/#updatequbes-dom0)
- - [`update.qubes-vm`](/doc/salt/#updatequbes-vm)
+ - [update.qubes-dom0](/doc/salt/#updatequbes-dom0)
+ - [update.qubes-vm](/doc/salt/#updatequbes-vm)
 
 In your update qube, a terminal window opens that displays the progress of
 operations and output as it is logged. At the end of the process, logs are sent
