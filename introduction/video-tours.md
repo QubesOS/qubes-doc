@@ -10,10 +10,10 @@ title: Video tours
 
 Watch all the talks from Qubes OS Summit 2022, which took place September 9-11, 2022 in Berlin, Germany.
 
-<div class="video more-top">
+<div class="video">
   <iframe class="responsive" referrerpolicy="no-referrer" scrolling="no" allowfullscreen src="https://www.youtube-nocookie.com/embed/hkWWz3xGqS8"></iframe>
 </div>
-<div class="video more-top">
+<div class="video more-bottom">
   <iframe class="responsive" referrerpolicy="no-referrer" scrolling="no" allowfullscreen src="https://www.youtube-nocookie.com/embed/A9GrlQsQc7Q"></iframe>
 </div>
 
@@ -27,6 +27,6 @@ Watch all the talks from Qubes OS Summit 2022, which took place September 9-11, 
 
 ## Explaining Computers presents "Qubes OS: Security Oriented Operating System"
 
-<div class="video more-top">
+<div class="video">
   <iframe class="responsive" referrerpolicy="no-referrer" scrolling="no" allowfullscreen src="https://www.youtube-nocookie.com/embed/hWDvS_Mp6gc"></iframe>
 </div>
