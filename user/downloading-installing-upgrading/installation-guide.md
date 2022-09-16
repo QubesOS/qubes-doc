@@ -110,7 +110,7 @@ On Linux, if you choose to use a USB drive, copy the ISO onto the USB device,
 e.g. using `dd`:
 
 ```
-$ sudo dd if=Qubes-RX-x86_64.iso of=/dev/sdY status=progress bs=1048576 && sync
+$ sudo dd if=Qubes-RX-x86_64.iso of=/dev/sdY status=progress bs=1048576 conv=fsync
 ```
 
 Change `Qubes-RX-x86_64.iso` to the filename of the version you're installing,
