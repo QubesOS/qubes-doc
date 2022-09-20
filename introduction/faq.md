@@ -616,13 +616,14 @@ Qubes is slower when reading from the disk because of the VM overhead, which is 
 
 ### Could you please make my preference the default?
 
-Wouldn't it be great if Qubes were configured just the way you like it by default with all of your favorite programs and settings?
-Then you could just install Qubes without having to install any programs in it or adjust any settings!
-You might even think that if a particular program or setting works so well for *you*, it would work well for *everyone*, so you'd actually be doing everyone a favor!
+It would be great if Qubes were configured just the way we like it by default with all of our favorite programs and settings.
+Then, we could just install Qubes without having to install any programs in it or adjust any settings.
+We might even think that if a particular program or setting works so well for *us*, it would work well for *everyone*, so we'd actually be doing everyone a favor!
 The problem is that Qubes has [tens of thousands of different users](/statistics/) with radically different needs and purposes.
-There is no particular configuration that will be ideal for everyone (despite how much you might feel that your preference would be better for everyone), so the best we can do is to put power in the hands of users to configure their Qubes installations the way they like (subject to security constraints, of course).
-Please don't ask for your favorite program to be installed by default or for some setting that obviously varies by user preference to be changed so that it matches *your* preference.
-This is an incredibly selfish attitude that demonstrates a complete lack of consideration for the thousands of other Qubes users who don't happen to share your preferences.
+There is no particular configuration that will be ideal for everyone (despite how much we might feel that our preference would be better for everyone), so the best we can do is to put power in the hands of users to configure their Qubes installations the way they like (subject to security constraints, of course).
+For this reason, we generally do not grant requests for people's favorite programs to be installed by default or for some setting that obviously varies by user preference to be changed so that it matches the requester's preference.
+
+See also: [What is Qubes’ attitude toward changing guest distros?](#what-is-qubes-attitude-toward-changing-guest-distros)
 
 ### Software installed in a qube is gone after restarting. Why?
 
