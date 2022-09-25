@@ -26,7 +26,9 @@ title: System requirements
 - **CPU:** 64-bit Intel or AMD processor (also known as `x86_64`, `x64`, and `AMD64`)
   - [Intel VT-x](https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29) with [EPT](https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Extended_Page_Tables) or [AMD-V](https://en.wikipedia.org/wiki/X86_virtualization#AMD_virtualization_.28AMD-V.29) with [RVI](https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Rapid_Virtualization_Indexing)
   - [Intel VT-d](https://en.wikipedia.org/wiki/X86_virtualization#Intel-VT-d) or [AMD-Vi (also known as AMD IOMMU)](https://en.wikipedia.org/wiki/X86_virtualization#I.2FO_MMU_virtualization_.28AMD-Vi_and_Intel_VT-d.29)
+
 - **Memory:** 6 GB RAM
+
 - **Storage:** 32 GB free space
 
 ## Recommended
@@ -34,19 +36,35 @@ title: System requirements
 - **CPU:** 64-bit Intel or AMD processor (also known as `x86_64`, `x64`, and `AMD64`)
   - [Intel VT-x](https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29) with [EPT](https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Extended_Page_Tables) or [AMD-V](https://en.wikipedia.org/wiki/X86_virtualization#AMD_virtualization_.28AMD-V.29) with [RVI](https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Rapid_Virtualization_Indexing)
   - [Intel VT-d](https://en.wikipedia.org/wiki/X86_virtualization#Intel-VT-d) or [AMD-Vi (also known as AMD IOMMU)](https://en.wikipedia.org/wiki/X86_virtualization#I.2FO_MMU_virtualization_.28AMD-Vi_and_Intel_VT-d.29)
+
 - **Memory:** 16 GB RAM
+
 - **Storage:** 128 GB free space
   - High-speed solid-state drive strongly recommended
+
 - **Graphics:** Intel integrated graphics processor (IGP) strongly recommended
   - Nvidia GPUs may require significant
     [troubleshooting](/doc/install-nvidia-driver/)
   - AMD GPUs have not been formally tested, but Radeons (especially RX580 and
     earlier) generally work well
+
 - **Peripherals:** A non-USB keyboard or multiple USB controllers
+
 - **TPM:** Trusted Platform Module (TPM) with proper BIOS support (required for
   [Anti Evil Maid](/doc/anti-evil-maid/))
-- **Other:** Satisfaction of all [hardware certification requirements for Qubes
-  4.x](/news/2016/07/21/new-hw-certification-for-q4/)
+
+The following are *required* for [Qubes-certified hardware
+devices](/doc/certified-hardware/) but *merely recommended* for *non-certified*
+hardware (see the [hardware certification
+requirements](/doc/certified-hardware/#hardware-certification-requirements) for
+details).
+
+- Open-source boot firmware (e.g., [coreboot](https://www.coreboot.org/))
+
+- Hardware switches for all built-in USB-connected microphones (if any)
+
+- On non-laptops, either support for non-USB input devices or a separate USB
+  controller only for input devices
 
 ## Choosing Hardware
 
