@@ -46,8 +46,7 @@ hypervisor or isolation provider. We may also create commercial products
 intended for specific circumstances. There is one distinguished distribution
 called **Qubes OS**. All source code for it is available for download under a
 [free and open-source license](/doc/license/) and is openly developed on
-[GitHub](https://github.com/QubesOS) and our [mailing
-lists](https://www.qubes-os.org/support/). The rest of this document discusses
+[GitHub](https://github.com/QubesOS) and our [mailing lists](https://www.qubes-os.org/support/). The rest of this document discusses
 Qubes OS. Another remix may have its own version series.
 
 ## Release versioning
@@ -61,10 +60,8 @@ welcome to [help us test](/doc/testing/) these versions.
 
 When enough progress has been made, we announce the first stable release, e.g.
 `3.0.0`. This not only a version but an actual release. It is considered stable
-and we commit to supporting it according to our [support
-schedule](/doc/supported-releases/). Core components are branched at this
-moment and bug fixes are backported from the master branch. Please see [help,
-support, mailing lists, and forum](/support/) for places to ask questions about
+and we commit to supporting it according to our [support schedule](/doc/supported-releases/). Core components are branched at this
+moment and bug fixes are backported from the master branch. Please see [help, support, mailing lists, and forum](/support/) for places to ask questions about
 stable releases. No major features and interface incompatibilities are to be
 included in this release. We release bug fixes as patch releases (`3.0.1`,
 `3.0.2`, and so on), while backward-compatible enhancements and new features

@@ -85,9 +85,7 @@ a mailing list similar to [qubes-announce](/support/#qubes-announce), which
 allows us to receive only very important, infrequent messages, including EOL
 announcements, we are much more likely to be able to pass along EOL notices to
 Qubes users reliably. Qubes users can always check the EOL status of an
-upstream release on the upstream distribution's website (see [Fedora
-EOL](https://fedoraproject.org/wiki/End_of_life) and [Debian
-Releases](https://wiki.debian.org/DebianReleases)).
+upstream release on the upstream distribution's website (see [Fedora EOL](https://fedoraproject.org/wiki/End_of_life) and [Debian Releases](https://wiki.debian.org/DebianReleases)).
 
 | Qubes OS    | Fedora | Debian                                              | Whonix |
 | ----------- | ------ | --------------------------------------------------- | ------ |
@@ -95,9 +93,7 @@ Releases](https://wiki.debian.org/DebianReleases)).
 
 ### Note on Debian support
 
-Debian releases have two EOL dates: regular and [long-term support
-(LTS)](https://wiki.debian.org/LTS). See [Debian Production
-Releases](https://wiki.debian.org/DebianReleases#Production_Releases) for a
+Debian releases have two EOL dates: regular and [long-term support (LTS)](https://wiki.debian.org/LTS). See [Debian Production Releases](https://wiki.debian.org/DebianReleases#Production_Releases) for a
 chart that illustrates this. Qubes support ends at the *regular* EOL date,
 *not* the LTS EOL date, unless a specific exception has been made.
 

@@ -20,8 +20,7 @@ offline copy of all Qubes documentation rather than relying solely on the web.
 
 The documentation is a volunteer community effort. People like you are
 constantly working to make it better. If you notice something that can be fixed
-or improved, please [edit the
-documentation](/doc/how-to-edit-the-documentation/)!
+or improved, please [edit the documentation](/doc/how-to-edit-the-documentation/)!
 
 This page explains the standards we follow for writing, formatting, and
 organizing the documentation. Please follow these guidelines and conventions
@@ -108,8 +107,7 @@ numbered lists easier to follow.
 
 ### Code blocks
 
-When writing code blocks, use [syntax
-highlighting](https://github.github.com/gfm/#info-string) where possible (see
+When writing code blocks, use [syntax highlighting](https://github.github.com/gfm/#info-string) where possible (see
 [here](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers)
 for a list of supported languages). Use `[...]` for anything omitted.
 
@@ -228,12 +226,10 @@ that is certain not to change for a very long time), but they are rare.
 
 ### Core vs. external documentation
 
-Core documentation resides in the [Qubes OS Project's official
-repositories](https://github.com/QubesOS/), mainly in
+Core documentation resides in the [Qubes OS Project's official repositories](https://github.com/QubesOS/), mainly in
 [qubes-doc](https://github.com/QubesOS/qubes-doc). External documentation can
 be anywhere else (such as forums, community websites, and blogs), but there is
-an especially large collection in the [Qubes
-Community](https://github.com/Qubes-Community) project. External documentation
+an especially large collection in the [Qubes Community](https://github.com/Qubes-Community) project. External documentation
 should not be submitted to [qubes-doc](https://github.com/QubesOS/qubes-doc).
 If you've written a piece of documentation that is not appropriate for
 [qubes-doc](https://github.com/QubesOS/qubes-doc), we encourage you to submit
@@ -241,11 +237,8 @@ it to the [Qubes Community](https://github.com/Qubes-Community) project
 instead. However, *linking* to external documentation from
 [qubes-doc](https://github.com/QubesOS/qubes-doc) is perfectly fine. Indeed,
 the maintainers of the [Qubes Community](https://github.com/Qubes-Community)
-project should regularly submit PRs against the documentation index (see [How
-to edit the documentation
-index](/doc/how-to-edit-the-documentation/#how-to-edit-the-documentation-index))
-to add and update Qubes Community links in the ["External
-documentation"](/doc/#external-documentation) section of the documentation
+project should regularly submit PRs against the documentation index (see [How to edit the documentation index](/doc/how-to-edit-the-documentation/#how-to-edit-the-documentation-index))
+to add and update Qubes Community links in the ["External documentation"](/doc/#external-documentation) section of the documentation
 table of contents.
 
 The main difference between **core** (or **official**) and **external** (or
@@ -272,8 +265,7 @@ involved in *maintaining* documentation after it has been written. They may
 wish to write documentation and submit it to the core docs, but they see only
 their own writing process and fail to consider that it will have to be kept
 up-to-date and consistent with the rest of the docs for years afterward.
-Submissions to the core docs also have to [undergo a review
-process](/doc/how-to-edit-the-documentation/#security) to ensure accuracy before
+Submissions to the core docs also have to [undergo a review process](/doc/how-to-edit-the-documentation/#security) to ensure accuracy before
 being merged, which takes up valuable time from the team. We aim to maintain
 high quality standards for the core docs (style and mechanics, formatting),
 which also takes up a lot of time. If the documentation involves anything
@@ -441,5 +433,4 @@ For further discussion about release-specific documentation in Qubes, see
 
 ## Git conventions
 
-Please follow our [Git commit message
-guidelines](/doc/coding-style/#commit-message-guidelines).
+Please follow our [Git commit message guidelines](/doc/coding-style/#commit-message-guidelines).

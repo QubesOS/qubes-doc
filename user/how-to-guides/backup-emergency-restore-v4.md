@@ -37,8 +37,7 @@ Here are instructions for obtaining a compiled `scrypt` binary. This example
 uses an RPM-based system (Fedora), but the same general procedure should work
 on any GNU/Linux system.
 
- 1. If you're not on Qubes 4.X, [import and authenticate the Release 4 Signing
-    Key](/security/verifying-signatures/#how-to-import-and-authenticate-release-signing-keys).
+ 1. If you're not on Qubes 4.X, [import and authenticate the Release 4 Signing Key](/security/verifying-signatures/#how-to-import-and-authenticate-release-signing-keys).
 
         [user@restore ~]$ sudo rpm --import qubes-release-4-signing-key.asc
 

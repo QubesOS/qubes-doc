@@ -99,8 +99,7 @@ fresh installation.
 5. When you are ready, click **Next**. Qubes will proceed to create your
    backup. Once the progress bar has completed, you may click **Finish**.
 
-6. Test restore your backup. Follow the [restore
-   procedure](#restoring-from-a-backup), selecting **Verify backup integrity,
+6. Test restore your backup. Follow the [restore procedure](#restoring-from-a-backup), selecting **Verify backup integrity,
    do not restore the data**. This step is optional but strongly recommended. A
    backup is useless if you can't restore your data from it, and you can't be
    sure that your backup is good until you try to restore.
@@ -140,8 +139,7 @@ fresh installation.
    3. **Verify backup integrity, do not restore the data**: This will scan the
    backup file for corrupted data. However, it does not currently detect if it
    is missing data as long as it is a correctly structured, non-corrupted
-   backup file. See [issue
-   #3498](https://github.com/QubesOS/qubes-issues/issues/3498) for more
+   backup file. See [issue #3498](https://github.com/QubesOS/qubes-issues/issues/3498) for more
    details.
 
 4. If your backup is encrypted, you must check the **Encrypted backup** box. If
@@ -189,8 +187,7 @@ Refer to the following for emergency restore of a backup created on:
 ## Migrating between two physical machines
 
 In order to migrate your Qubes system from one physical machine to another,
-simply follow the backup procedure on the old machine, [install
-Qubes](/downloads/) on the new machine, and follow the restoration procedure on
+simply follow the backup procedure on the old machine, [install Qubes](/downloads/) on the new machine, and follow the restoration procedure on
 the new machine. All of your settings and data will be preserved!
 
 ## Choosing a backup passphrase
@@ -217,7 +214,5 @@ Here are some things to consider when selecting a passphrase for your backups:
 
 ## Notes
 
-- For the technical details of the backup system, please refer to [this
-  thread](https://groups.google.com/d/topic/qubes-devel/TQr_QcXIVww/discussion).
-- If working with symlinks, note the issues described in [this
-  thread](https://groups.google.com/d/topic/qubes-users/EITd1kBHD30/discussion).
+- For the technical details of the backup system, please refer to [this thread](https://groups.google.com/d/topic/qubes-devel/TQr_QcXIVww/discussion).
+- If working with symlinks, note the issues described in [this thread](https://groups.google.com/d/topic/qubes-users/EITd1kBHD30/discussion).

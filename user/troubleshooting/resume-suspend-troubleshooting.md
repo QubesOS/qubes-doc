@@ -9,8 +9,7 @@ ref: 94
 title: Suspend/resume troubleshooting
 ---
 
-First check if there are any remarks for similar devices in the [Hardware
-Compatibility List (HCL)](/hcl/).
+First check if there are any remarks for similar devices in the [Hardware Compatibility List (HCL)](/hcl/).
 
 ## Network-Manager says “Device not ready” on suspend/resume 
 

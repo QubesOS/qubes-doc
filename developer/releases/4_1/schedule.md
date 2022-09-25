@@ -7,8 +7,7 @@ redirect_from:
 title: Qubes R4.1 release schedule
 ---
 
-The table below is based on our [release schedule
-policy](/doc/version-scheme/#release-schedule).
+The table below is based on our [release schedule policy](/doc/version-scheme/#release-schedule).
 
 |  Date      | Stage                                     |
 | ----------:| ----------------------------------------- |

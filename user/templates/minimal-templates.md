@@ -24,22 +24,17 @@ templates, along with some examples of common use cases.
 
 ## Important
 
-1. [The minimal templates are intended only for advanced
-   users.](https://forum.qubes-os.org/t/9717/15) If you encounter problems with
+1. [The minimal templates are intended only for advanced users.](https://forum.qubes-os.org/t/9717/15) If you encounter problems with
    the minimal templates, we recommend that you use their standard template
    counterparts instead.
 
 2. If something works with a standard template but not the minimal version,
    this is most likely due to user error (e.g., a missing package or
    misconfiguration) rather than a bug. In such cases, please do *not* file a
-   bug report. Instead, please see [Help, Support, Mailing Lists, and
-   Forum](/support/) for the appropriate place to ask for help. Once you have
-   learned how to solve your problem, please [contribute what you learned to
-   the documentation](/doc/how-to-edit-the-documentation/).
+   bug report. Instead, please see [Help, Support, Mailing Lists, and Forum](/support/) for the appropriate place to ask for help. Once you have
+   learned how to solve your problem, please [contribute what you learned to the documentation](/doc/how-to-edit-the-documentation/).
 
-3. The minimal templates are intentionally *minimal*. [Do not ask for your
-   favorite package to be added to the minimal template by
-   default.](/faq/#could-you-please-make-my-preference-the-default)
+3. The minimal templates are intentionally *minimal*. [Do not ask for your favorite package to be added to the minimal template by default.](/faq/#could-you-please-make-my-preference-the-default)
 
 4. In order to reduce unnecessary risk, unused repositories have been disabled
    by default. If you wish to install or update any packages from those
@@ -83,8 +78,7 @@ The download may take a while depending on your connection speed.
 
 ## Passwordless root
 
-It is an intentional design choice for [Passwordless Root Access in
-VMs](/doc/vm-sudo/) to be optional in minimal templates. Since the minimal
+It is an intentional design choice for [Passwordless Root Access in VMs](/doc/vm-sudo/) to be optional in minimal templates. Since the minimal
 templates are *minimal*, they are not configured for passwordless root by
 default. To update or install packages, execute the following command in dom0:
 
@@ -150,13 +144,11 @@ list of packages to be installed):
 - [USB qube](/doc/usb-qubes/), such as the template for `sys-usb`:
   `qubes-usb-proxy` to provide USB devices to other Qubes and
   `qubes-input-proxy-sender` to provide keyboard or mouse input to dom0.
-- [VPN
-  qube](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md):
+- [VPN qube](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md):
   Use the `dnf search "NetworkManager VPN plugin"` command to look up the VPN
   packages you need, based on the VPN technology you'll be using, and install
   them. Some GNOME related packages may be needed as well. After creation of a
-  machine based on this template, follow the [VPN
-  instructions](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager)
+  machine based on this template, follow the [VPN instructions](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager)
   to configure it.
 - `default-mgmt-dvm`: requires `qubes-core-agent-passwordless-root` and
   `qubes-mgmt-salt-vm-connector`.
@@ -249,12 +241,10 @@ list of packages to be installed):
   [#7689](https://github.com/QubesOS/qubes-issues/issues/7689) is fixed, either
   pair it with `qubes-core-agent-passwordless-root` or manually activate the
   user session with `loginctl activate <USER_SESSION_ID>`.)
-- [VPN
-  qube](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md):
+- [VPN qube](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md):
   You may need to install network-manager VPN packages, depending on the VPN
   technology you'll be using. After creating a machine based on this template,
-  follow the [VPN
-  howto](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager)
+  follow the [VPN howto](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager)
   to configure it.
 - `default-mgmt-dvm`: requires `qubes-core-agent-passwordless-root` and
   `qubes-mgmt-salt-vm-connector`.
@@ -325,12 +315,10 @@ list of packages to be installed):
 - [USB qube](/doc/usb-qubes/), such as the template for `sys-usb`:
   `qubes-usb-proxy` to provide USB devices to other Qubes and
   `qubes-input-proxy-sender` to provide keyboard or mouse input to dom0.
-- [VPN
-  qube](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md):
+- [VPN qube](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md):
   You may need to install network-manager VPN packages, depending on the VPN
   technology you'll be using. After creating a machine based on this template,
-  follow the [VPN
-  howto](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager)
+  follow the [VPN howto](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager)
   to configure it.
 - `default-mgmt-dvm`: requires `qubes-core-agent-passwordless-root` and
   `qubes-mgmt-salt-vm-connector`.

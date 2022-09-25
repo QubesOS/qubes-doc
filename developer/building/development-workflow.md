@@ -169,8 +169,7 @@ testing.
 
 Here are some handy scripts Marek has shared to facilitate this.
 
-You may also like to run your [test environment on separate
-machine](/doc/test-bench/).
+You may also like to run your [test environment on separate machine](/doc/test-bench/).
 
 ### Syncing dom0 files
 
@@ -384,8 +383,7 @@ Of course you will also need to setup qrexec policy in dom0
 
 If you want to access the repository from network, you need to setup HTTP
 server serving it, and configure the system to let other machines actually
-reach this HTTP server. You can use for example using [port
-forwarding](/doc/firewall/#port-forwarding-to-a-qube-from-the-outside-world) or setting up Tor hidden service. Configuration
+reach this HTTP server. You can use for example using [port forwarding](/doc/firewall/#port-forwarding-to-a-qube-from-the-outside-world) or setting up Tor hidden service. Configuration
 details of those services are outside of the scope of this page.
 
 Usage: setup `builder.conf` in source VM to use your dummy-uploader repository:

@@ -20,8 +20,7 @@ Qubes OS, it's time to dive in and get to work!
 Qubes OS is an operating system built out of securely-isolated compartments
 called [qubes](/doc/glossary/#qube). For example, you might have a work qube, a
 personal qube, a banking qube, a web browsing qube, and so on. You can have as
-many qubes as you want! Most of the time, you'll be using an [app
-qube](/doc/glossary/#app-qube), which is a qube intended for running software
+many qubes as you want! Most of the time, you'll be using an [app qube](/doc/glossary/#app-qube), which is a qube intended for running software
 programs like web browsers, email clients, and word processors. Each app qube
 is based on another type of qube called a [template](/doc/glossary/#template).
 More than one qube can be based on the same template. Importantly, a qube
@@ -39,21 +38,17 @@ to update all the qubes based on it. This elegant design saves time and space
 while enhancing security.
 
 There are also some "helper" qubes in your system. Each qube that connects to
-the Internet does so through a network-providing [service
-qube](/doc/glossary/#service-qube). If you need to access USB devices, another
-service qube will do that. There's also a [management
-qube](/doc/glossary/#management-qube) that automatically handles a lot of
+the Internet does so through a network-providing [service qube](/doc/glossary/#service-qube). If you need to access USB devices, another
+service qube will do that. There's also a [management qube](/doc/glossary/#management-qube) that automatically handles a lot of
 background housekeeping. For the most part, you won't have to worry about it,
 but it's nice to know that it's there. As with app qubes, service qubes and
 management qubes are also based on templates. Templates are usually named after
-their operating system (often a [Linux
-distribution](https://en.wikipedia.org/wiki/Linux_distribution)) and
+their operating system (often a [Linux distribution](https://en.wikipedia.org/wiki/Linux_distribution)) and
 corresponding version number. There are many ready-to-use
 [templates](/doc/templates) to choose from, and you can download and have as
 many as you like.
 
-Last but not least, there's a very special [admin
-qube](/doc/glossary/#admin-qube) which, as the name suggests, is used to
+Last but not least, there's a very special [admin qube](/doc/glossary/#admin-qube) which, as the name suggests, is used to
 administer your entire system. There's only one admin qube, and it's called
 [dom0](/doc/glossary/#dom0). You can think of it as the master qube, holding
 ultimate power over everything that happens in Qubes OS. Dom0 is more trusted
@@ -61,9 +56,7 @@ than any other qube. If dom0 were ever compromised, it would be "game over."
 The entire system would effectively be compromised. That's why everything in
 Qubes OS is specifically designed to protect dom0 and ensure that doesn't
 happen. Due to its overarching importance, dom0 has no network connectivity and
-is used only for running the [desktop
-environment](https://en.wikipedia.org/wiki/Desktop_environment) and [window
-manager](https://en.wikipedia.org/wiki/Window_manager). Dom0 should never be
+is used only for running the [desktop environment](https://en.wikipedia.org/wiki/Desktop_environment) and [window manager](https://en.wikipedia.org/wiki/Window_manager). Dom0 should never be
 used for anything else. In particular, you should never run user applications
 in dom0. (That's what your app qubes are for!)
 
@@ -107,8 +100,7 @@ The bar at the top of your screen in Qubes 4.0 includes the following XFCE
 component areas:
 
 - The **Tray**, where many functional widgets live.
-- **Spaces**, an interface for [virtual
-  desktops](https://en.wikipedia.org/wiki/Virtual_desktop). Virtual desktops do
+- **Spaces**, an interface for [virtual desktops](https://en.wikipedia.org/wiki/Virtual_desktop). Virtual desktops do
   not have any inherent security isolation properties, but some users find them
   useful for organizing things.
 - The **Task Bar** where buttons for open and hidden windows live.
@@ -196,11 +188,9 @@ It's a good idea to start out with the qubes created automatically by the
 installer: `work`, `personal`, `untrusted`, and `vault`. If and when you start
 to feel that some activity just doesn't fit into any of your existing qubes, or
 you want to partition some part of your life, you can easily create a new qube
-for it. You'll also be able to easily [copy any
-files](/doc/how-to-copy-and-move-files) you need to the newly-created qube.
+for it. You'll also be able to easily [copy any files](/doc/how-to-copy-and-move-files) you need to the newly-created qube.
 
-Still not sure? You might find it helpful to read [this
-article](https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html),
+Still not sure? You might find it helpful to read [this article](https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html),
 which describes how one of the Qubes OS architects partitioned her digital life
 into security domains.
 
@@ -211,8 +201,7 @@ you have the latest security updates. Frequently updating is one of the best
 ways to remain secure against new threats.
 
 It's also *very important* to make regular backups so that you don't lose your
-data unexpectedly. The [Qubes backup
-system](/doc/how-to-back-up-restore-and-migrate/) allows you to do this
+data unexpectedly. The [Qubes backup system](/doc/how-to-back-up-restore-and-migrate/) allows you to do this
 securely and easily.
 
 ## How-To Guides
@@ -229,24 +218,16 @@ unique to Qubes as a multi-environment system. A full list is available in the
 - [How to Install Software](/doc/how-to-install-software/)
 - [How to Use Devices (block storage, USB, and PCI devices)](/doc/how-to-use-devices/)
 
-If you encounter any problems, please visit the [Help, Support, Mailing Lists,
-and Forum](/support/) page.
+If you encounter any problems, please visit the [Help, Support, Mailing Lists, and Forum](/support/) page.
 
 ## Compatible Hardware
 
-Make sure your hardware satisfies the [system
-requirements](/doc/system-requirements/), as Qubes OS cannot run on every type
-of computer. You may also want to check out [Qubes-certified
-Hardware](/doc/certified-hardware/) and take a look at the [Hardware
-Compatibility List (HCL)](/hcl/).
+Make sure your hardware satisfies the [system requirements](/doc/system-requirements/), as Qubes OS cannot run on every type
+of computer. You may also want to check out [Qubes-certified Hardware](/doc/certified-hardware/) and take a look at the [Hardware Compatibility List (HCL)](/hcl/).
 
 ## Downloads
 
-[Download an ISO](/downloads/), learn how to [verify its
-authenticity](/doc/verifying-signatures/), and follow our [guide to install
-Qubes OS](/doc/installation-guide/). Looking for the [source
-code](/doc/source-code/)? You'll find it [on
-GitHub](https://github.com/QubesOS).
+[Download an ISO](/downloads/), learn how to [verify its authenticity](/doc/verifying-signatures/), and follow our [guide to install Qubes OS](/doc/installation-guide/). Looking for the [source code](/doc/source-code/)? You'll find it [on GitHub](https://github.com/QubesOS).
 
 ## Documentation
 

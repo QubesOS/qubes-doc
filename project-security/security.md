@@ -49,41 +49,33 @@ take all reported issues seriously. If our investigation confirms that an issue
 affects Qubes, we will patch it within a reasonable time and release a public
 [Qubes security bulletin (QSB)](/security/qsb/) that describes the issue,
 discusses the potential impact of the vulnerability, references applicable
-patches or workarounds, and credits the discoverer. Please use the [Qubes
-security team PGP
-key](https://keys.qubes-os.org/keys/qubes-os-security-team-key.asc) to encrypt
+patches or workarounds, and credits the discoverer. Please use the [Qubes security team PGP key](https://keys.qubes-os.org/keys/qubes-os-security-team-key.asc) to encrypt
 your email to this address:
 
 ```
 security at qubes-os dot org
 ```
 
-This key is signed by the [Qubes Master Signing
-Key](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc). Please see
+This key is signed by the [Qubes Master Signing Key](https://keys.qubes-os.org/keys/qubes-master-signing-key.asc). Please see
 [verifying signatures](/security/verifying-signatures/) for information about
 how to authenticate these keys.
 
 ## Security updates
 
-Qubes security updates are obtained by [updating Qubes
-OS](/doc/how-to-update/).
+Qubes security updates are obtained by [updating Qubes OS](/doc/how-to-update/).
 
 ## Qubes security team
 
-The **Qubes security team (QST)** is the subset of the [core
-team](/team/#core-team) that is responsible for ensuring the security of Qubes
+The **Qubes security team (QST)** is the subset of the [core team](/team/#core-team) that is responsible for ensuring the security of Qubes
 OS and the Qubes OS Project. In particular, the QST is responsible for:
 
-- Responding to [reported security
-  issues](#reporting-security-issues-in-qubes-os)
+- Responding to [reported security issues](#reporting-security-issues-in-qubes-os)
 - Evaluating whether [XSAs](/security/xsa/) affect the security of Qubes OS
 - Writing, applying, and/or distributing security patches to fix
   vulnerabilities in Qubes OS
-- Writing, signing, and publishing [Qubes security bulletins
-  (QSBs)](/security/qsb/)
+- Writing, signing, and publishing [Qubes security bulletins (QSBs)](/security/qsb/)
 - Writing, signing, and publishing [Qubes canaries](/security/canary/)
-- Generating, safeguarding, and using the project's [PGP
-  keys](https://keys.qubes-os.org/keys/)
+- Generating, safeguarding, and using the project's [PGP keys](https://keys.qubes-os.org/keys/)
 
 As a security-oriented operating system, the QST is fundamentally important to
 Qubes, and every Qubes user implicitly trusts the members of the QST by virtue

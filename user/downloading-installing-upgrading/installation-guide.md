@@ -38,21 +38,18 @@ functional and secure.
 </div>
 
 Qubes OS has very specific [system requirements](/doc/system-requirements/). To
-ensure compatibility, we strongly recommend using [Qubes-certified
-hardware](/doc/certified-hardware/). Other hardware may require you to perform
+ensure compatibility, we strongly recommend using [Qubes-certified hardware](/doc/certified-hardware/). Other hardware may require you to perform
 significant troubleshooting. You may also find it helpful to consult the
 [Hardware Compatibility List](/hcl/).
 
-Even on supported hardware, you must ensure that [IOMMU-based
-virtualization](https://en.wikipedia.org/wiki/Input%E2%80%93output_memory_management_unit#Virtualization)
+Even on supported hardware, you must ensure that [IOMMU-based virtualization](https://en.wikipedia.org/wiki/Input%E2%80%93output_memory_management_unit#Virtualization)
 is activated in the BIOS or UEFI. Without it, Qubes OS won't be able to enforce
 isolation. For Intel-based boards, this setting is called Intel Virtualization
 for Directed I/O (**Intel VT-d**) and for AMD-based boards, it is called  AMD
 I/O Virtualization Technology (or simply **AMD-Vi**). This parameter should be
 activated in your computer's BIOS or UEFI, alongside the standard
 Virtualization (**Intel VT-x**) and AMD Virtualization (**AMD-V**) extensions.
-This [external
-guide](https://web.archive.org/web/20200112220913/https://www.intel.in/content/www/in/en/support/articles/000007139/server-products.html)
+This [external guide](https://web.archive.org/web/20200112220913/https://www.intel.in/content/www/in/en/support/articles/000007139/server-products.html)
 made for Intel-based boards can help you figure out how to enter your BIOS or
 UEFI to locate and activate those settings. If those settings are not nested
 under the Advanced tab, you might find them under the Security tab.
@@ -224,8 +221,7 @@ operating system or does not detect your installation medium, make sure the
 boot order is set up appropriately. The process to change the boot order varies
 depending on the currently installed system and the motherboard manufacturer.
 If **Windows 10** is installed on your machine, you may need to follow specific
-instructions to change the boot order. This may require an [advanced
-reboot](https://support.microsoft.com/en-us/help/4026206/windows-10-find-safe-mode-and-other-startup-settings).
+instructions to change the boot order. This may require an [advanced reboot](https://support.microsoft.com/en-us/help/4026206/windows-10-find-safe-mode-and-other-startup-settings).
 
 ### The installer home screen
 
@@ -240,8 +236,7 @@ IOMMU-virtualization is active or not. If the test fails, a window will pop up.
 [![Unsupported hardware detected](/attachment/doc/unsupported-hardware-detected.png)](/attachment/doc/unsupported-hardware-detected.png)
 
 Do not panic. It may simply indicate that IOMMU-virtualization hasn't been
-activated in the BIOS or UEFI. Return to the [hardware
-requirements](#hardware-requirements) section to learn how to activate it. If
+activated in the BIOS or UEFI. Return to the [hardware requirements](#hardware-requirements) section to learn how to activate it. If
 the setting is not configured correctly, it means that your hardware won't be
 able to leverage some Qubes security features, such as a strict isolation of
 the networking and USB hardware. 
@@ -471,9 +466,7 @@ remain secure against new threats.
 
 ### Security
 
-The Qubes OS Project occasionally issues [Qubes Security Bulletins
-(QSBs)](/security/qsb/) as part of the [Qubes Security Pack
-(qubes-secpack)](/security/pack/). It is important to make sure that you
+The Qubes OS Project occasionally issues [Qubes Security Bulletins (QSBs)](/security/qsb/) as part of the [Qubes Security Pack (qubes-secpack)](/security/pack/). It is important to make sure that you
 receive all QSBs in a timely manner so that you can take action to keep your
 system secure. (While [updating](#updating) will handle most security needs,
 there may be cases in which additional action from you is required.) For this
@@ -490,21 +483,18 @@ find them helpful. If you are interested in these additional items, we
 encourage you to subscribe to the [Qubes News RSS feed](/feed.xml) or join one
 of our other [venues](/support/), where these news items are also announced.
 
-For more information about Qubes OS Project security, please see the [security
-center](/security/).
+For more information about Qubes OS Project security, please see the [security center](/security/).
 
 ### Backups
 
 It is extremely important to make regular backups so that you don't lose your
-data unexpectedly. The [Qubes backup
-system](/doc/how-to-back-up-restore-and-migrate/) allows you to do this
+data unexpectedly. The [Qubes backup system](/doc/how-to-back-up-restore-and-migrate/) allows you to do this
 securely and easily.
 
 ### Submit your HCL report
 
 Consider giving back to the Qubes community and helping other users by
-[generating and submitting a Hardware Compatibility List (HCL)
-report](/doc/how-to-use-the-hcl/#generating-and-submitting-new-reports).
+[generating and submitting a Hardware Compatibility List (HCL) report](/doc/how-to-use-the-hcl/#generating-and-submitting-new-reports).
 
 ### Get Started
 
@@ -520,12 +510,9 @@ the other [How-To Guides](/doc/#how-to-guides), and learn about
   effort, we'd also greatly appreciate your help in
   [improving](/doc/how-to-edit-the-documentation/) it!)
 
-* If issues arise during installation, see the [Installation
-  Troubleshooting](/doc/installation-troubleshooting) guide. 
+* If issues arise during installation, see the [Installation Troubleshooting](/doc/installation-troubleshooting) guide. 
 
-* If you don't find your answer in the documentation, please see [Help,
-  Support, Mailing Lists, and Forum](/support/) for places to ask.
+* If you don't find your answer in the documentation, please see [Help, Support, Mailing Lists, and Forum](/support/) for places to ask.
 
 * Please do **not** email individual members of the Qubes team with questions
-  about installation or other problems. Instead, please see [Help, Support,
-  Mailing Lists, and Forum](/support/) for appropriate places to ask questions.
+  about installation or other problems. Instead, please see [Help, Support, Mailing Lists, and Forum](/support/) for appropriate places to ask questions.

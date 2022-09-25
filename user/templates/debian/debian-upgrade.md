@@ -28,11 +28,8 @@ title: How to upgrade a Debian template in-place
 This page provides instructions for performing an in-place upgrade of an
 installed [Debian Template](/doc/templates/debian/). If you wish to install a
 new, unmodified Debian template instead of upgrading a template that is already
-installed in your system, please see the [Debian
-Template](/doc/templates/debian/) page instead. ([Learn more about the two
-options.](/doc/templates/debian/#upgrading)) In general, upgrading a Debian
-template follows the same process as [upgrading a native Debian
-system](https://wiki.debian.org/DebianUpgrade).
+installed in your system, please see the [Debian Template](/doc/templates/debian/) page instead. ([Learn more about the two options.](/doc/templates/debian/#upgrading)) In general, upgrading a Debian
+template follows the same process as [upgrading a native Debian system](https://wiki.debian.org/DebianUpgrade).
 
 ## Summary instructions for Debian templates
 
@@ -112,8 +109,7 @@ instructions specific to your particular release.
    [user@debian-<new> ~]$ sudo apt-get clean
    ```
 
-7. (Optional) Trim the new template. (This should [no longer be
-   necessary](/doc/templates/#important-notes), but it does not hurt. Some
+7. (Optional) Trim the new template. (This should [no longer be necessary](/doc/templates/#important-notes), but it does not hurt. Some
    users have [reported](https://github.com/QubesOS/qubes-issues/issues/5055)
    that it makes a difference.)
 
@@ -130,8 +126,7 @@ instructions specific to your particular release.
    [user@dom0 ~]$ qvm-shutdown debian-<new>
    ```
 
-9. (Recommended) [Switch everything that was set to the old template to the new
-   template.](/doc/templates/#switching)
+9. (Recommended) [Switch everything that was set to the old template to the new template.](/doc/templates/#switching)
 
 10. (Optional) Make the new template the global default.
 
@@ -153,13 +148,10 @@ This section contains notes about upgrading to specific releases.
 
 ### Debian 11 ("Bullseye")
 
-Please see [Debian's Bullseye upgrade
-instructions](https://www.debian.org/releases/bullseye/amd64/release-notes/ch-upgrading.en.html).
+Please see [Debian's Bullseye upgrade instructions](https://www.debian.org/releases/bullseye/amd64/release-notes/ch-upgrading.en.html).
 In particular: for APT source lines referencing the security archive, the
 format has changed slightly along with the release name, going from
-buster/updates to bullseye-security; see [Section 5.1.2, “Changed security
-archive
-layout”](https://www.debian.org/releases/stable/mips64el/release-notes/ch-information.en.html#security-archive).
+buster/updates to bullseye-security; see [Section 5.1.2, “Changed security archive layout”](https://www.debian.org/releases/stable/mips64el/release-notes/ch-information.en.html#security-archive).
 
 This means that, when upgrading from Buster to Bullseye, an additional `sed`
 command is required:
@@ -178,8 +170,7 @@ command is required:
 
 ### Debian 10 ("Buster")
 
-Please see [Debian's Buster upgrade
-instructions](https://www.debian.org/releases/buster/amd64/release-notes/ch-upgrading.en.html).
+Please see [Debian's Buster upgrade instructions](https://www.debian.org/releases/buster/amd64/release-notes/ch-upgrading.en.html).
 
 ### Debian 9 ("Stretch")
 
@@ -204,19 +195,16 @@ Relevant discussions:
 * [Fixing sound in Debian Stretch](https://groups.google.com/forum/#!topic/qubes-users/JddCE54GFiU)
 * [User apt commands blocked on startup](https://github.com/QubesOS/qubes-issues/issues/2621)
 
-Also see [Debian's Stretch upgrade
-instructions](https://www.debian.org/releases/stretch/amd64/release-notes/ch-upgrading.en.html).
+Also see [Debian's Stretch upgrade instructions](https://www.debian.org/releases/stretch/amd64/release-notes/ch-upgrading.en.html).
 
 ### Debian 8 ("Jessie")
 
-Please see [Debian's Jessie upgrade
-instructions](https://www.debian.org/releases/jessie/amd64/release-notes/ch-upgrading.en.html).
+Please see [Debian's Jessie upgrade instructions](https://www.debian.org/releases/jessie/amd64/release-notes/ch-upgrading.en.html).
 
 ### End-of-life (EOL) releases
 
 We strongly recommend against using any Debian release that has reached
-[end-of-life
-(EOL)](https://wiki.debian.org/DebianReleases#Production_Releases).
+[end-of-life (EOL)](https://wiki.debian.org/DebianReleases#Production_Releases).
 
 ## Additional information
 

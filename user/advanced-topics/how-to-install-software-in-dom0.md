@@ -144,8 +144,7 @@ For testing new templates, please see [here](/doc/testing/#templates).
 
 ## Contributed package repository
 
-Please see [installing contributed
-packages](/doc/installing-contributed-packages/).
+Please see [installing contributed packages](/doc/installing-contributed-packages/).
 
 ## Kernel upgrade
 
@@ -160,8 +159,7 @@ In the `current` repository:
 - `kernel`: an older LTS kernel that has passed Qubes [testing](/doc/testing/)
   (the default dom0 kernel)
 - `kernel-latest`: the latest release from kernel.org that has passed Qubes
-  [testing](/doc/testing/) (useful for [troubleshooting newer
-  hardware](/doc/newer-hardware-troubleshooting/))
+  [testing](/doc/testing/) (useful for [troubleshooting newer hardware](/doc/newer-hardware-troubleshooting/))
 
 In the `current-testing` repository:
 
@@ -202,8 +200,7 @@ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 Reboot required.
 
 If you wish to upgrade to a kernel that is not available from the repos, then
-there is no easy way to do so, but [it may still be possible if you're willing
-to do a lot of work yourself](https://groups.google.com/d/msg/qubes-users/m8sWoyV58_E/HYdReRIYBAAJ).
+there is no easy way to do so, but [it may still be possible if you're willing to do a lot of work yourself](https://groups.google.com/d/msg/qubes-users/m8sWoyV58_E/HYdReRIYBAAJ).
 
 ## Changing default kernel
 

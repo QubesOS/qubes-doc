@@ -30,8 +30,7 @@ filesystem.
 ## disposable
 
 A type of temporary [app qube](#app-qube) that self-destructs when its
-originating window closes. Each disposable is based on a [disposable
-template](#disposable-template).
+originating window closes. Each disposable is based on a [disposable template](#disposable-template).
 
 See [How to Use Dispoables](/doc/how-to-use-disposables/).
 
@@ -112,11 +111,9 @@ changes made are lost when it is shut down.
 * Only one instance of a named disposable can run at a time.
 
 * Like a regular [disposable](#disposable), a named disposable always has the
-  same state when it starts, namely that of the [disposable
-  template](#disposable-template) on which it is based.
+  same state when it starts, namely that of the [disposable template](#disposable-template) on which it is based.
 
-* Technical note: Named disposables are useful for certain [service
-  qubes](#service-qube), where the combination of persistent device assignment
+* Technical note: Named disposables are useful for certain [service qubes](#service-qube), where the combination of persistent device assignment
   and ephemeral qube state is desirable.
 
 ## net qube
@@ -184,8 +181,7 @@ to other qubes. `sys-net` and `sys-firewall` are examples of service qubes.
 ## standalone
 
 Any [qube](#qube) that has its own root filesystem and does not share it with
-another qube. Distinct from both [templates](#template) and [app
-qubes](#app-qube).
+another qube. Distinct from both [templates](#template) and [app qubes](#app-qube).
 
 See [Standalones and HVMs](/doc/standalones-and-hvms/).
 
@@ -194,8 +190,7 @@ See [Standalones and HVMs](/doc/standalones-and-hvms/).
 ## template
 
 Any [qube](#qube) that shares its root filesystem with another qube. A qube
-that is borrowing a template's root filesystem is known as an [app
-qube](#app-qube) and is said to be "based on" the template. Templates are
+that is borrowing a template's root filesystem is known as an [app qube](#app-qube) and is said to be "based on" the template. Templates are
 intended for installing and updating software applications, but not for running
 them.
 
@@ -205,8 +200,7 @@ See [Templates](/doc/templates/).
 
 * A template cannot be based on another template.
 
-* Regular templates cannot function as [disposable
-  templates](#disposable-template). (Disposable templates must be app qubes.)
+* Regular templates cannot function as [disposable templates](#disposable-template). (Disposable templates must be app qubes.)
 
 * Previously known as: `TemplateVM`.
 

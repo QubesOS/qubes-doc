@@ -19,15 +19,13 @@ through [Tor](https://www.torproject.org/).
 
 ## Website
 
-For the legally-required boilerplate, see [Website Privacy
-Policy](/website-privacy-policy/).
+For the legally-required boilerplate, see [Website Privacy Policy](/website-privacy-policy/).
 
 This is just a static website generated with Jekyll and hosted from GitHub
 Pages. We try to use as little JavaScript as possible. We host all resources
 locally (no third-party CDNs) so that you only have to connect to one domain.
 This site should be easy to browse using Tor Browser and with scripts blocked.
-We also have an [onion
-service](http://qubesosfasa4zl44o4tws22di6kepyzfeqv3tg4e3ztknltfxqrymdad.onion/)
+We also have an [onion service](http://qubesosfasa4zl44o4tws22di6kepyzfeqv3tg4e3ztknltfxqrymdad.onion/)
 (access is not logged). We even go out of our way to make it easy to download
 [this website's git repo](https://github.com/QubesOS/qubesos.github.io),
 including all the website source code, so that you can host this entire site
@@ -38,8 +36,7 @@ from the comfort of your terminal. Here's the
 repos are PGP-signed so you can [verify](/doc/verifying-signatures) the
 authenticity of the content.) Obviously, we don't use any ads or trackers, but
 this is still a public website, so man-in-the-middle attacks and such are
-always a possibility. Please be careful. See [FAQ: Should I trust this
-website?](/faq/#should-i-trust-this-website)
+always a possibility. Please be careful. See [FAQ: Should I trust this website?](/faq/#should-i-trust-this-website)
 
 ## Update Servers and Repositories
 
@@ -47,8 +44,7 @@ We provide repositories at <https://yum.qubes-os.org> and
 <https://deb.qubes-os.org>.
 
 We collect and store standard server access and error logs, which include IP
-addresses. We use this data for generating [Qubes userbase
-statistics](/statistics/) and for incident response.
+addresses. We use this data for generating [Qubes userbase statistics](/statistics/) and for incident response.
 
 The data is retained for up to three months so that we can re-calculate the
 previous two months' statistics in case anything goes wrong. After that, the
@@ -61,8 +57,7 @@ your updates over Tor when [installing Qubes OS](/doc/installation-guide/).
 
 ## Onion Services
 
-We provide an [onion
-service](http://www.qubesosfasa4zl44o4tws22di6kepyzfeqv3tg4e3ztknltfxqrymdad.onion)
+We provide an [onion service](http://www.qubesosfasa4zl44o4tws22di6kepyzfeqv3tg4e3ztknltfxqrymdad.onion)
 for the website and onion service mirrors of the repositories. Access to these
 servers is not logged.
 
@@ -93,5 +88,4 @@ Of course, third-party software (including other operating systems) running
 inside of Qubes OS may not be as privacy-respecting, so please be mindful of
 what you install. We have no control over such third-party software.
 
-For more information, please see [FAQ: How does Qubes OS provide
-privacy?](/faq/#how-does-qubes-os-provide-privacy)
+For more information, please see [FAQ: How does Qubes OS provide privacy?](/faq/#how-does-qubes-os-provide-privacy)

@@ -30,8 +30,7 @@ good.
 - In general, make it easy for others to read your code. Your future self will
   thank you, and so will your collaborators!
 
-- [Don't Repeat Yourself
-  (DRY)!](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) Instead of
+- [Don't Repeat Yourself (DRY)!](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) Instead of
   repeating the same block of code multiple times, abstract it out into a
   separate file and `include` that file where you need it.
 

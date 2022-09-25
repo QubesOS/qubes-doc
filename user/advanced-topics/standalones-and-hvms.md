@@ -146,8 +146,7 @@ assigned by Qubes. Normally, Qubes agent scripts (or services on Windows)
 running within each app qube are responsible for setting up networking within
 the qube according to the configuration created by Qubes (through
 [keys](/doc/vm-interface/#qubesdb) exposed by dom0 to the qube). Such
-centrally-managed networking infrastructure allows for [advanced networking
-configurations](https://blog.invisiblethings.org/2011/09/28/playing-with-qubes-networking-for-fun.html).
+centrally-managed networking infrastructure allows for [advanced networking configurations](https://blog.invisiblethings.org/2011/09/28/playing-with-qubes-networking-for-fun.html).
 
 A generic HVM such as a standard Windows or Ubuntu installation, however, has
 no Qubes agent scripts running inside it initially and thus requires manual
@@ -170,8 +169,7 @@ seen, e.g., in the Qube Manager in the qube's properties:
 Alternatively, one can use the `qvm-ls -n` command to obtain the same
 information (IP/netmask/gateway).
 
-The DNS IP addresses are `10.139.1.1` and `10.139.1.2`. There is [opt-in
-support](/doc/networking/#ipv6) for IPv6 forwarding.
+The DNS IP addresses are `10.139.1.1` and `10.139.1.2`. There is [opt-in support](/doc/networking/#ipv6) for IPv6 forwarding.
 
 ## Using template-based HVMs
 
@@ -193,8 +191,7 @@ You can then create a new qube using the new template. If you use this Template
 as is, then any HVMs based on it it will effectively be disposables. All file
 system changes will be wiped when the HVM is shut down.
 
-Please see [this
-page](https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows-tools.md)
+Please see [this page](https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows-tools.md)
 for specific advice on installing and using Windows-based templates.
 
 ## Cloning HVMs
@@ -339,8 +336,7 @@ timezone          : localtime
 
 ## Assigning PCI devices to HVMs
 
-HVMs (including Windows qubes) can be [assigned PCI
-devices](/doc/how-to-use-pci-devices/) just like normal app qubes. For example,
+HVMs (including Windows qubes) can be [assigned PCI devices](/doc/how-to-use-pci-devices/) just like normal app qubes. For example,
 you can assign a USB controller to a Windows qube, and you should be able to
 use various devices that require Windows software, such as phones, electronic
 devices that are configured via FTDI, etc.
@@ -358,9 +354,7 @@ device again. This is illustrated in the screenshot below:
 
 You can convert any VirtualBox VM to a Qubes HVM using this method.
 
-For example, Microsoft provides [free 90-day evaluation VirtualBox VMs for
-browser
-testing](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
+For example, Microsoft provides [free 90-day evaluation VirtualBox VMs for browser testing](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
 
 About 60 GB of disk space is required for conversion. Use an external hard
 drive if needed. The final `root.img` size is 40 GB.

@@ -51,8 +51,7 @@ The easiest and safest way to upgrade to Qubes R3.1 is to install it from
 scratch and use [qubes backup and restore tools](/doc/backup-restore/) for
 migrating of all of the user VMs.
 
-Users of Qubes R3.0 can upgrade using [experimental
-procedure](/doc/upgrade-to-r3.1/).
+Users of Qubes R3.0 can upgrade using [experimental procedure](/doc/upgrade-to-r3.1/).
 
 ### From R2 or earlier
 
@@ -60,6 +59,5 @@ When upgrading from earlier versions the easiest and safest way is to install
 it from scratch and use [qubes backup and restore tools](/doc/backup-restore/)
 for migrating of all of the user VMs.
 
-Alternatively you can [upgrade to R3.0
-using](/doc/releases/3.0/release-notes/#upgrading) first, then follow the
+Alternatively you can [upgrade to R3.0 using](/doc/releases/3.0/release-notes/#upgrading) first, then follow the
 instructions above. This will be time consuming process.

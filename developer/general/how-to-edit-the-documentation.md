@@ -34,8 +34,7 @@ A few notes before we get started:
   our [documentation style guide](/doc/documentation-style-guide/).
 
 - We don't want you to spend time and effort on a contribution that we can't
-  accept. If your contribution would take a lot of time, please [file an
-  issue](/doc/issue-tracking/) for it first so that we can make sure we're on
+  accept. If your contribution would take a lot of time, please [file an issue](/doc/issue-tracking/) for it first so that we can make sure we're on
   the same page before significant works begins.
 
 - Alternatively, you may already have written content that doesn't conform to
@@ -47,16 +46,13 @@ A few notes before we get started:
 
 - Finally, if you've written something that doesn't belong in qubes-doc but
   that would be beneficial to the Qubes community, please consider adding it to
-  the [external
-  documentation](/doc/documentation-style-guide/#core-vs-external-documentation).
+  the [external documentation](/doc/documentation-style-guide/#core-vs-external-documentation).
 
 (**Advanced users:** If you're already familiar with GitHub or wish to work
 from the command line, you can skip the rest of this section. All you need to
-do to contribute is to [fork and
-clone](https://guides.github.com/activities/forking/) the
+do to contribute is to [fork and clone](https://guides.github.com/activities/forking/) the
 [qubes-doc](https://github.com/QubesOS/qubes-doc) repo, make your changes, then
-[submit a pull
-request](https://help.github.com/articles/using-pull-requests/).)
+[submit a pull request](https://help.github.com/articles/using-pull-requests/).)
 
 Ok, let's begin. Every documentation page has a "Page Source on GitHub" button.
 Depending on the size of your screen, it may either be on the side (larger
@@ -85,8 +81,7 @@ contribution.
 Now you can make your modifications. You can also preview the changes to see
 how they'll be formatted by clicking the "Preview changes" tab. If you want to
 add images, please see [How to add images](#how-to-add-images). If you're
-making formatting changes, please [render the site
-locally](https://github.com/QubesOS/qubesos.github.io#instructions) to verify
+making formatting changes, please [render the site locally](https://github.com/QubesOS/qubesos.github.io#instructions) to verify
 that everything looks correct before submitting any changes.
 
 [![edit](/attachment/doc/doc-pr_05_edit.png)](/attachment/doc/doc-pr_05_edit.png)
@@ -106,15 +101,12 @@ request" button.
 You will be able to adjust the pull request message and title there. In most
 cases, the defaults are ok, so you can just confirm by pressing the "Create
 pull request" button again. However, if you're not ready for your PR to be
-reviewed or merged yet, please [make a draft PR
-instead](https://github.blog/2019-02-14-introducing-draft-pull-requests/).
+reviewed or merged yet, please [make a draft PR instead](https://github.blog/2019-02-14-introducing-draft-pull-requests/).
 
 [![pull-request-confirm](/attachment/doc/doc-pr_08_create-pull-request.png)](/attachment/doc/doc-pr_08_create-pull-request.png)
 
-If any of your changes should be reflected in the [documentation index (a.k.a.
-table of contents)](/doc/) --- for example, if you're adding a new page,
-changing the title of an existing page, or removing a page --- please see [How
-to edit the documentation index](#how-to-edit-the-documentation-index).
+If any of your changes should be reflected in the [documentation index (a.k.a.  table of contents)](/doc/) --- for example, if you're adding a new page,
+changing the title of an existing page, or removing a page --- please see [How to edit the documentation index](#how-to-edit-the-documentation-index).
 
 That's all! We will review your changes. If everything looks good, we'll pull
 them into the official documentation. Otherwise, we may have some questions for
@@ -152,8 +144,7 @@ images. Do not link to images on other websites.
 
 ## Serving the website locally
 
-You can serve the website offline on your local machine by following [these
-instructions](https://github.com/QubesOS/qubesos.github.io#instructions). This
+You can serve the website offline on your local machine by following [these instructions](https://github.com/QubesOS/qubesos.github.io#instructions). This
 can be useful for making sure that your changes render the way you expect,
 especially when your changes affect formatting, images, tables, styling, etc. 
 
@@ -163,8 +154,7 @@ especially when your changes affect formatting, images, tables, styling, etc.
 
 All pull requests (PRs) against
 [qubes-doc](https://github.com/QubesOS/qubes-doc) must pass review prior to be
-merged, except in the case of [external
-documentation](/doc/#external-documentation) (see
+merged, except in the case of [external documentation](/doc/#external-documentation) (see
 [#4693](https://github.com/QubesOS/qubes-issues/issues/4693)). This process is
 designed to ensure that contributed text is accurate and non-malicious. This
 process is a best effort that should provide a reasonable degree of assurance,
@@ -188,8 +178,7 @@ since it would be redundant with the signed tag).
 
 If you have a question about something you read in the documentation or about
 how to edit the documentation, please post it on the
-[forum](https://forum.qubes-os.org/) or send it to the appropriate [mailing
-list](/support/). If you see that something in the documentation should be
+[forum](https://forum.qubes-os.org/) or send it to the appropriate [mailing list](/support/). If you see that something in the documentation should be
 fixed or improved, please [contribute](#how-to-submit-a-pull-request) the
 change yourself. To report an issue with the documentation, please follow our
 standard [issue reporting guidelines](/doc/issue-tracking/). (If you report an

@@ -25,14 +25,11 @@ availability.
   otherwise) <i>en route</i> to the user.
 </div>
 
-You may also be interested in the [community-recommended
-hardware](https://forum.qubes-os.org/t/5560) list and the [hardware
-compatibility list (HCL)](/hcl/).
+You may also be interested in the [community-recommended hardware](https://forum.qubes-os.org/t/5560) list and the [hardware compatibility list (HCL)](/hcl/).
 
 ## Qubes-certified Laptops
 
-Qubes-certified laptops are certified for a [major
-release](/doc/version-scheme/) and regularly tested by the Qubes developers to
+Qubes-certified laptops are certified for a [major release](/doc/version-scheme/) and regularly tested by the Qubes developers to
 ensure compatibility with all of Qubes' features within that major release. The
 developers test all new updates within that major release to ensure that no
 regressions are introduced.
@@ -41,8 +38,7 @@ regressions are introduced.
 
 [![insurgo-privacybeast-x230.png](/attachment/site/insurgo-privacybeast-x230.png)](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/)
 
-The [Insurgo PrivacyBeast
-X230](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/)
+The [Insurgo PrivacyBeast X230](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/)
 meets and exceeds our hardware certification requirements for Qubes 4. Read our
 [announcement](/news/2019/07/18/insurgo-privacybeast-qubes-certification/) of
 the certification for further details!
@@ -117,8 +113,7 @@ Another important requirement is that Qubes-certified hardware should run only
 **open-source boot firmware** (aka "the BIOS"), such as
 [coreboot](https://www.coreboot.org/). The only exception is the use of
 (properly authenticated) CPU-vendor-provided blobs for silicon and memory
-initialization (see [Intel
-FSP](https://firmware.intel.com/learn/fsp/about-intel-fsp)) as well as other
+initialization (see [Intel FSP](https://firmware.intel.com/learn/fsp/about-intel-fsp)) as well as other
 internal operations (see [Intel ME](https://www.apress.com/9781430265719)).
 However, we specifically require all code used for and dealing with the System
 Management Mode (SMM) to be open-source.
@@ -127,8 +122,7 @@ While we
 [recognize](https://blog.invisiblethings.org/papers/2015/x86_harmful.pdf) the
 potential problems that proprietary CPU-vendor code can cause, we are also
 pragmatic enough to realize that we need to take smaller steps first, before we
-can implement even stronger countermeasures such as a [stateless
-laptop](https://blog.invisiblethings.org/papers/2015/state_harmful.pdf). A
+can implement even stronger countermeasures such as a [stateless laptop](https://blog.invisiblethings.org/papers/2015/state_harmful.pdf). A
 switch to open source boot firmware is one such important step. To be
 compatible with Qubes OS, the BIOS must properly expose all the VT-x, VT-d, and
 SLAT functionality that the underlying hardware offers (and which we require).
@@ -194,5 +188,4 @@ to install it themselves before shipping any units to us. While we are willing
 to troubleshoot simple issues, we will need to charge a consulting fee for more
 in-depth work.
 
-If you are interested in having your hardware certified, please [contact
-us](mailto:business@qubes-os.org).
+If you are interested in having your hardware certified, please [contact us](mailto:business@qubes-os.org).

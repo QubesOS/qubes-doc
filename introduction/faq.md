@@ -267,9 +267,7 @@ Please see the coreboot website / their IRC channel for further information.
 
 ### How should I report documentation issues?
 
-If you can fix the problem yourself, please see [how to edit the
-documentation](/doc/how-to-edit-the-documentation). If not, please see [issue
-tracking](/doc/issue-tracking).
+If you can fix the problem yourself, please see [how to edit the documentation](/doc/how-to-edit-the-documentation). If not, please see [issue tracking](/doc/issue-tracking).
 
 ### Will Qubes seek to get certified under the GNU Free System Distribution Guidelines (GNU FSDG)?
 

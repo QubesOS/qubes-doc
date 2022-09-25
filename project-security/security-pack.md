@@ -35,8 +35,7 @@ official location is:
 ## How to obtain and authenticate
 
 The following example demonstrates one method of obtaining the qubes-secpack and
-verifying its authenticity. This requires Git and [OpenPGP
-software](/security/verifying-signatures/#openpgp-software).
+verifying its authenticity. This requires Git and [OpenPGP software](/security/verifying-signatures/#openpgp-software).
 
 1. Use Git to clone the qubes-secpack repo.
 
@@ -83,8 +82,7 @@ software](/security/verifying-signatures/#openpgp-software).
    gpg: no ultimately trusted keys found
    ```
 
-3. [Authenticate and set the trust level of the Qubes Master Signing Key
-   (QMSK).](/security/verifying-signatures/#how-to-import-and-authenticate-the-qubes-master-signing-key)
+3. [Authenticate and set the trust level of the Qubes Master Signing Key (QMSK).](/security/verifying-signatures/#how-to-import-and-authenticate-the-qubes-master-signing-key)
 
 4. Verify signed Git tags.
 
@@ -133,8 +131,7 @@ to verify the files.
   and security team keys), and the qubes-secpack's own files and Git tags
   (security team keys again). This means that email keys are generally not
   included, even for official project email addresses. There is one exception
-  to this rule: the official [Qubes security
-  team](/security/#qubes-security-team) email address, which is used to report
+  to this rule: the official [Qubes security team](/security/#qubes-security-team) email address, which is used to report
   security vulnerabilities in Qubes OS to our security team.
 
 - **Key signing (certification).** Only some keys in the qubes-secpack are

@@ -25,11 +25,8 @@ actions such as renaming
 ([#839](https://github.com/QubesOS/qubes-issues/issues/839)), removal
 ([#5509](https://github.com/QubesOS/qubes-issues/issues/5509)) and
 backup/restore ([#1385](https://github.com/QubesOS/qubes-issues/issues/1385),
-[#1453](https://github.com/QubesOS/qubes-issues/issues/1453), [discussion
-thread
-1](https://groups.google.com/forum/#!topic/qubes-devel/rwc2_miCNNE/discussion),
-[discussion thread
-2](https://groups.google.com/forum/#!topic/qubes-users/uQEUpv4THsY/discussion)).
+[#1453](https://github.com/QubesOS/qubes-issues/issues/1453), [discussion thread 1](https://groups.google.com/forum/#!topic/qubes-devel/rwc2_miCNNE/discussion),
+[discussion thread 2](https://groups.google.com/forum/#!topic/qubes-users/uQEUpv4THsY/discussion)).
 In turn, this creates inconveniences and confusion for users
 ([#1403](https://github.com/QubesOS/qubes-issues/issues/1403),
 [#4518](https://github.com/QubesOS/qubes-issues/issues/4518)).
@@ -169,8 +166,7 @@ Most of the fields should be fairly self-explanatory.
     `var/lib/qubes/vm-templates/<TEMPLATE_NAME>/netvm-whitelisted-appmenus.list`
     respectively.
   - Note that newlines are converted to spaces, again for it to work better
-    with existing tools. This should not cause ambiguity as [the FreeDesktop
-    specifications](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html)
+    with existing tools. This should not cause ambiguity as [the FreeDesktop specifications](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html)
     forbid spaces in .desktop file names.
 
 ## Repository management

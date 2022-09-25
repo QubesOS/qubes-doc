@@ -15,10 +15,8 @@ title: USB qubes
 A USB qube acts as a secure handler for potentially malicious USB devices,
 preventing them from coming into contact with dom0 (which could otherwise be
 fatal to the security of the whole system). It thereby mitigates some of the
-[security risks of using USB
-devices](/doc/device-handling-security/#usb-security). Nonetheless, we strongly
-recommend carefully reading the [security warning on USB input
-devices](/doc/device-handling-security/#security-warning-on-usb-input-devices)
+[security risks of using USB devices](/doc/device-handling-security/#usb-security). Nonetheless, we strongly
+recommend carefully reading the [security warning on USB input devices](/doc/device-handling-security/#security-warning-on-usb-input-devices)
 before proceeding.
 
 With a USB qube, every time you connect an untrusted USB device to a USB port
@@ -56,13 +54,10 @@ If you're reading this section, it's likely because the installer did not allow
 you to create a USB qube automatically because you're using a USB keyboard.
 This section will explain how to create a USB qube that you can use with your
 USB keyboard. This section assumes that you have only a single USB controller.
-If you have more than one USB controller, see [how to enable a USB keyboard on
-a separate USB
-controller](#qubes-41-how-to-enable-a-usb-keyboard-on-a-separate-usb-controller).
+If you have more than one USB controller, see [how to enable a USB keyboard on a separate USB controller](#qubes-41-how-to-enable-a-usb-keyboard-on-a-separate-usb-controller).
 
 First, make sure you have the latest `qubes-mgmt-salt-dom0-virtual-machines`
-package by [updating
-dom0](/doc/how-to-install-software-in-dom0/#how-to-update-dom0). Then, enter
+package by [updating dom0](/doc/how-to-install-software-in-dom0/#how-to-update-dom0). Then, enter
 the following command in dom0:
 
 ```
@@ -76,8 +71,7 @@ input devices (keyboards, mice, etc.) are initialized at this stage, users are
 advised to physically disconnect other devices from the system during this
 vulnerable window in order to minimize the risk.
 
-To undo these changes, see [how to remove a USB
-qube](#how-to-remove-a-usb-qube).
+To undo these changes, see [how to remove a USB qube](#how-to-remove-a-usb-qube).
 
 If you wish to perform only a subset of this configuration (for example, you do
 not wish to enable the USB keyboard during boot), see the manual instructions
@@ -139,8 +133,7 @@ controllers can be plugged in as PCIe cards. In this case, the designated
 controller for input devices should remain in dom0 but be limited to input
 devices only. To set it up:
 
-1. [Find the controller used for input
-   devices](/doc/how-to-use-usb-devices/#finding-the-right-usb-controller).
+1. [Find the controller used for input devices](/doc/how-to-use-usb-devices/#finding-the-right-usb-controller).
 2. Open the file `/etc/default/grub` in dom0.
 3. Find the line that begins with `GRUB_CMDLINE_LINUX`.
 4. Add `usbcore.authorized_default=0` and `rd.qubes.dom0_usb=<BDF>` to that
@@ -194,8 +187,7 @@ sys-usb dom0 allow
 
 ## How to create a USB qube
 
-If [automatically creating a USB qube for use with a USB
-keyboard](#how-to-create-a-usb-qube-for-use-with-a-usb-keyboard) does not apply
+If [automatically creating a USB qube for use with a USB keyboard](#how-to-create-a-usb-qube-for-use-with-a-usb-keyboard) does not apply
 to your situation, then you may be interested in more general methods for
 creating USB qubes.
 
@@ -231,8 +223,7 @@ You can create a USB qube manually as follows:
    automatically on boot." (This will help to mitigate attacks in which someone
    forces your system to reboot, then plugs in a malicious USB device.)
 
-If the USB qube will not start, please have a look at [this FAQ
-entry](/faq/#i-created-a-usb-vm-and-assigned-usb-controllers-to-it-now-the-usb-vm-wont-boot).
+If the USB qube will not start, please have a look at [this FAQ entry](/faq/#i-created-a-usb-vm-and-assigned-usb-controllers-to-it-now-the-usb-vm-wont-boot).
 
 
 ## How to hide USB controllers from dom0

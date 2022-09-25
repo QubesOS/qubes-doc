@@ -137,8 +137,7 @@ your Git commits.
 
 GitHub shows a green `Verified` label indicating that the GPG signature could be
 verified using any of the contributor’s GPG keys uploaded to GitHub. You can
-upload your public key on GitHub by adding your public GPG key on the [New GPG
-key](https://github.com/settings/gpg/new) under the [SSH GPG keys page](https://github.com/settings/keys).
+upload your public key on GitHub by adding your public GPG key on the [New GPG key](https://github.com/settings/gpg/new) under the [SSH GPG keys page](https://github.com/settings/keys).
 
 ## Code Signature Checks
 

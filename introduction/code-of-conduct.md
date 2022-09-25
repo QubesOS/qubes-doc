@@ -17,8 +17,7 @@ reasonable middle ground among the inevitable disagreements regarding free
 expression that arise in a large, diverse community of people from around the
 world. It is intended to be a practical means of serving the best interests of
 our users, contributors, and the project itself. We welcome you to view the
-[history of
-changes](https://github.com/QubesOS/qubes-doc/commits/master/about/code-of-conduct.md)
+[history of changes](https://github.com/QubesOS/qubes-doc/commits/master/about/code-of-conduct.md)
 to this document and the
 [discussion](https://github.com/QubesOS/qubes-issues/issues/2163) leading to
 its creation.
@@ -51,8 +50,7 @@ Examples of unacceptable behavior by participants include:
 - Trolling, insulting/derogatory comments, and personal or political attacks
 - Reinforcing stereotypical models for illustration of non-technical users
   (e.g. our mothers/grandmothers, etc.)
-- Public or private harassment, as defined by the [Citizen Code of
-  Conduct](https://github.com/stumpsyn/policies/blob/master/citizen_code_of_conduct.md)
+- Public or private harassment, as defined by the [Citizen Code of Conduct](https://github.com/stumpsyn/policies/blob/master/citizen_code_of_conduct.md)
 - Publishing others' private information, such as a physical or electronic
   address, without explicit permission
 - Other conduct which could reasonably be considered inappropriate in a
@@ -92,9 +90,7 @@ anything else pertaining to the incident.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported by contacting the project CoC team at `mods@qubes-os.org`. The project
-CoC team is the [Marek
-Marczykowski-Górecki](/team/#marek-marczykowski-g%C3%B3recki), [Andrew David
-Wong](/team/#andrew-david-wong), and [Michael Carbone](/team/#michael-carbone).
+CoC team is the [Marek Marczykowski-Górecki](/team/#marek-marczykowski-g%C3%B3recki), [Andrew David Wong](/team/#andrew-david-wong), and [Michael Carbone](/team/#michael-carbone).
 All complaints will be reviewed and investigated and will result in a response
 that is deemed necessary and appropriate to the circumstances. The project team
 is obligated to maintain confidentiality with regard to the reporter of an
@@ -120,6 +116,4 @@ continued quality and safeguard against potential sabotage.
 ## Attribution
 
 The initial published version of this Code of Conduct was adapted from the
-[Contributor Covenant, version
-1.4](https://contributor-covenant.org/version/1/4) and the [Rust Code of
-Conduct](https://www.rust-lang.org/en-US/conduct.html).
+[Contributor Covenant, version 1.4](https://contributor-covenant.org/version/1/4) and the [Rust Code of Conduct](https://www.rust-lang.org/en-US/conduct.html).

@@ -27,15 +27,13 @@ just the framework in which you're running these other OSes. Therefore, if you
 want to install software in a Linux template, for example, you should do so in
 whatever way is normal for that Linux distro. Most Linux software is
 distributed via [packages](https://en.wikipedia.org/wiki/Package_format), which
-are stored in [software
-repositories](https://en.wikipedia.org/wiki/Software_repository) ("repos").
+are stored in [software repositories](https://en.wikipedia.org/wiki/Software_repository) ("repos").
 [Package managers](https://en.wikipedia.org/wiki/Package_manager) handle
 downloading, installing, updating, and removing packages. (Again, none of this
 is Qubes-specific.) If you're not familiar with how software is normally
 installed in Linux distros via package managers or the software you want
 doesn't seem to be available in your distro's repos (or you're in another
-situation not covered on this page), please read this [community guide to
-installing software in Qubes](https://forum.qubes-os.org/t/9991/).
+situation not covered on this page), please read this [community guide to installing software in Qubes](https://forum.qubes-os.org/t/9991/).
 
 The following instructions explain how to permanently install new software in a
 template. There are different instructions for software from the default
@@ -71,8 +69,7 @@ will appear in the Applications Menu. (If you encounter problems, see
 **Warning:** This method gives your template direct network access, which is
 [risky](#why-dont-templates-have-network-access). This method is **not**
 recommended for trusted templates. Moreover, depending on how you install this
-software, it may not get updated automatically when you [update Qubes
-normally](/doc/how-to-update/), which means you may have to update it manually
+software, it may not get updated automatically when you [update Qubes normally](/doc/how-to-update/), which means you may have to update it manually
 yourself.
 
 Some software is not available from the default repositories and must be
@@ -129,9 +126,7 @@ If things are still not working as expected:
 - Make sure you **restart your app qube *after* shutting down your template**.
 - Make sure your app qube is assigned to the right template.
 - If your software requires special files or directories to be persistent, and
-  you're an advanced user, see [standalones and
-  HVMs](/doc/standalones-and-hvms/) and [how to make any file persistent
-  (bind-dirs)](/doc/bind-dirs/).
+  you're an advanced user, see [standalones and HVMs](/doc/standalones-and-hvms/) and [how to make any file persistent (bind-dirs)](/doc/bind-dirs/).
 - [Ask for help.](/support/)
 
 
@@ -143,16 +138,12 @@ Please see [How to Update](/doc/how-to-update/).
 ## Why don't templates have network access?
 
 In order to protect you from performing risky activities in templates, they do
-not have normal network access by default. Instead, templates use an [updates
-proxy](#updates-proxy) that allows you to install and update software without
+not have normal network access by default. Instead, templates use an [updates proxy](#updates-proxy) that allows you to install and update software without
 giving the template direct network access. **The updates proxy is already set
 up to work automatically out-of-the-box and requires no special action from
-you.** Most users should simply follow the normal instructions for [installing
-software from default
-repositories](#installing-software-from-default-repositories) and
+you.** Most users should simply follow the normal instructions for [installing software from default repositories](#installing-software-from-default-repositories) and
 [updating](/doc/how-to-update/) software. If your software is not available in
-the default repositories, see [installing software from other
-sources](#installing-software-from-other-sources).
+the default repositories, see [installing software from other sources](#installing-software-from-other-sources).
 
 
 ## Advanced
@@ -223,8 +214,7 @@ qubes to restart.
 
 If you would like to enable the [RPM Fusion](https://rpmfusion.org/)
 repositories, open a Terminal of the template and type the following commands,
-depending on which RPM Fusion repositories you wish to enable (see [RPM
-Fusion](https://rpmfusion.org/) for details):
+depending on which RPM Fusion repositories you wish to enable (see [RPM Fusion](https://rpmfusion.org/) for details):
 
 ~~~
 sudo dnf config-manager --set-enabled rpmfusion-free
@@ -321,8 +311,7 @@ proxy (3). Also access to updates proxy is independent of any other firewall
 settings (VM will have access to updates proxy, even if policy is set to block
 all the traffic).
 
-There are two services (`qvm-service`, [service
-framework](/doc/qubes-service/)):
+There are two services (`qvm-service`, [service framework](/doc/qubes-service/)):
 
 1. `qubes-updates-proxy` (and its deprecated name: `qubes-yum-proxy`) - a
    service providing a proxy for templates - by default enabled in NetVMs

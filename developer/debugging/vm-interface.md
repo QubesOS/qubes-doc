@@ -158,8 +158,7 @@ Services called by dom0 to provide some VM configuration:
 Other Qrexec services installed by default:
 
 - `qubes.Backup` - store Qubes backup. The service receives location chosen by
-  the user (one line, terminated by `\n`), the backup archive ([description of
-  backup format](/doc/BackupEmergencyRestoreV2/))
+  the user (one line, terminated by `\n`), the backup archive ([description of backup format](/doc/BackupEmergencyRestoreV2/))
 - `qubes.DetachPciDevice` - service called in reaction to `qvm-pci -d` call on
   running VM. The service receives one word - BDF of device to detach. When the
   service call ends, the device will be detached

@@ -9,8 +9,7 @@ title: Testing new releases and updates
 
 Testing new Qubes OS releases and updates is one of the most helpful ways in
 which you can [contribute](/doc/contributing/) to the Qubes OS Project. If
-you're interested in helping with this, please [join the testing
-team](https://forum.qubes-os.org/t/joining-the-testing-team/5190). There are
+you're interested in helping with this, please [join the testing team](https://forum.qubes-os.org/t/joining-the-testing-team/5190). There are
 several different types of testing, which we'll cover below.
 
 **Warning:** Software testing is intended for advanced users and developers.
@@ -36,10 +35,8 @@ the RC process.
 
 How to test updates:
 
-* Enable [dom0 testing
-  repositories](/doc/how-to-install-software-in-dom0/#testing-repositories).
-* Enable [template testing
-  repositories](/doc/how-to-install-software/#testing-repositories).
+* Enable [dom0 testing repositories](/doc/how-to-install-software-in-dom0/#testing-repositories).
+* Enable [template testing repositories](/doc/how-to-install-software/#testing-repositories).
 
 Every new update is first uploaded to the `security-testing` repository if it
 is a security update or `current-testing` if it is a normal update. The update
@@ -49,8 +46,7 @@ which is immediately pushed to the `current` stable repository. In general,
 however, security updates remain in `security-testing` for two weeks before
 migrating to `current`. Normal updates generally remain in `current-testing`
 until they have been sufficiently tested by the community, which can last weeks
-or even months, depending on the amount of feedback received (see [Providing
-feedback](#providing-feedback)).
+or even months, depending on the amount of feedback received (see [Providing feedback](#providing-feedback)).
 
 "Sufficient testing" is, in practice, a fluid term that is up the developers'
 judgment. In general, it means either that no negative feedback and at least
@@ -92,8 +88,7 @@ To enable or disable any of these repos permanently, change the corresponding
 Since the whole point of testing software is to discover and fix bugs, your
 feedback is an essential part of this process.
 
-We use an [automated build
-process](https://github.com/QubesOS/qubes-infrastructure/blob/master/README.md).
+We use an [automated build process](https://github.com/QubesOS/qubes-infrastructure/blob/master/README.md).
 For every package that is uploaded to a testing repository, a GitHub issue is
 created in the
 [updates-status](https://github.com/QubesOS/updates-status/issues) repository
@@ -101,7 +96,6 @@ for tracking purposes. We welcome any kind of feedback on any package in any
 testing repository. Even a simple <span class="fa fa-thumbs-up" title="Thumbs
 Up"></span> or <span class="fa fa-thumbs-down" title="Thumbs Down"></span> on
 the package's associated issue would help us to decide whether the package is
-ready to be migrated to a stable repository. If you [report a
-bug](/doc/issue-tracking/) in a package that is in a testing repository, please
+ready to be migrated to a stable repository. If you [report a bug](/doc/issue-tracking/) in a package that is in a testing repository, please
 reference the appropriate issue in
 [updates-status](https://github.com/QubesOS/updates-status/issues).

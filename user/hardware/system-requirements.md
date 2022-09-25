@@ -53,10 +53,8 @@ title: System requirements
 - **TPM:** Trusted Platform Module (TPM) with proper BIOS support (required for
   [Anti Evil Maid](/doc/anti-evil-maid/))
 
-The following are *required* for [Qubes-certified hardware
-devices](/doc/certified-hardware/) but *merely recommended* for *non-certified*
-hardware (see the [hardware certification
-requirements](/doc/certified-hardware/#hardware-certification-requirements) for
+The following are *required* for [Qubes-certified hardware devices](/doc/certified-hardware/) but *merely recommended* for *non-certified*
+hardware (see the [hardware certification requirements](/doc/certified-hardware/#hardware-certification-requirements) for
 details).
 
 - Open-source boot firmware (e.g., [coreboot](https://www.coreboot.org/))
@@ -97,9 +95,7 @@ We recommend consulting these resources when selecting hardware for Qubes OS:
   other computers in order to boot into Qubes. In addition to the convenience
   of having a portable copy of Qubes, this allows users to test for hardware
   compatibility on multiple machines (e.g., at a brick-and-mortar computer
-  store) before deciding on which computer to purchase. (See [generating and
-  submitting HCL
-  reports](/doc/how-to-use-the-hcl/#generating-and-submitting-new-reports) for
+  store) before deciding on which computer to purchase. (See [generating and submitting HCL reports](/doc/how-to-use-the-hcl/#generating-and-submitting-new-reports) for
   advice on hardware compatibility testing.) Remember to change the devices
   assigned to your NetVM and USB VM if you move between different machines.
 

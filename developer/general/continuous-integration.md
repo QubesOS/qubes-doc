@@ -5,8 +5,7 @@ permalink: /doc/continuous-integration/
 title: Continuous integration (CI)
 ---
 
-This page explains the [continuous integration
-(CI)](https://en.wikipedia.org/wiki/Continuous_integration) infrastructure that
+This page explains the [continuous integration (CI)](https://en.wikipedia.org/wiki/Continuous_integration) infrastructure that
 the Qubes OS Project uses.
 
 ## Website and documentation

@@ -37,8 +37,7 @@ The template system has significant benefits:
 
 An important side effect of this system is that any software installed in an
 app qube (rather than in the template on which it is based) will disappear
-after the app qube reboots (see [Inheritance and
-Persistence](#inheritance-and-persistence)). For this reason, we recommend
+after the app qube reboots (see [Inheritance and Persistence](#inheritance-and-persistence)). For this reason, we recommend
 installing most of your software in templates, not app qubes.
 
 The default template in Qubes is based on Fedora, but there are additional
@@ -127,8 +126,7 @@ After installing a fresh template, we recommend performing the following steps:
 
 1. [Update the template](#updating).
 
-2. [Switch any app qubes that are based on the old template to the new
-   one](#switching).
+2. [Switch any app qubes that are based on the old template to the new one](#switching).
 
 3. If desired, [uninstall the old template](#uninstalling).
 
@@ -391,8 +389,7 @@ this context: the same as their template filesystem, of course.
   clone as the default template for your app qubes.
 
 * Some templates are available in ready-to-use binary form, but some of them
-  are available only as source code, which can be built using the [Qubes
-  Builder](/doc/qubes-builder/). In particular, some template "flavors" are
+  are available only as source code, which can be built using the [Qubes Builder](/doc/qubes-builder/). In particular, some template "flavors" are
   available in source code form only. For the technical details of the template
   system, please see [Template Implementation](/doc/template-implementation/).
   Take a look at the [Qubes Builder](/doc/qubes-builder/) documentation for

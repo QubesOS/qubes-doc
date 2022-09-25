@@ -16,8 +16,7 @@ ref: 121
 title: Issue tracking
 ---
 
-We use [GitHub Issues](https://docs.github.com/en/issues) as our [issue
-tracking system](https://en.wikipedia.org/wiki/Issue_tracking_system). All
+We use [GitHub Issues](https://docs.github.com/en/issues) as our [issue tracking system](https://en.wikipedia.org/wiki/Issue_tracking_system). All
 issues pertaining to the Qubes OS Project (including auxiliary infrastructure
 such as this website) are tracked in
 [qubes-issues](https://github.com/QubesOS/qubes-issues/issues).
@@ -29,20 +28,17 @@ First, let's make sure the issue tracker is the right place.
 ### I need help, have a question, or want to discuss something.
 
 We're happy to help, answer questions, and have discussions, but the issue
-tracker is not the right place for these activities. Instead, please see [Help,
-Support, Mailing Lists, and Forum](/support/).
+tracker is not the right place for these activities. Instead, please see [Help, Support, Mailing Lists, and Forum](/support/).
 
 ### I see something that should be changed in the documentation.
 
-We encourage you to submit the change yourself! Please see the [how to edit the
-documentation](/doc/how-to-edit-the-documentation/) for instructions on how to
+We encourage you to submit the change yourself! Please see the [how to edit the documentation](/doc/how-to-edit-the-documentation/) for instructions on how to
 do so. If it's something you can't do yourself, please proceed to open an issue.
 
 ### I would like to report a security vulnerability.
 
 Thank you! If the vulnerability is confidential, please do not report it in our
-public issue tracker. Instead, please see [Reporting Security Issues in Qubes
-OS](/security/#reporting-security-issues-in-qubes-os).
+public issue tracker. Instead, please see [Reporting Security Issues in Qubes OS](/security/#reporting-security-issues-in-qubes-os).
 
 ### I still want to open an issue.
 
@@ -53,8 +49,7 @@ follow these steps:
  1. Carefully read our issue tracking [guidelines](#guidelines). If your issue
     would violate any of the guidelines, **stop**. Please do not submit it.
  2. [Search through the existing issues](#search-tips), both open and closed,
-    to see if your issue already exists. If it does, **stop**. [Do not open a
-    duplicate.](/doc/issue-tracking/#new-issues-should-not-be-duplicates-of-existing-issues)
+    to see if your issue already exists. If it does, **stop**. [Do not open a duplicate.](/doc/issue-tracking/#new-issues-should-not-be-duplicates-of-existing-issues)
     Instead, comment on the existing issue.
  3. Go [here](https://github.com/QubesOS/qubes-issues/issues/new/choose).
  4. Select the [type](#type) of issue you want to open.
@@ -70,8 +65,7 @@ follow these steps:
 10. Respond to any questions the official team asks. For example, you may be
     asked to provide specific logs or other additional information.
 
-Eventually, your issue may be closed. See [how issues get
-closed](/doc/issue-tracking/#how-issues-get-closed) for details about when,
+Eventually, your issue may be closed. See [how issues get closed](/doc/issue-tracking/#how-issues-get-closed) for details about when,
 why, and how this occurs.
 
 ## Labels, milestones, and projects
@@ -160,13 +154,10 @@ of grouping issues, whereas trying to use normal issues as "meta-issues" or
 
 ## Search tips
 
-[Search both open and closed
-issues.](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue)
+[Search both open and closed issues.](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue)
 For example, you may be experiencing a bug that was just fixed, in which case
 the report for that bug is probably closed. In this case, it would be useful to
-view [all bug reports, both open and closed, with the most recently updated
-sorted to the
-top](https://github.com/QubesOS/qubes-issues/issues?q=label%3Abug+sort%3Aupdated-desc).
+view [all bug reports, both open and closed, with the most recently updated sorted to the top](https://github.com/QubesOS/qubes-issues/issues?q=label%3Abug+sort%3Aupdated-desc).
 
 [Search using labels.](https://github.com/QubesOS/qubes-issues/labels) For
 example, you can search issues by priority
@@ -198,9 +189,7 @@ information*, which helps the developers to stay focused on their work. When
 developers come back to an issue to work on it, we do not want them to have to
 sift through a large number of unnecessary comments before they can get
 started. In many cases, an issue that gets "too big" essentially becomes more
-trouble than it's worth, and no developer will touch it (also see [every issue
-must be about a single, actionable
-thing](#every-issue-must-be-about-a-single-actionable-thing)). In these cases,
+trouble than it's worth, and no developer will touch it (also see [every issue must be about a single, actionable thing](#every-issue-must-be-about-a-single-actionable-thing)). In these cases,
 we sometimes have to close the issue and open a new one. This is a waste of
 energy for everyone involved, so we ask that everyone help to avoid repeating
 this pattern.
@@ -209,8 +198,7 @@ this pattern.
 
 [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) is not the place
 to ask questions. This includes, but is not limited to, troubleshooting
-questions and questions about how to do things with Qubes. Instead, see [Help,
-Support, Mailing Lists, and Forum](/support/) for appropriate place to ask
+questions and questions about how to do things with Qubes. Instead, see [Help, Support, Mailing Lists, and Forum](/support/) for appropriate place to ask
 questions. By contrast,
 [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) is meant for
 tracking more general bugs, enhancements, and tasks that affect a broad range
@@ -229,8 +217,7 @@ the issue template. These help us to have issues with a consistent format.
 
 ### Every issue must be about a single, actionable thing
 
-If your issue is not actionable, please see [Help, Support, Mailing Lists, and
-Forum](/support/) for the appropriate place to post it. If your issue would be
+If your issue is not actionable, please see [Help, Support, Mailing Lists, and Forum](/support/) for the appropriate place to post it. If your issue would be
 about more than one thing, file them as separate issues instead. This means we
 should generally not try to use a single issue as a "meta" or "epic" issue that
 exists only to group, contain, or track other issues. Instead, when there is a
@@ -242,8 +229,7 @@ tool for the developers. When an issue is too big and composite, it becomes
 intractable and drastically increases the likelihood that nothing will get
 done. Such issues also tend to encourage an excessive amount of general
 discussion that is simply not appropriate for a technical issue tracker (see
-[the issue tracker is not a discussion
-forum](#the-issue-tracker-is-not-a-discussion-forum)).
+[the issue tracker is not a discussion forum](#the-issue-tracker-is-not-a-discussion-forum)).
 
 ### New issues should not be duplicates of existing issues
 
@@ -271,11 +257,9 @@ team will classify your issue according to its type.
 ### New issues should include all relevant information
 
 When you file a new issue, you should be sure to include the version of Qubes
-you're using, as well as versions of related software packages ([how to copy
-information out of dom0](/doc/how-to-copy-from-dom0/)). If your issue is
+you're using, as well as versions of related software packages ([how to copy information out of dom0](/doc/how-to-copy-from-dom0/)). If your issue is
 related to hardware, provide as many details as possible about the hardware. A
-great way to do this is by [generating and submitting a Hardware Compatibility
-List (HCL) report](/doc/how-to-use-the-hcl/#generating-and-submitting-new-reports),
+great way to do this is by [generating and submitting a Hardware Compatibility List (HCL) report](/doc/how-to-use-the-hcl/#generating-and-submitting-new-reports),
 then linking to it in your issue. You may also need to use command-line tools
 such as `lspci`. If you're reporting a bug in a package that is in a
 [testing](/doc/testing/) repository, please reference the appropriate issue in
@@ -300,8 +284,7 @@ and order in which open issues are addressed.
 ## How issues get closed
 
 If the Qubes developers make a code change that resolves an issue, then the
-issue will typically be [closed from the relevant commit or merged pull request
-(PR)](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-issues/linking-a-pull-request-to-an-issue).
+issue will typically be [closed from the relevant commit or merged pull request (PR)](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-issues/linking-a-pull-request-to-an-issue).
 
 ### Bug reports
 
@@ -340,16 +323,14 @@ affect multiple versions of Qubes OS, there are several possible states:
 We close issues at step 3. Then, as updates are released, the issue
 automatically gets the appropriate `current-testing` (`rX.Y-*-cur-test`) and
 `stable` (`rX.Y-*-stable`) labels. Based on these labels, it's possible to
-select issues waiting for step 6 (see [issues by
-release](https://github.com/QubesOS/qubes-issues#issues-by-release)).
+select issues waiting for step 6 (see [issues by release](https://github.com/QubesOS/qubes-issues#issues-by-release)).
 
 Therefore, if you see that an issue is closed, but the fix is not yet available
 to you, be aware that it may be at an intermediate stage of this process
 between issue closure and the update being available in whichever repos you
 have enabled in whichever version of Qubes you're using.
 
-In order to assist with this, we have a label called [backport
-pending](https://github.com/QubesOS/qubes-issues/labels/backport%20pending),
+In order to assist with this, we have a label called [backport pending](https://github.com/QubesOS/qubes-issues/labels/backport%20pending),
 which means, "The fix has been released for the testing release but is pending
 backport to the stable release." Our infrastructure will attempt to apply this
 label automatically, when appropriate, but it is not perfect, and the
