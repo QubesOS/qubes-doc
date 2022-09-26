@@ -63,8 +63,8 @@ details).
 
 - Hardware switches for all built-in USB-connected microphones (if any)
 
-- On non-laptops, either support for non-USB input devices or a separate USB
-  controller only for input devices
+- Either support for non-USB input devices (e.g., via PS/2, which most laptops
+  already use internally) or a separate USB controller only for input devices
 
 ## Choosing Hardware
 

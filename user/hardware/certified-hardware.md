@@ -135,7 +135,7 @@ SLAT functionality that the underlying hardware offers (and which we require).
 Among other things, this implies **proper DMAR ACPI table** construction.
 
 Most laptops use PS/2 connections internally for their input devices (i.e.,
-keyboard and touchpad). On non-laptop devices, however, USB-connected keyboards
+keyboard and touchpad). On most desktops, however, USB-connected keyboards
 and mice have become standard. This presents a dilemma when the computer has
 only one USB controller. If that single USB controller is dedicated solely to
 the input devices, then no untrusted USB devices can be used. Conversely, if
