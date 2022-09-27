@@ -85,9 +85,9 @@ compatible with Qubes OS. The benefits of hardware certification include:
 
 ## Hardware Certification Requirements
 
-(Please note that these are the requirements for hardware *certification*,
+**Note:** This section describes the requirements for hardware *certification*,
 *not* the requirements for *running* Qubes OS. For the latter, please see the
-[system requirements](/doc/system-requirements/).)
+[system requirements](/doc/system-requirements/).
 
 A basic requirement is that all Qubes-certified devices must be be available
 for purchase with Qubes OS preinstalled. Customers may be offered the option to
@@ -133,6 +133,20 @@ switch to open source boot firmware is one such important step. To be
 compatible with Qubes OS, the BIOS must properly expose all the VT-x, VT-d, and
 SLAT functionality that the underlying hardware offers (and which we require).
 Among other things, this implies **proper DMAR ACPI table** construction.
+
+Most laptops use PS/2 connections internally for their input devices (i.e.,
+keyboard and touchpad). On most desktops, however, USB-connected keyboards
+and mice have become standard. This presents a dilemma when the computer has
+only one USB controller. If that single USB controller is dedicated solely to
+the input devices, then no untrusted USB devices can be used. Conversely, if
+the sole USB controller is completely untrusted, then there is no way for the
+user to physically control the system in a secure way. In practice, Qubes users
+on such hardware systems are generally forced to use a single USB controller
+for both trusted and untrusted purposes --- [an unfortunate security
+trade-off](/doc/device-handling-security/#security-warning-on-usb-input-devices).
+For this reason, we require that every Qubes-certified non-laptop device
+**either** (1) supports non-USB input devices (e.g., via PS/2) **or** (2) has a
+separate USB controller that is only for input devices.
 
 Finally, we require that Qubes-certified hardware does not have any built-in
 _USB-connected_ microphones (e.g. as part of a USB-connected built-in camera)
