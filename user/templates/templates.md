@@ -301,8 +301,7 @@ There are several ways to deal with this problem:
 
 Some popular questions:
 
-> So, why should we actually trust Fedora repos -- it also contains large
-> amount of third-party software that might be buggy, right?
+#### So, why should we actually trust Fedora repos -- it also contains large amount of third-party software that might be buggy, right?
 
 As far as the template's compromise is concerned, it doesn't really matter
 whether `/usr/bin/firefox` is buggy and can be exploited, or not. What matters
@@ -314,7 +313,7 @@ some of your more trusted app qubes would have networking restrictions enforced
 by the [firewall qube](/doc/firewall/), and again they should not fear this
 proverbial `/usr/bin/firefox` being potentially buggy and easy to compromise.
 
-> But why trust Fedora?
+#### But why trust Fedora?
 
 Because we chose to use Fedora as a vendor for the Qubes OS foundation (e.g.
 for dom0 packages and for app qube packages). We also chose to trust several
@@ -325,7 +324,7 @@ Fedora packages to be non-malicious (in terms of installation scripts) vs.
 trusting all those packages are non-buggy and non-exploitable. We certainly do
 not assume the latter.
 
-> So, are the templates as trusted as dom0?
+#### So, are the templates as trusted as dom0?
 
 Not quite. Dom0 compromise is absolutely fatal, and it leads to Game
 Over<sup>TM</sup>. However, a compromise of a template affects only a subset of
