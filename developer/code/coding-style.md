@@ -33,10 +33,12 @@ General typographic conventions
 - **Maintain max. line length of 80 characters**. Even though today's monitors often are very wide and it's often not a problem to have 120 characters displayed in an editor, maintaining shorter line lengths improves readability. It also allows others to have two parallel windows open, side by side, each with different parts of the source code.
 
 - **Naming conventions for any OS *other than Windows***:
+
   - `ClassName`
   - `some_variable`, `some_function`, `some_argument`
 
 - **Naming convention *for Windows OS*** -- exceptionally to preserve Windows conventions please use the following:
+
   - `ClassName`, `FunctionName`
   - `pszArgumentOne`, `hPipe` -- use Hungarian notation for argument and variables
 
@@ -126,6 +128,7 @@ Source Code management (Git) guidelines
 - Before you start using git, make sure you understand that git is a decentralized Source Code Management system, and that it doesn't behave like traditional, centralized source code management systems, such as SVN. Here's a good [introductory book on git](http://git-scm.com/book). Read it.
 
 - Qubes code is divided into many git repositories. There are several reasons for that:
+
   - This creates natural boundaries between different code blocks, enforcing proper interfaces, and easing independent development to be conducted on various code parts at the same time, without the fear of running into conflicts.
   - By maintaining relatively small git repositories, it is easy for new developers to understand the code and contribute new patches, without the need to understand all the other code.
   - Code repositories represent also licensing boundaries. So, e.g. because `core-agent-linux` and `core-agent-windows` are maintained in two different repositories, it is possible to have the latter under a proprietary, non-GPL license, while keeping the former fully open source.

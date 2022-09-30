@@ -245,12 +245,17 @@ Port forwarding to a qube from the outside world
 In order to allow a service present in a qube to be exposed to the outside world in the default setup (where the qube has sys-firewall as network VM, which in turn has sys-net as network VM) the following needs to be done:
 
 - In the sys-net VM:
+
   - Route packets from the outside world to the sys-firewall VM
   - Allow packets through the sys-net VM firewall
+
 - In the sys-firewall VM:
+
   - Route packets from the sys-net VM to the VM
   - Allow packets through the sys-firewall VM firewall
+
 - In the qube:
+
   - Allow packets through the qube firewall to reach the service
 
 As an example we can take the use case of a web server listening on port 443 that we want to expose on our physical interface eth0, but only to our local network 192.168.x.0/24.

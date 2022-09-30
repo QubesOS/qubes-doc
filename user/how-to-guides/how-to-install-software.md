@@ -49,6 +49,7 @@ repositories first.)
    management application, such as `gpk-application`.
 
 3. Install software as normally instructed inside that operating system, e.g.:
+
    - Fedora: `sudo dnf install <PACKAGE_NAME>`
    - Debian: `sudo apt install <PACKAGE_NAME>`
 

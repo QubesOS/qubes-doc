@@ -97,6 +97,7 @@ Below is a complete list of configuration made according to the above statement,
       Patches welcomed anyway.
 
 3. Empty root password:
+
     - Used for access to 'root' account from text console (`qvm-console-dispvm`) - the only way to access the VM when GUI isn't working.
     - Can be used for easy 'su -' from user to root.
 
@@ -121,6 +122,7 @@ Do not rely on this for extra security.**
    (Note: any VMs you would like still to have passwordless root access (e.g. Templates) can be specified in the second file with "\<vmname\> dom0 allow")
 
 2. Configuring Fedora template to prompt Dom0 for any authorization request:
+
     - In `/etc/pam.d/system-auth`, replace all lines beginning with "auth" with these lines:
 
         ```
@@ -144,6 +146,7 @@ Do not rely on this for extra security.**
         ```
 
 3. Configuring Debian/Whonix template to prompt Dom0 for any authorization request:
+
     - In `/etc/pam.d/common-auth`, replace all lines beginning with "auth" with these lines:
 
         ```

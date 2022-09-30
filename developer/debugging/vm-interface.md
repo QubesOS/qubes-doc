@@ -25,6 +25,7 @@ Qubes VM have some settings set by dom0 based on VM settings. There are multiple
 - `/qubes-vm-type` - VM type, the same as `type` field in `qvm-prefs`. One of `AppVM`, `ProxyVM`, `NetVM`, `TemplateVM`, `HVM`, `TemplateHVM`
 - `/qubes-vm-updatable` - flag whether VM is updatable (whether changes in root.img will survive VM restart). One of `True`, `False`
 - `/qubes-vm-persistence` - what data do persist between VM restarts:
+
   - `full` - all disks
   - `rw-only` - only `/rw` disk
   - `none` - none
@@ -71,8 +72,7 @@ rules there should be applied to filter traffic coming from `SOURCE_IP`. This
 can be either IPv4 or IPv6 address.
 Dom0 will do an empty write to this top level entry after finishing rules
 update, so VM can setup a watch here to trigger rules reload.
-- `/qubes-firewall/SOURCE_IP/policy` - default action if no rule matches:
-`drop` or `accept`.
+- `/qubes-firewall/SOURCE_IP/policy` - default action if no rule matches: `drop` or `accept`.
 - `/qubes-firewall/SOURCE_IP/NNNN` - rule number `NNNN` - decimal number,
     padded with zeros. Se below for rule format. All the rules should be
     applied in order of rules implied by those numbers. Note that QubesDB
@@ -89,8 +89,10 @@ Possible options for a single rule:
 - `dsthost`, value: DNS hostname of destination host
 - `proto`, values: `tcp`, `udp`, `icmp`
 - `specialtarget`, value: One of predefined target, currently defined values:
+
   - `dns` - such option should match DNS traffic to default DNS server (but
       not any DNS server), on both TCP and UDP
+
 - `dstports`, value: destination ports range separated with `-`, valid only
  together with `proto=tcp` or `proto=udp`; for example `1-1024`, `80-80`
 - `icmptype`, value: numeric (decimal) icmp message type, for example `8` for
@@ -117,14 +119,19 @@ Example valid rules:
 
 ### Keys set by VM for passing info to dom0
 
-- `memory/meminfo` (**xenstore**) - used memory (updated by qubes-meminfo-writer), input information for qmemman;
+- `memory/meminfo` (**xenstore**) - used memory (updated by qubes-meminfo-writer), input information for qmemman:
+
   - Qubes 3.x format: 6 lines (EOL encoded as `\n`), each in format "FIELD: VALUE kB"; fields: `MemTotal`, `MemFree`, `Buffers`, `Cached`, `SwapTotal`, `SwapFree`; meaning the same as in `/proc/meminfo` in Linux.
   - Qubes 4.0+ format: used memory size in the VM, in kbytes
+
 - `/qubes-block-devices` - list of block devices exposed by this VM, each device (subdirectory) should be named in a way that VM can attach the device based on it. Each should contain these entries:
+
   - `desc` - device description (ASCII text)
   - `size` - device size in bytes
   - `mode` - default connection mode; `r` for read-only, `w` for read-write
+
 - `/qubes-usb-devices` - list of USB devices exposed by this VM, each device (subdirectory) should contain:
+
   - `desc` - device description (ASCII text)
   - `usb-ver` - USB version (1, 2 or 3)
 
@@ -138,12 +145,15 @@ Services called by dom0 to provide some VM configuration:
 - `qubes.GetImageRGBA` - receive image/application icon. Protocol:
 
   1. Caller sends name of requested icon. This can be one of:
+
     * `xdgicon:NAME` - search for NAME in standard icons theme
     * `-` - get icon data from stdin (the caller), can be prefixed with format name, for example `png:-`
     * file name
+
   2. The service responds with image dimensions: width and height as
      decimal numbers, separated with space and with EOL marker at the and; then
      image data in RGBA format (32 bits per pixel)
+
 - `qubes.SetDateTime` - set VM time, called periodically by dom0 (can be
     triggered manually from dom0 by calling `qvm-sync-clock`). The service
     receives one line at stdin - time in format of `date -u -Iseconds`, for
@@ -188,9 +198,10 @@ Other Qrexec services installed by default:
   can send icon for the same window multiple times to replace previous one (for
   example for animated icons)
 - `qubes.VMShell` - call any command in the VM; the command(s) is passed one per line
-  - `qubes.VMShell+WaitForSession` waits for full VM startup first
+- `qubes.VMShell+WaitForSession` waits for full VM startup first
 - `qubes.VMExec` - call any command in the VM, without using shell, the command
   needs to be passed as argument and encoded as follows:
+
   - the executable name and arguments are separated by `+`
   - everything except alphanumeric characters, `.` and `_` needs to be
       escaped
@@ -198,6 +209,7 @@ Other Qrexec services installed by default:
   - `-` itself can be escaped as `--`
   - example: to run `ls -a /home/user`, use
       `qubes.VMExec+ls+--a+-2Fhome-2Fuser`
+
 - `qubes.VMExecGUI` - a variant of `qubes.VMExec` that waits for full VM
   startup first
 

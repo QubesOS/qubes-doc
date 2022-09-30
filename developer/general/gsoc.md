@@ -67,6 +67,7 @@ Provide your contact information and write a few sentences about you and why you
 Tell us if you are submitting proposals to other organizations, and whether or not you would choose Qubes if given the choice.
 
 Other things to think about:
+
 * Are you comfortable working independently under a supervisor or mentor who is several thousand miles away, and perhaps 12 time zones away? How will you work with your mentor to track your work? Have you worked in this style before?
 * If your native language is not English, are you comfortable working closely with a supervisor whose native language is English? What is your native language, as that may help us find a mentor who has the same native language?
 * After you have written your proposal, you should get it reviewed. Do not rely on the Qubes mentors to do it for you via the web interface, although we will try to comment on every proposal. It is wise to ask a colleague or a developer to critique your proposal. Clarity and completeness are important.
@@ -105,8 +106,10 @@ If applicable, links to more information or discussions
 **Expected results**:
 
 - Design how Vagrant Qubes provider should look like, including:
+
   - [box format](https://www.vagrantup.com/docs/plugins/providers.html#box-format)
   - method for running commands inside (ssh vs qvm-run)
+
 - Write a Vagrant provider able to create/start/stop/etc a VM
 - Document how to configure and use the provider, including required qrexec policy changes and possibly firewall rules
 - Write integration tests
@@ -131,6 +134,7 @@ If applicable, links to more information or discussions
 **Expected results**:
 
 - a tool / service that checks for common issues and things needing user attention, for example:
+
   - some updates to be applied (separate widget already exists)
   - running out of disk space (separate widget already exists)
   - insecure USB configuration (USB in dom0)
@@ -538,12 +542,14 @@ Since the Admin API is continuously growing and changing, continuous security as
 A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of these assessments.
 
 **Expected results**:
+
   - fully automated & extensible Fuzzer for parts of the Admin API
   - user & developer documentation
 
 **Difficulty**: medium
 
 **Prerequisites**:
+
   - basic Python understanding
   - some knowledge about fuzzing & existing fuzzing frameworks (e.g. [oss-fuzz](https://github.com/google/oss-fuzz/tree/master/projects/qubes-os))
   - a hacker's curiosity
@@ -560,6 +566,7 @@ A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of
 **Brief explanation**: Since recently, Xen supports "unified EFI boot" which allows to sign not only Xen binary itself, but also dom0 kernel and their parameters. While the base technology is there, enabling it is a painful and complex process. The goal of this project is to integrate configuration of this feature into Qubes, automating as much as possible. See discussion in [issue #4371](https://github.com/QubesOS/qubes-issues/issues/4371)
 
 **Expected results**:
+
  - a tool to prepare relevant boot files for unified Xen EFI boot - this includes collecting Xen, dom0 kernel, initramfs, config file, and possibly few more (ucode update?); the tool should then sign the file with user provided key (preferably propose to generate it too)
  - integrate it with updates mechanism, so new Xen or dom0 kernel will be picked up automatically
  - include a fallback configuration that can be used for troubleshooting (main unified Xen EFI intentionally does not allow to manipulate parameters at boot time)
@@ -567,6 +574,7 @@ A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of
 **Difficulty**: hard
 
 **Knowledge prerequisite**:
+
  - basic understanding of Secure Boot
  - Bash and Python scripting
 
@@ -586,6 +594,7 @@ A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of
 **Difficulty**: medium
 
 **Knowledge prerequisite**:
+
  - Python scripting
  - Basic knowledge of Linux system services management (systemd, syslog etc)
 
@@ -619,6 +628,7 @@ would override all the user changes there). More details:
  - Design new mechanism for distributing templates (possibly including some
    package format - either reuse something already existing, or design
    new one). The mechanism needs to handle:
+
    - integrity protection (digital signatures), not parsing any data in dom0
      prior to signature verification
    - efficient handling of large sparse files
@@ -628,7 +638,9 @@ would override all the user changes there). More details:
      available templates (probably should be done in dedicated VM, or DisposableVM)
    - manual template removal by users (without it, see problems such
      as [#5509](https://github.com/QubesOS/qubes-issues/issues/5509)
+
  - Implement the above mechanism:
+
    - tool to download named template - should perform download operation in
      some VM (as dom0 have no network access), then transfer the data to dom0,
      verify its integrity and then create Template VM and feed it's root
@@ -640,6 +652,7 @@ would override all the user changes there). More details:
      [#1705](https://github.com/QubesOS/qubes-issues/issues/1705) for some idea
      (this one lacks integrity verification, but a similar service could
      be developed with that added)
+
  - If new "package" format is developed, add support for it into
    [linux-template-builder](https://github.com/QubesOS/qubes-linux-template-builder).
  - Document the mechanism.
