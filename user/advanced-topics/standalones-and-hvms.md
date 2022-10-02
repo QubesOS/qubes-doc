@@ -402,7 +402,7 @@ a temporary location in dom0, typing this in a dom0 terminal:
 qvm-run --pass-io untrusted 'cat "/media/user/externalhd/win10.raw"' > /home/user/win10-root.img
 ```
 
-If you image is not 10Gb size, extend it to 10Gb:
+If your image is not 10Gb size, extend it to 10Gb:
 ```
 dd if=/dev/zero of=/home/user/win10-root.img count=0 bs=1 seek=10737418240
 ```
