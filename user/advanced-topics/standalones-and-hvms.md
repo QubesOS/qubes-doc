@@ -402,6 +402,11 @@ a temporary location in dom0, typing this in a dom0 terminal:
 qvm-run --pass-io untrusted 'cat "/media/user/externalhd/win10.raw"' > /home/user/win10-root.img
 ```
 
+If you image is not 10Gb size, extend it to 10Gb:
+```
+dd if=/dev/zero of=/home/user/win10-root.img count=0 bs=1 seek=10737418240
+```
+
 From within dom0, create a new HVM (here called `win10`) with the root image we
 just copied to dom0 (change the amount of RAM in GB as you wish):
 
