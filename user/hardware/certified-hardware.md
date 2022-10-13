@@ -87,7 +87,9 @@ compatible with Qubes OS. The benefits of hardware certification include:
 
 **Note:** This section describes the requirements for hardware *certification*,
 *not* the requirements for *running* Qubes OS. For the latter, please see the
-[system requirements](/doc/system-requirements/).
+[system requirements](/doc/system-requirements/). A brief list of the
+requirements described in this section is available
+[here](/doc/system-requirements/#qubes-certified-hardware).
 
 A basic requirement is that all Qubes-certified devices must be be available
 for purchase with Qubes OS preinstalled. Customers may be offered the option to
