@@ -53,6 +53,8 @@ title: System requirements
 - **TPM:** Trusted Platform Module (TPM) with proper BIOS support (required for
   [Anti Evil Maid](/doc/anti-evil-maid/))
 
+### Qubes-certified hardware
+
 The following are *required* for [Qubes-certified hardware
 devices](/doc/certified-hardware/) but *merely recommended* for *non-certified*
 hardware (see the [hardware certification
