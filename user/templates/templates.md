@@ -132,6 +132,13 @@ After installing a fresh template, we recommend performing the following steps:
 
 3. If desired, [uninstall the old template](#uninstalling).
 
+## Network access
+
+For information about how templates access the network, please see [Why don’t
+templates have network
+access?](/doc/how-to-install-software/#why-dont-templates-have-network-access)
+and the [Updates proxy](/doc/how-to-install-software/#updates-proxy).
+
 ## Updating
 
 Please see [How to Update](/doc/how-to-update/).
