@@ -128,9 +128,6 @@ example, it is common for the net qube of an [app qube](#app-qube) to be the
 [service qube](#service-qube) `sys-firewall`, which in turn uses `sys-net` as
 its net qube. 
 
-* If a qube does not have a net qube (i.e., its `netvm` is set to `None`), then
-  that qube is offline. It is disconnected from all networking.
-
 * The name `netvm` derives from "Networking Virtual Machine." Before Qubes 4.0,
   there was a type of [service qube](#service-qube) called a "NetVM." The name
   of the `netvm` property is a holdover from that era.
