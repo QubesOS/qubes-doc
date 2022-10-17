@@ -317,9 +317,8 @@ cache anything.
 
 The proxy is running in selected VMs (by default all the NetVMs (1)) and
 intercepts traffic directed to 127.0.0.1:8082. Thanks to such
-configuration all the VMs can use the same proxy address, and if there is a
-proxy on network path, it will handle the traffic (of course when firewall
-rules allow that). If the VM is configured to have access to the updates proxy
+configuration all the VMs can use the same proxy address.
+If the VM is configured to have access to the updates proxy
 (2), the startup scripts will automatically configure dnf/apt to really use the
 proxy (3). Also access to updates proxy is independent of any other firewall
 settings (VM will have access to updates proxy, even if policy is set to block
