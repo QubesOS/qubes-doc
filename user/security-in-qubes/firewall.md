@@ -145,10 +145,10 @@ In the case where a specific TCP port needs to be exposed from a qubes to anothe
 
 Consider the following example. `mytcp-service` qube has a TCP service running on port `444` and `untrusted` qube needs to access this service.
 
-- In dom0, add the following to `/etc/qubes-rpc/policy/qubes.ConnectTCP`:
+- In dom0, add the following to `/etc/qubes/policy.d/30-user-networking.policy`: (it could be `another-other-name.policy` -- just remember to keep it consistent)
 
     ~~~
-    untrusted @default allow,target=mytcp-service
+    qubes.ConnectTCP * untrusted @default allow target=mytcp-service
     ~~~
 
 - In untrusted, use the Qubes tool `qvm-connect-tcp`:
@@ -171,13 +171,13 @@ which means to use default local port of `unstrusted` as the same of the remote 
 
 **2. Binding remote port on another local port**
 
-Consider now the case where someone prefers to specify the destination qube and use another port in untrusted,for example `10044`. Instead of previous case, add
+Consider now the case where someone prefers to specify the destination qube and use another port in untrusted, for example `10044`. Instead of previous case, add
 
 ~~~
-untrusted mytcp-service allow
+qubes.ConnectTCP * untrusted mytcp-service allow
 ~~~
 
-in `/etc/qubes-rpc/policy/qubes.ConnectTCP` and in untrusted, use the tool as follow:
+in `/etc/qubes/policy.d/30-user-networking.policy` and in untrusted, use the tool as follow:
 
 ~~~
   [user@untrusted #]$ qvm-connect-tcp 10444:mytcp-service:444
@@ -187,10 +187,10 @@ The service of `mytcp-service` running on port `444` is now accessible in `untru
 
 **3. Binding to different qubes using RPC policies**
 
-One can go further than the previous examples by redirecting different ports to different qubes. For example, let assume that another qube `mytcp-service-bis` with a TCP service is running on port `445`. If someone wants `untrusted` to be able to reach this service but port `445` is reserved to `mytcp-service-bis` then, in dom0, add the following to `/etc/qubes-rpc/policy/qubes.ConnectTCP+445`:
+One can go further than the previous examples by redirecting different ports to different qubes. For example, let assume that another qube `mytcp-service-bis` with a TCP service is running on port `445`. If someone wants `untrusted` to be able to reach this service but port `445` is reserved to `mytcp-service-bis` then, in dom0, add the following to `/etc/qubes/policy.d/30-user-networking.policy`:
 
 ~~~
-untrusted @default allow,target=mytcp-service-bis
+qubes.ConnectTCP +445 untrusted @default allow target=mytcp-service-bis
 ~~~
 
 In that case, calling `qvm-connect-tcp` like previous examples, will still bind TCP port `444` of `mytcp-service` to `untrusted` but now, calling it with port `445`
