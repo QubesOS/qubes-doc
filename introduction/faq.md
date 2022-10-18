@@ -19,12 +19,23 @@ title: Frequently asked questions (FAQ)
 
 ### What is Qubes OS?
 
-Qubes OS is a security-oriented operating system (OS).
-The OS is the software that runs all the other programs on a computer.
-Some examples of popular OSes are Windows, macOS, Android, and iOS.
-Qubes is free and open-source software (FOSS).
-This means that everyone is free to use, copy, and change the software in any way.
-It also means that the source code is openly available so others can contribute to and audit it.
+Qubes OS is a security-focused operating system that allows you to organize your digital life into compartments called "qubes." If one qube is compromised, the others remain safe, so a single cyberattack can no longer take down your entire digital life in one fell swoop. You can think of using Qubes OS as having many different computers on your desk for different activities but with the convenience of a single physical machine, a single unified desktop environment, and a set of tools for using qubes together securely as parts of a unified system.
+
+### Is Qubes OS free and open-source software?
+
+There are two distinct senses of the word "free" when it comes to free software. The difference in commonly expressed by the phrases "free as in beer" and "free as in speech."
+
+The first senses is straightforward. Qubes OS is "free as in beer," meaning that it is provided at no cost (_gratis_), though [donations](/donate/) are greatly appreciated.
+
+The second sense is more complicated. Qubes OS is *mostly* "free as in speech," but not entirely. All the software created by the Qubes OS Project *itself* is [free (or "libre")](https://www.gnu.org/philosophy/free-sw) and [open-source](https://opensource.org/docs/definition.html) software ([FOSS or FLOSS](https://www.gnu.org/philosophy/floss-and-foss.en.html)).
+This means that everyone is allowed to use, copy, study, and change the software in accordance with its [license](/doc/license/).
+It also means that the [source code](/doc/source-code/) is [publicly available](https://github.com/QubesOS/) so everyone can audit and contribute to it.
+
+However, since Qubes OS is a security-focused operating system, it includes some non-free firmware that was not created by the Qubes OS Project (such as CPU microcode), which is necessary in order to protect against known security vulnerabilities.
+Moreover, the [architecture](/doc/architecture/) of Qubes OS as a meta-operating system means that it incorporates other software (including entire operating systems) from various upstream projects, some of which may include non-free software of their own.
+In order to make the installation process easier for a wide range of users across many different devices, standard Qubes [templates](/doc/templates/) also include some non-free firmware and drivers.
+
+Also see: [Will Qubes seek to get certified under the GNU Free System Distribution Guidelines (GNU FSDG)?](#will-qubes-seek-to-get-certified-under-the-gnu-free-system-distribution-guidelines-gnu-fsdg)
 
 ### Why is OS security important?
 
@@ -279,7 +290,7 @@ Instead, Qubes aims to be as free as possible *without sacrificing security*. Al
 
 The [four essential freedoms](https://www.gnu.org/philosophy/free-sw.html) are part of the core of our philosophy, but so is security. Together, they inform our decisions and motivate our actions. Qubes aims to maximize both security and software freedom to the extent that they are compatible in the world today.
 
-Also see the Qubes OS [software license](/doc/license/).
+Also see [Is Qubes OS free and open-source software?](#is-qubes-os-free-and-open-source-software) and the Qubes OS [software license](/doc/license/).
 
 ### Should I trust this website?
 
@@ -668,7 +679,7 @@ See the [Qubes Source Code Repositories](/doc/source-code/) article.
 
 ### What is Qubes' attitude toward changing guest distros?
 
-We try to respect each distro's culture, where possible.
+In general, we try to respect each distro's culture, but we reserve the right to make modifications that we deem appropriate.
 See the discussion on issue [#1014](https://github.com/QubesOS/qubes-issues/issues/1014) for an example.
 
 The policy is there mostly to ease maintenance, on several levels:
