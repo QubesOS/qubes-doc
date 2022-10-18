@@ -27,11 +27,11 @@ OS accordingly). The recommended way for using U2F in Qubes is described
 
 ## Multi-factor login for Qubes OS
 
-You can use a YubiKey to enhance the user authentification in Qubes. The following
+You can use a YubiKey to enhance the user authentication in Qubes. The following
 instructions explain how to setup the YubiKey as an *additional* way to login.
 
 After setting it up, you can login by providing both - a password typed in via
-keyboard *and* the YubiKey plugged in. Someone evesdropping your login attempt
+keyboard *and* the YubiKey plugged in. Someone eavesdropping your login attempt
 would not be able to login by only observing and remembering your password.
 Stealing your YubiKey would not suffice to login either. Only if an attacker has
 both, the password and the Yubikey, it would be possible to login (it is thus
@@ -135,7 +135,7 @@ ultimately trusted anyway.
     echo -n "$password" | openssl dgst -sha1 | cut -f2 -d ' '
     ```
 
-6. To enable multi-factor authentification for a service, you need to add
+6. To enable multi-factor authentication for a service, you need to add
 
     ```
     auth include yubikey
