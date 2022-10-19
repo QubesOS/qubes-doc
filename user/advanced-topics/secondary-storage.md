@@ -6,6 +6,7 @@ redirect_from:
 - /en/doc/secondary-storage/
 - /doc/SecondaryStorage/
 - /wiki/SecondaryStorage/
+- /doc/storage-pools/
 ref: 187
 title: Secondary storage
 ---
