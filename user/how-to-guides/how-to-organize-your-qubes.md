@@ -88,14 +88,15 @@ the other. Alice's setup looks like this:
   that things can be messy and disorganized *within* a qube while her overall
   digital life remains well-organized.
 
-- Several email qubes. Since Alice is a serious programmer, she likes to use a
-  command-line mail client, so both her work and personal email qubes are based
-  on a template with
+- Several email qubes. Since Alice is a command-line aficionado, she likes to
+  use a terminal-based email client, so both her work and personal email qubes
+  are based on a template with
   [Mutt](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/mutt.md)
   installed. The email qubes where she sends and receives PGP-signed and
-  encrypted email access her PGP backend qube (more on that below). For
-  security, she configured Mutt to open all attachments she receives in
-  [disposable qubes](/doc/how-to-use-disposables/).
+  encrypted email securely accesses the private keys in her PGP backend qube
+  (more on that below). To guard against malicious attachments, she configured
+  Mutt to open all attachment files in [disposable
+  qubes](/doc/how-to-use-disposables/).
 
 - Several qubes for communication tools, like Signal, Slack, Zoom, Telegram,
   IRC, and Discord. This is where she teleconferences and chats with clients.
@@ -109,23 +110,30 @@ the other. Alice's setup looks like this:
   she claims; in reality, it's mostly for feuds over programming language
   superiority, Vim vs. Emacs wars, and tabs vs. spaces crusades).
 
-- A backend PGP vault. This offline qube holds her PGP code signing keys and is
-  securely shared among several projects. Only the frontend qubes she
-  explicitly authorizes have access to this qube, and even then, they only have
-  access through the secure [Split GPG](/doc/split-gpg/) system so that her
-  private keys aren't at risk.
+- A GPG backend vault. Vaults are completely offline qubes that are isolated
+  from the network. This particular vault holds Alice's private keys (e.g., for
+  code signing and email) and is securely accessed by several other "frontend"
+  qubes via the [Split GPG](/doc/split-gpg/) system. Split GPG allows only the
+  frontend qubes that Alice explicitly authorizes to have the ability to
+  request PGP operations (e.g., signing and encryption) in the backend vault.
+  Even then, no qube ever has direct access to Alice's private keys except the
+  backend vault itself.
+  
 
-- A password manager vault. This is where she runs her offline password manager
-  for logging into everything.
+- A password manager vault. This is another completely offline,
+  network-isolated qube where Alice uses her offline password manager to store
+  all of her usernames and passwords. She uses the [secure copy and paste
+  system](/doc/how-to-copy-and-paste-text/) to quickly copy credentials into
+  other qubes whenever she needs to log into anything.
 
 - Personal qubes. One of the things Alice loves the most about Qubes is that
   she can use it for both work *and* personal stuff without having to worry
   about cross-contamination. Accordingly, she has several qubes that pertain to
-  her personal life. For example, she has a vault that holds her medical
-  documents, test results, and vaccination records. She has another vault for
-  her government documents, birth certificate, scans of her passport, and so
-  on. She also has some personal social media accounts in a separate qube for
-  keeping up with family members and friends from school.
+  her personal life. For example, she has an offline vault that holds her
+  medical documents, test results, and vaccination records. She has another
+  offline vault for her government documents, birth certificate, scans of her
+  passport, and so on. She also has some personal social media accounts in a
+  separate qube for keeping up with family members and friends from school.
 
 When she finishes her work for a given client, Alice sends off her
 deliverables, [backs up](/doc/how-to-back-up-restore-and-migrate/) the qubes
@@ -184,17 +192,17 @@ for work, which contains:
   desktop app is installed). One is linked to his work mobile number for
   communicating with co-workers. The other is a public number that serves as
   another method of allowing sources to contact him confidentially. This is
-  especially useful for individuals who aren't tech-savvy enough for Tor but
-  for whom unencrypted communication could be dangerous.
+  especially useful for individuals who don't use Tor but for whom unencrypted
+  communication could be dangerous.
 
 - Several data vaults. When someone sends Bob material that turns out to be
   useful, or when he comes across useful material while doing his own research,
-  he stores a copy in an offline vault qube. Most of these files are PDFs and
-  images, though some are audio files, videos, and text files. Since most of
-  them are from unknown or untrusted sources, Bob isn't sure if it would be
-  safe to put them all in the same vault, so he makes different vaults (usually
-  one for each story or topic) just in case. This has the side benefit of
-  helping to keep things organized.
+  he stores a copy in a completely offline, network-isolated vault qube. Most
+  of these files are PDFs and images, though some are audio files, videos, and
+  text files. Since most of them are from unknown or untrusted sources, Bob
+  isn't sure if it would be safe to put them all in the same vault, so he makes
+  different vaults (usually one for each story or topic) just in case. This has
+  the side benefit of helping to keep things organized.
 
 - A [VPN
   qube](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md)
@@ -203,7 +211,9 @@ for work, which contains:
   VPN qube so that he can upload his work and access anything he needs on the
   local network without being there.
 
-- A password manager vault. Bob stores all the login credentials he needs here.
+- A password manager vault. Bob stores all of his login credentials in this
+  offline qube and [securely copies and
+  pastes](/doc/how-to-copy-and-paste-text/) them into other qubes as needed.
 
 A colleague helped Bob set up his Qubes system initially and showed him how to
 use it. Since Bob's workflow is pretty consistent and straightforward, the way
@@ -296,8 +306,11 @@ setup looks like this:
   about identity theft, so she has one qube dedicated to managing her free
   credit monitoring services and downloading her free annual credit reports.
 
-- One qube for taxes. This is an offline qube where she stores all of her
-  tax-related forms and documents, organized by year.
+- Two qubes for taxes. Carol has a [Windows
+  qube](https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows.md)
+  for running her Windows-only tax software. She also has an offline vault
+  where she stores all of her tax-related forms and documents, organized by
+  year.
 
 - One qube for financial planning and tracking. Carol loves spreadsheets, so
   this offline qube is where she maintains a master spreadsheet to track all of
@@ -310,8 +323,10 @@ setup looks like this:
   online shopping accounts, and insurance companies; and another one for
   personal email.
 
-- A password manager vault. Carol stores all of her account usernames and
-  passwords here.
+- A password manager vault. A network-isolated qube where Carol stores all of
+  her account usernames and passwords. She uses the [Qubes global
+  clipboard](/doc/how-to-copy-and-paste-text/) to copy and past them into her
+  other qubes when she needs to log into her accounts.
 
 The vast majority of Carol's assets are in broad-based, low-cost,
 passively-managed indexed funds. Lately, however, she's started getting
@@ -362,7 +377,7 @@ so most people will need at least one email qube and a suitable template to
 base it on. But not everyone will need [Split GPG](/doc/split-gpg/), and not
 everyone will want to use the same email client. On the other hand, almost
 everyone will need a password manager, and it pretty much always makes sense to
-keep it in an offline vault.
+keep it in an offline, network-isolated vault.
 
 As you're designing your own Qubes system, keep in mind some of the following
 tips:
