@@ -121,13 +121,12 @@ the other. Alice's setup looks like this:
   request PGP operations (e.g., signing and encryption) in the backend vault.
   Even then, no qube ever has direct access to Alice's private keys except the
   backend vault itself.
-  
 
 - A password manager vault. This is another completely offline,
-  network-isolated qube where Alice uses her offline password manager to store
-  all of her usernames and passwords. She uses the [secure copy and paste
-  system](/doc/how-to-copy-and-paste-text/) to quickly copy credentials into
-  other qubes whenever she needs to log into anything.
+  network-isolated qube where Alice uses her offline password manager,
+  KeePassXC, to store all of her usernames and passwords. She uses the [secure
+  copy and paste](/doc/how-to-copy-and-paste-text/) system to quickly copy
+  credentials into other qubes whenever she needs to log into anything.
 
 - Personal qubes. One of the things Alice loves the most about Qubes is that
   she can use it for both work *and* personal stuff without having to worry
@@ -166,7 +165,7 @@ his colleagues, his family, and himself; and he understands that computer
 security is an important part of that. He has a Qubes laptop that he uses only
 for work, which contains:
 
-- One offline qube for writing. It only runs LibreOffice Writer. This is where
+- One offline qube for writing. It runs only LibreOffice Writer. This is where
   Bob does all of his writing. This window is usually open side-by-side with
   another window containing research or material from a source.
 
@@ -180,23 +179,24 @@ for work, which contains:
 - Whonix qubes. He has the standard `sys-whonix` service qube for providing
   Torified network access, and he uses disposable `anon-workstation` app qubes
   for using Tor Browser to do research on stories he's writing. Since the topic
-  is often of a sensitive nature or might involve powerful individuals, it's
+  is often of a sensitive nature and might implicate powerful individuals, it's
   important that he be able to conduct this research with a degree of
   anonymity. He doesn't want the subjects of his investigation to know that
-  he's investigating him. He also doesn't want his network requests being
-  traced back to his work or home IP addresses. Whonix addresses both of these
+  he's looking into them. He also doesn't want his network requests being
+  traced back to his work or home IP addresses. Whonix helps with both of these
   concerns. He also has another Whonix-based disposable template for receiving
-  tips anonymously via Tor, since some whistleblowers he's interacted with have
-  said that they don't want to risk using regular email.
+  tips anonymously via Tor, since some high-risk whistleblowers he's interacted
+  with have said that they can't take a chance with any other form of
+  communication.
 
 - Two qubes for
   [Signal](https://github.com/Qubes-Community/Contents/blob/master/docs/privacy/signal.md).
   Bob has two Signal app qubes (both on the same template in which the Signal
-  desktop app is installed). One is linked to his work mobile number for
-  communicating with co-workers. The other is a public number that serves as
-  another method of allowing sources to contact him confidentially. This is
-  especially useful for individuals who don't use Tor but for whom unencrypted
-  communication could be dangerous.
+  desktop app is installed). One is linked to his own mobile number for
+  communicating with co-workers and other known, trusted contacts. The other is
+  a public number that serves as an additional way for sources to reach him
+  confidentially. This is especially useful for individuals who don't use Tor
+  but for whom unencrypted communication could be dangerous.
 
 - Several data vaults. When someone sends Bob material that turns out to be
   useful, or when he comes across useful material while doing his own research,
@@ -210,13 +210,14 @@ for work, which contains:
 - A [VPN
   qube](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md)
   and associated qubes for accessing work resources. The servers at work can
-  only be accessed via a VPN, so Bob has certain qubes that are connected to a
-  VPN qube so that he can upload his work and access anything he needs on the
-  local network without being there.
+  only be accessed from the organization's network, so Bob has certain qubes
+  that are connected to a VPN qube so that he can upload his work and access
+  anything he needs on the local network when he's not physically there.
 
-- A password manager vault. Bob stores all of his login credentials in this
-  offline qube and [securely copies and
-  pastes](/doc/how-to-copy-and-paste-text/) them into other qubes as needed.
+- A password manager vault. Bob stores all of his login credentials in the
+  default password manager that came with his offline vault qube. He [securely
+  copies and pastes](/doc/how-to-copy-and-paste-text/) them into other qubes as
+  needed.
 
 A colleague helped Bob set up his Qubes system initially and showed him how to
 use it. Since Bob's workflow is pretty consistent and straightforward, the way
@@ -225,9 +226,10 @@ colleague told him to remember a few simple rules: Don't copy or move
 [text](/doc/how-to-copy-and-paste-text/) or
 [files](/doc/how-to-copy-and-move-files/) from less trusted to more trusted
 qubes; [update](/doc/how-to-update/) your system when prompted; and make
-regular [backups](/doc/how-to-back-up-restore-and-migrate/). Bob doesn't care
-to try out new software or tweak any settings, so he can do everything he needs
-to do without having to interact with the command line.
+regular [backups](/doc/how-to-back-up-restore-and-migrate/). Bob doesn't have
+the need to try out new software or tweak any settings, so he can do everything
+he needs to do on a daily basis without having to interact with the command
+line.
 
 
 ## Carol, the investor
@@ -243,14 +245,14 @@ protection organizations only guarantee recovery in the case of a financial
 institution *failing*, which is quite different from an individual customer
 being hacked. Moreover, even though many financial institutions have their own
 cybercrime policies, rarely, if ever, do they explicitly guarantee
-reimbursement in the event that a customer gets hacked rather than the
-institution itself.
+reimbursement in the event that a *customer* gets hacked (rather than the
+institution itself).
 
 Carol looked into how thieves might actually try to steal her hard-earned
 wealth and was surprised to learn that they have all sorts of ploys that she
 had never even considered. For example, she had assumed that any theft would,
-at the very least, have to involve transferring money out of her account. That
-seemed like a safe basic assumption. But then she read about "pump and dump"
+at the bare minimum, have to involve transferring money out of her account.
+That seems like a safe assumption. But then she read about "pump and dump"
 attacks, where thieves buy up some penny stock, hack into innocent people's
 brokerage accounts, then use the victims' funds to buy that same penny stock,
 "pumping" up its price so that the thieves can "dump" their shares on the
@@ -276,18 +278,21 @@ for "most secure operating system." She read about how it's designed and why.
 Although she didn't immediately understand all of the technical details, the
 fundamental principle of [security-by-compartmentalization](/doc/architecture/)
 made intuitive sense to her, and the more she learned about the technical
-aspects, the more she realized that this is what she'd been looking for. Her
-setup looks like this:
+aspects, the more she realized that this is what she'd been looking for. Today,
+her setup looks like this:
 
 - One qube for each investment firm and bank. Carol has a few different
   retirement accounts, brokerage accounts, and bank accounts. She treats each
   qube like a "secure terminal" for accessing only that one institution's
-  website and saving any statements and confirmations she downloads in that
-  qube. She uses the [Qubes firewall](/doc/firewall/) to enable access only to
-  that institution's website so that she doesn't accidentally visit any others
-  in that qube.
+  website. She makes her transactions and saves any statements and
+  confirmations she downloads in that qube. She uses the [Qubes
+  firewall](/doc/firewall/) to enable access only to that institution's website
+  in that qube so that she doesn't accidentally visit any others. Since most of
+  what she does involves using websites and PDFs, most of Carol's app qubes are
+  based on a [minimal template](/doc/templates/minimal/) with just a web
+  browser (which doubles as a PDF viewer) and a file manager installed.
 
-- One qube for all her credit card accounts. Carol considered making a separate
+- One qube for all her credit card accounts. Carol started to make a separate
   qube for each credit card account but ultimately decided against it. For one
   thing, the consumer protections for credit card fraud in her country are much
   better than for losing assets to theft or fraud in a bank or brokerage
@@ -296,13 +301,18 @@ setup looks like this:
   accounts or her old credit card statements, since online access to these
   generally doesn't allow spending or withdrawing any money. So, even the worst
   case scenario here wouldn't be catastrophic, unlike with her bank and
-  brokerage accounts. Finally, she has way too many credit cards! While she's
-  very frugal, she likes to collect the sign-up bonuses that are offered for
-  opening new cards, so she's accumulated quite a few of them. (However, she's
-  always careful to pay off her balance each month, so she never pays interest.
-  She's also pretty disciplined about only spending what she would have spent
-  *anyway* and not being tempted to spend more just to meet a spending
-  requirement or because she can.)
+  brokerage accounts. Third, she's not too worried about any of her credit card
+  company websites being used to attach each other or her qube (As long as it's
+  contained to a single qube, she's fine with that level of risk.) Last, but
+  not least: She has way too many credit cards! While Carol is very frugal, she
+  likes to collect the sign-up bonuses that are offered for opening new cards,
+  so she's accumulated quite a few of them. (However, she's always careful to
+  pay off her balance each month, so she never pays interest. She's also pretty
+  disciplined about only spending what she would have spent *anyway* and not
+  being tempted to spend more just to meet a spending requirement or because
+  she can.) At any rate, Carol has decided that the tiny benefit she stands to
+  gain from having a separate qube for every credit card website wouldn't be
+  worth the hassle of having to manage so many extra qubes.
 
 - One qube for credit monitoring, credit reports, and credit history services.
   Carol has worked hard to build up a good credit score, and she's concerned
@@ -319,42 +329,56 @@ setup looks like this:
   this offline qube is where she maintains a master spreadsheet to track all of
   her investments and her savings rate. She also keeps her budgeting
   spreadsheet, insurance spreadsheet, and written investment policy statement
-  here.
+  here. This qube is based on a template with some additional productivity
+  software, like LibreOffice and Gnumeric (so that Carol can run her own Monte
+  Carlo simulations).
 
 - Various email qubes. Carol likes to have one email qube for her most
   important financial accounts; a separate one for her credit cards accounts,
   online shopping accounts, and insurance companies; and another one for
-  personal email.
+  personal email. They're all based on the same template with Thunderbird
+  installed.
 
 - A password manager vault. A network-isolated qube where Carol stores all of
-  her account usernames and passwords. She uses the [Qubes global
-  clipboard](/doc/how-to-copy-and-paste-text/) to copy and past them into her
+  her account usernames and passwords in KeePassXC. She uses the [Qubes global
+  clipboard](/doc/how-to-copy-and-paste-text/) to copy and paste them into her
   other qubes when she needs to log into her accounts.
 
 The vast majority of Carol's assets are in broad-based, low-cost,
 passively-managed indexed funds. Lately, however, she's started getting
-interested in cryptocurrency. Although she's still skeptical of investments
-that don't generate cash flows or that are associated with scams or wild
-speculation, she finds the idea of self-custodying a portion of her assets
-appealing. She's knows they're very volatile, but she likes the idea of having
-a hedge against certain types of political risk, and she recognizes that high
-volatility also carries the potential for high returns, so she's decided to dip
-her toe in the water by allocating a small portion of her portfolio. This has
-led her to add the following:
+interested in cryptocurrency. She's still committed to staying the course with
+her tried-and-true investments, and she's always been skeptical of new asset
+classes, especially those that don't generate cash flows or that often seem to
+be associated with scams or wild speculation. However, she finds the ability to
+self-custody a portion of her assets appealing from a long-term risk management
+perspective, particularly as a hedge against certain types of political risk.
+She recognizes that cryptocurrency is extremely volatile, and she knows that
+she has the self-discipline to invest only what she can afford to lose, so
+she's decided to dip her toe in the water by allocating a small portion of her
+portfolio. This has led her to add the following to her Qubes setup:
 
-- A standalone qube for running Bitcoin Core. Carol finds the design and
-  security properties of Bitcoin very interesting, so she's experimenting with
-  running a full node.
+- A standalone qube for running Bitcoin Core and an offline wallet vault. Carol
+  finds the design and security properties of Bitcoin very interesting, so
+  she's experimenting with running a full node. She also created a
+  network-isolated vault in order to try running a copy of Bitcoin Core
+  completely offline as a "cold storage" wallet. She's still trying to figure
+  out how this compares to an actual hardware wallet, paper wallet, or
+  physically air-gapped machine, but she's figures they all have different
+  security properties. She also recently heard about using [Electrum as a
+  "split" wallet in
+  Qubes](https://github.com/Qubes-Community/Contents/blob/master/docs/security/split-bitcoin.md)
+  and is interested in exploring that further.
 
 - Whonix qubes. Carol read somewhere that Bitcoin nodes should be run over Tor
   for privacy and security. She found it very convenient that Whonix is already
-  integrated into Qubes, so she simply set her Bitcoin Core qube to use
-  `sys-whonix` as its networking qube.
+  integrated into Qubes, so she simply set her Bitcoin Core "full node" qube to
+  use `sys-whonix` as its networking qube.
 
-- Various qubes for DeFi and Ledger Live. Carol has also started getting into
-  decentralized finance and web3, so a friend recommended that she get a Ledger
-  hardware wallet. She downloaded the Ledger Live software in an app qube and
-  [set up her system to recognize the
+- Various qubes for DeFi and web3. Carol has also started getting into DeFi
+  (decentralized finance) and web3 on Ethereum and other smart contract
+  blockchains, so a friend recommended that she get a Ledger hardware wallet.
+  She downloaded the Ledger Live software in an app qube and [set up her system
+  to recognize the
   Ledger](https://www.kicksecure.com/wiki/Ledger_Hardware_Wallet). She can now
   start her [USB qube](/doc/usb-qubes/), plug her Ledger into it into a USB
   port, [use the Qubes Devices widget to attach it](/doc/how-to-use-devices/)
@@ -366,8 +390,15 @@ led her to add the following:
 
 - Various qubes for research and centralized exchanges. Carol uses these when
   she wants to check block explorer websites, coin listing and market cap
-  sites, aggregation tools, or just to see what the latest buzz is on Twitter.
+  sites, aggregation tools, or just to see what the latest buzz is on Crypto
+  Twitter.
 
+Carol makes sure to back up all of her qubes that contain important account
+statements, confirmations, spreadsheets, cryptocurrency wallets, and her
+password manager vault. If she has extra storage space, she'll also back up her
+templates and even her Bitcoin full node qube, but she'll skip them if she
+doesn't have time or space, since she knows she can always recreate them again
+later and download what she needs from the Internet.
 
 ## Conclusion
 
@@ -382,12 +413,18 @@ everyone will want to use the same email client. On the other hand, almost
 everyone will need a password manager, and it pretty much always makes sense to
 keep it in an offline, network-isolated vault.
 
-As you're designing your own Qubes system, keep in mind some of the following
-tips:
+As you gain experience with Qubes, you may find yourself disagreeing with some
+of the decisions our fictional friends made. That's okay! There are many
+different ways to organize a Qubes system, and the most important criterion is
+that it serves the needs of its owner. Since everyone's needs are different,
+it's perfectly normal to find yourself doing things a bit differently.
+Nonetheless, there are some general principles that almost all users find
+helpful when they're first starting out. As you're designing your own Qubes
+system, keep in mind some of the following lessons from our case studies:
 
-- You'll probably change your mind as you go. You'll realize that this qube
+- You'll probably change your mind as you go. You'll realize that one qube
   should really be split into two, or you'll realize that it doesn't really
-  make sense for these two qubes to be separate and that they should instead be
+  make sense for two qubes to be separate and that they should instead be
   merged into one. That's okay. Qubes OS supports your ability to adapt and
   make changes as you go. Try to maintain a flexible mindset. Things will
   eventually settle down, and you'll find your groove. Changes to the way you
@@ -404,7 +441,7 @@ tips:
   experience of others. Keeping good backups also allows you to be a bit more
   free with reorganizations. You can delete qubes that you think you won't need
   anymore without having to worry that you might need them again someday, since
-  you know you can always restore them from a backup if it turns out you do.
+  you know you can always restore them from a backup.
 
 - Think about which programs you want to run and where you want to store data.
   In some cases, it makes sense to run programs and store data in the same
@@ -417,14 +454,14 @@ tips:
   size of your installation. Templates, service qubes, and qubes that are used
   exclusively for running programs and that contain no data don't necessarily
   have to be backed up as long as you're confident that you can recreate them
-  if needed. This is why it can be useful to keep notes on which packages you
-  installed in which templates and which customizations and configurations you
-  made. Then you can refer to your notes the next time you need to recreate
-  them. Of course, backing up everything is not a bad idea either. It may
-  require a bit more time and disk space upfront, but for some people, it can
-  be just as important as backing up their irreplaceable data. If your system
-  is mission-critical, and you can't afford more than a certain amount of
-  downtime, then by all means, back everything up!
+  if needed. This is why it's a good practice to keep notes on which packages
+  you installed in which templates and which customizations and configurations
+  you made. Then you can refer to your notes the next time you need to recreate
+  those qubes. Of course, backing up everything is not a bad idea either. It
+  may require a bit more time and disk space upfront, but for some people, it
+  can be just as important as backing up their irreplaceable data. If your
+  system is mission-critical, and you can't afford more than a certain amount
+  of downtime, then by all means, back everything up!
 
 - Introspect on your own behavior. For example, if you find yourself wanting to
   find some way to get two qubes to share the same storage space, then this is
@@ -454,16 +491,17 @@ tips:
 - On the other hand, compartmentalization --- like everything else --- can be
   taken to an extreme. The appropriate amount depends on your temperament,
   time, patience, experience, risk tolerance, and expertise. In short, there
-  can be such a thing as *too much* self-imposed security! You also have to be
-  able to use your computer to actually do the things you need to do. For
-  example, if you immediately try to jump into doing everything in
+  can be such a thing as *too much* compartmentalization! You also have to be
+  able to actually *use* your computer efficiently to do the things you need to
+  do. For example, if you immediately try to jump into doing everything in
   [disposables](/doc/how-to-use-disposables/) and find yourself constantly
   losing working (e.g., because you forget to transfer it out before the
   disposable self-destructs), then that's a big problem! Your extra
   self-imposed security measures are interfering with the very thing they're
   designed to protect. At times like these, take a deep breath and remember
   that you've already reaped the vast majority of the security benefit simply
-  by using Qubes and performing basic-level compartmentalization (e.g., no
-  random web browsing in templates). Each further step of hardening and
-  compartmentalization beyond that is only an incremental gain with diminishing
-  marginal utility. Try not to allow the perfect to be the enemy of the good!
+  by using Qubes OS in the first place and performing basic
+  compartmentalization (e.g., no random web browsing in templates). Each
+  further step of hardening and compartmentalization beyond that represents an
+  incremental gain with diminishing marginal utility. Try not to allow the
+  perfect to be the enemy of the good!
