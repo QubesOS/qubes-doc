@@ -38,14 +38,13 @@ build environments. She has a separate set of qubes for each project. She keeps
 them organized by coming up with a naming scheme, such as:
 
 ```
-client1-code
-client1-build
-client1-test
-client1-prod
-client2-code
-client2-build
-client2-test 
-client2-prod
+clientABC-code
+clientABC-build
+clientABC-test
+clientABC-prod
+projectXYZ-code
+projectXYZ-build-test
+projectXYZ-prod
 ...
 ```
 
@@ -70,23 +69,27 @@ the other. Alice's setup looks like this:
   works on just for fun when she has "free time" (whatever that is).
 
 - Several qubes for building and testing. Again, Alice usually likes to have
-  one of these for each project in order to keep things organized. Here's where
-  she pulls any dependencies she needs, compiles her code, runs her build
-  toolchain, and tests her deliverables. In some cases, she finds it useful to
-  use [standalones](/doc/standalones-and-hvms/) for these so that it's easier
-  to quickly [install different pieces of
-  software](/doc/how-to-install-software/) without having to juggle rebooting
-  both the template and an app qube. She also sometimes finds it necessary (or
-  just convenient) to make edits to config files in the root filesystem, and
-  she'd rather not have to worry about losing those changes during an app qube
-  reboot. She knows that she could use [bind-dirs](/doc/bind-dirs/) to make
-  those changes persistent, but sometimes she doesn't want to get bogged down
-  doing with all that and figures it wouldn't be worth it just for this one
-  qube. She's secretly glad that Qubes OS doesn't judge her this and just gives
-  her the freedom to do things however she likes while keeping everything
-  securely compartmentalized. At times like these, she takes comfort in knowing
-  that things can be messy and disorganized *within* a qube while her overall
-  digital life remains well-organized.
+  one of these for each client or project in order to keep things organized.
+  However, this can become rather cumbersome and memory-intensive when many
+  such qubes are running at the same time, so Alice will sometimes use the same
+  qube for building and testing, or for multiple projects that require the same
+  environment, when she decides that the marginal benefits of extra
+  compartmentalization aren't worth the trouble. Here's where she pulls any
+  dependencies she needs, compiles her code, runs her build toolchain, and
+  tests her deliverables. In some cases, she finds it useful to use
+  [standalones](/doc/standalones-and-hvms/) for these so that it's easier to
+  quickly [install different pieces of software](/doc/how-to-install-software/)
+  without having to juggle rebooting both the template and an app qube. She
+  also sometimes finds it necessary (or just convenient) to make edits to
+  config files in the root filesystem, and she'd rather not have to worry about
+  losing those changes during an app qube reboot. She knows that she could use
+  [bind-dirs](/doc/bind-dirs/) to make those changes persistent, but sometimes
+  she doesn't want to get bogged down doing with all that and figures it
+  wouldn't be worth it just for this one qube. She's secretly glad that Qubes
+  OS doesn't judge her this and just gives her the freedom to do things however
+  she likes while keeping everything securely compartmentalized. At times like
+  these, she takes comfort in knowing that things can be messy and disorganized
+  *within* a qube while her overall digital life remains well-organized.
 
 - Several email qubes. Since Alice is a command-line aficionado, she likes to
   use a terminal-based email client, so both her work and personal email qubes
