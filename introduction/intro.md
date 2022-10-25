@@ -248,6 +248,8 @@ title: Introduction
       own mistakes. It's a place where you can click on links, open attachments,
       plug in devices, and install software free from worry. It's a place where
       <em>you</em> have control over your software, not the other way around.
+      (See some <a href="/doc/how-to-organize-your-qubes/">examples of how
+      different types of users organize their qubes</a>.)
     </p>
     <p>
       Qubes is also powerful. Organizations like the <a
