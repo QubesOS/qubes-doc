@@ -38,13 +38,13 @@ build environments. She has a separate set of qubes for each project. She keeps
 them organized by coming up with a naming scheme, such as:
 
 ```
-clientABC-code
-clientABC-build
-clientABC-test
-clientABC-prod
-projectXYZ-code
-projectXYZ-build-test
-projectXYZ-prod
+clientA-code
+clientA-build
+clientA-test
+clientA-prod
+projectB-code
+projectB-build-test
+projectB-prod
 ...
 ```
 
@@ -53,6 +53,8 @@ based on [Debian templates](/doc/templates/debian/), while others are based on
 [Fedora templates](/doc/templates/fedora/). The reason for this is that some
 software packages are more readily available in one distribution as opposed to
 the other. Alice's setup looks like this:
+
+![[Alice's system: digram 1](/attachment/doc/howto_use_qubes_alice_1.png)](/attachment/doc/howto_use_qubes_alice_1.png)
 
 - Several qubes for writing code. Here's where she runs her IDE, commits code,
   and signs her commits. These qubes are based on different templates depending
@@ -90,6 +92,8 @@ the other. Alice's setup looks like this:
   she likes while keeping everything securely compartmentalized. At times like
   these, she takes comfort in knowing that things can be messy and disorganized
   *within* a qube while her overall digital life remains well-organized.
+
+![[Alice's system: diagram 2](/attachment/doc/howto_use_qubes_alice_2.png)](/attachment/doc/howto_use_qubes_alice_2.png)
 
 - Several email qubes. Since Alice is a command-line aficionado, she likes to
   use a terminal-based email client, so both her work and personal email qubes
@@ -164,6 +168,8 @@ nature of his work might make him a target. He wants to protect his sources,
 his colleagues, his family, and himself; and he understands that computer
 security is an important part of that. He has a Qubes laptop that he uses only
 for work, which contains:
+
+![[A diagram of Bob's system](/attachment/doc/howto_use_qubes_bob.png)](/attachment/doc/howto_use_qubes_bob.png)
 
 - One offline qube for writing. It runs only LibreOffice Writer. This is where
   Bob does all of his writing. This window is usually open side-by-side with
@@ -280,6 +286,8 @@ fundamental principle of [security-by-compartmentalization](/doc/architecture/)
 made intuitive sense to her, and the more she learned about the technical
 aspects, the more she realized that this is what she'd been looking for. Today,
 her setup looks like this:
+
+![[A diagram of Carol's system](/attachment/doc/howto_use_qubes_carol.png)](/attachment/doc/howto_use_qubes_carol.png)
 
 - One qube for each investment firm and bank. Carol has a few different
   retirement accounts, brokerage accounts, and bank accounts. She treats each
