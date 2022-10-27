@@ -54,7 +54,7 @@ based on [Debian templates](/doc/templates/debian/), while others are based on
 software packages are more readily available in one distribution as opposed to
 the other. Alice's setup looks like this:
 
-![[Alice's system: digram 1](/attachment/doc/howto_use_qubes_alice_1.png)](/attachment/doc/howto_use_qubes_alice_1.png)
+![[Alice's system: diagram 1](/attachment/doc/howto_use_qubes_alice_1.png)](/attachment/doc/howto_use_qubes_alice_1.png)
 
 - **Several qubes for writing code.** Here's where she runs her IDE, commits
   code, and signs her commits. These qubes are based on different templates
@@ -257,8 +257,8 @@ cybercrime policies, rarely, if ever, do they explicitly guarantee
 reimbursement in the event that a *customer* gets hacked (rather than the
 institution itself).
 
-<div class="alert alert-caution" role="alert">
-  <i class="fa fa-exclamation-triangle"></i>
+<div class="alert alert-warning" role="alert">
+  <i class="fa fa-exclamation-circle"></i>
   Carol looked into how thieves might actually try to steal her hard-earned
   wealth and was surprised to learn that they have all sorts of ploys that she
   had never even considered. For example, she had assumed that any theft would,
@@ -371,10 +371,16 @@ classes, especially those that don't generate cash flows or that often seem to
 be associated with scams or wild speculation. However, she finds the ability to
 self-custody a portion of her assets appealing from a long-term risk management
 perspective, particularly as a hedge against certain types of political risk.
-She recognizes that cryptocurrency is extremely volatile, and she knows that
-she has the self-discipline to invest only what she can afford to lose, so
-she's decided to dip her toe in the water by allocating a small portion of her
-portfolio. This has led her to add the following to her Qubes setup:
+
+<div class="alert alert-danger" role="alert">
+  <i class="fa fa-exclamation-triangle"></i>
+  Some of Carol's friends warned her that cryptocurrency is extremely volatile
+  and that hacking and theft are common occurrences. Carol agreed and reassured
+  them that she's educated herself about the risks and will make sure she never
+  invests more than she can afford to lose.
+</div>
+
+Carol has added the following to her Qubes setup:
 
 - **A standalone qube for running Bitcoin Core and an offline wallet vault.**
   Carol finds the design and security properties of Bitcoin very interesting,
@@ -418,6 +424,7 @@ password manager vault. If she has extra storage space, she'll also back up her
 templates and even her Bitcoin full node qube, but she'll skip them if she
 doesn't have time or space, since she knows she can always recreate them again
 later and download what she needs from the Internet.
+
 
 ## Conclusion
 
