@@ -433,6 +433,10 @@ Some users have been able to do this, but it is neither recommended nor supporte
 Qubes should be installed bare-metal.
 (After all, it uses its own bare-metal hypervisor!)
 
+### How many qubes should I have? What's a good way to organize them?
+
+[How to organize your qubes](/doc/how-to-organize-your-qubes/) walks through several examples of how different types of users can set up their Qubes OS system to support their unique use cases.
+
 ### What is a terminal?
 
 A [terminal emulator](https://en.wikipedia.org/wiki/Terminal_emulator), nowadays often referred to as just a *terminal*, is a program which provides a text window.
