@@ -54,7 +54,7 @@ based on [Debian templates](/doc/templates/debian/), while others are based on
 software packages are more readily available in one distribution as opposed to
 the other. Alice's setup looks like this:
 
-![[Alice's system: diagram 1](/attachment/doc/howto_use_qubes_alice_1.png)](/attachment/doc/howto_use_qubes_alice_1.png)
+[![Alice's system: diagram 1](/attachment/doc/howto_use_qubes_alice_1.png)](/attachment/doc/howto_use_qubes_alice_1.png)
 
 - **Several qubes for writing code.** Here's where she runs her IDE, commits
   code, and signs her commits. These qubes are based on different templates
@@ -94,7 +94,7 @@ the other. Alice's setup looks like this:
   these, she takes comfort in knowing that things can be messy and disorganized
   *within* a qube while her overall digital life remains well-organized.
 
-![[Alice's system: diagram 2](/attachment/doc/howto_use_qubes_alice_2.png)](/attachment/doc/howto_use_qubes_alice_2.png)
+[![Alice's system: diagram 2](/attachment/doc/howto_use_qubes_alice_2.png)](/attachment/doc/howto_use_qubes_alice_2.png)
 
 - **Several email qubes.** Since Alice is a command-line aficionado, she likes
   to use a terminal-based email client, so both her work and personal email
@@ -172,7 +172,7 @@ his colleagues, his family, and himself; and he understands that computer
 security is an important part of that. He has a Qubes laptop that he uses only
 for work, which contains:
 
-![[A diagram of Bob's system](/attachment/doc/howto_use_qubes_bob.png)](/attachment/doc/howto_use_qubes_bob.png)
+[![A diagram of Bob's system](/attachment/doc/howto_use_qubes_bob.png)](/attachment/doc/howto_use_qubes_bob.png)
 
 - **One offline qube for writing.** It runs only LibreOffice Writer. This is
   where Bob does all of his writing. This window is usually open side-by-side
@@ -294,7 +294,7 @@ made intuitive sense to her, and the more she learned about the technical
 aspects, the more she realized that this is what she'd been looking for. Today,
 her setup looks like this:
 
-![[A diagram of Carol's system](/attachment/doc/howto_use_qubes_carol.png)](/attachment/doc/howto_use_qubes_carol.png)
+[![A diagram of Carol's system](/attachment/doc/howto_use_qubes_carol.png)](/attachment/doc/howto_use_qubes_carol.png)
 
 - **One qube for each investment firm and bank.** Carol has a few different
   retirement accounts, brokerage accounts, and bank accounts. She treats each
