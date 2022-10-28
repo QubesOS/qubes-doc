@@ -361,7 +361,7 @@ her setup looks like this:
   into her other qubes when she needs to log into her accounts.
 
 
-## Bonus: Carol explores new financial technology
+### Bonus: Carol explores new financial technology
 
 The vast majority of Carol's assets are in broad-based, low-cost,
 passively-managed indexed funds. Lately, however, she's started getting
