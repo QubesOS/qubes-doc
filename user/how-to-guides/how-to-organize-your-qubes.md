@@ -5,7 +5,7 @@ permalink: /doc/how-to-organize-your-qubes/
 title: How to organize your qubes
 ---
 
-When people first learn about Qubes OS, their first reaction is often, "Wow,
+When people first learn about Qubes OS, their initial reaction is often, "Wow,
 this looks really cool! But... what can I actually *do* with it?" It's not
 always obvious which qubes you should create, what you should do in each one,
 and whether your organizational ideas makes sense from a security or usage
