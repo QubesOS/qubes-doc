@@ -19,6 +19,11 @@ Fedora 32 has been successfully used to build Qubes R4.1 with the below steps.
 Other rpm-based operating systems may also work.
 Travis-CI uses Ubuntu 18.04 to perform test builds, except it can not test the `./setup` script.
 
+**Notes:** On modern Fedora system (like Fedora 37) SeLinux is enforced by
+default and is blocking the build system. You would get error like 
+"can't create transaction lock on /.../rpm/.rpm.lock (Permission denied)". 
+
+
 In `dom0`, install the Fedora 32 template if you don't already have it.
 
 ~~~
