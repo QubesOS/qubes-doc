@@ -346,7 +346,7 @@ sys-net and/or sys-whonix, depending on firstboot choices. This new design
 allows for templates to be updated even when they are not connected to any
 NetVM.
 
-Example policy file in R4.0 (with Whonix installed, but not set as default
+Example policy file in R4.1 (with Whonix installed, but not set as default
 UpdateVM for all templates):
 
 ```shell_session
@@ -355,7 +355,7 @@ UpdateVM for all templates):
 @tag:whonix-updatevm @anyvm deny
 
 # other templates use sys-net
-@type:template @default allow,target=sys-net
+@type:TemplateVM @default allow,target=sys-net
 @anyvm @anyvm deny
 ```
 
@@ -370,24 +370,24 @@ these in an app qube you need to take the following steps:
    a terminal in the template and run:
 
    ```shell_session
-   [user@fedora-30-snap-demo ~]$ sudo dnf install snapd qubes-snapd-helper
-   Last metadata expiration check: 0:55:39 ago on Thu Nov 14 09:26:47 2019.
+   [user@fedora-36-snap-demo ~]$ sudo dnf install snapd qubes-snapd-helper
+   Last metadata expiration check: 0:33:05 ago on Thu 03 Nov 2022 04:34:06.
    Dependencies resolved.
    ========================================================================================================
     Package                       Arch    Version                             Repository              Size
    ========================================================================================================
    Installing:
-    snapd                         x86_64  2.42.1-1.fc30                       updates                 17 M
-    qubes-snapd-helper            noarch  1.0.1-1.fc30                        qubes-vm-r4.0-current   10 k
+    snapd                        x86_64   2.56.2-4.fc36                       updates                 14 M
+    qubes-snapd-helper           noarch   1.0.4-1.fc36                        qubes-vm-r4.1-current   10 k
    Installing dependencies:
    [...]
    
    Transaction Summary
    ========================================================================================================
-   Install  20 Packages
+   Install  19 Packages
    
-   Total download size: 37 M
-   Installed size: 121 M
+   Total download size: 27 M
+   Installed size: 88 M
    Is this ok [y/N]: y
    
    Downloading Packages:
@@ -395,11 +395,11 @@ these in an app qube you need to take the following steps:
    Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
    /usr/sbin/semodule:  Failed!
    [...]
-   Last metadata expiration check: 0:57:08 ago on Thu Nov 14 09:26:47 2019.
+   Last metadata expiration check: 0:33:05 ago on Thu 03 Nov 2022 04:34:06.
    Notifying dom0 about installed applications
    
    Installed:
-     snapd-2.42.1-1.fc30.x86_64                                              qubes-snapd-helper-1.0.1-1.fc30.noarch
+     snapd-2.56.2-4.fc36.x86_64                                              qubes-snapd-helper-1.0.4-1.fc36.noarch
    [...]
    Complete!
    ```
@@ -416,7 +416,7 @@ these in an app qube you need to take the following steps:
    Shutdown the template:
    
    ```shell_session
-   [user@fedora-30-snap-demo ~]$ sudo shutdown -h now
+   [user@fedora-36-snap-demo ~]$ sudo shutdown -h now
    ```
 
 2. Now open the **app qube** in which you would like to install the Snap
