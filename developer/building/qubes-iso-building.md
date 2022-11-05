@@ -21,7 +21,12 @@ Travis-CI uses Ubuntu 18.04 to perform test builds, except it can not test the `
 
 **Notes:** On modern Fedora system (like Fedora 37) SeLinux is enforced by
 default and is blocking the build system. You would get error like 
-"can't create transaction lock on /.../rpm/.rpm.lock (Permission denied)". 
+"can't create transaction lock on /.../rpm/.rpm.lock (Permission denied)".
+You can set SeLinux to permissive mode with 
+
+~~~bash
+sudo setenforce 0
+~~~
 
 
 In `dom0`, install the Fedora 32 template if you don't already have it.
