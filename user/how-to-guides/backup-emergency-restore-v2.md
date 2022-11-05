@@ -67,14 +67,14 @@ encrypted and compressed.
 4. Decrypt the `private.img` file.
 
     ~~~
-    [user@restore vm1]$ openssl enc -d -pass pass:"$backup_pass" -aes-256-cbc -in private.img.000 -out private.img.dec.000
+    [user@restore vm1]$ openssl enc -d -md MD5 -pass pass:"$backup_pass" -aes-256-cbc -in private.img.000 -out private.img.dec.000
     ~~~
 
   **Note:** For multi-part files, a loop can be used:
 
   ~~~
   find -name 'private.img.*' | sort -V | while read f; do
-    openssl enc -d -pass pass:"$backup_pass" -aes-256-cbc -in $f -out
+    openssl enc -d -md MD5 -pass pass:"$backup_pass" -aes-256-cbc -in $f -out
   ${f/.img/.img.dec}
   done
   ~~~
