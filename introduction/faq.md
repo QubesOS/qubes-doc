@@ -94,10 +94,6 @@ The main way Qubes OS [provides privacy](#how-does-qubes-os-provide-privacy) is 
 Qubes OS does not claim to provide special privacy (as opposed to security) properties in non-Whonix qubes.
 This includes [disposables](/doc/how-to-use-disposables/).
 
-For example, a standard [Fedora](/doc/templates/fedora/) qube is expected to have basically the same privacy properties as that upstream Fedora distribution, enhanced to some degree by the control Qubes provides over that qube.
-For most users, this level of privacy may be good enough for many common activities.
-However, users seeking more advanced privacy features should use Whonix qubes.
-
 Privacy is far more difficult than is commonly understood.
 In addition to the [web browser](https://www.torproject.org/projects/torbrowser/design/), there is also [VM fingerprinting](https://www.whonix.org/wiki/VM_Fingerprinting) and [advanced deanonymization attacks](https://www.whonix.org/wiki/Advanced_Deanonymization_Attacks) that most users have never considered (and this is just to mention a few examples).
 The [Whonix Project](https://www.whonix.org/) specializes in [protecting against these risks](https://www.whonix.org/wiki/Protocol-Leak-Protection_and_Fingerprinting-Protection).
