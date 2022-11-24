@@ -135,8 +135,8 @@ any GNU/Linux system.
 
         [user@restore ~]$ backup_id=20161020T123455-1234
 
- 7. Choose a qube whose data you wish to restore. Verify the data's integrity,
-    decrypt it, decompress it, and extract it.
+ 7. Choose a qube whose data you wish to restore (in this example, `vm1`).
+    Verify the data's integrity, decrypt it, decompress it, and extract it.
 
         [user@restore ~]$ find vm1 -name 'private.img.*.enc' | sort -V | while read f_enc; do \
             f_dec=${f_enc%.enc}; \
