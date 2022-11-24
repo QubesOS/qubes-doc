@@ -19,8 +19,8 @@ GNU/Linux system by following the instructions on this page.
 
 **Important:** You may wish to store a copy of these instructions with your
 Qubes backups. All Qubes documentation, including this page, is available in
-plain text format in the the [qubes-doc](https://github.com/QubesOS/qubes-doc)
-Git repository.
+plain text format in the [qubes-doc](https://github.com/QubesOS/qubes-doc) Git
+repository.
 
 ## Required `scrypt` utility
 
