@@ -499,10 +499,11 @@ too](https://forum.qubes-os.org/t/using-the-forum-via-email/533)!)
 
 The Qubes OS Project has a presence on the following social media platforms:
 
-* [Twitter](https://twitter.com/QubesOS)
-* [Reddit](https://www.reddit.com/r/Qubes/)
-* [Facebook](https://www.facebook.com/QubesOS/)
-* [LinkedIn](https://www.linkedin.com/company/qubes-os/)
+- <a rel="me" href="https://twitter.com/QubesOS">Twitter</a>
+- <a rel="me" href="https://mastodon.social/@QubesOS">Mastodon</a>
+- <a rel="me" href="https://www.reddit.com/r/Qubes/">Reddit</a>
+- <a rel="me" href="https://www.facebook.com/QubesOS/">Facebook</a>
+- <a rel="me" href="https://www.linkedin.com/company/qubes-os/">LinkedIn</a>
 
 Generally speaking, these are not intended to be primary support venues. (Those
 would be [qubes-users](#qubes-users) and the [forum](#forum).) Rather, these
