@@ -43,7 +43,7 @@ To check this tool is working properly run:
 ```bash
 sudo notify-send "$(hostname): Test notify-send OK" --icon=network-idle
 ```
-You should see `info` message appear on the top of your scree.
+You should see `info` message appear on the top of your screen.
 If that is the case then, `notify-send` is not the issue.
 If it is not, and you have an error of some sort you can:
 1. Remove all calls of `notify-send` from scripts you are using to start VPN
