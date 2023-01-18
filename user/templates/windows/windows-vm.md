@@ -1,4 +1,4 @@
-:warning: *The content below describes Windows installation in Qubes R4.0. The text has been updated to reflect the newer R4.1 release and QWT recent development. Please see [this updated document](/user/templates/windows/windows/windows-vm41.md) for instructions for Qubes R4.1.*
+:warning: *The content below describes Windows installation in Qubes R4.0. The text has been updated to reflect the newer R4.1 release and QWT recent development. Please see [this updated document](/user/templates/windows/windows-vm41.md) for instructions for Qubes R4.1.*
 
 Installing a Windows VM
 =======================
@@ -204,7 +204,7 @@ Finally, increase the VM's `qrexec_timeout`: in case you happen to get a BSOD or
 qvm-prefs win7new qrexec_timeout 300
 ~~~
 
-At that point you should have a functional and stable Windows VM, although without updates, Xen's PV drivers nor Qubes integration (see sections [Windows Update](#windows-update) and [Xen PV drivers and Qubes Windows Tools](/user/templates/windows/windows-tools.md/#xen-pv-drivers-and-qubes-windows-tools)). It is a good time to clone the VM again.
+At that point you should have a functional and stable Windows VM, although without updates, Xen's PV drivers nor Qubes integration (see sections [Windows Update](/user/templates/windows/windows-vm.md/#windows-update) and [Xen PV drivers and Qubes Windows Tools](/user/templates/windows/windows-tools.md/#xen-pv-drivers-and-qubes-windows-tools)). It is a good time to clone the VM again.
 
 
 Windows as TemplateVM
