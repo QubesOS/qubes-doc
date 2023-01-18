@@ -62,7 +62,7 @@ The Xen PV Drivers bundled with QWT are signed by a Linux Foundation certificate
 Installing Windows OS in a Qubes VM
 -----------------------------------
 
-Please refer to [this page](https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows-vm41.md/) for instructions on how to install Windows in a Qubes VM.
+Please refer to [this page](/user/templates/windows/windows-vm41.md/) for instructions on how to install Windows in a Qubes VM.
 
 > **Note:** It is strongly suggested to enable autologon for any Windows HVMs that will have Qubes Tools installed. To do so, run `netplwiz` command from the `Win+R`/Start menu and uncheck the *Users must enter a user name and password to use this computer* option.
 
@@ -103,15 +103,15 @@ This will allow you to install the Qubes Windows Tools on Windows 7, 10 and 11 b
 
  4. Install Qubes Windows Tools by starting `qubes-tools-x64.msi` (logged in as administrator), optionally selecting the `Xen PV disk drivers`. For installation in a template, you should select `Move user profiles`.
 	
-	![QWT_install_select](/attachment/wiki/WindowsAppVms/QWT_install_select.png)	
+	![QWT_install_select](/user/templates/windows/QWT_install_select.png)	
 
 	Several times, Windows security may ask for confirmation of driver installation. Driver installation has to be allowed; otherwise the installation of Qubes Windows Tools will abort.
 	
-	![QWT_install_driver](/attachment/wiki/WindowsAppVms/QWT_install_driver.png)
+	![QWT_install_driver](/user/templates/windows/QWT_install_driver.png)
 
 	If during installation, the Xen driver requests a reboot, select "No" and let the installation continue - the system will be rebooted later.
 
-	![QWT_install_no_restart](/attachment/wiki/WindowsAppVms/QWT_install_no_restart.png)
+	![QWT_install_no_restart](/user/templates/windows/QWT_install_no_restart.png)
 
  5. After successful installation, the Windows VM must be shut down and started again, possibly a couple of times. On each shutdown, wait until the VM is really stopped, i.e. Qubes shows no more activity.
 
@@ -179,7 +179,7 @@ Once you start a Windows-based AppVM with Qubes Tools installed, you can easily 
 [user@dom0 ~] $ qvm-run -a my-win-appvm explorer.exe
 ~~~
 
-![windows-seamless-4.png](/attachment/wiki/WindowsAppVms/windows-seamless-4.png) ![windows-seamless-1.png](/attachment/wiki/WindowsAppVms/windows-seamless-1.png)
+![windows-seamless-4.png](/user/templates/windows/windows-seamless-4.png) ![windows-seamless-1.png](/user/templates/windows/windows-seamless-1.png)
 
 Also, the inter-VM services work as usual -- e.g. to request opening a document or URL in the Windows AppVM from another VM:
 
@@ -195,7 +195,7 @@ Inter-VM file copy and clipboard works for Windows AppVMs the same way as for Li
 
 To simulate Ctrl-Alt-Delete in the HVM (SAS, Secure Attention Sequence), press Ctrl-Alt-Home while having any window of this VM in the foreground.
 
-![windows-seamless-7.png](/attachment/wiki/WindowsAppVms/windows-seamless-7.png)
+![windows-seamless-7.png](/user/templates/windows/windows-seamless-7.png)
 
 **Changing between seamless and full desktop mode**
 
@@ -327,7 +327,7 @@ If there are network-related issues, the qube doesn't resolve DNS and has troubl
 
 In this case it's recommended that the PV Network Drivers be unchecked during installation of Qubes Windows Tools as seen in the screenshot below.
 
-![QWT_no_PV_network](/attachment/wiki/WindowsAppVms/QWT_no_PV_network.png)
+![QWT_no_PV_network](/user/templates/windows/QWT_no_PV_network.png)
 
 Updates
 -------
