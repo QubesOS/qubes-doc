@@ -171,7 +171,7 @@ Once you start a Windows-based AppVM with Qubes Tools installed, you can easily 
 qvm-run -a my-win7-appvm explorer.exe
 ~~~
 
-![windows-seamless-4.png](/user/templates/windows/windows-seamless-4.png) ![windows-seamless-1.png](/attachment/wiki/WindowsAppVms/windows-seamless-1.png)
+![windows-seamless-4.png](/user/templates/windows/windows-seamless-4.png) ![windows-seamless-1.png](/user/templates/windows/windows-seamless-1.png)
 
 Also, the inter-VM services work as usual -- e.g. to request opening a document or URL in the Windows AppVM from another VM:
 
@@ -189,7 +189,7 @@ Inter-VM file copy and clipboard works for Windows AppVMs the same way as for Li
 
 To simulate CTRL-ALT-DELETE in the HVM (SAS, Secure Attention Sequence), press Ctrl-Alt-Home while having any window of this VM in the foreground.
 
-![windows-seamless-7.png](/attachment/wiki/WindowsAppVms/windows-seamless-7.png)
+![windows-seamless-7.png](/user/templates/windows/windows-seamless-7.png)
 
 Changing between seamless and full desktop mode
 -----------------------------------------------
