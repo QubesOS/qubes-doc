@@ -36,7 +36,7 @@ NOTES:
 Installing Windows OS in a Qubes VM
 -----------------------------------
 
-Please refer to [this page](https://www.qubes-os.org/doc/windows-vm/) for instructions on how to install Windows in a Qubes VM.
+Please refer to [this page](/doc/templates/windows/windows-vm/) for instructions on how to install Windows in a Qubes VM.
 
 NOTE: It is strongly suggested to enable autologon for any Windows HVMs that will have Qubes Tools installed. To do so, run `netplwiz` command from the `Win+R`/Start menu and uncheck the *Users must enter a user name and password to use this computer* option.
 
@@ -55,7 +55,7 @@ This will allow you to install the Qubes Windows Tools on Windows 10 both as a S
  
  4. After installation, reboot.
 
- 5. Download the Qubes Windows Tools (`qubes-tools-4.0.1.3.exe`) from [the qubes FTP server](https://ftp.qubes-os.org/qubes-windows-tools/) and move it to `C:\`.
+ 5. Download the Qubes Windows Tools (`qubes-tools-4.0.1.3.exe`) from [the qubes FTP server](/doc/templates/windows/qubes-windows-tools/) and move it to `C:\`.
  
  6. Check the integrity of the file `qubes-tools-4.0.1.3.exe`by comparing its hash checksum. This can be done using the Windows command `certutil` on the windows command prompt (`cmd.exe`) and specifying an appropriate hash algorithm like:
         
