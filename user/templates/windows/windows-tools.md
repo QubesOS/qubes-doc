@@ -171,7 +171,7 @@ Once you start a Windows-based AppVM with Qubes Tools installed, you can easily 
 qvm-run -a my-win7-appvm explorer.exe
 ~~~
 
-![windows-seamless-4.png](/attachment/wiki/WindowsAppVms/windows-seamless-4.png) ![windows-seamless-1.png](/attachment/wiki/WindowsAppVms/windows-seamless-1.png)
+![windows-seamless-4.png](/user/templates/windows/windows-seamless-4.png) ![windows-seamless-1.png](/attachment/wiki/WindowsAppVms/windows-seamless-1.png)
 
 Also, the inter-VM services work as usual -- e.g. to request opening a document or URL in the Windows AppVM from another VM:
 
