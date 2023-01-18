@@ -279,12 +279,13 @@ Starting from version 2.2.\* various aspects of Qubes Windows Tools can be confi
 
 Possible log levels:
 
-||
-|1|Error|Serious errors that most likely cause irrecoverable failures|
-|2|Warning|Unexpected but non-fatal events|
-|3|Info|Useful information (default)|
-|4|Debug|Internal state dumps for troubleshooting|
-|5|Verbose|Trace most function calls|
+|**Level**|  **Type**  |**Description**                                       |
+|:--------|:-----------|:-----------------------------------------------------|
+|  1  |Error   |Serious errors that most likely cause irrecoverable failures|
+|  2  |Warning |Unexpected but non-fatal events|
+|  3  |Info    |Useful information (default)|
+|  4  |Debug   |Internal state dumps for troubleshooting|
+|  5  |Verbose |Trace most function calls|
 
 Debug and Verbose levels can generate large volume of logs and are intended for development/troubleshooting only.
 
