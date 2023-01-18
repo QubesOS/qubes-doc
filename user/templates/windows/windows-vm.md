@@ -1,4 +1,4 @@
-:warning: *The content below describes Windows installation in Qubes R4.0. The text has been updated to reflect the newer R4.1 release and QWT recent development. Please see [this updated document](https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows-vm41.md) for instructions for Qubes R4.1.*
+:warning: *The content below describes Windows installation in Qubes R4.0. The text has been updated to reflect the newer R4.1 release and QWT recent development. Please see [this updated document](/user/templates/windows/windows/windows-vm41.md) for instructions for Qubes R4.1.*
 
 Installing a Windows VM
 =======================
@@ -106,7 +106,7 @@ qvm-prefs win7new qrexec_timeout 300
 qvm-prefs win7new debug false
 ~~~
 
-To install Qubes Windows Tools, follow instructions in [Qubes Windows Tools](https://www.qubes-os.org/doc/windows-tools/).
+To install Qubes Windows Tools, follow instructions in [Qubes Windows Tools](/user/templates/windows/windows-tools.md).
 
 ### Detailed instructions ###
 
@@ -114,7 +114,7 @@ MS Windows versions considerations:
 
 - The instructions *may* work on other versions than Windows 7 x64 but haven't been tested.
 - Qubes Windows Tools (QWT) only supports Windows 7 x64. Note that there are [known issues](https://github.com/QubesOS/qubes-issues/issues/3585) with QWT on Qubes 4.x
-- For Windows 10 under Qubes 4.0, a way to install QWT 4.0.1.3, which has worked in several instances, is described in [Qubes Windows Tools](https://www.qubes-os.org/doc/windows-tools/).
+- For Windows 10 under Qubes 4.0, a way to install QWT 4.0.1.3, which has worked in several instances, is described in [Qubes Windows Tools](/user/templates/windows/windows-tools.md).
 
 Create a VM named win7new in [HVM](https://www.qubes-os.org/doc/hvm/) mode (Xen's current PVH limitations precludes from using PVH):
 
@@ -204,7 +204,7 @@ Finally, increase the VM's `qrexec_timeout`: in case you happen to get a BSOD or
 qvm-prefs win7new qrexec_timeout 300
 ~~~
 
-At that point you should have a functional and stable Windows VM, although without updates, Xen's PV drivers nor Qubes integration (see sections [Windows Update](#windows-update) and [Xen PV drivers and Qubes Windows Tools](https://www.qubes-os.org/doc/windows-tools/#xen-pv-drivers-and-qubes-windows-tools)). It is a good time to clone the VM again.
+At that point you should have a functional and stable Windows VM, although without updates, Xen's PV drivers nor Qubes integration (see sections [Windows Update](#windows-update) and [Xen PV drivers and Qubes Windows Tools](/user/templates/windows/windows-tools.md/#xen-pv-drivers-and-qubes-windows-tools)). It is a good time to clone the VM again.
 
 
 Windows as TemplateVM
