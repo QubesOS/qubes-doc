@@ -46,10 +46,25 @@ Area when updates are available.
 [![Qube Updates Available](/attachment/doc/r4.0-qube-updates-available.png)](/attachment/doc/r4.0-qube-updates-available.png)
 
 However, you can also start the tool manually by selecting it in the
-Applications Menu under "System Tools." Even if no updates have been detected,
+Applications Menu under "Qubes Tools." Even if no updates have been detected,
 you can use this tool to check for updates manually at any time by selecting
 "Enable updates for qubes without known available updates," then selecting all
 desired items from the list and clicking "Next."
+
+<div class="alert alert-info" role="alert">
+  <i class="fa fa-question-circle"></i>
+  For information about how templates download updates, please see <a
+  href="/doc/how-to-install-software/#why-dont-templates-have-network-access">Why
+  don’t templates have network access?</a> and the <a
+  href="/doc/how-to-install-software/#updates-proxy">Updates proxy</a>.
+</div>
+
+By default, most qubes that are connected to the internet will periodically
+check for updates for their parent templates. If updates are available, you
+will receive a notification as described above. However, if you have any
+templates that do *not* have any online child qubes, you will *not* receive
+update notifications for them. Therefore, you should regularly update such
+templates manually instead.
 
 ## Command-line interface
 
@@ -65,14 +80,18 @@ desired items from the list and clicking "Next."
 </div>
 
 Advanced users may wish to perform updates via the command-line interface. The
-recommended way to do this is by using the command-line equivalents of the
-**Qubes Update** tool.
+recommended way to do this is by applying the following two Salt states.
+**Applying these two Salt states is the same as updating via the Qubes Update
+tool.**
 
-There are two Salt formulae and two corresponding `qubesctl` commands:
- - [`update.qubes-dom0`](/doc/salt/#updatequbes-dom0)
- - [`update.qubes-vm`](/doc/salt/#updatequbes-vm)
+ - [update.qubes-dom0](/doc/salt/#updatequbes-dom0)
+ - [update.qubes-vm](/doc/salt/#updatequbes-vm)
 
-In addition, advanced user may be interested in learning [how to enable the
+In your update qube, a terminal window opens that displays the progress of
+operations and output as it is logged. At the end of the process, logs are sent
+back to dom0. You answer any yes/no prompts in your dom0 terminal window.
+
+Advanced users may also be interested in learning [how to enable the
 testing repos](/doc/testing/).
 
 ## Upgrading to avoid EOL

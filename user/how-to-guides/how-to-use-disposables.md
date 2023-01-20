@@ -126,6 +126,18 @@ Use the `qvm-open-in-dvm` command from a terminal in your app qube:
 
 Note that the `qvm-open-in-dvm` process will not exit until you close the application in the disposable.
 
+## Making a particular application open everything in a disposable
+
+You can use the `qvm-service` command or the services GUI to cause an application in a qube to open files and URLs in a disposable.  To do this, enable a service named `app-dispvm.X` in that qube, where `X` is the application ID.  For instance, to have Thunderbird open all attachments in a disposable, enable the `app-dispvm.thunderbird` service.
+
+This feature is currently somewhat experimental, and only works for Linux qubes.  It is known to work with Thunderbird and Wire, but it may fail to work with some applications that do not honor all XDG environment variables.  If the feature does not work for you, please file a bug report.
+
+## Opening particular types of files in a disposable
+
+You can set `qvm-open-in-dvm.desktop` as the handler for a given MIME type.  This will cause all files of that type to open in a disposable.  This works in disposable templates too, but be careful: if your disposable template is set to use `qvm-open-in-dvm.desktop` to open a certain kind of file, every disposable based on it will be as well.  If the disposable template is its own default disposable template (as is often the case), this will result in a loop: `qvm-open-in-dvm` will execute `qubes.OpenURL` in a new disposable, but that will in turn execute `qvm-open-in-dvm`.  The cycle will repeat until no new disposables can be created, most likely because your system has run out of memory.
+
+This will _not_ override the internal handling of PDF documents in Web browsers.  This is typically okay, though: in-browser PDF viewers have a fairly good security record, especially when compared to non-browser PDF viewers.  In particular, the attack surface of PDF viewing in Firefox is usually less than that of viewing an ordinary Web page.
+
 ## Starting an arbitrary program in a disposable from an app qube
 
 Sometimes it can be useful to start an arbitrary program in a disposable.

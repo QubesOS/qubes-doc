@@ -19,7 +19,8 @@ The Qubes community is here to help! Since Qubes is a security-oriented
 operating system, we want to make sure you [stay safe](#staying-safe) as you
 get the support you need, and we want to make sure our community remains a
 friendly and productive place by ensuring we all follow the [Code of
-Conduct](/code-of-conduct/) and [discussion guidelines](#discussion-guidelines).
+Conduct](/code-of-conduct/) and [discussion
+guidelines](#discussion-guidelines).
 
 ## How to get help and support
 
@@ -41,8 +42,8 @@ No worries! Here's how we recommend proceeding:
    workarounds for problems you're experiencing. If there any pinned issues at
    the top, make sure to check them first!
 
-4. Try [searching the Qubes Forum](https://forum.qubes-os.org/). There
-   may already be a matching topic.
+4. Try [searching the Qubes Forum](https://forum.qubes-os.org/). There may
+   already be a matching topic.
 
 5. Try [searching the `qubes-users`
    archives](https://www.mail-archive.com/qubes-users@googlegroups.com/). There
@@ -124,13 +125,13 @@ contributions](/doc/code-signing/).
 For example, you might find it easier to trust advice from someone who has a
 proven track record of [contributing software
 packages](/doc/package-contributions/) or [contributing to the
-documentation](/doc/how-to-edit-the-documentation/). It's unlikely that individuals who have
-worked hard to build good reputations for themselves through their
-contributions over the years would risk giving malicious advice in signed
-messages to public mailing lists. Since every contribution to the Qubes OS
-Project is publicly visible and cryptographically signed, anyone would be in a
-position to [verify](/security/verifying-signatures/) that these came from the
-same keyholder.
+documentation](/doc/how-to-edit-the-documentation/). It's unlikely that
+individuals who have worked hard to build good reputations for themselves
+through their contributions over the years would risk giving malicious advice
+in signed messages to public mailing lists. Since every contribution to the
+Qubes OS Project is publicly visible and cryptographically signed, anyone would
+be in a position to [verify](/security/verifying-signatures/) that these came
+from the same keyholder.
 
 ## Discussion guidelines
 
@@ -327,8 +328,8 @@ required for any of these mailing lists.
 
 This is a read-only list for those who wish to receive only very important,
 infrequent messages. Only the core Qubes team can post to this list. Only
-[Qubes Security Bulletins (QSBs)](/security/qsb/), new stable releases,
-and end-of-life notices are announced here.
+[Qubes Security Bulletins (QSBs)](/security/qsb/), new stable Qubes OS releases,
+and Qubes OS release end-of-life notices are announced here.
 
 To subscribe, send a blank email to
 `qubes-announce+subscribe@googlegroups.com`. (Note: A Google account is **not**
@@ -360,15 +361,13 @@ list:
 * The [User FAQ](/faq/#users)
 * The [documentation](/doc/) (for questions about how to use Qubes OS)
 
-You don't have to subscribe in order to post to this list. However, subscribing
-makes your messages less likely to be marked as spam and allows you to receive
-messages sent directly to the list. To subscribe to the list, send a blank
-email to `qubes-users+subscribe@googlegroups.com`. (Note: A Google account is
-**not** required. Any email address will work.) To post a message to the list,
-address your email to `qubes-users@googlegroups.com`. If your post does not
-appear immediately, please allow time for moderation to occur. To unsubscribe,
-send a blank email to `qubes-users+unsubscribe@googlegroups.com`. This list
-also has a [traditional mail
+You must be subscribed in order to post to this list. To subscribe, send a
+blank email to `qubes-users+subscribe@googlegroups.com`. (Note: A Google
+account is **not** required. Any email address will work.) To post a message to
+the list, address your email to `qubes-users@googlegroups.com`. If your post
+does not appear immediately, please allow time for moderation to occur. To
+unsubscribe, send a blank email to `qubes-users+unsubscribe@googlegroups.com`.
+This list also has a [traditional mail
 archive](https://www.mail-archive.com/qubes-users@googlegroups.com/) and an
 optional [Google Groups web
 interface](https://groups.google.com/group/qubes-users).
@@ -414,15 +413,14 @@ Examples of topics or question suitable for this list include:
   or
   [project management](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22project+management%22)
 
-You don't have to subscribe in order to post to this list. However, subscribing
-makes your messages less likely to be marked as spam and allows you to receive
-messages sent directly to the list. To subscribe, send a blank email to
-`qubes-project+subscribe@googlegroups.com`. (Note: A Google account is **not**
-required. Any email address will work.) To post a message to the list, address
-your email to `qubes-project@googlegroups.com`. If your post does not appear
-immediately, please allow time for moderation to occur. To unsubscribe, send a
-blank email to `qubes-project+unsubscribe@googlegroups.com`. This list also
-also has a [traditional mail
+You must be subscribed in order to post to this list. To subscribe, send a
+blank email to `qubes-project+subscribe@googlegroups.com`. (Note: A Google
+account is **not** required. Any email address will work.) To post a message to
+the list, address your email to `qubes-project@googlegroups.com`. If your post
+does not appear immediately, please allow time for moderation to occur. To
+unsubscribe, send a blank email to
+`qubes-project+unsubscribe@googlegroups.com`. This list also also has a
+[traditional mail
 archive](https://www.mail-archive.com/qubes-project@googlegroups.com/) and an
 optional [Google Groups web
 interface](https://groups.google.com/group/qubes-project).
@@ -440,13 +438,11 @@ Examples of topics or question suitable for this list include:
 * Most Github issues tagged
   [localization](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3Alocalization)
 
-You don't have to subscribe in order to post to this list. However, subscribing
-makes your messages less likely to be marked as spam and allows you to receive
-messages sent directly to the list. To subscribe, send a blank email to
-`qubes-translation+subscribe@googlegroups.com`. (Note: A Google account is
-**not** required. Any email address will work.) To post a message to the list,
-address your email to `qubes-translation@googlegroups.com`. If your post does
-not appear immediately, please allow time for moderation to occur. To
+You must be subscribed in order to post to this list. To subscribe, send a
+blank email to `qubes-translation+subscribe@googlegroups.com`. (Note: A Google
+account is **not** required. Any email address will work.) To post a message to
+the list, address your email to `qubes-translation@googlegroups.com`. If your
+post does not appear immediately, please allow time for moderation to occur. To
 unsubscribe, send a blank email to
 `qubes-translation+unsubscribe@googlegroups.com`. This list also has an
 optional [Google Groups web
@@ -503,10 +499,11 @@ too](https://forum.qubes-os.org/t/using-the-forum-via-email/533)!)
 
 The Qubes OS Project has a presence on the following social media platforms:
 
-* [Twitter](https://twitter.com/QubesOS)
-* [Reddit](https://www.reddit.com/r/Qubes/)
-* [Facebook](https://www.facebook.com/QubesOS/)
-* [LinkedIn](https://www.linkedin.com/company/qubes-os/)
+- <a rel="me" href="https://twitter.com/QubesOS">Twitter</a>
+- <a rel="me" href="https://mastodon.social/@QubesOS">Mastodon</a>
+- <a rel="me" href="https://www.reddit.com/r/Qubes/">Reddit</a>
+- <a rel="me" href="https://www.facebook.com/QubesOS/">Facebook</a>
+- <a rel="me" href="https://www.linkedin.com/company/qubes-os/">LinkedIn</a>
 
 Generally speaking, these are not intended to be primary support venues. (Those
 would be [qubes-users](#qubes-users) and the [forum](#forum).) Rather, these
@@ -530,5 +527,4 @@ For example, here are some **unofficial** chat channels we know about that are
 maintained by the community:
 
 * Matrix, Qubes-related: <https://matrix.to/#/#cybersec-qubes_os:matrix.org>
-* Matrix, strictly Qubes: <https://matrix.to/#/#Qubes-OS:matrix.org>
-* `#qubes` channel on libera.chat via traditional IRC clients
+* `#qubes` channel on irc.libera.chat via traditional IRC clients

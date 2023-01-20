@@ -244,8 +244,9 @@ the maintainers of the [Qubes Community](https://github.com/Qubes-Community)
 project should regularly submit PRs against the documentation index (see [How
 to edit the documentation
 index](/doc/how-to-edit-the-documentation/#how-to-edit-the-documentation-index))
-to add and update Qubes Community links in the "External Documentation" section
-of the documentation table of contents.
+to add and update Qubes Community links in the ["External
+documentation"](/doc/#external-documentation) section of the documentation
+table of contents.
 
 The main difference between **core** (or **official**) and **external** (or
 **community** or **unofficial**) documentation is whether it documents software
@@ -272,7 +273,7 @@ wish to write documentation and submit it to the core docs, but they see only
 their own writing process and fail to consider that it will have to be kept
 up-to-date and consistent with the rest of the docs for years afterward.
 Submissions to the core docs also have to [undergo a review
-process](/doc/how-to-edit-the-documentation#security) to ensure accuracy before
+process](/doc/how-to-edit-the-documentation/#security) to ensure accuracy before
 being merged, which takes up valuable time from the team. We aim to maintain
 high quality standards for the core docs (style and mechanics, formatting),
 which also takes up a lot of time. If the documentation involves anything

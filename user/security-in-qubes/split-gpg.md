@@ -226,48 +226,43 @@ Now that Keybase is configured to use `qubes-gpg-client-wrapper`, you will be ab
 
 ## Using Git with Split GPG
 
-Git can be configured to used with Split GPG, something useful if you would like to contribute to the Qubes OS Project as every commit is required to be signed.
-The most basic `~/.gitconfig` file to with working Split GPG looks something like this.
+Git can be configured to utilize Split GPG, something useful if you would like to contribute to the Qubes OS Project as every commit is required to be signed.
+The most basic `~/.gitconfig` file enabling Split GPG looks something like this.
 
 ```
 [user]
-name = YOUR NAME
-email = YOUR EMAIL ADDRESS
-signingkey = YOUR KEY ID
+	name = <YOUR_NAME>
+	email = <YOUR_EMAIL_ADDRESS>
+	signingKey = <YOUR_KEY_ID>
 
 [gpg]
-program = qubes-gpg-client-wrapper
+	program = qubes-gpg-client-wrapper
 ```
 
-Your key id is the public id of your signing key, which can be found by running `qubes-gpg-client -k`.
-In this instance, the key id is DD160C74.
+Your key id is the public id of your signing key, which can be found by running `qubes-gpg-client --list-keys`.
+In this instance, the key id is E142F75A6B1B610E0E8F874FB45589245791CACB.
 
 ```shell_session
-[user@work-email ~]$ qubes-gpg-client -k
+[user@work-email ~]$ qubes-gpg-client --list-keys
 /home/user/.gnupg/pubring.kbx
 -----------------------------
-pub   rsa4096/DD160C74 2016-04-26
-uid                    Qubes User
+pub   ed25519 2022-08-16 [C]
+      E142F75A6B1B610E0E8F874FB45589245791CACB
+uid           [ultimate] Qubes User <user@example.com>
+sub   ed25519 2022-08-16 [S]
+sub   cv25519 2022-08-16 [E]
+sub   ed25519 2022-08-16 [A]
 ```
 
 To sign commits, you now add the "-S" flag to your commit command, which should prompt for Split GPG usage.
-If you would like automatically sign all commits, you can add the following snippet to `~/.gitconfig`.
+If you would like to automatically sign all commits, you can add the following snippet to `~/.gitconfig`.
 
 ```
 [commit]
-gpgsign = true
+	gpgSign = true
 ```
 
-Lastly, if you would like to add aliases to sign and verify tags using the conventions the Qubes OS Project recommends, you can add the following snippet to `~/.gitconfig`.
-
-```
-[alias]
-stag = "!id=`git rev-parse --verify HEAD`; git tag -s user_${id:0:8} -m \"Tag for commit $id\""
-vtag = !git tag -v `git describe`
-```
-
-Replace `user` with your short, unique nickname.
-Now you can use `git stag` to add a signed tag to a commit and `git vtag` to verify the most recent tag that is reachable from a commit.
+Lastly, if you would like to add aliases to sign and verify tags using the conventions the Qubes OS Project recommends, refer to the [code signing documentation](/doc/code-signing/#using-pgp-with-git).
 
 ## Importing public keys
 

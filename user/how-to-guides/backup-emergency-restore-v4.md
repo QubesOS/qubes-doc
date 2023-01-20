@@ -111,7 +111,7 @@ Emergency Recovery Instructions
     required, it will be handy later and will avoid saving the passphrase in
     the shell's history.
 
-        [user@restore ~]$ read backup_pass
+        [user@restore ~]$ read -r backup_pass
 
  3. Verify the integrity of `backup-header`. For compatibility reasons,
     `backup-header.hmac` is an encrypted *and integrity protected*

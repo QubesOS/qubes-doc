@@ -10,9 +10,9 @@ title: Google Summer of Code (GSoC)
 
 ## Information for Students
 
-Thank you for your interest in participating in the [Google Summer of Code program](https://summerofcode.withgoogle.com/organizations/4675790572093440/) with the [Qubes OS team](/team/). You can read more about the Google Summer of Code program at the [official website](https://summerofcode.withgoogle.com/) and the [official FAQ](https://developers.google.com/open-source/gsoc/faq).
+Thank you for your interest in participating in the [Google Summer of Code program](https://summerofcode.withgoogle.com/) with the [Qubes OS team](/team/). You can read more about the Google Summer of Code program at the [official website](https://summerofcode.withgoogle.com/) and the [official FAQ](https://developers.google.com/open-source/gsoc/faq).
 
-Being accepted as a Google Summer of Code student is quite competitive. Students wishing to participate in the Summer of Code must be aware that you will be required to produce code for Qubes OS for 3 months. Your mentors, Qubes developers, will dedicate a portion of their time towards mentoring you. Therefore, we seek candidates who are committed to helping Qubes long-term and are willing to do quality work and be proactive in communicating with your mentor.
+Being accepted as a Google Summer of Code contributor is quite competitive. If you are interested in participating in the Summer of Code please be aware that you must be able to produce code for Qubes OS for 3-5 months. Your mentors, Qubes developers, will dedicate a portion of their time towards mentoring you. Therefore, we seek candidates who are committed to helping Qubes long-term and are willing to do quality work and be proactive in communicating with your mentor.
 
 You don't have to be a proven developer -- in fact, this whole program is meant to facilitate joining Qubes and other free and open source communities. The Qubes community maintains information about [contributing to Qubes development](/doc/contributing/#contributing-code) and [how to send patches](/doc/source-code/#how-to-send-patches). In order to contribute code to the Qubes project, you must be able to [sign your code](/doc/code-signing/).
 
@@ -21,21 +21,21 @@ You should start learning the components that you plan on working on before the 
 ### Overview of Steps
 
 - Join the [qubes-devel list](/support/#qubes-devel) and introduce yourself, and meet your fellow developers
-- Read [Google's instructions for participating](https://developers.google.com/open-source/gsoc/) and the [GSoC Student Manual](https://developers.google.com/open-source/gsoc/resources/manual#student_manual)
+- Read [Google's instructions for participating](https://developers.google.com/open-source/gsoc/) and the [GSoC Student Manual](https://google.github.io/gsocguides/student/)
 - Take a look at the list of ideas below
 - Come up with a project that you are interested in (and feel free to propose your own! Don't feel limited by the list below.)
-- Read the Student Proposal guidelines below
+- Read the Contributor Proposal guidelines below
 - Write a first draft proposal and send it to the qubes-devel mailing list for review
 - Submit proposal using [Google's web interface](https://summerofcode.withgoogle.com/) ahead of the deadline (this requires a Google Account!)
 - Submit proof of enrollment well ahead of the deadline
 
-Coming up with an interesting idea that you can realistically achieve in the time available to you (one summer) is probably the most difficult part. We strongly recommend getting involved in advance of the beginning of GSoC, and we will look favorably on applications from students who have already started to act like free and open source developers.
+Coming up with an interesting idea that you can realistically achieve in the time available to you (one summer) is probably the most difficult part. We strongly recommend getting involved in advance of the beginning of GSoC, and we will look favorably on applications from prospective contributors who have already started to act like free and open source developers.
 
 Before the summer starts, there are some preparatory tasks which are highly encouraged. First, if you aren't already, definitely start using Qubes as your primary OS as soon as possible! Also, it is encouraged that you become familiar and comfortable with the Qubes development workflow sooner than later. A good way to do this (and also a great way to stand out as an awesome applicant and make us want to accept you!) might be to pick up some issues from [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) (our issue-tracking repo) and submit some patches addressing them. Some suitable issues might be those with tags ["help wanted" and "P: minor"](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22P%3A%20minor%22%20label%3A%22help%20wanted%22) (although more significant things are also welcome, of course). Doing this will get you some practice with [qubes-builder](/doc/qubes-builder/), our code-signing policies, and some familiarity with our code base in general so you are ready to hit the ground running come summer.
 
-### Student proposal guidelines
+### Contributor proposal guidelines
 
-A project proposal is what you will be judged upon. Write a clear proposal on what you plan to do, the scope of your project, and why we should choose you to do it. Proposals are the basis of the GSoC projects and therefore one of the most important things to do well. The proposal is not only the basis of our decision of which student to choose, it has also an effect on Google's decision as to how many student slots are assigned to Qubes.
+A project proposal is what you will be judged upon. Write a clear proposal on what you plan to do, the scope of your project, and why we should choose you to do it. Proposals are the basis of the GSoC projects and therefore one of the most important things to do well. 
 
 Below is the application template:
 
@@ -85,10 +85,15 @@ These project ideas were contributed by our developers and may be incomplete. If
 
 **Expected results**: What is the expected result in the timeframe given
 
+**Difficulty**: easy / medium / hard
+
 **Knowledge prerequisite**: Pre-requisites for working on the project. What coding language and knowledge is needed?
 If applicable, links to more information or discussions
 
+**Size of the project**: either 175 hours (medium) or 350 hours (large)
+
 **Mentor**: Name and email address.
+
 ```
 
 ### Qubes as a Vagrant provider
@@ -106,12 +111,45 @@ If applicable, links to more information or discussions
 - Document how to configure and use the provider, including required qrexec policy changes and possibly firewall rules
 - Write integration tests
 
+**Difficulty**: medium
+
 **Knowledge prerequisite**:
 
 - Ruby
 - Vagrant concepts
 
+**Size of the project**: 350 hours
+
 **Mentor**: [Wojtek Porczyk](/team/), [Marek Marczykowski-Górecki](/team/)
+
+### System health monitor
+
+**Project**: System health monitor
+
+**Brief explanation**: A tool that informs the user about common system and configuration issues. Some of this is already available, but scattered across different places. See related issues: [6663](https://github.com/QubesOS/qubes-issues/issues/6663), [2134](https://github.com/QubesOS/qubes-issues/issues/2134)
+
+**Expected results**:
+
+- a tool / service that checks for common issues and things needing user attention, for example:
+  - some updates to be applied (separate widget already exists)
+  - running out of disk space (separate widget already exists)
+  - insecure USB configuration (USB in dom0)
+  - some system VM crashed
+  - ...
+
+- a GUI that provides terse overview of the system state, and notifies the user if something bad happens
+
+**Difficulty**: medium
+
+**Knowledge prerequisite**:
+
+- Python
+- basic knowledge about systemd services
+- PyGTK (optional)
+
+**Size of the project**: 350 hours
+
+**Mentor**: [Marta Marczykowska-Górecka](/team/)
 
 ### Mechanism for maintaining in-VM configuration
 
@@ -125,12 +163,20 @@ If applicable, links to more information or discussions
 - Implementation of the above mechanism.
 - Documentation how to configure it securely.
 
+**Difficulty**: medium
+
 **Knowledge prerequisite**:
 
 - shell and/or python scripting
 - Qubes OS qrexec services
 
+**Size of the project**: 175 hours
+
 **Mentor**: [Frédéric Pierret](/team/)
+
+<!--
+
+REMOVED as of February 2022: work is being done on this
 
 ### Wayland support in GUI agent and/or GUI daemon
 
@@ -166,6 +212,8 @@ Relevant links:
 
 **Mentor**: [Marek Marczykowski-Górecki](/team/).
 
+-->
+
 ### Qubes Live USB
 
 **Project**: Revive Qubes Live USB, integrate it with installer
@@ -192,11 +240,15 @@ details: [#1552](https://github.com/QubesOS/qubes-issues/issues/1552),
 - Research option to install the system from live image. If feasible add
   this option.
 
+**Difficulty**: hard
+
 **Knowledge prerequisite**:
 
 - System startup sequence: bootloaders (isolinux, syslinux, grub, UEFI), initramfs, systemd.
 - Python and Bash scripting
 - Filesystems and block devices: loop devices, device-mapper, tmpfs, overlayfs, sparse files.
+
+**Size of the project**: 350 hours
 
 **Mentor**: [Frédéric Pierret](/team/)
 
@@ -243,11 +295,15 @@ immune to altering past entries. See
 - Document the protocol.
 - Write unit tests and integration tests.
 
+**Difficulty**: easy
+
 **Knowledge prerequisite**:
 
 - syslog
 - systemd
 - Python/Bash scripting
+
+**Size of the project**: 175 hours
 
 **Mentor**: [Frédéric Pierret](/team/)
 
@@ -266,11 +322,15 @@ immune to altering past entries. See
 - make connections to IPv6 Tor relays work
 - make connections to IPv6 destinations work
 
+**Difficulty**: medium
+
 **Knowledge prerequisite**:
 
 - nftables
 - iptables
 - IPv6
+
+**Size of the project**: 175 hours
 
 **Mentor**: [Patrick Schleizer](/team/)
 
@@ -282,33 +342,13 @@ immune to altering past entries. See
 
 **Expected results**: Working display-only WDDM video driver or significant progress towards making the full WDDM driver work correctly.
 
+**Difficulty**: hard
+
 **Knowledge prerequisite**: C/C++ languages, familiarity with Windows API, familiarity with the core Windows WDM driver model. Ideally familiarity with the WDDM display driver model.
 
+**Size of the project**: 175 hours
+
 **Mentor**: [Rafał Wojdyła](/team/)
-
-### Unattended Windows installation
-
-**Project**: Unattended Windows installation
-
-**Brief explanation**: Simplify Windows usage by providing a tool that perform unattended installation given required input data (installation image, license key, user name, etc). Similar feature is already supported in other virtualization solutions, including VMWare Workstation and VirtualBox. [Related github issue](https://github.com/QubesOS/qubes-issues/issues/4688).
-
-**Expected results**:
-
-- A template for `autounattended.xml` file for Windows installer - the template should have placeholders for settings that need to be provided by the user.
-- A tool for generating actual `autounattended.xml` file based on the template and user settings.
-- A tool for launching Windows installation, given installation image and `autounattended.xml` file (can be the same as in the above point).
-- (Optional) Unattended installation should also include Qubes Windows Tools.
-- (Optional) A tool should be able to use Windows license embedded in ACPI tables - [related discussion](https://groups.google.com/d/msgid/qubes-devel/0b7fabae-f843-e7ce-40cf-193326cecdb0%40zrubi.hu)
-- User documentation
-- Automated tests (unit tests, integration tests)
-
-**Knowledge prerequisite**:
-
-- Python scripting
-- Linux administration, including handling loop devices, partition tables, filesystems etc
-- For optional features, C language and x86 architecture (ACPI tables)
-
-**Mentor**: [Rafał Wojdyła](/team/), [Marek Marczykowski-Górecki](/team/)
 
 ### GNOME support in dom0 / GUI VM
 
@@ -338,11 +378,15 @@ immune to altering past entries. See
   all required packages.
 - Document installation procedure.
 
+**Difficulty**: hard
+
 **Knowledge prerequisite**:
 
 - GNOME architecture
 - C language (patching metacity)
 - Probably also javascript - for modifying GNOME shell extensions
+
+**Size of the project**: 175 hours
 
 **Mentor**: [Frédéric Pierret](/team/), [Marek Marczykowski-Górecki](/team/)
 
@@ -354,7 +398,11 @@ immune to altering past entries. See
 
 **Expected results**: We expect that in the timeframe, it will be possible to implement many converters for many file formats.  However, if any unexpected difficulties arise, we would prioritise a small number of safe and high quality converters over a large number of unsafe or unuseful converters.
 
+**Difficulty**: easy
+
 **Knowledge prerequisite**: Most of the coding will probably be implemented as shell scripts to interface with pre-existing converters (such as ImageMagick in the Qubes PDF converter).  However, shell scripts are not safe for processing untrusted data, so any extra processing will need to be implemented in another language -- probably Python.
+
+**Size of the project**: 175 hours
 
 **Mentors**: Andrew Clausen and Jean-Philippe Ouellet
 
@@ -372,7 +420,11 @@ for more information and qubes-specific background.
 
 **Expected results**: Significant progress towards making the Qubes build process deterministic. This would likely involve cooperation with and hacking on several upstream build tools to eliminate sources of variability.
 
+**Difficulty**: medium
+
 **Knowledge prerequisite**: qubes-builder [[1]](/doc/qubes-builder/) [[2]](/doc/qubes-builder-details/) [[3]](https://github.com/QubesOS/qubes-builder/tree/master/doc), and efficient at introspecting complex systems: comfortable with tracing and debugging tools, ability to quickly identify and locate issues within a large codebase (upstream build tools), etc.
+
+**Size of the project**: 350 hours
 
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
 
@@ -396,11 +448,15 @@ Some related discussion:
 - Aarch64 specific integration and unit tests.
 - Production of generic u-boot or uefi capable image/iso for target hardware.
 
+**Difficulty**: hard
+
 **Knowledge prerequisite**:
 
 - Libvirt and Qubes toolstacks (C and python languages).
 - Xen debugging.
 - General ARM architecture knowledge.
+
+**Size of the project**: 350 hours
 
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
 
@@ -460,7 +516,11 @@ Details, reference: [#2233](https://github.com/QubesOS/qubes-issues/issues/2233)
   qube to a development qube with Android studio
 - documentation and tests
 
+**Difficulty**: hard
+
 **Knowledge prerequisite**:
+
+**Size of the project**: 350 hours
 
 **Mentor**: Inquire on [qubes-devel](/support/#qubes-devel).
 
@@ -481,10 +541,14 @@ A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of
   - fully automated & extensible Fuzzer for parts of the Admin API
   - user & developer documentation
 
+**Difficulty**: medium
+
 **Prerequisites**:
   - basic Python understanding
   - some knowledge about fuzzing & existing fuzzing frameworks (e.g. [oss-fuzz](https://github.com/google/oss-fuzz/tree/master/projects/qubes-os))
   - a hacker's curiosity
+
+**Size of the project**: 175 hours
 
 **Mentor**: Inquire on [qubes-devel](/support/#qubes-devel).
 
@@ -500,9 +564,13 @@ A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of
  - integrate it with updates mechanism, so new Xen or dom0 kernel will be picked up automatically
  - include a fallback configuration that can be used for troubleshooting (main unified Xen EFI intentionally does not allow to manipulate parameters at boot time)
 
+**Difficulty**: hard
+
 **Knowledge prerequisite**:
  - basic understanding of Secure Boot
  - Bash and Python scripting
+
+**Size of the project**: 175 hours
 
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
 
@@ -515,16 +583,20 @@ A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of
 
 **Expected results**: A DisposableVM should not leave logs hinting what was running inside.
 
+**Difficulty**: medium
+
 **Knowledge prerequisite**:
  - Python scripting
  - Basic knowledge of Linux system services management (systemd, syslog etc)
+
+**Size of the project**: 350 hours
 
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
 
 
 ## Past Projects
 
-You can view the projects we had in 2017 in the [GSoC 2017 archive](https://summerofcode.withgoogle.com/archive/2017/organizations/5074771758809088/). We also participated in GSoC 2020, and you can see the project in the [GSoC 2020 archive](https://summerofcode.withgoogle.com/archive/2020/organizations/4924517870206976/).
+You can view the projects we had in 2017 in the [GSoC 2017 archive](https://summerofcode.withgoogle.com/archive/2017/organizations/5074771758809088/). We also participated in GSoC 2020 and GSoC 2021, and you can see the project in the [GSoC 2020 archive](https://summerofcode.withgoogle.com/archive/2020/organizations/4924517870206976/) and [GSoC 2021 archive](https://summerofcode.withgoogle.com/archive/2021/organizations/5682513023860736).
 
 Here are some successful projects which have been implemented in the past by Google Summer of Code participants.
 

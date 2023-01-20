@@ -73,15 +73,27 @@ For example, if you are certain that you never wish to paste *into* your "vault"
 @anyvm  @anyvm  ask
 ~~~
 
+Automatic clipboard wiping
+--------------------------
+
+By default data pasted into a qube will remain there until user copies something else or restarts the qube. It's possible to make the `qubes-gui` process inside a qube wipe the clipboard automatically after a minute from the last paste operation. This helps protect users from accidentally pasting the old content of the clipboard like a password in the wrong place like a browser search bar. Since qubes don't share the same clipboard, software like KeePassXC isn't able to automatically wipe the clipboard of other qubes.
+
+To enable automatic wiping of the clipboard after a minute use `qvm-service`:
+
+~~~
+qvm-service --enable VMNAME gui-agent-clipboard-wipe
+~~~
+
 Shortcut configuration
 ----------------------
 
-The copy/paste shortcuts are configurable in:
+The copy/paste shortcuts are configurable via `qvm-features`, e.g.
 
 ~~~
-/etc/qubes/guid.conf
+qvm-features dom0 gui-default-secure-copy-sequence 'Mod4-c'
+qvm-features dom0 gui-default-secure-paste-sequence 'Mod4-v'
 ~~~
 
-If you edit a line in this file, you must uncomment it (by removing the initial `#` character), or else it will have no effect.
+would change the *copy/paste to global clipboard* to the Win key plus c for copy, or v for paste.
 
-VMs need to be restarted in order for changes in `/etc/qubes/guid.conf` to take effect.
+You need to restart Qubes for the changes to take effect.

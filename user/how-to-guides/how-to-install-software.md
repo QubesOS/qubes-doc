@@ -14,15 +14,36 @@ title: How to install software
 
 When you wish to install software in Qubes OS, you should generally install it
 in a [template](/doc/glossary/#template). For installing templates themselves,
-see [how to install a template](/doc/templates/#installing).
-
-Advanced users may also be interested in learning how to install software in
+see [how to install a template](/doc/templates/#installing). Advanced users may
+also be interested in learning how to install software in
 [standalones](/doc/standalones-and-hvms/) and
 [dom0](/doc/how-to-install-software-in-dom0).
 
-## Instructions
+Qubes OS is effectively a "meta" operating system (OS) that can run almost any
+arbitrary OS inside of itself. For example, the way software is normally
+installed in a Linux distribution ("distro") is quite different from the way
+software is normally installed in Windows. This isn't up to Qubes. Qubes is
+just the framework in which you're running these other OSes. Therefore, if you
+want to install software in a Linux template, for example, you should do so in
+whatever way is normal for that Linux distro. Most Linux software is
+distributed via [packages](https://en.wikipedia.org/wiki/Package_format), which
+are stored in [software
+repositories](https://en.wikipedia.org/wiki/Software_repository) ("repos").
+[Package managers](https://en.wikipedia.org/wiki/Package_manager) handle
+downloading, installing, updating, and removing packages. (Again, none of this
+is Qubes-specific.) If you're not familiar with how software is normally
+installed in Linux distros via package managers or the software you want
+doesn't seem to be available in your distro's repos (or you're in another
+situation not covered on this page), please read this [community guide to
+installing software in Qubes](https://forum.qubes-os.org/t/9991/).
 
-To permanently install new software in a template:
+The following instructions explain how to permanently install new software in a
+template. There are different instructions for software from the default
+repositories and all other software. (If you're not sure, try the default
+repositories first.)
+
+
+## Installing software from default repositories
 
 1. Start the template.
 
@@ -33,47 +54,112 @@ To permanently install new software in a template:
    - Fedora: `sudo dnf install <PACKAGE_NAME>`
    - Debian: `sudo apt install <PACKAGE_NAME>`
 
-4. **Shut down the template. (Do not skip this step.)**
+4. Shut down the template.
 
-5. **Restart all qubes based on the template. (Do not skip this step.)**
+5. Restart all qubes based on the template.
 
-6. (Recommended) In the relevant qubes' **Qube Settings**, go to the
-   **Applications** tab, select the new application(s) from the list, and press
-   OK. These new shortcuts will appear in the Applications Menu. (If you
-   encounter problems, see [here](/doc/app-menu-shortcut-troubleshooting/) for
-   troubleshooting.)
+6. (Recommended) In the relevant qubes' **Settings > Applications** tab, select
+the new application(s) from the list, and press **OK**. These new shortcuts
+will appear in the Applications Menu. (If you encounter problems, see
+[here](/doc/app-menu-shortcut-troubleshooting/) for troubleshooting.)
 
 ![[The Applications tab in Qube Settings](/attachment/doc/r4.1-dom0-appmenu-select.png)](/attachment/doc/r4.1-dom0-appmenu-select.png)
+
+
+## Installing software from other sources
+
+**Warning:** This method gives your template direct network access, which is
+[risky](#why-dont-templates-have-network-access). This method is **not**
+recommended for trusted templates. Moreover, depending on how you install this
+software, it may not get updated automatically when you [update Qubes
+normally](/doc/how-to-update/), which means you may have to update it manually
+yourself.
+
+Some software is not available from the default repositories and must be
+downloaded and installed from another source. This method assumes that you're
+trying to follow the instructions to install some piece of software in a normal
+operating system, except that operating system is running as a template in
+Qubes OS.
+
+1. (Recommended) Clone the desired template (since this new template will
+   probably be less trusted than the original).
+
+2. (Recommended) In the new template's **Settings > Basic** tab, change the
+   color label from black to red (or another color that signifies to you that
+   the template is less trusted).
+
+3. In the new template's **Settings > Basic** tab, change the **Networking**
+   value from `default (none) (current)` to `sys-firewall` (or whichever
+   network-providing qube you wish to use).
+
+4. (Recommended) In the new template's **Settings > Firewall rules** tab,
+   select "Limit outgoing Internet connections to..." and tick "Allow full
+   access for 5 min." (This can help in case you forget to remove network
+   access later.)
+
+5. Follow the normal instructions for installing your software in the new
+   template. For example, open a terminal and enter the commands as instructed.
+   **Warning:** If you don't fully understand the commands you're entering,
+   then this can be extremely risky, and the template should be regarded as
+   *completely untrusted*.
+
+6. (Recommended) In the new template's **Settings > Basic** tab, change the
+   **Networking** value from `sys-firewall (current)` (or whichever
+   network-providing qube you chose) back to `default (none)`.
+
+7. Shut down the new template.
+
+8. Create or assign your desired app qubes to use the new template. If any app
+   qubes were already assigned to the new template, restart them.
+
+9. (Recommended) In the relevant qubes' **Settings > Applications** tab, select
+   the new application(s) from the list, and press **OK**. These new shortcuts
+   will appear in the Applications Menu. (If you encounter problems, see
+   [here](/doc/app-menu-shortcut-troubleshooting/) for troubleshooting.)
+
+![[The Applications tab in Qube Settings](/attachment/doc/r4.1-dom0-appmenu-select.png)](/attachment/doc/r4.1-dom0-appmenu-select.png)
+
 
 ## Troubleshooting
 
 If things are still not working as expected:
 
-- Review the [instructions](#instructions) very carefully, making sure you
-  follow each step.
+- Review the instructions very carefully, making sure you follow each step.
 - Make sure you **shut down the template after installing your software**.
 - Make sure you **restart your app qube *after* shutting down your template**.
+- Make sure your app qube is assigned to the right template.
 - If your software requires special files or directories to be persistent, and
-  you're an advanced user, see [Standalones and
-  HVMs](/doc/standalones-and-hvms/) and [How to Make Any File Persistent
+  you're an advanced user, see [standalones and
+  HVMs](/doc/standalones-and-hvms/) and [how to make any file persistent
   (bind-dirs)](/doc/bind-dirs/).
 - [Ask for help.](/support/)
+
 
 ## How to update software
 
 Please see [How to Update](/doc/how-to-update/).
 
+
 ## Why don't templates have network access?
 
-In order to protect you from performing risky activites in templates, they do
-not have normal network access. Instead, templates use an [updates
-proxy](#updates-proxy) that allows you to install and update software without
-giving the template direct network access.
+In order to protect you from performing risky activities in templates, they do
+not have normal network access by default. Instead, templates use an [updates
+proxy](#updates-proxy) that allows you to install and update software using
+the distribution package manager without giving the template direct network
+access.**The updates proxy is already setup to work automatically
+out-of-the-box and requires no special action from you.** Most users should
+simply follow the normal instructions for [installing software from default
+repositories](#installing-software-from-default-repositories) and
+[updating](/doc/how-to-update/) software. If your software is not available in
+the default repositories, see [installing software from other
+sources](#installing-software-from-other-sources).
+
 
 ## Advanced
 
 The following sections cover advanced topics pertaining to installing and
 updating software in domUs.
+
 
 ### Testing repositories
 
@@ -83,6 +169,7 @@ must enable the appropriate testing repositories.
 **Note:** The following repos are in templates and standalones. For dom0 testing
 repos, see [here](/doc/how-to-install-software-in-dom0/#testing-repositories).
 For testing new templates, please see [here](/doc/testing/#templates).
+
 
 #### Fedora
 
@@ -107,6 +194,7 @@ sudo dnf upgrade --enablerepo=qubes-vm-*-unstable
 To enable or disable any of these repos permanently, change the corresponding
 `enabled` value to `1` in `/etc/yum.repos.d/qubes-*.repo`.
 
+
 #### Debian
 
 Debian also has three Qubes VM testing repositories (where `*` denotes the
@@ -122,12 +210,14 @@ Release):
 To enable or disable any of these repos permanently, uncomment the
 corresponding `deb` line in `/etc/apt/sources.list.d/qubes-r*.list`.
 
+
 ### Standalones
 
 The process for installing and updating software in
 [standalones](/doc/glossary/#standalone) is the same as described above for
 templates, except no qubes are based on standalones, so there are no other
 qubes to restart.
+
 
 ### RPMFusion for Fedora templates
 
@@ -150,6 +240,7 @@ future updates. If you only enable these repos temporarily to install a package
 the Qubes update mechanism may persistently notify you that updates are
 available, since it cannot download them.
 
+
 ### Reverting changes to a template
 
 Perhaps you've just updated your template, and the update broke your template.
@@ -168,6 +259,7 @@ undo changes to a template, there are three basic methods:
 3. **Full revert.**
    This is appropriate for both misconfigurations and security concerns, and it
    can preserve your customizations. However, it is a bit more complex.
+
 
 #### Root revert
 
@@ -188,9 +280,11 @@ first!
    qvm-volume revert <template>:root
    ```
 
+
 #### Reinstall the template
 
 Please see [How to Reinstall a template](/doc/reinstall-template/).
+
 
 #### Full revert
 
@@ -207,39 +301,25 @@ This is like the simple revert, except:
   `revisions_to_keep=1` for the root volume, you must **not** have started the
   template since the compromising action.
 
-### Temporarily allowing networking for software installation
-
-Some third-party applications cannot be installed using the standard
-repositories and need to be manually downloaded and installed. When the
-installation requires internet connection to access third-party repositories,
-it will naturally fail when run in a template because the default firewall
-rules for templates only allow connections from package managers. So it is
-necessary to modify firewall rules to allow less restrictive internet access
-for the time of the installation, if one really wants to install those
-applications into a template. As soon as software installation is completed,
-firewall rules should be returned back to the default state. The user should
-decide by themselves whether such third-party applications should be equally
-trusted as the ones that come from the standard Fedora signed repositories and
-whether their installation will not compromise the default template, and
-potentially consider installing them into a separate template or a standalone
-VM (in which case the problem of limited networking access doesn't apply by
-default), as described above.
 
 ### Updates proxy
 
-Updates proxy is a service which allows access only from package managers. This
-is meant to mitigate user errors (like using browser in the template), rather
-than some real isolation. It is done with http proxy (tinyproxy) instead of
-simple firewall rules because it is hard to list all the repository mirrors
-(and keep that list up to date). The proxy is used only to filter the traffic,
-not to cache anything.
+Updates proxy is a service which allows access from package managers
+configured to use the proxy by default, but can be used by any other
+program that accepts proxy arguments.
+The purpose of the proxy, instead of direct network access, is meant to
+mitigate user errors of using applications such as the browser in the
+template. Not necessarily what part of the network they can access, but only
+to applications trusted by the user, configured to use the proxy.
+The http proxy (tinyproxy) does not filter traffic because it is hard to list
+all the repository mirrors and keep that list up to date). it also does not
+cache anything.
 
 The proxy is running in selected VMs (by default all the NetVMs (1)) and
-intercepts traffic directed to 10.137.255.254:8082. Thanks to such
-configuration all the VMs can use the same proxy address, and if there is a
-proxy on network path, it will handle the traffic (of course when firewall
-rules allow that). If the VM is configured to have access to the updates proxy
-(2), the startup scripts will automatically configure dnf to really use the
+intercepts traffic directed to 127.0.0.1:8082. Thanks to such
+configuration all the VMs can use the same proxy address.
+If the VM is configured to have access to the updates proxy
+(2), the startup scripts will automatically configure dnf/apt to really use the
 proxy (3). Also access to updates proxy is independent of any other firewall
 settings (VM will have access to updates proxy, even if policy is set to block
 all the traffic).
@@ -257,6 +337,7 @@ framework](/doc/qubes-service/)):
 Both the old and new names work. The defaults listed above are applied if the
 service is not explicitly listed in the services tab.
 
+
 #### Technical details
 
 The updates proxy uses RPC/qrexec. The proxy is configured in qrexec policy in
@@ -265,7 +346,7 @@ sys-net and/or sys-whonix, depending on firstboot choices. This new design
 allows for templates to be updated even when they are not connected to any
 NetVM.
 
-Example policy file in R4.0 (with Whonix installed, but not set as default
+Example policy file in R4.1 (with Whonix installed, but not set as default
 UpdateVM for all templates):
 
 ```shell_session
@@ -274,9 +355,10 @@ UpdateVM for all templates):
 @tag:whonix-updatevm @anyvm deny
 
 # other templates use sys-net
-@type:template @default allow,target=sys-net
+@type:TemplateVM @default allow,target=sys-net
 @anyvm @anyvm deny
 ```
+
 
 ### Installing Snap Packages
 
@@ -288,24 +370,24 @@ these in an app qube you need to take the following steps:
    a terminal in the template and run:
 
    ```shell_session
-   [user@fedora-30-snap-demo ~]$ sudo dnf install snapd qubes-snapd-helper
-   Last metadata expiration check: 0:55:39 ago on Thu Nov 14 09:26:47 2019.
+   [user@fedora-36-snap-demo ~]$ sudo dnf install snapd qubes-snapd-helper
+   Last metadata expiration check: 0:33:05 ago on Thu 03 Nov 2022 04:34:06.
    Dependencies resolved.
    ========================================================================================================
     Package                       Arch    Version                             Repository              Size
    ========================================================================================================
    Installing:
-    snapd                         x86_64  2.42.1-1.fc30                       updates                 17 M
-    qubes-snapd-helper            noarch  1.0.1-1.fc30                        qubes-vm-r4.0-current   10 k
+    snapd                        x86_64   2.56.2-4.fc36                       updates                 14 M
+    qubes-snapd-helper           noarch   1.0.4-1.fc36                        qubes-vm-r4.1-current   10 k
    Installing dependencies:
    [...]
    
    Transaction Summary
    ========================================================================================================
-   Install  20 Packages
+   Install  19 Packages
    
-   Total download size: 37 M
-   Installed size: 121 M
+   Total download size: 27 M
+   Installed size: 88 M
    Is this ok [y/N]: y
    
    Downloading Packages:
@@ -313,11 +395,11 @@ these in an app qube you need to take the following steps:
    Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
    /usr/sbin/semodule:  Failed!
    [...]
-   Last metadata expiration check: 0:57:08 ago on Thu Nov 14 09:26:47 2019.
+   Last metadata expiration check: 0:33:05 ago on Thu 03 Nov 2022 04:34:06.
    Notifying dom0 about installed applications
    
    Installed:
-     snapd-2.42.1-1.fc30.x86_64                                              qubes-snapd-helper-1.0.1-1.fc30.noarch
+     snapd-2.56.2-4.fc36.x86_64                                              qubes-snapd-helper-1.0.4-1.fc36.noarch
    [...]
    Complete!
    ```
@@ -334,7 +416,7 @@ these in an app qube you need to take the following steps:
    Shutdown the template:
    
    ```shell_session
-   [user@fedora-30-snap-demo ~]$ sudo shutdown -h now
+   [user@fedora-36-snap-demo ~]$ sudo shutdown -h now
    ```
 
 2. Now open the **app qube** in which you would like to install the Snap
@@ -354,6 +436,7 @@ these in an app qube you need to take the following steps:
    appear in the app qube's list of available applications. At this point the
    snap will be persistent within the app qube and will receive updates when
    the app qube is running.
+
 
 ### Autostarting Installed Applications
 

@@ -92,6 +92,9 @@ chosen a different medium, please adapt the instructions accordingly.
   <i class="fa fa-exclamation-circle"></i>
   <b>Note:</b> There are important <a href="/doc/install-security/">security
   considerations</a> to keep in mind when choosing an installation medium.
+  Advanced users may wish to <a
+  href="/security/verifying-signatures/#how-to-re-verify-installation-media-after-writing">re-verify
+  their installation media after writing</a>.
 </div>
 
 <div class="alert alert-danger" role="alert">
@@ -107,7 +110,7 @@ On Linux, if you choose to use a USB drive, copy the ISO onto the USB device,
 e.g. using `dd`:
 
 ```
-$ sudo dd if=Qubes-RX-x86_64.iso of=/dev/sdY status=progress bs=1048576 && sync
+$ sudo dd if=Qubes-RX-x86_64.iso of=/dev/sdY status=progress bs=1048576 conv=fsync
 ```
 
 Change `Qubes-RX-x86_64.iso` to the filename of the version you're installing,

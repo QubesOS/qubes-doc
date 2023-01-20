@@ -52,7 +52,7 @@ Examples of unacceptable behavior by participants include:
 - Reinforcing stereotypical models for illustration of non-technical users
   (e.g. our mothers/grandmothers, etc.)
 - Public or private harassment, as defined by the [Citizen Code of
-  Conduct](http://citizencodeofconduct.org/)
+  Conduct](https://github.com/stumpsyn/policies/blob/master/citizen_code_of_conduct.md)
 - Publishing others' private information, such as a physical or electronic
   address, without explicit permission
 - Other conduct which could reasonably be considered inappropriate in a

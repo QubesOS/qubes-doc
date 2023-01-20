@@ -242,13 +242,12 @@ class SomeTestCase(unittest.TestCase):
         gc.collect()
 ~~~
 
-## Installation Tests with openQA
+## Automated tests with openQA
 
 **URL:** <https://openqa.qubes-os.org/>
-
 **Tests:** <https://github.com/marmarek/openqa-tests-qubesos>
 
-Manually testing the installation of Qubes OS is a time-consuming process.
+Manually testing Qubes OS and its installation is a time-consuming process.
 We use [OpenQA](http://open.qa/) to automate this process.
 It works by installing Qubes in KVM and interacting with it as a user would, including simulating mouse clicks and keyboard presses.
 Then, it checks the output to see whether various tests were passed, e.g. by comparing the virtual screen output to screenshots of a successful installation.
@@ -258,4 +257,23 @@ KVM also supports nested virtualization, so HVM should theoretically work.
 In practice, however, either Xen or QEMU crashes when this is attempted.
 Nonetheless, PV works well, which is sufficient for automated installation testing.
 
-Thanks to an anonymous donor, our openQA system is hosted in a datacenter on hardware that meets these requirements.
+Thanks to present and past donors who have provided the infrastructure for Qubes' openQA system with hardware that meets these requirements.
+
+### Looking for patterns in tests
+
+In order to better visualize patterns in tests the [`openqa_investigator`](https://github.com/QubesOS/openqa-tests-qubesos/blob/master/utils/openqa_investigator.py) script can be used.
+It feeds off of the openQA test data to make graph plots. Here is an example:
+
+![openqa-investigator-splitgpg-example.png](/attachment/doc/openqa-investigator-splitgpg-example.png)
+
+Some outputs:
+  - plot by tests
+  - plot by errors
+  - markdown
+
+Some filters:
+  - filter by error
+  - filter by test name
+
+Check out the script's help with `python3 openqa_investigator.py --help`
+to see all available options.

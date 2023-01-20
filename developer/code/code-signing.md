@@ -18,70 +18,67 @@ Please read Cabal's full guide for further important details.
 
 ~~~
 $ gpg --gen-key
-gpg (GnuPG) 1.4.11; Copyright (C) 2010 Free Software Foundation, Inc.
-This is free software: you are free to change and  redistribute it.
+gpg (GnuPG) 2.2.27; Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 
-Please select what kind of key you want:
-    (1) RSA and RSA (default)
-    (2) DSA and Elgamal
-    (3) DSA (sign only)
-    (4) RSA (sign only)
-Your selection? 1
+gpg: directory '/home/user/.gnupg' created
+gpg: keybox '/home/user/.gnupg/pubring.kbx' created
+Note: Use "gpg --full-generate-key" for a full featured key generation dialog.
 
-RSA keys may be between 1024 and 4096 bits long.
-What keysize do you want? (2048) 4096
-
-Requested keysize is 4096 bits
-Please specify how long the key should be valid.
-    0 = key does not expire
-    <n>  = key expires in n days
-    <n>w = key expires in n weeks
-    <n>m = key expires in n months
-    <n>y = key expires in n years
-Key is valid for? (0) 0
-
-Key does not expire at all
-Is this correct? (y/N) y
-
-
-You need a user ID to identify your key; the software constructs the user ID
-from the Real Name, Comment and E-mail Address in this form:
-    "Heinrich Heine (Der Dichter) <heinrichh@duesseldorf.de>"
+GnuPG needs to construct a user ID to identify your key.
 
 Real name: Bilbo Baggins
-
-E-mail address: bilbo@shire.org
-
-Comment:
+Email address: bilbo@shire.org
 You selected this USER-ID:
     "Bilbo Baggins <bilbo@shire.org>"
 
-Change (N)ame, (C)omment, (E)-mail or (O)kay/(Q)uit? O
-
-You need a Passphrase to protect your secret key.
+Change (N)ame, (E)mail, or (O)kay/(Q)uit? O
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
 
 <type your passphrase>
 
-gpg: key 488BA441 marked as ultimately trusted
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+gpg: /home/user/.gnupg/trustdb.gpg: trustdb created
+gpg: key 6E2F4E7AF50A5827 marked as ultimately trusted
+gpg: directory '/home/user/.gnupg/openpgp-revocs.d' created
+gpg: revocation certificate stored as '/home/user/.gnupg/openpgp-revocs.d/87975838063F97A968D503266E2F4E7AF50A5827.rev'
 public and secret key created and signed.
 
-gpg: checking the trustdb
-gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
-gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
-pub   4096R/488BA441 2013-03-13
-      Key fingerprint = B878 1FB6 B187 B94C 3E52  2AFA EB1D B79A 488B A441
-uid                  Bilbo Baggins <bilbo@shire.org>
-sub   4096R/69B0EA85 2013-03-13
+pub   rsa3072 2021-12-30 [SC] [expires: 2023-12-30]
+      87975838063F97A968D503266E2F4E7AF50A5827
+uid                      Bilbo Baggins <bilbo@shire.org>
+sub   rsa3072 2021-12-30 [E] [expires: 2023-12-30]
 ~~~
 
 ## Upload the Key
 
 For others to find the public key, please upload it to a server.
 
+Currently, [these](https://github.com/marmarek/signature-checker/blob/master/check-git-signature#L133-L135) are the recognized servers.
+
+In the example below, we will use `keyserver.ubuntu.com`.
+
+Replace 6E2F4E7AF50A5827 with your key ID, which is the last 8 hex digits of the long number in the second line of the output above:
 ```
-$ gpg --send-keys --keyserver pool.sks-keyservers.net 69B0EA85
-gpg: sending key 488BA441 to hkp server pool.sks-keyservers.net
+pub   rsa3072 2021-12-30 [SC] [expires: 2023-12-30]
+      87975838063F97A968D503266E2F4E7AF50A5827
+```
+
+```shell_session
+$ gpg --send-keys --keyserver hkps://keyserver.ubuntu.com 6E2F4E7AF50A5827
+gpg: sending key 6E2F4E7AF50A5827 to hkps://keyserver.ubuntu.com
+```
+
+```
+$ gpg --send-keys --keyserver hkps://keyserver.ubuntu.com 6E2F4E7AF50A5827
+gpg: sending key 6E2F4E7AF50A5827 to hkps://keyserver.ubuntu.com
 ```
 
 ## Using PGP with Git
@@ -104,7 +101,7 @@ your Git commits.
    Alternatively, manually specify when a commit is to be signed:
 
    ~~~
-   commit -S
+   git commit -S
    ~~~
 
 3. (Optional) Create signed tags.

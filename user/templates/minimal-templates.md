@@ -24,9 +24,10 @@ templates, along with some examples of common use cases.
 
 ## Important
 
-1. **The minimal templates are intended only for advanced users.** If you
-   encounter problems with the minimal templates, we recommend that you use
-   their standard template counterparts instead.
+1. [The minimal templates are intended only for advanced
+   users.](https://forum.qubes-os.org/t/9717/15) If you encounter problems with
+   the minimal templates, we recommend that you use their standard template
+   counterparts instead.
 
 2. If something works with a standard template but not the minimal version,
    this is most likely due to user error (e.g., a missing package or
@@ -52,6 +53,8 @@ Minimal templates of the following distros are available:
  - Debian
  - CentOS
  - Gentoo
+
+A list of all available templates can also be obtained with the [Template Manager](/doc/template-manager/) tool.
 
 ## Installation
 
@@ -129,6 +132,8 @@ list of packages to be installed):
 - Commonly used utilities: `pciutils` `vim-minimal` `less` `psmisc`
   `gnome-keyring`.
 - Audio: `pulseaudio-qubes`.
+- Networking: `qubes-core-agent-networking`, and whatever network tools
+  you want. N.B. minimal templates do not include any browser.
 - [FirewallVM](/doc/firewall/), such as the template for `sys-firewall`: at
   least `qubes-core-agent-networking` and `iproute`, and also
   `qubes-core-agent-dom0-updates` if you want to use it as the `UpdateVM`
@@ -226,6 +231,8 @@ list of packages to be installed):
   the Nautilus menu option to copy some files to other qubes
   ([#6801](https://github.com/QubesOS/qubes-issues/issues/6801)).
 - Audio: `pulseaudio-qubes`
+- Networking: `qubes-core-agent-networking`, and whatever network tools
+  you want. N.B. minimal templates do not include any browser.
 - [FirewallVM](/doc/firewall/), such as the template for `sys-firewall`: at
   least `qubes-core-agent-networking`, and also `qubes-core-agent-dom0-updates`
   if you want to use it as the `UpdateVM` (which is normally `sys-firewall`).
@@ -234,10 +241,14 @@ list of packages to be installed):
   packages for a network VM, use the `lspci` command to identify the devices,
   then find the package that provides necessary firmware and install it. If you
   need utilities for debugging and analyzing network connections, install the
-  following packages: `tcpdump` `telnet` `nmap` `nmap-ncat`.
+  following packages: `tcpdump` `telnet` `nmap` `ncat`.
 - [USB qube](/doc/usb-qubes/), such as the template for `sys-usb`:
   `qubes-usb-proxy` to provide USB devices to other Qubes and
   `qubes-input-proxy-sender` to provide keyboard or mouse input to dom0.
+- Qubes to which USB devices are attached: `libpam-systemd` (Until
+  [#7689](https://github.com/QubesOS/qubes-issues/issues/7689) is fixed, either
+  pair it with `qubes-core-agent-passwordless-root` or manually activate the
+  user session with `loginctl activate <USER_SESSION_ID>`.)
 - [VPN
   qube](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md):
   You may need to install network-manager VPN packages, depending on the VPN
@@ -247,6 +258,7 @@ list of packages to be installed):
   to configure it.
 - `default-mgmt-dvm`: requires `qubes-core-agent-passwordless-root` and
   `qubes-mgmt-salt-vm-connector`.
+- [Yubikey](/doc/yubikey/): You may need to install `xserver-xorg-input-libinput` for 2FA responses to work in web browsers like Firefox.
 
 In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be
 needed to make the customized minimal template work properly. These packages
@@ -298,6 +310,8 @@ list of packages to be installed):
 - Commonly used utilities: `pciutils` `vim-minimal` `less` `psmisc`
   `gnome-keyring`
 - Audio: `pulseaudio-qubes`.
+- Networking: `qubes-core-agent-networking`, and whatever network tools
+  you want. N.B. minimal templates do not include any browser.
 - [FirewallVM](/doc/firewall/), such as the template for `sys-firewall`: at
   least `qubes-core-agent-networking`, and also `qubes-core-agent-dom0-updates`
   if you want to use it as the `UpdateVM` (which is normally `sys-firewall`).

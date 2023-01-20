@@ -252,9 +252,15 @@ Replace the version numbers in the example below with the ones appropriate to th
 sudo dracut -f /boot/initramfs-4.15.14-200.fc26.x86_64.img 4.15.14-200.fc26.x86_64
 ~~~
 
-Once the kernel is installed, you need to create a GRUB configuration.
+Once the kernel is installed, you need to setup `grub2` by running:
+
+~~~
+sudo grub2-install /dev/xvda
+~~~
+
+Finally, you need to create a GRUB configuration.
 You may want to adjust some settings in `/etc/default/grub`; for example, lower `GRUB_TIMEOUT` to speed up VM startup.
-Then, you need to generate the actual configuration:
+Then, you need to generate the actual configuration.
 In Fedora it can be done using the `grub2-mkconfig` tool:
 
 ~~~
@@ -287,7 +293,11 @@ Install distribution kernel image, kernel headers and the grub.
 sudo apt install linux-image-amd64 linux-headers-amd64 grub2 qubes-kernel-vm-support
 ~~~
 
-If you are doing that on a qube based on "Debian Minimal" template, a grub gui will popup during the installation, asking you where you want to install the grub loader. You must select /dev/xvda (check the box using the space bar, and validate your choice with "Enter".)
+If you are doing that on a qube based on "Debian Minimal" template, a grub gui will popup during the installation, asking you where you want to install the grub loader. You must select /dev/xvda (check the box using the space bar, and validate your choice with "Enter".) If this popup does not appear during the installation, you must manually setup `grub2` by running:
+
+~~~
+sudo grub-install /dev/xvda
+~~~
 
 You can safely ignore this error message:
 `grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your device.map`

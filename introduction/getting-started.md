@@ -13,7 +13,8 @@ title: Getting started
 ---
 
 After [downloading](/downloads/) and [installing](/doc/installation-guide/)
-Qubes OS, it's time to dive in and get to work!
+Qubes OS, it's time to dive in and get to work! (Already know your way around?
+Dive right in to [organizing your qubes](/doc/how-to-organize-your-qubes/).)
 
 ## The Basics
 
@@ -133,10 +134,12 @@ There are several tray widgets that are unique to Qubes OS:
 - The **Qubes Updater** widget informs you when updates are available and helps
   you install them.
 
-[![r4.0-widgets.png](/attachment/doc/r4.0-widgets.png)](/attachment/doc/r4.0-widgets.png)
+[![r4.1-widgets.png](/attachment/doc/r4.1-widgets.png)](/attachment/doc/r4.1-widgets.png)
+
+#### Qube Manager
 
 To see all of your qubes at the same time, you can use the **Qube Manager** (go
-to the App Menu → System Tools → Qube Manager), which displays the states of
+to the App Menu → Qubes Tools → Qube Manager), which displays the states of
 all the qubes in your system, even the ones that aren't running.
 
 [![r4.0-qubes-manager.png](/attachment/doc/r4.0-qubes-manager.png)](/attachment/doc/r4.0-qubes-manager.png)
@@ -197,10 +200,10 @@ you want to partition some part of your life, you can easily create a new qube
 for it. You'll also be able to easily [copy any
 files](/doc/how-to-copy-and-move-files) you need to the newly-created qube.
 
-Still not sure? You might find it helpful to read [this
-article](https://blog.invisiblethings.org/2011/03/13/partitioning-my-digital-life-into.html),
-which describes how one of the Qubes OS architects partitioned her digital life
-into security domains.
+Want to see some examples? Check out our in-depth guide on [how to organize your
+qubes](/doc/how-to-organize-your-qubes/), which walks through several common use
+cases based on our user research and years of experience from veteran Qubes
+users.
 
 ## Secure Habits
 
@@ -219,6 +222,7 @@ Here are some basic tasks you're likely to want to perform often that are
 unique to Qubes as a multi-environment system. A full list is available in the
 [How-To Guides](/doc/#how-to-guides) section in the docs.
 
+- [How to organize your qubes](/doc/how-to-organize-your-qubes/)
 - [How to Update](/doc/how-to-update/)
 - [How to Back Up, Restore, and Migrate](/doc/how-to-back-up-restore-and-migrate/)
 - [How to Copy and Paste Text](/doc/how-to-copy-and-paste-text/)

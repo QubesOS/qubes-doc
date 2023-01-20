@@ -10,61 +10,115 @@ ref: 169
 title: YubiKey
 ---
 
-You can use a YubiKey to enhance Qubes user authentication, for example to mitigate risk of someone snooping the password.
-This can also slightly improve security when you have a [USB keyboard](/doc/device-handling-security/#security-warning-on-usb-input-devices).
+"The YubiKey is a hardware authentication device manufactured by Yubico to
+protect access to computers, networks, and online services that supports
+one-time passwords (OTP), public-key cryptography, and authentication, and the
+Universal 2nd Factor (U2F) and FIDO2 protocols[1] developed by the FIDO
+Alliance." ([Wikipedia](https://en.wikipedia.org/wiki/YubiKey))
 
-## Challenge-response mode
+## General usage in Qubes OS
 
-In this mode, your YubiKey will generate a response based on the secret key, and a random challenge (instead of counter).
-This means that it isn't possible to generate a response in advance even if someone gets access to your YubiKey.
-This makes it reasonably safe to use the same YubiKey for other services (also in challenge-response mode).
+Most use cases for the YubiKey can be achieved exactly as described by the
+manufacturer or other instructions found online. One usually just needs to
+attach the YubiKey to the corresponding app qube to get the same result (see the
+documentation on how to use [USB devices](/doc/how-to-use-usb-devices/) in Qubes
+OS accordingly). The recommended way for using U2F in Qubes is described
+[here](https://www.qubes-os.org/doc/u2f-proxy/).
 
-Same as in the OTP case, you will need to set up your YubiKey, choose a separate password (other than your login password!) and apply the configuration.
+## Multi-factor login for Qubes OS
 
-To use this mode you need to:
+You can use a YubiKey to enhance the user authentication in Qubes. The following
+instructions explain how to setup the YubiKey as an *additional* way to login.
 
-1. Install yubikey personalization the packages in your template on which your USB VM is based.
+After setting it up, you can login by providing both - a password typed in via
+keyboard *and* the YubiKey plugged in. Someone eavesdropping your login attempt
+would not be able to login by only observing and remembering your password.
+Stealing your YubiKey would not suffice to login either. Only if an attacker has
+both, the password and the Yubikey, it would be possible to login (it is thus
+called [Multi-factor
+authentication](https://en.wikipedia.org/wiki/Multi-factor_authentication)).
+
+The following instructions keep your current login password untouched and
+recommends to define a new, additional password that is used in combination with
+the YubiKey only. This ensures that you a) do not accidentally lock yourself out
+during setup and b) you do not need to fear [shoulder
+surfing](https://en.wikipedia.org/wiki/Shoulder_surfing_(computer_security)) so
+much (i.e. by not using your standard login password in public).
+
+### Setup login with YubiKey
+
+To use the YubiKey for multi-factor authentication you need to
+
+* install software for the YubiKey,
+* configure the YubiKey for the
+  [Challenge-Response](https://en.wikipedia.org/wiki/Challenge%E2%80%93response_authentication)
+mode,
+* store the password for YubiKey Login and the Challenge-Response secret in
+  dom0,
+* enable YubiKey authentication for every service you want to use it for.
+
+All these requirements are described below, step by step.
+
+1. Install YubiKey software in the template on which your USB VM is based.
+   Without this software the challenge-response mechanism is not working.
 
    For Fedora.
 
     ```
-    sudo dnf install ykpers yubikey-personalization-gui
+    sudo dnf install ykpers
     ```
 
    For Debian.
 
     ```
-    sudo apt-get install yubikey-personalization yubikey-personalization-gui
+    sudo apt-get install yubikey-personalization
     ```
 
-   Shut down your template.
-   Then, either reboot your USB VM (so changes inside the template take effect in your USB app qube) or install the packages inside your USB VM if you would like to avoid rebooting it.
+   Shut down your template. Then, either reboot your USB VM (so changes inside
+   the template take effect in your USB app qube) or install the packages inside
+   your USB VM as well if you would like to avoid rebooting it.
 
-2. Configure your YubiKey for challenge-response `HMAC-SHA1` mode, for example [following this tutorial](https://www.yubico.com/products/services-software/personalization-tools/challenge-response/).
-
-   On Debian, you can run the graphical user interface `yubikey-personalization-gui` from the command line.
-
-   - Choose `configuration slot 2`.
-   - It is recommended to enable `Require user input (button press)` but this is optional.
-   - Note: Different from the above video, use the following settings select
-   `HMAC-SHA1 mode`: `fixed 64 bit input`.
-   - We will refer the `Secret Key (20 bytes hex)` as `AESKEY`.
-     - It is recommended to keep a backup of your `AESKEY` in an offline VM used as a vault.
-     - Consider keeping a backup of your `AESKEY` on paper and storing it in a safe place.
-     - If you have multiple YubiKeys for backup purposes (in case a yubikey gets lost, stolen or breaks) you can write the same settings into other YubiKeys.
-
-3. Install [qubes-app-yubikey](https://github.com/QubesOS/qubes-app-yubikey) in dom0.
+2. Install [qubes-app-yubikey](https://github.com/QubesOS/qubes-app-yubikey) in
+   dom0. This provides the program to authenticate with password and YubiKey.
 
     ```
     sudo qubes-dom0-update qubes-yubikey-dom0
     ```
 
-4. Adjust the USB VM name in case you are using something other than the default
-   `sys-usb` by editing `/etc/qubes/yk-keys/yk-vm` in dom0.
+3. Configure your YubiKey for challenge-response `HMAC-SHA1` mode. This can be
+   done on any qube, e.g. a disposable (you need to [attach the
+YubiKey](https://www.qubes-os.org/doc/how-to-use-usb-devices/) to this app qube
+though) or directly on the sys-usb vm.
 
-5. Paste your `AESKEY` from step 2 into `/etc/qubes/yk-keys/yk-secret-key.hex` in dom0.
+   You need to (temporarily) install the package "yubikey-personalization-gui" and 
+   run it by typing `yubikey-personalization-gui` in the command line.
 
-6. Paste your hashed password (other than your standard Qubes password)  into
+   - In the program go to `Challenge-Response`,
+   - select `HMAC-SHA1`,
+   - choose `Configuration Slot 2`,
+   - optional: enable `Require user input (button press)` (recommended),
+   - use `fixed 64 bit input` for `HMAC-SHA1 mode`,
+   - insert the YubiKey (if not done already) and make sure that it is attached
+     to the vm,
+   - press `Write Configuration` once you are ready.
+
+   We will refer the `Secret Key (20 bytes hex)` as `AESKEY`.
+
+   - It is recommended to keep a backup of your `AESKEY` in an offline VM used as a vault.
+   - Consider keeping a backup of your `AESKEY` on paper and storing it in a safe place.
+   - If you have multiple YubiKeys for backup purposes (in case a yubikey gets
+     lost, stolen or breaks) you can write the same settings into other
+YubiKeys. You can choose "Program multiple YubiKeys" in the program, make sure
+to select `Same secret for all keys` in this case.
+
+4. Paste your `AESKEY` into `/etc/qubes/yk-keys/yk-secret-key.hex` in dom0.
+
+5. As mentioned before, you need to define a new password that is only used in
+   combination with the YubiKey. You can write this password in plain text into
+`/etc/qubes/yk-keys/yk-login-pass` in dom0. This is considered safe as dom0 is
+ultimately trusted anyway.
+
+    However, if you prefer you can paste a hashed password instead into
 `/etc/qubes/yk-keys/yk-login-pass-hashed.hex` in dom0.
 
     You can calculate your hashed password using the following two commands.
@@ -72,47 +126,50 @@ To use this mode you need to:
     (This way your password will not leak to the terminal command history file.)
 
     ```
-    read password
+    read -r password
     ```
 
     Now run the following command to calculate your hashed password.
 
     ```
-    echo -n "$password" | openssl dgst -sha1
+    echo -n "$password" | openssl dgst -sha1 | cut -f2 -d ' '
     ```
 
-7. Edit `/etc/pam.d/login` in dom0, adding this line at the beginning:
-
-    ```
-    auth include yubikey
-    ```
-
-8. Edit `/etc/pam.d/xscreensaver` (or appropriate file if you are using another screen locker program) in dom0, adding this line at the beginning:
+6. To enable multi-factor authentication for a service, you need to add
 
     ```
     auth include yubikey
     ```
 
-9. Edit `/etc/pam.d/lightdm` (or appropriate file if you are using another display manager) in dom0, adding this line at the beginning:
+    to the corresponding service file in `/etc/pam.d/` in dom0. This means, if
+you want to enable the login via YubiKey for xscreensaver (the default screen
+lock program), you add the line at the beginning of `/etc/pam.d/xscreensaver`.
+If you want to use the login for a tty shell, add it to `/etc/pam.d/login`. Add
+it to `/etc/pam.d/lightdm` if you want to enable the login for the default
+display manager and so on.
 
-    ```
-    auth include yubikey
-    ```
+    It is important, that `auth include yubikey` is added at the beginning of
+these files, otherwise it will most likely not work.
+
+7. Adjust the USB VM name in case you are using something other than the default
+   `sys-usb` by editing `/etc/qubes/yk-keys/yk-vm` in dom0.
 
 ### Usage
 
-When you want to unlock your screen...
+When you want to authenticate
 
-1) Plug YubiKey into USB slot.
-2) Enter password associated with YubiKey.
-3) Press Enter.
-4) If you configured so, YubiKey will request confirmation by pressing button on it (it will blink).
+1. plug your YubiKey into an USB slot,
+2. enter the password associated with the YubiKey,
+3. press Enter and
+4. press the button of the YubiKey, if you configured the confirmation (it will
+   blink).
 
 When everything is ok, your screen will be unlocked.
 
-In any case you can still use your login password, but do it in a secure location where no one can snoop your password.
+In any case you can still use your normal login password, but do it in a secure
+location where no one can snoop your password.
 
-### Mandatory YubiKey Login
+### Optional: Enforce YubiKey Login
 
 Edit `/etc/pam.d/yubikey` (or appropriate file if you are using other screen locker program) and remove `default=ignore` so the line looks like this.
 
@@ -120,8 +177,9 @@ Edit `/etc/pam.d/yubikey` (or appropriate file if you are using other screen loc
 auth [success=done] pam_exec.so expose_authtok quiet /usr/bin/yk-auth
 ```
 
-## Locking the screen when YubiKey is removed
+### Optional: Locking the screen when YubiKey is removed
 
+Look into it
 You can setup your system to automatically lock the screen when you unplug your YubiKey.
 This will require creating a simple qrexec service which will expose the ability to lock the screen to your USB VM, and then adding a udev hook to actually call that service.
 
@@ -135,7 +193,13 @@ In dom0:
    DISPLAY=:0 xscreensaver-command -lock
    ```
 
-2. Allow your USB VM to call that service.
+2. Then make `/etc/qubes-rpc/custom.LockScreen` executable.
+
+   ```
+   sudo chmod +x /etc/qubes-rpc/custom.LockScreen
+   ```
+
+3. Allow your USB VM to call that service.
    Assuming that it's named `sys-usb` it would require creating `/etc/qubes-rpc/policy/custom.LockScreen` with:
 
    ```

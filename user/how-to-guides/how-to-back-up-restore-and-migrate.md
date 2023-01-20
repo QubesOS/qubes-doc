@@ -36,7 +36,7 @@ and RPC policies:
 $ mkdir -p ~/backup/etc/qubes/
 $ cp -a /etc/qubes/* ~/backup/etc/qubes/
 $ mkdir ~/backup/etc/qubes-rpc/
-$ cp -a /etc/qubes-rpc/* ~/systemfiles/etc/qubes-rpc/
+$ cp -a /etc/qubes-rpc/* ~/backup/etc/qubes-rpc/
 ```
 
 To restore these files, move them from the restored directory in dom0's home
