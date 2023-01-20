@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/templates/windows/migrate-to-4-1
+permalink: /doc/templates/windows/migrate-to-4-1/
 redirect_from:
 - /doc/templates/windows/windows-migrate41/
 - /user/templates/windows/windows-migrate41/

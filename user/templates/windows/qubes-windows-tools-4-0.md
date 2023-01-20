@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/templates/windows/qubes-windows-tools-4-0
+permalink: /doc/templates/windows/qubes-windows-tools-4-0/
 redirect_from:
 - /doc/templates/windows/windows-tools/
 - /user/templates/windows/windows-tools/

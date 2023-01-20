@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/templates/windows/windows-qubes-4-1
+permalink: /doc/templates/windows/windows-qubes-4-1/
 redirect_from:
 - /doc/templates/windows/windows-vm41/
 - /doc/templates/windows/windows-vm41/
