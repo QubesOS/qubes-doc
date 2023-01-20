@@ -124,7 +124,7 @@ These parameters are set for the following reasons:
   
 **Start Windows VM**
 
-- The VM is now ready to be started; the best practice is to use an installation ISO [located in a VM](/doc/standalone-and-hvm/#installing-an-os-in-an-hvm). Now boot the newly created qube from the Windows installation media. In the Qubes Manager:
+- The VM is now ready to be started; the best practice is to use an installation ISO [located in a VM](/doc/standalones-and-hvms/#installing-an-os-in-an-hvm). Now boot the newly created qube from the Windows installation media. In the Qubes Manager:
 
   - Select the new qube, in this example "WindowsNew".
   - Switch to the "Advanced" tab.

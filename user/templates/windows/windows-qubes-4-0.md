@@ -111,7 +111,7 @@ qvm-prefs win7new qrexec_timeout 300
 qvm-prefs win7new debug false
 ~~~
 
-To install Qubes Windows Tools, follow instructions in [Qubes Windows Tools](/doc/templates/windows/qubeswindows-tools-4-0).
+To install Qubes Windows Tools, follow instructions in [Qubes Windows Tools](/doc/templates/windows/qubes-windows-tools-4-0).
 
 ### Detailed instructions
 
@@ -119,7 +119,7 @@ MS Windows versions considerations:
 
 - The instructions *may* work on other versions than Windows 7 x64 but haven't been tested.
 - Qubes Windows Tools (QWT) only supports Windows 7 x64. Note that there are [known issues](https://github.com/QubesOS/qubes-issues/issues/3585) with QWT on Qubes 4.x
-- For Windows 10 under Qubes 4.0, a way to install QWT 4.0.1.3, which has worked in several instances, is described in [Qubes Windows Tools](/doc/templates/windows/qubeswindows-tools-4-0).
+- For Windows 10 under Qubes 4.0, a way to install QWT 4.0.1.3, which has worked in several instances, is described in [Qubes Windows Tools](/doc/templates/windows/qubes-windows-tools-4-0).
 
 Create a VM named win7new in [HVM](/doc/hvm/) mode (Xen's current PVH limitations precludes from using PVH):
 
@@ -170,7 +170,7 @@ To avoid that error we temporarily have to switch the video adapter to 'cirrus':
 qvm-features win7new video-model cirrus
 ~~~
 
-The VM is now ready to be started; the best practice is to use an installation ISO [located in a VM](/doc/standalone-and-hvm/#installing-an-os-in-an-hvm):
+The VM is now ready to be started; the best practice is to use an installation ISO [located in a VM](/doc/standalones-and-hvms/#installing-an-os-in-an-hvm):
 
 ~~~
 qvm-start --cdrom=untrusted:/home/user/windows_install.iso win7new
