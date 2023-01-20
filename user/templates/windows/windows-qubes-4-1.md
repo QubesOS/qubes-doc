@@ -1,7 +1,14 @@
-Installing a Windows VM
-=======================
+---
+lang: en
+layout: doc
+permalink: /doc/templates/windows/windows-qubes-4-1
+redirect_from:
+- /doc/templates/windows/windows-vm41/
+- /doc/templates/windows/windows-vm41/
+title: How to install Windows qubes in Qubes OS 4.1
+---
 
-You can install Windows just like any other OS as an [HVM](https://www.qubes-os.org/doc/hvm/), if you just want something simple and you can live without some features. This works for Windows XP, 7, 8.1, 10 and 11.
+You can install Windows just like any other OS as an [HVM](/doc/hvm/), if you just want something simple and you can live without some features. This works for Windows XP, 7, 8.1, 10 and 11.
 
 Please keep in mind that Qubes Windows Tools are not supported on Windows XP.
 
@@ -12,7 +19,7 @@ You will get an environment in which basic functions are supported, but integrat
 - network (emulated Realtek NIC)
 - audio output and input (available even without QWT installation if `qvm-features audio-model` is set as `ich6`)
 
-For better integration, a set of drivers and services, called Qubes Windows Tools (QWT) is available. Installation of these tools is straightforward and is described in a [separate document](/user/templates/windows/windows-tools41.md). QWT’s main features are:
+For better integration, a set of drivers and services, called Qubes Windows Tools (QWT) is available. Installation of these tools is straightforward and is described in a [separate document](/doc/templates/windows/qubes-windows-tools-4-1). QWT’s main features are:
 
 - copy/paste between qubes
 - copy files between qubes
@@ -25,16 +32,14 @@ For better integration, a set of drivers and services, called Qubes Windows Tool
 - seamless mode (Windows 7 only for now)
 - propagating keyboard layout ?
 
-Qubes R4.1 - importing a Windows VM from an earlier version of Qubes
---------------------------------------------------------------------
+## Importing a Windows VM from an earlier version of Qubes
 
 - Importing from R3.2 or earlier will not work, because  Qubes R3.2 has the old stubdomain by default and this is preserved over backup and restore (as Windows otherwise won't boot.
 
-- Importing from R4.0 should work, see [Migrate backups of Windows VMs created under Qubes R4.0 to R4.1](/user/templates/windows/windows-migrate41.md).
+- Importing from R4.0 should work, see [Migrate backups of Windows VMs created under Qubes R4.0 to R4.1](/doc/templates/windows/migrate-to-4-1).
 
 
-Windows VM installation
------------------------
+## Windows VM installation
 
 **qvm-create-windows-qube**: An unofficial, third-party tool for automating this process is available [here](https://github.com/elliotkillick/qvm-create-windows-qube). (Please note that this tool has not been reviewed by the Qubes OS Project. Use it at your own risk.)
 
@@ -42,7 +47,7 @@ However, if you are an expert or want to do it manually you may continue below.
 
 **Notes:**
 > - The instructions may work on other versions than Windows 7, 10 and 11 x64 but haven't been tested.
-> - Qubes Windows Tools (QWT) only supports Windows 7, 10 and 11 x64. For installation, see [Qubes Windows Tools](/user/templates/windows/windows-tools41.md).
+> - Qubes Windows Tools (QWT) only supports Windows 7, 10 and 11 x64. For installation, see [Qubes Windows Tools](/doc/templates/windows/qubes-windows-tools-4-1).
 
 **Provide installation media**
 
@@ -54,7 +59,7 @@ Unofficial “debloated” ISOs from projects like reviOS 18 or ameliorated 10 c
 
 **Create Windows VM**
 
-Create a VM named WindowsNew in [HVM](https://www.qubes-os.org/doc/hvm/) mode (Xen's current PVH limitations precludes from using PVH). This can be done in either of two ways:
+Create a VM named WindowsNew in [HVM](/doc/hvm/) mode (Xen's current PVH limitations precludes from using PVH). This can be done in either of two ways:
 
 - Using Qube Manager
 
@@ -119,7 +124,7 @@ These parameters are set for the following reasons:
   
 **Start Windows VM**
 
-- The VM is now ready to be started; the best practice is to use an installation ISO [located in a VM](https://www.qubes-os.org/doc/standalone-and-hvm/#installing-an-os-in-an-hvm). Now boot the newly created qube from the Windows installation media. In the Qubes Manager:
+- The VM is now ready to be started; the best practice is to use an installation ISO [located in a VM](/doc/standalone-and-hvm/#installing-an-os-in-an-hvm). Now boot the newly created qube from the Windows installation media. In the Qubes Manager:
 
   - Select the new qube, in this example "WindowsNew".
   - Switch to the "Advanced" tab.
@@ -205,11 +210,11 @@ These parameters are set for the following reasons:
         /var/log/xen/console/guest-WindowsNew-dm.log
      ~~~
 
-At that point you should have a functional and stable Windows VM, although without updates, Xen's PV drivers nor Qubes integration (see sections [Windows Update](/user/templates/windows/windows-vm41.md/#windows-update) and [Xen PV drivers and Qubes Windows Tools](/user/templates/windows/windows-tools41.md/#xen-pv-drivers-and-qubes-windows-tools)). It is a good time to clone the VM again.
+At that point you should have a functional and stable Windows VM, although without updates, Xen's PV drivers nor Qubes integration (see sections [Windows Update](/doc/templates/windows/windows-qubes-4-1/#windows-update) and [Xen PV drivers and Qubes Windows Tools](/doc/templates/windows/qubes-windows-tools-4-1/#xen-pv-drivers-and-qubes-windows-tools)). It is a good time to clone the VM again.
 
 **Installing Qubes Windows Tools**
 
-To install Qubes Windows Tools, follow instructions in [Qubes Windows Tools](/user/templates/windows/windows-tools41.md), but don’t forget to `qvm-clone` your qube before you install Qubes Windows Tools (QWT) in case something goes south.
+To install Qubes Windows Tools, follow instructions in [Qubes Windows Tools](/doc/templates/windows/qubes-windows-tools-4-1), but don’t forget to `qvm-clone` your qube before you install Qubes Windows Tools (QWT) in case something goes south.
 
 **Post-install best practices**
 
@@ -224,12 +229,11 @@ Optimize resources for use in virtual machine as “vanilla” version of Window
 - background: set a solid color
 - …
 
-For additional information on configuring a Windows qube, see the [Customizing Windows 7 templates](https://www.qubes-os.org/doc/windows-template-customization/) page (despite the focus on preparing the VM for use as a template, most of the instructions are independent from how the VM will be used - ie. TemplateVM or StandaloneVM).
+For additional information on configuring a Windows qube, see the [Customizing Windows 7 templates](/doc/windows-template-customization/) page (despite the focus on preparing the VM for use as a template, most of the instructions are independent from how the VM will be used - ie. TemplateVM or StandaloneVM).
 
-Windows as TemplateVM
----------------------
+## Windows as a template
 
-As described above Windows 7, 8.1, 10 and 11 can be installed as TemplateVM. To have the user data stored in AppVMs depending on this template, the option `Move User Profiles` has to be selected on installation of Qubes Windows Tools. For Windows 7, before installing QWT, the private disk `D:` has to be renamed to `Q:`, see the QWT installation documentation in [Qubes Windows Tools](/user/templates/windows/windows-tools41.md).
+As described above Windows 7, 8.1, 10 and 11 can be installed as TemplateVM. To have the user data stored in AppVMs depending on this template, the option `Move User Profiles` has to be selected on installation of Qubes Windows Tools. For Windows 7, before installing QWT, the private disk `D:` has to be renamed to `Q:`, see the QWT installation documentation in [Qubes Windows Tools](/doc/templates/windows/qubes-windows-tools-4-1).
 
 AppVMs based on these templates can be created the normal way by using the Qube Manager or by specifying
 ~~~
@@ -245,15 +249,13 @@ Furthermore, if manual IP setup was used for the template, the IP address select
 qvm-prefs WindowsNew ip 10.137.0.x
 ~~~
 
-Windows 10 and 11 Usage According to GDPR
------------------------------------------
+## Windows 10 and 11 Usage According to GDPR
 
 If Windows 10 or 11 is used in the EU to process personal data, according to GDPR no automatic data transfer to countries outside the EU is allowed without explicit consent of the person(s) concerned, or other legal consent, as applicable. Since no reliable way is found to completely control the sending of telemetry from Windows 10 or 11, the system containing personal data must be completely shielded from the internet.
 
 This can be achieved by installing Windows 10 or 11 in a TemplateVM with the user data directory moved to a separate drive (usually `Q:`). Personal data must not be stored within the TemplateVM, but only in AppVMs depending on this TemplateVM. Network access by these AppVMs must be restricted to the local network and perhaps additional selected servers within the EU. Any data exchange of the AppVMs must be restricted to file and clipboard operations to and from other VMs in the same Qubes system.
 
-Windows update
---------------
+## Windows update
 
 Depending on how old your installation media is, fully updating your Windows VM may take *hours* (this isn't specific to Xen/Qubes) so make sure you clone your VM between the mandatory reboots in case something goes wrong. For Windows 7, you may find the necessary updates bundled at [WinFuture Windows 7 SP1 Update Pack 2.107 (Vollversion)](https://10gbit.winfuture.de/9Y6Lemoxl-I1_901xOu6Hg/1648348889/2671/Update%20Packs/2020_01/WinFuture_7SP1_x64_UpdatePack_2.107_Januar_2020-Vollversion.exe).
 
@@ -261,8 +263,7 @@ Note: if you already have Qubes Windows Tools installed the video adapter in Win
 
 To avoid guessing the VM's state enable debugging (`qvm-prefs -s WindowsNew debug true`) and in Windows' device manager (My computer -> Manage / Device manager / Display adapters) temporarily re-enable the standard VGA adapter and disable "Qubes video driver". You can disable debugging and revert to Qubes' display once the VM is updated.
 
-Troubleshooting
----------------
+## Troubleshooting
 
 **Windows 7 - USB drives are not visible in your domain**
 

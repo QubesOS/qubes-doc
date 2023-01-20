@@ -1,5 +1,12 @@
-Qubes Windows Tools
-===================
+---
+lang: en
+layout: doc
+permalink: /doc/templates/windows/qubes-windows-tools-4-1
+redirect_from:
+- /doc/templates/windows/windows-tools41/
+- /user/templates/windows/windows-tools41/
+title: Qubes Windows Tools (QWT) in Qubes OS 4.1
+---
 
 Qubes Windows Tools (QWT) are a set of programs and drivers that provide integration of Windows 7, 8.1, 10 and 11 Standalone, TemplateVMs and AppVMs with the rest of the Qubes system. They contain several components than can be enabled or disabled during installation:
 
@@ -7,8 +14,8 @@ Qubes Windows Tools (QWT) are a set of programs and drivers that provide integra
 - **Qubes Core Agent** - qrexec agent and services. Needed for proper integration with Qubes
 - **Qubes GUI Agent** - video driver and GUI agent that enable the seamless GUI mode that integrates windows apps onto the common Qubes trusted desktop (currently only for Windows 7)
 - **Disable UAC** - User Account Control may interfere with QWT and doesn't really provide any additional benefits in Qubes environment
-- **Clipboard sender/receiver** - Support for [secure clipboard copy/paste](https://www.qubes-os.org/doc/copy-paste/) between the Windows VM and other AppVMs
-- **File sender/receiver** - Support for [secure file exchange](https://www.qubes-os.org/doc/copying-files/) between the Windows VM and other AppVMs
+- **Clipboard sender/receiver** - Support for [secure clipboard copy/paste](/doc/copy-paste/) between the Windows VM and other AppVMs
+- **File sender/receiver** - Support for [secure file exchange](/doc/copying-files/) between the Windows VM and other AppVMs
 - **Copy/Edit in Disposable VM** - Support for editing files in DisposableVMs as well as for `qvm-run` and generic `qrexec` for the Windows VM (e.g. ability to run custom service within/from the Windows VM)
 - **Audio** - Audio support requires R4.1 and is available even without QWT installation if `qvm-features audio-model` is set as `ich6`
 - **Xen PV drivers** - drivers for the virtual hardware exposed by Xen for Windows that increase performance compared to QEMU emulated devices and are required for attaching USB devices
@@ -42,8 +49,7 @@ Qubes Windows Tools are open source and are distributed under a GPL license.
 > - *In testing VMs only* it's probably a good idea to install a VNC server before installing QWT. If something goes very wrong with the Qubes gui agent, a VNC server should still allow access to the OS.
 
 
-Preparation
------------
+## Preparation
 
 **Windows 7 only:** Before proceeding with the installation we need to disable the Windows mechanism that allows only signed drivers to be installed, because currently the Qubes video driver, available for Windows 7, provided as part of the Windows Tools are not digitally signed with a publicly recognizable certificate. To do that:
 
@@ -59,15 +65,13 @@ The Xen PV Drivers bundled with QWT are signed by a Linux Foundation certificate
 
 		[user@dom0 ~] $ qvm-prefs <VMname> qrexec_timeout 7200
 
-Installing Windows OS in a Qubes VM
------------------------------------
+## Installing Windows OS in a Qubes VM
 
-Please refer to [this page](/user/templates/windows/windows-vm41.md/) for instructions on how to install Windows in a Qubes VM.
+Please refer to [this page](/doc/templates/windows/windows-qubes-4-1/) for instructions on how to install Windows in a Qubes VM.
 
 > **Note:** It is strongly suggested to enable autologon for any Windows HVMs that will have Qubes Tools installed. To do so, run `netplwiz` command from the `Win+R`/Start menu and uncheck the *Users must enter a user name and password to use this computer* option.
 
-Installing Qubes guest tools in Windows VMs
--------------------------------------------
+## Installing Qubes guest tools in Windows VMs
 
 This will allow you to install the Qubes Windows Tools on Windows 7, 10 and 11 both as a StandaloneVM as well as a Template VM and a corresponding AppVM. But some features are not available:
 
@@ -103,15 +107,15 @@ This will allow you to install the Qubes Windows Tools on Windows 7, 10 and 11 b
 
  4. Install Qubes Windows Tools by starting `qubes-tools-x64.msi` (logged in as administrator), optionally selecting the `Xen PV disk drivers`. For installation in a template, you should select `Move user profiles`.
 	
-	![QWT_install_select](/user/templates/windows/QWT_install_select.png)	
+	[![QWT_install_select](/attachment/doc/QWT_install_select.png)](/attachment/doc/QWT_install_select.png)
 
 	Several times, Windows security may ask for confirmation of driver installation. Driver installation has to be allowed; otherwise the installation of Qubes Windows Tools will abort.
 	
-	![QWT_install_driver](/user/templates/windows/QWT_install_driver.png)
+	[![QWT_install_driver](/attachment/doc/QWT_install_driver.png)](/attachment/doc/QWT_install_driver.png)
 
 	If during installation, the Xen driver requests a reboot, select "No" and let the installation continue - the system will be rebooted later.
 
-	![QWT_install_no_restart](/user/templates/windows/QWT_install_no_restart.png)
+	[![QWT_install_no_restart](/attachment/doc/QWT_install_no_restart.png)](/attachment/doc/QWT_install_no_restart.png)
 
  5. After successful installation, the Windows VM must be shut down and started again, possibly a couple of times. On each shutdown, wait until the VM is really stopped, i.e. Qubes shows no more activity.
 
@@ -158,8 +162,7 @@ This will allow you to install the Qubes Windows Tools on Windows 7, 10 and 11 b
      > **Note:** If this property is not set or set to a wrong value, files copied to this VM are stored in the folder `C:\Windows\System32\config\systemprofile\Documents\QubesIncoming\<source_VM>`.
 	 > If the target VM is an AppVM, this has the consequence that the files are stored in the corresponding TemplateVM and so are lost on AppVM shutdown.
 
-Xen PV drivers and Qubes Windows Tools
---------------------------------------
+## Xen PV drivers and Qubes Windows Tools
 
 Installing Xen's PV drivers in the VM will lower its resources usage when using network and/or I/O intensive applications, but *may* come at the price of system stability (although Xen's PV drivers on a Windows VM are usually very stable). They can be installed as an optional part of Qubes Windows Tools (QWT), which bundles Xen's PV drivers.
 
@@ -168,8 +171,7 @@ Installing Xen's PV drivers in the VM will lower its resources usage when using 
 > - The option to install the storage PV driver is disabled by default in Qubes Windows Tools 
 > - In case you already had QWT installed without the storage PV driver and you then updated the VM, you may then install the driver by again starting the QWT installer and selecting the change option.
 
-Using Windows AppVMs in seamless mode
--------------------------------------
+## Using Windows AppVMs in seamless mode
 
 > **Note:** This feature is only available for Windows 7
 
@@ -179,7 +181,8 @@ Once you start a Windows-based AppVM with Qubes Tools installed, you can easily 
 [user@dom0 ~] $ qvm-run -a my-win-appvm explorer.exe
 ~~~
 
-![windows-seamless-4.png](/user/templates/windows/windows-seamless-4.png) ![windows-seamless-1.png](/user/templates/windows/windows-seamless-1.png)
+[![windows-seamless-4.png](/attachment/doc/windows-seamless-4.png)](/attachment/doc/windows-seamless-4.png)
+[![windows-seamless-1.png](/attachment/doc/windows-seamless-1.png)](/attachment/doc/windows-seamless-1.png)
 
 Also, the inter-VM services work as usual -- e.g. to request opening a document or URL in the Windows AppVM from another VM:
 
@@ -195,18 +198,17 @@ Inter-VM file copy and clipboard works for Windows AppVMs the same way as for Li
 
 To simulate Ctrl-Alt-Delete in the HVM (SAS, Secure Attention Sequence), press Ctrl-Alt-Home while having any window of this VM in the foreground.
 
-![windows-seamless-7.png](/user/templates/windows/windows-seamless-7.png)
+[![windows-seamless-7.png](/attachment/doc/windows-seamless-7.png)](/attachment/doc/windows-seamless-7.png)
 
 **Changing between seamless and full desktop mode**
 
 You can switch between seamless and "full desktop" mode for Windows HVMs in their settings in Qubes Manager. The latter is the default.
 	
-Using template-based Windows AppVMs
------------------------------------
+## Using template-based Windows AppVMs
 
 Qubes allows HVM VMs to share a common root filesystem from a select Template VM, just as for Linux AppVMs. This mode is not limited to Windows AppVMs, and can be used for any HVM (e.g. FreeBSD running in a HVM). 
 
-In order to create an HVM TemplateVM, the type "TemplateVM" has to be selected on creating the VM. Then set memory as appropriate, and install the Windows OS (or any other OS) into this template the same way as you would install it into a normal HVM -- please see instructions on [this page](https://www.qubes-os.org/doc/hvm-create/).
+In order to create an HVM TemplateVM, the type "TemplateVM" has to be selected on creating the VM. Then set memory as appropriate, and install the Windows OS (or any other OS) into this template the same way as you would install it into a normal HVM -- please see instructions on [this page](/doc/hvm-create/).
 
 If you use this Template as it is, then any HVMs that use it will effectively be DisposableVMs - the User directory will be wiped when the HVM is closed down.
 
@@ -226,8 +228,7 @@ It also makes sense to disable Automatic Updates for all the template-based AppV
 
 Once the template has been created and installed it is easy to create AppVMs based on it, by selecting the type "AppVM" and a suitable template.
 
-Using Windows disposables
--------------------------
+## Using Windows disposables
 
 Windows qubes can be used as disposables, like any other Linux-based qubes. On creating a template for Windows disposables, certain preparations have to be executed:
 
@@ -253,19 +254,17 @@ Windows qubes can be used as disposables, like any other Linux-based qubes. On c
 
 Now you should have a menu `Disposable: <VMname>` containing the applications that can be started in a disposable Windows VM. If you set the newly created and configured Windows VM as `Default disposable template`for any other Windows- (or Linux-) based qube, this qube can use the Windows-based dispvm like any other disposable.
 
-For further information on usage of disposables, see [How to use disposables](https://www.qubes-os.org/doc/how-to-use-disposables/).
+For further information on usage of disposables, see [How to use disposables](/doc/how-to-use-disposables/).
 
 :warning: **Caution:** *If a Windows-based disposable is used from another qube via the `Open/Edit in DisposableVM` command, this disposable may not close automatically, due to the command prompt window still running in this dispvm. In this case, the disposable has to be shut down  manually.*
 
-Installation logs
------------------
+## Installation logs
 
 If the install process fails or something goes wrong during it, include the installation logs in your bug report. They are created in the `%TEMP%` directory, by default `<user profile>\AppData\Local\Temp`. There are two text files, one small and one big, with names starting with `Qubes_Windows_Tools`.
 
 Uninstalling QWT is supported. After uninstalling you need to manually enable the DHCP Client Windows service, or set IP settings yourself to restore network access.
 
-Configuration
--------------
+## Configuration
 
 Various aspects of Qubes Windows Tools (QWT) can be configured through the registry. The main configuration key is located in `HKEY_LOCAL_MACHINE\SOFTWARE\Invisible Things Lab\Qubes Tools`. Configuration values set on this level are global to all QWT components. It's possible to override global values with component-specific keys, this is useful mainly for setting log verbosity for troubleshooting. Possible configuration values are:
 
@@ -295,8 +294,7 @@ Component-specific settings currently available:
 |:------------|:----------|:-------|:--------------|:----------------|
 |qga|DisableCursor|DWORD|Disable cursor in the VM. Useful for integration with Qubes desktop so you don't see two cursors. Can be disabled if you plan to use the VM through a remote desktop connection of some sort. Needs gui agent restart to apply change (locking OS/logoff should be enough since qga is restarted on desktop change).|1|
 
-Troubleshooting
----------------
+## Troubleshooting
 
 If the VM is inaccessible (doesn't respond to qrexec commands, gui is not functioning), try to boot it in safe mode:
 
@@ -327,10 +325,9 @@ If there are network-related issues, the qube doesn't resolve DNS and has troubl
 
 In this case it's recommended that the PV Network Drivers be unchecked during installation of Qubes Windows Tools as seen in the screenshot below.
 
-![QWT_no_PV_network](/user/templates/windows/QWT_no_PV_network.png)
+[![QWT_no_PV_network](/attachment/doc/QWT_no_PV_network.png)](/attachment/doc/QWT_no_PV_network.png)
 
-Updates
--------
+## Updates
 
 When we publish a new QWT version, it's usually pushed to the `current-testing` or `unstable` repository first. To use versions from current-testing, run this in dom0:
 
