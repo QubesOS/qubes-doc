@@ -89,8 +89,8 @@ Windows templates are constructed differently from Linux-based templates as
 Windows is a closed source system that can be modified only after installing.
 So it is not possible to provide preconfigured Windows templates for Qubes.
 The process of installing a Windows qube and connecting it to the Qubes
-environment via installing Qubes Windows Tools (QWT) is desribed in several
-chapters in [Windows qubes](/doc/templates/windows/windows.md).
+environment via installing Qubes Windows Tools (QWT) is described in several
+chapters in [Windows qubes](/doc/templates/windows/).
 
 ## Installing
 
