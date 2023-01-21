@@ -131,9 +131,11 @@ Windows' installer requires a significant amount of memory or else the VM will c
 
 `/var/log/xen/console/hypervisor.log`:
 
-> p2m_pod_demand_populate: Dom120 out of PoD memory! (tot=102411 ents=921600 dom120)
-> (XEN) domain_crash called from p2m-pod.c:1218
-> (XEN) Domain 120 (vcpu#0) crashed on cpu#3:
+~~~
+p2m_pod_demand_populate: Dom120 out of PoD memory! (tot=102411 ents=921600 dom120)
+(XEN) domain_crash called from p2m-pod.c:1218
+(XEN) Domain 120 (vcpu#0) crashed on cpu#3:
+~~~
 
 So, increase the VM's memory to 4096MB (memory = maxmem because we don't use memory balancing).
 
@@ -162,7 +164,9 @@ qvm-prefs win7new debug true
 
 The second part of the installation process will crash with the standard VGA video adapter and the VM will stay in "transient" mode with the following error in `guest-win7new-dm.log`:
 
-> qemu: /home/user/qubes-src/vmm-xen-stubdom-linux/build/qemu/exec.c:1187: cpu_physical_memory_snapshot_get_dirty: Assertion `start + length <= snap->end' failed.
+~~~
+qemu: /home/user/qubes-src/vmm-xen-stubdom-linux/build/qemu/exec.c:1187: cpu_physical_memory_snapshot_get_dirty: Assertion `start + length <= snap->end' failed.
+~~~
 
 To avoid that error we temporarily have to switch the video adapter to 'cirrus':
 
