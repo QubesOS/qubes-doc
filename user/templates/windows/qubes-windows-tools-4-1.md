@@ -24,7 +24,7 @@ Qubes Windows Tools (QWT) are a set of programs and drivers that provide integra
    - Xen PV Network Drivers: paravirtual network drivers
    - Move user profiles: user profile directory (`C:\users`) is moved to VM's private disk backed by `private.img file` in `dom0` (useful mainly for HVM templates).
 	
-	> **Note**: Xen PV disk drivers are not installed by default. This is because they seem to cause problems (BSOD = Blue Screen Of Death). We're working with upstream devs to fix this. *However*, the BSOD seems to only occur after the first boot and everything works fine after that. **Enable the drivers at your own risk** of course, but we welcome reports of success/failure in any case (backup your VM first!). With disk PV drivers absent `qvm-block` will not work for the VM, but you can still use standard Qubes inter-VM file copying mechanisms. On the other hand, the Xen PV drivers allow USB device access even without QWT installation if `qvm-features stubdom-qrexec` is set as `1`
+	:warning: **Note**: Xen PV disk drivers are not installed by default. This is because they seem to cause problems (BSOD = Blue Screen Of Death). We're working with upstream devs to fix this. *However*, the BSOD seems to only occur after the first boot and everything works fine after that. **Enable the drivers at your own risk** of course, but we welcome reports of success/failure in any case (backup your VM first!). With disk PV drivers absent `qvm-block` will not work for the VM, but you can still use standard Qubes inter-VM file copying mechanisms. On the other hand, the Xen PV drivers allow USB device access even without QWT installation if `qvm-features stubdom-qrexec` is set as `1`
 
 Below is a breakdown of the feature availability depending on the windows version:
 
@@ -43,10 +43,10 @@ Below is a breakdown of the feature availability depending on the windows versio
 
 Qubes Windows Tools are open source and are distributed under a GPL license.
 
-> **Notes:**
-> - Currently only 64-bit versions of Windows 7, 8.1, 10 and 11 are supported by Qubes Windows Tools. Only emulated SVGA GPU is supported (although [there has been reports](https://groups.google.com/forum/#!topic/qubes-users/cmPRMOkxkdA) on working GPU passthrough).
-> - This page documents the process of installing Qubes Windows Tools in version **R4.1**.
-> - *In testing VMs only* it's probably a good idea to install a VNC server before installing QWT. If something goes very wrong with the Qubes gui agent, a VNC server should still allow access to the OS.
+:warning: **Notes:**
+- Currently only 64-bit versions of Windows 7, 8.1, 10 and 11 are supported by Qubes Windows Tools. Only emulated SVGA GPU is supported (although [there has been reports](https://groups.google.com/forum/#!topic/qubes-users/cmPRMOkxkdA) on working GPU passthrough).
+- This page documents the process of installing Qubes Windows Tools in version **R4.1**.
+- *In testing VMs only* it's probably a good idea to install a VNC server before installing QWT. If something goes very wrong with the Qubes gui agent, a VNC server should still allow access to the OS.
 
 
 ## Preparation
@@ -61,7 +61,7 @@ In the future this step will not be necessary anymore, because we will sign our 
 
 The Xen PV Drivers bundled with QWT are signed by a Linux Foundation certificate. Thus Windows 10 and 11 do not require this security mitigation.
 
-> **Note:** it is recommended to increase the default value of Windows VM's `qrexec_timeout` property from 60 (seconds) to, for example, 300. During one of the first reboots after Windows Tools installation Windows user profiles are moved onto the private VM's virtual disk (private.img) and this operation can take some time. Moving profiles and, later on, updating a Windows installation, is performed in an early boot phase when `qrexec` is not yet running, so timeout may occur with the default value. To change the property use this command in `dom0`: *(where `<VMname>` is the name of your Windows VM)*
+:warning: **Note:** it is recommended to increase the default value of Windows VM's `qrexec_timeout` property from 60 (seconds) to, for example, 300. During one of the first reboots after Windows Tools installation Windows user profiles are moved onto the private VM's virtual disk (private.img) and this operation can take some time. Moving profiles and, later on, updating a Windows installation, is performed in an early boot phase when `qrexec` is not yet running, so timeout may occur with the default value. To change the property use this command in `dom0`: *(where `<VMname>` is the name of your Windows VM)*
 
 		[user@dom0 ~] $ qvm-prefs <VMname> qrexec_timeout 7200
 
@@ -69,13 +69,13 @@ The Xen PV Drivers bundled with QWT are signed by a Linux Foundation certificate
 
 Please refer to [this page](/doc/templates/windows/windows-qubes-4-1/) for instructions on how to install Windows in a Qubes VM.
 
-> **Note:** It is strongly suggested to enable autologon for any Windows HVMs that will have Qubes Tools installed. To do so, run `netplwiz` command from the `Win+R`/Start menu and uncheck the *Users must enter a user name and password to use this computer* option.
+:warning: **Note:** It is strongly suggested to enable autologon for any Windows HVMs that will have Qubes Tools installed. To do so, run `netplwiz` command from the `Win+R`/Start menu and uncheck the *Users must enter a user name and password to use this computer* option.
 
 ## Installing Qubes guest tools in Windows VMs
 
 This will allow you to install the Qubes Windows Tools on Windows 7, 10 and 11 both as a StandaloneVM as well as a Template VM and a corresponding AppVM. But some features are not available:
 
-> **Note:** Seamless mode is currently not available for windows 10 and 11. Please check the top of this document for the full feature availability breakdown.
+:warning: **Note:** Seamless mode is currently not available for windows 10 and 11. Please check the top of this document for the full feature availability breakdown.
 
  1. First, make sure that `qubes-windows-tools` is installed in your system:
 
@@ -159,21 +159,21 @@ This will allow you to install the Qubes Windows Tools on Windows 7, 10 and 11 b
 	
 		`[user@dom0 ~] $ qvm-prefs <VMname> default_user <username>`
   
-     > **Note:** If this property is not set or set to a wrong value, files copied to this VM are stored in the folder `C:\Windows\System32\config\systemprofile\Documents\QubesIncoming\<source_VM>`.
-	 > If the target VM is an AppVM, this has the consequence that the files are stored in the corresponding TemplateVM and so are lost on AppVM shutdown.
+     :warning: **Note:** If this property is not set or set to a wrong value, files copied to this VM are stored in the folder `C:\Windows\System32\config\systemprofile\Documents\QubesIncoming\<source_VM>`.
+	 If the target VM is an AppVM, this has the consequence that the files are stored in the corresponding TemplateVM and so are lost on AppVM shutdown.
 
 ## Xen PV drivers and Qubes Windows Tools
 
 Installing Xen's PV drivers in the VM will lower its resources usage when using network and/or I/O intensive applications, but *may* come at the price of system stability (although Xen's PV drivers on a Windows VM are usually very stable). They can be installed as an optional part of Qubes Windows Tools (QWT), which bundles Xen's PV drivers.
 
-> **Notes** about using Xen's VBD (storage) PV driver:
-> - **Windows 7:** Installing the driver requires a fully updated VM or else you'll likely get a BSOD ("Blue Screen Of Death") and a VM in a difficult to fix state. Updating Windows takes *hours* and for casual usage there isn't much of a performance between the disk PV driver and the default one; so there is likely no need to go through the lengthy Windows Update process if your VM doesn't have access to untrusted networks and if you don't use I/O intensive apps or attach block devices. If you plan to update your newly installed Windows VM it is recommended that you do so *before* installing Qubes Windows Tools.  Installing the driver will probably cause Windows 7 activation to become invalid, but the activation can be restored using the Microsoft telephone activation method. 
-> - The option to install the storage PV driver is disabled by default in Qubes Windows Tools 
-> - In case you already had QWT installed without the storage PV driver and you then updated the VM, you may then install the driver by again starting the QWT installer and selecting the change option.
+:warning: **Notes** about using Xen's VBD (storage) PV driver:
+- **Windows 7:** Installing the driver requires a fully updated VM or else you'll likely get a BSOD ("Blue Screen Of Death") and a VM in a difficult to fix state. Updating Windows takes *hours* and for casual usage there isn't much of a performance between the disk PV driver and the default one; so there is likely no need to go through the lengthy Windows Update process if your VM doesn't have access to untrusted networks and if you don't use I/O intensive apps or attach block devices. If you plan to update your newly installed Windows VM it is recommended that you do so *before* installing Qubes Windows Tools.  Installing the driver will probably cause Windows 7 activation to become invalid, but the activation can be restored using the Microsoft telephone activation method. 
+- The option to install the storage PV driver is disabled by default in Qubes Windows Tools 
+- In case you already had QWT installed without the storage PV driver and you then updated the VM, you may then install the driver by again starting the QWT installer and selecting the change option.
 
 ## Using Windows AppVMs in seamless mode
 
-> **Note:** This feature is only available for Windows 7
+:warning: **Note:** This feature is only available for Windows 7
 
 Once you start a Windows-based AppVM with Qubes Tools installed, you can easily start individual applications from the VM (note the `-a` switch used here, which will auto-start the VM if it is not running):
 
