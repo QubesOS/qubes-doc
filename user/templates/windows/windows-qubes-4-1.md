@@ -46,8 +46,8 @@ For better integration, a set of drivers and services, called Qubes Windows Tool
 However, if you are an expert or want to do it manually you may continue below.
 
 **Notes:**
-> - The instructions may work on other versions than Windows 7, 10 and 11 x64 but haven't been tested.
-> - Qubes Windows Tools (QWT) only supports Windows 7, 10 and 11 x64. For installation, see [Qubes Windows Tools](/doc/templates/windows/qubes-windows-tools-4-1).
+- The instructions may work on other versions than Windows 7, 8.1, 10 and 11 x64 but haven't been tested.
+- Qubes Windows Tools (QWT) only supports Windows 7, 8.1, 10 and 11 x64. For installation, see [Qubes Windows Tools](/doc/templates/windows/qubes-windows-tools-4-1).
 
 **Provide installation media**
 
