@@ -45,7 +45,8 @@ Below is a breakdown of the feature availability depending on the windows versio
 
 Qubes Windows Tools are open source and are distributed under a GPL license.
 
-NOTES:
+**Notes:**
+
 - Qubes Windows Tools are currently unmaintained
 - Currently only 64-bit versions of Windows 7 and Windows 10 are supported by Qubes Windows Tools. Only emulated SVGA GPU is supported (although [there has been reports](https://groups.google.com/forum/#!topic/qubes-users/cmPRMOkxkdA) on working GPU passthrough).
 - __This page documents the process of installing Qubes Windows Tools on versions up to R3.2.__. Installation on Qubes R4.0 is possible but is a work in progress and there are limitations/bugs (see [issue #3585](https://github.com/QubesOS/qubes-issues/issues/3585)).
@@ -55,14 +56,14 @@ Installing Windows OS in a Qubes VM
 
 Please refer to [this page](/doc/templates/windows/windows-vm) for instructions on how to install Windows in a Qubes VM.
 
-NOTE: It is strongly suggested to enable autologon for any Windows HVMs that will have Qubes Tools installed. To do so, run `netplwiz` command from the `Win+R`/Start menu and uncheck the *Users must enter a user name and password to use this computer* option.
+**Note:** It is strongly suggested to enable autologon for any Windows HVMs that will have Qubes Tools installed. To do so, run `netplwiz` command from the `Win+R`/Start menu and uncheck the *Users must enter a user name and password to use this computer* option.
 
 Installing Qubes guest tools in Windows 10 VMs
 ----------------------------------------------
 
 This will allow you to install the Qubes Windows Tools on Windows 10 both as a StandaloneVM as well as a Template VM and a corresponding AppVM. But some features are not available:
 
-> **Note:** seamless mode is currently not available for windows. Please check the top of this document for the full feature availability breakdown.
+**Note:** seamless mode is currently not available for windows. Please check the top of this document for the full feature availability breakdown.
 
  1. In the Windows 10 VM, download from the [XEN website](https://xenproject.org/downloads/windows-pv-drivers/windows-pv-drivers-9-series/windows-pv-drivers-9-0-0/) the installation kits for Xen bus (`xenbus`) and storage drivers (`xenvbd`) Version 9.0.0 (two files`xenvbd.tar`and `xenbus.tar`).
  
@@ -80,7 +81,7 @@ This will allow you to install the Qubes Windows Tools on Windows 10 both as a S
 
 	And compare it the value to `148A2A993F0C746B48FA6C5C9A5D1B504E09A7CFBA3FB931A4DCF86FDA4EC9B1` (**it has to exactly match for security reasons**). If it matches, feel free to continue the installation. If not, repeat the download to make sure it was not corrupted due to a network problem. If keeps on not matching it might be an attacker attempting to do something nasty to your system -- Ask for support.
 
-    > **Note**: this is a workaround for installing the qubes windows tools on windows 10 since the standard way is broken.
+    **Note**: This is a workaround for installing the qubes windows tools on windows 10 since the standard way is broken.
 
  7. Install Qubes Windows Tools 4.0.1.3 by starting `qubes-tools-4.0.1.3.exe`, not selecting the `Xen PV disk drivers` and the `Move user profiles` (which would probably lead to problems in Windows, anyhow). If during installation, the Xen driver requests a reboot, select "No" and let the installation continue - the system will be rebooted later.
 
@@ -96,11 +97,14 @@ This will allow you to install the Qubes Windows Tools on Windows 10 both as a S
  11. Now the system should be up, with QWT running correctly.
  
  12. Lastly to enable file copy operations to a Windows 10 VM the `default_user` property should be set the `<username>` that you use to login to the Windows VM. This can be done via the following command on a `dom0` terminal: *(where `<VMname>` is the name of your Windows 10 VM)*
-  
-		`qvm-prefs <VMname> default_user <username>`
+        
+		`qvm-prefs <VMname> default_user <username> `
 
-     > **Note:** If this property is not set or set to a wrong value, files copied to this VM are stored in the folder `C:\Windows\System32\config\systemprofile\Documents\QubesIncoming\<source_VM>`.
-	 > If the target VM is an AppVM, this has the consequence that the files are stored in the corresponding TemplateVM and so are lost on AppVM shutdown.
+	**Note:** If this property is not set or set to a wrong value, files copied to this VM are stored in the folder
+		
+		C:\Windows\System32\config\systemprofile\Documents\QubesIncoming\<source_VM>
+
+	If the target VM is an AppVM, this has the consequence that the files are stored in the corresponding TemplateVM and so are lost on AppVM shutdown.
 
 
 Installing Qubes guest tools in Windows 7 VMs
@@ -146,7 +150,7 @@ Qubes will automatically detect the tools has been installed in the VM and will 
 qvm-prefs <your-appvm-name>
 ~~~
 
-NOTE: it is recommended to increase the default value of Windows VM's `qrexec_timeout` property from 60 (seconds) to, for example, 300. During one of the first reboots after Windows Tools installation Windows user profiles are moved onto the private VM's virtual disk (private.img) and this operation can take some time. Moving profiles is performed in an early boot phase when qrexec is not yet running, so timeout may occur with the default value. To change the property use this command in dom0:
+**Note:** it is recommended to increase the default value of Windows VM's `qrexec_timeout` property from 60 (seconds) to, for example, 300. During one of the first reboots after Windows Tools installation Windows user profiles are moved onto the private VM's virtual disk (private.img) and this operation can take some time. Moving profiles is performed in an early boot phase when qrexec is not yet running, so timeout may occur with the default value. To change the property use this command in dom0:
 
 ~~~
 qvm-prefs <vm-name> qrexec_timeout 300
@@ -180,7 +184,7 @@ qvm-prefs -s win7new debug false
 Using Windows AppVMs in seamless mode
 -------------------------------------
 
-> **Note:** This feature is only available for Windows 7
+**Note:** This feature is only available for Windows 7
 
 Once you start a Windows-based AppVM with Qubes Tools installed, you can easily start individual applications from the VM (note the `-a` switch used here, which will auto-start the VM if it is not running):
 
