@@ -100,11 +100,11 @@ This will allow you to install the Qubes Windows Tools on Windows 10 both as a S
         
 		`qvm-prefs <VMname> default_user <username> `
 
-	**Note:** If this property is not set or set to a wrong value, files copied to this VM are stored in the folder
+  **Note:** If this property is not set or set to a wrong value, files copied to this VM are stored in the folder
 		
 		C:\Windows\System32\config\systemprofile\Documents\QubesIncoming\<source_VM>
 
-	If the target VM is an AppVM, this has the consequence that the files are stored in the corresponding TemplateVM and so are lost on AppVM shutdown.
+  If the target VM is an AppVM, this has the consequence that the files are stored in the corresponding TemplateVM and so are lost on AppVM shutdown.
 
 
 Installing Qubes guest tools in Windows 7 VMs
