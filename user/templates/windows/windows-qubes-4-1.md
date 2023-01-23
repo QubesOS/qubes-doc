@@ -152,7 +152,7 @@ These parameters are set for the following reasons:
     -  There you position to the key `HKEY_LOCAL_MACHINE\SYSTEM\Setup`.
     -  Now create the key `LabConfig`.
     -  Position to this key and create 3 DWORD values called `BypassTPMCheck`, `BypassSecureBootCheck` and `BypassRAMCheck` and set each value to `1`.
-    -  Close the regstry editor and console windows.
+    -  Close the registry editor and console windows.
     -  In the setup window, hit the left arrow in the left upper corner. You will then return into the setup, which will continue normally and install Windows 11 without TPM 2.0.
    
     :warning: **Caution:** This temporary patch may cease to work if it so pleases Microsoft some time.
@@ -229,7 +229,7 @@ Optimize resources for use in virtual machine as “vanilla” version of Window
 - background: set a solid color
 - …
 
-For additional information on configuring a Windows qube, see the [Customizing Windows 7 templates](/doc/windows-template-customization/) page (despite the focus on preparing the VM for use as a template, most of the instructions are independent from how the VM will be used - ie. TemplateVM or StandaloneVM).
+For additional information on configuring a Windows qube, see the [Customizing Windows 7 templates](/doc/windows-template-customization/) page (despite the focus on preparing the VM for use as a template, most of the instructions are independent from how the VM will be used - i.e. TemplateVM or StandaloneVM).
 
 ## Windows as a template
 
