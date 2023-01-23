@@ -252,7 +252,7 @@ Windows qubes can be used as disposables, like any other Linux-based qubes. On c
 - In the Qube Manager, refresh the applications of the newly created AppVM and select those applications that you want to make available from the disposable. Alternatively, in dom0 execute the command `qvm-sync-appmenus <VMname>`, *where `<VMname>` is the name of your windows qube*.
 - In the Qube Manager, go to the "Advanced" tab and enable the option `Disposable template` for your Windows qube.  Alternatively, in dom0 execute the commands `qvm-prefs <VMname> template_for_dispvms True` and `qvm-features <VMname> appmenus-dispvm 1`.
 - Click `Apply`.
-- Still in the Advaced tab, select your Windows qube as its own `Default disposable template`. Alternatively, in dom0 execute the command `qvm-prefs <VMname> default_dispvm <VMname>`.
+- Still in the Advanced tab, select your Windows qube as its own `Default disposable template`. Alternatively, in dom0 execute the command `qvm-prefs <VMname> default_dispvm <VMname>`.
 - Close the Qube Manager by clicking `OK`.
 
 Now you should have a menu `Disposable: <VMname>` containing the applications that can be started in a disposable Windows VM. If you set the newly created and configured Windows VM as `Default disposable template`for any other Windows- (or Linux-) based qube, this qube can use the Windows-based dispvm like any other disposable.
