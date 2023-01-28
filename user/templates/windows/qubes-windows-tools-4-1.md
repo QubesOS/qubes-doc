@@ -24,7 +24,9 @@ Qubes Windows Tools (QWT) are a set of programs and drivers that provide integra
    - Xen PV Network Drivers: paravirtual network drivers
    - Move user profiles: user profile directory (`C:\users`) is moved to VM's private disk backed by `private.img file` in `dom0` (useful mainly for HVM templates).
 	
-	**Note**: Xen PV disk drivers are not installed by default. This is because they seem to cause problems (BSOD = Blue Screen Of Death). We're working with upstream devs to fix this. *However*, the BSOD seems to only occur after the first boot and everything works fine after that. **Enable the drivers at your own risk** of course, but we welcome reports of success/failure in any case (backup your VM first!). With disk PV drivers absent `qvm-block` will not work for the VM, but you can still use standard Qubes inter-VM file copying mechanisms. On the other hand, the Xen PV drivers allow USB device access even without QWT installation if `qvm-features stubdom-qrexec` is set as `1`
+**Note**: If you choose to move profiles, drive letter `Q:` must be assigned to the secondary (private) disk.
+
+**Note**: Xen PV disk drivers are not installed by default. This is because they seem to cause problems (BSOD = Blue Screen Of Death). We're working with upstream devs to fix this. *However*, the BSOD seems to only occur after the first boot and everything works fine after that. **Enable the drivers at your own risk** of course, but we welcome reports of success/failure in any case (backup your VM first!). With disk PV drivers absent `qvm-block` will not work for the VM, but you can still use standard Qubes inter-VM file copying mechanisms. On the other hand, the Xen PV drivers allow USB device access even without QWT installation if `qvm-features stubdom-qrexec` is set as `1`
 
 Below is a breakdown of the feature availability depending on the windows version:
 
