@@ -99,10 +99,10 @@ If you are using Qubes 4.0, you can further compartmentalise your U2F keys by re
 For example, you could make it so that your `twitter` qube (and, therefore, all web browsers in your `twitter` qube) can access only the key on your U2F token for `https://twitter.com`, regardless of whether any of the web browsers in your `twitter` qube or the `twitter` qube itself are compromised.
 If your `twitter` qube makes an authentication request for your bank website, it will be denied at the Qubes policy level.
 
-To enable this, create a file in dom0 named `/etc/qubes-rpc/policy/policy.RegisterArgument+u2f.Authenticate` with the following content:
+To enable this, create a file in dom0 named `/etc/qubes/policy.d/30-user-u2fproxy.policy` with the following content:
 
 ```
-sys-usb @anyvm allow,target=dom0
+policy.RegisterArgument +u2f.Authenticate sys-usb @anyvm allow target=dom0
 ```
 
 Next, empty the contents of `/etc/qubes-rpc/policy/u2f.Authenticate` so that it is a blank file.
@@ -124,7 +124,7 @@ systemctl disable qubes-u2fproxy@sys-usb.service
 
 Replace `USB_QUBE` with the actual USB qube name.
 
-Do not forget to change the sys-usb qube name in the policy `/etc/qubes-rpc/policy/u2f.Authenticate`.
+Do not forget to change the sys-usb qube name in the policy `/etc/qubes/policy.d/30-user-u2fproxy.policy`.
 
 ## Template and browser support
 
