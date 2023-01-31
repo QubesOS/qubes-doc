@@ -467,7 +467,7 @@ lessons from our case studies:
   frequent backups now, you'll save yourself from a lot of pain in the future.
   Many people never take backups seriously until they suffer catastrophic data
   loss. That's human nature. If you've experienced that before, then you know
-  the pain. Resolve now to never let it happen again. If you've never
+  the pain. Resolve now never to let it happen again. If you've never
   experienced it, count yourself lucky and try to learn from the hard-won
   experience of others. Keeping good backups also allows you to be a bit more
   free with reorganizations. You can delete qubes that you think you won't need
