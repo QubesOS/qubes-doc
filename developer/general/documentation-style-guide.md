@@ -120,9 +120,9 @@ Hard wrap Markdown lines at 80 characters, unless the line can't be broken
 
 ### Do not use Markdown syntax for styling
 
-For example, there is a common temptation to use block quotes (lines beginning
-with the `>` character) in order to stylistically distinguish some portion of
-text from the rest of the document, e.g.:
+For example, there is a common temptation to use block quotations (created by
+beginning lines with the `>` character) in order to stylistically distinguish
+some portion of text from the rest of the document, e.g.:
 
 ```
 > Note: This is an important note!
