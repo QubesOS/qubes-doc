@@ -85,7 +85,7 @@ not attempt to link to images hosted on other websites.
 ### HTML and CSS
 
 Do not write HTML inside Markdown documents (except in rare, unavoidable cases,
-such as alerts). In particular, never include HTML or CSS for styling,
+such as [alerts](#alerts)). In particular, never include HTML or CSS for styling,
 formatting, or white space control. That belongs in the (S)CSS files instead.
 
 ### Headings
@@ -117,6 +117,124 @@ for a list of supported languages). Use `[...]` for anything omitted.
 
 Hard wrap Markdown lines at 80 characters, unless the line can't be broken
 (e.g., code or a URL).
+
+### Do not use Markdown syntax for styling
+
+For example, there is a common temptation to use block quotes (lines beginning
+with the `>` character) in order to stylistically distinguish some portion of
+text from the rest of the document, e.g.:
+
+```
+> Note: This is an important note!
+```
+
+This renders as:
+
+> Note: This is an important note!
+
+There are two problems with this:
+
+1. It is a violation of the [separation of content and
+   presentation](https://en.wikipedia.org/wiki/Separation_of_content_and_presentation),
+   since it abuses markup syntax in order to achieve unintended stylistic
+   results. The Markdown (and HTML, if any) should embody the *content* of the
+   documentation, while the *presentation* is handled by (S)CSS.
+
+2. It is an abuse of quotation syntax for text that is not actually a
+   quotation. (You are not quoting anyone here. You're just telling the reader
+   to note something and trying to draw their attention to your note visually.)
+
+Instead, an example of an appropriate way to stylistically distinguish a
+portion of text is by using [alerts](#alerts). Consider also that extra styling
+and visual distinction may not even be necessary. In most cases, traditional
+writing methods are perfectly sufficient, e.g.,:
+
+```
+**Note:** This is an important note.
+```
+
+This renders as:
+
+**Note:** This is an important note.
+
+### Alerts
+
+Alerts are sections of HTML used to draw the reader's attention to important
+information, such as warnings, and for stylistic purposes. They are typically
+styled as colored text boxes, usually accompanied by icons. Alerts should
+generally be used somewhat sparingly, so as not to cause [alert
+fatigue](https://en.wikipedia.org/wiki/Alarm_fatigue) and since they must be
+written in HTML instead of Markdown, which makes the source less readable and
+more difficult to work with for localization and automation purposes. Here are
+examples of several types of alerts and their recommended icons:
+
+```
+<div class="alert alert-success" role="alert">
+  <i class="fa fa-check-circle"></i>
+  <b>Did you know?</b> The Qubes OS installer is completely offline. It doesn't
+  even load any networking drivers, so there is no possibility of
+  internet-based data leaks or attacks during the installation process.
+</div>
+
+<div class="alert alert-info" role="alert">
+  <i class="fa fa-info-circle"></i>
+  <b>Note:</b> Using Rufus to create the installation medium means that you <a
+  href="https://github.com/QubesOS/qubes-issues/issues/2051">won't be able</a>
+  to choose the "Test this media and install Qubes OS" option mentioned in the
+  example below. Instead, choose the "Install Qubes OS" option.
+</div>
+
+<div class="alert alert-warning" role="alert">
+  <i class="fa fa-exclamation-circle"></i>
+  <b>Note:</b> Qubes OS is not meant to be installed inside a virtual machine
+  as a guest hypervisor. In other words, <b>nested virtualization</b> is not
+  supported. In order for a strict compartmentalization to be enforced, Qubes
+  OS needs to be able to manage the hardware directly.
+</div>
+
+<div class="alert alert-danger" role="alert">
+  <i class="fa fa-exclamation-triangle"></i>
+  <b>Warning:</b> Qubes has no control over what happens on your computer
+  before you install it. No software can provide security if it is installed on
+  compromised hardware. Do not install Qubes on a computer you don't trust. See
+  <a href="/doc/install-security/">installation security</a> for more
+  information.
+</div>
+```
+
+These render as:
+
+<div class="alert alert-success" role="alert">
+  <i class="fa fa-check-circle"></i>
+  <b>Did you know?</b> The Qubes OS installer is completely offline. It doesn't
+  even load any networking drivers, so there is no possibility of
+  internet-based data leaks or attacks during the installation process.
+</div>
+
+<div class="alert alert-info" role="alert">
+  <i class="fa fa-info-circle"></i>
+  <b>Note:</b> Using Rufus to create the installation medium means that you <a
+  href="https://github.com/QubesOS/qubes-issues/issues/2051">won't be able</a>
+  to choose the "Test this media and install Qubes OS" option mentioned in the
+  example below. Instead, choose the "Install Qubes OS" option.
+</div>
+
+<div class="alert alert-warning" role="alert">
+  <i class="fa fa-exclamation-circle"></i>
+  <b>Note:</b> Qubes OS is not meant to be installed inside a virtual machine
+  as a guest hypervisor. In other words, <b>nested virtualization</b> is not
+  supported. In order for a strict compartmentalization to be enforced, Qubes
+  OS needs to be able to manage the hardware directly.
+</div>
+
+<div class="alert alert-danger" role="alert">
+  <i class="fa fa-exclamation-triangle"></i>
+  <b>Warning:</b> Qubes has no control over what happens on your computer
+  before you install it. No software can provide security if it is installed on
+  compromised hardware. Do not install Qubes on a computer you don't trust. See
+  <a href="/doc/install-security/">installation security</a> for more
+  information.
+</div>
 
 ## Writing guidelines
 
