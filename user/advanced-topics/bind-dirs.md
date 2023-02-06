@@ -48,7 +48,7 @@ Inside the app qube.
    ```
    sudo mkdir -p /rw/bind-dirs/var/lib/tor
    ```
-   This case happens only when the template on which this app qube is based does have this directory.
+   This case happens only when the template on which this app qube is based does not have this directory.
 
 6. Reboot the app qube.
 
