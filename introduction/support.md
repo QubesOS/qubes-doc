@@ -512,6 +512,11 @@ on the [news](/news/) page. If you use one of these platforms, you may find it
 convenient to follow the Qubes OS Project there as a way of receiving Qubes
 news.
 
+## Chat
+
+If you'd like to chat, join us on the `#qubes` IRC channel (or its Matrix
+bridge: `#qubes:libera.chat`).
+
 ## Unofficial venues
 
 If you find another venue on the Internet that is not listed above, it is
@@ -522,9 +527,3 @@ moderate it. Please be especially careful in unofficial venues.
 should not be taken as a commitment to monitor or moderate the venue. It still
 remains unofficial. Also, please make sure someone claiming to be a Qubes team
 member really is one. It could be an impostor!)
-
-For example, here are some **unofficial** chat channels we know about that are
-maintained by the community:
-
-* Matrix, Qubes-related: <https://matrix.to/#/#cybersec-qubes_os:matrix.org>
-* `#qubes` channel on irc.libera.chat via traditional IRC clients
