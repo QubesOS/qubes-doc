@@ -45,10 +45,12 @@ Inside the app qube.
 4. Save.
 
 5. If the directory you are trying to persist doesn't already exist in the app qube, you'll need to create the directory with its full path, under `/rw/bind-dirs`. In this case you would do:
+
    ```
    sudo mkdir -p /rw/bind-dirs/var/lib/tor
    ```
-   This case happens only when the template on which this app qube is based does not have this directory.
+   
+   This is required only when this directory does not already exist in the template on which the app qube is based.
 
 6. Reboot the app qube.
 
