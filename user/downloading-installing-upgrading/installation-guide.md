@@ -201,13 +201,6 @@ few seconds you'll be presented with the Qubes installer screen:
 
 [![Boot screen](/attachment/doc/boot-screen.png)](/attachment/doc/boot-screen.png)
 
-<div class="alert alert-info" role="alert">
-  <i class="fa fa-info-circle"></i>
-  <b>Note:</b> When installing Qubes OS 4.0 on UEFI, there is intentionally no
-  boot menu. It goes straight to the installer. The boot menu will be back in
-  Qubes OS 4.1.
-</div>
-
 From here, you can navigate the boot screen using the arrow keys on your
 keyboard. Pressing the "Tab" key will reveal options. You can choose one of
 three options:
