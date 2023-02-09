@@ -18,6 +18,11 @@ still possible to install KDE by issuing this command in dom0:
 ```shell_session
 $ sudo qubes-dom0-update @kde-desktop-qubes
 ```
+In Qubes R4.1, install KDE by issuing this command in dom0:
+```shell_session
+$ sudo qubes-dom0-update kde-settings-qubes
+```
+
 
 You can also change your default login manager (lightdm) to the new KDE default: sddm
 
