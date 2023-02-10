@@ -24,19 +24,21 @@ In this way sys-whonix can benefit from the Tor anonymity feature 'persistent To
 
 ## How to use bind-dirs.sh? ##
 
-In this example, we want to make `/var/lib/tor` persistent.
+In this example, we want to make `/var/lib/tor` persistent. Enter all of the following commands in your app qube.
 
-Inside the app qube.
-
-1. Make sure folder `/rw/config/qubes-bind-dirs.d` exists.
+1. Make sure the directory `/rw/config/qubes-bind-dirs.d` exists.
 
    ```
    sudo mkdir -p /rw/config/qubes-bind-dirs.d
    ```
 
-2. Create a file `/rw/config/qubes-bind-dirs.d/50_user.conf` with root rights.
+2. Create the file `/rw/config/qubes-bind-dirs.d/50_user.conf` with root permissions, if it doesn't already exist.
 
-3. Edit the file 50_user.conf to append a folder or file name to the `binds` variable.
+   ```
+   sudo touch /rw/config/qubes-bind-dirs.d/50_user.conf
+   ```
+
+3. Add a line to `/rw/config/qubes-bind-dirs.d/50_user.conf` that appends a folder or file to the `binds` variable.
 
    ```
    binds+=( '/var/lib/tor' )
@@ -44,7 +46,7 @@ Inside the app qube.
 
 4. Save.
 
-5. If the directory you wish to make persistent doesn't already exist in the template on which the app qube is based, you'll need to create the directory with its full path, under `/rw/bind-dirs/`. In this example, you would execute the following command in the template:
+5. If the directory you wish to make persistent doesn't exist in the template on which the app qube is based, you'll need to create the directory (with its full path) under `/rw/bind-dirs` in the app qube. For example, if `/var/lib/tor` didn't exist in the template, then you would execute the following command in your app qube:
 
    ```
    sudo mkdir -p /rw/bind-dirs/var/lib/tor
@@ -54,10 +56,10 @@ Inside the app qube.
 
 7. Done.
 
-From now on any files within the `/var/lib/tor` folder will persist across reboots.
+From now on, all files in the `/var/lib/tor` directory will persist across reboots.
 
-You can make make many files or folders persist, simply by making multiple entries in the `50_user.conf` file, each on a separate line.
-For example, if you added the file `/etc/tor/torrc` to the `binds` variable, any modifications to *that* file will persist across reboots.
+You can make make as many files or folders persist as you want simply by making multiple entries in the `50_user.conf` file, each on a separate line.
+For example, if you added the file `/etc/tor/torrc` to the `binds` variable, any modifications to *that* file would also persist across reboots.
 
 ```
 binds+=( '/var/lib/tor' )
