@@ -91,7 +91,7 @@ Releases](https://wiki.debian.org/DebianReleases)).
 
 | Qubes OS    | Fedora | Debian                                              | Whonix |
 | ----------- | ------ | --------------------------------------------------- | ------ |
-| Release 4.1 | 36     | 10 (Buster), 11 (Bullseye)                          | 16     |
+| Release 4.1 | 36, 37 | 10 (Buster), 11 (Bullseye)                          | 16     |
 
 ### Note on Debian support
 
