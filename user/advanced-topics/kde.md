@@ -16,7 +16,7 @@ R3.2, however, [XFCE is the new default desktop environment](/doc/releases/3.2/r
 still possible to install KDE by issuing this command in dom0:
 
 ```shell_session
-$ sudo qubes-dom0-update @kde-desktop-qubes
+$ sudo qubes-dom0-update kde-settings-qubes
 ```
 
 You can also change your default login manager (lightdm) to the new KDE default: sddm
