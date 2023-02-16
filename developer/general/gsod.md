@@ -6,27 +6,27 @@ ref: 242
 title: Google Season of Docs (GSoD)
 ---
 
-Thank you for your interest in participating in the [2021 Google Season of Docs](https://developers.google.com/season-of-docs/) program with the [Qubes OS team](/team/). You can read more about the Google Season of Docs in the official [guides](https://developers.google.com/season-of-docs/docs/) and [FAQ](https://developers.google.com/season-of-docs/docs/faq).
+Thank you for your interest in participating in the [2023 Google Season of Docs](https://developers.google.com/season-of-docs/) program with the [Qubes OS team](/team/). You can read more about the Google Season of Docs in the official [guides](https://developers.google.com/season-of-docs/docs/) and [FAQ](https://developers.google.com/season-of-docs/docs/faq).
 
-## 2021 Project Idea 
+## 2023 Project Idea 
 
-### Qubes OS on Virtual Machines and Disposable VMs documentation - Qubes OS
+### Qubes OS on virtual machines and disposable qube documentation
 
 #### About your organization
 
 Qubes OS is a free and open source operating system uniquely designed to protect the security and privacy of the user. Its architecture is built to enable a user to define different security environments ("qubes") on their computer and visually manage their interaction with each other and the world.
 
-Qubes OS was launched in 2011 and has [received praise from security experts](https://www.qubes-os.org/endorsements/) like Edward Snowden, Bill Buddington (EFF), Isis Lovecruft (Tor Project), and Kenn White (Open Crypto Audit), and has over [30,000 active users](https://www.qubes-os.org/statistics/).
+Qubes OS was launched in 2011 and has [received praise from security experts and organizations](/endorsements/) like Edward Snowden, the Freedom of the Press Foundation, Micah Lee, and Let's Encrypt. Qubes has [over 40,000 active users](/statistics/).
 
 From network-level to software-level protections, as well as protections against firmware and hardware attacks, Qubes OS is trying to protect the user from the most significant attacks they encounter so that they can get their work done, safely.
 
 #### The Project
 
-The goal of the project is to improve the documentation related to Disposable VMs and installing Qubes OS on Virtual Machines.
+The goal of the project is to improve the documentation related to disposable qubes and installing Qubes OS on virtual machines.
 
-The current Disposable VMs documentation is scarce, inconsistent in places and is scattered across multiple pages, sometimes hard to find. This project involves consolidating it into one or few easy to find pages, covering all related subjects. It should be written in way easy to follow and understand, clearly separating basic use cases, advanced ones and internal details. The terminology should also be used consistently.
+The current disposable qube documentation is scarce, inconsistent in places and is scattered across multiple pages, sometimes hard to find. This project involves consolidating it into one or a few easy to find pages, covering all related subjects. It should be written in a way that is easy to follow and understand, clearly separating basic use cases, advanced ones, and internal details. The [terminology](/doc/glossary/) should also be used consistently.
 
-Additionally, Qubes OS is missing an installation guide for virtual machines. Users are installing an outdated and unsupported version of Qubes OS (3.2) instead of the supported version. There is unofficial existing installation guide for Qubes OS on a virtual box but it is misleading and lacks documentation. Usually, users face some errors and bugs while installing Qubes OS on a virtual machine. This project also involves writing an installation guide that details how to install Qubes on virtual machines, and how to troubleshoot any issues that may arise. 
+Additionally, Qubes OS is missing an installation guide for virtual machines. Users are installing an outdated and unsupported version of Qubes OS (3.2) instead of the supported version. There is an unofficial existing installation guide for Qubes OS on VirtualBox, but it is misleading and lacks documentation. Usually, users face errors and bugs while installing Qubes OS on a virtual machine. This project also involves writing an installation guide that details how to install Qubes on virtual machines, and how to troubleshoot any issues that may arise.
 
 #### Project’s scope
 
@@ -60,13 +60,13 @@ The project is estimated to need around 6 months, with a part-time (20hr/week) w
 
 We will consider the project successful if, after publication of the new documentation:
 
-* The Disposable VM documentation is consilidated into a few pages and easier to find.
+* The Disposable VM documentation is consolidated into a few pages and easier to find.
 
 * Disposable VM terminology is consistent across all pages
 
 * There is a new installation guide detailing how to install Qubes on virtual machines (VirtualBox), complete with screenshots and troubleshooting steps where necessary. 
 
-* There is a decrease (by ~20%) in the number of issues and questions raised for topics covered in the documentation, whether in the official Github issues tracker, the Qubes mailing list, or the Qubes community forum.
+* There is a decrease (by ~20%) in the number of issues and questions raised for topics covered in the documentation, whether in the official GitHub issues tracker, the Qubes mailing list, or the Qubes community forum.
 
 #### Budget
 
@@ -110,7 +110,7 @@ This could be helped by writing a consolidated guide with a clear list of sympto
 
 **Project**: Improve Getting Started page
 
-**Brief explanation**: The [Getting Started page](https://www.qubes-os.org/doc/getting-started/) is the place a new user would go to understand better how to use Qubes. It is currently has old screenshots not using the default desktop environment and could have much better flow. In addition, this improved page content may end up being served more directly to the user via the [offline documentation](https://github.com/QubesOS/qubes-issues/issues/1019) or the firstboot guide. 
+**Brief explanation**: The [Getting Started page](/doc/getting-started/) is the place a new user would go to understand better how to use Qubes. It is currently has old screenshots not using the default desktop environment and could have much better flow. In addition, this improved page content may end up being served more directly to the user via the [offline documentation](https://github.com/QubesOS/qubes-issues/issues/1019) or the firstboot guide. 
 
 **Expected results**: 
 
@@ -128,14 +128,14 @@ This could be helped by writing a consolidated guide with a clear list of sympto
 
 **Project**: Rewrite qrexec documentation
 
-**Brief explanation**: Current qrexec (qubes remote exec) documentation is hard to follow, important informations are hidden within a wall of text.
+**Brief explanation**: Current qrexec (qubes remote exec) documentation is hard to follow, important information is hidden within a wall of text.
 Some parts are split into multiple sections, for example version specific to avoid duplication, but it doesn't help reading it.
 Additionally, protocol documentation describes only few specific use cases, instead of being clear and precise protocol specification.
 Fixing this last point may require very close cooperation with developers, as the current documentation doesn't multiple corner cases (that's one of the issue with its current shape).
 
 **Expected results**:
 
-- Review existing [qrexec documentation](https://www.qubes-os.org/doc/qrexec3/) and an [issue about it](https://github.com/QubesOS/qubes-issues/issues/1392)
+- Review existing [qrexec documentation](/doc/qrexec3/) and an [issue about it](https://github.com/QubesOS/qubes-issues/issues/1392)
 - Propose updated, consolidated admin documentation (policy writing, adding services)
 - Propose consolidated protocol specification, based on the current documentation, and cooperation with developers
 
