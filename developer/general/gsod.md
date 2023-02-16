@@ -32,7 +32,7 @@ Additionally, Qubes OS is missing an installation guide for virtual machines. Us
 
 The technical writer will:
 
-* Review existing Disposable VM documentation
+* Review existing disposable qube documentation
 
 * Propose new documentation layout, including split between pages
 
@@ -54,15 +54,15 @@ Knowledge prerequisites:
 
 * Basic knowledge about Fedora Linux architecture.
 
-The project is estimated to need around 6 months, with a part-time (20hr/week) workload. Qubes OS team members focused on documentation (Michael Carbone, Andrew David Wong, Marek Marczykowski-Górecki) have committed to supporting the project.
+The project is estimated to need around six months, with a part-time (20hr/week) workload. Qubes OS team members focused on documentation (Michael Carbone, Andrew David Wong, Marek Marczykowski-Górecki) have committed to supporting the project.
 
 #### Measuring the project’s success
 
 We will consider the project successful if, after publication of the new documentation:
 
-* The Disposable VM documentation is consolidated into a few pages and easier to find.
+* The disposable qube documentation is consolidated into a few pages and easier to find.
 
-* Disposable VM terminology is consistent across all pages
+* The terminology is consistent with the rest of the documentation.
 
 * There is a new installation guide detailing how to install Qubes on virtual machines (VirtualBox), complete with screenshots and troubleshooting steps where necessary. 
 
@@ -76,7 +76,7 @@ We will consider the project successful if, after publication of the new documen
 | TOTAL |  | $12000 |  |
 
 #### Additional information 
-Qubes OS regularly participates in the Google Summer of Code and Google Season of Docs. This is our third time in a row participating in Google Season of Docs. Our mentorships for GSoD 2019 and 2020 were successes and both projects were completed 
+Qubes OS regularly participates in the Google Summer of Code and Google Season of Docs. This is our third time participating in Google Season of Docs. Our mentorships for GSoD 2019 and 2020 were successes and both projects were completed 
 within the times allotted. The past Google Season of Docs projects have given us experience in working with technical writers, and has helped us to understand the benefits of technical writers can to our project
 
 ## Past Projects
