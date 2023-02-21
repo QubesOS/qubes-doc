@@ -259,6 +259,9 @@ list of packages to be installed):
 - `default-mgmt-dvm`: requires `qubes-core-agent-passwordless-root` and
   `qubes-mgmt-salt-vm-connector`.
 - [Yubikey](/doc/yubikey/): You may need to install `xserver-xorg-input-libinput` for 2FA responses to work in web browsers like Firefox.
+- Thumbnails (e.g., file previews in Nautilus): `libgdk-pixbuf2.0-bin` (images),
+  `ffmpegthumbnailer` (videos). (Try `apt search thumbnailer` for other file
+  types.)
 
 In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be
 needed to make the customized minimal template work properly. These packages
