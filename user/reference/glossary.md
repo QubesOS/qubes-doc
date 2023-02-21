@@ -141,11 +141,12 @@ still be called "qubes."
 
 * **Important:** The term "qube" is a common noun and should follow the
   capitalization rules of common nouns. For example, "I have three qubes" is
-  correct," while "I have three Qubes" is incorrect.
+  correct, while "I have three Qubes" is incorrect.
 
 * Note that starting a sentence with the plural of "qube" (i.e., "Qubes...")
   can be ambiguous, since it may not be clear whether the referent is a
-  plurality of qubes or [Qubes OS](#qubes-os).
+  plurality of qubes or [Qubes OS](#qubes-os). You may wish to rephrase
+  sentences in order to avoid this ambiguity.
 
 * Example usage: "In Qubes OS, you do your banking in your 'banking' qube and
   your web surfing in your 'untrusted' qube. That way, if your 'untrusted' qube
