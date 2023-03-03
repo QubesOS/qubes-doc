@@ -37,6 +37,9 @@ ensure compatibility with all of Qubes' features within that major release. The
 developers test all new updates within that major release to ensure that no
 regressions are introduced.
 
+The current Qubes-certified models are listed below in chronological order of
+certification.
+
 ### Insurgo PrivacyBeast X230
 
 [![insurgo-privacybeast-x230.png](/attachment/site/insurgo-privacybeast-x230.png)](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/)
