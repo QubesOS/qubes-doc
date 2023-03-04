@@ -328,6 +328,61 @@ can be accomplished in one of several ways:
   different values, but if you've correctly judged that they should use the
   command you've provided as is, then this shouldn't matter.
 
+### Capitalization of "qube"
+
+We introduced the term ["qube"](/doc/glossary/#qube) as a user-friendly
+alternative to the term ["virtual machine" ("VM")](/doc/glossary/#vm) in the
+context of Qubes OS. Nonetheless, "qube" is a common noun like the words
+"compartment" and "container." Therefore, in English, "qube" follows the
+standard capitalization rules for common nouns. For example, "I have three
+qubes" is correct, while "I have three Qubes" is incorrect. Like other common
+nouns, "qube" should still be capitalized at the beginnings of sentences, the
+beginnings of sentence-case headings, and in title-case headings. Note,
+however, that starting a sentence with the plural of "qube" (e.g., "Qubes can
+be shut down...") can be ambiguous, since it may not be clear whether the
+referent is a plurality of qubes, [Qubes OS](/doc/glossary/#qubes-os), or even
+the Qubes OS Project itself. Hence, it is generally a good idea to rephrase
+such sentences in order to avoid this ambiguity.
+
+Many people feel a strong temptation to capitalize the word "qube" all the
+time, like a proper noun, perhaps because it's a new and unfamiliar term that's
+closely associated with a particular piece of software (namely, Qubes OS).
+However, these factors are not relevant to the capitalization rules of English.
+In fact, it's not unusual for new common nouns to be introduced into English,
+especially in the context of technology. For example, "blockchain" is a
+relatively recent technical term that's a common noun. Why is it a common noun
+rather than a proper noun? Because proper nouns refer to *particular* people,
+places, things, and ideas. There are many different blockchains. However, even
+when there was just one, the word still denoted a collection of things rather
+than a particular thing. It happened to be the case that there was only one
+member in that collection at the time. For example, if there happened to be
+only one tree in the world, that wouldn't change the way we capitalize
+sentences like, "John sat under a tree." Intuitively, it makes sense that the
+addition and removal of objects from the world shouldn't cause published books
+to become orthographicallly incorrect while sitting on their shelves.
+
+Accordingly, the reason "qube" is a common noun rather than a proper noun is
+because it doesn't refer to any one specific thing (in this case, any one
+specific virtual machine). Rather, it's the term for any virtual machine in a
+Qubes OS installation. (Technically, while qubes are currently implemented as
+virtual machines, Qubes OS is independent of its underlying
+compartmentalization technology. Virtual machines could be replaced with a
+different technology, and qubes would still be called "qubes.")
+
+I have several qubes in my Qubes OS installation, and you have several in
+yours. Every Qubes OS user has their own set of qubes, just as each of us lives
+in some neighborhood on some street. Yet we aren't tempted to treat words like
+"neighborhood" or "street" as proper nouns (unless, of course, they're part of
+a name, like "Acorn Street"). Again, while this might seem odd because "qube"
+is a new word that we invented, that doesn't change how English works. After
+all, *every* word was a new word that someone invented at some point (otherwise
+we wouldn't have any words at all). We treat "telephone," "computer,"
+"network," "program," and so on as common nouns, even though those were all new
+technological inventions in the not-too-distant past (on a historical scale, at
+least). So, we shouldn't allow ourselves to be confused by irrelevant factors,
+like the fact that the inventors happened to be *us* or that the invention was
+*recent* or is not in widespread use among humanity.
+
 ## Organizational guidelines
 
 ### Do not duplicate documentation
