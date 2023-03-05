@@ -223,22 +223,20 @@ When you install a new template or
 recommended that you switch everything that was using the old template to the
 new template:
 
-1. Make the new or upgraded template the default template. In the App Menu, go
+1. **Make the new template the default template.** In the App Menu, go
    to Qubes Tools, then click on Qubes Global Settings. In the Qube Defaults
-   section, next to Template, select the new or upgraded template from the
+   section, next to Template, select the new template from the
    drop-down list. Press OK.
 
-2. Base your [disposable templates](/doc/glossary/#disposable-template) on the
-   new template. In the App Menu, go to Qubes Tools, then click on Qube
-   Manager. In the Qube Manager, find your disposable templates. (By default,
-   they end in `-dvm`.) Right click, then click on Settings. Next to Template,
-   select your new or upgraded template from the drop-down list. Press OK.
+2. **Base your [disposable templates](/doc/glossary/#disposable-template) on
+   the new template.**
 
-   - If you receive an error message because there are running
-     [disposables](/doc/glossary/#disposable) based on this disposable
-     template, and your only keyboard and mouse are *not* connected through a
-     [USB qube](/doc/usb-qubes/), or that USB qube is *not* a disposable, then
-     shut down all disposables based on the disposable template and try again.
+   - If your only keyboard and mouse are *not* connected through a [USB
+     qube](/doc/usb-qubes/), or that USB qube is *not* a disposable, then shut
+     down all disposables. In the App Menu, go to Qubes Tools, then click on
+     Qube Manager. In the Qube Manager, find your disposable template(s). (By
+     default, they end in `-dvm`.) Right click, hover over Template, then click
+     on the new template. Repeat for each disposable template.
 
    - If your only keyboard or mouse *are* connected through a USB qube, and
      that USB qube *is* a disposable, then you will have to enter a special
@@ -251,9 +249,9 @@ new template:
      In the App Menu, click on Terminal Emulator. Type the command below,
      substituting `<SYS_USB_DISPOSABLE_TEMPLATE>` with the name of the
      disposable template on which `sys-usb` is based, `<NEW_TEMPLATE>` with the
-     name of the new or upgraded template, and `<USB_QUBE>` with the name of
-     your USB qube. Other than these substitutions, make sure to enter the
-     command exactly as written.
+     name of the new template, and `<USB_QUBE>` with the name of your USB qube.
+     Other than these substitutions, make sure to enter the command exactly as
+     written.
 
      ```
      qvm-shutdown --wait --all; qvm-prefs <SYS_USB_DISPOSABLE_TEMPLATE> template <NEW_TEMPLATE>; qvm-start <USB_QUBE>
@@ -266,10 +264,11 @@ new template:
      qvm-shutdown --wait --all; qvm-prefs fedora-01-dvm template fedora-02; qvm-start sys-usb
      ```
 
-3. Base your app qubes on the new template. In the App Menu, go to Qubes Tools,
-   then click on Qubes Template Manager. Select all the templates based on the
-   old template (shown in the Current column). Next to "Change all selected
-   to," select the new or upgraded template from the drop-down list. Press OK.
+3. **Base your app qubes on the new template.** In the Qube Manager, click on
+   the Template heading to sort by template. Select all the qubes based on the
+   old template by clicking on the first one, holding shift, then clicking on
+   the last one. With multiple qubes selected, right-click on any of them,
+   hover your cursor over Template, then click on the new template.
 
 ## Advanced
 
