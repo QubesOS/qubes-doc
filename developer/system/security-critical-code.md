@@ -15,7 +15,7 @@ Below is a list of security-critical (i.e., trusted) code components in Qubes OS
 A successful attack against any of these components could compromise the system's security.
 This code can be thought of as the Trusted Computing Base (TCB) of Qubes OS.
 One of the main goals of the project is to keep the TCB to an absolute minimum.
-The size of the current TCB is on the order order of hundreds of thousands of lines of C code, which is several orders of magnitude less than other OSes.
+The size of the current TCB is on the order of hundreds of thousands of lines of C code, which is several orders of magnitude less than other OSes.
 (In Windows, Linux, and Mac OSes, the amount of trusted code is typically on the order of tens of *millions* of lines of C code.)
 
 For more information, see [Qubes Security Goals](/security/goals/).
