@@ -37,7 +37,7 @@ As the kernel is chosen in dom0, there must be some way to provide matching kern
 
 Normally kernel "package" is common for many VMs (can be set using qvm-prefs). One of them can be set as default (qvm-set-default-kernel) to simplify kernel updates (by default all VMs use the default kernel). All installed kernels are placed in /var/lib/qubes/vm-kernels as separate subdirs. In this case, modules.img is attached to the VM as R/O device.
 
-There is a special case when the VM can have a custom kernel – when it is updateable (StandaloneVM or TemplateVM) and the kernel is set to "none" (by qvm-prefs). In this case the VM uses the kernel from the "kernels" VM subdir and modules.img is attached as R/W device. FIXME: "none" should be renamed to "custom".
+There is a special case when the VM can have a custom kernel – when it is updateable (StandaloneVM or TemplateVM) and the kernel is set to "none" (by qvm-prefs). In this case the VM uses the kernel from the "kernels" VM subdir and modules.img is attached as R/W device.
 
 # Qubes TemplateVM implementation
 
