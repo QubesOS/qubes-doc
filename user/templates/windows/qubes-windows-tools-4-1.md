@@ -5,24 +5,26 @@ permalink: /doc/templates/windows/qubes-windows-tools-4-1/
 redirect_from:
 - /doc/templates/windows/windows-tools41/
 - /user/templates/windows/windows-tools41/
-title: Qubes Windows Tools (QWT) in Qubes OS 4.1
+title: Qubes Windows Tools (QWT)
 ---
 
-Qubes Windows Tools (QWT) are a set of programs and drivers that provide integration of Windows 7, 8.1, 10 and 11 Standalone, TemplateVMs and AppVMs with the rest of the Qubes system. They contain several components than can be enabled or disabled during installation:
+Qubes Windows Tools (QWT) are a set of programs and drivers that provide integration of Windows 7, 8.1, 10 and 11 Standalone, TemplateVMs and AppVMs with the rest of the Qubes system. They contain several components than can be enabled or disabled during installation, and rely on specific functions of Qubes which support this integration:
 
 - **Shared components (required)** - common libraries used by QWT components
-- **Qubes Core Agent** - qrexec agent and services. Needed for proper integration with Qubes
 - **Qubes GUI Agent** - video driver and GUI agent that enable the seamless GUI mode that integrates windows apps onto the common Qubes trusted desktop (currently only for Windows 7)
 - **Disable UAC** - User Account Control may interfere with QWT and doesn't really provide any additional benefits in Qubes environment
 - **Clipboard sender/receiver** - Support for [secure clipboard copy/paste](/doc/copy-paste/) between the Windows VM and other AppVMs
 - **File sender/receiver** - Support for [secure file exchange](/doc/copying-files/) between the Windows VM and other AppVMs
-- **Copy/Edit in Disposable VM** - Support for editing files in DisposableVMs as well as for `qvm-run` and generic `qrexec` for the Windows VM (e.g. ability to run custom service within/from the Windows VM)
-- **Audio** - Audio support requires R4.1 and is available even without QWT installation if `qvm-features audio-model` is set as `ich6`
 - **Xen PV drivers** - drivers for the virtual hardware exposed by Xen for Windows that increase performance compared to QEMU emulated devices and are required for attaching USB devices
    - Base Xen PV Drivers (required): paravirtual bus and interface drivers
    - Xen PV Disk Drivers: paravirtual storage drivers
    - Xen PV Network Drivers: paravirtual network drivers
    - Move user profiles: user profile directory (`C:\users`) is moved to VM's private disk backed by `private.img file` in `dom0` (useful mainly for HVM templates).
+
+- **Qubes Core Agent** (part of Qubes) - Needed for proper integration with Qubes as well as for `qvm-run` and generic `qrexec` for the Windows VM (e.g. ability to run custom service within/from the Windows VM)
+- **Copy/Edit in Disposable VM** (part of Qubes) - Support for editing files in DisposableVMs
+- **Audio** - Audio support is available even without QWT installation if `qvm-features audio-model` is set as `ich6`
+
 	
 **Note**: If you choose to move profiles, drive letter `Q:` must be assigned to the secondary (private) disk.
 
@@ -67,15 +69,15 @@ The Xen PV Drivers bundled with QWT are signed by a Linux Foundation certificate
 
 		[user@dom0 ~] $ qvm-prefs <VMname> qrexec_timeout 7200
 
-## Installing Windows OS in a Qubes VM
+## Installing Windows OS as a Qubes VM
 
 Please refer to [this page](/doc/templates/windows/windows-qubes-4-1/) for instructions on how to install Windows in a Qubes VM.
 
 **Warning:** It is strongly suggested to enable autologon for any Windows HVMs that will have Qubes Tools installed. To do so, run `netplwiz` command from the `Win+R`/Start menu and uncheck the *Users must enter a user name and password to use this computer* option.
 
-## Installing Qubes guest tools in Windows VMs
+## Installing Qubes Windows Tools (QWT) in a Windows VM
 
-This will allow you to install the Qubes Windows Tools on Windows 7, 10 and 11 both as a StandaloneVM as well as a Template VM and a corresponding AppVM. But some features are not available:
+Installing the Qubes Windows Tools on Windows 7, 8.1, 10 and 11 both as a StandaloneVM as well as a Template VM and a corresponding AppVM is described in the following sections.
 
 **Note:** Seamless mode is currently not available for windows 10 and 11. Please check the top of this document for the full feature availability breakdown.
 
@@ -310,7 +312,7 @@ Safe Mode should at least give you access to logs (see above).
 
 **Please include appropriate logs when reporting bugs/problems.** Logs contain the QWT version. If the OS crashes (BSOD) please include the BSOD code and parameters in your bug report. The BSOD screen should be visible if you run the VM in debug mode (`qvm-start --debug vmname`). If it's not visible or the VM reboots automatically, try to start Windows in safe mode (see above) and 1) disable automatic restart on BSOD (Control Panel - System - Advanced system settings - Advanced - Startup and recovery), 2) check the system event log for BSOD events. If you can, send the `memory.dmp` dump file from `C:\Windows`.
 	
-Xen logs (`/var/log/xen/console/guest-*`) are also useful as they contain pvdrivers diagnostic output.
+Xen logs in dom0 (`/var/log/xen/console/guest-*`) are also useful as they contain pvdrivers diagnostic output.
 
 If a specific component is malfunctioning, you can increase its log verbosity as explained above to get more troubleshooting information. Below is a list of components:
 
