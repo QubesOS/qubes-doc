@@ -5,7 +5,7 @@ permalink: /doc/templates/windows/windows-qubes-4-1/
 redirect_from:
 - /doc/templates/windows/windows-vm41/
 - /doc/templates/windows/windows-vm41/
-title: How to install Windows qubes in Qubes OS 4.1
+title: How to install Windows qubes in Qubes OS
 ---
 
 You can install Windows just like any other OS as an [HVM](/doc/hvm/), if you just want something simple and you can live without some features. This works for Windows XP, 7, 8.1, 10 and 11.
@@ -28,7 +28,7 @@ For better integration, a set of drivers and services, called Qubes Windows Tool
 - automatically set up networking
 - automatically set up time/clock synchronization
 - XEN PV drivers (some of them optional)
-- optional user migration from `C:`: to the qubes’ private volume (to be able use the qubes as a TemplateVM).
+- optional user migration from `C:` to the qubes’ private volume (to be able use the qubes as a TemplateVM).
 - seamless mode (Windows 7 only for now)
 - propagating keyboard layout ?
 
@@ -106,7 +106,7 @@ These parameters are set for the following reasons:
   
 - A typical Windows installation requires between 25GB up to 60GB of disk space depending on the version (Home/Professional/...). Windows updates also end up using significant space. So, extend the root volume from the default 10GB to at least 60GB (note: it is straightforward to increase the root volume size after Windows is installed: simply extend the volume again in dom0 and then extend the system partition with Windows's disk manager).
 
-- Setting memory to 4096MB may work in most cases, but using 6144MB (or even 8192MB) may reduce the likelihood of crashes during installation, especially for Windows 10 or 11.
+- Setting memory to 4096MB may work in most cases, but using 6144MB (or even 8192MB) may reduce the likelihood of crashes during installation, especially for Windows 10 or 11. This is important as Windows qubes have to be created without memory balancing, as requested by the parameter settings described above.
 
 - The Windows' installer requires a significant amount of memory or else the VM will crash with such errors:
   ~~~
@@ -220,10 +220,8 @@ To install Qubes Windows Tools, follow instructions in [Qubes Windows Tools](/do
 
 Optimize resources for use in virtual machine as “vanilla” version of Windows are bloated; e.g.:
 
-- optionally use `disk cleanup` to save some disk space.
 - set up Windows for best performance (this pc → advanced settings → …)
 - think about Windows’ page file: is it needed ? should you set it with a fixed size ? maybe on the private volume ?
-- investigate “debloat” scripts ; eg. Windows10Debloater 2, decrapifier, OOShutUp10 1, etc.
 - disable services you don’t need
 - disable networking stuff in the network adapter’s setting (eg. link discovery, file and print server, …)
 - background: set a solid color
@@ -257,9 +255,9 @@ This can be achieved by installing Windows 10 or 11 in a TemplateVM with the use
 
 ## Windows update
 
-Depending on how old your installation media is, fully updating your Windows VM may take *hours* (this isn't specific to Xen/Qubes) so make sure you clone your VM between the mandatory reboots in case something goes wrong. For Windows 7, you may find the necessary updates bundled at [WinFuture Windows 7 SP1 Update Pack 2.107 (Vollversion)](https://10gbit.winfuture.de/9Y6Lemoxl-I1_901xOu6Hg/1648348889/2671/Update%20Packs/2020_01/WinFuture_7SP1_x64_UpdatePack_2.107_Januar_2020-Vollversion.exe).
+Depending on how old your installation media is, fully updating your Windows VM may take *hours* (this isn't specific to Xen/Qubes) so make sure you clone your VM between the mandatory reboots in case something goes wrong. For Windows 7, you may find the necessary updates bundled at [WinFuture Windows 7 SP1 Update Pack 2.107 (Vollversion)](https://10gbit.winfuture.de/9Y6Lemoxl-I1_901xOu6Hg/1648348889/2671/Update%20Packs/2020_01/WinFuture_7SP1_x64_UpdatePack_2.107_Januar_2020-Vollversion.exe). At your own risk you may use such an installation image with bundled updates, but generally we do not recommend this way for security reasons - so, if you do it anyhow, check that you get this image from a source that you trust, which may be quite different from that one named here!
 
-Note: if you already have Qubes Windows Tools installed the video adapter in Windows will be "Qubes video driver" and you won't be able to see the Windows Update process when the VM is being powered off because Qubes services would have been stopped by then. Depending on the size of the Windows update packs it may take a bit of time until the VM shutdowns by itself, leaving one wondering if the VM has crashed or still finalizing the updates (in dom0 a changing CPU usage - eg. shown with `xentop` - usually indicates that the VM hasn't crashed).
+Note: if you already have Qubes Windows Tools installed the video adapter in Windows will be "Qubes video driver" and you won't be able to see the Windows Update process when the VM is being powered off because Qubes services would have been stopped by then. Depending on the size of the Windows update packs it may take a bit of time until the VM shutdowns by itself, leaving one wondering if the VM has crashed or still finalizing the updates (in dom0 a changing CPU usage - eg. shown with the domains widget in the task bar, or with `xentop` - usually indicates that the VM hasn't crashed).
 
 To avoid guessing the VM's state enable debugging (`qvm-prefs -s WindowsNew debug true`) and in Windows' device manager (My computer -> Manage / Device manager / Display adapters) temporarily re-enable the standard VGA adapter and disable "Qubes video driver". You can disable debugging and revert to Qubes' display once the VM is updated.
 
