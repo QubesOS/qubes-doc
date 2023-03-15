@@ -42,7 +42,7 @@ certification.
 
 ### Insurgo PrivacyBeast X230
 
-[![insurgo-privacybeast-x230.png](/attachment/site/insurgo-privacybeast-x230.png)](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/)
+[![Photo of the Insurgo PrivacyBeast X230](/attachment/site/insurgo-privacybeast-x230.png)](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/)
 
 The [Insurgo PrivacyBeast
 X230](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/)
@@ -52,7 +52,7 @@ for details.
 
 ### NitroPad X230
 
-[![nitropad-x230.jpg](/attachment/site/nitropad-x230.jpg)](https://shop.nitrokey.com/shop/product/nitropad-x230-67)
+[![Photo of the NitroPad X230](/attachment/site/nitropad-x230.jpg)](https://shop.nitrokey.com/shop/product/nitropad-x230-67)
 
 The [NitroPad X230](https://shop.nitrokey.com/shop/product/nitropad-x230-67) is
 a laptop based on the ThinkPad X230. It is certified for Qubes OS 4.X. Read our
@@ -61,7 +61,7 @@ details.
 
 ### NitroPad T430
 
-[![nitropad-t-430.jpg](/attachment/site/nitropad-t430.jpg)](https://shop.nitrokey.com/shop/product/nitropad-t430-119)
+[![Photo of the NitroPad T430](/attachment/site/nitropad-t430.jpg)](https://shop.nitrokey.com/shop/product/nitropad-t430-119)
 
 The [NitroPad T430](https://shop.nitrokey.com/shop/product/nitropad-t430-119)
 is a laptop based on the ThinkPad T430. It is certified for Qubes OS 4.X. Read
@@ -70,7 +70,7 @@ details.
 
 ### Dasharo FidelisGuard Z690
 
-[![dasharo-fidelisguard-z690.jpg](/attachment/site/dasharo-fidelisguard-z690.jpg)](https://3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/)
+[![Photo of the Dasharo FidelisGuard Z690](/attachment/site/dasharo-fidelisguard-z690.jpg)](https://3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/)
 
 The [Dasharo FidelisGuard Z690](https://3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/)
 is a desktop based on the MSI PRO Z690-A DDR4 motherboard. It is certified for
