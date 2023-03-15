@@ -68,12 +68,11 @@ is a laptop based on the ThinkPad T430. It is certified for Qubes OS 4.X. Read
 our [announcement](/news/2021/06/01/nitropad-t430-qubes-certification/) for
 details.
 
-### 3mdeb MSI PRO Z690-A DDR4
+### Dasharo FidelisGuard Z690
 
-[![3mdeb-msi-pro-z690-a-ddr4.jpg](/attachment/site/3mdeb-msi-pro-z690-a-ddr4.jpg)](https://3mdeb.com/shop/open-source-hardware/dasharo-compatible-with-msi-pro-z-690a-ddr4-full-pc-build/)
+[![dasharo-fidelisguard-z690.jpg](/attachment/site/dasharo-fidelisguard-z690.jpg)](https://3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/)
 
-The [3mdeb MSI PRO Z690-A
-DDR4](https://3mdeb.com/shop/open-source-hardware/dasharo-compatible-with-msi-pro-z-690a-ddr4-full-pc-build/)
+The [Dasharo FidelisGuard Z690](https://3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/)
 is a desktop based on the MSI PRO Z690-A DDR4 motherboard. It is certified for
 Qubes OS 4.X. Read our [announcement](/news/2023/03/TODO) for details.
 
