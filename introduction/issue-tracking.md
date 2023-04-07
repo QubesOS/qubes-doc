@@ -135,7 +135,7 @@ existing milestone assignment.
 
 Most milestones correspond to specific Qubes OS releases. For **bug reports**,
 the milestone designates the *earliest supported release* in which that bug is
-known to exist. For **enhancements** and **tasks**,  the milestone indicates
+believed to exist. For **enhancements** and **tasks**,  the milestone indicates
 that the goal is to implement or do that thing *in* or *for* that release.
 
 The `Release TBD` (To Be Determined) milestone is for **enhancements** or
