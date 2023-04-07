@@ -131,24 +131,22 @@ The issue tracker has several
 should be assigned to **exactly one** milestone. The issue tracker does not
 allow assigning an issue to more than one milestone. If an issue is already
 assigned to a milestone, assigning it to a different one will *replace* the
-existing milestone assignment. No open issue should lack a milestone
-assignment.
+existing milestone assignment.
 
-Most milestones correspond to specific Qubes OS releases. A bug report assigned
-to a release milestone indicates an alleged bug *in* that Qubes OS release. A
-task or enhancement assigned to a release milestone indicates that the goal is
-to implement or do that thing *in* or *for* that Qubes OS release.
+Most milestones correspond to specific Qubes OS releases. For **bug reports**,
+the milestone designates the *earliest supported release* in which that bug is
+known to exist. For **enhancements** and **tasks**,  the milestone indicates
+that the goal is to implement or do that thing *in* or *for* that release.
 
-The `Release TBD` (To Be Determined) milestone is for enhancements or tasks
-that will be specific to a Qubes OS release but have yet to be assigned to a
-specific release milestone. Bug reports should never be assigned to this
-milestone, because every bug is a problem or defect in something that already
-exists.
+The `Release TBD` (To Be Determined) milestone is for **enhancements** or
+**tasks** that will be specific to a Qubes OS release but have yet to be
+assigned to a specific release milestone. **Bug reports** should never be
+assigned to the `Release TBD` milestone, because every bug is a problem or
+defect in something that already exists.
 
 The `Non-release` milestone is for issues that are independent of the Qubes OS
-release cycle, including (but not limited to) website, documentation, and
-project management issues. These are issues that will never be assigned to a
-specific Qubes OS release milestone.
+release cycle, including (but not limited to) most website, documentation, and
+project management issues.
 
 ### Projects
 
