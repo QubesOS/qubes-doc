@@ -76,11 +76,10 @@ any GNU/Linux system.
 *compressed*.
 
  1. (Optional) If you're working with binaries that you saved with your backup,
-    such as `scrypt` or `bzip2`, you can make things easier by aliasing those
-    binaries now, e.g.,
+    such as `scrypt`, you can make things easier by aliasing those binaries now,
+    e.g.,
 
         [user@restore ~]$ alias scrypt="$PWD/scrypt-*/usr/bin/scrypt"
-        [user@restore ~]$ alias bzip2="/home/user/bzip2-*"
 
  2. Untar the main backup file.
 
@@ -155,10 +154,9 @@ any GNU/Linux system.
 
  8. Enter the decrypted directory, mount `private.img`, and access your data.
 
-        [user@restore ~]$ cd vm1/
-        [user@restore vm1]$ sudo mkdir /mnt/img
-        [user@restore vm1]$ sudo mount -o loop vm1/private.img /mnt/img/
-        [user@restore vm1]$ cat /mnt/img/home/user/your_data.txt
+        [user@restore]$ sudo mkdir /mnt/img
+        [user@restore]$ sudo mount -o loop vm1/private.img /mnt/img/
+        [user@restore]$ cat /mnt/img/home/user/your_data.txt
         This data has been successfully recovered!
 
 Success! If you wish to recover data from more than one qube in your backup,
