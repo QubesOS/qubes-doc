@@ -79,7 +79,7 @@ any GNU/Linux system.
     such as `scrypt` or `bzip2`, you can make things easier by aliasing those
     binaries now, e.g.,
 
-        [user@restore ~]$ alias scrypt="/home/user/scrypt-*"
+        [user@restore ~]$ alias scrypt="$PWD/scrypt-*/usr/bin/scrypt"
         [user@restore ~]$ alias bzip2="/home/user/bzip2-*"
 
  2. Untar the main backup file.
