@@ -66,44 +66,33 @@ any GNU/Linux system.
 
         [user@restore ~]$ sudo dnf install rpmdevtools
 
- 5. Extract the `scrypt` binary from the RPM.
+ 5. Extract the `scrypt` binary from the RPM and make it conveniently
+    available.
 
         [user@restore ~]$ rpmdev-extract scrypt-*.rpm
+        [user@restore ~]$ alias scrypt="$PWD/scrypt-*/usr/bin/scrypt"
 
 ## Emergency recovery instructions
 
 **Note:** In the following example, the backup file is both *encrypted* and
 *compressed*.
 
- 1. (Optional) If you're working with binaries that you saved with your backup,
-    such as `scrypt`, you can make things easier by aliasing those binaries now,
-    e.g.,
+ 1. Untar the backup metadata from the main backup file.
 
-        [user@restore ~]$ alias scrypt="$PWD/scrypt-*/usr/bin/scrypt"
-
- 2. Untar the main backup file.
-
-        [user@restore ~]$ tar -i -xvf qubes-backup-2015-06-05T123456
+        [user@restore ~]$ tar -i -xvf qubes-backup-2015-06-05T123456 \
+            backup-header backup-header.hmac qubes.xml.000.enc
         backup-header
         backup-header.hmac
         qubes.xml.000.enc
-        vm1/private.img.000.enc
-        vm1/private.img.001.enc
-        vm1/private.img.002.enc
-        vm1/icon.png.000.enc
-        vm1/firewall.xml.000.enc
-        vm1/whitelisted-appmenus.list.000.enc
-        dom0-home/dom0user.000.enc
 
- 3. Set the backup passphrase environment variable. While this isn't strictly
+ 2. Set the backup passphrase environment variable. While this isn't strictly
     required, it will be handy later and will avoid saving the passphrase in the
     shell's history.
 
         [user@restore ~]$ read -r backup_pass
 
- 4. Verify the integrity of `backup-header`. For compatibility reasons,
-    `backup-header.hmac` is an encrypted *and integrity protected* version of
-    `backup-header`.
+ 3. Verify the integrity of `backup-header` using `backup-header.hmac` (an
+    encrypted *and integrity protected* version of `backup-header`).
 
         [user@restore ~]$ set +H
         [user@restore ~]$ echo "backup-header!$backup_pass" |\
@@ -118,7 +107,7 @@ any GNU/Linux system.
     - [Emergency Backup Recovery without Qubes (v2)](/doc/backup-emergency-restore-v2/)
     - [Emergency Backup Recovery without Qubes (v3)](/doc/backup-emergency-restore-v3/)
 
- 5. Read `backup-header`.
+ 4. Read `backup-header`.
 
         [user@restore ~]$ cat backup-header
         version=4
@@ -128,36 +117,53 @@ any GNU/Linux system.
         hmac-algorithm=scrypt
         backup-id=20161020T123455-1234
 
- 6. Set `backup_id` to the value in the last line of `backup-header`. (Note that
+ 5. Set `backup_id` to the value in the last line of `backup-header`. (Note that
     there is a hyphen in `backup-id` in the file, whereas there is an underscore
     in `backup_id` in the variable you're setting.)
 
         [user@restore ~]$ backup_id=20161020T123455-1234
 
- 7. Choose a qube whose data you wish to restore (in this example, `vm1`).
-    Verify the data's integrity, decrypt it, decompress it, and extract it.
+ 6. Verify and decrypt, decompress, and extract the `qubes.xml` file.
 
-        [user@restore ~]$ find vm1 -name 'private.img.*.enc' | sort -V | while read f_enc; do \
-            f_dec=${f_enc%.enc}; \
-            echo "$backup_id!$f_dec!$backup_pass" | scrypt dec -P $f_enc || break; \
-            done | gzip -d | tar -xv
-        vm1/private.img
+        [user@restore ~]$ echo "$backup_id!qubes.xml.000!$backup_pass" |\
+            scrypt dec -P qubes.xml.000.enc | gzip -d | tar -xv
+        qubes.xml
 
     If this pipeline fails, it is likely that the backup is corrupted or has
     been tampered with.
 
     **Note:** If your backup was compressed with a program other than `gzip`,
     you must substitute the correct compression program in the command above.
-    This information is contained in `backup-header` (see step 5). For example,
+    This information is contained in `backup-header` (see step 4). For example,
     if your backup is compressed with `bzip2`, use `bzip2 -d` instead of `gzip
     -d` in the command above.
 
- 8. Enter the decrypted directory, mount `private.img`, and access your data.
+ 7. Search inside of `qubes.xml` for the `backup-path` property of the qube
+    whose data you wish to restore. Using the value of this property (e.g.
+    `vm123`), untar the necessary data files:
 
-        [user@restore]$ sudo mkdir /mnt/img
-        [user@restore]$ sudo mount -o loop vm1/private.img /mnt/img/
-        [user@restore]$ cat /mnt/img/home/user/your_data.txt
+        [user@restore ~]$ tar -i -xvf qubes-backup-2015-06-05T123456 vm123
+
+ 8. Verify and decrypt the backed up data, decompress it, and extract it.
+
+        [user@restore ~]$ find vm123 -name 'private.img.*.enc' | sort -V | while read f_enc; do \
+            f_dec=${f_enc%.enc}; \
+            echo "$backup_id!$f_dec!$backup_pass" | scrypt dec -P $f_enc || break; \
+            done | gzip -d | tar -xv
+        vm123/private.img
+
+    If this pipeline fails, it is likely that the backup is corrupted or has
+    been tampered with.
+
+    Also see the note in step 6 about substituting a different compression
+    program for `gzip`.
+
+ 9. Mount `private.img` and access your data.
+
+        [user@restore ~]$ sudo mkdir /mnt/img
+        [user@restore ~]$ sudo mount -o loop vm123/private.img /mnt/img/
+        [user@restore ~]$ cat /mnt/img/home/user/your_data.txt
         This data has been successfully recovered!
 
 Success! If you wish to recover data from more than one qube in your backup,
-simply repeat steps 7 and 8 for each additional qube.
+simply repeat steps 7, 8, and 9 for each additional qube.
