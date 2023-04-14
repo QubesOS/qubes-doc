@@ -136,7 +136,8 @@ any GNU/Linux system.
     you must substitute the correct compression program in the command above.
     This information is contained in `backup-header` (see step 4). For example,
     if your backup is compressed with `bzip2`, use `bzip2 -d` instead of `gzip
-    -d` in the command above.
+    -d` in the command above. You might need to install a package of the same
+    name (in this example, `bzip2`) through your distribution's package manager.
 
  7. Search inside of `qubes.xml` for the `backup-path` property of the qube
     whose data you wish to restore. Using the value of this property (e.g.
