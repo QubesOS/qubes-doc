@@ -140,13 +140,13 @@ any GNU/Linux system.
 
  7. Search inside of `qubes.xml` for the `backup-path` property of the qube
     whose data you wish to restore. Using the value of this property (e.g.
-    `vm123`), untar the necessary data files:
+    `vm123/`), untar the necessary data files:
 
-        [user@restore ~]$ tar -i -xvf qubes-backup-2015-06-05T123456 vm123
+        [user@restore ~]$ tar -i -xvf qubes-backup-2015-06-05T123456 vm123/
 
  8. Verify and decrypt the backed up data, decompress it, and extract it.
 
-        [user@restore ~]$ find vm123 -name 'private.img.*.enc' | sort -V | while read f_enc; do \
+        [user@restore ~]$ find vm123/ -name 'private.img.*.enc' | sort -V | while read f_enc; do \
             f_dec=${f_enc%.enc}; \
             echo "$backup_id!$f_dec!$backup_pass" | scrypt dec -P $f_enc || break; \
             done | gzip -d | tar -xv
