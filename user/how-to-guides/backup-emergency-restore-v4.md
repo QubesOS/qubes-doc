@@ -79,7 +79,7 @@ any GNU/Linux system.
 
  1. Untar the backup metadata from the main backup file.
 
-        [user@restore ~]$ tar -i -xvf qubes-backup-2015-06-05T123456 \
+        [user@restore ~]$ tar -i -xvf qubes-backup-2023-04-05T123456 \
             backup-header backup-header.hmac qubes.xml.000.enc
         backup-header
         backup-header.hmac
@@ -139,11 +139,39 @@ any GNU/Linux system.
     -d` in the command above. You might need to install a package of the same
     name (in this example, `bzip2`) through your distribution's package manager.
 
- 7. Search inside of `qubes.xml` for the `backup-path` property of the qube
-    whose data you wish to restore. Using the value of this property (e.g.
-    `vm123/`), untar the necessary data files:
+ 7. Search inside of the `qubes.xml` file for the `backup-path` of the qube
+    whose data you wish to restore. If you install the `xmlstarlet` package, the
+    following command will convert `qubes.xml` to a friendlier listing for this
+    purpose:
 
-        [user@restore ~]$ tar -i -xvf qubes-backup-2015-06-05T123456 vm123/
+        [user@restore ~]$ xmlstarlet sel -T -t -m //domain \
+            -v 'concat(.//property[@name="name"], " ", .//feature[@name="backup-path"])' \
+            -n qubes.xml
+        
+        anon-whonix
+        debian-11
+        default-mgmt-dvm
+        disp2345
+        fedora-37
+        fedora-37-dvm
+        personal vm123/
+        sys-firewall
+        sys-net
+        sys-usb
+        untrusted
+        vault vm321/
+        whonix-gw-16
+        whonix-ws-16
+        whonix-ws-16-dvm
+        work
+
+    The example output above shows that the backup file includes a qube named
+    `personal` and a qube named `vault`, with `backup-path` values of `vm123/`
+    and `vm321/` respectively. (Every other listed qube was not selected to be
+    included in the backup file.) Use the corresponding value to untar the
+    necessary data files of the qube:
+
+        [user@restore ~]$ tar -i -xvf qubes-backup-2023-04-05T123456 vm123/
 
  8. Verify and decrypt the backed up data, decompress it, and extract it.
 
