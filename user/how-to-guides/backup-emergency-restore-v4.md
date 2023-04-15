@@ -158,6 +158,7 @@ any GNU/Linux system.
         sys-firewall
         sys-net
         sys-usb
+        sys-whonix
         untrusted
         vault vm321/
         whonix-gw-16
