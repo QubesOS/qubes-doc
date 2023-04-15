@@ -115,13 +115,13 @@ any GNU/Linux system.
         compressed=True
         compression-filter=gzip
         hmac-algorithm=scrypt
-        backup-id=20161020T123455-1234
+        backup-id=20230405T123455-1234
 
  5. Set `backup_id` to the value in the last line of `backup-header`. (Note that
     there is a hyphen in `backup-id` in the file, whereas there is an underscore
     in `backup_id` in the variable you're setting.)
 
-        [user@restore ~]$ backup_id=20161020T123455-1234
+        [user@restore ~]$ backup_id=20230405T123455-1234
 
  6. Verify and decrypt, decompress, and extract the `qubes.xml` file.
 
