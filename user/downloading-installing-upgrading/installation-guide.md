@@ -351,8 +351,7 @@ an internal storage device.
 
 <div class="alert alert-success" role="alert">
   <i class="fa fa-check-circle"></i>
-  <b>Did you know?</b> Qubes OS uses full-disk AES encryption (FDE) via LUKS by
-  default.
+  <b>Did you know?</b> By default, Qubes OS uses <a href="https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup">LUKS</a>/<a href="https://en.wikipedia.org/wiki/Dm-crypt">dm-crypt</a> to encrypt everything except the `/boot` partition.
 </div>
 
 As soon as you press **Done**, the installer will ask you to enter a passphrase

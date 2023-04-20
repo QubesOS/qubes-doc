@@ -186,10 +186,7 @@ We believe that this is currently the only practically viable approach to implem
 
 ### Does Qubes use full disk encryption (FDE)?
 
-Yes, of course!
-Full disk encryption is enabled by default.
-Specifically, we use [LUKS](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup)/[dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
-You can even [manually configure your encryption parameters](/doc/custom-install/) if you like!
+By default, Qubes OS uses [LUKS](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup)/[dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) to encrypt everything except the `/boot` partition.
 
 ### What do all these terms mean?
 
