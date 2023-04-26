@@ -121,7 +121,7 @@ Tests are also compatible with nose2 test runner, so you can use this instead:
 sudo systemctl stop qubesd; sudo -E nose2 -v --plugin nose2.plugins.loader.loadtests qubes.tests; sudo systemctl start qubesd
 ```
 
-This may be especially useful together with various nose2 plugins to store tests results (for example `nose2.plugins.junitxml`), to ease presenting results. This is what we use on [OpenQA](http://open.qa/).
+This may be especially useful together with various nose2 plugins to store tests results (for example `nose2.plugins.junitxml`), to ease presenting results. This is what we use on [OpenQA](https://open.qa/).
 
 ### Unit testing inside a VM
 
@@ -248,7 +248,7 @@ class SomeTestCase(unittest.TestCase):
 **Tests:** <https://github.com/marmarek/openqa-tests-qubesos>
 
 Manually testing Qubes OS and its installation is a time-consuming process.
-We use [OpenQA](http://open.qa/) to automate this process.
+We use [OpenQA](https://open.qa/) to automate this process.
 It works by installing Qubes in KVM and interacting with it as a user would, including simulating mouse clicks and keyboard presses.
 Then, it checks the output to see whether various tests were passed, e.g. by comparing the virtual screen output to screenshots of a successful installation.
 
