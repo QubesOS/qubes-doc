@@ -18,7 +18,7 @@ No operating system, not even Qubes, can help you if you're installing it on har
 This includes CPUs, GPUs, SSDs, HDDs, the motherboard, BIOS/EFI/UEFI, and all relevant firmware.
 Unfortunately, in today's world of undetectable supply chain attacks, there are no easy solutions.
 (Tools like [Anti Evil Maid (AEM)](/doc/anti-evil-maid/) can help with *maintaining* the trustworthiness of your hardware, but not with establishing it in the first place.)
-Some users have chosen to use tools like [Coreboot](https://www.coreboot.org/), [Heads](http://osresearch.net/), and [Skulls](https://github.com/merge/skulls).
+Some users have chosen to use tools like [Coreboot](https://www.coreboot.org/), [Heads](https://osresearch.net/), and [Skulls](https://github.com/merge/skulls).
 
 ## Verifying the Qubes ISO
 
