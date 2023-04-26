@@ -193,12 +193,12 @@ $ qubesctl --all state.highstate
 
 You will sometimes find yourself writing repetitive states.
 To solve this, there is the ability to template files or states.
-This is most commonly done with [Jinja](http://jinja.pocoo.org/).
+This is most commonly done with [Jinja](https://palletsprojects.com/p/jinja/).
 Jinja is similar to Python and in many cases behaves in a similar fashion, but
 there are sometimes differences when, for example, you set some variable inside
 a loop: the variable outside will not get changed.
 Instead, to get this behavior, you would use a `do` statement.
-So you should take a look at the [Jinja API documentation](http://jinja.pocoo.org/docs/2.9/templates/).
+So you should take a look at the [Jinja API documentation](https://jinja.palletsprojects.com/templates/).
 Documentation about using Jinja to directly call Salt functions and get data
 about your system can be found in the official
 [Salt documentation](https://docs.saltproject.io/en/getstarted/config/jinja.html#get-data-using-salt).
@@ -605,6 +605,6 @@ install template and shutdown updateVM:
 - [Salt states](https://docs.saltproject.io/en/latest/ref/states/all/) ([files](https://docs.saltproject.io/en/latest/ref/states/all/salt.states.file.html), [commands](https://docs.saltproject.io/en/latest/ref/states/all/salt.states.cmd.html),
   [packages](https://docs.saltproject.io/en/latest/ref/states/all/salt.states.pkg.html), [ordering](https://docs.saltproject.io/en/latest/ref/states/ordering.html))
 - [Top files](https://docs.saltproject.io/en/latest/ref/states/top.html)
-- [Jinja templates](http://jinja.pocoo.org/)
+- [Jinja templates](https://palletsprojects.com/p/jinja/)
 - [Qubes specific modules](https://github.com/QubesOS/qubes-mgmt-salt-dom0-qvm/blob/master/README.rst)
 - [Formulas for default Qubes VMs](https://github.com/QubesOS/qubes-mgmt-salt-dom0-virtual-machines/tree/master/qvm)
