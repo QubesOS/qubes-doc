@@ -15,6 +15,8 @@ redirect_from:
 - /doc/InstallationGuideR3.0rc1/
 - /doc/InstallationGuideR3.0rc2/
 - /doc/live-usb/
+- /doc/custom-install/
+- /doc/encryption-config/
 ref: 153
 title: Installation guide
 ---
