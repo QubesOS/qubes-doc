@@ -206,7 +206,7 @@ Clearly, cutting out something as simple as navigating through the file system c
 
 ## GNOME, KDE, and Xfce
 
-The desktop GUIs that QubesOS versions 1 - 4.1 offer are [KDE](https://www.kde.org) and [Xfce](https://xfce.org). We are currently migrating towards using [GNOME](https://www.gnome.org). We know some people prefer KDE, but we believe Gnome is easier to use for average non-technical users. Xfce will always be supported, and technical users will always have the choice to use KDE or other desktop environments.
+The desktop GUIs that QubesOS versions 1 - 4.1 offer are [KDE](https://kde.org) and [Xfce](https://xfce.org). We are currently migrating towards using [GNOME](https://www.gnome.org). We know some people prefer KDE, but we believe Gnome is easier to use for average non-technical users. Xfce will always be supported, and technical users will always have the choice to use KDE or other desktop environments.
 
 This change means you should use [GTK](https://gtk.org/) rather than Qt for new GUIs.
 
