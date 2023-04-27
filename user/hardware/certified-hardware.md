@@ -79,6 +79,14 @@ Qubes OS 4.X. Read our
 [announcement](/news/2023/03/15/dasharo-fidelisguard-z690-first-qubes-certified-desktop/)
 for details.
 
+### NovaCustom NV41 Series
+
+[![Photo of the NovaCustom NV41 Series](/attachment/site/novacustom-nv41-series.png)](https://configurelaptop.eu/nv41-series/)
+
+The [NovaCustom NV41 Series](https://configurelaptop.eu/nv41-series/) is a
+14-inch custom laptop. It is certified for Qubes OS 4.X. Read our
+[announcement](TODO) for details.
+
 ## Become hardware certified
 
 If you are a hardware vendor, you can have your hardware certified as
