@@ -103,7 +103,7 @@ Below is a complete list of configuration made according to the above statement,
 Replacing passwordless root access with Dom0 user prompt
 --------------------------------------------------------
 
-While ITL supports the statement above, some Qubes users may wish to enable user/root isolation in VMs anyway.
+While 'Invisible Things Lab' supports the statement above, some Qubes users may wish to enable user/root isolation in VMs anyway.
 We do not support it in any of our packages, but of course nothing is preventing the user from modifying his or her own system.
 A list of steps to do so is provided here **without any guarantee of safety, accuracy, or completeness.
 Proceed at your own risk.
