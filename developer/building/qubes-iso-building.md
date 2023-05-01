@@ -15,7 +15,7 @@ title: Qubes ISO building
 Build Environment
 -----------------
 
-Fedora 36 has been successfully used to build Qubes R4.1 with the below steps.
+Fedora 36 (and 37) has been successfully used to build Qubes R4.1 with the below steps.
 Other rpm-based operating systems may also work.
 Travis-CI uses Ubuntu 18.04 to perform test builds, except it can not test the `./setup` script.
 
