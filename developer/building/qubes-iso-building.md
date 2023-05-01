@@ -30,12 +30,11 @@ sudo setenforce 0
 
 
 In `dom0`, install the Fedora 36 (or 37) template if you don't already have it.
-
 ~~~
 sudo qubes-dom0-update qubes-template-fedora-36
 ~~~
 
-Create a standalone AppVM from the Fedora template.
+Create a standalone AppVM from the Fedora  template.
 Set private storage to at least 60 GB if you will be building only the default templates; 100 GB or more if you plan on additional.
 It's not required, but if you allocate additional CPU cores, the build process can utilize them at some steps such as the kernel build.
 Likewise, more memory (up to 16 GB) can help.
