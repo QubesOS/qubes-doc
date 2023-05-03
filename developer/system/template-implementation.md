@@ -25,7 +25,7 @@ This is mounted as /rw and here is placed all VM private data. This includes:
 - */usr/local* – which is symlink to /rw/usrlocal
 - some config files (/rw/config) called by qubes core scripts (ex /rw/config/rc.local)
 
-**Note:** Whenever a TemplateBasedVM is created, the contents of the `/home` directory of its parent TemplateVM are *not* copied to the child TemplateBasedVM's `/home`. The child TemplateBasedVM's `/home` is independent from its parent TemplateVM's `/home`, which means that any changes to the parent TemplateVM's `/home` will not affect the child TemplateBasedVM's `/home`. Once a TemplateBasedVM has been created, any changes in its `/home`, `/usr/local`, or `/rw/config` directories will be persistent across reboots, which means that any files stored there will still be available after restarting the TemplateBasedVM. No changes in any other directories in TemplateBasedVMs persist in this manner. If you would like to make changes in other directories which *do* persist in this manner, you must make those changes in the parent TemplateVM.
+**Note:** Whenever a TemplateBasedVM is created, the contents of the `/home` directory of its parent TemplateVM [are *not* copied to the child TemplateBasedVM's `/home`](/doc/templates/#inheritance-and-persistence). The child TemplateBasedVM's `/home` is independent from its parent TemplateVM's `/home`, which means that any changes to the parent TemplateVM's `/home` will not affect the child TemplateBasedVM's `/home`. Once a TemplateBasedVM has been created, any changes in its `/home`, `/usr/local`, or `/rw/config` directories will be persistent across reboots, which means that any files stored there will still be available after restarting the TemplateBasedVM. No changes in any other directories in TemplateBasedVMs persist in this manner. If you would like to make changes in other directories which *do* persist in this manner, you must make those changes in the parent TemplateVM.
 
 ## modules.img (xvdd)
 
@@ -37,7 +37,7 @@ As the kernel is chosen in dom0, there must be some way to provide matching kern
 
 Normally kernel "package" is common for many VMs (can be set using qvm-prefs). One of them can be set as default (qvm-set-default-kernel) to simplify kernel updates (by default all VMs use the default kernel). All installed kernels are placed in /var/lib/qubes/vm-kernels as separate subdirs. In this case, modules.img is attached to the VM as R/O device.
 
-There is a special case when the VM can have a custom kernel – when it is updateable (StandaloneVM or TemplateVM) and the kernel is set to "none" (by qvm-prefs). In this case the VM uses the kernel from the "kernels" VM subdir and modules.img is attached as R/W device. FIXME: "none" should be renamed to "custom".
+There is a special case when the VM can have a custom kernel – when it is updateable (StandaloneVM or TemplateVM) and the kernel is set to "none" (by qvm-prefs). In this case the VM uses the kernel from the "kernels" VM subdir and modules.img is attached as R/W device.
 
 # Qubes TemplateVM implementation
 

@@ -206,14 +206,14 @@ Clearly, cutting out something as simple as navigating through the file system c
 
 ## GNOME, KDE, and Xfce
 
-The desktop GUIs that QubesOS versions 1 - 3.1 offer are [KDE](https://www.kde.org) and [Xfce](https://xfce.org). We are currently migrating towards using [GNOME](https://www.gnome.org). We know some people prefer KDE, but we believe Gnome is easier to use for average non-technical users. Xfce will always be supported, and technical users will always have the choice to use KDE or other desktop environments.
+The desktop GUIs that QubesOS versions 1 - 4.1 offer are [KDE](https://kde.org) and [Xfce](https://xfce.org). We are currently migrating towards using [GNOME](https://www.gnome.org). We know some people prefer KDE, but we believe Gnome is easier to use for average non-technical users. Xfce will always be supported, and technical users will always have the choice to use KDE or other desktop environments.
 
-This change means you should use [GTK](https://www.gtk.org/) rather than Qt for new GUIs.
+This change means you should use [GTK](https://gtk.org/) rather than Qt for new GUIs.
 
 All three of these mentioned desktop environments have their own [human interface guidelines](https://en.wikipedia.org/wiki/Human_interface_guidelines), and we suggest you familiarize yourself with the platform you developing for.
 
-- [GNOME Human Interface Guidelines](https://developer.gnome.org/hig/3.18/)
-- [KDE HIG](https://techbase.kde.org/Projects/Usability/HIG)
+- [GNOME Human Interface Guidelines](https://developer.gnome.org/hig/)
+- [KDE HIG](https://hig.kde.org/)
 - [Xfce UI Guidlines](https://wiki.xfce.org/dev/hig/general)
 
 ---
@@ -222,9 +222,9 @@ All three of these mentioned desktop environments have their own [human interfac
 
 Learning to make well designing intuitive interfaces and software is specialized skillset that can take years to cultivate, but if you are interested in furthering your understanding, we suggest the following resources:
 
-- [Learn Design Principles](http://learndesignprinciples.com) by Melissa Mandelbaum
-- [Usability in Free Software](http://jancborchardt.net/usability-in-free-software) by Jan C. Borchardt
+- [Learn Design Principles](https://web.archive.org/web/20180101172357/http://learndesignprinciples.com/) by Melissa Mandelbaum
+- [Usability in Free Software](https://jancborchardt.net/usability-in-free-software) by Jan C. Borchardt
 - [Superheroes & Villains in Design](https://vimeo.com/70030549) by Aral Balkan
-- [First Rule of Usability? Don’t Listen to Users](http://www.nngroup.com/articles/first-rule-of-usability-dont-listen-to-users/) by Jakob Nielsen
+- [First Rule of Usability? Don’t Listen to Users](https://www.nngroup.com/articles/first-rule-of-usability-dont-listen-to-users/) by Jakob Nielsen
 - [10 Usability Heuristics for User Interface Design](https://www.nngroup.com/articles/ten-usability-heuristics/) by Jakob Nielsen
 - [Hack Design](https://hackdesign.org/) - online learning program

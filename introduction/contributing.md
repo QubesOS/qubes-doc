@@ -48,10 +48,10 @@ interest and experience. For example, here are some common issue labels:
 
 * [Help wanted](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22&utf8=%E2%9C%93)
 * [UX and usability](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3AUX)
-* [Windows tools](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+windows+tools%22)
+* [Windows tools](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+windows-tools%22)
 * [Documentation](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+doc%22)
 * [Privacy](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3A%22privacy%22%20)
-* [Debian](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+Debian%22)
+* [Debian/Ubuntu](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+Debian%2FUbuntu%22)
 
 Before you engage in an activity that will take you a significant amount of
 time, like implementing a new feature, it's always good to contact us first,

@@ -85,7 +85,7 @@ not attempt to link to images hosted on other websites.
 ### HTML and CSS
 
 Do not write HTML inside Markdown documents (except in rare, unavoidable cases,
-such as alerts). In particular, never include HTML or CSS for styling,
+such as [alerts](#alerts)). In particular, never include HTML or CSS for styling,
 formatting, or white space control. That belongs in the (S)CSS files instead.
 
 ### Headings
@@ -117,6 +117,124 @@ for a list of supported languages). Use `[...]` for anything omitted.
 
 Hard wrap Markdown lines at 80 characters, unless the line can't be broken
 (e.g., code or a URL).
+
+### Do not use Markdown syntax for styling
+
+For example, there is a common temptation to use block quotations (created by
+beginning lines with the `>` character) in order to stylistically distinguish
+some portion of text from the rest of the document, e.g.:
+
+```
+> Note: This is an important note!
+```
+
+This renders as:
+
+> Note: This is an important note!
+
+There are two problems with this:
+
+1. It is a violation of the [separation of content and
+   presentation](https://en.wikipedia.org/wiki/Separation_of_content_and_presentation),
+   since it abuses markup syntax in order to achieve unintended stylistic
+   results. The Markdown (and HTML, if any) should embody the *content* of the
+   documentation, while the *presentation* is handled by (S)CSS.
+
+2. It is an abuse of quotation syntax for text that is not actually a
+   quotation. (You are not quoting anyone here. You're just telling the reader
+   to note something and trying to draw their attention to your note visually.)
+
+Instead, an example of an appropriate way to stylistically distinguish a
+portion of text is by using [alerts](#alerts). Consider also that extra styling
+and visual distinction may not even be necessary. In most cases, traditional
+writing methods are perfectly sufficient, e.g.,:
+
+```
+**Note:** This is an important note.
+```
+
+This renders as:
+
+**Note:** This is an important note.
+
+### Alerts
+
+Alerts are sections of HTML used to draw the reader's attention to important
+information, such as warnings, and for stylistic purposes. They are typically
+styled as colored text boxes, usually accompanied by icons. Alerts should
+generally be used somewhat sparingly, so as not to cause [alert
+fatigue](https://en.wikipedia.org/wiki/Alarm_fatigue) and since they must be
+written in HTML instead of Markdown, which makes the source less readable and
+more difficult to work with for localization and automation purposes. Here are
+examples of several types of alerts and their recommended icons:
+
+```
+<div class="alert alert-success" role="alert">
+  <i class="fa fa-check-circle"></i>
+  <b>Did you know?</b> The Qubes OS installer is completely offline. It doesn't
+  even load any networking drivers, so there is no possibility of
+  internet-based data leaks or attacks during the installation process.
+</div>
+
+<div class="alert alert-info" role="alert">
+  <i class="fa fa-info-circle"></i>
+  <b>Note:</b> Using Rufus to create the installation medium means that you <a
+  href="https://github.com/QubesOS/qubes-issues/issues/2051">won't be able</a>
+  to choose the "Test this media and install Qubes OS" option mentioned in the
+  example below. Instead, choose the "Install Qubes OS" option.
+</div>
+
+<div class="alert alert-warning" role="alert">
+  <i class="fa fa-exclamation-circle"></i>
+  <b>Note:</b> Qubes OS is not meant to be installed inside a virtual machine
+  as a guest hypervisor. In other words, <b>nested virtualization</b> is not
+  supported. In order for a strict compartmentalization to be enforced, Qubes
+  OS needs to be able to manage the hardware directly.
+</div>
+
+<div class="alert alert-danger" role="alert">
+  <i class="fa fa-exclamation-triangle"></i>
+  <b>Warning:</b> Qubes has no control over what happens on your computer
+  before you install it. No software can provide security if it is installed on
+  compromised hardware. Do not install Qubes on a computer you don't trust. See
+  <a href="/doc/install-security/">installation security</a> for more
+  information.
+</div>
+```
+
+These render as:
+
+<div class="alert alert-success" role="alert">
+  <i class="fa fa-check-circle"></i>
+  <b>Did you know?</b> The Qubes OS installer is completely offline. It doesn't
+  even load any networking drivers, so there is no possibility of
+  internet-based data leaks or attacks during the installation process.
+</div>
+
+<div class="alert alert-info" role="alert">
+  <i class="fa fa-info-circle"></i>
+  <b>Note:</b> Using Rufus to create the installation medium means that you <a
+  href="https://github.com/QubesOS/qubes-issues/issues/2051">won't be able</a>
+  to choose the "Test this media and install Qubes OS" option mentioned in the
+  example below. Instead, choose the "Install Qubes OS" option.
+</div>
+
+<div class="alert alert-warning" role="alert">
+  <i class="fa fa-exclamation-circle"></i>
+  <b>Note:</b> Qubes OS is not meant to be installed inside a virtual machine
+  as a guest hypervisor. In other words, <b>nested virtualization</b> is not
+  supported. In order for a strict compartmentalization to be enforced, Qubes
+  OS needs to be able to manage the hardware directly.
+</div>
+
+<div class="alert alert-danger" role="alert">
+  <i class="fa fa-exclamation-triangle"></i>
+  <b>Warning:</b> Qubes has no control over what happens on your computer
+  before you install it. No software can provide security if it is installed on
+  compromised hardware. Do not install Qubes on a computer you don't trust. See
+  <a href="/doc/install-security/">installation security</a> for more
+  information.
+</div>
 
 ## Writing guidelines
 
@@ -209,6 +327,61 @@ can be accomplished in one of several ways:
   Novices may not realize which parts of the command they can substitute with
   different values, but if you've correctly judged that they should use the
   command you've provided as is, then this shouldn't matter.
+
+### Capitalization of "qube"
+
+We introduced the term ["qube"](/doc/glossary/#qube) as a user-friendly
+alternative to the term ["virtual machine" ("VM")](/doc/glossary/#vm) in the
+context of Qubes OS. Nonetheless, "qube" is a common noun like the words
+"compartment" and "container." Therefore, in English, "qube" follows the
+standard capitalization rules for common nouns. For example, "I have three
+qubes" is correct, while "I have three Qubes" is incorrect. Like other common
+nouns, "qube" should still be capitalized at the beginnings of sentences, the
+beginnings of sentence-case headings, and in title-case headings. Note,
+however, that starting a sentence with the plural of "qube" (e.g., "Qubes can
+be shut down...") can be ambiguous, since it may not be clear whether the
+referent is a plurality of qubes, [Qubes OS](/doc/glossary/#qubes-os), or even
+the Qubes OS Project itself. Hence, it is generally a good idea to rephrase
+such sentences in order to avoid this ambiguity.
+
+Many people feel a strong temptation to capitalize the word "qube" all the
+time, like a proper noun, perhaps because it's a new and unfamiliar term that's
+closely associated with a particular piece of software (namely, Qubes OS).
+However, these factors are not relevant to the capitalization rules of English.
+In fact, it's not unusual for new common nouns to be introduced into English,
+especially in the context of technology. For example, "blockchain" is a
+relatively recent technical term that's a common noun. Why is it a common noun
+rather than a proper noun? Because proper nouns refer to *particular* people,
+places, things, and ideas. There are many different blockchains. However, even
+when there was just one, the word still denoted a collection of things rather
+than a particular thing. It happened to be the case that there was only one
+member in that collection at the time. For example, if there happened to be
+only one tree in the world, that wouldn't change the way we capitalize
+sentences like, "John sat under a tree." Intuitively, it makes sense that the
+addition and removal of objects from the world shouldn't cause published books
+to become orthographicallly incorrect while sitting on their shelves.
+
+Accordingly, the reason "qube" is a common noun rather than a proper noun is
+because it doesn't refer to any one specific thing (in this case, any one
+specific virtual machine). Rather, it's the term for any virtual machine in a
+Qubes OS installation. (Technically, while qubes are currently implemented as
+virtual machines, Qubes OS is independent of its underlying
+compartmentalization technology. Virtual machines could be replaced with a
+different technology, and qubes would still be called "qubes.")
+
+I have several qubes in my Qubes OS installation, and you have several in
+yours. Every Qubes OS user has their own set of qubes, just as each of us lives
+in some neighborhood on some street. Yet we aren't tempted to treat words like
+"neighborhood" or "street" as proper nouns (unless, of course, they're part of
+a name, like "Acorn Street"). Again, while this might seem odd because "qube"
+is a new word that we invented, that doesn't change how English works. After
+all, *every* word was a new word that someone invented at some point (otherwise
+we wouldn't have any words at all). We treat "telephone," "computer,"
+"network," "program," and so on as common nouns, even though those were all new
+technological inventions in the not-too-distant past (on a historical scale, at
+least). So, we shouldn't allow ourselves to be confused by irrelevant factors,
+like the fact that the inventors happened to be *us* or that the invention was
+*recent* or is not in widespread use among humanity.
 
 ## Organizational guidelines
 

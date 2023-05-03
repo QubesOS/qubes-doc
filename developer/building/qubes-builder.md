@@ -24,6 +24,7 @@ In order to use it, you should use an rpm-based distro, like Fedora :), and shou
 - git
 - createrepo
 - rpm-build
+- dnf-plugins-core
 - make
 - wget
 - rpmdevtools

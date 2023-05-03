@@ -29,46 +29,66 @@ You may also be interested in the [community-recommended
 hardware](https://forum.qubes-os.org/t/5560) list and the [hardware
 compatibility list (HCL)](/hcl/).
 
-## Qubes-certified Laptops
+## Qubes-certified computers
 
-Qubes-certified laptops are certified for a [major
+Qubes-certified computers are certified for a [major
 release](/doc/version-scheme/) and regularly tested by the Qubes developers to
 ensure compatibility with all of Qubes' features within that major release. The
 developers test all new updates within that major release to ensure that no
 regressions are introduced.
 
+The current Qubes-certified models are listed below in chronological order of
+certification.
+
 ### Insurgo PrivacyBeast X230
 
-[![insurgo-privacybeast-x230.png](/attachment/site/insurgo-privacybeast-x230.png)](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/)
+[![Photo of the Insurgo PrivacyBeast X230](/attachment/site/insurgo-privacybeast-x230.png)](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/)
 
 The [Insurgo PrivacyBeast
 X230](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/)
-meets and exceeds our hardware certification requirements for Qubes 4. Read our
-[announcement](/news/2019/07/18/insurgo-privacybeast-qubes-certification/) of
-the certification for further details!
+is a laptop based on the ThinkPad X230. It is certified for Qubes OS 4.X. Read
+our [announcement](/news/2019/07/18/insurgo-privacybeast-qubes-certification/)
+for details.
 
 ### NitroPad X230
 
-[![nitropad-x230.jpg](/attachment/site/nitropad-x230.jpg)](https://shop.nitrokey.com/shop/product/nitropad-x230-67)
+[![Photo of the NitroPad X230](/attachment/site/nitropad-x230.jpg)](https://shop.nitrokey.com/shop/product/nitropad-x230-67)
 
-The [NitroPad X230](https://shop.nitrokey.com/shop/product/nitropad-x230-67)
-satisfies all hardware certification requirements for Qubes 4, offering users
-extensive hardware security options. Read our
-[announcement](/news/2020/03/04/nitropad-x230-qubes-certification/) of the
-certification for further details!
+The [NitroPad X230](https://shop.nitrokey.com/shop/product/nitropad-x230-67) is
+a laptop based on the ThinkPad X230. It is certified for Qubes OS 4.X. Read our
+[announcement](/news/2020/03/04/nitropad-x230-qubes-certification/) for
+details.
 
 ### NitroPad T430
 
-[![nitropad-t-430.jpg](/attachment/site/nitropad-t430.jpg)](https://shop.nitrokey.com/shop/product/nitropad-t430-119)
+[![Photo of the NitroPad T430](/attachment/site/nitropad-t430.jpg)](https://shop.nitrokey.com/shop/product/nitropad-t430-119)
 
 The [NitroPad T430](https://shop.nitrokey.com/shop/product/nitropad-t430-119)
-satisfies all hardware certification requirements for Qubes 4, offering users
-extensive hardware security options. Read our
-[announcement](/news/2021/06/01/nitropad-t430-qubes-certification/) of the
-certification for further details!
+is a laptop based on the ThinkPad T430. It is certified for Qubes OS 4.X. Read
+our [announcement](/news/2021/06/01/nitropad-t430-qubes-certification/) for
+details.
 
+### Dasharo FidelisGuard Z690
 
-## Become Hardware Certified
+[![Photo of the Dasharo FidelisGuard Z690](/attachment/site/dasharo-fidelisguard-z690.jpg)](https://3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/)
+
+The [Dasharo FidelisGuard
+Z690](https://3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/)
+is a desktop based on the MSI PRO Z690-A DDR4 motherboard. It is certified for
+Qubes OS 4.X. Read our
+[announcement](/news/2023/03/15/dasharo-fidelisguard-z690-first-qubes-certified-desktop/)
+for details.
+
+### NovaCustom NV41 Series
+
+[![Photo of the NovaCustom NV41 Series](/attachment/site/novacustom-nv41-series.png)](https://configurelaptop.eu/nv41-series/)
+
+The [NovaCustom NV41 Series](https://configurelaptop.eu/nv41-series/) is a
+14-inch custom laptop. It is certified for Qubes OS 4.X. Read our
+[announcement](/news/2023/05/03/novacustom-nv41-series-qubes-certified/) for
+details.
+
+## Become hardware certified
 
 If you are a hardware vendor, you can have your hardware certified as
 compatible with Qubes OS. The benefits of hardware certification include:
@@ -83,7 +103,7 @@ compatible with Qubes OS. The benefits of hardware certification include:
   preserving compatibility and certification in future releases.
 - You can support the development of Qubes OS.
 
-## Hardware Certification Requirements
+## Hardware certification requirements
 
 **Note:** This section describes the requirements for hardware *certification*,
 *not* the requirements for *running* Qubes OS. For the latter, please see the
@@ -178,7 +198,7 @@ default sandboxing of all networking devices in dedicated VMs.
 We hope these hardware requirements will encourage the development of more
 secure and trustworthy devices.
 
-## Hardware Certification Process
+## Hardware certification process
 
 To have hardware certified, the vendor must:
 

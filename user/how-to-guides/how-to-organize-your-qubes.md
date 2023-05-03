@@ -526,7 +526,7 @@ lessons from our case studies:
   able to actually *use* your computer efficiently to do the things you need to
   do. For example, if you immediately try to jump into doing everything in
   [disposables](/doc/how-to-use-disposables/) and find yourself constantly
-  losing working (e.g., because you forget to transfer it out before the
+  losing work (e.g., because you forget to transfer it out before the
   disposable self-destructs), then that's a big problem! Your extra
   self-imposed security measures are interfering with the very thing they're
   designed to protect. At times like these, take a deep breath and remember
