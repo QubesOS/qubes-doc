@@ -17,19 +17,19 @@ title: Disposable customization
 
 A [disposable](/doc/disposable/) can be based on any [app qube](/doc/glossary/#app-qube).
 You can also choose to use different [disposable templates](/doc/glossary/#disposable-template) for different disposables.
-To prepare an app qube to be a disposable template, you need to set `template_for_dispvms` property, for example:
+To prepare an app qube to be a disposable template, you need to set `template_for_dispvms` property:
 
 ```shell_session
-[user@dom0 ~]$ qvm-prefs fedora-26-dvm template_for_dispvms True
+[user@dom0 ~]$ qvm-prefs <DISPOSABLE_TEMPLATE> template_for_dispvms True
 ```
 
-Additionally, if you want to have menu entries for starting applications in disposable based on this app qube (instead of in the app qube itself), you can achieve it with `appmenus-dispvm` feature:
+Additionally, if you want to have menu entries for starting applications in disposables based on this app qube (instead of in the app qube itself), you can achieve that with the `appmenus-dispvm` feature:
 
 ```shell_session
-[user@dom0 ~]$ qvm-features fedora-26-dvm appmenus-dispvm 1
+[user@dom0 ~]$ qvm-features <DISPOSABLE_TEMPLATE> appmenus-dispvm 1
 ```
 
-Note: application shortcuts that existed before setting this feature will not be updated automatically. Please go the the "Applications" tab in the qube's "Settings" dialog and unselect all existing shortcuts by clicking "<<", then click "OK" and close the dialog. Give it a few seconds time and then reopen and re-select all the shortcuts you want to see in the menu. See [this page](/doc/managing-appvm-shortcuts) for background information.
+**Note:** Application shortcuts that existed before setting this feature will not be updated automatically. Please go the the "Applications" tab in the qube's "Settings" dialog and unselect all existing shortcuts by clicking "<<", then click "OK" and close the dialog. Give it a few seconds time and then reopen and re-select all the shortcuts you want to see in the menu. See [this page](/doc/managing-appvm-shortcuts) for background information.
 
 ## Security
 
@@ -42,23 +42,23 @@ For this reason, it is strongly recommended that you base the default disposable
 ## Creating a new disposable template
 
 In Qubes 4.0, you're no longer restricted to a single disposable template. Instead, you can create as many as you want. Whenever you start a new disposable, you can choose to base it on whichever disposable template you like.
-To create new disposable template, lets say `custom-disposable-template`, based on `debian-9` template, use following commands:
+To create a new disposable template:
 
 ```shell_session
-[user@dom0 ~]$ qvm-create --template debian-9 --label red custom-disposable-template
-[user@dom0 ~]$ qvm-prefs custom-disposable-template template_for_dispvms True
-[user@dom0 ~]$ qvm-features custom-disposable-template appmenus-dispvm 1
+[user@dom0 ~]$ qvm-create --template <TEMPLATE> --label red <DISPOSABLE_TEMPLATE>
+[user@dom0 ~]$ qvm-prefs <DISPOSABLE_TEMPLATE> template_for_dispvms True
+[user@dom0 ~]$ qvm-features <DISPOSABLE_TEMPLATE> appmenus-dispvm 1
 ```
 
-Additionally you may want to set it as default disposable template:
+Optionally, set it as the default disposable template:
 
 ```shell_session
-[user@dom0 ~]$ qubes-prefs default_dispvm custom-disposable-template
+[user@dom0 ~]$ qubes-prefs default_dispvm <DISPOSABLE_TEMPLATE>
 ```
 
 The above default is used whenever a qube request starting a new disposable and do not specify which one (for example `qvm-open-in-dvm` tool). This can be also set in qube settings and will affect service calls from that qube. See [qrexec documentation](/doc/qrexec/#specifying-vms-tags-types-targets-etc) for details.
 
-If you wish to use a [Minimal Template](/doc/templates/minimal/) as a disposable template, please see the [Minimal Template](/doc/templates/minimal/) page.
+If you wish to use a [minimal template](/doc/templates/minimal/) as a disposable template, please see the [minimal template](/doc/templates/minimal/) page.
 
 ## Customization of disposable
 
@@ -67,10 +67,10 @@ _**Note:** If you are trying to customize Tor Browser in a Whonix disposable, pl
 It is possible to change the settings for each new disposable.
 This can be done by customizing the disposable template on which it is based:
 
-1. Start a terminal in the `fedora-26-dvm` qube (or another disposable template) by running the following command in a dom0 terminal. (If you enable `appmenus-dispvm` feature (as explained at the top), applications menu for this VM (`fedora-26-dvm`) will be "Disposable: fedora-26-dvm" (instead of "Domain: fedora-26-dvm") and entries there will start new disposable based on that VM (`fedora-26-dvm`). Not in that VM (`fedora-26-dvm`) itself).
+1. Start a terminal in the `<DISPOSABLE_TEMPLATE>` qube (or another disposable template) by running the following command in a dom0 terminal. (If you enable `appmenus-dispvm` feature (as explained at the top), applications menu for this VM (`<DISPOSABLE_TEMPLATE>`) will be "Disposable: <DISPOSABLE_TEMPLATE>" (instead of "Domain: <DISPOSABLE_TEMPLATE>") and entries there will start new disposable based on that VM (`<DISPOSABLE_TEMPLATE>`). Not in that VM (`<DISPOSABLE_TEMPLATE>`) itself).
 
     ```shell_session
-    [user@dom0 ~]$ qvm-run -a fedora-26-dvm gnome-terminal
+    [user@dom0 ~]$ qvm-run -a <DISPOSABLE_TEMPLATE> gnome-terminal
     ```
 
 2. Change the qube's settings and/or applications, as desired. Some examples of changes you may want to make include:
@@ -80,9 +80,9 @@ This can be done by customizing the disposable template on which it is based:
 
 4. Shutdown the qube (either by `poweroff` from qube's terminal, or `qvm-shutdown` from dom0 terminal).
 
-## Using named disposables for sys-*
+## Using named disposables for service qubes
 
-You can use a [named disposable](/doc/glossary/#named-disposable) for `sys-*` as long as it is stateless.
+You can use a [named disposable](/doc/glossary/#named-disposable) for service qubes (such as those with the `sys-*` naming scheme) as long as they are stateless.
 For example, a `sys-net` using DHCP or `sys-usb` will work.
 In most cases `sys-firewall` will also work, even if you have configured app qube firewall rules.
 The only exception is if you require something like VM to VM communication and have manually edited `iptables` or other items directly inside the firewall app qube.
@@ -90,38 +90,45 @@ The only exception is if you require something like VM to VM communication and h
 To create one that has no PCI devices attached, such as for `sys-firewall`:
 
 ~~~
-qvm-create -C DispVM -l green <sys-VMName>
-qvm-prefs <sys-VMName> autostart true
-qvm-prefs <sys-VMName> netvm <sys-net>
-qvm-prefs <sys-VMName> provides_network true
-qvm-features <sys-VMName> appmenus-dispvm ''
+qvm-create -C DispVM -l green <SERVICE_QUBE>
+qvm-prefs <SERVICE_QUBE> autostart true
+qvm-prefs <SERVICE_QUBE> netvm <NET_QUBE>
+qvm-prefs <SERVICE_QUBE> provides_network true
+qvm-features <SERVICE_QUBE> appmenus-dispvm ''
 ~~~
 
-Next, set the old `sys-firewall` autostart to false, and update any references to the old one to instead point to the new.
-For example, with `qvm-prefs work netvm sys-firewall2`.
+Next, set the old `sys-firewall` autostart to false, and update any references to the old one to instead point to the new, for example, with `qvm-prefs work netvm sys-firewall2`.
 
 To create one with a PCI device attached such as for `sys-net` or `sys-usb`, use the additional commands as follows.
 
-**Note** You can use `qvm-pci` to [determine](/doc/how-to-use-pci-devices/#qvm-pci-usage) the `<BDF>`.
+**Note:** You can use `qvm-pci` to [determine](/doc/how-to-use-pci-devices/#qvm-pci-usage) the `<BDF>`.
 Also, you will often need to include the `-o no-strict-reset=True` [option](/doc/how-to-use-pci-devices/#no-strict-reset) with USB controllers.
 
 ~~~
-qvm-create -C DispVM -l red <sys-VMName>
-qvm-prefs <sys-VMName> virt_mode hvm
-qvm-service <sys-VMName> meminfo-writer off
-qvm-pci attach --persistent <sys-VMName> dom0:<BDF>
-qvm-prefs <sys-VMName> autostart true
-qvm-prefs <sys-VMName> netvm ''
-qvm-features <sys-VMName> appmenus-dispvm ''
-# optional, if this disposable will be providing networking
-qvm-prefs <sys-VMName> provides_network true
+qvm-create -C DispVM -l red <SERVICE_QUBE>
+qvm-prefs <SERVICE_QUBE> virt_mode hvm
+qvm-service <SERVICE_QUBE> meminfo-writer off
+qvm-pci attach --persistent <SERVICE_QUBE> dom0:<BDF>
+qvm-prefs <SERVICE_QUBE> autostart true
+qvm-prefs <SERVICE_QUBE> netvm ''
+qvm-features <SERVICE_QUBE> appmenus-dispvm ''
 ~~~
 
-Next, set the old `sys-` VM's autostart to false, and update any references to the old one.
-In particular, make sure to update `/etc/qubes-rpc/policy/qubes.UpdatesProxy` in dom0.
+Optionally, if this disposable will also provide network access to other qubes:
 
-For example, `qvm-prefs sys-firewall netvm <sys-VMName>`.
-See below for a complete example of a `sys-net` replacement:
+~~~
+qvm-prefs <SERVICE_QUBE> provides_network true
+~~~
+
+Next, set the old service qube's autostart to false, and update any references to the old one, e.g.:
+
+~~~
+qvm-prefs sys-firewall netvm <SERVICE_QUBE>
+~~~
+
+Also make sure to update any [RPC policies](/doc/rpc-policy/), if needed.
+
+Here is an example of a complete `sys-net` replacement:
 
 ~~~
 qvm-create -C DispVM -l red sys-net2
@@ -137,9 +144,9 @@ qvm-prefs sys-firewall netvm sys-net2
 qubes-prefs clockvm sys-net2
 ~~~
 
-## Adding programs to disposable Application Menu
+## Adding programs to the app menu
 
-For added convenience, arbitrary programs can be added to the Application Menu of the disposable. 
+For added convenience, arbitrary programs can be added to the app menu of the disposable. 
 
 In order to do that, select "Qube settings" entry in selected base app qube, go to "Applications" tab and select desired applications as for any other qube.
 
@@ -169,7 +176,7 @@ Using disposables in this manner is ideal for untrusted qubes which require pers
 
 2. _(optional)_ In the disposable template, add custom firewall rule sets, Qubes VPN scripts, etc.
 
-    Firewall rules sets and Qubes VPN scripts can be added just like any other VM.   
+    Firewall rules sets and Qubes VPN scripts can be added just like any other VM.
     
 3. Set the disposable template as template for disposables:
 
@@ -356,29 +363,29 @@ If the `disp-sys-usb` does not start, it could be due to a PCI passthrough probl
 ## Deleting disposables
 
 While working in a disposable, you may want to open a document in another disposable.
-For this reason, the property `default_dispvm` may be set to the name of your disposable in a number of VMs:
+For this reason, the property `default_dispvm` may be set to the name of your disposable in a number of qubes:
 
 ```shell_session
-[user@dom0 ~]$ qvm-prefs workvm | grep default_dispvm
-default_dispvm        -  custom-disposable-template
+[user@dom0 ~]$ qvm-prefs <QUBE> | grep default_dispvm
+default_dispvm        -  <DISPOSABLE_TEMPLATE>
 ```
 
-This will prevent the deletion of the disposable template. In order to fix this you need to unset the `default_dispvm` property:
+This will prevent the deletion of the disposable template. In order to fix this, you need to unset the `default_dispvm` property:
 
 ```shell_session
-[user@dom0 ~]$ qvm-prefs workvm default_dispvm ""
+[user@dom0 ~]$ qvm-prefs <QUBE> default_dispvm ""
 ```
 
 You can then delete the disposable template:
 
 ```shell_session
-[user@dom0 ~]$ qvm-remove custom-disposable-template
+[user@dom0 ~]$ qvm-remove <DISPOSABLE_TEMPLATE>
 This will completely remove the selected VM(s)
-  custom-disposable-template
+  <DISPOSABLE_TEMPLATE>
 ```
 
       
-If you still encounter the issue, you may have forgot to clean an entry. Looking at the system logs will help you:
+If you still encounter a problem, you may have forgotten to clean an entry. Looking at the system logs will help you:
 
 ```shell_session
 [user@dom0 ~]$ journalctl | tail
