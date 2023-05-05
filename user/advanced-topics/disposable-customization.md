@@ -15,7 +15,7 @@ title: Disposable customization
 
 ## Introduction
 
-A [disposable](/doc/disposable/) can be based on any [app qube](/doc/glossary/#app-qube). You can also choose to use different [disposable templates](/doc/glossary/#disposable-template) for different disposables. To prepare an app qube to be a disposable template, you need to set `template_for_dispvms` property:
+A [disposable](/doc/disposable/) can be based on any [app qube](/doc/glossary/#app-qube). You can also choose to use different [disposable templates](/doc/glossary/#disposable-template) for different disposables. To prepare an app qube to be a disposable template, you need to set the `template_for_dispvms` property:
 
 ```shell_session
 [user@dom0 ~]$ qvm-prefs <DISPOSABLE_TEMPLATE> template_for_dispvms True
@@ -70,7 +70,7 @@ It is possible to change the settings for each new disposable. This can be done 
     - Changing default editor, image viewer. In Debian-based templates this can be done with the `mimeopen` command.
     - Changing the disposable's default NetVM. For example, you may wish to set the NetVM to "none." Then, whenever you start a new disposable, you can choose your desired ProxyVM manually (by changing the newly-started disposables settings). This is useful if you sometimes wish to use a disposable with a Whonix Gateway, for example. It is also useful if you sometimes wish to open untrusted files in a network-disconnected disposable.
 
-4. Shutdown the qube (either by `poweroff` from qube's terminal, or `qvm-shutdown` from dom0 terminal).
+3. Shutdown the qube (either by `poweroff` from qube's terminal, or `qvm-shutdown` from dom0 terminal).
 
 ## Using named disposables for service qubes
 
