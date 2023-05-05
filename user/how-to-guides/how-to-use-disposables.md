@@ -18,10 +18,10 @@ A [disposable](/doc/glossary/#disposable) is a lightweight [qube](/doc/glossary/
 Disposables are usually created in order to host a single application, like a viewer, editor, or web browser.
 
 From inside an app qube, choosing the `Open in disposable` option on a file will launch a disposable for just that file.
-Changes made to a file opened in a disposable are passed back to the originating VM.
-This means that you can safely work with untrusted files without risk of compromising your other VMs.
-Disposables can be launched either directly from dom0's Start Menu or terminal window, or from within app qubes.
-While running, disposables will appear in Qubes VM Manager with the name `disp####`.
+Changes made to a file opened in a disposable are passed back to the originating qube.
+This means that you can safely work with untrusted files without risk of compromising your other qubes.
+Disposables can be launched either directly from dom0's app menu or terminal window, or from within app qubes.
+Disposables are generated with names like `disp####`, where `####` is random number.
 
 [![disposablevm-example.png](/attachment/doc/disposablevm-example.png)](/attachment/doc/disposablevm-example.png)
 
@@ -46,41 +46,41 @@ When it is essential to avoid leaving any trace, consider using [Tails](https://
 Similarly to how app qubes are based on their underlying [template](/doc/glossary/#template), disposables are based on their underlying [disposable template](/doc/glossary/#disposable-template).
 R4.0 introduces the concept of multiple disposable templates, whereas R3.2 was limited to only one.
 
-On a fresh installation of Qubes, the default disposable template is called `fedora-XX-dvm` (where `XX` is the Fedora version of the default template).
+On a fresh installation of Qubes, the default disposable template is called `fedora-X-dvm` or `debian-X-dvm` (where `X` is a release number).
 If you have included the Whonix option in your install, there will also be a `whonix-ws-dvm` disposable template available for your use.
 
 You can set any app qube to have the ability to act as a disposable template with:
 
 ```
-qvm-prefs <vmname> template_for_dispvms True
+qvm-prefs <APP_QUBE> template_for_dispvms True
 ```
 
 The default system wide disposable template can be changed with `qubes-prefs default_dispvm`.
 By combining the two, choosing `Open in disposable` from inside an app qube will open the document in a disposable based on the default disposable template you specified.
 
-You can change this behaviour for individual VMs: in the Application Menu, open Qube Settings for the VM in question and go to the "Advanced" tab.
-Here you can edit the "Default disposable" setting to specify which disposable template will be used to launch disposables from that VM.
+You can change this behavior for individual qubes: in the Application Menu, open Qube Settings for the qube in question and go to the "Advanced" tab.
+Here you can edit the "Default disposable" setting to specify which disposable template will be used to launch disposables from that qube.
 This can also be changed from the command line with:
 
 ```
-qvm-prefs <VM> default_dispvm <DISPOSABLEVM_TEMPLATE>
+qvm-prefs <QUBE> default_dispvm <DISPOSABLE_TEMPLATE>
 ```
 
 For example, `anon-whonix` has been set to use `whonix-ws-dvm` as its `default_dispvm`, instead of the system default.
 You can even set an app qube that has also been configured as a disposable template to use itself, so disposables launched from within the app qube/disposable template would inherit the same settings.
 
-NetVM and firewall rules for disposable templates can be set as they can for a normal VM.
-By default a disposable will inherit the NetVM and firewall settings of the disposable template on which it is based.
+Network and firewall settings for disposable templates can be set as they can for a normal qube.
+By default a disposable will inherit the network and firewall settings of the disposable template on which it is based.
 This is a change in behaviour from R3.2, where disposables would inherit the settings of the app qube from which they were launched.
 Therefore, launching a disposable from an app qube will result in it using the network/firewall settings of the disposable template on which it is based.
-For example, if an app qube uses sys-net as its NetVM, but the default system disposable uses sys-whonix, any disposable launched from this app qube will have sys-whonix as its NetVM.
+For example, if an app qube uses sys-net as its net qube, but the default system disposable uses sys-whonix, any disposable launched from this app qube will have sys-whonix as its net qube.
 
 **Warning:** The opposite is also true.
 This means if you have changed anon-whonix's `default_dispvm` to use the system default, and the system default disposable uses sys-net, launching a disposable from inside anon-whonix will result in the disposable using sys-net.
 
-A disposable launched from the Start Menu inherits the NetVM and firewall settings of the disposable template on which it is based.
-Note that changing the "NetVM" setting for the system default disposable template *does* affect the NetVM of disposables launched from the Start Menu.
-Different disposable templates with individual NetVM settings can be added to the Start Menu.
+A disposable launched from the app menu inherits the net qube and firewall settings of the disposable template on which it is based.
+Note that changing the net qube setting for the system default disposable template *does* affect the net qube of disposables launched from the app menu.
+Different disposable templates with individual net qube settings can be added to the app menu.
 
 **Important Notes:**
 Some disposable templates will automatically create a menu item to launch a disposable, if you do not see an entry and want to add one please use the command:
@@ -99,7 +99,7 @@ qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+NameOfApp
 
 In an app qube's file manager, right click on the file you wish to open in a disposable, then choose "View in disposable" or "Edit in disposable".
 Wait a few seconds and the default application for this file type should appear displaying the file content.
-This app is running in its own dedicated VM -- a disposable created for the purpose of viewing or editing this very file.
+This app is running in its own dedicated qube -- a disposable created for the purpose of viewing or editing this very file.
 Once you close the viewing application the whole disposable will be destroyed.
 If you have edited the file and saved the changes, the changed file will be saved back to the original app qube, overwriting the original.
 
@@ -109,7 +109,7 @@ If you have edited the file and saved the changes, the changed file will be save
 ## Opening a fresh web browser instance in a new disposable
 
 Sometimes it is desirable to open an instance of Firefox within a new fresh disposable.
-This can be done easily using the Start Menu: just go to **Application Menu -\> Disposable -\> Disposable:Firefox web browser**.
+This can be done easily using the app menu: just go to **Application Menu -\> Disposable -\> Disposable:Firefox web browser**.
 Wait a few seconds until a web browser starts.
 Once you close the viewing application the whole disposable will be destroyed.
 
@@ -187,11 +187,11 @@ In dom0, add the following line at the beginning of the file `/etc/qubes-rpc/pol
 ~~~
 
 This line means:
-- FROM: Any VM
+- FROM: Any qube
 - TO: A disposable based on `<ONLINE_DISPOSABLE_TEMPLATE>`
 - WHAT: Allow sending an "Open URL" request
 
-In other words, any VM will be allowed to create a new disposable based on `<ONLINE_DISPOSABLE_TEMPLATE>` and open a URL inside of that disposable.
+In other words, any qube will be allowed to create a new disposable based on `<ONLINE_DISPOSABLE_TEMPLATE>` and open a URL inside of that disposable.
 
 More information about RPC policies for disposables can be found [here](/doc/qrexec/#qubes-rpc-administration).
 
