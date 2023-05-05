@@ -54,22 +54,22 @@ qvm-prefs <QUBE> default_dispvm <DISPOSABLE_TEMPLATE>
 
 For example, `anon-whonix` has been set to use `whonix-ws-dvm` as its `default_dispvm`, instead of the system default. You can even set an app qube that has also been configured as a disposable template to use itself, so disposables launched from within the app qube/disposable template would inherit the same settings.
 
-Network and firewall settings for disposable templates can be set as they can for a normal qube. By default a disposable will inherit the network and firewall settings of the disposable template on which it is based. This is a change in behaviour from R3.2, where disposables would inherit the settings of the app qube from which they were launched. Therefore, launching a disposable from an app qube will result in it using the network/firewall settings of the disposable template on which it is based. For example, if an app qube uses sys-net as its net qube, but the default system disposable uses sys-whonix, any disposable launched from this app qube will have sys-whonix as its net qube.
+Network and firewall settings for disposable templates can be set as they can for a normal qube. By default a disposable will inherit the network and firewall settings of the disposable template on which it is based. This is a change in behavior from R3.2, where disposables would inherit the settings of the app qube from which they were launched. Therefore, launching a disposable from an app qube will result in it using the network/firewall settings of the disposable template on which it is based. For example, if an app qube uses sys-net as its net qube, but the default system disposable uses sys-whonix, any disposable launched from this app qube will have sys-whonix as its net qube.
 
-**Warning:** The opposite is also true. This means if you have changed anon-whonix's `default_dispvm` to use the system default, and the system default disposable uses sys-net, launching a disposable from inside anon-whonix will result in the disposable using sys-net.
+**Warning:** The opposite is also true. This means if you have changed `anon-whonix`'s `default_dispvm` to use the system default, and the system default disposable uses sys-net, launching a disposable from inside `anon-whonix` will result in the disposable using `sys-net`.
 
 A disposable launched from the app menu inherits the net qube and firewall settings of the disposable template on which it is based. Note that changing the net qube setting for the system default disposable template *does* affect the net qube of disposables launched from the app menu. Different disposable templates with individual net qube settings can be added to the app menu.
 
-**Important Notes:** Some disposable templates will automatically create a menu item to launch a disposable, if you do not see an entry and want to add one please use the command:
+**Important Notes:** Some disposable templates will automatically create a menu item to launch a disposable. If you do not see an entry and want to add one, please use the command:
 
 ```
-qvm-features <DISPOSABLE> appmenus-dispvm 1
+qvm-features <DISPOSABLE_TEMPLATE> appmenus-dispvm 1
 ```
 
-To launch a disposable template from the command line, in dom0 please type the following:
+To launch a disposable template from the command line, execute the following command in dom0:
 
 ```
-qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+NameOfApp
+qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+<APPLICATION>
 ```
 
 ## Opening a file in a disposable via GUI
@@ -83,7 +83,7 @@ In an app qube's file manager, right click on the file you wish to open in a dis
 
 ## Opening a fresh web browser instance in a new disposable
 
-Sometimes it is desirable to open an instance of Firefox within a new fresh disposable. This can be done easily using the app menu: just go to **Application Menu -\> Disposable -\> Disposable:Firefox web browser**. Wait a few seconds until a web browser starts. Once you close the viewing application the whole disposable will be destroyed.
+Sometimes it is desirable to open an instance of Firefox within a new fresh disposable. This can be done easily using the app menu: just go to **Application Menu -> Disposable -> Disposable: Firefox web browser**. Wait a few seconds until a web browser starts. Once you close the viewing application the whole disposable will be destroyed.
 
 ![r4.0-open-in-dispvm-3.png](/attachment/doc/r4.0-open-in-dispvm-3.png)
 
