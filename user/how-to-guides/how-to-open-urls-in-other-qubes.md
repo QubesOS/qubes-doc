@@ -1,149 +1,90 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/how-to-open-urls-in-other-qubes/
-ref: TBD
-title: How to open URLs/files in other qubes
+permalink: /doc/how-to-open-urls-and-files-in-other-qubes/
+title: How to open URLs and files in other qubes
 ---
 
-*This page is about opening untrusted files and URLs from "secure" offline or
-firewalled qubes in "general-purpose" qubes - or any qubes you see fit. The
-simplest solution is to [copy/paste](/doc/how-to-copy-and-paste-text/) URLs or
-[copy files](/doc/how-to-copy-and-move-files/) between qubes and manually open
-the resource in the destination qube. However this approach is error-prone so
-using formal RPC policies like described below is preferable.*
+This page is about opening URLs and files from one qube in a different qube. The most straightforward way to do this is simply to [copy and paste URLs](/doc/how-to-copy-and-paste-text/) or [copy and move files](/doc/how-to-copy-and-move-files/) from the source qube to the target qube, then manually open them in the target qube. However, some users might wish to use [RPC policies](/doc/rpc-policy/) in order to regiment their workflows and safeguard themselves from making mistakes.
 
-Naming convention:
+Naming conventions:
 
-- `srcQube` is the qube where the files/URLs are
-- `dstQube` is the qube we want to open them in
+- `<SOURCE_QUBE>` is the qube in which the URL or file originates.
+- `<TARGET_QUBE>` is the qube in which we wish to open the URL or file.
 
 ## Configuring RPC policies
 
-The `qvm-open-in-vm` and `qvm-open-in-dvm` scripts are invoked in a qube to
-open files and URLs in another qube. Those scripts make use of the the
-`qubes.OpenInVM` and `qubes.OpenURL` [RPC
-services](/doc/qrexec/#qubes-rpc-services). Qubes [RPC
-policies](/doc/rpc-policy/) control which RPC services are allowed between
-qubes.
+The `qvm-open-in-vm` and `qvm-open-in-dvm` scripts are invoked in a qube to open files and URLs in another qube. Those scripts make use of the `qubes.OpenInVM` and `qubes.OpenURL` [RPC services](/doc/qrexec/#qubes-rpc-services). Qubes [RPC policies](/doc/rpc-policy/) control which RPC services are allowed between qubes.
 
 Policy files are in `/etc/qubes/policy.d/`.
 
 ### Using the `ask` action
 
-This action displays a selection widget with the list of allowed destination
-qubes each time the associated RPC service is called. This setup makes it
-possible to always control if, and on which qube and network (eg. "clearnet",
-TOR, VPN) an URL is requested or file opened.
+This action displays a confirmation prompt in dom0 with a drop-down list of allowed target qubes each time the associated RPC service is called. This setup makes it possible to always control whether and in which qube a URL or file opened.
 
-The selected qube will autostart if it wasn't running. 
+The selected qube will automatically start if it wasn't running. 
 
-Note: when using `ask`, the destination qube given as argument to
-`qvm-open-in-vm` is ignored if no `allow` rule matches the current RPC service
-and source/destination qubes.
+**Note:** When using `ask`, the target qube given as an argument to `qvm-open-in-vm` is ignored if no `allow` rule matches the current RPC service and source/target qubes.
 
 ### Using the `allow` action
 
-This action allows a given RPC service and source/destination qubes without
-prompting the user.
+This action allows a specified RPC service to be invoked between source and target qubes without displaying a confirmation prompt in dom0.
 
-When an `allow` action is defined for a destination other than `@dispvm`, the
-destination qube is the one given as an argument to `qvm-open-in-vm` in
-`srcQube`. The corresponding RPC policies should obviously be configured
-accordingly.
+When an `allow` action is defined for a target other than `@dispvm`, the target qube is the one given as an argument to `qvm-open-in-vm` in `<SOURCE_QUBE>`. The corresponding RPC policies must be configured accordingly.
 
-Caveat: since there is no user confirmation with `allow`, applications in
-`srcQube` could leak data through URLs or file names. You might notice that an
-URL has been open in the destination qube but it would be too late.
+**Warning:** Since there is no user confirmation with `allow`, applications in `<SOURCE_QUBE>` could leak data through URLs or file names.
 
-### Notes about using disposable qubes and the `@dispvm` keyword in policies
+### Using disposables and the `@dispvm` keyword in policies
 
-It is possible to further restrict a destination DispVM qube by specifying the
-template it is based on with the `@dispvm:templatename` syntax. See the
-[documentation](/doc/how-to-use-disposables/#opening-a-link-in-a-disposable-based-on-a-non-default-disposable-template-from-a-qube)
-for further details and the sample section below.
+It is possible to further restrict a target disposable qube by specifying the template on which it is based with the `@dispvm:<DISPOSABLE_TEMPLATE>` syntax ([learn more](/doc/how-to-use-disposables/#opening-a-link-in-a-disposable-based-on-a-non-default-disposable-template-from-a-qube)).
 
-Caveat: `@dispvm` means "DisposableVMs based on the default DisposableVM
-template of the calling qube", not "*any* DisposableVMs". If you were to run
-`qvm-open-in-vm @dispvm:onlinedvm https://www.qubes-os.org` in `srcQube` and
-`onlinedvm` wasn't the default dvm template for `srcQube`, a policy line with only
-`@dispvm` wouldn't match: it would have to be `@dispvm:onlinedvm`.
-
-If for some reason a user needs to use a disposable qube with a static name -
-which might come handy when using `allow` RPC policies like in the sample
-section below - he/she can do like so (replace `fedora-dvm` with the dvm
-template you want to use):
-
-~~~
-qvm-create --class DispVM --label red --template fedora-dvm qube_name
-~~~
-
-`qube_name` would then be started like a regular qube with the difference that
-like standard disposable qubes its private disk is wiped after each use.
-However, unlike standard disposable qubes, this qube won't "auto power off" when
-the called application (eg. firefox) is closed, so it's up to the user to power
-off (or restart) the qube when he/she deems necessary.
+**Note:** The keyword `@dispvm` designates any disposable based on the calling qube's default disposable template. It does *not* designate any disposable whatsoever. For example, if you were to run `qvm-open-in-vm @dispvm:<ONLINE_DISPOSABLE_TEMPLATE> https://www.qubes-os.org` in `<SOURCE_QUBE>` while `<ONLINE_DISPOSABLE_TEMPLATE>` is *not* `<SOURCE_QUBE>`'s default disposable template, it wouldn't work if your policy line merely had `@dispvm` as the target. You would have to use `@dispvm:<ONLINE_DISPOSABLE_TEMPLATE>` as the target instead.
 
 ## Sample RPC user policy
 
-`/etc/qubes/policy.d/30-user.policy`:
+_See the main document, [RPC policies](/doc/rpc-policy/), for more information._
+
+The following is a partial example of the kinds of `qubes.OpenInVM` and `qubes.OpenURL` rules that you could write in `/etc/qubes/policy.d/30-user.policy`:
 
 ~~~
-# Deny opening files or URLs from or to 'vault'
-qubes.OpenInVM      *   @anyvm  vault       deny
-qubes.OpenURL       *   @anyvm  vault       deny
-qubes.OpenInVM      *   vault   @anyvm      deny
-qubes.OpenURL       *   vault   @anyvm      deny
+# Deny opening files or URLs from or in 'vault'
+qubes.OpenInVM   *   @anyvm   vault         deny
+qubes.OpenURL    *   @anyvm   vault         deny
+qubes.OpenInVM   *   vault    @anyvm        deny
+qubes.OpenURL    *   vault    @anyvm        deny
 
 # Allow 'work' to open URLs in disposable qubes without prompting the user
-qubes.OpenURL       *   work    @dispvm  allow
+qubes.OpenURL    *   work     @dispvm       allow
 
-# Allow 'work' to open Files in 'untrusted' (a named disposable qube) without
-# prompting the user ('unstrusted' might for instance be configured as an
-# offline qube to prevent network leaks)
-qubes.OpenInVM      *   work    @dispvm  allow target=untrusted
+# Allow 'work' to open files in 'untrusted' without prompting the user
+qubes.OpenInVM   *   work     @dispvm       allow target=untrusted
 
-# Allow qubes to open files and URLs in disposable qubes that are based on the
-# template named 'foo' and 'bar' respectively (like above, 'foo' might be
-# configured as an offline dvm template to prevent network leaks).
-qubes.OpenInVM      *   @anyvm  @dispvm:foo allow
-qubes.OpenURL       *   @anyvm  @dispvm:bar allow
+# Allow any qube to open files and URLs in disposables based on the
+# disposable templates 'foo' and 'bar'
+qubes.OpenInVM   *   @anyvm   @dispvm:foo   allow
+qubes.OpenURL    *   @anyvm   @dispvm:bar   allow
 
-# Prompt the user before opening any file/URL in any other qube.
-# Qube default selection:
-#  - 'dispOffline' qube for files
-#  - 'dispOnline' qube for URLs
-qubes.OpenInVM      *   @anyvm  @anyvm      ask default_target=dispOffline
-qubes.OpenURL       *   @anyvm  @anyvm      ask default_target=dispOnline
+# Prompt the user before opening any file or URL in any other qube, but prefill
+# the target with 'personal' for files and 'untrusted' for URLs
+qubes.OpenInVM   *   @anyvm   @anyvm        ask default_target=personal
+qubes.OpenURL    *   @anyvm   @anyvm        ask default_target=untrusted
 ~~~
 
+## Configuring application handlers
 
-## Configuring qubes to open files and URLs with application handlers
+It is possible to (re)define a default application handler so that it is automatically called by *any* application in `<SOURCE_QUBE>` to open files or URLs provided that the applications adhere to the [freedesktop](https://en.wikipedia.org/wiki/Freedesktop.org) standard (which is almost always the case nowadays).
 
-It is possible to (re)define a default application handler so that it is
-automatically called by *any* application in `srcQube` to open files or URLs -
-provided that the applications adhere to the
-[freedesktop](https://en.wikipedia.org/wiki/Freedesktop.org) standard (which is
-most always the case nowadays).
+For application-specific configurations or applications that don't adhere to the freedesktop standard, please refer to the unofficial, external [community documentation](https://github.com/Qubes-Community/Contents/blob/master/docs/common-tasks/opening-urls-in-vms.md).
 
-For application-specific configurations and/or applications that don't adhere
-to the freedesktop standard, please refer to the unofficial, external
-[community
-documentation](https://github.com/Qubes-Community/Contents/blob/master/docs/common-tasks/opening-urls-in-vms.md)).
+Defining a new handler simply requires creating a [.desktop](https://specifications.freedesktop.org/desktop-entry-spec/latest/) file and registering it. The following example shows how to open http/https URLs (along with common "web" [media types](https://en.wikipedia.org/wiki/Media_type)) with `qvm-open-in-vm`:
 
-Defining a new handler simply requires creating a
-[.desktop](https://specifications.freedesktop.org/desktop-entry-spec/latest/)
-file and registering it. The following example shows how to open http/https URLs (along with common
-"web" [Mime](https://en.wikipedia.org/wiki/Media_type) types) with `qvm-open-in-vm`:
-
-- create `$HOME/.local/share/applications/browser_vm.desktop` with the following
-  content:
+- Create `$HOME/.local/share/applications/mybrowser.desktop` with the following content:
 
 	~~~
 	[Desktop Entry]
 	Encoding=UTF-8
-	Name=BrowserVM
-	Exec=qvm-open-in-vm dstQube %u
+	Name=MyBrowser
+	Exec=qvm-open-in-vm target-qube %u
 	Terminal=false
 	X-MultipleArgs=false
 	Type=Application
@@ -151,24 +92,14 @@ file and registering it. The following example shows how to open http/https URLs
 	MimeType=x-scheme-handler/unknown;x-scheme-handler/about;text/html;text/xml;application/xhtml+xml;application/xml;application/vnd.mozilla.xul+xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;
 	~~~
 
-- register the .desktop file with `xdg-settings set default-web-browser
-  browser_vm.desktop`. 
+- Register the `.desktop` file with `xdg-settings set default-web-browser mybrowser.desktop`. 
 
-The same can be done with any other Mime type (see `man xdg-mime` and
-`xdg-settings`).
+The same can be done with any other media type (see `man xdg-mime` and `xdg-settings`).
 
-Notes:
+### Notes
 
-- some applications may not use the new xdg application/handler (eg. if you had
-  previously configured default applications), in which case you'd have to
-  manually configure the application to use the xdg handler.
+- Some applications may not use the new XDG application handler (e.g., if you had previously configured default applications), in which case you'd have to manually configure the application to use the XDG handler.
 
-- `qvm-open-in-vm dstQube %u` can be replaced by a user wrapper with a custom
-  logic for selecting different destination qubes depending on the URL/file
-  type, level of trust, ... ; The RPC policies should be configured accordingly.
+- `qvm-open-in-vm target-qube %u` can be replaced by a user wrapper with custom logic for selecting different target qubes depending on the URL/file type, level of trust, etc. The RPC policies should be configured accordingly.
 
-- very security conscious users should consider basing AppVMs on minimal
-  templates; that way, unless a default handler is set, nothing else is usually
-  there to open those files by default.
-
-
+- Advanced users may wish to consider basing app qubes on [minimal templates](/doc/templates/minimal/). That way, unless a default handler is set, it is unlikely that any other program will be present that can open the URL or file.
