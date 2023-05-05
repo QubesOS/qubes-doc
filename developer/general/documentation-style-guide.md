@@ -250,6 +250,10 @@ Accordingly, the reason "qube" is a common noun rather than a proper noun is bec
 
 I have several qubes in my Qubes OS installation, and you have several in yours. Every Qubes OS user has their own set of qubes, just as each of us lives in some neighborhood on some street. Yet we aren't tempted to treat words like "neighborhood" or "street" as proper nouns (unless, of course, they're part of a name, like "Acorn Street"). Again, while this might seem odd because "qube" is a new word that we invented, that doesn't change how English works. After all, *every* word was a new word that someone invented at some point (otherwise we wouldn't have any words at all). We treat "telephone," "computer," "network," "program," and so on as common nouns, even though those were all new technological inventions in the not-too-distant past (on a historical scale, at least). So, we shouldn't allow ourselves to be confused by irrelevant factors, like the fact that the inventors happened to be *us* or that the invention was *recent* or is not in widespread use among humanity.
 
+### English language conventions
+
+For the sake of consistency and uniformity, the Qubes documentation aims to follow the conventions of American English, where applicable. (Please note that this is an arbitrary convention for the sake consistency and not a value judgment about the relative merits of British versus American English.)
+
 ## Organizational guidelines
 
 ### Do not duplicate documentation
