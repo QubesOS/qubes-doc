@@ -15,9 +15,7 @@ title: Disposable customization
 
 ## Introduction
 
-A [disposable](/doc/disposable/) can be based on any [app qube](/doc/glossary/#app-qube).
-You can also choose to use different [disposable templates](/doc/glossary/#disposable-template) for different disposables.
-To prepare an app qube to be a disposable template, you need to set `template_for_dispvms` property:
+A [disposable](/doc/disposable/) can be based on any [app qube](/doc/glossary/#app-qube). You can also choose to use different [disposable templates](/doc/glossary/#disposable-template) for different disposables. To prepare an app qube to be a disposable template, you need to set `template_for_dispvms` property:
 
 ```shell_session
 [user@dom0 ~]$ qvm-prefs <DISPOSABLE_TEMPLATE> template_for_dispvms True
@@ -33,16 +31,11 @@ Additionally, if you want to have menu entries for starting applications in disp
 
 ## Security
 
-If a disposable template becomes compromised, then any disposable based on that disposable template could be compromised.
-Therefore, you should not make any risky customizations (e.g., installing untrusted browser plugins) in important disposable templates.
-In particular, the *default* disposable template is important because it is used by the "Open in disposable" feature.
-This means that it will have access to everything that you open with this feature.
-For this reason, it is strongly recommended that you base the default disposable template on a trusted template and refrain from making any risky customizations to it.
+If a disposable template becomes compromised, then any disposable based on that disposable template could be compromised. Therefore, you should not make any risky customizations (e.g., installing untrusted browser plugins) in important disposable templates. In particular, the *default* disposable template is important because it is used by the "Open in disposable" feature. This means that it will have access to everything that you open with this feature. For this reason, it is strongly recommended that you base the default disposable template on a trusted template and refrain from making any risky customizations to it.
 
 ## Creating a new disposable template
 
-In Qubes 4.0, you're no longer restricted to a single disposable template. Instead, you can create as many as you want. Whenever you start a new disposable, you can choose to base it on whichever disposable template you like.
-To create a new disposable template:
+In Qubes 4.0, you're no longer restricted to a single disposable template. Instead, you can create as many as you want. Whenever you start a new disposable, you can choose to base it on whichever disposable template you like. To create a new disposable template:
 
 ```shell_session
 [user@dom0 ~]$ qvm-create --template <TEMPLATE> --label red <DISPOSABLE_TEMPLATE>
@@ -64,8 +57,7 @@ If you wish to use a [minimal template](/doc/templates/minimal/) as a disposable
 
 _**Note:** If you are trying to customize Tor Browser in a Whonix disposable, please consult the [Whonix documentation](https://www.whonix.org/wiki/Tor_Browser/Advanced_Users#disposable_Template_Customization)._
 
-It is possible to change the settings for each new disposable.
-This can be done by customizing the disposable template on which it is based:
+It is possible to change the settings for each new disposable. This can be done by customizing the disposable template on which it is based:
 
 1. Start a terminal in the `<DISPOSABLE_TEMPLATE>` qube (or another disposable template) by running the following command in a dom0 terminal. (If you enable `appmenus-dispvm` feature (as explained at the top), applications menu for this VM (`<DISPOSABLE_TEMPLATE>`) will be "Disposable: <DISPOSABLE_TEMPLATE>" (instead of "Domain: <DISPOSABLE_TEMPLATE>") and entries there will start new disposable based on that VM (`<DISPOSABLE_TEMPLATE>`). Not in that VM (`<DISPOSABLE_TEMPLATE>`) itself).
 
@@ -82,10 +74,7 @@ This can be done by customizing the disposable template on which it is based:
 
 ## Using named disposables for service qubes
 
-You can use a [named disposable](/doc/glossary/#named-disposable) for service qubes (such as those with the `sys-*` naming scheme) as long as they are stateless.
-For example, a `sys-net` using DHCP or `sys-usb` will work.
-In most cases `sys-firewall` will also work, even if you have configured app qube firewall rules.
-The only exception is if you require something like VM to VM communication and have manually edited `iptables` or other items directly inside the firewall app qube.
+You can use a [named disposable](/doc/glossary/#named-disposable) for service qubes (such as those with the `sys-*` naming scheme) as long as they are stateless. For example, a `sys-net` using DHCP or `sys-usb` will work. In most cases `sys-firewall` will also work, even if you have configured app qube firewall rules. The only exception is if you require something like VM to VM communication and have manually edited `iptables` or other items directly inside the firewall app qube.
 
 To create one that has no PCI devices attached, such as for `sys-firewall`:
 
@@ -101,8 +90,7 @@ Next, set the old `sys-firewall` autostart to false, and update any references t
 
 To create one with a PCI device attached such as for `sys-net` or `sys-usb`, use the additional commands as follows.
 
-**Note:** You can use `qvm-pci` to [determine](/doc/how-to-use-pci-devices/#qvm-pci-usage) the `<BDF>`.
-Also, you will often need to include the `-o no-strict-reset=True` [option](/doc/how-to-use-pci-devices/#no-strict-reset) with USB controllers.
+**Note:** You can use `qvm-pci` to [determine](/doc/how-to-use-pci-devices/#qvm-pci-usage) the `<BDF>`. Also, you will often need to include the `-o no-strict-reset=True` [option](/doc/how-to-use-pci-devices/#no-strict-reset) with USB controllers.
 
 ~~~
 qvm-create -C DispVM -l red <SERVICE_QUBE>
@@ -154,8 +142,7 @@ Note that currently only applications whose main process keeps running until you
 
 ## Deleting disposables
 
-While working in a disposable, you may want to open a document in another disposable.
-For this reason, the property `default_dispvm` may be set to the name of your disposable in a number of qubes:
+While working in a disposable, you may want to open a document in another disposable. For this reason, the property `default_dispvm` may be set to the name of your disposable in a number of qubes:
 
 ```shell_session
 [user@dom0 ~]$ qvm-prefs <QUBE> | grep default_dispvm
@@ -176,7 +163,6 @@ This will completely remove the selected VM(s)
   <DISPOSABLE_TEMPLATE>
 ```
 
-      
 If you still encounter a problem, you may have forgotten to clean an entry. Looking at the system logs will help you:
 
 ```shell_session
