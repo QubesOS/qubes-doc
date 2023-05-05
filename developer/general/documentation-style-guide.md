@@ -74,7 +74,7 @@ When writing code blocks, use [syntax highlighting](https://github.github.com/gf
 
 ### Line wrapping
 
-Hard wrap Markdown lines at 80 characters, unless the line can't be broken (e.g., code or a URL).
+Do not hard wrap text, except where necessary (e.g., inside code blocks).
 
 ### Do not use Markdown syntax for styling
 
