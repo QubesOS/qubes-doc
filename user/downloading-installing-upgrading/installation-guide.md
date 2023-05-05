@@ -89,8 +89,6 @@ On Windows, you can use the [Rufus](https://rufus.akeo.ie/) tool to write the IS
 
 This section will demonstrate a simple installation using mostly default settings.
 
-If you are an advanced user, and you would like to customize your installation, please see [custom installation](/doc/custom-install/). Otherwise, follow the instructions below.
-
 ### Getting to the boot screen
 
 "Booting" is the process of starting your computer. When a computer boots up, it first runs low-level software before the main operating system. Depending on the computer, this low-level software is may be called the ["BIOS"](https://en.wikipedia.org/wiki/BIOS) or ["UEFI"](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface).
@@ -122,6 +120,11 @@ From here, you can navigate the boot screen using the arrow keys on your keyboar
 * Troubleshooting
  
 Select the option to test this media and install Qubes OS. 
+
+<div class="alert alert-info" role="alert">
+  <i class="fa fa-info-circle"></i>
+  <b>Note:</b> If the latest stable release is not compatible with your hardware, you may wish to consider <a href="/doc/testing/">testing a newer release</a>.
+</div>
 
 If the boot screen does not appear, there are several options to troubleshoot. First, try rebooting your computer. If it still loads your currently installed operating system or does not detect your installation medium, make sure the boot order is set up appropriately. The process to change the boot order varies depending on the currently installed system and the motherboard manufacturer. If **Windows 10** is installed on your machine, you may need to follow specific instructions to change the boot order. This may require an [advanced reboot](https://support.microsoft.com/en-us/help/4026206/windows-10-find-safe-mode-and-other-startup-settings).
 
@@ -181,7 +184,7 @@ Whonix lets you route some or all of your network traffic through Tor for greate
 
 Regardless of your choices on this screen, you will always be able to install these and other [templates](/doc/templates/) later. If you're short on disk space, you may wish to deselect these options.
 
-By default, Qubes OS comes preinstalled with the lightweight Xfce4 desktop environment. Other desktop environments will be available to you after the installation is completed, though they may not be officially supported (see [Advanced Topics](/doc/#advanced-topics)).
+By default, Qubes OS comes preinstalled with the lightweight Xfce4 desktop environment. Other desktop environments will be available to you after the installation is completed, though they may not be officially supported (see [advanced topics](/doc/#advanced-topics)).
 
 Press **Done** to go back to the installation summary screen.
 
