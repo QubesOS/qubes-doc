@@ -84,7 +84,7 @@ Defining a new handler simply requires creating a [.desktop](https://specificati
 	[Desktop Entry]
 	Encoding=UTF-8
 	Name=MyBrowser
-	Exec=qvm-open-in-vm target-qube %u
+	Exec=qvm-open-in-vm <TARGET_QUBE> %u
 	Terminal=false
 	X-MultipleArgs=false
 	Type=Application
