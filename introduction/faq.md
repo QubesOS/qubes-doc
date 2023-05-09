@@ -328,6 +328,16 @@ So, if feature X isn't enabled, it's most likely for one of three reasons:
 
 If it seems like a feature that we can and should enable, please [let us know](/doc/issue-tracking/)!
 
+### Why do the mailing lists require a Google account?
+
+They don't. This is a common misconception. The mailing lists have never required a Google account. It has always been possible to use them purely via email (see the [mailing lists](/support/#mailing-lists) section for instructions).
+
+A lot of people probably see that the mailing lists use Google Groups and just assume that a Google account must be required, but it's not true. Google Groups is simply used for the infrastructure. Of course, you *can* use the web interface with a Google account, but there are many people in the Qubes community who participate on the mailing lists without one.
+
+### Why do you use Google Groups for the mailing lists?
+
+For the same general reasons as listed in [FAQ: Why do you use GitHub?](/faq/#why-do-you-use-github)
+
 ## Users
 
 ### Can I watch YouTube videos in qubes?
