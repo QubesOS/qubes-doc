@@ -25,7 +25,7 @@ Examples of valid cases for USB-passthrough:
 - [external audio devices](/doc/external-audio/)
 - [optical drives](/doc/recording-optical-discs/) for recording
 
-(If you are thinking to use a two-factor-authentication device, [there is an app for that](/doc/u2f-proxy/).
+(If you are thinking to use a two-factor-authentication device, [there is an app for that](/doc/ctap-proxy/).
 But it has some [issues](https://github.com/QubesOS/qubes-issues/issues/4661).)
 
 ## Attaching And Detaching a USB Device

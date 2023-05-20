@@ -136,9 +136,9 @@ title: Introduction
     </p>
   </div>
   <div class="col-lg-4 col-md-4 col-xs-12">
-    <h3>U2F proxy</h3>
+    <h3>CTAP proxy</h3>
     <p>
-      Operate <a href="/doc/u2f-proxy/">Qubes U2F proxy</a> to use your
+      Operate <a href="/doc/ctap-proxy/">Qubes CTAP proxy</a> to use your
       two-factor authentication devices without exposing your web browser to the
       full USB stack.
     </p>
