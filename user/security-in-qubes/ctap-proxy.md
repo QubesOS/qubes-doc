@@ -2,6 +2,7 @@
 lang: en
 layout: doc
 permalink: /doc/ctap-proxy/
+redirect_from: /doc/u2f-proxy/
 ref: 167
 title: CTAP proxy
 ---
