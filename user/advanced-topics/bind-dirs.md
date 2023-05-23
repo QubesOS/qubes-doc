@@ -52,9 +52,11 @@ In this example, we want to make `/var/lib/tor` persistent. Enter all of the fol
    sudo mkdir -p /rw/bind-dirs/var/lib/tor
    ```
 
-6. Reboot the app qube.
+6. (optional) If the directory you want to persist across reboots (`/var/lib/tor` in this case) needs special ownership and permissions, make sure the directory you created just under `/rw/bind-dirs/` has the same ones (using the commands `chown` and `chmod`, respectively).
 
-7. Done.
+7. Reboot the app qube.
+
+8. Done.
 
 From now on, all files in the `/var/lib/tor` directory will persist across reboots.
 
