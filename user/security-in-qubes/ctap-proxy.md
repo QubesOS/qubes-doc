@@ -111,10 +111,10 @@ If your `twitter` qube makes an authentication request for your bank website, it
 To enable this, create a file in dom0 named `/etc/qubes/policy.d/30-user-ctapproxy.policy` with the following content:
 
 ```
-policy.RegisterArgument +ctap.GetAssertion sys-usb @anyvm allow target=dom0
+policy.RegisterArgument +u2f.Authenticate sys-usb @anyvm allow target=dom0
 ```
 
-Next, empty the contents of `/etc/qubes-rpc/policy/ctap.GetAssertion` so that it is a blank file.
+Next, empty the contents of `/etc/qubes-rpc/policy/u2f.Authenticate` so that it is a blank file.
 Do not delete the file itself.
 (If you do, the default file will be recreated the next time you update, so it will no longer be empty.) Finally, follow your web application's instructions to enroll your token and use it as usual.
 (This enrollment process depends on the web application and is in no way specific to Qubes CTAP.)
