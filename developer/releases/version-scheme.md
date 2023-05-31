@@ -91,8 +91,8 @@ are released, in hope that they will be installed by wider user base and
 tested.
 
 The next RC is released five weeks after the former. All packets are published
-in `current` repository and the cycle starts over. There should be no less than
-1 and no more than 3 release candidates before final release.
+in `current` repository and the cycle starts over. There should always be at
+least one release candidate before final release.
 
 | Stage                    | Duration  |
 | ------------------------ | --------- |
