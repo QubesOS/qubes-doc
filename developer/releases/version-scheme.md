@@ -92,7 +92,7 @@ tested.
 
 The next RC is released five weeks after the former. All packets are published
 in `current` repository and the cycle starts over. There should always be at
-least one release candidate before final release.
+least one release candidate before the final release.
 
 | Stage                    | Duration  |
 | ------------------------ | --------- |
