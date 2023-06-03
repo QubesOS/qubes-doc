@@ -19,7 +19,7 @@ _**Please note:** This page is still an unfinished draft in progress. It is bein
 - grub.cfg stored in /boot/grub2/grub.cfg in UEFI boot to ([#7985](https://github.com/QubesOS/qubes-issues/issues/7985))
 - pipewire support ([#6358](https://github.com/QubesOS/qubes-issues/issues/6358))
 - fwupd integration to allow firmware updates ([#4855](https://github.com/QubesOS/qubes-issues/issues/4855))
-- optional automatic clipboard clearing 3415 ([#3415](https://github.com/QubesOS/qubes-issues/issues/3415))
+- optional automatic clipboard clearing ([#3415](https://github.com/QubesOS/qubes-issues/issues/3415))
 - official packages built using rewritten qubes-builder (qubes-builderv2), more details in [#6486](https://github.com/QubesOS/qubes-issues/issues/6486)
 
 For a full list, including more detailed descriptions, please see
