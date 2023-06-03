@@ -7,6 +7,8 @@ redirect_from:
 title: Qubes R4.2 release schedule
 ---
 
+_**Please note:** This page is still an unfinished draft in progress. It is being updated as Qubes 4.2 development and testing continues._
+
 The table below is based on our [release schedule
 policy](/doc/version-scheme/#release-schedule).
 
