@@ -20,12 +20,14 @@ _**Please note:** This page is still an unfinished draft in progress. It is bein
 - pipewire support ([#6358](https://github.com/QubesOS/qubes-issues/issues/6358))
 - fwupd integration to allow firmware updates ([#4855](https://github.com/QubesOS/qubes-issues/issues/4855))
 - optional automatic clipboard clearing ([#3415](https://github.com/QubesOS/qubes-issues/issues/3415))
-- official packages built using rewritten qubes-builder (qubes-builderv2), more details in [#6486](https://github.com/QubesOS/qubes-issues/issues/6486)
+- official packages built using rewritten qubes-builder (qubes-builderv2) ([#6486](https://github.com/QubesOS/qubes-issues/issues/6486))
 
 For a full list, including more detailed descriptions, please see
 [here](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.2%22+label%3A%22release+notes%22+is%3Aclosed).
 
 ## Known issues
+
+- DomU firewalls have completely switched to nftables. Users should add their custom rules to the `custom-input` and `custom-forward` chains. ([#5031](https://github.com/QubesOS/qubes-issues/issues/5031), [#6062](https://github.com/QubesOS/qubes-issues/issues/6062))
 
 For a full list of known 4.2 issues with open bug reports, please see
 [here](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Release+4.2%22+label%3A%22T%3A+bug%22).
@@ -42,6 +44,8 @@ See the [installation guide](/doc/installation-guide/).
 
 ## Upgrading
 
-The in-place upgrade procedure is not prepared yet (https://github.com/QubesOS/qubes-issues/issues/7832). Currently R4.2 can be tested by doing clean installation.
+The in-place upgrade procedure is not ready yet ([#7832](https://github.com/QubesOS/qubes-issues/issues/7832)). Currently, R4.2 can be tested by performing a clean installation.
 
+```
 TODO: Please see [how to upgrade to Qubes 4.2](/doc/upgrade/4.2/).
+```
