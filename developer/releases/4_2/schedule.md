@@ -14,5 +14,5 @@ policy](/doc/version-scheme/#release-schedule).
 
 |  Date      | Stage                                     |
 | ----------:| ----------------------------------------- |
-| TODO       | 4.2.0-rc1 release                         |
+| 2023-06-02 | 4.2.0-rc1 release                         |
 | TODO       | current-testing freeze before 4.2.0-rc2   |
