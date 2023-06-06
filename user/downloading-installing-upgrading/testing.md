@@ -81,14 +81,12 @@ How to test [templates](/doc/templates/):
 
 To temporarily enable any of these repos, use the `--enablerepo=<repo-name>`
 option. Example commands:
-
 ```
-sudo qubes-dom0-update --enablerepo=qubes-templates-itl-testing
-sudo qubes-dom0-update --enablerepo=qubes-templates-community-testing
+qvm-template --enablerepo=qubes-templates-itl-testing list --available
+qvm-template --enablerepo=qubes-templates-itl-testing install <template_name>
 ```
-
-To enable or disable any of these repos permanently, change the corresponding
-`enabled` value to `1` in `/etc/yum.repos.d/qubes-templates.repo`.
+To enable any of these repos permanently, change the corresponding `enabled` value to `1` in `/etc/qubes/repo-templates`.  
+To disable any of these repos permanently, change the corresponding `enabled` value to `0`.
 
 ## Providing feedback
 

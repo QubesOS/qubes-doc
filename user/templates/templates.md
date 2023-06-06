@@ -95,28 +95,23 @@ when you wish to install a fresh template from the Qubes repositories, e.g.:
 * When you suspect your template has been compromised.
 * When you have made modifications to your template that you no longer want.
 
-Please refer to each template's installation instructions. Usually, the
-installation method is to execute the following type of command in dom0:
+You can use a command line tool - `qvm-template` - or a GUI - `qvm-template-gui`.
 
+At the command line in dom0, `qvm-template list --available` will show available templates. To install a template, use:
 ```
-$ sudo qubes-dom0-update qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>
-```
-
-`qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>` is the name of the desired
-template package. Advanced users can install a
-[minimal](/doc/templates/minimal/) version of the template, if one exists, by
-appending `-minimal` directly to the end of the template package name.
-
-If you wish to install a community template, you must enable the community
-template repo:
-
-```
-$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>
+$ qvm-template install  <template_name>
 ```
 
-If you receive the message that no match is found for
-`qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>`, see
-[here](/faq/#when-i-try-to-install-a-template-it-says-no-match-is-found).
+You can also use `qvm-template` to upgrade or reinstall templates.
+
+Repo definitions are stored in `/etc/qubes/repo-templates` and associated keys in `/etc/qubes/repo-templates/keys`.  
+There are additional repos for testing releases and community templates.
+To temporarily enable any of these repos, use the `--enablerepo=<repo-name>` option. E.g. :
+```
+$ qvm-template  --enablerepo qubes-templates-community install <template_name>
+```
+To permanently enable a repo, set the line `enabled = 1` in the repo definition in `/etc/qubes/repo-templates`.  
+To permanently disable, set the line to `enabled = 0`.
 
 If you wish to install a template that is in testing, please see
 [here](/doc/testing/#templates).
