@@ -21,7 +21,7 @@ There is also a [Qubes page on the Debian Wiki](https://wiki.debian.org/Qubes).
 To [install](/doc/templates/#installing) a specific Debian template that is not currently installed in your system, use the following command in dom0:
 
 ```
-$ sudo qubes-dom0-update qubes-template-debian-XX
+$ qvm-template debian-XX
 ```
 
    (Replace `XX` with the Debian version number of the template you wish to install.)
@@ -63,13 +63,13 @@ This section contains notes about specific Debian releases.
 Debian 10 (buster) - minimal:
 
 ```
-[user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl qubes-template-debian-10-minimal
+[user@dom0 ~]$ qvm-template --enablerepo=qubes-templates-itl debian-10-minimal
 ```
 
 Debian 10 (buster) - stable:
 
 ```
-[user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl qubes-template-debian-10
+[user@dom0 ~]$ qvm-template --enablerepo=qubes-templates-itl debian-10
 ```
 
 ### Starting services

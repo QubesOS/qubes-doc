@@ -20,27 +20,27 @@ you can install one of the available Xfce templates for [Fedora](/doc/templates/
 The Fedora Xfce templates can be installed with the following command (where `X` is your desired distro and version number):
 
 ```
-[user@dom0 ~]$ sudo qubes-dom0-update qubes-template-X-xfce
+[user@dom0 ~]$ qvm-template install X-xfce
 ```
 
 If your desired version is not found, it may still be in [testing](/doc/testing/).
 You may wish to try again with the testing repository enabled:
 
 ```
-[user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl-testing qubes-template-X-xfce
+[user@dom0 ~]$ qvm-template install --enablerepo=qubes-templates-itl-testing X-xfce
 ```
 
 If you would like to install a community distribution, like CentOS or Gentoo, try the install command by enabling the community repository:
 
 ```
-[user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-X-xfce
+[user@dom0 ~]$ qvm-template --enablerepo=qubes-templates-community X-xfce
 ```
 
 If your desired version is not found, it may still be in [testing](/doc/testing/).
 You may wish to try again with the testing repository enabled:
 
 ```
-[user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community-testing qubes-template-X-xfce
+[user@dom0 ~]$ qvm-template --enablerepo=qubes-templates-community-testing X-xfce
 ```
 
 The download may take a while depending on your connection speed.

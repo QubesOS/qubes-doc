@@ -13,7 +13,7 @@ The Fedora [template](/doc/templates/) is the default template in Qubes OS. This
 To [install](/doc/templates/#installing) a specific Fedora template that is not currently installed in your system, use the following command in dom0:
 
 ```
-$ sudo qubes-dom0-update qubes-template-fedora-XX
+$ qvm-template install fedora-XX
 ```
 
    (Replace `XX` with the Fedora version number of the template you wish to install.)
