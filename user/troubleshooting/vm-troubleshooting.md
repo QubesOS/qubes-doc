@@ -75,18 +75,14 @@ Common reasons that may be revealed are: too low memory, corrupted files or a VM
 
 If the error occurs as a result of too little initial memory, increase the initial memory from 200MB to 400MB by navigating to VM settings » Advanced » Initial memory.
 
-## "No match found" when trying to install a template
+## "not found" when trying to install a template
 
 For example:
 
 ```
-[user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl qubes-template-debian-10
-Using sys-whonix as UpdateVM to download updates for Dom0; this may take some time...
-No Match for argument qubes-template-debian-10
-Nothing to download
+[user@dom0 ~]$ qvm-template --enablerepo=qubes-templates-itl install debian-13
+qvm-template: error: Template 'debian-13' not found
 ```
 
-This normally means you already have the template installed.
-It may be that you have the matching package installed, but you removed or renamed the template.
-Check `rpm -q qubes-template-<name>`.
-If it lists the package, but you don't really have the template present (`qvm-ls` doesn't list it), you need to clean up leftovers of the package with `rpm -e --noscripts qubes-template-<name>`, then install it normally.
+This normally means that you have the template name wrong, or the template is in a different repository.
+Check the name and the repository.

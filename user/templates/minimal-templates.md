@@ -65,7 +65,7 @@ A list of all available templates can also be obtained with the [Template Manage
 The minimal templates can be installed with the following type of command:
 
 ```
-[user@dom0 ~]$ sudo qubes-dom0-update qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>-minimal
+[user@dom0 ~]$ qvm-template <DISTRO_NAME>-<RELEASE_NUMBER>-minimal
 ```
 
 If your desired version is not found, it may still be in
@@ -73,14 +73,14 @@ If your desired version is not found, it may still be in
 enabled:
 
 ```
-[user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl-testing qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>-minimal
+[user@dom0 ~]$ qvm-template --enablerepo=qubes-templates-itl-testing <DISTRO_NAME>-<RELEASE_NUMBER>-minimal
 ```
 
 If you would like to install a community distribution, try the install command
 by enabling the community repository:
 
 ```
-[user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>-minimal
+[user@dom0 ~]$ qvm-template --enablerepo=qubes-templates-community <DISTRO_NAME>-<RELEASE_NUMBER>-minimal
 ```
 
 The download may take a while depending on your connection speed.
