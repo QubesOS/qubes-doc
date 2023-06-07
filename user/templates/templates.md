@@ -144,28 +144,19 @@ Please see [How to Install Software](/doc/how-to-install-software).
 
 ## Uninstalling
 
-If you want to remove a template you must make sure that it is not being used.
-You should check that the template is not being used by any qubes,
-and also that it is not set as the default template.
+To remove a template, the graphical `Qube Manager` (Qubes Menu > Qubes Tools > Qube Manager) may be used. Right-click the template to be uninstalled and click "Delete qube" to begin removal.
 
-The procedure for uninstalling a template depends on how it was created.
-
-If the template was originaly created by cloning another template, then you can
-delete it the same way as you would any other qube. In the Qube Manager,
-right-click on the template and select **Delete qube**. (If you're not sure,
-you can safely try this method first to see if it works.)
-
-If, on the other hand, the template came pre-installed or was installed by
-installing a template package in dom0, per the instructions
-[above](#installing), then you must execute the following type of command in
-dom0 in order to uninstall it:
-
+Alternatively, to remove a template via the command line in dom0:
 ```
-$ sudo dnf remove qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>
+$ qvm-template remove <TEMPLATE_NAME>
 ```
 
-`qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>` is the name of the desired
-template package.
+\<TEMPLATE_NAME> is the first column from the output of:
+```
+$ qvm-template list --installed
+```
+
+In either case, if another qube is based on the template, the template will remain installed and a list of the dependent qubes will be displayed. [Switch](#switching) the dependent qubes to another template before attempting the removal again.
 
 You may see warning messages like the following:
 
