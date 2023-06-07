@@ -147,7 +147,7 @@ qvm-prefs personal guivm dom0
 You are now able to delete the GUI domain, for example `sys-gui-gpu`:
 
 ```bash
-qvm-remove -y sys-gui-gpu
+qvm-remove -f sys-gui-gpu
 ```
 
 #### General issues
