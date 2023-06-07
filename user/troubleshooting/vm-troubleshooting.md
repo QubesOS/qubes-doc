@@ -84,5 +84,5 @@ For example:
 qvm-template: error: Template 'debian-13' not found
 ```
 
-This normally means that you have the tenmplate name wrong, or the template is in a differnet repository.
+This normally means that you have the template name wrong, or the template is in a different repository.
 Check the name and the repository.
