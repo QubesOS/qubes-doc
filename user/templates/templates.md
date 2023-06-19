@@ -158,19 +158,7 @@ $ qvm-template list --installed
 
 In either case, if another qube is based on the template, the template will remain installed and a list of the dependent qubes will be displayed. [Switch](#switching) the dependent qubes to another template before attempting the removal again.
 
-If the Applications Menu entry doesn't go away after you uninstall a template,
-execute the following type of command in dom0:
-
-```
-$ rm ~/.local/share/applications/<TEMPLATE_NAME>
-```
-
-Applications Menu entries for backups of removed qubes can also be found in
-`/usr/local/share/applications/` of dom0.
-
-```
-$ rm /usr/local/share/applications/<TEMPLATE_NAME>
-```
+If the template's entry in the Qubes Menu is not removed with its uninstallation, consult the [troubleshooting page](/doc/app-menu-shortcut-troubleshooting/#fixing-shortcuts).
 
 ## Reinstalling
 
