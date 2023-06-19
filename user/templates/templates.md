@@ -144,7 +144,7 @@ Please see [How to Install Software](/doc/how-to-install-software).
 
 ## Uninstalling
 
-To remove a template, the graphical `Qube Manager` (Qubes Menu > Qubes Tools > Qube Manager) may be used. Right-click the template to be uninstalled and click "Delete qube" to begin removal.
+To remove a template, the graphical `Qube Manager` (Qubes Menu > Qubes Tools > Qube Manager) may be used. Right-click the template to be uninstalled and click "Delete qube" to begin removal. If no issues are found, a dialog box will request the template's name be typed as a final confirmation. Upon completion, the template will be deleted.
 
 Alternatively, to remove a template via the command line in dom0:
 ```
@@ -156,7 +156,7 @@ $ qvm-template remove <TEMPLATE_NAME>
 $ qvm-template list --installed
 ```
 
-In either case, if another qube is based on the template, the template will remain installed and a list of the dependent qubes will be displayed. [Switch](#switching) the dependent qubes to another template before attempting the removal again.
+In either case, issues with template removal may be raised. If an issue is raised, the template will remain installed and a list of concerns displayed. "Global property default_template" requires [switching](#switching) the default_template property to another template. "Template for" can be resolved by [switching](#switching) the dependent qubes' template. Once the issues are addressed, attempt the removal again.
 
 If the template's entry in the Qubes Menu is not removed with its uninstallation, consult the [troubleshooting page](/doc/app-menu-shortcut-troubleshooting/#fixing-shortcuts).
 
