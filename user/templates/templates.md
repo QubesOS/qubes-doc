@@ -158,32 +158,6 @@ $ qvm-template list --installed
 
 In either case, if another qube is based on the template, the template will remain installed and a list of the dependent qubes will be displayed. [Switch](#switching) the dependent qubes to another template before attempting the removal again.
 
-You may see warning messages like the following:
-
-```
-warning: file /var/lib/qubes/vm-templates/fedora-XX/whitelisted-appmenus.list: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/vm-whitelisted-appmenus.list: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/root.img.part.04: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/root.img.part.03: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/root.img.part.02: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/root.img.part.01: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/root.img.part.00: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/netvm-whitelisted-appmenus.list: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/icon.png: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/clean-volatile.img.tar: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/apps.templates: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/apps.tempicons: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/apps: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX: remove failed: No such file or directory
-```
-
-These are normal and expected. Nothing is wrong, and no action is required to
-address these warnings.
-
-If the uninstallation command doesn't work, pay close attention to
-any error message: it may tell you what qube is using the template,
-or if the template is default. In other cases, please see [VM Troubleshooting](/doc/vm-troubleshooting/).
-
 If the Applications Menu entry doesn't go away after you uninstall a template,
 execute the following type of command in dom0:
 
