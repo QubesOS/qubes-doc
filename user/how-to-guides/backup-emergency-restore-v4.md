@@ -194,8 +194,9 @@ any GNU/Linux system.
 
         [user@restore ~]$ sudo mkdir /mnt/img
         [user@restore ~]$ sudo mount -o loop vm123/private.img /mnt/img/
-        [user@restore ~]$ cat /mnt/img/home/user/your_data.txt
-        This data has been successfully recovered!
+        [user@restore ~]$ ls /mnt/img/home/user/
+        example_data_file.txt
+        ...
 
 Success! If you wish to recover data from more than one qube in your backup,
 simply repeat steps 7, 8, and 9 for each additional qube.
