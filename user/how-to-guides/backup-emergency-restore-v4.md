@@ -91,6 +91,8 @@ any GNU/Linux system.
 
         [user@restore ~]$ read -r backup_pass
 
+    Type in your passphrase (it will be visible on screen!) and press Enter.
+
  3. Verify the integrity of `backup-header` using `backup-header.hmac` (an
     encrypted *and integrity protected* version of `backup-header`).
 
