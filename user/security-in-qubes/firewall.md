@@ -262,7 +262,7 @@ As an example we can take the use case of a web server listening on port 443 tha
 **1. Identify the IP addresses you will need to use for sys-net, sys-firewall and the destination qube.**
 
 You can get this information from the Settings Window for the qube, or by running this command in each qube:
-`ifconfig | grep -i cast `
+`ip -4 -br a | grep UP`
 Note the IP addresses you will need.
 > Note: The vifx.0 interface is the one used by qubes connected to this netvm so it is _not_ an outside world interface.
 
