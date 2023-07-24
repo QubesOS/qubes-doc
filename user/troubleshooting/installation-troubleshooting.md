@@ -121,5 +121,5 @@ Here are the steps to fix this. Note that this allows sys-net and sys-usb to tak
 
 1. Change the virtualization mode of sys-net and sys-usb to "PV"
 2. Add `qubes.enable_insecure_pv_passthrough` to `GRUB_CMDLINE_LINUX` in `/etc/default/grub`
-3. Run `sudo grub2-mkconfig -o /boot/efi/EFI/qubes/grub.cfg`. If you are using a non-UEFI BIOS, run `sudo grub-mkconfig -o /boot/grub2/grub.cfg`
+3. Run `sudo grub2-mkconfig -o /boot/efi/EFI/qubes/grub.cfg`. If you are using a non-UEFI BIOS (where `/boot/efi/EFI` doesn't exist), use the command `sudo grub-mkconfig -o /boot/grub2/grub.cfg` instead.
 4. Reboot
