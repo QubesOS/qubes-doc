@@ -21,6 +21,7 @@ _**Please note:** This page is still an unfinished draft in progress. It is bein
 - fwupd integration to allow firmware updates ([#4855](https://github.com/QubesOS/qubes-issues/issues/4855))
 - optional automatic clipboard clearing ([#3415](https://github.com/QubesOS/qubes-issues/issues/3415))
 - official packages built using rewritten qubes-builder (qubes-builderv2) ([#6486](https://github.com/QubesOS/qubes-issues/issues/6486))
+- Split GPG and Split SSH management in Qubes Global Settings
 
 For a full list, including more detailed descriptions, please see
 [here](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.2%22+label%3A%22release+notes%22+is%3Aclosed).
