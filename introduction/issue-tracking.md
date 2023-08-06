@@ -102,10 +102,11 @@ There are three **types**: `T: bug`, `T: enhancement`, and `T: task`.
 
 Every open issue should have **exactly one** type. An open issue should not
 have more than one type, and it should not lack a type entirely. Bug reports
-are for things that already exist. If something doesn't exist yet, but you
-think it should exist, then `T: enhancement`. If something already exists and
-could be improved in some way, `T: enhancement` is appropriate. `T: task` is
-for issues that fall under under neither `T: bug` nor `T: enhancement`.
+are for problems in things that already exist. If something doesn't exist yet,
+but you think it should exist, then use `T: enhancement`. If something already
+exists and could be improved in some way, `T: enhancement` is appropriate. `T:
+task` is for issues that fall under under neither `T: bug` nor `T:
+enhancement`.
 
 #### Priority
 
@@ -124,29 +125,28 @@ full list). Every open issue should have **at least one** component. An open
 issue may have more than one component, but it should not lack a component
 entirely. When no other component applies, use `C: other`.
 
+#### Affected release
+
+A label of the form `affects-<RELEASE_NUMBER>` indicates that an issue affects
+the corresponding Qubes OS release. An issue can have more than one of these
+labels if it affects multiple releases.
+
 ### Milestones
 
 The issue tracker has several
-[milestones](https://github.com/QubesOS/qubes-issues/milestones). Every issue
-should be assigned to **exactly one** milestone. The issue tracker does not
-allow assigning an issue to more than one milestone. If an issue is already
-assigned to a milestone, assigning it to a different one will *replace* the
-existing milestone assignment.
+[milestones](https://github.com/QubesOS/qubes-issues/milestones). Individual
+issues can be assigned to milestones. The issue tracker does not allow an issue
+to be assigned to more than one milestone. If an issue is already assigned to a
+milestone, assigning it to a different one will *replace* the existing
+milestone assignment. Each milestone has a progress indicator to indicate what
+percentage of issues on that milestone are complete.
 
-Most milestones correspond to specific Qubes OS releases. For **bug reports**,
-the milestone designates the *earliest supported release* in which that bug is
-believed to exist. For **enhancements** and **tasks**,  the milestone indicates
-that the goal is to implement or do that thing *in* or *for* that release.
-
-The `Release TBD` (To Be Determined) milestone is for **enhancements** or
-**tasks** that will be specific to a Qubes OS release but have yet to be
-assigned to a specific release milestone. **Bug reports** should never be
-assigned to the `Release TBD` milestone, because every bug is a problem or
-defect in something that already exists.
-
-The `Non-release` milestone is for issues that are independent of the Qubes OS
-release cycle, including (but not limited to) most website, documentation, and
-project management issues.
+Most milestones correspond to specific Qubes OS releases. The Qubes developers
+decide which issues will be assigned to specific milestones. The general idea
+is that each milestone's progress indicator should provide a rough idea of how
+much progress has been made on that milestone and how much remains until the
+milestone is complete. Most issues will not be assigned to a milestone at all
+until a Qubes developer manually assigns it to one.
 
 ### Projects
 
