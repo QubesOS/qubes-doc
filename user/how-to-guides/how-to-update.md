@@ -14,8 +14,8 @@ looking to upgrade from your current version of Qubes OS to a newer version,
 see the [Upgrade Guides](/doc/upgrade/).*
 
 It is important to keep your Qubes OS system up-to-date to ensure you have the
-latest [security updates](#security-updates), as well as the latest
-non-security enhancements and bug fixes.
+latest security updates, as well as the latest non-security enhancements and bug
+fixes.
 
 Fully updating your Qubes OS system means updating:
 
@@ -26,8 +26,8 @@ Fully updating your Qubes OS system means updating:
 ## Security updates
 
 Security updates are an extremely important part of keeping your Qubes
-installation secure. When there is an important security issue, we will issue a
-[Qubes Security Bulletin (QSB)](/security/qsb/) via the [Qubes Security
+installation secure. When there is an important security incident, we will issue
+a [Qubes Security Bulletin (QSB)](/security/qsb/) via the [Qubes Security
 Pack (`qubes-secpack`)](/security/pack/). It is very important to read each new
 QSB and follow any user instructions it contains. Most of the time, simply
 updating your system normally, as described below, will be sufficient to obtain
@@ -36,7 +36,7 @@ your part, which will be explained in the QSB.
 
 ## Checking for updates
 
-By default, the Qubes Update tool will appear as an icon in the Notification
+By default, the **Qubes Update** tool will appear as an icon in the Notification
 Area when updates are available.
 
 [![Qube Updates Available](/attachment/doc/r4.0-qube-updates-available.png)](/attachment/doc/r4.0-qube-updates-available.png)
@@ -124,8 +124,8 @@ as well as OSes used in [templates](/doc/templates/) (and
 **It's very important that you use only supported releases so that you continue
 to receive security updates.** This means that you *must* periodically upgrade
 Qubes OS and your templates before they reach EOL. You can always see which
-versions of Qubes OS and select templates are supported on the [Supported
-Versions](/doc/supported-releases/) page.
+versions of Qubes OS and select templates are supported on the [supported
+releases](/doc/supported-releases/) page.
 
 In the case of Qubes OS itself, we will make an
 [announcement](/news/categories/#releases) when a supported Qubes OS release is
@@ -141,8 +141,7 @@ set their own
 for when each Fedora release reaches EOL. You can always find out when an OS
 reaches EOL from the upstream project that maintains it. We also pass along any
 EOL notices we receive for official template OSes as a convenience to Qubes
-users (see [Supported Versions:
-Templates](/doc/supported-releases/#templates)).
+users (see [supported template releases](/doc/supported-releases/#templates)).
 
 The one exception to all this is the specific release used for dom0 (not to be
 confused with Qubes OS as a whole), which [doesn't have to be
