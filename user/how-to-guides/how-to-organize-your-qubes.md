@@ -433,7 +433,7 @@ into technical details. So he has installed Qubes in a rather simple way mainly
 using the installation defaults and just adding a few well-documented features
 like Split GPG.
 
-
+[![Simple VM setup](/attachment/doc/Simple_Setup.png)](/attachment/doc/Simple_Setup.png)
 
 -	**One qube for surfing.** `untrusted` is just the standard qube coming with the Qubes
 installation, based on the standard Fedora template, but with Thunderbird removed.
