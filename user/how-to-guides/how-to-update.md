@@ -13,19 +13,6 @@ version of Qubes OS](/doc/supported-releases/#qubes-os). If you're instead
 looking to upgrade from your current version of Qubes OS to a newer version,
 see the [Upgrade Guides](/doc/upgrade/).*
 
-## Security updates
-
-Security updates are an extremely important part of keeping your Qubes
-installation secure. When there is an important security issue, we will issue a
-[Qubes Security Bulletin (QSB)](/security/qsb/) via the [Qubes Security
-Pack (`qubes-secpack`)](/security/pack/). It is very important to read each new
-QSB and follow any user instructions it contains. Most of the time, simply
-[updating your system normally](#routine-updates) will be sufficient to obtain
-security updates. However, in some cases, special action may be required on
-your part, which will be explained in the QSB.
-
-## Routine updates
-
 It is important to keep your Qubes OS system up-to-date to ensure you have the
 latest [security updates](#security-updates), as well as the latest
 non-security enhancements and bug fixes.
@@ -36,9 +23,18 @@ Fully updating your Qubes OS system means updating:
 - [templates](/doc/glossary/#template)
 - [standalones](/doc/glossary/#standalone) (if you have any)
 
-You can accomplish this using the **Qubes Update** tool.
+## Security updates
 
-[![Qubes Update](/attachment/doc/r4.0-software-update.png)](/attachment/doc/r4.0-software-update.png)
+Security updates are an extremely important part of keeping your Qubes
+installation secure. When there is an important security issue, we will issue a
+[Qubes Security Bulletin (QSB)](/security/qsb/) via the [Qubes Security
+Pack (`qubes-secpack`)](/security/pack/). It is very important to read each new
+QSB and follow any user instructions it contains. Most of the time, simply
+updating your system normally, as described below, will be sufficient to obtain
+security updates. However, in some cases, special action may be required on
+your part, which will be explained in the QSB.
+
+## Checking for updates
 
 By default, the Qubes Update tool will appear as an icon in the Notification
 Area when updates are available.
@@ -65,6 +61,29 @@ will receive a notification as described above. However, if you have any
 templates that do *not* have any online child qubes, you will *not* receive
 update notifications for them. Therefore, you should regularly update such
 templates manually instead.
+
+## Installing updates
+
+The standard way to install updates is with the **Qubes Update** tool. (However,
+you can also perform the same action via the [command-line
+interface](#command-line-interface).)
+
+[![Qubes Update](/attachment/doc/r4.0-software-update.png)](/attachment/doc/r4.0-software-update.png)
+
+Simply follow the on-screen instructions, and the tool will download and install
+all available updates for you. Note that if you are downloading updates over Tor
+(`sys-whonix`), this can take a very long time, especially if there are a lot of
+updates available.
+
+## Restarting after updating
+
+Certain updates require certain components to be restarted in order for the
+updates to take effect:
+
+- QSBs may instruct you to restart certain components after installing updates.
+- Dom0 should be restarted after any **Xen** or **kernel** updates.
+- After updating a template, first shut down the template, then restart all
+  running qubes based on that template.
 
 ## Command-line interface
 
