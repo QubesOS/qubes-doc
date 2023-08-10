@@ -425,6 +425,62 @@ templates and even her Bitcoin full node qube, but she'll skip them if she
 doesn't have time or space, since she knows she can always recreate them again
 later and download what she needs from the Internet.
 
+## John, the teacher
+
+John is a teacher at a high school, teaching mathematics and history. He is used
+to setting up his workstation but has not the time or inclination to dive deeper
+into technical details. So he has installed Qubes in a rather simple way mainly
+using the installation defaults and just adding a few well-documented features
+like Split GPG.
+
+
+
+-	**One qube for surfing.** `untrusted` is just the standard qube coming with the Qubes
+installation, based on the standard Fedora template, but with Thunderbird removed.
+It is intended for surfing arbitrary locations and may be at risk from some websites.
+Consequently, it does not keep any valuable data and has no facilities to view or
+edit office documents.
+
+-	**One offline qube for writing.** `work` is the qube used to edit documents – even
+MS office documents. It is based on an extended Fedora template containing additional
+software like LibreOffice, GIMP, Wine, and some Windows applications. It has no netVM
+and so the risk of an infected document contacting a hacker’s control server is minimized.
+
+- **One qube for access to trusted servers.** `personal` is used to access only trusted
+websites like home banking, and the firewall rules for this qube restrict it to these
+locations. It is based on the same extended Fedora template. John uses this qube for
+access to his mail server, too, but does not process any documents received by mail
+in this qube. Any office documents from this qube are only opened in dispVMs in order
+to reduce the risk of infection.
+
+- **One qube for preparing teaching material for his students.** `Windows` is the workhorse
+used to execute anything needed for teaching. It is based on a Windows 7 template with QWT
+installed as most of John’s students work with Windows PCs. In order to reduce the risks
+for such an AppVM, and possible risks caused by it, its internet access is limited, again
+by a firewall rule, to the servers providing material for teaching.
+
+- **One qube for protected access to sensible websites.** `whonix` is just the standard
+AppVM `anon-whonix` based on the `whonix-ws` coming with the Qubes installation. It is
+used for all accesses over Tor and could as well be replaced by a dispVM. John, who is
+engaged in a project for helping mentally disabled people, uses this qube to avoid tracking
+his access to the project’s server.
+
+- **One offline qube for keeping the private PGP key.** `vault` is the key part of Split GPG,
+just as described in the Qubes documentation, keeping the private PGP key.
+
+- **One offline qube for permanent data storage.** `storage` finally is a qube based on the
+standard Debian template and, having no applications and no network access, it is used
+explicitly and only for permanent data storage, and it is the only qube whose data is regarded
+as valuable and worth keeping. The Fedora-based qubes might even be configured as dispVMs, and,
+if you are willing to accept the rather slow start of Windows, even the qube `Windows` might be
+created as a dispVM.
+
+This is a rather simplistic design, intended to show that with a minimum effort a decent level
+of security can be reached, and it is a first implementation showing how John can compartmentalize
+his digital life, as described in the Qubes documentation. Once the templates are in place and
+Split GPG is installed, setting up this structure takes only a few minutes, but it is much more
+secure than, for instance, a Windows 10 installation based on the available hardening studies,
+which are quite useless for a practical environment, especially for a user like John.
 
 ## Conclusion
 
