@@ -482,6 +482,7 @@ Split GPG is installed, setting up this structure takes only a few minutes, but 
 secure than, for instance, a Windows 10 installation based on the available hardening studies,
 which are quite useless for a practical environment, especially for a user like John.
 
+
 ## Conclusion
 
 The characters we've met today may be fictional, but they represent the needs
