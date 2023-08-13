@@ -54,6 +54,7 @@ The table below shows the OS used for dom0 in each Qubes OS release.
 | Release 3.2 | Fedora 23 |
 | Release 4.0 | Fedora 25 |
 | Release 4.1 | Fedora 32 |
+| Release 4.2 | Fedora 37 |
 
 ### Note on dom0 and EOL
 
@@ -93,6 +94,7 @@ Releases](https://wiki.debian.org/DebianReleases)).
 | Qubes OS    | Fedora | Debian                     | Whonix |
 | ----------- | ------ | -------------------------- | ------ |
 | Release 4.1 | 37, 38 | 10 (Buster), 11 (Bullseye) | 16     |
+| Release 4.2 | 37, 38 | 11 (Bullseye)              | 17     |
 
 ### Note on Debian support
 
