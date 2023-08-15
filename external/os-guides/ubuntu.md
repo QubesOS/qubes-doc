@@ -7,7 +7,7 @@ redirect_from:
 - /en/doc/templates/ubuntu/
 - /doc/Templates/Ubuntu/
 - /wiki/Templates/Ubuntu/
-redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/os/ubuntu.md
+redirect_to: https://qubes.3isec.org
 ref: 80
 title: Ubuntu template
 ---

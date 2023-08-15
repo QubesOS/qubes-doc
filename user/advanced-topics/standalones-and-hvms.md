@@ -440,4 +440,4 @@ qemu-img -h | tail -n1
 Other documents related to HVMs:
 
 - [Windows VMs](https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows-vm.md)
-- [Linux HVM Tips](https://github.com/Qubes-Community/Contents/blob/master/docs/os/linux-hvm-tips.md)
+- [Linux HVM Tips](https://forum.qubes-os.org/t/19008)

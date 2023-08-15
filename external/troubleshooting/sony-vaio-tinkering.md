@@ -6,7 +6,7 @@ redirect_from:
 - /en/doc/sony-vaio-tinkering/
 - /doc/SonyVaioTinkering/
 - /wiki/SonyVaioTinkering/
-redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/sony-vaio-tinkering.md
+redirect_to: https://forum.qubes-os.org/t/19022
 ref: 93
 title: Sony Vaio tinkering
 ---

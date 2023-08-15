@@ -88,7 +88,7 @@ The sys-firewall-2 proxy ensures that:
 
 If you adopt this model, you should be aware that all traffic will arrive at the `network service qube` appearing to originate from the IP address of `sys-firewall-2`.
 
-For the VPN service please also look at the [VPN documentation](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md).
+For the VPN service please also look at the [VPN documentation](https://forum.qubes-os.org/t/19061).
 
 Enabling networking between two qubes
 -------------------------------------

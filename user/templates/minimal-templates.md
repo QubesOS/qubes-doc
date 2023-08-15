@@ -155,12 +155,12 @@ list of packages to be installed):
   `qubes-usb-proxy` to provide USB devices to other Qubes and
   `qubes-input-proxy-sender` to provide keyboard or mouse input to dom0.
 - [VPN
-  qube](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md):
+  qube](https://forum.qubes-os.org/t/19061):
   Use the `dnf search "NetworkManager VPN plugin"` command to look up the VPN
   packages you need, based on the VPN technology you'll be using, and install
   them. Some GNOME related packages may be needed as well. After creation of a
   machine based on this template, follow the [VPN
-  instructions](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager)
+  instructions](https://forum.qubes-os.org/t/19061#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager)
   to configure it.
 - `default-mgmt-dvm`: requires `qubes-core-agent-passwordless-root` and
   `qubes-mgmt-salt-vm-connector`.
@@ -206,7 +206,7 @@ You may also wish to consider additional packages from the `qubes-core-agent`
 suite.
 
 See
-[here](https://github.com/Qubes-Community/Contents/blob/master/docs/customization/fedora-minimal-template-customization.md)
+[here](https://forum.qubes-os.org/t/18999)
 for further information on customizing `fedora-minimal`.
 
 #### Logging
@@ -254,11 +254,11 @@ list of packages to be installed):
   pair it with `qubes-core-agent-passwordless-root` or manually activate the
   user session with `loginctl activate <USER_SESSION_ID>`.)
 - [VPN
-  qube](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md):
+  qube](https://forum.qubes-os.org/t/19061):
   You may need to install network-manager VPN packages, depending on the VPN
   technology you'll be using. After creating a machine based on this template,
   follow the [VPN
-  howto](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager)
+  howto](https://forum.qubes-os.org/t/19061#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager)
   to configure it.
 - `default-mgmt-dvm`: requires `qubes-core-agent-passwordless-root` and
   `qubes-mgmt-salt-vm-connector`.
@@ -334,11 +334,11 @@ list of packages to be installed):
   `qubes-usb-proxy` to provide USB devices to other Qubes and
   `qubes-input-proxy-sender` to provide keyboard or mouse input to dom0.
 - [VPN
-  qube](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md):
+  qube](https://forum.qubes-os.org/t/19061):
   You may need to install network-manager VPN packages, depending on the VPN
   technology you'll be using. After creating a machine based on this template,
   follow the [VPN
-  howto](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager)
+  howto](https://forum.qubes-os.org/t/19061#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager)
   to configure it.
 - `default-mgmt-dvm`: requires `qubes-core-agent-passwordless-root` and
   `qubes-mgmt-salt-vm-connector`.
