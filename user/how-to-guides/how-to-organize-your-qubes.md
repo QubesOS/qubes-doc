@@ -450,7 +450,7 @@ and so the risk of an infected document contacting a hacker’s control server i
 websites like home banking, and the firewall rules for this qube restrict it to these
 locations. It is based on the same extended Fedora template. John uses this qube for
 access to his mail server, too, but does not process any documents received by mail
-in this qube. Any office documents from this qube are only opened in dispVMs in order
+in this qube. Any office documents from this qube are only opened in disposables in order
 to reduce the risk of infection.
 
 - **One qube for preparing teaching material for his students.** `Windows` is the workhorse
@@ -461,7 +461,7 @@ by a firewall rule, to the servers providing material for teaching.
 
 - **One qube for protected access to sensible websites.** `whonix` is just the standard
 AppVM `anon-whonix` based on the `whonix-ws` coming with the Qubes installation. It is
-used for all accesses over Tor and could as well be replaced by a dispVM. John, who is
+used for all accesses over Tor and could as well be replaced by a disposable. John, who is
 engaged in a project for helping mentally disabled people, uses this qube to avoid tracking
 his access to the project’s server.
 
@@ -471,9 +471,9 @@ just as described in the Qubes documentation, keeping the private PGP key.
 - **One offline qube for permanent data storage.** `storage` finally is a qube based on the
 standard Debian template and, having no applications and no network access, it is used
 explicitly and only for permanent data storage, and it is the only qube whose data is regarded
-as valuable and worth keeping. The Fedora-based qubes might even be configured as dispVMs, and,
+as valuable and worth keeping. The Fedora-based qubes might even be configured as disposables, and,
 if you are willing to accept the rather slow start of Windows, even the qube `Windows` might be
-created as a dispVM.
+created as a disposable.
 
 This is a rather simplistic design, intended to show that with a minimum effort a decent level
 of security can be reached, and it is a first implementation showing how John can compartmentalize
