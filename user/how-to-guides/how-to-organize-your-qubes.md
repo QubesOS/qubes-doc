@@ -477,7 +477,8 @@ created as a disposable.
 
 This is a rather simplistic design, intended to show that with a minimum effort a decent level
 of security can be reached, and it is a first implementation showing how John can compartmentalize
-his digital life, as described in the Qubes documentation. Once the templates are in place and
+his digital life, as described in the Qubes documentation. Once the templates are are set up with
+the necessary software like LibreOffice and
 Split GPG is installed, setting up this structure takes only a few minutes, but it is much more
 secure than, for instance, a Windows 10 installation based on the available hardening studies,
 which are quite useless for a practical environment, especially for a user like John.
