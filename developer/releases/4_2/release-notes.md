@@ -45,8 +45,4 @@ See the [installation guide](/doc/installation-guide/).
 
 ## Upgrading
 
-The in-place upgrade procedure is not ready yet ([#7832](https://github.com/QubesOS/qubes-issues/issues/7832)). Currently, R4.2 can be tested by performing a clean installation.
-
-```
-TODO: Please see [how to upgrade to Qubes 4.2](/doc/upgrade/4.2/).
-```
+Please see [how to upgrade to Qubes 4.2](/doc/upgrade/4.2/).
