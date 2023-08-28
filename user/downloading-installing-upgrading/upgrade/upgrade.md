@@ -19,3 +19,4 @@ see [how to update](/doc/how-to-update/).
 * [Upgrade from 3.1 to 3.2](/doc/upgrade/3.2/)
 * [Upgrade from 3.2 to 4.0](/doc/upgrade/4.0/)
 * [Upgrade from 4.0 to 4.1](/doc/upgrade/4.1/)
+* [Upgrade from 4.1 to 4.2](/doc/upgrade/4.2/)
