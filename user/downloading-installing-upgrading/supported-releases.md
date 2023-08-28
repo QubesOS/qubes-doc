@@ -91,10 +91,10 @@ upstream release on the upstream distribution's website (see [Fedora
 EOL](https://fedoraproject.org/wiki/End_of_life) and [Debian
 Releases](https://wiki.debian.org/DebianReleases)).
 
-| Qubes OS    | Fedora | Debian                     | Whonix |
-| ----------- | ------ | -------------------------- | ------ |
-| Release 4.1 | 37, 38 | 10 (Buster), 11 (Bullseye) | 16     |
-| Release 4.2 | 37, 38 | 11 (Bullseye)              | 17     |
+| Qubes OS    | Fedora | Debian                                    | Whonix |
+| ----------- | ------ | ----------------------------------------- | ------ |
+| Release 4.1 | 37, 38 | 10 (Buster), 11 (Bullseye), 12 (Bookworm) | 16     |
+| Release 4.2 | 37, 38 | 11 (Bullseye), 12 (Bookworm)              | 17     |
 
 ### Note on Debian support
 
