@@ -22,6 +22,7 @@ _**Please note:** This page is still an unfinished draft in progress. It is bein
 - optional automatic clipboard clearing ([#3415](https://github.com/QubesOS/qubes-issues/issues/3415))
 - official packages built using rewritten qubes-builder (qubes-builderv2) ([#6486](https://github.com/QubesOS/qubes-issues/issues/6486))
 - Split GPG and Split SSH management in Qubes Global Settings
+- Default templates are now in "Xfce" flavor instead of "Gnome" (https://github.com/QubesOS/qubes-issues/issues/7784)
 
 For a full list, including more detailed descriptions, please see
 [here](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.2%22+label%3A%22release+notes%22+is%3Aclosed).
@@ -45,8 +46,4 @@ See the [installation guide](/doc/installation-guide/).
 
 ## Upgrading
 
-The in-place upgrade procedure is not ready yet ([#7832](https://github.com/QubesOS/qubes-issues/issues/7832)). Currently, R4.2 can be tested by performing a clean installation.
-
-```
-TODO: Please see [how to upgrade to Qubes 4.2](/doc/upgrade/4.2/).
-```
+Please see [how to upgrade to Qubes 4.2](/doc/upgrade/4.2/).
