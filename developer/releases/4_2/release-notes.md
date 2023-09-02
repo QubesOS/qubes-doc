@@ -11,7 +11,7 @@ _**Please note:** This page is still an unfinished draft in progress. It is bein
 - Dom0 upgraded to Fedora 37 ([#6982](https://github.com/QubesOS/qubes-issues/issues/6982))
 - Xen upgraded to version 4.17
 - Default Debian template upgraded to Debian 12
-- Default Fedora and Debian templates use Xfce instead of GNOME (https://github.com/QubesOS/qubes-issues/issues/7784)
+- Default Fedora and Debian templates use Xfce instead of GNOME ([#7784](https://github.com/QubesOS/qubes-issues/issues/7784))
 - SELinux support in Fedora templates ([#4239](https://github.com/QubesOS/qubes-issues/issues/4239))
 - Several GUI applications rewritten, including:
   - Applications Menu (also available as preview in R4.1) ([#6665](https://github.com/QubesOS/qubes-issues/issues/6665)), ([#5677](https://github.com/QubesOS/qubes-issues/issues/5677))
