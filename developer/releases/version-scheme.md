@@ -52,20 +52,21 @@ Qubes OS. Another remix may have its own version series.
 
 ## Release versioning
 
-Qubes OS as a whole is released from time to time. When preparing a new
-release, we decide on the `<major>.<minor>` numbers (e.g., `3.0`). We then
-publish the first release candidate, `3.0-rc1`. When we feel that enough
-progress has been made, we'll release `3.0-rc2` and so on. All these versions
-(not yet releases) are considered unstable and not for production use. You are
-welcome to [help us test](/doc/testing/) these versions.
+Qubes OS as a whole is released from time to time. When preparing a new release,
+we decide on the `<major>.<minor>` numbers (e.g., `3.0`, which is short for
+`3.0.0`). We then publish the first release candidate, e.g., `3.0.0-rc1`. When
+we feel that enough progress has been made, we'll release `3.0.0-rc2` and so on.
+All these versions (which are not yet releases) are considered unstable and are
+not intended for production use. You are welcome to [help us
+test](/doc/testing/) these versions.
 
 When enough progress has been made, we announce the first stable release, e.g.
-`3.0.0`. This not only a version but an actual release. It is considered stable
-and we commit to supporting it according to our [support
+`3.0.0`. This is not only a version but an actual release. It is considered
+stable, and we commit to supporting it according to our [support
 schedule](/doc/supported-releases/). Core components are branched at this
-moment and bug fixes are backported from the master branch. Please see [help,
+moment, and bug fixes are backported from the master branch. Please see [help,
 support, mailing lists, and forum](/support/) for places to ask questions about
-stable releases. No major features and interface incompatibilities are to be
+stable releases. No major features or interface incompatibilities are to be
 included in this release. We release bug fixes as patch releases (`3.0.1`,
 `3.0.2`, and so on), while backward-compatible enhancements and new features
 are introduced in the next minor release (e.g., `3.1`). Any
