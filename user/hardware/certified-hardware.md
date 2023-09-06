@@ -57,7 +57,7 @@ The [NovaCustom NV41 Series](https://configurelaptop.eu/nv41-series/) is a 14-in
 
 ### NitroPC Pro
 
-[![Photo of the NitroPC Pro](/attachment/site/nitropc-pro.jpg)](https://shop.nitrokey.com/shop/product/nitropc-pro-523)
+[![Photo of the NitroPC Pro](/attachment/posts/nitropc-pro.jpg)](https://shop.nitrokey.com/shop/product/nitropc-pro-523)
 
 The [NitroPC Pro](https://shop.nitrokey.com/shop/product/nitropc-pro-523) is a desktop based on the MSI PRO Z690-A DDR5 motherboard. It is certified for Qubes OS 4.X. Read our [announcement](/news/2023/09/06/nitropc-pro-qubes-certified/) for details.
 
