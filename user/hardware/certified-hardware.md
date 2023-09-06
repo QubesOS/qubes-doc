@@ -88,6 +88,12 @@ The [NovaCustom NV41 Series](https://configurelaptop.eu/nv41-series/) is a
 [announcement](/news/2023/05/03/novacustom-nv41-series-qubes-certified/) for
 details.
 
+### NitroPC Pro
+
+[![Photo of the NitroPC Pro](/attachment/site/nitropc-pro.jpg)](https://shop.nitrokey.com/shop/product/nitropc-pro-523)
+
+The [NitroPC Pro](https://shop.nitrokey.com/shop/product/nitropc-pro-523) is a desktop based on the MSI PRO Z690-A DDR5 motherboard. It is certified for Qubes OS 4.X. Read our [announcement](/news/2023/09/06/nitropc-pro-qubes-certified/) for details.
+
 ## Become hardware certified
 
 If you are a hardware vendor, you can have your hardware certified as
