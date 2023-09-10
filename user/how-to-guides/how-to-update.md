@@ -81,7 +81,9 @@ Certain updates require certain components to be restarted in order for the
 updates to take effect:
 
 - QSBs may instruct you to restart certain components after installing updates.
-- Dom0 should be restarted after any **Xen** or **kernel** updates.
+- Dom0 should be restarted after all **Xen** and **kernel** updates.
+- On Intel systems, dom0 should be restarted after all `microcode_ctl` updates.
+- On AMD systems, dom0 should be restarted after all `linux-firmware` updates.
 - After updating a template, first shut down the template, then restart all
   running qubes based on that template.
 
