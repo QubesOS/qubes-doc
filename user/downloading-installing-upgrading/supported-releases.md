@@ -108,23 +108,6 @@ chart that illustrates this. Qubes support ends at the *regular* EOL date,
 
 [Whonix](https://www.whonix.org/wiki/Qubes) templates are supported by our
 partner, the [Whonix Project](https://www.whonix.org/). The Whonix Project has
-set its own support policy for Whonix templates in Qubes.
-
-This policy requires Whonix template users to stay reasonably close to the
-cutting edge by upgrading to new stable releases of Qubes OS and Whonix
-templates within a month of their respective releases. To be precise:
-
-* One month after a new stable version of Qubes OS is released, Whonix
-  templates will no longer be supported on any older release of Qubes OS. This
-  means that users who wish to continue using Whonix templates on Qubes must
-  always upgrade to the latest stable Qubes OS release within one month of its
-  release.
-
-* One month after new stable versions of Whonix templates are released, older
-  releases of Whonix templates will no longer be supported. This means that
-  users who wish to continue using Whonix templates on Qubes must always
-  upgrade to the latest stable Whonix template releases within one month of
-  their release.
-
-We aim to announce both types of events one month in advance in order to remind
-users to upgrade.
+set its own support policy for Whonix templates in Qubes. Please see the
+[Qubes-Whonix version support policy](https://www.whonix.org/wiki/About#Qubes_Hosts)
+for details.
