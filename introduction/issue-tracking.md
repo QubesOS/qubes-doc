@@ -139,6 +139,25 @@ When you file a new issue, you should be sure to include the version of Qubes yo
 
 Keep in mind that [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) is an issue tracker, not a support system. Creating a new issue is simply a way for you to submit an item for the Qubes team's consideration. It is up to the Qubes team to decide whether or how to address your issue, which may include closing the issue without taking any action on it. Even if your issue is kept open, however, you should not expect it to be addressed within any particular time frame, or at all. At the time of this writing, there are well over one thousand open issues in [qubes-issues](https://github.com/QubesOS/qubes-issues/issues). The Qubes team has its own roadmap and priorities, which will govern the manner and order in which open issues are addressed.
 
+### Issues and comments must be written in English
+
+If English is not your native language, you may post a machine translation. If you wish, you may also include the original non-English text in a [collapsible section](#use-collapsible-sections-for-long-nonessential-content).
+
+### Use collapsible sections for long, nonessential content
+
+On GitHub, create collapsible sections in Markdown like so:
+
+```
+<details>
+<summary>Summary goes here. This line is optional.</summary>
+
+Long, nonessential content goes here. You can put a code block here, but make sure to leave empty lines before and after the fence lines (```).
+
+</details>
+```
+
+**Tip:** Use the "Preview" tab to make sure it renders correctly before posting.
+
 ## How issues get closed
 
 If the Qubes developers make a code change that resolves an issue, then the issue will typically be [closed from the relevant commit or merged pull request (PR)](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-issues/linking-a-pull-request-to-an-issue).
