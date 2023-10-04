@@ -240,12 +240,14 @@ list of packages to be installed):
 - [FirewallVM](/doc/firewall/), such as the template for `sys-firewall`: at
   least `qubes-core-agent-networking`, and also `qubes-core-agent-dom0-updates`
   if you want to use it as the `UpdateVM` (which is normally `sys-firewall`).
-- NetVM, such as the template for `sys-net`: `qubes-core-agent-networking`
-  `qubes-core-agent-network-manager`. If your network devices need extra
-  packages for a network VM, use the `lspci` command to identify the devices,
-  then find the package that provides necessary firmware and install it. If you
-  need utilities for debugging and analyzing network connections, install the
-  following packages: `tcpdump` `telnet` `nmap` `ncat`.
+- NetVM, such as the template for `sys-net`: Ethernet requires
+  `qubes-core-agent-network-manager`, and Wi-Fi requires the previous
+  package(s) plus `wpasupplicant`, optionally `gnome-keyring` for saving the
+  Wi-Fi password. If your network devices need extra packages for a network
+  VM, use the `lspci` command to identify the devices, then find the package
+  that provides necessary firmware and install it. If you need utilities for
+  debugging and analyzing network connections, install the following packages:
+  `tcpdump` `telnet` `nmap` `ncat`.
 - [USB qube](/doc/usb-qubes/), such as the template for `sys-usb`:
   `qubes-usb-proxy` to provide USB devices to other Qubes and
   `qubes-input-proxy-sender` to provide keyboard or mouse input to dom0.
