@@ -27,6 +27,13 @@ notable exception, as upstream OSes almost always have their own release
 schedules.) Bug fixes are allowed in all releases, and backward-compatible
 changes are allowed in all major and minor releases.
 
+Qubes OS minor releases generally include new features, new templates, and
+occasionally new defaults, but they are still backward-compatible in the sense
+that qubes and features that worked in the previous release still function,
+though the UI may be different in some cases. In general, deprecated features
+are removed only in major releases, and in-place upgrades between major versions
+are not guaranteed.
+
 Following standard practice, **version** refers to any build that has been
 assigned a version name or number, e.g., `3.2-rc2`, `4.0.4`, `4.1-beta1`. By
 contrast, **release** refers to any version that is intended for consumption by
