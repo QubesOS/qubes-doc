@@ -58,6 +58,10 @@ Certain updates require certain components to be restarted in order for the upda
 - On AMD systems, dom0 should be restarted after all `linux-firmware` updates.
 - After updating a template, first shut down the template, then restart all running qubes based on that template.
 
+## AEM resealing after updating
+
+If you use [Anti Evil Maid (AEM)](/doc/anti-evil-maid/), you'll have to "reseal" after certain updates. It's common for QSBs to contain instructions to this effect. See the relevant QSB and the [AEM `README`](https://github.com/QubesOS/qubes-antievilmaid/blob/main/README) for details.
+
 ## Command-line interface
 
 <div class="alert alert-danger" role="alert">
