@@ -8,7 +8,7 @@ ref: 200
 title: How to update
 ---
 
-*This page is about updating your system while staying on the same [supported version of Qubes OS](/doc/supported-releases/#qubes-os). If you're instead looking to upgrade from your current version of Qubes OS to a newer version, see the [upgrade guides](/doc/upgrade/).*
+*This page is about updating your system while staying on the same [supported version of Qubes OS](/doc/supported-releases/#qubes-os). If you're instead looking to upgrade from your current version of Qubes OS to a newer version, see [Upgrade guides](/doc/upgrade/).*
 
 It is important to keep your Qubes OS system up-to-date to ensure you have the latest security updates, as well as the latest non-security enhancements and bug fixes.
 
@@ -79,10 +79,10 @@ Advanced users may also be interested in learning [how to enable the testing rep
 
 The above covers updating *within* a given operating system (OS) release. Eventually, however, most OS releases will reach **end-of-life (EOL)**, after which point they will no longer be supported. This applies to Qubes OS itself as well as OSes used in [templates](/doc/templates/) (and [standalones](/doc/standalones-and-hvms/), if you have any).
 
-**It's very important that you use only supported releases so that you continue to receive security updates.** This means that you *must* periodically upgrade Qubes OS and your templates before they reach EOL. You can always see which versions of Qubes OS and select templates are supported on the [supported releases](/doc/supported-releases/) page.
+**It's very important that you use only supported releases so that you continue to receive security updates.** This means that you *must* periodically upgrade Qubes OS and your templates before they reach EOL. You can always see which versions of Qubes OS and select templates are supported on [Supported releases](/doc/supported-releases/).
 
 In the case of Qubes OS itself, we will make an [announcement](/news/categories/#releases) when a supported Qubes OS release is approaching EOL and another when it has actually reached EOL, and we will provide [instructions for upgrading to the next stable supported Qubes OS release](/doc/upgrade/).
 
-Periodic upgrades are also important for templates. For example, you might be using a [Fedora template](/doc/templates/fedora/). The [Fedora Project](https://getfedora.org/) is independent of the Qubes OS Project. They set their own [schedule](https://fedoraproject.org/wiki/Fedora_Release_Life_Cycle#Maintenance_Schedule) for when each Fedora release reaches EOL. You can always find out when an OS reaches EOL from the upstream project that maintains it. We also pass along any EOL notices we receive for official template OSes as a convenience to Qubes users (see [supported template releases](/doc/supported-releases/#templates)).
+Periodic upgrades are also important for templates. For example, you might be using a [Fedora template](/doc/templates/fedora/). The [Fedora Project](https://getfedora.org/) is independent of the Qubes OS Project. They set their own [schedule](https://fedoraproject.org/wiki/Fedora_Release_Life_Cycle#Maintenance_Schedule) for when each Fedora release reaches EOL. You can always find out when an OS reaches EOL from the upstream project that maintains it. We also pass along any EOL notices we receive for official template OSes as a convenience to Qubes users (see the [supported template releases](/doc/supported-releases/#templates)).
 
 The one exception to all this is the specific release used for dom0 (not to be confused with Qubes OS as a whole), which [doesn't have to be upgraded](/doc/supported-releases/#note-on-dom0-and-eol).
