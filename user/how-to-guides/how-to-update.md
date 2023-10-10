@@ -8,7 +8,7 @@ ref: 200
 title: How to update
 ---
 
-*This page is about updating your system while staying on the same [supported version of Qubes OS](/doc/supported-releases/#qubes-os). If you're instead looking to upgrade from your current version of Qubes OS to a newer version, see the [Upgrade Guides](/doc/upgrade/).*
+*This page is about updating your system while staying on the same [supported version of Qubes OS](/doc/supported-releases/#qubes-os). If you're instead looking to upgrade from your current version of Qubes OS to a newer version, see the [upgrade guides](/doc/upgrade/).*
 
 It is important to keep your Qubes OS system up-to-date to ensure you have the latest security updates, as well as the latest non-security enhancements and bug fixes.
 
@@ -32,10 +32,7 @@ However, you can also start the tool manually by selecting it in the Application
 
 <div class="alert alert-info" role="alert">
   <i class="fa fa-question-circle"></i>
-  For information about how templates download updates, please see <a
-  href="/doc/how-to-install-software/#why-dont-templates-have-network-access">Why
-  don’t templates have network access?</a> and the <a
-  href="/doc/how-to-install-software/#updates-proxy">Updates proxy</a>.
+  For information about how templates download updates, please see <a href="/doc/how-to-install-software/#why-dont-templates-have-network-access">Why don't templates have network access?</a> and the <a href="/doc/how-to-install-software/#updates-proxy">Updates proxy</a>.
 </div>
 
 By default, most qubes that are connected to the internet will periodically check for updates for their parent templates. If updates are available, you will receive a notification as described above. However, if you have any templates that do *not* have any online child qubes, you will *not* receive update notifications for them. Therefore, you should regularly update such templates manually instead.
@@ -66,13 +63,7 @@ If you use [Anti Evil Maid (AEM)](/doc/anti-evil-maid/), you'll have to "reseal"
 
 <div class="alert alert-danger" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
-  <b>Warning:</b> Updating with direct commands such as
-  <code>qubes-dom0-update</code>, <code>dnf update</code>, and <code>apt
-  update</code> is <b>not</b> recommended, since these bypass built-in Qubes OS
-  update security measures. Instead, we strongly recommend using the <b>Qubes
-  Update</b> tool or its command-line equivalents, as described below. (By
-  contrast, <a href="/doc/how-to-install-software/">installing</a> packages
-  using direct package manager commands is fine.)
+  <b>Warning:</b> Updating with direct commands such as <code>qubes-dom0-update</code>, <code>dnf update</code>, and <code>apt update</code> is <b>not</b> recommended, since these bypass built-in Qubes OS update security measures. Instead, we strongly recommend using the <b>Qubes Update</b> tool or its command-line equivalents, as described below. (By contrast, <a href="/doc/how-to-install-software/">installing</a> packages using direct package manager commands is fine.)
 </div>
 
 Advanced users may wish to perform updates via the command-line interface. The recommended way to do this is by applying the following two Salt states. **Applying these two Salt states is the same as updating via the Qubes Update tool.**
