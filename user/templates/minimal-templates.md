@@ -241,8 +241,8 @@ list of packages to be installed):
   least `qubes-core-agent-networking`, and also `qubes-core-agent-dom0-updates`
   if you want to use it as the `UpdateVM` (which is normally `sys-firewall`).
 - NetVM, such as the template for `sys-net`: `qubes-core-agent-networking`
-  `qubes-core-agent-network-manager`. If your network devices need extra
-  packages for a network VM, use the `lspci` command to identify the devices,
+  `qubes-core-agent-network-manager` `systemd-timesyncd`(or other NTP Service).
+  If your network devices need extra packages for a network VM, use the `lspci` command to identify the devices,
   then find the package that provides necessary firmware and install it. If you
   need utilities for debugging and analyzing network connections, install the
   following packages: `tcpdump` `telnet` `nmap` `ncat`.
