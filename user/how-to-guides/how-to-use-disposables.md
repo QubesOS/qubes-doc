@@ -22,6 +22,22 @@ From inside an app qube, choosing the `Open in disposable` option on a file will
 
 This diagram provides a general example of how disposables can be used to safely open untrusted links and attachments in disposables. See [this article](https://blog.invisiblethings.org/2010/06/01/disposable-vms.html) for more on why one would want to use a disposable.
 
+## Named disposables and disposable templates
+
+There is a difference between [named disposables](/doc/glossary/#named-disposable) and [disposable templates](/doc/glossary/#disposable-template).
+
+In a default QubesOS Installation, you would probably use the 'whonix-ws-16-dvm' if you, as an example, want to browse the Tor network with an disposable. Every application starts a new random disposable with an ID in the name and if you close the window, it shuts down the qube. This is the feeling of an disposable template.
+
+In named disposables every application starts in the same qube, the qube itself has a fixed name and you need to manually shutdown the qube. Except from the non-persistance, they feel like usual app qubes. Named disposables are built upon disposable templates.
+
+### How to create disposable templates
+
+First you need to create an app qube. After that you need to go to the 'Qubes Settings' of the created app qube and set it as a 'Disposable template' in the 'Advanced' section and apply the change. From now on the entry in the Application menu is not named 'Qube' anymore, but splitted into 'Disposable' and 'Template (disp)'. The settings for the disposable can be changed under **'Application Menu -> Template (disp) -> Template: Qubes Settings**
+
+### How to create named disposables
+
+Named disposables can be created under **Application Menu -> Create Qubes VM**, the type needs to be 'DisposableVM'.
+
 ## Security
 
 If a [disposable template](/doc/glossary/#disposable-template) becomes compromised, then any disposable based on that disposable template could be compromised. In particular, the *default* disposable template is important because it is used by the "Open in disposable" feature. This means that it will have access to everything that you open with this feature. For this reason, it is strongly recommended that you base the default disposable template on a trusted template.
