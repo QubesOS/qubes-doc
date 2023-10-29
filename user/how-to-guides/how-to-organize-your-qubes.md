@@ -317,7 +317,7 @@ her setup looks like this:
   to these generally doesn't allow spending or withdrawing any money. So, even
   the worst case scenario here wouldn't be catastrophic, unlike with her bank
   and brokerage accounts. Third, she's not too worried about any of her credit
-  card company websites being used to attach each other or her qube (As long as
+  card company websites being used to attack each other or her qube. (As long as
   it's contained to a single qube, she's fine with that level of risk.) Last,
   but not least: She has way too many credit cards! While Carol is very frugal,
   she likes to collect the sign-up bonuses that are offered for opening new
