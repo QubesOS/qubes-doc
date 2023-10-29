@@ -104,9 +104,9 @@ Replacing passwordless root access with Dom0 user prompt
 --------------------------------------------------------
 
 While the Qubes developers support the statement above, some Qubes users may wish to enable user/root isolation in VMs anyway.
-We do not support it in any of our packages, but of course nothing is preventing the user from modifying his or her own system.
-A list of steps to do so is provided at [Qubes community, Replacing passwordless root with a dom0 prompt
-](https://github.com/Qubes-Community/Contents/blob/master/docs/security/replacing-passwordless-root-with-dom0-prompt.md) **without any guarantee of safety, accuracy, or completeness.
+We do not support this in any of our packages, but of course nothing is preventing a user from modifying his or her own system.
+A list of steps to do so is provided in the [Qubes community guide, Replacing passwordless root with a dom0 prompt
+](https://forum.qubes-os.org/t/replacing-passwordless-root-with-a-dom0-prompt/19074) **without any guarantee of safety, accuracy, or completeness.
 Proceed at your own risk.
 Do not rely on this for extra security.**
 
@@ -114,4 +114,4 @@ Dom0 passwordless root access
 -----------------------------
 
 There is also passwordless user->root access in dom0.
-As stated in comment in sudo configuration there (different one than VMs one), there is really no point in user/root isolation, because all the user data (and VM management interface) is already accessible from dom0 user level, so there is nothing more to get from dom0 root account.
+As stated in the comment in sudo configuration there (which is different from the one in individual qubes), there is really no point in user/root isolation, because all the user data (and VM management interface) is already accessible from dom0 user level, so there is nothing more to get from dom0 root account.
