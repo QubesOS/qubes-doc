@@ -15,5 +15,5 @@ For more information about Windows VMs in Qubes OS, please see the following ext
 
 * [Installing and Using Windows-based VMs](/doc/templates/windows/windows-qubes-4-1/)
 * [Installing and Using Qubes Windows Tools](/doc/templates/windows/qubes-windows-tools-4-1/)
-* [Create a Gaming HVM in Qubes](https://github.com/Qubes-Community/Contents/blob/master/docs/customization/gaming-hvm.md)
+* [Create a Gaming HVM in Qubes](https://forum.qubes-os.org/t/create-a-gaming-hvm/19000)
 * [Migrate backups of Windows VMs created under Qubes R4.0 to R4.1](/doc/templates/windows/migrate-to-4-1/)
