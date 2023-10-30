@@ -123,7 +123,7 @@ Source Code management (Git) guidelines
 
 - Use git to maintain all code for Qubes project.
 
-- Before you start using git, make sure you understand that git is a decentralized Source Code Management system, and that it doesn't behave like traditional, centralized source code management systems, such as SVN. Here's a good [introductory book on git](http://git-scm.com/book). Read it.
+- Before you start using git, make sure you understand that git is a decentralized Source Code Management system, and that it doesn't behave like traditional, centralized source code management systems, such as SVN. Here's a good [introductory book on git](https://git-scm.com/book). Read it.
 
 - Qubes code is divided into many git repositories. There are several reasons for that:
   - This creates natural boundaries between different code blocks, enforcing proper interfaces, and easing independent development to be conducted on various code parts at the same time, without the fear of running into conflicts.
@@ -169,7 +169,7 @@ Security coding guidelines
 Python-specific guidelines
 --------------------------
 
-- Please follow the guidelines [here](http://www.python.org/dev/peps/pep-0008/), unless they were in conflict with what is written on this page.
+- Please follow the guidelines [here](https://peps.python.org/pep-0008/), unless they were in conflict with what is written on this page.
 
 C and C++ specific guidelines
 -----------------------------

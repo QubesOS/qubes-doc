@@ -23,6 +23,9 @@ How to test upcoming Qubes OS releases:
 
 * Use [qubes-builder](/doc/qubes-builder/) to build the latest release.
 * Test the latest release candidate (RC), if one is currently available.
+* Try the [signed weekly builds](https://qubes.notset.fr/iso/). ([Learn
+  more](https://forum.qubes-os.org/t/16929) and [track their
+  status](https://github.com/fepitre/updates-status-iso/issues).)
 * (No support) Experiment with devel alpha ISOs found from time to time at
   [Qubes OpenQA](https://openqa.qubes-os.org/).
 
@@ -78,14 +81,12 @@ How to test [templates](/doc/templates/):
 
 To temporarily enable any of these repos, use the `--enablerepo=<repo-name>`
 option. Example commands:
-
 ```
-sudo qubes-dom0-update --enablerepo=qubes-templates-itl-testing
-sudo qubes-dom0-update --enablerepo=qubes-templates-community-testing
+qvm-template --enablerepo=qubes-templates-itl-testing list --available
+qvm-template --enablerepo=qubes-templates-itl-testing install <template_name>
 ```
-
-To enable or disable any of these repos permanently, change the corresponding
-`enabled` value to `1` in `/etc/yum.repos.d/qubes-templates.repo`.
+To enable any of these repos permanently, change the corresponding `enabled` value to `1` in `/etc/qubes/repo-templates`.  
+To disable any of these repos permanently, change the corresponding `enabled` value to `0`.
 
 ## Providing feedback
 

@@ -104,28 +104,23 @@ when you wish to install a fresh template from the Qubes repositories, e.g.:
 * When you suspect your template has been compromised.
 * When you have made modifications to your template that you no longer want.
 
-Please refer to each template's installation instructions. Usually, the
-installation method is to execute the following type of command in dom0:
+You can use a command line tool - `qvm-template` - or a GUI - `qvm-template-gui`.
 
+At the command line in dom0, `qvm-template list --available` will show available templates. To install a template, use:
 ```
-$ sudo qubes-dom0-update qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>
-```
-
-`qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>` is the name of the desired
-template package. Advanced users can install a
-[minimal](/doc/templates/minimal/) version of the template, if one exists, by
-appending `-minimal` directly to the end of the template package name.
-
-If you wish to install a community template, you must enable the community
-template repo:
-
-```
-$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>
+$ qvm-template install  <template_name>
 ```
 
-If you receive the message that no match is found for
-`qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>`, see
-[here](/faq/#when-i-try-to-install-a-template-it-says-no-match-is-found).
+You can also use `qvm-template` to upgrade or reinstall templates.
+
+Repo definitions are stored in `/etc/qubes/repo-templates` and associated keys in `/etc/qubes/repo-templates/keys`.  
+There are additional repos for testing releases and community templates.
+To temporarily enable any of these repos, use the `--enablerepo=<repo-name>` option. E.g. :
+```
+$ qvm-template  --enablerepo qubes-templates-community install <template_name>
+```
+To permanently enable a repo, set the line `enabled = 1` in the repo definition in `/etc/qubes/repo-templates`.  
+To permanently disable, set the line to `enabled = 0`.
 
 If you wish to install a template that is in testing, please see
 [here](/doc/testing/#templates).
@@ -227,40 +222,57 @@ Please see [How to Reinstall a Template](/doc/reinstall-template/).
 
 ## Switching
 
-When you install a new template or upgrade a clone of a template, it is
-recommended that you switch everything that was set to the old template to the
+When you install a new template or
+[upgrade](/doc/how-to-update/#upgrading-to-avoid-eol) a template, it is
+recommended that you switch everything that was using the old template to the
 new template:
 
-1. Make the new template the default template.
+1. **Make the new template the default template.** In the App Menu, go
+   to Qubes Tools, then click on Qubes Global Settings. In the Qube Defaults
+   section, next to Template, select the new template from the
+   drop-down list. Press OK.
 
-    ```
-    Applications Menu -> System Tools -> Qubes Global Settings -> Default template
-    ```
+2. **Base your [disposable templates](/doc/glossary/#disposable-template) on
+   the new template.**
 
-2. If your keyboard or mouse is connected through `sys-usb`, switch `sys-usb`
-   to the new template. (Note that this is a single command to ensure that
-   `sys-usb` restarts. If it does not, you will not be able to use your USB
-   keyboard or mouse.)
+   - If your only keyboard and mouse are *not* connected through a [USB
+     qube](/doc/usb-qubes/), or that USB qube is *not* a disposable, then shut
+     down all disposables. In the App Menu, go to Qubes Tools, then click on
+     Qube Manager. In the Qube Manager, find your disposable template(s). (By
+     default, they end in `-dvm`.) Right click, hover over Template, then click
+     on the new template. Repeat for each disposable template.
 
-    ```
-    [user@dom0 ~]$ qvm-shutdown --wait sys-usb; qvm-prefs sys-usb template <NEW_TEMPLATE>; qvm-start sys-usb
-    ```
+   - If your only keyboard or mouse *are* connected through a USB qube, and
+     that USB qube *is* a disposable, then you will have to enter a special
+     command that shuts down all of your qubes, switches the USB qube's
+     disposable template to the new template, then starts the USB qube again.
+     In order to avoid being locked out of your system, you must be very
+     careful to enter this command without typos and with the correct
+     substitutions.
 
-3. Base app qubes on the new template.
+     In the App Menu, click on Terminal Emulator. Type the command below,
+     substituting `<SYS_USB_DISPOSABLE_TEMPLATE>` with the name of the
+     disposable template on which `sys-usb` is based, `<NEW_TEMPLATE>` with the
+     name of the new template, and `<USB_QUBE>` with the name of your USB qube.
+     Other than these substitutions, make sure to enter the command exactly as
+     written.
 
-    ```
-    Applications Menu -> System Tools -> Qubes Template Manager
-    ```
+     ```
+     qvm-shutdown --wait --all; qvm-prefs <SYS_USB_DISPOSABLE_TEMPLATE> template <NEW_TEMPLATE>; qvm-start <USB_QUBE>
+     ```
 
-4. Base the [disposable template](/doc/glossary/#disposable-template) on the new
-   template.
+     With substitutions, your command should look similar to this example.
+     (Warning: This is just an example. Do not attempt to use it.)
 
-    ```
-    [user@dom0 ~]$ qvm-create -l red -t <NEW_TEMPLATE> <NEW_DISPOSABLE_TEMPLATE>
-    [user@dom0 ~]$ qvm-prefs <NEW_DISPOSABLE_TEMPLATE> template_for_dispvms True
-    [user@dom0 ~]$ qvm-features <NEW_DISPOSABLE_TEMPLATE> appmenus-dispvm 1
-    [user@dom0 ~]$ qubes-prefs default-dispvm <NEW_DISPOSABLE_TEMPLATE>
-    ```
+     ```
+     qvm-shutdown --wait --all; qvm-prefs fedora-01-dvm template fedora-02; qvm-start sys-usb
+     ```
+
+3. **Base your app qubes on the new template.** In the Qube Manager, click on
+   the Template heading to sort by template. Select all the qubes based on the
+   old template by clicking on the first one, holding shift, then clicking on
+   the last one. With multiple qubes selected, right-click on any of them,
+   hover your cursor over Template, then click on the new template.
 
 ## Advanced
 

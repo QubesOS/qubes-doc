@@ -294,11 +294,9 @@ Before we proceed, you must first complete the following prerequisite steps:
 2. [Import and authenticate the QMSK.](#how-to-import-and-authenticate-the-qubes-master-signing-key)
 
 After you have completed these two prerequisite steps, the next step is to
-obtain the correct RSK. The filename of the RSK for your Qubes OS release is
-usually `qubes-release-X-signing-key.asc`, where `X` is the [major version
-number](https://semver.org/) of your Qubes release. For example, if you were
-installing release `1.2.3`, you would replace `X` with `1`, resulting in
-`qubes-release-1-signing-key.asc`. There are several ways to get the RSK for
+obtain the correct RSK. The filename pattern for RSKs is
+`qubes-release-X-signing-key.asc`, where `X` is either a major or minor Qubes
+release number, such as `4` or `4.2`. There are several ways to get the RSK for
 your Qubes release.
 
 - If you have access to an existing Qubes installation, the release keys are

@@ -25,9 +25,13 @@ templates, along with some examples of common use cases.
 ## Important
 
 1. [The minimal templates are intended only for advanced
-   users.](https://forum.qubes-os.org/t/9717/15) If you encounter problems with
-   the minimal templates, we recommend that you use their standard template
-   counterparts instead.
+   users.](https://forum.qubes-os.org/t/9717/15) Most things will *not* work
+   out-of-the-box, and you *will* have to fix them yourself. If you are not
+   prepared to do a lot of reading, searching, learning, and troubleshooting,
+   then you should instead stick to the standard templates, which are perfectly
+   suitable for the vast majority of users. In particular, if you are new to
+   Qubes, you should not attempt to use minimal templates until you have gained
+   more experience.
 
 2. If something works with a standard template but not the minimal version,
    this is most likely due to user error (e.g., a missing package or
@@ -259,6 +263,9 @@ list of packages to be installed):
 - `default-mgmt-dvm`: requires `qubes-core-agent-passwordless-root` and
   `qubes-mgmt-salt-vm-connector`.
 - [Yubikey](/doc/yubikey/): You may need to install `xserver-xorg-input-libinput` for 2FA responses to work in web browsers like Firefox.
+- Thumbnails (e.g., file previews in Nautilus): `libgdk-pixbuf2.0-bin` (images),
+  `ffmpegthumbnailer` (videos). (Try `apt search thumbnailer` for other file
+  types.)
 
 In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be
 needed to make the customized minimal template work properly. These packages

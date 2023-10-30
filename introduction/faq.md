@@ -186,10 +186,7 @@ We believe that this is currently the only practically viable approach to implem
 
 ### Does Qubes use full disk encryption (FDE)?
 
-Yes, of course!
-Full disk encryption is enabled by default.
-Specifically, we use [LUKS](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup)/[dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
-You can even [manually configure your encryption parameters](/doc/custom-install/) if you like!
+By default, Qubes OS uses [LUKS](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup)/[dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) to encrypt everything except the `/boot` partition.
 
 ### What do all these terms mean?
 
@@ -330,6 +327,16 @@ So, if feature X isn't enabled, it's most likely for one of three reasons:
 3. Our platform supports it, but we're not aware that we can enable it or have forgotten to do so.
 
 If it seems like a feature that we can and should enable, please [let us know](/doc/issue-tracking/)!
+
+### Why do the mailing lists require a Google account?
+
+They don't. This is a common misconception. The mailing lists have never required a Google account. It has always been possible to use them purely via email (see the [mailing lists](/support/#mailing-lists) section for instructions).
+
+A lot of people probably see that the mailing lists use Google Groups and just assume that a Google account must be required, but it's not true. Google Groups is simply used for the infrastructure. Of course, you *can* use the web interface with a Google account, but there are many people in the Qubes community who participate on the mailing lists without one.
+
+### Why do you use Google Groups for the mailing lists?
+
+For the same general reasons as listed in [FAQ: Why do you use GitHub?](/faq/#why-do-you-use-github)
 
 ## Users
 
@@ -787,7 +794,7 @@ UEFI Secure Boot is not supported out of the box as UEFI support in Xen is very 
 Arguably secure boot reliance on UEFI integrity is not the best design.
 The relevant binaries (shim.efi, xen.efi, kernel / initramfs) are not signed by the Qubes Team and secure boot has not been tested.
 Intel TXT (used in [Anti Evil Maid](/doc/anti-evil-maid/)) at least tries to avoid or limit trust in BIOS.
-See the Heads project [[1]](https://trmm.net/Heads) [[2]](http://osresearch.net/) for a better-designed non-UEFI-based secure boot scheme with very good support for Qubes.
+See the Heads project [[1]](https://trmm.net/Heads) [[2]](https://osresearch.net/) for a better-designed non-UEFI-based secure boot scheme with very good support for Qubes.
 
 ### What is the canonical way to detect Qubes VM?
 

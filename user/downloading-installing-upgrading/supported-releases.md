@@ -28,7 +28,8 @@ are available from our [download mirrors](/downloads/#mirrors).
 | Release 3.2 | 2016-09-29 | 2019-03-28 | Unsupported           |
 | Release 4.0 | 2018-03-28 | 2022-08-04 | Unsupported           |
 | Release 4.1 | 2022-02-04 | TBA        | Supported             |
-| Release 4.2 | TBA        | TBA        | [In development](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue+milestone%3A%22Release+4.2%22) |
+| Release 4.2 | TBA        | TBA        | [In testing](https://github.com/QubesOS/qubes-issues/milestone/26) |
+| Release 4.3 | TBA        | TBA        | [In development](https://github.com/QubesOS/qubes-issues/milestone/28) |
 
 ### Note on patch releases
 
@@ -53,6 +54,7 @@ The table below shows the OS used for dom0 in each Qubes OS release.
 | Release 3.2 | Fedora 23 |
 | Release 4.0 | Fedora 25 |
 | Release 4.1 | Fedora 32 |
+| Release 4.2 | Fedora 37 |
 
 ### Note on dom0 and EOL
 
@@ -89,9 +91,10 @@ upstream release on the upstream distribution's website (see [Fedora
 EOL](https://fedoraproject.org/wiki/End_of_life) and [Debian
 Releases](https://wiki.debian.org/DebianReleases)).
 
-| Qubes OS    | Fedora | Debian                                              | Whonix |
-| ----------- | ------ | --------------------------------------------------- | ------ |
-| Release 4.1 | 36     | 10 (Buster), 11 (Bullseye)                          | 16     |
+| Qubes OS    | Fedora | Debian | Whonix |
+| ----------- | ------ | ------ | ------ |
+| Release 4.1 | 37, 38 | 11, 12 | 16     |
+| Release 4.2 | 37, 38 | 11, 12 | 17     |
 
 ### Note on Debian support
 
@@ -105,23 +108,6 @@ chart that illustrates this. Qubes support ends at the *regular* EOL date,
 
 [Whonix](https://www.whonix.org/wiki/Qubes) templates are supported by our
 partner, the [Whonix Project](https://www.whonix.org/). The Whonix Project has
-set its own support policy for Whonix templates in Qubes.
-
-This policy requires Whonix template users to stay reasonably close to the
-cutting edge by upgrading to new stable releases of Qubes OS and Whonix
-templates within a month of their respective releases. To be precise:
-
-* One month after a new stable version of Qubes OS is released, Whonix
-  templates will no longer be supported on any older release of Qubes OS. This
-  means that users who wish to continue using Whonix templates on Qubes must
-  always upgrade to the latest stable Qubes OS release within one month of its
-  release.
-
-* One month after new stable versions of Whonix templates are released, older
-  releases of Whonix templates will no longer be supported. This means that
-  users who wish to continue using Whonix templates on Qubes must always
-  upgrade to the latest stable Whonix template releases within one month of
-  their release.
-
-We aim to announce both types of events one month in advance in order to remind
-users to upgrade.
+set its own support policy for Whonix templates in Qubes. Please see the
+[Qubes-Whonix version support policy](https://www.whonix.org/wiki/About#Qubes_Hosts)
+for details.

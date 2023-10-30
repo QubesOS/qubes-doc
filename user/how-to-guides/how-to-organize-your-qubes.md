@@ -317,7 +317,7 @@ her setup looks like this:
   to these generally doesn't allow spending or withdrawing any money. So, even
   the worst case scenario here wouldn't be catastrophic, unlike with her bank
   and brokerage accounts. Third, she's not too worried about any of her credit
-  card company websites being used to attach each other or her qube (As long as
+  card company websites being used to attack each other or her qube. (As long as
   it's contained to a single qube, she's fine with that level of risk.) Last,
   but not least: She has way too many credit cards! While Carol is very frugal,
   she likes to collect the sign-up bonuses that are offered for opening new
@@ -526,7 +526,7 @@ lessons from our case studies:
   able to actually *use* your computer efficiently to do the things you need to
   do. For example, if you immediately try to jump into doing everything in
   [disposables](/doc/how-to-use-disposables/) and find yourself constantly
-  losing working (e.g., because you forget to transfer it out before the
+  losing work (e.g., because you forget to transfer it out before the
   disposable self-destructs), then that's a big problem! Your extra
   self-imposed security measures are interfering with the very thing they're
   designed to protect. At times like these, take a deep breath and remember
