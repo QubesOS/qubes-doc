@@ -31,8 +31,8 @@ In order to edit rules for a given qube, select it in the Qube Manager and press
 
 If the qube is running, you can open Settings from the Qube Popup Menu.
 
-*R4.0 note:* ICMP and DNS are no longer accessible in the GUI, but can be changed via `qvm-firewall` described below.
-Connections to Updates Proxy are not made over a network so can not be allowed or blocked with firewall rules, but are controlled using the relevant policy file (see [R4.0 Updates proxy](/doc/software-update-vm/) for more detail).
+ICMP and DNS are not accessible in the GUI, but can be changed via `qvm-firewall` described below.
+Connections to Updates Proxy are not made over a network so can not be allowed or blocked with firewall rules, but are controlled using the relevant policy file (see [R4.x Updates proxy](/doc/software-update-vm/) for more detail).
 
 Note that if you specify a rule by DNS name it will be resolved to IP(s) *at the moment of applying the rules*, and not on the fly for each new connection.
 This means it will not work for servers using load balancing, and traffic to complex web sites which draw from many servers will be difficult to control.
@@ -50,19 +50,19 @@ Rules are implemented on the netvm.
 
 You can also manually create rules in the qube itself using standard firewalling controls.
 See [Where to put firewall rules](#where-to-put-firewall-rules).
-In complex cases, it might be appropriate to load a ruleset using `iptables-restore` called from `/rw/config/rc.local`.
+In complex cases, it might be appropriate to load a ruleset using `nft -f /path/to/ruleset` called from `/rw/config/rc.local`, the ruleset file can be populated from the current ruleset using `nft list ruleset > /path/to/ruleset`, you should add `flush ruleset` at the top of the file to remove all existing rules before loading them.
 if you do this, be aware that `rc.local` is called *after* the network is up, so local rules should not be relied upon to block leaks.
 
 Reconnecting qubes after a NetVM reboot
 -------------------------------------
 
 Normally Qubes doesn't let the user stop a NetVM if there are other qubes running which use it as their own NetVM.
-But in case the NetVM stops for whatever reason (e.g. it crashes, or the user forces its shutdown via qvm-kill via terminal in Dom0), Qubes R4.0 will often automatically repair the connection.
+But in case the NetVM stops for whatever reason (e.g. it crashes, or the user forces its shutdown via qvm-kill via terminal in Dom0), Qubes R4.x will often automatically repair the connection.
 If it does not, then there is an easy way to restore the connection to the NetVM by issuing in dom0:
 
 ` qvm-prefs <vm> netvm <netvm> `
 
-Normally qubes do not connect directly to the actual NetVM which has networking devices, but rather to the default sys-firewall first, and in most cases it would be the NetVM that will crash, e.g. in response to S3 sleep/restore or other issues with WiFi drivers.
+Normally qubes do not connect directly to the actual NetVM (sys-net by default) which has networking devices, but rather to the default sys-firewall first, and in most cases it would be the NetVM that will crash, e.g. in response to S3 sleep/restore or other issues with WiFi drivers.
 In that case it is only necessary to issue the above command once, for the sys-firewall (this assumes default VM-naming used by the default Qubes installation):
 
 ` qvm-prefs sys-firewall netvm sys-net `
@@ -242,7 +242,7 @@ When the qube `unstrusted` has started (after a first reboot), you can directly 
 Port forwarding to a qube from the outside world
 ------------------------------------------------
 
-In order to allow a service present in a qube to be exposed to the outside world in the default setup (where the qube has sys-firewall as network VM, which in turn has sys-net as network VM) the following needs to be done:
+In order to allow a service present in a qube to be exposed to the outside world in the default setup (where the qube has `sys-firewall` as network VM, which in turn has `sys-net` as network VM) the following needs to be done:
 
 - In the sys-net VM:
   - Route packets from the outside world to the sys-firewall VM
