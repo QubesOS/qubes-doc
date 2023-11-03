@@ -509,3 +509,13 @@ Firewall troubleshooting
 Firewall logs are stored in the systemd journal of the qube the firewall is running in (probably `sys-firewall`).
 You can view them by running `sudo journalctl -u qubes-firewall.service` in the relevant qube.
 Sometimes these logs can contain useful information about errors that are preventing the firewall from behaving as you would expect.
+
+An effective console utility to troubleshoot network is [tcpdump](https://www.tcpdump.org/), it can be used to display network packets entering or leaving network interfaces.
+
+For instance, if you want to check if your network interface `eth0` is receiving packets on port TCP 22 from the network 192.168.x.y, you can run this command:
+
+```
+tcpdump -i eth0 -nn dst port 22 and src net 192.168.x.y/24
+```
+
+This can be used effectively in a destination qube and its Network VM to see if forwarding / NAT rules are working.
