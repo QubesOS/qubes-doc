@@ -266,18 +266,23 @@ You can get this information using various methods, but only the first one can b
 - in the Qubes Manager window using the column IP
 - from the Settings Window for the qube
 
-Note the IP addresses you will need.
+Note the IP addresses you will need, they will be required in the next steps.
+
 > Note: The vifx.0 interface is the one used by qubes connected to this netvm so it is _not_ an outside world interface.
 
 **2. Route packets from the outside world to the FirewallVM**
 
 For the following example, we assume that the physical interface ens6 in sys-net is on the local network 192.168.x.y with the IP 192.168.x.n, and that the IP address of sys-firewall is 10.137.1.z.
 
-In the sys-net VM's Terminal, the first step is to to define an ntables chain that will receive DNAT rules, we recommend to define a new chain for each destination qubes, this ease the rules management:
+In the sys-net VM's Terminal, the first step is to to define an ntables chain that will receive DNAT rules to relay the network traffic on a given port to the qube NetVM, we recommend to define a new chain for each destination qube to ease rules management:
 
 ```
 nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
 ```
+
+> Note: the name `custom-dnat-qubeDST` is arbitrary
+
+> Note: while we use a DNAT chain for a single qube, it's totally possible to have a single DNAT chain for multiple qubes
 
 Second step, code a natting firewall rule to route traffic on the outside interface for the service to the sys-firewall VM
 
@@ -295,13 +300,13 @@ nft add rule qubes custom-forward iifname == "ens6" ip saddr 192.168.x.y/24 ip d
 
 > If you want to expose the service on multiple interfaces, repeat the steps 2 and 3 described above, for each interface.
 
-Verify you are cutting through the sys-net VM firewall by looking at its counters, check for the lines in the chains `custom-forward` and `custom-dnat-qubeDEST`:
+Verify the rules on sys-net firewall correctly match the packets you want by looking at its counters, check for the counter lines in the chains `custom-forward` and `custom-dnat-qubeDEST`:
 
 ```
 nft list table ip qubes-firewall
 ```
 
-E.g. In our example, we can see 7 packets in the forward rule, and 3 packets in the dnat rule:
+In this example, we can see 7 packets in the forward rule, and 3 packets in the dnat rule:
 
 ```
 chain custom-forward {
@@ -314,18 +319,20 @@ chain custom-dnat-qubeDEST {
 }
 ```
 
-Optional step: You can send a test packet by trying to connect to the service from an external device using the following command:
+(Optional) You can send a test packet by trying to connect to the service from an external device using the following command:
 
 ```
 telnet 192.168.x.n 443
 ```
 
-Once you have confirmed that the counters increase, store the commands used in the previous steps in `/rw/config/rc.local` so they get set on sys-net start-up
+Once you have confirmed that the counters increase, store the commands used in the previous steps in `/rw/config/rc.local` so they get set on sys-net start-up:
 
 ```
 [user@sys-net user]$ sudo -i
 [root@sys-net user]# nano /rw/config/qubes-firewall-user-script
 ```
+
+Content of `/rw/config/qubes-firewall-user-script` in `sys-net`:
 
 ~~~
 #!/bin/sh
@@ -345,7 +352,7 @@ fi
 
 For the following example, we use the fact that the physical interface of sys-firewall, facing sys-net, is eth0. Furthermore, we assume that the target VM running the web server has the IP address 10.137.0.xx and that the IP address of sys-firewall is 10.137.1.z.
 
-In the sys-firewall VM's Terminal, add a DNAT chain to route traffic on its outside interface for the service to the qube:
+In the sys-firewall VM's Terminal, add a DNAT chain that will contain routing rules:
 
 ```
 nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
@@ -372,6 +379,8 @@ Once you have confirmed that the counters increase, store these commands in the 
 [root@sys-net user]# nano /rw/config/qubes-firewall-user-script
 ```
 
+Content of `/rw/config/qubes-firewall-user-script` in `sys-firewall`:
+
 ~~~
 #!/bin/sh
 
@@ -391,6 +400,7 @@ If the service should be available to other VMs on the same system, do not forge
 **4. Allow packets into the qube to reach the service**
 
 No routing is required in the destination qube, only filtering.
+
 For the following example, we assume that the target VM running the web server has the IP address 10.137.0.xx
 
 The according rule to allow the traffic is:
@@ -399,7 +409,7 @@ The according rule to allow the traffic is:
 nft add rule qubes custom-input tcp dport 443 ip daddr 10.137.0.xx counter accept
 ```
 
-To make it persistent, you need to add this command in `/rw/config/rc.local`:
+To make it persistent, you need to add this command in the script `/rw/config/rc.local`:
 
 ```
 [user@qubeDEST user]$ sudo -i
