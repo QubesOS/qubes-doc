@@ -106,13 +106,13 @@ In order to allow networking from qube A (client) to qube B (server) follow thes
 - In the firewall VM's terminal enter the following nftables rule:
 
 ~~~
-sudo nft add rule ip qubes custom-forward ip saddr <IP address of A> ip daddr <IP address of B> accept
+sudo nft add rule ip qubes custom-forward ip saddr <IP address of A> ip daddr <IP address of B> ct state new,established,related counter accept
 ~~~
 
 - In qube B's terminal enter the following nftables rule:
 
 ~~~
-sudo nft add rule qubes custom-input ip saddr <IP address of A> accept
+sudo nft add rule qubes custom-input ip saddr <IP address of A> ct state new,established,related counter accept
 ~~~
 
 - Now you should be able to reach B from A -- test it using e.g. ping issued from A.
@@ -124,7 +124,7 @@ sudo nft add rule qubes custom-input ip saddr <IP address of A> accept
 
 ~~~
 [user@sys-firewall ~]$ sudo -i
-[root@sys-firewall user]# echo "nft add rule ip qubes custom-forward ip saddr 10.137.2.25 ip daddr 10.137.2.6 accept" >> /rw/config/qubes-firewall-user-script
+[root@sys-firewall user]# echo "nft add rule ip qubes custom-forward ip saddr 10.137.2.25 ip daddr 10.137.2.6 ct state new,established,related counter accept" >> /rw/config/qubes-firewall-user-script
 ~~~
 
 - Here is an example how to update `rc.local`:
@@ -287,13 +287,13 @@ nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority fi
 Second step, code a natting firewall rule to route traffic on the outside interface for the service to the sys-firewall VM
 
 ```
-nft add rule qubes custom-dnat-qubeDEST iifname == "ens6" ip saddr 192.168.x.y/24 tcp dport 443 counter dnat 10.137.1.z
+nft add rule qubes custom-dnat-qubeDEST iifname == "ens6" ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.1.z
 ```
 
 Third step, code the appropriate new filtering firewall rule to allow new connections for the service
 
 ```
-nft add rule qubes custom-forward iifname == "ens6" ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 counter accept
+nft add rule qubes custom-forward iifname == "ens6" ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter accept
 ```
 
 > Note: If you do not wish to limit the IP addresses connecting to the service, remove `ip saddr 192.168.x.y/24` from the rules
@@ -310,12 +310,12 @@ In this example, we can see 7 packets in the forward rule, and 3 packets in the 
 
 ```
 chain custom-forward {
-  iifname "ens6" ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 counter packets 7 bytes 448 accept
+  iifname "ens6" ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter packets 7 bytes 448 accept
 }
 
 chain custom-dnat-qubeDEST {
   type nat hook prerouting priority filter + 1; policy accept;
-  iifname "ens6" ip saddr 192.168.x.y/24 tcp dport 443 counter packets 3 bytes 192 dnat to 10.138.33.59
+  iifname "ens6" ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter packets 3 bytes 192 dnat to 10.138.33.59
 }
 ```
 
@@ -341,10 +341,10 @@ Content of `/rw/config/qubes-firewall-user-script` in `sys-net`:
 if nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
 then
   # create the dnat rule
-  nft add rule qubes custom-dnat-qubeDEST iifname == "ens6" saddr 192.168.x.y/24 tcp dport 443 counter dnat 10.137.1.z
+  nft add rule qubes custom-dnat-qubeDEST iifname == "ens6" saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.1.z
 
   # allow forwarded traffic
-  nft add rule qubes custom-forward iifname == "ens6" ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 counter accept
+  nft add rule qubes custom-forward iifname == "ens6" ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter accept
 fi
 ~~~
 
@@ -361,13 +361,13 @@ nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority fi
 Second step, code a natting firewall rule to route traffic on the outside interface for the service to the destination qube
 
 ```
-nft add rule qubes custom-dnat-qubeDEST iifname == "eth0" ip saddr 192.168.x.y/24 tcp dport 443 counter dnat 10.137.0.xx
+nft add rule qubes custom-dnat-qubeDEST iifname == "eth0" ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.0.xx
 ```
 
 Third step, code the appropriate new filtering firewall rule to allow new connections for the service
 
 ```
-nft add rule qubes custom-forward iifname == "eth0" ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 443 counter accept
+nft add rule qubes custom-forward iifname == "eth0" ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 443 ct state new,established,related counter accept
 ```
 
 > Note: If you do not wish to limit the IP addresses connecting to the service, remove `ip saddr 192.168.x.y/24` from the rules
@@ -388,10 +388,10 @@ Content of `/rw/config/qubes-firewall-user-script` in `sys-firewall`:
 if nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
 then
   # create the dnat rule
-  nft add rule qubes custom-dnat-qubeDEST iifname == "eth0" tcp dport 22 counter dnat 10.137.0.xx
+  nft add rule qubes custom-dnat-qubeDEST iifname == "eth0" tcp dport 443 ct state new,established,related counter dnat 10.137.0.xx
 
   # allow forwarded traffic
-  nft add rule qubes custom-forward iifname == "eth0" ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 22 counter accept
+  nft add rule qubes custom-forward iifname == "eth0" ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 443 ct state new,established,related counter accept
 fi
 ~~~
 
@@ -406,14 +406,14 @@ For the following example, we assume that the target VM running the web server h
 The according rule to allow the traffic is:
 
 ```
-nft add rule qubes custom-input tcp dport 443 ip daddr 10.137.0.xx counter accept
+nft add rule qubes custom-input tcp dport 443 ip daddr 10.137.0.xx ct state new,established,related counter accept
 ```
 
 To make it persistent, you need to add this command in the script `/rw/config/rc.local`:
 
 ```
 [user@qubeDEST user]$ sudo -i
-[root@qubeDEST user]# echo 'nft add rule qubes custom-input tcp dport 443 ip daddr 10.137.0.xx counter accept' >> /rw/config/rc.local
+[root@qubeDEST user]# echo 'nft add rule qubes custom-input tcp dport 443 ip daddr 10.137.0.xx ct state new,established,related counter accept' >> /rw/config/rc.local
 ```
 
 This time testing should allow connectivity to the service as long qubeDEST is running and the service is up :-)
