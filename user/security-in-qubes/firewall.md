@@ -430,3 +430,24 @@ tcpdump -i eth0 -nn dst port 22 and src net 192.168.x.y/24
 ```
 
 This can be used effectively in a destination qube and its Network VM to see if forwarding / NAT rules are working.
+
+Nftables tips
+-------------
+
+A simple way to experiment changes with your ruleset can be achieved by saving the current working ruleset in two files, one for backup and the other for making changes.
+
+By adding `flush ruleset` at the top of the file, you can achieve atomic update, which mean the new ruleset would replace the current one only if it fully succeed to load.
+
+You can dump the ruleset in two files using the following command:
+
+```
+nft list ruleset | tee nft_backup | tee nft_new_ruleset
+```
+
+Then, edit `nft_new_ruleset`, add `flush ruleset` on top and make changes, load it with `nft -f nft_new_ruleset`.
+
+You can revert to the original ruleset with the following commands:
+
+```
+nft flush ruleset && nft -f nft_backup
+```
