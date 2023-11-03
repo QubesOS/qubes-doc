@@ -71,7 +71,7 @@ Network service qubes
 ---------------------
 
 Qubes does not support running any networking services (e.g. VPN, local DNS server, IPS, ...) directly in a qube that is used to run the Qubes firewall service (usually sys-firewall) for good reasons.
-In particular, if you want to ensure proper functioning of the Qubes firewall, you should not tinker with iptables or nftables rules in such qubes.
+In particular, if you want to ensure proper functioning of the Qubes firewall, you should not tinker with nftables rules in such qubes.
 
 Instead, you should deploy a network infrastructure such as
 
@@ -95,45 +95,43 @@ Enabling networking between two qubes
 
 Normally any networking traffic between qubes is prohibited for security reasons.
 However, in special situations, you might want to selectively allow specific qubes to establish networking connectivity between each other.
-For example, this might be useful in some development work, when you want to test networking code, or to allow file exchange between HVM domains (which do not have Qubes tools installed) via SMB/scp/NFS protocols.
+For example, this might be useful in some development work, when you want to test networking code, or to allow file exchange between HVM domains (which do not have Qubes tools installed) via SMB/SSH/NFS protocols.
 
-In order to allow networking between qubes A and B follow these steps:
+In order to allow networking from qube A (client) to qube B (server) follow these steps:
 
 - Make sure both A and B are connected to the same firewall vm (by default all VMs use the same firewall VM).
 - Note the Qubes IP addresses assigned to both qubes.
-  This can be done using the `qvm-ls -n` command, or via the Qubes Manager preferences pane for each qube.
+  This can be done using the `qvm-ls -n` command, or via the Qubes Manager using the IP column.
 - Start both qubes, and also open a terminal in the firewall VM
-- In the firewall VM's terminal enter the following iptables rule:
+- In the firewall VM's terminal enter the following nftables rule:
 
 ~~~
-sudo iptables -I FORWARD 2 -s <IP address of A> -d <IP address of B> -j ACCEPT
+sudo nft add rule ip qubes custom-forward ip saddr <IP address of A> ip daddr <IP address of B> accept
 ~~~
 
-- In qube B's terminal enter the following iptables rule:
+- In qube B's terminal enter the following nftables rule:
 
 ~~~
-sudo iptables -I INPUT -s <IP address of A> -j ACCEPT
+sudo nft add rule qubes custom-input ip saddr <IP address of A> accept
 ~~~
 
 - Now you should be able to reach B from A -- test it using e.g. ping issued from A.
   Note however, that this doesn't allow you to reach A from B -- for this you would need two more rules, with A and B swapped.
-- If everything works as expected, then you should write the above iptables rules into firewallVM's `qubes-firewall-user-script` script.
+- If everything works as expected, then you should write the above nftables rules into firewallVM's `qubes-firewall-user-script` script.
   This script is run when the netvm starts up.
   You should also write relevant rules in A and B's `rc.local` script which is run when the qube is launched.
   Here's an example how to update the script:
 
 ~~~
-[user@sys-firewall ~]$ sudo bash
-[root@sys-firewall user]# echo "iptables -I FORWARD 2 -s 10.137.2.25 -d 10.137.2.6 -j ACCEPT" >> /rw/config/qubes-firewall-user-script
-[root@sys-firewall user]# chmod +x /rw/config/qubes-firewall-user-script
+[user@sys-firewall ~]$ sudo -i
+[root@sys-firewall user]# echo "nft add rule ip qubes custom-forward ip saddr 10.137.2.25 ip daddr 10.137.2.6 accept" >> /rw/config/qubes-firewall-user-script
 ~~~
 
 - Here is an example how to update `rc.local`:
 
 ~~~
-[user@B ~]$ sudo bash
-[root@B user]# echo "iptables -I INPUT -s 10.137.2.25 -j ACCEPT" >> /rw/config/rc.local
-[root@B user]# chmod +x /rw/config/rc.local
+[user@B ~]$ sudo -i
+[root@B user]# echo "nft add rule qubes custom-input ip saddr 10.137.2.25 accept" >> /rw/config/rc.local
 ~~~
 
 Opening a single TCP port to other network-isolated qube
@@ -250,10 +248,10 @@ In order to allow a service present in a qube to be exposed to the outside world
 - In the sys-firewall VM:
   - Route packets from the sys-net VM to the VM
   - Allow packets through the sys-firewall VM firewall
-- In the qube:
+- In the qube QubeDest:
   - Allow packets through the qube firewall to reach the service
 
-As an example we can take the use case of a web server listening on port 443 that we want to expose on our physical interface eth0, but only to our local network 192.168.x.0/24.
+As an example we can take the use case of qube QubeDest running a web server listening on port 443 that we want to expose on our physical interface ens6, but only to our local network 192.168.x.y/24.
 
 > Note: To have all interfaces available and configured, make sure the 3 qubes are up and running
 
@@ -261,113 +259,85 @@ As an example we can take the use case of a web server listening on port 443 tha
 
 **1. Identify the IP addresses you will need to use for sys-net, sys-firewall and the destination qube.**
 
-You can get this information from the Settings Window for the qube, or by running this command in each qube:
-`ifconfig | grep -i cast `
+You can get this information using various methods, but only the first one can be used for `sys-net` outside world IP:
+
+- by running this command in each qube: `ip -4 -br a | grep UP`
+- using `qvm-ls -n`
+- in the Qubes Manager window using the column IP
+- from the Settings Window for the qube
+
 Note the IP addresses you will need.
 > Note: The vifx.0 interface is the one used by qubes connected to this netvm so it is _not_ an outside world interface.
 
 **2. Route packets from the outside world to the FirewallVM**
 
-For the following example, we assume that the physical interface eth0 in sys-net has the IP address 192.168.x.y and that the IP address of sys-firewall is 10.137.1.z.
+For the following example, we assume that the physical interface ens6 in sys-net is on the local network 192.168.x.y with the IP 192.168.x.n, and that the IP address of sys-firewall is 10.137.1.z.
 
-In the sys-net VM's Terminal, code a natting firewall rule to route traffic on the outside interface for the service to the sys-firewall VM
-
-```
-iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 192.168.x.y -j DNAT --to-destination 10.137.1.z
-```
-
-Code the appropriate new filtering firewall rule to allow new connections for the service
+In the sys-net VM's Terminal, the first step is to to define an ntables chain that will receive DNAT rules, we recommend to define a new chain for each destination qubes, this ease the rules management:
 
 ```
-iptables -I FORWARD 2 -i eth0 -d 10.137.1.z -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
+nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
 ```
 
-> If you want to expose the service on multiple interfaces, repeat the steps described in part 1 for each interface.
-> In Qubes R4, at the moment ([QubesOS/qubes-issues#3644](https://github.com/QubesOS/qubes-issues/issues/3644)), nftables is also used which imply that additional rules need to be set in a `qubes-firewall` nft table with a forward chain.
-
-`nft add rule ip qubes-firewall forward meta iifname eth0 ip daddr 10.137.1.z tcp dport 443 ct state new counter accept`
-
-Verify you are cutting through the sys-net VM firewall by looking at its counters (column 2)
+Second step, code a natting firewall rule to route traffic on the outside interface for the service to the sys-firewall VM
 
 ```
-iptables -t nat -L -v -n
-iptables -L -v -n
+nft add rule qubes custom-dnat-qubeDEST iifname == "ens6" ip saddr 192.168.x.y/24 tcp dport 443 counter dnat 10.137.1.z
 ```
 
-> Note: On Qubes R4, you can also check the nft counters
+Third step, code the appropriate new filtering firewall rule to allow new connections for the service
+
+```
+nft add rule qubes custom-forward iifname == "ens6" ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 counter accept
+```
+
+> Note: If you do not wish to limit the IP addresses connecting to the service, remove `ip saddr 192.168.x.y/24` from the rules
+
+> If you want to expose the service on multiple interfaces, repeat the steps 2 and 3 described above, for each interface.
+
+Verify you are cutting through the sys-net VM firewall by looking at its counters, check for the lines in the chains `custom-forward` and `custom-dnat-qubeDEST`:
 
 ```
 nft list table ip qubes-firewall
 ```
 
-Send a test packet by trying to connect to the service from an external device
+E.g. In our example, we can see 7 packets in the forward rule, and 3 packets in the dnat rule:
 
 ```
-telnet 192.168.x.y 443
+chain custom-forward {
+  iifname "ens6" ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 counter packets 7 bytes 448 accept
+}
+
+chain custom-dnat-qubeDEST {
+  type nat hook prerouting priority filter + 1; policy accept;
+  iifname "ens6" ip saddr 192.168.x.y/24 tcp dport 443 counter packets 3 bytes 192 dnat to 10.138.33.59
+}
 ```
 
-Once you have confirmed that the counters increase, store these command in `/rw/config/rc.local` so they get set on sys-net start-up
+Optional step: You can send a test packet by trying to connect to the service from an external device using the following command:
 
 ```
-sudo nano /rw/config/rc.local
+telnet 192.168.x.n 443
+```
+
+Once you have confirmed that the counters increase, store the commands used in the previous steps in `/rw/config/rc.local` so they get set on sys-net start-up
+
+```
+[user@sys-net user]$ sudo -i
+[root@sys-net user]# nano /rw/config/qubes-firewall-user-script
 ```
 
 ~~~
 #!/bin/sh
 
+# create the dnat chain for qubeDEST if it doesn't already exist
+if nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
+then
+  # create the dnat rule
+  nft add rule qubes custom-dnat-qubeDEST iifname == "ens6" saddr 192.168.x.y/24 tcp dport 443 counter dnat 10.137.1.z
 
-####################
-# My service routing
-
-# Create a new firewall natting chain for my service
-if iptables -w -t nat -N MY-HTTPS; then
-
-# Add a natting rule if it did not exist (to avoid clutter if script executed multiple times)
-  iptables -w -t nat -A MY-HTTPS -j DNAT --to-destination 10.137.1.z
-
-fi
-
-
-# If no prerouting rule exist for my service
-if ! iptables -w -t nat -n -L PREROUTING | grep --quiet MY-HTTPS; then
-
-# add a natting rule for the traffic (same reason)
-  iptables -w -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 192.168.x.y -j MY-HTTPS
-fi
-
-
-######################
-# My service filtering
-
-# Create a new firewall filtering chain for my service
-if iptables -w -N MY-HTTPS; then
-
-# Add a filtering rule if it did not exist (to avoid clutter if script executed multiple times)
-  iptables -w -A MY-HTTPS -s 192.168.x.0/24 -j ACCEPT
-
-fi
-
-# If no forward rule exist for my service
-if ! iptables -w -n -L FORWARD | grep --quiet MY-HTTPS; then
-
-# add a forward rule for the traffic (same reason)
-  iptables -w -I FORWARD 2 -d 10.137.1.z -p tcp --dport 443 -m conntrack --ctstate NEW -j MY-HTTPS
-
-fi
-~~~
-
-> Note: Again in R4 the following needs to be added:
-
-~~~
-#############
-# In Qubes R4
-
-# If not already present
-if nft -nn list table ip qubes-firewall | grep "tcp dport 443 ct state new"; then
-
-# Add a filtering rule
-  nft add rule ip qubes-firewall forward meta iifname eth0 ip daddr 10.137.1.z tcp dport 443 ct state new counter accept
-
+  # allow forwarded traffic
+  nft add rule qubes custom-forward iifname == "ens6" ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 counter accept
 fi
 ~~~
 
@@ -375,133 +345,74 @@ fi
 
 For the following example, we use the fact that the physical interface of sys-firewall, facing sys-net, is eth0. Furthermore, we assume that the target VM running the web server has the IP address 10.137.0.xx and that the IP address of sys-firewall is 10.137.1.z.
 
-In the sys-firewall VM's Terminal, code a natting firewall rule to route traffic on its outside interface for the service to the qube
+In the sys-firewall VM's Terminal, add a DNAT chain to route traffic on its outside interface for the service to the qube:
 
 ```
-iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 10.137.1.z -j DNAT --to-destination 10.137.0.xx
+nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
 ```
 
-Code the appropriate new filtering firewall rule to allow new connections for the service
+Second step, code a natting firewall rule to route traffic on the outside interface for the service to the destination qube
 
 ```
-iptables -I FORWARD 2 -i eth0 -s 192.168.x.0/24 -d 10.137.0.xx -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
+nft add rule qubes custom-dnat-qubeDEST iifname == "eth0" ip saddr 192.168.x.y/24 tcp dport 443 counter dnat 10.137.0.xx
 ```
 
-> Note: If you do not wish to limit the IP addresses connecting to the service, remove the ` -s 192.168.0.1/24 `
-
-> Note: On Qubes R4
+Third step, code the appropriate new filtering firewall rule to allow new connections for the service
 
 ```
-nft add rule ip qubes-firewall forward meta iifname eth0 ip saddr 192.168.x.0/24 ip daddr 10.137.0.xx tcp dport 443 ct state new counter accept
+nft add rule qubes custom-forward iifname == "eth0" ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 443 counter accept
 ```
 
-Once you have confirmed that the counters increase, store these command in `/rw/config/qubes-firewall-user-script`
+> Note: If you do not wish to limit the IP addresses connecting to the service, remove `ip saddr 192.168.x.y/24` from the rules
+
+Once you have confirmed that the counters increase, store these commands in the script `/rw/config/qubes-firewall-user-script`
 
 ```
-sudo nano /rw/config/qubes-firewall-user-script
+[user@sys-net user]$ sudo -i
+[root@sys-net user]# nano /rw/config/qubes-firewall-user-script
 ```
 
 ~~~
 #!/bin/sh
 
+# create the dnat chain for qubeDEST if it doesn't already exist
+if nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
+then
+  # create the dnat rule
+  nft add rule qubes custom-dnat-qubeDEST iifname == "eth0" tcp dport 22 counter dnat 10.137.0.xx
 
-####################
-# My service routing
-
-# Create a new firewall natting chain for my service
-if iptables -w -t nat -N MY-HTTPS; then
-
-# Add a natting rule if it did not exist (to avoid clutter if script executed multiple times)
-  iptables -w -t nat -A MY-HTTPS -j DNAT --to-destination 10.137.0.xx
-
-fi
-
-
-# If no prerouting rule exist for my service
-if ! iptables -w -t nat -n -L PREROUTING | grep --quiet MY-HTTPS; then
-
-# add a natting rule for the traffic (same reason)
-  iptables -w -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 10.137.1.z -j MY-HTTPS
-fi
-
-
-######################
-# My service filtering
-
-# Create a new firewall filtering chain for my service
-if iptables -w -N MY-HTTPS; then
-
-# Add a filtering rule if it did not exist (to avoid clutter if script executed multiple times)
-  iptables -w -A MY-HTTPS -s 192.168.x.0/24 -j ACCEPT
-
-fi
-
-# If no forward rule exist for my service
-if ! iptables -w -n -L FORWARD | grep --quiet MY-HTTPS; then
-
-# add a forward rule for the traffic (same reason)
-  iptables -w -I FORWARD 4 -d 10.137.0.xx -p tcp --dport 443 -m conntrack --ctstate NEW -j MY-HTTPS
-
-fi
-
-################
-# In Qubes OS R4
-
-# If not already present
-if ! nft -nn list table ip qubes-firewall | grep "tcp dport 443 ct state new"; then
-
-# Add a filtering rule
-  nft add rule ip qubes-firewall forward meta iifname eth0 ip saddr 192.168.x.0/24 ip daddr 10.137.0.xx tcp dport 443 ct state new counter accept
-
+  # allow forwarded traffic
+  nft add rule qubes custom-forward iifname == "eth0" ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 22 counter accept
 fi
 ~~~
 
-Finally make this file executable (so it runs at every Firewall VM update)
-
-~~~
-sudo chmod +x /rw/config/qubes-firewall-user-script
-~~~
-
-If the service should be available to other VMs on the same system, do not forget to specify the additional rules described above.
+If the service should be available to other VMs on the same system, do not forget to specify the additional rules described earlier in this guide.
 
 **4. Allow packets into the qube to reach the service**
 
-Here no routing is required, only filtering.
-Proceed in the same way as above but store the filtering rule in the `/rw/config/rc.local` script.
+No routing is required in the destination qube, only filtering.
 For the following example, we assume that the target VM running the web server has the IP address 10.137.0.xx
 
+The according rule to allow the traffic is:
+
 ```
-sudo nano /rw/config/rc.local
+nft add rule qubes custom-input tcp dport 443 ip daddr 10.137.0.xx counter accept
 ```
 
-~~~
-######################
-# My service filtering
+To make it persistent, you need to add this command in `/rw/config/rc.local`:
 
-# Create a new firewall filtering chain for my service
-if iptables -w -N MY-HTTPS; then
+```
+[user@qubeDEST user]$ sudo -i
+[root@qubeDEST user]# echo 'nft add rule qubes custom-input tcp dport 443 ip daddr 10.137.0.xx counter accept' >> /rw/config/rc.local
+```
 
-# Add a filtering rule if it did not exist (to avoid clutter if script executed multiple times)
-  iptables -w -A MY-HTTPS -j ACCEPT
-
-fi
-
-# If no input rule exists for my service
-if ! iptables -w -n -L INPUT | grep --quiet MY-HTTPS; then
-
-# add a forward rule for the traffic (same reason)
-  iptables -w -I INPUT 5 -d 10.137.0.xx -p tcp --dport 443 -m conntrack --ctstate NEW -j MY-HTTPS
-
-fi
-~~~
-
-This time testing should allow connectivity to the service as long as the service is up :-)
+This time testing should allow connectivity to the service as long qubeDEST is running and the service is up :-)
 
 Where to put firewall rules
 ---------------------------
 
-Implicit in the above example [scripts](/doc/config-files/), but worth calling attention to: for all qubes *except* those supplying networking, iptables commands should be added to the `/rw/config/rc.local` script.
-For app qubes supplying networking (`sys-firewall` inclusive), iptables commands should be added to `/rw/config/qubes-firewall-user-script`.
+Implicit in the above example [scripts](/doc/config-files/), but worth calling attention to: for all qubes *except* those supplying networking, nftables commands should be added to the `/rw/config/rc.local` script.
+For service qubes supplying networking (`sys-firewall` and `sys-net` inclusive), nftables commands should be added to `/rw/config/qubes-firewall-user-script`.
 
 Firewall troubleshooting
 ------------------------
