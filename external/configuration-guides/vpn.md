@@ -7,7 +7,7 @@ redirect_from:
 - /en/doc/vpn/
 - /doc/VPN/
 - /wiki/VPN/
-redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md
+redirect_to: https://forum.qubes-os.org/t/wireguard-vpn-setup/19141
 ref: 102
 title: VPN
 ---

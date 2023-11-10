@@ -6,7 +6,7 @@ redirect_from:
 - /en/doc/postfix/
 - /doc/Postfix/
 - /wiki/Postfix/
-redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/postfix.md
+redirect_to: https://forum.qubes-os.org/t/postfix-mta/18991
 ref: 107
 title: Postfix
 ---

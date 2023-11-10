@@ -6,7 +6,7 @@ redirect_from:
 - /en/doc/language-localization/
 - /doc/LanguageLocalization/
 - /wiki/LanguageLocalization/
-redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/customization/language-localization.md
+redirect_to: https://forum.qubes-os.org/t/language-localization/19001
 ref: 73
 title: Language localization
 ---

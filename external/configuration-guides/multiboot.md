@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: doc
-redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/multiboot.md
+redirect_to: https://forum.qubes-os.org/t/multibooting-qubes/18988
 ref: 112
 title: Multibooting
 ---

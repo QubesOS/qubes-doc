@@ -6,7 +6,7 @@ redirect_from:
 - /en/doc/rxvt/
 - /doc/Rxvt/
 - /wiki/Rxvt/
-redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/rxvt.md
+redirect_to: https://forum.qubes-os.org/t/rxvt-terminal/18992
 ref: 103
 title: Rxvt
 ---

@@ -3,7 +3,7 @@ lang: en
 layout: doc
 redirect_from:
 - /doc/templates/gentoo/
-redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/os/gentoo.md
+redirect_to: https://forum.qubes-os.org/t/gentoo-templatevm/19007
 ref: 221
 title: Gentoo template
 ---

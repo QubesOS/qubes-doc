@@ -3,7 +3,7 @@ lang: en
 layout: doc
 redirect_from:
 - /doc/application-troubleshooting/
-redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/application-troubleshooting.md
+redirect_to: https://forum.qubes-os.org/t/troubleshooting-default-applications/19019
 ref: 236
 title: Application troubleshooting
 ---

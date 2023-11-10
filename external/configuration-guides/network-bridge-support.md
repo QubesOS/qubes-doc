@@ -6,7 +6,7 @@ redirect_from:
 - /en/doc/network-bridge-support/
 - /doc/NetworkBridgeSupport/
 - /wiki/NetworkBridgeSupport/
-redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/network-bridge-support.md
+redirect_to: https://forum.qubes-os.org/t/network-bridge-support-experimental-and-unsupported/18990
 ref: 113
 title: Network bridge support
 ---

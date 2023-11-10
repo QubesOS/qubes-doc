@@ -4,7 +4,7 @@ layout: doc
 redirect_from:
 - /doc/NvidiaTroubleshooting/
 - /wiki/NvidiaTroubleshooting/
-redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/nvidia-troubleshooting.md
+redirect_to: https://forum.qubes-os.org/t/nvidia-troubleshooting-guide/19021
 ref: 91
 title: Nvidia troubleshooting
 ---

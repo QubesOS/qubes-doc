@@ -6,7 +6,7 @@ redirect_from:
 - /en/doc/mutt/
 - /doc/Mutt/
 - /wiki/Mutt/
-redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/mutt.md
+redirect_to: https://forum.qubes-os.org/t/mutt-mail-user-agent/18989
 ref: 106
 title: Mutt
 ---
