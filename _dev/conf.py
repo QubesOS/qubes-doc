@@ -186,7 +186,7 @@ htmlhelp_basename = 'QubesOSdev'
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
-    'python': ('http://docs.python.org/', None),
+    'python': ('https://docs.python.org/', None),
 #   'core-admin': ('https://dev.qubes-os.org/projects/core-admin/en/latest/', None),
 }
 
