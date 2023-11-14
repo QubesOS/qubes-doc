@@ -51,13 +51,13 @@ Great! Thank you for taking the time and effort to help improve Qubes! To ensure
 
 Eventually, your issue may be closed. See [how issues get closed](/doc/issue-tracking/#how-issues-get-closed) for details about when, why, and how this occurs.
 
-## Labels, milestones, and projects
+## Labels and projects
 
-Labels, milestones, and projects are features of GitHub's issue tracking system that we use to keep [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) organized.
+Labels and projects are features of GitHub's issue tracking system that we use to keep [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) organized.
 
 ### Labels
 
-When an issue is first created, certain labels may automatically be applied to it based on the type of issue the reporter selected. For example, if someone selects the "Bug report" template, then the `T: bug` label will automatically be applied to that issue. After that, only Qubes team members have permission to modify [labels](https://github.com/QubesOS/qubes-issues/labels) and [milestones](https://github.com/QubesOS/qubes-issues/milestones). Many labels and milestones have descriptions on them that can be viewed either in their respective lists or by hovering over them. Let's go over some of the most important ones.
+When an issue is first created, certain [labels](https://github.com/QubesOS/qubes-issues/labels) may automatically be applied to it based on the type of issue the reporter selected. For example, if someone selects the "Bug report" template, then the `T: bug` label will automatically be applied to that issue. After that, only Qubes team members have permission to modify labels. Many labels have descriptions on them that can be viewed by hovering over them or on the [list of labels](https://github.com/QubesOS/qubes-issues/labels. Let's go over some of the most important ones.
 
 #### Type
 
@@ -81,23 +81,19 @@ There are many **component** labels, each beginning with `C:` (see [here](https:
 
 A label of the form `affects-<RELEASE_NUMBER>` indicates that an issue affects the corresponding Qubes OS release. An issue can have more than one of these labels if it affects multiple releases.
 
-### Milestones
-
-The issue tracker has several [milestones](https://github.com/QubesOS/qubes-issues/milestones). Individual issues can be assigned to milestones. The issue tracker does not allow an issue to be assigned to more than one milestone. If an issue is already assigned to a milestone, assigning it to a different one will *replace* the existing milestone assignment. Each milestone has a progress indicator showing how close that milestone is to completion.
-
-Most milestones correspond to specific Qubes OS releases. The Qubes developers decide which issues will be assigned to specific milestones. The general idea is that each milestone's progress indicator should provide a rough idea of how much progress has been made on that milestone and how much work remains until the milestone is complete. Most issues will not be assigned to any milestone at all until a Qubes developer manually assigns it to one. While anyone is free to open an issue, this does not create an obligation on the Qubes developers to act on that issue. Every open issue should be understood to be merely "under consideration" unless or until a Qubes developer decides to assign it to a milestone. Issues that are assigned to a milestone are issues that either the Qubes developers or another contributor plans to complete *for* that milestone. The Qubes developers reserve the right to modify or remove milestones at any time at their discretion.
-
 ### Projects
 
 The issue tracker has several [projects](https://github.com/QubesOS/qubes-issues/projects). A project is a way to create a group of multiple related issues. This is the preferred method of grouping issues, whereas trying to use normal issues as "meta-issues" or "epics" is discouraged.
 
 ## Search tips
 
-[Search both open and closed issues.](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue) For example, you may be experiencing a bug that was just fixed, in which case the report for that bug is probably closed. In this case, it would be useful to view [all bug reports, both open and closed, with the most recently updated sorted to the top](https://github.com/QubesOS/qubes-issues/issues?q=label%3Abug+sort%3Aupdated-desc).
+- [Search both open and closed issues.](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue) For example, you may be experiencing a bug that was just fixed, in which case the report for that bug is probably closed. In this case, it would be useful to view [all bug reports, both open and closed, with the most recently updated sorted to the top](https://github.com/QubesOS/qubes-issues/issues?q=label%3Abug+sort%3Aupdated-desc).
 
-[Search using labels.](https://github.com/QubesOS/qubes-issues/labels) For example, you can search issues by priority ([blocker](https://github.com/QubesOS/qubes-issues/labels/P%3A%20blocker), [critical](https://github.com/QubesOS/qubes-issues/labels/P%3A%20critical), [major](https://github.com/QubesOS/qubes-issues/labels/P%3A%20major), etc.) and by component ([core](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+core%22), [manager/widget](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3A%22C%3A+manager%2Fwidget%22+), [Xen](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+Xen%22), etc.).
+- [Search with labels.](https://github.com/QubesOS/qubes-issues/labels) For example, you can search issues by priority ([blocker](https://github.com/QubesOS/qubes-issues/labels/P%3A%20blocker), [critical](https://github.com/QubesOS/qubes-issues/labels/P%3A%20critical), [major](https://github.com/QubesOS/qubes-issues/labels/P%3A%20major), etc.) and by component ([core](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+core%22), [manager/widget](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3A%22C%3A+manager%2Fwidget%22+), [Xen](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+Xen%22), etc.).
 
-You can also try searching by [milestone](https://github.com/QubesOS/qubes-issues/milestones) and by [project](https://github.com/QubesOS/qubes-issues/projects).
+- Search by closure reason: [`reason:complete`](https://github.com/QubesOS/qubes-issues/issues?q=reason%3Acompleted) and [`reason:"not planned"`](https://github.com/QubesOS/qubes-issues/issues?q=reason%3A%22not+planned%22).
+
+- [Search by project](https://github.com/QubesOS/qubes-issues/projects).
 
 ## Guidelines
 
@@ -168,11 +164,17 @@ In the case of bugs, the package containing the change will move to the appropri
 
 ### Resolution
 
-In other cases, an issue may be closed with a specific resolution, such as `R: invalid`, `R: duplicate`, or `R: won't fix`. Each of these labels has a description that explains the label. We'll also leave a comment explaining why we're closing the issue with one of these specific resolutions. If the issue is closed without one of these specific resolutions, then it means, by default, that the reported bug was fixed or the requested enhancement was implemented.
+In GitHub, an issue can be [closed as either `completed` or `not planned`](https://github.blog/changelog/2022-03-10-the-new-github-issues-march-10th-update/#%F0%9F%95%B5%F0%9F%8F%BD%E2%99%80%EF%B8%8F-issue-closed-reasons).
+
+Being closed as `completed` means that the issue has been fixed (in the case of bugs) or done (in the case of enhancements and tasks). More precisely, it means that a commit containing the relevant work has been pushed. It takes time for this work to make its way into a package, which must then go through the [testing](/doc/testing/) process before finally landing in the relevant stable repository. Automated comments on the issue will announce when key events in this process occur.
+
+Being closed as `not planned` means that the issue will *not* be fixed (in the case of bugs) or done (in the case of enhancements and tasks). When an issue is closed as `not planned`, we add a **resolution** label starting with `R:` that specifies the reason for the closure, such as `R: duplicate` or `R: cannot reproduce`. Each of these labels has a description that briefly explains the label. We also leave a comment containing a longer explanation for why the issue is being closed along with general information.
+
+While issues that are closed as `not planned` get a more specific resolution label, issues that are closed as `completed` do not always get one, since the linked PRs, commits, automated messages, and the `completed` reason itself are often sufficient to convey all relevant information. For information about using closure reasons in searches, see [Search tips](#search-tips).
 
 ### Backports
 
-Issues in GitHub can only be open or closed, but, when it comes to bugs that affect multiple versions of Qubes OS, there are several possible states:
+Issues in GitHub can only be open or closed, but when it comes to bugs that affect multiple versions of Qubes OS, there are several possible states:
 
 1. Not fixed yet
 2. Fix developed but not yet committed (PR open)
