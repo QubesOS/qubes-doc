@@ -61,6 +61,12 @@ The [NovaCustom NV41 Series](https://configurelaptop.eu/nv41-series/) is a 14-in
 
 The [NitroPC Pro](https://shop.nitrokey.com/shop/product/nitropc-pro-523) is a desktop based on the MSI PRO Z690-A DDR5 motherboard. It is certified for Qubes OS 4.X. Read our [announcement](/news/2023/09/06/nitropc-pro-qubes-certified/) for details.
 
+### Star Labs StarBook
+
+[![Photo of the Star Labs StarBook](/attachment/site/starlabs-starbook.png)](https://starlabs.systems/pages/starbook)
+
+The [Star Labs StarBook](https://starlabs.systems/pages/starbook) is a 14-inch laptop. It is certified for Qubes OS 4.X. Read our [announcement](TODO) for details.
+
 ## Become hardware certified
 
 If you are a hardware vendor, you can have your hardware certified as compatible with Qubes OS. The benefits of hardware certification include:
