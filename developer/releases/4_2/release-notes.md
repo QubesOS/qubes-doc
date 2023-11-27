@@ -23,7 +23,7 @@ _**Please note:** This page is still an unfinished draft in progress. It is bein
 - fwupd integration for firmware updates ([#4855](https://github.com/QubesOS/qubes-issues/issues/4855))
 - Optional automatic clipboard clearing ([#3415](https://github.com/QubesOS/qubes-issues/issues/3415))
 - Official packages built using Qubes Builder v2 ([#6486](https://github.com/QubesOS/qubes-issues/issues/6486))
-- Split GPG and Split SSH management in Qubes Global Settings
+- Split GPG management in Qubes Global Settings
 - Qrexec services use new qrexec policy format by default (but old format is still supported) ([#8000](https://github.com/QubesOS/qubes-issues/issues/8000))
 
 For a full list, including more detailed descriptions, please see
