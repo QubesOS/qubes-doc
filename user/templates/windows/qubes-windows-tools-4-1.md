@@ -25,7 +25,14 @@ Qubes Windows Tools (QWT) are a set of programs and drivers that provide integra
 - **Copy/Edit in Disposable VM** (part of Qubes) - Support for editing files in DisposableVMs
 - **Audio** - Audio support is available even without QWT installation if `qvm-features audio-model` is set as `ich6`
 
-	
+
+**Note:** Due to the security problems described in [QSB-091](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-091-2023.txt), installation of Qubes Windows Tools is currently blocked. Instead, a text file containing a warning is displayed. Currently, it is difficult to estimate the severity of the risks posed by the sources of the Xen drivers used in QWT possibly being compromised, so it was decided not to offer direct QWT installation until this problem could be treated properly. While Windows qubes are, in Qubes, generally not regarded as being very trustworthy, a possible compromise of the Xen drivers used in Qubes Windows Tools might create a risk for Xen or dom0 and thus be dangerous for Qubes. If you **understand** this risk and are **willing to take it**, you can still install the previous versions of Qubes Windows Tools, which are avaiable from the repositories (version [4.1.68-1](https://yum.qubes-os.org/r4.1/current/dom0/fc32/rpm/qubes-windows-tools-4.1.68-1.noarch.rpm) for Qubes R4.1.2 and version [4.1.69-1](https://yum.qubes-os.org/r4.2/current/dom0/fc37/rpm/qubes-windows-tools-4.1.69-1.fc37.noarch.rpm) for Qubes R4.2.0). The rpm file downloaded from this location will have to be transferred to dom0 and installed there via
+
+	sudo qubes-dom0-update RPM-FILE
+ 
+ where `RPM-FILE` is the location of the downloaded file in dom0.
+ 
+
 **Note**: If you choose to move profiles, drive letter `Q:` must be assigned to the secondary (private) disk.
 
 **Note**: Xen PV disk drivers are not installed by default. This is because they seem to cause problems (BSOD = Blue Screen Of Death). We're working with upstream devs to fix this. *However*, the BSOD seems to only occur after the first boot and everything works fine after that. **Enable the drivers at your own risk** of course, but we welcome reports of success/failure in any case (backup your VM first!). With disk PV drivers absent `qvm-block` will not work for the VM, but you can still use standard Qubes inter-VM file copying mechanisms. On the other hand, the Xen PV drivers allow USB device access even without QWT installation if `qvm-features stubdom-qrexec` is set as `1`
