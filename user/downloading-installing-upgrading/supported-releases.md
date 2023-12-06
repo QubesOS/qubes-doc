@@ -93,8 +93,8 @@ Releases](https://wiki.debian.org/DebianReleases)).
 
 | Qubes OS    | Fedora | Debian | Whonix |
 | ----------- | ------ | ------ | ------ |
-| Release 4.1 | 37, 38 | 11, 12 | 16     |
-| Release 4.2 | 37, 38 | 11, 12 | 17     |
+| Release 4.1 | 38     | 11, 12 | 16     |
+| Release 4.2 | 38     | 11, 12 | 17     |
 
 ### Note on Debian support
 
