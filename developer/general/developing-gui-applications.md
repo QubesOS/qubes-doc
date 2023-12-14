@@ -6,9 +6,6 @@ ref: 333
 title: Developing Qubes OS GUI tools
 ---
 
-
-# Developing Qubes OS GUI tools
-
 In order to avoid installing Qubes OS frontend tools you are working on in your own `dom0` or just to test them with less problems, you can use the mock Qubes object from the `qubesadmin` package.
 
 ## Running programs using mock Qubes object
