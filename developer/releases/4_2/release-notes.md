@@ -4,8 +4,6 @@ title: Qubes OS 4.2.0 release notes
 permalink: /doc/releases/4.2/release-notes/
 ---
 
-_**Please note:** This page is still an unfinished draft in progress. It is being updated as Qubes 4.2 development and testing continues._
-
 ## New features and improvements since Qubes 4.1
 
 - Dom0 upgraded to Fedora 37 ([#6982](https://github.com/QubesOS/qubes-issues/issues/6982))
@@ -25,6 +23,7 @@ _**Please note:** This page is still an unfinished draft in progress. It is bein
 - Official packages built using Qubes Builder v2 ([#6486](https://github.com/QubesOS/qubes-issues/issues/6486))
 - Split GPG management in Qubes Global Settings
 - Qrexec services use new qrexec policy format by default (but old format is still supported) ([#8000](https://github.com/QubesOS/qubes-issues/issues/8000))
+- Improved keyboard layout switching
 
 For a full list, including more detailed descriptions, please see
 [here](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.2%22+label%3A%22release+notes%22+is%3Aclosed).
