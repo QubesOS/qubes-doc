@@ -203,10 +203,10 @@ other words, all of these fingerprints are considered the same:
 Instead, what matters is that *all* the characters are present in *exactly* the
 same order. If even one character is different, the fingerprints do not match.
 Even if two fingerprints have all the same characters, if any of those
-characters are in a different order, sequence or position, then the
+characters are in a different order, sequence, or position, then the
 fingerprints do not match.
 
-Note: You may sometimes see the entire fingerprint prefixed with `0x`, as in:
+You may also sometimes see the entire fingerprint prefixed with `0x`, as in:
 
 ```
 0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
