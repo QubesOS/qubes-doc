@@ -25,19 +25,18 @@ permalink: /doc/releases/4.2/release-notes/
 - Qrexec services use new qrexec policy format by default (but old format is still supported) ([#8000](https://github.com/QubesOS/qubes-issues/issues/8000))
 - Improved keyboard layout switching
 
-For a full list, including more detailed descriptions, please see
-[here](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.2%22+label%3A%22release+notes%22+is%3Aclosed).
+For a full list, including more detailed descriptions, please see [here](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.2%22+label%3A%22release+notes%22+is%3Aclosed). Below are some screenshots of the new and improved Qubes GUI tools.
 
-Screenshot of the Qubes OS Update tool:
+The new Qubes OS Update tool:
 
 [![Screenshot of the Qubes OS Update tool](/attachment/site/4-2_update.png)](/attachment/site/4-2_update.png)
 
-Screenshots of the Qubes OS Global Config tool:
+The new Qubes OS Global Config tool:
 
 [![Screenshot of the Qubes OS Global Config tool](/attachment/site/4-2_global-config_1.png)](/attachment/site/4-2_global-config_1.png)
 [![Screenshot of the Qubes OS Global Config tool](/attachment/site/4-2_global-config_2.png)](/attachment/site/4-2_global-config_2.png)
 
-Screenshot of the Qubes OS Policy Editor tool:
+The new Qubes OS Policy Editor tool:
 
 [![Screenshot of the Qubes OS Policy Editor tool](/attachment/site/4-2_policy-editor.png)](/attachment/site/4-2_policy-editor.png)
 
