@@ -87,9 +87,9 @@ Additionally, disposable VMs are tightly integrated -- RPC to a DisposableVM is 
 ### Policy files
 
 The dom0 directory `/etc/qubes/policy.d/` contains files that set policy for each available RPC action that a VM might call.
-For example, `/etc/qubes/policy.d/90-default.policy` contains the default policy settings.
-When making changes to existing policies it is recommended that you create a *new* policy file starting with a lower number, like `/etc/qubes/policy.d/30-user.policy`.
-You may keep your custom policies in one file like `/etc/qubes/policy.d/30-user.policy`, or you may choose to have multiple files, like `/etc/qubes/policy.d/10-copy.policy`, `/etc/qubes/policy.d/10-open.policy`.
+For example, `/etc/qubes/policy.d/90-default.policy` contains the default policy settings.  
+When making changes to existing policies it is recommended that you create a *new* policy file starting with a lower number, like `/etc/qubes/policy.d/30-user.policy`.  
+You may keep your custom policies in one file like `/etc/qubes/policy.d/30-user.policy`, or you may choose to have multiple files, like `/etc/qubes/policy.d/10-copy.policy`, `/etc/qubes/policy.d/10-open.policy`.  
 Together the contents of these files make up the RPC access policy database: the files are merged, with policies in lower number files overriding policies in higher numbered files.
 
 Policies are defined in lines with the following format:
