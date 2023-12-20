@@ -75,7 +75,7 @@ There are several issue **priority** levels ranging from `P: minor` to `P: block
 
 #### Component
 
-There are many **component** labels, each beginning with `C:` (see [here](https://github.com/QubesOS/qubes-issues/labels?page=2&q=C%3A) for the full list). Every open issue should have **at least one** component. An open issue may have more than one component, but it should not lack a component entirely. When no other component applies, use `C: other`.
+There are many **component** labels, each beginning with `C:` (see [here](https://github.com/QubesOS/qubes-issues/labels?q=C%3A) for the full list). Every open issue should have **at least one** component. An open issue may have more than one component, but it should not lack a component entirely. When no other component applies, use `C: other`.
 
 #### Affected release
 
