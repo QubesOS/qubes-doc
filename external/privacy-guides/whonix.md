@@ -16,7 +16,7 @@ redirect_from:
 - /doc/privacy/uninstall-whonix/
 - /doc/whonix/update/
 - /doc/privacy/updating-whonix/
-redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/privacy/whonix.md
+redirect_to: https://forum.qubes-os.org/t/19014
 ref: 69
 title: Whonix for privacy & anonymity
 ---

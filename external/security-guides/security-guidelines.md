@@ -6,7 +6,7 @@ redirect_from:
 - /en/doc/security-guidelines/
 - /doc/SecurityGuidelines/
 - /wiki/SecurityGuidelines/
-redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/security/security-guidelines.md
+redirect_to: https://forum.qubes-os.org/t/19075
 ref: 79
 title: Security guidelines
 ---

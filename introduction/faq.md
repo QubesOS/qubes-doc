@@ -459,7 +459,7 @@ You have to restart the NetVM after the template has been shut down.
 ### Can I install Qubes OS together with other operating system (dual-boot/multi-boot)?
 
 You shouldn't do that, because it poses a security risk for your Qubes OS installation.
-But if you understand the risk and accept it, read [documentation on multibooting](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/multiboot.md).
+But if you understand the risk and accept it, read [documentation on multibooting](https://forum.qubes-os.org/t/18988).
 It begins with an explanation of the risks with such a setup.
 
 ### Which version of Qubes am I running?
@@ -806,4 +806,4 @@ If you need to support not-fully-updated systems, check for the existence of `/u
 
 Yes, Qubes natively supports automation via [Salt (SaltStack)](/doc/salt/).
 There is also the unofficial [ansible-qubes toolkit](https://github.com/Rudd-O/ansible-qubes).
-(**Warning:** Since this is an external project that has not been reviewed or endorsed by the Qubes team, [allowing it to manage dom0 may be a security risk](https://github.com/Qubes-Community/Contents/blob/master/docs/security/security-guidelines.md#dom0-precautions).)
+(**Warning:** Since this is an external project that has not been reviewed or endorsed by the Qubes team, [allowing it to manage dom0 may be a security risk](https://forum.qubes-os.org/t/19075#dom0-precautions).)
