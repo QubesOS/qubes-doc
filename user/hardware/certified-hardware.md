@@ -51,9 +51,9 @@ The [Dasharo FidelisGuard Z690](https://3mdeb.com/shop/open-source-hardware/dash
 
 ### NovaCustom NV41 Series
 
-[![Photo of the NovaCustom NV41 Series](/attachment/site/novacustom-nv41-series.png)](https://configurelaptop.eu/nv41-series/)
+[![Photo of the NovaCustom NV41 Series](/attachment/site/novacustom-nv41-series.png)](https://novacustom.com/product/nv41-series/)
 
-The [NovaCustom NV41 Series](https://configurelaptop.eu/nv41-series/) is a 14-inch custom laptop. It is certified for Qubes OS 4.X. Read our [announcement](/news/2023/05/03/novacustom-nv41-series-qubes-certified/) for details.
+The [NovaCustom NV41 Series](https://novacustom.com/product/nv41-series/) is a 14-inch custom laptop. It is certified for Qubes OS 4.X. Read our [announcement](/news/2023/05/03/novacustom-nv41-series-qubes-certified/) for details.
 
 ### NitroPC Pro
 

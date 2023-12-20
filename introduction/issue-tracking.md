@@ -57,7 +57,7 @@ Labels and projects are features of GitHub's issue tracking system that we use t
 
 ### Labels
 
-When an issue is first created, certain [labels](https://github.com/QubesOS/qubes-issues/labels) may automatically be applied to it based on the type of issue the reporter selected. For example, if someone selects the "Bug report" template, then the `T: bug` label will automatically be applied to that issue. After that, only Qubes team members have permission to modify labels. Many labels have descriptions on them that can be viewed by hovering over them or on the [list of labels](https://github.com/QubesOS/qubes-issues/labels. Let's go over some of the most important ones.
+When an issue is first created, certain [labels](https://github.com/QubesOS/qubes-issues/labels) may automatically be applied to it based on the type of issue the reporter selected. For example, if someone selects the "Bug report" template, then the `T: bug` label will automatically be applied to that issue. After that, only Qubes team members have permission to modify labels. Many labels have descriptions on them that can be viewed by hovering over them or on the [list of labels](https://github.com/QubesOS/qubes-issues/labels). Let's go over some of the most important ones.
 
 #### Type
 
