@@ -176,7 +176,7 @@ information in your message. A great way to provide your hardware details is by
 [generating and submitting a Hardware Compatibility List (HCL)
 report](/doc/how-to-use-the-hcl/#generating-and-submitting-new-reports), then
 linking to it in your message. [Ask questions the smart
-way.](http://www.catb.org/esr/faqs/smart-questions.html)
+way.](https://www.catb.org/esr/faqs/smart-questions.html)
 
 ### Be patient
 
@@ -309,7 +309,7 @@ account is in no way required, expected, or encouraged. Many discussants
 [mailing lists](https://en.wikipedia.org/wiki/Electronic_mailing_list),
 interacting with them solely through plain text email with
 [MUAs](https://en.wikipedia.org/wiki/Email_client) like
-[Thunderbird](https://www.thunderbird.net/) and [Mutt](http://www.mutt.org/).
+[Thunderbird](https://www.thunderbird.net/) and [Mutt](https://www.mutt.org/).
 The Google Groups service is just free infrastructure, and we [distrust the
 infrastructure](/faq/#what-does-it-mean-to-distrust-the-infrastructure). This
 is why, for example, we encourage discussants to use [Split
