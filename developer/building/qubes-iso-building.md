@@ -15,17 +15,27 @@ title: Qubes ISO building
 Build Environment
 -----------------
 
-Fedora 32 has been successfully used to build Qubes R4.0 with the below steps.
+Fedora 36 (and 37) has been successfully used to build Qubes R4.1 with the below steps.
 Other rpm-based operating systems may also work.
 Travis-CI uses Ubuntu 18.04 to perform test builds, except it can not test the `./setup` script.
 
-In `dom0`, install the Fedora 32 template if you don't already have it.
+**Notes:** On modern Fedora system (like Fedora 37) SeLinux is enforced by
+default and is blocking the build system. You would get error like 
+"can't create transaction lock on /.../rpm/.rpm.lock (Permission denied)".
+You can set SeLinux to permissive mode with 
+
+~~~bash
+sudo setenforce 0
+~~~
+
+
+In `dom0`, install the Fedora 36 (or 37) template if you don't already have it.
 
 ~~~
-sudo qubes-dom0-update qubes-template-fedora-32
+sudo qubes-dom0-update qubes-template-fedora-36
 ~~~
 
-Create a standalone AppVM from the Fedora 32 template.
+Create a standalone AppVM from the Fedora template.
 Set private storage to at least 60 GB if you will be building only the default templates; 100 GB or more if you plan on additional.
 It's not required, but if you allocate additional CPU cores, the build process can utilize them at some steps such as the kernel build.
 Likewise, more memory (up to 16 GB) can help.
@@ -46,7 +56,7 @@ gpg --edit-key 36879494
 fpr
 # Verify fingerprint! See Note below!
 # Once verified, set trust to *ultimate*
-# (Typical sequence is trust, 5, q)
+# (Typical sequence is trust, 5, Y, q)
 wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
 gpg --import qubes-developers-keys.asc
 ~~~
@@ -77,12 +87,12 @@ cd ~/qubes-builder
 ./setup
 # Select Yes to add Qubes Master Signing Key
 # Select Yes to add Qubes OS Signing Key
-# Select 4.0 for version
+# Select 4.1 for version
 # Stable
 # Select Yes for fast Git cloning
 # Select Current (if you want the option to use pre-built packages)
 # Select No (we want a full build)
-# Select fc30 and buster (for the currently shipping templates)
+# Select fc36 and bullseye (for the currently shipping templates)
 # Select builder-rpm, builder-debian, template-whonix, mgmt-salt
 # Select Yes to add adrelanos's third party key
 # Select Yes (to download)
@@ -93,7 +103,7 @@ Once it completes downloading, re-run `setup` to add the Whonix templates:
 ~~~
 ./setup
 # Choose the same options as above, except at templates select:
-# fc30, buster, whonix-gateway-15, whonix-workstation-15
+# fc36, bullseye, whonix-gateway-16, whonix-workstation-16
 ~~~
 
 Continue the build process with:
@@ -144,12 +154,15 @@ gpg --fingerprint 916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA
 It should look something like this:
 
 ~~~
-pub   4096R/2EEACCDA 2014-01-16 [expires: 2021-04-17]
+pub   rsa4096 2014-01-16 [SC] [expires: 2026-01-23]
       Key fingerprint = 916B 8D99 C38E AF5E 8ADC  7A2A 8D66 066A 2EEA CCDA
-uid                  Patrick Schleizer <adrelanos@riseup.net>
-sub   4096R/CE998547 2014-01-16 [expires: 2021-04-17]
-sub   4096R/119B3FD6 2014-01-16 [expires: 2021-04-17]
-sub   4096R/77BB3C48 2014-01-16 [expires: 2021-04-17]
+uid           [ unknown] Patrick Schleizer <adrelanos@kicksecure.com>
+uid           [ unknown] Patrick Schleizer <adrelanos@riseup.net>
+uid           [ unknown] Patrick Schleizer <adrelanos@whonix.org>
+sub   rsa4096 2014-01-16 [E] [expires: 2026-01-23]
+sub   rsa4096 2014-01-16 [A] [expires: 2026-01-23]
+sub   rsa4096 2014-01-16 [S] [expires: 2026-01-23]
+
 ~~~
 
 Next, prepare the Git keyring directory and copy them in:

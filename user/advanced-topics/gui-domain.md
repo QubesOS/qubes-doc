@@ -1,21 +1,21 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/guivm-configuration/
+permalink: /doc/gui-domain/
+redirect_from:
+- /doc/guivm-configuration/
 ref: 184
-title: GuiVM Configuration
+title: GUI domain
 ---
 
-## Gui domain
-
-In this section, we describe how to setup `GuiVM` in several case as described in [GUI Domain](/news/2020/03/18/gui-domain/). In all the cases, the base underlying TemplateVM used is `Fedora` with `XFCE` flavor to match current desktop choice in `dom0`. That can be adapted very easily for other desktops and templates. By default, the configured `GuiVM` is a management qube with global admin permissions `rwx` but can be adjusted to `ro` (see [Introducing the Qubes Admin API](/news/2017/06/27/qubes-admin-api/)) in pillar data of the corresponding `GuiVM` to setup. For example, pillar data for `sys-gui` located at `/srv/pillar/base/qvm/sys-gui.sls`. Please note that each `GuiVM` has no `NetVM`.
+On this page, we describe how to set up a [GUI domain](/news/2020/03/18/gui-domain/). In all the cases, the base underlying TemplateVM used is `Fedora` with `XFCE` flavor to match current desktop choice in `dom0`. That can be adapted very easily for other desktops and templates. By default, the configured GUI domain is a management qube with global admin permissions `rwx` but can be adjusted to `ro` (see [Introducing the Qubes Admin API](/news/2017/06/27/qubes-admin-api/)) in pillar data of the corresponding GUI domain to setup. For example, pillar data for `sys-gui` located at `/srv/pillar/base/qvm/sys-gui.sls`. Please note that each GUI domain has no `NetVM`.
 
 > Note: The setup is done using `SaltStack` formulas with the `qubesctl` tool. When executing it, apply step can take time because it needs to download latest Fedora XFCE TemplateVM and install desktop dependencies.
 
 
-### Hybrid GuiVM `sys-gui`
+### Hybrid GUI domain (`sys-gui`)
 
-Here, we describe how to setup `sys-gui` that we call *hybrid mode* or referenced as a *compromise solution* in [GUI Domain](/news/2020/03/18/gui-domain/#the-compromise-solution).
+Here, we describe how to setup `sys-gui` that we call *hybrid mode* or referenced as a *compromise solution* in [GUI domain](/news/2020/03/18/gui-domain/#the-compromise-solution).
 
 [![sys-gui](/attachment/posts/guivm-hybrid.png)](/attachment/posts/guivm-hybrid.png)
 
@@ -37,13 +37,13 @@ You can now disable the `sys-gui` formula:
 sudo qubesctl top.disable qvm.sys-gui
 ```
 
-At this point, you need to shutdown all your running qubes as the `default_guivm` qubes global property has been set to `sys-gui`. In order to use `sys-gui` as GuiVM, you need to logout and, in the top right corner, select `lightdm` session type to *Gui Domain (sys-gui)*. Once logged, you are running `sys-gui` as fullscreen window and you can perform any operation as if you would be in `dom0` desktop.
+At this point, you need to shutdown all your running qubes as the `default_guivm` qubes global property has been set to `sys-gui`. In order to use `sys-gui` as GUI domain, you need to logout and, in the top right corner, select `lightdm` session type to **GUI domain (sys-gui)**. Once logged, you are running `sys-gui` as fullscreen window and you can perform any operation as if you would be in `dom0` desktop.
 
 > Note: In order to go back to `dom0` desktop, you need to logout and then, select `lightdm` session to *Session Xfce*.
 
-### GPU GuiVM `sys-gui-gpu`
+### GPU GUI domain (`sys-gui-gpu`)
 
-Here, we describe how to setup `sys-gui-gpu` which is a `GuiVM` with *GPU passthrough* in [GUI Domain](/news/2020/03/18/gui-domain/#gpu-passthrough-the-perfect-world-desktop-solution).
+Here, we describe how to setup `sys-gui-gpu` which is a GUI domain with *GPU passthrough* in [GUI domain](/news/2020/03/18/gui-domain/#gpu-passthrough-the-perfect-world-desktop-solution).
 
 [![sys-gui-gpu](/attachment/posts/guivm-gpu.png)](/attachment/posts/guivm-gpu.png)
 
@@ -82,9 +82,9 @@ At this point, you need to reboot your Qubes OS machine in order to boot into `s
 
 Once, `lightdm` is started, you can log as `user` where `user` refers to the first `dom0` user in `qubes` group and with corresponding `dom0` password. A better approach for handling password is currently discussed in [QubesOS/qubes-issues#6740](https://github.com/QubesOS/qubes-issues/issues/6740).
 
-### VNC GuiVM `sys-gui-vnc`
+### VNC GUI domain (`sys-gui-vnc`)
 
-Here, we describe how to setup `sys-gui-vnc` that we call a *remote* `GuiVM` or referenced as *with a virtual server* in [GUI Domain](/news/2020/03/18/gui-domain/#virtual-server-the-perfect-remote-solution).
+Here, we describe how to setup `sys-gui-vnc` that we call a *remote* GUI domain or referenced as *with a virtual server* in [GUI domain](/news/2020/03/18/gui-domain/#virtual-server-the-perfect-remote-solution).
 
 [![sys-gui-vnc](/attachment/posts/guivm-vnc.png)](/attachment/posts/guivm-vnc.png)
 
@@ -120,13 +120,13 @@ A VNC server session is running on `localhost:5900` in `sys-gui-vnc`. In order t
 > **WARNING**: This setup raises multiple security issues: 1) Anyone who can reach the `VNC` server, can take over the control of the Qubes OS machine, 2) A second client can connect even if a connection is already active and potentially get disconnected, 3) You can get disconnected by some unrelated network issues. Generally, if this `VNC` server is exposed to open network, it must be protected with some other (cryptographic) layer like `VPN`. The setup as is, is useful only for purely testing machine.
 
 
-### Troobleshooting
+### Troubleshooting
 
-#### Application menu lacks qubes entries in a fresh GuiVM
+#### Application menu lacks qubes entries in a fresh GUI domain
 
 See [QubesOS/qubes-issues#5804](https://github.com/QubesOS/qubes-issues/issues/5804)
 
-#### Delete GuiVM
+#### Delete GUI domain
 
 The following commands have to be run in `dom0`.
 
@@ -138,18 +138,18 @@ Set `default_guivm` as `dom0`:
 qubes-prefs default_guivm dom0
 ```
 
-and for every selected qubes not using default value for `guivm` property, for example with a qube `personal`:
+and for every selected qubes not using default value for GUI domain property, for example with a qube `personal`:
 
 ```bash
 qvm-prefs personal guivm dom0
 ```
 
-You are now able to delete the GuiVM, for example `sys-gui-gpu`:
+You are now able to delete the GUI domain, for example `sys-gui-gpu`:
 
 ```bash
-qvm-remove -y sys-gui-gpu
+qvm-remove -f sys-gui-gpu
 ```
 
-#### General issue
+#### General issues
 
-For any general GuiVM issue, please take a loot at existing issues `QubesOS/qubes-issues` under [C: gui-domain](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+gui-domain%22) label.
+For any general GUI domain issues, please take a loot at existing issues `QubesOS/qubes-issues` under [C: gui-domain](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+gui-domain%22) label.

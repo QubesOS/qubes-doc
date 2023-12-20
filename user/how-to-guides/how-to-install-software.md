@@ -144,11 +144,11 @@ Please see [How to Update](/doc/how-to-update/).
 
 In order to protect you from performing risky activities in templates, they do
 not have normal network access by default. Instead, templates use an [updates
-proxy](#updates-proxy) that allows you to install and update software without
-giving the template direct network access. **The updates proxy is already set
-up to work automatically out-of-the-box and requires no special action from
-you.** Most users should simply follow the normal instructions for [installing
-software from default
+proxy](#updates-proxy) that allows you to install and update software using
+the distribution package manager without giving the template direct network
+access.**The updates proxy is already setup to work automatically
+out-of-the-box and requires no special action from you.** Most users should
+simply follow the normal instructions for [installing software from default
 repositories](#installing-software-from-default-repositories) and
 [updating](/doc/how-to-update/) software. If your software is not available in
 the default repositories, see [installing software from other
@@ -304,19 +304,22 @@ This is like the simple revert, except:
 
 ### Updates proxy
 
-Updates proxy is a service which allows access only from package managers. This
-is meant to mitigate user errors (like using browser in the template), rather
-than some real isolation. It is done with http proxy (tinyproxy) instead of
-simple firewall rules because it is hard to list all the repository mirrors
-(and keep that list up to date). The proxy is used only to filter the traffic,
-not to cache anything.
+Updates proxy is a service which allows access from package managers
+configured to use the proxy by default, but can be used by any other
+program that accepts proxy arguments.
+The purpose of the proxy, instead of direct network access, is meant to
+mitigate user errors of using applications such as the browser in the
+template. Not necessarily what part of the network they can access, but only
+to applications trusted by the user, configured to use the proxy.
+The http proxy (tinyproxy) does not filter traffic because it is hard to list
+all the repository mirrors and keep that list up to date). it also does not
+cache anything.
 
 The proxy is running in selected VMs (by default all the NetVMs (1)) and
-intercepts traffic directed to 10.137.255.254:8082. Thanks to such
-configuration all the VMs can use the same proxy address, and if there is a
-proxy on network path, it will handle the traffic (of course when firewall
-rules allow that). If the VM is configured to have access to the updates proxy
-(2), the startup scripts will automatically configure dnf to really use the
+intercepts traffic directed to 127.0.0.1:8082. Thanks to such
+configuration all the VMs can use the same proxy address.
+If the VM is configured to have access to the updates proxy
+(2), the startup scripts will automatically configure dnf/apt to really use the
 proxy (3). Also access to updates proxy is independent of any other firewall
 settings (VM will have access to updates proxy, even if policy is set to block
 all the traffic).
@@ -343,7 +346,7 @@ sys-net and/or sys-whonix, depending on firstboot choices. This new design
 allows for templates to be updated even when they are not connected to any
 NetVM.
 
-Example policy file in R4.0 (with Whonix installed, but not set as default
+Example policy file in R4.1 (with Whonix installed, but not set as default
 UpdateVM for all templates):
 
 ```shell_session
@@ -352,7 +355,7 @@ UpdateVM for all templates):
 @tag:whonix-updatevm @anyvm deny
 
 # other templates use sys-net
-@type:template @default allow,target=sys-net
+@type:TemplateVM @default allow,target=sys-net
 @anyvm @anyvm deny
 ```
 
@@ -367,24 +370,24 @@ these in an app qube you need to take the following steps:
    a terminal in the template and run:
 
    ```shell_session
-   [user@fedora-30-snap-demo ~]$ sudo dnf install snapd qubes-snapd-helper
-   Last metadata expiration check: 0:55:39 ago on Thu Nov 14 09:26:47 2019.
+   [user@fedora-36-snap-demo ~]$ sudo dnf install snapd qubes-snapd-helper
+   Last metadata expiration check: 0:33:05 ago on Thu 03 Nov 2022 04:34:06.
    Dependencies resolved.
    ========================================================================================================
     Package                       Arch    Version                             Repository              Size
    ========================================================================================================
    Installing:
-    snapd                         x86_64  2.42.1-1.fc30                       updates                 17 M
-    qubes-snapd-helper            noarch  1.0.1-1.fc30                        qubes-vm-r4.0-current   10 k
+    snapd                        x86_64   2.56.2-4.fc36                       updates                 14 M
+    qubes-snapd-helper           noarch   1.0.4-1.fc36                        qubes-vm-r4.1-current   10 k
    Installing dependencies:
    [...]
    
    Transaction Summary
    ========================================================================================================
-   Install  20 Packages
+   Install  19 Packages
    
-   Total download size: 37 M
-   Installed size: 121 M
+   Total download size: 27 M
+   Installed size: 88 M
    Is this ok [y/N]: y
    
    Downloading Packages:
@@ -392,11 +395,11 @@ these in an app qube you need to take the following steps:
    Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
    /usr/sbin/semodule:  Failed!
    [...]
-   Last metadata expiration check: 0:57:08 ago on Thu Nov 14 09:26:47 2019.
+   Last metadata expiration check: 0:33:05 ago on Thu 03 Nov 2022 04:34:06.
    Notifying dom0 about installed applications
    
    Installed:
-     snapd-2.42.1-1.fc30.x86_64                                              qubes-snapd-helper-1.0.1-1.fc30.noarch
+     snapd-2.56.2-4.fc36.x86_64                                              qubes-snapd-helper-1.0.4-1.fc36.noarch
    [...]
    Complete!
    ```
@@ -413,7 +416,7 @@ these in an app qube you need to take the following steps:
    Shutdown the template:
    
    ```shell_session
-   [user@fedora-30-snap-demo ~]$ sudo shutdown -h now
+   [user@fedora-36-snap-demo ~]$ sudo shutdown -h now
    ```
 
 2. Now open the **app qube** in which you would like to install the Snap

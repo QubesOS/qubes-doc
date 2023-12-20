@@ -108,7 +108,8 @@ never leave this isolated machine.
 Before we proceed, you must first complete the prerequisite step of [installing
 OpenPGP software](#openpgp-software).
 
-Now, there are several ways to get the QMSK.
+Once you have appropriate OpenPGP software installed, there are several ways to
+get the QMSK.
 
 - If you're on Qubes OS, it's available in every
   qube ([except dom0](https://github.com/QubesOS/qubes-issues/issues/2544)):
@@ -170,31 +171,66 @@ Fedora, `dnf install distribution-gpg-keys` will get you the QMSK along with
 several other Qubes keys. On Debian, your keyring may already contain the
 necessary keys.
 
-Perhaps the most common route is to rely on the key's fingerprint. Every PGP
-key has a fingerprint that uniquely identifies it among all PGP keys (viewable
-with `gpg2 --fingerprint <KEY_ID>`). Therefore, if you know the genuine QMSK
+Perhaps the most common route is to rely on the key's fingerprint, which is a
+string of 40 alphanumeric characters, like this:
+
+```
+427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
+```
+
+Every PGP key has one of these fingerprints, which uniquely identifies it among
+all PGP keys. (On the command line, you can view a key's fingerprint with the
+`gpg2 --fingerprint <KEY_ID>` command.) Therefore, if you know the genuine QMSK
 fingerprint, then you always have an easy way to confirm whether any purported
 copy of it is authentic, simply by comparing the fingerprints.
 
-For example, here is the QMSK fingerprint:
-
-```shell_session
-pub   4096R/36879494 2010-04-01
-      Key fingerprint = 427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
-uid   Qubes Master Signing Key
-```
-
-But how do you know that this is the real fingerprint? After all, [this website
+But how do you know which fingerprint is the real one? After all, [this website
 could be compromised](/faq/#should-i-trust-this-website), so the fingerprint
 you see here may not be genuine. That's why we strongly suggest obtaining the
-fingerprint from *multiple independent sources in several different ways*.
+fingerprint from *multiple independent sources in several different ways*, then
+comparing the strings of letters and numbers to make sure they match.
 
-Here are some ideas for how to do that:
+When it comes to PGP fingerprints, spaces and capitalization don't matter. In
+other words, all of these fingerprints are considered the same:
+
+```
+427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
+427f 11fd 0faa 4b08 0123  f01c ddfa 1a3e 3687 9494
+427F11FD0FAA4B080123F01CDDFA1A3E36879494
+427f11fd0faa4b080123f01cddfa1a3e36879494
+```
+
+Instead, what matters is that *all* the characters are present in *exactly* the
+same order. If even one character is different, the fingerprints do not match.
+Even if two fingerprints have all the same characters, if any of those
+characters are in a different order, sequence, or position, then the
+fingerprints do not match.
+
+You may also sometimes see the entire fingerprint prefixed with `0x`, as in:
+
+```
+0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
+0x427f11fd0faa4b080123f01cddfa1a3e36879494
+```
+
+The `0x` prefix is sometimes used to indicate that the string following it is a
+hexadecimal value, and some PGP-related tools may require this prefix. For the
+purpose of comparing fingerprints as described here, you may safely ignore the
+`0x` prefix, as it is not part of the fingerprint. As long as the 40-character
+string after the `0x` matches exactly, the fingerprint is the same.
+
+The general idea of "comparing fingerprints" is to go out into the world
+(whether digitally, physically, or both) and find other 40-character strings
+purporting to be the QMSK fingerprint, then compare them to your own purported
+QMSK fingerprint to ensure that the sequence of alphanumeric characters is
+exactly the same (again, regardless of spaces or capitalization). If any of the
+characters do not match or are not in the same order, then at least one of the
+fingerprints is a forgery. Here are some ideas to get you started:
 
 - Check the fingerprint on various websites (e.g., [mailing
   lists](https://groups.google.com/g/qubes-devel/c/RqR9WPxICwg/m/kaQwknZPDHkJ),
   [discussion
-  forums](https://forum.qubes-os.org/t/there-is-no-way-to-validate-qubes-master-signing-key/1441/9?u=adw),
+  forums](https://forum.qubes-os.org/t/1441/9),
   [social](https://twitter.com/rootkovska/status/496976187491876864)
   [media](https://www.reddit.com/r/Qubes/comments/5bme9n/fingerprint_verification/),
   [personal websites](https://andrewdavidwong.com/fingerprints.txt)).
@@ -203,10 +239,10 @@ Here are some ideas for how to do that:
   talk](https://hyperelliptic.org/PSC/slides/psc2015_qubesos.pdf), on a
   [T-shirt](https://twitter.com/legind/status/813847907858337793/photo/2), or
   in the [recording of a presentation](https://youtu.be/S0TVw7U3MkE?t=2563)).
-- Download old Qubes ISOs from different sources and check the included Qubes
-  Master Signing Key.
 - Ask people to post the fingerprint on various mailing lists, forums, and chat
   rooms.
+- Download old Qubes ISOs from different sources and check the included Qubes
+  Master Signing Key.
 - Repeat the above over Tor.
 - Repeat the above over various VPNs and proxy servers.
 - Repeat the above on different networks (work, school, internet cafe, etc.).
@@ -214,11 +250,11 @@ Here are some ideas for how to do that:
   confirm the fingerprint.
 - Repeat the above from different computers and devices.
 
-Once you've obtained the fingerprint from enough independent sources in enough
-different ways that you feel confident that you know the genuine fingerprint,
-keep it in a safe place. Every time you need to check whether a key claiming to
-be the QMSK is authentic, compare that key's fingerprint to your trusted copy
-and confirm they match.
+Once you've observed enough matching fingerprints from enough independent
+sources in enough different ways that you feel confident that you have the
+genuine fingerprint, keep it in a safe place. Every time you need to check
+whether a key claiming to be the QMSK is authentic, compare that key's
+fingerprint to your trusted copy and confirm they match.
 
 Now that you've imported the authentic QMSK, set its trust level to "ultimate"
 so that it can be used to automatically verify all the keys signed by the QMSK
@@ -292,12 +328,11 @@ Before we proceed, you must first complete the following prerequisite steps:
 1. [Install OpenPGP software.](#openpgp-software)
 2. [Import and authenticate the QMSK.](#how-to-import-and-authenticate-the-qubes-master-signing-key)
 
-The first step is to obtain the correct RSK. The filename of the RSK for your
-Qubes OS release is usually `qubes-release-X-signing-key.asc`, where `X` is the
-[major version number](https://semver.org/) of your Qubes release. For example,
-if you were installing release `1.2.3`, you would replace `X` with `1`,
-resulting in `qubes-release-1-signing-key.asc`. There are several ways to get
-the RSK for your Qubes release.
+After you have completed these two prerequisite steps, the next step is to
+obtain the correct RSK. The filename pattern for RSKs is
+`qubes-release-X-signing-key.asc`, where `X` is either a major or minor Qubes
+release number, such as `4` or `4.2`. There are several ways to get the RSK for
+your Qubes release.
 
 - If you have access to an existing Qubes installation, the release keys are
   available in dom0 in `/etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-*`. These can be
@@ -549,6 +584,138 @@ X Signing Key"`. This confirms that the signature on the ISO is good.
 If you don't see a good signature here, go back and follow the instructions in
 this section carefully, and consult the [troubleshooting
 FAQ](#troubleshooting-faq) below.
+
+## How to re-verify installation media after writing
+
+_This is an optional section intended for advanced users._
+
+After you have authenticated your Qubes ISO and written it onto your desired
+medium (such as a USB drive or optical disc), you can re-verify the data that
+has been written to your medium. Why would you want to do this when you've
+already verified the original ISO? Well, it's conceivable that a sufficiently
+sophisticated adversary might allow your initial ISO verification to succeed
+(so as not to alert you that your machine has been compromised, for example),
+then surreptitiously modify the data as it is being written onto your
+installation medium, resulting in a compromised Qubes installer. This might
+increase the odds that the attack goes undetected. One way to mitigate this
+risk is to re-verify the installer after writing it onto an installation medium
+that cannot be altered, such as a USB drive with a properly-implemented
+physical write-protect switch and firmware that is either unflashable or
+cryptographically-signed (or both), as discussed in our [installation security
+considerations](/doc/install-security/).
+
+This section will walk through an example of re-verifying the installer on such
+a device. We begin by assuming that you have just [written your desired Qubes
+ISO onto the USB
+drive](/doc/installation-guide/#copying-the-iso-onto-the-installation-medium).
+First, unplug your USB drive and flip the write protect switch so that the data
+on the drive can no longer be altered. If you have a different computer from
+the one you used to create the installation medium, consider using that
+computer. If not, try to at least use a fresh VM (e.g., if it's a Qubes
+system). The idea is that the original machine may have been compromised, and
+using a different one for re-verification forces your hypothetical adversary to
+compromise an additional machine in order to succeed.
+
+Now, our goal is to perform the same verification steps as we did with the
+original ISO, except, this time, we'll be reading the installer data directly
+from the write-protected USB drive instead of from the original ISO file.
+First, let's compute the SHA-256 hash value of the data on the drive. (This
+assumes you're already familiar with [how to verify the cryptographic hash
+values of Qubes
+ISOs](#how-to-verify-the-cryptographic-hash-values-of-qubes-isos).) In order to
+do this, we have to know the exact size, in bytes, of the original ISO. There
+are two ways to get this information: from the ISO itself and from the Qubes
+website. Here's an example of the first way:
+
+```shell_session
+$ dd if=/dev/sdX bs=1M count=$(stat -c %s /path/to/iso) iflag=count_bytes | sha256sum
+```
+
+(Where `/dev/sdX` is your USB drive and `/path/to/iso` is the path to your Qubes
+ISO.)
+
+This command reads exactly the number of bytes of your Qubes ISO (obtained with
+`stat -c %s /path/to/iso`) from the USB drive and pipes them into `sha256sum`.
+The output should look something like this:
+
+```shell_session
+0e68dd3347b68618d9e5f3ddb580bf7ecdd2166747630859b3582803f1ca8801  -
+5523+0 records in
+5523+0 records out
+5791285248 bytes (5.8 GB, 5.4 GiB) copied, 76.3369 s, 75.9 MB/s
+```
+
+Note that your actual SHA-256 hash value and byte number will depend on which
+Qubes ISO you're using. This is just an example. Your SHA-256 hash value should
+match the hash value of your genuine original Qubes ISO.
+
+Now, reading the number of bytes directly from the ISO is fine, but you may be
+concerned that a sufficiently sophisticated adversary may have compromised the
+machine on which you're performing this re-verification and may therefore be
+capable of feeding you a false success result. After all, if your adversary
+knows the answer you're looking for --- namely, a match to the genuine ISO ---
+and has access to that very ISO in the same re-verification environment, then
+there is little to prevent him from simply hashing the original ISO and feeding
+you that result (perhaps while also reading from the USB drive and piping it
+into `/dev/null` so that you see the light on the USB drive blinking to support
+the illusion that the data is being read from the USB drive).
+
+Therefore, in order to make things a bit more difficult for your hypothetical
+adversary, you may instead wish to perform the re-verification in an
+environment that has never seen the original ISO, e.g., a separate offline
+computer or a fresh VM the storage space of which is too small to hold the ISO.
+(Note: If you're doing this in Qubes, you can attach the block device from
+sys-usb to a separate new qube. You don't have to perform the re-verification
+directly in sys-usb.) In that case, you'll have to obtain the size of the ISO
+in bytes and enter it into the above command manually. You can, of course,
+obtain the size by simply using the `stat -c %s /path/to/iso` command from
+above on the machine that has the ISO. You can also obtain it from the Qubes
+website by hovering over any ISO download button on the [downloads
+page](/downloads/). (You can also view these values directly in the downloads
+page's [source
+data](https://github.com/QubesOS/qubesos.github.io/blob/master/_data/downloads.yml).)
+Once you have the exact size of the ISO in bytes, simply insert it into the
+same command, for example:
+
+```shell_session
+$ dd if=/dev/sdX bs=1M count=5791285248 iflag=count_bytes | sha256sum
+```
+
+If you wish to compute the values of other hash functions, you can replace
+`sha256sum`, e.g., with `md5sum`, `sha1sum`, or `sha512sum`.
+
+In addition to checking hash values, you can also use GnuPG to verify the
+detached PGP signature directly against the data on the USB drive. (This
+assumes you're already familiar with [how to verify detached PGP signatures on
+Qubes ISOs](#how-to-verify-detached-pgp-signatures-on-qubes-isos).)
+
+```shell_session
+$ dd if=/dev/sdX bs=1M count=<ISO_SIZE> iflag=count_bytes | gpg -v --verify Qubes-RX-x86_64.iso.asc -
+gpg: Signature made Thu 14 Jul 2022 08:49:38 PM PDT
+gpg:                using RSA key 5817A43B283DE5A9181A522E1848792F9E2795E9
+gpg: using pgp trust model
+gpg: Good signature from "Qubes OS Release X Signing Key" [full]
+gpg: binary signature, digest algorithm SHA256, key algorithm rsa4096
+5523+0 records in
+5523+0 records out
+5791285248 bytes (5.8 GB, 5.4 GiB) copied, 76.6013 s, 75.6 MB/s
+```
+
+(Where `/dev/sdX` is your USB drive, `<ISO_SIZE>` is the size of the original
+ISO in bytes, and `Qubes-RX-x86_64.iso.asc` is the detached signature file of
+the original ISO.)
+
+This command reads the exact number of bytes from your USB drive as the size of
+the original ISO and pipes them into `gpg`. The usual form of a `gpg`
+verification command is `gpg --verify <SIGNATURE> <SIGNED_DATA>`. Our command
+is using shell redirection in order to use data from your USB drive as the
+`<SIGNED_DATA>`, which is why the `-` at the end of the command is required.
+Remember that you still must have properly imported and trusted the
+[QMSK](#how-to-import-and-authenticate-the-qubes-master-signing-key) and
+appropriate [RSK](#how-to-import-and-authenticate-release-signing-keys) in
+order for this to work. You should receive a `Good signature` message for the
+appropriate RSK, which should be signed by a copy of the QMSK that you
+previously confirmed to be genuine.
 
 ## How to verify signatures on Git repository tags and commits
 

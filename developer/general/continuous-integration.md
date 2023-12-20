@@ -23,6 +23,8 @@ containing only the command.
   can be useful if CI incorrectly uses a stale branch instead of testing the PR
   as if it were merged into `master`.
 
+- `PipelineRetryFailed`: Retry just failed CI jobs. Do not update the branch.
+
 - `PipelineRefresh`: Like `PipelineRetry`, except it only fetches the job status
    from GitLab. It doesn't schedule a new build.
 

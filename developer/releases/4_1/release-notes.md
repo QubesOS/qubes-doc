@@ -68,6 +68,7 @@ permalink: /doc/releases/4.1/release-notes/
   `/etc/qubes/guid.conf` file is no longer used
 - `qvm-run` tool got `--no-shell` option to run a single command without using
   a shell inside the qube
+- MAC Randomization for iwlwifi (see [#938](https://github.com/QubesOS/qubes-issues/issues/938))
 
 For a full list, including more detailed descriptions, please see
 [here](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.1%22+label%3A%22release+notes%22+is%3Aclosed).

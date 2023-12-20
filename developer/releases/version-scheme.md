@@ -12,8 +12,11 @@ title: Version scheme
 
 The Qubes OS Project uses the [semantic versioning](https://semver.org/)
 standard. Version numbers are written as `<major>.<minor>.<patch>`. When
-`<patch>` is zero, it is often omitted as a matter of convention, e.g., `4.1` is
-short for `4.1.0`.
+`<patch>` is omitted (e.g., `4.1`), it is usually either because `<patch>` is
+zero (as in `4.1.0`) or because we are referring to a specific minor release
+irrespective of any particular patch release within it. Similarly, the major
+release number alone (e.g., `R4`) is sometimes used to refer to an entire
+release series inclusive of all minor and patch releases within it.
 
 In general, patch releases are for backward-compatible bug fixes, minor
 releases are for backward-compatible enhancements and new features, and major
@@ -23,6 +26,13 @@ any backward-incompatible changes in patch or minor releases. (Templates are a
 notable exception, as upstream OSes almost always have their own release
 schedules.) Bug fixes are allowed in all releases, and backward-compatible
 changes are allowed in all major and minor releases.
+
+Qubes OS minor releases generally include new features, new templates, and
+occasionally new defaults, but they are still backward-compatible in the sense
+that qubes and features that worked in the previous release still function,
+though the UI may be different in some cases. In general, deprecated features
+are removed only in major releases, and in-place upgrades between major versions
+are not guaranteed.
 
 Following standard practice, **version** refers to any build that has been
 assigned a version name or number, e.g., `3.2-rc2`, `4.0.4`, `4.1-beta1`. By
@@ -49,47 +59,48 @@ Qubes OS. Another remix may have its own version series.
 
 ## Release versioning
 
-Qubes OS as a whole is released from time to time. When preparing a new
-release, we decide on the `<major>.<minor>` numbers (e.g., `3.0`). We then
-publish the first release candidate, `3.0-rc1`. When we feel that enough
-progress has been made, we'll release `3.0-rc2` and so on. All these versions
-(not yet releases) are considered unstable and not for production use. You are
-welcome to [help us test](/doc/testing/) these versions.
+Qubes OS as a whole is released from time to time. When preparing a new release,
+we decide on the `<major>.<minor>` numbers (e.g., `3.0`, which is short for
+`3.0.0`). We then publish the first release candidate, e.g., `3.0.0-rc1`. When
+we feel that enough progress has been made, we'll release `3.0.0-rc2` and so on.
+All these versions (which are not yet releases) are considered unstable and are
+not intended for production use. You are welcome to [help us
+test](/doc/testing/) these versions.
 
 When enough progress has been made, we announce the first stable release, e.g.
-`3.0.0`. This not only a version but an actual release. It is considered stable
-and we commit to supporting it according to our [support
+`3.0.0`. This is not only a version but an actual release. It is considered
+stable, and we commit to supporting it according to our [support
 schedule](/doc/supported-releases/). Core components are branched at this
-moment and bug fixes are backported from the master branch. Please see [help,
+moment, and bug fixes are backported from the master branch. Please see [help,
 support, mailing lists, and forum](/support/) for places to ask questions about
-stable releases. No major features and interface incompatibilities are to be
+stable releases. No major features or interface incompatibilities are to be
 included in this release. We release bug fixes as patch releases (`3.0.1`,
 `3.0.2`, and so on), while backward-compatible enhancements and new features
 are introduced in the next minor release (e.g., `3.1`). Any
 backward-incompatible changes are introduced in the next major release (e.g.,
 `4.0`).
 
-Issues in our [issue tracker](/doc/issue-tracking/) are sorted by release
-[milestones](/doc/issue-tracking/#milestones).
+Please see [issue tracking](/doc/issue-tracking/) for information about how
+releases are handled in the issue tracker.
 
 ## Release schedule
 
-There is no specific schedule for releases other that more general roadmap.
-When time comes, Supreme Committee declares feature freeze and tags `-rc1` and
-releases ISO image. From this time on, no new features are accepted. Also a
-strict time schedule kicks in.
+There is no specific schedule for releases other than a general roadmap.
+When the time comes, we declare a feature freeze, tag `-rc1`, and
+release an ISO. From this point on, no new features are accepted, and our
+schedule begins.
 
-Each release candidate period is as follows. For the first two weeks we accept
-and assign bug reports to be fixed before next release candidate. For the next
-two weeks we generally focus on fixing assigned bug reports, so issues
-discovered during this time may be postponed until later RC. Finally after that
-there is one week of current-testing freeze, during which time no new packages
-are released, in hope that they will be installed by wider user base and
-tested.
+Each release candidate period is as follows: For the first two weeks, we accept
+and assign bug reports to be fixed before the next release candidate. For the
+next two weeks, we generally focus on fixing assigned bug reports, so issues
+discovered during this period may be postponed until a later RC. Finally,
+there is a one week current-testing freeze, during which time no new packages
+are released, in the hope that they will be installed and tested by wider user
+base.
 
-The next RC is released five weeks after the former. All packets are published
-in `current` repository and the cycle starts over. There should be no less than
-1 and no more than 3 release candidates before final release.
+The next RC is released five weeks after the former. All packages are published
+in the `current` repository, and the cycle starts over. There should always be
+at least one release candidate before the final release.
 
 | Stage                    | Duration  |
 | ------------------------ | --------- |
@@ -97,11 +108,11 @@ in `current` repository and the cycle starts over. There should be no less than
 | bug fixing               | two weeks |
 | `current-testing` freeze | one week  |
 
-Starting with second cycle (that is, after `-rc1`) two weeks into the cycle
-(after primary bug-reporting period) the Supreme Committee decides whether
-there should be another RC. If, based on remaining issues, the Committee
-decides to release final, then the Committee agrees upon the release date,
-which should be no later than a week after.
+Starting with the second cycle (that is, after `-rc1`), two weeks into the cycle
+(after the primary bug-reporting period), we decide whether there should be
+another RC. If, based on the bugs that have been reported, we decide that the
+latest RC will be designated as the stable release, then we decide on its
+release date, which should be no more than one week later.
 
 [![Release cycle](/attachment/doc/release-cycle.svg)](/attachment/doc/release-cycle.svg)
 

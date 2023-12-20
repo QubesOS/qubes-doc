@@ -328,8 +328,8 @@ required for any of these mailing lists.
 
 This is a read-only list for those who wish to receive only very important,
 infrequent messages. Only the core Qubes team can post to this list. Only
-[Qubes Security Bulletins (QSBs)](/security/qsb/), new stable releases,
-and end-of-life notices are announced here.
+[Qubes Security Bulletins (QSBs)](/security/qsb/), new stable Qubes OS releases,
+and Qubes OS release end-of-life notices are announced here.
 
 To subscribe, send a blank email to
 `qubes-announce+subscribe@googlegroups.com`. (Note: A Google account is **not**
@@ -499,10 +499,11 @@ too](https://forum.qubes-os.org/t/using-the-forum-via-email/533)!)
 
 The Qubes OS Project has a presence on the following social media platforms:
 
-* [Twitter](https://twitter.com/QubesOS)
-* [Reddit](https://www.reddit.com/r/Qubes/)
-* [Facebook](https://www.facebook.com/QubesOS/)
-* [LinkedIn](https://www.linkedin.com/company/qubes-os/)
+- <a rel="me" href="https://twitter.com/QubesOS">Twitter</a>
+- <a rel="me" href="https://mastodon.social/@QubesOS">Mastodon</a>
+- <a rel="me" href="https://www.reddit.com/r/Qubes/">Reddit</a>
+- <a rel="me" href="https://www.facebook.com/QubesOS/">Facebook</a>
+- <a rel="me" href="https://www.linkedin.com/company/qubes-os/">LinkedIn</a>
 
 Generally speaking, these are not intended to be primary support venues. (Those
 would be [qubes-users](#qubes-users) and the [forum](#forum).) Rather, these
@@ -510,6 +511,11 @@ are primarily intended to be a way to more widely disseminate items published
 on the [news](/news/) page. If you use one of these platforms, you may find it
 convenient to follow the Qubes OS Project there as a way of receiving Qubes
 news.
+
+## Chat
+
+If you'd like to chat, join us on the `#qubes` IRC channel (or its Matrix
+bridge: `#qubes:libera.chat`).
 
 ## Unofficial venues
 
@@ -521,10 +527,3 @@ moderate it. Please be especially careful in unofficial venues.
 should not be taken as a commitment to monitor or moderate the venue. It still
 remains unofficial. Also, please make sure someone claiming to be a Qubes team
 member really is one. It could be an impostor!)
-
-For example, here are some **unofficial** chat channels we know about that are
-maintained by the community:
-
-* Matrix, Qubes-related: <https://matrix.to/#/#cybersec-qubes_os:matrix.org>
-* Matrix, strictly Qubes: <https://matrix.to/#/#Qubes-OS:matrix.org>
-* `#qubes` channel on libera.chat via traditional IRC clients

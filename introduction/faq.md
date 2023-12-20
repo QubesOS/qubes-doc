@@ -19,12 +19,23 @@ title: Frequently asked questions (FAQ)
 
 ### What is Qubes OS?
 
-Qubes OS is a security-oriented operating system (OS).
-The OS is the software that runs all the other programs on a computer.
-Some examples of popular OSes are Windows, macOS, Android, and iOS.
-Qubes is free and open-source software (FOSS).
-This means that everyone is free to use, copy, and change the software in any way.
-It also means that the source code is openly available so others can contribute to and audit it.
+Qubes OS is a security-focused operating system that allows you to organize your digital life into compartments called "qubes." If one qube is compromised, the others remain safe, so a single cyberattack can no longer take down your entire digital life in one fell swoop. You can think of using Qubes OS as having many different computers on your desk for different activities but with the convenience of a single physical machine, a single unified desktop environment, and a set of tools for using qubes together securely as parts of a unified system.
+
+### Is Qubes OS free and open-source software?
+
+There are two distinct senses of the word "free" when it comes to free software. The difference in commonly expressed by the phrases "free as in beer" and "free as in speech."
+
+The first senses is straightforward. Qubes OS is "free as in beer," meaning that it is provided at no cost (_gratis_), though [donations](/donate/) are greatly appreciated.
+
+The second sense is more complicated. Qubes OS is *mostly* "free as in speech," but not entirely. All the software created by the Qubes OS Project *itself* is [free (or "libre")](https://www.gnu.org/philosophy/free-sw) and [open-source](https://opensource.org/docs/definition.html) software ([FOSS or FLOSS](https://www.gnu.org/philosophy/floss-and-foss.en.html)).
+This means that everyone is allowed to use, copy, study, and change the software in accordance with its [license](/doc/license/).
+It also means that the [source code](/doc/source-code/) is [publicly available](https://github.com/QubesOS/) so everyone can audit and contribute to it.
+
+However, since Qubes OS is a security-focused operating system, it includes some non-free firmware that was not created by the Qubes OS Project (such as CPU microcode), which is necessary in order to protect against known security vulnerabilities.
+Moreover, the [architecture](/doc/architecture/) of Qubes OS as a meta-operating system means that it incorporates other software (including entire operating systems) from various upstream projects, some of which may include non-free software of their own.
+In order to make the installation process easier for a wide range of users across many different devices, standard Qubes [templates](/doc/templates/) also include some non-free firmware and drivers.
+
+Also see: [Will Qubes seek to get certified under the GNU Free System Distribution Guidelines (GNU FSDG)?](#will-qubes-seek-to-get-certified-under-the-gnu-free-system-distribution-guidelines-gnu-fsdg)
 
 ### Why is OS security important?
 
@@ -82,10 +93,6 @@ For the privacy policies covering our website, repositories, Qubes OS itself, an
 The main way Qubes OS [provides privacy](#how-does-qubes-os-provide-privacy) is via its [integration with Whonix](https://www.whonix.org/wiki/Qubes).
 Qubes OS does not claim to provide special privacy (as opposed to security) properties in non-Whonix qubes.
 This includes [disposables](/doc/how-to-use-disposables/).
-
-For example, a standard [Fedora](/doc/templates/fedora/) qube is expected to have basically the same privacy properties as that upstream Fedora distribution, enhanced to some degree by the control Qubes provides over that qube.
-For most users, this level of privacy may be good enough for many common activities.
-However, users seeking more advanced privacy features should use Whonix qubes.
 
 Privacy is far more difficult than is commonly understood.
 In addition to the [web browser](https://www.torproject.org/projects/torbrowser/design/), there is also [VM fingerprinting](https://www.whonix.org/wiki/VM_Fingerprinting) and [advanced deanonymization attacks](https://www.whonix.org/wiki/Advanced_Deanonymization_Attacks) that most users have never considered (and this is just to mention a few examples).
@@ -179,10 +186,7 @@ We believe that this is currently the only practically viable approach to implem
 
 ### Does Qubes use full disk encryption (FDE)?
 
-Yes, of course!
-Full disk encryption is enabled by default.
-Specifically, we use [LUKS](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup)/[dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
-You can even [manually configure your encryption parameters](/doc/custom-install/) if you like!
+By default, Qubes OS uses [LUKS](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup)/[dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) to encrypt everything except the `/boot` partition.
 
 ### What do all these terms mean?
 
@@ -273,7 +277,13 @@ tracking](/doc/issue-tracking).
 
 ### Will Qubes seek to get certified under the GNU Free System Distribution Guidelines (GNU FSDG)?
 
-Not currently, for the same reasons that [Debian is not certified](https://www.gnu.org/distros/common-distros.en.html).
+We wish we could, but the unfortunate reality right now is that an operating system *cannot be secure* without a certain minimum number of proprietary closed-source "blobs" (e.g., CPU microcode updates). A 100% free operating system that excludes all such blobs is vulnerable to known exploits and is therefore unsuitable for any use case where security matters.
+
+Instead, Qubes aims to be as free as possible *without sacrificing security*. All of the code created by the Qubes OS Project itself is 100% free. However, in order for users to actually run that code securely on their hardware, we must pair it with a small number of non-free blobs, which disqualifies Qubes, [along with the vast majority of open-source Linux distributions](https://www.gnu.org/distros/common-distros.html), from GNU FSDG certification.
+
+The [four essential freedoms](https://www.gnu.org/philosophy/free-sw.html) are part of the core of our philosophy, but so is security. Together, they inform our decisions and motivate our actions. Qubes aims to maximize both security and software freedom to the extent that they are compatible in the world today.
+
+Also see [Is Qubes OS free and open-source software?](#is-qubes-os-free-and-open-source-software) and the Qubes OS [software license](/doc/license/).
 
 ### Should I trust this website?
 
@@ -317,6 +327,16 @@ So, if feature X isn't enabled, it's most likely for one of three reasons:
 3. Our platform supports it, but we're not aware that we can enable it or have forgotten to do so.
 
 If it seems like a feature that we can and should enable, please [let us know](/doc/issue-tracking/)!
+
+### Why do the mailing lists require a Google account?
+
+They don't. This is a common misconception. The mailing lists have never required a Google account. It has always been possible to use them purely via email (see the [mailing lists](/support/#mailing-lists) section for instructions).
+
+A lot of people probably see that the mailing lists use Google Groups and just assume that a Google account must be required, but it's not true. Google Groups is simply used for the infrastructure. Of course, you *can* use the web interface with a Google account, but there are many people in the Qubes community who participate on the mailing lists without one.
+
+### Why do you use Google Groups for the mailing lists?
+
+For the same general reasons as listed in [FAQ: Why do you use GitHub?](/faq/#why-do-you-use-github)
 
 ## Users
 
@@ -415,6 +435,10 @@ Yes, and see [this message](https://groups.google.com/group/qubes-devel/msg/6412
 Some users have been able to do this, but it is neither recommended nor supported.
 Qubes should be installed bare-metal.
 (After all, it uses its own bare-metal hypervisor!)
+
+### How many qubes should I have? What's a good way to organize them?
+
+[How to organize your qubes](/doc/how-to-organize-your-qubes/) walks through several examples of how different types of users can set up their Qubes OS system to support their unique use cases.
 
 ### What is a terminal?
 
@@ -610,13 +634,14 @@ Qubes is slower when reading from the disk because of the VM overhead, which is 
 
 ### Could you please make my preference the default?
 
-Wouldn't it be great if Qubes were configured just the way you like it by default with all of your favorite programs and settings?
-Then you could just install Qubes without having to install any programs in it or adjust any settings!
-You might even think that if a particular program or setting works so well for *you*, it would work well for *everyone*, so you'd actually be doing everyone a favor!
+It would be great if Qubes were configured just the way we like it by default with all of our favorite programs and settings.
+Then, we could just install Qubes without having to install any programs in it or adjust any settings.
+We might even think that if a particular program or setting works so well for *us*, it would work well for *everyone*, so we'd actually be doing everyone a favor!
 The problem is that Qubes has [tens of thousands of different users](/statistics/) with radically different needs and purposes.
-There is no particular configuration that will be ideal for everyone (despite how much you might feel that your preference would be better for everyone), so the best we can do is to put power in the hands of users to configure their Qubes installations the way they like (subject to security constraints, of course).
-Please don't ask for your favorite program to be installed by default or for some setting that obviously varies by user preference to be changed so that it matches *your* preference.
-This is an incredibly selfish attitude that demonstrates a complete lack of consideration for the thousands of other Qubes users who don't happen to share your preferences.
+There is no particular configuration that will be ideal for everyone (despite how much we might feel that our preference would be better for everyone), so the best we can do is to put power in the hands of users to configure their Qubes installations the way they like (subject to security constraints, of course).
+For this reason, we generally do not grant requests for people's favorite programs to be installed by default or for some setting that obviously varies by user preference to be changed so that it matches the requester's preference.
+
+See also: [What is Qubes’ attitude toward changing guest distros?](#what-is-qubes-attitude-toward-changing-guest-distros)
 
 ### Software installed in a qube is gone after restarting. Why?
 
@@ -661,7 +686,7 @@ See the [Qubes Source Code Repositories](/doc/source-code/) article.
 
 ### What is Qubes' attitude toward changing guest distros?
 
-We try to respect each distro's culture, where possible.
+In general, we try to respect each distro's culture, but we reserve the right to make modifications that we deem appropriate.
 See the discussion on issue [#1014](https://github.com/QubesOS/qubes-issues/issues/1014) for an example.
 
 The policy is there mostly to ease maintenance, on several levels:
@@ -769,7 +794,7 @@ UEFI Secure Boot is not supported out of the box as UEFI support in Xen is very 
 Arguably secure boot reliance on UEFI integrity is not the best design.
 The relevant binaries (shim.efi, xen.efi, kernel / initramfs) are not signed by the Qubes Team and secure boot has not been tested.
 Intel TXT (used in [Anti Evil Maid](/doc/anti-evil-maid/)) at least tries to avoid or limit trust in BIOS.
-See the Heads project [[1]](https://trmm.net/Heads) [[2]](http://osresearch.net/) for a better-designed non-UEFI-based secure boot scheme with very good support for Qubes.
+See the Heads project [[1]](https://trmm.net/Heads) [[2]](https://osresearch.net/) for a better-designed non-UEFI-based secure boot scheme with very good support for Qubes.
 
 ### What is the canonical way to detect Qubes VM?
 

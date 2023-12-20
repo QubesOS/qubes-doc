@@ -128,9 +128,6 @@ example, it is common for the net qube of an [app qube](#app-qube) to be the
 [service qube](#service-qube) `sys-firewall`, which in turn uses `sys-net` as
 its net qube. 
 
-* If a qube does not have a net qube (i.e., its `netvm` is set to `None`), then
-  that qube is offline. It is disconnected from all networking.
-
 * The name `netvm` derives from "Networking Virtual Machine." Before Qubes 4.0,
   there was a type of [service qube](#service-qube) called a "NetVM." The name
   of the `netvm` property is a holdover from that era.
@@ -144,11 +141,12 @@ still be called "qubes."
 
 * **Important:** The term "qube" is a common noun and should follow the
   capitalization rules of common nouns. For example, "I have three qubes" is
-  correct," while "I have three Qubes" is incorrect.
+  correct, while "I have three Qubes" is incorrect.
 
 * Note that starting a sentence with the plural of "qube" (i.e., "Qubes...")
   can be ambiguous, since it may not be clear whether the referent is a
-  plurality of qubes or [Qubes OS](#qubes-os).
+  plurality of qubes or [Qubes OS](#qubes-os). You may wish to rephrase
+  sentences in order to avoid this ambiguity.
 
 * Example usage: "In Qubes OS, you do your banking in your 'banking' qube and
   your web surfing in your 'untrusted' qube. That way, if your 'untrusted' qube
