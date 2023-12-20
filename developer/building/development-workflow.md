@@ -15,7 +15,7 @@ A workflow for developing Qubes OS+
 First things first, setup [QubesBuilder](/doc/qubes-builder/). This guide
 assumes you're using qubes-builder to build Qubes.
 
-# Repositories and committing Code
+## Repositories and committing Code
 
 Qubes is split into a bunch of git repos. These are all contained in the
 `qubes-src` directory under qubes-builder. Subdirectories there are separate

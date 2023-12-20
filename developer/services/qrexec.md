@@ -86,25 +86,27 @@ Additionally, disposable VMs are tightly integrated -- RPC to a DisposableVM is 
 
 ### Policy files
 
-The dom0 directory `/etc/qubes-rpc/policy/` contains a file for each available RPC action that a VM might call.
-Together the contents of these files make up the RPC access policy database.
+The dom0 directory `/etc/qubes/policy.d/` contains files that set policy for each available RPC action that a VM might call.
+For example, `/etc/qubes/policy.d/90-default.policy` contains the default policy settings.  
+When making changes to existing policies it is recommended that you create a *new* policy file starting with a lower number, like `/etc/qubes/policy.d/30-user.policy`.  
+You may keep your custom policies in one file like `/etc/qubes/policy.d/30-user.policy`, or you may choose to have multiple files, like `/etc/qubes/policy.d/10-copy.policy`, `/etc/qubes/policy.d/10-open.policy`.  
+Together the contents of these files make up the RPC access policy database: the files are merged, with policies in lower number files overriding policies in higher numbered files.
+
 Policies are defined in lines with the following format:
 
 ```
-srcvm destvm (allow|deny|ask[,default_target=default_target_VM])[,user=user_to_run_as][,target=VM_to_redirect_to]
+service-name|* +argument|* source destination action  [options]
 ```
 
-You can specify srcvm and destvm by name or by one of the reserved keywords such as `@anyvm`, `@dispvm`, or `dom0`.
-(Of these three, only `@anyvm` keyword makes sense in the srcvm field.
+You can specify the source and destination by name or by one of the reserved keywords such as `*`, `@dispvm`, or `dom0`.
+(Of these three, only `*` keyword makes sense in the source field.
 Service calls from dom0 are currently always allowed, and `@dispvm` means "new VM created for this particular request," so it is never a source of request.)
 Other methods using *tags* and *types* are also available (and discussed below).
 
-Whenever a RPC request for an action is received, the domain checks the first matching line of the relevant file in `/etc/qubes-rpc/policy/` to determine access:
+Whenever a RPC request for an action is received, the domain checks the first matching line of the files in `/etc/qubes/policy.d/` to determine access:
 whether to allow the request, what VM to redirect the execution to, and what user account the program should run under.
 Note that if the request is redirected (`target=` parameter), policy action remains the same -- even if there is another rule which would otherwise deny such request.
 If no policy rule is matched, the action is denied.
-If the policy file does not exist, the user is prompted to create one.
-If there is still no policy file after prompting, the action is denied.
 
 In the target VM, a file in either of the following locations must exist, containing the file name of the program that will be invoked, or being that program itself -- in which case it must have executable permission set (`chmod +x`):
   - `/etc/qubes-rpc/RPC_ACTION_NAME` when you make it in the template qube;
@@ -145,14 +147,14 @@ For DisposableVMs, `@dispvm:DISP_VM` is very similar to `@dispvm` but forces usi
 For example:
 
 ```
-anon-whonix @dispvm:anon-whonix-dvm allow
+* * anon-whonix @dispvm:anon-whonix-dvm allow
 ```
 
 Adding such policy itself will not force usage of this particular `DISP_VM` - it will only allow it when specified by the caller.
 But `@dispvm:DISP_VM` can also be used as target in request redirection, so _it is possible_ to force particular `DISP_VM` usage, when caller didn't specify it:
 
 ```
-anon-whonix @dispvm allow,target=@dispvm:anon-whonix-dvm
+* * anon-whonix @dispvm allow target=@dispvm:anon-whonix-dvm
 ```
 
 Note that without redirection, this rule would allow using default Disposable VM (`default_dispvm` VM property, which itself defaults to global `default_dispvm` property).
@@ -166,15 +168,15 @@ By default no VM is selected, even if the caller provided some, but policy can s
 For example:
 
 ```
-work-mail work-archive allow
-work-mail @tag:work ask,default_target=work-files
-work-mail @default  ask,default_target=work-files
+* * work-mail work-archive allow
+* * work-mail @tag:work ask default_target=work-files
+* * work-mail @default  ask default_target=work-files
 ```
 
-The first rule allow call from `work-mail` to `work-archive`, without any confirmation.
+The first rule allows calls from `work-mail` to `work-archive`, without any confirmation.
 The second rule will ask the user about calls from `work-mail` VM to any VM with tag `work`.
 And the confirmation dialog will have `work-files` VM chosen by default, regardless of the VM specified by the caller (`work-mail` VM).
-The third rule allow the caller to not specify target VM at all and let the user choose, still - from VMs with tag `work` (and `work-archive`, regardless of tag), and with `work-files` as default.
+The third rule allows the caller to not specify target VM at all and let the user choose, still - from VMs with tag `work` (and `work-archive`, regardless of tag), and with `work-files` as default.
 
 ### RPC services and security
 
@@ -213,9 +215,16 @@ With arguments, it is easier to write more precise policies using the "allow" an
 (Writing too many "ask" policies offloads additional decisions to the user.
 Generally, the fewer choices the user must make, the lower the chance to make a mistake.)
 
-Each specific argument that we want to use needs its own policy in dom0 at a path like `/etc/qubes-rpc/policy/RPC_ACTION_NAME+ARGUMENT`.
-So for instance, we might have policies called `test.Device`, `test.Device+device1` and `test.Device+device2`.
-If the policy for the specific argument is not set (that is, if no file exists for `RPC_ACTION_NAME+ARGUMENT`), then dom0 uses the default policy with no argument for this service.
+The argument is specified in the second column of the policy line, as +ARGUMENT.
+If the policy uses "\*" as an argument, then it will match any argument (including no argument).
+As rules are processed in order, any lines with a specific argument below the line with the wildcard argument will be ignored.
+So for instance, we might have policies which are different depending on the argument:
+
+```
+Device +device1 * * allow
+Device +device2 * * deny
+Device *        * * ask
+```
 
 When calling a service that takes an argument, just add the argument to the service name separated with `+`.
 
@@ -265,10 +274,10 @@ ln -s /usr/bin/our_test_add_server /etc/qubes-rpc/test.Add
 ```
 
 The administrative domain will direct traffic based on the current RPC policies.
-In dom0, create a file at `/etc/qubes-rpc/policy/test.Add` containing the following:
+In dom0, create a file at `/etc/qubes/policy.d/30-test.policy` containing the following:
 
 ```
-@anyvm @anyvm ask
+test.Add * * * ask
 ```
 
 This will allow our client and server to communicate.
@@ -312,17 +321,15 @@ Make sure the file is executable!
 (The service argument is already sanitized by qrexec framework.
 It is guaranteed to not contain any spaces or slashes, so there should be no need for additional path sanitization.)
 
-Now we create three policy files in dom0.
-See the table below for details.
+Now we create the policy file in dom0, at `/etc/qubes/policy.d/30-test.policy`.
+The contents of the file are below.
 Replace "source_vm1" and others with the names of your own chosen domains.
 
-|------------------------------------------------------------------------|
-| Path to file in dom0                      | Policy contents            |
-|-------------------------------------------+----------------------------|
-| /etc/qubes-rpc/policy/test.File           | @anyvm @anyvm deny         |
-| /etc/qubes-rpc/policy/test.File+testfile1 | source_vm1 target_vm allow |
-| /etc/qubes-rpc/policy/test.File+testfile2 | source_vm2 target_vm allow |
-|------------------------------------------------------------------------|
+```
+test.File +testfile1 source_vm1 target_vm allow
+test.File +testfile2 source_vm2 target_vm allow
+test.File *          *          *         deny
+```
 
 With this done, we can run some tests.
 Invoke RPC from `source_vm1` via
@@ -332,11 +339,12 @@ Invoke RPC from `source_vm1` via
 ```
 
 We should get the contents of `/home/user/testfile1` printed to the terminal.
-Invoking the service from `source_vm2` should work the same, and `testfile2` should also work.
+Invoking the service from `source_vm2` should result in a denial, but `testfile2` should work.
 
 ```
 [user@source_vm2] $ qrexec-client-vm target_vm test.File+testfile1
+Request refused
 [user@source_vm2] $ qrexec-client-vm target_vm test.File+testfile2
 ```
 
-But when invoked with other arguments or from a different VM, it should be denied.
+And when invoked with other arguments or from a different VM, it should also be denied.
