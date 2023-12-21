@@ -1,15 +1,17 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/firewall/
+permalink: /doc/firewall_4.1/
 redirect_from:
-- /doc/qubes-firewall/
-- /en/doc/qubes-firewall/
-- /doc/QubesFirewall/
-- /wiki/QubesFirewall/
-ref: 166
-title: Firewall
+ref: 401
+title: Firewall 4.1
 ---
+
+Introduction
+----------------------------------
+This page explains use of the firewall in Qubes 4.1, using `iptables`.  
+From Qubes 4.2, all firewall components use `nftables`. For details of that usage see [here](../firewall/)
+
 
 Understanding firewalling in Qubes
 ----------------------------------
