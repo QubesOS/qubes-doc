@@ -91,7 +91,7 @@ The issue tracker has several [projects](https://github.com/QubesOS/qubes-issues
 
 - [Search with labels.](https://github.com/QubesOS/qubes-issues/labels) For example, you can search issues by priority ([blocker](https://github.com/QubesOS/qubes-issues/labels/P%3A%20blocker), [critical](https://github.com/QubesOS/qubes-issues/labels/P%3A%20critical), [major](https://github.com/QubesOS/qubes-issues/labels/P%3A%20major), etc.) and by component ([core](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+core%22), [manager/widget](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3A%22C%3A+manager%2Fwidget%22+), [Xen](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+Xen%22), etc.).
 
-- Search by closure reason: [`reason:complete`](https://github.com/QubesOS/qubes-issues/issues?q=reason%3Acompleted) and [`reason:"not planned"`](https://github.com/QubesOS/qubes-issues/issues?q=reason%3A%22not+planned%22).
+- Search by closure reason: [`reason:completed`](https://github.com/QubesOS/qubes-issues/issues?q=reason%3Acompleted) and [`reason:"not planned"`](https://github.com/QubesOS/qubes-issues/issues?q=reason%3A%22not+planned%22).
 
 - [Search by project](https://github.com/QubesOS/qubes-issues/projects).
 
