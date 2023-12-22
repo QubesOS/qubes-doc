@@ -91,10 +91,10 @@ upstream release on the upstream distribution's website (see [Fedora
 EOL](https://fedoraproject.org/wiki/End_of_life) and [Debian
 Releases](https://wiki.debian.org/DebianReleases)).
 
-| Qubes OS    | Fedora | Debian | Whonix |
-| ----------- | ------ | ------ | ------ |
-| Release 4.1 | 38     | 11, 12 | 16     |
-| Release 4.2 | 38     | 12     | 17     |
+| Qubes OS    | Fedora | Debian |
+| ----------- | ------ | ------ |
+| Release 4.1 | 38     | 11, 12 |
+| Release 4.2 | 38     | 12     |
 
 ### Note on Debian support
 
