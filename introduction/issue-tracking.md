@@ -188,7 +188,7 @@ We close issues at step 3. Then, as updates are released, the issue automaticall
 
 Therefore, if you see that an issue is closed, but the fix is not yet available to you, be aware that it may be at an intermediate stage of this process between issue closure and the update being available in whichever repos you have enabled in whichever version of Qubes you're using.
 
-In order to assist with this, we have a label called [backport pending](https://github.com/QubesOS/qubes-issues/labels/backport%20pending), which means, "The fix has been released for the testing release but is pending backport to the stable release." Our infrastructure will attempt to apply this label automatically, when appropriate, but it is not perfect, and the developers may be need to adjust it manually.
+In order to assist with this, we have a label called [backport pending](https://github.com/QubesOS/qubes-issues/labels/backport%20pending), which means, "The fix has been released for the testing release but is pending backport to the stable release." Our infrastructure will attempt to apply this label automatically, when appropriate, but it is not perfect, and the developers may need to adjust it manually.
 
 ### Understanding open and closed issues
 
