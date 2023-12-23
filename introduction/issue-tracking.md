@@ -105,7 +105,7 @@ This guideline is important for keeping issues focused on *actionable informatio
 
 ### Do not submit questions
 
-[qubes-issues](https://github.com/QubesOS/qubes-issues/issues) is not the place to ask questions. This includes, but is not limited to, troubleshooting questions and questions about how to do things with Qubes. Instead, see [Help, Support, Mailing Lists, and Forum](/support/) for appropriate place to ask questions. By contrast, [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) is meant for tracking more general bugs, enhancements, and tasks that affect a broad range of Qubes users.
+[qubes-issues](https://github.com/QubesOS/qubes-issues/issues) is not the place to ask questions. This includes, but is not limited to, troubleshooting questions and questions about how to do things with Qubes. Instead, see [Help, Support, Mailing Lists, and Forum](/support/) for appropriate places to ask questions. By contrast, [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) is meant for tracking more general bugs, enhancements, and tasks that affect a broad range of Qubes users.
 
 ### Use the issue template
 
