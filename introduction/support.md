@@ -226,7 +226,7 @@ The moderation team aims to enforce our [Code of Conduct](/code-of-conduct/).
 Beyond this, users should not expect any specific action from the moderation
 team. Specifically, users should not request that posts or messages be deleted
 or edited by a moderator. Users are reminded that, in most venues, anything
-posted will be sent out as an email to other others, and these emails cannot be
+posted will be sent out as an email to others, and these emails cannot be
 deleted from others' inboxes.
 
 ### Specific mailing list rules and notes
