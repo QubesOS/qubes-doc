@@ -39,7 +39,7 @@ No worries! Here's how we recommend proceeding:
 3. Try [searching the issue tracker](/doc/issue-tracking/#search-tips). There
    may already be an open **or closed** issue about your problem. The issue
    tracker is constantly being updated with known bugs and may contain
-   workarounds for problems you're experiencing. If there any pinned issues at
+   workarounds for problems you're experiencing. If there are any pinned issues at
    the top, make sure to check them first!
 
 4. Try [searching the Qubes Forum](https://forum.qubes-os.org/). There may
