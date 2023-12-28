@@ -156,5 +156,5 @@ to reduce the private storage of qube1 to 1GiB: Open a terminal in dom0:
 
 
 
-If you have a SSD see :doc:`here <https://forum.qubes-os.org/t/19054>` for information on using
+If you have a SSD see `here <https://forum.qubes-os.org/t/19054>`__ for information on using
 fstrim.

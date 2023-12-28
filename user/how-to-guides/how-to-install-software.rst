@@ -62,15 +62,10 @@ Installing software from default repositories
    troubleshooting.)
 
 
-
-
-
 .. figure:: /attachment/doc/r4.1-dom0-appmenu-select.png
-   :alt: `The Applications tab in Qube
-   Settings </attachment/doc/r4.1-dom0-appmenu-select.png>`__
+   :alt: `The Applications tab in Qube Settings </attachment/doc/r4.1-dom0-appmenu-select.png>`__
 
-   `The Applications tab in Qube
-   Settings </attachment/doc/r4.1-dom0-appmenu-select.png>`__
+   `The Applications tab in Qube Settings </attachment/doc/r4.1-dom0-appmenu-select.png>`__
 
 Installing software from other sources
 --------------------------------------
@@ -134,11 +129,9 @@ running as a template in Qubes OS.
 
 
 .. figure:: /attachment/doc/r4.1-dom0-appmenu-select.png
-   :alt: `The Applications tab in Qube
-   Settings </attachment/doc/r4.1-dom0-appmenu-select.png>`__
+   :alt: `The Applications tab in Qube Settings </attachment/doc/r4.1-dom0-appmenu-select.png>`__
 
-   `The Applications tab in Qube
-   Settings </attachment/doc/r4.1-dom0-appmenu-select.png>`__
+   `The Applications tab in Qube Settings </attachment/doc/r4.1-dom0-appmenu-select.png>`__
 
 Troubleshooting
 ---------------

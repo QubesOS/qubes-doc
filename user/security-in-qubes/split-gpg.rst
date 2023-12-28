@@ -571,7 +571,7 @@ devastating than having to create a new *master* keypair.)
 
 *In order to gain access to the ``vault`` VM, the attacker would
 require the use of, e.g., a general Xen VM escape exploit or a :ref:`signed, compromised package which is already installed in the template <user/templates/templates:trusting your templates>` upon which the
-``vault`` VM is based.
+``vault`` VM is based*.
 
 Subkey Tutorials and Discussions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

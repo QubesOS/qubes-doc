@@ -120,13 +120,11 @@ BOOT DEVICE, which can be repaired as described above.
 
 After successful uninstallation of the PV disk drivers, the disks will
 appear as QEMU ATA disks.
-:warning: 
+
+.. warning::
+
    **Caution:** This change may lead Windows to declare that the
-
-SYSTEM MESSAGE  for: /home/user/qubes-doc-rst2/user/templates/windows/migrate-to-4-1.rst:100: (WARNING/2) Field list ends without a blank line; unexpected unindent.
-Field list ends without a blank line; unexpected unindent.
-
-hardware has changed and that in consequence, the activation is no
-longer valid, possibly complaining that the use of the software is no
-longer lawful. It should be possible to reactivate the software if a
-valid product key is provided.
+   hardware has changed and that in consequence, the activation is no
+   longer valid, possibly complaining that the use of the software is no
+   longer lawful. It should be possible to reactivate the software if a
+   valid product key is provided.

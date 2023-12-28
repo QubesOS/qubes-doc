@@ -532,17 +532,9 @@ be enabled or disabled during installation:
 - Qubes Core Agent: qrexec agent and services. Needed for proper
   integration with Qubes.
 
-  - Move user profiles: user profile directory (c::raw-latex:`\users`)
-    is moved to VM’s private disk backed by private.img file in dom0
-    (useful mainly for HVM templates).
-    SYSTEM MESSAGE  for: /home/user/qubes-doc-rst2/user/templates/windows/qubes-windows-tools-4-0.rst:469: (INFO/1) No role entry for "raw-latex" in module "docutils.parsers.rst.languages.en".
-    Trying "raw-latex" as canonical role name.
-    No role entry for "raw-latex" in module "docutils.parsers.rst.languages.en".
-    Trying "raw-latex" as canonical role name.
-    SYSTEM MESSAGE  for: /home/user/qubes-doc-rst2/user/templates/windows/qubes-windows-tools-4-0.rst:469: (ERROR/3) Unknown interpreted text role "raw-latex".
-    Unknown interpreted text role "raw-latex".
-
-
+- Move user profiles: user profile directory (``c:\users``)
+  is moved to VM’s private disk backed by private.img file in dom0
+  (useful mainly for HVM templates).
 
 - Qubes GUI Agent: video driver and gui agent that enable seamless
   showing of Windows applications on the secure Qubes desktop.
@@ -703,16 +695,8 @@ automatically, try to start Windows in safe mode (see above) and 1)
 disable automatic restart on BSOD (Control Panel - System - Advanced
 system settings - Advanced - Startup and recovery), 2) check the system
 event log for BSOD events. If you can, send the ``memory.dmp`` dump file
-from c::raw-latex:`\Windows`. Xen logs (/var/log/xen/console/guest-*)
+from ``C:\Windows``. Xen logs (``/var/log/xen/console/guest-*``)
 are also useful as they contain pvdrivers diagnostic output.
-SYSTEM MESSAGE  for: /home/user/qubes-doc-rst2/user/templates/windows/qubes-windows-tools-4-0.rst:615: (INFO/1) No role entry for "raw-latex" in module "docutils.parsers.rst.languages.en".
-Trying "raw-latex" as canonical role name.
-No role entry for "raw-latex" in module "docutils.parsers.rst.languages.en".
-Trying "raw-latex" as canonical role name.
-SYSTEM MESSAGE  for: /home/user/qubes-doc-rst2/user/templates/windows/qubes-windows-tools-4-0.rst:615: (ERROR/3) Unknown interpreted text role "raw-latex".
-Unknown interpreted text role "raw-latex".
-
-
 
 If a specific component is malfunctioning, you can increase its log
 verbosity as explained above to get more troubleshooting information.
@@ -724,44 +708,32 @@ Below is a list of components:
       :header-rows: 1
 
       * - qrexec-agent
-        - Responsible for most communication with Qubes (dom0
-      * - and other domains), secure clipboard, file copying, qrexec services.
+        - Responsible for most communication with Qubes (dom0 and other domains), secure clipboard, file copying, qrexec services.
       * - qrexec-wrapper
-        - Helper executable that’s responsible for launching
-      * - qrexec services, handling their I/O and vchan communication.
+        - Helper executable that’s responsible for launching qrexec services, handling their I/O and vchan communication.
       * - qrexec-client-vm
         - Used for communications by the qrexec protocol.
       * - qga
         - Gui agent.
-        -  
-        - QgaWatchdog
-        - Service that monitors session/desktop
-      * - changes (logon/logoff/locking/UAC…) and simulates SAS sequence
-      * - (ctrl-alt-del).
-        -  
-        - qubesdb-daemon
-        - Service for accessing Qubes
-      * - configuration database.
-        -  
-        - network-setup
-        - Service that sets up network
-      * - parameters according to VM’s configuration.
-        -  
-        - prepare-volume
-        - Utility
-      * - that initializes and formats the disk backed by private.img file.
-      * - It’s registered to run on next system boot during QWT setup, if that
-      * - feature is selected (it can’t run during the setup because Xen block
-      * - device drivers are not yet active). It in turn registers move-profiles
-      * - (see below) to run at early boot.
-        -  
-        - relocate-dir
+      * - QgaWatchdog
+        - Service that monitors session/desktop changes (logon/logoff/locking/UAC…) and simulates SAS sequence (ctrl-alt-del).
+      * - qubesdb-daemon
+        - Service for accessing Qubes configuration database.
+      * - network-setup
+        - Service that sets up network parameters according to VM’s configuration.
+      * - prepare-volume
+        - Utility that initializes and formats the disk backed by private.img file.
+          It’s registered to run on next system boot during QWT setup, if that
+          feature is selected (it can’t run during the setup because Xen block
+          device drivers are not yet active). It in turn registers move-profiles
+          (see below) to run at early boot.
+      * - relocate-dir
         - Utility that moves
-      * - user profiles directory to the private disk. It’s registered as an early
-      * - boot native executable (similar to chkdsk) so it can run before any
-      * - profile files are opened by some other process. Its log is in a fixed
-      * - location: c:\move-profiles.log (it can’t use our common logger
-      * - library so none of the log settings apply).
+          user profiles directory to the private disk. It’s registered as an early
+          boot native executable (similar to chkdsk) so it can run before any
+          profile files are opened by some other process. Its log is in a fixed
+          location: c:\move-profiles.log (it can’t use our common logger
+          library so none of the log settings apply).
       
 
 Updates

@@ -208,7 +208,7 @@ the source less readable and more difficult to work with for
 localization and automation purposes. Here are examples of several types
 of alerts and their recommended icons:
 
-.. code:: bash
+.. code::
 
       <div class="alert alert-success" role="alert">
         <i class="fa fa-check-circle"></i>

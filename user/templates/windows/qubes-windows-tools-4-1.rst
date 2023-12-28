@@ -599,7 +599,7 @@ preparations have to be executed:
 
   - Right-click and select the option “New -> Link”.
 
-  - Select ``C:\Windows\System32\CMD.exe``as executable.
+  - Select ``C:\Windows\System32\CMD.exe`` as executable.
 
   - Name the link, e.g. as ``Command Prompt``.
 
@@ -632,7 +632,7 @@ preparations have to be executed:
 Now you should have a menu ``Disposable: <VMname>`` containing the
 applications that can be started in a disposable Windows VM. If you set
 the newly created and configured Windows VM as
-``Default disposable template``for any other Windows- (or Linux-)
+``Default disposable template`` for any other Windows- (or Linux-)
 based qube, this qube can use the Windows-based dispvm like any other
 disposable.
 

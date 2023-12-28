@@ -52,7 +52,7 @@ amount of untrusted input processed by Dom0 software:
 The update process is initiated by `qubes-dom0-update script <https://github.com/QubesOS/qubes-core-admin-linux/blob/release2/dom0-updates/qubes-dom0-update>`__,
 running in Dom0.
 
-Updates (*.rpm files) are checked and downloaded by UpdateVM, which by
+Updates (``*.rpm`` files) are checked and downloaded by UpdateVM, which by
 default is the same as the firewall VM, but can be configured to be any
 other, network-connected VM. This is done by
 `qubes-download-dom0-updates.sh script <https://github.com/QubesOS/qubes-core-agent-linux/blob/release2/misc/qubes-download-dom0-updates.sh>`__
@@ -61,10 +61,10 @@ qubes-dom0-update). Note that we assume that this script might get
 compromised and fetch maliciously compromised downloads – this is not a
 problem as Dom0 verifies digital signatures on updates later. The
 downloaded rpm files are placed in a
- ``/var/lib/qubes/dom0-updates``  directory on UpdateVM
+``/var/lib/qubes/dom0-updates``  directory on UpdateVM
 filesystem (again, they might get compromised while being kept there,
 still this isn’t a problem). This directory is passed to yum using the
- ``–installroot=``  option.
+``–installroot=``  option.
 
 
 
@@ -78,7 +78,7 @@ initiated the whole update process) waits until qubes-receive-updates
 finished.
 
 The qubes-receive-updates script processes the untrusted input from
-Update VM: it first extracts the received *.rpm files (that are sent
+Update VM: it first extracts the received ``*.rpm`` files (that are sent
 over qrexec data connection) and then verifies digital signature on each
 file. The qubes-receive-updates script is a security-critical component
 of the Dom0 update process (as is the

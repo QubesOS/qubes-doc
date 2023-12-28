@@ -358,11 +358,11 @@ System
 
    Security-critical code </developer/system/security-critical-code>
 
-   Qubes core admin </developer/system/qubes-core-admin>
+   Qubes core admin <https://dev.qubes-os.org/projects/core-admin/>
 
-   Qubes core admin client </developer/system/qubes-core-admin-client>
+   Qubes core admin client <https://dev.qubes-os.org/projects/core-admin-client/>
 
-   Qubes core stack </developer/system/qubes-core-stack>
+   Qubes core stack <https://www.qubes-os.org/news/2017/10/03/core3/>
 
    GUI virtualization </developer/system/gui>
 

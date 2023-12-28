@@ -92,7 +92,7 @@ and therefore one of the most important things to do well.
 
 Below is the application template:
 
-.. code:: bash
+.. code:: markdown
 
       # Introduction
       
@@ -136,7 +136,7 @@ incomplete. If you are interested in submitting a proposal based on
 these ideas, you should contact the :ref:`qubes-devel mailing list <introduction/support:qubes-devel>` and associated GitHub issue to learn
 more about the idea.
 
-.. code:: bash
+.. code:: markdown
 
       ### Adding a Proposal
       

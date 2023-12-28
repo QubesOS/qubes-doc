@@ -14,7 +14,7 @@ Components residing in the same domain (``qrexec-client-vm`` to
 ``qrexec-agent``, ``qrexec-client`` to ``qrexec-daemon``) use local
 sockets as the underlying transport medium. Components in separate
 domains (``qrexec-daemon`` to ``qrexec-agent``, data channel between
-``qrexec-agent``s) use vchan links. Because of `vchan limitation <https://github.com/qubesos/qubes-issues/issues/951>`__, it
+``qrexec-agent``) use vchan links. Because of `vchan limitation <https://github.com/qubesos/qubes-issues/issues/951>`__, it
 is not possible to establish qrexec connection back to the source
 domain.
 
@@ -185,7 +185,7 @@ dom0: request execution of ``cmd`` in domX
   with ``qrexec-agent`` later.)
   ``qrexec-client`` translates that request into a ``MSG_EXEC_CMDLINE``
   message sent to ``qrexec-daemon``, with ``connect_domain`` set to 0
-  (connect to **dom0**) and `connect_port also set to 0 (allocate a
+  (connect to **dom0**) and ``connect_port`` also set to 0 (allocate a
   port).
 
 - **dom0**: ``qrexec-daemon`` allocates a free port (in this case 513),

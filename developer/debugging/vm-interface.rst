@@ -43,7 +43,7 @@ Keys exposed by dom0 to VM
 
 
 
-- ``/qubes-timezone - name of timezone based on dom0 timezone. For example``Europe/Warsaw`
+- ``/qubes-timezone`` - name of timezone based on dom0 timezone. For example ``Europe/Warsaw``
 
 - ``/qubes-keyboard`` (deprecated in R4.1) - keyboard layout based on
   dom0 layout. Its syntax is suitable for ``xkbcomp`` command (after
