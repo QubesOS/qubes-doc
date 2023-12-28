@@ -147,11 +147,10 @@ available templates. To install a template, use:
 
 
 You can also use ``qvm-template`` to upgrade or reinstall templates.
-| Repo definitions are stored in ``/etc/qubes/repo-templates`` and
-  associated keys in ``/etc/qubes/repo-templates/keys``.
+| Repo definitions are stored in ``/etc/qubes/repo-templates`` and associated keys in ``/etc/qubes/repo-templates/keys``.
 | There are additional repos for testing releases and community
-  templates. To temporarily enable any of these repos, use the
-  ``--enablerepo=<repo-name>`` option. E.g. :
+| templates. To temporarily enable any of these repos, use the
+| ``--enablerepo=<repo-name>`` option. E.g. :
 
 
 .. code:: bash
@@ -388,22 +387,22 @@ changes in the parent template.
    :header-rows: 1
 
    * - Qube Type
-     - Inheritance1
-     - Persistence2
-   * - t emplate
+     - Inheritance [#f1]_
+     - Persistence [#f2]_
+   * - template
      - N/A (templates cannot be based on templates)
      - everything
-   * - app qube3
+   * - app qube [#f3]_
      - /etc/skel to /home; /usr/local.orig to /usr/local
      - /rw (includes /home, /usr/local, and bind-dirs)
-   * - dispo sable
+   * - disposable
      - /rw (includes /home, /usr/local, and bind-dirs)
      - nothing
    
 
-| 1Upon creation
-| 2Following shutdown
-| 3Includes :ref:`disposable templates <user/reference/glossary:disposable template>`
+.. [#f1] Upon creation
+.. [#f2] Following shutdown
+.. [#f3] Includes :ref:`disposable templates <user/reference/glossary:disposable template>`
 
 
 Trusting your templates
@@ -527,7 +526,7 @@ Important Notes
 
 - ``qvm-trim-template`` is no longer necessary or available in Qubes
   4.0 and higher. All qubes are created in a thin pool and trimming is
-  handled automatically. No user action is required. See :doc:`Disk Trim <https://forum.qubes-os.org/t/19054>` for more information.
+  handled automatically. No user action is required. See `Disk Trim <https://forum.qubes-os.org/t/19054>`__ for more information.
 
 - RPM-installed templates are “system managed” and therefore cannot be
   backed up using Qubes’ built-in backup function. In order to ensure

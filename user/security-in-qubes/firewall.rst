@@ -459,13 +459,13 @@ each destination qube to ease rules management:
 
 .. code:: bash
 
-      nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
+   nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
 
+.. note:: the name ``custom-dnat-qubeDST`` is arbitrary
 
+.. note::
 
-   Note: the name ``custom-dnat-qubeDST`` is arbitrary
-
-   Note: while we use a DNAT chain for a single qube, it’s totally
+   while we use a DNAT chain for a single qube, it’s totally
    possible to have a single DNAT chain for multiple qubes
 
 Second step, code a natting firewall rule to route traffic on the
@@ -473,25 +473,23 @@ outside interface for the service to the sys-firewall VM
 
 .. code:: bash
 
-      nft add rule qubes custom-dnat-qubeDEST iif == "ens6" ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.1.z
-
-
+   nft add rule qubes custom-dnat-qubeDEST iif == "ens6" ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.1.z
 
 Third step, code the appropriate new filtering firewall rule to allow
 new connections for the service
 
 .. code:: bash
 
-      nft add rule qubes custom-forward iif == "ens6" ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter accept
+   nft add rule qubes custom-forward iif == "ens6" ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter accept
 
 
 
-   Note: If you do not wish to limit the IP addresses connecting to the
+.. note:: If you do not wish to limit the IP addresses connecting to the
    service, remove ``ip saddr 192.168.x.y/24`` from the rules
 
-   If you want to expose the service on multiple interfaces, repeat the
-   steps 2 and 3 described above, for each interface. Alternatively, you
-   can leave out the interface completely.
+If you want to expose the service on multiple interfaces, repeat the
+steps 2 and 3 described above, for each interface. Alternatively, you
+can leave out the interface completely.
 
 Verify the rules on sys-net firewall correctly match the packets you
 want by looking at its counters, check for the counter lines in the
@@ -499,7 +497,7 @@ chains ``custom-forward`` and ``custom-dnat-qubeDEST``:
 
 .. code:: bash
 
-      nft list table ip qubes
+   nft list table ip qubes
 
 
 
@@ -508,14 +506,14 @@ in the dnat rule:
 
 .. code:: bash
 
-      chain custom-forward {
-        iif "ens6" ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter packets 7 bytes 448 accept
-      }
-      
-      chain custom-dnat-qubeDEST {
-        type nat hook prerouting priority filter + 1; policy accept;
-        iif "ens6" ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter packets 3 bytes 192 dnat to 10.138.33.59
-      }
+   chain custom-forward {
+     iif "ens6" ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter packets 7 bytes 448 accept
+   }
+
+   chain custom-dnat-qubeDEST {
+     type nat hook prerouting priority filter + 1; policy accept;
+     iif "ens6" ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter packets 3 bytes 192 dnat to 10.138.33.59
+   }
 
 
 
@@ -524,7 +522,7 @@ service from an external device using the following command:
 
 .. code:: bash
 
-      telnet 192.168.x.n 443
+   telnet 192.168.x.n 443
 
 
 
@@ -534,8 +532,8 @@ so they get set on sys-net start-up:
 
 .. code:: bash
 
-      [user@sys-net user]$ sudo -i
-      [root@sys-net user]# nano /rw/config/qubes-firewall-user-script
+   [user@sys-net user]$ sudo -i
+   [root@sys-net user]# nano /rw/config/qubes-firewall-user-script
 
 
 
@@ -543,17 +541,17 @@ Content of ``/rw/config/qubes-firewall-user-script`` in ``sys-net``:
 
 .. code:: bash
 
-      #!/bin/sh
-      
-      # create the dnat chain for qubeDEST if it doesn't already exist
-      if nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
-      then
-        # create the dnat rule
-        nft add rule qubes custom-dnat-qubeDEST iif == "ens6" saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.1.z
-      
-        # allow forwarded traffic
-        nft add rule qubes custom-forward iif == "ens6" ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter accept
-      fi
+   #!/bin/sh
+
+   # create the dnat chain for qubeDEST if it doesn't already exist
+   if nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
+   then
+     # create the dnat rule
+     nft add rule qubes custom-dnat-qubeDEST iif == "ens6" saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.1.z
+
+     # allow forwarded traffic
+     nft add rule qubes custom-forward iif == "ens6" ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter accept
+   fi
 
 
 
@@ -569,7 +567,7 @@ routing rules:
 
 .. code:: bash
 
-      nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
+   nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
 
 
 
@@ -578,7 +576,7 @@ outside interface for the service to the destination qube
 
 .. code:: bash
 
-      nft add rule qubes custom-dnat-qubeDEST iif == "eth0" ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.0.xx
+   nft add rule qubes custom-dnat-qubeDEST iif == "eth0" ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.0.xx
 
 
 
@@ -587,11 +585,11 @@ new connections for the service
 
 .. code:: bash
 
-      nft add rule qubes custom-forward iif == "eth0" ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 443 ct state new,established,related counter accept
+   nft add rule qubes custom-forward iif == "eth0" ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 443 ct state new,established,related counter accept
 
 
 
-   Note: If you do not wish to limit the IP addresses connecting to the
+.. note:: If you do not wish to limit the IP addresses connecting to the
    service, remove ``ip saddr 192.168.x.y/24`` from the rules
 
 Once you have confirmed that the counters increase, store these commands
@@ -599,9 +597,8 @@ in the script ``/rw/config/qubes-firewall-user-script``
 
 .. code:: bash
 
-      [user@sys-net user]$ sudo -i
-      [root@sys-net user]# nano /rw/config/qubes-firewall-user-script
-
+   [user@sys-net user]$ sudo -i
+   [root@sys-net user]# nano /rw/config/qubes-firewall-user-script
 
 
 Content of ``/rw/config/qubes-firewall-user-script`` in
@@ -609,17 +606,17 @@ Content of ``/rw/config/qubes-firewall-user-script`` in
 
 .. code:: bash
 
-      #!/bin/sh
-      
-      # create the dnat chain for qubeDEST if it doesn't already exist
-      if nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
-      then
-        # create the dnat rule
-        nft add rule qubes custom-dnat-qubeDEST iif == "eth0" tcp dport 443 ct state new,established,related counter dnat 10.137.0.xx
-      
-        # allow forwarded traffic
-        nft add rule qubes custom-forward iif == "eth0" ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 443 ct state new,established,related counter accept
-      fi
+   #!/bin/sh
+
+   # create the dnat chain for qubeDEST if it doesn't already exist
+   if nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
+   then
+     # create the dnat rule
+     nft add rule qubes custom-dnat-qubeDEST iif == "eth0" tcp dport 443 ct state new,established,related counter dnat 10.137.0.xx
+
+     # allow forwarded traffic
+     nft add rule qubes custom-forward iif == "eth0" ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 443 ct state new,established,related counter accept
+   fi
 
 
 
@@ -638,7 +635,7 @@ The according rule to allow the traffic is:
 
 .. code:: bash
 
-      nft add rule qubes custom-input tcp dport 443 ip daddr 10.137.0.xx ct state new,established,related counter accept
+   nft add rule qubes custom-input tcp dport 443 ip daddr 10.137.0.xx ct state new,established,related counter accept
 
 
 
@@ -647,8 +644,8 @@ To make it persistent, you need to add this command in the script
 
 .. code:: bash
 
-      [user@qubeDEST user]$ sudo -i
-      [root@qubeDEST user]# echo 'nft add rule qubes custom-input tcp dport 443 ip daddr 10.137.0.xx ct state new,established,related counter accept' >> /rw/config/rc.local
+   [user@qubeDEST user]$ sudo -i
+   [root@qubeDEST user]# echo 'nft add rule qubes custom-input tcp dport 443 ip daddr 10.137.0.xx ct state new,established,related counter accept' >> /rw/config/rc.local
 
 
 
@@ -686,7 +683,7 @@ run this command:
 
 .. code:: bash
 
-      tcpdump -i eth0 -nn dst port 443 and src net 192.168.x.y/24
+   tcpdump -i eth0 -nn dst port 443 and src net 192.168.x.y/24
 
 
 
@@ -709,7 +706,7 @@ You can dump the ruleset in two files using the following command:
 
 .. code:: bash
 
-      nft list ruleset | tee nft_backup | tee nft_new_ruleset
+   nft list ruleset | tee nft_backup | tee nft_new_ruleset
 
 
 
@@ -720,6 +717,4 @@ You can revert to the original ruleset with the following commands:
 
 .. code:: bash
 
-      nft flush ruleset && nft -f nft_backup
-
-
+   nft flush ruleset && nft -f nft_backup

@@ -165,7 +165,7 @@ Opening a terminal emulator in dom0 can be done in several ways:
 
 - Go to the App Menu and select **Terminal Emulator** at the top.
 
-- Press ``Alt``+ ``F3`` and search for ``xfce terminal``.
+- Press ``Alt+F3`` and search for ``xfce terminal``.
 
 - Right-click on the desktop and select **Open Terminal Here**.
 

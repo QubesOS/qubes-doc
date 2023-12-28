@@ -984,7 +984,7 @@ signature file has been modified. Try downloading it again or from a
 different source.
 
 Do I have to verify both the `detached PGP signature file <#how-to-verify-detached-pgp-signatures-on-qubes-isos>`__ and the `cryptographic hash values <#how-to-verify-the-cryptographic-hash-values-of-qubes-isos>`__?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 No, either method is sufficient by itself, but you can do both if you

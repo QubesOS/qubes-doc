@@ -3,7 +3,7 @@ Introduction
 ============
 
 What is Qubes OS?
-----------------
+-----------------
 
 Qubes OS is a free and open-source, security-oriented operating system for
 single-user desktop computing. Qubes OS `leverages Xen-based virtualization <https://wiki.xen.org/wiki/Xen_Project_Software_Overview>`__ to allow for the creation and management of isolated compartments called :ref:`qubes <user/reference/glossary:qube>`.
@@ -54,7 +54,7 @@ Features
 
 - **Split GPG** Utilize :doc:`Split GPG </user/security-in-qubes/split-gpg>` to keep your private keys safe.
 
-- **U2F proxy** Operate :doc:`Qubes U2F proxy </user/security-in-qubes/u2f-proxy>` to use your two-factor authentication devices without exposing your web browser to the full USB stack.
+- **U2F/CTAP proxy** Operate :doc:`Qubes U2F/CTAP proxy </user/security-in-qubes/ctap-proxy>` to use your two-factor authentication devices without exposing your web browser to the full USB stack.
 
 - **Open-source** Users are free to use, copy, and modify Qubes OS and :doc:`are encouraged to do so! </introduction/contributing>`
 
@@ -63,7 +63,7 @@ Features
 
 
 Why Qubes OS?
-------------
+-------------
 
 
 Physical isolation is a given safeguard that the digital world lacks
@@ -123,7 +123,7 @@ fact, Qubes has `distinct advantages over physical air gaps <https://invisibleth
 
 
 Made to support vulnerable users and power users alike
------------------------------------------------------
+------------------------------------------------------
 
 
 Qubes provides practical, usable security to vulnerable and

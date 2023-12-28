@@ -3,7 +3,7 @@ How to edit the documentation
 =============================
 
 
-*Also see the* :doc:`documentation style guide </developer/general/documentation-style-guide>` *.*
+*Also see the* :doc:`documentation style guide </developer/general/documentation-style-guide>`.
 
 Qubes OS documentation pages are stored as plain text Markdown files in
 the `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ repository. By
@@ -186,7 +186,7 @@ function the way they should when the website is rendered. They are not
 further analyzed in an attempt to determine whether they are malicious.
 
 Once a pull request passes review, the reviewer should add a signed
-comment stating, “Passed review as of ``<LATEST_COMMIT>``” (or similar).
+comment stating, “Passed review as of ``<LATEST_COMMIT>`` ” (or similar).
 The documentation maintainer then verifies that the pull request is
 mechanically sound (no merge conflicts, broken links, ANSI escapes,
 etc.). If so, the documentation maintainer then merges the pull request,

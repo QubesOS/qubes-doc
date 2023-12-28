@@ -179,7 +179,7 @@ RPMs will appear in qubes-src/linux-kernel/pkgs/fc20/x86_64:
 
 
 Useful :doc:`QubesBuilder </developer/building/qubes-builder>` commands
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 1. ``make check`` - will check if all the code was committed into

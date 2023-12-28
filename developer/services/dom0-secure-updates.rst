@@ -61,10 +61,10 @@ qubes-dom0-update). Note that we assume that this script might get
 compromised and fetch maliciously compromised downloads – this is not a
 problem as Dom0 verifies digital signatures on updates later. The
 downloaded rpm files are placed in a
- ``/var/lib/qubes/dom0-updates``  directory on UpdateVM
+``/var/lib/qubes/dom0-updates``  directory on UpdateVM
 filesystem (again, they might get compromised while being kept there,
 still this isn’t a problem). This directory is passed to yum using the
- ``–installroot=``  option.
+``–installroot=``  option.
 
 Once updates are downloaded, the update script that runs in UpdateVM
 requests an RPM service

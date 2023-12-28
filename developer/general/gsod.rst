@@ -224,7 +224,7 @@ satisfy the following criteria:
 
 - The videos are suitable for embedding in appropriate places in the
   Qubes documentation. (E.g., a video on how to update Qubes OS should
-  be appropriate for appearing on the :doc:`:doc:`how to update </user/how-to-guides/how-to-update>`` page.)
+  be appropriate for appearing on the :doc:`how to update </user/how-to-guides/how-to-update>` page.)
 
 - Where possible, the videos should strive to be version-independent.
   (For example, a video explaining the template system should still be

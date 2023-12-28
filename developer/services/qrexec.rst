@@ -367,7 +367,6 @@ particular service argument.
 
 See `below <#rpc-service-with-argument-file-reader>`__ for an example of
 an RPC service using an argument.
-      <!-- TODO document "Yes to All" authorization if it is reintroduced -->
 
 Qubes RPC examples
 ------------------

@@ -18,6 +18,7 @@ September 9-11, 2022 in Berlin, Germany.
              :height: 315
              :width: 560
              :align: left
+
 ----
 
 
@@ -25,6 +26,7 @@ September 9-11, 2022 in Berlin, Germany.
              :height: 315
              :width: 560
              :align: left
+
 ----
 
 
@@ -57,10 +59,6 @@ which took place July 20-22, 2018 in New York City.
 
 Explaining Computers presents "Qubes OS: Security Oriented Operating System"
 ----------------------------------------------------------------------------
-
-
-
-----
 
 
 .. youtube:: hWDvS_Mp6gc

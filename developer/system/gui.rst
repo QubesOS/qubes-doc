@@ -213,785 +213,125 @@ Each message starts with the following header:
 
 This header is followed by message-specific data:
 
-.. raw:: html
-
-   <table class="table">
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <th>
-
-Message name
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   <th>
-
-Structure after header
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   <th>
-
-Action
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_CLIPBOARD_DATA
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-amorphic blob (in protocol before 1.2, length determined by the “window”
-field, in 1.2 and later - by untrusted_len in the header)
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Store the received clipboard content (not parsed in any way)
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_CREATE
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-.. raw:: html
-
-   <pre>
-   struct msg_create {
-     uint32_t x;
-     uint32_t y;
-     uint32_t width;
-     uint32_t height;
-     uint32_t parent;
-     uint32_t override_redirect;
-   };
-   </pre>
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Create a window with given parameters
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_DESTROY
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-None
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Destroy a window
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_MAP
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-.. raw:: html
-
-   <pre>
-   struct msg_map_info {
-     uint32_t transient_for;
-     uint32_t override_redirect;
-   };
-   </pre>
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Map a window with given parameters
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_UNMAP
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-None
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Unmap a window
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_CONFIGURE
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-.. raw:: html
-
-   <pre>
-   struct msg_configure {
-     uint32_t x;
-     uint32_t y;
-     uint32_t width;
-     uint32_t height;
-     uint32_t override_redirect;
-   };
-   </pre>
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Change window position/size/type
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_MFNDUMP
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-.. raw:: html
-
-   <pre>
-   struct shm_cmd {
-     uint32_t shmid;
-     uint32_t width;
-     uint32_t height;
-     uint32_t bpp;
-     uint32_t off;
-     uint32_t num_mfn;
-     uint32_t domid;
-     uint32_t mfns[0];
-   };
-   </pre>
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Retrieve the array of mfns that constitute the composition buffer of a
-remote window.
-
-The “num_mfn” 32bit integers follow the shm_cmd structure; “off” is the
-offset of the composite buffer start in the first frame; “shmid” and
-“domid” parameters are just placeholders (to be filled by
-``qubes-guid``), so that we can use the same structure when talking to
-``shmoverride.so``.
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_SHMIMAGE
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-.. raw:: html
-
-   <pre>
-   struct msg_shmimage {
-        uint32_t x;
-        uint32_t y;
-        uint32_t width;
-        uint32_t height;
-   };
-   </pre>
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Repaint the given window fragment
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_WMNAME
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-.. raw:: html
-
-   <pre>
-   struct msg_wmname {
-     char data[128];
-   };
-   </pre>
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Set the window name. Only printable characters are allowed, and by
-default non-ASCII characters are not allowed.
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_DOCK
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-None
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Dock the window in the tray
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_WINDOW_HINTS
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-.. raw:: html
-
-   <pre>
-   struct msg_window_hints {
-        uint32_t flags;
-        uint32_t min_width;
-        uint32_t min_height;
-        uint32_t max_width;
-        uint32_t max_height;
-        uint32_t width_inc;
-        uint32_t height_inc;
-        uint32_t base_width;
-        uint32_t base_height;
-   };
-   </pre>
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Size hints for window manager
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_WINDOW_FLAGS
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-.. raw:: html
-
-   <pre>
-   struct msg_window_flags {
-        uint32_t flags_set;
-        uint32_t flags_unset;
-   };
-   </pre>
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Change window state request; fields contains bitmask which flags request
-to be set and which unset
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_CURSOR
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-.. raw:: html
-
-   <pre>
-   struct msg_cursor {
-        uint32_t cursor;
-   };
-   </pre>
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Update cursor pointer for a window. Supported cursor IDs are default
-cursor (0) and X Font cursors (with 0x100 bit set).
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_WMCLASS
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-.. raw:: html
-
-   <pre>
-   struct msg_wmclass {
-       char res_class[64];
-       char res_name[64];
-   };
-   </pre>
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Set the WM_CLASS property of a window.
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_WINDOW_DUMP
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-.. raw:: html
-
-   <pre>
-   struct msg_window_dump_hdr {
-       uint32_t type;
-       uint32_t width;
-       uint32_t height;
-       uint32_t bpp;
-   };
-   </pre>
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Header for shared memory dump command of type hdr.type. Currently only
-
-.. raw:: html
-
-   <pre>WINDOW_DUMP_TYPE_GRANT_REFS</pre>
-
-(0) is supported.
-
-    .. raw:: html
-
-       </td>
-
-    .. raw:: html
-
-       </tr>
-
-    .. raw:: html
-
-       <tr>
-
-    .. raw:: html
-
-       <td>
-
-    WINDOW_DUMP_TYPE_GRANT_REFS
-
-    .. raw:: html
-
-       </td>
-
-    .. raw:: html
-
-       <td>
-
-    .. raw:: html
-
-       <pre>
-       struct msg_window_dump_grant_refs {
-           uint32_t refs[0];
-       };
-       </pre>
-
-    .. raw:: html
-
-       </td>
-
-    .. raw:: html
-
-       <td>
-
-    Grant references that should be mapped into the compositing buffer.
-
-    .. raw:: html
-
-       </td>
-
-    .. raw:: html
-
-       </tr>
-
-    .. raw:: html
-
-       </tr>
-
-    .. raw:: html
-
-       </table>
+.. list-table:: i
+   :widths: 8 20 40
+   :align: left
+   :header-rows: 1
+
+   * - Message name
+     - Structure after header
+     - Action
+   * - ``MSG_CLIPBOARD_DATA``
+     - amorphic blob (in protocol before 1.2, length determined by the “window” field, in 1.2 and later - by untrusted_len in the header)
+     - Store the received clipboard content (not parsed in any way)
+   * - ``MSG_CREATE``
+     - | struct msg_create {
+       |   uint32_t x;
+       |   uint32_t y;
+       |   uint32_t width;
+       |   uint32_t height;
+       |   uint32_t parent;
+       |   uint32_t override_redirect;
+       | };
+     - Create a window with given parameters
+   * - ``MSG_DESTROY``
+     - None
+     - Destroy a window
+   * - ``MSG_MAP``
+     - | struct msg_map_info {
+       |   uint32_t transient_for;
+       |   uint32_t override_redirect;
+       | };
+     - Map a window with given parameters
+   * - ``MSG_UNMAP``
+     - None
+     - Unmap a window
+   * - ``MSG_CONFIGURE``
+     - | struct msg_configure {
+       |   uint32_t x;
+       |   uint32_t y;
+       |   uint32_t width;
+       |   uint32_t height;
+       |   uint32_t override_redirect;
+       | };
+     - Change window position/size/type
+   * - ``MSG_MFNDUMP``
+     - | struct shm_cmd {
+       |   uint32_t shmid;
+       |   uint32_t width;
+       |   uint32_t height;
+       |   uint32_t bpp;
+       |   uint32_t off;
+       |   uint32_t num_mfn;
+       |   uint32_t domid;
+       |   uint32_t mfns[0];
+       | };
+     - Retrieve the array of mfns that constitute the composition buffer of a remote window.
+
+       The “num_mfn” 32bit integers follow the shm_cmd structure; “off” is the
+       offset of the composite buffer start in the first frame; “shmid” and
+       “domid” parameters are just placeholders (to be filled by
+       ``qubes-guid``), so that we can use the same structure when talking to
+       ``shmoverride.so``.
+   * - ``MSG_SHMIMAGE``
+     - | struct msg_shmimage {
+       |      uint32_t x;
+       |      uint32_t y;
+       |      uint32_t width;
+       |      uint32_t height;
+       | };
+     - Repaint the given window fragment
+   * - ``MSG_WMNAME``
+     - | struct msg_wmname {
+       |   char data[128];
+       | };
+     - Set the window name. Only printable characters are allowed, and by default non-ASCII characters are not allowed.
+   * - ``MSG_DOCK``
+     - None
+     - Dock the window in the tray
+   * - ``MSG_WINDOW_HINTS``
+     - | struct msg_window_hints {
+       |      uint32_t flags;
+       |      uint32_t min_width;
+       |      uint32_t min_height;
+       |      uint32_t max_width;
+       |      uint32_t max_height;
+       |      uint32_t width_inc;
+       |      uint32_t height_inc;
+       |      uint32_t base_width;
+       |      uint32_t base_height;
+       | };
+     - Size hints for window manager
+   * - ``MSG_WINDOW_FLAGS``
+     - | struct msg_window_flags {
+       |      uint32_t flags_set;
+       |      uint32_t flags_unset;
+       | };
+     - Change window state request; fields contains bitmask which flags request to be set and which unset
+   * - ``MSG_CURSOR``
+     - | struct msg_cursor {
+       |     uint32_t cursor;
+       | };
+     - Update cursor pointer for a window. Supported cursor IDs are default cursor (0) and X Font cursors (with 0x100 bit set).
+   * - ``MSG_WMCLASS``
+     - | struct msg_wmclass {
+       |     char res_class[64];
+       |     char res_name[64];
+       | };
+     - Set the WM_CLASS property of a window.
+   * - ``MSG_WINDOW_DUMP``
+     - | struct msg_window_dump_hdr {
+       |     uint32_t type;
+       |     uint32_t width;
+       |     uint32_t height;
+       |     uint32_t bpp;
+       | };
+     - Header for shared memory dump command of type hdr.type. Currently only ``WINDOW_DUMP_TYPE_GRANT_REFS`` (0) is supported.
+   * - ``WINDOW_DUMP_TYPE_GRANT_REFS``
+     - | struct msg_window_dump_grant_refs {
+       |     uint32_t refs[0];
+       | };
+     - Grant references that should be mapped into the compositing buffer.
 
 GuiVM -> AppVM messages
 -----------------------
@@ -1009,636 +349,94 @@ Each message starts with the following header
 
 The header is followed by message-specific data:
 
-.. raw:: html
-
-   <table class="table">
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <th>
-
-Message name
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   <th>
-
-Structure after header
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   <th>
-
-Action
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_KEYPRESS
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-.. raw:: html
-
-   <pre>
-   struct msg_keypress {
-     uint32_t type;
-     uint32_t x;
-     uint32_t y;
-     uint32_t state;
-     uint32_t keycode;
-   };
-   </pre>
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Tell
-
-.. raw:: html
-
-   <pre>qubes_drv</pre>
-
-driver to generate a keypress
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_BUTTON
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-.. raw:: html
-
-   <pre>
-   struct msg_button {
-     uint32_t type;
-     uint32_t x;
-     uint32_t y;
-     uint32_t state;
-     uint32_t button;
-   };
-   </pre>
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Tell
-
-.. raw:: html
-
-   <pre>qubes_drv</pre>
-
-driver to generate mouseclick
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_MOTION
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-.. raw:: html
-
-   <pre>
-   struct msg_motion {
-     uint32_t x;
-     uint32_t y;
-     uint32_t state;
-     uint32_t is_hint;
-   };
-   </pre>
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Tell
-
-.. raw:: html
-
-   <pre>qubes_drv</pre>
-
-driver to generate motion event
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_CONFIGURE
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-.. raw:: html
-
-   <pre>
-   struct msg_configure {
-     uint32_t x;
-     uint32_t y;
-     uint32_t width;
-     uint32_t height;
-     uint32_t override_redirect;
-   };
-   </pre>
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Change window position/size/type
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_MAP
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-.. raw:: html
-
-   <pre>
-   struct msg_map_info {
-     uint32_t transient_for;
-     uint32_t override_redirect;
-   };
-   </pre>
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Map a window with given parameters
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_CLOSE
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-None
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-send wmDeleteMessage to the window
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_CROSSING
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-.. raw:: html
-
-   <pre>
-   struct msg_crossing {
-     uint32_t type;
-     uint32_t x;
-     uint32_t y;
-     uint32_t state;
-     uint32_t mode;
-     uint32_t detail;
-     uint32_t focus;
-   };
-   </pre>
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Notify window about enter/leave event
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_FOCUS
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-.. raw:: html
-
-   <pre>
-   struct msg_focus {
-     uint32_t type;
-     uint32_t mode;
-     uint32_t detail;
-   };
-   </pre>
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Raise a window, XSetInputFocus
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_CLIPBOARD_REQ
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-None
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Retrieve the local clipboard, pass contents to gui-daemon
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_CLIPBOARD_DATA
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-amorphic blob
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Insert the received data into local clipboard
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_EXECUTE
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Obsolete
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Obsolete, unused
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_KEYMAP_NOTIFY
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-unsigned char remote_keys[32];
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Synchronize the keyboard state (key pressed/released) with dom0
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-MSG_WINDOW_FLAGS
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-.. raw:: html
-
-   <pre>
-   struct msg_window_flags {
-     uint32_t flags_set;
-     uint32_t flags_unset;
-   };
-   </pre>
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Window state change confirmation
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </table>
+.. list-table:: i
+   :widths: 8 20 40
+   :align: left
+   :header-rows: 1
+   
+   * - Message name
+     - Structure after header
+     - Action
+   * - ``MSG_KEYPRESS``
+     - | struct msg_keypress {
+       |   uint32_t type;
+       |   uint32_t x;
+       |   uint32_t y;
+       |   uint32_t state;
+       |   uint32_t keycode;
+       | };
+     - Tell ``qubes_drv`` driver to generate a keypress
+   * - ``MSG_BUTTON``
+     - | struct msg_button {
+       |   uint32_t type;
+       |   uint32_t x;
+       |   uint32_t y;
+       |   uint32_t state;
+       |   uint32_t button;
+       | };
+     - Tell ``qubes_drv``> driver to generate mouseclick
+   * - ``MSG_MOTION``
+     - | struct msg_motion {
+       |   uint32_t x;
+       |   uint32_t y;
+       |   uint32_t state;
+       |   uint32_t is_hint;
+       | };
+     - Tell ``qubes_drv`` driver to generate motion event
+   * - ``MSG_CONFIGURE``
+     - | struct msg_configure {
+       |   uint32_t x;
+       |   uint32_t y;
+       |   uint32_t width;
+       |   uint32_t height;
+       |   uint32_t override_redirect;
+       | };
+     - Change window position/size/type
+   * - ``MSG_MAP``
+     - | struct msg_map_info {
+       |   uint32_t transient_for;
+       |   uint32_t override_redirect;
+       | };
+     - Map a window with given parameters
+   * - ``MSG_CLOSE``
+     - None
+     - send wmDeleteMessage to the window
+   * - ``MSG_CROSSING``
+     - | struct msg_crossing {
+       |   uint32_t type;
+       |   uint32_t x;
+       |   uint32_t y;
+       |   uint32_t state;
+       |   uint32_t mode;
+       |   uint32_t detail;
+       |   uint32_t focus;
+       | };
+     - Notify window about enter/leave event
+   * - ``MSG_FOCUS``
+     - | struct msg_focus {
+       |   uint32_t type;
+       |   uint32_t mode;
+       |   uint32_t detail;
+       | };
+     - Raise a window, XSetInputFocus
+   * - ``MSG_CLIPBOARD_REQ``
+     - None
+     - Retrieve the local clipboard, pass contents to gui-daemon
+   * - ``MSG_CLIPBOARD_DATA``
+     - amorphic blob
+     - Insert the received data into local clipboard
+   * - ``MSG_EXECUTE``
+     - Obsolete
+     - Obsolete, unused
+   * - ``MSG_KEYMAP_NOTIFY``
+     - unsigned char remote_keys[32];
+     - Synchronize the keyboard state (key pressed/released) with dom0
+   * - ``MSG_WINDOW_FLAGS``
+     - | struct msg_window_flags {
+       |   uint32_t flags_set;
+       |   uint32_t flags_unset;
+       | };
+     - Window state change confirmation
 
 ``KEYPRESS``, ``BUTTON``, ``MOTION``, ``FOCUS`` messages pass
 information extracted from dom0 XEvent; see appropriate event
