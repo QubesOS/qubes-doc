@@ -59,11 +59,13 @@ your own OS)."
 Alternatively, from the dom0 command line:
 
 ```
-qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm <NEW_STANDALONE_NAME>
+qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm --template <TEMPLATE_QUBE_NAME> <NEW_STANDALONE_NAME>
 ```
 
-(Note: Technically, `virt_mode=hvm` is not necessary for every standalone.
-However, it makes sense if you want to use a kernel from within the qube.)
+Notes:
+- Technically, `virt_mode=hvm` is not necessary for every standalone.
+However, it makes sense if you want to use a kernel from within the qube.
+- If you want to make available the software installed in a template qube in your standalone, pass its name to `--template` option.
 
 ## Updating standalones
 
