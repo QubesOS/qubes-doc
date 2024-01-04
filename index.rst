@@ -7,12 +7,11 @@ Table of contents
 -----------------
 
 
-Introduction
-^^^^^^^^^^^^
-
+.. _introduction:
 
 .. toctree::
    :maxdepth: 1
+   :caption: Introduction
 
    Introduction </introduction/intro>
 
@@ -37,19 +36,18 @@ Introduction
    Privacy policy </introduction/privacy>
 
 
-
 User Documentation
 ^^^^^^^^^^^^^^^^^^
 
 
 Core documentation for Qubes users.
 
-Choosing Your Hardware
-^^^^^^^^^^^^^^^^^^^^^^
 
+.. _choosing-your-hardware:
 
 .. toctree::
    :maxdepth: 1
+   :caption: Choosing Your Hardware
 
    System requirements </user/hardware/system-requirements>
 
@@ -62,13 +60,11 @@ Choosing Your Hardware
    How to use the hardware compatibility list (HCL) </user/hardware/how-to-use-the-hcl>
 
 
-
-Downloading, Installing, and Upgrading Qubes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+.. _downloading-installing-and-upgrading-qubes:
 
 .. toctree::
    :maxdepth: 1
+   :caption: Downloading, Installing, and Upgrading Qubes
 
    Download Qubes OS <https://www.qubes-os.org/downloads/>
 
@@ -85,13 +81,11 @@ Downloading, Installing, and Upgrading Qubes
    Testing new releases and updates </user/downloading-installing-upgrading/testing>
 
 
-
-How-to guides
-^^^^^^^^^^^^^
-
+.. _how-to-guides:
 
 .. toctree::
    :maxdepth: 1
+   :caption: How-to guides
 
    How to organize your qubes </user/how-to-guides/how-to-organize-your-qubes>
 
@@ -123,14 +117,11 @@ How-to guides
 
    How to reinstall a template </user/how-to-guides/how-to-reinstall-a-template>
 
-
-
-Templates
-^^^^^^^^^
-
+.. _templates:
 
 .. toctree::
    :maxdepth: 1
+   :caption: Templates
 
    Templates </user/templates/templates>
 
@@ -147,13 +138,11 @@ Templates
    Xfce templates </user/templates/xfce-templates>
 
 
-
-Troubleshooting
-^^^^^^^^^^^^^^^
-
+.. _troubleshooting:
 
 .. toctree::
    :maxdepth: 1
+   :caption: Troubleshooting
 
    Installation troubleshooting </user/troubleshooting/installation-troubleshooting>
 
@@ -187,14 +176,11 @@ Troubleshooting
 
    VPN troubleshooting </user/troubleshooting/vpn-troubleshooting>
 
-
-
-Security in Qubes
-^^^^^^^^^^^^^^^^^
-
+.. _security-in-qubes:
 
 .. toctree::
    :maxdepth: 1
+   :caption: Security in Qubes
 
    Firewall </user/security-in-qubes/firewall>
 
@@ -213,13 +199,11 @@ Security in Qubes
    YubiKey </user/security-in-qubes/yubi-key>
 
 
-
-Advanced Topics
-^^^^^^^^^^^^^^^
-
+.. _advanced-topics:
 
 .. toctree::
    :maxdepth: 1
+   :caption: Advanced topics
 
    How to install software in dom0 </user/advanced-topics/how-to-install-software-in-dom0>
 
@@ -262,26 +246,22 @@ Advanced Topics
    AwesomeWM (window manager) </user/advanced-topics/awesomewm>
 
 
-
-Reference
-^^^^^^^^^
-
+.. _reference:
 
 .. toctree::
    :maxdepth: 1
+   :caption: Reference
 
    Command-line tools </user/reference/tools>
 
    Glossary </user/reference/glossary>
 
 
-
-Project Security
-^^^^^^^^^^^^^^^^
-
+.. _project-security:
 
 .. toctree::
    :maxdepth: 1
+   :caption: Project Security
 
    Qubes OS project security center </project-security/security>
 
@@ -297,12 +277,11 @@ Developer Documentation
 
 Core documentation for Qubes developers and advanced users.
 
-General
-^^^^^^^
-
+.. _developers-general:
 
 .. toctree::
    :maxdepth: 1
+   :Caption: Developers - general
 
    Package contributions </developer/general/package-contributions>
 
@@ -326,14 +305,11 @@ General
 
    Developer books </developer/general/devel-books>
 
-
-
-Code
-^^^^
-
+.. _developers-code:
 
 .. toctree::
    :maxdepth: 1
+   :caption: Developers - code
 
    Source code </developer/code/source-code>
 
@@ -344,13 +320,11 @@ Code
    Code signing </developer/code/code-signing>
 
 
-
-System
-^^^^^^
-
+.. _developers-system:
 
 .. toctree::
    :maxdepth: 1
+   :caption: Developers - system
 
    Architecture </developer/system/architecture>
 
@@ -370,20 +344,16 @@ System
 
    Template implementation </developer/system/template-implementation>
 
-   Storage pools </user/advanced-topics/secondary-storage>
-
    Audio virtualization </developer/system/audio>
 
    Template manager </developer/system/template-manager>
 
 
-
-Services
-^^^^^^^^
-
+.. _developers-services:
 
 .. toctree::
    :maxdepth: 1
+   :caption: Developers - services
 
    Inter-qube file copying (qfilecopy) </developer/services/qfilecopy>
 
@@ -406,19 +376,15 @@ Services
    Qfileexchgd (deprecated) </developer/services/qfileexchgd>
 
 
-
-Debugging
-^^^^^^^^^
-
+.. _developers-debugging:
 
 .. toctree::
    :maxdepth: 1
+   :caption: Developers - debugging
 
    How to set up a test bench </developer/debugging/test-bench>
 
    Automated tests </developer/debugging/automated-tests>
-
-   Python profiling <>
 
    Qube configuration interface </developer/debugging/vm-interface>
 
@@ -428,14 +394,11 @@ Debugging
 
    How to mount LVM images </developer/debugging/mount-lvm-image>
 
-
-
-Building
-^^^^^^^^
-
+.. _developers-building:
 
 .. toctree::
    :maxdepth: 1
+   :caption: Developers - building
 
    Qubes builder </developer/building/qubes-builder>
 
@@ -447,14 +410,11 @@ Building
 
    Qubes template configs <https://github.com/QubesOS/qubes-template-configs>
 
-
-
-Releases
-^^^^^^^^
-
+.. _developers-releases:
 
 .. toctree::
    :maxdepth: 1
+   :caption: Developers - releases
 
    Release notes </developer/releases/notes>
 
@@ -473,12 +433,11 @@ External Documentation
 Unofficial, third-party documentation from the Qubes community and
 others.
 
-Operating System Guides
-^^^^^^^^^^^^^^^^^^^^^^^
-
+.. _external-operating-system-guides:
 
 .. toctree::
    :maxdepth: 1
+   :caption: External - Operating System Guides
 
    Windows qubes <https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows.md>
 
@@ -503,13 +462,11 @@ Operating System Guides
    Creating a NetBSD VM <https://github.com/Qubes-Community/Contents/blob/master/docs/os/netbsd.md>
 
 
-
-Security Guides
-^^^^^^^^^^^^^^^
-
+.. _exteranl-security-guides:
 
 .. toctree::
    :maxdepth: 1
+   :caption: External - Security Guides
 
    Security Guidelines <https://github.com/Qubes-Community/Contents/blob/master/docs/security/security-guidelines.md>
 
@@ -524,13 +481,11 @@ Security Guides
    Using OnlyKey with Qubes OS <https://docs.crp.to/qubes.html>
 
 
-
-Privacy Guides
-^^^^^^^^^^^^^^
-
+.. _external-privacy-guides:
 
 .. toctree::
    :maxdepth: 1
+   :caption: External - Privacy Guides
 
    Whonix for Privacy & Anonymity <https://github.com/Qubes-Community/Contents/blob/master/docs/privacy/whonix.md>
 
@@ -543,13 +498,11 @@ Privacy Guides
    Reducing the fingerprint of the text-based web browser w3m <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/w3m.md>
 
 
-
-Configuration Guides
-^^^^^^^^^^^^^^^^^^^^
-
+.. _external-configuration-guides:
 
 .. toctree::
    :maxdepth: 1
+   :caption: External - Configuration Guides
 
    Qubes Tips and Tricks <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/tips-and-tricks.md>
 
@@ -589,14 +542,11 @@ Configuration Guides
 
    How to install an Nvidia driver in dom0 <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/install-nvidia-driver.md>
 
-
-
-Customization Guides
-^^^^^^^^^^^^^^^^^^^^
-
+.. _external-customization-guides:
 
 .. toctree::
    :maxdepth: 1
+   :caption: External - Customization Guides
 
    Customizing Fedora minimal templates <https://github.com/Qubes-Community/Contents/blob/master/docs/customization/fedora-minimal-template-customization.md>
 
@@ -610,17 +560,12 @@ Customization Guides
 
 
 
-.. _troubleshooting-1:
-
-
-Troubleshooting
-^^^^^^^^^^^^^^^
-
-
+.. _external-troubleshooting:
 
 
 .. toctree::
    :maxdepth: 1
+   :caption: External - Troubleshooting
 
    Nvidia troubleshooting guide <https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/nvidia-troubleshooting.md>
 
@@ -639,13 +584,11 @@ Troubleshooting
    Tails Troubleshooting <https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/tails-troubleshooting.md>
 
 
-
-Building Guides
-^^^^^^^^^^^^^^^
-
+.. _external-ubilding-guides:
 
 .. toctree::
    :maxdepth: 1
+   :caption: External - Building Guides
 
    Building a TemplateVM based on a new OS (ArchLinux example) <https://github.com/Qubes-Community/Contents/blob/master/docs/building/building-non-fedora-template.md>
 

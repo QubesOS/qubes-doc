@@ -259,7 +259,7 @@ How-To Guides
 
 Here are some basic tasks you’re likely to want to perform often that
 are unique to Qubes as a multi-environment system. A full list is
-available in the :ref:`How-To Guides <index:how-to guides>` section in the
+available in the :ref:`How-To Guides <how-to-guides>` section in the
 docs.
 
 - :doc:`How to organize your qubes </user/how-to-guides/how-to-organize-your-qubes>`
