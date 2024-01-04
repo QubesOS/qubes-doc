@@ -1,0 +1,74 @@
+@startuml
+
+box domX (source) #eee
+    participant "client-vm" as cx
+    participant "agent" as ax
+end box
+
+box dom0 #eee
+    participant "daemon domX" as dx
+    participant "client" as c
+    participant "policy" as p
+    participant "daemon domY" as dy
+end box
+
+box domY (target) #eee
+    participant "agent" as ay
+    participant "fork-server" as fy
+end box
+
+-> cx: qrexec-client-vm\n domY\nqubes.Service
+
+activate cx
+cx -> ax: MSG_TRIGGER_SERVICE3\ndomY, SOCKET,\nqubes.Service
+activate ax
+note over ax: 11 is the FD of\nclient-vm connection
+ax -> dx: MSG_TRIGGER_SERVICE3\ndomY, SOCKET11,\nqubes.Service
+deactivate ax
+activate dx
+dx -> p: qrexec-policy\nX domX domY\nqubes.Service SOCKET11
+deactivate dx
+
+activate p
+rnote over p #fff: evaluate policy,\ndecide to run command
+p -> c: qrexec-client\n-d domY\n-c domX,X,SOCKET11\n"DEFAULT:QUBESRPC\nqubes.Service domX"
+deactivate p
+activate c
+
+note over c: negotiating port
+c -> dy: MSG_EXEC_CMDLINE\ndomX,0,"DEFAULT:QUBESRPC\nqubes.Service domX"
+activate dy
+rnote over dy #fff: allocate port 513
+dy -> c: MSG_EXEC_CMDLINE\ndomY,513
+c -> dx: MSG_SERVICE_CONNECT\ndomY,513,SOCKET11
+deactivate c
+
+activate dx
+dx -> ax: MSG_SERVICE_CONNECT\ndomY,513,SOCKET11
+deactivate dx
+activate ax
+ax -> cx: (no header)\ndomY, 513
+deactivate ax
+note over cx #fff: start vchan server\non port 513
+
+note over dy: "DEFAULT"\ngets translated to\nVM's default user
+dy -> ay: MSG_EXEC_CMDLINE\ndomX,513,\n"user:QUBESRPC\nqubes.Service domX"
+deactivate dy
+activate ay
+ay -> fy: MSG_EXEC_CMDLINE\ndomX,513,\n"user:QUBESRPC\nqubes.Service domX"
+deactivate ay
+activate fy
+rnote over fy #fff: start:\nqubes-rpc-multiplexer\nqubes.Service domX\n(as user)
+
+fy --> cx: connect over vchan port 513
+-> cx: stdin
+cx -> fy: MSG_DATA_STDIN ...
+fy -> cx: MSG_DATA_STDOUT / MSG_DATA_STDERR ...
+<- cx: stdout / stderr
+rnote over fy #fff: qubes-rpc-multiplexer\nexits
+fy -> cx: MSG_DATA_EXIT_CODE 0
+deactivate fy
+<- cx: exit with code 0
+deactivate cx
+
+@end uml
