@@ -5,7 +5,7 @@ Qubes OS project security center
 
 This page provides a central hub for topics pertaining to the security
 of the Qubes OS Project. For topics pertaining to software security
-*within* Qubes OS, see :ref:`security in Qubes <index:security in qubes>`.
+*within* Qubes OS, see :ref:`security in Qubes <security-in-qubes>`.
 The following is a list of important project security pages:
 
 - :doc:`Qubes security pack (qubes-secpack) </project-security/security-pack>`

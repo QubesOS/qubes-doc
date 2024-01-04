@@ -336,7 +336,7 @@ symptom-action layout.
 
 **Expected results**:
 
-- Review existing :ref:`troubleshooting guides <index:troubleshooting>`
+- Review existing :ref:`troubleshooting guides <troubleshooting>`
 
 - Review
   `issues <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+doc%22>`__

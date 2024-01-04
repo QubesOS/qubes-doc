@@ -295,7 +295,11 @@ others.
 Don’t forget to select your time and date by clicking on the Time & Date
 entry.
 
-|Time and date| ### Installation destination
+|Time and date|
+
+Installation destination
+^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 Under the System section, you must choose the installation destination.
 Select the storage device on which you would like to install Qubes OS.
@@ -524,8 +528,8 @@ Get Started
 
 
 Find out :doc:`Getting Started </introduction/getting-started>` with Qubes, check
-out the other :ref:`How-To Guides <index:how-to guides>`, and learn about
-:ref:`Templates <index:templates>`.
+out the other :ref:`How-To Guides <how-to-guides>`, and learn about
+:ref:`Templates <templates>`.
 
 Getting help
 ------------

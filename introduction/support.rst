@@ -22,8 +22,8 @@ I have a problem or a question.
 No worries! Here’s how we recommend proceeding:
 
 1. Check the :doc:`documentation </index>`. There may already be a page
-   about it. Specifically, check out the :ref:`How-To Guides <index:how-to guides>` and
-   :ref:`Troubleshooting <index:troubleshooting>` sections.
+   about it. Specifically, check out the :ref:`How-To Guides <how-to-guides>` and
+   :ref:`Troubleshooting <troubleshooting>` sections.
 
 2. Search the :doc:`FAQ </introduction/faq>`. Your question might already be answered.
 

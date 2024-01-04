@@ -322,7 +322,7 @@ short on disk space, you may wish to deselect these options.
 By default, Qubes OS comes preinstalled with the lightweight Xfce4
 desktop environment. Other desktop environments will be available to you
 after the installation is completed, though they may not be officially
-supported (see :ref:`advanced topics <index:advanced topics>`).
+supported (see :ref:`advanced topics <advanced-topics>`).
 
 Press **Done** to go back to the installation summary screen.
 
@@ -544,8 +544,8 @@ Get Started
 
 
 Find out :doc:`Getting Started </introduction/getting-started>` with Qubes, check
-out the other :ref:`How-To Guides <index:how-to guides>`, and learn about
-:ref:`Templates <index:templates>`.
+out the other :ref:`How-To Guides <how-to-guides>`, and learn about
+:ref:`Templates <templates>`.
 
 Getting help
 ------------
