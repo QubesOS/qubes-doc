@@ -1,0 +1,39 @@
+@startuml
+
+box dom0 #eee
+    participant "client" as c
+    participant "daemon domX" as d
+end box
+
+box domX #eee
+    participant "agent" as ax
+    participant "fork-server" as fx
+end box
+
+-> c: qrexec-client\n-d dom0\nuser:cmd
+activate c
+c -> d: MSG_EXEC_CMDLINE\ndom0,0,user:cmd
+activate d
+note right: negotiate port\nand run user:cmd
+rnote over d #fff: allocate port 513
+d -> c: MSG_EXEC_CMDLINE\ndomX,513
+rnote over c #fff: start vchan server\n on port 513
+d -> ax: MSG_EXEC_CMDLINE\ndom0,513,user:cmd
+deactivate d
+activate ax
+
+ax -> fx: MSG_EXEC_CMDLINE\ndom0,513,user:cmd
+deactivate ax
+activate fx
+rnote over fx #fff: start cmd (as user)
+fx --> c: connect over vchan port 513
+-> c: stdin
+c -> fx: MSG_DATA_STDIN ...
+fx -> c: MSG_DATA_STDOUT / MSG_DATA_STDERR ...
+<- c: stdout / stderr
+rnote over fx #fff: cmd exits
+fx -> c: MSG_DATA_EXIT_CODE 0
+deactivate fx
+<- c: exit with code 0
+deactivate c
+@end uml
