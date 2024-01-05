@@ -292,45 +292,6 @@ configuration in user home directory, which is not synchronized.
 **Size of the project**: 175 hours
 
 **Mentor**: `Frédéric Pierret <https://www.qubes-os.org/team/>`__
-      <!--
-      
-      REMOVED as of February 2022: work is being done on this
-      
-      ### Wayland support in GUI agent and/or GUI daemon
-      
-      **Project**: Wayland support in GUI agent and/or GUI daemon
-      
-      **Brief explanation**: Currently both GUI agent (VM side of the GUI virtualization) and GUI daemon (dom0 side of GUI virtualization) support X11 protocol only. It may be useful to add support for Wayland there. Note that those are in fact two independent projects:
-      
-      1. GUI agent - make it work as Wayland compositor, instead of extracting window's composition buffers using custom X11 driver
-      2. GUI daemon - act as Wayland application, showing windows retrieved from VMs, keeping zero-copy display path (window content is directly mapped from application running in VM, not copied)
-      
-      **Expected results**:
-      
-      Choose either of GUI agent, GUI daemon. Both are of similar complexity and each separately looks like a good task for GSoC time period.
-      
-      - design relevant GUI agent/daemon changes, the GUI protocol should not be affected
-      - consider window decoration handling - VM should have no way of spoofing those, so it must be enforced by GUI daemon (either client-side - by GUI daemon itself, or server-side, based on hints given by GUI daemon)
-      - implement relevant GUI agent/daemon changes
-      - implement tests for new GUI handling, similar to existing tests for X11 based GUI
-      
-      Relevant links:
-      
-      -  `Low level GUI documentation <https://ark.intel.com/content/www/us/en/ark.html#@Processors>`__
-      -  `qubes-gui-agent-linux <https://github.com/qubesos/qubes-gui-agent-linux>`__
-      -  `qubes-gui-daemon <https://github.com/qubesos/qubes-gui-daemon>`__
-      -  `Use Wayland instead of X11 to increase performance <https://github.com/qubesos/qubes-issues/issues/3366>`__
-      
-      **Knowledge prerequisite**:
-      
-      - Wayland architecture
-      - basics of X11 (for understanding existing code)
-      - C language
-      - using shared memory (synchronization methods etc)
-      
-      **Mentor**:  `Marek Marczykowski-Górecki <https://ark.intel.com/content/www/us/en/ark.html#@Processors>`__.
-      
-      -->
 
 Qubes Live USB
 ^^^^^^^^^^^^^^
@@ -385,25 +346,6 @@ and installation image. More details:
 **Size of the project**: 350 hours
 
 **Mentor**: `Frédéric Pierret <https://www.qubes-os.org/team/>`__
-      <!--
-      ### Unikernel-based firewallvm with Qubes firewall settings support
-      
-      REMOVED as of January 2020: work is being done on this
-      
-      **Project**: Unikernel based firewallvm with Qubes firewall settings support
-      
-      **Brief explanation**:  `blog post <https://roscidus.com/blog/blog/2016/01/01/a-unikernel-firewall-for-qubesos/>`__,  `repo <https://github.com/talex5/qubes-mirage-firewall>`__
-      
-      **Expected results**: A firewall implemented as a unikernel which supports all the networking-related functionality as the default sys-firewall VM, including configuration via Qubes Manager. Other duties currently assigned to sys-firewall such as the update proxy may need to be appropriately migrated first.
-      
-      **Knowledge prerequisite**:
-      
-      -  `OCaml <https://ocaml.org/>`__ +  `MirageOS <https://mirage.io/>`__ or other unikernel framework,
-      - Xen network stack,
-      - Qubes networking model & firewall semantics.
-      
-      **Mentor**: `Thomas Leonard`_,  `Marek Marczykowski-Górecki <https://ark.intel.com/content/www/us/en/ark.html#@Processors>`__
-      -->
 
 LogVM(s)
 ^^^^^^^^
@@ -724,43 +666,6 @@ Some related discussion:
 **Size of the project**: 350 hours
 
 **Mentor**: `Marek Marczykowski-Górecki <https://www.qubes-os.org/team/>`__
-      <!--
-      
-      REMOVED as of February 2021: work is being done on this
-      
-      ### Porting Qubes to POWER9/PPC64
-      
-      **Project**: Porting Qubes to POWER9/ppc64
-      
-      **Brief explanation**:
-      
-      Qubes currently supports the x86_64 CPU architecture. PowerPC is desirable for security purposes as it is the only architecture where one can get performant hardware with entirely open source firmware. Xen has **deprecated** support for Power9/PPC64 processors. Here are two directions to tackle this project from:
-      
-      - Port Qubes to KVM then work on ppc64 specifics
-        - Implement some missing functionality in KVM then implement KVM support in the Qubes Hypervisor Abstraction Layer and build process. Improving the HAL will also be beneficial for simplifying the process of porting to further architectures and hypervisors.
-      
-      - Port Xen to ppc64 then work on Qubes specifics
-        - For more information on porting Xen see  `this thread <https://markmail.org/message/vuk7atnyqfq52epp>`__.
-      
-      More information and further links can be found in the related issue:
-       `#4318 <https://github.com/QubesOS/qubes-issues/issues/4318>`__.
-      
-      **Expected results**:
-      
-      - Add cross-compilation support to qubes-builder and related components.
-      - Make ppc64 specific adjustments to Qubes toolstacks/manager (including passthrough of devices from device tree to guest domains).
-      - ppc64 specific integration and unit tests.
-      - Production of generic u-boot or uefi capable image/iso for target hardware.
-      
-      **Knowledge prerequisite**:
-      
-      - Libvirt and Qubes toolstacks (C and python languages).
-      - KVM or XEN internals
-      - General ppc64 architecture knowledge.
-      
-      **Mentor**:  `Marek Marczykowski-Górecki <https://ark.intel.com/content/www/us/en/ark.html#@Processors>`__
-      
-      -->
 
 Android development in Qubes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
