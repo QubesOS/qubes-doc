@@ -24,7 +24,7 @@ You can have as many qubes as you want! Most of the time, you'll be using an [ap
 qube](/doc/glossary/#app-qube), a qube for running software
 programs like web browsers, email clients, and word processors. Each app qube
 is based on another type of qube called a [template](/doc/glossary/#template).
-The same template can be a base for various cubes. Importantly, a qube
+The same template can be a base for various qubes. Importantly, a qube
 cannot modify its template in any way. This means that, if a qube is ever
 compromised, its template and any other qubes based on that template will
 remain safe. This is what makes Qubes OS so secure. Even if an attack is
@@ -62,7 +62,7 @@ is used only for running the [desktop
 environment](https://en.wikipedia.org/wiki/Desktop_environment) and [window
 manager](https://en.wikipedia.org/wiki/Window_manager). Dom0 should never be
 used for anything else. In particular, you should never run user applications
-in dom0. (That's what your app qubes are for!) In short, do not interact directly with dom0 in any way, shape or form.
+in dom0. (That's what your app qubes are for!) In short, be very careful when interacting with dom0.
 
 ### Color & Security
 
