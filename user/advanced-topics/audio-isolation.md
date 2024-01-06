@@ -9,19 +9,19 @@ title: Dedicated VM for audio-isolation (sys-audio)
 # Introduction
 
 ## General Concept
-In Qubes, all VMs output sound to a virtual stream. By default, dom0 collects all these streams and relays them to the sound-device. This has the advantage of a very simple, robust setup. However, it requires dom0 to handle the soundcard (a pci-device) and disables any additional sound devices. Since bluetooth-haedsets are common or a broken sound-card requires using a USB-sound-device, a more flexible solution may be desirable.
+In Qubes, all VMs output sound to a virtual stream. By default, dom0 collects all these streams and relays them to the sound-device. This has the advantage of a very simple, robust setup. However, it requires dom0 to handle the sound card (a pci-device) and disables any additional sound devices. Since bluetooth-headsets are common or a broken sound-card requires using a USB-sound-device, a more flexible solution may be desirable.
 
 ## Setup Goals
-A successfull setup with this guide will provide a dedicated VM for sound processing. All VMs will output their sound through the new VM instead of dom0. New audio-devices can be added (e.g. via `qvm-usb`) and used as physical output. Microphone capability will be available as before.
+A successful setup with this guide will provide a dedicated VM for sound processing. All VMs will output their sound through the new VM instead of dom0. New audio-devices can be added (e.g. via `qvm-usb`) and used as physical output. Microphone capability will be available as before.
 
 ## Caveats
 Qubes 4.2 switched from pipewire to pulseaudio. Apart from some details (installed packages, required permissions), this doesn't seem to affect user experience at all.
 
 The volume-tray-icon doesn't work for audio-VMs at the moment.
 
-Some systems integrate a sound-card with the graphics card. There is usually another, normal sound card available. If for any reason you want to use the sound-card integrated in your graphics card, see whether the sound-card is a dedicated PCI-device. This would result in a partial PCI-device passed through to your audio-VM, which may result in unstable behaviour. However, if this isn't possible for you and using the sound-card on your GPU is necessarry, you may have to stick with dom0 as audio-VM.
+Some systems integrate a sound-card with the graphics card. There is usually another, normal sound card available. If for any reason you want to use the sound-card integrated in your graphics card, see whether the sound-card is a dedicated PCI-device. This would result in a partial PCI-device passed through to your audio-VM, which may result in unstable behaviour. However, if this isn't possible for you and using the sound-card on your GPU is necessary, you may have to stick with dom0 as audio-VM.
 
-Keyboard-shortcuts won't work, as the keyboard is attached to dom0 and not your audio-VM. However, the most importand shortcuts can be replicated with commands at the end.
+Keyboard-shortcuts won't work, as the keyboard is attached to dom0 and not your audio-VM. However, the most important shortcuts can be replicated with commandline-bindings.
 
 # Setup
 ## Choosing A Template
@@ -48,7 +48,7 @@ Nothing special, use the `Create New Qube` gui or create a new VM from commandli
 This guide will assume the audio-VM is called `sys-audio`.
 
 ### Add Service
-In the new VM's settings, add a new service called `audiovm`.
+In the new VM's settings, **add a new service called `audiovm`**. Missing this step will cause hard-to-debug problems!
 
 ## Create Permissions
 Open the Qubes Policy Editor. Click `File` -> `New` -> choose a name, but start with `50-`, e.g. `50-sys-audio`. It will contain all audio-service related rules.
@@ -76,10 +76,10 @@ admin.vm.property.GetAll			*							sys-audio	sys-audio				allow target=dom0
 admin.vm.property.GetAll			*							sys-audio	@adminvm				allow target=dom0
 admin.vm.property.GetAll			*							sys-audio	@tag:audiovm-sys-audio	allow target=dom0
 ```
-Make sure to adapte all permissions to your chosen audio-VM-name, incluing all `@tag:audiovm-sys-audio` to `@tag:audiovm-[your audio-VM name]`
+Make sure to adapt all permissions to your chosen audio-VM-name, including all `@tag:audiovm-sys-audio` to `@tag:audiovm-[your audio-VM name]`
 
 ### Attach Devices
-You need to attach some physical output device. This is most likely a pci-divce, but feel free to already attach you bluetooth-device!
+You need to attach some physical output device. This is most likely a pci-device, but feel free to already attach you bluetooth-device!
 
 Identify your sound-card by executing in **dom0**:
 
@@ -121,7 +121,7 @@ At this point, every VM that starts will connect to your audio-VM, but all VMs a
 # Caveats / Improvements
 At the moment, there is no working implementation of the small volume tray-icon. The icon you still see in your panel's tray area is dom0's PulseAudio Plugin. I recommend removing it to avoid confusion.
 
-### Getting Mouse-Controll For Volume
+### Getting Mouse-Control For Volume
 The easiest method is to run pavucontrol form sys-audio and keep the window around. The 'Output Devices'-tab allows easy control by hovering over the (active) volume control bar and using the mouse-wheel.
 
 You can make this a lot easier by adding 'PulseAudio Volume Control' to your audio-VM in the Applications-settings.
@@ -156,7 +156,7 @@ Generally speaking, bluetooth audio devices are supported without any unexpected
 
  1. In the audio-VM's template both these packages need to be installed: `qubes-usb-proxy` and `blueman`.
  2. You need to identify your bluetooth-device. It is usually registered as a USB-device with a number instead of a name. Run `qvm-usb` in dom0 and if you can't see any device obviously doing bluetooth, check the numbered devices with a web-search. One should turn out to be the device-identifier of a bluetooth device.
- 3. Attach that device to the audio-VM. Persitently attaching has the benefit that it automatically attaches when starting the audio-VM which allows autostarting blueman, but can cause problems if the USB-devices get different numbers when starting the USB-proxy and disables attaching the bluetooth-device to another VM. (while the audio-VM is running, which should be most of the time.)
+ 3. Attach that device to the audio-VM. Peristently attaching is an option: it allows auto-starting blueman after boot but can cause problems if the USB-devices get different numbers when starting the USB-proxy and disables attaching the bluetooth-device to another VM. (while the audio-VM is running, which should be most of the time.)
  4. With an attached bluetooth-device, run `blueman-manager` in your audio-VM. This should start a simple window to search for, pair, and use your bluetooth-devices. If this doesn't appear, make sure the bluetooth-device is correctly attached to the audio-VM. Run `lsusb` in the audio-VM to see whether it exists.
 
 # Troubleshooting
@@ -181,11 +181,11 @@ To debug:
  6. Make sure the devices are not "Off". Several profiles may be valid / should work depending on device, but if you are unsure: "Analog Stereo Duplex" is a safe bet for your sound-card.
  7. If there is still no audio (check by starting a stream in a VM), navigate to the "Output Devices"-Tab.
  8. Start a stream that outputs audio. You should see one horizontal line flickering. (you might have to scroll!)
- 9. The blue line is a volume-indicator. It means this device is active as output-device. Make sure it's not muted. If it's active and you can't use it for other reasons, activate a different device you know should work by clicking the checkmark to the right of the device name.
+ 9. The blue line is a volume-indicator. It means this device is active as output-device. Make sure it's not muted. If it's active and you can't use it for other reasons, activate a different device you know should work by clicking the check mark to the right of the device name.
  10. Make sure the volume-control (the static horizontal line with 'Silence' and '100%(0 dB)' indicator) is not set to the very left and move it a bit to the right.
 
-### Soundcard / Build-in Audio Is Missing
-Reboot your audio-VM until it shows up. The easiest way is to boot by selecting 'pavucontrol' (of your audio-VM) from the application finder. You shuld see the device in the 'Output Device'-tab.
+### Sound card / Build-in Audio Is Missing
+Reboot your audio-VM until it shows up. The easiest way is to boot by selecting 'pavucontrol' (of your audio-VM) from the application finder. You should see the device in the 'Output Device'-tab.
 
 ### Revert To dom0 As Audio-VM
 This is rather simple:
