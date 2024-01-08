@@ -1,0 +1,55 @@
+@startuml
+
+box domX #eee
+    participant "client-vm" as cx
+    participant "agent" as ax
+end box
+
+box dom0 #eee
+    participant "daemon domX" as d
+    participant "client" as c
+    participant "policy" as p
+end box
+
+-> cx: qrexec-client-vm\ndom0 admin.Service
+
+activate cx
+cx -> ax: MSG_TRIGGER_SERVICE3\ndom0, SOCKET,\nadmin.Service
+activate ax
+note over ax: 11 is the FD of\nclient-vm connection
+ax -> d: MSG_TRIGGER_SERVICE3\ndom0, SOCKET11,\nadmin.Service
+deactivate ax
+activate d
+d -> p: qrexec-policy\nX domX dom0\nadmin.Service SOCKET11
+deactivate d
+activate p
+
+rnote over p #fff: evaluate policy,\ndecide to run command
+p -> c: qrexec-client\n-d dom0\n-c domX,X,SOCKET11\n"QUBESRPC admin.Service\ndomX name dom0"
+deactivate p
+activate c
+
+note over c: negotiating port
+c -> d: MSG_SERVICE_CONNECT\ndom0,0,SOCKET11
+activate d
+rnote over d #fff: allocate port 513
+d -> c: MSG_SERVICE_CONNECT\ndomX,513,SOCKET11
+d -> ax: MSG_SERVICE_CONNECT\ndom0,513,SOCKET11
+deactivate d
+activate ax
+ax -> cx: (no header)\ndom0,513
+deactivate ax
+rnote over cx #fff: start vchan server\n on port 513
+rnote over c #fff: start:\nqubes-rpc-multiplexer\nadmin.Service\ndomX name dom0
+c --> cx: connect over vchan port 513
+-> cx: stdin
+cx -> c: MSG_DATA_STDIN ...
+c -> cx: MSG_DATA_STDOUT ...
+<- cx: stdout
+rnote over c #fff: qubes-rpc-multiplexer exits
+c -> cx: MSG_DATA_EXIT_CODE 0
+deactivate c
+<- cx: exit with code 0
+deactivate cx
+
+@end uml

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="25cm" height="16cm" viewBox="-1 -1 482 306" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="170" y="0" width="310" height="290"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="170" y="0" width="310" height="290"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="180" y="20" width="100" height="220"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 4; stroke: #000000" x="180" y="20" width="100" height="220"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="0" y="0" width="150" height="160"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="0" y="0" width="150" height="160"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="0" y="170" width="150" height="70"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="0" y="170" width="150" height="70"/>
+  </g>
+  <text font-size="10.16" style="fill: #000000;text-anchor:start;font-family:League Spartan;font-style:normal;font-weight:700" x="0" y="9.4">
+    <tspan x="0" y="9.4"> mgmt-1</tspan>
+    <tspan x="0" y="22.1"> (gui-domain?)</tspan>
+  </text>
+  <text font-size="10.16" style="fill: #000000;text-anchor:start;font-family:League Spartan;font-style:normal;font-weight:700" x="0" y="179.4">
+    <tspan x="0" y="179.4"> mgmt-2 ...</tspan>
+    <tspan x="0" y="192.1"> (remote?)</tspan>
+  </text>
+  <text font-size="10.16" style="fill: #000000;text-anchor:start;font-family:League Spartan;font-style:normal;font-weight:700" x="170" y="9.4">
+    <tspan x="170" y="9.4"> dom0</tspan>
+  </text>
+  <g>
+    <polygon style="fill: #ffffff" points="398.279,118.274 438.208,160.053 398.279,201.832 358.35,160.053 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="398.279,118.274 438.208,160.053 398.279,201.832 358.35,160.053 "/>
+    <text font-size="9.03111" style="fill: #000000;text-anchor:middle;font-family:League Spartan;font-style:normal;font-weight:700" x="398.279" y="162.809">
+      <tspan x="398.279" y="162.809">qubesd</tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="441.03,160.053 460,160.053 460,220 420,220 420,235.528 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="448.794,155.053 438.794,160.053 448.794,165.053 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="415,227.764 420,237.764 425,227.764 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="398.508,8.58316 438.389,49.6781 398.508,90.773 358.626,49.6781 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="398.508,8.58316 438.389,49.6781 398.508,90.773 358.626,49.6781 "/>
+    <text font-size="9.03111" style="fill: #000000;text-anchor:middle;font-family:League Spartan;font-style:normal;font-weight:700" x="398.508" y="52.4337">
+      <tspan x="398.508" y="52.4337">libvirtd</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="398.294" y1="115.528" x2="398.357" y2="96.127"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="393.32,107.748 398.287,117.764 403.32,107.78 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="403.332,103.907 398.365,93.891 393.332,103.875 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="200" y="60" width="60" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="200" y="60" width="60" height="20"/>
+  </g>
+  <text font-size="7.90222" style="fill: #000000;text-anchor:middle;font-family:League Spartan;font-style:normal;font-weight:700" x="230" y="72.75">
+    <tspan x="230" y="72.75">qrexec call</tspan>
+  </text>
+  <g>
+    <ellipse style="fill: #ffffff" cx="310" cy="70" rx="10" ry="10"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="310" cy="70" rx="10" ry="10"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="260" y1="70" x2="294.529" y2="70"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="286.765,75 296.765,70 286.765,65 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="200" y="90" width="60" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="200" y="90" width="60" height="20"/>
+  </g>
+  <text font-size="7.90222" style="fill: #000000;text-anchor:middle;font-family:League Spartan;font-style:normal;font-weight:700" x="230" y="102.75">
+    <tspan x="230" y="102.75">qrexec call</tspan>
+  </text>
+  <g>
+    <ellipse style="fill: #ffffff" cx="310" cy="100" rx="10" ry="10"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="310" cy="100" rx="10" ry="10"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="260" y1="100" x2="294.529" y2="100"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="286.765,105 296.765,100 286.765,95 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="200" y="120" width="60" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="200" y="120" width="60" height="20"/>
+  </g>
+  <text font-size="7.90222" style="fill: #000000;text-anchor:middle;font-family:League Spartan;font-style:normal;font-weight:700" x="230" y="132.75">
+    <tspan x="230" y="132.75">qrexec call</tspan>
+  </text>
+  <g>
+    <ellipse style="fill: #ffffff" cx="310" cy="130" rx="10" ry="10"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="310" cy="130" rx="10" ry="10"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="260" y1="130" x2="294.529" y2="130"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="286.765,135 296.765,130 286.765,125 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="320,70 340,70 340,160.053 355.528,160.053 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="347.764,165.053 357.764,160.053 347.764,155.053 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="320,100 340,100 340,160.053 355.528,160.053 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="347.764,165.053 357.764,160.053 347.764,155.053 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="320,130 340,130 340,160.053 355.528,160.053 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="347.764,165.053 357.764,160.053 347.764,155.053 "/>
+  </g>
+  <text font-size="9.03111" style="fill: #000000;text-anchor:start;font-family:League Spartan;font-style:normal;font-weight:700" x="180" y="28.4">
+    <tspan x="180" y="28.4"> qrexec</tspan>
+  </text>
+  <g>
+    <ellipse style="fill: #ffffff" cx="230" cy="190" rx="20" ry="20"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="230" cy="190" rx="20" ry="20"/>
+  </g>
+  <text font-size="7.90222" style="fill: #000000;text-anchor:middle;font-family:League Spartan;font-style:normal;font-weight:700" x="230" y="187.811">
+    <tspan x="230" y="187.811">policy</tspan>
+    <tspan x="230" y="197.689">query</tspan>
+  </text>
+  <g>
+    <ellipse style="fill: #ffffff" cx="102.515" cy="62.5154" rx="32.5154" ry="32.5154"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="102.515" cy="62.5154" rx="32.5154" ry="32.5154"/>
+  </g>
+  <text font-size="7.90222" style="fill: #000000;text-anchor:middle;font-family:League Spartan;font-style:normal;font-weight:700" x="102.515" y="60.3265">
+    <tspan x="102.515" y="60.3265">Qubes OS</tspan>
+    <tspan x="102.515" y="70.2043">Manager</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="135.936" y1="65.0813" x2="195.541" y2="69.6576"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="187.417,74.0486 197.77,69.8288 188.183,64.078 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="134.741" y1="71.6009" x2="195.696" y2="88.7864"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="186.866,91.492 197.848,89.3932 189.58,81.8672 "/>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="44.9693" cy="114.969" rx="24.9693" ry="24.9693"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="44.9693" cy="114.969" rx="24.9693" ry="24.9693"/>
+  </g>
+  <text font-size="7.90222" style="fill: #000000;text-anchor:middle;font-family:League Spartan;font-style:normal;font-weight:700" x="44.9694" y="117.719">
+    <tspan x="44.9694" y="117.719">CLI tools</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="70.8961" y1="114.138" x2="195.53" y2="110.143"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="187.93,115.389 197.765,110.072 187.61,105.395 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="70.8015" y1="117.474" x2="195.549" y2="129.568"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="187.339,133.796 197.774,129.784 188.304,123.843 "/>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="114.969" cy="204.969" rx="24.9693" ry="24.9693"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="114.969" cy="204.969" rx="24.9693" ry="24.9693"/>
+  </g>
+  <text font-size="7.90222" style="fill: #000000;text-anchor:middle;font-family:League Spartan;font-style:normal;font-weight:700" x="114.969" y="202.781">
+    <tspan x="114.969" y="202.781">remote</tspan>
+    <tspan x="114.969" y="212.659">proxy</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="135.609" y1="189.199" x2="196.446" y2="142.715"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="193.313,151.402 198.223,141.358 187.242,143.456 "/>
+  </g>
+  <text font-size="9.03111" style="fill: #000000;text-anchor:end;font-family:League Spartan;font-style:normal;font-weight:700" x="160" y="268.4">
+    <tspan x="160" y="268.4">Qubes Admin API</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="160" y1="260" x2="160" y2="190.5"/>
+    <polygon style="fill: #000000" points="162,190.5 160,180.5 158,190.5 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="162,190.5 160,180.5 158,190.5 "/>
+  </g>
+  <text font-size="9.03111" style="fill: #000000;text-anchor:end;font-family:League Spartan;font-style:normal;font-weight:700" x="160" y="288.4">
+    <tspan x="160" y="288.4">qubesd socket API</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="160" y1="280" x2="340.913" y2="175.261"/>
+    <polygon style="fill: #000000" points="341.915,176.992 349.567,170.251 339.911,173.53 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="341.915,176.992 349.567,170.251 339.911,173.53 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 10; stroke: #000000" x1="10" y1="270" x2="89.1025" y2="220.994"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="85.1358,229.334 91.0034,219.817 79.8693,220.833 "/>
+  </g>
+  <g>
+    <path style="fill: #ffffff" d="M 9.10799 272.906 C 6.00939,272.756 0,275.907 0.845072,282.66 C 1.69014,289.413 5.7277,290.914 7.41785,288.963 C 9.10799,287.012 4.78873,298.417 13.0517,301.419 C 21.3145,304.42 25.5399,299.618 24.3192,296.166 C 23.0986,292.715 31.5493,304.27 35.4929,297.667 C 39.4366,291.064 31.4554,284.761 33.1455,285.662 C 34.8357,286.562 40,285.362 38.3099,274.106 C 36.6197,262.851 21.4084,271.555 23.0986,269.905 C 24.7887,268.254 20.5633,260 15.3052,261.651 C 10.047,263.302 9.674,266.297 9.11062,272.9 L 9.10799,272.906z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 4; stroke: #000000" d="M 9.10799 272.906 C 6.00939,272.756 0,275.907 0.845072,282.66 C 1.69014,289.413 5.7277,290.914 7.41785,288.963 C 9.10799,287.012 4.78873,298.417 13.0517,301.419 C 21.3145,304.42 25.5399,299.618 24.3192,296.166 C 23.0986,292.715 31.5493,304.27 35.4929,297.667 C 39.4366,291.064 31.4554,284.761 33.1455,285.662 C 34.8357,286.562 40,285.362 38.3099,274.106 C 36.6197,262.851 21.4084,271.555 23.0986,269.905 C 24.7887,268.254 20.5633,260 15.3052,261.651 C 10.047,263.302 9.674,266.297 9.11062,272.9 L 9.10799,272.906"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="21.0723" y="286.993">
+      <tspan x="21.0723" y="286.993"></tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="410" y="130" width="30" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="410" y="130" width="30" height="20"/>
+  </g>
+  <text font-size="7.90222" style="fill: #000000;text-anchor:middle;font-family:League Spartan;font-style:normal;font-weight:700" x="425" y="142.75">
+    <tspan x="425" y="142.75">ext</tspan>
+  </text>
+  <g>
+    <polygon style="fill: #ffffff" points="395.221,240 450.973,240 450.973,280 389.026,280 389.026,244 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="395.221,240 450.973,240 450.973,280 389.026,280 389.026,244 "/>
+    <text font-size="9.03111" style="fill: #000000;text-anchor:middle;font-family:League Spartan;font-style:normal;font-weight:700" x="421.548" y="263.822">
+      <tspan x="421.548" y="263.822">qubes.xml</tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="314.926,240 371.342,240 371.342,280 308.658,280 308.658,244 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="314.926,240 371.342,240 371.342,280 308.658,280 308.658,244 "/>
+    <text font-size="9.03111" style="fill: #000000;text-anchor:middle;font-family:League Spartan;font-style:normal;font-weight:700" x="341.567" y="263.822">
+      <tspan x="341.567" y="263.822">RPC policy</tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="250.992,190 431.72,190 431.72,210 340,210 340,235.528 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="335,227.764 340,237.764 345,227.764 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="420" y="120" width="30" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="420" y="120" width="30" height="20"/>
+  </g>
+  <text font-size="7.90222" style="fill: #000000;text-anchor:middle;font-family:League Spartan;font-style:normal;font-weight:700" x="435" y="132.75">
+    <tspan x="435" y="132.75">ext</tspan>
+  </text>
+</svg>
