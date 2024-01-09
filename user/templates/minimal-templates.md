@@ -192,7 +192,7 @@ are:
 Also, there are packages to provide additional services:
 
 - `qubes-gpg-split`: For implementing split GPG.
-- `qubes-u2f`: For implementing secure forwarding of U2F messages.
+- `qubes-ctap`: For implementing secure forwarding of CTAP messages.
 - `qubes-pdf-converter`: For implementing safe conversion of PDFs.
 - `qubes-img-converter`: For implementing safe conversion of images.
 - `qubes-snapd-helper`: If you want to use snaps in qubes.
@@ -287,7 +287,7 @@ are:
 Also, there are packages to provide additional services:
 
 - `qubes-gpg-split`: For implementing split GPG.
-- `qubes-u2f`: For implementing secure forwarding of U2F messages.
+- `qubes-ctap`: For implementing secure forwarding of CTAP messages.
 - `qubes-pdf-converter`: For implementing safe conversion of PDFs.
 - `qubes-img-converter`: For implementing safe conversion of images.
 - `qubes-snapd-helper`: If you want to use snaps in qubes.
