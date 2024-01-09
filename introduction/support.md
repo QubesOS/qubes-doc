@@ -403,7 +403,7 @@ interface](https://groups.google.com/group/qubes-devel).
 This list is for non-technical discussion and coordination around the Qubes OS
 project.
 
-Examples of topics or question suitable for this list include:
+Examples of topics or questions suitable for this list include:
 
 * Participation (talks, workshops, etc.) at upcoming events
 * Project funding applications and strategies
@@ -430,7 +430,7 @@ interface](https://groups.google.com/group/qubes-project).
 This list is for discussion around the localization and translation of Qubes
 OS, its documentation, and the website.
 
-Examples of topics or question suitable for this list include:
+Examples of topics or questions suitable for this list include:
 
 * Questions about or issues with [Transifex](https://www.transifex.com/), the
   translation platform we use
