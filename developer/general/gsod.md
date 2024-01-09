@@ -59,7 +59,7 @@ Below is an example of the content (which is already [documented](/doc/)) that t
 - Passwordless root
 - Anti Evil Maid
 - Split GPG
-- U2F proxy
+- CTAP proxy
 - YubiKey
 - Whonix
 - How to install and use a VPN in Qubes

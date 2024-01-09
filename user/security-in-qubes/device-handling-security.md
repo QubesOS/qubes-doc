@@ -71,4 +71,4 @@ Locking the screen (with a traditional password) does not solve the problem, bec
 One possibility is to set up the screen locker to require an additional step to unlock (i.e., two-factor authentication).
 One way to achieve this is to use a [YubiKey](/doc/YubiKey/), or some other hardware token, or even to manually enter a one-time password.
 
-Support for [two factor authentication](/news/2018/09/11/qubes-u2f-proxy/) was recently added, though there are [issues](https://github.com/QubesOS/qubes-issues/issues/4661).
+Support for [two factor authentication](/news/2018/09/11/qubes-ctap-proxy/) was recently added, though there are [issues](https://github.com/QubesOS/qubes-issues/issues/4661).

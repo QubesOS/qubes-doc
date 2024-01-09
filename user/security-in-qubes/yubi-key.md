@@ -22,8 +22,8 @@ Most use cases for the YubiKey can be achieved exactly as described by the
 manufacturer or other instructions found online. One usually just needs to
 attach the YubiKey to the corresponding app qube to get the same result (see the
 documentation on how to use [USB devices](/doc/how-to-use-usb-devices/) in Qubes
-OS accordingly). The recommended way for using U2F in Qubes is described
-[here](https://www.qubes-os.org/doc/u2f-proxy/).
+OS accordingly). The recommended way for using CTAP in Qubes is described
+[here](https://www.qubes-os.org/doc/ctap-proxy/).
 
 ## Multi-factor login for Qubes OS
 
