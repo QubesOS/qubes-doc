@@ -65,7 +65,7 @@ The [NitroPC Pro](https://shop.nitrokey.com/shop/product/nitropc-pro-523) is a d
 
 [![Photo of the Star Labs StarBook](/attachment/site/starlabs-starbook.png)](https://starlabs.systems/pages/starbook)
 
-The [Star Labs StarBook](https://starlabs.systems/pages/starbook) is a 14-inch laptop. It is certified for Qubes OS 4.X. Read our [announcement](TODO) for details.
+The [Star Labs StarBook](https://starlabs.systems/pages/starbook) is a 14-inch laptop. It is certified for Qubes OS 4.X.
 
 ## Become hardware certified
 
