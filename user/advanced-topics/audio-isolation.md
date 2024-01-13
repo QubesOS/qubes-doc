@@ -39,6 +39,7 @@ dnf install qubes-audio-daemon pulseaudio-utils notification-daemon pavucontrol 
 **optional**  
 for bluetooth-support: `blueman qubes-usb-proxy`  
 for audio-USB-support: `qubes-usb-proxy`  
+for tray-icon-support: [`pasystray`](#installing-pasystray)
 
 Additionally, `pulseaudio-utils` is technically optional, but a great help in debugging and used to implement volume-change keyboard shortcuts.
 
@@ -125,6 +126,23 @@ At the moment, there is no working implementation of the small volume tray-icon.
 The easiest method is to run pavucontrol form sys-audio and keep the window around. The 'Output Devices'-tab allows easy control by hovering over the (active) volume control bar and using the mouse-wheel.
 
 You can make this a lot easier by adding 'PulseAudio Volume Control' to your audio-VM in the Applications-settings.
+
+#### Installing `pasystray`
+To recover some tray-icon functionality, install the package `pasystray` in the audiovm's template:
+
+```sudo dnf install pasystray```
+
+It won't provide all functions the dom0 tray-icon provided. To autostart the tray-icon on audiovm boot, add this line to `/rw/config/rc.local` in your audiovm:
+
+```pasystray```
+
+The tray-icon should provide:
+
+ * volume-indication
+ * change volume via mouse-wheel
+ * open `pavucontrol` (Volume Control GUI) via menu
+
+The `pasystray`-project reports other functionality as well, though they don't seem to work seamlessly in QubesOS.
 
 ### Getting Keyboard-Control For Volume
 Since the keyboard is attached to dom0, you need to build a solution in dom0. The approach chosen is to run a command in the audio-VM and bind those to shortcuts in xfce.
