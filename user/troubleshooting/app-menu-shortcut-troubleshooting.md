@@ -115,3 +115,22 @@ Actual command lines for the menu shortcuts involve `qvm-run` command which star
 Examples: `qvm-run -q -a --service -- %VMNAME% qubes.StartApp+7-Zip-7-Zip_File_Manager` or `qvm-run -q -a --service -- %VMNAME% qubes.StartApp+firefox`
 
 Note that you can create a shortcut that points to a .desktop file in your app qube with e.g. `qvm-run -q -a --service -- personal qubes.StartApp+firefox`.
+
+While this works well for standard applications, creating a menu entry for Windows application running under wine may need an additional step in order to establish the necessary environment in wine. Installing software under wine may create the needed `.desktop` file in the target Linux VM. This file is expected to be in the directory `~/.local/share/applications`, but it may be that it is stored in a subdirectory thereof, determined by the Windows menu structure, where it may not be found. The solution is to copy or move this file from its location to `~/.local/share/applications`.  The name of this file has to be the name used in the `.desktop` file in dom0. So if the shortcut in dom0 points to  `qvm-run -q -a --service -- personal qubes.StartApp+Excel`, the correspondig file in the AppVM has to be called `Excel.desktop`.
+
+If necessary, you can create the `.desktop` file neeeded to start the wine application manually. For Excel, e.g., it will look like this
+
+~~~
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+X-Qubes-VmName=personal
+Icon=/usr/share/icons/hicolor/48x48/apps/Excel.png
+Name=Microsoft Excel
+Categories=X-Qubes-VM;
+Exec=env WINEPREFIX="/home/user/.wine" /usr/bin/wine C:\\\\windows\\\\command\\\\start.exe /Unix /home/user/.wine/dosdevices/c:/users/user/Start\\ Menu/Programs/Microsoft\ Excel.lnk
+StartupWMClass=Excel.exe
+~~~
+
+The rather complicated line `Exec=...` points to an entry in the Windows menu structure calling Excel, not to the executable itself.
