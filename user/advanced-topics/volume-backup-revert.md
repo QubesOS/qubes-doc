@@ -31,7 +31,7 @@ qvm-volume info vmname:private
 
 The output of the above command will also display the "Available revisions
 (for revert)" at the bottom. For a very large volume in a small pool,
-revisions_to_keep should probably be set to the minimum value of 1 to minimize
+revisions_to_keep should probably be set to the maximum value of 1 to minimize
 the possibility of the pool being accidentally filled up by snapshots. For a
 smaller volume for which you would like to have the future option of reverting,
 revisions_to_keep should probably be set to at least 2. To set
