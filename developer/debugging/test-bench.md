@@ -121,7 +121,7 @@ The following commands should work for you, but do keep in mind that the provisi
    sudo qubesctl top.enable system-tests
 
    # Install the same configuration as the one in openQA
-   QUBES_VERSION=4.1
+   QUBES_VERSION=4.2
    PILLAR_DIR=/srv/pillar/base/update
    sudo mkdir -p $PILLAR_DIR
    printf 'update:\n  qubes_ver: '$QUBES_VERSION'\n' | sudo tee $PILLAR_DIR/init.sls
