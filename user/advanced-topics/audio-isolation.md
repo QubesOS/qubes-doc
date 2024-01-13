@@ -55,26 +55,26 @@ Open the Qubes Policy Editor. Click `File` -> `New` -> choose a name, but start 
 
 In the new file, enter these rules:
 ```
-admin.Events						*							sys-audio	sys-audio				allow target=dom0
-admin.Events						*							sys-audio	@adminvm				allow target=dom0
-admin.Events						*							sys-audio	@tag:audiovm-sys-audio	allow target=dom0
-admin.vm.CurrentState				*							sys-audio	sys-audio				allow target=dom0
-admin.vm.CurrentState				*							sys-audio	@adminvm				allow target=dom0
-admin.vm.CurrentState				*							sys-audio	@tag:audiovm-sys-audio	allow target=dom0
-admin.vm.listening					*							sys-audio	sys-audio				allow target=dom0
-admin.vm.List						*							sys-audio	@adminvm				allow target=dom0
-admin.vm.List						*							sys-audio	@tag:audiovm-sys-audio	allow target=dom0
-admin.vm.property.Get				+audiovm					sys-audio	@tag:audiovm-sys-audio	allow target=dom0
-admin.vm.property.Get				+xid						sys-audio	@tag:audiovm-sys-audio	allow target=dom0
-admin.vm.property.Get				+stubdom_xid				sys-audio	@tag:audiovm-sys-audio	allow target=dom0
-#admin.vm.feature.CheckWithTemplate	*							sys-audio	@tag:audiovm-sys-audio	allow target=dom0
-admin.vm.feature.CheckWithTemplate	+audio-model				sys-audio	@tag:audiovm-sys-audio	allow target=dom0
-admin.vm.feature.CheckWithTemplate	+audio						sys-audio	@tag:audiovm-sys-audio	allow target=dom0
-admin.vm.feature.CheckWithTemplate +supported-service.pipewire	sys-audio	@tag:audiovm-sys-audio	allow target=dom0
-admin.vm.feature.CheckWithTemplate +audio-low-latency			sys-audio	@tag:audiovm-sys-audio	allow target=dom0
-admin.vm.property.GetAll			*							sys-audio	sys-audio				allow target=dom0
-admin.vm.property.GetAll			*							sys-audio	@adminvm				allow target=dom0
-admin.vm.property.GetAll			*							sys-audio	@tag:audiovm-sys-audio	allow target=dom0
+admin.Events                        *                            sys-audio    sys-audio              allow target=dom0
+admin.Events                        *                            sys-audio    @adminvm               allow target=dom0
+admin.Events                        *                            sys-audio    @tag:audiovm-sys-audio allow target=dom0
+admin.vm.CurrentState               *                            sys-audio    sys-audio              allow target=dom0
+admin.vm.CurrentState               *                            sys-audio    @adminvm               allow target=dom0
+admin.vm.CurrentState               *                            sys-audio    @tag:audiovm-sys-audio allow target=dom0
+admin.vm.listening                  *                            sys-audio    sys-audio              allow target=dom0
+admin.vm.List                       *                            sys-audio    @adminvm               allow target=dom0
+admin.vm.List                       *                            sys-audio    @tag:audiovm-sys-audio allow target=dom0
+admin.vm.property.Get               +audiovm                     sys-audio    @tag:audiovm-sys-audio allow target=dom0
+admin.vm.property.Get               +xid                         sys-audio    @tag:audiovm-sys-audio allow target=dom0
+admin.vm.property.Get               +stubdom_xid                 sys-audio    @tag:audiovm-sys-audio allow target=dom0
+#admin.vm.feature.CheckWithTemplate *                            sys-audio    @tag:audiovm-sys-audio allow target=dom0
+admin.vm.feature.CheckWithTemplate  +audio-model                 sys-audio    @tag:audiovm-sys-audio allow target=dom0
+admin.vm.feature.CheckWithTemplate  +audio                       sys-audio    @tag:audiovm-sys-audio allow target=dom0
+admin.vm.feature.CheckWithTemplate  +supported-service.pipewire  sys-audio    @tag:audiovm-sys-audio allow target=dom0
+admin.vm.feature.CheckWithTemplate  +audio-low-latency           sys-audio    @tag:audiovm-sys-audio allow target=dom0
+admin.vm.property.GetAll            *                            sys-audio    sys-audio              allow target=dom0
+admin.vm.property.GetAll            *                            sys-audio    @adminvm               allow target=dom0
+admin.vm.property.GetAll            *                            sys-audio    @tag:audiovm-sys-audio allow target=dom0
 ```
 Make sure to adapt all permissions to your chosen audio-VM-name, including all `@tag:audiovm-sys-audio` to `@tag:audiovm-[your audio-VM name]`
 
@@ -156,7 +156,7 @@ Generally speaking, bluetooth audio devices are supported without any unexpected
 
  1. In the audio-VM's template both these packages need to be installed: `qubes-usb-proxy` and `blueman`.
  2. You need to identify your bluetooth-device. It is usually registered as a USB-device with a number instead of a name. Run `qvm-usb` in dom0 and if you can't see any device obviously doing bluetooth, check the numbered devices with a web-search. One should turn out to be the device-identifier of a bluetooth device.
- 3. Attach that device to the audio-VM. Peristently attaching is an option: it allows auto-starting blueman after boot but can cause problems if the USB-devices get different numbers when starting the USB-proxy and disables attaching the bluetooth-device to another VM. (while the audio-VM is running, which should be most of the time.)
+ 3. Attach that device to the audio-VM. Persistently attaching is an option: it allows auto-starting blueman after boot but can cause problems if the USB-devices get different numbers when starting the USB-proxy and disables attaching the bluetooth-device to another VM. (while the audio-VM is running, which should be most of the time.)
  4. With an attached bluetooth-device, run `blueman-manager` in your audio-VM. This should start a simple window to search for, pair, and use your bluetooth-devices. If this doesn't appear, make sure the bluetooth-device is correctly attached to the audio-VM. Run `lsusb` in the audio-VM to see whether it exists.
 
 # Troubleshooting
