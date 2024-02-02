@@ -1,31 +1,125 @@
 ---
 lang: en
 layout: doc
-permalink: /doc/yubikey/
+permalink: /doc/mfa/
 redirect_from:
 - /doc/yubi-key/
 - /en/doc/yubi-key/
 - /doc/YubiKey/
+- /doc/yubikey/
 ref: 169
-title: YubiKey
+title: Multi-factor Login
 ---
+
+
+## Multi-factor authentication within in particular qubes
+
+Most use cases for the hardware tokens can be achieved exactly as described by the
+manufacturer or other instructions found online. One usually just needs to
+attach the token (e.g. YubiKey) to the corresponding app qube to get the same
+result (see the documentation on how to use [USB devices](/doc/how-to-use-usb-devices/)
+in Qubes OS accordingly). The recommended way for using CTAP in Qubes is described
+[here](https://www.qubes-os.org/doc/ctap-proxy/).
+
+## Multi-factor login for Qubes OS
+
+By default Qubes has two protection mechanisms against attackers. The first is full disk encryption and the second the user login screen / lockscreen. This article section concerns only adding multi-factor authentication to the second one.
+
+### Time-based One-time Password (TOTP)
+
+As the name implies, this generates authentication code that is time-dependent. You can save the TOTP secret in a mobile app like [FreeOTP](https://en.wikipedia.org/wiki/FreeOTP)
+and then use it as an additional factor to login to your Qubes system.
+
+> **Warning**: remember to keep backup access codes.
+
+1. Download `google-authenticator` in dom0:
+
+    ```
+    sudo qubes-dom0-update google-authenticator
+    ```
+
+2. Run google authenticator:
+
+    ```
+    google-authenticator
+    ```
+
+3. Walk through the setup instructions 2 which will also generate your QR code for your auth app of choice:
+
+   ```
+   Do you want me to update your “/home/user/.google_authenticator” file (y/n) y
+
+   Do you want to disallow multiple uses of the same authentication token? This restricts you to one login about every 30s, but it increases your chances to notice or even prevent man-in-the-middle attacks (y/n)
+
+   By default, tokens are good for 30 seconds, and to compensate for possible time-skew between the client and the server, we allow an extra token before and after the current time. If you experience problems with poor time synchronization, you can increase the window from its default size of 1:30min to about 4min. Do you want to do so (y/n)
+
+   If the computer that you are logging into isn’t hardened against brute-force login attempts, you can enable rate-limiting for the authentication module. By default, this limits attackers to no more than 3 login attempts every 30s. Do you want to enable rate-limiting (y/n)
+   ```
+
+> **Warning**: in the next session if incorrectly performed, there is the risk of locking yourself out. Before procedding ensure that you have an up-to-date backup.
+>
+> For advanced users, to make sure you can quickly recover, you can also open another loging session in a tty. To do this, you do <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>F2</kbd> and login normally. Should anything go wrong, as long as you don't shut the computer down, you can still access this tty by entering the same key combination and reverting the changes. After you've opened this "backup" login, you can get to your graphical desktop with <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>F1</kbd>.
+
+Now we are going to add the authenticator as a login requirement:
+
+1. `sudo authselect create-profile mfa --base-on sssd`
+
+2. Edit the custom system authentication template with `sudo nanois encouraged /etc/authselect/custom/mfa/system-auth`.
+
+   Add the following line right after `auth required pam_faildelay.so delay=2000000`:
+
+   ```
+   auth required pam_google_authenticator.so
+   ```
+
+   After the change, the top of the file should look like this:
+
+   ```
+   {imply "with-smartcard" if "with-smartcard-required"}
+   auth required pam_env.so
+   auth required pam_faildelay.so delay=2000000
+   auth required pam_google_authenticator.so
+   ```
+
+3. Lastly, activate this authentication method with:
+
+   ```
+   sudo authselect select custom/mfa
+   ```
+
+Now you can test by locking the screen with <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>l</kbd>. If it was successful and you are pleased with the results, restart your computer.
+
+**Note**: When logging in. the first thing you put is the TOTP secret and then the password. This is true in the screen locker and as well as the session manager (the login window that shows right after you put the disk encryption passphrase).
+
+After this is done, its recommended to do a backup. This is because as long as you incude dom0 in the backup, your authentication code will be backed up as well.
+
+#### Troubleshooting
+
+The following assumes you haven't restarted your computer since setting up TOTP secret.
+
+1. Switch to TTY2 with <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>F2</kbd>.
+2. Revert to the original policy with:
+   ```
+   sudo authselect select sssd
+   ```
+3. Switch back to the graphical desktop with <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>F1</kbd>. You should be able to login normally (without multi-factor authentication).
+4. Change the mfa custom policy and apply it again.
+
+#### Lost TOTP / authentication device?
+
+In case you've lost your TOTP authentication device, you have two options.
+
+The first option is backup codes. When generating the TOTP secret you must have saved some recovery codes. Those can be used in place of the TOTP code, but they're discarded after use. So make sure you redo the multi-factor authentications intructions.
+
+The second option is recovery from a backup. It will work as long as you included dom0 in said backup. After restoring the dom0 backup, open a terminal in dom0 and the file should be located in `/home/<USER>/home-restore-<DATE>/dom0-home/<USER>/.google_authenticator`.
+
+### Login with a YubiKey
 
 "The YubiKey is a hardware authentication device manufactured by Yubico to
 protect access to computers, networks, and online services that supports
 one-time passwords (OTP), public-key cryptography, and authentication, and the
 Universal 2nd Factor (U2F) and FIDO2 protocols[1] developed by the FIDO
 Alliance." ([Wikipedia](https://en.wikipedia.org/wiki/YubiKey))
-
-## General usage in Qubes OS
-
-Most use cases for the YubiKey can be achieved exactly as described by the
-manufacturer or other instructions found online. One usually just needs to
-attach the YubiKey to the corresponding app qube to get the same result (see the
-documentation on how to use [USB devices](/doc/how-to-use-usb-devices/) in Qubes
-OS accordingly). The recommended way for using CTAP in Qubes is described
-[here](https://www.qubes-os.org/doc/ctap-proxy/).
-
-## Multi-factor login for Qubes OS
 
 You can use a YubiKey to enhance the user authentication in Qubes. The following
 instructions explain how to setup the YubiKey as an *additional* way to login.
@@ -45,7 +139,7 @@ during setup and b) you do not need to fear [shoulder
 surfing](https://en.wikipedia.org/wiki/Shoulder_surfing_(computer_security)) so
 much (i.e. by not using your standard login password in public).
 
-### Setup login with YubiKey
+#### Setup login with YubiKey
 
 To use the YubiKey for multi-factor authentication you need to
 
@@ -90,7 +184,7 @@ All these requirements are described below, step by step.
 YubiKey](https://www.qubes-os.org/doc/how-to-use-usb-devices/) to this app qube
 though) or directly on the sys-usb vm.
 
-   You need to (temporarily) install the package "yubikey-personalization-gui" and 
+   You need to (temporarily) install the package "yubikey-personalization-gui" and
    run it by typing `yubikey-personalization-gui` in the command line.
 
    - In the program go to `Challenge-Response`,
@@ -154,7 +248,7 @@ these files, otherwise it will most likely not work.
 7. Adjust the USB VM name in case you are using something other than the default
    `sys-usb` by editing `/etc/qubes/yk-keys/yk-vm` in dom0.
 
-### Usage
+#### Usage
 
 When you want to authenticate
 
@@ -169,7 +263,7 @@ When everything is ok, your screen will be unlocked.
 In any case you can still use your normal login password, but do it in a secure
 location where no one can snoop your password.
 
-### Optional: Enforce YubiKey Login
+#### Optional: Enforce YubiKey Login
 
 Edit `/etc/pam.d/yubikey` (or appropriate file if you are using other screen locker program) and remove `default=ignore` so the line looks like this.
 
@@ -177,7 +271,7 @@ Edit `/etc/pam.d/yubikey` (or appropriate file if you are using other screen loc
 auth [success=done] pam_exec.so expose_authtok quiet /usr/bin/yk-auth
 ```
 
-### Optional: Locking the screen when YubiKey is removed
+#### Optional: Locking the screen when YubiKey is removed
 
 Look into it
 You can setup your system to automatically lock the screen when you unplug your YubiKey.
