@@ -65,7 +65,7 @@ Currently, [these](https://github.com/marmarek/signature-checker/blob/master/che
 
 In the example below, we will use `keyserver.ubuntu.com`.
 
-Replace 6E2F4E7AF50A5827 with your key ID, which is the last 8 hex digits of the long number in the second line of the output above:
+Replace 6E2F4E7AF50A5827 with your key ID, which is the last 16 hex digits of the long number in the second line of the output above:
 ```
 pub   rsa3072 2021-12-30 [SC] [expires: 2023-12-30]
       87975838063F97A968D503266E2F4E7AF50A5827
