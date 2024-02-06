@@ -76,11 +76,6 @@ $ gpg --send-keys --keyserver hkps://keyserver.ubuntu.com 6E2F4E7AF50A5827
 gpg: sending key 6E2F4E7AF50A5827 to hkps://keyserver.ubuntu.com
 ```
 
-```
-$ gpg --send-keys --keyserver hkps://keyserver.ubuntu.com 6E2F4E7AF50A5827
-gpg: sending key 6E2F4E7AF50A5827 to hkps://keyserver.ubuntu.com
-```
-
 ## Using PGP with Git
 
 If you're submitting a patch via GitHub (or a similar Git server), please sign
