@@ -65,18 +65,15 @@ Currently, [these](https://github.com/marmarek/signature-checker/blob/master/che
 
 In the example below, we will use `keyserver.ubuntu.com`.
 
-Replace 6E2F4E7AF50A5827 with your key ID, which is the last 16 hex digits of the long number in the second line of the output above:
+Replace 6E2F4E7AF50A5827 with your key ID, preferably the **long keyID**
+which is the last 16 hex digits of the long number in the second line
+of the output above:
 ```
 pub   rsa3072 2021-12-30 [SC] [expires: 2023-12-30]
       87975838063F97A968D503266E2F4E7AF50A5827
 ```
 
 ```shell_session
-$ gpg --send-keys --keyserver hkps://keyserver.ubuntu.com 6E2F4E7AF50A5827
-gpg: sending key 6E2F4E7AF50A5827 to hkps://keyserver.ubuntu.com
-```
-
-```
 $ gpg --send-keys --keyserver hkps://keyserver.ubuntu.com 6E2F4E7AF50A5827
 gpg: sending key 6E2F4E7AF50A5827 to hkps://keyserver.ubuntu.com
 ```
