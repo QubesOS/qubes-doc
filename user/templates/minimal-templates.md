@@ -144,7 +144,7 @@ list of packages to be installed):
   (which is normally `sys-firewall`).
 - NetVM, such as the template for `sys-net`: `qubes-core-agent-networking`
   `qubes-core-agent-network-manager` `NetworkManager-wifi`
-  `network-manager-applet` `wireless-tools` `notification-daemon`
+  `network-manager-applet` `notification-daemon`
   `gnome-keyring` `polkit` `@hardware-support`. If your network devices need
   extra packages for the template to work as a network VM, use the `lspci`
   command to identify the devices, then run `dnf search firmware` (replace
@@ -192,7 +192,7 @@ are:
 Also, there are packages to provide additional services:
 
 - `qubes-gpg-split`: For implementing split GPG.
-- `qubes-u2f`: For implementing secure forwarding of U2F messages.
+- `qubes-ctap`: For implementing secure forwarding of CTAP messages.
 - `qubes-pdf-converter`: For implementing safe conversion of PDFs.
 - `qubes-img-converter`: For implementing safe conversion of images.
 - `qubes-snapd-helper`: If you want to use snaps in qubes.
@@ -287,7 +287,7 @@ are:
 Also, there are packages to provide additional services:
 
 - `qubes-gpg-split`: For implementing split GPG.
-- `qubes-u2f`: For implementing secure forwarding of U2F messages.
+- `qubes-ctap`: For implementing secure forwarding of CTAP messages.
 - `qubes-pdf-converter`: For implementing safe conversion of PDFs.
 - `qubes-img-converter`: For implementing safe conversion of images.
 - `qubes-snapd-helper`: If you want to use snaps in qubes.
@@ -324,7 +324,7 @@ list of packages to be installed):
   if you want to use it as the `UpdateVM` (which is normally `sys-firewall`).
 - NetVM, such as the template for `sys-net`: `qubes-core-agent-networking`
   `qubes-core-agent-network-manager` `NetworkManager-wifi`
-  `network-manager-applet` `wireless-tools` `notification-daemon`
+  `network-manager-applet` `notification-daemon`
   `gnome-keyring`. If your network devices need extra packages for a network
   VM, use the `lspci` command to identify the devices, then find the package
   that provides necessary firnware and install it. If you need utilities for

@@ -56,16 +56,21 @@ You can create a standalone in the Qube Manager by selecting the "Type" of
 "Standalone qube copied from a template" or "Empty standalone qube (install
 your own OS)."
 
-Alternatively, from the dom0 command line:
+Alternatively, to create an empty standalone from the dom0 command line:
 
+```
+qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm <NEW_STANDALONE_NAME>
+```
+
+Or to create a standalone copied from a template:
 ```
 qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm --template <TEMPLATE_QUBE_NAME> <NEW_STANDALONE_NAME>
 ```
 
 Notes:
 - Technically, `virt_mode=hvm` is not necessary for every standalone.
-However, it makes sense if you want to use a kernel from within the qube.
-- If you want to make available the software installed in a template qube in your standalone, pass its name to `--template` option.
+However, it is needed if you want to use a kernel from within the qube.
+- If you want to make software installed in a template available in your standalone, pass in the name of the template using the `--template` option.
 
 ## Updating standalones
 

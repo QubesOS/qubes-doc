@@ -190,8 +190,9 @@ you see here may not be genuine. That's why we strongly suggest obtaining the
 fingerprint from *multiple independent sources in several different ways*, then
 comparing the strings of letters and numbers to make sure they match.
 
-When it comes to PGP fingerprints, spaces and capitalization don't matter. In
-other words, all of these fingerprints are considered the same:
+For the purpose of convincing yourself that you know the authentic QMSK
+fingerprint, spaces and capitalization don't matter. In other words, all of
+these fingerprints are considered the same:
 
 ```
 427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
@@ -201,12 +202,16 @@ other words, all of these fingerprints are considered the same:
 ```
 
 Instead, what matters is that *all* the characters are present in *exactly* the
-same order. If even one character is different, the fingerprints do not match.
-Even if two fingerprints have all the same characters, if any of those
-characters are in a different order, sequence, or position, then the
-fingerprints do not match.
+same order. If even one character is different, the fingerprints should not be
+considered the same. Even if two fingerprints have all the same characters, if
+any of those characters are in a different order, sequence, or position, then
+the fingerprints should not be considered the same.
 
-You may also sometimes see the entire fingerprint prefixed with `0x`, as in:
+However, for the purpose of *searching for*, *looking up*, or *entering* keys,
+spaces and capitalization can matter, depending on the software or tool you're
+using. You may need to try different variations (e.g., with and without
+spaces). You may also sometimes see (or need to enter) the entire fingerprint
+prefixed with `0x`, as in:
 
 ```
 0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
@@ -214,10 +219,12 @@ You may also sometimes see the entire fingerprint prefixed with `0x`, as in:
 ```
 
 The `0x` prefix is sometimes used to indicate that the string following it is a
-hexadecimal value, and some PGP-related tools may require this prefix. For the
-purpose of comparing fingerprints as described here, you may safely ignore the
-`0x` prefix, as it is not part of the fingerprint. As long as the 40-character
-string after the `0x` matches exactly, the fingerprint is the same.
+hexadecimal value, and some PGP-related tools may require this prefix. Again,
+for the purpose of convincing yourself that you know the authentic QMSK
+fingerprint, you may safely ignore the `0x` prefix, as it is not part of the
+fingerprint. As long as the 40-character string after the `0x` matches exactly,
+the fingerprint is considered the same. The `0x` prefix only matters if the
+software or tool you're using cares about it.
 
 The general idea of "comparing fingerprints" is to go out into the world
 (whether digitally, physically, or both) and find other 40-character strings
