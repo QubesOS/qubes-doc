@@ -44,7 +44,7 @@ The new Qubes OS Policy Editor tool:
 
 - DomU firewalls have completely switched to nftables. Users should add their custom rules to the `custom-input` and `custom-forward` chains. (For more information, see issues [#5031](https://github.com/QubesOS/qubes-issues/issues/5031) and [#6062](https://github.com/QubesOS/qubes-issues/issues/6062).)
 
-- Templates continue to target their original Qubes OS release repos even after both the templates and Qubes OS itself have been upgraded to newer releases. If you are using fresh templates, this does not affect you. However, if you are migrating existing templates from a pre-4.2.0 installation, then please see [qubes-doc PR #1345](https://github.com/QubesOS/qubes-doc/pull/1345) and issue [#8701](https://github.com/QubesOS/qubes-issues/issues/8701).
+- Templates restored in 4.2 from a pre-4.2 backup continue to target their original Qubes OS release repos. If you are using fresh templates on a clean 4.2 installation, or if you performed an [in-place upgrade from 4.1 to 4.2](/doc/upgrade/4.2/#in-place-upgrade), then this does not affect you. (For more information, see issue [#8701](https://github.com/QubesOS/qubes-issues/issues/8701).)
 
 Also see the [full list of open bug reports affecting Qubes 4.2](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+label%3Aaffects-4.2+label%3A%22T%3A+bug%22+is%3Aopen).
 
