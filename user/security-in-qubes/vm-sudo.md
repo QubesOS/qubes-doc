@@ -10,7 +10,16 @@ ref: 165
 title: Passwordless root access in qubes
 ---
 
-The background to passswordless root access is summarised in this statement, that used to be found at `/etc/sudoers.d/qubes` in each qube:
+The sudoers configuration drop-in snippet `/etc/sudoers.d/qubes` in each qube contains:
+
+```
+Defaults !requiretty
+%qubes ALL=(ALL) ROLE=unconfined_r TYPE=unconfined_t NOPASSWD: ALL
+
+# vim: ft=sudoers
+```
+
+The rationale for passswordless root access is summarised in the following statement:
 
 ```
 user ALL=(ALL) NOPASSWD: ALL
