@@ -25,6 +25,12 @@ Qubes-certified computers are certified for a [major release](/doc/version-schem
 
 The current Qubes-certified models are listed below in reverse chronological order of certification.
 
+### NitroPC Pro 2
+
+[![Photo of the NitroPC Pro 2](/attachment/posts/nitropc-pro.jpg)](https://shop.nitrokey.com/shop/nitropc-pro-2-523)
+
+The [NitroPC Pro 2](https://shop.nitrokey.com/shop/nitropc-pro-2-523) is a desktop based on the MSI PRO Z790-P DDR5 motherboard. It is certified for Qubes OS 4.
+
 ### Star Labs StarBook
 
 [![Photo of the Star Labs StarBook](/attachment/site/starlabs-starbook.png)](https://starlabs.systems/pages/starbook)
