@@ -10,6 +10,13 @@ ref: 64
 title: Qubes builder
 ---
 
+<div class="alert alert-warning" role="alert">
+  <i class="fa fa-exclamation-circle"></i>
+  <b>Note:</b> These instructions concern the older Qubes builder (v1). It supports
+  only building Qubes 4.1 or earlier. For building Qubes R4.2 or later and related
+  components, please see instead [qubes-builderv2](https://github.com/QubesOS/qubes-builderv2/).
+</div>
+
 **Note: See [ISO building instructions](/doc/qubes-iso-building/) for a streamlined overview on how to use the build system.**
 
 
