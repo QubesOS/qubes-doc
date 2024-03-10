@@ -10,253 +10,80 @@ ref: 50
 title: Windows debugging
 ---
 
-Debugging Windows code can be tricky in a virtualized environment. The guide below assumes Xen hypervisor and Windows 7 VMs.
+Debugging Windows code can be tricky in a virtualized environment. The guide below assumes Qubes 4.1 and Windows 7 or later VMs.
 
 User-mode debugging is usually straightforward if it can be done on one machine. Just duplicate your normal debugging environment in the VM.
 
-Things get complicated if you need to perform kernel debugging or troubleshoot problems that only manifest on system boot, user logoff or similar. For that you need two Windows VMs: the *host* and the *target*. The *host* will contain [WinDbg](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063(v=vs.85).aspx) installation, your source code and private symbols. The *target* will run the code being debugged. Both will be linked by virtual serial ports.
+Things get complicated if you need to perform kernel debugging or troubleshoot problems that only manifest on system boot, user logoff or similar. For that you need two Windows VMs: the *host* and the *target*. The *host* will contain the debugger, your source code and private symbols. The *target* will run the code being debugged. We will use kernel debugging over network which is supported from Windows 7 onwards. The main caveat is that Windows kernel supports only specific network adapters for this, and the default one in Qubes won't work.
 
-- First, you need to prepare separate copies of both *target* and *host* VM configuration files with some changes. Copy the files from **/var/lib/qubes/appvms/vmname/vmname.conf** to some convenient location, let's call them **host.conf** and **target.conf**.
-- In both copied files add the following line at the end: `serial = 'pty'`. This will make Xen connect VM's serial ports to dom0's ptys.
-- From now on you need to start both VMs like this: `qvm-start --custom-config=/your/edited/host.conf host`
-- To connect both VM serial ports together you will either need [socat](http://www.dest-unreach.org/socat/) or a custom utility described later.
-- To determine which dom0 pty corresponds to VM's serial port you need to read xenstore, example script below:
+## Important note
 
-```bash
-#!/bin/sh
+- Do not install Xen network PV drivers in the target VM. Network kernel debugging needs a specific type of NIC or it won't work, the network PV drivers interfere with that.
 
-id1=$(xl domid "$1-dm")
-tty1=$(xenstore-read /local/domain/${id1}/device/console/3/tty)
-echo $tty1
-```
+- If you have kernel debugging active when the Xen PV drivers are being installed, make sure to disable it before rebooting (`bcdedit /set debug off`). You can re-enable debugging after the reboot. The OS won't boot otherwise. I'm not sure what's the exact cause. I know that busparams for the debugging NIC change when PV drivers are installed (see later), but even changing that accordingly in the debug settings doesn't help -- so it's best to disable debug for this one reboot.
 
-Pass it a running VM name and it will output the corresponding pty name.
+## Modifying the NIC of the target VM
 
-- To connect both ptys you can use [socat](http://www.dest-unreach.org/socat/) like that:
+You will need to create a custom libvirt config for the target VM. See [the documentation](https://dev.qubes-os.org/projects/core-admin/en/latest/libvirt.html) for overview of how libvirt templates work in Qubes. The following assumes the target VM is named `target-vm`.
 
-```bash
-#!/bin/sh
+- Edit `/usr/share/qubes/templates/libvirt/xen.xml` to prepare our custom config to override just the NIC part of the global template:
+  - add `{{ '{% block network %}' }}` before `{{ '{% if vm.netvm %}' }}`
+  - add `{{ '{% endblock %}' }}` after the matching `{{ '{% endif %}' }}`
+- Copy `/usr/share/qubes/templates/libvirt/devices/net.xml` to `/etc/qubes/templates/libvirt/xen/by-name/target-vm.xml`.
+- Add `<model type='e1000'/>` to the `<interface>` section.
+- Enclose everything within `{{ '{% block network %}' }}` + `{{ '{% endblock %}' }}`.
+- Add `{{ "{% extends 'libvirt/xen.xml' %}" }}` at the start.
+- The final `target-vm.xml` should look something like this:
 
-id1=$(xl domid "$1-dm")
-id2=$(xl domid "$2-dm")
-tty1=$(xenstore-read /local/domain/${id1}/device/console/3/tty)
-tty2=$(xenstore-read /local/domain/${id2}/device/console/3/tty)
-socat $tty1,raw $tty2,raw
-```
+~~~
+{% raw %}
+{% extends 'libvirt/xen.xml' %}
+{% block network %}
+   <interface type='ethernet'>
+      <mac address="{{ vm.mac }}" />
+      <ip address="{{ vm.ip }}" />
+      <backenddomain name="{{ vm.netvm.name }}" />
+      <script path='vif-route-qubes' />
+      <model type='e1000' />
+   </interface>
+{% endblock %}
+{% endraw %}
+~~~
 
-...but there is a catch. Xen seems to process the traffic that goes through serial ports and changes all **0x0a** bytes into **0x0d, 0x0a** pairs (newline conversion). I didn't find a way to turn that off (setting ptys to raw mode didn't change anything) and it's not mentioned anywhere on the Internet, so maybe it's something on my system. If the above script works for you then you don't need anything more in dom0.
+- Start `target-vm` and verify in the device manager that a "Intel PRO/1000 MT" adapter is present.
 
-- On the *target* system, run `bcdedit /set debug on` on the console to turn on kernel debugging. It defaults to the first serial port.
-- On the *host* system, install [WinDbg](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063(v=vs.85).aspx) and start the kernel debug (Ctrl-K), choose **com1** as the debug port.
-- Reboot the *target* VM.
-- Run the above shell script in dom0.
-- If everything is fine you should see the proper kernel debugging output in WinDbg. However, if you see something like that:
+## Host and target preparation
+
+- On `host-vm` you will need WinDbg, which is a part of the [Windows SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/).
+- Copy the `Debuggers` directory from Windows SDK to `target-vm`.
+- In both `host-vm` and `target-vm` switch the windows network to private (it tends to be public by default).
+- Either turn off the windows firewall or enable all ICMP-in rules in both VMs.
+- In `firewall-vm` edit `/rw/config/qubes-firewall-user-script` to connect both Windows VMs, add:
+  - `iptables -I FORWARD 2 -s <target-vm-ip> -d <host-vm-ip> -j ACCEPT`
+  - `iptables -I FORWARD 2 -s <host-vm-ip> -d <target-vm-ip> -j ACCEPT`
+  - run `/rw/config/qubes-firewall-user-script` so the changes take effect immediately
+- Make sure both VMs can ping each other.
+- In `target-vm`:
+  - start elevated `cmd` session
+  - `cd sdk\Debuggers\x64`
+  - `kdnet` should show that the NIC is supported, note the busparams:
 
     ~~~
-    Opened \\.\com1
+    Network debugging is supported on the following NICs:
+    busparams=0.6.0, Intel(R) PRO/1000 MT Network Connection, KDNET is running on this NIC.
+    ~~~
+
+  - `bcdedit /debug on`
+  - `bcdedit /dbgsettings net hostip:<host-vm-ip> port:50000 key:1.1.1.1` (you can customize the key)
+  - `bcdedit /set "{dbgsettings}" busparams x.y.z` (use the busparams `kdnet` has shown earlier)
+- In `host-vm` start WinDbg: `windbg -k net:port=50000,key=1.1.1.1`. It will listen for target's connection.
+- Reboot `target-vm`, debugging should start:
+
+    ~~~
     Waiting to reconnect...
-    Connected to Windows 7 7601 x64 target at (Wed Mar 19 20:35:43.262 2014 (UTC + 1:00)), ptr64 TRUE
-    Kernel Debugger connection established.
-    Symbol search path is: srv*c:\symbols*https://msdl.microsoft.com/download/symbols
-    Executable search path is:
-    ... Retry sending the same data packet for 64 times.
-    The transport connection between host kernel debugger and target Windows seems lost.
-    please try resync with target, recycle the host debugger, or reboot the target Windows.
-    Unable to read KTHREAD address fffff8000281ccc0
-    **************************************************************************
-    Unable to read debugger data block header
-    **************************************************************************
-    Unable to read KTHREAD address fffff8000281ccc0
-    Unable to read PsLoadedModuleList
-    Unable to read KTHREAD address fffff8000281ccc0
-    **************************************************************************
-    Unable to read debugger data block header
-    **************************************************************************
+    Connected to target 10.137.0.19 on port 50000 on local IP 10.137.0.20.
+    You can get the target MAC address by running .kdtargetmac command.
+    Connected to Windows 10 19041 x64 target at (Thu Aug  3 14:05:48.069 2023 (UTC + 2:00)), ptr64 TRUE
     ~~~
-
-    ...then you're most likely a victim of the CRLF issue mentioned above. To get around it I wrote a small utility that basically does what socat would do and additionally corrects those replaced bytes in the stream. It's not pretty but it works:
-
-```c
-#include <errno.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include <termios.h>
-
-int fd1, fd2;
-char mark = ' ';
-
-void out(unsigned char c)
-{
-    static int count = 0;
-    static unsigned char buf[17] = {0};
-
-    // relay to ouptput port
-    write(fd2, &c, 1);
-    fprintf(stderr, "%c", mark);
-
-    /* dump all data going over the line
-    if (count == 0)
-        fprintf(stderr, "%c", mark);
-    fprintf(stderr, "%02x ", c);
-    if (c >= 0x20 && c < 0x80)
-        buf[count] = c;
-    else
-        buf[count] = '.';
-    count++;
-    if (count == 0x10)
-    {
-        count = 0;
-        fprintf(stderr, " %s\n", buf);
-    }
-    */
-}
-
-int main(int argc, char* argv[])
-{
-    unsigned char c = 0;
-    struct termios tio;
-    ssize_t size;
-
-    if (argc < 3)
-    {
-        fprintf(stderr, "Usage: %s pty1 pty2 [mark character]\n", argv[0]);
-        return EINVAL;
-    }
-
-    fd1 = open(argv[1], O_RDONLY | O_NOCTTY);
-    if (fd1 <= 0)
-    {
-        perror("open fd1");
-        return errno;
-    }
-    fd2 = open(argv[2], O_WRONLY | O_NOCTTY);
-    if (fd2 <= 0)
-    {
-        perror("open fd2");
-        return errno;
-    }
-/*
-    // This doesn't make any difference which supports the theory
-    // that it's Xen who corrupts the byte stream.
-    cfmakeraw(&tio);
-    if (tcsetattr(fd1, TCSANOW, &tio) < 0)
-    {
-        perror("tcsetattr 1");
-        return errno;
-    }
-    if (tcsetattr(fd2, TCSANOW, &tio) < 0)
-    {
-        perror("tcsetattr 2");
-        return errno;
-    }
-*/
-    if (argc == 4)
-        mark = argv[3][0];
-
-    while (1)
-    {
-        size = read(fd1, &c, 1);
-        if (size <= 0)
-            break;
-
-parse:
-        if (c == 0x0d)
-        {
-            size = read(fd1, &c, 1);
-            if (size <= 0)
-            {
-                out(0x0d);
-                break;
-            }
-            if (c == 0x0a)
-            {
-                out(0x0a);
-            }
-            else
-            {
-                out(0x0d);
-                goto parse;
-            }
-        }
-        else
-            out(c);
-    }
-
-    close(fd1);
-    close(fd2);
-    return 0;
-}
-```
-
-> This utility is a unidirectional relay so you need to run two instances to get duplex communication, like:
->
->     #!/bin/sh
->
->     id1=$(xl domid "$1-dm")
->     id2=$(xl domid "$2-dm")
->     tty1=$(xenstore-read /local/domain/${id1}/device/console/3/tty)
->     tty2=$(xenstore-read /local/domain/${id2}/device/console/3/tty)
->     ./ptycrlf ${tty1} ${tty2} - &
->     ./ptycrlf ${tty2} ${tty1} + &
-
-> With this everything should be good:
->
-> ~~~
-> Opened \\.\com1
-> Waiting to reconnect...
-> Connected to Windows 7 7601 x64 target at (Wed Mar 19 20:56:31.371 2014 (UTC + 1:00)), ptr64 TRUE
-> Kernel Debugger connection established.
-> Symbol search path is: srv*c:\symbols*https://msdl.microsoft.com/download/symbols
-> Executable search path is:
-> Windows 7 Kernel Version 7601 MP (1 procs) Free x64
-> Built by: 7601.18247.amd64fre.win7sp1_gdr.130828-1532
-> Machine Name:
-> Kernel base = 0xfffff800`0261a000 PsLoadedModuleList = 0xfffff800`0285d6d0
-> System Uptime: not available
-> ~~~
-
-# Debugging HVMs in the Qubes R4.0
-
-There are two main issues to be adopted to get all things to work in the R4.0.
-
-## Add a virtual serial port
-
-Qemu in the stub domain with virtual serial port added in a recommended way (```<serial type="pty"/>```) fails to start (Could not open '/dev/hvc1': No such device). It seems like a lack of multiple xen consoles support/configuration. The only way that I have found is to attach serial port explicitly to the available console.
-
-1. Unpack stub domain in dom0:
-
-```shell_session
-$ mkdir stubroot
-$ cp /usr/lib/xen/boot/stubdom-linux-rootfs stubroot/stubdom-linux-rootfs.gz
-$ cd stubroot
-$ gunzip stubdom-linux-rootfs.gz
-$ cpio -i -d -H newc --no-absolute-filenames < stubdom-linux-rootfs
-$ rm stubdom-linux-rootfs
-```
-
-2. Edit Init script to remove last loop and to add "-serial /dev/hvc0" to the qemu command line.
-
-3. Apply changes:
-
-```shell_session
-$ find . -print0 | cpio --null -ov --format=newc | gzip -9 > ../stubdom-linux-rootfs
-$ sudo mv ../stubdom-linux-rootfs /usr/lib/xen/boot
-```
-
-## Connect two consoles
-
-Run the following script:
-
-```shell
-debugname1=win7new
-debugname2=win7dbg
-id1=$(xl domid "$debugname1-dm")
-id2=$(xl domid "$debugname2-dm")
-
-tty1=$(xenstore-read /local/domain/${id1}/console/tty)
-tty2=$(xenstore-read /local/domain/${id1}/console/tty)
-
-socat $tty1,raw $tty2,raw
-```
 
 Happy debugging!
