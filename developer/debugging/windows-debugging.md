@@ -27,12 +27,12 @@ Things get complicated if you need to perform kernel debugging or troubleshoot p
 You will need to create a custom libvirt config for the target VM. See [the documentation](https://dev.qubes-os.org/projects/core-admin/en/latest/libvirt.html) for overview of how libvirt templates work in Qubes. The following assumes the target VM is named `target-vm`.
 
 - Edit `/usr/share/qubes/templates/libvirt/xen.xml` to prepare our custom config to override just the NIC part of the global template:
-  - add `{{ '{% block network %}' }}` before `{{ '{% if vm.netvm %}' }}`
-  - add `{{ '{% endblock %}' }}` after the matching `{{ '{% endif %}' }}`
+  - add `{% raw %}{% block network %}{% endraw %}` before `{% raw %}{% if vm.netvm %}{% endraw %}`
+  - add `{% raw %}{% endblock %}{% endraw %}` after the matching `{% raw %}{% endif %}{% endraw %}`
 - Copy `/usr/share/qubes/templates/libvirt/devices/net.xml` to `/etc/qubes/templates/libvirt/xen/by-name/target-vm.xml`.
 - Add `<model type='e1000'/>` to the `<interface>` section.
-- Enclose everything within `{{ '{% block network %}' }}` + `{{ '{% endblock %}' }}`.
-- Add `{{ "{% extends 'libvirt/xen.xml' %}" }}` at the start.
+- Enclose everything within `{% raw %}{% block network %}{% endraw %}` + `{% raw %}{% endblock %}{% endraw %}`.
+- Add `{% raw %}{% extends 'libvirt/xen.xml' %}{% endraw %}` at the start.
 - The final `target-vm.xml` should look something like this:
 
 ~~~
