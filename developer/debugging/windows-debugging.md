@@ -10,7 +10,7 @@ ref: 50
 title: Windows debugging
 ---
 
-Debugging Windows code can be tricky in a virtualized environment. The guide below assumes Qubes 4.1 and Windows 7 or later VMs.
+Debugging Windows code can be tricky in a virtualized environment. The guide below assumes Qubes 4.2 and Windows 7 or later VMs.
 
 User-mode debugging is usually straightforward if it can be done on one machine. Just duplicate your normal debugging environment in the VM.
 
