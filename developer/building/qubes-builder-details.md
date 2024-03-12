@@ -13,10 +13,8 @@ title: Qubes builder details
 
 <div class="alert alert-warning" role="alert">
   <i class="fa fa-exclamation-circle"></i>
-  <b>Note:</b> This information concern the older Qubes builder (v1). It supports
-  only building Qubes 4.1 or earlier. For building Qubes R4.2 or later and related
-  components, please see instead [qubes-builderv2](https://github.com/QubesOS/qubes-builderv2/).
-</div>
+  <b>Note:</b> This information concerns the old Qubes builder (v1). It supports
+  only building Qubes 4.1 or earlier.<br>The build process has been completely rewritten in <a href="https://github.com/QubesOS/qubes-builderv2/">qubes-builder v2</a>. This can be be used for building Qubes R4.1 and later, and all related components.</div>
 
 Components Makefile.builder file
 --------------------------------
