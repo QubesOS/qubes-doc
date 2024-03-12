@@ -83,7 +83,25 @@ A label of the form `affects-<RELEASE_NUMBER>` indicates that an issue affects t
 
 ### Projects
 
-The issue tracker has several [projects](https://github.com/QubesOS/qubes-issues/projects). A project is a way to create a group of multiple related issues. This is the preferred method of grouping issues, whereas trying to use normal issues as "meta-issues" or "epics" is discouraged.
+According to GitHub, a [project](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) is "an adaptable spreadsheet, task-board, and road map that integrates with your issues and pull requests on GitHub to help you plan and track your work effectively." The issue tracker has several [projects](https://github.com/QubesOS/qubes-issues/projects). 
+
+### Meta-issues
+
+A meta-issue is an issue that serves to collect and organize a group of other issues. We use meta-issues when we need a way to track work on specific features. We cannot use [projects](#projects) for this, because we already use a project for tracking the work of the Qubes team as a whole, and projects cannot contain milestones or other projects.
+
+Meta-issues must abide by the following rules:
+
+- Only members of the core team may create meta-issues (or convert existing issues into meta-issues).
+
+  Rationale: The purpose of meta-issues is to track the development of certain features that fit into the overall goals of the Qubes OS Project, which requires making informed project-management decisions with the approval of the project lead.
+
+- Meta-issues must be [locked](https://docs.github.com/en/communities/moderating-comments-and-conversations/locking-conversations).
+
+  Rationale: One of the historical problems we've experienced with meta-issues (and one of the reasons they were discouraged for a long time) is that each meta-issue tends to turn into a discussion thread that becomes hopelessly long to the point where the person who is supposed to work on it has no idea what is supposed to be done or where to start, and it eventually just gets closed. Locking is intended to prevent that from happening again.
+
+- Meta-issues must have informative descriptions, not just lists of issues. In particular, each meta-issue should explain its goal, what is in scope, and what the relevant categories and priorities are.
+
+- Meta-issues must have clear, concrete, and actionable criteria for when they will be closed. Meta-issues should never be "open-ended" or expected to stay open indefinitely. If this ever becomes unclear, the meta-issue should be closed until it becomes clear.
 
 ## Search tips
 
