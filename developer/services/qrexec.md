@@ -22,14 +22,14 @@ However, the OS needs a mechanism to allow the administrative domain (dom0) to f
 For instance, when a user selects an application from the KDE menu, it should start in the selected VM.
 Also, it is often useful to be able to pass stdin/stdout/stderr from an application running in a VM to dom0 (and the other way around).
 (For example, so that a VM can notify dom0 that there are updates available for it).
-By default, Qubes allows VMs initiate such communications in specific circumstances.
-The qrexec framework generalizes this process by providing a remote procedure call (RPC) protocol for the Qubes architecture.
+By default, Qubes allows VMs to initiate such communications in specific circumstances.
+The qrexec framework generalizes this process by providing a remote procedure call (RPC) for the Qubes architecture.
 It allows users and developers to use and design secure inter-VM tools.
 
 ## Qrexec basics: architecture and examples
 
 Qrexec is built on top of *vchan*, a Xen library providing data links between VMs.
-During domain startup , a process named `qrexec-daemon` is started in dom0, and a process named `qrexec-agent` is started in the VM.
+During domain startup, a process named `qrexec-daemon` is started in dom0, and a process named `qrexec-agent` is started in the VM.
 They are connected over a **vchan** channel.
 `qrexec-daemon` listens for connections from a dom0 utility named `qrexec-client`.
 Let's say we want to start a process (call it `VMprocess`) in a VM (`someVM`).
@@ -47,18 +47,18 @@ For example, the following command creates an empty file called `hello-world.txt
 $ qrexec-client -e -d someVM user:'touch hello-world.txt'
 ```
 
-The string before the colon specifies what user to run the command as.
-The `-e` flag tells `qrexec-client` to exit immediately after sending the execution request and receiving a status code from `qrexec-agent` (whether the process creation succeeded).
+The string before the colon specifies which user will run the command.
+The `-e` flag tells `qrexec-client` to exit immediately after sending the execution request and receiving a status code from `qrexec-agent` (if the process creation succeeded).
 With this option, no further data is passed between the domains.
-By contrast, the following command demonstrates an open channel between dom0 and someVM (in this case, a remote shell):
+The following command demonstrates an open channel between dom0 and someVM (in this case, a remote shell):
 
 ```
 $ qrexec-client -d someVM user:bash
 ```
 
 The `qvm-run` command is heavily based on `qrexec-client`.
-It also takes care of additional activities, e.g. starting the domain if it is not up yet and starting the GUI daemon.
-Thus, it is usually more convenient to use `qvm-run`.
+It also handles additional activities, e.g. starting the domain if the domain is not up yet and starting the GUI daemon.
+It is usually more convenient to use `qvm-run`.
 
 There can be an almost arbitrary number of `qrexec-client` processes for a given domain.
 The limiting factor is the number of available vchan channels, which depends on the underlying hypervisor, as well the domain's OS.
@@ -70,17 +70,17 @@ For more details on the qrexec framework and protocol, see "[Qubes RPC internals
 Some common tasks (like copying files between VMs) have an RPC-like structure: a process in one VM (say, the file sender) needs to invoke and send/receive data to some process in other VM (say, the file receiver).
 The Qubes RPC framework was created to securely facilitate a range of such actions.
 
-Obviously, inter-VM communication must be tightly controlled to prevent one VM from taking control of another, possibly more privileged, VM.
-Therefore the design decision was made to pass all control communication via dom0, that can enforce proper authorization.
-Then, it is natural to reuse the already-existing qrexec framework.
+Inter-VM communication must be tightly controlled to prevent one VM from taking control of another, possibly more privileged, VM.
+The design decision was made to pass all control communication via dom0 which can enforce proper authorization.
+It is therefore natural to reuse the already-existing qrexec framework.
 
-Also, note that bare qrexec provides `VM <-> dom0` connectivity, but the command execution is always initiated by dom0.
-There are cases when VM needs to invoke and send data to a command in dom0 (e.g. to pass information on newly installed `.desktop` files).
-Thus, the framework allows dom0 to be the RPC target as well.
+Note that bare qrexec provides `VM <-> dom0` connectivity, but the command execution is always initiated by dom0.
+There are cases when a VM needs to invoke and send data to a command in dom0 (e.g. to pass information on newly installed `.desktop` files).
+This framework allows dom0 to be the RPC target as well.
 
 Thanks to the framework, RPC programs are very simple -- both RPC client and server just use their stdin/stdout to pass data.
-The framework does all the inner work to connect these processes to each other via `qrexec-daemon` and `qrexec-agent`.
-Additionally, disposable VMs are tightly integrated -- RPC to a DisposableVM is identical to RPC to a normal domain, all one needs is to pass `@dispvm` as the remote domain name.
+The framework does all the inner work to connect the processes to eachother via `qrexec-daemon` and `qrexec-agent`.
+Disposable VMs are tightly integrated -- RPC to a DisposableVM is identical to RPC to an AppVM or StandaloneVM: all one needs is to pass `@dispvm` as the remote domain name.
 
 ## Qubes RPC administration
 
