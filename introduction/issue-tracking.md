@@ -83,7 +83,9 @@ A label of the form `affects-<RELEASE_NUMBER>` indicates that an issue affects t
 
 ### Projects
 
-According to GitHub, a [project](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) is "an adaptable spreadsheet, task-board, and road map that integrates with your issues and pull requests on GitHub to help you plan and track your work effectively." The issue tracker has several [projects](https://github.com/QubesOS/qubes-issues/projects). 
+According to GitHub, a [project](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) is "an adaptable spreadsheet, task-board, and road map that integrates with your issues and pull requests on GitHub to help you plan and track your work effectively." The issue tracker has several [projects](https://github.com/QubesOS/qubes-issues/projects). Github projects allows more detailed issue states, and also attaching more metadata to issues. They also allow more focused view.
+
+There is a special project in Qubes OS project: the [Current team tasks project](https://github.com/orgs/QubesOS/projects/19/views/1) which represents current work of the core team. Issues in this project's **backlog** section are not yet ready for work - they might be waiting for clarifications, blockers, decisions on priorities etc. Issues that are **ready** can be picked up by any team member. There should not be too many issues in **ready** column to decrease confusion and decision paralysis - good number is around 20. The **in review** state means that the developer is finished with the work (the completion state has been reached) - if something has to be postponed or abandoned, a justification should be posted in issue discussion.
 
 ### Meta-issues
 
@@ -211,3 +213,21 @@ In order to assist with this, we have a label called [backport pending](https://
 ### Understanding open and closed issues
 
 Every issue is always in one of two states: open or closed, with open being the default. The **open** and **closed** states mean that, according to our available information at present, the issue in question either **is** or **is not** (respectively) actionable for the Qubes team. The open and closed states do not mean anything more than this, and it's important not to read anything else into them. It's also important to understand that closing an issue is, in effect, nothing more than changing a virtual tag on an issue. Closing an issue is never "final" in any sense, and it does not affect the issue itself in any other way. Issues can be opened and closed instantly with a single button press an unlimited number of times at no cost. In fact, since the open and closed states reflect our available information at present, one should expect these states to change back and forth as new information becomes available. Closed issues are fully searchable, just like open issues, and we explicitly instruct all users of the issue tracker to search *both* open *and* closed issues, which GitHub makes easy.
+
+## Workflow and what do issue states mean
+
+There are some rules we use when assigning issues and tagging them.
+
+### Assigning issues
+
+To avoid a situation where an issue is "dead" - assigned to someone who is not actively working on it - and to help the team organize their work, an issue should be assigned to a person who currently works on it, or will start working on it in a very near future (about a week or two). One person can have several issues assigned at the same time (for example they may be working on one another issue while waiting for review), but if an issue is no longer actively being worked on (for example when it's blocked by something else),  it should be unassigned. At that point, if there is some partial work already done, there should be a comment about that, including link to the code (some WIP commit in some branch?) if applicable.
+
+Issues should not be assigned as a todo-list several months in the future, or assigned to someone without their explicit confirmation that they are currently working on that issue or will start doing it shortly.
+
+### Working on an issue
+
+Every issue should involve a clear statement of success: when is the issue finished? It might not be clear to the person making the issue, especially if it's an enhancement request, but before work starts, the person working on the issue should make sure that it includes clear completion criteria in the description (via editing the description, if necessary). The completion criteria would ideally be a checklist, and consist of a list of pull requests/features, each preferably no more than two weeks of work. It's also important to remember tests and documentation should also be part of the issue, if applicable. 
+
+An issue should also have a rough estimate how much time it needs, if it's more than one-two days. Of course this might be updated later, if an issue turns out to be more (or maybe less) complicated than it has initially seemed. 
+
+When an issue is done (that is, the completion checklist has been completed), the issue should be moved to **ready** column in the *Current team tasks* project.
