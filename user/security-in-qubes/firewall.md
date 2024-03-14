@@ -66,12 +66,16 @@ Normally Qubes doesn't let the user stop a NetVM if there are other qubes runnin
 But in case the NetVM stops for whatever reason (e.g. it crashes, or the user forces its shutdown via qvm-kill via terminal in Dom0), Qubes R4.x will often automatically repair the connection.
 If it does not, then there is an easy way to restore the connection to the NetVM by issuing in dom0:
 
-` qvm-prefs <vm> netvm <netvm> `
+```
+qvm-prefs <vm> netvm <netvm>
+```
 
 Normally qubes do not connect directly to the actual NetVM (sys-net by default) which has networking devices, but rather to the default sys-firewall first, and in most cases it would be the NetVM that will crash, e.g. in response to S3 sleep/restore or other issues with WiFi drivers.
 In that case it is only necessary to issue the above command once, for the sys-firewall (this assumes default VM-naming used by the default Qubes installation):
 
-` qvm-prefs sys-firewall netvm sys-net `
+```
+qvm-prefs sys-firewall netvm sys-net
+```
 
 Network service qubes
 ---------------------
