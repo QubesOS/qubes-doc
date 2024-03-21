@@ -12,7 +12,7 @@ title: Multi-factor Login
 ---
 
 
-## Multi-factor authentication within in particular qubes
+## Multi-factor authentication within particular qubes
 
 Most use cases for the hardware tokens can be achieved exactly as described by the
 manufacturer or other instructions found online. One usually just needs to
