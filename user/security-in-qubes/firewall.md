@@ -308,12 +308,12 @@ nft add rule qubes custom-forward iif == "ens6" ip saddr 192.168.x.y/24 ip daddr
 
 > Note: If you do not wish to limit the IP addresses connecting to the service, remove `ip saddr 192.168.x.y/24` from the rules
 
-> If you want to expose the service on multiple interfaces, repeat the steps 2 and 3 described above, for each interface.
+> If you want to expose the service on multiple interfaces, repeat the steps 2 and 3 described above, for each interface. Alternatively, you can leave out the interface completely.
 
 Verify the rules on sys-net firewall correctly match the packets you want by looking at its counters, check for the counter lines in the chains `custom-forward` and `custom-dnat-qubeDEST`:
 
 ```
-nft list table ip qubes-firewall
+nft list table ip qubes
 ```
 
 In this example, we can see 7 packets in the forward rule, and 3 packets in the dnat rule:
@@ -335,7 +335,7 @@ chain custom-dnat-qubeDEST {
 telnet 192.168.x.n 443
 ```
 
-Once you have confirmed that the counters increase, store the commands used in the previous steps in `/rw/config/rc.local` so they get set on sys-net start-up:
+Once you have confirmed that the counters increase, store the commands used in the previous steps in `/rw/config/qubes-firewall-user-script` so they get set on sys-net start-up:
 
 ```
 [user@sys-net user]$ sudo -i
