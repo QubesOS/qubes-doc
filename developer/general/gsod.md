@@ -6,7 +6,7 @@ ref: 242
 title: Google Season of Docs (GSoD)
 ---
 
-Thank you for your interest in participating in the [2023 Google Season of Docs](https://developers.google.com/season-of-docs/) program with the [Qubes OS team](/team/). This page details our 2023 project idea as well as completed past projects. You can read more about the Google Season of Docs in the official [guides](https://developers.google.com/season-of-docs/docs/) and [FAQ](https://developers.google.com/season-of-docs/docs/faq).
+Thank you for your interest in participating in the [2024 Google Season of Docs](https://developers.google.com/season-of-docs/) program with the [Qubes OS team](/team/). This page details our 2024 project idea as well as completed past projects. You can read more about the Google Season of Docs in the official [guides](https://developers.google.com/season-of-docs/docs/) and [FAQ](https://developers.google.com/season-of-docs/docs/faq).
 
 ## Instructional video series -- Qubes OS
 
