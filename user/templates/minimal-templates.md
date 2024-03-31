@@ -165,6 +165,8 @@ list of packages to be installed):
 - `default-mgmt-dvm`: requires `qubes-core-agent-passwordless-root` and
   `qubes-mgmt-salt-vm-connector`.
 
+To manage fedora-39-minimal templates with salt, you may need to install `python3-urllib3` in older versions of the template. (This package is already installed in recent builds: see [discussion](https://github.com/QubesOS/qubes-issues/issues/8806).)
+
 In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be
 needed to make the customized minimal template work properly. These packages
 are:
