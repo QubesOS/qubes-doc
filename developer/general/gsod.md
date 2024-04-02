@@ -6,9 +6,9 @@ ref: 242
 title: Google Season of Docs (GSoD)
 ---
 
-Thank you for your interest in participating in the [2023 Google Season of Docs](https://developers.google.com/season-of-docs/) program with the [Qubes OS team](/team/). This page details our 2023 project idea as well as completed past projects. You can read more about the Google Season of Docs in the official [guides](https://developers.google.com/season-of-docs/docs/) and [FAQ](https://developers.google.com/season-of-docs/docs/faq).
+Thank you for your interest in participating in the [2024 Google Season of Docs](https://developers.google.com/season-of-docs/) program with the [Qubes OS team](/team/). This page details our 2024 project idea as well as completed past projects. You can read more about the Google Season of Docs in the official [guides](https://developers.google.com/season-of-docs/docs/) and [FAQ](https://developers.google.com/season-of-docs/docs/faq).
 
-## Instructional video series -- Qubes OS
+## Update and Expand How-To Guides -- Qubes OS
 
 ### About the Qubes OS Project
 
@@ -18,9 +18,53 @@ Qubes OS was launched in 2011 and has [received praise from security experts and
 
 ### The project's problem
 
-There is user demand for high-quality, up-to-date video guides that take users from zero Linux knowledge to using Qubes as a daily driver and performing specific tasks inside of Qubes, but almost no such videos exist. Although most of the required knowledge is documented, many users report that they would prefer to watch videos rather than read text or that they would find videos easier to understand and follow along with.
+to-be-written
 
 ### The project's scope
+
+to-be-written
+
+The project is estimated to need around six months to complete (see the timeline below). Qubes team members, including Michael Carbone, Andrew Wong, Marta Marczykowska-Górecka, and Marek Marczykowski-Górecki, will supervise and support the writer.
+
+### Measuring the project's success
+
+to-be-written
+
+### Timeline
+
+| Dates          | Action items                            |
+| -------------- | --------------------------------------- |
+| May            | Orientation                             |
+| June--November |             |
+| December       | Final project evaluation and case study |
+
+
+### Project budget
+
+| Expense                                 | Amount  |
+| --------------------------------------- | ------- |
+| writer (10 hours/week, 6 months)        | $12,000 |
+| TOTAL                                   | $12,000 |
+
+### Additional information
+
+Qubes OS regularly participates in Google Summer of Code and Google Season of Docs. This is our third time participating in Google Season of Docs. Our mentorships for GSoD 2019, 2020, and 2023 were successes, and the projects were completed within the times allotted. The past Google Season of Docs projects have given us experience in working with technical writers and have helped us to understand the benefits that technical writers can bring to our project. 
+
+## Past Projects
+
+You can view the project we had in 2019 in the [2019 GSoD archive](https://developers.google.com/season-of-docs/docs/2019/participants/project-qubes) and the [2019 writer's report](https://refre.ch/report-qubesos/).
+
+You can also view the project we had in 2020 in the [2020 GSoD archive](https://developers.google.com/season-of-docs/docs/2020/participants/project-qubesos-c1e0) and the [2020 writer's report](https://gist.github.com/PROTechThor/bfe9b8b28295d88c438b6f6c754ae733).
+
+Here are some successful projects which have been implemented in the past by Google Season of Docs participants. 
+
+### Instructional video series
+
+#### The project's problem
+
+There is user demand for high-quality, up-to-date video guides that take users from zero Linux knowledge to using Qubes as a daily driver and performing specific tasks inside of Qubes, but almost no such videos exist. Although most of the required knowledge is documented, many users report that they would prefer to watch videos rather than read text or that they would find videos easier to understand and follow along with.
+
+#### The project's scope
 
 This project consists of creating a series of instructional videos that satisfy the following criteria:
 
@@ -68,41 +112,13 @@ Below is an example of the content (which is already [documented](/doc/)) that t
 
 The project is estimated to need around six months to complete (see the timeline below). Qubes team members, including Michael Carbone, Andrew Wong, and Marek Marczykowski-Górecki, will supervise and support the creator.
 
-### Measuring the project's success
+#### Measuring the project's success
 
 We will consider the project successful if, after publication of the video series:
 
 - Actual prospective users with no prior familiarity with Linux or Qubes OS are able to successfully install and use Qubes OS as intended by following along with the videos.
 - The reception to the videos is generally positive and complaints about quality and accuracy are minimal.
 - Appropriate analytics (e.g., YouTube metrics) are average or better for videos of this type (to be determined in consultation with the creator).
-
-### Timeline
-
-| Dates          | Action items                            |
-| -------------- | --------------------------------------- |
-| March          | Orientation                             |
-| April--October | Create Qubes OS video series            |
-| November       | Final project evaluation and case study |
-
-
-### Project budget
-
-| Expense                                 | Amount  |
-| --------------------------------------- | ------- |
-| Video creator (20 hours/week, 6 months) | $12,000 |
-| TOTAL                                   | $12,000 |
-
-### Additional information
-
-Qubes OS regularly participates in Google Summer of Code and Google Season of Docs. This is our third time participating in Google Season of Docs. Our mentorships for GSoD 2019 and 2020 were successes, and both projects were completed within the times allotted. The past Google Season of Docs projects have given us experience in working with technical writers and have helped us to understand the benefits that technical writers can bring to our project. While our experience in working with video creators is more limited, we are keenly aware of the benefits of high-quality video content, as well as the significant time, resources, and talent required to create it.
-
-## Past Projects
-
-You can view the project we had in 2019 in the [2019 GSoD archive](https://developers.google.com/season-of-docs/docs/2019/participants/project-qubes) and the [2019 writer's report](https://refre.ch/report-qubesos/).
-
-You can also view the project we had in 2020 in the [2020 GSoD archive](https://developers.google.com/season-of-docs/docs/2020/participants/project-qubesos-c1e0) and the [2020 writer's report](https://gist.github.com/PROTechThor/bfe9b8b28295d88c438b6f6c754ae733).
-
-Here are some successful projects which have been implemented in the past by Google Season of Docs participants. 
 
 ### Consolidate troubleshooting guides
 
