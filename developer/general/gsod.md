@@ -32,11 +32,11 @@ to-be-written
 
 ### Timeline
 
-| Dates          | Action items                            |
-| -------------- | --------------------------------------- |
-| May            | Orientation                             |
-| June--November |             |
-| December       | Final project evaluation and case study |
+| Dates           | Action items                            |
+| --------------- | --------------------------------------- |
+| May             | Orientation                             |
+| June - November | Update & extend how-to guides           |
+| December        | Final project evaluation and case study |
 
 
 ### Project budget
