@@ -18,7 +18,11 @@ Qubes OS was launched in 2011 and has [received praise from security experts and
 
 ### The project's problem
 
-to-be-written
+- Some of the existing content is stale. It refers to previous Qubes releases and has not yet been updated to the cover the latest stable release.
+- There are important topic areas that the current guides do not completely cover, such as "understanding Qubes OS," "using Qubes OS in practice," "Qubes OS workflow for coding," "printing," and "audio."
+- The guides do not consistently address users of all skill and experience levels (beginner, intermediate, and expert).
+- Some of the guides lack relevant illustrations and screenshots.
+- When the developers update a software tool, they should update all the guides that mentions this tool. However, there is currently no way for the developers to know which guides mention which tools.
 
 ### The project's scope
 
