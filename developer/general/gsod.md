@@ -26,13 +26,15 @@ Qubes OS was launched in 2011 and has [received praise from security experts and
 
 ### The project's scope
 
-to-be-written
-
 The project is estimated to need around six months to complete (see the timeline below). Qubes team members, including Michael Carbone, Andrew Wong, Marta Marczykowska-Górecka, and Marek Marczykowski-Górecki, will supervise and support the writer.
 
 ### Measuring the project's success
 
-to-be-written
+We will consider the project successful if:
+
+- Existing guides are updated to describe currently supported Qubes OS version
+- Missing common guides are identified
+- 2-3 new guides are written
 
 ### Timeline
 
