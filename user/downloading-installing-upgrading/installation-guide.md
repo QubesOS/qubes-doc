@@ -231,13 +231,14 @@ If the installation was successful, you should now see the GRUB menu during the 
 
 Just after this screen, you will be asked to enter your encryption passphrase.
 
-[![Unlock storage device screen](/attachment/doc/unlock-storage-device-screen.png)](/attachment/doc/unlock-storage-device-screen.png)
+[![Screen to enter device decryption password](/attachment/doc/unlock-storage-device-screen-4.2.png)](/attachment/doc/unlock-storage-device-screen-4.2.png)
 
 ### Initial Setup
 
 You're almost done. Before you can start using Qubes OS, some configuration is needed. 
 
-[![Window with link for final configuration ](/attachment/doc/initial-setup-menu.png)](/attachment/doc/initial-setup-menu.png)
+[![Window with link for final configuration ](/attachment/doc/initial-setup-menu-4.2.png)](/attachment/doc/initial-setup-menu-4.2.png)
+Click on the item marked with the warning triangle to enter the configuration screen.
 [![Initial configuration menu](/attachment/doc/initial-setup-menu-configuration-4.2.png)](/attachment/doc/initial-setup-menu-configuration-4.2.png)
 
 By default, the installer will create a number of qubes (depending on the options you selected during the installation process). These are designed to give you a more ready-to-use environment from the get-go.
