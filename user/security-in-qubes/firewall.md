@@ -66,12 +66,16 @@ Normally Qubes doesn't let the user stop a NetVM if there are other qubes runnin
 But in case the NetVM stops for whatever reason (e.g. it crashes, or the user forces its shutdown via qvm-kill via terminal in Dom0), Qubes R4.x will often automatically repair the connection.
 If it does not, then there is an easy way to restore the connection to the NetVM by issuing in dom0:
 
-` qvm-prefs <vm> netvm <netvm> `
+```
+qvm-prefs <vm> netvm <netvm>
+```
 
 Normally qubes do not connect directly to the actual NetVM (sys-net by default) which has networking devices, but rather to the default sys-firewall first, and in most cases it would be the NetVM that will crash, e.g. in response to S3 sleep/restore or other issues with WiFi drivers.
 In that case it is only necessary to issue the above command once, for the sys-firewall (this assumes default VM-naming used by the default Qubes installation):
 
-` qvm-prefs sys-firewall netvm sys-net `
+```
+qvm-prefs sys-firewall netvm sys-net
+```
 
 Network service qubes
 ---------------------
@@ -304,12 +308,12 @@ nft add rule qubes custom-forward iif == "ens6" ip saddr 192.168.x.y/24 ip daddr
 
 > Note: If you do not wish to limit the IP addresses connecting to the service, remove `ip saddr 192.168.x.y/24` from the rules
 
-> If you want to expose the service on multiple interfaces, repeat the steps 2 and 3 described above, for each interface.
+> If you want to expose the service on multiple interfaces, repeat the steps 2 and 3 described above, for each interface. Alternatively, you can leave out the interface completely.
 
 Verify the rules on sys-net firewall correctly match the packets you want by looking at its counters, check for the counter lines in the chains `custom-forward` and `custom-dnat-qubeDEST`:
 
 ```
-nft list table ip qubes-firewall
+nft list table ip qubes
 ```
 
 In this example, we can see 7 packets in the forward rule, and 3 packets in the dnat rule:
@@ -331,7 +335,7 @@ chain custom-dnat-qubeDEST {
 telnet 192.168.x.n 443
 ```
 
-Once you have confirmed that the counters increase, store the commands used in the previous steps in `/rw/config/rc.local` so they get set on sys-net start-up:
+Once you have confirmed that the counters increase, store the commands used in the previous steps in `/rw/config/qubes-firewall-user-script` so they get set on sys-net start-up:
 
 ```
 [user@sys-net user]$ sudo -i

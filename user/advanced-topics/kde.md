@@ -84,7 +84,3 @@ The safest way to remove (most of) KDE is:
 sudo dnf remove kdelibs plasma-workspace
 ~~~
 
-Mailing List Threads
---------------------
-
-* [Nalu's KDE customization thread](https://groups.google.com/d/topic/qubes-users/KhfzF19NG1s/discussion)
