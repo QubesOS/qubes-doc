@@ -50,6 +50,10 @@ Also see the [full list of open bug reports affecting Qubes 4.2](https://github.
 
 We strongly recommend [updating Qubes OS](/doc/how-to-update/) immediately after installation in order to apply all available bug fixes.
 
+## Notes
+
+- Qubes 4.2 does not support Debian 11 templates (see [supported template releases](/doc/supported-releases/#templates)). Please [upgrade your Debian templates](/doc/templates/debian/#upgrading) to Debian 12.
+
 ## Download
 
 All Qubes ISOs and associated [verification files](/security/verifying-signatures/) are available on the [downloads](/downloads/) page.
