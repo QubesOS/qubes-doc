@@ -144,7 +144,7 @@ list of packages to be installed):
   (which is normally `sys-firewall`).
 - NetVM, such as the template for `sys-net`: `qubes-core-agent-networking`
   `qubes-core-agent-network-manager` `NetworkManager-wifi`
-  `network-manager-applet` `wireless-tools` `notification-daemon`
+  `network-manager-applet` `notification-daemon`
   `gnome-keyring` `polkit` `@hardware-support`. If your network devices need
   extra packages for the template to work as a network VM, use the `lspci`
   command to identify the devices, then run `dnf search firmware` (replace
@@ -164,6 +164,8 @@ list of packages to be installed):
   to configure it.
 - `default-mgmt-dvm`: requires `qubes-core-agent-passwordless-root` and
   `qubes-mgmt-salt-vm-connector`.
+
+To manage fedora-39-minimal templates with salt, you may need to install `python3-urllib3` in older versions of the template. (This package is already installed in recent builds: see [discussion](https://github.com/QubesOS/qubes-issues/issues/8806).)
 
 In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be
 needed to make the customized minimal template work properly. These packages
@@ -324,7 +326,7 @@ list of packages to be installed):
   if you want to use it as the `UpdateVM` (which is normally `sys-firewall`).
 - NetVM, such as the template for `sys-net`: `qubes-core-agent-networking`
   `qubes-core-agent-network-manager` `NetworkManager-wifi`
-  `network-manager-applet` `wireless-tools` `notification-daemon`
+  `network-manager-applet` `notification-daemon`
   `gnome-keyring`. If your network devices need extra packages for a network
   VM, use the `lspci` command to identify the devices, then find the package
   that provides necessary firnware and install it. If you need utilities for

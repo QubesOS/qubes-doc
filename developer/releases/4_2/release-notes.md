@@ -42,9 +42,17 @@ The new Qubes OS Policy Editor tool:
 
 ## Known issues
 
-- DomU firewalls have completely switched to nftables. Users should add their custom rules to the `custom-input` and `custom-forward` chains. ([#5031](https://github.com/QubesOS/qubes-issues/issues/5031), [#6062](https://github.com/QubesOS/qubes-issues/issues/6062))
+- DomU firewalls have completely switched to nftables. Users should add their custom rules to the `custom-input` and `custom-forward` chains. (For more information, see issues [#5031](https://github.com/QubesOS/qubes-issues/issues/5031) and [#6062](https://github.com/QubesOS/qubes-issues/issues/6062).)
 
-For a full list of open bug reports affecting 4.2, please see [here](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+label%3Aaffects-4.2+label%3A%22T%3A+bug%22+is%3Aopen). We strongly recommend [updating Qubes OS](/doc/how-to-update/) immediately after installation in order to apply any and all available bug fixes.
+- Templates restored in 4.2 from a pre-4.2 backup continue to target their original Qubes OS release repos. If you are using fresh templates on a clean 4.2 installation, or if you performed an [in-place upgrade from 4.1 to 4.2](/doc/upgrade/4.2/#in-place-upgrade), then this does not affect you. (For more information, see issue [#8701](https://github.com/QubesOS/qubes-issues/issues/8701).)
+
+Also see the [full list of open bug reports affecting Qubes 4.2](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+label%3Aaffects-4.2+label%3A%22T%3A+bug%22+is%3Aopen).
+
+We strongly recommend [updating Qubes OS](/doc/how-to-update/) immediately after installation in order to apply all available bug fixes.
+
+## Notes
+
+- Qubes 4.2 does not support Debian 11 templates (see [supported template releases](/doc/supported-releases/#templates)). Please [upgrade your Debian templates](/doc/templates/debian/#upgrading) to Debian 12.
 
 ## Download
 

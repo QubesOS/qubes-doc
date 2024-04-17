@@ -83,7 +83,27 @@ A label of the form `affects-<RELEASE_NUMBER>` indicates that an issue affects t
 
 ### Projects
 
-The issue tracker has several [projects](https://github.com/QubesOS/qubes-issues/projects). A project is a way to create a group of multiple related issues. This is the preferred method of grouping issues, whereas trying to use normal issues as "meta-issues" or "epics" is discouraged.
+According to GitHub, a [project](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) is "an adaptable spreadsheet, task-board, and road map that integrates with your issues and pull requests on GitHub to help you plan and track your work effectively." The issue tracker has several [projects](https://github.com/QubesOS/qubes-issues/projects). Github projects allows more detailed issue states, and also attaching more metadata to issues. They also allow more focused view.
+
+There is a special project in Qubes OS project: the [Current team tasks project](https://github.com/orgs/QubesOS/projects/19/views/1) which represents current work of the core team. Issues in this project's **backlog** section are not yet ready for work - they might be waiting for clarifications, blockers, decisions on priorities etc. Issues that are **ready** can be picked up by any team member. There should not be too many issues in **ready** column to decrease confusion and decision paralysis - good number is around 20. The **in review** state means that the developer is finished with the work (the completion state has been reached) - if something has to be postponed or abandoned, a justification should be posted in issue discussion.
+
+### Meta-issues
+
+A meta-issue is an issue that serves to collect and organize a group of other issues. We use meta-issues when we need a way to track work on specific features. We cannot use [projects](#projects) for this, because we already use a project for tracking the work of the Qubes team as a whole, and projects cannot contain milestones or other projects.
+
+Meta-issues must abide by the following rules:
+
+- Only members of the core team may create meta-issues (or convert existing issues into meta-issues).
+
+  Rationale: The purpose of meta-issues is to track the development of certain features that fit into the overall goals of the Qubes OS Project, which requires making informed project-management decisions with the approval of the project lead.
+
+- Meta-issues must be [locked](https://docs.github.com/en/communities/moderating-comments-and-conversations/locking-conversations).
+
+  Rationale: One of the historical problems we've experienced with meta-issues (and one of the reasons they were discouraged for a long time) is that each meta-issue tends to turn into a discussion thread that becomes hopelessly long to the point where the person who is supposed to work on it has no idea what is supposed to be done or where to start, and it eventually just gets closed. Locking is intended to prevent that from happening again.
+
+- Meta-issues must have informative descriptions, not just lists of issues. In particular, each meta-issue should explain its goal, what is in scope, and what the relevant categories and priorities are.
+
+- Meta-issues must have clear, concrete, and actionable criteria for when they will be closed. Meta-issues should never be "open-ended" or expected to stay open indefinitely. If this ever becomes unclear, the meta-issue should be closed until it becomes clear.
 
 ## Search tips
 
@@ -193,3 +213,21 @@ In order to assist with this, we have a label called [backport pending](https://
 ### Understanding open and closed issues
 
 Every issue is always in one of two states: open or closed, with open being the default. The **open** and **closed** states mean that, according to our available information at present, the issue in question either **is** or **is not** (respectively) actionable for the Qubes team. The open and closed states do not mean anything more than this, and it's important not to read anything else into them. It's also important to understand that closing an issue is, in effect, nothing more than changing a virtual tag on an issue. Closing an issue is never "final" in any sense, and it does not affect the issue itself in any other way. Issues can be opened and closed instantly with a single button press an unlimited number of times at no cost. In fact, since the open and closed states reflect our available information at present, one should expect these states to change back and forth as new information becomes available. Closed issues are fully searchable, just like open issues, and we explicitly instruct all users of the issue tracker to search *both* open *and* closed issues, which GitHub makes easy.
+
+## Workflow and what do issue states mean
+
+There are some rules we use when assigning issues and tagging them.
+
+### Assigning issues
+
+To avoid a situation where an issue is "dead" - assigned to someone who is not actively working on it - and to help the team organize their work, an issue should be assigned to a person who currently works on it, or will start working on it in a very near future (about a week or two). One person can have several issues assigned at the same time (for example they may be working on one another issue while waiting for review), but if an issue is no longer actively being worked on (for example when it's blocked by something else),  it should be unassigned. At that point, if there is some partial work already done, there should be a comment about that, including link to the code (some WIP commit in some branch?) if applicable.
+
+Issues should not be assigned as a todo-list several months in the future, or assigned to someone without their explicit confirmation that they are currently working on that issue or will start doing it shortly.
+
+### Working on an issue
+
+Every issue should involve a clear statement of success: when is the issue finished? It might not be clear to the person making the issue, especially if it's an enhancement request, but before work starts, the person working on the issue should make sure that it includes clear completion criteria in the description (via editing the description, if necessary). The completion criteria would ideally be a checklist, and consist of a list of pull requests/features, each preferably no more than two weeks of work. It's also important to remember tests and documentation should also be part of the issue, if applicable. 
+
+An issue should also have a rough estimate how much time it needs, if it's more than one-two days. Of course this might be updated later, if an issue turns out to be more (or maybe less) complicated than it has initially seemed. 
+
+When an issue is done (that is, the completion checklist has been completed), the issue should be moved to **ready** column in the *Current team tasks* project.
