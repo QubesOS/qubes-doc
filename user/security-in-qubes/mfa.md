@@ -27,6 +27,94 @@ By default Qubes has two protection mechanisms against attackers.
 The first is full disk encryption and the second the user login screen / lockscreen. 
 This article section concerns only adding multi-factor authentication to the second one.
 
+### Time-based One-time Password (TOTP)
+
+As the name implies, this generates authentication code that is time-dependent. You can save the TOTP secret in a mobile app like [FreeOTP](https://en.wikipedia.org/wiki/FreeOTP)
+and then use it as an additional factor to login to your Qubes system.
+
+> **Warning**: remember to keep backup access codes.
+
+1. Download `google-authenticator` in dom0:
+
+    ```
+    sudo qubes-dom0-update google-authenticator
+    ```
+
+2. Run google authenticator:
+
+    ```
+    google-authenticator
+    ```
+
+3. Walk through the setup instructions 2 which will also generate your QR code for your auth app of choice:
+
+   ```
+   Do you want me to update your “/home/user/.google_authenticator” file (y/n) y
+
+   Do you want to disallow multiple uses of the same authentication token? This restricts you to one login about every 30s, but it increases your chances to notice or even prevent man-in-the-middle attacks (y/n)
+
+   By default, tokens are good for 30 seconds, and to compensate for possible time-skew between the client and the server, we allow an extra token before and after the current time. If you experience problems with poor time synchronization, you can increase the window from its default size of 1:30min to about 4min. Do you want to do so (y/n)
+
+   If the computer that you are logging into isn’t hardened against brute-force login attempts, you can enable rate-limiting for the authentication module. By default, this limits attackers to no more than 3 login attempts every 30s. Do you want to enable rate-limiting (y/n)
+   ```
+
+> **Warning**: in the next session if incorrectly performed, there is the risk of locking yourself out. Before procedding ensure that you have an up-to-date backup.
+>
+> For advanced users, to make sure you can quickly recover, you can also open another loging session in a tty. To do this, you do <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>F2</kbd> and login normally. Should anything go wrong, as long as you don't shut the computer down, you can still access this tty by entering the same key combination and reverting the changes. After you've opened this "backup" login, you can get to your graphical desktop with <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>F1</kbd>.
+
+Now we are going to add the authenticator as a login requirement:
+
+1. `sudo authselect create-profile mfa --base-on sssd`
+
+2. Edit the custom system authentication template with `sudo nanois encouraged /etc/authselect/custom/mfa/system-auth`.
+
+   Add the following line right after `auth required pam_faildelay.so delay=2000000`:
+
+   ```
+   auth required pam_google_authenticator.so
+   ```
+
+   After the change, the top of the file should look like this:
+
+   ```
+   {imply "with-smartcard" if "with-smartcard-required"}
+   auth required pam_env.so
+   auth required pam_faildelay.so delay=2000000
+   auth required pam_google_authenticator.so
+   ```
+
+3. Lastly, activate this authentication method with:
+
+   ```
+   sudo authselect select custom/mfa
+   ```
+
+Now you can test by locking the screen with <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>l</kbd>. If it was successful and you are pleased with the results, restart your computer.
+
+**Note**: When logging in. the first thing you put is the TOTP secret and then the password. This is true in the screen locker and as well as the session manager (the login window that shows right after you put the disk encryption passphrase).
+
+After this is done, its recommended to do a backup. This is because as long as you incude dom0 in the backup, your authentication code will be backed up as well.
+
+#### Troubleshooting
+
+The following assumes you haven't restarted your computer since setting up TOTP secret.
+
+1. Switch to TTY2 with <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>F2</kbd>.
+2. Revert to the original policy with:
+   ```
+   sudo authselect select sssd
+   ```
+3. Switch back to the graphical desktop with <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>F1</kbd>. You should be able to login normally (without multi-factor authentication).
+4. Change the mfa custom policy and apply it again.
+
+#### Lost TOTP / authentication device?
+
+In case you've lost your TOTP authentication device, you have two options.
+
+The first option is backup codes. When generating the TOTP secret you must have saved some recovery codes. Those can be used in place of the TOTP code, but they're discarded after use. So make sure you redo the multi-factor authentications intructions.
+
+The second option is recovery from a backup. It will work as long as you included dom0 in said backup. After restoring the dom0 backup, open a terminal in dom0 and the file should be located in `/home/<USER>/home-restore-<DATE>/dom0-home/<USER>/.google_authenticator`.
+
 ### Login with a YubiKey / NitroKey3
 
 The YubiKey / NitroKey3 is a hardware authentication device manufactured by Yubico / NitroKey
@@ -88,7 +176,7 @@ Note that setting up both a YubiKey and a NitroKey3 is not supported.
    Follow the installation instructions on the official [NitroKey 
 website](https://docs.nitrokey.com/software/nitropy/all-platforms/installation).
    
-   **WARNING**: *as of February 2024 the official instructions involve using pipx to
+   **WARNING**: *as of April 2024 the official instructions involve using pipx to
             install the pynitrokey package and its dependencies without any GPG
             verification! This is not a recommended practice, but will soon be
             fixed by NitroKey when they start providing release artifacts with
@@ -157,6 +245,8 @@ the secret for multiple of them, but you must always use the same NitroKey, beca
 HOTP counter will be incremented in dom0 as well as the used NitroKey whenever you make use
 of this method. If you want to switch to a different NitroKey later, delete the file
 `/etc/qubes/yk-keys/nk-hotp-counter` in dom0 first to make it work with a fresh NitroKey 3.
+Do the same if for some reason your counters get desynchronized (it stops working), e.g. due
+to connectivity issues (NitroKey3A Minis are known to wear out quickly).
 
 4. **YubiKey**
 
