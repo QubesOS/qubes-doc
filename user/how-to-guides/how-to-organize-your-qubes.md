@@ -99,7 +99,7 @@ the other. Alice's setup looks like this:
 - **Several email qubes.** Since Alice is a command-line aficionado, she likes
   to use a terminal-based email client, so both her work and personal email
   qubes are based on a template with
-  [Mutt](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/mutt.md)
+  [Mutt](https://forum.qubes-os.org/t/18989)
   installed. The email qubes where she sends and receives PGP-signed and
   encrypted email securely accesses the private keys in her PGP backend qube
   (more on that below). To guard against malicious attachments, she configured
@@ -199,7 +199,7 @@ for work, which contains:
   communication.
 
 - **Two qubes for
-  [Signal](https://github.com/Qubes-Community/Contents/blob/master/docs/privacy/signal.md).**
+  [Signal](https://forum.qubes-os.org/t/19073).**
   Bob has two Signal app qubes (both on the same template in which the Signal
   desktop app is installed). One is linked to his own mobile number for
   communicating with co-workers and other known, trusted contacts. The other is
@@ -217,7 +217,7 @@ for work, which contains:
   the side benefit of helping to keep things organized.
 
 - **A [VPN
-  qube](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md)
+  qube](https://forum.qubes-os.org/t/19061)
   and associated qubes for accessing work resources.** The servers at work can
   only be accessed from the organization's network, so Bob has certain qubes
   that are connected to a VPN qube so that he can upload his work and access
@@ -391,7 +391,7 @@ Carol has added the following to her Qubes setup:
   physically air-gapped machine, but she's figures they all have different
   security properties. She also recently heard about using [Electrum as a
   "split" wallet in
-  Qubes](https://github.com/Qubes-Community/Contents/blob/master/docs/security/split-bitcoin.md)
+  Qubes](https://forum.qubes-os.org/t/19017)
   and is interested in exploring that further.
 
 - **Whonix qubes.** Carol read somewhere that Bitcoin nodes should be run over

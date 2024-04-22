@@ -224,7 +224,7 @@ Kernel for a VM is stored in `/var/lib/qubes/vm-kernels/KERNEL_VERSION` director
 * `modules.img` - ext4 filesystem image containing Linux kernel modules (to be mounted at `/lib/modules`); additionally it should contain a copy of `vmlinuz` and `initramfs` in its root directory (for loading by qemu inside stubdomain)
 * `default-kernelopts-common.txt` - default kernel options, in addition to those specified with `kernelopts` qube property (can be disabled with `no-default-kernelopts` feature)
 
-All the files besides `vmlinuz` are optional in Qubes R4.1 or newer. In Qubes R4.0, `vmlinuz` and `initramfs` are both required to be present.
+All the files besides `vmlinuz` and `initramfs` are optional in Qubes R4.0 or newer.
 
 ## Using kernel installed in the VM
 
@@ -275,9 +275,11 @@ grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your 
 
 Then shutdown the VM.
 
-**Note:** You may also use `PV` mode instead of `HVM` but this is not recommended for security purposes.
-If you require `PV` mode, install `grub2-xen` in dom0 and change the template's kernel to `pvgrub2`.
-Booting to a kernel inside the template is not supported under `PVH`.
+**Notes:**
+
+* You may also use `PV` mode instead of `HVM` but this is not recommended for security purposes.
+* If you require `PV` mode, install `grub2-xen-pvh` in dom0 and change the template's kernel to `pvgrub2-pvh`.
+* Booting to a kernel inside the template is not supported under `PVH`.
 
 ### Installing kernel in Debian VM
 
@@ -311,7 +313,7 @@ Go to dom0 -> Qubes VM Manger -> right click on the VM -> Qube settings -> Advan
 Depends on `Virtualization` mode setting:
 
 * `Virtualization` mode `PV`: Possible, however use of `Virtualization` mode `PV` mode is discouraged for security purposes.
-  * If you require `Virtualization` mode `PV` mode, install `grub2-xen` in dom0. This can be done by running command `sudo qubes-dom0-update grub2-xen` in dom0.
+  * If you require `Virtualization` mode `PV` mode, install `grub2-xen-pvh` in dom0. This can be done by running command `sudo qubes-dom0-update pvgrub2-pvh in dom0.
 * `Virtualization` mode `PVH`: Possible.
 * `Virtualization` mode `HVM`: Possible.
 

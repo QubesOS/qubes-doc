@@ -144,7 +144,7 @@ list of packages to be installed):
   (which is normally `sys-firewall`).
 - NetVM, such as the template for `sys-net`: `qubes-core-agent-networking`
   `qubes-core-agent-network-manager` `NetworkManager-wifi`
-  `network-manager-applet` `wireless-tools` `notification-daemon`
+  `network-manager-applet` `notification-daemon`
   `gnome-keyring` `polkit` `@hardware-support`. If your network devices need
   extra packages for the template to work as a network VM, use the `lspci`
   command to identify the devices, then run `dnf search firmware` (replace
@@ -155,15 +155,17 @@ list of packages to be installed):
   `qubes-usb-proxy` to provide USB devices to other Qubes and
   `qubes-input-proxy-sender` to provide keyboard or mouse input to dom0.
 - [VPN
-  qube](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md):
+  qube](https://forum.qubes-os.org/t/19061):
   Use the `dnf search "NetworkManager VPN plugin"` command to look up the VPN
   packages you need, based on the VPN technology you'll be using, and install
   them. Some GNOME related packages may be needed as well. After creation of a
   machine based on this template, follow the [VPN
-  instructions](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager)
+  instructions](https://forum.qubes-os.org/t/19061#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager)
   to configure it.
 - `default-mgmt-dvm`: requires `qubes-core-agent-passwordless-root` and
   `qubes-mgmt-salt-vm-connector`.
+
+To manage fedora-39-minimal templates with salt, you may need to install `python3-urllib3` in older versions of the template. (This package is already installed in recent builds: see [discussion](https://github.com/QubesOS/qubes-issues/issues/8806).)
 
 In Qubes 4.0, additional packages from the `qubes-core-agent` suite may be
 needed to make the customized minimal template work properly. These packages
@@ -192,7 +194,7 @@ are:
 Also, there are packages to provide additional services:
 
 - `qubes-gpg-split`: For implementing split GPG.
-- `qubes-u2f`: For implementing secure forwarding of U2F messages.
+- `qubes-ctap`: For implementing secure forwarding of CTAP messages.
 - `qubes-pdf-converter`: For implementing safe conversion of PDFs.
 - `qubes-img-converter`: For implementing safe conversion of images.
 - `qubes-snapd-helper`: If you want to use snaps in qubes.
@@ -206,7 +208,7 @@ You may also wish to consider additional packages from the `qubes-core-agent`
 suite.
 
 See
-[here](https://github.com/Qubes-Community/Contents/blob/master/docs/customization/fedora-minimal-template-customization.md)
+[here](https://forum.qubes-os.org/t/18999)
 for further information on customizing `fedora-minimal`.
 
 #### Logging
@@ -240,9 +242,9 @@ list of packages to be installed):
 - [FirewallVM](/doc/firewall/), such as the template for `sys-firewall`: at
   least `qubes-core-agent-networking`, and also `qubes-core-agent-dom0-updates`
   if you want to use it as the `UpdateVM` (which is normally `sys-firewall`).
-- NetVM, such as the template for `sys-net`: `qubes-core-agent-networking`
-  `qubes-core-agent-network-manager`. If your network devices need extra
-  packages for a network VM, use the `lspci` command to identify the devices,
+- NetVM, such as the template for `sys-net`: `qubes-core-agent-networking`,
+  `qubes-core-agent-network-manager`, `ntpd` (or other NTP Service).
+  If your network devices need extra packages for a network VM, use the `lspci` command to identify the devices,
   then find the package that provides necessary firmware and install it. If you
   need utilities for debugging and analyzing network connections, install the
   following packages: `tcpdump` `telnet` `nmap` `ncat`.
@@ -254,11 +256,11 @@ list of packages to be installed):
   pair it with `qubes-core-agent-passwordless-root` or manually activate the
   user session with `loginctl activate <USER_SESSION_ID>`.)
 - [VPN
-  qube](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md):
+  qube](https://forum.qubes-os.org/t/19061):
   You may need to install network-manager VPN packages, depending on the VPN
   technology you'll be using. After creating a machine based on this template,
   follow the [VPN
-  howto](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager)
+  howto](https://forum.qubes-os.org/t/19061#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager)
   to configure it.
 - `default-mgmt-dvm`: requires `qubes-core-agent-passwordless-root` and
   `qubes-mgmt-salt-vm-connector`.
@@ -287,7 +289,7 @@ are:
 Also, there are packages to provide additional services:
 
 - `qubes-gpg-split`: For implementing split GPG.
-- `qubes-u2f`: For implementing secure forwarding of U2F messages.
+- `qubes-ctap`: For implementing secure forwarding of CTAP messages.
 - `qubes-pdf-converter`: For implementing safe conversion of PDFs.
 - `qubes-img-converter`: For implementing safe conversion of images.
 - `qubes-snapd-helper`: If you want to use snaps in qubes.
@@ -324,7 +326,7 @@ list of packages to be installed):
   if you want to use it as the `UpdateVM` (which is normally `sys-firewall`).
 - NetVM, such as the template for `sys-net`: `qubes-core-agent-networking`
   `qubes-core-agent-network-manager` `NetworkManager-wifi`
-  `network-manager-applet` `wireless-tools` `notification-daemon`
+  `network-manager-applet` `notification-daemon`
   `gnome-keyring`. If your network devices need extra packages for a network
   VM, use the `lspci` command to identify the devices, then find the package
   that provides necessary firnware and install it. If you need utilities for
@@ -334,11 +336,11 @@ list of packages to be installed):
   `qubes-usb-proxy` to provide USB devices to other Qubes and
   `qubes-input-proxy-sender` to provide keyboard or mouse input to dom0.
 - [VPN
-  qube](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md):
+  qube](https://forum.qubes-os.org/t/19061):
   You may need to install network-manager VPN packages, depending on the VPN
   technology you'll be using. After creating a machine based on this template,
   follow the [VPN
-  howto](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager)
+  howto](https://forum.qubes-os.org/t/19061#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager)
   to configure it.
 - `default-mgmt-dvm`: requires `qubes-core-agent-passwordless-root` and
   `qubes-mgmt-salt-vm-connector`.

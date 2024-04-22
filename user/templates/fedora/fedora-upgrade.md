@@ -51,6 +51,7 @@ If you wish to install a new, unmodified Fedora template instead of upgrading a 
 [user@dom0 ~]$ qvm-shutdown fedora-<new>
 [user@dom0 ~]$ sudo losetup -d $dev
 [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
+[user@dom0 ~]$ qvm-features fedora-<new> template-name fedora-<new>
 ```
 
 **Recommended:** [Switch everything that was set to the old template to the new template.](/doc/templates/#switching)
@@ -159,15 +160,21 @@ The same general procedure may be used to upgrade any template based on the stan
     [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
     ```
 
-8. (Recommended) [Switch everything that was set to the old template to the new template.](/doc/templates/#switching)
+8. Set the template-name, which is used by the Qubes updater.
 
-9. (Optional) Make the new template the global default.
+    ```
+    [user@dom0 ~]$ qvm-features fedora-<new> template-name fedora-<new>
+    ```
+
+9. (Recommended) [Switch everything that was set to the old template to the new template.](/doc/templates/#switching)
+
+10. (Optional) Make the new template the global default.
 
     ```
     [user@dom0 ~]$ qubes-prefs --set default_template fedora-<new>
     ```
 
-10. (Optional) [Uninstall the old template.](/doc/templates/#uninstalling)
+11. (Optional) [Uninstall the old template.](/doc/templates/#uninstalling)
     Make sure that the template you're uninstalling is the old one, not the new one!
 
 ## Summary instructions for Fedora Minimal templates
@@ -180,6 +187,7 @@ The same general procedure may be used to upgrade any template based on the stan
 [root@fedora-<new>-minimal ~]# dnf clean all
 [user@fedora-<new>-minimal ~]# dnf --releasever=<new> --best --allowerasing distro-sync
 [user@fedora-<new>-minimal ~]# fstrim -v /
+[user@dom0 ~]$ qvm-features fedora-<new>-minimal template-name fedora-<new>
 ```
 
 (Shut down template by any normal means.)

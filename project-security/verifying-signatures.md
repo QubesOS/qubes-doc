@@ -171,26 +171,68 @@ Fedora, `dnf install distribution-gpg-keys` will get you the QMSK along with
 several other Qubes keys. On Debian, your keyring may already contain the
 necessary keys.
 
-Perhaps the most common route is to rely on the key's fingerprint. Every PGP
-key has a fingerprint that uniquely identifies it among all PGP keys (viewable
-with `gpg2 --fingerprint <KEY_ID>`). Therefore, if you know the genuine QMSK
+Perhaps the most common route is to rely on the key's fingerprint, which is a
+string of 40 alphanumeric characters, like this:
+
+```
+427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
+```
+
+Every PGP key has one of these fingerprints, which uniquely identifies it among
+all PGP keys. (On the command line, you can view a key's fingerprint with the
+`gpg2 --fingerprint <KEY_ID>` command.) Therefore, if you know the genuine QMSK
 fingerprint, then you always have an easy way to confirm whether any purported
 copy of it is authentic, simply by comparing the fingerprints.
 
-For example, here is the QMSK fingerprint:
-
-```shell_session
-pub   4096R/36879494 2010-04-01
-      Key fingerprint = 427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
-uid   Qubes Master Signing Key
-```
-
-But how do you know that this is the real fingerprint? After all, [this website
+But how do you know which fingerprint is the real one? After all, [this website
 could be compromised](/faq/#should-i-trust-this-website), so the fingerprint
 you see here may not be genuine. That's why we strongly suggest obtaining the
-fingerprint from *multiple independent sources in several different ways*.
+fingerprint from *multiple independent sources in several different ways*, then
+comparing the strings of letters and numbers to make sure they match.
 
-Here are some ideas for how to do that:
+For the purpose of convincing yourself that you know the authentic QMSK
+fingerprint, spaces and capitalization don't matter. In other words, all of
+these fingerprints are considered the same:
+
+```
+427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
+427f 11fd 0faa 4b08 0123  f01c ddfa 1a3e 3687 9494
+427F11FD0FAA4B080123F01CDDFA1A3E36879494
+427f11fd0faa4b080123f01cddfa1a3e36879494
+```
+
+Instead, what matters is that *all* the characters are present in *exactly* the
+same order. If even one character is different, the fingerprints should not be
+considered the same. Even if two fingerprints have all the same characters, if
+any of those characters are in a different order, sequence, or position, then
+the fingerprints should not be considered the same.
+
+However, for the purpose of *searching for*, *looking up*, or *entering* keys,
+spaces and capitalization can matter, depending on the software or tool you're
+using. You may need to try different variations (e.g., with and without
+spaces). You may also sometimes see (or need to enter) the entire fingerprint
+prefixed with `0x`, as in:
+
+```
+0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
+0x427f11fd0faa4b080123f01cddfa1a3e36879494
+```
+
+The `0x` prefix is sometimes used to indicate that the string following it is a
+hexadecimal value, and some PGP-related tools may require this prefix. Again,
+for the purpose of convincing yourself that you know the authentic QMSK
+fingerprint, you may safely ignore the `0x` prefix, as it is not part of the
+fingerprint. As long as the 40-character string after the `0x` matches exactly,
+the fingerprint is considered the same. The `0x` prefix only matters if the
+software or tool you're using cares about it.
+
+The general idea of "comparing fingerprints" is to go out into the world
+(whether digitally, physically, or both) and find other 40-character strings
+purporting to be the QMSK fingerprint, then compare them to your own purported
+QMSK fingerprint to ensure that the sequence of alphanumeric characters is
+exactly the same (again, regardless of spaces or capitalization). If any of the
+characters do not match or are not in the same order, then at least one of the
+fingerprints is a forgery. Here are some ideas to get you started:
 
 - Check the fingerprint on various websites (e.g., [mailing
   lists](https://groups.google.com/g/qubes-devel/c/RqR9WPxICwg/m/kaQwknZPDHkJ),
@@ -204,10 +246,10 @@ Here are some ideas for how to do that:
   talk](https://hyperelliptic.org/PSC/slides/psc2015_qubesos.pdf), on a
   [T-shirt](https://twitter.com/legind/status/813847907858337793/photo/2), or
   in the [recording of a presentation](https://youtu.be/S0TVw7U3MkE?t=2563)).
-- Download old Qubes ISOs from different sources and check the included Qubes
-  Master Signing Key.
 - Ask people to post the fingerprint on various mailing lists, forums, and chat
   rooms.
+- Download old Qubes ISOs from different sources and check the included Qubes
+  Master Signing Key.
 - Repeat the above over Tor.
 - Repeat the above over various VPNs and proxy servers.
 - Repeat the above on different networks (work, school, internet cafe, etc.).
@@ -215,11 +257,11 @@ Here are some ideas for how to do that:
   confirm the fingerprint.
 - Repeat the above from different computers and devices.
 
-Once you've obtained the fingerprint from enough independent sources in enough
-different ways that you feel confident that you know the genuine fingerprint,
-keep it in a safe place. Every time you need to check whether a key claiming to
-be the QMSK is authentic, compare that key's fingerprint to your trusted copy
-and confirm they match.
+Once you've observed enough matching fingerprints from enough independent
+sources in enough different ways that you feel confident that you have the
+genuine fingerprint, keep it in a safe place. Every time you need to check
+whether a key claiming to be the QMSK is authentic, compare that key's
+fingerprint to your trusted copy and confirm they match.
 
 Now that you've imported the authentic QMSK, set its trust level to "ultimate"
 so that it can be used to automatically verify all the keys signed by the QMSK

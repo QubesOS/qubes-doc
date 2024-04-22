@@ -6,7 +6,7 @@ redirect_from:
 - /en/doc/building-non-fedora-template/
 - /doc/BuildingNonFedoraTemplate/
 - /wiki/BuildingNonFedoraTemplate/
-redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/building/building-non-fedora-template.md
+redirect_to: https://forum.qubes-os.org/t/18972
 ref: 117
 title: Building non-Fedora template
 ---

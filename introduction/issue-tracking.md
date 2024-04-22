@@ -51,13 +51,13 @@ Great! Thank you for taking the time and effort to help improve Qubes! To ensure
 
 Eventually, your issue may be closed. See [how issues get closed](/doc/issue-tracking/#how-issues-get-closed) for details about when, why, and how this occurs.
 
-## Labels, milestones, and projects
+## Labels and projects
 
-Labels, milestones, and projects are features of GitHub's issue tracking system that we use to keep [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) organized.
+Labels and projects are features of GitHub's issue tracking system that we use to keep [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) organized.
 
 ### Labels
 
-When an issue is first created, certain labels may automatically be applied to it based on the type of issue the reporter selected. For example, if someone selects the "Bug report" template, then the `T: bug` label will automatically be applied to that issue. After that, only Qubes team members have permission to modify [labels](https://github.com/QubesOS/qubes-issues/labels) and [milestones](https://github.com/QubesOS/qubes-issues/milestones). Many labels and milestones have descriptions on them that can be viewed either in their respective lists or by hovering over them. Let's go over some of the most important ones.
+When an issue is first created, certain [labels](https://github.com/QubesOS/qubes-issues/labels) may automatically be applied to it based on the type of issue the reporter selected. For example, if someone selects the "Bug report" template, then the `T: bug` label will automatically be applied to that issue. After that, only Qubes team members have permission to modify labels. Many labels have descriptions on them that can be viewed by hovering over them or on the [list of labels](https://github.com/QubesOS/qubes-issues/labels). Let's go over some of the most important ones.
 
 #### Type
 
@@ -75,29 +75,45 @@ There are several issue **priority** levels ranging from `P: minor` to `P: block
 
 #### Component
 
-There are many **component** labels, each beginning with `C:` (see [here](https://github.com/QubesOS/qubes-issues/labels?page=2&q=C%3A) for the full list). Every open issue should have **at least one** component. An open issue may have more than one component, but it should not lack a component entirely. When no other component applies, use `C: other`.
+There are many **component** labels, each beginning with `C:` (see [here](https://github.com/QubesOS/qubes-issues/labels?q=C%3A) for the full list). Every open issue should have **at least one** component. An open issue may have more than one component, but it should not lack a component entirely. When no other component applies, use `C: other`.
 
 #### Affected release
 
 A label of the form `affects-<RELEASE_NUMBER>` indicates that an issue affects the corresponding Qubes OS release. An issue can have more than one of these labels if it affects multiple releases.
 
-### Milestones
-
-The issue tracker has several [milestones](https://github.com/QubesOS/qubes-issues/milestones). Individual issues can be assigned to milestones. The issue tracker does not allow an issue to be assigned to more than one milestone. If an issue is already assigned to a milestone, assigning it to a different one will *replace* the existing milestone assignment. Each milestone has a progress indicator showing how close that milestone is to completion.
-
-Most milestones correspond to specific Qubes OS releases. The Qubes developers decide which issues will be assigned to specific milestones. The general idea is that each milestone's progress indicator should provide a rough idea of how much progress has been made on that milestone and how much work remains until the milestone is complete. Most issues will not be assigned to any milestone at all until a Qubes developer manually assigns it to one. While anyone is free to open an issue, this does not create an obligation on the Qubes developers to act on that issue. Every open issue should be understood to be merely "under consideration" unless or until a Qubes developer decides to assign it to a milestone. Issues that are assigned to a milestone are issues that either the Qubes developers or another contributor plans to complete *for* that milestone. The Qubes developers reserve the right to modify or remove milestones at any time at their discretion.
-
 ### Projects
 
-The issue tracker has several [projects](https://github.com/QubesOS/qubes-issues/projects). A project is a way to create a group of multiple related issues. This is the preferred method of grouping issues, whereas trying to use normal issues as "meta-issues" or "epics" is discouraged.
+According to GitHub, a [project](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) is "an adaptable spreadsheet, task-board, and road map that integrates with your issues and pull requests on GitHub to help you plan and track your work effectively." The issue tracker has several [projects](https://github.com/QubesOS/qubes-issues/projects). Github projects allows more detailed issue states, and also attaching more metadata to issues. They also allow more focused view.
+
+There is a special project in Qubes OS project: the [Current team tasks project](https://github.com/orgs/QubesOS/projects/19/views/1) which represents current work of the core team. Issues in this project's **backlog** section are not yet ready for work - they might be waiting for clarifications, blockers, decisions on priorities etc. Issues that are **ready** can be picked up by any team member. There should not be too many issues in **ready** column to decrease confusion and decision paralysis - good number is around 20. The **in review** state means that the developer is finished with the work (the completion state has been reached) - if something has to be postponed or abandoned, a justification should be posted in issue discussion.
+
+### Meta-issues
+
+A meta-issue is an issue that serves to collect and organize a group of other issues. We use meta-issues when we need a way to track work on specific features. We cannot use [projects](#projects) for this, because we already use a project for tracking the work of the Qubes team as a whole, and projects cannot contain milestones or other projects.
+
+Meta-issues must abide by the following rules:
+
+- Only members of the core team may create meta-issues (or convert existing issues into meta-issues).
+
+  Rationale: The purpose of meta-issues is to track the development of certain features that fit into the overall goals of the Qubes OS Project, which requires making informed project-management decisions with the approval of the project lead.
+
+- Meta-issues must be [locked](https://docs.github.com/en/communities/moderating-comments-and-conversations/locking-conversations).
+
+  Rationale: One of the historical problems we've experienced with meta-issues (and one of the reasons they were discouraged for a long time) is that each meta-issue tends to turn into a discussion thread that becomes hopelessly long to the point where the person who is supposed to work on it has no idea what is supposed to be done or where to start, and it eventually just gets closed. Locking is intended to prevent that from happening again.
+
+- Meta-issues must have informative descriptions, not just lists of issues. In particular, each meta-issue should explain its goal, what is in scope, and what the relevant categories and priorities are.
+
+- Meta-issues must have clear, concrete, and actionable criteria for when they will be closed. Meta-issues should never be "open-ended" or expected to stay open indefinitely. If this ever becomes unclear, the meta-issue should be closed until it becomes clear.
 
 ## Search tips
 
-[Search both open and closed issues.](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue) For example, you may be experiencing a bug that was just fixed, in which case the report for that bug is probably closed. In this case, it would be useful to view [all bug reports, both open and closed, with the most recently updated sorted to the top](https://github.com/QubesOS/qubes-issues/issues?q=label%3Abug+sort%3Aupdated-desc).
+- [Search both open and closed issues.](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue) For example, you may be experiencing a bug that was just fixed, in which case the report for that bug is probably closed. In this case, it would be useful to view [all bug reports, both open and closed, with the most recently updated sorted to the top](https://github.com/QubesOS/qubes-issues/issues?q=label%3A%22T%3A+bug%22+sort%3Aupdated-desc).
 
-[Search using labels.](https://github.com/QubesOS/qubes-issues/labels) For example, you can search issues by priority ([blocker](https://github.com/QubesOS/qubes-issues/labels/P%3A%20blocker), [critical](https://github.com/QubesOS/qubes-issues/labels/P%3A%20critical), [major](https://github.com/QubesOS/qubes-issues/labels/P%3A%20major), etc.) and by component ([core](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+core%22), [manager/widget](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3A%22C%3A+manager%2Fwidget%22+), [Xen](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+Xen%22), etc.).
+- [Search with labels.](https://github.com/QubesOS/qubes-issues/labels) For example, you can search issues by priority ([blocker](https://github.com/QubesOS/qubes-issues/labels/P%3A%20blocker), [critical](https://github.com/QubesOS/qubes-issues/labels/P%3A%20critical), [major](https://github.com/QubesOS/qubes-issues/labels/P%3A%20major), etc.) and by component ([core](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+core%22), [manager/widget](https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3A%22C%3A+manager%2Fwidget%22+), [Xen](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+Xen%22), etc.).
 
-You can also try searching by [milestone](https://github.com/QubesOS/qubes-issues/milestones) and by [project](https://github.com/QubesOS/qubes-issues/projects).
+- Search by closure reason: [`reason:completed`](https://github.com/QubesOS/qubes-issues/issues?q=reason%3Acompleted) and [`reason:"not planned"`](https://github.com/QubesOS/qubes-issues/issues?q=reason%3A%22not+planned%22).
+
+- [Search by project](https://github.com/QubesOS/qubes-issues/projects).
 
 ## Guidelines
 
@@ -109,7 +125,7 @@ This guideline is important for keeping issues focused on *actionable informatio
 
 ### Do not submit questions
 
-[qubes-issues](https://github.com/QubesOS/qubes-issues/issues) is not the place to ask questions. This includes, but is not limited to, troubleshooting questions and questions about how to do things with Qubes. Instead, see [Help, Support, Mailing Lists, and Forum](/support/) for appropriate place to ask questions. By contrast, [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) is meant for tracking more general bugs, enhancements, and tasks that affect a broad range of Qubes users.
+[qubes-issues](https://github.com/QubesOS/qubes-issues/issues) is not the place to ask questions. This includes, but is not limited to, troubleshooting questions and questions about how to do things with Qubes. Instead, see [Help, Support, Mailing Lists, and Forum](/support/) for appropriate places to ask questions. By contrast, [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) is meant for tracking more general bugs, enhancements, and tasks that affect a broad range of Qubes users.
 
 ### Use the issue template
 
@@ -168,11 +184,17 @@ In the case of bugs, the package containing the change will move to the appropri
 
 ### Resolution
 
-In other cases, an issue may be closed with a specific resolution, such as `R: invalid`, `R: duplicate`, or `R: won't fix`. Each of these labels has a description that explains the label. We'll also leave a comment explaining why we're closing the issue with one of these specific resolutions. If the issue is closed without one of these specific resolutions, then it means, by default, that the reported bug was fixed or the requested enhancement was implemented.
+In GitHub, an issue can be [closed as either `completed` or `not planned`](https://github.blog/changelog/2022-03-10-the-new-github-issues-march-10th-update/#%F0%9F%95%B5%F0%9F%8F%BD%E2%99%80%EF%B8%8F-issue-closed-reasons).
+
+Being closed as `completed` means that the issue has been fixed (in the case of bugs) or done (in the case of enhancements and tasks). More precisely, it means that a commit containing the relevant work has been pushed. It takes time for this work to make its way into a package, which must then go through the [testing](/doc/testing/) process before finally landing in the relevant stable repository. Automated comments on the issue will announce when key events in this process occur.
+
+Being closed as `not planned` means that the issue will *not* be fixed (in the case of bugs) or done (in the case of enhancements and tasks). When an issue is closed as `not planned`, we add a **resolution** label starting with `R:` that specifies the reason for the closure, such as `R: duplicate` or `R: cannot reproduce`. Each of these labels has a description that briefly explains the label. We also leave a comment containing a longer explanation for why the issue is being closed along with general information.
+
+While issues that are closed as `not planned` get a more specific resolution label, issues that are closed as `completed` do not always get one, since the linked PRs, commits, automated messages, and the `completed` reason itself are often sufficient to convey all relevant information. For information about using closure reasons in searches, see [Search tips](#search-tips).
 
 ### Backports
 
-Issues in GitHub can only be open or closed, but, when it comes to bugs that affect multiple versions of Qubes OS, there are several possible states:
+Issues in GitHub can only be open or closed, but when it comes to bugs that affect multiple versions of Qubes OS, there are several possible states:
 
 1. Not fixed yet
 2. Fix developed but not yet committed (PR open)
@@ -186,8 +208,26 @@ We close issues at step 3. Then, as updates are released, the issue automaticall
 
 Therefore, if you see that an issue is closed, but the fix is not yet available to you, be aware that it may be at an intermediate stage of this process between issue closure and the update being available in whichever repos you have enabled in whichever version of Qubes you're using.
 
-In order to assist with this, we have a label called [backport pending](https://github.com/QubesOS/qubes-issues/labels/backport%20pending), which means, "The fix has been released for the testing release but is pending backport to the stable release." Our infrastructure will attempt to apply this label automatically, when appropriate, but it is not perfect, and the developers may be need to adjust it manually.
+In order to assist with this, we have a label called [backport pending](https://github.com/QubesOS/qubes-issues/labels/backport%20pending), which means, "The fix has been released for the testing release but is pending backport to the stable release." Our infrastructure will attempt to apply this label automatically, when appropriate, but it is not perfect, and the developers may need to adjust it manually.
 
 ### Understanding open and closed issues
 
 Every issue is always in one of two states: open or closed, with open being the default. The **open** and **closed** states mean that, according to our available information at present, the issue in question either **is** or **is not** (respectively) actionable for the Qubes team. The open and closed states do not mean anything more than this, and it's important not to read anything else into them. It's also important to understand that closing an issue is, in effect, nothing more than changing a virtual tag on an issue. Closing an issue is never "final" in any sense, and it does not affect the issue itself in any other way. Issues can be opened and closed instantly with a single button press an unlimited number of times at no cost. In fact, since the open and closed states reflect our available information at present, one should expect these states to change back and forth as new information becomes available. Closed issues are fully searchable, just like open issues, and we explicitly instruct all users of the issue tracker to search *both* open *and* closed issues, which GitHub makes easy.
+
+## Workflow and what do issue states mean
+
+There are some rules we use when assigning issues and tagging them.
+
+### Assigning issues
+
+To avoid a situation where an issue is "dead" - assigned to someone who is not actively working on it - and to help the team organize their work, an issue should be assigned to a person who currently works on it, or will start working on it in a very near future (about a week or two). One person can have several issues assigned at the same time (for example they may be working on one another issue while waiting for review), but if an issue is no longer actively being worked on (for example when it's blocked by something else),  it should be unassigned. At that point, if there is some partial work already done, there should be a comment about that, including link to the code (some WIP commit in some branch?) if applicable.
+
+Issues should not be assigned as a todo-list several months in the future, or assigned to someone without their explicit confirmation that they are currently working on that issue or will start doing it shortly.
+
+### Working on an issue
+
+Every issue should involve a clear statement of success: when is the issue finished? It might not be clear to the person making the issue, especially if it's an enhancement request, but before work starts, the person working on the issue should make sure that it includes clear completion criteria in the description (via editing the description, if necessary). The completion criteria would ideally be a checklist, and consist of a list of pull requests/features, each preferably no more than two weeks of work. It's also important to remember tests and documentation should also be part of the issue, if applicable. 
+
+An issue should also have a rough estimate how much time it needs, if it's more than one-two days. Of course this might be updated later, if an issue turns out to be more (or maybe less) complicated than it has initially seemed. 
+
+When an issue is done (that is, the completion checklist has been completed), the issue should be moved to **ready** column in the *Current team tasks* project.

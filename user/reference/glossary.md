@@ -128,9 +128,21 @@ example, it is common for the net qube of an [app qube](#app-qube) to be the
 [service qube](#service-qube) `sys-firewall`, which in turn uses `sys-net` as
 its net qube. 
 
+* If a qube does not have a net qube (i.e., its `netvm` is set to `None`), then
+  that qube is offline. It is disconnected from all networking.
+
 * The name `netvm` derives from "Networking Virtual Machine." Before Qubes 4.0,
   there was a type of [service qube](#service-qube) called a "NetVM." The name
   of the `netvm` property is a holdover from that era.
+
+## policies
+
+In Qubes OS, "policies" govern interactions between qubes, powered by [Qubes' qrexec system](https://www.qubes-os.org/doc/qrexec/).
+A single policy is a rule applied to a qube or set of qubes, that governs how and when information or assets may be shared with other qubes.  
+An example is the rules governing how files can be copied between qubes.  
+Policy rules are grouped together in files under `/etc/qubes/policy.d`  
+Policies are an important part of what makes Qubes OS special.
+
 
 ## qube
 
@@ -145,8 +157,7 @@ still be called "qubes."
 
 * Note that starting a sentence with the plural of "qube" (i.e., "Qubes...")
   can be ambiguous, since it may not be clear whether the referent is a
-  plurality of qubes or [Qubes OS](#qubes-os). You may wish to rephrase
-  sentences in order to avoid this ambiguity.
+  plurality of qubes or [Qubes OS](#qubes-os).
 
 * Example usage: "In Qubes OS, you do your banking in your 'banking' qube and
   your web surfing in your 'untrusted' qube. That way, if your 'untrusted' qube
@@ -210,5 +221,5 @@ See [Templates](/doc/templates/).
 
 ## VM
 
-An abbreviation for "virtual machine." A software implementation of a machine
-(for example, a computer) that executes programs like a physical machine.
+An abbreviation for "virtual machine." A software implementation of a computer
+that provides the functionality of a physical machine.

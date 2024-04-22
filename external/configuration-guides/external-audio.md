@@ -6,7 +6,7 @@ redirect_from:
 - /en/doc/external-audio/
 - /doc/ExternalAudio/
 - /wiki/ExternalAudio/
-redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/external-audio.md
+redirect_to: https://forum.qubes-os.org/t/18984
 ref: 100
 title: External audio
 ---

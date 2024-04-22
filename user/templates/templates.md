@@ -273,6 +273,15 @@ new template:
    old template by clicking on the first one, holding shift, then clicking on
    the last one. With multiple qubes selected, right-click on any of them,
    hover your cursor over Template, then click on the new template.
+    Or in the `System` menu select `Manage templates for qubes`, select
+    any qubes using the old template and update them to the new template
+    using the drop down menu.
+
+4. **Change the template for the default-mgmt-dvm** If the old template
+    was used for management qubes, then you should change the template.
+    This is an *internal* qube which does not appear by default in the Qube manager.
+    In the `System` menu select `Manage templates for qubes`, and you will see the *default-mgmt-dvm* qube.
+    Change the template used for this disposable template to the new template.
 
 ## Advanced
 

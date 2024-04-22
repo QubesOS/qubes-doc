@@ -39,7 +39,7 @@ No worries! Here's how we recommend proceeding:
 3. Try [searching the issue tracker](/doc/issue-tracking/#search-tips). There
    may already be an open **or closed** issue about your problem. The issue
    tracker is constantly being updated with known bugs and may contain
-   workarounds for problems you're experiencing. If there any pinned issues at
+   workarounds for problems you're experiencing. If there are any pinned issues at
    the top, make sure to check them first!
 
 4. Try [searching the Qubes Forum](https://forum.qubes-os.org/). There may
@@ -176,7 +176,7 @@ information in your message. A great way to provide your hardware details is by
 [generating and submitting a Hardware Compatibility List (HCL)
 report](/doc/how-to-use-the-hcl/#generating-and-submitting-new-reports), then
 linking to it in your message. [Ask questions the smart
-way.](http://www.catb.org/esr/faqs/smart-questions.html)
+way.](https://www.catb.org/esr/faqs/smart-questions.html)
 
 ### Be patient
 
@@ -226,7 +226,7 @@ The moderation team aims to enforce our [Code of Conduct](/code-of-conduct/).
 Beyond this, users should not expect any specific action from the moderation
 team. Specifically, users should not request that posts or messages be deleted
 or edited by a moderator. Users are reminded that, in most venues, anything
-posted will be sent out as an email to other others, and these emails cannot be
+posted will be sent out as an email to others, and these emails cannot be
 deleted from others' inboxes.
 
 ### Specific mailing list rules and notes
@@ -309,7 +309,7 @@ account is in no way required, expected, or encouraged. Many discussants
 [mailing lists](https://en.wikipedia.org/wiki/Electronic_mailing_list),
 interacting with them solely through plain text email with
 [MUAs](https://en.wikipedia.org/wiki/Email_client) like
-[Thunderbird](https://www.thunderbird.net/) and [Mutt](http://www.mutt.org/).
+[Thunderbird](https://www.thunderbird.net/) and [Mutt](https://www.mutt.org/).
 The Google Groups service is just free infrastructure, and we [distrust the
 infrastructure](/faq/#what-does-it-mean-to-distrust-the-infrastructure). This
 is why, for example, we encourage discussants to use [Split
@@ -403,7 +403,7 @@ interface](https://groups.google.com/group/qubes-devel).
 This list is for non-technical discussion and coordination around the Qubes OS
 project.
 
-Examples of topics or question suitable for this list include:
+Examples of topics or questions suitable for this list include:
 
 * Participation (talks, workshops, etc.) at upcoming events
 * Project funding applications and strategies
@@ -430,7 +430,7 @@ interface](https://groups.google.com/group/qubes-project).
 This list is for discussion around the localization and translation of Qubes
 OS, its documentation, and the website.
 
-Examples of topics or question suitable for this list include:
+Examples of topics or questions suitable for this list include:
 
 * Questions about or issues with [Transifex](https://www.transifex.com/), the
   translation platform we use
@@ -514,8 +514,11 @@ news.
 
 ## Chat
 
-If you'd like to chat, join us on the `#qubes` IRC channel (or its Matrix
-bridge: `#qubes:libera.chat`).
+If you'd like to chat, join us on
+- the `#qubes` channel on `irc.libera.chat` or
+- the `#qubes:invisiblethingslab.com` matrix channel.
+
+these two should be linked/bridged, but for technical reasons currently are not.
 
 ## Unofficial venues
 
