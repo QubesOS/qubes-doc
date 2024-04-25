@@ -135,7 +135,7 @@ list of packages to be installed):
 
 - Commonly used utilities: `pciutils` `vim-minimal` `less` `psmisc`
   `gnome-keyring`.
-- Audio: `pulseaudio-qubes`.
+- Audio: `pulseaudio-qubes` (QubesOS version <= 4.1.x) `pipewire-qubes` (QubesOS >= 4.2.x).
 - Networking: `qubes-core-agent-networking`, and whatever network tools
   you want. N.B. minimal templates do not include any browser.
 - [FirewallVM](/doc/firewall/), such as the template for `sys-firewall`: at
