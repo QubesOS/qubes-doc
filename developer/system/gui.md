@@ -49,7 +49,7 @@ In the case of Qubes, `qubes-gui` does not transfer all changed pixels via vchan
   and pass this to dom0 via the deprecated `MFNDUMP` message.
 - New `qubes-gui` versions will rely on `qubes-drv` having allocated
   memory using gntalloc, and then pass the grant table indexes gntalloc
-  has chosen to the GUI daemon using using the `WINDOW_DUMP` message.
+  has chosen to the GUI daemon using the `WINDOW_DUMP` message.
 
 Now, `qubes-guid` has to tell the dom0 Xorg server about the location of the buffer.
 There is no supported way (e.g. Xorg extension) to do this zero-copy style.

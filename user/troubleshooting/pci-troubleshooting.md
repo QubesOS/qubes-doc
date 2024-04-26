@@ -104,7 +104,7 @@ While using the `no-strict-reset` flag, do not require PCI device to be reset be
 qvm-pci attach --persistent --option permissive=true --option no-strict-reset=true sys-usb dom0:<BDF_OF_DEVICE>
 ~~~
 
-Be sure to replace `<BDF_OF_DEVICE>` with the BDF of your PCI device, which can be be obtained from running `qvm-pci`.
+Be sure to replace `<BDF_OF_DEVICE>` with the BDF of your PCI device, which can be obtained from running `qvm-pci`.
 
 You can also configure strict reset directly from the Qubes interface by following these steps:
 

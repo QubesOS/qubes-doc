@@ -71,7 +71,7 @@ The review procedure is as follows:
 1. Someone, S, wishes to make a change to a package, P.
 2. S submits a fast-forwardable pull request against the fork of P's repo owned by [QubesOS-contrib](https://github.com/QubesOS-contrib).
 3. The PM reviews the pull request.
-   If the the pull request passes the PM's review, the PM adds a [signed](/doc/code-signing/) *comment* on the pull request stating that it has passed review.
+   If the pull request passes the PM's review, the PM adds a [signed](/doc/code-signing/) *comment* on the pull request stating that it has passed review.
    (In cases in which S = PM, the PM can simply add a [signed](/doc/code-signing/) *tag* to the HEAD commit prior to submitting the pull request.)
    If the pull request does not pass the PM's review, the PM leaves a comment on the pull request explaining why not.
 4. The QCR reviews the pull request.

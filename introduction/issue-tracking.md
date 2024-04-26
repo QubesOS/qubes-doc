@@ -67,7 +67,7 @@ There are three issue **types**: `T: bug`, `T: enhancement`, and `T: task`.
 - `T: enhancement` --- Type: enhancement. A new feature that does not yet exist **or** improvement of existing functionality.
 - `T: task` --- Type: task. An action item that is neither a bug nor an enhancement.
 
-Every open issue should have **exactly one** type. An open issue should not have more than one type, and it should not lack a type entirely. Bug reports are for problems in things that already exist. If something doesn't exist yet, but you think it ought to exist, then use `T: enhancement` instead. If something already exists, but you think it could be improved in some way, you should again use `T: enhancement`. `T: task` is for issues that fall under under neither `T: bug` nor `T: enhancement`.
+Every open issue should have **exactly one** type. An open issue should not have more than one type, and it should not lack a type entirely. Bug reports are for problems in things that already exist. If something doesn't exist yet, but you think it ought to exist, then use `T: enhancement` instead. If something already exists, but you think it could be improved in some way, you should again use `T: enhancement`. `T: task` is for issues that fall under neither `T: bug` nor `T: enhancement`.
 
 #### Priority
 

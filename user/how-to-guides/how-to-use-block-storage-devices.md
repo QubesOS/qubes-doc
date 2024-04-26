@@ -122,7 +122,7 @@ If you don't see anything that looks like your drive, run `sudo udevadm trigger 
 
 ## Recovering From Premature Device Destruction
 
-If the you fail to detach the device before it's destroyed in the sourceVM (e.g. by physically detaching the thumbdrive), [there will be problems](https://github.com/QubesOS/qubes-issues/issues/1082).
+If you fail to detach the device before it's destroyed in the sourceVM (e.g. by physically detaching the thumbdrive), [there will be problems](https://github.com/QubesOS/qubes-issues/issues/1082).
 
 To recover from this error state, in dom0 run
 
