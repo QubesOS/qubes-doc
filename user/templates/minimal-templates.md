@@ -244,6 +244,7 @@ list of packages to be installed):
   if you want to use it as the `UpdateVM` (which is normally `sys-firewall`).
 - NetVM, such as the template for `sys-net`: `qubes-core-agent-networking`,
   `qubes-core-agent-network-manager`, `ntpd` (or other NTP Service).
+  Wi-Fi also requires `wpasupplicant`, and (optionally) `gnome-keyring` for saving the Wi-Fi password.
   If your network devices need extra packages for a network VM, use the `lspci` command to identify the devices,
   then find the package that provides necessary firmware and install it. If you
   need utilities for debugging and analyzing network connections, install the
