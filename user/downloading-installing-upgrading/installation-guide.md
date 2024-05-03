@@ -118,7 +118,7 @@ From here, you can navigate the boot screen using the arrow keys on your keyboar
 * Install Qubes OS
 * Test this media and install Qubes OS
 * Troubleshooting - verbose boot
-* Rescue a Qubes SO system
+* Rescue a Qubes OS system
 * Install Qubes OS 4.2.1 using kernel-latest
  
 Select the option to test this media and install Qubes OS. 
