@@ -42,7 +42,7 @@ qvm-volume config vmname:private revisions_to_keep 2
 ```
 
 With the VM stopped, you may revert to an older snapshot of the private volume
-from the the above list of "Available revisions (for revert)", where the last
+from the above list of "Available revisions (for revert)", where the last
 item on the list with the largest integer is the most recent snapshot:
 
 ```

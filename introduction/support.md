@@ -419,7 +419,7 @@ account is **not** required. Any email address will work.) To post a message to
 the list, address your email to `qubes-project@googlegroups.com`. If your post
 does not appear immediately, please allow time for moderation to occur. To
 unsubscribe, send a blank email to
-`qubes-project+unsubscribe@googlegroups.com`. This list also also has a
+`qubes-project+unsubscribe@googlegroups.com`. This list also has a
 [traditional mail
 archive](https://www.mail-archive.com/qubes-project@googlegroups.com/) and an
 optional [Google Groups web

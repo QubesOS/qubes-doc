@@ -284,7 +284,7 @@ Note the IP addresses you will need, they will be required in the next steps.
 
 For the following example, we assume that the physical interface ens6 in sys-net is on the local network 192.168.x.y with the IP 192.168.x.n, and that the IP address of sys-firewall is 10.137.1.z.
 
-In the sys-net VM's Terminal, the first step is to to define an ntables chain that will receive DNAT rules to relay the network traffic on a given port to the qube NetVM, we recommend to define a new chain for each destination qube to ease rules management:
+In the sys-net VM's Terminal, the first step is to define an ntables chain that will receive DNAT rules to relay the network traffic on a given port to the qube NetVM, we recommend to define a new chain for each destination qube to ease rules management:
 
 ```
 nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'

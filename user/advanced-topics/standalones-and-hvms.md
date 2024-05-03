@@ -197,7 +197,7 @@ you would install it into a normal HVM. Generally, you should install in to the
 first "system" disk. (Resize it as needed before starting installation.)
 
 You can then create a new qube using the new template. If you use this Template
-as is, then any HVMs based on it it will effectively be disposables. All file
+as is, then any HVMs based on it will effectively be disposables. All file
 system changes will be wiped when the HVM is shut down.
 
 Please see [this

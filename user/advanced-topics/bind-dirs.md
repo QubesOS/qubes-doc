@@ -60,7 +60,7 @@ In this example, we want to make `/var/lib/tor` persistent. Enter all of the fol
 
 From now on, all files in the `/var/lib/tor` directory will persist across reboots.
 
-You can make make as many files or folders persist as you want simply by making multiple entries in the `50_user.conf` file, each on a separate line.
+You can make as many files or folders persist as you want simply by making multiple entries in the `50_user.conf` file, each on a separate line.
 For example, if you added the file `/etc/tor/torrc` to the `binds` variable, any modifications to *that* file would also persist across reboots.
 
 ```
