@@ -16,11 +16,11 @@ Clicking on such shortcut runs the assigned application in its app qube.
 
 ![dom0-menu.png"](/attachment/doc/r4.0-dom0-menu.png)
 
-To make applications newly installed via the OS's package manager show up in the menu, use the `qvm-sync-appmenus` command (Linux VMs do this automatically):
+To make applications newly installed via the OS's package manager show up in the menu, use the `qvm-sync-appmenus` command (Linux qubes do this automatically):
 
 `qvm-sync-appmenus vmname`
 
-After that, select the *Add more shortcuts* entry in the VM's submenu to customize which applications are shown:
+After that, select the *Add more shortcuts* entry in the qube's submenu to customize which applications are shown:
 
 ![dom0-appmenu-select.png"](/attachment/doc/r4.0-dom0-appmenu-select.png)
 
@@ -75,7 +75,7 @@ If you only want to create a shortcut for a single app qube, you can create a cu
    </Menu>
    ~~~
 
-What about applications in DispVMs?
+What about applications in disposables?
 -----------------------------------
 
 [See here](/doc/disposable-customization/).
@@ -102,9 +102,9 @@ Behind the scenes
 -----------------
 
 `qvm-sync-appmenus` works by invoking the *GetAppMenus* [Qubes service](/doc/qrexec/) in the target domain.
-This service enumerates applications installed in that VM and sends formatted info back to the dom0 script (`/usr/libexec/qubes-appmenus/qubes-receive-appmenus`) which creates `.desktop` files in the app qube/template directory of dom0.
+This service enumerates applications installed in that qube and sends formatted info back to the dom0 script (`/usr/libexec/qubes-appmenus/qubes-receive-appmenus`) which creates `.desktop` files in the app qube/template directory of dom0.
 
-For Linux VMs the service script is in `/etc/qubes-rpc/qubes.GetAppMenus`.
+For Linux qubes the service script is in `/etc/qubes-rpc/qubes.GetAppMenus`.
 In Windows it's a PowerShell script located in `c:\Program Files\Invisible Things Lab\Qubes OS Windows Tools\qubes-rpc-services\get-appmenus.ps1` by default.
 
 The list of installed applications for each app qube is stored in dom0's `~/.local/share/qubes-appmenus/<vmname>/apps.templates`.
@@ -116,6 +116,6 @@ Examples: `qvm-run -q -a --service -- %VMNAME% qubes.StartApp+7-Zip-7-Zip_File_M
 
 Note that you can create a shortcut that points to a `.desktop` file in your app qube with e.g. `qvm-run -q -a --service -- personal qubes.StartApp+firefox`.
 
-While this works well for standard applications, creating a menu entry for Windows applications running under *wine* may need an additional step in order to establish the necessary environment in *wine*. Installing software under *wine* will create the needed `.desktop` file in the target Linux VM in the directory `~/.local/share/applications/wine/Programs/` or a subdirectory thereof, depending on the Windows menu structure seen under *wine*. If the name of this file contains spaces, it will not be found, because the `qvm-run` command is falsely seen as terminating at this space. The solution is to remove these spaces by renaming the `.desktop` file accordingly, e.g. by renaming `Microsoft Excel.desktop` to `Excel.desktop`. Refreshing the menu structure will then build working menu entries.
+While this works well for standard applications, creating a menu entry for Windows applications running under *wine* may need an additional step in order to establish the necessary environment in *wine*. Installing software under *wine* will create the needed `.desktop` file in the target Linux qube in the directory `~/.local/share/applications/wine/Programs/` or a subdirectory thereof, depending on the Windows menu structure seen under *wine*. If the name of this file contains spaces, it will not be found, because the `qvm-run` command is falsely seen as terminating at this space. The solution is to remove these spaces by renaming the `.desktop` file accordingly, e.g. by renaming `Microsoft Excel.desktop` to `Excel.desktop`. Refreshing the menu structure will then build working menu entries.
 
-**Note:** Applications installed under *wine* are installed in AppVMs, not in the template on which these AppVMs are based, as the file strcuture used by *wine* is stored under `~/.wine`, which is part of the persistent data of the AppVM and not inherited from its template.
+**Note:** Applications installed under *wine* are installed in AppVMs, not in the template on which these AppVMs are based, as the file structure used by *wine* is stored under `~/.wine`, which is part of the persistent data of the AppVM and not inherited from its template.
