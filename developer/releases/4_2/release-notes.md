@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Qubes OS 4.2.0 release notes
+title: Qubes OS 4.2 release notes
 permalink: /doc/releases/4.2/release-notes/
 ---
 
