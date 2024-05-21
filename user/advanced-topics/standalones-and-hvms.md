@@ -34,7 +34,7 @@ virtualization extensions of the host CPU. These are typically contrasted with
 Paravirtualized (PV) VMs.
 
 HVMs allow you to create qubes based on any OS for which you have an
-installation ISO, so you can easily have qubes running Windows, \*BSD, or any
+installation ISO, so you can easily have qubes running Windows, `*BSD`, or any
 Linux distribution. You can also use HVMs to run "live" distros.
 
 By default, every qube runs in PVH mode (which has security advantages over

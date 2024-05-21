@@ -270,7 +270,7 @@ Qubes Windows Tools (QWT for short) contain several components than can be enabl
    - Xen PV Disk Drivers: paravirtual storage drivers.
    - Xen PV Network Drivers: paravirtual network drivers.
 - Qubes Core Agent: qrexec agent and services. Needed for proper integration with Qubes.
-   - Move user profiles: user profile directory (c:\users) is moved to VM's private disk backed by private.img file in dom0 (useful mainly for HVM templates).
+   - Move user profiles: user profile directory (`c:\users`) is moved to VM's private disk backed by private.img file in dom0 (useful mainly for HVM templates).
 - Qubes GUI Agent: video driver and gui agent that enable seamless showing of Windows applications on the secure Qubes desktop.
 - Disable UAC: User Account Control may interfere with QWT and doesn't really provide any additional benefits in Qubes environment.
 
@@ -331,7 +331,7 @@ If the VM is inaccessible (doesn't respond to qrexec commands, gui is not functi
 
 Safe Mode should at least give you access to logs (see above).
 
-**Please include appropriate logs when reporting bugs/problems.** Starting from version 2.4.2 logs contain QWT version, but if you're using an earlier version be sure to mention which one. If the OS crashes (BSOD) please include the BSOD code and parameters in your bug report. The BSOD screen should be visible if you run the VM in debug mode (`qvm-start --debug vmname`). If it's not visible or the VM reboots automatically, try to start Windows in safe mode (see above) and 1) disable automatic restart on BSOD (Control Panel - System - Advanced system settings - Advanced - Startup and recovery), 2) check the system event log for BSOD events. If you can, send the `memory.dmp` dump file from c:\Windows.
+**Please include appropriate logs when reporting bugs/problems.** Starting from version 2.4.2 logs contain QWT version, but if you're using an earlier version be sure to mention which one. If the OS crashes (BSOD) please include the BSOD code and parameters in your bug report. The BSOD screen should be visible if you run the VM in debug mode (`qvm-start --debug vmname`). If it's not visible or the VM reboots automatically, try to start Windows in safe mode (see above) and 1) disable automatic restart on BSOD (Control Panel - System - Advanced system settings - Advanced - Startup and recovery), 2) check the system event log for BSOD events. If you can, send the `memory.dmp` dump file from `c:\Windows`.
 Xen logs (/var/log/xen/console/guest-*) are also useful as they contain pvdrivers diagnostic output.
 
 If a specific component is malfunctioning, you can increase its log verbosity as explained above to get more troubleshooting information. Below is a list of components:

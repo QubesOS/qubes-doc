@@ -263,7 +263,7 @@ Windows qubes can be used as disposables, like any other Linux-based qubes. On c
 		- Type `shell:startup`.
 		- An explorer window will open, which is positioned to the `Autostart` folder.
 	- Right-click and select the option "New -> Link".
-	- Select `C:\Windows\System32\CMD.exe`as executable.
+	- Select `C:\Windows\System32\CMD.exe` as executable.
 	- Name the link, e.g. as `Command Prompt`.
 	- Close the Window with `OK`.
 	- Shut down this AppVM.
@@ -273,7 +273,7 @@ Windows qubes can be used as disposables, like any other Linux-based qubes. On c
 - Still in the Advanced tab, select your Windows qube as its own `Default disposable template`. Alternatively, in dom0 execute the command `qvm-prefs <VMname> default_dispvm <VMname>`.
 - Close the Qube Manager by clicking `OK`.
 
-Now you should have a menu `Disposable: <VMname>` containing the applications that can be started in a disposable Windows VM. If you set the newly created and configured Windows VM as `Default disposable template`for any other Windows- (or Linux-) based qube, this qube can use the Windows-based dispvm like any other disposable.
+Now you should have a menu `Disposable: <VMname>` containing the applications that can be started in a disposable Windows VM. If you set the newly created and configured Windows VM as `Default disposable template` for any other Windows- (or Linux-) based qube, this qube can use the Windows-based dispvm like any other disposable.
 
 For further information on usage of disposables, see [How to use disposables](/doc/how-to-use-disposables/).
 

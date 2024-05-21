@@ -313,7 +313,7 @@ Go to dom0 -> Qubes VM Manger -> right click on the VM -> Qube settings -> Advan
 Depends on `Virtualization` mode setting:
 
 * `Virtualization` mode `PV`: Possible, however use of `Virtualization` mode `PV` mode is discouraged for security purposes.
-  * If you require `Virtualization` mode `PV` mode, install `grub2-xen-pvh` in dom0. This can be done by running command `sudo qubes-dom0-update pvgrub2-pvh in dom0.
+  * If you require `Virtualization` mode `PV` mode, install `grub2-xen-pvh` in dom0. This can be done by running command `sudo qubes-dom0-update pvgrub2-pvh` in dom0.
 * `Virtualization` mode `PVH`: Possible.
 * `Virtualization` mode `HVM`: Possible.
 
