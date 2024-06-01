@@ -95,9 +95,11 @@ Meta-issues must abide by the following rules:
 
 - Only members of the core team may create meta-issues (or convert existing issues into meta-issues).
 
+
   Rationale: The purpose of meta-issues is to track the development of certain features that fit into the overall goals of the Qubes OS Project, which requires making informed project-management decisions with the approval of the project lead.
 
 - Meta-issues must be [locked](https://docs.github.com/en/communities/moderating-comments-and-conversations/locking-conversations).
+
 
   Rationale: One of the historical problems we've experienced with meta-issues (and one of the reasons they were discouraged for a long time) is that each meta-issue tends to turn into a discussion thread that becomes hopelessly long to the point where the person who is supposed to work on it has no idea what is supposed to be done or where to start, and it eventually just gets closed. Locking is intended to prevent that from happening again.
 
