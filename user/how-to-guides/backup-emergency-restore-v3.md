@@ -57,6 +57,7 @@ any GNU/Linux system with the following procedure.
     error.
     
 
+
     **Note:** If your backup was hashed with a message digest algorithm other
     than `sha512`, you must substitute the correct message digest command. This
     information is contained in the `backup-header` file (see step 4), however
@@ -90,6 +91,7 @@ any GNU/Linux system with the following procedure.
     **Note:** The hash values should match. If they do not match, then the
     backup file may have been tampered with, or there may have been a storage
     error.
+
 
 
     **Note:** If your backup was hashed with a message digest algorithm other
@@ -136,7 +138,8 @@ any GNU/Linux system with the following procedure.
 
 11. Success! If you wish to recover data from more than one VM in your backup,
     simply repeat steps 5--9 for each additional VM.
-    
+
+
 
     **Note:** You may wish to store a copy of these instructions with your
     Qubes backups in the event that you fail to recall the above procedure
