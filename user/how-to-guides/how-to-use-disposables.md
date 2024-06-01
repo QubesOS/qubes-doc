@@ -149,6 +149,7 @@ In dom0, add the following line at the beginning of the file `/etc/qubes-rpc/pol
 ~~~
 
 This line means:
+
 - FROM: Any qube
 - TO: A disposable based on `<ONLINE_DISPOSABLE_TEMPLATE>`
 - WHAT: Allow sending an "Open URL" request
