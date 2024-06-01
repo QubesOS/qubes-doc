@@ -55,6 +55,7 @@ any GNU/Linux system with the following procedure.
     **Note:** The hash values should match. If they do not match, then the
     backup file may have been tampered with, or there may have been a storage
     error.
+    
 
     **Note:** If your backup was hashed with a message digest algorithm other
     than `sha512`, you must substitute the correct message digest command. This
@@ -64,7 +65,7 @@ any GNU/Linux system with the following procedure.
     supported message digest algorithms can be found with `openssl
     list-message-digest-algorithms`.
 
- 4. Read the `backup-header`. You'll need some of this information later. The
+ 5. Read the `backup-header`. You'll need some of this information later. The
     file will look similar to this:
 
         [user@restore ~]$ cat backup-header
@@ -78,7 +79,7 @@ any GNU/Linux system with the following procedure.
     **Note:** If you see `version=2` here, go to [Emergency Backup Recovery -
     format version 2](/doc/backup-emergency-restore-v2/) instead.
 
- 5. Verify the integrity of the `private.img` file which houses your data.
+ 6. Verify the integrity of the `private.img` file which houses your data.
 
         [user@restore ~]$ cd vm1/
         [user@restore vm1]$ openssl dgst -sha512 -hmac "$backup_pass" private.img.000
@@ -90,13 +91,14 @@ any GNU/Linux system with the following procedure.
     backup file may have been tampered with, or there may have been a storage
     error.
 
+
     **Note:** If your backup was hashed with a message digest algorithm other
     than `sha512`, you must substitute the correct message digest command. This
     information is contained in the `backup-header` file (see step 4). A
     complete list of supported message digest algorithms can be found with
     `openssl list-message-digest-algorithms`.
 
- 6. Decrypt the `private.img` file.
+ 7. Decrypt the `private.img` file.
 
         [user@restore vm1]$ find -name 'private.img.*[0-9]' | sort -V | xargs cat | openssl enc -d -md MD5 -pass pass:"$backup_pass" -aes-256-cbc -out private.img.dec
 
@@ -106,7 +108,7 @@ any GNU/Linux system with the following procedure.
     complete list of supported cipher algorithms can be found with `openssl
     list-cipher-algorithms`.
 
- 7. Decompress the decrypted `private.img` file.
+ 8. Decompress the decrypted `private.img` file.
 
         [user@restore vm1]$ zforce private.img.dec
         private.img.dec -- replaced with private.img.dec.gz
@@ -120,20 +122,21 @@ any GNU/Linux system with the following procedure.
         [user@restore vm1]$ mv private.img.dec private.img.dec.bz2
         [user@restore vm1]$ bunzip2 private.img.dec.bz2
 
- 8. Untar the decrypted and decompressed `private.img` file.
+ 9. Untar the decrypted and decompressed `private.img` file.
 
         [user@restore vm1]$ tar -xvf private.img.dec
         vm1/private.img
 
- 9. Mount the private.img file and access your data.
+ 10. Mount the private.img file and access your data.
 
         [user@restore vm1]$ sudo mkdir /mnt/img
         [user@restore vm1]$ sudo mount -o loop vm1/private.img /mnt/img/
         [user@restore vm1]$ cat /mnt/img/home/user/your_data.txt
         This data has been successfully recovered!
 
-10. Success! If you wish to recover data from more than one VM in your backup,
+11. Success! If you wish to recover data from more than one VM in your backup,
     simply repeat steps 5--9 for each additional VM.
+    
 
     **Note:** You may wish to store a copy of these instructions with your
     Qubes backups in the event that you fail to recall the above procedure
