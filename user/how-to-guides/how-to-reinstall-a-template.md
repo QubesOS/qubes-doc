@@ -48,10 +48,12 @@ If you want to reinstall more than one template, repeat these instructions for e
 
 1. Clone the existing target template.
 
+
    This can be a good idea if you've customized the existing template and want to keep your customizations.
    On the other hand, if you suspect that this template is broken, misconfigured, or compromised, be certain you do not start any VMs using it in the below procedure.
 
 2. Temporarily change all VMs based on the target template to the new clone template, or remove them.
+
 
    This can be a good idea if you have user data in these VMs that you want to keep.
    On the other hand, if you suspect that these VMs (or the templates on which they are based) are broken, misconfigured, or compromised, you may want to remove them instead.
