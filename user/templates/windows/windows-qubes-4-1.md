@@ -46,6 +46,7 @@ For better integration, a set of drivers and services, called Qubes Windows Tool
 However, if you are an expert or want to do it manually you may continue below.
 
 **Notes:**
+
 - The instructions may work on other versions than Windows 7, 8.1, 10 and 11 x64 but haven't been tested.
 - Qubes Windows Tools (QWT) only supports Windows 7, 8.1, 10 and 11 x64. For installation, see [Qubes Windows Tools](/doc/templates/windows/qubes-windows-tools-4-1).
 
@@ -63,7 +64,9 @@ Create a VM named WindowsNew in [HVM](/doc/hvm/) mode (Xen's current PVH limitat
 
 - Using Qube Manager
 
+
    In order to create the new qube, select the command Qube -> New Qube in the Qube Manager::
+  
      - Name: `WindowsNew`, Color: `orange` (for a standalone qubes, `black` for a template)
      - Type: `StandaloneVM (fully persistent)` or `TemplateVM (template home, persistent root)`
      - Template: `(none)`
@@ -86,21 +89,26 @@ Create a VM named WindowsNew in [HVM](/doc/hvm/) mode (Xen's current PVH limitat
 - Using CLI in a dom0 terminal
  
    - This can also be done via the following CLI commands in dom0, for a standalone qube:
-      ~~~
-      qvm-create --class StandaloneVM --label orange --property virt_mode=hvm WindowsNew
-      ~~~
-     and for a template:
-      ~~~
-      qvm-create --class TemplateVM --label black --property virt_mode=hvm WindowsNew
-      ~~~
+
+    ~~~
+    qvm-create --class StandaloneVM --label orange --property virt_mode=hvm WindowsNew
+    ~~~
+
+    and for a template:
+
+    ~~~
+    qvm-create --class TemplateVM --label black --property virt_mode=hvm WindowsNew
+    ~~~
+   
    - After creation, set the following parameters via CLI in a dom0 terminal:
-      ~~~
-      qvm-volume extend WindowsNew:root 60g
-      qvm-prefs WindowsNew memory 4096
-      qvm-prefs WindowsNew maxmem 4096
-      qvm-prefs WindowsNew kernel ''
-      qvm-prefs WindowsNew qrexec_timeout 7200
-      ~~~
+
+    ~~~
+    qvm-volume extend WindowsNew:root 60g
+    qvm-prefs WindowsNew memory 4096
+    qvm-prefs WindowsNew maxmem 4096
+    qvm-prefs WindowsNew kernel ''
+    qvm-prefs WindowsNew qrexec_timeout 7200
+    ~~~
 
 These parameters are set for the following reasons:
   
@@ -109,13 +117,14 @@ These parameters are set for the following reasons:
 - Setting memory to 4096MB may work in most cases, but using 6144MB (or even 8192MB) may reduce the likelihood of crashes during installation, especially for Windows 10 or 11. This is important as Windows qubes have to be created without memory balancing, as requested by the parameter settings described above.
 
 - The Windows' installer requires a significant amount of memory or else the VM will crash with such errors:
-  ~~~
-  /var/log/xen/console/hypervisor.log:
+    ~~~
+    /var/log/xen/console/hypervisor.log:
 
-  p2m_pod_demand_populate: Dom120 out of PoD memory! (tot=102411 ents=921600 dom120)
-  (XEN) domain_crash called from p2m-pod.c:1218
-  (XEN) Domain 120 (vcpu#0) crashed on cpu#3:
-  ~~~
+    p2m_pod_demand_populate: Dom120 out of PoD memory! (tot=102411 ents=921600 dom120)
+    (XEN) domain_crash called from p2m-pod.c:1218
+    (XEN) Domain 120 (vcpu#0) crashed on cpu#3:
+    ~~~
+    
   So, increase the VM's memory to 4096MB (memory = maxmem because we don't use memory balancing), or 6144MB / 8192MB, as recommended above.
      
 - Disable direct boot so that the VM will go through the standard cdrom/HDD boot sequence. This is done by setting the qube's kernel to an empty value.
@@ -135,6 +144,7 @@ These parameters are set for the following reasons:
      - Click "OK" to boot into the windows installer.
 
    This can also be done via the following CLI command in dom0 (assuming that the Windows installer ISO is stored in the directory `/home/user/` in the AppVM `untrusted`):
+
     ~~~
     qvm-start --cdrom=untrusted:/home/user/windows_install.iso WindowsNew
     ~~~
@@ -175,7 +185,9 @@ These parameters are set for the following reasons:
 
 - On systems shipped with a Windows license, the product key may be read from flash via root in dom0:
 
+
     `strings < /sys/firmware/acpi/tables/MSDM`
+
 
     Alternatively, you can also try a Windows 7 license key (as of 2018/11 they are still accepted for a free upgrade to Windows 10).
     
@@ -186,9 +198,11 @@ These parameters are set for the following reasons:
 **After Windows installation**
 
   - From the Windows command line, disable hibernation in order to avoid incomplete Windows shutdown, which could lead to corruption of the VM's disk. 
+
      ~~~
      powercfg -H off
      ~~~
+
     Also, recent versions of Windows won’t show the CD-ROM drive after starting the qube with `qvm-start vm --cdrom ...` (or using the GUI). The solution is to disable hibernation in Windows with this command. (That command is included in QWT’s setup but it’s necessary to run it manually in order to be able to open QWT’s setup ISO/CD-ROM in Windows).
 
   - In case you switch from `sys-firewall` to `sys-whonix`, you'll need a static IP network configuration, DHCP won't work for `sys-whonix`. Sometimes this may also happen if you keep using `sys-firewall`. In both cases, proceed as follows:
@@ -201,6 +215,7 @@ These parameters are set for the following reasons:
     - Click "Apply". You should now see "Connected".
 
   - Given the higher than usual memory requirements of Windows, you may get a `Not enough memory to start domain 'WindowsNew'` error. In that case try to shutdown unneeded VMs to free memory before starting the Windows VM.
+
 
     At this point you may open a tab in dom0 for debugging, in case something goes amiss:
 
@@ -234,6 +249,7 @@ For additional information on configuring a Windows qube, see the [Customizing W
 As described above Windows 7, 8.1, 10 and 11 can be installed as TemplateVM. To have the user data stored in AppVMs depending on this template, the option `Move User Profiles` has to be selected on installation of Qubes Windows Tools. For Windows 7, before installing QWT, the private disk `D:` has to be renamed to `Q:`, see the QWT installation documentation in [Qubes Windows Tools](/doc/templates/windows/qubes-windows-tools-4-1).
 
 AppVMs based on these templates can be created the normal way by using the Qube Manager or by specifying
+
 ~~~
 qvm-create --class=AppVM --template=<VMname> 
 ~~~
@@ -243,6 +259,7 @@ On starting the AppVM, sometimes a message is displayed that the Xen PV Network 
 **Caution:** These AppVMs must not be started while the corresponding TemplateVM is running, because they share the TemplateVM's license data. Even if this could work sometimes, it would be a violation of the license terms.
 
 Furthermore, if manual IP setup was used for the template, the IP address selected for the template will also be used for the AppVM, as it inherits this address from the template. Qubes, however, will have assigned a different address to the AppVM, which will have to changed to that of the template (e.g. 10.137.0.x) so that the AppVM can access the network, vis the CLI command in a dom0 terminal:
+
 ~~~
 qvm-prefs WindowsNew ip 10.137.0.x
 ~~~
