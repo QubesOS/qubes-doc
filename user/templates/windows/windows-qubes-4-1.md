@@ -65,7 +65,7 @@ Create a VM named WindowsNew in [HVM](/doc/hvm/) mode (Xen's current PVH limitat
 - Using Qube Manager
 
 
-   In order to create the new qube, select the command Qube -> New Qube in the Qube Manager::
+   In order to create the new qube, select the command Qube -> New Qube in the Qube Manager:
   
      - Name: `WindowsNew`, Color: `orange` (for a standalone qubes, `black` for a template)
      - Type: `StandaloneVM (fully persistent)` or `TemplateVM (template home, persistent root)`
