@@ -22,7 +22,7 @@ Qubes OS releases are supported for **six months** after each subsequent major o
 | Release 3.1 | 2016-03-09 | 2017-03-29 | Unsupported    |
 | Release 3.2 | 2016-09-29 | 2019-03-28 | Unsupported    |
 | Release 4.0 | 2018-03-28 | 2022-08-04 | Unsupported    |
-| Release 4.1 | 2022-02-04 | 2024-06-18 | [Extended security support](/news/2024/06/18/qubes-os-4-1-has-reached-end-of-life/)|
+| Release 4.1 | 2022-02-04 | 2024-06-18 | [Extended security support](/news/2024/06/18/qubes-os-4-1-has-reached-end-of-life-extended-security-support-continues-until-2024-07-31/)|
 | Release 4.2 | 2023-12-18 | TBA        | Supported      |
 | Release 4.3 | TBA        | TBA        | In development |
 
