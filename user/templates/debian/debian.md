@@ -109,3 +109,9 @@ The lesson is that you should carefully look at what is being installed to your 
 ### Package installation errors in Qubes 4.0
 
 If some packages throw installation errors, see [this guide.](/doc/vm-troubleshooting/#fixing-package-installation-errors)
+
+## Removing
+
+(Replace XX with the Debian version number of the template you wish to remove.)
+
+There are two possible ways to remove the TemplateVM. Check with `qvm-prefs debian-XX | grep installed_by_rpm` which way this template has been installed in the past. If you have the boolean value "False", the you have to use `sudo -E qubes-dom0-update --action=purge --yes qubes-template-debian-XX`. If you have the boolean value "True" then execute this command `sudo dnf -y remove qubes-template-debian-XX`.
