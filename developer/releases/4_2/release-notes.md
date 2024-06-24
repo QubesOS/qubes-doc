@@ -54,6 +54,8 @@ We strongly recommend [updating Qubes OS](/doc/how-to-update/) immediately after
 
 - Qubes 4.2 does not support Debian 11 templates (see [supported template releases](/doc/supported-releases/#templates)). Please [upgrade your Debian templates](/doc/templates/debian/#upgrading) to Debian 12.
 
+- Qubes 4.2.2 includes a fix for [#8332: File-copy qrexec service is overly restrictive](https://github.com/QubesOS/qubes-issues/issues/8332). As explained in the issue comments, a change was introduced in Qubes 4.2.0 that caused inter-qube file-copy/move actions to reject filenames containing, e.g., non-Latin characters and certain symbols. This was a backward-incompatible change that should not have been introduced in a minor release. The fix replaces the default file-copy qrexec service that exists in Qubes 4.2.0 and 4.2.1 (`qubes.Filecopy`) with a less restrictive file-copy qrexec service that restores the pre-4.2 behavior (`qubes.Filecopy+allow-all-bytes`). Users who wish to preserve the more restrictive 4.2.0 and 4.2.1 behavior can do so by modifying their RPC policy rules to use the more restrictive service. To switch a single rule to the more restrictive behavior, change `*` in the argument column to `+` (i.e., change "any argument" to "only empty"). To use the more restrictive behavior globally, add a "deny" rule for `qubes.Filecopy+allow-all-bytes` before all other relevant rules. For more information, see [RPC policies](/doc/rpc-policy/) and [Qube configuration interface](/doc/vm-interface/#qubes-rpc).
+
 ## Download
 
 All Qubes ISOs and associated [verification files](/security/verifying-signatures/) are available on the [downloads](/downloads/) page.
