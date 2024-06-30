@@ -26,24 +26,26 @@ Security updates are an extremely important part of keeping your Qubes installat
 
 By default, the **Qubes Update** tool will appear as an icon in the Notification Area when updates are available.
 
-[![Qube Updates Available](/attachment/doc/r4.0-qube-updates-available.png)](/attachment/doc/r4.0-qube-updates-available.png)
+[![Qube Updates Available](/attachment/doc/r4.2-qube-updates-available.png)](/attachment/doc/r4.2-qube-updates-available.png)
 
-However, you can also start the tool manually by selecting it in the Applications Menu under "Qubes Tools." Even if no updates have been detected, you can use this tool to check for updates manually at any time by selecting "Enable updates for qubes without known available updates," then selecting all desired items from the list and clicking "Next."
+However, you can also start the tool manually by selecting it in the Applications Menu under "Qubes Tools." Even if no updates have been detected, you can use this tool to check for updates manually at any time by selecting all desired items from the list and clicking "Update".
 
 <div class="alert alert-info" role="alert">
   <i class="fa fa-question-circle"></i>
   For information about how templates download updates, please see <a href="/doc/how-to-install-software/#why-dont-templates-have-network-access">Why don't templates have network access?</a> and the <a href="/doc/how-to-install-software/#updates-proxy">Updates proxy</a>.
 </div>
 
-By default, most qubes that are connected to the internet will periodically check for updates for their parent templates. If updates are available, you will receive a notification as described above. However, if you have any templates that do *not* have any online child qubes, you will *not* receive update notifications for them. Therefore, you should regularly update such templates manually instead.
+By default, most qubes that are connected to the internet will periodically check for updates for their parent templates. You can check the date of the last update check in the "last checked" column. If updates are available for any qube, you will receive a notification as described above, and in the "Updates available" column you will see "YES" for that qube(s). If the update check did not find any new updates, "NO" will appear in the column. Respectively, for qubes that are no longer supported, "OBSOLETE" will be displayed. However, if you have any templates that do *not* have any online child qubes, you will *not* receive update notifications for them. By default, after a week, if updates for a given qube have not been checked, the value in the "Updates available" column will be set to "MAYBE". 
 
 ## Installing updates
 
 The standard way to install updates is with the **Qubes Update** tool. (However, you can also perform the same action via the [command-line interface](#command-line-interface).)
 
-[![Qubes Update](/attachment/doc/r4.0-software-update.png)](/attachment/doc/r4.0-software-update.png)
+[![Qubes Update](/attachment/doc/r4.2-software-update.png)](/attachment/doc/r4.2-software-update.png)
 
-Simply follow the on-screen instructions, and the tool will download and install all available updates for you. Note that if you are downloading updates over Tor (`sys-whonix`), this can take a very long time, especially if there are a lot of updates available.
+You can easily decide which qubes to update by clicking on the checkbox in the column header. At startup, only the qubes for which updates are known are selected for updating, but clicking on the mentioned checkbox will also select all qubes with the "MAYBE" status. It is recommended to update all qubes with the statuses "YES" and "MAYBE".
+
+Then simply follow the on-screen instructions, and the tool will download and install all available updates for you. Note that if you are downloading updates over Tor (`sys-whonix`), this can take a very long time, especially if there are a lot of updates available.
 
 ## Restarting after updating
 
@@ -53,7 +55,7 @@ Certain updates require certain components to be restarted in order for the upda
 - Dom0 should be restarted after all **Xen** and **kernel** updates.
 - On Intel systems, dom0 should be restarted after all `microcode_ctl` updates.
 - On AMD systems, dom0 should be restarted after all `linux-firmware` updates.
-- After updating a template, first shut down the template, then restart all running qubes based on that template.
+- After updating a template, first shut down the template, then restart all running qubes based on that template. The updater will try to do this for you automatically in the last step of updating. Remember to save all your data before restarting!
 
 ## AEM resealing after updating
 
@@ -63,15 +65,10 @@ If you use [Anti Evil Maid (AEM)](/doc/anti-evil-maid/), you'll have to "reseal"
 
 <div class="alert alert-danger" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
-  <b>Warning:</b> Updating with direct commands such as <code>qubes-dom0-update</code>, <code>dnf update</code>, and <code>apt update</code> is <b>not</b> recommended, since these bypass built-in Qubes OS update security measures. Instead, we strongly recommend using the <b>Qubes Update</b> tool or its command-line equivalents, as described below. (By contrast, <a href="/doc/how-to-install-software/">installing</a> packages using direct package manager commands is fine.)
+  <b>Warning:</b> Updating with direct commands such as <code>dnf update</code>, and <code>apt update</code> is <b>not</b> recommended, since these bypass built-in Qubes OS update security measures. Instead, we strongly recommend using the <b>Qubes Update</b> tool or its command-line equivalents, as described below. (By contrast, <a href="/doc/how-to-install-software/">installing</a> packages using direct package manager commands is fine.)
 </div>
 
-Advanced users may wish to perform updates via the command-line interface. The recommended way to do this is by applying the following two Salt states. **Applying these two Salt states is the same as updating via the Qubes Update tool.**
-
- - [update.qubes-dom0](/doc/salt/#updatequbes-dom0)
- - [update.qubes-vm](/doc/salt/#updatequbes-vm)
-
-In your update qube, a terminal window opens that displays the progress of operations and output as it is logged. At the end of the process, logs are sent back to dom0. You answer any yes/no prompts in your dom0 terminal window.
+Advanced users may wish to perform updates via the command-line interface. To update templates and standalones non-interactively, use the command `qubes-vm-update`, and to update dom0, use `qubes-dom0-update`. If you want to perform a more complex update, see: [update.qubes-dom0](/doc/salt/#updatequbes-dom0) and [update.qubes-vm](/doc/salt/#updatequbes-vm).
 
 Advanced users may also be interested in learning [how to enable the testing repos](/doc/testing/).
 
