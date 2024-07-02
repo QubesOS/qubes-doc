@@ -33,6 +33,7 @@ While this is somewhat straightforward, things get difficult if QWT 4.0.1.3 was 
 ## Preparation for Windows 10 and 11
 
 If there is a drive `D:` from this earlier installation of Qubes Windows Tools, it will probably contain incomplete private data; especially the folder `AppData` containing program configuration data will be missing. In this situation, it may be better to perform a new Windows installation, because repair may be difficult and trouble-prone.
+
 - First, be sure that the automatic repair function is disabled. In a command window, execute `bcdedit /set recoveryenabled NO`, and check that this worked by issuing the command `bcdedit`, without parameters, again.
 - Now, uninstall QWT 4.0.1.3, using the Apps and Features function of Windows. This will most likely result in a crash.
 - Restart Windows again, possibly two or three times, until repair options are offered. By hitting the F8 key, select the restart menu, and there select a start in safe mode (in German, it's option number 4).
