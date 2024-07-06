@@ -152,7 +152,7 @@ Note that, because this makes it easier to accept Split GPG's qrexec authorizati
 
 ### Thunderbird 78 and higher
 
-Starting with version 78, Thunderbird has a built-in PGP feature and no longer requires the Enigmail extension. For users coming from the Enigmail extension, the built-in functionality is more limited currently, including that **public keys must live in your `work-email` qube with Thunderbird rather than your offline `work-gpg` qube**.
+Starting with version 78, Thunderbird has a built-in PGP feature and no longer requires the Enigmail extension. For users coming from the Enigmail extension, the built-in functionality is more limited currently, including that **public keys must live in your work-email qube with Thunderbird rather than your offline work-gpg qube**.
 
 In `work-email`, use the Thunderbird config editor (found at the bottom of preferences/options), and search for `mail.openpgp.allow_external_gnupg`. Switch the value to true. Still in config editor, search for `mail.openpgp.alternative_gpg_path`. Set its value to `/usr/bin/qubes-gpg-client-wrapper`. Restart Thunderbird after this change.
 
@@ -297,6 +297,7 @@ In this example, the following keys are stored in the following locations (see b
 
 * `sec` (master secret key)
 
+
    Depending on your needs, you may wish to create this as a **certify-only (C)** key, i.e., a key which is capable only of signing (a.k.a., "certifying") other keys.
    This key may be created *without* an expiration date.
    This is for two reasons.
@@ -314,6 +315,7 @@ In this example, the following keys are stored in the following locations (see b
 
 * `ssb` (secret subkey)
 
+
    Depending on your needs, you may wish to create two different subkeys: one for **signing (S)** and one for **encryption (E)**.
    You may also wish to give these subkeys reasonable expiration dates (e.g., one year).
    Once these keys expire, it is up to you whether to *renew* these keys by extending the expiration dates or to create *new* subkeys when the existing set expires.
@@ -328,10 +330,12 @@ In this example, the following keys are stored in the following locations (see b
 
 * `pub` (public key)
 
+
    This is the complement of the master secret key.
    It can be uploaded to keyservers (or otherwise publicly distributed) and may be signed by others.
 
 * `vault`
+
 
    This is a network-isolated VM.
    The initial master keypair and subkeys are generated in this VM.
@@ -340,12 +344,14 @@ In this example, the following keys are stored in the following locations (see b
 
 * `work-gpg`
 
+
    This is a network-isolated VM.
    This VM is used *only* as the GPG backend for `work-email`.
    The secret subkeys (but *not* the master secret key) are [copied](/doc/how-to-copy-and-move-files/#security) from the `vault` VM to this VM.
    Files from less trusted VMs are *never* [copied](/doc/how-to-copy-and-move-files/#security) into this VM under *any* circumstances.
 
 * `work-email`
+
 
    This VM has access to the mail server.
    It accesses the `work-gpg` VM via the Split GPG protocol.
