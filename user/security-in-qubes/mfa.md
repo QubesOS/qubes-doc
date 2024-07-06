@@ -157,7 +157,9 @@ Note that setting up both a YubiKey and a NitroKey3 is not supported.
 1. Install YubiKey / NitroKey3 software in the template on which your USB VM is based.
    Without this software the challenge-response / HOTP mechanism won't work.
 
+
    **YubiKey**
+
 
    For Fedora.
 
@@ -173,8 +175,10 @@ Note that setting up both a YubiKey and a NitroKey3 is not supported.
    
    **NitroKey3**
 
+
    Follow the installation instructions on the official [NitroKey 
 website](https://docs.nitrokey.com/software/nitropy/all-platforms/installation).
+
    
    **WARNING**: *as of April 2024 the official instructions involve using pipx to
             install the pynitrokey package and its dependencies without any GPG
@@ -184,28 +188,33 @@ website](https://docs.nitrokey.com/software/nitropy/all-platforms/installation).
             Proper packaging and distribution for Debian and perhaps Fedora is
             also planned for the mid-long term.*
             **Installing packages using pip or pipx is not recommended!**
-   
+
+
    **both**
+
 
    Shut down your template. Then, either reboot your USB VM (so changes inside
    the template take effect in your USB app qube) or install the packages inside
    your USB VM as well if you would like to avoid rebooting it.
 
-2. Install [qubes-app-yubikey](https://github.com/QubesOS/qubes-app-yubikey) in
+1. Install [qubes-app-yubikey](https://github.com/QubesOS/qubes-app-yubikey) in
    dom0. This provides the program to authenticate with password and YubiKey / NitroKey3.
 
     ```
     sudo qubes-dom0-update qubes-yubikey-dom0
     ```
 
-3. Configure your YubiKey / NitroKey3:
+2. Configure your YubiKey / NitroKey3:
+
    
    **YubiKey**
+
    
    Configure your YubiKey for challenge-response `HMAC-SHA1` mode. This can be
    done on any qube, e.g. a disposable (you need to [attach the
 YubiKey](https://www.qubes-os.org/doc/how-to-use-usb-devices/) to this app qube
 though) or directly on the sys-usb vm.
+
 
    You need to (temporarily) install the package "yubikey-personalization-gui" and
    run it by typing `yubikey-personalization-gui` in the command line.
@@ -221,6 +230,7 @@ though) or directly on the sys-usb vm.
 
    **NitroKey3**
 
+
    Set up a new NK3 Secrets App HOTP secret by attaching the NitroKey to your
    USB qube and running the following commands in it:
    ```
@@ -231,7 +241,9 @@ though) or directly on the sys-usb vm.
    e.g. letters, numbers, punctuation marks. The actual `Secret Key (base 32)`
    is the base32 encoded form of that sequence.
 
+
    **both**
+
 
    We will call the `Secret Key (20 bytes hex)` (YubiKey) or `Secret Key (base 32)` `AESKEY`.
 
@@ -248,24 +260,29 @@ of this method. If you want to switch to a different NitroKey later, delete the 
 Do the same if for some reason your counters get desynchronized (it stops working), e.g. due
 to connectivity issues (NitroKey3A Minis are known to wear out quickly).
 
-4. **YubiKey**
+3. **YubiKey**
+
 
    Paste your `AESKEY` into `/etc/qubes/yk-keys/yk-secret-key.hex` in dom0.
    Note that if you had previously used a NitroKey3 with this package, you *must* delete
    the file `/etc/qubes/yk-keys/nk-hotp-secret` or its content!
 
+
    **NitroKey3**
+
 
    Create the file `/etc/qubes/yk-keys/nk-hotp-secret` in dom0 and paste your `AESKEY` 
    (in base 32 format) into it.
 
-5. As mentioned before, you need to define a new password that is only used in
+4. As mentioned before, you need to define a new password that is only used in
    combination with the YubiKey / NitroKey3. You can write this password in plain text into
 `/etc/qubes/yk-keys/login-pass` in dom0. This is considered safe as dom0 is
 ultimately trusted anyway.
 
+
     However, if you prefer you can paste a hashed password instead into
 `/etc/qubes/yk-keys/login-pass-hashed.hex` in dom0.
+
 
     You can calculate your hashed password using the following two commands.
     First run the following command to store your password in a temporary variable `password`.
@@ -281,7 +298,7 @@ ultimately trusted anyway.
     echo -n "$password" | openssl dgst -sha1 | cut -f2 -d ' '
     ```
 
-6. To enable multi-factor authentication for a service, you need to add
+5. To enable multi-factor authentication for a service, you need to add
 
     ```
     auth include yubikey
@@ -297,7 +314,7 @@ display manager and so on.
     It is important, that `auth include yubikey` is added at the beginning of
 these files, otherwise it will most likely not work.
 
-7. Adjust the USB VM name in case you are using something other than the default
+6. Adjust the USB VM name in case you are using something other than the default
    `sys-usb` by editing `/etc/qubes/yk-keys/vm` in dom0.
 
 #### Usage
@@ -353,7 +370,7 @@ In dom0:
 
 In your USB VM:
 
-3. Create udev hook.
+1. Create udev hook.
    Store it in `/rw/config` to have it persist across VM restarts.
    For example name the file `/rw/config/yubikey.rules`.
    Add the following line:
@@ -362,7 +379,7 @@ In your USB VM:
    ACTION=="remove", SUBSYSTEM=="usb", ENV{ID_SECURITY_TOKEN}=="1", RUN+="/usr/bin/qrexec-client-vm dom0 custom.LockScreen"
    ```
 
-4. Ensure that the udev hook is placed in the right place after VM restart.
+2. Ensure that the udev hook is placed in the right place after VM restart.
    Append to `/rw/config/rc.local`:
 
    ```
@@ -370,13 +387,13 @@ In your USB VM:
    udevadm control --reload
    ```
 
-5. Then make `/rw/config/rc.local` executable.
+3. Then make `/rw/config/rc.local` executable.
 
    ```
    sudo chmod +x /rw/config/rc.local
    ```
 
-6. For changes to take effect, you need to call this script manually for the first time.
+4. For changes to take effect, you need to call this script manually for the first time.
 
    ```
    sudo /rw/config/rc.local
