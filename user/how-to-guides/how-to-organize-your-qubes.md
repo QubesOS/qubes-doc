@@ -99,7 +99,7 @@ the other. Alice's setup looks like this:
 - **Several email qubes.** Since Alice is a command-line aficionado, she likes
   to use a terminal-based email client, so both her work and personal email
   qubes are based on a template with
-  [Mutt](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/mutt.md)
+  [Mutt](https://forum.qubes-os.org/t/18989)
   installed. The email qubes where she sends and receives PGP-signed and
   encrypted email securely accesses the private keys in her PGP backend qube
   (more on that below). To guard against malicious attachments, she configured
@@ -199,7 +199,7 @@ for work, which contains:
   communication.
 
 - **Two qubes for
-  [Signal](https://github.com/Qubes-Community/Contents/blob/master/docs/privacy/signal.md).**
+  [Signal](https://forum.qubes-os.org/t/19073).**
   Bob has two Signal app qubes (both on the same template in which the Signal
   desktop app is installed). One is linked to his own mobile number for
   communicating with co-workers and other known, trusted contacts. The other is
@@ -217,7 +217,7 @@ for work, which contains:
   the side benefit of helping to keep things organized.
 
 - **A [VPN
-  qube](https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md)
+  qube](https://forum.qubes-os.org/t/19061)
   and associated qubes for accessing work resources.** The servers at work can
   only be accessed from the organization's network, so Bob has certain qubes
   that are connected to a VPN qube so that he can upload his work and access
@@ -317,7 +317,7 @@ her setup looks like this:
   to these generally doesn't allow spending or withdrawing any money. So, even
   the worst case scenario here wouldn't be catastrophic, unlike with her bank
   and brokerage accounts. Third, she's not too worried about any of her credit
-  card company websites being used to attach each other or her qube (As long as
+  card company websites being used to attack each other or her qube. (As long as
   it's contained to a single qube, she's fine with that level of risk.) Last,
   but not least: She has way too many credit cards! While Carol is very frugal,
   she likes to collect the sign-up bonuses that are offered for opening new
@@ -391,7 +391,7 @@ Carol has added the following to her Qubes setup:
   physically air-gapped machine, but she's figures they all have different
   security properties. She also recently heard about using [Electrum as a
   "split" wallet in
-  Qubes](https://github.com/Qubes-Community/Contents/blob/master/docs/security/split-bitcoin.md)
+  Qubes](https://forum.qubes-os.org/t/19017)
   and is interested in exploring that further.
 
 - **Whonix qubes.** Carol read somewhere that Bitcoin nodes should be run over
@@ -424,6 +424,64 @@ password manager vault. If she has extra storage space, she'll also back up her
 templates and even her Bitcoin full node qube, but she'll skip them if she
 doesn't have time or space, since she knows she can always recreate them again
 later and download what she needs from the Internet.
+
+## John, the teacher
+
+John is a teacher at a high school, teaching mathematics and history. He is used
+to setting up his workstation but has not the time or inclination to dive deeper
+into technical details. So he has installed Qubes in a rather simple way mainly
+using the installation defaults and just adding a few well-documented features
+like Split GPG.
+
+[![Simple VM setup](/attachment/doc/Simple_Setup.png)](/attachment/doc/Simple_Setup.png)
+
+-	**One qube for surfing.** `untrusted` is just the standard qube coming with the Qubes
+installation, based on the standard Fedora template, but with Thunderbird removed.
+It is intended for surfing arbitrary locations and may be at risk from some websites.
+Consequently, it does not keep any valuable data and has no facilities to view or
+edit office documents.
+
+-	**One offline qube for writing.** `work` is the qube used to edit documents – even
+MS office documents. It is based on an extended Fedora template containing additional
+software like LibreOffice, GIMP, Wine, and some Windows applications. It has no netVM
+and so the risk of an infected document contacting a hacker’s control server is minimized.
+
+- **One qube for access to trusted servers.** `personal` is used to access only trusted
+websites like home banking, and the firewall rules for this qube restrict it to these
+locations. It is based on the same extended Fedora template. John uses this qube for
+access to his mail server, too, but does not process any documents received by mail
+in this qube. Any office documents from this qube are only opened in disposables in order
+to reduce the risk of infection.
+
+- **One qube for preparing teaching material for his students.** `Windows` is the workhorse
+used to execute anything needed for teaching. It is based on a Windows 7 template with QWT
+installed as most of John’s students work with Windows PCs. In order to reduce the risks
+for such an AppVM, and possible risks caused by it, its internet access is limited, again
+by a firewall rule, to the servers providing material for teaching.
+
+- **One qube for protected access to sensible websites.** `whonix` is just the standard
+AppVM `anon-whonix` based on the `whonix-ws` coming with the Qubes installation. It is
+used for all accesses over Tor and could as well be replaced by a disposable. John, who is
+engaged in a project for helping mentally disabled people, uses this qube to avoid tracking
+his access to the project’s server.
+
+- **One offline qube for keeping the private PGP key.** `vault` is the key part of Split GPG,
+just as described in the Qubes documentation, keeping the private PGP key.
+
+- **One offline qube for permanent data storage.** `storage` finally is a qube based on the
+standard Debian template and, having no applications and no network access, it is used
+explicitly and only for permanent data storage, and it is the only qube whose data is regarded
+as valuable and worth keeping. The Fedora-based qubes might even be configured as disposables, and,
+if you are willing to accept the rather slow start of Windows, even the qube `Windows` might be
+created as a disposable.
+
+This is a rather simplistic design, intended to show that with a minimum effort a decent level
+of security can be reached, and it is a first implementation showing how John can compartmentalize
+his digital life, as described in the Qubes documentation. Once the templates are set up with
+the necessary software like LibreOffice and
+Split GPG is installed, setting up this structure takes only a few minutes, but it is much more
+secure than, for instance, a Windows 10 installation based on the available hardening studies,
+which are quite useless for a practical environment, especially for a user like John.
 
 
 ## Conclusion

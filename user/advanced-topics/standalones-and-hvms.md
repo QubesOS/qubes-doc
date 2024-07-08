@@ -34,7 +34,7 @@ virtualization extensions of the host CPU. These are typically contrasted with
 Paravirtualized (PV) VMs.
 
 HVMs allow you to create qubes based on any OS for which you have an
-installation ISO, so you can easily have qubes running Windows, \*BSD, or any
+installation ISO, so you can easily have qubes running Windows, `*BSD`, or any
 Linux distribution. You can also use HVMs to run "live" distros.
 
 By default, every qube runs in PVH mode (which has security advantages over
@@ -56,14 +56,21 @@ You can create a standalone in the Qube Manager by selecting the "Type" of
 "Standalone qube copied from a template" or "Empty standalone qube (install
 your own OS)."
 
-Alternatively, from the dom0 command line:
+Alternatively, to create an empty standalone from the dom0 command line:
 
 ```
 qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm <NEW_STANDALONE_NAME>
 ```
 
-(Note: Technically, `virt_mode=hvm` is not necessary for every standalone.
-However, it makes sense if you want to use a kernel from within the qube.)
+Or to create a standalone copied from a template:
+```
+qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm --template <TEMPLATE_QUBE_NAME> <NEW_STANDALONE_NAME>
+```
+
+Notes:
+- Technically, `virt_mode=hvm` is not necessary for every standalone.
+However, it is needed if you want to use a kernel from within the qube.
+- If you want to make software installed in a template available in your standalone, pass in the name of the template using the `--template` option.
 
 ## Updating standalones
 
@@ -190,7 +197,7 @@ you would install it into a normal HVM. Generally, you should install in to the
 first "system" disk. (Resize it as needed before starting installation.)
 
 You can then create a new qube using the new template. If you use this Template
-as is, then any HVMs based on it it will effectively be disposables. All file
+as is, then any HVMs based on it will effectively be disposables. All file
 system changes will be wiped when the HVM is shut down.
 
 Please see [this
@@ -440,4 +447,4 @@ qemu-img -h | tail -n1
 Other documents related to HVMs:
 
 - [Windows VMs](https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows-vm.md)
-- [Linux HVM Tips](https://github.com/Qubes-Community/Contents/blob/master/docs/os/linux-hvm-tips.md)
+- [Linux HVM Tips](https://forum.qubes-os.org/t/19008)

@@ -24,4 +24,4 @@ helpful in streamlining the process.
 * Our preferred frequency is **once every 24 hours**, but anything up to once
   every 6-8 hours is fine.
 * For technical accommodations, please contact [Wojtek](/team/#wojtek-porczyk) or [Marek](/team/#marek-marczykowski-górecki).
-* For website updates and fixes, please contact [Andrew](/team/#andrew-david-wong).
+* For website updates and fixes, please contact [unman](/team/#unman).

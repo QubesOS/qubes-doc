@@ -75,11 +75,11 @@ These errors may also occur due to an incompatible Nvidia graphics card. If you 
     noexitboot=1 modprobe.blacklist=nouveau rd.driver.blacklist=nouveau --- intitrd.img
     ```
 
-For more information, look at the [Nvidia Troubleshooting guide](https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/nvidia-troubleshooting.md#disabling-nouveau).
+For more information, look at the [Nvidia Troubleshooting guide](https://forum.qubes-os.org/t/19021#disabling-nouveau).
 
 ## Installation freezes at "Setting up Networking" 
  
-If you are facing this problem on an Apple computer, check out the [Macbook Troubleshooting guide](https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/macbook-troubleshooting.md).
+If you are facing this problem on an Apple computer, check out the [Macbook Troubleshooting guide](https://forum.qubes-os.org/t/19020).
 
 If you are installing Qubes 4.0 on an external storage device, you may have forgotten to disable `sys-usb` during the [initial setup](/doc/installation-guide/#initial-setup), which is generally required for that setup to work.
 
@@ -121,5 +121,5 @@ Here are the steps to fix this. Note that this allows sys-net and sys-usb to tak
 
 1. Change the virtualization mode of sys-net and sys-usb to "PV"
 2. Add `qubes.enable_insecure_pv_passthrough` to `GRUB_CMDLINE_LINUX` in `/etc/default/grub`
-3. Run `sudo grub2-mkconfig -o /boot/efi/EFI/qubes/grub.cfg`
+3. Run `sudo grub2-mkconfig -o /boot/efi/EFI/qubes/grub.cfg`. If you are using a non-UEFI BIOS (where `/boot/efi/EFI` doesn't exist), use the command `sudo grub-mkconfig -o /boot/grub2/grub.cfg` instead.
 4. Reboot

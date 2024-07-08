@@ -6,7 +6,7 @@ redirect_from:
 - /en/doc/linux-hvm-tips/
 - /doc/LinuxHVMTips/
 - /wiki/LinuxHVMTips/
-redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/os/linux-hvm-tips.md
+redirect_to: https://forum.qubes-os.org/t/19008
 ref: 82
 title: Linux HVM tips
 ---

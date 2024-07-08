@@ -26,6 +26,6 @@ Below is a list of various books that might be useful in learning some basics ne
   - _[Pro Git](https://git-scm.com/book/en/v2)_, by Scott Chacon and Ben Straub (complete book available free online)
 
 - Useful books about Python:
-  - _[Programming in Python 3](http://www.qtrac.eu/py3book.html)_, by Mark Summerfield
-  - _[Rapid GUI Programming with Python and Qt](http://www.qtrac.eu/pyqtbook.html)_, by Mark Summerfield
+  - _[Programming in Python 3](https://www.qtrac.eu/py3book.html)_, by Mark Summerfield
+  - _[Rapid GUI Programming with Python and Qt](https://www.qtrac.eu/pyqtbook.html)_, by Mark Summerfield
     (Although note that [Qt is being replaced by GTK](/doc/usability-ux/#gnome-kde-and-xfce) in Qubes code.)

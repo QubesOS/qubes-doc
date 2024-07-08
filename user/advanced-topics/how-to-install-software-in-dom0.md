@@ -209,23 +209,7 @@ to do a lot of work yourself](https://groups.google.com/d/msg/qubes-users/m8sWoy
 
 This section describes changing the default kernel in dom0. It is sometimes
 needed if you have upgraded to a newer kernel and are having problems booting,
-for example. The procedure varies depending on if you are booting with UEFI or
-grub. On the next kernel update, the default will revert to the newest.
-
-### EFI
-
-~~~
-sudo nano /boot/efi/EFI/qubes/xen.cfg
-~~~
-
-In the `[global]` section at the top, change the `default=` line to match one
-of the three boot entries listed below. For example:
-
-~~~
-default=4.19.67-1.pvops.qubes.x86_64
-~~~
-
-### Grub2
+for example. On the next kernel update, the default will revert to the newest.
 
 ~~~
 sudo nano /etc/default/grub

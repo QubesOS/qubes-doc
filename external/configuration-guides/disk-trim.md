@@ -6,7 +6,7 @@ redirect_from:
 - /en/doc/disk-trim/
 - /doc/DiskTRIM/
 - /wiki/DiskTRIM/
-redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/disk-trim.md
+redirect_to: https://forum.qubes-os.org/t/19054
 ref: 104
 title: Disk TRIM
 ---

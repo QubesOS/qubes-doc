@@ -32,7 +32,7 @@ While this might be true (unless the attacker can find a usually-very-expensive-
 However, there is usually nothing that could stop the attacker from requesting the smart card to perform decryption of all the user documents the attacker has found or need to decrypt.
 In other words, while protecting the user's private key is an important task, we should not forget that ultimately it is the user data that are to be protected and that the smart card chip has no way of knowing the requests to decrypt documents are now coming from the attacker's script and not from the user sitting in front of the monitor.
 (Similarly the smart card doesn't make the process of digitally signing a document or a transaction in any way more secure -- the user cannot know what the chip is really signing.
-Unfortunately this problem of signing reliability is not solvable by Split GPG)
+Unfortunately this problem of signing reliability is not solvable by Split GPG.)
 
 With Qubes Split GPG this problem is drastically minimized, because each time the key is to be used the user is asked for consent (with a definable time out, 5 minutes by default), plus is always notified each time the key is used via a tray notification from the domain where GPG backend is running.
 This way it would be easy to spot unexpected requests to decrypt documents.
@@ -140,10 +140,10 @@ work-email  work-gpg  allow
 
 where `work-email` is the Thunderbird + Enigmail app qube and `work-gpg` contains your GPG keys.
 
-You may also edit the qrexec policy file for Split GPG in order to tell Qubes your default gpg vm (qrexec prompts will appear with the gpg vm preselected as the target, instead of the user needing to type a name in manually). To do this, append `,default_target=<vmname>` to `ask` in `/etc/qubes-rpc/policy/qubes.Gpg`. For the examples given on this page:
+You may also edit the qrexec policy file for Split GPG in order to tell Qubes your default gpg vm (qrexec prompts will appear with the gpg vm preselected as the target, instead of the user needing to type a name in manually). To do this, append `default_target=<vmname>` to `ask` in `/etc/qubes-rpc/policy/qubes.Gpg`. For the examples given on this page:
 
 ```
-@anyvm  @anyvm  ask,default_target=work-gpg
+@anyvm  @anyvm  ask default_target=work-gpg
 ```
 
 Note that, because this makes it easier to accept Split GPG's qrexec authorization prompts, it may decrease security if the user is not careful in reviewing presented prompts. This may also be inadvisable if there are multiple app qubes with Split GPG set up.
@@ -361,10 +361,10 @@ Once the master secret key is in the `work-email` VM, the attacker could simply 
 
 In the alternative setup described in this section (i.e., the subkey setup), even an attacker who manages to gain access to the `work-gpg` VM will not be able to obtain the user's master secret key since it is simply not there.
 Rather, the master secret key remains in the `vault` VM, which is extremely unlikely to be compromised, since nothing is ever copied or transferred into it.
-<sup>\*</sup> The attacker might nonetheless be able to leak the secret subkeys from the `work-gpg` VM in the manner described above, but even if this is successful, the secure master secret key can simply be used to revoke the compromised subkeys and to issue new subkeys in their place.
+[^a-note] The attacker might nonetheless be able to leak the secret subkeys from the `work-gpg` VM in the manner described above, but even if this is successful, the secure master secret key can simply be used to revoke the compromised subkeys and to issue new subkeys in their place.
 (This is significantly less devastating than having to create a new *master* keypair.)
 
-<sup>\*</sup>In order to gain access to the `vault` VM, the attacker would require the use of, e.g., a general Xen VM escape exploit or a [signed, compromised package which is already installed in the template](/doc/templates/#trusting-your-templates) upon which the `vault` VM is based.
+[^a-note]: In order to gain access to the `vault` VM, the attacker would require the use of, e.g., a general Xen VM escape exploit or a [signed, compromised package which is already installed in the template](/doc/templates/#trusting-your-templates) upon which the `vault` VM is based.
 
 ### Subkey Tutorials and Discussions
 

@@ -6,7 +6,7 @@ redirect_from:
 - /en/doc/zfs/
 - /doc/ZFS/
 - /wiki/ZFS/
-redirect_to: https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/zfs.md
+redirect_to: https://forum.qubes-os.org/t/18994
 ref: 111
 title: ZFS
 ---
