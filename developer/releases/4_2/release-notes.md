@@ -58,9 +58,15 @@ We strongly recommend [updating Qubes OS](/doc/how-to-update/) immediately after
   
   After the change went live, we received several user reports indicating more severe usability problems than we had anticipated. Moreover, these problems were prompting users to resort to dangerous workarounds (such as packing files into an archive format prior to copying) that carry far more risk than the original risk posed by the unrestricted filenames. In addition, we realized that this was a backward-incompatible change that should not have been introduced in a minor release in the first place.
   
-  Therefore, we have decided, for the time being, to restore the original (pre-4.2) behavior by introducing a new `allow-all-names` argument for the `qubes.Filecopy` service. By default, `qvm-copy` and similar tools will use this less restrictive service (`qubes.Filecopy+allow-all-names`) whenever they detect any files that would be have been blocked by the more restrictive service (`qubes.Filecopy+`). If no such files are detected, they will use the more restrictive service.
+  Therefore, we have decided, for the time being, to restore the original (pre-4.2) behavior by introducing a new `allow-all-names` argument for the `qubes.Filecopy` service. By default, `qvm-copy` and similar tools will use this less restrictive service (`qubes.Filecopy +allow-all-names`) whenever they detect any files that would be have been blocked by the more restrictive service (`qubes.Filecopy+`). If no such files are detected, they will use the more restrictive service.
   
-  Users who wish to opt for the more restrictive 4.2.0 and 4.2.1 behavior can do so by modifying their RPC policy rules. To switch a single rule to the more restrictive behavior, change `*` in the argument column to `+` (i.e., change "any argument" to "only empty"). To use the more restrictive behavior globally, add a "deny" rule for `qubes.Filecopy+allow-all-names` before all other relevant rules. For more information, see [RPC policies](/doc/rpc-policy/) and [Qube configuration interface](/doc/vm-interface/#qubes-rpc).
+  Users who wish to opt for the more restrictive 4.2.0 and 4.2.1 behavior can do so by modifying their RPC policy rules. To switch a single rule to the more restrictive behavior, change `*` in the argument column to `+` (i.e., change "any argument" to "only empty"). To use the more restrictive behavior globally, add the following "deny" rule before all other relevant rules:
+  
+  ```
+  qubes.Filecopy    +allow-all-names    @anyvm    @anyvm    deny
+  ```
+  
+  For more information, see [RPC policies](/doc/rpc-policy/) and [Qube configuration interface](/doc/vm-interface/#qubes-rpc).
 
 ## Download
 
