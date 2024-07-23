@@ -170,7 +170,7 @@ installing a template package in dom0, per the instructions
 dom0 in order to uninstall it:
 
 ```
-$ sudo dnf remove qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>
+$ qvm-template remove qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>
 ```
 
 `qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>` is the name of the desired
