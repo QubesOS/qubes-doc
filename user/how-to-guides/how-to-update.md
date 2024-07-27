@@ -68,7 +68,7 @@ If you use [Anti Evil Maid (AEM)](/doc/anti-evil-maid/), you'll have to "reseal"
   <b>Warning:</b> Updating with direct commands such as <code>dnf update</code>, and <code>apt update</code> is <b>not</b> recommended, since these bypass built-in Qubes OS update security measures. Instead, we strongly recommend using the <b>Qubes Update</b> tool or its command-line equivalents, as described below. (By contrast, <a href="/doc/how-to-install-software/">installing</a> packages using direct package manager commands is fine.)
 </div>
 
-Advanced users may wish to perform updates via the command-line interface. To update templates and standalones non-interactively, use the command `qubes-vm-update`, and to update dom0, use `qubes-dom0-update`. If you want to perform a more complex update, see: [update.qubes-dom0](/doc/salt/#updatequbes-dom0) and [update.qubes-vm](/doc/salt/#updatequbes-vm).
+Advanced users may wish to perform updates via the command-line interface. To update templates and standalones non-interactively, use the command `qubes-vm-update`, and to update dom0, use `qubes-dom0-update`. If you want to perform an update with more advanced user-configurable options (e.g., custom pre- or post-update scripts, custom workarounds), see: [update.qubes-dom0](/doc/salt/#updatequbes-dom0) and [update.qubes-vm](/doc/salt/#updatequbes-vm).
 
 Advanced users may also be interested in learning [how to enable the testing repos](/doc/testing/).
 
