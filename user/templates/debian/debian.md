@@ -58,19 +58,17 @@ There are two ways to upgrade your template to a new Debian release:
 
 This section contains notes about specific Debian releases.
 
-### Debian 10
+### Debian 12
 
-Debian 10 (buster) - minimal:
-
-```
-[user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl qubes-template-debian-10-minimal
-```
-
-Debian 10 (buster) - stable:
+If you want to use a Debian 12 template for salting Qubes, you **must** stop the salt-common and salt-ssh packages from being upgraded.
+Do this by marking these packages on hold *before* updating the template.
 
 ```
-[user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl qubes-template-debian-10
+sudo apt-mark hold salt-common salt-ssh
+sudo apt update
+sudo apt upgrade
 ```
+This is a [known bug](https://github.com/QubesOS/qubes-issues/issues/9129) in Salt which affects version 3006-5.
 
 ### Starting services
 

@@ -224,7 +224,7 @@ Kernel for a VM is stored in `/var/lib/qubes/vm-kernels/KERNEL_VERSION` director
 * `modules.img` - ext4 filesystem image containing Linux kernel modules (to be mounted at `/lib/modules`); additionally it should contain a copy of `vmlinuz` and `initramfs` in its root directory (for loading by qemu inside stubdomain)
 * `default-kernelopts-common.txt` - default kernel options, in addition to those specified with `kernelopts` qube property (can be disabled with `no-default-kernelopts` feature)
 
-All the files besides `vmlinuz` and `initramfs` are optional in Qubes R4.0 or newer.
+All the files besides `vmlinuz` are optional in Qubes R4.2 or newer.
 
 ## Using kernel installed in the VM
 
@@ -279,7 +279,9 @@ Then shutdown the VM.
 
 * You may also use `PV` mode instead of `HVM` but this is not recommended for security purposes.
 * If you require `PV` mode, install `grub2-xen-pvh` in dom0 and change the template's kernel to `pvgrub2-pvh`.
-* Booting to a kernel inside the template is not supported under `PVH`.
+* If you require `PVH` mode, install `grub2-xen-pvh` in dom0 and change the kernel to `pvgrub2-pvh`.
+* To install `grub2-xen-pvh` run the command `sudo qubes-dom0-update pvgrub2-pvh` in dom0.
+
 
 ### Installing kernel in Debian VM
 
@@ -314,7 +316,7 @@ Depends on `Virtualization` mode setting:
 
 * `Virtualization` mode `PV`: Possible, however use of `Virtualization` mode `PV` mode is discouraged for security purposes.
   * If you require `Virtualization` mode `PV` mode, install `grub2-xen-pvh` in dom0. This can be done by running command `sudo qubes-dom0-update pvgrub2-pvh` in dom0.
-* `Virtualization` mode `PVH`: Possible.
+* `Virtualization` mode `PVH`: Possible. Install `grub2-xen-pvh` in dom0.
 * `Virtualization` mode `HVM`: Possible.
 
 The `Kernel` setting of the `Virtualization` mode setting:
