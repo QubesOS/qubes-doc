@@ -68,6 +68,7 @@ qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm --
 ```
 
 Notes:
+
 - Technically, `virt_mode=hvm` is not necessary for every standalone.
 However, it is needed if you want to use a kernel from within the qube.
 - If you want to make software installed in a template available in your standalone, pass in the name of the template using the `--template` option.
