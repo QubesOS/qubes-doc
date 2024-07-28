@@ -577,6 +577,7 @@ qube which provides network to the given qube
 The output for each qube is logged in `/var/log/qubes/mgmt-VM_NAME.log`.
 
 If the log does not contain useful information:
+
 1. Run `sudo qubesctl --skip-dom0 --target=VM_NAME state.apply`
 2. When your qube is being started (yellow) press Ctrl-z on qubesctl.
 3. Open terminal in disp-mgmt-qube_NAME.
@@ -584,10 +585,10 @@ If the log does not contain useful information:
    executed in the management qube.
 5. Get the last two lines:
 
-    ```shell_session
-    $ export PATH="/usr/lib/qubes-vm-connector/ssh-wrapper:$PATH"
-    $ salt-ssh "$target_vm" $salt_command
-    ```
+```shell_session
+$ export PATH="/usr/lib/qubes-vm-connector/ssh-wrapper:$PATH"
+$ salt-ssh "$target_vm" $salt_command
+```
 
   Adjust $target_vm (VM_NAME) and $salt_command (state.apply).
 6. Execute them, fix problems, repeat.
