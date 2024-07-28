@@ -144,9 +144,11 @@ Although GitHub adds a little green `Verified` button next to the commit, the [s
 
 1. Is the commit signed?
    If the commit is not signed, you can see the message
+   
    > policy/qubesos/code-signing — No signature found
-2. If the commit is signed, the key is downloaded from a GPG key server.
+3. If the commit is signed, the key is downloaded from a GPG key server.
    If you can see the following error message, please check if you have uploaded the key to a key server.
+   
    > policy/qubesos/code-signing — Unable to verify (no valid key found)
 
 ### No Signature Found
