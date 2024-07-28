@@ -17,7 +17,7 @@ Qubes **qrexec** is a framework for implementing inter-VM (incl. Dom0-VM)
 services. It offers a mechanism to start programs in VMs, redirect their
 stdin/stdout, and a policy framework to control this all.
 
-## Qrexec basics ##
+## Qrexec basics
 
 During each domain creation a process named `qrexec-daemon` is started in
 dom0, and a process named `qrexec-agent` is started in the VM. They are
@@ -56,7 +56,7 @@ There is a similar command line utility available inside Linux AppVMs (note
 the `-vm` suffix): `qrexec-client-vm` that will be described in subsequent
 sections.
 
-## Qubes RPC services ##
+## Qubes RPC services
 
 Apart from simple Dom0-\>VM command executions, as discussed above, it is
 also useful to have more advanced infrastructure for controlled inter-VM
@@ -90,7 +90,7 @@ themselves. Qrexec framework is careful about connecting the stdin/stdout
 of the server process with the corresponding stdin/stdout of the requesting
 process in the requesting VM (see example Hello World service described below).
 
-## Qubes RPC administration ##
+## Qubes RPC administration
 
 Besides each VM needing to provide explicit programs to serve each supported
 service, the inter-VM service RPC is also governed by a central policy in Dom0.
@@ -135,7 +135,7 @@ if still there is no policy file after prompting, the action is denied.
 On the target VM, the `/etc/qubes-rpc/XYZ` must exist, containing the file
 name of the program that will be invoked.
 
-### Requesting VM-VM (and VM-Dom0) services execution ###
+### Requesting VM-VM (and VM-Dom0) services execution
 
 In a src VM, one should invoke the qrexec client via the following command:
 
@@ -161,7 +161,7 @@ If requesting VM-VM (and VM-Dom0) services execution *without cmdline helper*,
 connect directly to `/var/run/qubes/qrexec-agent-fdpass` socket as described
 [below](#all-the-pieces-together-at-work).
 
-### Revoking "Yes to All" authorization ###
+### Revoking "Yes to All" authorization
 
 Qubes RPC policy supports an "ask" action, that will prompt the user whether
 a given RPC call should be allowed. It is set as default for services such
@@ -184,7 +184,7 @@ A user might also want to set their own policies in this section. This may
 mostly serve to prevent the user from mistakenly copying files or text from
 a trusted to untrusted domain, or vice-versa.
 
-### Qubes RPC "Hello World" service ###
+### Qubes RPC "Hello World" service
 
 We will show the necessary files to create a simple RPC call that adds two
 integers on the target VM and returns back the result to the invoking VM.
@@ -232,7 +232,7 @@ be allowed.
 **Note:** For a real world example of writing a qrexec service, see this
 [blog post](https://blog.invisiblethings.org/2013/02/21/converting-untrusted-pdfs-into-trusted.html).
 
-### More high-level RPCs? ###
+### More high-level RPCs?
 
 As previously noted, Qubes aims to provide mechanisms that are very simple
 and thus with very small attack surface. This is the reason why the inter-VM
@@ -242,14 +242,14 @@ users/app developers are always free to run more high-level RPC protocols on
 top of qrexec. Care should be taken, however, to consider potential attack
 surfaces that are exposed to untrusted or less trusted VMs in that case.
 
-# Qubes RPC internals #
+## Qubes RPC internals
 
 (*This is about the implementation of qrexec v2. For the implementation of
 qrexec v3, see [here](/doc/qrexec-internals/). Note that the user
 API in v3 is backward compatible: qrexec apps written for Qubes R2 should
 run without modification on Qubes R3.*)
 
-## Dom0 tools implementation ##
+## Dom0 tools implementation
 
 Players:
 
@@ -262,7 +262,7 @@ Players:
 
 **Note:** None of the above tools are designed to be used by users.
 
-## Linux VMs implementation ##
+## Linux VMs implementation
 
 Players:
 
@@ -275,7 +275,7 @@ Players:
 **Note:** None of the above tools are designed to be used by
 users. `qrexec-client-vm` is designed to be wrapped up by Qubes apps.
 
-## Windows VMs implementation ##
+## Windows VMs implementation
 
 `%QUBES_DIR%` is the installation path (`c:\Program Files\Invisible Things
 Lab\Qubes OS Windows Tools` by default).
@@ -291,7 +291,7 @@ Lab\Qubes OS Windows Tools` by default).
 **Note:** None of the above tools are designed to be used by
 users. `qrexec-client-vm` is designed to be wrapped up by Qubes apps.
 
-## All the pieces together at work ##
+## All the pieces together at work
 
 **Note:** This section is not needed to use qrexec for writing Qubes
 apps. Also note the [qrexec framework implemention in Qubes R3](/doc/qrexec3/)
