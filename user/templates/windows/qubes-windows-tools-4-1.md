@@ -50,7 +50,7 @@ Below is a breakdown of the feature availability depending on the windows versio
 | ------------------------------------ | :------------: | :-------------------: |
 | Qubes Video Driver                   |        y       |           n           |
 | Qubes Network Setup                  |        y       |           y           |
-| Private Volume Setup (move profiles) |        y       |           y           |
+| Private Volume Setup (move profiles)  |        y       |           y           |
 | File sender/receiver                 |        y       |           y           |
 | Clipboard Copy/Paste                 |        y       |           y           |
 | Application shortcuts                |        y       |           y           |
@@ -311,8 +311,8 @@ To override global settings for a specific component, create a new key under the
 	
 Component-specific settings currently available:
 
-|**Component**|**Setting**|**Type**|**Description**|**Default value**|
-|:------------|:----------|:-------|:--------------|:----------------|
+|   Component   |   Setting   |   Type     |   Description                                   |   Default value   |
+|:--------------|:------------|:-----------|:------------------------------------------------|:------------------|
 |qga|DisableCursor|DWORD|Disable cursor in the VM. Useful for integration with Qubes desktop so you don't see two cursors. Can be disabled if you plan to use the VM through a remote desktop connection of some sort. Needs gui agent restart to apply change (locking OS/logoff should be enough since qga is restarted on desktop change).|1|
 
 ## Troubleshooting
