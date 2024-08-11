@@ -107,6 +107,7 @@ when you wish to install a fresh template from the Qubes repositories, e.g.:
 You can use a command line tool - `qvm-template` - or a GUI - `qvm-template-gui`.
 
 At the command line in dom0, `qvm-template list --available` will show available templates. To install a template, use:
+
 ```
 $ qvm-template install  <template_name>
 ```
@@ -116,9 +117,11 @@ You can also use `qvm-template` to upgrade or reinstall templates.
 Repo definitions are stored in `/etc/qubes/repo-templates` and associated keys in `/etc/qubes/repo-templates/keys`.  
 There are additional repos for testing releases and community templates.
 To temporarily enable any of these repos, use the `--enablerepo=<repo-name>` option. E.g. :
+
 ```
 $ qvm-template  --enablerepo qubes-templates-community install <template_name>
 ```
+
 To permanently enable a repo, set the line `enabled = 1` in the repo definition in `/etc/qubes/repo-templates`.  
 To permanently disable, set the line to `enabled = 0`.
 
