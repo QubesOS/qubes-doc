@@ -164,8 +164,12 @@ These parameters are set for the following reasons:
     -  Position to this key and create 3 DWORD values called `BypassTPMCheck`, `BypassSecureBootCheck` and `BypassRAMCheck` and set each value to `1`.
     -  Close the registry editor and console windows.
     -  In the setup window, hit the left arrow in the left upper corner. You will then return into the setup, which will continue normally and install Windows 11 without TPM 2.0.
-   
-    :warning: **Caution:** This temporary patch may cease to work if it so pleases Microsoft some time.
+
+<div class="alert alert-warning" role="alert">
+  <i class="fa fa-exclamation-triangle"></i>
+  **Caution:** This temporary patch may cease to work if it so pleases Microsoft some time.
+</div>
+
     
     The installation of Windows 11 may require an internet connection to grab a Microsoft ID. This is currently true only for the home addition, but will probably extend to the Pro edition, too. A workaround to bypass the internet connection requirements of the Windows 11 setup has been published that currently works for version 21H2 but may be blocked some time in the future by Microsoft:
     
