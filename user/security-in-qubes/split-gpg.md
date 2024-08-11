@@ -152,7 +152,7 @@ Note that, because this makes it easier to accept Split GPG's qrexec authorizati
 
 ### Thunderbird 78 and higher
 
-Starting with version 78, Thunderbird has a built-in PGP feature and no longer requires the Enigmail extension. For users coming from the Enigmail extension, the built-in functionality is more limited currently, including that **public keys must live in your work-email qube with Thunderbird rather than your offline work-gpg qube**.
+Starting with version 78, Thunderbird has a built-in PGP feature and no longer requires the Enigmail extension. For users coming from the Enigmail extension, the built-in functionality is more limited currently, including that **public keys must live in your** `work-email` **qube with Thunderbird rather than your offline** `work-gpg` **qube**.
 
 In `work-email`, use the Thunderbird config editor (found at the bottom of preferences/options), and search for `mail.openpgp.allow_external_gnupg`. Switch the value to true. Still in config editor, search for `mail.openpgp.alternative_gpg_path`. Set its value to `/usr/bin/qubes-gpg-client-wrapper`. Restart Thunderbird after this change.
 

@@ -66,15 +66,15 @@ These errors may also occur due to an incompatible Nvidia graphics card. If you 
 2. Enter GRUB, move the selection to the first choice, and then press the Tab key. 
 3. Now, you are in edit mode. Move the text cursor with your arrow key and after ``kernel=`` line, add:
 
-```
-nouveau.modeset=0 rd.driver.blacklist=nouveau video=vesa:off
-```
+  ```bash
+  nouveau.modeset=0 rd.driver.blacklist=nouveau video=vesa:off
+  ```
 
-If the above code doesn't fix the problem, replace it with:
+  If the above code doesn't fix the problem, replace it with:
 
-```   
-noexitboot=1 modprobe.blacklist=nouveau rd.driver.blacklist=nouveau --- intitrd.img
-```
+  ```bash   
+  noexitboot=1 modprobe.blacklist=nouveau rd.driver.blacklist=nouveau --- intitrd.img
+  ```
 
 For more information, look at the [Nvidia Troubleshooting guide](https://forum.qubes-os.org/t/19021#disabling-nouveau).
 

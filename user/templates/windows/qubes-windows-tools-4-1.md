@@ -79,7 +79,7 @@ In the future this step will not be necessary anymore, because we will sign our 
 
 The Xen PV Drivers bundled with QWT are signed by a Linux Foundation certificate. Thus Windows 10 and 11 do not require this security mitigation.
 
-**Warning:** it is recommended to increase the default value of Windows VM's `qrexec_timeout` property from 60 (seconds) to, for example, 300. During one of the first reboots after Windows Tools installation Windows user profiles are moved onto the private VM's virtual disk (private.img) and this operation can take some time. Moving profiles and, later on, updating a Windows installation, is performed in an early boot phase when `qrexec` is not yet running, so timeout may occur with the default value. To change the property use this command in `dom0`: *(where <VMname> is the name of your Windows VM)*
+**Warning:** it is recommended to increase the default value of Windows VM's `qrexec_timeout` property from 60 (seconds) to, for example, 300. During one of the first reboots after Windows Tools installation Windows user profiles are moved onto the private VM's virtual disk (private.img) and this operation can take some time. Moving profiles and, later on, updating a Windows installation, is performed in an early boot phase when `qrexec` is not yet running, so timeout may occur with the default value. To change the property use this command in `dom0`: *(where* `<VMname>` *is the name of your Windows VM)*
 
 		[user@dom0 ~] $ qvm-prefs <VMname> qrexec_timeout 7200
 
@@ -137,7 +137,7 @@ Installing the Qubes Windows Tools on Windows 7, 8.1, 10 and 11 both as a Standa
 
  5. After successful installation, the Windows VM must be shut down and started again, possibly a couple of times. On each shutdown, wait until the VM is really stopped, i.e. Qubes shows no more activity.
 
- 6. Qubes will automatically detect that the tools have been installed in the VM and will set appropriate properties for the VM, such as `qrexec_installed`, `guiagent_installed`, and `default_user`. This can be verified (but is not required) using the `qvm-prefs` command  *(where <VMname> is the name of your Windows VM)*:
+ 6. Qubes will automatically detect that the tools have been installed in the VM and will set appropriate properties for the VM, such as `qrexec_installed`, `guiagent_installed`, and `default_user`. This can be verified (but is not required) using the `qvm-prefs` command  *(where* `<VMname>` *is the name of your Windows VM)*:
 
 	        [user@dom0 ~] $ qvm-prefs <VMname>
 
@@ -173,7 +173,7 @@ Installing the Qubes Windows Tools on Windows 7, 8.1, 10 and 11 both as a Standa
 	
 	 If Windows is used in a TemplateVM / AppVM combination, this registry fix has to be applied to the TemplateVM, as the `HKLM` registry key belongs to the template-based part of the registry.
 	
- 10. Lastly to enable file copy operations to a Windows VM, the `default_user` property of this VM should be set to the `<username>` that you use to login to the Windows VM. This can be done via the following command on a `dom0` terminal: *(where <VMname> is the name of your Windows VM)*
+ 10. Lastly to enable file copy operations to a Windows VM, the `default_user` property of this VM should be set to the `<username>` that you use to login to the Windows VM. This can be done via the following command on a `dom0` terminal: *(where* `<VMname>` *is the name of your Windows VM)*
 	
 		`[user@dom0 ~] $ qvm-prefs <VMname> default_user <username>`
   
@@ -267,7 +267,7 @@ Windows qubes can be used as disposables, like any other Linux-based qubes. On c
 	- Name the link, e.g. as `Command Prompt`.
 	- Close the Window with `OK`.
 	- Shut down this AppVM.
-- In the Qube Manager, refresh the applications of the newly created AppVM and select those applications that you want to make available from the disposable. Alternatively, in dom0 execute the command `qvm-sync-appmenus <VMname>`, *where <VMname> is the name of your windows qube*.
+- In the Qube Manager, refresh the applications of the newly created AppVM and select those applications that you want to make available from the disposable. Alternatively, in dom0 execute the command `qvm-sync-appmenus <VMname>`, *where* `<VMname>` *is the name of your windows qube*.
 - In the Qube Manager, go to the "Advanced" tab and enable the option `Disposable template` for your Windows qube.  Alternatively, in dom0 execute the commands `qvm-prefs <VMname> template_for_dispvms True` and `qvm-features <VMname> appmenus-dispvm 1`.
 - Click `Apply`.
 - Still in the Advanced tab, select your Windows qube as its own `Default disposable template`. Alternatively, in dom0 execute the command `qvm-prefs <VMname> default_dispvm <VMname>`.
@@ -277,7 +277,7 @@ Now you should have a menu `Disposable: <VMname>` containing the applications th
 
 For further information on usage of disposables, see [How to use disposables](/doc/how-to-use-disposables/).
 
-**Caution:** *If a Windows-based disposable is used from another qube via the Open/Edit in DisposableVM command, this disposable may not close automatically, due to the command prompt window still running in this dispvm. In this case, the disposable has to be shut down  manually.*
+**Caution:** *If a Windows-based disposable is used from another qube via the* `Open/Edit in DisposableVM` *command, this disposable may not close automatically, due to the command prompt window still running in this dispvm. In this case, the disposable has to be shut down  manually.*
 
 ## Installation logs
 
