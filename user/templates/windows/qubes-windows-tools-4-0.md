@@ -32,16 +32,16 @@ Below is a breakdown of the feature availability depending on the windows versio
 
 |             Feature                  |  Windows 7 x64 | Windows 10 x64 |
 | ------------------------------------ | :------------: | :------------: |
-| Qubes Video Driver                   |        +       |       -        |
-| Qubes Network Setup                  |        +       |       +        |
-| Private Volume Setup (move profiles) |        +       |       +        |
-| File sender/receiver                 |        +       |       +        |
-| Clipboard Copy/Paste                 |        +       |       +        |
-| Application shortcuts                |        +       |       +        |
-| Copy/Edit in Disposable VM           |        +       |       +        |
-| Block device                         |        +       |       +        |
-| USB device                           |        +       |       +        |
-| Audio                                |        -       |       -        |
+| Qubes Video Driver                   |        y       |       n        |
+| Qubes Network Setup                  |        y       |       y        |
+| Private Volume Setup (move profiles)  |        y       |       y        |
+| File sender/receiver                 |        y       |       y        |
+| Clipboard Copy/Paste                 |        y       |       y        |
+| Application shortcuts                |        y       |       y        |
+| Copy/Edit in Disposable VM           |        y       |       y        |
+| Block device                         |        y       |       y        |
+| USB device                           |        y       |       y        |
+| Audio                                |        n       |       n        |
 
 Qubes Windows Tools are open source and are distributed under a GPL license.
 
@@ -317,8 +317,8 @@ To override global settings for a specific component, create a new key under the
 
 Component-specific settings currently available:
 
-|**Component**|**Setting**|**Type**|**Description**|**Default value**|
-|:------------|:----------|:-------|:--------------|:----------------|
+|   Component   |   Setting   |   Type     |   Description                                   |   Default value   |
+|:--------------|:------------|:-----------|:------------------------------------------------|:------------------|
 |qga|DisableCursor|DWORD|Disable cursor in the VM. Useful for integration with Qubes desktop so you don't see two cursors. Can be disabled if you plan to use the VM through a remote desktop connection of some sort. Needs gui agent restart to apply change (locking OS/logoff should be enough since qga is restarted on desktop change).|1|
 
 Troubleshooting
@@ -336,7 +336,8 @@ Xen logs (/var/log/xen/console/guest-*) are also useful as they contain pvdriver
 
 If a specific component is malfunctioning, you can increase its log verbosity as explained above to get more troubleshooting information. Below is a list of components:
 
-||
+| Component  |  Description                                                                                                           |
+|:-----------|:-----------------------------------------------------------------------------------------------------------------------|
 |qrexec-agent|Responsible for most communication with Qubes (dom0 and other domains), secure clipboard, file copying, qrexec services.|
 |qrexec-wrapper|Helper executable that's responsible for launching qrexec services, handling their I/O and vchan communication.|
 |qrexec-client-vm|Used for communications by the qrexec protocol.|
