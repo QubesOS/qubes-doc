@@ -62,6 +62,7 @@ Below is a breakdown of the feature availability depending on the windows versio
 Qubes Windows Tools are open source and are distributed under a GPL license.
 
 **Notes:**
+
 - Currently only 64-bit versions of Windows 7, 8.1, 10 and 11 are supported by Qubes Windows Tools. Only emulated SVGA GPU is supported (although [there has been reports](https://groups.google.com/forum/#!topic/qubes-users/cmPRMOkxkdA) on working GPU passthrough).
 - This page documents the process of installing Qubes Windows Tools in version **R4.1**.
 - *In testing VMs only* it's probably a good idea to install a VNC server before installing QWT. If something goes very wrong with the Qubes gui agent, a VNC server should still allow access to the OS.
@@ -188,6 +189,7 @@ Installing the Qubes Windows Tools on Windows 7, 8.1, 10 and 11 both as a Standa
 Installing Xen's PV drivers in the VM will lower its resources usage when using network and/or I/O intensive applications, but *may* come at the price of system stability (although Xen's PV drivers on a Windows VM are usually very stable). They can be installed as an optional part of Qubes Windows Tools (QWT), which bundles Xen's PV drivers.
 
 **Notes** about using Xen's VBD (storage) PV driver:
+
 - **Windows 7:** Installing the driver requires a fully updated VM or else you'll likely get a BSOD ("Blue Screen Of Death") and a VM in a difficult to fix state. Updating Windows takes *hours* and for casual usage there isn't much of a performance between the disk PV driver and the default one; so there is likely no need to go through the lengthy Windows Update process if your VM doesn't have access to untrusted networks and if you don't use I/O intensive apps or attach block devices. If you plan to update your newly installed Windows VM it is recommended that you do so *before* installing Qubes Windows Tools.  Installing the driver will probably cause Windows 7 activation to become invalid, but the activation can be restored using the Microsoft telephone activation method. 
 - The option to install the storage PV driver is disabled by default in Qubes Windows Tools 
 - In case you already had QWT installed without the storage PV driver and you then updated the VM, you may then install the driver by again starting the QWT installer and selecting the change option.
