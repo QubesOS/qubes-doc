@@ -172,6 +172,13 @@ These parameters are set for the following reasons:
     - Click `Next`. A screen appears saying "Who's going to use this device?" This is the local account creation screen.
     - Enter the username you want to use and click `Next`.
     - Enter a password and click `Next`. You can leave the field blank but it's not recommended.
+   
+   Alternative instructions have been published for when those two methods do not work:
+
+    - Type Shift-F10 to open a console window.
+    - Here, type `oobe\bypassnro`
+    - Close the console window and continue setup normally
+    - When prompted to connect to a network, select "I don't have internet" - it will let you create local credentials
 
 - On systems shipped with a Windows license, the product key may be read from flash via root in dom0:
 
