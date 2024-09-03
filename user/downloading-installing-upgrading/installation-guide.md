@@ -172,6 +172,8 @@ You can have as many keyboard layout and languages as you want. Post-install, yo
 Don't forget to select your time and date by clicking on the Time & Date entry.
 
 [![Time and date](/attachment/doc/time-and-date.png)](/attachment/doc/time-and-date.png)
+
+
 ### Installation destination
 
 Under the System section, you must choose the installation destination. Select the storage device on which you would like to install Qubes OS.
