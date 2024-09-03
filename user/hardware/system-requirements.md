@@ -98,6 +98,15 @@ We recommend consulting these resources when selecting hardware for Qubes OS:
   offer significant security advantages over conventional operating systems on
   the same hardware.
 
+  Intel maintains a
+  [list](https://www.intel.com/content/www/us/en/support/articles/000022396/processors.html)
+  of end-of-support dates for its processors. However, this list seems to
+  include only processors that are no longer supported or will soon no longer
+  be supported. Many newer Intel processors are missing from this list. To our
+  knowledge, Intel does not announce end-of-support dates for its newer
+  processors in advance, nor does it have a public policy governing how long
+  support will last.
+
 - Intel and AMD handle microcode updates differently, which has significant
   security implications. On Intel platforms, microcode updates can typically be
   loaded from the operating system. This allows the Qubes security team to
@@ -116,7 +125,7 @@ We recommend consulting these resources when selecting hardware for Qubes OS:
   Historically, AMD has often been slow to complete step (1), at least for its
   client (as opposed to server) platforms. In some cases, AMD has made fixes
   available for its server platforms very shortly after a security embargo was
-  lifted, but it did not make fixes  available for client platforms facing the
+  lifted, but it did not make fixes available for client platforms facing the
   same vulnerability until weeks or months later. (A "security embargo" is the
   practice of avoiding public disclosure of a security vulnerability prior to a
   designated date.) By contrast, Intel has consistently made fixes available for
