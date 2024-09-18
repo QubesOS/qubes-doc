@@ -27,7 +27,7 @@ The current Qubes-certified models are listed below in reverse chronological ord
 
 ### NovaCustom V56 Series 16.0 inch coreboot laptop
 
-[![Photo of the NovaCustom V56 Series 16.0 inch coreboot laptop](/attachment/site/novacustom-v56-series.png)](https://novacustom.com/product/nv56-series/)
+[![Photo of the NovaCustom V56 Series 16.0 inch coreboot laptop](/attachment/site/novacustom-v56-series.png)](https://novacustom.com/product/v56-series/)
 
 The [NovaCustom V56 Series 16.0 inch coreboot laptop](https://novacustom.com/product/v56-series/) is certified for Qubes OS Release 4.
 
