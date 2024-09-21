@@ -298,64 +298,64 @@ In this example, the following keys are stored in the following locations (see b
 * `sec` (master secret key)
 
 
-   Depending on your needs, you may wish to create this as a **certify-only (C)** key, i.e., a key which is capable only of signing (a.k.a., "certifying") other keys.
-   This key may be created *without* an expiration date.
-   This is for two reasons.
-   First, the master secret key is never to leave the `vault` VM, so it is extremely unlikely ever to be obtained by an adversary (see below).
-   Second, an adversary who *does* manage to obtain the master secret key either possesses the passphrase to unlock the key (if one is used) or does not.
-   An adversary who *does* possess the passphrase can simply use it to legally extend the expiration date of the key (or remove it entirely).
-   An adversary who does *not* possess the passphrase cannot use the key at all.
-   In either case, an expiration date provides no additional benefit.
+   * Depending on your needs, you may wish to create this as a **certify-only (C)** key, i.e., a key which is capable only of signing (a.k.a., "certifying") other keys.
+     This key may be created *without* an expiration date.
+     This is for two reasons.
+     First, the master secret key is never to leave the `vault` VM, so it is extremely unlikely ever to be obtained by an adversary (see below).
+     Second, an adversary who *does* manage to obtain the master secret key either possesses the passphrase to unlock the key (if one is used) or does not.
+     An adversary who *does* possess the passphrase can simply use it to legally extend the expiration date of the key (or remove it entirely).
+     An adversary who does *not* possess the passphrase cannot use the key at all.
+     In either case, an expiration date provides no additional benefit.
 
-   By the same token, however, having a passphrase on the key is of little value.
-   An adversary who is capable of stealing the key from your `vault` would almost certainly also be capable of stealing the passphrase as you enter it.
-   An adversary who obtains the passphrase can then use it in order to change or remove the passphrase from the key.
-   Therefore, using a passphrase at all should be considered optional.
-   It is, however, recommended that a **revocation certificate** be created and safely stored in multiple locations so that the master keypair can be revoked in the (exceedingly unlikely) event that it is ever compromised.
+   * By the same token, however, having a passphrase on the key is of little value.
+     An adversary who is capable of stealing the key from your `vault` would almost certainly also be capable of stealing the passphrase as you enter it.
+     An adversary who obtains the passphrase can then use it in order to change or remove the passphrase from the key.
+     Therefore, using a passphrase at all should be considered optional.
+     It is, however, recommended that a **revocation certificate** be created and safely stored in multiple locations so that the master keypair can be revoked in the (exceedingly unlikely) event that it is ever compromised.
 
 * `ssb` (secret subkey)
 
 
-   Depending on your needs, you may wish to create two different subkeys: one for **signing (S)** and one for **encryption (E)**.
-   You may also wish to give these subkeys reasonable expiration dates (e.g., one year).
-   Once these keys expire, it is up to you whether to *renew* these keys by extending the expiration dates or to create *new* subkeys when the existing set expires.
+   * Depending on your needs, you may wish to create two different subkeys: one for **signing (S)** and one for **encryption (E)**.
+     You may also wish to give these subkeys reasonable expiration dates (e.g., one year).
+     Once these keys expire, it is up to you whether to *renew* these keys by extending the expiration dates or to create *new* subkeys when the existing set expires.
 
-   On the one hand, an adversary who obtains any existing encryption subkey (for example) will be able to use it in order to decrypt all emails (for example) which were encrypted to that subkey.
-   If the same subkey were to continue to be used--and its expiration date continually extended--only that one key would need to be stolen (e.g., as a result of the `work-gpg` VM being compromised; see below) in order to decrypt *all* of the user's emails.
-   If, on the other hand, each encryption subkey is used for at most approximately one year, then an adversary who obtains the secret subkey will be capable of decrypting at most approximately one year's worth of emails.
+   * On the one hand, an adversary who obtains any existing encryption subkey (for example) will be able to use it in order to decrypt all emails (for example) which were encrypted to that subkey.
+     If the same subkey were to continue to be used--and its expiration date continually extended--only that one key would need to be stolen (e.g., as a result of the `work-gpg` VM being compromised; see below) in order to decrypt *all* of the user's emails.
+     If, on the other hand, each encryption subkey is used for at most approximately one year, then an adversary who obtains the secret subkey will be capable of decrypting at most approximately one year's worth of emails.
 
-   On the other hand, creating a new signing subkey each year without renewing (i.e., extending the expiration dates of) existing signing subkeys would mean that all of your old signatures would eventually read as "EXPIRED" whenever someone attempts to verify them.
-   This can be problematic, since there is no consensus on how expired signatures should be handled.
-   Generally, digital signatures are intended to last forever, so this is a strong reason against regularly retiring one's signing subkeys.
+   * On the other hand, creating a new signing subkey each year without renewing (i.e., extending the expiration dates of) existing signing subkeys would mean that all of your old signatures would eventually read as "EXPIRED" whenever someone attempts to verify them.
+     This can be problematic, since there is no consensus on how expired signatures should be handled.
+     Generally, digital signatures are intended to last forever, so this is a strong reason against regularly retiring one's signing subkeys.
 
 * `pub` (public key)
 
 
-   This is the complement of the master secret key.
-   It can be uploaded to keyservers (or otherwise publicly distributed) and may be signed by others.
+   * This is the complement of the master secret key.
+     It can be uploaded to keyservers (or otherwise publicly distributed) and may be signed by others.
 
 * `vault`
 
 
-   This is a network-isolated VM.
-   The initial master keypair and subkeys are generated in this VM.
-   The master secret key *never* leaves this VM under *any* circumstances.
-   No files or text is *ever* [copied](/doc/how-to-copy-and-move-files/#security) or [pasted](/doc/how-to-copy-and-paste-text/#security) into this VM under *any* circumstances.
+   * This is a network-isolated VM.
+     The initial master keypair and subkeys are generated in this VM.
+     The master secret key *never* leaves this VM under *any* circumstances.
+     No files or text is *ever* [copied](/doc/how-to-copy-and-move-files/#security) or [pasted](/doc/how-to-copy-and-paste-text/#security) into this VM under *any* circumstances.
 
 * `work-gpg`
 
 
-   This is a network-isolated VM.
-   This VM is used *only* as the GPG backend for `work-email`.
-   The secret subkeys (but *not* the master secret key) are [copied](/doc/how-to-copy-and-move-files/#security) from the `vault` VM to this VM.
-   Files from less trusted VMs are *never* [copied](/doc/how-to-copy-and-move-files/#security) into this VM under *any* circumstances.
+   * This is a network-isolated VM.
+     This VM is used *only* as the GPG backend for `work-email`.
+     The secret subkeys (but *not* the master secret key) are [copied](/doc/how-to-copy-and-move-files/#security) from the `vault` VM to this VM.
+     Files from less trusted VMs are *never* [copied](/doc/how-to-copy-and-move-files/#security) into this VM under *any* circumstances.
 
 * `work-email`
 
 
-   This VM has access to the mail server.
-   It accesses the `work-gpg` VM via the Split GPG protocol.
-   The public key may be stored in this VM so that it can be attached to emails and for other such purposes.
+   * This VM has access to the mail server.
+     It accesses the `work-gpg` VM via the Split GPG protocol.
+     The public key may be stored in this VM so that it can be attached to emails and for other such purposes.
 
 ### Security Benefits
 

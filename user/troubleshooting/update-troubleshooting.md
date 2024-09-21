@@ -43,5 +43,6 @@ This can usually be fixed by updating via the command line.
 In dom0, open a terminal and run `sudo qubes-dom0-update`.
 
 Depending on your operating system, open a terminal in the templates and run:
+
 * Fedora: `sudo dnf upgrade`
 * Debian: `apt-get update && apt-get dist-upgrade`
