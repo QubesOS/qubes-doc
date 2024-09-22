@@ -48,7 +48,6 @@ Such attacks have been described in the academic literature, but it is doubtful 
 3. **Unintentional leaks.** Non-malicious software which is either buggy or doesn't maintain the privacy of user data, whether by design or accident.
    For example, software which automatically sends error reports to a remote server, where these reports contain details about the system which the user did not want to share.
 
-
 Both Qubes firewall and an empty NetVM (i.e., setting the NetVM of an app qube to "none") can fully protect against leaks of type 3.
 However, neither Qubes firewall nor an empty NetVM are guaranteed to protect against leaks of types 1 and 2.
 There are few effective, practical policy measures available to end-users today to stop the leaks of type 1.

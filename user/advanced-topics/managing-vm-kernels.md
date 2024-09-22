@@ -154,6 +154,7 @@ The newly installed package is set as the default VM kernel.
 It is possible to package a kernel installed in dom0 as a VM kernel.
 This makes it possible to use a VM kernel which is not packaged by Qubes team.
 This includes:
+
  * using a Fedora kernel package
  * using a manually compiled kernel
 
