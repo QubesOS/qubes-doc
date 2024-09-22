@@ -11,8 +11,7 @@ ref: 180
 title: Config files
 ---
 
-Qubes-specific VM config files
-------------------------------
+## Qubes-specific VM config files
 
 These files are placed in `/rw`, which survives a VM restart.
 That way, they can be used to customize a single VM instead of all VMs based on the same template.
@@ -76,8 +75,7 @@ Note that scripts need to be executable (`chmod +x`) to be used.
 
 Also, take a look at [bind-dirs](/doc/bind-dirs) for instructions on how to easily modify arbitrary system files in an app qube and have those changes persist.
 
-GUI and audio configuration in dom0
------------------------------------
+## GUI and audio configuration in dom0
 
 The GUI configuration file `/etc/qubes/guid.conf` in one of a few not managed by `qubes-prefs` or the Qubes Manager tool.
 Sample config (included in default installation):
