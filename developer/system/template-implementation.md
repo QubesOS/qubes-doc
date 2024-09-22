@@ -73,19 +73,9 @@ When TemplateVM is stopped, the xen script moves root-cow.img to root-cow.img.ol
 
 #### Rollback template changes
 
-There is possibility to rollback last template changes. Saved root-cow.img.old contains all changes made during last TemplateVM run. Rolling back changes is done by reverting this "binary patch".
+There is possibility to rollback last template changes. Using the automatic snapshot that is normally saved every time the template is shutdown.
 
-This is done using snapshot-merge device-mapper target (available from 2.6.34 kernel). It requires that no other snapshot device uses underlying block devices (root.img, root-cow.img via loop device). Because of this all AppVMs based on this template must be halted during this operation.
-
-Steps performed by **qvm-revert-template-changes**:
-
-1. Ensure that no other VMs uses this template.
-2. Prepare snapshot device with ***root-cow.img.old*** instead of *root-cow.img* (*/etc/xen/scripts/block-snapshot prepare*).
-3. Replace *snapshot* device-mapper target with *snapshot-merge*, other parameters (chunk size etc) remains untouched. Now kernel starts merging changes stored in *root-cow.img.old* into *root.img*. d-m device can be used normally (if needed).
-4. Waits for merge completed: *dmsetup status* shows used snapshot blocks – it should be equal to metadata size when completed.
-5. Replace *snapshot-merge* d-m target back to *snapshot*.
-6. Cleanup snapshot device (if nobody uses it at the moment).
-7. Move *root-cow.img.old* to *root-cow.img* (overriding existing file).
+Refer to volume backup and revert [documentation](/doc/volume-backup-revert) for more information.
 
 ### Snapshot device in AppVM
 
