@@ -25,53 +25,59 @@ Qubes-certified computers are certified for a [major release](/doc/version-schem
 
 The current Qubes-certified models are listed below in reverse chronological order of certification.
 
+### NovaCustom V56 Series 16.0 inch coreboot laptop
+
+[![Photo of the NovaCustom V56 Series 16.0 inch coreboot laptop](/attachment/site/novacustom-v56-series.png)](https://novacustom.com/product/v56-series/)
+
+The [NovaCustom V56 Series 16.0 inch coreboot laptop](https://novacustom.com/product/v56-series/) is certified for Qubes OS Release 4.
+
 ### NitroPC Pro 2
 
 [![Photo of the NitroPC Pro 2](/attachment/posts/nitropc-pro.jpg)](https://shop.nitrokey.com/shop/nitropc-pro-2-523)
 
-The [NitroPC Pro 2](https://shop.nitrokey.com/shop/nitropc-pro-2-523) is a desktop based on the MSI PRO Z790-P DDR5 motherboard. It is certified for Qubes OS 4.
+The [NitroPC Pro 2](https://shop.nitrokey.com/shop/nitropc-pro-2-523) is a desktop based on the MSI PRO Z790-P DDR5 motherboard. It is certified for Qubes OS Release 4.
 
 ### Star Labs StarBook
 
 [![Photo of the Star Labs StarBook](/attachment/site/starlabs-starbook.png)](https://starlabs.systems/pages/starbook)
 
-The [Star Labs StarBook](https://starlabs.systems/pages/starbook) is a 14-inch laptop. It is certified for Qubes OS 4.
+The [Star Labs StarBook](https://starlabs.systems/pages/starbook) is a 14-inch laptop. It is certified for Qubes OS Release 4.
 
 ### NitroPC Pro
 
 [![Photo of the NitroPC Pro](/attachment/posts/nitropc-pro.jpg)](https://shop.nitrokey.com/shop/product/nitropc-pro-523)
 
-The [NitroPC Pro](https://shop.nitrokey.com/shop/product/nitropc-pro-523) is a desktop based on the MSI PRO Z690-A DDR5 motherboard. It is certified for Qubes OS 4.
+The [NitroPC Pro](https://shop.nitrokey.com/shop/product/nitropc-pro-523) is a desktop based on the MSI PRO Z690-A DDR5 motherboard. It is certified for Qubes OS Release 4.
 
 ### NovaCustom NV41 Series
 
 [![Photo of the NovaCustom NV41 Series](/attachment/site/novacustom-nv41-series.png)](https://novacustom.com/product/nv41-series/)
 
-The [NovaCustom NV41 Series](https://novacustom.com/product/nv41-series/) is a 14-inch custom laptop. It is certified for Qubes OS 4.
+The [NovaCustom NV41 Series](https://novacustom.com/product/nv41-series/) is a 14-inch custom laptop. It is certified for Qubes OS Release 4.
 
 ### Dasharo FidelisGuard Z690
 
 [![Photo of the Dasharo FidelisGuard Z690](/attachment/site/dasharo-fidelisguard-z690.jpg)](https://3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/)
 
-The [Dasharo FidelisGuard Z690](https://3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/) is a desktop based on the MSI PRO Z690-A DDR4 motherboard. It is certified for Qubes OS 4.
+The [Dasharo FidelisGuard Z690](https://3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/) is a desktop based on the MSI PRO Z690-A DDR4 motherboard. It is certified for Qubes OS Release 4.
 
 ### NitroPad T430
 
 [![Photo of the NitroPad T430](/attachment/site/nitropad-t430.jpg)](https://shop.nitrokey.com/shop/product/nitropad-t430-119)
 
-The [NitroPad T430](https://shop.nitrokey.com/shop/product/nitropad-t430-119) is a laptop based on the ThinkPad T430. It is certified for Qubes OS 4.
+The [NitroPad T430](https://shop.nitrokey.com/shop/product/nitropad-t430-119) is a laptop based on the ThinkPad T430. It is certified for Qubes OS Release 4.
 
 ### NitroPad X230
 
 [![Photo of the NitroPad X230](/attachment/site/nitropad-x230.jpg)](https://shop.nitrokey.com/shop/product/nitropad-x230-67)
 
-The [NitroPad X230](https://shop.nitrokey.com/shop/product/nitropad-x230-67) is a laptop based on the ThinkPad X230. It is certified for Qubes OS 4.
+The [NitroPad X230](https://shop.nitrokey.com/shop/product/nitropad-x230-67) is a laptop based on the ThinkPad X230. It is certified for Qubes OS Release 4.
 
 ### Insurgo PrivacyBeast X230
 
 [![Photo of the Insurgo PrivacyBeast X230](/attachment/site/insurgo-privacybeast-x230.png)](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/)
 
-The [Insurgo PrivacyBeast X230](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/) is a laptop based on the ThinkPad X230. It is certified for Qubes OS 4.
+The [Insurgo PrivacyBeast X230](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/) is a laptop based on the ThinkPad X230. It is certified for Qubes OS Release 4.
 
 ## Become hardware certified
 
