@@ -88,6 +88,13 @@ domUs lack direct hardware access.
 * Sometimes the term [VM](#vm) is used as a synonym for domU. This is
   technically inaccurate, as [dom0](#dom0) is also a VM in Xen.
 
+## firmware
+
+Software that runs outside the control of the operating system.
+Some firmware executes on the same CPU cores as Qubes OS does, but
+all computers have many additional processors that the operating system
+does not run on, and these computers also run firmware.
+
 ## HVM
 
 Hardware-assisted Virtual Machine. Any fully virtualized, or hardware-assisted,
