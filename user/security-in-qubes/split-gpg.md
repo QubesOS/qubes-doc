@@ -295,8 +295,7 @@ In this example, the following keys are stored in the following locations (see b
 | `ssb`      | `work-gpg`   |
 | `pub`      | `work-email` |
 
-* `sec` (master secret key)
-
+- `sec` (master secret key)
 
    Depending on your needs, you may wish to create this as a **certify-only (C)** key, i.e., a key which is capable only of signing (a.k.a., "certifying") other keys.
    This key may be created *without* an expiration date.
@@ -313,8 +312,7 @@ In this example, the following keys are stored in the following locations (see b
    Therefore, using a passphrase at all should be considered optional.
    It is, however, recommended that a **revocation certificate** be created and safely stored in multiple locations so that the master keypair can be revoked in the (exceedingly unlikely) event that it is ever compromised.
 
-* `ssb` (secret subkey)
-
+- `ssb` (secret subkey)
 
    Depending on your needs, you may wish to create two different subkeys: one for **signing (S)** and one for **encryption (E)**.
    You may also wish to give these subkeys reasonable expiration dates (e.g., one year).
@@ -328,30 +326,26 @@ In this example, the following keys are stored in the following locations (see b
    This can be problematic, since there is no consensus on how expired signatures should be handled.
    Generally, digital signatures are intended to last forever, so this is a strong reason against regularly retiring one's signing subkeys.
 
-* `pub` (public key)
-
+- `pub` (public key)
 
    This is the complement of the master secret key.
    It can be uploaded to keyservers (or otherwise publicly distributed) and may be signed by others.
 
-* `vault`
-
+- `vault`
 
    This is a network-isolated VM.
    The initial master keypair and subkeys are generated in this VM.
    The master secret key *never* leaves this VM under *any* circumstances.
    No files or text is *ever* [copied](/doc/how-to-copy-and-move-files/#security) or [pasted](/doc/how-to-copy-and-paste-text/#security) into this VM under *any* circumstances.
 
-* `work-gpg`
-
+- `work-gpg`
 
    This is a network-isolated VM.
    This VM is used *only* as the GPG backend for `work-email`.
    The secret subkeys (but *not* the master secret key) are [copied](/doc/how-to-copy-and-move-files/#security) from the `vault` VM to this VM.
    Files from less trusted VMs are *never* [copied](/doc/how-to-copy-and-move-files/#security) into this VM under *any* circumstances.
 
-* `work-email`
-
+- `work-email`
 
    This VM has access to the mail server.
    It accesses the `work-gpg` VM via the Split GPG protocol.

@@ -62,27 +62,23 @@ Unofficial “debloated” ISOs from projects like reviOS 18 or ameliorated 10 c
 
 Create a VM named WindowsNew in [HVM](/doc/hvm/) mode (Xen's current PVH limitations precludes from using PVH). This can be done in either of two ways:
 
-- Using Qube Manager
+- Using Qube Manager: In order to create the new qube, select the command Qube -> New Qube in the Qube Manager:
 
-
-   In order to create the new qube, select the command Qube -> New Qube in the Qube Manager:
-  
-     - Name: `WindowsNew`, Color: `orange` (for a standalone qubes, `black` for a template)
-     - Type: `StandaloneVM (fully persistent)` or `TemplateVM (template home, persistent root)`
-     - Template: `(none)`
-     - Networking: `sys-firewall (default)`
-     - Launch settings after creation: check
-     - Click "OK".
-  
-     - Settings:
-        - Basic:
-          - System storage: 60.0+ GB
-        - Advanced:
-          - Include in memory balancing: uncheck
-          - Initial memory: 4096+ MB
-          - Kernel: `(none)`
-          - Mode: `HVM`
-        - Click "Apply".
+  - Name: `WindowsNew`, Color: `orange` (for a standalone qubes, `black` for a template)
+  - Type: `StandaloneVM (fully persistent)` or `TemplateVM (template home, persistent root)`
+  - Template: `(none)`
+  - Networking: `sys-firewall (default)`
+  - Launch settings after creation: check
+  - Click "OK".
+    - Settings:
+      - Basic:
+        - System storage: 60.0+ GB
+      - Advanced:
+        - Include in memory balancing: uncheck
+        - Initial memory: 4096+ MB
+        - Kernel: `(none)`
+        - Mode: `HVM`
+      - Click "Apply".
 
    After creation, set `qvm-prefs WindowsNew qrexec_timeout 7200` via CLI in a dom0 terminal.
 
@@ -171,7 +167,7 @@ These parameters are set for the following reasons:
 </div>
 
     
-    The installation of Windows 11 may require an internet connection to grab a Microsoft ID. This is currently true only for the home addition, but will probably extend to the Pro edition, too. A workaround to bypass the internet connection requirements of the Windows 11 setup has been published that currently works for version 21H2 but may be blocked some time in the future by Microsoft:
+  - The installation of Windows 11 may require an internet connection to grab a Microsoft ID. This is currently true only for the home addition, but will probably extend to the Pro edition, too. A workaround to bypass the internet connection requirements of the Windows 11 setup has been published that currently works for version 21H2 but may be blocked some time in the future by Microsoft:
     
     - When you reach the “Let’s Connect You To A Network” page, type Shift-F10 to open a console window.
     - Here you type `taskmgr` to start the Task Manager window so you can see all running processes.
@@ -179,7 +175,7 @@ These parameters are set for the following reasons:
     - Select this process and then hit the “End Task” button.
     - Now you can close these newly opened windows and return to the Windows 11 setup, where you will enter local account information.
  
-    For Windows 11 version 22H2, the following sequence of actions to use a local account instead of a Microsoft account has been published:
+  - For Windows 11 version 22H2, the following sequence of actions to use a local account instead of a Microsoft account has been published:
 
     - Enter `no@thankyou.com` (or some other senseless address) as the email address and click `Next` when Windows 11 setup prompts you to log into your Microsoft account.
     - Enter any text you want in the password field and click `Sign in`. If this method works, you'll get a message saying "Oops, something went wrong."

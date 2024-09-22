@@ -165,7 +165,7 @@ Consider the following example. `mytcp-service` qube has a TCP service running o
     [user@untrusted #]$ qvm-connect-tcp 444:@default:444
     ~~~
 
-> Note: The syntax is the same as SSH tunnel handler. The first `444` correspond to the localport destination of `untrusted`, `@default` the remote machine and the second `444` to the remote machine port.
+  - **Note:** The syntax is the same as SSH tunnel handler. The first `444` correspond to the localport destination of `untrusted`, `@default` the remote machine and the second `444` to the remote machine port.
 
 The service of `mytcp-service` running on port `444` is now accessible in `untrusted` as `localhost:444`.
 
@@ -278,7 +278,7 @@ You can get this information using various methods, but only the first one can b
 
 Note the IP addresses you will need, they will be required in the next steps.
 
-> Note: The vifx.0 interface is the one used by qubes connected to this netvm so it is _not_ an outside world interface.
+  - **Note:** The vifx.0 interface is the one used by qubes connected to this netvm so it is _not_ an outside world interface.
 
 **2. Route packets from the outside world to the FirewallVM**
 
@@ -290,9 +290,9 @@ In the sys-net VM's Terminal, the first step is to define an ntables chain that 
 nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
 ```
 
-> Note: the name `custom-dnat-qubeDST` is arbitrary
+  - **Note:** the name `custom-dnat-qubeDST` is arbitrary
 
-> Note: while we use a DNAT chain for a single qube, it's totally possible to have a single DNAT chain for multiple qubes
+  - **Note:** while we use a DNAT chain for a single qube, it's totally possible to have a single DNAT chain for multiple qubes
 
 Second step, code a natting firewall rule to route traffic on the outside interface for the service to the sys-firewall VM
 
@@ -306,7 +306,7 @@ Third step, code the appropriate new filtering firewall rule to allow new connec
 nft add rule qubes custom-forward iif == "ens6" ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter accept
 ```
 
-> Note: If you do not wish to limit the IP addresses connecting to the service, remove `ip saddr 192.168.x.y/24` from the rules
+  - **Note:** If you do not wish to limit the IP addresses connecting to the service, remove `ip saddr 192.168.x.y/24` from the rules
 
 > If you want to expose the service on multiple interfaces, repeat the steps 2 and 3 described above, for each interface. Alternatively, you can leave out the interface completely.
 
@@ -380,7 +380,7 @@ Third step, code the appropriate new filtering firewall rule to allow new connec
 nft add rule qubes custom-forward iif == "eth0" ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 443 ct state new,established,related counter accept
 ```
 
-> Note: If you do not wish to limit the IP addresses connecting to the service, remove `ip saddr 192.168.x.y/24` from the rules
+ -  **Note:** If you do not wish to limit the IP addresses connecting to the service, remove `ip saddr 192.168.x.y/24` from the rules
 
 Once you have confirmed that the counters increase, store these commands in the script `/rw/config/qubes-firewall-user-script`
 
