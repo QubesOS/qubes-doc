@@ -170,9 +170,10 @@ Please see this [article](https://blog.invisiblethings.org/2012/09/12/how-is-qub
 
 ### Is Qubes just another Linux distribution?
 
-If you really want to call it a distribution, then it's more of a "Xen distribution" than a Linux one.
-But Qubes is much more than just Xen packaging.
-It has its own VM management infrastructure, with support for template VMs, centralized VM updating, etc.
+If you really want to call it a distribution, then it's more of a "hybrid Linux and Xen distribution" than a pure Linux one. 
+Qubes uses Linux as an "API provider" for its apps and drivers, and it uses Xen to keep the operating system secure. 
+It uses But Qubes is much more than just Linux and Xen packaging. 
+It has its own VM management infrastructure, with support for template VMs, centralized VM updating, etc. 
 It also has a very unique GUI virtualization infrastructure.
 
 ### What about safe languages and formally verified microkernels?
