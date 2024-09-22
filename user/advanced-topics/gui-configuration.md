@@ -31,6 +31,7 @@ qvm-features dom0 gui-videoram-min $(xrandr --verbose | grep "Screen 0" | sed -e
 ```
 
 The amount of memory allocated per qube is the maximum of:
+
 - `gui-videoram-min`
 - current display + `gui-videoram-overhead`
 

@@ -26,6 +26,7 @@ In Qubes 3.X, the Qubes VM Manager dealt with attachment as well.
 This functionality was moved to the Qubes Device Widget, the tool tray icon with a yellow square located in the top right of your screen by default.
 
 There are currently four categories of devices Qubes understands:
+
  - Microphones
  - Block devices
  - USB devices

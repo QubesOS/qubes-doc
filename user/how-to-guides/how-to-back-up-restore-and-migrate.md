@@ -53,44 +53,44 @@ fresh installation.
 2. Move the VMs that you want to back up to the right-hand **Selected** column.
    VMs in the left-hand **Available** column will not be backed up.
 
-   You may choose whether to compress backups by checking or unchecking the
-   **Compress the backup** box. Normally this should be left on unless you have
-   a specific reason otherwise.
+   - You may choose whether to compress backups by checking or unchecking the
+     **Compress the backup** box. Normally this should be left on unless you have
+     a specific reason otherwise.
 
-   Once you have selected all desired VMs, click **Next**.
+   - Once you have selected all desired VMs, click **Next**.
 
 3. Select the destination for the backup:
 
-   If you wish to send your backup to a (currently running) VM, select the VM
-   in the drop-down box next to **Target app qube**. If you wish to send your
-   backup to a [USB mass storage device](/doc/usb/), you can use the directory
-   selection widget to mount a connected device (under "Other locations" item
-   on the left); or first mount the device in a VM, then select the mount point
-   inside that VM as the backup destination.
+   - If you wish to send your backup to a (currently running) VM, select the VM
+     in the drop-down box next to **Target app qube**. If you wish to send your
+     backup to a [USB mass storage device](/doc/usb/), you can use the directory
+     selection widget to mount a connected device (under "Other locations" item
+     on the left); or first mount the device in a VM, then select the mount point
+     inside that VM as the backup destination.
 
-   You must also specify a directory on the device or in the VM, or a command
-   to be executed in the VM as a destination for your backup. For example, if
-   you wish to send your backup to the `~/backups` folder in the target VM, you
-   would simply browse to it using the convenient directory selection dialog
-   (`...`) at the right. This destination directory must already exist. If it
-   does not exist, you must create it manually prior to backing up.
+   - You must also specify a directory on the device or in the VM, or a command
+     to be executed in the VM as a destination for your backup. For example, if
+     you wish to send your backup to the `~/backups` folder in the target VM, you
+     would simply browse to it using the convenient directory selection dialog
+     (`...`) at the right. This destination directory must already exist. If it
+     does not exist, you must create it manually prior to backing up.
 
-   By specifying the appropriate directory as the destination in a VM, it is
-   possible to send the backup directly to, e.g., a USB mass storage device
-   attached to the VM. Likewise, it is possible to enter any command as a
-   backup target by specifying the command as the destination in the VM. This
-   can be used to send your backup directly to, e.g., a remote server using
-   SSH.
+   - By specifying the appropriate directory as the destination in a VM, it is
+     possible to send the backup directly to, e.g., a USB mass storage device
+     attached to the VM. Likewise, it is possible to enter any command as a
+     backup target by specifying the command as the destination in the VM. This
+     can be used to send your backup directly to, e.g., a remote server using
+     SSH.
 
-   **Note:** The supplied passphrase is used for **both** encryption/decryption
-   and integrity verification.
+   - **Note:** The supplied passphrase is used for **both** encryption/decryption
+     and integrity verification.
 
-   At this point, you may also choose whether to save your settings by checking
-   or unchecking the **Save settings as default backup profile** box.
+   - At this point, you may also choose whether to save your settings by checking
+     or unchecking the **Save settings as default backup profile** box.
 
-   **Warning: Saving the settings will result in your backup passphrase being
-   saved in plaintext in dom0, so consider your threat model before checking
-   this box.**
+   - **Warning: Saving the settings will result in your backup passphrase being
+     saved in plaintext in dom0, so consider your threat model before checking
+     this box.**
 
 4. You will now see the summary of VMs to be backed up. If there are any issues
    preventing the backup, they will be listed here and the **Next** button
@@ -148,10 +148,10 @@ fresh installation.
 a passphrase was supplied during the creation of your backup (regardless of
 whether it is encrypted), then you must supply it here.
 
-   **Note:** The passphrase which was supplied when the backup was created is
-   used for **both** encryption/decryption and integrity verification. If the
-   backup was not encrypted, the supplied passphrase is used only for integrity
-   verification. All backups made from a Qubes R4.0 system will be encrypted.
+   - **Note:** The passphrase which was supplied when the backup was created is
+     used for **both** encryption/decryption and integrity verification. If the
+     backup was not encrypted, the supplied passphrase is used only for integrity
+     verification. All backups made from a Qubes R4.0 system will be encrypted.
 
 5. You will now see the summary of VMs to be restored. If there are any issues
 preventing the restore, they will be listed here and the **Next** button grayed

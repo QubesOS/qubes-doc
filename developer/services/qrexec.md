@@ -238,7 +238,6 @@ This means it is possible to install a different script for a particular service
 
 See [below](#rpc-service-with-argument-file-reader) for an example of an RPC service using an argument.
 
-<!-- TODO document "Yes to All" authorization if it is reintroduced -->
 
 ## Qubes RPC examples
 
