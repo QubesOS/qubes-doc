@@ -15,7 +15,7 @@ title: How to copy from dom0
 This page covers copying files and clipboard text between [dom0](/doc/glossary/#dom0) and [domUs](/doc/glossary/#domu).
 Since dom0 is special, the processes are different from [copying and pasting text between qubes](/doc/how-to-copy-and-paste-text/) and [copying and moving files between qubes](/doc/how-to-copy-and-move-files/).
 
-## Copying **from** dom0
+## Copying *from* dom0
 
 ### Copying files from dom0
 
@@ -61,7 +61,7 @@ In order to easily copy/paste the contents of logs from dom0 to the inter-VM cli
 
 You may now paste the log contents in qube as you normally would (e.g., Ctrl+Shift+V, then Ctrl+V).
 
-## Copying **to** dom0
+## Copying *to* dom0
 
 Copying anything into dom0 is not advised, since doing so can compromise the security of your Qubes system.
 For this reason, there is no simple means of copying anything into dom0, unlike [copying from dom0](#copying-from-dom0).
