@@ -375,11 +375,11 @@ by the QMSK:
 
 ```shell_session
 $ gpg2 --check-signatures "Qubes OS Release X Signing Key"
-pub   rsa4096 2017-03-06 [SC]
-      5817A43B283DE5A9181A522E1848792F9E2795E9
+pub   rsa4096 YYYY-MM-DD [SC]
+      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 uid           [  full  ] Qubes OS Release X Signing Key
-sig!3        1848792F9E2795E9 2017-03-06  Qubes OS Release X Signing Key
-sig!         DDFA1A3E36879494 2017-03-08  Qubes Master Signing Key
+sig!3        XXXXXXXXXXXXXXXX YYYY-MM-DD  Qubes OS Release X Signing Key
+sig!         DDFA1A3E36879494 YYYY-MM-DD  Qubes Master Signing Key
 
 gpg: 2 good signatures
 ```
@@ -397,9 +397,9 @@ As a final sanity check, make sure the RSK is in your keyring with the correct
 trust level:
 
 ```shell_session
-$ gpg2 -k "Qubes OS Release"
-pub   rsa4096 2017-03-06 [SC]
-      5817A43B283DE5A9181A522E1848792F9E2795E9
+$ gpg2 -k "Qubes OS Release X Signing Key"
+pub   rsa4096 YYYY-MM-DD [SC]
+      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 uid           [  full  ] Qubes OS Release X Signing Key
 ```
 
@@ -533,7 +533,7 @@ $ gpg2 -v --verify Qubes-RX-x86_64.iso.DIGESTS
 gpg: armor header: Hash: SHA256
 gpg: armor header: Version: GnuPG v2
 gpg: original file name=''
-gpg: Signature made Tue 20 Sep 2016 10:37:03 AM PDT using RSA key ID 03FA5082
+gpg: Signature made <TIME> using RSA key ID 03FA5082
 gpg: using PGP trust model
 gpg: Good signature from "Qubes OS Release X Signing Key"
 gpg: textmode signature, digest algorithm SHA256
@@ -578,7 +578,7 @@ executing this GPG command in the directory that contains both files:
 ```shell_session
 $ gpg2 -v --verify Qubes-RX-x86_64.iso.asc Qubes-RX-x86_64.iso
 gpg: armor header: Version: GnuPG v1
-gpg: Signature made Tue 08 Mar 2016 07:40:56 PM PST using RSA key ID 03FA5082
+gpg: Signature made <TIME> using RSA key ID 03FA5082
 gpg: using PGP trust model
 gpg: Good signature from "Qubes OS Release X Signing Key"
 gpg: binary signature, digest algorithm SHA256
@@ -698,8 +698,8 @@ Qubes ISOs](#how-to-verify-detached-pgp-signatures-on-qubes-isos).)
 
 ```shell_session
 $ dd if=/dev/sdX bs=1M count=<ISO_SIZE> iflag=count_bytes | gpg -v --verify Qubes-RX-x86_64.iso.asc -
-gpg: Signature made Thu 14 Jul 2022 08:49:38 PM PDT
-gpg:                using RSA key 5817A43B283DE5A9181A522E1848792F9E2795E9
+gpg: Signature made <TIME>
+gpg:                using RSA key XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 gpg: using pgp trust model
 gpg: Good signature from "Qubes OS Release X Signing Key" [full]
 gpg: binary signature, digest algorithm SHA256, key algorithm rsa4096
