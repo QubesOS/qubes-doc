@@ -19,7 +19,7 @@ title: Introduction
     <p>
       Qubes OS is a free and open-source, security-oriented operating system for
       single-user desktop computing. Qubes OS leverages
-      <a href="https://wiki.xen.org/wiki/Xen_Project_Software_Overview">
+      <a href="https://wiki.xenproject.org/wiki/Xen_Project_Software_Overview">
       Xen-based virtualization</a> to allow for the creation and management of
       isolated compartments called <a href="/doc/glossary#qube">qubes</a>.
     </p>
