@@ -231,7 +231,16 @@ For additional information on configuring a Windows qube, see the [Customizing W
 
 ## Windows as a template
 
-As described above Windows 7, 8.1, 10 and 11 can be installed as TemplateVM. To have the user data stored in AppVMs depending on this template, the option `Move User Profiles` has to be selected on installation of Qubes Windows Tools. For Windows 7, before installing QWT, the private disk `D:` has to be renamed to `Q:`, see the QWT installation documentation in [Qubes Windows Tools](/doc/templates/windows/qubes-windows-tools-4-1).
+As described above Windows 7, 8.1, 10, and 11 can be installed as TemplateVM. To have the user data stored in AppVMs depending on this template, the user data have to be stored on a private disk named `Q:`. If there is already a disk for user data, possibly called `D:`, it has to be renamed to `Q:`. Otherwise, this disk has to be created via the Windows `diskpart` utility, or the Disk Management administrative function by formatting the qube's private volume and associating the letter `Q:` with it. The volume name is of no importance.
+
+Moving the user data is not directly possible under Windows, because the directory `C:\Users` is permanently open and thus locked. Qubes Windows Tools provides a function to move these data on Windows reboot when the directory is not yet locked. To use this function, a working version of QWT has to be used (see the documentation on QWT installation). For Qubes R4.2, this is currently the version 4.1.69. There are two possibilities to move the user data to this volume `Q:`.
+
+- If Qubes Windows Tools is installed, the option `Move User Profiles` has to be selected on the installation. In this case, the user files are moved to the new disk during the reboot at the end of the installation.
+
+- This can also be accomplished without QWT installation, avoiding the installation of the Xen PV drivers, if the risk of a compromised version of these drivers according to QSB-091 is considered too severe. In this case, the file `relocate_dir.exe` has to be extracted from the QWT installer kit `qubes-tools-x64.msi`, which will be shown as the content of the CDROM made available by starting the Windows qube with the additional option `--install-windows-tools` (see the QWT installation documentation). The installer kit is a specially formatted archive, from which the file `relocate_dir.exe` can be extracted using a utility like 7-Zip. The file has then to be copied to `%windir%\system32`, i.e. usually `C:\Windows\system32`. Furthermore, locate the registry key `HKLM\SYSTEM\CurrentControlSet\Control\Session Manager`, and add the text `relocate_dir.exe C:\Users Q:\Users` as a new line to the `REG_MULTI_SZ` value `\BootExecute` in this key. On rebooting the Windows qube, the user files will be moved to the disk `Q:`, and the additional registry entry will be removed, such that this action occurs only once.
+
+If the user data have been moved to `Q:`, be sure not to user the option `Move User Profeiles`on subsequent installations of Qubes Windows tools.
+
 
 AppVMs based on these templates can be created the normal way by using the Qube Manager or by specifying
 ~~~
