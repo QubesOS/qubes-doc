@@ -90,9 +90,10 @@ Clipboard sharing implementation
 Certainly, it would be insecure to allow AppVM to read/write the clipboards of other AppVMs unconditionally.
 Therefore, the following mechanism is used:
 
-- there is a "qubes clipboard" in dom0 - its contents are stored in a regular file in dom0.
+- there is a "qubes clipboard" in dom0 - its contents are stored in a regular file in dom0 as `/run/qubes/qubes-clipboard.bin`.
 - if the user wants to copy local AppVM clipboard to qubes clipboard, she must focus on any window belonging to this AppVM, and press **Ctrl-Shift-C**. This combination is trapped by `qubes-guid`, and `CLIPBOARD_REQ` message is sent to AppVM. `qubes-gui` responds with `CLIPBOARD_DATA` message followed by clipboard contents.
 - the user focuses on other AppVM window, presses **Ctrl-Shift-V**. This combination is trapped by `qubes-guid`, and `CLIPBOARD_DATA` message followed by qubes clipboard contents is sent to AppVM; `qubes-gui` copies data to the local clipboard, and then user can paste its contents to local applications normally.
+- a supplementary JSON metadata file will be saved as `/run/qubes/qubes-clipboard.bin.metadata` on global clipboard copy or paste actions. Explanation of each field is available in `xside.h` header file of `qubes-guid` under `clipboard_metadata` structure. While the output from `qubes-guid` is fully JSON compatible, the `qubes-guid` parser is limited. It expects line breaks after each key-value pair and only one key-value pair per line. Opening and closing curly braces should be on their own lines. There should be no leading white-space.
 
 This way, the user can quickly copy clipboards between AppVMs.
 This action is fully controlled by the user, it cannot be triggered/forced by any AppVM.
