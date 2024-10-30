@@ -160,6 +160,9 @@ out.
 6. When you are ready, click **Next**. Qubes will proceed to restore from your
 backup. Once the progress bar has completed, you may click **Finish**.
 
+In case that applications are not shown, i.e. "No applications found", open the
+settings of the qube -> select `Applications` -> click `Refresh applications`.
+
 **Note:** When restoring from a dom0 backup, a new directory will be created in
 the current dom0 home directory, and the contents from the backup will be
 placed inside this new directory. This is intentional, as it allows users to
