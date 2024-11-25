@@ -17,6 +17,7 @@ Fully updating your Qubes OS system means updating:
 - [dom0](/doc/glossary/#dom0)
 - [templates](/doc/glossary/#template)
 - [standalones](/doc/glossary/#standalone) (if you have any)
+- your computer's [firmware](https://en.wikipedia.org/wiki/Firmware)
 
 ## Security updates
 
@@ -86,3 +87,56 @@ In the case of Qubes OS itself, we will make an [announcement](/news/categories/
 Periodic upgrades are also important for templates. For example, you might be using a [Fedora template](/doc/templates/fedora/). The [Fedora Project](https://getfedora.org/) is independent of the Qubes OS Project. They set their own [schedule](https://fedoraproject.org/wiki/Fedora_Release_Life_Cycle#Maintenance_Schedule) for when each Fedora release reaches EOL. You can always find out when an OS reaches EOL from the upstream project that maintains it. We also pass along any EOL notices we receive for official template OSes as a convenience to Qubes users (see the [supported template releases](/doc/supported-releases/#templates)).
 
 The one exception to all this is the specific release used for dom0 (not to be confused with Qubes OS as a whole), which [doesn't have to be upgraded](/doc/supported-releases/#note-on-dom0-and-eol).
+
+## Firmware updates
+
+As of Qubes 4.2, firmware updates can be performed from within Qubes for [fwupd-supported computers](https://fwupd.org/).
+
+### In dom0
+
+First, ensure that your [UpdateVM](/doc/Software/UpdateVM/)
+contains the `fwupd-qubes-vm` package. This package is installed
+by default for qubes with `qubes-vm-recommended` packages.
+
+In a dom0 terminal, install the `fwupd-qubes-dom0` package:
+
+  ```
+  $ sudo qubes-dom0-update fwupd-qubes-dom0
+  ```
+
+Once the package is installed:
+
+   ```
+   $ sudo qubes-fwupdmgr get-devices
+   ```
+
+Examine the terminal output for warnings or errors.
+You may see the following warning:
+
+   ```
+   WARNING: UEFI capsule updates not available or enabled
+   ```
+If so, [adjust your BIOS settings](https://github.com/fwupd/fwupd/wiki/PluginFlag:capsules-unsupported) to enable UEFI updates. This setting is sometimes named "Windows UEFI Firmware Update."
+
+Once resolved, in a dom0 terminal:
+
+  ```
+  $ sudo qubes-fwupdmgr get-devices
+  $ sudo qubes-fwupdmgr refresh
+  $ sudo qubes-fwupdmgr update
+  ```
+
+A numbered list of devices with available updates will be presented. Ensure your computer is plugged in to a stable power source, then type the list number of the device you wish to update. If a reboot is required, you will be prompted at the console to confirm.
+
+Repeat the update process for any additional devices on your computer.
+
+### In other qubes
+
+Devices that are attached to non-dom0 qubes can be updated via a graphical tool for `fwupd`, or via the `fwupdmgr` commandline tool.
+
+To update the firmware of offline qubes, use the [Updates
+proxy](/doc/how-to/install/software/#updates-proxy).
+
+### Computers without fwupd support
+
+For computers that do not have firmware update support via `fwupd`, follow the firmware update instructions on the manufacturer's website. Verify the authenticity of any firmware updates you apply.
