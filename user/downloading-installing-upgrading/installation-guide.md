@@ -1,9 +1,9 @@
 ---
-lang: en
+lang: it
 layout: doc
 permalink: /doc/installation-guide/
 redirect_from:
-- /en/doc/installation-guide/
+- /it/doc/installation-guide/
 - /doc/InstallationGuide/
 - /wiki/InstallationGuide/
 - /doc/InstallationGuideR1/
@@ -18,48 +18,48 @@ redirect_from:
 - /doc/custom-install/
 - /doc/encryption-config/
 ref: 153
-title: Installation guide
+title: Guida d'installazione
 ---
 
-Welcome to the Qubes OS installation guide! This guide will walk you through the process of installing Qubes. Please read it carefully and thoroughly, as it contains important information for ensuring that your Qubes OS installation is functional and secure.
+Benvenuti alla guida d'installazione di Qubes OS! Questa guida ti guiderà attraverso il processo di installazione di Qubes OS. Ti preghiamo di leggerla attentamente e per intero in quanto contiene informazioni importanti per garantire che l'installazione di Qubes OS sia funzionale e sicura.
 
-## Pre-installation
+## Pre-installazione
 
-### Hardware requirements
+### Requisiti Hardware
 
 <div class="alert alert-danger" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
-  <b>Warning:</b> Qubes has no control over what happens on your computer before you install it. No software can provide security if it is installed on compromised hardware. Do not install Qubes on a computer you don't trust. See <a href="/doc/install-security/">installation security</a> for more information.
+  <b>Attenzione:</b> Qubes non può sapere cosa è successo sul tuo computer prima della sua installazione. Nessun software può garantire sicurezza se installato su hardware compromesso. Non installare Qubes su computer non affidabili. Vedi <a href="/doc/install-security/">installazione sicura</a> per maggiori informazioni.
 </div>
 
-Qubes OS has very specific [system requirements](/doc/system-requirements/). To ensure compatibility, we strongly recommend using [Qubes-certified hardware](/doc/certified-hardware/). Other hardware may require you to perform significant troubleshooting. You may also find it helpful to consult the [Hardware Compatibility List](/hcl/).
+Qubes OS ha [requisiti hardware](/doc/system-requirements/) molto specifici. Per garantire la completa compatibilità, raccomandiamo di utilizzare [hardware Qubes-certified](/doc/certified-hardware/). Hardware diverso potrebbe richiedere particolari configurazioni e attività di troubleshooting. Potrebbe essere utile consultare la [Lista Hardware Compatibile List](/hcl/).
 
 Even on supported hardware, you must ensure that [IOMMU-based virtualization](https://en.wikipedia.org/wiki/Input%E2%80%93output_memory_management_unit#Virtualization) is activated in the BIOS or UEFI. Without it, Qubes OS won't be able to enforce isolation. For Intel-based boards, this setting is called Intel Virtualization for Directed I/O (**Intel VT-d**) and for AMD-based boards, it is called  AMD I/O Virtualization Technology (or simply **AMD-Vi**). This parameter should be activated in your computer's BIOS or UEFI, alongside the standard Virtualization (**Intel VT-x**) and AMD Virtualization (**AMD-V**) extensions. This [external guide](https://web.archive.org/web/20200112220913/https://www.intel.in/content/www/in/en/support/articles/000007139/server-products.html) made for Intel-based boards can help you figure out how to enter your BIOS or UEFI to locate and activate those settings. If those settings are not nested under the Advanced tab, you might find them under the Security tab.
 
 <div class="alert alert-warning" role="alert">
   <i class="fa fa-exclamation-circle"></i>
-  <b>Note:</b> Qubes OS is not meant to be installed inside a virtual machine as a guest hypervisor. In other words, <b>nested virtualization</b> is not supported. In order for a strict compartmentalization to be enforced, Qubes OS needs to be able to manage the hardware directly.
+  <b>Note:</b> Qubes OS non è pensato per essere installato all'interno di una macchina virtuale quale guest hypervisor. In altre parole, non è supportata la <b>virtualizzazione nidificata</b>. Al fine di garantire l'isolamento Qubes OS deve infatti poter gestire l'hardware in modo diretto.
 </div>
 
-### Copying the ISO onto the installation medium
+### Copiare la ISO sul supporto di installazione
 
-Pick the most secure existing computer and OS you have available for downloading and copying the Qubes ISO onto the installation medium. [Download](/downloads/) a Qubes ISO.
+Scegli il computer e il sistema operativo più sicuri a tua disposizione per scaricare e copiare l'ISO di Qubes sul supporto di installazione. [Scarica](/downloads/) la ISO di Qubes.
 
 <div class="alert alert-danger" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
-  <b>Warning:</b> Any file you download from the internet could be malicious, even if it appears to come from a trustworthy source. Our philosophy is to <a href="/faq/#what-does-it-mean-to-distrust-the-infrastructure">distrust the infrastructure</a>. Regardless of how you acquire your Qubes ISO, <a href="/security/verifying-signatures/">verify its authenticity</a> before continuing.
+  <b>Attenzione:</b> Qualsiasi file scaricato da Internet potrebbe essere malevole, anche se sembra provenire da una fonte affidabile. La nostra filosofia è <a href="/faq/#what-does-it-mean-to-distrust-the-infrastructure">diffidare dall'infrastruttura</a>. Indipendentemente da come otterrai la ISO di Qubes OS, <a href="/security/verifying-signatures/">verificane la sua autenticità</a> prima di proseguire.
 </div>
 
-Once the ISO has been verified as authentic, you should copy it onto the installation medium of your choice, such as a USB drive, dual-layer DVD, or Blu-ray disc. The size of each Qubes ISO is available on the [downloads](/downloads/) page by hovering over the download button. The instructions below assume you've chosen a USB drive as your medium. If you've chosen a different medium, please adapt the instructions accordingly.
+Una volta verificata l'autenticità della ISO, potrai copiarla su un supporto di installazione a tua scelta tra unità USB, DVD dual-layer o un disco Blu-ray. La dimensione di ogni ISO di Qubes OS è visualizzabile sulla pagina di [download](/downloads/) passando con il mouse sopra al pulsante download. Le istruzioni seguenti si riferiscono alla scelta si un supporto USB quale media di installazione. Se hai scelto un supporto differenze andranno adattate alle tue esigenze.
 
 <div class="alert alert-warning" role="alert">
   <i class="fa fa-exclamation-circle"></i>
-  <b>Note:</b> There are important <a href="/doc/install-security/">security considerations</a> to keep in mind when choosing an installation medium. Advanced users may wish to <a href="/security/verifying-signatures/#how-to-re-verify-installation-media-after-writing">re-verify their installation media after writing</a>.
+  <b>Nota:</b> There are important <a href="/doc/install-security/">security considerations</a> to keep in mind when choosing an installation medium. Advanced users may wish to <a href="/security/verifying-signatures/#how-to-re-verify-installation-media-after-writing">re-verify their installation media after writing</a>.
 </div>
 
 <div class="alert alert-danger" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
-  <b>Warning:</b> Be careful to choose the correct device when copying the ISO, or you may lose data. We strongly recommended making a full backup before modifying any devices.
+  <b>Attenzione:</b> Porre attenzione alla scelta del dispositivo corretto quando copi l'ISO, altrimenti potresti perdere i dati contenuti nel supporto. Si consiglia di effettuare un backup completo prima di modificare qualsiasi dispositivo.
 </div>
 
 #### Linux ISO to USB
@@ -278,15 +278,14 @@ In addition to QSBs, the Qubes OS Project also publishes [Canaries](/security/ca
 
 For more information about Qubes OS Project security, please see the [security center](/security/).
 
-### Backups
-
-It is extremely important to make regular backups so that you don't lose your data unexpectedly. The [Qubes backup system](/doc/how-to-back-up-restore-and-migrate/) allows you to do this securely and easily.
+### Backup
+E' estremamente importante eseguire backup regolari al fine di non perdere dati inaspettatamente. Il [Qubes backup system](/doc/how-to-back-up-restore-and-migrate/) ti consente di fare in modo semplice e sicuro.
 
 ### Submit your HCL report
 
 Consider giving back to the Qubes community and helping other users by [generating and submitting a Hardware Compatibility List (HCL) report](/doc/how-to-use-the-hcl/#generating-and-submitting-new-reports).
 
-### Get Started
+### Per iniziare
 
 Find out [Getting Started](/doc/getting-started/) with Qubes, check out the other [How-To Guides](/doc/#how-to-guides), and learn about [Templates](/doc/#templates).
 
@@ -298,5 +297,5 @@ Find out [Getting Started](/doc/getting-started/) with Qubes, check out the othe
 
 * If you don't find your answer in the documentation, please see [Help, Support, Mailing Lists, and Forum](/support/) for places to ask.
 
-* Please do **not** email individual members of the Qubes team with questions about installation or other problems. Instead, please see [Help, Support, Mailing Lists, and Forum](/support/) for appropriate places to ask questions.
+* Si prega di **non** inviare email individuali ai membri del team di Qube con domande sull'installazione o altri problemi. Consultate, invece [Aiuto, Supporto, Mailing Lists e Forum](/support/) for appropriate places to ask questions.
 
