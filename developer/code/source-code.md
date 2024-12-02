@@ -60,6 +60,7 @@ method you choose, you must [sign your code](/doc/code-signing/) before it can b
 
 * **Preferred**: Use GitHub's [fork & pull requests](https://guides.github.com/activities/forking/).
 
+
    Opening a pull request on GitHub greatly eases the code review and tracking
    process. In addition, especially for bigger changes, it's a good idea to send
    a message to the [qubes-devel mailing list](/support/#qubes-devel) in order to notify people who
