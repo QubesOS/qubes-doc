@@ -11,20 +11,17 @@ ref: 205
 title: How to enter fullscreen mode
 ---
 
-What is fullscreen mode?
--------------------------
+## What is fullscreen mode?
 
 Normally, the Qubes GUI virtualization daemon restricts the VM from "owning" the full screen, ensuring that there are always clearly marked decorations drawn by the trusted Window Manager around each of the VMs window.
 This allows the user to easily realize to which domain a specific window belongs.
 See the [screenshots](/doc/QubesScreenshots/) page for examples.
 
-Why is fullscreen mode potentially dangerous?
-----------------------------------------------
+## Why is fullscreen mode potentially dangerous?
 
 If one allowed one of the VMs to "own" the full screen, e.g. to show a movie on a full screen, it might not be possible for the user to know if the applications/VM really "released" the full screen, or if it has started emulating the whole desktop and is pretending to be the trusted Window Manager, drawing shapes on the screen that look e.g. like other windows, belonging to other domains (e.g. to trick the user into entering a secret passphrase into a window that looks like belonging to some trusted domain).
 
-Secure use of fullscreen mode
-------------------------------
+## Secure use of fullscreen mode
 
 However, it is possible to deal with fullscreen mode in a secure way assuming there are mechanisms that can be used at any time to switch between windows or show the full desktop and that cannot be intercepted by the VM.
 The simplest example is the use of Alt+Tab for switching between windows, which is a shortcut handled by dom0.
@@ -33,8 +30,7 @@ Other examples such mechanisms are the KDE "Present Windows" and "Desktop Grid" 
 Those effects are enabled by default in KDE once Compositing gets enabled in KDE (System Settings -\> Desktop -\> Enable Desktop Effects), which is recommended anyway.
 By default, they are triggered by Ctrl-F8 and Ctrl-F9 key combinations, but can also be reassigned to other shortcuts.
 
-Enabling fullscreen mode for select VMs
-----------------------------------------
+## Enabling fullscreen mode for select VMs
 
 You can always put a window into fullscreen mode in Xfce4 using the trusted window manager by right-clicking on a window's title bar and selecting "Fullscreen" or pressing `alt` + `f11`.
 This functionality should still be considered safe, since a VM window still can't voluntarily enter fullscreen mode.
