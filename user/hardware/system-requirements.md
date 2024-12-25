@@ -33,9 +33,13 @@ title: System requirements
 
 ## Recommended
 
-- **CPU:** 64-bit Intel or AMD processor (also known as `x86_64`, `x64`, and `AMD64`)
-  - [Intel VT-x](https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29) with [EPT](https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Extended_Page_Tables) or [AMD-V](https://en.wikipedia.org/wiki/X86_virtualization#AMD_virtualization_.28AMD-V.29) with [RVI](https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Rapid_Virtualization_Indexing)
-  - [Intel VT-d](https://en.wikipedia.org/wiki/X86_virtualization#Intel-VT-d) or [AMD-Vi (also known as AMD IOMMU)](https://en.wikipedia.org/wiki/X86_virtualization#I.2FO_MMU_virtualization_.28AMD-Vi_and_Intel_VT-d.29)
+- **CPU:** 64-bit Intel processor (also known as `x86_64`, `x64`, and `Intel 64`)
+  - [Intel VT-x](https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29) with [EPT](https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Extended_Page_Tables)
+  - [Intel VT-d](https://en.wikipedia.org/wiki/X86_virtualization#Intel-VT-d)
+  - For security, we recommend processors that are recent enough to still be
+    receiving microcode updates (see [below](#important-updates) for details).
+  - AMD processors are not recommended due to inconsistent security support on
+    client platforms (see [below](#important-updates) for details).
 
 - **Memory:** 16 GB RAM
 
@@ -44,9 +48,9 @@ title: System requirements
 
 - **Graphics:** Intel integrated graphics processor (IGP) strongly recommended
   - Nvidia GPUs may require significant
-    [troubleshooting](/doc/install-nvidia-driver/)
+    [troubleshooting](/doc/install-nvidia-driver/).
   - AMD GPUs have not been formally tested, but Radeons (especially RX580 and
-    earlier) generally work well
+    earlier) generally work well.
 
 - **Peripherals:** A non-USB keyboard or multiple USB controllers
 
@@ -83,6 +87,58 @@ We recommend consulting these resources when selecting hardware for Qubes OS:
 
 - **Installing Qubes in a virtual machine is not recommended, as it uses its
   own bare-metal hypervisor (Xen).**
+
+- There is a class of security vulnerabilities that can be fixed only by
+  microcode updates. If your computer or the CPU in it no longer receives
+  microcode updates (e.g., because it is too old), it may not be possible for
+  some of these vulnerabilities to be mitigated on your system, leaving you
+  vulnerable. For this reason, we recommend using Qubes OS on systems that are
+  still receiving microcode updates. Nonetheless, Qubes OS **can** run on
+  systems that no longer receive microcode updates, and such systems will still
+  offer significant security advantages over conventional operating systems on
+  the same hardware.
+
+  Intel maintains a
+  [list](https://www.intel.com/content/www/us/en/support/articles/000022396/processors.html)
+  of end-of-support dates for its processors. However, this list seems to
+  include only processors that are no longer supported or will soon no longer
+  be supported. Many newer Intel processors are missing from this list. To our
+  knowledge, Intel does not announce end-of-support dates for its newer
+  processors in advance, nor does it have a public policy governing how long
+  support will last.
+
+- Intel and AMD handle microcode updates differently, which has significant
+  security implications. On Intel platforms, microcode updates can typically be
+  loaded from the operating system. This allows the Qubes security team to
+  respond rapidly to new vulnerabilities by shipping microcode updates alongside
+  other security updates directly to users. By contrast, on AMD client (as
+  opposed to server) platforms, microcode updates are typically shipped only as
+  part of system firmware and generally cannot be loaded from the operating
+  system. This means that AMD users typically must wait for:
+  
+  1. AMD to distribute microcode updates to original equipment manufacturers
+  (OEMs), original design manufacturers (ODMs), and motherboard manufacturers
+  (MB); and
+  2. The user's OEM, ODM, or MB to provide a suitable BIOS or (U)EFI update for
+  the user's system.
+  
+  Historically, AMD has often been slow to complete step (1), at least for its
+  client (as opposed to server) platforms. In some cases, AMD has made fixes
+  available for its server platforms very shortly after a security embargo was
+  lifted, but it did not make fixes available for client platforms facing the
+  same vulnerability until weeks or months later. (A "security embargo" is the
+  practice of avoiding public disclosure of a security vulnerability prior to a
+  designated date.) By contrast, Intel has consistently made fixes available for
+  new CPU vulnerabilities across its supported platforms very shortly after
+  security embargoes have been lifted.
+
+  Step (2) varies by vendor. Many vendors fail to complete step (2) at all,
+  while some others take a very long time to complete it.
+  
+  The bottom line is that Qubes OS **can** run on AMD systems, and the Qubes and
+  Xen security teams do their best to provide security support for AMD systems.
+  However, without the ability to ship microcode updates, there is only so much
+  they can do.
 
 - Qubes **can** be installed on many systems that do not meet the recommended
   requirements. Such systems will still offer significant security improvements
