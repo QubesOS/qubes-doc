@@ -156,8 +156,8 @@ These parameters are set for the following reasons:
     -  In the setup window, hit the left arrow in the left upper corner. You will then return into the setup, which will continue normally and install Windows 11 without TPM 2.0.
    
     <div class="alert alert-warning" role="alert">
-		<i class="fa fa-exclamation-circle"></i>
-		<b>Caution:</b> This temporary patch may cease to work if it so pleases Microsoft some time.
+        <i class="fa fa-exclamation-circle"></i>
+        <b>Caution:</b> This temporary patch may cease to work if it so pleases Microsoft some time.
     </div>
     
     The installation of Windows 11 may require an internet connection to grab a Microsoft ID. This is currently true only for the Home Edition, but will probably extend to the Pro Edition too. A workaround to bypass the internet connection requirements of the Windows 11 setup has been published that currently works for version 21H2 but may be blocked some time in the future by Microsoft:
@@ -168,15 +168,15 @@ These parameters are set for the following reasons:
     - Select this process and then hit the “End Task” button.
     - Now you can close these newly opened windows and return to the Windows 11 setup, where you will enter local account information.
     
-	 <div class="alert alert-info" role="alert">
-		<i class="fa fa-info-circle"></i>
-		<b>Note:</b> As of version 24H2 the above is not working anymore, instead use <a href="https://learn.microsoft.com/en-us/answers/questions/1179311/windows-11-setup-without-internet" target="_blank">these instructions</a>:
+    <div class="alert alert-info" role="alert">
+        <i class="fa fa-info-circle"></i>
+        <b>Note:</b> As of version 24H2 the above is not working anymore, instead use <a href="https://learn.microsoft.com/en-us/answers/questions/1179311/windows-11-setup-without-internet" target="_blank">these instructions</a>:
     </div>
+    
+    - Hold the SHIFT key and press F10 to open the command prompt at any moment in the installation process;
+    - Click on the command prompt window to change the focus to it and type the command `oobe\bypassnro`, and hit ENTER;
+    - The Windows system will reboot immediately and at next boot the instalator (OOBE) will override the networking requirement.
 
-	- Hold the SHIFT key and press F10 to open the command prompt at any moment in the installation process;
-	- Click on the command prompt window to change the focus to it and type the command `oobe\bypassnro`, and hit ENTER;
-	- The Windows system will reboot immediately and at next boot the instalator (OOBE) will override the networking requirement.
- 
     For Windows 11 version 22H2, the following sequence of actions to use a local account instead of a Microsoft account has been published:
 
     - Enter `no@thankyou.com` (or some other senseless address) as the email address and click `Next` when Windows 11 setup prompts you to log into your Microsoft account.
