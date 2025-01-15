@@ -92,7 +92,7 @@ Note that you must create the full folder structure under `/rw/bind-dirs` - e.g 
 Any changes you make will not survive a reboot. If you think it likely you will want to edit a file, then either include the parent directory in bind-dirs rather than the file, or perform the file operation on the file in `/rw/bind-dirs`.
 * Some files are altered when a qube boots - e.g. `/etc/hosts`.
 If you try to use bind-dirs on such files you may break your qube in unpredictable ways.
-You can add persistent rules to `/etc/hosts` using [`/rw/config/rc.local`](/doc/config-files)
+You can add persistent rules to `/etc/hosts` using [`/rw/config/rc.local`](/doc/config-files).
 
 ## How to remove binds from bind-dirs.sh?
 
