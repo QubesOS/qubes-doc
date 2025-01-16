@@ -51,35 +51,35 @@ Great! Thank you for taking the time and effort to help improve Qubes! To ensure
 
 Eventually, your issue may be closed. See [how issues get closed](/doc/issue-tracking/#how-issues-get-closed) for details about when, why, and how this occurs.
 
-## Labels and projects
+## How issues are organized
 
-Labels and projects are features of GitHub's issue tracking system that we use to keep [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) organized.
+Issues can have several different properties and be organized in various ways. This section explains how we use labels, issue types, projects, and other features of GitHub's issue tracking system in order to keep [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) organized.
 
 ### Labels
 
-When an issue is first created, certain [labels](https://github.com/QubesOS/qubes-issues/labels) may automatically be applied to it based on the type of issue the reporter selected. For example, if someone selects the "Bug report" template, then the `T: bug` label will automatically be applied to that issue. After that, only Qubes team members have permission to modify labels. Many labels have descriptions on them that can be viewed by hovering over them or on the [list of labels](https://github.com/QubesOS/qubes-issues/labels). Let's go over some of the most important ones.
-
-#### Type
-
-There are three issue **types**: `T: bug`, `T: enhancement`, and `T: task`.
-
-- `T: bug` --- Type: bug report. A problem or defect resulting in unintended behavior in something that exists.
-- `T: enhancement` --- Type: enhancement. A new feature that does not yet exist **or** improvement of existing functionality.
-- `T: task` --- Type: task. An action item that is neither a bug nor an enhancement.
-
-Every open issue should have **exactly one** type. An open issue should not have more than one type, and it should not lack a type entirely. Bug reports are for problems in things that already exist. If something doesn't exist yet, but you think it ought to exist, then use `T: enhancement` instead. If something already exists, but you think it could be improved in some way, you should again use `T: enhancement`. `T: task` is for issues that fall under neither `T: bug` nor `T: enhancement`.
+When an issue is first created, it will receive the `P: default` (i.e., default priority) [label](https://github.com/QubesOS/qubes-issues/labels) automatically. After an issue has been created, only Qubes team members have permission to modify labels. Many labels have descriptions on them that can be viewed by hovering over them or on the [list of labels](https://github.com/QubesOS/qubes-issues/labels). Let's go over some of the most important ones.
 
 #### Priority
 
-There are several issue **priority** levels ranging from `P: minor` to `P: blocker` (see [here](https://github.com/QubesOS/qubes-issues/labels?q=P%3A) for the full list). Every open issue should have **exactly one** priority. An open issue should not have more than one priority, and it should not lack a priority entirely. See [here](/doc/version-scheme/#bug-priorities) for details about how the developers use these priorities.
+There are several issue **priority** levels ranging from `P: minor` to `P: blocker` (see [here](https://github.com/QubesOS/qubes-issues/labels?q=P%3A) for the full list). Every open issue should have exactly one priority. An open issue should not have more than one priority, and it should not lack a priority entirely. See [here](/doc/version-scheme/#bug-priorities) for details about how the developers use these priorities.
 
 #### Component
 
-There are many **component** labels, each beginning with `C:` (see [here](https://github.com/QubesOS/qubes-issues/labels?q=C%3A) for the full list). Every open issue should have **at least one** component. An open issue may have more than one component, but it should not lack a component entirely. When no other component applies, use `C: other`.
+There are many **component** labels, each beginning with `C:` (see [here](https://github.com/QubesOS/qubes-issues/labels?q=C%3A) for the full list). Every open issue should have at least one component. An open issue may have more than one component, but it should not lack a component entirely. When no other component applies, use `C: other`.
 
 #### Affected release
 
 A label of the form `affects-<RELEASE_NUMBER>` indicates that an issue affects the corresponding Qubes OS release. An issue can have more than one of these labels if it affects multiple releases.
+
+### Types
+
+There are three issue **types**: Bug, Feature, and Task.
+
+- **Bug** --- An unexpected problem or behavior
+- **Feature** --- A request, idea, or new functionality
+- **Task** --- A specific piece of work
+
+Every open issue should have exactly one type. **Bug** reports are for problems in things that already exist. If something doesn't exist yet, but you think it ought to exist, then that issue should instead be a **Feature** request. If something already exists, but you think it could be improved in some way, that also qualifies as a **Feature** request. The **Task** type is for issues that are actionable but that fall under neither the **Bug** nor **Feature** types.
 
 ### Projects
 
@@ -89,21 +89,11 @@ There is a special project in Qubes OS project: the [Current team tasks project]
 
 ### Meta-issues
 
-A meta-issue is an issue that serves to collect and organize a group of other issues. We use meta-issues when we need a way to track work on specific features. We cannot use [projects](#projects) for this, because we already use a project for tracking the work of the Qubes team as a whole, and projects cannot contain milestones or other projects.
+A meta-issue is an issue that serves primarily to collect and organize a group of other issues. This group of other issues typically exists in a hierarchy of sub-issues, usually with the meta-issue at the top. (For example, we use meta-issues when we need a way to track work on specific features. We cannot use [projects](#projects) for this, because we already use a project for tracking the work of the Qubes team as a whole, and projects cannot contain milestones or other projects.)
 
-Meta-issues must abide by the following rules:
+Meta-issues should have informative descriptions, not just lists of issues. In particular, each meta-issue should explain its goal, what is in scope, and what the relevant categories and priorities are.
 
-- Only members of the core team may create meta-issues (or convert existing issues into meta-issues).
-
-  Rationale: The purpose of meta-issues is to track the development of certain features that fit into the overall goals of the Qubes OS Project, which requires making informed project-management decisions with the approval of the project lead.
-
-- Meta-issues must be [locked](https://docs.github.com/en/communities/moderating-comments-and-conversations/locking-conversations).
-
-  Rationale: One of the historical problems we've experienced with meta-issues (and one of the reasons they were discouraged for a long time) is that each meta-issue tends to turn into a discussion thread that becomes hopelessly long to the point where the person who is supposed to work on it has no idea what is supposed to be done or where to start, and it eventually just gets closed. Locking is intended to prevent that from happening again.
-
-- Meta-issues must have informative descriptions, not just lists of issues. In particular, each meta-issue should explain its goal, what is in scope, and what the relevant categories and priorities are.
-
-- Meta-issues must have clear, concrete, and actionable criteria for when they will be closed. Meta-issues should never be "open-ended" or expected to stay open indefinitely. If this ever becomes unclear, the meta-issue should be closed until it becomes clear.
+In addition, meta-issues should have clear, concrete, and actionable criteria for when they will be closed. Meta-issues should never be "open-ended" or expected to stay open indefinitely. If this ever becomes unclear, the meta-issue should be closed until it becomes clear.
 
 ## Search tips
 
