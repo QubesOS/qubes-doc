@@ -42,7 +42,7 @@ In Qubes 4.2, the qube will now appear in the menu as a disposable template (in 
 
 In Qubes 4.1: named disposables can be created under **Application Menu -> Create Qubes VM**, set the qube type  to be _DisposableVM_.
 
-In Qubes 4.2: named disposables can be created by **Application Menu -> Settings -> Qubes Settings -> Create New Qube**. Set the qube type to Named disposable_
+In Qubes 4.2: named disposables can be created by **Application Menu -> Settings -> Qubes Settings -> Create New Qube**. Set the qube type to **Named disposable**.
 
 ## Security
 
