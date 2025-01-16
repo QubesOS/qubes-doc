@@ -73,7 +73,7 @@ A label of the form `affects-<RELEASE_NUMBER>` indicates that an issue affects t
 
 ### Types
 
-There are three issue **types**: Bug, Feature, and Task.
+There are three issue [types](https://docs.github.com/en/issues/tracking-your-work-with-issues/configuring-issues/managing-issue-types-in-an-organization): Bug, Feature, and Task.
 
 - **Bug** --- An unexpected problem or behavior
 - **Feature** --- A request, idea, or new functionality
@@ -89,7 +89,7 @@ There is a special project in Qubes OS project: the [Current team tasks project]
 
 ### Meta-issues
 
-A meta-issue is an issue that serves primarily to collect and organize a group of other issues. This group of other issues typically exists in a hierarchy of sub-issues, usually with the meta-issue at the top. (For example, we use meta-issues when we need a way to track work on specific features. We cannot use [projects](#projects) for this, because we already use a project for tracking the work of the Qubes team as a whole, and projects cannot contain milestones or other projects.)
+A meta-issue is an issue that serves primarily to collect and organize a group of other issues. This group of other issues typically exists in a hierarchy of [sub-issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues), usually with the meta-issue at the top. (For example, we use meta-issues when we need a way to track work on specific features. We cannot use [projects](#projects) for this, because we already use a project for tracking the work of the Qubes team as a whole, and projects cannot contain milestones or other projects.)
 
 Meta-issues should have informative descriptions, not just lists of issues. In particular, each meta-issue should explain its goal, what is in scope, and what the relevant categories and priorities are.
 
