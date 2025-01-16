@@ -197,23 +197,9 @@ the new machine. All of your settings and data will be preserved!
 
 Here are some things to consider when selecting a passphrase for your backups:
 
-- If you plan to store the backup for a long time or on third-party servers,
-  you should make sure to use a very long, high-entropy passphrase. (Depending
-  on the decryption passphrase you use for your system drive, this may
-  necessitate selecting a stronger passphrase. If your system drive decryption
-  passphrase is already sufficiently strong, it may not.)
-- An adversary who has access to your backups may try to substitute one backup
-  for another. For example, when you attempt to retrieve a recent backup, the
-  adversary may instead give you a very old backup containing a compromised VM.
-  If you're concerned about this type of attack, you may wish to use a
-  different passphrase for each backup, e.g., by appending a number or date to
-  the passphrase.
-- If you're forced to enter your system drive decryption passphrase in plain
-  view of others (where it can be shoulder-surfed), then you may want to use a
-  different passphrase for your backups (even if your system drive decryption
-  passphrase is already maximally strong). On the other hand, if you're careful
-  to avoid shoulder-surfing and/or have a passphrase that's difficult to detect
-  via shoulder-surfing, then this may not be a problem for you.
+- If you plan to store the backup for a long time or on third-party servers, you should make sure to use a very long, high-entropy passphrase. (Depending on the decryption passphrase you use for your system drive, this may necessitate selecting a stronger passphrase. If your system drive decryption passphrase is already sufficiently strong, it may not.)
+- An adversary who has access to your backups may try to substitute one backup for another. For example, when you attempt to retrieve a recent backup, the adversary may instead give you a very old backup containing a compromised VM. If you're concerned about this type of attack, you may wish to use a different passphrase for each backup, e.g., by appending a number or date to the passphrase.
+- If you're forced to enter your system drive decryption passphrase in plain view of others (where it can be shoulder-surfed), then you may want to use a different passphrase for your backups (even if your system drive decryption passphrase is already maximally strong). On the other hand, if you're careful to avoid shoulder-surfing and/or have a passphrase that's difficult to detect via shoulder-surfing, then this may not be a problem for you.
 
 ## Notes
 
