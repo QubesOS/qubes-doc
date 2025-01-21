@@ -429,7 +429,7 @@ these in an app qube you need to take the following steps:
    When the install is complete you can close the terminal window.
 
 3. Refresh the Applications list for the app qube. In the Qubes Menu for the
-   **app qube*** launch the Qube Settings. Then go to the Applications tab and
+   **app qube** launch the Qube Settings. Then go to the Applications tab and
    click "Refresh Applications"
 
    The refresh will take a few minutes; after it's complete the Snap app will
