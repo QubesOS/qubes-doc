@@ -26,9 +26,7 @@ Similarly, while working, the XScreenSaver dialog may pop up (indicating the scr
 
 If you are experiencing the any of the above symptoms, try disabling the window compositor:
 
-`
-    Q → System Tools → Window Manager Tweaks → Compositor → uncheck “Enable display compositing”
-`
+`Q → System Tools → Window Manager Tweaks → Compositor → uncheck “Enable display compositing”`
 
 ## Post installation, screen goes black and freezes following LUKS decryption
 

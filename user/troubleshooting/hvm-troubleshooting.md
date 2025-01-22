@@ -62,7 +62,7 @@ qvm-prefs <HVMname> kernel ""
 
 ## HVM crashes when booting from ISO
 
-If your HVM crashes when trying to boot an ISO, first ensure that ` qvm-prefs <HVMname> kernel` is empty, as shown above.
+If your HVM crashes when trying to boot an ISO, first ensure that `qvm-prefs <HVMname> kernel` is empty, as shown above.
 If this doesn't help, then disable memory balancing and set the minimum memory to 2GB.
 
 You can disable memory-balancing in the settings, under the “Advanced” tab.
