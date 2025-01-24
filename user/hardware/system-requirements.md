@@ -37,9 +37,9 @@ title: System requirements
   - [Intel VT-x](https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29) with [EPT](https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Extended_Page_Tables)
   - [Intel VT-d](https://en.wikipedia.org/wiki/X86_virtualization#Intel-VT-d)
   - For security, we recommend processors that are recent enough to still be
-    receiving microcode updates (see [below](#important-updates) for details).
+    receiving microcode updates (see [below](#important-notes) for details).
   - AMD processors are not recommended due to inconsistent security support on
-    client platforms (see [below](#important-updates) for details).
+    client platforms (see [below](#important-notes) for details).
 
 - **Memory:** 16 GB RAM
 
