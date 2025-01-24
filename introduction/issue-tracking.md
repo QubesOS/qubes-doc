@@ -41,7 +41,7 @@ Great! Thank you for taking the time and effort to help improve Qubes! To ensure
  1. Carefully read our issue tracking [guidelines](#guidelines). If your issue would violate any of the guidelines, **stop**. Please do not submit it.
  2. [Search through the existing issues](#search-tips), both open and closed, to see if your issue already exists. If it does, **stop**. [Do not open a duplicate.](/doc/issue-tracking/#new-issues-should-not-be-duplicates-of-existing-issues) Instead, comment on the existing issue.
  3. Go [here](https://github.com/QubesOS/qubes-issues/issues/new/choose).
- 4. Select the [type](#type) of issue you want to open.
+ 4. Select the [type](#types) of issue you want to open.
  5. Enter a descriptive title.
  6. Do not delete the provided issue template. Fill out every applicable section.
  7. Make sure to mention any relevant documentation and other issues you've already seen. We don't know what you've seen unless you tell us. If you don't list it, we'll assume you haven't seen it.

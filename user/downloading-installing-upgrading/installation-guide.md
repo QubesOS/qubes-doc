@@ -43,7 +43,7 @@ Even on supported hardware, you must ensure that [IOMMU-based virtualization](ht
 
 ### Copying the ISO onto the installation medium
 
-Pick the most secure existing computer and OS you have available for downloading and copying the Qubes ISO onto the installation medium. [Download](/downloads/) a Qubes ISO.
+Pick the most secure existing computer and OS you have available for downloading and copying the Qubes ISO onto the installation medium. [Download](/downloads/) a Qubes ISO. If your Internet connection is unstable and the download is interrupted, you could resume the partial download with `wget --continue` in case you are currently using wget for downloading or use a download-manager with resume capability. Alternatively you can download installation ISO via BitTorrent that sometimes enables higher download speeds and more reliable downloads of large files.
 
 <div class="alert alert-danger" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
