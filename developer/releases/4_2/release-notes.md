@@ -16,6 +16,7 @@ permalink: /doc/releases/4.2/release-notes/
   - Qubes Global Settings ([#6898](https://github.com/QubesOS/qubes-issues/issues/6898))
   - Create New Qube
   - Qubes Update ([#7443](https://github.com/QubesOS/qubes-issues/issues/7443))
+- New `qubes-vm-update` tool ([#7443](https://github.com/QubesOS/qubes-issues/issues/7443))
 - Unified `grub.cfg` location for both UEFI and legacy boot ([#7985](https://github.com/QubesOS/qubes-issues/issues/7985))
 - PipeWire support ([#6358](https://github.com/QubesOS/qubes-issues/issues/6358))
 - fwupd integration for firmware updates ([#4855](https://github.com/QubesOS/qubes-issues/issues/4855))
@@ -67,6 +68,8 @@ We strongly recommend [updating Qubes OS](/doc/how-to-update/) immediately after
     ```
   
   - For more information, see [RPC policies](/doc/rpc-policy/) and [Qube configuration interface](/doc/vm-interface/#qubes-rpc).
+
+- Beginning with Qubes 4.2, the recommended way to update Qubes OS via the command line has changed. Salt is no longer the preferred method, though it is still supported. Instead, `qubes-dom0-update` is recommended for updating dom0, and `qubes-vm-update` is recommended for updating templates and standalones. (The recommended way to update via the GUI has not changed. The Qubes Update tool is still the preferred method.) For more information, see [How to update](/doc/how-to-update/).
 
 ## Download
 
