@@ -152,10 +152,10 @@ Emergency Recovery Instructions
             done | gzip -d | tar -xv
         vm1/private.img
 
-    If this pipeline fails, it is likely that the backup is corrupted or has
+    - If this pipeline fails, it is likely that the backup is corrupted or has
     been tampered with.
 
-    **Note:** If your backup was compressed with a program other than `gzip`,
+    - **Note:** If your backup was compressed with a program other than `gzip`,
     you must substitute the correct compression program in the command above.
     This information is contained in `backup-header` (see step 4). For example,
     if your backup is compressed with `bzip2`, use `bzip2 -d` instead in the
@@ -171,7 +171,7 @@ Emergency Recovery Instructions
  8. Success! If you wish to recover data from more than one VM in your backup,
     simply repeat steps 6 and 7 for each additional VM.
 
-    **Note:** You may wish to store a copy of these instructions with your
+    - **Note:** You may wish to store a copy of these instructions with your
     Qubes backups in the event that you fail to recall the above procedure
     while this web page is inaccessible. All Qubes documentation, including
     this page, is available in plain text format in the following Git

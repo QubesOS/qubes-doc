@@ -13,6 +13,7 @@ title: How to mount a Qubes partition from another OS
 When a Qubes OS install is unbootable or booting it is otherwise undesirable, this process allows for the recovery of files stored within the system.
 
 These functions are manual and do not require any Qubes specific tools. All steps assume the default Qubes install with the following components:
+
 - LUKS encrypted disk
 - LVM based VM storage
 
