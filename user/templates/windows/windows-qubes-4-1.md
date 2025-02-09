@@ -113,6 +113,7 @@ These parameters are set for the following reasons:
 - Setting memory to 4096MB may work in most cases, but using 6144MB (or even 8192MB) may reduce the likelihood of crashes during installation, especially for Windows 10 or 11. This is important as Windows qubes have to be created without memory balancing, as requested by the parameter settings described above.
 
 - The Windows' installer requires a significant amount of memory or else the VM will crash with such errors:
+
     ~~~
     /var/log/xen/console/hypervisor.log:
 
