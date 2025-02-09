@@ -98,7 +98,7 @@ We recommend consulting these resources when selecting hardware for Qubes OS:
   offer significant security advantages over conventional operating systems on
   the same hardware.
 
-  Intel maintains a
+  - Intel maintains a
   [list](https://www.intel.com/content/www/us/en/support/articles/000022396/processors.html)
   of end-of-support dates for its processors. However, this list seems to
   include only processors that are no longer supported or will soon no longer
