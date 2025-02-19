@@ -28,9 +28,9 @@ Examples of valid cases for USB-passthrough:
 (If you are thinking to use a two-factor-authentication device, [there is an app for that](/doc/ctap-proxy/).
 But it has some [issues](https://github.com/QubesOS/qubes-issues/issues/4661).)
 
-## Attaching And Detaching a USB Device
+## Attaching and detaching a USB device
 
-### With Qubes Device Manager
+### With Qubes device manager
 
 Click the device-manager-icon: ![device manager icon](/attachment/doc/media-removable.png)
 A list of available devices appears.
@@ -48,7 +48,7 @@ Hover on the attached device to display a list of running VMs.
 The one to which your device is connected will have an eject button ![eject icon](/attachment/doc/media-eject.png) next to it.
 Click that and your device will be detached.
 
-### With The Command Line Tool
+### With the command line tool
 
 In dom0, you can use `qvm-usb` from the commandline to attach and detach devices.
 
@@ -87,14 +87,14 @@ sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
 sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
 ```
 
-## Maintenance And Customisation
+## Maintenance and customisation
 
-### Creating And Using a USB qube
+### Creating and using a USB qube
 
 If you've selected to install a usb-qube during system installation, everything is already set up for you in `sys-usb`.
 If you've later decided to create a usb-qube, please follow [this guide](/doc/usb-qubes/).
 
-### Installation Of `qubes-usb-proxy`
+### Installation of `qubes-usb-proxy`
 
 To use this feature, the `qubes-usb-proxy` package needs to be installed in the templates used for the USB qube and qubes you want to connect USB devices to.
 This section exists for reference or in case something broke and you need to reinstall `qubes-usb-proxy`.
@@ -111,17 +111,21 @@ If you receive this error: `ERROR: qubes-usb-proxy not installed in the VM`, you
   sudo apt-get install qubes-usb-proxy
   ```
 
-### Using USB Keyboards And Other Input Devices
+### Using USB keyboards and other input devices
 
 **Warning:** especially keyboards need to be accepted by default when using them to login! Please make sure you carefully read and understood the **[security considerations](/doc/device-handling-security/#usb-security)** before continuing!
 
 Mouse and keyboard setup are part of [setting up a USB qube](/doc/usb-qubes/).
 
-### Finding The Right USB Controller
+### Finding the right USB controller
 
 Some USB devices are not compatible with the USB pass-through method Qubes employs.
 In situations like these, you can try to pass through the entire USB controller to a qube as PCI device.
 However, with this approach one cannot attach single USB devices but has to attach the whole USB controller with whatever USB devices are connected to it.
+
+You can find your controller and its BDF address using either of two methods described below. Using the command-line tools lsusb and readlink or by using the Qube Manager GUI. It is possible that on some system configurations the readlink method produces output which is different from the example below, while the Qube Manager method allows one to easily determine the correct controller and BDF address.
+
+#### Method 1: Using lsusb and readlink
 
 If you have multiple USB controllers, you must first figure out which PCI device is the right controller.
 
@@ -155,6 +159,8 @@ This should output something like:
 ../../../devices/pci-0/pci0000:00/0000:00:1a.0/usb3
 ```
 
+If the output format does not match this example, or you are unsure if it contains the correct BDF address, you can try finding the address using method 2 using the Qube Manager instead.
+
 Now you see the path and the text between `/pci0000:00/0000:` and `/usb3` i.e. `00:1a.0` is the BDF address. Strip the address and pass it to the [`qvm-pci` tool](/doc/how-to-use-pci-devices/) to attach the controller to the targetVM.
 
 For example, On R 4.0 the command would look something like
@@ -162,3 +168,17 @@ For example, On R 4.0 the command would look something like
 ```
 qvm-pci attach --persistent personal dom0:00_1a.0
 ```
+
+#### Method 2: Using the Qube Manager
+
+Open the Qube Manager, then right click on one of the VMs and open the settings. Go to the tab "Devices".
+
+Here you should see your available devices along with their BDF addresses. Look for the lines containing "USB controller".
+
+They should look something like: `01:00.0 USB controller: Name of manufacturer`
+
+The first part is the BDF address, in this example: `01:00.0`
+
+If, for example, you have 2 USB controllers in your system because you added one you should see 2 such lines and you can probably guess which controller is the one on the mainboard and which one you added. For example, if you have a mainboard with an Intel chipset, it is possible that all of the mainboard devices show as "Intel Corporation" while the added controller shows another name of manufacturer.
+
+Now you should be able to tell which is the correct BDF address of the mainboard USB controller or the added USB controller.
