@@ -74,7 +74,7 @@ Change `Qubes-RX-x86_64.iso` to the filename of the version you're installing, a
 
 #### Windows ISO to USB
 
-On Windows, you can use the [Rufus](https://rufus.akeo.ie/) tool to write the ISO to a USB key. Be sure to select "Write in DD Image mode" *after* selecting the Qubes ISO and pressing "START" on the Rufus main window.
+On Windows, you can use the [Rufus](https://rufus.ie/) tool to write the ISO to a USB key. Be sure to select "Write in DD Image mode" *after* selecting the Qubes ISO and pressing "START" on the Rufus main window.
 
 <div class="alert alert-info" role="alert">
   <i class="fa fa-info-circle"></i>
