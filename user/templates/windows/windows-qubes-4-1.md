@@ -53,9 +53,9 @@ However, if you are an expert or want to do it manually you may continue below.
 
 Have the Windows ISO image (preferrably the 64-bit version) downloaded in some qube.
 
-Windows ISOs can be downloaded directly from Microsoft (eg. [here](https://www.microsoft.com/en-us/software-download/windows10ISO) for Win10), or selected and downloaded via the [Windows Media Creation Tool](https://go.microsoft.com/fwlink/?LinkId=691209). You should, however, regard the downloaded image to be untrustworthy, since there is no reliable way to check that the download was not somehow compromised (see the discussion in issue [Simplify Qubes Windows Tools Installation for R4.1 #7240](https://github.com/QubesOS/qubes-issues/issues/7240)).
+Windows ISOs can be downloaded directly from Microsoft (eg. [here](https://www.microsoft.com/en-us/software-download/windows10ISO) for Win10), or selected and downloaded via the [Windows Media Creation Tool](https://go.microsoft.com/fwlink/?LinkId=691209).
 
-Unofficial “debloated” ISOs from projects like reviOS 18 or ameliorated 10 can be found on the net, although obviously you should consider them even “unsafer” than MS provided ISOs. Alternatively, one could download an official ISO and run scripts/apply patches before installation. Some of the “tweaks” might end up being too much depending on the qube’s planned usage though (eg. no appx functionality in ameliorated windows - so the installation of Windows Store apps is impossible, even with powershell).
+Unofficial “debloated” ISOs from projects like reviOS 18 or ameliorated 10 can be found on the net, although obviously you should consider them unsafe ISOs. Alternatively, one could download an official ISO and run scripts/apply patches before installation. Some of the “tweaks” might end up being too much depending on the qube’s planned usage though (eg. no appx functionality in ameliorated windows - so the installation of Windows Store apps is impossible, even with powershell).
 
 **Create Windows VM**
 
