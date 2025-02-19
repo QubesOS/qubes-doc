@@ -25,6 +25,12 @@ Qubes-certified computers are certified for a [major release](/doc/version-schem
 
 The current Qubes-certified models are listed below in reverse chronological order of certification.
 
+### NovaCustom V54 Series 14.0 inch coreboot laptop
+
+[![Photo of the NovaCustom V54 Series 14.0 inch coreboot laptop](/attachment/site/novacustom-v54-series.png)](https://novacustom.com/product/v54-series/)
+
+The [NovaCustom V54 Series 14.0 inch coreboot laptop](https://novacustom.com/product/v54-series/) is certified for Qubes OS Release 4.
+
 ### NitroPad V56
 
 [![Photo of the NitroPad V56](/attachment/site/nitropad-v56.png)](https://shop.nitrokey.com/shop/nitropad-v56-684)
