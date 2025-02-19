@@ -172,7 +172,15 @@ These parameters are set for the following reasons:
     - Click `Next`. A screen appears saying "Who's going to use this device?" This is the local account creation screen.
     - Enter the username you want to use and click `Next`.
     - Enter a password and click `Next`. You can leave the field blank but it's not recommended.
+   
+    For Windows 11 version 24H2, the following sequence of actions to use a local account instead of a Microsoft account has been proved working:
 
+    - Boot with a disconnected machine.
+    - When you reach the “Let’s Connect You To A Network” page, type Shift-F10 to open a console window.
+    - Enter `oobe\bypassnro` and hit enter.
+    - The machine will restart and then lets you setup a local account.
+    - Machine then can go online again if desired.
+   
 - On systems shipped with a Windows license, the product key may be read from flash via root in dom0:
 
     `strings < /sys/firmware/acpi/tables/MSDM`
