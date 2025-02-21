@@ -119,7 +119,7 @@ AppVM -> GuiVM messages
 Proper handling of the below messages is security-critical.
 Note that all messages except for `CLIPBOARD`, `MFNDUMP`, and `WINDOW_DUMP` have fixed size, so the parsing code can be small.
 
-The `override_redirect` window attribute is explained at [Override Redirect Flag](https://tronche.com/gui/x/xlib/window/attributes/override-redirect.html). The `transient_for` attribute is explained at [`transient_for` attribute](https://tronche.com/gui/x/icccm/sec-4.html#WM_TRANSIENT_FOR).
+The `override_redirect` window attribute is explained at [Override Redirect Flag](https://tronche.com/gui/x/xlib/window/attributes/override-redirect.html). The `transient_for` attribute is explained at `transient_for` [attribute](https://tronche.com/gui/x/icccm/sec-4.html#WM_TRANSIENT_FOR).
 
 Window manager hints and flags are described in the [Extended Window Manager Hints (EWMH) spec](https://standards.freedesktop.org/wm-spec/latest/), especially under the `_NET_WM_STATE` section.
 
