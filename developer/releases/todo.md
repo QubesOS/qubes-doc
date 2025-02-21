@@ -37,6 +37,7 @@ On final release
 * finish release notes
 * update InstallationInstructions
 * build ISO and push to mirrors
+* push `qubes-release` package to `current`
 * notify @Rudd-O about the new ISO for new torrent hosting
-* write blog post
-* announce on Twitter
+* write news post
+* announce
