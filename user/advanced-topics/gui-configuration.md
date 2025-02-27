@@ -42,8 +42,8 @@ You might face issues when playing video, if the video is choppy instead of
 smooth display this could be because the X server doesn't work. You can use the
 Linux terminal (Ctrl-Alt-F2) after starting the virtual machine, login. You can
 look at the Xorg logs file. As an option you can have the below config as
-well present in `/etc/X11/xorg.conf.d/90-intel.conf`, depends on HD graphics
-though -
+well present in `/etc/X11/xorg.conf.d/90-intel.conf` (depends on HD graphics
+though).
 
 ```bash
 Section "Device"

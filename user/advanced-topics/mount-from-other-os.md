@@ -90,7 +90,7 @@ Reverting Changes
 -----------------------------------------
 
 Any changes which were made to the system in the above steps will need to be reverted before the disk will properly boot.
-However, LVM will not allow an VG to be renamed to a name already in use.
+However, LVM will not allow a VG to be renamed to a name already in use.
 Thes steps must occur either in an app qube or using recovery media.
 
 1. Unmount any disks that were accessed.
