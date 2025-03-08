@@ -108,6 +108,44 @@ binds=( "${binds[@]/'/var/lib/tor'}" )
 
 (Editing `/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf` directly is strongly discouraged, since such changes get lost when that file is changed in the package on upgrades.)
 
+## Custom persist feature ##
+
+Custom persist is an optional advanced feature allowing the creation of minimal state AppVM. The purpose of such an AppVM is to avoid unwanted data to persist as much as possible by the disabling the ability to configure persistence from the VM itself. When enabled, the following happens:
+* ``/rw/config/rc.local`` is no longer executed
+* ``/rw/config/qubes-firewall-user-script`` is ignored
+* ``/rw/config/suspend-module-blacklist`` is ignored
+* User bind dirs defined in ``/rw/config/qubes-bind-dirs.d`` are no longer read
+* ``/home`` and ``/user/local`` are not persistent anymore unless explicitly configured. 
+
+Bind dirs are obviously still supported but this must be configured either in the template (``/usr/lib/qubes-bind-dirs.d`` and ``/etc/qubes-bind-dirs.d``) or from dom0 using ``qvm-features``. The bind dirs declaration must be done this way: ``qvm-features <VMNAME> custom-persist.<ARBITRARY NAME> [PRE-CREATION SETTINGS]<PATH>``
+
+To use this feature, first, enable it:
+
+```
+qvm-service -e my-app-vm custom-persist
+```
+
+Then, configure a persistent directory with ``qvm-features``:
+
+```
+qvm-features my-app-vm custom-persist.my_persistent_dir /var/my_persistent_dir
+```
+
+To re-enable ``/home`` and ``/usr/local`` persistence, just add them to the list:
+```
+qvm-features my-app-vm custom-persist.home /home
+qvm-features my-app-vm custom-persist.usrlocal /usr/local
+```
+
+When starting the VM, declared custom-persist bind dirs are automatically added to the ``binds`` variable described above and are handled in the same way. 
+
+A user may want their bind-dirs to be automatically pre-created in ``/rw/bind-dirs``. Custom persist can do this for you by providing the type of the resource to create (file or dir), owner, group and mode. For example:
+
+```
+qvm-features my-app-vm custom-persist.downloads dir:user:user:0755:/home/user/Downloads
+qvm-features my-app-vm custom-persist.my_ssh_known_hosts_file file:user:user:0600:/home/user/.ssh/known_hosts
+```
+
 ## Discussion ##
 
 [app qubes: make selected files and folders located in the root image persistent- review bind-dirs.sh](https://groups.google.com/forum/#!topic/qubes-devel/tcYQ4eV-XX4/discussion)
