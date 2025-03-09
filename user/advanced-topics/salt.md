@@ -67,9 +67,9 @@ The lowest level is a single state function, called like
 this `state.single pkg.installed name=firefox-esr`
 When the system compiles data from sls formulas, it generates *chunks* -
 low chunks are at the bottom of the compiler . You can call them with
-`state.low`
+`state.low`.
 Next up is the *lowstate* level - this is the list of all low chunks in
-order. - To see them you have `state.show_lowstate`, and use `state.lowstate` to apply them.
+order. To see them you have `state.show_lowstate`, and use `state.lowstate` to apply them.
 At the top level is *highstate* - this is an interpretation of **all** the data represented in YAML
 in sls files. You can view it with `state.show_highstate`.
 
@@ -219,7 +219,7 @@ Instead, to get this behavior, you would use a `do` statement.
 So you should take a look at the [Jinja API documentation](https://jinja.palletsprojects.com/templates/).
 Documentation about using Jinja to directly call Salt functions and get data
 about your system can be found in the official
-[Salt documentation](https://docs.saltproject.io/en/getstarted/config/jinja.html#get-data-using-salt).
+[Salt documentation](https://docs.saltproject.io/salt/user-guide/en/latest/topics/jinja.html).
 
 ## Salt Configuration, QubesOS layout
 

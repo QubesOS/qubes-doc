@@ -34,7 +34,7 @@ For better integration, a set of drivers and services, called Qubes Windows Tool
 
 ## Importing a Windows VM from an earlier version of Qubes
 
-- Importing from R3.2 or earlier will not work, because  Qubes R3.2 has the old stubdomain by default and this is preserved over backup and restore (as Windows otherwise won't boot.
+- Importing from R3.2 or earlier will not work, because  Qubes R3.2 has the old stubdomain by default and this is preserved over backup and restore (as Windows otherwise won't boot).
 
 - Importing from R4.0 should work, see [Migrate backups of Windows VMs created under Qubes R4.0 to R4.1](/doc/templates/windows/migrate-to-4-1).
 
@@ -127,7 +127,12 @@ These parameters are set for the following reasons:
 - Disable direct boot so that the VM will go through the standard cdrom/HDD boot sequence. This is done by setting the qube's kernel to an empty value.
 
 - After creating the new qube, increase the VM's `qrexec_timeout`: in case you happen to get a BSOD or a similar crash in the VM, utilities like `chkdsk` won't complete on restart before `qrexec_timeout` automatically halts the VM. That can really put the VM in a totally unrecoverable state, whereas with higher `qrexec_timeout`, `chkdsk` or the appropriate utility has plenty of time to fix the VM. Note that Qubes Windows Tools also require a larger timeout to move the user profiles to the private volume the first time the VM reboots after the tools' installation. So set the parameter via the following CLI command from a dom0 terminal, because the Qube manager does not support this setting:
+
+    ~~~
+    qvm-prefs WindowsNew qrexec_timeout 7200
+    ~~~
   
+
 **Start Windows VM**
 
 - The VM is now ready to be started; the best practice is to use an installation ISO [located in a VM](/doc/standalones-and-hvms/#installing-an-os-in-an-hvm). Now boot the newly created qube from the Windows installation media. In the Qubes Manager:
@@ -164,7 +169,7 @@ These parameters are set for the following reasons:
 
 <div class="alert alert-warning" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
-  **Caution:** This temporary patch may cease to work if it so pleases Microsoft some time.
+  **Caution:** This temporary patch may stop functioning at Microsoft's discretion at some point in the future.
 </div>
 
     
@@ -259,7 +264,7 @@ On starting the AppVM, sometimes a message is displayed that the Xen PV Network 
 
 **Caution:** These AppVMs must not be started while the corresponding TemplateVM is running, because they share the TemplateVM's license data. Even if this could work sometimes, it would be a violation of the license terms.
 
-Furthermore, if manual IP setup was used for the template, the IP address selected for the template will also be used for the AppVM, as it inherits this address from the template. Qubes, however, will have assigned a different address to the AppVM, which will have to changed to that of the template (e.g. 10.137.0.x) so that the AppVM can access the network, vis the CLI command in a dom0 terminal:
+Furthermore, if manual IP setup was used for the template, the IP address selected for the template will also be used for the AppVM, as it inherits this address from the template. Qubes, however, will have assigned a different address to the AppVM, which will have to be changed to that of the template (e.g. 10.137.0.x) so that the AppVM can access the network, via the CLI command in a dom0 terminal:
 
 ~~~
 qvm-prefs WindowsNew ip 10.137.0.x
