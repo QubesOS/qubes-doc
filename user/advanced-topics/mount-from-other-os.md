@@ -13,6 +13,7 @@ title: How to mount a Qubes partition from another OS
 When a Qubes OS install is unbootable or booting it is otherwise undesirable, this process allows for the recovery of files stored within the system.
 
 These functions are manual and do not require any Qubes specific tools. All steps assume the default Qubes install with the following components:
+
 - LUKS encrypted disk
 - LVM based VM storage
 
@@ -89,7 +90,7 @@ Reverting Changes
 -----------------------------------------
 
 Any changes which were made to the system in the above steps will need to be reverted before the disk will properly boot.
-However, LVM will not allow an VG to be renamed to a name already in use.
+However, LVM will not allow a VG to be renamed to a name already in use.
 Thes steps must occur either in an app qube or using recovery media.
 
 1. Unmount any disks that were accessed.
