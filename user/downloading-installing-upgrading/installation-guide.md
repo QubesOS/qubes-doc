@@ -23,6 +23,8 @@ title: Installation guide
 
 Welcome to the Qubes OS installation guide! This guide will walk you through the process of installing Qubes. Please read it carefully and thoroughly, as it contains important information for ensuring that your Qubes OS installation is functional and secure.
 
+This guide assumes you're familiar with the [glossary](/doc/Glossary/). Make sure to read it first before moving on.
+
 ## Pre-installation
 
 ### Hardware requirements
@@ -217,8 +219,12 @@ The new user you create has full administrator privileges and is protected by a 
 ### Installation
 When you have completed all the items marked with the warning icon, press **Begin Installation**.
 
+[![Installation summary ready](/attachment/doc/installation-summary-ready.png)](/attachment/doc/installation-summary-ready.png)
+
 Installation can take some time. 
+
 [![Windows showing installation complete and Reboot button. ](/attachment/doc/installation-complete-4.2.png)](/attachment/doc/installation-complete-4.2.png)
+
 When the installation is complete, press **Reboot System**. Don't forget to remove the installation medium, or else you may end up seeing the installer boot screen again.
 
 ## Post-installation
@@ -238,23 +244,38 @@ Just after this screen, you will be asked to enter your encryption passphrase.
 You're almost done. Before you can start using Qubes OS, some configuration is needed. 
 
 [![Window with link for final configuration ](/attachment/doc/initial-setup-menu-4.2.png)](/attachment/doc/initial-setup-menu-4.2.png)
+
 Click on the item marked with the warning triangle to enter the configuration screen.
+
 [![Initial configuration menu](/attachment/doc/initial-setup-menu-configuration-4.2.png)](/attachment/doc/initial-setup-menu-configuration-4.2.png)
 
 By default, the installer will create a number of qubes (depending on the options you selected during the installation process). These are designed to give you a more ready-to-use environment from the get-go.
 
 Let's briefly go over the options:
 
-* **Templates Configuration:** Here you can decide which [templates](../templates/) you want to have installed, and which will be the default template.
-* **Create default system qubes:** These are the core components of the system, required for things like internet access. You can opt to have some created as [disposables](../glossary#disposable)
-* **Create default application qubes:** These are how you compartmentalize your digital life. There's nothing special about the ones the installer creates. They're just suggestions that apply to most people. If you decide you don't want them, you can always delete them later, and you can always create your own.
-* **Use a qube to hold all USB controllers:** Just like the network qube for the network stack, the USB qube isolates the USB controllers.
-  * **Use sys-net qube for both networking and USB devices:** You should select this option if you rely on a USB device for network access, such as a USB modem or a USB Wi-Fi adapter.
-* **Create Whonix Gateway and Workstation qubes:** If you want to use [Whonix](https://www.whonix.org/wiki/Qubes), you should select this option.
-  * **Enabling system and template updates over the Tor anonymity network using Whonix:** If you select this option, then whenever you install or update software in dom0 or a template, the internet traffic will go through Tor.
-* **Do not configure anything:** This is for very advanced users only. If you select this option, you will have to manually set up everything.
+#### Templates Configuration
 
-When you're satisfied with your choices, press **Done**. This configuration process may take a while, depending on the speed and compatibility of your system.
+This section provides the [templates](/doc/template/) you wish to install and which one to use as the default one. The default template settings can always be changed after this initial configuration too.
+
+#### Main Configuration
+
+* **Create default system qubes (sys-net, sys-firewall, default DispVM):** These are the core components of the system, required for things like internet access.
+  * **Make sys-firewall and sys-usb disposable:** The qubes responsible for firewalling/isolating network traffic and holding certain hardware devices like USB, Bluetooth adapter, integrated cameras, etc. (**sys-usb** only, if applicable) will be made disposable. Enabled by default as generally there seem to be no benefits for them being persistent anyhow.
+  * **Make sys-net disposable:** The qube handling your network devices will be made disposable. This will result in loss of remembered Wi-Fi passwords and therefore automatic Wi-Fi connections each time the qube gets booted. Disabled by default for a more user-friendly experience but if you don't mind storing the aforementioned passwords e.g. in an offline database, you may turn it on for privacy enhancements (no broadcasting of saved Wi-Fi network names).
+* **Create default application qubes (personal, work, untrusted, vault):** These are how you compartmentalize your digital life. There's nothing special about the ones the installer creates. They're just suggestions that apply to most people. If you decide you don't want them, you can always delete them later, and you can always create your own.
+* **Use a qube to hold all USB controllers (create a new qube called sys-usb by default):** A dedicated qube that holds certain hardware devices like USB, Bluetooth adapter, integrated cameras, etc. (**sys-usb**) will be created.
+  * **Use sys-net qube for both networking and USB devices:** certain hardware devices will be held by **sys-net** instead. You should select this option if you rely on a USB device for network access, such as a USB modem or a USB Wi-Fi adapter, as this option will make the experience with them more user-friendly and seamless.
+  * **Automatically accept USB mice (discouraged):** If enabled, upon the connecting of a device that presents itself as a USB mouse, it will be automatically forwarded to dom0. Disabled by default so once such device is connected, manual user interaction is required to confirm forwarding that device. This results in additional security benefits - e.g. a malicious device presenting itself as a mouse will be rendered useless until a confirmation dialog in dom0 is accepted.
+  * **Automatically accept USB keyboard (discouraged if non-USB keyboard is available):** See the point above about USB mice. The same applies here. Enabling this is mostly beneficial to modern stationary workstations where only a USB keyboard can be used for typing. If you can use a PS/2 keyboard (generally laptops use an emulated PS/2 for their internal keyboards), you may want to leave this option disabled for additional security.
+* **Create Whonix Gateway and Workstation qubes (sys-whonix, anon-whonix):** If you want to use Whonix, you should select this option.
+  * **Enable system and template updates over the Tor anonymity network using Whonix:** If you select this option, then whenever you install or update software in dom0 or a template, the internet traffic will go through Tor.
+
+#### Advanced Configuration
+
+* **Use custom storage pool:** Here you can specify custom names for the LVM pool holding your qubes' filesystems as well as LVM Volume Group name. Unless you're preparing a customized environment on your machine (e.g. dual booting distinct Qubes OS releases), you can leave this option unchecked.
+* **Do not configure anything (for advanced users):** This is for very advanced users only. If you select this option, you'll have to set everything up manually afterward.
+
+When you're satisfied with you choices, press **Done**. This configuration process may take a while, depending on the speed of your computer and the selected options described above (the more templates to be installed, the longer the configuration process will take).
 
 After configuration is done, you will be greeted by the login screen. Enter your password and log in.
 
