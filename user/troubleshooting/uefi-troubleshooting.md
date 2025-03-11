@@ -209,6 +209,9 @@ Or if you have already rebooted after the first stage install and have encounter
 
 Some firmware will not recognize the default Qubes EFI configuration.
 As such, it will have to be manually edited to be bootable.
+
+### Use XEN as default EFI entry:
+
 This will need to be done after every kernel and Xen update to ensure you use the most recently installed versions.
 
 1. Copy the `/boot/efi/EFI/qubes/` directory to `/boot/efi/EFI/BOOT/` (the contents of `/boot/efi/EFI/BOOT` should be identical to `/boot/efi/EFI/qubes` besides what is described in steps 2 and 3):
@@ -230,6 +233,16 @@ This will need to be done after every kernel and Xen update to ensure you use th
     cp /boot/efi/EFI/qubes/xen-4.8.3.efi /boot/efi/EFI/qubes/xen.efi
     cp /boot/efi/EFI/qubes/xen-4.8.3.efi /boot/efi/EFI/BOOT/BOOTX64.efi
     ```
+    
+### Use GRUB as default EFI entry:
+
+Copy grub files to `BOOT/BOOTX64.*`:
+
+    ```
+    cp /boot/efi/EFI/qubes/grub.cfg /boot/efi/EFI/BOOT/BOOTX64.cfg
+    cp /boot/efi/EFI/qubes/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.efi
+    ```
+    
 
 ## Installation finished but "Qubes" boot option is missing and xen.cfg is empty / Installation fails with "failed to set new efi boot target"
 
