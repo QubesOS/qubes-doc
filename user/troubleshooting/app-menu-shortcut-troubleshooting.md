@@ -14,22 +14,19 @@ title: App menu shortcut troubleshooting
 For ease of use Qubes aggregates shortcuts to applications that are installed in app qubes and shows them in one application menu (aka "app menu" or "start menu") in dom0.
 Clicking on such shortcut runs the assigned application in its app qube.
 
-![dom0-menu.png"](/attachment/doc/r4.0-dom0-menu.png)
+[![](/attachment/doc/r4.0-dom0-menu.png)](/attachment/doc/r4.0-dom0-menu.png)
 
-How-to add a shortcut
----------------------
+## How-to add a shortcut
 
-With the graphical user interface
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+### With the graphical user interface
 
 To make applications newly installed show up in the menu, you can use the qube's *Settings*. Under the *Applications* tab, use the *Refresh Applications* button. Linux qubes do this automatically, if the *Settings* are opened after the installation of the package.
 
-![dom0-appmenu-select.png"](/attachment/doc/r4.0-dom0-appmenu-select.png)
+[![](/attachment/doc/r4.0-dom0-appmenu-select.png)](/attachment/doc/r4.0-dom0-appmenu-select.png)
 
 After that, use the directional buttons (`>`, `>>`, `<` or `<<`) to customize which applications are shown, by moving them to the *Applications shown in App Menu* part (on the right side). Use the *Apply* (or *Ok*) button to see the changes in the app menu.
 
-With the console user interface
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+### With the command-line interface
 
 To update the list of available applications, use the `qvm-sync-appmenus` command in dom0, replacing `<QUBE_NAME>` by the qube name:
 
@@ -37,7 +34,7 @@ To update the list of available applications, use the `qvm-sync-appmenus` comman
 $ qvm-sync-appmenus <QUBE_NAME>
 ```
 
-When using the *Refresh Applications* button in a qube's settings, the command `qvm-sync-appmenus` is used at least one time. When refreshing an AppvM applications, it is also run against the template. So the console equivalent of clicking the *Refresh button* is the following (always in dom0):
+When using the *Refresh Applications* button in a qube's settings, the command `qvm-sync-appmenus` is used at least one time. When refreshing an AppVM application, it is also run against the template. So the console equivalent of clicking the *Refresh button* is the following (always in dom0):
 
 ```console
 $ qvm-sync-appmenus <APPVM_NAME>
@@ -60,11 +57,9 @@ qubes-run-terminal.desktop
 
 You can replace the file path by a single hyphen (`-`) to read it from standard input.
 
-What if my application has not been automatically included in the list of available apps?
------------------------------------------------------------------------------------------
+## What if my application has not been automatically included in the list of available apps?
 
-Missing desktop entry
-^^^^^^^^^^^^^^^^^^^^^
+### Missing desktop entry
 
 Sometimes applications may not have included a `.desktop` file and may not be detected by `qvm-sync-appmenus`.
 Other times, you may want to make a web shortcut available from the Qubes start menu.
@@ -110,23 +105,20 @@ To add a custom menu entry instead:
    </Menu>
    ~~~
 
-Unavailable desktop entry
-^^^^^^^^^^^^^^^^^^^^^^^^^
+### Unavailable desktop entry
 
 If you created a desktop entry but it doesn't show up, there are some steps to run inside the qube, to identify the problem:
 
-1. make sure the name is a valid name (only ascii letters, numbers, hyphens and point)
+1. make sure the name is a valid name (only ASCII letters, numbers, hyphens and point)
 2. if this program is available, run `desktop-file-validate <DESKTOP_FILE_PATH>`
 3. run it through `gtk-launch`
 4. run `/etc/qubes-rpc/qubes.GetAppmenus` and check that your desktop entry is listed in the output
 
-What about applications in disposables?
------------------------------------
+## What about applications in disposables?
 
-[See here](/doc/disposable-customization/).
+See [Adding programs to the app menu in Disposable customization](/doc/disposable-customization/#adding-programs-to-the-app-menu).
 
-What if a removed application is still in the app menu?
---------------------------------------------------------
+## What if a removed application is still in the app menu?
 
 First, try this in dom0:
 
@@ -144,8 +136,7 @@ If that doesn't work, you can manually modify the files in `~/.local/share/appli
 
 For example, suppose you've deleted `my-old-vm`, but there is a leftover Application Menu shortcut, and you find a related file in `~/.local/share/applications/`, try to delete it. The hyphens in the name of the qube are replaced by an underscore and the letter, so instead of looking for `my-old-vm`, try `my_dold_dvm`.
 
-What if my application is shown in app menu, but doesn't run anything?
-----------------------------------------------------------------------
+## What if my application is shown in app menu, but doesn't run anything?
 
 First, check in the corresponding `.desktop` file in  `~/.local/share/qubes-appmenus/<QUBE_NAME>/`, inside dom0.
 
@@ -161,8 +152,7 @@ It's possible to run the command to check the output, by copying this line witho
 $ /etc/qubes-rpc/qubes.StartApp <APPLICATION_NAME>
 ```
 
-Behind the scenes
------------------
+## Behind the scenes
 
 `qvm-sync-appmenus` works by invoking the *GetAppMenus* [Qubes service](/doc/qrexec/) in the target domain.
 This service enumerates applications installed in that qube and sends formatted info back to dom0 which creates `.desktop` files in the app qube/template directory of dom0.
