@@ -6,7 +6,7 @@ ref: 233
 title: GUI troubleshooting
 ---
 
-## Can't click on parts of screens after connecting high-resolution external display
+## Can't click on parts of the screen after connecting high-resolution external display
 
 When you connect a high-resolution external display, you may be unable to click on parts of the screen.
 
