@@ -91,25 +91,27 @@ This section will demonstrate a simple installation using mostly default setting
 
 ### Getting to the boot screen
 
-"Booting" is the process of starting your computer. When a computer boots up, it first runs low-level software before the main operating system. Depending on the computer, this low-level software is may be called the ["BIOS"](https://en.wikipedia.org/wiki/BIOS) or ["UEFI"](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface).
+"Booting" is the process of starting your computer. When a computer boots up, it first runs low-level software before the main operating system. Depending on the computer, this low-level software may be called the ["BIOS"](https://en.wikipedia.org/wiki/BIOS) or ["UEFI"](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface).
 
 Since you're installing Qubes OS, you'll need to access your computer's BIOS or UEFI menu so that you can tell it to boot from the USB drive to which you just copied the Qubes installer ISO.
 
 To begin, power off your computer and plug the USB drive into a USB port, but don't press the power button yet. Right after you press the power button, you'll have to immediately press a specific key to enter the BIOS or UEFI menu. The key to press varies from brand to brand. `Esc`, `Del`, and `F10` are common ones. If you're not sure, you can search the web for `<COMPUTER_MODEL> BIOS key` or `<COMPUTER_MODEL> UEFI key` (replacing `<COMPUTER_MODEL>` with your specific computer model) or look it up in your computer's manual.
 
-Once you know the key to press, press your computer's power button, then repeatedly press that key until you've entered your computer's BIOS or UEFI menu. To give you and idea of what you should be looking for, we've provided a couple of example photos below.
+Once you know the key to press, press your computer's power button, then repeatedly press that key until you've entered your computer's BIOS or UEFI menu. To give you an idea of what you should be looking for, we've provided a couple of example photos below.
 
 Here's an example of what the BIOS menu looks like on a ThinkPad T430:
 
 [![ThinkPad T430 BIOS menu](/attachment/doc/Thinkpad-t430-bios-main.jpg)](/attachment/doc/Thinkpad-t430-bios-main.jpg)
 
-And here's an example of what a UEFI menu looks like:
+And here's an example of what a modern UEFI menu looks like:
 
 [![UEFI menu](/attachment/doc/uefi.jpeg)](/attachment/doc/uefi.jpeg)
 
-Once you access your computer's BIOS or UEFI menu, you'll want to go to the "boot menu," which is where you tell your computer which devices to boot from. The goal is to tell the computer to boot from your USB drive so that you can run the Qubes installer. If your boot menu lets you select which device to boot from first, simply select your USB drive. (If you have multiple entries that all look similar to your USB drive, and you're not sure which one is correct, one option is just to try each one until it works.) If, on the other hand, your boot menu presents you with a list of boot devices in order, then you'll want to move your USB drive to the top so that the Qubes installer runs before anything else.
+Once you access your computer's BIOS or UEFI menu, you'll want to go to the "boot menu", which is where you tell your computer which devices to boot from. The goal is to tell the computer to boot from your USB drive so that you can run the Qubes installer. If your boot menu lets you select which device to boot from first, simply select your USB drive. (If you have multiple entries that all look similar to your USB drive, and you're not sure which one is correct, one option is just to try each one until it works.) If, on the other hand, your boot menu presents you with a list of boot devices in order, then you'll want to move your USB drive to the top so that the Qubes installer runs before anything else.
 
-Once you're done on the boot menu, save your changes. How you do this depends on your BIOS or UEFI, but the instructions should be displayed right there on the screen or in a nearby tab. (If you're not sure whether you've saved your changes correctly, you can always reboot your computer and go back into the boot menu to check whether it still reflects your changes.) Once your BIOS or UEFI is configured the way you want it, reboot your computer. This time, don't press any special keys. Instead, let the BIOS or UEFI load and let your computer boot from your USB drive. If you're successful in this step, after a few seconds you'll be presented with the Qubes installer screen:
+Then, if you are on a computer using UEFI, you'll have to disable [Secure Boot](https://en.m.wikipedia.org/wiki/UEFI#SECURE-BOOT) to allow Qubes OS to boot.
+
+Once you're done with the settings, save your changes. How you do this depends on your BIOS or UEFI, but the instructions should be displayed right there on the screen or in a nearby tab. (If you're not sure whether you've saved your changes correctly, you can always reboot your computer and go back into the boot menu to check whether it still reflects your changes.) Once your BIOS or UEFI is configured the way you want it, reboot your computer. This time, don't press any special keys. Instead, let the BIOS or UEFI load and let your computer boot from your USB drive. If you're successful in this step, after a few seconds you'll be presented with the Qubes installer screen:
 
 [![Boot screen](/attachment/doc/boot-screen-4.2.png)](/attachment/doc/boot-screen-4.2.png)
 
