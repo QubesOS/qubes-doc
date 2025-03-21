@@ -40,8 +40,8 @@ If the qube is running, you can open Settings from the Qube Popup Menu.
 ICMP and DNS are not accessible in the GUI, but can be changed via `qvm-firewall` described below.
 Connections to Updates Proxy are not made over a network so can not be allowed or blocked with firewall rules, but are controlled using the relevant policy file (see [R4.x Updates proxy](/doc/software-update-vm/) for more detail).
 
-Note that if you specify a rule by DNS name it will be resolved to IP(s) *at the moment of applying the rules*, and not on the fly for each new connection.
-This means it will not work for servers using load balancing, and traffic to complex web sites which draw from many servers will be difficult to control.
+Note that if you specify a rule by DNS name it will be resolved to IP(s) *at the moment the rules take effect* (including each time the qube or netvm starts), and not on the fly for each new connection.
+This means it will not work reliably for servers that have different IPs at different times as a result of DNS-based load balancing.
 
 Instead of using the firewall GUI, you can use the `qvm-firewall` command in Dom0 to edit the firewall rules by hand.
 This gives you greater control than by using the GUI.
