@@ -42,7 +42,7 @@ If you prefer to download the corresponding .rpm files for manual QWT installati
 
 **Note**: If you choose to move profiles, drive letter `Q:` must be assigned to the secondary (private) disk.
 
-**Note**: Xen PV disk drivers are not installed by default. This is because they seem to cause problems (BSOD = Blue Screen Of Death). We're working with upstream devs to fix this. *However*, the BSOD seems to only occur after the first boot and everything works fine after that. **Enable the drivers at your own risk** of course, but we welcome reports of success/failure in any case (backup your VM first!). With disk PV drivers absent `qvm-block` will not work for the VM, but you can still use standard Qubes inter-VM file copying mechanisms. On the other hand, the Xen PV drivers allow USB device access even without QWT installation if `qvm-features stubdom-qrexec` is set as `1`
+**Note**: Xen PV disk drivers are not installed by default. This is because they seem to cause problems (BSOD = Blue Screen Of Death). We're working with upstream devs to fix this. *However*, the BSOD seems to only occur after the first boot and everything works fine after that. **Enable the drivers at your own risk** of course, but we welcome reports of success/failure in any case (backup your VM first!). With disk PV drivers absent `qvm-block` will not work for the VM, but you can still use standard Qubes inter-VM file copying mechanisms. On the other hand, the Xen PV drivers allow USB device access even without QWT installation if `qvm-features stubdom-qrexec` is set as `1`.
 
 Below is a breakdown of the feature availability depending on the windows version:
 
@@ -76,7 +76,7 @@ Qubes Windows Tools are open source and are distributed under a GPL license.
  2. In the command prompt type `bcdedit /set testsigning on`
  3. Reboot your Windows VM
 
-In the future this step will not be necessary anymore, because we will sign our drivers with a publicly verifiable certificate. However, it should be noted that even now, the fact that those drivers are not digitally signed, this doesn't affect security of the Windows VM in 'any' way. This is because the actual installation `iso` file can be verified as described in step 3 below. The only downside of those drivers not being signed is the inconvenience to the user that he or she must disable the signature enforcement policy before installing the tools.
+In the future this step will not be necessary anymore, because we will sign our drivers with a publicly verifiable certificate. However, it should be noted that even, given the fact that those drivers are not digitally signed, this doesn't affect security of the Windows VM in 'any' way. This is because the actual installation `iso` file can be verified as described in step 3 below. The only downside of those drivers not being signed is the inconvenience to the user that he or she must disable the signature enforcement policy before installing the tools.
 
 The Xen PV Drivers bundled with QWT are signed by a Linux Foundation certificate. Thus Windows 10 and 11 do not require this security mitigation.
 
@@ -126,33 +126,40 @@ Installing the Qubes Windows Tools on Windows 7, 8.1, 10 and 11 both as a Standa
 
  4. Install Qubes Windows Tools by starting `qubes-tools-x64.msi` (logged in as administrator), optionally selecting the `Xen PV disk drivers`. For installation in a template, you should select `Move user profiles`.
 	
-	[![QWT_install_select](/attachment/doc/QWT_install_select.png)](/attachment/doc/QWT_install_select.png)
+    [![QWT_install_select](/attachment/doc/QWT_install_select.png)](/attachment/doc/QWT_install_select.png)
 
-	Several times, Windows security may ask for confirmation of driver installation. Driver installation has to be allowed; otherwise the installation of Qubes Windows Tools will abort.
+    Several times, Windows security may ask for confirmation of driver installation. Driver installation has to be allowed; otherwise the installation of Qubes Windows Tools will abort.
 	
-	[![QWT_install_driver](/attachment/doc/QWT_install_driver.png)](/attachment/doc/QWT_install_driver.png)
+    [![QWT_install_driver](/attachment/doc/QWT_install_driver.png)](/attachment/doc/QWT_install_driver.png)
 
-	If during installation, the Xen driver requests a reboot, select "No" and let the installation continue - the system will be rebooted later.
+    If during installation, the Xen driver requests a reboot, select "No" and let the installation continue - the system will be rebooted later.
 
-	[![QWT_install_no_restart](/attachment/doc/QWT_install_no_restart.png)](/attachment/doc/QWT_install_no_restart.png)
+    [![QWT_install_no_restart](/attachment/doc/QWT_install_no_restart.png)](/attachment/doc/QWT_install_no_restart.png)
 
  5. After successful installation, the Windows VM must be shut down and started again, possibly a couple of times. On each shutdown, wait until the VM is really stopped, i.e. Qubes shows no more activity.
 
  6. Qubes will automatically detect that the tools have been installed in the VM and will set appropriate properties for the VM, such as `qrexec_installed`, `guiagent_installed`, and `default_user`. This can be verified (but is not required) using the `qvm-prefs` command  *(where* `<VMname>` *is the name of your Windows VM)*:
 
-	        [user@dom0 ~] $ qvm-prefs <VMname>
+
+    ```
+        [user@dom0 ~] $ qvm-prefs <VMname>
+    ```
 
  	It is advisable to set some other parameters in order to enable audio and USB block device access, synchronize the Windows clock with the Qubes clock, and so on:
 	        
-	        [user@dom0 ~] $ qvm-features <VMname> audio-model ich9
-	        [user@dom0 ~] $ qvm-features <VMname> stubdom-qrexec 1
-	        [user@dom0 ~] $ qvm-features <VMname> timezone localtime
+    ```
+	    [user@dom0 ~] $ qvm-features <VMname> audio-model ich9
+	    [user@dom0 ~] $ qvm-features <VMname> stubdom-qrexec 1
+	    [user@dom0 ~] $ qvm-features <VMname> timezone localtime
+    ```
 
-	For audio, the parameter `audio-model`can be selected as `ich6` or `ich9`; select the value that gives the best audio quality. Audio quality may also be improved by setting the following parameters, but this can depend on the Windows version and on your hardware:
-
-	        [user@dom0 ~] $ qvm-features <VMname> timer-period 1000
-	        [user@dom0 ~] $ qvm-features <VMname> out.latency 10000
-	        [user@dom0 ~] $ qvm-features <VMname> out.buffer-length 4000
+	For audio, the parameter `audio-model` can be selected as `ich6` or `ich9`; select the value that gives the best audio quality. Audio quality may also be improved by setting the following parameters, but this can depend on the Windows version and on your hardware:
+    
+    ```
+	    [user@dom0 ~] $ qvm-features <VMname> timer-period 1000
+	    [user@dom0 ~] $ qvm-features <VMname> out.latency 10000
+	    [user@dom0 ~] $ qvm-features <VMname> out.buffer-length 4000
+    ```
 
 	With the value `localtime` the dom0 `timezone` will be provided to virtual hardware, effectively setting the Windows clock to that of Qubes. With a digit value (negative or positive) the guest clock will have an offset (in seconds) applied relative to UTC.
 
@@ -171,16 +178,11 @@ Installing the Qubes Windows Tools on Windows 7, 8.1, 10 and 11 both as a Standa
 	 - Terminate the registry editor.
 	
  	 After the next boot, the VM will start in seamless mode.
-	
 	 If Windows is used in a TemplateVM / AppVM combination, this registry fix has to be applied to the TemplateVM, as the `HKLM` registry key belongs to the template-based part of the registry.
 	
- 10. Lastly to enable file copy operations to a Windows VM, the `default_user` property of this VM should be set to the `<username>` that you use to login to the Windows VM. This can be done via the following command on a `dom0` terminal: *(where* `<VMname>` *is the name of your Windows VM)*
-	
-		`[user@dom0 ~] $ qvm-prefs <VMname> default_user <username>`
+ 10. Lastly to enable file copy operations to a Windows VM, the `default_user` property of this VM should be set to the `<username>` that you use to login to the Windows VM. This can be done via the following command on a `dom0` terminal: `[user@dom0 ~] $ qvm-prefs <VMname> default_user <username>` *(where* `<VMname>` *is the name of your Windows VM)*.
   
-  **Warning:** If this property is not set or set to a wrong value, files copied to this VM are stored in the folder
- 
- 		C:\Windows\System32\config\systemprofile\Documents\QubesIncoming\<source_VM>
+  **Warning:** If this property is not set or set to a wrong value, files copied to this VM are stored in the folder `C:\Windows\System32\config\systemprofile\Documents\QubesIncoming\<source_VM>`.
 
  If the target VM is an AppVM, this has the consequence that the files are stored in the corresponding TemplateVM and so are lost on AppVM shutdown.
 

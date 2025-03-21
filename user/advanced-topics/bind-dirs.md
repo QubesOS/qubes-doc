@@ -110,7 +110,8 @@ binds=( "${binds[@]/'/var/lib/tor'}" )
 
 ## Custom persist feature ##
 
-Custom persist is an optional advanced feature allowing the creation of minimal state AppVM. The purpose of such an AppVM is to avoid unwanted data to persist as much as possible by the disabling the ability to configure persistence from the VM itself. When enabled, the following happens:
+Custom persist is an optional advanced feature allowing the creation of minimal state AppVM. The purpose of such an AppVM is to avoid unwanted data to persist as much as possible by disabling the ability to configure persistence from the VM itself. When enabled, the following happens:
+
 * ``/rw/config/rc.local`` is no longer executed
 * ``/rw/config/qubes-firewall-user-script`` is ignored
 * ``/rw/config/suspend-module-blacklist`` is ignored
