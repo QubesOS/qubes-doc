@@ -6,11 +6,7 @@ title: NitroPad V56
 image: /attachment/site/nitropad-v56.png
 ---
 
-The [NitroPad V56](https://shop.nitrokey.com/shop/nitropad-v56-684) from [Nitrokey](https://www.nitrokey.com/) is [officially certified](/doc/certified-hardware/) for Qubes OS Release 4.
-
-## Secure working in insecure environments thanks to unique hardware protection
-
-Do you believe that your computer hardware is secure? Can you rule out the possibility that someone has tampered with your computer in your absence? In a world where most users have no real control over their hardware and must blindly trust manufacturers' security promises, NitroPad offers a refreshingly new security experience. The NitroPad is significantly more secure than normal computers. NitroPad gives you more control over your hardware and data than ever before, while making it easy to use.
+The [NitroPad V56](https://shop.nitrokey.com/shop/nitropad-v56-684) is [officially certified](/doc/certified-hardware/) for Qubes OS Release 4.
 
 [![Photo of the NitroPad V56](/attachment/site/nitropad-v56.png)](https://shop.nitrokey.com/shop/nitropad-v56-684)
 
