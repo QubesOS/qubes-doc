@@ -82,7 +82,11 @@ developers do not test them.
 * [Gentoo Minimal](/doc/templates/minimal/)
 * [CentOS*](/doc/templates/centos)
 
-*\* The CentOS version used by this template reached End-of-Life in June 2024 and is no longer receiving updates. A proposal to create a new CentOS 10 template was [declined](https://github.com/QubesOS/qubes-issues/issues/9716).*
+*\* The CentOS version used by this template reached 
+[End-of-Life in June 2024](https://en.wikipedia.org/wiki/CentOS_Stream#Release_history) 
+and is no longer receiving updates. Due to a lack of specific interest 
+at this time a proposal to create a new CentOS 10 template was 
+[declined](https://github.com/QubesOS/qubes-issues/issues/9716).*
 
 ## Windows
 
