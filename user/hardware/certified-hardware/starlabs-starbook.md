@@ -8,13 +8,11 @@ image: /attachment/site/starlabs-starbook.png
 
 The [Star Labs StarBook](https://starlabs.systems/pages/starbook) is [officially certified](/doc/certified-hardware/) for Qubes OS Release 4.
 
-## The Star Labs StarBook
-
 The [Star Labs StarBook](https://starlabs.systems/pages/starbook) is a 14-inch laptop featuring open-source coreboot and EDK II firmware. 
 
 [![Photo of Star Labs StarBook](/attachment/site/starlabs-starbook.png)](https://starlabs.systems/pages/starbook)
 
-The Qubes developers have tested and certified the following StarBook configuration options for Qubes OS 4.X:
+The Qubes developers have tested and certified the following StarBook configuration options for Qubes OS Release 4:
 
 | Component        | Qubes-certified options                          |
 | ---------------- | ------------------------------------------------ |
