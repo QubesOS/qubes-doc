@@ -25,68 +25,19 @@ Qubes-certified computers are certified for a [major release](/doc/version-schem
 
 The current Qubes-certified models are listed below in reverse chronological order of certification.
 
-| [![NovaCustom V54 Series](/attachment/site/novacustom-v54-series.png)](/attachment/site/novacustom-v54-series.png) | **NovaCustom V54 Series** | [Certified options](/doc/certified-hardware/novacustom-v54-series/) | [Official page](https://novacustom.com/product/v54-series/) |
-| [![NitroPad V56](/attachment/site/nitropad-v56.png)](/attachment/site/nitropad-v56.png) | **NitroPad V56** | [Certified options](/doc/certified-hardware/nitropad-v56/) | [Official page](https://shop.nitrokey.com/shop/nitropad-v56-684) |
-| [![NovaCustom V56](/attachment/site/novacustom-v56-series.png)](/attachment/site/novacustom-v56-series.png) | **NovaCustom V56** | [Certified options](/doc/certified-hardware/novacustom-v56-series/) | [Official page](https://novacustom.com/product/v56-series/) |
-| [![NitroPC Pro 2](/attachment/site/nitropc-pro.jpg)](/attachment/site/nitropc-pro.jpg) | **NitroPC Pro 2** | [Certified options](/doc/certified-hardware/nitropc-pro-2/) | [Official page](https://shop.nitrokey.com/shop/nitropc-pro-2-523) |
-| [![](/attachment/site/)](/attachment/site/) | **** | [Certified options](/doc/certified-hardware//) | [Official page]() |
-| [![](/attachment/site/)](/attachment/site/) | **** | [Certified options](/doc/certified-hardware//) | [Official page]() |
-| [![](/attachment/site/)](/attachment/site/) | **** | [Certified options](/doc/certified-hardware//) | [Official page]() |
-| [![](/attachment/site/)](/attachment/site/) | **** | [Certified options](/doc/certified-hardware//) | [Official page]() |
-| [![](/attachment/site/)](/attachment/site/) | **** | [Certified options](/doc/certified-hardware//) | [Official page]() |
-| [![](/attachment/site/)](/attachment/site/) | **** | [Certified options](/doc/certified-hardware//) | [Official page]() |
-| [![](/attachment/site/)](/attachment/site/) | **** | [Certified options](/doc/certified-hardware//) | [Official page]() |
-| [![](/attachment/site/)](/attachment/site/) | **** | [Certified options](/doc/certified-hardware//) | [Official page]() |
-| [![](/attachment/site/)](/attachment/site/) | **** | [Certified options](/doc/certified-hardware//) | [Official page]() |
-
-
-### NitroPC Pro 2
-
-[![Photo of the NitroPC Pro 2](/attachment/posts/nitropc-pro.jpg)](https://shop.nitrokey.com/shop/nitropc-pro-2-523)
-
-The [NitroPC Pro 2](https://shop.nitrokey.com/shop/nitropc-pro-2-523) is a desktop based on the MSI PRO Z790-P DDR5 motherboard. It is certified for Qubes OS Release 4.
-
-### Star Labs StarBook
-
-[![Photo of the Star Labs StarBook](/attachment/site/starlabs-starbook.png)](https://starlabs.systems/pages/starbook)
-
-The [Star Labs StarBook](https://starlabs.systems/pages/starbook) is a 14-inch laptop. It is certified for Qubes OS Release 4.
-
-### NitroPC Pro
-
-[![Photo of the NitroPC Pro](/attachment/posts/nitropc-pro.jpg)](https://shop.nitrokey.com/shop/product/nitropc-pro-523)
-
-The [NitroPC Pro](https://shop.nitrokey.com/shop/product/nitropc-pro-523) is a desktop based on the MSI PRO Z690-A DDR5 motherboard. It is certified for Qubes OS Release 4.
-
-### NovaCustom NV41 Series
-
-[![Photo of the NovaCustom NV41 Series](/attachment/site/novacustom-nv41-series.png)](https://novacustom.com/product/nv41-series/)
-
-The [NovaCustom NV41 Series](https://novacustom.com/product/nv41-series/) is a 14-inch custom laptop. It is certified for Qubes OS Release 4.
-
-### Dasharo FidelisGuard Z690
-
-[![Photo of the Dasharo FidelisGuard Z690](/attachment/site/dasharo-fidelisguard-z690.jpg)](https://3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/)
-
-The [Dasharo FidelisGuard Z690](https://3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/) is a desktop based on the MSI PRO Z690-A DDR4 motherboard. It is certified for Qubes OS Release 4.
-
-### NitroPad T430
-
-[![Photo of the NitroPad T430](/attachment/site/nitropad-t430.jpg)](https://shop.nitrokey.com/shop/product/nitropad-t430-119)
-
-The [NitroPad T430](https://shop.nitrokey.com/shop/product/nitropad-t430-119) is a laptop based on the ThinkPad T430. It is certified for Qubes OS Release 4.
-
-### NitroPad X230
-
-[![Photo of the NitroPad X230](/attachment/site/nitropad-x230.jpg)](https://shop.nitrokey.com/shop/product/nitropad-x230-67)
-
-The [NitroPad X230](https://shop.nitrokey.com/shop/product/nitropad-x230-67) is a laptop based on the ThinkPad X230. It is certified for Qubes OS Release 4.
-
-### Insurgo PrivacyBeast X230
-
-[![Photo of the Insurgo PrivacyBeast X230](/attachment/site/insurgo-privacybeast-x230.png)](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/)
-
-The [Insurgo PrivacyBeast X230](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/) is a laptop based on the ThinkPad X230. It is certified for Qubes OS Release 4.
+| Image                                               | Vendor                                 | Model                         | Certified release  | Certified options                                                       | Official page                                                                                              |
+| --------------------------------------------------- | -------------------------------------- | ----------------------------- | ------------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| ![](/attachment/site/novacustom-v54-series.png)     | [NovaCustom](https://novacustom.com/)  | **V54 Series**                | Qubes OS Release 4 | [Certified options](/doc/certified-hardware/novacustom-v54-series/)     | [Official page](https://novacustom.com/product/v54-series/)                                                |
+| ![](/attachment/site/nitropad-v56.png)              | [Nitrokey](https://www.nitrokey.com/)  | **NitroPad V56**              | Qubes OS Release 4 | [Certified options](/doc/certified-hardware/nitropad-v56/)              | [Official page](https://shop.nitrokey.com/shop/nitropad-v56-684)                                           |
+| ![](/attachment/site/novacustom-v56-series.png)     | [NovaCustom](https://novacustom.com/)  | **V56 Series**                | Qubes OS Release 4 | [Certified options](/doc/certified-hardware/novacustom-v56-series/)     | [Official page](https://novacustom.com/product/v56-series/)                                                |
+| ![](/attachment/site/nitropc-pro.jpg)               | [Nitrokey](https://www.nitrokey.com/)  | **NitroPC Pro 2**             | Qubes OS Release 4 | [Certified options](/doc/certified-hardware/nitropc-pro-2/)             | [Official page](https://shop.nitrokey.com/shop/nitropc-pro-2-523)                                          |
+| ![](/attachment/site/starlabs-starbook.png)         | [Star Labs](https://starlabs.systems/) | **StarBook**                  | Qubes OS Release 4 | [Certified options](/doc/certified-hardware/starlabs-starbook/)         | [Official page](https://starlabs.systems/pages/starbook)                                                   |
+| ![](/attachment/site/nitropc-pro.jpg)               | [Nitrokey](https://www.nitrokey.com/)  | **NitroPC Pro**               | Qubes OS Release 4 | [Certified options](/doc/certified-hardware/nitropc-pro/)               | [Official page](https://shop.nitrokey.com/shop/product/nitropc-pro-523)                                    |
+| ![](/attachment/site/novacustom-nv41-series.png)    | [NovaCustom](https://novacustom.com/)  | **NV41 Series**               | Qubes OS Release 4 | [Certified options](/doc/certified-hardware/novacustom-nv41-series/)    | [Official page](https://novacustom.com/product/nv41-series/)                                               |
+| ![](/attachment/site/dasharo-fidelisguard-z690.jpg) | [3mdeb](https://3mdeb.com/)            | **Dasharo FidelisGuard Z690** | Qubes OS Release 4 | [Certified options](/doc/certified-hardware/dasharo-fidelisguard-z690/) | [Official page](https://3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/) |
+| ![](/attachment/site/nitropad-t430.jpg)             | [Nitrokey](https://www.nitrokey.com/)  | **NitroPad T430**             | Qubes OS Release 4 | [Certified options](/doc/certified-hardware/nitropad-t430/)             | [Official page](https://shop.nitrokey.com/shop/product/nitropad-t430-119)                                  |
+| ![](/attachment/site/nitropad-x230.jpg)             | [Nitrokey](https://www.nitrokey.com/)  | **NitroPad X230**             | Qubes OS Release 4 | [Certified options](/doc/certified-hardware/nitropad-x230/)             | [Official page](https://shop.nitrokey.com/shop/product/nitropad-x230-67)                                   |
+| ![](/attachment/site/insurgo-privacybeast-x230.png) | [Insurgo](https://insurgo.ca/)         | **PrivacyBeast X230**         | Qubes OS Release 4 | [Certified options](/doc/certified-hardware/insurgo-privacybeast-x230/) | [Official page](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/) |
 
 ## Become hardware certified
 
