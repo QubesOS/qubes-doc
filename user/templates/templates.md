@@ -78,8 +78,6 @@ developers do not test them.
 * [Whonix](/doc/templates/whonix/)
 * [Ubuntu](/doc/templates/ubuntu/)
 * [Arch Linux](/doc/building-archlinux-template/)
-* [CentOS](/doc/templates/centos/)
-* [CentOS Minimal](/doc/templates/minimal/)
 * [Gentoo](/doc/templates/gentoo/)
 * [Gentoo Minimal](/doc/templates/minimal/)
 
