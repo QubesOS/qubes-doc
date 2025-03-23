@@ -80,6 +80,9 @@ developers do not test them.
 * [Arch Linux](/doc/building-archlinux-template/)
 * [Gentoo](/doc/templates/gentoo/)
 * [Gentoo Minimal](/doc/templates/minimal/)
+* [CentOS*](/doc/templates/centos)
+
+*\* The CentOS version used by this template reached End-of-Life in June 2024 and is no longer receiving updates. A proposal to create a new CentOS 10 template was [declined](https://github.com/QubesOS/qubes-issues/issues/9716).*
 
 ## Windows
 
