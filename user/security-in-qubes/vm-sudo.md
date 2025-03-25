@@ -59,9 +59,11 @@ user ALL=(ALL) NOPASSWD: ALL
 #
 # joanna.
 ```
+
 The core of this statement continues to reflect the views of the Qubes developers.
 
 Passwordless root is provided by the `qubes-core-agent-passwordless-root` package.  
+
 Details of the implementation are [here](/doc/vm-sudo-implementation).
 
 [Minimal templates](/doc/templates/minimal/), which are intended for use by advanced users, do not have this package installed by default.

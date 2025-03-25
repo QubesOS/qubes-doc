@@ -39,7 +39,8 @@ on github.
 
 When you are ready to submit your changes to Qubes to be merged, push your
 changes, then create a signed git tag (using `git tag -s`). Finally, send a
-letter to the Qubes listserv describing the changes and including the link to
+letter to the Qubes the [qubes-devel](/support/#qubes-devel) mailing list
+describing the changes and including the link to
 your repository. You can also create pull request on github. Don't forget to
 include your public PGP key you use to sign your tags.
 
