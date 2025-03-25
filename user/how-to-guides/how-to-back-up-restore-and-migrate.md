@@ -164,7 +164,7 @@ In case that applications are not shown, i.e. "No applications found", open the
 settings of the qube -> select `Applications` -> click `Refresh applications`.
 
 When a restored application qube refreshes, the application lists will open the template qubes on which it is based. In that case the template qube should also be restored, if it is missing the default qube will be assigned.
-The updated list of the installed software can be seen on the left and adjusted accordingly to the users needs.
+The updated list of the installed software can be seen on the left and adjusted accordingly to the user's needs.
 
 **Note:** When restoring from a dom0 backup, a new directory will be created in
 the current dom0 home directory, and the contents from the backup will be
