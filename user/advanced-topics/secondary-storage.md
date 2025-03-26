@@ -62,7 +62,7 @@ In theory, you can still use file-based disk images ("file" pool driver), but it
 
 ### Example HDD setup
 
-Assuming the secondary hard disk is at /dev/sdb (it will be completely erased), you can set it up for encryption by doing in a dom0 terminal (use the same passphrase as the main Qubes disk to avoid a second password prompt at boot):
+Assuming the secondary hard disk is at `/dev/sdb` (it will be completely erased), you can set it up for encryption by doing in a dom0 terminal (use the same passphrase as the main Qubes disk to avoid a second password prompt at boot):
 
 ```
 sudo cryptsetup luksFormat --hash=sha512 --key-size=512 --cipher=aes-xts-plain64 --verify-passphrase /dev/sdb
@@ -81,7 +81,7 @@ And adding this line (change both "b209..." for your device's UUID from blkid) t
 luks-b20975aa-8318-433d-8508-6c23982c6cde UUID=b20975aa-8318-433d-8508-6c23982c6cde none
 ```
 
-Reboot the computer so the new luks device appears at /dev/mapper/luks-b209... and we can then create its pool, by doing this on a dom0 terminal (substitute the b209... UUIDs with yours):
+Reboot the computer so the new luks device appears at `/dev/mapper/luks-b209...` and we can then create its pool, by doing this on a dom0 terminal (substitute the "b209..." UUIDs with yours):
 
 First create the physical volume
 
