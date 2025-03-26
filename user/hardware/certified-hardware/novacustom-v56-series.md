@@ -4,6 +4,7 @@ layout: doc
 permalink: /doc/certified-hardware/novacustom-v56-series/
 title: NovaCustom V56 Series
 image: /attachment/site/novacustom-v56-series.png
+ref: 359
 ---
 
 The [NovaCustom V56 Series 16.0 inch coreboot laptop](https://novacustom.com/product/v56-series/) is [officially certified](/doc/certified-hardware/) for Qubes OS Release 4.

@@ -4,6 +4,7 @@ layout: doc
 permalink: /doc/certified-hardware/nitropc-pro/
 title: NitroPC Pro
 image: /attachment/posts/nitropc-pro.jpg
+ref: 356
 ---
 
 <div class="alert alert-warning" role="alert">
