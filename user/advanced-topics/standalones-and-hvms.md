@@ -175,10 +175,37 @@ seen, e.g., in the Qube Manager in the qube's properties:
 ![r4.0-manager-networking-config.png](/attachment/doc/r4.0-manager-networking-config.png)
 
 Alternatively, one can use the `qvm-ls -n` command to obtain the same
-information (IP/netmask/gateway).
+information (IP/netmask/gateway). The netmask required is that for your own network, 
+so for example, if your IPv4 network has a subnet mask of /24 then the actual netmask to 
+use is 255.255.255.0 - even if the Qube Manager suggests 255.255.255.255  
 
 The DNS IP addresses are `10.139.1.1` and `10.139.1.2`. There is [opt-in
 support](/doc/networking/#ipv6) for IPv6 forwarding.
+
+### An example of setting up a network - Network Manager on KDE
+
+Every guest operating system has its own way of handling networking, and the user is 
+referred to the documentation that comes with that operating system. However, 
+Network Manager is widely used on Linux systems, and so hopefully a worked example will 
+prove useful. The worked example is for a HVM running EndeavourOS. 
+
+> Image of Qubes Manager - is this what it's called??
+
+In this example, Network Manager on KDE, the network had the following values:
+
+1. IPv4 networking
+2. IP address 10.137.0.17
+3. Netmask 255.255.255.255 (but in the network the netmask is actually 255.255.255.0)
+4. Gateway 10.138.24.248
+5. Virtual DNS 10.139.1.1 and 10.139.1.2
+
+> Image of Network Manager, annotated by numbers for reference below
+
+The network was set up by entering Network Manager, tab Wi-Fi & Networking, clicking on the Wired Ethernet
+item, and selecting tab IPv4 (1). The Manual method is selected (2), which reveals areas for data entry. The DNS 
+Servers takes a comma-separated list, here 10.139.1.1,10.1.139.2 (3). At the bottom of the tab (4), click on '+ Add', 
+and enter the IP address of 10.137.0.17 under column 'Address', the Netmask of 25.255.255.0  (to match the network) 
+under column 'Netmask', and the Gateway of 10.138.24.248 under column 'Gateway'. Apply these changes.
 
 ## Using template-based HVMs
 
