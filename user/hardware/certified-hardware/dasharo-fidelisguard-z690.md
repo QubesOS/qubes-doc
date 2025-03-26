@@ -4,6 +4,7 @@ layout: doc
 permalink: /doc/certified-hardware/dasharo-fidelisguard-z690/
 title: Dasharo FidelisGuard Z690
 image: /attachment/posts/dasharo-fidelisguard-z690_2.jpg
+ref: 350
 ---
 
 The [Dasharo FidelisGuard Z690](https://3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/) is [officially certified](/doc/certified-hardware/) for Qubes OS Release 4.

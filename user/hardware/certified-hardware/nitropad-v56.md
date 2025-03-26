@@ -4,6 +4,7 @@ layout: doc
 permalink: /doc/certified-hardware/nitropad-v56/
 title: NitroPad V56
 image: /attachment/site/nitropad-v56.png
+ref: 353
 ---
 
 The [NitroPad V56](https://shop.nitrokey.com/shop/nitropad-v56-684) is [officially certified](/doc/certified-hardware/) for Qubes OS Release 4.

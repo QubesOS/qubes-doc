@@ -4,6 +4,7 @@ layout: doc
 permalink: /doc/certified-hardware/insurgo-privacybeast-x230/
 title: Insurgo PrivacyBeast X230
 image: /attachment/site/insurgo-privacybeast-x230.png
+ref: 351
 ---
 
 <div class="alert alert-danger" role="alert">

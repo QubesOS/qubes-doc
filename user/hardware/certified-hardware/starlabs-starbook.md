@@ -4,6 +4,7 @@ layout: doc
 permalink: /doc/certified-hardware/starlabs-starbook/
 title: Star Labs StarBook
 image: /attachment/site/starlabs-starbook.png
+ref: 360
 ---
 
 The [Star Labs StarBook](https://starlabs.systems/pages/starbook) is [officially certified](/doc/certified-hardware/) for Qubes OS Release 4.
