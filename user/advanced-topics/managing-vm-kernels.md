@@ -60,7 +60,7 @@ nopat
 
 ## Installing different kernel using Qubes kernel package
 
-VM kernels are packages by Qubes team in `kernel-qubes-vm` packages.
+VM kernels are packaged by the Qubes team in the `kernel-qubes-vm` packages.
 Generally, the system will keep the three newest available versions.
 You can list them with the `rpm` command:
 
@@ -152,7 +152,7 @@ The newly installed package is set as the default VM kernel.
 ## Installing different VM kernel based on dom0 kernel
 
 It is possible to package a kernel installed in dom0 as a VM kernel.
-This makes it possible to use a VM kernel which is not packaged by Qubes team.
+This makes it possible to use a VM kernel which is not packaged by the Qubes team.
 This includes:
 
  * using a Fedora kernel package
@@ -298,7 +298,7 @@ Install distribution kernel image, kernel headers and the grub.
 sudo apt install linux-image-amd64 linux-headers-amd64 grub2 qubes-kernel-vm-support
 ~~~
 
-If you are doing that on a qube based on "Debian Minimal" template, a grub gui will popup during the installation, asking you where you want to install the grub loader. You must select /dev/xvda (check the box using the space bar, and validate your choice with "Enter".) If this popup does not appear during the installation, you must manually setup `grub2` by running:
+If you are doing that on a qube based on "Debian Minimal" template, a grub gui will popup during the installation, asking you where you want to install the grub loader. You must select `/dev/xvda` (check the box using the space bar, and validate your choice with "Enter".) If this popup does not appear during the installation, you must manually setup `grub2` by running:
 
 ~~~
 sudo grub-install /dev/xvda
@@ -315,8 +315,8 @@ Go to dom0 -> Qubes VM Manger -> right click on the VM -> Qube settings -> Advan
 
 Depends on `Virtualization` mode setting:
 
-* `Virtualization` mode `PV`: Possible, however use of `Virtualization` mode `PV` mode is discouraged for security purposes.
-  * If you require `Virtualization` mode `PV` mode, install `grub2-xen-pvh` in dom0. This can be done by running command `sudo qubes-dom0-update pvgrub2-pvh` in dom0.
+* `Virtualization` mode `PV`: Possible, however use of `Virtualization` mode `PV` is discouraged for security purposes.
+  * If you require `Virtualization` mode `PV`, install `grub2-xen-pvh` in dom0. This can be done by running command `sudo qubes-dom0-update pvgrub2-pvh` in dom0.
 * `Virtualization` mode `PVH`: Possible. Install `grub2-xen-pvh` in dom0.
 * `Virtualization` mode `HVM`: Possible.
 
