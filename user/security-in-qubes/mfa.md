@@ -207,16 +207,16 @@ website](https://docs.nitrokey.com/software/nitropy/all-platforms/installation).
 YubiKey](https://www.qubes-os.org/doc/how-to-use-usb-devices/) to this app qube
 though) or directly on the sys-usb vm.
 
-    This command will configure your Yubikey, given a 20 character (all lowercase) secret key, like the example below:
+    This command will configure your Yubikey, given a 40 character (all lowercase) secret key, like the example below:
 
-    `ykpersonalize -2 -ochal-resp -ochal-hmac -ohmac-lt64 -ochal-btn-trig -a 303132333435363738393a3b3c3d3e3f40414243`
+    `ykpersonalize -2 -ochal-resp -ochal-hmac -ohmac-lt64 -ochal-btn-trig -a 0123456789abcdef0123456789abcdef01234567`
 
     With the following settings:
     - Configuration Slot: `2`,
     - Challenge-Response Mode: `HMAC-SHA1`,
     - Require usser input (Optional, but Recommended): `true`,
     - HMAC-SHA1 Mode: `fixed 64 bit input`
-    - Secret Key (example): `303132333435363738393a3b3c3d3e3f40414243`
+    - Secret Key (example): `0123456789abcdef0123456789abcdef01234567`
 
    **Yubikey (via GUI)**
    
