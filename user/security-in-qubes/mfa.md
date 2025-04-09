@@ -259,7 +259,7 @@ of this method. If you want to switch to a different NitroKey later, delete the 
 Do the same if for some reason your counters get desynchronized (it stops working), e.g. due
 to connectivity issues (NitroKey3A Minis are known to wear out quickly).
 
-5. **YubiKey**
+4. **YubiKey**
 
    Paste your `AESKEY` into `/etc/qubes/yk-keys/yk-secret-key.hex` in dom0.
    Note that if you had previously used a NitroKey3 with this package, you *must* delete
@@ -270,7 +270,7 @@ to connectivity issues (NitroKey3A Minis are known to wear out quickly).
    Create the file `/etc/qubes/yk-keys/nk-hotp-secret` in dom0 and paste your `AESKEY` 
    (in base 32 format) into it.
 
-6. As mentioned before, you need to define a new password that is only used in
+5. As mentioned before, you need to define a new password that is only used in
    combination with the YubiKey / NitroKey3. You can write this password in plain text into
 `/etc/qubes/yk-keys/login-pass` in dom0. This is considered safe as dom0 is
 ultimately trusted anyway.
@@ -292,7 +292,7 @@ ultimately trusted anyway.
     echo -n "$password" | openssl dgst -sha1 | cut -f2 -d ' '
     ```
 
-7. To enable multi-factor authentication for a service, you need to add
+6. To enable multi-factor authentication for a service, you need to add
 
     ```
     auth include yubikey
@@ -308,7 +308,7 @@ display manager and so on.
     It is important, that `auth include yubikey` is added at the beginning of
 these files, otherwise it will most likely not work.
 
-8. Adjust the USB VM name in case you are using something other than the default
+7. Adjust the USB VM name in case you are using something other than the default
    `sys-usb` by editing `/etc/qubes/yk-keys/vm` in dom0.
 
 #### Usage
